@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6715FE67493
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 01:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79056E67498
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 02:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6D1Wm3FMJcQXu9DNBHAKX/TsEgkUYA/96V4XySBVqQ=; b=q4msN60nPposXj1g5e+5mP15QB
-	e4lq7JKGPdNFA/Z6ucm9QIOI1mX+sfrtD/NEjx0Q96kODKLdfvp8GbNjdL6XY38ca0aK4skjrFE5C
-	3FviwLfcw/YJHqlLmst9PjWVkbusEZZSfZ0wH5jzF4QHL6LahQ7ewaytclPU5i1ztjDtUiNdafZ9p
-	po2q9eaXYTLkQLYFzA5sjeQMfAQy5lKcf/t178gEs7e8gFbi1x2udFAbFPUqoS/APoQJ2+KIQ5qCS
-	XOzch71ZXCOHKoL/QKVFBhRAP3MR8yHBKNpXKZXwj3ANUJ7QKZVylkXbj3yoHYzKOKoZ8s42EzzYv
-	9+pPELfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g/iE2NzGokqY5fcXFFGNn15rcpyTO8l1veRl0rG6C18=; b=ha0j6QQ/lrgcqLtVqAcoChRyQh
+	NXTP0wjgokJvzMlcajI6xOlKEdi/V1R9LSPiaVkRpiJNMRTI+HDYH/m1JZqI/28xCrQ8rj1EAG4Pv
+	VLn3j4ff677R3eBrHK2MNFQA9gYMd2UXrcGzk6aio8EAyChngLcfTybxxScloY5wht35emYIbF99U
+	EoVv686wMmJRauA/MrcS6zulAFCl9nFacVXASCuMrXD3p33ow2zeGulFS3BaTXR6UtPKqyaZULqEi
+	9hpvGd/x6zJf45AOv4t5IRZgfDFcSn+zb77zF5kHwqLftRUoEARoPVoEbZtVSDhUK/hlrE/iwDf+F
+	8ZZ5yjxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6gt0-00000005Uoi-3Dzo;
-	Fri, 01 Nov 2024 01:55:38 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1t6hc4-00000005Zhw-2I7g;
+	Fri, 01 Nov 2024 02:42:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6grL-00000005UXd-2J9C
+	id 1t6haN-00000005ZIg-19gJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 01:53:56 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3e6105886dfso1227352b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 18:53:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730426034; x=1731030834; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=F6D1Wm3FMJcQXu9DNBHAKX/TsEgkUYA/96V4XySBVqQ=;
-        b=aUjMy8bQF01p5AQ+8ZEHKWPU6g7d8gngeAVXhx5fqn3Dm7TIhituncDimvfKXPEA78
-         VgHIbqsajHb3ObHHkXJJKQU26hhWJYBJb39eAtou4wRAE7R2/2d0vXkHMJQVyq+hIgDH
-         8kYE4oJI+35ZiPR97IjsdG35qG9aZqHbFnnn7vTpoig+JTcKm5GIKvGhe41k67V4W9ZW
-         XHCCzuChNLU+al5a36JjW+Otg2UJdAQH7X7A/SyN2h4Eow0e/sq2sbNCfJKH9bVV3amw
-         1ZSOZw7OU9QQbyh4vwSpRXOsDNUHFVzqsZz6yaXlEUxB3KGsrWwMuY7/AvI6CgBYkzaz
-         bswg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730426034; x=1731030834;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F6D1Wm3FMJcQXu9DNBHAKX/TsEgkUYA/96V4XySBVqQ=;
-        b=qnvn8DSwrtfxady+zaU4QPPLdSykN2mzYhIWoxjOWm9c+WP+md83OG7Z6Si+B/JXX4
-         Fhkor+avwmjcUPZk0Bc8mU/vZbMQst0c7IRVJ+MhtjMSufNRjIQRA2sm80S+2bW7g5Vg
-         GFDwvzxZNPLTLCDPn1D3/Mqt7SIbK4Oz8MISm296u198FOPyrI3IyqwuvLzHKL9ENEmG
-         DpXbUwMTpbiQdnmpF74EBpnfi948qezzwuen2dn3Wea4BfLtkHvhDM0P7asOisggk9Ct
-         syCtlR4wrPoPBTVzu2p8/Jbu1ZYDZv0hfYDSc2TuT5NQk6NXJVsNT0GLn86aN2h0S3gG
-         aH8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW6US50NjwTD4V2a8TjR+BbqpbpDihl5fN6Vk8vL2aB0dorrQTBSndbMfhetF40X/bmic2bVFiEo5EQF024XG9h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdjsILOOXrcVupAOuQYkCcO6DXXnyZtQFFfLhZkFFMQuDGcpLT
-	Otvi5cf/TDvvYAYv9HwMzZ/MeCYPC+uB3hak7eh+B0qgSaohj6n0hs559fiXGFnYYFJaejs8xOQ
-	SPQHG4xFFcDxLPLg5E3dsFQ7IMIw=
-X-Google-Smtp-Source: AGHT+IFZQ4NyGNMCDLgv6bCZyw5Zsw65CYGtv8tMY/DPPDyDLkJOAPDiCRinE+4bVOEGfk1xiPcwEU7dyPJOaeEVW6o=
-X-Received: by 2002:a05:6808:21a0:b0:3e0:468f:7c5b with SMTP id
- 5614622812f47-3e74c3d95c3mr1351262b6e.17.1730426034446; Thu, 31 Oct 2024
- 18:53:54 -0700 (PDT)
+	Fri, 01 Nov 2024 02:40:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 40CCEA4162B;
+	Fri,  1 Nov 2024 02:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD96C4CED0;
+	Fri,  1 Nov 2024 02:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730428824;
+	bh=hPom6XFQ8qBzLHhYj0bj1tSoFVlQuFqEEm6gsee2TWw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=skCmTBHqRx/7k+TGgQq248pTzZQ3YBKKgqkhZB4Av8EbKG1UI2B+noqChRS3zXMPt
+	 /IS5/2UfAavsUHrZqbF6tVuPjnGMEG7DwT2AqxV+YfAuwXnMNUOEK6bvWFUM2YScnF
+	 Lp2jJtwi8HYtXA3H9gYE3Kh6+00ibxxOBXcn5K1PrWDktkul1eorLNec59jQ/aQLxr
+	 JR2CN+h2ELS/XAb5QGHH6xi8cHZ4P6sdWEgF5b53AAa1hVINQlKKK27e7BUYO/xtr9
+	 BkD2RBUJrnT+mQGQozjAOZatRkWrzVO0QITevRJUsfKWrTExxt5KI5466hduvvdqiV
+	 OPDdaxALC1AsA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE77380AC02;
+	Fri,  1 Nov 2024 02:40:33 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <cover.1723716331.git.stano.jakubek@gmail.com> <e57ee9b94f128753d156d77015f6cc3dc24fd9e8.1723716331.git.stano.jakubek@gmail.com>
- <ZyMyJrSPTfFrSC-t@standask-GA-A55M-S2HP>
-In-Reply-To: <ZyMyJrSPTfFrSC-t@standask-GA-A55M-S2HP>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Fri, 1 Nov 2024 09:53:18 +0800
-Message-ID: <CAAfSe-uC+G8iEk_37vBr3+dQsv4a4tTTsz11hUguVRnU=r+4qQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] arm64: dts: sprd: sc2731: fix bat-detect-gpios property
-To: Stanislav Jakubek <stano.jakubek@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: dpaa_eth: print FD status in CPU endianness in
+ dpaa_eth_fd tracepoint
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173042883250.2159382.982406472849657183.git-patchwork-notify@kernel.org>
+Date: Fri, 01 Nov 2024 02:40:32 +0000
+References: <20241029163105.44135-1-vladimir.oltean@nxp.com>
+In-Reply-To: <20241029163105.44135-1-vladimir.oltean@nxp.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: netdev@vger.kernel.org, radu-andrei.bulie@nxp.com, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, leitao@debian.org,
+ madalin.bucur@nxp.com, ioana.ciornei@nxp.com, christophe.leroy@csgroup.eu,
+ sean.anderson@linux.dev, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_185355_613109_9B56948D 
-X-CRM114-Status: GOOD (  26.15  )
+X-CRM114-CacheID: sfid-20241031_194027_397268_1607A451 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 at 15:30, Stanislav Jakubek <stano.jakubek@gmail.com> wrote:
->
-> On Thu, Aug 15, 2024 at 12:13:18PM +0200, Stanislav Jakubek wrote:
-> > According to DT bindings, the property is called bat-detect-gpios, not
-> > bat-detect-gpio. Update the property as such.
-> >
-> > Signed-off-by: Stanislav Jakubek <stano.jakubek@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/sprd/sc2731.dtsi | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/sprd/sc2731.dtsi b/arch/arm64/boot/dts/sprd/sc2731.dtsi
-> > index 12136e68dada..c8b30c0479fd 100644
-> > --- a/arch/arm64/boot/dts/sprd/sc2731.dtsi
-> > +++ b/arch/arm64/boot/dts/sprd/sc2731.dtsi
-> > @@ -97,7 +97,7 @@ pmic_adc: adc@480 {
-> >               fuel-gauge@a00 {
-> >                       compatible = "sprd,sc2731-fgu";
-> >                       reg = <0xa00>;
-> > -                     bat-detect-gpio = <&pmic_eic 9 GPIO_ACTIVE_HIGH>;
-> > +                     bat-detect-gpios = <&pmic_eic 9 GPIO_ACTIVE_HIGH>;
-> >                       io-channels = <&pmic_adc 3>, <&pmic_adc 6>;
-> >                       io-channel-names = "bat-temp", "charge-vol";
-> >                       monitored-battery = <&bat>;
-> > --
-> > 2.34.1
-> >
->
-> Hi all,
->
-> looking at this patch again, it seems there's some confusion going on.
-> The bindings specify the property as "battery-detect-gpios", but the driver
-> checks for "bat-detect" [1]. I assume the DTS was added with "bat-detect"
-> to make it work, even though it's not conformant to bindings.
-> It has been this way since the bindings/driver/DTS were introduced
-> back in 2018/2019.
->
-> What would be the correct way to fix this? Change the bindings to
-> "bat-detect-gpios" or change the driver/DTS to "battery-detect-gpios"?
+Hello:
 
-I would prefer the second, i.e. change to "battery-detect-gpios" in
-the driver and DTS.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Thanks,
-Chunyan
+On Tue, 29 Oct 2024 18:31:05 +0200 you wrote:
+> Sparse warns:
+> 
+> note: in included file (through ../include/trace/trace_events.h,
+> ../include/trace/define_trace.h,
+> ../drivers/net/ethernet/freescale/dpaa/dpaa_eth_trace.h):
+> warning: incorrect type in assignment (different base types)
+>    expected unsigned int [usertype] fd_status
+>    got restricted __be32 const [usertype] status
+> 
+> [...]
 
->
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/power/supply/sc27xx_fuel_gauge.c?h=v6.11#n1186
->
-> Regards,
-> Stanislav
+Here is the summary with links:
+  - [net] net: dpaa_eth: print FD status in CPU endianness in dpaa_eth_fd tracepoint
+    https://git.kernel.org/netdev/net/c/0144c06c5890
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
