@@ -4,70 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141BFE6B243
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCA4E6B243
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P80SD3m++pZfb179AERrePA5UE5HbIgT7oKc/XL09FQ=; b=JSVkGbLp1V6ntkcZeUc/s9+PLk
-	yIKWKjM5oKz/LVQiHUv3i+VpjmFbEy/VGUs2k75hzi7LFs7eaQL8D94jnTfUe11dvUkzc3eNtrnzq
-	WKqLt1ISAp69HqfPT083BaFZqVry6SZ3zOivvP4G0Uejv/sdqFZZiF5ESSf0gEukIZ7LHKR14hjBB
-	Q4NaMM099pdEOYplwmUdLVJFVDNu7Pu0wf1/61NJcfV9LOTrJa4J0vGslrO06MCao7Y1AxNCyV4C7
-	+0rlqUcd6ALBD+ZRQR0Nzir8MwPFJir58Vh2IB0A1jSmfsWpCOyKR+UVMZpGRmGsOtj04HuP77Wj/
-	nbsk7NsQ==;
+	bh=Ssu+82ASPw6IayQqExCdYLnky9EubC2EVJ6pOZJqtFw=; b=kAQm488cHpRD3tFn8ZdVKl/NoV
+	Xigb+e1Za4SOnIHT+vK3RgFyk202vVfr3xnQzjedGT07pclQIRdt6/g0H6bq6HBtVYk2V9ZcmdC3r
+	p8B1HjP6MBWsBLrzCG4vCNw9dxaG4H5ZnupQVGAzGlK3EDwYckxyYaz+aR8Ysb3rUA20XLeGQ8yvt
+	pmEEA1EBm1+s4rV/bRxViVAKID6JCx/q76uuL85oXy8Q62Y3nEZQ1/vYq6ixQrWT3zP7NdfjWC6X4
+	4DMq5KkCMAMan8gx0JRz3d9rB2l0ZCFnJELoUrXbH7eyUT12BwVsyke4EAzWDZbpdJYKD034PAHZN
+	78gBokXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6q6q-00000006nSo-0K9y;
-	Fri, 01 Nov 2024 11:46:32 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6q8U-00000006nu3-2Hyg;
+	Fri, 01 Nov 2024 11:48:14 +0000
+Received: from mail-db8eur05on20725.outbound.protection.outlook.com ([2a01:111:f403:2614::725] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6q2p-00000006mVy-1MuQ
+	id 1t6q3B-00000006mdv-2UqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:42:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E4649A43694;
-	Fri,  1 Nov 2024 11:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051DFC4CECF;
-	Fri,  1 Nov 2024 11:42:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730461342;
-	bh=bKQhNZTPEmk8K4/4hX6A5+BjPeSQ5IWyhVduxqcPwfA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=JhzaQ5ybUYLB2oHf4/2Z/D9etOS/kDCGWPxBJ7k+t22HdJdIiSmHwl09CDWVd7quJ
-	 EoovQtlAT0jsLOQFuEXQj2mtulvbI7kWeSqh2NR8/du0VDPLiBORcokeAHk2CI3WzV
-	 n7fYFbrXUVNtH7vQL423Qmz90Sh4RY7iBqWR4No03B/CIVayMmKTZ7ffK2dGvHki4i
-	 hENyC7yNFg7+lJama3ucfcnr6UlyDZ2NIfdG7tX0Cxyon4OBUwKuVlIgvvVp3Dcxdt
-	 Q6vbNu0mP6oGMKv3Jbf4Hztxg6Lxnimg9G+K4A8m5D6o1JtkXo+wj/8ThlmMsCLdJv
-	 brCrojhIFNT/Q==
-Date: Fri, 01 Nov 2024 06:42:21 -0500
+	Fri, 01 Nov 2024 11:42:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lrZfXUXvIJEwvkf0iQiGKqkXmWBHKnOjFx2AwQhAUIzlvKKR9wvh1raMhuRfvSkhnYvC1MqYLM24OkS26N54/NjYQeRcRLIn/mfIxJ0/5dlTtP9bLpXQhK6UTBss/ikaWN0PNtXbZmVUfQcWnEWEwzenyHW9kWnL/7NeAMSyeZkOL+YbGhjFnB/fQ8MyNJUs02yPb9KrqypbzNyDZ56ZAwQ5bxr00vyBVq7zEtyb6wlBQ3smx8ZzYjbZ/uooxuP1d9uKP5oU84ML4okraFBu9A5vnAkB0/wAMqi2whR+2dwB0n9ZQ1ky1H5Bgjs73M909Xd6gLQDxbwBap2qPD8CtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ssu+82ASPw6IayQqExCdYLnky9EubC2EVJ6pOZJqtFw=;
+ b=jEKXHsNeq1dMMwkUrDT6zTFTb+IvFOK1e6x1CoDLXge+q19PPjZEuUkPjPiCM37KnFCnyDeECK8ZDzsXyP8odexkToJzENeAWYBhd08dLnApmZ6Pk8QcAzOPO10LczP1jmIoP12yLxqZY+85uNrTOJHr1xrQXqmkOIW1zBTbF9KDV7ZNwt66c0IgIAQeT0Hkt6GXRRXDY8/tgRZqOTPWaXSteQG1pxHhIEuVbIRds6TG5xUTfXkiCWeOUYlnF+oF9S/p58nQD0PeU/IxFC/CUlW3pMypsBLLbKHUqIGC5i4zuueRcS12LsYSBAH0OigmL2nthNM3klC+DN56YzRI4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ssu+82ASPw6IayQqExCdYLnky9EubC2EVJ6pOZJqtFw=;
+ b=VfAr6WXSms+wanyp12OEN3qUDRrjKOTKZGrVU3w8+dCyc3xubvxt60wk6NMctwdTi/PpNDzVUhSo7cyBQZb4eAPhU6webfJxkroyAkxQdddhA+dkJPemuD5Nm1ChkiRXoIjVqE/YVaSawegcj9hMbEV/A2FBYpm1Scz09CcFPko=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by GVXPR04MB10519.eurprd04.prod.outlook.com (2603:10a6:150:1dc::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Fri, 1 Nov
+ 2024 11:42:29 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8093.027; Fri, 1 Nov 2024
+ 11:42:29 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Fri, 01 Nov 2024 12:42:25 +0100
+Subject: [PATCH v3 1/2] mmc: host: sdhci-esdhc-imx: implement emmc hardware
+ reset
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241101-imx-emmc-reset-v3-1-184965eed476@solid-run.com>
+References: <20241101-imx-emmc-reset-v3-0-184965eed476@solid-run.com>
+In-Reply-To: <20241101-imx-emmc-reset-v3-0-184965eed476@solid-run.com>
+To: Adrian Hunter <adrian.hunter@intel.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>, 
+ Jon Nettleton <jon@solid-run.com>, 
+ Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Rabeeh Khoury <rabeeh@solid-run.com>, imx@lists.linux.dev, 
+ linux-mmc@vger.kernel.org, s32@nxp.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: FR0P281CA0198.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ad::8) To AM9PR04MB7586.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2d5::17)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Imran Shaik <quic_imrashai@quicinc.com>, linux-clk@vger.kernel.org, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Jagadeesh Kona <quic_jkona@quicinc.com>, 
- Abhishek Sahu <absahu@codeaurora.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Ajit Pandey <quic_ajipan@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
- Bjorn Andersson <andersson@kernel.org>
-In-Reply-To: <20241101-qcs615-mm-clockcontroller-v2-9-d1a4870a4aed@quicinc.com>
-References: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
- <20241101-qcs615-mm-clockcontroller-v2-9-d1a4870a4aed@quicinc.com>
-Message-Id: <173046133733.2741917.9488977607112926104.robh@kernel.org>
-Subject: Re: [PATCH v2 09/11] dt-bindings: clock: Add Qualcomm QCS615 Video
- clock controller
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB7586:EE_|GVXPR04MB10519:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7771ca19-1c55-4594-60a6-08dcfa6a43bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dXJxWi9udEJGVFp5a0loTk4wUWtxS20xcHJGVzZvY0dsVHozWi9EOWxMbHhx?=
+ =?utf-8?B?MjN4S20xSjFpc2psekNDWU5BK1lxYnpmSXQ2TVBpdHU1MmhLQ1FmYW1xSWtr?=
+ =?utf-8?B?eHdmN0lheXhYWlpxTnRvYnpITDVpcDRkMmxtVWxRT1V6b1BIbFJtMWg4SG1O?=
+ =?utf-8?B?T1RSYXJIWWZ1YzR5K25lOXg4U2xDdXViRmI5bE4yUXZucGk4L0EyMU1HOUln?=
+ =?utf-8?B?Nk5FME05S1VTR1VoY2JrV2xXenQrTGdTTlNqNTlOZ0FvUXdKenUrbm1YWTRD?=
+ =?utf-8?B?V2Y5d211TGU1TmVYd1ExOGt1S0dPREtkS3RNYzZFanMyOThHaXd5QjlkaGxw?=
+ =?utf-8?B?T0NkU1pFVW9pSlJEaGR6U0xkeHRVVk9EQ3pCejRFNEpPdDFJZkdsaXNmSjRk?=
+ =?utf-8?B?c2xDaC9rczd0WmxwdTZ4aEZPcktwL1lLRXd2OW1Rc0pCVGNtN3dSeG1hZUlF?=
+ =?utf-8?B?WlY0ZmlBVnNkQVl2SW1iWGZUZ21xN1p2eVAwc2dRWnFhcTh2MVhnaWZnU0R6?=
+ =?utf-8?B?SktwNGFkcUNxYUpnSjZVbFdOTzhWMlN3MjR1YUZaV1krS0RoMnBpdVo3VzRN?=
+ =?utf-8?B?ZnlTWkxoN0dyRDNaZjI3akNpZXAyOWxZbXAzYm56OW41NnVxaCs3bXlKdTZX?=
+ =?utf-8?B?bGE5TzVHRzBsZ2RMR01WT0xocXRIc1p0S2l0R1poaC96TDVZVzlDR3oxYjRD?=
+ =?utf-8?B?TTM3VWpub29EMnZGZEQ0U1YwVFIvRGhrYXNaSmtiOTNZdXNoTlFKMjgxTWpZ?=
+ =?utf-8?B?aWVGN0JKNjlFb0MwQlB5NlN6WVFaWkd1NVZHeXhzekVGbEFYbGswRXBRNWVN?=
+ =?utf-8?B?b2g3UU5mT3dPWGFQaWFzSHZCY3dUemlFWUo1OEd4T09IVnZtb29qQTNnNVd0?=
+ =?utf-8?B?NGZXY1I4MUd3TE5jYVdWTCtFZDAxWWZPeVdqVzM0SEZWU0p1WHYxdEZuUnEr?=
+ =?utf-8?B?b1hFcU9tRWlnNStHRnJ6MXJ2cWhoTWxGNmFRVHd4RTNxR056WTVWZ3E2RURy?=
+ =?utf-8?B?R2pTMGUxVzdBaGk5QngvSUZyWEVTMmhRckJMSHVGM3lKOFV1YTkwYlBZQlBQ?=
+ =?utf-8?B?Yjdjd1VWRzg0UGxuTkhsWThqdFdsZU9nQTBxK1UzelFhRkFrQXJTZThyRUl4?=
+ =?utf-8?B?WnJqc05hSHpIUlhSckJsWEtSVGtzZjFmQjRqYkt1OUlwcFcra0p1eTJFWE42?=
+ =?utf-8?B?L3JDWVpnaWtmWWNsV1c2dER5dHFwQlludkJnZlkyUlVnVlBTRGtVK1VzcFVH?=
+ =?utf-8?B?N0kxbVZySHNXdXFzN3Vsd2h6Q1dxQ1NrbDV6WXZrT25QQjZCTGRabnNLNmRu?=
+ =?utf-8?B?UHNjSkswY1FvOEpvNkxyY0M4UEY3aUxOMzU2bmwxaWFuSENXSWxuZ2VvMmpw?=
+ =?utf-8?B?b0liZWJ5ZHduUHdwVCtMbW9rMHhmdFpCTXZBbzlGaWRrUUwvUWxQMlBsMFk1?=
+ =?utf-8?B?eXl2Q0tiRlBnOWQzQ2xrcU9yMEZhZFhDRFdPTjBHZVdJVXI5SDIxci9MSHgz?=
+ =?utf-8?B?U2VNRk93WWR2ZzYybnRiRjRWK3JtWWl2eExuSHJIMmpFa2RFUXFCekJYZHFG?=
+ =?utf-8?B?dTBUYzhweWJYWWxjNWNocHZEaW85WjNhWk1RYVZNNjJIT0JrNExYWHdZZllO?=
+ =?utf-8?B?dUMvdlkwemFqOVB0U0tScTVRazIxcmJvUHUyZWhqbUhiVEIrYWNYSmtBRk90?=
+ =?utf-8?B?d0NqdFNuZWVNUFdkanc0QzdqY0QxWWNVWjhzMEdJdUJTM2VHcUREaXYzWnVU?=
+ =?utf-8?B?Wm52Q3VjUHN0NmdkeTloUGI5WlBBMWJIZWVGR3hMZUNnSWtmY0hwZzgvTnRl?=
+ =?utf-8?Q?D80txqtts6ngCs7J7TQOq6NWObz5ilSRy0hNI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDJYekFlekhTUTNoTENKVzBBa3A0WldTWUoxMkFWcE1hbHdXejMzVEJvdVVL?=
+ =?utf-8?B?U0lST3Boc1BoSGN0VlZXMEtsMnRSWWlhVHJlTTdMSlpEOFhCdkFDQ1FaVG1t?=
+ =?utf-8?B?di9wcGMzRTdQd0RPSEtYQ2JnZzErTlZrenlKcGNPSjh6THNIMlBpdy9xZTdE?=
+ =?utf-8?B?TzA5SmwwRjBXWmllK040elZlWjBxQXVscDF1eG5YbmsvUFBhQUdNOTZQaGxR?=
+ =?utf-8?B?TWw2Zk1VVXVzVnlUTmpLTWRnREh2VUZUQmc1d3lPTTZVcWtKTHJNTTZPOXd1?=
+ =?utf-8?B?OVREOGxUdERkakNiZmtNZHphWXNmdytUTmhlUnpMSkF3a2NPcENjWnVtZWEw?=
+ =?utf-8?B?dWwzUXBIVkNxSExZcWI2cm9Vdnh6NlNvUm5lY2VLRGU0dWNYZ213bFJybEQv?=
+ =?utf-8?B?M2Vxejl2cWY3ZXNmVHREam1sbS83OU5DcTdrVEkxNVBtbThCSkpiSld2bFNE?=
+ =?utf-8?B?N0JleHppQXJha2svRThRZUMxVmJwcjhaenhiTDQzUmhtWEVkSGhreEpMMWFp?=
+ =?utf-8?B?MnJENy9kV2IxdWxJZHdRK3J1VExqTlJnUlhxYllGM1lLSlBxSTVNbC9PRUhw?=
+ =?utf-8?B?MlZDNi9xb3Z2N2FtakJseFVNVERCL3Y2OWtVekZzVXFKTGdmSlBkZGs5Zklj?=
+ =?utf-8?B?VzdpZlRJOWgvVW9LdEF3RWs5UUkzeXFRaTZuS3pqNGZ0MFlqYnFCclM5dmVO?=
+ =?utf-8?B?YlA2cnB4b0FabG1GbzZyYXNjQ01ldEJ5TlpWV1RMbGZBdzN5cUREODA5cTU4?=
+ =?utf-8?B?bm5XTHgrT0l2WXlaRHBaK1YwNnJBS1lMSllWZEh6MHlyMVlzZHJGenFCWEsz?=
+ =?utf-8?B?L0I0RVNYbzBMUW1QOTkwZ3VWY3Zhb0IzRHFlTW5IZWpPd2JtTHdtSXRHRE1J?=
+ =?utf-8?B?YVhwbTJ4ajRPeFVXdUg1SC9LMUczbVd6YzJQYW9jRHVzU2FWT3pJU0tDWlFl?=
+ =?utf-8?B?aCtSVzRObC9JRlNFTTRxcWRHTXZ3YXAydlhtNDJYZTNRU0ZSYmJ4ZThwUTd2?=
+ =?utf-8?B?TkYwR0krVXM5NlI5SS9JemlLTkNEamg2WWpjcmFRbjczR2xLUEpiU3l4Y1Ni?=
+ =?utf-8?B?ak5Tb3ptZXR1ZXNabTg1VDJDQlMzVFN5ZDhIQVhqaWJzb01oa3JtVXFMWEhx?=
+ =?utf-8?B?N1J0TmdIQ2hHSVRQRml6ODhrYlAyQ2IzZjAxSlVFN1UzUXZTYVIrSGRJU3Zw?=
+ =?utf-8?B?SE52ZVNpd0dSQWN5S0pPL0xMYU5Ic3dCT3dRaEtTQXNSdzRBNVBsY2ErUG1Z?=
+ =?utf-8?B?M2FRaHdJckliQWFmQ1ZVdTM1cVdjZ3VrU0NsY2FtT3BDK3Irb1Y1Q3N3T1B0?=
+ =?utf-8?B?TnU0M29rYjc4TkpKWitVM24xVXhYblR3R2xvbTRiWm1ha0ZkSnlSbFlUNDkw?=
+ =?utf-8?B?SmdZeFRzYlM3dEMwNHZJaFN0TE1MczJMVjJtZ0xKaTJ0TXVncUtRK010VGoy?=
+ =?utf-8?B?YSszS0Y4VDNQb0Q3WTZiZFAwcE5DcVFsM1dPdVhsdEY0NE5EL0ZxUFNTKzhV?=
+ =?utf-8?B?NU1SakFvNzFuN2hHcnZpZzRaM1N1VFpvTEhDM3VJWGlRUWVYaFR2STdwUFpU?=
+ =?utf-8?B?ZmdkQkZEVmJCRytDNUw5ai9ZNDJuR1pEUHA1c0l0cDhQQktwY1NKcTRhVzlj?=
+ =?utf-8?B?dG0xV2xJVkIyZkZVb0JmTFB1ZUZiM1F4K2dMRGx3Qkh6UHRUT3VuY3daQm5K?=
+ =?utf-8?B?WjVzeHE3dlRIaE9Zb0orQ0J1dnJMTFJta3FMNzBVY1VHLy9uZjFLczVwdG9x?=
+ =?utf-8?B?T2JoR1ZVOTU5QzdzclN2a09LZmpVcUxhcnZnWWdPVm5nN0U5RFNlYnBWMVNy?=
+ =?utf-8?B?NlRWQlFVNXp6M29qVGNoNU1hZERRakE4Kzl1bzNzSEwyRWUxV2JOenBISHFj?=
+ =?utf-8?B?QXkrekIra1NVcWRiRUxoVmk4QXpwc0JzaUFWeDNuSEljSHYrNDljMEp1TUFM?=
+ =?utf-8?B?TkNwYk5URmNvdEJQdU9rdTB2K2JIaU1wT2xoWnpyNXFWNklXMXBweTBnRmVV?=
+ =?utf-8?B?czhJd3kyamhITWdNbUJ4RlJrcDFFcUQ0cXVXUEE4eUFzekk1ODBidS95ajlX?=
+ =?utf-8?B?Wm1GRVg3RjJ1azdVRUtxbGkrc3ZTM1d6NHNmemIreXlkUU5FdFF4WFMyQTIw?=
+ =?utf-8?Q?6KL0Jd+weaCtlziymRanb5Eqo?=
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7771ca19-1c55-4594-60a6-08dcfa6a43bd
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 11:42:29.0868
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: h/iSfmaj0yCVt3JDmODgswWZipX98QWa/lrXkDsJNgXDj3F3MANTaW57nL1OxENNNm+wDUCWuuLyd7Kca1Jzmg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10519
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_044223_459207_511490FF 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20241101_044245_692472_90859DFF 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +182,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+NXP ESDHC supports control of native emmc reset signal when pinmux is
+set accordingly, using uSDHCx_SYS_CTRL register IPP_RST_N bit.
+Documentation is available in NXP i.MX6Q Reference Manual.
 
-On Fri, 01 Nov 2024 16:08:21 +0530, Taniya Das wrote:
-> Add DT bindings for the Video clock on QCS615 platforms. Add the
-> relevant DT include definitions as well.
-> 
-> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
-> ---
->  .../bindings/clock/qcom,qcs615-videocc.yaml        | 64 ++++++++++++++++++++++
->  include/dt-bindings/clock/qcom,qcs615-videocc.h    | 30 ++++++++++
->  2 files changed, 94 insertions(+)
-> 
+Implement the hw_reset function in sdhci_ops asserting reset for at
+least 1us and waiting at least 200us after deassertion.
+Lower bounds are based on:
+JEDEC Standard No. 84-B51, 6.15.10 H/W Reset Operation, page 159.
+Upper bounds are chosen allowing flexibility to the scheduler.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Tested on SolidRun i.MX8DXL SoM with a scope, and confirmed that eMMC is
+still accessible after boot:
+- eMMC extcsd has RST_N_FUNCTION=0x01
+- sdhc node has cap-mmc-hw-reset
+- pinmux set for EMMC0_RESET_B
+- Linux v5.15
 
-yamllint warnings/errors:
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+ drivers/mmc/host/sdhci-esdhc-imx.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.example.dts:19:18: fatal error: dt-bindings/clock/qcom,qcs615-gcc.h: No such file or directory
-make[2]: *** [scripts/Makefile.dtbs:129: Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.example.dtb] Error 1
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index 8f0bc6dca2b0402fd2a0695903cf261a5b4e19dc..f106e291c276d0c8063e9ac59a126acf5e9e239e 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -31,6 +31,7 @@
+ #include "cqhci.h"
+ 
+ #define ESDHC_SYS_CTRL_DTOCV_MASK	0x0f
++#define ESDHC_SYS_CTRL_IPP_RST_N	BIT(23)
+ #define	ESDHC_CTRL_D3CD			0x08
+ #define ESDHC_BURST_LEN_EN_INCR		(1 << 27)
+ /* VENDOR SPEC register */
+@@ -1402,6 +1403,17 @@ static u32 esdhc_cqhci_irq(struct sdhci_host *host, u32 intmask)
+ 	return 0;
+ }
+ 
++static void esdhc_hw_reset(struct sdhci_host *host)
++{
++	esdhc_clrset_le(host, ESDHC_SYS_CTRL_IPP_RST_N, 0, ESDHC_SYSTEM_CONTROL);
++	/* eMMC spec requires minimum 1us, here delay between 1-10us */
++	usleep_range(1, 10);
++	esdhc_clrset_le(host, ESDHC_SYS_CTRL_IPP_RST_N,
++			ESDHC_SYS_CTRL_IPP_RST_N, ESDHC_SYSTEM_CONTROL);
++	/* eMMC spec requires minimum 200us, here delay between 200-300us */
++	usleep_range(200, 300);
++}
++
+ static struct sdhci_ops sdhci_esdhc_ops = {
+ 	.read_l = esdhc_readl_le,
+ 	.read_w = esdhc_readw_le,
+@@ -1420,6 +1432,7 @@ static struct sdhci_ops sdhci_esdhc_ops = {
+ 	.reset = esdhc_reset,
+ 	.irq = esdhc_cqhci_irq,
+ 	.dump_vendor_regs = esdhc_dump_debug_regs,
++	.hw_reset = esdhc_hw_reset,
+ };
+ 
+ static const struct sdhci_pltfm_data sdhci_esdhc_imx_pdata = {
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241101-qcs615-mm-clockcontroller-v2-9-d1a4870a4aed@quicinc.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.43.0
 
 
