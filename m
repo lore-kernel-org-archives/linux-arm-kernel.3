@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E057CE6B253
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF64CE6B254
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BiN29CI2quVy9Vm2GzAx3LhypcTi59G2l37bGW9+GCk=; b=w37ZJven1Lo2N+DJlSHedwyW3t
-	rHQpKZ1ZDD4aAN3ezzoo3UniBkGAYS92U95DzUkbY6+Y08yaDiDb/awzHqMdQgJiRG2Z532LFiu2H
-	wOeqElk55UpuNuJ4xvtjGyq/JPhwN0y6WT/969vWIxcMzBU/EKX5v5/xSPzsOel+L4dyv3ryXFe8T
-	mqz8rzsU0FmhwShvWBytd5GzaY6ioZpJwhl9Pu/M8RE3o8hOvpAL1Kr+0qCDbY8Wnfvqbk9FsmFcy
-	B6M2C+U7De4WwSvmGdPnJd++o95jhQUezQc2KeH/mH1td3e3sgLMw2tVxZjY08pMOXJxj5Ozip5T6
-	vqBfUduw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PYW2VODU+6ARkfOsKMX9HiT8wjTVrQXTg+TMoq0+tk=; b=4dfQosdvSxyjnoV9oGw4ETLnLB
+	844rk6OKgWX/19+j5RuGs12I69CB1CtBzbKgJzKicPGywapwmCXxMFOXgcPH73wdGgnQQhjPJCYAa
+	YRkvg9KwiailXK3VRo9yXUID3j5DuUuNWPRjvvqOuG/Da7rP5Or3nKdBBwUtP0+/OJUm61So/dBgo
+	b3vch/JcRrTms6Joj+xpZMymRl70DMzl0qoDSzNPJgPgUxOlH6UK56RsS17c2MXN1OcYqD7wcVgBz
+	WvdrmCzvWTHq4Cc+SBv70gvFbquKoJQAD+G9ZPsOmfEt/x6pHMuqG4S7qKM5LVi5DFdkxOx4q9Vhe
+	QhvKCBFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qsx-00000007401-18x4;
-	Fri, 01 Nov 2024 12:36:23 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1t6qtv-000000074JX-1oj8;
+	Fri, 01 Nov 2024 12:37:15 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qds-00000006xqq-0rC3
+	id 1t6qmP-0000000718r-0cb5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 12:20:42 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6e3a97a6010so21181907b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 05:20:39 -0700 (PDT)
+	Fri, 01 Nov 2024 12:29:30 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-37d533b5412so1135478f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 05:29:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=monstr-eu.20230601.gappssmtp.com; s=20230601; t=1730463638; x=1731068438; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BiN29CI2quVy9Vm2GzAx3LhypcTi59G2l37bGW9+GCk=;
-        b=Gjs+LodhFRvp/L2qG6uL9+PMhfF4S2IbqZeNtGZfucCmGJJ/+K+wyIo2e2+Ex2BDPu
-         Dq9K0u1osfugSPxXYf87LwQEjUSWC7xGONzojLbiNCUm83rFNeFDaBY8+yEBE8CICZgz
-         md+KBhp2VSMeLHcZD5+OeCRn1nPWkp01zqrrav9F2fBe6NH1/MbFFkq3C7r9okuoezYx
-         ZVicd1/EOYUroUDLVdf9Nt/WWrdWZxXmIXRmIWtfaYQ0Ge4PZqfPDIoFwQEgmNSK53F2
-         ylmxBoH65Qo1GznhxXkRaGKKqIE8WfzBlhib7QFMjOG1VjJq6zBDuX8CoI6E3+zFDmev
-         T//A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730463638; x=1731068438;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+        d=linaro.org; s=google; t=1730464167; x=1731068967; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=BiN29CI2quVy9Vm2GzAx3LhypcTi59G2l37bGW9+GCk=;
-        b=Ujh4Kx0byot8IGDf+2bXsXQ5XFeJBP1PQyTrVVLfSdhB/0O1y5kIMzjnz1+v+gZMyV
-         BtfJX4opjzPYwpnfvuVfR8oiV4z/a5tXj6pWzjtVAATl6gOuXGrIaFBHwrdk3FTBmXXE
-         WEEYcxXK3exu0/SMGA24/yNQ2Doh3T3nYP1+6GTkJhLCPXtwewCfZFTDdKybl7iRvqoh
-         vZKYV5TH00LgCmz/O+Ls95P5epIKyQMwYIR87cZT8fJaoHwSiwOL6XjdjzdZL0n0+2Tf
-         Toptm6t4p5AqJFa2CXaYoBROwHnviyw1tblAI3UizTubD1ZsicmTUJQSuC9gm+AFpuZP
-         /vaw==
-X-Gm-Message-State: AOJu0Yy0zVI1YcNUNKjFij5FGyKkkZWEz30SOfy6AkOiYiJfkZUTvXoN
-	+UeLZmH9hZOH0+OQ+HirtXJvYUnINIBVEByhacKgCDgI5z8t3O+ZAHgGNtjFlefi+CH0hltvxkb
-	/DErAaCplmhmankd5lyIHlT+Loec6qzS374tILA5Am0x9pA+o4RHr
-X-Google-Smtp-Source: AGHT+IGiatrvMrvxZscERsQ21uX2HkHIP+GuHqrpYy8p/qFDcGOHRnNAk7qOgs/wRZs4lFQ8e52gaucLrpreO4x2Dhc=
-X-Received: by 2002:a05:690c:2d08:b0:6e3:10e7:b418 with SMTP id
- 00721157ae682-6e9d8b554acmr161862977b3.46.1730463638444; Fri, 01 Nov 2024
- 05:20:38 -0700 (PDT)
+        bh=6PYW2VODU+6ARkfOsKMX9HiT8wjTVrQXTg+TMoq0+tk=;
+        b=cdghMbKpVXRSXK94dK3K6WOQiOquT/Z2NR3ISaRGw9901kh5qzzMU+XiD/qJ11vbyD
+         jKWhEj+u7orPpFxmp15D9YGW4TVUjEGM9+MUfgAPqL9tKffXf7t5JM7tjne4fP60BaBR
+         da1kyWJa++ePlmUnwqvH9s46TAOEE8fYM2KKPM9w/G8svD4c7tvNcqmvbSIXJA3iwgvg
+         dktkx+OMkhHsveCF6dnaVoLqVMBOr3iM+v4Kw5CPEqe+tPckERwqDDdaTae+OCdRue/y
+         SVR0uuryp9QHcdNecIA3atj3b3TC9hb/DxQHSIu8PnBiKUBI+HI67Vyvw4VGgrAiATOV
+         zaqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730464167; x=1731068967;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6PYW2VODU+6ARkfOsKMX9HiT8wjTVrQXTg+TMoq0+tk=;
+        b=QniI2LQ49NjHFRLZcFqWjRyNDwrkshUIhUNTMIm7QzJ43UPL1kc4Kvnhi2vROaQyGh
+         6C8YQOYiUaxIDkMA639iUEQgO20q6XL2dWFd19KxsBkMDawQFVLSfYHuhoDcQHt1xeCA
+         4UlXLTNtPU/meAzAcRgHUNIQJYCfN5/zpOjvSza30H354NAwJiCX7sHitlMDJ75+KHJb
+         X3RYHmNb7vDAx58Igo0twkeP3h6YSbnOHc3f/cT62NkMWlJjdur8VpekPm90PgjpL8HI
+         B3SBkZenMcz5BzE9ByCUn6Rlt2NARgRzWwYZByhfLclHNTIv7G0C2qEqempYsf4bCXZg
+         3GBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZjWY6/q+wqe0wjECQzRxeQxCURGBjzzP7G4jLQy+ZteyB7P/Wb3URx6Z4HaybUiYHSMWaSb/VmT8FWy7Izd0i@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2ziXDSzudthhN0/WQKgl9DMBjEsPWl8d2XvwKmfxS3r8VDeB0
+	GktBHNSJ8XSwonb4ugkKkIokWWVlrop1GPFEQyDWwAXPvRvFnrOBd2estv+SLlU=
+X-Google-Smtp-Source: AGHT+IEexgLpdNZzNx7qKEixOWvz0WoBXAOf4WpMS8azuyv76BwBUIhQnnmrQYq6kNbYJFzHI4wWCA==
+X-Received: by 2002:a5d:4fc4:0:b0:37d:52e3:e3f0 with SMTP id ffacd0b85a97d-38061200becmr16575623f8f.44.1730464166764;
+        Fri, 01 Nov 2024 05:29:26 -0700 (PDT)
+Received: from [192.168.0.40] ([176.61.106.227])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10e734csm4981745f8f.60.2024.11.01.05.29.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Nov 2024 05:29:26 -0700 (PDT)
+Message-ID: <7be231c6-a5b6-41ec-b43d-cbba07e7c448@linaro.org>
+Date: Fri, 1 Nov 2024 12:29:25 +0000
 MIME-Version: 1.0
-From: Michal Simek <monstr@monstr.eu>
-Date: Fri, 1 Nov 2024 13:20:27 +0100
-Message-ID: <CAHTX3dK9PKmG_UG4MW=x5KmZCrd5PkcAZiNVgPFQ_zsPRgu+dg@mail.gmail.com>
-Subject: [GIT PULL] arm64: dts: ZynqMP SOC changes for 6.13
-To: SoC Team <soc@kernel.org>
-Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/11] clk: qcom: camcc-qcs615: Add QCS615 camera clock
+ controller driver
+To: Taniya Das <quic_tdas@quicinc.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Abhishek Sahu <absahu@codeaurora.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
+ Imran Shaik <quic_imrashai@quicinc.com>,
+ Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
+ <20241101-qcs615-mm-clockcontroller-v2-4-d1a4870a4aed@quicinc.com>
+Content-Language: en-US
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <20241101-qcs615-mm-clockcontroller-v2-4-d1a4870a4aed@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_052040_712184_70BF5F11 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20241101_052929_251842_5D640EB3 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,62 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 01/11/2024 10:38, Taniya Das wrote:
+> +	.vco_val = 0x2 << 20,
 
-please pull the following changes to your tree. All of them are
-related to the firmware interface.
+vco_val = BIT(21)
 
-Thanks,
-Michal
+> +	.vco_mask = 0x3 << 20,
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+Instead of bit shifting couldn't we just use GENMASK ?
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+Aside from anything else shifting a hex value by a decimal value isn't 
+the clearest code in the world.
 
-are available in the Git repository at:
+vco_mask = GENMASK(21, 20)
 
-  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-soc-for-6.13
+Much cleaner.
 
-for you to fetch changes up to 55ed774d0130adaa4ef12aefeb8e0638011cbe43:
+drivers/clk/qcom/gcc-sm6115.c
 
-  firmware: xilinx: fix feature check logic for TF-A specific APIs
-(2024-10-02 12:55:51 +0200)
+Same comment for all of the bit-shifts in the series, I appreciate the 
+shifts are what the downstream code does but BIT/GENMASK does this job 
+better.
 
-----------------------------------------------------------------
-arm64: ZynqMP SoC changes for 6.13
+Once fixed you can add my
 
-event_manager:
-- cleanup error path
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
-firmware:
-- add support for new SMC layout
-- fix feature check logic
-- extend debug interface
-- update reset ID format
-- report about unsupported feature in pinctrl
+to this file
 
-----------------------------------------------------------------
-Gaosheng Cui (1):
-      drivers: soc: xilinx: add the missing kfree in xlnx_add_cb_for_suspend()
-
-Ronak Jain (5):
-      firmware: xilinx: Add missing debug firmware interfaces
-      firmware: xilinx: use u32 for reset ID in reset APIs
-      firmware: xilinx: add a warning print for unsupported feature
-      firmware: xilinx: add support for new SMC call format
-      firmware: xilinx: fix feature check logic for TF-A specific APIs
-
- drivers/firmware/xilinx/zynqmp-debug.c  | 162 +++++++++++++++++++-
- drivers/firmware/xilinx/zynqmp.c        | 153 ++++++++++++++++--
- drivers/soc/xilinx/xlnx_event_manager.c |   4 +-
- include/linux/firmware/xlnx-zynqmp.h    |  39 ++++-
- 4 files changed, 340 insertions(+), 18 deletions(-)
-
-
--- 
-Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
-w: www.monstr.eu p: +42-0-721842854
-Maintainer of Linux kernel - Xilinx Microblaze
-Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
-U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
+---
+bod
 
