@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD6BE6F07F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 19:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC50E6F084
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 19:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TfjN2FkupChScPj51tVFnwRpzYeduDtz6rkLr7e6vqw=; b=XG+FNVugRq9qwG
-	02ajl2JxrgVJZ/SQDsy8yj41PtMg3iQp6Udp2czDLW2I5MC89EgA95UlOUxPGxpTHS3BC/Mm9PQtJ
-	zOCGQsKxDsnFUTShL437BBJSlO30PgnYniaJ4kpJpP8KxVMIiaat7XwXEaMpB+wFCTBuReW9bqNgd
-	BTy7CCzgzOBvU2lcAWID0Q0pNQbwFL+L3w3VDlr4xEtQqVUeqVisxP/iBdzyW3R049QPL0aSkhcR6
-	qjs4T+LJnNRsBeK/Zgb0C7Ze6p1FviBbo+F0G5i5Lo4TXc+mrPXCksJITv+Wb8kJjp3Z+SN+3Cbik
-	LKa/6yQoPHoJkUtt5GVw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s02rnGCgt8BZE1LzUirUmIPB0IIV3qCHslNmqFKhCZg=; b=hq9A/EieEkvN+wzIOLbnKxcLja
+	Gbuzjpb5eqzpWKuhFk/XtpDXt2Zn6HxDFAxEePTebnqOQXnLrQeKTOJqetQrx64l+NplUbQKzupoi
+	10KyFdtogS1Ya/gcRlYToTTd/V0VYWW5M9g9xd7EpqTUtn61bgYqH23rffdqPbXHOY6VnEQDHHa5K
+	0QGaYIRX0IpeE5ME3b0AhYYb49/4grEADcIB/dOQVxwgbR2xG0RLsddzJ6g5u5luGGVRfct6DzfXn
+	i2hpeoXY6Jdt5t1wHG9kJeZV2utFk/TR75rBsukX2n79jEToTNBA4t5/sU84QMeSNJrUYFWtoqEi9
+	XKbFESzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xSL-000000089aX-0LLE;
-	Fri, 01 Nov 2024 19:37:13 +0000
+	id 1t6xTz-000000089ni-34YB;
+	Fri, 01 Nov 2024 19:38:55 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xPT-000000088tA-2fFC
+	id 1t6xQh-000000089At-39CW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 19:34:17 +0000
+	Fri, 01 Nov 2024 19:35:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0C678A44960;
-	Fri,  1 Nov 2024 19:32:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13110C4CECD;
-	Fri,  1 Nov 2024 19:34:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6DB94A44C27;
+	Fri,  1 Nov 2024 19:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F887C4CECE;
+	Fri,  1 Nov 2024 19:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730489654;
-	bh=7e9jDreQwHjgDrpNnSCJNcACMMOlV2ucUiJHzRNtnGQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Gy+q2VQMdeHnjT5y9u5t9/F6PhF4uzgoSRel0mDRxxSyq3QjYHlyR4JkyEpXP8DV3
-	 NeeZZkqknM2VXeMV9BBFpQDx5/GPmVVoWetU6spQS9H2CQ3fzgckmHv3TmKRx9CNOF
-	 9LamE0J7mmr/CfZm2sXjfEBuujzSZdz7fwU9dP8P/IceaUMELWqXxj6a5Jp2kNdgo1
-	 lTV8bFkOtCBbVdt4w5kdTXRqpo2esomrCNQqXTliqOkebr1XfYjhQxMGHIF41TFvlE
-	 cFF9mSY87h88i+ZHBUH+zvZzdw5IQllMK89EDpz4QgXnua1Kz00jrJw6m4A26J6BJi
-	 Ar+DeHd6YbhrA==
-Date: Fri, 1 Nov 2024 14:34:12 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Stefan Eichenberger <eichest@gmail.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>
-Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
-	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	francesco.dolcini@toradex.com, Frank.li@nxp.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v4] PCI: imx6: Add suspend/resume support for i.MX6QDL
-Message-ID: <20241101193412.GA1317741@bhelgaas>
+	s=k20201202; t=1730489730;
+	bh=LBcJYTB6WIbJ8DlAwG7hImL3BwFHDAgo02896nLj1Z4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XLbv6Uxxo8SQJm21791wg19EUL58H9utdxxI+OA95m+CsTNwB6++xU/9/m0/hprGj
+	 FtqxO722j/ulpty5c1g+TzF8YdjdDro98e1zAlPeEFWLLAoCn6+7UtlhGuTleLfpso
+	 eNscequJtH3HGY/7k19sz42uhTZQvG1XdBRIiJQkwDctN219TGQ688tmK/8/jJDeB6
+	 xnNdv9hOxEvaQG6/wx9hM3wkaPEmADMC08UUYZweW3oo+foHodWykfrMiOYhGHEePi
+	 AtOY5QHqt93iRsKHseckQw7hxrXvT4v+rFXiusKwK4RQ3t7F4tl9ow6gg6MF6Cun/f
+	 Ly6v514duNndA==
+Date: Fri, 1 Nov 2024 14:35:28 -0500
+From: Rob Herring <robh@kernel.org>
+To: Lothar Rubusch <l.rubusch@gmail.com>
+Cc: krzk+dt@kernel.org, a.fatoum@pengutronix.de, conor+dt@kernel.org,
+	dinguyen@kernel.org, marex@denx.de, s.trumtrar@pengutronix.de,
+	alexandre.torgue@foss.st.com, joabreu@synopsys.com,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 11/23] net: stmmac: add support for dwmac 3.72a
+Message-ID: <20241101193528.GA4067749-robh@kernel.org>
+References: <20241029202349.69442-1-l.rubusch@gmail.com>
+ <20241029202349.69442-12-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241030103250.83640-1-eichest@gmail.com>
+In-Reply-To: <20241029202349.69442-12-l.rubusch@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_123415_839735_BD8CEF7A 
-X-CRM114-Status: GOOD (  35.82  )
+X-CRM114-CacheID: sfid-20241101_123531_944552_6EAD3D88 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,144 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 11:32:45AM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On Tue, Oct 29, 2024 at 08:23:37PM +0000, Lothar Rubusch wrote:
+> The dwmac 3.72a is an ip version that can be found on Intel/Altera Arria10
+> SoCs. Going by the hardware features "snps,multicast-filter-bins" and
+> "snps,perfect-filter-entries" shall be supported. Thus add a
+> compatibility flag, and extend coverage of the driver for the 3.72a.
 > 
-> The suspend/resume functionality is currently broken on the i.MX6QDL
-> platform, as documented in the NXP errata (ERR005723):
-> https://www.nxp.com/docs/en/errata/IMX6DQCE.pdf
-> 
-> This patch addresses the issue by sharing most of the suspend/resume
-> sequences used by other i.MX devices, while avoiding modifications to
-> critical registers that disrupt the PCIe functionality. It targets the
-> same problem as the following downstream commit:
-> https://github.com/nxp-imx/linux-imx/commit/4e92355e1f79d225ea842511fcfd42b343b32995
-> 
-> Unlike the downstream commit, this patch also resets the connected PCIe
-> device if possible. Without this reset, certain drivers, such as ath10k
-> or iwlwifi, will crash on resume. The device reset is also done by the
-> driver on other i.MX platforms, making this patch consistent with
-> existing practices.
-> 
-> Without this patch, suspend/resume will fail on i.MX6QDL devices if a
-> PCIe device is connected. Upon resuming, the kernel will hang and
-> display an error. Here's an example of the error encountered with the
-> ath10k driver:
-> ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
-> Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
-> 
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-
-Richard and Lucas, does this look OK to you?  Since you're listed as
-maintainers of pci-imx6.c, I'd like to have your ack before merging
-this.
-
+> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 > ---
-> Changes in v4:
-> - Improve commit message (Bjorn)
-> - Fix style issue on comments (Bjorn)
-> - s/msi/MSI (Bjorn)
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c   | 1 +
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 1 +
+>  2 files changed, 2 insertions(+)
 > 
-> Changes in v3:
-> - Added a new flag to the driver data to indicate that the suspend/resume
->   is broken on the i.MX6QDL platform. (Frank)
-> - Fix comments to be more relevant (Mani)
-> - Use imx_pcie_assert_core_reset in suspend (Mani)
-> 
->  drivers/pci/controller/dwc/pci-imx6.c | 57 +++++++++++++++++++++------
->  1 file changed, 46 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 808d1f1054173..c8d5c90aa4d45 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -82,6 +82,11 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
->  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
->  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
-> +/*
-> + * Because of ERR005723 (PCIe does not support L2 power down) we need to
-> + * workaround suspend resume on some devices which are affected by this errata.
-> + */
-> +#define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
->  
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->  
-> @@ -1237,9 +1242,19 @@ static int imx_pcie_suspend_noirq(struct device *dev)
->  		return 0;
->  
->  	imx_pcie_msi_save_restore(imx_pcie, true);
-> -	imx_pcie_pm_turnoff(imx_pcie);
-> -	imx_pcie_stop_link(imx_pcie->pci);
-> -	imx_pcie_host_exit(pp);
-> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
-> +		/*
-> +		 * The minimum for a workaround would be to set PERST# and to
-> +		 * set the PCIE_TEST_PD flag. However, we can also disable the
-> +		 * clock which saves some power.
-> +		 */
-> +		imx_pcie_assert_core_reset(imx_pcie);
-> +		imx_pcie->drvdata->enable_ref_clk(imx_pcie, false);
-> +	} else {
-> +		imx_pcie_pm_turnoff(imx_pcie);
-> +		imx_pcie_stop_link(imx_pcie->pci);
-> +		imx_pcie_host_exit(pp);
-> +	}
->  
->  	return 0;
->  }
-> @@ -1253,14 +1268,32 @@ static int imx_pcie_resume_noirq(struct device *dev)
->  	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
->  		return 0;
->  
-> -	ret = imx_pcie_host_init(pp);
-> -	if (ret)
-> -		return ret;
-> -	imx_pcie_msi_save_restore(imx_pcie, false);
-> -	dw_pcie_setup_rc(pp);
-> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
-> +		ret = imx_pcie->drvdata->enable_ref_clk(imx_pcie, true);
-> +		if (ret)
-> +			return ret;
-> +		ret = imx_pcie_deassert_core_reset(imx_pcie);
-> +		if (ret)
-> +			return ret;
-> +		/*
-> +		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
-> +		 * root complex. This is why we have to setup the rc again and
-> +		 * why we have to restore the MSI register.
-> +		 */
-> +		ret = dw_pcie_setup_rc(&imx_pcie->pci->pp);
-> +		if (ret)
-> +			return ret;
-> +		imx_pcie_msi_save_restore(imx_pcie, false);
-> +	} else {
-> +		ret = imx_pcie_host_init(pp);
-> +		if (ret)
-> +			return ret;
-> +		imx_pcie_msi_save_restore(imx_pcie, false);
-> +		dw_pcie_setup_rc(pp);
->  
-> -	if (imx_pcie->link_is_up)
-> -		imx_pcie_start_link(imx_pcie->pci);
-> +		if (imx_pcie->link_is_up)
-> +			imx_pcie_start_link(imx_pcie->pci);
-> +	}
->  
->  	return 0;
->  }
-> @@ -1485,7 +1518,9 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6Q] = {
->  		.variant = IMX6Q,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE,
-> +			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
->  		.clk_names = imx6q_clks,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
+> index 598eff926..b9218c07e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
+> @@ -56,6 +56,7 @@ static const struct of_device_id dwmac_generic_match[] = {
+>  	{ .compatible = "snps,dwmac-3.610"},
+>  	{ .compatible = "snps,dwmac-3.70a"},
+>  	{ .compatible = "snps,dwmac-3.710"},
+> +	{ .compatible = "snps,dwmac-3.72a"},
+>  	{ .compatible = "snps,dwmac-4.00"},
+>  	{ .compatible = "snps,dwmac-4.10a"},
+>  	{ .compatible = "snps,dwmac"},
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> index 54797edc9..e7e2d6c20 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> @@ -522,6 +522,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+>  	if (of_device_is_compatible(np, "st,spear600-gmac") ||
+>  		of_device_is_compatible(np, "snps,dwmac-3.50a") ||
+>  		of_device_is_compatible(np, "snps,dwmac-3.70a") ||
+> +		of_device_is_compatible(np, "snps,dwmac-3.72a") ||
+
+All these of_device_is_compatible() checks should really go away and all 
+the settings just come from match table data. Then everything is const 
+and we're not matching multiple times at run-time. That would be a bit 
+of refactoring though...
+
+>  		of_device_is_compatible(np, "snps,dwmac")) {
+>  		/* Note that the max-frame-size parameter as defined in the
+>  		 * ePAPR v1.1 spec is defined as max-frame-size, it's
 > -- 
-> 2.43.0
+> 2.25.1
 > 
 
