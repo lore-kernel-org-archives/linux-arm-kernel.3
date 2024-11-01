@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A49E6F063
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6250FE6F066
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=b6UJYXV9+k4ACdSuwQwR+p+e80s+hiAJs+JIBhod+Tk=; b=nmEEAiHyPCxpyO
-	9GPbAhvmznVObAELvQ3oev2YyUBI/gg1I/Ov06kqX2iuBex1Hdwy0+5hpZaI62Auhj4+4rEnUdoDi
-	z3YtHaYqfysZwqhS6fp2F7A1o8hUr6wmPsWGNNf90elc8eB13Ts0pW7NirR4IEsCPK6BQD1G1k1m5
-	yAYsUjjHbtGP+Y5XCliPKMIa547Ygzv63wSctQ/h43S2qqouSUKZTgMNn/6+JGcpF1JcqJG4oQ+3B
-	lRRPMprGkMqyi4oMlkURTG10EU1udXv3+6MB6fwVERzacWWldFORP//skKkXMgaOgUbGUlYsw+1yj
-	a+CT0j+SgBvKfNk1VtRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gjnycSKe7PLm9xEIfiXtceGbvBfhF7/8n6iYzZypH+Y=; b=0Pu9YSprAqz41gRVfUZmpPXlN/
+	RRsb3utDvcUWxXFQ25zI4swnkbqr9u6hvqOg0JZxTwazQzhJEBEo99dsjt5Dq7YKhAlHUR+lKGZjb
+	a4RH/7HADMbrcOMCMHtNUo4/5Z7bUwhvqZnGaSFa6WYqPK+VG98sexMNyXYX/y9oe/tS8ftc3O+pe
+	4yhTAaPtIBMFTkwHau7eWR3PPwyYv9gA0v42ZmpzgVxvT7pk2wwbVt9RWh0GkRgKURBmFa6hIg2Cs
+	HsAdr99jRPw+jBhThswLRkJmeDj5PfgCGpRhvF0NMztBJVTwF7eeXNRCTitqL3+NbsoSvRAOPa2MO
+	pmFMZL8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6t9H-00000007QwH-2Sh5;
-	Fri, 01 Nov 2024 15:01:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t6tJ1-00000007Sdi-3YP4;
+	Fri, 01 Nov 2024 15:11:20 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s4Y-00000007Elp-2o1u;
-	Fri, 01 Nov 2024 13:52:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:References;
-	bh=b6UJYXV9+k4ACdSuwQwR+p+e80s+hiAJs+JIBhod+Tk=; b=pgKWv9Cf81vRcMg1GRniFUZQAk
-	pt1BlErw/VKWnm/wvXLGw98p57UF2lX1RHt5xInQMmwkIJjcaUiPFT91O0Do7V+MTlZm1r/ln+710
-	7ZkNpNV6VcOE7oM0DY6ne9jXyK0do85NIfcvv8bVsEvntahaxNJecwvMSdMLhV22ap2+1emPIW9Lg
-	DLebLEZ0Znq9DzDSBm+WX2stfzl5LNtq6JD3yXFsJHlJ/Wj8cm6qeKSqXUMoKQp7tI8pd+Jdj1Ea9
-	2XYsged/CUogs+nO1/nNMSdXP8x2QEq/NfsixmIJ/ZVvNKRWT/GrJTvu9c2X/YkRhIEasFGs99RnH
-	8+37H1TQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s4V-0000000AhD3-00X5;
-	Fri, 01 Nov 2024 13:52:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 45B865C6114;
-	Thu, 31 Oct 2024 17:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A22B9C4CED0;
-	Thu, 31 Oct 2024 17:04:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730394269;
-	bh=76iIYi9r6xA6vX/KYVnYOqiJXABJE4PH5Kls9Mk0HhA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=U9Jh5sKjWEqDOVKayvj3wQwuDJJY8KF5B2A8ixi/Ps8E1ZDGak7rpwREw0Hb+frDS
-	 9ErlaLmaNxrHr0/EEVzIcXx+jV/DePCv4pSxHHTKytCy15uxP7wX6XVwpxeqopCrUj
-	 ngkwfhz44fe+2al5EplKqBqC++32wAzrr+McXt0gYqKkuJv92uZQ4tC2wQGEhGagb+
-	 k8xASwiFxc4orbWOIuuOsS1wUwIziv7rSnBABK67Bm0GXmsnTSKCNJksCj708EctuW
-	 +oWIBZSgtuMB1lraiAXVnN1COw6Uu3+fTDf4LEgJ37/HI5v1BVelKl25dR7iF6yaF/
-	 vG940zFG7emDA==
-Date: Thu, 31 Oct 2024 12:04:28 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jinjian Song <jinjian.song@fibocom.com>
-Cc: ryazanov.s.a@gmail.com, chandrashekar.devegowda@intel.com,
-	chiranjeevi.rapolu@linux.intel.com, haijun.liu@mediatek.com,
-	m.chetan.kumar@linux.intel.com, ricardo.martinez@linux.intel.com,
-	loic.poulain@linaro.org, johannes@sipsolutions.net,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, angelogioacchino.delregno@collabora.com,
-	bhelgaas@google.com, corbet@lwn.net, danielwinkler@google.com,
-	korneld@google.com, linasvepstas@gmail.com,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com, netdev@vger.kernel.org
-Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
-Message-ID: <20241031170428.GA1249507@bhelgaas>
+	id 1t6tHK-00000007SLT-0jSC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Nov 2024 15:09:36 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-72041ff06a0so1792780b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 08:09:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730473772; x=1731078572; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gjnycSKe7PLm9xEIfiXtceGbvBfhF7/8n6iYzZypH+Y=;
+        b=S3B+TUNESzuIRmVjFhqv/PdhnGk6evb/CFSE4kiWQ3A4I1skCZx4jn0NN6Gn7usIoD
+         IQF0j8WZsfWqDu3jfqFi6kG2Am9gfp8oBHNMu3NByYXRGK4kGuhdxu88SWMTPWVWEgtX
+         OX21t2WAo6dkW560RCZX026TgDMqZSTxAGnxBU22KsH1pWgq0s5UUVkRQdLZtpsVjToL
+         PyirUhJdyqM4E7+GOib6JtrQTTCo3ajzQ20CxL540fssNZ8ZqgaIKRnPPIqoBLWieyz7
+         3JhsTyt60HA89j3OmUzMYLjhjUOtVyfTPuQWq+ywiM4Yeh2255McBzDlRT3Ht2EYceuP
+         llyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730473772; x=1731078572;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gjnycSKe7PLm9xEIfiXtceGbvBfhF7/8n6iYzZypH+Y=;
+        b=jxgNaxXxEyDUumg6x3JAdRtShvZtrJF41Auz0gtNCM0Sr1ltajVjZQS4ylzYhkiHQb
+         ceVSjHxpPEBB2N21lH9Kv1Svb9GmTjZowyKhxORWfWpvRDpFOSAe5d0zb7QC6utTCYFw
+         IgLutqYjbOXg1gLjFFDJc3AgQ5RZ2Azr0DyF8LPpa7iXQ8AJYRmwJwLai+sAjKhZFnGi
+         KzcTs0Paj5GuCwDTAvoIFaMaWJGsRxC2MR1mO2zEHxvLlhXpL3WD6p8W+pv87fHoJGy5
+         yGLFlh0LvM0ZzhMjh8K0nKBmwpUNht1FtJTG7DNLp7X77u82V+kAjUV5PeXpxXb5dV0v
+         xMpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWR3/7J6AtZ9dCjRX2a72x8Xkmwby2SIgr2SVyUugdQ5LSjWoVnN1khiq1lPCxoOfI0cQgsWnIQuppTfcrV07Re@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAORjiv02JcKDXuDNdmjsMBgOhJv6u5LJv6+0+MPzSHJ23H34O
+	kZeio7uKjVaeRSa+8nyqeW1nJylbqsvmWmo1uc6gDaeZOVVT9DXX
+X-Google-Smtp-Source: AGHT+IGj1ICWG+enL/mz+nRHk/RtiB2DmVTTu6rkphqnle4KBHonuvB3QqFfG5gzDuZ4/b49o0GKyg==
+X-Received: by 2002:a05:6a00:3c91:b0:720:75c2:7a92 with SMTP id d2e1a72fcca58-720c98d32b7mr5329009b3a.15.1730473772025;
+        Fri, 01 Nov 2024 08:09:32 -0700 (PDT)
+Received: from [192.168.0.122] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc2c38c7sm2745972b3a.125.2024.11.01.08.09.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Nov 2024 08:09:31 -0700 (PDT)
+Message-ID: <b0e81bfe-f7d3-475c-95af-7824d60deed9@gmail.com>
+Date: Fri, 1 Nov 2024 23:09:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241031130930.5583-1-jinjian.song@fibocom.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH asahi-soc/dt 04/10] arm64: dts: apple: t7000: Add PMGR
+ node
+To: Rob Herring <robh@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20241029010526.42052-1-towinchenmi@gmail.com>
+ <20241029010526.42052-5-towinchenmi@gmail.com>
+ <CAL_JsqLv2DJOsL=3bxf229ZdArL1TqArw+9cLtmjYMkm5yfZ7Q@mail.gmail.com>
+Content-Language: en-MW
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <CAL_JsqLv2DJOsL=3bxf229ZdArL1TqArw+9cLtmjYMkm5yfZ7Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_135215_487509_8082812D 
-X-CRM114-Status: GOOD (  43.76  )
+X-CRM114-CacheID: sfid-20241101_080934_240743_6A9B182F 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +101,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024 at 09:09:30PM +0800, Jinjian Song wrote:
-> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-> > On 29.10.2024 05:46, Jinjian Song wrote:
-> > > From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-> > > > On 22.10.2024 11:43, Jinjian Song wrote:
-> > > > > If driver fails to set the device to suspend, it means that the
-> > > > > device is abnormal. In this case, reset the device to recover
-> > > > > when PCIe device is offline.
-> > > > 
-> > > > Is it a reproducible or a speculative issue? Does the fix
-> > > > recover modem from a problematic state?
-> > > > 
-> > > > Anyway we need someone more familiar with this hardware (Intel
-> > > > or MediaTek engineer) to Ack the change to make sure we are not
-> > > > going to put a system in a more complicated state.
-> > > 
-> > > This is a very difficult issue to replicate onece occured and fixed.
-> > > 
-> > > The issue occured when driver and device lost the connection. I have
-> > > encountered this problem twice so far:
-> > > 1. During suspend/resume stress test, there was a probabilistic D3L2
-> > > time sequence issue with the BIOS, result in PCIe link down, driver
-> > > read and write the register of device invalid, so suspend failed.
-> > > This issue was eventually fixed in the BIOS and I was able to restore
-> > > it through the reset module after reproducing the problem.
-> > > 
-> > > 2. During idle test, the modem probabilistic hang up, result in PCIe
-> > > link down, driver read and write the register of device invalid, so
-> > > suspend failed. This issue was eventually fiex in device modem firmware
-> > > by adjust a certain power supply voltage, and reset modem as a workround
-> > > to restore when the MBIM port command timeout in userspace applycations.
-> > > 
-> > > Hardware reset modem to recover was discussed with MTK, and they said
-> > > that if we don't want to keep the on-site problem location in case of
-> > > suspend failure, we can use the recover solution.
-> > > Both the ocurred issues result in the PCIe link issue, driver can't
-> > > read and writer the register of WWAN device, so I want to add this
-> > > path
-> > > to restore, hardware reset modem can recover modem, but using the
-> > > pci_channle_offline() as the judgment is my inference.
-> > 
-> > Thank you for the clarification. Let me summarize what I've understood
-> > from the explanation:
-> > a) there were hardware (firmware) issues,
-> > b) issues already were solved,
-> > c) issues were not directly related to the device suspension procedure,
-> > d) you want to implement a backup plan to make the modem support robust.
-> > 
-> > If got it right, then I would like to recommend to implement a generic
-> > error handling solution for the PCIe interface. You can check this
-> > document: Documentation/PCI/pci-error-recovery.rst
+
+
+On 1/11/2024 21:04, Rob Herring wrote:
+> On Mon, Oct 28, 2024 at 8:06 PM Nick Chan <towinchenmi@gmail.com> wrote:
+>>
+>> This adds the PMGR node and all known power state subnodes. Since there
+>> are a large number of them, let's put them in a separate file to include.
+>>
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> ---
+>>  arch/arm64/boot/dts/apple/t7000-6.dtsi        |   4 +
+>>  arch/arm64/boot/dts/apple/t7000-handheld.dtsi |   4 +
+>>  arch/arm64/boot/dts/apple/t7000-j42d.dts      |   1 +
+>>  arch/arm64/boot/dts/apple/t7000-mini4.dtsi    |   4 +
+>>  arch/arm64/boot/dts/apple/t7000-n102.dts      |   4 +
+>>  arch/arm64/boot/dts/apple/t7000-pmgr.dtsi     | 641 ++++++++++++++++++
+>>  arch/arm64/boot/dts/apple/t7000.dtsi          |  14 +
+>>  7 files changed, 672 insertions(+)
+>>  create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
+>>
+>> diff --git a/arch/arm64/boot/dts/apple/t7000-6.dtsi b/arch/arm64/boot/dts/apple/t7000-6.dtsi
+>> index f60ea4a4a387..77d74d6af1c4 100644
+>> --- a/arch/arm64/boot/dts/apple/t7000-6.dtsi
+>> +++ b/arch/arm64/boot/dts/apple/t7000-6.dtsi
+>> @@ -48,3 +48,7 @@ switch-mute {
+>>                 };
+>>         };
+>>  };
+>> +
+>> +&framebuffer0 {
+>> +       power-domains = <&ps_disp0 &ps_mipi_dsi>;
+>> +};
+>> diff --git a/arch/arm64/boot/dts/apple/t7000-handheld.dtsi b/arch/arm64/boot/dts/apple/t7000-handheld.dtsi
+>> index 8984c9ec6cc8..566346be5b53 100644
+>> --- a/arch/arm64/boot/dts/apple/t7000-handheld.dtsi
+>> +++ b/arch/arm64/boot/dts/apple/t7000-handheld.dtsi
+>> @@ -10,6 +10,10 @@
+>>   */
+>>
+>>  / {
+>> +       aliases {
+>> +               framebuffer0 = &framebuffer0;
 > 
-> Yes, got it right.
-> I want to identify the scenario and then recover by reset device,
-> otherwise suspend failure will aways prevent the system from suspending
-> if it occurs.
+> Looks like an unrelated change. Also, not a standard alias name. So please drop.
+Alright, (for other SoCs as well) the next version will not have any
+"framebuffer0"
+aliases additions.
 
-If a PCIe link goes down here's my understanding of what happens:
+> 
+> Rob
 
-  - Writes to the device are silently dropped.
-
-  - Reads from the device return ~0 (PCI_POSSIBLE_ERROR()).
-
-  - If the device is in a slot and pciehp is enabled, a Data Link
-    Layer State Changed interrupt will cause pciehp_unconfigure_device()
-    to detach the driver and remove the pci_dev.
-
-  - If AER is enabled, a failed access to the device will cause an AER
-    interrupt.  If the driver has registered pci_error_handlers, the
-    driver callbacks will be called, and based on what the driver
-    returns, the PCI core may reset the device.
-
-The pciehp and AER interrupts are *asynchronous* to link down events
-and to any driver access to the device, so they may be delayed an
-arbitrary amount of time.
-
-Both interrupt paths may lead to the device being marked as "offline".
-Obviously this is asynchronous with respect to the driver.
-
-> > > > > +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
-> > > > > @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct
-> > > > > pci_dev *pdev)
-> > > > >       iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) +
-> > > > > ENABLE_ASPM_LOWPWR);
-> > > > >       atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
-> > > > >       t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
-> > > > > +    if (pci_channel_offline(pdev)) {
-> > > > > +        dev_err(&pdev->dev, "Device offline, reset to recover\n");
-> > > > > +        t7xx_reset_device(t7xx_dev, PLDR);
-> > > > > +    }
-
-This looks like an unreliable way to detect issues.  It only works if
-AER is enabled, and the device is only marked "offline" some arbitrary
-length of time *after* a driver access to the device has failed.
-
-You can't reliably detect errors on writes to the device.
-
-You can only reliably detect errors on reads from the device by
-looking for PCI_POSSIBLE_ERROR().  Obviously ~0 might be a valid value
-to read from some registers, so you need device-specific knowledge to
-know whether ~0 is valid or indicates an error.
-
-If AER or DPC are enabled, the driver can be *notified* about read
-errors and some write errors via pci_error_handlers, but the
-notification is long after the error.
-
-Bjorn
+Nick Chan
 
