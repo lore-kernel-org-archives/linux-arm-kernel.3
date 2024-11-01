@@ -4,94 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2C4E6B278
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3628DE6B278
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=; b=PA9WxvatbTOLtwMzcz657+rUNY
-	R05z13KHx3jearcdtuvDYGVELQi8YxCBjDnKXT2G6J61lGWJmrNDTQMVZxSmBEFJANuRQeggU7PoH
-	L+WfKLuhpZKH8tp91+s9dPTqXVJTNW6LBmy/LyrPpIGeEEUJtxlFPBMwsAESBwebb2hLvdcjUZ4z/
-	a7pIdmJaYnMMb+HxQ7EL5xxvmNKr1XlLPyxPOz4SWggkG2x+r0fI+LNXhelkjKoUQ6xh59QA2trJM
-	XiHjjdPOfWCZMOb/cvE3dkwXB/39Ho2ULX+lEOiG1w1zej8znzZehY5TAxDRGLpxcu6GJoTSoW9UE
-	UABWGdMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sbJldVtD0UTzSyeSORjqKJs5VMu/WuEyrg6iefWHtGA=; b=01Ka58161rJprluLx+jzTgcipl
+	sUXYixRpwKkNObG933giktv1qrv1J3AsmKI8R3gDuU3tb1q2Ebh9rHZfcnFq6YSkmx2FCckIz1QCR
+	706UtEhlofAG6U13AqkrovZ8qOiYu5241vH7+BNasUPjTmznyphlcEROD+N7c+r8kdQLZrA1rLBkv
+	R6m8Y8ZykpFCfDMxJIERH/tG8ND7vSHNyoo3nD/39R1VEIsFkzkfFBmEG3phAnH3mBhivCfmuOin/
+	CM6TiKxQ3LfxrgDaGhwUjRnhu4iNN+6cbTVKVIS7w8FzE4lX9eqtu23r+doLEsKvmc8FDnLE06RPL
+	F+jSFCyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s0r-00000007DuV-23gr;
-	Fri, 01 Nov 2024 13:48:29 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1t6s2Y-00000007EO8-07QJ;
+	Fri, 01 Nov 2024 13:50:14 +0000
+Received: from mail-mw2nam12on2062f.outbound.protection.outlook.com ([2a01:111:f403:200a::62f] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rlX-00000007BVR-0wTU
+	id 1t6rsr-00000007Cgy-2s6C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 13:32:40 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20c693b68f5so21435535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 06:32:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730467958; x=1731072758; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=;
-        b=Fhh0Bm4Hv+SXFMwIvLAD1EdpXwfZczXZ1M0i/Xrj/OdjT49KGch+kDS2WhpsD6nVKw
-         jw00ufCp91TH8KnqRYWRs2jJDp+qk0K7hWTJvHWpAxaOd0s/mFhTUJh7aYrjngz+ESzL
-         yt1EZDf0yDzA6E34uPJD+7WFnlEeMd4SlpiExirh0rJfmBxeZKN9qTJaj/Ws0wI9aMNg
-         eQ7oouWA8LP/YbdUzPnOCwiWBCvg9x/H1bVnSdvBWQJwuv/gwIOgh5ifaQWxsJJfT9ut
-         IHf56pUZoRvbr4aa+BSPNLXuRmASd1uYJRB1qHMPTsFdNJ0uQvcCe8a9DGjJhWtBqY03
-         MZ5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730467958; x=1731072758;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XZgSPrHkP+5PHa4TM3CPdf/GMcXQ4aZTX0bTblaWKZw=;
-        b=gvAYKJpu+MlzevkeqkfB7wYx/Q8/UKCtnfyf4EI4oMnJdMADJR44zLuBY4iapV7fz3
-         lyw7mGJep2e8eCIkUEjHgOHhp70Vd1Ut/pa3wlr93ZRIjWjF87ATckdn8XDmKWES2XsZ
-         zLDCZSnxemJZ1ShFCoa43MIV7ewWFnV3noXDTJ6fLmVG9cTROtRKmFA/qvtpOKV79Dgn
-         F0Kw+8bHVW+jRPN3n9Q0q2eO7acsYAfpJSuA0LO/j15mgoIRwxHxShKmXrswa8PvtiKP
-         wIWVcnGoPKVwfNtsG1MOo8E82mYCrWlnVxIV7Fb/vpPKtFu72Widf+P22AuVjxsSGhID
-         sfUw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHL4xOq2BD8sHPaa2S9vfWjE2vLDi/uH2dbd3q9GcRuOMgvhM5r9fHWkvqPlQU/M6Zdri8BqjpSB7zN7Im0BDQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH/UyCIsQ4/ol24wl3FwQn0+evHfbDx3GQ5P747c5kV8Nzn58C
-	CjDQLR/7nMjTP55e9su0UovLD9LQohHLM+0UEM19P/+b9FVuhcHb
-X-Google-Smtp-Source: AGHT+IHTARvDrrbplxN/Ao00eWN31nXbIywcdD4rM9k0ODO/JUtkFyG0XgpgcHwQj45NcT/QvLH8bw==
-X-Received: by 2002:a17:90b:38ca:b0:2e2:cf5c:8ee8 with SMTP id 98e67ed59e1d1-2e93c186141mr8591363a91.12.1730467958001;
-        Fri, 01 Nov 2024 06:32:38 -0700 (PDT)
-Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-7ee452ac4ffsm2425552a12.25.2024.11.01.06.32.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Nov 2024 06:32:37 -0700 (PDT)
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Fri, 01 Nov 2024 13:40:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JCk04U1dN/AMsIn0sYHHgpiScHb7rdayPuPA6qo1wC/likW9uObFXsqpaffqS8Dlinn/K2sRHo/ol8FRgXLm+HDdfsEjlVLR9CSIF06wa60eMH2chGXPTJcU+Q/w+wYkPYEC31rWHHdyBUkjxvmdVLs25bbDmtweuWES2seWOloTxtPgvow03OzeIZ3FRspiC0wgMhLEv1KW3uuN5JuH13TrXn91y8EseU+zOblLGKMng2JgepR/F5l82ooKvMb/VK+J2bGJXlyfIAx6oiJH5UlOjRzHNHXUbybyz3kIddRwpSjvjw+X7gflZee5WkqOCIRVGWJdiLEFhn1Hc2w8ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sbJldVtD0UTzSyeSORjqKJs5VMu/WuEyrg6iefWHtGA=;
+ b=D0bPlioV+BWJWN0ysFJAvrZeuuh23/l8blTRbyFm9c7c7WhzMsHSe5ahNkPNympGSoj4a0xwyuFAzVq+wDjRKQgpvzacznkBA5mC+3vzoW9tp0N6qDBOlhY0g+/XlCFVmOBVE68v4cmIRhG/G3M4E3maHU+5LhRtYu25pdnStz/25neDMDQhjW0NKuF2OM9b0JnLspHfJLMfUPzOafbwNE/BQpJ/j8xpffZ4//UxRjgoTTPLnWxh3o1Ou36OmZ+fD/zRXVEG/2dFEmp3UvC3Vk7OwAUCZIuzuz2n5u9SYZSS7r34F8+XHD9XseEccGiTzhharLK3fEJ5Ga4Z97/HMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sbJldVtD0UTzSyeSORjqKJs5VMu/WuEyrg6iefWHtGA=;
+ b=JbBiIhfyAgrKLb5/0WFgmPzRF/beRlJUXM43/HFe6wWWBdMarQatAXeOmywPClwuRdvqJvubJKyuZfx5dy/M2YG4yQsgkd/hqKcMi9n1bhRMBh+yrO17E+icc6Ijuf6JH6/jaNejSXDywZF3vmeQ7/Fwt22Ibli5JxH+iyvq83EAiWc8sfV4Zrd2Y9vFbP6moUhGXrJTAF3eWnLd5L8Yt99Qmdr/Ofhd5gaDu2WEfJvhaaOnvBEEL2xA9K3dBcOS3YoDR0ZeS1qgw7TYgIev57DzS/WuAI8/sHl44GGHXWP6bfv3+tq7DDQFybM6upgG0TSFERnrpf8xOes64iiAdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SA1PR12MB8966.namprd12.prod.outlook.com (2603:10b6:806:385::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.34; Fri, 1 Nov
+ 2024 13:40:07 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Fri, 1 Nov 2024
+ 13:40:06 +0000
+Date: Fri, 1 Nov 2024 10:40:05 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v8 8/8] net: stmmac: xgmac: Enable FPE for tc-mqprio/tc-taprio
-Date: Fri,  1 Nov 2024 21:31:35 +0800
-Message-Id: <0575ef1553d572b7c8bc1baafa3fb7ac641073e0.1730449003.git.0x1207@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1730449003.git.0x1207@gmail.com>
-References: <cover.1730449003.git.0x1207@gmail.com>
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
+	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Remove split on unmap behavior
+Message-ID: <20241101134005.GA109739@nvidia.com>
+References: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0328.namprd13.prod.outlook.com
+ (2603:10b6:208:2c1::33) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB8966:EE_
+X-MS-Office365-Filtering-Correlation-Id: ddd6f1c8-1e8e-47f7-57bb-08dcfa7ab272
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0m4XCnAEM/N+uOP8lHPjlwMHEMTqiRKZrAnv/4zOlKgqL+aMqevcfO0/i5Fi?=
+ =?us-ascii?Q?uEer524X4mr3kHOKy5ZnJWaXE4jQDRA0hmYwPPJ56JTdiL1vwgCLrkjXZ0bT?=
+ =?us-ascii?Q?QW41Qu5KCMfUgHYtRVB3nQOKKX51Kfj82RJXUI4Dl6RuBfUePX2XBjsoSLoP?=
+ =?us-ascii?Q?n9HowyQih7Q+l6TecFM27z7ddKndEeVDxe4xsYQTM8GcLHlMQUOx9u2ldFMd?=
+ =?us-ascii?Q?w9WKrEiFbKCjVOJCSRlwHpD4X1Pky7xTn8FNpW+OGjYTBbrD17Ow7+q2YvS7?=
+ =?us-ascii?Q?ocwHOOrS490y9awueEaibI+uuswbKVBbdMtokoiBlps7+A/TpMk92mZ0cfE8?=
+ =?us-ascii?Q?T35FLCl70s7RjUEHYvkAzDajEUuYUqvzOlHhC120r/JAuzogzUur0elgV4sr?=
+ =?us-ascii?Q?DPj+LPUXhFyAp3jBPBeMbzHhrHpqu//Amh3ZZ5HZ7hT9a/y3hXg3sCB+QnhX?=
+ =?us-ascii?Q?5DNPryDQMSOfdidzjSP4JTeO7xHgHpVowh0fRkVS5vHWyZQ2YERhxAhfUawx?=
+ =?us-ascii?Q?a8P+OT44WnfCP8bq72Q/VBsiQqylW8PAuyIeY3xOlxnZnZLnFpU0EGCxz4kx?=
+ =?us-ascii?Q?cIADYAfhTfq+M5NLYcDHxPIaqLrLRaKaKSFIvm5VWYEWUPXhtYPi4VOdtUJE?=
+ =?us-ascii?Q?44oh6+q9ZI3TxFJnrZKT0vbKQ3iRzawEFtdRC6Fw63Uo1MYNl9UFek+Xz7lU?=
+ =?us-ascii?Q?VWNLljAAXOirkw4HVIsAmVqC8hnC8IleMtZzVY/L8F3MZ3ja8HUlwmkANssk?=
+ =?us-ascii?Q?elR34BAi4sPwP7gXpLiqJvb3oxDi+HwsCVFAO0oQtzOpTKqa8K1jVNoyx/QV?=
+ =?us-ascii?Q?F4jXU8ZHg7m1dxzHRZ7iKz5uDNzygwb4RLsvR9c902KXuyto4TIKl798YuR2?=
+ =?us-ascii?Q?SLkHfKYc7KdJG5e3IeAGbNhE4+pYtDrbZMw7AsEE4RnpnNtZJZK7XkBV+Uhw?=
+ =?us-ascii?Q?Po26OQBoFSiH2izj14vPFi1SCJUVBXSkffynbKHwJAXnF0PknBzCyzlFc7w8?=
+ =?us-ascii?Q?Yvb9zqOOmLou8QC3F1Qs60GKcoBvoOHbJTAD5q5dFKgmLHTHshgyAQO1+cw6?=
+ =?us-ascii?Q?oz97eNSDiL0DPuOSq+CFDFKvzCUnNvKHBkcf8M6/Wu1Zc1naQB/ITSCR3OC9?=
+ =?us-ascii?Q?8X4EVWdHG7F8QlPpY/C7QJaIQYv32xaMcBtEhi3Z91IGhnv4t+DNFDPpZFxs?=
+ =?us-ascii?Q?zaYGxgcWqajzfBVjqFyBn2qsOo5LNYIgvZxGoukMwAjqS7ZXYXuOlxXB/y0j?=
+ =?us-ascii?Q?P1mDOLiKLSk6gqGa2lFTra+hWr2uPvw8EI1FCJL+izPyB34vBLU6uXRLhEcp?=
+ =?us-ascii?Q?5vbMPqHkB5b3HGPKKke6ARXS?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B9/DZtcTEDxRabtA683QF/PiXPSSyxIyMRGtwNCPHGT/ds65s5Cmw7xFHbd9?=
+ =?us-ascii?Q?n5v+MDlOZXWxgU7rYOFtr3IXo0VhnwbKdNVt/pdOMTggSSWqDIgLV7m2wl5o?=
+ =?us-ascii?Q?V+IryL51/0PTYOM5gu5u3BZBwRwa/1EcUYnzUl60L6EGn32MuV8KqvnjRduF?=
+ =?us-ascii?Q?hPQ0a3GPKUj6NxdFZ7xdKLd8JXLU2iSml9ZFoWhwFoeqZ1kkfkzQBITGqwwR?=
+ =?us-ascii?Q?bbzTy4L7ixTNrvf4+yvQuG9KBTuEODijQsS36xbEnXQA2Kc9Qj7I/Qx9rSKo?=
+ =?us-ascii?Q?MtuQv/+hzRheMy9+9tbQfA4T1hRrA8IyEBtVgG+JcasxK5dIySAt2IvIYHU0?=
+ =?us-ascii?Q?eLiSl7Rq9lh0C8sj/ikAorfGKUcsnhK99z7srJD058thv13PKIArgwMSS0ms?=
+ =?us-ascii?Q?n7iMw/8q+8i4NL+pGwNDkNaKu08Ts9zw+Nb05GRSWsoD66n/BcI41XNwrB/z?=
+ =?us-ascii?Q?hiImd15wRl9dt61ZxB237hXNykQV5ohldqGfTtyEv7sF7ZvNxm7cZK/zl19a?=
+ =?us-ascii?Q?zbGsOb+tWkSsl4pwYbMn5vqkGM/N2XX6KZ3XVUEbhbBUsMHVvxSYQiTNVAdG?=
+ =?us-ascii?Q?n/9hibkdzDmZc5J6zajz/oIscft0rvsZ7e/mmZW8DhE0TJm0wfM4tnvezQpD?=
+ =?us-ascii?Q?RYL98QxfoGClbjltKsjzF1pph50G/0nIaM0iHUg87Wvm1WaFwE8A6kW5o1tU?=
+ =?us-ascii?Q?xDr2py9aWtD09DrOyHC8WrCUeumJXiOo9FAmFgBbq+9MLRhi0STmkTxLvEHX?=
+ =?us-ascii?Q?3VymoXEryfrcmEIN6gfwL59tu88IPDHpttXDoGGkUPH3Sgtb1MtG3pzeapoQ?=
+ =?us-ascii?Q?Zin1eVnfjsv3O/xZt6Dto5YFHxvq0qBdP6NObZE4hC0nWnP0h4iUJGhyFt6E?=
+ =?us-ascii?Q?OLABRCir48HpJLUgXG7/VKEqp1ol/mzXsahkoqmU+fPCrTRHoYQQDzBbef2b?=
+ =?us-ascii?Q?+GgmHLtEXpfUSytvRoIrc0vmwpkRUGmwqpLGoRTDUGzxOGJBBqf+Cos9k19l?=
+ =?us-ascii?Q?iR2xNXkMzTwQo2p+qqFxB85mpf2nIg36XK4vb6+jrP9JUcHes4zcE3ISqt54?=
+ =?us-ascii?Q?8wjF6qDv8addgcY6REbHdHWdvcQpdHVCo5Z1DCtPuKxLdtB/fk26Fkll7vWc?=
+ =?us-ascii?Q?VHvkB+NTTMuGo9ELVucqpeu3fXCG7yBJZ3ZvuMY+/G1cd3Rpc7WYhvg7xiDA?=
+ =?us-ascii?Q?I1yimU+BN/W44tCAr64eer2hu5HZYN65cNKybsg9g2K89LoLtebmcYTeg09P?=
+ =?us-ascii?Q?2WMKfh0R9yCtr4i+1D3VtA5EMnSC933FqCefl94nCrUmytzajD51797qzRq8?=
+ =?us-ascii?Q?J8OvJJEsSyyVxHhtg+RZS5+CXBFsQ+1cH79uQaJu6lnM0aA9nIXesS84PR3g?=
+ =?us-ascii?Q?9a1N9HNSMFRth8d/Jw+LBzcLVs2kcEVwZaCnMuTxdj4zeZtfUMvCa8Y5wBMP?=
+ =?us-ascii?Q?Fj1tz0wS062sxt+d6yvqIEkp5Vowv7/Dr0xF3fevMmKVB5jtTqSSLS0rSgeh?=
+ =?us-ascii?Q?vowN9IJlWIBEBBqdN1+OmurdrZuNlUBSc+XK+h6sZsntOkHedcd3zhPtIYWk?=
+ =?us-ascii?Q?Mlj9K3Q28hXbrAHnnrI7/7FTMyRtYuLgeSwemgqJ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ddd6f1c8-1e8e-47f7-57bb-08dcfa7ab272
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 13:40:06.8271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FBg4gAtWIwdV0rWRJ8aqJ9V/OztHRpBjVvrlIt0LbD/RS3sMw69WYnEQmaP6LoEx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8966
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_063239_311190_EAE67FCF 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20241101_064013_792611_4382EB4E 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +157,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FPE on XGMAC is ready, it is time to update dwxgmac_tc_ops to
-let user configure FPE via tc-mqprio/tc-taprio.
+On Fri, Oct 18, 2024 at 02:19:26PM -0300, Jason Gunthorpe wrote:
+> Of the page table implementations (AMD v1/2, VT-D SS, ARM32, DART)
+> arm_lpae is unique in how it handles partial unmap of large IOPTEs.
+> 
+> All other drivers will unmap the large IOPTE and return it's length.  For
+> example if a 2M IOPTE is present and the first 4K is requested to be
+> unmapped then unmap will remove the whole 2M and report 2M as the result.
+> 
+> arm_lpae instead replaces the IOPTE with a table of smaller IOPTEs, unmaps
+> the 4K and returns 4k. This is actually an illegal/non-hitless operation
+> on at least SMMUv3 because of the BBM level 0 rules.
+> 
+> Long ago VFIO could trigger a path like this, today I know of no user of
+> this functionality.
+> 
+> Given it doesn't work fully correctly on SMMUv3 and would create
+> portability problems if any user depends on it, remove the unique support
+> in arm_lpae and align with the expected iommu interface.
+> 
+> Outside the iommu users, this will potentially effect io_pgtable users of
+> ARM_32_LPAE_S1, ARM_32_LPAE_S2, ARM_64_LPAE_S1, ARM_64_LPAE_S2, and
+> ARM_MALI_LPAE formats.
+> 
+> Cc: Boris Brezillon <boris.brezillon@collabora.com>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 72 +++-------------------------------
+>  1 file changed, 6 insertions(+), 66 deletions(-)
 
-Signed-off-by: Furong Xu <0x1207@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Updated commit message - Will let me know if you want me to resend
+with this, or any changes:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 75ad2da1a37f..6a79e6a111ed 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -1290,8 +1290,8 @@ const struct stmmac_tc_ops dwxgmac_tc_ops = {
- 	.setup_cls_u32 = tc_setup_cls_u32,
- 	.setup_cbs = tc_setup_cbs,
- 	.setup_cls = tc_setup_cls,
--	.setup_taprio = tc_setup_taprio_without_fpe,
-+	.setup_taprio = tc_setup_taprio,
- 	.setup_etf = tc_setup_etf,
- 	.query_caps = tc_query_caps,
--	.setup_mqprio = tc_setup_mqprio_unimplemented,
-+	.setup_mqprio = tc_setup_dwmac510_mqprio,
- };
--- 
-2.34.1
+iommu/io-pgtable-arm: Remove split on unmap behavior
 
+A minority of page table implementations (arm_lpae, armv7) are unique in
+how they handle partial unmap of large IOPTEs.
+
+Other implementations will unmap the large IOPTE and return it's
+length. For example if a 2M IOPTE is present and the first 4K is requested
+to be unmapped then unmap will remove the whole 2M and report 2M as the
+result.
+
+arm_lpae instead replaces the IOPTE with a table of smaller IOPTEs, unmaps
+the 4K and returns 4k. This is actually an illegal/non-hitless operation
+on at least SMMUv3 because of the BBM level 0 rules.
+
+Will says this was done to support VFIO, but upon deeper analysis this was
+never strictly necessary:
+
+ https://lore.kernel.org/all/20241024134411.GA6956@nvidia.com/
+
+In summary, historical VFIO supported the AMD behavior of unmapping the
+whole large IOPTE and returning the size, even if asked to unmap a
+portion. The driver would see this as a request to split a large IOPTE.
+Modern VFIO always unmaps entire large IOPTEs (except on AMD) and drivers
+don't see an IOPTE split.
+
+Given it doesn't work fully correctly on SMMUv3 and relying on ARM unique
+behavior would create portability problems across IOMMU drivers, retire
+this functionality.
+
+Outside the iommu users, this will potentially effect io_pgtable users of
+ARM_32_LPAE_S1, ARM_32_LPAE_S2, ARM_64_LPAE_S1, ARM_64_LPAE_S2, and
+ARM_MALI_LPAE formats.
 
