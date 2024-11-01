@@ -4,128 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946BAE674BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B198E674BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J39ztJJPp5Nd4R5VpwzQyK2Ms6KeAXzG+PM4hDlqzSM=; b=JmDaC3Gwc/z5zs5Qwvt7hNkHVk
-	GDjYJ5u7m1qhqSzazOaVf9urE8sP4uVnFQRffdAkYTyNu2dZtjF3BKXrv+lDOrZpC/vOacCQ8XVr4
-	eu2MsxZneUTCN8sUaZ5Y3E34NNyp5lUvDeFZRTO9+sPojoyDUUkUvpqHTtMz07gFjyLUFZIa/4IeT
-	j/Xc83BIh+S0gC3e0d8mBBgxefhEliMRsYONpbgzZUCe6M9+OMiGnDYjysT50BebmHHJUrhI2u5GL
-	M78eGpvA2RiBQiuiwevpQ5stKdrzOji6Jp3wOG4N21gzVsyzOmtykA+1HVook4eoJHCQ9+bQNp73u
-	myZY55QQ==;
+	bh=qD0wX5O/+PZzOlzLxmLKEIZ22luwS3SNzXL4a7DEAzI=; b=STMIuUR75vrtSuW/DvLhe6MBhG
+	kAG/wzfOhcM3LB/xG5NPh3yEVGwh9kApjiCKxZJ1H8ECauM3blKfIOUgVJ1zwNqrcx8IGpMTDL7z8
+	l8pUhCdOr5LRFmtZx9UnqJ8LKTRKMZP1cDm6v3npN6kLMcqW1Tp04VYsLAKC5D2XFO99Five30roa
+	QdtoPJkZ5G3EiurfZG254eH2DL92z0hYm0OC0d8wBT7s39NfA2WPbl1Oh9pGAS6M9OU8zdrRsATsE
+	YVux33515+C7tW7AMRpRALq9b58+9Xghj84On2Nll/cPNGrJbknzRDHpS7kJxAcTc3W4YzljMW1JD
+	Mz227xgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6n6g-00000006HsK-1upC;
-	Fri, 01 Nov 2024 08:34:10 +0000
-Received: from mail-sh0chn02on20722.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::722] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1t6n8L-00000006I7b-0dg3;
+	Fri, 01 Nov 2024 08:35:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6mx8-00000006G0Y-1A6W
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 08:24:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=M8StXhXjIedfA0YX0g+E6Y3VeVoopE/9+4cB1f4CuYTJehnEN6MAHrgea0I8zATgJsvuKIjxMAAiH7VJPVxsPeGlWvM1VFYI3pifLIRXh3F/nWFYaeyavBghkEXRoI4gVgVxtj48WOfguapuKagD27Nv7iLKTgENNTyf0YxrNytcOlmZYQAmRgzjAjWTDhBCY7YosojeSp458yk45Gc8vY4iC6JlFJRxcVmKviGdZ/AvSGeqAicC+4vlIoB24Zpr0RmfJqqhea4Qi/8oU60zCBGDQWSkNlim+vCJli48/sQCw1EumvcbUwnzYNosRroOrE4tIEAmRMXo3Dbnds2FMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J39ztJJPp5Nd4R5VpwzQyK2Ms6KeAXzG+PM4hDlqzSM=;
- b=KbX1N20QWUZi7wrK2CPrNV0p8Qhs6d/y+rIbaiR8/hH3ChGwTN34WDVPksngHm3x2Th8lUYeb07/Qwrm057y88YoxKtpc8Y7bWS2PPBNqllAhOcuCGMQLzWPsi9s/l5axsycbi0pmy0Fql4sjRdXSCdAx3t1xyLnJgEzDbdkvMJaB/RB/+Tdf4B9ArHRn86WEEZTZ/2o0BZ6mRWCNj5UqfTRlBaqYN6qVuYgMt6qVVOL4qYOImPhZ+esYwuJ9rviyfmaIso+4WY2oVs45ep/l/IIN2g19GrV/g10DVyF5QGwDN8jjuSFZ5iHuIOlfADvPOhDifDysEueLt2jcK73Bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::12) by ZQZPR01MB1107.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8069.27; Fri, 1 Nov
- 2024 08:24:08 +0000
-Received: from ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- ([fe80::617c:34a2:c5bf:8095]) by
- ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn ([fe80::617c:34a2:c5bf:8095%4])
- with mapi id 15.20.8069.016; Fri, 1 Nov 2024 08:24:08 +0000
-From: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lftan.linux@gmail.com,
-	leyfoon.tan@starfivetech.com
-Subject: [net-next v2 3/3] net: stmmac: dwmac4: Receive Watchdog Timeout is not in abnormal interrupt summary
-Date: Fri,  1 Nov 2024 16:23:36 +0800
-Message-ID: <20241101082336.1552084-4-leyfoon.tan@starfivetech.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20241101082336.1552084-1-leyfoon.tan@starfivetech.com>
-References: <20241101082336.1552084-1-leyfoon.tan@starfivetech.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: ZQ0PR01CA0015.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:5::9) To ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:f::12)
+	id 1t6n05-00000006Gbw-46cv;
+	Fri, 01 Nov 2024 08:27:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6A547A40EBF;
+	Fri,  1 Nov 2024 08:25:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 994DDC4CED5;
+	Fri,  1 Nov 2024 08:27:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730449640;
+	bh=dGSJKKibBdsxpLP+p+OmdmQOfOzLfl3woFtR4N/TQBE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=IKEN5X5pG3QE2X/Wr4RMzypsRq+bt7lLisG/x5dEu/kCrjEfN9Ltz77NPK1f51Zjs
+	 wXKJpr4b9CJValsKe5RhtAmSXx9sC6+yMIN3xL8Yd/o+K7P5hdexvHp/7GxxnwppLr
+	 Y3l+t+qcSTmCOUhcY+kzcN7nuKNaBoOeSUYUov+woAdTvDFEGVl9QF96J1vRY9hqXW
+	 HDHVVhUEiF+ZVoxuaLGH/rX5NvRELgqSICxSfnx7bCI5e4++rILoZeNCs6OlmT2a+S
+	 TUAhRob78wH0QG+bbJi9x68YQXcVcdsw+po68fMYzLpLu6FW0WxHMC/VtXiyVhZpCp
+	 e82l+bqpnG9Fg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CAFCE674B7;
+	Fri,  1 Nov 2024 08:27:20 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Fri, 01 Nov 2024 16:27:17 +0800
+Subject: [PATCH RFC v4 1/4] dt-bindings: pinctrl: Add support for Amlogic
+ A4 SoCs
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQZPR01MB0979:EE_|ZQZPR01MB1107:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e61733a-76a1-4322-75b4-08dcfa4e8e5d
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|41320700013|38350700014;
-X-Microsoft-Antispam-Message-Info: /Xh5VepZfBhi5lvrZ2i7QqXO9Gap7MtUfsl/jCoeT4xTp3RizaIJL5bln56zMBOGqppx/UEOufi3YuRXpixON9VvpjQEc00dpNCTfi8Qsxupd/7iTr+mFC+4ZXXV/RVG81gIIBzzeM+oubgzvNC1Fy8AQkxvMujQubFlTj0Z0EvBNHp4j9U4NqrMjHfz3gI2PIXaEGCO9SUpXLFMDJD1iuZhRgugr51k+PVJW4PVRuRyibPSsIqEvQ+JZfExqryYUUbOGojLj6QzZL74vgIATT78i0KPCFPWKXilfSPuAF7aeGbWveFmywbVsQ3DZePBAFjPJtVKZZtopdJXge7bpfAo5BqDuPAsV2Iaux7QBfoSh08J5F5kewH3Jfb9BsFa6OU8MqjN7uIksbbQhx4AIPN0YpS4qCJtziIsFWHq0S29Ha9qgkGk/tRDxLx4m6lZV04wKouj7sqJI371HGEmNPsd9hNjUEkFdG4U58lTYc+D6PXZk88svJK78dvD1TM9XY29aswyICpYpVHro08qpQjM9go1c099MLTRr6HhR9bPjGBBOJMrEkAhssy9nURJ/3FuI4Kz7owlZC+v2Ep7fSXnfg0u8s3Hr1OjlPkGFeWkLHST1pmED0jVNoZZcn+Q
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(41320700013)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0lCT+H1hiyi50kWSAKXprcwYaU4Lnn79wnWppv8XURY4pA2rOsyacLrqEfu3?=
- =?us-ascii?Q?Jr02tkk9Zc3XgFK0ORpuAXkDiYu6DTeZeHocDvzMupsnkJyoR1yY2A68708i?=
- =?us-ascii?Q?6OJqXbOLb+hWWFi6FOs1jhh+z7Vgeiwr7tcvUBCx+u/CSe5kK5tIRFv8zypm?=
- =?us-ascii?Q?J/kuj7E1lAoWwfBhlFLn65iKU0Bmcgo5gr61BofRRmrUlO7p4ICPU6fyluVW?=
- =?us-ascii?Q?o0M98UmaO7IsNZg5WgG5wnfT1OQ6P7IvxlbbQrfqun1LsA6tY1owKiBZrd55?=
- =?us-ascii?Q?gcUXx0u0vHTRgUVmAct0II9o4P5HxmV0sbpKyj6NfWpmd0JxSqO/G8dF/Bzn?=
- =?us-ascii?Q?JStNCkF9EYorRhtFrC20e41H4TaxgT4H6tEmXHOJkQGesY9BcwzB0UCh/Ucs?=
- =?us-ascii?Q?OKI6fR1XtADkkxbXLGJZ3NMJMGy8LZuSVZEZFBBPNM50B7oGvqgqAyzI1FuY?=
- =?us-ascii?Q?9fjCvdGJqEA94JSEtEMvBHC0CkH9QRyqI4ddkpnKKYDs1PXe39ZRypccBc+E?=
- =?us-ascii?Q?Cv0sfeYbCToLQYKPHozF4t/kD2nHBWA0lBJ1Gb6b5wrOJQvJET29SIM5vd+W?=
- =?us-ascii?Q?B1gb4w4MKe7as/4yGDMz0Qni1lfXR2owGYVdlr9TVVxuBTqsoMoE674DJWfV?=
- =?us-ascii?Q?Mi/X7LHB1N8UcmMfIj98HS0u1glLLiqNVB6M7gDq4QH0poRbJSB1Ifu5Uocl?=
- =?us-ascii?Q?Wrjg5JWTd8LYVhCsF9B7/6QLlticJJjxnnf2c1pQoFjcRX1Z+yhWjfvRadRM?=
- =?us-ascii?Q?Wg/qVGKMuhabsxgavqk99TULtUBtRHSQUmoVfrehEXfonfHlHzZiV/OEtmor?=
- =?us-ascii?Q?WSW6re0VUWNw/2XgIQF4QuM1Kuu9vNHvBKkaDA+w+J26+1Lbi736QWTSksP2?=
- =?us-ascii?Q?fE26HxpKmPZb6YbEJtjrYUjDp6bqKo5ISdCFnqLsxWT/L8P9VLyAG8wfJC5a?=
- =?us-ascii?Q?mUvLM9ItKR1xEGX9e7nWk6fPZzsjO7R/Z7oo2QijhQXwUIpqPMGQ+MfrCyyG?=
- =?us-ascii?Q?OKxG2dBb3i0G9yLRRdOFmlKq1DGy4OptLGPAvKB7sFpTDHDTbX1poxKF+R69?=
- =?us-ascii?Q?74jlolcMTfdv8LExCRGGTdir+xuqIShKNddpA+FSco4PU25YYQlB+VulcO5d?=
- =?us-ascii?Q?8xvBtZjcS4DzFo77+kfKePTs6BSxy/J5tmnY9wXUN5tXIkY6cwkRVvCs4C7G?=
- =?us-ascii?Q?HxAX7XvE6IKMxF3IsNsoJm/FTxGTUhhvoYNdowjz9+jCruvQhFpBy7K4q57W?=
- =?us-ascii?Q?gylgr2Rkvo9leXuFh8uX9Efjh3zp9Wdd/1+VbkjhpwOlhKq937aCQPE2ddc+?=
- =?us-ascii?Q?qQvISQBwPgeznto09ymeCV2JTaEQSX8EJvaMVuAkVJm90CwBlBs5eykBUkFq?=
- =?us-ascii?Q?V6UU4zSyCDPJfmqdfECtELgASlJcw9ZEGRvhhUM78GPrV6N0QwdvuSIhCN6P?=
- =?us-ascii?Q?m43fDee/llwjzpvD9d0ODEAq7CUavq5VMZueGxuXiDOSXSey5q7S9PpSqVJ5?=
- =?us-ascii?Q?A9tb6uMI5Ja3v1IzAKm2/+Afr0u60nLfYQ/I7CF15WXM3xK92Ev666HRztzX?=
- =?us-ascii?Q?DcEFGiSy+rk3nxgJ2kiP7uiB4dzC9V4z8QqEDxHnKthNMNXLAdUw2E7+axLz?=
- =?us-ascii?Q?P4J0Ueo8eqxsjt5vaq33Z+k=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e61733a-76a1-4322-75b4-08dcfa4e8e5d
-X-MS-Exchange-CrossTenant-AuthSource: ZQZPR01MB0979.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 08:24:08.4598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fmjVpnnHtNK709rRLo/FCYxvzproSsPXhoTBCeCYSyuCeuGOq4ZhriJJ1eCnltShdMw/Mjl9iR78ZX6I2owZpVBvQYzL7R5xc77l0EVFSp4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQZPR01MB1107
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241101-a4_pinctrl-v4-1-efd98edc3ad4@amlogic.com>
+References: <20241101-a4_pinctrl-v4-0-efd98edc3ad4@amlogic.com>
+In-Reply-To: <20241101-a4_pinctrl-v4-0-efd98edc3ad4@amlogic.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730449638; l=2697;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=bJ9PuDYnWANl7P1yiHKRKdX2JeV+qu35Ep5kAka2CKo=;
+ b=ZZqw0wsF7CTMNHzqWqYHFmOXXeZmyJ5Q4ZbK+2iG4CMo70y8TGx/ep/Pw/nrM+bVztZjk5uuN
+ fvJgnfAJ/ngC0Wg93qVHKJa5Bg+TX8xgzFDnS07lX+2H5HsnD34vFdi
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_012418_349920_6B2D55D0 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_012722_234277_0A4391DB 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,52 +89,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Receive Watchdog Timeout (RWT, bit[9]) is not part of Abnormal
-Interrupt Summary (AIS). Move the RWT handling out of the AIS
-condition statement.
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-From databook, the AIS is the logical OR of the following interrupt bits:
+Add the new compatible name for Amlogic A4 pin controller, and add
+a new dt-binding header file which document the GPIO bank names of
+all Amlogic subsequent SoCs.
 
-- Bit 1: Transmit Process Stopped
-- Bit 7: Receive Buffer Unavailable
-- Bit 8: Receive Process Stopped
-- Bit 10: Early Transmit Interrupt
-- Bit 12: Fatal Bus Error
-- Bit 13: Context Descriptor Error
-
-Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ .../bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml |  2 +
+ include/dt-bindings/gpio/amlogic-gpio.h            | 50 ++++++++++++++++++++++
+ 2 files changed, 52 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-index 0d185e54eb7e..57c03d491774 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-@@ -185,8 +185,6 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			x->rx_buf_unav_irq++;
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
- 			x->rx_process_stopped_irq++;
--		if (unlikely(intr_status & DMA_CHAN_STATUS_RWT))
--			x->rx_watchdog_irq++;
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
- 			x->tx_early_irq++;
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_TPS)) {
-@@ -198,6 +196,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			ret = tx_hard_error;
- 		}
- 	}
+diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml
+index d9e0b2c48e84..f5eefa0fab5b 100644
+--- a/Documentation/devicetree/bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml
+@@ -15,6 +15,8 @@ allOf:
+ properties:
+   compatible:
+     enum:
++      - amlogic,a4-aobus-pinctrl
++      - amlogic,a4-periphs-pinctrl
+       - amlogic,c3-periphs-pinctrl
+       - amlogic,t7-periphs-pinctrl
+       - amlogic,meson-a1-periphs-pinctrl
+diff --git a/include/dt-bindings/gpio/amlogic-gpio.h b/include/dt-bindings/gpio/amlogic-gpio.h
+new file mode 100644
+index 000000000000..37bb688d41d8
+--- /dev/null
++++ b/include/dt-bindings/gpio/amlogic-gpio.h
+@@ -0,0 +1,50 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
++ * Author: Xianwei Zhao <xianwei.zhao@amlogic.com>
++ */
 +
-+	if (unlikely(intr_status & DMA_CHAN_STATUS_RWT))
-+		x->rx_watchdog_irq++;
++#ifndef _DT_BINDINGS_AMLOGIC_GPIO_H
++#define _DT_BINDINGS_AMLOGIC_GPIO_H
 +
- 	/* TX/RX NORMAL interrupts */
- 	if (likely(intr_status & DMA_CHAN_STATUS_RI)) {
- 		u64_stats_update_begin(&stats->syncp);
++#include <dt-bindings/gpio/gpio.h>
++
++/* Normal GPIO bank */
++#define AMLOGIC_GPIO_A		0
++#define AMLOGIC_GPIO_B		1
++#define AMLOGIC_GPIO_C		2
++#define AMLOGIC_GPIO_D		3
++#define AMLOGIC_GPIO_E		4
++#define AMLOGIC_GPIO_F		5
++#define AMLOGIC_GPIO_G		6
++#define AMLOGIC_GPIO_H		7
++#define AMLOGIC_GPIO_I		8
++#define AMLOGIC_GPIO_J		9
++#define AMLOGIC_GPIO_K		10
++#define AMLOGIC_GPIO_L		11
++#define AMLOGIC_GPIO_M		12
++#define AMLOGIC_GPIO_N		13
++#define AMLOGIC_GPIO_O		14
++#define AMLOGIC_GPIO_P		15
++#define AMLOGIC_GPIO_Q		16
++#define AMLOGIC_GPIO_R		17
++#define AMLOGIC_GPIO_S		18
++#define AMLOGIC_GPIO_T		19
++#define AMLOGIC_GPIO_U		20
++#define AMLOGIC_GPIO_V		21
++#define AMLOGIC_GPIO_W		22
++#define AMLOGIC_GPIO_X		23
++#define AMLOGIC_GPIO_Y		24
++#define AMLOGIC_GPIO_Z		25
++/* Special GPIO bank */
++#define AMLOGIC_GPIO_DV		26
++#define AMLOGIC_GPIO_AO		27
++#define AMLOGIC_GPIO_CC		28
++#define AMLOGIC_GPIO_TEST_N	29
++
++#define AMLOGIC_GPIO(bank, offset)	(((bank) << 8) + (offset))
++
++#define AMLOGIC_BANK(gpio)		((gpio) >> 8)
++#define AMLOGIC_OFFSET(gpio)		((gpio) & 0xff)
++
++#endif /* _DT_BINDINGS_AMLOGIC_GPIO_H */
+
 -- 
-2.34.1
+2.37.1
+
 
 
