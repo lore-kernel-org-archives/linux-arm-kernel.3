@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E756E6F069
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D339FE6F06E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBIbDS3b2Cy/hxqzSSKFPym1A4g1588e/7Asf0Evx88=; b=kHn3bqkoP1yxtvo/9wSQup11Jh
-	qEtTPchwvgOzipmilw0ilUfPF8xaLkG9guIx8CWJkD+vv+wh3ZTYdPXJeddi2TWinPkQ60COi2Ug8
-	xJMPfsC0c20eJ6BLwSltCuvIEq8GSf9QCl9MKi9MYhmeB6Q+p0sIPtp3KcmwSChn9GPSlvXarup0t
-	WyWDx4VkJk7ycWsb/PAnefIyKMgI/9jRYQwprk9tinnaDWqEKLIj6ZaT8nd+TCiTjB3MYropFAhWZ
-	nEh5QA3GtHx4EeCCvmlMeEKh9nItcb4ATsJcX6ctgdlUV+nN2EvLpUhACxhXiX7rOqomhNKD33/8b
-	oWNU1NvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=; b=2HzIrJR4G3IfZKXUj6USHGA90R
+	1iGeZXxfOg0PijAzRkNBkgPmY1mncL6BIVdfkRyITyw7LG61nLKLk0DBpe+hVuWlmAIlTeJE4u4C0
+	JXiCv8UQZ565MZHqiiE7Nw0iDqMc4kebOCNJ9TFDJ+D+/Ev9F8ClXRXbMdjSljAiaQqhLb02xtOIi
+	VZlY3uApqaBatjiASGD9Z030DThcbBkYsjc45vx+yrx8PxpWjFb9XRCbVAvKGrM6FGiIAFmS8ODk+
+	x0AGzQNV3XCcyZLlDK8PqHozoAnnsRk9wBdhpUX3hpV+xsUNDyYPO+TVaKz4htPBdtjGP9b9P5rwR
+	ki2ipaRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tdo-00000007VwG-24om;
-	Fri, 01 Nov 2024 15:32:48 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t6tdp-00000007VxX-3Ond;
+	Fri, 01 Nov 2024 15:32:49 +0000
+Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tSN-00000007UIy-1DGT;
-	Fri, 01 Nov 2024 15:21:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730474457;
-	bh=/+TZMp3OuOQDQDtXHRy7fu88xK0qHPfQkGlXJfyTdTg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WUTyXX9KAWFb3gX0LpNpPH6GX48WVZPnDO9ivRGy5nGMOGP4ZIBLd7lSW7KDolK+L
-	 Bjsp1W/eLD4Fgi2GLyJfQMYOtyPgbKF8cTktz18YKwOaKxQ/+KRidryUZPVwyE1E8a
-	 iRRyPWU23/+E2LZi+LAlUp3OuKz8tbqrDnRa8cf29cmCdM+MIpqJuGRSm6qRFyuU+K
-	 URN5dZ1roRwUmx+adiOtj5sv9e6/3I6p++hW/5dmseozw/mPNnL+vzyxa6GhMCMsK5
-	 WrqxyGzlj1z3MDGgkZPcMC6+hY0f3AYvKDQuklWwO1deJ9ggSvQx4nAWQN/jwDDfHB
-	 tvh8D2Bc1mCqQ==
-Received: from [192.168.1.214] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3445217E0F85;
-	Fri,  1 Nov 2024 16:20:54 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 01 Nov 2024 11:20:26 -0400
-Subject: [PATCH 4/4] arm64: dts: mediatek: Add mediatek,mac-wol-noninverted
- to ethernet nodes
+	id 1t6tSa-00000007ULy-3btn;
+	Fri, 01 Nov 2024 15:21:14 +0000
+Received: by mail-il1-x142.google.com with SMTP id e9e14a558f8ab-3a4e48b61fcso6838815ab.2;
+        Fri, 01 Nov 2024 08:21:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730474471; x=1731079271; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=;
+        b=VYelO3je9BP4ALsa90ac5jQNQ14nccv4u03D371NGoQpwLAC1uQdyzL9uWPO60LYIR
+         6zJohmxrIgxvmDzMp74IFALk26fvrxoLb40I2b4gaxo5HuhJb4EjBRpnQKDuoUVWGM4p
+         RPPN0EsM/L2jVCcA8y8+w75Dm25werBqq6Z+h3gW/V1ebCDBPcsslm79tZZuVWxRgHkD
+         ENWEIx8LEJAXUHHTze+QtYRckTULDr305oFLcyNXLIE4mjWBZhDJAT0BJRLC50w2r2eN
+         kL9iO7/GYP1KzM20nbOZQj04qKaVunui3BtEiTP2fMSckcdYobVmsBgwBgmDt+XlVVdv
+         eu0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730474471; x=1731079271;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=;
+        b=LTPsE225eEJKcTwpzOH3nxnnIbjBG0u9oUNn4CvtO+6WyYc71QuRcwgOm8SyVgh+Tt
+         wFsBuQ3SiAmOOdO3p7wU6B0PsNLZHxPzYTX2tWXgc5i8bAIY0cspTvwzPj3tZAXTyS4P
+         Golf5wlL9XJiX7e/g4xTFNF61VHRAXj1GeCEPYsMq4pKvz9NXEoVdgAtEo31VPTuT32K
+         Wo5hmpITPs9lAaE66elbKBVGoRT7UQoKdiUiqeF5bardB0suLXg8aMGFQ4pdrYU5WMNz
+         KkWGFsGXMMYJyTGyFOMOu58h4B94vBlULyJlGofRssrXXmIv78s5es+pNm1sB7Vr+72P
+         SaOg==
+X-Forwarded-Encrypted: i=1; AJvYcCU58ubu+PKLtwLeTji7nfyUFhD9J7RJUNRMCXM/Iw0H3/RSs4esQFSl25IflLBAX+8JfARJuUrea0Mkg6xOpTye@lists.infradead.org, AJvYcCWD8/uDvtbspIFUcEFIhw3qw2JDYg7c2x4EY2Q1il3a4F4Szhsgzn8lOpyipLkkR4QqHYvhcCkij+fWKaNieuI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwszWmJ8tZmMi7f4iqvp1dvVI9tDIiUahZl48ju+p03TwWaiqsD
+	eLOzL6IrxEWlwMa+9JkQyUCZkNUnMYRBoiRUz6se0j08/pxK2os3
+X-Google-Smtp-Source: AGHT+IF2U9BgKTbgcIgkIdNNc5MCBypK+I6PPlj1q0iCr1DVpME5Hw3ZQRMs2YqWQEHPBENfAh26jQ==
+X-Received: by 2002:a05:6e02:16cb:b0:3a6:b0d0:ee2d with SMTP id e9e14a558f8ab-3a6b0d0f518mr32706795ab.9.1730474471110;
+        Fri, 01 Nov 2024 08:21:11 -0700 (PDT)
+Received: from localhost.localdomain (host-36-23.ilcul54.champaign.il.us.clients.pavlovmedia.net. [68.180.36.23])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a6a99cc4c9sm8890215ab.46.2024.11.01.08.21.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Nov 2024 08:21:10 -0700 (PDT)
+From: Gax-c <zichenxie0106@gmail.com>
+To: mripard@kernel.org,
+	dave.stevenson@raspberrypi.com,
+	kernel-list@raspberrypi.com,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	mwen@igalia.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Zichen Xie <zichenxie0106@gmail.com>
+Subject: [PATCH] drm/vc4: cast calculation to __u64 in vc4_dumb_fixup_args()
+Date: Fri,  1 Nov 2024 10:20:46 -0500
+Message-Id: <20241101152045.8469-1-zichenxie0106@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241101-mediatek-mac-wol-noninverted-v1-4-75b81808717a@collabora.com>
-References: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
-In-Reply-To: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Biao Huang <biao.huang@mediatek.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_082059_498166_47F6D7E8 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20241101_082112_927627_6148334C 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the newly introduced and now required mediatek,mac-wol-noninverted
-property to the dwmac ethernet nodes and invert the presence of the
-mediatek,mac-wol property to make it align with the description on the
-binding and maintain the current behavior.
+From: Zichen Xie <zichenxie0106@gmail.com>
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Like commit b0b0d811eac6 ("drm/mediatek: Fix coverity issue with
+unintentional integer overflow"), directly multiply args->pitch and
+args->height may lead to integer overflow. Add a cast to avoid it.
+
+Fixes: 3d7637423be8 ("drm/vc4: bo: Split out Dumb buffers fixup")
+Signed-off-by: Zichen Xie <zichenxie0106@gmail.com>
 ---
- arch/arm64/boot/dts/mediatek/mt2712-evb.dts                   | 2 ++
- arch/arm64/boot/dts/mediatek/mt8195-demo.dts                  | 2 ++
- arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts        | 2 +-
- arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts | 2 ++
- arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts         | 2 +-
- 5 files changed, 8 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/vc4/vc4_drv.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt2712-evb.dts b/arch/arm64/boot/dts/mediatek/mt2712-evb.dts
-index c84c47c1352fba49d219fb8ace17a74953927fdc..09760a0784bfb59511ea64fb44b7aeb66326f81b 100644
---- a/arch/arm64/boot/dts/mediatek/mt2712-evb.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt2712-evb.dts
-@@ -115,6 +115,8 @@ &eth {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&eth_default>;
- 	pinctrl-1 = <&eth_sleep>;
-+	mediatek,mac-wol-noninverted;
-+	mediatek,mac-wol;
- 	status = "okay";
+diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
+index c133e96b8aca..ac02afc3acc5 100644
+--- a/drivers/gpu/drm/vc4/vc4_drv.c
++++ b/drivers/gpu/drm/vc4/vc4_drv.c
+@@ -69,8 +69,8 @@ int vc4_dumb_fixup_args(struct drm_mode_create_dumb *args)
+ 	if (args->pitch < min_pitch)
+ 		args->pitch = min_pitch;
  
- 	mdio {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts b/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
-index 31d424b8fc7cedef65489392eb279b7fd2194a4a..f48baa0b7dcbb95816517b7e501d87e39ac63a2d 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8195-demo.dts
-@@ -109,6 +109,8 @@ &eth {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&eth_default_pins>;
- 	pinctrl-1 = <&eth_sleep_pins>;
-+	mediatek,mac-wol-noninverted;
-+	mediatek,mac-wol;
- 	status = "okay";
+-	if (args->size < args->pitch * args->height)
+-		args->size = args->pitch * args->height;
++	if (args->size < (__u64)args->pitch * args->height)
++		args->size = (__u64)args->pitch * args->height;
  
- 	mdio {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-index 5f16fb82058056cf8cf6318c9fc373601bd6eb60..290fcdce1c9f49c475403fa4aa7a0911605d4abd 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
-@@ -177,7 +177,7 @@ &eth {
- 	snps,reset-gpio = <&pio 93 GPIO_ACTIVE_HIGH>;
- 	snps,reset-delays-us = <0 10000 10000>;
- 	mediatek,tx-delay-ps = <2030>;
--	mediatek,mac-wol;
-+	mediatek,mac-wol-noninverted;
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&eth_default_pins>;
- 	pinctrl-1 = <&eth_sleep_pins>;
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
-index e2e75b8ff91880711c82f783c7ccbef4128b7ab4..ebd0deb4e9ec1d67182c7602203e4fa1a0fb1c0c 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts
-@@ -271,6 +271,8 @@ &eth {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&eth_default_pins>;
- 	pinctrl-1 = <&eth_sleep_pins>;
-+	mediatek,mac-wol-noninverted;
-+	mediatek,mac-wol;
- 	status = "okay";
- 
- 	mdio {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index 14ec970c4e491fbd69bf2800639abf726d47589a..a541d4fb9621c55f789d55a1eb985030827b158b 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -179,7 +179,7 @@ &eth {
- 	pinctrl-0 = <&eth_default_pins>;
- 	pinctrl-1 = <&eth_sleep_pins>;
- 	mediatek,tx-delay-ps = <2030>;
--	mediatek,mac-wol;
-+	mediatek,mac-wol-noninverted;
- 	snps,reset-gpio = <&pio 93 GPIO_ACTIVE_HIGH>;
- 	snps,reset-delays-us = <0 20000 100000>;
- 	status = "okay";
-
+ 	return 0;
+ }
 -- 
-2.47.0
+2.25.1
 
 
