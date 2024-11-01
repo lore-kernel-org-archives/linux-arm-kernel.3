@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F1EE6F08E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 22:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A20E6F08E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 22:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVssyuWMC9NgATc0QPLGb+0NJAZIL3+HDWYCveIr8Uk=; b=uuf5EU9hFe0UM9J8Td69Lsil54
-	mJ1BgNr2tacTxbJtyFA3Sn8fwDiUh3jRxx4yQAvjsBttAK2u6zfnYep0HGkIX5FKGztGlMjm7vT3z
-	tKC+4Qrp2FKvBwVb+mgH5v2EfxbpMqOGCGBKAQWrGT2Rxobu4IvBgvD/lHfKlO/E3XP2aCPqIZy26
-	N34LEcpoLBRUKOPVFq7urnaaZdhh+YYS6iC8bCA0S4lZOrG4kTSo4qnrwrFLssKNtdoSd2+tLYM3F
-	gc+/1Pz2TuDv301Ev5B6qTeHpdk+B/qhRqNJWbqpNnIDFun8e+pRGCzcBQbJjS1x0WMz+D5Tfkzhs
-	OA0SVg1A==;
+	bh=ASiyIHn/3ii7xbeQI3Xm3CDe+0D7uWXjTz/CkcuvjF4=; b=zM+f/vXyaxFHIsdBkSHC/kDYGa
+	Ikj0WiWjDAeUAzYqUVeYjUtPgmjOIKhzVfpZ3/70HK5q6jFP/9uu8ehvrEUI2BNHmLaHeqL0CVIny
+	MxR+9XmP1LioLdSx7uiDQCWy4l1Y1xlrs2KdnwSk5oJ8WWD78tlGd4hSbHjqsIk1R3Kk1a2vjMG+f
+	/dpLPO+K7DegtNQ9ER8p7lzaZcqxlRy/6Av9i/9XqqUMZjIuPnwdaLF80GGA49f3d/MF/mkxb2dOJ
+	dsYzvMn0OQlIdROOZ/qF56AKPRqzg79aKkCmOeRAmJy1alIJ94HIO9GLcrNQTgQ42tgPnnN6n+uMz
+	T0Sav3XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6zyO-00000008Rtw-17zo;
-	Fri, 01 Nov 2024 22:18:28 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1t701F-00000008SHp-1z6T;
+	Fri, 01 Nov 2024 22:21:25 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6zwh-00000008RcT-2iuj
+	id 1t6zzZ-00000008S8B-3C4U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 22:16:44 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20c803787abso19523935ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 15:16:43 -0700 (PDT)
+	Fri, 01 Nov 2024 22:19:42 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7ede6803585so2586708a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 15:19:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730499402; x=1731104202; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730499581; x=1731104381; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=oVssyuWMC9NgATc0QPLGb+0NJAZIL3+HDWYCveIr8Uk=;
-        b=SaZ4aU2gYuTvs4hwpuxJkjI8A2anCHlxNk7ULyHSTTlDu80e/k7wSMajh0SHFT06M9
-         G6iX8AwFxT1Vmrq6WmBsw/xfMgHA1VfzsY5YgXkxVO324JqqXwnwoQgLTaloeY/HeOfV
-         b928zjUjdrOOD78d9VoihTLfWPmZcqkF/68QZgZhYP6qKW0N1y6p4Ouw7eYFAGyyNegP
-         FEOK700k7b5PxfZ5vZpcOaMQAs/LqHX7QfoinsIyL+4u4+GKtyz9SPGzjpUEu9l1puEN
-         jcGIDzNyhBKbXqUDGcDcN8RNeIxCWwofDKPnnEHDGqc5+xmdTqFb3uzD23B0KhGF1osh
-         XA1g==
+        bh=ASiyIHn/3ii7xbeQI3Xm3CDe+0D7uWXjTz/CkcuvjF4=;
+        b=Fqv5/a9qs3ubksuuRP6Oj3wfY5XDnmKonA58JamHEHcL16w3q8NSCZRGBKfMEVpD8m
+         paHAFS1cJa43UCvsDnxEFdqXlUkQOrDRPdw6rw6QZh4+fSYfIDZnHvFBitXyhkvqcpY7
+         93rxUummAw34ochza+GGjDu5XglzYOLytqoyTtJx7/MvRbCuOy9eEKm/3kI/HAUg32Bh
+         RTZkc1IH0IWdF5hRzOb5hDVewdlPB1hV531nlUkbkbK08UsdQywqARoA61gV3IUsIcKC
+         4mnqaL2576D4sGOBOnM0uorY15defEySWqyMbRv6b8Rr3DL+69mIMLSHQ2G7AY+XE2py
+         AJWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730499402; x=1731104202;
+        d=1e100.net; s=20230601; t=1730499581; x=1731104381;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oVssyuWMC9NgATc0QPLGb+0NJAZIL3+HDWYCveIr8Uk=;
-        b=m8r0TdBxQ4J91SjhwQweB9GqHVkxrNWpVdNevvyCOdfhpvsp4tL13oNssS7qJMZlcT
-         yKkA+4qBMAxpYZOUI5zhHYFJKRxgyjqQsR9PTjvkBhoIwsufaSxTG9BTiNob4jSbYWdv
-         tmxVs1wE3TQSpbXpt6C1u9OQCdK+7eFJsUv/fRm3HYTCXKwSzO2ayw31rJn7CT+/9icI
-         SMrYIgdqHi85he08/NlihaM/E5LaiBTbq9MVnmye09K1ZqgrdlMdNuEtImT5enOwG+Xz
-         DCUQe0kn5YLhFZDYNbJSpwtfXQ2XPyXWZ8SB4YVnhweW2zawX9tvsvv51WzojADXae8Q
-         TEvA==
-X-Forwarded-Encrypted: i=1; AJvYcCXummRy8HaZZlszgoOUU+DokKi5DAgr/798YiRkpFzxnnOObIwaZUAdOOeyTYdpiBLx/GwYjfkrB5IAl7VZbrl0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHubYz0KaB2Tsnq9bDuv01cWyWIeF+leLEfjZ+fovsBagIgBh8
-	yoAqrlBrdyQfBwmDr4kBiIlOoRqgvo/lB2kXBlh3LQagNDOAGQUe
-X-Google-Smtp-Source: AGHT+IGGxzxBg3TMMhNZ6zH3wiG+bSdfe1EX9LN1h70yeyUfvlvrjw3I/QyBdD//3HGtM/YIKK7dew==
-X-Received: by 2002:a17:902:e74e:b0:20c:76a1:604b with SMTP id d9443c01a7336-211056ee4a3mr122555475ad.12.1730499402353;
-        Fri, 01 Nov 2024 15:16:42 -0700 (PDT)
+        bh=ASiyIHn/3ii7xbeQI3Xm3CDe+0D7uWXjTz/CkcuvjF4=;
+        b=K5bA5w+399kKZy7+RCvjYstoZefszxgywdnQV5nGQEpNiFWSrT8gold/Y6ORi+ivsg
+         iLPMyCQTIdJfg+n+Cb+WocUcelBnlRD2p25r/trqK/aLox3xusTf4DEuByL67uusE2fr
+         RmjZhsqvToj8ou1pcTr1krcaG3s4p7o3vDaMqHgz6U1AapqSKb6/hrtRHLiQYrtGK9mA
+         VxgXfC1NzyDbAAM/BBESJqunXadJCEumBTfoflSGljDUK1roqkL2XJzYxzdRCCVbbSfu
+         vS54N7FrVl847PGYtDPRa23XkPm7XB1bWVBFx4oETBLXTQYNUFMCK92eFjuNCbVUPaxE
+         x/qg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpOywXEtDjg4rX5FNWaccsGmfRfQCAq5m+zK6J0yAFhubm6UirUEjIu9xHqOMZxONmwjoimRVc8JSWODjR7NXi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFFUrS9v33wsdzaENCNgJorkkMPAQuXR5AKA+bI8IcdtKD5+gp
+	TiZkoWPSZ8kpZrtUuXGN7qCDmuvf7Lc+AL3qQuloVqmqR8+9n8r3
+X-Google-Smtp-Source: AGHT+IHAfJoElGQs4UKDOuFUgAvAywk67B41uHrrSM/kNHKQQAzOFjjwRyqFsY4E1MH6AuvamYfeqA==
+X-Received: by 2002:a17:90b:2e42:b0:2e0:7580:6853 with SMTP id 98e67ed59e1d1-2e93e0fab5amr11494578a91.17.1730499580566;
+        Fri, 01 Nov 2024 15:19:40 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057d9750sm25573205ad.280.2024.11.01.15.16.39
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e93da98448sm3599311a91.6.2024.11.01.15.19.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Nov 2024 15:16:41 -0700 (PDT)
-Message-ID: <787d7a81-0f53-4dbb-b8d6-f7b00e9cf837@roeck-us.net>
-Date: Fri, 1 Nov 2024 15:16:39 -0700
+        Fri, 01 Nov 2024 15:19:39 -0700 (PDT)
+Message-ID: <c91f8b3c-ae3f-4d35-8b7f-2fb2b7cebebd@roeck-us.net>
+Date: Fri, 1 Nov 2024 15:19:37 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+Subject: Re: [PATCH v4 2/3] watchdog: aspeed: Change aspeed_wdt_config struct
+ name to aspeed_wdt_data
 To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, patrick@stwcx.xyz,
  joel@jms.id.au, andrew@codeconstruct.com.au, wim@linux-watchdog.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
@@ -76,7 +77,7 @@ To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, patrick@stwcx.xyz,
 Cc: Peter.Yin@quantatw.com, Patrick_NC_Lin@wiwynn.com, Bonnie_Lo@wiwynn.com,
  DELPHINE_CHIU@wiwynn.com, bmc-sw@aspeedtech.com, chnguyen@amperecomputing.com
 References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
- <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+ <20241101121201.2464091-3-chin-ting_kuo@aspeedtech.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -122,12 +123,13 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+In-Reply-To: <20241101121201.2464091-3-chin-ting_kuo@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_151643_732091_D89A842D 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20241101_151941_843426_FB031A60 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,202 +144,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/1/24 05:11, Chin-Ting Kuo wrote:
-> The boot status in the watchdog device struct is updated during
-> controller probe stage. Application layer can get the boot status
-> through the command, cat /sys/class/watchdog/watchdogX/bootstatus.
-> 
-> The boot status mapping rule follows the latest design guide from
-> the OpenBMC shown as below.
-> https://github.com/openbmc/docs/blob/master/designs/bmc-reboot-cause-update.md#proposed-design
-> - WDIOF_EXTERN1   => system is reset by Software
-> - WDIOF_CARDRESET => system is reset by WDT SoC reset
-> - Others          => other reset events, e.g., power on reset.
-> 
-> On ASPEED platform, the boot status is recorded in the SCU registers.
-> - AST2400: Only a bit represents for any WDT reset.
-> - AST2500: The reset triggered by different WDT controllers can be
->             distinguished by different SCU bits. But, WDIOF_EXTERN1 or
->             WDIOF_CARDRESET still cannot be identified due to
->             HW limitation.
-> - AST2600: Different from AST2500, additional HW bits are added for
->             distinguishing WDIOF_EXTERN1 and WDIOF_CARDRESET.
-> 
-> Besides, since alternating boot event is triggered by WDT SoC reset,
-> it is classified as WDIOF_CARDRESET.
+On 11/1/24 05:12, Chin-Ting Kuo wrote:
+> aspeed_wdt_config struct is used to store some HW configuration
+> information. Changing its naming to a more generic one,
+> aspeed_wdt_data, in order to contain more platform specific
+> inforamtion or SW callback functions.
 > 
 > Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-> ---
->   drivers/watchdog/aspeed_wdt.c | 83 ++++++++++++++++++++++++++++++++++-
->   1 file changed, 81 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-> index b4773a6aaf8c..4ad6335ff25b 100644
-> --- a/drivers/watchdog/aspeed_wdt.c
-> +++ b/drivers/watchdog/aspeed_wdt.c
-> @@ -11,21 +11,31 @@
->   #include <linux/io.h>
->   #include <linux/kernel.h>
->   #include <linux/kstrtox.h>
-> +#include <linux/mfd/syscon.h>
->   #include <linux/module.h>
->   #include <linux/of.h>
->   #include <linux/of_irq.h>
->   #include <linux/platform_device.h>
-> +#include <linux/regmap.h>
->   #include <linux/watchdog.h>
->   
->   static bool nowayout = WATCHDOG_NOWAYOUT;
->   module_param(nowayout, bool, 0);
->   MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
->   				__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
-> +struct aspeed_wdt_scu {
-> +	const char *compatible;
-> +	u32 reset_status_reg;
-> +	u32 wdt_reset_mask;
-> +	u32 wdt_sw_reset_mask;
-> +	u32 wdt_reset_mask_shift;
-> +};
->   
->   struct aspeed_wdt_config {
->   	u32 ext_pulse_width_mask;
->   	u32 irq_shift;
->   	u32 irq_mask;
-> +	struct aspeed_wdt_scu scu;
->   };
->   
->   struct aspeed_wdt {
-> @@ -39,18 +49,39 @@ static const struct aspeed_wdt_config ast2400_config = {
->   	.ext_pulse_width_mask = 0xff,
->   	.irq_shift = 0,
->   	.irq_mask = 0,
-> +	.scu = {
-> +		.compatible = "aspeed,ast2400-scu",
-> +		.reset_status_reg = 0x3c,
-> +		.wdt_reset_mask = 0x1,
-> +		.wdt_sw_reset_mask = 0,
-> +		.wdt_reset_mask_shift = 1,
-> +	},
->   };
->   
->   static const struct aspeed_wdt_config ast2500_config = {
->   	.ext_pulse_width_mask = 0xfffff,
->   	.irq_shift = 12,
->   	.irq_mask = GENMASK(31, 12),
-> +	.scu = {
-> +		.compatible = "aspeed,ast2500-scu",
-> +		.reset_status_reg = 0x3c,
-> +		.wdt_reset_mask = 0x1,
-> +		.wdt_sw_reset_mask = 0,
-> +		.wdt_reset_mask_shift = 2,
-> +	},
->   };
->   
->   static const struct aspeed_wdt_config ast2600_config = {
->   	.ext_pulse_width_mask = 0xfffff,
->   	.irq_shift = 0,
->   	.irq_mask = GENMASK(31, 10),
-> +	.scu = {
-> +		.compatible = "aspeed,ast2600-scu",
-> +		.reset_status_reg = 0x74,
-> +		.wdt_reset_mask = 0xf,
-> +		.wdt_sw_reset_mask = 0x8,
-> +		.wdt_reset_mask_shift = 16,
-> +	},
->   };
->   
->   static const struct of_device_id aspeed_wdt_of_table[] = {
-> @@ -213,6 +244,52 @@ static int aspeed_wdt_restart(struct watchdog_device *wdd,
->   	return 0;
->   }
->   
-> +static int aspeed_wdt_update_bootstatus(struct platform_device *pdev,
-> +					struct aspeed_wdt *wdt)
-> +{
-> +	struct resource *res;
-> +	struct aspeed_wdt_scu scu = wdt->cfg->scu;
-> +	struct regmap *scu_base;
-> +	u32 reset_mask_width;
-> +	u32 reset_mask_shift;
-> +	u32 reg_size = 0;
 
-Please no unnecesary initializations.
+I fail to see the point of this patch. It is just unnecessary churn.
+Just like drivers should not be renamed because of an extended scope
+or because someone doesn't like the old name, renaming variables should
+be avoided as well. Such renames just make future bug fixes (which may
+need to be backported) more difficult.
 
-> +	u32 idx = 0;
-> +	u32 status;
-> +	int ret;
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	reg_size = res->end - res->start;
-> +
-> +	if (reg_size != 0)
-> +		idx = ((intptr_t)wdt->base & 0x00000fff) / reg_size;
-> +
-> +	/* On ast2400, only a bit is used to represent WDT reset */
-> +	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt"))
-> +		idx = 0;
-> +
-
-There is some redundancy in the above code, and platform_get_resource()
-can return NULL. If idx==0 for aspeed,ast2400-wdt anyway, the code can be
-rewritten as
-
-	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
-		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-		if (res) {
-			reg_size = res->end - res->start;
-			if (reg_size)
-				idx = ((intptr_t)wdt->base & 0x00000fff) / reg_size;
-		}
-	}
-
-> +	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
-> +	if (IS_ERR(scu_base))
-> +		return PTR_ERR(scu_base);
-> +
-> +	ret = regmap_read(scu_base, scu.reset_status_reg, &status);
-> +	if (ret)
-> +		return ret;
-
-The above only affects bootstatus. Why fail to load the driver just because
-bootstatus can not be read ?
-
-> +
-> +	reset_mask_width = hweight32(scu.wdt_reset_mask);
-> +	reset_mask_shift = scu.wdt_reset_mask_shift +
-> +			   reset_mask_width * idx;
-> +
-> +	if (status & (scu.wdt_sw_reset_mask << reset_mask_shift))
-> +		wdt->wdd.bootstatus = WDIOF_EXTERN1;
-> +	else if (status & (scu.wdt_reset_mask << reset_mask_shift))
-> +		wdt->wdd.bootstatus = WDIOF_CARDRESET;
-> +	else
-> +		wdt->wdd.bootstatus = 0;
-
-That is already 0.
-
-> +
-> +	return regmap_write(scu_base, scu.reset_status_reg,
-> +			    scu.wdt_reset_mask << reset_mask_shift);
-> +}
-> +
->   /* access_cs0 shows if cs0 is accessible, hence the reverted bit */
->   static ssize_t access_cs0_show(struct device *dev,
->   			       struct device_attribute *attr, char *buf)
-> @@ -458,10 +535,12 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
->   		writel(duration - 1, wdt->base + WDT_RESET_WIDTH);
->   	}
->   
-> +	ret = aspeed_wdt_update_bootstatus(pdev, wdt);
-> +	if (ret)
-> +		return ret;
-> +
->   	status = readl(wdt->base + WDT_TIMEOUT_STATUS);
->   	if (status & WDT_TIMEOUT_STATUS_BOOT_SECONDARY) {
-> -		wdt->wdd.bootstatus = WDIOF_CARDRESET;
-> -
->   		if (of_device_is_compatible(np, "aspeed,ast2400-wdt") ||
->   		    of_device_is_compatible(np, "aspeed,ast2500-wdt"))
->   			wdt->wdd.groups = bswitch_groups;
+Guenter
 
 
