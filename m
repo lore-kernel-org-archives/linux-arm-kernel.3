@@ -4,136 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F74E674A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 05:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EAAE674A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 05:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0xXnNy5pWx74xjHIAlIzJHAEUIQhIYpEbF5vLLmF/Y=; b=z1T6eVG6hnvNQUGpJgEK4B7o8m
-	c+u1VwJanQZw9zf9TNbGIQY+Eo6JR2kNtK2qCJCX/Ky+Yj3ZU5oVgqDU5+i74irZfvch8Zyhj5EU6
-	V3Zh5GxCYdYOfkIzjb0NtrU/6dbkkJXclg96GMgAkwQ8QQdMKnc8sZXPKTt0RIrP9G1a4Bv5stvs5
-	RHzkBpxeXfhD89prPluTPTleG5Lx6OtrFZmWXtm18EARKoh15qIIwCiQrjnA0mMeNzf2pWTga+uxf
-	MzgbvsqHiiM9uoNl+W/eG1KwCqYc4OsqmOnQNpl+dLtmDczLAci94fzGJcst5GLREjDVDmHYjZbWj
-	kKU4QhTw==;
+	bh=KsIO27gsMFDVvdSYn96XeM2cN2MZTMmCMSsPkFkYeNg=; b=NlmgvH6Y7BHD/1G+9OskIhAxBi
+	GrouM7bGy0xe5fMVgRMIAf5S3FplqGS81RW+WhtenZJh74l5yCmYjOdkdmImeIvqlJnrdOSvExfVO
+	tARRWae4val7ga1CKknTbva6ElcioowGmELCzRlvL0w3hDxgRq1v5DI76LJGAwxkK9CYL5VQxLB6U
+	BUbZpd01GhY7nb4G+uxhIuZGjZxID0MqAYxE3fXgkxiOx8wN6Y14tCsCXO3gF2UWY1JkudTQOgWPa
+	o3c2S8zD49S0fm7ZXOp+OSqdTJEHtp9r92HUdHK+psL55f4LkUub+m++yL8I4pjqjbIakIYq7Xq0Z
+	1Y464IvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6jvL-00000005oNb-3rak;
-	Fri, 01 Nov 2024 05:10:15 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1t6kJT-00000005qpJ-1IYL;
+	Fri, 01 Nov 2024 05:35:11 +0000
+Received: from omta034.useast.a.cloudfilter.net ([44.202.169.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6jtd-00000005o6a-1I3i
+	id 1t6kHj-00000005qPY-3nX5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 05:08:32 +0000
-Received: from epcas1p4.samsung.com (unknown [182.195.41.48])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20241101050825epoutp046d54f8cc28cc5e210dc12140915856a8~Dv_yyZ4EM2345123451epoutp04F
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  1 Nov 2024 05:08:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20241101050825epoutp046d54f8cc28cc5e210dc12140915856a8~Dv_yyZ4EM2345123451epoutp04F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1730437705;
-	bh=w0xXnNy5pWx74xjHIAlIzJHAEUIQhIYpEbF5vLLmF/Y=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=TZfu+KSDXbpbv99Glus3jh+SXuBy0AnQYkwfMKUtWzr0ylTFNHqMfIvWjFyhvjUAn
-	 dDxsIMlMi11c8zhPnD+NYgZ9UiS5K42nZvF8eiSHF9F5q24U278GCB9Z66qI24uqm2
-	 yW9yA99FHOOt0sQLo6RyBerA+TuhXTKIZjA+zw7Q=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20241101050824epcas1p1168b5d209a9132be9c9b44194e690e1d~Dv_yXcSSh2980329803epcas1p1r;
-	Fri,  1 Nov 2024 05:08:24 +0000 (GMT)
-Received: from epsmges1p5.samsung.com (unknown [182.195.36.135]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4Xfpm74wZwz4x9QL; Fri,  1 Nov
-	2024 05:08:23 +0000 (GMT)
-Received: from epcas1p2.samsung.com ( [182.195.41.46]) by
-	epsmges1p5.samsung.com (Symantec Messaging Gateway) with SMTP id
-	D9.AC.09398.74264276; Fri,  1 Nov 2024 14:08:23 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas1p3.samsung.com (KnoxPortal) with ESMTPA id
-	20241101050823epcas1p3425f5d8aad0c95efa16dff93ca103d68~Dv_w9DW932140221402epcas1p3Z;
-	Fri,  1 Nov 2024 05:08:23 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241101050823epsmtrp12f59d2924577461d5e278752c4f7fdc5~Dv_w8KvRd3107431074epsmtrp1P;
-	Fri,  1 Nov 2024 05:08:23 +0000 (GMT)
-X-AuditID: b6c32a39-39fff700000024b6-67-67246247b65e
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	55.91.35203.64264276; Fri,  1 Nov 2024 14:08:23 +0900 (KST)
-Received: from inkidae001 (unknown [10.113.221.213]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241101050822epsmtip1d651b39b965b52490c26226570692c4d~Dv_wecxdZ1966119661epsmtip1H;
-	Fri,  1 Nov 2024 05:08:22 +0000 (GMT)
-From: =?utf-8?B?64yA7J246riwL1RpemVuIFBsYXRmb3JtIExhYihTUikv7IK87ISx7KCE7J6Q?=
-	<inki.dae@samsung.com>
-To: "'Kaustabh Chakraborty'" <kauschluss@disroot.org>, "'Seung-Woo Kim'"
-	<sw0312.kim@samsung.com>, "'Kyungmin Park'" <kyungmin.park@samsung.com>,
-	"'David Airlie'" <airlied@gmail.com>, "'Simona Vetter'" <simona@ffwll.ch>,
-	"'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Alim Akhtar'"
-	<alim.akhtar@samsung.com>, "'Maarten Lankhorst'"
-	<maarten.lankhorst@linux.intel.com>, "'Maxime Ripard'" <mripard@kernel.org>,
-	"'Thomas Zimmermann'" <tzimmermann@suse.de>, "'Rob Herring'"
-	<robh@kernel.org>, "'Conor Dooley'" <conor@kernel.org>
-Cc: <dri-devel@lists.freedesktop.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-In-Reply-To: <20240919-exynosdrm-decon-v1-0-6c5861c1cb04@disroot.org>
-Subject: RE: [PATCH 0/6] Samsung Exynos 7870 DECON driver support
-Date: Fri, 1 Nov 2024 14:08:22 +0900
-Message-ID: <000001db2c1c$12e86c50$38b944f0$@samsung.com>
+	Fri, 01 Nov 2024 05:33:26 +0000
+Received: from eig-obgw-6005a.ext.cloudfilter.net ([10.0.30.201])
+	by cmsmtp with ESMTPS
+	id 6Bo1tZhjJrKrb6kHgt6ftG; Fri, 01 Nov 2024 05:33:20 +0000
+Received: from md-in-79.webhostbox.net ([43.225.55.182])
+	by cmsmtp with ESMTPS
+	id 6kHbtLxs1xK8v6kHcthvm7; Fri, 01 Nov 2024 05:33:17 +0000
+X-Authority-Analysis: v=2.4 cv=T/9HTOKQ c=1 sm=1 tr=0 ts=6724681d
+ a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
+ a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10 a=6Ujbnq6iAAAA:8
+ a=vU9dKmh3AAAA:8 a=uXP6E58horQQbnEz6SkA:9 a=QEXdDO2ut3YA:10
+ a=-sNzveBoo8RYOSiOai2t:22 a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KsIO27gsMFDVvdSYn96XeM2cN2MZTMmCMSsPkFkYeNg=; b=ZZ4my0joR3FM9GiojirEbvrQMi
+	kacs17UJsIZgN7r0skFbn6kKVskk8xzdoj1k+crQIMRt8lsStrGfey27QnS35DwsBn9zNJfGRP1X5
+	P+D2d044aw5ZSYYALvJwfRZy+NyXZvHWXqFhZMsnfKqVxBDDKExElwDuyuxnqyZIcIoP7q+Ihfe39
+	+ow3nZKgE4/yk3an+6nxEG7NOsi0nrWAKNQ3R9k5b2b1SIpnu9A5EJaKylN71msYHzO5zIkkbvHHF
+	Kfyn8lFW0LRQI7r7n5AbDVONZxL+C72WTCnbGqYPSm5wOPv1nWYYYIXain+H+yT1jyiYxHuI/z0A5
+	/rRVTnew==;
+Received: from [122.165.245.213] (port=35224 helo=[192.168.1.5])
+	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <parthiban@linumiz.com>)
+	id 1t6kHS-002KJ3-32;
+	Fri, 01 Nov 2024 11:03:06 +0530
+Message-ID: <d38ff4ee-27a6-48ef-8429-15f59230de46@linumiz.com>
+Date: Fri, 1 Nov 2024 11:03:02 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQETcOy7JkGSF7VbGFg+ao1ZCztJewFhWZRKtCZJGMA=
-Content-Language: ko
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Tf0wTdxTft73eXUlKjoLbd2Rx7CAkMCmtUDwYuInoLtmiLCaMLSTsgEtb
-	gbbptUxdtoEsVRAnFTdKZQgiTOoYplQHTEesKDKG1SjgHCjRjQUFCg6RDsLWcrjx3/u89/m8
-	z3vfH7hQ+hANxTVaI2vQMgUkGoCcvxwli3k7J0IlP/ErSV0bPimgxurOo1TLV3aUOtFzXUTd
-	fupBqaVlN0q53WcxamD/JEY5Hg6JqFtdtShldf8koBpmzyGUuaxZRP1zoQOjjk93Y5S1agKl
-	nJMW0VtBdN/37QL64nw9QnfaRjHaYS9D6bq+9+j7h3oFdPupz+kvnXZAt/d/Qv/lWJ8e8GF+
-	sppl8lhDGKvN1eVptKoU8p1d2VuzlQlyRYwikdpEhmmZQjaFTHs3PWa7psC3DhlWxBSYfKl0
-	huPI2M3JBp3JyIapdZwxhWT1eQV6pV7GMYWcSauSaVljkkIu36j0ET/KV1d8MYvpz67bM9pT
-	hxSD8aByIMYhEQ8ba1qwchCAS4kOAFuHqlbBEwDLPJ0iHswDODhjRZ9LnKO1gC9cBHC2qQTl
-	wQSAS4v9Aj8LJVRwovwW4i+EENUInOvvFfqBkHACOPpgbKWXmNgGzQs3VhTBxBa43OnvK8YR
-	IgI2LC+t5CVEInQdOgr4OAj21fyO+GMh8Tpsbngs5GcKg94/mkX+OIRIggd+mxLxnBB4vMy8
-	YgyJUjGcvfkNxgvS4JPaMoSPg+GjXudqPhROHDFjvKAKwJHh0wgPrABe9g4DnhUHu5uqfOPh
-	Poso2NYVy7sFwumnFSJ/GhISeNAs5dkkvHrzzqoSwhunLChPoeHhGlMleM22ZjXbmtVsa1aw
-	/e9VDxA7eJHVc4UqllPolf9deK6u0AFWXnt0YgeonpqRuYAABy4AcSEZIpnRh6ukkjxm7z7W
-	oMs2mApYzgWUvsO2CEPX5ep830VrzFbEJ8rjEzbGxVOKBAX5kuSX20WslFAxRjafZfWs4blO
-	gItDiwVWD67stsLrXNqZxe92R0ztM+qimxzOJk1OeIVbYW9d3jra1HMtMzzvytGfq3LGzeqM
-	HxotH6S+kPWtx3msJNUw1PpyyY9vNr5xdXHZaXo0i96xnmtN3burMqOYMcXGOTyWk8Gbns3L
-	uAVvRuTjzJAN947ZS9h7bSkcWQ/WTxO6lrmBobsBg3AoDndFBo9cOmNBMI+sMqHySuD+LMfB
-	xvK5uKTT5iNO88L8VCaxG19CEusM29qS/i7SvsocHh8IyLn/p/qV6NBnYy3ukjbvjo/7sWFJ
-	tFgXnqUZRN4/sCWi1HEhcNr76Z7Pui49GNl8d8P2pMjIqJ3JLf2lk97qrxkS4dSMIlpo4Jh/
-	AYReaON2BAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrFIsWRmVeSWpSXmKPExsWy7bCSnK57kkq6wYZOZosT1xcxWTyYt43N
-	YuXUVWwW84+cY7W48vU9m8Wff+fZLM6f38BucbbpDbvFpsfXWC0u75rDZjHj/D4mi4Uft7JY
-	tHUuY7X4v2cHu8Xsd/vZLWZMfslmseXNRFYHQY+T6zYzeez9toDFY+esu+wem1Z1snnMOxno
-	cb/7OJPH5iX1Hn1bVjF6bD5d7fF5k1wAVxSXTUpqTmZZapG+XQJXxv55B1kLGkQrFhx1aGBc
-	J9jFyMkhIWAiseXuHMYuRi4OIYHdjBKrFnexdzFyACUkJLZs5YAwhSUOHy6GKHnOKPFrxw02
-	kDibQKrE69V1IHERgfksEk8nbWMDcZgFdjBKHG3aygzRMY1R4u/FD4wg2zgFXCXaflxgArGF
-	BRwl/u2cAxZnEVCRWPjvD1icV8BS4lD3JEYIW1Di5MwnLCA2s4C2xNObT+HsZQtfM0N8oCDx
-	8+kyVhBbRMBKov32W1aIGhGJ2Z1tzBMYhWchGTULyahZSEbNQtKygJFlFaNkakFxbnpusWGB
-	YV5quV5xYm5xaV66XnJ+7iZGcHRrae5g3L7qg94hRiYOxkOMEhzMSiK8HwqU04V4UxIrq1KL
-	8uOLSnNSiw8xSnOwKInzir/oTRESSE8sSc1OTS1ILYLJMnFwSjUwtRfceD7l99fKJUs8q+96
-	Lg/rOZJ/tUNO6uz9lpPTGHZ+4haMvPIz7mFIiuAO7jc8t6w97/Jorb4rWx31rK1liad72lxZ
-	+x8nC1528bhm/Ao7Wlf74iw//0bWCWdctzGEv7i5RY07QIUnOXij4/sKmzqOd0qhff9n2z7c
-	7HPoewWnmHrozgbOhCJNhue1ocs42zM+1O9qu3vg7/7zYT8b17ROPF10/b3K0qykH3Fbzwa5
-	CscZVCQt/6E409kgeZ910cHttz/XcGZ69/Q9tdq0P+D/PSndx/+Zb5/e/XZJja7R+0I5HzG2
-	ovzS4wd5Xrjw/Yk4/SSudc3ahhLda61b6nZKv9sWov9huvyK98yzlFiKMxINtZiLihMB0+pD
-	qF0DAAA=
-X-CMS-MailID: 20241101050823epcas1p3425f5d8aad0c95efa16dff93ca103d68
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20240919151130epcas1p10a885b3364250f5ff4e06975cfef13e4
-References: <CGME20240919151130epcas1p10a885b3364250f5ff4e06975cfef13e4@epcas1p1.samsung.com>
-	<20240919-exynosdrm-decon-v1-0-6c5861c1cb04@disroot.org>
+User-Agent: Mozilla Thunderbird
+Cc: parthiban@linumiz.com, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Nishanth Menon <nm@ti.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Yangtao Li <tiny.windzz@gmail.com>,
+ Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 06/13] arm64: dts: allwinner: a100: add usb related
+ nodes
+To: Cody Eksal <masterr3c0rd@epochal.quest>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+ <20241031070232.1793078-7-masterr3c0rd@epochal.quest>
+Content-Language: en-US
+From: Parthiban <parthiban@linumiz.com>
+Organization: Linumiz
+In-Reply-To: <20241031070232.1793078-7-masterr3c0rd@epochal.quest>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - linumiz.com
+X-BWhitelist: no
+X-Source-IP: 122.165.245.213
+X-Source-L: No
+X-Exim-ID: 1t6kHS-002KJ3-32
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:35224
+X-Source-Auth: parthiban@linumiz.com
+X-Email-Count: 3
+X-Org: HG=dishared_whb_net_legacy;ORG=directi;
+X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfN7zs+u5LgUyrErpnWYRWGS2B3TEgrQjdTcF5p35QKiPQYCk9G+ni6pnFgql+F/2DV2dCNdNrBW7ygkgdRBfZ9JBGUMb/MQpD5xNgagBUYL2JIyJrfD2
+ B0LNawUxXiEaVnen3Ph3EwKwckRfYjuQDTWUZKQzXmYxX7eiExqk0HZwwBJy1Sv7tBvP3IoT4WDxa61/tT9ZToNADaIeBGwP0SucGX6KAJCPkPU9kNrSQNjm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_220829_922600_9BB54664 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20241031_223324_889820_887808A5 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,76 +122,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kaustabh Chakraborty,
+On 10/31/24 12:32 PM, Cody Eksal wrote:
+> From: Yangtao Li <frank@allwinnertech.com>
+> 
+> The Allwinner A100 has two HCI USB controllers, a OTG controller and a
+> USB PHY. The PHY is compatible with that used by the D1, while the OTG
+> controller is compatible with the A33. Add nodes for these to the base
+> DTSI.
+> 
+> Signed-off-by: Yangtao Li <frank@allwinnertech.com>
+> [masterr3c0rd@epochal.quest: fallback to a33-musb and d1-usb-phy, edited message]
+> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+Peripheral mode works after disabling ehci0 and ohci0. Otherwise,
 
-Sorry for late.
-
-> -----Original Message-----
-> From: Kaustabh Chakraborty <kauschluss=40disroot.org>
-> Sent: Friday, September 20, 2024 12:11 AM
-> To: Inki Dae <inki.dae=40samsung.com>; Seung-Woo Kim
-> <sw0312.kim=40samsung.com>; Kyungmin Park <kyungmin.park=40samsung.com>; =
-David
-> Airlie <airlied=40gmail.com>; Simona Vetter <simona=40ffwll.ch>; Krzyszto=
-f
-> Kozlowski <krzk=40kernel.org>; Alim Akhtar <alim.akhtar=40samsung.com>;
-> Maarten Lankhorst <maarten.lankhorst=40linux.intel.com>; Maxime Ripard
-> <mripard=40kernel.org>; Thomas Zimmermann <tzimmermann=40suse.de>; Rob He=
-rring
-> <robh=40kernel.org>; Conor Dooley <conor=40kernel.org>
-> Cc: dri-devel=40lists.freedesktop.org; linux-arm-kernel=40lists.infradead=
-.org;
-> linux-samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
-> devicetree=40vger.kernel.org; Kaustabh Chakraborty <kauschluss=40disroot.=
-org>
-> Subject: =5BPATCH 0/6=5D Samsung Exynos 7870 DECON driver support
->=20
-> This patch series aims at adding support for Exynos7870's DECON in the
-> Exynos7 DECON driver. It introduces a driver data struct so that support
-> for DECON on other SoCs can be added to it in the future.
->=20
-> It also fixes a few bugs in the driver, such as functions recieving bad
-> pointers.
->=20
-> Tested on Samsung Galaxy J7 Prime and Samsung Galaxy A2 Core.
->=20
-> Signed-off-by: Kaustabh Chakraborty <kauschluss=40disroot.org>
-> ---
-> Kaustabh Chakraborty (6):
->       drm/exynos: exynos7_drm_decon: fix uninitialized crtc reference in
-> functions
->       drm/exynos: exynos7_drm_decon: fix suspended condition in
-> decon_commit()
->       drm/exynos: exynos7_drm_decon: fix ideal_clk by converting it to Hz
->       drm/exynos: exynos7_drm_decon: properly clear channels during bind
->       drm/exynos: exynos7_drm_decon: add driver data and support for
-> Exynos7870
->       dt-bindings: display: samsung,exynos7-decon: add exynos7870
-> compatible
-
-I will apply all except for the two patches below,
-=5BPATCH 2/6=5D drm/exynos: exynos7_drm_decon: fix suspended condition in d=
-econ_commit()
-=5BPATCH 6/6=5D dt-bindings: display: samsung,exynos7-decon: add exynos7870=
- compatible
+Tested-by: Parthiban Nallathambi <parthiban@linumiz.com>
 
 Thanks,
-Inki Dae
-
->=20
->  .../display/samsung/samsung,exynos7-decon.yaml     =7C   4 +-
->  drivers/gpu/drm/exynos/exynos7_drm_decon.c         =7C 124 +++++++++++++=
------
+Parthiban
 > ---
->  drivers/gpu/drm/exynos/regs-decon7.h               =7C  15 ++-
->  3 files changed, 90 insertions(+), 53 deletions(-)
-> ---
-> base-commit: 4f3e012d4cfd1d9bf837870c961f462ca9f23ebe
-> change-id: 20240917-exynosdrm-decon-4c228dd1d2bf
->=20
-> Best regards,
-> --
-> Kaustabh Chakraborty <kauschluss=40disroot.org>
-
+> Changes in V2:
+>  - Fix sizes of reg definitions in usbphy
+>  - Move #phy-cells to the end of usbphy
+>  - Order nodes by MMIO address
+>  - Remove dr_mode
+> 
+>  .../arm64/boot/dts/allwinner/sun50i-a100.dtsi | 91 +++++++++++++++++++
+>  1 file changed, 91 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> index adb11b26045f..f6162a107641 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+> @@ -302,6 +302,97 @@ ths: thermal-sensor@5070400 {
+>  			#thermal-sensor-cells = <1>;
+>  		};
+>  
+> +		usb_otg: usb@5100000 {
+> +			compatible = "allwinner,sun50i-a100-musb",
+> +				     "allwinner,sun8i-a33-musb";
+> +			reg = <0x05100000 0x0400>;
+> +			clocks = <&ccu CLK_BUS_OTG>;
+> +			resets = <&ccu RST_BUS_OTG>;
+> +			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "mc";
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			extcon = <&usbphy 0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		usbphy: phy@5100400 {
+> +			compatible = "allwinner,sun50i-a100-usb-phy",
+> +				     "allwinner,sun20i-d1-usb-phy";
+> +			reg = <0x05100400 0x100>,
+> +			      <0x05101800 0x100>,
+> +			      <0x05200800 0x100>;
+> +			reg-names = "phy_ctrl",
+> +				    "pmu0",
+> +				    "pmu1";
+> +			clocks = <&ccu CLK_USB_PHY0>,
+> +				 <&ccu CLK_USB_PHY1>;
+> +			clock-names = "usb0_phy",
+> +				      "usb1_phy";
+> +			resets = <&ccu RST_USB_PHY0>,
+> +				 <&ccu RST_USB_PHY1>;
+> +			reset-names = "usb0_reset",
+> +				      "usb1_reset";
+> +			status = "disabled";
+> +			#phy-cells = <1>;
+> +		};
+> +
+> +		ehci0: usb@5101000 {
+> +			compatible = "allwinner,sun50i-a100-ehci",
+> +				     "generic-ehci";
+> +			reg = <0x05101000 0x100>;
+> +			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI0>,
+> +				 <&ccu CLK_BUS_EHCI0>,
+> +				 <&ccu CLK_USB_OHCI0>;
+> +			resets = <&ccu RST_BUS_OHCI0>,
+> +				 <&ccu RST_BUS_EHCI0>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ohci0: usb@5101400 {
+> +			compatible = "allwinner,sun50i-a100-ohci",
+> +				     "generic-ohci";
+> +			reg = <0x05101400 0x100>;
+> +			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI0>,
+> +				 <&ccu CLK_USB_OHCI0>;
+> +			resets = <&ccu RST_BUS_OHCI0>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ehci1: usb@5200000 {
+> +			compatible = "allwinner,sun50i-a100-ehci",
+> +				     "generic-ehci";
+> +			reg = <0x05200000 0x100>;
+> +			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI1>,
+> +				 <&ccu CLK_BUS_EHCI1>,
+> +				 <&ccu CLK_USB_OHCI1>;
+> +			resets = <&ccu RST_BUS_OHCI1>,
+> +				 <&ccu RST_BUS_EHCI1>;
+> +			phys = <&usbphy 1>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ohci1: usb@5200400 {
+> +			compatible = "allwinner,sun50i-a100-ohci",
+> +				     "generic-ohci";
+> +			reg = <0x05200400 0x100>;
+> +			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI1>,
+> +				 <&ccu CLK_USB_OHCI1>;
+> +			resets = <&ccu RST_BUS_OHCI1>;
+> +			phys = <&usbphy 1>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+>  		r_ccu: clock@7010000 {
+>  			compatible = "allwinner,sun50i-a100-r-ccu";
+>  			reg = <0x07010000 0x300>;
 
 
