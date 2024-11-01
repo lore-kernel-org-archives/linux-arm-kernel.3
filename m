@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F4AE6F060
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2AEE6F060
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oO0SpygwDcdt8eXvVZE+vgizsCApdc1rx4X8+B4BuiQ=; b=4nhWGzqVVrdVyB3rE8bhuApLZj
-	HIXGjCTKSF7EtICFHY4CfSHMjGHuODGJo/s464b5fEfLl+yzkKKNlJ6WflrMjrmeuv3UoJ5O468k4
-	TpdpdRYm4RaqhAg7rhVGtSSItcuz+GkagX5UguEhx7FHCea9EcqIfPCOdPClDJAkA+qS8hocym1RT
-	lu+0K7vFRB+ffYmx0vyuQK9asj1Ie+YKpeYrd7fySMIprWFqo894VOa9PxfPHDQIhqb0gP+sHqB5g
-	YhwEc+tEqFxeTHkTmCNUcZmOrCl+jl0QvZYR2FU2JkhG2M4lKSlBrX1UlR+tm5hKLu6CnU7RglEht
-	VjSc+jLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xfL5hbtlCy40Pj9gm4EfYW//zq7PdmyQW/+2ydQT1jw=; b=aHZBAVc7Pm1hxGNOsL0W0KsQTE
+	cnttMALbaglPAkczGu5j2yOYcM9WYkD4Yik0kgNKtCPfRv8xE0XhnMnbWR0KKZfj6e8yagZvYmRek
+	DZCYmeJe6EiTXA42ZAxjhxuZN6ppXsT2TNlSBot0eBzkpv1RLE4mKbNp/6noqzB8pzCe6VA4K+SSF
+	Dpy/BoJgnhmVEnmbwV7UYIgp8ebX2OU+5M8AzbsAzyc8BMjVMOK3GsTxoEM34bhDiuZe//DgDenB6
+	SAX5CYfgdFZA8TJYZXHiYNHqv+IRGDC+gUcmwcYeewGFaXGsFh3krTASr3qdOXp9G7UmD/Lby2lxI
+	0xWgwdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6sdP-00000007L1u-07pb;
-	Fri, 01 Nov 2024 14:28:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t6sf4-00000007LQ0-2FF9;
+	Fri, 01 Nov 2024 14:30:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6sKp-00000007HUh-115p
+	id 1t6sZV-00000007KFK-40Iy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 14:09:08 +0000
+	Fri, 01 Nov 2024 14:24:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5BB015C0560;
-	Fri,  1 Nov 2024 14:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E050DC4CECD;
-	Fri,  1 Nov 2024 14:09:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 10FFD5C0628;
+	Fri,  1 Nov 2024 14:23:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05869C4CECD;
+	Fri,  1 Nov 2024 14:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730470146;
-	bh=V1lHT+M0hVf8y3QEJQ9Y5vnOyPZcmjeWG3D2SQpniHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oVhaYgZse3lMJvuJEkmIOrlzosfBzD3lhMSHwGYeeZFK4qL9cuJ7bAxDJIV38WzpX
-	 ml0u+DWHbWIML5Qs5h7G7clpJQN4xzOBOF//wa3XwUiM6G6d7pPzhKzL608g8+n9DW
-	 vhrw84lpWizMsRMQkdw8w7iPjpe/2eFSxpU/N4empIL6yVXUhDh3H+KCgbabmQeigB
-	 G7TmWJWrqT3hbGy4QoVAT02nf95JHTmGbsxRWomK8DuWVRvM1/2jkwMVCYwcF6J3G4
-	 i8ad4X6AUL2iEiMG9cNfF+4qD2wD/boI0rJzM1eQvtsl22qYHbbkyv92ilMF5IaI16
-	 pgEYnAflSDjDw==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1t6sKm-000000005cY-06Fr;
-	Fri, 01 Nov 2024 15:09:04 +0100
-Date: Fri, 1 Nov 2024 15:09:04 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, ulf.hansson@linaro.org,
-	jassisinghbrar@gmail.com, dmitry.baryshkov@linaro.org,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	konradybcio@kernel.org, linux-pm@vger.kernel.org,
-	tstrudel@google.com, rafael@kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>
-Subject: Re: [PATCH V5 3/6] firmware: arm_scmi: Report duplicate opps as
- firmware bugs
-Message-ID: <ZyThAFbOHKaBIgLg@hovoldconsulting.com>
-References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
- <20241030125512.2884761-4-quic_sibis@quicinc.com>
+	s=k20201202; t=1730471056;
+	bh=9eJSBsDX1KEPOrBzjZskYTFJm1CTJz8fA/XLt1OpIv8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bDT1OGHAuCUOX83geBDrrex/2Wbius8C9uJlBz1UQpqHeZqsUPBIwBpxVqPSHrU9h
+	 AIR5lz2JerpzIgrxCc/kcer0CTjgsK2e73bLndAHIi1YA0tHosN2V/ayjwe7sf5PED
+	 ScN9b1YIZuUx8aQHJa/+tME+rBj1Iq9LqPE/9qSMPfjwaSafGFXVHwhdevWU/do0Hl
+	 E0A6JMTZok+dpFXkOIVpS5HazoP+ipRD/WJsgR6ZV1SSYeslu+ZaA4zBULkdsO8M1U
+	 koGS/Eg3/8tdGrAtGs2U3tsUwJh6/bgBO57BfFwvc/Uotui33XyKvqk4YOtlIUqhxu
+	 y/ZbpgMIoqVgg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Fabien Parent <fabien.parent@linaro.org>
+Subject: [GIT PULL] Qualcomm Arm64 DeviceTree fix for v6.12
+Date: Fri,  1 Nov 2024 09:24:13 -0500
+Message-ID: <20241101142414.737828-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241030125512.2884761-4-quic_sibis@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_070907_349200_D821C705 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20241101_072418_075542_EE01ED43 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 06:25:09PM +0530, Sibi Sankar wrote:
-> Duplicate opps reported by buggy SCP firmware currently show up
-> as warnings even though the only functional impact is that the
-> level/index remain inaccessible. Make it less scary for the end
-> user by using dev_info instead, along with FW_BUG tag.
-> 
-> Suggested-by: Johan Hovold <johan+linaro@kernel.org>
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> ---
->  drivers/firmware/arm_scmi/perf.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-> index 32f9a9acd3e9..c7e5a34b254b 100644
-> --- a/drivers/firmware/arm_scmi/perf.c
-> +++ b/drivers/firmware/arm_scmi/perf.c
-> @@ -387,7 +387,7 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
->  
->  	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
->  	if (ret) {
-> -		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
-> +		dev_info(dev, FW_BUG "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
->  			 opp->perf, dom->info.name, ret);
 
-I was hoping you could make the error message a bit more informative as
-well, for example, by saying that a duplicate opp level was ignored:
+The following changes since commit dfbe93f32c12f5628bd83303e10ba63621c259ae:
 
-	arm-scmi arm-scmi.0.auto: [Firmware Bug]: Ignoring duplicate OPP 3417600 for NCC
+  arm64: dts: qcom: x1e80100: Fix Adreno SMMU global interrupt (2024-08-14 21:36:45 -0500)
 
-or similar (e.g. as the current message looks like an error, with errno
-and all, that indeed warrants warning level).
+are available in the Git repository at:
 
-Perhaps with such a message you could even keep the warning level to
-make it stand out more (if that's desirable) without the risk of scaring
-users.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-fixes-for-6.12
 
-Johan
+for you to fetch changes up to d92e9ea2f0f918d7b01cbacb838288bffccc8954:
+
+  arm64: dts: qcom: msm8939: revert use of APCS mbox for RPM (2024-09-04 15:36:17 -0500)
+
+----------------------------------------------------------------
+Qualcomm Arm64 DeviceTree fix for v6.12
+
+This reverts the conversion to use the mailbox binding for RPM IPC
+interrupts, as this broke boot on msm8939.
+
+----------------------------------------------------------------
+Fabien Parent (1):
+      arm64: dts: qcom: msm8939: revert use of APCS mbox for RPM
+
+ arch/arm64/boot/dts/qcom/msm8939.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
