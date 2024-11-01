@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD69E6B245
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FE4E6B251
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnvXnbcMP967Q/OrNssqPteVpqmGR2j0WtLeik4vHZM=; b=TZBUwmj9bHitImEf5h2YEpCbgh
-	G5E8BGLJ3/34l+xne0nPaMWiZ1vqqTOjJomILZ6uvzQKUpML1JR6pUD3K0asR4k0eNoVxiAvsj5kg
-	sptmfNkktq+6SuNddjH0eNeN9bzqDsNj0U8sEccQBA+Vii99AauHxHCyRPF7VXCtb61JmVagNcZie
-	EqnswArjEwCbIcAMeJdO3Sbsyf3GDgQqobbZMwUtXnqRb6m8WPBdj/VfWMFVxevtHvHxRUCcmLxgg
-	grr3x6PSSqSXZqgJphLW7om0Lg/ZecOn2O/SEDKFr3cqQtUstMHWeZAkmD2pawgOlawYTosdUZ/Zr
-	fSvtu78g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KCdmocw4aqHZ1sPlI0nYvdn46cstnY/2gAo9mGfI6bY=; b=17uhbFUM2PcVAcY1YOcVaT5uCR
+	uZAyWITPHvOKbeYJKhnUaN/yO9kIU/151JSzYhuJsRjQ/we15mwc5r+8PUCh+zP+eaG7SrLZIpXks
+	3VmZCRYjoq+caZD8a3mPXOHLBeg7PZ9e4xEasRyGMn+dwZlPlcdNTUi6dr3tV8CzYNRjHzvGc3u49
+	OOcrrP3v5geRnlzMfSRVZdZpn7dU0c4j5KJ2j+MAuyp9Ome146vGhhVP7lDE1CthG8wmKa3QlPI+l
+	evF7BLhZ3QGIsyxM6aRAz26YJ9xnKIbXp6GVfdyhRN28ldA8cGUeO4fIDotXGt4fV7PgeZMvQwnQd
+	aiNIt1sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qJx-00000006q0S-3lfA;
-	Fri, 01 Nov 2024 12:00:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6qZU-00000006vzp-3QCC;
+	Fri, 01 Nov 2024 12:16:08 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qEp-00000006oob-3xjT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:54:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D16FA43592;
-	Fri,  1 Nov 2024 11:52:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA1A3C4CECD;
-	Fri,  1 Nov 2024 11:54:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730462086;
-	bh=RKKjaRT+TZqTjTNYJpQRRQla0KpA6rUkiKLNa5Za6jM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fyl3yIsKzmdaDBfHqMByrFzmiPgh/aFJwAuRsQGSy7+4zPF3jWywWPOAxG0nus5CB
-	 LJxMNeegqqs7xYA5fi8NkJh+eO9g2yTw2USFMDhF/PYJSAgxGDkmhPkPNZLu5ZDLDa
-	 t7AdNvdn2Jg9M5XUZbR04fsBdsxxPVqdQ7Byw+GjK+UKM2oizoL3Zu9qpxRQp1BzR3
-	 CgksJaAM7nKj8PzfhRNlqu/PEgFsKgHpPcUPlxFtp1RIbUJWXq1sbKE0rXdYnzcvQ1
-	 uDWVH53Vi/4mSKlryP9ogtRQgTzsBEjGy+JEJIpEWuZ1WEm6ZGUrK/GvsqjIFuSz8t
-	 TKmg0tPAHlLjA==
-Date: Fri, 1 Nov 2024 11:54:40 +0000
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
-	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Remove split on unmap behavior
-Message-ID: <20241101115439.GA8518@willie-the-truck>
-References: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
- <20241024130550.GE30704@willie-the-truck>
- <20241024134411.GA6956@nvidia.com>
+	id 1t6qFc-00000006p3w-2kLO;
+	Fri, 01 Nov 2024 11:55:38 +0000
+Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 318CF3D4;
+	Fri,  1 Nov 2024 12:55:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730462127;
+	bh=YgheqCGz5W29kaXksMwAsSLSItD+uZ0Eo9BVpZbhL50=;
+	h=From:Date:Subject:To:Cc:From;
+	b=a/eEwneaxNk6oWJRPCLor+aANObSNwjnxnCP5bGCka8VI1i6CkzFeM0EHlitOfikF
+	 DrXyhjgAtZ4BRYeVmDbVKUfok90oK0QRxoQOIGAdbAf2bvpt+i8tqzuUr8JDij80yx
+	 cjkOSWmopNw1Ke6rdPicWBKWbigbQwMPwoMsyoYI=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Fri, 01 Nov 2024 13:55:15 +0200
+Subject: [PATCH] media: raspberrypi: cfe: Fix mapping of dmabuf buffers
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241024134411.GA6956@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241101-rp1-cfe-fixes-seg-size-v1-1-0aacf2da56e5@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIAKLBJGcC/x3L0QpAQBBG4VfRXJvaWUq8ilwsfswN2inJ5t1tL
+ r86J5EhKoy6IlHEpabHniFlQdMW9hWsczZ552sRJxxP4WkBL3rD2LCy6QMeG1e5dg5NHTzl+Yz
+ 4i/z2w/t+QRV3oWgAAAA=
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Naushir Patuck <naush@raspberrypi.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1356;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=YgheqCGz5W29kaXksMwAsSLSItD+uZ0Eo9BVpZbhL50=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnJMGvFaCtuDuyf61e0vv8PqzSJB/xa17jDfwQW
+ NGrimnq/deJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZyTBrwAKCRD6PaqMvJYe
+ 9eNFD/9DUTfzgMBvDuE/F3k405rVzyAORyhjBXr0Duc/OrM9lBlDIG/ONRSY0o6qO/4ZQC5YsDU
+ EwrZtGSBoz64NZuYl7Z6a+MocK2A3izCAeObWSj8tIIKme6zvEFxfMQxhpLeJOLFfdJpOzPOHKO
+ VpEloIccudNFJzZ4akkWJBuiq37JAhMefysGdA6gJFmW5rKZLIFgydYEeo+R8W7oQsocbVB8utG
+ z9BgmQ+wPMuiyUSDh+VFyv1H3wEdHgvOs+9kPQokhg/TqD5nrzYUezENUp8PpupZA/TMdEkcfqA
+ BFXTabQDmNBykvtMKrmtsbzRGaVryu6w4wSUoM6h71LWpANIFjtlca4vFk3GclDBLdO+ejA7B/1
+ cY8ecpBA5bR6CBX6hqx88bnxo4j6+o9l2neZMCMoCo2jr2jgnReOejI0jT4sWn698D7lWg6DhZH
+ vZkAunYNcOJG+gjTYyN7k5rDKSGA85d/ZvDU8wONpMdDAnSowioKwd3nwFXXUrxLKNVyX0WkWPc
+ /wcb9mTKebDrnQlOI34cVGpiJ8fXRI0IQFIMCz4SmmmcfJkeooldFLcduo9uYVdEwF48Kdbz98Q
+ 1OtjfkalIC1ZmXO7+TyAvpx4TS1Dp5RdGDdavLXDGFLQQg4Dd6zhx8eOPdBAJkUuTG3z+AQDoMS
+ Sskai3Yq9FFlqTA==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_045448_132857_A53CFE00 
-X-CRM114-Status: GOOD (  33.52  )
+X-CRM114-CacheID: sfid-20241101_045536_873495_0B09564B 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+When using buffers from DRM, DMA-API gives a warning about: "mapping sg
+segment longer than device claims to support [len=307200] [max=65536]"
 
-On Thu, Oct 24, 2024 at 10:44:11AM -0300, Jason Gunthorpe wrote:
-> On Thu, Oct 24, 2024 at 02:05:53PM +0100, Will Deacon wrote:
-> 
-> > My recollection is hazy, but I seem to remember VFIO using the largest
-> > page sizes in the IOMMU 'pgsize_bitmap' for map() requests but then
-> > using the smallest page size for unmap() requests, so you'd end up
-> > cracking block mappings when tearing down a VM with assigne devices.
-> >
-> > Is this what you're referring to when you say?
-> 
-> Sounds like it, but I'm really hazy on the long ago history here.
-> 
-> >   > Long ago VFIO could trigger a path like this, today I know of no user of
-> >   > this functionality.
-> > 
-> > If so, please can you provide a reference to the patch that moved VFIO
-> > off that problematic behaviour?
-> 
-> Looking more deeply, I'm not really sure VFIO ever required this.
-> 
-> vfio commit 166fd7d94afd ("vfio: hugepage support for
-> vfio_iommu_type1") is the thing that added the huge page support, and
-> it called map like:
-> 
-> +               ret = iommu_map(iommu->domain, iova,
-> +                               (phys_addr_t)pfn << PAGE_SHIFT,
-> +                               npage << PAGE_SHIFT, prot);
-> 
-> But then the unmap path still looked like:
-> 
-> +               unmapped = iommu_unmap(iommu->domain, iova, PAGE_SIZE);
-> +               unlocked += vfio_unpin_pages(phys >> PAGE_SHIFT,
-> +                                            unmapped >> PAGE_SHIFT,
-> +                                            dma->prot, false);
-> 
-> So at that time it was relying on the "unmap smaller gives the larger
-> size" trick that we see Intel and AMD implementing today. No
-> requirement for split, but the ARM split code could be triggered.
+Add a call to vb2_dma_contig_set_max_seg_size() to tell the DMA-API
+about the supported segment size (which is UINT_MAX).
 
-Urgh, I'm not sure I was ever fully aware of that "trick". That's really
-horrible!
+Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> Next came the introduction of VFIO_TYPE1v2_IOMMU which eliminated the
-> ability for userspace to request splitting a mapping. Userspace can
-> only unmap what userspace maps. commit 1ef3e2bc0422
-> ("vfio/iommu_type1: Multi-IOMMU domain support")
-> 
->     To do this, our DMA tracking needs to change.  We currently try to
->     coalesce user mappings into as few tracking entries as possible.  The
->     problem then becomes that we lose granularity of user mappings.  We've
->     never guaranteed that a user is able to unmap at a finer granularity
->     than the original mapping, but we must honor the granularity of the
->     original mapping.  This coalescing code is therefore removed, allowing
->     only unmaps covering complete maps.  The change in accounting is
->     fairly small here, a typical QEMU VM will start out with roughly a
->     dozen entries, so it's arguable if this coalescing was ever needed.
-> 
-> That blocked any requirement for splitting driven by the uAPI. Noting
-> uAPI based splitting never worked right and AFAICT AMD didn't
-> implement split at the time.
-> 
-> Finally, commit 6fe1010d6d9c ("vfio/type1: DMA unmap chunking")
-> changed the unmap loop to this:
-> 
-> -               unmapped = iommu_unmap(domain->domain, iova, PAGE_SIZE);
-> +               /*
-> +                * To optimize for fewer iommu_unmap() calls, each of which
-> +                * may require hardware cache flushing, try to find the
-> +                * largest contiguous physical memory chunk to unmap.
-> +                */
-> +               for (len = PAGE_SIZE;
-> +                    !domain->fgsp && iova + len < end; len += PAGE_SIZE) {
-> +                       next = iommu_iova_to_phys(domain->domain, iova + len);
-> +                       if (next != phys + len)
-> +                               break;
-> +               }
-> +
-> +               unmapped = iommu_unmap(domain->domain, iova, len);
-> 
-> fgsp=true is only possible on AMD, and this loop effectively
-> guarantees that the iommu driver will never see a partial huge page
-> unmap as the size is discovered via iommu_iova_to_phys() before
-> calling unmap.
+diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+index 045910de6c57..e52d8b20df40 100644
+--- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
++++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+@@ -2341,6 +2341,12 @@ static int cfe_probe(struct platform_device *pdev)
+ 		goto err_cfe_put;
+ 	}
+ 
++	ret = vb2_dma_contig_set_max_seg_size(&pdev->dev, UINT_MAX);
++	if (ret) {
++		dev_err(&pdev->dev, "Unable to set max_seg_size\n");
++		goto err_cfe_put;
++	}
++
+ 	/* TODO: Enable clock only when running. */
+ 	cfe->clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(cfe->clk))
 
-Talking to Robin, he reminded me of:
+---
+base-commit: 698b6e3163bafd61e1b7d13572e2c42974ac85ec
+change-id: 20241101-rp1-cfe-fixes-seg-size-b70309da74a2
 
-7c6d90e2bb1a ("iommu/io-pgtable-arm: Fix iova_to_phys for block entries")
+Best regards,
+-- 
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
-which looks like it fixes a bug which would've defeated the VFIO chunking
-in your snippet above.
-
-But we're all good now, so I'm in favour of dropping this. Let's just
-cram some of this history into the commit message so we know why we're
-happy to do so.
-
-Lemme go look at the actual diff now...
-
-Cheers,
-
-Will
 
