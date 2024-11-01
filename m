@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B79CE6B245
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD69E6B245
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTkHIu6x6J8oDnM2EYPHGTKSx4bAvmnfjc2sBE+Lf2I=; b=ZixushFaUmlInnSzYeIwCMdAb8
-	k6BPOSu7/4URBHMczV4nvdTX02y6xoLBMMkPVp64HefcWGT5HLuUVrjGLICtEm/D/dFscsMcNeZKm
-	FGRM+X7j3cVPwGn9Bw5VfJ+KCQSHy8H4bObjXmYLXJDNLB6wa7clXfMtjlTAWhUnx1pFuk8Z3IyWc
-	0z3oZ7WxjRQUvRESVHc28ZcO/cairByooeGHVj2oqL2XbXGMoNmCmo4DIZ3Merj6bq0MhHMV3c0VF
-	ZXOloBm4sLSC71RwNtLxPCiQUZTVd18/RvQ9ZDmfepr7PSOJnyQ0rm50vpExZcqt91FTpgj36Y+nM
-	8M4w1U9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dnvXnbcMP967Q/OrNssqPteVpqmGR2j0WtLeik4vHZM=; b=TZBUwmj9bHitImEf5h2YEpCbgh
+	G5E8BGLJ3/34l+xne0nPaMWiZ1vqqTOjJomILZ6uvzQKUpML1JR6pUD3K0asR4k0eNoVxiAvsj5kg
+	sptmfNkktq+6SuNddjH0eNeN9bzqDsNj0U8sEccQBA+Vii99AauHxHCyRPF7VXCtb61JmVagNcZie
+	EqnswArjEwCbIcAMeJdO3Sbsyf3GDgQqobbZMwUtXnqRb6m8WPBdj/VfWMFVxevtHvHxRUCcmLxgg
+	grr3x6PSSqSXZqgJphLW7om0Lg/ZecOn2O/SEDKFr3cqQtUstMHWeZAkmD2pawgOlawYTosdUZ/Zr
+	fSvtu78g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qIK-00000006pk2-2Alk;
-	Fri, 01 Nov 2024 11:58:24 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1t6qJx-00000006q0S-3lfA;
+	Fri, 01 Nov 2024 12:00:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qEY-00000006olj-3R9p
+	id 1t6qEp-00000006oob-3xjT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:54:32 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fb3debdc09so14278051fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 04:54:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730462069; x=1731066869; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VTkHIu6x6J8oDnM2EYPHGTKSx4bAvmnfjc2sBE+Lf2I=;
-        b=Q8d31KDJmAlmFHnXDOH0s9GZJipPLaEMZ48KCBZaPPd49I1o9Z6UUnLZFSLqzmh1Ga
-         ijCFAPz0koE/dptlrl74K+BYM7PbZI4sYnU/IL80OzVAcaVPIs8qc//DilpMcjZDRdpQ
-         1dsxWGMAjkaEtsc6dkGe8YNgpfm5UDnuknT+7XOHqXwwrijgd8kgkvk0oNRFD3Z4h0JI
-         LIClPACwj+LJ5JkPeb0bTrkkhspkj6ZlW9gjaORT9xdOEMhE/u01odMTu/mA4r3kgBRc
-         fNCwMP2a8O3qDW1VkgSNxUiahM5OGbor9KLpRDsAworofvg+Rg29O5xVCXOS1s5J9uEs
-         UZMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730462069; x=1731066869;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VTkHIu6x6J8oDnM2EYPHGTKSx4bAvmnfjc2sBE+Lf2I=;
-        b=Imi3UdI6vQQBfE2Kag+FAFKjaFBVAKBUnVMXxwIahGpAVA73YrcsDae1WhiFawo6Dw
-         vavbEX5tl5jF0Bd4P/bsTIH0S7l9SyNHdsmeufSfOQHQ8KgCdIbaYfKM2PqsyNT+WMmD
-         EhQBF24sGjlm5uGPX6QFISctaTdzWPoTpdoAmBc6g96F/bFPF+MLhLExB/JisGBJNzIR
-         arHdsR2wtATJPkRqKPeDWdDAoNEpsGiT1HDc2nAO2VUVbyExzEh1WOmC9YqNQ1y8RzBq
-         z2WVjXDzsI1krGIdKd0BieRZtAx/b2PRThOjWgaK5/q6nflljFcjhHZ1vO3eAYockt5e
-         UG9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUmvezfRbak6PdZNvSaQdwRWH5ip1SmZBEwhbxLWqPUb/MpwMhaWoXgUObjf4dpSovCM/KZcUZ5l5CqKXAzzqjh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ2LMAc7iTfx803f2N1TAaTWIZ2uhuCjUdg3jlI6Woe/dta0jL
-	J3IZdVca4Ss/9LWi6YermLdTZPUWmlpBwIatvn5dakIfkrUK+zh3rFRcx5ABbbevlmVp3YxYq0Q
-	euC8UxrqG/FxNlYRFYQ3XG+YJolg6LyAEE2k7nA==
-X-Google-Smtp-Source: AGHT+IElM+4cf5nJiQK/flMPFGUQS/qscWK2wONW7FVnOjF9n3NBlck/a/D8oXjerYOiHg6n+ZKlCTOw3SU28go/iqc=
-X-Received: by 2002:a05:651c:154b:b0:2fb:6394:d6bd with SMTP id
- 38308e7fff4ca-2fdec4e750emr31077211fa.12.1730462068876; Fri, 01 Nov 2024
- 04:54:28 -0700 (PDT)
+	Fri, 01 Nov 2024 11:54:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6D16FA43592;
+	Fri,  1 Nov 2024 11:52:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA1A3C4CECD;
+	Fri,  1 Nov 2024 11:54:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730462086;
+	bh=RKKjaRT+TZqTjTNYJpQRRQla0KpA6rUkiKLNa5Za6jM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fyl3yIsKzmdaDBfHqMByrFzmiPgh/aFJwAuRsQGSy7+4zPF3jWywWPOAxG0nus5CB
+	 LJxMNeegqqs7xYA5fi8NkJh+eO9g2yTw2USFMDhF/PYJSAgxGDkmhPkPNZLu5ZDLDa
+	 t7AdNvdn2Jg9M5XUZbR04fsBdsxxPVqdQ7Byw+GjK+UKM2oizoL3Zu9qpxRQp1BzR3
+	 CgksJaAM7nKj8PzfhRNlqu/PEgFsKgHpPcUPlxFtp1RIbUJWXq1sbKE0rXdYnzcvQ1
+	 uDWVH53Vi/4mSKlryP9ogtRQgTzsBEjGy+JEJIpEWuZ1WEm6ZGUrK/GvsqjIFuSz8t
+	 TKmg0tPAHlLjA==
+Date: Fri, 1 Nov 2024 11:54:40 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
+	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Remove split on unmap behavior
+Message-ID: <20241101115439.GA8518@willie-the-truck>
+References: <0-v1-8c5f369ec2e5+75-arm_no_split_jgg@nvidia.com>
+ <20241024130550.GE30704@willie-the-truck>
+ <20241024134411.GA6956@nvidia.com>
 MIME-Version: 1.0
-References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com> <20241101080614.1070819-6-andrei.stefanescu@oss.nxp.com>
-In-Reply-To: <20241101080614.1070819-6-andrei.stefanescu@oss.nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 1 Nov 2024 12:54:17 +0100
-Message-ID: <CACRpkda2Ss_oy8vX6V7KK9DCvSoWxSg2R_iCourt-XReHBcpLg@mail.gmail.com>
-Subject: Re: [PATCH v5 5/7] pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Enric Balletbo <eballetb@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241024134411.GA6956@nvidia.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_045430_879080_84D71077 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_045448_132857_A53CFE00 
+X-CRM114-Status: GOOD (  33.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,17 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 1, 2024 at 9:06=E2=80=AFAM Andrei Stefanescu
-<andrei.stefanescu@oss.nxp.com> wrote:
+Hi Jason,
 
-> Switch from "devm_pinctrl_register" to "devm_pinctrl_register_and_init"
-> and "pinctrl_enable" since this is the recommended way.
->
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+On Thu, Oct 24, 2024 at 10:44:11AM -0300, Jason Gunthorpe wrote:
+> On Thu, Oct 24, 2024 at 02:05:53PM +0100, Will Deacon wrote:
+> 
+> > My recollection is hazy, but I seem to remember VFIO using the largest
+> > page sizes in the IOMMU 'pgsize_bitmap' for map() requests but then
+> > using the smallest page size for unmap() requests, so you'd end up
+> > cracking block mappings when tearing down a VM with assigne devices.
+> >
+> > Is this what you're referring to when you say?
+> 
+> Sounds like it, but I'm really hazy on the long ago history here.
+> 
+> >   > Long ago VFIO could trigger a path like this, today I know of no user of
+> >   > this functionality.
+> > 
+> > If so, please can you provide a reference to the patch that moved VFIO
+> > off that problematic behaviour?
+> 
+> Looking more deeply, I'm not really sure VFIO ever required this.
+> 
+> vfio commit 166fd7d94afd ("vfio: hugepage support for
+> vfio_iommu_type1") is the thing that added the huge page support, and
+> it called map like:
+> 
+> +               ret = iommu_map(iommu->domain, iova,
+> +                               (phys_addr_t)pfn << PAGE_SHIFT,
+> +                               npage << PAGE_SHIFT, prot);
+> 
+> But then the unmap path still looked like:
+> 
+> +               unmapped = iommu_unmap(iommu->domain, iova, PAGE_SIZE);
+> +               unlocked += vfio_unpin_pages(phys >> PAGE_SHIFT,
+> +                                            unmapped >> PAGE_SHIFT,
+> +                                            dma->prot, false);
+> 
+> So at that time it was relying on the "unmap smaller gives the larger
+> size" trick that we see Intel and AMD implementing today. No
+> requirement for split, but the ARM split code could be triggered.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-I assume this needs to go in with the rest of the patches.
+Urgh, I'm not sure I was ever fully aware of that "trick". That's really
+horrible!
 
-Yours,
-Linus Walleij
+> Next came the introduction of VFIO_TYPE1v2_IOMMU which eliminated the
+> ability for userspace to request splitting a mapping. Userspace can
+> only unmap what userspace maps. commit 1ef3e2bc0422
+> ("vfio/iommu_type1: Multi-IOMMU domain support")
+> 
+>     To do this, our DMA tracking needs to change.  We currently try to
+>     coalesce user mappings into as few tracking entries as possible.  The
+>     problem then becomes that we lose granularity of user mappings.  We've
+>     never guaranteed that a user is able to unmap at a finer granularity
+>     than the original mapping, but we must honor the granularity of the
+>     original mapping.  This coalescing code is therefore removed, allowing
+>     only unmaps covering complete maps.  The change in accounting is
+>     fairly small here, a typical QEMU VM will start out with roughly a
+>     dozen entries, so it's arguable if this coalescing was ever needed.
+> 
+> That blocked any requirement for splitting driven by the uAPI. Noting
+> uAPI based splitting never worked right and AFAICT AMD didn't
+> implement split at the time.
+> 
+> Finally, commit 6fe1010d6d9c ("vfio/type1: DMA unmap chunking")
+> changed the unmap loop to this:
+> 
+> -               unmapped = iommu_unmap(domain->domain, iova, PAGE_SIZE);
+> +               /*
+> +                * To optimize for fewer iommu_unmap() calls, each of which
+> +                * may require hardware cache flushing, try to find the
+> +                * largest contiguous physical memory chunk to unmap.
+> +                */
+> +               for (len = PAGE_SIZE;
+> +                    !domain->fgsp && iova + len < end; len += PAGE_SIZE) {
+> +                       next = iommu_iova_to_phys(domain->domain, iova + len);
+> +                       if (next != phys + len)
+> +                               break;
+> +               }
+> +
+> +               unmapped = iommu_unmap(domain->domain, iova, len);
+> 
+> fgsp=true is only possible on AMD, and this loop effectively
+> guarantees that the iommu driver will never see a partial huge page
+> unmap as the size is discovered via iommu_iova_to_phys() before
+> calling unmap.
+
+Talking to Robin, he reminded me of:
+
+7c6d90e2bb1a ("iommu/io-pgtable-arm: Fix iova_to_phys for block entries")
+
+which looks like it fixes a bug which would've defeated the VFIO chunking
+in your snippet above.
+
+But we're all good now, so I'm in favour of dropping this. Let's just
+cram some of this history into the commit message so we know why we're
+happy to do so.
+
+Lemme go look at the actual diff now...
+
+Cheers,
+
+Will
 
