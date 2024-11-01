@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F5CE674B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D776E674B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hg2TJ/Baji1tRW8RpbjYn7MFzFn5+qm7pKjjEWt0Flg=; b=g8WyJrDsaHPIA62Kzai9ldN6cB
-	+NAnL74kIOiHSKpc8wA0NsW2FUPqQmQcaHI9kGGTWhoE378/e0nAnuTtYp9sOJEVDjXiIMqHxKk0u
-	Blyfk4tan/FDhZNgLQy7wFEeYw+CuO7PLhP9wYxOPQCJOYe08UYPFk4HHtEmn/lAapg6dG91wLjEV
-	i/RnG5FgONPiaMvpy4uYDkYtfK88/twrzY8s0WyT3Z4niSfd61eghLTE0eHdmSyoZz83roxaf7kCJ
-	A7+/Jwu+pjAUbq64kM3G/sjA3KEExeD8tFfFBQrgXmSfnYemGZ1mA854xxlMeYQbJ7886Oe94xYXk
-	pAusrYiw==;
+	bh=pIZ4297mYks9TlNfZB/eCFyx2Nv7liMlVOj3Uim+dgg=; b=P7B9wLTciONjFV+D+lxvOiLSAU
+	ty2petwr0/6a2n6Rax99Eb2LYyLuEMMSETcNc3huBpzzMPOzeWXuO3gnPWiiu3iqmZ1rKF3KdoYmd
+	c2zTuNn6www67YbA9IKM702FQwaE/nZ5oGXHE54Abxu6C1UxmQ1uYKbKr5gyXaRV1oS+sBGubXYfn
+	So7PW4xNObNQJYn5knmsHX3KQ2sDCxzC3WKdNCwfz0RU1WUKzdteiLn2roaCMzy4p5fZVZgwnsVQy
+	f6L5WNZMM5Gt2UrV/vBgdWRYdw8VUST6OjAZeuvmjwi31jhLgb/ISBv2YKMePQBXQ6dPfjX4MS6n8
+	+ge2pTlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6mwf-00000006FwN-0yZQ;
-	Fri, 01 Nov 2024 08:23:49 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
+	id 1t6myJ-00000006GCL-2mPU;
+	Fri, 01 Nov 2024 08:25:31 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6mnY-00000006EAa-1XX5
+	id 1t6moa-00000006EL9-4711
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 08:14:25 +0000
+	Fri, 01 Nov 2024 08:15:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=Hg2TJ/Baji1tRW8RpbjYn7MFzFn5+qm7pKjjEWt0Flg=;
-	b=f5u/4noKj9KilTbCNFgWVQt0bGoeXfnwxuWKmDWbSN/n13pk1aLAXJgkovhzLU
-	6q4JEnRL7IDFaszpuM7Q9Z7G685BnYPLkMeYTe6j6vmF0DpnMU9xY2PcFo0KXj/Q
-	A4FTuluYuFo/tmOKvgqc1K5nm7Xr1KyXOwlajU7dk4bzc=
+	Content-Type; bh=pIZ4297mYks9TlNfZB/eCFyx2Nv7liMlVOj3Uim+dgg=;
+	b=b1KqIXuO36LLkH4jukpFtZ/rIBd49x54x//dPgK8gHofkebhw4UwICLC6q5WgX
+	YmZI9DjdyVt+iezP72zjkg7z6TmUT21jj/n+0QPct7A+quZGWK+5goZG4gut+bq2
+	UnnJ70z01kWqBGST65ni7unB6dOIL5o1HIlboqbV7HSfY=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD3tv6xjSRn72xnAQ--.13820S3;
-	Fri, 01 Nov 2024 16:13:39 +0800 (CST)
-Date: Fri, 1 Nov 2024 16:13:37 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgCnxfgMjiRnKmJfAQ--.13668S3;
+	Fri, 01 Nov 2024 16:15:10 +0800 (CST)
+Date: Fri, 1 Nov 2024 16:15:07 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Jacky Bai <ping.bai@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	kernel@dh-electronics.com, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 02/12] ARM: dts: imx35: Align pin config nodes with
- bindings
-Message-ID: <ZySNsQVp5+JmRohH@dragon>
-References: <20241017211241.170861-1-marex@denx.de>
- <20241017211241.170861-2-marex@denx.de>
+To: carlos.song@nxp.com
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	haibo.chen@nxp.com, frank.li@nxp.com
+Subject: Re: [PATCH 0/5] arm64: dts: imx: Add LPSPI alias for
+ I.MX8ULP/8QXP/8QM/8DXL/93
+Message-ID: <ZySOC+STuelEZykQ@dragon>
+References: <20241018034532.2552325-1-carlos.song@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241017211241.170861-2-marex@denx.de>
-X-CM-TRANSID: Ms8vCgD3tv6xjSRn72xnAQ--.13820S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUa-eODUUUU
+In-Reply-To: <20241018034532.2552325-1-carlos.song@nxp.com>
+X-CM-TRANSID: M88vCgCnxfgMjiRnKmJfAQ--.13668S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWrZFWxtF1xJr1DGFWkZw47Jwb_yoW8JF17pF
+	W7XFyxKw1qkr4xur4kZFW8Awn3JaykWF1fXr4rt3yYkwn5ur98trW5Kry5KFy7XFW5ZFyY
+	yayUJ3yxCwn0vaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jb5rcUUUUU=
 X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBWKZWckjIUEMAAAsA
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBWKZWckjIUEMAABsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_011424_756135_E7B91007 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_011529_378788_3DE0237B 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,18 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 17, 2024 at 11:11:19PM +0200, Marek Vasut wrote:
-> Bindings expect pin configuration nodes in pinctrl to match certain
-> naming and not be part of another fake node:
+On Fri, Oct 18, 2024 at 11:45:27AM +0800, carlos.song@nxp.com wrote:
+> From: Carlos Song <carlos.song@nxp.com>
 > 
-> pinctrl@30330000: '...' does not match any of the regexes: 'grp$', 'pinctrl-[0-9]+'
+> Now there is no alias for LPSPI on I.MX8ULP/8QXP/8QM/8DXL/93.
+> So spidevB.C index B will be automatically allocated by kernel
+> incrementally from zero according to the order of registering
+> spi controller. In this case, it is hard to determine spidevB.C
+> is spi interface of device C on which LPSPI bus. It will cause
+> confusion when operate spi devices in userspace.
 > 
-> Drop the wrapping node and adjust the names to have "grp" prefix.
-> Diff looks big but this should have no functional impact, use e.g.
-> git show -w to view the diff.
+> For example, in I.MX93, When LPSPI3 and LPSPI5 are enabled
+> without alais:
 > 
-> Signed-off-by: Marek Vasut <marex@denx.de>
+> :~# ls /dev/spidev*
+> /dev/spidev0.0  /dev/spidev1.0
+> 
+> After LPSPI alais is applied, fixedly B is the LPSPI index and
+> C is the spi device index in spidevB.C. They are the pleasant
+> spidev names. Directly spidev2.0 is the device0 at LPSPI3 bus
+> and spidev4.0 is the device0 at LPSPI5 bus:
+> 
+> :~# ls /dev/spidev*
+> /dev/spidev2.0  /dev/spidev4.0
+> 
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> 
+> Carlos Song (5):
+>   arm64: dts: imx8qxp: Add LPSPI alias
+>   arm64: dts: imx8qm: Add LPSPI alias
+>   arm64: dts: imx8dxl: Add LPSPI alias
+>   arm64: dts: imx8ulp: Add LPSPI alias
+>   arm64: dts: imx93: Add LPSPI alias
 
-Applied all DTS patches, thanks!
+Applied all, thanks!
 
 
