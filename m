@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B1FE6F06D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664F6E6F06C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRR9AJTsfoGuf0+MJxl4gRBcf1pwB9Dz73JCAKhQbYM=; b=qXpQ1OP/a8Xf+H4kdPFmO6ZOFu
-	sy8c6pRvhnCz+ApM60yayE47dshFmQDjgOKf70y0Vvx545j8UUK4JHlI9BK8u7GYOLtXtz8USf9iA
-	IJXrvHCCbow/eiHVkngO9zfef2pWzzLyvzxYnYQvCSZQhFA2p/Cr6kEIkBegFQT4K00OVX1TSeyAF
-	JPzNZhywfmeSt0xsYUshHqQ7WerZYNPGntPb7/4/gLaReEmakm+sYLZEDpSSSy2DSQnHmMeryW6VL
-	2REU7bcTEWwIlR27a8brmlzmGN1z91lRilTZYdrd/eLVmwAi4Fmaj6Mw/Ze/yZ1u00zFFtQ2NKVqM
-	6TIfMEkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ShrRbcYJvliPhoSURmADKGDcioeKUNd8vYd3K0xIDTU=; b=J0PfcgSaNVKwmw
+	GOnINMf7qLaoSW06k7f893BKyYuV9kOvueHxB11BZx61/D3f8BDcTAi67oNEIrpYNLokwg3x4qQek
+	bkNDWKPDaLxx/6tsVjmGlEkKBFJYQPMoO+qoEdSu3R5p6JDBr5d4MrqoJyCZiBAj4jrZKNzpoCZyO
+	/BS6pEO0wRtNW3XWgTVJVM33HMu+AdexQqUFymf1b4lS5VWHAztB+ZSMyLrPsjOrLT20X2A6VhpAf
+	J6rspbNDP5MXI5b6itJuLtWnNo13Jg1JnKkmKwZ7EatdPvog1st1l+B4CdmT1K4q90F01sYTGsQ+f
+	6q2LaSSoaZioPxiCK7JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6u1Q-00000007Zy9-0LEm;
-	Fri, 01 Nov 2024 15:57:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t6u32-00000007a9F-29DA;
+	Fri, 01 Nov 2024 15:58:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tkT-00000007XQZ-3keO
+	id 1t6tln-00000007XcG-4BoC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 15:39:43 +0000
+	Fri, 01 Nov 2024 15:41:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E3B755C1628;
-	Fri,  1 Nov 2024 15:38:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0537C4CED1;
-	Fri,  1 Nov 2024 15:39:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 337CE5C3DF6;
+	Fri,  1 Nov 2024 15:40:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B599C4CECD;
+	Fri,  1 Nov 2024 15:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730475579;
-	bh=vCmihEQoV1sQ3RVSmj0nT8aQeaFnoE7/Rdn3ZKtwFJ0=;
+	s=k20201202; t=1730475662;
+	bh=zla9w9yuxenlwXZM9FMEzg1b87SODZSVTWyPtyv2tJQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ggxrEIV5y/A0Wp1Sg/E0OYQVDITTMbsixBigKgz+YM2buSPfY3VIiZ2hlmnih4XNX
-	 RVR7sqwZ2VUvun5+61bMLxFjIKdy0xm4e4lyfoOfWbwW8BAR5rUWZmJjwhLZqecRQz
-	 T+ipRhmkM2g2C1OKwNkcxfO/XEmNb9A0ld99O/kv46TFtlmXqbPSke1+zBrcoRd/gB
-	 BolyaoBK+HkIXw68rcRN/SLqKpaO3qCGRl5FmTdjPEjT4e6stVW6gaIyNlr1HaBXcC
-	 4w4gGDR82vWw8acx5fyYSurXt2dnFZ5HIzd7QHkAY/WaB8Z1f9NyeHzc+TDDwb/pnB
-	 engoxprAT3DXw==
-Message-ID: <4ce01e3b-9bcd-4d8c-bfe1-c2b17a4c2566@kernel.org>
-Date: Fri, 1 Nov 2024 16:39:33 +0100
+	b=GaFb1+V/oKwjeRtAHrj7Jz11JXecNJLRIxuWfVub7Y/7Lx1tCRuv9YZsZfDwODgr6
+	 BSprj8QPULTkHLHEgonlW4Gy1seNjtx4EfG1G6itCT6BY8QK4w5FoACp8oRJuIgZhm
+	 wdgNcbDGP+7BU/3OnqSJW24QbXtj+zB7QxspAINC7HjI9cxQ4qCBRxs2356JfRf6V6
+	 59qi3Cnc9KVjX9bQP3PMBwvFd4y/xdtl8ZIedU9eq4E3Yj2UAXRsZ1hOi61xF3cPcm
+	 h3NowUVMf7oO0Q96O+6I+d+9ZKn1w8up6DME6Wx3vyDjG/K7VZ4EDPc4LtvLQ0BRDR
+	 IH620WjfPLkUA==
+Message-ID: <9e876379-c555-45e6-8a8a-752d90fdc8ed@kernel.org>
+Date: Fri, 1 Nov 2024 16:40:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH asahi-soc/dt 01/10] dt-bindings: arm: apple: apple,pmgr:
- Add A7-A11 compatibles
-To: Hector Martin <marcan@marcan.st>, Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
- <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241029010526.42052-1-towinchenmi@gmail.com>
- <20241029010526.42052-2-towinchenmi@gmail.com>
- <wpwa22u5z5hamvme7za7dqe7kjl5bap2a254w32yyqrohz235g@hk3izcckbdqn>
- <5e0b5238-d781-458a-9285-df54a16232af@marcan.st>
+Subject: Re: [PATCH v4 14/16] net: stmmac: dwmac-s32: add basic NXP S32G/S32R
+ glue driver
+To: Jan Petrous <jan.petrous@oss.nxp.com>
+References: <20241028-upstream_s32cc_gmac-v4-0-03618f10e3e2@oss.nxp.com>
+ <20241028-upstream_s32cc_gmac-v4-14-03618f10e3e2@oss.nxp.com>
+ <xanb4j56u2rjwpkyj5gwh6y6t36gpvawph62jw72ksh7jximhr@cjwlp7wsxgp6>
+ <ZyOXgdqUgg2qlCah@lsv051416.swis.nl-cdc01.nxp.com>
+ <b9aefcf2-8f0d-431c-865b-34c9b8e69c4d@kernel.org>
+ <ZyO7fn3NWULA9bGG@lsv051416.swis.nl-cdc01.nxp.com>
+ <ZyO9Mfq+znZdJJrJ@lsv051416.swis.nl-cdc01.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <5e0b5238-d781-458a-9285-df54a16232af@marcan.st>
+In-Reply-To: <ZyO9Mfq+znZdJJrJ@lsv051416.swis.nl-cdc01.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_083942_081895_F5BB5BDE 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_084104_168143_448540E1 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,22 +118,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Andrew Lunn <andrew@lunn.ch>, NXP S32 Linux Team <s32@nxp.com>, Emil Renner Berthing <kernel@esmil.dk>, imx@lists.linux.dev, Alexandre Torgue <alexandre.torgue@foss.st.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Eric Dumazet <edumazet@google.com>, Iyappan Subramanian <iyappan@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com>, Fabio Estevam <festevam@gmail.com>, linux-stm32@st-md-mailman.stormreply.com, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Jose Abreu <joabreu@synopsys.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-arm-msm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, Keyur Chudgar <keyur@os.amperecomputing.com>, Minda Chen <minda.chen@starfivetech.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/11/2024 13:33, Hector Martin wrote:
-> - First the ancient s5l series
-> - Then all the t/sXXXX chips up to t8103 (M1) (numeric order, ignoring
-> prefix letter)
-> - Then the rest of the "baseline" Ax,Mx chips that continue after M1,
-> which are all numbered t8xxx (numeric order)
-> - Finally the t6xxx series (Mx Pro/Mx Max), which forks the timeline and
-> numbering after t8103/M1 (M1 Pro = t6000).
+On 31/10/2024 18:24, Jan Petrous wrote:
+> On Thu, Oct 31, 2024 at 06:16:46PM +0100, Jan Petrous wrote:
+>> On Thu, Oct 31, 2024 at 04:44:45PM +0100, Krzysztof Kozlowski wrote:
+>>> On 31/10/2024 15:43, Jan Petrous wrote:
+>>>> On Tue, Oct 29, 2024 at 08:13:40AM +0100, Krzysztof Kozlowski wrote:
+>>>>> On Mon, Oct 28, 2024 at 09:24:56PM +0100, Jan Petrous (OSS) wrote:
+>>>>>> +	plat->init = s32_gmac_init;
+>>>>>> +	plat->exit = s32_gmac_exit;
+>>>>>> +	plat->fix_mac_speed = s32_fix_mac_speed;
+>>>>>> +
+>>>>>> +	plat->bsp_priv = gmac;
+>>>>>> +
+>>>>>> +	return stmmac_pltfr_probe(pdev, plat, &res);
+>>>>>> +}
+>>>>>> +
+>>>>>> +static const struct of_device_id s32_dwmac_match[] = {
+>>>>>> +	{ .compatible = "nxp,s32g2-dwmac" },
+>>>>>> +	{ .compatible = "nxp,s32g3-dwmac" },
+>>>>>> +	{ .compatible = "nxp,s32r-dwmac" },
+>>>>>
+>>>>> Why do you need three same entries?
+>>>>>
+>>>>
+>>>> We have three different SoCs and in v3 review you told me
+>>>> to return all back:
+>>>> https://patchwork.kernel.org/comment/26067257/
+>>>
+>>> It was about binding, not driver.
+>>>
+>>> I also asked there: use proper fallback and compatibility. Both comments
+>>> of course affect your driver, but why choosing only first part?
+>>>
+>>
+>> Does it mean I should remove first two (G2/G3) members from match array
+>> and use "nxp,s32r-dwmac" as fallback for G2/G3? And similarly change
+>> the bindings to:
+>>
+>>   compatible:
+>>     oneOf:
+>>       - const: nxp,s32r-dwmac
+>>       - items:
+>> 	  - enum:
+>> 	      - nxp,s32g2-dwmac
+>> 	      - nxp,s32g3-dwmac
+>>           - const: nxp,s32r-dwmac
+>>
+>> And add here, into the driver, those members back when some device
+>> specific feature will be needed? Am I understand your hints right?
+>>
 > 
-> Unless there's significant objection I'd like to keep this pattern, it
-> makes sense from the POV of people working on these chips.
+> Sorry, it's not correct. This way I'm not able to detect S32R which is
+> the only one with higher speed.
+> 
+> Then I could use the G2 as fallback I think, Ie.:
+> 
+>   compatible:
+>     oneOf:
+>       - const: nxp,s32g2-dwmac
+>       - items:
+> 	  - enum:
+>               - nxp,s32g3-dwmac
+>               - nxp,s32r-dwmac
+>            - const: nxp,s32g2-dwmac
 
-No, no, it's fine, I am just forgetting where do we have exceptions. :)
+I don't understand. In both cases you can 'detect r', if by this you
+meant match and bind. I don't care which one is the fallback, but if one
+does not work it points to different issues with your code.
 
 Best regards,
 Krzysztof
