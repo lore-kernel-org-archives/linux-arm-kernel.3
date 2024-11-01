@@ -4,106 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FE3E6F072
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 17:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC355E6F072
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 17:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNHBMWzMD0NkocAqxwRh+MsZa3vWvxzvM3VdrJFfGM8=; b=xai/921CNTeZESF3akaJW8oy/Z
-	R1Q/hWO7ISAbqEly1iGXfwWFyDtnruFNLfC5k5x+mYGVJXu7KM2enEffuMaeh50dbsqHG0cjRfXEn
-	xs5BQaC+grWjCuGhrt9BenfL1erwV/xtrYxrk2WBzjwq2tzMs0A0GzRowsXNdkq1jYPKDz+Ijxec/
-	1hhGjzOeiJ76WGTu+REyZDu8JxQZkSGprafkTOXM/ElvHOPm+0+yvuN/aYKwbrtBanT7UlOS2wCd6
-	Urt6UxpqZN5e7Dy9sEtDUINlsBDxEPmBBHe5ENA+j7rMQH59d9RGzb2gMBzp3Ab7mbKo6iRQ/LeFT
-	pZTVMOAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JnWlLjPQmwjy7upvMkbZBk7NN1OPViFHw1UhqYzYWw4=; b=W1JcNGGiOiT+eGdwQY113N3sTw
+	8RBQFUFRIosbq5MWMF0dwVUB6DR0fjXaYgrECDqcT0qJkLx69phS2urZdGXNaD4tCdBEKxFfc/rbm
+	egc4243ttUO6iZVl2TbeXcTKPGVIlBLuLiXTSkIJ4DqV50CUyA/0ocyp+PFCqOhgoixICqee5e6bc
+	Ra9nnvlMpjisJD/Lpil8Zzy60VfT/Cje4uA/LHHQofsmwJz+/YKL+PYts1aueuIYjImn95ek9rLLG
+	pCMl3EtrKxa6dYzMX3fEi30m9XWa8YoMaSwj8ExiHhuITUARhToCN4rKu3Ec47WdWcX2BGatJB6UD
+	vv+kAQ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vUT-00000007qce-3ncG;
-	Fri, 01 Nov 2024 17:31:18 +0000
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
+	id 1t6vUu-00000007qet-37Oc;
+	Fri, 01 Nov 2024 17:31:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uMi-00000007drm-1udy
+	id 1t6vTC-00000007qQ0-1FDg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:19:14 +0000
-Received: from phl-compute-03.internal (phl-compute-03.phl.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 30E2B1140168;
-	Fri,  1 Nov 2024 12:19:08 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Fri, 01 Nov 2024 12:19:08 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1730477948; x=1730564348; bh=GNHBMWzMD0
-	NkocAqxwRh+MsZa3vWvxzvM3VdrJFfGM8=; b=o7vpaOIOMhBTDnnIBq4DTTS3TD
-	mcTjIFbaCJEqHFrDXQgMFh1Kd9i3S18ndp02te6drKJjpfxGb2HlcMZtWnkJ5CHY
-	MdDCQbM8MGrbkRs8JlELheLdFTY3RtaxP8ZWM+Th/ZO/Z3GRbxKR5bPlRBk7beLL
-	2x1mZwUMNNXsUrmh/tcaPeG7vpSIQLkE4/ncMXnbdPdWMsntvDvHyKMbHaQkrcdL
-	irTgt4ANrlJuYNcocoUtHZB/1eL+tGRTS/O4GVtcQz/mII0LbQ+/WUN33twm7llN
-	LzR1e5m2/t6oq6Yw5LCCr+32mbMRA9rBc+6GyhCKLG764AdIwyRe58lUbARQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1730477948; x=1730564348; bh=GNHBMWzMD0NkocAqxwRh+MsZa3vWvxzvM3V
-	drJFfGM8=; b=RELjwy8121HB4CAmI/ikAW784AJyek7dbq6QmgxImiVB5Ghj3Lr
-	h440rCbcwHnNnMGYTDcrzg4f4+8QZw0LGmFmJUFta6Co201DJVXrXqUQ9lg1OtyN
-	PbQCfQ5gt+ajjQp2+ft4zVcIclb0HTTzgsXuf4oPatxqWEmYpaiALd5r2zLkYFwi
-	Il0NfLjzrThh/K9pMjINt0v5lsVpRO5LYqZPebouABKnFZsyHozRMI+TF28PWYXx
-	1p+Fbk3fQHbnFlqodaV2cKflUM1tolAWaZNN5nVqjngJR0gjSvTdBHZeu+U/tzQL
-	ijUm3mD5mX0fWCRM+JyQxw3MPEljYtcadwg==
-X-ME-Sender: <xms:e_8kZ8QprNSabMxxUFBd1mej28P07D3DYighSP-WUrVM6ZQzwy-ggw>
-    <xme:e_8kZ5z8efst3Z5klllVV3zbueWAFRYUxAkbJj6fpdhIhTg6JPSKfYYsnpLq3PTgA
-    glVtm-sYp2nsjVIvDc>
-X-ME-Received: <xmr:e_8kZ50OFcvBsBwTWnV3fXB7iY_CgLNSz4M3DKokepl1TnDAbnhpYr2lxEVwrLktuvEipQ6xwxWZOHak8ctOQImirbRzTwxWST0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekledgkeeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtjeen
-    ucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenuc
-    ggtffrrghtthgvrhhnpefgudeuffelfeekgeeukedtheekjeettdfftddujefhvdehtefg
-    iefgledtueefjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrh
-    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvght
-    pdhnsggprhgtphhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsg
-    hrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhgtrghnsehmrghr
-    tggrnhdrshhtpdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhrtg
-    hpthhtoheprghlhihsshgrsehrohhsvghniiifvghighdrihhopdhrtghpthhtoheprhho
-    sghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlih
-    hnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:e_8kZwCzt0aws-_lwbhVUfa6KB1UiP_CRfzPP0vBfYKP7dXnJBOe6g>
-    <xmx:e_8kZ1j7TGefpKR_BbVS2p5Bc1dkR6PFYEpogrJDiHymD4RbdGAKAg>
-    <xmx:e_8kZ8qwnquqlBZ21pLj2iAb5m5BH68sQkghrs4I8vHZNWiFrxVXsg>
-    <xmx:e_8kZ4hTPD5nHLRGQ16g22C4ZdzMT3b98fG92fFs58TOm1o1hmiBIg>
-    <xmx:fP8kZ-ZFRMagDDBxQVcs4uxML9aDGlKW1K-V7ozF0gcFTD8CSPuzOUV4>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 1 Nov 2024 12:19:06 -0400 (EDT)
-Date: Fri, 1 Nov 2024 17:19:05 +0100
-From: Janne Grunau <j@jannau.net>
-To: Mark Brown <broonie@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] spi: apple: Add driver for Apple SPI controller
-Message-ID: <20241101161905.GB194146@robin.jannau.net>
-References: <20241101-asahi-spi-v2-0-763a8a84d834@jannau.net>
- <20241101-asahi-spi-v2-2-763a8a84d834@jannau.net>
- <e3008c6b-ba71-46cf-810b-053dbafe2cfb@sirena.org.uk>
+	Fri, 01 Nov 2024 17:30:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F2AA0A4491B;
+	Fri,  1 Nov 2024 17:28:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEA59C4CECD;
+	Fri,  1 Nov 2024 17:29:55 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/gcs: Fix outdated ptrace documentation
+Date: Fri,  1 Nov 2024 17:29:53 +0000
+Message-Id: <173048218530.1104111.323163241768582552.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20241031-arm64-gcs-doc-disable-v1-1-d7f6ded62046@kernel.org>
+References: <20241031-arm64-gcs-doc-disable-v1-1-d7f6ded62046@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <e3008c6b-ba71-46cf-810b-053dbafe2cfb@sirena.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_091913_361099_2B7F0B7E 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20241101_102959_060023_6B0D30CA 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,37 +65,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 04:08:20PM +0000, Mark Brown wrote:
-> On Fri, Nov 01, 2024 at 03:25:04PM +0100, Janne Grunau via B4 Relay wrote:
+On Thu, 31 Oct 2024 19:21:38 +0000, Mark Brown wrote:
+> The ptrace documentation for GCS was written prior to the implementation of
+> clone3() when we still blocked enabling of GCS via ptrace. This restriction
+> was relaxed as part of implementing clone3() support since we implemented
+> support for the GCS not being managed by the kernel but the documentation
+> still mentions the restriction. Update the documentation to reflect what
+> was merged.
 > 
-> > transfer, most of which we do not use right now. Hardware CS control
-> > is available, but we haven't found a way to make it stay low across
-> > multiple logical transfers, so we just use software CS control for now.
-> 
-> It is extremely common for hardware CS control to not support multiple
-> transfers, I wouldn't be surprised if it's simply not possible.  We
-> could potentially use it with compatible messages it seems dubious that
-> it'd be worth the time/effort of checking and using it only some of the
-> time.
-> 
-> > +++ b/drivers/spi/spi-apple.c
-> > @@ -0,0 +1,531 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Apple SoC SPI device driver
-> > + *
-> 
-> Please make the entire comment block a C++ one so things look more
-> intentional.
+> [...]
 
-I did after your the same comment in v1 but reverted that since
-checkpatch.pl complained. See
+Applied to arm64 (for-next/gcs), thanks!
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/scripts/checkpatch.pl?id=a674fefd1732#n3742
+[1/1] arm64/gcs: Fix outdated ptrace documentation
+      https://git.kernel.org/arm64/c/1caeda5ef251
 
-The inconsistency between *.h and *.c is surprising. I'll change it and
-ignore checkpatch.pl for v3. I'll address the other comemnts as well.
+-- 
+Catalin
 
-Thanks,
-Janne
 
