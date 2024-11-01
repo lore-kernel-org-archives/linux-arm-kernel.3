@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3940BE6F06E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8043DE6F06E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49fgw3axp1IDyDrO/8mErO1GkkZHK9CcdYm60SQ4MbQ=; b=2rhyk/ahUNFs94UtEmezIhfFw4
-	Rbq9xW/r6bKc/T/6m747P8GyM4d02YSJxc98Abq3C8RltEmGZSAFC3NThCbMNcfe8CX8tdNrvTDPD
-	NK6DuvDIDBLUVkEFAze8LIJtcIbvQOdwqkSXP66LHZ/uQDeBuZZKqy1JhyootLVmXCNegWYiDwTyW
-	vofUXecAl5zM8JlsueubyziXDRl23uPqF4YontVVYLibS1dgiKqaNmiwpitebek0CY7QMbZrF3xcB
-	Ns5wYsNXAhD6pBRkqAp6Wh1wDkmiJEqWeoRwP5Egy22lNWaMxgmPJSN5NIkvVgEN1FJu9N5ziu54Y
-	5OmbGIkg==;
+	bh=WM0ayidRlllnRvvLUW8fGyTbbtH4p5l6+FLffKZfN/Y=; b=4o8gUGCZg36sEKa5oQPaWTWdw3
+	//s0lLYfKhYV9Ym5Y8YHzOlVcJ7vBdsnvmMVryEADwUQQPowqWzPsZMH9Fl68N8EkIzV+7i/nko7q
+	FRXzr/plJck90QadQ+ikITcxSozmKAYGa7uTofO6HzMlCvu+eUqPM+LvzUntVaewJyTfYNAOUT2yK
+	UZf+BBianVenph6rKZyx3UOjnn+yjUWoujWB8DjXwcN4/ORUEkg8uHXkYinIpJda2pRIZG3+PVQXz
+	zuxI1ALM72uZ9VfR4YPVP3hXORgZv8Gb5Si3QWLXKJbqiQ3iPcV8GHgETb+npRJtLSrVfmUcHlCzQ
+	UMwCMa+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ulq-00000007jTM-2Xbz;
-	Fri, 01 Nov 2024 16:45:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t6umv-00000007jmI-1Llf;
+	Fri, 01 Nov 2024 16:46:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ue0-00000007hiI-2A88
+	id 1t6tfj-00000007WdB-2fDi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:37:05 +0000
+	Fri, 01 Nov 2024 15:34:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 011FB5C4135;
-	Fri,  1 Nov 2024 16:36:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1342DC4CECD;
-	Fri,  1 Nov 2024 16:36:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 49EF3A4310B;
+	Fri,  1 Nov 2024 15:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50629C4CECD;
+	Fri,  1 Nov 2024 15:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730479023;
-	bh=QET17fHgUqNbmUw/e9EdVPDP2UwGuQA8tvgZ5/yNPgE=;
+	s=k20201202; t=1730475286;
+	bh=3gF4dUs4I0hbZEB/vl2nNOfNJfrWUy9SgixJZc2ZpYg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=l14K5SRt1vC7zG+/VORahqbr+H6ulbVRDGBFQqXQrlK65o/ub6oYejiOTlB3PTP+t
-	 ojIvFQAiM6eCZyGzENOs0yMHTr2uO8dWnwfinokslRJsBu9P37TMZnux02xYOlCtzM
-	 EK6rS/bitNuCRQeM04K0w8i1fLTqvY1KCpyTTO2NKLQRnQndxkAEUdekfUn/utuDTd
-	 oOCDKuIEdj4R85KlKTGWq2I0JD6y348/hop0m/AUa2FbOMlj77L8f6dHmIh6//o3Mn
-	 MuOX0BLZg2wZpUTzzIeaMq8bP81cyI1nIOFo50d6vJ288U5hiHbTmy88m3C7SKeuRO
-	 wPHYT0ZSpEvKA==
-Date: Fri, 1 Nov 2024 16:36:51 +0000
+	b=ExR7YdMPH4ej6K7ujfnj4MwHuH/ToU0rvxAgB76QLIOBPcjQVQwD0RnU/KhoWucTr
+	 7THMxdiDKds6yE9+xL6TTZTncVEfFMjP1V2Ik4AXfTlGUGzhUoxA7r7Ck89HCCh+QZ
+	 Z0zaqgT4DcM9JJeSsr6hY4ZY/+XjCozJb5jzEAj0Aut+XaN+deDpesWtuh0olIVhEF
+	 vU7bmW6UR4yxJdX1o3mSNkSR4399Uek5adBzhXoudUfhmcUtwvicAJFd+mlNwpNFA5
+	 zM4ooysvKCmWA0G1nhHe6buqZl6LjmNTjOeTmxBMUtOxyXgNUDa5DWgJiBmKf/D0wH
+	 BUZ+itl6SwQJQ==
+Date: Fri, 1 Nov 2024 15:34:34 +0000
 From: Jonathan Cameron <jic23@kernel.org>
 To: Julien Stephan <jstephan@baylibre.com>
 Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
@@ -63,18 +63,19 @@ Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
  <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
  linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH v2 11/15] iio: imu: st_lsm6dsx: use bool for event state
-Message-ID: <20241101163651.09ca52d4@jic23-huawei>
-In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-11-2bcacbb517a2@baylibre.com>
+Subject: Re: [PATCH v2 02/15] iio: proximity: hx9023s: simplify code in
+ write_event_config callback
+Message-ID: <20241101153434.11d85f8b@jic23-huawei>
+In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-2-2bcacbb517a2@baylibre.com>
 References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
-	<20241031-iio-fix-write-event-config-signature-v2-11-2bcacbb517a2@baylibre.com>
+	<20241031-iio-fix-write-event-config-signature-v2-2-2bcacbb517a2@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_093704_646631_98A08A5A 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20241101_083447_840882_618EA82B 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 16:27:06 +0100
+On Thu, 31 Oct 2024 16:26:57 +0100
 Julien Stephan <jstephan@baylibre.com> wrote:
 
-> Since the write_event_config callback now uses a bool for the state
-> parameter, update the signature of the function it calls accordingly.
+> iio_ev_state_store is actually using kstrtobool to check user
+> input, then gives the converted boolean value to the write_event_config
+> callback.
+> 
+> Remove useless code in write_event_config callback.
 > 
 > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
-Applied.
+Applied to the togreg branch of iio.git and pushed out as testing.
+Note if anyone else has time to review, I can still add tags for now.
+
+I'll probably push it out as an (in theory) not rebasing tree early
+next week to give a bit of time in next before a pull request.
+
+Jonathan
+
 > ---
->  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c | 2 +-
+>  drivers/iio/proximity/hx9023s.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> index caefa15e559b8808051ff1c7f82c3f36c947933c..509e0169dcd54e773540c4e3f1b56e5b737f80c3 100644
-> --- a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> @@ -1865,7 +1865,7 @@ static int st_lsm6dsx_write_raw(struct iio_dev *iio_dev,
->  	return err;
->  }
+> diff --git a/drivers/iio/proximity/hx9023s.c b/drivers/iio/proximity/hx9023s.c
+> index d8fb34060d3db88a3ba5ecdc209b14be8e42e8b9..38441b1ee040c7c26047b0cb2ac443ecb8396df3 100644
+> --- a/drivers/iio/proximity/hx9023s.c
+> +++ b/drivers/iio/proximity/hx9023s.c
+> @@ -879,7 +879,7 @@ static int hx9023s_write_event_config(struct iio_dev *indio_dev,
+>  	struct hx9023s_data *data = iio_priv(indio_dev);
 >  
-> -static int st_lsm6dsx_event_setup(struct st_lsm6dsx_hw *hw, int state)
-> +static int st_lsm6dsx_event_setup(struct st_lsm6dsx_hw *hw, bool state)
->  {
->  	const struct st_lsm6dsx_reg *reg;
->  	unsigned int data;
+>  	if (test_bit(chan->channel, &data->chan_in_use)) {
+> -		hx9023s_ch_en(data, chan->channel, !!state);
+> +		hx9023s_ch_en(data, chan->channel, state);
+>  		__assign_bit(chan->channel, &data->chan_event,
+>  			     data->ch_data[chan->channel].enable);
+>  	}
 > 
 
 
