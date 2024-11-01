@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAD8E6B27C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73750E6B27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgCiEVGz8klvzwcS+QkKtoh9xYbmOE1HGElbvRznKis=; b=an33AVtf1MxRT4guTX0bDSXhot
-	/VSQtg00tRWopl+BqWlhwuadywhuVL1YA2YWRNeBe7vfkr0n2J3MdT0KxaCLWZhmCW2BYCHSTmV5V
-	LwHnVU5UD7oZcsXNrc/ktatTGOc+X28w/l2bHJer+HcBPwS4SxVX5h/errghRVWpTDR82egX3LWqE
-	hXOXZieozWaIJAjvYuLLdviFPxCxwvDV+sZDJQlqK0Mph+px90msTuG7t53zlb6+JV0/Ylv7yZx7x
-	+X7HaKoKlkGuL58Z22iK4WZQZjyoxYVCM5CLmdjfxkimw++L8nXu7008KPh+qD21AQZ29v4VRUjS5
-	R89fS+cA==;
+	bh=EzBHJrheRbAs9ESwUVActksrcefHG2ISlco4X5/KYT0=; b=DFTNkqKOkq9iVCxTEHa5ikubpX
+	1dI7YAyiU+ndDGHuB0DGbJozb/fTGHqLMzLA+Qlm3SD+hPC7Qvm5wiqGuwYk6ju4pn/pr2u4hOHUT
+	7KOilB0Jy0b4SxyvZnMWqo2GRwmB2myWbnvmpfUCOKH9do5W7+C7m8IXhrQ9tPWGZiWvUrTJ46vd8
+	EBKpkdZ6XmtfH6NR5eyvkJj2xXTgXxjRNkw+9GIN541qduoRPP7JP3NAfbgeyekPk/6Dp0WWQMpW5
+	2frezJnMLvLsmv+OXpwnuZ4Cl80jAVny+bauZV0YmNikF4JO9ngl5pSfPFpQQ621lavYbsgz/kH8H
+	jA6wX46A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rr1-00000007COp-1pNK;
-	Fri, 01 Nov 2024 13:38:19 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1t6rsf-00000007Ces-3Rwl;
+	Fri, 01 Nov 2024 13:40:01 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rkz-00000007BM2-0yDr
+	id 1t6rl5-00000007BNO-2ktY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 13:32:06 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-71e5130832aso1545287b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 06:32:04 -0700 (PDT)
+	Fri, 01 Nov 2024 13:32:13 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-71ec997ad06so1620927b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 06:32:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730467924; x=1731072724; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730467929; x=1731072729; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KgCiEVGz8klvzwcS+QkKtoh9xYbmOE1HGElbvRznKis=;
-        b=iFiw1e1o7NYvqyw4ZyhdFWsRG6+wkKnso8+q4QxemuaiamUEBcpuheRXm+dgu7M9ed
-         A8mWDb2SXLesvtWE/D2BJ4ZDJmI6C4jr29+ub831UUIoKiXtQSsZ/0VZc6BZ7UMX3dpb
-         mHhf3REidRqbd3eH5QsKK15OSDyxgrUZ8es6N575pZLhWcpuyetAZG3QTE/q/vUd0DOX
-         KayZnwUv0+ZmtdwBfovxSeACccJIabkykz0Qg9ZbA679Db0UFe+Be+hzjtZ3t8juFhp1
-         cd8Y2LDZkR6rxOEjBMyNcEBlQkFKnG0kiUKcXZ8QlBcsJ6LZgs6no7fOxzIqWu3cs3+X
-         Nm+w==
+        bh=EzBHJrheRbAs9ESwUVActksrcefHG2ISlco4X5/KYT0=;
+        b=KCcBx+lrQRGR394y2YvY2+r6/vio2jQDI0AT3vP7Lf4ITXXQWZLc4djTnRbyw1Gl6d
+         6VegP6FuyegQ3UqWSQPXzu//CCuWgbv1JvfwcP7OkxcmCNHyHv/jLxDt0qbkmmgj84m7
+         Hi3kFokvq1zq2+EUcq2WmBhsUrXyTMCHLz4s5494azndUtFRK48ARm6pvJSbxjQ7E/E/
+         G+DPJvrkCXFbAY0V+fK6v0alyUl7xYI7wIwweZ23AcI7p8k2o5pSCoTRMESa5vtc6flZ
+         2DuG4USguq+xShu0qaQ9L4oKwyhPRzgg8t0FU8TjIq8vOTdruwsxNPPd8HSEYeXW8uIB
+         SJuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730467924; x=1731072724;
+        d=1e100.net; s=20230601; t=1730467929; x=1731072729;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KgCiEVGz8klvzwcS+QkKtoh9xYbmOE1HGElbvRznKis=;
-        b=AQv+RHtUhlxXVegqwrHMJidI7ouKzlNQ+Gc3jXJQ4nZkTvSVCzTs2WJoamRiB+xt8U
-         t4CQ5ko41ATupAA1uiIEz/LOT+kUruPw5p/S3E7rjjlTkHJ1DaFmZuUyBidO4bniOJv1
-         HUpqByf1qWrEGPwvPa2E1MFJCM77Ebgb+5hDMs3AwZiF6iiRrGEvvaxIXBv8TSyRACL4
-         4jsAv4BxBFjilknf01UJWJm7w31B+T+W0S/Vt3r68gnRxl5mfvn4k0mQfSznD+V7I5nx
-         FI1ieKROsxhrZSBRY34ubPe5twSDNN90lz8t0lxbfwP2Eb7eSJbE11LCHNFhfy1VQ8as
-         BRag==
-X-Forwarded-Encrypted: i=1; AJvYcCXqgN6vliJMdw/cXG4ulbo20qLvHU7ty22iHp8jzZ5Os0HUEKeecXetW2wzycYAJA30FF8Gs5CpwkuZov8EBsps@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHm6HAcmkY+CG5f2Bx1nTB6S0HYXr+hWqlAFPtbDhSUdAtb36Y
-	j6TyIE3bQLeurv0K7gzgbDCCwbRhQ3pPwc9PyYFD6tQ8hwnB5h5O
-X-Google-Smtp-Source: AGHT+IFVGLBQ7WFySkSoLUs1iM7bD8sevl+nqGIEWdG3RTihTRQmex9k6gFT4/m/RVQUWsys/PDh8Q==
-X-Received: by 2002:a05:6a21:a24b:b0:1d9:ac9:3587 with SMTP id adf61e73a8af0-1dba52aad00mr4018425637.14.1730467923806;
-        Fri, 01 Nov 2024 06:32:03 -0700 (PDT)
+        bh=EzBHJrheRbAs9ESwUVActksrcefHG2ISlco4X5/KYT0=;
+        b=f1gfgdWOtN4Zf47frfavSOd8E6AulaCCL3MYY8hIyjXGy3MW2cHOMYbC4fLT8e/BDK
+         a+lZ2E2BKP5u9Ff+EIG6gNCoBwzAeYj9B2LJ4mFFFnwlZC1a5Dfr48UhthgGV7HmN2JI
+         48qiHYC7fh5bJOgFnDLudcCC1c99WeR9Hkk3eR65k9RzS6tWHu7ZL3XvKW4cKGhn44Ng
+         EZ7mvWG12NYraMyarUYb5T4GwpBSXNwhok7zRnoCNIXhv2p+MP259BQLAsALeFav4QLT
+         rHP52TNPp70UBYofqDsCsXRfQfQXZjzB7wSAPdavDsefMN+XMUs5cKVSwRaADmNPkG4W
+         Ftzg==
+X-Forwarded-Encrypted: i=1; AJvYcCW/jkRcfihAgoR+YUkyUg9131yQcUd4O6UxiumN+DMs1r1uS578V7m2J/uPaN2F1yXA71wu1GoakPFgt/4USJ4M@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfQHibSSyMwYfcE1Hm+T5JIVuuHuwIopXGlJmHrYLf9kh6+Euy
+	lYlnWfeERDhSudGHWUr/wO2kzItTT50h2XRKtSWVTGmJsCCaWyxQ
+X-Google-Smtp-Source: AGHT+IEU3hlJ/JMUnrwPhP3mIJwmRERMQKQSquNIAWr9P7V8Y6tRLbHl11iI7I2jGvPtZs7xGGcABw==
+X-Received: by 2002:a05:6a20:2d29:b0:1d8:a1dc:b3b with SMTP id adf61e73a8af0-1d9eec4580fmr16171427637.20.1730467929332;
+        Fri, 01 Nov 2024 06:32:09 -0700 (PDT)
 Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-7ee452ac4ffsm2425552a12.25.2024.11.01.06.31.58
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-7ee452ac4ffsm2425552a12.25.2024.11.01.06.32.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Nov 2024 06:32:03 -0700 (PDT)
+        Fri, 01 Nov 2024 06:32:08 -0700 (PDT)
 From: Furong Xu <0x1207@gmail.com>
 To: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
@@ -81,17 +81,17 @@ Cc: Vladimir Oltean <olteanv@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	xfr@outlook.com,
 	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v8 2/8] net: stmmac: Rework macro definitions for gmac4 and xgmac
-Date: Fri,  1 Nov 2024 21:31:29 +0800
-Message-Id: <510b85288b13aa2cce5adf849291009c6f29a84a.1730449003.git.0x1207@gmail.com>
+Subject: [PATCH net-next v8 3/8] net: stmmac: Introduce stmmac_fpe_supported()
+Date: Fri,  1 Nov 2024 21:31:30 +0800
+Message-Id: <01e9cd13aedd38cb0e9a5d9875c475ce35250188.1730449003.git.0x1207@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1730449003.git.0x1207@gmail.com>
 References: <cover.1730449003.git.0x1207@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_063205_297944_E24F5A0D 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20241101_063211_731242_E77D8D72 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,188 +106,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename and add macro definitions to better reuse them in common code.
+A single "priv->dma_cap.fpesel" checks HW capability only,
+while both HW capability and driver capability shall be
+checked by later refactoring to prevent unexpected behavior
+for FPE on unsupported MAC cores and keep FPE as an optional
+implementation for current and new MAC cores.
 
 Signed-off-by: Furong Xu <0x1207@gmail.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 77 ++++++++++---------
- 1 file changed, 39 insertions(+), 38 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c     |  5 +++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.h     |  1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c    | 10 +++++-----
+ 4 files changed, 12 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 2792a4c6cbcd..704019e2755b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -1271,7 +1271,7 @@ static int stmmac_get_mm(struct net_device *ndev,
+ 	unsigned long flags;
+ 	u32 frag_size;
+ 
+-	if (!priv->dma_cap.fpesel)
++	if (!stmmac_fpe_supported(priv))
+ 		return -EOPNOTSUPP;
+ 
+ 	spin_lock_irqsave(&priv->fpe_cfg.lock, flags);
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-index 8cfb5bccfa52..41c9cccfb5de 100644
+index 41c9cccfb5de..2b99033f9425 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-@@ -9,23 +9,23 @@
- #include "dwmac5.h"
- #include "dwxgmac2.h"
+@@ -27,6 +27,11 @@
+ #define STMMAC_MAC_FPE_CTRL_STS_SVER	BIT(1)
+ #define STMMAC_MAC_FPE_CTRL_STS_EFPE	BIT(0)
  
--#define MAC_FPE_CTRL_STS		0x00000234
--#define TRSP				BIT(19)
--#define TVER				BIT(18)
--#define RRSP				BIT(17)
--#define RVER				BIT(16)
--#define SRSP				BIT(2)
--#define SVER				BIT(1)
--#define EFPE				BIT(0)
--
--#define MTL_FPE_CTRL_STS		0x00000c90
-+#define GMAC5_MAC_FPE_CTRL_STS		0x00000234
-+#define XGMAC_MAC_FPE_CTRL_STS		0x00000280
++bool stmmac_fpe_supported(struct stmmac_priv *priv)
++{
++	return priv->dma_cap.fpesel;
++}
 +
-+#define GMAC5_MTL_FPE_CTRL_STS		0x00000c90
-+#define XGMAC_MTL_FPE_CTRL_STS		0x00001090
- /* Preemption Classification */
--#define DWMAC5_PREEMPTION_CLASS		GENMASK(15, 8)
-+#define FPE_MTL_PREEMPTION_CLASS	GENMASK(15, 8)
- /* Additional Fragment Size of preempted frames */
--#define DWMAC5_ADD_FRAG_SZ		GENMASK(1, 0)
-+#define FPE_MTL_ADD_FRAG_SZ		GENMASK(1, 0)
- 
--#define XGMAC_FPE_CTRL_STS		0x00000280
--#define XGMAC_EFPE			BIT(0)
-+#define STMMAC_MAC_FPE_CTRL_STS_TRSP	BIT(19)
-+#define STMMAC_MAC_FPE_CTRL_STS_TVER	BIT(18)
-+#define STMMAC_MAC_FPE_CTRL_STS_RRSP	BIT(17)
-+#define STMMAC_MAC_FPE_CTRL_STS_RVER	BIT(16)
-+#define STMMAC_MAC_FPE_CTRL_STS_SRSP	BIT(2)
-+#define STMMAC_MAC_FPE_CTRL_STS_SVER	BIT(1)
-+#define STMMAC_MAC_FPE_CTRL_STS_EFPE	BIT(0)
- 
  void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
  			  u32 num_txq, u32 num_rxq,
-@@ -34,7 +34,7 @@ void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
- 	u32 value;
+ 			  bool tx_enable, bool pmac_enable)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.h
+index 25725fd5182f..fc9d869f9b6a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.h
+@@ -23,6 +23,7 @@ struct stmmac_fpe_cfg;
  
- 	if (tx_enable) {
--		cfg->fpe_csr = EFPE;
-+		cfg->fpe_csr = STMMAC_MAC_FPE_CTRL_STS_EFPE;
- 		value = readl(ioaddr + GMAC_RXQ_CTRL1);
- 		value &= ~GMAC_RXQCTRL_FPRQ;
- 		value |= (num_rxq - 1) << GMAC_RXQCTRL_FPRQ_SHIFT;
-@@ -42,14 +42,14 @@ void dwmac5_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
- 	} else {
- 		cfg->fpe_csr = 0;
- 	}
--	writel(cfg->fpe_csr, ioaddr + MAC_FPE_CTRL_STS);
-+	writel(cfg->fpe_csr, ioaddr + GMAC5_MAC_FPE_CTRL_STS);
+ void stmmac_fpe_link_state_handle(struct stmmac_priv *priv, bool is_up);
+ void stmmac_fpe_event_status(struct stmmac_priv *priv, int status);
++bool stmmac_fpe_supported(struct stmmac_priv *priv);
+ void stmmac_fpe_init(struct stmmac_priv *priv);
+ void stmmac_fpe_apply(struct stmmac_priv *priv);
  
- 	value = readl(ioaddr + GMAC_INT_EN);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 20bd5440abca..342edec8b507 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -978,7 +978,7 @@ static void stmmac_mac_link_down(struct phylink_config *config,
+ 	priv->eee_enabled = stmmac_eee_init(priv);
+ 	stmmac_set_eee_pls(priv, priv->hw, false);
  
- 	if (pmac_enable) {
- 		if (!(value & GMAC_INT_FPE_EN)) {
- 			/* Dummy read to clear any pending masked interrupts */
--			readl(ioaddr + MAC_FPE_CTRL_STS);
-+			readl(ioaddr + GMAC5_MAC_FPE_CTRL_STS);
- 
- 			value |= GMAC_INT_FPE_EN;
- 		}
-@@ -66,11 +66,11 @@ void dwmac5_fpe_send_mpacket(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
- 	u32 value = cfg->fpe_csr;
- 
- 	if (type == MPACKET_VERIFY)
--		value |= SVER;
-+		value |= STMMAC_MAC_FPE_CTRL_STS_SVER;
- 	else if (type == MPACKET_RESPONSE)
--		value |= SRSP;
-+		value |= STMMAC_MAC_FPE_CTRL_STS_SRSP;
- 
--	writel(value, ioaddr + MAC_FPE_CTRL_STS);
-+	writel(value, ioaddr + GMAC5_MAC_FPE_CTRL_STS);
+-	if (priv->dma_cap.fpesel)
++	if (stmmac_fpe_supported(priv))
+ 		stmmac_fpe_link_state_handle(priv, false);
  }
  
- void stmmac_fpe_event_status(struct stmmac_priv *priv, int status)
-@@ -112,24 +112,24 @@ int dwmac5_fpe_irq_status(void __iomem *ioaddr, struct net_device *dev)
- 	/* Reads from the MAC_FPE_CTRL_STS register should only be performed
- 	 * here, since the status flags of MAC_FPE_CTRL_STS are "clear on read"
- 	 */
--	value = readl(ioaddr + MAC_FPE_CTRL_STS);
-+	value = readl(ioaddr + GMAC5_MAC_FPE_CTRL_STS);
- 
--	if (value & TRSP) {
-+	if (value & STMMAC_MAC_FPE_CTRL_STS_TRSP) {
- 		status |= FPE_EVENT_TRSP;
- 		netdev_dbg(dev, "FPE: Respond mPacket is transmitted\n");
+@@ -1092,7 +1092,7 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+ 		stmmac_set_eee_pls(priv, priv->hw, true);
  	}
  
--	if (value & TVER) {
-+	if (value & STMMAC_MAC_FPE_CTRL_STS_TVER) {
- 		status |= FPE_EVENT_TVER;
- 		netdev_dbg(dev, "FPE: Verify mPacket is transmitted\n");
+-	if (priv->dma_cap.fpesel)
++	if (stmmac_fpe_supported(priv))
+ 		stmmac_fpe_link_state_handle(priv, true);
+ 
+ 	if (priv->plat->flags & STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY)
+@@ -4040,7 +4040,7 @@ static int stmmac_release(struct net_device *dev)
+ 
+ 	stmmac_release_ptp(priv);
+ 
+-	if (priv->dma_cap.fpesel)
++	if (stmmac_fpe_supported(priv))
+ 		timer_shutdown_sync(&priv->fpe_cfg.verify_timer);
+ 
+ 	pm_runtime_put(priv->device);
+@@ -5955,7 +5955,7 @@ static void stmmac_common_interrupt(struct stmmac_priv *priv)
+ 		stmmac_est_irq_status(priv, priv, priv->dev,
+ 				      &priv->xstats, tx_cnt);
+ 
+-	if (priv->dma_cap.fpesel) {
++	if (stmmac_fpe_supported(priv)) {
+ 		int status = stmmac_fpe_irq_status(priv, priv->ioaddr,
+ 						   priv->dev);
+ 
+@@ -7745,7 +7745,7 @@ int stmmac_suspend(struct device *dev)
  	}
+ 	rtnl_unlock();
  
--	if (value & RRSP) {
-+	if (value & STMMAC_MAC_FPE_CTRL_STS_RRSP) {
- 		status |= FPE_EVENT_RRSP;
- 		netdev_dbg(dev, "FPE: Respond mPacket is received\n");
- 	}
+-	if (priv->dma_cap.fpesel)
++	if (stmmac_fpe_supported(priv))
+ 		timer_shutdown_sync(&priv->fpe_cfg.verify_timer);
  
--	if (value & RVER) {
-+	if (value & STMMAC_MAC_FPE_CTRL_STS_RVER) {
- 		status |= FPE_EVENT_RVER;
- 		netdev_dbg(dev, "FPE: Verify mPacket is received\n");
- 	}
-@@ -261,16 +261,17 @@ void stmmac_fpe_link_state_handle(struct stmmac_priv *priv, bool is_up)
- 
- int dwmac5_fpe_get_add_frag_size(const void __iomem *ioaddr)
- {
--	return FIELD_GET(DWMAC5_ADD_FRAG_SZ, readl(ioaddr + MTL_FPE_CTRL_STS));
-+	return FIELD_GET(FPE_MTL_ADD_FRAG_SZ,
-+			 readl(ioaddr + GMAC5_MTL_FPE_CTRL_STS));
- }
- 
- void dwmac5_fpe_set_add_frag_size(void __iomem *ioaddr, u32 add_frag_size)
- {
- 	u32 value;
- 
--	value = readl(ioaddr + MTL_FPE_CTRL_STS);
--	writel(u32_replace_bits(value, add_frag_size, DWMAC5_ADD_FRAG_SZ),
--	       ioaddr + MTL_FPE_CTRL_STS);
-+	value = readl(ioaddr + GMAC5_MTL_FPE_CTRL_STS);
-+	writel(u32_replace_bits(value, add_frag_size, FPE_MTL_ADD_FRAG_SZ),
-+	       ioaddr + GMAC5_MTL_FPE_CTRL_STS);
- }
- 
- #define ALG_ERR_MSG "TX algorithm SP is not suitable for one-to-many mapping"
-@@ -321,9 +322,9 @@ int dwmac5_fpe_map_preemption_class(struct net_device *ndev,
- 	}
- 
- update_mapping:
--	val = readl(priv->ioaddr + MTL_FPE_CTRL_STS);
--	writel(u32_replace_bits(val, preemptible_txqs, DWMAC5_PREEMPTION_CLASS),
--	       priv->ioaddr + MTL_FPE_CTRL_STS);
-+	val = readl(priv->ioaddr + GMAC5_MTL_FPE_CTRL_STS);
-+	writel(u32_replace_bits(val, preemptible_txqs, FPE_MTL_PREEMPTION_CLASS),
-+	       priv->ioaddr + GMAC5_MTL_FPE_CTRL_STS);
- 
- 	return 0;
- }
-@@ -335,11 +336,11 @@ void dwxgmac3_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
- 	u32 value;
- 
- 	if (!tx_enable) {
--		value = readl(ioaddr + XGMAC_FPE_CTRL_STS);
-+		value = readl(ioaddr + XGMAC_MAC_FPE_CTRL_STS);
- 
--		value &= ~XGMAC_EFPE;
-+		value &= ~STMMAC_MAC_FPE_CTRL_STS_EFPE;
- 
--		writel(value, ioaddr + XGMAC_FPE_CTRL_STS);
-+		writel(value, ioaddr + XGMAC_MAC_FPE_CTRL_STS);
- 		return;
- 	}
- 
-@@ -348,7 +349,7 @@ void dwxgmac3_fpe_configure(void __iomem *ioaddr, struct stmmac_fpe_cfg *cfg,
- 	value |= (num_rxq - 1) << XGMAC_RQ_SHIFT;
- 	writel(value, ioaddr + XGMAC_RXQ_CTRL1);
- 
--	value = readl(ioaddr + XGMAC_FPE_CTRL_STS);
--	value |= XGMAC_EFPE;
--	writel(value, ioaddr + XGMAC_FPE_CTRL_STS);
-+	value = readl(ioaddr + XGMAC_MAC_FPE_CTRL_STS);
-+	value |= STMMAC_MAC_FPE_CTRL_STS_EFPE;
-+	writel(value, ioaddr + XGMAC_MAC_FPE_CTRL_STS);
- }
+ 	priv->speed = SPEED_UNKNOWN;
 -- 
 2.34.1
 
