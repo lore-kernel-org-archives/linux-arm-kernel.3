@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F379EE6748F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Oct 2024 23:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DF2E67490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 00:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2N3NKmH49hjRiqnrVgcxvKSV4bVv8lUQzTG26S2d3Y=; b=PLPPFTHdOhotMvZQL9KuBYnqZA
-	MF+pBKqej67vl+SY5AJGxAeRM+uWDiQpnZv+1QS0wf/jJsSLtnjFBMZuXpsh5Df81tSwBDnnWYe2y
-	nle3DbltaH2Pyyu6KBTLmyITCvKwlOjLmedMBxwgV00L3mWaNF9LAeiX86MV6i1KfZ/6ANO+RMtD2
-	EZGqQEPBHsL2yxuKksKZLYzHrvXaCchEzO3A2lK2MqcD56NFtyvBigv5QnFS/b75Obl0nCgzXo2Qm
-	b3jecsF6QjsbtEmWXGGs2euO2oPift3ybiYrFrywxRiamwi6ffbuYLArQhmZDPMzHcak5hrBbEwmE
-	yeFtRprQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AbrqKqCKy/69ZZEPCdhI8cvH56hgsKYmyoMVj5JoKhA=; b=KG311YEwki7nQaGpgRPLLEGp5f
+	viMe6/57DC52EVbpbnT/v/hReEguIgGUZSjesrA4TwYqEMyd7eekM1s/I8+ZzWnJs9Bz3JLmMwzQ7
+	D7SBL+AJi7RQKTyK2ZyGyC6ZDakKj0lmo5TYFFmKwVdA+fxEc/stezGJJs6qgQeWv2S1O4tMs3+h/
+	EB6x6GNOqAktyDOtk1eG05aWXmvjKklzjlZQ6cJC9jKYj6s785iI50rGWfZf0MRj/icHGOLUY02Gr
+	E9PKwbvBLyAfMyertcj0JgWX85HmWRLvzM7yUbeBYtFnClnibRXiyW6smrRoZepFgQIkB8VNYXAqZ
+	XFtqfi3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6eRj-00000005ApY-0hYu;
-	Thu, 31 Oct 2024 23:19:19 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1t6fMW-00000005H4U-2fpq;
+	Fri, 01 Nov 2024 00:18:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6eQ0-00000005ARn-3bpV
+	id 1t6fKr-00000005GkM-0x3h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Oct 2024 23:17:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 038AE20002;
-	Thu, 31 Oct 2024 23:17:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730416650;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q2N3NKmH49hjRiqnrVgcxvKSV4bVv8lUQzTG26S2d3Y=;
-	b=bn2fG+8+pXP2OIG5T46ZntHVHumfx4xU2hVMnhQuJ0sX3uPBQlHbiUl8Tr+WHUjbwvYqPP
-	sx+mKsfBDuoCjVzFeyumLm7B+ttWP5/ZzPeTO9f1D3KWdkJ1RehsIGLwytozpfoGFnZZ8j
-	atWicNRrYbfkVY+jje2eoTo3oSby7g4dOgJnU6LBHvhPIm5awdpcj0Gl9c4erLIIj4VrK1
-	gQMvCk0NZ3DZ4+aE98JcxX5+5ws5Pju+ox4zxRNI62UNW/chM/4iKZPCBV+rjfO3M5UVAd
-	4qaWLxpxrLJY/c+Cx95/wPVuJbFtPjnCbrlpcCJwCS1k05muZTYVjEiST3utQg==
-Date: Fri, 1 Nov 2024 00:17:28 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: geert+renesas@glider.be, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	magnus.damm@gmail.com, p.zabel@pengutronix.de,
-	Claudiu <claudiu.beznea@tuxon.dev>
-Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: Re: (subset) [PATCH v5 00/10] Add RTC support for the Renesas RZ/G3S
- SoC
-Message-ID: <173041660392.2394403.11154347678487291985.b4-ty@bootlin.com>
-References: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
+	Fri, 01 Nov 2024 00:16:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 09F4AA44C36;
+	Fri,  1 Nov 2024 00:14:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288EEC4CEC3;
+	Fri,  1 Nov 2024 00:16:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730420175;
+	bh=r4jj0LH5RQvdecZM1M4ycQJejrglh2pgKdlUTHIpaFQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mKNmiPW7+Ov3Ib7mGxuDadu1x8DOtgI7AFtQjgFPc8Q2gQjZi8DuQYIDtS9Moe4iw
+	 8thCv71U/qrfAU8wOObC7RYDdeIwWX7sBsGWWvcsUj7VVtojCrkZAUjp/00TkDznGU
+	 ge37UIa/kJC8I+QqUaDh53HpjUPUd6lpf3bI0lowU8LlfbPH0oIy83kPQv9z1kbR2S
+	 ENnBOjg4RIyU8AxJMB14K/YAMeOigVHNddy4WUrUqSoJd+2LmXIcBs5OwgOdV2zUU9
+	 JnHSZHPQgFWIm1Yfja/kGT17jz7nxrcz9bMaXDJCZDOjxtRTqLPpeiCWvlebMP1VSg
+	 QnvLO3q4A2LQg==
+Date: Thu, 31 Oct 2024 17:16:13 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Lars Povlsen <lars.povlsen@microchip.com>, "Steen
+ Hegelund" <Steen.Hegelund@microchip.com>, <horatiu.vultur@microchip.com>,
+ <jensemil.schulzostergaard@microchip.com>,
+ <Parthiban.Veerasooran@microchip.com>, <Raju.Lakkaraju@microchip.com>,
+ <UNGLinuxDriver@microchip.com>, Richard Cochran <richardcochran@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, <jacob.e.keller@intel.com>,
+ <ast@fiberby.net>, <maxime.chevallier@bootlin.com>, <horms@kernel.org>,
+ <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
+Subject: Re: [PATCH net-next v2 10/15] net: lan969x: add PTP handler
+ function
+Message-ID: <20241031171613.565e6eb7@kernel.org>
+In-Reply-To: <20241031093628.faiupqqny7oco7uz@DEN-DL-M70577>
+References: <20241024-sparx5-lan969x-switch-driver-2-v2-0-a0b5fae88a0f@microchip.com>
+	<20241024-sparx5-lan969x-switch-driver-2-v2-10-a0b5fae88a0f@microchip.com>
+	<20241030180742.2143cb59@kernel.org>
+	<20241031093628.faiupqqny7oco7uz@DEN-DL-M70577>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241030110120.332802-1-claudiu.beznea.uj@bp.renesas.com>
-X-GND-Sasl: alexandre.belloni@bootlin.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_161733_056996_B70C16EB 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20241031_171617_372216_71C6E229 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +85,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Oct 2024 13:01:10 +0200, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+On Thu, 31 Oct 2024 09:36:28 +0000 Daniel Machon wrote:
+> > For a followup for both drivers -- you're mixing irqsave and bare
+> > spin_lock() here. The _irqsave/_irqrestore is not necessary, let's
+> > drop it.
+> >   
+> > > +             spin_lock(&sparx5->ptp_ts_id_lock);  
 > 
-> Hi,
+> Hi Jakub,
 > 
-> On the Renesas RZ/G3S SoC the RTC clock is provided by the VBATTB
-> IP. A 32 KHz crystall oscillator could be connected to the VBATTB
-> input pins. The logic to control this clock (and pass it to RTC)
-> is inside the VBATTB IP. For this, the clk-vbattb driver was added
-> (patches 01-03/12).
+> I agree it seems wrong to mix these.
 > 
-> [...]
+> I just talked to Horatiu, and he mentioned posting a similar fix for the
+> lan966x driver some time ago [1]. Only this fix added
+> _irqsave/_irqrestore to the ptp_ts_id_lock - so basically the opposite
+> of what you are suggesting. Why do you think that the
+> _irqsave/_irqrestore is not necessary?
 
-Applied, thanks!
-
-[04/10] dt-bindings: rtc: renesas,rzg3s-rtc: Document the Renesas RTCA-3 IP
-        https://git.kernel.org/abelloni/c/71c61a45c951
-[05/10] rtc: renesas-rtca3: Add driver for RTCA-3 available on Renesas RZ/G3S SoC
-        https://git.kernel.org/abelloni/c/d4488377609e
-
-Best regards,
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Oh, I thought this is a real IRQ handler, not a threaded one.
+I haven't read the code to figure out whether ptp_ts_id_lock
+needs to be IRQ-safe, but in other places you lock if _irqsave
+so yes, let's irqsave here, too.
 
