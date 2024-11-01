@@ -4,69 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B06E6F06E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF76E6F06C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbsuj8XK0ar8Pz/7GuW4gTqLG+EZTOznTOFJr9y4/uY=; b=I4eKdGjd6nUnPf2duUDBxJzJAA
-	cRTshyYjzPv6ZbrkSErhMBciLlVf+6BPZdAMNDZjUrxfzdNYWQqH/B1l7vhKj/eREtQb4nA1CoOzi
-	xQLxa2/sOudGDWyvWASeLBsdObo+quScj6+ZAFD7d6/ejSLyzOeFLN+WhtX28n5jpy+e35hOgA/gY
-	JenS08R5uRhpYe2uXLPXG/xj41eIY2ZfgGBcYlm1UenEz2marCR3KapQ7ffRl5GoB4/0+AsbfRSOE
-	DMZ0iP/clfQgr+JiuGM0GWbCYt6iVGEpN9UkLWg8BJnlNtcJTkljZPwW7T5rFvRkSyWXCx2So6P9l
-	8hR+GZ/g==;
+	bh=QUMHVY5Pc5ujaPIETtg1OV7OoMZH/DlrlEhMasUvFWg=; b=PASAPKoKAsY241VBktL3ZwcycM
+	SGuhCXuHADpQpeDa1+cJl/aONvqFNB29McVSlJiD9j43NhQT4deAt9drTZkpfLltG1qqttwXdSKmI
+	R357lQeJJgx/gTk+opmRAUglMdsDp7Sryno1xzisCJaE7LIqhVAlw1ObuL0R86QKVkZf89ivy0dKz
+	snJ4/aXbg1vRZZn8fA4dCjOVKtu7lW+gyIrug7jcGPnsO8YjykacWtMpeZmmn+vDr6UzgHx/PAMpt
+	H4oI93gDs4EHxItnxO69+5MCK3VH/DFiO3Xyax4Qt5RT9l64piriSCdZ3rXGwBX2isLBDW4II+8R2
+	CHZXKQgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uWs-00000007gEf-2uIC;
-	Fri, 01 Nov 2024 16:29:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6ua1-00000007grm-3zM8;
+	Fri, 01 Nov 2024 16:32:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uUt-00000007fw0-1TbD
+	id 1t6uYN-00000007gWs-0p15
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 01 Nov 2024 16:31:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QUMHVY5Pc5ujaPIETtg1OV7OoMZH/DlrlEhMasUvFWg=; b=A9DqY2yKQeXaUtIAf2pqlUTovj
+	OnojkQWEmzJ1FYHtR/JSsUoSON6885IF3boqmcs1PLEQvejjsqTh03bipDScQGy2jlZWGcXCYKUAR
+	goC8F+KYxW3IXdMoBt7/vw7EdXIL/jc/ZGHUs1/28FHrn5uOw6sJqWA99m8AYdvoC+J74BykwswO3
+	ZR/2EOtjR4JoAXGyUWEt1571Atkwv0Mwi8bo/YuELQUQ/K2e62h5XcJsqDx64WcUsjArf3DmDtFCg
+	zphVAjC7t5+ils8HzQ2XdhK5Pi8waidaOjbtOOKjQ1whxUoXMPgflWu1B1HzqrxnQ7Zdqle87HLi6
+	XjYL5D9w==;
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6uYJ-0000000Alft-3UQT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:27:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D5004A4472D;
-	Fri,  1 Nov 2024 16:25:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A7D2C4CECD;
-	Fri,  1 Nov 2024 16:27:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730478458;
-	bh=kJqFcsvQINdidT98+YNnLof9J1GKlvt9L8buCuMsEtc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sl8BgwcwXkDpC76XnctTpLrhDP+mSRqYETjfbM1UA5+8kI2Tu+SjqUw0bVQd8+nwh
-	 u+6SaLasKcLMdvxgiafbTqYANY03f+frzcUtYQS8iHWY+jhd5/VenwNIipiUFtav9x
-	 +LSrAOWO9sqokkZbHz0/W2pvEtXOGRacCwjJMZEgqGEthKKvqAj9r2eZzHBLbV1JTf
-	 Xy9HiY8jqSYtJXuz3hNEAhL2Vgcz857CwP1LqsI2y6s7kRVh5moCZFlcaWzjfWGqo8
-	 wO1cf/hsOhe09GBvvGrpm9fyAkUa7J7WZBLE9xIlDhct3+N20bG7TtvG2Evoj/eez2
-	 kva02sLNcG4ag==
-Date: Fri, 1 Nov 2024 16:27:32 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] spi: apple: Add driver for Apple SPI controller
-Message-ID: <0b4901b4-8cb7-49e2-a411-a6c57b9edd97@sirena.org.uk>
-References: <20241101-asahi-spi-v2-0-763a8a84d834@jannau.net>
- <20241101-asahi-spi-v2-2-763a8a84d834@jannau.net>
- <e3008c6b-ba71-46cf-810b-053dbafe2cfb@sirena.org.uk>
- <20241101161905.GB194146@robin.jannau.net>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mRv77eGBnhX9W2oC"
-Content-Disposition: inline
-In-Reply-To: <20241101161905.GB194146@robin.jannau.net>
-X-Cookie: We read to say that we have read.
+	Fri, 01 Nov 2024 16:31:13 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e3d6713619so36490677b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 09:31:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730478667; x=1731083467; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QUMHVY5Pc5ujaPIETtg1OV7OoMZH/DlrlEhMasUvFWg=;
+        b=n/aFlmQpNNRbEryVz5u4+GUhf5FpeKIVwPDl7Nb6bwKu6fzwlWcOyDqqpUZ9O42u9m
+         jTBwU/ATSQjXhY8ASscxKI9mXi1bW6+A1odgWWAyR8Mv8oB51I7p6ZpT53bT0EFllmwb
+         vkagnvsWBZ75ryj6Yru9P+yhnGb9LXeZXPmKxMFcfwRbWTv7Vv8trv9TN5jHCoGw4hVS
+         45v8kHs5HnmppldLXN09mfdfasqE8JYFLUmcZ7IMi3LvyWviEVCSikGheMLWS4myaeQZ
+         ljKtnc16fJ4wEwiZcNr3P/nsyxR1ySUERDBljorfTdl/LqDzebtXo3KEjJ+pBsY42cg8
+         Prbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730478667; x=1731083467;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QUMHVY5Pc5ujaPIETtg1OV7OoMZH/DlrlEhMasUvFWg=;
+        b=MllC1mKTJJZv6SeWDsgv4p48RIexFc/ZdKpbUWLNW8+Hgo/ROV+1G8m8XxQoLN/exh
+         w0OnZBiMdc9AC5mWQI/NW617zOC348Jb5VFu7DdhbYozQVCvKxJc9DggEwUwL4urZYhX
+         elnSAFaGvoWGwuSaFrUX671agBAfGSd7aRuNjIEvUMvTg1E4v16Cw5BRSa7ktmuQSZC/
+         6onfn9ICpgNejGVMjplL7qkPDy3jwMFRS35ryt/xy2/La8iRFVfLim5nvDc0QHB5HL+G
+         KMV+fPDfNNFYe0xJMIKNH5lW48DPJ0nXhy+kE8YVNQCYi83ta3bmCLxA8f6vV2CX0PGS
+         0nqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXStUuSKktDYxaq1TLZZD+8TTJiWz/Goxo+GlYdFI77mloibTZ9746qduqR0XzPCOskinE0N93+WN+WRBSgGDkV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFm0H2uz0+syOi2QBYiaHzivOFV2JyTGdhvrD626JfGPyW5aar
+	YB98JP4Kgqr2+9OOEq81I7J/10TWgS1AV/XYviSx7a7qqWo0bJoZWbW9exxMNHGqMxoGxVvP1fx
+	WtQ==
+X-Google-Smtp-Source: AGHT+IHjSky3TikiN5BvrlqT+n0lNdXJaonGgodvNxJp+r7LiGTo8fiUiA/fuWajhuo5hdeSs5DxJ2eOWac=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
+ (user=seanjc job=sendgmr) by 2002:a25:c8c6:0:b0:e33:111b:c6a4 with SMTP id
+ 3f1490d57ef6-e33111bc836mr1008276.1.1730478667415; Fri, 01 Nov 2024 09:31:07
+ -0700 (PDT)
+Date: Fri, 1 Nov 2024 09:31:05 -0700
+In-Reply-To: <ZyUARgGV4G6DOrRL@linux.dev>
+Mime-Version: 1.0
+References: <20241009154953.1073471-1-seanjc@google.com> <20241009154953.1073471-4-seanjc@google.com>
+ <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk> <ZyTpwwm0s89iU9Pk@google.com>
+ <ZyT2CB6zodtbWEI9@linux.dev> <ZyT61FF0-g8gKZfc@google.com>
+ <ZyT9rSnLcDWkWoL_@linux.dev> <ZyT-6iCNlA1VSAV3@google.com> <ZyUARgGV4G6DOrRL@linux.dev>
+Message-ID: <ZyUCSZEv4w1yXwEb@google.com>
+Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
+ vcpu_get_reg() instead of using an out-param
+From: Sean Christopherson <seanjc@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
+	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_092739_478790_3926C367 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20241101_163111_999886_13A5F845 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +114,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 01, 2024, Oliver Upton wrote:
+> On Fri, Nov 01, 2024 at 09:16:42AM -0700, Sean Christopherson wrote:
+> > One thing I'll add to my workflow would be to do a local merge (and smoke test)
+> > of linux-next into kvm-x86 next before pushing it out.  This isn't the only snafu
+> > this cycle where such a sanity check would have saved me and others a bit of pain.
+> 
+> Eh, shit happens, that's what -next is for :)
 
---mRv77eGBnhX9W2oC
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Heh, but I also don't actually test -next, which was another snafu (not my fault
+this time!) from this cycle[*].  Testing 6.12-next prior to the merge window
+wouldn't have made that any less painful to bisect, but I think it would at least
+have allowed me to detect that the issue specifically came in from linux-next,
+and the bug report would have gotten to PeterZ almost two months earlier.
 
-On Fri, Nov 01, 2024 at 05:19:05PM +0100, Janne Grunau wrote:
-> On Fri, Nov 01, 2024 at 04:08:20PM +0000, Mark Brown wrote:
-> > On Fri, Nov 01, 2024 at 03:25:04PM +0100, Janne Grunau via B4 Relay wrote:
-
-> > > +++ b/drivers/spi/spi-apple.c
-> > > @@ -0,0 +1,531 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * Apple SoC SPI device driver
-
-> > Please make the entire comment block a C++ one so things look more
-> > intentional.
-
-> I did after your the same comment in v1 but reverted that since
-> checkpatch.pl complained. See
-
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/scripts/checkpatch.pl?id=a674fefd1732#n3742
-
-> The inconsistency between *.h and *.c is surprising. I'll change it and
-> ignore checkpatch.pl for v3. I'll address the other comemnts as well.
-
-Did you make the comment block a C++ one or a C one?  The SPDX header
-does need to be a C++ comment (//) for the SPDX parsers so I'm saying
-make everything else also use //.  There's some constraints from tools
-that consume C headers but don't support the C++ syntax.
-
---mRv77eGBnhX9W2oC
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmclAXMACgkQJNaLcl1U
-h9CKEAgAgU3tdPmqQKdOXiFwpZBujNpETg0Fgi0njVkztO2Zp9Wk4RNoW6rfq2Kj
-L4izInHsvBx+vaOZoym2NKgYrrjTMiETjR8u4K+5NP0X0FCqOS7jKAl+Zzoh5m9p
-l15LtYap0VAv5Ac10zoLbvPX1GtzC6R36fPMvxAXQ36OlI4cPevqk8IAo5KhAis7
-NPe8+92HTdTYnAkV+m3fqJHgJXF3UaQyWSFElHJO7CpCC0XtN9Gu8dJ5Qf5lpR7P
-y9Pgm23VUmIHKTX6EQXWwooHGme2PxqjIoPxV2/evnFJ2XOukZYe96S33saXLJHC
-rRqkV1jhePyVNP4tSN4KGHSOjtLH6Q==
-=GRtA
------END PGP SIGNATURE-----
-
---mRv77eGBnhX9W2oC--
+https://lore.kernel.org/all/ZwdA0sbA2tJA3IKh@google.com
 
