@@ -4,162 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70066E6B27C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4A8E6B27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDalwpw141im1g5ua+wAL9t7v528fwlzrJ32D50VFQI=; b=kEZcpWCUiw4Sr/xs1JVB9RGXP2
-	yGAJ54AhaiXDdjHcYlat7GdM9y6AlEbfqxlGBoRPuFZlf6Ddg8gOYsxKDlSMwSFkhwL3EMccy4idU
-	0cjEeEIxQPVYDLNHVPQEa8oakf7YyBdRgQU3lfa8utzJ/iqlyvi6XZCms90NoRRt2SsNKzNyXYFtI
-	tfoxn4GkEne5eYYjHtqjk30sO7FQBCXVlJag572lmHBALCbBnXc/09ICqPS1oqe45PxTdX35BDfCb
-	ZGFZXsH2qYNiCr+VB+GUrTdxjcL1Tt5PyahDo4wwXENCKXlqGuKDDrjiZ8BCBB5lqvff+YAb5VLML
-	tYINj3xg==;
+	bh=Ql376oc4wnaREcGn5krPx7lcPHscqZvo3JrbE7OYvGc=; b=MSjmmeIjV9fVrsBdMEIl9704tG
+	hyvih3iTFju76GHcReqR30pfbclKaGKp4VN2W+6wcN1zuNWH/UogWlvOCWQ+wXngpV7CvIoxuRHhD
+	nXmvis6syvdzYNClMz5PLLZyb5EVyuoI3vkeCoCWYBmvgtdrk50qGK7f/5nyJDVot+pqnASPEdHD1
+	i0FH6nEqWRSDi7aLpzsq3fRN1BHNtePqZuienl1WqiPsLFl0D9TBbqV98nw9snI0VtXO4VDOkyUub
+	eg0qLJCwxIUzuF9tzuecRjKYH2KnDmBcT6ls7i5HUtFuIdIo2WIYtNPOerd0peaFkeNiqWfj2T4p6
+	ccvuupTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rg3-00000007ArW-0eQ7;
-	Fri, 01 Nov 2024 13:26:59 +0000
-Received: from mail-bn8nam04on20621.outbound.protection.outlook.com ([2a01:111:f403:2408::621] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1t6rm4-00000007BdK-1KiZ;
+	Fri, 01 Nov 2024 13:33:12 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6reL-00000007Aad-2nvx
+	id 1t6rkO-00000007BFp-02Pc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 13:25:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hqUrDKYThbRQs5v1dcW1GzrhVa3Pp+QAEasaLz/lOx8THzQCmGVTfbbs9JLYpBLRqSsRsAAYCpoqeVr6+eAn3QE4ezL7v2JRxcf9gHbsFIJYaR4RBYaaTF7BL6cGxX51cOu4QE5TCf7ox+Cz405DSV5jVE6vsBN22RUh6sIFmsbSPtZ+wnWQYJmL3OUve+XAIsdQGOdU8yf75Ffsnzn5tlZ8DXJ+Q4QFhiGjW34xh/SEs7ymijta0eTdKY3z0aaL20XGj6TPcgHKebAqu30ttkBubuOtiLFb7105THarGjueH43FBWCbCXLg4QobpoZ9JwsIPCnZGr42st04YDCsXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nDalwpw141im1g5ua+wAL9t7v528fwlzrJ32D50VFQI=;
- b=TpG5SAP/Ne6cv5SlhoAKOtvorKkdDrMYoo6FEMQLN7xn56PYbqQkKLXxux0hvbsB70iozAzpz8VuZfnczefASCLmuBzAe3VaA65QubihYkARe0cPTmLyHi3tZlxtGaFBmarn3Cs1c/hyR+ZEV1lg21sCdYR6v/syjrtUaa1SPPlqpLZwAs80p0bNhDG2XvOFg0yxHdc+vei1ZZsY2bPHyVau8rg5tv+/tep0Y4vgahXcpTLZePZZe9aNixjLu5QGD4jT8sINZGsNx35I5oBOh6gjh2VJGlA3x2RaU6xbwkqTRqxtyJk2ossPNX+ZhnnNROHvgj+RzAlXJvuIIs8iyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nDalwpw141im1g5ua+wAL9t7v528fwlzrJ32D50VFQI=;
- b=Nbd8GLFw3rIC6cg4iWr2CK3e/6DFm0Nz05Q/0zhkv8mHUIdjwK8xvG2p9+4Z4DOct6pdx2LAulKk2Wy8bFWGcyi4qXUOdU/CiZVFrLyTyEQLIsAixCOowqzcB5y9E6651B5/P8pwiimlMpeyLw8Bz+RZWF22Jvg1NHjfxbCKS0zk/r0gEziFrC5+EgxFQhO/DWtH3X7Wsg2hKygtw0PBV9hVNEjtlHsOWNh/EAWK24I1EmZXCAdjmQn2btISrh1Mae48D4b8zMucNWVy0lUBTL0VVqv1yi6JNwiiwNcTy134t+X4akndRN9zMuo9pTr29z5Tlpi8HI6KRCljn/ypLw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY8PR12MB8194.namprd12.prod.outlook.com (2603:10b6:930:76::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.20; Fri, 1 Nov
- 2024 13:25:06 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8093.018; Fri, 1 Nov 2024
- 13:25:04 +0000
-Date: Fri, 1 Nov 2024 10:25:03 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
-	kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-Message-ID: <20241101132503.GU10193@nvidia.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241101121849.GD8518@willie-the-truck>
+	Fri, 01 Nov 2024 13:31:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Ql376oc4wnaREcGn5krPx7lcPHscqZvo3JrbE7OYvGc=; b=uSoDTAZ/cIqasDwVtIG+CgRyvi
+	viyfU4jVibbVCiECNT+PYWBrfx6BtAIbKed4/gdLYcACo2wsegoX2Q7yizHq+37NvkZUQZBQKbL5d
+	LducaW7+attn4I75C/XMCl0SEubk0RtCMp/Y2ugT4hceF0VngTf7QqY3zRPuOJdBxCdI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t6rk3-00Bso8-HF; Fri, 01 Nov 2024 14:31:07 +0100
+Date: Fri, 1 Nov 2024 14:31:07 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	lftan.linux@gmail.com
+Subject: Re: code From d0f446931dfee7afa9f6ce5b1ac032e4dfa98460 Mon Sep 17
+ 00:00:00 2001
+Message-ID: <38e4fc09-7c88-448b-b9e8-f9a082f1dcf0@lunn.ch>
+References: <20241101082336.1552084-1-leyfoon.tan@starfivetech.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241101121849.GD8518@willie-the-truck>
-X-ClientProxiedBy: BN7PR02CA0033.namprd02.prod.outlook.com
- (2603:10b6:408:20::46) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB8194:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed31feef-f259-479e-c20a-08dcfa7898ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?e0nhQf1lOBrhFtMBNpmIj0KPp5ywpOHS/TQBEBiAOae1Am/0tT257hxp8jO6?=
- =?us-ascii?Q?5ZqdaXFDk8I25TNUUj6jkjTWGO0/rq1DrHrj3tkLiU+G4VqKxkHrjFhlLGZo?=
- =?us-ascii?Q?ubR/9a/c4dAZ8WJjtF/Ut9/632Lfu+E6qEOAuVg5Wi/yU9km53PowQkwYbhF?=
- =?us-ascii?Q?FQyBYumiWtXCSyMUdXIOfqSYnZvfT1uQDYPoGxla2J4ms10Ldv50eH4sOTuh?=
- =?us-ascii?Q?KW9zPAtEcHooWZyPHpB4GdISLX3yzX9+lOMB8Vl+CylwQH6dlVAwv3kvTBHj?=
- =?us-ascii?Q?CVoPpvGNh1g+YqEEgWhUshDHy38or7aa5tiD/26whiO8M0rBWd8EDdpuLUoa?=
- =?us-ascii?Q?s3TV7Rcy80szhYo+D+c2IGgLf/AIT9zSfNNcQj2lv3KGzhTmaBxGbEGEGspx?=
- =?us-ascii?Q?MhqwV8DfoPv19GFtEJTmTb1xi4XxrwvFB8oYKnRXa4v4smIAokP/kxtyo7Yw?=
- =?us-ascii?Q?rUlOvbrmDJSCGeo8fNn8Vbgda54gKsCYB3/wN7SjNTrLYVhPRRYEX1KmT3xm?=
- =?us-ascii?Q?CxCPkgjKvWzPurGsFGFs66t7ePDhaon2XcomiW2nPg2rYwJdvb4m98uFLojJ?=
- =?us-ascii?Q?3gbUjDTZ3p/aSa+ZKEwvrA42XPdL81l/+f9IgqBmRT6eWOxub/e6TY+UScQz?=
- =?us-ascii?Q?KG6qYERcQIya2TLPq1dB4FfMK20DIeAfEYzejRguVjD6aD0ZRZH501zMdSrB?=
- =?us-ascii?Q?dREfkFpTFFOqR41XtnEokgXppJEthzzrwIB4I0SRIm5jPPDg/tWid3iEyYVc?=
- =?us-ascii?Q?PGbfmIXtFrUsOYJiLUvDocuOcHmncjdyF3v7M9fjvB+klkKtgoPWyGTyOJTK?=
- =?us-ascii?Q?GYUr61ltmA6jwpuiCp/PmqHVsdgqC5YUF5W0re4wYoCrODLvOEHARcW4jfUL?=
- =?us-ascii?Q?P0izC+Hq3+nACzPkzDPu4r1APCB3MTza5JRlvQhJu5TVBJx14vurwYxg+2JU?=
- =?us-ascii?Q?VM2VPxIjC/wjf70dTtp4OoQy0xoaYoN6LVXymUbZqczP+mQk/jMrZBN9R5l4?=
- =?us-ascii?Q?Md65st2g+przAb3dM1uSDp6uN6DTltsOZZOzydfmmDLSRJL0/gwyUDaYeqRL?=
- =?us-ascii?Q?wbhyjZx+WN0+t7HLRB3+3YSLQtAPwJdX8q3TnLtTVFo8Dx7NPUi6XbkEc5gl?=
- =?us-ascii?Q?IxQ05bdl9gwCoORDOdEd+JgaDgCTTS8cDfxWMcRJgI2AYOwnJvehVeJgePYM?=
- =?us-ascii?Q?g/dpKQlxGmcOM4gMd3GukyiM0XarE5KJ0q9dpL2/u24+vqIQI7spGbtsJfoN?=
- =?us-ascii?Q?q5944IPeqaLjrK6Xdv/sjTT3TKU6bj4XvOlbqDs5CARbkjL1sdee3JtHczo9?=
- =?us-ascii?Q?QhbCwKlS8mBZocVI2o4x8VwA?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jh071/xHVWV/5VorazXt25qlujlhcdmb0w7Skcv4XihPGFa4cB/wv4/Xepwd?=
- =?us-ascii?Q?97oL/EcOrjPrid/v/7GoxN3TMhLv3a9d9HywY7/rjWT3eAhOXtvnDBccrmxT?=
- =?us-ascii?Q?rAnhU8V4skWxTh/utjQce9zBIxTzno8w8Z+gYxtWo587Nu2vNRGyv5TepFZL?=
- =?us-ascii?Q?KdJSGOrFI1+yMSoulHhNOdYhxE7vz+6h+QtgKXHJwd60Bkaver2Pi47mPJ8i?=
- =?us-ascii?Q?HyMZWZESaoG4l1sRXAV6F4Y4yJLTlomcmZe8YXJ2njd/z5ruBf6lTisqRFDg?=
- =?us-ascii?Q?gMRhwvRW8IgHtiLFRXvBVdEs4pMYX3U+62GaWcamyfz4uXyIg4ycxAGHdQ76?=
- =?us-ascii?Q?bP/oN7zB9dN9wC9kRpnqjtqHXfCwcMvMgHsk7gAl3D0UHhFRAcDLPSPuO96g?=
- =?us-ascii?Q?le4WogqMMbHVDnG86O4muQYkXXbAFwgsYA1sjfV21hyk5+3Voz5CnqcOUksb?=
- =?us-ascii?Q?NqfMJdRSsaTJ/SROF+9Y0TE6oDSBz2l3nC2EOdO/KZIoPZHzkvWZQacpvifc?=
- =?us-ascii?Q?9LcLUH1n7vBKiYhNFMjjO/9N2oEsZHZxhk9XUpPna6JnHfdzPexxUOZiMVF/?=
- =?us-ascii?Q?Gk/VuaQjc4HjvGRvkwksdIkgaGt+vJEcwt1Xsy3s9v/F7ek07rki2bzB/T6j?=
- =?us-ascii?Q?G2l/OtWyWu6+xznTed1ARqUBLaKBDCL+efmtyEqnKzPKKfC4uo70dDnOusmu?=
- =?us-ascii?Q?3rWS7WO2UdSygL5IfLF1ns1GyjXpH0zVTR5sVwFi/9I6vGqqCH9B4YynuNLX?=
- =?us-ascii?Q?HXOiP2ShuN8h1Y9D3rVRjcVZw9JRg4/X4Jqhd7HdXp6fF77RauZry3mSpcwi?=
- =?us-ascii?Q?4eKIu/rdWzIrVREW4Q07rQem9d59bp0AE17T1eKVHd5KfAC9hKO8ZVd7m4fW?=
- =?us-ascii?Q?EA/zo0BUO6vs/56RJnYuGaOOzcWSwZ9/5vu9a/O6qJYUTBET1YrQ5syWlyWl?=
- =?us-ascii?Q?Us4GpQ5yi7Vx4g0SwK24LmJH/jiE/6bGnxlGg42sMrGyOC8cB11FpxOmaOtI?=
- =?us-ascii?Q?JMm0RM1aJAKgpWU3w8gouJxwU29pzKkgqJ7v/E20ViI8ZD7lE5pG6ECQeBx3?=
- =?us-ascii?Q?heRJqchbJ6svgfoOEFp10autZ8N1LC8ZbRLFSXLLomcvhOZCeE7ERrXlFVOZ?=
- =?us-ascii?Q?ZsmGtWLUrA562/Ud/vOv9/gb5beGyrn7KmEXk9ce5UzwVKMGFt5+au9iQWGO?=
- =?us-ascii?Q?q8BZLFFyyJDL6p/R9Afsz4CpEUy1wV5vKvcqt/v/6TSkAVZ3bHspx2woMFwR?=
- =?us-ascii?Q?lpOcESsX/+wX8kJPtMRJCDDnXiR5x7dkC+OP93j0WF+XpyUk3foC2prBm72s?=
- =?us-ascii?Q?Emk2Qr20+ajdL/bT1Mteipv1HfsJ2S3X5gdLhz1zoZD3iXJEwrdx44qEAuBw?=
- =?us-ascii?Q?zGEVLeIDSyYOGHIwPJWw3L+q/VXUbCBWpETeKlu1GIFAWWvRUv2dOjZPOn3f?=
- =?us-ascii?Q?W7sPIvUueIkIgee6U1R7tMsHoNRwg0VGpOhboV8DjXy491o0FqWMcGprz/qS?=
- =?us-ascii?Q?HWAmcdHdi+pun+sC9iyseb4f9VZdpRMFb6WrLM7Sspiq0C3XtoEGMemcHXBJ?=
- =?us-ascii?Q?bXDoGI6zvX98MjvNmUA=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed31feef-f259-479e-c20a-08dcfa7898ae
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 13:25:04.6475
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pGeHYI6m1/YUhjtJAXTgqQPhVPoAcwRcBhdoVuwO6npbI2SiDBTSNsCqkfuKX4pM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8194
+In-Reply-To: <20241101082336.1552084-1-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_062513_755365_88916A57 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20241101_063128_073585_2E021EC4 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,46 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 12:18:50PM +0000, Will Deacon wrote:
-> On Wed, Oct 30, 2024 at 09:20:44PM -0300, Jason Gunthorpe wrote:
-> > [This is now based on Nicolin's iommufd patches for vIOMMU and will need
-> > to go through the iommufd tree, please ack]
+On Fri, Nov 01, 2024 at 04:23:33PM +0800, Ley Foon Tan wrote:
+> This patch series fixes the bugs in the dwmac4 drivers:
 > 
-> Can't we separate out the SMMUv3 driver changes? They shouldn't depend on
-> Nicolin's work afaict.
+> Patch #1: Fix incorrect _SHIFT and _MASK for MTL_OP_MODE_RTC_* macros.
+> Patch #2: Fix bit mask off operation for MTL_OP_MODE_*_MASK.
+> Patch #3: Fix Receive Watchdog Timeout (RWT) interrupt handling.
+> 
+> Changes since v1:
+> - Updated CC list from get_maintainers.pl.
+> - Removed Fixes tag.
 
-We can put everything before "iommu/arm-smmu-v3: Support
-IOMMU_VIOMMU_ALLOC" directly on a rc and share a branch with your tree.
+It looks to me that the first two patches really are fixes? The last
+patch is just a statistics counter, so probably not a fix?
 
-That patch and following all depend on Nicolin's work, as they rely on
-the VIOMMU due to how different ARM is from Intel.
+If this is correct, please spit these into two series. The first two
+should target net, and have Fixes: tags. The last patch should target
+net-next, and does not need a Fixes: tag.
 
-How about you take these patches:
+> - Add more description in cover letter.
 
- [PATCH v4 01/12] vfio: Remove VFIO_TYPE1_NESTING_IOMMU
- [PATCH v4 02/12] ACPICA: IORT: Update for revision E.f
- [PATCH v4 03/12] ACPI/IORT: Support CANWBS memory access flag
- [PATCH v4 04/12] iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
- [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct arm_smmu_hw_info
- [PATCH v4 06/12] iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
- [PATCH v4 07/12] iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
+The Subject: like of the cover letter could be better.
 
-Onto a branch.
-
-I'll take these patches after merging your branch and Nicolin's:
-
- [PATCH v4 08/12] iommu/arm-smmu-v3: Support IOMMU_VIOMMU_ALLOC
- [PATCH v4 09/12] iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED
- [PATCH v4 10/12] iommu/arm-smmu-v3: Use S2FWB for NESTED domains
- [PATCH v4 11/12] iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED
- [PATCH v4 12/12] iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object
-
-?
-
-I can also probably push most of S2FWB and ATS into the first batch.
-
-Please let me know, I would like this to be done this cycle, Nicolin's
-vIOMMU series are all reviewed now.
-
-Jason
+	Andrew
 
