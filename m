@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6676AE6B255
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748AEE6B254
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7j294T/wX4UOYsogdD2OmaVwvEX8QrXGUez/c4DjgE=; b=mkZq2KqC8w7+reepHQ0DvM+Jh0
-	iV5r4Xbd7EjJ5aZr/jWv7teXLfTmXjsimIMe8QV9RD7vBjrmJoFKXlbFii3Yf8CTDJ4nFnmQkOxIS
-	EN40JEL04/91W27Ry52dSAH0c9Lu2dSujAzm1n+GGsrdIWAgz7FZSvot3Z4qL/Z0jBRkfjvoT9H2D
-	bii/pB1EblPoVF3XFphV7MG32ld+TE3pUTfgEyCA8OcXL2WrqXJ0xnWh/nbZqs+nYadZKblmxfVJL
-	F9eWkysez7uVhrksyOa3pxTu5Z+Illg7aWmmSKTDz+JpK+wDLF+1nTbCvHi5CnsR/HpM7apMjCBP9
-	9pa57QTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nDPdY+/4invWPUONVGXUjS95GHw2AfhJ6NmBgm0MP/c=; b=d6opTyoINpFtyJAbT7+epLDXFq
+	cwSSnP1erh2/jPRBiPtL6hf1uTPZ2tX8Pai9W0hRL0jnxEW/qztONSK5apKo/qKt4jlo/TkolLCKi
+	CcyWVFxpHp9I8CxI5G3SLkviElo3OwNnp/FMFj2xqdSUf9tgFMsB/ELPvBUrXdRUjArPdFLPffZCd
+	oda3NMDi1a7A6WzJddUm7WKOMtTP8lk5QMpcxXYp2V07eI6vnwmsTPHWG408bZFzGwD5Q/isFif66
+	a3xkCTTv/cC4Cj73uNvceTiQuAT52lWUGBOT7+oif25Wv19Ab0p6sv+9NzDF68e0r97su/aVgYI3a
+	7/MpT+bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qzT-000000074yx-2boP;
-	Fri, 01 Nov 2024 12:42:59 +0000
-Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
+	id 1t6r19-000000075I3-00SY;
+	Fri, 01 Nov 2024 12:44:43 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qxo-000000074ms-2WuX
+	id 1t6qzF-000000074y4-2q0r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 12:41:18 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: marcan@marcan.st)
-	by mail.marcansoft.com (Postfix) with ESMTPSA id D8ED843470;
-	Fri,  1 Nov 2024 12:41:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
-	t=1730464874; bh=1tyJN7tpj71GsXPgw1vXVuu1pL6JI3AXiNqruHLtMhI=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=Kv6tcbiCwdREWMYqnVNGYwJkOnH3T7Y4RD5xN+XUWZu1/YP70sS7x6O+xFjNisQOg
-	 vH2QXCmbnrR5W/JPhK9fFYxPHM1gMVzfx3YhFaiyefi+ErqO8klh97X12MaF1EJBTk
-	 ADwUMjkkbk9wFVAhp4koK3Go71UkQnZx7ZPZk/w50LDUCROrcp6DK8zAtc1rBZzkTa
-	 s24sfplZWNRjGJepQGKamyZxHnV/qLo4NA753pdPB9seElIU2nZsBM1qdpTguM7mve
-	 o927WZoRBCx+r6VeEHobSEhNHfp4SfpDhoQv+t98gIE5pic/zuV2nm/4SXpRJrH1hp
-	 gy7Ip2ha3Dy2w==
-Message-ID: <23074410-ffe2-4f68-a983-67cec430f68f@marcan.st>
-Date: Fri, 1 Nov 2024 21:41:13 +0900
+	Fri, 01 Nov 2024 12:42:47 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e290d5f83bcso1914163276.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 05:42:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=monstr-eu.20230601.gappssmtp.com; s=20230601; t=1730464964; x=1731069764; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=nDPdY+/4invWPUONVGXUjS95GHw2AfhJ6NmBgm0MP/c=;
+        b=CC8BTm+s+2AeZT98eLZp7s+vva3jLwa68BFhV6aJxKk+70moDgdukADeqHbPLwB2J/
+         coFQ6OsDDHq0R1zIpbY6OY4rmOB5HsiIkGFRx4fU2u6NdQnDWvygT4M+X1isDEjn4Kkf
+         bSz2t2/vPJazJNtSti7Eo+zIopzfLgsjB2vArHLrBpHEDsCHdESLmKl3ELde3RdMFjll
+         rU84i/f8j14yY21vvIXVqDgfeSmUcFdgv2w1x5QWt2gY4DMiDSJtWcFXDNsIRPHnhAMM
+         ddqEUMvjkE+GeID9lmGL2nnKf5Cd4PpC0D5ul7Qtp9sekzso/EwXuIhkA8LuwtNejz1K
+         iZOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730464964; x=1731069764;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nDPdY+/4invWPUONVGXUjS95GHw2AfhJ6NmBgm0MP/c=;
+        b=IY4AyLXTtLLOvxF06w9wRFr6glCGHd3Jm7oLY5OyI6UJMbKleNApKTlW85SPt5Rx4I
+         xuaI1e8CH+xVFBddXKv8hcB0vK8j8HDjEV9tv2Eo9oa98MvVCOXc0l5StKl/IL94VE7A
+         l5vtbmNBrHqF1UsV6HKCYV6ykF6gBiozF6c9rmtvNJog2BEIL6dSeZ4kWxksjGkDyIKn
+         OUwfL/5meHRr4XrznwzFCYUjRsGX+ca8ps89lpPGt8USMFeyaC3x9ZhFFp+KvBJSfwfR
+         Z2ryecMsQqMjrZVd/EjWUYwdp2qDKWfWlFYfi1xT8UxW9sWf0Pwd19l5VFBurhVfG40X
+         pDCw==
+X-Gm-Message-State: AOJu0Yzxb5deqsO2dR6GCv+abHMgNApC00BMJokJ+PqV+ncQxhgMqJlc
+	rrBx5dDldEjQwuE+QUKSUtHvIWV6fyAgx75FC8Jh37HWn+iwbzFn0484B/416KS1R0AKPH0Yqdr
+	JnT/Z4KVX8puZ24J09NuW6upTuUc9fHTbdvC1oEV9PKNPexpPYdxj
+X-Google-Smtp-Source: AGHT+IGmpmK40uDFDGtbHZhk+AvfupqtNOoAgSUIlP0YIN83OzjCHSLPIM772jSFQMYyHAoAA3dt882tFrIsPSQsGrQ=
+X-Received: by 2002:a05:6902:4ac:b0:e2b:dbf6:34ca with SMTP id
+ 3f1490d57ef6-e3302660c43mr2471614276.36.1730464964320; Fri, 01 Nov 2024
+ 05:42:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH asahi-soc/dt 00/10] Add PMGR nodes for Apple A7-A11 SoCs
-To: Nick Chan <towinchenmi@gmail.com>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241029010526.42052-1-towinchenmi@gmail.com>
-From: Hector Martin <marcan@marcan.st>
-Content-Language: en-US
-In-Reply-To: <20241029010526.42052-1-towinchenmi@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Michal Simek <monstr@monstr.eu>
+Date: Fri, 1 Nov 2024 13:42:32 +0100
+Message-ID: <CAHTX3d+x1WrXhsp6+PQbo-B3T9q21tqE1RkhVsh0r7my3vH37g@mail.gmail.com>
+Subject: [GIT PULL] arm64: dts: ZynqMP DT changes for 6.13
+To: SoC Team <soc@kernel.org>
+Cc: linux-arm <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_054116_827366_9DDCE02F 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20241101_054245_741721_A0D5CC52 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,94 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/10/29 10:03, Nick Chan wrote:
-> This series adds the PMGR nodes and all known power state subnodes for
-> Apple A7-A11 SoCs, along with the associated dt-bindings.
-> 
-> ---
-> Nick Chan (10):
->   dt-bindings: arm: apple: apple,pmgr: Add A7-A11 compatibles
->   dt-bindings: arm: apple: apple,pmgr-pwrstate: Add A7-A11 compatibles
->   arm64: dts: apple: s5l8960x: Add PMGR node
->   arm64: dts: apple: t7000: Add PMGR node
->   arm64: dts: apple: t7001: Add PMGR node
->   arm64: dts: apple: s8000: Add PMGR nodes
->   arm64: dts: apple: s8001: Add PMGR nodes
->   arm64: dts: apple: t8010: Add PMGR nodes
->   arm64: dts: apple: t8011: Add PMGR nodes
->   arm64: dts: apple: t8015: Add PMGR nodes
-> 
->  .../bindings/arm/apple/apple,pmgr.yaml        |   5 +
->  .../bindings/power/apple,pmgr-pwrstate.yaml   |   5 +
->  arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi    |   4 +
->  arch/arm64/boot/dts/apple/s5l8960x-air1.dtsi  |   4 +
->  .../arm64/boot/dts/apple/s5l8960x-common.dtsi |   1 +
->  arch/arm64/boot/dts/apple/s5l8960x-mini2.dtsi |   4 +
->  arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi  | 610 ++++++++++++
->  arch/arm64/boot/dts/apple/s5l8960x.dtsi       |  13 +
->  .../arm64/boot/dts/apple/s800-0-3-common.dtsi |   1 +
->  arch/arm64/boot/dts/apple/s8000-pmgr.dtsi     | 757 ++++++++++++++
->  arch/arm64/boot/dts/apple/s8000.dtsi          |  22 +
->  arch/arm64/boot/dts/apple/s8001-common.dtsi   |   1 +
->  .../arm64/boot/dts/apple/s8001-j98a-j99a.dtsi |  26 +
->  arch/arm64/boot/dts/apple/s8001-j98a.dts      |   1 +
->  arch/arm64/boot/dts/apple/s8001-j99a.dts      |   1 +
->  arch/arm64/boot/dts/apple/s8001-pmgr.dtsi     | 823 ++++++++++++++++
->  arch/arm64/boot/dts/apple/s8001.dtsi          |  22 +
->  arch/arm64/boot/dts/apple/s800x-6s.dtsi       |   4 +
->  arch/arm64/boot/dts/apple/s800x-ipad5.dtsi    |   4 +
->  arch/arm64/boot/dts/apple/s800x-se.dtsi       |   4 +
->  arch/arm64/boot/dts/apple/t7000-6.dtsi        |   4 +
->  arch/arm64/boot/dts/apple/t7000-handheld.dtsi |   4 +
->  arch/arm64/boot/dts/apple/t7000-j42d.dts      |   1 +
->  arch/arm64/boot/dts/apple/t7000-mini4.dtsi    |   4 +
->  arch/arm64/boot/dts/apple/t7000-n102.dts      |   4 +
->  arch/arm64/boot/dts/apple/t7000-pmgr.dtsi     | 641 ++++++++++++
->  arch/arm64/boot/dts/apple/t7000.dtsi          |  14 +
->  arch/arm64/boot/dts/apple/t7001-air2.dtsi     |   1 +
->  arch/arm64/boot/dts/apple/t7001-pmgr.dtsi     | 650 ++++++++++++
->  arch/arm64/boot/dts/apple/t7001.dtsi          |  13 +
->  arch/arm64/boot/dts/apple/t8010-7.dtsi        |   4 +
->  arch/arm64/boot/dts/apple/t8010-common.dtsi   |   1 +
->  arch/arm64/boot/dts/apple/t8010-ipad6.dtsi    |   4 +
->  arch/arm64/boot/dts/apple/t8010-n112.dts      |   4 +
->  arch/arm64/boot/dts/apple/t8010-pmgr.dtsi     | 772 +++++++++++++++
->  arch/arm64/boot/dts/apple/t8010.dtsi          |  22 +
->  arch/arm64/boot/dts/apple/t8011-common.dtsi   |   1 +
->  arch/arm64/boot/dts/apple/t8011-pmgr.dtsi     | 807 +++++++++++++++
->  arch/arm64/boot/dts/apple/t8011-pro2.dtsi     |   8 +
->  arch/arm64/boot/dts/apple/t8011.dtsi          |  22 +
->  arch/arm64/boot/dts/apple/t8015-common.dtsi   |   1 +
->  arch/arm64/boot/dts/apple/t8015-pmgr.dtsi     | 931 ++++++++++++++++++
->  arch/arm64/boot/dts/apple/t8015.dtsi          |  21 +
->  43 files changed, 6246 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/apple/s5l8960x-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/s8000-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/s8001-j98a-j99a.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/s8001-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/t7000-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/t7001-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/t8010-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/t8011-pmgr.dtsi
->  create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
-> 
-> 
-> base-commit: 5c9de6f45db36b8a74c12e448cf9db87c97bf1e5
+Hi,
 
-I'm not going to review the actual pmgr spam (I assume you did the usual
-thing and autogenerated it with the m1n1 scripts and then fixed some
-things up by hand, as we do), since really the only useful way to
-validate this is testing and I don't have these devices (nor am I
-familiar with any peculiarities).
+please pull these 3 patches to your tree.
 
-Skimming the rest of the changes it looks reasonable, so:
+Thanks,
+Michal
 
-Acked-by: Hector Martin <marcan@marcan.st>
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-Would be nice to get at least a cursory review from the DT folks, I'll
-apply to the SoC tree after that (please poke me via direct/non-PATCH
-email if I miss it, those go in a different inbox).
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-- Hector
+are available in the Git repository at:
 
+  https://github.com/Xilinx/linux-xlnx.git tags/zynqmp-dt-for-6.13
+
+for you to fetch changes up to d57df7a7b78eecfe65cb358faf27ad5872bd297f:
+
+  arm64: zynqmp: Add thermal zones (2024-10-02 09:21:26 +0200)
+
+----------------------------------------------------------------
+arm64: ZynqMP DT changes for 6.13
+
+- Enable AMS for all boards including HWMON
+- Add thermal zones
+
+----------------------------------------------------------------
+Sean Anderson (3):
+      arm64: zynqmp: Enable AMS for all boards
+      arm64: zynqmp: Expose AMS to userspace as HWMON
+      arm64: zynqmp: Add thermal zones
+
+ arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts |  18 ----
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu100-revC.dts |   4 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts |   4 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts |   4 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts |   4 -
+ arch/arm64/boot/dts/xilinx/zynqmp.dtsi            | 101 +++++++++++++++++++-
+ 6 files changed, 100 insertions(+), 35 deletions(-)
+
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal SoCs
 
