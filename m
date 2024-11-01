@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69088E6F06C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30AEE6F06D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvXXKKirgYBhDMBn+0k209YUUu7Ka/nZ5P08CFtOYmI=; b=42Y9JOuxV8rTVXi2HUNGfZ/WAM
-	h7ffckC7oTfdmoX6y1raPFhtoOuV2UtBipLLyu3WeqjdhPBekg2zvEDrgeYA0rSvvwut7IRyOQ0P/
-	33IpY29pG7eregQQyECGuHEETBKPD/4wjh2xlxke7dKmaPAYS9qLYlu2HoHHGibxp8O0/rzSbBewj
-	MfvDKi959uWzONDQa0QF2hWUbW7Fpmw+T3rd2aLiPz3xgeZkRkGK+Na17qOzdkgtDrmKgyj5c27cO
-	9wlBnJng3ZSkRsSLY0vMCMSnCPVL1Y2ZNhdG/NGD8UC6ljbG7/Gt8aKaCpV3ZQrvM1ynFlWmgzHH+
-	dWB7Uo2A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zCEcCz/fL/CUgptOXduYV7zHf2BaC9u5M+9ZvPS/5mY=; b=v2NtY5qd3KYnF/3eDcMoBaLAvU
+	gJLAHz5eqsrOkXcGyNsz9zXkp/IP/83LXpOC5zAbQcPf4aLQvOUV9BKMYN3Rwuge2APTJPT9cjOVs
+	+xKzv8M6VLO2V/4QF40kVjQObF6TochXt3JhC4txriaC1kcBQuKJBbtgVccF5wBpK24J2LTrbAhB5
+	BUP/91MKG5n9hjynzWpYVYvElU8C24PFmAOYivn5WNipkxCCNk2o/u0JcqMdO5RWW7HMJVupgZlZ/
+	4kNqaM3C4XmKHG+Z3dg86efVQpyUTtVCOQlO7/sAL3ImhfyB+IGgUgyJ+WVBEL3CP2uBE+U9zJY0R
+	86rcwKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uMm-00000007dtE-2AOa;
-	Fri, 01 Nov 2024 16:19:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t6uOQ-00000007eDy-35A4;
+	Fri, 01 Nov 2024 16:20:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uGC-00000007cdh-2zGx
+	id 1t6uIc-00000007d8R-01PB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:12:30 +0000
+	Fri, 01 Nov 2024 16:15:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7EFF0A44587;
-	Fri,  1 Nov 2024 16:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6598C4CECD;
-	Fri,  1 Nov 2024 16:12:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7FD9C5C4EAA;
+	Fri,  1 Nov 2024 16:14:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F30C4CED1;
+	Fri,  1 Nov 2024 16:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730477547;
-	bh=uwXUT5FtHSsLYjY23SN+coyvRK2O8i6XV0K5dlhp3Qs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=dmaX2Nplc9QxCZRRY5Fbnq/PxjXcgLVPzmYLgxlaDO4rna64XDtqCOrxVYr0J5szB
-	 Npqtvz8dRNAd7ViCuk2MLHkGA7eTvnXYkKUaQlwl3qlrx76/ULmaSEoLyntGzpWWPC
-	 KJ7D4NrcX42+sZjs9FbV9YsttI11hzwmwuIP24o8vvdU2uO/EfBI5jRrX0ShKM6SfL
-	 6aEYFNomlrRPUn5PkorX0hSmyFwwDwTPvpOTSbTPA6cUxo7FZT0hr8efh/D4opvx+F
-	 XyqwQvcAxFIennJEMO7aC8eKS25RdXOLLlevMAiDhz7zVQbNc5xd/+eliz609Z2B19
-	 Y2V5d07aSa/Kw==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, 
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- linux-clk@vger.kernel.org, dmitry.baryshkov@linaro.org, 
- Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <20241023090153.1395220-2-ryan_chen@aspeedtech.com>
-References: <20241023090153.1395220-1-ryan_chen@aspeedtech.com>
- <20241023090153.1395220-2-ryan_chen@aspeedtech.com>
-Subject: Re: (subset) [PATCH v6 1/3] dt-bindings: mfd: aspeed: support for
- AST2700
-Message-Id: <173047754439.1930424.6922132618537420144.b4-ty@kernel.org>
-Date: Fri, 01 Nov 2024 16:12:24 +0000
+	s=k20201202; t=1730477697;
+	bh=/KS/SG1ZMGsVtQYssxXqdBZU7mlChx4+IvLbta2AuOc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rRGQsaNjDJ9TQc5BqrmRi7jYw5Ye17yE6gqW7dgkuH6/enG83R5PtQgUVfaFR62b6
+	 Ecv+BaZ95R8KJqB/8wALea0NBvH4Ebj9x8S94Rkhr/cfeHsZiU81SBZaBWUaii0zqr
+	 jWl3ACdhxBKe06nHsvJ4DN9jCaX1fMXMsmG5qdVRYTdla4SDMuyPF1QM5hqa1+Jq2h
+	 xaGFXjD5HBJu5MAP6jdDCSf+3PjIjeuRaaq3Xt/QoQphugYIGeD2mP7UfrvsfrCZ4r
+	 LhlyFWcfIEiOyr5vAQVkW3KAYkPYTriEJmTZdw8UF0bv7muG0VKEyhDPjFyez5I7my
+	 n6bL9jiP//XlA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Charles Han <hanchunchao@inspur.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
+	Qingqing Zhou <quic_qqzhou@quicinc.com>,
+	Rajendra Nayak <quic_rjendra@quicinc.com>,
+	Simon Horman <horms@kernel.org>
+Subject: [GIT PULL] Qualcomm driver fixes for v6.12
+Date: Fri,  1 Nov 2024 11:14:54 -0500
+Message-ID: <20241101161455.746290-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_091228_832766_59963B12 
-X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-CacheID: sfid-20241101_091458_148742_B968F279 
+X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,18 +82,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 17:01:51 +0800, Ryan Chen wrote:
-> Add reset, clk dt bindings headers, and update compatible
-> support for AST2700 clk, silicon-id in yaml.
-> 
-> 
 
-Applied, thanks!
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-[1/3] dt-bindings: mfd: aspeed: support for AST2700
-      commit: 76c6217c31266e800b67a476bba59dfeb9858a90
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
---
-Lee Jones [李琼斯]
+are available in the Git repository at:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-6.12
+
+for you to fetch changes up to f8c879192465d9f328cb0df07208ef077c560bb1:
+
+  soc: qcom: pmic_glink: Handle GLINK intent allocation rejections (2024-10-24 13:03:37 -0500)
+
+----------------------------------------------------------------
+Qualcomm driver fixes for v6.12
+
+The Qualcomm EDAC driver's configuration of interrupts is made optional,
+to avoid violating security constriants on X Elite platform .
+
+The SCM drivers' detection mechanism for the presence of SHM bridge in QTEE,
+is corrected to handle the case where firmware successfully returns that
+the interface isn't supported.
+
+The GLINK driver and the PMIC GLINK interface is updated to handle
+buffer allocation issues during initialization of the communication
+channel.
+
+Allocation error handling in the socinfo dirver is corrected, and then
+the fix is corrected.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (1):
+      firmware: qcom: scm: fix a NULL-pointer dereference
+
+Bjorn Andersson (2):
+      rpmsg: glink: Handle rejected intent request better
+      soc: qcom: pmic_glink: Handle GLINK intent allocation rejections
+
+Charles Han (1):
+      soc: qcom: Add check devm_kasprintf() returned value
+
+Johan Hovold (1):
+      firmware: qcom: scm: suppress download mode error
+
+Manikanta Mylavarapu (1):
+      soc: qcom: socinfo: fix revision check in qcom_socinfo_probe()
+
+Qingqing Zhou (1):
+      firmware: qcom: scm: Return -EOPNOTSUPP for unsupported SHM bridge enabling
+
+Rajendra Nayak (1):
+      EDAC/qcom: Make irq configuration optional
+
+Simon Horman (1):
+      MAINTAINERS: Qualcomm SoC: Match reserved-memory bindings
+
+ MAINTAINERS                        |  2 +-
+ drivers/edac/qcom_edac.c           |  8 +++++---
+ drivers/firmware/qcom/qcom_scm.c   | 17 ++++++++++++++---
+ drivers/rpmsg/qcom_glink_native.c  | 10 +++++++---
+ drivers/soc/qcom/llcc-qcom.c       |  3 +++
+ drivers/soc/qcom/pmic_glink.c      | 25 ++++++++++++++++++++++---
+ drivers/soc/qcom/socinfo.c         |  8 +++++++-
+ include/linux/soc/qcom/llcc-qcom.h |  2 ++
+ 8 files changed, 61 insertions(+), 14 deletions(-)
 
