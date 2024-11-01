@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D339FE6F06E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2B5E6F069
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 15:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=; b=2HzIrJR4G3IfZKXUj6USHGA90R
-	1iGeZXxfOg0PijAzRkNBkgPmY1mncL6BIVdfkRyITyw7LG61nLKLk0DBpe+hVuWlmAIlTeJE4u4C0
-	JXiCv8UQZ565MZHqiiE7Nw0iDqMc4kebOCNJ9TFDJ+D+/Ev9F8ClXRXbMdjSljAiaQqhLb02xtOIi
-	VZlY3uApqaBatjiASGD9Z030DThcbBkYsjc45vx+yrx8PxpWjFb9XRCbVAvKGrM6FGiIAFmS8ODk+
-	x0AGzQNV3XCcyZLlDK8PqHozoAnnsRk9wBdhpUX3hpV+xsUNDyYPO+TVaKz4htPBdtjGP9b9P5rwR
-	ki2ipaRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=epRFOHNij3h5S8KJYQr26l3Lp2Hi6cjPFcirUI7Ac90=; b=e805Wvew7xoAzEfBK0CqrIn8pF
+	uJzRGBxa5EY4jrWSEjSP9J8WeTJDxOwqW/UDMFdAe2Gjw2maUPzuDQ6eqUy3m1kvfgoe2R8iXfIwe
+	qhsdUC01Uj2keZWJe5M4aXjcp+P0sg4HFT744+QluYY5Er3QyD0ys5FJipI7XOAw0AUf2EFJMy7tT
+	o7Lv0ijyraKfJYCZqTBKbjktrv+xBsBBDOJCD3DveSOinLmNyWDAwAH0H/LRT/o6Kqy21xltkSqkB
+	nqCLh82XbZ9QAmG2xJZNDzejU0nk0v3m1AESWAL1pGEbellkAPV7Wkw3LhAxDQpb1zSZn/dbaKQ9/
+	EgQG8Eew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tdp-00000007VxX-3Ond;
-	Fri, 01 Nov 2024 15:32:49 +0000
-Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1t6tdl-00000007Vte-27TE;
+	Fri, 01 Nov 2024 15:32:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tSa-00000007ULy-3btn;
-	Fri, 01 Nov 2024 15:21:14 +0000
-Received: by mail-il1-x142.google.com with SMTP id e9e14a558f8ab-3a4e48b61fcso6838815ab.2;
-        Fri, 01 Nov 2024 08:21:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730474471; x=1731079271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=;
-        b=VYelO3je9BP4ALsa90ac5jQNQ14nccv4u03D371NGoQpwLAC1uQdyzL9uWPO60LYIR
-         6zJohmxrIgxvmDzMp74IFALk26fvrxoLb40I2b4gaxo5HuhJb4EjBRpnQKDuoUVWGM4p
-         RPPN0EsM/L2jVCcA8y8+w75Dm25werBqq6Z+h3gW/V1ebCDBPcsslm79tZZuVWxRgHkD
-         ENWEIx8LEJAXUHHTze+QtYRckTULDr305oFLcyNXLIE4mjWBZhDJAT0BJRLC50w2r2eN
-         kL9iO7/GYP1KzM20nbOZQj04qKaVunui3BtEiTP2fMSckcdYobVmsBgwBgmDt+XlVVdv
-         eu0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730474471; x=1731079271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ngedgEzPtFUspqedLiAiTsBOM7mquusH+8XohKPtoA4=;
-        b=LTPsE225eEJKcTwpzOH3nxnnIbjBG0u9oUNn4CvtO+6WyYc71QuRcwgOm8SyVgh+Tt
-         wFsBuQ3SiAmOOdO3p7wU6B0PsNLZHxPzYTX2tWXgc5i8bAIY0cspTvwzPj3tZAXTyS4P
-         Golf5wlL9XJiX7e/g4xTFNF61VHRAXj1GeCEPYsMq4pKvz9NXEoVdgAtEo31VPTuT32K
-         Wo5hmpITPs9lAaE66elbKBVGoRT7UQoKdiUiqeF5bardB0suLXg8aMGFQ4pdrYU5WMNz
-         KkWGFsGXMMYJyTGyFOMOu58h4B94vBlULyJlGofRssrXXmIv78s5es+pNm1sB7Vr+72P
-         SaOg==
-X-Forwarded-Encrypted: i=1; AJvYcCU58ubu+PKLtwLeTji7nfyUFhD9J7RJUNRMCXM/Iw0H3/RSs4esQFSl25IflLBAX+8JfARJuUrea0Mkg6xOpTye@lists.infradead.org, AJvYcCWD8/uDvtbspIFUcEFIhw3qw2JDYg7c2x4EY2Q1il3a4F4Szhsgzn8lOpyipLkkR4QqHYvhcCkij+fWKaNieuI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwszWmJ8tZmMi7f4iqvp1dvVI9tDIiUahZl48ju+p03TwWaiqsD
-	eLOzL6IrxEWlwMa+9JkQyUCZkNUnMYRBoiRUz6se0j08/pxK2os3
-X-Google-Smtp-Source: AGHT+IF2U9BgKTbgcIgkIdNNc5MCBypK+I6PPlj1q0iCr1DVpME5Hw3ZQRMs2YqWQEHPBENfAh26jQ==
-X-Received: by 2002:a05:6e02:16cb:b0:3a6:b0d0:ee2d with SMTP id e9e14a558f8ab-3a6b0d0f518mr32706795ab.9.1730474471110;
-        Fri, 01 Nov 2024 08:21:11 -0700 (PDT)
-Received: from localhost.localdomain (host-36-23.ilcul54.champaign.il.us.clients.pavlovmedia.net. [68.180.36.23])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a6a99cc4c9sm8890215ab.46.2024.11.01.08.21.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Nov 2024 08:21:10 -0700 (PDT)
-From: Gax-c <zichenxie0106@gmail.com>
-To: mripard@kernel.org,
-	dave.stevenson@raspberrypi.com,
-	kernel-list@raspberrypi.com,
-	maarten.lankhorst@linux.intel.com,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	mwen@igalia.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Zichen Xie <zichenxie0106@gmail.com>
-Subject: [PATCH] drm/vc4: cast calculation to __u64 in vc4_dumb_fixup_args()
-Date: Fri,  1 Nov 2024 10:20:46 -0500
-Message-Id: <20241101152045.8469-1-zichenxie0106@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	id 1t6tSD-00000007UH4-2tff;
+	Fri, 01 Nov 2024 15:20:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730474448;
+	bh=uJk5zksfhouWGMoFsDHDsI8Z9+bLS8yFcfshC7rakqQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GHyfIKEDrY9ML7tc9WCoIGPV47OSQFh43C05dV6KkyoR6m2vo/doP7LNAIMTbDxM9
+	 lchuGR8FMvGxcFHI67T8ePKCcrz/tgfjG2mAf416JOUKyR4DETOMlXjELTslVjtgxe
+	 Ca1GmZ3hTnK3ZM1YU0FBUErPV8Ok5XVwuw36FTOJau+K0H1D3S+G8YKlSoiliNndN1
+	 069IdUG0fbbInN/Lh7wR2N7uvDGxyRloossaANu+xllQPESC2rX2gEXaiEb+oE7PGe
+	 e4IYfiDV9psVm5fQVqzYPNM0r/9DAxrslLtSPedoPpO51e8XuJmWP44buY9i75RHAB
+	 AExaN4igeGs1w==
+Received: from [192.168.1.214] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6298517E0F7A;
+	Fri,  1 Nov 2024 16:20:45 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Fri, 01 Nov 2024 11:20:23 -0400
+Subject: [PATCH 1/4] net: dt-bindings: dwmac: Introduce
+ mediatek,mac-wol-noninverted
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20241101-mediatek-mac-wol-noninverted-v1-1-75b81808717a@collabora.com>
+References: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
+In-Reply-To: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Biao Huang <biao.huang@mediatek.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_082112_927627_6148334C 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241101_082049_924660_BE9B0F0D 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zichen Xie <zichenxie0106@gmail.com>
+The mediatek,mac-wol property, as described, was intended to indicate
+that the MAC supports Wake-On-LAN (WOL) and that it should be used
+instead of the PHY WOL. However, the driver code currently handles it
+backwards: setting up PHY WOL when the property is present and vice
+versa.
 
-Like commit b0b0d811eac6 ("drm/mediatek: Fix coverity issue with
-unintentional integer overflow"), directly multiply args->pitch and
-args->height may lead to integer overflow. Add a cast to avoid it.
+In order to rectify the property's handling while still maintaining
+backwards compatibility, introduce a new property to indicate that the
+mediatek,mac-wol property should be handled as it is described, not
+inverted, and make it required for new DTs.
 
-Fixes: 3d7637423be8 ("drm/vc4: bo: Split out Dumb buffers fixup")
-Signed-off-by: Zichen Xie <zichenxie0106@gmail.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/gpu/drm/vc4/vc4_drv.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/net/mediatek-dwmac.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
-index c133e96b8aca..ac02afc3acc5 100644
---- a/drivers/gpu/drm/vc4/vc4_drv.c
-+++ b/drivers/gpu/drm/vc4/vc4_drv.c
-@@ -69,8 +69,8 @@ int vc4_dumb_fixup_args(struct drm_mode_create_dumb *args)
- 	if (args->pitch < min_pitch)
- 		args->pitch = min_pitch;
+diff --git a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
+index ed9d845f600804964e0000dd4354898673fafe08..0f20c4e09e79ff722d53a364825da29bd6323c31 100644
+--- a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
+@@ -125,6 +125,15 @@ properties:
+       3. the inside clock, which be sent to MAC, will be inversed in RMII case when
+          the reference clock is from MAC.
  
--	if (args->size < args->pitch * args->height)
--		args->size = args->pitch * args->height;
-+	if (args->size < (__u64)args->pitch * args->height)
-+		args->size = (__u64)args->pitch * args->height;
++  mediatek,mac-wol-noninverted:
++    type: boolean
++    description:
++      Previously the driver parsed the mediatek,mac-wol property backwards,
++      enabling the PHY WOL when the property was present, and vice versa. That
++      behavior is kept for backwards compatility, but newer DTs should specify
++      this property to have the driver handle the mediatek,mac-wol property as
++      it is described in this binding.
++
+   mediatek,mac-wol:
+     type: boolean
+     description:
+@@ -140,6 +149,7 @@ required:
+   - clock-names
+   - phy-mode
+   - mediatek,pericfg
++  - mediatek,mac-wol-noninverted
  
- 	return 0;
- }
+ unevaluatedProperties: false
+ 
+@@ -181,4 +191,5 @@ examples:
+         snps,rxpbl = <1>;
+         snps,reset-gpio = <&pio 87 GPIO_ACTIVE_LOW>;
+         snps,reset-delays-us = <0 10000 10000>;
++        mediatek,mac-wol-noninverted;
+     };
+
 -- 
-2.25.1
+2.47.0
 
 
