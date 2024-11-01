@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD387E6F061
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6639FE6F062
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 14:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vena6H1phr3MgeVL8fFEujbOUBs119swW41Ew9CXTwY=; b=EeBU9PQTTgPh9/tXyUZRFw5rj0
-	+KRF2hiMg3fH9Tc0S3Va9K/yRPD3h328Grmm5adGgX/SvV59hV1b2GYBePyt/nlrhmInlvyHkRTCz
-	GJC7OoF44+o0l2rb+RIzIdQEQXMqGlYHFdGRRfhkeZzRU4InYICsDYRUEclvTNDkL6S/25quukhzW
-	7UgMqcB7Uio9oN+Ye3Aq3doAeHHUtl0VTai/80k7lJ2eHcgJDj/c307WeI3CY8W2MaaXjOhLufWh2
-	mWqlVwNsu/KdakMZuA7A69DhWcUlFecGnKm4oxHy6pejNmONQGmihXPKpGjjLeATJxCZD61SVMazX
-	z6ZXcH1Q==;
+	bh=Al96Dn/z8MFMVLMBbPFat+xydaqk+LhwUB5E4L6jZVA=; b=KWw02XL8r0TtcKpVtc1QDwD86+
+	xlCPKYALcH/HvQMbf4+thoHKueR9lli9kgRReGAwAOZkrfYQrVmSfjN3P+rJg6kxEc5JzELdRLO7l
+	ZrJjic34llJSIbZDsZWX2dRkgwXQKku2Q2oG3YIRdE898GOFvfnX84rfYg78JmbXqPYo0tH+4xktK
+	r+TW9QmVN31T3jbRJ67z4GYsr81ixeajvyXYE3CZqUR4ACeLd6/W5dfSvIZXljaWDeDceu+s4n9Xx
+	9h8XongLj7eM0Ty39XT3OfdJlRyHxHYFV4mJ4AyxxvuwYhFVwgcqpaBT/vrTri8ExF+QD2OC0T378
+	L+WUBI+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6sUt-00000007Ixw-1cH6;
-	Fri, 01 Nov 2024 14:19:31 +0000
+	id 1t6sWW-00000007JDB-3YOV;
+	Fri, 01 Nov 2024 14:21:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s7w-00000007FYK-38MB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 Nov 2024 13:55:48 +0000
+	id 1t6s85-00000007FaG-11lF;
+	Fri, 01 Nov 2024 13:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Vena6H1phr3MgeVL8fFEujbOUBs119swW41Ew9CXTwY=; b=o8G0exS95OaZBf4DOo3aU3Uos8
-	ZX6qHgrrsitb2mViK0thsnDtlg73dI+WSrQ0lI1a69Xe4oZxXYlv/1MG+PhWu9CwgBSyGQb898t3I
-	fqfeAOdOJVMKdY3LDt4tcUte5lALLJ2vNm0B58QkJxhC3Dhpp8fhIu/iV/trKI4MBf7z+xAcOpmVD
-	Lu89eg+wfkddZpkSeLpqSxkE2bqIHU6UGpfVWcDx1Fg4cBfu4iuUqdL1SMhTH1UsLCYt477Br+XXf
-	BYu7CfCJX7MHyVUoC7VabjhZQKriMB4N9s7cYjI12bRHjBVVy65ihqopIiUG+uzaDBgR0tR84rUDb
-	Bfl3Q3mA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	bh=Al96Dn/z8MFMVLMBbPFat+xydaqk+LhwUB5E4L6jZVA=; b=GeVuOpPvVdMAH+v/cEyPXPViTU
+	k+/bUFnp4yPfGNR5mUp2D43Z5+4vb0/i+opDAfUERTr60l8MpcexS6g/IB4ai43TP8XBRxataEIBU
+	s+NGWblPTKoqOoCUNYKFT2EiPIP6YvuT7HEHpHYX6paJ8MyyeZC/A2DDTwK2ZQ/7Dt7KAf+Vtjvrx
+	QK43rr687/K+C7RCCFEjXSCAowYz3/aMmJ8+5EeCHCxzvccnX+tqZup8JUDXeSb4hAu85aD3tfAk6
+	KmkM1XKi0tX/IhQA0fuIq7NUbs5okMwt3EOS29T+GdLgbkZd6IAS2xd5EpEj9GBWsmzralpo1nmtu
+	eYsvZF9w==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6s7s-0000000AiSw-0Pel
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 13:55:47 +0000
+	id 1t6s82-0000000AiZS-05fd;
+	Fri, 01 Nov 2024 13:55:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEFB55C8A05;
-	Thu, 31 Oct 2024 21:06:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3477C4CEC3;
-	Thu, 31 Oct 2024 21:07:18 +0000 (UTC)
-Date: Thu, 31 Oct 2024 21:07:16 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	David Hildenbrand <david@redhat.com>,
-	Greg Marsden <greg.marsden@oracle.com>,
-	Ivan Ivanov <ivan.ivanov@suse.com>,
-	Kalesh Singh <kaleshsingh@google.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
-Message-ID: <ZyPxhF34JjT3Ky9K@arm.com>
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 878F05CD57C;
+	Fri,  1 Nov 2024 13:07:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24B02C4CECD;
+	Fri,  1 Nov 2024 13:07:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730466484;
+	bh=2SzPN9eZ9YXTCtIfY58EFEEvjtP/SDawY1JwxmDF++I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ylc6i+PXadApsTrC1+EHUyKZIZnnbtk5yPisr6xCT1pFwE9gK/CLFWiHQNRuQI799
+	 kCBO4RxaczMABJO8tQBCqq3YL0ahawM9dTOEu4HAWN5LKPmb7YR2IWZ0jwQk1pw0XW
+	 fSuGXY62Kc12y34/wRKzjUhAHqaGgwCWSHv+8qZG7DO6PHZgTUO6TJQ1XH+Lfb6uQx
+	 iZteyzfKIG8FHUKZz8O690Vi+yn0jR1aQChsU5dqlPHjGkdNYRiCEYHrqO4V6wlO2c
+	 1G7j9vKxDIIR23W/3UhX4PfTe8XXv/4M+wNQtB9QHIteKOd8v86sXg2riL9PpYdU82
+	 Fa14lZg2mx2/w==
+Date: Fri, 1 Nov 2024 13:07:57 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Jones <ajones@ventanamicro.com>,
+	James Houghton <jthoughton@google.com>,
+	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
+Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
+ vcpu_get_reg() instead of using an out-param
+Message-ID: <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk>
+References: <20241009154953.1073471-1-seanjc@google.com>
+ <20241009154953.1073471-4-seanjc@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="YtZ2j2bWyKb0/r3q"
 Content-Disposition: inline
-In-Reply-To: <20241014105514.3206191-1-ryan.roberts@arm.com>
+In-Reply-To: <20241009154953.1073471-4-seanjc@google.com>
+X-Cookie: Sales tax applies.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_135544_446542_4FB783C8 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20241101_135554_618316_8C712CB7 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +101,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
 
-On Mon, Oct 14, 2024 at 11:55:11AM +0100, Ryan Roberts wrote:
-> This RFC series implements support for boot-time page size selection within the
-> arm64 kernel. arm64 supports 3 base page sizes (4K, 16K, 64K), but to date, page
-> size has been selected at compile-time, meaning the size is baked into a given
-> kernel image. As use of larger-than-4K page sizes become more prevalent this
-> starts to present a problem for distributions. Boot-time page size selection
-> enables the creation of a single kernel image, which can be told which page size
-> to use on the kernel command line.
+--YtZ2j2bWyKb0/r3q
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-That's great work, something I wasn't expecting to even build, let alone
-run ;). I only looked briefly through the patches, there's probably room
-for optimisation of micro-benchmarks like fork(), maybe using something
-like runtime constants. The advantage for deployment and easy testing of
-different configurations is pretty clear (distros mainly, not sure how
-relevant it is for Android if apps can't move beyond 4K pages).
+On Wed, Oct 09, 2024 at 08:49:42AM -0700, Sean Christopherson wrote:
+> Return a uint64_t from vcpu_get_reg() instead of having the caller provide
+> a pointer to storage, as none of the vcpu_get_reg() usage in KVM selftests
+> accesses a register larger than 64 bits, and vcpu_set_reg() only accepts a
+> 64-bit value.  If a use case comes along that needs to get a register that
+> is larger than 64 bits, then a utility can be added to assert success and
+> take a void pointer, but until then, forcing an out param yields ugly code
+> and prevents feeding the output of vcpu_get_reg() into vcpu_set_reg().
 
-However, as a maintainer, my main concern is having to chase build
-failures in obscure drivers that have not been tested/developed on
-arm64. If people primarily test on x86, they wouldn't notice that
-PAGE_SIZE/PAGE_SHIFT are no longer constants. Not looking forward to
-trying to sort out allmodconfig builds every kernel release, especially
-if they turn up in subsystems I have no clue about (like most stuff
-outside arch/arm64).
+This commit, which is in today's -next as 5c6c7b71a45c9c, breaks the
+build on arm64:
 
-So, first of all, I'd like to understand the overall maintainability
-impact better. I assume you tested mostly defconfig. If you run an
-allmodconfig build with make -k, how many build failures do you get with
-this patchset? Similarly for some distro configs.
+aarch64/psci_test.c: In function =E2=80=98host_test_system_off2=E2=80=99:
+aarch64/psci_test.c:247:9: error: too many arguments to function =E2=80=98v=
+cpu_get_reg=E2=80=99
+  247 |         vcpu_get_reg(target, KVM_REG_ARM_PSCI_VERSION, &psci_versio=
+n);
+      |         ^~~~~~~~~~~~
+In file included from aarch64/psci_test.c:18:
+include/kvm_util.h:705:24: note: declared here
+  705 | static inline uint64_t vcpu_get_reg(struct kvm_vcpu *vcpu, uint64_t=
+ id)
+      |                        ^~~~~~~~~~~~
+At top level:
+cc1: note: unrecognized command-line option =E2=80=98-Wno-gnu-variable-size=
+d-type-not-at
+-end=E2=80=99 may have been intended to silence earlier diagnostics
 
-Do we have any better way to detect this other than actual compilation
-on arm64? Can we hack something around COMPILE_TEST like redefine
-PAGE_SIZE (for modules only) to a variable so that we have a better
-chance of detecting build failures when modules are only tested on other
-architectures?
+since the updates done to that file did not take account of 72be5aa6be4
+("KVM: selftests: Add test for PSCI SYSTEM_OFF2") which has been merged
+in the kvm-arm64 tree.
 
-At the moment, I'm not entirely convinced of the benefits vs. long term
-maintainability. Even if we don't end up merging the dynamic PAGE_SIZE
-support, parts of this series are needed for supporting 128-bit ptes on
-arm64, hopefully dynamically as well.
+--YtZ2j2bWyKb0/r3q
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Catalin
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmck0qwACgkQJNaLcl1U
+h9DFvAf+NFZ+z1aCylPPLFa+zTDz5MmqEcjVpfhQkyHhNKHUjHoiGTKMUmWyQMUR
+zuLXQxeTLLfX2TUAY8iDXERwVa3DJcXBSA8OkTxEQ8duTVgasxJrEH5e9hapL4yw
+qi35won+snSoVC5aal8C4cR5rAV8QUTyUdDDLCrdVGOdxfeeRc2oXXDUgy25kAO4
+qC9GygserSiAkTN4RndpjwI1P1izwqrfOByxZ5gCJhTcODN24/DiVMd5ilqSvEBg
+r0nYU+tZo+ELvY6B+hRDZVbLnfRK15iiJrig9duhfHWMiApgcOywYRahbDV+p6ph
+UabPeoJZ1JqGF4etWEfaIQLkyg6QTg==
+=5qTN
+-----END PGP SIGNATURE-----
+
+--YtZ2j2bWyKb0/r3q--
 
