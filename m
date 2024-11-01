@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6B8E6F085
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 19:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD6BE6F07F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 19:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sa/HhTUDVpk4NXfCGGmyvJmpwzaluhlGU0TChrjB+bo=; b=mvYqHTZiZiXPA7/RddDIU+TLyN
-	7eWyCuCQU3xfUrsZOAcfrY/TV4lSrmGcoufPeBua4Bn6PB54QXzzOP2BuSpt27ieOkx/Bn0EGDgH6
-	YSY0QKHukM3MGeWNH70A+BxZGqWxJ6OrHlW6JLU4ZC0Pm/rd3c9UUZAXg3NQmJtbBInaoiOY9Q2nU
-	LQX1lTJYMXHeHLZowD+kdtv8jswe8r+O1fbBjQ5NgxcdKfm+GWhByET2C3ftwy8rtV98ydPgcp3Xy
-	09FMN+CDF9+9TRJJ9qSlqzPxlZsUui4FXxRTFXMMTSWwjKq012/1U8n6zd+Vh7Smf0gDwOqE7Sj02
-	h5RHPFjg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TfjN2FkupChScPj51tVFnwRpzYeduDtz6rkLr7e6vqw=; b=XG+FNVugRq9qwG
+	02ajl2JxrgVJZ/SQDsy8yj41PtMg3iQp6Udp2czDLW2I5MC89EgA95UlOUxPGxpTHS3BC/Mm9PQtJ
+	zOCGQsKxDsnFUTShL437BBJSlO30PgnYniaJ4kpJpP8KxVMIiaat7XwXEaMpB+wFCTBuReW9bqNgd
+	BTy7CCzgzOBvU2lcAWID0Q0pNQbwFL+L3w3VDlr4xEtQqVUeqVisxP/iBdzyW3R049QPL0aSkhcR6
+	qjs4T+LJnNRsBeK/Zgb0C7Ze6p1FviBbo+F0G5i5Lo4TXc+mrPXCksJITv+Wb8kJjp3Z+SN+3Cbik
+	LKa/6yQoPHoJkUtt5GVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xQZ-0000000895e-1ABD;
-	Fri, 01 Nov 2024 19:35:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t6xSL-000000089aX-0LLE;
+	Fri, 01 Nov 2024 19:37:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6xIK-000000087Ig-25ij;
-	Fri, 01 Nov 2024 19:26:53 +0000
+	id 1t6xPT-000000088tA-2fFC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Nov 2024 19:34:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 88B595C5A4A;
-	Fri,  1 Nov 2024 19:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 691F2C4CED1;
-	Fri,  1 Nov 2024 19:26:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C678A44960;
+	Fri,  1 Nov 2024 19:32:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13110C4CECD;
+	Fri,  1 Nov 2024 19:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730489211;
-	bh=Sa/HhTUDVpk4NXfCGGmyvJmpwzaluhlGU0TChrjB+bo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SaFXkfUuVpXBA4XRS/CsNDgnVARbi2alUSb+Hi/XtJC1GKki1zmHwC/kEqPNARka3
-	 9A8fYPfozklJGgLPZ2Dk7KQbLBQTUftc76f5NWJF8nfXehWeNU8NtYmxAWbSXJfFWi
-	 H/KN35oAasjjbOuYK9HMZI3TK6h68sKN2QJJNH1ZIgJWT9oyLceeERvCkBX+JFo5ji
-	 QUPRvx+waOf0+Gs6+GQQQ0LNiCHD6GdNfjU15c0Hd2Tx4CgIis6LL4602aCUmdOyy4
-	 GuJcEublpLssP2OKfyLFXaTvkVpaAza+PmxCx0JeSEftPfqu8JO5YyRy2y0y005DDz
-	 HIHZCCTxXvtEg==
-Date: Fri, 1 Nov 2024 19:26:41 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>, Phong LE <ple@baylibre.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH RFC v2 2/7] ASoC: hdmi-codec: move no_capture_mute to
- struct hdmi_codec_pdata
-Message-ID: <e57aa9c7-1a35-4ed3-94c7-f3acd3293b6d@sirena.org.uk>
-References: <20241101-drm-bridge-hdmi-connector-v2-0-739ef9addf9e@linaro.org>
- <20241101-drm-bridge-hdmi-connector-v2-2-739ef9addf9e@linaro.org>
+	s=k20201202; t=1730489654;
+	bh=7e9jDreQwHjgDrpNnSCJNcACMMOlV2ucUiJHzRNtnGQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Gy+q2VQMdeHnjT5y9u5t9/F6PhF4uzgoSRel0mDRxxSyq3QjYHlyR4JkyEpXP8DV3
+	 NeeZZkqknM2VXeMV9BBFpQDx5/GPmVVoWetU6spQS9H2CQ3fzgckmHv3TmKRx9CNOF
+	 9LamE0J7mmr/CfZm2sXjfEBuujzSZdz7fwU9dP8P/IceaUMELWqXxj6a5Jp2kNdgo1
+	 lTV8bFkOtCBbVdt4w5kdTXRqpo2esomrCNQqXTliqOkebr1XfYjhQxMGHIF41TFvlE
+	 cFF9mSY87h88i+ZHBUH+zvZzdw5IQllMK89EDpz4QgXnua1Kz00jrJw6m4A26J6BJi
+	 Ar+DeHd6YbhrA==
+Date: Fri, 1 Nov 2024 14:34:12 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Stefan Eichenberger <eichest@gmail.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>
+Cc: lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	francesco.dolcini@toradex.com, Frank.li@nxp.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v4] PCI: imx6: Add suspend/resume support for i.MX6QDL
+Message-ID: <20241101193412.GA1317741@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Xe2LhHWxNYWP+TP/"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241101-drm-bridge-hdmi-connector-v2-2-739ef9addf9e@linaro.org>
-X-Cookie: We read to say that we have read.
+In-Reply-To: <20241030103250.83640-1-eichest@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_122652_644960_35A97AE5 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241101_123415_839735_BD8CEF7A 
+X-CRM114-Status: GOOD (  35.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +77,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 30, 2024 at 11:32:45AM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> 
+> The suspend/resume functionality is currently broken on the i.MX6QDL
+> platform, as documented in the NXP errata (ERR005723):
+> https://www.nxp.com/docs/en/errata/IMX6DQCE.pdf
+> 
+> This patch addresses the issue by sharing most of the suspend/resume
+> sequences used by other i.MX devices, while avoiding modifications to
+> critical registers that disrupt the PCIe functionality. It targets the
+> same problem as the following downstream commit:
+> https://github.com/nxp-imx/linux-imx/commit/4e92355e1f79d225ea842511fcfd42b343b32995
+> 
+> Unlike the downstream commit, this patch also resets the connected PCIe
+> device if possible. Without this reset, certain drivers, such as ath10k
+> or iwlwifi, will crash on resume. The device reset is also done by the
+> driver on other i.MX platforms, making this patch consistent with
+> existing practices.
+> 
+> Without this patch, suspend/resume will fail on i.MX6QDL devices if a
+> PCIe device is connected. Upon resuming, the kernel will hang and
+> display an error. Here's an example of the error encountered with the
+> ath10k driver:
+> ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
+> Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
+> 
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
---Xe2LhHWxNYWP+TP/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Richard and Lucas, does this look OK to you?  Since you're listed as
+maintainers of pci-imx6.c, I'd like to have your ack before merging
+this.
 
-On Fri, Nov 01, 2024 at 12:19:03PM +0200, Dmitry Baryshkov wrote:
-> The no_capture_mute flag might differ from platform to platform,
-> especially in the case of the wrapping implementations, like the
-> upcoming DRM HDMI Codec framework. Move the flag next to all other flags
-> in struct hdmi_codec_pdata.
-
-Acked-by: Mark Brown <broonie@kernel.org>
-
---Xe2LhHWxNYWP+TP/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmclK3AACgkQJNaLcl1U
-h9AmVwf/dWfRKRI7gD3AqmFK1DexdVqm2bNZhFPhh2L1LOQy2vXI7nvVt/2acOos
-2JHf3BYuLSIWMThTjkBKh173OCY3MTjzfkZIXRpsK6c7DuqPKLvJSakMt7/bWzvI
-fb7j49YV7k/kD7rEZBGA6cm4UTMLe9STpUG3fyNqIBBWEtnxZmGLR99iBXiM+m5R
-PoqILxDPVsroDHtz5xX/rUOxM6Fj9vG8TRgkfdHLvRdOjmYQxDD67WiUJKH8RSJ+
-li+pH4COp9QU4likh9C3pYaLUEZ4s8Jm9boYt2IZtt66rnGl8vsAjoSW8LOnKlQM
-3gmYAtofdaWiOHyS73Z1FO3Eu1quBw==
-=ZSKp
------END PGP SIGNATURE-----
-
---Xe2LhHWxNYWP+TP/--
+> ---
+> Changes in v4:
+> - Improve commit message (Bjorn)
+> - Fix style issue on comments (Bjorn)
+> - s/msi/MSI (Bjorn)
+> 
+> Changes in v3:
+> - Added a new flag to the driver data to indicate that the suspend/resume
+>   is broken on the i.MX6QDL platform. (Frank)
+> - Fix comments to be more relevant (Mani)
+> - Use imx_pcie_assert_core_reset in suspend (Mani)
+> 
+>  drivers/pci/controller/dwc/pci-imx6.c | 57 +++++++++++++++++++++------
+>  1 file changed, 46 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 808d1f1054173..c8d5c90aa4d45 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -82,6 +82,11 @@ enum imx_pcie_variants {
+>  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
+>  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
+>  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
+> +/*
+> + * Because of ERR005723 (PCIe does not support L2 power down) we need to
+> + * workaround suspend resume on some devices which are affected by this errata.
+> + */
+> +#define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
+>  
+>  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+>  
+> @@ -1237,9 +1242,19 @@ static int imx_pcie_suspend_noirq(struct device *dev)
+>  		return 0;
+>  
+>  	imx_pcie_msi_save_restore(imx_pcie, true);
+> -	imx_pcie_pm_turnoff(imx_pcie);
+> -	imx_pcie_stop_link(imx_pcie->pci);
+> -	imx_pcie_host_exit(pp);
+> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
+> +		/*
+> +		 * The minimum for a workaround would be to set PERST# and to
+> +		 * set the PCIE_TEST_PD flag. However, we can also disable the
+> +		 * clock which saves some power.
+> +		 */
+> +		imx_pcie_assert_core_reset(imx_pcie);
+> +		imx_pcie->drvdata->enable_ref_clk(imx_pcie, false);
+> +	} else {
+> +		imx_pcie_pm_turnoff(imx_pcie);
+> +		imx_pcie_stop_link(imx_pcie->pci);
+> +		imx_pcie_host_exit(pp);
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -1253,14 +1268,32 @@ static int imx_pcie_resume_noirq(struct device *dev)
+>  	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
+>  		return 0;
+>  
+> -	ret = imx_pcie_host_init(pp);
+> -	if (ret)
+> -		return ret;
+> -	imx_pcie_msi_save_restore(imx_pcie, false);
+> -	dw_pcie_setup_rc(pp);
+> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
+> +		ret = imx_pcie->drvdata->enable_ref_clk(imx_pcie, true);
+> +		if (ret)
+> +			return ret;
+> +		ret = imx_pcie_deassert_core_reset(imx_pcie);
+> +		if (ret)
+> +			return ret;
+> +		/*
+> +		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
+> +		 * root complex. This is why we have to setup the rc again and
+> +		 * why we have to restore the MSI register.
+> +		 */
+> +		ret = dw_pcie_setup_rc(&imx_pcie->pci->pp);
+> +		if (ret)
+> +			return ret;
+> +		imx_pcie_msi_save_restore(imx_pcie, false);
+> +	} else {
+> +		ret = imx_pcie_host_init(pp);
+> +		if (ret)
+> +			return ret;
+> +		imx_pcie_msi_save_restore(imx_pcie, false);
+> +		dw_pcie_setup_rc(pp);
+>  
+> -	if (imx_pcie->link_is_up)
+> -		imx_pcie_start_link(imx_pcie->pci);
+> +		if (imx_pcie->link_is_up)
+> +			imx_pcie_start_link(imx_pcie->pci);
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -1485,7 +1518,9 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	[IMX6Q] = {
+>  		.variant = IMX6Q,
+>  		.flags = IMX_PCIE_FLAG_IMX_PHY |
+> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE,
+> +			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
+> +			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
+> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+>  		.dbi_length = 0x200,
+>  		.gpr = "fsl,imx6q-iomuxc-gpr",
+>  		.clk_names = imx6q_clks,
+> -- 
+> 2.43.0
+> 
 
