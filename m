@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BA6E6B240
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2A8E6B240
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WpzSgjnpO5Pgi4peizaj5qKRJmTZYgfK/PfyJYP5YwM=; b=pubNWjfoQosj2yTeY6yPgapk3s
-	eUFtxZznnxD5GlV9KjbPAWSZDOFUtPdasq2icVQaFr0XM/ul2vyT2yds4A8bQoGiePU1s0CcgXVfl
-	itT8n1g8C+gm7MzTdyDQiesgcTtbu7dzE1ymU1EBduaXqSed6BaB4pMD7dITIvfJfHOE8VSTBI4ZM
-	RexWbfKFi1G/69+2a2ejPTNGLUaRVXt+GQOeKE55uy1qqw7cVhsF5OtFeU8jzbD6rCpsXlp7TVNka
-	50jdRHPAcq9OLQpUCcnrnk7gnWf0Gx8SKSLVd2CxRvt8y1fsqIHEIk3V7LSkJlt6je/D3NslPrBxn
-	1P+ioQyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SN6JiXbW9V9Kobi8fjRJD0yQuzKXgICEkBYFv99i56c=; b=kpORVjf/eYNw9X
+	VF0Fzl+2iBlKyp3TfS9h347UZDCTA6hEyA5RJ8WIb/oLGaFlEFply0t9IK0juYh7969eyjcHfdZKx
+	pgC4vbk06fVRxt+H1SZZbwKLv2juqHz+N8DWy0VofCnK9VBM/UvCqzT3vRHRy9Vk7tEWOjOq8LexK
+	E+SNCGc9oxWKylxGZcVWrd4gW+I2dUWIQ1BHkrnR9LMHoc90RhH/gZMRoss76ZNc5D2g6nkcCAoFc
+	EyQj02mkqSBlSeNTQZ1TTJO389Jh2a96B+M76wOCPs9KDZmtPzmiLqTNO9VDVKYoCW3Ss9AjXatPT
+	yiCP/h3Og5mf4XjgC/Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6p5X-00000006cZ2-0Obs;
-	Fri, 01 Nov 2024 10:41:07 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1t6p7C-00000006d0G-3XwA;
+	Fri, 01 Nov 2024 10:42:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6oqC-00000006ZHd-1vOc
+	id 1t6p3d-00000006bzY-0JsB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 10:25:19 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2fb49510250so19128781fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 03:25:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730456711; x=1731061511; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WpzSgjnpO5Pgi4peizaj5qKRJmTZYgfK/PfyJYP5YwM=;
-        b=PCmmt3w45N3855qVfWGhoJJkxjVZWcRqfZxgeCI8bKJVBdlLAX7NJDUFK/txlmxEke
-         SWydsrU7fD/M+w+hqW4paxwi0XLdMMUPeVtfsCPcCebG/vM2l1spwVG9Z+GKnksBVTv8
-         Qgc/sUyLrmG1Y7G6xS0zRX2rzSRF1csLuyA4keb/xmmW0PKnp9FkJMGZQ1RvJ+T8ngC9
-         e69JK5j3SPVXg4Rkrmewoc2AnFu+jTrbaUPIvTgVSnGZP4DNCqh27t5/+DOUUwQ973Tv
-         oLI2sKVBNtcC6AxT2Lj0eJNsQprqPA6O2f53U3dON7RvPwBL3B/Z8gO/69xsfsZa31Lk
-         kwZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730456711; x=1731061511;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WpzSgjnpO5Pgi4peizaj5qKRJmTZYgfK/PfyJYP5YwM=;
-        b=c1wT+iRga+PEMXDwsFPrP0L2hOLzX2LNQt98fKCsMrEchZBLij+jrG4BTXcI31cWYr
-         B2MfcFvHBMzgHaHnWJNgHiDeQIBOUocoYYuYcNQqUp9x0OyvwZLO1ZCDNZg4P09o7Rt8
-         sh7YRRRtbp5LhQqKnF90Q2FsAQXzeB/9YV2zRepSRliLgl24YUorOdePkLKuEMd5+Ggi
-         SFgNMxqxQqkCPuyJBhDNXaZqkWEPDOEAjGgGTkYTgzvq4PmJNRICXhok7dGvLx43ZZao
-         pvl+w7Sbx6ZlLMGgFUJdl69dRusQHL6YQPoHIYrHfNHa7ZFxuWt1q7IAknrgdzEFiCim
-         BFhw==
-X-Forwarded-Encrypted: i=1; AJvYcCVQerzVALBCcot+FF5DqcbMTBelvZfDI1fggjkjF9Up436EJKvyTms0m7iHBwhMLZpU0pctmmfQPkayNsneCDv5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/jen+y64PJCRVTQsyOfV+7yCMud9/WVtXU/q7ur/lEHgnpLpU
-	ORyzpqbakRMPW0R2ynuZzZhCipQGeAOZ4h6JcClyCPpQMYlpvfDTFQ+TDHQV6dxqDnqfMLMOY2G
-	Ew/ONHcxEW3opi5O8jlkSzK7HrRlb0nYHhorLxg==
-X-Google-Smtp-Source: AGHT+IEh3UD7clJCQ/gk/n1lZMbdbxLI4TLsCj8gBPyhuLX6iMsirPWos/kw6T81Ngl9MnmOHHdaCm4w/4b+g80Z8io=
-X-Received: by 2002:a2e:819:0:b0:2f7:a5fe:adbe with SMTP id
- 38308e7fff4ca-2fdec72f2bemr26733951fa.18.1730456711357; Fri, 01 Nov 2024
- 03:25:11 -0700 (PDT)
+	Fri, 01 Nov 2024 10:39:12 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A14cHOE020853;
+	Fri, 1 Nov 2024 10:38:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=SN6JiXbW9V9Kobi8fjRJD0
+	yQuzKXgICEkBYFv99i56c=; b=m+Jb0RIQTSfaCt97mhmzbGEgcokgnuSSbQeFaz
+	ZZ9fTqCwu0CK7W4ddHSqAGkM2TMZzRu3Irogb2k1g2u3GBQbcFpgNOTsOwnE67Wc
+	qf7X1tetUma+LbwKW8q3ZZUL/Tz8QNPuTAAbDtBhMekzFEYGZr/Dnuab0nv7iOab
+	Ip8qfBhRXSrZR0TpuMzHkPDgUnw69XKvkUJAtZ+REsW2ZXe8DLs64YSwzCYVTUOg
+	3XbPMJ2oYO2uBGDJ6dnRahxZuiDy8op1/y/T7Md7xEJ8S6Glsa+MXCAanq8gSPJm
+	a9WTAu3VY55gHLuqwZ2rj/2eh1x9HXO61m/Nw5bSO9svkSMA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m1rpmqcc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 Nov 2024 10:38:33 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1AcXIq026178
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 1 Nov 2024 10:38:33 GMT
+Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 1 Nov 2024 03:38:27 -0700
+From: Taniya Das <quic_tdas@quicinc.com>
+Subject: [PATCH v2 00/11] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+Date: Fri, 1 Nov 2024 16:08:12 +0530
+Message-ID: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
 MIME-Version: 1.0
-References: <20241022155658.1647350-1-antonio.borneo@foss.st.com>
- <20241022155658.1647350-8-antonio.borneo@foss.st.com> <CACRpkdZKimfE_00kxa_qAf+jjwxBtuKizDTd3RvOS_PDuZ_JKg@mail.gmail.com>
- <df12289dc65c21496d4f9818a53d9797406e2663.camel@foss.st.com>
-In-Reply-To: <df12289dc65c21496d4f9818a53d9797406e2663.camel@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 1 Nov 2024 11:24:58 +0100
-Message-ID: <CACRpkdbne8730=6Hvd2W5ymv3xYNC6ApPthT0Fcb+D-fafA_5A@mail.gmail.com>
-Subject: Re: [PATCH 07/14] dt-bindings: pinctrl: stm32: support IO
- synchronization parameters
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Stephane Danieau <stephane.danieau@foss.st.com>, 
-	Amelie Delaunay <amelie.delaunay@foss.st.com>, Fabien Dessenne <fabien.dessenne@foss.st.com>, 
-	Valentin Caron <valentin.caron@foss.st.com>, 
-	Gatien Chevallier <gatien.chevallier@foss.st.com>, Cheick Traore <cheick.traore@foss.st.com>, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJWvJGcC/32NQQ6CMBBFr0K6dkxLsARX3sOwqMNUJkILLRIN4
+ e5W1K3L95P/3iIiBaYojtkiAs0c2bsE+S4T2Bp3JeAmschlXiipNIwYtTpA3wN2Hm/o3RR811E
+ AtLYyZEojpRbpPwSy/Njc5zpxy3Hy4bmlZvVef9bqj3VWIKFAe6l0U5YpcBrvjOxwj74X9foJB
+ Upr5OlbW9cXcqptpdkAAAA=
+X-Change-ID: 20241016-qcs615-mm-clockcontroller-cff9aea7a006
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Abhishek Sahu
+	<absahu@codeaurora.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Taniya Das <quic_tdas@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Gabor Juhos
+	<j4g8y7@gmail.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 9PutL6uBVCED1XaNiCZk5eSxxrKDuuAD
+X-Proofpoint-ORIG-GUID: 9PutL6uBVCED1XaNiCZk5eSxxrKDuuAD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ bulkscore=0 mlxlogscore=999 clxscore=1011 suspectscore=0 spamscore=0
+ adultscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ phishscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411010076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_032516_819576_64469C40 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20241101_033909_161062_4F1E97D1 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +120,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antonio,
+Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+Update the defconfig to enable these clock controllers.
 
-some responses below!
+Global clock controller support
+https://lore.kernel.org/all/20240920-qcs615-clock-driver-v2-0-2f6de44eb2aa@quicinc.com/
 
-On Thu, Oct 31, 2024 at 2:44=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+---
+Changes in v2:
+- cleanups in clk_alpha_pll_slew_update and clk_alpha_pll_slew_enable functions [Christophe]
+- update PLL configs for "vco_val = 0x0" shift(20)  [Bryan O'Donoghue]
+- update PLL configs to use lower case for L value  [Dmitry]
+- Link parents for IFE/IPE/BPS GDSCs as Titan Top GDSC [Bryan O'Donoghue, Dmitry]
+- Remove DT_BI_TCXO_AO from camcc-qcs615           [Dmitry]
+- Remove HW_CTRL_TRIGGER from camcc-qcs615         [Bryan O'Donoghue]
+- Update platform name for default configuration   [Dmitry]
+- Link to v1: https://lore.kernel.org/r/20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com
 
-> > Otherwise I would say that just checking if the line is in input
-> > or output from other properties should be enough to configure
-> > this? input-enable, output-enable to name the obvious.
->
-> On STM32MP25x there is a 'skew-delay' HW block on each pin,
-> but it's applied independently on each pin either only on the
-> input direction OR only on the output direction.
-> There is no automatic way to switch it between input and
-> output path. This property assigns the delay to one path.
-> The generic property 'skew-delay' does not considers this
-> case.
->
-> While I could extend the pinctrl driver to include the info about
-> direction, that is trivial for example for UART or SPI, it will fail
-> for bidirectional pins like I2C's SDA; some use case could
-> require the skew-delay on SDA input path, other on the output path.
-> Also the idea of assigning the direction at startup (e.g. in the
-> bootloader) is not feasible as the delay depends on the
-> functionality that can change at runtime e.g. by loading modules.
-> I prefer having this "direction" path explicitly selected through
-> a DT property.
->
-> The existing properties 'input-enable' and 'output-enable' are
-> not specific for the skew-delay.
-> And I think it would be confusing having 'input-enable' or
-> 'output-enable' associated with a bidirectional pins like I2C's SDA.
->
-> I propose to change it as, e.g.
->   st,skew-delay-on-input:
->     type: boolean
->     description: |
->       If this property is present, then skew-delay applies to input path =
-only,
->       otherwise it applies to output patch only.
->
-> Or, it could be a new generic property (keeping backward compatibility), =
-e.g.:
->   skew-delay-direction:
->     enum [0, 1, 2]
->     default: 0
->     description: |
->       0: skew-delay applies to both input and output path, or it switches=
- automatically
->          between the two direction
->       1: skew-delay applies only to input path
->       2: skew-delay applies only to output path
+---
+Taniya Das (11):
+      clk: qcom: Update the support for alpha mode configuration
+      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+      arm64: defconfig: Enable QCS615 clock controllers
 
-I like this property the most. Can we go with the generic
-skew-delay-direction?
+ .../bindings/clock/qcom,qcs615-camcc.yaml          |   60 +
+ .../bindings/clock/qcom,qcs615-dispcc.yaml         |   73 +
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          |   66 +
+ .../bindings/clock/qcom,qcs615-videocc.yaml        |   64 +
+ arch/arm64/configs/defconfig                       |    4 +
+ drivers/clk/qcom/Kconfig                           |   35 +
+ drivers/clk/qcom/Makefile                          |    4 +
+ drivers/clk/qcom/camcc-qcs615.c                    | 1591 ++++++++++++++++++++
+ drivers/clk/qcom/clk-alpha-pll.c                   |  172 +++
+ drivers/clk/qcom/clk-alpha-pll.h                   |    1 +
+ drivers/clk/qcom/dispcc-qcs615.c                   |  786 ++++++++++
+ drivers/clk/qcom/gpucc-qcs615.c                    |  525 +++++++
+ drivers/clk/qcom/videocc-qcs615.c                  |  332 ++++
+ include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 ++
+ include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+ 17 files changed, 3944 insertions(+)
+---
+base-commit: 15e7d45e786a62a211dd0098fee7c57f84f8c681
+change-id: 20241016-qcs615-mm-clockcontroller-cff9aea7a006
 
-Also state in the existing skew-delay property that if
-skew-delay-direction is not
-present then it is assumed that the property applies to all
-directions of a pin.
+Best regards,
+-- 
+Taniya Das <quic_tdas@quicinc.com>
 
-> > > +          st,io-clk-edge:
-> > > +            description: |
-> > > +              IO synchronization clock edge
-> > > +              0: Data single-edge (changing on rising or falling clo=
-ck edge)
-> > > +              1: Data double-edge (changing on both clock edges)
-> > > +            $ref: /schemas/types.yaml#/definitions/uint32
-> > > +            enum: [0, 1]
-> >
-> > This looks like it should be made into a generic property,
->
-> I believe it is too specific to ST implementation.
-> I see already some 'retime' mentioned in old ST bindings
-> bindings/pinctrl/pinctrl-st.txt and bindings/net/sti-dwmac.txt, but the c=
-ontrol looks quite different; I don't plan to reuse them.
->
-> I will fuse in V2 this property together with the next two in a more
-> meaningful one, partially acknowledging your proposal below.
-
-Hmmmm. Let's see. I know that e.g. MMC has similar properties
-and if similar things appear in other bindings (not necessarily
-pinctrl bindings) then that should also be taken into account.
-
-And in MMC this is called DDR.
-
-Yours,
-Linus Walleij
 
