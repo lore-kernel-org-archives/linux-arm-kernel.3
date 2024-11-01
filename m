@@ -4,88 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B799E67490
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 00:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88588E67490
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 00:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yANkLDlzSL43/hAXZpZR6vsEzAnivYrHjeOWQqdIjJk=; b=iiHMdn7kO2mwPu7quMsV/Zw/jB
-	izslna+U0UexAbY8TwYmAHNuDsPryxcjHAA7xsT2mgvHpsIQbEPmjGkMxnN7Jt4ONrURXkZ46etVF
-	8Qvtb2gG0EXnnL+vVx2JZSlinL8hbHIV3UyyiZm7bgLgSo1Pg7SAAR1Wnd4xP44XhQOgl58c5zcEP
-	X4Vbm9JvGvgDfNku+M+7Yg8BATAc/KIl1sqzkHf8qXrLBc7pTsOD9QrPzbg4Q+5cC1Z885BG8rK/R
-	9/WW2I17TwAUytrtTYLcOqwe5w0bDMLPrQLL+3wdegTREy8+3azIgTxH377dRNvUpX3ddLMlB76xg
-	lXRTtUog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LPWl0EhL6KI0Pyg9VIPJdMDq/EwgacWWrQ4ao+PcFsU=; b=TwKHrS7Abf1Z+A
+	U8pHxr2waEXf/CVfIa0uVj+ut4fHLqOc6TaFxIhS7dYsBnD9zJ4Jn+tdQj+eqxQytT1MbHjjZ6hH8
+	wJTW1Ai8FG/trabYur3tvCd0c159u/yeiTcpZ0IJdMby42EHGXbaGh6v/QYJJXebkDV3iy7hySQlN
+	zOtXTEgEJmqdAw22sTouKyEV3NAesv9QrRC/xgRKk70pyTJ1fqqC0xpDmK0Tf38kPOI8LAisO6Wfs
+	w8+rfZ2ffCY5zMEOzVxtR1BYg2/2/0BPfV0z0HHDk6dqZcOVL9SHxuHT4M7X6veJT8WPMmgrTnx+f
+	YA71mPT40dkDvjinGHCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6fUy-00000005IEj-2gk8;
-	Fri, 01 Nov 2024 00:26:44 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1t6fWb-00000005Ic7-1in6;
+	Fri, 01 Nov 2024 00:28:25 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6fTG-00000005Hj4-1jjz;
-	Fri, 01 Nov 2024 00:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730420698; x=1761956698;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HgGI0MztuDXM0kkbhNu/WK25UzLMgeMemdDEF+M6Yis=;
-  b=WSjca7tWvSzF1h3IliouvoyXuMmtM9cCCPfJwQ8sWdn1tkN+72jveYg5
-   kQzcUmrSXbpIHDgtnTXoIzOGyBesyt+KGgMStbfj4gxBj9bRC9mbs3mSL
-   8ssVbscLcobFpAXFlXVpdXDCYti7f+UYF6xvthH2n6fkdN7qA2GCUzxaK
-   0rV6m+UqfSd8u+yq/JySCmeQPPvlwzaoWG4lj8ccNmriftKnuSZQ6eNut
-   +EloYR3TXefV6kuuiBKYFHS1xienOvgdGnicNHrPXqdbvVywEbGeVmfnu
-   92GAUvavw7wWbIz6/ywyrGI36N8P79zn8r63vaNL/cPPnXkrTA1cUTCpa
-   g==;
-X-CSE-ConnectionGUID: 7TkBM3UUQMq13HsbRvC8xg==
-X-CSE-MsgGUID: 39pjs5cMRLqexgBzCrMNyw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11242"; a="33988277"
-X-IronPort-AV: E=Sophos;i="6.11,248,1725346800"; 
-   d="scan'208";a="33988277"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2024 17:24:56 -0700
-X-CSE-ConnectionGUID: RzYv7uP7THeQKpbmmHYBZA==
-X-CSE-MsgGUID: 96x6eHVSQbyORU8dcMijjw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,248,1725346800"; 
-   d="scan'208";a="82323066"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 31 Oct 2024 17:24:52 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t6fT7-000gsN-2M;
-	Fri, 01 Nov 2024 00:24:49 +0000
-Date: Fri, 1 Nov 2024 08:24:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sky Huang <SkyLake.Huang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	Steven Liu <Steven.Liu@mediatek.com>,
-	"SkyLake.Huang" <skylake.huang@mediatek.com>
-Subject: Re: [PATCH net-next 4/5] net: phy: mediatek: Integrate read/write
- page helper functions
-Message-ID: <202411010814.EOjx8juJ-lkp@intel.com>
-References: <20241030103554.29218-5-SkyLake.Huang@mediatek.com>
+	id 1t6fTS-00000005Ho6-1czW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Nov 2024 00:25:11 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539f7606199so1582263e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Oct 2024 17:25:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730420708; x=1731025508; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LPWl0EhL6KI0Pyg9VIPJdMDq/EwgacWWrQ4ao+PcFsU=;
+        b=wxgl4oOxgSOhX3DUlQdLorxltukkUJ4ollCfJlRiAaf4ITBrpZWfTH0Q9UjCox4ce3
+         zM7ju18HypWlBwfu1uX/c0IlZWKHQbi/sKI6g4iFpoEU23OSNGvPUsd2xExbjfvT0Xao
+         3aao1fK2FMaQT9cE/mjHaMY/y1Qie2o9hYPeILP63kltD5Pwa1b8hIF+WWNcjGJdhIDl
+         2ce7A3k3t/4rMKf/Hazwidpbw+vUFgIM8D2sUZgQ6FtjGGQB7n/h2Jyq4/EREZ/gvuJL
+         lkQDSW6Ijn5OVR84/Km9qZlW5FDr7r6Mxwv5/JptzrTAn5S86S7yctmui91HOx87wLAB
+         FQ1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730420708; x=1731025508;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LPWl0EhL6KI0Pyg9VIPJdMDq/EwgacWWrQ4ao+PcFsU=;
+        b=fTjnK2o16inebHMcucyZW24nBxBhtYZn41r4E9tQOmj9Qw+OaLH20yeivWn3v8F4Sr
+         ukDuF1qOPPipTwAbnPTFOb/lw1kgAUSr8+lUdmFZRiUahLRXYaNKi0c8hYC6zTtAmvQb
+         bJqRopdgR2I9n0C+F9Jfa1MJx8+jqYGu9BUm6WyRVVvaKmRyp/hJ5ZVpO27X4Dmc6tvA
+         0O8q5K1cQe6FZU011ljuHCO3EqKMUsYR2MWbOgngu3blVjnk7aQRGDKNfUBPWNWSWHuN
+         CCklJoNyvlXXE5lK2LnqBxmgD7RViHa3OzCjrXLP46vpCB/BfblQzIMg72Q5a1MG1z9U
+         /XUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRybcD8z8RY9II5aG3YbF1SJueSAgc3ygdVKD3NYF4/IPrebLDoTDdEuW4Padl0D1tp2Bf5Fy/hthvETTdudvG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbAPRsBbEBYwCiawICJMKVFkrxJrZuTeMdCtFPiACIi5EVaoKi
+	/qHbXGwe5Mg0xYD4gySZZ+UPvT1cnNgIJ4zJF+mhl/fTvmWvo09Oh8JA+Ny0/dQ=
+X-Google-Smtp-Source: AGHT+IGzQdvR9n9N5nsIKtK9Qhx1FHQRUlJs7sw78abE6mZx2jxTi9cQ9DuYKZQZysqMNCy1gebATA==
+X-Received: by 2002:a05:6512:130f:b0:539:fbf7:38d1 with SMTP id 2adb3069b0e04-53b7ecd5970mr5312335e87.2.1730420708098;
+        Thu, 31 Oct 2024 17:25:08 -0700 (PDT)
+Received: from umbar.lan ([192.130.178.90])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bcce489sm371153e87.127.2024.10.31.17.25.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Oct 2024 17:25:07 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: [PATCH v2 0/6] drm/display: hdmi: add
+ drm_hdmi_connector_mode_valid()
+Date: Fri, 01 Nov 2024 02:25:03 +0200
+Message-Id: <20241101-hdmi-mode-valid-v2-0-a6478fd20fa6@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241030103554.29218-5-SkyLake.Huang@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN8fJGcC/3WNQQ7CIBBFr9LM2jFAUNGV9zBdEJiWSVowYIim4
+ e5i9y7fS/77GxTKTAVuwwaZKhdOsYM6DOCCjTMh+86ghNJSSIPBr4xr8oTVLuzRWnJaK3MS0kF
+ fPTNN/N6Lj7Fz4PJK+bMfVPmz/1tVosAz6aslbYScLveFo83pmPIMY2vtCz+UD4OvAAAA
+X-Change-ID: 20241018-hdmi-mode-valid-aaec4428501c
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1994;
+ i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
+ bh=2jBD0sl9KT2Qp/EDHaop9tjjGL1eeuSLdTvEobSlC2o=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnJB/hvEH2fbu10syN0kMJjljMx5W/ESzQUVOsw
+ TIFkNSzP9aJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZyQf4QAKCRCLPIo+Aiko
+ 1aH1B/wOZhTNhYOTk6Qqu7BncZn5jLCtS2Yc3ZKRtmLY2SPPxUlQSH3BJufcG08aT9tcaRJtvzH
+ dLiSvu7kKRrptx8XXTTAowIe+PjKHNcvJt6f/DS+Xq09ujGERYNsYJKUmENNauW7tCtInm5iWTi
+ FP0Pg2y/9Ekcqir7E+h+S+AvNfXY2PP8cS9krf3a7/mfkI9ZQ08L+YSu7emXZzSvoK8lFP2Xb8q
+ zKLnQq9TISsrTJHx/nO3Ex/qPCXDdG0yzSTjb/7JmE5it/eN5z2GMuhJxiw7KOzsWYVeKpTf13D
+ dJTT2kruCf1H+YrwsP3YdsqRpFJvq9psMttgI+8Wl1fHfwEO
+X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_172458_569489_4A5AFB70 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241031_172510_478639_00E86C9A 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +118,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sky,
+Several HDMI drivers have common code pice in the .mode_valid function
+that validates RGB / 8bpc rate using the TMDS char rate callbacks.
 
-kernel test robot noticed the following build errors:
+Move this code piece to the common helper and remove the need to perform
+this check manually. In case of DRM_BRIDGE_OP_HDMI bridges, they can
+skip the check in favour of performing it in drm_bridge_connector.
 
-[auto build test ERROR on net-next/main]
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+---
+Changes in v2:
+- Switched drm_hdmi_connector_mode_valid() to use common helper
+  (ex-hdmi_clock_valid()) (Maxime)
+- Added simple unit tests for drm_hdmi_connector_mode_valid().
+- Link to v1: https://lore.kernel.org/r/20241018-hdmi-mode-valid-v1-0-6e49ae4801f7@linaro.org
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sky-Huang/net-phy-mediatek-Re-organize-MediaTek-ethernet-phy-drivers/20241030-184043
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20241030103554.29218-5-SkyLake.Huang%40mediatek.com
-patch subject: [PATCH net-next 4/5] net: phy: mediatek: Integrate read/write page helper functions
-config: i386-randconfig-004-20241101 (https://download.01.org/0day-ci/archive/20241101/202411010814.EOjx8juJ-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241101/202411010814.EOjx8juJ-lkp@intel.com/reproduce)
+---
+Dmitry Baryshkov (6):
+      drm/display: hdmi: add generic mode_valid helper
+      drm/sun4i: use drm_hdmi_connector_mode_valid()
+      drm/vc4: use drm_hdmi_connector_mode_valid()
+      drm/display: bridge_connector: use drm_bridge_connector_mode_valid()
+      drm/bridge: lontium-lt9611: drop TMDS char rate check in mode_valid
+      drm/bridge: dw-hdmi-qp: replace mode_valid with tmds_char_rate
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411010814.EOjx8juJ-lkp@intel.com/
+ drivers/gpu/drm/bridge/lontium-lt9611.c            |   4 +-
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  12 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  16 +-
+ drivers/gpu/drm/display/drm_hdmi_helper.c          |  45 ++++++
+ drivers/gpu/drm/display/drm_hdmi_helper_internal.h |  11 ++
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  26 +---
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  12 +-
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 168 ++++++++++++++++++++-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |   4 +-
+ include/drm/display/drm_hdmi_helper.h              |   4 +
+ 10 files changed, 252 insertions(+), 50 deletions(-)
+---
+base-commit: 623b1e4d2eace0958996995f9f88cb659a6f69dd
+change-id: 20241018-hdmi-mode-valid-aaec4428501c
 
-All errors (new ones prefixed by >>):
-
->> ld: drivers/net/phy/mediatek/mtk-ge.o:(.data+0xb4): undefined reference to `mtk_phy_read_page'
->> ld: drivers/net/phy/mediatek/mtk-ge.o:(.data+0xb8): undefined reference to `mtk_phy_write_page'
-   ld: drivers/net/phy/mediatek/mtk-ge.o:(.data+0x1c8): undefined reference to `mtk_phy_read_page'
-   ld: drivers/net/phy/mediatek/mtk-ge.o:(.data+0x1cc): undefined reference to `mtk_phy_write_page'
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
 
