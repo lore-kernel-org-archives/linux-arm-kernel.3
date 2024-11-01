@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14B1E6B243
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD88AE6B242
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GTUrSO2GwD0wlXBfs9YEdNmQOPZl17wSO98HZKhanj4=; b=n5Plo3nz+LVbed1T7YCgv5hXYh
-	T954vmw4MRjfTSQ7/K24GJhEdoXAsYBUKNP/kBRQqAhehw+xu1JsClsRJ5/gaUFqlftj4HeD3sKV4
-	NnGUDCqeiOm9hSa7ZkoLuyWCqpl4FQnpIIIwzckeP0ThO7I+cUN/Tg7w7ZfZyc2r/2MZxpD3cvlrt
-	ewS6uuqLGJvpkOkQcJGJ5fkS3JXPNWtxlqE7+8ntMawopm0JAPml5fGP54s+kw8JHnsO6xSk+xcfS
-	drp/aOKseXgOCDYeEx5zXRZuG5NxqQL5XKwJ9/DjzDId4n6gPQNKazWxhl8k27IEHg2J194I/6Upr
-	d9E896ew==;
+	bh=rRiOosBlpTmaWohbv1dlmt4R9DZrCiMDP06cMwbvD/M=; b=k5NzEBGR3IXhI3Lgu8ucbDgOq2
+	u+OYKj0aVxZ30A36xX2fdCFbpUvPPqvoRc9zq4NAgsI0F7xKIqCo+IjjRPQR77yKSekRUITsA8nrO
+	P/ViExnUbaLoXbYzeEcExpYUm6RiXeHH3LtgGwcRFW6E6H+CorzfI21nfyBtQ2Rxg819uwPwA0m+x
+	2x+Bq7oE4NRz8NlAPxYWI0DC7T/+PQERSCYQMKlA8xDSLKCQdo17ugdo/wyDdcA3hMImXkcLUXooB
+	jx9wpy0xFLdvigATKncjCMI+KodH7I3kFbAOq+oLYRYOCV+AkVyPutRsz85wedO0QGWg0gjNNmpLX
+	/D6CxSDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6p8s-00000006dVv-2EHs;
-	Fri, 01 Nov 2024 10:44:34 +0000
+	id 1t6pAZ-00000006dw9-1Q2I;
+	Fri, 01 Nov 2024 10:46:19 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6p3g-00000006c0t-15AM
+	id 1t6p3k-00000006byf-1yfW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 10:39:16 +0000
+	Fri, 01 Nov 2024 10:39:18 +0000
 Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A19k0Yl003962;
-	Fri, 1 Nov 2024 10:38:39 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 49VMxlLp012383;
+	Fri, 1 Nov 2024 10:38:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GTUrSO2GwD0wlXBfs9YEdNmQOPZl17wSO98HZKhanj4=; b=kyjmOo5jyNyAXX6x
-	v3WtuWb6zngf6EiQd/6qqcNAK2+JTQk4Mh2QHIjo7EkoY50QhcueEqbxMtEV7Ix0
-	48lr20gaX4E5wEVIUONGdkx3hsL2vpanNdMdpr7xxEBP6JXunX6s9/ob8z/wS/X+
-	lAxucvLrbszjbRqGE3TZe0RroQATjr7VSbkffL4W42/HEqxP/UsgnbKVajE+i3SX
-	HjWSEj6u2XuO9KI4Vt5XvUwg2zjbcVAxCBy+k/eaKstiKosz/zrsHvjRzObEKx84
-	4hPO2brxBAMGCjGWrbn0bFnGQXfv/wqyiQ4fUGMKNiWO5ZJLt7YMeyiKu8sqHgbc
-	XOgOYQ==
+	rRiOosBlpTmaWohbv1dlmt4R9DZrCiMDP06cMwbvD/M=; b=Fk9M0QDu9B3D1E06
+	vTWJVUSz5P3/lK5QdbG9N4C2KKbMPAU6JxLT8yLiyEcRdAgr1gXpMDt1TaTZy+cf
+	6RIzlpo/uaYFUIj2KVDdcOH17xpGZjfzHKLqW0vKXrrxY7VVBlfOVcLXYHnzzQ/4
+	MH7s6rQ92xRjZwNrd60HNkaA/ZGTO7OsqQhDRf0Uqxha/tqCIp2YbzM/DCLt17hR
+	fJTkvH5k9FasLiNw0744GtzjClELCzoMzce9vy6aMvFXQSby3Z8C9R/7lDYryWnH
+	BU11UYmV4qbvYR6SzSpmeuG0WMYz4NWfaqaDW7No85ZdYzVnHFqjk7Nh9EsoptSM
+	TS8cSg==
 Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m65pby6t-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m65pby77-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 01 Nov 2024 10:38:39 +0000 (GMT)
+	Fri, 01 Nov 2024 10:38:44 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1Accnp026153
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1AchTZ026178
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 1 Nov 2024 10:38:38 GMT
+	Fri, 1 Nov 2024 10:38:43 GMT
 Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 1 Nov 2024 03:38:33 -0700
+ 15.2.1544.9; Fri, 1 Nov 2024 03:38:38 -0700
 From: Taniya Das <quic_tdas@quicinc.com>
-Date: Fri, 1 Nov 2024 16:08:13 +0530
-Subject: [PATCH v2 01/11] clk: qcom: Update the support for alpha mode
- configuration
+Date: Fri, 1 Nov 2024 16:08:14 +0530
+Subject: [PATCH v2 02/11] clk: qcom: clk-alpha-pll: Add support for dynamic
+ update for slewing PLLs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241101-qcs615-mm-clockcontroller-v2-1-d1a4870a4aed@quicinc.com>
+Message-ID: <20241101-qcs615-mm-clockcontroller-v2-2-d1a4870a4aed@quicinc.com>
 References: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
 In-Reply-To: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -81,18 +81,15 @@ CC: Ajit Pandey <quic_ajipan@quicinc.com>,
         <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Gabor Juhos
-	<j4g8y7@gmail.com>
+        Taniya Das <quic_tdas@quicinc.com>
 X-Mailer: b4 0.15-dev-aa3f6
 X-Originating-IP: [10.80.80.8]
 X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: hhO69wld8bRs9e79nmwjvovgtyWhBegm
-X-Proofpoint-GUID: hhO69wld8bRs9e79nmwjvovgtyWhBegm
+X-Proofpoint-ORIG-GUID: 0wOvyULRRWuvD2_7xor0w8p9BISbYZr4
+X-Proofpoint-GUID: 0wOvyULRRWuvD2_7xor0w8p9BISbYZr4
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
@@ -102,8 +99,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscor
  impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2409260000 definitions=main-2411010076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_033912_375704_C717278C 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20241101_033916_576296_729B8E01 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,31 +115,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The alpha_en_mask and alpha_mode_mask must be applied within the
-clk_alpha_pll_configure() function to ensure proper configuration of
-the alpha mode of the PLL.
+The alpha PLLs which slew to a new frequency at runtime would require
+the PLL to calibrate at the mid point of the VCO. Add the new PLL ops
+which can support the slewing of the PLL to a new frequency.
 
-Fixes: c45ae598fc16 ("clk: qcom: support for alpha mode configuration")
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Tested-by: Gabor Juhos <j4g8y7@gmail.com>
 Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 ---
- drivers/clk/qcom/clk-alpha-pll.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/qcom/clk-alpha-pll.c | 170 +++++++++++++++++++++++++++++++++++++++
+ drivers/clk/qcom/clk-alpha-pll.h |   1 +
+ 2 files changed, 171 insertions(+)
 
 diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
-index f9105443d7dbb104e3cb091e59f43df25999f8b3..03cc7aa092480bfdd9eaa986d44f0545944b3b89 100644
+index 03cc7aa092480bfdd9eaa986d44f0545944b3b89..fe9e5d5344d7fa9a8a1f220f8982fbafc875c4c1 100644
 --- a/drivers/clk/qcom/clk-alpha-pll.c
 +++ b/drivers/clk/qcom/clk-alpha-pll.c
-@@ -421,6 +421,8 @@ void clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regmap,
- 	mask |= config->pre_div_mask;
- 	mask |= config->post_div_mask;
- 	mask |= config->vco_mask;
-+	mask |= config->alpha_en_mask;
-+	mask |= config->alpha_mode_mask;
+@@ -2758,3 +2758,173 @@ const struct clk_ops clk_alpha_pll_regera_ops = {
+ 	.set_rate = clk_zonda_pll_set_rate,
+ };
+ EXPORT_SYMBOL_GPL(clk_alpha_pll_regera_ops);
++
++static int clk_alpha_pll_slew_update(struct clk_alpha_pll *pll)
++{
++	int ret;
++	u32 val;
++
++	regmap_update_bits(pll->clkr.regmap, PLL_MODE(pll), PLL_UPDATE, PLL_UPDATE);
++	regmap_read(pll->clkr.regmap, PLL_MODE(pll), &val);
++
++	ret = wait_for_pll_update(pll);
++	if (ret)
++		return ret;
++	/*
++	 * Hardware programming mandates a wait of at least 570ns before polling the LOCK
++	 * detect bit. Have a delay of 1us just to be safe.
++	 */
++	mb();
++	udelay(1);
++
++	return wait_for_pll_enable_lock(pll);
++}
++
++static int clk_alpha_pll_slew_set_rate(struct clk_hw *hw, unsigned long rate,
++					unsigned long parent_rate)
++{
++	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
++	unsigned long freq_hz;
++	const struct pll_vco *curr_vco, *vco;
++	u32 l, alpha_width = pll_alpha_width(pll);
++	u64 a;
++
++	freq_hz =  alpha_pll_round_rate(rate, parent_rate, &l, &a, alpha_width);
++	if (freq_hz != rate) {
++		pr_err("alpha_pll: Call clk_set_rate with rounded rates!\n");
++		return -EINVAL;
++	}
++
++	curr_vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
++	if (!curr_vco) {
++		pr_err("alpha pll: not in a valid vco range\n");
++		return -EINVAL;
++	}
++
++	vco = alpha_pll_find_vco(pll, freq_hz);
++	if (!vco) {
++		pr_err("alpha pll: not in a valid vco range\n");
++		return -EINVAL;
++	}
++
++	/*
++	 * Dynamic pll update will not support switching frequencies across
++	 * vco ranges. In those cases fall back to normal alpha set rate.
++	 */
++	if (curr_vco->val != vco->val)
++		return clk_alpha_pll_set_rate(hw, rate, parent_rate);
++
++	a = a << (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
++
++	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
++
++	/* Ensure that the write above goes through before proceeding. */
++	mb();
++
++	if (clk_hw_is_enabled(hw))
++		return clk_alpha_pll_slew_update(pll);
++
++	return 0;
++}
++
++/*
++ * Slewing plls should be bought up at frequency which is in the middle of the
++ * desired VCO range. So after bringing up the pll at calibration freq, set it
++ * back to desired frequency(that was set by previous clk_set_rate).
++ */
++static int clk_alpha_pll_calibrate(struct clk_hw *hw)
++{
++	unsigned long calibration_freq, freq_hz;
++	struct clk_alpha_pll *pll = to_clk_alpha_pll(hw);
++	struct clk_hw *parent;
++	const struct pll_vco *vco;
++	u32 l, alpha_width = pll_alpha_width(pll);
++	int rc;
++	u64 a;
++
++	parent = clk_hw_get_parent(hw);
++	if (!parent) {
++		pr_err("alpha pll: no valid parent found\n");
++		return -EINVAL;
++	}
++
++	vco = alpha_pll_find_vco(pll, clk_hw_get_rate(hw));
++	if (!vco) {
++		pr_err("alpha pll: not in a valid vco range\n");
++		return -EINVAL;
++	}
++
++	/*
++	 * As during slewing plls vco_sel won't be allowed to change, vco table
++	 * should have only one entry table, i.e. index = 0, find the
++	 * calibration frequency.
++	 */
++	calibration_freq = (pll->vco_table[0].min_freq + pll->vco_table[0].max_freq) / 2;
++
++	freq_hz = alpha_pll_round_rate(calibration_freq, clk_hw_get_rate(parent),
++					&l, &a, alpha_width);
++	if (freq_hz != calibration_freq) {
++		pr_err("alpha_pll: call clk_set_rate with rounded rates!\n");
++		return -EINVAL;
++	}
++
++	/* Setup PLL for calibration frequency */
++	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
++
++	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
++
++	regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_VCO_MASK << PLL_VCO_SHIFT,
++				vco->val << PLL_VCO_SHIFT);
++
++	/* Bringup the pll at calibration frequency */
++	rc = clk_alpha_pll_enable(hw);
++	if (rc) {
++		pr_err("alpha pll calibration failed\n");
++		return rc;
++	}
++
++	/*
++	 * PLL is already running at calibration frequency.
++	 * So slew pll to the previously set frequency.
++	 */
++	freq_hz = alpha_pll_round_rate(clk_hw_get_rate(hw),
++			clk_hw_get_rate(parent), &l, &a, alpha_width);
++
++	pr_debug("pll %s: setting back to required rate %lu, freq_hz %ld\n",
++		clk_hw_get_name(hw), clk_hw_get_rate(hw), freq_hz);
++
++	/* Setup the PLL for the new frequency */
++	a <<= (ALPHA_REG_BITWIDTH - ALPHA_BITWIDTH);
++
++	regmap_write(pll->clkr.regmap, PLL_L_VAL(pll), l);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL(pll), a);
++	regmap_write(pll->clkr.regmap, PLL_ALPHA_VAL_U(pll), a >> 32);
++
++	regmap_update_bits(pll->clkr.regmap, PLL_USER_CTL(pll), PLL_ALPHA_EN, PLL_ALPHA_EN);
++
++	return clk_alpha_pll_slew_update(pll);
++}
++
++static int clk_alpha_pll_slew_enable(struct clk_hw *hw)
++{
++	int rc;
++
++	rc = clk_alpha_pll_calibrate(hw);
++	if (rc)
++		return rc;
++
++	return clk_alpha_pll_enable(hw);
++}
++
++const struct clk_ops clk_alpha_pll_slew_ops = {
++	.enable = clk_alpha_pll_slew_enable,
++	.disable = clk_alpha_pll_disable,
++	.recalc_rate = clk_alpha_pll_recalc_rate,
++	.round_rate = clk_alpha_pll_round_rate,
++	.set_rate = clk_alpha_pll_slew_set_rate,
++};
++EXPORT_SYMBOL(clk_alpha_pll_slew_ops);
+diff --git a/drivers/clk/qcom/clk-alpha-pll.h b/drivers/clk/qcom/clk-alpha-pll.h
+index 55eca04b23a1fc3f3554f43a8fdd329a524dad0e..f149d10247bd4a85521940a1255cd019bde4729a 100644
+--- a/drivers/clk/qcom/clk-alpha-pll.h
++++ b/drivers/clk/qcom/clk-alpha-pll.h
+@@ -195,6 +195,7 @@ extern const struct clk_ops clk_alpha_pll_rivian_evo_ops;
+ #define clk_alpha_pll_postdiv_rivian_evo_ops clk_alpha_pll_postdiv_fabia_ops
  
- 	regmap_update_bits(regmap, PLL_USER_CTL(pll), mask, val);
+ extern const struct clk_ops clk_alpha_pll_regera_ops;
++extern const struct clk_ops clk_alpha_pll_slew_ops;
  
+ void clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regmap,
+ 			     const struct alpha_pll_config *config);
 
 -- 
 2.45.2
