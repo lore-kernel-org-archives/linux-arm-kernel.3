@@ -4,102 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE93E6B243
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524AAE6B243
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1cA9NDwFLH5+vfmPGgF5z/CRZpfWRBSGlRVBz5PXQE=; b=HSACplOyu3AOGhsmmNsj/cUCvi
-	wj+PNUzQRauOLZDfrzK2iAw8PQ+u2sgOa7yFcyXv1uR1O+M30u8fe7S8b9T0F+S08Cze60LIG5T4L
-	jHbdoZJJajsVSixSVNLq/hrus0g/Sf+yw5A91A3iSaHRekBrggXChdmvF+Snt0PlrIRhgrcnSQuS+
-	vQ5d055cGPgL1VfOn5CDCdpf7xkZRpn0lW2c3UeNBi6SWa159gLf9N/XpWGFX7MRjs8Z2DWP1tBEi
-	MgDLQsRT+mTeIA15pUiGBSpg2PnHqp5pbD+6o1dTu5dXo/LaN7XLEDVHlOQE9HoKZFZMlfYiSbuz6
-	AT3aez3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tb1NFtTUUMzBr4q2oDIIgwZdtRaMsN/cepBeUyxcqZk=; b=4xs2VBHpKiTYYZbzo/PsTO/0Yn
+	ELYuhK6epZYTmP+R//0mISshSzMjdoA4cQNbpOlnqRNsQaj5e4A/Y/eidRwsBpd874msBKC135xv/
+	uiXCMA7UB/+EM+gxwW8YY9W+lDqekw9iTr3sceE7F4uD/VITmDa0uC4RZ9URUgRNJBJ2kKp199jlS
+	Vf/wTFUk6QZxHySwSCtZ/TAvvryb8gQyWJlZLQKAuaIzRfeA5uIS1TiTmnOkwjHx0/+ehMSYvlwac
+	IkhoG630lW/09iyu/dG+MPRGQRoQSxGyVJBELXY08Ze6snc4j5gmeLI6j/jwkExRxm2BkCUGfcNZ6
+	R2x0mwdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6pPO-00000006gMQ-1e1s;
-	Fri, 01 Nov 2024 11:01:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t6pRD-00000006gfg-234U;
+	Fri, 01 Nov 2024 11:03:31 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6p4P-00000006cC4-1AoN
+	id 1t6pEI-00000006eY9-1zMs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 10:40:00 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A19LBnJ004630;
-	Fri, 1 Nov 2024 10:39:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	t1cA9NDwFLH5+vfmPGgF5z/CRZpfWRBSGlRVBz5PXQE=; b=Y0WQ5hToLd0VhKE8
-	8Im6pWtW047ydpfFEmazd8L383TrGBHsso0IKhznXhRQZf1QSueAIzQMDc23maEs
-	bLwjJHAIar/5WKxcdwmj8PmIa58Qf5g15UpN0jTZNuwkWpXUp5CHafH1k8jpixit
-	BHnqyvYY25MaoJtXFKj2jt8k482rjE5gHmyOMcwlPSASey4weIdD5S5nbq8RemZN
-	eSIsnOz28sKWcTtQ4bsMOvFhFQwPeH1XZc3bRtxI+0FL4A7vspTvnNrv5GJQvNVc
-	qDmSnd9QFWqTQMiqiJVHXiZp75F8HmpMg3Ef1QP9WUWlke+Uts0ryNOt3r6aAjLZ
-	IxA+CA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m65pby9a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 01 Nov 2024 10:39:30 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1AdTQL027105
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 1 Nov 2024 10:39:29 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 1 Nov 2024 03:39:24 -0700
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Fri, 1 Nov 2024 16:08:23 +0530
-Subject: [PATCH v2 11/11] arm64: defconfig: Enable QCS615 clock controllers
+	Fri, 01 Nov 2024 10:50:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730458202; x=1731063002; i=wahrenst@gmx.net;
+	bh=tb1NFtTUUMzBr4q2oDIIgwZdtRaMsN/cepBeUyxcqZk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=SaEilcJqjF0+CtXAts46k8fhBqj+XwDYIvw9QpEizKQoQF1hmRg/yy2KEbDWIz6Y
+	 BnbSVQJA1ReepIAuhSt38vZHNEqJxdofiib+A4LgACKC1sS2d2DKiPwko7ipKNVoK
+	 mISj4VnXvFlY5EFe+nAeD05WAwhi3U+ZKCV05KwhtBTplH/9TSEPm2D7CiiH8y7I6
+	 UjbFrb08EnK6inSxevyIJ1jw+OPJpt3Iy4XJt1lrql2Du8WyDqsLj32WDE5+reeXh
+	 o6ViVQBhAcj1fkcrkZEKcT/BWBZnBBUr6GFSyPnwmHRhjj/bZ9RQtVUbWFfk0OUE3
+	 vO6ioblUg1SfHrUv4g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mt75H-1u02PQ49FZ-00wbyP; Fri, 01
+ Nov 2024 11:50:02 +0100
+Message-ID: <0090434a-fd04-4646-9582-c0fbf7f95c1b@gmx.net>
+Date: Fri, 1 Nov 2024 11:50:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: imx93-blk-ctrl: correct remove path
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ "open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>,
+ "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20241101101252.1448466-1-peng.fan@oss.nxp.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <20241101101252.1448466-1-peng.fan@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241101-qcs615-mm-clockcontroller-v2-11-d1a4870a4aed@quicinc.com>
-References: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
-In-Reply-To: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Abhishek Sahu
-	<absahu@codeaurora.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: bOO5f36N5ZfUWi0Dlhoq045WA244N6zj
-X-Proofpoint-GUID: bOO5f36N5ZfUWi0Dlhoq045WA244N6zj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 spamscore=0
- phishscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
- mlxlogscore=696 suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411010076
+X-Provags-ID: V03:K1:B0IdbMyKXiP0waAdc74rjxA1KINzm/0lAnNVBC01UPbuGUTA07Z
+ sukd1BmV0H7pCVjDxcY44HxCQtr96mQD6B/6nadDdcGaySwn9qS7soPMvvHSCaePW3oAmAw
+ duzAWnTpROABBeXRbLlh9T28gaLxDBxnSFL8ZoB1ErRm59iF7agDeRG7ePU70xbHECtCZVr
+ IUsVAHzznb1xem2FU9thw==
+UI-OutboundReport: notjunk:1;M01:P0:Zaa83qrhJAE=;PEYLyo5M/5aDJDaBQW7vDzmjBrd
+ abUS08kWQm/cRbaSUtHFBTeE8/6265nrjwRlgz5iRgQLUtz09RKdgpH1iC861rNBp7X6EFX+E
+ vUPVXEq5i+ePt3AR+DPjEytaam++jk/cdlBnWeXSFuZp/QngqMaJ4/Iy23iErRW6sgQyxcXqj
+ vzY9Xq0Yz3gsXZgjsFdg9zI0fw6OdDG0NRcxHcB7mJ5N8XQtxrz7/YbesR6ZYym/HngePP+ZW
+ I1jF793zdrIQr6Wgr0id6erghxemxQtKed76/0ecp6+9DKDI/7lIO+++T9zOv4cormOcS2sU+
+ xToiO4njP8whDekGLt2AFzpojCafuXf3Qg98Vw2+oraGW8jnyWJLa9lpwuV+Z7rAG2uMQdJDm
+ C3L6KvBEeNnid4kQ3QvXARNgcC2WM2+0jlDZHZzDpsEGDQz5JA+/5qxhEMwo1JFIgIuRY5abQ
+ hNg2QmSSdOF6/TuFg2UBT72TGuJiQerlVP8TPUZdR53P+DKMFoj/KcRrJ9EFyTxBROZEF0X7m
+ UfApHipvCnXv/nZS77Di3uh/q1+u9e5HsnDcXImd6FUEHplrq5VmTflUp4rQevkj5HxHJ1M6k
+ WdaiPpOJL6OwwH82fsNMsKfN5SXqCx78DopyPrpUOw69ngmNyPn3jXzRwBaGr4yk6bwz/kjBm
+ XsDWT4mL+RlRNQ1X1QbSTosy4DA1YUyASqaRxOpljDbdSv0EkVZKqNhsKB6LnR/hmlt3ahY5J
+ KJ0MGLdmXNMX/6/eX93BJBmdZRgSLUzRYxJ6SLKx7p2hOqtfWW4G3Tj7QMOsm4G210K/RRU91
+ 6BWiwdClEOXMaaPBAIfibaFg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_033957_369572_D3A146E8 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20241101_035010_946297_05C3CDC2 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +102,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the QCS615 display, video, camera and graphics clock controller
-for their respective functionalities on the Qualcomm QCS615 ride
-platform.
+Am 01.11.24 um 11:12 schrieb Peng Fan (OSS):
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> The check condition should be 'i < bc->onecell_data.num_domains', not
+> 'bc->onecell_data.num_domains' which will make the look never finish
+> and cause kernel panic.
+>
+> Also disable runtime to address
+> "imx93-blk-ctrl 4ac10000.system-controller: Unbalanced pm_runtime_enable!"
+>
+> Fixes: e9aa77d413c9 ("soc: imx: add i.MX93 media blk ctrl driver")
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
 
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 730f303350c36a75661dc267fdd0f8f3088153fc..2fa666156b88b44a8298651e276c196cded9a7f8 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1322,7 +1322,11 @@ CONFIG_MSM_GCC_8998=y
- CONFIG_MSM_MMCC_8998=m
- CONFIG_QCM_GCC_2290=y
- CONFIG_QCM_DISPCC_2290=m
-+CONFIG_QCS_DISPCC_615=m
-+CONFIG_QCS_CAMCC_615=m
- CONFIG_QCS_GCC_404=y
-+CONFIG_QCS_GPUCC_615=m
-+CONFIG_QCS_VIDEOCC_615=m
- CONFIG_QDU_GCC_1000=y
- CONFIG_SC_CAMCC_8280XP=m
- CONFIG_SC_DISPCC_7280=m
-
--- 
-2.45.2
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
 
