@@ -4,82 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4608E674B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 07:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F84E674B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v3scpQG8rDPy7dccdvb0ggPZwR6YQSFTzxlSNspAAiI=; b=vxDDvEiYoNODhBVrFRCZDCP9Om
-	MVfxEp5DE2zJnJ539doGDYLn7XWuotA9F1y3S28TXQAzQatsG9T+I2P1Lp9m5VJQz165QvnGIjOg9
-	JDilYZqA5yyQ2cNP8DNhOzg6YMGtjGURZeoV0e9PQkBj20d0WhK8dHgTAMYzvHYD9vhMbKnqIxhpp
-	QHMbX+ZdBPDjmvgw5lGucQoobRgYLo+uKuceFXXvjxJwi7t17w9IaPm7bDzJ6kuzWMSkqNL5pJ8QE
-	V9qLBgF5A3iqfIimag/sm4kF1odViHIEo22bado9eQqCkgZtbn7cgoOAL2g+2SpDYB7DToXVy2ros
-	zWZEta3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=; b=EP0vEyH8Ug6L/7KYh8iGKMZBuN
+	k6jjuGOomPaI/swBctXAsCTAXkLMRT32p/RIV9pSzCMgoO84SSsk/czg6qq64fmThqJWtocF1V3fZ
+	TzNeSBj6i1ELpzlkXfsgPJQtI9Hap3O84jS/rVgvKVm3b62VOovoGTY7e6HTolTJ9nxZzs+QQ45Rb
+	8U/RaDshfnAUu0NOB75guQ46zgHIOC+7x9WVS9x7DeRjZYYfN/Adxsak1lFbBTFunsKbTEfDeZJx9
+	Oh25tJT8TnjzbXzKHpGc/1nG1iH1YUKf+hWBSQkL2P8XP3i3qPQjPL4kJG9A4RJBeFZcDVbBGQtQi
+	uubSaOeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6mZN-00000006BsA-2PVe;
-	Fri, 01 Nov 2024 07:59:45 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1t6man-00000006CBl-0xpG;
+	Fri, 01 Nov 2024 08:01:13 +0000
+Received: from mail-vi1eur03on20608.outbound.protection.outlook.com ([2a01:111:f403:260c::608] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6mUy-00000006BIY-0O9d
+	id 1t6lZy-000000061VT-3lB3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 07:55:13 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539f7606199so1780741e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 00:55:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730447710; x=1731052510; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v3scpQG8rDPy7dccdvb0ggPZwR6YQSFTzxlSNspAAiI=;
-        b=DnEskZ/yB2A5jHvzJR5xlRHsS8spCyFl9qnwFbJGE4P6ElDCfoMrVX0kvUsPTE7B0Q
-         5SZIbEcdCxe5uwwnlrKPFORn3+Y/C4CZ7z+R0KGuUwKitVXkwNPPPowjxqlzcbyOt09z
-         lLdTe6z08AIp/nTwHqYm6CDMOPF/XX8mFzqW0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730447710; x=1731052510;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v3scpQG8rDPy7dccdvb0ggPZwR6YQSFTzxlSNspAAiI=;
-        b=kRplkUss3WO23vQj6b6MunJjitNCBqu2HRl9QzlxJ4p1KuH4eEo75ovRuUBRscG7vC
-         Z7w+FCW+pJf8okjWY7zV3XMHFeNN6R2ZDS3PT00HxXBVdRRIxW9B69stOUudsvL7mk0y
-         4liPMNrdq9vlEhWa8217/R1NG7gwBv32yj/Y2QdQVOEIYJjg3M1/Gronb82KsnPGYlbQ
-         uQiBz96P8nBamjr9+PUr5jjEjakdpd0xveouBZn1A6BmokqDHVBw8C8E5QgxsnLIkc0j
-         MShAHjJV/K9Y+b2NQZ0q89sUsbTXwi8eytBQzCNAZ9HlqURm4sEs4jS6PXRouvpFIMZV
-         VXFg==
-X-Forwarded-Encrypted: i=1; AJvYcCX09hpDbmzKjsfbq9D1gfuf74d17lpVJVflyCZHutMO94qxm3Oj9sJUCi/Wzc294W6aOk+sYoASS+3Al9NfiZOt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZeIVEojULldPQtv47Q3XLt38S2GG+Hx2gGleZV5mpP7fKxocN
-	9ALw93C+mQtaINb5O4LAsX5Nvfo0kDObyCIm9ErvIV/BmPpLOUH3twHpBXWzza0TYdK54ba2tVW
-	6SUDADmx9efeyKS34iSVBAFzJkLLF0R8m1U5U
-X-Google-Smtp-Source: AGHT+IFHp5ntUs0OfBYXAIVSOME07Jq9csDSpjBoDIGPyzJBlFKUtiIHFZznKS39Z4EjVqTm/HlKSNuPkafVheMa5iY=
-X-Received: by 2002:a05:6512:3e1a:b0:539:ff5a:7ea5 with SMTP id
- 2adb3069b0e04-53b7ecdea88mr6015521e87.15.1730447710300; Fri, 01 Nov 2024
- 00:55:10 -0700 (PDT)
+	Fri, 01 Nov 2024 06:56:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=swwkd9ccXbio/FuN4e+WVTguF7cB1GT3TpCI3Rx9WXNI//5h+Dqbhj4IQr7Qo485q9AV8C/oXDkXbzRqo9UXVRyTMqLEC6JfL53kvbDy11qPfXrZZgBDYpw46BgFYbeHF5dWfCRIBS4EzO/+aaUOwiag7ydlBtx2QTuPvtfZyzzcn4E+rqXe7ngVYlJUHOSJkTDiwpxWQZmdki8icgekHLtZjfYcD/NRzmOBv7CpdmfW9M53RfJprMtdwzU83Th1w7IEPEbNcW4LYDifDQBaCbE5RgyFAXtMXdaRxrcv3U+5a2zjPGXX2+BfF472dNgY+4qADQuT8i/not5OBJpDtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=;
+ b=Rqw/JObTuSLlEoU7u9MRNVo3lBHr49EpofMWckJ8pN/+ZoAh2ldhQ8Nsd9Ml/IJtKX/UxcS7+HuY08E+P0MRoOnLRAbHjPEPcMGJ3JQqXn6kRJf3X4OmWkQj+Innv7TB+F2pLzKGZCddhJhdlGD05tbJjAd4QydSj1+GeTjO2CrpFBfT/kjlPdIZbZg+MzkH0VT8l6/ilrIc8Rp92W82uP76x05IzLkC8yQRxyfsoQAOMzQ22TqrdhJtDjXdGdr7oA4k1eW4taT6Fe2dGyosYB3CN+auNHJIkmSKz+mz/bnMDi04dr3ThailB+ISZRygqocZM1oeNBjS6DkoZuedag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=;
+ b=aC/bjp9yI65uAL/1xj90af3PGdTrXTgac6zNz9Ox9qm5fyVEEsz5mXWVXE0Ytu2iY6g0XLq6ll/3KWta/jznNWg2Wa0UMzo08YsJE2Pct8gUFevalqGHmozsLbPXKz+5DhCurv8/CIdT9fh9Q3tey1tFu48e/2KfAn+KGR+PS/Ztt7WYzRXPVo5RMFV0y/ErdV/XQvUdwuWxAzt4TiYpd/1khP2ONX31M7tFSbKdx7RnuKcnQpjezrhgDZXa7SRrIe40xnw4bIyypxMQ5fI5azXZvYc5pmnnaE6KCXz46MRTITYR44kEg8r4fIMVZAqaGi1W3FynDlxMqlMZ4wD5Dg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by PA2PR04MB10445.eurprd04.prod.outlook.com (2603:10a6:102:41f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Fri, 1 Nov
+ 2024 06:56:09 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.015; Fri, 1 Nov 2024
+ 06:56:09 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: l.stach@pengutronix.de,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/10] A bunch of changes to refine i.MX PCIe driver
+Date: Fri,  1 Nov 2024 15:06:00 +0800
+Message-Id: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::10) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
- <20241025-kselftest-gpio-set-get-config-v2-3-040d748840bb@collabora.com>
-In-Reply-To: <20241025-kselftest-gpio-set-get-config-v2-3-040d748840bb@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 1 Nov 2024 15:54:58 +0800
-Message-ID: <CAGXv+5H9OTCn033yoi6oxxRKG1G=vbrBK+aw+ZWwGPWbn=uWuA@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 3/5] pinctrl: mediatek: common: Expose more
- configurations to GPIO set_config
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Bamvor Jian Zhang <bamv2005@gmail.com>, Shuah Khan <shuah@kernel.org>, kernel@collabora.com, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org, kernelci@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PA2PR04MB10445:EE_
+X-MS-Office365-Filtering-Correlation-Id: d09131be-8c61-4000-55f9-08dcfa424386
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0S1vjILUQ1TiPktIoX4c3FZGDFaz50GiU2mKFb7c5J2cxolloO1uAxGE58T2?=
+ =?us-ascii?Q?bfl8NqWdCzqvIo1pmXINfhKTw/qmjctnvplTp5pKAWcO/fLCrXFWaB9cIeM3?=
+ =?us-ascii?Q?iHC3HJ+tXBvESDGzAYLMAK7IKDCHxvGHyq2ebjVEUzD3nGNO902m0qjQFjFe?=
+ =?us-ascii?Q?kg3G75lZFgeK6OSCC953XGf1nLuXCqvcVBY+MBg7Jc/T92vjCwMHeEZz8JSU?=
+ =?us-ascii?Q?uoZ0n6J3eVUgdNfwGXRTDJMN76QksmdPoxCWtJ8vbsvVfG3KiysRXDhEI5lq?=
+ =?us-ascii?Q?DpvRgJoXOqFylbc18/F5GserfTfIgUmya4Thx8YKu1VGGqJfmaL//2FXMk0K?=
+ =?us-ascii?Q?ZYDcQ63sDEn56cmAF9gZ7RZJiXGhwgYeGnEMYtaOCYY46OwpAq8PC28Omtdm?=
+ =?us-ascii?Q?uoCCpyMZXNekp4fmw0eJ9npiM5QE0BBJGvNeF2CWsIGV6aAGUTDm2E0tlkeM?=
+ =?us-ascii?Q?NX9wO4q3gy6CCvhJKs4bqeAreuk07+a2/hNKagtR6X3iDuSfPaTsKKBRot8p?=
+ =?us-ascii?Q?fO33BasrggxlFb8TzuIwlckvaKfgG1HJWICb7YMArM3fL4eFr91P1ZXx44uM?=
+ =?us-ascii?Q?2IhW6Qrh+AS+QuaXi2zT7xEt6k/OwnAYjL+NniD8zcV1kUJAbJsvyV88mtY0?=
+ =?us-ascii?Q?t9BhfEQixG62Do83Vwmkb+8mPy64JzWVKah8vxaKcUL9Vlz9pwjodq9IRYEQ?=
+ =?us-ascii?Q?+hqjNfarERKI4fKZWP7lXeT1jJvlL13Dqdlz4zkzbAgigb88mu022mVgvzkg?=
+ =?us-ascii?Q?kOkJJnmVvkI5JsiRaVU/+3bAikzc424Bc+/L4lsjJfZiLi3Ug+yf0PFORj0l?=
+ =?us-ascii?Q?UkJCVlCsv8dpwwsZ5OMtyWNIjG1PHyFswjtl7LxtvlrjQyZVwY54Va0fwIpI?=
+ =?us-ascii?Q?trnpqV9hk0SynpiD1xeZJ7vCXuFyK2hOR/CbY02cswbyM/y+mkPSNFZUfbmL?=
+ =?us-ascii?Q?I+MYRsh94sXj4Fpg7a/A7PMrKlZJ5PZ/lznycIsSg7ZKIzy0n7OJEC1Ozn9I?=
+ =?us-ascii?Q?K/ew0gu/RCH7ncoG51L4COAHmwfVMPxqWIlQCe5dVtHodXyXybfcmZtwuE1R?=
+ =?us-ascii?Q?i1hbueVMPJqVi21NOaAMESa5W0jp7hoOx64NBDycabiPXlNNph/df6wABBeF?=
+ =?us-ascii?Q?fYXVVLGwxSgiULTPZZPXFl/u0aOHUyKKKr5sGo0fj+nMfhNSXFwNg2n/2Fh4?=
+ =?us-ascii?Q?PztAN/x3Jlvo6t4nGLhWFWj9N87JNnTyLskkA1QupOlhuPmq94aaWbmMLrsx?=
+ =?us-ascii?Q?unxY2RogBVYe/tyITpjtuuaguHgKJNT+6ht+0W4PzWdS6qmZMOdSmixbfQJF?=
+ =?us-ascii?Q?5Z+ltJecTIpdEoztFgES3I8Hgj+4wyXT2EL3BFqkCZqmobPQzbT9zbxLcMoH?=
+ =?us-ascii?Q?0IQucZXeggidpMur1K41KL4UKUWB?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/g9EWgMmWDJlj5InxTtMgF1LSWnaKosogGCoEsr9pQkDoqpqVfxRMEPQj/Bn?=
+ =?us-ascii?Q?RABZsPmHLM3z5i4mk+XctVi444u+awzEzcf7Np86NQwLh2PWicJ/EOiFC9mP?=
+ =?us-ascii?Q?1GvTmkcp82vbi5ANUQUVgLeh83tBsqigojkfERsTpNMRilzoxVe40q2W8xd9?=
+ =?us-ascii?Q?v8w78EqADflQjWXm4nqQwm0muy9+P3c3se0dzw7Gz44RdROA5IaJhkg8I3Pj?=
+ =?us-ascii?Q?Xaj7xPhLA0+F1QKfXAAQ1HrAxFnhgd6/kMNJq+YfmkgH1LWKeUmAloTCJ/GB?=
+ =?us-ascii?Q?x1yhtLct5/QNfK3dgrHoWKJwwDoCqe+kVKF17g1YDCGTQxZChljd8IyyOBgu?=
+ =?us-ascii?Q?gyvW6ZhjTekaEVCmCI61foBZbHnKtUnOOTMsLTNtwJBokPEa+GlmssUjNHcF?=
+ =?us-ascii?Q?/MoERRbIKOApCDVn3s++WzTgWOwpBRWR87wD9GhRIduSesaeea1glJ4cO1z6?=
+ =?us-ascii?Q?sgSwQICRtO4hB7szlVryRm0KdpIoT06yvdGeG4MHcDy3rNi5/zC8gSaS2MWx?=
+ =?us-ascii?Q?cEkzUsWrBmU3aAs8es96OnF9m7KrQJUbCAieFY2DhKJ8PAb8bv5/gFieq5th?=
+ =?us-ascii?Q?ECHU5YskyCr3dWxZ16kCIlPKcqCuhXUPjJzU1rFmXngR2JZstKjyoxcqxLlj?=
+ =?us-ascii?Q?nSH1xMvlY22OwZRhN9mighW7SZ/dMq2VIAD/WSlv9BCZG8aMx6TkTJZwUpPX?=
+ =?us-ascii?Q?DOvEKdTI+Tq3OSXNza3r5PUebc5UEGsZZIsx0hgLr8H90DiO3c5fTmtCiFEM?=
+ =?us-ascii?Q?z4+ZoAsIztp0XAvkdFcA0l/RbZI+zsBm8OeqwYEMedwBPEz4dwHiWXEIrlPA?=
+ =?us-ascii?Q?NNLiiaKIUClEyYzzos+2MwAo0Msj+kLzHbA/QbSM4KUwV6h1/kSV3KE/fa51?=
+ =?us-ascii?Q?fp0Z2i4kBcEwSUGDQrVXGaZEe5ZR7Wn9CwnGqWrZ4oBSenOzl+CHOEYO2ppo?=
+ =?us-ascii?Q?v3xcnWjBXGYZghT43/3bbAhdaujS7BUjOhT1k2POa5XIDMP12fgMgHZFiIxh?=
+ =?us-ascii?Q?SbuwQmTETD0puGI0dYnvQxlg6YLvxaTZQ1WOywhyH4Q+KFsxHJjfV/b5dJ92?=
+ =?us-ascii?Q?5mESyt+IrQbU/Bt6bCXnKndeXPVLvBxE4c2X6nbYMmP6S9MT+PdlgRcoD1Qh?=
+ =?us-ascii?Q?ZaTJgUVfcSzXmmnODlGfuuu9ldMijvaOe0virZk7xn8vltv17FiJehZlWacB?=
+ =?us-ascii?Q?TxvQCuDnCYNDVnNoEHwoJe3BS6gs8Na3CLwob3pN+1oAytO5ic6KQ6yC2mxH?=
+ =?us-ascii?Q?D65HrAMcbIvPJeHC8Ax3xynoBdTqMjW1ajP7foCw5cif2tYihF+3t7aMOXWA?=
+ =?us-ascii?Q?hJCImestsbxXvgnounyruh0XqqC5mCsBlaFLz9sFQCTVZMuf4gA2o2UTACLM?=
+ =?us-ascii?Q?qbxv7I/FeXEKh8MMjH0OwWTUbr4MueC3lofIWWU/SgBN+amZDSqTZxjyxtqh?=
+ =?us-ascii?Q?VgLoMjbNOTDf8TOt9Pkd5aCSMa9sa9vvsjYlLYtnFMtpYB7Z0TXxbHYUkX6E?=
+ =?us-ascii?Q?XyDRJEBAYpfwfA8RvO0I6isTJW2oksuE3SJgFBjM421V7S09OFawayAtt5o/?=
+ =?us-ascii?Q?ikLkxIiAeUVqYIfyjJDTeL+KjEinxascLYz4P0ta?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d09131be-8c61-4000-55f9-08dcfa424386
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 06:56:09.0929
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bBL0irE8sA26K9/QK5+ttvzWCRoQoYWZoJ1b8DzRTJGktbdctvwgzP7kG3eM/sEShw809/3wx4q1CqNZrC99RQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_005512_168548_CA383FA3 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20241031_235618_986187_69B57E17 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,159 +168,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 26, 2024 at 5:16=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
-<nfraprado@collabora.com> wrote:
->
-> Currently the set_config callback in the gpio_chip registered by the
-> pinctrl-mtk-common driver only supports configuring a single parameter
-> on specific pins (the input debounce of the EINT controller, on pins
-> that support it), even though many other configurations are already
-> implemented and available through the pinctrl API for configuration of
-> pins by the Devicetree and other drivers.
->
-> Expose all configurations currently implemented through the GPIO API so
-> they can also be set from userspace, which is particularly useful to
-> allow testing them from userspace.
+A bunch of changes to refine i.MX PCIe driver.
+- Add ref clock gate for i.MX95 PCIe.
+  The changes of clock part are here [1], and had been applied by Abel.
+  [1] https://lkml.org/lkml/2024/10/15/390
+- Clean i.MX PCIe driver by removing useless codes.
+  Patch #3 depends on dts changes. And the dts changes had been applied
+  by Shawn, there is no dependecy now.
+- Make core reset and enable_ref_clk symmetric for i.MX PCIe driver.
+- Use dwc common suspend resume method, and enable i.MX8MQ, i.MX8Q and
+  i.MX95 PCIe PM supports.
 
-Missing signed-off-by?
+v6 changes:
+Thanks for Frank's comments.
+- Add optional clk fetch, without losting safty check.
+- Update commit message in #3 and #8 patch of v6
+- Add previous discussion as annotation into #4 patch.
 
-Otherwise,
+v5 changes:
+Thanks for Manivannan's review.
+- To avoid the DT compatibility on i.MX95, let to fetch i.MX95 PCIe clocks be
+  optinal in driver.
+- Add Fixes tags into #5 and #6 patches.
+- Split the clean up codes into #7 in v5.
+- Update the commit message in #10, and #8
+  "PCI: imx6: Use dwc common suspend resume method" patches.
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+v4 changes:
+It's my fault that I missing Manivanna in the reviewer list.
+I'm sorry about that.
+- Rebase to v6.12-rc3, and resolve the dtsi conflictions.
+  Add Manivanna into reviewer list.
 
-> ---
->  drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 48 ++++++++++++++++-----=
-------
->  1 file changed, 28 insertions(+), 20 deletions(-)
->
-> diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinc=
-trl/mediatek/pinctrl-mtk-common.c
-> index 91edb539925a49b4302866b9ac36f580cc189fb5..7f9764b474c4e7d0d4c3d6e54=
-2bdb7df0264daec 100644
-> --- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> +++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
-> @@ -62,13 +62,12 @@ static unsigned int mtk_get_port(struct mtk_pinctrl *=
-pctl, unsigned long pin)
->                         << pctl->devdata->port_shf;
->  }
->
-> -static int mtk_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
-> -                       struct pinctrl_gpio_range *range, unsigned offset=
-,
-> -                       bool input)
-> +static int mtk_common_pin_set_direction(struct mtk_pinctrl *pctl,
-> +                                       unsigned int offset,
-> +                                       bool input)
->  {
->         unsigned int reg_addr;
->         unsigned int bit;
-> -       struct mtk_pinctrl *pctl =3D pinctrl_dev_get_drvdata(pctldev);
->
->         reg_addr =3D mtk_get_port(pctl, offset) + pctl->devdata->dir_offs=
-et;
->         bit =3D BIT(offset & pctl->devdata->mode_mask);
-> @@ -86,6 +85,15 @@ static int mtk_pmx_gpio_set_direction(struct pinctrl_d=
-ev *pctldev,
->         return 0;
->  }
->
-> +static int mtk_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
-> +                       struct pinctrl_gpio_range *range, unsigned int of=
-fset,
-> +                       bool input)
-> +{
-> +       struct mtk_pinctrl *pctl =3D pinctrl_dev_get_drvdata(pctldev);
-> +
-> +       return mtk_common_pin_set_direction(pctl, offset, input);
-> +}
-> +
->  static void mtk_gpio_set(struct gpio_chip *chip, unsigned offset, int va=
-lue)
->  {
->         unsigned int reg_addr;
-> @@ -363,12 +371,11 @@ static int mtk_pconf_set_pull_select(struct mtk_pin=
-ctrl *pctl,
->         return 0;
->  }
->
-> -static int mtk_pconf_parse_conf(struct pinctrl_dev *pctldev,
-> +static int mtk_pconf_parse_conf(struct mtk_pinctrl *pctl,
->                 unsigned int pin, enum pin_config_param param,
-> -               enum pin_config_param arg)
-> +               u32 arg)
->  {
->         int ret =3D 0;
-> -       struct mtk_pinctrl *pctl =3D pinctrl_dev_get_drvdata(pctldev);
->
->         switch (param) {
->         case PIN_CONFIG_BIAS_DISABLE:
-> @@ -381,15 +388,15 @@ static int mtk_pconf_parse_conf(struct pinctrl_dev =
-*pctldev,
->                 ret =3D mtk_pconf_set_pull_select(pctl, pin, true, false,=
- arg);
->                 break;
->         case PIN_CONFIG_INPUT_ENABLE:
-> -               mtk_pmx_gpio_set_direction(pctldev, NULL, pin, true);
-> +               mtk_common_pin_set_direction(pctl, pin, true);
->                 ret =3D mtk_pconf_set_ies_smt(pctl, pin, arg, param);
->                 break;
->         case PIN_CONFIG_OUTPUT:
->                 mtk_gpio_set(pctl->chip, pin, arg);
-> -               ret =3D mtk_pmx_gpio_set_direction(pctldev, NULL, pin, fa=
-lse);
-> +               ret =3D mtk_common_pin_set_direction(pctl, pin, false);
->                 break;
->         case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-> -               mtk_pmx_gpio_set_direction(pctldev, NULL, pin, true);
-> +               mtk_common_pin_set_direction(pctl, pin, true);
->                 ret =3D mtk_pconf_set_ies_smt(pctl, pin, arg, param);
->                 break;
->         case PIN_CONFIG_DRIVE_STRENGTH:
-> @@ -421,7 +428,7 @@ static int mtk_pconf_group_set(struct pinctrl_dev *pc=
-tldev, unsigned group,
->         int i, ret;
->
->         for (i =3D 0; i < num_configs; i++) {
-> -               ret =3D mtk_pconf_parse_conf(pctldev, g->pin,
-> +               ret =3D mtk_pconf_parse_conf(pctl, g->pin,
->                         pinconf_to_config_param(configs[i]),
->                         pinconf_to_config_argument(configs[i]));
->                 if (ret < 0)
-> @@ -870,19 +877,20 @@ static int mtk_gpio_set_config(struct gpio_chip *ch=
-ip, unsigned offset,
->         struct mtk_pinctrl *pctl =3D gpiochip_get_data(chip);
->         const struct mtk_desc_pin *pin;
->         unsigned long eint_n;
-> -       u32 debounce;
-> +       enum pin_config_param param =3D pinconf_to_config_param(config);
-> +       u32 arg =3D pinconf_to_config_argument(config);
->
-> -       if (pinconf_to_config_param(config) !=3D PIN_CONFIG_INPUT_DEBOUNC=
-E)
-> -               return -ENOTSUPP;
-> +       if (param =3D=3D PIN_CONFIG_INPUT_DEBOUNCE) {
-> +               pin =3D pctl->devdata->pins + offset;
-> +               if (pin->eint.eintnum =3D=3D NO_EINT_SUPPORT)
-> +                       return -EINVAL;
->
-> -       pin =3D pctl->devdata->pins + offset;
-> -       if (pin->eint.eintnum =3D=3D NO_EINT_SUPPORT)
-> -               return -EINVAL;
-> +               eint_n =3D pin->eint.eintnum;
->
-> -       debounce =3D pinconf_to_config_argument(config);
-> -       eint_n =3D pin->eint.eintnum;
-> +               return mtk_eint_set_debounce(pctl->eint, eint_n, arg);
-> +       }
->
-> -       return mtk_eint_set_debounce(pctl->eint, eint_n, debounce);
-> +       return mtk_pconf_parse_conf(pctl, offset, param, arg);
->  }
->
->  static const struct gpio_chip mtk_gpio_chip =3D {
->
-> --
-> 2.47.0
->
->
+v3 changes:
+- Update EP binding refer to comments provided by Krzysztof Kozlowski.
+  Thanks.
+
+v2 changes:
+- Add the reasons why one more clock is added for i.MX95 PCIe in patch #1.
+- Add the "Reviewed-by: Frank Li <Frank.Li@nxp.com>" into patch #2, #4, #5,
+  #6, #8 and #9.
+
+[PATCH v6 01/10] dt-bindings: imx6q-pcie: Add ref clock for i.MX95
+[PATCH v6 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
+[PATCH v6 03/10] PCI: imx6: Fetch dbi2 and iATU base addesses from DT
+[PATCH v6 04/10] PCI: imx6: Correct controller_id generation logic
+[PATCH v6 05/10] PCI: imx6: Make core reset assertion deassertion
+[PATCH v6 06/10] PCI: imx6: Fix the missing reference clock disable
+[PATCH v6 07/10] PCI: imx6: Clean up codes by removing
+[PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
+[PATCH v6 09/10] PCI: imx6: Add i.MX8MQ i.MX8Q and i.MX95 PCIe PM
+[PATCH v6 10/10] arm64: dts: imx95: Add ref clock for i.MX95 PCIe
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml |   4 +-
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml     |   1 +
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml        |  25 +++++++++--
+arch/arm64/boot/dts/freescale/imx95.dtsi                         |  18 ++++++--
+drivers/pci/controller/dwc/pci-imx6.c                            | 174 ++++++++++++++++++++++++++++------------------------------------------------
+5 files changed, 102 insertions(+), 120 deletions(-)
+
 
