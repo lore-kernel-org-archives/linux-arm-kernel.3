@@ -4,198 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EB2E6F088
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 20:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8090E6F086
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 20:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WDolfkZiwLAd+5hUIkncw5f9xUBKqqgBuqZw0vmMuvw=; b=uxGEJYj2ywPpoghrqepYn1wEQF
-	jr1FrrAu/vHecVn4+MnurbJJIRq17eUBDuJ6xjNDgfyM1WJeigDtoGsq/MLVUYUaQl8CaDagMS7Qv
-	BAH1wUTO9swNdLzfP5oR2/Nd59gj4az8lCEMQocO7rIYUnSD4d6lec/9vz/TpbOCR4fy+rwt5t6Aq
-	NePWcIY/I/yKD3+e/6y0zNtB+3FkTY1oVDakuHqJK3mqfZxvd06D3nOomR1zoOex3p0jRhBSoonTe
-	dX+o0zJdv7LkS0wDXdmx3iW6TIs6sG+FJA6HCQvstpvgmDhTOOAhztyFyU311wEOKp24FYZhKRLnL
-	lWcx3OlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
+	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
+	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K3KCd3+5wgAHxAzrMedEo1cgEoAjkESH4JOUsDOfeQU=; b=DRnBWUnEhN+m+TJaCqteyN39FH
+	ts8OU7bxpu0w0C8uJgewWdDFpt87nOhrsWVwsIK4rAdmSazQ0repTp7ZIhstYIsbICbOiP4hF58yG
+	ezlNcXilZ4Mqiaoqof+/MMuH/lusLwMNLZMaJJ6HPEpg5oO+dpnC+BbLqXqGN/2AEKTQSaC2Tl36B
+	tztvLkAI6044HYNUe/qMPZa/Cf2ZWOclHcUXPDxWfCj8wP1n1E8vK/AsfFkbP2W3FLEhxLHV1vGC7
+	3EWBXDb8wbIiETUkl5awv4t+s2tnO+hiNP6xcdlau+DEPhNGHcQ84yeqPxNaM7dEB9sm3xvpBozLD
+	/wkTTrsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6y6E-00000008ENs-3RDi;
-	Fri, 01 Nov 2024 20:18:26 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1t6yES-00000008FXI-1MTm;
+	Fri, 01 Nov 2024 20:26:56 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6y4Z-00000008E7o-0PBM
+	id 1t6yCl-00000008FQC-248X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 20:16:44 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A1GBlOE013029;
-	Fri, 1 Nov 2024 20:16:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2023-11-20; bh=WDolfkZiwLAd+5hUIkncw5f9xUBKqqgBuqZw0vmMuvw=; b=
-	FB8iuG/YDMiACxqASqLHSFlT+w7WMa+hnYfrOPIpagjLfwHTMCIftryUYm3s9ntW
-	s1eroJS7GqpSQkyFPJox6+78sKiQTCp8IXE2hTeQSuqZmnsCTrwUiCh6kIZpY7Zt
-	aadiTwAPUZGJmMotQ8v1wm2KbgoItimygeC6sNcTkqUvbFOhqmqKXodgD56i2Q/Y
-	MnZEpGmrMq+kwQk4Uy6iYSXdj+TZhJgh+ekOK4/PQ71BfKvwcO8VApnHg9MB2PHD
-	FOj8GOrWd5f8ga3sdYHzqCxQiRyoShFtT3CN5dSDODqASUIO4ap2wo1rOKxcSxhz
-	B5wETtO1rXLsRB45YiUFMA==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 42grdqmwpy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 01 Nov 2024 20:16:32 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4A1K7PAL008486;
-	Fri, 1 Nov 2024 20:16:27 GMT
-Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2043.outbound.protection.outlook.com [104.47.55.43])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 42hnedwab2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 01 Nov 2024 20:16:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x6tlRO9UHnR5i7itppr3iRCZXKAzujcrUpfN4CIEXaa/Ufs+yY9TGSmjTaId5INCsLO+DJlRSoxl54OQa/upmuKSklPnaCtGA+MBXkw7STFneqMi+9onp2fnp5PQHd7/tgNwJqOuzdTHbGq9DzrWUTocWkD9ybWOt+IV5WvyRFjqZzmGrscsqFMDDkC8wmZ2ezqpr45Mx1cXGAjfx3o9bWWwL9laTeL5cPmRgiAVrTfUP+oD51Zc//EqJvSIjK1kbYISDm27Ohg5sHwbFeTV27EZWAgqh7m0kDVwJZXPldQcw9CfLsBwij3m3gBrW8NJJM6td/S5ZrRKzb3uHEjh0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WDolfkZiwLAd+5hUIkncw5f9xUBKqqgBuqZw0vmMuvw=;
- b=RGvblq6rWyB+I4uhPQXM61QzrLn6oZsLBT4y067iW4xWp6P1GznP2gdrt7h0MIOSI8zk+jNRXm4FJgY4pQzXkHZsM+T6FuPYH/ynXAJ1HPN+pBH9WnQUvJt6+uT1MTKG6G4rWJhbFlNk0LvcmImGBHpEWipJiMLUyyvitgnFWyZDI71rsa+8X3vTbRCaO3HJQEbWL3e45UB61lJ7v+A5VDGxMCFgBmRZW+e7ldnX0rc7ndBms/HqW0XSCSpd+eb/pN+S61EONiBoZkFttB6Bd+MI8z+3C30wc5UvsOXbLQCM2cD7/RV8BhPjl249OtLnrJUg+1cRDMe0MTnXz3pNMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Fri, 01 Nov 2024 20:25:13 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-72041ff06a0so2048076b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 13:25:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WDolfkZiwLAd+5hUIkncw5f9xUBKqqgBuqZw0vmMuvw=;
- b=vxMbyIz5HieNvPwuKxZXD8i24qxegrVTzCsn+3aTTNQps3A9IsmyDGnfXdgE6Q0xvtiAq71Diib/bUfmsM6L/PRSGXMcBnWeEkqD70VMHN+RcxDpWb7y8xyrEy6Lp0o7kemcALEVO1Pzg5uSQwtJACO9dA7lzvSPPG+dpJ3CQZ8=
-Received: from MW5PR10MB5738.namprd10.prod.outlook.com (2603:10b6:303:19b::14)
- by BN0PR10MB5078.namprd10.prod.outlook.com (2603:10b6:408:129::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.25; Fri, 1 Nov
- 2024 20:16:24 +0000
-Received: from MW5PR10MB5738.namprd10.prod.outlook.com
- ([fe80::187b:b241:398b:50eb]) by MW5PR10MB5738.namprd10.prod.outlook.com
- ([fe80::187b:b241:398b:50eb%5]) with mapi id 15.20.8114.015; Fri, 1 Nov 2024
- 20:16:24 +0000
-Message-ID: <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
-Date: Fri, 1 Nov 2024 15:16:21 -0500
-User-Agent: Mozilla Thunderbird
-Subject: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
- large constant
-To: Ryan Roberts <ryan.roberts@arm.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241014105912.3207374-1-ryan.roberts@arm.com>
- <20241014105912.3207374-6-ryan.roberts@arm.com>
-From: Dave Kleikamp <dave.kleikamp@oracle.com>
-Content-Language: en-US
-In-Reply-To: <20241014105912.3207374-6-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CH2PR10CA0015.namprd10.prod.outlook.com
- (2603:10b6:610:4c::25) To MW5PR10MB5738.namprd10.prod.outlook.com
- (2603:10b6:303:19b::14)
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1730492710; x=1731097510; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=K3KCd3+5wgAHxAzrMedEo1cgEoAjkESH4JOUsDOfeQU=;
+        b=CwbQqfoE3ld/8CjB6BJ9bqlf5zGhhOVNscaB1Z4wBr89m/8tFz8IOVPtlrqqhjNUXv
+         db66m0Dann7PxH8Rhq4Eovxl6E0tfL6havHwC7cCXuyz4beEdoO/ZEL1f7sEhkNWdjbs
+         Rl5wJYPWhdejTa2c/UcAqa4wg898nMjTUP+eEH5F5kpN1ZaPX1jdbYA+nbnKPHpOdWWk
+         p+2P4XbvA64h/KcfondRq2MoGKFtoU7rszgLXROO9ZyBA6rYajvzENv2NRbQ7r10lvEh
+         FYmW4Kiqu8aVPp/yBalhvBrjW04U805l3mrN8BWWvVGkmMEGaNqy5EA2ymNOJoI8Yf5K
+         5CyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730492710; x=1731097510;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K3KCd3+5wgAHxAzrMedEo1cgEoAjkESH4JOUsDOfeQU=;
+        b=B2zCmQBEOM9YmiFPrmE9C/HQbcOlMW+DJGz+q4qLUhuOkFe4rcNlb2SIA6xrWds2RG
+         qQfjKfWfyM5iV/XFio/RlscsmyKt399MheMi4bAZzoS5e8XCmYaa8FiUOnScnPXse3Av
+         t/IMRlVMntg7ybArDlaSjrE8vJjE2gI+z1KVNnCKc+/qPaxcdONZOc5Th7G13LF5Tutp
+         0N66VjEzW7oCB1AbR4n6nvCvghqoo1JjCT8Qppj0ZbkexXux8fiZmt/iU7aEkGKt0dWj
+         l8wOMmEAqaldX/n/99odPMusVxMyQ+Tb0EAwIw7FHSBRrDWT3aQsfh0KFmdQNYWERxXE
+         ANYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtnLLlaXIVOmg2ttKXRdr/ykm/TV2FaXT+jKCxKKET+cxdu8LV8uTo9mm+Fn1b8QEyIiT6LVfECyRFH68PRbzI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLGJwK2C4LJUkI9xsBCa1W0jEVWwhyNvCERypvC+62k+bskBbu
+	hOQgnbW6Z/FdMDEhWCc0iGb1SszZeIdyKVQqFEY3BBUKLkwieIhVIyhsxkwWYj8=
+X-Google-Smtp-Source: AGHT+IHydBqY0DDwYoizHpWs49GGcYnOh48s5Z/WPwnPEJbEDO6RTZXDpcSDIZ7CpJVXnydwRcxzLA==
+X-Received: by 2002:a05:6a21:6711:b0:1d5:2767:9d08 with SMTP id adf61e73a8af0-1dba54a03d6mr5738726637.39.1730492710168;
+        Fri, 01 Nov 2024 13:25:10 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee45296fc5sm2807836a12.11.2024.11.01.13.25.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Nov 2024 13:25:09 -0700 (PDT)
+Message-ID: <67253925.630a0220.1ef334.f7f6@mx.google.com>
+Date: Fri, 01 Nov 2024 13:25:09 -0700 (PDT)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW5PR10MB5738:EE_|BN0PR10MB5078:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39116157-c71b-4906-828f-08dcfab20e7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WWlrMWdnM2loNTZIRkkxSERJbUI4Rmk2Q3VqTjdKTCtjY083WDVNSmtWekRD?=
- =?utf-8?B?TWdJQ1dpMkp3SVJNMFhwWkJpZldPU1pCMEhETThqQjVmdjhQNzRsV1dCbUhF?=
- =?utf-8?B?NnBjbFJXUkdhQzNXekYzWWNwZ1VQRkdhMWRURzdlOTZkdEQvZjFLSkhKR3Np?=
- =?utf-8?B?cklRblVidFNjb1JMMVl3OE1UeEtka1RyNHpaNTFUK1g2dXlIMkNPZVhyMFpB?=
- =?utf-8?B?QWFsaS95UTFNVnlnZEpma0FrM0hERXF5OVE1VkpqeUs3VkRvZy8wdWg2eUp0?=
- =?utf-8?B?Y002L3RyNVpZdjROZUVaT0ZFSk1Tb0tLVUcwTHVDVE9GZE1ySkdESFVMUzFE?=
- =?utf-8?B?dG9CUGdIUGlyTTBId1gwMlVEMkRIbEsvVEZDYzdLLy9JSHg3Rk5DWnpYUm4v?=
- =?utf-8?B?RTE0dkYxd2ZPNzVqSWprS2l4ejlsVE5zb1BWYVZybi9Ibjk1U3E4WHc2OUxB?=
- =?utf-8?B?aXdaaFVHSjVWNm56UWcwWWRQZjNzSXlwcXh6cE9EZDFOSGtyR0h2NGx1WUZn?=
- =?utf-8?B?M0pZWldNTnlFTGtHQ04wbHlpbUl3TW1VRTNhMUFsY2NtYnR4Z3pGQ0RIMk1t?=
- =?utf-8?B?dGgyOTNsY0ZFOVRyeWpUUnkwZUgrRFdrcmgyNlNaWnk1MmRSa0t2NldSL01G?=
- =?utf-8?B?aXgyM3o2QXR1cDUvRkdqcHZHdTJXOFR4dUNIMG01Q1hmdXY3b0Z2emtGZk1N?=
- =?utf-8?B?cll6ODBvVEk1alRNMVVRUzZyOC8vRlM5cE5qVVREckQ5enAwQUpLZ2JoMGlC?=
- =?utf-8?B?VStpdi9JdklkQUVHczg2akdLODMzbC9uQ0p0YkFEY0ZyMlBoV0R3cTRwVTdQ?=
- =?utf-8?B?MVZqa2ZiSTlsaFdVbE0yZjcyK1ZvS0tRWXkwVEljRVRab3lrckdSK20zK0ZO?=
- =?utf-8?B?Y1JrSkUyakZNUTJ4blozWFVEK3duS2tkVUhDNVZqalVFcXVqSWdURkdDVjdk?=
- =?utf-8?B?WVh2OGlvT1I1bW42S3R4RGZ3aS90YlVWeUhPRkEvQ2cvUTNDSDdsNGtsRmdB?=
- =?utf-8?B?MFZpc0w2SzQxK1E1ZTBwOHJndnZJN2tuNnkzcWsvWUpuaDFvbkJNQ0ZVTms0?=
- =?utf-8?B?eU9UbXN5dWp6ZHVLVHpXTW11c2czSkVFcTBENVFydG5IV0NqbkxacC9HZnAx?=
- =?utf-8?B?dVE4K0wwQ0xUYUZkb3V4aFllS2ltK1hsQ29VQ3lPUnlWemlmS240UmxKeFo4?=
- =?utf-8?B?ZThYT0dhQVRGYVN6SW5DbXQwYlZrT29zaWtWcURUbGxiV3BabUtBcWN6M2s1?=
- =?utf-8?B?aUFYWFlSVjBuV2grRFBwS3RwMStmZm92ZVQ2OEg0Y2RVODQ1bStHK0svQUUz?=
- =?utf-8?B?YWpuay91RFc4UFIxTER1L1dxNkJXN0dCejVuN2pkNzVTemR3RkRQUjhpcVZo?=
- =?utf-8?B?R0JMZGM2U3l5QmNrdmVHbmFhUjVCWER0V3d1Qy8zSkF1RHByWVhleXJpRVpx?=
- =?utf-8?B?VjlDNzBrWVFZMm1lcDVXT092emJJNHNCaWhoa01vNWhXWVUydjFFeHluSWxW?=
- =?utf-8?B?UlFqSzRaa1ZzMzhuanB4NXZmS2hYUDFneXZBTk1CYWRiOHMvQzZNMmI4cXc4?=
- =?utf-8?B?MjhYbHN4bUVtcUtzRzdtM2wyWHEya0g1dWgrSnpRdmREVklFcFV6QVE4czQx?=
- =?utf-8?B?R0xwUGpLcTJQaHpGcXpsVzJoZDk3VUN1UHkvdU9EL296ZmtpTjQ4SmMxb1V6?=
- =?utf-8?B?dUhlQ1NyZi8ranAwWWh4K01HdEd0UjBWVU1wbjJUTDAwSmE1VkpEY0I0Y2Rw?=
- =?utf-8?Q?jKOwHLYxqF7IVEVcDq3PkheQ39ccXm3/WR/c/Mj?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW5PR10MB5738.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MEEwRkphMnpyTjNjeEc3dFdxVHcvbU53WXJOSkI2cER1NWprU0N1bEVlQWs2?=
- =?utf-8?B?dHhlZ014UUZXQ2E1RFlXMjIrSVJwK2MyVGhKbGlBVlduWVZoazRTbTFJM1Y2?=
- =?utf-8?B?a3BZcVlTRHBlYy90bTh5dVppUEpjWWFCL1hSeFlwSDlDWXhRbi9KRmo0dEUy?=
- =?utf-8?B?ZTJ6MDl4eElmWlgxRHpUV0ZnTmRvbm40YUVQZlJaRW9obDdDakFHTXE2M3A1?=
- =?utf-8?B?SS9TbWJrMVNPVi9XQXpUaVNEYWZsNFp6SVZNWFN2bW5lOXpqZnk4ZVJBVnJi?=
- =?utf-8?B?K0ZyZWR6TUpEU0dGUG5OWWZ5TzdGR1BzU0p6b0E1NStyRFZDU3VYeEs5K2Zy?=
- =?utf-8?B?ODF6cjhRQ09BMTR0UTRRZHFCekhuWDF1bTRDZ1AvLzN5TW8wdVM3Y0ozdGxT?=
- =?utf-8?B?cWlxRUJoWU5HcVh1MnJpeW9hVkFmV1BwU0REQlF6S3lyNUN6UUxQc0JRVHdt?=
- =?utf-8?B?L1JFQjNkcmw5NEVmTUtFT3FySGZibVRGMlZ0TW14dmd1bTdaUmEraVU0K2RB?=
- =?utf-8?B?aFgxRGwzV1QxM1Y2ZmNOQlpZbFEwbjMzZGpCQjFMbFBsbm1FOG84QWlLYW1O?=
- =?utf-8?B?d0VIZC9UVUxyby9uSnNsem16VEkvc2F2REo3bGxPUXBHRExjZllTOVBaNGFi?=
- =?utf-8?B?ZWpWSkVWOWpWUXB6eVdZNlJTMWlaSWhSOWFlVG9MSENKSml1QURYcVFBOEtJ?=
- =?utf-8?B?SHlucExaaWsyREJaSVd1RllOTndBd3VJU2VQcGI1OWF3Mk53T0tYTDdRaURC?=
- =?utf-8?B?cCtpNUtwRUR4aUxWNFk3c0pLdVd0TERlRDhyZUlBTWsxZHdtUXFiL3NVaGVI?=
- =?utf-8?B?KzFHNlFPbjZmbFlxcFQ0eW5kSExWOG9CVUxHaUx3WDhINXRQOWdMSVB3YmN2?=
- =?utf-8?B?ZGJPY2M2MXNZanEvK1YycGVWbjltYjZ4L1N4WGkvelhSOXVJb1hFNWcxVjRa?=
- =?utf-8?B?VWs0b3ltTS8wTFE4SXJwbnFtd2RWcTRSUkIyTXQvNk54L0k0Z3Y0MldNbWdv?=
- =?utf-8?B?eUZscVh0aW42SDVPUGNabkROUktaMmlqU1RxTUZTeU1SUndTeGlua1ZURjBS?=
- =?utf-8?B?NE5zQXZoRENWck5HdU1PUGUyVlF1Mk1yWjlseWU5b2oxTGQxSlo5QkM3cEto?=
- =?utf-8?B?QkRmZHNSSlVDZE9ReTQzTXBjWEZBalpnQmdyeHJBdTF4T2NidVU5MlpXNmdR?=
- =?utf-8?B?d0ZXWDNERkI2RXVtNVUzUHV1dHBWTi9rSnJVOE0ycFJOeDVoajZVak9ielV3?=
- =?utf-8?B?Tk80SkVBdHF5UXk3S1ZyVUxNSmN3WHI2Y0FzbjJhWlNuWmhTbU5KbHNlOStB?=
- =?utf-8?B?T3dwbkVJWWh5MDFXdFBkY2dnaTdqalN5bG1uQ2wwaFQvbkY2V2pMamd4QmJK?=
- =?utf-8?B?ZzRTQjJiK0krNWtaWXRhS1NpcVlxWWxVMEtpeWtqMjhNTk04MS9rdFV5TnJv?=
- =?utf-8?B?bGQ4K1pUSG9kNzRXSDZ4TmgvSU5KYjlXUC9UT3VFRzU4akFFS05YaXVRSFY1?=
- =?utf-8?B?QThhQm82YmI0QlY5MEpWODJsd2M2c3FnZlV5NC9GMnpvOHB4MExuZ2pLeWJu?=
- =?utf-8?B?S3l4Q1JObi9rSmx1MzN2YXZhZ2VYUXZMYy9COElHYS9taWhPaWhQeThSa2k5?=
- =?utf-8?B?QmczZlN1OU9zZXIwL3FJOTl1MGpRUWFsZDhRUFpSL3dzdXpRdWVGUDFSVWQv?=
- =?utf-8?B?bFoxQ3l4U3IrZzBnbzIzSzViRG5acEh3bEFCZVpKY3VXOWtmUWgrdFFYd2Nt?=
- =?utf-8?B?aktOaHpTRWdhTVFuREkzeVdiVFllVVBDVEwrR3JtNXJKaDRHNWZVTld3RFZ5?=
- =?utf-8?B?M1AyVHJJWVQyejRYakh2MFNoSWNYL0NpWW1BY2dNMmxmZ04rVWswUEs5alVq?=
- =?utf-8?B?b3dBOFF0VC9GNVBjaXlBSklIZ0dXS0llYXVBMGFFa1I0cnlhZUZCOU5LL3NJ?=
- =?utf-8?B?eXN5Mi9FeTBKeHRtbzFtTG1lSnFRK0Raak45dDFTNm81azI5VkxKUGR0WkJ1?=
- =?utf-8?B?MjkrME8vTWdVbjB4VzBKMHlkcGN1cDBEcUhJaEdKZDZEMU0xRDF5d1RmUFFJ?=
- =?utf-8?B?TVFJZVd3Nzcwb043a1orVVJzRTZFTmtPTlhXME5xVWxQSnBEdHhheDUwMjY5?=
- =?utf-8?B?cWZQVEVjTUV5YTB1ZFVOdWlVN0tQdzhaMUdDWlo2OHpkZWpBUEUxbkVSSU1z?=
- =?utf-8?B?dWc9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: x2WL1VQfSD6vya1LEyWAjqsvICyDhNovCPadc0oFJE3E/JE4hb9ZIh22/X8/tNKNM/PMSCOJeg7fFYeHD7Kiy0RUeqfGF5Af1KGBLa7Jp5yNhGCZn0R5bMFUb8YOi7q457l1ld+X0rj8KErg3LnJ9cD9UM1n/r8n1rIG33yFv8746Fb4qAmpSfEad+5Ps9wpa2OkmZWQUFczy2rOu9V3YNohamp3lWiKUKDbQ3wfqcG9VFWjJZekMzYPcicR3UtT6sxjW9anJthJZK/T2M8LSb2U52LAU/TqbmxoVvKiMnWeZJjfaXIKyBk59bGoeVEcdzGolJMdvVlMp3fAWaLivxuQIzPMgfMoDnf+tdXucvOcuFlLkDH5MDwa+On69CCsaEvK8rjEZJ7YzqRLiRNTNEMPove4g0tFTgBy4ybp4Yx94sOcWBZSijckPv0WLDXXi2aFf7DLltxHmHiVBWHXnG2H9ODutbtxh6beRB2GwMd+CByQ845ZjghN9gBz4CAnFrRcOg2BNq9wTAgLMKUWybKiYOLvDT+jVCtkkoZHwwqgwNsPmzcXl+qHFsMHgfVuFdro0xUDdpsmz/BJf8KxY6cqRLI4ASRCxK1lB6YFdRQ=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39116157-c71b-4906-828f-08dcfab20e7a
-X-MS-Exchange-CrossTenant-AuthSource: MW5PR10MB5738.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 20:16:24.1114
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a1ZJmRqo0mL5cfT3uGhlxNyRmGZbKNanJbEhp2M5+2fz/nrIzm+wgKJTtT3BkWB3gQ/UzSeyRWh3wsN7mSb2AW0z8HnQ6xtuD7aGw+ZFoJ4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5078
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-11-01_14,2024-11-01_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 bulkscore=0 spamscore=0
- mlxlogscore=999 malwarescore=0 adultscore=0 phishscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2409260000
- definitions=main-2411010144
-X-Proofpoint-GUID: QpWxRYv46KESwOO_otYXXTfIXtTT57oO
-X-Proofpoint-ORIG-GUID: QpWxRYv46KESwOO_otYXXTfIXtTT57oO
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: v6.12-rc5-158-g5283dc78f4da
+X-Kernelci-Branch: for-kernelci
+X-Kernelci-Tree: arm64
+Subject: arm64/for-kernelci build: 1 build: 0 failed,
+ 1 passed (v6.12-rc5-158-g5283dc78f4da)
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
+ kernelci-results@groups.io
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_131643_281175_645A639B 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20241101_132511_715690_E9308B48 
+X-CRM114-Status: UNSURE (   4.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,37 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
-is no longer optimized out with a constant size, so a build bug may
-occur on a path that won't be reached.
+arm64/for-kernelci build: 1 build: 0 failed, 1 passed (v6.12-rc5-158-g5283d=
+c78f4da)
 
-Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
+Full Build Summary: https://kernelci.org/build/arm64/branch/for-kernelci/ke=
+rnel/v6.12-rc5-158-g5283dc78f4da/
 
-Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
+Tree: arm64
+Branch: for-kernelci
+Git Describe: v6.12-rc5-158-g5283dc78f4da
+Git Commit: 5283dc78f4da5400f2ec24794239a785b6d6241c
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+Built: 1 unique architecture
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
 ---
-
-Ryan,
-
-Please consider incorporating this fix or something similar into your
-mm patch in the boot-time pages size patches.
-
-  include/linux/slab.h | 3 ++-
-  1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/slab.h b/include/linux/slab.h
-index 9848296ca6ba..a4c7507ab8ec 100644
---- a/include/linux/slab.h
-+++ b/include/linux/slab.h
-@@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
-  	if (size <= 1024 * 1024) return 20;
-  	if (size <=  2 * 1024 * 1024) return 21;
-  
--	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
-+	if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
-+	    !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
-  		BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
-  	else
-  		BUG();
--- 
-2.47.0
+For more info write to <info@kernelci.org>
 
