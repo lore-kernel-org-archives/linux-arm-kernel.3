@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DA7E6F06C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B951E6F06D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zc0pH5qn7Ug1zN/IqEc5jWQUcsCC6cD82CeNCMErNI=; b=tfoNdm4K4cMlKXS6x9EjDxApAG
-	11K9KO0OA/Td/7haxri5s6zyVapnHkYNFLndqYVuwY9GoAtjOSJxVNrZZq+k8LEefAHcoboG9P3S5
-	Wvc5tevmvkvKE3Is/KbZOVg72uYJ7BkILeTNw5oDl4vAyyCMCK9MatT7wxBr0DNWmrVdITU9XJLLt
-	egmV2wWKd1Yc/mhCv9CRSuvoPwxymfG+gL2e4tzH9MazdTQ3irUKCaX2S02eS8/WkU5qK8LCEAH5O
-	7/6MLql06TmgC7u2gxayhJfLP65FZrvVtfz94SAOwnwg3sDlq2TcC0213dVVntSdRz76RbkRvq/Dd
-	3SuMsolQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/dRef/Eq643Mt4Yvanc3VTX63ZiR7PnMCS/Ly4jPW14=; b=YsGnjjVwxwSW5DL1/AbYIw8zpR
+	d0VxTfXneloIMtmbOHUsfvmAD40+zoM3mNmzxvE2lhGpwnyzAvmgzsemmaoH7emffoair8vZfuSGD
+	voZ07J8ItiClZWHPyL6aZM+dEKF43YLBATUlyL2bmWEA3Dp49SlHsOQTNMo2mKXz2SOJuQz6RT662
+	qFnGYuE7RIN9knq94kEkLZNr8Z9zGEM/gcCHJ7oUANuW+g0AMgCrw1wi32GTKN7Bppgj+2F69eAQW
+	rff9sl6RO5t5Dt9zGno2r4IBkA15vq6N0DbE6Z4ciVLe5joYLThMYEEjqODu4ciJ3rwrtzP5FAb38
+	Ipw3mXMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6u4f-00000007aOF-3266;
-	Fri, 01 Nov 2024 16:00:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t6u6L-00000007arP-1wTG;
+	Fri, 01 Nov 2024 16:02:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6tnw-00000007Y3U-1qsi
+	id 1t6tpi-00000007YIn-27xY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 15:43:17 +0000
+	Fri, 01 Nov 2024 15:45:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C00FE5C4A96;
-	Fri,  1 Nov 2024 15:42:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277FEC4CECD;
-	Fri,  1 Nov 2024 15:43:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5E3B2A44454;
+	Fri,  1 Nov 2024 15:43:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA75C4CECD;
+	Fri,  1 Nov 2024 15:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730475795;
-	bh=irRgyaZNL3QbES2BKZpFC5HFrUeyLhBKBuQONdo5KOg=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=iGqhRb8jR4HXevjHc8GpzO5tk/iTgRBDJAhlmEszyFfNIfToCBXDMMpnPyx1YyG0G
-	 UyT/L0bngIoQ19hvlGOS7ZBCE5FjRpbj0CfRO9K8+s2VyWd6qo4wJRZOGMgPEy0YvI
-	 yTewADkihAH/QKVdQj2cTVDXG0FVQBpJqxwiPgIKRrhi0AD/LJeHHodQSnPvqtc4Gt
-	 TCmm7BTfa9hJX3s5aZez/Hrh/9tbYXjLxrYtnKp3raOryFi12UlC0cjBAOhlTvI6hC
-	 y/f19yAtUUem5jGZOqULHJMjj1vTJx81NUJh9Jzm95puOEwFeCib9t7BgSnFjhPhbd
-	 1JvhK64JRtEmg==
-Date: Fri, 01 Nov 2024 10:43:13 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1730475904;
+	bh=t1pJkvv5ArO95EBUpDZbdsLDepiY0M1etPEVdzcYgMM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SVs0UfvSjddoObL1YP4TcTpN6+JMKTAlMOtHqoNu/N5W++S8ZoFPFicaoCsigBZWY
+	 tzsC/HX9IzAFBDK7yJ0jUUgykge+QshPJphUaXyfeUUF+JuEpS/o/COytqjHhw6bfk
+	 Puqx0C4Dn8D1jyyOrR697msu4an59gWO287LimKF2sfZWd8QG8Johu2Ruz2CxZ96Mr
+	 96oWxW1+Q0h3FQJIq3Euy8DNRcTjyRLRpuV3HXN/mRruETfNZ8TVV/wuABpuviyGn+
+	 5gMXDGfb2eU9CbNsoC5MxD6+lYem2NKv3+WKaecfvPJz1LBb1ZEvgNrUSeIb6LtuMV
+	 +upizTDVi/RKg==
+Date: Fri, 1 Nov 2024 15:44:51 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Julien Stephan <jstephan@baylibre.com>, Mudit Sharma
+ <muditsharma.info@gmail.com>, Lars-Peter Clausen <lars@metafoo.de>, Anshul
+ Dalal <anshulusr@gmail.com>, Javier Carrasco
+ <javier.carrasco.cruz@gmail.com>, Jean-Baptiste Maneyrol
+ <jean-baptiste.maneyrol@tdk.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Cosmin Tanislav
+ <cosmin.tanislav@analog.com>, Ramona Gradinariu
+ <ramona.gradinariu@analog.com>, Antoniu Miclaus
+ <antoniu.miclaus@analog.com>, Dan Robertson <dan@dlrobertson.com>, Marcelo
+ Schmitt <marcelo.schmitt@analog.com>, Matteo Martelli
+ <matteomartelli3@gmail.com>, Anand Ashok Dumbre
+ <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>,
+ Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J
+ <jagathjog1996@gmail.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Subhajit
+ Ghosh <subhajit.ghosh@tweaklogic.com>, Kevin Tsai <ktsai@capellamicro.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Benson Leung
+ <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH v2 06/15] iio: light: adux1020: write_event_config: use
+ local variable for interrupt value
+Message-ID: <20241101154451.227defba@jic23-huawei>
+In-Reply-To: <ef4fe230-b7fb-4f7e-9173-ae85d305e9ae@baylibre.com>
+References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+	<20241031-iio-fix-write-event-config-signature-v2-6-2bcacbb517a2@baylibre.com>
+	<ef4fe230-b7fb-4f7e-9173-ae85d305e9ae@baylibre.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: asahi@lists.linux.dev, Hector Martin <marcan@marcan.st>, 
- Sven Peter <sven@svenpeter.dev>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-In-Reply-To: <20241101-asahi-spi-v2-1-763a8a84d834@jannau.net>
-References: <20241101-asahi-spi-v2-0-763a8a84d834@jannau.net>
- <20241101-asahi-spi-v2-1-763a8a84d834@jannau.net>
-Message-Id: <173047579349.3488175.222264580667894425.robh@kernel.org>
-Subject: Re: [PATCH v2 1/3] dt-bindings: spi: apple,spi: Add binding for
- Apple SPI controllers
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_084316_544077_CB8674E6 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20241101_084506_701346_798B5D3A 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +92,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 31 Oct 2024 11:27:45 -0500
+David Lechner <dlechner@baylibre.com> wrote:
 
-On Fri, 01 Nov 2024 15:25:03 +0100, Janne Grunau wrote:
-> From: Hector Martin <marcan@marcan.st>
-> 
-> The Apple SPI controller is present in SoCs such as the M1 (t8103) and
-> M1 Pro/Max (t600x). This controller uses one IRQ and one clock, and
-> doesn't need any special properties, so the binding is trivial.
-> 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
->  .../devicetree/bindings/spi/apple,spi.yaml         | 62 ++++++++++++++++++++++
->  1 file changed, 62 insertions(+)
-> 
+> On 10/31/24 10:27 AM, Julien Stephan wrote:
+> > state parameter is currently an int, but it is actually a boolean.
+> > iio_ev_state_store is actually using kstrtobool to check user input,
+> > then gives the converted boolean value to write_event_config.  The code
+> > in adux1020_write_event_config re-uses state parameter to store an
+> > integer value. To prepare for updating the write_event_config signature
+> > to use a boolean for state, introduce a new local int variable.
+> >=20
+> > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> > ---
+> >  drivers/iio/light/adux1020.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
+> > index 2e0170be077aef9aa194fab51afbb33aec02e513..db57d84da616b91add8c5d1=
+aba08a73ce18c367e 100644
+> > --- a/drivers/iio/light/adux1020.c
+> > +++ b/drivers/iio/light/adux1020.c
+> > @@ -505,7 +505,7 @@ static int adux1020_write_event_config(struct iio_d=
+ev *indio_dev,
+> >  				       enum iio_event_direction dir, int state)
+> >  {
+> >  	struct adux1020_data *data =3D iio_priv(indio_dev);
+> > -	int ret, mask;
+> > +	int ret, mask, val;
+> > =20
+> >  	mutex_lock(&data->lock);
+> > =20
+> > @@ -526,12 +526,12 @@ static int adux1020_write_event_config(struct iio=
+_dev *indio_dev,
+> >  			mask =3D ADUX1020_PROX_OFF1_INT;
+> > =20
+> >  		if (state)
+> > -			state =3D 0;
+> > +			val =3D 0;
+> >  		else
+> > -			state =3D mask;
+> > +			val =3D mask;
+> > =20
+> >  		ret =3D regmap_update_bits(data->regmap, ADUX1020_REG_INT_MASK,
+> > -					 mask, state);
+> > +					 mask, val);
+> >  		if (ret < 0)
+> >  			goto fail;
+> > =20
+> >  =20
+>=20
+> Instead of introducing `val`, I would rewrite this as:
+>=20
+> 	if (state)
+> 		ret =3D regmap_clear_bits(...);
+> 	else
+> 		ret =3D regmap_set_bits(...);
+>=20
+Good idea.  Rather than go around again and potentially stall the end of th=
+is series.
+I made that change whilst applying.  Shout if either of you doesn't
+like the result. Diff doesn't do a perfect job on readability (it does
+if I add a line break but then the code looks worse in the end!)
 
-My bot found errors running 'make dt_binding_check' on your patch:
+=46rom 06a1ca816450d1b5524f6010581a83ab9935d51b Mon Sep 17 00:00:00 2001
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Thu, 31 Oct 2024 16:27:01 +0100
+Subject: [PATCH] iio: light: adux1020: write_event_config: use local variab=
+le
+ for interrupt value
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/spi/apple,spi.yaml:10:11: [error] string value is redundantly quoted with any quotes (quoted-strings)
+state parameter is currently an int, but it is actually a boolean.
+iio_ev_state_store is actually using kstrtobool to check user input,
+then gives the converted boolean value to write_event_config.  The code
+in adux1020_write_event_config re-uses state parameter to store an
+integer value. To prepare for updating the write_event_config signature
+to use a boolean for state, introduce a new local int variable.
 
-dtschema/dtc warnings/errors:
+Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+Link: https://patch.msgid.link/20241031-iio-fix-write-event-config-signatur=
+e-v2-6-2bcacbb517a2@baylibre.com
+Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+---
+ drivers/iio/light/adux1020.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-doc reference errors (make refcheckdocs):
+diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
+index 2e0170be077a..06d5bc1d246c 100644
+--- a/drivers/iio/light/adux1020.c
++++ b/drivers/iio/light/adux1020.c
+@@ -526,12 +526,11 @@ static int adux1020_write_event_config(struct iio_dev=
+ *indio_dev,
+ 			mask =3D ADUX1020_PROX_OFF1_INT;
+=20
+ 		if (state)
+-			state =3D 0;
++			ret =3D regmap_clear_bits(data->regmap,
++						ADUX1020_REG_INT_MASK, mask);
+ 		else
+-			state =3D mask;
+-
+-		ret =3D regmap_update_bits(data->regmap, ADUX1020_REG_INT_MASK,
+-					 mask, state);
++			ret =3D regmap_set_bits(data->regmap,
++					      ADUX1020_REG_INT_MASK, mask);
+ 		if (ret < 0)
+ 			goto fail;
+=20
+--=20
+2.46.2
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241101-asahi-spi-v2-1-763a8a84d834@jannau.net
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+>=20
+>=20
 
 
