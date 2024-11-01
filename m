@@ -4,96 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0664EE6F092
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 21:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C97A7E6F08E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 22:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1IDjURZL/rhomMhFYD9E8suKZT7gMZrpBfEiK+YGGeA=; b=p+SWrjy/qY0BMbSIXxMcwahK9Z
-	eP/c4OAZrZ8cAmIMaoR7zdJPE5LvQSzsZvyUrwmdGb9YmbqswXVBhiSgNAWpX+21YiHvFs0Czi2gz
-	lQCB+CXuNPfeP7A/EL8eCC8DCW5W/AWenFlZw8b8jqAARRyBE4K9But6fI9BhN1h5zY2cH+Oh26I1
-	8ZL2rnE5i9k6vDyAo4ByXmcR5m7JMJaD+30v6s2JGCTVxOwtTAasPSelP4ajeV2qwok23hd/Zd8if
-	MjwKd5/g80i5qWnszUyxZG1WYcTxHJSf1ZfNaS+xXIXQa3pWVNdE/9tLhEGQtB1v/fb9XqaK8WVJj
-	xMCjFhsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=++IjMUbwkrGj/mHG9oyoX/blJaf9PFISzgC1CVaEouo=; b=b7Gs7WXfrqRXiNgcP2AljebPCz
+	diRnN299AuJHluHdTQ+IHWLtU9FRk/1XgDtzbhK0MdnPfdN/7H4SrWwIDNBkA/MlYUzqZL/VQIhb3
+	WEmaGcYdm/6PShVeVROXjqGMSGwkuGkqHsgVDcg8tdai4kSM4Qwk/17FNUYSTmR30aCJ94eFZNzuj
+	fNEjoQbDwaK0LA/idKIDTN3Sfy8p3uDiSs5LWw5a9FzdpqIVis64LDnFKMwpocFESxJd+M9RCxBvg
+	9uGP5nRW3Y54tnrEUI5w4pxotRCr2HjuP2DAb3bNq6sEXwXCVgaLdTK2WefLOEeytPUIbPpLjFFhb
+	gtuD+cCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6zWk-00000008OkM-0pIP;
-	Fri, 01 Nov 2024 21:49:54 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1t6zwE-00000008RYK-0E5i;
+	Fri, 01 Nov 2024 22:16:14 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6zV4-00000008Oa1-3VX2
+	id 1t6zuX-00000008ROR-3Tzs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 21:48:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730497691; x=1762033691;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Dwdq9rHIpOh+78kD6lWNmELuBrWSfYZSR/MPnUOKJUA=;
-  b=G1bOhbKjnTLSnzoBoWsYOT4xb/H/DB/RvWXPLjq4+3rNiUe9EpIvvPbI
-   ZWjegthzH0zM1boYQNpUOpAQSJFkkh9KewPs0qNuMFpXBzoIS8tWl8tEv
-   PV4vvgQ9bu1z1ZPEdvNmI9oiw60baLfJC2Qp2QOAyQwTiKYQ/Yt35qAdk
-   QjpZh5zeHCE+qMhczPKP/cJN7CnywvKv87T2x2ObwYCX7G66UNa3caC1f
-   jcDbegtv8FlzoV7EEg3to/Daz3NmJmDrebQa2pe6AzDbBS3avuVVQ0O7Y
-   o9sdnpwmIa/yY8dsWPWffUmqNGuv1zZaM2egvHP9fCRM74yQRxlJ+FKI7
-   w==;
-X-CSE-ConnectionGUID: oEmWPJBfR7CDp6KktGVigQ==
-X-CSE-MsgGUID: wMawmE6LRCWiVPDo+ye+xA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30229828"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="30229828"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 14:48:07 -0700
-X-CSE-ConnectionGUID: 9w/56nX/RnCHrAdIl5pDBA==
-X-CSE-MsgGUID: yEtcosP4Tc+1RCMNMWkXcA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,251,1725346800"; 
-   d="scan'208";a="82613540"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 01 Nov 2024 14:48:01 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t6zUt-000i55-08;
-	Fri, 01 Nov 2024 21:47:59 +0000
-Date: Sat, 2 Nov 2024 05:47:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev
-Subject: Re: [PATCH v5 4/7] pinctrl: s32: convert the driver into an mfd cell
-Message-ID: <202411020514.qOUrieWa-lkp@intel.com>
-References: <20241101080614.1070819-5-andrei.stefanescu@oss.nxp.com>
+	Fri, 01 Nov 2024 22:14:31 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539e66ba398so5828e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 15:14:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730499267; x=1731104067; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=++IjMUbwkrGj/mHG9oyoX/blJaf9PFISzgC1CVaEouo=;
+        b=D31zzYcFhXNsBnf00umA03IYtrqh2CHSAKfh4g5DDL6yMrd8aQqmvdhl/IJyS0Tdw6
+         5RpTtJAdwApJM/jTxAIsB+PUOYnJdajYa4cJTrVSJrQ5Y6ps7kRhcPANvoYVJe9FhVIC
+         5cZggdXhhw1ZOUOzoE1ioX54K98SyJ5U1EwzWSuZ9GXJPQJ5rY9o704DNcvVuvXrBfXn
+         3O1MSdlqV9fWjQSWFyqNKHHylQtF/xzVj+UeU9CZpno8sYAfeSgDTvSbxZuk1kk/ZPfj
+         3b/lJa2mpmIOhTPBIb29xxFq391j12wbeLmOzNXNLE1ozo12ik+kSXrEY9nmoJCNKIkV
+         ijNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730499267; x=1731104067;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=++IjMUbwkrGj/mHG9oyoX/blJaf9PFISzgC1CVaEouo=;
+        b=UBrsV2WhDpHuzq0OKtvew7EH0AgheAi0AgkHrplKRYBRsRTKn+sMx948hGnOaogMlE
+         n9DRke9pPxQyhYWc1bQbOkLTbx+QVvMnhXJxCQiVi12ZDFDcN++vukJhDRHotdxbcnD1
+         +7JG+XKjh2CpmA0A5nuIH6nCZldsRxFUAk+MeQSrTPNOyHHeCxkhztXJyVm0AYiCIRrp
+         gMVJr3nap96L2LrirEDqIBku9eRnG5zM76n9mhUDN23Jdr2D1fPTtIU3mq4g8DdHlt6a
+         2/DY1H71JANgyaP49/llRv4sTA82VycbjxULGpGN9Lb6SrDmrCKjYwYTHrDJotlpYWSP
+         kIDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUYxmfYkMv37pf4NkdP9WP/hOSIbXRh7Nx3MqkbCXZ3RgY9v8Tewcde/6E0YvKDXVUTGp7pb+w44VgCWIJfFAww@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhLlQEcnI5m2c4Bu943ngKw4FOWm+AMsUHW/jHjXg/d8h9O3HE
+	MmmPXVy4hTAgdHyQa9gnyqHIjLlQ8h7f8mdgqcpet31kqcH+fewvq4kqOTxQrQfUgbDHaJ8b4Lv
+	WeNd4/I49yHjcwwQsA+8801s3yqnGaa6O+hwA
+X-Gm-Gg: ASbGnctYaIZdIfH+u5TchPELYLqNyELd1LKa5xnDgEKm6mijArerzClTBoGaiocO4RP
+	2fgjxZsIszah5HztXpJ7sDV4UFvJ4ICiTmiaZ7798A3TwhQkMYOtCu+aH0nbp
+X-Google-Smtp-Source: AGHT+IH2BcX/vmuG7YSwKV0+HLH1Y2RSr4a5KE0L+pbR96qsVezQH73VuaXsrlKiCpYFZijNULMRFs0zTF+aMIiqk0U=
+X-Received: by 2002:a05:6512:31c4:b0:53b:5ae5:a9c8 with SMTP id
+ 2adb3069b0e04-53d6b1b3334mr53844e87.7.1730499266896; Fri, 01 Nov 2024
+ 15:14:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241101080614.1070819-5-andrei.stefanescu@oss.nxp.com>
+References: <20240821223012.3757828-1-vipinsh@google.com> <CAHVum0eSxCTAme8=oV9a=cVaJ9Jzu3-W-3vgbubVZ2qAWVjfJA@mail.gmail.com>
+In-Reply-To: <CAHVum0eSxCTAme8=oV9a=cVaJ9Jzu3-W-3vgbubVZ2qAWVjfJA@mail.gmail.com>
+From: Vipin Sharma <vipinsh@google.com>
+Date: Fri, 1 Nov 2024 15:13:49 -0700
+Message-ID: <CAHVum0fWJW7V5ijtPcXQAtPSdoQSKjzYwMJ-XCRH2_sKs=Kg7g@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/1] KVM selftests runner for running more than just default
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Anup Patel <anup@brainfault.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_144810_944542_CE455F99 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20241101_151429_910360_FF80B0AE 
+X-CRM114-Status: GOOD (  43.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +95,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrei,
+On Thu, Aug 22, 2024 at 1:55=E2=80=AFPM Vipin Sharma <vipinsh@google.com> w=
+rote:
+>
+> Oops! Adding archs mailing list and maintainers which have arch folder
+> in tool/testing/selftests/kvm
+>
+> On Wed, Aug 21, 2024 at 3:30=E2=80=AFPM Vipin Sharma <vipinsh@google.com>=
+ wrote:
+> >
+> > This series is introducing a KVM selftests runner to make it easier to
+> > run selftests with some interesting configurations and provide some
+> > enhancement over existing kselftests runner.
+> >
+> > I would like to get an early feedback from the community and see if thi=
+s
+> > is something which can be useful for improving KVM selftests coverage
+> > and worthwhile investing time in it. Some specific questions:
+> >
+> > 1. Should this be done?
+> > 2. What features are must?
+> > 3. Any other way to write test configuration compared to what is done h=
+ere?
+> >
+> > Note, python code written for runner is not optimized but shows how thi=
+s
+> > runner can be useful.
+> >
+> > What are the goals?
+> > - Run tests with more than just the default settings of KVM module
+> >   parameters and test itself.
+> > - Capture issues which only show when certain combination of module
+> >   parameter and tests options are used.
+> > - Provide minimum testing which can be standardised for KVM patches.
+> > - Run tests parallely.
+> > - Dump output in a hierarchical folder structure for easier tracking of
+> >   failures/success output
+> > - Feel free to add yours :)
+> >
+> > Why not use/extend kselftests?
+> > - Other submodules goal might not align and its gonna be difficult to
+> >   capture broader set of requirements.
+> > - Instead of test configuration we will need separate shell scripts
+> >   which will act as tests for each test arg and module parameter
+> >   combination. This will easily pollute the KVM selftests directory.
+> > - Easier to enhance features using Python packages than shell scripts.
+> >
+> > What this runner do?
+> > - Reads a test configuration file (tests.json in patch 1).
+> >   Configuration in json are written in hierarchy where multiple suites
+> >   exist and each suite contains multiple tests.
+> > - Provides a way to execute tests inside a suite parallelly.
+> > - Provides a way to dump output to a folder in a hierarchical manner.
+> > - Allows to run selected suites, or tests in a specific suite.
+> > - Allows to do some setup and teardown for test suites and tests.
+> > - Timeout can be provided to limit test execution duration.
+> > - Allows to run test suites or tests on specific architecture only.
+> >
+> > Runner is written in python and goal is to only use standard library
+> > constructs. This runner will work on Python 3.6 and up
+> >
+> > What does a test configuration file looks like?
+> > Test configuration are written in json as it is easier to read and has
+> > inbuilt package support in Python. Root level is a json array denoting
+> > suites and each suite can multiple tests in it using json array.
+> >
+> > [
+> >   {
+> >     "suite": "dirty_log_perf_tests",
+> >     "timeout_s": 300,
+> >     "arch": "x86_64",
+> >     "setup": "echo Setting up suite",
+> >     "teardown": "echo tearing down suite",
+> >     "tests": [
+> >       {
+> >         "name": "dirty_log_perf_test_max_vcpu_no_manual_protect",
+> >         "command": "./dirty_log_perf_test -v $(grep -c ^processor /proc=
+/cpuinfo) -g",
+> >         "arch": "x86_64",
+> >         "setup": "echo Setting up test",
+> >         "teardown": "echo tearing down test",
+> >         "timeout_s": 5
+> >       }
+> >     ]
+> >   }
+> > ]
+> >
+> > Usage:
+> > Runner "runner.py" and test configuration "tests.json" lives in
+> > tool/testing/selftests/kvm directory.
+> >
+> > To run serially:
+> > ./runner.py tests.json
+> >
+> > To run specific test suites:
+> > ./runner.py tests.json dirty_log_perf_tests x86_sanity_tests
+> >
+> > To run specific test in a suite:
+> > ./runner.py tests.json x86_sanity_tests/vmx_msrs_test
+> >
+> > To run everything parallely (runs tests inside a suite parallely):
+> > ./runner.py -j 10 tests.json
+> >
+> > To dump output to disk:
+> > ./runner.py -j 10 tests.json -o sample_run
+> >
+> > Sample output (after removing timestamp, process ID, and logging
+> > level columns):
+> >
+> >   ./runner.py tests.json  -j 10 -o sample_run
+> >   PASSED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_no_manual_p=
+rotect
+> >   PASSED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_manual_prot=
+ect
+> >   PASSED: dirty_log_perf_tests/dirty_log_perf_test_max_vcpu_manual_prot=
+ect_random_access
+> >   PASSED: dirty_log_perf_tests/dirty_log_perf_test_max_10_vcpu_hugetlb
+> >   PASSED: x86_sanity_tests/vmx_msrs_test
+> >   SKIPPED: x86_sanity_tests/private_mem_conversions_test
+> >   FAILED: x86_sanity_tests/apic_bus_clock_test
+> >   PASSED: x86_sanity_tests/dirty_log_page_splitting_test
+> >   ---------------------------------------------------------------------=
+-----
+> >   Test runner result:
+> >   1) dirty_log_perf_tests:
+> >      1) PASSED: dirty_log_perf_test_max_vcpu_no_manual_protect
+> >      2) PASSED: dirty_log_perf_test_max_vcpu_manual_protect
+> >      3) PASSED: dirty_log_perf_test_max_vcpu_manual_protect_random_acce=
+ss
+> >      4) PASSED: dirty_log_perf_test_max_10_vcpu_hugetlb
+> >   2) x86_sanity_tests:
+> >      1) PASSED: vmx_msrs_test
+> >      2) SKIPPED: private_mem_conversions_test
+> >      3) FAILED: apic_bus_clock_test
+> >      4) PASSED: dirty_log_page_splitting_test
+> >   ---------------------------------------------------------------------=
+-----
+> >
+> > Directory structure created:
+> >
+> > sample_run/
+> > |-- dirty_log_perf_tests
+> > |   |-- dirty_log_perf_test_max_10_vcpu_hugetlb
+> > |   |   |-- command.stderr
+> > |   |   |-- command.stdout
+> > |   |   |-- setup.stderr
+> > |   |   |-- setup.stdout
+> > |   |   |-- teardown.stderr
+> > |   |   `-- teardown.stdout
+> > |   |-- dirty_log_perf_test_max_vcpu_manual_protect
+> > |   |   |-- command.stderr
+> > |   |   `-- command.stdout
+> > |   |-- dirty_log_perf_test_max_vcpu_manual_protect_random_access
+> > |   |   |-- command.stderr
+> > |   |   `-- command.stdout
+> > |   `-- dirty_log_perf_test_max_vcpu_no_manual_protect
+> > |       |-- command.stderr
+> > |       `-- command.stdout
+> > `-- x86_sanity_tests
+> >     |-- apic_bus_clock_test
+> >     |   |-- command.stderr
+> >     |   `-- command.stdout
+> >     |-- dirty_log_page_splitting_test
+> >     |   |-- command.stderr
+> >     |   |-- command.stdout
+> >     |   |-- setup.stderr
+> >     |   |-- setup.stdout
+> >     |   |-- teardown.stderr
+> >     |   `-- teardown.stdout
+> >     |-- private_mem_conversions_test
+> >     |   |-- command.stderr
+> >     |   `-- command.stdout
+> >     `-- vmx_msrs_test
+> >         |-- command.stderr
+> >         `-- command.stdout
+> >
+> >
+> > Some other features for future:
+> > - Provide "precheck" command option in json, which can filter/skip test=
+s if
+> >   certain conditions are not met.
+> > - Iteration option in the runner. This will allow the same test suites =
+to
+> >   run again.
+> >
+> > Vipin Sharma (1):
+> >   KVM: selftestsi: Create KVM selftests runnner to run interesting test=
+s
+> >
+> >  tools/testing/selftests/kvm/runner.py  | 282 +++++++++++++++++++++++++
+> >  tools/testing/selftests/kvm/tests.json |  60 ++++++
+> >  2 files changed, 342 insertions(+)
+> >  create mode 100755 tools/testing/selftests/kvm/runner.py
+> >  create mode 100644 tools/testing/selftests/kvm/tests.json
+> >
+> >
+> > base-commit: de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed
+> > --
+> > 2.46.0.184.g6999bdac58-goog
+> >
 
-kernel test robot noticed the following build warnings:
+Had an offline discussion with Sean, providing a summary on what we
+discussed (Sean, correct me if something is not aligned from our
+discussion):
 
-[auto build test WARNING on linusw-pinctrl/devel]
-[also build test WARNING on linusw-pinctrl/for-next lee-mfd/for-mfd-next shawnguo/for-next linus/master v6.12-rc5 next-20241101]
-[cannot apply to lee-mfd/for-mfd-fixes]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Andrei-Stefanescu/dt-bindings-mfd-add-support-for-the-NXP-SIUL2-module/20241101-160940
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git devel
-patch link:    https://lore.kernel.org/r/20241101080614.1070819-5-andrei.stefanescu%40oss.nxp.com
-patch subject: [PATCH v5 4/7] pinctrl: s32: convert the driver into an mfd cell
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20241102/202411020514.qOUrieWa-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 639a7ac648f1e50ccd2556e17d401c04f9cce625)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241102/202411020514.qOUrieWa-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411020514.qOUrieWa-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/pinctrl/nxp/pinctrl-s32cc.c:103: warning: Function parameter or struct member 'gpio_configs_lock' not described in 's32_pinctrl'
->> drivers/pinctrl/nxp/pinctrl-s32cc.c:103: warning: Excess struct member 'gpiop_configs_lock' description in 's32_pinctrl'
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for MODVERSIONS
-   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-   Selected by [y]:
-   - RANDSTRUCT_FULL [=y] && (CC_HAS_RANDSTRUCT [=y] || GCC_PLUGINS [=n]) && MODULES [=y]
+We need to have a roadmap for the runner in terms of features we support.
 
 
-vim +103 drivers/pinctrl/nxp/pinctrl-s32cc.c
+Phase 1: Having a basic selftest runner is useful which can:
 
-fd84aaa8173d3f Chester Lin       2023-02-20   82  
-157a51f7e5e81e Andrei Stefanescu 2024-11-01   83  /**
-157a51f7e5e81e Andrei Stefanescu 2024-11-01   84   * struct s32_pinctrl - private driver data
-fd84aaa8173d3f Chester Lin       2023-02-20   85   * @dev: a pointer back to containing device
-fd84aaa8173d3f Chester Lin       2023-02-20   86   * @pctl: a pointer to the pinctrl device structure
-fd84aaa8173d3f Chester Lin       2023-02-20   87   * @regions: reserved memory regions with start/end pin
-fd84aaa8173d3f Chester Lin       2023-02-20   88   * @info: structure containing information about the pin
-fd84aaa8173d3f Chester Lin       2023-02-20   89   * @gpio_configs: Saved configurations for GPIO pins
-fd84aaa8173d3f Chester Lin       2023-02-20   90   * @gpiop_configs_lock: lock for the `gpio_configs` list
-157a51f7e5e81e Andrei Stefanescu 2024-11-01   91   * @saved_context: Configuration saved over system sleep
-fd84aaa8173d3f Chester Lin       2023-02-20   92   */
-fd84aaa8173d3f Chester Lin       2023-02-20   93  struct s32_pinctrl {
-fd84aaa8173d3f Chester Lin       2023-02-20   94  	struct device *dev;
-fd84aaa8173d3f Chester Lin       2023-02-20   95  	struct pinctrl_dev *pctl;
-fd84aaa8173d3f Chester Lin       2023-02-20   96  	struct s32_pinctrl_mem_region *regions;
-fd84aaa8173d3f Chester Lin       2023-02-20   97  	struct s32_pinctrl_soc_info *info;
-fd84aaa8173d3f Chester Lin       2023-02-20   98  	struct list_head gpio_configs;
-fd84aaa8173d3f Chester Lin       2023-02-20   99  	spinlock_t gpio_configs_lock;
-fd84aaa8173d3f Chester Lin       2023-02-20  100  #ifdef CONFIG_PM_SLEEP
-fd84aaa8173d3f Chester Lin       2023-02-20  101  	struct s32_pinctrl_context saved_context;
-fd84aaa8173d3f Chester Lin       2023-02-20  102  #endif
-fd84aaa8173d3f Chester Lin       2023-02-20 @103  };
-fd84aaa8173d3f Chester Lin       2023-02-20  104  
+- Run tests parallely
+- Provide a summary of what passed and failed, or only in case of failure.
+- Dump output which can be easily accessed and parsed.
+- Allow to run with different command line parameters.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Current patch does more than this and can be simplified.
+
+
+Phase 2: Environment setup via runner
+
+Current patch, allows to write "setup" commands at test suite and test
+level in the json config file to setup the environment needed by a
+test to run. This might not be ideal as some settings are exposed
+differently on different platforms.
+
+For example,
+To enable TDP:
+- Intel needs npt=3DY
+- AMD needs ept=3DY
+- ARM always on.
+
+To enable APIC virtualization
+- Intel needs enable_apicv=3DY
+- AMD needs avic=3DY
+
+To enable/disable nested, they both have the same file name "nested"
+in their module params directory which should be changed.
+
+These kinds of settings become more verbose and unnecessary on other
+platforms. Instead, runners should have some programming constructs
+(API, command line options, default) to enable these options in a
+generic way. For example, enable/disable nested can be exposed as a
+command line --enable_nested, then based on the platform, runner can
+update corresponding module param or ignore.
+
+This will easily extend to providing sane configuration on the
+corresponding platforms without lots of hardcoding in JSON. These
+individual constructs will provide a generic view/option to run a KVM
+feature, and under the hood will do things differently based on the
+platform it is running on like arm, x86-intel, x86-amd, s390, etc.
+
+
+Phase 3: Provide collection of interesting configurations
+
+Specific individual constructs can be combined in a meaningful way to
+provide interesting configurations to run on a platform. For example,
+user doesn't need to specify each individual configuration instead,
+some prebuilt configurations can be exposed like
+--stress_test_shadow_mmu, --test_basic_nested
+
+Tests need to handle the environment in which they are running
+gracefully, which many tests already do but not exhaustively. If some
+setting is not provided or set up properly for their execution then
+they should fail/skip accordingly.
+
+Runner will not be responsible to precheck things on tests behalf.
+
+
+Next steps:
+1. Consensus on above phases and features.
+2. Start development.
+
+Thanks,
+Vipin
 
