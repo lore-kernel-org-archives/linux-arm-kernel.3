@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF15E6F06D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69088E6F06C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UjDerGH5FHum9kPtGYCvMVG115zE8TYkVY/882Dg14U=; b=hY1miZ2wMvOxrhvEDqPxvkmyAd
-	2/PMbl4b8DMhJR+kmjwI7qRGqmqLvJhORGhX5qjXAkqOsz9icQZHwlGTEtgHShAMYfwFSGXEHekYS
-	qxPyIKDHJejowcCtRccIyRM4jQtcD9EwCtfSgOT1GejhUCYB4SrgoT6PDBfBXq7s6yu4FHK43rC8s
-	FCfx+o5fxzRcFDZfMmlK9y8P0dBUSvSUdKdXvtMaVW54AL/p/SjNUMm44OIYeFW53Zi9a54oAjMrM
-	1Ouy7IOh9mfuGBKnPNGZVOoDMAPGWEcRRR0fCphqkTQvolxc0YmI3jvopcKE1eJNjRKRoblT0FYUF
-	/g0asUHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bvXXKKirgYBhDMBn+0k209YUUu7Ka/nZ5P08CFtOYmI=; b=42Y9JOuxV8rTVXi2HUNGfZ/WAM
+	h7ffckC7oTfdmoX6y1raPFhtoOuV2UtBipLLyu3WeqjdhPBekg2zvEDrgeYA0rSvvwut7IRyOQ0P/
+	33IpY29pG7eregQQyECGuHEETBKPD/4wjh2xlxke7dKmaPAYS9qLYlu2HoHHGibxp8O0/rzSbBewj
+	MfvDKi959uWzONDQa0QF2hWUbW7Fpmw+T3rd2aLiPz3xgeZkRkGK+Na17qOzdkgtDrmKgyj5c27cO
+	9wlBnJng3ZSkRsSLY0vMCMSnCPVL1Y2ZNhdG/NGD8UC6ljbG7/Gt8aKaCpV3ZQrvM1ynFlWmgzHH+
+	dWB7Uo2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uL8-00000007dXw-0Loc;
-	Fri, 01 Nov 2024 16:17:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t6uMm-00000007dtE-2AOa;
+	Fri, 01 Nov 2024 16:19:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uG7-00000007cd6-42BQ
+	id 1t6uGC-00000007cdh-2zGx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:12:25 +0000
+	Fri, 01 Nov 2024 16:12:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9AA795C4590;
-	Fri,  1 Nov 2024 16:11:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27455C4CECD;
-	Fri,  1 Nov 2024 16:12:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7EFF0A44587;
+	Fri,  1 Nov 2024 16:10:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6598C4CECD;
+	Fri,  1 Nov 2024 16:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730477542;
-	bh=TVuhYAYnXLWMtXGZ18MTvfH6mL7QYNFn42tBocwQErM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=a00E/O/E9aSQJgH5engtiL0O1dYSYV0bRJAsx4iEjEVTMFIYZrFExz5kbWXk2zuYX
-	 a0huvqQknbX9AAQyR6+ddrb6+Hw3kNSnYHRdfXINYJizmTkrVbvuHCFfMqCbT01LXE
-	 iwHEwfUdlCJjypQGnHXGjLoUpZx0awSdaYRTCYikFQYguIUhJSZRuwfdMcE5PbVo2o
-	 VNAAyykejS26AdqCy0RDj0hthQBLoZi3AaUhD37ciNXEoCjCLU8HoGZHQJW99sxWmF
-	 H6buxtiyHqUBYAJG9UuOi/TzGrqPI/bY1LwGi4LuMu/fiBXZA1RAp4B5pokhw2slCd
-	 vEdlSALGNUj5w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t6uG2-008v73-EX;
-	Fri, 01 Nov 2024 16:12:18 +0000
-Date: Fri, 01 Nov 2024 16:12:18 +0000
-Message-ID: <86msij0w7x.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] arm64: Expose ID_AA64ISAR1_EL1.XS to sanitised feature consumers
-In-Reply-To: <ZyT1Tblp624a79CD@arm.com>
-References: <20241031083519.364313-1-maz@kernel.org>
-	<ZyT1Tblp624a79CD@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1730477547;
+	bh=uwXUT5FtHSsLYjY23SN+coyvRK2O8i6XV0K5dlhp3Qs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=dmaX2Nplc9QxCZRRY5Fbnq/PxjXcgLVPzmYLgxlaDO4rna64XDtqCOrxVYr0J5szB
+	 Npqtvz8dRNAd7ViCuk2MLHkGA7eTvnXYkKUaQlwl3qlrx76/ULmaSEoLyntGzpWWPC
+	 KJ7D4NrcX42+sZjs9FbV9YsttI11hzwmwuIP24o8vvdU2uO/EfBI5jRrX0ShKM6SfL
+	 6aEYFNomlrRPUn5PkorX0hSmyFwwDwTPvpOTSbTPA6cUxo7FZT0hr8efh/D4opvx+F
+	 XyqwQvcAxFIennJEMO7aC8eKS25RdXOLLlevMAiDhz7zVQbNc5xd/+eliz609Z2B19
+	 Y2V5d07aSa/Kw==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au, 
+ mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, dmitry.baryshkov@linaro.org, 
+ Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20241023090153.1395220-2-ryan_chen@aspeedtech.com>
+References: <20241023090153.1395220-1-ryan_chen@aspeedtech.com>
+ <20241023090153.1395220-2-ryan_chen@aspeedtech.com>
+Subject: Re: (subset) [PATCH v6 1/3] dt-bindings: mfd: aspeed: support for
+ AST2700
+Message-Id: <173047754439.1930424.6922132618537420144.b4-ty@kernel.org>
+Date: Fri, 01 Nov 2024 16:12:24 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_091224_061775_DC633174 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20241101_091228_832766_59963B12 
+X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +80,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 Nov 2024 15:35:41 +0000,
-Catalin Marinas <catalin.marinas@arm.com> wrote:
+On Wed, 23 Oct 2024 17:01:51 +0800, Ryan Chen wrote:
+> Add reset, clk dt bindings headers, and update compatible
+> support for AST2700 clk, silicon-id in yaml.
 > 
-> On Thu, Oct 31, 2024 at 08:35:19AM +0000, Marc Zyngier wrote:
-> > Despite KVM now being able to deal with XS-tagged TLBIs, we still don't
-> > expose these feature bits to KVM.
-> > 
-> > Plumb in the feature in ID_AA64ISAR1_EL1.
-> > 
-> > Fixes: 0feec7769a63 ("KVM: arm64: nv: Add handling of NXS-flavoured TLBI operations")
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > 
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-> 
-> Happy for this to go in as a fix via the kvm tree but let me know if I
-> should pick it up instead.
 
-No need to merge this urgently, nothing goes badly wrong.
+Applied, thanks!
 
-Thanks,
+[1/3] dt-bindings: mfd: aspeed: support for AST2700
+      commit: 76c6217c31266e800b67a476bba59dfeb9858a90
 
-	M.
+--
+Lee Jones [李琼斯]
 
--- 
-Without deviation from the norm, progress is not possible.
 
