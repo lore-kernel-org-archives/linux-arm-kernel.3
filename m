@@ -4,147 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D64E6B278
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B998E6B278
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 13:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ou58hKRtbuCdZ6nv3zgkZh8JqnndITWAtzdUhM0Jops=; b=hUXUOeUsUEsbdcXB4Y4VpNEoB9
-	vwIkbJZ2+aZQhpOatFWLU9S7MIdNpUj/SyO7Who6FprGzxmg3eYafeyPQcgJl6i/1gVmcPBOQxY1i
-	BuRU6pIZWkLQz/k1BF0gKJDrJqte3f9U65P2z9bu4pyEtIiM/d4xLMaLJOJLiybDlfpobWNW0c/ah
-	6t/7yGE3l2OoSEofiVygzCggZCJdhY1WhGL8C6TaMBaNGnPnW3DZE/FWx6MXEQBzkzu1+5MDhO2bR
-	EESU+jyDBIOo71PNldBudg3wm95C3kU5hUYaofiWxwuInRzf6/fQHRL9SdDjLLmYu20sxxOdhq/VV
-	191/o3OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kLl0nn4nT3v9P/r5lc7I0XM8MyYiLKIrvxIyGcDkCFQ=; b=TLxzyOgSgPaqv5DXckncWJ0Ifn
+	emM16DvifKf5tqHR44DjWgWAxcGa+PRydO2S/hq6u/xQ9eDaZm8W7tFKCekNsiOj7EZ15jzgaGAzF
+	uWBwaThSIIDKeeNTm1FKyJHK+1AwPwXgZBDsqBXX2KgwbnU4HrPl94fiQyRdKSucYOuajEyhcBH/S
+	rnqdZ5fSsBBzbLIsUkaVZc7LrA78z6YN3GNVSSWiBlPXTJwf5CzUQiIjfDWp3Nc/1oXSeXI/4ek0F
+	Exu6sM5Dc9914RUew6hO3d1W7LpdnGdlDAzuPnMuM6TnaIXrpr9cs1GkBzxpja2RMx7Mx8syHJKYA
+	1+rIMprg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rcg-00000007ANd-1rTT;
-	Fri, 01 Nov 2024 13:23:30 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1t6reL-00000007AbD-13My;
+	Fri, 01 Nov 2024 13:25:13 +0000
+Received: from mail-vi1eur02on2072b.outbound.protection.outlook.com ([2a01:111:f403:2607::72b] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6rVc-000000078rh-3w5Y;
-	Fri, 01 Nov 2024 13:16:17 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 1F8C421904;
-	Fri,  1 Nov 2024 13:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730466969; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ou58hKRtbuCdZ6nv3zgkZh8JqnndITWAtzdUhM0Jops=;
-	b=N5qU9HlnxQww7f/jFVhb+TreokcR5nYGBPs56+9P4aTQDjN+8Bj7WlCeMeK1hQt7Idgdjy
-	dGMzu8UM+a7MikJs1jZJWMCT2tamwRgPRLL0qkdCR/Krc+Ai2oh/oZRn7OO4xwEjg+QLRZ
-	tqAkKPYlM66v7AFnS+d/0LJ+lR+zDmw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730466969;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ou58hKRtbuCdZ6nv3zgkZh8JqnndITWAtzdUhM0Jops=;
-	b=3XSEdShcJqvIG1sQ/dEevVFXPGHhuff85A8UEmmR1TQeJjZI/GUAsBTTtjI5fgmxUwn/0X
-	d9WCrmRKk8Cdt6DA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=eVGoFl8R;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="/xubP/1V"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730466968; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ou58hKRtbuCdZ6nv3zgkZh8JqnndITWAtzdUhM0Jops=;
-	b=eVGoFl8REMHsjsVk8icKiA/GmNPwD0v3UZANVctU47p9tPOCUId5poNMhy9vxBv8yGegeG
-	BQBWDD6tdPjXsnRgkh0TLLgiSV9cRlBMxd3dR9ncVHDGYXJ9ikUk/JSZKE647MYeVXamQd
-	hGEX3q1YX642dGiQuo1b8J6pGCyfr54=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730466968;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ou58hKRtbuCdZ6nv3zgkZh8JqnndITWAtzdUhM0Jops=;
-	b=/xubP/1VDB2gEXirWE3+4FHqqexw0vOe8LOC3xbu+FMXVca9L5Gs/BoXFF9desmaE8Zi3R
-	8WEXrDfeG83eEoDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0D370136D9;
-	Fri,  1 Nov 2024 13:16:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id F5hlAJfUJGdgdQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 01 Nov 2024 13:16:07 +0000
-Message-ID: <421d7d37-f368-4eb3-9135-2d547cf590e6@suse.de>
-Date: Fri, 1 Nov 2024 15:15:51 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/10] irqchip: Add Broadcom bcm2712 MSI-X interrupt
- controller
-To: Thomas Gleixner <tglx@linutronix.de>,
- Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
-References: <20241025124515.14066-1-svarbanov@suse.de>
- <20241025124515.14066-4-svarbanov@suse.de> <87ttcw0z6y.ffs@tglx>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <87ttcw0z6y.ffs@tglx>
-Content-Type: text/plain; charset=UTF-8
+	id 1t6rW6-0000000790N-0VGy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Nov 2024 13:16:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rnNbdCqfNk6LWJfmgh50kgiF1B4bf2n3qHEKRCTmNHHzPC/0N431XYrZ1gSGz/7ZlBonxEd13qGtOGy+Aw/nBYVvbazn+87hD4C0bZIiBBHvuniRRxmsz5gsjqlSKX/Wl9RajTtc+y/IGzxqVCtQM1vZxNCLO4iStHp2lW2TXKv77MSN+iQNkUd62jXsquedOhooSXIbrAqYExBI80pzBv0SHkRFigtPmR74D42U7BgcXAI1tLdLfZQwya1zq2YhBRTKRPAJYZHPfgUBqBWzU2fjd+6PKvDxbbt2N1mfaDGUvaxy/d1e+c1TY+sn5ydaaEXRxpWam7BRP2Act06SOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kLl0nn4nT3v9P/r5lc7I0XM8MyYiLKIrvxIyGcDkCFQ=;
+ b=Vvv+hXPYl9eJeUDC1zOTrmDy6FOtjZ2zcnQrLpisLBUQ3v8SdfJX+9fv+j+YXQPupB7xxJ7F+BDwpJWUOpE2b9f/Y1KkSulZy5DhySag1IaHC59l6xoKTmwY0JxZQHUv4vnL1TWKoUt2oVvWh+1wsLPMw279OVeBA2Gor7xY9+PSvRfhaKwVQonGncxkw6HnkZ0n36HC7pvJjm05pYGNJPAqc1impQ5WVL07OkUpp6m1GKKUc8WDqbPHiiMSBl6n5e8seAo3Hz0Smk+6xwq+A6TlFyCSRb6oVEgh1tMHjjwRYavAR0fEIYsaOeHuignDLUTlAwC6uhQaMfrYJcXJiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kLl0nn4nT3v9P/r5lc7I0XM8MyYiLKIrvxIyGcDkCFQ=;
+ b=U6YiNEDM6uANoPqeO4ULSH3u5n3tAKDVaFrl3JDxYpuVDdB4T7XIH5jp88YTrfVfAXe7FXm4ZwTZDYGBwQBNNs5OPkTdt6uauhm/aH4KdVS887kxTXcrlCPj2pzGrPGuw62PhgO3vbKtz5IpaDQcyrFwNGDmA+ImF4LrcHGs8Qs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by GV1PR04MB9149.eurprd04.prod.outlook.com (2603:10a6:150:24::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Fri, 1 Nov
+ 2024 13:16:31 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8093.027; Fri, 1 Nov 2024
+ 13:16:31 +0000
+From: Josua Mayer <josua@solid-run.com>
+Date: Fri, 01 Nov 2024 14:16:20 +0100
+Subject: [PATCH] arm64: dts: ti: k3-am642-hummingboard-t: convert overlay
+ to board dts
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 1F8C421904
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[21];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	DKIM_TRACE(0.00)[suse.de:+];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Message-Id: <20241101-am64-hb-fix-overlay-v1-1-080b98b057b6@solid-run.com>
+X-B4-Tracking: v=1; b=H4sIAKPUJGcC/x2MSQqAMAwAvyI5G0i1rl8RD7VGG3CjBVHEv1s8D
+ sPMA4G9cIA2ecDzKUH2LYJKE7DObDOjjJEho0wrRQrNWmp0A05y4X6yX8yNhc2p0k2liWqI5eE
+ 56v/a9e/7AVRqL0ZlAAAA
+X-Change-ID: 20241101-am64-hb-fix-overlay-5c3074974008
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: FR4P281CA0260.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e8::7) To AM9PR04MB7586.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2d5::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB7586:EE_|GV1PR04MB9149:EE_
+X-MS-Office365-Filtering-Correlation-Id: c01d435e-7832-4762-71bf-08dcfa7766f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Nmx5eG5PdzFMRk00Vm56WlB1SUlsYzZEQk5KZ0drT0t5aWNlaXBsMDlxbVly?=
+ =?utf-8?B?Q3Q2WWJPa1dwNDVJODAzWHQ4aDBDd2JzdHR0MGQ0SUNiaFh6dEJiRGdydGNV?=
+ =?utf-8?B?UTBHNWdGdUZ4eHVGK1RTcURKYXlOUzRQVkl1WnFOYXdHazFwT3ZaL2JlVjJB?=
+ =?utf-8?B?Y1graSt6UVlkb2QvTkdSSWlTZklhUTNsUmtoMW5CRm8wUk5ycGpYUW1zTGlW?=
+ =?utf-8?B?UjZrSVlqTkVqZkNEdHdaR0c5dGZleVNXRWxUNUlyckxlTk1CTDFZV1RJUHc0?=
+ =?utf-8?B?ZnZBbVZtSkUveEtMc05QTTBaVXpDcGR0SEhnNHEwdE9XYXkyanRuT3J4V0xn?=
+ =?utf-8?B?WFFWa2dRV2Qxc0I4VTMvTm1kOFNjK1RzZEk1Z2Y4dWJLbDBZd2prbGFXUERv?=
+ =?utf-8?B?VXlFZWsyOG1wcU05NGZSMzRsMTB3akJqM0o4UENjT3pKVzM0MWc4R3lMUXp4?=
+ =?utf-8?B?emMxS1pWblVpanFXUVVyK1BodFBlV3N1RG84ekw4VExFczlLeVhNbzArbHRY?=
+ =?utf-8?B?SVhwblJSYTk1K2FzdWlIcmc5dmd4N25UWjU4dWxHUlhBcE1IZ0Fpdlg4S3F5?=
+ =?utf-8?B?cCsvT1ZrSnNSOHV6UkNOSHJxbmRlNkZ0a012TVYrSVY5NnFBMmFaT1orUjJ3?=
+ =?utf-8?B?d2Ewd2dJaDVhdjNWd050VHBtaHZYclc3MEkwYk9YZjVvS0hYRTdHNUpXbUw5?=
+ =?utf-8?B?ZXh5NDg3Y0FsQy84NnNnR05qTGZCNEVueDJoRXYwa0R2YU1Db3lFWGJvNEhH?=
+ =?utf-8?B?WjVMdVMrc0V2b2l1T0w5T20zTHIrcjlGd25HMm95M2Y5WHRQTnF0bGdlZVFu?=
+ =?utf-8?B?MmNXR3lBUkpxTnAwbmFicUEvK1E2em8zRWZkQlFVeWJZZ2YrdittMW1uSEdG?=
+ =?utf-8?B?c1kyd3A1M29WUTN2MkFnTXVhUkJORzVZZmxtcVcyZ25FOXlSbzFUTTc3bFRq?=
+ =?utf-8?B?Z1Z5UHEvaDduUlRZZlFFVUtsZjlxY1kwUDNxU1ZMdGhiM1FROC9UYjhXY1k1?=
+ =?utf-8?B?RkVHMFRobW9zdFA2N3JRQ1lTaEdiZDZyZXI2NHlPTjJROExMMnBBS0dUdEtS?=
+ =?utf-8?B?cmtja3h6bDc5em1MOHcvaDBhaWEvWnZmSitEUlVGa1Q5VnVtbFdsaEdZd011?=
+ =?utf-8?B?ZDQ5RDJFZThha2Z3M1NsblZYaGdGenQ3eVBHZmorY3hXTHVrRVg2djgvekt1?=
+ =?utf-8?B?NEdPbVVVeXQ5czNnTkJUWlRYTzVlajRlWHFJdzRHdURydmpiMnRWc0JhNjdV?=
+ =?utf-8?B?alhTYzhGdllFNWpPZ3V2K053OXBXc3NQanoxV0VsblI4Ni9MUEdPTEpRR0Mz?=
+ =?utf-8?B?dU0zb1RPVTV0SmRPKzNEdXpsNys3VE4vRktHSlY5aWNjRGxRUjNMUk9RTmR0?=
+ =?utf-8?B?UE5KampSZkFYNFZMZjhiOURvS0RZb0NJWjl0d0R4TWIwSnJLN2NxN29tRFRa?=
+ =?utf-8?B?alN2QlFPMFlUYkRRV1hWM1B3bC9xeVA1ZzlCSTBidXB4THhxYjdpSkFZWVVl?=
+ =?utf-8?B?dlhjRk92eTBlMyt5QklqdWNYK2ZvUmc3MERuTmhxalVza1NodUIrNm5ZM2gx?=
+ =?utf-8?B?cEUrZ0IvelNxZFNGWTJFWTFIMHd6R1h4WC8vTkRUYWJzS1g5QVF0dzRPSHkx?=
+ =?utf-8?B?cGhmc3VuNVlETnE0Z3pscHFyU3pVZWNQSCs2V1UwdTNtT2FvSFYrT2ZkdXVV?=
+ =?utf-8?B?NzJPVC9nbXYyL1g1Y0w2ZnBwdDBOK2dLQjZISmlZRTJSZEk5YkFXOVd0M1Y3?=
+ =?utf-8?B?R0pJTHR4TVNMQ2tWWjZITGc0ODdEdGszeEVhVXhzTjhVVDNtMnRLYm1MVExE?=
+ =?utf-8?B?VC8rMGV3aVNxYlhRUGRBOFp0TTh4bWg2elZsSFlmVkRHdWN4eC9yMjJ5NXlP?=
+ =?utf-8?Q?mx8h05/SUP1GP?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dEV5YnhRZS9QYnZXOUdSOUl1LzUxZ0V0K1dtMlRXNEtBUmR6Q3N5d0pyUWg3?=
+ =?utf-8?B?M2R3bHJhRG1GOS9mbmxjVlBRb1ZHTC9pYzR1RUdsL0ozZHowWVFWK1NGU1B0?=
+ =?utf-8?B?KzVpRnZOcm43Z3o1R24wQjBVQ0xmTkJhWWRUcTZickZSRnZUcVRpQm9aZDFX?=
+ =?utf-8?B?VHNRSURjb1ZEeVBIeXlDdlZlelp3cXlBaEc3VUttRXE4eVg4TWQzcWdHdDhL?=
+ =?utf-8?B?VXJ5dkxOSDNIYmRlU3JEZ29wTDJBcGl2TFlQbThnTG9mT0V5TUlBdU1iTVAr?=
+ =?utf-8?B?MjdOT0sxVGNvK1NrSVN1TGxOOFpRaFhpYkJhdW5IdTBwZ1VwSTV5YjF0bzQv?=
+ =?utf-8?B?c2hXWHJnMzFFa21tV25ib2R4WFFHL3p0bEIrMGN5OEJ1anFvWlU3SHVBZGln?=
+ =?utf-8?B?dG1VZTFEWXkwV3RGS1Y5OTRzdWtmYTdLSXRpMXcwSFZJYUc5MFNzQVoxY1FS?=
+ =?utf-8?B?YTBaMDlodW8wRDZQUGk3MUNXdHY0UTE0cXVDeENxbERNTWgxOEd6WitSRFhX?=
+ =?utf-8?B?MG9aTzVmZmZ5ZE1VUFZKMGVVb0UyTkU0RDFaQTczNHozWFdReDZxdjEwTGRO?=
+ =?utf-8?B?QldDTkthV3JsZDlvRTVUcjk1UWZhSHVTWU1KVXlLU1ZLenprYkg0WFRvWnZF?=
+ =?utf-8?B?L1E0UlA0MG05cEdKSnJMODQ0QUxBbmdCZHlvMFZobTF0TEtjNzhSb2EvcnRX?=
+ =?utf-8?B?V0x3dm5vcWo1UkU0QXFGTS80dmprWU1CRm9uNXQycmhCSGRvZWZXU2hMb3dn?=
+ =?utf-8?B?R1ZQTXMwN3lOS013WW9pL1RxUVh4bHdPVktmNjJvTCtrb0VUamEzdy9JN2pr?=
+ =?utf-8?B?eDBCdHFiUmZVRk92UitFWnRRb3RQSzFFT3hMaHBwS0tHczdDV1FwQlNBZExw?=
+ =?utf-8?B?anJRenJFM2FTMnhxRGNyZDZTWWpxVTJSTk5HbThlNE5OLzk0K2FhOUN1VVZC?=
+ =?utf-8?B?U09NcFFNeUtEWlhOOTd2VHN2OHVkUFc4a1J5UGpZV3RWbkNFcm1IQWVBOEUr?=
+ =?utf-8?B?WHA5R3JpbTFPeWhnN1cvN1FWVXdoVEhKK3NPanRDTytjN2RhR0gvYU9PSWU0?=
+ =?utf-8?B?S2ZFQmgrTVh6allzMWoxbnkzLzN1QytzamJZdTFRL1I4YVNOZDFhMnUrVWVW?=
+ =?utf-8?B?elhpczZ4aDE2eGI3STNoMnZxTTVIZ2dWZElORmlaNXJvQ0FBZ3NZZkZaVXoy?=
+ =?utf-8?B?R05COVljZ21TS0tad2pEMHpIYkdPdmI1TUJxOWt1bUFrcjhsWlNmdk9YVUti?=
+ =?utf-8?B?TkFYU21ldUJuOU11L3RDQmplWkJvcFNzVC9qSW5yby9ZZkd2eXR3aVJqcUth?=
+ =?utf-8?B?TC9XM3prVFc2VnpHV3BTSXZ4b3lBUkIwZTNRSmFrYlZacUpZQmI0ZVRPWGM2?=
+ =?utf-8?B?RzBkRHRaN0l3SHRQZ0pqTDlHTzNFWjRjbVpFMlNBZDYrdDdhZnB6MTZEVXhp?=
+ =?utf-8?B?d1B2K1NzREpiV1JBOEpkemNwTUp0WEZVeFB4T0IzSnhtUG5mMEQ5VlpnVEhK?=
+ =?utf-8?B?WERoMHNxakl6N0NOZUg4M2hCdWYzbW5hbnkwOC9MS2xIVGM2blFuTkc5SXh0?=
+ =?utf-8?B?M2xBSEd3ekdsOFlJVWc2a05LZVlyK0Z6eGZ1cnEvc1N1eHBwNFJ3NjdxMnJK?=
+ =?utf-8?B?aUEwZlZLbnFPcGJ1ZFhuazREV2VBOEdMK05CUTNmalFWOXQrRXNRTXZhWStz?=
+ =?utf-8?B?N2ZYWHpMWXFKd3IzanpEajJic0VpQ094SEt2OE05UGwvemQ2VlVvTTJnVk1G?=
+ =?utf-8?B?NDVDVkRVYXVlWElYVSsrTHRHK2grTzFBbjdIb1RYUVp2ellYbFVGUjNqaklO?=
+ =?utf-8?B?K214TWYrN1U0V3JrNW42dkR2LzZ2aUF0YmhsTnZpa0krRjlnckYyU25oZEhG?=
+ =?utf-8?B?UURLcktvZnI3WGhaeDdKcjBRR1JFL2ZLdlYxNmNwclp6cko3U1M5dWlBN2Yv?=
+ =?utf-8?B?blFyRU1paTNYUkszc3dUQ2JpY0c4RFFlQ2Z3bkRQOFpaRDZpSktDdGJ6ZDNw?=
+ =?utf-8?B?eTkwK2haa3pHMWpuSENseHNzL0ltOWJNaWk4ZWhRTGxQU3ZUVE91bHhYcVRr?=
+ =?utf-8?B?T0haLzhNTEpMYmpIaHpDY2ZOQU51d042T05FaDNnc2hvWEFFdTkwdTIxQlNn?=
+ =?utf-8?Q?1Cnn7Q+IbaXaj1ed2hkfcxBn+?=
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c01d435e-7832-4762-71bf-08dcfa7766f0
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 13:16:31.6396
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VHzU23gsM+n2brlGxagjffvL3Z8u+UbEuU33c98QnHjI0pksiTO6j3OJPtf1nJi1pTAI7GYYypjx2wRCJch6eg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_061613_171962_19287ED0 
-X-CRM114-Status: GOOD (  28.71  )
+X-CRM114-CacheID: sfid-20241101_061642_215301_C5B90CC7 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,185 +180,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+SolidRun HummingBoard-T has two options for M.2 connector, supporting
+either PCI-E or USB-3.1 Gen 1 - depending on configuration of a mux
+on the serdes lane.
+The required configurations in device-tree were modeled as overlays.
 
-Thank you for the review!
+The USB-3.1 overlay uses /delete-property/ to unset a boolean property
+on the usb controller limiting it to USB-2.0 by default.
+Overlays can not delete a property from the base dtb, therefore this
+overlay is at this time useless.
 
-On 10/28/24 22:06, Thomas Gleixner wrote:
-> On Fri, Oct 25 2024 at 15:45, Stanimir Varbanov wrote:
-> 
->> Add an interrupt controller driver for MSI-X Interrupt Peripheral (MIP)
->> hardware block found in bcm2712. The interrupt controller is used to
->> handle MSI-X interrupts from peripherials behind PCIe endpoints like
->> RP1 south bridge found in RPi5.
->>
->> There are two MIPs on bcm2712, the first has 64 consecutive SPIs
->> assigned to 64 output vectors, and the second has 17 SPIs, but only
->> 8 of them are consecutive starting at the 8th output vector.
-> 
-> This starts to converge nicely. Just a few remaining nitpicks.
-> 
->> +static int mip_alloc_hwirq(struct mip_priv *mip, unsigned int nr_irqs,
->> +			   unsigned int *hwirq)
->> +{
->> +	int bit;
->> +
->> +	spin_lock(&mip->lock);
->> +	bit = bitmap_find_free_region(mip->bitmap, mip->num_msis,
->> +				      ilog2(nr_irqs));
->> +	spin_unlock(&mip->lock);
-> 
-> This should be
-> 
->         scoped_guard(spinlock, &mip->lock)
-> 		bit = bitmap_find_free_region(mip->bitmap, mip->num_msis, ilog2(nr_irqs));
-> 
->> +	if (bit < 0)
->> +		return bit;
->> +
->> +	if (hwirq)
->> +		*hwirq = bit;
-> 
-> But what's the point of this conditional? The only call site hands in a
-> valid pointer, no?
-> 
->> +	return 0;
-> 
-> And therefore the whole thing can be simplified to:
-> 
-> static int mip_alloc_hwirq(struct mip_priv *mip, unsigned int nr_irqs)
-> {
->         guard(spinlock)(&mip_lock);
->         return bitmap_find_free_region(mip->bitmap, mip->num_msis, ilog2(nr_irqs));
-> }
-> 
-> and the callsite becomes:
-> 
->         irq = mip_alloc_hwirq(mip, nr_irqs);
->         if (irq < 0)
->         	return irq;
-> Hmm?
-> 
->> +}
->> +
->> +static void mip_free_hwirq(struct mip_priv *mip, unsigned int hwirq,
->> +			   unsigned int nr_irqs)
->> +{
->> +	spin_lock(&mip->lock);
-> 
-> 	guard(spinlock)(&mip->lock);
+Convert both overlays into full dts by including the base board dts.
+While the pcie overlay was functional, both are converted for a
+consistent user experience when selecting between the two mutually
+exclusive configurations.
 
-Will address the above comments in next version.
+Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Closes: https://lore.kernel.org/linux-devicetree/CAMuHMdXTgpTnJ9U7egC2XjFXXNZ5uiY1O+WxNd6LPJW5Rs5KTw@mail.gmail.com
+Fixes: bbef42084cc1 ("arm64: dts: ti: hummingboard-t: add overlays for m.2 pci-e and usb-3")
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+ arch/arm64/boot/dts/ti/Makefile                            |  4 ----
+ ...gboard-t-pcie.dtso => k3-am642-hummingboard-t-pcie.dts} | 14 ++++++++------
+ ...gboard-t-usb3.dtso => k3-am642-hummingboard-t-usb3.dts} | 13 ++++++++-----
+ 3 files changed, 16 insertions(+), 15 deletions(-)
 
-> 
->> +	bitmap_release_region(mip->bitmap, hwirq, ilog2(nr_irqs));
->> +	spin_unlock(&mip->lock);
->> +}
-> 
->> +	ret = irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, &fwspec);
->> +	if (ret) {
->> +		mip_free_hwirq(mip, irq, nr_irqs);
->> +		return ret;
-> 
->                 goto err_free_hwirq; ?
-> 
->> +	}
->> +
->> +	for (i = 0; i < nr_irqs; i++) {
->> +		irqd = irq_domain_get_irq_data(domain->parent, virq + i);
->> +		irqd->chip->irq_set_type(irqd, IRQ_TYPE_EDGE_RISING);
->> +
->> +		ret = irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
->> +						    &mip_middle_irq_chip, mip);
->> +		if (ret)
->> +			goto err_free;
->> +
->> +		irqd = irq_get_irq_data(virq + i);
->> +		irqd_set_single_target(irqd);
->> +		irqd_set_affinity_on_activate(irqd);
->> +	}
->> +
->> +	return 0;
->> +
->> +err_free:
->> +	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
->> +	mip_free_hwirq(mip, irq, nr_irqs);
->> +	return ret;
->> +}
->> +
->> +static int __init mip_of_msi_init(struct device_node *node,
->> +				  struct device_node *parent)
-> 
-> No line break required here.
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index bcd392c3206e50a0b4082118fd13c3a7a0c1d291..562e6d57bc9919393920afe684a61a8ab58dcc21 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -41,10 +41,6 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-csi2-imx219.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-hdmi-audio.dtbo
+ 
+ # Boards with AM64x SoC
+-k3-am642-hummingboard-t-pcie-dtbs := \
+-	k3-am642-hummingboard-t.dtb k3-am642-hummingboard-t-pcie.dtbo
+-k3-am642-hummingboard-t-usb3-dtbs := \
+-	k3-am642-hummingboard-t.dtb k3-am642-hummingboard-t-usb3.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac-mii.dtbo
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dtso b/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dts
+similarity index 78%
+rename from arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dtso
+rename to arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dts
+index bd9a5caf20da5b7f11266575f69f0f5dcc1a47ae..023b2a6aaa56689f712a6c1ede6ba427d746fe34 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-pcie.dts
+@@ -2,17 +2,19 @@
+ /*
+  * Copyright (C) 2023 Josua Mayer <josua@solid-run.com>
+  *
+- * Overlay for SolidRun AM642 HummingBoard-T to enable PCI-E.
++ * DTS for SolidRun AM642 HummingBoard-T,
++ * running on Cortex A53, with PCI-E.
++ *
+  */
+ 
+-/dts-v1/;
+-/plugin/;
+-
+-#include <dt-bindings/gpio/gpio.h>
+-#include <dt-bindings/phy/phy.h>
++#include "k3-am642-hummingboard-t.dts"
+ 
+ #include "k3-serdes.h"
+ 
++/ {
++	model = "SolidRun AM642 HummingBoard-T with PCI-E";
++};
++
+ &pcie0_rc {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie0_default_pins>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dtso b/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dts
+similarity index 74%
+rename from arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dtso
+rename to arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dts
+index ffcc3bd3c7bc5d47ce9926a95a13af3f61182a2b..ee9bd618f3701047be4ac7502cb70e7d3589ff5d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dts
+@@ -2,16 +2,19 @@
+ /*
+  * Copyright (C) 2023 Josua Mayer <josua@solid-run.com>
+  *
+- * Overlay for SolidRun AM642 HummingBoard-T to enable USB-3.1.
++ * DTS for SolidRun AM642 HummingBoard-T,
++ * running on Cortex A53, with USB-3.1 Gen 1.
++ *
+  */
+ 
+-/dts-v1/;
+-/plugin/;
+-
+-#include <dt-bindings/phy/phy.h>
++#include "k3-am642-hummingboard-t.dts"
+ 
+ #include "k3-serdes.h"
+ 
++/ {
++	model = "SolidRun AM642 HummingBoard-T with USB-3.1 Gen 1";
++};
++
+ &serdes0 {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
 
-OK.
+---
+base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+change-id: 20241101-am64-hb-fix-overlay-5c3074974008
 
-> 
->> +{
->> +	struct platform_device *pdev;
->> +	struct mip_priv *mip;
->> +	int ret;
->> +
->> +	pdev = of_find_device_by_node(node);
->> +	of_node_put(node);
->> +	if (!pdev)
->> +		return -EPROBE_DEFER;
->> +
->> +	mip = kzalloc(sizeof(*mip), GFP_KERNEL);
->> +	if (!mip)
->> +		return -ENOMEM;
->> +
->> +	spin_lock_init(&mip->lock);
->> +	mip->dev = &pdev->dev;
->> +
->> +	ret = mip_parse_dt(mip, node);
->> +	if (ret)
->> +		goto err_priv;
->> +
->> +	mip->base = of_iomap(node, 0);
->> +	if (!mip->base) {
->> +		ret = -ENXIO;
->> +		goto err_priv;
->> +	}
->> +
->> +	mip->bitmap = bitmap_zalloc(mip->num_msis, GFP_KERNEL);
->> +	if (!mip->bitmap) {
->> +		ret = -ENOMEM;
->> +		goto err_base;
->> +	}
->> +
->> +	/*
->> +	 * All MSI-X masked in for the host, masked out for the
->> +	 * VPU, and edge-triggered.
->> +	 */
->> +	writel(0, mip->base + MIP_INT_MASKL_HOST);
->> +	writel(0, mip->base + MIP_INT_MASKH_HOST);
->> +	writel(~0, mip->base + MIP_INT_MASKL_VPU);
->> +	writel(~0, mip->base + MIP_INT_MASKH_VPU);
->> +	writel(~0, mip->base + MIP_INT_CFGL_HOST);
->> +	writel(~0, mip->base + MIP_INT_CFGH_HOST);
-> 
-> What undoes that in case mpi_init_domains() fails? Or is it harmless? I
-> really have no idea what masked in and masked out means here.
+Best regards,
+-- 
+Josua Mayer <josua@solid-run.com>
 
-It should be harmless, but I could move registers initialization in
-mip_init_domains() and fix the comments.
-
-> 
->> +	dev_dbg(&pdev->dev,
->> +		"MIP: MSI-X count: %u, base: %u, offset: %u, msg_addr: %llx\n",
-> 
-> Please move the string up. You have 100 characters width available.
-
-OK.
-
-> 
->> +		mip->num_msis, mip->msi_base, mip->msi_offset, mip->msg_addr);
-> 
-> Thanks,
-> 
->         tglx
-
-regards,
-~Stan
 
