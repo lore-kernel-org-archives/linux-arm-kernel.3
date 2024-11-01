@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B48E6F06E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3940BE6F06E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fK9lIxl5s0kPcApnpULcGz3PPtUGD5qO/HsuObIWX4k=; b=2WZdCqOto4IEP7S+vh9vGe8Pb6
-	KSRjzHR/JxakJWUUeE3vR/9spo3cmocXR7vRCuG/9cgk39Vwu42IZAqZ7oWGAPDLmFPoDkcmDYYt0
-	ZnK/V3HWk/OgBYrF5ENghyGjv0erlhy4rqO80m4JNnTvgmaAwYq78/rjO9gNy64LjYWj9uHDugmQj
-	fiSYiEIJb55rv8rSWWYADSdjkbCvhBetYJV5z7CodLPV99MkVj8B1fYuctEgSzQDiFLKYvwF8Caq+
-	zGL7M2Cv0kymqasWIjraWOH2cQDPCG2ncqfy7AwsoW+PL9saAhrWyS3zqHmjt5Hlqq1xl3J6bvvqQ
-	r5d+apTg==;
+	bh=49fgw3axp1IDyDrO/8mErO1GkkZHK9CcdYm60SQ4MbQ=; b=2rhyk/ahUNFs94UtEmezIhfFw4
+	Rbq9xW/r6bKc/T/6m747P8GyM4d02YSJxc98Abq3C8RltEmGZSAFC3NThCbMNcfe8CX8tdNrvTDPD
+	NK6DuvDIDBLUVkEFAze8LIJtcIbvQOdwqkSXP66LHZ/uQDeBuZZKqy1JhyootLVmXCNegWYiDwTyW
+	vofUXecAl5zM8JlsueubyziXDRl23uPqF4YontVVYLibS1dgiKqaNmiwpitebek0CY7QMbZrF3xcB
+	Ns5wYsNXAhD6pBRkqAp6Wh1wDkmiJEqWeoRwP5Egy22lNWaMxgmPJSN5NIkvVgEN1FJu9N5ziu54Y
+	5OmbGIkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uk6-00000007ilT-1pfp;
-	Fri, 01 Nov 2024 16:43:22 +0000
+	id 1t6ulq-00000007jTM-2Xbz;
+	Fri, 01 Nov 2024 16:45:10 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6ucl-00000007hVG-3zHu
+	id 1t6ue0-00000007hiI-2A88
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:35:49 +0000
+	Fri, 01 Nov 2024 16:37:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 27C465C4C12;
-	Fri,  1 Nov 2024 16:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5961FC4CECD;
-	Fri,  1 Nov 2024 16:35:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 011FB5C4135;
+	Fri,  1 Nov 2024 16:36:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1342DC4CECD;
+	Fri,  1 Nov 2024 16:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730478946;
-	bh=VAe8JaPazApSPoTOUWuTu3lf+OPBhaGqX0zo7n9+08M=;
+	s=k20201202; t=1730479023;
+	bh=QET17fHgUqNbmUw/e9EdVPDP2UwGuQA8tvgZ5/yNPgE=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X1tpwuz/azyd+hEHYQjWyu3g6WzlxirePGr5tCzhPoWJyPcCzmsEvwV5GXsMRiwNa
-	 vlsRjpdYWH3r9cTrFOMjThIeBCPTmSrYRXty9uluBDplvDMsRjzeVBufZIv23P8Py5
-	 B7z70h1jPSyqTn6Og+yxxM/Tsp42XQ3+MjY/4Ls2AIA8SfGIUxy4UOBUr+IYDTPa5V
-	 aVTDYB2GetSTplCXpGubAh0HZbMfrkG/YtEAt2E80CgPtLFf2CYFwUvcnRW7i/BlVU
-	 9+Zvvh0KxeSd6F46d7hxskBtXy5cumZz/EbDo5FuUh1umx64DRth2XtYdUIki3KtSn
-	 RvS3gzWoPPEgg==
-Date: Fri, 1 Nov 2024 16:35:35 +0000
+	b=l14K5SRt1vC7zG+/VORahqbr+H6ulbVRDGBFQqXQrlK65o/ub6oYejiOTlB3PTP+t
+	 ojIvFQAiM6eCZyGzENOs0yMHTr2uO8dWnwfinokslRJsBu9P37TMZnux02xYOlCtzM
+	 EK6rS/bitNuCRQeM04K0w8i1fLTqvY1KCpyTTO2NKLQRnQndxkAEUdekfUn/utuDTd
+	 oOCDKuIEdj4R85KlKTGWq2I0JD6y348/hop0m/AUa2FbOMlj77L8f6dHmIh6//o3Mn
+	 MuOX0BLZg2wZpUTzzIeaMq8bP81cyI1nIOFo50d6vJ288U5hiHbTmy88m3C7SKeuRO
+	 wPHYT0ZSpEvKA==
+Date: Fri, 1 Nov 2024 16:36:51 +0000
 From: Jonathan Cameron <jic23@kernel.org>
 To: Julien Stephan <jstephan@baylibre.com>
 Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
@@ -63,18 +63,18 @@ Cc: Mudit Sharma <muditsharma.info@gmail.com>, Lars-Peter Clausen
  <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
  linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH v2 10/15] iio: imu: bmi323: use bool for event state
-Message-ID: <20241101163535.644a006f@jic23-huawei>
-In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-10-2bcacbb517a2@baylibre.com>
+Subject: Re: [PATCH v2 11/15] iio: imu: st_lsm6dsx: use bool for event state
+Message-ID: <20241101163651.09ca52d4@jic23-huawei>
+In-Reply-To: <20241031-iio-fix-write-event-config-signature-v2-11-2bcacbb517a2@baylibre.com>
 References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
-	<20241031-iio-fix-write-event-config-signature-v2-10-2bcacbb517a2@baylibre.com>
+	<20241031-iio-fix-write-event-config-signature-v2-11-2bcacbb517a2@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_093548_109727_1EF4C9FC 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20241101_093704_646631_98A08A5A 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 16:27:05 +0100
+On Thu, 31 Oct 2024 16:27:06 +0100
 Julien Stephan <jstephan@baylibre.com> wrote:
 
 > Since the write_event_config callback now uses a bool for the state
-> parameter, update the signatures of the functions it calls accordingly.
+> parameter, update the signature of the function it calls accordingly.
 > 
 > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
 Applied.
 > ---
->  drivers/iio/imu/bmi323/bmi323_core.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
+>  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iio/imu/bmi323/bmi323_core.c b/drivers/iio/imu/bmi323/bmi323_core.c
-> index 76a88e1ccc1d89988eb52d6b1be8da0f5005f0e6..161bb1d2e761688dd740635f8a2830e9562d1b59 100644
-> --- a/drivers/iio/imu/bmi323/bmi323_core.c
-> +++ b/drivers/iio/imu/bmi323/bmi323_core.c
-> @@ -467,7 +467,7 @@ static int bmi323_feature_engine_events(struct bmi323_data *data,
->  			    BMI323_FEAT_IO_STATUS_MSK);
+> diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> index caefa15e559b8808051ff1c7f82c3f36c947933c..509e0169dcd54e773540c4e3f1b56e5b737f80c3 100644
+> --- a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
+> @@ -1865,7 +1865,7 @@ static int st_lsm6dsx_write_raw(struct iio_dev *iio_dev,
+>  	return err;
 >  }
 >  
-> -static int bmi323_step_wtrmrk_en(struct bmi323_data *data, int state)
-> +static int bmi323_step_wtrmrk_en(struct bmi323_data *data, bool state)
+> -static int st_lsm6dsx_event_setup(struct st_lsm6dsx_hw *hw, int state)
+> +static int st_lsm6dsx_event_setup(struct st_lsm6dsx_hw *hw, bool state)
 >  {
->  	enum bmi323_irq_pin step_irq;
->  	int ret;
-> @@ -484,7 +484,7 @@ static int bmi323_step_wtrmrk_en(struct bmi323_data *data, int state)
->  	ret = bmi323_update_ext_reg(data, BMI323_STEP_SC1_REG,
->  				    BMI323_STEP_SC1_WTRMRK_MSK,
->  				    FIELD_PREP(BMI323_STEP_SC1_WTRMRK_MSK,
-> -					       state ? 1 : 0));
-> +					       state));
->  	if (ret)
->  		return ret;
->  
-> @@ -506,7 +506,7 @@ static int bmi323_motion_config_reg(enum iio_event_direction dir)
->  }
->  
->  static int bmi323_motion_event_en(struct bmi323_data *data,
-> -				  enum iio_event_direction dir, int state)
-> +				  enum iio_event_direction dir, bool state)
->  {
->  	unsigned int state_value = state ? BMI323_FEAT_XYZ_MSK : 0;
->  	int config, ret, msk, raw, field_value;
-> @@ -570,7 +570,7 @@ static int bmi323_motion_event_en(struct bmi323_data *data,
->  }
->  
->  static int bmi323_tap_event_en(struct bmi323_data *data,
-> -			       enum iio_event_direction dir, int state)
-> +			       enum iio_event_direction dir, bool state)
->  {
->  	enum bmi323_irq_pin tap_irq;
->  	int ret, tap_enabled;
+>  	const struct st_lsm6dsx_reg *reg;
+>  	unsigned int data;
 > 
 
 
