@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854E8D5CC99
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEA6D5CC99
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xLbFvxO9wbFKIlHLG0ze0IRckOOUzPQ/fxFGtuwV3QU=; b=oySW3nO5sKEvMjHd9NNz6lVCnS
-	pG+/VckOwW5BPwt0GlBSbi2G0jLArAH7m4BhHJY6q6Nq+4lteCRqZe5ugeqxIU2kHgpHnbWWJYK+M
-	UXuWdZ8jXu4kNJqiH6z2vzrU0c4lEnpHVijoKf5PaG6TYl/m11grm4wmX/p29lJqhtKVDVdT/f29v
-	X9LDY18PTOqLRnoAl2Za3lc8YUYPHvUOUEIbzhp1btZwbdWut1y4HsDncbWXMVblbQkw1Zcp0cTq6
-	XEkcazkNGYikJ9pndUQBAcyaHKwSBXVQ5a6nds0WEJTYHYtplQ8Jj8IPfocZpuMWxEkjTFViI/mEA
-	wHRUkf8A==;
+	bh=fD3ToTjQf4BqeyTCfHtwZ8RgkZVabkJNf3RDZfdMhXI=; b=y5lqDvyiW5/eku1MLiHVQv6DfE
+	89JxNDyTwXvWsu3e60WpuqWWX3J5OYTG2Zb9jPVJ+Tl/YlcDH2/YMpIamFx0qGrsYP9jbGUpmeEen
+	NaxC9aSPBJIH9sS6hg6DRHPBv7rZBO/syaBCny+cXut6lkp5KpJlw6det6ZXZe6o1No2W8VXVn0ce
+	i7jOFjiz/pih4cj6aUaa88PMlpYezU0QcQjNLHMX4vi/Nd8tl9zvhxgB02PgktfI675Z65o1CFoGi
+	+5H9mkVuVDl/ypHQvzQ1QYAsnYdgeOzbx6rbSr10+5sgc0Sf1s8UdOMEHEf2uB+usdlaP17qmUg46
+	DWhxU//g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6oIx-00000006SbM-3qiu;
-	Fri, 01 Nov 2024 09:50:55 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1t6oPS-00000006TJn-3m8C;
+	Fri, 01 Nov 2024 09:57:39 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6oHD-00000006SDu-3gJR
+	id 1t6oNl-00000006T4Q-3GPv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 09:49:09 +0000
+	Fri, 01 Nov 2024 09:55:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=xLbFvxO9wbFKIlHLG0ze0IRckOOUzPQ/fxFGtuwV3QU=;
-	b=CJ3teuCV74Kij0nIv/QJ78QgPOMCAtiUCCmWMjrqSIiBXombK+q+II3fIjoUxH
-	xz/sn4mCMGD9Vrb8DyrFFn/aQJpZ2qEgO3nsrKwNM/yStUXwHAsOdUqyPHpTa+v8
-	1CSNp8ALf7kvsHnsbwP49vR+/tHhTx85/3YfD7LudL9jk=
+	Content-Type; bh=fD3ToTjQf4BqeyTCfHtwZ8RgkZVabkJNf3RDZfdMhXI=;
+	b=DIUCuVzObRcn55/bgNdO5lV3W+fQPBj8gf7ig2mHznWlQhyJ3tjJ9eypWVMUjg
+	u81wid9DJrVfSV3OV1/KTp7/TLPlhq24KGIFrGYyX+oSI3dO0LRIBBiQlKd79zfi
+	tND3QrQQshxTXoHGVfjxDqhBiySb7WY6DggSQR010gPVw=
 Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCXje77oyRnJPxjAQ--.14016S3;
-	Fri, 01 Nov 2024 17:48:44 +0800 (CST)
-Date: Fri, 1 Nov 2024 17:48:42 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXXy9cpSRnohlpAQ--.37559S3;
+	Fri, 01 Nov 2024 17:54:38 +0800 (CST)
+Date: Fri, 1 Nov 2024 17:54:36 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: alexander.stein@ew.tq-group.com, Rob Herring <robh@kernel.org>,
+To: Bhavin Sharma <bhavin.sharma@siliconsignals.io>
+Cc: shawnguo@kernel.org, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:TQ SYSTEMS BOARD & DRIVER SUPPORT" <linux@ew.tq-group.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: imx8: move samsung,burst-clock-frequency
- to imx8mn and imx8mm mba8mx board file
-Message-ID: <ZySj+lVvO4eBjDjj@dragon>
-References: <20241022220429.1281129-1-Frank.Li@nxp.com>
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Joao Paulo Goncalves <joao.goncalves@toradex.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Mathieu Othacehe <m.othacehe@gmail.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Gregor Herburger <gregor.herburger@ew.tq-group.com>,
+	Parthiban Nallathambi <parthiban@linumiz.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] Add support Boundary Device Nitrogen8MP Universal
+ SMARC Carrier Board
+Message-ID: <ZySlXDDG7jRxl0n9@dragon>
+References: <20241023091231.10050-1-bhavin.sharma@siliconsignals.io>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241022220429.1281129-1-Frank.Li@nxp.com>
-X-CM-TRANSID: Mc8vCgCXje77oyRnJPxjAQ--.14016S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtrW5ZFykAryrAFy5uFW3Wrg_yoWfAFg_CF
-	y7Ww1Dur43AwnrKwnIkrW0k34jk343ZrW3Jr1ftrnFyw43u3ZxAFykt3s5AwnrGF4IgrZr
-	A3yrAas3A3yfKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8k-PUUUUUU==
+In-Reply-To: <20241023091231.10050-1-bhavin.sharma@siliconsignals.io>
+X-CM-TRANSID: Ms8vCgDXXy9cpSRnohlpAQ--.37559S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU4VWlDUUUU
 X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAhqKZWckfBh4iAAAsg
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAhqKZWckfBh4iAABsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_024908_291204_C4CA2731 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20241101_025554_155956_674F401D 
+X-CRM114-Status: UNSURE (   9.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,21 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 22, 2024 at 06:04:29PM -0400, Frank Li wrote:
-> Move 'samsung,burst-clock-frequency' and 'samsung,esc-clock-frequency'
-> properties to i.MX8MN and i.MX8MM mba8mx board file. These properties are
-> not applicable to i.MX8MQ MIPI DSI, which uses the compatible string
-> 'fsl,imx8mq-nwl-dsi'. The properties are only valid for i.MX8MM and i.MX8MN
-> devices with the compatible string 'fsl,imx8mm-mipi-dsim', as described in
-> samsung,mipi-dsim.yaml.
+On Wed, Oct 23, 2024 at 02:41:13PM +0530, Bhavin Sharma wrote:
+> Add initial support for Nitrogen8MP Universal SMARC Carrier Board with
+> Nitrogen8MP SMARC System on Module.
 > 
-> Fix warning:
-> /arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx-lvds-tm070jvhg33.dtb: dsi@30a00000:
->     Unevaluated properties are not allowed ('ports', 'samsung,burst-clock-frequency', 'samsung,esc-clock-frequency' were unexpected)
->         from schema $id: http://devicetree.org/schemas/display/bridge/nwl-dsi.yaml#
+> Change in V2:
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> in patch 1/2:
+>         - Drop Unneeded line
+>         - Correct the indentation
+> 
+> in patch 2/2:
+>         - Add Acked-by tag
+> 
+> CHange in V3:
+> 
+> in patch 1/2:
+> 	- In version 2, I forgot to add the Makefile. Adding it now.
+> 
+> Bhavin Sharma (2):
+>   arm64: dts: imx8mp: Add Boundary Device Nitrogen8MP Universal SMARC
+>     Carrier Board
+>   dt-bindings: arm: fsl: Add Boundary Device Nitrogen8MP Universal SMARC
+>     Carrier Board
 
-Applied, thanks!
+Applied both, thanks!
 
 
