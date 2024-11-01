@@ -4,79 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5A5E6F077
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 18:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BAFE6F075
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 18:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbK3OR6MkbhQkAxcD1MAm2CLr9n3cQ9009meDBFXwss=; b=I7/jGx8KM5U8eYOKF1J6vsaoMQ
-	P3haT5EQ6I57paYnPulY3rejGwda0LEn+L3XBaJFY+mPiY+GB0ZVuLDPa6mD+6ksv9ysitI0hWtG8
-	kyyaTgdIcxZre3000N3WOmKR3ToJo0KVh6b0EJ64HAJOo2NMdikz86c8LAeEBLPmR1GmRZTsW3BMO
-	SdcFPOxT0LPOB/kNP/VxcbY8dFp2Wfy1nJsr8nDsnHXKfXB2x23+kXQHT+Tvdcclykqa1qxmmuUql
-	D7D7ZpZdT4u/CvW42duro4lJXhj+mdr/DTwmfvriIHqCu+j+ykoQzOxBGEGnQjjjrIVMMUZ0qYVxa
-	aHIptdrA==;
+	bh=GIcdzdKZQqdba6Uta1gn3d8YIXgUbVxJ9+C2WrmrYKU=; b=qp2ZYHOPEcaWKrNSbnXDi4eQyb
+	6rLhoMtYQWi5zYZwZHGnPiLUCRAdN0NIDAiAkJhe0+Ebp96UoUdYH3Bapl/W8kHcSBm9xF0dKzeFX
+	yrX994161qj/jEIkLyvTDYr+naw01bo3TXy/tth7Z+Plfwu7Z2mdAOHp9/YgIwJTghTqf/gn0SVLi
+	syIyXHa4ABs4PRoTsAdnGrVd1925hrvt1CmGh4od3FbYBErw1BDLfDPfQdlyEXdv6ocsYnOEqAvT1
+	6DR8RhbIjtMA011lIinDUSSjh6lSLUFbTSvwvK0Ufy51niWpV2MEvfn+j8doeTqOvM9ORiQRx4inS
+	4RlKQn8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vzp-00000007vgX-45t3;
-	Fri, 01 Nov 2024 18:03:41 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1t6w9E-00000007wf9-0rq1;
+	Fri, 01 Nov 2024 18:13:24 +0000
+Received: from mail-db5eur02on20609.outbound.protection.outlook.com ([2a01:111:f403:2608::609] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vy8-00000007vLM-1A8v
+	id 1t6w7Y-00000007wSo-1i3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 18:01:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730484116; x=1762020116;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=L6URiYCoXpopiknFDUGt7k++aqPsAhuBO3pNbeASb0g=;
-  b=TZkm1hA3hCVYpt+UVxmH9WktR/xd7colTomKUrT7K7hzIwUGAncPlxTK
-   lYQgpCcvr0Li3OCHjnrCQkf6AS0p6K3pFGIFIbXPkne5BjwCNhgswtKiO
-   snf6u5abkO0/8M8g0slJS8Ac6MA8t1FwxJDat76EX+QXBI+zXb5q3XPt9
-   q0EdN+gllxRnUUvf0I37BiPwQffF14RSEobM0++BRFK1TEN+uobpZ4LOz
-   V/rG6Ynv60j1zWUD9gWm8NLxtzFsX57NgHvb59VwV2yp/Sk81vPHg4hDF
-   VCBCsxEq9Jo+OITKsTTPcAC2U5AmPx0yDkVPTNYEhQhrtXvzzNCqB2K1k
-   Q==;
-X-CSE-ConnectionGUID: o79IwbrKR2mZQ6mjBsGdWw==
-X-CSE-MsgGUID: gqeYrUn2TkygbQ5sECrczA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11243"; a="17886441"
-X-IronPort-AV: E=Sophos;i="6.11,250,1725346800"; 
-   d="scan'208";a="17886441"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 11:01:56 -0700
-X-CSE-ConnectionGUID: cci1yP8SQi2+tg5zQFYffw==
-X-CSE-MsgGUID: SvnGqoF9T9290lHTWh9Erw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,250,1725346800"; 
-   d="scan'208";a="87852661"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 01 Nov 2024 11:01:53 -0700
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t6vy2-000hrH-1J;
-	Fri, 01 Nov 2024 18:01:50 +0000
-Date: Sat, 2 Nov 2024 02:01:23 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jeremy Linton <jeremy.linton@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	steven.price@arm.com, suzuki.poulose@arm.com,
-	catalin.marinas@arm.com, will@kernel.org, gshan@redhat.com,
-	sami.mujawar@arm.com, linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: Re: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
-Message-ID: <202411020102.mnsnqAiD-lkp@intel.com>
-References: <20241029141114.7207-1-jeremy.linton@arm.com>
-MIME-Version: 1.0
+	Fri, 01 Nov 2024 18:11:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xEbO2Sp3QFW2eIAWfN/Hdhv4joNvJ/Yi4WevfyGm6R6L7gOqgLtaNtYzqqqy2kw0YHAW8gMNolGh6agfCVfqpi0lHGP8OC1AZRfQpNevPTRNDd9s7iy067+l2g0Oc4O+XKq2G5xzdCiPeIy0q08KB3NWvsJwMP+Eb7RzZt/mId1+aVLs5rw9HuDNMkNKXRlWVN/lsVs8Kqk3JvGmIXi4SeVKSZJSQbpF+Hc+n96fZ+BeRLtlkpxkiy9SG0lzoywcjF2TirJo7ay+Hcv3p+btfs3zjjqt9wwVoWJ39EeV8k8S61VL3xxmObUqkRTJmWEtVjTrh8vSx/5kEWE4j9RlUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GIcdzdKZQqdba6Uta1gn3d8YIXgUbVxJ9+C2WrmrYKU=;
+ b=Wm8IRk5cMZ0Tei38SKEoyqCyiFQFzQJMJRy0WFdwgApjWP28M0I1fKNMq1r3hzmkwYWnN0crFpvusOW1KKqp0HSbYCeV2dyvi5UNC6AFGKBwZ22ip3pfVWqkAhOJfQcvnxSKhfZj4dPeirIJBL/yMPJljMx9pvhNQOwUqrq5mCRUtuUYqdzZdI3L3V/7+i186dQcUmilBywUrYBwb8ex5qJQOFIHEKwCP0kjjY2gAgaqe7fLvu45hOpwqc57S9/VYNmHccVJ0szouQpc+d1LcJA4WndWo/AG4XMJNyXAVND6pAYG7CPStd2/GMbTEbUbkRdu+CqBCmELaIWo4Z32ig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GIcdzdKZQqdba6Uta1gn3d8YIXgUbVxJ9+C2WrmrYKU=;
+ b=Bz4+ITo6Nuhi+OEflGsesNDGAGEYDQDGltduV89zpmcbdZfMk8xl9SIq1yxhGUCGb95yr0izCDXfN50hXShRymGWmia20c8NiH9j8ak2IqmGdYTpyG/nV/DPsphXFXIqISV/5x1ou/aEv34LJ9wR1+EBM4zYnfO57IRjOB7NKVgWeQAqDw7pGydSMi2PfgqsJD+E4RD+pyulfkiI0kADWyRdOC2r+GqfQ7mE1mvAMFRTCbxN2366Zi3VWQxpRLXGsfOjoKxRgWpWxnO7DlXa/vuI1XcupbxzxZmSfUJGJxqiS3rEfSE8cwOoXnSLnL8x8M91dBfX1IjvR1r4J8Q59Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM0PR04MB7043.eurprd04.prod.outlook.com (2603:10a6:208:19b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Fri, 1 Nov
+ 2024 18:11:35 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Fri, 1 Nov 2024
+ 18:11:35 +0000
+Date: Fri, 1 Nov 2024 14:11:24 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev
+Subject: Re: [PATCH v5 1/7] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+Message-ID: <ZyUZzGqYIabgCFZ/@lizhi-Precision-Tower-5810>
+References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
+ <20241101080614.1070819-2-andrei.stefanescu@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241029141114.7207-1-jeremy.linton@arm.com>
+In-Reply-To: <20241101080614.1070819-2-andrei.stefanescu@oss.nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0201.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::26) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB7043:EE_
+X-MS-Office365-Filtering-Correlation-Id: d48f9aac-0e40-4e39-98cb-08dcfaa09f5a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t9ajuh1u1wuc7x9WFcaQ5oSEqQYnF0t70BixSQCOsBl2a7j23R5sFGe2J9sb?=
+ =?us-ascii?Q?Gp5LggjqlOwOOWjn4U5l2NXZzjSyLwH/P+ZFCNdxPdpJzVJvn3q8Frz/e/mr?=
+ =?us-ascii?Q?uIZmBws5z7atK9+wXiep7p7wUIJ4D854cg94SqZgzfMBqmwJ/jgd281siAeN?=
+ =?us-ascii?Q?6W9vggqvXL2+5HEAAxhuanLswTroWxx/JD2K+IiaCxCMUbLxjO5DdH3Hl9QI?=
+ =?us-ascii?Q?hYqzLrAIaf9Ll8pxO/stvZziJTvZDrrs/S3HD2n4uFwVr3z4nFdfEmGlKqSq?=
+ =?us-ascii?Q?tX5qmrsGF4rTu46KxGjSyxRgqlkKZ15HRSZdmGvSGnO3hLaaN5ixrAlrcYjm?=
+ =?us-ascii?Q?rDTD5CaMvgWxEKe/cWVbqOWS3rykxHBuQWH0VeIXBcH6VTRsfiW0kSmSzzze?=
+ =?us-ascii?Q?Eg+KmgW8cYw9297AjOdlbCtvXjtEOxY9+LeibG852CHU1bK2ZQn4WYnbAQCV?=
+ =?us-ascii?Q?TN3ui2TawXXnmmFyNl1z4hg6+rWfiW3LsSBWayTVk4ZaMFJ1W0Kq8W26TDx6?=
+ =?us-ascii?Q?g6WqlvcwfZdCCGnKwQzfQR6FaqJBWJgZ7PPNbhVIJR5i3M9TyQQD2mKxjBt9?=
+ =?us-ascii?Q?UMRIIvZ7Ko3IpleGSn6D9YNriwhRblSYgslXPnXdNJZi/DZEpS9tGNjo8Q2r?=
+ =?us-ascii?Q?6Hyx6KZigeLqOPB0fo3LTmT3IUSMGsMOPMObd4c0QpxzPXG/FqlbahDT3L2N?=
+ =?us-ascii?Q?i916n8FzOCiY33AyvMTtMP1Rn1GRBiQcqPkSqnon+wEY4QhjPCo1Cec4uAWt?=
+ =?us-ascii?Q?lpBwOVxnTjtmFEruiuo18Rv4D/7VdX86zIRgN1v66/8a7HxstEQgv7cujE6Q?=
+ =?us-ascii?Q?TbWnK1evhcWEW377brwnOHYE8K4uJTaYCWpjfDkNlqKo6Thwgt5sVcOlfKY+?=
+ =?us-ascii?Q?esbl64rOpK+7y0ssOxbUCJUCxwfnEVE+u0dl1kmWg84IJYXbr+4+SxITXkbU?=
+ =?us-ascii?Q?J44mLqn7VNYekiwIifrMVXyCOuUyP6ZO7WgCVP6Fmvzwwgwjct1ikghLp/7I?=
+ =?us-ascii?Q?vu6yBlJh2ZxPaa/B9wky9VxJ2FcjfWfu+7DZbiDk9shP38V73x6bmWB2m+VQ?=
+ =?us-ascii?Q?clqlOAe87IyYggY180l7UrvsByok5hQAADoHqHmsIHyfIKMjjMkKb0rZRT9Z?=
+ =?us-ascii?Q?nkpsRFK24M6ZpxFRBkvR2w4wWobEkQiuVCleU+vLFGH7fGX6+T/tEtbpBry2?=
+ =?us-ascii?Q?j9OIMIGxm4udH2dM8/h0fVwf3ry61flNvMz4Br0sdYZy+kgbKNpwewv6hJfK?=
+ =?us-ascii?Q?qBaj0mvZfAIz+IlXJTQrL4si8dtQ6/OSecJF6DizmdFyJy5VrqNuS2ZQY5HR?=
+ =?us-ascii?Q?IvxFkM1XZkvXDmPby526kovK?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3O6NYvJEps+JCdolm8M2XqT1db65ksexz7rp9q/r5W5HrH56W74ux4Ewodax?=
+ =?us-ascii?Q?GV4uL/qLRP4naD6bEylJUO/lTxC5Mg353BvOnqvQzcLAOF1yWs8qKOJ622/e?=
+ =?us-ascii?Q?RTI8sB02Vxv3Z7cP/Rpm4Ym3pklYXkWXJumRn0E1kUM06Ra+GQQ+pAJh5SAU?=
+ =?us-ascii?Q?SLPTYm13m7Knzk9zHSSoCjpyplrtf16wJr/j3yR8fzdafdfvTYXd3sTdiizT?=
+ =?us-ascii?Q?TiNiH9qShuyIRwbTyES8e1951fthyqcpi302dS4uFqx/CZLEM6NDqltZ3qts?=
+ =?us-ascii?Q?Fuw4h/9mGyEO5PonbzSt1lK4q+aNZ14KKelaJwBsVGLVz+dZvlgA7mqw9IKo?=
+ =?us-ascii?Q?yFjvMEu0anaeEIyMGq27jOINAqnZUbhjJFVq3VwgbH6KpLcs70Ji7DHynPyP?=
+ =?us-ascii?Q?YnCrkIXS47j6yM75vjx7XMO3mZKl8Cx671ciHIP+za5Sb1v1fzFZxoywVPIZ?=
+ =?us-ascii?Q?urAG+yR2VQNpO6YZwWEMZouvpONtKH1V9JgzyDs05c8j1bptxglLYE2dRgXW?=
+ =?us-ascii?Q?jFulWgWtxqXYGbMSwYRVgqHMcAeXSH67lFjsaQ4W4XOUCqpONDNxRWFeTrfy?=
+ =?us-ascii?Q?bnjSzAvJW/HJeIl9Y7aoWxVcJryAte/ysh1bwZetPjjiDZTqfjs3CczhfCKn?=
+ =?us-ascii?Q?AvTkvTz4DH8LDnoLjIrd5LtwOp1cjPuHWQkqkR8Cst+yBl2ZFfcWIEtUifls?=
+ =?us-ascii?Q?3NHYC7oZQmPNDMUMiHOL9RAhhCARZ4HIvsOZgn17cb7qXa+HzuZIEdF0N9RF?=
+ =?us-ascii?Q?Sj2EpSwx5c5DmM1enWGDvpMnCmrmj7Vp8U2V31rpnhPz3g+Bcr4hBxqj1b6R?=
+ =?us-ascii?Q?sUA+2ztE4ABHC2yq6R1ZCI2ZoIz40XPHbKmn5FnxbFLqOehng9C/wPsGb6BC?=
+ =?us-ascii?Q?i741SnPiX3n4sZGaxUFYWmpw7opmnImLwDeYa1KZAPrxHTlRJ/xQ8ABiwR5s?=
+ =?us-ascii?Q?vo6iwhPZVjb8zWgkiJRDLKYaldrqMqgmV4EH9b1AMolOcc4OMjWNPAWsMtRE?=
+ =?us-ascii?Q?PfySAKCwsiHvs+iOSSkA7BlyRguyqobrMyDav+ChMathzbk0R7NkFBojjArm?=
+ =?us-ascii?Q?xPa+0Q+ge6R0zav2MAEesB7M1tXB02JrYpQewlXFGYW8TB9Ok6v/ryVxH2cH?=
+ =?us-ascii?Q?JQbBI4M2a/xmmHKlLupo0rI/rHeOrbfTz8YNoDlhas5c0XosiemhcZZMOuon?=
+ =?us-ascii?Q?XOY+1WlbTlkxBYIYAsCzSFFAhfYShhvAoZWUuiFwj4zms+3dGaoLYIIz2bWX?=
+ =?us-ascii?Q?tl2CQSoY8PeC4XuVQy3OWAAI/dVk6YoC+Xk7ZKlu4n85CjdWQ1YOrMdXYlbG?=
+ =?us-ascii?Q?TaOeH/p8luEPSvx2U80E9m4HYW3p+WbbqAyz9lYOhgtnQx75ARLPXCuSMhZo?=
+ =?us-ascii?Q?3uyZnrxTDfWSPSjzC+B0sf++8HU8qxcYyjyDBd0UR7nXtsOpdQfcqAs5m8Sv?=
+ =?us-ascii?Q?32S8gTtUi2TUJd0UdJsS6FUOFqEatjUaVAzCqt6PeAyoRB/pDnFAaR6YsK5I?=
+ =?us-ascii?Q?JnCo2v8T0ToB8/Er07VJOBf15J7h3LsKCJhVRXdNytxFQKRpuoDrhsbFW0wc?=
+ =?us-ascii?Q?sVveaz852DoxaCtMLrx89mp6NZgNc32bqdypJR7c?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d48f9aac-0e40-4e39-98cb-08dcfaa09f5a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 18:11:35.6328
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /kiwPxR6herOZraaj9lvBNVZfCMjQ14fjMhkL2WKwEQN2OX10WFCd1grcMMirUA2SRwsSzDz4y10a3CmcWjXBw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_110156_348382_B006B062 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20241101_111140_631768_8ABCBB4C 
+X-CRM114-Status: GOOD (  27.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +175,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jeremy,
+On Fri, Nov 01, 2024 at 10:06:07AM +0200, Andrei Stefanescu wrote:
+> Add the dt-bindings for the NXP SIUL2 module which is a multi
+> function device. It can export information about the SoC, configure
+> the pinmux&pinconf for pins and it is also a GPIO controller with
+> interrupt capability.
+>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> ---
+>  .../devicetree/bindings/mfd/nxp,siul2.yaml    | 191 ++++++++++++++++++
+>  1 file changed, 191 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+> new file mode 100644
+> index 000000000000..141ec1219821
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+> @@ -0,0 +1,191 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright 2024 NXP
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/nxp,siul2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: System Integration Unit Lite2 (SIUL2)
+> +
+> +maintainers:
+> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> +
+> +description: |
+> +  SIUL2 is a hardware block which implements pinmuxing,
+> +  pinconf, GPIOs (some with interrupt capability) and
+> +  registers which contain information about the SoC.
+> +  There are generally two SIUL2 modules whose functionality
+> +  is grouped together. For example interrupt configuration
+> +  registers are part of SIUL2_1 even though interrupts are
+> +  also available for SIUL2_0 pins.
+> +
+> +  The following register types are exported by SIUL2:
+> +    - MIDR (MCU ID Register) - information related to the SoC
+> +    - interrupt configuration registers
+> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
+> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
+> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
+> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
+> +
+> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
+> +  16bit wide.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - nxp,s32g2-siul2
+> +      - nxp,s32g3-siul2
+> +
+> +  reg:
+> +    items:
+> +      - description: SIUL2_0 module memory
+> +      - description: SIUL2_1 module memory
 
-kernel test robot noticed the following build warnings:
+description have not provide more informaiton.
+maxItems: 2 should be enough here.
 
-[auto build test WARNING on arm64/for-next/core]
-[also build test WARNING on next-20241101]
-[cannot apply to kvmarm/next soc/for-next linus/master arm/for-next arm/fixes v6.12-rc5]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> +
+> +  reg-names:
+> +    items:
+> +      - const: siul20
+> +      - const: siul21
+> +
+> +  gpio-controller: true
+> +
+> +  '#gpio-cells':
+> +    const: 2
+> +
+> +  gpio-ranges:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  gpio-reserved-ranges:
+> +    minItems: 2
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 2
+> +
+> +  nvmem-layout:
+> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
+> +    description:
+> +      This container may reference an NVMEM layout parser.
+> +
+> +patternProperties:
+> +  '-hog(-[0-9]+)?$':
+> +    required:
+> +      - gpio-hog
+> +
+> +  '-pins$':
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      '-grp[0-9]$':
+> +        type: object
+> +        allOf:
+> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +        description:
+> +          Pinctrl node's client devices specify pin muxes using subnodes,
+> +          which in turn use the standard properties below.
+> +
+> +        properties:
+> +          bias-disable: true
+> +          bias-high-impedance: true
+> +          bias-pull-up: true
+> +          bias-pull-down: true
+> +          drive-open-drain: true
+> +          input-enable: true
+> +          output-enable: true
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jeremy-Linton/arm64-rsi-Add-automatic-arm-cca-guest-module-loading/20241029-221213
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20241029141114.7207-1-jeremy.linton%40arm.com
-patch subject: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
-config: arm64-randconfig-002-20241101 (https://download.01.org/0day-ci/archive/20241102/202411020102.mnsnqAiD-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 639a7ac648f1e50ccd2556e17d401c04f9cce625)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241102/202411020102.mnsnqAiD-lkp@intel.com/reproduce)
+suppose needn't such common property, if use
+	unevaluatedProperties: false
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411020102.mnsnqAiD-lkp@intel.com/
+> +
+> +          pinmux:
+> +            description: |
 
-All warnings (new ones prefixed by >>):
+needn't "|" here
 
->> drivers/virt/coco/arm-cca-guest/arm-cca-guest.c:223:40: warning: unused variable 'arm_cca_match' [-Wunused-const-variable]
-     223 | static const struct platform_device_id arm_cca_match[] = {
-         |                                        ^~~~~~~~~~~~~
-   1 warning generated.
+> +              An integer array for representing pinmux configurations of
+> +              a device. Each integer consists of a PIN_ID and a 4-bit
+> +              selected signal source(SSS) as IOMUX setting, which is
+> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+> +
+> +          slew-rate:
+> +            description: Supported slew rate based on Fmax values (MHz)
+> +            enum: [83, 133, 150, 166, 208]
+> +
+> +        additionalProperties: false
 
+It should be unevaluatedProperties: false because there $ref.
 
-vim +/arm_cca_match +223 drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - gpio-ranges
+> +  - gpio-reserved-ranges
+> +  - interrupts
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    siul2: siul2@4009c000 {
 
-   222	
- > 223	static const struct platform_device_id arm_cca_match[] = {
-   224		{ ARMV9_RSI_PDEV_NAME, 0},
-   225		{ }
-   226	};
-   227	
+needn't label siul2.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +      compatible = "nxp,s32g2-siul2";
+> +      reg = <0x4009c000 0x179c>,
+> +            <0x44010000 0x17b0>;
+> +      reg-names = "siul20", "siul21";
+> +      gpio-controller;
+> +      #gpio-cells = <2>;
+> +      gpio-ranges = <&siul2 0 0 102>, <&siul2 112 112 79>;
+> +      gpio-reserved-ranges = <102 10>, <123 21>;
+> +      interrupt-controller;
+> +      #interrupt-cells = <2>;
+> +      interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +      jtag_pins: jtag-pins {
+> +        jtag-grp0 {
+> +          pinmux = <0x0>;
+> +          input-enable;
+> +          bias-pull-up;
+> +          slew-rate = <166>;
+> +        };
+> +
+> +        jtag-grp1 {
+> +          pinmux = <0x11>;
+> +          slew-rate = <166>;
+> +        };
+
+one example should be enough.
+
+> +
+> +        jtag-grp2 {
+> +          pinmux = <0x40>;
+> +          input-enable;
+> +          bias-pull-down;
+> +          slew-rate = <166>;
+> +        };
+> +
+> +        jtag-grp3 {
+> +          pinmux = <0x23c0>,
+> +                   <0x23d0>,
+> +                   <0x2320>;
+> +        };
+> +
+> +        jtag-grp4 {
+> +          pinmux = <0x51>;
+> +          input-enable;
+> +          bias-pull-up;
+> +          slew-rate = <166>;
+> +        };
+> +      };
+> +
+> +      nvmem-layout {
+> +        compatible = "fixed-layout";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +
+> +        soc-major@0 {
+> +          reg = <0 0x4>;
+> +        };
+> +      };
+> +    };
+> +...
+> --
+> 2.45.2
+>
 
