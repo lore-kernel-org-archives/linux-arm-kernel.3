@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1EAE6B246
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57ED1E6B245
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBhhEiomKrzvqxGLGcDjM350Ad9Z2r+Ry5z4X3rrDy8=; b=pas1mC+IaBWzibMO7bOAZNKV/K
-	xlQP8gIzLggxDo5d2ObZrS9L5v3XZnzkrqsOGedGjkIVXUwQFhlxlIPs92xrdUM1NpH4BqD5zaxVT
-	GQ9mFl9OnZQ1DDNBy2BDv5ydkEcO9nE3nEJcaM99JScxPygwf0z6upHrosly+L8TKZpUakVVbIK0v
-	0Np7AjKZBbEd0WkuieJjoFmQOcmHD3CpNXsQ+Vrn+Pxetzd/jbNP0ScvovM9jymMBPOE9hy5EePwx
-	r/65TOmLDgK4uFGWHB43C7VPP13+Ur3+3T84cv8PLvbZnV04d2s+8EUwlU+1sK5rZsEWuFknED1/p
-	Botq2hUg==;
+	bh=YmSTqBtY8i0PV0/oOuK2+7GAOUhp/cEFMitg8aJfC1I=; b=MinKY43Gk5823Z1TjJnJ2ZmBSG
+	jieBgpsjKaCe+q+2NEdqTvQn7b/gJHQdbgKUq7BMniQJyWkmJ3gM/GMS3dodCTLj//+inCw/Q8VE2
+	c+jTnL1t6qx4TB3XT+3ancF6g6ykWTn+a9Y4ozuf8ECdgp4KuSLpBzD/3ya0q8pDbz0Hdqmmc1paB
+	Rh/bl4hLD0nTrMm4jooS9XH3HEJs5uu70bBQlBvnMx89eqNYmoizc2J/VBx4jJzUVDulUPxapPJwE
+	/iFm55d98UNSuPgz8/HvaDvMAnkjFXO7dBCJllUJ9PtrhjgNQRgvnlRtwLcEiex/lzNIyUzJHhwaq
+	cWUp19IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qDO-00000006oXv-0UoD;
-	Fri, 01 Nov 2024 11:53:18 +0000
+	id 1t6qF1-00000006ott-1DoY;
+	Fri, 01 Nov 2024 11:54:59 +0000
 Received: from mail-m16.yeah.net ([1.95.21.15])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6q6t-00000006nTM-2mrj
+	id 1t6qCt-00000006oVt-2KKq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:46:37 +0000
+	Fri, 01 Nov 2024 11:52:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=vBhhEiomKrzvqxGLGcDjM350Ad9Z2r+Ry5z4X3rrDy8=;
-	b=KJKFw353fhDs710pbkq9vTdnMRsejfZ5iqwWlIWRjb1RcZwxk4IfCUPm3QLqFA
-	752EO89ExgeAZ0rHV2XEe2vHdu5s414AXZpsn7MoRT+oXfuVomORhj5HijuR7GXq
-	pj/6wl0Zs9EUHvikIXj9YKlsYf1DHuQUcihnccmjbyz3Q=
+	Content-Type; bh=YmSTqBtY8i0PV0/oOuK2+7GAOUhp/cEFMitg8aJfC1I=;
+	b=Khd5SvqzK4rtnwdSVspx1OZJIDfgoHn0uXLi2VrZvWn1NQHe+VltzzSGFdGFwX
+	KMTs+S9syWRr9k9cmpgf0VHlQQgQf9QmPe3t1VbtD7G0ejwSS2jQ5Tl50BhBYl5M
+	5qIGCZx2vvT8H6OO4nQ/NEZknXoT9AT0Olnn0eMgU/MWo=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgBX8YiMvyRnpAFrAQ--.14187S3;
-	Fri, 01 Nov 2024 19:46:22 +0800 (CST)
-Date: Fri, 1 Nov 2024 19:46:20 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDHn4XewCRn1RZrAQ--.14133S3;
+	Fri, 01 Nov 2024 19:51:59 +0800 (CST)
+Date: Fri, 1 Nov 2024 19:51:57 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: imx8mq-librem5: remove undocument
- property 'extcon' for usb-pd@3f
-Message-ID: <ZyS/jGUf2C2VlJ4J@dragon>
-References: <20241023220252.1392585-1-Frank.Li@nxp.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: imx8mn-bsh-smm-s2/pro: add simple-framebuffer
+Message-ID: <ZyTA3WLJ36ZAQyDN@dragon>
+References: <20241024102800.3481574-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241023220252.1392585-1-Frank.Li@nxp.com>
-X-CM-TRANSID: Ms8vCgBX8YiMvyRnpAFrAQ--.14187S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWruryDuw43uFyfJrWkZr4rAFb_yoWkJFb_AF
-	4xuw4rJrWrAFWIgas5tw4kZ3W2grWUC34ftr1rXr4kGryav398Ca97Wr4rGrn8GFWFkrZ8
-	ArZxXF15AryYkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8voGJUUUUU==
+In-Reply-To: <20241024102800.3481574-1-dario.binacchi@amarulasolutions.com>
+X-CM-TRANSID: Ms8vCgDHn4XewCRn1RZrAQ--.14133S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7urWxGFW7JF4rCrWrZw4rAFb_yoW8Zr15pa
+	4DGF1rWrs2vw40k3s0vF4Iqrn5t3yDXF129FWfW342kwsayFySgw1xKrsrW3Z0vr4kXw4I
+	kF13Wr1fKrWYqaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jYc_fUUUUU=
 X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhWKZWckdPvVbQAAsc
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCweKZWcks1IjcgAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_044636_078792_4BA7E338 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20241101_045247_986657_B3E896B2 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Copy Sebastian for comment if any.
+On Thu, Oct 24, 2024 at 12:27:56PM +0200, Dario Binacchi wrote:
+> Add a simple-framebuffer node for U-Boot to further fill and activate.
+> 
+> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+>  .../freescale/imx8mn-bsh-smm-s2-display.dtsi  | 28 +++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
+> index 7675583a6b67..3d670534a714 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-display.dtsi
+> @@ -4,6 +4,34 @@
+>   */
+>  
+>  / {
+> +	chosen {
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		framebuffer-panel0 {
+> +			compatible = "simple-framebuffer";
+> +			clocks = <&clk IMX8MN_CLK_DISP_PIXEL_ROOT>, /* lcdif */
+> +				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
+> +				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>,
+> +				 <&clk IMX8MN_VIDEO_PLL1>,
+> +				 <&clk IMX8MN_CLK_DISP_AXI_ROOT>, /* pgc_dispmix */
+> +				 <&clk IMX8MN_CLK_DISP_APB_ROOT>,
+> +				 <&clk IMX8MN_CLK_DISP_AXI>,
+> +				 <&clk IMX8MN_CLK_DISP_APB>,
+> +				 <&clk IMX8MN_SYS_PLL2_1000M>,
+> +				 <&clk IMX8MN_SYS_PLL1_800M>,
+> +				 <&clk IMX8MN_CLK_DSI_CORE>, /* mipi_disi */
+> +				 <&clk IMX8MN_CLK_DSI_PHY_REF>;
+> +
+
+Unneeded newline.
+
+I dropped it and applied the patch.
 
 Shawn
 
-On Wed, Oct 23, 2024 at 06:02:52PM -0400, Frank Li wrote:
-> Remove undocment property 'extcon' for usb-pd@3f to fix below CHECK_DTBS
-> warnings:
-> arch/arm64/boot/dts/freescale/imx8mq-librem5-r2.dtb: usb-pd@3f: 'extcon' does not match any of the regexes: 'pinctrl-[0-9]+'
->         from schema $id: http://devicetree.org/schemas/usb/ti,tps6598x.yaml#
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> index 1b39514d5c12a..61bdb43dec31d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> @@ -794,7 +794,6 @@ typec_pd: usb-pd@3f {
->  		interrupt-parent = <&gpio1>;
->  		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
->  		interrupt-names = "irq";
-> -		extcon = <&usb3_phy0>;
->  		wakeup-source;
->  
->  		connector {
+> +			power-domains = <&disp_blk_ctrl IMX8MN_DISPBLK_PD_LCDIF>,
+> +					<&disp_blk_ctrl IMX8MN_DISPBLK_PD_MIPI_DSI>;
+> +			dvdd-supply = <&reg_3v3_dvdd>;
+> +			avdd-supply = <&reg_v3v3_avdd>;
+> +			status = "disabled";
+> +		};
+> +	};
+> +
+>  	backlight: backlight {
+>  		compatible = "pwm-backlight";
+>  		pwms = <&pwm1 0 700000 0>;	/* 700000 ns = 1337Hz */
 > -- 
-> 2.34.1
+> 2.43.0
 > 
 
 
