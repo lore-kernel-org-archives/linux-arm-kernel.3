@@ -4,178 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3424FE6B253
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E37E6B24D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+66/6y10LCAre22xBpVr/OzSzuhP5MFDiEeOezBd0s=; b=ENHc/AbjKTam+rVNHy+fdMLxrx
-	GjrhZF/PrEJ25feqAHeqk361Wii91j6AzgDhUB1UYSA5/t47KPMLZXZ9d3UxPoTQ23C+OgAZJG+K7
-	qjj0CFo7oNef1sUMIt3xkUYFZkwTYTsozb7/T1pxuskqtsTXgslf/x74n7qxrzRor5lP9d3PqLd88
-	BlFwEPDwzwJFJqM50hkgfQ+jroNoUijsQSSP8Dku6MZa6u90om11jvbbLJJffd3w062Ow+yN5LoKp
-	Rfi/WAl4N9PTPlv1KfudXLOjLT7pEClvlCpbCALAuXu7UoBHeH5TaXVkS1zg7Ke9SKyUrrkoE6Hqw
-	4V4fo81A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m9/PRbACgMjhfSuZtez5+9BbrxC/xLDoQd5MuqmxU2A=; b=bDfapnUwXGfLHYlNYV4JhkiDQw
+	6SPX3g3iTgyRlbWWGPfZo9rtraL1kJJ6iwtG/id2POIZoG41csYNPa+09H0fz/7PHnd9UvGRCviGZ
+	F1fdos+oNoMRS2G0tg4z4+1OpN+9FKb/7ueKrhacIKlcorSiuWx4NURFASBM3TwNFzecEsHA+89Pb
+	v/MDRm2Cm6JZxm589Y7i2iB0cSiz+jhJdvJBFXKN0cBjHYCdl0FWM6Y0cdLyjvkQwDQhAJi++25C1
+	aebUCk3a/kTqq+M7rABX1ASf0t/c7oCu7qcdNK7dMrmcdXcvvFFaMz+OcwygSCz7wFF2r9LO86DJ5
+	GX9f13IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qs3-000000073Ox-2zYv;
-	Fri, 01 Nov 2024 12:35:19 +0000
-Received: from mail-db8eur05on2062d.outbound.protection.outlook.com ([2a01:111:f403:2614::62d] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t6qsM-000000073bA-2gO9;
+	Fri, 01 Nov 2024 12:35:38 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qUb-00000006twc-3Ons
+	id 1t6qVi-00000006uLm-1gp2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 12:11:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IeCfZQDAV1AKY8nzb3ncS7HInO/zs2FWJO8SIVD+GaJjbiegN5ItxCDt3cPy795rgO/jQSqD+m+vJa/JNbub03XerZDj0DQjqmcjSKU3GkVIrBzmxFqZTLlh+LewQSPdN4MevtmN97uTnxOGnGVK1SYOEevopNtQxMgaTHeIfopC58vtvrH+N+ReMIcBazl1YxgeKNCusPb7o8GaJWch2s3grZTo2ZalNxseVy0BX24vmXK961umDiiVjdCGDr86TV95rxegLYx1AiDwghWEXBufNqVqTIcACk1uteVhaHrOU9GEBfhSqK1MftWZHi7UywC++i0WJma//5Tds1rXUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x+66/6y10LCAre22xBpVr/OzSzuhP5MFDiEeOezBd0s=;
- b=YW4rEaO1Cxxhj6qO8cuDaPBkiQzz93NpmgJ/fL26FtSPOY4qaTOUtqTcetR4G2RtON9QFuo73ntoxfHmiDrGXhdmI/rl7vVJdhA864wb5Y5mwX6+9ZD/jbsZzNI7FzvJlENL79sth+E+2rr5qN4f8CKjvqJI7mCNUxAcEb9VKgNEZxycGpfZmpiS2TGQS23uTAa7/eY4BY3VZV5lTjRNKL4MzbMA29M06bjKGS+CX0LyjxJ+IKahXTL5p3zTAbNsg2NmhzLsUuFjfwCq96zkhyGfIn4Bi8gLaFBwSyhEeilPF3DPNn564gvlOFAMQ24PLdydcy0bPZXl3Tht3EaN8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x+66/6y10LCAre22xBpVr/OzSzuhP5MFDiEeOezBd0s=;
- b=DtlSnrNT2v3McB5v7qEjV8NL46PSz+boY1guOyXecX8u40Gg+6Crs8tzD4gArVagvTqnmCHBcOneaLvggzP7ZWI/Lp4O9f9F4rsFlVb2EhDzfYnXqxKlIT4WxYAEgco0Hu9rL4vbDT06JjTCY9rVBREiEfULJMhM5Z/8bmJRr0eY1zDQPfDcvtBY92PdZ+VjIb7Rly2HFy/Eq/VvoS8BnZUFh0T7E3Td1V8hBTYc9cTZRYiP/AdzmkpmOnufelGXf4eGx+LA3r8wunioLaxbfUOoMHfVMFIInAG/m3/lDhp20K24IXl2Wd35/24tU7f/P54ZthZAj4UhYh8RJqa4dA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
- by DB9PR04MB8331.eurprd04.prod.outlook.com (2603:10a6:10:244::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Fri, 1 Nov
- 2024 12:11:01 +0000
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8114.015; Fri, 1 Nov 2024
- 12:11:00 +0000
-Message-ID: <7223a31a-bbda-4923-bc5c-8277a8745b17@oss.nxp.com>
-Date: Fri, 1 Nov 2024 14:10:56 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/7] gpio: siul2-s32g2: add initial GPIO driver
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
- Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
- Enric Balletbo <eballetb@redhat.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
- <CACRpkdbFQ6f6xg906ZREOgDifSWwfFWdxCqDxcLALZdYg6PWWQ@mail.gmail.com>
-Content-Language: en-US
-From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-In-Reply-To: <CACRpkdbFQ6f6xg906ZREOgDifSWwfFWdxCqDxcLALZdYg6PWWQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR04CA0087.eurprd04.prod.outlook.com
- (2603:10a6:208:be::28) To AM9PR04MB8487.eurprd04.prod.outlook.com
- (2603:10a6:20b:41a::6)
+	Fri, 01 Nov 2024 12:12:18 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Fri, 1 Nov
+ 2024 20:12:01 +0800
+Received: from aspeedtech.com (192.168.10.152) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Fri, 1 Nov 2024 20:12:01 +0800
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: <patrick@stwcx.xyz>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<wim@linux-watchdog.org>, <linux@roeck-us.net>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <linux-watchdog@vger.kernel.org>
+CC: <Peter.Yin@quantatw.com>, <Patrick_NC_Lin@wiwynn.com>,
+	<Bonnie_Lo@wiwynn.com>, <DELPHINE_CHIU@wiwynn.com>, <bmc-sw@aspeedtech.com>,
+	<chnguyen@amperecomputing.com>
+Subject: [PATCH v4 0/3] Update ASPEED WDT bootstatus
+Date: Fri, 1 Nov 2024 20:11:58 +0800
+Message-ID: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|DB9PR04MB8331:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc95098b-5a45-4f21-ac50-08dcfa6e3ff5
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RzF6UEc2NW1XcjE4NHVnc3p3UFhNTnJnS01TZXFFUXVrUXRzNHpUVjBhNC9i?=
- =?utf-8?B?STB0UFVOMVBnOEh3Q2tYTUVOWjJIeGtwWFlSVkU0b0NnZi9KMXg5OFczWUMy?=
- =?utf-8?B?clZQRVd5SVlvUXE3aVlaRURscVNKcnBxbUNzNlBzdUl6dzNWU2lZYjg4N1ZB?=
- =?utf-8?B?dnlSVjdBYytlT1VMR0ZCdng4dEJXNHNmZnhFaGxLcDkza1B2M094dCs3Ni9Q?=
- =?utf-8?B?R1pvQVJadlF4Rll3YkdmUFQvSnB1WDUycUV4OSt1NmNrSTZTYWFZa3d2dlRK?=
- =?utf-8?B?ZjRoRllvUGdHUFZKNTY2Z3dON0Z3ZHpFK2lEU2ZYRlVDdjVKZmNsVlMraGox?=
- =?utf-8?B?Z2xTWXZjTlVWWEh6aGRCbC9mZjF4ZC9hYXY1Mko2cjFOKzJaTVBjRURSa1V3?=
- =?utf-8?B?d29jQ2Q1UnhaTnJpMnpaSWZ1SmllZk43Y3o3TmFvNHhzTmtLN0MxNkpOL28w?=
- =?utf-8?B?NjZPOFBhYTFON3ZobDFZQTZxaCtZRlhlbjZLQVpUSjk2WEgrSEFWZDYxbmdr?=
- =?utf-8?B?TkY2U1lYWmNzeWswZmQ5TDNTSGcxZklROGVkZ1FiYjJkeWtwNHh6eE9XOWs2?=
- =?utf-8?B?OE5Td1Z3R2VCNUxxdk1zK0IyT0VDRHEvUFdlZzN4ZTlPT0U0c0lUcTFoeUZU?=
- =?utf-8?B?aDJmVEtWTUM0bzRTQWc1T3lnWmYxejRHNHhmRVJtZlFGQUpBZ0VDeHBwdGtN?=
- =?utf-8?B?NTR4QUIrWUw5dFpPQ3lJOFVOdXNNaWNCalFYVTZGYytVZnRML0xySzZIM0Jl?=
- =?utf-8?B?YzhlK3dDTzF1SDIwaVZDcktSQUZNUnJoZDJablM0VmlvVkEyWWFLOW5yQm5l?=
- =?utf-8?B?Tk9SMHpUdzVjcEFPL0NManE2OXVRWXJSajZvS0R4RTRQRGdTa1o1akw2SjBZ?=
- =?utf-8?B?TGxqampFWEJiSUh1WnA5OGxDa1R5SUVJckNNcWRBODRWOU5XdGpJMlJUV1Yz?=
- =?utf-8?B?WmJOcjFhdzA4SVFWTWNZb3AzZE92UmpCeCtHUVZRT1hRMnBnM3VpcXVDVFlr?=
- =?utf-8?B?ZFJxOXp4c3dnOHVTd0tGcVZJeUJ4QUNWZnFORzZZaFNqM0dzNzFlZ1ppVGw0?=
- =?utf-8?B?VkcrbnhHRFE2YnVVdi9UcHIzZ01razN4LzNoTTJadm5vc3hneHhrRGVlWjFw?=
- =?utf-8?B?VmU3ZWFnTlcvSFpKWFl6d3Vvem1HdldzaS9sK2s1NUREa2lqQklvbk1JVEJR?=
- =?utf-8?B?TzZiV1ViZ0xtU29vOWdEMDZUeUlMclhMa1pnNVBZUm9wZFcwM04yQUJRM2Iz?=
- =?utf-8?B?ZjlKL1RxZ2t4SUpaYksxUlA2QVJtTmhxYWVrMVAwUnp2cGpGY3RrUHpHR1ZE?=
- =?utf-8?B?aU5WQnI0cVpZcDhEeTdESG1vMG1oN25kWXNoYVI0cERrbS9ub3c1eGU2NU41?=
- =?utf-8?B?SUhqRERXUlpSeU0vbzR6bitWMlYxMDRGeVYrekRHdDRpLzR2NmRmb3JtMXpn?=
- =?utf-8?B?K2dvWGhmdVdnZTlKU09VY0IwZmQzQi9KeGlRNFBlMlNmbkNKN0I2ZGUwK0tF?=
- =?utf-8?B?ZmFGNE5SS3JJQzhJdm4xVXJOaTA2SVdKeGdjUjg5KzVjSVVxY2JZbmUwZFBi?=
- =?utf-8?B?a2NLams2VHY5MnNzMjIzNC81NkxwMmpRYk9iRTRTajlaclJQQ0FVQUJWZng2?=
- =?utf-8?B?amxRU3MvbklySS9TU3FteVpvZmVLYURSM0FPV1JuclA0YVlzL0lWQ1FpemEz?=
- =?utf-8?B?dkhuSEdDaFI4bnhkTXdpTnVRRFZadTBHZi9GOGRCamgrMzZqcjNBR2lwdlBn?=
- =?utf-8?Q?OM4wDmhemHKuLrnF9F/IQ26Z6OaJ21bFuwWWHSP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnlxcGpaTFJqOElmYmF2aWEwY3ZNNTFmb2w0cWRzc0xKUGtiMVB4S2FPRnZM?=
- =?utf-8?B?cXZkMEt5Nmp6MyswYVFQMEc4Yk4xTWtOMXNyQWtVN2hrZ3JRNTU3UWFLNk5i?=
- =?utf-8?B?UzdjeTltRS9rN0tUeUFLQlA3U0lXM1ZIbnIrYzVDb3NGbnFkQ1JkVlZUL2N4?=
- =?utf-8?B?ekF1Q3NGdExyK0NXb2xjZ3NsNDUzd0oxYXVWNXlqdGZOMGpaVGZ0TnZyd0Rt?=
- =?utf-8?B?cU95ZXZLNEx6bm5TRGlGM2Nuby9ISEJobHRnK0hvWEhwRkJEcnFRa0kvcFYv?=
- =?utf-8?B?WnpuRVE5NncvcVhYZlJmVC9sYUFmK0lQYjZ5UEJRV3Q4WFcxU05EeWhJeDFM?=
- =?utf-8?B?elVRSVBjUjJtNTZiZzIxY3VYblk0bzBKZlp3Q3lJeklhKy9YVDFJQ1NGOVM5?=
- =?utf-8?B?REdFc0VQajZQVHhjSFJERG1pNXZYZUNNbEpxbUJsbGc4RUxDWFJ0NGRrOHZp?=
- =?utf-8?B?enFiTktwOTdwZjdnMlVxdHlNakpqa0tXYkxublMwZEtYS2VFa1NTTVB1SnFU?=
- =?utf-8?B?aUp6VVYyTW1kb2hMWGlkNjIySnl5QTRDUGdsNUx5L0hrUHZ0c2o4aGNDRmJ1?=
- =?utf-8?B?L0lOMzVEanBhOHozb0h3bTM2a2ZLQk92Y0tSNWE3L004N3VsVStCdDh1VVRh?=
- =?utf-8?B?dXlxcEMvWWF0QWw5cWJnNVFuandmTGx3b2V4QUZibzZnUjQvc1FMMjJXTElv?=
- =?utf-8?B?N2M2U2VwVDJCODVXZFdUUzNzWmRPZmhCNGxMZkVCWVh3L1l0VkIwUWdVV2ZU?=
- =?utf-8?B?UTdLZ3Zzc281TEdlVDlMSytpbHRMb3RVR3MvUkhOZXg4N2RjdVh2RUJhcXV3?=
- =?utf-8?B?K0YrVUYzMzg3MzJpQ3FwN3JYVlBlVDcvSTR2Zkc4d2pjUkRaM3ZyWlhKMUJR?=
- =?utf-8?B?blRzM1VxWVJYanhZSEhtelUvTnpCN2hZN0c1cTJ3WUxxejcwKzlGQ3Nvdldh?=
- =?utf-8?B?Vm8wdTNFZFV5VDJvVzZSWGdPUVR0bDZjUE5JU3ZWWXA2MHZYemJPRE9oZHM1?=
- =?utf-8?B?eE43WFVUVmZnN2pISHRVMm41MitkSzIrTWlNN2RqaEt5V21oaS9RVUxGOTNH?=
- =?utf-8?B?U3o1dzRBVkNyWjhqTTVNVktBNXNQcWJPWUFHWXFmWTQ2dkR1S0wwbUtZeGly?=
- =?utf-8?B?NHZESmNkUnU4aDQyR0E1dk9xenA5bXZWdXYzTXlWUjJ2R3Irbm9aTmFseEhz?=
- =?utf-8?B?SjgwOUh6UVlUK2oxWXE5T2gyR1NWanRzS1dOTFdMdnJGKzY3OTQvMGhSdjEz?=
- =?utf-8?B?UlA0MTVjQnpVaXkreG1wN1hSZVZueGlBTnlXUG5UWHl3aDRiMGprbTdtbXVF?=
- =?utf-8?B?Y2xMWWVyY0V2UXgrN1MzSmtORndaU1lJUnN3RlFKV3VkNVJnaUNCUWtEMjdz?=
- =?utf-8?B?MHFJM0pQMC9JVnUxbWpldm43RmZSWVcxaDJWcFpaNWtHbk40Y2RBdDBkTXVs?=
- =?utf-8?B?UERNTUlDNUZHSFpETGhwUHpjV2FOK1BQS2hPMDVNOUtGQStST1l1dC9zeWZp?=
- =?utf-8?B?U3RUOGNXVmFuOWxHWll5Mk1jS1RxMm9QaFlyS3VjVzNSNDRQSy9CQzJzZ1dO?=
- =?utf-8?B?bnBGTFBUcFcxaHNxcVZ2SW01M1FBZ1hXdUhhQVNTM0JaWVFxWGR4bTRheDJI?=
- =?utf-8?B?eGoxNkJRbzVVc2E5R0VNTVhYN21DTWltcG8vdFZ6SE5nWmNQUm9URUhZTVhq?=
- =?utf-8?B?V2NuTFcrcHhWNjBxQ0VBaFdWUkdPNDhEaFpXQURhaXdmbGNPRlR1Q2dQdDBq?=
- =?utf-8?B?QkZscGdqRm5TZ0I2T0dPVzVWTGV6elE2bTR3bDQ5aDRURnlhbXlsWlR4elBP?=
- =?utf-8?B?ay9HdEF5cFJrdmUyRWtwbjVOeTZ1Si9VWGc1cEdCK1lCUWQwakErVC9FUDRy?=
- =?utf-8?B?aUtLc2ZrT2hnV3B1anc1SC9TUERMQituaFlQSGgvME1qU0dWMWRycE1xT2xO?=
- =?utf-8?B?TDFVa3dIeThpTXhFaDBWY3BGN05sN3JydmJwSlBxenMwRkhmTCs3ZnpwSG5W?=
- =?utf-8?B?clZkdzVHdzJLdVlPanZwQU5XblJTZGk0dW5YSFNnNlpKRG1FRkIxdGdNVkdU?=
- =?utf-8?B?N2g4RytHQWpvREh6NG5KVzcwWjdua3Awc3I1NlN4NXY2SkVCeDZZV2tyR05j?=
- =?utf-8?B?RE96LzlaNUtKSzlHRnhiOHJOYWRLdjFMVkJaeHloL0FLUC9peXlRWUtOU1Br?=
- =?utf-8?B?K1E9PQ==?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc95098b-5a45-4f21-ac50-08dcfa6e3ff5
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 12:11:00.8778
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j3m3wDlMXGX2iPOQyXUWP60/rfiUc9XMqt6nfmDNylRo6XUrB1TPsS8G0FSt7bI68e0G+IaA+6TWcoQwRl+wPIE3KULKe2GiZnoLRxom0Mo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8331
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_051105_886911_74A483BF 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20241101_051214_468998_CD92396A 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,40 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+This patch series inherits the patch submitted by Peter.
+https://patchwork.kernel.org/project/linux-watchdog/patch/20240430143114.1323686-2-peteryin.openbmc@gmail.com/
+Besides, the boot status updated in the WDT driver
+obeys the rules proposed in the OpenBMC.
+https://github.com/openbmc/docs/blob/master/designs/bmc-reboot-cause-update.md#proposed-design
+Moreover, WDT SW restart mechanism is supported by HW
+since AST2600 platform and is also included in this
+patch series.
 
-On 01/11/2024 13:56, Linus Walleij wrote:
-> On Fri, Nov 1, 2024 at 9:06 AM Andrei Stefanescu
-> <andrei.stefanescu@oss.nxp.com> wrote:
-> 
->> Andrei Stefanescu (7):
->>   dt-bindings: mfd: add support for the NXP SIUL2 module
->>   mfd: nxp-siul2: add support for NXP SIUL2
->>   arm64: dts: s32g: make pinctrl part of mfd node
->>   pinctrl: s32: convert the driver into an mfd cell
->>   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
->>   pinctrl: s32cc: add driver for GPIO functionality
->>   MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
-> 
-> How do you want to merge this?
-> 
-> Can the MFD and pinctrl parts be merged separately, or shall
-> it all go into MFD or all into pinctrl?
-> 
-> I can certainly merge it if Lee ACKs the MFD patch.
+Changes in v2:
+  - Support SW restart on AST2600 by default without
+    adding any dts property.
 
-Thank you very much for the quick review! I am not sure which
-tree to merge into. If possible, it would be great to have all
-of them merged together.
+Changes in v3:
+  - Get watchdog controller index by dividing register
+    base offset by register size.
 
-I plan to send further patches to the GPIO driver so it would
-be easier to have them all in one place.
+Changes in v4:
+  - Update the commit message for updating bootstatus
+    handling patch.
+  - Rename aspeed_wdt_config struct to aspeed_wdt_data.
+  - Create restart callback function.
 
-Best regards,
-Andrei
+Chin-Ting Kuo (3):
+  watchdog: aspeed: Update bootstatus handling
+  watchdog: aspeed: Change aspeed_wdt_config struct name to
+    aspeed_wdt_data
+  watchdog: aspeed: Update restart implementations
 
-> 
-> Yours,
-> Linus Walleij
+ drivers/watchdog/aspeed_wdt.c | 170 ++++++++++++++++++++++++++++------
+ 1 file changed, 144 insertions(+), 26 deletions(-)
+
+-- 
+2.34.1
 
 
