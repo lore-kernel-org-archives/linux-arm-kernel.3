@@ -4,156 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F84E674B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2715E674B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 08:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=; b=EP0vEyH8Ug6L/7KYh8iGKMZBuN
-	k6jjuGOomPaI/swBctXAsCTAXkLMRT32p/RIV9pSzCMgoO84SSsk/czg6qq64fmThqJWtocF1V3fZ
-	TzNeSBj6i1ELpzlkXfsgPJQtI9Hap3O84jS/rVgvKVm3b62VOovoGTY7e6HTolTJ9nxZzs+QQ45Rb
-	8U/RaDshfnAUu0NOB75guQ46zgHIOC+7x9WVS9x7DeRjZYYfN/Adxsak1lFbBTFunsKbTEfDeZJx9
-	Oh25tJT8TnjzbXzKHpGc/1nG1iH1YUKf+hWBSQkL2P8XP3i3qPQjPL4kJG9A4RJBeFZcDVbBGQtQi
-	uubSaOeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UUxatgIjseNyDqt3FqqOob4pJSJxFWPR3CwFmtzwsvQ=; b=LzlwWDHxRCftr7Orj3Q4t1yZqu
+	V61I68ntBekStuYhG0DiMVkrGynlM/n9/uS7N8hdsTrRh3bcLc4zryarcxJ0c9XMlSP3olhbdWY7r
+	eDh0p+PT9ixgD1BX66FPEFPxjk1xRwi9sYNsQ/WxN8JRjAerRH6F0u/GJl+NdMGUqZEBxaFnYZzRZ
+	HAR706P1e7j4BVOX6xz88zBt6MCqwMbiyGIvpotfY1zSFw6l68QrK0uER6o11jgH3au16KVPnU4TQ
+	ZiqKwwyHbkHwhPyUIsSktMOz9Rlmqd/at5Ut0R5Dxmd9ARS37MGbfoQ25tmsKnAfNj/eWZ4cmI4Yi
+	Wou0vXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6man-00000006CBl-0xpG;
-	Fri, 01 Nov 2024 08:01:13 +0000
-Received: from mail-vi1eur03on20608.outbound.protection.outlook.com ([2a01:111:f403:260c::608] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1t6mb2-00000006CFz-2cRu;
+	Fri, 01 Nov 2024 08:01:28 +0000
+Received: from mail-m606.netease.com ([210.79.60.6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6lZy-000000061VT-3lB3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 06:56:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=swwkd9ccXbio/FuN4e+WVTguF7cB1GT3TpCI3Rx9WXNI//5h+Dqbhj4IQr7Qo485q9AV8C/oXDkXbzRqo9UXVRyTMqLEC6JfL53kvbDy11qPfXrZZgBDYpw46BgFYbeHF5dWfCRIBS4EzO/+aaUOwiag7ydlBtx2QTuPvtfZyzzcn4E+rqXe7ngVYlJUHOSJkTDiwpxWQZmdki8icgekHLtZjfYcD/NRzmOBv7CpdmfW9M53RfJprMtdwzU83Th1w7IEPEbNcW4LYDifDQBaCbE5RgyFAXtMXdaRxrcv3U+5a2zjPGXX2+BfF472dNgY+4qADQuT8i/not5OBJpDtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=;
- b=Rqw/JObTuSLlEoU7u9MRNVo3lBHr49EpofMWckJ8pN/+ZoAh2ldhQ8Nsd9Ml/IJtKX/UxcS7+HuY08E+P0MRoOnLRAbHjPEPcMGJ3JQqXn6kRJf3X4OmWkQj+Innv7TB+F2pLzKGZCddhJhdlGD05tbJjAd4QydSj1+GeTjO2CrpFBfT/kjlPdIZbZg+MzkH0VT8l6/ilrIc8Rp92W82uP76x05IzLkC8yQRxyfsoQAOMzQ22TqrdhJtDjXdGdr7oA4k1eW4taT6Fe2dGyosYB3CN+auNHJIkmSKz+mz/bnMDi04dr3ThailB+ISZRygqocZM1oeNBjS6DkoZuedag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3e6B8Z3yI+ef2PB8C2B+/7Y/jwr2fkrRGUH1Fc7HrhE=;
- b=aC/bjp9yI65uAL/1xj90af3PGdTrXTgac6zNz9Ox9qm5fyVEEsz5mXWVXE0Ytu2iY6g0XLq6ll/3KWta/jznNWg2Wa0UMzo08YsJE2Pct8gUFevalqGHmozsLbPXKz+5DhCurv8/CIdT9fh9Q3tey1tFu48e/2KfAn+KGR+PS/Ztt7WYzRXPVo5RMFV0y/ErdV/XQvUdwuWxAzt4TiYpd/1khP2ONX31M7tFSbKdx7RnuKcnQpjezrhgDZXa7SRrIe40xnw4bIyypxMQ5fI5azXZvYc5pmnnaE6KCXz46MRTITYR44kEg8r4fIMVZAqaGi1W3FynDlxMqlMZ4wD5Dg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by PA2PR04MB10445.eurprd04.prod.outlook.com (2603:10a6:102:41f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Fri, 1 Nov
- 2024 06:56:09 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.015; Fri, 1 Nov 2024
- 06:56:09 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: l.stach@pengutronix.de,
-	bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 0/10] A bunch of changes to refine i.MX PCIe driver
-Date: Fri,  1 Nov 2024 15:06:00 +0800
-Message-Id: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0017.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::10) To AS8PR04MB8676.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::10)
+	id 1t6mZ8-00000006Bnu-3InN;
+	Fri, 01 Nov 2024 07:59:33 +0000
+Received: from [172.16.12.67] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 183987c6;
+	Fri, 1 Nov 2024 15:59:18 +0800 (GMT+08:00)
+Message-ID: <eb96b240-f3ee-4057-b016-c746d48cc1b4@rock-chips.com>
+Date: Fri, 1 Nov 2024 15:59:18 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PA2PR04MB10445:EE_
-X-MS-Office365-Filtering-Correlation-Id: d09131be-8c61-4000-55f9-08dcfa424386
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0S1vjILUQ1TiPktIoX4c3FZGDFaz50GiU2mKFb7c5J2cxolloO1uAxGE58T2?=
- =?us-ascii?Q?bfl8NqWdCzqvIo1pmXINfhKTw/qmjctnvplTp5pKAWcO/fLCrXFWaB9cIeM3?=
- =?us-ascii?Q?iHC3HJ+tXBvESDGzAYLMAK7IKDCHxvGHyq2ebjVEUzD3nGNO902m0qjQFjFe?=
- =?us-ascii?Q?kg3G75lZFgeK6OSCC953XGf1nLuXCqvcVBY+MBg7Jc/T92vjCwMHeEZz8JSU?=
- =?us-ascii?Q?uoZ0n6J3eVUgdNfwGXRTDJMN76QksmdPoxCWtJ8vbsvVfG3KiysRXDhEI5lq?=
- =?us-ascii?Q?DpvRgJoXOqFylbc18/F5GserfTfIgUmya4Thx8YKu1VGGqJfmaL//2FXMk0K?=
- =?us-ascii?Q?ZYDcQ63sDEn56cmAF9gZ7RZJiXGhwgYeGnEMYtaOCYY46OwpAq8PC28Omtdm?=
- =?us-ascii?Q?uoCCpyMZXNekp4fmw0eJ9npiM5QE0BBJGvNeF2CWsIGV6aAGUTDm2E0tlkeM?=
- =?us-ascii?Q?NX9wO4q3gy6CCvhJKs4bqeAreuk07+a2/hNKagtR6X3iDuSfPaTsKKBRot8p?=
- =?us-ascii?Q?fO33BasrggxlFb8TzuIwlckvaKfgG1HJWICb7YMArM3fL4eFr91P1ZXx44uM?=
- =?us-ascii?Q?2IhW6Qrh+AS+QuaXi2zT7xEt6k/OwnAYjL+NniD8zcV1kUJAbJsvyV88mtY0?=
- =?us-ascii?Q?t9BhfEQixG62Do83Vwmkb+8mPy64JzWVKah8vxaKcUL9Vlz9pwjodq9IRYEQ?=
- =?us-ascii?Q?+hqjNfarERKI4fKZWP7lXeT1jJvlL13Dqdlz4zkzbAgigb88mu022mVgvzkg?=
- =?us-ascii?Q?kOkJJnmVvkI5JsiRaVU/+3bAikzc424Bc+/L4lsjJfZiLi3Ug+yf0PFORj0l?=
- =?us-ascii?Q?UkJCVlCsv8dpwwsZ5OMtyWNIjG1PHyFswjtl7LxtvlrjQyZVwY54Va0fwIpI?=
- =?us-ascii?Q?trnpqV9hk0SynpiD1xeZJ7vCXuFyK2hOR/CbY02cswbyM/y+mkPSNFZUfbmL?=
- =?us-ascii?Q?I+MYRsh94sXj4Fpg7a/A7PMrKlZJ5PZ/lznycIsSg7ZKIzy0n7OJEC1Ozn9I?=
- =?us-ascii?Q?K/ew0gu/RCH7ncoG51L4COAHmwfVMPxqWIlQCe5dVtHodXyXybfcmZtwuE1R?=
- =?us-ascii?Q?i1hbueVMPJqVi21NOaAMESa5W0jp7hoOx64NBDycabiPXlNNph/df6wABBeF?=
- =?us-ascii?Q?fYXVVLGwxSgiULTPZZPXFl/u0aOHUyKKKr5sGo0fj+nMfhNSXFwNg2n/2Fh4?=
- =?us-ascii?Q?PztAN/x3Jlvo6t4nGLhWFWj9N87JNnTyLskkA1QupOlhuPmq94aaWbmMLrsx?=
- =?us-ascii?Q?unxY2RogBVYe/tyITpjtuuaguHgKJNT+6ht+0W4PzWdS6qmZMOdSmixbfQJF?=
- =?us-ascii?Q?5Z+ltJecTIpdEoztFgES3I8Hgj+4wyXT2EL3BFqkCZqmobPQzbT9zbxLcMoH?=
- =?us-ascii?Q?0IQucZXeggidpMur1K41KL4UKUWB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/g9EWgMmWDJlj5InxTtMgF1LSWnaKosogGCoEsr9pQkDoqpqVfxRMEPQj/Bn?=
- =?us-ascii?Q?RABZsPmHLM3z5i4mk+XctVi444u+awzEzcf7Np86NQwLh2PWicJ/EOiFC9mP?=
- =?us-ascii?Q?1GvTmkcp82vbi5ANUQUVgLeh83tBsqigojkfERsTpNMRilzoxVe40q2W8xd9?=
- =?us-ascii?Q?v8w78EqADflQjWXm4nqQwm0muy9+P3c3se0dzw7Gz44RdROA5IaJhkg8I3Pj?=
- =?us-ascii?Q?Xaj7xPhLA0+F1QKfXAAQ1HrAxFnhgd6/kMNJq+YfmkgH1LWKeUmAloTCJ/GB?=
- =?us-ascii?Q?x1yhtLct5/QNfK3dgrHoWKJwwDoCqe+kVKF17g1YDCGTQxZChljd8IyyOBgu?=
- =?us-ascii?Q?gyvW6ZhjTekaEVCmCI61foBZbHnKtUnOOTMsLTNtwJBokPEa+GlmssUjNHcF?=
- =?us-ascii?Q?/MoERRbIKOApCDVn3s++WzTgWOwpBRWR87wD9GhRIduSesaeea1glJ4cO1z6?=
- =?us-ascii?Q?sgSwQICRtO4hB7szlVryRm0KdpIoT06yvdGeG4MHcDy3rNi5/zC8gSaS2MWx?=
- =?us-ascii?Q?cEkzUsWrBmU3aAs8es96OnF9m7KrQJUbCAieFY2DhKJ8PAb8bv5/gFieq5th?=
- =?us-ascii?Q?ECHU5YskyCr3dWxZ16kCIlPKcqCuhXUPjJzU1rFmXngR2JZstKjyoxcqxLlj?=
- =?us-ascii?Q?nSH1xMvlY22OwZRhN9mighW7SZ/dMq2VIAD/WSlv9BCZG8aMx6TkTJZwUpPX?=
- =?us-ascii?Q?DOvEKdTI+Tq3OSXNza3r5PUebc5UEGsZZIsx0hgLr8H90DiO3c5fTmtCiFEM?=
- =?us-ascii?Q?z4+ZoAsIztp0XAvkdFcA0l/RbZI+zsBm8OeqwYEMedwBPEz4dwHiWXEIrlPA?=
- =?us-ascii?Q?NNLiiaKIUClEyYzzos+2MwAo0Msj+kLzHbA/QbSM4KUwV6h1/kSV3KE/fa51?=
- =?us-ascii?Q?fp0Z2i4kBcEwSUGDQrVXGaZEe5ZR7Wn9CwnGqWrZ4oBSenOzl+CHOEYO2ppo?=
- =?us-ascii?Q?v3xcnWjBXGYZghT43/3bbAhdaujS7BUjOhT1k2POa5XIDMP12fgMgHZFiIxh?=
- =?us-ascii?Q?SbuwQmTETD0puGI0dYnvQxlg6YLvxaTZQ1WOywhyH4Q+KFsxHJjfV/b5dJ92?=
- =?us-ascii?Q?5mESyt+IrQbU/Bt6bCXnKndeXPVLvBxE4c2X6nbYMmP6S9MT+PdlgRcoD1Qh?=
- =?us-ascii?Q?ZaTJgUVfcSzXmmnODlGfuuu9ldMijvaOe0virZk7xn8vltv17FiJehZlWacB?=
- =?us-ascii?Q?TxvQCuDnCYNDVnNoEHwoJe3BS6gs8Na3CLwob3pN+1oAytO5ic6KQ6yC2mxH?=
- =?us-ascii?Q?D65HrAMcbIvPJeHC8Ax3xynoBdTqMjW1ajP7foCw5cif2tYihF+3t7aMOXWA?=
- =?us-ascii?Q?hJCImestsbxXvgnounyruh0XqqC5mCsBlaFLz9sFQCTVZMuf4gA2o2UTACLM?=
- =?us-ascii?Q?qbxv7I/FeXEKh8MMjH0OwWTUbr4MueC3lofIWWU/SgBN+amZDSqTZxjyxtqh?=
- =?us-ascii?Q?VgLoMjbNOTDf8TOt9Pkd5aCSMa9sa9vvsjYlLYtnFMtpYB7Z0TXxbHYUkX6E?=
- =?us-ascii?Q?XyDRJEBAYpfwfA8RvO0I6isTJW2oksuE3SJgFBjM421V7S09OFawayAtt5o/?=
- =?us-ascii?Q?ikLkxIiAeUVqYIfyjJDTeL+KjEinxascLYz4P0ta?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d09131be-8c61-4000-55f9-08dcfa424386
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 06:56:09.0929
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bBL0irE8sA26K9/QK5+ttvzWCRoQoYWZoJ1b8DzRTJGktbdctvwgzP7kG3eM/sEShw809/3wx4q1CqNZrC99RQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10445
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: dw_mmc: rockchip: Keep controller working for card
+ detect
+To: Ulf Hansson <ulf.hansson@linaro.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ linux-rockchip@lists.infradead.org, Jaehoon Chung <jh80.chung@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org
+References: <20240912152538.1.I858c2a0bf83606c8b59ba1ab6944978a398d2ac5@changeid>
+ <4920950.GXAFRqVoOG@diego>
+ <CAPDyKFosf_+m9j8YgHa-PsC2SV8+Aou2O6bTbMfzGBpQ2sY8YA@mail.gmail.com>
+ <69d06c04-cc8c-4435-a622-33d5dcd1fa24@arm.com>
+ <CAPDyKFoU=AoQqXov_-qFo8xjEbiDAk9mtTtCR9HAYz_gg-bnzQ@mail.gmail.com>
+Content-Language: en-US
+From: Kever Yang <kever.yang@rock-chips.com>
+In-Reply-To: <CAPDyKFoU=AoQqXov_-qFo8xjEbiDAk9mtTtCR9HAYz_gg-bnzQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkwaQlYfQk8YQklLSh5PTUhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a92e6bc62c103afkunm183987c6
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MRQ6Hzo5LjIjTE9KSUhIFxRW
+	GkNPCz5VSlVKTEhLT09MQk5CTE5JVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFITkJMNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=Ns2PAmM3r3IVo0z1BD9bWzhY49ezgnto/lCiZiqHcWvBOHPb/A16zDxfwiJa5XmD9Kq+7evbQpnVKcBtIO8uqQFV6WquR4xpX94n/2J949wt9rM7N+BKjxsdqrHzVtftHH5tHj1nP850u2tkMsiaKiyObzVPr06Dc1mNbEPFe5Y=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=UUxatgIjseNyDqt3FqqOob4pJSJxFWPR3CwFmtzwsvQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_235618_986187_69B57E17 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20241101_005931_461890_DB2D3FE4 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,63 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A bunch of changes to refine i.MX PCIe driver.
-- Add ref clock gate for i.MX95 PCIe.
-  The changes of clock part are here [1], and had been applied by Abel.
-  [1] https://lkml.org/lkml/2024/10/15/390
-- Clean i.MX PCIe driver by removing useless codes.
-  Patch #3 depends on dts changes. And the dts changes had been applied
-  by Shawn, there is no dependecy now.
-- Make core reset and enable_ref_clk symmetric for i.MX PCIe driver.
-- Use dwc common suspend resume method, and enable i.MX8MQ, i.MX8Q and
-  i.MX95 PCIe PM supports.
+Hi Ulf, Robin, Heiko,
 
-v6 changes:
-Thanks for Frank's comments.
-- Add optional clk fetch, without losting safty check.
-- Update commit message in #3 and #8 patch of v6
-- Add previous discussion as annotation into #4 patch.
+On 2024/10/7 17:49, Ulf Hansson wrote:
+> On Fri, 4 Oct 2024 at 19:34, Robin Murphy <robin.murphy@arm.com> wrote:
+>> On 02/10/2024 10:55 pm, Ulf Hansson wrote:
+>>> On Sat, 14 Sept 2024 at 13:52, Heiko Stübner <heiko@sntech.de> wrote:
+>>>> Am Donnerstag, 12. September 2024, 09:26:14 CEST schrieb Kever Yang:
+>>>>> In order to make the SD card hotplug working we need the card detect
+>>>>> function logic inside the controller always working. The runtime PM will
+>>>>> gate the clock and the power domain, which stops controller working when
+>>>>> no data transfer happen.
+>>>>>
+>>>>> So lets skip enable runtime PM when the card needs to detected by the
+>>>>> controller and the card is removable.
+>>>>>
+>>>>> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+>>>> So for the change itself this looks good, i.e. it fixes an issue for baords relying
+>>>> on the on-chip-card-detect.
+>>>>
+>>>>
+>>>> But for boards doing that, the controller will be running _all the time_
+>>>> even if there is never any card inserted.
+>>>>
+>>>> So relying on the on-soc card-detect will effectively increase the power-
+>>>> consumption of the board - even it it'll never use any sd-card?
+Yes, this is how the controller works, the controller needs the clock to 
+make the detect logic work.
+If we use gpio to implement this card-detect, it works because the GPIO 
+controller/clock keeps working.
+For the dw_mmc driver support, we should support both kind of implement 
+due to the controller has this function,
+so this patch is for the card-detect implement by the dwmmc controller, 
+the controller need to keep working
+- only for sd-card (so not include the "non-removable " device)
+- also not disable rpm when "cd-gpios" is used.
 
-v5 changes:
-Thanks for Manivannan's review.
-- To avoid the DT compatibility on i.MX95, let to fetch i.MX95 PCIe clocks be
-  optinal in driver.
-- Add Fixes tags into #5 and #6 patches.
-- Split the clean up codes into #7 in v5.
-- Update the commit message in #10, and #8
-  "PCI: imx6: Use dwc common suspend resume method" patches.
+For the power consumption, I believe it will increase, but very very 
+small, we can't even monitor the change
+if we use the normal equipment. The driver should make function works 
+first, and then consider the power.
 
-v4 changes:
-It's my fault that I missing Manivanna in the reviewer list.
-I'm sorry about that.
-- Rebase to v6.12-rc3, and resolve the dtsi conflictions.
-  Add Manivanna into reviewer list.
+This patch is to make the dwmmc function works without gpio's help in 
+dwmmc driver,
+  and has no affect to the gpio option, people still able to use gpio to 
+do the cd.
 
-v3 changes:
-- Update EP binding refer to comments provided by Krzysztof Kozlowski.
-  Thanks.
 
-v2 changes:
-- Add the reasons why one more clock is added for i.MX95 PCIe in patch #1.
-- Add the "Reviewed-by: Frank Li <Frank.Li@nxp.com>" into patch #2, #4, #5,
-  #6, #8 and #9.
-
-[PATCH v6 01/10] dt-bindings: imx6q-pcie: Add ref clock for i.MX95
-[PATCH v6 02/10] PCI: imx6: Add ref clock for i.MX95 PCIe
-[PATCH v6 03/10] PCI: imx6: Fetch dbi2 and iATU base addesses from DT
-[PATCH v6 04/10] PCI: imx6: Correct controller_id generation logic
-[PATCH v6 05/10] PCI: imx6: Make core reset assertion deassertion
-[PATCH v6 06/10] PCI: imx6: Fix the missing reference clock disable
-[PATCH v6 07/10] PCI: imx6: Clean up codes by removing
-[PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
-[PATCH v6 09/10] PCI: imx6: Add i.MX8MQ i.MX8Q and i.MX95 PCIe PM
-[PATCH v6 10/10] arm64: dts: imx95: Add ref clock for i.MX95 PCIe
-
-Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml |   4 +-
-Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml     |   1 +
-Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml        |  25 +++++++++--
-arch/arm64/boot/dts/freescale/imx95.dtsi                         |  18 ++++++--
-drivers/pci/controller/dwc/pci-imx6.c                            | 174 ++++++++++++++++++++++++++++------------------------------------------------
-5 files changed, 102 insertions(+), 120 deletions(-)
-
+Thanks,
+- Kever
+>>> Good point! A better option is to use a polling based mechanism - and
+>>> we have MMC_CAP_NEEDS_POLL for exactly that.
+>>>
+>>> Moreover, on DT based platforms one can even use the "broken-cd"
+>>> property to indicate this.
+>> Except that goes further than is needed here, since it would fall back
+>> entirely to software-based polling for card presence. In this case the
+>> CD function is not broken in terms of actually detecting a card, it just
+>> doesn't work to wake the controller up from suspend because it can't
+>> fire its own interrupt while powered off. In principle all we should
+>> require here is to periodically resume/suspend the device, to provide a
+>> window for the interrupt to work and normal operation to take over if
+>> appropriate.
+> Well, I would not object if "broken-cd" would be used for this case
+> too. I believe it already is.
+>
+> Another option would be to look at a compatible string and set
+> MMC_CAP_NEEDS_POLL based on that.
+>
+>> Of course the really clever way would be for suspend to switch the pin
+>> into GPIO mode, and set the GPIO interrupt as a wakeup to trigger resume
+>> and switch it back again, but perhaps that's a bit tricky without
+>> explicit pinctrl states in the DT :/
+> Right. A dedicated GPIO pin for the card detect is certainly the
+> preferred method, if you care about not wasting power.
+>
+> Kind regards
+> Uffe
 
