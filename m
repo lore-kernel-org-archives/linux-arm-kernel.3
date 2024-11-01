@@ -4,158 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C40DE6F077
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 17:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5A5E6F077
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 18:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vDLh5Wd/MC+BZM70a/MnDy6Rz3P2W6vq8xatWnnuCME=; b=Yl3j8Qm32XdCCgLewy8ia8HbN3
-	6IawD5msavO7evwJ7czJTsTfJfkpHUlqO8dqx//Ze3IOMKLSqH7ENd1i42e7UT8+pDl3BrwKsvr3I
-	ChFLB+OT9wcv8uws1lQeSk+Ka4xdi67AYqEaO6DJWiDqvMfsD52wYh8eEtx6cD8m4sDi0caU9ZW94
-	mCcORfB67ZRgDQLWL//T5/JM4/NXtac/J0qwQrG+A7x/JLBI5HBrzd4MRUF6xT6zPkuh4Y0WvRHpa
-	zqaFJDcKVxTKv+ber0U7bUTxDSwCsssWyN3kMuPaVcLkAjb3j0kA1vjs3HLRuHvdEl274iDtXyk8A
-	iFW6O9OQ==;
+	bh=mbK3OR6MkbhQkAxcD1MAm2CLr9n3cQ9009meDBFXwss=; b=I7/jGx8KM5U8eYOKF1J6vsaoMQ
+	P3haT5EQ6I57paYnPulY3rejGwda0LEn+L3XBaJFY+mPiY+GB0ZVuLDPa6mD+6ksv9ysitI0hWtG8
+	kyyaTgdIcxZre3000N3WOmKR3ToJo0KVh6b0EJ64HAJOo2NMdikz86c8LAeEBLPmR1GmRZTsW3BMO
+	SdcFPOxT0LPOB/kNP/VxcbY8dFp2Wfy1nJsr8nDsnHXKfXB2x23+kXQHT+Tvdcclykqa1qxmmuUql
+	D7D7ZpZdT4u/CvW42duro4lJXhj+mdr/DTwmfvriIHqCu+j+ykoQzOxBGEGnQjjjrIVMMUZ0qYVxa
+	aHIptdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vvu-00000007uyJ-19h0;
-	Fri, 01 Nov 2024 17:59:38 +0000
-Received: from mail-db5eur02on20625.outbound.protection.outlook.com ([2a01:111:f403:2608::625] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1t6vzp-00000007vgX-45t3;
+	Fri, 01 Nov 2024 18:03:41 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vtx-00000007uk4-1Ouv
+	id 1t6vy8-00000007vLM-1A8v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 17:57:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JJURhPsKr0ItCOR8W38GvgM8W9s0Qs4rlLEbrpMhSO/ll+k5qKPrxT9iKNOpNx4RQSvbxAAMK2yrMhtGD9i4SmAKFlMx9WDuJDAsmJ7ITcOYnsZ43EYsM1KID0yYiBXUPlMUmAM4iSy3TrRLC3fSSYMztTCxI9yfxZ8aFN6CaeP79cIs0qzt3oqzFRDG3LlzMh2LQ/yEAttJGBHGH9e+s4+1bnwWzmrzEFOCksxJyfvclDrdidkimAXC0EPIulVqUsVeYDGULa1lGfw+hR8yBigU5oZGy0HOdk/bTu5S4iuH2JSjA4W1+W6DD+p/zz49yLBSJ578XCPHPHe2+X+NZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vDLh5Wd/MC+BZM70a/MnDy6Rz3P2W6vq8xatWnnuCME=;
- b=rZhgBs6DDHYwBDJWbJIzqpyMom841LBgcpxCgsSQRCDKvbtnHycc0ayPn/uhRFxUEeilPA3lRhXZfF1wVJ9rWqnOpNQYcHjVfWR11ozTdySg7+3NtQrht8xFHBThP+w2jyNwzKCGwFUXuLq3JNQMJ7Nk8Nc8tsHQWGJMyrtCvthMZEREw+1W49uPfemHOlS1dWwut5utfq5btPr1CoGtfflYb6Bc95mH7Ga8+Kgh9qT9N1iPcz8k3mr2rqxRiA2kFqtLd5XYqw2b4X1qsu/Qdtnw+6LrjJsSy8Yox073xHRdg1YZZXmJvnMGjNJ4qGNyJOYIEibDV3MWbclY93MOhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vDLh5Wd/MC+BZM70a/MnDy6Rz3P2W6vq8xatWnnuCME=;
- b=MV3CmoPB+zbbBXtkCjVmfFCD5DgnFnZ3yjaZ3/DFjQdeil4LzlP+O1wPBPbb4dR8OuqJ3bfG4HGtHPG0OhgBNwDTHwZzPG4GigSksQAoaY5UeVkd4QzOWGw1rIrbXPWMgnC0twai7/RWCukKGxbQH348q/zF6TZO4bDFCe31PPVFZOLkGAUEUOogEVTf54mszJywNv8BQ6eVf6u7pfP3nT0Ujay7EMYClXQe5SKqljJAGr+QIyHZzrGFG1xpjZTgqxCK/bg+ZIteE6Nc2scGUtMmn0AF7oXZj8qXsPI4/duyCalUAhtDwBQGhHmmuOFnouE7ZIOBvRrWH3iSmgRYJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS1PR04MB9381.eurprd04.prod.outlook.com (2603:10a6:20b:4db::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.27; Fri, 1 Nov
- 2024 17:57:33 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Fri, 1 Nov 2024
- 17:57:32 +0000
-Date: Fri, 1 Nov 2024 13:57:24 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	IMX Review List <imx@lists.linux.dev>
-Subject: Re: [PATCH v3 1/4] dt-bindings: rtc: add schema for NXP S32G2/S32G3
- SoCs
-Message-ID: <ZyUWhLdODsNk7KTe@lizhi-Precision-Tower-5810>
-References: <20241031083557.2156751-1-ciprianmarian.costea@oss.nxp.com>
- <20241031083557.2156751-2-ciprianmarian.costea@oss.nxp.com>
- <ZyOyvgw0qZ4YKwTi@lizhi-Precision-Tower-5810>
- <4b82e393-093f-4477-bf0f-ee559a3b97c1@oss.nxp.com>
+	Fri, 01 Nov 2024 18:01:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730484116; x=1762020116;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=L6URiYCoXpopiknFDUGt7k++aqPsAhuBO3pNbeASb0g=;
+  b=TZkm1hA3hCVYpt+UVxmH9WktR/xd7colTomKUrT7K7hzIwUGAncPlxTK
+   lYQgpCcvr0Li3OCHjnrCQkf6AS0p6K3pFGIFIbXPkne5BjwCNhgswtKiO
+   snf6u5abkO0/8M8g0slJS8Ac6MA8t1FwxJDat76EX+QXBI+zXb5q3XPt9
+   q0EdN+gllxRnUUvf0I37BiPwQffF14RSEobM0++BRFK1TEN+uobpZ4LOz
+   V/rG6Ynv60j1zWUD9gWm8NLxtzFsX57NgHvb59VwV2yp/Sk81vPHg4hDF
+   VCBCsxEq9Jo+OITKsTTPcAC2U5AmPx0yDkVPTNYEhQhrtXvzzNCqB2K1k
+   Q==;
+X-CSE-ConnectionGUID: o79IwbrKR2mZQ6mjBsGdWw==
+X-CSE-MsgGUID: gqeYrUn2TkygbQ5sECrczA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11243"; a="17886441"
+X-IronPort-AV: E=Sophos;i="6.11,250,1725346800"; 
+   d="scan'208";a="17886441"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2024 11:01:56 -0700
+X-CSE-ConnectionGUID: cci1yP8SQi2+tg5zQFYffw==
+X-CSE-MsgGUID: SvnGqoF9T9290lHTWh9Erw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,250,1725346800"; 
+   d="scan'208";a="87852661"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 01 Nov 2024 11:01:53 -0700
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t6vy2-000hrH-1J;
+	Fri, 01 Nov 2024 18:01:50 +0000
+Date: Sat, 2 Nov 2024 02:01:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jeremy Linton <jeremy.linton@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	steven.price@arm.com, suzuki.poulose@arm.com,
+	catalin.marinas@arm.com, will@kernel.org, gshan@redhat.com,
+	sami.mujawar@arm.com, linux-kernel@vger.kernel.org,
+	Jeremy Linton <jeremy.linton@arm.com>
+Subject: Re: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
+Message-ID: <202411020102.mnsnqAiD-lkp@intel.com>
+References: <20241029141114.7207-1-jeremy.linton@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4b82e393-093f-4477-bf0f-ee559a3b97c1@oss.nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0208.namprd13.prod.outlook.com
- (2603:10b6:a03:2c3::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0e539f1d-306f-4ab8-2fa1-08dcfa9ea911
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OoX1o3ZAPd0UpOH2FoaMwMlcB3p/4LwFRIaWF6qhXfsUkrz+on5CPrGHjhpj?=
- =?us-ascii?Q?ZL77BCv9J2F0DBMix1mXL0r01PCONRYh9I6jo2G0WjzDO7XE4l26CcRY26uq?=
- =?us-ascii?Q?gqL32STDAloOHK+k87vQ1WJ6wsU4BsycJYeZC+D538iWUmUYEMDeTMRHZSbC?=
- =?us-ascii?Q?+p4FK3ERNGNEX/B8ifl5wUYRWvTDOssw0JeNIokt47vqMwacLt238YVMt7/N?=
- =?us-ascii?Q?njeemz8Szw8r3VFLRpaCtDVm8WHZzP/j37fHqQ2tUJib1jXuvm0l+8LJ6xEa?=
- =?us-ascii?Q?/JuKlIJYXC+6evQq2erY3sCy0AO8MWz7Y0+CVMG0w5OHvHrWBcgMgC04/od0?=
- =?us-ascii?Q?mtdWhPsIm/Ikm5GTKx62H4CkpAzasmsBR3x/kXhyjZ4ZtwzMsQnEplJH664+?=
- =?us-ascii?Q?/vZVx6XqJwn7cm9t3CHaeEy51AVGLFum9EzcoEc+v8CNDMUJqz4kdD9ylygV?=
- =?us-ascii?Q?ahZWzH+8xGlSGoWk7PBMpofr1dm5gEP+KLjRzOV6k7hIInwddiqkFuRiB6Vr?=
- =?us-ascii?Q?4mNk2EbmCZReoU1vpfF/KJll5o65WJ/iF7HIS91ZtOGCZsTCioHSCLGdf6lq?=
- =?us-ascii?Q?gcTJdiAqvL4cjDqa1TNt9D1LJX4DvbfW8Db7eBh2Dcrq0Y1S+ZK+u9qp7j7s?=
- =?us-ascii?Q?/F7ORKw12qOpwYT+h3iYtpQrw/Zfsb+dXe6D8sg3xe4SOhmTOkfCkHu22Vzj?=
- =?us-ascii?Q?dDFmee9v0hYCf+ES4cltkM3UgiArMu+EErjkjmdaxd8m2fLf5iQSW/c3tlGb?=
- =?us-ascii?Q?9UiTOobSX7DoJ9z2TZHq10KEYcKsh045nQMbMi6gXnrWJHNoc7ET0JfNjPBB?=
- =?us-ascii?Q?dU260n70RUGHZ/11eTME7oP9tms02dvGLxGT+fVDY/6eg1IEs2tn0TrcHEty?=
- =?us-ascii?Q?sHZGfRBg692/Jj3cSv23smOwypdZ5rBH19gB20R5abFm65y/FCOUqK1e5uSC?=
- =?us-ascii?Q?wHsJX3Tt8caurAPEMi3XwsVpk3YnmiiWpjmNMEFCoKkiYX+W2OwS5QYExxXp?=
- =?us-ascii?Q?VBD6xQiwJQrMG1Zs1Q15IMNPg51TS3Cto+hKpF3sM9k/5TELyMs+eRNV+vDT?=
- =?us-ascii?Q?EmTEbwI85eB0MdcudDjfPb7Pvqb9y6bgGzFnKteLSw5TyWM9lvRroJdxURx4?=
- =?us-ascii?Q?jVAss+NA8iA8iA3dGhRuPtg8btv92p9S8tvTWoScJc574E6j0JhnFDGsCaje?=
- =?us-ascii?Q?uiBFWlWdpPibdz9wZ97OnqwwS+uvLxv+ietX/Yq+yMA2dqR3Rp+u7uWx4OHK?=
- =?us-ascii?Q?CkBHvD2Q7TuF/aiLh7G9FrLrO5Z+efwNIYNJ/CjElds89hCk+hSI4C593m+H?=
- =?us-ascii?Q?RCN7LdQZX0wJ/j02W1BX0Shs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZrDJKMF7hW+SEj9tcdb32rwhwY9BjhtA3IImHWIMYbjZraUNmiUf0jficfUB?=
- =?us-ascii?Q?sRc8lZ5UDRgLC24/CKscUYKurfaEkzQV0YtxDvaIQdjyibdNgqybye5vHhKp?=
- =?us-ascii?Q?TkojUxX6iqPxpdS0M64nz0qmnPco+CBEDOqnwqqDhtf2Nt6vR7hV3JyMFuGz?=
- =?us-ascii?Q?Kj1yv8R1JAyaiEXNzmZ3RKvEm/4507GiSBcLDYQh4/dlzVMWG7UMj2T1KO+o?=
- =?us-ascii?Q?PEVNEgqoFIs5C91ygA5dmkmEFEHZwMxOLPZ4laeakfZcBeck7uXxlnrTBcf5?=
- =?us-ascii?Q?58Ra2yBxBQAyXA8RW94cukPjp6xxCaKiHLmzcEsrlSALSNGD++g6sHzxLgVq?=
- =?us-ascii?Q?qTx1ct4RfIJ/g1WvlnR2suomEhhmnQVCd+/VpWG7sRpRGUto1o9+A5PjEbY1?=
- =?us-ascii?Q?jND6meLaVcyKJBgueMihttn8WbThOj47I/M8Ln54OXIPDnqhcqK11lgRdEoH?=
- =?us-ascii?Q?7ZxPJiNagGrot7Ye8MyvU16+Wss/i2XUMamfXFspgfEtnR3Hddj4rYp6MVF3?=
- =?us-ascii?Q?g4c9VNiRpkq8MVvLDjm/Qbe1jgLhkdFbQRhOgE5itQF7hyfyOchXM/0F5Qr8?=
- =?us-ascii?Q?qBywLMpOl26QOLf+KHsBx+F5ezyMG86MORllrsE3dqe3ZViozcw6xtEgIhtF?=
- =?us-ascii?Q?iPQNVTs7rpXSLia8st4uo8mkbzZvrHMJJaRRJaCdKI0swTgN7kiAjs31g5kG?=
- =?us-ascii?Q?VVr4ISr+o6w6zru1lX7ymGblsst9Hs6rwzyYv+rKuSTGu5nAqpGT7zuoztTO?=
- =?us-ascii?Q?xE4J82re2KQIhQ+Z8v8FE0KGdgJhWDoWKaZLu24NFSKZYGLRLYJrZiUoTRnI?=
- =?us-ascii?Q?J6HnR6xpkz64ztny1JMyn0vubljsgoiFOlY2hJJrjesbYw7c9ejBdn6gpJB5?=
- =?us-ascii?Q?VgfMyCDvrnzNRP2JY54SyRMTUXcbIMAES22XTtB0lVRsgE5YbsYpgpJJY7Ld?=
- =?us-ascii?Q?F3ROdYVrCprpFB/TaZiZjc6V3+aSBXVhpVAtDTqJQr+8LIPqQ98e5x8eycLj?=
- =?us-ascii?Q?JoTk+Ba1Rx5ynESNvBOdI7fWmFY0OrrAgVNre8H/5+8oS9XmW4DbYYQXpZRk?=
- =?us-ascii?Q?owauMpk8K3K0/7WcqrztPoAnUOHLdWTMS1WaMQpCYMFPsEuzuL7j5fv9WnE+?=
- =?us-ascii?Q?e92PlCXzrR1vIeQBFnG9Lv7Ati+xdgiQr0QhjBDxTl1s7qJLg1WPsDpqvlFR?=
- =?us-ascii?Q?gxE3xRfg1szhwNDRj81NmMEnllH0MAngr+iu5xBIqr0OVnaKieWjfO28IR6K?=
- =?us-ascii?Q?kkAJkIIdtgsotQjQOn3dVVtU0iZboRfyVZsWItyXDM/gH1DMio01R4BBmCfO?=
- =?us-ascii?Q?1KvxD0+UhufvkJZzco+1hpRMKkT6+MTurX8dk6HocwqIjizbsEmOHSHyY38t?=
- =?us-ascii?Q?BCCFfEWz8PWSX8Y6KgyJ78UsooE4oH1jIyYUQqyImOMHoJ0uZ2ANj3OqzPB6?=
- =?us-ascii?Q?ZvOaYPzQCeeZay/GFGtffNOpRN6u97hQCUa62B3qGcCjulF5i+kIrppsSEvE?=
- =?us-ascii?Q?ERVlWRXJolIjsuFN/SAv20XrMIZy31SBy/7m6ez+G57cVEpKGS9x9KX8TjW8?=
- =?us-ascii?Q?7sO/m/lav/f58TT9mRGKZ3P1wJ2Op6BkPp8TrDMQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0e539f1d-306f-4ab8-2fa1-08dcfa9ea911
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 17:57:32.9051
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h58uNRFR54MK3sGXoj09plx6u6X97Wohnvlsl35oqSPBzz//f+P45N7vEB7CElnG2QeywwVMaD5qK7N/K4p8TA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9381
+In-Reply-To: <20241029141114.7207-1-jeremy.linton@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_105737_562388_A9EB6C79 
-X-CRM114-Status: GOOD (  40.29  )
+X-CRM114-CacheID: sfid-20241101_110156_348382_B006B062 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,172 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 11:29:24AM +0200, Ciprian Marian Costea wrote:
-> On 10/31/2024 6:39 PM, Frank Li wrote:
->
-> Hello Frank,
->
-> Thank you for your review!
->
-> > On Thu, Oct 31, 2024 at 10:35:54AM +0200, Ciprian Costea wrote:
-> > > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > >
-> > > This patch adds the dt-bindings for NXP S32G2/S32G3 SoCs RTC driver.
-> > >
-> > > Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> > > Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> > > Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > > Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> > > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > > ---
-> >
-> > next time you can cc imx@lists.linux.dev
->
-> Thanks for your suggestion, I will start adding this list.
->
-> >
-> > >   .../devicetree/bindings/rtc/nxp,s32g-rtc.yaml | 99 +++++++++++++++++++
-> > >   1 file changed, 99 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
-> > > new file mode 100644
-> > > index 000000000000..3694af883dc7
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
-> > > @@ -0,0 +1,99 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/rtc/nxp,s32g-rtc.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: NXP S32G2/S32G3 Real Time Clock (RTC)
-> > > +
-> > > +maintainers:
-> > > +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> > > +  - Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    oneOf:
-> > > +      - enum:
-> > > +          - nxp,s32g2-rtc
-> > > +      - items:
-> > > +          - const: nxp,s32g3-rtc
-> > > +          - const: nxp,s32g2-rtc
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  interrupts:
-> > > +    maxItems: 1
-> > > +
-> > > +  "#clock-cells":
-> > > +    const: 1
-> >
-> > Does your RTC is clock provider? why need #clock-cells
-> >
->
-> RTC clocking on S32G2/S32G3 has a clock mux for selecting between up to 4
-> different clock sources (parents).
-> Now, as suggested in previous reviews, I've switched to using the CCF in
-> order to implement this hardware particularity. In the end I've resorted to
-> implementing 'assigned-*' approach which while not mandatory as per proposed
-> bindings I find it quite scalable in selecting clock sources for the RTC
-> module compared to the first iteration (V1) of this patchset.
+Hi Jeremy,
 
-Any link of previous review?
+kernel test robot noticed the following build warnings:
 
-Frank
+[auto build test WARNING on arm64/for-next/core]
+[also build test WARNING on next-20241101]
+[cannot apply to kvmarm/next soc/for-next linus/master arm/for-next arm/fixes v6.12-rc5]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: ipg clock drives the access to the
-> > > +          RTC iomapped registers
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: ipg
-> > > +
-> > > +  assigned-clocks:
-> > > +    minItems: 1
-> > > +    items:
-> > > +      - description: Runtime clock source. It must be a clock
-> > > +            source for the RTC module. It will be disabled by hardware
-> > > +            during Standby/Suspend.
-> > > +      - description: Standby/Suspend clock source. It is optional
-> > > +            and can be used in case the RTC will continue ticking during
-> > > +            platform/system suspend. RTC hardware module contains a
-> > > +            hardware mux for clock source selection.
-> > > +
-> > > +  assigned-clock-parents:
-> > > +    description: List of phandles to each parent clock.
-> > > +
-> > > +  assigned-clock-rates:
-> > > +    description: List of frequencies for RTC clock sources.
-> > > +            RTC module contains 2 hardware divisors which can be
-> > > +            enabled or not. Hence, available frequencies are the following
-> > > +            parent_freq, parent_freq / 512, parent_freq / 32 or
-> > > +            parent_freq / (512 * 32)
-> >
-> > Needn't assigned-*
-> >
->
-> 'assigned-*' entries are not required, but based on my previous answer I
-> would prefer to document them in order to instruct further S32 SoC based
-> boards which may use this driver.
->
-> > > +
-> > > +required:
-> > > +  - compatible
-> > > +  - reg
-> > > +  - interrupts
-> > > +  - "#clock-cells"
-> > > +  - clocks
-> > > +  - clock-names
-> > > +
-> > > +additionalProperties: false
-> > > +
-> > > +examples:
-> > > +  - |
-> > > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +    #include <dt-bindings/interrupt-controller/irq.h>
-> > > +
-> > > +    rtc0: rtc@40060000 {
-> >
-> > needn't label
->
-> Thanks. I will remove the label in V4.
->
-> >
-> > > +        compatible = "nxp,s32g3-rtc",
-> > > +                   "nxp,s32g2-rtc";
-> > > +        reg = <0x40060000 0x1000>;
-> > > +        interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
-> > > +        #clock-cells = <1>;
-> > > +        clocks = <&clks 54>;
-> > > +        clock-names = "ipg";
-> > > +        /*
-> > > +         * Configuration of default parent clocks.
-> > > +         * 'assigned-clocks' 0-3 IDs are Runtime clock sources
-> > > +         * 4-7 IDs are Suspend/Standby clock sources.
-> > > +         */
-> > > +        assigned-clocks = <&rtc0 2>, <&rtc0 4>;
-> > > +        assigned-clock-parents = <&clks 56>, <&clks 55>;
-> > > +        /*
-> > > +         * Clock frequency can be divided by value
-> > > +         * 512 or 32 (or both) via hardware divisors.
-> > > +         * Below configuration:
-> > > +         * Runtime clock source: FIRC (51 MHz) / 512 (DIV512)
-> > > +         * Suspend/Standby clock source: SIRC (32 KHz)
-> > > +         */
-> > > +        assigned-clock-rates = <99609>, <32000>;
-> > > +    };
-> > > --
-> > > 2.45.2
-> > >
->
+url:    https://github.com/intel-lab-lkp/linux/commits/Jeremy-Linton/arm64-rsi-Add-automatic-arm-cca-guest-module-loading/20241029-221213
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20241029141114.7207-1-jeremy.linton%40arm.com
+patch subject: [PATCH] arm64: rsi: Add automatic arm-cca-guest module loading
+config: arm64-randconfig-002-20241101 (https://download.01.org/0day-ci/archive/20241102/202411020102.mnsnqAiD-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 639a7ac648f1e50ccd2556e17d401c04f9cce625)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241102/202411020102.mnsnqAiD-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411020102.mnsnqAiD-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/virt/coco/arm-cca-guest/arm-cca-guest.c:223:40: warning: unused variable 'arm_cca_match' [-Wunused-const-variable]
+     223 | static const struct platform_device_id arm_cca_match[] = {
+         |                                        ^~~~~~~~~~~~~
+   1 warning generated.
+
+
+vim +/arm_cca_match +223 drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+
+   222	
+ > 223	static const struct platform_device_id arm_cca_match[] = {
+   224		{ ARMV9_RSI_PDEV_NAME, 0},
+   225		{ }
+   226	};
+   227	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
