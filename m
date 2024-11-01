@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F89E6B251
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAFBE6B253
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=; b=eJdYaGOLYdXkYNYf8WctsFppzO
-	N8ALyIsXBlKeRrVSTgZjGgVKfRIpjtusKXXZ0YV8w4tg7wzjln9WYCKCFyyqINWtNDH1lHcMKRlV/
-	McahCxyDkUkHOpMf8wzMxd3v5Of3xJEXYYv2hU4R2PI0LoNuKq+vvnpkys6WccnzxG1mkfV4waSCN
-	swZcyvHcTl/GAL3n14jBRmOfNLmbODywC6YhnO396a19Fpsn+LOIPKbw0pw4IetMnmNfobxVtrNyB
-	Oi7IJou8gsTyxE3MImz/QwDFnnj89rOVqBoj1buxwnUDlhkOOaUjT6VC9IqFbkHKKMzbNZvovFRot
-	6nMFo6Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BxpPEhpTuus5zpDuVHoYLWnmHpT26Bi4kxaWAvzhOiI=; b=CdLPvKDJxRbu6mC/W+vCYGcfGk
+	hwlFpz9zTzoNfVA2tHwOxtv0RYiPyL7hdGgOylzxJJ9a9w5fuq/DOTzkQ19AGHaHDI0E0eBLmYdPC
+	kAWi/W0lObB84K2+MCFvu6n9RMoLe/BVnUFQnHIU7o7X9QPROZKiVX+O86qjwK3qbmiYfXzGnafVc
+	CtGu2UxGeP51RfAQbaqki1cvso47fLYlk+VWwgAU20Xqnlj+v/FUmE73RxqDfTTWy84NwxcCLG7sb
+	yGKX+MMDC6KfF0t9KAf4b3y4L28U8VE4TavilT/RecmkF13TWENmJiDJ3QfSQyoGgs4vFuUQJti5W
+	KltsM4kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qZV-00000006vzw-1liC;
-	Fri, 01 Nov 2024 12:16:09 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1t6qrs-000000073Ha-1nY8;
+	Fri, 01 Nov 2024 12:35:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qGK-00000006pFC-3E4W
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:56:22 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f72c913aso3129774e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 04:56:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730462178; x=1731066978; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=;
-        b=aApLo7uLmbQusb+c31S2kiF1V86HZmxOmUtY9DfglPmbjk5Cq+QutR+AB/UB26dkIT
-         PSG3m6XkETVbxvlRy4B8+upcc1L51Nqcmvn64J+XpES9Nsl/edE+v7iNSgOaLpDxyy6N
-         kP3wv+91RDzfLMSsbJvwCQZsoeCnmukp9IgKfcJo8Yno8vElCrz0vDS0LvpGRkjLL3qn
-         G6zevUYn/PiUcNhIoGNPqWLTuer+8eqpQj4n5LtHVWnCV74t9eNCgKwWmTE/Mynj/lp/
-         fbhzBL33/T3/R9J52iauYvL6wY4i2goYKrTQ4qhmZ5hA2UbF+Nj0UiMi06qIVN+igj9g
-         Apmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730462178; x=1731066978;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=;
-        b=IKS1+dUmyzX1S+s/N7wbQ50+OqkY3tZ7dcHaOVq6JJLM1zreqsSBAgzqXfm60Cb4hp
-         7sDbaP8UAFNlnT2vrmRHdejBQcT1LwsnCnql3GUONJ17VYcATab2UvtpdlyNLszDTSkE
-         K7owDT9e35p0qXzJwMcR8Xk8YfrT3P7AbU3vorgVrAEl1InnhhC1ZM0imMk3RjsUuAGF
-         24d6EDmCm/42mQmR9JhClzbXRkdZh5OVQUCpzUfckvcbwqhdj9abCTTWf2Mnbf0kJ7sR
-         jAmV2NCezcgaTIpzreslQ3pr5VRRd5KjMzGGGlYFjpsSxpJqIrYX0487X6xjzduxaCEv
-         /sxg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAK+CLmYkIkn8Y2j1xzkVKJIbmd2teeXj+E0Vp9pcr/q3aikGMRVPUCX0f3kC2HXLY4C61QKTHs7tfD4v05YzD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrrDRXCuQFfyahFiYf7ziWX/aLy1w6vUNPsA09Q2A1xh1Kzm8E
-	YTQ9M6JxuOloqNquetTXqRHYiUUhGk4ZQbwp16V2Pg5DjZQyj70NAonWqLSxhJ8TstGzeusQN1u
-	Gy7EhPqpxnTB9bgsWu2u8qkdhZmtgV3rvkuzcrA==
-X-Google-Smtp-Source: AGHT+IG201tjRpH4xAJy3js1MXvAZgMS+IPv3AAVo1TZLrpjjIYjlw9AiqUvvc+CIbPttUv3zlvfcUINXBzKPHjno0Q=
-X-Received: by 2002:a05:651c:211a:b0:2fc:9550:d658 with SMTP id
- 38308e7fff4ca-2fcbe004950mr124110461fa.24.1730462178345; Fri, 01 Nov 2024
- 04:56:18 -0700 (PDT)
+	id 1t6qOi-00000006rVQ-0fyM;
+	Fri, 01 Nov 2024 12:05:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730462695;
+	bh=VUpg8swfaMH8KH/YYd4yjICcXgkMLBMqp0RubHiLe2g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V8kGI6/OGf9VC0m9ypPCHAgD5grp8peLL1jVHBsKMKcQUcN/w1MyDpUQY5TngyiuY
+	 SucTeTCT8+2RkPrpgp8k7dEipBeaEWF98mOy4iG6iP3vfIxvI28XhvJ7o/ChVp3H19
+	 21n4VMIeO+z4mcyVF3/476PbEfeHQBb7RFqs2XeHru0kW6p+OqyQaVY8OHvi0unIIy
+	 pvIDS4tBcJePoA9cHV1VgnOhQ6MU/6xMDc2S9EVnxfvbG+KzfKrTmsPnKHfJq6yTjJ
+	 1XpH7imWfxuJOaz76QdRScHfYdOyYPqsR9zYrnAca0hj4SMYQS3Ei6QPaIfIYcqJbr
+	 PtQg4h8JEmMPg==
+Received: from notapiano (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B7E7717E1574;
+	Fri,  1 Nov 2024 13:04:53 +0100 (CET)
+Date: Fri, 1 Nov 2024 08:04:51 -0400
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Bamvor Jian Zhang <bamv2005@gmail.com>,
+	Shuah Khan <shuah@kernel.org>, kernel@collabora.com,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, kernelci@lists.linux.dev
+Subject: Re: [PATCH RFC v2 3/5] pinctrl: mediatek: common: Expose more
+ configurations to GPIO set_config
+Message-ID: <4ed22f25-ad10-461c-be68-8472590db44d@notapiano>
+References: <20241025-kselftest-gpio-set-get-config-v2-0-040d748840bb@collabora.com>
+ <20241025-kselftest-gpio-set-get-config-v2-3-040d748840bb@collabora.com>
+ <CAGXv+5H9OTCn033yoi6oxxRKG1G=vbrBK+aw+ZWwGPWbn=uWuA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
-In-Reply-To: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 1 Nov 2024 12:56:07 +0100
-Message-ID: <CACRpkdbFQ6f6xg906ZREOgDifSWwfFWdxCqDxcLALZdYg6PWWQ@mail.gmail.com>
-Subject: Re: [PATCH v5 0/7] gpio: siul2-s32g2: add initial GPIO driver
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Enric Balletbo <eballetb@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5H9OTCn033yoi6oxxRKG1G=vbrBK+aw+ZWwGPWbn=uWuA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_045620_847600_4F7AC4DD 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20241101_050500_429176_9A0F398B 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 1, 2024 at 9:06=E2=80=AFAM Andrei Stefanescu
-<andrei.stefanescu@oss.nxp.com> wrote:
+On Fri, Nov 01, 2024 at 03:54:58PM +0800, Chen-Yu Tsai wrote:
+> On Sat, Oct 26, 2024 at 5:16 AM Nícolas F. R. A. Prado
+> <nfraprado@collabora.com> wrote:
+> >
+> > Currently the set_config callback in the gpio_chip registered by the
+> > pinctrl-mtk-common driver only supports configuring a single parameter
+> > on specific pins (the input debounce of the EINT controller, on pins
+> > that support it), even though many other configurations are already
+> > implemented and available through the pinctrl API for configuration of
+> > pins by the Devicetree and other drivers.
+> >
+> > Expose all configurations currently implemented through the GPIO API so
+> > they can also be set from userspace, which is particularly useful to
+> > allow testing them from userspace.
 
-> Andrei Stefanescu (7):
->   dt-bindings: mfd: add support for the NXP SIUL2 module
->   mfd: nxp-siul2: add support for NXP SIUL2
->   arm64: dts: s32g: make pinctrl part of mfd node
->   pinctrl: s32: convert the driver into an mfd cell
->   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
->   pinctrl: s32cc: add driver for GPIO functionality
->   MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-How do you want to merge this?
+> 
+> Missing signed-off-by?
 
-Can the MFD and pinctrl parts be merged separately, or shall
-it all go into MFD or all into pinctrl?
+Huh, I don't know how the pre-send checks didn't catch it, will take a look,
+thanks for pointing it out! I've added the SoB above so it can
+still be merged if no further versions are required.
 
-I can certainly merge it if Lee ACKs the MFD patch.
-
-Yours,
-Linus Walleij
+Thanks,
+Nícolas
 
