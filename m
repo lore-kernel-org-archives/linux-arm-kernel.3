@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADC2E6F06F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 17:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635B4E6F073
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 17:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BilCBdj0cz9tn0eKLbfA0prIwNcqfAvYUVFpB7V50Ic=; b=schUSu2lMMIKfaKsaHxqJGz2Ul
-	plVmchLeKP1sbZRgyCJaFPeOOOxXYZTXgQewQKqktY6WIoBjuBSZLc7zW7H4K5TgvRrCCkWzBa5wf
-	CoMQ+52MQXXfSGcBALIAybRtC4vkXPU+LxP00E0Q7+95TennpMPBFs+wF+hShal5thdfiD2yESZw+
-	KbU0DV4ilCwFQyxzoHfdJ7dxS9QfSlXWAM9pAe7ejiHfKacUMewWSZMTvpliY7B0gyV3PBVpeGAIx
-	E+mSgYdmo5IvE7hjkyfe/FWSqldVUj//VunNAH4X9AqZoKiAVndaR7ETjfS3NBCMcRn6giFTi3rRV
-	jDqVFu2Q==;
+	bh=Y07SB1TuXdL795s5ElJ7O8+eAoqssEVD+WBZMB5y8D8=; b=qnkZx0+GKCs2iSlVK8uQxLbCwi
+	0I9wnfvy/siBGK8OnnmSL2AujIuJ95pS1vq9ffmRQHVYAdGsm9zsajHpLx42xI/nbv+GuRfNVgMDd
+	yEpCQGhlD+iVSfVpnSEfvtigiQBpOqHZRtyB6JujvDQNDuXqEgjxJIM3uT7/XsFT2f6DWkwM9BUQZ
+	D+mUllJBQHpsctEzvU4PebJr6n7l+G+ACYvYGJlW1B+QG8FLPFVP/3z88KZv2TIzkWdqsGCI8inKJ
+	2Jc8ql0Hye5qo/KQHqY9um9VSMDQQZU8R38hYxlYkOcpHUQtKY4XCXBYtsivbHoSZRmMgl78985UP
+	Ll9B+IGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vaS-00000007rRo-14tV;
-	Fri, 01 Nov 2024 17:37:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t6vc7-00000007rjX-34HL;
+	Fri, 01 Nov 2024 17:39:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6vYk-00000007rBc-2KYH
+	id 1t6vZO-00000007rK4-0PhD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 17:35:43 +0000
+	Fri, 01 Nov 2024 17:36:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28195A43101;
-	Fri,  1 Nov 2024 17:33:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB5A4C4CED2;
-	Fri,  1 Nov 2024 17:35:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 99D06A43F6E;
+	Fri,  1 Nov 2024 17:34:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C98CC4CECD;
+	Fri,  1 Nov 2024 17:36:19 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
+To: mark.rutland@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	kristina.martsenko@arm.com,
+	ptosi@google.com,
+	Liao Chang <liaochang1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Re-organize arch_make_huge_pte()
-Date: Fri,  1 Nov 2024 17:35:37 +0000
-Message-Id: <173048223682.1108539.16990086073905192650.b4-ty@arm.com>
+Subject: Re: [PATCH v2] arm64: Return early when break handler is found on linked-list
+Date: Fri,  1 Nov 2024 17:36:16 +0000
+Message-Id: <173048223688.1108539.1091476619283409059.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241029044529.2624785-1-anshuman.khandual@arm.com>
-References: <20241029044529.2624785-1-anshuman.khandual@arm.com>
+In-Reply-To: <20241024034120.3814224-1-liaochang1@huawei.com>
+References: <20241024034120.3814224-1-liaochang1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_103542_703282_B3DE4B9C 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20241101_103622_222644_CA829879 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,34 +68,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Oct 2024 10:15:29 +0530, Anshuman Khandual wrote:
-> Core HugeTLB defines a fallback definition for arch_make_huge_pte(), which
-> calls platform provided pte_mkhuge(). But if any platform already provides
-> an override for arch_make_huge_pte(), then it does not need to provide the
-> helper pte_mkhuge().
+On Thu, 24 Oct 2024 03:41:20 +0000, Liao Chang wrote:
+> The search for breakpoint handlers iterate through the entire
+> linked list. Given that all registered hook has a valid fn field, and no
+> registered hooks share the same mask and imm. This commit optimize the
+> efficiency slightly by returning early as a matching handler is found.
 > 
-> arm64 override for arch_make_huge_pte() calls pte_mkhuge() internally, thus
-> creating an impression, that both of these callbacks are being used in core
-> HugeTLB and hence required to be defined. This drops off pte_mkhuge() which
-> was never required to begin with as there could not be any section mappings
-> at the PTE level. Re-organize arch_make_huge_pte() based on requested page
-> size and create the entry for the applicable page table level as needed. It
-> also removes a redundancy of clearing PTE_TABLE_BIT bit followed by setting
-> both PTE_TABLE_BIT and PTE_VALID bits (via PTE_TYPE_MASK) in the pte, while
-> creating CONT_PTE_SIZE size entries.
+> v2->v1:
+> Remove all WARN_ON(!hook->fn) in v1 as Will suggested.
 > 
 > [...]
 
 Applied to arm64 (for-next/misc), thanks!
 
-[1/1] arm64/mm: Re-organize arch_make_huge_pte()
-      https://git.kernel.org/arm64/c/f8192813dcbe
-
-I think we can now get pte_mkcont() to only set PTE_CONT without
-touching PTE_TYPE_PAGE. Previously it wasn't possible because
-pte_mkhuge() was clearing the PTE_TABLE_BIT and we added it back via
-pte_mkcont(). Give it a try and send an additional patch cleaning up
-pte_mkcont() if this works. Thanks.
+[1/1] arm64: Return early when break handler is found on linked-list
+      https://git.kernel.org/arm64/c/9a0e3b92b02e
 
 -- 
 Catalin
