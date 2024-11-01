@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0873E6F06D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF15E6F06D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyTpg0lhlDGimy0ZvEFKhDPpfFFUWK/X72leUPUldo0=; b=e51E5ou90WJeS1oD9fzwnIH+g/
-	tF/TrrdlAiqSHekikLg1NvgNoYL4mwBxrpCuDL7NZ6HnlIEUATp+d+Lc+QT7/wLFi7v0C6msn08mq
-	Tv+R+eDtHe+ppGkNNi2OUW33eWskJByIHxiTNGV//9osRRsLav/gugBAOsMjJxhpGqEqkbCTjrzf4
-	DuuALHpgDHFPJ4GIjp5bptQhlc32VqVIofucpj3ANOd+PXrHJY7gUmUVTlXoOfGh8ZuZVmJ8hBJZV
-	ug2hxpviuWHN5phAWmwdAVdzjwGlJ9F4eNkbLTQ1yTTXvYzdxE/78DNbVShox19ETPXHNXiCe6bHA
-	bcpGD7lw==;
+	bh=UjDerGH5FHum9kPtGYCvMVG115zE8TYkVY/882Dg14U=; b=hY1miZ2wMvOxrhvEDqPxvkmyAd
+	2/PMbl4b8DMhJR+kmjwI7qRGqmqLvJhORGhX5qjXAkqOsz9icQZHwlGTEtgHShAMYfwFSGXEHekYS
+	qxPyIKDHJejowcCtRccIyRM4jQtcD9EwCtfSgOT1GejhUCYB4SrgoT6PDBfBXq7s6yu4FHK43rC8s
+	FCfx+o5fxzRcFDZfMmlK9y8P0dBUSvSUdKdXvtMaVW54AL/p/SjNUMm44OIYeFW53Zi9a54oAjMrM
+	1Ouy7IOh9mfuGBKnPNGZVOoDMAPGWEcRRR0fCphqkTQvolxc0YmI3jvopcKE1eJNjRKRoblT0FYUF
+	/g0asUHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uJU-00000007dJR-41pb;
-	Fri, 01 Nov 2024 16:15:53 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1t6uL8-00000007dXw-0Loc;
+	Fri, 01 Nov 2024 16:17:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uFU-00000007cSL-3CLq
+	id 1t6uG7-00000007cd6-42BQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:11:47 +0000
-Date: Fri, 1 Nov 2024 09:11:25 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1730477501;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tyTpg0lhlDGimy0ZvEFKhDPpfFFUWK/X72leUPUldo0=;
-	b=t+7ZZb8QkkiZMjWQXqf/2w9UWEZZ80XpBkF5UWSotFyMMCpQvxO+Ol6L1m097f5XvORbXi
-	K4+CWGnk3tCVvjVR5h+fGMU59MESJ99/eJkLZYySXFlBVyIvx6MCcONQ29QfpCQsZtEPzB
-	PjqX2uKrHQb2zbKSykrFjXm9JtGxBbA=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andrew Jones <ajones@ventanamicro.com>,
-	James Houghton <jthoughton@google.com>,
-	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
-Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
- vcpu_get_reg() instead of using an out-param
-Message-ID: <ZyT9rSnLcDWkWoL_@linux.dev>
-References: <20241009154953.1073471-1-seanjc@google.com>
- <20241009154953.1073471-4-seanjc@google.com>
- <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk>
- <ZyTpwwm0s89iU9Pk@google.com>
- <ZyT2CB6zodtbWEI9@linux.dev>
- <ZyT61FF0-g8gKZfc@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyT61FF0-g8gKZfc@google.com>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 01 Nov 2024 16:12:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9AA795C4590;
+	Fri,  1 Nov 2024 16:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27455C4CECD;
+	Fri,  1 Nov 2024 16:12:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730477542;
+	bh=TVuhYAYnXLWMtXGZ18MTvfH6mL7QYNFn42tBocwQErM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a00E/O/E9aSQJgH5engtiL0O1dYSYV0bRJAsx4iEjEVTMFIYZrFExz5kbWXk2zuYX
+	 a0huvqQknbX9AAQyR6+ddrb6+Hw3kNSnYHRdfXINYJizmTkrVbvuHCFfMqCbT01LXE
+	 iwHEwfUdlCJjypQGnHXGjLoUpZx0awSdaYRTCYikFQYguIUhJSZRuwfdMcE5PbVo2o
+	 VNAAyykejS26AdqCy0RDj0hthQBLoZi3AaUhD37ciNXEoCjCLU8HoGZHQJW99sxWmF
+	 H6buxtiyHqUBYAJG9UuOi/TzGrqPI/bY1LwGi4LuMu/fiBXZA1RAp4B5pokhw2slCd
+	 vEdlSALGNUj5w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t6uG2-008v73-EX;
+	Fri, 01 Nov 2024 16:12:18 +0000
+Date: Fri, 01 Nov 2024 16:12:18 +0000
+Message-ID: <86msij0w7x.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] arm64: Expose ID_AA64ISAR1_EL1.XS to sanitised feature consumers
+In-Reply-To: <ZyT1Tblp624a79CD@arm.com>
+References: <20241031083519.364313-1-maz@kernel.org>
+	<ZyT1Tblp624a79CD@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_091144_958644_C1D5AF0A 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20241101_091224_061775_DC633174 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 08:59:16AM -0700, Sean Christopherson wrote:
-> > Can you instead just push out a topic branch and let the affected
-> > maintainers deal with it? This is the usual way we handle conflicts
-> > between trees...
+On Fri, 01 Nov 2024 15:35:41 +0000,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
-> That'd work too, but as you note below, doing that now throws a wrench in things
-> because essentially all arch maintainers would need merge that topic branch,
-> otherwise linux-next would end up in the same state.
-
-TBH, I'm quite happy with that. Recent history has not been particularly
-convinincing to me that folks are actually testing arm64, let alone
-compiling for it when applying selftests patches.
-
-Otherwise, the alternative of respinning the global change for every -next
-breakage adds a decent amount of toil and gives the wrong impression of how
-long our patches have actually been baking in -next.
-
-> > > That would be a good oppurtunity to do the $(ARCH) directory switch[*] too, e.g.
-> > > have a "selftests_late" or whatever topic branch.
+> On Thu, Oct 31, 2024 at 08:35:19AM +0000, Marc Zyngier wrote:
+> > Despite KVM now being able to deal with XS-tagged TLBIs, we still don't
+> > expose these feature bits to KVM.
 > > 
-> > The right time to do KVM-wide changes (even selftests) is *early* in the
-> > development cycle, not last minute. It gives us plenty of time to iron out
-> > the wrinkles.
+> > Plumb in the feature in ID_AA64ISAR1_EL1.
+> > 
+> > Fixes: 0feec7769a63 ("KVM: arm64: nv: Add handling of NXS-flavoured TLBI operations")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > 
-> Yeah, that was the original plan, then the stupid strict aliasing bug happened,
-> and I honestly forgot the vcpu_get_reg() changes would need to be consumed by
-> other architectures.
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 > 
-> Other than letting me forget about this mess a few weeks earlier, there's no
-> good reason to force this into 6.13.  So, I'll drop the series from 6.13, post
-> new versions of the this and the $(ARCH) series just before the merge window,
-> and then either send a pull request to Paolo for 6.14 as soon as the 6.13 merge
-> window closes, or ask/bribe Paolo to apply everything directly.
+> Happy for this to go in as a fix via the kvm tree but let me know if I
+> should pick it up instead.
 
-Sounds good, punting to 6.14 seems reasonable.
+No need to merge this urgently, nothing goes badly wrong.
+
+Thanks,
+
+	M.
 
 -- 
-Thanks,
-Oliver
+Without deviation from the norm, progress is not possible.
 
