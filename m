@@ -4,78 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BE6CEB2DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12266E674BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t1KkDbfeRb8/B89WlBjrN65+9n5V//dcukh2+tciQ0U=; b=wHSJw8ThmqyyxUyCCIujrn480c
-	QD1Y3/z+9R5MwjMB6u+5Cc0abuIwFcDSMahIxmhd3QgfELbLoy3DOpeekNV2G/XGOlRgCrvOPk04W
-	5hLtSi1StJmiIFrMm9jKKMgwRNeBKjLAgm5OotuYAfjEbQeq/pVr++flVahDARmRs0KwQyVcXatYL
-	dzN8YK2nYMxckoPT9MbcfxTgi7wjnVr8KqhWP3wbLjTz8HFlUp11vvE5Qastg/yVR2XlmnErvISKg
-	nKDLAymBg+xzAC52A/Vkh7BCheDPofWLDSd0Q9I0AGuuGv2JofhLCQ5zjsXuA1WbO5ApDH+raK8pK
-	aeBrpnVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/f+ob6/0cs0oAQjTndC8UAIk7DAav3CEmLAxLiR/ZgA=; b=Ud/sGrmgm1Waw+/f7OohPl0CKO
+	R4Yp+CbEYtGef4MUOaRbagRYawvkl5HgbuLf3BYcQax+89CCBcrK1s5+0xXNC+uZBrebwDvonAIN/
+	2dSCL2yA3dTmLi/L93mqM9lHinB9xFgQ0vH4oYv0haAQHQauy/Cl6zlq3I4M3Xfw0of6OQyAmpIRX
+	8zBK0Oip2QCnhTKXrOG3R2yrQXhVtEfL7Y/LiZohof4Ky9qdyvi5lvKsngpVBrzfv3qcyIu0kK+4Y
+	TtkizU9dljTa91NAqCoh516eBBDCLEDrQIqr1Ok+Ncg9p55Y05G1h3DJyYWfzuJPLwpxSVYuVMM3n
+	lem32Ddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6np5-00000006NTH-34mb;
-	Fri, 01 Nov 2024 09:20:03 +0000
-Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
+	id 1t6ntd-00000006OVV-3P4T;
+	Fri, 01 Nov 2024 09:24:45 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6nnF-00000006MsM-3gzY
+	id 1t6nrx-00000006OGU-2P7M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 09:18:11 +0000
-Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4a74cfa7671so1456512137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 02:18:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730452687; x=1731057487; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=t1KkDbfeRb8/B89WlBjrN65+9n5V//dcukh2+tciQ0U=;
-        b=YrVNangHX1T0go0kXOukF0fB2Mx186NEFDaAoCPFqjLYYD3hQcILzLDBpmJi32XmnY
-         g8ntc8mA5gume3vs9ILEf9IObX7tBUZwgaa6VPl10QHoEgIek1xk8BqX3izj7AwKZRfS
-         FaAgPfSH/wiHgFEseWf2+atQGdBDSlWc9tphJIkmeTuHMbb+V9kJ7gOLDqpULYHHeDLE
-         +VZGKIt1RxyOAt97Wk3YNq8tQkb2wrR+PCPorO0jzzW9sbXbJasArhwD6zSoiOOV6Qck
-         vwPmI6qjwR0ssUAJVHDSy3rRXI6O89x96vg6VDiZ5xGtmWUp126uaQgZPeY/0COUnwAU
-         /NhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730452687; x=1731057487;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=t1KkDbfeRb8/B89WlBjrN65+9n5V//dcukh2+tciQ0U=;
-        b=GJiG5qr4scEGDXoU3XgxV4WOJvEey1KQgKZAIpFZr6DfWddO1gW0YM6zXReiEPxjx5
-         tZ9NbxJiaqozCajXWkp0DhYxIRZCifWnJTK7C6eoWXvMYcMCcLD7yEM9/objS4a1xiFx
-         o07i5K3QcLHtE1RYg2je4KcXTFsJWurXc24to5cHiko0umTh/40la1aEJWCd7EZINNt1
-         YF44v/uveT2WriZ2SI9tuY3W+3AUsbRZSoKtruzwpNN+h+kpbbA+M1akJ0FZXwGEUbhO
-         IPMJWanTsNTw+iMbSUnC04MAKleDdf0MRkGUI1W7CTNBkBCkp9kpBcX4w4GBrRGjRPi8
-         upiw==
-X-Gm-Message-State: AOJu0YxWSai9aC6WgRb4HH+bTkni2n2+FIZTQUaM+8jdngnd9/0weW7b
-	I9uPnCO5Nwsd4EkJnn4jNZ4TrvJq6Hz+q4C94VJgb/XWwLheLAU/rstO/i5KtjUOVqXC1mcHMVm
-	F7h8CSsXd+4Xvrwfgi44SmoLU5OtTykZYxxOYFDmwho43VGnq33k=
-X-Google-Smtp-Source: AGHT+IF/7VeE0qypAZsvB0GHvJRs7OROyaNMivE3QaLLNk11pGcfGJx4Il504Fo5uGv0ogFJJ2/UpZC3ZSupAKDX6qc=
-X-Received: by 2002:a05:6102:d8e:b0:4a4:4868:cfd9 with SMTP id
- ada2fe7eead31-4a956c98c4bmr4297604137.1.1730452687441; Fri, 01 Nov 2024
- 02:18:07 -0700 (PDT)
+	Fri, 01 Nov 2024 09:23:03 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id E0FA611400C7;
+	Fri,  1 Nov 2024 05:22:57 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 01 Nov 2024 05:22:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1730452977;
+	 x=1730539377; bh=/f+ob6/0cs0oAQjTndC8UAIk7DAav3CEmLAxLiR/ZgA=; b=
+	sqx/TmKkrbFlbpIh2Er3egpdCCyhzsQAoBY21kEt9b/TWCscIH0VzLujadP6g7Lq
+	81SUkJ8DCPAtAK4muYBOYg1sUgigAWR2oR8fxq7kw3qiS9C6t4UnRU187E103oSR
+	BgRRP4gxrSyJwxAfs2VVG1z++vlBfkA6zbSPHifvbX8am6dQe91TeBQwA9GjDzhe
+	4HHNyLC/f2u6nxlEhcwWLe8q2AH6PD4Ibyv1sfFydp5WvZbzKUlKSoyOCmcoDhkq
+	tD4XdUwphm4Dytsz3vme812b0BIBifnELQPbxpsih30YChZgEyXmC1C4aB4eBAG0
+	t+lcuQ6JqRtsHjvAFsKKtQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730452977; x=
+	1730539377; bh=/f+ob6/0cs0oAQjTndC8UAIk7DAav3CEmLAxLiR/ZgA=; b=R
+	walSVN0B0tyKKv6K4DPnkzJmD0wHebmbjswUDltqAxO1jiNVsUhPnBEXnw1K9dTp
+	4CjHMhtjyDmw7BVi/Kl9EuRpq+CL8KcDL5lbVGDtZfXSQ+3cba5UakEtSzaSsQBL
+	+M78jRqvrv+90ycXWtzgFL7cm/EN0XqGgxNOjnRpAn8EIMUoREaVYgyN8RyQagvF
+	QP0wT5cpESJX8BYzSlEIYS/iSvZ3T4WoVlX3awG9jHTgzBqMkzXBk8mABczuSAzO
+	1qzuxrbk62IuQzeBP4r3JEtlghltfORUSqnclsBdHKiWBg7CqVteHI80DbYOSNQ6
+	tSBNNZryIpBnKfwrcIMtg==
+X-ME-Sender: <xms:8Z0kZ32hrZ15aXsK9-0uULTHRaEQJDONV7ovxYe2SBCH4x_hNuskhQ>
+    <xme:8Z0kZ2EsNq9mC9QTLkE0fz4fi3FiLxNm8n-TJOeRjn7mR3YdWLwEgpl8hZKlnVdNp
+    XP3GNbGtEpVfilCHAc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdekledgtdefucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepledp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhgthhgvhhgrsgeskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheprghnuggvrhhsrdhrohigvghllheslhhinhgrrhhordhorhhg
+    pdhrtghpthhtohepuggrnhdrtggrrhhpvghnthgvrheslhhinhgrrhhordhorhhgpdhrtg
+    hpthhtohepnhgrrhgvshhhrdhkrghmsghojhhusehlihhnrghrohdrohhrghdprhgtphht
+    thhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrug
+    drohhrghdprhgtphhtthhopehlkhhfthdqthhrihgrghgvsehlihhsthhsrdhlihhnrghr
+    ohdrohhrghdprhgtphhtthhopehrvghgrhgvshhsihhonhhssehlihhsthhsrdhlihhnuh
+    igrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqmhgvughirgesvhhgvghrrdhkvghrnh
+    gvlhdrohhrgh
+X-ME-Proxy: <xmx:8Z0kZ35jvESavaTssiskGB6M21sPWi1QP_P6WX_TceMbd_X1m9yTpQ>
+    <xmx:8Z0kZ838pMaEln6ii3f8okK2xXZbe6PbfsKIAgjCpKW2RAuwnnW36w>
+    <xmx:8Z0kZ6GVn97Jf1N9k5rVxKCaY0WV5xXorVLoHVUyB5AYWlQTtrtUXw>
+    <xmx:8Z0kZ9_3sznYY6gBTjpOCzlhYqcbDJCmzBoDA6wEg_8PvNSrM6r5-Q>
+    <xmx:8Z0kZ4YnY3lvL39ec8boZoYcKxEdDyUS05Q1FCSiHJTSzMO3SHcMk-4T>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6DB8E2220071; Fri,  1 Nov 2024 05:22:57 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Fri, 1 Nov 2024 14:47:56 +0530
-Message-ID: <CA+G9fYtioQ22nVr9m22+qyMqUNRsGdA=cFw_j1OUv=x8Pcs-bw@mail.gmail.com>
-Subject: next-20241031: drivers/pmdomain/ti/ti_sci_pm_domains.c:134:26: error:
- called object type 'void *' is not a function or function pointer
-To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux PM <linux-pm@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, d-gole@ti.com, 
-	zhangzekun11@huawei.com, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Date: Fri, 01 Nov 2024 10:22:30 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Dan Carpenter" <dan.carpenter@linaro.org>,
+ "Naresh Kamboju" <naresh.kamboju@linaro.org>
+Cc: "Linux ARM" <linux-arm-kernel@lists.infradead.org>,
+ "open list" <linux-kernel@vger.kernel.org>,
+ "Linux Regressions" <regressions@lists.linux.dev>,
+ lkft-triage@lists.linaro.org, "Anders Roxell" <anders.roxell@linaro.org>,
+ "Mauro Carvalho Chehab" <mchehab@kernel.org>,
+ "Linux Media Mailing List" <linux-media@vger.kernel.org>
+Message-Id: <e9971f03-e542-43ed-a8b5-8d79127f4693@app.fastmail.com>
+In-Reply-To: <d3903c31-21ae-4ffe-9969-6faa7e430cb5@stanley.mountain>
+References: <CA+G9fYvvNm-aYodLaAwwTjEGtX0YxR-1R14FOA5aHKt0sSVsYg@mail.gmail.com>
+ <456c79d2-5041-47c4-bed2-44d257524ddd@stanley.mountain>
+ <d3903c31-21ae-4ffe-9969-6faa7e430cb5@stanley.mountain>
+Subject: Re: next-20241028: gcc-8-defconfig : ERROR: modpost: "__aeabi_uldivmod"
+ [drivers/media/dvb-frontends/cxd2841er.ko] undefined!
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_021809_950461_9B428C62 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_022302_053658_B6E12D28 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +123,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- The arm clang-19-keystone_defconfig builds failed with clang-19 and
-gcc-13 on the
-Linux next-20241031 tag.
+On Thu, Oct 31, 2024, at 12:27, Dan Carpenter wrote:
+> Arnd, can you take a look at this?
+>
+> diff --git a/drivers/media/dvb-frontends/cxd2841er.c 
+> b/drivers/media/dvb-frontends/cxd2841er.c
+> index d925ca24183b..e3131f5c6708 100644
+> --- a/drivers/media/dvb-frontends/cxd2841er.c
+> +++ b/drivers/media/dvb-frontends/cxd2841er.c
+> @@ -314,7 +314,7 @@ static u32 cxd2841er_calc_iffreq_xtal(enum 
+> cxd2841er_xtal xtal, u32 ifhz)
+>  	u64 tmp;
+> 
+>  	tmp = (u64) ifhz * 16777216;
+> -	do_div(tmp, ((xtal == SONY_XTAL_24000) ? 48000000 : 41000000));
+> +//	do_div(tmp, ((xtal == SONY_XTAL_24000) ? 48000000 : 41000000));
+> 
+>  	return (u32) tmp;
+>  }
 
-First seen on Linux next-20241031 tag.
-  Good: next-20241030
-  Bad:  next-20241031
+Not sure what is happening exactly, probably something where
+__builtin_constant_p() is inconclusive. The patch below seems
+to address it without impairing readability.
 
-arm:
-  build:
-  * gcc-13-keystone_defconfig
-  * clang-19-keystone_defconfig
-  * clang-nightly-keystone_defconfig
+      Arnd
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-Build log:
----------
-drivers/pmdomain/ti/ti_sci_pm_domains.c:134:26: error: called object
-type 'void *' is not a function or function pointer
-  134 |         ret = pm_generic_suspend(dev);
-      |               ~~~~~~~~~~~~~~~~~~^
-1 error generated.
-make[6]: *** [scripts/Makefile.build:229:
-drivers/pmdomain/ti/ti_sci_pm_domains.o] Error 1
-
-Build image:
------------
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241101/testrun/25629126/suite/build/test/clang-19-keystone_defconfig/log
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20241101/testrun/25629126/suite/build/test/clang-19-keystone_defconfig/history/
-- https://storage.tuxsuite.com/public/linaro/lkft/builds/2oElzrg2GdPSWnESXlKVCgvhX5u/
-- https://storage.tuxsuite.com/public/linaro/lkft/builds/2oElzrg2GdPSWnESXlKVCgvhX5u/build.log
-
-Steps to reproduce:
-------------
-- # tuxmake --runtime podman --target-arch arm --toolchain clang-19
---kconfig keystone_defconfig LLVM=1 LLVM_IAS=1
-
-metadata:
-----
-  git describe: next-20241101
-  git repo: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-  git sha: c88416ba074a8913cf6d61b789dd834bbca6681c
-  kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2oElzrg2GdPSWnESXlKVCgvhX5u/config
-  build url: https://storage.tuxsuite.com/public/linaro/lkft/builds/2oElzrg2GdPSWnESXlKVCgvhX5u/
-  toolchain: clang-19 (19.1.3) and gcc-13
-  config: defconfig
-  arch: arm
-
---
-Linaro LKFT
-https://lkft.linaro.org
+--- a/drivers/media/dvb-frontends/cxd2841er.c
++++ b/drivers/media/dvb-frontends/cxd2841er.c
+@@ -311,12 +311,8 @@ static int cxd2841er_set_reg_bits(struct cxd2841er_priv *priv,
+ 
+ static u32 cxd2841er_calc_iffreq_xtal(enum cxd2841er_xtal xtal, u32 ifhz)
+ {
+-       u64 tmp;
+-
+-       tmp = (u64) ifhz * 16777216;
+-       do_div(tmp, ((xtal == SONY_XTAL_24000) ? 48000000 : 41000000));
+-
+-       return (u32) tmp;
++       return div_u64(ifhz * 16777216ull,
++                       (xtal == SONY_XTAL_24000) ? 48000000 : 41000000);
+ }
+ 
+ static u32 cxd2841er_calc_iffreq(u32 ifhz)
 
