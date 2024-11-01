@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADCEE6F075
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 18:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 043C9E6F075
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 18:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Mime-Version:Message-Id:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JxYbm1Z4z7V0LtD/KQxdWvQCPGBeV+dM1tmtZ4XSNhI=; b=AYHozP2AIICWL+iW6exLeXKTEC
-	kAKL3bheXa7MpQniX+rRubDw8HFsYkR2bHL2jY5n0H1RdbN2nmlV3Ng6+16VRpw3eRAaquXyH1I9g
-	j3Q3awal+J24d4isuYVTGufSitczkSersZkNjppqGS7wZNxiDlzCtflaoM11xT4dZsH8/40STpLYc
-	pOBNpebDrrAH3/fJR+zAR+lsTlSBPzzNUrIc+Dl+Rnbcpzaq6qETzEOrU6J71vSvSyDR0VWfQS7K/
-	ommgN81TW+2uI7GgbWniaBKYaYO7KL86GvEYz3VUNq3uLf0YNE6QKfr4eq243eVQpPLSqGXwMzQie
-	94BjCrsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WCb0avfMfhqFRdPMe3Ycp6E7ngzUGoHw4RlfxTUvmP4=; b=LPv+rfYriEBnNKJM46Zg86MxDK
+	2yvIeCmwUGllyxCMtauZrBsweyPCsHDvCAJZar+jHM0SB7ultMTat/x4k5PI3CiFfcV40UhiHhUHJ
+	1KNDUCnZ0PQU9Uotdlf+3zEz2OlTYS1hjjWXG5z2B4luRwrTd1qEm8NHpVyJyjh0ek8YriRJ/7gJO
+	LQ7cio5A3NYi4TzjIfcoRG3yvajgSxZCWeayvboZZYIRPcFgxYGOhOyRVih6KWPA5S470yE1j6vPP
+	n0EXxfhIC4zaX8cnwl2oRTLBV9g6jx80rncxyKIft/NDtExSa0dstjEthYoLuPF2rCIVSmm807ekI
+	o+1glM7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6wBH-00000007wvT-2Pn5;
-	Fri, 01 Nov 2024 18:15:31 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t6wGW-00000007xnf-0KmX;
+	Fri, 01 Nov 2024 18:20:56 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6w9b-00000007wjH-3bbh
+	id 1t6wEp-00000007xaj-04Nq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 18:13:49 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e3497c8eb0so29758267b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 11:13:47 -0700 (PDT)
+	Fri, 01 Nov 2024 18:19:13 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-a9a6b4ca29bso257316466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 11:19:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730484826; x=1731089626; darn=lists.infradead.org;
-        h=cc:to:from:subject:mime-version:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=JxYbm1Z4z7V0LtD/KQxdWvQCPGBeV+dM1tmtZ4XSNhI=;
-        b=PFL9ypBltti3BFG2e1qchdvj8W0ajR6kBK1b4hTpWwS5Fb3wfvByavqsQ04q9ca1/y
-         Lq5lA5KKcKRs0LRxQYxO5Q5+mfsKp4h+UdHNPBz46IcwLm+Fl7vuqPFn9C9VKMNIRdHO
-         2aLBZocj2MCW2w/nZNOzflP7Bi6Pr4hMxTqDO5/NLgW1qKk2/JpPLHHRGDxpaZqC3/P0
-         llUs7mQ65HMQZNIVLZwelpTQpHvgGBA3DojJCnMMapcERCXzldf/PR3CavJYSqs4hP2k
-         0zfpAwVZrURmG4pPji1Sy1JxVUUMbCnqN5B2MRi4APL5q0GUrSC6N9i3oBaeFma8bHks
-         fshA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730485148; x=1731089948; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WCb0avfMfhqFRdPMe3Ycp6E7ngzUGoHw4RlfxTUvmP4=;
+        b=Isus5dr0SH5aysMlbeLICQNFQwCmCSeWUGlEVT7kzy86xWpo8Zh5zVgJG6Mw61849J
+         WLcMplqBikkfjhfEOvEevUw8lIvHqIqKeK/fFCzO6FTXt6YHdWR+Egz0auzndSutGn+2
+         J5QL1IcMV+IHnt9cAlOSB5AvwoWd/hLkFgoP/T8FCi4ER4B/VCRFyNFU39Bv496LlT1F
+         f6JGeuipG20eXwIhGhVRy4Xi1bC26Lb2FBtfu5m8eetf1xgjb07CbT//wpqrCosrpKoh
+         FXMM/GJoe+3nL57O8PRpw7KVcP7I+AFEMVpgGWGvrtBi22D18eG57KKu1064Nzoiu7WV
+         QuRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730484826; x=1731089626;
-        h=cc:to:from:subject:mime-version:message-id:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JxYbm1Z4z7V0LtD/KQxdWvQCPGBeV+dM1tmtZ4XSNhI=;
-        b=R1i1N8xMVxLCUCacawjpl6OFu/0DCSaPSWRGZ0UH0+S4+CR9j7nqmc6P8ym+bYOBxg
-         BUjr3K6YsdLsQpBOpQucP58kDr+BOrT55whY2S9CJ6ZejN3r0sLIkfVGNMo4QK4u2FCw
-         k/rbhK80vIijI6L7wsw4YbQdvvhCEHOHvqN1574XVoX3xPEbT6E73vTnmZScxorF1nuQ
-         ML7stO/hVRnFwnGcw588lo6nVFVpTxF0MaFAw976C+w6Drf6FTPQkEDYt6LVp++UV9zg
-         mTHlTVmLT4JzWZqjB1AhOKx5WpTF5DPSixtBa0f/qNXTIcRUq/RGLfM2rjKP94ZZUGv/
-         nILA==
-X-Gm-Message-State: AOJu0YxDbhpVG94r7WL/6AnB4bwcgtVGQu8qBkXJSgniwSNJ7XkBZ4Fd
-	KL4bKUPRCu4J+CNoY492RezQNu6YfQraqmNdHzTiX3nHqwWeI7bx3HgTzGKMiMRHnwwawNhpT5j
-	7/vneKrICuflM+SyOaLQsvqKOA1nLTYwCrnw2eKcTNKW5OHylOFO5BlrEe+FcdjMGLtblpSSkGH
-	DOcEHhP9fQfYWDaqHXJ6w9jIUGkwjO//ROSyg=
-X-Google-Smtp-Source: AGHT+IHSZa5WResS50zFavRgUXsuIvO8Cm70xBB3z56TbSbTiJjK7u50UhmD+mgJBRLpEZseI+B3Csk=
-X-Received: from pcc-desktop.svl.corp.google.com ([2620:15c:2d3:205:cd32:25bb:7cee:e41c])
- (user=pcc job=sendgmr) by 2002:a05:690c:6c03:b0:6ea:4b3a:6703 with SMTP id
- 00721157ae682-6ea64411b8fmr722057b3.5.1730484826239; Fri, 01 Nov 2024
- 11:13:46 -0700 (PDT)
-Date: Fri,  1 Nov 2024 11:13:24 -0700
-Message-Id: <20241101181325.2755536-1-pcc@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
-Subject: [PATCH v2] arm64: symbolize user-space stack on SIGSEGV
-From: Peter Collingbourne <pcc@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Peter Collingbourne <pcc@google.com>
+        d=1e100.net; s=20230601; t=1730485148; x=1731089948;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WCb0avfMfhqFRdPMe3Ycp6E7ngzUGoHw4RlfxTUvmP4=;
+        b=p1xfMlGg9DoKbpV7xliElWDcjRr2OUmCe8Z1cmqBm7aribmBpPk8czt99cyb71rxoN
+         ZY/xmKRhNlNNHtaaMygZXsUwFfQGBPn82X9pOdkw7hE04AL1NC6G7hr7qdbC0X/AKUiQ
+         hcxJn8/mjl7osfoTklrT1ukexSptrwzltei3uYYPSMp3xfKH9mzUT3Yvt9p4HE+VY9YP
+         kQFi2xSNJOMoJR7ue8U2ucAjcXM9ovrC60y/nHEjqayrKynUHdl75423K3R63j4PtYpw
+         pQ8TIx6jbtegSG1YLVvoxa2dbPbDYKCwEuM9IdA0KEzkU90svsZJR6JzPbck+V38/19L
+         h/QA==
+X-Forwarded-Encrypted: i=1; AJvYcCXLT8Zivi+q/KeiAvF2B25eMYSGsr5Oim2pwdlpTHzNAF72Mt0Z371YDSa565OFc3Xnh6nKpK7pSJy7kEmbJ1F0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQRFa96TL4E0s4p9zn8cd/N+YXPiEHf1O/HhhBr4SucDwuUt1Z
+	98S8bq1GMIQ05jDrVHhS0E8S6qM9X5zxqv1MXECS+YthaAi/gG/0RYhmYWjF6xpAtdvP9D11pAV
+	j0IKwtmMX3fJmCpvsLHY4RY8fAqpjGYC2sn7VHw==
+X-Google-Smtp-Source: AGHT+IFcq0AMZn+pZ24DpM6HGZ4OavdIPRNi8d8rMXlbIsaq2gBK6JoQrQewB37SFhHsyDDEtF8jHre0Mg6mo5VxsRA=
+X-Received: by 2002:a17:907:3da9:b0:a99:e98f:e73d with SMTP id
+ a640c23a62f3a-a9e5097d255mr759902366b.37.1730485148179; Fri, 01 Nov 2024
+ 11:19:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+ <20241031-iio-fix-write-event-config-signature-v2-6-2bcacbb517a2@baylibre.com>
+ <ef4fe230-b7fb-4f7e-9173-ae85d305e9ae@baylibre.com> <20241101154451.227defba@jic23-huawei>
+In-Reply-To: <20241101154451.227defba@jic23-huawei>
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Fri, 1 Nov 2024 19:18:48 +0100
+Message-ID: <CAEHHSvZxgREMpA-kC7zarRZAp=bU6dcc2-3qjZU8o01BP3bSzA@mail.gmail.com>
+Subject: Re: [PATCH v2 06/15] iio: light: adux1020: write_event_config: use
+ local variable for interrupt value
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>, Mudit Sharma <muditsharma.info@gmail.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, 
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+	Ramona Gradinariu <ramona.gradinariu@analog.com>, Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+	Dan Robertson <dan@dlrobertson.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>, 
+	Matteo Martelli <matteomartelli3@gmail.com>, 
+	Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>, 
+	Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J <jagathjog1996@gmail.com>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
+	Kevin Tsai <ktsai@capellamicro.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	chrome-platform@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_111347_920500_CDABF3BA 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20241101_111911_346862_EDA7C33D 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +106,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64, dump the userspace stack to the console when a SIGSEGV
-occurs. Print filename+offset to allow symbolization.
+Le ven. 1 nov. 2024 =C3=A0 16:45, Jonathan Cameron <jic23@kernel.org> a =C3=
+=A9crit :
+>
+> On Thu, 31 Oct 2024 11:27:45 -0500
+> David Lechner <dlechner@baylibre.com> wrote:
+>
+> > On 10/31/24 10:27 AM, Julien Stephan wrote:
+> > > state parameter is currently an int, but it is actually a boolean.
+> > > iio_ev_state_store is actually using kstrtobool to check user input,
+> > > then gives the converted boolean value to write_event_config.  The co=
+de
+> > > in adux1020_write_event_config re-uses state parameter to store an
+> > > integer value. To prepare for updating the write_event_config signatu=
+re
+> > > to use a boolean for state, introduce a new local int variable.
+> > >
+> > > Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> > > ---
+> > >  drivers/iio/light/adux1020.c | 8 ++++----
+> > >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux102=
+0.c
+> > > index 2e0170be077aef9aa194fab51afbb33aec02e513..db57d84da616b91add8c5=
+d1aba08a73ce18c367e 100644
+> > > --- a/drivers/iio/light/adux1020.c
+> > > +++ b/drivers/iio/light/adux1020.c
+> > > @@ -505,7 +505,7 @@ static int adux1020_write_event_config(struct iio=
+_dev *indio_dev,
+> > >                                    enum iio_event_direction dir, int =
+state)
+> > >  {
+> > >     struct adux1020_data *data =3D iio_priv(indio_dev);
+> > > -   int ret, mask;
+> > > +   int ret, mask, val;
+> > >
+> > >     mutex_lock(&data->lock);
+> > >
+> > > @@ -526,12 +526,12 @@ static int adux1020_write_event_config(struct i=
+io_dev *indio_dev,
+> > >                     mask =3D ADUX1020_PROX_OFF1_INT;
+> > >
+> > >             if (state)
+> > > -                   state =3D 0;
+> > > +                   val =3D 0;
+> > >             else
+> > > -                   state =3D mask;
+> > > +                   val =3D mask;
+> > >
+> > >             ret =3D regmap_update_bits(data->regmap, ADUX1020_REG_INT=
+_MASK,
+> > > -                                    mask, state);
+> > > +                                    mask, val);
+> > >             if (ret < 0)
+> > >                     goto fail;
+> > >
+> > >
+> >
+> > Instead of introducing `val`, I would rewrite this as:
+> >
+> >       if (state)
+> >               ret =3D regmap_clear_bits(...);
+> >       else
+> >               ret =3D regmap_set_bits(...);
+> >
+> Good idea.  Rather than go around again and potentially stall the end of =
+this series.
+> I made that change whilst applying.  Shout if either of you doesn't
+> like the result. Diff doesn't do a perfect job on readability (it does
+> if I add a line break but then the code looks worse in the end!)
+>
 
-This is a patch that I frequently need to apply locally in order to
-debug segfaults that occur in environments where attaching a debugger
-is infeasible.
+Hello Jonathan,
 
-Although I don't expect this patch to be applied to the mainline
-kernel, I am posting it in case anyone else would find it useful
-(and because I almost lost track of it recently, and I don't want to
-have to write it again).
+Looks fine to me. Thank you for doing the change yourself.
 
-Signed-off-by: Peter Collingbourne <pcc@google.com>
----
-v2:
-- rebased to 6.12-rc5
-
- arch/arm64/mm/fault.c | 36 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 8b281cf308b30..9391a0d44a99f 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -518,6 +518,38 @@ static bool is_write_abort(unsigned long esr)
- 	return (esr & ESR_ELx_WNR) && !(esr & ESR_ELx_CM);
- }
- 
-+static void symbolize_addr(const char *prefix, unsigned long addr)
-+{
-+	struct vm_area_struct *vma = find_vma(current->mm, addr);
-+	if (vma && vma->vm_file) {
-+		char buf[1024];
-+		char *c = d_path(&vma->vm_file->f_path, buf, 1024);
-+		printk(KERN_ERR "%s = 0x%lx (%s + 0x%lx)\n", prefix, addr, c,
-+		       addr - vma->vm_start + vma->vm_pgoff * PAGE_SIZE);
-+	} else {
-+		printk(KERN_ERR "%s = 0x%lx", prefix, addr);
-+	}
-+}
-+
-+static void symbolize_stack(void)
-+{
-+	int i;
-+	unsigned long frame = current_pt_regs()->regs[29];
-+
-+	symbolize_addr("pc", current_pt_regs()->pc);
-+	symbolize_addr("lr", current_pt_regs()->regs[30]);
-+
-+	for (i = 0; i != 64; ++i) {
-+		unsigned long ret_addr;
-+		unsafe_get_user(ret_addr, (unsigned long __user *)(frame + 8),
-+				end);
-+		symbolize_addr("ret_addr", ptrauth_strip_user_insn_pac(ret_addr));
-+
-+		unsafe_get_user(frame, (unsigned long __user *)frame, end);
-+	}
-+end:;
-+}
-+
- static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 				   struct pt_regs *regs)
- {
-@@ -722,8 +754,10 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 		/* Something tried to access memory that out of memory map */
- 		if (si_code == SEGV_PKUERR)
- 			arm64_force_sig_fault_pkey(far, inf->name, pkey);
--		else
-+		else {
-+			symbolize_stack();
- 			arm64_force_sig_fault(SIGSEGV, si_code, far, inf->name);
-+		}
- 	}
- 
- 	return 0;
--- 
-2.47.0.163.g1226f6d8fa-goog
-
+Cheers
+Julien
+> From 06a1ca816450d1b5524f6010581a83ab9935d51b Mon Sep 17 00:00:00 2001
+> From: Julien Stephan <jstephan@baylibre.com>
+> Date: Thu, 31 Oct 2024 16:27:01 +0100
+> Subject: [PATCH] iio: light: adux1020: write_event_config: use local vari=
+able
+>  for interrupt value
+>
+> state parameter is currently an int, but it is actually a boolean.
+> iio_ev_state_store is actually using kstrtobool to check user input,
+> then gives the converted boolean value to write_event_config.  The code
+> in adux1020_write_event_config re-uses state parameter to store an
+> integer value. To prepare for updating the write_event_config signature
+> to use a boolean for state, introduce a new local int variable.
+>
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> Link: https://patch.msgid.link/20241031-iio-fix-write-event-config-signat=
+ure-v2-6-2bcacbb517a2@baylibre.com
+> Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> ---
+>  drivers/iio/light/adux1020.c | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
+> index 2e0170be077a..06d5bc1d246c 100644
+> --- a/drivers/iio/light/adux1020.c
+> +++ b/drivers/iio/light/adux1020.c
+> @@ -526,12 +526,11 @@ static int adux1020_write_event_config(struct iio_d=
+ev *indio_dev,
+>                         mask =3D ADUX1020_PROX_OFF1_INT;
+>
+>                 if (state)
+> -                       state =3D 0;
+> +                       ret =3D regmap_clear_bits(data->regmap,
+> +                                               ADUX1020_REG_INT_MASK, ma=
+sk);
+>                 else
+> -                       state =3D mask;
+> -
+> -               ret =3D regmap_update_bits(data->regmap, ADUX1020_REG_INT=
+_MASK,
+> -                                        mask, state);
+> +                       ret =3D regmap_set_bits(data->regmap,
+> +                                             ADUX1020_REG_INT_MASK, mask=
+);
+>                 if (ret < 0)
+>                         goto fail;
+>
+> --
+> 2.46.2
+>
+>
+>
+> >
+> >
+>
 
