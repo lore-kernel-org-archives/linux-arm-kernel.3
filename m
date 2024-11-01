@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AA9E6B24D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F89E6B251
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 12:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyPmo8da7gVQeFsoekZ63qpPCKXE92H2RSDUtfff7nM=; b=DqhTo5Ts7+fo6JB8NKTYB+j9Aj
-	3J02Vz0yMoE/Z4q7QDm+vBLUGEoSYz5YP2vSGohPB+fcovbpCvf/wovXMZ0hABAlyb+5DMxc94RfU
-	FLVDEp/O8Wn+JGlQeVvnvrRl/s6wC1fLtCWJs2rMAm54jglAHdzL2lyIysVqoocdG6ubyqDzapQc8
-	xxnnA7ek9hu23cXiS4+8Qra4gRQgXJt53zhBskqDdQlSXa4oBuuqkDX/LoOji49D+Nmy2wQc1KcUQ
-	pUdCobdZwTBiWU7GyptGr9iQ/TYpZLeAcg5RZUsWaQHZCZPq+jjBdu/34Dlb/kICHL4dN7s869mWB
-	SvNn4uDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=; b=eJdYaGOLYdXkYNYf8WctsFppzO
+	N8ALyIsXBlKeRrVSTgZjGgVKfRIpjtusKXXZ0YV8w4tg7wzjln9WYCKCFyyqINWtNDH1lHcMKRlV/
+	McahCxyDkUkHOpMf8wzMxd3v5Of3xJEXYYv2hU4R2PI0LoNuKq+vvnpkys6WccnzxG1mkfV4waSCN
+	swZcyvHcTl/GAL3n14jBRmOfNLmbODywC6YhnO396a19Fpsn+LOIPKbw0pw4IetMnmNfobxVtrNyB
+	Oi7IJou8gsTyxE3MImz/QwDFnnj89rOVqBoj1buxwnUDlhkOOaUjT6VC9IqFbkHKKMzbNZvovFRot
+	6nMFo6Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qZW-00000006w0W-38Mq;
-	Fri, 01 Nov 2024 12:16:10 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1t6qZV-00000006vzw-1liC;
+	Fri, 01 Nov 2024 12:16:09 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6qHB-00000006pUC-2jf4
+	id 1t6qGK-00000006pFC-3E4W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:57:15 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-6ea11b32ab4so13419607b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 04:57:12 -0700 (PDT)
+	Fri, 01 Nov 2024 11:56:22 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f72c913aso3129774e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 04:56:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730462232; x=1731067032; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=AyPmo8da7gVQeFsoekZ63qpPCKXE92H2RSDUtfff7nM=;
-        b=gEBsGU55Uz8ZWPGVR8AzC2GEIQ6OvI2o4ojxz4TyeWBHUrOTdSGiBdX31uLADaqFz6
-         MP13v8qxYOkvSOHNZnZdw4BAaO26HCayE+U2P/vkgMtOJRcLGLRiDzpIIm07BlNVRNvC
-         qJI+2+s0qjpfZrFawNQNLUYXq7RkEDppJj82D9XMCa/4MV2z3Dlqvmo7CcvNkNYMtn9y
-         lVenMiyBuz4M0PCPKYvvH6CdkH1jWUtn3kjyDGLcJcsdzFH3h0AwbX6kDMIsXmnvAVCR
-         0q5qQznvbyG/h6G+DPMEF5G4DrrqdbSq4Htwy5ssf7DNe62sUl8L7BHDUjxvewpkAzCG
-         kRaw==
+        d=linaro.org; s=google; t=1730462178; x=1731066978; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=;
+        b=aApLo7uLmbQusb+c31S2kiF1V86HZmxOmUtY9DfglPmbjk5Cq+QutR+AB/UB26dkIT
+         PSG3m6XkETVbxvlRy4B8+upcc1L51Nqcmvn64J+XpES9Nsl/edE+v7iNSgOaLpDxyy6N
+         kP3wv+91RDzfLMSsbJvwCQZsoeCnmukp9IgKfcJo8Yno8vElCrz0vDS0LvpGRkjLL3qn
+         G6zevUYn/PiUcNhIoGNPqWLTuer+8eqpQj4n5LtHVWnCV74t9eNCgKwWmTE/Mynj/lp/
+         fbhzBL33/T3/R9J52iauYvL6wY4i2goYKrTQ4qhmZ5hA2UbF+Nj0UiMi06qIVN+igj9g
+         Apmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730462232; x=1731067032;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AyPmo8da7gVQeFsoekZ63qpPCKXE92H2RSDUtfff7nM=;
-        b=PiTH5H1JosW3LL414WWpcQ4BJJbDacxKg2jt38jhnzVl32h0fChmcrbnzrtt5QxfrT
-         SqxE3r/U8uY0x0x2EHxc38rVzdlpxbnwZGaI0PxMGmfYn4Q0Fyv/fPeLYjZfLW7HvCZD
-         OmJ29t1pjk5Xq2A/eJDk20dAJ95iWx7wkjIZggAUbzLTA3f+9pzGi3iHIrqqQeMtstfT
-         YTJcS+InRFXQKaDLvY9r/omeBl+fosApasigsoky0l97OYEzRs52h2BVMEt1pltFQXCU
-         og+wJTw9KpH+oJUBIofgp60QHALhFEEf0E9x1Lrp5vcD/WCaxawvCoSVAbvVOYZUsO3c
-         5T/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUv0K5h5GnVt5J2idW7D1uhw8htZnO9YKkCLDMwfMbvauk2QuPiTiqPQX/2Dq9BH/xbngxl57lp41HIlQ93B64p@lists.infradead.org
-X-Gm-Message-State: AOJu0YymMwDwq8vZFMCeS5OsjbfKXY6jDWHLZqgz1/FvWc0Z6vMSGPIK
-	pj0gOYc7Agym2jE98+UWF7PGywRDeOtVuWQ4uj3O51ewXLBZYBRfeSZIQQbdZ6aagSoKAACPs6l
-	PDn9qX4tWbWoDB63vuzKoM4h/zQor/vlaJ5jY5Q==
-X-Google-Smtp-Source: AGHT+IGjFViHhhsIEjWSeBRVVF02vu14Au/x1uufAjiQ0eyy+Lk2WKoLfjrFanaJSgIrSL/w8V1/5Fi83AtDrIju8t8=
-X-Received: by 2002:a05:690c:d18:b0:6db:d02f:b2c4 with SMTP id
- 00721157ae682-6ea64308628mr27197277b3.7.1730462231906; Fri, 01 Nov 2024
- 04:57:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730462178; x=1731066978;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PR7nhijIFPqEwqWUXxfWpQdSj2cyoar1EyPI7jC4FfI=;
+        b=IKS1+dUmyzX1S+s/N7wbQ50+OqkY3tZ7dcHaOVq6JJLM1zreqsSBAgzqXfm60Cb4hp
+         7sDbaP8UAFNlnT2vrmRHdejBQcT1LwsnCnql3GUONJ17VYcATab2UvtpdlyNLszDTSkE
+         K7owDT9e35p0qXzJwMcR8Xk8YfrT3P7AbU3vorgVrAEl1InnhhC1ZM0imMk3RjsUuAGF
+         24d6EDmCm/42mQmR9JhClzbXRkdZh5OVQUCpzUfckvcbwqhdj9abCTTWf2Mnbf0kJ7sR
+         jAmV2NCezcgaTIpzreslQ3pr5VRRd5KjMzGGGlYFjpsSxpJqIrYX0487X6xjzduxaCEv
+         /sxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUAK+CLmYkIkn8Y2j1xzkVKJIbmd2teeXj+E0Vp9pcr/q3aikGMRVPUCX0f3kC2HXLY4C61QKTHs7tfD4v05YzD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrrDRXCuQFfyahFiYf7ziWX/aLy1w6vUNPsA09Q2A1xh1Kzm8E
+	YTQ9M6JxuOloqNquetTXqRHYiUUhGk4ZQbwp16V2Pg5DjZQyj70NAonWqLSxhJ8TstGzeusQN1u
+	Gy7EhPqpxnTB9bgsWu2u8qkdhZmtgV3rvkuzcrA==
+X-Google-Smtp-Source: AGHT+IG201tjRpH4xAJy3js1MXvAZgMS+IPv3AAVo1TZLrpjjIYjlw9AiqUvvc+CIbPttUv3zlvfcUINXBzKPHjno0Q=
+X-Received: by 2002:a05:651c:211a:b0:2fc:9550:d658 with SMTP id
+ 38308e7fff4ca-2fcbe004950mr124110461fa.24.1730462178345; Fri, 01 Nov 2024
+ 04:56:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20241101101252.1448466-1-peng.fan@oss.nxp.com>
-In-Reply-To: <20241101101252.1448466-1-peng.fan@oss.nxp.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 1 Nov 2024 12:56:36 +0100
-Message-ID: <CAPDyKFqmeCCkv5Yr0K9P9eToYTYsQmQUYmbbJvoOJ0O5t5tsjQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: imx93-blk-ctrl: correct remove path
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
-	"open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
+References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
+In-Reply-To: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 1 Nov 2024 12:56:07 +0100
+Message-ID: <CACRpkdbFQ6f6xg906ZREOgDifSWwfFWdxCqDxcLALZdYg6PWWQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] gpio: siul2-s32g2: add initial GPIO driver
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Enric Balletbo <eballetb@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_045713_721741_161906B5 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20241101_045620_847600_4F7AC4DD 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,46 +100,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 1 Nov 2024 at 11:02, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> The check condition should be 'i < bc->onecell_data.num_domains', not
-> 'bc->onecell_data.num_domains' which will make the look never finish
-> and cause kernel panic.
->
-> Also disable runtime to address
-> "imx93-blk-ctrl 4ac10000.system-controller: Unbalanced pm_runtime_enable!"
->
-> Fixes: e9aa77d413c9 ("soc: imx: add i.MX93 media blk ctrl driver")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Fri, Nov 1, 2024 at 9:06=E2=80=AFAM Andrei Stefanescu
+<andrei.stefanescu@oss.nxp.com> wrote:
 
-Applied for fixes and by adding a stable tag, thanks!
+> Andrei Stefanescu (7):
+>   dt-bindings: mfd: add support for the NXP SIUL2 module
+>   mfd: nxp-siul2: add support for NXP SIUL2
+>   arm64: dts: s32g: make pinctrl part of mfd node
+>   pinctrl: s32: convert the driver into an mfd cell
+>   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
+>   pinctrl: s32cc: add driver for GPIO functionality
+>   MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
 
-Kind regards
-Uffe
+How do you want to merge this?
 
+Can the MFD and pinctrl parts be merged separately, or shall
+it all go into MFD or all into pinctrl?
 
-> ---
->  drivers/pmdomain/imx/imx93-blk-ctrl.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> index 904ffa55b8f4..b10348ac10f0 100644
-> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> @@ -313,7 +313,9 @@ static void imx93_blk_ctrl_remove(struct platform_device *pdev)
->
->         of_genpd_del_provider(pdev->dev.of_node);
->
-> -       for (i = 0; bc->onecell_data.num_domains; i++) {
-> +       pm_runtime_disable(&pdev->dev);
-> +
-> +       for (i = 0; i < bc->onecell_data.num_domains; i++) {
->                 struct imx93_blk_ctrl_domain *domain = &bc->domains[i];
->
->                 pm_genpd_remove(&domain->genpd);
-> --
-> 2.37.1
->
+I can certainly merge it if Lee ACKs the MFD patch.
+
+Yours,
+Linus Walleij
 
