@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5EAE6B240
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E8CE6B240
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 10:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=McqW9h1wHCvezW+fNwgixUoznF00M2YN36oj9gyjg5k=; b=F2+9BScXyi2WM6HwbqrAk6vw8n
-	Bi6gJTOnVpDmEzhfNks3vqf7Shh7O8ST3XRV14H9TjYVzrm3ENbcRQzVfNA5+amh+CuclKONmve1M
-	nEPXQc+9kChR906x4z7vk53Q+AeaPKFqfVK2Gw765RP1qHW/BXMOo8H/gxsimP9stgO7+wRic6og7
-	CkDvdzUTFy7GpFxl9YA/5vlibP1jXq09x9hMDMILp/Ie3yfPz21/ekr4juG6vKp5+4+fIiNF5zoxp
-	SP4wx4fXNuBP0tpyKMRiIZuWAgIVxlvMLwSabbh8PMde8I66qGxKeMgPZOZGkcUYBIHaXzdApfvq6
-	PrrxDx9w==;
+	bh=DZVLOAzjxRZwUXCsItM95x3WmPFdFc1xjJrdpduKgtk=; b=KjYM3I5o8D8xHD7LmslnkLyFx0
+	8QcCQ4AYOK9aggCcHzbhPkOTXvRtv3JlCltpylGH4wDDW4TP6iibsR2yxCLY4vIbvLjSkBVE2nQU5
+	qqYrkdYFDEZ2BnXJWe+fBtd8Dz4LFvxj8cjqD8xRqdGFYaVnN6wQuAsM4qhHYDFcWnIa7+LYvjUw8
+	HU5uYYZgW5zWQTXk83ZyRPi07ZUb+ZMz+nQXMqNqv69Cz6cAwjckPgloNDUJFt0E8Nydlr4uuUiXD
+	SYChE6T2+I71hjMz5WT/AmIGmkrNvlHo0F8sKeVdlQQoqjCpf+lRvMLPZyG/XXgZxwx16mKh5wa+k
+	D7DCOHTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6pDq-00000006eRF-3iBA;
-	Fri, 01 Nov 2024 10:49:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t6pFV-00000006ehG-0a9S;
+	Fri, 01 Nov 2024 10:51:25 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6p3v-00000006c3b-2etM
+	id 1t6p47-00000006c75-1lRe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 10:39:32 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A15CIFP021519;
-	Fri, 1 Nov 2024 10:39:00 GMT
+	Fri, 01 Nov 2024 10:39:41 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A1AUt4I004918;
+	Fri, 1 Nov 2024 10:39:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	McqW9h1wHCvezW+fNwgixUoznF00M2YN36oj9gyjg5k=; b=BGYhIoPQDjcYwngw
-	adQKeRdGssTeZVqZEeRWF2Jw3eakXfA8oPRtAyK/ynFdvF4JBpogLjngLjTCkvhF
-	M06xGJkKPo8ddFlB6Q4+M1laTbYF1uhBRgEDGpAxFkr5yqlQwJLyV8F2anjNe9F+
-	S57gaTYuceVK8qQvPs1PMosRwi7gw03DLK6bjOM3UR6E3ujnLcW8u13DmUvwVfQT
-	EP45Q7A/2/Y604AeG+m8tvKd08kOmhRpHhVTzp7w0TvSoVgDxSql30EWJQCDRJmK
-	efDJ3a2Fs9H8k2WR9L4g4TBKi+H6LV8hsJ2X2CYkAim/PdbPGvU310lzIamFiMIZ
-	1z4Pcg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42m1rpmqdb-1
+	DZVLOAzjxRZwUXCsItM95x3WmPFdFc1xjJrdpduKgtk=; b=E5dX0x71Dsm87dyQ
+	9BOn+u46vMubuqsYLl002/biffTVWcYIWJ2kq3+LvR6jleO1uG0XEH48dIxbUgwn
+	ACleCTrFPoiMMy36g5LWEEIh3zdZopOBMNes8XQAPVRqVCUHTR4JZ7/NNOei8ZmV
+	J50XCgCPeZs7tu2MR/Jo7kB3uxxdSlf891DFP0+V8yxnkB9Vd5B3Qwab7vjqHU7V
+	lL7ooWeLSrZBTlHRtbls91VLc5RqKbOtC0uvqjXglp/p9vVtdfQuhyyxut6i73/f
+	kJyiRHFY2n0kXVTTo852U5t9XMrJRiwKUAhONOA5mki5KRqgt2x+BLBHPlhv78Uy
+	FUr5Cg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ku65dnx0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 01 Nov 2024 10:38:59 +0000 (GMT)
+	Fri, 01 Nov 2024 10:39:10 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1AcwQA026779
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A1Ad9au027004
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 1 Nov 2024 10:38:58 GMT
+	Fri, 1 Nov 2024 10:39:09 GMT
 Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 1 Nov 2024 03:38:53 -0700
+ 15.2.1544.9; Fri, 1 Nov 2024 03:39:04 -0700
 From: Taniya Das <quic_tdas@quicinc.com>
-Date: Fri, 1 Nov 2024 16:08:17 +0530
-Subject: [PATCH v2 05/11] dt-bindings: clock: Add Qualcomm QCS615 Display
+Date: Fri, 1 Nov 2024 16:08:19 +0530
+Subject: [PATCH v2 07/11] dt-bindings: clock: Add Qualcomm QCS615 Graphics
  clock controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241101-qcs615-mm-clockcontroller-v2-5-d1a4870a4aed@quicinc.com>
+Message-ID: <20241101-qcs615-mm-clockcontroller-v2-7-d1a4870a4aed@quicinc.com>
 References: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
 In-Reply-To: <20241101-qcs615-mm-clockcontroller-v2-0-d1a4870a4aed@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -88,19 +88,20 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: wHJOIQlm55qjnnaldRduEbK-YBeRFOBa
-X-Proofpoint-ORIG-GUID: wHJOIQlm55qjnnaldRduEbK-YBeRFOBa
+X-Proofpoint-GUID: 2LIvkRtWL0L9Pb45dnhcxe0NhFtQ1aCu
+X-Proofpoint-ORIG-GUID: 2LIvkRtWL0L9Pb45dnhcxe0NhFtQ1aCu
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- bulkscore=0 mlxlogscore=999 clxscore=1015 suspectscore=0 spamscore=0
- adultscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
- phishscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411010076
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
+ suspectscore=0 bulkscore=0 lowpriorityscore=0 mlxscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 clxscore=1015
+ malwarescore=0 spamscore=0 adultscore=0 classifier=spam adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2411010076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_033927_725749_86D0A678 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20241101_033939_637545_89C64119 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +116,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for the Display clock on QCS615 platforms. Add the
+Add DT bindings for the Graphics clock on QCS615 platforms. Add the
 relevant DT include definitions as well.
 
 Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 ---
- .../bindings/clock/qcom,qcs615-dispcc.yaml         | 73 ++++++++++++++++++++++
- include/dt-bindings/clock/qcom,qcs615-dispcc.h     | 52 +++++++++++++++
- 2 files changed, 125 insertions(+)
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          | 66 ++++++++++++++++++++++
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      | 39 +++++++++++++
+ 2 files changed, 105 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.yaml
+diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..43346ae7e56ef88bc57e450f6f6fe428c649215e
+index 0000000000000000000000000000000000000000..b798d2dd0f9cc0f0e742066c5da9a48cdc519243
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.yaml
-@@ -0,0 +1,73 @@
++++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
+@@ -0,0 +1,66 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/qcom,qcs615-dispcc.yaml#
++$id: http://devicetree.org/schemas/clock/qcom,qcs615-gpucc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Qualcomm Display Clock & Reset Controller on QCS615
++title: Qualcomm Graphics Clock & Reset Controller on QCS615
 +
 +maintainers:
-+  - Ajit Pandey <quic_ajipan@quicinc.com>
 +  - Taniya Das <quic_tdas@quicinc.com>
 +
 +description: |
-+  Qualcomm display clock control module provides the clocks, resets and power
-+  domains on QCS615
++  Qualcomm graphics clock control module provides clocks, resets and power
++  domains on QCS615 Qualcomm SoCs.
 +
-+  See also: include/dt-bindings/clock/qcom,qcs615-dispcc.h
++  See also: include/dt-bindings/clock/qcom,qcs615-gpucc.h
 +
 +properties:
 +  compatible:
-+    const: qcom,qcs615-dispcc
++    const: qcom,qcs615-gpucc
 +
 +  reg:
 +    maxItems: 1
@@ -158,12 +158,8 @@ index 0000000000000000000000000000000000000000..43346ae7e56ef88bc57e450f6f6fe428
 +  clocks:
 +    items:
 +      - description: Board XO source
-+      - description: GPLL0 clock source from GCC
-+      - description: Byte clock from DSI PHY0
-+      - description: Pixel clock from DSI PHY0
-+      - description: Pixel clock from DSI PHY1
-+      - description: Display port PLL link clock
-+      - description: Display port PLL VCO DIV clock
++      - description: GPLL0 main branch source
++      - description: GPLL0 GPUCC div branch source
 +
 +  '#clock-cells':
 +    const: 1
@@ -188,77 +184,62 @@ index 0000000000000000000000000000000000000000..43346ae7e56ef88bc57e450f6f6fe428
 +  - |
 +    #include <dt-bindings/clock/qcom,rpmh.h>
 +    #include <dt-bindings/clock/qcom,qcs615-gcc.h>
-+    clock-controller@af00000 {
-+      compatible = "qcom,qcs615-dispcc";
-+      reg = <0x0af00000 0x20000>;
++
++    clock-controller@5090000 {
++      compatible = "qcom,qcs615-gpucc";
++      reg = <0x5090000 0x9000>;
 +      clocks = <&rpmhcc RPMH_CXO_CLK>,
-+               <&gcc GCC_DISP_GPLL0_DIV_CLK_SRC>,
-+               <&mdss_dsi0_phy 0>,
-+               <&mdss_dsi0_phy 1>,
-+               <&mdss_dsi1_phy 0>,
-+               <&mdss_dp_phy   0>,
-+               <&mdss_dp_vco   0>;
++               <&gcc    GPLL0>,
++               <&gcc    GCC_GPU_GPLL0_DIV_CLK_SRC>;
++
 +      #clock-cells = <1>;
 +      #reset-cells = <1>;
 +      #power-domain-cells = <1>;
 +    };
 +...
-diff --git a/include/dt-bindings/clock/qcom,qcs615-dispcc.h b/include/dt-bindings/clock/qcom,qcs615-dispcc.h
+diff --git a/include/dt-bindings/clock/qcom,qcs615-gpucc.h b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
 new file mode 100644
-index 0000000000000000000000000000000000000000..9a29945c5762ce06285a2f4e6a55c13bfaadc5c2
+index 0000000000000000000000000000000000000000..6d8394b90d59074b93a26a9c027407a14b050b27
 --- /dev/null
-+++ b/include/dt-bindings/clock/qcom,qcs615-dispcc.h
-@@ -0,0 +1,52 @@
++++ b/include/dt-bindings/clock/qcom,qcs615-gpucc.h
+@@ -0,0 +1,39 @@
 +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +/*
 + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
 + */
 +
-+#ifndef _DT_BINDINGS_CLK_QCOM_DISP_CC_QCS615_H
-+#define _DT_BINDINGS_CLK_QCOM_DISP_CC_QCS615_H
++#ifndef _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
++#define _DT_BINDINGS_CLK_QCOM_GPU_CC_QCS615_H
 +
-+/* DISP_CC clocks */
-+#define DISP_CC_MDSS_AHB_CLK					0
-+#define DISP_CC_MDSS_AHB_CLK_SRC				1
-+#define DISP_CC_MDSS_BYTE0_CLK					2
-+#define DISP_CC_MDSS_BYTE0_CLK_SRC				3
-+#define DISP_CC_MDSS_BYTE0_DIV_CLK_SRC				4
-+#define DISP_CC_MDSS_BYTE0_INTF_CLK				5
-+#define DISP_CC_MDSS_DP_AUX_CLK					6
-+#define DISP_CC_MDSS_DP_AUX_CLK_SRC				7
-+#define DISP_CC_MDSS_DP_CRYPTO_CLK				8
-+#define DISP_CC_MDSS_DP_CRYPTO_CLK_SRC				9
-+#define DISP_CC_MDSS_DP_LINK_CLK				10
-+#define DISP_CC_MDSS_DP_LINK_CLK_SRC				11
-+#define DISP_CC_MDSS_DP_LINK_DIV_CLK_SRC			12
-+#define DISP_CC_MDSS_DP_LINK_INTF_CLK				13
-+#define DISP_CC_MDSS_DP_PIXEL1_CLK				14
-+#define DISP_CC_MDSS_DP_PIXEL1_CLK_SRC				15
-+#define DISP_CC_MDSS_DP_PIXEL_CLK				16
-+#define DISP_CC_MDSS_DP_PIXEL_CLK_SRC				17
-+#define DISP_CC_MDSS_ESC0_CLK					18
-+#define DISP_CC_MDSS_ESC0_CLK_SRC				19
-+#define DISP_CC_MDSS_MDP_CLK					20
-+#define DISP_CC_MDSS_MDP_CLK_SRC				21
-+#define DISP_CC_MDSS_MDP_LUT_CLK				22
-+#define DISP_CC_MDSS_NON_GDSC_AHB_CLK				23
-+#define DISP_CC_MDSS_PCLK0_CLK					24
-+#define DISP_CC_MDSS_PCLK0_CLK_SRC				25
-+#define DISP_CC_MDSS_ROT_CLK					26
-+#define DISP_CC_MDSS_ROT_CLK_SRC				27
-+#define DISP_CC_MDSS_RSCC_AHB_CLK				28
-+#define DISP_CC_MDSS_RSCC_VSYNC_CLK				29
-+#define DISP_CC_MDSS_VSYNC_CLK					30
-+#define DISP_CC_MDSS_VSYNC_CLK_SRC				31
-+#define DISP_CC_PLL0						32
-+#define DISP_CC_XO_CLK						33
++/* GPU_CC clocks */
++#define CRC_DIV_PLL0						0
++#define CRC_DIV_PLL1						1
++#define GPU_CC_PLL0						2
++#define GPU_CC_PLL1						3
++#define GPU_CC_CRC_AHB_CLK					4
++#define GPU_CC_CX_GFX3D_CLK					5
++#define GPU_CC_CX_GFX3D_SLV_CLK					6
++#define GPU_CC_CX_GMU_CLK					7
++#define GPU_CC_CX_SNOC_DVM_CLK					8
++#define GPU_CC_CXO_AON_CLK					9
++#define GPU_CC_CXO_CLK						10
++#define GPU_CC_GMU_CLK_SRC					11
++#define GPU_CC_GX_GFX3D_CLK					12
++#define GPU_CC_GX_GFX3D_CLK_SRC					13
++#define GPU_CC_GX_GMU_CLK					14
++#define GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK				15
++#define GPU_CC_SLEEP_CLK					16
 +
-+/* DISP_CC power domains */
-+#define MDSS_CORE_GDSC						0
++/* GPU_CC power domains */
++#define CX_GDSC							0
++#define GX_GDSC							1
 +
-+/* DISP_CC resets */
-+#define DISP_CC_MDSS_CORE_BCR					0
-+#define DISP_CC_MDSS_RSCC_BCR					1
++/* GPU_CC resets */
++#define GPU_CC_CX_BCR						0
++#define GPU_CC_GFX3D_AON_BCR					1
++#define GPU_CC_GMU_BCR						2
++#define GPU_CC_GX_BCR						3
++#define GPU_CC_XO_BCR						4
 +
 +#endif
 
