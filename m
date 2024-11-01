@@ -4,83 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CDBE6F08A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 20:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427CDE6F064
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 21:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KypOe+BlfLSfJMLuOXuYaOsSBR/ncaDRPdeWgpwfoQE=; b=o7g9NSwpCdJzs4PNX6IORcU9tq
-	jp7lCJllh9NMcHA/3AsNoC2JSLhLoYkBMzFB2odFc2fnTqEyr2YLSbe8tUrCJH2nZIu46R6nXO/d/
-	WBiKTChMXJmJE95Ck5QcIQK4cEuu2Pl5rM7U7sxlb54+Xk2/qJh3eQWwepbGp01V7f/bch89kOVWx
-	xln9Cp7N2fOwnLRQQh1KDFUr0G5BSJ61IP+VP6DiJItgz1ntLBGB047P/IPH2uihKYFd2KHosbTlt
-	9iWmvVMWnJCmhfMUsyzTF4bsG1MyTQWiKgubE5lkQBNmI5wF2BeMabSuVUQU12uotMChdbbZ9SJNk
-	Eb/P6+0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vZaCV9fnw62B9gZxPc9IhfJqEzdCFKLJef6xlrBUrhQ=; b=yHap2nJm7TW6nIQ4gSZrnSZEAT
+	Hi9hz6Jvf+5AjwdLOevtRDoOa+Fxos64xyN5uzfDSIIoNr6voWaQ7unyr1zyiEA+Vd1MXJQAW7c0I
+	Ua4u+n61gLC/2/2BHqGgSkmhxVGbl/ZhDOhAqsTZV2P3yYpUWnhvqbQgIk06VpsGjxjkVdJbRlxIA
+	CcIOBmmHtMUlqToyaFHAvn+mJNqOT5MKrRw9PEJKEfNGjOEbWO8efK2RKGx3svOBJDjOt5dYf6sEj
+	HtsWV7uO+ZywKqp3X+wjwBG/K/baopKIrLIP3mIHZGXl24kxU5P5CczlupyYIx8OfTbVw46cKO32v
+	Nq++sv+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6yN3-00000008Gfl-1VZC;
-	Fri, 01 Nov 2024 20:35:49 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t6yr7-00000008Jn1-2TXM;
+	Fri, 01 Nov 2024 21:06:53 +0000
+Received: from mail-vi1eur05on20631.outbound.protection.outlook.com ([2a01:111:f403:2613::631] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6yKD-00000008GDe-0H5I
+	id 1t6ypN-00000008JUD-0DG2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 20:32:54 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A1KWmqa034638;
-	Fri, 1 Nov 2024 15:32:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730493168;
-	bh=KypOe+BlfLSfJMLuOXuYaOsSBR/ncaDRPdeWgpwfoQE=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=U/2QVr+vHmyRIWdgg7K1N/XnCu6lUmpi3RJwtidaD/KThJ4ZtLXaymBTHDKGsjdkv
-	 jSGrmS0gWUEYaIJ41S9Mn5eKcC1eStwzk0sGU+RWMU91b/hb8ZEzG3xqD9/MJr1otN
-	 BXrmMuAo1njmmf1I4ydFRISQcnK1dIBqnibsvdfc=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A1KWmhS014997
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 1 Nov 2024 15:32:48 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 1
- Nov 2024 15:32:48 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 1 Nov 2024 15:32:48 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A1KWmTs057956;
-	Fri, 1 Nov 2024 15:32:48 -0500
-Date: Fri, 1 Nov 2024 15:32:48 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Kevin Hilman <khilman@baylibre.com>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, <linux-pm@vger.kernel.org>,
-        Vibhore
- Vardhan <vibhore@ti.com>, Dhruva Gole <d-gole@ti.com>,
-        Akashdeep Kaur
-	<a-kaur@ti.com>, Sebin Francis <sebin.francis@ti.com>,
-        Markus
- Schneider-Pargmann <msp@baylibre.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 0/3] pmdomain: ti_sci: collect and send low-power mode
- constraints
-Message-ID: <20241101203248.oxddn7yea3us5nth@tables>
-References: <20240906-lpm-v6-10-constraints-pmdomain-v4-0-4055557fafbc@baylibre.com>
- <173029317079.2440963.17313738472826934777.b4-ty@ti.com>
- <CAPDyKFptHq6xkKSAmeHsEuhBoEhzvudcMf2+nG08MFPwnMi+ew@mail.gmail.com>
- <7hv7x9qsvt.fsf@baylibre.com>
- <CAPDyKFpdgg+kM_Ot5GPTpMUtjmBF-pUhCeRpVb=j852_7qm=3A@mail.gmail.com>
- <20241101144445.56ejnuoxshqwns37@boots>
- <7hwmhnnf0f.fsf@baylibre.com>
+	Fri, 01 Nov 2024 21:05:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bs4o+/Mt7Mfr89+HDdSdXukAUKr4sMQfWKvQaTYB6oqf/lE+EOQ4KM6Ucn05ptQU+or7PwcgBnJwi0MwCwzzbcyD/hCbQwfb59kHT1opqtmY4N8N3iOkpH1x7HA8Jke7eLK02L1omZeFcx+8R15cI94iPwm393Dj3pFhy0kQeRo/udvV77EDtsXE7R+be/OjIFxpdmR1GdyasEoaBLXw5w9MB+VLbSRAlCJIy/T1CEpZXwkYmOWJTIwNLizRpnFfffreNs/zewwAlFYJ6YNMkdXCfHhEl80yupag1rdrKASPHchiVXfq0CXdjWVlENOmEGUcNgYlomYGo6Bs7AgRug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vZaCV9fnw62B9gZxPc9IhfJqEzdCFKLJef6xlrBUrhQ=;
+ b=W2jlGbYz0dKJwvDbvBurnP+ubMxnQ/buJtLhRadt8DG0MFYGaecnsq3y95JvAqtFfsfvUDyKrR1IRpjAt/MGentmHazKku+ofbTEy9uHbTTufMWIdybWv1T6/CCFdGzI2NPJ2ZR7a+WigyEV25+kdN1fX1ZeQWa0DYlhWaNyYi2MwU5YIUzDnRPYVyw88CzKo/8H4kS9lVKW7wFrHbboP/s4QuoM9Gy8ak3hWLyD+iPGbEI7EMEGreGs2g8VIxwRww9XTsJmBmEbTb6zL141EpQElfHLIu9MjLoIOpjhCmyALl6gfJCULfa9BduXeQGeSvwj2yJ58eNqIbA8MijnQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vZaCV9fnw62B9gZxPc9IhfJqEzdCFKLJef6xlrBUrhQ=;
+ b=cj6PQfIVXvqIoGYIElzpn4poX2DN3az9pP7Q2HvfI5+cZzu68PIxfkf86Dc8PBm/VHjEw3Fu2tMGb/QE9qTctT/S5iuuxChLh3yiwcqKO+8W5a2fL9/pK78xrUsp/Ml7zydg0IOT1ytj0SSwyNMxuEwihXu7KpZj+EFZ6Dc3OTwR647TWo93YXApGy2bCxl8FGZFo09A6qGhANjUwYUbr6WbURSENcW4hDuhbnTsTHJYqfQyhRIdjC9ipmEfrsb+M0DO0rin6+adjDWPG7m+YB1mxB0fuG2mpHt1NyngQeGG1SgDY8a03niQhXsjH5IYx2J+/d6DGmeSZqkcPDj2Ug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB10502.eurprd04.prod.outlook.com (2603:10a6:102:44f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.24; Fri, 1 Nov
+ 2024 21:04:56 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8093.027; Fri, 1 Nov 2024
+ 21:04:56 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v4 0/2] PCI: add enabe(disable)_device() hook for bridge
+Date: Fri, 01 Nov 2024 17:04:38 -0400
+Message-Id: <20241101-imx95_lut-v4-0-0fdf9a2fe754@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAGZCJWcC/23NTQ7CIBAF4KsY1mKmA6XFlfcwxgBFS2J/ApXUN
+ L27tAutiYtZvMl8byYSrHc2kONuIt5GF1zXpsD3O2Jq1d4tdVXKBAE5SBTUNaPMr4/nQDMjSkS
+ 0IDkn6b739ubGtet8Sbl2Yej8a62O2bL91xIzCrQCIxDKotJKn9qxP5iuIUtHxI1jsHWYHNOCi
+ 0KrnEn169jHZWm2jiVX5CCN1OlbKb5unuc3e0JaMxABAAA=
+To: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Frank.li@nxp.com, 
+ alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, 
+ joro@8bytes.org, l.stach@pengutronix.de, lgirdwood@gmail.com, 
+ maz@kernel.org, p.zabel@pengutronix.de, robin.murphy@arm.com, 
+ will@kernel.org, Robin Murphy <robin.murphy@arm.com>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730495090; l=3682;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=4p8lEaTgoJLNoLN5Blpp9G5ER+NKuLVgu/8fl9wrMng=;
+ b=TNPZc196qUdgLUJgKgkVSKQN5ig+Qz+yTB6Nz4tWblFH909y4o/DmapJ0HcdQnynPvJuOt3m5
+ JSxq7KIiibMBw3T90QG4xlwhestzQ0aFHacQR4iksoNDQVMxSY6YOpJ
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR13CA0092.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <7hwmhnnf0f.fsf@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10502:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6f858fe7-7152-4aa8-d94d-08dcfab8d6aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|1800799024|7416014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWJObm9ETk5iMGVLWlV5ZC85czYzVUpUcC91ak5JWXJ5WGh2dElEUFpMUEt3?=
+ =?utf-8?B?NmR3L0lXR0ZMWVpNRStzU1k5TTdrWFNOY0h1aXIyM1NGZzNHSktyb0dnSElL?=
+ =?utf-8?B?clRRdnNyZG1EeTdyd1EzK05GS1hlUm90UldTTlh5ZE02dTloYmtRVk1Sd3hW?=
+ =?utf-8?B?WUlJZlp6UGY4VmZEYXpPZzB4R3JpUHc4UUR5THZ5ZUlMWHY4SUNzdWVYK3Fs?=
+ =?utf-8?B?NWNKNDZHTkRUMng2T3JyZkdJSWRnVFNaS0hkM0FGNnFuMFVkM2I3UkFDRUs4?=
+ =?utf-8?B?RG5PWjdPOFVWNzl3Z1I5QTlJSGJ1aE1ta21ucFU4aW90elNuYjdMbVpGZGNW?=
+ =?utf-8?B?bWtONS90RmtYdjltZGdqbHFHV2gxSHYrRHFHeTEzRGhzQ09lQWhuK3Exayti?=
+ =?utf-8?B?ak9OVmpueEpjM2EyWUN6UVNONXg0ZU01VkloT3Ardm43aVZuWG9QMzFWWFNt?=
+ =?utf-8?B?djNwYm5JVmI1UVN0Z0l6WEJMSVVib0tRQ0F1MUJkcEJXUU9CMFZOVG1NS3Vx?=
+ =?utf-8?B?SE1NYTJTSWlsTTZ5bDJqMWFjRjdZcUdJTlc0QkZ1VTVxYVQyQnAvSnVRQkFB?=
+ =?utf-8?B?MFNIWU41UVorZE9DWTJ2WFRPZTlOc1JDaEREMzlTQUM4YWdSNHl6NVF1cEZu?=
+ =?utf-8?B?NU5wZ05sTHp5SCtYdFJPWStZcy9KNENyNm1wN1YwdzZDM05XTTB4Z096cDRq?=
+ =?utf-8?B?NDc1dkM5THE0K3FrTDBxNEpIM1gvN3l3Q2h4RHhBTWRvd2ExMUx5RUxhMXlk?=
+ =?utf-8?B?WTFPL3JNaE1yaWkzR0RIejZRODNrSWk2K2VQcS9xaHdPbHNYM2k1MXI4eVQy?=
+ =?utf-8?B?ZjZYRGhwVXlYbjloZzdjbFBvUmlEV1hQb1MzZUZtSFkwZDlpS2I4TGhtQXJE?=
+ =?utf-8?B?TUx6NGJGV3lpZzJ1N1FLWVhjVDFJeXhDTERZekxLVVpBL0UyUk9MRWdHK1ZE?=
+ =?utf-8?B?ZFJ0b2p5WGdBM3dTSTFqWkpmUTczMXR5WmNXZ0NScFJKam5UZWFadHZyaUlN?=
+ =?utf-8?B?VDUvNUd5dHFBd08rMlBoYUJFcHhZdFNFWUpOQjF2VlBqaFhWSU5jVm9TTThF?=
+ =?utf-8?B?RUhlZVFmVDBQbXNUY2Y4YUlPcXJiUU1xSkFyMHROb1Bwc1J0MlhnWk5kT3F6?=
+ =?utf-8?B?VFV2Yit1WUpMNVluS2NRNmVTZHlvN3hXblhaUG9Sbi9mNWlCWjI1NmlRYzhP?=
+ =?utf-8?B?MUtZTDJpVFp4NWpZSk52SUpBWG10andlSi9wOUtnb1hwQzFySUUxSDlOWXdH?=
+ =?utf-8?B?ZGxaNk9nUHBra2xKYmJDVjNMMCs4Q1N1Z1gyRVFWKzdDaitHVXZmUHRIV0lC?=
+ =?utf-8?B?Z1RRY1pBTWFpRHdwMjF2bk9vYWduaDNMRkNHdGlxcDg0V2NReDhTU3pJemlN?=
+ =?utf-8?B?anFEQkNQNFJmM2h3ZDdaT2JsRGlqM3dOc1RoZERDVGVCbGQrMDFQdzRYNTNq?=
+ =?utf-8?B?dENIWWZDUXpzcVdRU3V1Nk1uM1g3dmxqSmRSNktJOUR5c1FzYUp3TE9vN3hu?=
+ =?utf-8?B?TU4zRi93L0JGRDBNRUNONk5aQlQ5VUttbWgwUnh2R1kyaFl3Y2lSVXlFRXlq?=
+ =?utf-8?B?RDY2TzVGYndONURic0s0ZUlZVmdZL2UwNlZ5Y3ZnYXhjSzlnd3IzM3JqeE9M?=
+ =?utf-8?B?bE5mL1lCTzlMOE9CUDZsZXlGM20wTE9oSjJ4bGpLQUdqeEJPWW5JVG9PSU5z?=
+ =?utf-8?B?eDNmWTZUaEo0YWJLeEJ5Nkk3MFQ3RVNoYjlLelAyN2graWJva2JiUzR3MElt?=
+ =?utf-8?B?Y0ZFS1BZcENuYUt3Z3hqWmp6RUsyVUM1cmVQMGEzS3BHZStNb2ZoY3M1bzJH?=
+ =?utf-8?B?QW9SN2ZvOWlxM3FRQ1l5SFVIUFFHQ0RjZWk1UzRicXlWYVM2dXd4azFlcUdK?=
+ =?utf-8?B?OVBjaEo3MzRQaFdvQm5QTHlobUEzNE1WaElERktRVTVnbnc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(1800799024)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UlJMU3VKSkpLQ1dvUG5KMm5LeXArR2Jra2l2aE9TT2dBY2FENXhmYzNIakkr?=
+ =?utf-8?B?VjNHenRJS3FISmlQVGpBYmNhY28yQTR4MDZBNVJVeDhnRTFOQ1BnUWhlYkVz?=
+ =?utf-8?B?ZmxnWTBkMDBYcCtud0VjYkIvaG1UM285OFdoL0xqQTV3Y2l6emhDYTJ6bTNZ?=
+ =?utf-8?B?amRyYWp5elFhWlFFdmVMWkF2bFV0c1c4dy9sY1VFNzMybXdWRGcyMDA1TjFT?=
+ =?utf-8?B?SlJNTEQ2ZmZxMmI5K3VGenVTUllmRWh6bnFuUUJNVzhnWWw5TEY3L1dzdW1X?=
+ =?utf-8?B?KzZvVi9ndTlKUmNrZDF5VGlLNXdEVjROU2Rtajl2bTZrNE1QKytucTF3R2Yx?=
+ =?utf-8?B?eFFON0ZFak5ENTNMVGxyaUVLN09tb3NVUC9sR2FTeHpsWktrdVVqbDVNbnZv?=
+ =?utf-8?B?K3dxZHZDVTFPK1N3cURqSkpHNFVmSEFDYWwzaStBYXNIRHZEaDFCVGw1TnRU?=
+ =?utf-8?B?SVd6ODZscjQxNVRIK1l3MzJ3NVVCSG1Fbzkwb0xHMll0RnpaOGNZYkVzQlZa?=
+ =?utf-8?B?cU05bFNDVkRmZUMvTVNkcEtCdExxOXliZjNNeW1zZVVSbytsbGJ5ZTV5MFJZ?=
+ =?utf-8?B?eVF6UElLMW9DUTE3Q3hRcm03b0dMRUEyeE12ckFzS0ozanp1dGttN3pZbWxP?=
+ =?utf-8?B?ZUtoT3EvRE5tOTljSWZvN2pHUEtnblhOSmQ2NklMWENwRmt3L25pL0RkN0ti?=
+ =?utf-8?B?OVpyay8vNGRxbUc3T0FuNHBCUXFUNksvMER6akhDK3ZXbUk1QVpvNHV2V2Zz?=
+ =?utf-8?B?SzNjT0J2L0lyTTZwNzBVa3doVlFPbkJRaE1DeTl3bjUwT1VSRmZKTlFxU2dK?=
+ =?utf-8?B?SVYvY1JBbXBKZWJwRnc2SGt2b2lRUVZxSlBySElBVm1JVW9iS3hyTVFudE5E?=
+ =?utf-8?B?UXhKMWxmUWZsWW4xWVc4aGVKUmJsVi9oOHc5bUw2TXF3RFg3OERqN2srYXcv?=
+ =?utf-8?B?b0t6WGZ1VEtJVWxVS2ZVN2prczJIZzlTaHcyVjhvNG1vZjJxQ3YrT1krZTJM?=
+ =?utf-8?B?Sm5saS9wVngyZ2Y3eEU2WEg0WFJrWS82d0FPbzc3Ny9nbTFRZ0kwd3Z5aWlj?=
+ =?utf-8?B?bmQ5K2pwYys5ZmwrM2plb21BdHVGUDIyY2lmcmZKcTlGSXU0b2g2alh2TEda?=
+ =?utf-8?B?WG5HZFBSWTYzckxCOVlqZElpajVyTGl6V1ZjdTZobUc0Vnl6YmtTZ2RGZHI3?=
+ =?utf-8?B?dytTbFNNSXNtUm05TW1CSDZHQ0FqbE1OdlhDZDFvajB5UG40ejBVMjNLVmFZ?=
+ =?utf-8?B?cW1SYTA0eGQ5bFl3N1gwUzFjY3JhTWxRUCtnVVducE8yWG9rVEZwKzJFcU4z?=
+ =?utf-8?B?VWVoNU81K0tpb3AvMEp4cFJ1cWkyNDRsLzNpdWRrelYvUWpyUWxxNHFHQ2Jh?=
+ =?utf-8?B?TUg4VmNvZ3JiNWZGdE1kNjRsbStweHhoOUlEUDk5anNhelZCcXVlVHJkUEVo?=
+ =?utf-8?B?bVM1YkM5RFpTRzJxeVVtV21PT2VUZDlaVWN0cGMwc0hpRTJHTGZDV1dSRTlj?=
+ =?utf-8?B?K05pS1M3OC9YbGVpRE1YQnc5ZW50ZFhaMVMydnl4YWZQbTBrTWhFRml5R0lS?=
+ =?utf-8?B?ZTBKZkloMTRqTURwYTE4ZytVM0hRd0QxOUFOdk12WXNQc1ZiMEc2dGVZQ1c1?=
+ =?utf-8?B?NFVqVk51djUvWTIwQ0d0bDMxS2o1ajdxREJDQmU5d2JBTVdCYnNidVY3TFFP?=
+ =?utf-8?B?QUpSZ0ZaWS9PVGQrZWxuSnJ6V2FDYmY4d0ZhbEZUMXdBNWdWb2FONXEvYXQr?=
+ =?utf-8?B?WUxFWEJ1V2pnQzkrYWN0N2tnUVlUa2k3MGlhR2t0UGhzS0xxYXAyWFQweVBz?=
+ =?utf-8?B?VGZjTDZKWGR1ZUNHajllOVFYS0s1RElvSXJIQU9wQWV2UUFQeTd4NUF0WjhD?=
+ =?utf-8?B?RzZYUFZBUzdBUERsY2N3RlM0RXQ1Tnd4L0xFeDZHWWZhTHd4N2l0eUVteTdV?=
+ =?utf-8?B?dFgrK3ZCS1Vwb3F6TmRaeUNEUXlCT2M0WTdHT1drN1hmSktZUjdOOVRUdlZx?=
+ =?utf-8?B?SCtKTnB5TE1qYWNrekpGS2ZMVlhrcytZV0c4U2RrRkFhNTlpMFpVUUtLQ1pv?=
+ =?utf-8?B?Z01uaEV3Z2Fob2dXWmZJUE1KRS84ckJuQzRnWkhMeHoxNmozZnRoanp1bTlr?=
+ =?utf-8?Q?ZDkw=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f858fe7-7152-4aa8-d94d-08dcfab8d6aa
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 21:04:56.3270
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XgKtz+IAIVZKpd0/jO0TDqos2Pkok6YxZLLSG3fBlyX06t6GLt3joy+HKgee6ThOUC5VooS61esiqavBvdoBGg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_133253_264348_72275C9F 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20241101_140505_148818_E4DCAEE2 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +194,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08:35-20241101, Kevin Hilman wrote:
-> Nishanth Menon <nm@ti.com> writes:
-> 
-> > On 11:11-20241031, Ulf Hansson wrote:
-> >> On Wed, 30 Oct 2024 at 20:43, Kevin Hilman <khilman@baylibre.com> wrote:
-> >> >
-> >> > Ulf Hansson <ulf.hansson@linaro.org> writes:
-> >> >
-> >> > > On Wed, 30 Oct 2024 at 14:01, Nishanth Menon <nm@ti.com> wrote:
-> >> > >>
-> >> > >> Hi Kevin Hilman,
-> >> > >>
-> >> > >> On Fri, 06 Sep 2024 09:14:48 -0700, Kevin Hilman wrote:
-> >> > >> > The latest (10.x) version of the firmware for the PM co-processor (aka
-> >> > >> > device manager, or DM) adds support for a "managed" mode, where the DM
-> >> > >> > firmware will select the specific low power state which is entered
-> >> > >> > when Linux requests a system-wide suspend.
-> >> > >> >
-> >> > >> > In this mode, the DM will always attempt the deepest low-power state
-> >> > >> > available for the SoC.
-> >> > >> >
-> >> > >> > [...]
-> >> > >>
-> >> > >> I have applied the following to branch ti-drivers-soc-next on [1].
-> >> > >> Thank you!
-> >> > >>
-> >> > >> Ulf, based on your ack[2], I have assumed that you want me to pick
-> >> > >> this series up. Let me know if that is not the case and I can drop the
-> >> > >> series.
-> >> > >
-> >> > > Well, that was a while ago. The reason was because there was a
-> >> > > dependency to another series [2], when this was posted.
-> >> > >
-> >> > > If that's not the case anymore, I think it's better to funnel this via
-> >> > > my pmdomain tree. Please let me know how to proceed.
-> >> >
-> >> > The build-time dependency on [2] still exists, and since that was just
-> >> > queued up by Nishanth, I think this series should (still) go along with
-> >> > it to keep things simple.
-> >> >
-> >> > Kevin
-> >> 
-> >> Right, that makes perfect sense to me too. If we discover conflicts,
-> >> let's deal with them then.
-> >
-> >
-> > oops.. I missed this response. OK, I will let things be.
-> >
-> 
-> Oops, 0day bot found a build error in linux-next when CONFIG_PM_SLEEP is
-> not defined[1].  Need to respin to fix this.
-> 
-> v5 coming right up....
-> 
-> Kevin
-> 
-> [1] https://lore.kernel.org/all/CA+G9fYtioQ22nVr9m22+qyMqUNRsGdA=cFw_j1OUv=x8Pcs-bw@mail.gmail.com/
+Some system's IOMMU stream(master) ID bits(such as 6bits) less than
+pci_device_id (16bit). It needs add hardware configuration to enable
+pci_device_id to stream ID convert.
 
-Kevin,
+https://lore.kernel.org/imx/20240622173849.GA1432357@bhelgaas/
+This ways use pcie bus notifier (like apple pci controller), when new PCIe
+device added, bus notifier will call register specific callback to handle
+look up table (LUT) configuration.
 
-Unfortunately, I have chosen to drop the series. We are too late in
-the window to take the updated series and wait for new regression
-reports. On the flip side, this will clean up the flow for Ulf to take
-your V5 since the dependent series should ideally hit rc1 by then.
+https://lore.kernel.org/imx/20240429150842.GC1709920-robh@kernel.org/
+which parse dt's 'msi-map' and 'iommu-map' property to static config LUT
+table (qcom use this way). This way is rejected by DT maintainer Rob.
 
-Thanks for addressing the report fast.
+Above ways can resolve LUT take or stream id out of usage the problem. If
+there are not enough stream id resource, not error return, EP hardware
+still issue DMA to do transfer, which may transfer to wrong possition.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Add enable(disable)_device() hook for bridge can return error when not
+enough resource, and PCI device can't enabled.
+
+Basicallly this version can match Bjorn's requirement:
+1: simple, because it is rare that there are no LUT resource.
+2: EP driver probe failure when no LUT, but lspci can see such device.
+
+[    2.164415] nvme nvme0: pci function 0000:01:00.0
+[    2.169142] pci 0000:00:00.0: Error enabling bridge (-1), continuing
+[    2.175654] nvme 0000:01:00.0: probe with driver nvme failed with error -12
+
+> lspci
+0000:00:00.0 PCI bridge: Philips Semiconductors Device 0000
+0000:01:00.0 Non-Volatile memory controller: Micron Technology Inc 2100AI NVMe SSD [Nitro] (rev 03)
+
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+To: Lucas Stach <l.stach@pengutronix.de>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Krzysztof Wilczyński <kw@linux.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Rob Herring <robh@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: imx@lists.linux.dev
+Cc: Frank.li@nxp.com \
+Cc: alyssa@rosenzweig.io \
+Cc: bpf@vger.kernel.org \
+Cc: broonie@kernel.org \
+Cc: jgg@ziepe.ca \
+Cc: joro@8bytes.org \
+Cc: l.stach@pengutronix.de \
+Cc: lgirdwood@gmail.com \
+Cc: maz@kernel.org \
+Cc: p.zabel@pengutronix.de \
+Cc: robin.murphy@arm.com \
+Cc: will@kernel.org \
+Cc: Robin Murphy <robin.murphy@arm.com>
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v4:
+- Add Bjorn Helgaas review tag for patch1
+- check 'target' value for patch2
+- detail see each patches
+- Link to v3: https://lore.kernel.org/r/20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com
+
+Changes in v3:
+- disable_device when error happen
+- use target for of_map_id
+- Check if rid already in lut table when enable deviced
+- Link to v2: https://lore.kernel.org/r/20240930-imx95_lut-v2-0-3b6467ba539a@nxp.com
+
+Changes in v2:
+- see each patch
+- Link to v1: https://lore.kernel.org/r/20240926-imx95_lut-v1-0-d0c62087dbab@nxp.com
+
+---
+Frank Li (2):
+      PCI: Add enable_device() and disable_device() callbacks for bridges
+      PCI: imx6: Add IOMMU and ITS MSI support for i.MX95
+
+ drivers/pci/controller/dwc/pci-imx6.c | 177 +++++++++++++++++++++++++++++++++-
+ drivers/pci/pci.c                     |  23 ++++-
+ include/linux/pci.h                   |   2 +
+ 3 files changed, 200 insertions(+), 2 deletions(-)
+---
+base-commit: 9a6b4af5bc27c1d3e5dc9f7fb0edd26047bb74ed
+change-id: 20240926-imx95_lut-1c68222e0944
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
+
 
