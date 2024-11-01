@@ -4,78 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6C7E674AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 07:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4F2E674AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 07:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Aznmoxjs1A/X/M1eMj2ezm4UQazPbpPcX+QlRIbifw=; b=YOCiLib4qEMW02+j+0T28O1MxN
-	Sh+WjwpbkXqBLD8g8yG9PKutwfI8w0w/UIh06u1Qk+XHdlI6RcuZAzGVqnMALX5HMmQCPXyj22WPs
-	Q1Tn+VR0bD7BO+kVmNCfKPwf0z+JVgR5oCq9u49hph0WT0p0sGyr/5JhfjwEMxYzDlrmyrWIpVUoB
-	E755Mx2qkpqdMfKAuHjWK/cV45C/ruaUzLGpm+Svm2nqzhVbH7F9R5Jil61HeLfCqt88gEEzCDGkj
-	DCuoFML7brk02hGegygvawJrjYo8OQqrTv1TAKzWtQiUaqx9/Rr1DWPZJ7KLmw21SnLYf0BcjI7qi
-	MqeEMQTw==;
+	bh=ovhgDWrMf5z56w1aAHROlrv9Fuapjcb0MG42724dH+s=; b=rQtmVZSe2GysOAjALruAW6QRKi
+	zDMSX8jM+kB8KcFk2cr7BDIK7RTFt5Z0lFT7uPcpahtErZeoQriwUwqLANRgYBQc0lpCm1T60dsnD
+	elM9VSPwVDUWBKGKEXR2+vIncxUr/fAWUPNLeZJQxzn8yTX2adbtkNGOJd3c3RZ17r9GgwNFD8xuE
+	sWFkwt95zsFez1Czjx5OqSsdoQTc71uQVGOPr+uv6ijNXSUWwcUDkiEYJW4Ae6Rbz6BjMYlWG/t+K
+	429soz4By8Zq7xeT1dZ0MJfS7LN7M55Zw8H3Ledj2BLqaXyqEtYV+krvVlBBGsK69nMuHirgOSOOd
+	qlmiFaew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6m5A-000000066mj-1rjp;
-	Fri, 01 Nov 2024 07:28:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1t6m5E-000000066oq-1ljL;
+	Fri, 01 Nov 2024 07:28:36 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6lnN-000000063ei-0Blg
+	id 1t6lsw-0000000652Y-3wLc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 07:10:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1730445008; x=1761981008;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=PoUpoiqh15WbBGv3obiAOp0I0e8/k6KBOM9i6jG/LjA=;
-  b=sQf4WUxUDPkp17CtJqu/nkP83vG1FV+RXDgY5ltvvXmvo5C+i0KsFYw8
-   VRMNvSyuI70Cz6vYhj8cm12XNpFRbVegqzzS4m6lKHZkwG6l9MlshlWu+
-   yfjLHqf/sQtYibXLJSJS5J3Cgn92AwC1JbGKkpLK0LsfPRYjWaemalp+T
-   4hYXDJ51TGkvmaclzkEGxftmwyPhY565xybQgSMuQV1tEBP3/Id01nRBy
-   YaA4/X0an1+wKSFGBstQXriAw8ZAH/CiDeBHNcuJGoBn7F2wpCerzMV2x
-   NPakdGZTjaaS80XNqKJUs6MNTT4kdg5PwAO8+nbiu7dLtxfS+c0Ley/gp
-   A==;
-X-CSE-ConnectionGUID: NPrwf/hMSSa00KPy6thoyw==
-X-CSE-MsgGUID: r7VsTCbOQcaA3FloD0sZgQ==
-X-IronPort-AV: E=Sophos;i="6.11,249,1725346800"; 
-   d="scan'208";a="201180320"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Nov 2024 00:10:04 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 1 Nov 2024 00:09:54 -0700
-Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 1 Nov 2024 00:09:52 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 1 Nov 2024 08:09:07 +0100
-Subject: [PATCH net-next 1/6] net: sparx5: expose some sparx5 VCAP symbols
+	Fri, 01 Nov 2024 07:15:56 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A175Jje026701;
+	Fri, 1 Nov 2024 07:15:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ovhgDWrMf5z56w1aAHROlrv9Fuapjcb0MG42724dH+s=; b=PN8b1S1tVqhFnKeU
+	KIuRzfWScZJjnAh0bArxZ3mqiVKpaNV500tJVd94regqI982al7cdJFwFj4swQBA
+	aH65gCeaXITANmJRmxFSmB8G3Fa4fBYKNeWQOi98KoSZC2+cHHjsSytMXCFPzH9h
+	aIG2F8cy8HZhfrR8k7Lhd+nbk+8BZfE48++0nrVZAxK2q0VOm+g9RaxoC/stEiBX
+	sDdOcEy9xjyiYMIUztHfLEhA3yCpOQv4H+r5xziGew5WaNIh0Ci4urS+uCDQu+t8
+	W/88b+MdDOVNTYQ3khmTJl/tgWJqoSD7ZUQ4CAxWJvLOBIisMSsmN7x8W1OqH+Hw
+	7EV9sw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42k1p39gfs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 Nov 2024 07:15:17 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A17FGXl012862
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 1 Nov 2024 07:15:16 GMT
+Received: from [10.216.44.28] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 1 Nov 2024
+ 00:15:10 -0700
+Message-ID: <2ea32f2b-a765-420d-9cc7-f0d04d27ed6e@quicinc.com>
+Date: Fri, 1 Nov 2024 12:45:07 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20241101-sparx5-lan969x-switch-driver-3-v1-1-3c76f22f4bfa@microchip.com>
-References: <20241101-sparx5-lan969x-switch-driver-3-v1-0-3c76f22f4bfa@microchip.com>
-In-Reply-To: <20241101-sparx5-lan969x-switch-driver-3-v1-0-3c76f22f4bfa@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Lars Povlsen
-	<lars.povlsen@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<jacob.e.keller@intel.com>, <christophe.jaillet@wanadoo.fr>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14-dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/11] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock
+ controller driver
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Abhishek Sahu
+	<absahu@codeaurora.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Ajit Pandey
+	<quic_ajipan@quicinc.com>,
+        Imran Shaik <quic_imrashai@quicinc.com>,
+        "Jagadeesh Kona" <quic_jkona@quicinc.com>,
+        Stephen Boyd
+	<sboyd@codeaurora.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20241019-qcs615-mm-clockcontroller-v1-0-4cfb96d779ae@quicinc.com>
+ <20241019-qcs615-mm-clockcontroller-v1-8-4cfb96d779ae@quicinc.com>
+ <omn34rwurlxrjckb5d6xb2brg6zwcizonmqyfckvngk5msrfav@b3i2bdjk5vw7>
+ <2aa768a4-b0e9-4b2f-8d74-736a88cf81cd@quicinc.com>
+ <CAA8EJppZyJt_MWrafSKReuCXy0RtEAQ6VE-kt_Fp41eFpsW2SA@mail.gmail.com>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <CAA8EJppZyJt_MWrafSKReuCXy0RtEAQ6VE-kt_Fp41eFpsW2SA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: uc-jdeAzzNGQkuQbTjeYeVb1f9QNB-N4
+X-Proofpoint-ORIG-GUID: uc-jdeAzzNGQkuQbTjeYeVb1f9QNB-N4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ adultscore=0 spamscore=0 lowpriorityscore=0 mlxscore=0 malwarescore=0
+ phishscore=0 clxscore=1015 impostorscore=0 mlxlogscore=670 suspectscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411010050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_001009_247819_3F7FC8B8 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20241101_001555_141250_29B1AF68 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,119 +120,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for lan969x VCAP support, expose the following symbols for
-use by the lan969x VCAP implementation:
 
-- The symbols SPARX5_*_LOOKUPS defines the number of lookups in each
-  VCAP instance.  These are the same for lan969x. Move them to the
-  header file.
 
-- The struct sparx5_vcap_inst encapsulates information about a single
-  VCAP instance. Move this struct to the header file and declare the
-  sparx5_vcap_inst_cfg as extern.
+On 10/31/2024 8:44 PM, Dmitry Baryshkov wrote:
+> On Wed, 30 Oct 2024 at 20:04, Taniya Das <quic_tdas@quicinc.com> wrote:
+>>
+>>
+>>
+>> On 10/19/2024 1:58 AM, Dmitry Baryshkov wrote:
+>>>> +static struct gdsc gx_gdsc = {
+>>>> +    .gdscr = 0x100c,
+>>>> +    .en_rest_wait_val = 0x2,
+>>>> +    .en_few_wait_val = 0x2,
+>>>> +    .clk_dis_wait_val = 0x2,
+>>>> +    .pd = {
+>>>> +            .name = "gx_gdsc",
+>>> .power_on = gdsc_gx_do_nothing_enable ? Or is it controlled directly on
+>>> this platform?
+>>>
+>>
+>> On QCS615 the GPU clocks are directly controlled by high level OS.
+> 
+> Is it one of the gmu-wrapper platforms?
+> 
 
-Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-Reviewed-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- .../ethernet/microchip/sparx5/sparx5_vcap_impl.c    | 18 +-----------------
- .../ethernet/microchip/sparx5/sparx5_vcap_impl.h    | 21 +++++++++++++++++++++
- 2 files changed, 22 insertions(+), 17 deletions(-)
+Not, sure of the gmu-wrapper, but this platform does not have GMU.
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-index 967c8621c250..0bdf7a378892 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-@@ -17,7 +17,6 @@
- #define SUPER_VCAP_BLK_SIZE 3072 /* addresses per Super VCAP block */
- #define STREAMSIZE (64 * 4)  /* bytes in the VCAP cache area */
- 
--#define SPARX5_IS2_LOOKUPS 4
- #define VCAP_IS2_KEYSEL(_ena, _noneth, _v4_mc, _v4_uc, _v6_mc, _v6_uc, _arp) \
- 	(ANA_ACL_VCAP_S2_KEY_SEL_KEY_SEL_ENA_SET(_ena) | \
- 	 ANA_ACL_VCAP_S2_KEY_SEL_NON_ETH_KEY_SEL_SET(_noneth) | \
-@@ -27,7 +26,6 @@
- 	 ANA_ACL_VCAP_S2_KEY_SEL_IP6_UC_KEY_SEL_SET(_v6_uc) | \
- 	 ANA_ACL_VCAP_S2_KEY_SEL_ARP_KEY_SEL_SET(_arp))
- 
--#define SPARX5_IS0_LOOKUPS 6
- #define VCAP_IS0_KEYSEL(_ena, _etype, _ipv4, _ipv6, _mpls_uc, _mpls_mc, _mlbs) \
- 	(ANA_CL_ADV_CL_CFG_LOOKUP_ENA_SET(_ena) | \
- 	ANA_CL_ADV_CL_CFG_ETYPE_CLM_KEY_SEL_SET(_etype) | \
-@@ -37,31 +35,17 @@
- 	ANA_CL_ADV_CL_CFG_MPLS_MC_CLM_KEY_SEL_SET(_mpls_mc) | \
- 	ANA_CL_ADV_CL_CFG_MLBS_CLM_KEY_SEL_SET(_mlbs))
- 
--#define SPARX5_ES0_LOOKUPS 1
- #define VCAP_ES0_KEYSEL(_key) (REW_RTAG_ETAG_CTRL_ES0_ISDX_KEY_ENA_SET(_key))
- #define SPARX5_STAT_ESDX_GRN_PKTS  0x300
- #define SPARX5_STAT_ESDX_YEL_PKTS  0x301
- 
--#define SPARX5_ES2_LOOKUPS 2
- #define VCAP_ES2_KEYSEL(_ena, _arp, _ipv4, _ipv6) \
- 	(EACL_VCAP_ES2_KEY_SEL_KEY_ENA_SET(_ena) | \
- 	EACL_VCAP_ES2_KEY_SEL_ARP_KEY_SEL_SET(_arp) | \
- 	EACL_VCAP_ES2_KEY_SEL_IP4_KEY_SEL_SET(_ipv4) | \
- 	EACL_VCAP_ES2_KEY_SEL_IP6_KEY_SEL_SET(_ipv6))
- 
--static struct sparx5_vcap_inst {
--	enum vcap_type vtype; /* type of vcap */
--	int vinst; /* instance number within the same type */
--	int lookups; /* number of lookups in this vcap type */
--	int lookups_per_instance; /* number of lookups in this instance */
--	int first_cid; /* first chain id in this vcap */
--	int last_cid; /* last chain id in this vcap */
--	int count; /* number of available addresses, not in super vcap */
--	int map_id; /* id in the super vcap block mapping (if applicable) */
--	int blockno; /* starting block in super vcap (if applicable) */
--	int blocks; /* number of blocks in super vcap (if applicable) */
--	bool ingress; /* is vcap in the ingress path */
--} sparx5_vcap_inst_cfg[] = {
-+const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[] = {
- 	{
- 		.vtype = VCAP_TYPE_IS0, /* CLM-0 */
- 		.vinst = 0,
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
-index 2684d9199b05..d0a42406bf26 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
-@@ -16,6 +16,11 @@
- #include "vcap_api.h"
- #include "vcap_api_client.h"
- 
-+#define SPARX5_IS2_LOOKUPS 4
-+#define SPARX5_IS0_LOOKUPS 6
-+#define SPARX5_ES0_LOOKUPS 1
-+#define SPARX5_ES2_LOOKUPS 2
-+
- #define SPARX5_VCAP_CID_IS0_L0 VCAP_CID_INGRESS_L0 /* IS0/CLM lookup 0 */
- #define SPARX5_VCAP_CID_IS0_L1 VCAP_CID_INGRESS_L1 /* IS0/CLM lookup 1 */
- #define SPARX5_VCAP_CID_IS0_L2 VCAP_CID_INGRESS_L2 /* IS0/CLM lookup 2 */
-@@ -40,6 +45,22 @@
- #define SPARX5_VCAP_CID_ES2_MAX \
- 	(VCAP_CID_EGRESS_STAGE2_L1 + VCAP_CID_LOOKUP_SIZE - 1) /* ES2 Max */
- 
-+struct sparx5_vcap_inst {
-+	enum vcap_type vtype; /* type of vcap */
-+	int vinst; /* instance number within the same type */
-+	int lookups; /* number of lookups in this vcap type */
-+	int lookups_per_instance; /* number of lookups in this instance */
-+	int first_cid; /* first chain id in this vcap */
-+	int last_cid; /* last chain id in this vcap */
-+	int count; /* number of available addresses, not in super vcap */
-+	int map_id; /* id in the super vcap block mapping (if applicable) */
-+	int blockno; /* starting block in super vcap (if applicable) */
-+	int blocks; /* number of blocks in super vcap (if applicable) */
-+	bool ingress; /* is vcap in the ingress path */
-+};
-+
-+extern const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[];
-+
- /* IS0 port keyset selection control */
- 
- /* IS0 ethernet, IPv4, IPv6 traffic type keyset generation */
+>>
+>>>> +    },
+>>>> +    .pwrsts = PWRSTS_OFF_ON,
+>>>> +    .flags = POLL_CFG_GDSCR,
+>>>> +};
+>>>> +
+>>
+>> --
+>> Thanks & Regards,
+>> Taniya Das.
+> 
+> 
+> 
 
 -- 
-2.34.1
-
+Thanks & Regards,
+Taniya Das.
 
