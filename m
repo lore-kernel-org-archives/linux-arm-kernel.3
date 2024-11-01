@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438F6D5CC99
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A80D767F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 09:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRtXYp9uSZhyFJ6aIO9ndrZ8PxfKsSbAu5n2VyXKSrA=; b=NtvVchLjNdJ8MwAdDjlEflydXa
-	7979ZHwxtFFcZEWbg6XfuwZCVFhe/DtSE0hSyoDHD5jOtMierhmlFAOYT2FmQAHJ9MP75HriVZD/1
-	ojjtZcDsABHI8sZpkZlamfbWvaMEjCEO3/htnaCUu4KbuCPzunJsnI34v0BMKKWH2jN3LV4R7Kof4
-	ctq0D28M1l4HUMhwSRUFzG5k88mMriWXDQqOkbANmvP46w5QGBt7v2PDfPJk9jA0zVPFFcjDyiUiK
-	b51xt4wgaQDv/+3I4L/NT3FFKR5u7U1tdtdXaPmQkshChmZ/8QHjN8rNEmBx6bpaEsqyvvA6YXmVa
-	HUIbXcNQ==;
+	bh=XLnYQfdr8NyxggDtyRx5yaVqi2owvaQFbxe2uSIzQDY=; b=FprZd+OqDYhOeZx5VitXfsb1Hi
+	FjSKlC3c78GCbJtq7eUR0tyJmuBYxPVmzb5v6nvpSGrE2rfZIgFBVHPORfQ+Sr5+clHzfkbkGIU0n
+	MDM+06sl3rfxJWeS+SnFcSmypO8ksTURv8bdAi0IeT86eZAXmXlvSEzf972gifBpVyV6Si60RXkGG
+	FNF9poEtNhzgWfNGEEt3i8nSOB5t8PHgRRHFesD0JC4VGpqfLmZlxblUFUVxsZHBLNPXqk7BFxuXe
+	4J5NN5vomaNJxcTx4lhDKXR8myuVEzcq9y69dbcJ2IdWVbdZjyYhE7vNXtIEnRRF1VJY03K4hFB6x
+	n0pGGpmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6o4F-00000006QJK-0mZK;
-	Fri, 01 Nov 2024 09:35:43 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6o0M-00000006PaE-1Aeb
+	id 1t6oDx-00000006Rf7-1d7L;
+	Fri, 01 Nov 2024 09:45:45 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t6oCG-00000006RJy-3Ttc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 09:31:54 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1730453498;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bRtXYp9uSZhyFJ6aIO9ndrZ8PxfKsSbAu5n2VyXKSrA=;
-	b=sTh0cz9jeEjl/nHRPDp3Zy7VsXBFyCthyomq9SR6Dzx2W6EgBML4YQlaeqZgLmPQiIIbsn
-	JNroU4CRQVUCEitpVuFWa4MtnOyy5s+26iOJtCMfn3yawgWCIOFVJ6h0A/3Kfr4wo68LAb
-	AghTIjIV/r/0WQfwMhtFHNSgjJ7iJvMlal8B80tQ4qMnRgn8DuEM/aIZORmwyxAwKh9LFM
-	N8tsHk3R7eSWg8OsWMT+BACj99/tBemsSdWJdvKs/CGpidaFkUY6LZhFDTGnjjo2tFkraa
-	TRsYu/K2GjVXy/7LinOfr5bH3qzv67Npjix2UyEo5buI+z5GotGdR5MkZsGwPA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1730453498;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bRtXYp9uSZhyFJ6aIO9ndrZ8PxfKsSbAu5n2VyXKSrA=;
-	b=8PKH97nEM3rOHURhaR6S+L7+WYJKlqoAcKnJbk65kf3FjXuNkqnFRRWnpIDWO60iGL1eT3
-	mmO7IsCy+ZyufBBQ==
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, sudeep.holla@arm.com, peterz@infradead.org,
- mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- pierre.gondois@arm.com, dietmar.eggemann@arm.com
-Cc: yangyicong@hisilicon.com, linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
- gregkh@linuxfoundation.org, rafael@kernel.org,
- jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
- linuxarm@huawei.com, xuwei5@huawei.com, guohanjun@huawei.com
-Subject: Re: [PATCH v7 1/4] cpu/SMT: Provide a default
- topology_is_primary_thread()
-In-Reply-To: <5617934d-45ac-509a-510e-d96d52a2ebf9@huawei.com>
-References: <20241030125415.18994-1-yangyicong@huawei.com>
- <20241030125415.18994-2-yangyicong@huawei.com> <87ttcty71m.ffs@tglx>
- <488d8289-b538-01cb-5de7-d691f49c0d7b@huawei.com> <87frocwg64.ffs@tglx>
- <5617934d-45ac-509a-510e-d96d52a2ebf9@huawei.com>
-Date: Fri, 01 Nov 2024 10:31:37 +0100
-Message-ID: <87h68ruwp2.ffs@tglx>
+	Fri, 01 Nov 2024 09:44:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=XLnYQfdr8NyxggDtyRx5yaVqi2owvaQFbxe2uSIzQDY=;
+	b=fy66hohrsCdw8c1rLOwe1R3p0cESVr4sM7Wg0sz6gnvpaC9gbGWQk5cVrOeMfp
+	mQi10MAUzS0dyf+eg3+BZ06Y/hb6Cd/rM0jE8JyTWh9ooGrAxtCT9ENGHpEalrjr
+	5Lma9nkUb2nzst601UrIUfobJn6qGNGXXM9O6pOHulB2Y=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAXf8lroiRn8dxjAQ--.13888S3;
+	Fri, 01 Nov 2024 17:42:05 +0800 (CST)
+Date: Fri, 1 Nov 2024 17:42:03 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Tim Harvey <tharvey@gateworks.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: fsl: Add Gateworks GW82XX-2x
+ dev kit
+Message-ID: <ZySia6Jaie9QvcH4@dragon>
+References: <20241022153031.1231934-1-tharvey@gateworks.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241022153031.1231934-1-tharvey@gateworks.com>
+X-CM-TRANSID: Mc8vCgAXf8lroiRn8dxjAQ--.13888S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUVdWFUUUUU
+X-Originating-IP: [117.62.23.195]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCx+KZWckj-02owAAsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_023142_493289_63FD5436 
-X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-CacheID: sfid-20241101_024401_202138_328A52BE 
+X-CRM114-Status: UNSURE (   6.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,22 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01 2024 at 11:18, Yicong Yang wrote:
-> On 2024/10/31 21:33, Thomas Gleixner wrote:
->> cpu_smt_control is not guaranteed to have CPU_SMT_ENABLED state, so this
->> argument is bogus.
->> 
-> sorry for didn't explain all the cases here.
->
-> For cpu_sm_control == {CPU_SMT_ENABLED, CPU_SMT_NOT_SUPPORTED, CPU_SMT_NOT_IMPLEMENTED},
-> all the cpu's bootable and we won't check topology_is_primary_thread().
+On Tue, Oct 22, 2024 at 08:30:30AM -0700, Tim Harvey wrote:
+> Adds support for the Gateworks GW82XX-2X development kit
+> based on a GW82XX baseboard and a GW702X System On Module.
+> 
+> Signed-off-by: Tim Harvey <tharvey@gateworks.com>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-You don't have to copy the code to me. I'm familiar with it.
+Applied both, thanks!
 
-All I need is a proper explanation why your topology_is_primary_thread()
-implementation is correct under all circumstances.
-
-Thanks,
-
-        tglx
 
