@@ -4,107 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117EAE674A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 06:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A822E674A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 06:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SF/2KKpiAs29WSvnnC8O2z70MKMUJcyGvFaZLh6xgXU=; b=hJ28SlyvTmXJiJRZY3fOexZTFQ
-	Ul4myXttQHDtutVAw3BMN48n2VYpDnQk76yknmDVVrmf88xpNyJSA6e/rOUqqa6d1yqGipyWNQrEH
-	NgxMy4OWQpfXvdw22JATIX+iJY60qypfqMCiFS6LJ6BM0YGbOWzC3ywGx+VJLmMeyFv+R7V8hg1/f
-	JfmUgkZx3DU03QqqgeOY1XdZRY+YbD+AkoW6OY6plCPchgZkSic3SG9BAs6P4puBCjGdy1G0BdbY9
-	qCIJ+SBFNLvc4IOa49MxgLVHObBqEsGKHaVU0VcktiWslqlxG8NPcUuoxeIyhumtza67rxbgFrWUC
-	UDVNijQA==;
+	bh=+6bJ8ZdNq0jbMIzriN3qMBzZw9hotPrRliUnnqNdEcc=; b=41+DafBsn9kXtTloTR6NB6N1nv
+	2kvfU/oyXiq70bA8lVpZHtIzl4nGZA/LM2A0J4G7Rs8Q6DVO0YnlqqoPzxWzpzE6QLH89LzgY/75j
+	wj1im8OXeyIZSspPQTNDotbBFRqTw0/M9w4xm8rpXn4YzUyt5vYHiKi4QiPL30QOZfL9ajNipXyEp
+	ciSRWAZdybKSNp4zIdV4fETkhyQ0ZXoO6GyYRMkFHF6nnMO8PRUwH3dDVss860U6Ayp/S2jbm+/wR
+	YVtsI5SgMKolK76C7r6UwL7s0h8B3iakzQVNaConAd2zd9LSlSAYt9Fp8SvrQn7fi4aYj8ONtitAZ
+	imL2JuzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6lRq-00000005zt3-2Tpk;
-	Fri, 01 Nov 2024 06:47:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t6ldH-000000062Ft-302H;
+	Fri, 01 Nov 2024 06:59:43 +0000
+Received: from mail-vi1eur03on20608.outbound.protection.outlook.com ([2a01:111:f403:260c::608] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6lQ8-00000005zZl-3rSl
+	id 1t6la0-000000061VT-2wrA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 06:46:12 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4D08F710;
-	Fri,  1 Nov 2024 07:45:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730443559;
-	bh=7do0ixXu9WwnMA6mTGgu29YbF/UAUoWuDe+jY/qVAl8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A3wQXONeBC0zXLjIqQQV19uZqNjeY+8D70YmE5ykXAsNQWqVcotvXxiviXVpuNHOv
-	 cASky8l0ktBagf07XUSdmoNT3WrqrjhVPVNG6kMr/LBZWr+/z/COgHcs2bfFwRSpEx
-	 VtWo+sSZaa558198BvMxVVkcryOGpZmtNB65XjTE=
-Message-ID: <0741871e-3028-4159-ba1e-96615c045b7b@ideasonboard.com>
-Date: Fri, 1 Nov 2024 08:46:00 +0200
+	Fri, 01 Nov 2024 06:56:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qTC3qGrlvRPG+fjQcXqp1GoO9qHydp+dkl6FQPRXKceKRIxdedmhpsC9hoVFpXJurdQMbmX/OEJQcZlIUddBtEa1PdFwkp+S+A1AkfSDYyJXEAyE2Fjw7QBKghcSyhnVgatxqEVf6BGaVTgrLzkz+aHvn7HOcRSj2zk4ybhEchJwTCnSXKa2lw17B1lDdvNZjzM3urGMcz59VmF797/9R9QMkI2k4xQFrNOYJOQF1MSbe/iGtZ95mlbIOwgAiDbkLVHqHhCniUMv38MgCcpRmNdGuAjOsUEyS2jMOipWZ0ZUIXL8kB+5HxCkv0p1NjW58KWTryMwd6f/n5FzUOzbLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+6bJ8ZdNq0jbMIzriN3qMBzZw9hotPrRliUnnqNdEcc=;
+ b=RmGSTbMh278bLNBSUzI2Qr9+/deEFD9JUWehzeXW008EvBVk7HPn/j8AqeNYbhtZZLT3V2oCn7KPsXTkKlN1Z24l6FNXAjVTB/3r+79txxuTXbDaUk76pJdZEMn/w7744PzWaMMyqyCKP1y4J8iHEXLabgYBw7qlojr/jArNuef8ru+2J3Gxr9Otvqx+RSGepHRK+w5nEeaVeSn8yZjxaxNZwWRCsO94y2/hizwHBHTag3WqaK8vTMB9Fte0SqYBw2DRjaX9or5t4zeOCzK+zTfMR49xrRJnQ2dQuUacYHS/+AGh5LvXiRtFKI9+nlSf2YCLpwBSZNkSu2L/BaWqgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+6bJ8ZdNq0jbMIzriN3qMBzZw9hotPrRliUnnqNdEcc=;
+ b=cwhxMTLEJo+BTy+5fvVISL5rQgd0XRsuJU8tn4PSoK4k7GQd9Tk1FGbPzOrE4xLCHu/aGKvEr/M6e+JozDh7ah7Ym13gj7aoD2g6EFxbKjegK4E2upR5En2y++vAdbsHiaON/8Jy7vl1Rlz2lMGgDPsSSmZ2+1ik3nzqplP+4vTNOfMdwTsT5+QzGyv6NXXdQd/9yygDTHKE75Kl6LttBpggapBL7gLKVThulpAVA5CwsLy93ZbqLCEQXPnASpzjIDgCUb8bggplwUx18a37KhFmP8ZLXUYUzQwflqymONBv08fmKoQ57aRzPD/56JcDHd/HxZetFW+B2hf9z2YvIw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by PA2PR04MB10445.eurprd04.prod.outlook.com (2603:10a6:102:41f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.25; Fri, 1 Nov
+ 2024 06:56:14 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.015; Fri, 1 Nov 2024
+ 06:56:14 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: l.stach@pengutronix.de,
+	bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v6 01/10] dt-bindings: imx6q-pcie: Add ref clock for i.MX95 PCIe RC
+Date: Fri,  1 Nov 2024 15:06:01 +0800
+Message-Id: <20241101070610.1267391-2-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
+References: <20241101070610.1267391-1-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::10) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] pmdomain: ti-sci: Set PD on/off state according to
- the HW state
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Kevin Hilman <khilman@baylibre.com>, Nishanth Menon <nm@ti.com>,
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, vishalm@ti.com, sebin.francis@ti.com,
- d-gole@ti.com, Devarsh Thakkar <devarsht@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-References: <20241022-tisci-pd-boot-state-v1-1-849a6384131b@ideasonboard.com>
- <7hmsilqrw3.fsf@baylibre.com>
- <0f027b8e-9c41-4754-923b-2a285fb9593a@ideasonboard.com>
- <CAPDyKFqoXfooy-ipo_aE91TwFQOaj=Z5SZJ4G_4Hh7jCvkyTVQ@mail.gmail.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- xsFNBE6ms0cBEACyizowecZqXfMZtnBniOieTuFdErHAUyxVgtmr0f5ZfIi9Z4l+uUN4Zdw2
- wCEZjx3o0Z34diXBaMRJ3rAk9yB90UJAnLtb8A97Oq64DskLF81GCYB2P1i0qrG7UjpASgCA
- Ru0lVvxsWyIwSfoYoLrazbT1wkWRs8YBkkXQFfL7Mn3ZMoGPcpfwYH9O7bV1NslbmyJzRCMO
- eYV258gjCcwYlrkyIratlHCek4GrwV8Z9NQcjD5iLzrONjfafrWPwj6yn2RlL0mQEwt1lOvn
- LnI7QRtB3zxA3yB+FLsT1hx0va6xCHpX3QO2gBsyHCyVafFMrg3c/7IIWkDLngJxFgz6DLiA
- G4ld1QK/jsYqfP2GIMH1mFdjY+iagG4DqOsjip479HCWAptpNxSOCL6z3qxCU8MCz8iNOtZk
- DYXQWVscM5qgYSn+fmMM2qN+eoWlnCGVURZZLDjg387S2E1jT/dNTOsM/IqQj+ZROUZuRcF7
- 0RTtuU5q1HnbRNwy+23xeoSGuwmLQ2UsUk7Q5CnrjYfiPo3wHze8avK95JBoSd+WIRmV3uoO
- rXCoYOIRlDhg9XJTrbnQ3Ot5zOa0Y9c4IpyAlut6mDtxtKXr4+8OzjSVFww7tIwadTK3wDQv
- Bus4jxHjS6dz1g2ypT65qnHen6mUUH63lhzewqO9peAHJ0SLrQARAQABzTBUb21pIFZhbGtl
- aW5lbiA8dG9taS52YWxrZWluZW5AaWRlYXNvbmJvYXJkLmNvbT7CwY4EEwEIADgWIQTEOAw+
- ll79gQef86f6PaqMvJYe9QUCX/HruAIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRD6
- PaqMvJYe9WmFD/99NGoD5lBJhlFDHMZvO+Op8vCwnIRZdTsyrtGl72rVh9xRfcSgYPZUvBuT
- VDxE53mY9HaZyu1eGMccYRBaTLJSfCXl/g317CrMNdY0k40b9YeIX10feiRYEWoDIPQ3tMmA
- 0nHDygzcnuPiPT68JYZ6tUOvAt7r6OX/litM+m2/E9mtp8xCoWOo/kYO4mOAIoMNvLB8vufi
- uBB4e/AvAjtny4ScuNV5c5q8MkfNIiOyag9QCiQ/JfoAqzXRjVb4VZG72AKaElwipiKCWEcU
- R4+Bu5Qbaxj7Cd36M/bI54OrbWWETJkVVSV1i0tghCd6HHyquTdFl7wYcz6cL1hn/6byVnD+
- sR3BLvSBHYp8WSwv0TCuf6tLiNgHAO1hWiQ1pOoXyMEsxZlgPXT+wb4dbNVunckwqFjGxRbl
- Rz7apFT/ZRwbazEzEzNyrBOfB55xdipG/2+SmFn0oMFqFOBEszXLQVslh64lI0CMJm2OYYe3
- PxHqYaztyeXsx13Bfnq9+bUynAQ4uW1P5DJ3OIRZWKmbQd/Me3Fq6TU57LsvwRgE0Le9PFQs
- dcP2071rMTpqTUteEgODJS4VDf4lXJfY91u32BJkiqM7/62Cqatcz5UWWHq5xeF03MIUTqdE
- qHWk3RJEoWHWQRzQfcx6Fn2fDAUKhAddvoopfcjAHfpAWJ+ENc7BTQROprNHARAAx0aat8GU
- hsusCLc4MIxOQwidecCTRc9Dz/7U2goUwhw2O5j9TPqLtp57VITmHILnvZf6q3QAho2QMQyE
- DDvHubrdtEoqaaSKxKkFie1uhWNNvXPhwkKLYieyL9m2JdU+b88HaDnpzdyTTR4uH7wk0bBa
- KbTSgIFDDe5lXInypewPO30TmYNkFSexnnM3n1PBCqiJXsJahE4ZQ+WnV5FbPUj8T2zXS2xk
- 0LZ0+DwKmZ0ZDovvdEWRWrz3UzJ8DLHb7blPpGhmqj3ANXQXC7mb9qJ6J/VSl61GbxIO2Dwb
- xPNkHk8fwnxlUBCOyBti/uD2uSTgKHNdabhVm2dgFNVuS1y3bBHbI/qjC3J7rWE0WiaHWEqy
- UVPk8rsph4rqITsj2RiY70vEW0SKePrChvET7D8P1UPqmveBNNtSS7In+DdZ5kUqLV7rJnM9
- /4cwy+uZUt8cuCZlcA5u8IsBCNJudxEqBG10GHg1B6h1RZIz9Q9XfiBdaqa5+CjyFs8ua01c
- 9HmyfkuhXG2OLjfQuK+Ygd56mV3lq0aFdwbaX16DG22c6flkkBSjyWXYepFtHz9KsBS0DaZb
- 4IkLmZwEXpZcIOQjQ71fqlpiXkXSIaQ6YMEs8WjBbpP81h7QxWIfWtp+VnwNGc6nq5IQDESH
- mvQcsFS7d3eGVI6eyjCFdcAO8eMAEQEAAcLBXwQYAQIACQUCTqazRwIbDAAKCRD6PaqMvJYe
- 9fA7EACS6exUedsBKmt4pT7nqXBcRsqm6YzT6DeCM8PWMTeaVGHiR4TnNFiT3otD5UpYQI7S
- suYxoTdHrrrBzdlKe5rUWpzoZkVK6p0s9OIvGzLT0lrb0HC9iNDWT3JgpYDnk4Z2mFi6tTbq
- xKMtpVFRA6FjviGDRsfkfoURZI51nf2RSAk/A8BEDDZ7lgJHskYoklSpwyrXhkp9FHGMaYII
- m9EKuUTX9JPDG2FTthCBrdsgWYPdJQvM+zscq09vFMQ9Fykbx5N8z/oFEUy3ACyPqW2oyfvU
- CH5WDpWBG0s5BALp1gBJPytIAd/pY/5ZdNoi0Cx3+Z7jaBFEyYJdWy1hGddpkgnMjyOfLI7B
- CFrdecTZbR5upjNSDvQ7RG85SnpYJTIin+SAUazAeA2nS6gTZzumgtdw8XmVXZwdBfF+ICof
- 92UkbYcYNbzWO/GHgsNT1WnM4sa9lwCSWH8Fw1o/3bX1VVPEsnESOfxkNdu+gAF5S6+I6n3a
- ueeIlwJl5CpT5l8RpoZXEOVtXYn8zzOJ7oGZYINRV9Pf8qKGLf3Dft7zKBP832I3PQjeok7F
- yjt+9S+KgSFSHP3Pa4E7lsSdWhSlHYNdG/czhoUkSCN09C0rEK93wxACx3vtxPLjXu6RptBw
- 3dRq7n+mQChEB1am0BueV1JZaBboIL0AGlSJkm23kw==
-In-Reply-To: <CAPDyKFqoXfooy-ipo_aE91TwFQOaj=Z5SZJ4G_4Hh7jCvkyTVQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|PA2PR04MB10445:EE_
+X-MS-Office365-Filtering-Correlation-Id: 610259a1-14d1-4ede-9d41-08dcfa424705
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Wpw0PMLyAl6hm2NDY82IxqVOnUst27uLy6P5G+Y1IwkqeIF9mR9Wwsqte1Ae?=
+ =?us-ascii?Q?YWdYEjcx9s5HcixXdDRyRxxrhRGQ5/YVW5xHN04FHrkrdrZOGSh88OImD4WQ?=
+ =?us-ascii?Q?eH7WlrczzjK3aL3k7Rrwt09gjus6F9lHJrvSe8kWMmcd+T49/wZr0i6u5CIH?=
+ =?us-ascii?Q?nqiTmK1xf90/1rpco3rOxOy9wXGWPLewb5ZSESYkwAseRhUuNMKnynZ7CJq7?=
+ =?us-ascii?Q?Gh4rScRm6Edxz21NY5dVITAZqLeIX/Aadpdd4coHutAd5522RcF8URoSez5K?=
+ =?us-ascii?Q?4VTpT2NpyaOIdHXdlmBxkQ7HXhd6HhFqwBYySaZjyJspgbo20ev/sQticBY8?=
+ =?us-ascii?Q?akI7IssH0SxvsGWe3fcyc3msw9SeTjKaikdmxse7CL0D+4vi1HD6QtvaW87j?=
+ =?us-ascii?Q?F09eagGSQ0IrS3FaYse9G6/WfRVs67wTOYDQqgK/TmKGqWP0hjJ9EIdrSoBq?=
+ =?us-ascii?Q?/9hJhjFDrtXE/woQjc1T5bBGwy1HGNcLOiNxHMbyVX1o5NSGZG1j6sc7VzJx?=
+ =?us-ascii?Q?mJ+KpwGdEwnyXYhSUDQsdpgZe/iBlaFExzbF/FS1ASyi54Nf4xcNPUWMq8lJ?=
+ =?us-ascii?Q?PqMtdu0lfx9kTpsvs1JMyOKOdF0WmeQDB/IOGDGN2jcqkrxrTfFi2h/7VEM6?=
+ =?us-ascii?Q?BmAXTbcVve54ydPPkAXmRYZTvC80WChBDbSjC+LN+Vo1/wujmSTlyufKiNze?=
+ =?us-ascii?Q?qOrtgbiqzyz38lz3vz+XHA4fN/jjFdpqrt8ls0xKLJxEUGWeJaPbfYaoRwvb?=
+ =?us-ascii?Q?0oQuCWc0vknNbBJSE/DknmfJetypH6DuhdMjLZuuWgItPfE5w9g2vhvDiGP5?=
+ =?us-ascii?Q?6kksgmZHIE4kFX/G0PSn37NeEQV+8xwQhd9OMdNJ5+/ACpxCLhsFx6iC2nXp?=
+ =?us-ascii?Q?mee4Pwzf10amCrD6oPna1g9NwsZANtm2SS9pEoZJU18Gvf7QBNfr7+UtBvA+?=
+ =?us-ascii?Q?tGW9UJsKlDQ9Optl6ilAT7ZvuCXMNRhpOPjQCUvC3IYsAgLLrkQJGnaZA3Qf?=
+ =?us-ascii?Q?4+5TqL5AEDYZXFVpDQE2fS1F2gmpOU60DyHo+QFsgnvOeoFBKdQWS5zKgkJP?=
+ =?us-ascii?Q?T/VzCq5BZD4jL8/gmRn+sLNdUTKgUKXEwtbtxRstZKfEzDwPnToHtpX8kvPl?=
+ =?us-ascii?Q?YYc0FUkH5FfozPwi6UlsWFDcmv/wsIasOe/q/pgT0q3ATjyMnInmm6D27lcb?=
+ =?us-ascii?Q?ztjcLw50tRM7OPmpRAAJS1mR7z6NW0dnLggkIlcKCZ5q4zieUUfcojET+sZh?=
+ =?us-ascii?Q?ybOpqkof9y50p5Vj3DZ4KmwQiuRiQi8AKsod8eyWJsBLmrt589bngoqsqALM?=
+ =?us-ascii?Q?LCye1bxp0PVo60LOzZIuVXHrEQymgM3tesxHrXpVsL4ue2YP3/eYranUGub5?=
+ =?us-ascii?Q?hc5u/B7KVAGuwfRHtKFc/NCntmjb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bi+mgOUX2+TFtI4mJ0x+gAK7UEqgW7Vaz2EFrDj3OyNTKtYlz51yJ4uzrhe8?=
+ =?us-ascii?Q?dfIjN2deEfkNF2fxhmQh8AbMcS+AjDgM78UDlxSOOEmGtyKnS5vChx2MYczt?=
+ =?us-ascii?Q?LqddjkTgFY9rxGQhufgiVDHRNRlEiiR4iwlvUAncMDWlAgMvRTOcrZdHDKBD?=
+ =?us-ascii?Q?1IaTzr8oUtRxv6NJQ/FVJ3vgpjysrjYbD/BJcjcj4+U0EljsRneNQJ3EZmSd?=
+ =?us-ascii?Q?AzCzzn7Vi+3xjVGsqoiWDv62V47InGMo0pSSNT2j/ueBI3nx1PlefZ1f3SRe?=
+ =?us-ascii?Q?sYw01xgYarHiLGGTN3ylVb2KZLwBZmG6eoFNAhSutvVRgTZxINg+YmfrKMa0?=
+ =?us-ascii?Q?JtD3tysRHud2W5znu8//WTwb0RjneaFKyOSNH/2wtIkiteIrXnjDBVxD/mCi?=
+ =?us-ascii?Q?c4NLAv0tXMtu9SrncOdiIPZJbnEVcpiXPLcDll75sTaUEe2MEoQ5dJbqhqhn?=
+ =?us-ascii?Q?cUaSoQdGama71uakL9KDf+akQJqdLN/8cC9iWksUQavZ2xPTUXLk7rDA8WoI?=
+ =?us-ascii?Q?lSq2lZfW7c+xdkTiUxyKrtP0HCytd1E0AH/MYa7oCLk+vuXdkDfFK9L8h/i/?=
+ =?us-ascii?Q?MAdo1i1s6VsyEHFecgNoKMhFB0mV8UabNJUNTNR9Q+LRjHZIcUjcUxVPJ+2y?=
+ =?us-ascii?Q?rhBVaYODnL6BuXMUcllIcMSULFeeOYA1dK95zRUvAVQBNT7JqCASJkgktdBH?=
+ =?us-ascii?Q?7J4Jn4TFF8wWd62yAApIqIhzv6DNcmyPeW70DRY8D9KWxgBMwJTROAbkOszE?=
+ =?us-ascii?Q?p2OpgaOpFdCah0AXMHjL1Sf224U5BlCXqPJf6xH3U4iM1FD6+AmNoqR9MbVx?=
+ =?us-ascii?Q?E+Upvj4XVsFevyunTamQuN9fYc5oUFCSbqpE8TT6KfT88tbxXLPlHW2oEit5?=
+ =?us-ascii?Q?jV9btXoTOQXtkrw7Xuw0J3+GAeFL59i80STA8JQ4TcWfqkM6lwcctR7vlWjU?=
+ =?us-ascii?Q?Uq9xxlQfLBdVeiW9MTv/SWnelOaHCyJVI9i8IPzCjhTswZwVjF2T2XaxVIOJ?=
+ =?us-ascii?Q?C5Cs8ZkzUiZUrPjd4Wxng/edgygNy3POfcg7y1OgWHlLPt9OaqtZnaYyHTZx?=
+ =?us-ascii?Q?aOTa0lGwV5Scz1Moo3RKBxt/mEEQc3zMIec2stPv2PSHtw684xrXewC+Ms0Q?=
+ =?us-ascii?Q?1JYpIM9+evlKRmk8fqfDdDRIilmldfC2Bt0315RQjOeQSc9kFArOkL3DGiV6?=
+ =?us-ascii?Q?Rl2mIcHgCd2TLZoV8T7EGu+57NLyPW0Q2metXD9LQ89RkbQiqrpuMHQ66MVR?=
+ =?us-ascii?Q?K4iPF7I8E7vLriRG1UO+u26KUB9Nkp84MITPFXmZTzSlWD4v+xeKuyRVURJy?=
+ =?us-ascii?Q?xnh1Yep61eaUwTzyKG03mlPuiGkKPi/I7YsCrGY/2PlXzrmocZy/tWOmXTnK?=
+ =?us-ascii?Q?EGK1KwERPJRVjojs699O5hKx5fvQYp6JcwSzWfCkdHCLueBOYbi9V0rknZPN?=
+ =?us-ascii?Q?D9qRpcXK+Qgu1SayvqGT1hnf+GngMrq9Uyw6yEBZDm6LAZpUD8kI242Sdt8B?=
+ =?us-ascii?Q?oq5cB9gi1jKg/Ynpi0g4WlkocmRXZ/lBh8ur9V+MlhNmdIKRX+H0/u6wbsVx?=
+ =?us-ascii?Q?wGCM+/8zyYmMjtNIUsVpggvvWvsfiMDLQ5SemQ56?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 610259a1-14d1-4ede-9d41-08dcfa424705
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Nov 2024 06:56:14.8490
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ir3lbi4cd0vBsbKHE/+64M8qzMGNs6Jm8m54A0ZeWBglXtf7sS2FTv2t/hJj2QdaVftlLxJKIUMMfdRFpO4zLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241031_234609_150273_B76167F3 
-X-CRM114-Status: GOOD (  34.99  )
+X-CRM114-CacheID: sfid-20241031_235620_755658_3584E7C1 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,112 +172,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Previous reference clock of i.MX95 PCIe RC is on when system boot to
+kernel. But boot firmware change the behavor, it is off when boot. So it
+needs be turn on when it is used. Also it needs be turn off/on when suspend
+and resume.
 
-On 31/10/2024 12:25, Ulf Hansson wrote:
-> On Thu, 31 Oct 2024 at 08:39, Tomi Valkeinen
-> <tomi.valkeinen@ideasonboard.com> wrote:
->>
->> Hi,
->>
->> On 30/10/2024 22:04, Kevin Hilman wrote:
->>> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> writes:
->>>
->>>> At the moment the driver sets the power state of all the PDs it creates
->>>> to off, regardless of the actual HW state. This has two drawbacks:
->>>>
->>>> 1) The kernel cannot disable unused PDs automatically for power saving,
->>>>      as it thinks they are off already
->>>>
->>>> 2) A more specific case (but perhaps applicable to other scenarios
->>>>      also): bootloader enabled splash-screen cannot be kept on the screen.
->>>>
->>>> The issue in 2) is that the driver framework automatically enables the
->>>> device's PD before calling probe() and disables it after the probe().
->>>> This means that when the display subsystem (DSS) driver probes, but e.g.
->>>> fails due to deferred probing, the DSS PD gets turned off and the driver
->>>> cannot do anything to affect that.
->>>>
->>>> Solving the 2) requires more changes to actually keep the PD on during
->>>> the boot, but a prerequisite for it is to have the correct power state
->>>> for the PD.
->>>>
->>>> The downside with this patch is that it takes time to call the 'is_on'
->>>> op, and we need to call it for each PD. In my tests with AM62 SK, using
->>>> defconfig, I see an increase from ~3.5ms to ~7ms. However, the added
->>>> feature is valuable, so in my opinion it's worth it.
->>>>
->>>> The performance could probably be improved with a new firmware API which
->>>> returns the power states of all the PDs.
->>>
->>> Agreed.  I think we have to pay this performance price for correctness,
->>> and we can optimizie it later with improvements to the SCI firmware and
->>> a new API.
->>>
->>>> There's also a related HW issue at play here: if the DSS IP is enabled
->>>> and active, and its PD is turned off without first disabling the DSS
->>>> display outputs, the DSS IP will hang and causes the kernel to halt if
->>>> and when the DSS driver accesses the DSS registers the next time.
->>>
->>> Ouch.
->>>
->>>> With the current upstream kernel, with this patch applied, this means
->>>> that if the bootloader enables the display, and the DSS driver is
->>>> compiled as a module, the kernel will at some point disable unused PDs,
->>>> including the DSS PD. When the DSS module is later loaded, it will hang
->>>> the kernel.
->>>>
->>>> The same issue is already there, even without this patch, as the DSS
->>>> driver may hit deferred probing, which causes the PD to be turned off,
->>>> and leading to kernel halt when the DSS driver is probed again. This
->>>> issue has been made quite rare with some arrangements in the DSS
->>>> driver's probe, but it's still there.
->>>>
->>>> So, because of the DSS hang issues, I think this patch is still an RFC.
->>>
->>> Like you said, I think that DSS hang is an issue independently of this
->>> patch, so it shouldn't hold this up IMO.
->>
->> In current upstream, if the bootloader has enabled the display, we most
->> likely won't hit the DSS hang issue as the PD will stay on until the DSS
->> driver has had a chance to probe, and the driver takes actions to avoid
->> the hang issue.
->>
->> With this patch applied, the PD may be turned off before the DSS driver
->> has had a chance to probe, causing the board to hang when the DSS driver
->> probes the first time.
->>
->> That's why I'm a bit hesitant to apply this. It could mean that for some
->> people their board stops booting.
->>
->> I'm not even sure what would be the perfect fix for this hang problem...
->>
->> We could have some built-in early boot code which checks if the DSS is
->> enabled, and disables it, so that the hang issue won't happen. But
->> that's not good if we try to keep the boot splash on the screen until
->> the userspace takes over.
->>
->> Alternatively we could, somehow, mark the DSS powerdomain to be handled
->> in a special way: if the PD is enabled at boot time, it will be kept
->> enabled until the DSS driver (somehow) changes the PD back to normal
->> operation (and if DSS driver is never loaded, PD will stay on).
-> 
-> This option is kind of what I am working on. Although, the goal is to
-> keep the code generic, so ideally we should not need any changes in
-> the DSS driver to make this work. Let's see.
+Add one ref clock for i.MX95 PCIe RC. Increase clocks' maxItems to 5 and
+keep the same restriction with other compatible string.
 
-If you need someone to do some testing, you know who to ask =).
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../bindings/pci/fsl,imx6q-pcie-common.yaml   |  4 +--
+ .../bindings/pci/fsl,imx6q-pcie-ep.yaml       |  1 +
+ .../bindings/pci/fsl,imx6q-pcie.yaml          | 25 ++++++++++++++++---
+ 3 files changed, 24 insertions(+), 6 deletions(-)
 
-> That said, it sounds like we should defer $subject patch until we have
-> a solution for the above, right?
-
-Yes, I would say so.
-
-I'll collect the tags, and will resend this patch (as a non-RFC) when I 
-think it's safe.
-
-Thanks for the feedback, Kevin and Ulf.
-
-  Tomi
+diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
+index a8b34f58f8f4..cddbe21f99f2 100644
+--- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
++++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
+@@ -17,11 +17,11 @@ description:
+ properties:
+   clocks:
+     minItems: 3
+-    maxItems: 4
++    maxItems: 5
+ 
+   clock-names:
+     minItems: 3
+-    maxItems: 4
++    maxItems: 5
+ 
+   num-lanes:
+     const: 1
+diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
+index 84ca12e8b25b..f41f704c6729 100644
+--- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
++++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
+@@ -103,6 +103,7 @@ allOf:
+       properties:
+         clocks:
+           minItems: 4
++          maxItems: 4
+         clock-names:
+           items:
+             - const: pcie
+diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+index 1e05c560d797..4c76cd3f98a9 100644
+--- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+@@ -40,10 +40,11 @@ properties:
+       - description: PCIe PHY clock.
+       - description: Additional required clock entry for imx6sx-pcie,
+            imx6sx-pcie-ep, imx8mq-pcie, imx8mq-pcie-ep.
++      - description: PCIe reference clock.
+ 
+   clock-names:
+     minItems: 3
+-    maxItems: 4
++    maxItems: 5
+ 
+   interrupts:
+     items:
+@@ -127,7 +128,7 @@ allOf:
+     then:
+       properties:
+         clocks:
+-          minItems: 4
++          maxItems: 4
+         clock-names:
+           items:
+             - const: pcie
+@@ -140,11 +141,10 @@ allOf:
+         compatible:
+           enum:
+             - fsl,imx8mq-pcie
+-            - fsl,imx95-pcie
+     then:
+       properties:
+         clocks:
+-          minItems: 4
++          maxItems: 4
+         clock-names:
+           items:
+             - const: pcie
+@@ -200,6 +200,23 @@ allOf:
+             - const: mstr
+             - const: slv
+ 
++  - if:
++      properties:
++        compatible:
++          enum:
++            - fsl,imx95-pcie
++    then:
++      properties:
++        clocks:
++          maxItems: 5
++        clock-names:
++          items:
++            - const: pcie
++            - const: pcie_bus
++            - const: pcie_phy
++            - const: pcie_aux
++            - const: ref
++
+ unevaluatedProperties: false
+ 
+ examples:
+-- 
+2.37.1
 
 
