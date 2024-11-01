@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70573E6B240
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D3FE6B240
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 11:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0E1+o9KklYkCgdDIcT62LWuFOm8izq/n4qYQPi18RI=; b=uUNRKmcx0mBOpfpIUxZed2hFkE
-	ugE1GMZ5zFR6wRDmxso6tYV1N/kRFSoTar0ls5E4NxtHb1MbKc/x6352NfiJnMBiGEbMVHy6/RxnT
-	yG9E48yk7BYhUtCCysCQT7ZeY5VpEQR5zutgqR2viqim1C0uG5nISUVaIDaLbAeKLEqufYN42PyNB
-	DVwW6z0DOEI8HzCcf/r+AgJysEtVryYqUm9QBbUHeUBimogvjS2cSQq2JGCjEX32sQmTB1Oo1fkzE
-	uXzoq63q4KHQDiO1P+jXODgLew/odk+bQQNpuqa/yweGQlz2TdGigGCVnTdPj1kHDxrYGFSzm3FMn
-	URjuM5fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g6cEvAREClCSfqjyZha+LqUc9gLH61MKgjcYBEJLo3M=; b=c/UgUIXI2Bfh5iEuL2IMbDgZWG
+	h8j2jrJoh57dQ+2TgBpZtpAU8K8j9mPgrls5279+Y9FjvKqaaN6orGj+aiVfN5FJXlyooBmngzYxy
+	vZoPY/BxS9rzBJyr+WAPA3EdQkA+9WNpkonmbYJGAdGR9matcubQS1ml05mDqS0ZWXT5tnNF56Rt0
+	EUP6RfQyr63Akwi2+Np/clNsRMCxZBKTkcim7Q0qCWgGK6ahXvDqbkDosKSgsl8FLk/EZHIp+rQYy
+	MGdWXvCeq+DokklG5XtoJc4Gdv1EB7riq7ZtJKrf2LGu2bPxjRuiCHIhmCO4tOCwnfPz6GfgFsR3/
+	nOEKbU+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6pXE-00000006hom-0d9h;
-	Fri, 01 Nov 2024 11:09:44 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1t6pl9-00000006jt8-2SjV;
+	Fri, 01 Nov 2024 11:24:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6pVS-00000006hVq-3Q7D
+	id 1t6pjU-00000006jhg-2I5W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 11:07:58 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 19FFE1F0004B
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  1 Nov 2024 11:07:46 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id BF132A43F39; Fri,  1 Nov 2024 11:07:43 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id E3B26A43F31;
-	Fri,  1 Nov 2024 11:07:42 +0000 (UTC)
-Date: Fri, 1 Nov 2024 12:07:41 +0100
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <contact@paulk.fr>
-Subject: Re: [PATCH] ARM: topology: Allow missing CPU clock-frequency
- device-tree property
-Message-ID: <ZyS2fZeIuK2Zuu2l@collins>
-References: <20240929181936.644910-1-paulk@sys-base.io>
+	Fri, 01 Nov 2024 11:22:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F9B5A4361B;
+	Fri,  1 Nov 2024 11:20:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DAC8C4CECD;
+	Fri,  1 Nov 2024 11:22:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730460142;
+	bh=tdlKZn5k9PFGSFM3oyQ39p7jeTDTtFbsaHyBExgxcc4=;
+	h=Date:From:To:Cc:Subject:From;
+	b=u+vndXs6+N2NMKcDk1uYSOhshrJfQimS3Dj/T0hKQyyRlX32URiSTCa9ee7Et2ZUe
+	 uFybPerwA5m7yvgpHLmLjS91DsdiJbFAEePvO/ipqptIKxSuT1evPNV7HOp3I02RN4
+	 i9f9aleIBVO9GTQO1cyrfigqGpOO+22KSPZqeiraSZTNRqvQrsAC4FTFhgtLCpTXl9
+	 fAmsR0aqjtjfKriH+F/+6aYC6EkHhEa0Upa058jV14S4uCdnZxi2ZG/1qfMQXGMOhT
+	 srMc8xBrDSM8byIFGEbUIbwV572KBphqHkAppfkgEIjNFHKB9/1N1sLhPcMKEatJq3
+	 WDvIxC/T/U2rg==
+Date: Fri, 1 Nov 2024 11:22:08 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc6
+Message-ID: <20241101112207.GA8472@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tmqWi9WOi3e6nmMj"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20240929181936.644910-1-paulk@sys-base.io>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_040755_220141_A527BF9D 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20241101_042224_670321_B99541BC 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,104 +70,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Linus,
 
---tmqWi9WOi3e6nmMj
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please pull these arm64 fixes for -rc6. The important one is a change to
+the way in which we handle protection keys around signal delivery so that
+we're more closely aligned with the x86 behaviour, however there is also
+a revert of the previous fix to disable software tag-based KASAN with
+GCC, since a workaround materialised shortly afterwards.
 
-Hi!
+I'd love to say we're done with 6.12, but we're aware of some longstanding
+fpsimd register corruption issues that we're almost at the bottom of
+resolving. Hopefully we'll be done reviewing the fixes next week, so
+there'll be one more pull from me before the merge window opens.
 
-Le Sun 29 Sep 24, 20:19, Paul Kocialkowski a =C3=A9crit :
-> Allow the fallback mechanism to continue by assuming the same nominal
-> frequency for all CPU cores, while still benefiting from the static
-> coefficient provided by the compatible-driven table entries.
-> This is similar to what is done in the common arch topology code when
-> it fails to find a clock to get the frequency from.
+Cheers,
 
-Any thoughts about this patch?
+Will
 
-Thanks!
+--->8
 
-Paul
+The following changes since commit 7aed6a2c51ffc97a126e0ea0c270fab7af97ae18:
 
-> The ranging mechanism (using the middle capacity) is unaffected by
-> the use of a unit frequency and still returns values in the requested
-> range.
->=20
-> Also add a comment to clarify what is going on.
->=20
-> Signed-off-by: Paul Kocialkowski <contact@paulk.fr>
-> ---
->  arch/arm/kernel/topology.c | 22 ++++++++++++++++------
->  1 file changed, 16 insertions(+), 6 deletions(-)
->=20
-> diff --git a/arch/arm/kernel/topology.c b/arch/arm/kernel/topology.c
-> index 2336ee2aa44a..0eb743c65166 100644
-> --- a/arch/arm/kernel/topology.c
-> +++ b/arch/arm/kernel/topology.c
-> @@ -119,13 +119,23 @@ static void __init parse_dt_topology(void)
->  		if (cpu_eff->compatible =3D=3D NULL)
->  			continue;
-> =20
-> +		/*
-> +		 * Use the legacy clock-frequency property (representing the
-> +		 * maximum achievable clock frequency) as an efficiency
-> +		 * coefficient (divided by 2^20, roughly 1 MHz) to the table
-> +		 * value. If no such property is available, use the table value
-> +		 * directly and assume all CPUs are running at the same
-> +		 * nominal frequency.
-> +		 *
-> +		 * It is assumed that clock-frequency is either provided for all
-> +		 * CPUs or for none of them.
-> +		 */
->  		rate =3D of_get_property(cn, "clock-frequency", &len);
-> -		if (!rate || len !=3D 4) {
-> -			pr_err("%pOF missing clock-frequency property\n", cn);
-> -			continue;
-> -		}
-> -
-> -		capacity =3D ((be32_to_cpup(rate)) >> 20) * cpu_eff->efficiency;
-> +		if (rate && len =3D=3D 4)
-> +			capacity =3D ((be32_to_cpup(rate)) >> 20) *
-> +				   cpu_eff->efficiency;
-> +		else
-> +			capacity =3D cpu_eff->efficiency;
-> =20
->  		/* Save min capacity of the system */
->  		if (capacity < min_capacity)
-> --=20
-> 2.46.2
->=20
->=20
+  kasan: Disable Software Tag-Based KASAN with GCC (2024-10-15 11:38:10 +0100)
 
---=20
-Paul Kocialkowski,
+are available in the Git repository at:
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Specialist in multimedia, graphics and embedded hardware support with Linux.
+for you to fetch changes up to 2e8a1acea8597ff42189ea94f0a63fa58640223d:
 
---tmqWi9WOi3e6nmMj
-Content-Type: application/pgp-signature; name="signature.asc"
+  arm64: signal: Improve POR_EL0 handling to avoid uaccess failures (2024-10-29 17:59:12 +0000)
 
------BEGIN PGP SIGNATURE-----
+----------------------------------------------------------------
+arm64 fixes for -rc6
 
-iQIzBAEBCAAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmcktn0ACgkQhP3B6o/u
-lQx1VQ/+KVHk6g2TKOPsdPZAVMIpU74SpTvzrGBnWrE5sCRETjuZGnMFGooF8Wcy
-iQE8MjM7DlkiDfE660ZK+fJMBosGpjrSAfeuQ+Rpe2O4HBhmffqkQr2TwEKvic//
-/0sp9rcUL2nNIK47VPY/imYWN4LDTaOiv6vu02GdZTU3wuQNBmDVZV2gBQbDNuir
-NFHOBvyNSTvUwog97wGv10xLywbmyH3cZiqhVrAdGEn5mkGdyFbCED8wpF/F/1fW
-8ZKF5/sMtCG0faa7NSSCfJwhxo4hqZ0K18wqcqeuHHt2EWHbXJhCwYMnC/l5Twp7
-2+kpsNiCpingYuP7quSwu8VEDCKUAOZgXCdaVQAFOP4Dcyi+WYoGP3hTQMQTcwSj
-hzw5wdp3+JHrYHGyD5OYgfsQGC0238XHkxjdfrTVfUWmQWedin1Zrnt9pFzyxI0W
-KGum0wmajxsUMLlBX5gT5486g7nrcdvgbUkz1LukCkD+Th+uBcrjhXRopzWFtWj2
-hJ3tQT3hXZpGe2/1X4+H0gM+FltHIKNecJS1sCxpNsUP19Jap5ob/qxokrtIIWvI
-reol1u1fu7wbrSHNyPOJHML4BZ+HZWBLXzoytQB6XtQhW46kwt4VXu6JdlCdt6QG
-4Wx37ggz/4E9mh684Chp+Fj2QlAV5ipAzClSpOVkSn5nrHJhKKE=
-=Yiek
------END PGP SIGNATURE-----
+- Fix handling of POR_EL0 during signal delivery so that pushing the
+  signal context doesn't fail based on the pkey configuration of the
+  interrupted context and align our user-visible behaviour with that of
+  x86.
 
---tmqWi9WOi3e6nmMj--
+- Fix a bogus pointer being passed to the CPU hotplug code from the
+  Arm SDEI driver.
+
+- Re-enable software tag-based KASAN with GCC by using an alternative
+  implementation of '__no_sanitize_address'.
+
+----------------------------------------------------------------
+Kevin Brodsky (1):
+      arm64: signal: Improve POR_EL0 handling to avoid uaccess failures
+
+Marco Elver (2):
+      kasan: Fix Software Tag-Based KASAN with GCC
+      Revert "kasan: Disable Software Tag-Based KASAN with GCC"
+
+Xiongfeng Wang (1):
+      firmware: arm_sdei: Fix the input parameter of cpuhp_remove_state()
+
+ arch/arm64/kernel/signal.c   | 92 +++++++++++++++++++++++++++++++++++++-------
+ drivers/firmware/arm_sdei.c  |  2 +-
+ include/linux/compiler-gcc.h |  4 ++
+ lib/Kconfig.kasan            |  7 +---
+ 4 files changed, 85 insertions(+), 20 deletions(-)
 
