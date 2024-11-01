@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C6BE674AD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6C7E674AB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 07:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHE/xgU5sJqZ0Lnc8Dbx+W3ND41PhQt4HeQMGXZ2DV4=; b=hPqW0En85nkFD3w4UaR4ynm/FN
-	B4poBbyZRl30pO2jofQu9YJ0o5gtA93B0gqrb0XeeTHyg12SxvSevapqOBalQHCJJ8IALuFQDKbHe
-	JPggZWiDlh0DNA0tD3DwCS8xWgJzDS6BNkW+A/kBTEnBpTs0zYZs8umEreesQUJSe2e4vD1tQBD1z
-	BOe56STTj3JNH0tMHAjR3PtrAlHHi4qQsNwDQgnaQJG36DHk7lBVrPN6lw9JzLzF5C27jOjZrVtjY
-	uydBq/x6D+bNvEQ8p1CZrfMLWP1BsLYIov3ZOr+zhHVKTDjPttqVKLxXmyzK3fO6zBIeuaJzpiCL+
-	PSP8bBvw==;
+	bh=5Aznmoxjs1A/X/M1eMj2ezm4UQazPbpPcX+QlRIbifw=; b=YOCiLib4qEMW02+j+0T28O1MxN
+	Sh+WjwpbkXqBLD8g8yG9PKutwfI8w0w/UIh06u1Qk+XHdlI6RcuZAzGVqnMALX5HMmQCPXyj22WPs
+	Q1Tn+VR0bD7BO+kVmNCfKPwf0z+JVgR5oCq9u49hph0WT0p0sGyr/5JhfjwEMxYzDlrmyrWIpVUoB
+	E755Mx2qkpqdMfKAuHjWK/cV45C/ruaUzLGpm+Svm2nqzhVbH7F9R5Jil61HeLfCqt88gEEzCDGkj
+	DCuoFML7brk02hGegygvawJrjYo8OQqrTv1TAKzWtQiUaqx9/Rr1DWPZJ7KLmw21SnLYf0BcjI7qi
+	MqeEMQTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6m5B-000000066n2-32Zi;
-	Fri, 01 Nov 2024 07:28:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1t6m5A-000000066mj-1rjp;
+	Fri, 01 Nov 2024 07:28:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6lnj-000000063n8-1Xjw
+	id 1t6lnN-000000063ei-0Blg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 07:10:32 +0000
+	Fri, 01 Nov 2024 07:10:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1730445031; x=1761981031;
+  t=1730445008; x=1761981008;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=NO8D57jjFPDxrbgYyw5Mvi+zlor1VX7LknLSSD3o+GY=;
-  b=OK4UBul+DFFWwugnCO8jwoc5wHDMlsb1B3ueWB2PN5k67RYhtWMwz5Xa
-   c2I5RwMehtDI869yOze5zfXhqU4x4XNIbD5K3OhkUxGAeEDv+ZPH6jEOX
-   eIINRuK5MbNNdBAtbn2cZmOtbhjndy2eiPVZw1UAyeAcuhrxyW4e7lzr5
-   clBzjNTLMMGE/r5Qw88h0yv+lcr9V8ZDhSo2xnrVtfJ9GzSuGVINUg7C3
-   KzkezyqlPQkpiIpFebcbmAhaYO3NePJefP/DfDtN/SSL+anmWoC42ftAa
-   0jDNKgRMgqLyGoSocC9zyAh1Mo5rEmLewx4rUbyRWsEpF1Pqu7vNCCvye
+  bh=PoUpoiqh15WbBGv3obiAOp0I0e8/k6KBOM9i6jG/LjA=;
+  b=sQf4WUxUDPkp17CtJqu/nkP83vG1FV+RXDgY5ltvvXmvo5C+i0KsFYw8
+   VRMNvSyuI70Cz6vYhj8cm12XNpFRbVegqzzS4m6lKHZkwG6l9MlshlWu+
+   yfjLHqf/sQtYibXLJSJS5J3Cgn92AwC1JbGKkpLK0LsfPRYjWaemalp+T
+   4hYXDJ51TGkvmaclzkEGxftmwyPhY565xybQgSMuQV1tEBP3/Id01nRBy
+   YaA4/X0an1+wKSFGBstQXriAw8ZAH/CiDeBHNcuJGoBn7F2wpCerzMV2x
+   NPakdGZTjaaS80XNqKJUs6MNTT4kdg5PwAO8+nbiu7dLtxfS+c0Ley/gp
    A==;
-X-CSE-ConnectionGUID: j3YBXS8JS+qztkz9gl3BFg==
-X-CSE-MsgGUID: t5VuQJaGQ7qXXZt/aEIsqg==
+X-CSE-ConnectionGUID: NPrwf/hMSSa00KPy6thoyw==
+X-CSE-MsgGUID: r7VsTCbOQcaA3FloD0sZgQ==
 X-IronPort-AV: E=Sophos;i="6.11,249,1725346800"; 
-   d="scan'208";a="264868811"
+   d="scan'208";a="201180320"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Nov 2024 00:10:31 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Nov 2024 00:10:04 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 1 Nov 2024 00:10:00 -0700
+ 15.1.2507.35; Fri, 1 Nov 2024 00:09:54 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 1 Nov 2024 00:09:57 -0700
+ 15.1.2507.35 via Frontend Transport; Fri, 1 Nov 2024 00:09:52 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 1 Nov 2024 08:09:09 +0100
-Subject: [PATCH net-next 3/6] net: sparx5: add new VCAP constants to match
- data
+Date: Fri, 1 Nov 2024 08:09:07 +0100
+Subject: [PATCH net-next 1/6] net: sparx5: expose some sparx5 VCAP symbols
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20241101-sparx5-lan969x-switch-driver-3-v1-3-3c76f22f4bfa@microchip.com>
+Message-ID: <20241101-sparx5-lan969x-switch-driver-3-v1-1-3c76f22f4bfa@microchip.com>
 References: <20241101-sparx5-lan969x-switch-driver-3-v1-0-3c76f22f4bfa@microchip.com>
 In-Reply-To: <20241101-sparx5-lan969x-switch-driver-3-v1-0-3c76f22f4bfa@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -75,8 +74,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_001031_435178_AED5C6CF 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20241101_001009_247819_3F7FC8B8 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +90,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for lan969x VCAP support, add the following three new
-VCAP constants to match data:
+In preparation for lan969x VCAP support, expose the following symbols for
+use by the lan969x VCAP implementation:
 
-    - vcaps_cfg (contains configuration data for each VCAP).
+- The symbols SPARX5_*_LOOKUPS defines the number of lookups in each
+  VCAP instance.  These are the same for lan969x. Move them to the
+  header file.
 
-    - vcaps (contains auto-generated information about VCAP keys and
-      actions).
-
-    - vcap_stats: (contains auto-generated string names of all the keys
-      and actions)
-
-Add these constants to the Sparx5 match data constants and use them to
-initialize the VCAP's in sparx5_vcap_init().
+- The struct sparx5_vcap_inst encapsulates information about a single
+  VCAP instance. Move this struct to the header file and declare the
+  sparx5_vcap_inst_cfg as extern.
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Reviewed-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c        | 5 +++++
- drivers/net/ethernet/microchip/sparx5/sparx5_main.h        | 3 +++
- drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.h | 2 ++
- drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c   | 6 +++---
- 4 files changed, 13 insertions(+), 3 deletions(-)
+ .../ethernet/microchip/sparx5/sparx5_vcap_impl.c    | 18 +-----------------
+ .../ethernet/microchip/sparx5/sparx5_vcap_impl.h    | 21 +++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 4f2d5413a64f..bac87e885bf1 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -30,6 +30,8 @@
- #include "sparx5_main.h"
- #include "sparx5_port.h"
- #include "sparx5_qos.h"
-+#include "sparx5_vcap_ag_api.h"
-+#include "sparx5_vcap_impl.h"
- 
- const struct sparx5_regs *regs;
- 
-@@ -1063,6 +1065,9 @@ static const struct sparx5_consts sparx5_consts = {
- 	.qres_max_prio_idx   = 630,
- 	.qres_max_colour_idx = 638,
- 	.tod_pin             = 4,
-+	.vcaps               = sparx5_vcaps,
-+	.vcaps_cfg           = sparx5_vcap_inst_cfg,
-+	.vcap_stats          = &sparx5_vcap_stats,
- };
- 
- static const struct sparx5_ops sparx5_ops = {
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index 146bdc938adc..d5dd953b0a71 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -303,6 +303,9 @@ struct sparx5_consts {
- 	u32 qres_max_prio_idx;   /* Maximum QRES prio index */
- 	u32 qres_max_colour_idx; /* Maximum QRES colour index */
- 	u32 tod_pin;             /* PTP TOD pin */
-+	const struct sparx5_vcap_inst *vcaps_cfg;
-+	const struct vcap_info *vcaps;
-+	const struct vcap_statistics *vcap_stats;
- };
- 
- struct sparx5_ops {
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.h b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.h
-index 7d106f1276fe..e68f5639a40a 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.h
-@@ -10,6 +10,8 @@
- #ifndef __SPARX5_VCAP_AG_API_H__
- #define __SPARX5_VCAP_AG_API_H__
- 
-+#include "vcap_api.h"
-+
- /* VCAPs */
- extern const struct vcap_info sparx5_vcaps[];
- extern const struct vcap_statistics sparx5_vcap_stats;
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-index bbff8158a3de..25066ddb8d4d 100644
+index 967c8621c250..0bdf7a378892 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-@@ -2053,14 +2053,14 @@ int sparx5_vcap_init(struct sparx5 *sparx5)
+@@ -17,7 +17,6 @@
+ #define SUPER_VCAP_BLK_SIZE 3072 /* addresses per Super VCAP block */
+ #define STREAMSIZE (64 * 4)  /* bytes in the VCAP cache area */
  
- 	sparx5->vcap_ctrl = ctrl;
- 	/* select the sparx5 VCAP model */
--	ctrl->vcaps = sparx5_vcaps;
--	ctrl->stats = &sparx5_vcap_stats;
-+	ctrl->vcaps = consts->vcaps;
-+	ctrl->stats = consts->vcap_stats;
- 	/* Setup callbacks to allow the API to use the VCAP HW */
- 	ctrl->ops = &sparx5_vcap_ops;
+-#define SPARX5_IS2_LOOKUPS 4
+ #define VCAP_IS2_KEYSEL(_ena, _noneth, _v4_mc, _v4_uc, _v6_mc, _v6_uc, _arp) \
+ 	(ANA_ACL_VCAP_S2_KEY_SEL_KEY_SEL_ENA_SET(_ena) | \
+ 	 ANA_ACL_VCAP_S2_KEY_SEL_NON_ETH_KEY_SEL_SET(_noneth) | \
+@@ -27,7 +26,6 @@
+ 	 ANA_ACL_VCAP_S2_KEY_SEL_IP6_UC_KEY_SEL_SET(_v6_uc) | \
+ 	 ANA_ACL_VCAP_S2_KEY_SEL_ARP_KEY_SEL_SET(_arp))
  
- 	INIT_LIST_HEAD(&ctrl->list);
- 	for (idx = 0; idx < ARRAY_SIZE(sparx5_vcap_inst_cfg); ++idx) {
--		cfg = &sparx5_vcap_inst_cfg[idx];
-+		cfg = &consts->vcaps_cfg[idx];
- 		admin = sparx5_vcap_admin_alloc(sparx5, ctrl, cfg);
- 		if (IS_ERR(admin)) {
- 			err = PTR_ERR(admin);
+-#define SPARX5_IS0_LOOKUPS 6
+ #define VCAP_IS0_KEYSEL(_ena, _etype, _ipv4, _ipv6, _mpls_uc, _mpls_mc, _mlbs) \
+ 	(ANA_CL_ADV_CL_CFG_LOOKUP_ENA_SET(_ena) | \
+ 	ANA_CL_ADV_CL_CFG_ETYPE_CLM_KEY_SEL_SET(_etype) | \
+@@ -37,31 +35,17 @@
+ 	ANA_CL_ADV_CL_CFG_MPLS_MC_CLM_KEY_SEL_SET(_mpls_mc) | \
+ 	ANA_CL_ADV_CL_CFG_MLBS_CLM_KEY_SEL_SET(_mlbs))
+ 
+-#define SPARX5_ES0_LOOKUPS 1
+ #define VCAP_ES0_KEYSEL(_key) (REW_RTAG_ETAG_CTRL_ES0_ISDX_KEY_ENA_SET(_key))
+ #define SPARX5_STAT_ESDX_GRN_PKTS  0x300
+ #define SPARX5_STAT_ESDX_YEL_PKTS  0x301
+ 
+-#define SPARX5_ES2_LOOKUPS 2
+ #define VCAP_ES2_KEYSEL(_ena, _arp, _ipv4, _ipv6) \
+ 	(EACL_VCAP_ES2_KEY_SEL_KEY_ENA_SET(_ena) | \
+ 	EACL_VCAP_ES2_KEY_SEL_ARP_KEY_SEL_SET(_arp) | \
+ 	EACL_VCAP_ES2_KEY_SEL_IP4_KEY_SEL_SET(_ipv4) | \
+ 	EACL_VCAP_ES2_KEY_SEL_IP6_KEY_SEL_SET(_ipv6))
+ 
+-static struct sparx5_vcap_inst {
+-	enum vcap_type vtype; /* type of vcap */
+-	int vinst; /* instance number within the same type */
+-	int lookups; /* number of lookups in this vcap type */
+-	int lookups_per_instance; /* number of lookups in this instance */
+-	int first_cid; /* first chain id in this vcap */
+-	int last_cid; /* last chain id in this vcap */
+-	int count; /* number of available addresses, not in super vcap */
+-	int map_id; /* id in the super vcap block mapping (if applicable) */
+-	int blockno; /* starting block in super vcap (if applicable) */
+-	int blocks; /* number of blocks in super vcap (if applicable) */
+-	bool ingress; /* is vcap in the ingress path */
+-} sparx5_vcap_inst_cfg[] = {
++const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[] = {
+ 	{
+ 		.vtype = VCAP_TYPE_IS0, /* CLM-0 */
+ 		.vinst = 0,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
+index 2684d9199b05..d0a42406bf26 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.h
+@@ -16,6 +16,11 @@
+ #include "vcap_api.h"
+ #include "vcap_api_client.h"
+ 
++#define SPARX5_IS2_LOOKUPS 4
++#define SPARX5_IS0_LOOKUPS 6
++#define SPARX5_ES0_LOOKUPS 1
++#define SPARX5_ES2_LOOKUPS 2
++
+ #define SPARX5_VCAP_CID_IS0_L0 VCAP_CID_INGRESS_L0 /* IS0/CLM lookup 0 */
+ #define SPARX5_VCAP_CID_IS0_L1 VCAP_CID_INGRESS_L1 /* IS0/CLM lookup 1 */
+ #define SPARX5_VCAP_CID_IS0_L2 VCAP_CID_INGRESS_L2 /* IS0/CLM lookup 2 */
+@@ -40,6 +45,22 @@
+ #define SPARX5_VCAP_CID_ES2_MAX \
+ 	(VCAP_CID_EGRESS_STAGE2_L1 + VCAP_CID_LOOKUP_SIZE - 1) /* ES2 Max */
+ 
++struct sparx5_vcap_inst {
++	enum vcap_type vtype; /* type of vcap */
++	int vinst; /* instance number within the same type */
++	int lookups; /* number of lookups in this vcap type */
++	int lookups_per_instance; /* number of lookups in this instance */
++	int first_cid; /* first chain id in this vcap */
++	int last_cid; /* last chain id in this vcap */
++	int count; /* number of available addresses, not in super vcap */
++	int map_id; /* id in the super vcap block mapping (if applicable) */
++	int blockno; /* starting block in super vcap (if applicable) */
++	int blocks; /* number of blocks in super vcap (if applicable) */
++	bool ingress; /* is vcap in the ingress path */
++};
++
++extern const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[];
++
+ /* IS0 port keyset selection control */
+ 
+ /* IS0 ethernet, IPv4, IPv6 traffic type keyset generation */
 
 -- 
 2.34.1
