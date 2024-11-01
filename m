@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30AEE6F06D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46638E6F06E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Nov 2024 16:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zCEcCz/fL/CUgptOXduYV7zHf2BaC9u5M+9ZvPS/5mY=; b=v2NtY5qd3KYnF/3eDcMoBaLAvU
-	gJLAHz5eqsrOkXcGyNsz9zXkp/IP/83LXpOC5zAbQcPf4aLQvOUV9BKMYN3Rwuge2APTJPT9cjOVs
-	+xKzv8M6VLO2V/4QF40kVjQObF6TochXt3JhC4txriaC1kcBQuKJBbtgVccF5wBpK24J2LTrbAhB5
-	BUP/91MKG5n9hjynzWpYVYvElU8C24PFmAOYivn5WNipkxCCNk2o/u0JcqMdO5RWW7HMJVupgZlZ/
-	4kNqaM3C4XmKHG+Z3dg86efVQpyUTtVCOQlO7/sAL3ImhfyB+IGgUgyJ+WVBEL3CP2uBE+U9zJY0R
-	86rcwKLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hX5tyyhHqv16hXch1rLN0W0q9yFTn7ruBymiSqraZAY=; b=E79yZt2ibl8KTyD1bQEpz4nfbZ
+	ngYBVUGWfEv1VDzGLIo6CsZVV47rcIxDSHUTSU9AnfBt9rUJWe7AavX7YD5+f7jR008hcWaVbpPJK
+	H+hqJCbS43G0NI9GoQB5X/fwh4hsiubYw9JMUKrrlNpbdOBcXL9OpxhP5IjnxuNDB5nLM7OWWAAvJ
+	fta0yrsfaahIFkHLz5V9ePQ223ImFlepWYrVub8G/1XyZiWwGxnTeYaQ1ganAEDjoJRfKghKvYcq2
+	bipx9OaGo9xDJPhMlvXtkeN4g2ZF/2oJyVbOYx0/yLP6i7hgK4D02XCEl1xFRobbYFSX/wEbxPYVB
+	56185q5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uOQ-00000007eDy-35A4;
-	Fri, 01 Nov 2024 16:20:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t6uQ4-00000007eWa-00wU;
+	Fri, 01 Nov 2024 16:22:40 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t6uIc-00000007d8R-01PB
+	id 1t6uKM-00000007dQl-2Ob2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Nov 2024 16:15:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7FD9C5C4EAA;
-	Fri,  1 Nov 2024 16:14:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F30C4CED1;
-	Fri,  1 Nov 2024 16:14:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730477697;
-	bh=/KS/SG1ZMGsVtQYssxXqdBZU7mlChx4+IvLbta2AuOc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rRGQsaNjDJ9TQc5BqrmRi7jYw5Ye17yE6gqW7dgkuH6/enG83R5PtQgUVfaFR62b6
-	 Ecv+BaZ95R8KJqB/8wALea0NBvH4Ebj9x8S94Rkhr/cfeHsZiU81SBZaBWUaii0zqr
-	 jWl3ACdhxBKe06nHsvJ4DN9jCaX1fMXMsmG5qdVRYTdla4SDMuyPF1QM5hqa1+Jq2h
-	 xaGFXjD5HBJu5MAP6jdDCSf+3PjIjeuRaaq3Xt/QoQphugYIGeD2mP7UfrvsfrCZ4r
-	 LhlyFWcfIEiOyr5vAQVkW3KAYkPYTriEJmTZdw8UF0bv7muG0VKEyhDPjFyez5I7my
-	 n6bL9jiP//XlA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Charles Han <hanchunchao@inspur.com>,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
-	Qingqing Zhou <quic_qqzhou@quicinc.com>,
-	Rajendra Nayak <quic_rjendra@quicinc.com>,
-	Simon Horman <horms@kernel.org>
-Subject: [GIT PULL] Qualcomm driver fixes for v6.12
-Date: Fri,  1 Nov 2024 11:14:54 -0500
-Message-ID: <20241101161455.746290-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Fri, 01 Nov 2024 16:16:49 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e29205f6063so3740587276.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Nov 2024 09:16:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730477804; x=1731082604; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hX5tyyhHqv16hXch1rLN0W0q9yFTn7ruBymiSqraZAY=;
+        b=1AlwMMCJcyfWRpgAZHZHo9vAlJdL377IAdlqkEvg/Onf0aqnxCHisEHHM2G5gKKy2D
+         TJG1t9jt98QIX/A9siUgrjwchlCi5NCy4eZKWJOfIrSjxZP4jmFwrhJE5eN3F2ujMIob
+         o36lJwrN55Yd2/AwN7TeRKSTcczyHV3w2wJSrt/j96FSqE6ilLTtJvn02xUl4Erf95uM
+         ryYs96AB7PrkMz3fTI/6ccm68oHBXAivcUAU/DsWYfymUBzJP6D6Q/32UCLYEBmXJrP8
+         KtYD2uM9JsfNbKEbpJcfrvygZ+vROZ+iteVRcv/GKrdS/vIdAo4TiFfh8MS6V3Ys1SWq
+         BADw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730477804; x=1731082604;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hX5tyyhHqv16hXch1rLN0W0q9yFTn7ruBymiSqraZAY=;
+        b=fAqEqPiQzmWCC8Y0Rn+NAiSnsBNjwczycdEBZ3k9fhwyWL+cvk/wWpJ7MTrHY5kgcQ
+         G5aQQdo7kgqBgmS3rtDuYUXY95Ch+wKLHKhX5Y8Tgk8wzTw2CiRcQaKmN4mYu0CDdPQm
+         SEDeFTiny5lzBmSfhLeGUOb77pthyOIYEvxzI2fUPoD2pyabk8k4co3sN6stzhe+dPTS
+         z2qtIqY6EXBtqBMjvEDsnuvZ7Bkc4sdf/3riy9bELIpkrdF3Zviz8waz26cyu6fX5s3j
+         WvrUtBx08aCw8JnrqSHkR/sCuSBndVptstvv+2W61bVGTUWiBUfzLV+mwq+5LLFf65Zj
+         odTg==
+X-Forwarded-Encrypted: i=1; AJvYcCVvU/w81CyQbIwo5aG4Y3zB0NbVqK/mO/gf9d2E8Ev6TOrCpdXhoAQwLuR6cYCngP2iqunLzX/IkdA2ZE3KbDlR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2XfCE6dz3vY5FwWS25VFBSWhwBLC6R3xnrRd5d1Cy3TeMuROG
+	29EloLXd12O0xTFvjp1tTBEDEub8hdB+jVK9G5RS8dVuGkvKQo2kKuoyzVM/1JiIkuwLvDpGB0T
+	kJQ==
+X-Google-Smtp-Source: AGHT+IFqadUfHcDo1fnNxpX1VCp4eu6teKzEJN9syL1uwq8yv7xcjwbZMF7JDB8DnbLfXveA32Uk5MCvzSo=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
+ (user=seanjc job=sendgmr) by 2002:a25:b2a5:0:b0:e30:dccd:9aaa with SMTP id
+ 3f1490d57ef6-e3302686a1fmr4471276.6.1730477804134; Fri, 01 Nov 2024 09:16:44
+ -0700 (PDT)
+Date: Fri, 1 Nov 2024 09:16:42 -0700
+In-Reply-To: <ZyT9rSnLcDWkWoL_@linux.dev>
+Mime-Version: 1.0
+References: <20241009154953.1073471-1-seanjc@google.com> <20241009154953.1073471-4-seanjc@google.com>
+ <39ea24d8-9dae-447a-ae37-e65878c3806f@sirena.org.uk> <ZyTpwwm0s89iU9Pk@google.com>
+ <ZyT2CB6zodtbWEI9@linux.dev> <ZyT61FF0-g8gKZfc@google.com> <ZyT9rSnLcDWkWoL_@linux.dev>
+Message-ID: <ZyT-6iCNlA1VSAV3@google.com>
+Subject: Re: [PATCH v3 03/14] KVM: selftests: Return a value from
+ vcpu_get_reg() instead of using an out-param
+From: Sean Christopherson <seanjc@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
+	David Woodhouse <dwmw@amazon.co.uk>, linux-next@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_091458_148742_B968F279 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241101_091646_639784_6209FFAC 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,69 +98,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 01, 2024, Oliver Upton wrote:
+> On Fri, Nov 01, 2024 at 08:59:16AM -0700, Sean Christopherson wrote:
+> > > Can you instead just push out a topic branch and let the affected
+> > > maintainers deal with it? This is the usual way we handle conflicts
+> > > between trees...
+> > 
+> > That'd work too, but as you note below, doing that now throws a wrench in things
+> > because essentially all arch maintainers would need merge that topic branch,
+> > otherwise linux-next would end up in the same state.
+> 
+> TBH, I'm quite happy with that. Recent history has not been particularly
+> convinincing to me that folks are actually testing arm64, let alone
+> compiling for it when applying selftests patches.
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+FWIW, I did compile all patches on all KVM architectures, including selftests.
+But my base obviously didn't include the kvm-arm64 branch :-/
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+One thing I'll add to my workflow would be to do a local merge (and smoke test)
+of linux-next into kvm-x86 next before pushing it out.  This isn't the only snafu
+this cycle where such a sanity check would have saved me and others a bit of pain.
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-6.12
-
-for you to fetch changes up to f8c879192465d9f328cb0df07208ef077c560bb1:
-
-  soc: qcom: pmic_glink: Handle GLINK intent allocation rejections (2024-10-24 13:03:37 -0500)
-
-----------------------------------------------------------------
-Qualcomm driver fixes for v6.12
-
-The Qualcomm EDAC driver's configuration of interrupts is made optional,
-to avoid violating security constriants on X Elite platform .
-
-The SCM drivers' detection mechanism for the presence of SHM bridge in QTEE,
-is corrected to handle the case where firmware successfully returns that
-the interface isn't supported.
-
-The GLINK driver and the PMIC GLINK interface is updated to handle
-buffer allocation issues during initialization of the communication
-channel.
-
-Allocation error handling in the socinfo dirver is corrected, and then
-the fix is corrected.
-
-----------------------------------------------------------------
-Bartosz Golaszewski (1):
-      firmware: qcom: scm: fix a NULL-pointer dereference
-
-Bjorn Andersson (2):
-      rpmsg: glink: Handle rejected intent request better
-      soc: qcom: pmic_glink: Handle GLINK intent allocation rejections
-
-Charles Han (1):
-      soc: qcom: Add check devm_kasprintf() returned value
-
-Johan Hovold (1):
-      firmware: qcom: scm: suppress download mode error
-
-Manikanta Mylavarapu (1):
-      soc: qcom: socinfo: fix revision check in qcom_socinfo_probe()
-
-Qingqing Zhou (1):
-      firmware: qcom: scm: Return -EOPNOTSUPP for unsupported SHM bridge enabling
-
-Rajendra Nayak (1):
-      EDAC/qcom: Make irq configuration optional
-
-Simon Horman (1):
-      MAINTAINERS: Qualcomm SoC: Match reserved-memory bindings
-
- MAINTAINERS                        |  2 +-
- drivers/edac/qcom_edac.c           |  8 +++++---
- drivers/firmware/qcom/qcom_scm.c   | 17 ++++++++++++++---
- drivers/rpmsg/qcom_glink_native.c  | 10 +++++++---
- drivers/soc/qcom/llcc-qcom.c       |  3 +++
- drivers/soc/qcom/pmic_glink.c      | 25 ++++++++++++++++++++++---
- drivers/soc/qcom/socinfo.c         |  8 +++++++-
- include/linux/soc/qcom/llcc-qcom.h |  2 ++
- 8 files changed, 61 insertions(+), 14 deletions(-)
+https://lore.kernel.org/all/20241101153857.GAZyT2EdLXKs7ZmDFx@fat_crate.local
 
