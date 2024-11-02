@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6A1E677E8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 17:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C937EE677E8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 17:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E9abyzKjsugduK9mn/lkJqTjstRFjkeo4t8Ybq/8KMc=; b=DsZyF/SZUxL5QsRmvy0k2OibIW
-	IIrGRT5iBKW+aW9fwV2B/gmf37FcAr5Zmm4hB/tjjn+4dAgLsvclQe3VGYOOGAGoEeVUKce0t4XB0
-	zZPE2e/Aw/5CL6KojjNznUxYYYdPCwZJrIGpWGC5+pQa9egj2uVf9p9y52YOWFKEXwr5FE9ibtR8R
-	E3tTszl1vTjmfoo1BFLLhp47esSmoH+5BCeipiLfoLvr+AAvjAoRfIC3iPGThcVITaDbX9i+BE2BI
-	x+MVgWXysw2AXorsoo6qF6q37lUdppPSO4k30ji2suG0TVgOWwhqfbJAcpqmArZCbx2R4zHr5r+r7
-	ACnKbHZA==;
+	bh=1nfNaG2WUiobDXo6ezQt1Tj/QvuNOzw7QZeUFF4iwKY=; b=rQ+RbzpnN0PeCUtYq8y7fJp8E4
+	bGDBVjHS94Inw5jKQEc/1odgYQ7JpZrd/W4FA0LJhZPT5GI0TAjljmBtfffrI7XLaopeZ0ioDtKyM
+	O2e6xtfihH5JcRlJVaoNZy2ed07owF5BmomnxzgMetX4f7m6MJzRPqM/tO2s7huSqfHIqlp2C20vm
+	0vSxXYims8+ZLtX276ALvSZumv3CK23Oz1r9+aWSlhLUxYWUFGc2Mpl0hjMz5dc1JpwQCjKpjqehV
+	x3tw4IsV8Dx26GXLqFZIY2ZZ6DeKmjOi4WWuw7EWA2IgTI21+tlsT2mSYE1m7s4f8xFBy9O/aVAV8
+	UY1UfHRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7IBD-0000000A8gw-21SB;
-	Sat, 02 Nov 2024 17:44:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t7ICq-0000000A8wE-2kUs;
+	Sat, 02 Nov 2024 17:46:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7I9Y-0000000A8YI-1cww
+	id 1t7IB9-0000000A8gT-35wb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 17:43:13 +0000
+	Sat, 02 Nov 2024 17:44:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BD41F5C1124;
-	Sat,  2 Nov 2024 17:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0341FC4CEC3;
-	Sat,  2 Nov 2024 17:43:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 317E45C3FC7;
+	Sat,  2 Nov 2024 17:44:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72392C4CEC3;
+	Sat,  2 Nov 2024 17:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730569384;
-	bh=U2CSmDapur3Jo4JKm5z6Wka0AR1ocn27ba4W1txoJHA=;
+	s=k20201202; t=1730569490;
+	bh=1E95OTbuDlNgkvn3HsUBOm3z72dwTWmD+hNd7j6udnc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Cp5Bg/mv/kOL/y7uDFW0AY6zoJDfLAHMVXOxWEsEB2EhnKTBx8M/JoWCkE3TSXyFM
-	 zsPi+xMglUo9ybptXu2aQAPy3mVeu2vbNJ7rwHuJNZv9j9rvhY0Mgq69I3q3jS7xrc
-	 z5x/V+JXikfxz66Rov1tOoRmGmC6KJQHeZu1rINGytaM5UJOu9d7l3k2JjIdvaeqMy
-	 T9rQHpr/1ETzEZzd/Ss/Mf4WhG1TGswDxqy8pScJaor4SUaZ/ITPPGRAYX9l3b38E9
-	 C2VCrZmYZR//EAfQge2JsD5GTxr80Fixdwh5/bytP5V2EyEe/9qkLH7brAv5Ie8NZy
-	 UvkjDLc7Q92WA==
-Message-ID: <719f9d89-f644-48bc-8be8-09c1a4de0101@kernel.org>
-Date: Sat, 2 Nov 2024 18:42:58 +0100
+	b=uwBOXmcBNICsqPln0GDA6gTREHWAO4gFYqU+HFnaXDg3SlIkKvdEEsswjpW0xVMz2
+	 9PKgMvS2CjEgZMBemOgG0STwduexpLmzfIhMrU5U5bKEL3B3IUrSebk5ls8xmPFwZu
+	 PymJ34cz6WHno9GqrC1tu+UJb8ezAbK9GdJutspYBi+I9sl3ItV6qGRLSpxZtnjSyb
+	 xctDqLahFaaEPHl03Jp7uPv3I89+y16eb+wEmZ4OFrUtoYgp9KOAqr98bNSJS14htD
+	 R8THl46nMZqP8hTAEsg5SALlptLiVcNPFD0aquk3LrLkqx2dgild2eb7FI8y/yE9bL
+	 51jqLPt+4dPbw==
+Message-ID: <d04d2b39-f1d1-4536-8ab2-764cd989d456@kernel.org>
+Date: Sat, 2 Nov 2024 18:44:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] Add minimal Samsung Galaxy S20 Series board,
- SM-G981B and SM-G980F support
-To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- igor.belwon@mentallysanemainliners.org
-References: <20241030232308.72210-1-umer.uddin@mentallysanemainliners.org>
+Subject: Re: [PATCH v4 09/10] arm64: dts: exynos: Add Exynos9810 SoC support
+To: Markuss Broks <markuss.broks@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
+ <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Maksym Holovach <nergzd@nergzd723.xyz>
+References: <20241028-exynos9810-v4-0-6191f9d0c0f1@gmail.com>
+ <20241028-exynos9810-v4-9-6191f9d0c0f1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241030232308.72210-1-umer.uddin@mentallysanemainliners.org>
+In-Reply-To: <20241028-exynos9810-v4-9-6191f9d0c0f1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_104312_554074_71B87BEA 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20241102_104451_901337_E7692625 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,34 +126,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/10/2024 00:23, Umer Uddin wrote:
-> Hi folks,
+On 28/10/2024 10:22, Markuss Broks wrote:
+> Exynos 9810 is an ARMv8 mobile SoC found in various Samsung devices,
+> such as Samsung Galaxy S9 (starlte), S9 Plus (star2lte),
+> Note 9 (crownlte) and perhaps others.
 > 
-> This series adds initial support for the Samsung Galaxy S20 Series and also
-> initial board support for the Samsung Galaxy S20 5G (SM-G981B)
-> codenamed x1s.
+> Add minimal support for this SoC, including basic stuff like:
+> - PSCI for bringing up secondary cores
+> - ARMv8 generic timer
+> - GPIO and pinctrl.
 > 
-> The S20 Series feature a lot of similarities in their configuration
-> and internally Samsung named the common devicetrees in their
-> downstream kernel 'hubble', please note hubble excludes the
-> S20 FE series and Note20 series.
-> The device trees have been tested with dtbs_check W=1
-> and results in no warnings.
-> 
-> This initial bringup consists of:
->  * pinctrl
->  * gpio-keys
->  * simple-framebuffer
-> 
-> This is enough to reach a shell in an initramfs. More platform support
-> will be added in the future.
+> The firmware coming with the devices based on this SoC is buggy
+> and doesn't configure CNTFRQ_EL0, as required by spec, so it's
+> needed to hardcode the frequency in the timer node.
+
+Thanks for the changes. All other patches were already applied - I
+dropped only DTS.
 
 Patches look good, thanks.
 
 Unfortunately, it is late in the cycle and due to some travel it is
 actually too late for me to pick it up. I will take it after the merge
 window.
-
 
 Best regards,
 Krzysztof
