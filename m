@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0182CE677FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9C7E677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UM066aX0AMSVI1jVa1EsMUzrkLy53gFKhszmK/F/I3I=; b=479tt1th+EoHiVsTzxuNpAk3Vc
-	irP+uNGBOM9hj0VeB282YE7s98ZERRfqjk1hKlLRZmFZ8X599sEL6s1w9kH3ben45QfdM+jyan2hd
-	qHKQXPwI34fn8JiGqx8xgWBbzNEKA15pPlg/a/Q9br3Ham07RPHutuzZK0+zs4MEbnjUYUaYOt9pb
-	adh4011f8iAoXDaKImll8veoY7DUABqWpKE07/xMc9RrG+UuKtVk1H5Aqn5StzCJiCm23yePbjw3X
-	49ntzpyiO8ZDSQyW8+ImcFEfHLFEGRzbq7y+Zuv1xlFvznmQ7s8miVVitYdADP6pL1sbCJEGHb1sV
-	Hq1PCeXg==;
+	bh=nrQRRxSZDGbNXWX1+ilmaa9mcEbyxpp7VpcIwNpNg5M=; b=ldULNPkQ9AC8vi+ieYxLxwqYSX
+	+/9zdSENpuh2/Ii8LNTtGOlVfG7LRZOdYqJoZnBnyLNY3tsDNAGICgcgnmxeEghrnG1e1sXI4X/+F
+	jiKeEGpSJcOzB+IezEHyhkAeTJuBugthVQcIQqYobGXj7mUSCzWv+YJ+Ac2A+r6E5C5wcq+Wc6AAn
+	bBX3xeY95F8iaLVePdAzsTA1Z4lfCF5A4POYXgGxsl8THgadx40Ao140Fe2mBMm27l94a63o4XwvR
+	9brXEoqyVwh9CzYQvSKVscOqFQFiBC2OJfi0J/d5qL5lgKVltazkWB6F/TbZR3YCE22pNgUkt6V5t
+	gMa1POkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CS4-00000009av7-3dZv;
-	Sat, 02 Nov 2024 11:37:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t7CTh-00000009b5C-3FTZ;
+	Sat, 02 Nov 2024 11:39:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7COe-00000009aAG-3cNq
+	id 1t7COf-00000009aAD-08Ud
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 02 Nov 2024 11:34:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6BF4F5C2D61;
-	Sat,  2 Nov 2024 11:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9FC18C4CED4;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74F5DA407EB;
+	Sat,  2 Nov 2024 11:32:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 871B4C4CED2;
 	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1730547263;
-	bh=qVYc4PRjCoyP3Y+OwwdNDXlkVWUjStNQm+XzC7o5J8U=;
+	bh=mrf6lKlF96SpNcTN0gbN/Kkk9/u7S84IM9hSP1KPBDw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=byXb0RlCU1ovoD6dqU3kW+bI+i8AQUzt3ZnjsZs3czu9SHznPOqSrNY9YhBn2Q5xM
-	 TbjhQoEX7BUXsvRgfAM2pcfPGY0AjK9SEtIsAQQHbiSNli3LIu1hObBlNJ+gty3NPM
-	 fVjikVtbNCEdIbPDtVAYj/DMe9aKwwYKl0bcYY2ATih9aIjteUIZNFMCdc/UOr2+lz
-	 dlGBZGx1M/52INhZ1+wDumHtQCypJmOmN4a06MCnWn6jD+U3SkdbFK6fb3wlOeFTBc
-	 D8PttPZQaz5/TWdfACyDNXEqyQ0EMd3K4E153PJ7iZFg4lNnlf36HPvMKU91Xirocz
-	 Byoz7LhNfwpCA==
+	b=F2C6lb0QH32WyNtReKR9i50Ivgo1GHFYE9nzCQQyIYvyPHuC40RKtBzlMbglV0GVq
+	 bTwz24CKcAJ+ZpRBt7Q4UgFL9v1uPT7Gy5o3efYNk48U6KCM/NqjcRjSmyNtvMgZLg
+	 4VRP4tYuVBP+l+4BY2ojFpoaM+5yrqKqJKLq8ur2r/QmEiZJ+N6vwbD2Kh10KkkLL0
+	 /oxT50JA6BMbQj/ygQOi2F2d4A0vav7HaedIUdN/2XoKE2S6MB0Ils9RwuTpNzA8fh
+	 G141548sTToVM19FntqIV3VLd75d2y4Aqf4vJuTk/8D+NhmxVRhk21yr0zSzWoIWla
+	 sQyxG2DqngGRA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 92671E677FC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 708E2E677F9;
 	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
 From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Date: Sat, 02 Nov 2024 12:34:22 +0100
-Subject: [PATCH 3/5] arm64: dts: apple: t8112: Add spi controller nodes
+Date: Sat, 02 Nov 2024 12:34:20 +0100
+Subject: [PATCH 1/5] arm64: dts: apple: t8103: Fix spi4 power domain sort
+ order
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241102-asahi-spi-dt-v1-3-7ac44c0a88f9@jannau.net>
+Message-Id: <20241102-asahi-spi-dt-v1-1-7ac44c0a88f9@jannau.net>
 References: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
 In-Reply-To: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -62,20 +63,21 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2887; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1456; i=j@jannau.net;
  s=yk2024; h=from:subject:message-id;
- bh=qBexsIdH/GqhHy7brZ1sYsseqom1YJB59+/UbwP2L/Y=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnQ1PttALc9N5sx7r1dfUKhVN3diCbv356Wprs+WmZ63/
- jetcWrpKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJGK94wMHWWvHT6zfS8yKd73
- QbCNS6dz36Zl80pPPO/y180z9S3awMjwJ167fG9t/74pHXlLdGf1njZuSPM+foMxe5nInDlPmaa
- zAwA=
+ bh=dM/GrGK9N/5tAToyLPPTWx70HidhWtGG6XOo893Pexw=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnQ1Ptvp6+cnpq9tM70WkXdTq6l03hTzE/Nj0s2OFi5Rt
+ 4z1bK7oKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJELpYwMy2VeOE7e8ENw+Re/
+ ZKat79iT9+5eNve/c/HMG4GymzLlqhn+uye9YdflnfXw4HvOJTMl5MzLIjILV8oW3VBZtbhEulO
+ BDQA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
 X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_043425_185433_1960F2A4 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20241102_043425_286162_9F30D1DA 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,96 +93,49 @@ Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Janne Grunau <j@jannau.net>
+From: Hector Martin <marcan@marcan.st>
 
-Apple silicon devices have one or more SPI devices. Add device tree
-nodes for all known controllers. The missing ones could be guessed and
-tested with a little effort but since the devices expose no pins and
-no new devices are expected there is no point in spending the effort.
-SPI is used for spi-nor and input devices like keyboard, trackpad,
-touchscreen and fingerprint reader. Only the spi-nor flash has upstream
-drivers. Support for it will be added in a following commit.
-
-Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Hector Martin <marcan@marcan.st>
 ---
- arch/arm64/boot/dts/apple/t8112.dtsi | 44 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 43 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/apple/t8103-pmgr.dtsi | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..58d88f1ef92a32061765bd3b569fdae0255dcd7e 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -349,6 +349,13 @@ clkref: clock-ref {
- 		clock-output-names = "clkref";
+diff --git a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
+index 9645861a858c1a7c46c25a614c2cc4b03083bf46..c41c57d63997a59a9fe3c88de31fddb31781398e 100644
+--- a/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-pmgr.dtsi
+@@ -387,6 +387,15 @@ ps_spi3: power-controller@258 {
+ 		power-domains = <&ps_sio>, <&ps_spi_p>;
  	};
  
-+	clk_200m: clock-200m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <200000000>;
-+		clock-output-names = "clk_200m";
++	ps_spi4: power-controller@260 {
++		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
++		reg = <0x260 4>;
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		label = "spi4";
++		power-domains = <&ps_sio>, <&ps_spi_p>;
 +	};
 +
- 	/*
- 	 * This is a fabulated representation of the input clock
- 	 * to NCO since we don't know the true clock tree.
-@@ -467,6 +474,34 @@ fpwm1: pwm@235044000 {
- 			status = "disabled";
- 		};
+ 	ps_uart_n: power-controller@268 {
+ 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+ 		reg = <0x268 4>;
+@@ -558,15 +567,6 @@ ps_mcc: power-controller@2f8 {
+ 		apple,always-on; /* Memory controller */
+ 	};
  
-+		spi1: spi@235104000 {
-+			compatible = "apple,t8112-spi", "apple,spi";
-+			reg = <0x2 0x35104000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 749 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk_200m>;
-+			pinctrl-0 = <&spi1_pins>;
-+			pinctrl-names = "default";
-+			power-domains = <&ps_spi1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		spi3: spi@23510c000 {
-+			compatible = "apple,t8112-spi", "apple,spi";
-+			reg = <0x2 0x3510c000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 751 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkref>;
-+			pinctrl-0 = <&spi3_pins>;
-+			pinctrl-names = "default";
-+			power-domains = <&ps_spi3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		serial0: serial@235200000 {
- 			compatible = "apple,s5l-uart";
- 			reg = <0x2 0x35200000 0x0 0x1000>;
-@@ -626,13 +661,20 @@ i2c4_pins: i2c4-pins {
- 					 <APPLE_PINMUX(130, 1)>;
- 			};
- 
--			spi3_pins: spi3-pins {
-+			spi1_pins: spi1-pins {
- 				pinmux = <APPLE_PINMUX(46, 1)>,
- 					<APPLE_PINMUX(47, 1)>,
- 					<APPLE_PINMUX(48, 1)>,
- 					<APPLE_PINMUX(49, 1)>;
- 			};
- 
-+			spi3_pins: spi3-pins {
-+				pinmux = <APPLE_PINMUX(93, 1)>,
-+					<APPLE_PINMUX(94, 1)>,
-+					<APPLE_PINMUX(95, 1)>,
-+					<APPLE_PINMUX(96, 1)>;
-+			};
-+
- 			pcie_pins: pcie-pins {
- 				pinmux = <APPLE_PINMUX(162, 1)>,
- 					 <APPLE_PINMUX(163, 1)>,
+-	ps_spi4: power-controller@260 {
+-		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+-		reg = <0x260 4>;
+-		#power-domain-cells = <0>;
+-		#reset-cells = <0>;
+-		label = "spi4";
+-		power-domains = <&ps_sio>, <&ps_spi_p>;
+-	};
+-
+ 	ps_dcs0: power-controller@300 {
+ 		compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+ 		reg = <0x300 4>;
 
 -- 
 2.47.0
