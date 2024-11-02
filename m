@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD57E67800
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 14:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4350E67800
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 14:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=; b=1RJfRmeg9dSYA7znG7qezsjfGm
-	xTrRV+PLwMAhvYrRKwINArb9GA75ekAj9t4pecXQvh1wqSQTDaAFs8iH38Ir7iH8GVxETu5S4NIaR
-	5LkGFdPWU/bftCSHmeRCTuIvYM2Y+UhNrMvVLafLBO00ll3LC7sPkUXWRi21RnoJ4f/MRd6qqcjhl
-	/Er1MuojqJNEs9vRMLuHpjikBmF3O9gUyRmBOOipUQKygKyhigABw062syONGt4BGbAako3ad2Qfk
-	LeF3AbhRgcXrBJTALmXb/u4qpQi/pI05LLUeomBnWYl8FlXgTB0XUSnnBQz/BbJDwwTEF+QaWGf6k
-	CqDLLfQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uAYb8ZWo+6oqgopAoB/L+X6KhCpnV2TRcgj8aWyRjcs=; b=o1z69Af30OfOkWRW0gt1cqlHmX
+	llXYiIR8X95F6THGjfLCSJRaN55Hx73yaqTEUTHfI3qYL+5LMcQb8c2RQGueGE5vwDn5AyB5EftqK
+	2UVfA8DmH/DOoZLKKjwNC9yiEQ4RYcSs+Uwyq/i2B1HYPjtmK0Vzm+0QlNJskukHTHgVe8enPR/UR
+	VFqb/yikRt8M3kkhFSjc92eRWuL+iAHasbTFM/PBgWKfET3Bd3FjgaLIX5iBHOa+1ZCfQyAqjivwF
+	fqMv31RFloIbhgYO+BikgnjaBYI5i7+y+GrD89EEQvc7u3+9Y5pwDqun4Ga0hi0p04SVi8U0dw9T9
+	kjJgV6Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7FAD-00000009rOz-2j7N;
-	Sat, 02 Nov 2024 14:31:41 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1t7FCD-00000009rhB-1pew;
+	Sat, 02 Nov 2024 14:33:45 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7F8W-00000009rFG-1i9K
+	id 1t7FAX-00000009rUl-0hgZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 14:29:58 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9e44654ae3so341221966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 07:29:55 -0700 (PDT)
+	Sat, 02 Nov 2024 14:32:02 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso22894485e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 07:32:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730557794; x=1731162594; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=;
-        b=v/J838hegUfijImw4fdQJSRa6jkK0Y66kNnAaHnw4AZFczY1A9LWsYWYwgt7+vaM3S
-         B6Y8MtFN0z3XeKOynzjx2nnIOvSBOE880J5V2lKvgB1zx9RhgRQKC5DSn5LfZhUvOcbr
-         CyKW1wDnl48rWWV30LnQVv5KA7l17hKJjc1s3MmFCoutrb3lqyBdzabGc6QH77RahO3/
-         czeZZoFzRH82R4Gkj8gAHGyJy6F6FNSeQN8FFhGa9Y1gUxsF8Ul4sP5ux4TJKUdqh38v
-         o3i+1CMisp72LqvUHGzSGWjc+Pokq4uPo0WIWooJul9SlpxRdsRXc9GrYw2MhrGciOHn
-         27/A==
+        d=gmail.com; s=20230601; t=1730557919; x=1731162719; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uAYb8ZWo+6oqgopAoB/L+X6KhCpnV2TRcgj8aWyRjcs=;
+        b=Lw86HFojQepLJVn9lUN+pp7lM8IMhyFmdEBH0LZtkmz9ZxHSyFkZRPkmHX8N3QoNaT
+         Su3RRuuJwIjX3cBQS8xM/J9zmxfqLN/8/gASyyxF8y9eLqQPdlbk0EeyxBxYB33RZVz5
+         uc0TbBNiz2SRMjwy9Crj4G8MlPbVx1/pYLl+BdH5GYjsaeJHVr2HuUz5dM3VMq+f+gpd
+         NxkOYBdvZcczE5MaXbn1KvKFjenDPLZ6XUCclwnVOrBNAHyuPFrzDpFo7Uvs1yCo4p34
+         P9M/RVJckn+bIZy+MDD6QGwo3j44354aPquqMHb7G7EYjZqY3mUjUPWUmdJRy4tr+i64
+         p/MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730557794; x=1731162594;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=;
-        b=h3xEiipiQBxnshty5cBTw5apk+ucN2jexKB8/+3qFq1kVDe2TufhczSsgLMcdlNXMX
-         Islp6tVHWXUBJbj/mm53iIOa4+j5cacA8KnYzUY7vRoy2vnRpY6a3TCLcyKtTUgiD9vH
-         4Zbk8UGSC0RjnBLFZ/a8FyjkPq5AsYQGeKbMbpUiWIuVHSFrVmwaXmMLZM5zWics9q2z
-         vUet6QAbcBZN2rYWMKWH3iNRzAWDm4cQc1twfr7T+OewT0T6bbmBX/wo4B6peULqs6sC
-         qyOlc25pNlpp0ri/FkcVDgKCwmxMhfi/iobIOV0g/AXl4N7KgqZd2uSL6/R1xtkm7E5b
-         zbDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWcNJPeaHC8k2bCpvoLksV3qZi+ulmJg23z5woxU4CdCk+D3WJlyk0RVSVqEG488D/0/hxdLVyiZYY4Rs5JZn8i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdaOhFMqWOaBDMmxHOVCg/ME1MTl9VSNWQ/fUt+yHIAGAWarLD
-	niNZP/FzZjW1YHs0F+WWcAdE/0eqwDlhBcS500u0qBED6lwBd4lrVVaapETH61tuigtodfwTCGc
-	9chIRsaTwmtmOsqVnQ9aiIIQY4Dde3srpX8wJwA==
-X-Google-Smtp-Source: AGHT+IHmMaoPuHCX8oqUiJ2GAJojyzCvnKuAF650y2r5dVCpByhVut9O1RRSbUZGBDSt5PzipQLZjWLX9kkXAj3eKcA=
-X-Received: by 2002:a17:907:94d0:b0:a9a:cf84:2e4b with SMTP id
- a640c23a62f3a-a9e50915893mr967262166b.25.1730557794334; Sat, 02 Nov 2024
- 07:29:54 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1730557919; x=1731162719;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uAYb8ZWo+6oqgopAoB/L+X6KhCpnV2TRcgj8aWyRjcs=;
+        b=MHRJQhWMDRC2VE9M58K82WtNRY+856IKxhIrRCNGfnZ52JZXILyeJ4RVc2QUGp8i61
+         1yoZjsSoEoKP28dnBN51o+zQ3J+wk+4BWi+O0cWz4qyYalI+MH2a7+uKozLMnpWK6guJ
+         7/8ywXN0xHGLJgllG07odY7Qxy/IE7dt0/Sj3p7aQ8BxcKr1ZDMt6qxUalGWkC9XgnT5
+         +uHJHU657TPNjn47gRwvsq2NM/I3JKxfJcPg66TjSLECvvCM/kqgV1So/sckEL/utuYS
+         qzF1YYqNU3Qf5kemX51pj0zQyS0ZWAz0bElN3zDtMP0952d+VADZwwqvLM09WqF5womG
+         9OVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVtdwYQZbfOzGFhgHtFnnu4dciY4cZQwA4mDVEMH+e+1EyTsKO2q+533IQoNebOw6+T2nyCs1jiNxkia9J6bztG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxbkn/1Kv9WEOuKSyNQ4CfMZf2YMOhDbLJWzcmGW649/D83GFSs
+	RmwrKaJYEAoOadUtRybUAIpkjvOQLrUzQA5cuGqh1ajuYA+eTVGWi1lhBPv2
+X-Google-Smtp-Source: AGHT+IHO7EK4WejfjK60Ywe/XJsJA7dpSEF+xjKyDkwV41ZCRX7ykEoI4QfPPkh6TJrgd+sMtyrihA==
+X-Received: by 2002:adf:a15b:0:b0:37d:4ebe:163e with SMTP id ffacd0b85a97d-38061206a7emr18644432f8f.53.1730557918570;
+        Sat, 02 Nov 2024 07:31:58 -0700 (PDT)
+Received: from eichest-laptop ([2a02:168:af72:0:492c:2677:72f4:9f57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c1189118sm8196240f8f.116.2024.11.02.07.31.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Nov 2024 07:31:58 -0700 (PDT)
+Date: Sat, 2 Nov 2024 15:31:56 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Shawn Guo <shawnguo2@yeah.net>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, francesco.dolcini@toradex.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v1 1/2] arm64: dts: imx8mm-verdin: add single-master
+ property to all i2c nodes
+Message-ID: <ZyY33Ai6xndqTHzi@eichest-laptop>
+References: <20241025095915.22313-1-eichest@gmail.com>
+ <20241025095915.22313-2-eichest@gmail.com>
+ <ZyWv+BVp91xYr4UZ@dragon>
 MIME-Version: 1.0
-References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
- <20241031-iio-fix-write-event-config-signature-v2-13-2bcacbb517a2@baylibre.com>
- <20241101164118.687be624@jic23-huawei> <4e4e5281-d489-42b5-b358-c44958cfa4f9@tweaklogic.com>
-In-Reply-To: <4e4e5281-d489-42b5-b358-c44958cfa4f9@tweaklogic.com>
-From: Julien Stephan <jstephan@baylibre.com>
-Date: Sat, 2 Nov 2024 15:29:35 +0100
-Message-ID: <CAEHHSva6+Br9rXE9n0wqXuwQqetXN=Ae5vg0rxmPRfCVdw9atA@mail.gmail.com>
-Subject: Re: [PATCH v2 13/15] iio: light: apds9306: simplifies if branch in apds9306_write_event_config
-To: Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Mudit Sharma <muditsharma.info@gmail.com>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, 
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
-	Michael Hennerich <Michael.Hennerich@analog.com>, Cosmin Tanislav <cosmin.tanislav@analog.com>, 
-	Ramona Gradinariu <ramona.gradinariu@analog.com>, Antoniu Miclaus <antoniu.miclaus@analog.com>, 
-	Dan Robertson <dan@dlrobertson.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>, 
-	Matteo Martelli <matteomartelli3@gmail.com>, 
-	Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>, 
-	Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J <jagathjog1996@gmail.com>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Kevin Tsai <ktsai@capellamicro.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Benson Leung <bleung@chromium.org>, 
-	Guenter Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	chrome-platform@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ZyWv+BVp91xYr4UZ@dragon>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_072956_734473_27A2BD89 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20241102_073201_284228_C33014D5 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,66 +98,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le sam. 2 nov. 2024 =C3=A0 14:21, Subhajit Ghosh
-<subhajit.ghosh@tweaklogic.com> a =C3=A9crit :
->
-> On 2/11/24 03:11, Jonathan Cameron wrote:
-> > On Thu, 31 Oct 2024 16:27:08 +0100
-> > Julien Stephan <jstephan@baylibre.com> wrote:
-> >
-> >> Simplifies the regmap_wite if branch in apds9306_write_event_config.
-> > Applied.
-> >>
-> >> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
-> >> ---
-> >>   drivers/iio/light/apds9306.c | 5 +----
-> >>   1 file changed, 1 insertion(+), 4 deletions(-)
-> >>
-> >> diff --git a/drivers/iio/light/apds9306.c b/drivers/iio/light/apds9306=
-.c
-> >> index 8adc74040db2bddf93fbb773e3519abcc726b9a6..9c08e7c3ad0c17519689a6=
-30d42fe9b90438dfe8 100644
-> >> --- a/drivers/iio/light/apds9306.c
-> >> +++ b/drivers/iio/light/apds9306.c
-> >> @@ -1125,10 +1125,7 @@ static int apds9306_write_event_config(struct i=
-io_dev *indio_dev,
-> >>              }
-> >>      }
-> >>      case IIO_EV_TYPE_THRESH_ADAPTIVE:
-> >> -            if (state)
-> >> -                    return regmap_field_write(rf->int_thresh_var_en, =
-1);
-> >> -            else
-> >> -                    return regmap_field_write(rf->int_thresh_var_en, =
-0);
-> >> +            return regmap_field_write(rf->int_thresh_var_en, state);
-> >>      default:
-> >>              return -EINVAL;
-> >>      }
-> >>
-> >
-> Hi Julien,
-> Sorry for the delay.
-> "int_thresh_var_en" corresponds to APDS9306_INT_CFG_REG bit 3 (Datasheet:=
- INT_CFG, Address: 0x19) which
-> is a single bit value only. If user does "echo 4 > /sys/bus/iio/devices/i=
-io:device0/events/thresh_adaptive_either_en",
-> which trickles down to the "state" variable, do we really want to write a=
-ny other value except "0" or "1"?
-> Correct me if I am wrong here.
+Hi Shawn,
 
-Hi Subhajit,
-In drivers/iio/industrialio-event.c, iio_ev_state_store is actually
-using kstrtobool to check user input, then gives the converted boolean
-value to write_event_config.
-So state is a boolean. By the way the purpose of this series is to
-clean up code and use a bool instead of int for the state parameter.
+On Sat, Nov 02, 2024 at 12:52:08PM +0800, Shawn Guo wrote:
+> On Fri, Oct 25, 2024 at 11:58:02AM +0200, Stefan Eichenberger wrote:
+> > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > 
+> > By default we expect all i2c nodes to be single-master, we do not have
+> > any module or carrier board that uses multi-master mode on any i2c
+> > controller. With this property set, we benefit from optimisations made
+> > exclusively for single-masters.
+> > 
+> > Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > index 5fa3959141911..95d5d2333ca1e 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
+> > @@ -367,6 +367,7 @@ &i2c1 {
+> >  	pinctrl-1 = <&pinctrl_i2c1_gpio>;
+> >  	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> >  	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> > +	single-master;
+> 
+> Hmm, I do not see this property is documented in i2c-imx bindings.
 
-So new code is equivalent to what was there before.
-Cheers
-Julien
+According to the discussion we had in this thread
+https://lore.kernel.org/linux-i2c/2bbddaxyjkxfmlgmq3yqcbzo7dsb2pq5bvdatk2y4ig4iintkt@35btqkdv7sy3/
+it is not necessary to have the property documentation in the i2c-imx
+binding because it is already documented in the dt-schema:
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/i2c/i2c-controller.yaml
+In the initial discussion, it was addressed for multi-master setups, but
+it also applies for single-master. See also this discussion:
+https://lore.kernel.org/all/bcdd6cae28edd9dd05a71118f9979e7460688775.camel@pengutronix.de/
 
+Let me know if I have missed anything or misunderstood.
 
-> Regards,
-> Subhajit Ghosh
+Regards,
+Stefan
 
