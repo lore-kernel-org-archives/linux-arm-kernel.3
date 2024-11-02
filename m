@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8FAE67808
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 19:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F030E67808
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 19:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G68ZaVveeAPDy61zCvgR6ZvWngMfCpzqwzzHizbuydU=; b=1syVpEjWmRaS2a2ut8GZPGxTwM
-	QJQrMkWgqK0N0AJ/8BZPbdiO1pVUbJGIN9VRWc7QqEW6M5+cjXZwwGmhSzOUH0Wb3sk8fDsVD9ygA
-	Z44aEdpa6hciZZoauzC8f5n5iCHd8pHzeDQrmHtFZQqajiWPLlae240tZERovgctnXR+bhxOPSwHw
-	yFhFaDou8tpc7wIiNJY4rzwXAUltVKaMtULufGwVx9VaxbfVid8yveuGzW8GoS6/L7RGMnzdixM/F
-	p0ZAMkBKD7YVZNdQmuNNkk/7rgH4dj8QfKoZfWtfy8nHaYMgWsAE4tCp8d9oBD/MaJGvkj0ueOCpg
-	RSbl1cag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wjZ1pTHZq/+k3MCnSbbzmSo0hoqjpDUYVU+ZZfLBNM=; b=t+KT/9pJc0ywpOQF7Xclt71UCU
+	o0qlcisr3in8XOTD+RfkKUnKLbebm4jz7oDpVQJXKWi4xT4NPnnkSNcRdP4Vk/Pnj2pCz2jU4BlEW
+	J2FbC4nGJtc7o5vKmg+kMgsz0e5sZuMhiViW2UWTtFcVR4bOAi84mPK/6eIvRFAbWavNykeyQrViy
+	2VGc1ppAAep6BFl/lZRBD3VDY/cuX+Thxx295+jeJDf+LK9mlSo6Uo/OlwgWgKVjzKMm8uWJA3YsC
+	Q5AJNaRn2OqEIZwYxnduksOjAxb/+xz6RUq4R6EF2MbqjiU8XBf9WLIOibFEaAiRfxCseG2lrbaEZ
+	SKM/Us1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7KEN-0000000AJPb-1ktQ;
-	Sat, 02 Nov 2024 19:56:19 +0000
+	id 1t7KG1-0000000AJj5-10x4;
+	Sat, 02 Nov 2024 19:58:01 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7KCf-0000000AJ5Y-3pfq
+	id 1t7KCn-0000000AJ68-1EAq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 19:54:35 +0000
+	Sat, 02 Nov 2024 19:54:42 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id AC5EF4C845;
-	Sat,  2 Nov 2024 19:54:26 +0000 (UTC)
+	by a.peacevolution.org (Postfix) with ESMTPA id 307724C845;
+	Sat,  2 Nov 2024 19:54:39 +0000 (UTC)
 From: Aren Moynihan <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
@@ -51,24 +51,28 @@ Cc: Aren Moynihan <aren@peacevolution.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org
-Subject: [PATCH v4 0/6] iio: light: stk3310: support powering off during suspend
-Date: Sat,  2 Nov 2024 15:50:33 -0400
-Message-ID: <20241102195037.3013934-3-aren@peacevolution.org>
+	phone-devel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 1/6] dt-bindings: iio: light: stk33xx: add vdd and leda regulators
+Date: Sat,  2 Nov 2024 15:50:35 -0400
+Message-ID: <20241102195037.3013934-5-aren@peacevolution.org>
+In-Reply-To: <20241102195037.3013934-3-aren@peacevolution.org>
+References: <20241102195037.3013934-3-aren@peacevolution.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
-X-Spamd-Bar: ++++
+X-Spamd-Bar: ++++++
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730577268;
-	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding;
-	bh=G68ZaVveeAPDy61zCvgR6ZvWngMfCpzqwzzHizbuydU=;
-	b=Tzc7jf7/YcxSmOknbQHGUntcT+2BmHXa6PKRE5Wi0BLJKcBuya7pa2msevfer6Ii9LupZQ
-	8ZRP4N3ShUjjF1/anXp3sGNM7Vs/RAFgIZLYNz/cj46M2bbucjlHbDYwslM0zJVkscVh+X
-	7C3j+jd96ZG7dEYMS3rRQqPYmiSs+oI=
+	s=dkim; t=1730577280;
+	h=from:subject:date:message-id:to:cc:mime-version:content-transfer-encoding:in-reply-to:references;
+	bh=6wjZ1pTHZq/+k3MCnSbbzmSo0hoqjpDUYVU+ZZfLBNM=;
+	b=VAUl+C68ru76ec7Nb1Mb9ewjMuuI0BS5yVVgiZzYbG1egtlzzsh+ja7Si9tRUCmfImF0EN
+	mgJfFaitBAaR2zB3PqoQZVBgsVfbO5iyyCQHBC0Ux6Y/CrbqRpTNKsBhNqKA3kDTsjFB52
+	olPU/ef1KtJVkPoyexcTUwmxVvoQ40s=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_125434_052483_DBDF3CC8 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20241102_125441_416712_89D3032A 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the Pine64 PinePhone, the stk3310 chip is powered by a regulator that is
-disabled at system boot and can be shut off during suspend. To ensure that
-the chip properly initializes, both after boot and suspend, we need to
-manage this regulator.
+stk3310 and stk3311 are typically connected to power supplies for the
+chip (vdd) and the infrared LED (leda). Add properties so we can power
+these up / down appropriately.
 
-Additionally if the chip is shut off in suspend, we need to make sure that
-it gets reinitialized with the same parameters after resume.
+Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
 
-Major changes in v4:
- - replace mutex_init with devm_mutex_init
- - code style cleanup
+Notes:
+    Changes in v2:
+     - add leda-supply
+     - add supplies to examples
 
-Major changes in v3:
- - Use bulk regulators instead of two individual ones
- - Replace stk3310_remove with devm callbacks
+ Documentation/devicetree/bindings/iio/light/stk33xx.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Major changes in v2:
- - Add handling of the IR LED. I was hesitant to include this as it is the
-   same as pull-up regulator for the i2c bus on the hardware I have, so I
-   can't test it well. I think leaving it out is more likely to cause
-   issues than including it.
- - Convert stk3310 to use dev_err_probe for errors.
- - Always enable / disable regulators and rely on dummy devices if they're
-   not specified.
- - more listed in individual patches
-
-Aren Moynihan (5):
-  dt-bindings: iio: light: stk33xx: add vdd and leda regulators
-  iio: light: stk3310: handle all remove logic with devm callbacks
-  iio: light: stk3310: Implement vdd and leda supplies
-  iio: light: stk3310: use dev_err_probe where possible
-  iio: light: stk3310: log error if reading the chip id fails
-
-Ondrej Jirman (1):
-  arm64: dts: allwinner: pinephone: Add power supplies to stk3311
-
- .../bindings/iio/light/stk33xx.yaml           |   4 +
- .../dts/allwinner/sun50i-a64-pinephone.dtsi   |   2 +
- drivers/iio/light/stk3310.c                   | 162 ++++++++++++------
- 3 files changed, 120 insertions(+), 48 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+index e4341fdced98..96ee8ec16463 100644
+--- a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
++++ b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+@@ -34,6 +34,8 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
++  vdd-supply: true
++  leda-supply: true
+   proximity-near-level: true
+ 
+ required:
+@@ -57,6 +59,8 @@ examples:
+                 proximity-near-level = <25>;
+                 interrupt-parent = <&gpio1>;
+                 interrupts = <5 IRQ_TYPE_LEVEL_LOW>;
++                vdd-supply = <&vdd_regulator>;
++                leda-supply = <&led_regulator>;
+         };
+     };
+ ...
 -- 
 2.47.0
 
