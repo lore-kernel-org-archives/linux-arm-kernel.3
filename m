@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FF6E67802
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 15:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6B1E67805
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 16:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RusafcclKl2RfSXhQjv0aPX9JFTNQs1CwGZazPC8Lz4=; b=015HI4xM6s69KdGpVRCWBc889w
-	sM+MsJPDjooH2XyrvVigrJ3/c355NXr/MqS/6t2LOdBasvpI2isQC6sc/J3gm+Z96nU+ERcotz8TF
-	KnUO+KGhBBRGYLeVC8gvSRx7Nt5fMsykJC68UGzIzYzceTSxir/gFOeuID/6Q4UlpfnpV2Ewkj7ez
-	SuD4pBmMo9KKGr47+bBh8sZ0NpKrXVFCw766h9lm16tlZ/+wndukFyi7pxgmYpIMgl1gMbmAxH7w3
-	5Bc+CxOyT7WIBLJzIqFE9dukm5wVLDe9aN62jruxrwQZRgNQLKXGhZzyCHWiyiU7DSgWPQaHPjrim
-	zie0veww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k39rYMoWjO6+nGMnJR7eYdIhWn0FMNGEl3Akb1BGe20=; b=3XkMMeyZo0OdzHgf716jfCYbOs
+	VBXlzzPTvNo9KyFDgqiJq3NppYImtUgG5egN+V0ERPaPmpnYF16vCb2+oUOiaPogeSi2IwPGWGL8Z
+	JY71/tMB+9UCSFzlE9Vv+vUgyjsndDi60Ndm/7f2qVRr0g5sZ4ouq1eF2BNz5pfCZszw5Wmc6l4+f
+	wOhRNzTgc/eXj7sX8iJhaYbvieBy09z9yIyHjkdaPf3t9QzoV0Wmfk9VOzFdbduNdvrSp/apkfv3s
+	C714Vb5aAy3IXyQDzXvu0U2rmXF7U/uundXnkMEDAhYyzv/C+SuVYOYRmuRBvdSxFlniXOW3Me807
+	vbSBR/yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7GBu-00000009xwQ-3N6Y;
-	Sat, 02 Nov 2024 15:37:30 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1t7H8L-0000000A2es-15N1;
+	Sat, 02 Nov 2024 16:37:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7GAF-00000009xoZ-136Y
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 15:35:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730561723; x=1731166523; i=wahrenst@gmx.net;
-	bh=RusafcclKl2RfSXhQjv0aPX9JFTNQs1CwGZazPC8Lz4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=C9sNYvq2xrGUC1XlLvQGMAcPyvEEUzBCByIebj0ukDQP2J2weoKYfCvrwSzNcN0D
-	 FJCvjVH53dIIc7N/99mn8ztCfLWi60LdB/xdx86WA8HzNuqhtWiRgPjvozAlTzQc3
-	 e0rDNliJV7mHGYg5qgOrl2KH3JwiE4Q039QYREaYe/WUVAOU6ccq72Jv7PuhUdQ00
-	 GuJkNszVLxhlw7DkkMX3lp8O5YSM7+7Mmkz79ZP/nMOWYBut1ARt/vOonkNM9RrSo
-	 +aQcuK72QI0ViU8Io8tt7jM40zlLxU8N5F9qpEwKarkr7nhNCxpW3nFozWwns6m8H
-	 EdHwesLv24E1t9DSew==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mk0NU-1ta2OB2djs-00gJvn; Sat, 02
- Nov 2024 16:35:23 +0100
-Message-ID: <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
-Date: Sat, 2 Nov 2024 16:35:19 +0100
+	id 1t7H6f-0000000A2Sw-2Olq;
+	Sat, 02 Nov 2024 16:36:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B9844A40E05;
+	Sat,  2 Nov 2024 16:34:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CFD1C4CEC3;
+	Sat,  2 Nov 2024 16:36:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730565367;
+	bh=efn4VpG7p6xFb/S4X3ANPIQCQKp6IXfEyCLH0VWZIIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KlpVtnzWd/zB5XmFf980RxtRY6lt695NC4d5DAQWzdJq8P9d/vTpUIa9uhRZxXlNg
+	 V1d2QzYc2hobwbFxK4fWDOeUmxR84BXOCx0bbPmSs0eqzXhWKKg5gbNDPcqLKd+ItV
+	 0pXNaQHtN/eHmbiDg0Z7SgO8wxZv7vCv329kh8IFtCEPWR/9ZVZ4PS1sF2pFzadm7O
+	 KR046MH/33qcHZt/KH+f3V2nu048roFu5R/+fD2mNhDgdzzAq87Tul2/R4s/yR1t+w
+	 9f2q8hLJXw4bMrhpexvm+tOdexgGWME42h9ZVxDY348o62nZnpHwJGFG+M9IE+WQFR
+	 2wSFp9BrXYOKQ==
+Date: Sat, 2 Nov 2024 09:36:05 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
+ arch algorithms
+Message-ID: <20241102163605.GA28213@sol.localdomain>
+References: <20241026040958.GA34351@sol.localdomain>
+ <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
+ <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
+ <ZyX8yEqnjXjJ5itO@gondor.apana.org.au>
+ <CAMj1kXHje-BwJVffAxN9G96Gy4Gom3Ca7dJ-_K7sgcrz7_k7Kw@mail.gmail.com>
+ <CAMj1kXG8Nqw_f8OsFTq_UKRbca6w58g4uyRAZXCoCr=OwC2sWA@mail.gmail.com>
+ <ZyYIO6RpjTFteaxH@gondor.apana.org.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
-To: Stefan Eichenberger <eichest@gmail.com>, Shawn Guo <shawnguo2@yeah.net>
-Cc: linux@armlinux.org.uk, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com,
- elinor.montmasson@savoirfairelinux.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- Stefan Eichenberger <stefan.eichenberger@toradex.com>
-References: <20241030122128.115000-1-eichest@gmail.com>
- <ZyXTFhEm9UCBii2c@dragon> <ZyY41nJY9ghwe-Y4@eichest-laptop>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <ZyY41nJY9ghwe-Y4@eichest-laptop>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:6Qb1kpG3hdxqRE5loRuAnM11ljAjYHICynec0g85WT++0Up49vf
- Sm++8OAke6qdyByODguM4Uj/mNR1qv/FlO9C/rwLM4ZkH5EJpefK+oDQwkQDEDwRz9feXUi
- uMlSPswKmvXPU6SjMbLZURoSW1u3v7zZnCCdgBsWEGYX0oIsvKbHz74hJ7Ybjz/XJzmrU8I
- R3K9TbgTxI4vOWg/D8iiQ==
-UI-OutboundReport: notjunk:1;M01:P0:Y/8Yk56S+Ro=;Lw3WHEGlPnaA5VXhUppkFZIUAeT
- M6Y8O48Wk8KftJnOWjKuOtnZWUH/3v3+W9NH4bRlEpZnfFwX+LbbrHfVuKjLK/xp8M3aeN1hx
- grtnYC3BOaphN6FRLDkKGgkuywaKMXJEOmZrfld+XnmnA17BGqDlHZcggxV1DDW2SS9lA/OPh
- QSDP5AxAvkMjl6PtBefW8+KJrfAlDuHtE22yaOE3Q5EIRZhAJKIzEZmimhi/UxtUVftcw6hxo
- svTAN90/miodusPK98g13FX91OFJLVUqM+8v1/rlW18OKqEb5sRPBSXipnjdtPtBu1yRR7FeZ
- PFk+l8RVpCsgXwBkXgGN+JGq2GehlnM5WgYxLDz1QsPLtLXHUgwCu+mB2E1Ot9/7PqXuYGGQ1
- 8G4a1KWFSehEUto9xafil78hJo/WKur6f60XsYm+2L/0WLi7p/zSeLIKm+QHoRBbRw00RKxpO
- TgeV7Ulx6b3VC72Nh0z7Xrmsa3bzVU89LhFQKIxA/XIG/rM0aGq0ih8OrCxjpQVb+RORs0Nrp
- hcURzc1JfMQ5+0VXjBbFWvgnCeiRmwYVH8Ae/LbexQ/dALlLaIAU4+f5EHu8ELIid+2ZPsFuO
- 5Z8CNtXXF2B8OekVgqsxWEXcOrpPmZjLYxcdXSpqXgA+sL+96M67rXqhc4FdrthxeZ6v8My8c
- SU2X9BiY8ysNXa+KoHMwccqnaQROqgCzu2hNZ9PMoWnBD8S6qriSrwjAUITpnvtRPCuriVkoX
- pJbFm6m/92q5qDzJ3mA9W5CqT/beB0h9ycwXp30IjRTVCllJkSzP0LwWvxh7pJdm/PH6+k33K
- jEuFTK+amGVlHTWjKQXz7nXQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ZyYIO6RpjTFteaxH@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_083547_606244_4FF3C3B6 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20241102_093609_770404_20EEF053 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,49 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+On Sat, Nov 02, 2024 at 07:08:43PM +0800, Herbert Xu wrote:
+> On Sat, Nov 02, 2024 at 12:05:01PM +0100, Ard Biesheuvel wrote:
+> >
+> > The only issue resulting from *not* taking this patch is that btrfs
+> > may misidentify the CRC32 implementation as being 'slow' and take an
+> > alternative code path, which does not necessarily result in worse
+> > performance.
+> 
+> If we were removing crc32* (or at least crc32*-arch) from the Crypto
+> API then these patches would be redundant.  But if we're keeping them
+> because btrfs uses them then we should definitely make crc32*-arch
+> do the right thing.  IOW they should not be registered if they're
+> the same as crc32*-generic.
+> 
+> Thanks,
 
-Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
-> Hi Shawn,
->
-> On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
->> On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
->>> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
->>>
->>> Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. Th=
-is
->>> change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif sou=
-nd
->>> card node properties") which moves away from the old "spdif-controller=
-"
->>> property to the new "audio-codec" property.
->>>
->>> Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node pro=
-perties")
->> It doesn't look a fix to me.
-> I agree somehow, it was just that before the referenced commit our test
-> succeeds with the imx_v6_v7_defconfig and after that we get the
-> following error:
-> [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-ca=
-rd: snd_soc_register_card failed
-this error should have been in the commit message including the
-information which platform/board is affected.
+I would like to eventually remove crc32 and crc32c from the crypto API, but it
+will take some time to get all the users converted.  If there are AF_ALG users
+it could even be impossible, though the usual culprit, iwd, doesn't appear to
+use any CRCs, so hopefully we are fine there.
 
-> So maybe it is not a fix in the sense of a bug, but it fixes the error
-> message. However, I'm also fine with removing the Fixes tag.
-But this patch doesn't look like the real approach.
+I will plan to keep this patch, but change it to use a crc32_optimizations()
+function instead which was Ard's first suggestion.
 
-Could you please clarify the impact of the regression?
+I don't think Ard's static_call suggestion would work as-is, since considering
+the following:
 
-Is it just this error message and audio works fine or is audio also broken=
-?
+    static inline u32 __pure crc32_le(u32 crc, const u8 *p, size_t len)
+    {
+            if (IS_ENABLED(CONFIG_CRC32_ARCH))
+                    return static_call(crc32_le_arch)(crc, p, len);
+            return crc32_le_base(crc, p, len);
+    }
 
-Regards
->
-> Regards,
-> Stefan
->
->
->
+... the 'static_call(crc32_le_arch)(crc, p, len)' will be inlined into every
+user, which could be a loadable module which gets loaded after crc32-${arch}.ko.
+And AFAIK, static calls in that module won't be updated in that case.
 
+That could be avoided by making crc32_le() a non-inline function in lib/crc32.c,
+so the static call would only be in that one place.  That has the slight
+disadvantage that it would introduce an extra jump into the common case where
+the optimized function is enabled.  Considering that some users are passing
+small amounts of data into the CRC functions (e.g., 4 bytes), I would like to
+minimize the overhead as much as possible.
+
+It could also be avoided by making CRC32 and CRC32_ARCH bool rather than
+tristate.  I would prefer not to do that, since there can be situations where
+only loadable modules need these functions so they should not have to be built
+into the core kernel.
+
+So I plan to go with the crc32_optimizations() solution in v3.
+
+- Eric
 
