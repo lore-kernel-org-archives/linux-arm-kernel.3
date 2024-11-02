@@ -4,82 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66635E67807
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 16:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE448E67805
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 17:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MgDc+4RKY2xvcW0WbGDQ2dsnT9EDWAKtW3JAXLHOmds=; b=h66Mc7A0ROw14otagJAcCb/mgo
-	jNuh5q901+TrHnpdKUnbv0s6I/iEF6aiScaHcCqbmJ7XYAivUPUovFBx5mwMIjIRMEqKmJPzBfoGz
-	YF6VevI3DpdHnDjOiY9/XFGY+AywXXCscDKNz55e8fYI/HI2Zg2ci6GqRb9beuFwbDqC/hb4KXaMo
-	phcr7aH4DMggvhRDkW5XAHXB/SXrwFrkGuXVzrm6udv8axWLbDV43j1ez2PY7VPYLEzdNQH/HHnyd
-	Ps6iXcudqQB8h/xw5uOlpqcHjsdR/6wCibRTDQ/7I/407sYov9y6gy5sGktgmcNT5Mnjc9tb8O9dA
-	swslrIFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=niemCpBaWtNTD33HK4hY7EmVvjCf6wQeZoDXMitV7Gw=; b=EAn+PhUGLvwl0tuPJi2nwZyKzf
+	X3fjE+uq0yFBocmzhnhDsyUtyd4oeZvkf6EtwgRRP/rT/K1yCaSIjBoID/NmHAaU97jw6VnrDhoi8
+	wlZBKtA3ZPtpVu+WI3AVUSvP9sr40KqsnIE0KL+wC3g+2vqZGfy2bs4IrNz/g5/TTTVPXwjZhEe0Z
+	QI5VfrZpPiFt4+p1hKRPGy6Qzm9GMboWae+v0XXx4C1p3iyS6yWsl10U1vB7WpxKBk6BeDVenQMIs
+	McJ7QCmpxFUmiGH0mwnDwPPUSaC1zDIbYEKZpJ2f8tCT5NSnhPDgt5nxgKYoOtB8C4yehGEN1Nx9q
+	KjbG7bwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7HOu-0000000A4HN-14cs;
-	Sat, 02 Nov 2024 16:55:00 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1t7HeZ-0000000A5Wv-37bB;
+	Sat, 02 Nov 2024 17:11:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7HND-0000000A41x-3NHJ
+	id 1t7Hcu-0000000A5LJ-3uNl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 02 Nov 2024 17:09:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=niemCpBaWtNTD33HK4hY7EmVvjCf6wQeZoDXMitV7Gw=; b=iSoNH2Ss40efHMNUsUGNEEfFDo
+	Ap+FvLVe4VvLZv7dpA/BTxwzIaZDhDNu1HFpGTig1VGyLJrM/BZ4SoAF71uiQcPwxDQm1btH/4UIo
+	Zh/xq7SlKyXVI1iXFsKJBWghfpEJI+MFNgshfkA3bKfn65a1KRCXW8YMUTkP48BWEcOos9z044Wta
+	H8PapqY3dBTo9dmP23bDlhDFFMXib0IW47oWkJoF5vsyEZiCKeZeddeP7KF1sWwuTXsgDYKmrUw0b
+	sBEbPOGX2U1UfeUNdXIdFBF5lGHhtKBiiXyoOui/U2ibzZXHHVnD0XJD8gOI52O/H6GpvQqzdRaeS
+	gTgHTKBA==;
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7Hcr-0000000Aygz-0MCs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 16:53:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730566386; x=1731171186; i=wahrenst@gmx.net;
-	bh=MgDc+4RKY2xvcW0WbGDQ2dsnT9EDWAKtW3JAXLHOmds=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=syob1nQCX88zf2Gn8rKCgO9up0m1epSns2dVoyO4n0KfQrQEgDoScMwcSjeahWTu
-	 7Uj/1WFSkz36xdJi2lEWq91CAC+kn3V4zTIvjR3/2ElxPx+DY9WKh6zST+OcH5SPY
-	 m+OBbpNGcQeV0TYwND6ExmOYG9D7eL0Hdq+ULwNKnR7rVxFhs0+YdGbzz4GcN9GvD
-	 fBx4tM32Rv+HIA1/YSHvraWbRT0zW6845bq4hMCNLoENhhNwkwLPrEt0UIpcXRyLi
-	 yqCElWjQnqJcTsXAHSNd8/1Gz8vE5s74pJn+vDABvgemFlwNVXJS6MTksvaobfQcH
-	 LiHLQI0apDTIQLrI2Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mv31c-1ty8yP392u-014Qls; Sat, 02
- Nov 2024 17:53:05 +0100
-Message-ID: <dcd660fd-a265-4f47-8696-776a85e097a0@gmx.net>
-Date: Sat, 2 Nov 2024 17:53:04 +0100
+	Sat, 02 Nov 2024 17:09:27 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7e6cbf6cd1dso2074954a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 10:09:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730567361; x=1731172161; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=niemCpBaWtNTD33HK4hY7EmVvjCf6wQeZoDXMitV7Gw=;
+        b=fwc/6LjUjxsLppHZS0Fo/i4vir29uoqXHYxzWzXB4P5qX3JJs2rwHH3gzehdydfnLv
+         i+X19QNhn1wvYWjAVPgknvjCzl0L8zQ4iQMmYjqP1xzMcWhQtqjvR0xdw6hI/uSt2UwN
+         pwvbTnI1Wp3nSoAPlYCVD5KVB0loX/tViw6WRiAV1I8dhVClMKC/MBXVqcPwpa1gI15X
+         ZeAnEMbwvPPbt18E1T5IxFmoDZBjIzI0+jsz/voOksw1FJJtboV1NOqfNKwHvus++Y3M
+         lg4TIWkQZNL7iom+OSC+CS/yUWy19uA9CYZPnzvxGrsh6rsXhNysUJerGoMACKqbN3hS
+         E8iA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730567361; x=1731172161;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=niemCpBaWtNTD33HK4hY7EmVvjCf6wQeZoDXMitV7Gw=;
+        b=TNuoy3n3ps4Eci6DxOcJdhiF92Ph+XaiW5p8W6ILcWck1ofxD5wsOT41XMH2/auuJR
+         TPQQv/BQj5rohB+/YvnPq5kYQt+emJfC6fDV0mcdHQoZ0cNh2IMeUXLfp1LgIUw6P6R8
+         qZeKJROJ+9kR0ljxiZNuEcTHFd+p0Glq1HhKUwR9QT7H5Ha0a3Shid4rQ3n2/0UJJ713
+         +8o8JZpx94NQKL7WWyt2UvDHpam40u02JRLP3p4d/UTMwZpFxVI+JesqmzN5WEnm2pH+
+         WxjZyZcE9ryO4O3o1rjpnzzebcCTssw3vHNgMEElPnjioh3Rff3LwyWwThTf9mNlcSFs
+         C1ww==
+X-Forwarded-Encrypted: i=1; AJvYcCWGjHvRb2CCFVZrdNGEYa9ciJch4eqHNihm4TwWeAW6B5ZvfbVMaUmCNRNDytv3idqAhCIzJPNd23nLoSsG7cl0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOOifVsU0SD6XvtivZbfLXyrEBpVsFt4h66ozit5oVNWZO78M7
+	Mdnt//XPxJQrnZPcMh8Zark82qq2SY4LDjYo/FF4SPpU2OpcgQfbS4nCjld8cQ==
+X-Google-Smtp-Source: AGHT+IE57YiawuzlnoPc/P8d7TUPT1NkGH0WXOgqoMFowdmCtN7jxWsbHJCr+a/Z5Z8OOuUwKEUShw==
+X-Received: by 2002:a17:902:e810:b0:210:e8b7:58c5 with SMTP id d9443c01a7336-210f76ff16fmr219810025ad.56.1730567361173;
+        Sat, 02 Nov 2024 10:09:21 -0700 (PDT)
+Received: from thinkpad ([220.158.156.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056ed8efsm35882265ad.55.2024.11.02.10.09.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Nov 2024 10:09:20 -0700 (PDT)
+Date: Sat, 2 Nov 2024 22:39:08 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
+ address to dynamic bridge nodes
+Message-ID: <20241102170908.fa5n6pz5ldxb66zk@thinkpad>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+ <f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
- Jim Quinlan <jim2101024@gmail.com>, Lukas Wunner <lukas@wunner.de>,
- linux-pci <linux-pci@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, kernel-list@raspberrypi.com
-From: Stefan Wahren <wahrenst@gmx.net>
-Subject: pcie_bwctrl fails to probe on Rpi 4 (linux-next-20241101)
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Um/oWJLBebFe/k7pMcRumtOLH+wxRFMab0wEOJT1mBJf1UrRCkS
- Curs1cFiA8IFerU6XBmFxRCRIR5nlfo7o/iD+rCFXY58dGEFybUN4NjWft+YYkmKGjyvFYm
- OfvkGao/Y2qOAcu46SBssH6u923a4hO9W+bqIGsM1Z3dPToLvrOxGhgFKg8vHUKBSAp9yHd
- lljm4zvFlhEdpn0LlWV8A==
-UI-OutboundReport: notjunk:1;M01:P0:s5AIksf9fKo=;7fd/H3NLb69QkzxqFO+TWUEjJLN
- TA/APhNIJ203Fl4dZpDwpx/5zc0ZFqTrYDs/RTVS8BIuAQPOrbYd9ZfTdjTGruRrK1Wii0ddm
- 4w5JI88WnnGXpN18ftJazb08xqCxgyajBWVpmgzGSi4njyh6h6eqewMd5nN4fGZLNRugFyvUs
- g20UlM+G4qjeOhzR7vsICScDYvHahpM2FnpJgrm8iFblwNwOUJlM+EG4xL/nix8js3QldlI8h
- RQBWCSqs/jV8cGS6rLFPLGYVlJ2fKYhkEGjYnXg8bTgSwChfgwt9GVMcK5k1M67LJR8tsOt9U
- Tj1MOgvGYKPnYFc23QJ6DydM41kg3v54vQnI7go4qV5ErbpYltTzWfaknZtmVE66OXjv4CepM
- 8JE2mvl+e7rpflAb8mnUHC1A07JY0jf9AB5OMVNhQK/lbEOtLT7bCceq08lhxPV2SQH0YaU0x
- dRpZxADKa83iz43b2/WU3DCUNncBHoGigWKXlh9FAQAuxx8yniDbKvtIRY2uuf3Z8OEcyr+98
- AxBILtuU3EwQi74NZCPFvnHlRO27ed88OTC198H0xMz8X9ML2v4s/KMhaBSdtlop0rtJ6eXpC
- 4YU4yTgitR0EDDf5sufnyPszK1JjZz5JNtDKOHzR/cD6JGD1wqai9LOjIyxkBKSq33+eMy4Vy
- 6LnWebEnqYUHT5kWiKorQOskyaRfB0DpPzBB7XwscN3WvPXS5aMg6+n7OB4lq9DmeW+2yhBKk
- jOvzfTkBwZR8B+rux1HjU53LCpZD76AwnJN+qJEwd4BY+Nrd7FQIK2wIzP/6wMOb+AxiAr9F1
- g8Dc19Zue/8XqF0br5QFp50g==
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_095316_165453_9061CFED 
-X-CRM114-Status: UNSURE (   5.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241102_170925_465870_41C70EF2 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +134,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-I tested linux-next-20241101 with the Raspberry Pi 4 (8 GB RAM,
-arm64/defconfig) and during boot the driver pcie_bwctrl fails to probe.
-Since this driver is very new, I assume this never worked before:
+On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
+> When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
+> incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
+> bridge, the window should instead be in PCI address space. Call
+> pci_bus_address() on the resource in order to obtain the PCI bus
+> address.
+> 
 
-[=C2=A0=C2=A0=C2=A0 6.843802] brcm-pcie fd500000.pcie: host bridge /scb/pc=
-ie@7d500000
-ranges:
-[=C2=A0=C2=A0=C2=A0 6.843851] brcm-pcie fd500000.pcie:=C2=A0=C2=A0 No bus =
-range found for
-/scb/pcie@7d500000, using [bus 00-ff]
-[=C2=A0=C2=A0=C2=A0 6.843900] brcm-pcie fd500000.pcie:=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 MEM
-0x0600000000..0x0603ffffff -> 0x00f8000000
-[=C2=A0=C2=A0=C2=A0 6.843940] brcm-pcie fd500000.pcie:=C2=A0=C2=A0 IB MEM
-0x0000000000..0x00bfffffff -> 0x0400000000
-[=C2=A0=C2=A0=C2=A0 6.859915] vchiq: module is from the staging directory,=
- the quality
-is unknown, you have been warned.
-[=C2=A0=C2=A0=C2=A0 6.885670] brcm-pcie fd500000.pcie: PCI host bridge to =
-bus 0000:00
-[=C2=A0=C2=A0=C2=A0 6.885704] pci_bus 0000:00: root bus resource [bus 00-f=
-f]
-[=C2=A0=C2=A0=C2=A0 6.885725] pci_bus 0000:00: root bus resource [mem
-0x600000000-0x603ffffff] (bus address [0xf8000000-0xfbffffff])
-[=C2=A0=C2=A0=C2=A0 6.885823] pci 0000:00:00.0: [14e4:2711] type 01 class =
-0x060400 PCIe
-Root Port
-[=C2=A0=C2=A0=C2=A0 6.885858] pci 0000:00:00.0: PCI bridge to [bus 01]
-[=C2=A0=C2=A0=C2=A0 6.885876] pci 0000:00:00.0:=C2=A0=C2=A0 bridge window =
-[mem
-0x600000000-0x6000fffff]
-[=C2=A0=C2=A0=C2=A0 6.885954] pci 0000:00:00.0: PME# supported from D0 D3h=
-ot
-[=C2=A0=C2=A0=C2=A0 6.909911] pci_bus 0000:01: supply vpcie3v3 not found, =
-using dummy
-regulator
-[=C2=A0=C2=A0=C2=A0 6.910159] pci_bus 0000:01: supply vpcie3v3aux not foun=
-d, using
-dummy regulator
-[=C2=A0=C2=A0=C2=A0 6.910251] pci_bus 0000:01: supply vpcie12v not found, =
-using dummy
-regulator
-[=C2=A0=C2=A0=C2=A0 6.922254] mmc1: new high speed SDIO card at address 00=
-01
-[=C2=A0=C2=A0=C2=A0 7.013175] brcm-pcie fd500000.pcie: clkreq-mode set to =
-default
-[=C2=A0=C2=A0=C2=A0 7.015309] brcm-pcie fd500000.pcie: link up, 5.0 GT/s P=
-CIe x1 (SSC)
-[=C2=A0=C2=A0=C2=A0 7.015526] pci 0000:01:00.0: [1106:3483] type 00 class =
-0x0c0330 PCIe
-Endpoint
-[=C2=A0=C2=A0=C2=A0 7.015626] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00=
-000fff 64bit]
-[=C2=A0=C2=A0=C2=A0 7.015954] pci 0000:01:00.0: PME# supported from D0 D3h=
-ot
-[=C2=A0=C2=A0=C2=A0 7.062153] pci 0000:00:00.0: bridge window [mem
-0x600000000-0x6000fffff]: assigned
-[=C2=A0=C2=A0=C2=A0 7.062191] pci 0000:01:00.0: BAR 0 [mem 0x600000000-0x6=
-00000fff
-64bit]: assigned
-[=C2=A0=C2=A0=C2=A0 7.062221] pci 0000:00:00.0: PCI bridge to [bus 01]
-[=C2=A0=C2=A0=C2=A0 7.062237] pci 0000:00:00.0:=C2=A0=C2=A0 bridge window =
-[mem
-0x600000000-0x6000fffff]
-[=C2=A0=C2=A0=C2=A0 7.062255] pci_bus 0000:00: resource 4 [mem 0x600000000=
--0x603ffffff]
-[=C2=A0=C2=A0=C2=A0 7.062269] pci_bus 0000:01: resource 1 [mem 0x600000000=
--0x6000fffff]
-[=C2=A0=C2=A0=C2=A0 7.062590] pcieport 0000:00:00.0: enabling device (0000=
- -> 0002)
-[=C2=A0=C2=A0=C2=A0 7.062812] pcieport 0000:00:00.0: PME: Signaling with I=
-RQ 39
-[=C2=A0=C2=A0=C2=A0 7.072890] pcieport 0000:00:00.0: AER: enabled with IRQ=
- 39
-[=C2=A0=C2=A0=C2=A0 7.091767] v3d fec00000.gpu: [drm] Using Transparent Hu=
-gepages
-[=C2=A0=C2=A0=C2=A0 7.124274] genirq: Flags mismatch irq 39. 00002084 (PCI=
-e bwctrl) vs.
-00200084 (PCIe PME)
-[=C2=A0=C2=A0=C2=A0 7.124391] pcie_bwctrl 0000:00:00.0:pcie010: probe with=
- driver
-pcie_bwctrl failed with error -16
+of_pci_prop_ranges() could be called for PCI devices also (not just PCI
+bridges), right?
+
+- Mani
+
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  drivers/pci/of_property.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
+> index 5a0b98e69795..886c236e5de6 100644
+> --- a/drivers/pci/of_property.c
+> +++ b/drivers/pci/of_property.c
+> @@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
+>  		if (of_pci_get_addr_flags(&res[j], &flags))
+>  			continue;
+>  
+> -		val64 = res[j].start;
+> +		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
+>  		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
+>  				   false);
+>  		if (pci_is_bridge(pdev)) {
+> -- 
+> 2.35.3
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
