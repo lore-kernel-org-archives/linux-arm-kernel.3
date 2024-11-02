@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08888E67807
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 16:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66635E67807
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 16:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E38ED0bvZ8ViDN76LuuGorJVL00ITAOwya5y2WsL3AA=; b=if8Si+InTeHJEFxzfQt5p8XoED
-	yxut065yZsambpVHdD6uhkhpp7LpZ4P8uMxmwlHqcpl3WhD2W6I6wTSD3X3kDDCgDy+JtDB4r+Zrq
-	N6N3C+oUMqf5xqsl4Qw10ERrld2Dj5YFx6L3XhznjSLXqrDZWaL0pUfzyWQFZ9izgi2CEbxAl7spU
-	ddFbVjVZqXAn4ChegVHFT4FYcFYBt81zmQrAGmON3/19HIuaFeIos5xJledJ7iYuX7oLXEf7VMEac
-	z0d8ZuKC3CSC9VDTyl7sG0+pk5tt1t9u3gvhTAOrUHUWLXQvha6F0JHKmrGtg7kuQsNv6PKhGzCjp
-	6UZDoNqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MgDc+4RKY2xvcW0WbGDQ2dsnT9EDWAKtW3JAXLHOmds=; b=h66Mc7A0ROw14otagJAcCb/mgo
+	jNuh5q901+TrHnpdKUnbv0s6I/iEF6aiScaHcCqbmJ7XYAivUPUovFBx5mwMIjIRMEqKmJPzBfoGz
+	YF6VevI3DpdHnDjOiY9/XFGY+AywXXCscDKNz55e8fYI/HI2Zg2ci6GqRb9beuFwbDqC/hb4KXaMo
+	phcr7aH4DMggvhRDkW5XAHXB/SXrwFrkGuXVzrm6udv8axWLbDV43j1ez2PY7VPYLEzdNQH/HHnyd
+	Ps6iXcudqQB8h/xw5uOlpqcHjsdR/6wCibRTDQ/7I/407sYov9y6gy5sGktgmcNT5Mnjc9tb8O9dA
+	swslrIFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7HIf-0000000A3ZB-3m65;
-	Sat, 02 Nov 2024 16:48:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t7HOu-0000000A4HN-14cs;
+	Sat, 02 Nov 2024 16:55:00 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7HGz-0000000A3NN-1xmP;
-	Sat, 02 Nov 2024 16:46:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 330E6A40E15;
-	Sat,  2 Nov 2024 16:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47800C4CED3;
-	Sat,  2 Nov 2024 16:46:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730566008;
-	bh=GxoXhXGyHNH8GVqUExL8Ti1VvRWiwrpIEQI7tN7LYew=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NJ+1XHVrktQ9WGmo2EqP6wMVn/OEt/Sv2350oNUT4r8GsAp9SYm0VRx1/D+bpxg8g
-	 AhMeZGuz9tEsHn97hHwlwmvLVZz1BdRK3HPFE5YqLcs8A8XoDyXbcjgPGJYTBYv2lw
-	 e7zJmHAonSkqpKaKaw6UnNUCHZimTZLKO1FLqORq1mUqGyfy2E7ES/38e2axn3jHVc
-	 vyfrkc6wWAWUTuzFcDsIW2fxGUusCopNRtdPosLD46rmwBPJUZoGz8kFjaYjXuuFth
-	 EueP60OBXtYFWJvxL+0V8IT2yf0FfbKIXjL0+19V3Zm0XEOHjVKdBVOhl1og12Usc6
-	 DBoCweRx5bdQg==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2fb3ce15172so38125041fa.0;
-        Sat, 02 Nov 2024 09:46:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX/vJtMoaP/dA2DRTpQ7tfQhY4Hvemh6+GW37YCrWsVL7ISqUT3QSUgngnVDip94mJNehahVpuwz01sdi8=@lists.infradead.org, AJvYcCXcwIj6xHCOuJI0gcHYEEEpOOdN+zwWVIZFCHshc/dTfS1UyAH5zm1JydFrVvsrzlSFQuI/o6tL21pEn0ktyU0g@lists.infradead.org
-X-Gm-Message-State: AOJu0YzormiN1eBq80jl2xzVtnlxHP4wmzugszuLQrIOsqx2D9Czj5Cx
-	WnZmQTWBtO2Wzn1W7zCDgpfRNTYyVWqfmfhmaGx3wxyhVEFeuhxwqBkG4pEUjth0X+bCmWn1is4
-	t7HskhuW83Qr/QbUXhAuRx7EI/mk=
-X-Google-Smtp-Source: AGHT+IF1qWuAPM7OXxHa9PDtIx4xdAi/SPdwq1d4i906hC2y1gUwoZbqVs2/tV8+cHeYBRRGdC2ase7pF6ri9+FpJxc=
-X-Received: by 2002:a2e:bd87:0:b0:2f9:e1ce:1276 with SMTP id
- 38308e7fff4ca-2fedb414a6amr24137441fa.11.1730566006632; Sat, 02 Nov 2024
- 09:46:46 -0700 (PDT)
+	id 1t7HND-0000000A41x-3NHJ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 02 Nov 2024 16:53:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730566386; x=1731171186; i=wahrenst@gmx.net;
+	bh=MgDc+4RKY2xvcW0WbGDQ2dsnT9EDWAKtW3JAXLHOmds=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=syob1nQCX88zf2Gn8rKCgO9up0m1epSns2dVoyO4n0KfQrQEgDoScMwcSjeahWTu
+	 7Uj/1WFSkz36xdJi2lEWq91CAC+kn3V4zTIvjR3/2ElxPx+DY9WKh6zST+OcH5SPY
+	 m+OBbpNGcQeV0TYwND6ExmOYG9D7eL0Hdq+ULwNKnR7rVxFhs0+YdGbzz4GcN9GvD
+	 fBx4tM32Rv+HIA1/YSHvraWbRT0zW6845bq4hMCNLoENhhNwkwLPrEt0UIpcXRyLi
+	 yqCElWjQnqJcTsXAHSNd8/1Gz8vE5s74pJn+vDABvgemFlwNVXJS6MTksvaobfQcH
+	 LiHLQI0apDTIQLrI2Q==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mv31c-1ty8yP392u-014Qls; Sat, 02
+ Nov 2024 17:53:05 +0100
+Message-ID: <dcd660fd-a265-4f47-8696-776a85e097a0@gmx.net>
+Date: Sat, 2 Nov 2024 17:53:04 +0100
 MIME-Version: 1.0
-References: <20241026040958.GA34351@sol.localdomain> <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
- <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
- <ZyX8yEqnjXjJ5itO@gondor.apana.org.au> <CAMj1kXHje-BwJVffAxN9G96Gy4Gom3Ca7dJ-_K7sgcrz7_k7Kw@mail.gmail.com>
- <CAMj1kXG8Nqw_f8OsFTq_UKRbca6w58g4uyRAZXCoCr=OwC2sWA@mail.gmail.com>
- <ZyYIO6RpjTFteaxH@gondor.apana.org.au> <20241102163605.GA28213@sol.localdomain>
-In-Reply-To: <20241102163605.GA28213@sol.localdomain>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 2 Nov 2024 17:46:34 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEQHiqkO7j1W55UHGg-LNF2CNiPnpHcKfCdKnxFQSJ14g@mail.gmail.com>
-Message-ID: <CAMj1kXEQHiqkO7j1W55UHGg-LNF2CNiPnpHcKfCdKnxFQSJ14g@mail.gmail.com>
-Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
- arch algorithms
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org, 
-	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Bjorn Helgaas <bhelgaas@google.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jim Quinlan <jim2101024@gmail.com>, Lukas Wunner <lukas@wunner.de>,
+ linux-pci <linux-pci@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, kernel-list@raspberrypi.com
+From: Stefan Wahren <wahrenst@gmx.net>
+Subject: pcie_bwctrl fails to probe on Rpi 4 (linux-next-20241101)
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Um/oWJLBebFe/k7pMcRumtOLH+wxRFMab0wEOJT1mBJf1UrRCkS
+ Curs1cFiA8IFerU6XBmFxRCRIR5nlfo7o/iD+rCFXY58dGEFybUN4NjWft+YYkmKGjyvFYm
+ OfvkGao/Y2qOAcu46SBssH6u923a4hO9W+bqIGsM1Z3dPToLvrOxGhgFKg8vHUKBSAp9yHd
+ lljm4zvFlhEdpn0LlWV8A==
+UI-OutboundReport: notjunk:1;M01:P0:s5AIksf9fKo=;7fd/H3NLb69QkzxqFO+TWUEjJLN
+ TA/APhNIJ203Fl4dZpDwpx/5zc0ZFqTrYDs/RTVS8BIuAQPOrbYd9ZfTdjTGruRrK1Wii0ddm
+ 4w5JI88WnnGXpN18ftJazb08xqCxgyajBWVpmgzGSi4njyh6h6eqewMd5nN4fGZLNRugFyvUs
+ g20UlM+G4qjeOhzR7vsICScDYvHahpM2FnpJgrm8iFblwNwOUJlM+EG4xL/nix8js3QldlI8h
+ RQBWCSqs/jV8cGS6rLFPLGYVlJ2fKYhkEGjYnXg8bTgSwChfgwt9GVMcK5k1M67LJR8tsOt9U
+ Tj1MOgvGYKPnYFc23QJ6DydM41kg3v54vQnI7go4qV5ErbpYltTzWfaknZtmVE66OXjv4CepM
+ 8JE2mvl+e7rpflAb8mnUHC1A07JY0jf9AB5OMVNhQK/lbEOtLT7bCceq08lhxPV2SQH0YaU0x
+ dRpZxADKa83iz43b2/WU3DCUNncBHoGigWKXlh9FAQAuxx8yniDbKvtIRY2uuf3Z8OEcyr+98
+ AxBILtuU3EwQi74NZCPFvnHlRO27ed88OTC198H0xMz8X9ML2v4s/KMhaBSdtlop0rtJ6eXpC
+ 4YU4yTgitR0EDDf5sufnyPszK1JjZz5JNtDKOHzR/cD6JGD1wqai9LOjIyxkBKSq33+eMy4Vy
+ 6LnWebEnqYUHT5kWiKorQOskyaRfB0DpPzBB7XwscN3WvPXS5aMg6+n7OB4lq9DmeW+2yhBKk
+ jOvzfTkBwZR8B+rux1HjU53LCpZD76AwnJN+qJEwd4BY+Nrd7FQIK2wIzP/6wMOb+AxiAr9F1
+ g8Dc19Zue/8XqF0br5QFp50g==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_094649_646410_D9B4A228 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20241102_095316_165453_9061CFED 
+X-CRM114-Status: UNSURE (   5.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,59 +94,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2 Nov 2024 at 17:36, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Sat, Nov 02, 2024 at 07:08:43PM +0800, Herbert Xu wrote:
-> > On Sat, Nov 02, 2024 at 12:05:01PM +0100, Ard Biesheuvel wrote:
-> > >
-> > > The only issue resulting from *not* taking this patch is that btrfs
-> > > may misidentify the CRC32 implementation as being 'slow' and take an
-> > > alternative code path, which does not necessarily result in worse
-> > > performance.
-> >
-> > If we were removing crc32* (or at least crc32*-arch) from the Crypto
-> > API then these patches would be redundant.  But if we're keeping them
-> > because btrfs uses them then we should definitely make crc32*-arch
-> > do the right thing.  IOW they should not be registered if they're
-> > the same as crc32*-generic.
-> >
-> > Thanks,
->
-> I would like to eventually remove crc32 and crc32c from the crypto API, but it
-> will take some time to get all the users converted.  If there are AF_ALG users
-> it could even be impossible, though the usual culprit, iwd, doesn't appear to
-> use any CRCs, so hopefully we are fine there.
->
-> I will plan to keep this patch, but change it to use a crc32_optimizations()
-> function instead which was Ard's first suggestion.
->
-> I don't think Ard's static_call suggestion would work as-is, since considering
-> the following:
->
->     static inline u32 __pure crc32_le(u32 crc, const u8 *p, size_t len)
->     {
->             if (IS_ENABLED(CONFIG_CRC32_ARCH))
->                     return static_call(crc32_le_arch)(crc, p, len);
->             return crc32_le_base(crc, p, len);
->     }
->
-> ... the 'static_call(crc32_le_arch)(crc, p, len)' will be inlined into every
-> user, which could be a loadable module which gets loaded after crc32-${arch}.ko.
-> And AFAIK, static calls in that module won't be updated in that case.
->
+Hi,
+I tested linux-next-20241101 with the Raspberry Pi 4 (8 GB RAM,
+arm64/defconfig) and during boot the driver pcie_bwctrl fails to probe.
+Since this driver is very new, I assume this never worked before:
 
-Any call to static_call_update() will update all existing users, so
-this should work as expected.
-
-(Only x86 has a non-trivial implementation that patches callers inline
-- otherwise, it is either an indirect call involving a global function
-pointer variable, or a single trampoline that gets patched to point
-somewhere else)
-
-...
->
-> So I plan to go with the crc32_optimizations() solution in v3.
->
-
-That is also fine with me.
+[=C2=A0=C2=A0=C2=A0 6.843802] brcm-pcie fd500000.pcie: host bridge /scb/pc=
+ie@7d500000
+ranges:
+[=C2=A0=C2=A0=C2=A0 6.843851] brcm-pcie fd500000.pcie:=C2=A0=C2=A0 No bus =
+range found for
+/scb/pcie@7d500000, using [bus 00-ff]
+[=C2=A0=C2=A0=C2=A0 6.843900] brcm-pcie fd500000.pcie:=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 MEM
+0x0600000000..0x0603ffffff -> 0x00f8000000
+[=C2=A0=C2=A0=C2=A0 6.843940] brcm-pcie fd500000.pcie:=C2=A0=C2=A0 IB MEM
+0x0000000000..0x00bfffffff -> 0x0400000000
+[=C2=A0=C2=A0=C2=A0 6.859915] vchiq: module is from the staging directory,=
+ the quality
+is unknown, you have been warned.
+[=C2=A0=C2=A0=C2=A0 6.885670] brcm-pcie fd500000.pcie: PCI host bridge to =
+bus 0000:00
+[=C2=A0=C2=A0=C2=A0 6.885704] pci_bus 0000:00: root bus resource [bus 00-f=
+f]
+[=C2=A0=C2=A0=C2=A0 6.885725] pci_bus 0000:00: root bus resource [mem
+0x600000000-0x603ffffff] (bus address [0xf8000000-0xfbffffff])
+[=C2=A0=C2=A0=C2=A0 6.885823] pci 0000:00:00.0: [14e4:2711] type 01 class =
+0x060400 PCIe
+Root Port
+[=C2=A0=C2=A0=C2=A0 6.885858] pci 0000:00:00.0: PCI bridge to [bus 01]
+[=C2=A0=C2=A0=C2=A0 6.885876] pci 0000:00:00.0:=C2=A0=C2=A0 bridge window =
+[mem
+0x600000000-0x6000fffff]
+[=C2=A0=C2=A0=C2=A0 6.885954] pci 0000:00:00.0: PME# supported from D0 D3h=
+ot
+[=C2=A0=C2=A0=C2=A0 6.909911] pci_bus 0000:01: supply vpcie3v3 not found, =
+using dummy
+regulator
+[=C2=A0=C2=A0=C2=A0 6.910159] pci_bus 0000:01: supply vpcie3v3aux not foun=
+d, using
+dummy regulator
+[=C2=A0=C2=A0=C2=A0 6.910251] pci_bus 0000:01: supply vpcie12v not found, =
+using dummy
+regulator
+[=C2=A0=C2=A0=C2=A0 6.922254] mmc1: new high speed SDIO card at address 00=
+01
+[=C2=A0=C2=A0=C2=A0 7.013175] brcm-pcie fd500000.pcie: clkreq-mode set to =
+default
+[=C2=A0=C2=A0=C2=A0 7.015309] brcm-pcie fd500000.pcie: link up, 5.0 GT/s P=
+CIe x1 (SSC)
+[=C2=A0=C2=A0=C2=A0 7.015526] pci 0000:01:00.0: [1106:3483] type 00 class =
+0x0c0330 PCIe
+Endpoint
+[=C2=A0=C2=A0=C2=A0 7.015626] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00=
+000fff 64bit]
+[=C2=A0=C2=A0=C2=A0 7.015954] pci 0000:01:00.0: PME# supported from D0 D3h=
+ot
+[=C2=A0=C2=A0=C2=A0 7.062153] pci 0000:00:00.0: bridge window [mem
+0x600000000-0x6000fffff]: assigned
+[=C2=A0=C2=A0=C2=A0 7.062191] pci 0000:01:00.0: BAR 0 [mem 0x600000000-0x6=
+00000fff
+64bit]: assigned
+[=C2=A0=C2=A0=C2=A0 7.062221] pci 0000:00:00.0: PCI bridge to [bus 01]
+[=C2=A0=C2=A0=C2=A0 7.062237] pci 0000:00:00.0:=C2=A0=C2=A0 bridge window =
+[mem
+0x600000000-0x6000fffff]
+[=C2=A0=C2=A0=C2=A0 7.062255] pci_bus 0000:00: resource 4 [mem 0x600000000=
+-0x603ffffff]
+[=C2=A0=C2=A0=C2=A0 7.062269] pci_bus 0000:01: resource 1 [mem 0x600000000=
+-0x6000fffff]
+[=C2=A0=C2=A0=C2=A0 7.062590] pcieport 0000:00:00.0: enabling device (0000=
+ -> 0002)
+[=C2=A0=C2=A0=C2=A0 7.062812] pcieport 0000:00:00.0: PME: Signaling with I=
+RQ 39
+[=C2=A0=C2=A0=C2=A0 7.072890] pcieport 0000:00:00.0: AER: enabled with IRQ=
+ 39
+[=C2=A0=C2=A0=C2=A0 7.091767] v3d fec00000.gpu: [drm] Using Transparent Hu=
+gepages
+[=C2=A0=C2=A0=C2=A0 7.124274] genirq: Flags mismatch irq 39. 00002084 (PCI=
+e bwctrl) vs.
+00200084 (PCIe PME)
+[=C2=A0=C2=A0=C2=A0 7.124391] pcie_bwctrl 0000:00:00.0:pcie010: probe with=
+ driver
+pcie_bwctrl failed with error -16
 
