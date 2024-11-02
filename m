@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D34E67815
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 22:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9B8E67816
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 22:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=; b=cghvcFUZAdhduGbgRLomP9/CAy
-	ipC5udES/ORylAlydIQ89KhGi0PJiQu4XJ2PE7vUMiLI7CrZqqaEIgFj3jjcioOh1Cf8AkLNoJ0Wg
-	Vc5lAqc37ApqBy3AHP0f/mhYnyvR9Mi6heRqlP5DLt/MQVLWJDQxO3KG7NaO5Qd4OfQ2DmIF6Q8jr
-	/S1JmFva7W9lKVJYSWgAim/JK+fThcFMkDkCssj3+ipFnoS5FFln3wr/9/evBciceGGfnbPsyaXfZ
-	SwwKzJ9K/j7g2lhjNsjJPpjg4bK8qyS7BGj+NRfsUxStXhHEG6gYWt7wsMHErlcXtJ23t29VxDw3Q
-	qo6LxSFw==;
+	bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=; b=LWOTs8A5snJGr4ZteRvtPW0hBk
+	mbsHK9jNV6vqSJToXONiejLdA1WZjmakuvNexq3slZOWJ0jKrg43vO7JCacRGdsfAdsQ3SNoqaSAC
+	D4aY1Y1UGf2XNO3Jwy1xgXrb2MsCz4RHiS55MipTMJ9Cf8MLQBhfSNm5Vkw6lCkHSqju2je2ESkKd
+	Fnbh4uT6moQi+K17kSo/sqefRw38Lcy0NspF0+hD2bTkHbtoycmlsZtpLORmP5i/NYuye256SffWi
+	twXKBxKFp/jVcdcY9wR2/msujWR1pPMqhb7bTsiNJKXyNTKeg2kn2ZL0C82X7Zh7Zn+LDUjxjk8Dz
+	+kpmyHCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7MPN-0000000AVLI-471Z;
-	Sat, 02 Nov 2024 22:15:50 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1t7MST-0000000AVip-3cSC;
+	Sat, 02 Nov 2024 22:19:01 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7MNg-0000000AV8C-22N2;
-	Sat, 02 Nov 2024 22:14:06 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5cec93719ccso1146655a12.2;
-        Sat, 02 Nov 2024 15:14:02 -0700 (PDT)
+	id 1t7MQn-0000000AVUs-3PVi;
+	Sat, 02 Nov 2024 22:17:19 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9a6acac4c3so506975066b.0;
+        Sat, 02 Nov 2024 15:17:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730585641; x=1731190441; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730585836; x=1731190636; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=;
-        b=IVTS5A5Hki4A9CSSnqHcUOYrKH9s/Zcoh22r8ZfIHglHlUF7ViPu0FslAyuta3gdxc
-         EAHxI2KYIlYyQGB4vOztNWiYVW+AcCTtvd12/Y6K/ruraTjlzbn2JKTNJ6jQZDEBaNLr
-         8NRV03IVZG2WBs65aCnPLvRqOhB6y4kfQtNGG16knV8/ImiHfhHv+LlQAn5SmyWhpowA
-         dXOvuFxvE1q/JYtrIKrRNotMqq/XB9DLgb6UoVp0y86EUhl9VVbw1SgXdMaUTpPMXRGG
-         hpUDwljvQu18aUNMQGtCClgBxiRBu0v0aWRhn+y8rMUSE3iwP5JRarOZJodOWS0Ad+vg
-         lFxg==
+        bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=;
+        b=YnOL4m5jCHPwJLeN4dNCPfUXYaGCFKH15Cf2zx3ViIA9pYdBu/lNgGyWOyi8nYULl0
+         74K4weH8bI3mrXobPrwwob4YskKTajgEhYFXF6up/uodh+DMBydkxZfN0nFGsQYr5uGr
+         qOak0u2oqwaS/qQvxOECp3g0J4ZzVRggZjY2ps4XZIWXN1st44F9nC7nKJmRWtjRH1bz
+         dS/TpLGOal6Jz++qatMiaCSo3HWmPRUwCuesfL9soJRvCi3AsAECyxH3TPLZbQsoRal/
+         TzSzkvQu9eELuC2ALB1bzrzP40E/wQFlQ9rOHMVh4wil3IUzHTtMz0kM6FKZn4Uv29TS
+         Pj/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730585641; x=1731190441;
+        d=1e100.net; s=20230601; t=1730585836; x=1731190636;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=;
-        b=ehT015TSExAjrBat7DSSzSttAsSBbumOES+GFyWkYP8RKbD4w8O/yxLF3V1mA8RBSe
-         QrabUF4Eszoq4SbHE6/4ZnLtGZj+FiSh6c4MsaRIAu32xHCGLJ6KHkvFg7ya/xW3T14k
-         a6qQ94f43ovUPvt/mmR/g88VDV/VO6nfugjP+ZchxAYXeqFtUBRxZuBwiTzXOnM+QTny
-         1WUnSIpON6w00w2U+KyUo0OWbOXbF2MreZKirVbFmjrA3V2mIbTy5UJviqdg0DID2/u1
-         BhNQh4vkG4BJ/sYYiYROAllRG2n4LIqJQtV36HM9IIeBGAoOfQ0QGm3Fgw6Ptfoup5fQ
-         Kh7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUuB9W5f/a3Yi3qSZUQZzFg/yRLM5grquNPt+P745iH7sJb+ZfyOoohi2BHefqm0ZoTyUeILJkWmYjw5GG1Ezfh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEcoD0WJ+N8Qt6jWV/IKCYgLwzXHgSuQvCyzaaXFUvqy/CLSod
-	3dxOSk3t2joPyXkvfIcxPtA3NbMW1j/yg0yBsC6zJzH8vSZ55So1
-X-Google-Smtp-Source: AGHT+IEOBLX2j2HWuv+pdDU0ZxYrPZnIuxih08kkbFQFADGWXklj0YmOwIp0s2aG0SM4rtdzkYs0fA==
-X-Received: by 2002:a05:6402:5242:b0:5c8:8bde:a1d3 with SMTP id 4fb4d7f45d1cf-5cd54af0e79mr10242172a12.22.1730585640884;
-        Sat, 02 Nov 2024 15:14:00 -0700 (PDT)
+        bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=;
+        b=R6oq1DtF8vHF/d9UEvFlGPV1fEMKRq+2iA4vo1tG1QnQvRKCtkxhrab9E0Htp/Bs6e
+         tn9NynfHamkYw7hJnVlFpCvyxxNll9ziAbRrAp/8KmxtgSGOhydDeJNmVngfKdbIfKhR
+         Ox8tHs4RoW+dHOncm9Rfe9psqQ+Jt8BA3w828xsmxcNmZfR9MjSQhz0RbFFfFe4BEG90
+         Eh/cRe5js8zj2aX/cukF5oeelR4hkI0l5Qrk5gOAVF4nFfEb0uFvSuGJWez/QXmOLI0T
+         9gTVkdGOxkyRhqe4X9d6jBjlJp1Bg1DYW3tfa4oFYefWCAsPLY2vW/FSpkwxyzIgducx
+         bcRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVhgepPwsjCrEbIR6p3Q4RFXLTKbMFIRNzs9Of02urJT8jTzThm55anAbSDlxa1ra3W4vygzJdroJw9LOLNjZLg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yww5hMUj3tCFqoR7uN1A+J89AGRCjp0TgeARs53p9ASfT8EBrrI
+	R2ZU/CMUT/JD4HjQMmy8rubdG0LTSiPg4n1BnuIULsd40ayqKTqH
+X-Google-Smtp-Source: AGHT+IE+SUlLFoN/+EuPuCWvs6qpBKkmSyn3eiHJ8mhwnVR3nprD9gPRGUlcGSR5L/12vtyXRpdvcg==
+X-Received: by 2002:a17:906:7311:b0:a9a:8502:6ebb with SMTP id a640c23a62f3a-a9de61ce5c1mr2560597666b.41.1730585835467;
+        Sat, 02 Nov 2024 15:17:15 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceac74ccfdsm2824475a12.11.2024.11.02.15.13.59
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e564c4f2dsm350412566b.52.2024.11.02.15.17.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 15:14:00 -0700 (PDT)
+        Sat, 02 Nov 2024 15:17:14 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
@@ -73,16 +71,16 @@ Cc: linux-actions@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: timer: actions,owl-timer: convert to YAML
-Date: Sun,  3 Nov 2024 00:13:04 +0200
-Message-ID: <20241102221354.2856900-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v1] dt-bindings: power: actions,owl-sps: convert to YAML
+Date: Sun,  3 Nov 2024 00:17:06 +0200
+Message-ID: <20241102221707.2857342-1-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_151404_552255_EAF75DD0 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20241102_151717_881629_C19C6C48 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,140 +95,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Actions Semi Owl timer bindings to DT schema.
+Convert the Actions Semi Owl Smart Power System (SPS) bindings to DT
+schema.
 
 Changes during conversion:
  - Rename file to match compatible
  - Add a description
- - Make "clocks" a required property, since the driver searches for it
- - Correct the given example according to owl-s500.dtsi
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- .../bindings/timer/actions,owl-timer.txt      | 21 ------
- .../bindings/timer/actions,owl-timer.yaml     | 71 +++++++++++++++++++
+ .../bindings/power/actions,owl-sps.txt        | 21 --------
+ .../bindings/power/actions,owl-sps.yaml       | 50 +++++++++++++++++++
  MAINTAINERS                                   |  2 +-
- 3 files changed, 72 insertions(+), 22 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/timer/actions,owl-timer.txt
- create mode 100644 Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+ 3 files changed, 51 insertions(+), 22 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.txt
+ create mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.yaml
 
-diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.txt b/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.txt b/Documentation/devicetree/bindings/power/actions,owl-sps.txt
 deleted file mode 100644
-index 977054f87..000000000
---- a/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+index a3571937b..000000000
+--- a/Documentation/devicetree/bindings/power/actions,owl-sps.txt
 +++ /dev/null
 @@ -1,21 +0,0 @@
--Actions Semi Owl Timer
+-Actions Semi Owl Smart Power System (SPS)
 -
 -Required properties:
--- compatible      :  "actions,s500-timer" for S500
--                     "actions,s700-timer" for S700
--                     "actions,s900-timer" for S900
--- reg             :  Offset and length of the register set for the device.
--- interrupts      :  Should contain the interrupts.
--- interrupt-names :  Valid names are: "2hz0", "2hz1",
--                                      "timer0", "timer1", "timer2", "timer3"
--                     See ../resource-names.txt
+-- compatible          :  "actions,s500-sps" for S500
+-                         "actions,s700-sps" for S700
+-                         "actions,s900-sps" for S900
+-- reg                 :  Offset and length of the register set for the device.
+-- #power-domain-cells :  Must be 1.
+-                         See macros in:
+-                          include/dt-bindings/power/owl-s500-powergate.h for S500
+-                          include/dt-bindings/power/owl-s700-powergate.h for S700
+-                          include/dt-bindings/power/owl-s900-powergate.h for S900
+-
 -
 -Example:
 -
--		timer@b0168000 {
--			compatible = "actions,s500-timer";
--			reg = <0xb0168000 0x100>;
--			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
--			             <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "timer0", "timer1";
+-		sps: power-controller@b01b0100 {
+-			compatible = "actions,s500-sps";
+-			reg = <0xb01b0100 0x100>;
+-			#power-domain-cells = <1>;
 -		};
-diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.yaml b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
 new file mode 100644
-index 000000000..ed50b4753
+index 000000000..6496f3a71
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
-@@ -0,0 +1,71 @@
++++ b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+@@ -0,0 +1,50 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/timer/actions,owl-timer.yaml#
++$id: http://devicetree.org/schemas/power/actions,owl-sps.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Actions Semi Owl timer
++title: Actions Semi Owl Smart Power System (SPS)
 +
 +maintainers:
 +  - Andreas Färber <afaerber@suse.de>
 +
 +description: |
-+  Actions Semi Owl SoCs provide 32bit and 2Hz timers.
-+  The 32bit timers support dynamic irq, as well as one-shot mode.
++  Actions Semi Owl SoCs feature a Smart Power System (SPS) that manages power
++  domains to optimize power usage across various hardware blocks. Each power
++  domain corresponds to a specific hardware block and is represented by a bit
++  in the power control register and an acknowledgment bit, which is then
++  translated into a corresponding voltage on a rail.
 +
 +properties:
 +  compatible:
 +    enum:
-+      - actions,s500-timer
-+      - actions,s700-timer
-+      - actions,s900-timer
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 6
-+
-+  interrupt-names:
-+    minItems: 1
-+    maxItems: 6
-+    items:
-+      enum:
-+        - 2hz0
-+        - 2hz1
-+        - timer0
-+        - timer1
-+        - timer2
-+        - timer3
++      - actions,s500-sps
++      - actions,s700-sps
++      - actions,s900-sps
 +
 +  reg:
 +    maxItems: 1
 +
++  "#power-domain-cells":
++    const: 1
++
 +required:
 +  - compatible
-+  - clocks
-+  - interrupts
-+  - interrupt-names
 +  - reg
++  - "#power-domain-cells"
 +
 +additionalProperties: false
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/power/owl-s500-powergate.h>
 +    soc {
 +      #address-cells = <1>;
 +      #size-cells = <1>;
-+      timer@b0168000 {
-+        compatible = "actions,s500-timer";
-+        reg = <0xb0168000 0x100>;
-+        clocks = <&hosc>;
-+        interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "2hz0", "2hz1", "timer0", "timer1";
++      sps: power-controller@b01b0100 {
++        compatible = "actions,s500-sps";
++        reg = <0xb01b0100 0x100>;
++        #power-domain-cells = <1>;
 +      };
 +    };
 +...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 5f34d168b..76ea65128 100644
+index 76ea65128..420d06d37 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -2024,7 +2024,7 @@ F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
+@@ -2023,7 +2023,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
+ F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
  F:	Documentation/devicetree/bindings/net/actions,owl-emac.yaml
  F:	Documentation/devicetree/bindings/pinctrl/actions,*
- F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
--F:	Documentation/devicetree/bindings/timer/actions,owl-timer.txt
-+F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+-F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
++F:	Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+ F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
  F:	arch/arm/boot/dts/actions/
  F:	arch/arm/mach-actions/
- F:	arch/arm64/boot/dts/actions/
 -- 
 2.43.0
 
