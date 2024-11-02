@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2000E67800
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 14:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD57E67800
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 14:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoNhd3PU7MNVWI+sf1DSija4VTsLivchGzEQ82Up2A4=; b=0oE+cLrz40+a+Yuun2y59v1ddO
-	8z93Xa1te8/zZZA/EUBrgs7umShKP77Ka23nBf4rY10QwU/PWRpOALPXZievmFHQC3IwQFkrO3LhC
-	qLQ+Wu8vTbMa4bCpVA3FTPkA0IsAQiXxLzcV/+PRBiO+EMT40SdI2tDIBcYzsSaG6aSBhO19DkiHq
-	1Y33qc8H/8mI3LBJ4KYIWZfsEK22151L5AiuYIcLHtGnBTJLfvFUrqOx0l4viZhVYJSWlzris5SVP
-	lDJRp/+FnH6OHiwYrdTvVi63e6NcKzRLhTdLGDCN3H/McjEvaca5XrH/gHCWik6sHGYlTlZKxUlm1
-	1TDnJsbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=; b=1RJfRmeg9dSYA7znG7qezsjfGm
+	xTrRV+PLwMAhvYrRKwINArb9GA75ekAj9t4pecXQvh1wqSQTDaAFs8iH38Ir7iH8GVxETu5S4NIaR
+	5LkGFdPWU/bftCSHmeRCTuIvYM2Y+UhNrMvVLafLBO00ll3LC7sPkUXWRi21RnoJ4f/MRd6qqcjhl
+	/Er1MuojqJNEs9vRMLuHpjikBmF3O9gUyRmBOOipUQKygKyhigABw062syONGt4BGbAako3ad2Qfk
+	LeF3AbhRgcXrBJTALmXb/u4qpQi/pI05LLUeomBnWYl8FlXgTB0XUSnnBQz/BbJDwwTEF+QaWGf6k
+	CqDLLfQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Ezt-00000009qSV-1h11;
-	Sat, 02 Nov 2024 14:21:01 +0000
-Received: from mail-pf1-f176.google.com ([209.85.210.176])
+	id 1t7FAD-00000009rOz-2j7N;
+	Sat, 02 Nov 2024 14:31:41 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7EyE-00000009qI8-1Agf
+	id 1t7F8W-00000009rFG-1i9K
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 14:19:19 +0000
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-720d14c8dbfso1487996b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 07:19:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730557157; x=1731161957;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	Sat, 02 Nov 2024 14:29:58 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9e44654ae3so341221966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 07:29:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730557794; x=1731162594; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RoNhd3PU7MNVWI+sf1DSija4VTsLivchGzEQ82Up2A4=;
-        b=sZOVdnDCOsWhLjXliL0o6ErazOSENrjegClSf+KMgIlGidpOOztAYicec5/oQmq4HX
-         HLPHotZ7Ld2ZdnZUDCJnJ65V82zK7xN+EhBTgkRXCMFLy+PpqsmAS7XGVHAgeq+Q7gKo
-         mJboyGIjBOdvh+ZQaxotQT9dznyueFggqOAQzLuYp3MvPp5TVaRinbc9mYwhl4M0tc8V
-         wJit2ZwUB3/VunMR6GTakmFHL1AbL6japrzASOGJugZ1mr85W7/B8u2DxRVDPnlfchVK
-         BbBoLXy1b1UcPQhE22i82pmsQhoqcXRhgVuvOGRzvwfYtH186PO8qXYmyW/WzrhUnNiq
-         41ig==
-X-Forwarded-Encrypted: i=1; AJvYcCX9oaamxZtt6c4HgKc9ZQLICqPl3oLDT8n7//9lcDR6ttEygcqvijMglsQteocmv9yN5neFs9Shw/lx5nJFfEnf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyuQTzfbxR9Zb/1zbJrH71P/4Zmq2EPsb4O6hJ0Ge81UwJFq+q
-	zojdDYSjI1MY9uPAEY91akS1tBCUaSAHIHolPv3sIgBarDzQcXwQ
-X-Google-Smtp-Source: AGHT+IHPcKNMt6OSC6S/K2FJ3EposZZ5TOsaoIOHKw561pjEChI1kIfOypmeQ6NBttJJZ5y0zs9rDw==
-X-Received: by 2002:a05:6a00:2ea5:b0:71e:82b4:6e6e with SMTP id d2e1a72fcca58-720b9bb3edbmr14950575b3a.4.1730557157041;
-        Sat, 02 Nov 2024 07:19:17 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc2c3902sm4096567b3a.136.2024.11.02.07.19.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 07:19:16 -0700 (PDT)
-Date: Sat, 2 Nov 2024 23:19:14 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, robh@kernel.org,
-	vigneshr@ti.com, manivannan.sadhasivam@linaro.org,
-	thomas.richard@bootlin.com, linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH] PCI: j721e: Deassert PERST# after a delay of
- PCIE_T_PVPERL_MS ms
-Message-ID: <20241102141914.GA3440781@rocinante>
-References: <20241022083147.2773123-1-s-vadapalli@ti.com>
+        bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=;
+        b=v/J838hegUfijImw4fdQJSRa6jkK0Y66kNnAaHnw4AZFczY1A9LWsYWYwgt7+vaM3S
+         B6Y8MtFN0z3XeKOynzjx2nnIOvSBOE880J5V2lKvgB1zx9RhgRQKC5DSn5LfZhUvOcbr
+         CyKW1wDnl48rWWV30LnQVv5KA7l17hKJjc1s3MmFCoutrb3lqyBdzabGc6QH77RahO3/
+         czeZZoFzRH82R4Gkj8gAHGyJy6F6FNSeQN8FFhGa9Y1gUxsF8Ul4sP5ux4TJKUdqh38v
+         o3i+1CMisp72LqvUHGzSGWjc+Pokq4uPo0WIWooJul9SlpxRdsRXc9GrYw2MhrGciOHn
+         27/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730557794; x=1731162594;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=D3OMGiouzrJ8irZX2X/fJQXvldwhLjCzScMS8OtJ3x8=;
+        b=h3xEiipiQBxnshty5cBTw5apk+ucN2jexKB8/+3qFq1kVDe2TufhczSsgLMcdlNXMX
+         Islp6tVHWXUBJbj/mm53iIOa4+j5cacA8KnYzUY7vRoy2vnRpY6a3TCLcyKtTUgiD9vH
+         4Zbk8UGSC0RjnBLFZ/a8FyjkPq5AsYQGeKbMbpUiWIuVHSFrVmwaXmMLZM5zWics9q2z
+         vUet6QAbcBZN2rYWMKWH3iNRzAWDm4cQc1twfr7T+OewT0T6bbmBX/wo4B6peULqs6sC
+         qyOlc25pNlpp0ri/FkcVDgKCwmxMhfi/iobIOV0g/AXl4N7KgqZd2uSL6/R1xtkm7E5b
+         zbDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWcNJPeaHC8k2bCpvoLksV3qZi+ulmJg23z5woxU4CdCk+D3WJlyk0RVSVqEG488D/0/hxdLVyiZYY4Rs5JZn8i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdaOhFMqWOaBDMmxHOVCg/ME1MTl9VSNWQ/fUt+yHIAGAWarLD
+	niNZP/FzZjW1YHs0F+WWcAdE/0eqwDlhBcS500u0qBED6lwBd4lrVVaapETH61tuigtodfwTCGc
+	9chIRsaTwmtmOsqVnQ9aiIIQY4Dde3srpX8wJwA==
+X-Google-Smtp-Source: AGHT+IHmMaoPuHCX8oqUiJ2GAJojyzCvnKuAF650y2r5dVCpByhVut9O1RRSbUZGBDSt5PzipQLZjWLX9kkXAj3eKcA=
+X-Received: by 2002:a17:907:94d0:b0:a9a:cf84:2e4b with SMTP id
+ a640c23a62f3a-a9e50915893mr967262166b.25.1730557794334; Sat, 02 Nov 2024
+ 07:29:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241022083147.2773123-1-s-vadapalli@ti.com>
+References: <20241031-iio-fix-write-event-config-signature-v2-0-2bcacbb517a2@baylibre.com>
+ <20241031-iio-fix-write-event-config-signature-v2-13-2bcacbb517a2@baylibre.com>
+ <20241101164118.687be624@jic23-huawei> <4e4e5281-d489-42b5-b358-c44958cfa4f9@tweaklogic.com>
+In-Reply-To: <4e4e5281-d489-42b5-b358-c44958cfa4f9@tweaklogic.com>
+From: Julien Stephan <jstephan@baylibre.com>
+Date: Sat, 2 Nov 2024 15:29:35 +0100
+Message-ID: <CAEHHSva6+Br9rXE9n0wqXuwQqetXN=Ae5vg0rxmPRfCVdw9atA@mail.gmail.com>
+Subject: Re: [PATCH v2 13/15] iio: light: apds9306: simplifies if branch in apds9306_write_event_config
+To: Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Mudit Sharma <muditsharma.info@gmail.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Anshul Dalal <anshulusr@gmail.com>, 
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+	Ramona Gradinariu <ramona.gradinariu@analog.com>, Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+	Dan Robertson <dan@dlrobertson.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>, 
+	Matteo Martelli <matteomartelli3@gmail.com>, 
+	Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, Michal Simek <michal.simek@amd.com>, 
+	Mariel Tinaco <Mariel.Tinaco@analog.com>, Jagath Jog J <jagathjog1996@gmail.com>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Kevin Tsai <ktsai@capellamicro.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Benson Leung <bleung@chromium.org>, 
+	Guenter Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	chrome-platform@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_071918_342510_89654EF2 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20241102_072956_734473_27A2BD89 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +105,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Le sam. 2 nov. 2024 =C3=A0 14:21, Subhajit Ghosh
+<subhajit.ghosh@tweaklogic.com> a =C3=A9crit :
+>
+> On 2/11/24 03:11, Jonathan Cameron wrote:
+> > On Thu, 31 Oct 2024 16:27:08 +0100
+> > Julien Stephan <jstephan@baylibre.com> wrote:
+> >
+> >> Simplifies the regmap_wite if branch in apds9306_write_event_config.
+> > Applied.
+> >>
+> >> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> >> ---
+> >>   drivers/iio/light/apds9306.c | 5 +----
+> >>   1 file changed, 1 insertion(+), 4 deletions(-)
+> >>
+> >> diff --git a/drivers/iio/light/apds9306.c b/drivers/iio/light/apds9306=
+.c
+> >> index 8adc74040db2bddf93fbb773e3519abcc726b9a6..9c08e7c3ad0c17519689a6=
+30d42fe9b90438dfe8 100644
+> >> --- a/drivers/iio/light/apds9306.c
+> >> +++ b/drivers/iio/light/apds9306.c
+> >> @@ -1125,10 +1125,7 @@ static int apds9306_write_event_config(struct i=
+io_dev *indio_dev,
+> >>              }
+> >>      }
+> >>      case IIO_EV_TYPE_THRESH_ADAPTIVE:
+> >> -            if (state)
+> >> -                    return regmap_field_write(rf->int_thresh_var_en, =
+1);
+> >> -            else
+> >> -                    return regmap_field_write(rf->int_thresh_var_en, =
+0);
+> >> +            return regmap_field_write(rf->int_thresh_var_en, state);
+> >>      default:
+> >>              return -EINVAL;
+> >>      }
+> >>
+> >
+> Hi Julien,
+> Sorry for the delay.
+> "int_thresh_var_en" corresponds to APDS9306_INT_CFG_REG bit 3 (Datasheet:=
+ INT_CFG, Address: 0x19) which
+> is a single bit value only. If user does "echo 4 > /sys/bus/iio/devices/i=
+io:device0/events/thresh_adaptive_either_en",
+> which trickles down to the "state" variable, do we really want to write a=
+ny other value except "0" or "1"?
+> Correct me if I am wrong here.
 
-> According to Section 2.2 of the PCI Express Card Electromechanical
-> Specification (Revision 5.1), in order to ensure that the power and the
-> reference clock are stable, PERST# has to be deasserted after a delay of
-> 100 milliseconds (TPVPERL). Currently, it is being assumed that the power
-> is already stable, which is not necessarily true. Hence, change the delay
-> to PCIE_T_PVPERL_MS to guarantee that power and reference clock are stable.
-[...]
-> This patch is based on commit
-> c2ee9f594da8 KVM: selftests: Fix build on on non-x86 architectures
-> of Mainline Linux.
+Hi Subhajit,
+In drivers/iio/industrialio-event.c, iio_ev_state_store is actually
+using kstrtobool to check user input, then gives the converted boolean
+value to write_event_config.
+So state is a boolean. By the way the purpose of this series is to
+clean up code and use a bool instead of int for the state parameter.
 
-Why KVM?  Do you have the link to this commit handy?
+So new code is equivalent to what was there before.
+Cheers
+Julien
 
-[...]
->  		if (pcie->reset_gpio) {
-> -			fsleep(PCIE_T_PERST_CLK_US);
-> +			msleep(PCIE_T_PVPERL_MS);
 
-fsleep() with the same macro and for the same reason is also used in the
-j721e_pcie_probe() callback.  I think, we would want both changed.
-
-	Krzysztof
+> Regards,
+> Subhajit Ghosh
 
