@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE53BE677F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 10:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCBBE677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 10:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYa+7XoJuDdb76oEmaiyHNPbnto6CbOy5cbqLih549g=; b=0RXyWhXRzb6DdvVLiQ98aNnoS+
-	EFzdYf+61rLto7r/0xVElCJLxCn6Bd1Mvc6Hi+RXD7/LQkMBr1Uqp0eBLlilrVRfJjIZi5rDKvUGb
-	laogrXA2nj18d7CyerHWSCW8qznUYIdynXiRZSbaabpSNbbSd1dB2PhnqDih4txzjfcvZafQeIf1b
-	bkaGk4R96a58xum8Yfpg0VJSaTWauW4vWxIRsSmVxVJ/4yzFc+UKm93ni0cHJfaRNez7zvYwAALeU
-	Lv9JnXHYacs/0ui0PsuDEv/mYsJX8wTCC2WEe+5JcDyrAZp7Wr3CdctrGEA9TtkSwkvYzk5xPQWnj
-	ykZCXs7w==;
+	bh=ppKZtN94MgWti1aXMdij+YDrHwoBKLCtQ26idNNZZSU=; b=menoU51x8JwZ6lgBAQGKhRWhAF
+	LCfapMzawXFoZjKTyYPMqKsZoEVJX+RNAwjtObMNa9f8GcFoWWwIZi4otTSJkAXu6d414yv3HltFY
+	yLt1q78X+KxRHvrMP/nadmvH+1XqtBkQQ/TvMGGWX0Lx4W6G5EbH/28+Fd/LvYm5QtKzqvsKW5bG9
+	mTWf/V+ypEvq2tsehi3hN4xBPay19NrYOtoJOFqhKeBhUsDBqgaVNdCS6V6jY3rgwWpcDZLni8dh8
+	IxJwUiNqWVtjJygPU1ZGKmLhIoVRpNW4Y0boKfvmyg++GWhbY4O+MfLaHgXOoxFjMa7PVQf//lBcc
+	1Pf+uOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7BGH-00000009UFu-04Ih;
-	Sat, 02 Nov 2024 10:21:41 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1t7Bcp-00000009WDB-0WYW;
+	Sat, 02 Nov 2024 10:44:59 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7BEb-00000009U5z-0wyz;
-	Sat, 02 Nov 2024 10:19:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=yYa+7XoJuDdb76oEmaiyHNPbnto6CbOy5cbqLih549g=; b=IxqSkCyyTRJ8QPfyWdRdr2qHrJ
-	tpnjvWqxXTt+J7vxVmfkjrXd/rdKT+0RFdwGzbsRsMR9EdmzQEnFrsAgTnaI9+pdPBY3Pn9re79Nj
-	57c2proTZGddCmA7w8N1JXHF1QdjpqJ+rO1URQev5azBEyB5hCBbYGnbLrSwTrfwTX1ksXWj0DUCf
-	yuXLmD7dk6/d8YNZezbMYQ6VdXKIYeLQYq1Pq312XFyr1DfhbY4I3pSC7QOr5wrJ+HBrserJJF9gW
-	0q+8FZncsHy0y1xio+hERsUI6SlHqDVBhozBkFMWrc3INF748cH6QiBntZMGgC5ZBSYXHEMi51PKW
-	hRrho1rQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1t7BEX-00Dy0V-01;
-	Sat, 02 Nov 2024 18:19:54 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 02 Nov 2024 18:19:52 +0800
-Date: Sat, 2 Nov 2024 18:19:52 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v2 04/18] crypto: crc32 - don't unnecessarily register
- arch algorithms
-Message-ID: <ZyX8yEqnjXjJ5itO@gondor.apana.org.au>
-References: <20241026040958.GA34351@sol.localdomain>
- <ZyX0uGHg4Cmsk2oz@gondor.apana.org.au>
- <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
+	id 1t7Bb8-00000009W2X-31cZ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 02 Nov 2024 10:43:16 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XgZ6g6bssz20rGl;
+	Sat,  2 Nov 2024 18:42:03 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7F70118002B;
+	Sat,  2 Nov 2024 18:43:06 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Sat, 2 Nov 2024 18:43:05 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<mark.rutland@arm.com>, <broonie@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <oliver.upton@linux.dev>, <ryan.roberts@arm.com>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>,
+	<wangkefeng.wang@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH v4 1/5] arm64/sysreg: Update ID_AA64MMFR1_EL1 register
+Date: Sat, 2 Nov 2024 18:42:31 +0800
+Message-ID: <20241102104235.62560-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20241102104235.62560-1-yangyicong@huawei.com>
+References: <20241102104235.62560-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXFfPtO0vd1KqTa+QNSkRWNR7SUJ_A_zX6-Hz5HVLtLYtw@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_031957_288091_16133DE4 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20241102_034314_948453_81456848 
+X-CRM114-Status: UNSURE (   7.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,18 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 02, 2024 at 10:58:53AM +0100, Ard Biesheuvel wrote:
->
-> At least btrfs supports a variety of checksums/hashes (crc32c, xxhash,
-> sha) via the shash API.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-OK, given that btrfs is still doing this, I think we should still
-register crc32c-arch conditionally.  Having it point to crc32c-generic
-is just confusing (at least if you use btrfs).
+Update ID_AA64MMFR1_EL1 register fields definition per DDI0601 (ID092424)
+2024-09. ID_AA64MMFR1_EL1.ETS adds definition for FEAT_ETS2 and
+FEAT_ETS3. ID_AA64MMFR1_EL1.HAFDBS adds definition for FEAT_HAFT and
+FEAT_HDBSS.
 
-Thanks,
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/tools/sysreg | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8d637ac4b7c6..ae64ba810298 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1648,6 +1648,8 @@ EndEnum
+ UnsignedEnum	39:36	ETS
+ 	0b0000	NI
+ 	0b0001	IMP
++	0b0010	ETS2
++	0b0011	ETS3
+ EndEnum
+ UnsignedEnum	35:32	TWED
+ 	0b0000	NI
+@@ -1688,6 +1690,8 @@ UnsignedEnum	3:0	HAFDBS
+ 	0b0000	NI
+ 	0b0001	AF
+ 	0b0010	DBM
++	0b0011	HAFT
++	0b0100	HDBSS
+ EndEnum
+ EndSysreg
+ 
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.24.0
+
 
