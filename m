@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85377E677EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 08:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6E2E677EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 08:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGUbxDqpNIUqNymgHtcQjw2ZYUTg++zj2YBp8NZOf/o=; b=N9qFzexxgEfXxg/3qGXHXmMz2B
-	FOjFkOuKzX2kxrDHkXMyX9omrgWQUamSCHspeOTr7CP4oZZ556afBe7q/Ko8t9X2gND0OgRz7FSCw
-	NMFRAWbY1pkhCyWpWhD4flsSg25c5YVyN+a8yMNGBa7v2avADZgjdVqcXmQmx9JxyoK9yRsk3xqzG
-	QsdRKYYoylDjgBtUQxXrJt5wPyZoADM2W+kOTYAz1aRFk2zCxPtRirYdbGdMUXbJoHZ0wqHglOqKt
-	+Iw9FupNavjNg/vqdR0WULkZ5a38WVaa1zg7bhfcaXaV2qi+TOC3n8pnQM+nsKPlJLpXCiBXqEKCy
-	dHaYWm1w==;
+	bh=sT9qxq7J8xYvqvzssDdz7jsH33/t4b31aSbr7WMXRiQ=; b=SV94SlUaYzTqCCxkzHOgArERSE
+	ULFj5T9lZAhs6gutwObIk/sICrjnW9niMggg+fu0qK/VP1yvuWl+GSZI92p9oj9kffiKgr2UTxVPX
+	W3vCgkF1ADXfSkFZXdQX4UCAlsnOc3kFExdxSFfoJUf1ZV9ucBgusFrG8yBgfwUVJrAptSQhBxCuN
+	yOuPVdpuRi5amkT/Uxlu7R0nyztF3s3Sl5aJEywWmwr92mtjkyUZKu0S7rgqB73G5ygJoKOr8AQjh
+	31gZskecsdep7bTJtHp09aYz48B+r3d9IdcP5R9MEloOPMdp35GKC2e6lSvKimVDHSXgksKr4mujM
+	y/ufNAVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t79kX-00000009K2I-0bkz;
-	Sat, 02 Nov 2024 08:44:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t79qR-00000009KZe-2iBk;
+	Sat, 02 Nov 2024 08:50:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t79ir-00000009Jvn-1iMl
+	id 1t79ok-00000009KQC-44cs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 08:43:07 +0000
+	Sat, 02 Nov 2024 08:49:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4119BA40272;
-	Sat,  2 Nov 2024 08:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75E81C4CEC3;
-	Sat,  2 Nov 2024 08:43:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F08935C02A2;
+	Sat,  2 Nov 2024 08:48:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12214C4CEC3;
+	Sat,  2 Nov 2024 08:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730536982;
-	bh=pP3R8S8xXnbNhkQNcIbqwo5q8l9UVwjgjBAsSLuY7NU=;
+	s=k20201202; t=1730537349;
+	bh=ohhxWzZ1zwvYOUMLeaWV1CJbrqCDqjWUe6fdh6HWYns=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t0WCIbhbyv1O/gIfnwtwITHf3NvkZBn7MUKM7h8Xy8Wv7jxr1TRUC33LeLvjKL3am
-	 vPQvLpI16LRVaNAjtnHQzGEeq0KVfKyr8Vdlrd5UjUPKyWzxcq/AGeDLywt+1Rr2nw
-	 qDaSalaWyHcKw8ghzxSNcMk4T6w4COlnOwwU2EGiXHC145qlGM7719McNshXD94tbI
-	 TThDrX5CLsAbRU9/Qnn1L11VffW/eyYq9LE00rIVj6IfMXqX7QFAAZQQojESPzwuc3
-	 MSa+sKZ83UKuADIfb4opJWl+SXNMp6di2+gARznfWQ3P1IU+IpsT5y0zugut3f3u34
-	 lt0een9XyltUQ==
-Date: Sat, 2 Nov 2024 09:42:58 +0100
+	b=PTCJt3dgQqDpl7NlwA1OQTkv/6Qa6X7vj8XbaMyhlKA0LGw32HC3u+RmbtWOYFn8x
+	 rgR/WduMjvOHdtv+SeMckXYNFsb+FcWpr4UxGji8gNfGNQioWlc9M93/hAzYB6pHpg
+	 Fnt/P4PGStrfA08dr7FttUqY/aywKEtlZo/paLINFUkyd7rukA6DcNAOMG39vRrOoO
+	 efr57WsMKxeFD6YdPVy6xFc5KwNo0BQK95rjD3eHSIa3BrX0D5gulks6ZPtF4QG9ep
+	 KCe1OBpOWZe4XbGFXly8EoRA0HuWb0UZgjrjBZexF+s2V7jEwUlUikMlugP1TcnoYy
+	 Xx0qei7NGOT5Q==
+Date: Sat, 2 Nov 2024 09:49:05 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
@@ -59,18 +59,17 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>, 
 	Enric Balletbo <eballetb@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
 	imx@lists.linux.dev
-Subject: Re: [PATCH v5 1/7] dt-bindings: mfd: add support for the NXP SIUL2
- module
-Message-ID: <vlkhmja7xjfjin5yffnet5ava62shsoflmkzfav6c2ylh3o6kk@hvpnmd4uyjca>
+Subject: Re: [PATCH v5 3/7] arm64: dts: s32g: make pinctrl part of mfd node
+Message-ID: <cmisbftf7kep5ztc3sttiv22iypkaizvziy3q7l3xstqvltjpw@h24boozxaydc>
 References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
- <20241101080614.1070819-2-andrei.stefanescu@oss.nxp.com>
+ <20241101080614.1070819-4-andrei.stefanescu@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241101080614.1070819-2-andrei.stefanescu@oss.nxp.com>
+In-Reply-To: <20241101080614.1070819-4-andrei.stefanescu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_014305_610596_F30F2C9A 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20241102_014911_120587_72E553EB 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,187 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 10:06:07AM +0200, Andrei Stefanescu wrote:
-> Add the dt-bindings for the NXP SIUL2 module which is a multi
-> function device. It can export information about the SoC, configure
-> the pinmux&pinconf for pins and it is also a GPIO controller with
-> interrupt capability.
+On Fri, Nov 01, 2024 at 10:06:09AM +0200, Andrei Stefanescu wrote:
+> SIUL2 is now represented as an mfd device. Therefore, the old
+> pinctrl node is deprecated. Move the pinctrl related properties
+> inside the new "nxp-siul2" node. The latter one is now used
+> to represent the mfd device.
 > 
 > Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 > ---
->  .../devicetree/bindings/mfd/nxp,siul2.yaml    | 191 ++++++++++++++++++
->  1 file changed, 191 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi | 26 +++++++++++-------------
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi | 26 +++++++++++-------------
+>  2 files changed, 24 insertions(+), 28 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
-> new file mode 100644
-> index 000000000000..141ec1219821
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index fa054bfe7d5c..e14ce5503e1f 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -114,20 +114,18 @@ soc@0 {
+>  		#size-cells = <1>;
+>  		ranges = <0 0 0 0x80000000>;
+>  
+> -		pinctrl: pinctrl@4009c240 {
+> -			compatible = "nxp,s32g2-siul2-pinctrl";
+> -				/* MSCR0-MSCR101 registers on siul2_0 */
+> -			reg = <0x4009c240 0x198>,
+> -				/* MSCR112-MSCR122 registers on siul2_1 */
+> -			      <0x44010400 0x2c>,
+> -				/* MSCR144-MSCR190 registers on siul2_1 */
+> -			      <0x44010480 0xbc>,
+> -				/* IMCR0-IMCR83 registers on siul2_0 */
+> -			      <0x4009ca40 0x150>,
+> -				/* IMCR119-IMCR397 registers on siul2_1 */
+> -			      <0x44010c1c 0x45c>,
+> -				/* IMCR430-IMCR495 registers on siul2_1 */
+> -			      <0x440110f8 0x108>;
+> +		siul2: siul2@4009c000 {
 
-filename based on compatible, e.g. nxp,s32g2-siul2.yaml
-
-> @@ -0,0 +1,191 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright 2024 NXP
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/nxp,siul2.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: System Integration Unit Lite2 (SIUL2)
-
-NXP S32 System Integration Unit Lite2 (SIUL2)?
-
-> +
-> +maintainers:
-> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> +
-> +description: |
-> +  SIUL2 is a hardware block which implements pinmuxing,
-> +  pinconf, GPIOs (some with interrupt capability) and
-> +  registers which contain information about the SoC.
-> +  There are generally two SIUL2 modules whose functionality
-> +  is grouped together. For example interrupt configuration
-> +  registers are part of SIUL2_1 even though interrupts are
-> +  also available for SIUL2_0 pins.
-> +
-> +  The following register types are exported by SIUL2:
-> +    - MIDR (MCU ID Register) - information related to the SoC
-> +    - interrupt configuration registers
-> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
-> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
-> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
-> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
-> +
-> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
-> +  16bit wide.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - nxp,s32g2-siul2
-> +      - nxp,s32g3-siul2
-> +
-> +  reg:
-> +    items:
-> +      - description: SIUL2_0 module memory
-> +      - description: SIUL2_1 module memory
-> +
-> +  reg-names:
-> +    items:
-> +      - const: siul20
-> +      - const: siul21
-> +
-> +  gpio-controller: true
-> +
-> +  '#gpio-cells':
-> +    const: 2
-> +
-> +  gpio-ranges:
-> +    minItems: 2
-
-You can drop minItems
-
-> +    maxItems: 2
-> +
-> +  gpio-reserved-ranges:
-> +    minItems: 2
-
-Missing maxItems
-
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 2
-> +
-> +  nvmem-layout:
-> +    $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
-> +    description:
-> +      This container may reference an NVMEM layout parser.
-> +
-> +patternProperties:
-> +  '-hog(-[0-9]+)?$':
-> +    required:
-> +      - gpio-hog
-> +
-> +  '-pins$':
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    patternProperties:
-> +      '-grp[0-9]$':
-> +        type: object
-> +        allOf:
-> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
-> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
-> +        description:
-> +          Pinctrl node's client devices specify pin muxes using subnodes,
-> +          which in turn use the standard properties below.
-> +
-> +        properties:
-> +          bias-disable: true
-> +          bias-high-impedance: true
-> +          bias-pull-up: true
-> +          bias-pull-down: true
-> +          drive-open-drain: true
-> +          input-enable: true
-> +          output-enable: true
-> +
-> +          pinmux:
-> +            description: |
-> +              An integer array for representing pinmux configurations of
-> +              a device. Each integer consists of a PIN_ID and a 4-bit
-> +              selected signal source(SSS) as IOMUX setting, which is
-> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
-> +
-> +          slew-rate:
-> +            description: Supported slew rate based on Fmax values (MHz)
-> +            enum: [83, 133, 150, 166, 208]
-
-missing required: block
-
-> +
-> +        additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - gpio-controller
-> +  - "#gpio-cells"
-
-Keep consistent quotes, ' or "
-
-> +  - gpio-ranges
-> +  - gpio-reserved-ranges
-> +  - interrupts
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    siul2: siul2@4009c000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-e.g. pinctrl
-
-> +      compatible = "nxp,s32g2-siul2";
-> +      reg = <0x4009c000 0x179c>,
-> +            <0x44010000 0x17b0>;
-> +      reg-names = "siul20", "siul21";
+This will affect users of this DTS. Your commit lacks rationale for
+doing this, considering its impact. Re-describing devices is really
+unexpected so should come with strong arguments.
 
 Best regards,
 Krzysztof
