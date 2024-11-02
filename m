@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884C3E677FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D65DE677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=; b=M0CLKMybSTqM8mXKMys3FmBJ5O
-	Kt1fH06mpMQ6NR1kclEaoH3uD6Sx2mvuOghzMkItOx/Qzqz4HW/Mg/bRV4p1zao3ba4z3CS44d/6c
-	wwL2RZ9O5NWKQkg+QspvHjr8VP+cQ/bV3n3XoCNRveJdpmBwviHCbAtDRsuAf/Lp98i9qpRIfGj3w
-	3/ROHU0+PQnGdvliSlZijnELqpq6gm69rxG43Zmw021WStXV3H8d9+SXbT0jerXLN1XofYr/emRNk
-	4BLaboalG2enJhUbvRyeDTpskX/BiRVJTlfoxHv9+TMTM/0551M5qxydkUgeb+H98jrM5f31TY7o2
-	2sUcexyw==;
+	bh=Bc/0BAypLOVqYFGhhax3oxumbX2sjrxGiD+1UyQgxVA=; b=bdxy9lKpEHnt01WJiBkucPvvMl
+	aYQbyDuEQOHxU96HQpwsRRamoH4oN+w8JDOWROFnZObzJ+EJP4iKt1wEI6fUMUaVgHXjx54WZf2go
+	+AQCS9uppMK7/yxOeucefeONYrDCzlA/1VoJiTCPXtf5F3vvbct5L+MTe3c7I7gbYUQgkiBLB52cz
+	F1GwrV9cdQ0w4Ane/r5MZS2GemQ2EB7NkqGzQz1zCOpe6Vj//eKbJrjsCTZsKX9MCq5X32n2Adpcu
+	E6SpUFS+BUWLkx6AI+vSFX+1COolidgl3Q4T0FhYkvl3XL9L6xD4DvUrjsYAlhIwk0aFJ8XjLLF0s
+	sVW8+EOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Cdc-00000009cQz-0DVa;
-	Sat, 02 Nov 2024 11:49:52 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1t7CfT-00000009d4Q-0OEe;
+	Sat, 02 Nov 2024 11:51:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CVd-00000009bLD-23Fq
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 11:41:39 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a9a1e429b89so49877266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 04:41:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730547696; x=1731152496; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=;
-        b=JgIwoXb3P9ZVyC5svvEZQcFQfS2egZBLSvVPvS5quDfLd/lyWohMJFdq/2BX+tZNkH
-         7CiX67Fw0tBS45M8837Ci2mhnkXvPIc+tER1+Gf80yjKhF8rpZx5vtlZbkomCEO98NND
-         JsEUMF+mfTq7CPd7UfVIRyw/03689LxikttDk9tXz0ZxHKE252ulhkWh2X9r6Y3YnxxZ
-         n/E4fv2PtW4sYnJfkj537RhT9jPctbxonExBBrjvvJwLE3vS1LzFfOGV6zccfW4Jle7K
-         6ZvDNTrSB9gQEQgMQiFS1FTRbf9M6471s4nlvxqMKBvW7QNnpk87Lsp68RJI4R+NR1gy
-         ewsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730547696; x=1731152496;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=;
-        b=v6xiJ0w6zps6xE4PnteXH1rK/qMdbLIEFDssIkF9e5vt2NGcMZIGE9p6WTErE8OEsu
-         +vHahnqi6wWf/ymjT+odcO9DOjfVBNWAQPFhh0TGqYe4l6gci7f3uKrwS55izYKdOEIk
-         2f/RB21tpujKqMS3WkJg/8aJG7e9nq91NIVmLuQZ7PWfVxMQ4UvrmEF1bgDCwC/fCCuG
-         tzvBkJzfu66hcT+2HeUThHz0Homjpi+f3FWGunZb2E+xC3+0wBkVYV7xKh2STAHoiBmB
-         faZhPBHiBaHrLkEv3RVmm9jZ0VKIQuu/pvhdOUS5oCJkZmEzvQ3KlxVk8uHbp8r/ZVs2
-         AU2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ7l8rysCxTsJ1xUoHTYmyOmEoUzef9MKYtxw9B/Zx4TqKBdHEm7HjMKepKN7OYEfkZxkmh/fye2FqrZOmLoav@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPbWs8PYeIihhJuwxPqXETUv/mRHn8dS/XnthswvcpfgeqZ7jF
-	14O/EJiS4nruHnPYzSxsnI6WL/Q3qYCvfI1XrMbjkdeVhCldFRJ1
-X-Google-Smtp-Source: AGHT+IHjlFEbf282MF76qwHad6BykjaTigqFREVRHfAAOyoo0BQ9DtSIfDsLbquzvjN8C3vTjqzNpw==
-X-Received: by 2002:a50:fb8b:0:b0:5ce:ccff:ac34 with SMTP id 4fb4d7f45d1cf-5ceccffaf12mr288807a12.6.1730547693808;
-        Sat, 02 Nov 2024 04:41:33 -0700 (PDT)
-Received: from 1bb4c87f881f.v.cablecom.net (84-72-156-211.dclient.hispeed.ch. [84.72.156.211])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceb11a7aaasm2224918a12.83.2024.11.02.04.41.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 04:41:32 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: robh@kernel.org,
-	kuba@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	peppe.cavallaro@st.com,
-	devicetree@vger.kernel.org,
-	l.rubusch@gmail.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] dt-bindings: net: snps,dwmac: add support for Arria10
-Date: Sat,  2 Nov 2024 11:41:22 +0000
-Message-Id: <20241102114122.4631-3-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241102114122.4631-1-l.rubusch@gmail.com>
-References: <20241102114122.4631-1-l.rubusch@gmail.com>
+	id 1t7CaU-00000009c5R-2hoT;
+	Sat, 02 Nov 2024 11:46:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DCB155C32DC;
+	Sat,  2 Nov 2024 11:45:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286AEC4CEC3;
+	Sat,  2 Nov 2024 11:46:37 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 2061F5F9F2;
+	Sat,  2 Nov 2024 19:46:34 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ Cody Eksal <masterr3c0rd@epochal.quest>
+Cc: Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, Nishanth Menon <nm@ti.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Yangtao Li <tiny.windzz@gmail.com>, 
+ Parthiban <parthiban@linumiz.com>, Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+Subject: Re: (subset) [PATCH v2 00/13] sunxi: A100/A133 second stage
+ support
+Message-Id: <173054799410.64486.11694812401132710377.b4-ty@csie.org>
+Date: Sat, 02 Nov 2024 19:46:34 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_044137_549465_2B303157 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20241102_044638_774501_AE946935 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hard processor system (HPS) on the Intel/Altera Arria10 provides
-three Ethernet Media Access Controller (EMAC) peripherals. Each EMAC
-can be used to transmit and receive data at 10/100/1000 Mbps over
-ethernet connections in compliance with the IEEE 802.3 specification.
-The EMACs on the Arria10 are instances of the Synopsis DesignWare
-Universal 10/100/1000 Ethernet MAC, version 3.72a.
+On Thu, 31 Oct 2024 04:02:13 -0300, Cody Eksal wrote:
+> This is V2 of this series [5], with some changes that were requested and
+> others that were made after testing on more devices. Thank you for all of
+> your feedback! A changelog is available below.
+> 
+> ==================
+> Back in 2020, two Allwinner employees, Yangtao Li and Shuosheng Huang, each
+> submitted a patch series for the A100 series of SoCs; [1] intended to add
+> support for the watchdog, ARM PMU, DMA, USB, and (e)MMC controller, and [2]
+> implemented DVFS support. Some patches from the first series landed, but
+> the rest were seemingly abandoned.
+> 
+> [...]
 
-Support the Synopsis DesignWare version 3.72a, which is used in Intel's
-Arria10 SoC, since it was missing.
+Applied to dt-for-6.13 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
 
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
----
- Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+[01/13] arm64: dts: allwinner: A100: Add PMU mode
+        commit: 248b20ed03545656bd1775ed115369854f58f55c
+[02/13] arm64: dts: allwinner: a100: add watchdog node
+        commit: f84a3aa7782687ca0fa54f768fc6bb825575f91a
+[03/13] dt-bindings: phy: sun50i-a64: add a100 compatible
+        commit: 4402ef303d4b90748646568cf48f52eea035057a
+[04/13] dt-bindings: usb: Add A100 compatible string
+        commit: 1e7d0e2a53e6bf4b43f78858b1fb10aa38259375
+[05/13] dt-bindings: usb: sunxi-musb: Add A100 compatible string
+        commit: e144e89de0e491ea191847b0dc15a5aeb27951eb
+[06/13] arm64: dts: allwinner: a100: add usb related nodes
+        commit: c3cc9b02f7490d93635692cf58b0a4e517a60ab2
+[09/13] arm64: allwinner: a100: Add MMC related nodes
+        commit: fcfbb8d9ec584c256c0a6e1ae3174a21b007f399
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 15073627c..d26bb77eb 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -26,6 +26,7 @@ select:
-           - snps,dwmac-3.610
-           - snps,dwmac-3.70a
-           - snps,dwmac-3.710
-+          - snps,dwmac-3.72a
-           - snps,dwmac-4.00
-           - snps,dwmac-4.10a
-           - snps,dwmac-4.20a
-@@ -88,6 +89,7 @@ properties:
-         - snps,dwmac-3.610
-         - snps,dwmac-3.70a
-         - snps,dwmac-3.710
-+        - snps,dwmac-3.72a
-         - snps,dwmac-4.00
-         - snps,dwmac-4.10a
-         - snps,dwmac-4.20a
+Best regards,
 -- 
-2.39.2
+Chen-Yu Tsai <wens@csie.org>
 
 
