@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFF8E677F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 09:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60281E677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 09:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5G8l6uISjGX4JalG3k0wxBKl63QcKXpkCMWjBHZEmZU=; b=Evmcj+fx+c4Qg2N72JCtswUcOj
-	PO/i8XC3HOkTv9hDXm10Ka3ZDS3jfJJyM+1Z8Soo1NMl3XtD4AxOXne4rH87iFdAETH8C+gM5cfyI
-	7UovQ0ei9+mYXjv7DtqSF6Z3Bh5FzWR1wTZu4gudU7rK8OAT6FeXxet4lVscn2ak0X8SiqHuqFl6W
-	SUEYWvD6LuI78yeKCshZAvM9ZUgqUALdR7VwVsr+XUqDR3es/ClHy9lCYt2b5uYQiohlK3Fa1zROg
-	L+t70J8y0AaYVVwfQOcAWk47Ed7cnHNmKEepMN2t6YQbKNMKutTg+4xh7dcJVD1DXxGjwMhR0Ldu2
-	juTIg/FQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kM5LxwmkSrNnREXnPCj+LvW4dYimAjGWUA8atogd9BE=; b=Yu6hpQLcPzs07WpiKIi7NOIdRc
+	Ts6VegVm3NMNV3xbsNNTNC2apFFh0XPgCXNyFU6aNZ84tAiNpoXwXU/guwy6u53+xk5quDxzJwThM
+	HCCbyifcYniH0x0O15w+2gzSZRebLePuG3lC1D77MV52eEqSOyF5oq2LiTl2X4ZyRHVHI+o6JxcsN
+	AiExFh0c89Ge3Av/UHszgAm0ITgjAwc0Qc1FQx6vjyH7qKsvuP1j+ceHoeO65YT2saOEimVMfRrnN
+	bsgwMORDXHoFMChYaQ/eLPQdo9NZJQp6sN10tCws1onC95UdAxO6s2pZ23vhlGsxJQLQJVPgKrSuT
+	clyft0iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7AW5-00000009OQ6-2JJQ;
-	Sat, 02 Nov 2024 09:33:57 +0000
-Received: from smtp-70.smtpout.orange.fr ([80.12.242.70] helo=msa.smtpout.orange.fr)
+	id 1t7AYC-00000009Oi5-1qPq;
+	Sat, 02 Nov 2024 09:36:08 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7AUL-00000009OBV-34Mg
+	id 1t7AWV-00000009OTO-1u4G
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 09:32:11 +0000
-Received: from localhost.localdomain ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id 7AUHtgS0WmZVQ7AUItwjdI; Sat, 02 Nov 2024 10:32:07 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1730539927;
-	bh=5G8l6uISjGX4JalG3k0wxBKl63QcKXpkCMWjBHZEmZU=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=jyroBerktCqh+z7jnXCldQgaNVGooCi0y13c9w+P6yoRHq0iM+BE1VJ+nCV7hfVkL
-	 21YZAZciwqwajHUl9gR0ylgvTH6/4G5+X+S38ZvfqDSC82t+dGaFnm4nDfD6sK8a9B
-	 6lYTEeuayGvnj1ZbE/f4sUPF8EuNfKCidrTuaCU8bYQGorNObjl0igQULmzDXMIFhE
-	 NJhi7uMkZL+GkagIDo+U9sIWwrYVt+PMSOFLXqm/X4FhcASmnJ0cSUm9FDUW9bF1+2
-	 QykMA6SM7mFj7V3XzLUGlVVvs9pXhBfFkZj0AJVTuP3j9q4N7yNUrMHcQMZTfZYo1e
-	 k+JPI91u6GM3A==
-X-ME-Helo: localhost.localdomain
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Sat, 02 Nov 2024 10:32:07 +0100
-X-ME-IP: 90.11.132.44
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64/fpsimd: Fix a typo
-Date: Sat,  2 Nov 2024 10:31:54 +0100
-Message-ID: <2cbcb42615e9265bccc9b746465d7998382e605d.1730539907.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.47.0
+	Sat, 02 Nov 2024 09:34:25 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DC580A0438;
+	Sat,  2 Nov 2024 10:34:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=kM5LxwmkSrNnREXnPCj+
+	LvW4dYimAjGWUA8atogd9BE=; b=AKlK8PoV+cqO8Djpg9dSlxWWE2MrugoY56iU
+	orqFjJr7LzGnfJyk8kZooXzq+uY/QlzbYum7LPRcEwfgSKtjSj3Jasi71GSvFJdN
+	uZ7DUWBAbe+s4cCIDRwA15pKuDnLlaTf7miGZhUMd6L+vL5yZL8PeXXuZYHzyImt
+	MmrKl//uEZH6P7BL/nF5/aPRbG+Xt8SaX3ADGTKSFQu6afUG7wp31KHmEbAhAnIg
+	4CLTlpj9EGQH2esQdktP6oEPOxjorOZpopYVlRDYn5wqAFc73Djw8v5SFZnWQHJx
+	s4MFoBFmNC77/Zki2SQUU3LdTjlB14K7lB1t14HCXrldeVB0+Ae5aoM84+FOB6mp
+	JeiUA+xN45Zd7ukTZft2nS5B7TIBEPdSMuVnJlXIxbtL73EWiQLRb78/pqAP/Oqs
+	nvl5t+0vq1hgBAGstHKweLAha5NZJmIhbm9q+2lJPsaxLd75+HjVGZtqjSAAh9ih
+	arStoc4KPgouWmsbR6XWcGzF4v8E3NOqhE9WYIKywj8fq2Qd5Kc1EhtDDqrz9ziZ
+	+QY1pmkSbgy08q4/LmYo7MD982yRhLJVHgzKVHHIA5dvAXInRrkf3WIQR6kI78XC
+	FOI8Px5B5vAGXs1juWoepzlxYp+O4zcFHtJiqfqfG+WZKnfbaGGFMW1rxX3lFVvD
+	uwB5GP4=
+From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Mesih Kilinc <mesihkilinc@gmail.com>, Amit Singh Tomar
+	<amitsinght@marvell.com>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?=
+	<csokas.bence@prolan.hu>, Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai
+	<wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+	<samuel@sholland.org>
+Subject: [PATCH v5 1/5] dma-engine: sun4i: Add a quirk to support different chips
+Date: Sat, 2 Nov 2024 10:31:38 +0100
+Message-ID: <20241102093140.2625230-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241102093140.2625230-1-csokas.bence@prolan.hu>
+References: <20241102093140.2625230-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730540060;VERSION=7979;MC=832334547;ID=220018;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855667067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_023209_925595_5CCEF02A 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20241102_023423_838571_7A7FB8CC 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +84,376 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-s/FPSMID/FPSIMD/
-M and I inversted. Fix it
+From: Mesih Kilinc <mesihkilinc@gmail.com>
 
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Allwinner suniv F1C100s has similar DMA engine to sun4i. Several
+registers has different addresses. Total dma channels, endpoint counts
+and max burst counts are also different.
+
+In order to support F1C100s add a quirk structure to hold IC specific
+data.
+
+Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+[ csokas.bence: Resolve conflict in `sun4i_dma_prep_dma_cyclic()`, fix whitespace ]
+Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
 ---
- arch/arm64/kernel/fpsimd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 77006df20a75..cd7d71fe1fda 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -386,7 +386,7 @@ static void task_fpsimd_load(void)
- 			 * fpsimd_save_user_state() or memory corruption, we
- 			 * should always record an explicit format
- 			 * when we save. We always at least have the
--			 * memory allocated for FPSMID registers so
-+			 * memory allocated for FPSIMD registers so
- 			 * try that and hope for the best.
- 			 */
- 			WARN_ON_ONCE(1);
+Notes:
+    Changes in v2:
+    * Whitespace
+    Changes in v5:
+    * Use SUN4I_DMA_NR_MAX_CHANNELS
+
+ drivers/dma/sun4i-dma.c | 137 ++++++++++++++++++++++++++++++----------
+ 1 file changed, 105 insertions(+), 32 deletions(-)
+
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 2e7f9b07fdd2..b2c1e4b9f696 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -13,6 +13,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/module.h>
+ #include <linux/of_dma.h>
++#include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+@@ -31,6 +32,8 @@
+ #define SUN4I_DMA_CFG_SRC_ADDR_MODE(mode)	((mode) << 5)
+ #define SUN4I_DMA_CFG_SRC_DRQ_TYPE(type)	(type)
+ 
++#define SUN4I_MAX_BURST	8
++
+ /** Normal DMA register values **/
+ 
+ /* Normal DMA source/destination data request type values */
+@@ -132,6 +135,32 @@
+ #define SUN4I_DDMA_MAX_SEG_SIZE		SZ_16M
+ #define SUN4I_DMA_MAX_SEG_SIZE		SUN4I_NDMA_MAX_SEG_SIZE
+ 
++/*
++ * Hardware channels / ports representation
++ *
++ * The hardware is used in several SoCs, with differing numbers
++ * of channels and endpoints. This structure ties those numbers
++ * to a certain compatible string.
++ */
++struct sun4i_dma_config {
++	u32 ndma_nr_max_channels;
++	u32 ndma_nr_max_vchans;
++
++	u32 ddma_nr_max_channels;
++	u32 ddma_nr_max_vchans;
++
++	u32 dma_nr_max_channels;
++
++	void (*set_dst_data_width)(u32 *p_cfg, s8 data_width);
++	void (*set_src_data_width)(u32 *p_cfg, s8 data_width);
++	int (*convert_burst)(u32 maxburst);
++
++	u8 ndma_drq_sdram;
++	u8 ddma_drq_sdram;
++
++	u8 max_burst;
++};
++
+ struct sun4i_dma_pchan {
+ 	/* Register base of channel */
+ 	void __iomem			*base;
+@@ -170,7 +199,7 @@ struct sun4i_dma_contract {
+ };
+ 
+ struct sun4i_dma_dev {
+-	DECLARE_BITMAP(pchans_used, SUN4I_DMA_NR_MAX_CHANNELS);
++	unsigned long *pchans_used;
+ 	struct dma_device		slave;
+ 	struct sun4i_dma_pchan		*pchans;
+ 	struct sun4i_dma_vchan		*vchans;
+@@ -178,6 +207,7 @@ struct sun4i_dma_dev {
+ 	struct clk			*clk;
+ 	int				irq;
+ 	spinlock_t			lock;
++	const struct sun4i_dma_config *cfg;
+ };
+ 
+ static struct sun4i_dma_dev *to_sun4i_dma_dev(struct dma_device *dev)
+@@ -200,7 +230,17 @@ static struct device *chan2dev(struct dma_chan *chan)
+ 	return &chan->dev->device;
+ }
+ 
+-static int convert_burst(u32 maxburst)
++static void set_dst_data_width_a10(u32 *p_cfg, s8 data_width)
++{
++	*p_cfg |= SUN4I_DMA_CFG_DST_DATA_WIDTH(data_width);
++}
++
++static void set_src_data_width_a10(u32 *p_cfg, s8 data_width)
++{
++	*p_cfg |= SUN4I_DMA_CFG_SRC_DATA_WIDTH(data_width);
++}
++
++static int convert_burst_a10(u32 maxburst)
+ {
+ 	if (maxburst > 8)
+ 		return -EINVAL;
+@@ -233,15 +273,15 @@ static struct sun4i_dma_pchan *find_and_use_pchan(struct sun4i_dma_dev *priv,
+ 	int i, max;
+ 
+ 	/*
+-	 * pchans 0-SUN4I_NDMA_NR_MAX_CHANNELS are normal, and
+-	 * SUN4I_NDMA_NR_MAX_CHANNELS+ are dedicated ones
++	 * pchans 0-priv->cfg->ndma_nr_max_channels are normal, and
++	 * priv->cfg->ndma_nr_max_channels+ are dedicated ones
+ 	 */
+ 	if (vchan->is_dedicated) {
+-		i = SUN4I_NDMA_NR_MAX_CHANNELS;
+-		max = SUN4I_DMA_NR_MAX_CHANNELS;
++		i = priv->cfg->ndma_nr_max_channels;
++		max = priv->cfg->dma_nr_max_channels;
+ 	} else {
+ 		i = 0;
+-		max = SUN4I_NDMA_NR_MAX_CHANNELS;
++		max = priv->cfg->ndma_nr_max_channels;
+ 	}
+ 
+ 	spin_lock_irqsave(&priv->lock, flags);
+@@ -444,6 +484,7 @@ generate_ndma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 		      size_t len, struct dma_slave_config *sconfig,
+ 		      enum dma_transfer_direction direction)
+ {
++	struct sun4i_dma_dev *priv = to_sun4i_dma_dev(chan->device);
+ 	struct sun4i_dma_promise *promise;
+ 	int ret;
+ 
+@@ -467,13 +508,13 @@ generate_ndma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 		sconfig->src_addr_width, sconfig->dst_addr_width);
+ 
+ 	/* Source burst */
+-	ret = convert_burst(sconfig->src_maxburst);
++	ret = priv->cfg->convert_burst(sconfig->src_maxburst);
+ 	if (ret < 0)
+ 		goto fail;
+ 	promise->cfg |= SUN4I_DMA_CFG_SRC_BURST_LENGTH(ret);
+ 
+ 	/* Destination burst */
+-	ret = convert_burst(sconfig->dst_maxburst);
++	ret = priv->cfg->convert_burst(sconfig->dst_maxburst);
+ 	if (ret < 0)
+ 		goto fail;
+ 	promise->cfg |= SUN4I_DMA_CFG_DST_BURST_LENGTH(ret);
+@@ -482,13 +523,13 @@ generate_ndma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 	ret = convert_buswidth(sconfig->src_addr_width);
+ 	if (ret < 0)
+ 		goto fail;
+-	promise->cfg |= SUN4I_DMA_CFG_SRC_DATA_WIDTH(ret);
++	priv->cfg->set_src_data_width(&promise->cfg, ret);
+ 
+ 	/* Destination bus width */
+ 	ret = convert_buswidth(sconfig->dst_addr_width);
+ 	if (ret < 0)
+ 		goto fail;
+-	promise->cfg |= SUN4I_DMA_CFG_DST_DATA_WIDTH(ret);
++	priv->cfg->set_dst_data_width(&promise->cfg, ret);
+ 
+ 	return promise;
+ 
+@@ -510,6 +551,7 @@ static struct sun4i_dma_promise *
+ generate_ddma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 		      size_t len, struct dma_slave_config *sconfig)
+ {
++	struct sun4i_dma_dev *priv = to_sun4i_dma_dev(chan->device);
+ 	struct sun4i_dma_promise *promise;
+ 	int ret;
+ 
+@@ -524,13 +566,13 @@ generate_ddma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 		SUN4I_DDMA_CFG_BYTE_COUNT_MODE_REMAIN;
+ 
+ 	/* Source burst */
+-	ret = convert_burst(sconfig->src_maxburst);
++	ret = priv->cfg->convert_burst(sconfig->src_maxburst);
+ 	if (ret < 0)
+ 		goto fail;
+ 	promise->cfg |= SUN4I_DMA_CFG_SRC_BURST_LENGTH(ret);
+ 
+ 	/* Destination burst */
+-	ret = convert_burst(sconfig->dst_maxburst);
++	ret = priv->cfg->convert_burst(sconfig->dst_maxburst);
+ 	if (ret < 0)
+ 		goto fail;
+ 	promise->cfg |= SUN4I_DMA_CFG_DST_BURST_LENGTH(ret);
+@@ -539,13 +581,13 @@ generate_ddma_promise(struct dma_chan *chan, dma_addr_t src, dma_addr_t dest,
+ 	ret = convert_buswidth(sconfig->src_addr_width);
+ 	if (ret < 0)
+ 		goto fail;
+-	promise->cfg |= SUN4I_DMA_CFG_SRC_DATA_WIDTH(ret);
++	priv->cfg->set_src_data_width(&promise->cfg, ret);
+ 
+ 	/* Destination bus width */
+ 	ret = convert_buswidth(sconfig->dst_addr_width);
+ 	if (ret < 0)
+ 		goto fail;
+-	promise->cfg |= SUN4I_DMA_CFG_DST_DATA_WIDTH(ret);
++	priv->cfg->set_dst_data_width(&promise->cfg, ret);
+ 
+ 	return promise;
+ 
+@@ -622,6 +664,7 @@ static struct dma_async_tx_descriptor *
+ sun4i_dma_prep_dma_memcpy(struct dma_chan *chan, dma_addr_t dest,
+ 			  dma_addr_t src, size_t len, unsigned long flags)
+ {
++	struct sun4i_dma_dev *priv = to_sun4i_dma_dev(chan->device);
+ 	struct sun4i_dma_vchan *vchan = to_sun4i_dma_vchan(chan);
+ 	struct dma_slave_config *sconfig = &vchan->cfg;
+ 	struct sun4i_dma_promise *promise;
+@@ -638,8 +681,8 @@ sun4i_dma_prep_dma_memcpy(struct dma_chan *chan, dma_addr_t dest,
+ 	 */
+ 	sconfig->src_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+ 	sconfig->dst_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+-	sconfig->src_maxburst = 8;
+-	sconfig->dst_maxburst = 8;
++	sconfig->src_maxburst = priv->cfg->max_burst;
++	sconfig->dst_maxburst = priv->cfg->max_burst;
+ 
+ 	if (vchan->is_dedicated)
+ 		promise = generate_ddma_promise(chan, src, dest, len, sconfig);
+@@ -654,11 +697,13 @@ sun4i_dma_prep_dma_memcpy(struct dma_chan *chan, dma_addr_t dest,
+ 
+ 	/* Configure memcpy mode */
+ 	if (vchan->is_dedicated) {
+-		promise->cfg |= SUN4I_DMA_CFG_SRC_DRQ_TYPE(SUN4I_DDMA_DRQ_TYPE_SDRAM) |
+-				SUN4I_DMA_CFG_DST_DRQ_TYPE(SUN4I_DDMA_DRQ_TYPE_SDRAM);
++		promise->cfg |=
++			SUN4I_DMA_CFG_SRC_DRQ_TYPE(priv->cfg->ddma_drq_sdram) |
++			SUN4I_DMA_CFG_DST_DRQ_TYPE(priv->cfg->ddma_drq_sdram);
+ 	} else {
+-		promise->cfg |= SUN4I_DMA_CFG_SRC_DRQ_TYPE(SUN4I_NDMA_DRQ_TYPE_SDRAM) |
+-				SUN4I_DMA_CFG_DST_DRQ_TYPE(SUN4I_NDMA_DRQ_TYPE_SDRAM);
++		promise->cfg |=
++			SUN4I_DMA_CFG_SRC_DRQ_TYPE(priv->cfg->ndma_drq_sdram) |
++			SUN4I_DMA_CFG_DST_DRQ_TYPE(priv->cfg->ndma_drq_sdram);
+ 	}
+ 
+ 	/* Fill the contract with our only promise */
+@@ -673,6 +718,7 @@ sun4i_dma_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t buf, size_t len,
+ 			  size_t period_len, enum dma_transfer_direction dir,
+ 			  unsigned long flags)
+ {
++	struct sun4i_dma_dev *priv = to_sun4i_dma_dev(chan->device);
+ 	struct sun4i_dma_vchan *vchan = to_sun4i_dma_vchan(chan);
+ 	struct dma_slave_config *sconfig = &vchan->cfg;
+ 	struct sun4i_dma_promise *promise;
+@@ -696,11 +742,11 @@ sun4i_dma_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t buf, size_t len,
+ 	if (vchan->is_dedicated) {
+ 		io_mode = SUN4I_DDMA_ADDR_MODE_IO;
+ 		linear_mode = SUN4I_DDMA_ADDR_MODE_LINEAR;
+-		ram_type = SUN4I_DDMA_DRQ_TYPE_SDRAM;
++		ram_type = priv->cfg->ddma_drq_sdram;
+ 	} else {
+ 		io_mode = SUN4I_NDMA_ADDR_MODE_IO;
+ 		linear_mode = SUN4I_NDMA_ADDR_MODE_LINEAR;
+-		ram_type = SUN4I_NDMA_DRQ_TYPE_SDRAM;
++		ram_type = priv->cfg->ndma_drq_sdram;
+ 	}
+ 
+ 	if (dir == DMA_MEM_TO_DEV) {
+@@ -793,6 +839,7 @@ sun4i_dma_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+ 			unsigned int sg_len, enum dma_transfer_direction dir,
+ 			unsigned long flags, void *context)
+ {
++	struct sun4i_dma_dev *priv = to_sun4i_dma_dev(chan->device);
+ 	struct sun4i_dma_vchan *vchan = to_sun4i_dma_vchan(chan);
+ 	struct dma_slave_config *sconfig = &vchan->cfg;
+ 	struct sun4i_dma_promise *promise;
+@@ -818,11 +865,11 @@ sun4i_dma_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+ 	if (vchan->is_dedicated) {
+ 		io_mode = SUN4I_DDMA_ADDR_MODE_IO;
+ 		linear_mode = SUN4I_DDMA_ADDR_MODE_LINEAR;
+-		ram_type = SUN4I_DDMA_DRQ_TYPE_SDRAM;
++		ram_type = priv->cfg->ddma_drq_sdram;
+ 	} else {
+ 		io_mode = SUN4I_NDMA_ADDR_MODE_IO;
+ 		linear_mode = SUN4I_NDMA_ADDR_MODE_LINEAR;
+-		ram_type = SUN4I_NDMA_DRQ_TYPE_SDRAM;
++		ram_type = priv->cfg->ndma_drq_sdram;
+ 	}
+ 
+ 	if (dir == DMA_MEM_TO_DEV)
+@@ -1150,6 +1197,10 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
++	priv->cfg = of_device_get_match_data(&pdev->dev);
++	if (!priv->cfg)
++		return -ENODEV;
++
+ 	priv->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(priv->base))
+ 		return PTR_ERR(priv->base);
+@@ -1197,23 +1248,26 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+ 
+ 	priv->slave.dev = &pdev->dev;
+ 
+-	priv->pchans = devm_kcalloc(&pdev->dev, SUN4I_DMA_NR_MAX_CHANNELS,
++	priv->pchans = devm_kcalloc(&pdev->dev, priv->cfg->dma_nr_max_channels,
+ 				    sizeof(struct sun4i_dma_pchan), GFP_KERNEL);
+ 	priv->vchans = devm_kcalloc(&pdev->dev, SUN4I_DMA_NR_MAX_VCHANS,
+ 				    sizeof(struct sun4i_dma_vchan), GFP_KERNEL);
+-	if (!priv->vchans || !priv->pchans)
++	priv->pchans_used = devm_kcalloc(&pdev->dev,
++					 BITS_TO_LONGS(priv->cfg->dma_nr_max_channels),
++					 sizeof(unsigned long), GFP_KERNEL);
++	if (!priv->vchans || !priv->pchans || !priv->pchans_used)
+ 		return -ENOMEM;
+ 
+ 	/*
+-	 * [0..SUN4I_NDMA_NR_MAX_CHANNELS) are normal pchans, and
+-	 * [SUN4I_NDMA_NR_MAX_CHANNELS..SUN4I_DMA_NR_MAX_CHANNELS) are
++	 * [0..priv->cfg->ndma_nr_max_channels) are normal pchans, and
++	 * [priv->cfg->ndma_nr_max_channels..priv->cfg->dma_nr_max_channels) are
+ 	 * dedicated ones
+ 	 */
+-	for (i = 0; i < SUN4I_NDMA_NR_MAX_CHANNELS; i++)
++	for (i = 0; i < priv->cfg->ndma_nr_max_channels; i++)
+ 		priv->pchans[i].base = priv->base +
+ 			SUN4I_NDMA_CHANNEL_REG_BASE(i);
+ 
+-	for (j = 0; i < SUN4I_DMA_NR_MAX_CHANNELS; i++, j++) {
++	for (j = 0; i < priv->cfg->dma_nr_max_channels; i++, j++) {
+ 		priv->pchans[i].base = priv->base +
+ 			SUN4I_DDMA_CHANNEL_REG_BASE(j);
+ 		priv->pchans[i].is_dedicated = 1;
+@@ -1284,8 +1338,27 @@ static void sun4i_dma_remove(struct platform_device *pdev)
+ 	clk_disable_unprepare(priv->clk);
+ }
+ 
++static struct sun4i_dma_config sun4i_a10_dma_cfg = {
++	.ndma_nr_max_channels	= SUN4I_NDMA_NR_MAX_CHANNELS,
++	.ndma_nr_max_vchans	= SUN4I_NDMA_NR_MAX_VCHANS,
++
++	.ddma_nr_max_channels	= SUN4I_DDMA_NR_MAX_CHANNELS,
++	.ddma_nr_max_vchans	= SUN4I_DDMA_NR_MAX_VCHANS,
++
++	.dma_nr_max_channels	= SUN4I_DMA_NR_MAX_CHANNELS,
++
++	.set_dst_data_width	= set_dst_data_width_a10,
++	.set_src_data_width	= set_src_data_width_a10,
++	.convert_burst		= convert_burst_a10,
++
++	.ndma_drq_sdram		= SUN4I_NDMA_DRQ_TYPE_SDRAM,
++	.ddma_drq_sdram		= SUN4I_DDMA_DRQ_TYPE_SDRAM,
++
++	.max_burst		= SUN4I_MAX_BURST,
++};
++
+ static const struct of_device_id sun4i_dma_match[] = {
+-	{ .compatible = "allwinner,sun4i-a10-dma" },
++	{ .compatible = "allwinner,sun4i-a10-dma", .data = &sun4i_a10_dma_cfg },
+ 	{ /* sentinel */ },
+ };
+ MODULE_DEVICE_TABLE(of, sun4i_dma_match);
 -- 
-2.47.0
+2.34.1
+
 
 
