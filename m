@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D26CE677FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1779E677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4m1rkOFVRaTUJ6KbYfcvfQ0SE2NjuGmD+Q9Z/FQ4kA=; b=b5D3HKIOfUR9TF60DIsj/3VNHd
-	sSRFCtiAmj2PBOYNKuTL6FdwP/4RHt4U+PROZqPNZVDYDjYNddnyvCRcfR737e4IWy7uqfArKTXMp
-	dLbeDJ2PtJwChUJASqgq9vlSI8BL3O+85goRIAtNK+XmFowqxWm3K1tLPu6BQxgKaVOX3AYxKjy2Y
-	51YeNOeCUXzQovC7ter4ikJpgTX0fLjpqx0gzBhavCe6gnjfD90sQsWBzMNpO5xBIMyeqW1d2GPbx
-	Vi+oGRTw5Flg4xF0wWLk+k/69rehB1Bz75j/UKQ/O+C6g5C5xOQ3eTFvvin05vQnQSKejADY3MG2R
-	oNlg/tiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4ODXSKIPM8Xa+YaYVLc8WanEICuRtJG6U7jSPf/7hZw=; b=FRnS/JmjuG8o/nHtKJ1ztdFWpJ
+	C6fut2ZXGh0Zsq2yEeav50YDQ5WID3Mv6Dpql2iFp+Q1t0OQQYcTjHHKtavvEJBC7HVqyr8chwA89
+	xn4raAlihI/BKC1O9b7zHiWtDyFastewavlKe8zEMXmlNB8mw5FAewM3ksdhv7Tjx3Jjs8gSnWQ+6
+	29KJZdTs9zEg8R5k2xbOcZDYkbXuY1vV4l+8W6hOXWX6e1P2PFsXQkHrNq+kCPpjl0C22cNfq+Egx
+	k5vtkEp8m9c3biYpmXfxhSSQXPUdLA8WDwra+RD6VCNc/iNxwMjeXBEX6a5Bqw8cNsCzqdoUcSM/c
+	/QUUaYLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CYc-00000009bsj-2mWl;
-	Sat, 02 Nov 2024 11:44:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t7CaG-00000009c2h-0HdG;
+	Sat, 02 Nov 2024 11:46:24 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7COf-00000009aAH-1SPB
+	id 1t7CVT-00000009bIl-305d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 11:34:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 731965C2E71;
-	Sat,  2 Nov 2024 11:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id ABFC4C4CED9;
-	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730547263;
-	bh=x9YfcGI+ZMh7plS2PDtsRxbl863X2kEq1VSJEDKldzA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KINIvesc7IFrUFlECec2TX34+JXWw/qf0rxSey6zNZZ8buciEKVc8BSS2LLXT/k8+
-	 SZN2EJKjV49r4pEjJeIClmR8kaxCy0hFBoZ+ov5nM29dnHtKqhoDEYzK3pm3sM9k8Y
-	 NZMOfMulqW2vP8GoE7gp+7YYhdK6hJF7IlwDVdyAuA6Fx2DtCNDKGEpC+meUczOLcg
-	 hUefGfEX1o+Mso7iambdU905jHJyHe1Botr76ysbkp76VYLcdsLUidqLIqk6GAOrBu
-	 F8w1YIMh6qQlqVC/296CeGsrDBFFoBGy9k/CNlbk0EfM/dQ7AJPTZKv0yvu5gxbvOA
-	 LVVKWFLvBOqdw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A476FE677FF;
-	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
-From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Date: Sat, 02 Nov 2024 12:34:23 +0100
-Subject: [PATCH 4/5] arm64: dts: apple: t600x: Add spi controller nodes
+	Sat, 02 Nov 2024 11:41:29 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a9a19bf0a1dso53910366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 04:41:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730547685; x=1731152485; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4ODXSKIPM8Xa+YaYVLc8WanEICuRtJG6U7jSPf/7hZw=;
+        b=YBBAUlWVpAySn47qDF8iFMPKF0Qx3n5Wx+hfYJTeE5j5OeY2V6fQcOkynJSwBf6jBh
+         nDhcHet+W3cQxAPK2RtG9mqOxpwDUzv4VOzLvr7U09br/c/RRrXKNa9uEzrkrj4CmBgG
+         B/C40SY8j+HbtcK179HhcMNiBJ2Is4ftnEA8k1FI5gDjYaKaBWFnC/AXOccPrlNqCEF/
+         cgZZV0bxTFrg4NUDFLT+QAT/h9s5r6S3cSnkb2xlLhYW6wBGs1Z9BOaQtSVj9GlNUXnx
+         /LrafNvg+5NZV5Zc3E+69gXfdL1TKRlHu3HQtE3+YCxQ9uDFkK0WgHTC/yVw6PcV4g0V
+         nscQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730547685; x=1731152485;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4ODXSKIPM8Xa+YaYVLc8WanEICuRtJG6U7jSPf/7hZw=;
+        b=d571ivy6LsaNGZZR9Zd8XAy0x7splpzk43tAYIqfED0XNcFteL3gfl9hGRcsS5ipF8
+         /pkbtSRDaq6CrOT7HiGdDo81Rns03KrbvNYEgbpMlXWWVJu7E+UeRV9H255zAKhv8vrg
+         Pr0iJ4jfoTASgkVlhGttTbamkl3PtbM7RwRyxioAu/57St061czKmxBV4Yu92aFRhOTE
+         3H4ZzCFThbBwX4L4Qk0pEB4xLBQC/wnwmp1BZ+ZpfpsBssmR6xjFFIXNNaCR1XB7SUwS
+         nsz7/jXYAqw9OY3Ks8k2vOpnOaDLvl2ZbcldNm0g/c7YAl3axWSe/aaO0Z/69i5D+KuD
+         d+gQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX52wvcuF5W+QJwq2jxvxV664euXlaR3z+9YjY13pA1PbpskqBWtiJ1OZ/CIsn9lX3fZZ8T4BfS1YaCjzzc204S@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZBd0iYJFM6inq+zcOM8DsdA//t5B4bLQlawdeao9xHnyEfejT
+	EUPAOlY3xIIv4ReZmRvksjc6iWNK32lCyVY5tAUaXOLEvFolr+Tt
+X-Google-Smtp-Source: AGHT+IGP63fQoQMFb/ObB1eGQudz2/rh/yY91dTuFfLQmvqaGKroFryYsgP1YkjTo2qDjj678icCdA==
+X-Received: by 2002:a05:6402:3546:b0:5c5:bebb:5409 with SMTP id 4fb4d7f45d1cf-5cbbf88efbemr8731768a12.3.1730547685210;
+        Sat, 02 Nov 2024 04:41:25 -0700 (PDT)
+Received: from 1bb4c87f881f.v.cablecom.net (84-72-156-211.dclient.hispeed.ch. [84.72.156.211])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceb11a7aaasm2224918a12.83.2024.11.02.04.41.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Nov 2024 04:41:24 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: robh@kernel.org,
+	kuba@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	peppe.cavallaro@st.com,
+	devicetree@vger.kernel.org,
+	l.rubusch@gmail.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] Add support for Synopsis DesignWare version 3.72a
+Date: Sat,  2 Nov 2024 11:41:20 +0000
+Message-Id: <20241102114122.4631-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241102-asahi-spi-dt-v1-4-7ac44c0a88f9@jannau.net>
-References: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
-In-Reply-To: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3545; i=j@jannau.net;
- s=yk2024; h=from:subject:message-id;
- bh=+9ZFqpJ8nwSbJAAJz7hiOfMfbrOzc9lBaAhTOBlh010=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnQ1PttSvgvvgpYZsPw5X/f7gOnUebLcFxf13zjr7LNmq
- bu23JSojlIWBjEuBlkxRZYk7ZcdDKtrFGNqH4TBzGFlAhnCwMUpABM5kM7IsPfT483WK2r9/HLa
- Tri9dF3GqWYSUiifkuXQvc7r6tnAFYwMNyJ8XKIuXVm8Iy3x/SulnX6TtEofCkQ+b3xapaO2JTG
- IBwA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
-X-Original-From: Janne Grunau <j@jannau.net>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_043425_692664_5E0A675C 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20241102_044127_779362_2E5A04DE 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,112 +100,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Janne Grunau <j@jannau.net>
+Add compatibility and dt-binding for Synopsis DesignWare version 3.72a.
+The dwmac is used on some older Altera/Intel SoCs such as Arria10.
+Updating compatibles in the driver and bindings for the DT improves the
+binding check coverage for such SoCs.
 
-Apple silicon devices have one or more SPI devices. Add device tree
-nodes for all known controllers. The missing ones could be guessed and
-tested with a little effort but since the devices expose no pins and
-no new devices are expected there is no point in spending the effort.
-SPI is used for spi-nor and input devices like keyboard, trackpad,
-touchscreen and fingerprint reader. Only the spi-nor flash has upstream
-drivers. Support for it will be added in a following commit.
-
-Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t600x-common.dtsi    |  7 +++++++
- arch/arm64/boot/dts/apple/t600x-die0.dtsi      | 28 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi | 14 +++++++++++++
- 3 files changed, 49 insertions(+)
+Lothar Rubusch (2):
+  net: stmmac: add support for dwmac 3.72a
+  dt-bindings: net: snps,dwmac: add support for Arria10
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-common.dtsi b/arch/arm64/boot/dts/apple/t600x-common.dtsi
-index fa8ead69936366999786cdd4910266ee08b5ca7a..87dfc13d74171f62bf3087401918d9d41eaac560 100644
---- a/arch/arm64/boot/dts/apple/t600x-common.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-common.dtsi
-@@ -362,6 +362,13 @@ clkref: clock-ref {
- 		clock-output-names = "clkref";
- 	};
- 
-+	clk_200m: clock-200m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <200000000>;
-+		clock-output-names = "clk_200m";
-+	};
-+
- 	/*
- 	 * This is a fabulated representation of the input clock
- 	 * to NCO since we don't know the true clock tree.
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index b1c875e692c8fb9c0af46a23568a7b0cd720141b..e9b3140ba1a996eeb91b3f60470833060b632bd2 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -163,6 +163,34 @@ i2c5: i2c@39b054000 {
- 		status = "disabled";
- 	};
- 
-+	spi1: spi@39b104000 {
-+		compatible = "apple,t6000-spi", "apple,spi";
-+		reg = <0x3 0x9b104000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 1107 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clocks = <&clk_200m>;
-+		pinctrl-0 = <&spi1_pins>;
-+		pinctrl-names = "default";
-+		power-domains = <&ps_spi1>;
-+		status = "disabled";
-+	};
-+
-+	spi3: spi@39b10c000 {
-+		compatible = "apple,t6000-spi", "apple,spi";
-+		reg = <0x3 0x9b10c000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 1109 IRQ_TYPE_LEVEL_HIGH>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clocks = <&clkref>;
-+		pinctrl-0 = <&spi3_pins>;
-+		pinctrl-names = "default";
-+		power-domains = <&ps_spi3>;
-+		status = "disabled";
-+	};
-+
- 	serial0: serial@39b200000 {
- 		compatible = "apple,s5l-uart";
- 		reg = <0x3 0x9b200000 0x0 0x1000>;
-diff --git a/arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi b/arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi
-index b31f1a7a2b3fc36e7dfa480d27012d6d0fd56f97..1a994c3c1b79f088d685e13d1dc16e7d1e6546f4 100644
---- a/arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi
-@@ -36,6 +36,20 @@ i2c5_pins: i2c5-pins {
- 			<APPLE_PINMUX(101, 1)>;
- 	};
- 
-+	spi1_pins: spi1-pins {
-+		pinmux = <APPLE_PINMUX(10, 1)>,
-+			<APPLE_PINMUX(11, 1)>,
-+			<APPLE_PINMUX(32, 1)>,
-+			<APPLE_PINMUX(33, 1)>;
-+	};
-+
-+	spi3_pins: spi3-pins {
-+		pinmux = <APPLE_PINMUX(52, 1)>,
-+			<APPLE_PINMUX(53, 1)>,
-+			<APPLE_PINMUX(54, 1)>,
-+			<APPLE_PINMUX(55, 1)>;
-+	};
-+
- 	pcie_pins: pcie-pins {
- 		pinmux = <APPLE_PINMUX(0, 1)>,
- 				<APPLE_PINMUX(1, 1)>,
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 ++
+ drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c   | 1 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 1 +
+ 3 files changed, 4 insertions(+)
 
 -- 
-2.47.0
-
+2.39.2
 
 
