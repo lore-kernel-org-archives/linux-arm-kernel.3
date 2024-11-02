@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E6EE677F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D3CE677F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dgBvmCkN7lwQWDFNjduHidWraSzkuS7Yxl4Xv5Gd0uc=; b=fCz2XkBRi6/rIVHtsza9qOeqLo
-	9bGRAxn9DamQOnB4w5kbgksb6flkCwDugRxzxmcWsMhgLdcAj+wE1fzyze+DUDf/pceOnx33visPO
-	aQNA5TfsATWWO+fiMD3qYYaQYcUwMfNreZkHy/YCGtVPu6OmTalWSNRsUCTGMNhAJvKGKlGu7SM9J
-	LtbyNVFNNvgrolyX6euENqR16C2Ma6cHINnFXXQtenib5XvcSBEEA0UoPOVNNNV3ij1jH8zWeS+Jn
-	+ZLUbnCl2xuMKfoylvpHxDzVcTMUlE9LffbZo6ZfVocBAhxgqMNnMP1t53hMLFhG6FCQk/OFG3/Ju
-	od234bpw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LLI6g5qy2kH9XAAblENYMdnCx6l3MPGF4O7KSW4JJp4=; b=uPaztf7sjNaZpoH2BgMpeGu6qb
+	VFmYLn5CPDbTtu28MxYiTmUhyBkAc6ZkV1Dmi8ADqMlvI3dV8DFCTr0oBtnWkds3ay1m+afbE9yY7
+	i3CCLfyEbgjWZ9dwgjjSvpXFetTlWPkDDMqph/OY6Ok79A4y9OIHkGk597pD0vPTMYgCZ31a+0Wja
+	3YwoaFImCMBcZvGL4jRnX+PV66Judp3vCt+eeLs6Tfm9ZoZ4pK607PJfnYJo7d/uVAOpNUynUyGWC
+	gmfCiWhQnkc1V+JwioC/KRHRQsTrRPfRMzODb6j4OW0dorSxGeKIyDwUwLlN8tmpULuKVaw8i7bK4
+	+rjV6c9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CVK-00000009bG4-3LFe;
-	Sat, 02 Nov 2024 11:41:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7CWz-00000009bjW-1XUI;
+	Sat, 02 Nov 2024 11:43:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7COf-00000009aA9-02WP
+	id 1t7COf-00000009aAI-1SFJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 11:34:27 +0000
+	Sat, 02 Nov 2024 11:34:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 679F9A407C9;
-	Sat,  2 Nov 2024 11:32:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78259C4CEC3;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 838135C3050;
+	Sat,  2 Nov 2024 11:33:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BFBECC4CED7;
 	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1730547263;
-	bh=AlyikN0YqHFLUKRJr7wvyyU0Pc9nGL/KGQvMwi2DpR8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=aqcn2SvEOY8pjHxeJQvbs0T0x9E4CZ5aOvixMOvSwO6OF0V9x6NJRIFkO8TeoYw+T
-	 TeOQSO2Bcu9cGPM8N24HXyS58gqXN9LneA5Kj7TJWtA5BADi+Du3M58J0SDoji8nmf
-	 2GHwSc0mwZiAUdMKVxn9AC3nG3YJgRPNa82dg1e7yg6LZHzzzLwIkXxqtIrYJPMhmx
-	 y/KIlo7nCJMfy5KcdOlMBHBjEbONP+2Vp9r6xXgqL3tx1ai2lWxifGyW7cK91BIRE1
-	 aVah0cFrAZMRr5maXf714GB6YhPCUlxkLK80yWfPOLMbi9JAOjuiByOFUMdSSkKl9T
-	 3n/wuRjdPQKtA==
+	bh=NtPyrw1FXMvbsmz7Nr23KWeYuAkw5uGGVtbW3/WwzPg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=tfCLKIVlF/qtmS2TbdOnH5+/SIaiaQcg2HUFOpxXUlRzU3G8dLnXgNkBbejhx8PqB
+	 dAcQlY1hlZC8G4jPMgvw6O/dBRPxD1D6tpJkkdY/m7cI5tLd0GPx967Qq82aBM8/AT
+	 VlDnF7aKpvESPZIyrUVZH9xPjI6qo5Ng5Zgc1uMY1Cq0Uoco8plg1hxGyQjJlQzCFW
+	 yKFvAFMM7uvwo5WbIZj4UYq9mEpzOGXPk+zw+xUC3dLHHdO1YrYobU/UhMydLdHDUj
+	 3gBHUXcvc04CE0VHEOqF/9ChKO4IMyK1A96uKyp4uFQtGYSWaDK31gTmYW/9NbJmc9
+	 iGHol/hK3sSaA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60EAFE677FA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5F30E677FD;
 	Sat,  2 Nov 2024 11:34:23 +0000 (UTC)
 From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Subject: [PATCH 0/5] Add Apple SPI controller and spi-nor dt nodes
-Date: Sat, 02 Nov 2024 12:34:19 +0100
-Message-Id: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
+Date: Sat, 02 Nov 2024 12:34:24 +0100
+Subject: [PATCH 5/5] arm64: dts: apple: Add SPI NOR nvram partition to all
+ devices
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADsOJmcC/x3MMQqAMAxA0atIZgOmtiBeRRxaGzWLlkZEkN7d4
- viG/19QzsIKY/NC5ltUzqOC2gaW3R8bo8RqMJ2xRB2hV78LahKMF7rBWBcCRd8z1CRlXuX5d9N
- cygfIQSgXXgAAAA==
-X-Change-ID: 20241101-asahi-spi-dt-58245bb1da3e
+Message-Id: <20241102-asahi-spi-dt-v1-5-7ac44c0a88f9@jannau.net>
+References: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
+In-Reply-To: <20241102-asahi-spi-dt-v1-0-7ac44c0a88f9@jannau.net>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -64,20 +63,20 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2640; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3506; i=j@jannau.net;
  s=yk2024; h=from:subject:message-id;
- bh=AlyikN0YqHFLUKRJr7wvyyU0Pc9nGL/KGQvMwi2DpR8=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnQ1PluWEzef/NdxaGN8YLhjclhqcPQNK0uhqR81g4/Ot
- PBl3qjbUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCIbjjAyvHscZHtPhnfvJbvG
- 153Wme9P3Evgl1y/YuuXwOp5rBpxcxn+B7XsFrA5OfWveJ32XBGGqNbL0ZXzl05hkLLV/p3GeS+
- EEQA=
+ bh=4sH2FvtVOU7J6ZD/GsHPG804yvHnrTdh0gHvxrTVtvc=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnQ1PrvyhtB54ap732lO8opJM52R+f/D5FkNsoGxHWksx
+ +wqDt/pKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJH10YwMR55PusaXVe8n5XBh
+ Jqvmi6X3HwnWcxaqPZLuPqRQ7laTxMjwjb09Sa9la9eqb9+XvDPIMT0xK+7G9qk8gW1XQyw2N6m
+ zAQA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
 X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_043425_265270_F2217D69 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20241102_043425_690997_54B3CC47 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +92,112 @@ Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds SPI controller and SPI NOR flash device nodes to the
-man Apple silicon SoC dts files. Only the subset of used SPI controllers
-is added. Five SPI controllers exists according to pmgr ADT data but the
-commits only add controllers found in use on any of the devices. The
-parameters for the missing nodes are guessable but there's no point in
-adding them since no further M1 or M2 devices are expected.
-Together with controller nodes the first SPI device is added. All Apple
-silicon devices connect a SPI NOR flash to spi1. This holds Apple's 1st
-stage bootloader, firmwares, platform and machine specific config data
-and a writeable key-value store (nvram). Expose only the nvram as mtd
-partition since it has use beyond exploring the content. Tools from
-asahi-nvram [1] can modify the (default) boot configuration
-(asahi-bless), read Bluetooth sync keys (asahi-btsync) and read and
-write arbitrary keys (asahi-nvram).
+From: Janne Grunau <j@jannau.net>
 
-Devicetree bindings are included in the driver series. Last version at
-https://lore.kernel.org/linux-devicetree/20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net/
-
-This series passes `make CHECK_DTBS=1 dtbs` with the spi bindings except
-for "local-mac-address" for the Bluetooth device (I need get back to
-this).
-
-[1] https://github.com/WhatAmISupposedToPutHere/asahi-nvram/
+All known M1* and M2* devices use an identical SPI NOR flash
+configuration with a partition containing a non-volatile key:value
+storage. Use a .dtsi and include it for every device.
+The nvram partition parameters itself depend on the version of the
+installed Apple iboot boot loader. m1n1 will fill in the current values
+provided by Apple's iboot.
 
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
-Hector Martin (1):
-      arm64: dts: apple: t8103: Fix spi4 power domain sort order
+ arch/arm64/boot/dts/apple/spi1-nvram.dtsi      | 39 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi |  2 ++
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi      |  2 ++
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi      |  2 ++
+ arch/arm64/boot/dts/apple/t8112-jxxx.dtsi      |  2 ++
+ 5 files changed, 47 insertions(+)
 
-Janne Grunau (4):
-      arm64: dts: apple: t8103: Add spi controller nodes
-      arm64: dts: apple: t8112: Add spi controller nodes
-      arm64: dts: apple: t600x: Add spi controller nodes
-      arm64: dts: apple: Add SPI NOR nvram partition to all devices
+diff --git a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..3df2fd3993b52884d7c00b65099c88d830a7a4c3
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++//
++// Devicetree include for common spi-nor nvram flash.
++//
++// Apple uses a consistent configiguration for the nvram on all known M1* and
++// M2* devices.
++//
++// Copyright The Asahi Linux Contributors
++
++/ {
++	aliases {
++		nvram = &nvram;
++	};
++};
++
++&spi1 {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0x0>;
++		spi-max-frequency = <25000000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			nvram: partition@700000 {
++				label = "nvram";
++				/* To be filled by the loader */
++				reg = <0x0 0x0>;
++				status = "disabled";
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
+index 2e471dfe43cf885c1234d36bf0e0acfdc4904621..22ebc78e120bf8f0f71fd532e9dce4dcd117bbc6 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
+@@ -119,3 +119,5 @@ sdhci0: mmc@0,0 {
+ &fpwm0 {
+ 	status = "okay";
+ };
++
++#include "spi1-nvram.dtsi"
+diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+index 1e5a19e49b089d4b3c5e12828b682d1993e35e75..d5b985ad567936111ee5cccc9ca9fc23d01d9edf 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+@@ -126,3 +126,5 @@ &pcie0_dart_2 {
+ &pcie0_dart_3 {
+ 	status = "okay";
+ };
++
++#include "spi1-nvram.dtsi"
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 5988a4eb6efaa008c290b1842e0da2aae8052ba4..8e82231acab59ca0bffdcecfb6681f59661fcd96 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -90,3 +90,5 @@ bluetooth0: bluetooth@0,1 {
+ &nco_clkref {
+ 	clock-frequency = <900000000>;
+ };
++
++#include "spi1-nvram.dtsi"
+diff --git a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
+index f5edf61113e7aa869613d672b281f7b7e84efb79..6da35496a4c88dbaba125ebbe8c5a4a428c647c3 100644
+--- a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
+@@ -79,3 +79,5 @@ &i2c3 {
+ &nco_clkref {
+ 	clock-frequency = <900000000>;
+ };
++
++#include "spi1-nvram.dtsi"
 
- arch/arm64/boot/dts/apple/spi1-nvram.dtsi      | 39 +++++++++++++++
- arch/arm64/boot/dts/apple/t600x-common.dtsi    |  7 +++
- arch/arm64/boot/dts/apple/t600x-die0.dtsi      | 28 +++++++++++
- arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi | 14 ++++++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi |  2 +
- arch/arm64/boot/dts/apple/t600x-j375.dtsi      |  2 +
- arch/arm64/boot/dts/apple/t8103-jxxx.dtsi      |  2 +
- arch/arm64/boot/dts/apple/t8103-pmgr.dtsi      | 18 +++----
- arch/arm64/boot/dts/apple/t8103.dtsi           | 68 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112-jxxx.dtsi      |  2 +
- arch/arm64/boot/dts/apple/t8112.dtsi           | 44 ++++++++++++++++-
- 11 files changed, 216 insertions(+), 10 deletions(-)
----
-base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
-change-id: 20241101-asahi-spi-dt-58245bb1da3e
-
-Best regards,
 -- 
-Janne Grunau <j@jannau.net>
+2.47.0
 
 
 
