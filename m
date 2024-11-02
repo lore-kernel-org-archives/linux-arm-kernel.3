@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519CDE677FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884C3E677FC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 11:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=169hA00Pja97h8hm6emVe3dB6p5nrMbDMRco0sdU1HI=; b=pzYtkaWea3D9XQGOOwrX8Bddwp
-	juSd8+cUNtOKMne8cMxkxqaesml31cCUa37Y44SBIsKpw21D73wHIK5cbRBOTn+BN+pgoPNpUmE4u
-	+ZolQF3q7z2hcCLltsn06AQkv0xNxEN8SdwwMpNmIGM92+q9vnEczknY8qPCIPuiv+4CLO1cIlL+A
-	CU+HlM9fwTtwrHGiMc4cw01DSZc8JUXeHw2KQwTn4JyNEWunrMUVZ7vaAEKtcq3fWsQwzfYWCtO2m
-	8PcBMEALAGDn/0tcK5LKq2cXGT+gqx+HND4vXGgxELgBIlSvYCF9uoqUIP/xHr5HPnOpsIdB2FbnI
-	dG85vnOQ==;
+	bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=; b=M0CLKMybSTqM8mXKMys3FmBJ5O
+	Kt1fH06mpMQ6NR1kclEaoH3uD6Sx2mvuOghzMkItOx/Qzqz4HW/Mg/bRV4p1zao3ba4z3CS44d/6c
+	wwL2RZ9O5NWKQkg+QspvHjr8VP+cQ/bV3n3XoCNRveJdpmBwviHCbAtDRsuAf/Lp98i9qpRIfGj3w
+	3/ROHU0+PQnGdvliSlZijnELqpq6gm69rxG43Zmw021WStXV3H8d9+SXbT0jerXLN1XofYr/emRNk
+	4BLaboalG2enJhUbvRyeDTpskX/BiRVJTlfoxHv9+TMTM/0551M5qxydkUgeb+H98jrM5f31TY7o2
+	2sUcexyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Cby-00000009cH7-3a34;
-	Sat, 02 Nov 2024 11:48:10 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1t7Cdc-00000009cQz-0DVa;
+	Sat, 02 Nov 2024 11:49:52 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CVX-00000009bJh-10lJ
+	id 1t7CVd-00000009bLD-23Fq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 11:41:32 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a99f9fa66fdso53817566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 04:41:30 -0700 (PDT)
+	Sat, 02 Nov 2024 11:41:39 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a9a1e429b89so49877266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 04:41:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730547689; x=1731152489; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730547696; x=1731152496; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=169hA00Pja97h8hm6emVe3dB6p5nrMbDMRco0sdU1HI=;
-        b=g8shm98riLPC73DS0i+fE02cwxqF9YcFltvivAtmjZ2ljA6slO/CycXbWckZxCFbNE
-         a/rj/MnjQjdJCAY9ehh3RpBxgxfVr+HtqTdrmiFl2ncZ1QD4HdrHxugjsjB3RzFj7K16
-         aWGq2PPtsYPRi/KS9uNICTaRl9TaPHwobPy+cwz9kzuFcyckzV3W78Le7D5iWXo4HSTs
-         xysfjRRW13AnwhtD607vl3LYiDfasZ13Pn2+6/rbRNJewOXvAlomjZIGGhBhE/94hO63
-         WiGPDsVg9HMNhHcs3dfeVruYZ5n6KppIjFlLi1nbpgTHI5HuVnQVMJhOICfqcAf/LsEr
-         pBEA==
+        bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=;
+        b=JgIwoXb3P9ZVyC5svvEZQcFQfS2egZBLSvVPvS5quDfLd/lyWohMJFdq/2BX+tZNkH
+         7CiX67Fw0tBS45M8837Ci2mhnkXvPIc+tER1+Gf80yjKhF8rpZx5vtlZbkomCEO98NND
+         JsEUMF+mfTq7CPd7UfVIRyw/03689LxikttDk9tXz0ZxHKE252ulhkWh2X9r6Y3YnxxZ
+         n/E4fv2PtW4sYnJfkj537RhT9jPctbxonExBBrjvvJwLE3vS1LzFfOGV6zccfW4Jle7K
+         6ZvDNTrSB9gQEQgMQiFS1FTRbf9M6471s4nlvxqMKBvW7QNnpk87Lsp68RJI4R+NR1gy
+         ewsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730547689; x=1731152489;
+        d=1e100.net; s=20230601; t=1730547696; x=1731152496;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=169hA00Pja97h8hm6emVe3dB6p5nrMbDMRco0sdU1HI=;
-        b=eDlFU/pM80SC7KcvXeX3lT4J5SafUbt8bopWl1tsvvGCekEN9tlvlBy0Hj6aeq3WkW
-         W+E6A7eaXpVqC+u6/7wwyM1NsZoWqF9uNZ+NVujzOHw9q10rRO7o56fod/aP9+QV1nka
-         YxQVmOlAzfC0CxNCGLGVR7340em6cKLk8XKW1XX5lYaTWU1Y/z/Q1CP5IS5I5mGhmAYI
-         u4VoDnPPvfis5RxegI/0YNKRyuDmySI0lN5B+SqBg6DZlMFKSzfnptP6Ythssu8kWaGC
-         fjAL4QyFizJ54eqhZlcExvnn+J70G7waqI+7W0IoMbwYuJ1b4I9fZKqmuViiqShIWPjm
-         Nndw==
-X-Forwarded-Encrypted: i=1; AJvYcCU6mp0eC74Uvynpsuv2QldmkV7qP/pawx6SvSMuVkBVmvNTd8Nts14jsv/gr17uBpToVgX+mmSEdmLr415Xia0L@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB3UnTOygbRA9d+lIc0j1V2ZjjpBjiXHJtKIdD29cP3hukTo7F
-	jxCzEAayEejPhlAjswydOLo8NSfnDohj2oL80g//sU8L0buzvVGJSbuslFvN
-X-Google-Smtp-Source: AGHT+IEt4AjndCEebm/9RILvfW4GXYybZJT+5m7LenNVoAJdiLHQQZg3Dh2A1hqqQqIhTQOPSDbaYQ==
-X-Received: by 2002:a05:6402:34c9:b0:5ce:cfed:624 with SMTP id 4fb4d7f45d1cf-5cecfed3330mr136549a12.0.1730547689088;
-        Sat, 02 Nov 2024 04:41:29 -0700 (PDT)
+        bh=uOkHw4o/DpBBAteKKHGiek6FnJvHtdDfQKLJ8jI641Y=;
+        b=v6xiJ0w6zps6xE4PnteXH1rK/qMdbLIEFDssIkF9e5vt2NGcMZIGE9p6WTErE8OEsu
+         +vHahnqi6wWf/ymjT+odcO9DOjfVBNWAQPFhh0TGqYe4l6gci7f3uKrwS55izYKdOEIk
+         2f/RB21tpujKqMS3WkJg/8aJG7e9nq91NIVmLuQZ7PWfVxMQ4UvrmEF1bgDCwC/fCCuG
+         tzvBkJzfu66hcT+2HeUThHz0Homjpi+f3FWGunZb2E+xC3+0wBkVYV7xKh2STAHoiBmB
+         faZhPBHiBaHrLkEv3RVmm9jZ0VKIQuu/pvhdOUS5oCJkZmEzvQ3KlxVk8uHbp8r/ZVs2
+         AU2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ7l8rysCxTsJ1xUoHTYmyOmEoUzef9MKYtxw9B/Zx4TqKBdHEm7HjMKepKN7OYEfkZxkmh/fye2FqrZOmLoav@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPbWs8PYeIihhJuwxPqXETUv/mRHn8dS/XnthswvcpfgeqZ7jF
+	14O/EJiS4nruHnPYzSxsnI6WL/Q3qYCvfI1XrMbjkdeVhCldFRJ1
+X-Google-Smtp-Source: AGHT+IHjlFEbf282MF76qwHad6BykjaTigqFREVRHfAAOyoo0BQ9DtSIfDsLbquzvjN8C3vTjqzNpw==
+X-Received: by 2002:a50:fb8b:0:b0:5ce:ccff:ac34 with SMTP id 4fb4d7f45d1cf-5ceccffaf12mr288807a12.6.1730547693808;
+        Sat, 02 Nov 2024 04:41:33 -0700 (PDT)
 Received: from 1bb4c87f881f.v.cablecom.net (84-72-156-211.dclient.hispeed.ch. [84.72.156.211])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceb11a7aaasm2224918a12.83.2024.11.02.04.41.25
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceb11a7aaasm2224918a12.83.2024.11.02.04.41.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 04:41:28 -0700 (PDT)
+        Sat, 02 Nov 2024 04:41:32 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: robh@kernel.org,
 	kuba@kernel.org
@@ -81,17 +81,17 @@ Cc: alexandre.torgue@foss.st.com,
 	devicetree@vger.kernel.org,
 	l.rubusch@gmail.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] net: stmmac: add support for dwmac 3.72a
-Date: Sat,  2 Nov 2024 11:41:21 +0000
-Message-Id: <20241102114122.4631-2-l.rubusch@gmail.com>
+Subject: [PATCH v1 2/2] dt-bindings: net: snps,dwmac: add support for Arria10
+Date: Sat,  2 Nov 2024 11:41:22 +0000
+Message-Id: <20241102114122.4631-3-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241102114122.4631-1-l.rubusch@gmail.com>
 References: <20241102114122.4631-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_044131_303093_DA6F5A62 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20241102_044137_549465_2B303157 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +106,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dwmac 3.72a is an ip version that can be found on Intel/Altera Arria10
-SoCs. Going by the hardware features "snps,multicast-filter-bins" and
-"snps,perfect-filter-entries" shall be supported. Thus add a
-compatibility flag, and extend coverage of the driver for the 3.72a.
+The hard processor system (HPS) on the Intel/Altera Arria10 provides
+three Ethernet Media Access Controller (EMAC) peripherals. Each EMAC
+can be used to transmit and receive data at 10/100/1000 Mbps over
+ethernet connections in compliance with the IEEE 802.3 specification.
+The EMACs on the Arria10 are instances of the Synopsis DesignWare
+Universal 10/100/1000 Ethernet MAC, version 3.72a.
+
+Support the Synopsis DesignWare version 3.72a, which is used in Intel's
+Arria10 SoC, since it was missing.
 
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c   | 1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 1 +
- 2 files changed, 2 insertions(+)
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
-index 598eff926..b9218c07e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c
-@@ -56,6 +56,7 @@ static const struct of_device_id dwmac_generic_match[] = {
- 	{ .compatible = "snps,dwmac-3.610"},
- 	{ .compatible = "snps,dwmac-3.70a"},
- 	{ .compatible = "snps,dwmac-3.710"},
-+	{ .compatible = "snps,dwmac-3.72a"},
- 	{ .compatible = "snps,dwmac-4.00"},
- 	{ .compatible = "snps,dwmac-4.10a"},
- 	{ .compatible = "snps,dwmac"},
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 54797edc9..e7e2d6c20 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -522,6 +522,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 	if (of_device_is_compatible(np, "st,spear600-gmac") ||
- 		of_device_is_compatible(np, "snps,dwmac-3.50a") ||
- 		of_device_is_compatible(np, "snps,dwmac-3.70a") ||
-+		of_device_is_compatible(np, "snps,dwmac-3.72a") ||
- 		of_device_is_compatible(np, "snps,dwmac")) {
- 		/* Note that the max-frame-size parameter as defined in the
- 		 * ePAPR v1.1 spec is defined as max-frame-size, it's
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 15073627c..d26bb77eb 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -26,6 +26,7 @@ select:
+           - snps,dwmac-3.610
+           - snps,dwmac-3.70a
+           - snps,dwmac-3.710
++          - snps,dwmac-3.72a
+           - snps,dwmac-4.00
+           - snps,dwmac-4.10a
+           - snps,dwmac-4.20a
+@@ -88,6 +89,7 @@ properties:
+         - snps,dwmac-3.610
+         - snps,dwmac-3.70a
+         - snps,dwmac-3.710
++        - snps,dwmac-3.72a
+         - snps,dwmac-4.00
+         - snps,dwmac-4.10a
+         - snps,dwmac-4.20a
 -- 
 2.39.2
 
