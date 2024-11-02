@@ -4,121 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AD2E677F8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 09:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3687EE677F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 09:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YM8HACUKl4ocuSlUDdw9y8YU3/9YMZaLj+z480woTi0=; b=zhC5CIK6uQG7i/3x/wL84wU+t9
-	HD6LdxDvgPu/6VKdtBkn6d0T4gE38ToKSHaPWSud3rwiosMErridsYs4Rr9JM10hB7SZky2KoDe1A
-	0625Ij+i67PX9Qiu/Vlud8zLbnfFeIeW1WG9hGE/h9ZObIJBhQEL4O4NCW6r6SxUKU7EBDmh2V0It
-	9cQClnzbcGl8kVUxMKmBIX0z5FamXLDbNz/FhWkQ8zwbMbmbQAE4qj9yIdcsJnHgLr+dsL97Ybv2C
-	HCXg1WKcM0IDj8N6guqpU1UH35lYm17om87abN4uOf/fdYmT7KDFps6D7SyEsVRAep7SYMJWZjfSd
-	+zgr6tfA==;
+	bh=gF4/ZNsAK1S1Q0ruvMfpDSairoKQHeLYMeqLyk6oG4w=; b=NrSYMhfK77gcVpHX3oOTO85t0K
+	wYKAC9UsW5cNC/O5FuETnbduJFdFssFwYLKi7WPL0s0yz5mbj0rMMUASXwV7XiueiaA8J4uIoFX+b
+	HGH+STuUZPjiZLNh5QnakIqtii+amJB6Qu+nWpLEynEXMjAfxQgYDwcAY6TzyidLv18uTZ0InLK9+
+	0Y0mLYCuDXlYg/1JD6UbWV1EQJkXBolcWwuS70Q79Q/1PVbwIguMMYX8eaIkxLdUqgTOa3f5+uxV1
+	y39/eAj5WVSYniDxTmobKLGRQOd9ehmhD4eTWjtFbvPVZ5j+ZlzUnbmDv5JuK+W9OrLee0dVEKOoq
+	aRh23jGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Aej-00000009Pag-3iVh;
-	Sat, 02 Nov 2024 09:42:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t7AgM-00000009Pik-07Jh;
+	Sat, 02 Nov 2024 09:44:34 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7AYM-00000009OiS-3857
+	id 1t7AYe-00000009Ooy-3L4T
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 09:36:20 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A24XFm5019714
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 2 Nov 2024 09:36:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	YM8HACUKl4ocuSlUDdw9y8YU3/9YMZaLj+z480woTi0=; b=LSZVSLXacyh0ddjd
-	ae+mcmjmZMVkYhPno7rxKIYjDSq9omMggEyR+sMaeDE1Ri9KA+SdHmXenOiPvVyp
-	vZZ+FkymvF1mplcFa6AI+s4Z0l4IRoynlDSNYB26d5PFeg6GNlsn7XAXLQixK1Sc
-	Q/acs1Mde+1OOKTs2qz2mlrjd1AFv+kTnL76RVRO9NbjxkCE7df75JXVHpTSSoMe
-	6PUmFCQ3GePFjVZHJh+0Zdt48pAu1HXtbQm9qqItGd1ZME7Iw8+URZKzQHhW3BlB
-	Xf03G3HQ/BCIxZ66DJRFJ1tGiIS1QbCKGr9NdxVYn3Gxu/VkJpIKTrTh8DmyqEaJ
-	21gPZg==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42nd5cgdr0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 09:36:10 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6cbd0a3f253so8396516d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 02:36:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730540169; x=1731144969;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YM8HACUKl4ocuSlUDdw9y8YU3/9YMZaLj+z480woTi0=;
-        b=jNg0G79oyKDlvd50wiyjveRJ+1MkBa/NbQBcFlXoIHE7j4Czu+ffjWMR70xPy/KuYK
-         OUCSwnK1jhTlZN+SH6O/QoRvcZB0A6em2oaGjp8NJa4rdeByCqPjQnQ7vZ8zeG2KaB9V
-         EQQnauaFM4JlbBdNTJMxjAg7xef/CRYEuRAi3sCVkjg87U4/yZeZmB6dVpNu6rVDOIV4
-         bwYgJHPXnzi+gE+xCtRd255jND4DXb3JFOaL6ai+e5GPN0FBs8OkNckJoDFu7Krd0RpB
-         h3a2rSs7COW5JA9OLZTHTqjAjDMtopRJrk/9hNtFvAdZDS91kMpFjp9TPRHcja9w4WN6
-         elfw==
-X-Forwarded-Encrypted: i=1; AJvYcCVQjIgJf/QaVv+8u2HVX+SLMQ3YILYHp1m5R4ONiYT3bc2cxNg1I6h7OpujzDj1uwg67cmutNejDXy9Q1767wdx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWqTVKutft67kJ+lLgPk1TUUylrG7NvAalB0THl5cSbegONSoi
-	TYxMotpxghYR9WlXBJ+smICE78pca4SwOSnO5teoKrvcdpNqjg+z8P/R1BjA4U1gSiY5LZHB/dB
-	Zaap17YTP+q/nwlf/uyqi+ZYwNFpdZyObbzTOlRiwqcnVf9RbCVLrulLamtZMKrhWUzLGLiO7qw
-	==
-X-Received: by 2002:a05:620a:4091:b0:7a9:b52a:a6f2 with SMTP id af79cd13be357-7b193f080dcmr1729304085a.8.1730540169293;
-        Sat, 02 Nov 2024 02:36:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHOpuZhSc/uUOWj0mnoU2gw1NJRB4sXHPQcGTLP8tl7/FwvWLjafzIamKU51fvqyvtbBO+7rA==
-X-Received: by 2002:a05:620a:4091:b0:7a9:b52a:a6f2 with SMTP id af79cd13be357-7b193f080dcmr1729300985a.8.1730540168925;
-        Sat, 02 Nov 2024 02:36:08 -0700 (PDT)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e565df86esm291855266b.112.2024.11.02.02.36.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 Nov 2024 02:36:08 -0700 (PDT)
-Message-ID: <c4407327-1060-4805-abb8-0c7bcb067ee4@oss.qualcomm.com>
-Date: Sat, 2 Nov 2024 10:36:04 +0100
+	Sat, 02 Nov 2024 09:36:38 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7A705A0B13;
+	Sat,  2 Nov 2024 10:36:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=gF4/ZNsAK1S1Q0ruvMfp
+	DSairoKQHeLYMeqLyk6oG4w=; b=Aax1zlUo5IrrmsA+XX6SDjcSAQkEwxNfJ56L
+	bP827L6qd0N+lU0F5auKJy/y3r5mZN+yB8OM3FGnQwnBWbBgx30u4qQenmu/e8do
+	KI+x4C2dEG0LgWQR0ZepfZ0HEMpofPMxUTwqM/u/DLkTWR8G4LYa0DJkb5BJ1ujZ
+	nCyihq97aBo8krJxLY07urhZpC+cBs/fvuBO+fkjubUKxF5bedhD0GkPqOaGA3vE
+	I8C4XM5K9m6z5M1jZ64rj5rxK9iMgScs7a8KoRb4A09jrljj3PsR9bPnfS+Wrqs8
+	aj+eQiVadv+8VtYBGZ6Y4kRS4IPuC1ZQimbiY5os6RBfjQ/Cdx/u+7LGmIpXeeZa
+	MQ+L3qrXJWPN3oWMCfiHEf3glekwftBK+nZUfBwbdqsN8dSCuo7iYEnVbpF4Bi1W
+	Wuuv203zZ5unzZHmMNW0b3RiY/4D+kzPTIoDC/niBxbWYWzIwSmXqQoC4kCvFnU9
+	PWhlUFiH6X1Q+Un6lvPdw6QTZ+PbR6QQxaY/6U+aX9nypR0Wgb1h/i1kiqzlSX2E
+	v+vv2vM5GMPLXS9ziIxrP9HuSibFpg30wxNvbsVdlopGqJB3OotTwoFxADI6fsik
+	AIGWhhYiBbFn55Tlj1660kE84yjLMC0vzVh4rzsodga+YkgZbuNEFoL8uoyPzn2L
+	BAgiwrg=
+From: =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>
+To: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Mesih Kilinc <mesihkilinc@gmail.com>,
+	=?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?= <csokas.bence@prolan.hu>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Subject: [PATCH v5 5/5] ARM: dts: suniv: f1c100s: Add support for DMA
+Date: Sat, 2 Nov 2024 10:31:44 +0100
+Message-ID: <20241102093140.2625230-6-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241102093140.2625230-1-csokas.bence@prolan.hu>
+References: <20241102093140.2625230-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] arm64: dts: qcom: Add base sm8750 dtsi and mtp and
- qrd dts
-To: Melody Olvera <quic_molvera@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Arnd Bergmann <arnd@arndb.de>,
-        =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
-        Stephen Boyd <sboyd@kernel.org>, Trilok Soni <quic_tsoni@quicinc.com>,
-        Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Jishnu Prakash <quic_jprakash@quicinc.com>,
-        Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-References: <20241021232114.2636083-1-quic_molvera@quicinc.com>
- <20241021232114.2636083-5-quic_molvera@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241021232114.2636083-5-quic_molvera@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 9qJ3zZSqJgo79kNlmEA0_iHGoaMtO6IG
-X-Proofpoint-GUID: 9qJ3zZSqJgo79kNlmEA0_iHGoaMtO6IG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 mlxscore=0 impostorscore=0 lowpriorityscore=0 bulkscore=0
- suspectscore=0 adultscore=0 clxscore=1015 phishscore=0 malwarescore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411020085
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1730540194;VERSION=7979;MC=2738325872;ID=220022;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855667067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_023618_855314_B5085766 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20241102_023637_003917_6E6554CD 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,55 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.10.2024 1:21 AM, Melody Olvera wrote:
-> Add base dtsi for the sm8750 SoC describing the CPUs, GCC and
-> RPMHCC clock controllers, geni UART, interrupt controller, TLMM,
-> reserved memory, interconnects, regulator, and SMMU nodes. Also add
-> MTP and QRD board dts files for sm8750.
-> 
-> Co-developed-by: Taniya Das <quic_tdas@quicinc.com>
-> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
-> Co-developed-by: Jishnu Prakash <quic_jprakash@quicinc.com>
-> Signed-off-by: Jishnu Prakash <quic_jprakash@quicinc.com>
-> Co-developed-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
+From: Mesih Kilinc <mesihkilinc@gmail.com>
 
-[...]
+Allwinner suniv F1C100s now has DMA support. Enable it under device
+tree.
 
-> +&spmi_bus {
-> +	pm8550ve_d: pmic@3 {
+Signed-off-by: Mesih Kilinc <mesihkilinc@gmail.com>
+[ csokas.bence: Rebased on current master ]
+Signed-off-by: Csókás, Bence <csokas.bence@prolan.hu>
+---
+ arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-These usually go to a separate file each.. But I see why that would
-be difficult here.
+diff --git a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+index 3c61d59ab5f8..290efe026ceb 100644
+--- a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
++++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi
+@@ -6,6 +6,7 @@
+ 
+ #include <dt-bindings/clock/suniv-ccu-f1c100s.h>
+ #include <dt-bindings/reset/suniv-ccu-f1c100s.h>
++#include <dt-bindings/dma/sun4i-a10.h>
+ 
+ / {
+ 	#address-cells = <1>;
+@@ -159,6 +160,15 @@ usbphy: phy@1c13400 {
+ 			status = "disabled";
+ 		};
+ 
++		dma: dma-controller@1c02000 {
++			compatible = "allwinner,suniv-f1c100s-dma";
++			reg = <0x01c02000 0x1000>;
++			interrupts = <18>;
++			clocks = <&ccu CLK_BUS_DMA>;
++			resets = <&ccu RST_BUS_DMA>;
++			#dma-cells = <2>;
++		};
++
+ 		ccu: clock@1c20000 {
+ 			compatible = "allwinner,suniv-f1c100s-ccu";
+ 			reg = <0x01c20000 0x400>;
+-- 
+2.34.1
 
-Lately I've been a fan of <socname>-pmics.dtsi. WDYT, Bjorn?
 
-[...]
-
-> +		apps_smmu: iommu@15000000 {
-> +			compatible = "qcom,sm8750-smmu-500", "qcom,smmu-500", "arm,mmu-500";
-> +			reg = <0x0 0x15000000 0x0 0x100000>;
-> +
-
-[...]
-
-> +			#iommu-cells = <2>;
-> +			#global-interrupts = <1>;
-
-This is usually dma-coherent, you can determine that through a smoke
-test
-
-> +		};
-> +
-> +		intc: interrupt-controller@16000000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x0 0x16000000 0x0 0x10000>,     /* GICD */
-> +			      <0x0 0x16080000 0x0 0x200000>;    /* GICR * 12 */
-
-These comments are copypasted gen to gen and don't bring much
-information atop what's in bindings
-
-Konrad
 
