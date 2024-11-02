@@ -4,115 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28655E677E8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 17:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6A1E677E8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 17:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDjUTnPhAWqKwpEJKZPL5PAhtXqP+CRLXlCOCnEWTrw=; b=yB7gQiDsj4RUaYiVWstlorYK57
-	4S/1Oa2Bua3/DblgqR32dNKPIzp5wnUBKCcCtYopnRdlBVSnz8fH5/AiNMdsNByhRm5OlWYea3A2i
-	rgOFDtywSPFYtyykS01sLD8imS/dyAaFLnMyRTqCOdKhK57Twd7mVuHFnI5upSIR33pcEm9xmt4pX
-	QXvGlBcQQdZFU1qjM1qOzaJKlsmiDpm4B6ih5Xs2Oz/L4KstCep0tpSrn4ywje2BFXfPYehcp4nD6
-	IVT+1USth4yt8i3i26CUK4T4QTOF2DzkVLikJy0YlWv37o2cYRnsAHore8v+a+dlb4Qv1zCi92yBS
-	Ez00zTOQ==;
+	bh=E9abyzKjsugduK9mn/lkJqTjstRFjkeo4t8Ybq/8KMc=; b=DsZyF/SZUxL5QsRmvy0k2OibIW
+	IIrGRT5iBKW+aW9fwV2B/gmf37FcAr5Zmm4hB/tjjn+4dAgLsvclQe3VGYOOGAGoEeVUKce0t4XB0
+	zZPE2e/Aw/5CL6KojjNznUxYYYdPCwZJrIGpWGC5+pQa9egj2uVf9p9y52YOWFKEXwr5FE9ibtR8R
+	E3tTszl1vTjmfoo1BFLLhp47esSmoH+5BCeipiLfoLvr+AAvjAoRfIC3iPGThcVITaDbX9i+BE2BI
+	x+MVgWXysw2AXorsoo6qF6q37lUdppPSO4k30ji2suG0TVgOWwhqfbJAcpqmArZCbx2R4zHr5r+r7
+	ACnKbHZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7I5J-0000000A8Af-0x4i;
-	Sat, 02 Nov 2024 17:38:49 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1t7IBD-0000000A8gw-21SB;
+	Sat, 02 Nov 2024 17:44:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7I3d-0000000A825-1fZM
+	id 1t7I9Y-0000000A8YI-1cww
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 17:37:07 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6cc250bbc9eso22299106d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 10:37:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1730569023; x=1731173823; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=cDjUTnPhAWqKwpEJKZPL5PAhtXqP+CRLXlCOCnEWTrw=;
-        b=bAQrI8Y9ZKiS7/lp9nPRaZbrcXKzMIwI2g7vvSiLIZWIbv0NtSvNPcgz32smoVz5Te
-         7sypoehWAwYc8fTo/1JYGr1k0z0UTVWlow4xOs5lLCklyxCiSj8bewk3EXD47d2jGtVK
-         7giZW0YbVvzdNZFzSmN9u6oXyRhq5gBW4T9cY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730569023; x=1731173823;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cDjUTnPhAWqKwpEJKZPL5PAhtXqP+CRLXlCOCnEWTrw=;
-        b=Auvn9gb42RYyUoSc8MI12th5ErHf/UdLjcLKAIk9EHjSJDRAe0fvhE04EZ4V+xul5i
-         kDSr6Tss3C2kB0a69ccmHdwmFlN9UlWSXEefTD/sqMvndBh4d4ganukCw8+zEaVbVozK
-         kqORp7vk7j+oYlKLgfsb2qGLR6XYUSad3hm5sr/uX31eSzIBtj9le56vjuKY3IbE9qKF
-         D9KgXxae5Mv109DVdvFc+AscxUwoTNPSbeGCMQ+T08IhMyTCeeMJTNWTgRQ9ILAwLSx4
-         Ca6NPzKeNkKcO/iI4lOk5SyJs5Ak338h19/dLOxdTD3nZIMLR+Cw1LDO7nwV2Df+1Cer
-         THFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ3SL2CEofcJvG5GZ4M1wX83mVrdco5nf8OgupjqkbTay/mm/XEMGIxQhOVopfvQE86IzwuTEJ4sfdhX2+Y5Nj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymqwjs71S/ik9gXew/JKLv+mNws2l7TB5rsWyBW0cpqVuYw2G4
-	H9jrMZvI5kbDncao/IcqFxIgTfPkDDANwlvSsGK5yjj+4WRHy53r02UlmPIObA==
-X-Google-Smtp-Source: AGHT+IEXmjORPXz6+S0cOcfpkIhS2iXiN5h5SM12Fmt8haXmSiXiF12S4EWhypU10zUEQGnFF2xFLg==
-X-Received: by 2002:a05:6214:398a:b0:6cb:5d17:62df with SMTP id 6a1803df08f44-6d351ad3f2cmr163825216d6.26.1730569022853;
-        Sat, 02 Nov 2024 10:37:02 -0700 (PDT)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d35efe67b4sm18599296d6.124.2024.11.02.10.37.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 02 Nov 2024 10:37:01 -0700 (PDT)
-Message-ID: <26c4c8fd-6afd-44fe-83a9-adebc1a281bc@broadcom.com>
-Date: Sat, 2 Nov 2024 10:37:00 -0700
+	Sat, 02 Nov 2024 17:43:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD41F5C1124;
+	Sat,  2 Nov 2024 17:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0341FC4CEC3;
+	Sat,  2 Nov 2024 17:43:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730569384;
+	bh=U2CSmDapur3Jo4JKm5z6Wka0AR1ocn27ba4W1txoJHA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Cp5Bg/mv/kOL/y7uDFW0AY6zoJDfLAHMVXOxWEsEB2EhnKTBx8M/JoWCkE3TSXyFM
+	 zsPi+xMglUo9ybptXu2aQAPy3mVeu2vbNJ7rwHuJNZv9j9rvhY0Mgq69I3q3jS7xrc
+	 z5x/V+JXikfxz66Rov1tOoRmGmC6KJQHeZu1rINGytaM5UJOu9d7l3k2JjIdvaeqMy
+	 T9rQHpr/1ETzEZzd/Ss/Mf4WhG1TGswDxqy8pScJaor4SUaZ/ITPPGRAYX9l3b38E9
+	 C2VCrZmYZR//EAfQge2JsD5GTxr80Fixdwh5/bytP5V2EyEe/9qkLH7brAv5Ie8NZy
+	 UvkjDLc7Q92WA==
+Message-ID: <719f9d89-f644-48bc-8be8-09c1a4de0101@kernel.org>
+Date: Sat, 2 Nov 2024 18:42:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: pcie_bwctrl fails to probe on Rpi 4 (linux-next-20241101)
-To: Stefan Wahren <wahrenst@gmx.net>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: Jim Quinlan <jim2101024@gmail.com>, Lukas Wunner <lukas@wunner.de>,
- linux-pci <linux-pci@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, kernel-list@raspberrypi.com
-References: <dcd660fd-a265-4f47-8696-776a85e097a0@gmx.net>
+Subject: Re: [PATCH v3 0/4] Add minimal Samsung Galaxy S20 Series board,
+ SM-G981B and SM-G980F support
+To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ igor.belwon@mentallysanemainliners.org
+References: <20241030232308.72210-1-umer.uddin@mentallysanemainliners.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <dcd660fd-a265-4f47-8696-776a85e097a0@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241030232308.72210-1-umer.uddin@mentallysanemainliners.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_103705_547089_564CD6C2 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20241102_104312_554074_71B87BEA 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,73 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
-
-On 11/2/2024 9:53 AM, Stefan Wahren wrote:
-> Hi,
-> I tested linux-next-20241101 with the Raspberry Pi 4 (8 GB RAM,
-> arm64/defconfig) and during boot the driver pcie_bwctrl fails to probe.
-> Since this driver is very new, I assume this never worked before:
+On 31/10/2024 00:23, Umer Uddin wrote:
+> Hi folks,
 > 
-> [    6.843802] brcm-pcie fd500000.pcie: host bridge /scb/pcie@7d500000
-> ranges:
-> [    6.843851] brcm-pcie fd500000.pcie:   No bus range found for
-> /scb/pcie@7d500000, using [bus 00-ff]
-> [    6.843900] brcm-pcie fd500000.pcie:      MEM
-> 0x0600000000..0x0603ffffff -> 0x00f8000000
-> [    6.843940] brcm-pcie fd500000.pcie:   IB MEM
-> 0x0000000000..0x00bfffffff -> 0x0400000000
-> [    6.859915] vchiq: module is from the staging directory, the quality
-> is unknown, you have been warned.
-> [    6.885670] brcm-pcie fd500000.pcie: PCI host bridge to bus 0000:00
-> [    6.885704] pci_bus 0000:00: root bus resource [bus 00-ff]
-> [    6.885725] pci_bus 0000:00: root bus resource [mem
-> 0x600000000-0x603ffffff] (bus address [0xf8000000-0xfbffffff])
-> [    6.885823] pci 0000:00:00.0: [14e4:2711] type 01 class 0x060400 PCIe
-> Root Port
-> [    6.885858] pci 0000:00:00.0: PCI bridge to [bus 01]
-> [    6.885876] pci 0000:00:00.0:   bridge window [mem
-> 0x600000000-0x6000fffff]
-> [    6.885954] pci 0000:00:00.0: PME# supported from D0 D3hot
-> [    6.909911] pci_bus 0000:01: supply vpcie3v3 not found, using dummy
-> regulator
-> [    6.910159] pci_bus 0000:01: supply vpcie3v3aux not found, using
-> dummy regulator
-> [    6.910251] pci_bus 0000:01: supply vpcie12v not found, using dummy
-> regulator
-> [    6.922254] mmc1: new high speed SDIO card at address 0001
-> [    7.013175] brcm-pcie fd500000.pcie: clkreq-mode set to default
-> [    7.015309] brcm-pcie fd500000.pcie: link up, 5.0 GT/s PCIe x1 (SSC)
-> [    7.015526] pci 0000:01:00.0: [1106:3483] type 00 class 0x0c0330 PCIe
-> Endpoint
-> [    7.015626] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00000fff 64bit]
-> [    7.015954] pci 0000:01:00.0: PME# supported from D0 D3hot
-> [    7.062153] pci 0000:00:00.0: bridge window [mem
-> 0x600000000-0x6000fffff]: assigned
-> [    7.062191] pci 0000:01:00.0: BAR 0 [mem 0x600000000-0x600000fff
-> 64bit]: assigned
-> [    7.062221] pci 0000:00:00.0: PCI bridge to [bus 01]
-> [    7.062237] pci 0000:00:00.0:   bridge window [mem
-> 0x600000000-0x6000fffff]
-> [    7.062255] pci_bus 0000:00: resource 4 [mem 0x600000000-0x603ffffff]
-> [    7.062269] pci_bus 0000:01: resource 1 [mem 0x600000000-0x6000fffff]
-> [    7.062590] pcieport 0000:00:00.0: enabling device (0000 -> 0002)
-> [    7.062812] pcieport 0000:00:00.0: PME: Signaling with IRQ 39
-> [    7.072890] pcieport 0000:00:00.0: AER: enabled with IRQ 39
-> [    7.091767] v3d fec00000.gpu: [drm] Using Transparent Hugepages
-> [    7.124274] genirq: Flags mismatch irq 39. 00002084 (PCIe bwctrl) vs.
-> 00200084 (PCIe PME)
-> [    7.124391] pcie_bwctrl 0000:00:00.0:pcie010: probe with driver
-> pcie_bwctrl failed with error -16
+> This series adds initial support for the Samsung Galaxy S20 Series and also
+> initial board support for the Samsung Galaxy S20 5G (SM-G981B)
+> codenamed x1s.
+> 
+> The S20 Series feature a lot of similarities in their configuration
+> and internally Samsung named the common devicetrees in their
+> downstream kernel 'hubble', please note hubble excludes the
+> S20 FE series and Note20 series.
+> The device trees have been tested with dtbs_check W=1
+> and results in no warnings.
+> 
+> This initial bringup consists of:
+>  * pinctrl
+>  * gpio-keys
+>  * simple-framebuffer
+> 
+> This is enough to reach a shell in an initramfs. More platform support
+> will be added in the future.
 
-Yes this is a new failure for sure. So PME requests the interrupt line 
-with IRQF_TRIGGER_HIGH | IRQF_SHARED | IRQF_COND_ONESHOT whereas the 
-bwctrl driver does: IRQF_TRIGGER_HIGH | IRQF_SHARED | IRQF_ONESHOT. 
-Reading through the comment of IRQF_COND_ONESHOT, that does not seem to 
-be an incompatible configuration, but maybe it is an ordering issue 
-here? That is, bwctlr should claim the interrupt line first, and then 
-PME would too, and they would be OK with the flags?
--- 
-Florian
+Patches look good, thanks.
+
+Unfortunately, it is late in the cycle and due to some travel it is
+actually too late for me to pick it up. I will take it after the merge
+window.
+
+
+Best regards,
+Krzysztof
 
 
