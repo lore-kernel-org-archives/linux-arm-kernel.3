@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3C9E677EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 06:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654BAE677EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 06:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvmNlpMTSaGbNzPaTN+BMBPIP2pkxKmlsbNMka7+MqM=; b=ROKxVxaucUVqPpaExYfBxI2oli
-	qxl4MfR4aeZjHcS9jP0LCgbgMijiIyWvfUk3wYi5c78E8xfxPnzvhJNie+bKyKOM01VTbow6ri1ji
-	Y1TeiRnHu9qPzaGxSLYtNPJ/ZgjbX1ks8pXWihyfyRifrquuVU7KnZW1epwloZ11yfrBCmdPGTwAn
-	bm6YLa/xDxfivSx/mASY0K9D95Wzk9Kts87j3piGLlEH4kN5WoScmqlKe2H7o0goSTHAB+USGDhqQ
-	9Wryd3coryyasYYU0fmX4LUrR9yEiheLiESevApuRpKxif0fs+oFSsvG1sn+NpUnqFIlvAShgA+Ru
-	asO1HN8A==;
+	bh=qPj1anUEXZHf/a1qxTMG7RLU/90Mk03XP663TewCDgs=; b=Bqv468aoTC73hrVs5ma81oQXvr
+	/ioiqZEJFTG+23rtS+0ek8+v6avkH9WgW0Mkvny5SaDtDDOuIigDc1jH0nd3tdLFX3jvn9dCSsk1z
+	BTsp+WH8sKGGa6D4al3QDgSaGlKMkMjm1/wWPIR9pMQm1IqSw6PxXTPE86NNZpNniZ7pbg3GhMDVE
+	b8ZHOmDdaokVcaJPRv3tshfM9fqSA9OQSarsgyeNdcdAYgodU8yxQWUg6mXmAHrILH1iKDeYfuBrm
+	FIhH4l8yoifde5cC5SIzt4CpIAZRcTTJ/3DZ44SLU+qedDzFfqBqX+6FqjLfhR/rjIU0rFWpAEM7q
+	0rzRrulA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t77zV-00000009B4s-1OqG;
-	Sat, 02 Nov 2024 06:52:09 +0000
-Received: from mail-m16.yeah.net ([1.95.21.17])
+	id 1t783v-00000009BSc-48V5;
+	Sat, 02 Nov 2024 06:56:43 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t77xn-00000009AsG-3ABc
+	id 1t782F-00000009BHp-0lGy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 06:50:26 +0000
+	Sat, 02 Nov 2024 06:55:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=vvmNlpMTSaGbNzPaTN+BMBPIP2pkxKmlsbNMka7+MqM=;
-	b=bXg6nIqeWrA0J7CAwyYKPYT+bmO+9lZe0hSd5v63NxeMawf1h6dYI8451rB10p
-	OaR4I82z5pJFlYW5r/k8IIcyj2n8PsjdsmWBi7rnTEKRvkv7R9t2w/2unR/JW5EZ
-	V7tl0db3Sn+s9dmICkOkSjYEg4qCksyWYpJhUY+au7gGQ=
+	Content-Type; bh=qPj1anUEXZHf/a1qxTMG7RLU/90Mk03XP663TewCDgs=;
+	b=Eg6HOusQP/Yc7vhQ1yztgmQtYUgUV8RiJhezoGlRgI6ohMPymLyw5HTpm8P49O
+	Cujla6ELoaoYavWsZAZGjF110N+t2Iq1qOSzmGQ8esR94udtbUrw61eYkNx+qCDi
+	g+LXjnYmc1Eb507Uwhyydv5bJQrqWqkPbdrrc6Zh30zHI=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgCnrySkyyVnoHd+AQ--.15062S3;
-	Sat, 02 Nov 2024 14:50:14 +0800 (CST)
-Date: Sat, 2 Nov 2024 14:50:12 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgBHecCyzCVnCQJ2AQ--.14608S3;
+	Sat, 02 Nov 2024 14:54:44 +0800 (CST)
+Date: Sat, 2 Nov 2024 14:54:42 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Gilles Talis <gilles.talis@gmail.com>
-Cc: conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
-	shawnguo@kernel.org, devicetree@vger.kernel.org,
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	festevam@gmail.com
-Subject: Re: [PATCH] arm64: dts: imx8mp-navqp: Add HDMI support
-Message-ID: <ZyXLpDoyNtzm2RRy@dragon>
-References: <20241027225408.195475-1-gilles.talis@gmail.com>
+	Fabio Estevam <festevam@denx.de>
+Subject: Re: [PATCH] dt-bindings: power: fsl,imx-gpc: Document fsl,imx6sll-gpc
+Message-ID: <ZyXMssAspMI4uYS7@dragon>
+References: <20241028124518.72576-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241027225408.195475-1-gilles.talis@gmail.com>
-X-CM-TRANSID: Ms8vCgCnrySkyyVnoHd+AQ--.15062S3
+In-Reply-To: <20241028124518.72576-1-festevam@gmail.com>
+X-CM-TRANSID: M88vCgBHecCyzCVnCQJ2AQ--.14608S3
 X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUx18BUUUUU
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUcy8BUUUUU
 X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEgCLZWclifuLwgAAsF
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwCLZWclsr81+wAAsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241101_235024_483661_84B103F3 
-X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-CacheID: sfid-20241101_235459_556403_C8F7091A 
+X-CRM114-Status: UNSURE (   7.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,10 +73,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 27, 2024 at 06:54:08PM -0400, Gilles Talis wrote:
-> The HDMI connector on the board is a micro-HDMI (type "d")
+On Mon, Oct 28, 2024 at 09:45:18AM -0300, Fabio Estevam wrote:
+> From: Fabio Estevam <festevam@denx.de>
 > 
-> Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+> Document the existing fsl,imx6sll-gpc compatible used with fsl,imx6q-gpc
+> fallback.
+> 
+> This fixes the following dt-schema warning:
+> 
+> ['fsl,imx6sll-gpc', 'fsl,imx6q-gpc'] is too long
+> 
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
 Applied, thanks!
 
