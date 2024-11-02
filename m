@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9B8E67816
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 22:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2741E67816
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 22:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=; b=LWOTs8A5snJGr4ZteRvtPW0hBk
-	mbsHK9jNV6vqSJToXONiejLdA1WZjmakuvNexq3slZOWJ0jKrg43vO7JCacRGdsfAdsQ3SNoqaSAC
-	D4aY1Y1UGf2XNO3Jwy1xgXrb2MsCz4RHiS55MipTMJ9Cf8MLQBhfSNm5Vkw6lCkHSqju2je2ESkKd
-	Fnbh4uT6moQi+K17kSo/sqefRw38Lcy0NspF0+hD2bTkHbtoycmlsZtpLORmP5i/NYuye256SffWi
-	twXKBxKFp/jVcdcY9wR2/msujWR1pPMqhb7bTsiNJKXyNTKeg2kn2ZL0C82X7Zh7Zn+LDUjxjk8Dz
-	+kpmyHCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nYo+CRETeNs2DYmLBc6t6rtMqFRbv24+IP3Jw7hS6fw=; b=UoiOwAvxEuG4xaT6gdwBwu3tin
+	sdqOnYS8zdSOMc+ERxXeb8a+XWWty5u+Y5nw/6w5zQt8dxX18Uo5bd+SxmDchJKU5nd6D4p6mo87d
+	h/Ek6l4OiB6GzUazm4W9CWfWt+kXqWC/pZZq/e89rWL+QfAyRXzF44HyLqBFaykSCKhI9OBxrywL4
+	zzk0c1+crUjF2hUH/Q7HoNBimmplA2ACpiTBei/I6pgv4kZDWrHI7OFgy8S+2BtZxjCRr5ttY2ko3
+	Bl8GnxEwEIUCIUiKGASbNDQ9FZNxW6IpJ/Y5O7rFKVjvssTLNZcbknOo+xeiQEmNpdfk4X56fGMKx
+	4lNKmFpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7MST-0000000AVip-3cSC;
-	Sat, 02 Nov 2024 22:19:01 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1t7MU8-0000000AVv5-0tuQ;
+	Sat, 02 Nov 2024 22:20:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7MQn-0000000AVUs-3PVi;
-	Sat, 02 Nov 2024 22:17:19 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9a6acac4c3so506975066b.0;
-        Sat, 02 Nov 2024 15:17:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730585836; x=1731190636; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=;
-        b=YnOL4m5jCHPwJLeN4dNCPfUXYaGCFKH15Cf2zx3ViIA9pYdBu/lNgGyWOyi8nYULl0
-         74K4weH8bI3mrXobPrwwob4YskKTajgEhYFXF6up/uodh+DMBydkxZfN0nFGsQYr5uGr
-         qOak0u2oqwaS/qQvxOECp3g0J4ZzVRggZjY2ps4XZIWXN1st44F9nC7nKJmRWtjRH1bz
-         dS/TpLGOal6Jz++qatMiaCSo3HWmPRUwCuesfL9soJRvCi3AsAECyxH3TPLZbQsoRal/
-         TzSzkvQu9eELuC2ALB1bzrzP40E/wQFlQ9rOHMVh4wil3IUzHTtMz0kM6FKZn4Uv29TS
-         Pj/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730585836; x=1731190636;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5vxf8MUw1KHlnGBa/1IMyXj2UG6JCewFqgb6iXxRDuo=;
-        b=R6oq1DtF8vHF/d9UEvFlGPV1fEMKRq+2iA4vo1tG1QnQvRKCtkxhrab9E0Htp/Bs6e
-         tn9NynfHamkYw7hJnVlFpCvyxxNll9ziAbRrAp/8KmxtgSGOhydDeJNmVngfKdbIfKhR
-         Ox8tHs4RoW+dHOncm9Rfe9psqQ+Jt8BA3w828xsmxcNmZfR9MjSQhz0RbFFfFe4BEG90
-         Eh/cRe5js8zj2aX/cukF5oeelR4hkI0l5Qrk5gOAVF4nFfEb0uFvSuGJWez/QXmOLI0T
-         9gTVkdGOxkyRhqe4X9d6jBjlJp1Bg1DYW3tfa4oFYefWCAsPLY2vW/FSpkwxyzIgducx
-         bcRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVhgepPwsjCrEbIR6p3Q4RFXLTKbMFIRNzs9Of02urJT8jTzThm55anAbSDlxa1ra3W4vygzJdroJw9LOLNjZLg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww5hMUj3tCFqoR7uN1A+J89AGRCjp0TgeARs53p9ASfT8EBrrI
-	R2ZU/CMUT/JD4HjQMmy8rubdG0LTSiPg4n1BnuIULsd40ayqKTqH
-X-Google-Smtp-Source: AGHT+IE+SUlLFoN/+EuPuCWvs6qpBKkmSyn3eiHJ8mhwnVR3nprD9gPRGUlcGSR5L/12vtyXRpdvcg==
-X-Received: by 2002:a17:906:7311:b0:a9a:8502:6ebb with SMTP id a640c23a62f3a-a9de61ce5c1mr2560597666b.41.1730585835467;
-        Sat, 02 Nov 2024 15:17:15 -0700 (PDT)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e564c4f2dsm350412566b.52.2024.11.02.15.17.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 15:17:14 -0700 (PDT)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-actions@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: power: actions,owl-sps: convert to YAML
-Date: Sun,  3 Nov 2024 00:17:06 +0200
-Message-ID: <20241102221707.2857342-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	id 1t7MRb-0000000AVbC-0Vkv
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 02 Nov 2024 22:18:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id ED4935C433A;
+	Sat,  2 Nov 2024 22:17:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5702BC4CEC3;
+	Sat,  2 Nov 2024 22:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730585885;
+	bh=BTPt+f1PajjGJm0q6RzrJDUq7DsYtLeh7o6lYROUGSI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oDraMOVDSuVH5F9bhBtLdRg8QhhnS+O6p75UuJNRBjR1KOLwxlLD5mA0/d6VcmKdz
+	 Xi8/UU1eupjLgbyrovBrA2YT+86oe17J3+wicty46kFEXEx3iQf8HLOjszngzUof3n
+	 ouWjOZ/i0FmOmpO9C7N1Hi1dZVmYR73eU9m2ZKiFn2Ye0wxiYduhPGgoYbVPZ4X6ZJ
+	 04cQ34Sw9k5dmq5uDyxNPTeP+htvknEnXSiUU+sCrvqMlqSNqEJBRyDXWJXsWJPdTi
+	 mngZQ4K+2LMXDmRVlH8g18jP/fbDIfm/oX0EhZ7txlcYsGY2+s1gumFs+k4DA87Yvg
+	 1rssVhmxzSPYw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t7MRW-009CF2-60;
+	Sat, 02 Nov 2024 22:18:02 +0000
+Date: Sat, 02 Nov 2024 22:18:02 +0000
+Message-ID: <87fro9th45.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Richard Zhu <hongxing.zhu@nxp.com>,	Lucas Stach
+ <l.stach@pengutronix.de>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Rob Herring
+ <robh@kernel.org>,	Shawn Guo <shawnguo@kernel.org>,	Sascha Hauer
+ <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,	alyssa@rosenzweig.io,	bpf@vger.kernel.org,
+	broonie@kernel.org,	jgg@ziepe.ca,	joro@8bytes.org,	lgirdwood@gmail.com,
+	p.zabel@pengutronix.de,	robin.murphy@arm.com,	will@kernel.org
+Subject: Re: [PATCH v3 2/2] PCI: imx6: Add IOMMU and ITS MSI support for i.MX95
+In-Reply-To: <ZyZg1nlSPf5rvm8q@lizhi-Precision-Tower-5810>
+References: <20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com>
+	<20241024-imx95_lut-v3-2-7509c9bbab86@nxp.com>
+	<20241102114937.w7jt7n7zr3ext5jo@thinkpad>
+	<ZyZg1nlSPf5rvm8q@lizhi-Precision-Tower-5810>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Frank.li@nxp.com, manivannan.sadhasivam@linaro.org, bhelgaas@google.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org, lgirdwood@gmail.com, p.zabel@pengutronix.de, robin.murphy@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_151717_881629_C19C6C48 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20241102_151807_276791_F6766FAE 
+X-CRM114-Status: GOOD (  45.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,119 +95,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Actions Semi Owl Smart Power System (SPS) bindings to DT
-schema.
+On Sat, 02 Nov 2024 17:26:46 +0000,
+Frank Li <Frank.li@nxp.com> wrote:
+> 
+> On Sat, Nov 02, 2024 at 05:19:37PM +0530, Manivannan Sadhasivam wrote:
+> > On Thu, Oct 24, 2024 at 06:34:45PM -0400, Frank Li wrote:
+> > > For the i.MX95, configuration of a LUT is necessary to convert Bus Device
+> > > Function (BDF) to stream IDs, which are utilized by both IOMMU and ITS.
+> > > This involves examining the msi-map and smmu-map to ensure consistent
+> > > mapping of PCI BDF to the same stream IDs. Subsequently, LUT-related
+> > > registers are configured. In the absence of an msi-map, the built-in MSI
+> > > controller is utilized as a fallback.
+> > >
+> > > Additionally, register a PCI bus callback function enable_device() and
+> > > disable_device() to config LUT when enable a new PCI device.
+> > >
+> >
+> > Callbacks are not *addition*, but it is how you are implementing the LUT
+> > configuration. Please reword it so.
+> >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > > Change from v2 to v3
+> > > - Use the "target" argument of of_map_id()
+> > > - Check if rid already in lut table when enable device
+> > >
+> > > change from v1 to v2
+> > > - set callback to pci_host_bridge instead pci->ops.
+> > > ---
+> > >  drivers/pci/controller/dwc/pci-imx6.c | 159 +++++++++++++++++++++++++++++++++-
+> > >  1 file changed, 158 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> > > index 94f3411352bf0..95f06bfb9fc5e 100644
+> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > @@ -55,6 +55,22 @@
+> > >  #define IMX95_PE0_GEN_CTRL_3			0x1058
+> > >  #define IMX95_PCIE_LTSSM_EN			BIT(0)
+> > >
+> > > +#define IMX95_PE0_LUT_ACSCTRL			0x1008
+> > > +#define IMX95_PEO_LUT_RWA			BIT(16)
+> > > +#define IMX95_PE0_LUT_ENLOC			GENMASK(4, 0)
+> > > +
+> > > +#define IMX95_PE0_LUT_DATA1			0x100c
+> > > +#define IMX95_PE0_LUT_VLD			BIT(31)
+> > > +#define IMX95_PE0_LUT_DAC_ID			GENMASK(10, 8)
+> > > +#define IMX95_PE0_LUT_STREAM_ID			GENMASK(5, 0)
+> > > +
+> > > +#define IMX95_PE0_LUT_DATA2			0x1010
+> > > +#define IMX95_PE0_LUT_REQID			GENMASK(31, 16)
+> > > +#define IMX95_PE0_LUT_MASK			GENMASK(15, 0)
+> > > +
+> > > +#define IMX95_SID_MASK				GENMASK(5, 0)
+> > > +#define IMX95_MAX_LUT				32
+> > > +
+> > >  #define to_imx_pcie(x)	dev_get_drvdata((x)->dev)
+> > >
+> > >  enum imx_pcie_variants {
+> > > @@ -82,6 +98,7 @@ enum imx_pcie_variants {
+> > >  #define IMX_PCIE_FLAG_HAS_PHY_RESET		BIT(5)
+> > >  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
+> > >  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
+> > > +#define IMX_PCIE_FLAG_HAS_LUT			BIT(8)
+> > >
+> > >  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+> > >
+> > > @@ -134,6 +151,7 @@ struct imx_pcie {
+> > >  	struct device		*pd_pcie_phy;
+> > >  	struct phy		*phy;
+> > >  	const struct imx_pcie_drvdata *drvdata;
+> > > +	struct mutex		lock;
+> >
+> > Please add a comment on what the lock is guarding.
+> >
+> > >  };
+> > >
+> > >  /* Parameters for the waiting for PCIe PHY PLL to lock on i.MX7 */
+> > > @@ -925,6 +943,137 @@ static void imx_pcie_stop_link(struct dw_pcie *pci)
+> > >  	imx_pcie_ltssm_disable(dev);
+> > >  }
+> > >
+> > > +static int imx_pcie_add_lut(struct imx_pcie *imx_pcie, u16 reqid, u8 sid)
+> >
+> > s/reqid/rid
+> >
+> > > +{
+> > > +	struct dw_pcie *pci = imx_pcie->pci;
+> > > +	struct device *dev = pci->dev;
+> > > +	u32 data1, data2;
+> > > +	int i;
+> > > +
+> > > +	if (sid >= 64) {
+> > > +		dev_err(dev, "Invalid SID for index %d\n", sid);
+> > > +		return -EINVAL;
+> > > +	}
+> > > +
+> > > +	guard(mutex)(&imx_pcie->lock);
+> > > +
+> > > +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, IMX95_PEO_LUT_RWA | i);
+> > > +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, &data1);
+> > > +
+> > > +		if (!(data1 & IMX95_PE0_LUT_VLD))
+> > > +			continue;
+> > > +
+> > > +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
+> > > +
+> > > +		/* Needn't add duplicated Request ID */
+> > > +		if (reqid == FIELD_GET(IMX95_PE0_LUT_REQID, data2))
+> >
+> > So this means LUT entry is already present for the given RID (a buggy DT maybe).
+> > Don't you need to emit a warning here?
+> >
+> > > +			return 0;
+> > > +	}
+> > > +
+> >
+> > You need to bail out here if no free LUT entry is available. But I'd recommend
+> > to combine two loops to avoid having duplicated IMX95_PE0_LUT_VLD checks and
+> > program LUT only if there is any free entry available.
+> >
+> > > +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, IMX95_PEO_LUT_RWA | i);
+> > > +
+> > > +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, &data1);
+> > > +		if (data1 & IMX95_PE0_LUT_VLD)
+> > > +			continue;
+> > > +
+> > > +		data1 = FIELD_PREP(IMX95_PE0_LUT_DAC_ID, 0);
+> > > +		data1 |= FIELD_PREP(IMX95_PE0_LUT_STREAM_ID, sid);
+> > > +		data1 |= IMX95_PE0_LUT_VLD;
+> > > +
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, data1);
+> > > +
+> > > +		data2 = 0xffff;
+> >
+> > data2 = IMX95_PE0_LUT_MASK;
+> >
+> > Also add a comment on why the mask is added along with the RID.
+> >
+> > > +		data2 |= FIELD_PREP(IMX95_PE0_LUT_REQID, reqid);
+> > > +
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, data2);
+> > > +
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, i);
+> > > +
+> > > +		return 0;
+> > > +	}
+> > > +
+> > > +	dev_err(dev, "All lut already used\n");
+> >
+> > "LUT entry is not available"
+> >
+> > > +	return -EINVAL;
+> > > +}
+> > > +
+> > > +static void imx_pcie_remove_lut(struct imx_pcie *imx_pcie, u16 reqid)
+> >
+> > s/reqid/rid
+> >
+> > > +{
+> > > +	u32 data2 = 0;
+> >
+> > No need to initialize.
+> >
+> > > +	int i;
+> > > +
+> > > +	guard(mutex)(&imx_pcie->lock);
+> > > +
+> > > +	for (i = 0; i < IMX95_MAX_LUT; i++) {
+> > > +		regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, IMX95_PEO_LUT_RWA | i);
+> > > +
+> > > +		regmap_read(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, &data2);
+> > > +		if (FIELD_GET(IMX95_PE0_LUT_REQID, data2) == reqid) {
+> > > +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA1, 0);
+> > > +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_DATA2, 0);
+> > > +			regmap_write(imx_pcie->iomuxc_gpr, IMX95_PE0_LUT_ACSCTRL, i);
+> > > +
+> > > +			break;
+> > > +		}
+> > > +	}
+> > > +}
+> > > +
+> > > +static int imx_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
+> > > +{
+> > > +	u32 sid_i = 0, sid_m = 0, rid = pci_dev_id(pdev);
+> > > +	struct device_node *target;
+> > > +	struct imx_pcie *imx_pcie;
+> > > +	struct device *dev;
+> > > +	int err_i, err_m;
+> > > +
+> > > +	imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
+> > > +	dev = imx_pcie->pci->dev;
+> >
+> > You can assign these at initialization time.
+> >
+> > > +
+> > > +	target = NULL;
+> > > +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
+> > > +	target = NULL;
+> >
+> > What is the point in passing 'target' here?
+> 
+> See https://lore.kernel.org/imx/b479cad6-e0c5-48fb-bb8f-a70f7582cfd5@arm.com/
+> Marc Zyngier's comments:
 
-Changes during conversion:
- - Rename file to match compatible
- - Add a description
+Not quite. That's Robin's email (I never commented on that particular
+patch). Nevertheless, "I approve this message".
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
- .../bindings/power/actions,owl-sps.txt        | 21 --------
- .../bindings/power/actions,owl-sps.yaml       | 50 +++++++++++++++++++
- MAINTAINERS                                   |  2 +-
- 3 files changed, 51 insertions(+), 22 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.txt
- create mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.yaml
+	M.
 
-diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.txt b/Documentation/devicetree/bindings/power/actions,owl-sps.txt
-deleted file mode 100644
-index a3571937b..000000000
---- a/Documentation/devicetree/bindings/power/actions,owl-sps.txt
-+++ /dev/null
-@@ -1,21 +0,0 @@
--Actions Semi Owl Smart Power System (SPS)
--
--Required properties:
--- compatible          :  "actions,s500-sps" for S500
--                         "actions,s700-sps" for S700
--                         "actions,s900-sps" for S900
--- reg                 :  Offset and length of the register set for the device.
--- #power-domain-cells :  Must be 1.
--                         See macros in:
--                          include/dt-bindings/power/owl-s500-powergate.h for S500
--                          include/dt-bindings/power/owl-s700-powergate.h for S700
--                          include/dt-bindings/power/owl-s900-powergate.h for S900
--
--
--Example:
--
--		sps: power-controller@b01b0100 {
--			compatible = "actions,s500-sps";
--			reg = <0xb01b0100 0x100>;
--			#power-domain-cells = <1>;
--		};
-diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.yaml b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
-new file mode 100644
-index 000000000..6496f3a71
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
-@@ -0,0 +1,50 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/actions,owl-sps.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Actions Semi Owl Smart Power System (SPS)
-+
-+maintainers:
-+  - Andreas Färber <afaerber@suse.de>
-+
-+description: |
-+  Actions Semi Owl SoCs feature a Smart Power System (SPS) that manages power
-+  domains to optimize power usage across various hardware blocks. Each power
-+  domain corresponds to a specific hardware block and is represented by a bit
-+  in the power control register and an acknowledgment bit, which is then
-+  translated into a corresponding voltage on a rail.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - actions,s500-sps
-+      - actions,s700-sps
-+      - actions,s900-sps
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#power-domain-cells"
-+
-+additionalProperties: false
-+examples:
-+  - |
-+    #include <dt-bindings/power/owl-s500-powergate.h>
-+    soc {
-+      #address-cells = <1>;
-+      #size-cells = <1>;
-+      sps: power-controller@b01b0100 {
-+        compatible = "actions,s500-sps";
-+        reg = <0xb01b0100 0x100>;
-+        #power-domain-cells = <1>;
-+      };
-+    };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 76ea65128..420d06d37 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2023,7 +2023,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
- F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
- F:	Documentation/devicetree/bindings/net/actions,owl-emac.yaml
- F:	Documentation/devicetree/bindings/pinctrl/actions,*
--F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
-+F:	Documentation/devicetree/bindings/power/actions,owl-sps.yaml
- F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
- F:	arch/arm/boot/dts/actions/
- F:	arch/arm/mach-actions/
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
