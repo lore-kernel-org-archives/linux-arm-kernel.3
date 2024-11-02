@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84827E677FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 13:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2000E67800
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 14:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wh8jWE/SuHQZpH1OicaEibZkdDUs8oXsmEh1paiPtHU=; b=j+g0SWzh+xU0d7mtIfC4gAyvVJ
-	IbXa/TtPL6HvfpUFxgQsQFj4G5h94T66vCLU4eDTgZyF8peRgUFOA0ocCXPfgn8FQCkuI5rPniGNC
-	0/EEJFj0ghE6nhldIQbw4BlVZk9tEuwq2wDVOAOJcunuH1e3E/MK7Q3td0/KAetXhgW+jr5Oao5JG
-	UEJ1EVNiiRg0EhOS2UTgj6dTGrOim8IihAqY9NPENzAh3TSPe5cIwpXgQsAJpwg/vgO/zKWQWAKUX
-	wRQN4B8+21kfVo9HXUm4yFWxRhxhJklUHjApzK43YTMoaOaOEdclMaNbjRRIWYM7GE3qkbIz2Sgbi
-	mn92lvaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RoNhd3PU7MNVWI+sf1DSija4VTsLivchGzEQ82Up2A4=; b=0oE+cLrz40+a+Yuun2y59v1ddO
+	8z93Xa1te8/zZZA/EUBrgs7umShKP77Ka23nBf4rY10QwU/PWRpOALPXZievmFHQC3IwQFkrO3LhC
+	qLQ+Wu8vTbMa4bCpVA3FTPkA0IsAQiXxLzcV/+PRBiO+EMT40SdI2tDIBcYzsSaG6aSBhO19DkiHq
+	1Y33qc8H/8mI3LBJ4KYIWZfsEK22151L5AiuYIcLHtGnBTJLfvFUrqOx0l4viZhVYJSWlzris5SVP
+	lDJRp/+FnH6OHiwYrdTvVi63e6NcKzRLhTdLGDCN3H/McjEvaca5XrH/gHCWik6sHGYlTlZKxUlm1
+	1TDnJsbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ETI-00000009o8m-34GD;
-	Sat, 02 Nov 2024 13:47:20 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1t7Ezt-00000009qSV-1h11;
+	Sat, 02 Nov 2024 14:21:01 +0000
+Received: from mail-pf1-f176.google.com ([209.85.210.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ERa-00000009nvk-49mD
+	id 1t7EyE-00000009qI8-1Agf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 13:45:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730555125; x=1731159925; i=wahrenst@gmx.net;
-	bh=wh8jWE/SuHQZpH1OicaEibZkdDUs8oXsmEh1paiPtHU=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=tEYyNh5C432n6QJ3/ReOh2iXRHf55sXiK2LY0BnUIYoVg4puSzL3VBcGUBYKNDZ+
-	 mZyu8GUlLosI7z9Mt9wLbOeBUdfEt852Jl3vYp8mf77GIgvVBnGDpDjT7x9/A+/WY
-	 ZDr426afeaHkiBiCz7+XdhJsFNbpjpflGXgOCLC+VSnQWnUCtJNM6ETgbGP949MkM
-	 cXE1jMJurUylazlV3qogkEGACC+dnUQYlQlQamBNcV9Kb2xLrHhMFOUFUbxZdQ6Ux
-	 U3m25wyupM0lTY30ejlkxJ5WZGHf4ePp15zOQJLdO1UrIeNCz0zLNddsTecCowRDV
-	 oR3No6AZeKYfuBErQg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MNsw4-1tVVWP2fFY-00Xw0G; Sat, 02
- Nov 2024 14:45:25 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-next@vger.kernel.org,
-	regressions@lists.linux.dev,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH RFC] mmc: pwrseq_simple: Handle !RESET_CONTROLLER properly
-Date: Sat,  2 Nov 2024 14:45:22 +0100
-Message-Id: <20241102134522.333047-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	Sat, 02 Nov 2024 14:19:19 +0000
+Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-720d14c8dbfso1487996b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 07:19:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730557157; x=1731161957;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RoNhd3PU7MNVWI+sf1DSija4VTsLivchGzEQ82Up2A4=;
+        b=sZOVdnDCOsWhLjXliL0o6ErazOSENrjegClSf+KMgIlGidpOOztAYicec5/oQmq4HX
+         HLPHotZ7Ld2ZdnZUDCJnJ65V82zK7xN+EhBTgkRXCMFLy+PpqsmAS7XGVHAgeq+Q7gKo
+         mJboyGIjBOdvh+ZQaxotQT9dznyueFggqOAQzLuYp3MvPp5TVaRinbc9mYwhl4M0tc8V
+         wJit2ZwUB3/VunMR6GTakmFHL1AbL6japrzASOGJugZ1mr85W7/B8u2DxRVDPnlfchVK
+         BbBoLXy1b1UcPQhE22i82pmsQhoqcXRhgVuvOGRzvwfYtH186PO8qXYmyW/WzrhUnNiq
+         41ig==
+X-Forwarded-Encrypted: i=1; AJvYcCX9oaamxZtt6c4HgKc9ZQLICqPl3oLDT8n7//9lcDR6ttEygcqvijMglsQteocmv9yN5neFs9Shw/lx5nJFfEnf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyuQTzfbxR9Zb/1zbJrH71P/4Zmq2EPsb4O6hJ0Ge81UwJFq+q
+	zojdDYSjI1MY9uPAEY91akS1tBCUaSAHIHolPv3sIgBarDzQcXwQ
+X-Google-Smtp-Source: AGHT+IHPcKNMt6OSC6S/K2FJ3EposZZ5TOsaoIOHKw561pjEChI1kIfOypmeQ6NBttJJZ5y0zs9rDw==
+X-Received: by 2002:a05:6a00:2ea5:b0:71e:82b4:6e6e with SMTP id d2e1a72fcca58-720b9bb3edbmr14950575b3a.4.1730557157041;
+        Sat, 02 Nov 2024 07:19:17 -0700 (PDT)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc2c3902sm4096567b3a.136.2024.11.02.07.19.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Nov 2024 07:19:16 -0700 (PDT)
+Date: Sat, 2 Nov 2024 23:19:14 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, robh@kernel.org,
+	vigneshr@ti.com, manivannan.sadhasivam@linaro.org,
+	thomas.richard@bootlin.com, linux-omap@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH] PCI: j721e: Deassert PERST# after a delay of
+ PCIE_T_PVPERL_MS ms
+Message-ID: <20241102141914.GA3440781@rocinante>
+References: <20241022083147.2773123-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:gR28kxpGv/paCHFYL+WOtD2omK8W76H6OxEFca2yYlzpt/S7qPc
- /02bKimVT4RMVrEYArMy4wu4g8NeZ2V/+caEDXvOpV9bkMQ6rIGVa4GSwcVTPoYteUOG1jB
- QNtiYQEllcjjBk4xs8tysy/1gw3IKr6WpZd1+a5UTJ93K5cOYrX67bgiiGJysPS0+lMlVqA
- B6iBdr4iiHwoZAiAv42ew==
-UI-OutboundReport: notjunk:1;M01:P0:1HQhTF2m7cY=;vO7nMt2DEIbIhGRCHChaoucxQme
- UfAywgwv5ofAeu82VeQq2WMWl39EncgG4flGt4kuXwaAnCHJ9hFjJxEWBwl0sDbLl0pCfz+Ox
- iRZxRwl28uewevqRjIqZUYy0JBXJaMYrNQEs/kyUkp33Of8hZss46x3/t8HBeQljij1T3plLU
- pau0V5/s6AijvxPDLADhXYQ4B2/Ro6ND2YUcKxLf7lnqZm+gga6PvvZ7pek61pIZ+P6fLCr4X
- YmuC8TY3Q+/pX7WijVMwB1JfGIg6o4l19YtueVR0Y6K3wkGbzDrtxKPML752W6XmpairEuOfK
- NOruHozFz/xVnqG0J4mirtiP8KDXtZEMBW+aNyBx/3qvge3gSl2bkqnJwtYEjNnrABvYWhhXB
- 9Lcp/xDsA1VmOy8Jj7LRp58JqMGQms0IcweMGgNb0IaR3Oos6h+Yv26hWAia+fax7Cm7muAaS
- s4XFWyz8lX/RNd8LUf1+nL9RhMrMiVIhhhQrYqI6GgGqsORzSDJQVMnIJRQnkFxhT/d/Pv6Gs
- t+Z+bMBNFFCHJIUACRJQmOTRO5OTnliwIEut72+xIbv3J8Z5Bk6+2od6egFQCXZO7mPX/DA5n
- /5DDSXQdaENQdzTxSMtXJWznc6MmG2d+kFCr4eyYETjLnA31rXdzIo8JWIoaO5DzovnGup0uy
- 8BXIgkcSu7YLlP0EW9iVG43BVjClP4mSeA11VdIf/qZeCYgzXI7CLh5F5mrCXN+m11Oj7BrDk
- /1cVAb1/HPGyI3BgGe2yvEJ0zrrafdvWfna7iNyZuJbNlEXX9EEu50zc3gp4yjdRbLsCKq0jg
- CKqD7OXfURtqFKqQHXCt2CBQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241022083147.2773123-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_064535_434487_AE475C56 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20241102_071918_342510_89654EF2 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,99 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The recent introduction of reset control in pwrseq_simple introduced
-a regression for platforms without RESET_CONTROLLER support, because
-devm_reset_control_get_optional_shared() would return NULL and make all
-resets no-ops. Instead of enforcing this dependency rely on this behavior
-to determine reset support. As a benefit we can get the rid of the
-use_reset flag.
+Hello,
 
-Fixes: 73bf4b7381f7 ("mmc: pwrseq_simple: add support for one reset contro=
-l")
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/mmc/core/pwrseq_simple.c | 16 +++++++---------
- 1 file changed, 7 insertions(+), 9 deletions(-)
+> According to Section 2.2 of the PCI Express Card Electromechanical
+> Specification (Revision 5.1), in order to ensure that the power and the
+> reference clock are stable, PERST# has to be deasserted after a delay of
+> 100 milliseconds (TPVPERL). Currently, it is being assumed that the power
+> is already stable, which is not necessarily true. Hence, change the delay
+> to PCIE_T_PVPERL_MS to guarantee that power and reference clock are stable.
+[...]
+> This patch is based on commit
+> c2ee9f594da8 KVM: selftests: Fix build on on non-x86 architectures
+> of Mainline Linux.
 
-Hi,
-will trying to reproduce the Rpi 4 regression from here [1], I found
-the issue above. I'm pretty sure the Rpi 4 regression is caused by the sam=
-e
-commit. Unfortunately I wasn't able to reproduce it.
+Why KVM?  Do you have the link to this commit handy?
 
-[1] - https://lore.kernel.org/linux-next/6724d7d5.170a0220.1281e9.910a@mx.=
-google.com/T/#u
+[...]
+>  		if (pcie->reset_gpio) {
+> -			fsleep(PCIE_T_PERST_CLK_US);
+> +			msleep(PCIE_T_PVPERL_MS);
 
-diff --git a/drivers/mmc/core/pwrseq_simple.c b/drivers/mmc/core/pwrseq_si=
-mple.c
-index 24e4e63a5dc8..b8782727750e 100644
-=2D-- a/drivers/mmc/core/pwrseq_simple.c
-+++ b/drivers/mmc/core/pwrseq_simple.c
-@@ -32,7 +32,6 @@ struct mmc_pwrseq_simple {
- 	struct clk *ext_clk;
- 	struct gpio_descs *reset_gpios;
- 	struct reset_control *reset_ctrl;
--	bool use_reset;
- };
+fsleep() with the same macro and for the same reason is also used in the
+j721e_pcie_probe() callback.  I think, we would want both changed.
 
- #define to_pwrseq_simple(p) container_of(p, struct mmc_pwrseq_simple, pwr=
-seq)
-@@ -71,7 +70,7 @@ static void mmc_pwrseq_simple_pre_power_on(struct mmc_ho=
-st *host)
- 		pwrseq->clk_enabled =3D true;
- 	}
-
--	if (pwrseq->use_reset) {
-+	if (pwrseq->reset_ctrl) {
- 		reset_control_deassert(pwrseq->reset_ctrl);
- 		reset_control_assert(pwrseq->reset_ctrl);
- 	} else
-@@ -82,7 +81,7 @@ static void mmc_pwrseq_simple_post_power_on(struct mmc_h=
-ost *host)
- {
- 	struct mmc_pwrseq_simple *pwrseq =3D to_pwrseq_simple(host->pwrseq);
-
--	if (pwrseq->use_reset)
-+	if (pwrseq->reset_ctrl)
- 		reset_control_deassert(pwrseq->reset_ctrl);
- 	else
- 		mmc_pwrseq_simple_set_gpios_value(pwrseq, 0);
-@@ -95,7 +94,7 @@ static void mmc_pwrseq_simple_power_off(struct mmc_host =
-*host)
- {
- 	struct mmc_pwrseq_simple *pwrseq =3D to_pwrseq_simple(host->pwrseq);
-
--	if (pwrseq->use_reset)
-+	if (pwrseq->reset_ctrl)
- 		reset_control_assert(pwrseq->reset_ctrl);
- 	else
- 		mmc_pwrseq_simple_set_gpios_value(pwrseq, 1);
-@@ -137,15 +136,14 @@ static int mmc_pwrseq_simple_probe(struct platform_d=
-evice *pdev)
- 		return dev_err_probe(dev, PTR_ERR(pwrseq->ext_clk), "external clock not=
- ready\n");
-
- 	ngpio =3D of_count_phandle_with_args(dev->of_node, "reset-gpios", "#gpio=
--cells");
--	if (ngpio =3D=3D 1)
--		pwrseq->use_reset =3D true;
--
--	if (pwrseq->use_reset) {
-+	if (ngpio =3D=3D 1) {
- 		pwrseq->reset_ctrl =3D devm_reset_control_get_optional_shared(dev, NULL=
-);
- 		if (IS_ERR(pwrseq->reset_ctrl))
- 			return dev_err_probe(dev, PTR_ERR(pwrseq->reset_ctrl),
- 					     "reset control not ready\n");
--	} else {
-+	}
-+
-+	if (!pwrseq->reset_ctrl) {
- 		pwrseq->reset_gpios =3D devm_gpiod_get_array(dev, "reset", GPIOD_OUT_HI=
-GH);
- 		if (IS_ERR(pwrseq->reset_gpios) &&
- 		    PTR_ERR(pwrseq->reset_gpios) !=3D -ENOENT &&
-=2D-
-2.34.1
-
+	Krzysztof
 
