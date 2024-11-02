@@ -4,82 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574BEE677EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 08:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D100CE677EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 08:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h8f4dWec77U0oSAZ6eSzsVZbgWnhbkE3ElWrbp4Lhl8=; b=iuz99ijW4OUpzKMn3WCA4zsmVa
-	ZTUi5hUSYPjR7MYWR2SQm0b8o1iMU1dDX+9OIFN7jfEk+p8aDe3b45Dji5KzT2Cq+0eT8hQszM4jF
-	FjDy1bZ4aksSIwXCvInpPEOsvIbAmToygs+kVQcDCHhqQ2k15k9Wc1Myixy/ZGQ6PeMofeQxGiV45
-	7EduNvj6KhSJ/yS8kvXLJD33IWCOdDi+YWnQxcbgtZn4GmI+ue63G+XDzhBmU1PGMnA8IdV0DBS3M
-	bDaLUWQSfW1o2/wZ4SMNwbfF2sG3MGt6joKJA1Qlfzr/v13qEWiUh2SDIX39UY+bd3KswT6t0ZM+c
-	MgAP/c4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CxnydXbwJ5eq9YUDX/EDzhIGvXa8fKehgoMmewXSQHs=; b=2TzSL+RfQOodqg96gCmRxNz5oM
+	hYeTV54k85lhPMK5v6KxtR8jWsn+9v5Wgc4noPtxcfbrYsSHFzHPPYUE+6QHqq6wpGbNuCTcpcmO9
+	uq5XlrXbY2Bspf6JYFYt7tx9oVTwYREF19XTqVlghy+DCwfLWY4sMREituO1YJ/lF8Ql0ETb/qfY1
+	9lxXDWg2elZjs65TXziqSITl9szkDq3kJr7vaUxMuM68R8J7rQsnhhiZWVvZMf/vPXHUWMMHtN5WF
+	vc/HUBfEimCQa8X1ER8aIWukf/ETjllZfUG+mGpnlipdt8KBetcFZSNStc3xvUwifNiyi0u1rdtzV
+	FO4AGoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t798R-00000009HBX-0WIW;
-	Sat, 02 Nov 2024 08:05:27 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1t79dx-00000009JTz-0TOV;
+	Sat, 02 Nov 2024 08:38:01 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t796k-00000009H6O-3dmc
+	id 1t79cG-00000009JJz-0abR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 08:03:44 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-7ee4c57b037so1593687a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 01:03:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pf-is-s-u-tokyo-ac-jp.20230601.gappssmtp.com; s=20230601; t=1730534621; x=1731139421; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h8f4dWec77U0oSAZ6eSzsVZbgWnhbkE3ElWrbp4Lhl8=;
-        b=rPd0CIVSPtSqME+iyOxYnVzeMvF2mbh2s3jqJMATNdz5MwMndKWbnK28VNJisHdLyz
-         owO3aW2oBKNacmKJUt+yCmLX2XxJspvZpv4Zj9K9StWTvpdNfQ4ewD3hS8YcfLAXC7vV
-         Zbt+OOztuNid7mp3XfdZaUsuTjiPoFqN63lnq7HDuEL5MrUCMGYTN7X+zEcOYPeUfcAl
-         Lum3/rGAXPXnXnBppVywL0X8wJLb/rRov7M7Cj9noFEkv0Lq+v2k+JbrsZGxKjmm1Y1F
-         i26nYkrQagfl/bPp4tcLo3+8V48xImrI+gCkMRUoNM2hDZEwUQr8yjNHvWmSWgwcTSAa
-         Wfqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730534621; x=1731139421;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h8f4dWec77U0oSAZ6eSzsVZbgWnhbkE3ElWrbp4Lhl8=;
-        b=QEhhQsUzKIuCWALQEHFidRRC1IR/mEHL1L5Re/rcTWUBtFTrOzTo5A8aZeTHVayb+c
-         iTT0madUcne9yw1z079TTKnQL0z4GiSpMOwvd1iqHfHaZrrE6hI5omtW2boaxUsuc8GS
-         dCqyfN7H2MXhKpO35pXwrIjyHLsQRippDf+tjkOPlqCGN1/Bj5WMjvQ0KMcigwZk1ox/
-         IDTtXfQFH32njDt7RQzGW79o15/pfNWSzrW2L/aoGKu8C+1dAWpv7v4BQDwALigmz2kB
-         ZspTS5K14SvvaBTsbfeJSvwMU5DEU6nlYaM7nX7FC+Ni9WnWUM3mrH11jLx8eWuh9vWs
-         wQvg==
-X-Forwarded-Encrypted: i=1; AJvYcCUzhxKjoJbKf7ZNOnXYhO8y9y9hSoOpguKMvGgszZ4PWjL0PmzAFapZDHtzU1233oHXGPpEEN2AMXlyMAnNDWTS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIdfKfgdTZ3IpMwf+/V7KqYBX7aJH5mSqgz+saDFaeSdfGspRy
-	0UU040uCreHJNxw4KV6E1LeayjixdJHtJdAgZ2oDLxMANpzLuWa6UWvW9/3E57k=
-X-Google-Smtp-Source: AGHT+IF3H7cZ+HJeD4ziQiiBOLpjlYgccAMsJGr1Z3V0OvddcCn5wSC2MXrIesJ+VZMbFq+fQHF8Ww==
-X-Received: by 2002:a17:90b:53c5:b0:2e2:9077:a3b4 with SMTP id 98e67ed59e1d1-2e94c29d0f2mr8712323a91.7.1730534620753;
-        Sat, 02 Nov 2024 01:03:40 -0700 (PDT)
-Received: from localhost.localdomain (133-32-133-31.east.xps.vectant.ne.jp. [133.32.133.31])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e92c54e6a3sm4415306a91.1.2024.11.02.01.03.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 01:03:40 -0700 (PDT)
-From: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-To: laurent.pinchart@ideasonboard.com,
-	mchehab@kernel.org,
-	michal.simek@amd.com,
-	hans.verkuil@cisco.com,
-	hyun.kwon@xilinx.com
-Cc: linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
-Subject: [PATCH] media: platform: xilinx: Balance refcount to prevent memory leak
-Date: Sat,  2 Nov 2024 17:03:27 +0900
-Message-Id: <20241102080327.463134-1-joe@pf.is.s.u-tokyo.ac.jp>
-X-Mailer: git-send-email 2.34.1
+	Sat, 02 Nov 2024 08:36:18 +0000
+Received: from phl-compute-02.internal (phl-compute-02.phl.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id B17BE1140113;
+	Sat,  2 Nov 2024 04:36:13 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Sat, 02 Nov 2024 04:36:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1730536573; x=1730622973; bh=CxnydXbwJ5
+	eq9YUDX/EDzhIGvXa8fKehgoMmewXSQHs=; b=TAJdI5nAD6q3HluHLkaBXGD9f6
+	gHJCALc9zMPzV0vRb8UB2lYzPr979fqIkVsoqGYkPuKKDo9X9K8s2NJnNu4UH6Up
+	Kq2jUJ0GAsU98bTEUM/jXcRw95wkorCLioREZthUv0yPOFO8ooCSv0fem9SIcRP/
+	ANX9Wv+pStJ0ogH/8TmuOVnFPNyeW705fsPZWlfq09+hHf6x+rgYLp2ZABl5RyI7
+	6awdEkvJKk3Spnb7XTYYUTlDxkturI5Yn/8sMBY1tZWkKZ+NqIzlkpfvU1s2jDih
+	JcR3MIhw4ZHa91k/sSLaXnCQDfXerIcKCR8ltgLt64BugfEjuUti/rgI1HSA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1730536573; x=1730622973; bh=CxnydXbwJ5eq9YUDX/EDzhIGvXa8fKehgoM
+	mewXSQHs=; b=HuP631SAvyeeZHWs+JrtVJWwL00bMZ0gi+cQns6gFZM2gu4S1PK
+	rV3ly0VRs9LsvpZhQ+coufByMgCmiWjyOJHtBITCHPJ+z1qjP9RU0jdbULCYzAGC
+	DefaDb6KMwPKbQeAEO4GyYU9zGOPKDAWJMkxTWK4a5Y2pPMTRquoPP+N1/ussHth
+	CwG0dC4V6RNJPV82sgl4+ZJkfjzHzfS+m4N0zRdGLtjhTgyJAPnvY3cQuLqEIv8Y
+	+GrwkLniHAnafbIyQ6qbDDAGiS7ChdDqPsF7+VBPkSRM4vSGm4tQ4UqExJqV4EDx
+	tJrKqPUW3/pysECFCqFnjvEzAEYAdpKKTLg==
+X-ME-Sender: <xms:e-QlZ_a9_L_-1qdndBi9EyVE1RfvY0h-Gb_COzmZPWrKvuXouquq0g>
+    <xme:e-QlZ-YBBowAHMAQ_SE73I4PT1VdvHrDj1RNu70FpMsnicmu4P3WIH-POWueb9Ka_
+    S5h-Vnt3YqVtP0SbVs>
+X-ME-Received: <xmr:e-QlZx_Lqy8r4Z5fAiv39L3BOYL7MpJL_hUn7GUl6K-1kcUMjVABIUxQEsu0-fhZVtvGN0BmI4lyJhL_0qYObFVjQnWzyrznrT8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeltddguddvtdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
+    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
+    cuggftrfgrthhtvghrnhepgfduueffleefkeegueektdehkeejtedtffdtudejhfdvheet
+    gfeigfeltdeufeejnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvg
+    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgv
+    thdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
+    htohifihhntghhvghnmhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrhgtrghn
+    sehmrghrtggrnhdrshhtpdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvg
+    hvpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvghighdrihhopdhrtghpthht
+    ohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvg
+    hrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdp
+    rhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprg
+    hsrghhiheslhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:e-QlZ1rCGgyYwIm0MvtZUxAbZcABlPTgAHcfvQTlzJqOAJ4-tgx_Yg>
+    <xmx:e-QlZ6pgPaU9Pjm19b883M6R3UeFUufranZFbUrX4Uon-jJBw0Fp9w>
+    <xmx:e-QlZ7SAmYmre5LCDI_AdOFSS1T3dfKMYdJ4RDnD04sOy_ONYOexIA>
+    <xmx:e-QlZyoWi7B9Q94K7a402vdT3F8InxhnTcuPL2dc_bFRvQGospOBOw>
+    <xmx:feQlZ_7_vg1vU6QchmWwft0O504JlUpp_2PPFt47138o039zjUeq9ck_>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 2 Nov 2024 04:36:10 -0400 (EDT)
+Date: Sat, 2 Nov 2024 09:36:08 +0100
+From: Janne Grunau <j@jannau.net>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: spi: apple,spi: Add binding for
+ Apple SPI controllers
+Message-ID: <20241102083608.GA308136@robin.jannau.net>
+References: <20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net>
+ <20241101-asahi-spi-v3-1-3b411c5fb8e5@jannau.net>
+ <46b31874-9fe2-4534-9777-816765a265b1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <46b31874-9fe2-4534-9777-816765a265b1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_010343_196018_6AE3BD01 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20241102_013617_186934_701E6BF3 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +120,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In xtpg_parse_of(), the refcount of the device node "ports" is not
-decremented after loop. This commit makes sure that of_node_put() is
-called on the device node when leaving the function.
+On Sat, Nov 02, 2024 at 10:36:56AM +0800, Nick Chan wrote:
+> 
+> 
+> On 2/11/2024 03:26, Janne Grunau via B4 Relay wrote:
+> 
+> [...]
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - enum:
+> > +          - apple,t8103-spi
+> > +          - apple,t8112-spi
+> > +          - apple,t6000-spi
+> > +      - const: apple,spi
+> Apple A7-A11 SoCs seems to use a Samsung SPI block, so apple,spi is too
+> generic. Fallback to something like apple,t8103-spi instead.
 
-Fixes: a5562f65b137 ("[media] v4l: xilinx: Add Test Pattern Generator driver")
-Signed-off-by: Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>
----
- drivers/media/platform/xilinx/xilinx-tpg.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Have you looked at it? This one still seems to be somehow Samsung
+related. See the previous discussion at
+https://lore.kernel.org/linux-devicetree/d87ae109-4b58-7465-b16e-3bf7c9d60f1f@marcan.st/
 
-diff --git a/drivers/media/platform/xilinx/xilinx-tpg.c b/drivers/media/platform/xilinx/xilinx-tpg.c
-index e05e528ffc6f..bb3ca16dd47b 100644
---- a/drivers/media/platform/xilinx/xilinx-tpg.c
-+++ b/drivers/media/platform/xilinx/xilinx-tpg.c
-@@ -718,7 +718,7 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
- 
- 	ports = of_get_child_by_name(node, "ports");
- 	if (ports == NULL)
--		ports = node;
-+		ports = of_node_get(node);
- 
- 	for_each_child_of_node(ports, port) {
- 		const struct xvip_video_format *format;
-@@ -731,6 +731,7 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
- 		if (IS_ERR(format)) {
- 			dev_err(dev, "invalid format in DT");
- 			of_node_put(port);
-+			of_node_put(ports);
- 			return PTR_ERR(format);
- 		}
- 
-@@ -740,6 +741,7 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
- 		} else if (xtpg->vip_format != format) {
- 			dev_err(dev, "in/out format mismatch in DT");
- 			of_node_put(port);
-+			of_node_put(ports);
- 			return -EINVAL;
- 		}
- 
-@@ -753,6 +755,7 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
- 		/* Count the number of ports. */
- 		nports++;
- 	}
-+	of_node_put(ports);
- 
- 	if (nports != 1 && nports != 2) {
- 		dev_err(dev, "invalid number of ports %u\n", nports);
--- 
-2.34.1
+Even the A7-A11 SPI controllers are not compatible "apple,spi" doesn't
+prevent us from using something like "apple,s5l-spi" for those.
 
+Janne
 
