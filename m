@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794E2E677F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 12:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34884E677FC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 12:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DF6tF/ronwtGaLPzR1Y+1eJC2THWzh90BDnwiyxyUlA=; b=O60bLFtq5fNN1XGfBEa4XEZ8w7
-	p3YZQOtQO93bcNvf14Xv/9pAc40ilNfXRpeAl69zxB2I3NbfbepC7ZSF3wVWrSgGfxOulZsqhu9Mh
-	XogBwMOwVgOHR/VcHce+aaNSqRjFuAliSrimW3HcnUqhEGzRROjFMz3W1z0uL5pbUTEzwJ8Z34D8Z
-	mU0UGJrkwWF/W5WflLpLFIGnIlmDV29L3BqrSlc2P76pwEK/mkU5oYxA2xe2OrsmV8WNjm1dtLZqT
-	7pqZmaApnvO9VrjEY54iX22TEwgX0XexLb7/Icp0ra1yc+TO9y52IfBtKE+Mzzb7//UkQkBmrLER2
-	GPwES/AQ==;
+	bh=BWY+lS6jDhtKzKAleckngjLpLeBfYwo+SP3KVQ7G+K0=; b=tAMN3HHMg4WW8IhVrv82tkTW/w
+	rL7uFc9t2pye6sEO1NaGQnQyiyw6lIF+msrfU23ZNc7ZjMuZa3o0zp/vGlxTlg8djNd7e3lJ3UzBe
+	JIysJcxwhr238I7FRVZUt0EqbmM3jBtBzqpD0vPcWOC/On0r5kA9ftAmYIXPGRy+hEBlCXHbpWGi7
+	O3z17H+FYFuPzigsUmDEgsom3Ur0W5CYmGqt1h0zx/Aj7Wi1uirakxdkgF+RJ6OyyuJeZn2bTxrwe
+	SUtSq0zs/hQ7g+c0aUy7CY43hl46E3xPHYeQlocmU9BGEd2dZV1h88kwfSiy+v23ztiUiT6Msecp3
+	B0cyH5Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CtX-00000009fmL-0Bxp;
-	Sat, 02 Nov 2024 12:06:19 +0000
-Received: from mail-pf1-f178.google.com ([209.85.210.178])
+	id 1t7DD4-00000009h99-1ETb;
+	Sat, 02 Nov 2024 12:26:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7CrO-00000009feF-30lC
+	id 1t7DBO-00000009h1K-3xLa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Nov 2024 12:04:36 +0000
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-720be27db74so1753705b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 05:04:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730549046; x=1731153846;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DF6tF/ronwtGaLPzR1Y+1eJC2THWzh90BDnwiyxyUlA=;
-        b=dY9WPtnhfnlMlwPXplk49OtuEESW4DLA3dW+IoSR8PQ1QgYneoKSg+78UBs1SygmWR
-         idM2SjUVo2RFaUuR1+b1snxZif7XMp9SMuacOAlG+YVunKvOG62IJeGjXUjuBr3gOhch
-         UH6cpbRtUNYUO/Lg6la3LnDCFWyieEKZ2aypbVvVw5pYKrQCsIjw7CFzSKW/EBfy7Nqn
-         n9nD3ajItGUhMdrar1lSKKysyioeCtH2XBj1gDwgcswm9BCWirN8DLaLSeQJYhp8JcTj
-         7nHm9TKNgf9TX3bED2UcJFc6nyeydQfpqwL6kaAcQEkFq4Q/BwEZWL49ah0PnlnDgFag
-         Kd/w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+sE/RV807VthHq2N8Ru9Ah5r//IN5B4/aKBvhCKhECOjDGcdxUn9zxEtgSgFa/TKUewaLXC5PITQf2TDA6/ws@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnwcModT7+tLuoJ5ymcWAMEE4TgTenykLaEBVDiboqk+jR9p1W
-	IYoR4x39e1fDNNDJWcrJMv1aXyMrT8ghQTA8d2y9c3/mJdbu1W2c
-X-Google-Smtp-Source: AGHT+IH3QBupALD0Xsyr4GM4EVgvwE8anNNXOVnVeSjs243gIoBttfPnD+0+H2RFRYw7KFhojBYygw==
-X-Received: by 2002:a05:6a00:6386:b0:71e:427e:e679 with SMTP id d2e1a72fcca58-720c965da56mr8996435b3a.4.1730549045701;
-        Sat, 02 Nov 2024 05:04:05 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1ef741sm4062238b3a.82.2024.11.02.05.04.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 05:04:05 -0700 (PDT)
-Date: Sat, 2 Nov 2024 21:04:03 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Stefan Eichenberger <eichest@gmail.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	francesco.dolcini@toradex.com, Frank.li@nxp.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v4] PCI: imx6: Add suspend/resume support for i.MX6QDL
-Message-ID: <20241102120403.GF2260768@rocinante>
-References: <20241030103250.83640-1-eichest@gmail.com>
- <20241101193412.GA1317741@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241101193412.GA1317741@bhelgaas>
+	Sat, 02 Nov 2024 12:24:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 48E81A4011F;
+	Sat,  2 Nov 2024 12:22:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5BEC4CEC3;
+	Sat,  2 Nov 2024 12:24:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730550285;
+	bh=lFxlMfCCfbEYFC0V+aROouND/5okVB9WvHg6q+rZHF4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mGTDfj4iNlTIaOrnos5WbcOSLa3/dQ/q+NRiQggyBjNwVaN67twdnQJ1pN4v9Oj8K
+	 HffClJSbfyDHxPTN2G4bW4ANurMzhYTf7C9IReQtZ+Qs8iLyuslNEd8LJTjSBL6iGP
+	 +ZhHHK/2XqnYPziPNvEzbMPKlab6NIJhBQrWHMbgbNdrW/G9Wz9c++A71cdt8axis2
+	 YsX9T0LaLXHWgs6zBoyqk5GaUKxyTwaV1+5zqVgjpR63hS2JJ/lAPJszueGGkcudyh
+	 OCRdaiC7jaGk5uPg1CAOD1HmGBxYSymmEftDbD8s3m/dvNL001fJtKITlfem9V0Fnv
+	 qGfEKmUU2y0gg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t7DBK-0096Wz-Su;
+	Sat, 02 Nov 2024 12:24:42 +0000
+Date: Sat, 02 Nov 2024 12:24:42 +0000
+Message-ID: <86ikt52585.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Frank Li <Frank.Li@nxp.com>,	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5?=
+ =?UTF-8?B?xYRza2k=?= <kw@linux.com>,	Rob Herring <robh@kernel.org>,	Shawn
+ Guo <shawnguo@kernel.org>,	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,	Fabio Estevam
+ <festevam@gmail.com>,	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,	alyssa@rosenzweig.io,	bpf@vger.kernel.org,
+	broonie@kernel.org,	jgg@ziepe.ca,	joro@8bytes.org,	lgirdwood@gmail.com,
+	p.zabel@pengutronix.de,	robin.murphy@arm.com,	will@kernel.org
+Subject: Re: [PATCH v3 1/2] PCI: Add enable_device() and disable_device() callbacks for bridges
+In-Reply-To: <20241102115435.s7oycrh2pjkfhpsu@thinkpad>
+References: <20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com>
+	<20241024-imx95_lut-v3-1-7509c9bbab86@nxp.com>
+	<20241102111012.23zwz4et2qkafyca@thinkpad>
+	<86jzdl27my.wl-maz@kernel.org>
+	<20241102115435.s7oycrh2pjkfhpsu@thinkpad>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: manivannan.sadhasivam@linaro.org, Frank.Li@nxp.com, bhelgaas@google.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org, lgirdwood@gmail.com, p.zabel@pengutronix.de, robin.murphy@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_050406_781036_AFCCFEAF 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20241102_052447_142889_295A65C4 
+X-CRM114-Status: GOOD (  44.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,22 +96,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-[...]
-> > Without this patch, suspend/resume will fail on i.MX6QDL devices if a
-> > PCIe device is connected. Upon resuming, the kernel will hang and
-> > display an error. Here's an example of the error encountered with the
-> > ath10k driver:
-> > ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
-> > Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
-> [...]
+On Sat, 02 Nov 2024 11:54:35 +0000,
+Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
 > 
-> Richard and Lucas, does this look OK to you?  Since you're listed as
-> maintainers of pci-imx6.c, I'd like to have your ack before merging
-> this.
+> On Sat, Nov 02, 2024 at 11:32:37AM +0000, Marc Zyngier wrote:
+> > On Sat, 02 Nov 2024 11:10:12 +0000,
+> > Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
+> > > 
+> > > On Thu, Oct 24, 2024 at 06:34:44PM -0400, Frank Li wrote:
+> > > > Some PCIe host bridges require special handling when enabling or disabling
+> > > > PCIe Endpoints. For example, the i.MX95 platform has a lookup table to map
+> > > > Requester IDs to StreamIDs, which are used by the SMMU and MSI controller
+> > > > to identify the source of DMA accesses.
+> > > > 
+> > > > Without this mapping, DMA accesses may target unintended memory, which
+> > > > would corrupt memory or read the wrong data.
+> > > > 
+> > > > Add a host bridge .enable_device() hook the imx6 driver can use to
+> > > > configure the Requester ID to StreamID mapping. The hardware table isn't
+> > > > big enough to map all possible Requester IDs, so this hook may fail if no
+> > > > table space is available. In that case, return failure from
+> > > > pci_enable_device().
+> > > > 
+> > > > It might make more sense to make pci_set_master() decline to enable bus
+> > > > mastering and return failure, but it currently doesn't have a way to return
+> > > > failure.
+> > > > 
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > > Change from v2 to v3
+> > > > - use Bjorn suggest's commit message.
+> > > > - call disable_device() when error happen.
+> > > > 
+> > > > Change from v1 to v2
+> > > > - move enable(disable)device ops to pci_host_bridge
+> > > > ---
+> > > >  drivers/pci/pci.c   | 23 ++++++++++++++++++++++-
+> > > >  include/linux/pci.h |  2 ++
+> > > >  2 files changed, 24 insertions(+), 1 deletion(-)
+> > > > 
+> > > > diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> > > > index 7d85c04fbba2a..5e0cb9b6f4d4f 100644
+> > > > --- a/drivers/pci/pci.c
+> > > > +++ b/drivers/pci/pci.c
+> > > > @@ -2056,6 +2056,7 @@ int __weak pcibios_enable_device(struct pci_dev *dev, int bars)
+> > > >  static int do_pci_enable_device(struct pci_dev *dev, int bars)
+> > > >  {
+> > > >  	int err;
+> > > > +	struct pci_host_bridge *host_bridge;
+> > > >  	struct pci_dev *bridge;
+> > > >  	u16 cmd;
+> > > >  	u8 pin;
+> > > > @@ -2068,9 +2069,16 @@ static int do_pci_enable_device(struct pci_dev *dev, int bars)
+> > > >  	if (bridge)
+> > > >  		pcie_aspm_powersave_config_link(bridge);
+> > > >  
+> > > > +	host_bridge = pci_find_host_bridge(dev->bus);
+> > > > +	if (host_bridge && host_bridge->enable_device) {
+> > > > +		err = host_bridge->enable_device(host_bridge, dev);
+> > > > +		if (err)
+> > > > +			return err;
+> > > > +	}
+> > > 
+> > > How about wrapping the enable/disable part in a helper?
+> > > 
+> > > 	int pci_host_bridge_enable_device(dev);
+> > > 	void pci_host_bridge_disable_device(dev);
+> > > 
+> > > The definition could be placed in drivers/pci/pci.h as an inline
+> > > function.
+> > 
+> > What does it bring? I would see the point if there was another user.
+> > But this is very much core infrastructure which doesn't lend itself to
+> > duplication.
+> > 
+> > Unless you have something in mind?
+> > 
+> 
+> IMO, it adds a nice encapsulation to help readers understand what this piece of
+> code is all about and also keeps the callers short. Plus the disable helper is
+> reused in both error and pci_disable_device() (if that matters).
 
-If things look fine here, then I would like to pick it up.
+Having an *internal* helper for disable definitely has its use.
 
-	Krzysztof
+But moving these helpers outside of pci.c opens the door to all sort
+of abuse by making it look like an internal API drivers can use, which
+is absolutely isn't.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
