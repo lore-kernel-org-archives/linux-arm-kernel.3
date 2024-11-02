@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A78E67814
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 21:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D34E67815
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Nov 2024 22:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O+qYEcV6Zo/oc9EEp/w/DPcytGgJzkO9IjpgAtYj+O0=; b=VAQawNGIDS7HZUmjgPePENMh1w
-	2xbDZIHlOVdB0lRoqX1otEQ2BmGi676EjbQYgVRcdlHfNjh86uIThXxKV73+GeVd3pqXvM1GSAqEU
-	LpMY4WRWcY8c6gQgFYbMNhOocBfqOuXwGMUZhwE9UJRNtqc7zBr+vqqx7J7aiC7J0ulDjwikOG2dj
-	CluNdTQCoR3MmehtUaFdfyRqBKXmB3ILFLn0ci1qAAlwsakoUODuZdi/OwsY68jPYNDU1Qpib+tk+
-	vZDMw15lQVhxEXuWLkXs2DdE30yhLE462iBd04n0i+vKXSDfTvna5FC0ApemW7c7aX1UXZr7Hn3Rd
-	ruOtmGAQ==;
+	bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=; b=cghvcFUZAdhduGbgRLomP9/CAy
+	ipC5udES/ORylAlydIQ89KhGi0PJiQu4XJ2PE7vUMiLI7CrZqqaEIgFj3jjcioOh1Cf8AkLNoJ0Wg
+	Vc5lAqc37ApqBy3AHP0f/mhYnyvR9Mi6heRqlP5DLt/MQVLWJDQxO3KG7NaO5Qd4OfQ2DmIF6Q8jr
+	/S1JmFva7W9lKVJYSWgAim/JK+fThcFMkDkCssj3+ipFnoS5FFln3wr/9/evBciceGGfnbPsyaXfZ
+	SwwKzJ9K/j7g2lhjNsjJPpjg4bK8qyS7BGj+NRfsUxStXhHEG6gYWt7wsMHErlcXtJ23t29VxDw3Q
+	qo6LxSFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7M4U-0000000ATQI-2Blx;
-	Sat, 02 Nov 2024 21:54:14 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1t7MPN-0000000AVLI-471Z;
+	Sat, 02 Nov 2024 22:15:50 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7M2p-0000000ATEv-4157
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 02 Nov 2024 21:52:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:Date:Cc:To:
-	From:Subject:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=O+qYEcV6Zo/oc9EEp/w/DPcytGgJzkO9IjpgAtYj+O0=; b=MGXJoxd8P3hpfIACVYMPLRB/BZ
-	KBr1IR3xqoppaJ4XqC6y2PDPE8ZkH9XAFO/t70f/9jIghRLmuzY97PdbisawsnzrfJiBzFAbvhlNw
-	9oRT2C4JaZKrxaVbbu8ZKC/V6ZbANkPuluUGIVOtsIkcksLXapfECTDQFpKKVJD9COS0M3A2a7jVa
-	zRiF4/dT6gWGXLu+8q3ph4OaxHklFGEini5KI1boyaUsEw7DeFKu2fjGNY7ZfB6xAysTHMSF3vBoK
-	edwT9if9npd7KYn6to6slvTobNDkT7wA3j4H0LeOnCSO31yin/2glmrI8uXQxWsxKJyT+e0+AyyJh
-	zR0JmVRg==;
-Received: from [52.94.133.142] (helo=edge-m2-r1-128.e-lax51.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7M2g-0000000HAoP-31ix;
-	Sat, 02 Nov 2024 21:52:24 +0000
-Message-ID: <89955b74d225129d6e3d79b53aa8d81d1b50560f.camel@infradead.org>
-Subject: [PATCH net-next] ptp: Remove 'default y' for VMCLOCK PTP device
-From: David Woodhouse <dwmw2@infradead.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Richard Cochran <richardcochran@gmail.com>, Peter Hilber
- <peter.hilber@opensynergy.com>, linux-kernel@vger.kernel.org, 
- virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-rtc@vger.kernel.org, "Ridoux, Julien" <ridouxj@amazon.com>, 
- virtio-dev@lists.linux.dev, "Luu, Ryan" <rluu@amazon.com>, "Chashper,
- David" <chashper@amazon.com>, "Mohamed Abuelfotoh, Hazem"
- <abuehaze@amazon.com>,  Paolo Abeni <pabeni@redhat.com>, "Christopher S .
- Hall" <christopher.s.hall@intel.com>, Jason Wang <jasowang@redhat.com>,
- John Stultz <jstultz@google.com>, "Michael S . Tsirkin" <mst@redhat.com>,
- netdev@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,  Thomas Gleixner
- <tglx@linutronix.de>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Marc Zyngier
- <maz@kernel.org>,  Mark Rutland <mark.rutland@arm.com>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Alessandro Zummo <a.zummo@towertech.it>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,  qemu-devel
- <qemu-devel@nongnu.org>, Simon Horman <horms@kernel.org>
-Date: Sat, 02 Nov 2024 16:52:17 -0500
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-lxjgWVl+XL9587zQso9P"
-User-Agent: Evolution 3.44.4-0ubuntu2 
+	id 1t7MNg-0000000AV8C-22N2;
+	Sat, 02 Nov 2024 22:14:06 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5cec93719ccso1146655a12.2;
+        Sat, 02 Nov 2024 15:14:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730585641; x=1731190441; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=;
+        b=IVTS5A5Hki4A9CSSnqHcUOYrKH9s/Zcoh22r8ZfIHglHlUF7ViPu0FslAyuta3gdxc
+         EAHxI2KYIlYyQGB4vOztNWiYVW+AcCTtvd12/Y6K/ruraTjlzbn2JKTNJ6jQZDEBaNLr
+         8NRV03IVZG2WBs65aCnPLvRqOhB6y4kfQtNGG16knV8/ImiHfhHv+LlQAn5SmyWhpowA
+         dXOvuFxvE1q/JYtrIKrRNotMqq/XB9DLgb6UoVp0y86EUhl9VVbw1SgXdMaUTpPMXRGG
+         hpUDwljvQu18aUNMQGtCClgBxiRBu0v0aWRhn+y8rMUSE3iwP5JRarOZJodOWS0Ad+vg
+         lFxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730585641; x=1731190441;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JgUk68zKUc9DMtHCUrZZMvVfkaumU7vHV+v/hTbVrO4=;
+        b=ehT015TSExAjrBat7DSSzSttAsSBbumOES+GFyWkYP8RKbD4w8O/yxLF3V1mA8RBSe
+         QrabUF4Eszoq4SbHE6/4ZnLtGZj+FiSh6c4MsaRIAu32xHCGLJ6KHkvFg7ya/xW3T14k
+         a6qQ94f43ovUPvt/mmR/g88VDV/VO6nfugjP+ZchxAYXeqFtUBRxZuBwiTzXOnM+QTny
+         1WUnSIpON6w00w2U+KyUo0OWbOXbF2MreZKirVbFmjrA3V2mIbTy5UJviqdg0DID2/u1
+         BhNQh4vkG4BJ/sYYiYROAllRG2n4LIqJQtV36HM9IIeBGAoOfQ0QGm3Fgw6Ptfoup5fQ
+         Kh7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUuB9W5f/a3Yi3qSZUQZzFg/yRLM5grquNPt+P745iH7sJb+ZfyOoohi2BHefqm0ZoTyUeILJkWmYjw5GG1Ezfh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEcoD0WJ+N8Qt6jWV/IKCYgLwzXHgSuQvCyzaaXFUvqy/CLSod
+	3dxOSk3t2joPyXkvfIcxPtA3NbMW1j/yg0yBsC6zJzH8vSZ55So1
+X-Google-Smtp-Source: AGHT+IEOBLX2j2HWuv+pdDU0ZxYrPZnIuxih08kkbFQFADGWXklj0YmOwIp0s2aG0SM4rtdzkYs0fA==
+X-Received: by 2002:a05:6402:5242:b0:5c8:8bde:a1d3 with SMTP id 4fb4d7f45d1cf-5cd54af0e79mr10242172a12.22.1730585640884;
+        Sat, 02 Nov 2024 15:14:00 -0700 (PDT)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5ceac74ccfdsm2824475a12.11.2024.11.02.15.13.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Nov 2024 15:14:00 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-actions@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] dt-bindings: timer: actions,owl-timer: convert to YAML
+Date: Sun,  3 Nov 2024 00:13:04 +0200
+Message-ID: <20241102221354.2856900-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241102_151404_552255_EAF75DD0 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,161 +97,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the Actions Semi Owl timer bindings to DT schema.
 
---=-lxjgWVl+XL9587zQso9P
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Changes during conversion:
+ - Rename file to match compatible
+ - Add a description
+ - Make "clocks" a required property, since the driver searches for it
+ - Correct the given example according to owl-s500.dtsi
 
-From: David Woodhouse <dwmw@amazon.co.uk>
-
-The VMCLOCK device gives support for accurate timekeeping even across=20
-live migration, unlike the KVM PTP clock. To help ensure that users can
-always use ptp_vmclock where it's available in preference to ptp_kvm,
-set it to 'default PTP_1588_CLOCK_VMCLOCK' instead of 'default y'.
-
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- drivers/ptp/Kconfig | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../bindings/timer/actions,owl-timer.txt      | 21 ------
+ .../bindings/timer/actions,owl-timer.yaml     | 71 +++++++++++++++++++
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 72 insertions(+), 22 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+ create mode 100644 Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
 
-diff --git a/drivers/ptp/Kconfig b/drivers/ptp/Kconfig
-index e98c9767e0ef..ed087ae75f0e 100644
---- a/drivers/ptp/Kconfig
-+++ b/drivers/ptp/Kconfig
-@@ -135,12 +135,16 @@ config PTP_1588_CLOCK_VMCLOCK
- 	tristate "Virtual machine PTP clock"
- 	depends on X86_TSC || ARM_ARCH_TIMER
- 	depends on PTP_1588_CLOCK && ACPI && ARCH_SUPPORTS_INT128
--	default y
-+	default PTP_1588_CLOCK_KVM
- 	help
- 	  This driver adds support for using a virtual precision clock
- 	  advertised by the hypervisor. This clock is only useful in virtual
- 	  machines where such a device is present.
-=20
-+	  Unlike the KVM virtual PTP clock, the VMCLOCK device offers support
-+	  for reliable timekeeping even across live migration. So this driver
-+	  is enabled by default whenever the KVM PTP clock is.
+diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.txt b/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+deleted file mode 100644
+index 977054f87..000000000
+--- a/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
++++ /dev/null
+@@ -1,21 +0,0 @@
+-Actions Semi Owl Timer
+-
+-Required properties:
+-- compatible      :  "actions,s500-timer" for S500
+-                     "actions,s700-timer" for S700
+-                     "actions,s900-timer" for S900
+-- reg             :  Offset and length of the register set for the device.
+-- interrupts      :  Should contain the interrupts.
+-- interrupt-names :  Valid names are: "2hz0", "2hz1",
+-                                      "timer0", "timer1", "timer2", "timer3"
+-                     See ../resource-names.txt
+-
+-Example:
+-
+-		timer@b0168000 {
+-			compatible = "actions,s500-timer";
+-			reg = <0xb0168000 0x100>;
+-			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
+-			             <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "timer0", "timer1";
+-		};
+diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+new file mode 100644
+index 000000000..ed50b4753
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/actions,owl-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called ptp_vmclock.
-=20
---=20
-2.44.0
++title: Actions Semi Owl timer
++
++maintainers:
++  - Andreas Färber <afaerber@suse.de>
++
++description: |
++  Actions Semi Owl SoCs provide 32bit and 2Hz timers.
++  The 32bit timers support dynamic irq, as well as one-shot mode.
++
++properties:
++  compatible:
++    enum:
++      - actions,s500-timer
++      - actions,s700-timer
++      - actions,s900-timer
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    minItems: 1
++    maxItems: 6
++
++  interrupt-names:
++    minItems: 1
++    maxItems: 6
++    items:
++      enum:
++        - 2hz0
++        - 2hz1
++        - timer0
++        - timer1
++        - timer2
++        - timer3
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - clocks
++  - interrupts
++  - interrupt-names
++  - reg
++
++additionalProperties: false
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    soc {
++      #address-cells = <1>;
++      #size-cells = <1>;
++      timer@b0168000 {
++        compatible = "actions,s500-timer";
++        reg = <0xb0168000 0x100>;
++        clocks = <&hosc>;
++        interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "2hz0", "2hz1", "timer0", "timer1";
++      };
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5f34d168b..76ea65128 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2024,7 +2024,7 @@ F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
+ F:	Documentation/devicetree/bindings/net/actions,owl-emac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/actions,*
+ F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
+-F:	Documentation/devicetree/bindings/timer/actions,owl-timer.txt
++F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+ F:	arch/arm/boot/dts/actions/
+ F:	arch/arm/mach-actions/
+ F:	arch/arm64/boot/dts/actions/
+-- 
+2.43.0
 
-
-
---=-lxjgWVl+XL9587zQso9P
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCEkQw
-ggYQMIID+KADAgECAhBNlCwQ1DvglAnFgS06KwZPMA0GCSqGSIb3DQEBDAUAMIGIMQswCQYDVQQG
-EwJVUzETMBEGA1UECBMKTmV3IEplcnNleTEUMBIGA1UEBxMLSmVyc2V5IENpdHkxHjAcBgNVBAoT
-FVRoZSBVU0VSVFJVU1QgTmV0d29yazEuMCwGA1UEAxMlVVNFUlRydXN0IFJTQSBDZXJ0aWZpY2F0
-aW9uIEF1dGhvcml0eTAeFw0xODExMDIwMDAwMDBaFw0zMDEyMzEyMzU5NTlaMIGWMQswCQYDVQQG
-EwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYD
-VQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMTNVNlY3RpZ28gUlNBIENsaWVudCBBdXRoZW50
-aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
-AQEAyjztlApB/975Rrno1jvm2pK/KxBOqhq8gr2+JhwpKirSzZxQgT9tlC7zl6hn1fXjSo5MqXUf
-ItMltrMaXqcESJuK8dtK56NCSrq4iDKaKq9NxOXFmqXX2zN8HHGjQ2b2Xv0v1L5Nk1MQPKA19xeW
-QcpGEGFUUd0kN+oHox+L9aV1rjfNiCj3bJk6kJaOPabPi2503nn/ITX5e8WfPnGw4VuZ79Khj1YB
-rf24k5Ee1sLTHsLtpiK9OjG4iQRBdq6Z/TlVx/hGAez5h36bBJMxqdHLpdwIUkTqT8se3ed0PewD
-ch/8kHPo5fZl5u1B0ecpq/sDN/5sCG52Ds+QU5O5EwIDAQABo4IBZDCCAWAwHwYDVR0jBBgwFoAU
-U3m/WqorSs9UgOHYm8Cd8rIDZsswHQYDVR0OBBYEFAnA8vwL2pTbX/4r36iZQs/J4K0AMA4GA1Ud
-DwEB/wQEAwIBhjASBgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEF
-BQcDBDARBgNVHSAECjAIMAYGBFUdIAAwUAYDVR0fBEkwRzBFoEOgQYY/aHR0cDovL2NybC51c2Vy
-dHJ1c3QuY29tL1VTRVJUcnVzdFJTQUNlcnRpZmljYXRpb25BdXRob3JpdHkuY3JsMHYGCCsGAQUF
-BwEBBGowaDA/BggrBgEFBQcwAoYzaHR0cDovL2NydC51c2VydHJ1c3QuY29tL1VTRVJUcnVzdFJT
-QUFkZFRydXN0Q0EuY3J0MCUGCCsGAQUFBzABhhlodHRwOi8vb2NzcC51c2VydHJ1c3QuY29tMA0G
-CSqGSIb3DQEBDAUAA4ICAQBBRHUAqznCFfXejpVtMnFojADdF9d6HBA4kMjjsb0XMZHztuOCtKF+
-xswhh2GqkW5JQrM8zVlU+A2VP72Ky2nlRA1GwmIPgou74TZ/XTarHG8zdMSgaDrkVYzz1g3nIVO9
-IHk96VwsacIvBF8JfqIs+8aWH2PfSUrNxP6Ys7U0sZYx4rXD6+cqFq/ZW5BUfClN/rhk2ddQXyn7
-kkmka2RQb9d90nmNHdgKrwfQ49mQ2hWQNDkJJIXwKjYA6VUR/fZUFeCUisdDe/0ABLTI+jheXUV1
-eoYV7lNwNBKpeHdNuO6Aacb533JlfeUHxvBz9OfYWUiXu09sMAviM11Q0DuMZ5760CdO2VnpsXP4
-KxaYIhvqPqUMWqRdWyn7crItNkZeroXaecG03i3mM7dkiPaCkgocBg0EBYsbZDZ8bsG3a08LwEsL
-1Ygz3SBsyECa0waq4hOf/Z85F2w2ZpXfP+w8q4ifwO90SGZZV+HR/Jh6rEaVPDRF/CEGVqR1hiuQ
-OZ1YL5ezMTX0ZSLwrymUE0pwi/KDaiYB15uswgeIAcA6JzPFf9pLkAFFWs1QNyN++niFhsM47qod
-x/PL+5jR87myx5uYdBEQkkDc+lKB1Wct6ucXqm2EmsaQ0M95QjTmy+rDWjkDYdw3Ms6mSWE3Bn7i
-5ZgtwCLXgAIe5W8mybM2JzCCBhQwggT8oAMCAQICEQDGvhmWZ0DEAx0oURL6O6l+MA0GCSqGSIb3
-DQEBCwUAMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYD
-VQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMTNVNlY3RpZ28g
-UlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBMB4XDTIyMDEwNzAw
-MDAwMFoXDTI1MDEwNjIzNTk1OVowJDEiMCAGCSqGSIb3DQEJARYTZHdtdzJAaW5mcmFkZWFkLm9y
-ZzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALQ3GpC2bomUqk+91wLYBzDMcCj5C9m6
-oZaHwvmIdXftOgTbCJXADo6G9T7BBAebw2JV38EINgKpy/ZHh7htyAkWYVoFsFPrwHounto8xTsy
-SSePMiPlmIdQ10BcVSXMUJ3Juu16GlWOnAMJY2oYfEzmE7uT9YgcBqKCo65pTFmOnR/VVbjJk4K2
-xE34GC2nAdUQkPFuyaFisicc6HRMOYXPuF0DuwITEKnjxgNjP+qDrh0db7PAjO1D4d5ftfrsf+kd
-RR4gKVGSk8Tz2WwvtLAroJM4nXjNPIBJNT4w/FWWc/5qPHJy2U+eITZ5LLE5s45mX2oPFknWqxBo
-bQZ8a9dsZ3dSPZBvE9ZrmtFLrVrN4eo1jsXgAp1+p7bkfqd3BgBEmfsYWlBXO8rVXfvPgLs32VdV
-NZxb/CDWPqBsiYv0Hv3HPsz07j5b+/cVoWqyHDKzkaVbxfq/7auNVRmPB3v5SWEsH8xi4Bez2V9U
-KxfYCnqsjp8RaC2/khxKt0A552Eaxnz/4ly/2C7wkwTQnBmdlFYhAflWKQ03Ufiu8t3iBE3VJbc2
-5oMrglj7TRZrmKq3CkbFnX0fyulB+kHimrt6PIWn7kgyl9aelIl6vtbhMA+l0nfrsORMa4kobqQ5
-C5rveVgmcIad67EDa+UqEKy/GltUwlSh6xy+TrK1tzDvAgMBAAGjggHMMIIByDAfBgNVHSMEGDAW
-gBQJwPL8C9qU21/+K9+omULPyeCtADAdBgNVHQ4EFgQUzMeDMcimo0oz8o1R1Nver3ZVpSkwDgYD
-VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMC
-MEAGA1UdIAQ5MDcwNQYMKwYBBAGyMQECAQEBMCUwIwYIKwYBBQUHAgEWF2h0dHBzOi8vc2VjdGln
-by5jb20vQ1BTMFoGA1UdHwRTMFEwT6BNoEuGSWh0dHA6Ly9jcmwuc2VjdGlnby5jb20vU2VjdGln
-b1JTQUNsaWVudEF1dGhlbnRpY2F0aW9uYW5kU2VjdXJlRW1haWxDQS5jcmwwgYoGCCsGAQUFBwEB
-BH4wfDBVBggrBgEFBQcwAoZJaHR0cDovL2NydC5zZWN0aWdvLmNvbS9TZWN0aWdvUlNBQ2xpZW50
-QXV0aGVudGljYXRpb25hbmRTZWN1cmVFbWFpbENBLmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29j
-c3Auc2VjdGlnby5jb20wHgYDVR0RBBcwFYETZHdtdzJAaW5mcmFkZWFkLm9yZzANBgkqhkiG9w0B
-AQsFAAOCAQEAyW6MUir5dm495teKqAQjDJwuFCi35h4xgnQvQ/fzPXmtR9t54rpmI2TfyvcKgOXp
-qa7BGXNFfh1JsqexVkIqZP9uWB2J+uVMD+XZEs/KYNNX2PvIlSPrzIB4Z2wyIGQpaPLlYflrrVFK
-v9CjT2zdqvy2maK7HKOQRt3BiJbVG5lRiwbbygldcALEV9ChWFfgSXvrWDZspnU3Gjw/rMHrGnql
-Htlyebp3pf3fSS9kzQ1FVtVIDrL6eqhTwJxe+pXSMMqFiN0whpBtXdyDjzBtQTaZJ7zTT/vlehc/
-tDuqZwGHm/YJy883Ll+GP3NvOkgaRGWEuYWJJ6hFCkXYjyR9IzCCBhQwggT8oAMCAQICEQDGvhmW
-Z0DEAx0oURL6O6l+MA0GCSqGSIb3DQEBCwUAMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3Jl
-YXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0
-ZWQxPjA8BgNVBAMTNVNlY3RpZ28gUlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJl
-IEVtYWlsIENBMB4XDTIyMDEwNzAwMDAwMFoXDTI1MDEwNjIzNTk1OVowJDEiMCAGCSqGSIb3DQEJ
-ARYTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALQ3
-GpC2bomUqk+91wLYBzDMcCj5C9m6oZaHwvmIdXftOgTbCJXADo6G9T7BBAebw2JV38EINgKpy/ZH
-h7htyAkWYVoFsFPrwHounto8xTsySSePMiPlmIdQ10BcVSXMUJ3Juu16GlWOnAMJY2oYfEzmE7uT
-9YgcBqKCo65pTFmOnR/VVbjJk4K2xE34GC2nAdUQkPFuyaFisicc6HRMOYXPuF0DuwITEKnjxgNj
-P+qDrh0db7PAjO1D4d5ftfrsf+kdRR4gKVGSk8Tz2WwvtLAroJM4nXjNPIBJNT4w/FWWc/5qPHJy
-2U+eITZ5LLE5s45mX2oPFknWqxBobQZ8a9dsZ3dSPZBvE9ZrmtFLrVrN4eo1jsXgAp1+p7bkfqd3
-BgBEmfsYWlBXO8rVXfvPgLs32VdVNZxb/CDWPqBsiYv0Hv3HPsz07j5b+/cVoWqyHDKzkaVbxfq/
-7auNVRmPB3v5SWEsH8xi4Bez2V9UKxfYCnqsjp8RaC2/khxKt0A552Eaxnz/4ly/2C7wkwTQnBmd
-lFYhAflWKQ03Ufiu8t3iBE3VJbc25oMrglj7TRZrmKq3CkbFnX0fyulB+kHimrt6PIWn7kgyl9ae
-lIl6vtbhMA+l0nfrsORMa4kobqQ5C5rveVgmcIad67EDa+UqEKy/GltUwlSh6xy+TrK1tzDvAgMB
-AAGjggHMMIIByDAfBgNVHSMEGDAWgBQJwPL8C9qU21/+K9+omULPyeCtADAdBgNVHQ4EFgQUzMeD
-Mcimo0oz8o1R1Nver3ZVpSkwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYw
-FAYIKwYBBQUHAwQGCCsGAQUFBwMCMEAGA1UdIAQ5MDcwNQYMKwYBBAGyMQECAQEBMCUwIwYIKwYB
-BQUHAgEWF2h0dHBzOi8vc2VjdGlnby5jb20vQ1BTMFoGA1UdHwRTMFEwT6BNoEuGSWh0dHA6Ly9j
-cmwuc2VjdGlnby5jb20vU2VjdGlnb1JTQUNsaWVudEF1dGhlbnRpY2F0aW9uYW5kU2VjdXJlRW1h
-aWxDQS5jcmwwgYoGCCsGAQUFBwEBBH4wfDBVBggrBgEFBQcwAoZJaHR0cDovL2NydC5zZWN0aWdv
-LmNvbS9TZWN0aWdvUlNBQ2xpZW50QXV0aGVudGljYXRpb25hbmRTZWN1cmVFbWFpbENBLmNydDAj
-BggrBgEFBQcwAYYXaHR0cDovL29jc3Auc2VjdGlnby5jb20wHgYDVR0RBBcwFYETZHdtdzJAaW5m
-cmFkZWFkLm9yZzANBgkqhkiG9w0BAQsFAAOCAQEAyW6MUir5dm495teKqAQjDJwuFCi35h4xgnQv
-Q/fzPXmtR9t54rpmI2TfyvcKgOXpqa7BGXNFfh1JsqexVkIqZP9uWB2J+uVMD+XZEs/KYNNX2PvI
-lSPrzIB4Z2wyIGQpaPLlYflrrVFKv9CjT2zdqvy2maK7HKOQRt3BiJbVG5lRiwbbygldcALEV9Ch
-WFfgSXvrWDZspnU3Gjw/rMHrGnqlHtlyebp3pf3fSS9kzQ1FVtVIDrL6eqhTwJxe+pXSMMqFiN0w
-hpBtXdyDjzBtQTaZJ7zTT/vlehc/tDuqZwGHm/YJy883Ll+GP3NvOkgaRGWEuYWJJ6hFCkXYjyR9
-IzGCBMcwggTDAgEBMIGsMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVz
-dGVyMRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMT
-NVNlY3RpZ28gUlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEA
-xr4ZlmdAxAMdKFES+jupfjANBglghkgBZQMEAgEFAKCCAeswGAYJKoZIhvcNAQkDMQsGCSqGSIb3
-DQEHATAcBgkqhkiG9w0BCQUxDxcNMjQxMTAyMjE1MjE3WjAvBgkqhkiG9w0BCQQxIgQg8iUbbLO0
-ztKikyzeCTMMuLH3qq23oE7Mr2IxrkTU128wgb0GCSsGAQQBgjcQBDGBrzCBrDCBljELMAkGA1UE
-BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEYMBYG
-A1UEChMPU2VjdGlnbyBMaW1pdGVkMT4wPAYDVQQDEzVTZWN0aWdvIFJTQSBDbGllbnQgQXV0aGVu
-dGljYXRpb24gYW5kIFNlY3VyZSBFbWFpbCBDQQIRAMa+GZZnQMQDHShREvo7qX4wgb8GCyqGSIb3
-DQEJEAILMYGvoIGsMIGWMQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVy
-MRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxPjA8BgNVBAMTNVNl
-Y3RpZ28gUlNBIENsaWVudCBBdXRoZW50aWNhdGlvbiBhbmQgU2VjdXJlIEVtYWlsIENBAhEAxr4Z
-lmdAxAMdKFES+jupfjANBgkqhkiG9w0BAQEFAASCAgCU0iALfljyIYLstL0CAbcu6O8TAX5A0FYO
-x+PxWS1bi3qgwcFfj9Xo8PoHuxNSLpKGAKUQ5vmBAmHaYLt3z2zYTmE64WMx3Fpc6TF3aYSnqSSa
-kGde5S7eAu5RSxKT9onNdWDQjGFq1htv59TjM2LBggmDIwY2Yt56qGTWThHQNhzNxiqqhS2wJnBB
-JlaxGVC//HU2/kYwNQAnwH4E60UtALCBx/ngE0GSzMrZSnd+Bzst8RxZFAatc4OpN79SAEozrAyJ
-fZm5RHAyGFHOyuCj+Gw25oZpO26pgE0y4o+OpHVlIUPE0Z1iXebnrqn6ixCn3Jia59jkF04MU+M7
-5IA0So8h/5Yaa1hb2WO97UpusJ/lz6mswtXbpdEBKkiLYVxtGwNp7t9ZdOkJF+3+JUWYki5NYFi4
-1AxqFj/+HkwhK2Ogzjze8Sd0/uhENUT7pEqOSNkWmnx4FfrJ1TkaqnTLHck+7Hy1mKET26ypBkda
-99yJNScWlpBn1d+cXk61jvUTQKOdG6pORTDB/tmY/gWwqo0mIfSgpC4sFiBJNKagp8gsya1Sxy5v
-pIbYKOLphl/CR/B9VwelYrX6N1U4iJ4W/x96lZqI2WjMqIOHmiEVjPKbNjCgQJvEtEVWP45S4JfI
-s47S/9Og2ttDBdUATVwtQSx2RmzuM3te/JYF50R/XQAAAAAAAA==
-
-
---=-lxjgWVl+XL9587zQso9P--
 
