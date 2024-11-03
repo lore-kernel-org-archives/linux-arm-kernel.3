@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BABE67806
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 06:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DE0E67807
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 06:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Qhm+LitePBXQsySKsmg7fuQgH8MGcEsYsJ0eyWGhL0=; b=fDUBM5rdXs1z2zTxYSDAmYT2kb
-	rAKjZf0+lhyZKiYJ17Ttj39MloyV4pgr57rarXsHHtCEHHF0ycWdh4CJ3DEffP6ts9EGM/Mwqm/AY
-	0lI9uPD2uJhjYzdoDLv0HzzKKhU79KCFbRbXRCNt+5GEi8ZxO0YckQHU7+eae1CBaY4v6ChyaZx/e
-	vK+Ajklg5L/29ik4c9fPR1Ooc/cdt4HCAEsgxzi0h9zDCRxLoecbHSItzptyl1VFO9G2AEFx1uOXR
-	nsM9X6KkopgHui7hMYoM7grgYflE5706J71URcQHG6hXk6MIizOTmHlMdNRmAmzN/oWBuSb1nTIoL
-	9d62Yd/g==;
+	bh=fS1npImPfHb20Sl7e7er9IvRC0E477hQsJ+7VA0CBuE=; b=qUGqGZmQ925uHbC7c3xeFsVDY6
+	ftmFkTPXJlpBf8ZPCdgtDX/RsLVgeYdYDTDmjjFD0On34XNGRUcJl7XA/KIVEw8QS1/JmZIqyRNOw
+	j5D6ByyxgzX0YdrLPBpCK6NAiC0Y7mH4aUxnNTpXqDzRNNKQchtIeIBAEASahMR7ItNwqJBnYPzjV
+	15NoXAqKt6SoCMTg8oKqm868hudMGdI3bG4Uz2LHsRjxJFAzQCdJ1EmvsVa02zrS84lyyt91oW0ZT
+	JRzzFLVLA0ruGFPR+L8B2iBcRl0tGMWm9FLeWCei+jY1ZgQjtXrt8lOclz1Lan9695Z5TXoed4b2H
+	AyAosX0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7U2n-0000000B2Kq-2WVh;
-	Sun, 03 Nov 2024 06:25:01 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1t7UaL-0000000B41r-2bQL;
+	Sun, 03 Nov 2024 06:59:41 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7U16-0000000B2Cg-3Ho3
+	id 1t7UYf-0000000B3vU-45QY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 06:23:18 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-71e52582cf8so2769188b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 23:23:16 -0700 (PDT)
+	Sun, 03 Nov 2024 06:57:59 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-5ebc1af8f10so1384962eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Nov 2024 23:57:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730614996; x=1731219796; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=5Qhm+LitePBXQsySKsmg7fuQgH8MGcEsYsJ0eyWGhL0=;
-        b=B/+7rcegQAMmxe/RPVdsfqlD6gDsuR7fIQDZnEY/4vyibGkNMvwUFT6fi6tVJKIbPP
-         RLI/sfWp88PFDkPxIrNVcEk7TPpzjPwnjaRhbW2DwMwoGGAoZ0KBxkIYxdP4F3E6e1Zf
-         wbL5ubaW1deIuhqthqMuhSsY8jhWnS1bt06ODO9+WTN83RFzry/Jwws5R2b9RfsO6mrk
-         Y7KCk3V2BcMog8mfNUVl/dYKNB26jZ0l9BdKGKiZRAYDvjc3wbCMHASKCRJ8Hh+6tASv
-         agBPBKg5IB996yi41carEojNKgu+lyMJUGebkQZNK0JZmssTVtrlAVWqgpdHqrYCzxkh
-         I3DA==
+        d=linaro.org; s=google; t=1730617076; x=1731221876; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=fS1npImPfHb20Sl7e7er9IvRC0E477hQsJ+7VA0CBuE=;
+        b=MEwrjgSvsbh4CwUiwF/+5SKQr8KJAEEe9FsDd0vYLxygHxZ3FbVyBwso3gHLESe8A5
+         gm4PuHiRO1/BE6gk0mJpK1C9oA++uU1CJdFvQSJx/niK2D+kee3KE5kuvgUVoJFD2HE0
+         sslckawsvJqiIkQdIkqWTjeo3YPUOCpiGMFch1p7A0agpj/oioq8e6707vq93VMXuWSb
+         ETI0uqpCosqFuI8AwxWmGpeDfnq9TOhwWOQcXPhmmOVFvWaRUeP6x3GJOtRkotlRVfYG
+         UMz4ahAYgfkaLGKEL17+k+EaxWONWUVkcMPC5sPN9CNFSRUKW6fz6I63jQUdfu6jeEA+
+         wp4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730614996; x=1731219796;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5Qhm+LitePBXQsySKsmg7fuQgH8MGcEsYsJ0eyWGhL0=;
-        b=twPQ5abfRON28xWONm0+EYPjBFHuSrhQm5WXb1cDehkAsa0AdLIqeZOM7QakIxgr6S
-         LdeMMf6XFIk0SZPavgjWJZWwCKsnX7GSDLBw3TxlD1DHwRTpYnIjbHtJ57dZHtnbiQ4A
-         gueLK6FFGz0tKObK+1N5/MmzH+mMo75W69T/ymeFCbMgUmpEWgiuVGOVkCk/MVJk10vb
-         dMvaZ9hfvDkCUp3+Vc6c0/ZURaXKploxbZJZ9E1NZ2ajg5IstRpIV79m6HxhrLED07QQ
-         jGNRY3+ouLmnWgxJxdhIHlwDIGzqwcVvowFlUOGR896VBuDe0NsVf4weJFhiPhQLWUAd
-         gBWA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnza0nKDabw1yTClKEw+9QVsAj7eer2mbAI8ohB+/oJlTMH9heJQ8z+xVkMiwzmpxW3hQDcObl0N1DTVQB6MMb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT9HMQH9jp0K+vqrJ317SpudUQMYXBkMGk8tSpoDmXq6AuQNg7
-	zPlYg0ZSCVyK3GcmA0ZXqHJFKYuODaeZeP5S3sFg3N2WPdjR+lIxHXqasXQxNA==
-X-Google-Smtp-Source: AGHT+IG4AFUZuM3edwnngjVKBU1jcTHodIw4RW2EypyrkFK7ELfPVwTprbngwCPD9smyqFMmdBqcAQ==
-X-Received: by 2002:a05:6a20:d70b:b0:1d9:77c0:61c6 with SMTP id adf61e73a8af0-1dba50bad20mr13962806637.0.1730614995661;
-        Sat, 02 Nov 2024 23:23:15 -0700 (PDT)
-Received: from thinkpad ([220.158.156.209])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee455a4994sm4819369a12.43.2024.11.02.23.23.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Nov 2024 23:23:15 -0700 (PDT)
-Date: Sun, 3 Nov 2024 11:53:05 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
-	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
-	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
-	robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH v3 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
- i.MX95
-Message-ID: <20241103062305.6cqftpv4bwneg2mo@thinkpad>
-References: <20241024-imx95_lut-v3-0-7509c9bbab86@nxp.com>
- <20241024-imx95_lut-v3-2-7509c9bbab86@nxp.com>
- <20241102114937.w7jt7n7zr3ext5jo@thinkpad>
- <ZyZg1nlSPf5rvm8q@lizhi-Precision-Tower-5810>
+        d=1e100.net; s=20230601; t=1730617076; x=1731221876;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fS1npImPfHb20Sl7e7er9IvRC0E477hQsJ+7VA0CBuE=;
+        b=SPPAJQieJrIg4b7TFUdIw2ox+HEHGb8H9CVuNIP8FaD5LMj8c++2H2BqYr1eYvJoHy
+         S8j4k4nDkqnpLz1V2HECaj9UD5XLBaqlQIOo00wveE9K9Gjqw30hiW3mYwBO2YTwCtHM
+         BVxh8yOBsorivpuMP8DyXTG+PdsDxt8622KzutERntSlIlyFrdiCSJYWxS8wq+4it+Vw
+         Pd0TUJWbnloTIK2QehAaqBSFSRhY/Onm4OTpRypIUk5wkoMnv3wZEusBDhuj4RL4qt4n
+         UdpJGbOrCHm3VgEiM6lmHcq3yWJ8LBnZ5dWHinFso1nfUDRBKH5XZ1y8mZph4KnkKsla
+         paUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXfSu1MwgT8n/2eCSxv0k7uySq9YDf6RDJ8nSFlnqAoj2scfYCaOgCuiaFbA6oV4wAK5DcKJWbihTGqyqCsWFNK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg3IQOFCjNRUxEz5SpeAc/+AzVtx9ZK+RY11nc3tmN2LVCtFaz
+	UaNmzAEhnf4RxLcYaF+CZZFlUvvlEFElTWdbAHEyJbVTrrfqpgoJ5I4vRRnHSZPFeRg/nwqrLQC
+	IeOMgm3GYl8bgUpFxSnfo370kwUZzEi4IshWLWw==
+X-Google-Smtp-Source: AGHT+IE+q1rK+3oCKtp9SkJcnFzCrL9vfkFECGy5BIRlaiafb9OMt6z17EkSsb1RPUubkyZ3F6wWlfWwl558mwfUioY=
+X-Received: by 2002:a05:6871:c707:b0:28f:329e:9f23 with SMTP id
+ 586e51a60fabf-2949f07cb9emr7517716fac.42.1730617075872; Sat, 02 Nov 2024
+ 23:57:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ZyZg1nlSPf5rvm8q@lizhi-Precision-Tower-5810>
+References: <20241031150033.3440894-1-peter.griffin@linaro.org> <yq1wmhl6rp8.fsf@ca-mkp.ca.oracle.com>
+In-Reply-To: <yq1wmhl6rp8.fsf@ca-mkp.ca.oracle.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Sun, 3 Nov 2024 06:57:45 +0000
+Message-ID: <CADrjBPp9-ucYgztdRNP81FfY0h+1s7N=LEPS2Ny=D2Vh2HsWYw@mail.gmail.com>
+Subject: Re: [PATCH v3 00/14] UFS cleanups and enhancements to ufs-exynos for gs101
+To: "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com, 
+	avri.altman@wdc.com, bvanassche@acm.org, krzk@kernel.org, 
+	tudor.ambarus@linaro.org, ebiggers@kernel.org, andre.draszik@linaro.org, 
+	kernel-team@android.com, willmcvicker@google.com, linux-scsi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_232316_883777_E412DF2A 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20241102_235758_072652_83E0C814 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,72 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 02, 2024 at 01:26:46PM -0400, Frank Li wrote:
+Hi Martin,
 
-[...]
+On Sun, 3 Nov 2024 at 01:36, Martin K. Petersen
+<martin.petersen@oracle.com> wrote:
+>
+>
+> Peter,
+>
+> > This series provides a few cleanups, bug fixes and feature
+> > enhancements for the ufs-exynos driver, particularly for gs101 SoC.
+>
+> Patches 1 and 2 were missing your SoB tags. I took the liberty of adding
+> these instead of having you resubmit. Please acknowledge that these two
+> patches should have your SoB.
 
-> > > +
-> > > +	target = NULL;
-> > > +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
-> > > +	target = NULL;
-> >
-> > What is the point in passing 'target' here?
-> 
-> See https://lore.kernel.org/imx/b479cad6-e0c5-48fb-bb8f-a70f7582cfd5@arm.com/
-> Marc Zyngier's comments:
-> 
-> "Perhaps it is reasonable to assume that i.MX95 will never have SMMU/ITS
-> mappings for low-numbered devices on bus 0, but in general this isn't
-> very robust, and either way it's certainly not all that clear at first
-> glance what assmuption is actually being made here. If it's significant
-> whether a mapping actually exists or not for the given ID then you
-> should really use the "target" argument of of_map_id() to determine that."
-> 
-> See v4 https://lore.kernel.org/imx/20241101-imx95_lut-v4-2-0fdf9a2fe754@nxp.com/
-> 
+Yes those 2 patches should have my SoB, that was an oversight on my
+part.  Thanks for fixing it :)
 
-Okay, thanks! I was confused by the fact that you never used 'target' in this
-version. But v4 clears it up.
-
-- Mani
-
-> +	target = NULL;
-> +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
-> +
-> +	/*
-> +	 * Return failure if msi-map exist and no entry for rid because dwc common
-> +	 * driver will skip setting up built-in MSI controller if msi-map existed.
-> +	 *
-> +	 *   err_m      target
-> +	 *	0	NULL		Return failure, function not work.
-> +	 *      !0      NULL		msi-map not exist, use built-in MSI.
-> +	 *	0	!NULL		Find one entry.
-> +	 *	!0	!NULL		Invalidate case.
-> +	 */
-> 
-> 
-> >
-> > > +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
-> > > +
-> > > +
-> > > +	/*
-> > > +	 * msi-map        iommu-map
-> > > +	 *   Y                Y            ITS + SMMU, require the same sid
-> > > +	 *   Y                N            ITS
-> > > +	 *   N                Y            DWC MSI Ctrl + SMMU
-> > > +	 *   N                N            DWC MSI Ctrl
-> > > +	 */
-> > > +	if (!err_i && !err_m)
-> > > +		if ((sid_i & IMX95_SID_MASK) != (sid_m & IMX95_SID_MASK)) {
-> > > +			dev_err(dev, "its and iommu stream id miss match, please check dts file\n");
-> >
-> > "iommu-map and msi-map entries mismatch!"
-> >
-> > - Mani
-> >
-> > --
-> > மணிவண்ணன் சதாசிவம்
-
--- 
-மணிவண்ணன் சதாசிவம்
+Peter
 
