@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FEAD10C0E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 12:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AE6D11041
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 13:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7j3cATWnm4HzXABiCv4XHWvp91cgQ9f7x4sZtJZS+Es=; b=hMtHQNG+5AlH2EQoF9DcMkQWpi
-	Wp545cg7YkNgWanAw1+TnluFu3h2F4pYSdRza8pKlMJYPrTGMngVS/yCfnoiALjP2yZLY7uxJnTiH
-	Jem4aLvDWYug7qhnZuanSF9V2SOxAOqRq1mqjhzdv6vn5M4vPylGhOLmIFUfHLY4hIWoekLyYW2a8
-	TSDDjooDqb1p+We+ChSEuhQbErqEEc/T6rwEyu5xhGXZfjnBxdPPzz5C3UKEvlrl8ZBMrGfZsfiFM
-	UE3T0L1az5d4RU2jIlxZ9Z8bNvTCFzEY6zmWfboIiB2ujRWMZrzAvxkR3e6qY1fye+fHuedfmcjdT
-	Cgr7PTeQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0u2qY5VmW02QoZQQ8PVGB0RvEt+gYfighmeowfpBp9Q=; b=evFD6x6TcigoBF/Y90MWPob1jq
+	M1Nbs9DPdeHng866ETXU+Gj8vKmTZyXZntmzVPQbMzQTs5Ecrzh+SiHYCAcVV5UpQv2DXkvDqK2LE
+	E4i4qajGEojk7uMrVcxbQK1cQER11rlUrIrDDE+rNTRA/DJjVQ9fSEgL11GRIpiCTOpUgCIGIB5gi
+	VjvMFyfX20/aI4FuCTOIQxVxaqPwnh601koQ4qdatbPPHy8Bv0uFkzPIHCsQSdZumOvhTIcd9z8ko
+	JjyDl/ENh3/jZwBWF2UoElXGG/nXLSMjfkoy5dcbPLIMK7N7/YfCMU5iPMXfN2oa3kD8s4YxKIr81
+	q+gwam8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Zuk-0000000BPdj-3Z1E;
-	Sun, 03 Nov 2024 12:41:06 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1t7apQ-0000000BTQr-43IG;
+	Sun, 03 Nov 2024 13:39:40 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Zt4-0000000BPVI-48xF;
-	Sun, 03 Nov 2024 12:39:24 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a9a850270e2so548237766b.0;
-        Sun, 03 Nov 2024 04:39:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730637561; x=1731242361; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7j3cATWnm4HzXABiCv4XHWvp91cgQ9f7x4sZtJZS+Es=;
-        b=W/XUhlpYnSqddZpYZD45ryfJchRpwUiGSJU1dHDwDR0q36fZRMs707UuAy/akJ6yra
-         wQfIxxvk5HCT0nUPFxbRCIx5WDU2bPSun2y08fKXXIeSUzadwxfappkV7wE2mSBL8cNJ
-         XVu6FuohsFiwRRuf0+6RKfmQLNdu9csBYySxMFi0Ao3Fqg2Fe1zdtpUHOVmSJ+UWfOYI
-         JNkkg+GDQHw3JoYMr3Zy004fyHORMlE3JJIh1qsI12MmGMWQ3A9gpAvgi77xTPzTNODH
-         yGAOYa9nQNUwEBGtCaAS0s/Fua+Vs8S5hqKw5+8pFFNZ6aHGzOrLE1SBkgiIVEVbNxR9
-         qVsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730637561; x=1731242361;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7j3cATWnm4HzXABiCv4XHWvp91cgQ9f7x4sZtJZS+Es=;
-        b=dNeqApaip5Qx8BuxR/ISdIO0BGSXIozjiT4J/Q4OIMCqGg3tI2oQ4HTdxOjZ1PxfAk
-         we4jfXejQH5OgKJRd7Nl3B+250QT+Cbt9KKYdIt38MV1iPc9MoO6aZPdHI1X72Rjd8hR
-         WhIvcslRBBL82L16PRcaluqVYPxuWNLq5f3kGDXpBhnoaCUKzPtZZgpULNFQ+M5uBHWI
-         3hF5NqsjBhWCqNGWIqeMn7DwEW2i+XTJ/PuJevFKAqnkO3BPaMb34VC9mfVZEMpSEZ+u
-         CUkN4NKTtm4JKtsTQdRV2pT4m4xVsX5xQH9cv2XSGo8bct+QTaZcFqdEq3BP46FixP14
-         5Tsg==
-X-Forwarded-Encrypted: i=1; AJvYcCU5JyOwlPC25KwGUvKrYYNFektV7PyUn+N4Y1ZcSEbALFMfVn8CcCXi4zMNklSFHuAbgWCbRdzC/MerdGLfKGuW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAr7csQarOHAdQaE4ZpD+FkZUCx+9YhfOZYqEQ1qKJ01Vxmz2s
-	k/4oK/EGz8KfII8Hpz3p+cL7uk3UQVbwgrPJiif+S/FgXe+TxuO7+1bxMg==
-X-Google-Smtp-Source: AGHT+IGpnRd0UvcHqm472HJ7iothM0hy6ObMxdHV/Ghz9bQRgK1XBu15I9OSgPH8IQoyOnJ1aBCQGQ==
-X-Received: by 2002:a17:907:ea8:b0:a99:44d1:5bba with SMTP id a640c23a62f3a-a9e6587e272mr855330966b.45.1730637560566;
-        Sun, 03 Nov 2024 04:39:20 -0800 (PST)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e56494119sm418884266b.27.2024.11.03.04.39.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Nov 2024 04:39:20 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-actions@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1t7anj-0000000BTIM-0W2a;
+	Sun, 03 Nov 2024 13:37:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1730641022;
+	bh=0u2qY5VmW02QoZQQ8PVGB0RvEt+gYfighmeowfpBp9Q=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=KLF8HuA2XZZA8PyiFIvxZyWe/QyPFXt7v/I0izyxgFtQDYw727X9/PTsC+BZn74Y0
+	 mWRYJkxiA6zPS+DHh2CYqTkCl6rOZpFl9M65nsnUxXhTKvCMjUxLR4CJ4QUZsLa+Ci
+	 r1taA2f3NHlHgNNy0bmBr+6w+ezN9xazZzSxWx9w=
+X-QQ-mid: bizesmtpip2t1730641018t4vihmk
+X-QQ-Originating-IP: OJFfFUb+TagDtWAwy6uc0+sLCBe0njxsmdHE22f+THA=
+Received: from avenger-OMEN-by-HP-Gaming-Lapto ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 03 Nov 2024 21:36:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 16809586154877906677
+From: WangYuli <wangyuli@uniontech.com>
+To: ebiggers@kernel.org
+Cc: ardb@kernel.org,
+	linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] dt-bindings: power: actions,owl-sps: convert to YAML
-Date: Sun,  3 Nov 2024 14:39:16 +0200
-Message-ID: <20241103123917.2890436-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	kernel@xen0n.name,
+	chenhuacai@kernel.org,
+	xry111@xry111.site,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v2 06/18] loongarch/crc32: expose CRC32 functions through lib
+Date: Sun,  3 Nov 2024 21:36:55 +0800
+Message-ID: <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241025191454.72616-7-ebiggers@kernel.org>
+References: <20241025191454.72616-7-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: N6YgFB7a9ocC3pQJxWcp7+Xrliways2mu9o23knf3Akmh/U/46tifWDD
+	Zmtnw9LJxsopTQbaWubtG2dud51nf2xYcha4+Y69C4C+471DwmOCqpoN4zAxO47wDQV70EZ
+	NB803/RTtOafS5LsEhSa2pXT/Pm7oip6cyqFoW2d4vF6i4qRl8uYTDzWiPcWi4I7LnVqYol
+	BpRoSEkl96raCfa8axlwSr+Opdc1J1kd/dHhlgucsXsEQSWLrUzY32rUWk6i5P+scqQkVIK
+	jaY3bibsRScpv8SvXBr7qp630Y3JCBCkyKJHLRkuKPcUcMUvpxBqGThWo0h6lFeNDWD4QLR
+	p3aME94npPL6RcZXYKUvVa7VWjLkvLkIvBgSFWr+i7DjY+GO4CL9qTmD1mUtq0/dY4MMoZ9
+	pU+PF4eXaZUg1JW7idWVj+tMR8BvxgXJkoGHXZAldv0sDMxeJbWWoxEz1NL9d+6WFkZQnYC
+	ObfHL/lbp9IyRiliBfTys5F3EZq/NIDMu/GTJri6lKmIVwC/jNbP70A/MHHO+b7OgOdQEDE
+	9cos+lNIZ9Dw86cxmAU8H4QV6jITKpPTMPcPao/Dd3X1c3EZM5Vu6Yad56RlKep0ijS7HXT
+	/4+f3kTvpruvd/R9i9NH68vhmH4i2VHf+6Vt4d0ZkzZc6kpLIrPImsVVxDncJ0dujKtt8EG
+	Ki3aXDVoVBnRBauPb2KMM9UlcpXqpcciSqMuYccju7lsz5RQBGFivjwxVU56aMjBKuLv/fr
+	yVLwCCcyGGoiQvaS4+l8EkXpXHEudfXQwgCyAFQw7RHNSlhOi/hGvXC/FSkkVXBiVCv+YE+
+	G9Z/guufiX1OsWMn71A8ut7xId7Myr9NuM2AwPHUK08M4Yl+7NgqMDXwW1BRva+2om8swWn
+	GiA+XwShgUOR8f5Jd2X3Vg/8InqTxLLLxnmikIWKz9iGJXaFFMNrCdY0myqjuXrkmbYUyj1
+	bAP+/SqWN89I4c0O+8KUfu2gefQ/h8AFF5bdbes65vo3CaaVI3WdHG5UpHIKmcAay0B2Jnd
+	H48V7DL5nPqZUyKv6J
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_043923_055992_FAF9B1E0 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20241103_053756_013027_9C779AC5 
+X-CRM114-Status: UNSURE (   3.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,125 +107,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Actions Semi Owl Smart Power System (SPS) bindings to DT
-schema.
+Even though the narrower CRC instructions doesn't require GRLEN=64, they still *aren't* part of LA32 (LoongArch reference manual v1.10, Volume 1, Table 2-1).
+Link: https://lore.kernel.org/all/0a7d0a9e-c56e-4ee2-a83b-00164a450abe@xen0n.name/
 
-Changes during conversion:
- - Add a description
+Therefore, we could not directly add ARCH_HAS_CRC32 to config LOONGARCH.
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
----
-v2: add r-b tag from Krzysztof Kozlowski <krzk@kernel.org>
-v2: update commit message to be accurate (Krzysztof)
-v2: don't preserve formatting in the description (Krzysztof)
-v2: add a blank line after additionalProperties (Krzysztof)
----
- .../bindings/power/actions,owl-sps.txt        | 21 --------
- .../bindings/power/actions,owl-sps.yaml       | 51 +++++++++++++++++++
- MAINTAINERS                                   |  2 +-
- 3 files changed, 52 insertions(+), 22 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.txt
- create mode 100644 Documentation/devicetree/bindings/power/actions,owl-sps.yaml
-
-diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.txt b/Documentation/devicetree/bindings/power/actions,owl-sps.txt
-deleted file mode 100644
-index a3571937b..000000000
---- a/Documentation/devicetree/bindings/power/actions,owl-sps.txt
-+++ /dev/null
-@@ -1,21 +0,0 @@
--Actions Semi Owl Smart Power System (SPS)
--
--Required properties:
--- compatible          :  "actions,s500-sps" for S500
--                         "actions,s700-sps" for S700
--                         "actions,s900-sps" for S900
--- reg                 :  Offset and length of the register set for the device.
--- #power-domain-cells :  Must be 1.
--                         See macros in:
--                          include/dt-bindings/power/owl-s500-powergate.h for S500
--                          include/dt-bindings/power/owl-s700-powergate.h for S700
--                          include/dt-bindings/power/owl-s900-powergate.h for S900
--
--
--Example:
--
--		sps: power-controller@b01b0100 {
--			compatible = "actions,s500-sps";
--			reg = <0xb01b0100 0x100>;
--			#power-domain-cells = <1>;
--		};
-diff --git a/Documentation/devicetree/bindings/power/actions,owl-sps.yaml b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
-new file mode 100644
-index 000000000..0855d82f3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/actions,owl-sps.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/actions,owl-sps.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Actions Semi Owl Smart Power System (SPS)
-+
-+maintainers:
-+  - Andreas Färber <afaerber@suse.de>
-+
-+description:
-+  Actions Semi Owl SoCs feature a Smart Power System (SPS) that manages power
-+  domains to optimize power usage across various hardware blocks. Each power
-+  domain corresponds to a specific hardware block and is represented by a bit
-+  in the power control register and an acknowledgment bit, which is then
-+  translated into a corresponding voltage on a rail.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - actions,s500-sps
-+      - actions,s700-sps
-+      - actions,s900-sps
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#power-domain-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/power/owl-s500-powergate.h>
-+    soc {
-+      #address-cells = <1>;
-+      #size-cells = <1>;
-+      sps: power-controller@b01b0100 {
-+        compatible = "actions,s500-sps";
-+        reg = <0xb01b0100 0x100>;
-+        #power-domain-cells = <1>;
-+      };
-+    };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 76ea65128..420d06d37 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2023,7 +2023,7 @@ F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
- F:	Documentation/devicetree/bindings/mmc/owl-mmc.yaml
- F:	Documentation/devicetree/bindings/net/actions,owl-emac.yaml
- F:	Documentation/devicetree/bindings/pinctrl/actions,*
--F:	Documentation/devicetree/bindings/power/actions,owl-sps.txt
-+F:	Documentation/devicetree/bindings/power/actions,owl-sps.yaml
- F:	Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
- F:	arch/arm/boot/dts/actions/
- F:	arch/arm/mach-actions/
--- 
-2.43.0
-
+Thanks,
+--
+WangYuli
 
