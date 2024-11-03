@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16C3D11100
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 15:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F06D11180
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 16:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHQktcKdIhna5z27pQ3PuyXhlPaLntIaSmvbBw7PwoE=; b=lqnyrixo6IMG46RiD8Dmj3shul
-	azcA/LQL4skS22fP1u0edloK/r7YJOPPrZPWV2lRdeUcrT/ac4zgZMOA1xDYUSfUo8MRQtlfrBbR6
-	WLiTgVL4psp4IY1P+/5yoNCFhiDR1Kl3qyDaUZjYNS6dlxrGOsU4wSTNF6cLs81HcV8S0IdUKkZRK
-	Tg6FIf3wOgTa7WBeMcQE8xWQn7eeX9OJDwGSvEBcAz0r+exEuoSnXNrRHEgjxqbmR+3GyIeqY48lt
-	Z4qh13T73rPlyf4JtIjGaHWBjfhBFUz8pR/XjnPOKd4x5WOoZkg4wKGCVRaYCtP/wyqUwo8uP3jB2
-	XVCcM0MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=47aNXT+8rorqTyYeuzF1txcjEg5v2d45wMQZ0nHnxxM=; b=giqpOJ4b8xyym7q6ndzCFUHknk
+	Qf76Uk2n8h+N4RNo+ZlIQRBC+W8Vwj5uda27xKEoRFwce6SdByGsnVHCuuuD1YBrSRMa7Bvs8KxLJ
+	DJ3UAMDs/MaEXsjaQeHZe0IX53fXUpr70wtyYy2FIC5/kPY0Np1imvb18rc2dIGtkj8oRkME0Pt8i
+	dEQPZdh2njUHmAxk/Wz2V4DjDelOVCr8GUlbrvsQRZ7hAuxTKqb1qfafexKtTovQ/sIzjgVVgDzAI
+	xz8MJC4AXQsW7PUJbkTn718p/XOFVBcKQQ7VGHm873/RGlzjX2A+gzE9IvJCHcmUYA4vh54T3WpQZ
+	zMElXgCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7cJT-0000000Bc2f-3id3;
-	Sun, 03 Nov 2024 15:14:47 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1t7dDc-0000000Bg0U-3Q43;
+	Sun, 03 Nov 2024 16:12:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7cHn-0000000Bbve-31rj
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 15:13:05 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2e2cc469c62so2353454a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 07:13:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730646782; x=1731251582; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=eHQktcKdIhna5z27pQ3PuyXhlPaLntIaSmvbBw7PwoE=;
-        b=alaDU9X2yo1X6Eyc+TOx7FXEJAu9QAUAbHe5qvmfiI2GhUhtY4z/Cx1a2p1G9BJAuu
-         sgiAO/gfjvCqx1VWIqUj+bFTLyJaWHUaWtSrZBrEQo6PGgYOELgA+l+gLubc1X02vRQS
-         JTGXwRI800kQjFsAnISRHJjkBBrVtMqF5TrFw0KD10zAWpxGkoAuTTITzjpZkoOkPf8q
-         EvHPG0tkVmMqzDFimOF+C8UYNE4XWWdcJ5lwVOgOn4NMH4c6piK96DmNi0Wv8JyGisj7
-         Le7cXKprDaOZcpzntgLPxErrSC1BFCsKLsEkbM09UkjEcis6fFzkPskjW+fyc6tJN12U
-         a41g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730646782; x=1731251582;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eHQktcKdIhna5z27pQ3PuyXhlPaLntIaSmvbBw7PwoE=;
-        b=E4m9sPhTiF2daFplbIQW19lXZRGXR7n5W8TZsj9bn+28IQy4ry+xRyE5Zqwsg3rIU2
-         LjQH1l2KDT/za2MKvdBn200KKnsP6Bc+4CRKlJb6XlGS8bmu5evKFG59mJe29W2DVJ1U
-         jU8Yuq6dcrQJugD/JHlNgUBmvPygI999azMhZFvqNf0SJOIP6Wkl1Kn93iHgq2PGuLVa
-         AG1Np4WJJm477WGv1zleWxx6BpitqDSJQSsHyrE+Thfg/qOVf1/JgaCuXz6xj5vlZBPE
-         X/NMwolSIWEOhlFVnMi4QQ5OPm5AcPk//2sjjuQLIRIxHHrLxqCdOwxkDshWHO5Tk7nO
-         l0mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVZF2InG9P/FLndGs3LRQ/+i36yo91cwRJbY34EYoB8eBKpkiZP3TgqcwYbOd/hK7XmfJm5qpOwwafPQu78MEkq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8+Rall6akRNTv6bGPyBrkVOmJeixn4/ODx1nl7vXQ9s2pLevC
-	0rl0WSlXACkDRW/LttMNf1R3RtkVd95z3aJ7rrAbX9C4oT7IreXH2C6C6aYmsRSfuv9J6XlKxCO
-	EfSFHjlM+y892SkBkuVcgsT7DiJ5x5GlV07HTRA==
-X-Google-Smtp-Source: AGHT+IHRIh1ITCIAJ4M7w1UM8me5MLqRixS/tsHhgXfawiZDUkumg9GSz+T7fPFwKnIa+4k1jBzouIXTP6K8KhWz3Do=
-X-Received: by 2002:a17:90b:4a86:b0:2e1:ce7b:6069 with SMTP id
- 98e67ed59e1d1-2e94c529acamr15224146a91.33.1730646782163; Sun, 03 Nov 2024
- 07:13:02 -0800 (PST)
+	id 1t7dBw-0000000Bfqi-2S95;
+	Sun, 03 Nov 2024 16:11:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D0D55C4AD4;
+	Sun,  3 Nov 2024 16:10:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643B9C4CECD;
+	Sun,  3 Nov 2024 16:10:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730650263;
+	bh=SZuHQtZJYWnlM0GulECNtlNPxV5j9CAf6AvkG4mjcZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XSILdoVRtcztBYaC8SOMgXfl92VJFZkSDqn+m0TJ32YWaX6tCHMO2NJvf0U3/gRO2
+	 8sUeYwNacJ9pi1shHz38uZ9lPUfhetrEEEADQiI6JnIV7YFdLFPB+veGHIG4Ha1/9u
+	 HsPXBZKMKDoUu4e1sA0ncr/FEfC+BtdQRyzaQmRvPQPQRuY2rhbssQPw/D0B3RzW/M
+	 fwkXo4ntST6qHtU2cBlaKuVOnqObJ6j3wDTmugKev0C1+uQ04QNcRY0F8Q53rMqaeD
+	 A+YmEEBEWzg+/fYg4JfqvaeoXcWdnllY6Bft44xktDxdDMnaHtynsP0Z++k8r8x9fs
+	 Lku5wSD8fOUmg==
+Message-ID: <6dfecd6d-ecff-4867-ba61-e0d197a397a7@kernel.org>
+Date: Sun, 3 Nov 2024 17:10:57 +0100
 MIME-Version: 1.0
-References: <20241031132745.3765612-1-quic_sibis@quicinc.com> <20241031132745.3765612-3-quic_sibis@quicinc.com>
-In-Reply-To: <20241031132745.3765612-3-quic_sibis@quicinc.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Sun, 3 Nov 2024 16:12:50 +0100
-Message-ID: <CAKfTPtDNBPC8QQzFBNDKNW_sJfkoShSsxo7iMC8Wga+wixyHzA@mail.gmail.com>
-Subject: Re: [PATCH V7 2/2] cpufreq: scmi: Register for limit change notifications
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org, 
-	viresh.kumar@linaro.org, morten.rasmussen@arm.com, dietmar.eggemann@arm.com, 
-	lukasz.luba@arm.com, pierre.gondois@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, quic_mdtipton@quicinc.com, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] dt-bindings: timer: actions,owl-timer: convert to YAML
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-actions@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_071303_801488_ACE3B14D 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20241103_081104_741119_E70D836F 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,137 +121,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 at 14:28, Sibi Sankar <quic_sibis@quicinc.com> wrote:
->
-> Register for limit change notifications if supported and use the throttled
-> frequency from the notification to apply HW pressure.
->
-> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
-> Tested-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+On 03/11/2024 13:35, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl timer bindings to DT schema.
+> 
+> Changes during conversion:
+>  - Add a description
+>  - Add "clocks" as a required property, since the driver searches for it
+>  - Correct the given example according to owl-s500.dtsi
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->
-> v7:
-> * Add a new request instead of reusing the max_freq_req [Vincent]
-> * Use the non-devm versions of register/unregister of event notifier
->   since we have to remove them when the cpus get removed anyway.
-> * Add new patch to fix cleanup path on boost enablement failure.
->
->  drivers/cpufreq/scmi-cpufreq.c | 51 ++++++++++++++++++++++++++++++++++
->  1 file changed, 51 insertions(+)
->
-> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> index 07d6f9a9b7c8..ff13f7d4b2c9 100644
-> --- a/drivers/cpufreq/scmi-cpufreq.c
-> +++ b/drivers/cpufreq/scmi-cpufreq.c
-> @@ -16,6 +16,7 @@
->  #include <linux/export.h>
->  #include <linux/module.h>
->  #include <linux/pm_opp.h>
-> +#include <linux/pm_qos.h>
->  #include <linux/slab.h>
->  #include <linux/scmi_protocol.h>
->  #include <linux/types.h>
-> @@ -25,7 +26,10 @@ struct scmi_data {
->         int domain_id;
->         int nr_opp;
->         struct device *cpu_dev;
-> +       struct cpufreq_policy *policy;
->         cpumask_var_t opp_shared_cpus;
-> +       struct notifier_block limit_notify_nb;
-> +       struct freq_qos_request limits_freq_req;
->  };
->
->  static struct scmi_protocol_handle *ph;
-> @@ -174,6 +178,25 @@ static struct freq_attr *scmi_cpufreq_hw_attr[] = {
->         NULL,
->  };
->
-> +static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event, void *data)
-> +{
-> +       struct scmi_data *priv = container_of(nb, struct scmi_data, limit_notify_nb);
-> +       struct scmi_perf_limits_report *limit_notify = data;
-> +       struct cpufreq_policy *policy = priv->policy;
-> +       unsigned int limit_freq_khz;
-> +       int ret;
-> +
-> +       limit_freq_khz = limit_notify->range_max_freq / HZ_PER_KHZ;
-> +
-> +       policy->max = clamp(limit_freq_khz, policy->cpuinfo.min_freq, policy->cpuinfo.max_freq);
+> v2: update commit message to be accurate (Krzysztof)
+> v2: don't preserve formatting in the description (Krzysztof)
+> v2: add allOf:if:then block constraining per variant (Krzysztof)
+> v2: add a blank line after additionalProperties (Krzysztof)
 
-I don't think that the above is needed or correct, the cpufreq qos
-notifier will take care of updating policy->max with handle_update()
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> +
-> +       ret = freq_qos_update_request(&priv->limits_freq_req, policy->max);
-> +       if (ret < 0)
-> +               pr_warn("failed to update freq constraint: %d\n", ret);
-> +
-> +       return NOTIFY_OK;
-> +}
-> +
->  static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->  {
->         int ret, nr_opp, domain;
-> @@ -181,6 +204,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->         struct device *cpu_dev;
->         struct scmi_data *priv;
->         struct cpufreq_frequency_table *freq_table;
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->
->         cpu_dev = get_cpu_device(policy->cpu);
->         if (!cpu_dev) {
-> @@ -294,6 +318,25 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->                 }
->         }
->
-> +       ret = freq_qos_add_request(&policy->constraints, &priv->limits_freq_req, FREQ_QOS_MAX,
-> +                                  FREQ_QOS_MAX_DEFAULT_VALUE);
-> +       if (ret < 0) {
-> +               dev_err(cpu_dev, "failed to add qos limits request: %d\n", ret);
-> +               goto out_free_table;
-> +       }
-> +
-> +       priv->limit_notify_nb.notifier_call = scmi_limit_notify_cb;
-> +       ret = sdev->handle->notify_ops->event_notifier_register(sdev->handle, SCMI_PROTOCOL_PERF,
-> +                                                       SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-> +                                                       &priv->domain_id,
-> +                                                       &priv->limit_notify_nb);
-> +       if (ret)
-> +               dev_warn(&sdev->dev,
-> +                        "failed to register for limits change notifier for domain %d\n",
-> +                        priv->domain_id);
-> +
-> +       priv->policy = policy;
-> +
->         return 0;
->
->  out_free_table:
-> @@ -313,7 +356,13 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
->  static void scmi_cpufreq_exit(struct cpufreq_policy *policy)
->  {
->         struct scmi_data *priv = policy->driver_data;
-> +       struct scmi_device *sdev = cpufreq_get_driver_data();
->
-> +       sdev->handle->notify_ops->event_notifier_unregister(sdev->handle, SCMI_PROTOCOL_PERF,
-> +                                                           SCMI_EVENT_PERFORMANCE_LIMITS_CHANGED,
-> +                                                           &priv->domain_id,
-> +                                                           &priv->limit_notify_nb);
-> +       freq_qos_remove_request(&priv->limits_freq_req);
->         dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
->         dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
->         free_cpumask_var(priv->opp_shared_cpus);
-> @@ -372,6 +421,8 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
->         if (!handle)
->                 return -ENODEV;
->
-> +       scmi_cpufreq_driver.driver_data = sdev;
-> +
->         perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
->         if (IS_ERR(perf_ops))
->                 return PTR_ERR(perf_ops);
-> --
-> 2.34.1
->
+Best regards,
+Krzysztof
+
 
