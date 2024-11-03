@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9975D11194
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 22:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DAAD11195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 22:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dvjZkh3zkAhMlbw52j1ldldjhDmcPTBwWYL8Z0l92B8=; b=YL3VEroxRvEhuv8NJarTmDKe+2
-	6Spmt/MDW//QodmB8wIqZBOnCMZZOnevgCmi+TGYJ6f3ovYWHBxCsT4C630IkE/kuM0ogU3AZDm0W
-	tQ6rqgpdhDtdYxjsVFVYeg9Rb0BLCMYrZZEGxXJFeK59DjK5g+gX7ePnKkdt9Vgd30nELklA5EHWI
-	+m5hdrYm2y/hdsx2WHdakXOKQX2xdKUcVxfo0Bs0cLm3/sHIxQcc6VzLMOuHgL6I3bqnOrNPffmfb
-	0LWpWLK+HFJEp0/uItLx3TogC3x1UEPxFiYH8qKJWBqGei+a4m0bMOqGc5mXMgH4FY/1kvzmD80PL
-	j0oMDtyQ==;
+	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=f29ByCQiEOwr0YNy0N91qXlNlV
+	7bc6HeZxrm3yW7ixTOUdC+jnP8GJtghuU11guickLEb5MAKRLjrXmQwOFybNL5iJTcIzCg5GPhj8/
+	NHN/AiO0U+s0FPhbiHRuenny1RHJmRJC1DoWUzqWFxLyklB6X1NxS+yVU7/xcGLVsNO2uwiblyj1A
+	cL7wi7y0KatwD0wlEJxpzJYqGW1PYtJX7fyUqxUCY7wVzxURl6uusRkH7IbMiSW6o1KWsnPhKQScx
+	qI1MmLKyc0EN+TxbIUDy6hutPfuLfb4gy9pMuQq710Gwr+KfT7DkdUhl/sqRJoP+JW7s3YuaDbe3x
+	34fx1XFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7jRz-0000000CClB-0JDK;
-	Sun, 03 Nov 2024 22:52:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7jWs-0000000CD7q-3DsH;
+	Sun, 03 Nov 2024 22:57:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7j9D-0000000C8R8-0boJ;
-	Sun, 03 Nov 2024 22:32:45 +0000
+	id 1t7j9P-0000000C8VG-1Bo0;
+	Sun, 03 Nov 2024 22:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=gT68VJg2Ax+gMpOGHi4H3PWPYTj8DTpPT3IZ5CLlAgo=; b=hbylznTuPoGdDKTBBGlcrpDGha
+	PTaOF8VCG44ZRBQUzo8ibrj+kgxwC95DlVFgHLvaWMQcWxsuAyW1chNUKFzI1MYwnaWK3nFkionkt
+	dunzsE5W4q/7OkCGlXa8LUTVWHl2X7QerUeCDuHaJvdB4qlsMVX1wNsajUhcz2cKyJsN4aUJhZFsQ
+	eY9nEO5OlJyJIHT9TuPgdphrLUSLegpk7lrmin9QlYPIaor0gENof1Jtqyz3CnORgx6OwUuqgmSpB
+	2umNngT+os8xUjVzS+J4f+8upV8ZP1/MEu+MpJuMXzry+nQvCExtYw/onXBc7zo403WERwk4ZWiAx
+	xXKTg+4w==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7j9J-0000000BCF4-0ahR;
+	Sun, 03 Nov 2024 22:32:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AD645A41F27;
-	Sun,  3 Nov 2024 22:30:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1B1C4CED5;
-	Sun,  3 Nov 2024 22:32:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6C6895C4C2F;
+	Sun,  3 Nov 2024 22:31:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 788B7C4CED6;
+	Sun,  3 Nov 2024 22:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730673150;
-	bh=kHWHhodawY/PaSA95ElCxVPVWHZVNPifFLwbM7bCJig=;
+	s=k20201202; t=1730673151;
+	bh=hmjPSLT23tUvD2mhqpKoKr7fMC5StQtNq+9niGNg1xs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gDJYU9VdynkbrvLTjDKcTxSufZxtp+Z/zMYrGwL5d2/F5cTIiZu1Wiw+ZESK7zmQS
-	 +FFVnjuv4vyOUFtNqcdFrGqLx5zsxKvE3A/xalMHiUtHdDZkIjSfdPYQrmB+6ySqN+
-	 ddALTCJazXYVXhJOLaKgL3dfJtSCjV81z+BsXvYwPjGClNzLQ4cQVDO2B3vdW7vngf
-	 Ygplb6uFLVhngaCOPYPIZPgRzKkBx/DiAHo4iNxyCSe/0PUKsaXTUY0emAEWvjikbw
-	 EnEr47Hb2cCBNuPm9gE5gZTGCE0N5bdYov6knFp5JgN+MZa5XIQpyBQ3L84i8WidC1
-	 QmT6y3lT/YF/w==
+	b=Tpo5PFXj/m4NE6etEzQOOpPtYejpQ6IyEVf/EeYCb8tkKb0CbNlzB9cqqtXVtKsb4
+	 ZpQGhkvVcl/tUEerW2a8LKa2qXGHFXzplvZXn6uMuBrTjz9ciJlXFNVtrcU/h9frd0
+	 86FQ8VL7p1lQ3XyzZiPYABO0V8f1lYjXdBVP9qRed5zCEAT40rOPTRuj5I7ykuqKUo
+	 of8Q3GNyp0aJT4rBPpEy6mhQgfIQpHMeXXQQcIktnre8ZBm3I0BiW3Y3dCPReAUzrl
+	 gp02hfbdFL8Jobk4i3Tfl80tx19I0JOVpan1dsfVTjxNCPJFs7wOT50Jd4u1rxnmio
+	 IwxnJCXPSY/4g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -57,17 +71,17 @@ Cc: linux-arch@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 12/18] x86/crc32: update prototype for crc32_pclmul_le_16()
-Date: Sun,  3 Nov 2024 14:31:48 -0800
-Message-ID: <20241103223154.136127-13-ebiggers@kernel.org>
+Subject: [PATCH v3 14/18] lib/crc32: make crc32c() go directly to lib
+Date: Sun,  3 Nov 2024 14:31:50 -0800
+Message-ID: <20241103223154.136127-15-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241103223154.136127-1-ebiggers@kernel.org>
 References: <20241103223154.136127-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_143239_394184_CAAFE157 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20241103_223247_637565_9EFDD0BA 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +98,171 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-- Change the len parameter from unsigned int to size_t, so that the
-  library function which takes a size_t can safely use this code.
+Now that the lower level __crc32c_le() library function is optimized for
+each architecture, make crc32c() just call that instead of taking an
+inefficient and error-prone detour through the shash API.
 
-- Move the crc parameter to the front, as this is the usual convention.
+Note: a future cleanup should make crc32c_le() be the actual library
+function instead of __crc32c_le().  That will require updating callers
+of __crc32c_le() to use crc32c_le() instead, and updating callers of
+crc32c_le() that expect a 'const void *' arg to expect 'const u8 *'
+instead.  Similarly, a future cleanup should remove LIBCRC32C by making
+everyone who is selecting it just select CRC32 directly instead.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/x86/crypto/crc32-pclmul_asm.S  | 19 +++++++++----------
- arch/x86/crypto/crc32-pclmul_glue.c |  4 ++--
- 2 files changed, 11 insertions(+), 12 deletions(-)
+ include/linux/crc32c.h |  7 ++--
+ lib/Kconfig            | 10 ++----
+ lib/Makefile           |  1 -
+ lib/libcrc32c.c        | 74 ------------------------------------------
+ 4 files changed, 8 insertions(+), 84 deletions(-)
+ delete mode 100644 lib/libcrc32c.c
 
-diff --git a/arch/x86/crypto/crc32-pclmul_asm.S b/arch/x86/crypto/crc32-pclmul_asm.S
-index 5d31137e2c7d..f9637789cac1 100644
---- a/arch/x86/crypto/crc32-pclmul_asm.S
-+++ b/arch/x86/crypto/crc32-pclmul_asm.S
-@@ -56,30 +56,29 @@
- 	.octa 0x00000001F701164100000001DB710641
+diff --git a/include/linux/crc32c.h b/include/linux/crc32c.h
+index 357ae4611a45..47eb78003c26 100644
+--- a/include/linux/crc32c.h
++++ b/include/linux/crc32c.h
+@@ -1,12 +1,15 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #ifndef _LINUX_CRC32C_H
+ #define _LINUX_CRC32C_H
  
- #define CONSTANT %xmm0
+-#include <linux/types.h>
++#include <linux/crc32.h>
  
- #ifdef __x86_64__
--#define BUF     %rdi
--#define LEN     %rsi
--#define CRC     %edx
-+#define CRC     %edi
-+#define BUF     %rsi
-+#define LEN     %rdx
- #else
--#define BUF     %eax
--#define LEN     %edx
--#define CRC     %ecx
-+#define CRC     %eax
-+#define BUF     %edx
-+#define LEN     %ecx
- #endif
+-extern u32 crc32c(u32 crc, const void *address, unsigned int length);
++static inline u32 crc32c(u32 crc, const void *address, unsigned int length)
++{
++	return __crc32c_le(crc, address, length);
++}
  
+ /* This macro exists for backwards-compatibility. */
+ #define crc32c_le crc32c
  
+ #endif	/* _LINUX_CRC32C_H */
+diff --git a/lib/Kconfig b/lib/Kconfig
+index 07afcf214f35..b894ee64ff95 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -296,18 +296,14 @@ config CRC7
+ 	  the kernel tree does. Such modules that use library CRC7
+ 	  functions require M here.
  
- .text
- /**
-  *      Calculate crc32
-- *      BUF - buffer (16 bytes aligned)
-- *      LEN - sizeof buffer (16 bytes aligned), LEN should be grater than 63
-  *      CRC - initial crc32
-+ *      BUF - buffer (16 bytes aligned)
-+ *      LEN - sizeof buffer (16 bytes aligned), LEN should be greater than 63
-  *      return %eax crc32
-- *      uint crc32_pclmul_le_16(unsigned char const *buffer,
-- *	                     size_t len, uint crc32)
-+ *      u32 crc32_pclmul_le_16(u32 crc, const u8 *buffer, size_t len);
-  */
+ config LIBCRC32C
+ 	tristate "CRC32c (Castagnoli, et al) Cyclic Redundancy-Check"
+-	select CRYPTO
+-	select CRYPTO_CRC32C
++	select CRC32
+ 	help
+-	  This option is provided for the case where no in-kernel-tree
+-	  modules require CRC32c functions, but a module built outside the
+-	  kernel tree does. Such modules that use library CRC32c functions
+-	  require M here.  See Castagnoli93.
+-	  Module will be libcrc32c.
++	  This option just selects CRC32 and is provided for compatibility
++	  purposes until the users are updated to select CRC32 directly.
  
- SYM_FUNC_START(crc32_pclmul_le_16) /* buffer and buffer size are 16 bytes aligned */
- 	movdqa  (BUF), %xmm1
- 	movdqa  0x10(BUF), %xmm2
-diff --git a/arch/x86/crypto/crc32-pclmul_glue.c b/arch/x86/crypto/crc32-pclmul_glue.c
-index 9f5e342b9845..9d14eac51c5b 100644
---- a/arch/x86/crypto/crc32-pclmul_glue.c
-+++ b/arch/x86/crypto/crc32-pclmul_glue.c
-@@ -44,11 +44,11 @@
- #define PCLMUL_MIN_LEN		64L     /* minimum size of buffer
- 					 * for crc32_pclmul_le_16 */
- #define SCALE_F			16L	/* size of xmm register */
- #define SCALE_F_MASK		(SCALE_F - 1)
+ config CRC8
+ 	tristate "CRC8 function"
+ 	help
+ 	  This option provides CRC8 function. Drivers may select this
+diff --git a/lib/Makefile b/lib/Makefile
+index 773adf88af41..15646679aee2 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -161,11 +161,10 @@ obj-$(CONFIG_CRC_ITU_T)	+= crc-itu-t.o
+ obj-$(CONFIG_CRC32)	+= crc32.o
+ obj-$(CONFIG_CRC64)     += crc64.o
+ obj-$(CONFIG_CRC32_SELFTEST)	+= crc32test.o
+ obj-$(CONFIG_CRC4)	+= crc4.o
+ obj-$(CONFIG_CRC7)	+= crc7.o
+-obj-$(CONFIG_LIBCRC32C)	+= libcrc32c.o
+ obj-$(CONFIG_CRC8)	+= crc8.o
+ obj-$(CONFIG_CRC64_ROCKSOFT) += crc64-rocksoft.o
+ obj-$(CONFIG_XXHASH)	+= xxhash.o
+ obj-$(CONFIG_GENERIC_ALLOCATOR) += genalloc.o
  
--u32 crc32_pclmul_le_16(unsigned char const *buffer, size_t len, u32 crc32);
-+u32 crc32_pclmul_le_16(u32 crc, const u8 *buffer, size_t len);
- 
- static u32 __attribute__((pure))
- 	crc32_pclmul_le(u32 crc, unsigned char const *p, size_t len)
- {
- 	unsigned int iquotient;
-@@ -69,11 +69,11 @@ static u32 __attribute__((pure))
- 	}
- 	iquotient = len & (~SCALE_F_MASK);
- 	iremainder = len & SCALE_F_MASK;
- 
- 	kernel_fpu_begin();
--	crc = crc32_pclmul_le_16(p, iquotient, crc);
-+	crc = crc32_pclmul_le_16(crc, p, iquotient);
- 	kernel_fpu_end();
- 
- 	if (iremainder)
- 		crc = crc32_le(crc, p + iquotient, iremainder);
- 
+diff --git a/lib/libcrc32c.c b/lib/libcrc32c.c
+deleted file mode 100644
+index 649e687413a0..000000000000
+--- a/lib/libcrc32c.c
++++ /dev/null
+@@ -1,74 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/* 
+- * CRC32C
+- *@Article{castagnoli-crc,
+- * author =       { Guy Castagnoli and Stefan Braeuer and Martin Herrman},
+- * title =        {{Optimization of Cyclic Redundancy-Check Codes with 24
+- *                 and 32 Parity Bits}},
+- * journal =      IEEE Transactions on Communication,
+- * year =         {1993},
+- * volume =       {41},
+- * number =       {6},
+- * pages =        {},
+- * month =        {June},
+- *}
+- * Used by the iSCSI driver, possibly others, and derived from
+- * the iscsi-crc.c module of the linux-iscsi driver at
+- * http://linux-iscsi.sourceforge.net.
+- *
+- * Following the example of lib/crc32, this function is intended to be
+- * flexible and useful for all users.  Modules that currently have their
+- * own crc32c, but hopefully may be able to use this one are:
+- *  net/sctp (please add all your doco to here if you change to
+- *            use this one!)
+- *  <endoflist>
+- *
+- * Copyright (c) 2004 Cisco Systems, Inc.
+- */
+-
+-#include <crypto/hash.h>
+-#include <linux/err.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/crc32c.h>
+-
+-static struct crypto_shash *tfm;
+-
+-u32 crc32c(u32 crc, const void *address, unsigned int length)
+-{
+-	SHASH_DESC_ON_STACK(shash, tfm);
+-	u32 ret, *ctx = (u32 *)shash_desc_ctx(shash);
+-	int err;
+-
+-	shash->tfm = tfm;
+-	*ctx = crc;
+-
+-	err = crypto_shash_update(shash, address, length);
+-	BUG_ON(err);
+-
+-	ret = *ctx;
+-	barrier_data(ctx);
+-	return ret;
+-}
+-
+-EXPORT_SYMBOL(crc32c);
+-
+-static int __init libcrc32c_mod_init(void)
+-{
+-	tfm = crypto_alloc_shash("crc32c", 0, 0);
+-	return PTR_ERR_OR_ZERO(tfm);
+-}
+-
+-static void __exit libcrc32c_mod_fini(void)
+-{
+-	crypto_free_shash(tfm);
+-}
+-
+-module_init(libcrc32c_mod_init);
+-module_exit(libcrc32c_mod_fini);
+-
+-MODULE_AUTHOR("Clay Haapala <chaapala@cisco.com>");
+-MODULE_DESCRIPTION("CRC32c (Castagnoli) calculations");
+-MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32c");
 -- 
 2.47.0
 
