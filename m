@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EB3D11194
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 22:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFDA8D11195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 22:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/rHJELaF04JBRi0aLmrWuxoS3tWtyUhwmRJRrDNiPz8=; b=d4cLGVzDGO0gi2dIlCeuMKgY3w
-	r3NorhRNlQ1SHKO0na65drvaDVoFHtnwHtuI8MuVv4UpxFjkPTpUa1wFWO1hvu+3oyEs6EOjYsEKH
-	G93sBMMaWN6Ld+T0/HJIEhsXnxouxTnALT2BuvwbrwH7yDScs2WKly/cS+gbkk99YbrGH0dcmuF9/
-	OeXEv+zMb6LAAMHAv/XiAndRvlWmXVbjGFRBvyqBeGylQj2XvzzNoSbnCkQFSfmT3D6+jyNcBrBFr
-	fC7zDnLSC7sNBelJ+gwe2oAAQa7DUEEul4iMTlpTNobeCB2q0Z5mm6n8FMjRq1sui3InNFPZyIHbd
-	vuJyV0Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fm/v7pfsGIWxQJG+ZOfu8jRC3wMm+SVFY2EbDYp1+0=; b=E3/98dNy02CPongQSm4I+daDdQ
+	CTWH9CFKP4TZ+D7w2iqRCQz5zBuT1nMt9tAXnmqK5ItQeNI39s+Kmld/5ODLO0xyVRL03v0lfQE9g
+	fGhn3amPQKzO3Dmjjwo3jGqk9u14MXkNJGAPQUYCfJ4ZsKMTU7mbREJeH8VKbIoQHre9rWdZju+Js
+	aRNO1xXVSn/HMUlNV1Klxzj5t55iTzldm5JmtD4Q2AhKAYG1J638ttuKkx9KaRoCaGYAb7r3bi05s
+	h4QWzJ0Hek0pyApxmCKb5tZXLrnnz7bKyYi3KLkfZUIpMN2vDwMssLyQncJhzuJ3cBuVDOJoc3gcj
+	EaNkltAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7iqm-0000000C7Lx-0eGH;
-	Sun, 03 Nov 2024 22:13:36 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1t7jB2-0000000C9Bn-1D1s;
+	Sun, 03 Nov 2024 22:34:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7imz-0000000C789-1kmL;
-	Sun, 03 Nov 2024 22:09:43 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-72097a5ca74so3367367b3a.3;
-        Sun, 03 Nov 2024 14:09:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730671780; x=1731276580; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/rHJELaF04JBRi0aLmrWuxoS3tWtyUhwmRJRrDNiPz8=;
-        b=S8laLkhXFxuQTCMEBgEQKLYGYS1tiv3v+/vnn8OyjxmUnyVv0FDvG3Jp4nwGxZgjrr
-         tu/Kad9Li9UYh3L2xAIh3jESZcT/vBBolPQmOXzqIezkfzdDo9ZY5zGdglU6bFF5POkt
-         YW5qKF5FA5teoKOnKEam3ZgLXMfVKCgI98d8VEvVbLpXnfJ7SnnX8PrXGqL7ZhqmnWPV
-         qFVNrIyXn3BkoxAIZey7HNpELNl+hFkmT3KaSo4KBhEh/gkI11bWif/8h2DH23IcuJLu
-         u9KhPQHgrAu9KAcSiPscZeDO6jSTl3WqhglJtiJw1ic4KfUBZJ9SnLlPB5a2So9YsLq5
-         QVAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730671780; x=1731276580;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/rHJELaF04JBRi0aLmrWuxoS3tWtyUhwmRJRrDNiPz8=;
-        b=Is+oZnNbSLDcA723hTFpJIrEey/EMkcYfCe9ycyBUIC+VzjYdoO7fvW/6fYTFpMvYw
-         Vk1GX/XZjP4Nh2RGM6PL+XexnqQD37AAeK+JlvJSRTwX1/jd4dJDwkWIIYcsK94qEAvB
-         eD44zS8YhXPSATYWI9U+UNTXbPWQI0yDiFOaS1/g0p81xz5dB/C8mZA05lGajS6packx
-         W5uNop2+Y/Pxbrv2+Osx0SktK1YSgf8enqrDL+P1k4q5Zt7MIPJ0BxsSG6h6kBB+Lw8D
-         V44ZyWoNpdjrhJf9ifrNt1VYoEf4Wcfu9pgozOpTFv4Lzve/x1266pjaHzC9QP5TbQ/9
-         o9Dg==
-X-Forwarded-Encrypted: i=1; AJvYcCVqmyE9BbjkaFBdcec+hK5dpg3KB8mK2JgQnDT14EeqNlNmnMEOknz8CKRaAw60SkALTudyxAryLJIoHSji0dYR@lists.infradead.org, AJvYcCWkbxxcD+ANzlHe/xTvzDja+wzn90ompsFAyPJDsBAqOd7RwbP3+Yc8mAbPxJTdvFwHYRfOCOdsiONvRlU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe2yUK70Da18gbSe3InT/6t+ZMhJF5VfEb5AAT/VlAeOMuZL3C
-	0ovTGi5TXv++zZEKjycLIMZze1uS3iy39lUR69lxyK5e2Lzn0axJ
-X-Google-Smtp-Source: AGHT+IFKyJJZHHJG1xrvYibWpBIs/FS0N3kdjWrsxFMjWgEPFe5BpYTq3ei0lG/0AXdt3oOlAP3xDg==
-X-Received: by 2002:a05:6a20:e605:b0:1d9:dfd:93c0 with SMTP id adf61e73a8af0-1dba556fdc2mr13977660637.49.1730671780063;
-        Sun, 03 Nov 2024 14:09:40 -0800 (PST)
-Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1ba033sm6074536b3a.34.2024.11.03.14.09.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Nov 2024 14:09:38 -0800 (PST)
-Date: Sun, 3 Nov 2024 14:09:37 -0800
-From: Drew Fustini <pdp7pdp7@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Drew Fustini <dfustini@tenstorrent.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Drew Fustini <drew@pdp7.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	id 1t7j92-0000000C8Kc-0aUQ;
+	Sun, 03 Nov 2024 22:32:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 409E7A41F06;
+	Sun,  3 Nov 2024 22:30:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE5CC4CED4;
+	Sun,  3 Nov 2024 22:32:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730673145;
+	bh=aQx2of0YxY8WIGZoMkP00SggKkaZtnWYsiXvyH2QOMg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VtOJZhHa7cYAybApcWeSaKbpiudoVOFGuFDH8l6SegXZ2A40or+s7/q8DtnBsf0vG
+	 wbjsUVEeQhrHMrNRM9Lc6QRpLufHetMUuXNbVW837WyVju0Dxo0nIbv8iY+13/ZrCs
+	 IJFYvAGkty3sioHEgihQt4Figk5+JGLnPJ5kkv2zDFuYYVIiTHcq3rtS5BzCQ0Fuje
+	 XpxxkUh9SDZGF9+paViPv8+5wuzGpFa4jy6YgrbXBqTwjQKRedPXy7G6GS0L3QS1kY
+	 ZIg1ppJVdfoq/RrbtQICFwficNgBUuJ+dJ9qO1Q50qy7QLp4lppuFxYrGwhAKsQ1iy
+	 /2NiwTwXRSEfg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH net-next v7 0/2] Add the dwmac driver support for T-HEAD
- TH1520 SoC
-Message-ID: <Zyf0oVGk6FiVrPsB@x1>
-References: <20241103-th1520-gmac-v7-0-ef094a30169c@tenstorrent.com>
- <662a8258-291d-4cfc-b21a-f3c92f9588f2@lunn.ch>
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v3 02/18] lib/crc32: improve support for arch-specific overrides
+Date: Sun,  3 Nov 2024 14:31:38 -0800
+Message-ID: <20241103223154.136127-3-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241103223154.136127-1-ebiggers@kernel.org>
+References: <20241103223154.136127-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <662a8258-291d-4cfc-b21a-f3c92f9588f2@lunn.ch>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_140941_481794_EA81425E 
-X-CRM114-Status: GOOD (  17.07  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +79,550 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 07:12:24PM +0100, Andrew Lunn wrote:
-> On Sun, Nov 03, 2024 at 08:57:58AM -0800, Drew Fustini wrote:
-> > This series adds support for dwmac gigabit ethernet in the T-Head TH1520
-> > RISC-V SoC used on boards like BeagleV Ahead and the LicheePi 4A.
-> > 
-> > The gigabit ethernet on these boards does need pinctrl support to mux
-> > the necessary pads. The pinctrl-th1520 driver, pinctrl binding, and
-> > related dts patches are in linux-next. However, they are not yet in
-> > net-next/main.
-> > 
-> > Therefore, I am dropping the dts patch for v5 as it will not build on
-> > net-next/main due to the lack of the padctrl0_apsys pin controller node
-> > in next-next/main version th1520.dtsi.
-> 
-> You should send the .dts patch to the Maintainer responsible for
-> merging all the RISC-V DT patches, maybe via a sub Maintainer. All the
-> different parts will then meet up in linux-next.
-> 
-> 	Andrew
+From: Eric Biggers <ebiggers@google.com>
 
-I am the maintainer for arch/riscv/boot/dts/thead. I'm planning to apply
-the dts patch to my for-next branch once this series with the binding
-and driver are applied to net-next.
+Currently the CRC32 library functions are defined as weak symbols, and
+the arm64 and riscv architectures override them.
 
-Thanks,
-Drew
+This method of arch-specific overrides has the limitation that it only
+works when both the base and arch code is built-in.  Also, it makes the
+arch-specific code be silently not used if it is accidentally built with
+lib-y instead of obj-y; unfortunately the RISC-V code does this.
+
+This commit reorganizes the code to have explicit *_arch() functions
+that are called when they are enabled, similar to how some of the crypto
+library code works (e.g. chacha_crypt() calls chacha_crypt_arch()).
+
+Make the existing kconfig choice for the CRC32 implementation also
+control whether the arch-optimized implementation (if one is available)
+is enabled or not.  Make it enabled by default if CRC32 is also enabled.
+
+The result is that arch-optimized CRC32 library functions will be
+included automatically when appropriate, but it is now possible to
+disable them.  They can also now be built as a loadable module if the
+CRC32 library functions happen to be used only by loadable modules, in
+which case the arch and base CRC32 modules will be automatically loaded
+via direct symbol dependency when appropriate.
+
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm64/Kconfig                        |  1 +
+ arch/arm64/lib/Makefile                   |  3 +-
+ arch/arm64/lib/crc32-glue.c               | 13 ++++-
+ arch/riscv/Kconfig                        |  1 +
+ arch/riscv/lib/Makefile                   |  3 +-
+ arch/riscv/lib/{crc32.c => crc32-riscv.c} | 13 ++++-
+ crypto/crc32_generic.c                    |  4 +-
+ crypto/crc32c_generic.c                   |  4 +-
+ include/linux/crc32.h                     | 35 +++++++++---
+ lib/Kconfig                               | 70 +++++++++++++++++------
+ lib/crc32.c                               | 22 +++----
+ 11 files changed, 118 insertions(+), 51 deletions(-)
+ rename arch/riscv/lib/{crc32.c => crc32-riscv.c} (94%)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fd9df6dcc593..1e48f40f654e 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -19,10 +19,11 @@ config ARM64
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_CACHE_LINE_SIZE
++	select ARCH_HAS_CRC32
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DMA_OPS if XEN
+ 	select ARCH_HAS_DMA_PREP_COHERENT
+diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+index 8e882f479d98..5fbcf0d56665 100644
+--- a/arch/arm64/lib/Makefile
++++ b/arch/arm64/lib/Makefile
+@@ -11,11 +11,12 @@ CFLAGS_xor-neon.o		+= $(CC_FLAGS_FPU)
+ CFLAGS_REMOVE_xor-neon.o	+= $(CC_FLAGS_NO_FPU)
+ endif
+ 
+ lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
+ 
+-obj-$(CONFIG_CRC32) += crc32.o crc32-glue.o
++obj-$(CONFIG_CRC32_ARCH) += crc32-arm64.o
++crc32-arm64-y := crc32.o crc32-glue.o
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ 
+ obj-$(CONFIG_ARM64_MTE) += mte.o
+ 
+diff --git a/arch/arm64/lib/crc32-glue.c b/arch/arm64/lib/crc32-glue.c
+index ad015223d15d..d7f6e1cbf0d2 100644
+--- a/arch/arm64/lib/crc32-glue.c
++++ b/arch/arm64/lib/crc32-glue.c
+@@ -1,9 +1,10 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ 
+ #include <linux/crc32.h>
+ #include <linux/linkage.h>
++#include <linux/module.h>
+ 
+ #include <asm/alternative.h>
+ #include <asm/cpufeature.h>
+ #include <asm/neon.h>
+ #include <asm/simd.h>
+@@ -19,11 +20,11 @@ asmlinkage u32 crc32_be_arm64(u32 crc, unsigned char const *p, size_t len);
+ 
+ asmlinkage u32 crc32_le_arm64_4way(u32 crc, unsigned char const *p, size_t len);
+ asmlinkage u32 crc32c_le_arm64_4way(u32 crc, unsigned char const *p, size_t len);
+ asmlinkage u32 crc32_be_arm64_4way(u32 crc, unsigned char const *p, size_t len);
+ 
+-u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+ 		return crc32_le_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+@@ -38,12 +39,13 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ 			return crc;
+ 	}
+ 
+ 	return crc32_le_arm64(crc, p, len);
+ }
++EXPORT_SYMBOL(crc32_le_arch);
+ 
+-u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32c_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+ 		return crc32c_le_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+@@ -58,12 +60,13 @@ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ 			return crc;
+ 	}
+ 
+ 	return crc32c_le_arm64(crc, p, len);
+ }
++EXPORT_SYMBOL(crc32c_le_arch);
+ 
+-u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_be_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+ 		return crc32_be_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+@@ -78,5 +81,9 @@ u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
+ 			return crc;
+ 	}
+ 
+ 	return crc32_be_arm64(crc, p, len);
+ }
++EXPORT_SYMBOL(crc32_be_arch);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("arm64-optimized CRC32 functions");
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index f4c570538d55..046f0cb119da 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -22,10 +22,11 @@ config RISCV
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM_VMEMMAP
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_BINFMT_FLAT
++	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_WX
+ 	select ARCH_HAS_FAST_MULTIPLIER
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 8eec6b69a875..79368a895fee 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -13,10 +13,9 @@ ifeq ($(CONFIG_MMU), y)
+ lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+ endif
+ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+-lib-$(CONFIG_RISCV_ISA_ZBC)	+= crc32.o
+-
++obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32-riscv.c
+similarity index 94%
+rename from arch/riscv/lib/crc32.c
+rename to arch/riscv/lib/crc32-riscv.c
+index 333fb7af1192..a3ff7db2a1ce 100644
+--- a/arch/riscv/lib/crc32.c
++++ b/arch/riscv/lib/crc32-riscv.c
+@@ -12,10 +12,11 @@
+ #include <linux/types.h>
+ #include <linux/minmax.h>
+ #include <linux/crc32poly.h>
+ #include <linux/crc32.h>
+ #include <linux/byteorder/generic.h>
++#include <linux/module.h>
+ 
+ /*
+  * Refer to https://www.corsix.org/content/barrett-reduction-polynomials for
+  * better understanding of how this math works.
+  *
+@@ -215,21 +216,23 @@ static inline u32 __pure crc32_le_generic(u32 crc, unsigned char const *p,
+ 
+ legacy:
+ 	return crc_fb(crc, p, len);
+ }
+ 
+-u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, CRC32_POLY_LE, CRC32_POLY_QT_LE,
+ 				crc32_le_base);
+ }
++EXPORT_SYMBOL(crc32_le_arch);
+ 
+-u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32c_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+ 				CRC32C_POLY_QT_LE, crc32c_le_base);
+ }
++EXPORT_SYMBOL(crc32c_le_arch);
+ 
+ static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+ 				     size_t len)
+ {
+ 	size_t bits = len * 8;
+@@ -251,11 +254,11 @@ static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+ 	crc ^= crc_low;
+ 
+ 	return crc;
+ }
+ 
+-u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_be_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	size_t offset, head_len, tail_len;
+ 	unsigned long const *p_ul;
+ 	unsigned long s;
+ 
+@@ -290,5 +293,9 @@ u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
+ 	return crc;
+ 
+ legacy:
+ 	return crc32_be_base(crc, p, len);
+ }
++EXPORT_SYMBOL(crc32_be_arch);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Accelerated CRC32 implementation with Zbc extension");
+diff --git a/crypto/crc32_generic.c b/crypto/crc32_generic.c
+index 6a55d206fab3..cc064ea8240e 100644
+--- a/crypto/crc32_generic.c
++++ b/crypto/crc32_generic.c
+@@ -158,16 +158,16 @@ static struct shash_alg algs[] = {{
+ }};
+ 
+ static int __init crc32_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + (&crc32_le != &crc32_le_base));
++	return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
+ }
+ 
+ static void __exit crc32_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + (&crc32_le != &crc32_le_base));
++	crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
+ }
+ 
+ subsys_initcall(crc32_mod_init);
+ module_exit(crc32_mod_fini);
+ 
+diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
+index 635599b255ec..04b03d825cf4 100644
+--- a/crypto/crc32c_generic.c
++++ b/crypto/crc32c_generic.c
+@@ -198,16 +198,16 @@ static struct shash_alg algs[] = {{
+ }};
+ 
+ static int __init crc32c_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
++	return crypto_register_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
+ }
+ 
+ static void __exit crc32c_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
++	crypto_unregister_shashes(algs, 1 + IS_ENABLED(CONFIG_CRC32_ARCH));
+ }
+ 
+ subsys_initcall(crc32c_mod_init);
+ module_exit(crc32c_mod_fini);
+ 
+diff --git a/include/linux/crc32.h b/include/linux/crc32.h
+index 5b07fc9081c4..58c632533b08 100644
+--- a/include/linux/crc32.h
++++ b/include/linux/crc32.h
+@@ -6,14 +6,38 @@
+ #define _LINUX_CRC32_H
+ 
+ #include <linux/types.h>
+ #include <linux/bitrev.h>
+ 
+-u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure crc32_le_base(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure crc32_be_base(u32 crc, unsigned char const *p, size_t len);
++u32 __pure crc32_le_arch(u32 crc, const u8 *p, size_t len);
++u32 __pure crc32_le_base(u32 crc, const u8 *p, size_t len);
++u32 __pure crc32_be_arch(u32 crc, const u8 *p, size_t len);
++u32 __pure crc32_be_base(u32 crc, const u8 *p, size_t len);
++u32 __pure crc32c_le_arch(u32 crc, const u8 *p, size_t len);
++u32 __pure crc32c_le_base(u32 crc, const u8 *p, size_t len);
++
++static inline u32 __pure crc32_le(u32 crc, const u8 *p, size_t len)
++{
++	if (IS_ENABLED(CONFIG_CRC32_ARCH))
++		return crc32_le_arch(crc, p, len);
++	return crc32_le_base(crc, p, len);
++}
++
++static inline u32 __pure crc32_be(u32 crc, const u8 *p, size_t len)
++{
++	if (IS_ENABLED(CONFIG_CRC32_ARCH))
++		return crc32_be_arch(crc, p, len);
++	return crc32_be_base(crc, p, len);
++}
++
++/* TODO: leading underscores should be dropped once callers have been updated */
++static inline u32 __pure __crc32c_le(u32 crc, const u8 *p, size_t len)
++{
++	if (IS_ENABLED(CONFIG_CRC32_ARCH))
++		return crc32c_le_arch(crc, p, len);
++	return crc32c_le_base(crc, p, len);
++}
+ 
+ /**
+  * crc32_le_combine - Combine two crc32 check values into one. For two
+  * 		      sequences of bytes, seq1 and seq2 with lengths len1
+  * 		      and len2, crc32_le() check values were calculated
+@@ -36,13 +60,10 @@ u32 __attribute_const__ crc32_le_shift(u32 crc, size_t len);
+ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
+ {
+ 	return crc32_le_shift(crc1, len2) ^ crc2;
+ }
+ 
+-u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
+-
+ /**
+  * __crc32c_le_combine - Combine two crc32c check values into one. For two
+  * 			 sequences of bytes, seq1 and seq2 with lengths len1
+  * 			 and len2, __crc32c_le() check values were calculated
+  * 			 for each, crc1 and crc2.
+diff --git a/lib/Kconfig b/lib/Kconfig
+index b38849af6f13..07afcf214f35 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -176,10 +176,13 @@ config CRC32
+ 	  This option is provided for the case where no in-kernel-tree
+ 	  modules require CRC32/CRC32c functions, but a module built outside
+ 	  the kernel tree does. Such modules that use library CRC32/CRC32c
+ 	  functions require M here.
+ 
++config ARCH_HAS_CRC32
++	bool
++
+ config CRC32_SELFTEST
+ 	tristate "CRC32 perform self test on init"
+ 	depends on CRC32
+ 	help
+ 	  This option enables the CRC32 library functions to perform a
+@@ -188,54 +191,89 @@ config CRC32_SELFTEST
+ 	  and computes the total elapsed time and number of bytes processed.
+ 
+ choice
+ 	prompt "CRC32 implementation"
+ 	depends on CRC32
+-	default CRC32_SLICEBY8
++	default CRC32_IMPL_ARCH_PLUS_SLICEBY8 if ARCH_HAS_CRC32
++	default CRC32_IMPL_SLICEBY8 if !ARCH_HAS_CRC32
+ 	help
+-	  This option allows a kernel builder to override the default choice
+-	  of CRC32 algorithm.  Choose the default ("slice by 8") unless you
+-	  know that you need one of the others.
++	  This option allows you to override the default choice of CRC32
++	  implementation.  Choose the default unless you know that you need one
++	  of the others.
+ 
+-config CRC32_SLICEBY8
++config CRC32_IMPL_ARCH_PLUS_SLICEBY8
++	bool "Arch-optimized, with fallback to slice-by-8" if ARCH_HAS_CRC32
++	help
++	  Use architecture-optimized implementation of CRC32.  Fall back to
++	  slice-by-8 in cases where the arch-optimized implementation cannot be
++	  used, e.g. if the CPU lacks support for the needed instructions.
++
++	  This is the default when an arch-optimized implementation exists.
++
++config CRC32_IMPL_ARCH_PLUS_SLICEBY1
++	bool "Arch-optimized, with fallback to slice-by-1" if ARCH_HAS_CRC32
++	help
++	  Use architecture-optimized implementation of CRC32, but fall back to
++	  slice-by-1 instead of slice-by-8 in order to reduce the binary size.
++
++config CRC32_IMPL_SLICEBY8
+ 	bool "Slice by 8 bytes"
+ 	help
+ 	  Calculate checksum 8 bytes at a time with a clever slicing algorithm.
+-	  This is the fastest algorithm, but comes with a 8KiB lookup table.
+-	  Most modern processors have enough cache to hold this table without
+-	  thrashing the cache.
+-
+-	  This is the default implementation choice.  Choose this one unless
+-	  you have a good reason not to.
++	  This is much slower than the architecture-optimized implementation of
++	  CRC32 (if the selected arch has one), but it is portable and is the
++	  fastest implementation when no arch-optimized implementation is
++	  available.  It uses an 8KiB lookup table.  Most modern processors have
++	  enough cache to hold this table without thrashing the cache.
+ 
+-config CRC32_SLICEBY4
++config CRC32_IMPL_SLICEBY4
+ 	bool "Slice by 4 bytes"
+ 	help
+ 	  Calculate checksum 4 bytes at a time with a clever slicing algorithm.
+ 	  This is a bit slower than slice by 8, but has a smaller 4KiB lookup
+ 	  table.
+ 
+ 	  Only choose this option if you know what you are doing.
+ 
+-config CRC32_SARWATE
+-	bool "Sarwate's Algorithm (one byte at a time)"
++config CRC32_IMPL_SLICEBY1
++	bool "Slice by 1 byte (Sarwate's algorithm)"
+ 	help
+ 	  Calculate checksum a byte at a time using Sarwate's algorithm.  This
+-	  is not particularly fast, but has a small 256 byte lookup table.
++	  is not particularly fast, but has a small 1KiB lookup table.
+ 
+ 	  Only choose this option if you know what you are doing.
+ 
+-config CRC32_BIT
++config CRC32_IMPL_BIT
+ 	bool "Classic Algorithm (one bit at a time)"
+ 	help
+ 	  Calculate checksum one bit at a time.  This is VERY slow, but has
+ 	  no lookup table.  This is provided as a debugging option.
+ 
+ 	  Only choose this option if you are debugging crc32.
+ 
+ endchoice
+ 
++config CRC32_ARCH
++	tristate
++	default CRC32 if CRC32_IMPL_ARCH_PLUS_SLICEBY8 || CRC32_IMPL_ARCH_PLUS_SLICEBY1
++
++config CRC32_SLICEBY8
++	bool
++	default y if CRC32_IMPL_SLICEBY8 || CRC32_IMPL_ARCH_PLUS_SLICEBY8
++
++config CRC32_SLICEBY4
++	bool
++	default y if CRC32_IMPL_SLICEBY4
++
++config CRC32_SARWATE
++	bool
++	default y if CRC32_IMPL_SLICEBY1 || CRC32_IMPL_ARCH_PLUS_SLICEBY1
++
++config CRC32_BIT
++	bool
++	default y if CRC32_IMPL_BIT
++
+ config CRC64
+ 	tristate "CRC64 functions"
+ 	help
+ 	  This option is provided for the case where no in-kernel-tree
+ 	  modules require CRC64 functions, but a module built outside
+diff --git a/lib/crc32.c b/lib/crc32.c
+index c67059b0082b..47151624332e 100644
+--- a/lib/crc32.c
++++ b/lib/crc32.c
+@@ -181,39 +181,31 @@ static inline u32 __pure crc32_le_generic(u32 crc, unsigned char const *p,
+ #endif
+ 	return crc;
+ }
+ 
+ #if CRC_LE_BITS == 1
+-u32 __pure __weak crc32_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_le_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, NULL, CRC32_POLY_LE);
+ }
+-u32 __pure __weak __crc32c_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32c_le_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, NULL, CRC32C_POLY_LE);
+ }
+ #else
+-u32 __pure __weak crc32_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_le_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, crc32table_le, CRC32_POLY_LE);
+ }
+-u32 __pure __weak __crc32c_le(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32c_le_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, crc32ctable_le, CRC32C_POLY_LE);
+ }
+ #endif
+-EXPORT_SYMBOL(crc32_le);
+-EXPORT_SYMBOL(__crc32c_le);
+-
+-u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
+ EXPORT_SYMBOL(crc32_le_base);
+-
+-u32 __pure crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
+ EXPORT_SYMBOL(crc32c_le_base);
+ 
+-u32 __pure crc32_be_base(u32, unsigned char const *, size_t) __alias(crc32_be);
+-
+ /*
+  * This multiplies the polynomials x and y modulo the given modulus.
+  * This follows the "little-endian" CRC convention that the lsbit
+  * represents the highest power of x, and the msbit represents x^0.
+  */
+@@ -333,16 +325,16 @@ static inline u32 __pure crc32_be_generic(u32 crc, unsigned char const *p,
+ # endif
+ 	return crc;
+ }
+ 
+ #if CRC_BE_BITS == 1
+-u32 __pure __weak crc32_be(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_be_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_be_generic(crc, p, len, NULL, CRC32_POLY_BE);
+ }
+ #else
+-u32 __pure __weak crc32_be(u32 crc, unsigned char const *p, size_t len)
++u32 __pure crc32_be_base(u32 crc, const u8 *p, size_t len)
+ {
+ 	return crc32_be_generic(crc, p, len, crc32table_be, CRC32_POLY_BE);
+ }
+ #endif
+-EXPORT_SYMBOL(crc32_be);
++EXPORT_SYMBOL(crc32_be_base);
+-- 
+2.47.0
+
 
