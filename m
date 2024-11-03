@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7953ED1118F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 19:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F01D1118C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 19:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9H+14g7TEjcJegqS6pqhX5cbRm3voSMA/5EEurVmmUg=; b=oeSgJbEhFxvFBP50OLekKPGmo6
-	h9nabg6kNBQAnhfCAjfyydcZM+M5T5cNgcFhmhzGcwV80GYZ/4pQd1Xpr31kbg3jXnTFfI5OXzdkS
-	i8acED5GqrDNf13Ory37mdHzVAfdKpBNSxE5VogdCDQek/WxP0evvo/EsXr2IXg90r3CCTjzxCtOI
-	b+k5TFlnNbshhzm/1+AIpinwfoj8B2/ZvpgcAlm1bVa/LC/ViReCviTuke1M/vcXqHEq+izBPi/jt
-	PUAqJlrQ1c/yXyjcnWg/8vexs8WiRG5quF+FvQfCvRmhC3ha72QMU1m+Rbe6FCF2qvZ5RdK/tsfnX
-	WkVSwelQ==;
+	bh=x9HRwxuKA5SYPrf0mycwo4kyEZVXW2KTXgvqsO4ho/A=; b=K1g8gw3iItdGmJ0Y6njzfncpbu
+	4LtjrLz99F6Yhw5w4chZRa849ipG5qD6ilfPyuk1RMWesDT3juvQ84JC5XEGLo/AAkUK2+wmd2jI2
+	Wl9lBvZ8mcL+c9iv5BLX6OxC8htZRU3TR7ulvZ4knlE8B/5Z2DdPUdrU1epNRYdANILky4YKAZmvP
+	uiJW62nvLNbd4uqxxc/eGQ5BQVC3m+SmREuw2dBlu2oqeYgidbpC96D0D3EGiu5K8dTyQxHd8nWWj
+	AalZARZFzaO0SCc4S1jykhYFEOsX27Tp9UU3mdHNrDWnsnXb7UGurHsbC+t6cYg9eKtq844ka15Yh
+	Tp5j9ZFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7gdv-0000000Bx7D-2snS;
-	Sun, 03 Nov 2024 19:52:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t7gg1-0000000BxNm-3Rcv;
+	Sun, 03 Nov 2024 19:54:21 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7gcE-0000000BwxQ-43yV;
-	Sun, 03 Nov 2024 19:50:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1A8F6A41C30;
-	Sun,  3 Nov 2024 19:48:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35C5C4CECD;
-	Sun,  3 Nov 2024 19:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730663424;
-	bh=Ypbd15yIw2s1Z8w6mWrmifXgG2SzsMfQdISET86SSmU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=lcieTXmQNr0EMVdcmIYWA3kb2ssDDEyXWXGAAj3Q+O7J/6HWuJq4Mc3OOjkPCObIw
-	 Wz/Fjr+SnFh7x2CXGuXuL6XWfuMypc7w5/beclN7G7v6VpijUkb6cV1Joy8AjXbljq
-	 NT+m3I6u7YL5lHrTgrMQN8s6p2HWqPT4GclJ74+fOOrcLeguY4wNGO9g482odaxCij
-	 Yex+PB54+1Dfa8UE9SvZt3s/nG0EXrJPsM29eJBCwKb43J7GBGVyDedf7HXVXwSotC
-	 RFMReuydX1AxAUt5mRRMU+JadjEjr4twQ4akOefbUQALTeidT5MFWHh+g2LikuUTzE
-	 a6uphw00Ikp6Q==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADC1E38363C3;
-	Sun,  3 Nov 2024 19:50:33 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1t7geK-0000000BxAT-234i
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Nov 2024 19:52:37 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d41894a32so1898619f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 11:52:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730663554; x=1731268354; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=x9HRwxuKA5SYPrf0mycwo4kyEZVXW2KTXgvqsO4ho/A=;
+        b=XR296XPQBPSEDxB6Cpxuio7BdTPGWB12BCfxN0Vw2kvUfpXhFlj1gLUbJN+tUNVc1z
+         wkAyLERNNcp+LcEU/5SrCAOU71zUMvyx/TtqsjZNopCxQQTOykIpDEaCHG4ojl+SqCI4
+         vr/OSvauQ2QAfbloa/MXqWktpdU+tnVnC+8Lo6ps66BvAUiwMzur3jRepm2rnpOMa+gv
+         ShNYHDI7Z1vHrNZm+zaPsRNwj8JCaTgg2eWM470AJJai/fZryZkpy0GKPKo7f5P+3ze2
+         AyjBjjcbrrH98qtxCnTcswNRk5oFjcAdS0Z1ysPiLdPFe8nMHADa/GbvREDCbX9+TH8z
+         jg2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730663554; x=1731268354;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=x9HRwxuKA5SYPrf0mycwo4kyEZVXW2KTXgvqsO4ho/A=;
+        b=AW3aGxvAM5W9k4wScT0w50hocLXrLuPoqWWGh6RrABh8AzfUarpZT+Gj+XnTI9EqLL
+         d2dHUu4+h+DSGAiXuGn5j2svXxtimiz1UNbaK3NGealJYhm4M6MTJpeXrblojTIRFEeT
+         TCY3DorEm8gTpec1mjyqsRqOboXty1CqMfgKbgyem2jLwm+11diXEsfvzeZsEpc5M3PS
+         vfc9KFWOyVsrJnDoTIIveU/kc1Vu9zUXqvuID/iPiNzAg8JheeBOMfDg9G1dsY9pVr/0
+         QXRr1cr838QxeP0TP8V8lQxT80JEju6k8lDvmq+cnDzCa6hlCF+90JhE5uI1QdQIU6u7
+         X6ug==
+X-Forwarded-Encrypted: i=1; AJvYcCV6pFIldOBolbAEkfzoc1TX67Nxr4V10gxhFeYei8Rw5B3+TSDbXy4cpo6/eZbuIOZW2iiaxxshE74dOgpWCqN4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yygi7EZkY+N0qVNCIZ2LtpYYasXkqsSd821iFKwKORZW+Y+qzuM
+	i6IcTKwDwEhFxKTEcZm2FnmCDPMXhY6yWgdXzvUfmCpviVybvg/C1KWtiJ3Qasw=
+X-Google-Smtp-Source: AGHT+IHRlzR/T44vFTA6xhju6BevgdlpguiQL7NPllDCW6AH3Dy70BrbMRmNdc01zD9C3OYhha4t6w==
+X-Received: by 2002:a5d:5888:0:b0:37d:3f81:153f with SMTP id ffacd0b85a97d-381c149f226mr12298762f8f.17.1730663554250;
+        Sun, 03 Nov 2024 11:52:34 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-381c10e61f9sm11272153f8f.58.2024.11.03.11.52.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 03 Nov 2024 11:52:33 -0800 (PST)
+Message-ID: <d9f946a3-44d6-4973-859e-60aa2807181c@linaro.org>
+Date: Sun, 3 Nov 2024 20:52:31 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] dt-bindings: timer: actions,owl-timer: convert to YAML
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: linux-actions@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] Simplify Tx napi logic in airoha_eth driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173066343223.3240688.14365751396868795673.git-patchwork-notify@kernel.org>
-Date: Sun, 03 Nov 2024 19:50:32 +0000
-References: <20241029-airoha-en7581-tx-napi-work-v1-0-96ad1686b946@kernel.org>
-In-Reply-To: <20241029-airoha-en7581-tx-napi-work-v1-0-96ad1686b946@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: nbd@nbd.name, sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_115027_102485_2C164D4F 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241103_115236_585181_D6C1E8FF 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 29 Oct 2024 13:17:08 +0100 you wrote:
-> Simplify Tx napi logic relying on the packet index provided by
-> completion queue indicating the completed packet that can be removed
-> from the Tx DMA ring.
-> Read completion queue head and pending entry in airoha_qdma_tx_napi_poll().
+On 03/11/2024 13:35, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl timer bindings to DT schema.
 > 
+> Changes during conversion:
+>   - Add a description
+>   - Add "clocks" as a required property, since the driver searches for it
+>   - Correct the given example according to owl-s500.dtsi
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
-> Lorenzo Bianconi (2):
->       net: airoha: Read completion queue data in airoha_qdma_tx_napi_poll()
->       net: airoha: Simplify Tx napi logic
-> 
-> [...]
+> v2: update commit message to be accurate (Krzysztof)
+> v2: don't preserve formatting in the description (Krzysztof)
+> v2: add allOf:if:then block constraining per variant (Krzysztof)
+> v2: add a blank line after additionalProperties (Krzysztof)
+> ---
 
-Here is the summary with links:
-  - [net-next,1/2] net: airoha: Read completion queue data in airoha_qdma_tx_napi_poll()
-    https://git.kernel.org/netdev/net-next/c/3affa310de52
-  - [net-next,2/2] net: airoha: Simplify Tx napi logic
-    https://git.kernel.org/netdev/net-next/c/0c729f53b8c3
+Applied, thanks
 
-You are awesome, thank you!
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
