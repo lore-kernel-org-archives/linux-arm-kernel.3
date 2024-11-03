@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F06D11180
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 16:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D60D11180
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 16:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=47aNXT+8rorqTyYeuzF1txcjEg5v2d45wMQZ0nHnxxM=; b=giqpOJ4b8xyym7q6ndzCFUHknk
-	Qf76Uk2n8h+N4RNo+ZlIQRBC+W8Vwj5uda27xKEoRFwce6SdByGsnVHCuuuD1YBrSRMa7Bvs8KxLJ
-	DJ3UAMDs/MaEXsjaQeHZe0IX53fXUpr70wtyYy2FIC5/kPY0Np1imvb18rc2dIGtkj8oRkME0Pt8i
-	dEQPZdh2njUHmAxk/Wz2V4DjDelOVCr8GUlbrvsQRZ7hAuxTKqb1qfafexKtTovQ/sIzjgVVgDzAI
-	xz8MJC4AXQsW7PUJbkTn718p/XOFVBcKQQ7VGHm873/RGlzjX2A+gzE9IvJCHcmUYA4vh54T3WpQZ
-	zMElXgCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3q7IWRD1gpOW1Lskvc4rjHRf5AbTOTI6oSgYSMbB074=; b=FGLBVSguLzxe0ZDpVh2TnepK/D
+	yzY3Rfp2Rj7j9k+dMYVkMVIM7ot6uJC/jJoc+jzLaaFEMAG6PNDDkwiUcwIFhgRb9b9LYcQb6k86+
+	BND8+FKMaxIbjFqP8F6Kwx/kt1N8Tv7A+nFzLCvhml/TX82f0fWsmsx9H/9LPv3Ds0LlYMsZ1ep6B
+	c9FFth6TQUEKTUANSvKCw0+Nkl39fFZxfQcMw81whD+HYjJ+xaqoYQ7pcStSnSdDUkwLAf9u/KLTD
+	Tdh+liXA1ywLA9vF3K8/ncTM9YNSxF3ep2XZ+CFEgig7PGgVHQ/Q1sq1V8Q5mZ9NdBlaew2d/9P8Q
+	l4SBhEtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7dDc-0000000Bg0U-3Q43;
-	Sun, 03 Nov 2024 16:12:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t7dFK-0000000BgAc-1u7B;
+	Sun, 03 Nov 2024 16:14:34 +0000
+Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7dBw-0000000Bfqi-2S95;
-	Sun, 03 Nov 2024 16:11:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D0D55C4AD4;
-	Sun,  3 Nov 2024 16:10:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643B9C4CECD;
-	Sun,  3 Nov 2024 16:10:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730650263;
-	bh=SZuHQtZJYWnlM0GulECNtlNPxV5j9CAf6AvkG4mjcZA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XSILdoVRtcztBYaC8SOMgXfl92VJFZkSDqn+m0TJ32YWaX6tCHMO2NJvf0U3/gRO2
-	 8sUeYwNacJ9pi1shHz38uZ9lPUfhetrEEEADQiI6JnIV7YFdLFPB+veGHIG4Ha1/9u
-	 HsPXBZKMKDoUu4e1sA0ncr/FEfC+BtdQRyzaQmRvPQPQRuY2rhbssQPw/D0B3RzW/M
-	 fwkXo4ntST6qHtU2cBlaKuVOnqObJ6j3wDTmugKev0C1+uQ04QNcRY0F8Q53rMqaeD
-	 A+YmEEBEWzg+/fYg4JfqvaeoXcWdnllY6Bft44xktDxdDMnaHtynsP0Z++k8r8x9fs
-	 Lku5wSD8fOUmg==
-Message-ID: <6dfecd6d-ecff-4867-ba61-e0d197a397a7@kernel.org>
-Date: Sun, 3 Nov 2024 17:10:57 +0100
+	id 1t7dCE-0000000BfuP-1OqB
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Nov 2024 16:11:24 +0000
+Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
+	by a.peacevolution.org (Postfix) with ESMTPA id B0D134C745;
+	Sun,  3 Nov 2024 16:11:15 +0000 (UTC)
+Date: Sun, 3 Nov 2024 11:11:13 -0500
+From: Aren <aren@peacevolution.org>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Kaustabh Chakraborty <kauschluss@disroot.org>, =?utf-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, 
+	Ondrej Jirman <megi@xff.cz>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v4 3/6] iio: light: stk3310: Implement vdd and leda
+ supplies
+Message-ID: <cx5bvcqfabsptn37uzscooh73j73dsoqadmfaibzxrzjk3byx4@ofwu7qa6ht4f>
+References: <20241102195037.3013934-3-aren@peacevolution.org>
+ <20241102195037.3013934-9-aren@peacevolution.org>
+ <20241103112933.60f96f97@jic23-huawei>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] dt-bindings: timer: actions,owl-timer: convert to YAML
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-actions@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241103123513.2890107-1-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241103112933.60f96f97@jic23-huawei>
+X-Spamd-Bar: /
+Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
+	s=dkim; t=1730650277;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:in-reply-to:references;
+	bh=3q7IWRD1gpOW1Lskvc4rjHRf5AbTOTI6oSgYSMbB074=;
+	b=pLlGFQaC+RM79asWpic5KogsiEgd7rRKglcrwIATo9BlHDxXN1CfmqzAZDL+ATwdbmOjG5
+	pUiNx1bIU1/iU751En6NAr5vmzF7xDI64tGRkfacCUOIKoqq8QVCqJvvXKAuasXuQer4Jw
+	F9P2J+OeRh+nMCaavLqn3ENg6jl+zCc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_081104_741119_E70D836F 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241103_081122_471273_E9FC4584 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11/2024 13:35, Ivaylo Ivanov wrote:
-> Convert the Actions Semi Owl timer bindings to DT schema.
+On Sun, Nov 03, 2024 at 11:31:03AM +0000, Jonathan Cameron wrote:
+> On Sat,  2 Nov 2024 15:50:39 -0400
+> Aren Moynihan <aren@peacevolution.org> wrote:
 > 
-> Changes during conversion:
->  - Add a description
->  - Add "clocks" as a required property, since the driver searches for it
->  - Correct the given example according to owl-s500.dtsi
+> > The vdd and leda supplies must be powered on for the chip to function
+> > and can be powered off during system suspend.
+> > 
+> > This was originally based on a patch by Ondrej Jirman[1], but has been
+> > rewritten since.
+> > 
+> > 1: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82
+> > 
+> > Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+> > ---
+> > 
+> > Notes:
+> >     Changes in v4:
+> >      - fix variable declaration order in stk3310_resume to match the rest of
+> >        the driver
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
-> v2: update commit message to be accurate (Krzysztof)
-> v2: don't preserve formatting in the description (Krzysztof)
-> v2: add allOf:if:then block constraining per variant (Krzysztof)
-> v2: add a blank line after additionalProperties (Krzysztof)
+> For this Andy was asking for consistency.  Generally we don't insist on a
+> particular ordering in IIO drivers, but we do prefer them to be the same.
+> Your new ordering is inconsistent between resume and suspend.  Whilst
+> existing code may be inconsistent, you can still pick most common ordering
+> and use that for your new code.
+> 
+> If the existing driver is inconsistent then feel free to tidy that up but
+> do it in a precursor patch so there is a consistent style for you to then
+> carry on.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Oh right, the order of declarations in stk3310_suspend also needs to be
+flipped. Is that simple enough that you can fix it when applying this?
 
-Best regards,
-Krzysztof
+Apparently I was being dense, I checked the rest of the driver to see
+what it did (it's consistent about putting shorter lines & ones without
+an assignment first), and fixed the case Andy pointed out to match that,
+but failed to check the rest of the patch.
 
+Thanks
+ - Aren
 
