@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217ECE67806
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 07:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8D2E67806
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 08:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A56WsYs01hqdcQSCrVx/ahcVsKZ4TBpKPu+mrLKsL4w=; b=n+x4PGrpDw4Owop3IMp4m8WjTj
-	WH8g7wIBHmahxavR/oi1MwDzCtVGQFwzmPefVeNW8UZ13xAhqvUr/3yscuxeFO+tT/uK1frcsqEd/
-	4tQ0/FZVwGmLxyKa/sgMISmdc+Ux9PxH/EA+qLSI8xFCVXjVpLW+tT80+Viy5bGmxxBCuk3UMla5H
-	VbA1bgyd/xAtKExgM6UuDYGdqQyjhoHpEt0BAXMp5uyow7gNN5hmhIMlezEf8piA0M+mNYO95rohY
-	gob9UOW4otv4A6S1dSZzzQcynRMRQzNT/Qd7ri/obybChokXuPCU8pOQMTZpuTNjy4aIclvGmAyFC
-	y31J3img==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fjAenLhCq8Xk53K+KNMCvNlQm0rmeCRd+Naft/mV0f8=; b=AZ8ZAnSUWKSAanUWu84CiR07vN
+	Gdprof9KEu3k+XnYhvNDDjdnY6s/QIJUjiJXfiR3ryg8M1pf/ROsecGU/mlmRhGuY36SR45tJGXFx
+	WBjF76izcHgQPDwmD/nfRlsTreI6Op85HWKbmEa/9h/A1ziY00CwL0ZHusCvNkJIL9/SPU++CqFiK
+	Nh5c6p08NUqeGnUhwBOdD8/DqcvAxjzO7y6Pb8KbP1QfBvx+iPDlhtlb3mu+wjZM5q8FVsZpzeqx5
+	+HE37+nlE3UlFlig5qlASj/x0E5V1P48VKdzRpdCvMVzg32Ykn/WJCEdpUrQUdxNFChyk0E4B6EYc
+	y6anokBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7VPR-0000000B7lr-28HE;
-	Sun, 03 Nov 2024 07:52:29 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7V7h-0000000B5Va-3DjY
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 07:34:12 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20cbca51687so30397665ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 00:34:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730619249; x=1731224049; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A56WsYs01hqdcQSCrVx/ahcVsKZ4TBpKPu+mrLKsL4w=;
-        b=MdcPghc+88vmMdnwxLssZ/aaM7xYCNYaBRrOXAiEqby0OFzxSISLYZYFXLJTsa8FKn
-         VS/BkZaUzWbz8Dg8alsS3TyJSYAOXi/vrvoGXF6MTscOxZqPkuEap5cOrJhZWak8F9Xq
-         kZ1yprEGCpfcGLeshGOmbGbyEIlgGjUgzEG2VBbCgGHL1HzDsvkf6mDn/+iIjjQ6mnnP
-         fyMaAG90kwYJcFfVrLhhNB0AF+gnofrC8Ep1gTv26kipjNmvRXaJaQ0vjfJWEm+X/3LQ
-         Bw15MiBnA8cUfjt29a+kP/UBGbSAEJh0T2YOyRWlnHJq8OIXb2ydAf3RowO59fBDGint
-         1Lxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730619249; x=1731224049;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A56WsYs01hqdcQSCrVx/ahcVsKZ4TBpKPu+mrLKsL4w=;
-        b=uXclcPfv/WrkGrXGrmRr40P8MWvgNOwVxZsJKXWa/h/JawFNECSn2GUX1IaS7bWGkK
-         uL41g0wo8WTGRLY2ULFagnP15GRDWhUrje7HDFyK4UnwgfGV0Fm1gUxa57ejr1HkJIPc
-         ZLblGfuEcRAbj7YvntBp6MrgVfyvyLG2Mx4vT2uYIks6t1zk87ZDyC0G3Dv7iDf3+D0y
-         z0eCGUzli9OJacXw2WgoyetbOBLslNulLvPZEj5+1TPNvzkwPbcKrOGv6Yj8o7V/Wg5V
-         pRNawohsjpje2XkeT2VJ6k7EOqN7moNSZJBebu8ukMO5iBw+zZRp6kGnNicYDdCCfanp
-         EQHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUSIrC6MnTMbWYEuQs2CtHIoa35GdLhzWlAhUivKu+YQ9cP/hMvQzJFlkjtxHRX3LK8gk0rAkcWIyAYzYWgOu2v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe6u6F1CAgZlV9eHwfQxMu6IricCmm6c1zOYPr/ozJoclf46yi
-	LuryxaE8IovHwbq9fdk/yQN91UiOfDHAB2pYcLIvZEa5J6AEsl8Q
-X-Google-Smtp-Source: AGHT+IFgu5Cev0/dzPRpbVHx7S5x8a9o7cHj1KS4aAu5flH8FQ6KHFVETgwvPy65ie2t4EL1L/P2UA==
-X-Received: by 2002:a17:90b:1bd2:b0:2e0:9d3e:bc2a with SMTP id 98e67ed59e1d1-2e94c51c5f2mr12807283a91.32.1730619248543;
-        Sun, 03 Nov 2024 00:34:08 -0700 (PDT)
-Received: from localhost.localdomain ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2e93da983f9sm5353443a91.5.2024.11.03.00.34.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Nov 2024 00:34:08 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	asahi@lists.linux.dev,
+	id 1t7VgJ-0000000B8wJ-2Mx1;
+	Sun, 03 Nov 2024 08:09:55 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7Vec-0000000B8os-0QRp;
+	Sun, 03 Nov 2024 08:08:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=fjAen
+	LhCq8Xk53K+KNMCvNlQm0rmeCRd+Naft/mV0f8=; b=Z8nMehObtHVNsBHL+JKMH
+	sE6tULkLao0vvKLdWkBz55udo400qH22K1LCSaBqU3T/vrXE60vW3CrzE/YAfXjb
+	uKBp3m7+dBz0Vp6YpPDBauA88jwBJEE2zNnTo7PDHF9ElNIeQpwNN+1rrZfuZmRC
+	0fxwNJSzSk3WrVfUGeNm90=
+Received: from localhost.localdomain (unknown [111.35.191.191])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgCnrQTjLidnai5hAQ--.30987S4;
+	Sun, 03 Nov 2024 16:06:12 +0800 (CST)
+From: David Wang <00107082@163.com>
+To: tglx@linutronix.de,
+	richard.henderson@linaro.org,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	guoren@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	James.Bottomley@HansenPartnership.com,
+	deller@gmx.de,
+	mpe@ellerman.id.au,
+	paul.walmsley@sifive.com,
+	ysato@users.sourceforge.jp,
+	dalias@libc.org,
+	glaubitz@physik.fu-berlin.de,
+	davem@davemloft.net,
+	andreas@gaisler.com,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH asahi-soc/dt v3 10/10] arm64: dts: apple: t8015: Add PMGR nodes
-Date: Sun,  3 Nov 2024 15:31:21 +0800
-Message-ID: <20241103073319.30672-11-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241103073319.30672-1-towinchenmi@gmail.com>
-References: <20241103073319.30672-1-towinchenmi@gmail.com>
+	linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	David Wang <00107082@163.com>
+Subject: [PATCH] kernel/irq/proc: performance: replace seq_printf with seq_put_decimal_ull_width
+Date: Sun,  3 Nov 2024 16:05:52 +0800
+Message-Id: <20241103080552.4787-1-00107082@163.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PSgvCgCnrQTjLidnai5hAQ--.30987S4
+X-Coremail-Antispam: 1Uf129KBjvAXoWfuF4fJw1rWr4fXFykCw1rWFg_yoW5JrWkJo
+	WkuF4IyrykuFyUX34DZrnayFyqqw42q3W3X34q9w4rWFnFqrWkKry2va4xAry3Aw45C34k
+	WayaqrW5J390qFWkn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjfU8nmRUUUUU
+X-Originating-IP: [111.35.191.191]
+X-CM-SenderInfo: qqqrilqqysqiywtou0bp/xtbB0heMqmcnKG5ISwAAsm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_003409_860043_B30CD8F5 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241103_010810_546967_6A4B279A 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,1023 +100,619 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the two PMGR nodes and all known power state subnodes. Since
-there are a large number of them, let's put them in a separate file to
-include.
+seq_printf is costy, when stress reading /proc/interrupts, profiling indicates
+seq_printf takes about ~47% of show_interrupts samples:
 
-Acked-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+    show_interrupts(94.495% 5166019/5466991)
+	seq_printf(47.429% 2450210/5166019)
+	    vsnprintf(89.232% 2186366/2450210)
+		format_decode(24.005% 524831/2186366)
+		number(19.488% 426084/2186366)
+		memcpy_orig(3.739% 81753/2186366)
+		...
+	_raw_spin_unlock_irqrestore(26.643% 1376379/5166019)
+	mtree_load(8.059% 416304/5166019)
+
+On a system with n CPUs and m interrupts, there will be n*m decimal
+values yielded via seq_printf(.."%10u "..) which is less efficient
+than seq_put_decimal_ull_width, stress reading /proc/interrupts
+indicates ~30% performance improvement with this patch, and profiling
+data shows:
+
+	show_interrupts(92.221% 3609371/3913823)
+	    _raw_spin_unlock_irqrestore(39.123% 1412078/3609371)
+	    mtree_load(11.942% 431036/3609371)
+	    seq_put_decimal_ull_width(11.635% 419958/3609371)
+	    seq_printf(9.025% 325754/3609371)
+	    ...
+
+The improvement has pratical significance, considering many monitoring
+tools would read /proc/interrupts periodically.
+
+seq_put_decimal_ull_width(..," ", v, 10) is equivalent to
+seq_printf(.., " %10llu", v), not "%10llu "; Hence there is space
+adjustment along.
+
+Signed-off-by: David Wang <00107082@163.com>
 ---
- arch/arm64/boot/dts/apple/t8015-common.dtsi |   1 +
- arch/arm64/boot/dts/apple/t8015-pmgr.dtsi   | 930 ++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8015.dtsi        |  21 +
- 3 files changed, 952 insertions(+)
- create mode 100644 arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
+ arch/alpha/kernel/irq.c     |   8 +--
+ arch/arm/kernel/smp.c       |   4 +-
+ arch/arm64/kernel/smp.c     |   3 +-
+ arch/csky/kernel/smp.c      |   4 +-
+ arch/loongarch/kernel/smp.c |   2 +-
+ arch/parisc/kernel/irq.c    |  34 ++++++------
+ arch/powerpc/kernel/irq.c   |  44 ++++++++--------
+ arch/riscv/kernel/smp.c     |   3 +-
+ arch/sh/kernel/irq.c        |   4 +-
+ arch/sparc/kernel/irq_32.c  |  12 ++---
+ arch/sparc/kernel/irq_64.c  |   4 +-
+ arch/x86/kernel/irq.c       | 100 ++++++++++++++++++------------------
+ arch/xtensa/kernel/irq.c    |   2 +-
+ arch/xtensa/kernel/smp.c    |   4 +-
+ kernel/irq/proc.c           |   6 ++-
+ 15 files changed, 120 insertions(+), 114 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t8015-common.dtsi b/arch/arm64/boot/dts/apple/t8015-common.dtsi
-index 69258a33ea50..498f58fb9715 100644
---- a/arch/arm64/boot/dts/apple/t8015-common.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8015-common.dtsi
-@@ -24,6 +24,7 @@ chosen {
- 		framebuffer0: framebuffer@0 {
- 			compatible = "apple,simple-framebuffer", "simple-framebuffer";
- 			reg = <0 0 0 0>; /* To be filled by loader */
-+			power-domains = <&ps_disp0_be &ps_mipi_dsi &ps_disp0_hilo &ps_disp0_ppp>;
- 			/* Format properties will be added by loader */
- 			status = "disabled";
- 		};
-diff --git a/arch/arm64/boot/dts/apple/t8015-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
-new file mode 100644
-index 000000000000..e9966608d470
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/t8015-pmgr.dtsi
-@@ -0,0 +1,930 @@
-+// SPDX-License-Identifier: GPL-2.0+ OR MIT
-+/*
-+ * PMGR Power domains for the Apple T8015 "A11" SoC
-+ *
-+ * Copyright (c) 2024, Nick Chan <towinchenmi@gmail.com>
-+ */
-+
-+&pmgr {
-+	ps_cpu0: power-controller@80000 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80000 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu0";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpu1: power-controller@80008 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80008 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu1";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpu2: power-controller@80010 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80010 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu2";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpu3: power-controller@80018 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80018 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu3";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpu4: power-controller@80020 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80020 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu4";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpu5: power-controller@80028 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80028 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpu5";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_cpm: power-controller@80040 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80040 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "cpm";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_sio_busif: power-controller@80158 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80158 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sio_busif";
-+	};
-+
-+	ps_sio_p: power-controller@80160 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80160 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sio_p";
-+		power-domains = <&ps_sio_busif>;
-+	};
-+
-+	ps_sbr: power-controller@80100 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80100 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sbr";
-+		apple,always-on; /* Apple fabric, critical block */
-+	};
-+
-+	ps_aic: power-controller@80108 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80108 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "aic";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_dwi: power-controller@80110 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80110 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dwi";
-+	};
-+
-+	ps_gpio: power-controller@80118 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80118 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "gpio";
-+	};
-+
-+	ps_pms: power-controller@80120 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80120 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pms";
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_pcie_ref: power-controller@80148 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80148 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pcie_ref";
-+	};
-+
-+	ps_mca0: power-controller@80170 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80170 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_mca1: power-controller@80178 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80178 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca1";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_mca2: power-controller@80180 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80180 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca2";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_mca3: power-controller@80188 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80188 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca3";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_mca4: power-controller@80190 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80190 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca4";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_pwm0: power-controller@801a0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801a0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pwm0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_i2c0: power-controller@801a8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801a8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "i2c0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_i2c1: power-controller@801b0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801b0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "i2c1";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_i2c2: power-controller@801b8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801b8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "i2c2";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_i2c3: power-controller@801c0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801c0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "i2c3";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_spi0: power-controller@801c8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801c8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spi0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_spi1: power-controller@801d0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801d0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spi1";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_spi2: power-controller@801d8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801d8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spi2";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_spi3: power-controller@801e0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801e0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spi3";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart0: power-controller@801e8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801e8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart1: power-controller@801f0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801f0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart1";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart2: power-controller@801f8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x801f8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart2";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_sio: power-controller@80168 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80168 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sio";
-+		power-domains = <&ps_sio_p>;
-+		apple,always-on; /* Core device */
-+	};
-+
-+	ps_hsicphy: power-controller@80128 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80128 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "hsicphy";
-+		power-domains = <&ps_usb2host1>;
-+	};
-+
-+	ps_ispsens0: power-controller@80130 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80130 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "ispsens0";
-+	};
-+
-+	ps_ispsens1: power-controller@80138 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80138 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "ispsens1";
-+	};
-+
-+	ps_ispsens2: power-controller@80140 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80140 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "ispsens2";
-+	};
-+
-+	ps_mca5: power-controller@80198 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80198 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mca5";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_usb: power-controller@80270 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80270 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usb";
-+	};
-+
-+	ps_usbctlreg: power-controller@80278 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80278 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usbctlreg";
-+		power-domains = <&ps_usb>;
-+	};
-+
-+	ps_usb2host0: power-controller@80280 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80280 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usb2host0";
-+		power-domains = <&ps_usbctlreg>;
-+	};
-+
-+	ps_usb2host1: power-controller@80290 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80290 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usb2host1";
-+		power-domains = <&ps_usbctlreg>;
-+	};
-+
-+	ps_rtmux: power-controller@802b0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802b0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "rtmux";
-+	};
-+
-+	ps_media: power-controller@802f0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802f0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "media";
-+	};
-+
-+	ps_jpg: power-controller@802f8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802f8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "jpg";
-+		power-domains = <&ps_media>;
-+	};
-+
-+	ps_disp0_fe: power-controller@802b8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802b8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_fe";
-+		power-domains = <&ps_rtmux>;
-+	};
-+
-+	ps_disp0_be: power-controller@802c0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802c0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_be";
-+		power-domains = <&ps_disp0_fe>;
-+	};
-+
-+	ps_disp0_gp: power-controller@802c8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802c8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_gp";
-+		power-domains = <&ps_disp0_be>;
-+		status = "disabled";
-+	};
-+
-+	ps_uart3: power-controller@80200 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80200 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart3";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart4: power-controller@80208 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80208 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart4";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart5: power-controller@80210 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80210 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart5";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart6: power-controller@80218 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80218 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart6";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart7: power-controller@80220 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80220 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart7";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_uart8: power-controller@80228 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80228 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "uart8";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_hfd0: power-controller@80238 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80238 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "hfd0";
-+		power-domains = <&ps_sio_p>;
-+	};
-+
-+	ps_mcc: power-controller@80248 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80248 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mcc";
-+		apple,always-on; /* Memory cache controller */
-+	};
-+
-+	ps_dcs0: power-controller@80250 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80250 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dcs0";
-+		apple,always-on; /* LPDDR4X interface */
-+	};
-+
-+	ps_dcs1: power-controller@80258 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80258 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dcs1";
-+		apple,always-on; /* LPDDR4X interface */
-+	};
-+
-+	ps_dcs2: power-controller@80260 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80260 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dcs2";
-+		apple,always-on; /* LPDDR4X interface */
-+	};
-+
-+	ps_dcs3: power-controller@80268 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80268 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dcs3";
-+		apple,always-on; /* LPDDR4X interface */
-+	};
-+
-+	ps_usb2host0_ohci: power-controller@80288 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80288 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usb2host0_ohci";
-+		power-domains = <&ps_usb2host0>;
-+	};
-+
-+	ps_usb2dev: power-controller@80298 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80298 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "usb2dev";
-+		power-domains = <&ps_usbctlreg>;
-+	};
-+
-+	ps_smx: power-controller@802a0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802a0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "smx";
-+		apple,always-on; /* Apple fabric, critical block */
-+	};
-+
-+	ps_sf: power-controller@802a8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802a8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sf";
-+		apple,always-on; /* Apple fabric, critical block */
-+	};
-+
-+	ps_mipi_dsi: power-controller@802d8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802d8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "mipi_dsi";
-+		power-domains = <&ps_rtmux>;
-+	};
-+
-+	ps_dp: power-controller@802e0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802e0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dp";
-+		power-domains = <&ps_disp0_be>;
-+	};
-+
-+	ps_dpa: power-controller@80230 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80230 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dpa";
-+	};
-+
-+	ps_disp0_be_2x: power-controller@802d0 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x802d0 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_be_2x";
-+		power-domains = <&ps_disp0_be>;
-+	};
-+
-+	ps_isp_sys: power-controller@80350 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80350 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_sys";
-+		power-domains = <&ps_rtmux>;
-+	};
-+
-+	ps_msr: power-controller@80300 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80300 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "msr";
-+		power-domains = <&ps_media>;
-+	};
-+
-+	ps_venc_sys: power-controller@80398 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80398 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_sys";
-+		power-domains = <&ps_media>;
-+	};
-+
-+	ps_pmp: power-controller@80308 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80308 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pmp";
-+	};
-+
-+	ps_pms_sram: power-controller@80310 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80310 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pms_sram";
-+	};
-+
-+	ps_pcie: power-controller@80318 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80318 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pcie";
-+	};
-+
-+	ps_pcie_aux: power-controller@80320 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80320 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pcie_aux";
-+	};
-+
-+	ps_vdec0: power-controller@80388 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80388 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "vdec0";
-+		power-domains = <&ps_media>;
-+	};
-+
-+	ps_gfx: power-controller@80338 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80338 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "gfx";
-+	};
-+
-+	ps_ans2: power-controller@80328 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80328 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "ans2";
-+		apple,always-on;
-+	};
-+
-+	ps_pcie_direct: power-controller@80330 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80330 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "pcie_direct";
-+		apple,always-on;
-+	};
-+
-+	ps_avd_sys: power-controller@803a8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x803a8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "avd_sys";
-+		power-domains = <&ps_media>;
-+	};
-+
-+	ps_sep: power-controller@80400 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80400 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "sep";
-+		apple,always-on; /* Locked on */
-+	};
-+
-+	ps_disp0_gp0: power-controller@80830 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80830 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_gp0";
-+		power-domains = <&ps_disp0_gp>;
-+		status = "disabled";
-+	};
-+
-+	ps_disp0_gp1: power-controller@80838 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80838 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_gp1";
-+		status = "disabled";
-+	};
-+
-+	ps_disp0_ppp: power-controller@80840 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80840 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_ppp";
-+	};
-+
-+	ps_disp0_hilo: power-controller@80848 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80848 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "disp0_hilo";
-+	};
-+
-+	ps_isp_rsts0: power-controller@84000 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84000 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_rsts0";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_isp_rsts1: power-controller@84008 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84008 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_rsts1";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_isp_vis: power-controller@84010 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84010 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_vis";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_isp_be: power-controller@84018 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84018 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_be";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_isp_pearl: power-controller@84020 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84020 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_pearl";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_dprx: power-controller@84028 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84028 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "dprx";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_isp_cnv: power-controller@84030 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x84030 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "isp_cnv";
-+		power-domains = <&ps_isp_sys>;
-+	};
-+
-+	ps_venc_dma: power-controller@88000 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x88000 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_dma";
-+	};
-+
-+	ps_venc_pipe4: power-controller@88010 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x88010 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_pipe4";
-+	};
-+
-+	ps_venc_pipe5: power-controller@88018 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x88018 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_pipe5";
-+	};
-+
-+	ps_venc_me0: power-controller@88020 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x88020 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_me0";
-+	};
-+
-+	ps_venc_me1: power-controller@88028 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x88028 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "venc_me1";
-+	};
-+};
-+
-+&pmgr_mini {
-+	ps_aop_base: power-controller@80008 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80008 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "aop_base";
-+		power-domains = <&ps_aop_cpu &ps_aop_filter>;
-+		apple,always-on; /* Always on processor */
-+	};
-+
-+	ps_debug: power-controller@80050 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80050 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "debug";
-+	};
-+
-+	ps_aop_cpu: power-controller@80020 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80020 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "aop_cpu";
-+	};
-+
-+	ps_aop_filter: power-controller@80000 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80000 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "aop_filter";
-+	};
-+
-+	ps_spmi: power-controller@80058 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80058 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "spmi";
-+	};
-+
-+	ps_smc_i2cm1: power-controller@800a8 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x800a8 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "smc_i2cm1";
-+	};
-+
-+	ps_smc_fabric: power-controller@80030 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80030 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "smc_fabric";
-+	};
-+
-+	ps_smc_cpu: power-controller@80140 {
-+		compatible = "apple,t8015-pmgr-pwrstate", "apple,pmgr-pwrstate";
-+		reg = <0x80140 4>;
-+		#power-domain-cells = <0>;
-+		#reset-cells = <0>;
-+		label = "smc_cpu";
-+		power-domains = <&ps_smc_fabric &ps_smc_i2cm1>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8015.dtsi b/arch/arm64/boot/dts/apple/t8015.dtsi
-index 8828d830e5be..fbff3a6c0ba4 100644
---- a/arch/arm64/boot/dts/apple/t8015.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8015.dtsi
-@@ -119,6 +119,7 @@ serial0: serial@22e600000 {
- 			/* Use the bootloader-enabled clocks for now. */
- 			clocks = <&clkref>, <&clkref>;
- 			clock-names = "uart", "clk_uart_baud0";
-+			power-domains = <&ps_uart0>;
- 			status = "disabled";
- 		};
+diff --git a/arch/alpha/kernel/irq.c b/arch/alpha/kernel/irq.c
+index c67047c5d830..0dbb8d3ed647 100644
+--- a/arch/alpha/kernel/irq.c
++++ b/arch/alpha/kernel/irq.c
+@@ -72,14 +72,14 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 	int j;
  
-@@ -127,11 +128,21 @@ aic: interrupt-controller@232100000 {
- 			reg = <0x2 0x32100000 0x0 0x8000>;
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
-+			power-domains = <&ps_aic>;
-+		};
-+
-+		pmgr: power-management@232000000 {
-+			compatible = "apple,t8015-pmgr", "apple,pmgr", "syscon", "simple-mfd";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			reg = <0x2 0x32000000 0 0x8c000>;
- 		};
+ #ifdef CONFIG_SMP
+-	seq_puts(p, "IPI: ");
++	seq_puts(p, "IPI:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10lu ", cpu_data[j].ipi_count);
++		seq_put_decimal_ull_width(p, " ", cpu_data[j].ipi_count, 10);
+ 	seq_putc(p, '\n');
+ #endif
+-	seq_puts(p, "PMI: ");
++	seq_puts(p, "PMI:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10lu ", per_cpu(irq_pmi_count, j));
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_pmi_count, j), 10);
+ 	seq_puts(p, "          Performance Monitoring\n");
+ 	seq_printf(p, "ERR: %10lu\n", irq_err_count);
+ 	return 0;
+diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
+index 3431c0553f45..1b0680477ae1 100644
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -551,10 +551,10 @@ void show_ipi_list(struct seq_file *p, int prec)
+ 		if (!ipi_desc[i])
+ 			continue;
  
- 		pinctrl_ap: pinctrl@233100000 {
- 			compatible = "apple,t8015-pinctrl", "apple,pinctrl";
- 			reg = <0x2 0x33100000 0x0 0x1000>;
-+			power-domains = <&ps_gpio>;
+-		seq_printf(p, "%*s%u: ", prec - 1, "IPI", i);
++		seq_printf(p, "%*s%u:", prec - 1, "IPI", i);
  
- 			gpio-controller;
- 			#gpio-cells = <2>;
-@@ -188,6 +199,14 @@ pinctrl_nub: pinctrl@2351f0000 {
- 				     <AIC_IRQ 170 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
++			seq_put_decimal_ull_width(p, " ", irq_desc_kstat_cpu(ipi_desc[i], cpu), 10);
  
-+		pmgr_mini: power-management@235200000 {
-+			compatible = "apple,t8015-pmgr", "apple,pmgr", "syscon", "simple-mfd";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			reg = <0x2 0x35200000 0 0x84000>;
-+		};
-+
- 		wdt: watchdog@2352b0000 {
- 			compatible = "apple,t8015-wdt", "apple,wdt";
- 			reg = <0x2 0x352b0000 0x0 0x4000>;
-@@ -232,3 +251,5 @@ timer {
- 			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
- 	};
- };
-+
-+#include "t8015-pmgr.dtsi"
+ 		seq_printf(p, " %s\n", ipi_types[i]);
+ 	}
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..35734a30ed8d 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -844,7 +844,8 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
+ 			   prec >= 4 ? " " : "");
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
++			seq_put_decimal_ull_width(p, " ",
++						  irq_desc_kstat_cpu(ipi_desc[i], cpu), 10);
+ 		seq_printf(p, "      %s\n", ipi_types[i]);
+ 	}
+ 
+diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
+index 92dbbf3e0205..65f399afc3f0 100644
+--- a/arch/csky/kernel/smp.c
++++ b/arch/csky/kernel/smp.c
+@@ -112,8 +112,8 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
+ 			   prec >= 4 ? " " : "");
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, "%10lu ",
+-				per_cpu_ptr(&ipi_data, cpu)->stats[i]);
++			seq_put_decimal_ull_width(p, " ",
++						  per_cpu_ptr(&ipi_data, cpu)->stats[i], 10);
+ 		seq_printf(p, " %s\n", ipi_names[i]);
+ 	}
+ 
+diff --git a/arch/loongarch/kernel/smp.c b/arch/loongarch/kernel/smp.c
+index 9afc2d8b3414..86664adfb3cf 100644
+--- a/arch/loongarch/kernel/smp.c
++++ b/arch/loongarch/kernel/smp.c
+@@ -82,7 +82,7 @@ void show_ipi_list(struct seq_file *p, int prec)
+ 	for (i = 0; i < NR_IPI; i++) {
+ 		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i, prec >= 4 ? " " : "");
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, "%10u ", per_cpu(irq_stat, cpu).ipi_irqs[i]);
++			seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, cpu).ipi_irqs[i], 10);
+ 		seq_printf(p, " LoongArch  %d  %s\n", i + 1, ipi_types[i]);
+ 	}
+ }
+diff --git a/arch/parisc/kernel/irq.c b/arch/parisc/kernel/irq.c
+index dff66be65d29..b060d7e6da46 100644
+--- a/arch/parisc/kernel/irq.c
++++ b/arch/parisc/kernel/irq.c
+@@ -133,40 +133,42 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 	int j;
+ 
+ #ifdef CONFIG_DEBUG_STACKOVERFLOW
+-	seq_printf(p, "%*s: ", prec, "STK");
++	seq_printf(p, "%*s:", prec, "STK");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->kernel_stack_usage);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->kernel_stack_usage, 10);
+ 	seq_puts(p, "  Kernel stack usage\n");
+ # ifdef CONFIG_IRQSTACKS
+-	seq_printf(p, "%*s: ", prec, "IST");
++	seq_printf(p, "%*s:", prec, "IST");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_stack_usage);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_stack_usage, 10);
+ 	seq_puts(p, "  Interrupt stack usage\n");
+ # endif
+ #endif
+ #ifdef CONFIG_SMP
+ 	if (num_online_cpus() > 1) {
+-		seq_printf(p, "%*s: ", prec, "RES");
++		seq_printf(p, "%*s:", prec, "RES");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", irq_stats(j)->irq_resched_count);
++			seq_put_decimal_ull_width(p, " ",
++						  irq_stats(j)->irq_resched_count, 10);
+ 		seq_puts(p, "  Rescheduling interrupts\n");
+-		seq_printf(p, "%*s: ", prec, "CAL");
++		seq_printf(p, "%*s:", prec, "CAL");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", irq_stats(j)->irq_call_count);
++			seq_put_decimal_ull_width(p, " ",
++						  irq_stats(j)->irq_call_count, 10);
+ 		seq_puts(p, "  Function call interrupts\n");
+ 	}
+ #endif
+-	seq_printf(p, "%*s: ", prec, "UAH");
++	seq_printf(p, "%*s:", prec, "UAH");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_unaligned_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_unaligned_count, 10);
+ 	seq_puts(p, "  Unaligned access handler traps\n");
+-	seq_printf(p, "%*s: ", prec, "FPA");
++	seq_printf(p, "%*s:", prec, "FPA");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_fpassist_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_fpassist_count, 10);
+ 	seq_puts(p, "  Floating point assist traps\n");
+-	seq_printf(p, "%*s: ", prec, "TLB");
++	seq_printf(p, "%*s:", prec, "TLB");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_tlb_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_tlb_count, 10);
+ 	seq_puts(p, "  TLB shootdowns\n");
+ 	return 0;
+ }
+@@ -195,10 +197,10 @@ int show_interrupts(struct seq_file *p, void *v)
+ 		action = desc->action;
+ 		if (!action)
+ 			goto skip;
+-		seq_printf(p, "%3d: ", i);
++		seq_printf(p, "%3d:", i);
+ 
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", irq_desc_kstat_cpu(desc, j));
++			seq_put_decimal_ull_width(p, " ", irq_desc_kstat_cpu(desc, j), 10);
+ 
+ 		seq_printf(p, " %14s", irq_desc_get_chip(desc)->name);
+ #ifndef PARISC_IRQ_CR16_COUNTS
+diff --git a/arch/powerpc/kernel/irq.c b/arch/powerpc/kernel/irq.c
+index 2e1600a8bbbb..a0e8b998c9b5 100644
+--- a/arch/powerpc/kernel/irq.c
++++ b/arch/powerpc/kernel/irq.c
+@@ -89,69 +89,69 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 
+ #if defined(CONFIG_PPC32) && defined(CONFIG_TAU_INT)
+ 	if (tau_initialized) {
+-		seq_printf(p, "%*s: ", prec, "TAU");
++		seq_printf(p, "%*s:", prec, "TAU");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", tau_interrupts(j));
++			seq_put_decimal_ull_width(p, " ", tau_interrupts(j), 10);
+ 		seq_puts(p, "  PowerPC             Thermal Assist (cpu temp)\n");
+ 	}
+ #endif /* CONFIG_PPC32 && CONFIG_TAU_INT */
+ 
+-	seq_printf(p, "%*s: ", prec, "LOC");
++	seq_printf(p, "%*s:", prec, "LOC");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).timer_irqs_event);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).timer_irqs_event, 10);
+         seq_printf(p, "  Local timer interrupts for timer event device\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "BCT");
++	seq_printf(p, "%*s:", prec, "BCT");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).broadcast_irqs_event);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).broadcast_irqs_event, 10);
+ 	seq_printf(p, "  Broadcast timer interrupts for timer event device\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "LOC");
++	seq_printf(p, "%*s:", prec, "LOC");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).timer_irqs_others);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).timer_irqs_others, 10);
+         seq_printf(p, "  Local timer interrupts for others\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "SPU");
++	seq_printf(p, "%*s:", prec, "SPU");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).spurious_irqs);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).spurious_irqs, 10);
+ 	seq_printf(p, "  Spurious interrupts\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "PMI");
++	seq_printf(p, "%*s:", prec, "PMI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).pmu_irqs);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).pmu_irqs, 10);
+ 	seq_printf(p, "  Performance monitoring interrupts\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "MCE");
++	seq_printf(p, "%*s:", prec, "MCE");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).mce_exceptions);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).mce_exceptions, 10);
+ 	seq_printf(p, "  Machine check exceptions\n");
+ 
+ #ifdef CONFIG_PPC_BOOK3S_64
+ 	if (cpu_has_feature(CPU_FTR_HVMODE)) {
+-		seq_printf(p, "%*s: ", prec, "HMI");
++		seq_printf(p, "%*s:", prec, "HMI");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", paca_ptrs[j]->hmi_irqs);
++			seq_put_decimal_ull_width(p, " ", paca_ptrs[j]->hmi_irqs, 10);
+ 		seq_printf(p, "  Hypervisor Maintenance Interrupts\n");
+ 	}
+ #endif
+ 
+-	seq_printf(p, "%*s: ", prec, "NMI");
++	seq_printf(p, "%*s:", prec, "NMI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).sreset_irqs);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).sreset_irqs, 10);
+ 	seq_printf(p, "  System Reset interrupts\n");
+ 
+ #ifdef CONFIG_PPC_WATCHDOG
+-	seq_printf(p, "%*s: ", prec, "WDG");
++	seq_printf(p, "%*s:", prec, "WDG");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat, j).soft_nmi_irqs);
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).soft_nmi_irqs, 10);
+ 	seq_printf(p, "  Watchdog soft-NMI interrupts\n");
+ #endif
+ 
+ #ifdef CONFIG_PPC_DOORBELL
+ 	if (cpu_has_feature(CPU_FTR_DBELL)) {
+-		seq_printf(p, "%*s: ", prec, "DBL");
++		seq_printf(p, "%*s:", prec, "DBL");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", per_cpu(irq_stat, j).doorbell_irqs);
++			seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat, j).doorbell_irqs, 10);
+ 		seq_printf(p, "  Doorbell interrupts\n");
+ 	}
+ #endif
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index c180a647a30e..f1e9c3db094c 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -226,7 +226,8 @@ void show_ipi_stats(struct seq_file *p, int prec)
+ 		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
+ 			   prec >= 4 ? " " : "");
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
++			seq_put_decimal_ull_width(p, " ",
++						  irq_desc_kstat_cpu(ipi_desc[i], cpu), 10);
+ 		seq_printf(p, " %s\n", ipi_names[i]);
+ 	}
+ }
+diff --git a/arch/sh/kernel/irq.c b/arch/sh/kernel/irq.c
+index 4e6835de54cf..9022d8af9d68 100644
+--- a/arch/sh/kernel/irq.c
++++ b/arch/sh/kernel/irq.c
+@@ -43,9 +43,9 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	int j;
+ 
+-	seq_printf(p, "%*s: ", prec, "NMI");
++	seq_printf(p, "%*s:", prec, "NMI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(irq_stat.__nmi_count, j));
++		seq_put_decimal_ull_width(p, " ", per_cpu(irq_stat.__nmi_count, j), 10);
+ 	seq_printf(p, "  Non-maskable interrupts\n");
+ 
+ 	seq_printf(p, "%*s: %10u\n", prec, "ERR", atomic_read(&irq_err_count));
+diff --git a/arch/sparc/kernel/irq_32.c b/arch/sparc/kernel/irq_32.c
+index 8605dd710f3c..5210991429d5 100644
+--- a/arch/sparc/kernel/irq_32.c
++++ b/arch/sparc/kernel/irq_32.c
+@@ -199,18 +199,18 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 	int j;
+ 
+ #ifdef CONFIG_SMP
+-	seq_printf(p, "RES: ");
++	seq_printf(p, "RES:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", cpu_data(j).irq_resched_count);
++		seq_put_decimal_ull_width(p, " ", cpu_data(j).irq_resched_count, 10);
+ 	seq_printf(p, "     IPI rescheduling interrupts\n");
+-	seq_printf(p, "CAL: ");
++	seq_printf(p, "CAL:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", cpu_data(j).irq_call_count);
++		seq_put_decimal_ull_width(p, " ", cpu_data(j).irq_call_count, 10);
+ 	seq_printf(p, "     IPI function call interrupts\n");
+ #endif
+-	seq_printf(p, "NMI: ");
++	seq_printf(p, "NMI:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", cpu_data(j).counter);
++		seq_put_decimal_ull_width(p, " ", cpu_data(j).counter, 10);
+ 	seq_printf(p, "     Non-maskable interrupts\n");
+ 	return 0;
+ }
+diff --git a/arch/sparc/kernel/irq_64.c b/arch/sparc/kernel/irq_64.c
+index 01ee800efde3..9ab6e79b617b 100644
+--- a/arch/sparc/kernel/irq_64.c
++++ b/arch/sparc/kernel/irq_64.c
+@@ -304,9 +304,9 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	int j;
+ 
+-	seq_printf(p, "NMI: ");
++	seq_printf(p, "NMI:");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", cpu_data(j).__nmi_count);
++		seq_put_decimal_ull_width(p, " ", cpu_data(j).__nmi_count, 10);
+ 	seq_printf(p, "     Non-maskable interrupts\n");
+ 	return 0;
+ }
+diff --git a/arch/x86/kernel/irq.c b/arch/x86/kernel/irq.c
+index 385e3a5fc304..66cc8f001bd0 100644
+--- a/arch/x86/kernel/irq.c
++++ b/arch/x86/kernel/irq.c
+@@ -62,103 +62,103 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	int j;
+ 
+-	seq_printf(p, "%*s: ", prec, "NMI");
++	seq_printf(p, "%*s:", prec, "NMI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->__nmi_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->__nmi_count, 10);
+ 	seq_puts(p, "  Non-maskable interrupts\n");
+ #ifdef CONFIG_X86_LOCAL_APIC
+-	seq_printf(p, "%*s: ", prec, "LOC");
++	seq_printf(p, "%*s:", prec, "LOC");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->apic_timer_irqs);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->apic_timer_irqs, 10);
+ 	seq_puts(p, "  Local timer interrupts\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "SPU");
++	seq_printf(p, "%*s:", prec, "SPU");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_spurious_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_spurious_count, 10);
+ 	seq_puts(p, "  Spurious interrupts\n");
+-	seq_printf(p, "%*s: ", prec, "PMI");
++	seq_printf(p, "%*s:", prec, "PMI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->apic_perf_irqs);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->apic_perf_irqs, 10);
+ 	seq_puts(p, "  Performance monitoring interrupts\n");
+-	seq_printf(p, "%*s: ", prec, "IWI");
++	seq_printf(p, "%*s:", prec, "IWI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->apic_irq_work_irqs);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->apic_irq_work_irqs, 10);
+ 	seq_puts(p, "  IRQ work interrupts\n");
+-	seq_printf(p, "%*s: ", prec, "RTR");
++	seq_printf(p, "%*s:", prec, "RTR");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->icr_read_retry_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->icr_read_retry_count, 10);
+ 	seq_puts(p, "  APIC ICR read retries\n");
+ 	if (x86_platform_ipi_callback) {
+-		seq_printf(p, "%*s: ", prec, "PLT");
++		seq_printf(p, "%*s:", prec, "PLT");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ", irq_stats(j)->x86_platform_ipis);
++			seq_put_decimal_ull_width(p, " ", irq_stats(j)->x86_platform_ipis, 10);
+ 		seq_puts(p, "  Platform interrupts\n");
+ 	}
+ #endif
+ #ifdef CONFIG_SMP
+-	seq_printf(p, "%*s: ", prec, "RES");
++	seq_printf(p, "%*s:", prec, "RES");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_resched_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_resched_count, 10);
+ 	seq_puts(p, "  Rescheduling interrupts\n");
+-	seq_printf(p, "%*s: ", prec, "CAL");
++	seq_printf(p, "%*s:", prec, "CAL");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_call_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_call_count, 10);
+ 	seq_puts(p, "  Function call interrupts\n");
+-	seq_printf(p, "%*s: ", prec, "TLB");
++	seq_printf(p, "%*s:", prec, "TLB");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_tlb_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_tlb_count, 10);
+ 	seq_puts(p, "  TLB shootdowns\n");
+ #endif
+ #ifdef CONFIG_X86_THERMAL_VECTOR
+-	seq_printf(p, "%*s: ", prec, "TRM");
++	seq_printf(p, "%*s:", prec, "TRM");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_thermal_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_thermal_count, 10);
+ 	seq_puts(p, "  Thermal event interrupts\n");
+ #endif
+ #ifdef CONFIG_X86_MCE_THRESHOLD
+-	seq_printf(p, "%*s: ", prec, "THR");
++	seq_printf(p, "%*s:", prec, "THR");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_threshold_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_threshold_count, 10);
+ 	seq_puts(p, "  Threshold APIC interrupts\n");
+ #endif
+ #ifdef CONFIG_X86_MCE_AMD
+-	seq_printf(p, "%*s: ", prec, "DFR");
++	seq_printf(p, "%*s:", prec, "DFR");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->irq_deferred_error_count);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->irq_deferred_error_count, 10);
+ 	seq_puts(p, "  Deferred Error APIC interrupts\n");
+ #endif
+ #ifdef CONFIG_X86_MCE
+-	seq_printf(p, "%*s: ", prec, "MCE");
++	seq_printf(p, "%*s:", prec, "MCE");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(mce_exception_count, j));
++		seq_put_decimal_ull_width(p, " ", per_cpu(mce_exception_count, j), 10);
+ 	seq_puts(p, "  Machine check exceptions\n");
+-	seq_printf(p, "%*s: ", prec, "MCP");
++	seq_printf(p, "%*s:", prec, "MCP");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", per_cpu(mce_poll_count, j));
++		seq_put_decimal_ull_width(p, " ", per_cpu(mce_poll_count, j), 10);
+ 	seq_puts(p, "  Machine check polls\n");
+ #endif
+ #ifdef CONFIG_X86_HV_CALLBACK_VECTOR
+ 	if (test_bit(HYPERVISOR_CALLBACK_VECTOR, system_vectors)) {
+-		seq_printf(p, "%*s: ", prec, "HYP");
++		seq_printf(p, "%*s:", prec, "HYP");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ",
+-				   irq_stats(j)->irq_hv_callback_count);
++			seq_put_decimal_ull_width(p, " ",
++						  irq_stats(j)->irq_hv_callback_count, 10);
+ 		seq_puts(p, "  Hypervisor callback interrupts\n");
+ 	}
+ #endif
+ #if IS_ENABLED(CONFIG_HYPERV)
+ 	if (test_bit(HYPERV_REENLIGHTENMENT_VECTOR, system_vectors)) {
+-		seq_printf(p, "%*s: ", prec, "HRE");
++		seq_printf(p, "%*s:", prec, "HRE");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ",
+-				   irq_stats(j)->irq_hv_reenlightenment_count);
++			seq_put_decimal_ull_width(p, " ",
++						  irq_stats(j)->irq_hv_reenlightenment_count, 10);
+ 		seq_puts(p, "  Hyper-V reenlightenment interrupts\n");
+ 	}
+ 	if (test_bit(HYPERV_STIMER0_VECTOR, system_vectors)) {
+-		seq_printf(p, "%*s: ", prec, "HVS");
++		seq_printf(p, "%*s:", prec, "HVS");
+ 		for_each_online_cpu(j)
+-			seq_printf(p, "%10u ",
+-				   irq_stats(j)->hyperv_stimer0_count);
++			seq_put_decimal_ull_width(p, " ",
++						  irq_stats(j)->hyperv_stimer0_count, 10);
+ 		seq_puts(p, "  Hyper-V stimer0 interrupts\n");
+ 	}
+ #endif
+@@ -167,28 +167,28 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 	seq_printf(p, "%*s: %10u\n", prec, "MIS", atomic_read(&irq_mis_count));
+ #endif
+ #if IS_ENABLED(CONFIG_KVM)
+-	seq_printf(p, "%*s: ", prec, "PIN");
++	seq_printf(p, "%*s:", prec, "PIN");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", irq_stats(j)->kvm_posted_intr_ipis);
++		seq_put_decimal_ull_width(p, " ", irq_stats(j)->kvm_posted_intr_ipis, 10);
+ 	seq_puts(p, "  Posted-interrupt notification event\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "NPI");
++	seq_printf(p, "%*s:", prec, "NPI");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ",
+-			   irq_stats(j)->kvm_posted_intr_nested_ipis);
++		seq_put_decimal_ull_width(p, " ",
++					  irq_stats(j)->kvm_posted_intr_nested_ipis, 10);
+ 	seq_puts(p, "  Nested posted-interrupt event\n");
+ 
+-	seq_printf(p, "%*s: ", prec, "PIW");
++	seq_printf(p, "%*s:", prec, "PIW");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ",
+-			   irq_stats(j)->kvm_posted_intr_wakeup_ipis);
++		seq_put_decimal_ull_width(p, " ",
++					  irq_stats(j)->kvm_posted_intr_wakeup_ipis, 10);
+ 	seq_puts(p, "  Posted-interrupt wakeup event\n");
+ #endif
+ #ifdef CONFIG_X86_POSTED_MSI
+-	seq_printf(p, "%*s: ", prec, "PMN");
++	seq_printf(p, "%*s:", prec, "PMN");
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ",
+-			   irq_stats(j)->posted_msi_notification_count);
++		seq_put_decimal_ull_width(p, " ",
++					  irq_stats(j)->posted_msi_notification_count, 10);
+ 	seq_puts(p, "  Posted MSI notification event\n");
+ #endif
+ 	return 0;
+diff --git a/arch/xtensa/kernel/irq.c b/arch/xtensa/kernel/irq.c
+index b1e410f6b5ab..c4f46989f9b7 100644
+--- a/arch/xtensa/kernel/irq.c
++++ b/arch/xtensa/kernel/irq.c
+@@ -58,7 +58,7 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ #if XTENSA_FAKE_NMI
+ 	seq_printf(p, "%*s:", prec, "NMI");
+ 	for_each_online_cpu(cpu)
+-		seq_printf(p, " %10lu", per_cpu(nmi_count, cpu));
++		seq_put_decimal_ull_width(p, " ", per_cpu(nmi_count, cpu), 10);
+ 	seq_puts(p, "   Non-maskable interrupts\n");
+ #endif
+ 	return 0;
+diff --git a/arch/xtensa/kernel/smp.c b/arch/xtensa/kernel/smp.c
+index 94a23f100726..71ec9eced8b9 100644
+--- a/arch/xtensa/kernel/smp.c
++++ b/arch/xtensa/kernel/smp.c
+@@ -453,8 +453,8 @@ void show_ipi_list(struct seq_file *p, int prec)
+ 	for (i = 0; i < IPI_MAX; ++i) {
+ 		seq_printf(p, "%*s:", prec, ipi_text[i].short_text);
+ 		for_each_online_cpu(cpu)
+-			seq_printf(p, " %10lu",
+-					per_cpu(ipi_data, cpu).ipi_count[i]);
++			seq_put_decimal_ull_width(p, " ",
++						  per_cpu(ipi_data, cpu).ipi_count[i], 10);
+ 		seq_printf(p, "   %s\n", ipi_text[i].long_text);
+ 	}
+ }
+diff --git a/kernel/irq/proc.c b/kernel/irq/proc.c
+index 9081ada81c3d..988ce781e813 100644
+--- a/kernel/irq/proc.c
++++ b/kernel/irq/proc.c
+@@ -494,9 +494,11 @@ int show_interrupts(struct seq_file *p, void *v)
+ 	if (!desc->action || irq_desc_is_chained(desc) || !desc->kstat_irqs)
+ 		goto outsparse;
+ 
+-	seq_printf(p, "%*d: ", prec, i);
++	seq_printf(p, "%*d:", prec, i);
+ 	for_each_online_cpu(j)
+-		seq_printf(p, "%10u ", desc->kstat_irqs ? per_cpu(desc->kstat_irqs->cnt, j) : 0);
++		seq_put_decimal_ull_width(p, " ",
++					  desc->kstat_irqs ? per_cpu(desc->kstat_irqs->cnt, j) : 0,
++					  10);
+ 
+ 	raw_spin_lock_irqsave(&desc->lock, flags);
+ 	if (desc->irq_data.chip) {
 -- 
-2.47.0
+2.39.2
 
 
