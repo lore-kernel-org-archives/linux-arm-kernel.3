@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D60D11180
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 16:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B04D11181
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 16:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3q7IWRD1gpOW1Lskvc4rjHRf5AbTOTI6oSgYSMbB074=; b=FGLBVSguLzxe0ZDpVh2TnepK/D
-	yzY3Rfp2Rj7j9k+dMYVkMVIM7ot6uJC/jJoc+jzLaaFEMAG6PNDDkwiUcwIFhgRb9b9LYcQb6k86+
-	BND8+FKMaxIbjFqP8F6Kwx/kt1N8Tv7A+nFzLCvhml/TX82f0fWsmsx9H/9LPv3Ds0LlYMsZ1ep6B
-	c9FFth6TQUEKTUANSvKCw0+Nkl39fFZxfQcMw81whD+HYjJ+xaqoYQ7pcStSnSdDUkwLAf9u/KLTD
-	Tdh+liXA1ywLA9vF3K8/ncTM9YNSxF3ep2XZ+CFEgig7PGgVHQ/Q1sq1V8Q5mZ9NdBlaew2d/9P8Q
-	l4SBhEtg==;
+	bh=je3uCAcHsGiyDOgvqOvzEM2tjCfi8IWbvFmZvz9katU=; b=f5II0vuKbyVCdoWbeiiYIP+c++
+	1n8np0w5RydBS1rQZ6NIv/K+OFZwMwMy8oBNNWRSrsiYxwm5Yi6qGWC2S1X7/vGVIDqQ4K/QPseXU
+	I+8jhpCih7WATu6x6C8sae5vqetSs7rrllV4JWX5epdmI4ko57eSyZbiq3c6RW5z8vwiXdcreykuL
+	FNfn4YekWoyXjAnJV9qdte46sU0W6wqh0jrv5uG7wdn9+UX4qSsB9Nl3FLU6PZ8sBM4+R6iLtaZ5J
+	ovHaWhXv4JogkQYMMqkEE6afjgNdf5dIcFhSeymf4aDGQ4XKSiym3VCAylBnvRxA3yH5C69iCU9ed
+	FDwoH/DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7dFK-0000000BgAc-1u7B;
-	Sun, 03 Nov 2024 16:14:34 +0000
+	id 1t7dPM-0000000BgwE-2PPC;
+	Sun, 03 Nov 2024 16:24:56 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7dCE-0000000BfuP-1OqB
+	id 1t7dNh-0000000Bgoa-2OSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 16:11:24 +0000
+	Sun, 03 Nov 2024 16:23:14 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id B0D134C745;
-	Sun,  3 Nov 2024 16:11:15 +0000 (UTC)
-Date: Sun, 3 Nov 2024 11:11:13 -0500
+	by a.peacevolution.org (Postfix) with ESMTPA id A69264C891;
+	Sun,  3 Nov 2024 16:23:10 +0000 (UTC)
+Date: Sun, 3 Nov 2024 11:23:08 -0500
 From: Aren <aren@peacevolution.org>
 To: Jonathan Cameron <jic23@kernel.org>
 Cc: Lars-Peter Clausen <lars@metafoo.de>, 
@@ -42,28 +42,28 @@ Cc: Lars-Peter Clausen <lars@metafoo.de>,
 	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 3/6] iio: light: stk3310: Implement vdd and leda
- supplies
-Message-ID: <cx5bvcqfabsptn37uzscooh73j73dsoqadmfaibzxrzjk3byx4@ofwu7qa6ht4f>
+Subject: Re: [PATCH v4 2/6] iio: light: stk3310: handle all remove logic with
+ devm callbacks
+Message-ID: <iyasbuxwpgqeeuaimcpnycrze3xg6u55uusfxnvy3i3k2ejy57@lbrrc7c3r4fx>
 References: <20241102195037.3013934-3-aren@peacevolution.org>
- <20241102195037.3013934-9-aren@peacevolution.org>
- <20241103112933.60f96f97@jic23-huawei>
+ <20241102195037.3013934-7-aren@peacevolution.org>
+ <20241103112208.233f7180@jic23-huawei>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241103112933.60f96f97@jic23-huawei>
+In-Reply-To: <20241103112208.233f7180@jic23-huawei>
 X-Spamd-Bar: /
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1730650277;
+	s=dkim; t=1730650991;
 	h=from:subject:date:message-id:to:cc:mime-version:content-type:in-reply-to:references;
-	bh=3q7IWRD1gpOW1Lskvc4rjHRf5AbTOTI6oSgYSMbB074=;
-	b=pLlGFQaC+RM79asWpic5KogsiEgd7rRKglcrwIATo9BlHDxXN1CfmqzAZDL+ATwdbmOjG5
-	pUiNx1bIU1/iU751En6NAr5vmzF7xDI64tGRkfacCUOIKoqq8QVCqJvvXKAuasXuQer4Jw
-	F9P2J+OeRh+nMCaavLqn3ENg6jl+zCc=
+	bh=je3uCAcHsGiyDOgvqOvzEM2tjCfi8IWbvFmZvz9katU=;
+	b=WmOQ1duWnvM+PHINwEcVOHgkXZK4Gu49qiTEWLXeIMTTD/95JdSpVS0QcU3as8OuqLbPA0
+	4vz3fZ7Jz7e2JgJIISbRBSCnHvGJhOECg4IO3GkWuibDZjDsncPb2JZgLwL/2Mah+Uj381
+	pqrN4ROz0kl2cw9L99XRu7qgNhuCrGc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_081122_471273_E9FC4584 
-X-CRM114-Status: GOOD (  23.26  )
+X-CRM114-CacheID: sfid-20241103_082313_708232_76294BBA 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 11:31:03AM +0000, Jonathan Cameron wrote:
-> On Sat,  2 Nov 2024 15:50:39 -0400
-> Aren Moynihan <aren@peacevolution.org> wrote:
+On Sun, Nov 03, 2024 at 11:22:08AM +0000, Jonathan Cameron wrote:
+> Hi Aren,
 > 
-> > The vdd and leda supplies must be powered on for the chip to function
-> > and can be powered off during system suspend.
-> > 
-> > This was originally based on a patch by Ondrej Jirman[1], but has been
-> > rewritten since.
-> > 
-> > 1: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82
-> > 
-> > Signed-off-by: Aren Moynihan <aren@peacevolution.org>
-> > ---
-> > 
-> > Notes:
-> >     Changes in v4:
-> >      - fix variable declaration order in stk3310_resume to match the rest of
-> >        the driver
+> > @@ -624,7 +640,7 @@ static int stk3310_probe(struct i2c_client *client)
+> >  	device_property_read_u32(&client->dev, "proximity-near-level",
+> >  				 &data->ps_near_level);
+> >  
+> > -	mutex_init(&data->lock);
+> > +	devm_mutex_init(&client->dev, &data->lock);
+> ret = devm_mutex_init()
+> if (ret)
+> 	return ret;
 > 
-> For this Andy was asking for consistency.  Generally we don't insist on a
-> particular ordering in IIO drivers, but we do prefer them to be the same.
-> Your new ordering is inconsistent between resume and suspend.  Whilst
-> existing code may be inconsistent, you can still pick most common ordering
-> and use that for your new code.
-> 
-> If the existing driver is inconsistent then feel free to tidy that up but
-> do it in a precursor patch so there is a consistent style for you to then
-> carry on.
+> It is very unlikely to fail but technically it can.  Andy has been fixing
+> this up across the kernel (including IIO) so let's not introduce another
+> case that doesn't check it!
 
-Oh right, the order of declarations in stk3310_suspend also needs to be
-flipped. Is that simple enough that you can fix it when applying this?
+Right, I'll take this as my periodic reminder to read the docs / types
+more carefully :)
 
-Apparently I was being dense, I checked the rest of the driver to see
-what it did (it's consistent about putting shorter lines & ones without
-an assignment first), and fixed the case Andy pointed out to match that,
-but failed to check the rest of the patch.
+> If nothing else comes up I can probably tidy that up whilst applying.
+
+That would be great
 
 Thanks
  - Aren
