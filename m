@@ -4,86 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49171E67816
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 01:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45C5E67816
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 01:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uxp0UfmCL60Fd3m2qKbpdlJKEAofjpqB2oYq88MXn/0=; b=ccC7dhi+kZf5mD
-	930MN6IFHR5AO5tj/yCvJdFoH4AHIXB1F8XCvv17yv5+sFXCLWjIlLKZaqo+CZbVhMQEULa8vMdIX
-	AT82x4D+VgzZb75bK1apArPUFSxLNhaBdYeSiChtMmFhK6LLYsfCYPLUPCiCSSFszdLyxI18EulWX
-	eBpG5ATvY/28Gdj7W2cIAvjiMNo0YDGCYyZjl+C3nsiaIfaZKxvv1GmzXpCI+X8QDzQiP9ly0Muk/
-	SToCp6hxRIESSszvIB/33As6dAyp2G5gln8RNGtOCcJmyZdjgvunV0+1Kc40OBWPzR0ZMgeKB18JU
-	2iWzxypnBGePsN+YiIvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=; b=gCiCe4ZSxzl9tS64EkyXxMGT/2
+	JNx1pmepS6ONJUsD8V3gF+6hqCPlz4yI3dd1EVYWb44qenePD+6fMPf69dqdwEyvQFHyBeI3GitP/
+	aEaeqI2VXk87B106DKd/mRmwHw724kqp4agR/glmCcVVB3u7CGkL0uX4iodEV9iolzC8Ej4pbXj0g
+	kA/GKtpaeXs7p00M06HXtpuuIvEzVyxWzdqWuvHmpb/kTXvNWrxJpOh3MJey3w1ce6G1Krp4Yi3/q
+	5JUC4rM4RDldHRTofwrxpdBIB87eOXdZFLUKxoWIBXW4pAGbmPOG7WtqCD++OqONJutE+RrcPkaHb
+	pR9FELHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7PNw-0000000Akf6-1mZQ;
-	Sun, 03 Nov 2024 01:26:32 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1t7PYv-0000000AlVa-1FeF;
+	Sun, 03 Nov 2024 01:37:53 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7PLs-0000000AkSm-1tJG;
-	Sun, 03 Nov 2024 01:24:47 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5ebc0dbc566so1584540eaf.3;
-        Sat, 02 Nov 2024 18:24:23 -0700 (PDT)
+	id 1t7PXF-0000000AlNX-0ay0
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Nov 2024 01:36:11 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A30q12J013166;
+	Sun, 3 Nov 2024 01:35:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=WKIh0P7Wk4GzYpq66s
+	e517Vwe8PTdU1rYR5bY9m4DDM=; b=kgwSof6V+y1v2xKwSzY+WRKeysusM2iJiS
+	OAEAUov6keJBKTQCARSx8j+5pPY2PfqSotPrWQ8AsqbM2Oi24cn84haE6B/Izhak
+	gSkJYrEAmlqkN/UNjXIie/SUUMpUEQb+yVfpC+AatpahFCQ3Kna6szFOZ7mYKds1
+	8jpAk3YkImXnyg+CnbcYf4XgejffPd16O5uuBbRanQqmkDwd4JKUCgvixZ/A+szi
+	pqzSIrhF2mwGuJ+I0M0Vp8XiOJvvf7ZifAO9eGV0pYQQM4hAYHOhg/kbo/tAnAj5
+	femHxCS2V8Xd6Iqcq1U0CufZC36PoUBakU+VL2gfFsLO2pU9tQrg==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 42nc4brpsr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 03 Nov 2024 01:35:36 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4A31UJQE008427;
+	Sun, 3 Nov 2024 01:35:35 GMT
+Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12lp2170.outbound.protection.outlook.com [104.47.55.170])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 42nah4jc6b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 03 Nov 2024 01:35:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tqPsD3kVkzSQr0Vghi6OYXHTgrdGpZ4w8BjexW853wf8z8T+q5p984aM63PlGBc8gCaQYd1dAIqJkSF95CMBrJrl/02HwsyqRZ3NadEgyA7hCX27d8jotge89/cVb5maFhB8jpE+4h7tAAvBidc6MXKThpTydlRD88+EWbee7TIE7aqRmSd4mwY5n9GlBmvBYtPXRwAOUy1UpWxfODkgXNrph9sdVYAZ/WRP8YyolPljXIDu1nXBZKy9GvLp1TchMfmebePi6jIC7nJlndtlBQ/r6KpaMEewxm/hZxXk83cMNuwEuVwy68Ik3YM49I6hyPevHSgjKurRz9XArZ3Jpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=;
+ b=CbmbOCfh2LReYuuZk6M/MySKhsg8PEU8kXvWvkx8ysrkhtrNt2oPC0WV0J7a4lxitiU/+5wuUzU2XPzmr/kLNok0tbvTCucQDbjiHAKKbdyOt2915AxOEtcyaFB3JfLXBi06qMVWZNFHX6swUFLCuHkCBlBaHDxPrwASWZ91aC2YqeZ6VUXB44vPCkopKK5Xy3K7O48PxQvocnFVONkMU7Y4V4FG97p4WHoR+6Qs2Lc1IIhAHuHl5fQ1hdxrW17jaD9Jxm+0hHuTgQBxG5N5iMIEa6BZsiS5zdgQJWb0jXOtkjrteG39kIMRM0kTegElDYFVexSI2FauSo1f6WNzCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730597063; x=1731201863; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=uxp0UfmCL60Fd3m2qKbpdlJKEAofjpqB2oYq88MXn/0=;
-        b=mMeewqhp9ArtIHNAQQTuBGC8HLFEFEWH8Ci7j8maLPjbH2ZHMz3QtFfML/m10Ch0aO
-         lOgrh7axzAG22Sd/YmJB/Oh4NlCwqMVWwavyyQYlBXbkq+errdVBKZwBKy3yrOf5tDt4
-         Q8u33HF5ltwVHSfPChq2R8elrnITDsxx1xNSWrtwcO2M/nlGpYYlxNF+AdlzJ+sh97ji
-         VGL9P8ziYKbU6KXDKw+bdwvT02m3WQK2tdDag8i2GpYdlsqIlkJgSS3PbJn2JaBz5u3s
-         Kfgt2nprHOSEXywg6Wj/9ysYS1xy7BWFbtksXLgR5iwPB3jceWP9rdAFuaoqhxPzVKNa
-         +DRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730597063; x=1731201863;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uxp0UfmCL60Fd3m2qKbpdlJKEAofjpqB2oYq88MXn/0=;
-        b=rRTU1vqBn3j/dcP2gPo+Vf3liI/Svjgt9OcQLs9uFcWAL9W7v2oQlRjdmc9523hwa/
-         5SMQg6pIAxiVb9SZ1hZwTEwekKxj4oR2CshfwEy5DUGdP7ZytiIGGfaVWpeluf2LAReF
-         HUryJHoYG84Cl8kiHbAddumSLvrQmuGM5JAlLrKTzV3io3GdXahM19khcMwsM+krd8+y
-         07fbbq0LeWOiLP//mfihTVIpjGEPTiHMumAD9ttDzGhJkY5JYObxLxH47tAnfopC3pnw
-         UJyoQmlF43pWiT5lufQs1yA4bl5v+tYZDP8IcAslahceZrE3fTTarOoi/aSCHCQIntAc
-         z3rw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsLBppiHamFVCpglpWvME4epxWbuI1PY18GlIVQIqbLejxzM0O8JZ2ZEkzxUqN8MaPgX5yt2o8KfmFq8tUbxei@lists.infradead.org, AJvYcCW2yvbC2jYghFh7PD35Es9NtP+MbZpxmc/Hjx+iz6r3MxhtVhcJwTNWB2AGfO+i53vpcZtChK0l8ZGkbhnu6P4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdvLu99z8G1bUDBb/gGp4YxOQLC17VJALs6KBd0osaS2eJWBtJ
-	1zUoORtaogNQEJLvLGd9QOegXNIXDG13LorFMwuALjHeEbia7Ql5o38qXcnDT7xk4sq46QTK+KJ
-	F6RWRCA3IR2Bk1BEv7BmCU1ioojE=
-X-Google-Smtp-Source: AGHT+IHkA/uqbEuZYTnMFlg/isXw5fHn6zLD8qPicsNST9YfPw0g6N91zDHGprQP9QF/ZJdy0tOlrdnkRHVEpJ5uXro=
-X-Received: by 2002:a05:6820:1885:b0:5ee:bb2:bdd4 with SMTP id
- 006d021491bc7-5ee0bb2c243mr292681eaf.1.1730597062621; Sat, 02 Nov 2024
- 18:24:22 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=;
+ b=OHcofF/LnkLaD2XgKSykPwbNb6VK/0em7bJx8QWzngEPIgSMSQ3RWOQIUNcLi9s5qFNB7swFzW0wBCO4PfK5mYtdldu5cRUraRXT+0oMaN3RugdIMR+0rhDJlmllcRi3JnCPrTuIxJA7vr+2nqq7yDettb2qWcvESmE7wv4/ig4=
+Received: from SN6PR10MB2957.namprd10.prod.outlook.com (2603:10b6:805:cb::19)
+ by MN2PR10MB4288.namprd10.prod.outlook.com (2603:10b6:208:1dc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.29; Sun, 3 Nov
+ 2024 01:35:32 +0000
+Received: from SN6PR10MB2957.namprd10.prod.outlook.com
+ ([fe80::72ff:b8f4:e34b:18c]) by SN6PR10MB2957.namprd10.prod.outlook.com
+ ([fe80::72ff:b8f4:e34b:18c%4]) with mapi id 15.20.8114.015; Sun, 3 Nov 2024
+ 01:35:32 +0000
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: alim.akhtar@samsung.com, James.Bottomley@HansenPartnership.com,
+        martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org,
+        krzk@kernel.org, tudor.ambarus@linaro.org, ebiggers@kernel.org,
+        andre.draszik@linaro.org, kernel-team@android.com,
+        willmcvicker@google.com, linux-scsi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 00/14] UFS cleanups and enhancements to ufs-exynos
+ for gs101
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+In-Reply-To: <20241031150033.3440894-1-peter.griffin@linaro.org> (Peter
+	Griffin's message of "Thu, 31 Oct 2024 15:00:19 +0000")
+Organization: Oracle Corporation
+Message-ID: <yq1wmhl6rp8.fsf@ca-mkp.ca.oracle.com>
+References: <20241031150033.3440894-1-peter.griffin@linaro.org>
+Date: Sat, 02 Nov 2024 21:35:30 -0400
+Content-Type: text/plain
+X-ClientProxiedBy: MN2PR14CA0022.namprd14.prod.outlook.com
+ (2603:10b6:208:23e::27) To SN6PR10MB2957.namprd10.prod.outlook.com
+ (2603:10b6:805:cb::19)
 MIME-Version: 1.0
-References: <20241031130930.5583-1-jinjian.song@fibocom.com> <20241031170428.GA1249507@bhelgaas>
-In-Reply-To: <20241031170428.GA1249507@bhelgaas>
-From: Linas Vepstas <linasvepstas@gmail.com>
-Date: Sat, 2 Nov 2024 20:24:10 -0500
-Message-ID: <CAHrUA36X2cMZ4WNtRO7NoLaupBNfecLLxDfSVZ4mZzbzHiDjRA@mail.gmail.com>
-Subject: Re: [net-next v2] net: wwan: t7xx: reset device if suspend fails
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Jinjian Song <jinjian.song@fibocom.com>, ryazanov.s.a@gmail.com, 
-	chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com, 
-	haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com, 
-	ricardo.martinez@linux.intel.com, loic.poulain@linaro.org, 
-	johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, angelogioacchino.delregno@collabora.com, 
-	bhelgaas@google.com, corbet@lwn.net, danielwinkler@google.com, 
-	korneld@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR10MB2957:EE_|MN2PR10MB4288:EE_
+X-MS-Office365-Filtering-Correlation-Id: 402ca391-e5f5-40ae-a16a-08dcfba7ceb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5SeNDM4/p3/bPjxfVtZhENzPOvF3AG7QxNjzcGpjx91wnlUDgapVarJtqrpt?=
+ =?us-ascii?Q?zihRa3dxg7Dti2pu/uvSABK+dBT+zZ+rvv9d6TqyOt4QuUYbQbXzWLOrLqtp?=
+ =?us-ascii?Q?IVyoBLgCHgJT6lzt4TsNfFp9UaicU5z/D6j6k2xE+q69pFREVdokVqxkFjVG?=
+ =?us-ascii?Q?FcvlgozHIlDP3nBgmJNpSmLET7Tv94GJPlhI09Zk+cKUH2xwDPCbJUkbAlSK?=
+ =?us-ascii?Q?Y7i1ARTkBviIAoFmzRCryiCmGahx5lqMOOby9rJXqZzFu3K5imgMx+Ex//wy?=
+ =?us-ascii?Q?rsFD8vH2Tet3cxeF/2iyD2vvE67visEBi20vhNsmS0MGNhZ6sDybl7w0rH5v?=
+ =?us-ascii?Q?7EwExpnXV2RHvnD892sBPpoQ4xDgitDHF1kHmugwWCmaQHuAIpdHcI8IoDUX?=
+ =?us-ascii?Q?yhpD3ypcvmQwOXLDUUpt1ZwDeijFqvzflr1iTCs656y3CdckwelOUosHLp5j?=
+ =?us-ascii?Q?+ecKTAuvI2t3zJaf3QFs8QJ36Yz5BM28/skiK2X49OHouaAUUenAvVIvZpqV?=
+ =?us-ascii?Q?FBp6Z3rsU6QcLf0cXMicSODff0D5dIhFQ+j59kOpGVpkZfYZg4XZTVWiXkBb?=
+ =?us-ascii?Q?E3S76wcdhmh++NuJZ3aKSsMykNKVoEd4ejUgb3TUj0p9TgwdKUWxRua+4OAY?=
+ =?us-ascii?Q?kLU0l1f92KPVYw4e81+NNsLdz9p+XqO7kSpwk665pdgAqgMtHQ3N/NO4Ji/Y?=
+ =?us-ascii?Q?mVcdxhnEDnVwJrrfTOwm6XDBYvmx5/yg5TQ+t7Wc0+lvWoMBphcYDA1w1axn?=
+ =?us-ascii?Q?w3YVxVwFAinWQdURfVI7pa+sOY7OMpFV+uJ6IrZiW9Ebd8rvVvS8w4bvkvJs?=
+ =?us-ascii?Q?w5xIFIMqkv+SLqdWXVXp3I+adZTo+6eN1m4C8fjNKjL2QculeYdFO7WzhhB2?=
+ =?us-ascii?Q?WR4QbtVY+9TCuf/NKH7+scvfifHexk5JomcA8NnQqM09Ne7GEY6m+NX7/dA2?=
+ =?us-ascii?Q?DlbkSFE9s26DHfOe2Ah5ZGJeF2G2XKI4el3M9e6VeA7FkJMP+LEdnvZ7Binj?=
+ =?us-ascii?Q?2l9oPMDrqLZAmHSCMewlIgY/waVsN8GVPlR+0r5QkjvScA386cdN8dB6m7Vn?=
+ =?us-ascii?Q?IlbhVlHvum0mdWtK0ladeBRhBBKq4BFKY6FjaFPRIIIrR2vznai/QZ0B6Ac2?=
+ =?us-ascii?Q?/KuQgK2a3gfEifJWAau6yhvp8AzD4x3FYOG1AwxfsU4y55EzzoKh2qY90hlt?=
+ =?us-ascii?Q?5fLUUq6Wtnc5OT9e9e+5IQ4wKE/Fru8BwMkLfHHGMof1xo/ePbciSjG8z+0I?=
+ =?us-ascii?Q?OrA8cnmi73gDHYHezTpHlMGXKHoIMKR3X8drFVaZyCfuKRWVgvw+nNw0nUSh?=
+ =?us-ascii?Q?/jnpVWmC0xY48BjDop/rvR5j?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR10MB2957.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O9bfavUb48xLVaO9VInjhBmN0Kq2tONxQv+/AKMz+RTvnHShFLyV0dZXR5Ky?=
+ =?us-ascii?Q?/S3Q3CVoOV2rykn0BLrv9FZEwCbsSMaajaDoU9Bl5jHv81bitE/8B50dMZ3T?=
+ =?us-ascii?Q?WyVZsh1awRAyuXTnLYGlpEaGMFCjeR8Fq5ToWiorGu1B7mi/iog/3pewbtnO?=
+ =?us-ascii?Q?lbsPKHrnLAFOoEmqfSIWH9MW0HCpnrGHvB9fTO0mvnMRsROX+IqZwzqPOgaj?=
+ =?us-ascii?Q?fZPe4PaQsOYEHOzlSGwZpd/DIn5MZcFhgFcGwF7q9VKH0Sv2ySQi54FThV18?=
+ =?us-ascii?Q?7/KJlI78icoGZwX7GDMVvRdV5/1PgOucIAki3Rj7vLOgajnbborFaOgiT9my?=
+ =?us-ascii?Q?GLvf5K8GkQTrCIhAn1zhaWk4LGuHQQobUb6ByhJqCBmjTkN/RoKBBNlDSIM+?=
+ =?us-ascii?Q?+JpY7dsZBgjQDm8mXNwz+DD/R8nCeOk6lVtZR/M22/1dBfzeGRtRMkEKX6jb?=
+ =?us-ascii?Q?wM5kXG1xiiB2ZNPGd3rb4QhILHMlgy/vtI2SrrCgw0orNYx9Tjg98AgVxv2P?=
+ =?us-ascii?Q?+fSFCt59FsNbc3ZFcyAevQw59iNJz+yslisVIQ/div38CZRYVdBU0hwN26ig?=
+ =?us-ascii?Q?1kKUA4q0XB7YpC8+NMXUDDUu8GCpc/N8OLshKjD0AvzWZ8hU5ejvYOJ3Yfj0?=
+ =?us-ascii?Q?vOsFxpos3shNpta5omLBio+zJLG27Zgk9AKZ7968eDa/iYVEYVxlbKlUXsHp?=
+ =?us-ascii?Q?lUujqbU0KnYmI0R4BHtgZjGhFDhnaBv1DxjJGde+pkpZK5EiDfrvT5LAJvU9?=
+ =?us-ascii?Q?W1lKAkhcoCQ/xaRNgprx5sSWOy9uZyZ7KyqUL28dY4N4DwzcQU3xrqnjJfgq?=
+ =?us-ascii?Q?Wf+PE9DZ8ZcVysEvicjy1c7+OKZe2UqHvPbfxc2ys2lJ9lBQ40o3Pmux0/79?=
+ =?us-ascii?Q?NaWTMUXN3haVvMV7/EDDgBr4VRZI+WfOTKY/T52d7Lin4KdFNRwCT3bN3V6y?=
+ =?us-ascii?Q?pU3GDozNAwaXhjCpr+aPHOA2tddAG8iz+Zlgu+4ucnWHHnVAh3gppx+zDiE0?=
+ =?us-ascii?Q?xnvyVLxMlx25AQFxDjsmEYJ/wM1Wnwd10Ed50WEEACF/t+2fDUAVFLpKF7D8?=
+ =?us-ascii?Q?M8rs0/3l+QsB5Lkanp4Jz1ybGuJMZqI4l3EWKYQLjNLc1Y39OHA8Y8KNCFKa?=
+ =?us-ascii?Q?G/LaoQzh4Dt+b1PXcQa26b2Y/v9oNaOxsU2RwCeUmzJyuVFXYGKYwRrdVFwV?=
+ =?us-ascii?Q?ekEeTPDszD/oFBgldhqyWtPL/NguwIUHORz/Tr58ICa4iXmBmW2NFrZg6KFs?=
+ =?us-ascii?Q?6SpsQT3A/u01PGT8hBVEWl9uM7CNiR+3+eZa9T27ms/krK5gSdxW+vS6hWqZ?=
+ =?us-ascii?Q?8R5W2gGvjnVW9QG1kN7OTclUMxozhQKpp85+C2QlWZ+Ou2CwoV9mJvV8TTYO?=
+ =?us-ascii?Q?y1DffQknrhJnB4++rXKaj2NqxUtkhIIOFlL2QIyjZLvev9chUQKBW/GvdlhZ?=
+ =?us-ascii?Q?6QHA9MOk1e0bkYSzgqS/MGMzcW1F8hSQXA3X6Sd0rrVyoXJUjtPKCdsRF8Kl?=
+ =?us-ascii?Q?ls5ykIKW/u9xH9ZGvLF82L1rXSKZT9L+/gLdNq3Z/FrEJ8eMvqCZ2XAAz0Yh?=
+ =?us-ascii?Q?0kTryMcFuIYMYUw9XAkFuF2oqlnI997K/70WHZvUWvH1ZOUDNzibwg/uwtIS?=
+ =?us-ascii?Q?Lw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: a8jvsJwEQH1zNWiE8yP+6YIBfasKkNWYpIagVk3Lsu+KLzcbknpJIgumoHauFjsJ4sZ+lK8ctdWtjVwDQR3fN6FsNKjECvXqjei5YWYZuF1ui4gjBjQK3XuxrqNFgr4XuxyKT75wM5SfKj4zDEc8f5Fzap+huKGMdj7wPEsrsxUAldWSKpNjqBpjrDrBmLajTUemXK1B5Lx14xDSrXjZ/S4EoCwzKyBo04apyLE59BB9hcwXJ2VD0kYaybQkKy54J+bcFLMe3HDxO7osXZL9Dd2h0okZ8lOvjP9l9Y17rH5fesyvBxasHmnUkUw0Hi+ztBQ0FwCYkcxpwpP3T5K4LikhSjdsqa9HRBdyUuGB/dGGl2VNbIdQEugDq0D/9TCu2woE21t7sA+1DNSTXSl6F67fqZUF4hJdC2RlrPzAljiDrV1sj0tAWsOB2wuZEYMPu/+2PdpPFF9OvnT6EaLNViAejfuCcR855+q/EO+Y/5mDyJVJJlBSPoHeo598J/ixQ/DH0qfu6tVU3UvN6VMERlBSxRBOPm9lV5HzDSJte3lkUlEDIJ3D5UfC7/+0S5nSMsixH0/GXCTJfZqKBpjktstSNLtH080IeLYjkejt9oI=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 402ca391-e5f5-40ae-a16a-08dcfba7ceb3
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR10MB2957.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2024 01:35:32.7379
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IJ5XrLhiJCmXsfi/a1fahlhbebBU4R12sOj+Gw1tuVFI/d1z5FXOilGWvo/e7/MyNLQ4qp+4/QwQ9N/1k3BcBYcY4hqquRaUtJu6caCdJiM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4288
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-11-02_24,2024-11-01_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=705 bulkscore=0 spamscore=0
+ adultscore=0 phishscore=0 suspectscore=0 malwarescore=0 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2409260000
+ definitions=main-2411030012
+X-Proofpoint-ORIG-GUID: cQV9Quqh63-U4luDuaaXln6Okgi5viCD
+X-Proofpoint-GUID: cQV9Quqh63-U4luDuaaXln6Okgi5viCD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_182424_540314_2AE8D7CC 
-X-CRM114-Status: GOOD (  51.72  )
+X-CRM114-CacheID: sfid-20241102_183609_410234_E0B6520C 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,165 +191,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: linasvepstas@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Top-post reply.
 
-What Bjorn says is exactly right. Just one clarifying remark: When PCI
-error recovery was designed, it was envisioned for high-end,
-high-availability servers so that they could reset a failing device
-without forcing a reboot of the OS.  Concepts like suspend/resume did
-not perturb even the unconscious sleep of the engineers. Thus,
-stepping through error recovery during suspend would be novel,
-untested, and perhaps prone to confusion. The error recovery procedure
-is trying to reset the device into a fully-powered-on,
-fully-functional and connected state. This might be problematic if the
-suspend has already walked half-way through power-down. The fact that
-error recovery might run a very long fraction of a second after the
-error is detected further complicates things. The fact that error
-recovery  usually has the driver fully reinitializing the device,
-including reloading the firmware, could be a problem if the firmware
-is not in RAM or is sitting on a suspended block device. So it all
-could be an adventure.
+Peter,
 
-As to testing: I asked one of the guys in the lab how he did it, and
-he said he would brush a metal wire against the PCI pins. I winced.
-But I guess it's cleaner than pouring coffee on it. Later we developed
-a software tool to artificially inject errors.
+> This series provides a few cleanups, bug fixes and feature
+> enhancements for the ufs-exynos driver, particularly for gs101 SoC.
 
---linas
+Patches 1 and 2 were missing your SoB tags. I took the liberty of adding
+these instead of having you resubmit. Please acknowledge that these two
+patches should have your SoB.
 
-On Fri, Nov 1, 2024 at 8:52=E2=80=AFAM Bjorn Helgaas <helgaas@kernel.org> w=
-rote:
->
-> On Thu, Oct 31, 2024 at 09:09:30PM +0800, Jinjian Song wrote:
-> > From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-> > > On 29.10.2024 05:46, Jinjian Song wrote:
-> > > > From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-> > > > > On 22.10.2024 11:43, Jinjian Song wrote:
-> > > > > > If driver fails to set the device to suspend, it means that the
-> > > > > > device is abnormal. In this case, reset the device to recover
-> > > > > > when PCIe device is offline.
-> > > > >
-> > > > > Is it a reproducible or a speculative issue? Does the fix
-> > > > > recover modem from a problematic state?
-> > > > >
-> > > > > Anyway we need someone more familiar with this hardware (Intel
-> > > > > or MediaTek engineer) to Ack the change to make sure we are not
-> > > > > going to put a system in a more complicated state.
-> > > >
-> > > > This is a very difficult issue to replicate onece occured and fixed=
-.
-> > > >
-> > > > The issue occured when driver and device lost the connection. I hav=
-e
-> > > > encountered this problem twice so far:
-> > > > 1. During suspend/resume stress test, there was a probabilistic D3L=
-2
-> > > > time sequence issue with the BIOS, result in PCIe link down, driver
-> > > > read and write the register of device invalid, so suspend failed.
-> > > > This issue was eventually fixed in the BIOS and I was able to resto=
-re
-> > > > it through the reset module after reproducing the problem.
-> > > >
-> > > > 2. During idle test, the modem probabilistic hang up, result in PCI=
-e
-> > > > link down, driver read and write the register of device invalid, so
-> > > > suspend failed. This issue was eventually fiex in device modem firm=
-ware
-> > > > by adjust a certain power supply voltage, and reset modem as a work=
-round
-> > > > to restore when the MBIM port command timeout in userspace applycat=
-ions.
-> > > >
-> > > > Hardware reset modem to recover was discussed with MTK, and they sa=
-id
-> > > > that if we don't want to keep the on-site problem location in case =
-of
-> > > > suspend failure, we can use the recover solution.
-> > > > Both the ocurred issues result in the PCIe link issue, driver can't
-> > > > read and writer the register of WWAN device, so I want to add this
-> > > > path
-> > > > to restore, hardware reset modem can recover modem, but using the
-> > > > pci_channle_offline() as the judgment is my inference.
-> > >
-> > > Thank you for the clarification. Let me summarize what I've understoo=
-d
-> > > from the explanation:
-> > > a) there were hardware (firmware) issues,
-> > > b) issues already were solved,
-> > > c) issues were not directly related to the device suspension procedur=
-e,
-> > > d) you want to implement a backup plan to make the modem support robu=
-st.
-> > >
-> > > If got it right, then I would like to recommend to implement a generi=
-c
-> > > error handling solution for the PCIe interface. You can check this
-> > > document: Documentation/PCI/pci-error-recovery.rst
-> >
-> > Yes, got it right.
-> > I want to identify the scenario and then recover by reset device,
-> > otherwise suspend failure will aways prevent the system from suspending
-> > if it occurs.
->
-> If a PCIe link goes down here's my understanding of what happens:
->
->   - Writes to the device are silently dropped.
->
->   - Reads from the device return ~0 (PCI_POSSIBLE_ERROR()).
->
->   - If the device is in a slot and pciehp is enabled, a Data Link
->     Layer State Changed interrupt will cause pciehp_unconfigure_device()
->     to detach the driver and remove the pci_dev.
->
->   - If AER is enabled, a failed access to the device will cause an AER
->     interrupt.  If the driver has registered pci_error_handlers, the
->     driver callbacks will be called, and based on what the driver
->     returns, the PCI core may reset the device.
->
-> The pciehp and AER interrupts are *asynchronous* to link down events
-> and to any driver access to the device, so they may be delayed an
-> arbitrary amount of time.
->
-> Both interrupt paths may lead to the device being marked as "offline".
-> Obviously this is asynchronous with respect to the driver.
->
-> > > > > > +++ b/drivers/net/wwan/t7xx/t7xx_pci.c
-> > > > > > @@ -427,6 +427,10 @@ static int __t7xx_pci_pm_suspend(struct
-> > > > > > pci_dev *pdev)
-> > > > > >       iowrite32(T7XX_L1_BIT(0), IREG_BASE(t7xx_dev) +
-> > > > > > ENABLE_ASPM_LOWPWR);
-> > > > > >       atomic_set(&t7xx_dev->md_pm_state, MTK_PM_RESUMED);
-> > > > > >       t7xx_pcie_mac_set_int(t7xx_dev, SAP_RGU_INT);
-> > > > > > +    if (pci_channel_offline(pdev)) {
-> > > > > > +        dev_err(&pdev->dev, "Device offline, reset to recover\=
-n");
-> > > > > > +        t7xx_reset_device(t7xx_dev, PLDR);
-> > > > > > +    }
->
-> This looks like an unreliable way to detect issues.  It only works if
-> AER is enabled, and the device is only marked "offline" some arbitrary
-> length of time *after* a driver access to the device has failed.
->
-> You can't reliably detect errors on writes to the device.
->
-> You can only reliably detect errors on reads from the device by
-> looking for PCI_POSSIBLE_ERROR().  Obviously ~0 might be a valid value
-> to read from some registers, so you need device-specific knowledge to
-> know whether ~0 is valid or indicates an error.
->
-> If AER or DPC are enabled, the driver can be *notified* about read
-> errors and some write errors via pci_error_handlers, but the
-> notification is long after the error.
->
-> Bjorn
+Thanks!
 
-
-
---=20
-Patrick: Are they laughing at us?
-Sponge Bob: No, Patrick, they are laughing next to us.
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 
