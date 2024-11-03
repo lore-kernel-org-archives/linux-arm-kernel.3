@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D970DD11186
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 23:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7635DD11186
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 00:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nt09x9rkB3A8eBz/tx2co/TepG6Wei0gxrpGYB5h9zY=; b=Ev3rmgglWsBi4TqfC5RwWbszv3
-	r6HTbfHpGTRwnqD4bnass/3xttskRSMADlqRH+yr4/gOuv1UByIs91fc3yPkf6yyy+DdqU3eZ+4QU
-	3cs3BFxAyDOdxSPkhDX+QXCkirANQYqDZBJbFcGapMEHB4w0LpxYIKCovgXwYnS1UtK+RV37GczRv
-	9UfisPgq8VwekX3RABrnpC3X/KFeLZLwJDTK37+0TXaC2bg4AiNL+2pt4jO1qvCeNQrFTL36P/lDP
-	clcqxhxJoTD1LiSmJoqg5dlvmGg/OEEANYSE873Q6Ko6aRMsNgvRn1v3Em84Q/WC7rQNAmEUwzSf2
-	CHPEETJw==;
+	bh=rMnm9AwgmDXEuc2yh8LmdqCJvJnHE1qDq44Z13ehTrw=; b=N3up0FCnOzLcES4uChmSSmTU8J
+	+dK3VMzxqAPKFy6O11JArDdOHBKDbCm38VDocWzejPfgOgC2/JOOr/3vH5zsvCURu/CLkzz9pet8w
+	nHdOaWQQ8unSrHwjZULxqZI+a5i2F+05x2ABAxzSyxCvlb1zYGhFS2XuE6g/7FgEiwK2YgcBo07Mh
+	ugpcUf3t64EPsumb4osyoEivvj//nq9eak82PDRWSpfzaUx54Ap/QXb0uhdu/Aisfh1sk9/T5KcgQ
+	dX4LtOtiSEdfpdRCzrz5zN2BHu1x/lv1ok2Sod3Hywyvdw4PBrjScxqU8r+2YrVj1MA9+YTIt42Zu
+	kY9AL6lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7kER-0000000CFub-0k25;
-	Sun, 03 Nov 2024 23:42:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t7kWm-0000000CH4C-1SbX;
+	Mon, 04 Nov 2024 00:01:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7kCj-0000000CFkc-3ZwX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 23:40:23 +0000
+	id 1t7j9G-0000000C8OU-2XBY;
+	Sun, 03 Nov 2024 22:32:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 45CB95C4CB7;
-	Sun,  3 Nov 2024 23:39:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4216C4CECD;
-	Sun,  3 Nov 2024 23:40:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 98297A41F34;
+	Sun,  3 Nov 2024 22:30:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23D20C4CECD;
+	Sun,  3 Nov 2024 22:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730677220;
-	bh=Fpk5/6wEk3/C7/XnnbdYZqJeyR/d7QRxg8mqahUQje0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=o5y1Se85YGaNi46PIpCG3IAkB/9cfCO/zEuGXlPlNZl44IP6NkIteQYvLzdTIAxRu
-	 6j124vRpxxT0uN7ViTo3CPUOUJ3/xksJhw+Zvf6w6Tcak/WGnDAKFloGWQheOy1JyP
-	 +wGBZMCZnoiULs2q3l6i44ZmJtXrRYmlHOw0FHVBs9sRHzCc1ahZ4fCCo9Ydr7eH3U
-	 qIQbXAH8hPHHBy5pjYvMjtjX/lQhEqDlzSuj8crVR+5Spb9HIf6TzC0w653QcdBlO2
-	 sA5pqauaU3x89iv2hAz6B4rWkmZz1vOuXfBwHIYnQkJ/0UMBkaMrPZUtRznqnsjAC/
-	 AuEanAEtsqQ3Q==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 710B738363C3;
-	Sun,  3 Nov 2024 23:40:30 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1730673153;
+	bh=WfN2SwQ1SfAPzqKDOcxOjX9pk3UC1SwykLtsIrx3B8I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ncJC7MH9f55fhT2iNp4ZGfgqP7KHuE7wemzzV22Z1RB/6rZX0YywjK4cWT6F4kgQu
+	 UCaCPlfmreev/pK63M1sZ7RvNNF5SmFtAQrjpr3KR1BHf9QS7SVy/pj4BVmX3P6VqQ
+	 FrGrQcXq1YnOmAmEQyHq9y4lzpkQKxUUcq9jtL67bjHifb7rexexd24s56L7e2ZMi7
+	 SSwDcJ6PFYFrIJdIhdSFsMB9XoaDWjJu+WTNUIolMnvVQZRQQQZO9jjVE99Tv11X3a
+	 kkYlUNWGwP5shTWE8Us+pJs0v8sX0+Bq3JRf+wpALI+UnuKai7iVjidTYXu362kAZz
+	 dA7qo5/0IeuCA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v3 17/18] f2fs: switch to using the crc32 library
+Date: Sun,  3 Nov 2024 14:31:53 -0800
+Message-ID: <20241103223154.136127-18-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241103223154.136127-1-ebiggers@kernel.org>
+References: <20241103223154.136127-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v8 0/8] net: stmmac: Refactor FPE as a separate
- module
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173067722927.3278663.4571680407072079402.git-patchwork-notify@kernel.org>
-Date: Sun, 03 Nov 2024 23:40:29 +0000
-References: <cover.1730449003.git.0x1207@gmail.com>
-In-Reply-To: <cover.1730449003.git.0x1207@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- olteanv@gmail.com, andrew@lunn.ch, horms@kernel.org, andrew+netdev@lunn.ch,
- alexandre.torgue@foss.st.com, joabreu@synopsys.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, xfr@outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_154021_955798_A8A1377E 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241103_143242_939430_F130A8AB 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +82,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: Eric Biggers <ebiggers@google.com>
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Now that the crc32() library function takes advantage of
+architecture-specific optimizations, it is unnecessary to go through the
+crypto API.  Just use crc32().  This is much simpler, and it improves
+performance due to eliminating the crypto API overhead.
 
-On Fri,  1 Nov 2024 21:31:27 +0800 you wrote:
-> Refactor FPE implementation by moving common code for DWMAC4 and
-> DWXGMAC into a separate FPE module.
-> 
-> FPE implementation for DWMAC4 and DWXGMAC differs only for:
-> 1) Offset address of MAC_FPE_CTRL_STS and MTL_FPE_CTRL_STS
-> 2) FPRQ(Frame Preemption Residue Queue) field in MAC_RxQ_Ctrl1
-> 3) Bit offset of Frame Preemption Interrupt Enable
-> 
-> [...]
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ fs/f2fs/Kconfig |  3 +--
+ fs/f2fs/f2fs.h  | 19 +------------------
+ fs/f2fs/super.c | 15 ---------------
+ 3 files changed, 2 insertions(+), 35 deletions(-)
 
-Here is the summary with links:
-  - [net-next,v8,1/8] net: stmmac: Introduce separate files for FPE implementation
-    https://git.kernel.org/netdev/net-next/c/2c6ad81de163
-  - [net-next,v8,2/8] net: stmmac: Rework macro definitions for gmac4 and xgmac
-    https://git.kernel.org/netdev/net-next/c/61e6051f4bbb
-  - [net-next,v8,3/8] net: stmmac: Introduce stmmac_fpe_supported()
-    https://git.kernel.org/netdev/net-next/c/af478ca82204
-  - [net-next,v8,4/8] net: stmmac: Refactor FPE functions to generic version
-    https://git.kernel.org/netdev/net-next/c/c9cd9a5a834c
-  - [net-next,v8,5/8] net: stmmac: Get the TC number of net_device by netdev_get_num_tc()
-    https://git.kernel.org/netdev/net-next/c/2558fe30ae8b
-  - [net-next,v8,6/8] net: stmmac: xgmac: Rename XGMAC_RQ to XGMAC_FPRQ
-    https://git.kernel.org/netdev/net-next/c/df9e7b0250ad
-  - [net-next,v8,7/8] net: stmmac: xgmac: Complete FPE support
-    https://git.kernel.org/netdev/net-next/c/b440d677e15f
-  - [net-next,v8,8/8] net: stmmac: xgmac: Enable FPE for tc-mqprio/tc-taprio
-    https://git.kernel.org/netdev/net-next/c/77be7d737305
-
-You are awesome, thank you!
+diff --git a/fs/f2fs/Kconfig b/fs/f2fs/Kconfig
+index 68a1e23e1557..5916a02fb46d 100644
+--- a/fs/f2fs/Kconfig
++++ b/fs/f2fs/Kconfig
+@@ -2,12 +2,11 @@
+ config F2FS_FS
+ 	tristate "F2FS filesystem support"
+ 	depends on BLOCK
+ 	select BUFFER_HEAD
+ 	select NLS
+-	select CRYPTO
+-	select CRYPTO_CRC32
++	select CRC32
+ 	select F2FS_FS_XATTR if FS_ENCRYPTION
+ 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
+ 	select FS_IOMAP
+ 	select LZ4_COMPRESS if F2FS_FS_LZ4
+ 	select LZ4_DECOMPRESS if F2FS_FS_LZ4
+diff --git a/fs/f2fs/f2fs.h b/fs/f2fs/f2fs.h
+index 33f5449dc22d..1fc5c2743c8d 100644
+--- a/fs/f2fs/f2fs.h
++++ b/fs/f2fs/f2fs.h
+@@ -1761,13 +1761,10 @@ struct f2fs_sb_info {
+ 
+ 	/* For write statistics */
+ 	u64 sectors_written_start;
+ 	u64 kbytes_written;
+ 
+-	/* Reference to checksum algorithm driver via cryptoapi */
+-	struct crypto_shash *s_chksum_driver;
+-
+ 	/* Precomputed FS UUID checksum for seeding other checksums */
+ 	__u32 s_chksum_seed;
+ 
+ 	struct workqueue_struct *post_read_wq;	/* post read workqueue */
+ 
+@@ -1941,25 +1938,11 @@ static inline unsigned int f2fs_time_to_wait(struct f2fs_sb_info *sbi,
+  * Inline functions
+  */
+ static inline u32 __f2fs_crc32(struct f2fs_sb_info *sbi, u32 crc,
+ 			      const void *address, unsigned int length)
+ {
+-	struct {
+-		struct shash_desc shash;
+-		char ctx[4];
+-	} desc;
+-	int err;
+-
+-	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver) != sizeof(desc.ctx));
+-
+-	desc.shash.tfm = sbi->s_chksum_driver;
+-	*(u32 *)desc.ctx = crc;
+-
+-	err = crypto_shash_update(&desc.shash, address, length);
+-	BUG_ON(err);
+-
+-	return *(u32 *)desc.ctx;
++	return crc32(crc, address, length);
+ }
+ 
+ static inline u32 f2fs_crc32(struct f2fs_sb_info *sbi, const void *address,
+ 			   unsigned int length)
+ {
+diff --git a/fs/f2fs/super.c b/fs/f2fs/super.c
+index 87ab5696bd48..003d3bcb0caa 100644
+--- a/fs/f2fs/super.c
++++ b/fs/f2fs/super.c
+@@ -1670,12 +1670,10 @@ static void f2fs_put_super(struct super_block *sb)
+ 
+ 	f2fs_destroy_post_read_wq(sbi);
+ 
+ 	kvfree(sbi->ckpt);
+ 
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi->raw_super);
+ 
+ 	f2fs_destroy_page_array_cache(sbi);
+ 	f2fs_destroy_xattr_caches(sbi);
+ #ifdef CONFIG_QUOTA
+@@ -4419,19 +4417,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 		INIT_LIST_HEAD(&sbi->inode_list[i]);
+ 		spin_lock_init(&sbi->inode_lock[i]);
+ 	}
+ 	mutex_init(&sbi->flush_lock);
+ 
+-	/* Load the checksum driver */
+-	sbi->s_chksum_driver = crypto_alloc_shash("crc32", 0, 0);
+-	if (IS_ERR(sbi->s_chksum_driver)) {
+-		f2fs_err(sbi, "Cannot load crc32 driver.");
+-		err = PTR_ERR(sbi->s_chksum_driver);
+-		sbi->s_chksum_driver = NULL;
+-		goto free_sbi;
+-	}
+-
+ 	/* set a block size */
+ 	if (unlikely(!sb_set_blocksize(sb, F2FS_BLKSIZE))) {
+ 		f2fs_err(sbi, "unable to set blocksize");
+ 		goto free_sbi;
+ 	}
+@@ -4872,12 +4861,10 @@ static int f2fs_fill_super(struct super_block *sb, void *data, int silent)
+ 	fscrypt_free_dummy_policy(&F2FS_OPTION(sbi).dummy_enc_policy);
+ 	kvfree(options);
+ free_sb_buf:
+ 	kfree(raw_super);
+ free_sbi:
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi);
+ 	sb->s_fs_info = NULL;
+ 
+ 	/* give only one another chance */
+ 	if (retry_cnt > 0 && skip_recovery) {
+@@ -5080,7 +5067,5 @@ module_init(init_f2fs_fs)
+ module_exit(exit_f2fs_fs)
+ 
+ MODULE_AUTHOR("Samsung Electronics's Praesto Team");
+ MODULE_DESCRIPTION("Flash Friendly File System");
+ MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32");
+-
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.47.0
 
 
