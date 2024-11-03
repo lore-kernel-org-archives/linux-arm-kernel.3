@@ -4,216 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C41E6781B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 09:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849B4E6749D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 10:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BR2SfInFHY9B+gWDDTVfcuHH6i9pFcH6/L8TyfJ54uI=; b=OXElvAdRQhQVs7xi6KuEv1Jf6l
-	BLqUJObWTtQ9PukU2xOvMbwT11Mq/wrt9w91XcoR6ShnaYYnNvF9UPC4DiMYoyVi4QNqCQY/3YM8b
-	3t6r+wmV2V5tcDj6QG+bQa0gWJ8CboAKKz/ehBX4jg9SN1QfFuSUBeIp7yWATK0jB/wFairIidE+H
-	oveisOyrsrPxAQoymHUthS1DZ/KVSqJi3KIyw/rlJuGBlfivlV3/VJhhUx3WL46kEd0WhiSA1YrUd
-	vldwMtQV6hk7zuengQBIKAJle7Qd4kuxTpgDdlPBFLJZ46a5NfiN3O6cL+Kfaa+ZGYt2Y6CwXSOWT
-	lY3Zyqvg==;
+	bh=QLkGhrcde0ia+z3c2m2bW+HEJiHdQI9e8FzweLRZDcE=; b=fOIvxP9o+OB7nzvJRBiaDIR6QM
+	PGIW6C0GMuGHPTAbzl0OLY3/81bSNZqKx4DsBW7ME3+IrzZEVu9nHg9aKEfad11NcGk74TH+wCcOx
+	9IG2lBbFb+a8jqeldhS0BIedh2RkflGotnojulyHtUO3O9X8qUbjz2Mkrb8rn1lFtWZ2ynnrh87cx
+	6r4DguzrAY9rmaTLOIaW3ixawaVhreDoOCp0BzPMZiY8t/+WHjC5Ag75ZW8Tpj/Q/D3CaF9MW8056
+	ckHEW4+7eNLtjA+z3rbJmVqAbDF2cYUFX0LNgD1lKZiaAESEM6SMGBBQv1rfa8WbK3YyNzafiWpYg
+	g9lfO4Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7XH3-0000000BFRA-4Ba1;
-	Sun, 03 Nov 2024 09:51:58 +0000
-Received: from mail-vi1eur05on20607.outbound.protection.outlook.com ([2a01:111:f403:2613::607] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t7Xty-0000000BHyN-0p53;
+	Sun, 03 Nov 2024 10:32:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7XFL-0000000BFJI-2fpq
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 09:50:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iVTXqh1XMVwi1eijMrzhUH22aS/3j1/5yg8FTF3JfDlxYM+sviA8PEh5KPnKLAPz+qIN9e9WRUu5esqi/7ko8Z2B0ExeSUmYO2VeObZg7v/REd/ko/E093izhaeEE0hFFZjSa1SEZpllptl3H42m+4uNALKNuE7Zg/eAkmAhGMISWq5eYIfYGP+b5DF8nDO7QlJ5jsPoyJI65jaeBO6rAT6Il6iJvjP82GKxXacjEnCRA7Jq8PZC/T2RaBZGC3L8BlPEe+uxV9Hz1Cwkd+TuunRGsYHq4A9f5q7aF9DUB0TM34SZN0izoe2O13kmIpCrrAk3K+gLNzAOiUNL2HL6rQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BR2SfInFHY9B+gWDDTVfcuHH6i9pFcH6/L8TyfJ54uI=;
- b=VCrlgv0obFSEV7yWRkoGZwwKpPlTWL0pk2HZn9ewuPjlI8XykmTizB8dehYfrERrz5IIWEQFj5AC5wXQLnYb0vGYy4Qt/ly2OgXafLrE5Qo++hnHvI+r5DCBqcZk3JkkM4bumL61afgBzkW+dQ+xweScaK/iuBfDcypzZSjAah+RTVpNXygiqFHZzt76T0++l7D68Xu6a6hQ7jmUYV6rFuYFbjNLxPk/yw5uGEh9whUFCIg7Yfbx9wZVzUomUhc6+EnNYvoH4Wwa+owjgzDHOB5MqWU1d6167m8yA0sKOEhpbdooVubjsppUfHK+LkuldzpvT1RrqkH7Opr3z+7AOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
- dkim=pass header.d=siemens.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BR2SfInFHY9B+gWDDTVfcuHH6i9pFcH6/L8TyfJ54uI=;
- b=dOzJp+mwkG8DHyXIDo7zWasjkO8qHgIIa7S6rWaT+Nz5PHtp0uCx5F++EXfK6+2hhgN8nkp4dS0HwIVfAvtJXbPAhbc3Xj/mLPdRqKq2E3EzsZ930CL7f5IyOw821GUGv4k5foxRSy49VIDRLmRx0XiThPvpJrzmXKXTBXJocBeUqxTnXTSNbM2wXpdVe2chbjGvUV25dEdnpe9X5krnMZE0CqaYPKAxCqCjIu4p4MKH9vPtAvzl+9tSDG/sF+BHClajs8nmCkbEU4O0p365p0OtlKsQqKhv8wj3VSoH/pwQcMfROrcD/tPAT6C3V+4znyN18bibpHAqTtGqdoV/Ag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siemens.com;
-Received: from AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:588::19)
- by VI1PR10MB3278.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:137::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.15; Sun, 3 Nov
- 2024 09:50:03 +0000
-Received: from AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::8fe1:7e71:cf4a:7408]) by AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::8fe1:7e71:cf4a:7408%5]) with mapi id 15.20.8137.014; Sun, 3 Nov 2024
- 09:50:03 +0000
-Message-ID: <4fa5b5f5-6e76-4d3f-b3b4-1e977b7d3c4a@siemens.com>
-Date: Sun, 3 Nov 2024 10:50:01 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/7] PCI: keystone: Add support for PVU-based DMA
- isolation on AM654
-To: Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>,
- Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Bao Cheng Su <baocheng.su@siemens.com>, Hua Qian Li
- <huaqian.li@siemens.com>, Diogo Ivo <diogo.ivo@siemens.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-References: <cover.1725901439.git.jan.kiszka@siemens.com>
- <f6ea60ec075e981a9b587b42baec33649e3f3918.1725901439.git.jan.kiszka@siemens.com>
- <3d7abd75-68a2-4232-ad8c-e874c10df1ae@ti.com>
-From: Jan Kiszka <jan.kiszka@siemens.com>
-Content-Language: en-US
-Autocrypt: addr=jan.kiszka@siemens.com; keydata=
- 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
-In-Reply-To: <3d7abd75-68a2-4232-ad8c-e874c10df1ae@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0149.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b8::15) To AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:588::19)
+	id 1t7XsA-0000000BHZr-2nb3;
+	Sun, 03 Nov 2024 10:30:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A1925C3A6C;
+	Sun,  3 Nov 2024 10:29:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 818E9C4CECD;
+	Sun,  3 Nov 2024 10:30:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730629817;
+	bh=tscA56UlqwWIvbmdpnNpVS0E2UY2+aox3QClc4hpzWk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uYrG7dsU3f16urLDFyFN2knOnKYxoG1B1TjIc/+p9ULnvYt76lJEI9DZzVXMAeeIT
+	 etg9bbtXsG7hw70bu+1s3DSbJ8Qlz9nNyhMMDoCayYTxGM0xFhFaQTVvaYAD7LXqV5
+	 6ohatHZBtS/r8h10oPoxqa2gUr+n84t+ZmYR3HPfu1jCBDPfD6pt5Y/OTAa6hamsK0
+	 1R6WcOsuvopVH0cxSzY/BjXkkuvQlKiMzm21EyyLPCG2ISAZGnKd1wimSASPqSKaW+
+	 5bPdLCbbteiA+Xa32sPuVEQfkbuu6nlGjwV/FDa1nPGIH33LJosVQNhSWhhjeDfK95
+	 ugbP6sr0A2L1A==
+Date: Sun, 3 Nov 2024 11:30:14 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	linux-actions@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] dt-bindings: timer: actions,owl-timer: convert to YAML
+Message-ID: <mfwotmnedq744aesguvjmroawarvkhpwalgm3wm5onsuffs245@iqorlvndja27>
+References: <20241102221354.2856900-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR10MB6181:EE_|VI1PR10MB3278:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e776285-81ae-4932-dfe9-08dcfbece38d
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?KzNsWWlBeXdZcG1UUUdaYWE4bXdpUmxXT1lReDNOUG1pR2hKOFlvU05sWlVi?=
- =?utf-8?B?V3lZNFUvVVdSOTd0dDRwMmJCYWNDeXp4dnd2NjhZZFEvcjcyajhaQ09zWGtE?=
- =?utf-8?B?T2pnWklNWE9RY1F1eTFNYlpkWGNBNTVaRHIxbTRmV3ZxL1M2T1Bad0JzbXR1?=
- =?utf-8?B?aUFNU21OenZDbS9IRjVpWThoSStlc2ltcjFvWldSVWRxRXVUTDRsQVlxSmEv?=
- =?utf-8?B?WFVCVVozMkJ2VW51VFVTTVdjVXZ4UWo5YzNKZWY1Mnc3WXNuczdQRWRTRmk0?=
- =?utf-8?B?UUpCRmN3aWdQQ2ppK1lvaFpGc280UE8rR2dqQnlqZU0rVHJuWFJYMWxHVjZM?=
- =?utf-8?B?MTdSdTJYNlhaZzFITVpCZnQ0ZFRBcHZGUWJDQmhuUnM2MUZRcjkxWFVPYU9R?=
- =?utf-8?B?ZlVyc2NzYjVrZDVOYU9EVUQvR0JxMXA1cVBUQlh1c2N5M2dXdGY3ZG5VVnZV?=
- =?utf-8?B?cllHT1BEdGcxWmlZOGNaaEtwSGQ2K2RsWmtFMDk1TzFXZGZVQ2tXb1g4ZmxP?=
- =?utf-8?B?cGw3eitEZHpEVHBOZWZsc2tOOGZuWjFRaDE0QlJOLzdrT3RXNm1tQ242RFdt?=
- =?utf-8?B?eWpnMDVGN2paSHc0bTU5eWZ4Z3MwdHc0ZFBYUXcrVm9vaGh1U2Nmd1p2S0V6?=
- =?utf-8?B?blEwN1E2S2xFYm96ZHBIaUtpTUxsdkxadG05eEtaeFlaNzVPVkZXWjNmUWlP?=
- =?utf-8?B?K05tVTdzVVZKbWFHMXhrcyszU3N6TTVZWVdtVC9UWXhTWHZERWRqdHdDVll2?=
- =?utf-8?B?TFJhTTllY042dnFJYjhYT0k0NjVSNkN0ekNSYlhiUmNyRmw1U2VvWUlZczdn?=
- =?utf-8?B?b3BpR0FPTGlDWmJkK0szZkhqcW5qY0FZYTltSWJkMytsa1RPYmhJOEVYR3N3?=
- =?utf-8?B?UlVQUUpOZzVNRmxxQkw3S0NBWHB3TDhPd3RaeEE0a1BSTVh5TmRKTVh6YnAv?=
- =?utf-8?B?YStNYkl4Tzd2d1dnR1ZrSzhNV0VZczZra3RTYy9LT1EzbGhjL01xTG9iNUk5?=
- =?utf-8?B?MlFiLzFzb1pzS0V2NWIxL2xmbXFaZG1WVGlsdHZhMDZEb042aTNxa1JGM3d4?=
- =?utf-8?B?SVoweEl0bXpNZzUzektGSnV3WlRRcXlNcFdvd3JUa05lYmNzdzlETUFNQ1pp?=
- =?utf-8?B?Z0ZsTFpzdXhxVFRkN1VOMG9wYUNETFN3Z2UvenVmSkZtRnhqU1cwQ3pSeDJP?=
- =?utf-8?B?UXZKNXdKWk4zN3IzZTRhbmlDMFVWS1JPRENHb1NwOFRBd2w4aU5sM3hOQ1FW?=
- =?utf-8?B?ajFWK2RXSFZsT3RHY2puLzlnQ1BsQmM5TzNobkRLbjJVMmhFUVJrb01DYUJl?=
- =?utf-8?B?Sk1GQ004VjlXM2lwc1NFcVIxTUNjYkppWlI0dTd1L1FWRTNPNzVxL256WjdB?=
- =?utf-8?B?R2NIcGtnVHdsV0xJb0RMWXZkTUpRRGdNejFML1BXdFNab2UveXZoeTkxWkI1?=
- =?utf-8?B?TkUwTGZ2YkU5QjdUSlpxQnJpVStkRUpKSFdyTGdsSGFOMG51QkhUODFQQUVz?=
- =?utf-8?B?UlkvZVh3RkVVdVJkSDR1YzM4ME9NeTVKZXBpNVNPaE5YT1V6UmVBcTREWHlx?=
- =?utf-8?B?a1RvWTlxbzljU3c1Z1hGZ1J4VndJYWh1Q2dZbm1PcGdaK2hrK0N3OWx4NUJK?=
- =?utf-8?B?MkJlWWlKOTQyRHNNQnVEVitRQ2NCQVdCWS94RW5lcy9LdEJIWjZLT1JvblVo?=
- =?utf-8?B?SWl1NjhIMkVnWnNSd3ZWTzR0TnNmYi9FTlFsK2pPQk9aVzZHcXpuSUJHWDNj?=
- =?utf-8?Q?Z5FcquFxBKJ4+bUHuSqKhPE9/3D/XbT6wYeec4n?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ujd3blZ1ZWYvd29RT25SK1FiTXV4WTN4QVIxVC9jQ0kyWjJ1RTlXNWZ3VDRz?=
- =?utf-8?B?QmpwN3NZdlJINE1GdjFwTXNvR01XZzJJZm81V2RpTHVCMHkvOWtSNDZDNWIw?=
- =?utf-8?B?Ym1Ob29oNkxjdVY5WkRHa2VIWUhrWHlzbEVmTFMzNVpOREZ6QkRva3dWS2w3?=
- =?utf-8?B?RE9hUzBlZVdxMFpqUjB6UmVqQ1RKb0NDS0hUWjFHb2ZQRUt1NUlDaUZESU9p?=
- =?utf-8?B?WTBVZkNUbXZhcmxlbmdLK2JhMFdtU0dscE9jc2ZYdzUwcThSUDlsNmxCTkt5?=
- =?utf-8?B?YjRIRGgzWWJ5R1VLd2tLRDhHdjFuMGp4Z0orZnpJRU5GM2pmYUc3REZjd0RI?=
- =?utf-8?B?SlErVDdGbDh6RVhiZHRCYXdCWS9mTTViSkd4WjV6dkl5Uk1RdlYyQXBLL3Ba?=
- =?utf-8?B?OFpyeGtmVjhtMWY3c2FYTkFpeHIrVE1SR2lob3J1Rnd6S2liaitJbzZ3RzZz?=
- =?utf-8?B?OFpGc29JaEpQMk1INk1xYW1aamIyWnZUNVcwaXkxVFVDQ3Q2UlFJL01UTEJR?=
- =?utf-8?B?T09Ma0kxc29odkpYZnZGelRIN1N0cVVpOUN5MkhOTXZ1NExQaUlCWDM4VHJx?=
- =?utf-8?B?TnlPUU5HTmpBeUJHR21Kb2dCRDMzb21JbzFjTTRaemY3cFY0bHZ5MC9WTWZZ?=
- =?utf-8?B?YkdRZGQ4STFKeGlMQ0ZHSWc1SVlnM3BiSGkyMk1ibFc2YmZDZ3ZicVh2WVpr?=
- =?utf-8?B?K3NzRjZZaXg5dkV2YkdoK0hTTGpBVVcwaVZieGJoa2V4ZVBBNVdrZUNEUkQy?=
- =?utf-8?B?a1M1UUkwODFKYTlpeFZaWWpFRFFrYi9EMEJUemplQmdlK2ZiYWUyanJXNUxL?=
- =?utf-8?B?NE1NcGY4c0hnSmE1bXZLZnpCTTVVbjRsZ3pNdjBRQmprVEhDUjVDMlJiWFJN?=
- =?utf-8?B?MTNBNFMwUUl2WjR1WDRUb3U5YkhWa0VGUExmT3dQU3NZYzZVdk5tQTRvRW9Q?=
- =?utf-8?B?LzBZYTRJeSs2NVRJUXJvc0tXWjFRN1U4UzVWNXJMcGlYcGZqa3ZTNkVNN2JT?=
- =?utf-8?B?SGZlTjJBdW1tY3BiT0lWM2hzeE40QXlwM3gwaXk5OVR0NUhHZlJHYjNvNk1F?=
- =?utf-8?B?NnJ6WVNVQ3luOGtucmZTZSt3dDN2NWtRcDNWbnJxZllnMkxTamlPb2VvYU5Z?=
- =?utf-8?B?cThEWVNPMlFhU1c0c01wcHBWWnQ0K0d0QVBIblhENFI5QVdWendmUkxMa2NS?=
- =?utf-8?B?YTV6TFh6WnluVG40S000bDJrd0pCbytWcjJ5bDlYWC9SODM4UGRuMnRRUm5H?=
- =?utf-8?B?UkFqTkpNTVQ2RW5FL1U4aGJqL010V3RyaERiMFZZc1BsbTl1cHAwblI0Nm5E?=
- =?utf-8?B?WU9SZkF3YnNBTWF4dXNUVWhqN1NockRRMjVLNC9CSFI2ZFFpY01PbjhFV0xt?=
- =?utf-8?B?Ly81Tzd2eTg0YVBJcDlWUFlRa2pXZmxxcmFEay9qcXgraXpYWXE4Y0pIcWFU?=
- =?utf-8?B?VkZvT0taSk85YVJMVmRVQ2JFdW9YbnRodTdYOUJpcWhzb3M3aGE5cTJ5b3A0?=
- =?utf-8?B?c3ZVbXNJMHV3UmhhOVg3dEJWek44M0h2NWhndDF0RXo3M0lFempzQ2FXYTF3?=
- =?utf-8?B?M1I1M1Ezbm14eWlleEVua2hndVFGOXBScklWTEk1QnVvTGFzTFBtMHZGRisr?=
- =?utf-8?B?djlTaXpkMDlBZ2xxc0czaHJWY2xHZTZYVEZjOFIrM1dXQVJiT1lBd1hlNUZp?=
- =?utf-8?B?TWdUYkhacFpEUVBKdjlUc3NOV1dEMmNFVTljN0EzYmR3WTRUQWdBYit6VW4x?=
- =?utf-8?B?VHRKUXNWdTQzNmRtY3JEU1drU1hRNkdPa1NhQTUrWGIzTVdrb1ZSbWVDUmJY?=
- =?utf-8?B?OEVxUllMakFvNUtTL2R2ZzZpem5MamFQU0I3Vy9BV0dqQVlBN1JZcisrbHVw?=
- =?utf-8?B?M2djMlFXTnM5bE9ZWE5GTm1oUkkzcnZZbVdqZlFZUUx0eDZEV3lWazhFNUlk?=
- =?utf-8?B?MVEyK21nUXIzWklZdjA3NFEvaWl3Zjh2OGNCOHphVzQyMFV5aWt1TFVyNEMr?=
- =?utf-8?B?TjhZK2ZEL1NpUVpBVGV3amcvU0ZVcDk5RzlLdFJad0Yxb09FR0Y1OGFkamlU?=
- =?utf-8?B?dFk4aWtncWlKR3hHT1B5OFNId1hrd3ZMZlVPRzU5ZlJSVVlVSVVNRlUwcmlQ?=
- =?utf-8?Q?4nHAhwD28gCjqi6N4uCih66rl?=
-X-OriginatorOrg: siemens.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e776285-81ae-4932-dfe9-08dcfbece38d
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR10MB6181.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2024 09:50:02.9865
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4bpdW8i91i74RCOuoLJyWtbxUEOW6ICTLnh9kbftvEWgHbEki1uCirsAG1xtW8qB7uuyH5MEC31Jnosjk9z2gw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3278
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241102221354.2856900-1-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_015012_746850_4C1928D5 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20241103_023018_824690_2305E340 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -228,208 +75,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03.11.24 07:15, Vignesh Raghavendra wrote:
-> 
-> 
-> On 09/09/24 22:33, Jan Kiszka wrote:
->> From: Jan Kiszka <jan.kiszka@siemens.com>
->>
->> The AM654 lacks an IOMMU, thus does not support isolating DMA requests
->> from untrusted PCI devices to selected memory regions this way. Use
->> static PVU-based protection instead. The PVU, when enabled, will only
->> accept DMA requests that address previously configured regions.
->>
->> Use the availability of a restricted-dma-pool memory region as trigger
->> and register it as valid DMA target with the PVU. In addition, enable
->> the mapping of requester IDs to VirtIDs in the PCI RC. Use only a single
->> VirtID so far, catching all devices. This may be extended later on.
->>
->> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
->> ---
->> CC: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> CC: "Krzysztof Wilczyński" <kw@linux.com>
->> CC: Bjorn Helgaas <bhelgaas@google.com>
->> CC: linux-pci@vger.kernel.org
->> ---
->>  drivers/pci/controller/dwc/pci-keystone.c | 108 ++++++++++++++++++++++
->>  1 file changed, 108 insertions(+)
->>
->> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
->> index 2219b1a866fa..a5954cae6d5d 100644
->> --- a/drivers/pci/controller/dwc/pci-keystone.c
->> +++ b/drivers/pci/controller/dwc/pci-keystone.c
->> @@ -19,6 +19,7 @@
->>  #include <linux/mfd/syscon.h>
->>  #include <linux/msi.h>
->>  #include <linux/of.h>
->> +#include <linux/of_address.h>
->>  #include <linux/of_irq.h>
->>  #include <linux/of_pci.h>
->>  #include <linux/phy/phy.h>
->> @@ -26,6 +27,7 @@
->>  #include <linux/regmap.h>
->>  #include <linux/resource.h>
->>  #include <linux/signal.h>
->> +#include <linux/ti-pvu.h>
->>  
->>  #include "../../pci.h"
->>  #include "pcie-designware.h"
->> @@ -111,6 +113,16 @@
->>  
->>  #define PCI_DEVICE_ID_TI_AM654X		0xb00c
->>  
->> +#define KS_PCI_VIRTID			0
->> +
->> +#define PCIE_VMAP_xP_CTRL		0x0
->> +#define PCIE_VMAP_xP_REQID		0x4
->> +#define PCIE_VMAP_xP_VIRTID		0x8
->> +
->> +#define PCIE_VMAP_xP_CTRL_EN		BIT(0)
->> +
->> +#define PCIE_VMAP_xP_VIRTID_VID_MASK	0xfff
->> +
->>  struct ks_pcie_of_data {
->>  	enum dw_pcie_device_mode mode;
->>  	const struct dw_pcie_host_ops *host_ops;
->> @@ -1125,6 +1137,96 @@ static const struct of_device_id ks_pcie_of_match[] = {
->>  	{ },
->>  };
->>  
->> +#ifdef CONFIG_TI_PVU
->> +static int ks_init_vmap(struct platform_device *pdev, const char *vmap_name)
->> +{
->> +	struct resource *res;
->> +	void __iomem *base;
->> +	u32 val;
->> +
-> 
-> Nit:
-> 
-> 	if (!IS_ENABLED(CONFIG_TI_PVU))
-> 		return 0;
-> 
-> 
-> this looks cleaner than #ifdef.. #else..#endif .
-> 
+On Sun, Nov 03, 2024 at 12:13:04AM +0200, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl timer bindings to DT schema.
+>=20
+> Changes during conversion:
+>  - Rename file to match compatible
 
-Can be done, but it would move the stubbing to include/linux/ti-pvu.h
-and ti_pvu_create_region and ti_pvu_remove_region.
+I do not see any rename happening, anyway, this is not a change to the
+binding, skip mentioning in changelog.
 
-Jan
+>  - Add a description
+>  - Make "clocks" a required property, since the driver searches for it
 
-> 
-> Rest LGTM
-> 
->> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, vmap_name);
->> +	base = devm_pci_remap_cfg_resource(&pdev->dev, res);
->> +	if (IS_ERR(base))
->> +		return PTR_ERR(base);
->> +
->> +	writel(0, base + PCIE_VMAP_xP_REQID);
->> +
->> +	val = readl(base + PCIE_VMAP_xP_VIRTID);
->> +	val &= ~PCIE_VMAP_xP_VIRTID_VID_MASK;
->> +	val |= KS_PCI_VIRTID;
->> +	writel(val, base + PCIE_VMAP_xP_VIRTID);
->> +
->> +	val = readl(base + PCIE_VMAP_xP_CTRL);
->> +	val |= PCIE_VMAP_xP_CTRL_EN;
->> +	writel(val, base + PCIE_VMAP_xP_CTRL);
->> +
->> +	return 0;
->> +}
->> +
->> +static int ks_init_restricted_dma(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct of_phandle_iterator it;
->> +	struct resource phys;
->> +	int err;
->> +
->> +	/* Only process the first restricted dma pool, more are not allowed */
->> +	of_for_each_phandle(&it, err, dev->of_node, "memory-region",
->> +			    NULL, 0) {
->> +		if (of_device_is_compatible(it.node, "restricted-dma-pool"))
->> +			break;
->> +	}
->> +	if (err)
->> +		return err == -ENOENT ? 0 : err;
->> +
->> +	err = of_address_to_resource(it.node, 0, &phys);
->> +	if (err < 0) {
->> +		dev_err(dev, "failed to parse memory region %pOF: %d\n",
->> +			it.node, err);
->> +		return 0;
->> +	}
->> +
->> +	/* Map all incoming requests on low and high prio port to virtID 0 */
->> +	err = ks_init_vmap(pdev, "vmap_lp");
->> +	if (err)
->> +		return err;
->> +	err = ks_init_vmap(pdev, "vmap_hp");
->> +	if (err)
->> +		return err;
->> +
->> +	/*
->> +	 * Enforce DMA pool usage with the help of the PVU.
->> +	 * Any request outside will be dropped and raise an error at the PVU.
->> +	 */
->> +	return ti_pvu_create_region(KS_PCI_VIRTID, &phys);
->> +}
->> +
->> +static void ks_release_restricted_dma(struct platform_device *pdev)
->> +{
->> +	struct of_phandle_iterator it;
->> +	struct resource phys;
->> +	int err;
->> +
->> +	of_for_each_phandle(&it, err, pdev->dev.of_node, "memory-region",
->> +			    NULL, 0) {
->> +		if (of_device_is_compatible(it.node, "restricted-dma-pool") &&
->> +		    of_address_to_resource(it.node, 0, &phys) == 0) {
->> +			ti_pvu_remove_region(KS_PCI_VIRTID, &phys);
->> +			break;
->> +		}
->> +	}
->> +}
->> +#else
->> +static inline int ks_init_restricted_dma(struct platform_device *pdev)
->> +{
->> +	return 0;
->> +}
->> +
->> +static inline void ks_release_restricted_dma(struct platform_device *pdev)
->> +{
->> +}
->> +#endif
->> +
->>  static int ks_pcie_probe(struct platform_device *pdev)
->>  {
->>  	const struct dw_pcie_host_ops *host_ops;
->> @@ -1273,6 +1375,10 @@ static int ks_pcie_probe(struct platform_device *pdev)
->>  	if (ret < 0)
->>  		goto err_get_sync;
->>  
->> +	ret = ks_init_restricted_dma(pdev);
->> +	if (ret < 0)
->> +		goto err_get_sync;
->> +
->>  	switch (mode) {
->>  	case DW_PCIE_RC_TYPE:
->>  		if (!IS_ENABLED(CONFIG_PCI_KEYSTONE_HOST)) {
->> @@ -1354,6 +1460,8 @@ static void ks_pcie_remove(struct platform_device *pdev)
->>  	int num_lanes = ks_pcie->num_lanes;
->>  	struct device *dev = &pdev->dev;
->>  
->> +	ks_release_restricted_dma(pdev);
->> +
->>  	pm_runtime_put(dev);
->>  	pm_runtime_disable(dev);
->>  	ks_pcie_disable_phy(ks_pcie);
-> 
+Clocks were not in original binding, so you add clocks in the first
+place.
 
+>  - Correct the given example according to owl-s500.dtsi
+>=20
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  .../bindings/timer/actions,owl-timer.txt      | 21 ------
+>  .../bindings/timer/actions,owl-timer.yaml     | 71 +++++++++++++++++++
+>  MAINTAINERS                                   |  2 +-
+>  3 files changed, 72 insertions(+), 22 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/timer/actions,owl-t=
+imer.txt
+>  create mode 100644 Documentation/devicetree/bindings/timer/actions,owl-t=
+imer.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.tx=
+t b/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+> deleted file mode 100644
+> index 977054f87..000000000
+> --- a/Documentation/devicetree/bindings/timer/actions,owl-timer.txt
+> +++ /dev/null
+> @@ -1,21 +0,0 @@
+> -Actions Semi Owl Timer
+> -
+> -Required properties:
+> -- compatible      :  "actions,s500-timer" for S500
+> -                     "actions,s700-timer" for S700
+> -                     "actions,s900-timer" for S900
+> -- reg             :  Offset and length of the register set for the devic=
+e.
+> -- interrupts      :  Should contain the interrupts.
+> -- interrupt-names :  Valid names are: "2hz0", "2hz1",
+> -                                      "timer0", "timer1", "timer2", "tim=
+er3"
+> -                     See ../resource-names.txt
+> -
+> -Example:
+> -
+> -		timer@b0168000 {
+> -			compatible =3D "actions,s500-timer";
+> -			reg =3D <0xb0168000 0x100>;
+> -			interrupts =3D <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
+> -			             <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
+> -			interrupt-names =3D "timer0", "timer1";
+> -		};
+> diff --git a/Documentation/devicetree/bindings/timer/actions,owl-timer.ya=
+ml b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+> new file mode 100644
+> index 000000000..ed50b4753
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/actions,owl-timer.yaml
+> @@ -0,0 +1,71 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/actions,owl-timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Actions Semi Owl timer
+> +
+> +maintainers:
+> +  - Andreas F=C3=A4rber <afaerber@suse.de>
+> +
+> +description: |
 
--- 
-Siemens AG, Technology
-Linux Expert Center
+Do not need '|' unless you need to preserve formatting.
+
+> +  Actions Semi Owl SoCs provide 32bit and 2Hz timers.
+> +  The 32bit timers support dynamic irq, as well as one-shot mode.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - actions,s500-timer
+> +      - actions,s700-timer
+> +      - actions,s900-timer
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 6
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 6
+> +    items:
+> +      enum:
+> +        - 2hz0
+> +        - 2hz1
+> +        - timer0
+> +        - timer1
+> +        - timer2
+> +        - timer3
+
+timer1 is a required property. Above is fine but you need allOf:if:then:
+block customizing/constraining it per variant.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - interrupts
+> +  - interrupt-names
+> +  - reg
+> +
+> +additionalProperties: false
+
+Blank line
+
+Best regards,
+Krzysztof
+
 
