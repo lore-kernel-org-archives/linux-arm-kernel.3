@@ -4,182 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45C5E67816
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 01:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC48E67819
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 02:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=; b=gCiCe4ZSxzl9tS64EkyXxMGT/2
-	JNx1pmepS6ONJUsD8V3gF+6hqCPlz4yI3dd1EVYWb44qenePD+6fMPf69dqdwEyvQFHyBeI3GitP/
-	aEaeqI2VXk87B106DKd/mRmwHw724kqp4agR/glmCcVVB3u7CGkL0uX4iodEV9iolzC8Ej4pbXj0g
-	kA/GKtpaeXs7p00M06HXtpuuIvEzVyxWzdqWuvHmpb/kTXvNWrxJpOh3MJey3w1ce6G1Krp4Yi3/q
-	5JUC4rM4RDldHRTofwrxpdBIB87eOXdZFLUKxoWIBXW4pAGbmPOG7WtqCD++OqONJutE+RrcPkaHb
-	pR9FELHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jvw/ZQBeWQ3+pp2+arW6SZ/WRcMC/sbq14XtrisQ4ug=; b=CUIOJtouJr47doTQAJaI9o9DQK
+	uXyXT0TWOZJ+clNK1p6FtboNLm/k8HWCHRovAscu+FGR6exnyAyIFN8aOXbp2rmtkNaV35gwJwRVZ
+	cOiwwRSqT+78z5LO5Qy7g5YsrTwB8VVR3+OKfBvcIQwlOP6a/sB3QdwUouthpHJnswVabZC/BNu38
+	vWwYRxcOjIygBOlq9521ODxvQYffrd9x0c4R6zoCRK37N00y1CO0r00Vr3WHMrrViVv/n5IUKuEUr
+	VLo7k+2CBzRQ4AXMub0zvTbN9Zd7FG7Zrrc1lpb7QC5CNn4k5NTMYwJH5lYoEuKyUkxyXtw8SZAXG
+	SIkGnmHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7PYv-0000000AlVa-1FeF;
-	Sun, 03 Nov 2024 01:37:53 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7PXF-0000000AlNX-0ay0
+	id 1t7Q5V-0000000AnLc-1Lwx;
+	Sun, 03 Nov 2024 02:11:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7Q3o-0000000AnF1-0VpF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 01:36:11 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A30q12J013166;
-	Sun, 3 Nov 2024 01:35:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=WKIh0P7Wk4GzYpq66s
-	e517Vwe8PTdU1rYR5bY9m4DDM=; b=kgwSof6V+y1v2xKwSzY+WRKeysusM2iJiS
-	OAEAUov6keJBKTQCARSx8j+5pPY2PfqSotPrWQ8AsqbM2Oi24cn84haE6B/Izhak
-	gSkJYrEAmlqkN/UNjXIie/SUUMpUEQb+yVfpC+AatpahFCQ3Kna6szFOZ7mYKds1
-	8jpAk3YkImXnyg+CnbcYf4XgejffPd16O5uuBbRanQqmkDwd4JKUCgvixZ/A+szi
-	pqzSIrhF2mwGuJ+I0M0Vp8XiOJvvf7ZifAO9eGV0pYQQM4hAYHOhg/kbo/tAnAj5
-	femHxCS2V8Xd6Iqcq1U0CufZC36PoUBakU+VL2gfFsLO2pU9tQrg==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 42nc4brpsr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 03 Nov 2024 01:35:36 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4A31UJQE008427;
-	Sun, 3 Nov 2024 01:35:35 GMT
-Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12lp2170.outbound.protection.outlook.com [104.47.55.170])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 42nah4jc6b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 03 Nov 2024 01:35:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tqPsD3kVkzSQr0Vghi6OYXHTgrdGpZ4w8BjexW853wf8z8T+q5p984aM63PlGBc8gCaQYd1dAIqJkSF95CMBrJrl/02HwsyqRZ3NadEgyA7hCX27d8jotge89/cVb5maFhB8jpE+4h7tAAvBidc6MXKThpTydlRD88+EWbee7TIE7aqRmSd4mwY5n9GlBmvBYtPXRwAOUy1UpWxfODkgXNrph9sdVYAZ/WRP8YyolPljXIDu1nXBZKy9GvLp1TchMfmebePi6jIC7nJlndtlBQ/r6KpaMEewxm/hZxXk83cMNuwEuVwy68Ik3YM49I6hyPevHSgjKurRz9XArZ3Jpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=;
- b=CbmbOCfh2LReYuuZk6M/MySKhsg8PEU8kXvWvkx8ysrkhtrNt2oPC0WV0J7a4lxitiU/+5wuUzU2XPzmr/kLNok0tbvTCucQDbjiHAKKbdyOt2915AxOEtcyaFB3JfLXBi06qMVWZNFHX6swUFLCuHkCBlBaHDxPrwASWZ91aC2YqeZ6VUXB44vPCkopKK5Xy3K7O48PxQvocnFVONkMU7Y4V4FG97p4WHoR+6Qs2Lc1IIhAHuHl5fQ1hdxrW17jaD9Jxm+0hHuTgQBxG5N5iMIEa6BZsiS5zdgQJWb0jXOtkjrteG39kIMRM0kTegElDYFVexSI2FauSo1f6WNzCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WKIh0P7Wk4GzYpq66se517Vwe8PTdU1rYR5bY9m4DDM=;
- b=OHcofF/LnkLaD2XgKSykPwbNb6VK/0em7bJx8QWzngEPIgSMSQ3RWOQIUNcLi9s5qFNB7swFzW0wBCO4PfK5mYtdldu5cRUraRXT+0oMaN3RugdIMR+0rhDJlmllcRi3JnCPrTuIxJA7vr+2nqq7yDettb2qWcvESmE7wv4/ig4=
-Received: from SN6PR10MB2957.namprd10.prod.outlook.com (2603:10b6:805:cb::19)
- by MN2PR10MB4288.namprd10.prod.outlook.com (2603:10b6:208:1dc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.29; Sun, 3 Nov
- 2024 01:35:32 +0000
-Received: from SN6PR10MB2957.namprd10.prod.outlook.com
- ([fe80::72ff:b8f4:e34b:18c]) by SN6PR10MB2957.namprd10.prod.outlook.com
- ([fe80::72ff:b8f4:e34b:18c%4]) with mapi id 15.20.8114.015; Sun, 3 Nov 2024
- 01:35:32 +0000
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: alim.akhtar@samsung.com, James.Bottomley@HansenPartnership.com,
-        martin.petersen@oracle.com, avri.altman@wdc.com, bvanassche@acm.org,
-        krzk@kernel.org, tudor.ambarus@linaro.org, ebiggers@kernel.org,
-        andre.draszik@linaro.org, kernel-team@android.com,
-        willmcvicker@google.com, linux-scsi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 00/14] UFS cleanups and enhancements to ufs-exynos
- for gs101
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-In-Reply-To: <20241031150033.3440894-1-peter.griffin@linaro.org> (Peter
-	Griffin's message of "Thu, 31 Oct 2024 15:00:19 +0000")
-Organization: Oracle Corporation
-Message-ID: <yq1wmhl6rp8.fsf@ca-mkp.ca.oracle.com>
-References: <20241031150033.3440894-1-peter.griffin@linaro.org>
-Date: Sat, 02 Nov 2024 21:35:30 -0400
-Content-Type: text/plain
-X-ClientProxiedBy: MN2PR14CA0022.namprd14.prod.outlook.com
- (2603:10b6:208:23e::27) To SN6PR10MB2957.namprd10.prod.outlook.com
- (2603:10b6:805:cb::19)
+	Sun, 03 Nov 2024 02:09:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7C45497;
+	Sat,  2 Nov 2024 19:10:15 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E0EF3F528;
+	Sat,  2 Nov 2024 19:09:43 -0700 (PDT)
+Date: Sun, 3 Nov 2024 02:09:29 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Cody Eksal <masterr3c0rd@epochal.quest>
+Cc: Yangtao Li <tiny.windzz@gmail.com>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Conor Dooley <conor+dt@kernel.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime
+ Ripard <mripard@kernel.org>, Nishanth Menon <nm@ti.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, Vinod Koul
+ <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Viresh Kumar
+ <viresh.kumar@linaro.org>, Parthiban <parthiban@linumiz.com>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 08/13] clk: sunxi-ng: a100: enable MMC clock
+ reparenting
+Message-ID: <20241103020929.2298633f@minigeek.lan>
+In-Reply-To: <885047f813d0c55eae13f26b0bfe041d@epochal.quest>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+	<20241031070232.1793078-9-masterr3c0rd@epochal.quest>
+	<20241031120857.60bc0d94@donnerap.manchester.arm.com>
+	<885047f813d0c55eae13f26b0bfe041d@epochal.quest>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN6PR10MB2957:EE_|MN2PR10MB4288:EE_
-X-MS-Office365-Filtering-Correlation-Id: 402ca391-e5f5-40ae-a16a-08dcfba7ceb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5SeNDM4/p3/bPjxfVtZhENzPOvF3AG7QxNjzcGpjx91wnlUDgapVarJtqrpt?=
- =?us-ascii?Q?zihRa3dxg7Dti2pu/uvSABK+dBT+zZ+rvv9d6TqyOt4QuUYbQbXzWLOrLqtp?=
- =?us-ascii?Q?IVyoBLgCHgJT6lzt4TsNfFp9UaicU5z/D6j6k2xE+q69pFREVdokVqxkFjVG?=
- =?us-ascii?Q?FcvlgozHIlDP3nBgmJNpSmLET7Tv94GJPlhI09Zk+cKUH2xwDPCbJUkbAlSK?=
- =?us-ascii?Q?Y7i1ARTkBviIAoFmzRCryiCmGahx5lqMOOby9rJXqZzFu3K5imgMx+Ex//wy?=
- =?us-ascii?Q?rsFD8vH2Tet3cxeF/2iyD2vvE67visEBi20vhNsmS0MGNhZ6sDybl7w0rH5v?=
- =?us-ascii?Q?7EwExpnXV2RHvnD892sBPpoQ4xDgitDHF1kHmugwWCmaQHuAIpdHcI8IoDUX?=
- =?us-ascii?Q?yhpD3ypcvmQwOXLDUUpt1ZwDeijFqvzflr1iTCs656y3CdckwelOUosHLp5j?=
- =?us-ascii?Q?+ecKTAuvI2t3zJaf3QFs8QJ36Yz5BM28/skiK2X49OHouaAUUenAvVIvZpqV?=
- =?us-ascii?Q?FBp6Z3rsU6QcLf0cXMicSODff0D5dIhFQ+j59kOpGVpkZfYZg4XZTVWiXkBb?=
- =?us-ascii?Q?E3S76wcdhmh++NuJZ3aKSsMykNKVoEd4ejUgb3TUj0p9TgwdKUWxRua+4OAY?=
- =?us-ascii?Q?kLU0l1f92KPVYw4e81+NNsLdz9p+XqO7kSpwk665pdgAqgMtHQ3N/NO4Ji/Y?=
- =?us-ascii?Q?mVcdxhnEDnVwJrrfTOwm6XDBYvmx5/yg5TQ+t7Wc0+lvWoMBphcYDA1w1axn?=
- =?us-ascii?Q?w3YVxVwFAinWQdURfVI7pa+sOY7OMpFV+uJ6IrZiW9Ebd8rvVvS8w4bvkvJs?=
- =?us-ascii?Q?w5xIFIMqkv+SLqdWXVXp3I+adZTo+6eN1m4C8fjNKjL2QculeYdFO7WzhhB2?=
- =?us-ascii?Q?WR4QbtVY+9TCuf/NKH7+scvfifHexk5JomcA8NnQqM09Ne7GEY6m+NX7/dA2?=
- =?us-ascii?Q?DlbkSFE9s26DHfOe2Ah5ZGJeF2G2XKI4el3M9e6VeA7FkJMP+LEdnvZ7Binj?=
- =?us-ascii?Q?2l9oPMDrqLZAmHSCMewlIgY/waVsN8GVPlR+0r5QkjvScA386cdN8dB6m7Vn?=
- =?us-ascii?Q?IlbhVlHvum0mdWtK0ladeBRhBBKq4BFKY6FjaFPRIIIrR2vznai/QZ0B6Ac2?=
- =?us-ascii?Q?/KuQgK2a3gfEifJWAau6yhvp8AzD4x3FYOG1AwxfsU4y55EzzoKh2qY90hlt?=
- =?us-ascii?Q?5fLUUq6Wtnc5OT9e9e+5IQ4wKE/Fru8BwMkLfHHGMof1xo/ePbciSjG8z+0I?=
- =?us-ascii?Q?OrA8cnmi73gDHYHezTpHlMGXKHoIMKR3X8drFVaZyCfuKRWVgvw+nNw0nUSh?=
- =?us-ascii?Q?/jnpVWmC0xY48BjDop/rvR5j?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR10MB2957.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O9bfavUb48xLVaO9VInjhBmN0Kq2tONxQv+/AKMz+RTvnHShFLyV0dZXR5Ky?=
- =?us-ascii?Q?/S3Q3CVoOV2rykn0BLrv9FZEwCbsSMaajaDoU9Bl5jHv81bitE/8B50dMZ3T?=
- =?us-ascii?Q?WyVZsh1awRAyuXTnLYGlpEaGMFCjeR8Fq5ToWiorGu1B7mi/iog/3pewbtnO?=
- =?us-ascii?Q?lbsPKHrnLAFOoEmqfSIWH9MW0HCpnrGHvB9fTO0mvnMRsROX+IqZwzqPOgaj?=
- =?us-ascii?Q?fZPe4PaQsOYEHOzlSGwZpd/DIn5MZcFhgFcGwF7q9VKH0Sv2ySQi54FThV18?=
- =?us-ascii?Q?7/KJlI78icoGZwX7GDMVvRdV5/1PgOucIAki3Rj7vLOgajnbborFaOgiT9my?=
- =?us-ascii?Q?GLvf5K8GkQTrCIhAn1zhaWk4LGuHQQobUb6ByhJqCBmjTkN/RoKBBNlDSIM+?=
- =?us-ascii?Q?+JpY7dsZBgjQDm8mXNwz+DD/R8nCeOk6lVtZR/M22/1dBfzeGRtRMkEKX6jb?=
- =?us-ascii?Q?wM5kXG1xiiB2ZNPGd3rb4QhILHMlgy/vtI2SrrCgw0orNYx9Tjg98AgVxv2P?=
- =?us-ascii?Q?+fSFCt59FsNbc3ZFcyAevQw59iNJz+yslisVIQ/div38CZRYVdBU0hwN26ig?=
- =?us-ascii?Q?1kKUA4q0XB7YpC8+NMXUDDUu8GCpc/N8OLshKjD0AvzWZ8hU5ejvYOJ3Yfj0?=
- =?us-ascii?Q?vOsFxpos3shNpta5omLBio+zJLG27Zgk9AKZ7968eDa/iYVEYVxlbKlUXsHp?=
- =?us-ascii?Q?lUujqbU0KnYmI0R4BHtgZjGhFDhnaBv1DxjJGde+pkpZK5EiDfrvT5LAJvU9?=
- =?us-ascii?Q?W1lKAkhcoCQ/xaRNgprx5sSWOy9uZyZ7KyqUL28dY4N4DwzcQU3xrqnjJfgq?=
- =?us-ascii?Q?Wf+PE9DZ8ZcVysEvicjy1c7+OKZe2UqHvPbfxc2ys2lJ9lBQ40o3Pmux0/79?=
- =?us-ascii?Q?NaWTMUXN3haVvMV7/EDDgBr4VRZI+WfOTKY/T52d7Lin4KdFNRwCT3bN3V6y?=
- =?us-ascii?Q?pU3GDozNAwaXhjCpr+aPHOA2tddAG8iz+Zlgu+4ucnWHHnVAh3gppx+zDiE0?=
- =?us-ascii?Q?xnvyVLxMlx25AQFxDjsmEYJ/wM1Wnwd10Ed50WEEACF/t+2fDUAVFLpKF7D8?=
- =?us-ascii?Q?M8rs0/3l+QsB5Lkanp4Jz1ybGuJMZqI4l3EWKYQLjNLc1Y39OHA8Y8KNCFKa?=
- =?us-ascii?Q?G/LaoQzh4Dt+b1PXcQa26b2Y/v9oNaOxsU2RwCeUmzJyuVFXYGKYwRrdVFwV?=
- =?us-ascii?Q?ekEeTPDszD/oFBgldhqyWtPL/NguwIUHORz/Tr58ICa4iXmBmW2NFrZg6KFs?=
- =?us-ascii?Q?6SpsQT3A/u01PGT8hBVEWl9uM7CNiR+3+eZa9T27ms/krK5gSdxW+vS6hWqZ?=
- =?us-ascii?Q?8R5W2gGvjnVW9QG1kN7OTclUMxozhQKpp85+C2QlWZ+Ou2CwoV9mJvV8TTYO?=
- =?us-ascii?Q?y1DffQknrhJnB4++rXKaj2NqxUtkhIIOFlL2QIyjZLvev9chUQKBW/GvdlhZ?=
- =?us-ascii?Q?6QHA9MOk1e0bkYSzgqS/MGMzcW1F8hSQXA3X6Sd0rrVyoXJUjtPKCdsRF8Kl?=
- =?us-ascii?Q?ls5ykIKW/u9xH9ZGvLF82L1rXSKZT9L+/gLdNq3Z/FrEJ8eMvqCZ2XAAz0Yh?=
- =?us-ascii?Q?0kTryMcFuIYMYUw9XAkFuF2oqlnI997K/70WHZvUWvH1ZOUDNzibwg/uwtIS?=
- =?us-ascii?Q?Lw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: a8jvsJwEQH1zNWiE8yP+6YIBfasKkNWYpIagVk3Lsu+KLzcbknpJIgumoHauFjsJ4sZ+lK8ctdWtjVwDQR3fN6FsNKjECvXqjei5YWYZuF1ui4gjBjQK3XuxrqNFgr4XuxyKT75wM5SfKj4zDEc8f5Fzap+huKGMdj7wPEsrsxUAldWSKpNjqBpjrDrBmLajTUemXK1B5Lx14xDSrXjZ/S4EoCwzKyBo04apyLE59BB9hcwXJ2VD0kYaybQkKy54J+bcFLMe3HDxO7osXZL9Dd2h0okZ8lOvjP9l9Y17rH5fesyvBxasHmnUkUw0Hi+ztBQ0FwCYkcxpwpP3T5K4LikhSjdsqa9HRBdyUuGB/dGGl2VNbIdQEugDq0D/9TCu2woE21t7sA+1DNSTXSl6F67fqZUF4hJdC2RlrPzAljiDrV1sj0tAWsOB2wuZEYMPu/+2PdpPFF9OvnT6EaLNViAejfuCcR855+q/EO+Y/5mDyJVJJlBSPoHeo598J/ixQ/DH0qfu6tVU3UvN6VMERlBSxRBOPm9lV5HzDSJte3lkUlEDIJ3D5UfC7/+0S5nSMsixH0/GXCTJfZqKBpjktstSNLtH080IeLYjkejt9oI=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 402ca391-e5f5-40ae-a16a-08dcfba7ceb3
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR10MB2957.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2024 01:35:32.7379
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IJ5XrLhiJCmXsfi/a1fahlhbebBU4R12sOj+Gw1tuVFI/d1z5FXOilGWvo/e7/MyNLQ4qp+4/QwQ9N/1k3BcBYcY4hqquRaUtJu6caCdJiM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4288
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-11-02_24,2024-11-01_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=705 bulkscore=0 spamscore=0
- adultscore=0 phishscore=0 suspectscore=0 malwarescore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2409260000
- definitions=main-2411030012
-X-Proofpoint-ORIG-GUID: cQV9Quqh63-U4luDuaaXln6Okgi5viCD
-X-Proofpoint-GUID: cQV9Quqh63-U4luDuaaXln6Okgi5viCD
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241102_183609_410234_E0B6520C 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20241102_190948_296511_789DCF9E 
+X-CRM114-Status: GOOD (  44.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,18 +78,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 02 Nov 2024 18:44:41 -0300
+Cody Eksal <masterr3c0rd@epochal.quest> wrote:
 
-Peter,
+Hi Cody,
 
-> This series provides a few cleanups, bug fixes and feature
-> enhancements for the ufs-exynos driver, particularly for gs101 SoC.
+thanks for staying on this issue!
 
-Patches 1 and 2 were missing your SoB tags. I took the liberty of adding
-these instead of having you resubmit. Please acknowledge that these two
-patches should have your SoB.
+> On 2024/10/31 9:08 am, Andre Przywara wrote:
+> > Well, while this change indeed prevented that error message you mentioned,
+> > but the SD card still doesn't work for me: it probes and I can mount a
+> > filesystem on it, but then it hangs, for instance when running an "ls" on
+> > it. It could be my setup (lacking DT or device issue or missing kernel
+> > config), though, and the eMMC works for me this way, but it would be good
+> > to have that sorted.   
+> I'm investigating this now; it appears mmc2/eMMC is more consistent when
+> CLK_NO_REPARENT is set
 
-Thanks!
+What do you mean with "more consistent", exactly?
+I still don't get why NO_REPARENT would help here in the first place:
+we have three clocks as potential parents: OSC24MHz, PLL_PERIPH0,
+PLL_PERIPH1. The first one is too slow for typical MMC rates, and
+PERIPH1 is typically disabled (it's the same rates as PERIPH0, so
+there is little need for it). So PERIPH0 is to clock to go, and I don't
+see what NO_REPARENT would change here.
 
--- 
-Martin K. Petersen	Oracle Linux Engineering
+So those are my observations:
+With NO_REPARENT (current mainline):
+- SD card fails to probe:
+  sunxi-mmc 4020000.mmc: fatal err update clk timeout
+- SD card is still parented to PERIPH0-2x (probably because U-Boot set
+  that up), but uses a divider of 256 for a clock rate of 4687500 Hz.
+  This probably leads to the failures.
+- eMMC works, but is parented to the 24MHz OSC, probably because U-Boot
+  did not touch it. The clock rate is 12MHz, the read speed is 10MB/s.
+With removing NO_REPARENT, so with this patch:
+- SD cards probes, I can mount a VFAT fs on it, and sometimes "ls"
+  that, but it hangs soon afterwards, for instance when trying to
+  benchmark it.
+- SD clock is set up correctly: parent is PLL_PERIPH0-2x, rate is 50
+  MHz, correct for High Speed@4bit and its 25MB/s bus speed.
+- eMMC works fine, clock parent is PLL-PERIPH0-2x, rate is 100 MHz,
+  correct for HS-200 (100 MHz * 8 bit * 2(DDR)). The read speed is
+  72MB/s, which sounds alright, and might be a limitation of the flash
+  chip.
+
+So NO_REPARENT is always worse for me.
+
+> > Also it would be good to know why CLK_SET_RATE_NO_REPARENT was put there
+> > in the first place: I don't see it in any other MMC clocks in sunxi-ng, so
+> > it wasn't just copied&pasted.  
+> Seeing that mmc2 acts better with the flag, perhaps it was copy + pasted
+> from that config. Or perhaps the issues we're running into comes from
+> elsewhere in the chain. At the moment, that's only speculation, though;
+> I'm waiting on a device that has an SD card slot so I can perform more
+> testing myself and debug these issues.
+> 
+> > So was there a problem that this flag was supposed to fix? Is that
+> > something that only applied to older kernels (back when the MMC patches
+> > were first posted), and which has now been fixed/changed elsewhere?  
+> Yangtao Li/Frank Lee assumably no longer works at Allwinner, as the email
+> he used to submit this originally no longer exists, but I believe the same
+> Yangtao is now a maintainer of the Allwinner cpufreq subsystem, and is
+> CC'd on these patches. I'm sending this reply to him as well; perhaps he
+> may have some additional insight.
+> 
+> > I feel a bit uneasy of just removing this just because it works(TM),
+> > especially if it doesn't really (SD card for me, for instance).  
+> I agree; I was quickly preparing V2 to hopefully get this in before the
+> 6.13 window for the sunxi tree closed, and added this in last minute after
+> verifying it worked on my current device, which lacks an SD card slot.
+> 
+> This patch can be skipped for now, as it's apparent MMC0/1 require a little
+> more love before we can merge it in. I'll submit new patches in the future
+> once this is figured out.
+
+This patch would be a fix anyway (with a Fixes: tag), so we can push it
+still into 6.13, after -rc1, and it would be backported. So it's not as
+critical, timing-wise.
+
+Cheers,
+Andre
+
+> 
+> Thanks!
+> - Cody
+> 
+> > Cheers,
+> > Andre
+> >   
+> >> Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> >> ---
+> >>  drivers/clk/sunxi-ng/ccu-sun50i-a100.c | 6 +++---
+> >>  1 file changed, 3 insertions(+), 3 deletions(-)  
+> 
+
 
