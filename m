@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D7AD11081
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 13:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5227AD11081
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 14:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OUuQir46OkkfW4zJKULfyo1jZXzS95OVNkHoxXsjcV8=; b=Vmem8ji6/A/w5kSbT9KnjNDelP
-	u+P7+0v9gSxyqULCh6Z3Nuc2e4Ya5/B+pyjnGeVql9Y3RYpH1DQr/1aY6k6f7OMvtkrh37EQAwMop
-	EqZxgM9Pi3Q3lwdma4tMmc3twiZwixV1Rlf4Yb5ZXo3fRYK1/brQElIEss8MGC9gOHhYq6eBJIFjo
-	AswuJA10BbozgiHCSJzytCe1mPUI61maX++PViK4tO6067tN4s/ZaHagk64i1oCCEKZxtLVUn5ekn
-	AjJ0KNBFKZk3LInNlAuNhrbqogG7v7iS/C74KjqMUAw76FuvXx7gRMJ3fESMdkz8xuEhYFveCNE1b
-	c5ox8M3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LnBUFuHQ8wxisDfmkv/SVcgdxffw2NF75fIbS6RYg6M=; b=KikAcEtLAIk0NydTfVzaJiX5uS
+	gUcnzKSroR9ji+sc3OpuHF0CcAxarFu4YEVbJR5K2DFU2jpOA4vg0InHscJPglAosU1leKk9ZzQD0
+	CNy1iIqs+7cD8AfXs7Q2Mjg6hgQEdJvMNc8itqblvZ6Gr+Y8lKrKgbfl1RUcRKMmJG1Hsd5MDLoWE
+	iSq0pMBYcti5NIhKO3PWw9+LTXJqS1GX13PiRCTW/cX6mjL+2xeTWrZ6yXOwm0IZPRaEbAlZKbcus
+	YJ2T4WKDPHGqbPvWWOtLQgpW9JgbgU17rvL/GXbpX9iVEt66TH72VgT1/t89uP0Jl46Y2gtEGAYoh
+	CoERdI2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7b8E-0000000BVff-2JsZ;
-	Sun, 03 Nov 2024 13:59:06 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1t7b9s-0000000BVpH-03mV;
+	Sun, 03 Nov 2024 14:00:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7b1b-0000000BUlO-3zv6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 13:52:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=OUuQir46OkkfW4zJKULfyo1jZXzS95OVNkHoxXsjcV8=; b=xlkQzieiu7K4MOClRf8jt+ATRq
-	JISt3433WfR4+Z48JVbKst5BpqgesEq4cX0MJ9N5LFx4cvSIwNAALNDdct1XwJqM/xpeLFz/1AdRT
-	lP43HyUH787P7isUKPhTyktYvZ7f+W0VyYVreUej70E9myQtZyS8YW1Fk6JP9dGWlA1+jKzz9X3YG
-	dK0bYrCv0+RT8q7/mBoAONY0DZMZZcqL0poognjTHj7Q5peIzAf0OPAN3WaQ1XBkQNEHuOfxFW9QB
-	Oz9ku3aG584vgXf4LacC/X1T/fcu+TjSc628mKPXvunzlrGcTApBeItlT8io9HkwVHjWHs/vH99vd
-	Wq0uXRtg==;
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v4 2/3] ARM: dts: imx: Add devicetree for Kobo Clara 2E
-Date: Sun,  3 Nov 2024 14:52:00 +0100
-Message-Id: <20241103135201.25615-3-andreas@kemnade.info>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241103135201.25615-1-andreas@kemnade.info>
-References: <20241103135201.25615-1-andreas@kemnade.info>
+	id 1t7b6k-0000000BVO1-2C26;
+	Sun, 03 Nov 2024 13:57:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 337C15C4336;
+	Sun,  3 Nov 2024 13:56:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 014DBC4CECD;
+	Sun,  3 Nov 2024 13:57:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730642252;
+	bh=VxXH6aqpqHLHF5oRJ5vnT5vpm2uvtxBA9AHVL/CAjN8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EgyAPyUVzD+RX89LUiOchP3Aw0Js3GqP/DtnP8pAtBfaDedVT967mnJ82pBpE9KRN
+	 ftK066xUf9/ky+dJfz8zo3ZrlOBBIwzAtGdFfjJW9BVBxme/2A7kncMayzUKYZ5xhE
+	 Vmbx+QZrBR8d8lG3rs/hr5GcPBgei7uWbzXvPZxURjQuM+X2Jr3q9fjSTk/A+86b8b
+	 PyY1dLiWpn2qN/lGx/OjiSXOJsgO36lUUbVoSgk7DuHWX2RDImBvvO7ui25Wr0tZYV
+	 0Xe+h5Xj9lpyGr/BCNqgwMBTm5cG9eqiST44/fbsaiqt3sqcAsOAptCwqbnUAM9n9Z
+	 n3EbHG0jaagjw==
+Date: Sun, 3 Nov 2024 05:57:30 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: WangYuli <wangyuli@uniontech.com>
+Cc: ardb@kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, kernel@xen0n.name, chenhuacai@kernel.org,
+	xry111@xry111.site, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 06/18] loongarch/crc32: expose CRC32 functions through
+ lib
+Message-ID: <20241103135730.GA813@quark.localdomain>
+References: <20241025191454.72616-7-ebiggers@kernel.org>
+ <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DA8BCDFFEACDA1C6+20241103133655.217375-1-wangyuli@uniontech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_055216_591571_141D8107 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20241103_055734_636141_1A1B0A0B 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,626 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds a devicetree for the Kobo Clara 2E Ebook reader. It is based
-on boards marked with "37NB-E60K2M+4A2" or "37NB-E60K2M+4B0". It is
-equipped with an i.MX6SLL SoC.
+On Sun, Nov 03, 2024 at 09:36:55PM +0800, WangYuli wrote:
+> Even though the narrower CRC instructions doesn't require GRLEN=64, they still *aren't* part of LA32 (LoongArch reference manual v1.10, Volume 1, Table 2-1).
+> Link: https://lore.kernel.org/all/0a7d0a9e-c56e-4ee2-a83b-00164a450abe@xen0n.name/
+> 
+> Therefore, we could not directly add ARCH_HAS_CRC32 to config LOONGARCH.
+> 
 
-Expected to work:
-  - Buttons
-  - Wifi
-  - Bluetooth
-    (if Wifi is initialized first, driver does not handle regulators
-     yet)
-  - LED
-  - uSD
-  - USB
-  - RTC
-  - Touchscreen
+There's still a runtime CPU feature check of cpu_has(CPU_FEATURE_CRC32).
+See arch/loongarch/lib/crc32-loongarch.c.  So it's the same as before.
+ARCH_HAS_CRC32 just means that the file will be compiled.
 
-Add human-readable comments for devices without mainlined driver and
-binding. Such comments can e.g. be help to find testers if someone
-starts to work on the missing drivers.
+If you're trying to say that you think this file should be built only when
+CONFIG_64BIT=y, then that would be an existing bug since the existing file
+arch/loongarch/crypto/crc32-loongarch.c was built for both 32-bit and 64-bit.
+But if you think this is a bug, I can fix this too.
 
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
----
- arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
- .../dts/nxp/imx/imx6sll-kobo-clara2e-a.dts    |  23 +
- .../dts/nxp/imx/imx6sll-kobo-clara2e-b.dts    |  23 +
- .../nxp/imx/imx6sll-kobo-clara2e-common.dtsi  | 511 ++++++++++++++++++
- 4 files changed, 559 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi
-
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 92e291603ea13..58db45352b666 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -290,6 +290,8 @@ dtb-$(CONFIG_SOC_IMX6SL) += \
- dtb-$(CONFIG_SOC_IMX6SLL) += \
- 	imx6sll-evk.dtb \
- 	imx6sll-kobo-clarahd.dtb \
-+	imx6sll-kobo-clara2e-a.dtb \
-+	imx6sll-kobo-clara2e-b.dtb \
- 	imx6sll-kobo-librah2o.dtb
- dtb-$(CONFIG_SOC_IMX6SX) += \
- 	imx6sx-nitrogen6sx.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts
-new file mode 100644
-index 0000000000000..33756d6de7aa0
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0)
-+/*
-+ * Device tree for the Kobo Clara 2E rev A ebook reader
-+ *
-+ * Name on mainboard is: 37NB-E60K2M+4A2
-+ * Serials start with: E60K2M (a number also seen in
-+ * vendor kernel sources)
-+ *
-+ * Copyright 2024 Andreas Kemnade
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx6sll-kobo-clara2e-common.dtsi"
-+
-+/ {
-+	model = "Kobo Clara 2E";
-+	compatible = "kobo,clara2e-b", "kobo,clara2e", "fsl,imx6sll";
-+};
-+
-+&i2c2 {
-+	/* EPD PMIC SY7636 at 0x62 */
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts
-new file mode 100644
-index 0000000000000..f81aeacf51420
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0)
-+/*
-+ * Device tree for the Kobo Clara 2E rev B ebook reader
-+ *
-+ * Name on mainboard is: 37NB-E60K2M+4B0
-+ * Serials start with: E60K2M (a number also seen in
-+ * vendor kernel sources)
-+ *
-+ * Copyright 2024 Andreas Kemnade
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx6sll-kobo-clara2e-common.dtsi"
-+
-+/ {
-+	model = "Kobo Clara 2E";
-+	compatible = "kobo,clara2e-b", "kobo,clara2e", "fsl,imx6sll";
-+};
-+
-+&i2c2 {
-+	/* EPD PMIC JD9930 at 0x18 */
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi
-new file mode 100644
-index 0000000000000..6f2deb366e029
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi
-@@ -0,0 +1,511 @@
-+// SPDX-License-Identifier: (GPL-2.0)
-+/*
-+ * Common part for Kobo Clara 2e device tree
-+ * Copyright 2024 Andreas Kemnade
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include "imx6sll.dtsi"
-+
-+/ {
-+	aliases {
-+		mmc0 = &usdhc2;
-+		mmc1 = &usdhc3;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart1;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_keys>;
-+
-+		key-cover {
-+			label = "Cover";
-+			gpios = <&gpio4 23 GPIO_ACTIVE_LOW>;
-+			linux,code = <SW_LID>;
-+			linux,input-type = <EV_SW>;
-+			wakeup-source;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_led>;
-+
-+		led {
-+			color = <LED_COLOR_ID_WHITE>;
-+			function = LED_FUNCTION_POWER;
-+			gpios = <&gpio4 17 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "timer";
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reg_wifi: regulator-wifi {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD3_SPWR";
-+		regulator-min-microvolt = <3000000>;
-+		regulator-max-microvolt = <3000000>;
-+		gpio = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+};
-+
-+&clks {
-+	assigned-clocks = <&clks IMX6SLL_CLK_PLL4_AUDIO_DIV>;
-+	assigned-clock-rates = <393216000>;
-+};
-+
-+&cpu0 {
-+	arm-supply = <&buck1>;
-+	soc-supply = <&buck2>;
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default","sleep";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	pinctrl-1 = <&pinctrl_i2c1_sleep>;
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	/* backlight aw99703 at 0x36 */
-+};
-+
-+&i2c2 {
-+	pinctrl-names = "default","sleep";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	pinctrl-1 = <&pinctrl_i2c2_sleep>;
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	/* backlight aw99703 at 0x36 */
-+
-+	touchscreen@38 {
-+		compatible = "focaltech,ft5426";
-+		reg = <0x38>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&pinctrl_touch_gpio>;
-+		pinctrl-1 = <&pinctrl_touch_gpio_sleep>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <24 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 18 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1072>;
-+		touchscreen-size-y = <1448>;
-+		touchscreen-swapped-x-y;
-+	};
-+};
-+
-+&i2c3 {
-+	/* Bus seems to be in bad state after boot, allow full recovery */
-+	pinctrl-names = "default", "gpio";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
-+	sda-gpios = <&gpio3 22 GPIO_ACTIVE_HIGH>;
-+	scl-gpios = <&gpio3 21 GPIO_ACTIVE_HIGH>;
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	pmic@4b {
-+		compatible = "rohm,bd71879", "rohm,bd71828";
-+		reg = <0x4b>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_bd71828>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
-+		system-power-controller;
-+		clocks = <&clks 0>;
-+		#clock-cells = <0>;
-+		clock-output-names = "bd71828-32k-out";
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-reserved-ranges = <0 1>, <2 1>;
-+
-+		/* charge sense resistor is 30 milli-ohm */
-+
-+		regulators {
-+			LDO1 {
-+				name = "LDO1";
-+				regulator-name = "ldo1";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			LDO2 {
-+				name = "LDO2";
-+				regulator-name = "ldo2";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			LDO3 {
-+				name = "LDO3";
-+				regulator-name = "ldo3";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			ldo4: LDO4 {
-+				name = "LDO4";
-+				regulator-name = "ldo4";
-+				regulator-always-on;
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+			};
-+
-+			LDO5 {
-+				name = "LDO5";
-+				regulator-name = "ldo5";
-+				regulator-always-on;
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			LDO6 {
-+				name = "LDO6";
-+				regulator-name = "ldo6";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			LDO7 {
-+				name = "LDO7";
-+				regulator-name = "ldo7";
-+				regulator-always-on;
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+			};
-+
-+			buck1: BUCK1 {
-+				name = "BUCK1";
-+				regulator-name = "buck1";
-+				regulator-always-on;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1400000>;
-+				regulator-boot-on;
-+			};
-+
-+			buck2: BUCK2 {
-+				name = "BUCK2";
-+				regulator-name = "buck2";
-+				regulator-always-on;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <2000000>;
-+				regulator-boot-on;
-+			};
-+
-+			BUCK3 {
-+				name = "BUCK3";
-+				regulator-name = "buck3";
-+				regulator-always-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+			};
-+
-+			BUCK4 {
-+				name = "BUCK4";
-+				regulator-name = "buck4";
-+				regulator-always-on;
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-boot-on;
-+			};
-+
-+			BUCK5 {
-+				name = "BUCK5";
-+				regulator-name = "buck5";
-+				regulator-always-on;
-+				regulator-min-microvolt = <2500000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+			};
-+
-+			BUCK6 {
-+				name = "BUCK6";
-+				regulator-name = "buck6";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <2000000>;
-+			};
-+
-+			BUCK7 {
-+				name = "BUCK7";
-+				regulator-name = "buck7";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <2000000>;
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_bd71828: bd71828-gpiogrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_KEY_COL0__GPIO3_IO24		0x1b8b1
-+			MX6SLL_PAD_GPIO4_IO19__GPIO4_IO19	0x1b8b1
-+		>;
-+	};
-+
-+	pinctrl_gpio_keys: gpio-keysgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25	0x17059	/* PWR_SW */
-+			MX6SLL_PAD_GPIO4_IO23__GPIO4_IO23	0x17059	/* HALL_EN */
-+		>;
-+	};
-+
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_I2C1_SCL__I2C1_SCL	0x4001f8b1
-+			MX6SLL_PAD_I2C1_SDA__I2C1_SDA	0x4001f8b1
-+		>;
-+	};
-+
-+	pinctrl_i2c1_sleep: i2c1-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_I2C1_SCL__I2C1_SCL	0x400108b1
-+			MX6SLL_PAD_I2C1_SDA__I2C1_SDA	0x400108b1
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_I2C2_SCL__I2C2_SCL	0x4001f8b1
-+			MX6SLL_PAD_I2C2_SDA__I2C2_SDA	0x4001f8b1
-+		>;
-+	};
-+
-+	pinctrl_i2c2_sleep: i2c2-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_I2C2_SCL__I2C2_SCL	0x400108b1
-+			MX6SLL_PAD_I2C2_SDA__I2C2_SDA	0x400108b1
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_REF_CLK_24M__I2C3_SCL 0x4001f8b1
-+			MX6SLL_PAD_REF_CLK_32K__I2C3_SDA 0x4001f8b1
-+		>;
-+	};
-+
-+	pinctrl_i2c3_gpio: i2c3-gpiogrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_REF_CLK_24M__GPIO3_IO21 0x4001f8b1
-+			MX6SLL_PAD_REF_CLK_32K__GPIO3_IO22 0x4001f8b1
-+		>;
-+	};
-+
-+	pinctrl_led: ledgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_GPIO4_IO17__GPIO4_IO17 0x10059
-+		>;
-+	};
-+
-+	pinctrl_touch_gpio: touch-gpiogrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_GPIO4_IO24__GPIO4_IO24	0x17059 /* TP_INT */
-+			MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
-+		>;
-+	};
-+
-+	pinctrl_touch_gpio_sleep: touch-gpio-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_GPIO4_IO24__GPIO4_IO24	0x10059 /* TP_INT */
-+			MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
-+			MX6SLL_PAD_UART1_RXD__UART1_DCE_RX 0x1b0b1
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_LCD_ENABLE__UART2_DCE_RX	0x41b0b1
-+			MX6SLL_PAD_LCD_HSYNC__UART2_DCE_TX	0x41b0b1
-+			MX6SLL_PAD_LCD_VSYNC__UART2_DCE_RTS	0x41b0b1
-+			MX6SLL_PAD_LCD_RESET__UART2_DCE_CTS	0x41b0b1
-+		>;
-+	};
-+
-+	pinctrl_uart2_sleep: uart2-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_LCD_ENABLE__GPIO2_IO16	0x10059
-+			MX6SLL_PAD_LCD_HSYNC__GPIO2_IO17	0x10059
-+			MX6SLL_PAD_LCD_VSYNC__GPIO2_IO18	0x10059
-+			MX6SLL_PAD_LCD_RESET__GPIO2_IO19	0x10059
-+		>;
-+	};
-+
-+	pinctrl_usbotg1: usbotg1grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_EPDC_PWR_COM__USB_OTG1_ID 0x17059
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD2_CMD__SD2_CMD		0x17059
-+			MX6SLL_PAD_SD2_CLK__SD2_CLK		0x13059
-+			MX6SLL_PAD_SD2_DATA0__SD2_DATA0		0x17059
-+			MX6SLL_PAD_SD2_DATA1__SD2_DATA1		0x17059
-+			MX6SLL_PAD_SD2_DATA2__SD2_DATA2		0x17059
-+			MX6SLL_PAD_SD2_DATA3__SD2_DATA3		0x17059
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD2_CMD__SD2_CMD		0x170b9
-+			MX6SLL_PAD_SD2_CLK__SD2_CLK		0x130b9
-+			MX6SLL_PAD_SD2_DATA0__SD2_DATA0		0x170b9
-+			MX6SLL_PAD_SD2_DATA1__SD2_DATA1		0x170b9
-+			MX6SLL_PAD_SD2_DATA2__SD2_DATA2		0x170b9
-+			MX6SLL_PAD_SD2_DATA3__SD2_DATA3		0x170b9
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD2_CMD__SD2_CMD		0x170f9
-+			MX6SLL_PAD_SD2_CLK__SD2_CLK		0x130f9
-+			MX6SLL_PAD_SD2_DATA0__SD2_DATA0		0x170f9
-+			MX6SLL_PAD_SD2_DATA1__SD2_DATA1		0x170f9
-+			MX6SLL_PAD_SD2_DATA2__SD2_DATA2		0x170f9
-+			MX6SLL_PAD_SD2_DATA3__SD2_DATA3		0x170f9
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_sleep: usdhc2-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD2_CMD__GPIO5_IO04		0x100f9
-+			MX6SLL_PAD_SD2_CLK__GPIO5_IO05		0x100f9
-+			MX6SLL_PAD_SD2_DATA0__GPIO5_IO01	0x100f9
-+			MX6SLL_PAD_SD2_DATA1__GPIO4_IO30	0x100f9
-+			MX6SLL_PAD_SD2_DATA2__GPIO5_IO03	0x100f9
-+			MX6SLL_PAD_SD2_DATA3__GPIO4_IO28	0x100f9
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD3_CMD__SD3_CMD	0x11059
-+			MX6SLL_PAD_SD3_CLK__SD3_CLK	0x11059
-+			MX6SLL_PAD_SD3_DATA0__SD3_DATA0	0x11059
-+			MX6SLL_PAD_SD3_DATA1__SD3_DATA1	0x11059
-+			MX6SLL_PAD_SD3_DATA2__SD3_DATA2	0x11059
-+			MX6SLL_PAD_SD3_DATA3__SD3_DATA3	0x11059
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD3_CMD__SD3_CMD	0x170b9
-+			MX6SLL_PAD_SD3_CLK__SD3_CLK	0x170b9
-+			MX6SLL_PAD_SD3_DATA0__SD3_DATA0	0x170b9
-+			MX6SLL_PAD_SD3_DATA1__SD3_DATA1	0x170b9
-+			MX6SLL_PAD_SD3_DATA2__SD3_DATA2	0x170b9
-+			MX6SLL_PAD_SD3_DATA3__SD3_DATA3	0x170b9
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD3_CMD__SD3_CMD	0x170f9
-+			MX6SLL_PAD_SD3_CLK__SD3_CLK	0x170f9
-+			MX6SLL_PAD_SD3_DATA0__SD3_DATA0	0x170f9
-+			MX6SLL_PAD_SD3_DATA1__SD3_DATA1	0x170f9
-+			MX6SLL_PAD_SD3_DATA2__SD3_DATA2	0x170f9
-+			MX6SLL_PAD_SD3_DATA3__SD3_DATA3	0x170f9
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_sleep: usdhc3-sleepgrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD3_CMD__GPIO5_IO21	0x100c1
-+			MX6SLL_PAD_SD3_CLK__GPIO5_IO18	0x100c1
-+			MX6SLL_PAD_SD3_DATA0__GPIO5_IO19	0x100c1
-+			MX6SLL_PAD_SD3_DATA1__GPIO5_IO20	0x100c1
-+			MX6SLL_PAD_SD3_DATA2__GPIO5_IO16	0x100c1
-+			MX6SLL_PAD_SD3_DATA3__GPIO5_IO17	0x100c1
-+		>;
-+	};
-+
-+	pinctrl_wifi_power: wifi-powergrp {
-+		fsl,pins = <
-+			MX6SLL_PAD_SD2_DATA6__GPIO4_IO29	0x10059
-+		>;
-+	};
-+};
-+
-+&snvs_rtc {
-+	/* we are using the rtc in the pmic, not disabled in imx6sll.dtsi */
-+	status = "disabled";
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	pinctrl-1 = <&pinctrl_uart2_sleep>;
-+	status = "okay";
-+
-+	/* requires LDO4 + power enable gpio */
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+		fw-init-baudrate = <1500000>;
-+	};
-+};
-+
-+&usbotg1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usbotg1>;
-+	disable-over-current;
-+	srp-disable;
-+	hnp-disable;
-+	adp-disable;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz","sleep";
-+	pinctrl-0 = <&pinctrl_usdhc2>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc2_sleep>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&usdhc3 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz","sleep";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc3_sleep>;
-+	/* card requires also ldo4 */
-+	vmmc-supply = <&reg_wifi>;
-+	cap-power-off-card;
-+	non-removable;
-+	status = "okay";
-+};
--- 
-2.39.5
-
+- Eric
 
