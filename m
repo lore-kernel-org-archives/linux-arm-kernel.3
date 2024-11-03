@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3389D10C0E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 11:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15449D10C0E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 12:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEP4S13c5DyD5DUmsjutPU+x2vWzwQUJHCKu7VY+P50=; b=Ym/GJ/dlc9qyYEzrcPuzyYA+Db
-	1w29Oylvly2FphVIllWVP3vogzs41um/lNvz3etMmTY7fbJpksqOjt6v/Hm/hLINpALzGeUAUHLPT
-	B+1xSue0a90n++BbhUiz4bAphs9yoILyIyEQs5Bn1VeiHcs7zovey4fNKM0VHtQqykuwKA1jGpXt3
-	5rpdLkvdpVlYbvx7ZL10UzDezKTMcLONq42xLHw/pmALb09r0TD7A6nt6SkYUf7lyhQzBGA3WIXOv
-	+GGO7c9L++4FA8v/lWn1z39y4TUz03UE2neO5wJ9oBpetAfZkWJrw24CRglNtDQo3KrDy1BlSxW91
-	RYO+99Ag==;
+	bh=cd3kIe56QXQQam1qx/3dD2gryf9hu9/6h0hqv8KkgSA=; b=HZ/nSSEfO2iWvENZpi8p6VVmSS
+	Yvr6JH6PcG01SjLLH7DEdoHKy+yUr2pSVcFCMiAiOOy7J9BjjX7RQPYJeTJOYsT561eiW10qE4Qix
+	bEDtoo4UUmTB+smrzhRWaLTyXyd4k84JcTW+0Hn7CoRl+w2L+Gzz7FEfmvlfwZnKF0cB6EJiwa0LB
+	Ew5koEb3r8qB6pX8Ue4vxCPtk7WTGhUMJc+nsKBxgfrTZGSJQ67ky8NH7tZpMOuVaM2na16l0o75u
+	g1zG2XE8v3OtLV6Q5OAhjtVUn1Ov84Swbod5/nt5ZkToKUv53FhugvpazjDriu4/GKMS5zBPdedhI
+	bYwPapjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Yrl-0000000BLnh-2fAA;
-	Sun, 03 Nov 2024 11:33:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t7ZLR-0000000BNft-0z31;
+	Sun, 03 Nov 2024 12:04:37 +0000
+Received: from mail-yb1-f175.google.com ([209.85.219.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7Yq3-0000000BLWc-0HQQ
+	id 1t7ZJl-0000000BNVj-0u3N
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Nov 2024 11:32:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C566E5C464B;
-	Sun,  3 Nov 2024 11:30:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD515C4CECD;
-	Sun,  3 Nov 2024 11:31:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730633483;
-	bh=ZvbVHVuun8oeRhQlJajET7qBhOvsWylLAA2B8VkfPFY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WfsI9xbLsIDKjoAK61UpdaKB1MZDf+nzsNT6q0hqXnk+BOWHDvW+ZejPDr83/cTcC
-	 5p0njkFXStrBEqtWjGHGB9TDDyanBXuM99CK93l8AEemJBPfXy8vS/PZLK3EiO8XLG
-	 3XUKYcaiTZoAJKwbQlZRqIJ1nIw+0U4J4uut0SH5BJwUv1wbA1UxDXkuVbXu1q5mr1
-	 v/7jbnVwp9LzEbLO5xuLhuRlX4GFPWG0RwW7rLq8L0B+EUBk9Z8m/Ei9WnH/5ntr6H
-	 aYmjPhjfBmQpayBwpDHyvUFpoj7tl3JH+OhSLDKlgC93FHrKqVVWMhk7jbFEgjE6nz
-	 hizgVfwY6NINA==
-Date: Sun, 3 Nov 2024 11:31:03 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Aren Moynihan <aren@peacevolution.org>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Kaustabh
- Chakraborty <kauschluss@disroot.org>, =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?=
- <trabarni@gmail.com>, Ondrej Jirman <megi@xff.cz>, Uwe =?UTF-8?B?S2xlaW5l?=
- =?UTF-8?B?LUvDtm5pZw==?= <u.kleine-koenig@pengutronix.de>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
- phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 3/6] iio: light: stk3310: Implement vdd and leda
- supplies
-Message-ID: <20241103112933.60f96f97@jic23-huawei>
-In-Reply-To: <20241102195037.3013934-9-aren@peacevolution.org>
-References: <20241102195037.3013934-3-aren@peacevolution.org>
-	<20241102195037.3013934-9-aren@peacevolution.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	Sun, 03 Nov 2024 12:02:54 +0000
+Received: by mail-yb1-f175.google.com with SMTP id 3f1490d57ef6-e2bd7d8aaf8so2942187276.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 04:02:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730635371; x=1731240171;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cd3kIe56QXQQam1qx/3dD2gryf9hu9/6h0hqv8KkgSA=;
+        b=CJ7h0LGnUIhUy5gl+93jmD3JcvUmXbKHDcAT+P1l/DX79BmrSHBPUKFq3SeWPkiVU/
+         PP97rzs8BeakvA+eZ/bEDzrUTJ3oHIRIs5XL3/T/XSZvDavWubsBNYc3w29Ugc9Wzp5X
+         d+bH6ynsWBBe6mwabFyYh8zatDIUGZVvlTuHfdxeuxtCKQ0ulx+Aw11tIaboa0Feqqx/
+         jsI6QQZia4uTNgmQ8gJxyhmmI3zmNAQZv4T+aQrGwYsg6S6xA4+ZZouPy245yQuhrxlD
+         IQBX/BV1Wxz4jB7wXqLNN7UrL6DwpvzXg9uAqkx91GN76/AYK4cLVbnI/+ui8p+NvL7F
+         eSsA==
+X-Forwarded-Encrypted: i=1; AJvYcCXuKfASwC7qggVhnWmWnXfqHspjCSC2W6DG0sC/qU0zIo9IydHKiqeZXBIeFQeLe9gBt+yLUjzTlKhX/Yvp4IWM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP0G8QkYG4tQcD9IUXIb6eXkIuP2n2fBHBajUQci1nt+VzEEch
+	B+M9LD3iQVeuVd8uVHDCrUS2W65XzkwWKYD3xiHHWE8atdCKBlHiHkp4z23Y
+X-Google-Smtp-Source: AGHT+IGxjcmISv/A/o8U638w+yXlOM6MRaesCdAgta6Mqg/ysieBtBCUipoBaJ29lrO4101N4TP63Q==
+X-Received: by 2002:a05:6902:f86:b0:e30:78c0:83aa with SMTP id 3f1490d57ef6-e30e5a0259bmr11013928276.3.1730635371312;
+        Sun, 03 Nov 2024 04:02:51 -0800 (PST)
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com. [209.85.128.179])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ea55cc5787sm14522467b3.137.2024.11.03.04.02.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 03 Nov 2024 04:02:50 -0800 (PST)
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-6e9ed5e57a7so25438337b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 04:02:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVvymo1OBePhe7evK0EQw2doePLM7m4SU7UbW+9vvsOn92YPO3OLqzlKvAusI3WO0aOYoSdSO3Ed5qXrYW/M1DZ@lists.infradead.org
+X-Received: by 2002:a05:690c:600c:b0:6e3:21fa:e50f with SMTP id
+ 00721157ae682-6ea523742dcmr121048567b3.13.1730635369662; Sun, 03 Nov 2024
+ 04:02:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20241101095720.2247815-1-claudiu.beznea.uj@bp.renesas.com>
+In-Reply-To: <20241101095720.2247815-1-claudiu.beznea.uj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Sun, 3 Nov 2024 13:02:37 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWJ7XSvE4AS67-Xwo9sRayyoFxkjFeffSA0y6242g6thw@mail.gmail.com>
+Message-ID: <CAMuHMdWJ7XSvE4AS67-Xwo9sRayyoFxkjFeffSA0y6242g6thw@mail.gmail.com>
+Subject: Re: [PATCH v6 0/9] Add RTC support for the Renesas RZ/G3S SoC
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, alexandre.belloni@bootlin.com, 
+	magnus.damm@gmail.com, p.zabel@pengutronix.de, 
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_033211_291583_3CDFBD1D 
-X-CRM114-Status: GOOD (  34.91  )
+X-CRM114-CacheID: sfid-20241103_040253_276102_5CFC9B69 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,181 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat,  2 Nov 2024 15:50:39 -0400
-Aren Moynihan <aren@peacevolution.org> wrote:
+Hi Claudiu,
 
-> The vdd and leda supplies must be powered on for the chip to function
-> and can be powered off during system suspend.
-> 
-> This was originally based on a patch by Ondrej Jirman[1], but has been
-> rewritten since.
-> 
-> 1: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82
-> 
-> Signed-off-by: Aren Moynihan <aren@peacevolution.org>
-> ---
-> 
-> Notes:
->     Changes in v4:
->      - fix variable declaration order in stk3310_resume to match the rest of
->        the driver
+On Fri, Nov 1, 2024 at 10:57=E2=80=AFAM Claudiu <claudiu.beznea@tuxon.dev> =
+wrote:
+> On the Renesas RZ/G3S SoC the RTC clock is provided by the VBATTB
+> IP. A 32 KHz crystall oscillator could be connected to the VBATTB
+> input pins. The logic to control this clock (and pass it to RTC)
+> is inside the VBATTB IP. For this, the clk-vbattb driver was added
+> (patches 01-03/09).
+>
+> Patches:
+> - 01-03/09: add VBATTB support that provides the RTC clock
+> -    04/09: fixes compilation error for RTCA3 when building for RISC-V
+> - 05-08/09: update the device trees with proper nodes to enable RTC
+> -    09/09: enable proper config flags for RTC to work on RZ/G3S SoC
+>
+> Merge strategy, if any:
+> - clock patches (01-03/09) need to go though the same tree because of
+>   patch 03/09 using the devm_clk_hw_register_gate_parent_hw() introduced
+>   in patch 02/09
+> - RTC patch can go though RTC tree
+> - DTS and defconfig patches can go though Renesas tree
 
-For this Andy was asking for consistency.  Generally we don't insist on a
-particular ordering in IIO drivers, but we do prefer them to be the same.
-Your new ordering is inconsistent between resume and suspend.  Whilst
-existing code may be inconsistent, you can still pick most common ordering
-and use that for your new code.
+Thank you! I have queued 01-03 and 05-09 in renesas-clk resp. renesas-devel=
+.
 
-If the existing driver is inconsistent then feel free to tidy that up but
-do it in a precursor patch so there is a consistent style for you to then
-carry on.
+Gr{oetje,eeting}s,
 
->     
->     Changes in v3:
->      - use bulk regulators instead of two individual ones
->      - handle cleanup using devm callbacks instead of the remove function
->     
->     Changes in v2:
->      - always enable / disable regulators and rely on a dummy regulator if
->        one isn't specified
->      - replace usleep_range with fsleep
->      - reorder includes so iio headers are last
->      - add missing error handling to resume
-> 
->  drivers/iio/light/stk3310.c | 76 ++++++++++++++++++++++++++++++++++++-
->  1 file changed, 74 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-> index 181b7acb3f96..f93689c61f44 100644
-> --- a/drivers/iio/light/stk3310.c
-> +++ b/drivers/iio/light/stk3310.c
-> @@ -13,6 +13,8 @@
->  #include <linux/module.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
-> +
->  #include <linux/iio/events.h>
->  #include <linux/iio/iio.h>
->  #include <linux/iio/sysfs.h>
-> @@ -130,6 +132,7 @@ struct stk3310_data {
->  	struct regmap_field *reg_int_ps;
->  	struct regmap_field *reg_flag_psint;
->  	struct regmap_field *reg_flag_nf;
-> +	struct regulator_bulk_data supplies[2];
->  };
->  
->  static const struct iio_event_spec stk3310_events[] = {
-> @@ -621,6 +624,31 @@ static irqreturn_t stk3310_irq_event_handler(int irq, void *private)
->  	return IRQ_HANDLED;
->  }
->  
-> +static int stk3310_regulators_enable(struct stk3310_data *data)
-> +{
-> +	int ret;
-> +
-> +	ret = regulator_bulk_enable(ARRAY_SIZE(data->supplies), data->supplies);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* we need a short delay to allow the chip time to power on */
-> +	fsleep(1000);
-> +
-> +	return 0;
-> +}
-> +
-> +static void stk3310_regulators_disable(void *private)
-> +{
-> +	int ret;
-> +	struct stk3310_data *data = private;
-> +	struct device *dev = &data->client->dev;
-> +
-> +	ret = regulator_bulk_disable(ARRAY_SIZE(data->supplies), data->supplies);
-> +	if (ret)
-> +		dev_err(dev, "failed to disable regulators: %d\n", ret);
-> +}
-> +
->  static int stk3310_probe(struct i2c_client *client)
->  {
->  	int ret;
-> @@ -642,6 +670,13 @@ static int stk3310_probe(struct i2c_client *client)
->  
->  	devm_mutex_init(&client->dev, &data->lock);
->  
-> +	data->supplies[0].supply = "vdd";
-> +	data->supplies[1].supply = "leda";
-> +	ret = devm_regulator_bulk_get(&client->dev, ARRAY_SIZE(data->supplies),
-> +				      data->supplies);
-> +	if (ret)
-> +		return dev_err_probe(&client->dev, ret, "get regulators failed\n");
-> +
->  	ret = stk3310_regmap_init(data);
->  	if (ret < 0)
->  		return ret;
-> @@ -652,6 +687,16 @@ static int stk3310_probe(struct i2c_client *client)
->  	indio_dev->channels = stk3310_channels;
->  	indio_dev->num_channels = ARRAY_SIZE(stk3310_channels);
->  
-> +	ret = stk3310_regulators_enable(data);
-> +	if (ret)
-> +		return dev_err_probe(&client->dev, ret,
-> +				     "regulator enable failed\n");
-> +
-> +	ret = devm_add_action_or_reset(&client->dev, stk3310_regulators_disable, data);
-> +	if (ret)
-> +		return dev_err_probe(&client->dev, ret,
-> +				     "failed to register regulator cleanup\n");
-> +
->  	ret = stk3310_init(indio_dev);
->  	if (ret < 0)
->  		return ret;
-> @@ -682,18 +727,45 @@ static int stk3310_probe(struct i2c_client *client)
->  static int stk3310_suspend(struct device *dev)
->  {
->  	struct stk3310_data *data;
-> +	int ret;
->  
->  	data = iio_priv(i2c_get_clientdata(to_i2c_client(dev)));
->  
-> -	return stk3310_set_state(data, STK3310_STATE_STANDBY);
-> +	ret = stk3310_set_state(data, STK3310_STATE_STANDBY);
-> +	if (ret)
-> +		return ret;
-> +
-> +	regcache_mark_dirty(data->regmap);
-> +
-> +	ret = regulator_bulk_disable(ARRAY_SIZE(data->supplies), data->supplies);
-> +	if (ret) {
-> +		dev_err(dev, "failed to disable regulators: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
->  }
->  
->  static int stk3310_resume(struct device *dev)
->  {
-> -	u8 state = 0;
-> +	int ret;
->  	struct stk3310_data *data;
-> +	u8 state = 0;
->  
->  	data = iio_priv(i2c_get_clientdata(to_i2c_client(dev)));
-> +
-> +	ret = stk3310_regulators_enable(data);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to re-enable regulators: %d", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = regcache_sync(data->regmap);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to restore registers: %d\n", ret);
-> +		return ret;
-> +	}
-> +
->  	if (data->ps_enabled)
->  		state |= STK3310_STATE_EN_PS;
->  	if (data->als_enabled)
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
