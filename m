@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5673D11195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 23:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9355D11197
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Nov 2024 23:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZ3Rk0/ZUyShN96oFV9ann9qfM9SIGg+sBNWs4HMM7Q=; b=Y1C6GgNWq8++hTMQc2RtAaNO/M
-	oxbhDTORHRZRK1i7pxwhP9UTtSMJhxc2QtghvyfWi3DStQz4vpy12PwxJ9Lh3ugtrIP44joGMg8i6
-	wvm7sruxWsv0sqTyDwBqr/NEY/p9bMGx6p82Le1H7RiThCWzxFD0RLjK+xsR7i2IO/G6gyY2W+4zP
-	SbnHwtCVeUff3otYJJ9/agO36xHDySsYqNhn5bqh6cZemhyoGLvBjC47PsfSa/ZD9VO109xpHKWdA
-	V5mgHS4pLnVRnCE2io+tT9SJBzOuWAfREOf4cWp1JPadPex5hY3MIUUFn5jRfocvnKdaAES8GWBWi
-	dKkErtig==;
+	bh=KRcBZoCQqGyQ0W5yMS5aiWl2KEVthf2kKul/c6sg/D0=; b=sZOqxszDWuawRb5hv0NRsqKeLM
+	WKZW4K91UFFMixwSXLDvfjW8aDFibWgCD2ZCQM87tL2XwN8hndkm7LUi6NTB7jSMz4xcEhlL4J3xo
+	T54a0DKGMlNKDiyUIrd91h/LLNl60y+tkC4uemr7CxMf7/WfZ6qq4MIdKDEA0pv/hi/qL/DKwNE1M
+	/wMnUUTZExfv9XN4m77D2XIdXR5x+ukJ7f7QkwDTg/cZNgp0IsfF+O8FstkslM9xPZ+i5tjJttkLN
+	Kwaf6W5Yu6TQyjw60Uocn+pejYUAJPWE1eiSYIjQBU8VwM1n5NCOZEiwRL5Pjhkl/+olcrxlayyPq
+	L/+BpkhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7jbn-0000000CDYO-2yKG;
-	Sun, 03 Nov 2024 23:02:11 +0000
+	id 1t7jdR-0000000CDfA-0bDy;
+	Sun, 03 Nov 2024 23:03:53 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7j9R-0000000C8WV-2rWi;
+	id 1t7j9R-0000000C8WX-3ZMb;
 	Sun, 03 Nov 2024 22:32:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=SZ3Rk0/ZUyShN96oFV9ann9qfM9SIGg+sBNWs4HMM7Q=; b=CH1IDMBtoexMrjjDl2wXUUaGIw
-	Ku0mMkZfqbLN8VfRFp+Oe242UsW6BSsmSfHCb6x4S3NmALpJ593+MlsxD9DWHs2JZsa2Lfx1r9Oaz
-	FehEoMnDM9BFggr9aZbXTh6YobuN/6AUF8K24ny58sK4ntt94Ol9glwuFHt+VQB/lqIS4bzINMqJX
-	x/ShmFHcL+Xo6XEb6+I1lG1DOpjBja2yszDX3Ioj6PCt+DNYfHn8FgGYeaoWd2U+P10E8vjvxgDEM
-	jQedN/ln40vtsP+ESUh62bxHK4cQcdbop7qetYfLXc8vEQiSLkPtgAFoUIztrwQNPxh5nZWCXzruO
-	80lTGGtQ==;
+	bh=KRcBZoCQqGyQ0W5yMS5aiWl2KEVthf2kKul/c6sg/D0=; b=Fin1pQq5Hq0AuN7IFjhesWsX4i
+	c5eK3Wp9AbAaSH40RI4fUQQ/j4PinbrSuBRP0ZhxE3CmRDDPMCJXj/Pt3tc5wCpHFBD04+vbqUQqs
+	/KT6lToNQ1sWnazJtJWJ2YPa06N/IHkR9mgnnsMgShh9yZ0spfcrhbiO/Uov79m2Wi73oLK/Kd8VK
+	3eXntnl6iR9ptGFdWO2sZOsKfRJRo2sB46PsgdaWrrUvg4pwYX2wEVlV0ZNI5ZuUmfwAkPoMyeE+x
+	IQZ7GnKDkl3jSRS+ckX3/eyJj1isk4OGHV+To/s/TaqFSZeHG1MJ4Zcis9oZ5KO44pLSAlmfAKXrx
+	QF8jlDfQ==;
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7j9M-00000000WBV-3ZV0;
+	id 1t7j9N-00000000WBb-2J5b;
 	Sun, 03 Nov 2024 22:32:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 66E47A41918;
-	Sun,  3 Nov 2024 22:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E605FC4CECD;
-	Sun,  3 Nov 2024 22:32:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5970CA41F20;
+	Sun,  3 Nov 2024 22:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD84C4CED4;
+	Sun,  3 Nov 2024 22:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730673151;
-	bh=/2QZQ4RDOTqnvOjNlma0paDfRM/4mOTJMMlubi2+61I=;
+	s=k20201202; t=1730673152;
+	bh=ltl2dzTFUaa7H2aG4AJgeKEj/9DuYykUjD6SD30TiWA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LAskJnJ6uL6t1DRL7QZFCS2qxVoJdc7T3HUP33SyijWg2yOGc5ImldpzsY2yJ0exP
-	 z8rp3bsv7eBoNb2PmhBtpmnxXR9Nsfp/ESuFkHW1EMu5Cz6DxdJzIp3p6ryNOH2KwZ
-	 8tEBsL1KtLgMo7Tn2K4ZlFxoPGJpxNTGchmtDpkoPublhHT5Xp5WHDqcmjqHn9SFus
-	 WJkemLM27w6scYBmQMScUlvU17OMSnysFXnOkbJJhuoo2W0HPa9z3TpdRncPI3INpE
-	 4UGtDVXbi/EDLoc8ulWrbvnnqwBhaOXB/Hjbp52Iq2nEFmCIpvBw6/wbFOQtr7QLDJ
-	 BRj93+6CNlPBw==
+	b=rD284UMdniBNvOArttrl83MnmXpyNh/nlcC9K5Mm8gjSj26HUT3Ffziql0jIddtV1
+	 xYPXQVBEULCOjAKWHI6hxZEby09LiQAqmJQOZ+2SeubZyJt2ePAgcqq22PnnkBfdLl
+	 iGO7KlATTICQP9q0iuNiW/jY9amA+V+pVQXLwF5M9Px9C/dR3p1nksEL0y3UncKxCw
+	 MWnsyaP5fCmbPQQeasYezXe0FndmKpf/9Xjv4kNUqGvlEda1E0lLqwdglMDaXbGiMz
+	 MBBh+epoSvd6NFLssQi/HYX1EI7ZgicEprfte/z93BzVdbXPatTcmXXYI1TbltQc5u
+	 2Gb3LHgTHi+YA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -71,17 +71,17 @@ Cc: linux-arch@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 13/18] x86/crc32: expose CRC32 functions through lib
-Date: Sun,  3 Nov 2024 14:31:49 -0800
-Message-ID: <20241103223154.136127-14-ebiggers@kernel.org>
+Subject: [PATCH v3 15/18] ext4: switch to using the crc32c library
+Date: Sun,  3 Nov 2024 14:31:51 -0800
+Message-ID: <20241103223154.136127-16-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241103223154.136127-1-ebiggers@kernel.org>
 References: <20241103223154.136127-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_223249_785490_BDB5D884 
-X-CRM114-Status: GOOD (  27.16  )
+X-CRM114-CacheID: sfid-20241103_223250_581654_FD42119E 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,743 +98,170 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the x86 CRC32 assembly code into the lib directory and wire it up
-to the library interface.  This allows it to be used without going
-through the crypto API.  It remains usable via the crypto API too via
-the shash algorithms that use the library interface.  Thus all the
-arch-specific "shash" code becomes unnecessary and is removed.
+Now that the crc32c() library function directly takes advantage of
+architecture-specific optimizations, it is unnecessary to go through the
+crypto API.  Just use crc32c().  This is much simpler, and it improves
+performance due to eliminating the crypto API overhead.
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/x86/Kconfig                              |   1 +
- arch/x86/crypto/Kconfig                       |  22 --
- arch/x86/crypto/Makefile                      |   7 -
- arch/x86/crypto/crc32-pclmul_glue.c           | 202 --------------
- arch/x86/crypto/crc32c-intel_glue.c           | 249 ------------------
- arch/x86/lib/Makefile                         |   4 +
- arch/x86/lib/crc32-glue.c                     | 124 +++++++++
- .../crc32-pclmul_asm.S => lib/crc32-pclmul.S} |   0
- .../crc32c-3way.S}                            |   0
- drivers/target/iscsi/Kconfig                  |   1 -
- 10 files changed, 129 insertions(+), 481 deletions(-)
- delete mode 100644 arch/x86/crypto/crc32-pclmul_glue.c
- delete mode 100644 arch/x86/crypto/crc32c-intel_glue.c
- create mode 100644 arch/x86/lib/crc32-glue.c
- rename arch/x86/{crypto/crc32-pclmul_asm.S => lib/crc32-pclmul.S} (100%)
- rename arch/x86/{crypto/crc32c-pcl-intel-asm_64.S => lib/crc32c-3way.S} (100%)
+ fs/ext4/Kconfig |  3 +--
+ fs/ext4/ext4.h  | 25 +++----------------------
+ fs/ext4/super.c | 15 ---------------
+ 3 files changed, 4 insertions(+), 39 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 16354dfa6d96..e7470de11cec 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -74,10 +74,11 @@ config X86
- 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
- 	select ARCH_HAS_CACHE_LINE_SIZE
- 	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
- 	select ARCH_HAS_CPU_FINALIZE_INIT
- 	select ARCH_HAS_CPU_PASID		if IOMMU_SVA
-+	select ARCH_HAS_CRC32
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE	if !X86_PAE
- 	select ARCH_HAS_DEVMEM_IS_ALLOWED
- 	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 7b1bebed879d..1ca53e847966 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -490,32 +490,10 @@ config CRYPTO_GHASH_CLMUL_NI_INTEL
- 	  GCM GHASH hash function (NIST SP800-38D)
- 
- 	  Architecture: x86_64 using:
- 	  - CLMUL-NI (carry-less multiplication new instructions)
- 
--config CRYPTO_CRC32C_INTEL
--	tristate "CRC32c (SSE4.2/PCLMULQDQ)"
--	depends on X86
--	select CRYPTO_HASH
--	help
--	  CRC32c CRC algorithm with the iSCSI polynomial (RFC 3385 and RFC 3720)
--
--	  Architecture: x86 (32-bit and 64-bit) using:
--	  - SSE4.2 (Streaming SIMD Extensions 4.2) CRC32 instruction
--	  - PCLMULQDQ (carry-less multiplication)
--
--config CRYPTO_CRC32_PCLMUL
--	tristate "CRC32 (PCLMULQDQ)"
--	depends on X86
--	select CRYPTO_HASH
--	select CRC32
--	help
--	  CRC32 CRC algorithm (IEEE 802.3)
--
--	  Architecture: x86 (32-bit and 64-bit) using:
--	  - PCLMULQDQ (carry-less multiplication)
--
- config CRYPTO_CRCT10DIF_PCLMUL
- 	tristate "CRCT10DIF (PCLMULQDQ)"
- 	depends on X86 && 64BIT && CRC_T10DIF
- 	select CRYPTO_HASH
+diff --git a/fs/ext4/Kconfig b/fs/ext4/Kconfig
+index e20d59221fc0..c9ca41d91a6c 100644
+--- a/fs/ext4/Kconfig
++++ b/fs/ext4/Kconfig
+@@ -29,12 +29,11 @@ config EXT3_FS_SECURITY
+ config EXT4_FS
+ 	tristate "The Extended 4 (ext4) filesystem"
+ 	select BUFFER_HEAD
+ 	select JBD2
+ 	select CRC16
+-	select CRYPTO
+-	select CRYPTO_CRC32C
++	select CRC32
+ 	select FS_IOMAP
+ 	select FS_ENCRYPTION_ALGS if FS_ENCRYPTION
  	help
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index 53b4a277809e..030b925ca4e2 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -73,17 +73,10 @@ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
- ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
+ 	  This is the next generation of the ext3 filesystem.
  
- obj-$(CONFIG_CRYPTO_POLYVAL_CLMUL_NI) += polyval-clmulni.o
- polyval-clmulni-y := polyval-clmulni_asm.o polyval-clmulni_glue.o
+diff --git a/fs/ext4/ext4.h b/fs/ext4/ext4.h
+index 44b0d418143c..99aa512a7de1 100644
+--- a/fs/ext4/ext4.h
++++ b/fs/ext4/ext4.h
+@@ -31,11 +31,11 @@
+ #include <linux/wait.h>
+ #include <linux/sched/signal.h>
+ #include <linux/blockgroup_lock.h>
+ #include <linux/percpu_counter.h>
+ #include <linux/ratelimit.h>
+-#include <crypto/hash.h>
++#include <linux/crc32c.h>
+ #include <linux/falloc.h>
+ #include <linux/percpu-rwsem.h>
+ #include <linux/fiemap.h>
+ #ifdef __KERNEL__
+ #include <linux/compat.h>
+@@ -1660,13 +1660,10 @@ struct ext4_sb_info {
+ 	struct task_struct *s_mmp_tsk;
  
--obj-$(CONFIG_CRYPTO_CRC32C_INTEL) += crc32c-intel.o
--crc32c-intel-y := crc32c-intel_glue.o
--crc32c-intel-$(CONFIG_64BIT) += crc32c-pcl-intel-asm_64.o
--
--obj-$(CONFIG_CRYPTO_CRC32_PCLMUL) += crc32-pclmul.o
--crc32-pclmul-y := crc32-pclmul_asm.o crc32-pclmul_glue.o
--
- obj-$(CONFIG_CRYPTO_CRCT10DIF_PCLMUL) += crct10dif-pclmul.o
- crct10dif-pclmul-y := crct10dif-pcl-asm_64.o crct10dif-pclmul_glue.o
+ 	/* record the last minlen when FITRIM is called. */
+ 	unsigned long s_last_trim_minblks;
  
- obj-$(CONFIG_CRYPTO_POLY1305_X86_64) += poly1305-x86_64.o
- poly1305-x86_64-y := poly1305-x86_64-cryptogams.o poly1305_glue.o
-diff --git a/arch/x86/crypto/crc32-pclmul_glue.c b/arch/x86/crypto/crc32-pclmul_glue.c
-deleted file mode 100644
-index 9d14eac51c5b..000000000000
---- a/arch/x86/crypto/crc32-pclmul_glue.c
-+++ /dev/null
-@@ -1,202 +0,0 @@
--/* GPL HEADER START
-- *
-- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
-- *
-- * This program is free software; you can redistribute it and/or modify
-- * it under the terms of the GNU General Public License version 2 only,
-- * as published by the Free Software Foundation.
-- *
-- * This program is distributed in the hope that it will be useful, but
-- * WITHOUT ANY WARRANTY; without even the implied warranty of
-- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-- * General Public License version 2 for more details (a copy is included
-- * in the LICENSE file that accompanied this code).
-- *
-- * You should have received a copy of the GNU General Public License
-- * version 2 along with this program; If not, see http://www.gnu.org/licenses
-- *
-- * Please  visit http://www.xyratex.com/contact if you need additional
-- * information or have any questions.
-- *
-- * GPL HEADER END
-- */
--
--/*
-- * Copyright 2012 Xyratex Technology Limited
-- *
-- * Wrappers for kernel crypto shash api to pclmulqdq crc32 implementation.
-- */
--#include <linux/init.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/kernel.h>
--#include <linux/crc32.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--
--#include <asm/cpufeatures.h>
--#include <asm/cpu_device_id.h>
--#include <asm/simd.h>
--
--#define CHKSUM_BLOCK_SIZE	1
--#define CHKSUM_DIGEST_SIZE	4
--
--#define PCLMUL_MIN_LEN		64L     /* minimum size of buffer
--					 * for crc32_pclmul_le_16 */
--#define SCALE_F			16L	/* size of xmm register */
--#define SCALE_F_MASK		(SCALE_F - 1)
--
--u32 crc32_pclmul_le_16(u32 crc, const u8 *buffer, size_t len);
--
--static u32 __attribute__((pure))
--	crc32_pclmul_le(u32 crc, unsigned char const *p, size_t len)
--{
--	unsigned int iquotient;
--	unsigned int iremainder;
--	unsigned int prealign;
--
--	if (len < PCLMUL_MIN_LEN + SCALE_F_MASK || !crypto_simd_usable())
--		return crc32_le(crc, p, len);
--
--	if ((long)p & SCALE_F_MASK) {
--		/* align p to 16 byte */
--		prealign = SCALE_F - ((long)p & SCALE_F_MASK);
--
--		crc = crc32_le(crc, p, prealign);
--		len -= prealign;
--		p = (unsigned char *)(((unsigned long)p + SCALE_F_MASK) &
--				     ~SCALE_F_MASK);
--	}
--	iquotient = len & (~SCALE_F_MASK);
--	iremainder = len & SCALE_F_MASK;
--
--	kernel_fpu_begin();
--	crc = crc32_pclmul_le_16(crc, p, iquotient);
--	kernel_fpu_end();
--
--	if (iremainder)
--		crc = crc32_le(crc, p + iquotient, iremainder);
--
--	return crc;
--}
--
--static int crc32_pclmul_cra_init(struct crypto_tfm *tfm)
--{
--	u32 *key = crypto_tfm_ctx(tfm);
--
--	*key = 0;
--
--	return 0;
--}
--
--static int crc32_pclmul_setkey(struct crypto_shash *hash, const u8 *key,
--			unsigned int keylen)
--{
--	u32 *mctx = crypto_shash_ctx(hash);
--
--	if (keylen != sizeof(u32))
--		return -EINVAL;
--	*mctx = le32_to_cpup((__le32 *)key);
--	return 0;
--}
--
--static int crc32_pclmul_init(struct shash_desc *desc)
--{
--	u32 *mctx = crypto_shash_ctx(desc->tfm);
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = *mctx;
--
--	return 0;
--}
--
--static int crc32_pclmul_update(struct shash_desc *desc, const u8 *data,
--			       unsigned int len)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = crc32_pclmul_le(*crcp, data, len);
--	return 0;
--}
--
--/* No final XOR 0xFFFFFFFF, like crc32_le */
--static int __crc32_pclmul_finup(u32 *crcp, const u8 *data, unsigned int len,
--				u8 *out)
--{
--	*(__le32 *)out = cpu_to_le32(crc32_pclmul_le(*crcp, data, len));
--	return 0;
--}
--
--static int crc32_pclmul_finup(struct shash_desc *desc, const u8 *data,
--			      unsigned int len, u8 *out)
--{
--	return __crc32_pclmul_finup(shash_desc_ctx(desc), data, len, out);
--}
--
--static int crc32_pclmul_final(struct shash_desc *desc, u8 *out)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*(__le32 *)out = cpu_to_le32p(crcp);
--	return 0;
--}
--
--static int crc32_pclmul_digest(struct shash_desc *desc, const u8 *data,
--			       unsigned int len, u8 *out)
--{
--	return __crc32_pclmul_finup(crypto_shash_ctx(desc->tfm), data, len,
--				    out);
--}
--
--static struct shash_alg alg = {
--	.setkey		= crc32_pclmul_setkey,
--	.init		= crc32_pclmul_init,
--	.update		= crc32_pclmul_update,
--	.final		= crc32_pclmul_final,
--	.finup		= crc32_pclmul_finup,
--	.digest		= crc32_pclmul_digest,
--	.descsize	= sizeof(u32),
--	.digestsize	= CHKSUM_DIGEST_SIZE,
--	.base		= {
--			.cra_name		= "crc32",
--			.cra_driver_name	= "crc32-pclmul",
--			.cra_priority		= 200,
--			.cra_flags		= CRYPTO_ALG_OPTIONAL_KEY,
--			.cra_blocksize		= CHKSUM_BLOCK_SIZE,
--			.cra_ctxsize		= sizeof(u32),
--			.cra_module		= THIS_MODULE,
--			.cra_init		= crc32_pclmul_cra_init,
--	}
--};
--
--static const struct x86_cpu_id crc32pclmul_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_PCLMULQDQ, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, crc32pclmul_cpu_id);
--
--
--static int __init crc32_pclmul_mod_init(void)
--{
--
--	if (!x86_match_cpu(crc32pclmul_cpu_id)) {
--		pr_info("PCLMULQDQ-NI instructions are not detected.\n");
--		return -ENODEV;
--	}
--	return crypto_register_shash(&alg);
--}
--
--static void __exit crc32_pclmul_mod_fini(void)
--{
--	crypto_unregister_shash(&alg);
--}
--
--module_init(crc32_pclmul_mod_init);
--module_exit(crc32_pclmul_mod_fini);
--
--MODULE_AUTHOR("Alexander Boyko <alexander_boyko@xyratex.com>");
--MODULE_DESCRIPTION("CRC32 algorithm (IEEE 802.3) accelerated with PCLMULQDQ");
--MODULE_LICENSE("GPL");
--
--MODULE_ALIAS_CRYPTO("crc32");
--MODULE_ALIAS_CRYPTO("crc32-pclmul");
-diff --git a/arch/x86/crypto/crc32c-intel_glue.c b/arch/x86/crypto/crc32c-intel_glue.c
-deleted file mode 100644
-index 603d159de400..000000000000
---- a/arch/x86/crypto/crc32c-intel_glue.c
-+++ /dev/null
-@@ -1,249 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Using hardware provided CRC32 instruction to accelerate the CRC32 disposal.
-- * CRC32C polynomial:0x1EDC6F41(BE)/0x82F63B78(LE)
-- * CRC32 is a new instruction in Intel SSE4.2, the reference can be found at:
-- * http://www.intel.com/products/processor/manuals/
-- * Intel(R) 64 and IA-32 Architectures Software Developer's Manual
-- * Volume 2A: Instruction Set Reference, A-M
-- *
-- * Copyright (C) 2008 Intel Corporation
-- * Authors: Austin Zhang <austin_zhang@linux.intel.com>
-- *          Kent Liu <kent.liu@intel.com>
-- */
--#include <linux/init.h>
--#include <linux/module.h>
--#include <linux/string.h>
--#include <linux/kernel.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--
--#include <asm/cpufeatures.h>
--#include <asm/cpu_device_id.h>
--#include <asm/simd.h>
--
--#define CHKSUM_BLOCK_SIZE	1
--#define CHKSUM_DIGEST_SIZE	4
--
--#define SCALE_F	sizeof(unsigned long)
--
--#ifdef CONFIG_X86_64
--#define CRC32_INST "crc32q %1, %q0"
--#else
--#define CRC32_INST "crc32l %1, %0"
--#endif
--
--#ifdef CONFIG_X86_64
--/*
-- * use carryless multiply version of crc32c when buffer
-- * size is >= 512 to account
-- * for fpu state save/restore overhead.
-- */
--#define CRC32C_PCL_BREAKEVEN	512
--
--asmlinkage u32 crc32c_x86_3way(u32 crc, const u8 *buffer, size_t len);
--#endif /* CONFIG_X86_64 */
--
--static u32 crc32c_intel_le_hw_byte(u32 crc, unsigned char const *data, size_t length)
--{
--	while (length--) {
--		asm("crc32b %1, %0"
--		    : "+r" (crc) : "rm" (*data));
--		data++;
--	}
--
--	return crc;
--}
--
--static u32 __pure crc32c_intel_le_hw(u32 crc, unsigned char const *p, size_t len)
--{
--	unsigned int iquotient = len / SCALE_F;
--	unsigned int iremainder = len % SCALE_F;
--	unsigned long *ptmp = (unsigned long *)p;
--
--	while (iquotient--) {
--		asm(CRC32_INST
--		    : "+r" (crc) : "rm" (*ptmp));
--		ptmp++;
--	}
--
--	if (iremainder)
--		crc = crc32c_intel_le_hw_byte(crc, (unsigned char *)ptmp,
--				 iremainder);
--
--	return crc;
--}
--
--/*
-- * Setting the seed allows arbitrary accumulators and flexible XOR policy
-- * If your algorithm starts with ~0, then XOR with ~0 before you set
-- * the seed.
-- */
--static int crc32c_intel_setkey(struct crypto_shash *hash, const u8 *key,
--			unsigned int keylen)
--{
--	u32 *mctx = crypto_shash_ctx(hash);
--
--	if (keylen != sizeof(u32))
--		return -EINVAL;
--	*mctx = le32_to_cpup((__le32 *)key);
--	return 0;
--}
--
--static int crc32c_intel_init(struct shash_desc *desc)
--{
--	u32 *mctx = crypto_shash_ctx(desc->tfm);
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = *mctx;
--
--	return 0;
--}
--
--static int crc32c_intel_update(struct shash_desc *desc, const u8 *data,
--			       unsigned int len)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*crcp = crc32c_intel_le_hw(*crcp, data, len);
--	return 0;
--}
--
--static int __crc32c_intel_finup(u32 *crcp, const u8 *data, unsigned int len,
--				u8 *out)
--{
--	*(__le32 *)out = ~cpu_to_le32(crc32c_intel_le_hw(*crcp, data, len));
--	return 0;
--}
--
--static int crc32c_intel_finup(struct shash_desc *desc, const u8 *data,
--			      unsigned int len, u8 *out)
--{
--	return __crc32c_intel_finup(shash_desc_ctx(desc), data, len, out);
--}
--
--static int crc32c_intel_final(struct shash_desc *desc, u8 *out)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	*(__le32 *)out = ~cpu_to_le32p(crcp);
--	return 0;
--}
--
--static int crc32c_intel_digest(struct shash_desc *desc, const u8 *data,
--			       unsigned int len, u8 *out)
--{
--	return __crc32c_intel_finup(crypto_shash_ctx(desc->tfm), data, len,
--				    out);
--}
--
--static int crc32c_intel_cra_init(struct crypto_tfm *tfm)
--{
--	u32 *key = crypto_tfm_ctx(tfm);
--
--	*key = ~0;
--
--	return 0;
--}
--
--#ifdef CONFIG_X86_64
--static int crc32c_pcl_intel_update(struct shash_desc *desc, const u8 *data,
--			       unsigned int len)
--{
--	u32 *crcp = shash_desc_ctx(desc);
--
--	/*
--	 * use faster PCL version if datasize is large enough to
--	 * overcome kernel fpu state save/restore overhead
--	 */
--	if (len >= CRC32C_PCL_BREAKEVEN && crypto_simd_usable()) {
--		kernel_fpu_begin();
--		*crcp = crc32c_x86_3way(*crcp, data, len);
--		kernel_fpu_end();
--	} else
--		*crcp = crc32c_intel_le_hw(*crcp, data, len);
--	return 0;
--}
--
--static int __crc32c_pcl_intel_finup(u32 *crcp, const u8 *data, unsigned int len,
--				u8 *out)
--{
--	if (len >= CRC32C_PCL_BREAKEVEN && crypto_simd_usable()) {
--		kernel_fpu_begin();
--		*(__le32 *)out = ~cpu_to_le32(crc32c_x86_3way(*crcp, data, len));
--		kernel_fpu_end();
--	} else
--		*(__le32 *)out =
--			~cpu_to_le32(crc32c_intel_le_hw(*crcp, data, len));
--	return 0;
--}
--
--static int crc32c_pcl_intel_finup(struct shash_desc *desc, const u8 *data,
--			      unsigned int len, u8 *out)
--{
--	return __crc32c_pcl_intel_finup(shash_desc_ctx(desc), data, len, out);
--}
--
--static int crc32c_pcl_intel_digest(struct shash_desc *desc, const u8 *data,
--			       unsigned int len, u8 *out)
--{
--	return __crc32c_pcl_intel_finup(crypto_shash_ctx(desc->tfm), data, len,
--				    out);
--}
--#endif /* CONFIG_X86_64 */
--
--static struct shash_alg alg = {
--	.setkey			=	crc32c_intel_setkey,
--	.init			=	crc32c_intel_init,
--	.update			=	crc32c_intel_update,
--	.final			=	crc32c_intel_final,
--	.finup			=	crc32c_intel_finup,
--	.digest			=	crc32c_intel_digest,
--	.descsize		=	sizeof(u32),
--	.digestsize		=	CHKSUM_DIGEST_SIZE,
--	.base			=	{
--		.cra_name		=	"crc32c",
--		.cra_driver_name	=	"crc32c-intel",
--		.cra_priority		=	200,
--		.cra_flags		=	CRYPTO_ALG_OPTIONAL_KEY,
--		.cra_blocksize		=	CHKSUM_BLOCK_SIZE,
--		.cra_ctxsize		=	sizeof(u32),
--		.cra_module		=	THIS_MODULE,
--		.cra_init		=	crc32c_intel_cra_init,
--	}
--};
--
--static const struct x86_cpu_id crc32c_cpu_id[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_XMM4_2, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, crc32c_cpu_id);
--
--static int __init crc32c_intel_mod_init(void)
--{
--	if (!x86_match_cpu(crc32c_cpu_id))
--		return -ENODEV;
--#ifdef CONFIG_X86_64
--	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
--		alg.update = crc32c_pcl_intel_update;
--		alg.finup = crc32c_pcl_intel_finup;
--		alg.digest = crc32c_pcl_intel_digest;
--	}
--#endif
--	return crypto_register_shash(&alg);
--}
--
--static void __exit crc32c_intel_mod_fini(void)
--{
--	crypto_unregister_shash(&alg);
--}
--
--module_init(crc32c_intel_mod_init);
--module_exit(crc32c_intel_mod_fini);
--
--MODULE_AUTHOR("Austin Zhang <austin.zhang@intel.com>, Kent Liu <kent.liu@intel.com>");
--MODULE_DESCRIPTION("CRC32c (Castagnoli) optimization using Intel Hardware.");
--MODULE_LICENSE("GPL");
--
--MODULE_ALIAS_CRYPTO("crc32c");
--MODULE_ALIAS_CRYPTO("crc32c-intel");
-diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
-index 98583a9dbab3..17510da06c9f 100644
---- a/arch/x86/lib/Makefile
-+++ b/arch/x86/lib/Makefile
-@@ -36,10 +36,14 @@ lib-$(CONFIG_ARCH_HAS_COPY_MC) += copy_mc.o copy_mc_64.o
- lib-$(CONFIG_INSTRUCTION_DECODER) += insn.o inat.o insn-eval.o
- lib-$(CONFIG_RANDOMIZE_BASE) += kaslr.o
- lib-$(CONFIG_FUNCTION_ERROR_INJECTION)	+= error-inject.o
- lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
+-	/* Reference to checksum algorithm driver via cryptoapi */
+-	struct crypto_shash *s_chksum_driver;
+-
+ 	/* Precomputed FS UUID checksum for seeding other checksums */
+ 	__u32 s_csum_seed;
  
-+obj-$(CONFIG_CRC32_ARCH) += crc32-x86.o
-+crc32-x86-y := crc32-glue.o crc32-pclmul.o
-+crc32-x86-$(CONFIG_64BIT) += crc32c-3way.o
-+
- obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
- obj-y += iomem.o
+ 	/* Reclaim extents from extent status tree */
+ 	struct shrinker *s_es_shrinker;
+@@ -2465,23 +2462,11 @@ static inline __le16 ext4_rec_len_to_disk(unsigned len, unsigned blocksize)
+ #define DX_HASH_LAST 			DX_HASH_SIPHASH
  
- ifeq ($(CONFIG_X86_32),y)
-         obj-y += atomic64_32.o
-diff --git a/arch/x86/lib/crc32-glue.c b/arch/x86/lib/crc32-glue.c
-new file mode 100644
-index 000000000000..9fcc65db6cb5
---- /dev/null
-+++ b/arch/x86/lib/crc32-glue.c
-@@ -0,0 +1,124 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * x86-optimized CRC32 functions
-+ *
-+ * Copyright (C) 2008 Intel Corporation
-+ * Copyright 2012 Xyratex Technology Limited
-+ * Copyright 2024 Google LLC
-+ */
-+
-+#include <asm/cpufeatures.h>
-+#include <asm/simd.h>
-+#include <crypto/internal/simd.h>
-+#include <linux/crc32.h>
-+#include <linux/linkage.h>
-+#include <linux/module.h>
-+
-+/* minimum size of buffer for crc32_pclmul_le_16 */
-+#define CRC32_PCLMUL_MIN_LEN	64
-+
-+static DEFINE_STATIC_KEY_FALSE(have_crc32);
-+static DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
-+
-+u32 crc32_pclmul_le_16(u32 crc, const u8 *buffer, size_t len);
-+
-+u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
-+{
-+	if (len >= CRC32_PCLMUL_MIN_LEN + 15 &&
-+	    crypto_simd_usable() && static_branch_likely(&have_pclmulqdq)) {
-+		size_t n = -(uintptr_t)p & 15;
-+
-+		/* align p to 16-byte boundary */
-+		if (n) {
-+			crc = crc32_le_base(crc, p, n);
-+			p += n;
-+			len -= n;
-+		}
-+		n = round_down(len, 16);
-+		kernel_fpu_begin();
-+		crc = crc32_pclmul_le_16(crc, p, n);
-+		kernel_fpu_end();
-+		p += n;
-+		len -= n;
-+	}
-+	if (len)
-+		crc = crc32_le_base(crc, p, len);
-+	return crc;
-+}
-+EXPORT_SYMBOL(crc32_le_arch);
-+
-+#ifdef CONFIG_X86_64
-+#define CRC32_INST "crc32q %1, %q0"
-+#else
-+#define CRC32_INST "crc32l %1, %0"
-+#endif
-+
-+/*
-+ * Use carryless multiply version of crc32c when buffer size is >= 512 to
-+ * account for FPU state save/restore overhead.
-+ */
-+#define CRC32C_PCLMUL_BREAKEVEN	512
-+
-+asmlinkage u32 crc32c_x86_3way(u32 crc, const u8 *buffer, size_t len);
-+
-+u32 crc32c_le_arch(u32 crc, const u8 *p, size_t len)
-+{
-+	size_t num_longs;
-+
-+	if (!static_branch_likely(&have_crc32))
-+		return crc32c_le_base(crc, p, len);
-+
-+	if (IS_ENABLED(CONFIG_X86_64) && len >= CRC32C_PCLMUL_BREAKEVEN &&
-+	    crypto_simd_usable() && static_branch_likely(&have_pclmulqdq)) {
-+		kernel_fpu_begin();
-+		crc = crc32c_x86_3way(crc, p, len);
-+		kernel_fpu_end();
-+		return crc;
-+	}
-+
-+	for (num_longs = len / sizeof(unsigned long);
-+	     num_longs != 0; num_longs--, p += sizeof(unsigned long))
-+		asm(CRC32_INST : "+r" (crc) : "rm" (*(unsigned long *)p));
-+
-+	for (len %= sizeof(unsigned long); len; len--, p++)
-+		asm("crc32b %1, %0" : "+r" (crc) : "rm" (*p));
-+
-+	return crc;
-+}
-+EXPORT_SYMBOL(crc32c_le_arch);
-+
-+u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
-+{
-+	return crc32_be_base(crc, p, len);
-+}
-+EXPORT_SYMBOL(crc32_be_arch);
-+
-+static int __init crc32_x86_init(void)
-+{
-+	if (boot_cpu_has(X86_FEATURE_XMM4_2))
-+		static_branch_enable(&have_crc32);
-+	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ))
-+		static_branch_enable(&have_pclmulqdq);
-+	return 0;
-+}
-+arch_initcall(crc32_x86_init);
-+
-+static void __exit crc32_x86_exit(void)
-+{
-+}
-+module_exit(crc32_x86_exit);
-+
-+u32 crc32_optimizations(void)
-+{
-+	u32 optimizations = 0;
-+
-+	if (static_key_enabled(&have_crc32))
-+		optimizations |= CRC32C_OPTIMIZATION;
-+	if (static_key_enabled(&have_pclmulqdq))
-+		optimizations |= CRC32_LE_OPTIMIZATION;
-+	return optimizations;
-+}
-+EXPORT_SYMBOL(crc32_optimizations);
-+
-+MODULE_DESCRIPTION("x86-optimized CRC32 functions");
-+MODULE_LICENSE("GPL");
-diff --git a/arch/x86/crypto/crc32-pclmul_asm.S b/arch/x86/lib/crc32-pclmul.S
-similarity index 100%
-rename from arch/x86/crypto/crc32-pclmul_asm.S
-rename to arch/x86/lib/crc32-pclmul.S
-diff --git a/arch/x86/crypto/crc32c-pcl-intel-asm_64.S b/arch/x86/lib/crc32c-3way.S
-similarity index 100%
-rename from arch/x86/crypto/crc32c-pcl-intel-asm_64.S
-rename to arch/x86/lib/crc32c-3way.S
-diff --git a/drivers/target/iscsi/Kconfig b/drivers/target/iscsi/Kconfig
-index 922b207bc69d..1c0517a12571 100644
---- a/drivers/target/iscsi/Kconfig
-+++ b/drivers/target/iscsi/Kconfig
-@@ -2,11 +2,10 @@
- config ISCSI_TARGET
- 	tristate "SCSI Target Mode Stack"
- 	depends on INET
- 	select CRYPTO
- 	select CRYPTO_CRC32C
--	select CRYPTO_CRC32C_INTEL if X86
- 	help
- 	Say M to enable the SCSI target mode stack. A SCSI target mode stack
- 	is software that makes local storage available over a storage network
- 	to a SCSI initiator system. The supported storage network technologies
- 	include iSCSI, Fibre Channel and the SCSI RDMA Protocol (SRP).
+ static inline u32 ext4_chksum(struct ext4_sb_info *sbi, u32 crc,
+ 			      const void *address, unsigned int length)
+ {
+-	struct {
+-		struct shash_desc shash;
+-		char ctx[4];
+-	} desc;
+-
+-	BUG_ON(crypto_shash_descsize(sbi->s_chksum_driver)!=sizeof(desc.ctx));
+-
+-	desc.shash.tfm = sbi->s_chksum_driver;
+-	*(u32 *)desc.ctx = crc;
+-
+-	BUG_ON(crypto_shash_update(&desc.shash, address, length));
+-
+-	return *(u32 *)desc.ctx;
++	return crc32c(crc, address, length);
+ }
+ 
+ #ifdef __KERNEL__
+ 
+ /* hash info structure used by the directory hash */
+@@ -3278,15 +3263,11 @@ extern void ext4_group_desc_csum_set(struct super_block *sb, __u32 group,
+ extern int ext4_register_li_request(struct super_block *sb,
+ 				    ext4_group_t first_not_zeroed);
+ 
+ static inline int ext4_has_metadata_csum(struct super_block *sb)
+ {
+-	WARN_ON_ONCE(ext4_has_feature_metadata_csum(sb) &&
+-		     !EXT4_SB(sb)->s_chksum_driver);
+-
+-	return ext4_has_feature_metadata_csum(sb) &&
+-	       (EXT4_SB(sb)->s_chksum_driver != NULL);
++	return ext4_has_feature_metadata_csum(sb);
+ }
+ 
+ static inline int ext4_has_group_desc_csum(struct super_block *sb)
+ {
+ 	return ext4_has_feature_gdt_csum(sb) || ext4_has_metadata_csum(sb);
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index 16a4ce704460..1a821093cc0d 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -1371,12 +1371,10 @@ static void ext4_put_super(struct super_block *sb)
+ 	 * Now that we are completely done shutting down the
+ 	 * superblock, we need to actually destroy the kobject.
+ 	 */
+ 	kobject_put(&sbi->s_kobj);
+ 	wait_for_completion(&sbi->s_kobj_unregister);
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+ 	kfree(sbi->s_blockgroup_lock);
+ 	fs_put_dax(sbi->s_daxdev, NULL);
+ 	fscrypt_free_dummy_policy(&sbi->s_dummy_enc_policy);
+ #if IS_ENABLED(CONFIG_UNICODE)
+ 	utf8_unload(sb->s_encoding);
+@@ -4586,19 +4584,10 @@ static int ext4_init_metadata_csum(struct super_block *sb, struct ext4_super_blo
+ 		return -EINVAL;
+ 	}
+ 	ext4_setup_csum_trigger(sb, EXT4_JTR_ORPHAN_FILE,
+ 				ext4_orphan_file_block_trigger);
+ 
+-	/* Load the checksum driver */
+-	sbi->s_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
+-	if (IS_ERR(sbi->s_chksum_driver)) {
+-		int ret = PTR_ERR(sbi->s_chksum_driver);
+-		ext4_msg(sb, KERN_ERR, "Cannot load crc32c driver.");
+-		sbi->s_chksum_driver = NULL;
+-		return ret;
+-	}
+-
+ 	/* Check superblock checksum */
+ 	if (!ext4_superblock_csum_verify(sb, es)) {
+ 		ext4_msg(sb, KERN_ERR, "VFS: Found ext4 filesystem with "
+ 			 "invalid superblock checksum.  Run e2fsck?");
+ 		return -EFSBADCRC;
+@@ -5638,13 +5627,10 @@ failed_mount8: __maybe_unused
+ 	flush_work(&sbi->s_sb_upd_work);
+ 	ext4_stop_mmpd(sbi);
+ 	del_timer_sync(&sbi->s_err_report);
+ 	ext4_group_desc_free(sbi);
+ failed_mount:
+-	if (sbi->s_chksum_driver)
+-		crypto_free_shash(sbi->s_chksum_driver);
+-
+ #if IS_ENABLED(CONFIG_UNICODE)
+ 	utf8_unload(sb->s_encoding);
+ #endif
+ 
+ #ifdef CONFIG_QUOTA
+@@ -7433,8 +7419,7 @@ static void __exit ext4_exit_fs(void)
+ }
+ 
+ MODULE_AUTHOR("Remy Card, Stephen Tweedie, Andrew Morton, Andreas Dilger, Theodore Ts'o and others");
+ MODULE_DESCRIPTION("Fourth Extended Filesystem");
+ MODULE_LICENSE("GPL");
+-MODULE_SOFTDEP("pre: crc32c");
+ module_init(ext4_init_fs)
+ module_exit(ext4_exit_fs)
 -- 
 2.47.0
 
