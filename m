@@ -4,73 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBDCD132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D34D132B4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wF15CK3q+ocViJhOms9ADFB9q0mQckeGq5fArBdv+lo=; b=WLu3QUEK0X0NYK
-	gtwYi6pbug1tqSTX14Xe7wL6tEG1OauLkzSXmrNbv5d3bJ9F4qOTmIXgavYxlrmTH+fWWe4LeZVGn
-	0j0DZ1wWDzGolELE+nrsG8gepCEZJ9uaGSiOpMbLMY09Qec+dBZjG3jy5hkiT1WOBEXDZk9Mzqt09
-	cCiOatewmQpkAaBIy4U63f5NXLBhH599osnhGb8op4Ir5WXB0uTflknfAcfkY6loj6tSSngMpb8nd
-	7fLl0E7O8k7EI2GOHlNZXx3NNR+qdQ1DxUQz/UKJChkZ7JqL85LK/7ZKrXIBMqL2RnQDxwYqevpSY
-	+CJ27FlybyK5g1d7NQAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HBoSFTFHbq+PPwnoQaPppvukuVM/x02WLtcD7n9GH1A=; b=TsW8kdE8sY2GUDCx0qHVo9rcRv
+	dsHq5P07JAoK2C2403SKQceclmAxW4XX9eaxpk4sR+msGXA0bg6i3puAHHxGA4ad2C+sm8FOkfWZr
+	3J3E+uUzli/1z9pi5MhSwSJO38YJANqoZg0JiLXJd+tixUia5d1XFuUsbwhVRSPqR3o8Dc3JT+GaE
+	ZH8ltd1O6ZnXl+I6Zd92YgIR1gjwnM2BRisFO3p/08mN+T9GY07jCSbW8YT1N/MKPUe+agyD93YGl
+	xJeri7SOLTCo84ZENMLSyPqIlLmxKoUU3CtLh3i4EUOwME6HCbMHH4/0lAx5kBbt+K5o2hbDFIxDN
+	qSyhfXpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7w39-0000000DfkB-0VXI;
-	Mon, 04 Nov 2024 12:19:15 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1t7w4r-0000000DgJI-2cFE;
+	Mon, 04 Nov 2024 12:21:01 +0000
+Received: from mail-vi1eur02on2044.outbound.protection.outlook.com ([40.107.241.44] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7voZ-0000000DdPK-1ch2
+	id 1t7vvI-0000000DeZt-2itJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 12:04:12 +0000
-Received: from [192.168.1.107] (87-97-112-21.pool.digikabel.hu [87.97.112.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: hs@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 48E0088113;
-	Mon,  4 Nov 2024 13:04:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1730721849;
-	bh=wF15CK3q+ocViJhOms9ADFB9q0mQckeGq5fArBdv+lo=;
-	h=Date:Subject:To:Cc:References:Reply-To:From:In-Reply-To:From;
-	b=Iaj/wtNDV1SD0/BijQwuDtssB1toG2nFV66NzthHlMHhmYB25iVlCF1meuY18lgET
-	 uvP963YFf7wAYnCpvZeUx8iDCC3wT5rPBV1jdavV2u9t3tibTM8gCUJNyv/7HOFL5o
-	 BkT7nY+s5GznUpkJwD6+VrV4ih1cP/2b5jaMma7ksv7+fmR1odoEBI6q9KHa7qg0tE
-	 kX7Ub9zA7jVmA4gJIV6omTECtT6isvAouDxrNKTA3V0irX7WoYpriScMRsu1RG3csC
-	 ompLI0tA9KsXNZRaSxzMiJsBbTNFDOlQhBs/tQTKU0h+GlcE9m9vCFulAnh6l+AOok
-	 25Bx6jlNbBH9A==
-Message-ID: <3214def1-4669-79ed-36c2-e19a119aabeb@denx.de>
-Date: Mon, 4 Nov 2024 13:01:43 +0100
+	Mon, 04 Nov 2024 12:11:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jS3pXBtKD6RqZMTv/ObS5toNgnVXtsu9EnjTts6Lt/oSAsGPVIHFlN2Hbs+UwGgvrGBFxE9+ADRLWEYONV+1swxemDeDY/aIc/MaUZ2nrUiNcTBbRpZPRtCZ6wKBX+xYvTi5XS7WhnIEcr1gOV+Dkrds3zbyxCoM92NJTkC5CB2xd6aMluOxCSZxdiv9yWwZQkoiEvg+ih9wR5vNGXJBVI2/tD6UFSwSznbt/2WchW9ZQE8aDMLdkG/yXfEaccqGAMMOPiBeBEprlEvJaUtI5yPtsBT8dtfdKuWTfV/F2wY+ttDkdxCpvpDNNwq0gNFAug1QJ42yUvyGoHbRPi+4qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HBoSFTFHbq+PPwnoQaPppvukuVM/x02WLtcD7n9GH1A=;
+ b=FWiF8Tw0Y6nH5NV5hRm0RpJ91xhNar4AxNyvn3YSkl8+q53jLJ4ghrqyn/uja2BVeRvjky8BPlg/ErX3BfJiqstrUZt89DbyyFtMKljYqAv3YpMad1l2h57WYk5Ijh/q1Vj7vCGkwhUP1ZfdONv2xbXfVaZ1qjurWzWHx3vP0IIot7ea1qzZeW6PgApYm79qTvDzxxfU9ctX8e5nxJFEwqb57111lKGZqWh7E/7vm5Vy04RouzTj8yC4X2uqvipEw0172Uf1EAdXnWwxiyqgHyC0zu72k5XooMWzfYNWLnRVwnlrLZ/B+wG2490y4boruknfc6dTV7Z8FCe0VcsLbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HBoSFTFHbq+PPwnoQaPppvukuVM/x02WLtcD7n9GH1A=;
+ b=tqW7UsaQ0NsWV1rLIIlZ2D47iNp1/Qa7fsIZFpBEbBc+j3IY67Y4URT1gyqGrNev2SJijvOERwptUL2Y7R2WPkMCrf1AqgshY3tNmp0E56fOpwlFTIpdFJnUBz++x0c5EBw8fKd+FTsuQsbeUTG799cP1i6+8GKgu7kPRo3bAPjbKWSM45/UYLUs1Q6JXzftaU5XBr/qOrBgvZMHRG0ZD8YUWOMq7hGzNAe6Afhmf4zoeQ8f+jk9JpjR6iNNv42IATsUlt4d/ZLYhA5hXv5Yz9F2AMNB6JykLsRxgDPUa4jOgraoSkMTT07iiRNKZTuvu8NRLG6Xx7FMwLRHXO7UqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS4PR04MB9576.eurprd04.prod.outlook.com (2603:10a6:20b:4fe::12)
+ by AM7PR04MB7029.eurprd04.prod.outlook.com (2603:10a6:20b:118::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 12:10:59 +0000
+Received: from AS4PR04MB9576.eurprd04.prod.outlook.com
+ ([fe80::9cf2:8eae:c3d1:2f30]) by AS4PR04MB9576.eurprd04.prod.outlook.com
+ ([fe80::9cf2:8eae:c3d1:2f30%4]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 12:10:59 +0000
+Date: Mon, 4 Nov 2024 14:10:54 +0200
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Lucas Stach <l.stach@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Javier Martinez Canillas <javierm@redhat.com>, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/imx/dcss: include drm/drm_bridge.h header
+Message-ID: <2byo7263izup45hcdyoxr57sh2dzdasnwotpfqnayqe6znvzjt@adou6qmyhq6y>
+References: <20241028163527.2425783-1-arnd@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241028163527.2425783-1-arnd@kernel.org>
+X-ClientProxiedBy: AS4PR09CA0007.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5e0::8) To AS4PR04MB9576.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4fe::12)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v2 3/3] arm64: dts: imx8mp: add aristainetos3 board
- support
-Content-Language: en-US
-To: Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241031151238.67753-1-hs@denx.de>
- <20241031151238.67753-4-hs@denx.de>
- <CAOMZO5ACMGbhySUbR8r1UUimc53YDaRbfEObyUrf0GLYZcQfjg@mail.gmail.com>
-From: Heiko Schocher <hs@denx.de>
-In-Reply-To: <CAOMZO5ACMGbhySUbR8r1UUimc53YDaRbfEObyUrf0GLYZcQfjg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9576:EE_|AM7PR04MB7029:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37fc6a74-d73d-4986-2c7a-08dcfcc9be55
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZbBm/yMoxZbW617hCPxsYl/O/VmwVVYtsuox5Qg+I09FmNpIHLCIoZtC2tt4?=
+ =?us-ascii?Q?TWyWhKAiS42dKgPFe9jH02y3dLjtG0VFxmHPCsLt7Qs97GCzYZ97083zQ+vy?=
+ =?us-ascii?Q?0gpBD8XZIgJkwEQrFMoC78pI4lGzUaISKTP/I9ksmJHvb/aEfsXnmK+kVNR8?=
+ =?us-ascii?Q?x/mI4PxqrHBdLkV/3tXaSqMntkxXL7rZRsYSBJgaQLN5m20yLAtJmllU6rqW?=
+ =?us-ascii?Q?XB++kyYK3qtVxZjta/Brv3Of8bATy0ma4p39+it03HRM5PHIX0IBSYBXpUYu?=
+ =?us-ascii?Q?AhoecwiWfaJeLWZKrVAzwzWjaTBoaxj2p5nc3MYIB+kzqvk5oxGFH3xMFMFR?=
+ =?us-ascii?Q?UgAc55QDOMQFu+WKE9Lh9OrHPXuNhY3hkaPoT7MnsOKEuQwh9SgzTBlvjRbi?=
+ =?us-ascii?Q?M9CC2dCNkK8eEBuLN6DBNHedCKo241TQQMslcH0gA/LXlnhG9tp+g1+tYoao?=
+ =?us-ascii?Q?gquU7HgWgzL6w1hAiCmjxfx1/zkv3kUmicw6Zfm/4ppVDLMs3xpx1EHZiKiQ?=
+ =?us-ascii?Q?I2YgXLLW/4u6QpRvce9H0BPyjUCzuO9jOAfFzD22xhwcfoDPsUtxqtG9HnDV?=
+ =?us-ascii?Q?NZtLkLi9uGB/nBSNGOhLoDr9dpkHwqQFP8Xf4vALZ/ri2jalNVTLhqmhC9WW?=
+ =?us-ascii?Q?9vOn+GRTHtFe/zBtodtW7E4iltz8bBvNSN7zNPa7Pg0jHnMonnSONBX2319T?=
+ =?us-ascii?Q?+mhjIzEjUGY9gKv3AwIBAMtyz8C7Ct1HaAkxLZZhA4NaFellBFcS5HuRU/9W?=
+ =?us-ascii?Q?V889Nza53dQcwifuRhhavncLYjxd1h6ZOoAObEeNRybXuab1gnqmJLAbyDOF?=
+ =?us-ascii?Q?ptBL3cwbc447V4NS5B4Lwl1r/8DAE8McTzMoY0Hr9en3gv/aT3jMwZx5UUax?=
+ =?us-ascii?Q?/dukOQEaOD59EpBT2TXn348o5S68loylWAHr0zmYwaRSH2XfKpZA2S6QAIw7?=
+ =?us-ascii?Q?azc8PXncPaHvXghQCYtlbp6U85CgSKNNAvpEp2eADci9IH+TvqFJ/C146x/3?=
+ =?us-ascii?Q?NKVMRfcL4Z4AzVlL+wlG2avkswQCU4UEP8oJNUVyyqOoKEXVWUTJHkGrol22?=
+ =?us-ascii?Q?WUcceFEgsQlFAx1wyGznLHq3ubSswlwnW2JzgcvsgMVpEc5i7B4rgW5YOBLn?=
+ =?us-ascii?Q?0D8GXArJu05JQEEEuPSO05uiA2HElRCBb2Fh9GQFQtsSKuw0MezPsJwon1OA?=
+ =?us-ascii?Q?UCamuxRdTL4EF0w49IQQ+a99DpfHniPv+xEVZ7k0uZfSfADPcYsOk1tfN2Gi?=
+ =?us-ascii?Q?UKjnYIRp8YnY9YX87AfhTONixPzRVN+OFDhQ/XoYxtUT24fr5mZCn6/LLU2a?=
+ =?us-ascii?Q?OnWnVvharJB82mSLs5yGs9f2?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9576.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jjKNkcTRLnXTF/dC31WrImMur7KEB/yNJ8x9sPma42RecmVNwoR1DcFHY3GP?=
+ =?us-ascii?Q?UPRo8lmyFDiDzqSF8jazUK4SiE2tVOtB27vIRiKUCcRurwZVIx3ngWLGii5o?=
+ =?us-ascii?Q?iq+UiAX46e5D7rcMPp5H1a0Q/77pzVzYrSg26usGFCS7qz/VqtVZrrzCoKIh?=
+ =?us-ascii?Q?bJRRqBy9Gg2ZnvS+J9qRMOO7T+QklHnA2tmbypGDW0ugZSwr1Ux1R1iuUps3?=
+ =?us-ascii?Q?3PxsvmCgxHrR5ICm7DBAXSfI6JtseT0DvSW+iJufeUV1aVVmxvJxlHv3xH47?=
+ =?us-ascii?Q?KGBgOjNXFovnBrFAEwdqo9Dgog884mit+cSlQMBofGmukB+c4nnbmzglfM7X?=
+ =?us-ascii?Q?YKqIlwQNDhnrHWLpd3+RW6eV86PtGBytMRQ7lEc20fDG/eGauDzAz6cCE3/a?=
+ =?us-ascii?Q?tTI7ib4VedoCdDiWjGtbsa5LowYnp/MPJUAXRbeWWv7jt59v/rnuzdue+5kj?=
+ =?us-ascii?Q?YZ4cpkNiXHrmsBx4BONvZQ7ac+4EysimWssKat6ad3kZigMBqP09v5KAvZwM?=
+ =?us-ascii?Q?Vo523G5LDK2WqBuyWfVTE6p4Ul7i2hx62/boagyJxbpAxKr+aGtcQbUWlBZi?=
+ =?us-ascii?Q?X6+F6XR1APMuu4aLjTNUVxfDaSATO872fm0tW5DS4hkp3s50Ln/3ylxiZzTC?=
+ =?us-ascii?Q?YtDvdRX12/ewI0yrceXJa0qqxXvxC65gM3lFgl6cYSluTZbnQ/x0CDK0D5vH?=
+ =?us-ascii?Q?hvtgu2AVxFDZq/Hw90pCm8tX5TYrDN7yRNaUDLyitqcKaucp+4hJuKyEvfNg?=
+ =?us-ascii?Q?Xi2FTRjVff2Jao+uXSyqXFkZ5JpeKolZhvVJpC9dWZh2SgB5OLwJKpjh9fYx?=
+ =?us-ascii?Q?BnO7WdQ2argUkpm0zc+fswP2Feirr8mZARwpe8JbXcCS7x7iYqRpM2whU3NH?=
+ =?us-ascii?Q?EQeTSgC+SmS7dtsIp03lVDnHFOnHiWYYeIGt8HKmh29cDguzfBSIOvmekVsw?=
+ =?us-ascii?Q?2kjo9E1vOqKZucgtgb4sl51Zjo3TrzyrVdKBwHA7xNNEqQGyKuEZa6F7iwsE?=
+ =?us-ascii?Q?cuEQeLticKU+S5gtUIph/5x6ar95b8YEXAa/3mN1lCwgkV/+dkLALrSEQ6Pt?=
+ =?us-ascii?Q?ar2aJ5rJoxkRtsyddc4KmBFAyNFSyU6ipQWjVuWc3inmKR8ozebx6K/BGqyo?=
+ =?us-ascii?Q?ENhRZG17sm/+QIi2bMYd9t50tzNCDDoLzU1rYzxpoiX3T2697CYDDO3ZW6mL?=
+ =?us-ascii?Q?ONAFgXjhO5tb2g+Pgyt+PLau2MyjQbpEkyOjsqUH0Tl6rXjX1sRCNRYaMwAP?=
+ =?us-ascii?Q?31LpKV1zT/oypSnVk19JiDEWV/ntR8VzyqUd4V3T5+k+iF74pqn6/OGsADov?=
+ =?us-ascii?Q?aiStTcatn2IRo/xVZnnIzXZWC4r0Eqs7W+xJ4KM0vaBXvsw9oy7gWcmRkKBo?=
+ =?us-ascii?Q?G58uYq9gfomFEvRm4vvu1fkYupXKbyEFjIn8ZGt6kje+AhA0xzwipdFHm270?=
+ =?us-ascii?Q?lEe769Do34F6MRpPsGq1s782ZSqZQ9x20cWa6yB8zqltYJTAPlmQVQZPLRMt?=
+ =?us-ascii?Q?blCwAPyRTvN8ir/8TUJGOLA6vNbWkdSVcm19ofj8ByeTOhw9KHC0Lnv8kfN2?=
+ =?us-ascii?Q?hYyWpEViXDkoKAh363tsHr+OM6qymJS6XyqE0FuIj4cQT1cZ0R/95H6V1YI6?=
+ =?us-ascii?Q?cw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37fc6a74-d73d-4986-2c7a-08dcfcc9be55
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9576.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 12:10:59.6936
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dQyLp+qwyfNs04b+kd/RvDtLiNv46bOVam3Q+LjJEOz81LkNeeEFCbMwBJc47xs2ihxIfTJWXI6zczmt1mA7Cw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_040411_608805_5FBF9EFE 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241104_041108_716020_F2F57DF2 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +161,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: hs@denx.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Fabio,
+Hi Arnd,
 
-On 04.11.24 12:15, Fabio Estevam wrote:
-> Hi Heiko,
+On Mon, Oct 28, 2024 at 04:35:07PM +0000, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> On Thu, Oct 31, 2024 at 12:12 PM Heiko Schocher <hs@denx.de> wrote:
+> Compile-testing random configurations leads to failures in
+> dcss-kms.c from a missing declaration:
 > 
->> +               brightness-levels = < 0  1  2  3  4  5  6  7  8  9
->> +                                    10 11 12 13 14 15 16 17 18 19
->> +                                    20 21 22 23 24 25 26 27 28 29
->> +                                    30 31 32 33 34 35 36 37 38 39
->> +                                    40 41 42 43 44 45 46 47 48 49
->> +                                    50 51 52 53 54 55 56 57 58 59
->> +                                    60 61 62 63 64 65 66 67 68 69
->> +                                    70 71 72 73 74 75 76 77 78 79
->> +                                    80 81 82 83 84 85 86 87 88 89
->> +                                    90 91 92 93 94 95 96 97 98 99
->> +                                   100>;
->> +               default-brightness-level = <80>;
+> drivers/gpu/drm/imx/dcss/dcss-kms.c:95:8: error: use of undeclared identifier 'drm_bridge_attach'
+>    95 |         ret = drm_bridge_attach(encoder, bridge, NULL,
+>       |               ^
+> drivers/gpu/drm/imx/dcss/dcss-kms.c:96:5: error: use of undeclared identifier 'DRM_BRIDGE_ATTACH_NO_CONNECTOR'
+>    96 |                                 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>       |                                 ^
 > 
-> One suggestion: a more succinct way to represent this would be:
+> Include the header directly.
 > 
-> brightness-levels = <0 100>;
-> num-interpolated-steps = <100>;
+> Fixes: 004555a18d57 ("drm/imx/dcss: Allow build with COMPILE_TEST=y")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Thanks for the suggestion!
+Unfortunately, it appears I lost drm-misc push rights. Maxime, Thomas or
+Ville, can you help push this?
 
-bye,
-Heiko
--- 
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: +49-8142-66989-52   Fax: +49-8142-66989-80   Email: hs@denx.de
+Thanks,
+Laurentiu
+
+> ---
+>  drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> index 3ec721afc30c..63a335c62296 100644
+> --- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> +++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> @@ -5,6 +5,7 @@
+>  
+>  #include <drm/drm_atomic.h>
+>  #include <drm/drm_atomic_helper.h>
+> +#include <drm/drm_bridge.h>
+>  #include <drm/drm_bridge_connector.h>
+>  #include <drm/drm_client_setup.h>
+>  #include <drm/drm_drv.h>
+> -- 
+> 2.39.5
+> 
 
