@@ -4,78 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BAD5D132C4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9D0D132C7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qpeaJskM3znAcoTWy70Pz3saAEMGfBseLCz7zfjofsU=; b=Zhv3MR1OND79+nLWOCKuk1mYKe
-	JelU6PuM7Nv0gdm/bY6DRs9eVGhI5Q1mJ5BCIic5o85DpnKMXMt9pgWxGvTZOC4SxzyJlype5SiuT
-	uwQU13oSXFwhOOTm4LCoHYhgfTUlnUVr22ABP+oOh1R8q7CwZfqIwZpYFn564/RvW1x9/vp/AP+S/
-	/NZMTbOINdn3JUcD6FVcc9HqAZ6px8TuLpC6M+xmVzU+jWKWbK8aCMym03YwxmxGd6si3maX5lHd3
-	TnyF9e8HlQSuK4S/2pPpoCpluDlzsyQDjKiw8ZJhZnnCq284+VaO+qWUgDPWK9YNmJtRKPFbAKcjG
-	nwqLjc/Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=; b=EOLQ+MYPX8sz6ZnIp9Br4wKoeZ
+	dgCbvpQ2cQN8mhQmtzaH69CV+5cQyA5Re0rCP9rTXRilewYnH2rcw6ZdAnfE5VT9ZYtraMyOwKkb8
+	zv1qiDgIEQ2nqwG6MS3AyAqDuIWK+Ao9VlRbOj9feZODwi0V8V/cPwGgxgOYH6JW1tr0n48pAO2iD
+	V7Zb/SZI6KfYLDiSv6GA5GwR+H7yrYbiQJWs0dPGCLCmnRgNv1pdDXKXJrefRHBD0Z74buieSz8f1
+	FGbP5YqCAI4T5QJ3OJtaOTLvDTotULrAzXnXKRZodO4On3F5E4vrGNEkodwYsyadc97E7IvsmQcvT
+	UXtc+upA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xGL-0000000DtaQ-0QtN;
-	Mon, 04 Nov 2024 13:36:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t7xI1-0000000DtzI-3zCM;
+	Mon, 04 Nov 2024 13:38:41 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7x6b-0000000Dr5G-1neO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 04 Nov 2024 13:26:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qpeaJskM3znAcoTWy70Pz3saAEMGfBseLCz7zfjofsU=; b=g1/MubIC3Xf7b5z18+xqBLXZjP
-	tWV3fJFYJJZV/4T6jc76lfO7kA1M9+f96J364ds4BpSAJbXG80A5i+TBQm1jx+PmuSu2WPZGosa1a
-	DS68WFA2I8UcHKzDYbHs0/nClFexDnhMuCHJ+9hGq4fULSoZwjFc7dXDQYLv8RQFW2fvdXhoZWPRe
-	A68J/a/ja+42fPxpl5K9Pnd4DtDkZA/4sM5P1PKA3+R0SWtnt+FNDqpW8Cwd2UIdlWhnQPMxtXAeL
-	FAgytI9o/O6MnizFxCySontZNHlNphA6oDZeRO58Ln08CkWvTpxTPuLI22n3qio8UPyBMTUiV3JJj
-	5Mtx86QA==;
-Received: from weierstrass.telenet-ops.be ([195.130.137.81])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7x6Y-0000000BKzZ-2d23
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 13:26:52 +0000
-Received: from xavier.telenet-ops.be (xavier.telenet-ops.be [IPv6:2a02:1800:120:4::f00:14])
-	by weierstrass.telenet-ops.be (Postfix) with ESMTPS id 4Xhsgm4Br9z4x243
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 14:26:44 +0100 (CET)
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:ae0d:26ef:36dd:9be1])
-	by xavier.telenet-ops.be with cmsmtp
-	id YdSh2D00K31l0Qj01dShZH; Mon, 04 Nov 2024 14:26:43 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1t7x65-006FvN-Ss;
-	Mon, 04 Nov 2024 14:26:41 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1t7x6P-000BJz-J1;
-	Mon, 04 Nov 2024 14:26:41 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: arm-soc <arm@kernel.org>,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 1/2] Renesas ARM defconfig updates for v6.13
-Date: Mon,  4 Nov 2024 14:26:39 +0100
-Message-Id: <cover.1730726154.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1730726152.git.geert+renesas@glider.be>
-References: <cover.1730726152.git.geert+renesas@glider.be>
+	id 1t7x9K-0000000DrpV-0mJl;
+	Mon, 04 Nov 2024 13:29:45 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BC4F51FF36;
+	Mon,  4 Nov 2024 13:29:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1730726978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
+	b=0ztIZqAK7c+mZUeNBdVOS3QcjKZ+gTkbiiThbV3uCT0qdfhhLQzUICYrNxg0ISCzCRiUlh
+	FWlQp+MH7IKelwTpTbszyGFxqUnIW0z3L1+1/hQxJKMplwOV4Nf/4SQtKc7goU+gZsp9CD
+	MJcyZ7QH4oYpYRwXPV5G53L/tQ0dv6w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1730726978;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
+	b=hiAB4aDT3eWLY4chbO4o/9B+i0qLDs4/0lkJTQOSYSpj41i3RklBPyf2wd8QgBPcr25i0B
+	fnuVbXEhHM/QBICg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1730726978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
+	b=0ztIZqAK7c+mZUeNBdVOS3QcjKZ+gTkbiiThbV3uCT0qdfhhLQzUICYrNxg0ISCzCRiUlh
+	FWlQp+MH7IKelwTpTbszyGFxqUnIW0z3L1+1/hQxJKMplwOV4Nf/4SQtKc7goU+gZsp9CD
+	MJcyZ7QH4oYpYRwXPV5G53L/tQ0dv6w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1730726978;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
+	b=hiAB4aDT3eWLY4chbO4o/9B+i0qLDs4/0lkJTQOSYSpj41i3RklBPyf2wd8QgBPcr25i0B
+	fnuVbXEhHM/QBICg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2AE641373E;
+	Mon,  4 Nov 2024 13:29:37 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id pEglAUHMKGdhawAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Mon, 04 Nov 2024 13:29:37 +0000
+Message-ID: <4a474dae-6669-4678-87dd-e0e9692a749b@suse.de>
+Date: Mon, 4 Nov 2024 15:29:30 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 09/12] arm64: dts: rp1: Add support for RaspberryPi's
+ RP1 device
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
+ <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+ <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmx.net];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[dt];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[34];
+	FREEMAIL_TO(0.00)[suse.com,baylibre.com,kernel.org,broadcom.com,linux.com,linaro.org,google.com,arm.com,bgdev.pl,amd.com,arndb.de,linuxfoundation.org,vger.kernel.org,lists.infradead.org,gmx.net,bootlin.com,lunn.ch];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLuy4kgthhwuicx86wgtwa6dww)];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_132650_810293_B9782B38 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_052942_562461_C1460141 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +158,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+Hi Andrea,
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+On 10/28/24 16:07, Andrea della Porta wrote:
+> RaspberryPi RP1 is a multi function PCI endpoint device that
+> exposes several subperipherals via PCI BAR.
+> Add a dtb overlay that will be compiled into a binary blob
+> and linked in the RP1 driver.
+> This overlay offers just minimal support to represent the
+> RP1 device itself, the sub-peripherals will be added by
+> future patches.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+> NOTE: this patch should be taken by the same maintainer that will take
+> "[PATCH v3 10/12] misc: rp1: RaspberryPi RP1 misc driver", since they
+> are closely related in terms of compiling.
+> 
+>  MAINTAINERS                           |  1 +
+>  arch/arm64/boot/dts/broadcom/rp1.dtso | 61 +++++++++++++++++++++++++++
+>  2 files changed, 62 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 06277969a522..510a071ede78 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19383,6 +19383,7 @@ F:	include/uapi/linux/media/raspberrypi/
+>  RASPBERRY PI RP1 PCI DRIVER
+>  M:	Andrea della Porta <andrea.porta@suse.com>
+>  S:	Maintained
+> +F:	arch/arm64/boot/dts/broadcom/rp1.dtso
+>  F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+>  F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+>  F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+> diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> new file mode 100644
+> index 000000000000..8d1bbf207a30
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> @@ -0,0 +1,61 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +/ {
+> +	fragment@0 {
+> +		target-path="";
+> +		__overlay__ {
+> +			compatible = "pci1de4,1";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +
+> +			pci_ep_bus: pci-ep-bus@1 {
+> +				compatible = "simple-bus";
+> +				ranges = <0xc0 0x40000000
+> +					  0x01 0x00 0x00000000
+> +					  0x00 0x00400000>;
+> +				dma-ranges = <0x10 0x00000000
+> +					      0x43000000 0x10 0x00000000
+> +					      0x10 0x00000000>;
+> +				#address-cells = <2>;
+> +				#size-cells = <2>;
+> +
+> +				rp1_clocks: clocks@c040018000 {
+> +					compatible = "raspberrypi,rp1-clocks";
+> +					reg = <0xc0 0x40018000 0x0 0x10038>;
 
-are available in the Git repository at:
+shouldn't this be:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-arm-defconfig-for-v6.13-tag1
+	rp1_clocks: clocks@18000 {
+		reg = <0x00 0x00018000 0x0 0x10038>;
+		...
+	}
 
-for you to fetch changes up to c520bbb523304ba98de9ffeeb0ef289921434125:
+?
 
-  arm64: defconfig: Enable VBATTB clock and Renesas RTCA-3 (2024-11-03 12:33:11 +0100)
+And for other nodes too...
 
-----------------------------------------------------------------
-Renesas ARM defconfig updates for v6.13
+~Stan
 
-  - Enable Battery Backup Function (VBATTB) and RTC support for the
-    RZ/G3S SoC and the RZ/G3S SMARC SoM.
+> +					#clock-cells = <1>;
+> +					clocks = <&clk_rp1_xosc>;
+> +					clock-names = "xosc";
+> +					assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
+> +							  <&rp1_clocks RP1_PLL_SYS>,
+> +							  <&rp1_clocks RP1_CLK_SYS>;
+> +					assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
+> +							       <200000000>,  // RP1_PLL_SYS
+> +							       <200000000>;  // RP1_CLK_SYS
+> +				};
+> +
+> +				rp1_gpio: pinctrl@c0400d0000 {
+> +					compatible = "raspberrypi,rp1-gpio";
+> +					reg = <0xc0 0x400d0000  0x0 0xc000>,
+> +					      <0xc0 0x400e0000  0x0 0xc000>,
+> +					      <0xc0 0x400f0000  0x0 0xc000>;
+> +					gpio-controller;
+> +					#gpio-cells = <2>;
+> +					interrupt-controller;
+> +					#interrupt-cells = <2>;
+> +					interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
+> +						     <1 IRQ_TYPE_LEVEL_HIGH>,
+> +						     <2 IRQ_TYPE_LEVEL_HIGH>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
 
-----------------------------------------------------------------
-Claudiu Beznea (1):
-      arm64: defconfig: Enable VBATTB clock and Renesas RTCA-3
-
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
 
