@@ -4,153 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD52D1BDC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9242CD1BDC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dchde/jxDoecO4LUw0isprJhPEGzUuCOINM5/tHZ1pU=; b=RGnAwQRD1k0u/esD01TNg6NPHD
-	qL+Xj2N188rwukWU/z1GDXuHnlFV0XcbbvGAOIfQH8+WHXYsxAZu7TrUa7pFQeUb+u8d+tMC3O9Be
-	oKFvWT5t+jBvV/D6yQ3Lf2FQmTE0y8PWYpC9dPH5VWaVGsWMs7L7v3Wewf5WEFmvRK9LwkhiFnRnb
-	Kv5klb6bMr/K2GOhkPiHG65Rylt/+DRupsY1SIEnCTQwZNzPgynE6uesBrE2HJdXc9OykIfPLibo7
-	01Aw7oWgPbjpGJ1HHmYHxm7YoTMW5Tmg/ZW1rv7sKGOPVVPTH2Q3cnPAnlA26Y/qYruNWxhv+uK/x
-	JieTDjgg==;
+	bh=Gz9W97kzbASMatevlIVft40nyseDDdDJQYeu/gRdut8=; b=lxXwrW9BWEKNIN8I6KDUb6X1WT
+	GOfAFyeLbjHkNoKIsLuOuJyZqzHTF3i5IYKV/VpAanGj4qqVnd7fCTBXodM/ueMqZ1AM1+E2QzrAC
+	S2bHppizNMkwRTcOoXnZXwhABZo0jMAr66LwXzqnW50Lxtx8V2xrcyjmXKVUqAdYds2WffLvU++qv
+	8diTFhMqnl7048AQ7ktHuUbAwI0A8iMa8qnGBK7WmuqiVEjRlzjzvk20ucXNqynFzynCWDFFJC/31
+	bCA7ATJhR1b2/m4KMWQiovAd33nCWClUOx5wB2bWvWkR5b300jm/qY5YStfy1JMSvXGVeWdJYzwYC
+	h+0cj+PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80Bq-0000000EPcK-24pl;
-	Mon, 04 Nov 2024 16:44:30 +0000
-Received: from mail-db8eur05on20623.outbound.protection.outlook.com ([2a01:111:f403:2614::623] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t80DV-0000000EPq6-38f4;
+	Mon, 04 Nov 2024 16:46:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80A5-0000000EPKJ-2RMS
+	id 1t80B6-0000000EPYY-3diL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 16:42:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mX4IOaSj+s8t1fAa3AQap3KWT9LSjBS05Fo7C+/JNtg+FthLufgwzizxNwCkE1uEii8veOpJxkAdce/a3FrP4NQN7Z+Hr1BEzSCKw/xE/63kJGt7hMiXbvzza/K0Or+oV3qOoJRJIzyXbOpOedW5mpqbiG/0AoTSJkqyI8V3OEdwSa9nUAkn8w7MUxONZR7uUs1S2upmS4KOp0W8z5ygVJ168R9ykg9HDFhe4+gD1ViXGyi9LeW9SrZxgQvH8Lp1/kq7Ie+BaZQ/sXCFyoJCn8bDJVFCADNoAMjJ70TgWWDjE+HXM8EYcX6p6W5GuqeGJT/dPpX9vS7SrawPKTgndw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Dchde/jxDoecO4LUw0isprJhPEGzUuCOINM5/tHZ1pU=;
- b=I7Hk6JVRaRzcj+LFbbUZGmfGkA/hwMIbIH+gIgHMkia7S6mD6s7YwUsQJIXlTHC6sRoElqnPnkdMUkQ+zVcpCuqe1Ao009IVNGnbGmW5KYUegfQRiZtp7ZKqxP4M2cXTMH5K7iXuXBz8mqOg7TUfJ+E++0FckyGaJlCjkk3gkWOBNtZLIomM2hTUkMKEiMBseEjrBhmeWOBdVt86s2JIdeTFNHNT6N3t4yFObien2J1PRfwoaXMygiyLRx5gCc635n6yVZ/OnaV0N7KSxBoCggfqfyQojXFAVsYRyflffOpU/+xNUadXDLOC38GtvIbskroVAXfByAdWtr9vJ8NqTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Dchde/jxDoecO4LUw0isprJhPEGzUuCOINM5/tHZ1pU=;
- b=KB5680sQHt9v3x3zRiqpd9ucR0IKOFdcvNRDrAMHwLBAopeJ8Sz+MrYjarjcj1CMce5h+JCQn7ClvkYLPDv4vNxCGWYL9HMfgj20ICgUFcbflt5S3At13Br+S7LMBhxqUJawmmoGfPM91lSlDKdjcwL/HTYSEUn+bn+D3T7u7obpK/sOETm/e7asxZrblonJTnemQ8Z90DMsZrMt8tPdcglXFrc7l9wZDo4YR9KIlbo1WG2D02MNEXyU/S45vrS+0qUFzS28Qpiku8icHw7WP+c6J3CZORufaVZZbtV2455Dl+uMcD0zTGyCjS9tzChOIjf9PbFQc8pDyZQ3osiNOw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8301.eurprd04.prod.outlook.com (2603:10a6:102:1c5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
- 2024 16:42:37 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
- 16:42:37 +0000
-Date: Mon, 4 Nov 2024 11:42:28 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Ionut Vicovan <Ionut.Vicovan@nxp.com>
-Subject: Re: [PATCH 2/2] i2c: imx: add support for S32G2/S32G3 SoCs
-Message-ID: <Zyj5dKghdbTysRFo@lizhi-Precision-Tower-5810>
-References: <20241104100044.3634076-1-ciprianmarian.costea@oss.nxp.com>
- <20241104100044.3634076-3-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104100044.3634076-3-ciprianmarian.costea@oss.nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0024.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 04 Nov 2024 16:43:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C9A10A4132C
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 16:41:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3577C4CECE
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 16:43:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730738623;
+	bh=aBhOe4jROECZsCOF9Tjcmoa8Wr7DnK4/FPB94XtakTg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fZ/yZayo8+pgEhlLGkp0knsZ8gROTvdaFHprhF4S95yhs/SzYvgr3EcpUh/OfOQ8c
+	 fdUDh63cTsG55HbwD4fKxOQc3X0dJK7dlI3Qp4fn8PaKA7BdMYbK5ygtcN33n3vEbg
+	 Y3iphWORNsEiwzId2LInjirXjmJ25FqpqjBNCOgw3cMNYx3sNV8NitMlqKy+4oJySv
+	 sJTrMeFkpiyBlcM6QaxSKGmM24gmuSdvJIbR9+XB5X6cWVGnxCwXCpgiN1C/znacer
+	 vuIwMnT3DFRXg4cDszA09H5h+5fxKP+viIMEaONjS0JWtAXoDVKc7+izNCdw46k4Br
+	 xVNe5fg72rhcA==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-2fb5be4381dso40275221fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 08:43:43 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVSsmsBe89BUJBJCKI9I9HzU4whocGcX8AxsO+njnmDkoLtyaSrPhp1nLt7WzPSQucGl97gG948NZOJiLI6jOkd@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcg6z8vCzk3OZHbfniqzHRuE1c3Kl/HCxWnUl+ahj2q4z0S4vD
+	YTiB1DqycRPI+rP4zF5Dj2I2sg322vHPcsoOUYIUCMst6fKQ92jmVt1M5v8dDKJu6Gy+0WK/eR5
+	r/VJ1feOK9nui+CZyxEik0V9YOBI=
+X-Google-Smtp-Source: AGHT+IH1KZMDebhey0nwIugNW8TVwi5nnuXaaN7e10ukPGZVC5EQ9zfJMzg/lt4fHgRva3oS1C9NUpY7J4T5iFQkr/Q=
+X-Received: by 2002:a2e:be20:0:b0:2fb:4951:172 with SMTP id
+ 38308e7fff4ca-2fcbdf5f742mr143126321fa.2.1730738622013; Mon, 04 Nov 2024
+ 08:43:42 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8301:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20c6b580-92f7-4651-8142-08dcfcefb0be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ekpEeZJVh/BK/6doURJfga+jOr3V7b3uwvY3Qy3/rQb9cP/ZsZoe2yE3fWIw?=
- =?us-ascii?Q?4Ks6McdMT1U1hNOF0gzI3AU+jZXrR66uApi7cZko2ECxAsz1W9xSx7R3pWZy?=
- =?us-ascii?Q?SHLAas9xQNtN6TLBMsHO3gvtkPkSZl2+Ni7gJ2Adjiy+67ILqD4nK7FzOAgc?=
- =?us-ascii?Q?ZBXBIh2zAtkCxV4nOGTlnEiX8tv7lI+V4Js3zehcrx4Tb2aiwZC4ia8ocRYL?=
- =?us-ascii?Q?TP6EVy44Lg0tqRPOSIhezww7gspRnFYwjWdDKloyz5RvmIvdvVHNsrsA+0Vd?=
- =?us-ascii?Q?Xy3JZxFSJQ2o2qbOauECgfNR1fakFJTGdj5Jahf9c4K398rhhSvXBSMa24SJ?=
- =?us-ascii?Q?ipQGe72A+9Ajc9mNdNVRVIphirRjeAkqgyrpyhl80m5tguPQ+Tt5COq0LX6y?=
- =?us-ascii?Q?XkJTHMj8H+Rh0bB0EAoQS4irUA6qeszxTUwYg+oRrqdqZJfTbwTw9Ew1CJJt?=
- =?us-ascii?Q?Klo5qrMart+d8Rep1twhKadEJ7U7xR8DO8i8fBHnx25N8C4a4Z2abvLS1qSy?=
- =?us-ascii?Q?qbdrq6iW+Cz/tFqhceJcS/sdMyJV6SPrIOpUl4t8R7xm36nQhGB16qS8fY6X?=
- =?us-ascii?Q?ev7Lq5jApqwIiouUEtC+x2UqYUr3lQ9qEcdnWNMH6eEJmHz/atEj7ysHdmly?=
- =?us-ascii?Q?DetvQibeKtzVkspzzMBataY0xzuSCGlDh8Hr2PPKyhc0PCi3/4HXgc7UvQn5?=
- =?us-ascii?Q?vPiryx2A5DA6ie0nz6OC7LaKdIWIgrLCOIK52agOI4yZ7cEL8dxSXBkoTxi7?=
- =?us-ascii?Q?PNZoVfKjLvAFdPAQF/bjg2uGcZ2HxeP+IhMFQI8hbWwGUXX1o4MkJFCOr1Zi?=
- =?us-ascii?Q?8Yi/vN7qV4A0w8y/bQyBLpqV7kegq/ObEtS8vzZFnZAdxn/kVd5akmyXJ/SV?=
- =?us-ascii?Q?8UGb8NJENFL7L5jvwkLdVCdt9XhHgpptXNMCrBexb5U+kVUBOTckl06+4I47?=
- =?us-ascii?Q?Y0MAkIzwUcnFX3z2fazJ0ebZkS6Ubt2YfV6cE6P7f47wopj9rEXKSFIHHYfK?=
- =?us-ascii?Q?PZbxeihy4tty6dcJQAinrCxOIb2JRDymGRPr8LVwj9Tb6VdSK1GYsQChWDMs?=
- =?us-ascii?Q?vKY9TfdszXsX/6Bn/yqucBKCh8JcNeQCgOklGKgBwi0Lmez7SLQSf23aMdVj?=
- =?us-ascii?Q?QNT5a2Mah3zsJs8uqKpNiMQ+iB9/oBCa+brcxcat99VqakYJbkRVS2clJS9T?=
- =?us-ascii?Q?eB1lhp78H7PV4LMcTTULs64AkO+vGacylS+/X7l5dDvmteXdUWpk3XVVQEnV?=
- =?us-ascii?Q?f8CndrJcPGJPWRg/Tvyz9qSjiYXP/y8H/AMkvu/jFMCkKEvsbNOfHu64dSOQ?=
- =?us-ascii?Q?0u6ZCjtvyZWhOC999a0UC+HC?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QqJQ2oiZtorsl4EH9cq2SRxoEw6VeyDlsqZAwRxxTOc7xHLzxiVGa5da1QUr?=
- =?us-ascii?Q?4BAY3TV/2gXgXCaljmnblsBvc93RBMtisn1yJBsRffEyWcoJ4oTGXpYUImTj?=
- =?us-ascii?Q?DWMld9WPnGQn6bj0IdZIVrFyxHvRiQJUiOTAfai5nRst9BgcyhDyCjiu832s?=
- =?us-ascii?Q?WkFeHhBc4Pi0bDRefeMz4Zg3v6kmfDPhNIeIlVIFdbcyaJ4so20FWZOClGSl?=
- =?us-ascii?Q?0VZuq8kGzsYWNsBjbi3U39AR8nZopYgxV77cmIfZOVd3/BQSswFFPIhNVtAp?=
- =?us-ascii?Q?vtJve4YzzfSRazsclBdKUfrmD1wT4WpZojQC2b+eXDOY+WfUQR6gRvJg4TNW?=
- =?us-ascii?Q?ldTSj6LX0sC8on8JTtINeTuMUrs2lseoqHkl7nM6xeTQYYUDAQP9tyzR0OaZ?=
- =?us-ascii?Q?ttxgsNVeHdvBreEAYScxE+vdd80Xu7GwbqQym250DnD/HsPz8+pWkOw7tqsN?=
- =?us-ascii?Q?nLDsgxdHVEVtbKfRoOu7ex2xd35YshOKEDm+ZiqiR6IOFty6syCouAmF7V6x?=
- =?us-ascii?Q?zi76NOW8xXrG7twkOoS5rXHqQ5jlhFbPaTN9EutFze/zW4egxj8c5jefg50A?=
- =?us-ascii?Q?jYxrjTlNl0FFlU8KxNrnnDa2sryZ/IgfuKS5ciMmj+ZWUrrGZf+YeQE3Hw9y?=
- =?us-ascii?Q?vPkkwrekqyMfb50soYDu/fbllhq8iYEGngTUgapYzbYEX9MTHWs82JYLbXED?=
- =?us-ascii?Q?m868C1tEwsUWRLyBDOi6q3s5tiVmAs6u7SZDS2FMKN0xmIkwBO/OStLD0wb4?=
- =?us-ascii?Q?torIz4n3ZTAHpgutX/mzWl+nzQSIBOpplxvFjSnGX8gOgSUPDIil/KxPPpMq?=
- =?us-ascii?Q?hztLrHfqSQa4V5fIeunhWqJEi/vqjqjpEAHoGSdst6f7PuqWNoML9HbAaekr?=
- =?us-ascii?Q?6EWmwiff2BuQKkEeYcCh8nRPMXSNj+4sIJ4p4pahDESniIglcnw4thpKak7Q?=
- =?us-ascii?Q?6+scz3cwqONvGIMG+J7QnB3GDA+8jC5Xvdk4IrDZ+KVafFLjYYGo7m6LXkzA?=
- =?us-ascii?Q?65KFOElAISPUyt1cKUmMVOCN4U9D5frsbO4y29IatjQeVb/14V40kog1tTkm?=
- =?us-ascii?Q?8imz1xv9G68uXEF/TGu+y5q+6EeXTUkAios5TF3PEPlcsUBY4orbDRhXKk+a?=
- =?us-ascii?Q?YpwDkxSYfajUDwJxBS2gRv3TvU58ksVqCCPAhVGC6AemTqw631y7z6Q3x4P6?=
- =?us-ascii?Q?gpH77HQvEr7NX8gTwKlS6BRgmy8c+l+Ts/avf8EiBgvhWsxNmDQFwGDt+zdU?=
- =?us-ascii?Q?W5FElxkMpWi6Jd9GII4hOJ+NjKqg+mAIoc/WO9QWibILuxVikQicFWJxwbNg?=
- =?us-ascii?Q?4+optfVWDxXK8SbmaAtSmNVpXNqBqAq+fs60fUQ26jlds/uUahKPXj/UXjxu?=
- =?us-ascii?Q?gOH3ihq7IjiLr9y1q2Jv8I0UF/EIYVstQytNCAvdeP68J4ECbDPKL1PdFPQU?=
- =?us-ascii?Q?pQJQKad6qiDiTCojOpQuTyfokX4Xnwqb3JRW+GRLEpXYQTlDm+UIOwhAmZT3?=
- =?us-ascii?Q?5HpDPz2OT6mS6copMqzKPpiGrjxwPz/+zc1EaQceG484UXjc1w1lM+txhv40?=
- =?us-ascii?Q?chIFaJtod/ErXxv/9Pc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20c6b580-92f7-4651-8142-08dcfcefb0be
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 16:42:37.4068
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sKumvwOvIetKwS1vsn/1CI/kZO27WjATQYsnI9qJEV6wON0I0oxjwMxj9o87+7iY2ypZGfXXDlRkxNDCiOYKCA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8301
+References: <20241101155800.3917462-2-ardb+git@google.com> <ZyjREXyABoQtkV8O@arm.com>
+ <CAMj1kXFMBU1aPmL58NtyPu2kKpWurHBOYE4rmKvPwj0SA5Z+Dg@mail.gmail.com> <ZyjwHC2nekioWfAa@arm.com>
+In-Reply-To: <ZyjwHC2nekioWfAa@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 4 Nov 2024 17:43:30 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFAa+eBORpX=Ld9bsL-dTgWasS1AW_c5GjSf9JH6GGvog@mail.gmail.com>
+Message-ID: <CAMj1kXFAa+eBORpX=Ld9bsL-dTgWasS1AW_c5GjSf9JH6GGvog@mail.gmail.com>
+Subject: Re: [PATCH] arm64/mm: Sanity check PTE address before runtime P4D/PUD folding
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_084241_993878_59D73AFE 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20241104_084345_064492_D78927FB 
+X-CRM114-Status: GOOD (  29.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,137 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 12:00:44PM +0200, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On Mon, 4 Nov 2024 at 17:02, Catalin Marinas <catalin.marinas@arm.com> wrote:
 >
-> Some S32G2/S32G3 SoC I2C particularities exist
-> such as different <clock divider, register value> pairs.
-> Those are addressed by adding specific S32G2 and S32G3
-> compatible strings.
+> On Mon, Nov 04, 2024 at 02:57:21PM +0100, Ard Biesheuvel wrote:
+> > On Mon, 4 Nov 2024 at 14:50, Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > > On Fri, Nov 01, 2024 at 04:58:01PM +0100, Ard Biesheuvel wrote:
+> > > > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > > > index dd5dcf7ae056..0d729adf894c 100644
+> > > > --- a/arch/arm64/include/asm/pgtable.h
+> > > > +++ b/arch/arm64/include/asm/pgtable.h
+> > > > @@ -740,6 +740,11 @@ static inline bool pud_table(pud_t pud) { return true; }
+> > > >                                PUD_TYPE_TABLE)
+> > > >  #endif
+> > > >
+> > > > +static inline long sign_of(unsigned long addr)
+> > > > +{
+> > > > +     return (int)(addr >> 24) >> 31L; // bit 55 is the sign bit
+> > > > +}
+> > >
+> > > That's a pretty generic name that trickles into the core code. It should
+> > > be renamed to something that suggests arm64 addresses (and maybe some
+> > > underscores to imply private).
+> >
+> > Fair enough.
+> >
+> > > Also, this assumes untagged addresses but
+> > > I haven't checked whether that's the case for all call sites.
+> >
+> > Isn't bit #55 always guaranteed to be the sign bit?
+>
+> Ah, true, we have the cast to (int) which removes any tag bits.
+>
+> Why's the 31L? Does it affect the type? (it saves me from having to dig
+> out the C standard).
+>
 
-Add S32G2 and S32G3 support. The I2C in S32G2/S32G3 have different
-<clock divider, register value> pairs.
+Turns out that it doesn't - I'll drop the L suffix.
 
-with fix below nit:
+> > > >  extern pgd_t init_pg_dir[];
+> > > >  extern pgd_t init_pg_end[];
+> > > >  extern pgd_t swapper_pg_dir[];
+> > > > @@ -932,6 +937,8 @@ static inline phys_addr_t p4d_page_paddr(p4d_t p4d)
+> > > >
+> > > >  static inline pud_t *p4d_to_folded_pud(p4d_t *p4dp, unsigned long addr)
+> > > >  {
+> > > > +     VM_BUG_ON(((u64)p4dp / sizeof(p4d_t) - sign_of(addr)) % PTRS_PER_P4D);
+> > > > +
+> > > >       return (pud_t *)PTR_ALIGN_DOWN(p4dp, PAGE_SIZE) + pud_index(addr);
+> > > >  }
+> > >
+> > > I think I get it but please add a comment in the code, otherwise in a
+> > > week time I'll wonder what this is.
+> > >
+> > > Even better if it could be written in a less cryptic way ;).
+> > >
+> >
+> > Yeah, I tried to keep it concise so the code for the VM_BUG_ON()
+> > doesn't bloat the function.
+>
+> Fine but add a comment along the lines of the commit log.
+>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com
->
->
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> ---
->  drivers/i2c/busses/Kconfig   |  7 ++++---
->  drivers/i2c/busses/i2c-imx.c | 37 +++++++++++++++++++++++++++++++++++-
->  2 files changed, 40 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-> index 6b3ba7e5723a..45ea214e4b0e 100644
-> --- a/drivers/i2c/busses/Kconfig
-> +++ b/drivers/i2c/busses/Kconfig
-> @@ -741,13 +741,14 @@ config I2C_IMG
->
->  config I2C_IMX
->  	tristate "IMX I2C interface"
-> -	depends on ARCH_MXC || ARCH_LAYERSCAPE || COLDFIRE || COMPILE_TEST
-> +	depends on ARCH_MXC || ARCH_LAYERSCAPE || ARCH_S32 || COLDFIRE \
-> +		|| COMPILE_TEST
->  	select I2C_SLAVE
->  	help
->  	  Say Y here if you want to use the IIC bus controller on
-> -	  the Freescale i.MX/MXC, Layerscape or ColdFire processors.
-> +	  the Freescale i.MX/MXC/S32G, Layerscape or ColdFire processors.
->
-> -	  This driver can also be built as a module.  If so, the module
-> +	  This driver can also be built as a module. If so, the module
->  	  will be called i2c-imx.
->
->  config I2C_IMX_LPI2C
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 98539313cbc9..3509c37c89ab 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -17,7 +17,7 @@
->   *	Copyright (C) 2008 Darius Augulis <darius.augulis at teltonika.lt>
->   *
->   *	Copyright 2013 Freescale Semiconductor, Inc.
-> - *	Copyright 2020 NXP
-> + *	Copyright 2020, 2024 NXP
->   *
->   */
->
-> @@ -84,6 +84,7 @@
->
->  #define IMX_I2C_REGSHIFT	2
->  #define VF610_I2C_REGSHIFT	0
-> +#define S32G_I2C_REGSHIFT	0
->
->  /* Bits of IMX I2C registers */
->  #define I2SR_RXAK	0x01
-> @@ -165,10 +166,35 @@ static struct imx_i2c_clk_pair vf610_i2c_clk_div[] = {
->  	{ 3840, 0x3F }, { 4096, 0x7B }, { 5120, 0x7D }, { 6144, 0x7E },
->  };
->
-> +/* S32G2/S32G3 clock divider, register value pairs */
-> +static struct imx_i2c_clk_pair s32g2_i2c_clk_div[] = {
-> +	{ 34,    0x00 }, { 36,    0x01 }, { 38,    0x02 }, { 40,    0x03 },
-> +	{ 42,    0x04 }, { 44,    0x05 }, { 46,    0x06 }, { 48,    0x09 },
-> +	{ 52,    0x0A }, { 54,    0x07 }, { 56,    0x0B }, { 60,    0x0C },
-> +	{ 64,    0x0D }, { 68,    0x40 }, { 72,    0x0E }, { 76,    0x42 },
-> +	{ 80,    0x12 }, { 84,    0x0F }, { 88,    0x13 }, { 96,    0x14 },
-> +	{ 104,   0x15 }, { 108,   0x47 }, { 112,   0x19 }, { 120,   0x16 },
-> +	{ 128,   0x1A }, { 136,   0x80 }, { 144,   0x17 }, { 152,   0x82 },
-> +	{ 160,   0x1C }, { 168,   0x84 }, { 176,   0x1D }, { 192,   0x21 },
-> +	{ 208,   0x1E }, { 216,   0x87 }, { 224,   0x22 }, { 240,   0x56 },
-> +	{ 256,   0x1F }, { 288,   0x24 }, { 320,   0x25 }, { 336,   0x8F },
-> +	{ 352,   0x93 }, { 356,   0x5D }, { 358,   0x98 }, { 384,   0x26 },
-> +	{ 416,   0x56 }, { 448,   0x2A }, { 480,   0x27 }, { 512,   0x2B },
-> +	{ 576,   0x2C }, { 640,   0x2D }, { 704,   0x9D }, { 768,   0x2E },
-> +	{ 832,   0x9D }, { 896,   0x32 }, { 960,   0x2F }, { 1024,  0x33 },
-> +	{ 1152,  0x34 }, { 1280,  0x35 }, { 1536,  0x36 }, { 1792,  0x3A },
-> +	{ 1920,  0x37 }, { 2048,  0x3B }, { 2304,  0x74 }, { 2560,  0x3D },
-> +	{ 3072,  0x3E }, { 3584,  0x7A }, { 3840,  0x3F }, { 4096,  0x7B },
-> +	{ 4608,  0x7C }, { 5120,  0x7D }, { 6144,  0x7E }, { 7168,  0xBA },
-> +	{ 7680,  0x7F }, { 8192,  0xBB }, { 9216,  0xBC }, { 10240, 0xBD },
-> +	{ 12288, 0xBE }, { 15360, 0xBF },
-> +};
-> +
->  enum imx_i2c_type {
->  	IMX1_I2C,
->  	IMX21_I2C,
->  	VF610_I2C,
-> +	S32G_I2C,
-
-Nit: please order by alphabet.
-
->  };
->
->  struct imx_i2c_hwdata {
-> @@ -258,7 +284,15 @@ static struct imx_i2c_hwdata vf610_i2c_hwdata = {
->  	.ndivs			= ARRAY_SIZE(vf610_i2c_clk_div),
->  	.i2sr_clr_opcode	= I2SR_CLR_OPCODE_W1C,
->  	.i2cr_ien_opcode	= I2CR_IEN_OPCODE_0,
-> +};
->
-> +static const struct imx_i2c_hwdata s32g2_i2c_hwdata = {
-> +	.devtype		= S32G_I2C,
-> +	.regshift		= S32G_I2C_REGSHIFT,
-> +	.clk_div		= s32g2_i2c_clk_div,
-> +	.ndivs			= ARRAY_SIZE(s32g2_i2c_clk_div),
-> +	.i2sr_clr_opcode	= I2SR_CLR_OPCODE_W1C,
-> +	.i2cr_ien_opcode	= I2CR_IEN_OPCODE_0,
->  };
->
->  static const struct platform_device_id imx_i2c_devtype[] = {
-> @@ -288,6 +322,7 @@ static const struct of_device_id i2c_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx8mp-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx8mq-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,vf610-i2c", .data = &vf610_i2c_hwdata, },
-> +	{ .compatible = "nxp,s32g2-i2c", .data = &s32g2_i2c_hwdata, },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, i2c_imx_dt_ids);
-> --
-> 2.45.2
->
+OK
 
