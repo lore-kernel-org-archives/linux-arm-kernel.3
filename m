@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0046D132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC34D132B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b/8Rj+ll4xmJpAgQwRFULejLJ462aBUN9BpO1b7fUiI=; b=hGMHPvDEau/SVNo18EmFUnFLa2
-	//eYy3N+8GkVPofHpj8rCXWACdKIp+4KjnPYonKANBPr9KFdOPbivfB4q9n32EuCrKjV+MECILcEX
-	L6IHT8xS1VckL+XVIA6AOc5+ED2gKAzWbUA6BqymJCHHkxwHORcy7/F7N/SF5oOTRWdbME1Wgk3B+
-	wlbVNGpbyGCsJFSXKfyVSyerBktFA9Q6sfrbhmMOhrFffyEJsuJ/kdsGNpS7ON1LesBU8Qv/wcw1X
-	nSwckmXdSWWp3oZ55n2qCwmx75oDxbkMr4tJ4mdlMY7RX9UYYWj+71tfAkVFeRKv+i7ft1tmLhrfV
-	CetWyReA==;
+	bh=GNNHcPh53GlmRIChWetBGuOyl34GuFpr3NhhkEn7244=; b=rAb0XPMZCYBjJL4IJ/KNXQAGc8
+	ZZXpyseGbn63kHaaYf1a++0mMgZFeU9zxPv3QkNRg4yohh2brGzsdbup+ogbzsyJBxn0eXfoZlmLJ
+	Zlh8kkdtrewtksMNbsidbz7/wXNL7AqNG97hd/Js7j0ew+wlsyFeshAPOOP0OB+R6L5RvaXx4WH+C
+	DPVZAk2vWQfvUy3/u0/2VLkFqea/i3VGa5qeHePtLQmBYkfGqxo18IQV+GmuTAVnU8d8yxNYBFp9i
+	WX2NqF2N66rdNoqA3uEGV1AJ3UN8BjtiZnEFJ7tJF1K+HTOW7kw/8VYXjdddG/QoQEJnJwBqO5Ky5
+	c+Pxkutw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vaa-0000000Db6k-0jKV;
-	Mon, 04 Nov 2024 11:49:44 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1t7vcF-0000000DbRY-2Pl9;
+	Mon, 04 Nov 2024 11:51:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vRF-0000000DZM0-08wM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:40:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1730720381; x=1731325181; i=wahrenst@gmx.net;
-	bh=b/8Rj+ll4xmJpAgQwRFULejLJ462aBUN9BpO1b7fUiI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=P27KsnWvXb3p8seK7CdTpQwZJv+ajTYoGusu45XUUvcg9pEwFUhwLJElBwooJDvz
-	 YqlD1mGexa83y5y0vniGfg3cXSjrqtaZX9/2nFaqpNAr9C0rlMO65BultHblIM88M
-	 2zYJW5M/+NxCoRte76rJbnm6Wlcr5CuKSoD32i1Y6KX70b8wvSB5GV+r1/lLgg7tR
-	 Nj9XysPNAeUVSZ163uW7bGWeGkLKINEW6T597vAZJ3H95dOgy1DLuhzq6zWvrnxrA
-	 0n9F+raM2VBD4LNGisSzRTnMHGKQ+nu1PAmEYecR32fjCwQ9CCn79EAmE9gBB1NYJ
-	 JS3bm9TanNOG7jGSCw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MIMfc-1t4Ztx2DCe-001TxB; Mon, 04
- Nov 2024 12:39:41 +0100
-Message-ID: <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net>
-Date: Mon, 4 Nov 2024 12:39:40 +0100
+	id 1t7vTp-0000000DZhZ-2dZx;
+	Mon, 04 Nov 2024 11:42:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730720564;
+	bh=IfHGhqvt+TX0g3VwnO2/tu+CWRL4qJkPNdnSO85GnTQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QL/3fVI0EQP4vYoK/Qlxs1yjMe2KxtZdB5fWsgzSV9wD7O8SMcMaG5Ua3ehbaTWSr
+	 Ixb7OpvGeeJcRGsNifTGpV9CAQX1/3z7WtnmDXrJZOEz4gcOWX2iJC2pAyc0R1FpVr
+	 C3MUtTXlghEemTNAQqX3coRfoeIFbmljpR6tmwqFOWpzM+kIaoeStfmZU/HNjjVGeg
+	 hBjoNwsfgDzoDeJPJeBItvULqqwgzP99OZ1pv1X5TIyHMvOywXbwGv8ThsmTNZb18K
+	 DBAmhByUMt/pb4VgYkZiyG+icw+HtYFsAK8TttzO7nI0CTirA4HksdRMygyLTW63rp
+	 Zg5Xx/BgsmIeQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7C9E417E3601;
+	Mon,  4 Nov 2024 12:42:43 +0100 (CET)
+Message-ID: <47154bc7-5e52-4d2c-ba30-730758bf1901@collabora.com>
+Date: Mon, 4 Nov 2024 12:42:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: Shawn Guo <shawnguo2@yeah.net>, linux@armlinux.org.uk,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, elinor.montmasson@savoirfairelinux.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- Stefan Eichenberger <stefan.eichenberger@toradex.com>
-References: <20241030122128.115000-1-eichest@gmail.com>
- <ZyXTFhEm9UCBii2c@dragon> <ZyY41nJY9ghwe-Y4@eichest-laptop>
- <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
- <ZyiAMpjmXuVMi5FX@eichest-laptop>
+Subject: Re: [PATCH v3 1/2] PCI: mediatek-gen3: Add support for setting
+ max-link-speed limit
+To: =?UTF-8?B?Smlhbmp1biBXYW5nICjnjovlu7rlhpsp?= <Jianjun.Wang@mediatek.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "kernel@collabora.com" <kernel@collabora.com>,
+ "robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ Ryder Lee <Ryder.Lee@mediatek.com>, "fshao@chromium.org" <fshao@chromium.org>
+References: <20240918081307.51264-1-angelogioacchino.delregno@collabora.com>
+ <20240918081307.51264-2-angelogioacchino.delregno@collabora.com>
+ <744a8362065b0c75178c3e0d402ea4932cb1fc96.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <ZyiAMpjmXuVMi5FX@eichest-laptop>
+In-Reply-To: <744a8362065b0c75178c3e0d402ea4932cb1fc96.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:i/Ff28dwutGChcGoN0CcwsmrcFyQ0cuAnKhb/YZT6ZjH0zaQ0pp
- ZFZFY8D5HTEuTp8ow/BpcV9BFi6nixpw/w4wL8cj1SnGYC0Dvv08URliCvK5/1xAXKW8gX8
- ZE3aMei11B8xUEHC8ozZe0+E3Iz0tYY21P+7VRm6gFjTKxGik6fQUPJjMLjGuWyWo+wMQ7/
- v55ovpJ87i9Z5mR9jU78Q==
-UI-OutboundReport: notjunk:1;M01:P0:USca7qz7HGU=;jP9qSUW+W0J7zyAKcKBoMjwUm4p
- Lo0q+L660AgjqhYFXdhddQ2G1A/003kLKpgOV6b8XklfW4yDsqRTyNfibQnc6icnJ0hakOeZJ
- ZTyEzaeLTMTqTnK85K7f/jRiL6gBELdWEeALXK7GwLH3537A04jJKDsA8h88/iNl2WRZ6y/Md
- BvLK+owpesJpme2sWT/Q+n6Uk/XShUU2AYU1wMfzu0xuL8F2oTmv+7rGmcAyPtXb+E70UtXk7
- XOQJMkzK1mT6NqeMTK+5jJYQh1St39Ug11NAZ4BxmGAq8PCOLenKmtIRddqgt3SMUITDd2pjl
- ckYs5ey92mhnqEWOaAnKVeM/ep432mQ2GsYJXL6oAa/dfuzkHYNx2OH7K+ISSw5jDiC3TfGVe
- 0fGggUjAqF1GXRmrU2XXVuYqNcMRNm432VWrua+5edvFW/Q09QIX3bsZnZJeC2b0s/g8nM3yn
- RX7Zpl/AMpmsH2jMfzBLjR3Q6zjC1LDLj6XmabduI0t8P2W6Y4xEyj0KgFg8FgxtuABRecF3g
- TpBiZw4+4LOp8S3ojfhkkxUNVzzuVyH2r2S2SojSn8L42U+5gA/tl6RlUSqoEkk+g2HNUWHDq
- hvMKPj2baCj7GB7Q3UCsW3/3LAgRMjXdgHZMxnVWNG4X6gy5l8/IweRWlxROmLaMh4QWRUx6s
- +dtQs61hNZi6hsQP/fiM1yOXHOM0ZWRa7CgQ/xI+lIErTm/NpgtHzNG/W7RPVcTIQMv6fINFY
- 5r09LJwrRikMivkWzwdD6ehWlsB6wWJ8HJgQ+2wFD4QN7lwhxPDEy6H7dSHjBwzaYN62nsMi4
- OfYLkJfNSh0o27ZWV5voGlJQ==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_034005_484614_842A76B1 
-X-CRM114-Status: GOOD (  34.09  )
+X-CRM114-CacheID: sfid-20241104_034245_850426_6C57754D 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +86,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
-
-Am 04.11.24 um 09:05 schrieb Stefan Eichenberger:
-> Hi Stefan,
->
-> On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
->> Hi Stefan,
+Il 04/11/24 09:22, Jianjun Wang (王建军) ha scritto:
+> Hi Angelo,
+> 
+> Thanks for your patch.
+> 
+> On Wed, 2024-09-18 at 10:13 +0200, AngeloGioacchino Del Regno wrote:
+>> Add support for respecting the max-link-speed devicetree property,
+>> forcing a maximum speed (Gen) for a PCI-Express port.
 >>
->> Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
->>> Hi Shawn,
->>>
->>> On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
->>>> On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
->>>>> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
->>>>>
->>>>> Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. =
-This
->>>>> change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif s=
-ound
->>>>> card node properties") which moves away from the old "spdif-controll=
-er"
->>>>> property to the new "audio-codec" property.
->>>>>
->>>>> Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node p=
-roperties")
->>>> It doesn't look a fix to me.
->>> I agree somehow, it was just that before the referenced commit our tes=
-t
->>> succeeds with the imx_v6_v7_defconfig and after that we get the
->>> following error:
->>> [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-=
-card: snd_soc_register_card failed
->> this error should have been in the commit message including the
->> information which platform/board is affected.
-> Okay, I will add this information to the next version. We see this error
-> on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
->
->>> So maybe it is not a fix in the sense of a bug, but it fixes the error
->>> message. However, I'm also fine with removing the Fixes tag.
->> But this patch doesn't look like the real approach.
+>> Since the MediaTek PCIe Gen3 controllers also expose the maximum
+>> supported link speed in the PCIE_BASE_CFG register, if property
+>> max-link-speed is specified in devicetree, validate it against the
+>> controller capabilities and proceed setting the limitations only
+>> if the wanted Gen is lower than the maximum one that is supported
+>> by the controller itself (otherwise it makes no sense!).
 >>
->> Could you please clarify the impact of the regression?
-> So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
-> update spdif sound card node properties") the audio driver was
-> using an implementation of linux,spdif-dit and linux,spdif-dir which was
-> directly inside the fsl,imx-audio-spdif compatible driver. Now with the
-> referenced commit the idea is to use the more generic linux,spdif-dir
-> and linux,spdif-dit compatible drivers. That's why this driver must be
-> enabled in the kernel configuration.
->
->> Is it just this error message and audio works fine or is audio also bro=
-ken?
-> It is not just the error message, audio is not working because the
-> driver deferes and because it is not enabled it will never succeed to
-> load. I don't know if this is called a regression, because the driver is
-> there it is just not enabled in the imx6_v7_defconfig. I thought because
-> a lot of the i.MX6 based board use the generic driver, it makes sense to
-> enable it in the imx_v6_v7_defconfig.
-okay, thanks for the clarification. From my understanding
-imx6_v7_defconfig is just an example config for testing. All possible
-users of these boards might have their own configs and stumble across
-the same issue. So I thought it would be better to add the dependency in
-the Kconfig of the FSL audio driver.
+>> Signed-off-by: AngeloGioacchino Del Regno <
+>> angelogioacchino.delregno@collabora.com>
+>> ---
+>>   drivers/pci/controller/pcie-mediatek-gen3.c | 55
+>> ++++++++++++++++++++-
+>>   1 file changed, 53 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c
+>> b/drivers/pci/controller/pcie-mediatek-gen3.c
+>> index 66ce4b5d309b..8d4b045633da 100644
+>> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+>> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+>> @@ -28,7 +28,11 @@
+>>   
+>>   #include "../pci.h"
+>>   
+>> +#define PCIE_BASE_CFG_REG		0x14
+>> +#define PCIE_BASE_CFG_SPEED		GENMASK(15, 8)
+>> +
+>>   #define PCIE_SETTING_REG		0x80
+>> +#define PCIE_SETTING_GEN_SUPPORT	GENMASK(14, 12)
+>>   #define PCIE_PCI_IDS_1			0x9c
+>>   #define PCI_CLASS(class)		(class << 8)
+>>   #define PCIE_RC_MODE			BIT(0)
+>> @@ -125,6 +129,9 @@
+>>   
+>>   struct mtk_gen3_pcie;
+>>   
+>> +#define PCIE_CONF_LINK2_CTL_STS		0x10b0
+> 
+> Maybe it's better to use: (PCIE_CFG_OFFSET_ADDR + 0xb0).
+> 
 
-I'm not that audio driver expert and don't know how the dependency
-handling between the FSL audio driver and the required codecs like
-SND_SOC_SPDIF. So it's possible that I'm completely wrong here and your
-approach is the best we can do.
+Makes sense.
 
-Best regards
+>> +#define PCIE_CONF_LINK2_LCR2_LINK_SPEED	GENMASK(3, 0)
+>> +
+>>   /**
+>>    * struct mtk_gen3_pcie_pdata - differentiate between host
+>> generations
+>>    * @power_up: pcie power_up callback
+>> @@ -160,6 +167,7 @@ struct mtk_msi_set {
+>>    * @phy: PHY controller block
+>>    * @clks: PCIe clocks
+>>    * @num_clks: PCIe clocks count for this port
+>> + * @max_link_speed: Maximum link speed (PCIe Gen) for this port
+>>    * @irq: PCIe controller interrupt number
+>>    * @saved_irq_state: IRQ enable state saved at suspend time
+>>    * @irq_lock: lock protecting IRQ register access
+>> @@ -180,6 +188,7 @@ struct mtk_gen3_pcie {
+>>   	struct phy *phy;
+>>   	struct clk_bulk_data *clks;
+>>   	int num_clks;
+>> +	u8 max_link_speed;
+>>   
+>>   	int irq;
+>>   	u32 saved_irq_state;
+>> @@ -381,11 +390,27 @@ static int mtk_pcie_startup_port(struct
+>> mtk_gen3_pcie *pcie)
+>>   	int err;
+>>   	u32 val;
+>>   
+>> -	/* Set as RC mode */
+>> +	/* Set as RC mode and set controller PCIe Gen speed
+>> restriction, if any */
+>>   	val = readl_relaxed(pcie->base + PCIE_SETTING_REG);
+>>   	val |= PCIE_RC_MODE;
+>> +	if (pcie->max_link_speed) {
+>> +		val &= ~PCIE_SETTING_GEN_SUPPORT;
+>> +
+>> +		/* Can enable link speed support only from Gen2 onwards
+>> */
+>> +		if (pcie->max_link_speed >= 2)
+>> +			val |= FIELD_PREP(PCIE_SETTING_GEN_SUPPORT,
+>> +					  GENMASK(pcie->max_link_speed
+>> - 2, 0));
+>> +	}
+>>   	writel_relaxed(val, pcie->base + PCIE_SETTING_REG);
+>>   
+>> +	/* Set Link Control 2 (LNKCTL2) speed restriction, if any */
+>> +	if (pcie->max_link_speed) {
+>> +		val = readl_relaxed(pcie->base +
+>> PCIE_CONF_LINK2_CTL_STS);
+>> +		val &= ~PCIE_CONF_LINK2_LCR2_LINK_SPEED;
+>> +		val |= FIELD_PREP(PCIE_CONF_LINK2_LCR2_LINK_SPEED,
+>> pcie->max_link_speed);
+>> +		writel_relaxed(val, pcie->base +
+>> PCIE_CONF_LINK2_CTL_STS);
+>> +	}
+>> +
+>>   	/* Set class code */
+>>   	val = readl_relaxed(pcie->base + PCIE_PCI_IDS_1);
+>>   	val &= ~GENMASK(31, 8);
+>> @@ -1004,9 +1029,21 @@ static void mtk_pcie_power_down(struct
+>> mtk_gen3_pcie *pcie)
+>>   	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+>> pcie->phy_resets);
+>>   }
+>>   
+>> +static int mtk_pcie_get_controller_max_link_speed(struct
+>> mtk_gen3_pcie *pcie)
+>> +{
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	val = readl_relaxed(pcie->base + PCIE_BASE_CFG_REG);
+>> +	val = FIELD_GET(PCIE_BASE_CFG_SPEED, val);
+>> +	ret = fls(val);
+>> +
+>> +	return ret > 0 ? ret : -EINVAL;
+>> +}
+>> +
+>>   static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
+>>   {
+>> -	int err;
+>> +	int err, max_speed;
+>>   
+>>   	err = mtk_pcie_parse_port(pcie);
+>>   	if (err)
+>> @@ -1031,6 +1068,20 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie
+>> *pcie)
+>>   	if (err)
+>>   		return err;
+>>   
+>> +	err = of_pci_get_max_link_speed(pcie->dev->of_node);
+>> +	if (err > 0) {
+>> +		/* Get the maximum speed supported by the controller */
+>> +		max_speed =
+>> mtk_pcie_get_controller_max_link_speed(pcie);
+>> +
+>> +		/* Set max_link_speed only if the controller supports
+>> it */
+>> +		if (max_speed >= 0 && max_speed <= err) {
+>> +			pcie->max_link_speed = err;
+> 
+> Do we need to set it to max_speed? Since the hardware only supports
+> speeds lower than max_speed.
+> 
+
+The controller's default value is already "max speed" (all Gen supported)
+so... no, we take action only if DT says to apply a limit.
+
+Cheers,
+Angelo
+
+> Thanks.
+> 
+>> +			dev_dbg(pcie->dev,
+>> +				"Max controller link speed Gen%d,
+>> override to Gen%u",
+>> +				max_speed, pcie->max_link_speed);
+>> +		}
+>> +	}
+>> +
+>>   	/* Try link up */
+>>   	err = mtk_pcie_startup_port(pcie);
+>>   	if (err)
+
+
 
