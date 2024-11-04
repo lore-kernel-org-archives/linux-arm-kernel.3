@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A72D132D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6200D132D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=; b=vrPTFCmw9fMMQLao/EYC+O6DVi
-	6JuqFgKsu4vr+LquntgOIcAwQvBObHtQkzmeQvKfEPDKqgjoF+HSKGDQeIphZhX6euxQAY0lBqRlP
-	7r9/czB9S+uQLLNqxs6d7K8IFKztdrWQnfejtksmlyiKqhWwVvtTq6Jc69zkZPQagpqYC0DnLdoru
-	XUk8MjNtUulCB+FoawgEIkQhuFb6AMbBxDjyPLtM+Gsvzo7+gjbAVRMLTNcJkUoXgVEgzw2Bz1mJ7
-	KF86/DLT5ClZNIWk3wsE5uA0UkQVdc9jh9H0aA/RJrdDnNE9m4YgKxBmikfCIBOhqGz+bgulKc5XO
-	z78Vm5pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=no1EfJK0lKZHXyZkZ9r5pUJOdWcNp6ZojraAFTp+xu8=; b=Mm40oF8dikKDaZDIEBxBh1cnWn
+	SeZOjrMnYL+eV8AOOVwV8EX1aZQq0EUK/WGgeVmXlnnPQy/iKAgteA9nSXmvh6hfvlJkLdlJcBUoV
+	d66zYHc2gfAtiVZdn0YjX9oENbH6Xh8kk0btq0UH6xrvLjxcC+U1jxkFH7vi3IwvEdrdN8YrPMnVA
+	T4HTdfAo0gh660e4NiDMUep6yNHnpxrG1RyptNa5AkOTKEm52bY56CN+ig+ehtveP6HbK378bsNgl
+	B2+fKSGFBx4VqaU7CJUK4LVt8IjOK7coKmf4fMg590zrOgtEb12Y5pQ0dVXRvMte6SkSyToxXkXhZ
+	1bl+hfcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yKZ-0000000E6ZM-37ZP;
-	Mon, 04 Nov 2024 14:45:23 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1t7yMS-0000000E6yI-0Mtj;
+	Mon, 04 Nov 2024 14:47:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xqr-0000000E0Us-3116;
-	Mon, 04 Nov 2024 14:14:43 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ea16c7759cso2117358a12.1;
-        Mon, 04 Nov 2024 06:14:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730729680; x=1731334480; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=;
-        b=YZTXZQh85mwYBQLX7zrNryYWKhK4kxHAUWjRvEjWf7xyNr1c8p8fCzIuOYKIexE+un
-         TkmCimwXk+GhHcVpQIRgbl55yOSiyr9VbVsWvC2V9gwWikOwys3BA65P/xK8Qgv15a+R
-         yAL4+LwpPxsq4/FN0+kRboFc9VY5vchl4YuSRHQ5qNcppyHBy7u2ECjgRp8eHnffT7tU
-         4chnaJlwojX4d/qjpF8QerDMsoxOOcptJWonGWdwMY0T/CUdR6sj6bqGVb5Vvi+8+VIR
-         X5snySOYWUfa8gVFnHeJGDaiK/1LjFG9BE6iH+ZgHZkGlcnICMEByCLuLLR1jEGqOmPp
-         OdSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730729680; x=1731334480;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=;
-        b=gNdyF45X/NmrwBcwLJZCvsKbWv6270wuoReUwvZgYAzLyMVQn3+/BsCZv9XmdcJzMB
-         kNyeUQU2AljIMgk7gyrp7+Occh05IYi1flmeiUuQjfGYPEyaFFssyh1D5ecSdox2fNTu
-         SfK02/i+kHJCLZ7iFI6MyG7UGaC6x/xFcCgSAzSg/eQCW2A0919PyPb2eIg0V639jEcw
-         zgDsRlhETCrAqSzYfQLe8Z2f8kKQPlfiXByMGFitZ/11vNSCpzSbcLLOpv9oibqyQiBn
-         r/W19917MLOZevqnj5D4kNI7351YILWs+RXW72my93+xV8zEfs51OyAOAc6p+lZpwz1y
-         hIqw==
-X-Forwarded-Encrypted: i=1; AJvYcCUuMsCeQvXB8M/OQonLnSbXeNcsj9LwxDh7fvGuCVnYJ3tTbtZvImeMzTQlCQile0Yk2BOLx2dyb300zjc0Us2P@lists.infradead.org, AJvYcCXm+RzxgqEksEN7Rr/LN4/l9zY6gXvI0X/S3dyGXez51eWyLngVROgU5ct2hWuKKe6mVsYkHHVdKOHt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTzeoY+98UR9I9e6XvJaKsvnW/PtRuggpNcPNME5GE/H0oypdE
-	cRdjsWYZ0jT8GDO5IQvru8nwQBuS3Z07+pDktMfpXXVxvqutme9u26WOcSuFIw1HpvxuBItWXGD
-	HRq6rz1Ztk1unCpNX7XPvPkWi8NE=
-X-Google-Smtp-Source: AGHT+IEmoWv2BQyjgSKvNZTyFnFU/aFLKu2M11dcp+q5xS3jkjmpk2PvhiOnId+cOj9tdQGGbgL5byubxkd+rHQu7UM=
-X-Received: by 2002:a17:90b:2dcc:b0:2e2:7f8f:3ad7 with SMTP id
- 98e67ed59e1d1-2e93c1595b5mr21780271a91.7.1730729679934; Mon, 04 Nov 2024
- 06:14:39 -0800 (PST)
+	id 1t7y1K-0000000E2ZU-1xoU
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 04 Nov 2024 14:25:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=no1EfJK0lKZHXyZkZ9r5pUJOdWcNp6ZojraAFTp+xu8=; b=VS7MqUWnoIMeYtd9Fm+942KCMR
+	QEdEQudUNpRBSPiXwXMBX2vQNqQoGPmCpFq1NSDDQdLb6QIgc5xGYney99CfgAQ6RWwdD39AJw0Tc
+	ESU/Y+MA6jhFdkKWrJHHlxDrKOSHVqWARLbldDjm2ve8FORAmVKL7vmsI1b1S+AhhSMNjd1KwLq/1
+	SeWUvkgMd96pC94uluU/e7DP7vIVBPK6afE97miXH4tWLugnlkzRRoVw+B399aWXx4267KmU7U6i8
+	433LF+yxZqjboJUkTLdheJUpuoebn+LNqVKRPuEOoqeog0EUu/cWwxKG3kskHTy8CTxgPqDAqnlM5
+	jtbANa8w==;
+Received: from mgamail.intel.com ([192.198.163.13])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7y1G-0000000BLpD-3x2Y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 14:25:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730730327; x=1762266327;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CT7brXbn9NKpu0p4b2oRMcjvrtTgl29owzk4cIVFwAQ=;
+  b=hQzehbI16/GgcwApPkfTVCWhBa5PKPnJYmWChWzg6t1/NoCDWD9w63ie
+   tkQpXadgQQMByFrHVNp+FdkFkul5QkbFTV/hqvUTPAdZaP0hcUX+RJg/k
+   5kFnFWymsOlwTHMVv+quUrD4MNxCy4hEyeVxlub3J0Nu8bXvnP+jW9tGo
+   BiIHDnhiBrut8aVQz5K2jao3paXzi8enJ2FBVYkKf/z20EkFz65TPFhHK
+   Faww/ODqbmVT4IIGpa80oIsAzFmOymlHzkx0VyNVg75rDaldYjfrcPSHp
+   6QvypNj3gP7ULDQND5pQr5Z3w2Mq0rJpSL33+l5PGsQT+S6xboXkcu391
+   Q==;
+X-CSE-ConnectionGUID: 7EokaEX2T+OKZY0V7gfquw==
+X-CSE-MsgGUID: TxESpERaQXCnNi6xaSjChg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11246"; a="33265766"
+X-IronPort-AV: E=Sophos;i="6.11,257,1725346800"; 
+   d="scan'208";a="33265766"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 06:25:20 -0800
+X-CSE-ConnectionGUID: vKIxw/FaRaSqqupeNOnP6A==
+X-CSE-MsgGUID: hGrie7GzTXCqRPAazkBXmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,257,1725346800"; 
+   d="scan'208";a="83778622"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 04 Nov 2024 06:25:15 -0800
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t7y13-000ktz-1V;
+	Mon, 04 Nov 2024 14:25:13 +0000
+Date: Mon, 4 Nov 2024 22:24:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
+	bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	frank.li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev, imx@lists.linux.dev,
+	kernel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
+Message-ID: <202411042110.bIIyBWlv-lkp@intel.com>
+References: <20241101070610.1267391-9-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-References: <20241021155241.943665-1-Frank.Li@nxp.com> <DU2PR04MB86770FFB0CAEEBE95B91F5FC8C4C2@DU2PR04MB8677.eurprd04.prod.outlook.com>
- <CAHCN7xJya+XjAP+kn5MePdrqNxaLnkYag23UaNatoh09ize+AA@mail.gmail.com> <AS8PR04MB8676D33E00DE6B0B961B5EB58C512@AS8PR04MB8676.eurprd04.prod.outlook.com>
-In-Reply-To: <AS8PR04MB8676D33E00DE6B0B961B5EB58C512@AS8PR04MB8676.eurprd04.prod.outlook.com>
-From: Adam Ford <aford173@gmail.com>
-Date: Mon, 4 Nov 2024 08:14:28 -0600
-Message-ID: <CAHCN7xKj9XYnsaTjFfE_jn7rsN86wv0bxKq3o83WNkamrqeU1g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just before
- PHY PLL lock check
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, "vkoul@kernel.org" <vkoul@kernel.org>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "kishon@kernel.org" <kishon@kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
-	Marcel Ziswiler <marcel.ziswiler@toradex.com>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241101070610.1267391-9-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_061441_787964_28301FC3 
-X-CRM114-Status: GOOD (  46.41  )
+X-CRM114-CacheID: sfid-20241104_142527_419356_7F76926E 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,219 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 3, 2024 at 11:19=E2=80=AFPM Hongxing Zhu <hongxing.zhu@nxp.com>=
- wrote:
->
-> > -----Original Message-----
-> > From: Adam Ford <aford173@gmail.com>
-> > Sent: 2024=E5=B9=B411=E6=9C=882=E6=97=A5 3:53
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: Frank Li <frank.li@nxp.com>; vkoul@kernel.org; festevam@gmail.com;
-> > imx@lists.linux.dev; kernel@pengutronix.de; kishon@kernel.org;
-> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> > linux-phy@lists.infradead.org; Marcel Ziswiler <marcel.ziswiler@toradex=
-.com>;
-> > s.hauer@pengutronix.de; shawnguo@kernel.org; stable@vger.kernel.org
-> > Subject: Re: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just=
- before
-> > PHY PLL lock check
-> >
-> > On Mon, Oct 21, 2024 at 11:06=E2=80=AFPM Hongxing Zhu <hongxing.zhu@nxp=
-.com>
-> > wrote:
-> > >
-> > > > -----Original Message-----
-> > > > From: Frank Li <frank.li@nxp.com>
-> > > > Sent: 2024=E5=B9=B410=E6=9C=8821=E6=97=A5 23:53
-> > > > To: vkoul@kernel.org
-> > > > Cc: Frank Li <frank.li@nxp.com>; festevam@gmail.com; Hongxing Zhu
-> > > > <hongxing.zhu@nxp.com>; imx@lists.linux.dev; kernel@pengutronix.de;
-> > > > kishon@kernel.org; linux-arm-kernel@lists.infradead.org;
-> > > > linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org; Marcel
-> > > > Ziswiler <marcel.ziswiler@toradex.com>; s.hauer@pengutronix.de;
-> > > > shawnguo@kernel.org; stable@vger.kernel.org
-> > > > Subject: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just
-> > > > before PHY PLL lock check
-> > > >
-> > > > From: Richard Zhu <hongxing.zhu@nxp.com>
-> > > >
-> > > > When enable initcall_debug together with higher debug level below.
-> > > > CONFIG_CONSOLE_LOGLEVEL_DEFAULT=3D9
-> > > > CONFIG_CONSOLE_LOGLEVEL_QUIET=3D9
-> > > > CONFIG_MESSAGE_LOGLEVEL_DEFAULT=3D7
-> > > >
-> > > > The initialization of i.MX8MP PCIe PHY might be timeout failed rand=
-omly.
-> > > > To fix this issue, adjust the sequence of the resets refer to the
-> > > > power up sequence listed below.
-> > > >
-> > > > i.MX8MP PCIe PHY power up sequence:
-> > > >                           /----------------------------------------=
------
-> > > > 1.8v supply     ---------/
-> > > >                     /----------------------------------------------=
------
-> > > > 0.8v supply     ---/
-> > > >
-> > > >                 ---\ /---------------------------------------------=
------
-> > > >                     X        REFCLK Valid
-> > > > Reference Clock ---/ \---------------------------------------------=
------
-> > > >                              --------------------------------------=
------
-> > > >                              |
-> > > > i_init_restn    --------------
-> > > >                                     -------------------------------=
------
-> > > >                                     |
-> > > > i_cmn_rstn      ---------------------
-> > > >                                          --------------------------=
------
-> > > >                                          | o_pll_lock_done
-> > > > --------------------------
-> > > >
-> > > > Logs:
-> > > > imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
-> > > > imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff ->
-> > > > 0x0000000000
-> > > > imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff ->
-> > > > 0x0018000000
-> > > > probe of clk_imx8mp_audiomix.reset.0 returned 0 after 1052 usecs
-> > > > probe of 30e20000.clock-controller returned 0 after 32971 usecs phy
-> > > > phy-32f00000.pcie-phy.4: phy poweron failed --> -110 probe of
-> > > > 30e10000.dma-controller returned 0 after 10235 usecs imx6q-pcie
-> > > > 33800000.pcie: waiting for PHY ready timeout!
-> > > > dwhdmi-imx 32fd8000.hdmi: Detected HDMI TX controller v2.13a with
-> > > > HDCP
-> > > > (samsung_dw_hdmi_phy2) imx6q-pcie 33800000.pcie: probe with driver
-> > > > imx6q-pcie failed with error -110
-> > > >
-> > > > Fixes: dce9edff16ee ("phy: freescale: imx8m-pcie: Add i.MX8MP PCIe
-> > > > PHY
-> > > > support")
-> > > > Cc: stable@vger.kernel.org
-> > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > >
-> > > > v2 changes:
-> > > > - Rebase to latest fixes branch of linux-phy git repo.
-> > > > - Richard's environment have problem and can't sent out patch. So I
-> > > > help post this fix patch.
-> >
-> > Even with this patch, I am still seeing an occasional timeout on 8MP.
-> > I looked at some logs on a similarly functioning 8MM and I can't get th=
-is error to
-> > appear on Mini that I see on Plus.
-> >
-> > The TRM doesn't document the timing of the startup sequence, like this =
-e-mail
-> > patch did nor does it state how long a reasonable timeout should take. =
-So, I
-> > started looking through the code and I noticed that the Mini asserts th=
-e reset at
-> > the beginning, then makes all the changes, and de-asserts the resets to=
-ward the
-> > end.  Is there any reason we should not assert one or both of the reset=
-s on
-> > 8MP before setting up the reset of the registers like the way Mini does=
- it?
-> Yes, I had the similar confusions when I try to bring up i.MX8MP PCIe.
-> i.MX8MP PCIe resets have the different designs but I don't know the reaso=
-n and
-> the details. These resets shouldn't be asserted/de-asserted as Mini does =
-during
->  the initialization.
->
-> On i.MX8MP, these resets should be configured one-shot. I used to toggle =
-them
-> in my own experiments. Unfortunately, the PCIe PHY wouldn't be functional=
-.
+Hi Richard,
 
-I started testing adding the resets before I asked, because it appears
-to be working ok, but if you're suggesting it's a bad idea, I won't
-continue down that path.  Do you have any other suggestions on how to
-eliminate the occasional timeout error?  I still see it at times on a
-cold-boot even with this latest patch applied.
+kernel test robot noticed the following build errors:
 
-thanks
+[auto build test ERROR on pci/next]
+[also build test ERROR on pci/for-linus shawnguo/for-next mani-mhi/mhi-next linus/master v6.12-rc6 next-20241104]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-adam
+url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Zhu/dt-bindings-imx6q-pcie-Add-ref-clock-for-i-MX95-PCIe-RC/20241101-150006
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20241101070610.1267391-9-hongxing.zhu%40nxp.com
+patch subject: [PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
+config: i386-buildonly-randconfig-004-20241104 (https://download.01.org/0day-ci/archive/20241104/202411042110.bIIyBWlv-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241104/202411042110.bIIyBWlv-lkp@intel.com/reproduce)
 
->
-> Best Regards
-> Richard Zhu
-> >
-> > adam
-> >
-> > > > ---
-> > > Hi Frank:
-> > > Thanks a lot for your kindly help.
-> > > Since my server is down, I can't send out this v2 in the past days.
-> > >
-> > > Hi Vinod:
-> > > Sorry for the late reply, and bring you inconvenience.
-> > >
-> > > Best Regards
-> > > Richard Zhu
-> > >
-> > > >  drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 10 +++++-----
-> > > >  1 file changed, 5 insertions(+), 5 deletions(-)
-> > > >
-> > > > diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-> > > > b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-> > > > index 11fcb1867118c..e98361dcdeadf 100644
-> > > > --- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-> > > > +++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-> > > > @@ -141,11 +141,6 @@ static int imx8_pcie_phy_power_on(struct phy
-> > > > *phy)
-> > > >                          IMX8MM_GPR_PCIE_REF_CLK_PLL);
-> > > >       usleep_range(100, 200);
-> > > >
-> > > > -     /* Do the PHY common block reset */
-> > > > -     regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
-> > > > -                        IMX8MM_GPR_PCIE_CMN_RST,
-> > > > -                        IMX8MM_GPR_PCIE_CMN_RST);
-> > > > -
-> > > >       switch (imx8_phy->drvdata->variant) {
-> > > >       case IMX8MP:
-> > > >               reset_control_deassert(imx8_phy->perst);
-> > > > @@ -156,6 +151,11 @@ static int imx8_pcie_phy_power_on(struct phy
-> > > > *phy)
-> > > >               break;
-> > > >       }
-> > > >
-> > > > +     /* Do the PHY common block reset */
-> > > > +     regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
-> > > > +                        IMX8MM_GPR_PCIE_CMN_RST,
-> > > > +                        IMX8MM_GPR_PCIE_CMN_RST);
-> > > > +
-> > > >       /* Polling to check the phy is ready or not. */
-> > > >       ret =3D readl_poll_timeout(imx8_phy->base +
-> > > > IMX8MM_PCIE_PHY_CMN_REG075,
-> > > >                                val, val =3D=3D ANA_PLL_DONE, 10,
-> > 20000);
-> > > > --
-> > > > 2.34.1
-> > >
-> > > --
-> > > linux-phy mailing list
-> > > linux-phy@lists.infradead.org
-> > > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fl=
-ist
-> > >
-> > s.infradead.org%2Fmailman%2Flistinfo%2Flinux-phy&data=3D05%7C02%7Chongx=
-i
-> > >
-> > ng.zhu%40nxp.com%7C666c8968b3094147ed4408dcfaaec631%7C686ea1d3bc
-> > 2b4c6f
-> > >
-> > a92cd99c5c301635%7C0%7C0%7C638660875771545687%7CUnknown%7CTWF
-> > pbGZsb3d8
-> > >
-> > eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%
-> > 7C0
-> > > %7C%7C%7C&sdata=3D3Mg4SqcaA%2FlbScveriGBBMOq1YOTt3okydgHmjmdLps
-> > %3D&reser
-> > > ved=3D0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411042110.bIIyBWlv-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   ld: drivers/pci/controller/dwc/pci-imx6.o: in function `imx_pcie_resume_noirq':
+>> pci-imx6.c:(.text+0x88): undefined reference to `dw_pcie_resume_noirq'
+   ld: drivers/pci/controller/dwc/pci-imx6.o: in function `imx_pcie_suspend_noirq':
+>> pci-imx6.c:(.text+0x111): undefined reference to `dw_pcie_suspend_noirq'
+   ld: drivers/usb/misc/onboard_usb_dev.o: in function `onboard_dev_probe':
+   onboard_usb_dev.c:(.text+0x6ae): undefined reference to `i2c_find_device_by_fwnode'
+   ld: onboard_usb_dev.c:(.text+0x711): undefined reference to `i2c_smbus_write_block_data'
+   ld: onboard_usb_dev.c:(.text+0x72f): undefined reference to `i2c_smbus_write_word_data'
+   ld: onboard_usb_dev.c:(.text+0x74c): undefined reference to `i2c_smbus_write_word_data'
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for MODVERSIONS
+   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
+   Selected by [y]:
+   - RANDSTRUCT_PERFORMANCE [=y] && GCC_PLUGINS [=y] && MODULES [=y]
+   WARNING: unmet direct dependencies detected for FB_IOMEM_HELPERS
+   Depends on [n]: HAS_IOMEM [=y] && FB_CORE [=n]
+   Selected by [m]:
+   - DRM_XE_DISPLAY [=y] && HAS_IOMEM [=y] && DRM [=m] && DRM_XE [=m] && DRM_XE [=m]=m [=m]
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
