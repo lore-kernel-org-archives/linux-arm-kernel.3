@@ -4,146 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9D0D132C7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B664DD132C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=; b=EOLQ+MYPX8sz6ZnIp9Br4wKoeZ
-	dgCbvpQ2cQN8mhQmtzaH69CV+5cQyA5Re0rCP9rTXRilewYnH2rcw6ZdAnfE5VT9ZYtraMyOwKkb8
-	zv1qiDgIEQ2nqwG6MS3AyAqDuIWK+Ao9VlRbOj9feZODwi0V8V/cPwGgxgOYH6JW1tr0n48pAO2iD
-	V7Zb/SZI6KfYLDiSv6GA5GwR+H7yrYbiQJWs0dPGCLCmnRgNv1pdDXKXJrefRHBD0Z74buieSz8f1
-	FGbP5YqCAI4T5QJ3OJtaOTLvDTotULrAzXnXKRZodO4On3F5E4vrGNEkodwYsyadc97E7IvsmQcvT
-	UXtc+upA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HxxA8qOKzLiUY9hT0OrM+BS/2F7uNJDid+1gg9MXvMQ=; b=2Xvrl56KQ68inyKk62Rp9KJ+f3
+	QW3cXO07jxpW8d0eKl4AlzylsUQVfTx7X5cHLPtLljsn1hlKvs2C+OD7/0MyiIGd/EKR9eJqfK7vc
+	w7/vDGqJtxGuCB4nSJul7OuClDzb3g74YgZcSfJsV4E3xpGC56NsxATkBW5k0cIWt+qu1OEzi1mYt
+	LLzRek9mFEtO3lzGLzwN2gF86c0rGvfCFUQgAyQmMiu9jHN3W25eaTUzf1h/N5ajlyaz2M879qsyI
+	GrzeazW65nIAE0kKIGCgl18t0r+bz+E4/iZDCSMUfzMkvSre3jygEXR61NEVWuRcKtSR9XNKuyV7F
+	ArgeJdKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xI1-0000000DtzI-3zCM;
-	Mon, 04 Nov 2024 13:38:41 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1t7xJq-0000000DuTF-01Ch;
+	Mon, 04 Nov 2024 13:40:34 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7x9K-0000000DrpV-0mJl;
-	Mon, 04 Nov 2024 13:29:45 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BC4F51FF36;
-	Mon,  4 Nov 2024 13:29:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730726978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
-	b=0ztIZqAK7c+mZUeNBdVOS3QcjKZ+gTkbiiThbV3uCT0qdfhhLQzUICYrNxg0ISCzCRiUlh
-	FWlQp+MH7IKelwTpTbszyGFxqUnIW0z3L1+1/hQxJKMplwOV4Nf/4SQtKc7goU+gZsp9CD
-	MJcyZ7QH4oYpYRwXPV5G53L/tQ0dv6w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730726978;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
-	b=hiAB4aDT3eWLY4chbO4o/9B+i0qLDs4/0lkJTQOSYSpj41i3RklBPyf2wd8QgBPcr25i0B
-	fnuVbXEhHM/QBICg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730726978; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
-	b=0ztIZqAK7c+mZUeNBdVOS3QcjKZ+gTkbiiThbV3uCT0qdfhhLQzUICYrNxg0ISCzCRiUlh
-	FWlQp+MH7IKelwTpTbszyGFxqUnIW0z3L1+1/hQxJKMplwOV4Nf/4SQtKc7goU+gZsp9CD
-	MJcyZ7QH4oYpYRwXPV5G53L/tQ0dv6w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730726978;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IKHcMQ+F+3c9KRnL5ZzCKvMuehzzc0PImZ7peshW9ic=;
-	b=hiAB4aDT3eWLY4chbO4o/9B+i0qLDs4/0lkJTQOSYSpj41i3RklBPyf2wd8QgBPcr25i0B
-	fnuVbXEhHM/QBICg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2AE641373E;
-	Mon,  4 Nov 2024 13:29:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id pEglAUHMKGdhawAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Mon, 04 Nov 2024 13:29:37 +0000
-Message-ID: <4a474dae-6669-4678-87dd-e0e9692a749b@suse.de>
-Date: Mon, 4 Nov 2024 15:29:30 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/12] arm64: dts: rp1: Add support for RaspberryPi's
- RP1 device
-To: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic
- <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
-References: <cover.1730123575.git.andrea.porta@suse.com>
- <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmx.net];
-	MIME_TRACE(0.00)[0:+];
-	TAGGED_RCPT(0.00)[dt];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[34];
-	FREEMAIL_TO(0.00)[suse.com,baylibre.com,kernel.org,broadcom.com,linux.com,linaro.org,google.com,arm.com,bgdev.pl,amd.com,arndb.de,linuxfoundation.org,vger.kernel.org,lists.infradead.org,gmx.net,bootlin.com,lunn.ch];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLuy4kgthhwuicx86wgtwa6dww)];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.com:email]
+	id 1t7xBh-0000000DsFu-4B21
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 13:32:11 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6ea86f1df79so29573027b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:32:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730727128; x=1731331928; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HxxA8qOKzLiUY9hT0OrM+BS/2F7uNJDid+1gg9MXvMQ=;
+        b=VsEtejIPxyZG4CHStrY7eKmgPHhy1T+ckQguaSodNk37x8ELvRx0dbe8zHp2OIL4vd
+         Dlu3tFZd2tOXzZxs5vf8Yv+uuSmI6BO2PiMGm81dw33vA9h7NZllrIfgf3Aqtkm4BBvm
+         zsJMbC/eTCry6bV8RH5cjwUUB6kVuf3TfoNjwi9lg7qVa9Z13AybS56umGdQ0vmWx5B/
+         p5tyd+Gj2M+5ElUIPeU8kW4UFOVYPkbVSjfUB+4nHHl4cAiBZHLV0cWhQe1GwKWp0kFC
+         dxCSpoH7f7ef0m1nyDrVgAeA9ExMlZpJuS9G45lnzvmnnymxwNHdntTYQ08gCdxKdeKF
+         87yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730727128; x=1731331928;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HxxA8qOKzLiUY9hT0OrM+BS/2F7uNJDid+1gg9MXvMQ=;
+        b=kcaGhtmReP0AmF7ObXu6ymoCoy0MHNn5cJFeM2HMLICHGpikFjYw7nOhYNVruwNZbI
+         x6TDfFJWCI6I1O95BcLgg6gAFoKVzvU5lZc/4mh8nCCaVzHTkVpRv1NsuSmh8CNn5A+/
+         DLrzLkYe7aLuqER/63JmYVeLyHvcl22RYxlFVVgIcHHTIaVoiD/UGGOjocxhpW5f8SP9
+         ApeUBZKEbvnyfEFObsiG0RSlbq5aKRmMN4PffFHLc1XmpJnogM+AH3LNEIcCl+pbKjVk
+         1J1GjLJTpGVtrVBHNERydcPsdtlOEb0mWh29DlV3bvt8yL1Sqx6M0s05luLBJKdZuAGZ
+         Medw==
+X-Forwarded-Encrypted: i=1; AJvYcCWf42m/InJwZsCA5AdnR4vtUOo7ecH1M9um4HMTIPxePjPg6tTkvsvZ2fnWYX1e29zuTuTb9fLx2+cO5AZ1o2ap@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxya9HopZloP6KObiFrKXe/5N4USjLvBjuZHn5cRYZ2zyfKoj8A
+	0DpxE7L38FwovMwUx+7YOdTWodM3nbCBV2DvLjiqhp6sNUhm0MiaOXDK5nHrHZcuq+/AeHreTua
+	LJ/+TFQ==
+X-Google-Smtp-Source: AGHT+IEVbGHAWJltvuCaJ/azx5l/1Epto/a62kcYMbtely3oTwYCl8xO82ZRv+bF0K6w89ccEMj5+aQu0mFT
+X-Received: from big-boi.c.googlers.com ([fda3:e722:ac3:cc00:31:98fb:c0a8:129])
+ (user=qperret job=sendgmr) by 2002:a81:a8c3:0:b0:6e3:d670:f603 with SMTP id
+ 00721157ae682-6e9d8aada53mr4236877b3.3.1730727127723; Mon, 04 Nov 2024
+ 05:32:07 -0800 (PST)
+Date: Mon,  4 Nov 2024 13:31:46 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+Message-ID: <20241104133204.85208-1-qperret@google.com>
+Subject: [PATCH 00/18] KVM: arm64: Non-protected guest stage-2 support for pKVM
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_052942_562461_C1460141 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20241104_053210_094153_606724B5 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,120 +91,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+Hi all,
 
-On 10/28/24 16:07, Andrea della Porta wrote:
-> RaspberryPi RP1 is a multi function PCI endpoint device that
-> exposes several subperipherals via PCI BAR.
-> Add a dtb overlay that will be compiled into a binary blob
-> and linked in the RP1 driver.
-> This overlay offers just minimal support to represent the
-> RP1 device itself, the sub-peripherals will be added by
-> future patches.
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
-> NOTE: this patch should be taken by the same maintainer that will take
-> "[PATCH v3 10/12] misc: rp1: RaspberryPi RP1 misc driver", since they
-> are closely related in terms of compiling.
-> 
->  MAINTAINERS                           |  1 +
->  arch/arm64/boot/dts/broadcom/rp1.dtso | 61 +++++++++++++++++++++++++++
->  2 files changed, 62 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 06277969a522..510a071ede78 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19383,6 +19383,7 @@ F:	include/uapi/linux/media/raspberrypi/
->  RASPBERRY PI RP1 PCI DRIVER
->  M:	Andrea della Porta <andrea.porta@suse.com>
->  S:	Maintained
-> +F:	arch/arm64/boot/dts/broadcom/rp1.dtso
->  F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
->  F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
->  F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
-> diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
-> new file mode 100644
-> index 000000000000..8d1bbf207a30
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
-> @@ -0,0 +1,61 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +/ {
-> +	fragment@0 {
-> +		target-path="";
-> +		__overlay__ {
-> +			compatible = "pci1de4,1";
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +
-> +			pci_ep_bus: pci-ep-bus@1 {
-> +				compatible = "simple-bus";
-> +				ranges = <0xc0 0x40000000
-> +					  0x01 0x00 0x00000000
-> +					  0x00 0x00400000>;
-> +				dma-ranges = <0x10 0x00000000
-> +					      0x43000000 0x10 0x00000000
-> +					      0x10 0x00000000>;
-> +				#address-cells = <2>;
-> +				#size-cells = <2>;
-> +
-> +				rp1_clocks: clocks@c040018000 {
-> +					compatible = "raspberrypi,rp1-clocks";
-> +					reg = <0xc0 0x40018000 0x0 0x10038>;
+This series moves the stage-2 page-table management of non-protected
+guests to EL2 when pKVM is enabled. This is only intended as an
+incremental step towards a 'feature-complete' pKVM, there is however a
+lot more that needs to come on top.
 
-shouldn't this be:
+With that series applied, pKVM provides near-parity with standard KVM
+from a functional perspective all while Linux no longer touches the
+stage-2 page-tables itself at EL1. The majority of mm-related KVM
+features work out of the box, including MMU notifiers, dirty logging,
+RO memslots and things of that nature. There are however two gotchas:
 
-	rp1_clocks: clocks@18000 {
-		reg = <0x00 0x00018000 0x0 0x10038>;
-		...
-	}
+ - We don't support mapping devices into guests: this requires
+   additional hypervisor support for tracking the 'state' of devices,
+   which will come in a later series. No device assignment until then.
 
-?
+ - Stage-2 mappings are forced to page-granularity even when backed by a
+   huge page for the sake of simplicity of this series. I'm only aiming
+   at functional parity-ish (from userspace's PoV) for now, support for
+   HP can be added on top later as a perf improvement.
 
-And for other nodes too...
+Please note that the approach taken in this series is a departure from
+the existing out-of-tree implementation in Android which relies on
+long-term GUP pinning even for non-protected guests which I felt was a
+non-starter for upstream. Android will obviously migrate to the
+upstream implementation when that lands.
 
-~Stan
+The last two patches are likely to be the most 'controversial' ones as
+they do the integration into KVM (please see the notes in the commit
+messages), but obviously feedback is more than welcome throughout. The
+overall idea is to use the KVM/arm pgtable API as the 'contract' between
+the standard KVM and pKVM backend implementations. With pKVM we use
+wrappers at EL1 with the exact same prototype as the kvm_pgtable_stage2_*()
+functions that end up simply doing hypercalls as that allows easy-ish
+plumbing in kvm/mmu.c. The pKVM EL1 helpers use a simple RB-tree to
+maintain the GFN->PFN mappings as we need to be able to walk those from
+EL1. For the record, I have tried a few other data-structures. A maple
+tree doesn't lend itself very well to the use-case as we need to
+pre-allocate the node from outside the mmu_lock critical section. I also
+considered using a 'dummy' s2 page-table at EL1 purely for tracking
+purposes, and hook deep into pgtable.c to issue hypercalls to notify
+pKVM directly from there. That has very nice properties, but gets
+horrible as we try to elide the TLB invalidation / CMOs logic from the
+dummy page-table.
 
-> +					#clock-cells = <1>;
-> +					clocks = <&clk_rp1_xosc>;
-> +					clock-names = "xosc";
-> +					assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
-> +							  <&rp1_clocks RP1_PLL_SYS>,
-> +							  <&rp1_clocks RP1_CLK_SYS>;
-> +					assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
-> +							       <200000000>,  // RP1_PLL_SYS
-> +							       <200000000>;  // RP1_CLK_SYS
-> +				};
-> +
-> +				rp1_gpio: pinctrl@c0400d0000 {
-> +					compatible = "raspberrypi,rp1-gpio";
-> +					reg = <0xc0 0x400d0000  0x0 0xc000>,
-> +					      <0xc0 0x400e0000  0x0 0xc000>,
-> +					      <0xc0 0x400f0000  0x0 0xc000>;
-> +					gpio-controller;
-> +					#gpio-cells = <2>;
-> +					interrupt-controller;
-> +					#interrupt-cells = <2>;
-> +					interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
-> +						     <1 IRQ_TYPE_LEVEL_HIGH>,
-> +						     <2 IRQ_TYPE_LEVEL_HIGH>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
+The series is organized as follows:
+
+ - Patches 01 to 04 move the host ownership state tracking from the
+   host's stage-2 page-table to the hypervisor's vmemmap. This avoids
+   fragmenting the host stage-2 for shared pages, which is only needed
+   to store an annotation in the SW bits of the corresponding PTE. All
+   pages mapped into non-protected guests are shared from pKVM's PoV,
+   so the cost of stage-2 fragmentation will increase massively as we
+   start tracking that at EL2. Note that these patches also help with
+   the existing sharing for e.g. FF-A, so they could possibly be merged
+   separately from the rest of the series.
+
+ - Patches 05 to 07 implement a minor refactoring of the pgtable code to
+   ease the integration of the pKVM MMU later on.
+
+ - Patches 08 to 16 introduce all the infrastructure needed on the pKVM
+   side for handling guest stage-2 page-tables at EL2.
+
+ - Patches 17 and 18 plumb the newly introduced pKVM support into
+   KVM/arm64.
+
+Patches based on 6.12-rc5, tested on Pixel 6 and Qemu.
+
+Thanks!
+Quentin
+
+Marc Zyngier (1):
+  KVM: arm64: Introduce pkvm_vcpu_{load,put}()
+
+Quentin Perret (17):
+  KVM: arm64: Change the layout of enum pkvm_page_state
+  KVM: arm64: Move enum pkvm_page_state to memory.h
+  KVM: arm64: Make hyp_page::order a u8
+  KVM: arm64: Move host page ownership tracking to the hyp vmemmap
+  KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
+  KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
+  KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
+  KVM: arm64: Introduce {get,put}_pkvm_hyp_vm() helpers
+  KVM: arm64: Introduce __pkvm_host_share_guest()
+  KVM: arm64: Introduce __pkvm_host_unshare_guest()
+  KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+  KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
+  KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
+  KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
+  KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
+  KVM: arm64: Introduce the EL1 pKVM MMU
+  KVM: arm64: Plumb the pKVM MMU in KVM
+
+ arch/arm64/include/asm/kvm_asm.h              |   9 +
+ arch/arm64/include/asm/kvm_host.h             |   4 +
+ arch/arm64/include/asm/kvm_pgtable.h          |  42 ++-
+ arch/arm64/include/asm/kvm_pkvm.h             |  28 ++
+ arch/arm64/kvm/arm.c                          |  23 +-
+ arch/arm64/kvm/hyp/include/nvhe/gfp.h         |   6 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  38 +-
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |  43 ++-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  15 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 210 ++++++++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 333 ++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c          |  14 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |  55 +++
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   7 +-
+ arch/arm64/kvm/hyp/pgtable.c                  |  13 +-
+ arch/arm64/kvm/mmu.c                          | 110 ++++--
+ arch/arm64/kvm/pkvm.c                         | 194 ++++++++++
+ arch/arm64/kvm/vgic/vgic-v3.c                 |   6 +-
+ 18 files changed, 1007 insertions(+), 143 deletions(-)
+
+-- 
+2.47.0.163.g1226f6d8fa-goog
 
 
