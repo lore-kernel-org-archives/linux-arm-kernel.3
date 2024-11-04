@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896F0D132BF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E50D132BF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzclN3YhOCRQjbGcg650MTM0tplf8gQukz0VcoeCgJk=; b=WR393pGIXIymbzWuvI4vuj7gbw
-	FaB8ywGuf+/pQtZq2iUkK0ILfMe6UV6tF2zsZhEKSIp8kHb3MXqwNhAGxNx5IucjZ5Zm05NweRPME
-	ga4bDI7bEtin40nHD5ibDNuIGK1bHVhjH+bykXsdRb1++Z6AnAXML5IYnW4P8bz4hfyMY8y+hcADL
-	JI3Dnf3F+vdihZ192LRl/1QAC23RuUcCjsR7zz9MxIUOwKYV0O/hi8WW9JeQNVITn3tzShTnEggUW
-	4DegXgQ8yf71osnDCLElxQ1k+uTb2z1jlFu0nLDdFMuAvS2Syc+b0V+HX6CHO0sxcDGH8xpjYmYlj
-	3E0emtSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNU2JpZX/eVQkXUoGnr/S3jjls/U0OlNS3uYWAIOpxw=; b=fWi8inv6cQNPVPkUNivuh4zVB1
+	v20xp5bjQz/cGFZApOmVS926Dtl+K2qMrgOPNgd3Xn9H4+f8pi6bPow0+PmKLLpxVVuuAXJjRVFM9
+	wEFg7rydU/AwPqELnq8GdWbB7rJqgneTLVATRddek18lqrQwfWyLUgY1AgZTJQkmIcWYU01ElpdAI
+	qeNCSX7kMO/GUxri+dSe085kaZgLj6fNDzBDAvsbs721wEnDIZL7BpK5Q/xDOjhnSsZnelYZu9yHr
+	aPbKemPh8VvXl+VSPjoPg3Sjgr8qLqrmNudgLlrs2UVPG6ZYW36F4PhWBnP8Cmy7AtbUAmqJ8jqb8
+	1Hr8vnQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wwE-0000000DoDW-1U47;
-	Mon, 04 Nov 2024 13:16:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t7x0u-0000000DpNt-0soB;
+	Mon, 04 Nov 2024 13:21:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vi6-0000000DcKf-28mG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:57:32 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4Bu4Mt028042;
-	Mon, 4 Nov 2024 11:57:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=lzclN3YhOCRQjbGcg650MTM0
-	tplf8gQukz0VcoeCgJk=; b=h8I5zDmIoggkokRcI/9A/6SU4j6vSXzPgWSBh6/X
-	JI/Wwz59EgDigaU5+whgmcyzko36UQG2QjmdM5r3YNWaTS/VpWk1t2fidJsKv/HN
-	8AVVCbli7eFDUNJZzNKsAED+fG2HQXeXMhSVjpzJFn7jFQiRL1LVd7Qnm7mIh+Bb
-	UtmNV1YA9nV0tLT2YJ//E0ayeXhtzP7eYGkiiXisSlyc/R+AOzm5+pqc6ZVrt5qg
-	8g/sQkTwnpJ6/2K/ZPNlxTQffd7C6Ymbbklj+mWqK3JUPzjPQnVkWvA+HxeH1G76
-	52r/qDLjp8q/uez6WyYBH5BFQidbttiolwzbu/K4Vo86tA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42p5ye263m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 Nov 2024 11:57:14 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A4BuWxn008070
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 4 Nov 2024 11:56:32 GMT
-Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 4 Nov 2024 03:56:28 -0800
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v6 3/3] coresight: dummy: Add static trace id support for dummy source
-Date: Mon, 4 Nov 2024 19:56:04 +0800
-Message-ID: <20241104115604.14522-4-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
-References: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
+	id 1t7wz9-0000000Dorv-2ZOe;
+	Mon, 04 Nov 2024 13:19:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730726349;
+	bh=1PkamZZykZ77sMp0GI5lTUolLioO7jIOn5iTrhpoK+g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jdqx5P3z8eit/2sxGG3RKvQuELfZyqNVAmJ7fow9TZRN9AIX0RMG/E9y64pnky2kz
+	 H9BPYhVUzu9yxTT9gD0Mmwi7kFvfSBVmHjFSYn/A5MaLdiwybosLQkNEPRVfiEvNSC
+	 R0LJ9BmPla8JVosjXDLfoPIi+Z/sODWMcmZNYyHsb5llDoYdWITCoihpyGtafxo4yD
+	 mKOA1yMsivY5G9X4wOiOcfCui9dtRPGalZn2aMYXUiuw2I+WHbyZRRmye9/QCWIS15
+	 /C7ijWHXG/e6+mPTti8Zqy+EGF+pW3lzQYumh8S8GgojldzfQr1LRVEPf1RAHYPgn8
+	 vhJFq/8IKXUlQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 642C217E3620;
+	Mon,  4 Nov 2024 14:19:09 +0100 (CET)
+Message-ID: <bbaa0c8f-9702-4252-a674-e46fb51f0a2a@collabora.com>
+Date: Mon, 4 Nov 2024 14:19:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: pwkGq2YEquS1tezv9Gtc6pV9wxShRQWf
-X-Proofpoint-GUID: pwkGq2YEquS1tezv9Gtc6pV9wxShRQWf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
- mlxscore=0 spamscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
- suspectscore=0 priorityscore=1501 clxscore=1015 mlxlogscore=999
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411040105
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] arm64: dts: mediatek: mt8183-kukui-jacuzzi: Drop
+ pp3300_panel voltage settings
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241030070224.1006331-1-wenst@chromium.org>
+ <20241030070224.1006331-2-wenst@chromium.org>
+ <CAGXv+5HVy41qee6kwVUeLV_DfA0=wk2X77kv81rBKAZDGE6mww@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5HVy41qee6kwVUeLV_DfA0=wk2X77kv81rBKAZDGE6mww@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_035730_606790_3A79875B 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20241104_051911_831516_D9325035 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,182 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some dummy source has static trace id configured in HW and it cannot
-be changed via software programming. Configure the trace id in device
-tree and reserve the id when device probe.
+Il 04/11/24 14:00, Chen-Yu Tsai ha scritto:
+> On Wed, Oct 30, 2024 at 3:02 PM Chen-Yu Tsai <wenst@chromium.org> wrote:
+>>
+>> The pp3300_panel fixed regulator is just a load switch. It does not have
+>> any regulating capabilities. Thus having voltage constraints on it is
+>> wrong.
+>>
+>> Remove the voltage constraints.
+>>
+>> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> 
+> I see that the other three patches were merged and included in the pull
+> request, but not this one. Were there any concerns?
+> 
 
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
----
- .../sysfs-bus-coresight-devices-dummy-source  | 15 ++++
- drivers/hwtracing/coresight/coresight-dummy.c | 81 ++++++++++++++++---
- 2 files changed, 87 insertions(+), 9 deletions(-)
- create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+Sorry I forgot to actually provide an explanation for that - yes, I do have some
+comment about this one.
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-new file mode 100644
-index 000000000000..c7d975e75d85
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-@@ -0,0 +1,15 @@
-+What:		/sys/bus/coresight/devices/dummy_source<N>/enable_source
-+Date:		Oct 2024
-+KernelVersion:	6.13
-+Contact:	Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:	(RW) Enable/disable tracing of dummy source. A sink should be activated
-+		before enabling the source. The path of coresight components linking
-+		the source to the sink is configured and managed automatically by the
-+		coresight framework.
-+
-+What:		/sys/bus/coresight/devices/dummy_source<N>/traceid
-+Date:		Oct 2024
-+KernelVersion:	6.13
-+Contact:	Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:	(R) Show the trace ID that will appear in the trace stream
-+		coming from this trace entity.
-diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
-index bb85fa663ffc..666fd36b81b9 100644
---- a/drivers/hwtracing/coresight/coresight-dummy.c
-+++ b/drivers/hwtracing/coresight/coresight-dummy.c
-@@ -11,10 +11,12 @@
- #include <linux/pm_runtime.h>
- 
- #include "coresight-priv.h"
-+#include "coresight-trace-id.h"
- 
- struct dummy_drvdata {
- 	struct device			*dev;
- 	struct coresight_device		*csdev;
-+	u8				traceid;
- };
- 
- DEFINE_CORESIGHT_DEVLIST(source_devs, "dummy_source");
-@@ -72,6 +74,32 @@ static const struct coresight_ops dummy_sink_cs_ops = {
- 	.sink_ops = &dummy_sink_ops,
- };
- 
-+/* User can get the trace id of dummy source from this node. */
-+static ssize_t traceid_show(struct device *dev,
-+			    struct device_attribute *attr, char *buf)
-+{
-+	unsigned long val;
-+	struct dummy_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+
-+	val = drvdata->traceid;
-+	return sysfs_emit(buf, "%#lx\n", val);
-+}
-+static DEVICE_ATTR_RO(traceid);
-+
-+static struct attribute *coresight_dummy_attrs[] = {
-+	&dev_attr_traceid.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group coresight_dummy_group = {
-+	.attrs = coresight_dummy_attrs,
-+};
-+
-+static const struct attribute_group *coresight_dummy_groups[] = {
-+	&coresight_dummy_group,
-+	NULL,
-+};
-+
- static int dummy_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -79,6 +107,11 @@ static int dummy_probe(struct platform_device *pdev)
- 	struct coresight_platform_data *pdata;
- 	struct dummy_drvdata *drvdata;
- 	struct coresight_desc desc = { 0 };
-+	int ret = 0, trace_id = 0;
-+
-+	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-+	if (!drvdata)
-+		return -ENOMEM;
- 
- 	if (of_device_is_compatible(node, "arm,coresight-dummy-source")) {
- 
-@@ -90,6 +123,26 @@ static int dummy_probe(struct platform_device *pdev)
- 		desc.subtype.source_subtype =
- 					CORESIGHT_DEV_SUBTYPE_SOURCE_OTHERS;
- 		desc.ops = &dummy_source_cs_ops;
-+		desc.groups = coresight_dummy_groups;
-+
-+		ret = coresight_get_static_trace_id(dev, &trace_id);
-+		if (!ret) {
-+			/* Get the static id if id is set in device tree. */
-+			ret = coresight_trace_id_get_static_system_id(trace_id);
-+			if (ret < 0) {
-+				dev_err(dev, "Fail to get static id.\n");
-+				return -EBUSY;
-+			}
-+		} else {
-+			/* Get next available id if id is not set in device tree. */
-+			trace_id = coresight_trace_id_get_system_id();
-+			if (trace_id < 0) {
-+				ret = trace_id;
-+				return ret;
-+			}
-+		}
-+		drvdata->traceid = (u8)trace_id;
-+
- 	} else if (of_device_is_compatible(node, "arm,coresight-dummy-sink")) {
- 		desc.name = coresight_alloc_device_name(&sink_devs, dev);
- 		if (!desc.name)
-@@ -104,27 +157,35 @@ static int dummy_probe(struct platform_device *pdev)
- 	}
- 
- 	pdata = coresight_get_platform_data(dev);
--	if (IS_ERR(pdata))
--		return PTR_ERR(pdata);
-+	if (IS_ERR(pdata)) {
-+		ret = PTR_ERR(pdata);
-+		goto free_id;
-+	}
- 	pdev->dev.platform_data = pdata;
- 
--	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
--	if (!drvdata)
--		return -ENOMEM;
--
- 	drvdata->dev = &pdev->dev;
- 	platform_set_drvdata(pdev, drvdata);
- 
- 	desc.pdata = pdev->dev.platform_data;
- 	desc.dev = &pdev->dev;
- 	drvdata->csdev = coresight_register(&desc);
--	if (IS_ERR(drvdata->csdev))
--		return PTR_ERR(drvdata->csdev);
-+	if (IS_ERR(drvdata->csdev)) {
-+		ret = PTR_ERR(drvdata->csdev);
-+		goto free_id;
-+	}
- 
- 	pm_runtime_enable(dev);
- 	dev_dbg(dev, "Dummy device initialized\n");
- 
--	return 0;
-+	ret = 0;
-+	goto out;
-+
-+free_id:
-+	if (IS_VALID_CS_TRACE_ID(drvdata->traceid))
-+		coresight_trace_id_put_system_id(drvdata->traceid);
-+
-+out:
-+	return ret;
- }
- 
- static void dummy_remove(struct platform_device *pdev)
-@@ -132,6 +193,8 @@ static void dummy_remove(struct platform_device *pdev)
- 	struct dummy_drvdata *drvdata = platform_get_drvdata(pdev);
- 	struct device *dev = &pdev->dev;
- 
-+	if (IS_VALID_CS_TRACE_ID(drvdata->traceid))
-+		coresight_trace_id_put_system_id(drvdata->traceid);
- 	pm_runtime_disable(dev);
- 	coresight_unregister(drvdata->csdev);
- }
--- 
-2.17.1
+Despite this being a load switch, it's still switching power from regulator A to
+target device X, so this is technically still providing 3.3V to device X.
+
+Think about how a "regular" full-fledged regulator works: you can (sometimes) set
+a voltage, and then you can ENABLE the VOUT for said regulator (/rail): this kind
+of "load switch" does exactly the same as the ENABLE switch for a full-fledged
+regulator.
+
+So, this is switching on and off a power rail that is derived from a source rail,
+practically creating... well, a "new" rail, with...
+
+  VIN=somewhere-3.3v,
+  VOUT=somewhere-still-3.3v
+
+Any objections/doubts/etc? :-)
+
+P.S.: I'm writing fast, sorry if anything appears unclear, feel free to shoot more
+       questions in case :-)
+
+Cheers,
+Angelo
+
+> 
+> ChenYu
+> 
+>> ---
+>>   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi | 2 --
+>>   1 file changed, 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>> index 783c333107bc..7bbafe926558 100644
+>> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+>> @@ -35,8 +35,6 @@ pp1800_mipibrdg: pp1800-mipibrdg {
+>>          pp3300_panel: pp3300-panel {
+>>                  compatible = "regulator-fixed";
+>>                  regulator-name = "pp3300_panel";
+>> -               regulator-min-microvolt = <3300000>;
+>> -               regulator-max-microvolt = <3300000>;
+>>                  pinctrl-names = "default";
+>>                  pinctrl-0 = <&pp3300_panel_pins>;
+>>
+>> --
+>> 2.47.0.163.g1226f6d8fa-goog
+>>
 
 
