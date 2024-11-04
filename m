@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65184D132CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56694D132D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mj+0WfLPXy2+5nvpnOW1qGBVOhg7KiWDj2DQvuVwSM=; b=mIfy5muMnUeaj8zJj2I/oBjbum
-	K1bxrqh6XuOwyUEVFvnjlcn3HurNJ+YarKVwrgkHk+MlUpuLku1UE8tE+stq5/z1kv4ADl7V9PJJd
-	GXM2dxtG6GQg0CHEnM0fYdwOOyxzr+61TXATDzSCO5A+MsY2MhBE3hZPVK5LIu4XWkfm2Rlc7Lznq
-	IeieaYrPB6Da1QGURRiYfYd4kxGL8fBq9aoxBVuGkDgfWXo5Y3RaopvrYYnsVofCdsz+Rz/2Vo/cJ
-	g8zrENujdzJdHAHbFohTapVM8CB59LNPZnt+qBZbtMR0MkMkoP4csR2d3hIECwkEoQnDAPjNfrrbq
-	LYefp/Bg==;
+	bh=McnGfctTVR2VWxkXXcgf5j/o1J2LbDCwAz0OKGW/fDs=; b=TH4uutZRI4MZMdycAQrKCDuVFM
+	UrjhMyNu+JKUbzIo1cEdNa/WRVR+E0h1TTsgnQHB2B5oHSfqrQk8wDPm7OYeENr54xLPyOyvBwdyx
+	HYBWZ3PUlkhjo970+2AF9idn9sRCqhuXsdmCSM6ML2EaMK0+LrUUeuzs4n214OiWZ7ejPwNdS4+pg
+	kZnHc3J/Yd3dZghxf6JBX2toJ9cU/LUE6C5gnh/LIIsmgUdHfWiexcM1d89rQK2lyKMc6/SH9B79y
+	2VRlgav578XVUMU+cqFj3fYoB18IFtXyXdftBbNH7y8yyc32m+UfFa0dXFckwQtERTVnGu7rG0Rlp
+	dKIWCJ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yAG-0000000E40w-2Jo2;
-	Mon, 04 Nov 2024 14:34:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t7yC7-0000000E4cK-3cT5;
+	Mon, 04 Nov 2024 14:36:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xgQ-0000000Dyxg-19YI
+	id 1t7xjT-0000000DzMC-3BNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:03:55 +0000
+	Mon, 04 Nov 2024 14:07:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 132F5A42FAD;
-	Mon,  4 Nov 2024 14:01:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD533C4CED5;
-	Mon,  4 Nov 2024 14:03:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7B9E45C5610;
+	Mon,  4 Nov 2024 14:06:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DA86C4CECE;
+	Mon,  4 Nov 2024 14:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730729032;
-	bh=Es7SovyKCYcHYnpFDoSqTBsJx27R1XCshX7bTOsxyh8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=SNv9aOucuUvEb0ZqFsqDoEuekZ2vVS0HRIq43+q9nBZvv7AnIKCCOC8lPOyEVMRMI
-	 Ghkk61OA3BtGSlLXzLm9tBNokmtp795r3/W866XqChiGx+59eN9bJpXNBGl8RAxtRY
-	 9YmbwOiog5c8SbeX/Zcyrz9JwVgpDgtyAFfKW3Vk4Y0aosLv1zMw/g2oMAeGqKhH81
-	 PJpsheLiJrdJTN5j1sMzTpAlBBQxmbBrc3NTj69EApVPfeTu+hhQSmD3wk3yLH9aKZ
-	 bPCF96n+XhblXHQZzhYSE/v9twxiiUpg/EIW6l1B8OOEQx5wVHmcwvk7AJZejas9Bd
-	 l05216w+8GvHQ==
-Message-ID: <6c06456c-0501-45ec-95b4-324f45ae2c5b@kernel.org>
-Date: Mon, 4 Nov 2024 16:03:46 +0200
+	s=k20201202; t=1730729223;
+	bh=8zkMh7Y7RhrNZANlbaXQ/bvchiQiKX45qJfKlH1uPX4=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=WuyirciyR/Y/qm16X8Ejd4C+wT3YaHJCScA0VKtRArg+EJjVBclg49wVJGBJy62R4
+	 DGzDWWlnjZm6a+ZW02+pGV5ZQPjNkQnXDhGvlcKi5QDYA0KyWn5+yAlyQNGvE32gG9
+	 hAwdruziUxlAH+yxfedRftu+/1pPKCA8m4OgiNeMoJ+jE4lLxmKjur/l5xApFsCncm
+	 FUiyPzunfNTilR4x1P2arrM7fZFSAaaG+7cPv4D3rrrtJdbxd46ek4ytC0aCQ8BaoR
+	 hUu/wl27zEpNGh0vx27d3Iq2xoB1pkpe9r/TMufi6uSr+jRMJxXzx7kLEAF01c7D60
+	 /o8QKIPx3ofeQ==
+From: Mark Brown <broonie@kernel.org>
+To: michal.simek@amd.com, naga.sureshkumar.relli@xilinx.com, 
+ shubhrajyoti.datta@xilinx.com, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20240920091135.2741574-1-ruanjinjie@huawei.com>
+References: <20240920091135.2741574-1-ruanjinjie@huawei.com>
+Subject: =?utf-8?q?Re=3A_=5BPATCH=5D_spi=3A_zynqmp-gqspi=3A_Undo_runtime_?=
+ =?utf-8?q?PM_changes_at_driver_exit_time=E2=80=8B?=
+Message-Id: <173072922129.32316.16371123096263241252.b4-ty@kernel.org>
+Date: Mon, 04 Nov 2024 14:07:01 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] usb: dwc3: core: Fix system suspend on TI AM62
- platforms
-From: Roger Quadros <rogerq@kernel.org>
-To: William McVicker <willmcvicker@google.com>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Chris Morgan <macroalpha82@gmail.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>,
- Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Nishanth Menon <nm@ti.com>,
- Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Dhruva Gole <d-gole@ti.com>, Vishal Mahaveer <vishalm@ti.com>,
- msp@baylibre.com, srk@ti.com, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-usb@vger.kernel.org, stable@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20241011-am62-lpm-usb-v3-1-562d445625b5@kernel.org>
- <ZyVfcUuPq56R2m1Y@google.com>
- <f35aa5a1-96fd-4e9a-9ecc-5e900d440d4c@kernel.org>
- <8df97a64-ab88-4bc6-b015-3995546172a7@kernel.org>
- <dc534e9f-05c3-4f42-afdb-7d7cbe8cac6d@kernel.org>
-Content-Language: en-US
-In-Reply-To: <dc534e9f-05c3-4f42-afdb-7d7cbe8cac6d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_060354_486226_C3E302E4 
-X-CRM114-Status: GOOD (  30.23  )
+X-CRM114-CacheID: sfid-20241104_060703_859613_3BF31495 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,212 +74,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 04/11/2024 14:30, Roger Quadros wrote:
-> Hi,
+On Fri, 20 Sep 2024 17:11:35 +0800, Jinjie Ruan wrote:
+> It's important to undo pm_runtime_use_autosuspend() with
+> pm_runtime_dont_use_autosuspend() at driver exit time.
 > 
-> On 02/11/2024 14:34, Roger Quadros wrote:
->> Hi William & Chris,
->>
->> On 02/11/2024 13:50, Roger Quadros wrote:
->>> Hi William,
->>>
->>> On 02/11/2024 01:08, William McVicker wrote:
->>>> +linux-arm-msm@vger.kernel.org
->>>>
->>>> Hi Roger,
->>>>
->>>> On 10/11/2024, Roger Quadros wrote:
->>>>> Since commit 6d735722063a ("usb: dwc3: core: Prevent phy suspend during init"),
->>>>> system suspend is broken on AM62 TI platforms.
->>>>>
->>>>> Before that commit, both DWC3_GUSB3PIPECTL_SUSPHY and DWC3_GUSB2PHYCFG_SUSPHY
->>>>> bits (hence forth called 2 SUSPHY bits) were being set during core
->>>>> initialization and even during core re-initialization after a system
->>>>> suspend/resume.
->>>>>
->>>>> These bits are required to be set for system suspend/resume to work correctly
->>>>> on AM62 platforms.
->>>>>
->>>>> Since that commit, the 2 SUSPHY bits are not set for DEVICE/OTG mode if gadget
->>>>> driver is not loaded and started.
->>>>> For Host mode, the 2 SUSPHY bits are set before the first system suspend but
->>>>> get cleared at system resume during core re-init and are never set again.
->>>>>
->>>>> This patch resovles these two issues by ensuring the 2 SUSPHY bits are set
->>>>> before system suspend and restored to the original state during system resume.
->>>>>
->>>>> Cc: stable@vger.kernel.org # v6.9+
->>>>> Fixes: 6d735722063a ("usb: dwc3: core: Prevent phy suspend during init")
->>>>> Link: https://lore.kernel.org/all/1519dbe7-73b6-4afc-bfe3-23f4f75d772f@kernel.org/
->>>>> Signed-off-by: Roger Quadros <rogerq@kernel.org>
->>>>> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
->>>>> ---
->>>>> Changes in v3:
->>>>> - Fix single line comment style
->>>>> - add DWC3_GUSB3PIPECTL_SUSPHY to documentation of susphy_state
->>>>> - Added Acked-by tag
->>>>> - Link to v2: https://lore.kernel.org/r/20241009-am62-lpm-usb-v2-1-da26c0cd2b1e@kernel.org
->>>>>
->>>>> Changes in v2:
->>>>> - Fix comment style
->>>>> - Use both USB3 and USB2 SUSPHY bits to determine susphy_state during system suspend/resume.
->>>>> - Restore SUSPHY bits at system resume regardless if it was set or cleared before system suspend.
->>>>> - Link to v1: https://lore.kernel.org/r/20241001-am62-lpm-usb-v1-1-9916b71165f7@kernel.org
->>>>> ---
->>>>>  drivers/usb/dwc3/core.c | 19 +++++++++++++++++++
->>>>>  drivers/usb/dwc3/core.h |  3 +++
->>>>>  2 files changed, 22 insertions(+)
->>>>>
->>>>> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
->>>>> index 9eb085f359ce..ca77f0b186c4 100644
->>>>> --- a/drivers/usb/dwc3/core.c
->>>>> +++ b/drivers/usb/dwc3/core.c
->>>>> @@ -2336,6 +2336,11 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
->>>>>  	u32 reg;
->>>>>  	int i;
->>>>>  
->>>>> +	dwc->susphy_state = (dwc3_readl(dwc->regs, DWC3_GUSB2PHYCFG(0)) &
->>>>> +			    DWC3_GUSB2PHYCFG_SUSPHY) ||
->>>>> +			    (dwc3_readl(dwc->regs, DWC3_GUSB3PIPECTL(0)) &
->>>>> +			    DWC3_GUSB3PIPECTL_SUSPHY);
->>>>> +
->>>>
->>>> I'm running into an issue on my Pixel 6 device with this change when the
->>>> dwc3-exynos device has runtime PM enabled. Basically, after the device boots up
->>>> and I disconnect USB, the dwc3-exynos device enters runtime suspend followed by
->>>> system suspend 15 seconds later. On system suspend, the clocks powering these
->>>> dwc3 registers are off which results in an SError. I have verified that
->>>> reverting this change fixes the issue.
->>>>
->>>> I noticed that dwc3-qcom.c also supports runtime PM for their dwc3 device and
->>>> most likely is affected by this as well. It would be great if someone with a
->>>> Qualcomm device could test out dwc3 suspend as well.
->>>
->>> Chris was facing another issue with this patch on Rockchip RK3566 [1]
->>>
->>> Looks like we totally missed the runtime suspended case
->>> I'll think about a solution and send something by today.
->>>
->>> [1] - https://lore.kernel.org/all/671bef75.050a0220.e4bcd.1821@mx.google.com/
->>>
->>>>
->>>> Here is the crash stack:
->>>>
->>>>   SError Interrupt on CPU7, code 0x00000000be000011 -- SError
->>>>   CPU: 7 UID: 1000 PID: 5661 Comm: binder:477_1 Tainted: G        W  OE      6.12.0-rc3-android16-0-maybe-dirty-4k #1 0439eacb3cff642033630df7ee2e250e0625f2f0
->>>>   96 irq, BUS_DATA0 group, 0x0
->>>>   Tainted: [W]=WARN, [O]=OOT_MODULE, [E]=UNSIGNED_MODULE
->>>>   Hardware name: Raven DVT (DT)
->>>>   pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>>>   pc : readl+0x40/0x80
->>>>   lr : readl+0x38/0x80
->>>>   sp : ffffffc08baa39a0
->>>>   x29: ffffffc08baa39a0 x28: ffffffd4dd140000 x27: ffffffd4dd140d70
->>>>   x26: ffffffd4dd2b2000 x25: ffffff800cef2410 x24: ffffff800cef24c0
->>>>   x23: ffffffd4dd24e000 x22: ffffff887df59440 x21: ffffffc085298100
->>>>   x20: ffffffd4db8acf60 x19: ffffffc085298200 x18: ffffffc091b730b0
->>>>   x17: 000000002a703c0b x16: 000000002a703c0b x15: 0000000000953000
->>>>   x14: 0000000000000000 x13: 0000000000000030 x12: 0101010101010101
->>>>   x11: 7f7f7f7f7f7fffff x10: 0000000000000000 x9 : ffffffd4dc0d7d48
->>>>   x8 : 0000000000000000 x7 : 0000000000008000 x6 : 0000000000000000
->>>>   x5 : 500020737562ffff x4 : 500020737562ffff x3 : ffffffd4db8acf60
->>>>   x2 : ffffffd4db8a7bac x1 : ffffffc085298200 x0 : 0000000000000020
->>>>   Kernel panic - not syncing: Asynchronous SError Interrupt
->>>>   CPU: 7 UID: 1000 PID: 5661 Comm: binder:477_1 Tainted: G        W  OE      6.12.0-rc3-android16-0-maybe-dirty-4k #1 0439eacb3cff642033630df7ee2e250e0625f2f0
->>>>   Tainted: [W]=WARN, [O]=OOT_MODULE, [E]=UNSIGNED_MODULE
->>>>   Hardware name: Raven DVT (DT)
->>>>   Call trace:
->>>>    dump_backtrace+0xec/0x128
->>>>    show_stack+0x18/0x28
->>>>    dump_stack_lvl+0x40/0x88
->>>>    dump_stack+0x18/0x24
->>>>    panic+0x134/0x45c
->>>>    nmi_panic+0x3c/0x88
->>>>    arm64_serror_panic+0x64/0x8c
->>>>    do_serror+0xc4/0xc8
->>>>    el1h_64_error_handler+0x34/0x48
->>>>    el1h_64_error+0x68/0x6c
->>>>    readl+0x40/0x80
->>>>    dwc3_suspend_common+0x34/0x454
->>>>    dwc3_suspend+0x20/0x40
->>>>    platform_pm_suspend+0x40/0x90
->>>>    dpm_run_callback+0x60/0x250
->>>>    device_suspend+0x334/0x614
->>>>    dpm_suspend+0xc4/0x368
->>>>    dpm_suspend_start+0x90/0x100
->>>>    suspend_devices_and_enter+0x128/0xad0
->>>>    pm_suspend+0x354/0x650
->>>>    state_store+0x104/0x144
->>>>    kobj_attr_store+0x30/0x48
->>>>    sysfs_kf_write+0x54/0x6c
->>>>    kernfs_fop_write_iter+0x104/0x1e4
->>>>    vfs_write+0x3bc/0x50c
->>>>    ksys_write+0x78/0xe8
->>>>    __arm64_sys_write+0x1c/0x2c
->>>>    invoke_syscall+0x58/0x10c
->>>>    el0_svc_common+0xa8/0xdc
->>>>    do_el0_svc+0x1c/0x28
->>>>    el0_svc+0x38/0x6c
->>>>    el0t_64_sync_handler+0x70/0xbc
->>>>    el0t_64_sync+0x1a8/0x1ac
->>>>
->>
->> Does this patch fix it for you?
->>
->> From ee8b353523556a29a423261af9c15be261941ff8 Mon Sep 17 00:00:00 2001
->> From: Roger Quadros <rogerq@kernel.org>
->> Date: Sat, 2 Nov 2024 14:14:47 +0200
->> Subject: [PATCH] usb: dwc3: fix fault at system suspend if device was already
->>  runtime suspended
->>
->> If the device was already runtime suspended then during system suspend
->> we cannot access the device registers else it will crash.
->>
->> Cc: stable@vger.kernel.org # v5.15+
->> Reported-by: William McVicker <willmcvicker@google.com>
->> Closes: https://lore.kernel.org/all/ZyVfcUuPq56R2m1Y@google.com
->> Fixes: 705e3ce37bcc ("usb: dwc3: core: Fix system suspend on TI AM62 platforms")
->> Signed-off-by: Roger Quadros <rogerq@kernel.org>
->> ---
->>  drivers/usb/dwc3/core.c | 10 ++++++----
->>  1 file changed, 6 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
->> index 427e5660f87c..4933f1b4d9c6 100644
->> --- a/drivers/usb/dwc3/core.c
->> +++ b/drivers/usb/dwc3/core.c
->> @@ -2342,10 +2342,12 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
->>  	u32 reg;
->>  	int i;
->>  
->> -	dwc->susphy_state = (dwc3_readl(dwc->regs, DWC3_GUSB2PHYCFG(0)) &
->> -			    DWC3_GUSB2PHYCFG_SUSPHY) ||
->> -			    (dwc3_readl(dwc->regs, DWC3_GUSB3PIPECTL(0)) &
->> -			    DWC3_GUSB3PIPECTL_SUSPHY);
->> +	if (!pm_runtime_suspended(dwc->dev)) {
->> +		dwc->susphy_state = (dwc3_readl(dwc->regs, DWC3_GUSB2PHYCFG(0)) &
->> +				    DWC3_GUSB2PHYCFG_SUSPHY) ||
->> +				    (dwc3_readl(dwc->regs, DWC3_GUSB3PIPECTL(0)) &
->> +				    DWC3_GUSB3PIPECTL_SUSPHY);
->> +	}
->>  
->>  	switch (dwc->current_dr_role) {
->>  	case DWC3_GCTL_PRTCAP_DEVICE:
->>
->> base-commit: 4b57d665bce1306a2a887cb760aa0c0e7efb42ab
+> So, call pm_runtime_dont_use_autosuspend() at driver exit time
+> to fix it.
 > 
-> I think this is not sufficient to fix the issue as there is still a call
-> to dwc3_enable_susphy() in the end which needs to be avoided
-> if already runtime suspended.
 > 
+> [...]
 
-I've sent a new patch [1]. Please test and give your feedback there. Thanks.
+Applied to
 
-[1]- https://lore.kernel.org/all/20241104-am62-lpm-usb-fix-v1-1-e93df73a4f0d@kernel.org/
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
--- 
-cheers,
--roger
+Thanks!
+
+[1/1] spi: zynqmp-gqspi: Undo runtime PM changes at driver exit time​
+      commit: 2219576883e709737f3100aa9ded84976be49bd7
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
