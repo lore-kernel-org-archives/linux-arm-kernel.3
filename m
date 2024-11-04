@@ -4,84 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEB6D111A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 05:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06921D111A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 05:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=; b=BjVDRt9/W2Jy9q1J+4KUKsqIVj
-	xQs8ibyIvw9sXfT9aoMC1fk2jvoB4NYbTX9xYFvbmBvrJ2HGd8d0J2Cn5ftPzn8mpeZFa9mF9+eLk
-	IfD0ES9EYR6BLqf595JEja8Tr9ceepcgt3u+merAG7pFVIRzEuDrPXIEAB9frvQTcPVDTO0qQeQMU
-	W6IC9VK7XfV8StkiUZTVmSC5mjBZpfzNk9Mw38vuX6A81V3aBkH+XHZMjyGQU7Tt7A98BS+GaMilc
-	C/f9N6iHbGMqAQ3FPKRNkA8OE6SKGgyHHl1LNoCkPHmqoQxoICUSsQU/pZATDUUYIElibQ7LdFfh0
-	Y7CKfEgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gb1vWO0ViFYAzkHiEA4T4+ny6s4IlLt9dxYzuH6lWME=; b=Bsa5aLfKgEg+5A+Kc506VKvtnv
+	JvbntZRkFfqP3Kg3F+OSC4PFbkeuklZ89JCRuQ+OQDLuay+C4W6rPXfDpFBx4GbnTIdmNPSYtZTnm
+	JZYMJUr4B3UeOlXxW7rles5KPzNkrE9LNQkFgb7FSmXNMP4PjT5LDjjXjxSBW9APyXr5pHkCx5xhW
+	LDJXW/Ys4d/jEokcxil4zcMJMyjRoblp0PKz24bcG7qPAL1/O6jUeaWL2w8fMfk1iMfaoE7KPFGgc
+	0g3yO24SGwBqRhhPVdrMpCandXVC6Wtssr8aE93wghUTnNRDkHIonyOtq15GVGlyfsPbtL28fhJZT
+	/aneKLOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7pG3-0000000Cf9B-3n1i;
-	Mon, 04 Nov 2024 05:04:07 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1t7pWL-0000000Cfxs-3q3B;
+	Mon, 04 Nov 2024 05:20:57 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7pEK-0000000CezM-2g6b
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 05:02:23 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43153c6f70aso51265e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 21:02:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730696538; x=1731301338; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=;
-        b=4S2MnUQDhn5YvBWbi5jAyyn7h17WwpIDDDyQyxXMN+6plLk7+fI9dRFIzWLPPUB5Cu
-         8VzkYRF8CpZsFmSiiWtsN38t630vypoNU8Ak3XcF7CxatGQQ5XWSMLDau1TNhcNZrB3O
-         FTrNAX9ETgCsbq69ngCJLfbcliw5NPuajtNZ7lgD+AbUhxEcVkL3FT1/mn7vn23fRo2p
-         YUhP65mnHFIV8us7x2yZJw43+ShP9VkjZCEc164/V6hur+JBRub7NPpwM9U2VyTMXKVz
-         L6Wvcppy4DCYnh3cnrz7DBg10uurSvobBLBNKTXG9jR1J6wr/UM6CXw5to70fzyncW36
-         xgXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730696538; x=1731301338;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=;
-        b=dLvYEAkTIofQfw0s5iwH0c3GjjGuHBv40kn0wlPvj8vf486L2ceH7d+NnmSlE7PNeT
-         YWcMaQqvqw2USoEj9hrn3ZU8ZvV2nmjc7qnXTZ2u+KzCTC97M4n7FY8UqQj08RTL/5/C
-         tnxEYo4B5SluPrlDHDBmGQsfkZbpSvofLjtv08/uPYX6KCerbhQzofq1bDRR9MOuRhW+
-         gRoBdtYEctRXT3ttz5BELtinrLJBV3CHVgFDndAKQ4lbXRx3qh6b1/xTmGgvTWH5LIoA
-         jLTzCVm1+bfN0raIiHRfSMQ5uJBo+w01oqIB7iEwyhCUxOZf+mfbcpFcLUTyMMD9Bmks
-         Ag7g==
-X-Forwarded-Encrypted: i=1; AJvYcCWeDhGTBRR4yZi7HBf2wnF4BQk6vKlkBn7FT3e/72aUGINc6EpVURqaQGaEmO32LtcmF4tdDxbQwqrWuA1M9k8V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7Nj22w8XVtDuAWh4HjJSMjceCSPIDh+dc8em4LfY+SwQ4OK/K
-	g54Bx2MhPRhvCyK9kzRsyz0i8Iu7DL+TwWtypN8mu4W9a+dUM5TgCTUDuEZV7P4h5YBiTybpowP
-	x7EnGXySJBP0OrCObE0GWcSz71kwALdh7Jca4
-X-Gm-Gg: ASbGncv1kBNeDIFgWhIdxXOMnhYwS2aES9Auy9/1A+RCUrXTf5otT5Sj7F3oDJsKfIl
-	EcZzEPSrPuzaXymO2DT+plE3QHHXUyqN27zygzu2y3XbPExZ7PNduimeNC7o24eI=
-X-Google-Smtp-Source: AGHT+IEjRuwYNFSQ2YIxZvVeAEQHZ04rTPgHjYCyrGK55VxsW50YYmc9HWkP1YWdE3I5kimXvyb1o2IahKOaQPEcCvE=
-X-Received: by 2002:a05:600c:63d9:b0:42b:8ff7:bee2 with SMTP id
- 5b1f17b1804b1-4328dc076b0mr1470075e9.5.1730696537538; Sun, 03 Nov 2024
- 21:02:17 -0800 (PST)
+	id 1t7pUe-0000000CfnK-2okJ;
+	Mon, 04 Nov 2024 05:19:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s26NoqTRzipiwbNJc/QavfcEFmxK1sGW2HBFJ04MBz8dRgyMnd+PJ9D39AWQT5ijzoaHkRPR/ILhknpLJv3FMbLnPe61YG2rU7tSZ/3gUKDLRnBPZRIdN8Mhieo1K+9VI9UOcajDGSSoGnATndzkF/Pr5jjaYKj6tmuF21pfYFakDc4b9Uow7E/ox33lUqIjYy/zBeP7aIzys9nrj91Ca9n3x209OxEfhInNpA0REMG1lSX/0Z71mEOoU8Oh8tsc2Bj9ALio4iOAjGt8UzWXzycXJK3EzWFyLRkSbdWuxNmiiXlrMRbv/BkRna7txMRd5BL3WPhFg+tG7lhN8W0QjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gb1vWO0ViFYAzkHiEA4T4+ny6s4IlLt9dxYzuH6lWME=;
+ b=jevVu30MkTPoia0f6JSJYxXPPfZUYLMHGnukkaB/PIBzOCmkoZhm9V/DdJnplZP4I11qP6RL/n6I6qMSCXi3sWH7dxBjTZB3fTGrZAiUa5giW58At9TO/zIYRFfE7ZR7KaOcaDejJZS4RJZlKyIePt8DvIvTYAEtJ7rJ+W9nNsTixOXrobFBue+1QGBVKnvW6IxTJ3ysAUY7GrgTw8PiEB0OMQgnQUzcYgqtDUzU2yXNzjZmY3gfFnoCkgDV5r6fVbe6l9khR3Ht68jVLgHEv9205MNr5H4lPBaGNIO7CwNfB02xN/iCTY7LJzeog/IHeHuen4uF9BJdkGt2vSAhKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gb1vWO0ViFYAzkHiEA4T4+ny6s4IlLt9dxYzuH6lWME=;
+ b=CgTl5hfJo5Lrnhz2B8qs/ryHykwaWoK0E1DMna+Py81EerQDzMopsR0z5FsMoKuW1L6+ecL764tg6hTEATUATDtLoS9LOAZ+LqHUzTaiewKQuLeIS3Y6hlJzQQIaFp6nH24h5Vzf1kIcI9GSXqZ660yb0YKzmzkTMuqUx2Ne/yh17c4aIGgw6O49O6UgeGJca3pthrrndllWvkpaXQ4CcEqCtQ/9DGeotHSEg5olEvazi9VRS13Okb1rxN/fFd4k3A/7SEp0gvPohInDbWrcRJX1CQAKXklSOHxHjFcoYzC3/Lh/7cRx5KhMjhaXhDgqNHcekbnt0fH3i3SNjKwvmQ==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by DB9PR04MB8171.eurprd04.prod.outlook.com (2603:10a6:10:24f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 05:19:08 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 05:19:07 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Adam Ford <aford173@gmail.com>
+CC: Frank Li <frank.li@nxp.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"kishon@kernel.org" <kishon@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, Marcel Ziswiler
+	<marcel.ziswiler@toradex.com>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just before
+ PHY PLL lock check
+Thread-Topic: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just
+ before PHY PLL lock check
+Thread-Index: AQHbI9FMGl88WWAvnEe0gqFlzhKJarKSIYmAgBDGCoCAA5pOMA==
+Date: Mon, 4 Nov 2024 05:19:07 +0000
+Message-ID: <AS8PR04MB8676D33E00DE6B0B961B5EB58C512@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <20241021155241.943665-1-Frank.Li@nxp.com>
+ <DU2PR04MB86770FFB0CAEEBE95B91F5FC8C4C2@DU2PR04MB8677.eurprd04.prod.outlook.com>
+ <CAHCN7xJya+XjAP+kn5MePdrqNxaLnkYag23UaNatoh09ize+AA@mail.gmail.com>
+In-Reply-To: <CAHCN7xJya+XjAP+kn5MePdrqNxaLnkYag23UaNatoh09ize+AA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|DB9PR04MB8171:EE_
+x-ms-office365-filtering-correlation-id: c5e2201a-9971-4884-3a0a-08dcfc903547
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?c3paYzY3SEF5ajZCWS9KYk03Qld5RkZ0VW52a1pXRzFYSDhlc1hwdkpEbVo2?=
+ =?utf-8?B?eW9wLzZuM3p1QVYwZ3lSb2JnQUlRT2M0M3N4ZlB0UGJzM0s0Z0JueG4yVHY0?=
+ =?utf-8?B?MGlldm92ZUdMd1Y3Qm9ZSUgzTXhxcWtmb09CNmZmNHYweUpqbzBZSWM5SE00?=
+ =?utf-8?B?K3UzUzdYaXJuNzIwcDlJdXRqSFV2TXBxNHNqUGRVcTVOdE5pSGg3T2plQ1JW?=
+ =?utf-8?B?b3V0aHUvQWVZUjVWOG96YnJ2cEREa1p0R21pZlZrRk8reHUwT0dEckhFWjc2?=
+ =?utf-8?B?UTNGM2x3Nkl4NTlNQXU2ZHNwSU9qOG1SdEFlclhLN1dBdE9KYmZ1L3NRdi9u?=
+ =?utf-8?B?TG44WkNtcy9Mck9ZaEFWKyt2em1EdC9ZRUg3K01kdUJBbjBjTnUzY3I2eEQ3?=
+ =?utf-8?B?OEJyU2Ivb0MzM1crZ1FLdkhLU2JrUTZmanZnNUFncG5sdnVVenRDc2xyYVlr?=
+ =?utf-8?B?Yzd3Vk5qbW9ud2prV20rNlN4REVjMmZYNzY5WGxyYmVyUEVRdW5JRnVsZkV1?=
+ =?utf-8?B?VzdsaFJzRzR6Rk1PVGRYU2ZIWXpwdVN5UjhaY01ERzNaUGg4d2dYNFRPdWZv?=
+ =?utf-8?B?MXVEc3pMRXQvcEFnREpSRGFMdmZMQnhqY296ajhQRFlwUzBuWmhNcXMySDFw?=
+ =?utf-8?B?Nmd4djd6d1hPRHl6R3VHNVBsVmEwTmlKR0gvWW00K0dBRCtrVkovOEpnZG5U?=
+ =?utf-8?B?Ulc1T3ZtLzBEVkRRbFhZbHlOalNPQlJoanRndC95YURwQ2pna0dhSzUvV25o?=
+ =?utf-8?B?U0YxWVRaaTE1Tzhiempldjd1eWxNRktOdlNVRmZnME1xNWE2bk1PbEJSU0tY?=
+ =?utf-8?B?eGk4Sm5FbDhPN3dPUXZZNlFITy9KZ29uSmRYbEtXT3lCVUZZL2dZTklhKzVO?=
+ =?utf-8?B?aTFyMXNPQldvTVF6NjVFZXhSN3lUak0zQWVmekhHRXNXVnVwRUF5dERENm40?=
+ =?utf-8?B?N01VamVENC83SkdHbU02dXFjOVdzTVpMaXhMYWk5NDNJL1NLTmVLdFdidE52?=
+ =?utf-8?B?RnZSdXYwRzhicGlLeGVSODVPRjY4eWN2NEd5WEtBdmx3QVArY25NaFNId0hk?=
+ =?utf-8?B?WW9sWEtZc1ZjVmFzK2lqV0VBR2hnN3ducWRMRmlDMmhJd3JkdkIxQlVkV0NR?=
+ =?utf-8?B?S1BUQUhYODVHUTVuMVhFTHZ6cE9acVB3Vk9TbEdDeloyU0pvVmxjVXg2bGRz?=
+ =?utf-8?B?bHVieisvdTBLelVodWFOeW0zWTFiaUpsRDNQOVNLdFl4d016UDM2Rlo2K0E0?=
+ =?utf-8?B?NHBKM3l3RlhqY2JrUWNDV1p5MmRpK1NjeTVZcjBiTnJiajJSWUdVMVBHWTBw?=
+ =?utf-8?B?YjY4aE5qd3BDb0VwOVFrcHFkbjV1ZXhZVyswbHpZWExxWWlxL0xSSjN0Ymhr?=
+ =?utf-8?B?eTRsTmJOdStVSlh2S0doM0VsQTZ5S045aDJwcmx6c3k5Zm43cjd1a3dZWkFr?=
+ =?utf-8?B?c2Z6K2Q0Z1B0eHlPTjdZSnM0RUw0L1F0VEMvQjVldHBPc0NhTUMxcUpVZ0Ru?=
+ =?utf-8?B?SklkQzZKRldqeEFyTkl6L3ZBb2tFTVVzRk9OU0V3NzBIcEkrNDhjU1VPQWZ6?=
+ =?utf-8?B?TFpuZ0RsRVM4N2E1NVFOVkFhbzNPaHZtMlRScE00bk1PVWErNzBVNGNpQ3pF?=
+ =?utf-8?B?djhEYUNLQjlXc3FWY3BPQkQ1bjV0cStmY0VkNnhTaTNZdGErVW9ic2RtMllh?=
+ =?utf-8?B?aHowY2dNS3l1ajFFZEdPMFRsVlh0dkN3bUtPWTl5K3RGNXlCNitWZFB0SkV5?=
+ =?utf-8?B?YU9GR25TRDlJVnlhV0tCbDNjanBraFhDRWlzSjZHQVRuZHNycEpWd1NaMzdU?=
+ =?utf-8?Q?GJUM5qsiHgL1A8caepIVD4A4t9jNoJPfUK3Ho=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?b0pxL1JHWDdZa2d4Zi8zZzNyNTFhYStnR0dLaHNpYWRpVXVkZG5sWnJNQ0tT?=
+ =?utf-8?B?Tm5vRllUUmhCZ0k5WjU5elVXTHNSemZTY2E4ZVE0bHR6eXc0QnJadkp3SEdI?=
+ =?utf-8?B?Wmx1OFN1a3RHb3dnZDFIVXN5cVRoTGNyRm5tQ0V3VFU1TEhQL3BrQXlBTkIz?=
+ =?utf-8?B?eXZBVTdhMjRQOGVuZUJXWFNKNGh0T0ZHZlUxNmQwZmtQUXN4UUtPOUtNY3Rz?=
+ =?utf-8?B?MnI1a2NWSlpDeklRQ0VPV3RoanU1VXVKWXJ1NTFxMG5EQ002dXUyd1UzUVA0?=
+ =?utf-8?B?MnMvT1JUbWtSUDN6alg2NVpQQ0JjcUlKaE1ZODFzVTk3V1Nwd2xuMEp3dnY5?=
+ =?utf-8?B?YlVYUGx4eGcxUkd1ZENWRHduNFFIMWNaS2NvWWxrUU5uaFlobVVZN1dOdXNw?=
+ =?utf-8?B?WHptSEg5MXhLUFd3ZXk1bzhyWEwrQmdGK3JqZVpuakxvZ3hCcmQwQXd6M3Y5?=
+ =?utf-8?B?dWc2NUJaN0MwTnIzYk5pWVRpRDU2K0N3YzN0UlF2ZlRsYyt5K0l1Yi9SeTB6?=
+ =?utf-8?B?N1hBZkpHOC9QblNtQjhocnozakFNNHR6TmxSaFdnU3B4bkFsQjRsVTZ0UTk5?=
+ =?utf-8?B?SjJTd3lsUXltTWFnbGdtamlxT2hBZVE0Y3YwT3FXbE56cUEyUFk1K0hTYlJD?=
+ =?utf-8?B?ditvQW1Ebi9EYjJKT0JBSGpHSHdNTDYxa21qMTVYckp2RUxSU0RvQkNZdUF0?=
+ =?utf-8?B?cURwd0JraHJ3aWFqUm50NDRYTFhIMkwvZ0lralYrdzdjM0YvTlF6VG9aV21q?=
+ =?utf-8?B?TDVkbjlvMTNJSCtCK2REbUNUNko4bzJKNGtlMmZ6YXdNVWxtUDJ3a05MNG1V?=
+ =?utf-8?B?Y29zL24vZlRkYkczSkdwR2F3VlAwUjJ6N3IwOWNMcWpDRnk3a1VPVlozcC9t?=
+ =?utf-8?B?R0dBRENTOEo0dmxMYmhwTFducXdtNHU5dmJrZHdRRzZWMGtWVGtZTkdrK0Ny?=
+ =?utf-8?B?WlJTd0Mrck1nT05ENmxScTRJc0licTBYVkx3NzRPSStIbzI2UGczU29yS2Mx?=
+ =?utf-8?B?dmNWaUNBaFk4dG5XSjJKRExTbnRKZkhYM1FGWEhTV0VwdmswNGltZWpwRjRO?=
+ =?utf-8?B?cVRpUEhBYy9YUUQ5M3dNb3hUY2RYOFhvRXhmeFZoN1dOWVlFMmN0ZW56cUEr?=
+ =?utf-8?B?enlZTjR5T0ZCcURwaENGWG14b3dJYTBZVHJwcVNpT1p0aEVqcUk3MW0rWmFI?=
+ =?utf-8?B?TzM2bElKWXBYMVhXZFlEWk1iNjgxTndseERUeU1ac1FRZTN0bWYrTlFtTFl5?=
+ =?utf-8?B?UkhyekhCTTVWNzUwUi9BYTVseWMxVUllLzJkbGdKK0E2RmcvRCs4M1g3Y2RZ?=
+ =?utf-8?B?Q0FXYjFKeWpXU0JHWkU1bUNPS0E3Y3p3dkZoRjFZYTdBOVVhYXorN2xUQTJX?=
+ =?utf-8?B?WWRhUjZ1THFBUlRGZVR3YXRNYWZCbW5qYjd5cWNKdURhc1FReGZ3VmZoTHFL?=
+ =?utf-8?B?VEMwbUl0OGJoOGY4R1RxcnpNWDFMeVI5RGo3OFBFMzE3ckZhWkwvV09ZS1R6?=
+ =?utf-8?B?TEdMMGx6TzBON0hpYTNZVnltQlJ3NklxTm9kazBBNU9EZHVXdFN3djVRRkwr?=
+ =?utf-8?B?Mm03V0NmaFVucFFuT0dHcXpxRUhEZ2xUdHpaWW5tdW1tR2ZBc0lYREhNc2pp?=
+ =?utf-8?B?SllFSFZ1aUY4UjB1Mi9aT2lpUTlDTHhXbW4rM2RTOElEN0ovRTZ2Ujl1aFRh?=
+ =?utf-8?B?QUg3bTQ4NnNxSlZsazNjNHhwOE9aVis3SG5ROXFhaStzajk4c2d3YjZVZmtB?=
+ =?utf-8?B?SzRZaG9GSW1uUGZLSEsrSVl6bHdtcHQrTHJ5eEw1K0NUcDFJbUFNeU4rbUdj?=
+ =?utf-8?B?d2JycjhXN0tkL3JtWWRGWjh1Q3loREQrdU9aS0JnQ0x3YmVhbXE2Y2VTWlRy?=
+ =?utf-8?B?VHJDNDMxZjJVYXRGV2dhS3o2MHJ2QVFmWWQxZ1cvbGhJWXI1NWpCem1wUlBS?=
+ =?utf-8?B?T0k3ZXB0UTk2K3RqaDhSNTB6OUJVUXViQWxyL2phRnZyVkt5UVhyelo1K0pN?=
+ =?utf-8?B?NUwxNCtyRm9weWFRSTFGSGhRTUtPMzRtZnFlYnJQVEZ2eTJXdkdPS1lqTyti?=
+ =?utf-8?B?WW56UlVQOXRMMTRjckNoVG5NQjhvbUdHTlBLTXc1MFlFaklhTVd0QkhoamVI?=
+ =?utf-8?Q?4ap/VBhgLH1hkszSdzvak1T2K?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20241031212104.1429609-1-jiaqiyan@google.com> <86r07v1g2z.wl-maz@kernel.org>
-In-Reply-To: <86r07v1g2z.wl-maz@kernel.org>
-From: Jiaqi Yan <jiaqiyan@google.com>
-Date: Sun, 3 Nov 2024 21:02:03 -0800
-Message-ID: <CACw3F51FbzkkX_DcCVCieZ=408oP_Fy3sXYk5AjWRX3RJO2Fzg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
-To: Marc Zyngier <maz@kernel.org>
-Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, duenwen@google.com, 
-	rananta@google.com, James Houghton <jthoughton@google.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5e2201a-9971-4884-3a0a-08dcfc903547
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Nov 2024 05:19:07.9083
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 7J9J4gqA5PniaMs3yPzPWjzeHHxjnNlE/C19NNNTivPtL64z+iHad12GSU451WWNYgJ+bg8NYLGL2jtjIiKoZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_210220_715457_61DBD3C8 
-X-CRM114-Status: GOOD (  61.16  )
+X-CRM114-CacheID: sfid-20241103_211912_931204_7700274F 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,367 +186,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc, thanks for your quick response!
-
-On Fri, Nov 1, 2024 at 6:54=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 31 Oct 2024 21:21:04 +0000,
-> Jiaqi Yan <jiaqiyan@google.com> wrote:
-> >
-> > Currently KVM handles SEA in guest by injecting async SError into
-> > guest directly, bypassing VMM, usually results in guest kernel panic.
-> >
-> > One major situation of guest SEA is when vCPU consumes uncorrectable
-> > memory error on the physical memory. Although SError and guest kernel
-> > panic effectively stops the propagation of corrupted memory, it is not
-> > easy for VMM and guest to recover from memory error in a more graceful
-> > manner.
-> >
-> > Alternatively KVM can send a SIGBUS BUS_OBJERR to VMM/vCPU, just like
-> > how core kernel signals SIGBUS BUS_OBJERR to the poison consuming
-> > thread.
->
-> Can you elaborate on why the delivery of a signal is preferable to
-> simply exiting back to userspace with a description of the error?
-> Signals are usually not generated by KVM, and are a pretty twisted way
-> to generate an exit.
-
-A couple of reasons. First, my intuition is that KVM and core kernel
-(do_sea) should have aligned behavior when APEI failed to claim the
-SEA. Second, if we only talk about SEA caused by memory poison
-consumption, both arm64 and x86 KVM already send SIGBUS to VMM/vCPU
-thread (kvm_send_hwpoison_signal) to signal hardware memory failure,
-although the situation is slightly different here, where we have a
-hardware event, versus a HWPoison flag check or VM_FAULT_HWPOISON
-returned. But from VMM/vCPU's perspective, hardware event or software
-level VM_FAULT_HWPOISON, it would be nice if it can react to just the
-same event, the SIGBUS signal.
-
-And there is another reason around your comment on arm64_notify_die.
-
-By "exiting back to userspace with a description of the error", are
-you suggesting KVM_EXIT_MEMORY_FAULT? If so, we may need to add a new
-flag to tell VMM the error is hardware memory poison, which could be
-KVM_MEMORY_EXIT_FLAG_USERFAULT[1] if we don't want a specific one (but
-I think a specific flag for hwpoison is probably clearer).
-
->
-> > In addition to the benifit that KVM's handling for SEA becomes aligned
-> > with core kernel behavior
-> > - The blast radius in VM can be limited to only the consuming thread
-> >   in guest, instead of entire guest kernel, unless the consumption is
-> >   from guest kernel.
-> > - VMM now has the chance to do its duties to stop the VM from repeatedl=
-y
-> >   consuming corrupted data. For example, VMM can unmap the guest page
-> >   from stage-2 table to intercept forseen memory poison consumption,
->
-> Not quite. The VMM doesn't manage stage-2. It can remove the page from
-> the VMA if it has it mapped, but that's it. The kernel deals with S2.
-
-I should probably not mention the implementation, "unmap from S2".
-What is needed for preventing repeated consuming memory poison is
-simply preventing guest access to certain memory pages. There is a
-work in progress KVM API [1] by my colleague James.
-
-[1] https://lpc.events/event/18/contributions/1757/attachments/1442/3073/LP=
-C_%20KVM%20Userfault.pdf
-
->
-> Which brings me to the next subject: when the kernel unmaps the page
-> at S2, it is likely to use CMOs. Can these CMOs create RAS error
-> themselves?
-
-I assume CMO here means writing dirty cache lines to memory. Writing
-something new to a poisoned cacheline usually won't cause RAS error.
-Notifying memory poison usually is delayed to a memory load
-transaction.
-
->
-> >   and for every consumption injects SEA to EL1 with synthetic memory
-> >   error CPER.
->
-> Why do we need to involve ACPI here? I would expect the production of
-> an architected error record instead. Or at least be given the option.
-
-Sorry, I was just mentioning a specific VMM's implementation. There
-are definitely multiple options (Machine Check MSRs vs CPER for error
-description data, SEA vs SDEI vs SPI for notification mechanisms) for
-how VMM involves the guest to handle memory error. My preference is:
-VMM populates CPER in guest HEST when VMM instructs KVM to inject
-i/dabt to the guest.
-
-And a word about "be given the option": I think when VMM receives
-SIGBUS with si_addr=3Dfaulted/poisoned HVA, it's got all these options,
-like using the si_addr to construct CPER with poisoned guest physical
-address, or mci_address MSR.
-
->
-> > Introduce a new KVM ARM capability KVM_CAP_ARM_SIGBUS_ON_SEA. VMM
-> > can opt in this new capability if it prefers SIGBUS than SError
-> > injection during VM init. Now SEA handling in KVM works as follows:
-> > 1. Delegate to APEI/GHES to see if SEA can be claimed by them.
-> > 2. If APEI failed to claim the SEA and KVM_CAP_ARM_SIGBUS_ON_SEA is
-> >    enabled for the VM, and the SEA is NOT about translation table,
-> >    send SIGBUS BUS_OBJERR signal with host virtual address.
->
-> And what if it is? S1 PTs are backed by userspace memory, like
-> anything else. I don't think we should have a different treatment of
-> those, because the HW wouldn't treat them differently either.
-
-You are talking about ESR_ELx_FSC_SEA_TTW(1), or
-ESR_ELx_FSC_SEA_TTW(0), right? I think you are right, S1 is no
-difference.
-
-But I think we want to make an exception for SEA about S2 PTs.
-
->
-> > 3. Otherwise directly inject async SError to guest.
-> >
-> > Tested on a machine running Siryn AmpereOne processor. A in-house VMM
-> > that opts in KVM_CAP_ARM_SIGBUS_ON_SEA started a VM. A dummy applicatio=
-n
-> > in VM allocated some memory buffer. The test used EINJ to inject an
-> > uncorrectable recoverable memory error at a page in the allocated memor=
-y
-> > buffer. The dummy application then consumed the memory error. Some hack
-> > was done to make core kernel's memory_failure triggered by poison
-> > generation to fail, so KVM had to deal with the SEA guest abort due to
-> > poison consumption. vCPU thread in VMM received SIGBUS BUS_OBJERR with
-> > valid host virtual address of the poisoned page. VMM then injected a SE=
-A
-> > into guest using KVM_SET_VCPU_EVENTS with ext_dabt_pending=3D1. At last
-> > the dummy application in guest was killed by SIGBUS BUS_OBJERR, while t=
-he
-> > guest survived and continued to run.
-> >
-> > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h |  2 +
-> >  arch/arm64/include/asm/kvm_ras.h  | 20 ++++----
-> >  arch/arm64/kvm/Makefile           |  2 +-
-> >  arch/arm64/kvm/arm.c              |  5 ++
-> >  arch/arm64/kvm/kvm_ras.c          | 77 +++++++++++++++++++++++++++++++
-> >  arch/arm64/kvm/mmu.c              |  8 +---
-> >  include/uapi/linux/kvm.h          |  1 +
-> >  7 files changed, 98 insertions(+), 17 deletions(-)
-> >  create mode 100644 arch/arm64/kvm/kvm_ras.c
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm=
-/kvm_host.h
-> > index bf64fed9820ea..eb37a2489411a 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -334,6 +334,8 @@ struct kvm_arch {
-> >       /* Fine-Grained UNDEF initialised */
-> >  #define KVM_ARCH_FLAG_FGU_INITIALIZED                        8
-> >       unsigned long flags;
-> > +     /* Instead of injecting SError into guest, SIGBUS VMM */
-> > +#define KVM_ARCH_FLAG_SIGBUS_ON_SEA                  9
->
-> nit: why do you put this definition out of sequence (below 'flags')?
-
-Ah, I will move it on top of flags.
-
->
-> >
-> >       /* VM-wide vCPU feature set */
-> >       DECLARE_BITMAP(vcpu_features, KVM_VCPU_MAX_FEATURES);
-> > diff --git a/arch/arm64/include/asm/kvm_ras.h b/arch/arm64/include/asm/=
-kvm_ras.h
-> > index 87e10d9a635b5..4bb7a424e3f6c 100644
-> > --- a/arch/arm64/include/asm/kvm_ras.h
-> > +++ b/arch/arm64/include/asm/kvm_ras.h
-> > @@ -11,15 +11,17 @@
-> >  #include <asm/acpi.h>
-> >
-> >  /*
-> > - * Was this synchronous external abort a RAS notification?
-> > - * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
-> > + * Handle synchronous external abort (SEA) in the following order:
-> > + * 1. Delegate to APEI/GHES to see if SEA can be claimed by them. If s=
-o, we
-> > + *    are all done.
-> > + * 2. If userspace opts in KVM_CAP_ARM_SIGBUS_ON_SEA, and if the SEA i=
-s NOT
-> > + *    about translation table, send SIGBUS
-> > + *    - si_code is BUS_OBJERR.
-> > + *    - si_addr will be 0 when accurate HVA is unavailable.
-> > + * 3. Otherwise, directly inject an async SError to guest.
-> > + *
-> > + * Note this applies to both ESR_ELx_EC_IABT_* and ESR_ELx_EC_DABT_*.
-> >   */
-> > -static inline int kvm_handle_guest_sea(phys_addr_t addr, u64 esr)
-> > -{
-> > -     /* apei_claim_sea(NULL) expects to mask interrupts itself */
-> > -     lockdep_assert_irqs_enabled();
-> > -
-> > -     return apei_claim_sea(NULL);
-> > -}
-> > +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
-> >
-> >  #endif /* __ARM64_KVM_RAS_H__ */
-> > diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> > index 3cf7adb2b5038..c4a3a6d4870e6 100644
-> > --- a/arch/arm64/kvm/Makefile
-> > +++ b/arch/arm64/kvm/Makefile
-> > @@ -23,7 +23,7 @@ kvm-y +=3D arm.o mmu.o mmio.o psci.o hypercalls.o pvt=
-ime.o \
-> >        vgic/vgic-v3.o vgic/vgic-v4.o \
-> >        vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
-> >        vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
-> > -      vgic/vgic-its.o vgic/vgic-debug.o
-> > +      vgic/vgic-its.o vgic/vgic-debug.o kvm_ras.o
-> >
-> >  kvm-$(CONFIG_HW_PERF_EVENTS)  +=3D pmu-emul.o pmu.o
-> >  kvm-$(CONFIG_ARM64_PTR_AUTH)  +=3D pauth.o
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 48cafb65d6acf..bb97ad678dbec 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -151,6 +151,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
-> >               }
-> >               mutex_unlock(&kvm->slots_lock);
-> >               break;
-> > +     case KVM_CAP_ARM_SIGBUS_ON_SEA:
-> > +             r =3D 0;
-> > +             set_bit(KVM_ARCH_FLAG_SIGBUS_ON_SEA, &kvm->arch.flags);
->
-> Shouldn't this be somehow gated on the VM being RAS aware?
-
-Do you mean a CAP that VMM can tell KVM the VM guest has RAS ability?
-I don't know if there is one for arm64. On x86 there is
-KVM_X86_SETUP_MCE. KVM_CAP_ARM_INJECT_EXT_DABT maybe a revelant one
-but I don't think it is exactly the one for "RAS ability".
-
->
-> > +             break;
-> >       default:
-> >               break;
-> >       }
-> > @@ -339,6 +343,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, l=
-ong ext)
-> >       case KVM_CAP_ARM_SYSTEM_SUSPEND:
-> >       case KVM_CAP_IRQFD_RESAMPLE:
-> >       case KVM_CAP_COUNTER_OFFSET:
-> > +     case KVM_CAP_ARM_SIGBUS_ON_SEA:
-> >               r =3D 1;
-> >               break;
-> >       case KVM_CAP_SET_GUEST_DEBUG2:
-> > diff --git a/arch/arm64/kvm/kvm_ras.c b/arch/arm64/kvm/kvm_ras.c
-> > new file mode 100644
-> > index 0000000000000..3225462bcbcda
-> > --- /dev/null
-> > +++ b/arch/arm64/kvm/kvm_ras.c
-> > @@ -0,0 +1,77 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +
-> > +#include <linux/bitops.h>
-> > +#include <linux/kvm_host.h>
-> > +
-> > +#include <asm/kvm_emulate.h>
-> > +#include <asm/kvm_ras.h>
-> > +#include <asm/system_misc.h>
-> > +
-> > +/*
-> > + * For synchrnous external instruction or data abort, not on translati=
-on
-> > + * table walk or hardware update of translation table, is FAR_EL2 vali=
-d?
-> > + */
-> > +static inline bool kvm_vcpu_sea_far_valid(const struct kvm_vcpu *vcpu)
-> > +{
-> > +     return !(vcpu->arch.fault.esr_el2 & ESR_ELx_FnV);
-> > +}
-> > +
-> > +/*
-> > + * Was this synchronous external abort a RAS notification?
-> > + * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
-> > + */
-> > +static int kvm_delegate_guest_sea(phys_addr_t addr, u64 esr)
-> > +{
-> > +     /* apei_claim_sea(NULL) expects to mask interrupts itself */
-> > +     lockdep_assert_irqs_enabled();
-> > +     return apei_claim_sea(NULL);
-> > +}
-> > +
-> > +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> > +{
-> > +     bool sigbus_on_sea;
-> > +     int idx;
-> > +     u64 vcpu_esr =3D kvm_vcpu_get_esr(vcpu);
-> > +     u8 fsc =3D kvm_vcpu_trap_get_fault(vcpu);
-> > +     phys_addr_t fault_ipa =3D kvm_vcpu_get_fault_ipa(vcpu);
-> > +     gfn_t gfn =3D fault_ipa >> PAGE_SHIFT;
-> > +     /* When FnV is set, send 0 as si_addr like what do_sea() does. */
-> > +     unsigned long hva =3D 0UL;
-> > +
-> > +     /*
-> > +      * For RAS the host kernel may handle this abort.
-> > +      * There is no need to SIGBUS VMM, or pass the error into the gue=
-st.
-> > +      */
-> > +     if (kvm_delegate_guest_sea(fault_ipa, vcpu_esr) =3D=3D 0)
-> > +             return;
-> > +
-> > +     sigbus_on_sea =3D test_bit(KVM_ARCH_FLAG_SIGBUS_ON_SEA,
-> > +                              &(vcpu->kvm->arch.flags));
-> > +
-> > +     /*
-> > +      * In addition to userspace opt-in, SIGBUS only makes sense if th=
-e
-> > +      * abort is NOT about translation table walk and NOT about hardwa=
-re
-> > +      * update of translation table.
-> > +      */
-> > +     sigbus_on_sea &=3D (fsc =3D=3D ESR_ELx_FSC_EXTABT || fsc =3D=3D E=
-SR_ELx_FSC_SECC);
-> > +
-> > +     /* Pass the error directly into the guest. */
-> > +     if (!sigbus_on_sea) {
-> > +             kvm_inject_vabt(vcpu);
-> > +             return;
-> > +     }
-> > +
-> > +     if (kvm_vcpu_sea_far_valid(vcpu)) {
-> > +             idx =3D srcu_read_lock(&vcpu->kvm->srcu);
-> > +             hva =3D gfn_to_hva(vcpu->kvm, gfn);
-> > +             srcu_read_unlock(&vcpu->kvm->srcu, idx);
-> > +     }
-> > +
-> > +     /*
-> > +      * Send a SIGBUS BUS_OBJERR to vCPU thread (the userspace thread =
-that
-> > +      * runs KVM_RUN) or VMM, which aligns with what host kernel do_se=
-a()
-> > +      * does if apei_claim_sea() fails.
-> > +      */
-> > +     arm64_notify_die("synchronous external abort",
-> > +                      current_pt_regs(), SIGBUS, BUS_OBJERR, hva, vcpu=
-_esr);
->
-> This is the point where I really think we should simply trigger an
-> exit with all that syndrome information stashed in kvm_run, like any
-> other event requiring userspace help.
-
-Ah, there is another reason SIGBUS is better than kvm exit: "It is a
-programming error to set ext_dabt_pending after an exit which was not
-either KVM_EXIT_MMIO or KVM_EXIT_ARM_NISV", from
-Documentation/virt/kvm/api.rst. So if VMM is allowed to inject data
-abort to guest, at least current documentation doesn't suggest kvm
-exit is feasible.
-
->
-> Also: where is the documentation?
-
-Once I get more positive feedback and send out PATCH instead of RFC, I
-can add to Documentation/virt/kvm/api.rst.
-
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBBZGFtIEZvcmQgPGFmb3JkMTcz
+QGdtYWlsLmNvbT4NCj4gU2VudDogMjAyNOW5tDEx5pyIMuaXpSAzOjUzDQo+IFRvOiBIb25neGlu
+ZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiBDYzogRnJhbmsgTGkgPGZyYW5rLmxpQG54
+cC5jb20+OyB2a291bEBrZXJuZWwub3JnOyBmZXN0ZXZhbUBnbWFpbC5jb207DQo+IGlteEBsaXN0
+cy5saW51eC5kZXY7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsga2lzaG9uQGtlcm5lbC5vcmc7DQo+
+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgta2VybmVsQHZnZXIu
+a2VybmVsLm9yZzsNCj4gbGludXgtcGh5QGxpc3RzLmluZnJhZGVhZC5vcmc7IE1hcmNlbCBaaXN3
+aWxlciA8bWFyY2VsLnppc3dpbGVyQHRvcmFkZXguY29tPjsNCj4gcy5oYXVlckBwZW5ndXRyb25p
+eC5kZTsgc2hhd25ndW9Aa2VybmVsLm9yZzsgc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KPiBTdWJq
+ZWN0OiBSZTogW1BBVENIIHYyIDEvMV0gcGh5OiBmcmVlc2NhbGU6IGlteDhtLXBjaWU6IERvIENN
+Tl9SU1QganVzdCBiZWZvcmUNCj4gUEhZIFBMTCBsb2NrIGNoZWNrDQo+IA0KPiBPbiBNb24sIE9j
+dCAyMSwgMjAyNCBhdCAxMTowNuKAr1BNIEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcuemh1QG54cC5j
+b20+DQo+IHdyb3RlOg0KPiA+DQo+ID4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiA+
+ID4gRnJvbTogRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+DQo+ID4gPiBTZW50OiAyMDI05bm0
+MTDmnIgyMeaXpSAyMzo1Mw0KPiA+ID4gVG86IHZrb3VsQGtlcm5lbC5vcmcNCj4gPiA+IENjOiBG
+cmFuayBMaSA8ZnJhbmsubGlAbnhwLmNvbT47IGZlc3RldmFtQGdtYWlsLmNvbTsgSG9uZ3hpbmcg
+Wmh1DQo+ID4gPiA8aG9uZ3hpbmcuemh1QG54cC5jb20+OyBpbXhAbGlzdHMubGludXguZGV2OyBr
+ZXJuZWxAcGVuZ3V0cm9uaXguZGU7DQo+ID4gPiBraXNob25Aa2VybmVsLm9yZzsgbGludXgtYXJt
+LWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOw0KPiA+ID4gbGludXgta2VybmVsQHZnZXIua2Vy
+bmVsLm9yZzsgbGludXgtcGh5QGxpc3RzLmluZnJhZGVhZC5vcmc7IE1hcmNlbA0KPiA+ID4gWmlz
+d2lsZXIgPG1hcmNlbC56aXN3aWxlckB0b3JhZGV4LmNvbT47IHMuaGF1ZXJAcGVuZ3V0cm9uaXgu
+ZGU7DQo+ID4gPiBzaGF3bmd1b0BrZXJuZWwub3JnOyBzdGFibGVAdmdlci5rZXJuZWwub3JnDQo+
+ID4gPiBTdWJqZWN0OiBbUEFUQ0ggdjIgMS8xXSBwaHk6IGZyZWVzY2FsZTogaW14OG0tcGNpZTog
+RG8gQ01OX1JTVCBqdXN0DQo+ID4gPiBiZWZvcmUgUEhZIFBMTCBsb2NrIGNoZWNrDQo+ID4gPg0K
+PiA+ID4gRnJvbTogUmljaGFyZCBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiA+ID4NCj4g
+PiA+IFdoZW4gZW5hYmxlIGluaXRjYWxsX2RlYnVnIHRvZ2V0aGVyIHdpdGggaGlnaGVyIGRlYnVn
+IGxldmVsIGJlbG93Lg0KPiA+ID4gQ09ORklHX0NPTlNPTEVfTE9HTEVWRUxfREVGQVVMVD05DQo+
+ID4gPiBDT05GSUdfQ09OU09MRV9MT0dMRVZFTF9RVUlFVD05DQo+ID4gPiBDT05GSUdfTUVTU0FH
+RV9MT0dMRVZFTF9ERUZBVUxUPTcNCj4gPiA+DQo+ID4gPiBUaGUgaW5pdGlhbGl6YXRpb24gb2Yg
+aS5NWDhNUCBQQ0llIFBIWSBtaWdodCBiZSB0aW1lb3V0IGZhaWxlZCByYW5kb21seS4NCj4gPiA+
+IFRvIGZpeCB0aGlzIGlzc3VlLCBhZGp1c3QgdGhlIHNlcXVlbmNlIG9mIHRoZSByZXNldHMgcmVm
+ZXIgdG8gdGhlDQo+ID4gPiBwb3dlciB1cCBzZXF1ZW5jZSBsaXN0ZWQgYmVsb3cuDQo+ID4gPg0K
+PiA+ID4gaS5NWDhNUCBQQ0llIFBIWSBwb3dlciB1cCBzZXF1ZW5jZToNCj4gPiA+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQ0KPiA+ID4gMS44diBzdXBwbHkgICAgIC0tLS0tLS0tLS8NCj4gPiA+ICAgICAgICAg
+ICAgICAgICAgICAgLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQ0KPiA+ID4gMC44diBzdXBwbHkgICAgIC0tLS8NCj4gPiA+DQo+ID4gPiAgICAgICAg
+ICAgICAgICAgLS0tXCAvLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0NCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgWCAgICAgICAgUkVGQ0xLIFZhbGlk
+DQo+ID4gPiBSZWZlcmVuY2UgQ2xvY2sgLS0tLyBcLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KPiA+ID4gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB8DQo+ID4gPiBpX2luaXRfcmVzdG4gICAgLS0tLS0t
+LS0tLS0tLS0NCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KPiA+ID4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfA0KPiA+ID4gaV9jbW5fcnN0biAgICAgIC0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQ0KPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAt
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQo+ID4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgb19wbGxfbG9ja19kb25lDQo+ID4gPiAtLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLQ0KPiA+ID4NCj4gPiA+IExvZ3M6DQo+ID4gPiBpbXg2cS1wY2llIDMz
+ODAwMDAwLnBjaWU6IGhvc3QgYnJpZGdlIC9zb2NAMC9wY2llQDMzODAwMDAwIHJhbmdlczoNCj4g
+PiA+IGlteDZxLXBjaWUgMzM4MDAwMDAucGNpZTogICAgICAgSU8gMHgwMDFmZjgwMDAwLi4weDAw
+MWZmOGZmZmYgLT4NCj4gPiA+IDB4MDAwMDAwMDAwMA0KPiA+ID4gaW14NnEtcGNpZSAzMzgwMDAw
+MC5wY2llOiAgICAgIE1FTSAweDAwMTgwMDAwMDAuLjB4MDAxZmVmZmZmZiAtPg0KPiA+ID4gMHgw
+MDE4MDAwMDAwDQo+ID4gPiBwcm9iZSBvZiBjbGtfaW14OG1wX2F1ZGlvbWl4LnJlc2V0LjAgcmV0
+dXJuZWQgMCBhZnRlciAxMDUyIHVzZWNzDQo+ID4gPiBwcm9iZSBvZiAzMGUyMDAwMC5jbG9jay1j
+b250cm9sbGVyIHJldHVybmVkIDAgYWZ0ZXIgMzI5NzEgdXNlY3MgcGh5DQo+ID4gPiBwaHktMzJm
+MDAwMDAucGNpZS1waHkuNDogcGh5IHBvd2Vyb24gZmFpbGVkIC0tPiAtMTEwIHByb2JlIG9mDQo+
+ID4gPiAzMGUxMDAwMC5kbWEtY29udHJvbGxlciByZXR1cm5lZCAwIGFmdGVyIDEwMjM1IHVzZWNz
+IGlteDZxLXBjaWUNCj4gPiA+IDMzODAwMDAwLnBjaWU6IHdhaXRpbmcgZm9yIFBIWSByZWFkeSB0
+aW1lb3V0IQ0KPiA+ID4gZHdoZG1pLWlteCAzMmZkODAwMC5oZG1pOiBEZXRlY3RlZCBIRE1JIFRY
+IGNvbnRyb2xsZXIgdjIuMTNhIHdpdGgNCj4gPiA+IEhEQ1ANCj4gPiA+IChzYW1zdW5nX2R3X2hk
+bWlfcGh5MikgaW14NnEtcGNpZSAzMzgwMDAwMC5wY2llOiBwcm9iZSB3aXRoIGRyaXZlcg0KPiA+
+ID4gaW14NnEtcGNpZSBmYWlsZWQgd2l0aCBlcnJvciAtMTEwDQo+ID4gPg0KPiA+ID4gRml4ZXM6
+IGRjZTllZGZmMTZlZSAoInBoeTogZnJlZXNjYWxlOiBpbXg4bS1wY2llOiBBZGQgaS5NWDhNUCBQ
+Q0llDQo+ID4gPiBQSFkNCj4gPiA+IHN1cHBvcnQiKQ0KPiA+ID4gQ2M6IHN0YWJsZUB2Z2VyLmtl
+cm5lbC5vcmcNCj4gPiA+IFNpZ25lZC1vZmYtYnk6IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVA
+bnhwLmNvbT4NCj4gPiA+IFNpZ25lZC1vZmYtYnk6IEZyYW5rIExpIDxGcmFuay5MaUBueHAuY29t
+Pg0KPiA+ID4NCj4gPiA+IHYyIGNoYW5nZXM6DQo+ID4gPiAtIFJlYmFzZSB0byBsYXRlc3QgZml4
+ZXMgYnJhbmNoIG9mIGxpbnV4LXBoeSBnaXQgcmVwby4NCj4gPiA+IC0gUmljaGFyZCdzIGVudmly
+b25tZW50IGhhdmUgcHJvYmxlbSBhbmQgY2FuJ3Qgc2VudCBvdXQgcGF0Y2guIFNvIEkNCj4gPiA+
+IGhlbHAgcG9zdCB0aGlzIGZpeCBwYXRjaC4NCj4gDQo+IEV2ZW4gd2l0aCB0aGlzIHBhdGNoLCBJ
+IGFtIHN0aWxsIHNlZWluZyBhbiBvY2Nhc2lvbmFsIHRpbWVvdXQgb24gOE1QLg0KPiBJIGxvb2tl
+ZCBhdCBzb21lIGxvZ3Mgb24gYSBzaW1pbGFybHkgZnVuY3Rpb25pbmcgOE1NIGFuZCBJIGNhbid0
+IGdldCB0aGlzIGVycm9yIHRvDQo+IGFwcGVhciBvbiBNaW5pIHRoYXQgSSBzZWUgb24gUGx1cy4N
+Cj4gDQo+IFRoZSBUUk0gZG9lc24ndCBkb2N1bWVudCB0aGUgdGltaW5nIG9mIHRoZSBzdGFydHVw
+IHNlcXVlbmNlLCBsaWtlIHRoaXMgZS1tYWlsDQo+IHBhdGNoIGRpZCBub3IgZG9lcyBpdCBzdGF0
+ZSBob3cgbG9uZyBhIHJlYXNvbmFibGUgdGltZW91dCBzaG91bGQgdGFrZS4gU28sIEkNCj4gc3Rh
+cnRlZCBsb29raW5nIHRocm91Z2ggdGhlIGNvZGUgYW5kIEkgbm90aWNlZCB0aGF0IHRoZSBNaW5p
+IGFzc2VydHMgdGhlIHJlc2V0IGF0DQo+IHRoZSBiZWdpbm5pbmcsIHRoZW4gbWFrZXMgYWxsIHRo
+ZSBjaGFuZ2VzLCBhbmQgZGUtYXNzZXJ0cyB0aGUgcmVzZXRzIHRvd2FyZCB0aGUNCj4gZW5kLiAg
+SXMgdGhlcmUgYW55IHJlYXNvbiB3ZSBzaG91bGQgbm90IGFzc2VydCBvbmUgb3IgYm90aCBvZiB0
+aGUgcmVzZXRzIG9uDQo+IDhNUCBiZWZvcmUgc2V0dGluZyB1cCB0aGUgcmVzZXQgb2YgdGhlIHJl
+Z2lzdGVycyBsaWtlIHRoZSB3YXkgTWluaSBkb2VzIGl0Pw0KWWVzLCBJIGhhZCB0aGUgc2ltaWxh
+ciBjb25mdXNpb25zIHdoZW4gSSB0cnkgdG8gYnJpbmcgdXAgaS5NWDhNUCBQQ0llLg0KaS5NWDhN
+UCBQQ0llIHJlc2V0cyBoYXZlIHRoZSBkaWZmZXJlbnQgZGVzaWducyBidXQgSSBkb24ndCBrbm93
+IHRoZSByZWFzb24gYW5kDQp0aGUgZGV0YWlscy4gVGhlc2UgcmVzZXRzIHNob3VsZG4ndCBiZSBh
+c3NlcnRlZC9kZS1hc3NlcnRlZCBhcyBNaW5pIGRvZXMgZHVyaW5nDQogdGhlIGluaXRpYWxpemF0
+aW9uLg0KDQpPbiBpLk1YOE1QLCB0aGVzZSByZXNldHMgc2hvdWxkIGJlIGNvbmZpZ3VyZWQgb25l
+LXNob3QuIEkgdXNlZCB0byB0b2dnbGUgdGhlbQ0KaW4gbXkgb3duIGV4cGVyaW1lbnRzLiBVbmZv
+cnR1bmF0ZWx5LCB0aGUgUENJZSBQSFkgd291bGRuJ3QgYmUgZnVuY3Rpb25hbC4NCg0KQmVzdCBS
+ZWdhcmRzDQpSaWNoYXJkIFpodQ0KPiANCj4gYWRhbQ0KPiANCj4gPiA+IC0tLQ0KPiA+IEhpIEZy
+YW5rOg0KPiA+IFRoYW5rcyBhIGxvdCBmb3IgeW91ciBraW5kbHkgaGVscC4NCj4gPiBTaW5jZSBt
+eSBzZXJ2ZXIgaXMgZG93biwgSSBjYW4ndCBzZW5kIG91dCB0aGlzIHYyIGluIHRoZSBwYXN0IGRh
+eXMuDQo+ID4NCj4gPiBIaSBWaW5vZDoNCj4gPiBTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHksIGFu
+ZCBicmluZyB5b3UgaW5jb252ZW5pZW5jZS4NCj4gPg0KPiA+IEJlc3QgUmVnYXJkcw0KPiA+IFJp
+Y2hhcmQgWmh1DQo+ID4NCj4gPiA+ICBkcml2ZXJzL3BoeS9mcmVlc2NhbGUvcGh5LWZzbC1pbXg4
+bS1wY2llLmMgfCAxMCArKysrKy0tLS0tDQo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0
+aW9ucygrKSwgNSBkZWxldGlvbnMoLSkNCj4gPiA+DQo+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9waHkvZnJlZXNjYWxlL3BoeS1mc2wtaW14OG0tcGNpZS5jDQo+ID4gPiBiL2RyaXZlcnMvcGh5
+L2ZyZWVzY2FsZS9waHktZnNsLWlteDhtLXBjaWUuYw0KPiA+ID4gaW5kZXggMTFmY2IxODY3MTE4
+Yy4uZTk4MzYxZGNkZWFkZiAxMDA2NDQNCj4gPiA+IC0tLSBhL2RyaXZlcnMvcGh5L2ZyZWVzY2Fs
+ZS9waHktZnNsLWlteDhtLXBjaWUuYw0KPiA+ID4gKysrIGIvZHJpdmVycy9waHkvZnJlZXNjYWxl
+L3BoeS1mc2wtaW14OG0tcGNpZS5jDQo+ID4gPiBAQCAtMTQxLDExICsxNDEsNiBAQCBzdGF0aWMg
+aW50IGlteDhfcGNpZV9waHlfcG93ZXJfb24oc3RydWN0IHBoeQ0KPiA+ID4gKnBoeSkNCj4gPiA+
+ICAgICAgICAgICAgICAgICAgICAgICAgICBJTVg4TU1fR1BSX1BDSUVfUkVGX0NMS19QTEwpOw0K
+PiA+ID4gICAgICAgdXNsZWVwX3JhbmdlKDEwMCwgMjAwKTsNCj4gPiA+DQo+ID4gPiAtICAgICAv
+KiBEbyB0aGUgUEhZIGNvbW1vbiBibG9jayByZXNldCAqLw0KPiA+ID4gLSAgICAgcmVnbWFwX3Vw
+ZGF0ZV9iaXRzKGlteDhfcGh5LT5pb211eGNfZ3ByLCBJT01VWENfR1BSMTQsDQo+ID4gPiAtICAg
+ICAgICAgICAgICAgICAgICAgICAgSU1YOE1NX0dQUl9QQ0lFX0NNTl9SU1QsDQo+ID4gPiAtICAg
+ICAgICAgICAgICAgICAgICAgICAgSU1YOE1NX0dQUl9QQ0lFX0NNTl9SU1QpOw0KPiA+ID4gLQ0K
+PiA+ID4gICAgICAgc3dpdGNoIChpbXg4X3BoeS0+ZHJ2ZGF0YS0+dmFyaWFudCkgew0KPiA+ID4g
+ICAgICAgY2FzZSBJTVg4TVA6DQo+ID4gPiAgICAgICAgICAgICAgIHJlc2V0X2NvbnRyb2xfZGVh
+c3NlcnQoaW14OF9waHktPnBlcnN0KTsNCj4gPiA+IEBAIC0xNTYsNiArMTUxLDExIEBAIHN0YXRp
+YyBpbnQgaW14OF9wY2llX3BoeV9wb3dlcl9vbihzdHJ1Y3QgcGh5DQo+ID4gPiAqcGh5KQ0KPiA+
+ID4gICAgICAgICAgICAgICBicmVhazsNCj4gPiA+ICAgICAgIH0NCj4gPiA+DQo+ID4gPiArICAg
+ICAvKiBEbyB0aGUgUEhZIGNvbW1vbiBibG9jayByZXNldCAqLw0KPiA+ID4gKyAgICAgcmVnbWFw
+X3VwZGF0ZV9iaXRzKGlteDhfcGh5LT5pb211eGNfZ3ByLCBJT01VWENfR1BSMTQsDQo+ID4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgSU1YOE1NX0dQUl9QQ0lFX0NNTl9SU1QsDQo+ID4gPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgSU1YOE1NX0dQUl9QQ0lFX0NNTl9SU1QpOw0KPiA+ID4g
+Kw0KPiA+ID4gICAgICAgLyogUG9sbGluZyB0byBjaGVjayB0aGUgcGh5IGlzIHJlYWR5IG9yIG5v
+dC4gKi8NCj4gPiA+ICAgICAgIHJldCA9IHJlYWRsX3BvbGxfdGltZW91dChpbXg4X3BoeS0+YmFz
+ZSArDQo+ID4gPiBJTVg4TU1fUENJRV9QSFlfQ01OX1JFRzA3NSwNCj4gPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB2YWwsIHZhbCA9PSBBTkFfUExMX0RPTkUsIDEwLA0KPiAyMDAw
+MCk7DQo+ID4gPiAtLQ0KPiA+ID4gMi4zNC4xDQo+ID4NCj4gPiAtLQ0KPiA+IGxpbnV4LXBoeSBt
+YWlsaW5nIGxpc3QNCj4gPiBsaW51eC1waHlAbGlzdHMuaW5mcmFkZWFkLm9yZw0KPiA+IGh0dHBz
+Oi8vZXVyMDEuc2FmZWxpbmtzLnByb3RlY3Rpb24ub3V0bG9vay5jb20vP3VybD1odHRwcyUzQSUy
+RiUyRmxpc3QNCj4gPg0KPiBzLmluZnJhZGVhZC5vcmclMkZtYWlsbWFuJTJGbGlzdGluZm8lMkZs
+aW51eC1waHkmZGF0YT0wNSU3QzAyJTdDaG9uZ3hpDQo+ID4NCj4gbmcuemh1JTQwbnhwLmNvbSU3
+QzY2NmM4OTY4YjMwOTQxNDdlZDQ0MDhkY2ZhYWVjNjMxJTdDNjg2ZWExZDNiYw0KPiAyYjRjNmYN
+Cj4gPg0KPiBhOTJjZDk5YzVjMzAxNjM1JTdDMCU3QzAlN0M2Mzg2NjA4NzU3NzE1NDU2ODclN0NV
+bmtub3duJTdDVFdGDQo+IHBiR1pzYjNkOA0KPiA+DQo+IGV5SldJam9pTUM0d0xqQXdNREFpTENK
+UUlqb2lWMmx1TXpJaUxDSkJUaUk2SWsxaGFXd2lMQ0pYVkNJNk1uMCUzRCUNCj4gN0MwDQo+ID4g
+JTdDJTdDJTdDJnNkYXRhPTNNZzRTcWNhQSUyRmxiU2N2ZXJpR0JCTU9xMVlPVHQzb2t5ZGdIbWpt
+ZExwcw0KPiAlM0QmcmVzZXINCj4gPiB2ZWQ9MA0K
 
