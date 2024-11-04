@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF9AD132CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6730DD132CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9MrI4+M+kKHAd3Sup0mRHUENnMs265A92SHE5aq5rS4=; b=ZN6u6mwr9WfqfDQ3buoLvhYgeQ
-	EcDdq4j1NtcBV77XmgnxROxVICYmzQVewkkUZrh6p4KBs7McQ00i5IOUoiNJbceCXNW0bVMhOMdxP
-	AOzdnJ7iACqUgvt2zSdqCkx61Kj0CPXiKfs00deob69DyaJmlw3IfYYaIGrpO8AaXIgVlX2kCIPle
-	KXm5lk3eYj8xW3H3xUZYQzuhSzJLKBvEEsnyPmqd5+oxI2OUs4wtvYrn1HUf5lAMfdxI1NWjTlKN1
-	tA1aWJHBdf0x/v9pDXlHzFb8uDvpOtExgPCvmk524DeTJANx+6YCPAYE9qE2XKE/379DcsaPUhUfh
-	6yOENQEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sqm2eUmpjGk/yKTlbBeYIAzibuRGzydeHrU/c1RILbA=; b=BEJkmkTnguv1ijrDdj9DzihVCO
+	VQ6pc+UjC2yGsMWL8VTPb246TTPAj/DrFRlZYaHDYROK6gVXj1DIplTfJpK9nXqtfbjQl89v6XZaQ
+	JdTwN0C03kfR+ZgeTBMzcj+nbt1jsfGG6KQwf2XiyRxJ54nwgDreDtYKjatJgFPXZ2JJJvoe7NPdE
+	yycmJC3cqNiqQGDcsRGWmzso16cEHcIcrQfGdXwRFP1AM/gxqNyiV+oTqHartkRynRJGghK6YPPCC
+	8I1jO4c4FZqtsrlL2SeawyJjWuO6tTEpuZ7IE0a9tawStfYp9MS25rTZ+jgvWUDIk4ENuzUUyNMoh
+	m5O5SjCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7y5E-0000000E38c-02vq;
-	Mon, 04 Nov 2024 14:29:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t7y8b-0000000E3lo-2QEu;
+	Mon, 04 Nov 2024 14:33:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xUa-0000000DwPE-2qwU
+	id 1t7xaK-0000000DxeI-3lNC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 13:51:42 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4Bj2Xf004768;
-	Mon, 4 Nov 2024 13:51:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9MrI4+M+kKHAd3Sup0mRHUENnMs265A92SHE5aq5rS4=; b=QeFRtVxWbA5wlaYD
-	Mi5icSlVBSOTUTsvC4YJneW1skCW7Uu5SZDqCPHrpwBnrd3dwL7puGo2UNp7IygD
-	kDmKSx/3jqgvi+pcfaUN6uTkhA2yy4V0Gf/jAgiingblje8qhXgXRDq409ALKWrl
-	zvBBDC3W2iBBgkokSumcythPDOyiLoMJxJZlX5MfTjvfO63lvwzpz08QfgtCSPjl
-	d3c/ZcMGfPTelCcGBZd8MjVizsUGEOgrTqqA2WPcwLouuimlyzYUmcTYXyYX3t93
-	ssV8bPpuK3mPwGX0Rq9S9zAn3jLCMqshSVXafVXZwcd/7smzI9ksjusXAUo+v8ln
-	Jm5JbQ==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42nd284ejh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 Nov 2024 13:51:31 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A4DpUI4025073
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 4 Nov 2024 13:51:30 GMT
-Received: from [10.131.33.37] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 4 Nov 2024
- 05:51:22 -0800
-Message-ID: <e173058b-57e7-7fd0-dab7-7398bf9d66ec@quicinc.com>
-Date: Mon, 4 Nov 2024 19:20:01 +0530
+	Mon, 04 Nov 2024 13:57:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 27E705C5602
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD05C4AF10
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:57:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730728654;
+	bh=ATGMRNYib3E3d70xFtfquwImqeHY2Vx+HKA83DyFm/s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=F2zA0jXuUfDUOSoYsl0ARLRTXEZB/7hm6NSR2dObeTVRBaBHzidrJVy4uvNWkJRn4
+	 YKM6YGkPxB2gn1sCNyvA7EHur0/zAdou1eMEKZouXoCWbErOAmrCOwgrbwIOfxn3Hj
+	 FN9N+Qbq7awFlpiD5qm7XKhuMhJ04BdVUXHoSY0ZyptJg3bDipih3e3Fq4gWMjoKBr
+	 KCxmEF6X6uWBG/8+qDhOZAdP4q7IhuwvFemrd2T4m9r1ehuvqZrtOSTmNoPK0YTXNV
+	 NQb34FStrNYg5cUo65v0nu0eDBWJoz1HZ8jq1bABMZY0DDL9Nne5marO9uFC3wtOWk
+	 VbpSD4/HvNF1w==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-2fb599aac99so35636371fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:57:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUt0LkOF4Cya3Mp5AzmFQCtCEGJR4ASUR0BajgJscI5Z/Vs6w/Ko238e+KUDOOeuQf1OadshmkCElxp3t/pfqRe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGOEShTOuyDZHixZ+lZzCBT2cYhcS17Ta6hCz2uVKXl+ff2RoB
+	uaXB41T+yNXVvcOTSeT9HOps130s+RIM76FOsku4RRNFAXefDUGwRWCkMyEGM25prC8+5lfw2ei
+	NStzGEUmS3/hk3twMbffIeZzFE1U=
+X-Google-Smtp-Source: AGHT+IGYiNOgDi5Le3J7P4DzKkREuD910/yQdlYsMmB6aCbgiaBYJiXQh7PKpRRmxOJ2QdTqpHKpGMi2KG1wHsQSe/0=
+X-Received: by 2002:a2e:a904:0:b0:2fb:510c:7236 with SMTP id
+ 38308e7fff4ca-2fedb831551mr63647191fa.40.1730728652759; Mon, 04 Nov 2024
+ 05:57:32 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH V5 3/6] firmware: arm_scmi: Report duplicate opps as
- firmware bugs
-Content-Language: en-US
-To: Johan Hovold <johan@kernel.org>
-CC: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>,
-        <ulf.hansson@linaro.org>, <jassisinghbrar@gmail.com>,
-        <dmitry.baryshkov@linaro.org>, <linux-kernel@vger.kernel.org>,
-        <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <konradybcio@kernel.org>,
-        <linux-pm@vger.kernel.org>, <tstrudel@google.com>, <rafael@kernel.org>,
-        Johan
- Hovold <johan+linaro@kernel.org>
-References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
- <20241030125512.2884761-4-quic_sibis@quicinc.com>
- <ZyThAFbOHKaBIgLg@hovoldconsulting.com>
-From: Sibi Sankar <quic_sibis@quicinc.com>
-In-Reply-To: <ZyThAFbOHKaBIgLg@hovoldconsulting.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: N9dkp-hFPldnpkGgKZ0fDSY64p2Ut9pZ
-X-Proofpoint-GUID: N9dkp-hFPldnpkGgKZ0fDSY64p2Ut9pZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxlogscore=999
- clxscore=1015 lowpriorityscore=0 impostorscore=0 priorityscore=1501
- spamscore=0 phishscore=0 bulkscore=0 malwarescore=0 suspectscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411040121
+References: <20241101155800.3917462-2-ardb+git@google.com> <ZyjREXyABoQtkV8O@arm.com>
+In-Reply-To: <ZyjREXyABoQtkV8O@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 4 Nov 2024 14:57:21 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFMBU1aPmL58NtyPu2kKpWurHBOYE4rmKvPwj0SA5Z+Dg@mail.gmail.com>
+Message-ID: <CAMj1kXFMBU1aPmL58NtyPu2kKpWurHBOYE4rmKvPwj0SA5Z+Dg@mail.gmail.com>
+Subject: Re: [PATCH] arm64/mm: Sanity check PTE address before runtime P4D/PUD folding
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_055140_897359_41D61D25 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20241104_055737_046725_000A78B9 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,52 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 4 Nov 2024 at 14:50, Catalin Marinas <catalin.marinas@arm.com> wrote:
+>
+> On Fri, Nov 01, 2024 at 04:58:01PM +0100, Ard Biesheuvel wrote:
+> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > index dd5dcf7ae056..0d729adf894c 100644
+> > --- a/arch/arm64/include/asm/pgtable.h
+> > +++ b/arch/arm64/include/asm/pgtable.h
+> > @@ -740,6 +740,11 @@ static inline bool pud_table(pud_t pud) { return true; }
+> >                                PUD_TYPE_TABLE)
+> >  #endif
+> >
+> > +static inline long sign_of(unsigned long addr)
+> > +{
+> > +     return (int)(addr >> 24) >> 31L; // bit 55 is the sign bit
+> > +}
+>
+> That's a pretty generic name that trickles into the core code. It should
+> be renamed to something that suggests arm64 addresses (and maybe some
+> underscores to imply private).
 
+Fair enough.
 
-On 11/1/24 19:39, Johan Hovold wrote:
-> On Wed, Oct 30, 2024 at 06:25:09PM +0530, Sibi Sankar wrote:
->> Duplicate opps reported by buggy SCP firmware currently show up
->> as warnings even though the only functional impact is that the
->> level/index remain inaccessible. Make it less scary for the end
->> user by using dev_info instead, along with FW_BUG tag.
->>
->> Suggested-by: Johan Hovold <johan+linaro@kernel.org>
->> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
->> ---
->>   drivers/firmware/arm_scmi/perf.c | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
->> index 32f9a9acd3e9..c7e5a34b254b 100644
->> --- a/drivers/firmware/arm_scmi/perf.c
->> +++ b/drivers/firmware/arm_scmi/perf.c
->> @@ -387,7 +387,7 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
->>   
->>   	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
->>   	if (ret) {
->> -		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
->> +		dev_info(dev, FW_BUG "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
->>   			 opp->perf, dom->info.name, ret);
-> 
-> I was hoping you could make the error message a bit more informative as
-> well, for example, by saying that a duplicate opp level was ignored:
-> 
-> 	arm-scmi arm-scmi.0.auto: [Firmware Bug]: Ignoring duplicate OPP 3417600 for NCC
+> Also, this assumes untagged addresses but
+> I haven't checked whether that's the case for all call sites.
+>
 
-I did think about doing something similar but xa_insert can fail
-with both -EXIST (duplicate) and -ENOMEM, so the we can't really
-use term duplicate when insert fails. I can add the perf level
-though to the message though.
+Isn't bit #55 always guaranteed to be the sign bit?
 
--Sibi
+> >  extern pgd_t init_pg_dir[];
+> >  extern pgd_t init_pg_end[];
+> >  extern pgd_t swapper_pg_dir[];
+> > @@ -932,6 +937,8 @@ static inline phys_addr_t p4d_page_paddr(p4d_t p4d)
+> >
+> >  static inline pud_t *p4d_to_folded_pud(p4d_t *p4dp, unsigned long addr)
+> >  {
+> > +     VM_BUG_ON(((u64)p4dp / sizeof(p4d_t) - sign_of(addr)) % PTRS_PER_P4D);
+> > +
+> >       return (pud_t *)PTR_ALIGN_DOWN(p4dp, PAGE_SIZE) + pud_index(addr);
+> >  }
+>
+> I think I get it but please add a comment in the code, otherwise in a
+> week time I'll wonder what this is.
+>
+> Even better if it could be written in a less cryptic way ;).
+>
 
-> 
-> or similar (e.g. as the current message looks like an error, with errno
-> and all, that indeed warrants warning level).
-> 
-> Perhaps with such a message you could even keep the warning level to
-> make it stand out more (if that's desirable) without the risk of scaring
-> users.
-> 
-> Johan
+Yeah, I tried to keep it concise so the code for the VM_BUG_ON()
+doesn't bloat the function.
 
