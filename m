@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679B4D132C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB993D132C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zp5y0+Rq0WHrDia4bvFK9Du9WgLZRQc3oKl++fsdJMA=; b=dZAv2w634iuC9FpSuXgN2pJDB/
-	NnDDKBL9AsTMmLqi86lM9iaUWMx8f4GYgN2UE3GrVE5cNrz8918w+mEJAckzHOeg4IjLQ+QWFJFbo
-	RXl82e/rxVdhtL2mlzZIYPycLgXs9zBszqr301omcyExhWfrwqbCEoj/tg1fI3CmbPb2x/5FE53v3
-	Z2qvKU//gnn6w4L4AGqPrGWekLvjys92P7/WSgjTIwBYbH72xFGd0P/w1oo4LvdwLfepep+uMzEzT
-	R32L4XzFu8vXpb9gmRfXrtP3vxoZH3gw2A+gSgRfVekyWkbnB/ZmxHxi/PYNGAYb6FR3Yhg2i3u4g
-	WPTyj/3Q==;
+	bh=CVlLw2VsW1NEYgyhjgZsv6w0k6EmJDYLHCvZ5J3b7lU=; b=gB1iM+VJinfLj8fEh5Fpcov5Io
+	lxvQbUBwOtfqRyJCBEYxgT5hdj1gX5qoogE3A2iGDgWTT0KjYJGsEueLWcZuLs1IlGV0s0OiF5ebl
+	F1lVWQeJkREGXzl2BPg+2bDmsIvhYZ9SmW1Q6+fKlXMs2bR6wTMUlOQfdd1jxqanjWwUeQPF6Zva4
+	0BEytosrPBF62W5efw5pO2Op2m8Tj3jJiigbLyF48ous2ouxlOdc+kPSJRKQN25vR331sru4cdUJS
+	EgKUNCjy8oIeDhLE3AwqS4Wpnc8y9VIis872d4+GDYcldKdT/DYYEhcuGUrdNcQyxxDmoSmAxaUX0
+	PA/EBKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xSC-0000000Dvz9-3OFW;
-	Mon, 04 Nov 2024 13:49:12 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1t7xTs-0000000DwH0-0q3k;
+	Mon, 04 Nov 2024 13:50:56 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xBu-0000000DsJ4-3sbK
+	id 1t7xBv-0000000DsK8-3TZW
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 Nov 2024 13:32:25 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-a9a157d028aso341744766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:32:21 -0800 (PST)
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e28fea2adb6so5990951276.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:32:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730727140; x=1731331940; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1730727142; x=1731331942; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zp5y0+Rq0WHrDia4bvFK9Du9WgLZRQc3oKl++fsdJMA=;
-        b=LNef2bE//T3EQwzTP+pDoTPwWkLKCB/cD2S8+8QSseiMmMg6iEPNZK69r/aDLLogBj
-         xAbPdrlOizxnUcAh06UbPk97+UrTdLEGnTxZpDnygGIvnXpw3MmuWjKF0x3qTyyOt1uI
-         2d3qoEWGXR7RjtzAFdoJIiUydyNkDohCdgDD1HxX2QTV14ABdAwS2Eerj0WGX+n6v95k
-         m7Sn9CU8EsKB9kuTB2BJM5nCDTu/LJVSrGaR/61y/pJ6A64HS5SLiyhACyMWjkSF9xP1
-         KpwnjjI+v7l8ZUayHTirDle+d/DwRxYW0AqpBxVH9iZ01gwxjjF0wV2y6O5r9VbmUUtY
-         kBLg==
+        bh=CVlLw2VsW1NEYgyhjgZsv6w0k6EmJDYLHCvZ5J3b7lU=;
+        b=Ce9x2HJy0o00QKxFdcvfS3MOkwu/PPFTaNa3C4xmX0HBQFyr7aIBYwx+ouPXGAPMlE
+         OPWXNSR8bU/DIAntErarLYS3ZpEwX3kU6t7Vl7atHN5NFYkjvhXbAP95Ccc18/aR3un4
+         vICZLPHns6H7VWDAJ4/39JZXaZUUYmPKX6X/zCkLpw+bwF3yynB9gGY3xx4iBR4SEYXC
+         kCP39msq+HE6TG8/U9Pol5N5ZlLrT/Pc5h3/QMw9RG1kZmP4cQ2ab35CsEi8WG7PpZ+L
+         1QdnzTJF+KKGtyMCauRGLllHPzChhp8wO4elN5ylyZDqr18xYK96/tWswXhGndcfBsTx
+         ylLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730727140; x=1731331940;
+        d=1e100.net; s=20230601; t=1730727142; x=1731331942;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zp5y0+Rq0WHrDia4bvFK9Du9WgLZRQc3oKl++fsdJMA=;
-        b=u7LCvwtA9s3uA1jHTsPTcIIVTNc/nyThE04pWPdo0UDw2LS6qtxwnFpuM2zT7BCGfg
-         8iPTOWgHBo5EH+eAT8PxApzARkTebjLYAhjdtsD6wAhEApBcFNsdhviEL4Jmjj9REqvE
-         NPeqLOBPJgc9BsjGD8gm5muSdTeNk0gjLyNraoUH3gPVWSRO0W3j+0i2zlFROo2+xUEI
-         1sr0b14WKrPeyznAYKsYreg1b7tXd5aq/ZfoY0+Ba+MsI9taHKeK/3dtOOjOEFx2Iktj
-         YQx7WngX2Tw67T6vPfTyS5MvGU2qyMwQ1NuFap9gw2ardATJ+0Ri6h76XIoCeIQLkcOD
-         0Rlw==
-X-Forwarded-Encrypted: i=1; AJvYcCUe0l1InmJU/sjqIMTnm4t+H3SgaU2WIosjGJEJimcbw564px+qgO2io7M7smE2MkFLfUp7nvT70YI5jfCaM+od@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxu0SIL/ye+u3wPRYp3D+oR67pC0AQEUjnJSGxeuJPGzARaHLa
-	EaUCtq62So1THbIgOPYfnUGJ/ThiC8FIeM44mmgcIMFgTJJAfA4slcZFQe7I1JgZInv3jdns4CZ
-	UIiQb+Q==
-X-Google-Smtp-Source: AGHT+IGu3UcssODTNd0NubVJlZtWwwslOS4Fc2l45eu0iucEanXM8xQBrQzJXKGVO4SXDuAu4FLnrjRPKE4G
+        bh=CVlLw2VsW1NEYgyhjgZsv6w0k6EmJDYLHCvZ5J3b7lU=;
+        b=IFSQxqcdrUYjrkP4/2C6XErIK4k+N9sKHvyN8uW9wNtNNDs1MKJMMrkUNnloJ5CYd5
+         alF9mU1OXOPRR9vzdO7W4iDxi2DJ9bb1R1JOmS1ZqU9/cET77OXjJ95Je4RtCTwk5v9d
+         0EsTqrYFmDs7rbqLpCV8pxjCJEAHAG9NNci2styaIzCQrnmj11jTs8qAd6+jo2LuyKj5
+         EtdPEPZx1VSI6H/FypOhaguhzDDOVxONBypIn25Fst+9HKsBjoMe6eVvOCLEHWI4dfgZ
+         Swfnq/BP3RiQPdxFP0VCc06d1dAjfA62qBom+CrDBJ/R7h0IH+bsuMohwE8JkP5/6f8Z
+         dsgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWSkn94EKg1nH8PrWZFR38usZOPiVgXPuei+m9fWaONCEnQ/tzbGws9vgkCqgNZO7Y3V37ISIkuVQ74S6L5736m@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQtmxnoheMckHsCcPuU8b38xc68U5BVfuDE5nILmbIzoDFI8KF
+	zpFlb4oeC/vpkmUOrfhQN6UE9Ml/6SNFhuLmKCkpwPOZKEMs5a22+fV3c9TIHx0LxRph4a7hag7
+	cuEC7ZA==
+X-Google-Smtp-Source: AGHT+IGaIdjKw90MUAD6f3zhsAl5Ou4eqg/HHU1QzYnDITqGlaaCQnGFAV9PmmYFtFHG3tgEwpSpmlOm/Ebd
 X-Received: from big-boi.c.googlers.com ([fda3:e722:ac3:cc00:31:98fb:c0a8:129])
- (user=qperret job=sendgmr) by 2002:a17:906:ca0b:b0:a99:f617:af50 with SMTP id
- a640c23a62f3a-a9e6581e0ebmr285966b.10.1730727139947; Mon, 04 Nov 2024
- 05:32:19 -0800 (PST)
-Date: Mon,  4 Nov 2024 13:31:51 +0000
+ (user=qperret job=sendgmr) by 2002:a25:ed07:0:b0:e1d:912e:9350 with SMTP id
+ 3f1490d57ef6-e3087bc765dmr65574276.6.1730727142628; Mon, 04 Nov 2024 05:32:22
+ -0800 (PST)
+Date: Mon,  4 Nov 2024 13:31:52 +0000
 In-Reply-To: <20241104133204.85208-1-qperret@google.com>
 Mime-Version: 1.0
 References: <20241104133204.85208-1-qperret@google.com>
 X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
-Message-ID: <20241104133204.85208-6-qperret@google.com>
-Subject: [PATCH 05/18] KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
+Message-ID: <20241104133204.85208-7-qperret@google.com>
+Subject: [PATCH 06/18] KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
 From: Quentin Perret <qperret@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -77,8 +77,8 @@ Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>,
 	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_053223_003976_52E38F1D 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20241104_053223_985704_BEE46F46 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +93,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_pgtable_stage2_mkyoung currently assumes that it is being called
-from a 'shared' walker, which will not be true once called from pKVM.
-To allow for the re-use of that function, make the walk flags one of
-its parameters.
+kvm_pgtable_stage2_relax_perms currently assumes that it is being called
+from a 'shared' walker, which will not be true once called from pKVM. To
+allow for the re-use of that function, make the walk flags one of its
+parameters.
 
 Signed-off-by: Quentin Perret <qperret@google.com>
 ---
  arch/arm64/include/asm/kvm_pgtable.h | 4 +++-
- arch/arm64/kvm/hyp/pgtable.c         | 7 +++----
- arch/arm64/kvm/mmu.c                 | 3 ++-
- 3 files changed, 8 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c         | 6 ++----
+ arch/arm64/kvm/mmu.c                 | 7 +++----
+ 3 files changed, 8 insertions(+), 9 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 03f4c3d7839c..442a45d38e23 100644
+index 442a45d38e23..f52fa8158ce6 100644
 --- a/arch/arm64/include/asm/kvm_pgtable.h
 +++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -669,6 +669,7 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  * kvm_pgtable_stage2_mkyoung() - Set the access flag in a page-table entry.
+@@ -709,6 +709,7 @@ bool kvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr,
   * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
   * @addr:	Intermediate physical address to identify the page-table entry.
+  * @prot:	Additional permissions to grant for the mapping.
 + * @flags:	Flags to control the page-table walk (ex. a shared walk)
   *
   * The offset of @addr within a page is ignored.
   *
-@@ -677,7 +678,8 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  *
-  * Return: The old page-table entry prior to setting the flag, 0 on failure.
+@@ -721,7 +722,8 @@ bool kvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr,
+  * Return: 0 on success, negative error code on failure.
   */
--kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr);
-+kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-+				     enum kvm_pgtable_walk_flags flags);
+ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+-				   enum kvm_pgtable_prot prot);
++				   enum kvm_pgtable_prot prot,
++				   enum kvm_pgtable_walk_flags flags);
  
  /**
-  * kvm_pgtable_stage2_test_clear_young() - Test and optionally clear the access
+  * kvm_pgtable_stage2_flush_range() - Clean and invalidate data cache to Point
 diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b11bcebac908..fa25062f0590 100644
+index fa25062f0590..ee060438dc77 100644
 --- a/arch/arm64/kvm/hyp/pgtable.c
 +++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1245,15 +1245,14 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 					NULL, NULL, 0);
+@@ -1310,7 +1310,7 @@ bool kvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr,
  }
  
--kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr)
-+kvm_pte_t kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-+				     enum kvm_pgtable_walk_flags flags)
+ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+-				   enum kvm_pgtable_prot prot)
++				   enum kvm_pgtable_prot prot, enum kvm_pgtable_walk_flags flags)
  {
- 	kvm_pte_t pte = 0;
  	int ret;
+ 	s8 level;
+@@ -1328,9 +1328,7 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+ 	if (prot & KVM_PGTABLE_PROT_X)
+ 		clr |= KVM_PTE_LEAF_ATTR_HI_S2_XN;
  
- 	ret = stage2_update_leaf_attrs(pgt, addr, 1, KVM_PTE_LEAF_ATTR_LO_S2_AF, 0,
--				       &pte, NULL,
+-	ret = stage2_update_leaf_attrs(pgt, addr, 1, set, clr, NULL, &level,
 -				       KVM_PGTABLE_WALK_HANDLE_FAULT |
 -				       KVM_PGTABLE_WALK_SHARED);
-+				       &pte, NULL, flags);
- 	if (!ret)
- 		dsb(ishst);
- 
++	ret = stage2_update_leaf_attrs(pgt, addr, 1, set, clr, NULL, &level, flags);
+ 	if (!ret || ret == -EAGAIN)
+ 		kvm_call_hyp(__kvm_tlb_flush_vmid_ipa_nsh, pgt->mmu, addr, level);
+ 	return ret;
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 0f7658aefa1a..27e1b281f402 100644
+index 27e1b281f402..80dd61038cc7 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1708,6 +1708,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- /* Resolve the access fault by making the page young again. */
- static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- {
+@@ -1440,6 +1440,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	long vma_pagesize, fault_granule;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt;
 +	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
- 	kvm_pte_t pte;
- 	struct kvm_s2_mmu *mmu;
  
-@@ -1715,7 +1716,7 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ 	if (fault_is_perm)
+ 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
+@@ -1683,13 +1684,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		 * PTE, which will be preserved.
+ 		 */
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
+-		ret = kvm_pgtable_stage2_relax_perms(pgt, fault_ipa, prot);
++		ret = kvm_pgtable_stage2_relax_perms(pgt, fault_ipa, prot, flags);
+ 	} else {
+ 		ret = kvm_pgtable_stage2_map(pgt, fault_ipa, vma_pagesize,
+ 					     __pfn_to_phys(pfn), prot,
+-					     memcache,
+-					     KVM_PGTABLE_WALK_HANDLE_FAULT |
+-					     KVM_PGTABLE_WALK_SHARED);
++					     memcache, flags);
+ 	}
  
- 	read_lock(&vcpu->kvm->mmu_lock);
- 	mmu = vcpu->arch.hw_mmu;
--	pte = kvm_pgtable_stage2_mkyoung(mmu->pgt, fault_ipa);
-+	pte = kvm_pgtable_stage2_mkyoung(mmu->pgt, fault_ipa, flags);
- 	read_unlock(&vcpu->kvm->mmu_lock);
- 
- 	if (kvm_pte_valid(pte))
+ out_unlock:
 -- 
 2.47.0.163.g1226f6d8fa-goog
 
