@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E569ED1BDD9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98809D1BDD9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNoiMjw3OVqv17v9meTG6uSwfwajYIf8B5oUpoOvtpI=; b=k68R0zYYmyxKM7Lb7P5V2pgMJF
-	oir8Cj7dkFJQGtNIkMtzz4tFn596G2U3ty/M1Yp6wkFxgJcY4a/O2si7oFcxd65gCxzxkbJ+8Q0c2
-	N3u1CzpGBPRkYw0UmXYnRH5nD9oLqzYLjV/MEvcEuc7eDnQkBY0N6jcTNUtMt5PpRM5W2aoWK3M2/
-	toDJ7SihCnIra8MQQk5wh8ZaHcBCAqj0tLT7qH50dAQO3GZijCFmpTi2gRPEIwZdFNT81Nf2e4tI1
-	kXNb98sUg6LyjPQylpHZi41AXelnqDFvaM4jTMuxFuJ3GSIEtW6I1lXKPyFKQaVJYoE4sOf6Mj9vn
-	9u7J44jQ==;
+	bh=jOpQChbady85VjphGfbgQ0josSjOZ9BtFVZ3HbNMAFc=; b=3kKKAW4ibQOjO2vuwbovB5FxK1
+	UnYmSMCBWxS+/Xnt5xE8cQSdDiiGJz4HpSgo8KYCb6Rc5N+tl/NXpMl6R+N2b5kEIhaPkgu7C1tuf
+	6SzKVCL5+7nImKKp5oGuLKfyX/CyC8CnSFu/iabC/vGYD9BbnG9aQFBTn6Fw85ykufSqPbj+b/5a0
+	ox6dnzI541m7f6tZK87D1ZsKPpVyCcUTMi991pHMcNRQ+xiHQvZ4uTfhv53RscQFeLt848CJY5SDH
+	aeBAepP9oaednNGuRlZO37IrFUTi8bHBC97qTa/7Mjhb0UN5+vNhKka+C0kkCMOhJYhK/dkIDJj1A
+	p5bGXPhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t81W2-0000000Ef8I-0ROS;
-	Mon, 04 Nov 2024 18:09:26 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1t81Xj-0000000EfrL-3NY4;
+	Mon, 04 Nov 2024 18:11:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t819o-0000000EaJ7-3053
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 17:46:30 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c903f5bd0eso8253950a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 09:46:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730742386; x=1731347186; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iNoiMjw3OVqv17v9meTG6uSwfwajYIf8B5oUpoOvtpI=;
-        b=lcTVpjrmtVeCnhxOeCGBz920mVrhIj2XKmmqwl6un+WHR88HRSq1QVq0Yl6CMjbBNz
-         K2QYr3nhRfHMjpf04RGcsxWhT3G1bvFzT/V187MHPW9nOkf0aRJGeaiuqKGMbp+JopKB
-         jT39K2RI9S6X9tN5+E5dpDV/4TKs+AClTA0ZuEiZhRcAr1bnA+cQF8b40a8QRAbpILVN
-         UBaUIUvxKY9RjUJWRtS3bTrV9LddV+Dd41snT7jUiOIGVuuVWcKAoxDn0R852F1IKdCO
-         c1sC9Zo9ZhbC1jsTLnmnDqiwGmB/Wmn3OWITuxJq1vN7VvNlLJFEs8+aw66vFVPTcDHH
-         VtpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730742386; x=1731347186;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iNoiMjw3OVqv17v9meTG6uSwfwajYIf8B5oUpoOvtpI=;
-        b=aNn7ZBlQDnuSZeohMXkIEBUcqKhFL6gjW7twaCBLqYZI5Cblhx7qMQwY9IsaKTKQEw
-         RvQPCG36Sp1Ksjwx8MrYejGrqTDaXevKrhCPX9CpCCJGNXxrKfrsZx1oDBCk1lTntSZu
-         eFdtef1+gaEDxjeRFbgFAs6yW6plwphoNxcyUUV3LlKrTvfKfOz5aChXcRu32pKZxMA6
-         GEnNPGI8HIFKJB9y4cFrtSLKgC/LSp9qGcGVAVJx9WFLbhiN5G5JzEneM+u6/KG96/hE
-         wX0vDve9fBm902NUCvh38Q5dUBppWuuWf9WVYQEADia9aadQCm4ZSP2L94LmCe+6fJpa
-         XytA==
-X-Forwarded-Encrypted: i=1; AJvYcCVaOJg57STcwNp3vVpWEt3iWEGeyZah95wdUvMOOO9EbvvjzUnUVGepQS046I7pjKzsNLt1c/1l00+Tp6zUWd2j@lists.infradead.org
-X-Gm-Message-State: AOJu0YxX5zrpZwyy0YZ8wTQsbjgU21cFnpXcZh9yPpDoIhDspfjTlOU1
-	DizSDocL7tZA4m6RuJsBScgju+dSF0mUcRvLR2NkThuKOZyL2pgYmQIV/uoKVQ==
-X-Google-Smtp-Source: AGHT+IGrs35d/XWv8BanrAW8j6PHDnWwBaSo/wZx0w5yxGi7BlKHJcenw8eSrxH3L+MaXjx1Bk+QUg==
-X-Received: by 2002:a17:907:7d87:b0:a9a:684e:9a64 with SMTP id a640c23a62f3a-a9e50ba4055mr1494056066b.61.1730742385859;
-        Mon, 04 Nov 2024 09:46:25 -0800 (PST)
-Received: from google.com (40.162.204.35.bc.googleusercontent.com. [35.204.162.40])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb1813a33sm9246366b.185.2024.11.04.09.46.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 09:46:25 -0800 (PST)
-Date: Mon, 4 Nov 2024 17:46:22 +0000
-From: Quentin Perret <qperret@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 01/18] KVM: arm64: Change the layout of enum
- pkvm_page_state
-Message-ID: <ZykIbvN8LO7pEan0@google.com>
-References: <20241104133204.85208-1-qperret@google.com>
- <20241104133204.85208-2-qperret@google.com>
- <ZykFBhlzrUQtjEjy@google.com>
+	id 1t81By-0000000EaWF-0099;
+	Mon, 04 Nov 2024 17:48:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0EB5EA431F6;
+	Mon,  4 Nov 2024 17:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1421C4CECE;
+	Mon,  4 Nov 2024 17:48:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730742520;
+	bh=kyMZ9fV6X+51trgRY65w1AUDjMP2XEnEX7GkvQFyuQo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RG0ZZ45eSLTeSuURvGHB3h65F9t7QbkI04hRi4PIn9RQya+KVuOq+cKYwcM7OIRag
+	 ftffa9p0RPzhxKxbKbO1phJPPDnrPKDiu3Z4Itvr9Wls0R3DzSPdYDwIWB6GC4b2Kn
+	 OEWSQb/cisXjv+NDzmcx6uuXNdVsmOSyH1jBzLk86RwIVvV7yoI0yJMI8N5O1tLxWZ
+	 sqPAibypRsiDduXZx2vz4SdLoEWaYuAYo/l7nO/C5PoaF6LQixrBB1eQNUAosrKHye
+	 /gCeCfoWgbjXS3QMM1TfccoGnuhihV/zkZVDdun5Dof7x1e0ZdWeQe1z6JZskIC3qV
+	 2uU8b6EJ5uv3w==
+Date: Mon, 4 Nov 2024 17:48:39 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: "Darrick J. Wong" <djwong@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v3 15/18] ext4: switch to using the crc32c library
+Message-ID: <20241104174839.GA1049313@google.com>
+References: <20241103223154.136127-1-ebiggers@kernel.org>
+ <20241103223154.136127-16-ebiggers@kernel.org>
+ <20241104155900.GH21832@frogsfrogsfrogs>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZykFBhlzrUQtjEjy@google.com>
+In-Reply-To: <20241104155900.GH21832@frogsfrogsfrogs>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_094628_782410_DDA1A08B 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20241104_094842_128072_8A247649 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,67 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Seb,
+On Mon, Nov 04, 2024 at 07:59:00AM -0800, Darrick J. Wong wrote:
+> Hmm.  Looking at your git branch (which was quite helpful to link to!) I
+> think for XFS we don't need to change the crc32c() calls, and the only
+> porting work that needs to be done is mirroring this Kconfig change?
+> And that doesn't even need to be done until someone wants to get rid of
+> CONFIG_LIBCRC32C, right?
 
-On Monday 04 Nov 2024 at 17:31:50 (+0000), Sebastian Ene wrote:
-> On Mon, Nov 04, 2024 at 01:31:47PM +0000, Quentin Perret wrote:
-> 
-> Hi Quentin,
-> 
-> > The 'concrete' (a.k.a non-meta) page states are currently encoded using
-> > software bits in PTEs. For performance reasons, the abstract
-> > pkvm_page_state enum uses the same bits to encode these states as that
-> > makes conversions from and to PTEs easy.
-> > 
-> > In order to prepare the ground for moving the 'concrete' state storage
-> > to the hyp vmemmap, re-arrange the enum to use bits 0 and 1 for this
-> > purpose.
-> > 
-> > No functional changes intended.
-> > 
-> > Signed-off-by: Quentin Perret <qperret@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 17 ++++++++++-------
-> >  1 file changed, 10 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > index 0972faccc2af..ca3177481b78 100644
-> > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> > @@ -24,25 +24,28 @@
-> >   */
-> >  enum pkvm_page_state {
-> >  	PKVM_PAGE_OWNED			= 0ULL,
-> > -	PKVM_PAGE_SHARED_OWNED		= KVM_PGTABLE_PROT_SW0,
-> > -	PKVM_PAGE_SHARED_BORROWED	= KVM_PGTABLE_PROT_SW1,
-> > -	__PKVM_PAGE_RESERVED		= KVM_PGTABLE_PROT_SW0 |
-> > -					  KVM_PGTABLE_PROT_SW1,
-> > +	PKVM_PAGE_SHARED_OWNED		= BIT(0),
-> > +	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
-> > +	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
+That's correct, no porting work is required now.  'select LIBCRC32C' should be
+replaced with 'select CRC32', but that can be done later.
+
+> > @@ -3278,15 +3263,11 @@ extern void ext4_group_desc_csum_set(struct super_block *sb, __u32 group,
+> >  extern int ext4_register_li_request(struct super_block *sb,
+> >  				    ext4_group_t first_not_zeroed);
 > >  
-> >  	/* Meta-states which aren't encoded directly in the PTE's SW bits */
-> > -	PKVM_NOPAGE,
-> > +	PKVM_NOPAGE			= BIT(2),
-> >  };
+> >  static inline int ext4_has_metadata_csum(struct super_block *sb)
+> >  {
+> > -	WARN_ON_ONCE(ext4_has_feature_metadata_csum(sb) &&
+> > -		     !EXT4_SB(sb)->s_chksum_driver);
+> > -
+> > -	return ext4_has_feature_metadata_csum(sb) &&
+> > -	       (EXT4_SB(sb)->s_chksum_driver != NULL);
+> > +	return ext4_has_feature_metadata_csum(sb);
+> >  }
 > 
-> I guess we will still have to keep around the software bit annotation
-> for sharing MMIO regions from the host. This would not be tracked by the
-> vmemmap but it will still be in the s2 pagetable. As this is tagged with no
-> functional changes intended, are we safe because we are not supporting
-> MMIO sharing currently ?
+> Nit: Someone might want to
+> s/ext4_has_metadata_csum/ext4_has_feature_metadata_csum/ here to get rid
+> of the confusingly named trivial helper.
+> 
 
-That's right, currently no MMIO sharing is allowed -- see how
-host_get_page_state() returns PKVM_NOPAGE for non-memory addresses, so
-we should be good!
+Yes, that should be done as a follow-up patch.
 
-Sharing/donating devices is absolutely going to be needed eventually,
-but I hoped we could make that a separate series. And yes, we'll need
-_some_ data-structure at EL2 to track that, possibly the page-table,
-but could also be something else similar to how this series moves that
-away from the pgt for memory. Hopefully that's an orthogonal discussion
-we can have later :-)
+> Otherwise this logic looks ok to me, so
+> Reviewed-by: Darrick J. Wong <djwong@kernel.org>
+> 
+> --D
 
 Thanks,
-Quentin
+
+- Eric
 
