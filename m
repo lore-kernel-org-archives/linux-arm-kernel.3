@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D77D132B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E988D132B4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lh5+3KGOkaelrIB4Nl2tEoQoHe7RgDBZJ7Oaq3ExHpo=; b=cVzBMlkrLAN8sXESJNXEZROgzV
-	ksdeBZIN5WmSiypMiSrf7EIl8i18c3UoAHBvVZFytzLA0+hgTOPbGIb3nGvBCJGALxzYtsJ2YLTeE
-	CELnhaJzFzT5o9Zc87r5qwOhoDKhVPH2ynLyjBeQqG9R1vcfcPSQwOcoe/Q4Q6lM9eZb3WpZW/IU8
-	wC20giI7PhS8g5l58a+dVT0ejeUfEDZzNu0My7LJLz+9jABkblEWaNcU8yFlTslPkw1WfjUo8S2Ov
-	9bnhbtMVfYpXLd2bu1Rv3+xwiNl4sVzmdUOezEYwbVthaRw6u944Q/95DstJJR6ouNqICL9ddgK8u
-	TUrQFrRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LmNiJv6WqsJf0bOgE6V+P+A9hWFzLvThKN+NI4d0xwY=; b=toErhWUrNykouSEsD18GDSA0qz
+	Y2McaOOAC1R5yXjAjW5Vd0SxNC3Jhjqw7V4w7u876G45SALw5E/jTxa+8CEcAKTkeJzAqprThC7Zq
+	tC5BpjVNn/eGDuQhf1dstzPKe2ttnlaKl/7dOf1nwfKifYo+wnwGFHm+yTD1e0XWfKUs0H2nIEG+m
+	U0Qi28UasC9+b+UL7b6vNUfodmK585y2WlbkfA/zmdxqjcvLW8My5w77u/0pwzWfqyqDMpwWNqDMr
+	CdRIiD+C+YVf21ZLJMg3tSEH2T1UyzGHqVZ3zbl6hMGRC7qOOmH6q137+PwQGAhsi3iRJc7mTlXVY
+	FakJa+zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vhD-0000000Dc8y-2NCj;
-	Mon, 04 Nov 2024 11:56:35 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1t7vj9-0000000DcWi-1moi;
+	Mon, 04 Nov 2024 11:58:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vY7-0000000DaVw-1Nq4
+	id 1t7vYT-0000000DaZy-1PKE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:47:12 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d538fe5f2so2729295f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 03:47:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730720829; x=1731325629; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lh5+3KGOkaelrIB4Nl2tEoQoHe7RgDBZJ7Oaq3ExHpo=;
-        b=Eg7MgyjmCkdOr6LTKAXoctpjSS9o+qGPqc6tetFg83oj4dPMCvhe2GWYTceiDQyTee
-         5jxDCUX1Hw9F3a3d6+aATZ3a2uj5cOdBifKd3Yh5VudkRJ2YVSkzqfKdvVN1ndtLXvmk
-         6kTB+EaP0WhN69QCZim+QxVbYGMr/C6giIcZ2hlHf0QlX66ICsRcssM4meO6vnRtgjeR
-         Pr3Avr2MCpYDptHYkqGqWOmFWGI3haPyHKpAZn1nZeubp+vVcjDQEhjQ0+Ifq6HuH4g+
-         oGVoV8mzsJ5h0r9GwVfwUfEZ6mtuI5uoZIBoWzCBR9x0E/TJDPHt0wF7YcYxH2bjVh4i
-         bdYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730720829; x=1731325629;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lh5+3KGOkaelrIB4Nl2tEoQoHe7RgDBZJ7Oaq3ExHpo=;
-        b=vo3NVLR4Bt9OEm6bVFDgAC2sFcz3V4nYc/honBZw7dPs6ClWu0+lFkjSksKj3lLyNz
-         s5GMmKYJ2Nwpep1l37YF56fDQYyc7T7PPDslEjh+yKo98UbjlAyaFxFtYq2fOaY+kK1g
-         d7oQ5Xz1UqC9Bu0ERhsrWKpKds2wYP9+bkW6WoolJ1OzpIHCSydDOOvJXCbbCczqc7h3
-         EnfK6BC31+TPPPxOwVImlWuuWBzJNL09/RXu4b1RmzdIG5Cw+1CKV9ynyLy8ZvND8Rb0
-         zMgbzLJlw2rMIPJ9Il9NuvI+3Nb0OFaRMBeFGqbVp1qdntHzljPVEQ2NnPXsFN/Rbrst
-         bPaA==
-X-Gm-Message-State: AOJu0YxlF0zcgQ1sTfrAVHIbPv5Pm13hMZJNvHKtoxkBVTIb3KliKk+y
-	+WNiXHH1xWS5fFrizESoV7hTPG8OOsz8nAzdqua76lBM2yfe/9rAQuY3jlDjNm0=
-X-Google-Smtp-Source: AGHT+IGpbkSWgNkUv+H2MDavqFNOI/hX8U3WpCkkxEpPxrbnjPpDbaoC59i6YBF7QSDjt9Pl6iuLIA==
-X-Received: by 2002:a5d:64a1:0:b0:37d:4fe9:b6a7 with SMTP id ffacd0b85a97d-381bea1c1f4mr13084577f8f.36.1730720828889;
-        Mon, 04 Nov 2024 03:47:08 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.66.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10b7c13sm13193474f8f.13.2024.11.04.03.47.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Nov 2024 03:47:08 -0800 (PST)
-Message-ID: <ed15526d-9b1a-4204-92a3-4d319b03b790@linaro.org>
-Date: Mon, 4 Nov 2024 11:47:06 +0000
+	Mon, 04 Nov 2024 11:47:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6EDA4A42E0C;
+	Mon,  4 Nov 2024 11:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE59FC4CECE;
+	Mon,  4 Nov 2024 11:47:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730720852;
+	bh=YrBkBW416lpDyjoa3v17d3AWN56gLB1Iew1HdUSXMQ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J6Mb8pBYnu5iaGLA4V3tZYV5eSMnr/XQ2i98fhHzsNVHsgFRUPHP+4iy33vy7otHF
+	 SYZm903IjYWYnRn/UsuLTl+EWAski+HVZbIzfthuTDK4GjPn1aRaMC0I85LTkJH/+W
+	 rzNlNPEep5itEHFRU586JMeXTp71VoLdm+uvE0YBudRzch1/5/Zogu0W6m7FVSm+yX
+	 1IOwOnvitenBXc7Szlsq0+q9775HnLPRaUAept+DZl3u0v5DCmEo664L6yTAnqqFc1
+	 f8HXWCYTDWd65Eux6GdM6a+wSdXuEbf57AjXA2IfqFOMQeW8dyA43RH/HyIgJo+Zua
+	 9Kk5tpB4z1OjQ==
+Date: Mon, 4 Nov 2024 11:47:24 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO
+ via struct arm_smmu_hw_info
+Message-ID: <20241104114723.GA11511@willie-the-truck>
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+ <5-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] perf arm-spe: Add support for SPE Data Source
- packet on AmpereOne
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
- Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>,
- Graham Woodward <graham.woodward@arm.com>
-References: <20241031213533.11148-1-ilkka@os.amperecomputing.com>
- <20241031213533.11148-3-ilkka@os.amperecomputing.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20241031213533.11148-3-ilkka@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_034711_413350_50CFFB65 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20241104_034733_527361_8A0684EA 
+X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,174 +93,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 31/10/2024 9:35 pm, Ilkka Koskinen wrote:
-> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
+On Wed, Oct 30, 2024 at 09:20:49PM -0300, Jason Gunthorpe wrote:
+> From: Nicolin Chen <nicolinc@nvidia.com>
 > 
-> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> ---
->   .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
->   tools/perf/util/arm-spe.c                     | 65 +++++++++++++++++++
->   2 files changed, 74 insertions(+)
+> For virtualization cases the IDR/IIDR/AIDR values of the actual SMMU
+> instance need to be available to the VMM so it can construct an
+> appropriate vSMMUv3 that reflects the correct HW capabilities.
 > 
-> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> index 358c611eeddb..4bcd627e859f 100644
-> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> @@ -67,6 +67,15 @@ enum arm_spe_common_data_source {
->   	ARM_SPE_COMMON_DS_DRAM		= 0xe,
->   };
->   
-> +enum arm_spe_ampereone_data_source {
-> +	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE    = 0x0,
-> +	ARM_SPE_AMPEREONE_SLC                           = 0x3,
-> +	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE             = 0x5,
-> +	ARM_SPE_AMPEREONE_DDR                           = 0x7,
-> +	ARM_SPE_AMPEREONE_L1D                           = 0x8,
-> +	ARM_SPE_AMPEREONE_L2D                           = 0x9,
-> +};
-> +
->   struct arm_spe_record {
->   	enum arm_spe_sample_type type;
->   	int err;
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 9586416be30a..700d4bc8d8ec 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -103,6 +103,30 @@ struct arm_spe_queue {
->   	u32				flags;
->   };
->   
-> +struct arm_spe_source_mapping {
-> +	u16 source;
-> +	enum arm_spe_common_data_source common_src;
-> +};
-> +
-> +#define MAP_SOURCE(src, common)				\
-> +	{						\
-> +		.source = ARM_SPE_##src,		\
-> +		.common_src = ARM_SPE_COMMON_##common,  \
-> +	}
-> +
-> +static int arm_spe__map_to_common_source(u16 source,
-> +					 struct arm_spe_source_mapping *tbl,
-> +					 int nr_sources)
-> +{
-> +	while (nr_sources--) {
-> +		if (tbl->source == source)
-> +			return tbl->common_src;
-> +		tbl++;
-> +	}
-> +
+> For userspace page tables these values are required to constrain the valid
+> values within the CD table and the IOPTEs.
+> 
+> The kernel does not sanitize these values. If building a VMM then
+> userspace is required to only forward bits into a VM that it knows it can
+> implement. Some bits will also require a VMM to detect if appropriate
+> kernel support is available such as for ATS and BTM.
+> 
+> Start a new file and kconfig for the advanced iommufd support. This lets
+> it be compiled out for kernels that are not intended to support
+> virtualization, and allows distros to leave it disabled until they are
+> shipping a matching qemu too.
+> 
+> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
+> Reviewed-by: Donald Dutile <ddutile@redhat.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Hi Ilkka,
+--->8
 
-I think a simple switch statement here would be easier to follow than 
-the loop, custom macro and then having the mappings in some other place:
+> diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+> index e266dfa6a38d9d..b227ac16333fe1 100644
+> --- a/include/uapi/linux/iommufd.h
+> +++ b/include/uapi/linux/iommufd.h
+> @@ -488,15 +488,50 @@ struct iommu_hw_info_vtd {
+>  	__aligned_u64 ecap_reg;
+>  };
+>  
+> +/**
+> + * struct iommu_hw_info_arm_smmuv3 - ARM SMMUv3 hardware information
+> + *                                   (IOMMU_HW_INFO_TYPE_ARM_SMMUV3)
+> + *
+> + * @flags: Must be set to 0
+> + * @__reserved: Must be 0
+> + * @idr: Implemented features for ARM SMMU Non-secure programming interface
+> + * @iidr: Information about the implementation and implementer of ARM SMMU,
+> + *        and architecture version supported
+> + * @aidr: ARM SMMU architecture version
+> + *
+> + * For the details of @idr, @iidr and @aidr, please refer to the chapters
+> + * from 6.3.1 to 6.3.6 in the SMMUv3 Spec.
+> + *
+> + * User space should read the underlying ARM SMMUv3 hardware information for
+> + * the list of supported features.
+> + *
+> + * Note that these values reflect the raw HW capability, without any insight if
+> + * any required kernel driver support is present. Bits may be set indicating the
+> + * HW has functionality that is lacking kernel software support, such as BTM. If
+> + * a VMM is using this information to construct emulated copies of these
+> + * registers it should only forward bits that it knows it can support.
+> + *
+> + * In future, presence of required kernel support will be indicated in flags.
 
-switch(source)
-case 0x0: /* AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE */
-   return DS_PEER_CORE;
+What about the case where we _know_ that some functionality is broken in
+the hardware? For example, we nobble BTM support on MMU 700 thanks to
+erratum #2812531 yet we'll still cheerfully advertise it in IDR0 here.
+Similarly, HTTU can be overridden by IORT, so should we update the view
+that we advertise for that as well?
 
-etc...
-
-> +	return -1;
-
-And the default case can return 0xfff directly, which avoids the if else 
-later only to convert this -1 back into 0xfff.
-
-> +}
-> +
->   static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
->   			 unsigned char *buf, size_t len)
->   {
-> @@ -443,6 +467,11 @@ static const struct midr_range common_ds_encoding_cpus[] = {
->   	{},
->   };
->   
-> +static const struct midr_range ampereone_ds_encoding_cpus[] = {
-> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> +	{},
-> +};
-> +
->   static void arm_spe__sample_flags(struct arm_spe_queue *speq)
->   {
->   	const struct arm_spe_record *record = &speq->decoder->record;
-> @@ -532,6 +561,38 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
->   	}
->   }
->   
-> +static struct arm_spe_source_mapping ampereone_sources[] = {
-> +	MAP_SOURCE(AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE, DS_PEER_CORE),
-> +	MAP_SOURCE(AMPEREONE_SLC, DS_SYS_CACHE),
-> +	MAP_SOURCE(AMPEREONE_REMOTE_CHIP_CACHE, DS_REMOTE),
-> +	MAP_SOURCE(AMPEREONE_DDR, DS_DRAM),
-> +	MAP_SOURCE(AMPEREONE_L1D, DS_L1D),
-> +	MAP_SOURCE(AMPEREONE_L2D, DS_L2),
-> +};
-> +
-> +/*
-> + * Source is IMPDEF. Here we convert the source code used on AmpereOne cores
-> + * to the common (Neoverse, Cortex) to avoid duplicating the decoding code.
-> + */
-> +static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *record,
-> +						 union perf_mem_data_src *data_src)
-> +{
-> +	int common_src;
-> +	struct arm_spe_record common_record;
-> +
-> +	common_src = arm_spe__map_to_common_source(record->source,
-> +						   ampereone_sources,
-> +						   ARRAY_SIZE(ampereone_sources));
-> +	if (common_src < 0)
-> +		 /* Assign a bogus value that's not used for common coding */
-> +		common_record.source = 0xfff;
-> +	else
-> +		common_record.source = common_src;
-> +
-> +	common_record.op = record->op;
-> +	arm_spe__synth_data_source_common(&common_record, data_src);
-> +}
-> +
->   static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
->   					union perf_mem_data_src *data_src)
->   {
-> @@ -606,6 +667,8 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
->   	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
->   	bool is_common = arm_spe__is_ds_encoding_supported(speq,
->   						common_ds_encoding_cpus);
-> +	bool is_ampereone = arm_spe__is_ds_encoding_supported(speq,
-> +						ampereone_ds_encoding_cpus);
-
-I know this probably already works, but we don't really need is_common 
-is_ampere etc, it will only grow anyway. All we need is a list of midrs 
-and function pairs. That also avoids doing is_ampereone even after we 
-already know is_common == true.
-
-static const struct data_src[] = {
-...
-	DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2), common_ds),
-	DS(MIDR_ALL_VERSIONS(MIDR_AMPERE1A), ampere_ds),
-	{},
-...
-};
-
-"arm_spe__is_ds_encoding_supported" then becomes a direct call to 
-"arm_spe__synth_ds" and we can drop the is_ampereone and is_common vars. 
-Then adding new ones doesn't require changing the function anymore.
-
->   
->   	if (record->op & ARM_SPE_OP_LD)
->   		data_src.mem_op = PERF_MEM_OP_LOAD;
-> @@ -616,6 +679,8 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
->   
->   	if (is_common)
->   		arm_spe__synth_data_source_common(record, &data_src);
-> +	else if (is_ampereone)
-> +		arm_spe__synth_data_source_ampereone(record, &data_src);
->   	else
->   		arm_spe__synth_memory_level(record, &data_src);
->   
-
+Will
 
