@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42227D1BDE3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A37D1BDE3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZMR4Ee7nam7yQpTkUNDBQyuycSaR5uHnu6Aa872VtA=; b=gZ7rQz59G/fisHGZArA33yxGJ7
-	PCNNv0kAc7U7frhFbqn3ROHwasSYKjGurgt0N5ECVIS2pusw4oq1PKA5vToDgsZAi/ruMcFj0a71U
-	MaaA8jdQuVxv4g3bdnOl8Q5IvmvKC7f8enQvRu9nUHZP3wZShjXJOnuMQBFrUFzTyp4aRqhRPokuR
-	4itdgzFc1JIdBZPT+TTDO0S3kwxZpmjDpJjfwASkfYzVnSDL5hFWkxeus4QhLcS+MvDGLH9jg5xag
-	uF+OjDKtLju7jKGamVEje/aoXjfIAIxmOQ8jV9m+9p8WVrKYwIKxJK7I3ESL8c/YjJP23PBMs2zTy
-	FgARmPNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y9ByzT5rhkqv1UFXFeAa7XDWoMGVN9DTUnpFtsiZv98=; b=35MqwYcPpm6cyVss/MohVNUhgn
+	KckZE9QmjejaLDBa9bOnVAuajYvuLfSFeW60JADfLJE/xxLSWOSIofG/dT5+nAA9COe0sOMa/swzz
+	kcFyiBrlU/hMn5+bouJULbptBYVpIjBGgG8AL915EvkBwoGKwSOjyi18qabcmrMyT2NlYhW4Z+Yba
+	T2qIhZpQj2GfzZlg88Ps16/oHV6Ll5BOOQ86r09WdOwDD+rL6mXR+VpgeQXkCX2Ba2m7B9ui+DJzn
+	u+zPTQwRMS4rctKm1BOIvdPfbExMgZm1+Pz7txaItva+dr50jDlB7woqaN+KuXbda0qg8H1lDdTUm
+	E5u2cIZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82Cp-0000000EpMW-0nab;
-	Mon, 04 Nov 2024 18:53:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t82ET-0000000EpTe-2K6D;
+	Mon, 04 Nov 2024 18:55:21 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t828y-0000000EowI-0EbA
+	id 1t829g-0000000Ep2k-2ljy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 18:49:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E976B5C5435;
-	Mon,  4 Nov 2024 18:48:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85C24C4CECE;
-	Mon,  4 Nov 2024 18:49:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730746178;
-	bh=6xH53IhT0TJpyNorkchqFjFvXwlo4Osd48zybI+w52w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AiHaKP8+Aqe9E4ixvWAlPw8snyH+4TsToC8aOcmTaKI3EdTgvUJ+veldiNqt3FPIs
-	 SEo7xwUpNLVFKyoxFa8LIOJ3oS+fURHUwPXId/H+T5YUMDeMzD2pUVKE5g7HjgjS7S
-	 25zGYOUcsSYYkOTxgZ3MX4OYaXroGl6nZhHXIHsgxmCxsJ2VOmcZsDYkTZvpKDG8jx
-	 BSprX9Bz3p0bHuS4TFuUEG84Z+21wKVZOEejaStaz7OhDM/ljiuveyVqRQhwidhg5h
-	 PcFI7MAJvKiX9afUKlU5yb0nQebLUaugv/8QmFUIxhUx+2TlGwj7U0EXpMFv23bg18
-	 wkCmrh0LLzLIw==
-Date: Mon, 4 Nov 2024 18:49:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Naresh Solanki <naresh.solanki@9elements.com>, jdelvare@suse.com,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, krzk+dt@kernel.org, sylv@sylv.io,
-	linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org,
-	linux@roeck-us.net, Joel Stanley <joel@jms.id.au>,
-	conor+dt@kernel.org
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add IBM SBP1 board
-Message-ID: <20241104-saturate-device-d020a0d7321f@spud>
-References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
- <173072771091.3690717.11563964377469449295.robh@kernel.org>
+	Mon, 04 Nov 2024 18:50:26 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20cceb8d8b4so29445025ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 10:50:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730746223; x=1731351023; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=y9ByzT5rhkqv1UFXFeAa7XDWoMGVN9DTUnpFtsiZv98=;
+        b=G92xOdZSFDa86BsskKbi/zNswmdifi9xGesarVmiIm+60Ma0oOX7hmSr39ULwdmIVc
+         A8gIrFRC3mpWfWXgAD9T2YSRlsAZ0iORTsgf2OwAgrGk42XL5GP2ji2NbL/vkU628L0Y
+         hclJiEV21TZAjCawZji8S6VW3X+EnlSAInxNNdy90HNJhOJXaqvZcCiXYwOSurtAedOh
+         xykuyqAathZWphLRxGCQ8PgenpZfMc49KcJLivGbmzbvAoGdXlAhEMPeb3vSwjWwPfHu
+         8scLILedHSZWtTdL7bXsGI9Y+ugiTH37cggGFNP7OIxJWhOBAUkYOh6nOhZf9cex2Mud
+         0ntA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730746223; x=1731351023;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=y9ByzT5rhkqv1UFXFeAa7XDWoMGVN9DTUnpFtsiZv98=;
+        b=VH3tmPJGWqf5k4mC/0tzbQ8XHmDjaCa0568paZPXA20k6ZlI6TzFUoGKAJxk0R1chS
+         mYU9QuVfs5J8XS82tDb0UfKyYKVGrDEp/nsgJDJknjXCwoifXnjX9tuSjzDcynQ0WZiz
+         3QnN/JFSTwLElxxJj3dr8h9TB07MX5/ESynXv8Qp0l256MhhwCgY1VM5MHjOcbD8dzNC
+         69sTIPgI+DyzwZiHz2PVlRnjJVDyqnyy5/b1kr1XId1/Rw7H43a1FUnmhlwh+n0v6VLg
+         f18qGCo+ZoRKaYtuFgYWbUPOCr63plJnqp35KYB2k3hNBmLisDwf5ssSsoGdpjJq4EFE
+         A8ow==
+X-Forwarded-Encrypted: i=1; AJvYcCU48GTPu3VecouqNIlk/LwsmZCWXnhlCzM2Cw0cyhME73G7/asghm9GB3HWheev8wUKSbEi+1hO3gSazXBUGBsJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx3qUCCkZdkc+Mfdj4t4MILvvNv4OQ36nVLRn2bRq6s2R+xk4e
+	dbvweRYwKVDWAhUpSm64iUeGEeZGX3R3CNDO6KiC1xff91hMwaavQe8iQaBp80k=
+X-Google-Smtp-Source: AGHT+IH49Bn3FifJ33FPD5Gz33gFu44F9HIMX+OnVbzafXRnP5Wsu0eGXm5Lc/0fHXbLXgtkonLylg==
+X-Received: by 2002:a17:902:dac6:b0:205:8763:6c2d with SMTP id d9443c01a7336-211056b2c5dmr236699765ad.9.1730746223147;
+        Mon, 04 Nov 2024 10:50:23 -0800 (PST)
+Received: from localhost ([97.126.177.194])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056ef03bsm64652515ad.37.2024.11.04.10.50.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 10:50:22 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: soc@kernel.org
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] soc: ti: driver updates for v6.13
+Date: Mon, 04 Nov 2024 10:50:22 -0800
+Message-ID: <7hplnaomtt.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="aHEnBD9/syuq+wBO"
-Content-Disposition: inline
-In-Reply-To: <173072771091.3690717.11563964377469449295.robh@kernel.org>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_104940_205904_CF3470BA 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20241104_105024_930051_E2EB63ED 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,170 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
---aHEnBD9/syuq+wBO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-On Mon, Nov 04, 2024 at 08:39:21AM -0600, Rob Herring (Arm) wrote:
->=20
-> On Mon, 04 Nov 2024 14:52:14 +0530, Naresh Solanki wrote:
-> > Document the new compatibles used on IBM SBP1.
-> >=20
-> > Signed-off-by: Naresh Solanki <naresh.solanki@9elements.com>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> > Changes in V4:
-> > - Retain Acked-by from v2.
-> > - Fix alphabetic order
-> > ---
-> >  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
->   pip3 install dtschema --upgrade
->=20
->=20
-> New warnings running 'make CHECK_DTBS=3Dy aspeed/aspeed-bmc-ibm-sbp1.dtb'=
- for 20241104092220.2268805-1-naresh.solanki@9elements.com:
+are available in the Git repository at:
 
-Really? This many warnings on a v6?
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.13/drivers-signed
 
->=20
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: timer: 'clocks' does no=
-t match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /sdram@1e6e0000: failed=
- to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon=
-']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: bus@1e600000: compatibl=
-e: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-> 	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.y=
-aml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: syscon@1e6e2000: 'smp-m=
-emram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-=
-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0=
--9a-f]+$', 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.ya=
-ml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/sysco=
-n@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['as=
-peed,ast2600-smpmem']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/sysco=
-n@1e6e2000/interrupt-controller@560: failed to match any schema with compat=
-ible: ['aspeed,ast2600-scu-ic0']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/sysco=
-n@1e6e2000/interrupt-controller@570: failed to match any schema with compat=
-ible: ['aspeed,ast2600-scu-ic1']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/displ=
-ay@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-g=
-fx', 'syscon']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9000: 'interrup=
-ts' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-ad=
-c.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9100: 'interrup=
-ts' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-ad=
-c.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: crypto@1e6fa000: 'aspee=
-d,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acr=
-y.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/video@1e700000: fa=
-iled to match any schema with compatible: ['aspeed,ast2600-video-engine']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e7=
-40100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-> 	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e7=
-40200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-> 	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci=
-@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdh=
-ci', 'sdhci']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci=
-@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdh=
-ci', 'sdhci']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/timer=
-@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-tim=
-er']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: lpc-snoop=
-@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: reg-io-wi=
-dth: 4 is not of type 'object'
-> 	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@24: 'clocks' does n=
-ot match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-b=
-mc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@28: 'clocks' does n=
-ot match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-b=
-mc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@2c: 'clocks' does n=
-ot match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-b=
-mc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@114: 'clocks' does =
-not match any of the regexes: 'pinctrl-[0-9]+'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-b=
-mc.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1=
-e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast260=
-0-lhc']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1=
-e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast26=
-00-ibt-bmc']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/bus@1=
-e78a000/i2c@280/bmc-slave@10: failed to match any schema with compatible: [=
-'ipmb-dev']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b000: compatibl=
-e: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-> 	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-ma=
-ster.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1=
-e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-m=
-aster', 'fsi-master']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b100: compatibl=
-e: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-> 	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-ma=
-ster.yaml#
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1=
-e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-m=
-aster', 'fsi-master']
-> arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/dma-c=
-ontroller@1e79e000: failed to match any schema with compatible: ['aspeed,as=
-t2600-udma']
->=20
->=20
->=20
->=20
->=20
+for you to fetch changes up to d8ee46b226ace0110f82233ba4c06ff1742ae443:
 
---aHEnBD9/syuq+wBO
-Content-Type: application/pgp-signature; name="signature.asc"
+  thermal/ti-soc-thermal: Fix typos (2024-10-04 14:37:23 -0700)
 
------BEGIN PGP SIGNATURE-----
+----------------------------------------------------------------
+soc: ti: driver updates for v6.13
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZykXPQAKCRB4tDGHoIJi
-0rMWAQDlKZmiJuot7oP6aowJtnVfHH76ohyheufSc66w5m0cpQEAnaA4tO/Xidyx
-qN6rj7vtGBTORT4bzSgiKVOGQ9hkqgw=
-=xs2s
------END PGP SIGNATURE-----
+----------------------------------------------------------------
+Andrew Kreimer (1):
+      thermal/ti-soc-thermal: Fix typos
 
---aHEnBD9/syuq+wBO--
+Jinjie Ruan (1):
+      soc: ti: smartreflex: Use IRQF_NO_AUTOEN flag in request_irq()
+
+ drivers/soc/ti/smartreflex.c                      | 4 ++--
+ drivers/thermal/ti-soc-thermal/dra752-bandgap.h   | 4 ++--
+ drivers/thermal/ti-soc-thermal/omap4xxx-bandgap.h | 8 ++++----
+ drivers/thermal/ti-soc-thermal/omap5xxx-bandgap.h | 4 ++--
+ 4 files changed, 10 insertions(+), 10 deletions(-)
 
