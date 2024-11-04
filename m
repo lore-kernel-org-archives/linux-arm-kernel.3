@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CCAD1BDC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460F5D1BDC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/3tf6qB0uNDj0tIN2sPkbiUJnNiJ1F76fe2CWlQv4l4=; b=tT6vwTHygUpVwQGcJ86F62nBnm
-	fWg8j2duA0Yw42KhI37ZI+y5maAaJQuzZS6TMw5Id1YgIsND2BxiStFoHSARScVBWZcNX7CD0Ns00
-	KlrOPizH48nnLypblAs6v8Lcv8jmbUxdjHqDVOgP/se4U2VLLr50rQzNMzd+VtMV7QPfjMpd9Mek0
-	Jr3+A+WUcCwGz/f8eQXrgAh4Mc4zF8rueQsS2ELc4sF9wa03XrYEGNWOnmNQKANK607GaRCAUXU1O
-	A5lS3HijH9vuDVGEOjB7WKVfxA91qhSDhI5Hmljn8ekoakdv7hHDmoNhRixuOTZw2SqbPDBqLjE1L
-	nS768CFA==;
+	bh=UHaXl7RgEXXhOVFUEAio2hC/yR5mQqy+5xewjqj7Gvg=; b=wPjbNoUPFDLWdlCSAcwSU+j5pn
+	MbH2DqhZBIygESlboSJa3JRWw6TJsYoYemUYs5r6lx3HqHvuYpY2R65Sezct2QXxyQKqcSWqPEZJ9
+	hPujbMc+VvC35i8MauR3iJsGtQui+BlCNPcp3fXTY4+yxHxUCQlZ6ISlHkpKzi0KkpejtlLlxJzJV
+	zcnQ/t7iR37sVLkePYyHEVzs4Eq2FzJslEINmVrY4MF9nCgAmBwMAIQ20c3A8rcn5Yr2kiT35ZcO2
+	+6bdcE9lJS86orZAvWJiCAXbX4wkhs0h17rvIhnNz/9LlJ6so/26AnguibcSCiPs3ws11bcIGej+B
+	UNJQpgDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zbH-0000000EKCI-3fOo;
-	Mon, 04 Nov 2024 16:06:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7zd0-0000000EKYc-0Cgp;
+	Mon, 04 Nov 2024 16:08:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zWL-0000000EJHC-3yD2;
-	Mon, 04 Nov 2024 16:01:39 +0000
+	id 1t7zXM-0000000EJUJ-16We
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 16:02:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E0FBCA430DC;
-	Mon,  4 Nov 2024 15:59:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B77D6C4CED5;
-	Mon,  4 Nov 2024 16:01:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730736096;
-	bh=SQHYc4IyKu8mOjFqukKmu+jd++SJy0bOaTpjzH1zd48=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GF2YIuc4CVA74hCEJRxNazy0ht2/f2uRSrMj2uuVlRr2+6bm9MHyMOxPgED5gWdfd
-	 vu/btCDpPKcR89gCE4boBa7J2FWpbAQKucuszoilTcpd5UqEHi33T6ME/J0vsprSzf
-	 0NpNP7g8Lf0u8I2Tp+IyHewzcvy5bMkfYKuB/Xdsg/e84RXsus/eIlJEp8GjkqeL5j
-	 5fqNWCa8VU2Mv2/RgFzjCgTISgsehTXVWzYy6ZXnFPpxAb3NlOlHfEu2nHn72iPu6S
-	 FWp0lFEOw27J/+6wKGPWbDh+8AzGKSxVQQw4nnlSj7QGkkzccsfYrt7HYY4CaOPaa1
-	 sXnIfXCpLXWpg==
-Date: Mon, 4 Nov 2024 08:01:36 -0800
-From: "Darrick J. Wong" <djwong@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v3 16/18] jbd2: switch to using the crc32c library
-Message-ID: <20241104160136.GI21832@frogsfrogsfrogs>
-References: <20241103223154.136127-1-ebiggers@kernel.org>
- <20241103223154.136127-17-ebiggers@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0062B5C3EFF;
+	Mon,  4 Nov 2024 16:01:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95619C4CED1;
+	Mon,  4 Nov 2024 16:02:38 +0000 (UTC)
+Date: Mon, 4 Nov 2024 16:02:36 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org
+Subject: Re: [PATCH] arm64/mm: Sanity check PTE address before runtime
+ P4D/PUD folding
+Message-ID: <ZyjwHC2nekioWfAa@arm.com>
+References: <20241101155800.3917462-2-ardb+git@google.com>
+ <ZyjREXyABoQtkV8O@arm.com>
+ <CAMj1kXFMBU1aPmL58NtyPu2kKpWurHBOYE4rmKvPwj0SA5Z+Dg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241103223154.136127-17-ebiggers@kernel.org>
+In-Reply-To: <CAMj1kXFMBU1aPmL58NtyPu2kKpWurHBOYE4rmKvPwj0SA5Z+Dg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_080138_148810_F033493C 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20241104_080240_362927_9FAE8BF8 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,211 +64,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 02:31:52PM -0800, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
+On Mon, Nov 04, 2024 at 02:57:21PM +0100, Ard Biesheuvel wrote:
+> On Mon, 4 Nov 2024 at 14:50, Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > On Fri, Nov 01, 2024 at 04:58:01PM +0100, Ard Biesheuvel wrote:
+> > > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > > index dd5dcf7ae056..0d729adf894c 100644
+> > > --- a/arch/arm64/include/asm/pgtable.h
+> > > +++ b/arch/arm64/include/asm/pgtable.h
+> > > @@ -740,6 +740,11 @@ static inline bool pud_table(pud_t pud) { return true; }
+> > >                                PUD_TYPE_TABLE)
+> > >  #endif
+> > >
+> > > +static inline long sign_of(unsigned long addr)
+> > > +{
+> > > +     return (int)(addr >> 24) >> 31L; // bit 55 is the sign bit
+> > > +}
+> >
+> > That's a pretty generic name that trickles into the core code. It should
+> > be renamed to something that suggests arm64 addresses (and maybe some
+> > underscores to imply private).
 > 
-> Now that the crc32c() library function directly takes advantage of
-> architecture-specific optimizations, it is unnecessary to go through the
-> crypto API.  Just use crc32c().  This is much simpler, and it improves
-> performance due to eliminating the crypto API overhead.
+> Fair enough.
 > 
-> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  fs/jbd2/Kconfig      |  2 --
->  fs/jbd2/journal.c    | 25 ++-----------------------
->  include/linux/jbd2.h | 31 +++----------------------------
->  3 files changed, 5 insertions(+), 53 deletions(-)
+> > Also, this assumes untagged addresses but
+> > I haven't checked whether that's the case for all call sites.
 > 
-> diff --git a/fs/jbd2/Kconfig b/fs/jbd2/Kconfig
-> index 4ad2c67f93f1..9c19e1512101 100644
-> --- a/fs/jbd2/Kconfig
-> +++ b/fs/jbd2/Kconfig
-> @@ -1,11 +1,9 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  config JBD2
->  	tristate
->  	select CRC32
-> -	select CRYPTO
-> -	select CRYPTO_CRC32C
->  	help
->  	  This is a generic journaling layer for block devices that support
->  	  both 32-bit and 64-bit block numbers.  It is currently used by
->  	  the ext4 and OCFS2 filesystems, but it could also be used to add
->  	  journal support to other file systems or block devices such
-> diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
-> index 97f487c3d8fc..56cea5a738a7 100644
-> --- a/fs/jbd2/journal.c
-> +++ b/fs/jbd2/journal.c
-> @@ -1373,24 +1373,16 @@ static int journal_check_superblock(journal_t *journal)
->  		printk(KERN_ERR "JBD2: Can't enable checksumming v1 and v2/3 "
->  		       "at the same time!\n");
->  		return err;
->  	}
->  
-> -	/* Load the checksum driver */
->  	if (jbd2_journal_has_csum_v2or3_feature(journal)) {
->  		if (sb->s_checksum_type != JBD2_CRC32C_CHKSUM) {
->  			printk(KERN_ERR "JBD2: Unknown checksum type\n");
->  			return err;
->  		}
->  
-> -		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
-> -		if (IS_ERR(journal->j_chksum_driver)) {
-> -			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
-> -			err = PTR_ERR(journal->j_chksum_driver);
-> -			journal->j_chksum_driver = NULL;
-> -			return err;
-> -		}
->  		/* Check superblock checksum */
->  		if (sb->s_checksum != jbd2_superblock_csum(journal, sb)) {
->  			printk(KERN_ERR "JBD2: journal checksum error\n");
->  			err = -EFSBADCRC;
->  			return err;
-> @@ -1611,12 +1603,10 @@ static journal_t *journal_init_common(struct block_device *bdev,
->  
->  	return journal;
->  
->  err_cleanup:
->  	percpu_counter_destroy(&journal->j_checkpoint_jh_count);
-> -	if (journal->j_chksum_driver)
-> -		crypto_free_shash(journal->j_chksum_driver);
->  	kfree(journal->j_wbuf);
->  	jbd2_journal_destroy_revoke(journal);
->  	journal_fail_superblock(journal);
->  	kfree(journal);
->  	return ERR_PTR(err);
-> @@ -2194,12 +2184,10 @@ int jbd2_journal_destroy(journal_t *journal)
->  	if (journal->j_proc_entry)
->  		jbd2_stats_proc_exit(journal);
->  	iput(journal->j_inode);
->  	if (journal->j_revoke)
->  		jbd2_journal_destroy_revoke(journal);
-> -	if (journal->j_chksum_driver)
-> -		crypto_free_shash(journal->j_chksum_driver);
->  	kfree(journal->j_fc_wbuf);
->  	kfree(journal->j_wbuf);
->  	kfree(journal);
->  
->  	return err;
-> @@ -2340,23 +2328,14 @@ int jbd2_journal_set_features(journal_t *journal, unsigned long compat,
->  			pr_err("JBD2: Cannot enable fast commits.\n");
->  			return 0;
->  		}
->  	}
->  
-> -	/* Load the checksum driver if necessary */
-> -	if ((journal->j_chksum_driver == NULL) &&
-> -	    INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
-> -		journal->j_chksum_driver = crypto_alloc_shash("crc32c", 0, 0);
-> -		if (IS_ERR(journal->j_chksum_driver)) {
-> -			printk(KERN_ERR "JBD2: Cannot load crc32c driver.\n");
-> -			journal->j_chksum_driver = NULL;
-> -			return 0;
-> -		}
-> -		/* Precompute checksum seed for all metadata */
-> +	/* Precompute checksum seed for all metadata */
-> +	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3))
->  		journal->j_csum_seed = jbd2_chksum(journal, ~0, sb->s_uuid,
->  						   sizeof(sb->s_uuid));
-> -	}
->  
->  	lock_buffer(journal->j_sb_buffer);
->  
->  	/* If enabling v3 checksums, update superblock */
->  	if (INCOMPAT_FEATURE_ON(JBD2_FEATURE_INCOMPAT_CSUM_V3)) {
-> diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
-> index 8aef9bb6ad57..33d25a3d15f1 100644
-> --- a/include/linux/jbd2.h
-> +++ b/include/linux/jbd2.h
-> @@ -26,11 +26,11 @@
->  #include <linux/mutex.h>
->  #include <linux/timer.h>
->  #include <linux/slab.h>
->  #include <linux/bit_spinlock.h>
->  #include <linux/blkdev.h>
-> -#include <crypto/hash.h>
-> +#include <linux/crc32c.h>
->  #endif
->  
->  #define journal_oom_retry 1
->  
->  /*
-> @@ -1239,17 +1239,10 @@ struct journal_s
->  	 * An opaque pointer to fs-private information.  ext3 puts its
->  	 * superblock pointer here.
->  	 */
->  	void *j_private;
->  
-> -	/**
-> -	 * @j_chksum_driver:
-> -	 *
-> -	 * Reference to checksum algorithm driver via cryptoapi.
-> -	 */
-> -	struct crypto_shash *j_chksum_driver;
-> -
->  	/**
->  	 * @j_csum_seed:
->  	 *
->  	 * Precomputed journal UUID checksum for seeding other checksums.
->  	 */
-> @@ -1748,14 +1741,11 @@ static inline bool jbd2_journal_has_csum_v2or3_feature(journal_t *j)
->  	return jbd2_has_feature_csum2(j) || jbd2_has_feature_csum3(j);
->  }
->  
->  static inline int jbd2_journal_has_csum_v2or3(journal_t *journal)
->  {
-> -	WARN_ON_ONCE(jbd2_journal_has_csum_v2or3_feature(journal) &&
-> -		     journal->j_chksum_driver == NULL);
-> -
-> -	return journal->j_chksum_driver != NULL;
-> +	return jbd2_journal_has_csum_v2or3_feature(journal);
+> Isn't bit #55 always guaranteed to be the sign bit?
 
-Same comment as my last reply about removing trivial helpers, but
-otherwise
-Reviewed-by: Darrick J. Wong <djwong@kernel.org>
+Ah, true, we have the cast to (int) which removes any tag bits.
 
-If you push this for 6.13 I'd be happy that the shash junk finally went
-away.  The onstack struct desc thing in the _chksum() functions was by
-far the most sketchy part of the ext4/jbd2 metadata csum project. :)
+Why's the 31L? Does it affect the type? (it saves me from having to dig
+out the C standard).
 
---D
-
->  }
->  
->  static inline int jbd2_journal_get_num_fc_blks(journal_superblock_t *jsb)
->  {
->  	int num_fc_blocks = be32_to_cpu(jsb->s_num_fc_blks);
-> @@ -1794,26 +1784,11 @@ static inline unsigned long jbd2_log_space_left(journal_t *journal)
->  #define JBD_MAX_CHECKSUM_SIZE 4
->  
->  static inline u32 jbd2_chksum(journal_t *journal, u32 crc,
->  			      const void *address, unsigned int length)
->  {
-> -	struct {
-> -		struct shash_desc shash;
-> -		char ctx[JBD_MAX_CHECKSUM_SIZE];
-> -	} desc;
-> -	int err;
-> -
-> -	BUG_ON(crypto_shash_descsize(journal->j_chksum_driver) >
-> -		JBD_MAX_CHECKSUM_SIZE);
-> -
-> -	desc.shash.tfm = journal->j_chksum_driver;
-> -	*(u32 *)desc.ctx = crc;
-> -
-> -	err = crypto_shash_update(&desc.shash, address, length);
-> -	BUG_ON(err);
-> -
-> -	return *(u32 *)desc.ctx;
-> +	return crc32c(crc, address, length);
->  }
->  
->  /* Return most recent uncommitted transaction */
->  static inline tid_t  jbd2_get_latest_transaction(journal_t *journal)
->  {
-> -- 
-> 2.47.0
+> > >  extern pgd_t init_pg_dir[];
+> > >  extern pgd_t init_pg_end[];
+> > >  extern pgd_t swapper_pg_dir[];
+> > > @@ -932,6 +937,8 @@ static inline phys_addr_t p4d_page_paddr(p4d_t p4d)
+> > >
+> > >  static inline pud_t *p4d_to_folded_pud(p4d_t *p4dp, unsigned long addr)
+> > >  {
+> > > +     VM_BUG_ON(((u64)p4dp / sizeof(p4d_t) - sign_of(addr)) % PTRS_PER_P4D);
+> > > +
+> > >       return (pud_t *)PTR_ALIGN_DOWN(p4dp, PAGE_SIZE) + pud_index(addr);
+> > >  }
+> >
+> > I think I get it but please add a comment in the code, otherwise in a
+> > week time I'll wonder what this is.
+> >
+> > Even better if it could be written in a less cryptic way ;).
+> >
 > 
-> 
+> Yeah, I tried to keep it concise so the code for the VM_BUG_ON()
+> doesn't bloat the function.
+
+Fine but add a comment along the lines of the commit log.
+
+-- 
+Catalin
 
