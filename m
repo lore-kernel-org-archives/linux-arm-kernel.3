@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CE0D132B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A900D132BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYvItjWc7e4pPd+CCBu2oWSX6jirooxClqMJ96xxtcw=; b=GqZcp1qLVAvwvgXFsm/sZGigGh
-	p9gbDw8+7m9Zs+fbF4w33D0xkeuNRkj75P0iljfZ/RnEpaGrkkGTI6NW1FHmyxjqawycY449CADiM
-	81qH9G8MUo+kVUuDebkCmQiD44eDSYpmsAKufM466KICldOjbBh5mwSq6SU3AKhK0BtOUbyu0MapL
-	NmVG8JAjf6uAA8Gh3yBd5MzrfHrOupJ0WJvyWrcS4H+tWkf3upX2E7DQSPlzKgGzM2hqoxs69WB2y
-	1x2nbFbbT87+C2krrj2PE9keGFw8iJbh5Ek8XR2ER4O2NY+v4di2W7DBpQTshKlqO21/tBhjL6IMn
-	iU2TOjlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUT2MUhoOe9iu2p2kd8BI2aLF+LB/mKyYJdsiPsn1AE=; b=BTrsC0QbEPjsZfz3Z42+1kwbbf
+	G8H5LgKZ0o/7anjb6u8JyOyZJqaKO3ZT4+twKjTH+pkbd9fp2RQz2p4LnmggU8MF6j1gd5CxCuATM
+	OBZP0PsoDHbAO5/jS1Pljh9fuiCWzY0MLUJreDstt9TC7qUWMG/tVod0N78PYSyWgIK5Miep2oYIY
+	5Ie0W+Tv8ot89X30JydoT5UbDueKksXM3ryoK8xDfUMUVBCmIaFfP/pcCZXvBM7bxUfRPCT0aYwmV
+	1WXwiJnffAGCRpbaHQRSmtzRi/w1R2VK9hUYHrEXE+p04eH92D0SDuppNkKo2GEFXBRL+qXXn1crq
+	5EneH75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wX5-0000000DkEp-45CD;
-	Mon, 04 Nov 2024 12:50:11 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1t7wdv-0000000DlEu-3N6Y;
+	Mon, 04 Nov 2024 12:57:15 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wVO-0000000Dk8U-0yrZ
+	id 1t7wcE-0000000Dkzy-2w68
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 12:48:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9CCD5148169C;
-	Mon,  4 Nov 2024 13:48:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1730724500; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=AYvItjWc7e4pPd+CCBu2oWSX6jirooxClqMJ96xxtcw=;
-	b=bqca/QcPRvHxrrDCthh0DkY0v87ETWZmLpK9jTIXcC/BG7tkQyu0CdN9HTbXkbxPI289eW
-	GN+J8oOvw9/q1uPpjlyZyLsdwoX2UPaUzUfIBqIIf52Ok6vlNNFpy9qTwzGJsLJvjfFdMK
-	mdv3O4Vcx/K+RH5ah7wXRsBdDAaNQFjRbWzDA62iipIndAUsPiqyEkweOnNEgU5wlmmSY9
-	m+zOIDM/MOQaPtuMEQYLYmmDlomqXV0WmGeU0a5pJfSFZLo/u82YB3usg2jWJbTxObtH1v
-	ZYT66nD8mg+tRIIIje0D0CXhWa/qDU7wPLjMEEcjCkgePV1oo5nKLSek/PPIfg==
-Date: Mon, 4 Nov 2024 13:48:12 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Mark Brown <broonie@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Subject: Re: [PATCH v2] spi: atmel-quadspi: Create `atmel_qspi_ops` to
- support newer SoC families
-Message-ID: <20241104-vanilla-operating-de19b033f0a8@thorsis.com>
-Mail-Followup-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Varshini Rajendran <varshini.rajendran@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Mark Brown <broonie@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-References: <20241030084445.2438750-1-csokas.bence@prolan.hu>
- <7cc95e52-7509-44eb-8e30-d518283e7d87@linaro.org>
- <2b310b54-c215-40fa-b6d4-81faf75a8c9e@prolan.hu>
+	Mon, 04 Nov 2024 12:55:31 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2e2eb9dde40so3261136a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 04:55:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730724929; x=1731329729; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FUT2MUhoOe9iu2p2kd8BI2aLF+LB/mKyYJdsiPsn1AE=;
+        b=I7ds9tkDuqu4jJ5BhU0UUHPciVmyBBbcSmlILoKcylQtKTAW46Hu0X+6iloyjlhxc+
+         iPgPtJjVS8wkgsH2j3RN6XNRqWRLbq5Vp/gOWvRBpnaX9MdvdrevwJzyyw9YkU/eVMHC
+         MsbC4LtKbXpwOl7FpXhf/ApZZMa+OBCO9uYUM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730724929; x=1731329729;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FUT2MUhoOe9iu2p2kd8BI2aLF+LB/mKyYJdsiPsn1AE=;
+        b=KYQtbeQJUvaTE1+ukSZLx9ak8wOx9/WNlGZ/3hgFCpYQZCLFKX8O0up2ORZb/BIBVr
+         JaIt079M6ImyFElhF11swOP4wKDbEjJGpCFktFwxQGXyuhURQqYH1FhhksDJFrCLAjaR
+         JEEGrIi1d1fz7bh5mINsNYWPuCtOBG4MSbvM8pZXHYsA70Czg2Uz9o0Diojnh9UyZ7KB
+         N62HrN9hKVbMaEeK0SF7WgLkPWUXy4wLbo1/YIpvCom4b0GyEXD0zxwyf4TDjTcKJTXD
+         QaGC5c9GVVs2Bw3Tr0B37uezfw2U0ZMuFD3mj6ADkOfX48q+hD+whHgpMIc8CSY5dvY6
+         MWGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvemE/OdrGbv5AN7vygrDFToNTxGDHX3jASEbcm1+N5lSljonEif+n4Zgx/kMOqb6G5yluO4Bd0A8N2GO6tc0L@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTxxIRDNEhQcx26OulebUGcm9YjOrddBew8Njos8OiQWrzzFGu
+	xHI/nL8flxKWYb8eJQaXppYr1guNbqIsRytLe9ud+0GHVBqzhJLRsLhn/CRgyg==
+X-Google-Smtp-Source: AGHT+IGw2My2dH4dIXYJt5UAfh9QheTuaxvz/yW07aa/c8zRoSfhpBhW/1Yv0E1txryL8w9UJYPxAg==
+X-Received: by 2002:a17:90b:250a:b0:2e9:5e21:24f7 with SMTP id 98e67ed59e1d1-2e95e21257cmr10927134a91.38.1730724929339;
+        Mon, 04 Nov 2024 04:55:29 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:f5f8:ffa1:d9e0:6eab])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e93daacb4dsm7534611a91.24.2024.11.04.04.55.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 04:55:28 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20241029095411.657616-1-wenst@chromium.org>
+References: <20241029095411.657616-1-wenst@chromium.org>
+Subject: Re: [PATCH] drm/bridge: it6505: Fix inverted reset polarity
+Message-Id: <173072492636.262894.11094550143215575349.b4-ty@chromium.org>
+Date: Mon, 04 Nov 2024 20:55:26 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2b310b54-c215-40fa-b6d4-81faf75a8c9e@prolan.hu>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_044826_784010_D4257AE8 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20241104_045530_784371_C0E2BBBF 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +99,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Am Wed, Oct 30, 2024 at 01:37:52PM +0100 schrieb Csókás Bence:
-> Hi,
+On Tue, 29 Oct 2024 17:54:10 +0800, Chen-Yu Tsai wrote:
+> The IT6505 bridge chip has a active low reset line. Since it is a
+> "reset" and not an "enable" line, the GPIO should be asserted to
+> put it in reset and deasserted to bring it out of reset during
+> the power on sequence.
 > 
-> On 2024. 10. 30. 12:09, Tudor Ambarus wrote:
-> > I think it's fine to split sama7g5 addition in smaller steps. But please
-> > add the sama7g5 support in the same patch set, otherwise this patch
-> > doesn't make sense on its own.
+> The polarity was inverted when the driver was first introduced, likely
+> because the device family that was targeted had an inverting level
+> shifter on the reset line.
 > 
-> Well, actually, we're using SAMA5D2. My goal was just to somewhat harmonize
-> upstream with the vendor kernel so that we may contribute other patches that
-> we have made on top of the latter, or in the future, take patches from
-> upstream and apply it to our vendor kernel-based tree. This patch was only
-> meant to lay the groundworks for future SAMA7G5 support. I can of course
-> send the "other half" of the original patch if needed, but I wouldn't want
-> it to hold up this refactor.
+> [...]
 
-It would actually be better if vendor would bring their stuff
-upstream, so there's no need for a vendor kernel.  Did you talk to
-Microchip about their upstreaming efforts?  What was the answer?
+Applied, thanks!
 
-Greets
-Alex
+[1/1] drm/bridge: it6505: Fix inverted reset polarity
+      commit: c5f3f21728b069412e8072b8b1d0a3d9d3ab0265
 
-> 
-> > Also, if you think you significantly changed the code of authors, I
-> > think it's fine to overwrite the authorship. Otherwise, try to keep the
-> > authorship and specify your contributions above your S-o-b tag.
-> 
-> I don't know if it counts as "significantly changed", I split out parts of a
-> patch that were relevant for our device, and made small adjustments to make
-> it correctly apply to master. I didn't find a descriptive enough tag for
-> this, so I just went with Cc:, but if so desired, I could change it to a
-> S-o-b, Co-authored-by, Suggested-by etc.
-> 
-> Bence
-> 
-> 
+Best regards,
+-- 
+Chen-Yu Tsai <wenst@chromium.org>
+
 
