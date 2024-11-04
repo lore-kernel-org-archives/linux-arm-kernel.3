@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA5BD132D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFB3D132DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ILkm4F2ilN9KX6cUyE4kqg3XdcwjhbBPjHTXQF0hSY=; b=PgkpJo5vZUGUOw4iLhF5MmnVGT
-	o2kK07sar0HhWcGIjezIAWffPSiqaflWK1vCQA7VwxSkcgKpppXMqfFmFnPfZ2p+WljEs8bQNAu11
-	5zDWJLDSLDcXxmjohv3rv9c+zEQP4c2wbO13yNadBOiTsE52+c6L40wu1d6auC4ZcoDTjmQNASZwm
-	XRziiyPN5xHHwlVjNT6xL1i/rE8NASCyOb/dfLel8X4Z1Rgab9/o450snWNc/PPbEwp7+nxMQFfKc
-	VUFu6NEsrnKH2y6l5DcgSSSZaK0+Is/iFAG6vBpjcMuxh5JRn1HreTAe2qaUYSuBgCAmS+wGrQzbM
-	mkgmcG8g==;
+	bh=olB+bA0ox+V3/atmUmtho87Hmf0IDoXDyS9lBTdHqkE=; b=D8PgAi8vi++2Mny5ejaZ0v/s5B
+	Wwyv2kpCZpBWrDGayQhAJj5MpvljKC9ZG+GGhYtiLajXW8xfs+N/Dz7zinxwY+Ys0aqxgUeDYlf+A
+	guOWYwI3jcoVzku83dKFE4eIUzyz7ThmsBP7ymTasZMq9mDfiC62OVhs9mV2Xoa3LRnp0m88FnO7L
+	EM4ugs2vn8YGNMm1f0vuCekixstRnbLjlSv1Niz6zkwUsB2LrpGcbEksvU00J4cf+yTyq5fSd1X0O
+	A6s2hTRCI2UkrK1f1JT9AHuN8yGaB+knozI2MdQERrwwzY5DJIH8l6HCCYN0oTzaa+Ydbcbe8/1z9
+	B1VFweEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yY2-0000000E8PW-3fnH;
-	Mon, 04 Nov 2024 14:59:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7yZl-0000000E8kU-3fpA;
+	Mon, 04 Nov 2024 15:01:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yEk-0000000E57L-1HC1
+	id 1t7yEm-0000000E57r-1MkP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:39:23 +0000
+	Mon, 04 Nov 2024 14:39:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 715FAA42EB3;
-	Mon,  4 Nov 2024 14:37:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DEC4C4CECE;
-	Mon,  4 Nov 2024 14:39:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6CD6EA4300F;
+	Mon,  4 Nov 2024 14:37:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 265FFC4CED1;
+	Mon,  4 Nov 2024 14:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730731161;
-	bh=IWJCgzjBH23P5Psxa93HOglaeX1YK0YOQlMjkv2M/x0=;
+	s=k20201202; t=1730731163;
+	bh=f3+wrner1fvmQYtpg3rzuW+v/F9Y1jdlOE7AWj4oHxw=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=CHXv0EiGnNVlkuA/QqXxebK8auG+BqiB2WVRV94E/KAuhK1fvY5pvxZty20dG/Ami
-	 5+N/Ygn0X316h3netU8vz1U/5d+aiufih8aIUoz7wy6RGhq3FTKzbkwZjICffL0m+z
-	 SVCUGvj71Q4Jd2SPXvRAGfzn+cpIP+Pv5xsd2vdzyAtz4fqJLlY29bvWql6ltOqT+O
-	 aucsI2zh6k37jRJFflSzJvuP/8XcJOAazUwG3IsjNMTDy46qfRlXdMr4ErJ9indNZL
-	 qo4BUyuX0iulZutlx7K7XRvN/6uZmfdipjtkQ3Esw6SXYbwniiC+kokpgMMIIv17Nt
-	 Zr5IZ0IGo2ABw==
-Date: Mon, 04 Nov 2024 08:39:19 -0600
+	b=WAq/bWwtL9b8OUOen7NK86oyDS9GaRNhjAAE5tMWd3n/pfhFGJEqRNOqDJNDa0IKo
+	 eMI5B9Pf39qdDVoa/xNCTjaMnZUZffVhC9nivynkiB2Gl6AAe17qTL38OU6Du3VeEk
+	 HUYeFOWMcTDr9CubWdJydXnTmvUN5so6PXTpqhO1/Q4UPVdNoiYwcejzzeUxjTwgKb
+	 jzU3qfJibM0Atev218lUSfgGhANg6vfSb81st1Et4lvEwrfWc0QimhZK8HsySDtAHC
+	 I1OpEoQ9NZsrU4YlTC9vYZS0thS4Sl+GXEIcywBaYufCksiIBIQfrE3SRnRqd8Wnti
+	 SBDNdz1ZZovXA==
+Date: Mon, 04 Nov 2024 08:39:21 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matti Vaittinen <mazziesaccount@gmail.com>, imx@lists.linux.dev, 
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <20241103135201.25615-1-andreas@kemnade.info>
-References: <20241103135201.25615-1-andreas@kemnade.info>
-Message-Id: <173072771051.3690676.244560971344290580.robh@kernel.org>
-Subject: Re: [PATCH v4 0/3] ARM: dts: add Kobo Clara 2E
+To: Naresh Solanki <naresh.solanki@9elements.com>
+Cc: jdelvare@suse.com, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Conor Dooley <conor.dooley@microchip.com>, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ krzk+dt@kernel.org, sylv@sylv.io, linux-arm-kernel@lists.infradead.org, 
+ linux-hwmon@vger.kernel.org, linux@roeck-us.net, 
+ Joel Stanley <joel@jms.id.au>, conor+dt@kernel.org
+In-Reply-To: <20241104092220.2268805-1-naresh.solanki@9elements.com>
+References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
+Message-Id: <173072771091.3690717.11563964377469449295.robh@kernel.org>
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add IBM SBP1 board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_063922_496488_816E266D 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20241104_063924_519628_54CCDC5B 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +76,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 03 Nov 2024 14:51:58 +0100, Andreas Kemnade wrote:
-> Add a basic device tree for the Kobo Clara 2E Ebook reader.
-> It is equipped with an i.MX6SLL SoC. EPDC PMIC drivers
-> are not ready for mainline yet.
+On Mon, 04 Nov 2024 14:52:14 +0530, Naresh Solanki wrote:
+> Document the new compatibles used on IBM SBP1.
 > 
+> Signed-off-by: Naresh Solanki <naresh.solanki@9elements.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
 > Changes in V4:
-> - fix order of pinmux nodes
-> - remove some blank lines
-> 
-> Changes in V3:
-> - removed 30MegaOhm current sense resistor nonsense
-> 
-> Changes in V2:
-> - improved commit message about devices without binding
-> 
-> Andreas Kemnade (3):
->   dt-bindings: arm: fsl: add compatible strings for Kobo Clara 2E
->   ARM: dts: imx: Add devicetree for Kobo Clara 2E
->   ARM: imx_v6_v7_defconfig: Enable drivers for Kobo Clara 2E
-> 
->  .../devicetree/bindings/arm/fsl.yaml          |   8 +
->  arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
->  .../dts/nxp/imx/imx6sll-kobo-clara2e-a.dts    |  23 +
->  .../dts/nxp/imx/imx6sll-kobo-clara2e-b.dts    |  23 +
->  .../nxp/imx/imx6sll-kobo-clara2e-common.dtsi  | 511 ++++++++++++++++++
->  arch/arm/configs/imx_v6_v7_defconfig          |   2 +
->  6 files changed, 569 insertions(+)
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dts
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dts
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-common.dtsi
-> 
-> --
-> 2.39.5
-> 
-> 
+> - Retain Acked-by from v2.
+> - Fix alphabetic order
+> ---
+>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 
@@ -130,44 +105,55 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y nxp/imx/imx6sll-kobo-clara2e-a.dtb nxp/imx/imx6sll-kobo-clara2e-b.dtb' for 20241103135201.25615-1-andreas@kemnade.info:
+New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-ibm-sbp1.dtb' for 20241104092220.2268805-1-naresh.solanki@9elements.com:
 
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: spdif@2004000: compatible:0: 'fsl,imx6sl-spdif' is not one of ['fsl,imx35-spdif', 'fsl,vf610-spdif', 'fsl,imx6sx-spdif', 'fsl,imx8qm-spdif', 'fsl,imx8qxp-spdif', 'fsl,imx8mq-spdif', 'fsl,imx8mm-spdif', 'fsl,imx8mn-spdif', 'fsl,imx8ulp-spdif']
-	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: spdif@2004000: compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: spdif@2004000: compatible:0: 'fsl,imx6sl-spdif' is not one of ['fsl,imx35-spdif', 'fsl,vf610-spdif', 'fsl,imx6sx-spdif', 'fsl,imx8qm-spdif', 'fsl,imx8qxp-spdif', 'fsl,imx8mq-spdif', 'fsl,imx8mm-spdif', 'fsl,imx8mn-spdif', 'fsl,imx8ulp-spdif']
-	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: spdif@2004000: compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif'] is too long
-	from schema $id: http://devicetree.org/schemas/sound/fsl,spdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/spba-bus@2000000/spdif@2004000: failed to match any schema with compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/spba-bus@2000000/spdif@2004000: failed to match any schema with compatible: ['fsl,imx6sl-spdif', 'fsl,imx35-spdif']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: serial@2034000: dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: serial@2034000: dma-name: b'rx\x00tx\x00' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: /soc/bus@2000000/csi@20e8000: failed to match any schema with compatible: ['fsl,imx6sll-csi', 'fsl,imx6s-csi']
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
-	'fsl,imx6sll-lcdif' is not one of ['fsl,imx23-lcdif', 'fsl,imx28-lcdif', 'fsl,imx6sx-lcdif', 'fsl,imx8mp-lcdif', 'fsl,imx93-lcdif']
-	'fsl,imx6sx-lcdif' was expected
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: clocks: [[2, 129], [2, 123], [2, 0]] is too long
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-a.dtb: lcd-controller@20f8000: clock-names: ['pix', 'axi', 'disp_axi'] is too long
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
-	'fsl,imx6sll-lcdif' is not one of ['fsl,imx23-lcdif', 'fsl,imx28-lcdif', 'fsl,imx6sx-lcdif', 'fsl,imx8mp-lcdif', 'fsl,imx93-lcdif']
-	'fsl,imx6sx-lcdif' was expected
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: clocks: [[2, 129], [2, 123], [2, 0]] is too long
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
-arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clara2e-b.dtb: lcd-controller@20f8000: clock-names: ['pix', 'axi', 'disp_axi'] is too long
-	from schema $id: http://devicetree.org/schemas/display/fsl,lcdif.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@280/bmc-slave@10: failed to match any schema with compatible: ['ipmb-dev']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
 
 
 
