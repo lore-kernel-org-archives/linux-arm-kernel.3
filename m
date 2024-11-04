@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDB8D1BDC7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9DBD1BDC7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jnsvyh/MLpk+W2c5keOdjLlzP6KlFVZm/vehlWk1Fk8=; b=F0X4iVD9vKeJ6Ypf3V3N+wkgjP
-	ylCdWk5JA2TmQIVLcbx5thrU6du0E3NFUHQ3Mi3TucrCmZr8ADWAz3mfGDZN+ulK63lls8mgC13VD
-	H/i0FL8IZHmM8lnP6VwrPCyI3dwcgPm2GuXRhEj5hmDvd9abS/YVsPEU+JUnovmUtkeKTRxOl7+wA
-	baboHUTaLoDk/CJ0o1tDPFYSzmklBXTVbwJC5qNGosTY9/usfJGG2Jutlup5wdHu+yTCf5RazBiaz
-	ViZCMiFULltzQ04u2Z8AhAPpcz2delg/0FzZzgZOLLBt6aONVPHppVkN6EXfZhGqGHGiQQzZzn6q3
-	Pyty5W0A==;
+	bh=hq9MnAAIeqsepJRbrMrsShIDnXwR3avqZqNy2WGkgZY=; b=qprHSKwiL8ae32luU9b30Dj7P+
+	92mhmjlmWE7vpZuVZRgZW+gJCnJjO8d+6SXMSONwJcYruxbYNeDl9JwDcEV1w18A8gMjVqCmN8z5F
+	GR30tW1xJdygFpB5LbyloovRP+SKMJJJz19+G6quGUK1/TOb4yl2W7qXAynJz02HGYdePeyNUVkd2
+	2rKYN2romfxuSQCQazwgkpoR9qixCz5zuH7v1JcS8Chnyw7uxwEpHzERlxjtOHPN1sDpZ0OlF3hZO
+	IsSDfPlcs20FYknNBWSaIvk0czn5042T53gNDBGi1RTDKTVi8I7zs3p1uhathVqurbt4cE/ETTep+
+	lRKlOL0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80aD-0000000ETTR-2wDB;
-	Mon, 04 Nov 2024 17:09:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t80bu-0000000EToB-0Ntv;
+	Mon, 04 Nov 2024 17:11:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80Px-0000000ER6F-3ruR
+	id 1t80Py-0000000ER79-2QAL
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 Nov 2024 16:59:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DCE03A4316D;
-	Mon,  4 Nov 2024 16:57:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0C51FC4CEDD;
+	by dfw.source.kernel.org (Postfix) with ESMTP id CC1715C4D4C;
+	Mon,  4 Nov 2024 16:58:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6B143C4CED6;
 	Mon,  4 Nov 2024 16:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1730739544;
-	bh=ManeNSi9a6po2fahsyS5JlMeyByu3l8jJDY6wUCdXf0=;
+	bh=UMe44SSGbxhvzX4jeOcKKSNW9zaCmr6U1GFWa0G93eM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PF0QoIeBWsCNWdPRzuAbDylLXBIOFfmhiYcQhc4Z1zSEGzOTQ5mddd+eVTc+HiK3P
-	 ClJRDkXejwaPAvE/2dKsQB/6+oRUWNhIEz4S7oGLjysIfX+Bp6ZkqXygfbHyT8aevR
-	 axgGwVlNwDLNxBfwgLt7zMlRBWFA6+JJ+oEKPdEn8koF/DR1YMVKvHKh9pimJU4Rop
-	 +pVzuLBWfKAAvBLG9nNBCFAckrW1eragw/ec9V7Ar490Ithc0ztL3KR0kLtBZ9o/nH
-	 1LY2IAo5bbRivqSWlLF10tHQLcJYYlLctmhLSfXn3GvGpEve1Iha33pOZJWd6V0QjA
-	 KdFrUM465TiKA==
+	b=k68XYjDbtYNqlmY4BSjRwIdg2n9zv+pFT+hxR0fYrYo9j8IMORa3QH4r46UI1hQH4
+	 UwCa9hHfsPD3YayikgYrHcQXRlVcq70ifyx+TzVb8LoLRDNg4RbS078zPs5wzdW/Vh
+	 N6j4CuyN9j0V9M7NkGZb1F5eEGmI3wLwJgm3vyGbICWghCZ3ts0/1Xcn3MO9buMWsG
+	 FCBwEVpdWaWXRau2v1H36GwLPFhMT/86IFN1n3SvCAuf6QIH2ETsRWouKrxsDdeZyK
+	 Ah9BjioOTv7T8tG/fjWujTzmXD0ot9fT4Q8fC+lROHqHKndYuyqz8k+baeWcljs91U
+	 RLfqcOZvhGU7Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 044B1D1BDCC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 63256D1BDC9;
 	Mon,  4 Nov 2024 16:59:04 +0000 (UTC)
 From: =?utf-8?q?Duje_Mihanovi=C4=87_via_B4_Relay?= <devnull+duje.mihanovic.skole.hr@kernel.org>
-Date: Mon, 04 Nov 2024 17:37:06 +0100
-Subject: [PATCH RESEND v13 04/12] dt-bindings: clock: Add Marvell PXA1908
- clock bindings
+Date: Mon, 04 Nov 2024 17:37:12 +0100
+Subject: [PATCH RESEND v13 10/12] arm64: Kconfig.platforms: Add config for
+ Marvell PXA1908 platform
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241104-pxa1908-lkml-v13-4-e050609b8d6c@skole.hr>
+Message-Id: <20241104-pxa1908-lkml-v13-10-e050609b8d6c@skole.hr>
 References: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 In-Reply-To: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -68,24 +68,24 @@ Cc: phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
  Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>, 
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5085;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=911;
  i=duje.mihanovic@skole.hr; s=20240706; h=from:subject:message-id;
- bh=TSes5VMwDbVr2Ciyf+7TtXMx+R/4KyK+lWL5sqtr0nk=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0OnPZ0+j/HWT891Ux9/4p7gWSC+V+zgVvG3iq2Cs
- V8OJS5K6ChlYRDjYpAVU2TJ/e94jfezyNbt2csMYOawMoEMYeDiFICJ1DAz/FNh8nqio33xo8ui
- FSJ8Uq5y6+d/z39hwFwWaZ/evnN13D6G/zHXIw8dV+WVVElO3hQz7dqHvw2uXWX7uTIWvElIDvq
- qxAsA
+ bh=9BOboJTIiKhhMTUkI5ZynecKLlq2BOPQ3r3XpGUGkAE=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0M3mRsFMbdUP3oVp+Ks94cnLtqf4arNccmJC9W4r
+ Cbf6GjvKGVhEONikBVTZMn973iN97PI1u3Zywxg5rAygQxh4OIUgIm8lWFk6OR4VuZkd4KZd2J6
+ gjyPlfFDtYz+anXZwPkaOQ8ETMU7GP5nLjzQpP3Rd/H5rP15z7/pTA87v3XH5Osv+9xMLp2YVf+
+ WHQA=
 X-Developer-Key: i=duje.mihanovic@skole.hr; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-Endpoint-Received: by B4 Relay for duje.mihanovic@skole.hr/20240706 with
  auth_id=191
 X-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_085906_129057_69ADA9A6 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20241104_085906_777914_17E2B208 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,165 +103,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Duje Mihanović <duje.mihanovic@skole.hr>
 
-Add dt bindings and documentation for the Marvell PXA1908 clock
-controller.
+Add ARCH_MMP configuration option for Marvell PXA1908 SoC.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Stephen Boyd <sboyd@kernel.org>
 Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
 ---
- .../devicetree/bindings/clock/marvell,pxa1908.yaml | 48 ++++++++++++
- include/dt-bindings/clock/marvell,pxa1908.h        | 88 ++++++++++++++++++++++
- 2 files changed, 136 insertions(+)
+ arch/arm64/Kconfig.platforms | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml b/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..4e78933232b6b925811425f853bedf6e9f01a27d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/marvell,pxa1908.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 6c6d11536b42ec6e878db8d355c17994c2500d7b..6cb21a27844718d8dfbdc49cc764a6ca39296484 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -175,6 +175,14 @@ config ARCH_MESON
+ 	  This enables support for the arm64 based Amlogic SoCs
+ 	  such as the s905, S905X/D, S912, A113X/D or S905X/D2
+ 
++config ARCH_MMP
++	bool "Marvell MMP SoC Family"
++	select PINCTRL
++	select PINCTRL_SINGLE
++	help
++	  This enables support for Marvell MMP SoC family, currently
++	  supporting PXA1908 aka IAP140.
 +
-+title: Marvell PXA1908 Clock Controllers
-+
-+maintainers:
-+  - Duje Mihanović <duje.mihanovic@skole.hr>
-+
-+description: |
-+  The PXA1908 clock subsystem generates and supplies clock to various
-+  controllers within the PXA1908 SoC. The PXA1908 contains numerous clock
-+  controller blocks, with the ones currently supported being APBC, APBCP, MPMU
-+  and APMU roughly corresponding to internal buses.
-+
-+  All these clock identifiers could be found in <include/dt-bindings/marvell,pxa1908.h>.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - marvell,pxa1908-apbc
-+      - marvell,pxa1908-apbcp
-+      - marvell,pxa1908-mpmu
-+      - marvell,pxa1908-apmu
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#clock-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  # APMU block:
-+  - |
-+    clock-controller@d4282800 {
-+      compatible = "marvell,pxa1908-apmu";
-+      reg = <0xd4282800 0x400>;
-+      #clock-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/marvell,pxa1908.h b/include/dt-bindings/clock/marvell,pxa1908.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..fb15b0d0cd4c1cd5760a78ea16a1980cd305ea21
---- /dev/null
-+++ b/include/dt-bindings/clock/marvell,pxa1908.h
-@@ -0,0 +1,88 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+#ifndef __DTS_MARVELL_PXA1908_CLOCK_H
-+#define __DTS_MARVELL_PXA1908_CLOCK_H
-+
-+/* plls */
-+#define PXA1908_CLK_CLK32		1
-+#define PXA1908_CLK_VCTCXO		2
-+#define PXA1908_CLK_PLL1_624		3
-+#define PXA1908_CLK_PLL1_416		4
-+#define PXA1908_CLK_PLL1_499		5
-+#define PXA1908_CLK_PLL1_832		6
-+#define PXA1908_CLK_PLL1_1248		7
-+#define PXA1908_CLK_PLL1_D2		8
-+#define PXA1908_CLK_PLL1_D4		9
-+#define PXA1908_CLK_PLL1_D8		10
-+#define PXA1908_CLK_PLL1_D16		11
-+#define PXA1908_CLK_PLL1_D6		12
-+#define PXA1908_CLK_PLL1_D12		13
-+#define PXA1908_CLK_PLL1_D24		14
-+#define PXA1908_CLK_PLL1_D48		15
-+#define PXA1908_CLK_PLL1_D96		16
-+#define PXA1908_CLK_PLL1_D13		17
-+#define PXA1908_CLK_PLL1_32		18
-+#define PXA1908_CLK_PLL1_208		19
-+#define PXA1908_CLK_PLL1_117		20
-+#define PXA1908_CLK_PLL1_416_GATE	21
-+#define PXA1908_CLK_PLL1_624_GATE	22
-+#define PXA1908_CLK_PLL1_832_GATE	23
-+#define PXA1908_CLK_PLL1_1248_GATE	24
-+#define PXA1908_CLK_PLL1_D2_GATE	25
-+#define PXA1908_CLK_PLL1_499_EN		26
-+#define PXA1908_CLK_PLL2VCO		27
-+#define PXA1908_CLK_PLL2		28
-+#define PXA1908_CLK_PLL2P		29
-+#define PXA1908_CLK_PLL2VCODIV3		30
-+#define PXA1908_CLK_PLL3VCO		31
-+#define PXA1908_CLK_PLL3		32
-+#define PXA1908_CLK_PLL3P		33
-+#define PXA1908_CLK_PLL3VCODIV3		34
-+#define PXA1908_CLK_PLL4VCO		35
-+#define PXA1908_CLK_PLL4		36
-+#define PXA1908_CLK_PLL4P		37
-+#define PXA1908_CLK_PLL4VCODIV3		38
-+
-+/* apb (apbc) peripherals */
-+#define PXA1908_CLK_UART0		1
-+#define PXA1908_CLK_UART1		2
-+#define PXA1908_CLK_GPIO		3
-+#define PXA1908_CLK_PWM0		4
-+#define PXA1908_CLK_PWM1		5
-+#define PXA1908_CLK_PWM2		6
-+#define PXA1908_CLK_PWM3		7
-+#define PXA1908_CLK_SSP0		8
-+#define PXA1908_CLK_SSP1		9
-+#define PXA1908_CLK_IPC_RST		10
-+#define PXA1908_CLK_RTC			11
-+#define PXA1908_CLK_TWSI0		12
-+#define PXA1908_CLK_KPC			13
-+#define PXA1908_CLK_SWJTAG		14
-+#define PXA1908_CLK_SSP2		15
-+#define PXA1908_CLK_TWSI1		16
-+#define PXA1908_CLK_THERMAL		17
-+#define PXA1908_CLK_TWSI3		18
-+
-+/* apb (apbcp) peripherals */
-+#define PXA1908_CLK_UART2		1
-+#define PXA1908_CLK_TWSI2		2
-+#define PXA1908_CLK_AICER		3
-+
-+/* axi (apmu) peripherals */
-+#define PXA1908_CLK_CCIC1		1
-+#define PXA1908_CLK_ISP			2
-+#define PXA1908_CLK_DSI1		3
-+#define PXA1908_CLK_DISP1		4
-+#define PXA1908_CLK_CCIC0		5
-+#define PXA1908_CLK_SDH0		6
-+#define PXA1908_CLK_SDH1		7
-+#define PXA1908_CLK_USB			8
-+#define PXA1908_CLK_NF			9
-+#define PXA1908_CLK_CORE_DEBUG		10
-+#define PXA1908_CLK_VPU			11
-+#define PXA1908_CLK_GC			12
-+#define PXA1908_CLK_SDH2		13
-+#define PXA1908_CLK_GC2D		14
-+#define PXA1908_CLK_TRACE		15
-+#define PXA1908_CLK_DVC_DFC_DEBUG	16
-+
-+#endif
+ config ARCH_MVEBU
+ 	bool "Marvell EBU SoC Family"
+ 	select ARMADA_AP806_SYSCON
 
 -- 
 2.47.0
