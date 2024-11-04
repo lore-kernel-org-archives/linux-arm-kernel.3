@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0348D132DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D67D132DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWAz5TdjV0s3G3j5HR50h22mQFRBfFcqS1CejLxUMh4=; b=FJoJy/GtjjeWom6YBTqyR6sWRZ
-	fmnoM3+4XpsVxazZhJqoFMR44YrP8SPk6EMSsB3T20K0/u4HthrNLC2hX7Tpgrvtw54XIgnlBAQTQ
-	z8zDRFx9ca2gcj4pjrdwFM6/wdT38WDzgiwVsYhayFD8FIMoQ5A7B40symLReSn/697KecV3zQcBa
-	A7MbrdjPhaBpi+pawNNIQr2XekBfLpkYmdDmDQlDx3cNfgnaOJfIzkcbeiNVYARcC21q5UelXEVZy
-	+41c4hLPxAjM10tcNskukcPJCMRSUb0y8juyPworj7HuPrTWEaXNJADba8VSt+E65ck+bfX7c2IhJ
-	9/4GD2bQ==;
+	bh=BjjoLBvOkIdvqHKae2IJzaas4+AMPqzUZpsNH6gOsjs=; b=2zq2w466NVrcNs2QaTjPeTcm6d
+	UGCpuGTEEcHhBDO0rw/97SUp08pIYqqjBkTLsltB22YracXDOh4v/T1iQRkUtF2pL4Fz0EoSxbd+S
+	GT1SjjsIjBFL9UO0tIqVz+RfLqWiM1MhXnhPQbYaaXgcrYWUY+rKOZn6WuxeBLIXDq1NBHdJ5Jzaq
+	3LPdjb9Vb6gWAU8Ei1kwflZk2YjuoO1dvEsrxghSNZfZK06QtpbKa7E2t5P/mQFIYnV+FI7eytovh
+	4jjnyLrQBBUrhNj/lxfx0ksNJmI+Lj189YZropE30esfgo3icij/0tEZ04tgajuGOXZKwwqA5Z8Vv
+	wvctLUZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ynK-0000000EAWU-3x4J;
-	Mon, 04 Nov 2024 15:15:06 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1t7yoL-0000000EAkn-2BNi;
+	Mon, 04 Nov 2024 15:16:09 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ykV-0000000EA78-3re5
+	id 1t7xCH-0000000DsRJ-098Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 15:12:13 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c803787abso33453095ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 07:12:11 -0800 (PST)
+	Mon, 04 Nov 2024 13:32:46 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-a9a273e4251so356478466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:32:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730733130; x=1731337930; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IWAz5TdjV0s3G3j5HR50h22mQFRBfFcqS1CejLxUMh4=;
-        b=CkiD+dhWwDrLn6A53PSo45qfDfLpy0CfewSADz35lMmTIi28SlXHCMmBtvhVcjSkKI
-         yhPD5qf+I/qImIlOlZTQMu/o0aq1VJZXXOFBpH9t7pRWi0iyQ9h7z9WIPyDXOfEPKQ1D
-         43xrzPtbhwlUSsAkG85EDPl8ZfccPrYSOW2zapLPWnOvMwEFzmFWpHpDKUnbqXCAOQWa
-         CwYHaBtloZarN2JeViajzy5pb6ZubFFmbrrk8dimMLr+Z2iFVuAybdW2/wD9kr/s+j05
-         VJ8uS1R5qF9PdioPVEoU8GT3IpdPUspAg13PC4Z3FTIqCclZbimL/oLe64mtQ4HyZVhv
-         dbKw==
+        d=google.com; s=20230601; t=1730727162; x=1731331962; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BjjoLBvOkIdvqHKae2IJzaas4+AMPqzUZpsNH6gOsjs=;
+        b=hSY1EVaKSkNPdMNgJqoOZhe/wY+wPEZej0JscbdKJxzeDP371CLbT5Zwa+QGIUM995
+         lCbjOgVjUs9jmlC6DMvhKEpTIlFYnKLPxOUJxynkxl241aBrzSMrxUt/g/H/1wUnCRFM
+         rw4ACZbwLc4Znz2Jkf0xAW5ZZ6yQ2NpVGxJgukg7IfR0RlJMP5T1AkSImzhwxXTENT6g
+         ilO+OA/J/bCS4htB6tq114eU2lFUsUE5SLtBTNztqYo3GK8nbdMsUk133mn00N0ZfIA4
+         QOC0utXoo6B2ilcLFviyRb0jKJBXC1MeW80pcwkABgB1t9fvePsOb4EnRQIqYYDIbyPH
+         W03g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730733130; x=1731337930;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IWAz5TdjV0s3G3j5HR50h22mQFRBfFcqS1CejLxUMh4=;
-        b=MULnx2nE16NHhxpSRYgfvJ8169jl9HGWr2xptKGi0lgjmV4cli8thDFlm7Bhymsdnt
-         FpMuuflI01YoplvM0IphzCwmeDyOTgRWaT7gRcS/yNtAPnhbSPwyboOUyN1rIfJHXIEK
-         9xeH7SrZMzjVd3flza1+d0IrnYFC5RkvdyCXew1/sG/t7il3vmX/l7df2JVpOI1fta7c
-         SrU9+dXuN0FnlSonOmOqKd8mHK5eRxPkFdgx3/IZB8gxwRV72GA5oX/u12glXWnBtAdv
-         BxEUmrK93ATYBZnbjo0rpDG1WFyEPQqiyOCyLn/rKWj795LKl6ThJLrfMRIJWluYekSa
-         FOYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUZAQs2UyyEdhM5I5zzOmz+WtNSU9N0qkCcq5Z8zpl66ZPUv9r1y+m1DiQ6xC4q0czJ6Y5lS+A1rmCCIq5Xfkj+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxlya7c/8p1nEG75QpcwkyIP/j/7x6QJR1V/5oJI/fLM2rxGt9W
-	b18lcrNwdoOij3Ym1gdYs8lxDBgRBHuZGSiEeaKAL4dRen/zjCsKkT3p8e9pkplTIm4zLK5L6HQ
-	=
-X-Google-Smtp-Source: AGHT+IF/DA7LNyMgu1pnTQkftl5jvkj6Flffim544TjwWV+oZb0jj3oRtdO+6se3chWJxM92S10XOw==
-X-Received: by 2002:a17:902:ccd2:b0:20c:9026:93a with SMTP id d9443c01a7336-2111946831emr213769535ad.19.1730733130510;
-        Mon, 04 Nov 2024 07:12:10 -0800 (PST)
-Received: from thinkpad ([2409:40f4:3049:1cc7:217b:63a:40ce:2e01])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21105707e12sm62411805ad.82.2024.11.04.07.12.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 07:12:09 -0800 (PST)
-Date: Mon, 4 Nov 2024 20:42:02 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, francesco.dolcini@toradex.com, Frank.li@nxp.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v4] PCI: imx6: Add suspend/resume support for i.MX6QDL
-Message-ID: <20241104151202.k6v6fxwyb44n7qw6@thinkpad>
-References: <20241030103250.83640-1-eichest@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241030103250.83640-1-eichest@gmail.com>
+        d=1e100.net; s=20230601; t=1730727162; x=1731331962;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BjjoLBvOkIdvqHKae2IJzaas4+AMPqzUZpsNH6gOsjs=;
+        b=q4Eaa4SOBf1DU+vFzIWt/xQhXDIkLJhtXQTGs+aq7neoHiWO/DSHyrLt/HO8HvJVlU
+         NSBvelCKGR0mlvyhXMn1PpFY5nUtsje2v+qI5R03Hp60OAVFAfAA+/mw2FVkEG3hAsU+
+         Umoww3dK9Q1MUGxIDYGurclCa2HstQK0lai3eLh2vvMMrK/icR9vgYNaSa8zIOvyxaiL
+         kDsp46hB9h9HE16zA8AnMGgO2Yv3z6Vi/wJTWd3Mugg9ZQrNhtn0IfS/aVJBPM71lEr8
+         Bl4OA8ipEzMzq8RiZuCR5Q72FMy/80lLCSLhc1OxIw6Dt6++LvrJk2JmN+xK0GCVh4oA
+         wqMg==
+X-Forwarded-Encrypted: i=1; AJvYcCWK5Mm0p2OqknVXN1M7xFc0iwYtnoG1B/+tznM/jnYohCw3I+53hteYH0j5cNRTaogVZlXr7tKd6Bp8vqulwv0u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9mHjOAqJzFUBh8FrCEtJyO+ee2p3dEEMpMcCjwzV+LoQNfilG
+	uFtsd/+V7fq+jqHxiV+MkI2RNAYeoYQt/NaxrgrImDXoHLfLPaTk528409EYJFBJRIZE3GDYjS0
+	c2NABXQ==
+X-Google-Smtp-Source: AGHT+IEbj6NqToXt4e9wVQWd4WMxb63nj/9jGxcZ0csUp26Lka3674D7FmXmXXn3NSLW/560C2CbSgE7ZVUz
+X-Received: from big-boi.c.googlers.com ([fda3:e722:ac3:cc00:31:98fb:c0a8:129])
+ (user=qperret job=sendgmr) by 2002:a17:906:ec2:b0:a9a:1e:d858 with SMTP id
+ a640c23a62f3a-a9e6582233cmr306266b.11.1730727161943; Mon, 04 Nov 2024
+ 05:32:41 -0800 (PST)
+Date: Mon,  4 Nov 2024 13:32:00 +0000
+In-Reply-To: <20241104133204.85208-1-qperret@google.com>
+Mime-Version: 1.0
+References: <20241104133204.85208-1-qperret@google.com>
+X-Mailer: git-send-email 2.47.0.163.g1226f6d8fa-goog
+Message-ID: <20241104133204.85208-15-qperret@google.com>
+Subject: [PATCH 14/18] KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_071212_101606_15715667 
-X-CRM114-Status: GOOD (  37.64  )
+X-CRM114-CacheID: sfid-20241104_053245_109501_0107D34F 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,147 +93,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 11:32:45AM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> 
-> The suspend/resume functionality is currently broken on the i.MX6QDL
-> platform, as documented in the NXP errata (ERR005723):
-> https://www.nxp.com/docs/en/errata/IMX6DQCE.pdf
-> 
-> This patch addresses the issue by sharing most of the suspend/resume
-> sequences used by other i.MX devices, while avoiding modifications to
-> critical registers that disrupt the PCIe functionality. It targets the
-> same problem as the following downstream commit:
-> https://github.com/nxp-imx/linux-imx/commit/4e92355e1f79d225ea842511fcfd42b343b32995
-> 
-> Unlike the downstream commit, this patch also resets the connected PCIe
-> device if possible. Without this reset, certain drivers, such as ath10k
-> or iwlwifi, will crash on resume. The device reset is also done by the
-> driver on other i.MX platforms, making this patch consistent with
-> existing practices.
-> 
-> Without this patch, suspend/resume will fail on i.MX6QDL devices if a
-> PCIe device is connected. Upon resuming, the kernel will hang and
-> display an error. Here's an example of the error encountered with the
-> ath10k driver:
-> ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
-> Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
-> 
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Plumb the kvm_stage2_test_clear_young() callback into pKVM for
+non-protected guest. It will be later be called from MMU notifiers.
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Signed-off-by: Quentin Perret <qperret@google.com>
+---
+ arch/arm64/include/asm/kvm_asm.h              |  1 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 25 +++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 21 ++++++++++++++++
+ 4 files changed, 48 insertions(+)
 
-- Mani
-
-> ---
-> Changes in v4:
-> - Improve commit message (Bjorn)
-> - Fix style issue on comments (Bjorn)
-> - s/msi/MSI (Bjorn)
-> 
-> Changes in v3:
-> - Added a new flag to the driver data to indicate that the suspend/resume
->   is broken on the i.MX6QDL platform. (Frank)
-> - Fix comments to be more relevant (Mani)
-> - Use imx_pcie_assert_core_reset in suspend (Mani)
-> 
->  drivers/pci/controller/dwc/pci-imx6.c | 57 +++++++++++++++++++++------
->  1 file changed, 46 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 808d1f1054173..c8d5c90aa4d45 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -82,6 +82,11 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_HAS_SERDES		BIT(6)
->  #define IMX_PCIE_FLAG_SUPPORT_64BIT		BIT(7)
->  #define IMX_PCIE_FLAG_CPU_ADDR_FIXUP		BIT(8)
-> +/*
-> + * Because of ERR005723 (PCIe does not support L2 power down) we need to
-> + * workaround suspend resume on some devices which are affected by this errata.
-> + */
-> +#define IMX_PCIE_FLAG_BROKEN_SUSPEND		BIT(9)
->  
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->  
-> @@ -1237,9 +1242,19 @@ static int imx_pcie_suspend_noirq(struct device *dev)
->  		return 0;
->  
->  	imx_pcie_msi_save_restore(imx_pcie, true);
-> -	imx_pcie_pm_turnoff(imx_pcie);
-> -	imx_pcie_stop_link(imx_pcie->pci);
-> -	imx_pcie_host_exit(pp);
-> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
-> +		/*
-> +		 * The minimum for a workaround would be to set PERST# and to
-> +		 * set the PCIE_TEST_PD flag. However, we can also disable the
-> +		 * clock which saves some power.
-> +		 */
-> +		imx_pcie_assert_core_reset(imx_pcie);
-> +		imx_pcie->drvdata->enable_ref_clk(imx_pcie, false);
-> +	} else {
-> +		imx_pcie_pm_turnoff(imx_pcie);
-> +		imx_pcie_stop_link(imx_pcie->pci);
-> +		imx_pcie_host_exit(pp);
-> +	}
->  
->  	return 0;
->  }
-> @@ -1253,14 +1268,32 @@ static int imx_pcie_resume_noirq(struct device *dev)
->  	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_SUPPORTS_SUSPEND))
->  		return 0;
->  
-> -	ret = imx_pcie_host_init(pp);
-> -	if (ret)
-> -		return ret;
-> -	imx_pcie_msi_save_restore(imx_pcie, false);
-> -	dw_pcie_setup_rc(pp);
-> +	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_BROKEN_SUSPEND)) {
-> +		ret = imx_pcie->drvdata->enable_ref_clk(imx_pcie, true);
-> +		if (ret)
-> +			return ret;
-> +		ret = imx_pcie_deassert_core_reset(imx_pcie);
-> +		if (ret)
-> +			return ret;
-> +		/*
-> +		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
-> +		 * root complex. This is why we have to setup the rc again and
-> +		 * why we have to restore the MSI register.
-> +		 */
-> +		ret = dw_pcie_setup_rc(&imx_pcie->pci->pp);
-> +		if (ret)
-> +			return ret;
-> +		imx_pcie_msi_save_restore(imx_pcie, false);
-> +	} else {
-> +		ret = imx_pcie_host_init(pp);
-> +		if (ret)
-> +			return ret;
-> +		imx_pcie_msi_save_restore(imx_pcie, false);
-> +		dw_pcie_setup_rc(pp);
->  
-> -	if (imx_pcie->link_is_up)
-> -		imx_pcie_start_link(imx_pcie->pci);
-> +		if (imx_pcie->link_is_up)
-> +			imx_pcie_start_link(imx_pcie->pci);
-> +	}
->  
->  	return 0;
->  }
-> @@ -1485,7 +1518,9 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX6Q] = {
->  		.variant = IMX6Q,
->  		.flags = IMX_PCIE_FLAG_IMX_PHY |
-> -			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE,
-> +			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
-> +			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.dbi_length = 0x200,
->  		.gpr = "fsl,imx6q-iomuxc-gpr",
->  		.clk_names = imx6q_clks,
-> -- 
-> 2.43.0
-> 
-
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 3f1f0760c375..acb36762e15f 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -69,6 +69,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_relax_guest_perms,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_wrprotect_guest,
++	__KVM_HOST_SMCCC_FUNC___pkvm_host_test_clear_young_guest,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index 8658b5932473..554ce31882e6 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -43,6 +43,7 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum k
+ int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
+ int __pkvm_host_relax_guest_perms(u64 gfn, enum kvm_pgtable_prot prot, struct pkvm_hyp_vcpu *vcpu);
+ int __pkvm_host_wrprotect_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
++int __pkvm_host_test_clear_young_guest(u64 gfn, bool mkold, struct pkvm_hyp_vm *vm);
+ 
+ bool addr_is_memory(phys_addr_t phys);
+ int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index ce33079072c0..21c8a5e74d14 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -307,6 +307,30 @@ static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt
+ 	cpu_reg(host_ctxt, 1) = ret;
+ }
+ 
++static void handle___pkvm_host_test_clear_young_guest(struct kvm_cpu_context *host_ctxt)
++{
++	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
++	DECLARE_REG(u64, gfn, host_ctxt, 2);
++	DECLARE_REG(bool, mkold, host_ctxt, 3);
++	struct pkvm_hyp_vm *hyp_vm;
++	int ret = -EINVAL;
++
++	if (!is_protected_kvm_enabled())
++		goto out;
++
++	hyp_vm = get_pkvm_hyp_vm(handle);
++	if (!hyp_vm)
++		goto out;
++	if (pkvm_hyp_vm_is_protected(hyp_vm))
++		goto put_hyp_vm;
++
++	ret = __pkvm_host_test_clear_young_guest(gfn, mkold, hyp_vm);
++put_hyp_vm:
++	put_pkvm_hyp_vm(hyp_vm);
++out:
++	cpu_reg(host_ctxt, 1) = ret;
++}
++
+ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+@@ -527,6 +551,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_host_unshare_guest),
+ 	HANDLE_FUNC(__pkvm_host_relax_guest_perms),
+ 	HANDLE_FUNC(__pkvm_host_wrprotect_guest),
++	HANDLE_FUNC(__pkvm_host_test_clear_young_guest),
+ 	HANDLE_FUNC(__kvm_adjust_pc),
+ 	HANDLE_FUNC(__kvm_vcpu_run),
+ 	HANDLE_FUNC(__kvm_flush_vm_context),
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 3a8751175fd5..7c2aca459deb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1537,3 +1537,24 @@ int __pkvm_host_wrprotect_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+ 
+ 	return ret;
+ }
++
++int __pkvm_host_test_clear_young_guest(u64 gfn, bool mkold, struct pkvm_hyp_vm *vm)
++{
++	u64 ipa = hyp_pfn_to_phys(gfn);
++	u64 phys;
++	int ret;
++
++	host_lock_component();
++	guest_lock_component(vm);
++
++	ret = __check_host_unshare_guest(vm, &phys, ipa);
++	if (ret)
++		goto unlock;
++
++	ret = kvm_pgtable_stage2_test_clear_young(&vm->pgt, ipa, PAGE_SIZE, mkold);
++unlock:
++	guest_unlock_component(vm);
++	host_unlock_component();
++
++	return ret;
++}
 -- 
-மணிவண்ணன் சதாசிவம்
+2.47.0.163.g1226f6d8fa-goog
+
 
