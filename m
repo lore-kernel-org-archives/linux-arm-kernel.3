@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1746CD132DF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4291DD132DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vteU5ewralNN6plRa3U2y/lnGpPjYiCg4kQzNe8iJvk=; b=2mzmx8LbDnjSuOwCMjOfiQnNXo
-	Fn59N7NU6/iPoE4RJFgUqrfXU6jz/jnZaYP0sHUT9mh9HRdzs1v+JNii0eQp7dh9z5j6+/bUPvNQN
-	XKeGOXMGPWO4pYZrB7bBY6o0eeiWDsjRQKndU0bMtygArvz1Z4B/TmtxUKYtt2CXpCIRAaYm3oEh4
-	OInLicTx+0JXjVnV5V/S+JNrpp/AYCrXl4CJeTLmrAZLo3AJ0hoK6XXjqV8Tu5X0FQavbU2wAXO+t
-	UcuMzD/XpU9H7UScEuCxuAM3Sfur4Ubl3xLVAsDXeHQDmj1s8laQVnYHRP52G2wxKD2oHb1Of+1wY
-	3Y1l66kQ==;
+	bh=hXakJlT9uMF0pnqKrP0GCUoDzv7wousR11pYk7zv9Co=; b=YcrLF56ZZdUQSBl5sxIVnsjky0
+	za8TfHzHnbjfTrk1M4GI/H9VK+vavUZJ2z00In5VwOjF89gmoHoiDd/5VMGIB1pUjJTPAi4rkYaRv
+	OocPD4j4SwGm3h98S9IBk0/lU4XVtyDAg1RhjRsbM14xY1hiU3wF52jXTmKRpq2wBThZgqmeS42i8
+	WeUamCW1AWA764aJdKknUm/nYuY64XNxSeL3OC+LjI1lyQL5hdsdZF+kIaJXvGk2Civ8En1e0LAmc
+	tI29mqdVuYccZWQxMEEJkRYzYcrExsnL5btKrFgXk9JX2fmtoPC950rXdzAHCd2O28UXoLJB0LhoU
+	Hph7vmSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ysi-0000000EBO8-3s1Q;
-	Mon, 04 Nov 2024 15:20:40 +0000
-Received: from mail-pf1-f178.google.com ([209.85.210.178])
+	id 1t7yuO-0000000EBjh-0sST;
+	Mon, 04 Nov 2024 15:22:24 +0000
+Received: from mail-pl1-f177.google.com ([209.85.214.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yr1-0000000EB7M-2eUm
+	id 1t7ysM-0000000EBJj-0lnH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 15:18:56 +0000
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-723db2798caso897475b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 07:18:54 -0800 (PST)
+	Mon, 04 Nov 2024 15:20:19 +0000
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-20cdbe608b3so42925265ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 07:20:17 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730733534; x=1731338334;
+        d=1e100.net; s=20230601; t=1730733617; x=1731338417;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vteU5ewralNN6plRa3U2y/lnGpPjYiCg4kQzNe8iJvk=;
-        b=SqQJ+e+JKomDLxrM4TNCU81f0lS4W3FyfEP+igVNoR0NZ6xXTKdny9QQV/Ls7TI+wz
-         OwXv+dVKweR+rIWU1F3wtoUDA09HwmuTHjM9VHubYSewO+OxsmJFg9d0feCGQnJu1N3P
-         8iO01sryhBs4CC/eMg4sOono6oKhDM70fZffNIhRFU/oFobXhZCm8LErYZEXp3NZ8/vB
-         LLddUPRj+ZdnESJETlTTarJeNXXjNkLYm0Js9lJFsU0PprJsEcGaYK0Y/WClR4jP57eQ
-         suugFWyBJBZwJme0cnShiRxAkAAuQLZW3OoGcexvRVTPBM5eQ1O764PPBI4qfJeMh0of
-         pFCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVH2pvwA3nwj+ruENCmOzIA3jsoSZyMiygWIf5cC3yw4IPquheHM+OO+NwH5i+1QN16X+Aiga7HB+WPcyJ7erB5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/XYzEQHOUzHWlmRet2iZhpalRuGSWhZnqeQ1f9eELhwo4xiTp
-	JzO78QF21tUVOBqNADD2L0yWasfjzsQefU0Tc/bXgEelFJfAvO4Y
-X-Google-Smtp-Source: AGHT+IHdB2N8KaOSgq4Vj//H/vT+ujkhoSXOnjrxtoiNLljOwRnCUpgEJW7ULiCejD+/6PEWsk3VNQ==
-X-Received: by 2002:aa7:88c6:0:b0:71d:feb7:37f4 with SMTP id d2e1a72fcca58-720ab39eca2mr27194183b3a.6.1730733534172;
-        Mon, 04 Nov 2024 07:18:54 -0800 (PST)
+        bh=hXakJlT9uMF0pnqKrP0GCUoDzv7wousR11pYk7zv9Co=;
+        b=nlN3c2RH6CP6p64CjeddWaziSlT9YYskwMHo9YqoNWVr034CSzY3OuAjq5cQXcoHhO
+         tpBXSyQWh5bwd6xmKz/YGfXlJTzDb4OvaiEx84TY/vdENWCbOalkZ3xSzocWUymSlOWD
+         c+M5nDHjxeG1MCYsksE07GG3TsUXIMYdQnTWfgChmEwBdZ1BRJfD0DX0rJojhdGt2byx
+         Ps8py1elFxCaRW3RxFDeBYL4ot/SB6IEsf4jwhkPky7EwKu7O9b+UDRl2sWEqpzsNY1a
+         89DE5sxivEtFIGdMtBJrmvIyh+SlKyaAPDNeWGA281KutIQAvwXaBjWWMYiKMN4dE9U7
+         /How==
+X-Forwarded-Encrypted: i=1; AJvYcCW6hlvp9MPnHC+X1qqlN67tMKhTaNu8pF51zrw2e8/7d+Q0eg0fEfTSrge52loyQCgkcvdLh17ihBvIpnbAG9mo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGeHH0tt/T3yaOdRHQbBo+NGHDFLpRXJ6vXcLFuNopR1FRxPPL
+	LICuewNmwIPkYDjo4Teo8nj1l9trq+ZQ9ythEvEmn1OuEpS4r+9qKnWlVSXM
+X-Google-Smtp-Source: AGHT+IFSpLs5pynctX41cG49jOy/TRgnzBUWbXzntToH6HnOeihZiHsr2R6TXjAQzTMkwx+9d3neXA==
+X-Received: by 2002:a17:903:182:b0:20b:5b1a:209 with SMTP id d9443c01a7336-210f74f48efmr275371855ad.9.1730733617242;
+        Mon, 04 Nov 2024 07:20:17 -0800 (PST)
 Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1b8992sm7612222b3a.44.2024.11.04.07.18.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057083b8sm61833515ad.100.2024.11.04.07.20.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 07:18:53 -0800 (PST)
-Date: Tue, 5 Nov 2024 00:18:51 +0900
+        Mon, 04 Nov 2024 07:20:16 -0800 (PST)
+Date: Tue, 5 Nov 2024 00:20:15 +0900
 From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>, lpieralisi@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
 	francesco.dolcini@toradex.com, Frank.li@nxp.com,
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
 	Stefan Eichenberger <stefan.eichenberger@toradex.com>
 Subject: Re: [PATCH v4] PCI: imx6: Add suspend/resume support for i.MX6QDL
-Message-ID: <20241104151851.GA3388469@rocinante>
+Message-ID: <20241104152015.GB3388469@rocinante>
 References: <20241030103250.83640-1-eichest@gmail.com>
- <20241101193412.GA1317741@bhelgaas>
- <20241102120403.GF2260768@rocinante>
- <20241104151230.bxsdu4fcf6fssx4e@thinkpad>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241104151230.bxsdu4fcf6fssx4e@thinkpad>
+In-Reply-To: <20241030103250.83640-1-eichest@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_071855_692319_AFCF2147 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20241104_072018_248989_5FDD4103 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +88,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello,
 
-> > [...]
-> > > > Without this patch, suspend/resume will fail on i.MX6QDL devices if a
-> > > > PCIe device is connected. Upon resuming, the kernel will hang and
-> > > > display an error. Here's an example of the error encountered with the
-> > > > ath10k driver:
-> > > > ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
-> > > > Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
-> > > [...]
-> > > 
-> > > Richard and Lucas, does this look OK to you?  Since you're listed as
-> > > maintainers of pci-imx6.c, I'd like to have your ack before merging
-> > > this.
-> > 
-> > If things look fine here, then I would like to pick it up.
-> > 
+> The suspend/resume functionality is currently broken on the i.MX6QDL
+> platform, as documented in the NXP errata (ERR005723):
+> https://www.nxp.com/docs/en/errata/IMX6DQCE.pdf
 > 
-> LGTM, feel free to pick it up.
+> This patch addresses the issue by sharing most of the suspend/resume
+> sequences used by other i.MX devices, while avoiding modifications to
+> critical registers that disrupt the PCIe functionality. It targets the
+> same problem as the following downstream commit:
+> https://github.com/nxp-imx/linux-imx/commit/4e92355e1f79d225ea842511fcfd42b343b32995
+> 
+> Unlike the downstream commit, this patch also resets the connected PCIe
+> device if possible. Without this reset, certain drivers, such as ath10k
+> or iwlwifi, will crash on resume. The device reset is also done by the
+> driver on other i.MX platforms, making this patch consistent with
+> existing practices.
+> 
+> Without this patch, suspend/resume will fail on i.MX6QDL devices if a
+> PCIe device is connected. Upon resuming, the kernel will hang and
+> display an error. Here's an example of the error encountered with the
+> ath10k driver:
+> ath10k_pci 0000:01:00.0: Unable to change power state from D3hot to D0, device inaccessible
+> Unhandled fault: imprecise external abort (0x1406) at 0x0106f944
 
-Sounds good!  Thank you!
+Applied to controller/imx6, thank you!
+
+[01/01] PCI: imx6: Fix suspend/resume support on i.MX6QDL
+        https://git.kernel.org/pci/pci/c/1a2a9024f84d
 
 	Krzysztof
 
