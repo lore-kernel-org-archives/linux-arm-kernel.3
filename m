@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE738D111BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 08:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BDED111BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 08:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P594FfHFIvsXMOwGReb27v+hwrq26dJJ42raaIcoDpc=; b=kkW+Kn9fNpE+Pj1/VFd47liAnE
-	zzTpPJVX5tG7Xb8/MqPtHmrbGeNzZye4MXwTd4d6KKxeNGAHOtioLMoJFXJUvUkh+XvvpTWzQFDRA
-	taXfZZRRtu4FaQoXFTDW3mHbDn9L2L5cX/hUyiKUynyiFxF4RYLD3/GbxPSWsM42tUAspcW7cKbbj
-	6Ox4zW0qhnv4SD2mJZXdKYs6iXI9abBVIuiYy6L4Lm60XvkyrouGA6V63Hw5Z0iyCFN17GqMnVa5Y
-	ANHcJ5JiXnEeH56zgeac1OUIYYu+ep63nxCTNXJf/dKtK6OJ1vvY4U7HqtXFlJfHS3zYfCJRAyVpJ
-	eWcoQ9pg==;
+	bh=YeZtCRsJiGg3sIw0SoJtWiCQvYy7NOZbjLLFDcQsrN4=; b=SPsSWc7OnhpqpYZEou6GbPeJVk
+	nWmQ+UdPpvvr4QLz1w0dPI1Bk5ijGZDndLS3u2HkY03/FnevKROpcJbYo73I3DN/GfEbZIJCxcEkx
+	WaE4zW7YTNR7Y6El0HYdcQNjFv8detBk3vP0TEvDe0k0tRl48cplyZdYrlai4OAAouBiMM6KFOEys
+	eVNwI8cCzv6hCtU3PSD4UuPBTxQTE+Yb9xwHUIfaOXLnAQM6YpnQidno9KbAB8PvVbvqeUJmq+LK3
+	01ivfRua5XR6Czw7kNZjBknOgDZaVMKPWGJrhIN3poSMiYTq/eZqXQeAkcIoxX/EugYJsvGdPuXoL
+	fGeWysbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7s1U-0000000Cuj9-0LeE;
-	Mon, 04 Nov 2024 08:01:16 +0000
+	id 1t7s37-0000000CusI-0Ykv;
+	Mon, 04 Nov 2024 08:02:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rzl-0000000CuQq-4AOM
+	id 1t7s0l-0000000CubW-3du8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 07:59:32 +0000
+	Mon, 04 Nov 2024 08:00:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D90AEFEC;
-	Sun,  3 Nov 2024 23:59:56 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF54DFEC;
+	Mon,  4 Nov 2024 00:01:00 -0800 (PST)
 Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 441EA3F6A8;
-	Sun,  3 Nov 2024 23:59:23 -0800 (PST)
-Date: Mon, 4 Nov 2024 08:58:49 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5B2A3F6A8;
+	Mon,  4 Nov 2024 00:00:27 -0800 (PST)
+Date: Mon, 4 Nov 2024 09:00:00 +0100
 From: Beata Michalska <beata.michalska@arm.com>
 To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>,
-	Sumit Gupta <sumitg@nvidia.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
-	catalin.marinas@arm.com, rafael@kernel.org,
-	yang@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com, linux-tegra <linux-tegra@vger.kernel.org>,
-	Bibek Basu <bbasu@nvidia.com>
-Subject: Re: [PATCH v7 3/4] arm64: Provide an AMU-based version of
- arch_freq_avg_get_on_cpu
-Message-ID: <Zyh-uVSW-0d0r8oB@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com
+Subject: Re: [PATCH v7 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <Zyh_ACbOkSsjcPX3@arm.com>
 References: <20240913132944.1880703-1-beata.michalska@arm.com>
- <20240913132944.1880703-4-beata.michalska@arm.com>
- <aa254516-968e-4665-bb5b-981c296ffc35@nvidia.com>
- <ZvU4mR_FZa7jXUgk@arm.com>
- <ylcfqw4swz6xjxxfoyljyifs4ibbueywogqxusxfz3a3fgh3du@cfaajchbwgvn>
- <Zv8PKlr_PJgxazro@arm.com>
- <5y3yz2ct2o42c53dc6rwpse3andstjx74lowt2b3hohj4ogbct@nu2szdnxvxid>
- <Zwe1p0La_AFknglf@arm.com>
- <20241029065319.zto3wlvceec3fjym@vireshk-i7>
+ <20240913132944.1880703-2-beata.michalska@arm.com>
+ <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241029065319.zto3wlvceec3fjym@vireshk-i7>
+In-Reply-To: <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_235930_107651_21D42E25 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20241104_000032_012539_5E361B6B 
+X-CRM114-Status: GOOD (  29.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +69,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 12:23:19PM +0530, Viresh Kumar wrote:
-> On 10-10-24, 13:08, Beata Michalska wrote:
-> > That is a fair point but I am not entirely convinced using '0' instead makes
-> > things any more clearer as this is in no way a valid CPU frequency.
-> > As long as we document the expected behaviour keeping the interface well
-> > defined,  both options should be fine I guess.
-> > 
-> > @Viresh: what is your opinion on that one ?
+On Tue, Oct 29, 2024 at 12:34:29PM +0530, Viresh Kumar wrote:
+> Apologies for the delay from my side. September was mostly holidays
+> for me and then I was stuck with other stuff plus email backlog and
+> this series was always a painful point to return to :(
+Thanks for getting back to me on this one!
 > 
-> Failing to get frequency for the CPU shouldn't be represented by 0,
-> even if it is confusing for the user.
-We still need to decide  whether provide a more descriptive way of informing
-about such cases (whether it be 'unknown' or 'idle' ) or to simply return
-an appropriate error and leave the userspace with dealing with that.
+> On 13-09-24, 14:29, Beata Michalska wrote:
+> > Currently the CPUFreq core exposes two sysfs attributes that can be used
+> > to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
+> > and scaling_cur_freq. Both provide slightly different view on the
+> > subject and they do come with their own drawbacks.
+> > 
+> > cpuinfo_cur_freq provides higher precision though at a cost of being
+> > rather expensive. Moreover, the information retrieved via this attribute
+> > is somewhat short lived as frequency can change at any point of time
+> > making it difficult to reason from.
+> > 
+> > scaling_cur_freq, on the other hand, tends to be less accurate but then
+> > the actual level of precision (and source of information) varies between
+> > architectures making it a bit ambiguous.
+> > 
+> > The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
+> > distinct interface, exposing an average frequency of a given CPU(s), as
+> > reported by the hardware, over a time frame spanning no more than a few
+> > milliseconds. As it requires appropriate hardware support, this
+> > interface is optional.
+> 
+> From what I recall, the plan is to:
+> - keep cpuinfo_cur_freq as it is, not expose for x86 and call ->get()
+>   for ARM.
+> 
+> - introduce cpuinfo_avg_freq() and make it return frequency from hw
+>   counters for both ARM and Intel and others who provide the API.
+> 
+> - update scaling_cur_freq() to only return the requested frequency or
+>   error in case of X86 and update documentation to reflect the same.
+>   Right now or after some time ? How much time ?
+> 
+>   Rafael ?
+>
+> > diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> > index 04fc786dd2c0..3493e5a9500d 100644
+> > --- a/drivers/cpufreq/cpufreq.c
+> > +++ b/drivers/cpufreq/cpufreq.c
+> > @@ -752,6 +752,16 @@ __weak unsigned int arch_freq_get_on_cpu(int cpu)
+> >  	return 0;
+> >  }
+> >  
+> > +__weak int arch_freq_avg_get_on_cpu(int cpu)
+> > +{
+> > +	return -EOPNOTSUPP;
+> > +}
+> > +
+> > +static inline bool cpufreq_avg_freq_supported(struct cpufreq_policy *policy)
+> > +{
+> > +	return arch_freq_avg_get_on_cpu(policy->cpu) >= 0;
+> > +}
+> 
+> And why aren't we simply reusing arch_freq_get_on_cpu() here ?
+We need a way to discover whether the new sysfs attrib is to be enabled or not.
+I guess I could change the signature for arch_freq_get_on_cpu to return an error
+if that functionality is not supported for given policy ?
 
 ---
-Thanks
+Best Regards
 Beata
 > 
 > -- 
