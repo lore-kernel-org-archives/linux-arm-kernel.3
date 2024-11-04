@@ -4,180 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8652D111A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 03:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E05D111A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 03:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pMf3jixDKljFvNe09UwCShlLP4xcduUdFvy9xIa7FHw=; b=rb6PseCtbvheQI9ChhhxHJF+1b
-	ksh7DVm4xC/3U415Q4s4++xp8enl5NQZnaJKOrdyu5KQnkLxuxBhCmGWXAqSGNdBcfVH9DBacU0/U
-	L2KxYLj1PZA54gDlrDiQqdyTukRORwJdRAdmMwzxGOoa28PlXi8FSCEtIPfV/MU//AmwTtE2VSgwo
-	AaKcyLTuwxICH5seHk33dkORTq6oem6sM2KjiR2IUTLJGgxJY9JrZp+qfAGMKZFVwZVv84f3TXExD
-	o/UPDzUiGuovWpiv5MgzEAndj28+abeMDy0V6SOKGTOYPKb2mqfBwxwh7DWjBMEOxjPFjPPzAJOAi
-	Li7bO4WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ncvWODKuXOWjfOJU8Hbk69ipGmSa0aAzlhwRkNBrkD8=; b=vGZrB/2FtZuO7qK4uwTbVcJAN8
+	VcJ5d6rZnz9i1eRAsZiCyL5zEHtONCnlV/RCDn9YIIhdFpCrDeRTlVBgIvl70j3unRVp9Zh5HHR1z
+	gv1Ane2dabV1eG2v6CaN7txBBfTNb9giGCvaFObLVKwRqiWHGcqcb5BD3jHrKhJAeqjQo2Jzfze9n
+	uqhH5hdNXpmZhIEeqp2czeXa/VeSUCq8W1aGGy3FWW/w/9uWNg3rfjxA6TzhFFsKg5sq/j8e79aVy
+	26beQ0JBL610KleyLjhlaKmnZmdvxLYVOuddtLyFe1UqhZQGlX3SCVd3Yn5CWPYvjglu1DMx5/ydc
+	ta3vXIZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7o8q-0000000Can4-0w7c;
-	Mon, 04 Nov 2024 03:52:36 +0000
-Received: from mail-vi1eur03on20607.outbound.protection.outlook.com ([2a01:111:f403:260c::607] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1t7oAT-0000000Cay8-1ovv;
+	Mon, 04 Nov 2024 03:54:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7nni-0000000CYIO-375j
+	id 1t7o4B-0000000CaNG-2phF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 03:30:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F0/3Of2G+4EInXA2Nt0Uog2BcuTHuAIoGR7c1uP+hSlgJxhW+bsVG9hUZI4Wc8hz7hESkpjGme4m43GETtU7gN3amTMfPhJAyVhKZZ2xYHo65u5mxU2/xkxQocVInmjF+Z1Dtu8kq5VLUpt6nRzoTxgwpxaUlgrOKHxSxjP+drVOnJC7XVDW9jCAPPvhYlQumiVD1BJ5IV9OuICnTYFEr0W8gDpHkGXbcZOpS3LO29ZRDvsuEgGKww/9oZ51ImTfkhj0AEQSZfBbQbfOLyxV4Knz7TnTPxUWQ77X2fPPjPurDCetiS/BlkVQt/R9RoPImumJEubUPmDkpZnr3TS+UQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pMf3jixDKljFvNe09UwCShlLP4xcduUdFvy9xIa7FHw=;
- b=oLQevIZGC5Jk6S85QUcoh8GS7jkeDrEi++yz5joY8y4V/fgux0ApeNRrqdWafuTPga0EM6Pdtf74idYGgX1n/uyxEBHkcUTsqPl/3sKaKiq8mVuQ7pr0o56+h4PyRogZ+2Nxrhzy48OydheW1LsbMb5dWmeEOnEPeBiSIlHsBL7pIdFayCRSkbCaC5mXCJATWYoBH3oHW6S0/0UjT7uu9EliMbx63ujbMdtmUllOas0p/Htb4g4ybN/06BnOhu2ZpvXuQYA/x+jNzmcw0xI6Jw4ROwu4t7Re1n1ccV1BDwI6wHx1Oj/umEfQ6qe4nf1n4pwOiOYGU2uRP+SIZ4Zflg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pMf3jixDKljFvNe09UwCShlLP4xcduUdFvy9xIa7FHw=;
- b=Yu5wrLuJxROEwYZWhMZLBnkvLpemX83uyivvn0BbNft2Ofit+XcuAofhTkXUQ5TTSY0Wh16ARbl4sRyVKD0xFRzDVxKz3MK5PbcIQSJbocyN0uxJfFBFN0QBkzosF2y00iTJG5J0Du3FXwnQWQQ9SxRrYdRcHCFy2d6lb4eRyZoS05QlT/8QKf8v/j5vgp6hvxgV5MbleLTLAvX0HvEPDm6pBU1TzcpvuR4YngNvZ9IteOZnsXB4ls1dNjrzvSk/NMXWaRDn4PESkZefXVN42A28vzAnDcOhvfx6sYVkpPV43vbhND4NgRlyaDnH/+fqjxT7HMTmTGCgPwp7ihSyaA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PA1PR04MB10602.eurprd04.prod.outlook.com (2603:10a6:102:490::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
- 2024 03:30:43 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
- 03:30:43 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quic_jesszhan@quicinc.com,
-	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	sakari.ailus@linux.intel.com,
-	hverkuil@xs4all.nl,
-	tomi.valkeinen@ideasonboard.com,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	thierry.reding@gmail.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	sam@ravnborg.org,
-	marex@denx.de,
-	biju.das.jz@bp.renesas.com
-Subject: [PATCH v5 13/13] MAINTAINERS: Add maintainer for ITE IT6263 driver
-Date: Mon,  4 Nov 2024 11:28:06 +0800
-Message-Id: <20241104032806.611890-14-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241104032806.611890-1-victor.liu@nxp.com>
-References: <20241104032806.611890-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SGXP274CA0016.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::28)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Mon, 04 Nov 2024 03:47:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 28444A40306;
+	Mon,  4 Nov 2024 03:45:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A4DDC4CED0;
+	Mon,  4 Nov 2024 03:47:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730692066;
+	bh=BxTdEBrwuoUPawocmr4roN/Pu6iOj2aVRgI+R08NuDA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PDmBUW55OAIQDSfCj7VeIqh1sVtaVyYdlduJ29cHcI8pqfdT/cJOtd3cTn70tByys
+	 WMKT8sDE0W0hk+EnP3+QzQ5hLvOikBIqWcSJJP3N3jhVq6C6X3zqMXLWH4WZccJPRl
+	 iJkLMzOSdRkk48dCX+GwwSh5qVRZlPuuV34rWho5e4EbJtmXOkSwJJAG7Y6VFnqldl
+	 ohkTcGhGU9CSQ9JL78QfJsH+OaqO3aPeH6JeUulAWtdAI+hlVgqHjEAhyTdguO+R+Z
+	 gb2e7ipzlvPY2hR2ChTNtrps80g1L5LqEQ/njmxc477Ar3eQ1HQyyZdXjx7+VKaCey
+	 lk2c38N5aEI9A==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rosen Penev <rosenp@gmail.com>
+Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.13
+Date: Sun,  3 Nov 2024 21:47:43 -0600
+Message-ID: <20241104034744.14378-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA1PR04MB10602:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59cd2c0f-dd53-4b86-0bfd-08dcfc811033
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PWCbGwpDiSEFJB1w90yTAGE39vV4zUFOM0cT2cueSDD9/ReJUzvhCMNp/Tjk?=
- =?us-ascii?Q?XC8J36K6CpvStUJU+YAv2CPbRA8dbIRyPy8vl0g5bemmkWggsGC8Wi2E6ijM?=
- =?us-ascii?Q?cekTvP2hN9y5iFVd5UX/bIIRijBhYbaQqr1tlVhhob60WpdJYm8ZnthyFv/H?=
- =?us-ascii?Q?ksAd8gNxG2BQ4O87BmRiULIEhRUdVFAEzy2Oop/WL89/CuZLNPF4CSSVnqH/?=
- =?us-ascii?Q?e+HwEnjZrM/lG4GiqJMqZwLRe1Ir1Jn2BIk8xcrGXahlompGygiS5CsU2bLX?=
- =?us-ascii?Q?Lxz7SYY1ihQQ6aqVd/aLa/fQu/ym5dl/whrgvy4Jr8v39ldMQs+GTNRQt62m?=
- =?us-ascii?Q?EYthbX1OfG6xYwOrq0BzU1llDZ978vGHo8wJJ5tChlTVDAx5NB6dgQeL0du7?=
- =?us-ascii?Q?520EjpAtTsFYYbCMpA+aPrjbRvK6m37Ugv65itP8lcInV1dLGmTssP6A/g6/?=
- =?us-ascii?Q?82AmI8EWtgMbrNVQbmAVBK8f17xRVx1BjTEJa+otmR5B7bum6pmjW6utYxey?=
- =?us-ascii?Q?huZi4c/sqoRiv2osRiVjhI5xCsOSHDKfWagic0ZAAU9adDfjzvkn+jjJQYCM?=
- =?us-ascii?Q?x9d0NS3Xn28H6/qF9vQxOSi36tZrHgI6aGVO9iF42lJKrAXCo1k0yoYBVUvh?=
- =?us-ascii?Q?L5BUhN1wn1v0SNABfhtzzHFJ6EzI9JnKXQ7qe+Y1Xbz3KPvOgpoN2c9ALapU?=
- =?us-ascii?Q?wGePR1Yv8/za9wM/Ofp9K27jJWWPFuQy7Go8P5hkWe+3ijePWO25OXpun4Dy?=
- =?us-ascii?Q?sdbn7+9c5bmfS2rO5vpnUwfJkFHFY/mjRxUzYedhf/Ko+mT+Fbix/NY14Zih?=
- =?us-ascii?Q?IbgnmczEG6HZiAmZEZHWjEmIGnLqXFAVZdCABoMVLiR7uYMUvY4JHqBLY3ca?=
- =?us-ascii?Q?39aSzJ+0EFcNMzj7re9Ejua91HTFKSfthaTao3CJT1y+kCTKlP8UEgrsDo+9?=
- =?us-ascii?Q?P5v+ejeaxsRpimohxu9IW52YA8v9JFx1nAnRXZM9YITrkjYz83Hla14cwD/T?=
- =?us-ascii?Q?Ot6IwTcCfjjoE4dcZeiwi96mokSDxdWjtvr9saKtWaaX0UbgpHQyDSDzZwzL?=
- =?us-ascii?Q?mJ5xgH+ahwWY/Xf2u3rcRw9pra3+x6HxsssLxoIANJZ0FRqfIRynCU5GcxTo?=
- =?us-ascii?Q?ZThqGlffQ40VN0qaDMcf3oloTXJYM49TD4eUMTyLQpD2pOX7mn2NcM2cQRcU?=
- =?us-ascii?Q?aGyPPJ7gmOSfVj/a8yPDFY1lb3C0abPzQ1ZeUoZCmfAB+6Zk/6M5Nr1BFqsj?=
- =?us-ascii?Q?Ek4t52ladcinwBmtqyohflJx9Xzes6sWBr811wnS8/pkCofnm+iESHp69jK+?=
- =?us-ascii?Q?+CEQahXvDqudMdSLfDHlvFt8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jJ4R+Mb7gWyMMTLMZ90yRhevTy7eEf/Wx/lXLbcv5B6hOQyfJYGXASrn6TkF?=
- =?us-ascii?Q?wOhECBq/cF9t9eq4BPItJJ7kuw2iBBDV8XTYFmLoiPpV+iM1VZbxtqQr6t3y?=
- =?us-ascii?Q?AJRzOmS/zrskYQFac9O9iouH1vH/r8NwmKoXY41/yAgzb1Zs1kwuQi35srEZ?=
- =?us-ascii?Q?1xUG4MKVpeO/BB7TJySnldNPP2Tq71xNG/iLLEteLFwEVKOn5hxWKmcl+P1Z?=
- =?us-ascii?Q?c4FSW3qDgTGBFBDxL2mmLlltm/BYmHQr46vdsYC4x1zwZM5f+gsZWKYPcPmJ?=
- =?us-ascii?Q?9Xw1UpNLh1ErniMWGGLGeMHDBUXwM25Vh280KTvyKHlhmbUbAj8jLbcfEVIC?=
- =?us-ascii?Q?vE2W+8IjjGv79pwIKCVcALiiN9GuzgB5YVuaa8MT3i1Hnb4dyeW1xsKayFyD?=
- =?us-ascii?Q?eDG2R5dP5NYlXaP/xluEJnYD0iTWCzX9EfRHN0Vj/Ip3Zf0hN1yvby29jdyX?=
- =?us-ascii?Q?fPPaJfUyD6zPK3hltbM8LgEaWAAIckB42F5hfL4AJocbnCgrdcjy5pITIUIc?=
- =?us-ascii?Q?daCwm0S91VbA4eV7DGYP6xLq/HWy4s2JTYM7jLVpi8ksz//WZ6ZZxC/WFKoN?=
- =?us-ascii?Q?JSzt3DtvaY+nxboAnsAroIN7jCqzeKPnovSBN8AFML/D4W9gtsouMwwKt2Vf?=
- =?us-ascii?Q?YRoZMUkUOprI4xY+OtPn1/ng+LmFEjv77LKXfeApejwXvDE4Fj/n+IQUf3mr?=
- =?us-ascii?Q?v9HuhKzQDszzw+rHwXRe1FKxnLZDh4xuErDdueuI3zEnG+kKHz3MV9ypc3nS?=
- =?us-ascii?Q?9V+PEpD/rjefDKsDHcU8TGDKnIoYGqJNmmYfKTLvIoyvAxQuiYlLFyH6m+pz?=
- =?us-ascii?Q?9G0ISD0KaBqu5ucY8ycpEFgNqFkUvFxJmmVIqiuqM7iXNRQPF7GA4kn2CsQC?=
- =?us-ascii?Q?uIgVo+TNPEjXSjJOHzaPocXuLnfjhLovwQAh2ggeDJ0eugwD9g6wWxDbWwsZ?=
- =?us-ascii?Q?AM1sZAk3AW0eZmbDViTz3h2yZFHfk/NXV2bbq0abyclRDb4sebGrWb9Gf/02?=
- =?us-ascii?Q?TQRs2NZE8yb/TDb/KnWQ316V7eV+kyw3omq4EG+v0Rt9He51HqZ67T5YyYjt?=
- =?us-ascii?Q?Wg08hB6KdFl/25/2p2y3kpbvGQwBAnz7Zyvrj6lp14bIPeRhdWlRdLSZTpCN?=
- =?us-ascii?Q?USHTD0BeS2bExSWX1FUwDz1zIkgKlxYWELCAFHB7RL1qRuZ6apFw+gk1QYMu?=
- =?us-ascii?Q?A2AndAEwrn2gLZ/utt5Gq5z2piYAGQNYI1p8noM0rm9/jyVf1wOtmoVV+QeT?=
- =?us-ascii?Q?gDnXAzPpW6tmVPOFgZKcqYbRq7fqD71nv7C4CqlBh5MWFweYATKtyEa+ADC7?=
- =?us-ascii?Q?2WP29fKM2Kd3osmsbzAG3RH4p/Z9Ooh2kHRMXoACBlifYG3+PFKjk0sknFsI?=
- =?us-ascii?Q?u5Ce8z3AagfDJw6Rfm7JG4qcy5UmCI3S/hsMXG6wNcNo9IR0Xm94J+22mKDI?=
- =?us-ascii?Q?BiaTilB/E+plmZPdHA1pOlOyOcS6kQNRY7cPNoO+y7wbXvzHYmB0x9fwYazX?=
- =?us-ascii?Q?4VjoDgE0bqw1hHIkQ1CPIgFe608ubDZltcHzc4Jn2UfPkzwFFJLfd5A6O35V?=
- =?us-ascii?Q?11+1MbLJ7cgNVflPiZuKymIfGqAzbRIHU/8vxru8?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59cd2c0f-dd53-4b86-0bfd-08dcfc811033
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 03:30:43.5160
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eSH9KIv0FYKS5q5H4lECaKxhMlpSbP4I3AsOnpkiDyqcWPvxRyWNhX2fHVeWyNxW85tRfH/suht/uzNOPLE1rA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10602
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_193046_809430_A22D07D6 
-X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-CacheID: sfid-20241103_194747_825155_902463EF 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -193,46 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as the maintainer of ITE IT6263 LVDS TO HDMI BRIDGE DRIVER.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
-Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
----
-v5:
-* Add Dmitry's A-b tag.
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-v4:
-* No change.
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-v3:
-* No change.
+are available in the Git repository at:
 
-v2:
-* New patch.  (Maxime)
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.13
 
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+for you to fetch changes up to ef4b38462e627f58bc929fc502e601dd396f1ae2:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5f34d168b041..63200174ee65 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12223,6 +12223,14 @@ W:	https://linuxtv.org
- Q:	http://patchwork.linuxtv.org/project/linux-media/list/
- F:	drivers/media/tuners/it913x*
- 
-+ITE IT6263 LVDS TO HDMI BRIDGE DRIVER
-+M:	Liu Ying <victor.liu@nxp.com>
-+L:	dri-devel@lists.freedesktop.org
-+S:	Maintained
-+T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-+F:	Documentation/devicetree/bindings/display/bridge/ite,it6263.yaml
-+F:	drivers/gpu/drm/bridge/ite-it6263.c
-+
- ITE IT66121 HDMI BRIDGE DRIVER
- M:	Phong LE <ple@baylibre.com>
- M:	Neil Armstrong <neil.armstrong@linaro.org>
--- 
-2.34.1
+  ARM: dts: qcom: ipq4019: use nvmem-layout (2024-10-24 09:44:57 -0500)
 
+----------------------------------------------------------------
+Qualcomm Arm32 DeviceTree updates for v6.13
+
+IPQ4019 flash partition scheme is moved to nvmem-layout. SDX55 and SDX65
+PCIe EP controllers gain missing linux,pci-domain properties.
+
+Stylistic improvements across a range of platforms and devices.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (3):
+      ARM: dts: qcom: drop underscore in node names
+      ARM: dts: qcom: minor whitespace cleanup
+      ARM: dts: qcom: change labels to lower-case
+
+Manivannan Sadhasivam (2):
+      ARM: dts: qcom: sdx55: Add 'linux,pci-domain' to PCIe EP controller node
+      ARM: dts: qcom: sdx65: Add 'linux,pci-domain' to PCIe EP controller node
+
+Rosen Penev (1):
+      ARM: dts: qcom: ipq4019: use nvmem-layout
+
+ arch/arm/boot/dts/qcom/qcom-apq8064.dtsi           | 38 ++++-----
+ arch/arm/boot/dts/qcom/qcom-apq8084.dtsi           | 78 +++++++++---------
+ arch/arm/boot/dts/qcom/qcom-ipq4018-ap120c-ac.dtsi | 19 +++--
+ arch/arm/boot/dts/qcom/qcom-ipq4018-jalapeno.dts   |  2 +-
+ arch/arm/boot/dts/qcom/qcom-ipq4019.dtsi           | 10 +--
+ arch/arm/boot/dts/qcom/qcom-ipq8064.dtsi           |  8 +-
+ arch/arm/boot/dts/qcom/qcom-mdm9615.dtsi           |  4 +-
+ arch/arm/boot/dts/qcom/qcom-msm8226.dtsi           | 34 ++++----
+ arch/arm/boot/dts/qcom/qcom-msm8660.dtsi           |  6 +-
+ arch/arm/boot/dts/qcom/qcom-msm8960.dtsi           |  6 +-
+ .../qcom/qcom-msm8974-lge-nexus5-hammerhead.dts    |  2 +-
+ arch/arm/boot/dts/qcom/qcom-msm8974.dtsi           | 92 +++++++++++-----------
+ arch/arm/boot/dts/qcom/qcom-sdx55.dtsi             |  1 +
+ arch/arm/boot/dts/qcom/qcom-sdx65.dtsi             | 67 ++++++++--------
+ 14 files changed, 186 insertions(+), 181 deletions(-)
 
