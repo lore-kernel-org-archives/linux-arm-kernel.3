@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA376D1BDE3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D7CD1BDE5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NA8fP/yMJX4YrX/4tkNWkXd8CoB5Q4SliEG8XZe06KY=; b=aeiioeMkGrOU+i0JEIPj11dOBB
-	P4YwkR8nR7Xz6E7UnUOVDuqdYtmQFjDmloPEeRLT9ZpXUUJNMh5bVSkYAdNunbLhxA6IiEb2lo12F
-	aXAD9giFIoTnbxrm9IzBWdJIEozoHa0Y4tOSbBUHcM/tGFC84OTvmnhXh88vC0y+Ia/G0n8aRfo57
-	vorzGWHjQP77jebz7Dx3remS4XERMEY+jA3Kwf7Xr48Z6tqcNQmhdlIfeXlj0z2KIbxmQvBYDFUYi
-	uIywxr/SiDod4eztYpISqbwVfosNNzve8DJPQoCXAbLgvn5uljUYUGNAFgsRYsqIvT0y9sCYgW1z1
-	s5xLQjFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/aiM+vVd6UIBfKnFJ4ciItRDXRUONO1YbxhZjMArTmQ=; b=d8lW9NpXIBbwiIMFJSqe18z4q/
+	k6jUJC9zPYr5yaPIKw5/vKG0QLbES9nARE2WVQnzPb+yrlIWS2KTCU2tgfA+C25Nay5rEjwKdQIrK
+	sGGpHdlT4xesooMr9rZEDyb6deEfLdyzd7kICz6EQu5HsnRe6ajozabuTQPiNzBzV2AET17r2aoQM
+	9VXbO0jEBxcSy9K6l32eq9xfr1YMGd3pA7Bh44pLyUKsvZuvzlnaRTsZz+bBwi4Nq8Hq0nafvyzXM
+	oqpdyGNA22vt+51vu95XLkq5r6cjq//AQDUSHWGfcAIvIOhkn12QuXcYs+OQKX/83uXWHryJaUHha
+	yCFP06Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82PX-0000000EqmH-3Cd6;
-	Mon, 04 Nov 2024 19:06:47 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1t82RE-0000000ErDZ-0RRk;
+	Mon, 04 Nov 2024 19:08:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82Mf-0000000EqJJ-09ux
+	id 1t82Nr-0000000EqOb-2afI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 19:03:50 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-20cdbe608b3so45393625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 11:03:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730747027; x=1731351827; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NA8fP/yMJX4YrX/4tkNWkXd8CoB5Q4SliEG8XZe06KY=;
-        b=ci+bitvY2bc3C84BrnrIBhizMR7VWHK2ZQuU6w8vxDt36w++8qysZkgG7aviZApBSs
-         wq51ZTaFvBy2dMKadPak/2+R2T1bQpF24LRZNEdOzOh22z1BCbYz4CAoMgx8VWsrGtfz
-         ZWi+MqLtUP7Eea14j8j58Siw/IE4ssOLekcezDjKRVG3cE6L3N3Mhs7wLrSdVoVFnWcV
-         hBH781HsGlwQrJf6RkUEcOiGXiIKEbaE3tnfJNMTbSWR8ur79A6qFPGR/qbDXdQWJgbY
-         l3tp7exzYGjMzKq8PO+XYjQWp30MiovA68G0cG2ZNNCKifZJHSLmcyOyw6M9Uvue7b7V
-         06Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730747027; x=1731351827;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NA8fP/yMJX4YrX/4tkNWkXd8CoB5Q4SliEG8XZe06KY=;
-        b=fziWDZE+rFoVI7NlAANs9q40N+EQZIWOxlC/lSfNHXKQOVg6ZnwXAyrzAB3GJ1xw1S
-         vrTi5vJOoiIOsL7MRwlGgrozcKmQ9eU7PfRdeD8XO/tX13iHwo0gGY4fsQ28gLXqerUX
-         SJAtXSx/df7mHi3cn8dqx/VHrw/XvKVVRfGHpe7DVnaoHRHMJND1wYf3OsSm8mBCNHTw
-         UHib4IJE94eIvWmviEq5jfnWE/V+Gss84qEgwm13Gm40B8d2HTCRwQGu0S6p5S9Pt6uQ
-         pJ13c+JOTZHW6dnooT8hR3AmXCHQp+7TPyG+eDWbRQWLFVNbSlwShnZO/V5ijgoltdea
-         6m1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWtQ4FJXXlomqv7LlObpCHEQpktldCm4rGM3Gd2BI35MXZZLY4ZyeObuQNmieTXFiZ5iX6+3hCxHed6WgXW+LhU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvPxRMsCPSbi238AsHxG72GK1jDV6pk4BXih2gRwIUDttpPC7v
-	p91M73j+CntnBOVo2thiwsGXX2UruOSheN3jxpc9MSkIB6Knl7mSdSjXD98nfss=
-X-Google-Smtp-Source: AGHT+IHCn+jwQGkArcOzaPbcwgPSYj2Q9cK06QQu8ytXtnA4Uxk3VIEJ5QKuxauHvt2qnIwQYyPqwg==
-X-Received: by 2002:a17:902:cf12:b0:20d:2e83:6995 with SMTP id d9443c01a7336-210f76d6750mr286890785ad.47.1730747027167;
-        Mon, 04 Nov 2024 11:03:47 -0800 (PST)
-Received: from localhost ([97.126.177.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211318b562fsm41688915ad.169.2024.11.04.11.03.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 11:03:46 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: soc@kernel.org
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] ARM: dts: OMAP updates for v6.13
-In-Reply-To: <7hmsieomrt.fsf@baylibre.com>
-References: <7hmsieomrt.fsf@baylibre.com>
-Date: Mon, 04 Nov 2024 11:03:46 -0800
-Message-ID: <7hikt2om7h.fsf@baylibre.com>
+	Mon, 04 Nov 2024 19:05:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 90C90A4331A;
+	Mon,  4 Nov 2024 19:03:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DA04C4CECE;
+	Mon,  4 Nov 2024 19:05:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730747102;
+	bh=IpevLm9zmMO/WRd+BeiK2wsuMbU3lla0NcYACvtD4YE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kAxJk0gPb0VUSWzcApxGGx8coNbK8gpwrnfLw3vl+JvRMGYNEwiAGt0MfbM+3mmoY
+	 yE+zMLacNqVwyflLLp6H75oT2XZ39qeeUom0hFKO28o3YXe3r/60x/2eCMW5DAQZWm
+	 1iwYew0JnXYxbZtBOX2c1skDFvEWcmbloQbKjitZhFWynICawctLz0LeFB//0Y5TSc
+	 7f4oAufA3fxs8MOhuKC979iztCKooqZeQ7CAaFG8bvhECOAeco3Kg//Hx3meUhsJr6
+	 aZQoIw9Autc9B4IPl8YsBq4DvLtHYKdhG/qY8i9hPDQ2lFoO0Qb0RqNdMFLPTe5ZAO
+	 1Rlu1GTu0gsIA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: sunxi-ng: Use of_property_present() for non-boolean properties
+Date: Mon,  4 Nov 2024 13:04:55 -0600
+Message-ID: <20241104190455.272527-1-robh@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_110349_094792_E51696C2 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20241104_110503_748858_E2F7A938 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kevin Hilman <khilman@baylibre.com> writes:
+The use of of_property_read_bool() for non-boolean properties is
+deprecated in favor of of_property_present() when testing for property
+presence.
 
-> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
->
->   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.13/dt-signed
->
-> for you to fetch changes up to 13746595a1581e09289adf9b5202e237c5e0814b:
->
->   ARM: dts: omap4-kc1: fix twl6030 power node (2024-11-04 10:42:22 -0800)
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Oops, ignore this one.  I got an email from linux-next that one of these
-patches is missing an SoB.  Will fixup and resend.
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+index 87e23d16ed0f..724b202863a8 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+@@ -356,7 +356,7 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ 		const char *fw_name;
+ 
+ 		/* ext-osc32k was the only input clock in the old binding. */
+-		fw_name = of_property_read_bool(dev->of_node, "clock-names")
++		fw_name = of_property_present(dev->of_node, "clock-names")
+ 			? "ext-osc32k" : NULL;
+ 		ext_osc32k_clk = devm_clk_get_optional(dev, fw_name);
+ 		if (IS_ERR(ext_osc32k_clk))
+-- 
+2.45.2
 
-I deleted this tag to avoid pulling the wrong one.
-
-Kevin
 
