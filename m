@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EB9D1BDD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108A5D1BDD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GUaqYPQBom3i3u/a7qeeh7UaJt4FVAg2tfUFfji99rs=; b=Ezrj9NO5+v8kM6avOuvSrnmwnb
-	xEvw+RL/CiTrpTrk/dcjKRjHSiCFpki0UQmeR1xqeugva0d6YLdIZMHEunYWH7A/0iGAcLn0CWqUx
-	rHBbvJsNXvzQAIrnM/OGiIujFB6qPvBARF1sdnXmUHN+z7fGnprupCoxZ1IP8T803m6chtQoYbLMh
-	G5ZhzoNsAXAWYrPGnkW+te9NCCDMaNHKHl7QqHOiP+Kq4onikrPnq1oerKBn9IAt6TW+P4iYLigUh
-	SK3lP6d2qDq4xFscIls1Z42YVpSITFtFhrHs3nL3V8KYa3MNtAKLJDrIP5iiEsCvjXUmShUPj8rDX
-	FXcjeB1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AN4fth8gn0V4juHtySJyZLmB6iEU13zuPAy5gH50m6I=; b=ecMIN2r1FmbmysnUROrYF1CsSi
+	liqoaSGJiE3FjKMMicQVZ5ydJNMV1IuLwtLxnovYpmtxAZ/U9QZ0cw7pg+saBNahoA/xjHBMKUowa
+	AWWtDiqIN9gpFTkQSiyFkSCYdy3EZkFXHoLrUczoht0OIC2KUxqVNcKJOE8QAXDmonhy2G14rx11O
+	7cyObCVRYfo+PUbLj1Z3vwwY5wiWtCA95/BvUNaaIUtFVpKqOdW7C6QVlUQ4sd+UGAlsmoi4+P9r9
+	0cViqqzqB0OCD16VqphqTKDg5PlU5I+2rOjcPlB9NGQ181qnJ5xDM8CuuvIUoJSwG4uuuQpCDkD/A
+	iBGfHwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80pM-0000000EWcO-1iF1;
-	Mon, 04 Nov 2024 17:25:20 +0000
-Received: from mail-pl1-f173.google.com ([209.85.214.173])
+	id 1t80r0-0000000EWle-0OXC;
+	Mon, 04 Nov 2024 17:27:02 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80TI-0000000ERrd-1s9T;
-	Mon, 04 Nov 2024 17:02:34 +0000
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-20c77459558so37712985ad.0;
-        Mon, 04 Nov 2024 09:02:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730739751; x=1731344551;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GUaqYPQBom3i3u/a7qeeh7UaJt4FVAg2tfUFfji99rs=;
-        b=X/nNxNEbw3d4wpJwTIIUF2W1vgpryEWd0pErSveJDwv1zz0RS5EBcJCD8WN0m0B38w
-         9COBDQQjPXy1h3fFSIMNj9wlln7k3oM2vC/TRLi3ajD1wv6ofhFepIm0hotDwGWwpNhG
-         steLAyrgRjR+bs/5RcGNSx7ZnvYx6xaGLqEGXiVnZnko0ZPZkqsMAipCVocQrYWdbx4M
-         2VdXVQKSNjtpJ2BUcyvuKdezWDw54KYhPXwvypVKKBCTxPtu6Y/KrYAtXzPbrcxzUJPG
-         0YN2yGit/1eAy0vg+oDb1QfwbG2noDBLsgK/ievtu33uzQADbQ3zXKmSUQN2i0NIKoa7
-         fktg==
-X-Forwarded-Encrypted: i=1; AJvYcCUFuNphu2eiieKs4VfwsUUPLcTiiVNWs89nfBkrLL+/4Et+OKY+Kma1SynnJVVCz1n287Lpz87AOTO7doqqPi23@lists.infradead.org, AJvYcCUYoMjca23p/GG2wU3e4fRO3Q6f6jm8xtuJGZpDYC4CoLYAKWzqcQsHsmODn+vagzuAD0T5q6u/4msxCLMgcQY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGBb7InCEdwuTYyGFckbVCbQ+ogTjIQ90oVx8hnnCLAFyap4c1
-	Qm49CSP/lx1FOs3IRoQlykUf6xoNlqrBNtRkc6EwuoJ0lW2eKxerVm/LeYXW
-X-Google-Smtp-Source: AGHT+IFb59G7c0c6LtAW+eFwRHDEioTFdbtbcVJx/y76Cx5c5DKoXHLI8G5B+DhlD1xdKyYaLYMoBA==
-X-Received: by 2002:a17:902:db05:b0:20b:8a93:eeff with SMTP id d9443c01a7336-210f76d6845mr260100015ad.37.1730739750977;
-        Mon, 04 Nov 2024 09:02:30 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057d3bb8sm63610785ad.246.2024.11.04.09.02.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 09:02:29 -0800 (PST)
-Date: Tue, 5 Nov 2024 02:02:28 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, matthias.bgg@gmail.com,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	fshao@chromium.org
-Subject: Re: [PATCH v4 0/2] PCI: mediatek-gen3: Support limiting link speed
- and width
-Message-ID: <20241104170228.GB4055778@rocinante>
-References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com>
- <20241104170005.GA4055778@rocinante>
+	id 1t80Tj-0000000ERzE-2oIw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 17:03:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8B47160007;
+	Mon,  4 Nov 2024 17:02:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730739776;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AN4fth8gn0V4juHtySJyZLmB6iEU13zuPAy5gH50m6I=;
+	b=iSTN4TsjYi2ZwyM/1BALrfDCQa7BwkpW0Mi1hlHSaHz/psLP+lSVMZ3cz25n/lOCSTo70Q
+	yMh1pFes2GCfL5kmGn1syo1oP5ZcZouB/DL5dklnfHTMq2/UWk3n0SQ/vg3K4B6A0ttn2L
+	wPjk4S+yTLX2d0gHKFjfDkx1y3AL6lb2CXYW/Rfhjro/R32cXOO93Ctx5IhPXMDsGwiOcZ
+	LnvPnb7r6cuvh1i027sQYLRQRo04g0NvggNWgj2ULgOjCDrnYd8MuZdUTwVJWseGvA4aQX
+	eZL0rxvUbyZawKAQY1MM2jyDqd4BMYF/4Mb/81zggDrqa5i0fn0kR95Ey8mCuw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 1/9] net: stmmac: Don't modify the global ptp ops directly
+Date: Mon,  4 Nov 2024 18:02:41 +0100
+Message-ID: <20241104170251.2202270-2-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241104170251.2202270-1-maxime.chevallier@bootlin.com>
+References: <20241104170251.2202270-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104170005.GA4055778@rocinante>
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_090232_507637_CE040385 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20241104_090259_867789_93E07903 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The stmmac_ptp_clock_ops are copied into the stmmac_priv structure
+before being registered to the PTP core. Some adjustments are made prior
+to that, such as the number of snapshots or max adjustment parameters.
 
-> > Changes in v4:
-> >  - Addressed comments from Jianjun Wang's review on v3
-> > 
-> > Changes in v3:
-> >  - Addressed comments from Fei Shao's review on v2
-> > 
-> > Changes in v2:
-> >  - Rebased on next-20240917
-> > 
-> > This series adds support for limiting the PCI-Express link speed
-> > (or PCIe gen restriction) and link width (number of lanes) in the
-> > pcie-mediatek-gen3 driver.
-> > 
-> > The maximum supported pcie gen is read from the controller itself,
-> > so defining a max gen through platform data for each SoC is avoided.
-> > 
-> > Both are done by adding support for the standard devicetree properties
-> > `max-link-speed` and `num-lanes`.
-> > 
-> > Please note that changing the bindings is not required, as those do
-> > already allow specifying those properties for this controller.
-> 
-> Applied to controller/mediatek, thank you!
-> 
-> [01/02] PCI: mediatek-gen3: Add support for setting max-link-speed limit
->         https://git.kernel.org/pci/pci/c/ade7da14954a
-> 
-> [02/02] PCI: mediatek-gen3: Add support for restricting link width
->         https://git.kernel.org/pci/pci/c/6e73c5898973
+Instead of modifying the global definition, then copying into the local
+private data, let's first copy then modify the local parameters.
 
-Angelo,
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+V2: No changes
 
-I made some small changes to the code, per the suggestions.  Let me know if
-you are fine with these, or not.  Thank you!
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-	Krzysztof
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index a6b1de9a251d..11ab1d6b916a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -298,20 +298,21 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 		priv->pps[i].available = true;
+ 	}
+ 
+-	if (priv->plat->ptp_max_adj)
+-		stmmac_ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
+-
+ 	/* Calculate the clock domain crossing (CDC) error if necessary */
+ 	priv->plat->cdc_error_adj = 0;
+ 	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+ 		priv->plat->cdc_error_adj = (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_rate;
+ 
+-	stmmac_ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
+-	stmmac_ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	priv->ptp_clock_ops = stmmac_ptp_clock_ops;
++
++	priv->ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
++	priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++
++	if (priv->plat->ptp_max_adj)
++		priv->ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
+ 
+ 	rwlock_init(&priv->ptp_lock);
+ 	mutex_init(&priv->aux_ts_lock);
+-	priv->ptp_clock_ops = stmmac_ptp_clock_ops;
+ 
+ 	priv->ptp_clock = ptp_clock_register(&priv->ptp_clock_ops,
+ 					     priv->device);
+-- 
+2.47.0
+
 
