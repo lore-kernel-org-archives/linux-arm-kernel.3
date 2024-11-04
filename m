@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B8FD1BDCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEACD1BDCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTQYCq7UB1AsE+eKj4CkfRxAMXkU6GUGVwN05DAWQME=; b=N5EBOy7izqjTuXA+Zdd5UzL+KA
-	iIEVYt5IMXHRGpq8+D4kynzy3OJJz0yyrw6QJKOE0S7hzEhALKNcDggodPbeG8rpDI9ywNOHKZgeZ
-	l9+bAxvQjtdamfWq1audCPGNMlvVPYpHFF8XKBTg7/dpLIdRURnpKM/iWETq2udt7QVTEcUXqruyt
-	bk+2TfjOjf0tmqQA7FWal6QdXUNqvVwJqlMU4Ph7WeasfxxqX1K7J0NIc1o+VMDXGn+BiIrDpK4vj
-	2pXmxZi26jpbLJlMG2KmLZBsBGqtFQI1tngo+EC+dfLU77lLotRWxVPa0xqS7Nrx2COj+rjiIXJEE
-	wh3X4bqw==;
+	bh=hvbRoW+iRbpVJoECf1ad3LpZSh87/PDgVdDV5xzyCHg=; b=uQDxtzOUjf4o7Izw5gUAnF0IaW
+	gUqafQcu7f+WcwHa6dQPHjxoLukhphI13lskMVmoHS3jN1IzhcuKIdNaZDLbXfaVtkAGOvLdnX1jR
+	fCvJSBUtMYMWDB0rqh3AEq1PTg3G9vwrSe0ZwwLKf42ardi7R+EDCjKJQCI9PBEIA3VP6LLXKTuue
+	V/oVqBWa4mQaERwGFD3y2OX1W6nkEBUq3KgpF846hN82nYoLNfr5rYeeArMxh71g/Rzf7bTHCKqdh
+	iHRjA/Juz093WLUv9sOp9C4kUxBfpDNC/zi0n+DcHkE8Tv947RGEd0yD2aRErdNWekQDsKAWQvPzV
+	jYfdXorg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80V8-0000000ESPq-0qtS;
-	Mon, 04 Nov 2024 17:04:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t80Wo-0000000ESqq-0UBK;
+	Mon, 04 Nov 2024 17:06:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80Px-0000000ER6E-3HkX
+	id 1t80Py-0000000ER6u-1xdX
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 Nov 2024 16:59:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0823C5C4B9E;
-	Mon,  4 Nov 2024 16:58:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D2CF1C4CED0;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 18A37A43185;
+	Mon,  4 Nov 2024 16:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E9C0AC4CED5;
 	Mon,  4 Nov 2024 16:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730739543;
-	bh=L3DrkLCOcqjknCMhAQF7j0FUEZocm0qqzVclckvGYag=;
+	s=k20201202; t=1730739544;
+	bh=YICiW+H5ges0Zt1A6ZAOIXQVNom+kV/AcetM6wpgJxU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WORcV19bzEefchoBsg3LNt6oyUKOHKJvKTpEic5Fsghk+12jorMWhsyoUtmCYr4HN
-	 j9CvBqCJcphPNEN5OW6NAtFdb+hAX145m7M0VQVNDwRD35H28T+U1mQ6U/eo2IIJ4N
-	 iPiIAJVSnhD4J39V12C1avE01Z1UMb7O1bsAsMIBIbMAvYptsHGJIvsPJ+2mDwCebV
-	 Sdf8blOBSw2i3SGQke+PexQ+MeQ0SfHeGGeMH6U3tveS+aFpjbeWFgMecywP5/LHzj
-	 nEzjz7zs/W9aYHqbdcX2lLrDn4R86a7L0acX7KhoT+lpiki2Dqgp1gJLyv6ZiKbKjf
-	 H0LddWLIxN/iQ==
+	b=M04hrsRD/r7fYwaEGkAyCrrKjkWM5HCKY8dgRAFlz5ZlcWQfWcPZLx5Q0PdqJj+FX
+	 JrQQYQDjA7Cn3ygRoJJ6u9WbuqV2mIdJW3bkr2GvyEXIcyM5WsbGkzfaYo2utVY8zx
+	 d3GGmdxhn4zR/bSV+Jm1WX5YoJqYCXB8+7aJFRKmRsQmxABd7T52T1u64uTkKoDIzt
+	 CAEs42gqHjHz25kRvEE36IqEH4B22Lcs/ZyGkzXU4UlTqyne6emNolzOQP1AcSbNcZ
+	 Xt+7u+PkdS6Lb8q1JGZuKZXkMO1w3zCoAhPGsfBfD57+M28s9Um8K60D5MLPG1dwzs
+	 wdF5tiCTG4AJA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3DDFD1BDC9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DC901D1BDC7;
 	Mon,  4 Nov 2024 16:59:03 +0000 (UTC)
 From: =?utf-8?q?Duje_Mihanovi=C4=87_via_B4_Relay?= <devnull+duje.mihanovic.skole.hr@kernel.org>
-Date: Mon, 04 Nov 2024 17:37:04 +0100
-Subject: [PATCH RESEND v13 02/12] dt-bindings: pinctrl: pinctrl-single: add
+Date: Mon, 04 Nov 2024 17:37:05 +0100
+Subject: [PATCH RESEND v13 03/12] pinctrl: single: add
  marvell,pxa1908-padconf compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241104-pxa1908-lkml-v13-2-e050609b8d6c@skole.hr>
+Message-Id: <20241104-pxa1908-lkml-v13-3-e050609b8d6c@skole.hr>
 References: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 In-Reply-To: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -70,22 +70,21 @@ Cc: phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1045;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=994;
  i=duje.mihanovic@skole.hr; s=20240706; h=from:subject:message-id;
- bh=6nc60lajp3lpZ1HO45puIg9C6lXhIYLQzqwWa3+044w=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0M0jyo8t7+Qf+85C/u1tF6tlQ1p+3xSTm9fuuu50
- Y9dDya/6ShlYRDjYpAVU2TJ/e94jfezyNbt2csMYOawMoEMYeDiFICJNHYx/C+rZuufZ3Zqwqr0
- m7cztoqJHvGuUWCasXby0YMfhb1n+Wkz/NPVPjxN20L/Z8RbPsH0ZrYvL93rtvYc0Tp5wm37Qu4
- f/3kA
+ bh=zNLT4eYVU4IQW3YAMv9pyNanuX3GGm7TmhL83Z8nYzw=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0MUVy5hXunjErSWbYvbuvTvW6/sTTOtSFg6P81eX
+ cfj3I2HHaUsDGJcDLJiiiy5/x2v8X4W2bo9e5kBzBxWJpAhDFycAjCR7+IM/ytmxxilvtt3qvf4
+ 1B4lg7LwN/9mm2qnhZY6ndtdxqZfns3IsL5NZdKVbXJspv2JZp3K7otDSyoaw9RmGRbuWlq4QPY
+ eOwA=
 X-Developer-Key: i=duje.mihanovic@skole.hr; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-Endpoint-Received: by B4 Relay for duje.mihanovic@skole.hr/20240706 with
  auth_id=191
 X-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_085905_938043_F3B9A372 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_085906_704625_519FE314 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +105,24 @@ From: Duje Mihanović <duje.mihanovic@skole.hr>
 Add the "marvell,pxa1908-padconf" compatible to allow migrating to a
 separate pinctrl driver later.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
 ---
- Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/pinctrl/pinctrl-single.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml b/Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml
-index e02595316c9f4939ca5a7c61115f23ca4dc5e1b8..f83dbf32ad1838f25429e22bae14f6c74cb38d96 100644
---- a/Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml
-@@ -33,6 +33,10 @@ properties:
-               - ti,omap5-padconf
-               - ti,j7200-padconf
-           - const: pinctrl-single
-+      - items:
-+          - enum:
-+              - marvell,pxa1908-padconf
-+          - const: pinconf-single
+diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
+index 2ec599e383e4b2d463725b8baf4bb8bbcdc4c9f1..09fe7e6233f00d83de385c3a0f449bc4a709681f 100644
+--- a/drivers/pinctrl/pinctrl-single.c
++++ b/drivers/pinctrl/pinctrl-single.c
+@@ -1966,6 +1966,7 @@ static const struct pcs_soc_data pinconf_single = {
+ };
  
-   reg:
-     maxItems: 1
+ static const struct of_device_id pcs_of_match[] = {
++	{ .compatible = "marvell,pxa1908-padconf", .data = &pinconf_single },
+ 	{ .compatible = "ti,am437-padconf", .data = &pinctrl_single_am437x },
+ 	{ .compatible = "ti,am654-padconf", .data = &pinctrl_single_am654 },
+ 	{ .compatible = "ti,dra7-padconf", .data = &pinctrl_single_dra7 },
 
 -- 
 2.47.0
