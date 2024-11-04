@@ -4,55 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A39FD111A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 05:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEB6D111A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 05:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnSkd78+Nuq+52uqp8ZZdNIRk+xiBu0ZIIKuyQ1661M=; b=ke3TkyIMOn5DR9Sr37qHC8E7VO
-	q0NDeDcY5Ptw/romPlldLR0whbfwP+uyqLZYyihEMgV3vTiCR+yqi14J+i3tC8gu61blHmirU7hox
-	6CaZlo0VnKjpZp4uBffplGF9SBV/J0O0d2NcYmqrGcyhcrpOlLwhNss6hdz7EiLM0/wdeqtC4CpSG
-	tcwntekGFRw7cazH+z3Vf3r0AlL7S54rmRJOBpr2GT6hVaL1FlfGP/WZhvahvt2kG/u3yIiFsK3/C
-	JQaejqsMmht+qqqWlsgHDCu5kWVDJOpNG7eEkvpf5ckttbidd5bfYRxdJmf7cfDF71deXvizWkvai
-	MUetCgNg==;
+	bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=; b=BjVDRt9/W2Jy9q1J+4KUKsqIVj
+	xQs8ibyIvw9sXfT9aoMC1fk2jvoB4NYbTX9xYFvbmBvrJ2HGd8d0J2Cn5ftPzn8mpeZFa9mF9+eLk
+	IfD0ES9EYR6BLqf595JEja8Tr9ceepcgt3u+merAG7pFVIRzEuDrPXIEAB9frvQTcPVDTO0qQeQMU
+	W6IC9VK7XfV8StkiUZTVmSC5mjBZpfzNk9Mw38vuX6A81V3aBkH+XHZMjyGQU7Tt7A98BS+GaMilc
+	C/f9N6iHbGMqAQ3FPKRNkA8OE6SKGgyHHl1LNoCkPHmqoQxoICUSsQU/pZATDUUYIElibQ7LdFfh0
+	Y7CKfEgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7pCU-0000000CegE-3F52;
-	Mon, 04 Nov 2024 05:00:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7pAn-0000000CeUc-31tV
+	id 1t7pG3-0000000Cf9B-3n1i;
+	Mon, 04 Nov 2024 05:04:07 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7pEK-0000000CezM-2g6b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 04:58:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B741FEC;
-	Sun,  3 Nov 2024 20:59:10 -0800 (PST)
-Received: from [10.162.16.84] (a077893.blr.arm.com [10.162.16.84])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F2D93F66E;
-	Sun,  3 Nov 2024 20:58:38 -0800 (PST)
-Message-ID: <1a724b58-d61b-443d-9f3d-aebcd35e9610@arm.com>
-Date: Mon, 4 Nov 2024 10:28:35 +0530
+	Mon, 04 Nov 2024 05:02:23 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43153c6f70aso51265e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 21:02:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730696538; x=1731301338; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=;
+        b=4S2MnUQDhn5YvBWbi5jAyyn7h17WwpIDDDyQyxXMN+6plLk7+fI9dRFIzWLPPUB5Cu
+         8VzkYRF8CpZsFmSiiWtsN38t630vypoNU8Ak3XcF7CxatGQQ5XWSMLDau1TNhcNZrB3O
+         FTrNAX9ETgCsbq69ngCJLfbcliw5NPuajtNZ7lgD+AbUhxEcVkL3FT1/mn7vn23fRo2p
+         YUhP65mnHFIV8us7x2yZJw43+ShP9VkjZCEc164/V6hur+JBRub7NPpwM9U2VyTMXKVz
+         L6Wvcppy4DCYnh3cnrz7DBg10uurSvobBLBNKTXG9jR1J6wr/UM6CXw5to70fzyncW36
+         xgXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730696538; x=1731301338;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EsI8QWv4e0MoWQOcIqSB3K6B/286Iaz+JHsS/rVhDho=;
+        b=dLvYEAkTIofQfw0s5iwH0c3GjjGuHBv40kn0wlPvj8vf486L2ceH7d+NnmSlE7PNeT
+         YWcMaQqvqw2USoEj9hrn3ZU8ZvV2nmjc7qnXTZ2u+KzCTC97M4n7FY8UqQj08RTL/5/C
+         tnxEYo4B5SluPrlDHDBmGQsfkZbpSvofLjtv08/uPYX6KCerbhQzofq1bDRR9MOuRhW+
+         gRoBdtYEctRXT3ttz5BELtinrLJBV3CHVgFDndAKQ4lbXRx3qh6b1/xTmGgvTWH5LIoA
+         jLTzCVm1+bfN0raIiHRfSMQ5uJBo+w01oqIB7iEwyhCUxOZf+mfbcpFcLUTyMMD9Bmks
+         Ag7g==
+X-Forwarded-Encrypted: i=1; AJvYcCWeDhGTBRR4yZi7HBf2wnF4BQk6vKlkBn7FT3e/72aUGINc6EpVURqaQGaEmO32LtcmF4tdDxbQwqrWuA1M9k8V@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7Nj22w8XVtDuAWh4HjJSMjceCSPIDh+dc8em4LfY+SwQ4OK/K
+	g54Bx2MhPRhvCyK9kzRsyz0i8Iu7DL+TwWtypN8mu4W9a+dUM5TgCTUDuEZV7P4h5YBiTybpowP
+	x7EnGXySJBP0OrCObE0GWcSz71kwALdh7Jca4
+X-Gm-Gg: ASbGncv1kBNeDIFgWhIdxXOMnhYwS2aES9Auy9/1A+RCUrXTf5otT5Sj7F3oDJsKfIl
+	EcZzEPSrPuzaXymO2DT+plE3QHHXUyqN27zygzu2y3XbPExZ7PNduimeNC7o24eI=
+X-Google-Smtp-Source: AGHT+IEjRuwYNFSQ2YIxZvVeAEQHZ04rTPgHjYCyrGK55VxsW50YYmc9HWkP1YWdE3I5kimXvyb1o2IahKOaQPEcCvE=
+X-Received: by 2002:a05:600c:63d9:b0:42b:8ff7:bee2 with SMTP id
+ 5b1f17b1804b1-4328dc076b0mr1470075e9.5.1730696537538; Sun, 03 Nov 2024
+ 21:02:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Re-organize arch_make_huge_pte()
-To: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- linux-kernel@vger.kernel.org
-References: <20241029044529.2624785-1-anshuman.khandual@arm.com>
- <173048223682.1108539.16990086073905192650.b4-ty@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <173048223682.1108539.16990086073905192650.b4-ty@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20241031212104.1429609-1-jiaqiyan@google.com> <86r07v1g2z.wl-maz@kernel.org>
+In-Reply-To: <86r07v1g2z.wl-maz@kernel.org>
+From: Jiaqi Yan <jiaqiyan@google.com>
+Date: Sun, 3 Nov 2024 21:02:03 -0800
+Message-ID: <CACw3F51FbzkkX_DcCVCieZ=408oP_Fy3sXYk5AjWRX3RJO2Fzg@mail.gmail.com>
+Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
+To: Marc Zyngier <maz@kernel.org>
+Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, duenwen@google.com, 
+	rananta@google.com, James Houghton <jthoughton@google.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_205842_064614_5A5416AA 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20241103_210220_715457_61DBD3C8 
+X-CRM114-Status: GOOD (  61.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,39 +96,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc, thanks for your quick response!
 
+On Fri, Nov 1, 2024 at 6:54=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 31 Oct 2024 21:21:04 +0000,
+> Jiaqi Yan <jiaqiyan@google.com> wrote:
+> >
+> > Currently KVM handles SEA in guest by injecting async SError into
+> > guest directly, bypassing VMM, usually results in guest kernel panic.
+> >
+> > One major situation of guest SEA is when vCPU consumes uncorrectable
+> > memory error on the physical memory. Although SError and guest kernel
+> > panic effectively stops the propagation of corrupted memory, it is not
+> > easy for VMM and guest to recover from memory error in a more graceful
+> > manner.
+> >
+> > Alternatively KVM can send a SIGBUS BUS_OBJERR to VMM/vCPU, just like
+> > how core kernel signals SIGBUS BUS_OBJERR to the poison consuming
+> > thread.
+>
+> Can you elaborate on why the delivery of a signal is preferable to
+> simply exiting back to userspace with a description of the error?
+> Signals are usually not generated by KVM, and are a pretty twisted way
+> to generate an exit.
 
-On 11/1/24 23:05, Catalin Marinas wrote:
-> On Tue, 29 Oct 2024 10:15:29 +0530, Anshuman Khandual wrote:
->> Core HugeTLB defines a fallback definition for arch_make_huge_pte(), which
->> calls platform provided pte_mkhuge(). But if any platform already provides
->> an override for arch_make_huge_pte(), then it does not need to provide the
->> helper pte_mkhuge().
->>
->> arm64 override for arch_make_huge_pte() calls pte_mkhuge() internally, thus
->> creating an impression, that both of these callbacks are being used in core
->> HugeTLB and hence required to be defined. This drops off pte_mkhuge() which
->> was never required to begin with as there could not be any section mappings
->> at the PTE level. Re-organize arch_make_huge_pte() based on requested page
->> size and create the entry for the applicable page table level as needed. It
->> also removes a redundancy of clearing PTE_TABLE_BIT bit followed by setting
->> both PTE_TABLE_BIT and PTE_VALID bits (via PTE_TYPE_MASK) in the pte, while
->> creating CONT_PTE_SIZE size entries.
->>
->> [...]
-> 
-> Applied to arm64 (for-next/misc), thanks!
-> 
-> [1/1] arm64/mm: Re-organize arch_make_huge_pte()
->       https://git.kernel.org/arm64/c/f8192813dcbe
-> 
-> I think we can now get pte_mkcont() to only set PTE_CONT without
-> touching PTE_TYPE_PAGE. Previously it wasn't possible because
-> pte_mkhuge() was clearing the PTE_TABLE_BIT and we added it back via
-> pte_mkcont(). Give it a try and send an additional patch cleaning up
-> pte_mkcont() if this works. Thanks.
+A couple of reasons. First, my intuition is that KVM and core kernel
+(do_sea) should have aligned behavior when APEI failed to claim the
+SEA. Second, if we only talk about SEA caused by memory poison
+consumption, both arm64 and x86 KVM already send SIGBUS to VMM/vCPU
+thread (kvm_send_hwpoison_signal) to signal hardware memory failure,
+although the situation is slightly different here, where we have a
+hardware event, versus a HWPoison flag check or VM_FAULT_HWPOISON
+returned. But from VMM/vCPU's perspective, hardware event or software
+level VM_FAULT_HWPOISON, it would be nice if it can react to just the
+same event, the SIGBUS signal.
 
-Yes, it does indeed work. Sent the following patch for the same.
+And there is another reason around your comment on arm64_notify_die.
 
-https://lore.kernel.org/all/20241104041617.3804617-1-anshuman.khandual@arm.com/
+By "exiting back to userspace with a description of the error", are
+you suggesting KVM_EXIT_MEMORY_FAULT? If so, we may need to add a new
+flag to tell VMM the error is hardware memory poison, which could be
+KVM_MEMORY_EXIT_FLAG_USERFAULT[1] if we don't want a specific one (but
+I think a specific flag for hwpoison is probably clearer).
+
+>
+> > In addition to the benifit that KVM's handling for SEA becomes aligned
+> > with core kernel behavior
+> > - The blast radius in VM can be limited to only the consuming thread
+> >   in guest, instead of entire guest kernel, unless the consumption is
+> >   from guest kernel.
+> > - VMM now has the chance to do its duties to stop the VM from repeatedl=
+y
+> >   consuming corrupted data. For example, VMM can unmap the guest page
+> >   from stage-2 table to intercept forseen memory poison consumption,
+>
+> Not quite. The VMM doesn't manage stage-2. It can remove the page from
+> the VMA if it has it mapped, but that's it. The kernel deals with S2.
+
+I should probably not mention the implementation, "unmap from S2".
+What is needed for preventing repeated consuming memory poison is
+simply preventing guest access to certain memory pages. There is a
+work in progress KVM API [1] by my colleague James.
+
+[1] https://lpc.events/event/18/contributions/1757/attachments/1442/3073/LP=
+C_%20KVM%20Userfault.pdf
+
+>
+> Which brings me to the next subject: when the kernel unmaps the page
+> at S2, it is likely to use CMOs. Can these CMOs create RAS error
+> themselves?
+
+I assume CMO here means writing dirty cache lines to memory. Writing
+something new to a poisoned cacheline usually won't cause RAS error.
+Notifying memory poison usually is delayed to a memory load
+transaction.
+
+>
+> >   and for every consumption injects SEA to EL1 with synthetic memory
+> >   error CPER.
+>
+> Why do we need to involve ACPI here? I would expect the production of
+> an architected error record instead. Or at least be given the option.
+
+Sorry, I was just mentioning a specific VMM's implementation. There
+are definitely multiple options (Machine Check MSRs vs CPER for error
+description data, SEA vs SDEI vs SPI for notification mechanisms) for
+how VMM involves the guest to handle memory error. My preference is:
+VMM populates CPER in guest HEST when VMM instructs KVM to inject
+i/dabt to the guest.
+
+And a word about "be given the option": I think when VMM receives
+SIGBUS with si_addr=3Dfaulted/poisoned HVA, it's got all these options,
+like using the si_addr to construct CPER with poisoned guest physical
+address, or mci_address MSR.
+
+>
+> > Introduce a new KVM ARM capability KVM_CAP_ARM_SIGBUS_ON_SEA. VMM
+> > can opt in this new capability if it prefers SIGBUS than SError
+> > injection during VM init. Now SEA handling in KVM works as follows:
+> > 1. Delegate to APEI/GHES to see if SEA can be claimed by them.
+> > 2. If APEI failed to claim the SEA and KVM_CAP_ARM_SIGBUS_ON_SEA is
+> >    enabled for the VM, and the SEA is NOT about translation table,
+> >    send SIGBUS BUS_OBJERR signal with host virtual address.
+>
+> And what if it is? S1 PTs are backed by userspace memory, like
+> anything else. I don't think we should have a different treatment of
+> those, because the HW wouldn't treat them differently either.
+
+You are talking about ESR_ELx_FSC_SEA_TTW(1), or
+ESR_ELx_FSC_SEA_TTW(0), right? I think you are right, S1 is no
+difference.
+
+But I think we want to make an exception for SEA about S2 PTs.
+
+>
+> > 3. Otherwise directly inject async SError to guest.
+> >
+> > Tested on a machine running Siryn AmpereOne processor. A in-house VMM
+> > that opts in KVM_CAP_ARM_SIGBUS_ON_SEA started a VM. A dummy applicatio=
+n
+> > in VM allocated some memory buffer. The test used EINJ to inject an
+> > uncorrectable recoverable memory error at a page in the allocated memor=
+y
+> > buffer. The dummy application then consumed the memory error. Some hack
+> > was done to make core kernel's memory_failure triggered by poison
+> > generation to fail, so KVM had to deal with the SEA guest abort due to
+> > poison consumption. vCPU thread in VMM received SIGBUS BUS_OBJERR with
+> > valid host virtual address of the poisoned page. VMM then injected a SE=
+A
+> > into guest using KVM_SET_VCPU_EVENTS with ext_dabt_pending=3D1. At last
+> > the dummy application in guest was killed by SIGBUS BUS_OBJERR, while t=
+he
+> > guest survived and continued to run.
+> >
+> > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h |  2 +
+> >  arch/arm64/include/asm/kvm_ras.h  | 20 ++++----
+> >  arch/arm64/kvm/Makefile           |  2 +-
+> >  arch/arm64/kvm/arm.c              |  5 ++
+> >  arch/arm64/kvm/kvm_ras.c          | 77 +++++++++++++++++++++++++++++++
+> >  arch/arm64/kvm/mmu.c              |  8 +---
+> >  include/uapi/linux/kvm.h          |  1 +
+> >  7 files changed, 98 insertions(+), 17 deletions(-)
+> >  create mode 100644 arch/arm64/kvm/kvm_ras.c
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm=
+/kvm_host.h
+> > index bf64fed9820ea..eb37a2489411a 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -334,6 +334,8 @@ struct kvm_arch {
+> >       /* Fine-Grained UNDEF initialised */
+> >  #define KVM_ARCH_FLAG_FGU_INITIALIZED                        8
+> >       unsigned long flags;
+> > +     /* Instead of injecting SError into guest, SIGBUS VMM */
+> > +#define KVM_ARCH_FLAG_SIGBUS_ON_SEA                  9
+>
+> nit: why do you put this definition out of sequence (below 'flags')?
+
+Ah, I will move it on top of flags.
+
+>
+> >
+> >       /* VM-wide vCPU feature set */
+> >       DECLARE_BITMAP(vcpu_features, KVM_VCPU_MAX_FEATURES);
+> > diff --git a/arch/arm64/include/asm/kvm_ras.h b/arch/arm64/include/asm/=
+kvm_ras.h
+> > index 87e10d9a635b5..4bb7a424e3f6c 100644
+> > --- a/arch/arm64/include/asm/kvm_ras.h
+> > +++ b/arch/arm64/include/asm/kvm_ras.h
+> > @@ -11,15 +11,17 @@
+> >  #include <asm/acpi.h>
+> >
+> >  /*
+> > - * Was this synchronous external abort a RAS notification?
+> > - * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
+> > + * Handle synchronous external abort (SEA) in the following order:
+> > + * 1. Delegate to APEI/GHES to see if SEA can be claimed by them. If s=
+o, we
+> > + *    are all done.
+> > + * 2. If userspace opts in KVM_CAP_ARM_SIGBUS_ON_SEA, and if the SEA i=
+s NOT
+> > + *    about translation table, send SIGBUS
+> > + *    - si_code is BUS_OBJERR.
+> > + *    - si_addr will be 0 when accurate HVA is unavailable.
+> > + * 3. Otherwise, directly inject an async SError to guest.
+> > + *
+> > + * Note this applies to both ESR_ELx_EC_IABT_* and ESR_ELx_EC_DABT_*.
+> >   */
+> > -static inline int kvm_handle_guest_sea(phys_addr_t addr, u64 esr)
+> > -{
+> > -     /* apei_claim_sea(NULL) expects to mask interrupts itself */
+> > -     lockdep_assert_irqs_enabled();
+> > -
+> > -     return apei_claim_sea(NULL);
+> > -}
+> > +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
+> >
+> >  #endif /* __ARM64_KVM_RAS_H__ */
+> > diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> > index 3cf7adb2b5038..c4a3a6d4870e6 100644
+> > --- a/arch/arm64/kvm/Makefile
+> > +++ b/arch/arm64/kvm/Makefile
+> > @@ -23,7 +23,7 @@ kvm-y +=3D arm.o mmu.o mmio.o psci.o hypercalls.o pvt=
+ime.o \
+> >        vgic/vgic-v3.o vgic/vgic-v4.o \
+> >        vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+> >        vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> > -      vgic/vgic-its.o vgic/vgic-debug.o
+> > +      vgic/vgic-its.o vgic/vgic-debug.o kvm_ras.o
+> >
+> >  kvm-$(CONFIG_HW_PERF_EVENTS)  +=3D pmu-emul.o pmu.o
+> >  kvm-$(CONFIG_ARM64_PTR_AUTH)  +=3D pauth.o
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 48cafb65d6acf..bb97ad678dbec 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -151,6 +151,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+> >               }
+> >               mutex_unlock(&kvm->slots_lock);
+> >               break;
+> > +     case KVM_CAP_ARM_SIGBUS_ON_SEA:
+> > +             r =3D 0;
+> > +             set_bit(KVM_ARCH_FLAG_SIGBUS_ON_SEA, &kvm->arch.flags);
+>
+> Shouldn't this be somehow gated on the VM being RAS aware?
+
+Do you mean a CAP that VMM can tell KVM the VM guest has RAS ability?
+I don't know if there is one for arm64. On x86 there is
+KVM_X86_SETUP_MCE. KVM_CAP_ARM_INJECT_EXT_DABT maybe a revelant one
+but I don't think it is exactly the one for "RAS ability".
+
+>
+> > +             break;
+> >       default:
+> >               break;
+> >       }
+> > @@ -339,6 +343,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, l=
+ong ext)
+> >       case KVM_CAP_ARM_SYSTEM_SUSPEND:
+> >       case KVM_CAP_IRQFD_RESAMPLE:
+> >       case KVM_CAP_COUNTER_OFFSET:
+> > +     case KVM_CAP_ARM_SIGBUS_ON_SEA:
+> >               r =3D 1;
+> >               break;
+> >       case KVM_CAP_SET_GUEST_DEBUG2:
+> > diff --git a/arch/arm64/kvm/kvm_ras.c b/arch/arm64/kvm/kvm_ras.c
+> > new file mode 100644
+> > index 0000000000000..3225462bcbcda
+> > --- /dev/null
+> > +++ b/arch/arm64/kvm/kvm_ras.c
+> > @@ -0,0 +1,77 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +
+> > +#include <linux/bitops.h>
+> > +#include <linux/kvm_host.h>
+> > +
+> > +#include <asm/kvm_emulate.h>
+> > +#include <asm/kvm_ras.h>
+> > +#include <asm/system_misc.h>
+> > +
+> > +/*
+> > + * For synchrnous external instruction or data abort, not on translati=
+on
+> > + * table walk or hardware update of translation table, is FAR_EL2 vali=
+d?
+> > + */
+> > +static inline bool kvm_vcpu_sea_far_valid(const struct kvm_vcpu *vcpu)
+> > +{
+> > +     return !(vcpu->arch.fault.esr_el2 & ESR_ELx_FnV);
+> > +}
+> > +
+> > +/*
+> > + * Was this synchronous external abort a RAS notification?
+> > + * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
+> > + */
+> > +static int kvm_delegate_guest_sea(phys_addr_t addr, u64 esr)
+> > +{
+> > +     /* apei_claim_sea(NULL) expects to mask interrupts itself */
+> > +     lockdep_assert_irqs_enabled();
+> > +     return apei_claim_sea(NULL);
+> > +}
+> > +
+> > +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+> > +{
+> > +     bool sigbus_on_sea;
+> > +     int idx;
+> > +     u64 vcpu_esr =3D kvm_vcpu_get_esr(vcpu);
+> > +     u8 fsc =3D kvm_vcpu_trap_get_fault(vcpu);
+> > +     phys_addr_t fault_ipa =3D kvm_vcpu_get_fault_ipa(vcpu);
+> > +     gfn_t gfn =3D fault_ipa >> PAGE_SHIFT;
+> > +     /* When FnV is set, send 0 as si_addr like what do_sea() does. */
+> > +     unsigned long hva =3D 0UL;
+> > +
+> > +     /*
+> > +      * For RAS the host kernel may handle this abort.
+> > +      * There is no need to SIGBUS VMM, or pass the error into the gue=
+st.
+> > +      */
+> > +     if (kvm_delegate_guest_sea(fault_ipa, vcpu_esr) =3D=3D 0)
+> > +             return;
+> > +
+> > +     sigbus_on_sea =3D test_bit(KVM_ARCH_FLAG_SIGBUS_ON_SEA,
+> > +                              &(vcpu->kvm->arch.flags));
+> > +
+> > +     /*
+> > +      * In addition to userspace opt-in, SIGBUS only makes sense if th=
+e
+> > +      * abort is NOT about translation table walk and NOT about hardwa=
+re
+> > +      * update of translation table.
+> > +      */
+> > +     sigbus_on_sea &=3D (fsc =3D=3D ESR_ELx_FSC_EXTABT || fsc =3D=3D E=
+SR_ELx_FSC_SECC);
+> > +
+> > +     /* Pass the error directly into the guest. */
+> > +     if (!sigbus_on_sea) {
+> > +             kvm_inject_vabt(vcpu);
+> > +             return;
+> > +     }
+> > +
+> > +     if (kvm_vcpu_sea_far_valid(vcpu)) {
+> > +             idx =3D srcu_read_lock(&vcpu->kvm->srcu);
+> > +             hva =3D gfn_to_hva(vcpu->kvm, gfn);
+> > +             srcu_read_unlock(&vcpu->kvm->srcu, idx);
+> > +     }
+> > +
+> > +     /*
+> > +      * Send a SIGBUS BUS_OBJERR to vCPU thread (the userspace thread =
+that
+> > +      * runs KVM_RUN) or VMM, which aligns with what host kernel do_se=
+a()
+> > +      * does if apei_claim_sea() fails.
+> > +      */
+> > +     arm64_notify_die("synchronous external abort",
+> > +                      current_pt_regs(), SIGBUS, BUS_OBJERR, hva, vcpu=
+_esr);
+>
+> This is the point where I really think we should simply trigger an
+> exit with all that syndrome information stashed in kvm_run, like any
+> other event requiring userspace help.
+
+Ah, there is another reason SIGBUS is better than kvm exit: "It is a
+programming error to set ext_dabt_pending after an exit which was not
+either KVM_EXIT_MMIO or KVM_EXIT_ARM_NISV", from
+Documentation/virt/kvm/api.rst. So if VMM is allowed to inject data
+abort to guest, at least current documentation doesn't suggest kvm
+exit is feasible.
+
+>
+> Also: where is the documentation?
+
+Once I get more positive feedback and send out PATCH instead of RFC, I
+can add to Documentation/virt/kvm/api.rst.
+
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
