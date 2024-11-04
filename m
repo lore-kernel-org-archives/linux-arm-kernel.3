@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635D7D132A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39600D132AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNpLy3/iU6hz1ddtNp9uaehfaogRSNGnD2S+Be5/J4M=; b=H7fSQNUDHrNPmSpzDQIshKOl6D
-	nRHC/7guCpW595IxnvFyXJ/lcG7e5E7EJIlXSB4W3PLWaNKvKQxknVuqJcH2Ebop9oQI//jeGqoZ3
-	cxljWcEqJEGtI5ufjYYGe9u76rrgvWMOeOOQhSWaoJlfUC7/4A55QZH0n/WaH7+yibwOFjtf0s0xI
-	UoWIF1RfNVuBpMUCzbR2j7p7kiVN57CS2EDtaaYJC7wFHUh4SyDHpmwp/+X7YWtJdlwZTO7YTcdkF
-	lKtGNlK0VT7qWKd3wmqrDmxPEUkWn/IyuGxSnSsRmHL0mL7TRfp61F0hC5yzcMjsWcCBbd6hKp6Ba
-	w8Lz8JXQ==;
+	bh=rPdM8zS/6EGRcTeT8TDzHQft4VCigiCiOOcC42fW7HE=; b=PD46kOsrWcWmQ4A/MEn55RaQsV
+	LPcGA4XEZipZz3HfvXwfyEKczUzOYpFUBTRPwjYyladY47JYA/GDFTGl7XcCVgbtcHJW0Uy9fDlHo
+	NyY0sA7Z9hHPDAwllEaJeR3yevdKlhwdE80iL63RfX8VilhDI3PAu88BeryaaXsyfa5LylFUU4XTQ
+	9EgaL/hGTf4yCF+oJgPmZotELNppqLqAsgYv1SZNnY5Ae35E2/xBrcGWZVGIEJ/q9X4j9to8Sy7EO
+	6LrW9u9CPn4p+w8pSB3lge7xaOME7uUzSVEVRmhPS0Lbt4j448UTtToCvIU95DiAG2AlqQaB5JA7P
+	+7pJX0dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7uBw-0000000DId2-0iao;
-	Mon, 04 Nov 2024 10:20:12 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7u44-0000000DHCC-34s5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 10:12:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730715125; x=1762251125;
-  h=message-id:date:mime-version:subject:from:to:cc:
-   references:in-reply-to:content-transfer-encoding;
-  bh=fMBrJ+ivi3ALTf8YCQpNicGCOTy9OFqS86iASws5tcM=;
-  b=Wi8LMHyFLb7+hW6/YlrqVzkhop6NT2Rwvg52Ul3H/IiIEEKpODSMIwym
-   Mxa4r3hnAoRgFiPpS13Z6r2splRJBOGZDvbc7salyKRc3HNzWF02GuMX+
-   2mxp/cbUw+yqhi5c8NcQzzfDLYmg6MNn61H4CYACScfiaPHC7TpW1qABq
-   ud2jCCkwZJmV7UsO0bCQCPdNkH4dhWvIjkDMMyKjo1Wnt+uz41jFZLu+O
-   p+mM/+H2lfZC0QNuluj4PPV7bgbR0DeVLA3OgHv7qFT9hVwp6yMQZRQeM
-   QrtDDEptavN9iIrNdPyYkumkQ9BT4QlIZu1h8DNcjUWo6hd0urS3x8RyS
-   Q==;
-X-CSE-ConnectionGUID: UHyr8G7xTEe9UdCzxih/4A==
-X-CSE-MsgGUID: wRzh3eBTQ4WQJ//XkvgPAw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11245"; a="29832197"
-X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="29832197"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 02:12:04 -0800
-X-CSE-ConnectionGUID: cgqXwjL9QR+kmFyCZNdqIQ==
-X-CSE-MsgGUID: Qjmd+TnCRs25GjKf0TAP8w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="88124969"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.246.16.81])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 02:11:56 -0800
-Message-ID: <0b073156-dbf4-420e-b6e2-98d404ba38f1@intel.com>
-Date: Mon, 4 Nov 2024 12:11:51 +0200
+	id 1t7uPR-0000000DKQ2-03md;
+	Mon, 04 Nov 2024 10:34:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7uNg-0000000DK81-1fgo;
+	Mon, 04 Nov 2024 10:32:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 583E4FEC;
+	Mon,  4 Nov 2024 02:32:47 -0800 (PST)
+Received: from [10.57.88.110] (unknown [10.57.88.110])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FB933F66E;
+	Mon,  4 Nov 2024 02:32:12 -0800 (PST)
+Message-ID: <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
+Date: Mon, 4 Nov 2024 10:32:10 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V14 00/11] perf/core: Add ability for an event to "pause"
- or "resume" AUX area tracing
-From: Adrian Hunter <adrian.hunter@intel.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Heiko Carstens <hca@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>,
- Hendrik Brueckner <brueckner@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Yicong Yang <yangyicong@hisilicon.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
- <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
- Ian Rogers <irogers@google.com>, Andi Kleen <ak@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- H Peter Anvin <hpa@zytor.com>, Kan Liang <kan.liang@linux.intel.com>,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20241022155920.17511-1-adrian.hunter@intel.com>
- <7bacbe72-c283-453b-bf1f-6ba05b68cac8@intel.com>
-Content-Language: en-US
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <7bacbe72-c283-453b-bf1f-6ba05b68cac8@intel.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH] iommu: Switch back to struct platform_driver::remove()
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Clark <robdclark@gmail.com>,
+ Yong Wu <yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
+ Michael Shavit <mshavit@google.com>, Mostafa Saleh <smostafa@google.com>,
+ Lu Baolu <baolu.lu@linux.intel.com>,
+ Georgi Djakov <quic_c_gdjako@quicinc.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
+References: <20241104064650.799122-2-u.kleine-koenig@baylibre.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241104064650.799122-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_021204_857754_15C69E4D 
-X-CRM114-Status: GOOD (  35.65  )
+X-CRM114-CacheID: sfid-20241104_023220_552684_25CE2C5A 
+X-CRM114-Status: GOOD (  27.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,299 +80,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/24 15:16, Adrian Hunter wrote:
-> On 22/10/24 18:59, Adrian Hunter wrote:
->> Hi
->>
->> Note for V14:
->> 	KVM patches dropped.
+On 2024-11-04 6:46 am, Uwe Kleine-König wrote:
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
 > 
-> ping
+> Convert all platform drivers below drivers/iommu to use .remove(), with
+> the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
 
-ping
+I dont see any major concern with doing it this way. FWIW,
 
+Acked-by: Robin Murphy <robin.murphy@arm.com>
+
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
+> Hello,
 > 
->>
->> Note for V12:
->> 	There was a small conflict between the Intel PT changes in
->> 	"KVM: x86: Fix Intel PT Host/Guest mode when host tracing" and the
->> 	changes in this patch set, so I have put the patch sets together,
->> 	along with outstanding fix "perf/x86/intel/pt: Fix buffer full but
->> 	size is 0 case"
->>
->> 	Cover letter for KVM changes (patches 2 to 4):
->>
->> 	There is a long-standing problem whereby running Intel PT on host and guest
->> 	in Host/Guest mode, causes VM-Entry failure.
->>
->> 	The motivation for this patch set is to provide a fix for stable kernels
->> 	prior to the advent of the "Mediated Passthrough vPMU" patch set:
->>
->> 		https://lore.kernel.org/kvm/20240801045907.4010984-1-mizhang@google.com/
->>
->> 	which would render a large part of the fix unnecessary but likely not be
->> 	suitable for backport to stable due to its size and complexity.
->>
->> 	Ideally, this patch set would be applied before "Mediated Passthrough vPMU"
->>
->> 	Note that the fix does not conflict with "Mediated Passthrough vPMU", it
->> 	is just that "Mediated Passthrough vPMU" will make the code to stop and
->> 	restart Intel PT unnecessary.
->>
->> Note for V11:
->> 	Moving aux_paused into a union within struct hw_perf_event caused
->> 	a regression because aux_paused was being written unconditionally
->> 	even though it is valid only for AUX (e.g. Intel PT) PMUs.
->> 	That is fixed in V11.
->>
->> Hardware traces, such as instruction traces, can produce a vast amount of
->> trace data, so being able to reduce tracing to more specific circumstances
->> can be useful.
->>
->> The ability to pause or resume tracing when another event happens, can do
->> that.
->>
->> These patches add such a facilty and show how it would work for Intel
->> Processor Trace.
->>
->> Maintainers of other AUX area tracing implementations are requested to
->> consider if this is something they might employ and then whether or not
->> the ABI would work for them.  Note, thank you to James Clark (ARM) for
->> evaluating the API for Coresight.  Suzuki K Poulose (ARM) also responded
->> positively to the RFC.
->>
->> Changes to perf tools are now (since V4) fleshed out.
->>
->> Please note, Intel® Architecture Instruction Set Extensions and Future
->> Features Programming Reference March 2024 319433-052, currently:
->>
->> 	https://cdrdv2.intel.com/v1/dl/getContent/671368
->>
->> introduces hardware pause / resume for Intel PT in a feature named
->> Intel PT Trigger Tracing.
->>
->> For that more fields in perf_event_attr will be necessary.  The main
->> differences are:
->> 	- it can be applied not just to overflows, but optionally to
->> 	every event
->> 	- a packet is emitted into the trace, optionally with IP
->> 	information
->> 	- no PMI
->> 	- works with PMC and DR (breakpoint) events only
->>
->> Here are the proposed additions to perf_event_attr, please comment:
->>
->> diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
->> index 0c557f0a17b3..05dcc43f11bb 100644
->> --- a/tools/include/uapi/linux/perf_event.h
->> +++ b/tools/include/uapi/linux/perf_event.h
->> @@ -369,6 +369,22 @@ enum perf_event_read_format {
->>  	PERF_FORMAT_MAX = 1U << 5,		/* non-ABI */
->>  };
->>  
->> +enum {
->> +	PERF_AUX_ACTION_START_PAUSED		=   1U << 0,
->> +	PERF_AUX_ACTION_PAUSE			=   1U << 1,
->> +	PERF_AUX_ACTION_RESUME			=   1U << 2,
->> +	PERF_AUX_ACTION_EMIT			=   1U << 3,
->> +	PERF_AUX_ACTION_NR			= 0x1f << 4,
->> +	PERF_AUX_ACTION_NO_IP			=   1U << 9,
->> +	PERF_AUX_ACTION_PAUSE_ON_EVT		=   1U << 10,
->> +	PERF_AUX_ACTION_RESUME_ON_EVT		=   1U << 11,
->> +	PERF_AUX_ACTION_EMIT_ON_EVT		=   1U << 12,
->> +	PERF_AUX_ACTION_NR_ON_EVT		= 0x1f << 13,
->> +	PERF_AUX_ACTION_NO_IP_ON_EVT		=   1U << 18,
->> +	PERF_AUX_ACTION_MASK			= ~PERF_AUX_ACTION_START_PAUSED,
->> +	PERF_AUX_PAUSE_RESUME_MASK		= PERF_AUX_ACTION_PAUSE | PERF_AUX_ACTION_RESUME,
->> +};
->> +
->>  #define PERF_ATTR_SIZE_VER0	64	/* sizeof first published struct */
->>  #define PERF_ATTR_SIZE_VER1	72	/* add: config2 */
->>  #define PERF_ATTR_SIZE_VER2	80	/* add: branch_sample_type */
->> @@ -515,10 +531,19 @@ struct perf_event_attr {
->>  	union {
->>  		__u32	aux_action;
->>  		struct {
->> -			__u32	aux_start_paused :  1, /* start AUX area tracing paused */
->> -				aux_pause        :  1, /* on overflow, pause AUX area tracing */
->> -				aux_resume       :  1, /* on overflow, resume AUX area tracing */
->> -				__reserved_3     : 29;
->> +			__u32	aux_start_paused  :  1, /* start AUX area tracing paused */
->> +				aux_pause         :  1, /* on overflow, pause AUX area tracing */
->> +				aux_resume        :  1, /* on overflow, resume AUX area tracing */
->> +				aux_emit          :  1, /* generate AUX records instead of events */
->> +				aux_nr            :  5, /* AUX area tracing reference number */
->> +				aux_no_ip         :  1, /* suppress IP in AUX records */
->> +				/* Following apply to event occurrence not overflows */
->> +				aux_pause_on_evt  :  1, /* on event, pause AUX area tracing */
->> +				aux_resume_on_evt :  1, /* on event, resume AUX area tracing */
->> +				aux_emit_on_evt   :  1, /* generate AUX records instead of events */
->> +				aux_nr_on_evt     :  5, /* AUX area tracing reference number */
->> +				aux_no_ip_on_evt  :  1, /* suppress IP in AUX records */
->> +				__reserved_3      : 13;
->>  		};
->>  	};
->>
->>
->> Changes in V14:
->>       Dropped KVM patches
->>
->>       perf/x86/intel/pt: Add support for pause / resume
->> 	Set pt->handle_nmi after configuration is completed instead of during
->>
->> Changes in V13:
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Do aux_resume at the end of __perf_event_overflow() so as to trace
->> 	less of perf itself
->>
->>       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
->> 	Add error message also in EOPNOTSUPP case (Leo)
->>
->> Changes in V12:
->> 	Add previously sent patch "perf/x86/intel/pt: Fix buffer full
->> 	but size is 0 case"
->>
->> 	Add previously sent patch set "KVM: x86: Fix Intel PT Host/Guest
->> 	mode when host tracing"
->>
->> 	Rebase on current tip plus patch set "KVM: x86: Fix Intel PT Host/Guest
->> 	mode when host tracing"
->>
->> Changes in V11:
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Make assignment to event->hw.aux_paused conditional on
->> 	(pmu->capabilities & PERF_PMU_CAP_AUX_PAUSE).
->>
->>       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
->> 	Remove definition of has_aux_action() because it has
->> 	already been added as an inline function.
->>
->>       perf/x86/intel/pt: Fix sampling synchronization
->>       perf tools: Enable evsel__is_aux_event() to work for ARM/ARM64
->>       perf tools: Enable evsel__is_aux_event() to work for S390_CPUMSF
->> 	Dropped because they have already been applied
->>
->> Changes in V10:
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Move aux_paused into a union within struct hw_perf_event.
->> 	Additional comment wrt PERF_EF_PAUSE/PERF_EF_RESUME.
->> 	Factor out has_aux_action() as an inline function.
->> 	Use scoped_guard for irqsave.
->> 	Move calls of perf_event_aux_pause() from __perf_event_output()
->> 	to __perf_event_overflow().
->>
->> Changes in V9:
->>       perf/x86/intel/pt: Fix sampling synchronization
->> 	New patch
->>
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Move aux_paused to struct hw_perf_event
->>
->>       perf/x86/intel/pt: Add support for pause / resume
->> 	Add more comments and barriers for resume_allowed and
->> 	pause_allowed
->> 	Always use WRITE_ONCE with resume_allowed
->>
->>
->> Changes in V8:
->>
->>       perf tools: Parse aux-action
->> 	Fix clang warning:
->> 	     util/auxtrace.c:821:7: error: missing field 'aux_action' initializer [-Werror,-Wmissing-field-initializers]
->> 	     821 |         {NULL},
->> 	         |              ^
->>
->> Changes in V7:
->>
->> 	Add Andi's Reviewed-by for patches 2-12
->> 	Re-base
->>
->> Changes in V6:
->>
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Removed READ/WRITE_ONCE from __perf_event_aux_pause()
->> 	Expanded comment about guarding against NMI
->>
->> Changes in V5:
->>
->>     perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Added James' Ack
->>
->>     perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
->> 	New patch
->>
->>     perf tools
->> 	Added Ian's Ack
->>
->> Changes in V4:
->>
->>     perf/core: Add aux_pause, aux_resume, aux_start_paused
->> 	Rename aux_output_cfg -> aux_action
->> 	Reorder aux_action bits from:
->> 		aux_pause, aux_resume, aux_start_paused
->> 	to:
->> 		aux_start_paused, aux_pause, aux_resume
->> 	Fix aux_action bits __u64 -> __u32
->>
->>     coresight: Have a stab at support for pause / resume
->> 	Dropped
->>
->>     perf tools
->> 	All new patches
->>
->> Changes in RFC V3:
->>
->>     coresight: Have a stab at support for pause / resume
->> 	'mode' -> 'flags' so it at least compiles
->>
->> Changes in RFC V2:
->>
->> 	Use ->stop() / ->start() instead of ->pause_resume()
->> 	Move aux_start_paused bit into aux_output_cfg
->> 	Tighten up when Intel PT pause / resume is allowed
->> 	Add an example of how it might work for CoreSight
->>
->>
->> Adrian Hunter (11):
->>       perf/x86/intel/pt: Fix buffer full but size is 0 case
->>       perf/core: Add aux_pause, aux_resume, aux_start_paused
->>       perf/x86/intel/pt: Add support for pause / resume
->>       perf/x86/intel: Do not enable large PEBS for events with aux actions or aux sampling
->>       perf tools: Add aux_start_paused, aux_pause and aux_resume
->>       perf tools: Add aux-action config term
->>       perf tools: Parse aux-action
->>       perf tools: Add missing_features for aux_start_paused, aux_pause, aux_resume
->>       perf intel-pt: Improve man page format
->>       perf intel-pt: Add documentation for pause / resume
->>       perf intel-pt: Add a test for pause / resume
->>
->>  arch/x86/events/intel/core.c               |   4 +-
->>  arch/x86/events/intel/pt.c                 |  84 +++-
->>  arch/x86/events/intel/pt.h                 |   6 +
->>  include/linux/perf_event.h                 |  28 ++
->>  include/uapi/linux/perf_event.h            |  11 +-
->>  kernel/events/core.c                       |  75 +++-
->>  kernel/events/internal.h                   |   1 +
->>  tools/include/uapi/linux/perf_event.h      |  11 +-
->>  tools/perf/Documentation/perf-intel-pt.txt | 596 ++++++++++++++++++-----------
->>  tools/perf/Documentation/perf-record.txt   |   4 +
->>  tools/perf/builtin-record.c                |   4 +-
->>  tools/perf/tests/shell/test_intel_pt.sh    |  28 ++
->>  tools/perf/util/auxtrace.c                 |  67 +++-
->>  tools/perf/util/auxtrace.h                 |   6 +-
->>  tools/perf/util/evsel.c                    |  15 +
->>  tools/perf/util/evsel.h                    |   1 +
->>  tools/perf/util/evsel_config.h             |   1 +
->>  tools/perf/util/parse-events.c             |  10 +
->>  tools/perf/util/parse-events.h             |   1 +
->>  tools/perf/util/parse-events.l             |   1 +
->>  tools/perf/util/perf_event_attr_fprintf.c  |   3 +
->>  tools/perf/util/pmu.c                      |   1 +
->>  22 files changed, 716 insertions(+), 242 deletions(-)
->>
->>
->> Regards
->> Adrian
+> I did a single patch for all of drivers/iommu. While I usually prefer to
+> do one logical change per patch, this seems to be overengineering here
+> as the individual changes are really trivial and shouldn't be much in
+> the way for stable backports. But I'll happily split the patch if you
+> prefer it split.
 > 
+> This is based on today's next, if conflicts arise when you apply it at
+> some later time and don't want to resolve them, feel free to just drop
+> the changes to the conflicting files. I'll notice and followup at a
+> later time then. Or ask me for a fixed resend. (Having said that, I
+> recommend b4 am -3 + git am -3 which should resolve most conflicts just
+> fine.)
+> 
+> Best regards
+> Uwe
+> 
+>   drivers/iommu/apple-dart.c                  | 2 +-
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c       | 2 +-
+>   drivers/iommu/arm/arm-smmu/qcom_iommu.c     | 4 ++--
+>   drivers/iommu/ipmmu-vmsa.c                  | 2 +-
+>   drivers/iommu/msm_iommu.c                   | 2 +-
+>   drivers/iommu/mtk_iommu.c                   | 2 +-
+>   drivers/iommu/mtk_iommu_v1.c                | 2 +-
+>   drivers/iommu/omap-iommu.c                  | 2 +-
+>   drivers/iommu/riscv/iommu-platform.c        | 2 +-
+>   drivers/iommu/sprd-iommu.c                  | 2 +-
+>   11 files changed, 12 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+> index eb1e62cd499a..c5bde50d1c42 100644
+> --- a/drivers/iommu/apple-dart.c
+> +++ b/drivers/iommu/apple-dart.c
+> @@ -1352,7 +1352,7 @@ static struct platform_driver apple_dart_driver = {
+>   		.pm			= pm_sleep_ptr(&apple_dart_pm_ops),
+>   	},
+>   	.probe	= apple_dart_probe,
+> -	.remove_new = apple_dart_remove,
+> +	.remove	= apple_dart_remove,
+>   };
+>   
+>   module_platform_driver(apple_dart_driver);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 826db8894fb7..efbc78bffd33 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4679,7 +4679,7 @@ static struct platform_driver arm_smmu_driver = {
+>   		.suppress_bind_attrs	= true,
+>   	},
+>   	.probe	= arm_smmu_device_probe,
+> -	.remove_new = arm_smmu_device_remove,
+> +	.remove	= arm_smmu_device_remove,
+>   	.shutdown = arm_smmu_device_shutdown,
+>   };
+>   module_driver(arm_smmu_driver, platform_driver_register,
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index 8321962b3714..4e9bb9f4c4bd 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -2372,7 +2372,7 @@ static struct platform_driver arm_smmu_driver = {
+>   		.suppress_bind_attrs    = true,
+>   	},
+>   	.probe	= arm_smmu_device_probe,
+> -	.remove_new = arm_smmu_device_remove,
+> +	.remove = arm_smmu_device_remove,
+>   	.shutdown = arm_smmu_device_shutdown,
+>   };
+>   module_platform_driver(arm_smmu_driver);
+> diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> index b98a7a598b89..9ce2fe50b22c 100644
+> --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> @@ -759,7 +759,7 @@ static struct platform_driver qcom_iommu_ctx_driver = {
+>   		.of_match_table	= ctx_of_match,
+>   	},
+>   	.probe	= qcom_iommu_ctx_probe,
+> -	.remove_new = qcom_iommu_ctx_remove,
+> +	.remove	= qcom_iommu_ctx_remove,
+>   };
+>   
+>   static bool qcom_iommu_has_secure_context(struct qcom_iommu_dev *qcom_iommu)
+> @@ -931,7 +931,7 @@ static struct platform_driver qcom_iommu_driver = {
+>   		.pm		= &qcom_iommu_pm_ops,
+>   	},
+>   	.probe	= qcom_iommu_device_probe,
+> -	.remove_new = qcom_iommu_device_remove,
+> +	.remove	= qcom_iommu_device_remove,
+>   };
+>   
+>   static int __init qcom_iommu_init(void)
+> diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
+> index ff55b8c30712..074daf1aac4e 100644
+> --- a/drivers/iommu/ipmmu-vmsa.c
+> +++ b/drivers/iommu/ipmmu-vmsa.c
+> @@ -1159,6 +1159,6 @@ static struct platform_driver ipmmu_driver = {
+>   		.pm = pm_sleep_ptr(&ipmmu_pm),
+>   	},
+>   	.probe = ipmmu_probe,
+> -	.remove_new = ipmmu_remove,
+> +	.remove = ipmmu_remove,
+>   };
+>   builtin_platform_driver(ipmmu_driver);
+> diff --git a/drivers/iommu/msm_iommu.c b/drivers/iommu/msm_iommu.c
+> index 989e0869d805..ce40f0a419ea 100644
+> --- a/drivers/iommu/msm_iommu.c
+> +++ b/drivers/iommu/msm_iommu.c
+> @@ -838,6 +838,6 @@ static struct platform_driver msm_iommu_driver = {
+>   		.of_match_table = msm_iommu_dt_match,
+>   	},
+>   	.probe		= msm_iommu_probe,
+> -	.remove_new	= msm_iommu_remove,
+> +	.remove		= msm_iommu_remove,
+>   };
+>   builtin_platform_driver(msm_iommu_driver);
+> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+> index c45313c43b9e..72b68d037b95 100644
+> --- a/drivers/iommu/mtk_iommu.c
+> +++ b/drivers/iommu/mtk_iommu.c
+> @@ -1794,7 +1794,7 @@ MODULE_DEVICE_TABLE(of, mtk_iommu_of_ids);
+>   
+>   static struct platform_driver mtk_iommu_driver = {
+>   	.probe	= mtk_iommu_probe,
+> -	.remove_new = mtk_iommu_remove,
+> +	.remove	= mtk_iommu_remove,
+>   	.driver	= {
+>   		.name = "mtk-iommu",
+>   		.of_match_table = mtk_iommu_of_ids,
+> diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+> index ee4e55b6b190..480e57ea6635 100644
+> --- a/drivers/iommu/mtk_iommu_v1.c
+> +++ b/drivers/iommu/mtk_iommu_v1.c
+> @@ -745,7 +745,7 @@ static const struct dev_pm_ops mtk_iommu_v1_pm_ops = {
+>   
+>   static struct platform_driver mtk_iommu_v1_driver = {
+>   	.probe	= mtk_iommu_v1_probe,
+> -	.remove_new = mtk_iommu_v1_remove,
+> +	.remove	= mtk_iommu_v1_remove,
+>   	.driver	= {
+>   		.name = "mtk-iommu-v1",
+>   		.of_match_table = mtk_iommu_v1_of_ids,
+> diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
+> index 3f72aef8bd5b..b8ced5d0581c 100644
+> --- a/drivers/iommu/omap-iommu.c
+> +++ b/drivers/iommu/omap-iommu.c
+> @@ -1285,7 +1285,7 @@ static const struct of_device_id omap_iommu_of_match[] = {
+>   
+>   static struct platform_driver omap_iommu_driver = {
+>   	.probe	= omap_iommu_probe,
+> -	.remove_new = omap_iommu_remove,
+> +	.remove	= omap_iommu_remove,
+>   	.driver	= {
+>   		.name	= "omap-iommu",
+>   		.pm	= &omap_iommu_pm_ops,
+> diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+> index da336863f152..382ba2841849 100644
+> --- a/drivers/iommu/riscv/iommu-platform.c
+> +++ b/drivers/iommu/riscv/iommu-platform.c
+> @@ -81,7 +81,7 @@ static const struct of_device_id riscv_iommu_of_match[] = {
+>   
+>   static struct platform_driver riscv_iommu_platform_driver = {
+>   	.probe = riscv_iommu_platform_probe,
+> -	.remove_new = riscv_iommu_platform_remove,
+> +	.remove = riscv_iommu_platform_remove,
+>   	.driver = {
+>   		.name = "riscv,iommu",
+>   		.of_match_table = riscv_iommu_of_match,
+> diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
+> index a2f4ffe6d949..e84806eee281 100644
+> --- a/drivers/iommu/sprd-iommu.c
+> +++ b/drivers/iommu/sprd-iommu.c
+> @@ -531,7 +531,7 @@ static struct platform_driver sprd_iommu_driver = {
+>   		.suppress_bind_attrs = true,
+>   	},
+>   	.probe	= sprd_iommu_probe,
+> -	.remove_new = sprd_iommu_remove,
+> +	.remove	= sprd_iommu_remove,
+>   };
+>   module_platform_driver(sprd_iommu_driver);
+>   
+> base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
 
 
