@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2E6D132A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EBBD132A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4bF9Uq3Q8dX1adVB/pmYg1Vw77dvx2Gt3C/hOrtDal4=; b=sFviOSFbdXvz6woyFSVI/LKjUe
-	rCOTTixm7weuPrke7prL+viU2CHTNh0917VPmjCvmpAoJZoe4PuwmdeBZ753JUSvnMSzjqcWc014m
-	yuWwe+sDVDmlDdBH06NgcqGl0hHpgcaka1XiZKN4WFMDSzJCEu6BtfOEKxebVsVuJ1yYA79S4nnqm
-	BjDxIX1gdUH636fztSgrbp2W0Om3I+iYddcDn3tQdlxcnkFixQsGJRt0SG8mZEsYEGqBkS9VPXEbZ
-	D4Go1P8dTJMS85S0MXySgkG0hfQLuv84PtQOxJVG7Ja8k7K7HDyP8pXmQdT/2x5BTKb22isZ0f/GA
-	KFZAOWrA==;
+	bh=5JH5f7VASZS6KUhpV8GNdtHAYtBKP0OBrhdci13q1zI=; b=U7HP+3CRIGC9RBftVNCc7j1Ui9
+	JJtdAti1Y2sFkFrrKQjOpoRJnMuGa7VnSU1wtJNUCjAnUty/IOLHmXzudenCAfqpaF7l6jxCN/3J3
+	W4RJYcRVYcVphsE53BhCtsCZfD00q6LRJqFvmeamDUszlZMFTUODJP+oGv+c/qKMbRT57zmuID+jK
+	9D2KGb9wdI2XX43l6ry2DX5vBxjgLW+pbSkUwsI12XGlFAKO9AMAY7K4sKGgLoECuEVe23WWBLazy
+	vsP6LctXiHe8bi3dsgjPnkCROF1VVmQ7JHJmUbbm7fcPktZybnD6JWlKD8/g8YizM3QtLeXZsy5zG
+	p8s0ULAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ttB-0000000DF3T-2pJE;
-	Mon, 04 Nov 2024 10:00:49 +0000
+	id 1t7tur-0000000DFOp-1DbO;
+	Mon, 04 Nov 2024 10:02:33 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7thZ-0000000DD9K-1ssk
+	id 1t7thc-0000000DD9K-21eK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 09:48:51 +0000
+	Mon, 04 Nov 2024 09:48:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1730713729; x=1762249729;
+  t=1730713732; x=1762249732;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=4bF9Uq3Q8dX1adVB/pmYg1Vw77dvx2Gt3C/hOrtDal4=;
-  b=q4rEOsAt5h2kekpf4nU00qoLNXj2Y7pw1AE+NSi0fnKWyEZ/vp8pT9ll
-   6xCF9+QJMHD/C3bsmAnwJYs/vnm8ODbLbM7mgvUQVMHF8nbmqwd6Y36Si
-   YpNzDkNG+dBSe0Ti6K5oJPj7IDpVjw/d+6P49FDU9G0E0jIIwl2C52VkO
-   YF0KzvdO5UOwau/lhRVRGe/+TW95lfEouM14t3ZvfVsK2ncLI4WAnTlt0
-   Cn42UEJWdvCovLQhXCmPdS1Snv5AMGISRyFUlT94UV5Qn3gjaJIu5vyhX
-   AestfeKyOql8CFS9d8NoP54UVzbw1RDxoTIGhzD2MUjx6frQ+iT3jEKPW
-   Q==;
-X-CSE-ConnectionGUID: FJihrQ4eSoSnsWD8yr+YcA==
-X-CSE-MsgGUID: A/ojzjwQTSy9JlGXM/frGA==
+  bh=5JH5f7VASZS6KUhpV8GNdtHAYtBKP0OBrhdci13q1zI=;
+  b=mtdaAUpcV1AplnRWay5om3T8+HVMifTEEUhq4GBwEbqPsXdQYaiRDCre
+   XnX6tZ3SlOczpTcIk4uG8PWUHaED+BzRojljXw+wYmazcJ+x4YN43VS0J
+   DgWMk5+T8QkL6efR9Qhv8vZTgzmgZqsP9PQBfkmJc3WJ+5NAE7eolht58
+   keV8lIRENMFCExOqqXQcP+kl2NA2LSR6b4XUOhhFjcRb9+DpS1lYdGnFl
+   RS6yqDp2ynKszH9qYKB2zEi2tERmgWWav/qnJVVgHFhrVXaNyJdXj/HEY
+   8M6xd+hcmwfwZz2DoZFdtdD+Zj8fGYFHQjQRdXcqFCOw2Cn9kF91IZrHx
+   A==;
+X-CSE-ConnectionGUID: /lxKrMAkQYuqCOTFr5JbIw==
+X-CSE-MsgGUID: xmNmdh8DT5O3cKJCqw6d3A==
 X-IronPort-AV: E=Sophos;i="6.11,256,1725314400"; 
-   d="scan'208";a="39827140"
+   d="scan'208";a="39827143"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 04 Nov 2024 10:48:47 +0100
-X-CheckPoint: {6728987E-32-F5DC7025-F79421CB}
-X-MAIL-CPID: 7CAA90896B5648B07D4AD14BAFC460AE_0
-X-Control-Analysis: str=0001.0A682F28.67289880.00F8,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA5DD1692CF;
-	Mon,  4 Nov 2024 10:48:41 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 04 Nov 2024 10:48:51 +0100
+X-CheckPoint: {67289883-41-86C05612-CA75E1CA}
+X-MAIL-CPID: 6CA3FE28D4F36F3CDB780E76E530CC4A_1
+X-Control-Analysis: str=0001.0A682F28.67289884.000B,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF5EB169DA6;
+	Mon,  4 Nov 2024 10:48:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1730713722;
+	s=dkim; t=1730713727;
 	h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=4bF9Uq3Q8dX1adVB/pmYg1Vw77dvx2Gt3C/hOrtDal4=;
-	b=iM07p21m9vLjmMaFAnfwkNerfr5GgwT8dNf6UEIt+ahRyx3/Gzjlsl7ICCfXzQVTfGT75L
-	vcfP6fcLeNEiW+H1umVkWzMA6+EGkebQx5c1K/19bTFr8cbS6tdO2PLe/LIEjAd49gypGt
-	d5IK3op7TrJjeRUq5KU38CKHMwGRJ0h8MtYkRf5ZtAyO6NskTji3aP9HLakF86eRrLuiCc
-	wD4A5BjZISbASLw/cmRgE1S6wuKMVUGwEu75BzwXWt8qKNLcWaw6z6CfrZS4r1631nG4mv
-	rIACJ8o92zmi0AaeGULxR247RzQANOF9r1m/GxgFhUuqHl8bzo+P3K6gCkOW2A==
+	bh=5JH5f7VASZS6KUhpV8GNdtHAYtBKP0OBrhdci13q1zI=;
+	b=DX39Bo1HqN2ICbpZoX39qlp948wy1HNquH2lPpf+D0eXQI0qXHsdOgD42FOGWKpIQ0Xxaj
+	7u9+3e48h9frhqbBOE4Q+IvRWFk2ai3FY+wi9xNjxagLtEJoYvl9EDXwlY3ZNy37N6au6d
+	1iCshzhku/gfNYrToQC99vC0Kx7UBDoQCO+tyNOyf15gUndugn3GxnU7S3A2kJnQW3zdBg
+	BveeQXwpZrgU/FD+oB6FdrXpId2GY5O6B/LV59rBxM6E6chy0/yqb9qIsb0Q8zB4yfc4V+
+	BoMgwb3EL6VZcctojgDhT1THk6XThWyqsOKVISvf+QK/oI5dJsFOTZ75ZHXUVw==
 From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -82,9 +82,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	Hari Nagalla <hnagalla@ti.com>,
 	linux@ew.tq-group.com,
 	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH 1/5] dt-bindings: usb: dwc3: Allow connector in USB controller node
-Date: Mon,  4 Nov 2024 10:47:24 +0100
-Message-ID: <c8c9f19c300378916e920f5d3c26c67bac95d143.1730299760.git.matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH 2/5] dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM family and carrier board
+Date: Mon,  4 Nov 2024 10:47:25 +0100
+Message-ID: <4f5ad877f44df35a3b2c7f336647f057c4e6377d.1730299760.git.matthias.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
 References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
@@ -93,8 +93,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_014849_829606_843CE786 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20241104_014852_856134_B5DA0E97 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,31 +110,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow specifying the connector directly in the USB controller node, as
-supported by other USB controller bindings.
+The TQMa62xx is a SoM family with a pluggable connector. The MBa62xx is
+the matching reference/starterkit carrier board.
 
 Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 ---
- Documentation/devicetree/bindings/usb/snps,dwc3.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-index 1cd0ca90127d9..2976fb1a58061 100644
---- a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-+++ b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-@@ -68,6 +68,12 @@ properties:
-         - enum: [bus_early, ref, suspend]
-         - true
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index b0be02f9d1253..d8b52b95fba7b 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -73,6 +73,13 @@ properties:
+           - const: toradex,verdin-am62          # Verdin AM62 Module
+           - const: ti,am625
  
-+  connector:
-+    $ref: /schemas/connector/usb-connector.yaml#
-+    description: Connector for dual role switch
-+    type: object
-+    unevaluatedProperties: false
++      - description: K3 AM625 SoC on TQ-Systems TQMa62xx SoM
++        items:
++          - enum:
++              - tq,am625-tqma6254-mba62xx # MBa62xx base board
++          - const: tq,am625-tqma6254
++          - const: ti,am625
 +
-   dma-coherent: true
- 
-   extcon:
+       - description: K3 AM642 SoC
+         items:
+           - enum:
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
