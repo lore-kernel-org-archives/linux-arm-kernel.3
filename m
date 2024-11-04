@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D11BD132B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDE6D132B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qWe9yZVKp9lQnh1EpUy8j2D7QQ0wdm66TmKhai599sk=; b=i0Ht+NZbKJ6HbNrKIMhYa6ylxH
-	3p+A1zr0yKhrlyO1/dYTsqn+bloOzhf5jvDmMdsvJHyWjbmHDbfoLzfuTN81UOqP3xrlQ48tZljfR
-	JfxpPPF+71lR4a8UaZ3yuzExzhG0yTHSMBWG11TRkMnf8nhb+x17+GpEyDYge/4eqEZ0Ndz9gRfhv
-	ySkGUp8f1B/fChKiGCUxiCQEooeDgv7iwBsH2Obrc7Xy2909692F7BBscYCXarpPBh9KwhCkrFBC7
-	+hWcxGLwp1J389mE9gm0/McEuSz12U1ykpz0ZXzRKVQaOcnW04lU/o48iPWDftDwpYDhpUpT6s65u
-	Snv07vCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WamoS/BgPz7m8LVkuxxtzepst1v3gBVxNsdSxv3r2v8=; b=wSbBG8NsCqXAm2ZpLPfvvI+Ncm
+	IkrmM3H270LIDGWg6M9ZWkRYbUUIsdqCgaeyQXoXAqPNF1oV7XnGYHdpJMjQ8lxEOTB+R0VxD1Lgr
+	aGenZKTgEmtQg2Y2yqVuuxp/pEeejXQq+2E9wbC/hkNuMflYfPHmoYedwii5mS14aKXhATUxoQ3Pn
+	KakVus4jcoUULe09M/EeQAyRT11htUC0oeSb8tqmd18TcvzM47ZUQa6gHqhskO9NoJFZaczmonQGe
+	lrLU4rsD4CrH7uQnsuldtcrxw4Fkh2xWg6bjnGHlo2vvQO2xaIq8pA+xTfb6oF3zZ9uT1g/HNk3+U
+	OW/CNj3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7w6X-0000000DgZw-0zvI;
-	Mon, 04 Nov 2024 12:22:45 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1t7wAG-0000000DhI9-0Y2n;
+	Mon, 04 Nov 2024 12:26:36 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vwx-0000000Des1-3fEc
+	id 1t7w8X-0000000Dh4m-3pQq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 12:13:03 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A4CCk5Q009117;
-	Mon, 4 Nov 2024 06:12:46 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730722366;
-	bh=qWe9yZVKp9lQnh1EpUy8j2D7QQ0wdm66TmKhai599sk=;
-	h=From:To:CC:Subject:Date;
-	b=UDfMoCJTV+OGWMHtkPnHWN9EQM+kivRS0GVX96oRPdV51uw3MbS0mQV7aMqc+cQ3w
-	 Bj2FRHFLDF2TiqyuBK10uutjHXwjvPA4V9X2ntKwYxGN+h7pLK/gyhHfU7ifa9Y3r6
-	 0DOpvYVYEsFOf/T5/IDWRjPLOssmmnEvucN57lEE=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A4CCkk1023279
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 4 Nov 2024 06:12:46 -0600
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 4
- Nov 2024 06:12:45 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 4 Nov 2024 06:12:45 -0600
-Received: from a-dutta.dhcp.ti.com (a-dutta.dhcp.ti.com [10.24.68.112])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A4CCfqu002463;
-	Mon, 4 Nov 2024 06:12:42 -0600
-From: Anurag Dutta <a-dutta@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
-        <j-keerthy@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: k3-j784s4: Fix clock IDs for MCSPI instances
-Date: Mon, 4 Nov 2024 17:42:41 +0530
-Message-ID: <20241104121241.102027-1-a-dutta@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 04 Nov 2024 12:24:51 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539f72c8fc1so3155730e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 04:24:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730723088; x=1731327888; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WamoS/BgPz7m8LVkuxxtzepst1v3gBVxNsdSxv3r2v8=;
+        b=oWtzp9w/waVDNE6gii3kEmWuV3LrDlHGs2HggbD6q1wZ0dEo08dY97Y7YnC0ZQ5+N8
+         DgpJ9o63CMWrf04h7dYDYSNWuVSpI3ibun9GB74OyC1x7jEoNSn/CuY9c3q49E3HDnhU
+         YSYyfS9igoefCf0rd8hjcU3TljpHvRTLLNtQWFx0vtrEkIvpBZycn4Vg8CerrrP+kqsz
+         6JoR9syIy5skmaaBKlv55CyKiND4prmG9tQ6kngol6ppwTC+9H0DV85h56ZRJk8vsOuE
+         KV2UFGKmzVPY4pfVIn3iYQRMk0ib8XbtnNBGL8txOH6ZAf868oVAU9CxAocvZxpqMEgb
+         DvRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730723088; x=1731327888;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WamoS/BgPz7m8LVkuxxtzepst1v3gBVxNsdSxv3r2v8=;
+        b=vLWvRNnuKdNgAOg/bXe9eun1hMYPr0yQJoFODYnqTuRG2cNoJe6lAgAYZB+QJnHHW8
+         9LpYGFZCrizrFtilXuYgWphK4jSB3NW2gPq7Ih/+Gxr4sl7CS04J/jiJPe1OtDZL40TQ
+         pnxk1H2WkF1csSBd8lkgNhjyGNNQI0b7Cb66Pk1NDrsYOVPIa1twbYF4D0QdublScOOn
+         zupDNeGaeKrZX8Ygqmk1kAPHHamYiIxjzP0CUbxIXiPSDv7HWBar0uiECNQCze2fzAic
+         j9Twmi+b9RUuRmteIrJXLY+7DEIxa60j+WR5z5JaPqP73MH+IEtsd3WzZgike7N+BYzN
+         /b9A==
+X-Forwarded-Encrypted: i=1; AJvYcCW0MdrfyCCE/EkQdyPn1vWvkOdKfqLcjY/MMvs5c+FVHTHvjDQMY3z0SBA5c8bh13mdJFggSJ1Inubbv79RvL5u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+s4sy6LZKnFDjJn0Hcf6ZPN5bmi9R8Mx1kqS/luDIyjMgwIy4
+	hoM70vG3JCYP5+h1O25W522/WatlliJvD9UIlWM2dtlcPZRyTUqjYniSwjXLfHc=
+X-Google-Smtp-Source: AGHT+IEtBPydnkTY9XAl3wpUMUwj+iBOUPGy5O30ju0acWB7SwvbYZVi+55EBXKr6UE4cG8VsD+3aw==
+X-Received: by 2002:a05:6512:350e:b0:53c:74dc:2252 with SMTP id 2adb3069b0e04-53c74dc2378mr6549281e87.49.1730723087398;
+        Mon, 04 Nov 2024 04:24:47 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc95a6csm1666091e87.4.2024.11.04.04.24.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 04:24:46 -0800 (PST)
+Date: Mon, 4 Nov 2024 14:24:43 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Lucas Stach <l.stach@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Javier Martinez Canillas <javierm@redhat.com>, 
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/imx/dcss: include drm/drm_bridge.h header
+Message-ID: <ix34xln3tl6l2h3jt7t4bhrydxfmh2m53dkl5rugxj335p7hgb@kfauvwrusipr>
+References: <20241028163527.2425783-1-arnd@kernel.org>
+ <2byo7263izup45hcdyoxr57sh2dzdasnwotpfqnayqe6znvzjt@adou6qmyhq6y>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2byo7263izup45hcdyoxr57sh2dzdasnwotpfqnayqe6znvzjt@adou6qmyhq6y>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_041252_219732_5E7D5695 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20241104_042450_006824_61E98F1F 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,113 +99,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clock IDs for multiple MCSPI instances across wakeup domain
-in J784s4 are incorrect when compared with documentation [1]. Fix
-the clock IDs to their appropriate values.
+On Mon, Nov 04, 2024 at 02:10:54PM +0200, Laurentiu Palcu wrote:
+> Hi Arnd,
+> 
+> On Mon, Oct 28, 2024 at 04:35:07PM +0000, Arnd Bergmann wrote:
+> > From: Arnd Bergmann <arnd@arndb.de>
+> > 
+> > Compile-testing random configurations leads to failures in
+> > dcss-kms.c from a missing declaration:
+> > 
+> > drivers/gpu/drm/imx/dcss/dcss-kms.c:95:8: error: use of undeclared identifier 'drm_bridge_attach'
+> >    95 |         ret = drm_bridge_attach(encoder, bridge, NULL,
+> >       |               ^
+> > drivers/gpu/drm/imx/dcss/dcss-kms.c:96:5: error: use of undeclared identifier 'DRM_BRIDGE_ATTACH_NO_CONNECTOR'
+> >    96 |                                 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> >       |                                 ^
+> > 
+> > Include the header directly.
+> > 
+> > Fixes: 004555a18d57 ("drm/imx/dcss: Allow build with COMPILE_TEST=y")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> 
+> Unfortunately, it appears I lost drm-misc push rights. Maxime, Thomas or
+> Ville, can you help push this?
 
-[1]https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j784s4/clocks.html
+I can pick it up.
 
-Fixes: e23d5a3d116d ("arm64: dts: ti: k3-j784s4: Add MCSPI nodes")
+However I think it is:
 
-Signed-off-by: Anurag Dutta <a-dutta@ti.com>
----
+Fixes: e7033bdfd43b ("drm/imx/dcss: use drm_bridge_connector API")
 
-Hi all,
-The original series is : [1]. It is a series of 4 patches out of which the first 3
-have already been applied to branch ti-k3-dts-next on [2]. However, the fourth patch 
-[4/4] arm64: dts: ti: k3-j784s4: Fix clock IDs for MCSPI instances does not apply
-cleanly because the changes should be in arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-and not in arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi.
-  
-v2: Changelog:
-- Changed the clock IDs in arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi instead of
-arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
+With that
 
-Link to v1: https://lore.kernel.org/all/20241023104532.3438851-5-a-dutta@ti.com/
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-[1] https://lore.kernel.org/all/20241023104532.3438851-1-a-dutta@ti.com/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
- 
-.../dts/ti/k3-j784s4-j742s2-main-common.dtsi     | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-index 7721852c1f68..f27f7ae51479 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-@@ -2040,7 +2040,7 @@ main_spi0: spi@2100000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 376 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 376 1>;
-+		clocks = <&k3_clks 376 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2051,7 +2051,7 @@ main_spi1: spi@2110000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 377 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 377 1>;
-+		clocks = <&k3_clks 377 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2062,7 +2062,7 @@ main_spi2: spi@2120000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 378 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 378 1>;
-+		clocks = <&k3_clks 378 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2073,7 +2073,7 @@ main_spi3: spi@2130000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 379 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 379 1>;
-+		clocks = <&k3_clks 379 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2084,7 +2084,7 @@ main_spi4: spi@2140000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 380 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 380 1>;
-+		clocks = <&k3_clks 380 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2095,7 +2095,7 @@ main_spi5: spi@2150000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 381 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 381 1>;
-+		clocks = <&k3_clks 381 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2106,7 +2106,7 @@ main_spi6: spi@2160000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 382 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 382 1>;
-+		clocks = <&k3_clks 382 0>;
- 		status = "disabled";
- 	};
- 
-@@ -2117,7 +2117,7 @@ main_spi7: spi@2170000 {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		power-domains = <&k3_pds 383 TI_SCI_PD_EXCLUSIVE>;
--		clocks = <&k3_clks 383 1>;
-+		clocks = <&k3_clks 383 0>;
- 		status = "disabled";
- 	};
- 
+> 
+> Thanks,
+> Laurentiu
+> 
+> > ---
+> >  drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> > index 3ec721afc30c..63a335c62296 100644
+> > --- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> > +++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> > @@ -5,6 +5,7 @@
+> >  
+> >  #include <drm/drm_atomic.h>
+> >  #include <drm/drm_atomic_helper.h>
+> > +#include <drm/drm_bridge.h>
+> >  #include <drm/drm_bridge_connector.h>
+> >  #include <drm/drm_client_setup.h>
+> >  #include <drm/drm_drv.h>
+> > -- 
+> > 2.39.5
+> > 
+
 -- 
-2.34.1
-
+With best wishes
+Dmitry
 
