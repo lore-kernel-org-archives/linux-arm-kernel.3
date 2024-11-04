@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D618D1BDCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33715D1BDC7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o57cy0VQNTsNQkz9JZQ7BaEVOyPNSHxwCVeyC0uw/HE=; b=ElOsY7BqRsG9zcrxJJdzHR12u0
-	blgHoqpvm2MAYes3Czk0Z01QBZyF9PUpg8Ih+meMlC8w25sbkwgrk15j5qwS47Wh0+x5fDrzw2rlS
-	WGOUEiPXI5qoc69ov0ll8q7RGIVpuDouWILGZAS39MPf6EH7HZYf8t0MLV412A1Kdz10q4eLM6VE6
-	kYle6FY3yvUJaHYACwGLt5NarXzxvyTYotWHlkSPrAcS+85ToW006+651AqIjyQ6cHpeAuBR18tWl
-	FP7WyMkF/RSLDOQCPLJRavNirt9DAW6FukbhyX4DhC8Q+ViLBEmD+vX3jWWFQnIgMz44WiHkVqTJD
-	dKXAB5Jw==;
+	bh=InXJvBTwDJrMe8BrVhQ0/b2ilI2hKghp4DGlCfrBHmQ=; b=Bw2Tv2MSg6rbHp63tLtuuG3I4Z
+	yRds6Fa07/eVMW7T9KdmhaPj3lOyt7+NiedI0Ul+KIXPGCsieHMXHnrUCWQ78Ev3r+GKwYtRs4qHe
+	Gr1DCXFwERePApPb7eiOgUPqQUadiIKB9uaIHet9UF92UWxqKYzcmi9HpH02rr8n8bJ+sHJsaeAYc
+	owwot57fu5x4I0oDH306M0pu3RwHo/WIUZ14zXGv69yzr3ef1g4iK3qxRWUvzJ7H7XPfSglOL0QaJ
+	ymRiU2SPteu2E5E5cuAPw2oI7pTETgEWFQRdCXuLhuyXzqijEFLEjsaqCZDFyiI/aCtLEPeezv6VP
+	WQdfVj1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80fF-0000000EUhJ-422k;
-	Mon, 04 Nov 2024 17:14:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t80gv-0000000EUvb-2ZSa;
+	Mon, 04 Nov 2024 17:16:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80Py-0000000ER7O-3Q99
+	id 1t80Pz-0000000ER8W-3OF5
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 Nov 2024 16:59:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 25BD15C4C0E;
-	Mon,  4 Nov 2024 16:58:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8D4FCC4CEF8;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5DB79A43165;
+	Mon,  4 Nov 2024 16:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5066EC4CEE7;
 	Mon,  4 Nov 2024 16:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1730739544;
-	bh=lbNqtG/m96O1XxfWmwnamE8s0OXTLNk3DYJ8x3TZBJk=;
+	bh=peTA0PscjSJ4J07vcy7yP6ASB12E2sO+b5nvvBhSJ9M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OzcCOUvZLMo2VGgqdkqnOSzi5y2q96zXYMLeNdqAXYZwJr8IBvq908M9GVmksMm4P
-	 zwpPOjlJxFbxfpRqpoZxN+MVu9osbUynUI8Vz+jzvI6YDbyi+BaJ0nBd+YfMMHLhGk
-	 G4ai6zUPTqDNw42eyOZmeOuH8Fl2F7WTajzIzOGrCxAnyjD5FFvrnADMojog9M9gz1
-	 fEimBNNKtLcYaczC49lHGLB80PrrOTsmJuaCaTHDkSiim0zYKiZj0H9JfFlLwvVF61
-	 KAvZzgvMfuzv6mIBsYjPBEnRCe1rKkdCcDHTgsa944RNrS1AAhn/J+ZY+t9GkapiK0
-	 Wlq2OwV6mcPQQ==
+	b=oyFSpCcOqz8ExdF2IomziQZXa+luvCwllnje7ZMMciSpnF0p+HjUKNBYNKg+GRH+s
+	 yaMjP695eZYsh3y/DDVxkLwJ/5pVw8BOlk/cbot0DWedQbqSen4KOOHGkkR3DVdief
+	 8u/2g/fGhsBYp9OWyICpgs26+QWTXd34aWstm/99AE0AZlM5nQ47R/TWNb0YvXuT2C
+	 LoODehKPLi7N/4j0DCZtwOXbBxP144NVwPHFB+ITR1D7dKwubKuvL4DGDU9025JmVN
+	 56OoB5iSK4TgMR8hdBBOK5i3LAH2bJScDfXujRw8s/WV9IGAbgS1RFcIx+ZiOE5K3y
+	 RgOp2zKubxGNA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 81D06D1BDCC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46291D1BDC7;
 	Mon,  4 Nov 2024 16:59:04 +0000 (UTC)
 From: =?utf-8?q?Duje_Mihanovi=C4=87_via_B4_Relay?= <devnull+duje.mihanovic.skole.hr@kernel.org>
-Date: Mon, 04 Nov 2024 17:37:14 +0100
-Subject: [PATCH RESEND v13 12/12] MAINTAINERS: add myself as Marvell
- PXA1908 maintainer
+Date: Mon, 04 Nov 2024 17:37:10 +0100
+Subject: [PATCH RESEND v13 08/12] clk: mmp: Add Marvell PXA1908 MPMU driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241104-pxa1908-lkml-v13-12-e050609b8d6c@skole.hr>
+Message-Id: <20241104-pxa1908-lkml-v13-8-e050609b8d6c@skole.hr>
 References: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 In-Reply-To: <20241104-pxa1908-lkml-v13-0-e050609b8d6c@skole.hr>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -70,22 +69,21 @@ Cc: phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=962;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5045;
  i=duje.mihanovic@skole.hr; s=20240706; h=from:subject:message-id;
- bh=WJM+jdOH+cWyAFZLAoZ/ZBIMQFxb1HLmL8TqRXOMrF0=;
- b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0MNPB6lPD7iNKF2s8Rsb+V5SXwSPWseiFx8wBlUV
- 96w78GDjlIWBjEuBlkxRZbc/47XeD+LbN2evcwAZg4rE8gQBi5OAZjI1+cM/+z3NQT+mvjB6FRY
- smqTh0/i24+zdqZ+6H19a285Z8N1NUGGfxZSe/q2C+Q/r9+ycP1vvXM1K1a9u3S5fdGCJ86LVwS
- kz+QCAA==
+ bh=JnTtD2V8ufw9m4R9VdL419Kxy07NUBByxCVJFps4Bk8=;
+ b=owGbwMvMwCW21nBykGv/WmbG02pJDOkaf0PXJW21MNW6tbNurnRIzPe+VXflpYUbLaxtW2Q1V
+ h/MFPDoKGVhEONikBVTZMn973iN97PI1u3Zywxg5rAygQxh4OIUgIkcvs7I8GrRND6BQ0HL1vO8
+ EXjxZXuVVceByLuJuazK4ULT79w7/oThf2j/nXPbt1zYfunD0a3Snqt2P7ufGf153vdzBx5nF1z
+ v/sgNAA==
 X-Developer-Key: i=duje.mihanovic@skole.hr; a=openpgp;
  fpr=6DFF41D60DF314B5B76BA630AD319352458FAD03
 X-Endpoint-Received: by B4 Relay for duje.mihanovic@skole.hr/20240706 with
  auth_id=191
 X-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_085906_991731_EBD54342 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_085908_184805_7908D72C 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +101,144 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Duje Mihanović <duje.mihanovic@skole.hr>
 
-Add myself as the maintainer for Marvell PXA1908 SoC support.
+Add driver for the MPMU controller block on Marvell's PXA1908 SoC. The
+driver is incomplete, currently only supporting the fixed PLL1; dynamic
+PLLs 2-4 and CPU/DDR/AXI clock support is missing.
 
 Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
 ---
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/clk/mmp/Makefile           |   2 +-
+ drivers/clk/mmp/clk-pxa1908-mpmu.c | 112 +++++++++++++++++++++++++++++++++++++
+ 2 files changed, 113 insertions(+), 1 deletion(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c27f3190737f8b85779bde5489639c8b899f4fd8..8d50cb7457924e3290810eaf7d3c4b145d988ede 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2593,6 +2593,15 @@ F:	drivers/irqchip/irq-mvebu-*
- F:	drivers/pinctrl/mvebu/
- F:	drivers/rtc/rtc-armada38x.c
+diff --git a/drivers/clk/mmp/Makefile b/drivers/clk/mmp/Makefile
+index a8b1a4b08824bc0ee7e6541a670808f31bf40240..062cd87fa8ddcc6808b6236f8c4dd524aaf02030 100644
+--- a/drivers/clk/mmp/Makefile
++++ b/drivers/clk/mmp/Makefile
+@@ -11,4 +11,4 @@ obj-$(CONFIG_MACH_MMP_DT) += clk-of-pxa168.o clk-of-pxa910.o
+ obj-$(CONFIG_COMMON_CLK_MMP2) += clk-of-mmp2.o clk-pll.o pwr-island.o
+ obj-$(CONFIG_COMMON_CLK_MMP2_AUDIO) += clk-audio.o
  
-+ARM/Marvell PXA1908 SOC support
-+M:	Duje Mihanović <duje.mihanovic@skole.hr>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+T:	git https://gitlab.com/LegoLivesMatter/linux
-+F:	arch/arm64/boot/dts/marvell/pxa1908*
-+F:	drivers/clk/mmp/clk-pxa1908*.c
-+F:	include/dt-bindings/clock/marvell,pxa1908.h
+-obj-$(CONFIG_ARCH_MMP) += clk-of-pxa1928.o clk-pxa1908-apbc.o clk-pxa1908-apbcp.o clk-pxa1908-apmu.o
++obj-$(CONFIG_ARCH_MMP) += clk-of-pxa1928.o clk-pxa1908-apbc.o clk-pxa1908-apbcp.o clk-pxa1908-apmu.o clk-pxa1908-mpmu.o
+diff --git a/drivers/clk/mmp/clk-pxa1908-mpmu.c b/drivers/clk/mmp/clk-pxa1908-mpmu.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..e3337bacaadd5ad49b1258ba38632c7e5f103d93
+--- /dev/null
++++ b/drivers/clk/mmp/clk-pxa1908-mpmu.c
+@@ -0,0 +1,112 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <linux/bits.h>
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/units.h>
 +
- ARM/Mediatek RTC DRIVER
- M:	Eddie Huang <eddie.huang@mediatek.com>
- M:	Sean Wang <sean.wang@mediatek.com>
++#include <dt-bindings/clock/marvell,pxa1908.h>
++
++#include "clk.h"
++
++#define MPMU_UART_PLL		0x14
++
++#define MPMU_NR_CLKS		39
++
++struct pxa1908_clk_unit {
++	struct mmp_clk_unit unit;
++	void __iomem *base;
++};
++
++static struct mmp_param_fixed_rate_clk fixed_rate_clks[] = {
++	{PXA1908_CLK_CLK32, "clk32", NULL, 0, 32768},
++	{PXA1908_CLK_VCTCXO, "vctcxo", NULL, 0, 26 * HZ_PER_MHZ},
++	{PXA1908_CLK_PLL1_624, "pll1_624", NULL, 0, 624 * HZ_PER_MHZ},
++	{PXA1908_CLK_PLL1_416, "pll1_416", NULL, 0, 416 * HZ_PER_MHZ},
++	{PXA1908_CLK_PLL1_499, "pll1_499", NULL, 0, 499 * HZ_PER_MHZ},
++	{PXA1908_CLK_PLL1_832, "pll1_832", NULL, 0, 832 * HZ_PER_MHZ},
++	{PXA1908_CLK_PLL1_1248, "pll1_1248", NULL, 0, 1248 * HZ_PER_MHZ},
++};
++
++static struct mmp_param_fixed_factor_clk fixed_factor_clks[] = {
++	{PXA1908_CLK_PLL1_D2, "pll1_d2", "pll1_624", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D4, "pll1_d4", "pll1_d2", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D6, "pll1_d6", "pll1_d2", 1, 3, 0},
++	{PXA1908_CLK_PLL1_D8, "pll1_d8", "pll1_d4", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D12, "pll1_d12", "pll1_d6", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D13, "pll1_d13", "pll1_624", 1, 13, 0},
++	{PXA1908_CLK_PLL1_D16, "pll1_d16", "pll1_d8", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D24, "pll1_d24", "pll1_d12", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D48, "pll1_d48", "pll1_d24", 1, 2, 0},
++	{PXA1908_CLK_PLL1_D96, "pll1_d96", "pll1_d48", 1, 2, 0},
++	{PXA1908_CLK_PLL1_32, "pll1_32", "pll1_d13", 2, 3, 0},
++	{PXA1908_CLK_PLL1_208, "pll1_208", "pll1_d2", 2, 3, 0},
++	{PXA1908_CLK_PLL1_117, "pll1_117", "pll1_624", 3, 16, 0},
++};
++
++static struct u32_fract uart_factor_tbl[] = {
++	{.numerator = 8125, .denominator = 1536},	/* 14.745MHz */
++};
++
++static struct mmp_clk_factor_masks uart_factor_masks = {
++	.factor = 2,
++	.num_mask = GENMASK(12, 0),
++	.den_mask = GENMASK(12, 0),
++	.num_shift = 16,
++	.den_shift = 0,
++};
++
++static void pxa1908_pll_init(struct pxa1908_clk_unit *pxa_unit)
++{
++	struct mmp_clk_unit *unit = &pxa_unit->unit;
++
++	mmp_register_fixed_rate_clks(unit, fixed_rate_clks,
++					ARRAY_SIZE(fixed_rate_clks));
++
++	mmp_register_fixed_factor_clks(unit, fixed_factor_clks,
++					ARRAY_SIZE(fixed_factor_clks));
++
++	mmp_clk_register_factor("uart_pll", "pll1_d4",
++			CLK_SET_RATE_PARENT,
++			pxa_unit->base + MPMU_UART_PLL,
++			&uart_factor_masks, uart_factor_tbl,
++			ARRAY_SIZE(uart_factor_tbl), NULL);
++}
++
++static int pxa1908_mpmu_probe(struct platform_device *pdev)
++{
++	struct pxa1908_clk_unit *pxa_unit;
++
++	pxa_unit = devm_kzalloc(&pdev->dev, sizeof(*pxa_unit), GFP_KERNEL);
++	if (IS_ERR(pxa_unit))
++		return PTR_ERR(pxa_unit);
++
++	pxa_unit->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(pxa_unit->base))
++		return PTR_ERR(pxa_unit->base);
++
++	mmp_clk_init(pdev->dev.of_node, &pxa_unit->unit, MPMU_NR_CLKS);
++
++	pxa1908_pll_init(pxa_unit);
++
++	return 0;
++}
++
++static const struct of_device_id pxa1908_mpmu_match_table[] = {
++	{ .compatible = "marvell,pxa1908-mpmu" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, pxa1908_mpmu_match_table);
++
++static struct platform_driver pxa1908_mpmu_driver = {
++	.probe = pxa1908_mpmu_probe,
++	.driver = {
++		.name = "pxa1908-mpmu",
++		.of_match_table = pxa1908_mpmu_match_table
++	}
++};
++module_platform_driver(pxa1908_mpmu_driver);
++
++MODULE_AUTHOR("Duje Mihanović <duje.mihanovic@skole.hr>");
++MODULE_DESCRIPTION("Marvell PXA1908 MPMU Clock Driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.47.0
