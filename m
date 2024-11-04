@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918FBD111A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 04:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A39FD111A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 05:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plZaN47/UeZAG1fxbybtFuEI5NnJRqWIxgjxXp4yRZg=; b=LmpWOSIZuSdN8Ue5OoR09DXYyP
-	7A8YuuI5pr3rQLxJvb/YO5M2UVBjdD0lJsT3B7YoS56Z7bKkj4ftYUBqevH/9PhOZW/1riQBdUr+b
-	QeNCQC3eO5PhSC6C8N6fiXtAa69GfR+ANqeGxy31v1JX4W4eiEjq+DOR459TzBF8E81dmfZ8oyF/r
-	rvSj0JFTnFa7AbKoWtj59jhW87yizpdwIktYVeOYJ7FLUVwNNKMQJ2K1QYQorLO06e+eifcPivgVL
-	12OUWzkINiK8kwh5qOZSsG12foK9YfQQRjbPLTDTny0h9KFK+DBXHgBLc1q8SkG8t3g5vaW0IYdjT
-	GeTWMJRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WnSkd78+Nuq+52uqp8ZZdNIRk+xiBu0ZIIKuyQ1661M=; b=ke3TkyIMOn5DR9Sr37qHC8E7VO
+	q0NDeDcY5Ptw/romPlldLR0whbfwP+uyqLZYyihEMgV3vTiCR+yqi14J+i3tC8gu61blHmirU7hox
+	6CaZlo0VnKjpZp4uBffplGF9SBV/J0O0d2NcYmqrGcyhcrpOlLwhNss6hdz7EiLM0/wdeqtC4CpSG
+	tcwntekGFRw7cazH+z3Vf3r0AlL7S54rmRJOBpr2GT6hVaL1FlfGP/WZhvahvt2kG/u3yIiFsK3/C
+	JQaejqsMmht+qqqWlsgHDCu5kWVDJOpNG7eEkvpf5ckttbidd5bfYRxdJmf7cfDF71deXvizWkvai
+	MUetCgNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7p6Z-0000000CeIe-1dVq;
-	Mon, 04 Nov 2024 04:54:19 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7p4s-0000000CeB9-1WKp
+	id 1t7pCU-0000000CegE-3F52;
+	Mon, 04 Nov 2024 05:00:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7pAn-0000000CeUc-31tV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 04:52:36 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A44qStB092545;
-	Sun, 3 Nov 2024 22:52:28 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730695949;
-	bh=plZaN47/UeZAG1fxbybtFuEI5NnJRqWIxgjxXp4yRZg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=n0Lq0biJsxO+8yz4XUCUtpbLeeuRsFwX4XQs8CjBwyZLlY//OqALPaqBvwc/aoKjO
-	 1LppbZ5DTJIhVicdgkPytK64ZiHZJRnUKrGMvBJIk4yIXaQ6sGpEdRzesUHOjmxlEl
-	 RBtWJRvFEwyA2O78NlAVdP6kEU9Q/au9fhOrH4cY=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A44qSI8011227
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 3 Nov 2024 22:52:28 -0600
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 3
- Nov 2024 22:52:28 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 3 Nov 2024 22:52:28 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A44qR35090094;
-	Sun, 3 Nov 2024 22:52:28 -0600
-Date: Mon, 4 Nov 2024 10:22:27 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>, Bryan Brattlof <bb@ti.com>,
-        Wadim
- Egorov <w.egorov@phytec.de>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62: use opp_efuse_table for
- opp-table syscon
-Message-ID: <20241104045227.2tzm2lcwi7kqee5r@lcpd911>
-References: <20241030044553.3225383-1-d-gole@ti.com>
- <e3c4f895-71a1-481f-86d4-dfab1b61715c@ti.com>
+	Mon, 04 Nov 2024 04:58:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B741FEC;
+	Sun,  3 Nov 2024 20:59:10 -0800 (PST)
+Received: from [10.162.16.84] (a077893.blr.arm.com [10.162.16.84])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F2D93F66E;
+	Sun,  3 Nov 2024 20:58:38 -0800 (PST)
+Message-ID: <1a724b58-d61b-443d-9f3d-aebcd35e9610@arm.com>
+Date: Mon, 4 Nov 2024 10:28:35 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <e3c4f895-71a1-481f-86d4-dfab1b61715c@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Re-organize arch_make_huge_pte()
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ linux-kernel@vger.kernel.org
+References: <20241029044529.2624785-1-anshuman.khandual@arm.com>
+ <173048223682.1108539.16990086073905192650.b4-ty@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <173048223682.1108539.16990086073905192650.b4-ty@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_205234_515103_967B3A7B 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20241103_205842_064614_5A5416AA 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Oct 30, 2024 at 11:17:16 +0530, Vignesh Raghavendra wrote:
-> Hi
-> 
-> On 30/10/24 10:15, Dhruva Gole wrote:
-> > Add another entry in the wkup_conf for the syscon node, and then use
-> > that for the syscon in opp-table.
-> > 
-> > Marking entire wkup_conf as "syscon", "simple-mfd" is wrong and needs to
-> > be addressed similar to how other child-nodes in wkup_conf are implemented
-> > in the same file.
-> > 
-> > Signed-off-by: Dhruva Gole <d-gole@ti.com>
-> > ---
-> > 
-> > Since the driver fixes for ti-cpufreq.c have made it in -next [1],
-> > The DT fixes for SK-AM62x can be supported with support for legacy
-> > style DT as well. This has been tested on SK-AM62x [2]
-> > 
-> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/drivers/cpufreq/ti-cpufreq.c?id=1724ae88efcbcd0daeb203ffeb4a2c0e59f2ddf7
-> > [2] https://gist.github.com/DhruvaG2000/40b80cc04a9ac90c86445d6e67ece4cb
-> > 
-> > Changelog:
-> > 
-> > Changes in v2:
-> > - Deleted PATCH to Make the AM625 efuse_offset 0, because with [1] we no
-> >   longer break backward compatibility and hence need to preserve the old
-> >   offset.
-> > - Link to v1:
-> >   https://lore.kernel.org/linux-arm-kernel/20240902093222.2828345-3-d-gole@ti.com/
-> > 
-> > ---
-> >  arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 7 ++++++-
-> >  arch/arm64/boot/dts/ti/k3-am625.dtsi       | 2 +-
-> >  2 files changed, 7 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> > index e0afafd532a5..b2b65e31c7cf 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> > @@ -10,7 +10,7 @@
-> >  &cbass_wakeup {
-> >  	wkup_conf: syscon@43000000 {
-> 
-> Now that the compatible is updated, this needs to be bus@addr
-> dtbs_check should catch such errors.
 
-Oh yes, I'll update this. Good catch.
 
+On 11/1/24 23:05, Catalin Marinas wrote:
+> On Tue, 29 Oct 2024 10:15:29 +0530, Anshuman Khandual wrote:
+>> Core HugeTLB defines a fallback definition for arch_make_huge_pte(), which
+>> calls platform provided pte_mkhuge(). But if any platform already provides
+>> an override for arch_make_huge_pte(), then it does not need to provide the
+>> helper pte_mkhuge().
+>>
+>> arm64 override for arch_make_huge_pte() calls pte_mkhuge() internally, thus
+>> creating an impression, that both of these callbacks are being used in core
+>> HugeTLB and hence required to be defined. This drops off pte_mkhuge() which
+>> was never required to begin with as there could not be any section mappings
+>> at the PTE level. Re-organize arch_make_huge_pte() based on requested page
+>> size and create the entry for the applicable page table level as needed. It
+>> also removes a redundancy of clearing PTE_TABLE_BIT bit followed by setting
+>> both PTE_TABLE_BIT and PTE_VALID bits (via PTE_TYPE_MASK) in the pte, while
+>> creating CONT_PTE_SIZE size entries.
+>>
+>> [...]
 > 
-> >  		bootph-all;
-> > -		compatible = "syscon", "simple-mfd";
-> > +		compatible = "simple-bus";
+> Applied to arm64 (for-next/misc), thanks!
 > 
-> Did you also check U-Boot and make sure no regression/update needed?
+> [1/1] arm64/mm: Re-organize arch_make_huge_pte()
+>       https://git.kernel.org/arm64/c/f8192813dcbe
 > 
+> I think we can now get pte_mkcont() to only set PTE_CONT without
+> touching PTE_TYPE_PAGE. Previously it wasn't possible because
+> pte_mkhuge() was clearing the PTE_TABLE_BIT and we added it back via
+> pte_mkcont(). Give it a try and send an additional patch cleaning up
+> pte_mkcont() if this works. Thanks.
 
-No, I can do a quick sanity boot till kernel with this DTB in U-boot to
-check for regressions.
+Yes, it does indeed work. Sent the following patch for the same.
 
-Thanks for the review.
-
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+https://lore.kernel.org/all/20241104041617.3804617-1-anshuman.khandual@arm.com/
 
