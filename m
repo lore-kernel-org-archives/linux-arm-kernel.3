@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFB3D132DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CB6D132DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olB+bA0ox+V3/atmUmtho87Hmf0IDoXDyS9lBTdHqkE=; b=D8PgAi8vi++2Mny5ejaZ0v/s5B
-	Wwyv2kpCZpBWrDGayQhAJj5MpvljKC9ZG+GGhYtiLajXW8xfs+N/Dz7zinxwY+Ys0aqxgUeDYlf+A
-	guOWYwI3jcoVzku83dKFE4eIUzyz7ThmsBP7ymTasZMq9mDfiC62OVhs9mV2Xoa3LRnp0m88FnO7L
-	EM4ugs2vn8YGNMm1f0vuCekixstRnbLjlSv1Niz6zkwUsB2LrpGcbEksvU00J4cf+yTyq5fSd1X0O
-	A6s2hTRCI2UkrK1f1JT9AHuN8yGaB+knozI2MdQERrwwzY5DJIH8l6HCCYN0oTzaa+Ydbcbe8/1z9
-	B1VFweEw==;
+	bh=ZcWFSZr9JVwe+FnVkwIBv8XwNCVApdz75FRgbSIp5fM=; b=HMFgTYh6c7HYs5Q+8+8jsA8DQk
+	l8/tu5g3TBlZLNV+F+z2z5AQ8USh00XYiFsfnzD4Uo25QhzuRvViiOH+nfWKHYWHFQIBKlQIdkbw+
+	DXwngQj5YJ1mngK0AvSrx+YBptoTK4jD78bhy3PBZJFSE/9f0WlaumI99Sc1I9Q67zX49UyEb/D1H
+	FRMgE4bWdnrVGBnhcsxRtx4f+Zr6Ilrx2A3EzV/OihjjkKC73QnXEUACvRXpn6tOvNX24FKiZznWW
+	T/5nP1x9snACrjAJppCws+ICHpQI3hTMxgRD0kFJjdNizD3U4D2AhwuqD6zTPrUyywvCi5h5Ve9Ku
+	U/20c9wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yZl-0000000E8kU-3fpA;
-	Mon, 04 Nov 2024 15:01:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t7ybQ-0000000E8uJ-0ZoS;
+	Mon, 04 Nov 2024 15:02:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yEm-0000000E57r-1MkP
+	id 1t7yEo-0000000E59W-0exi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:39:26 +0000
+	Mon, 04 Nov 2024 14:39:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6CD6EA4300F;
-	Mon,  4 Nov 2024 14:37:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 265FFC4CED1;
-	Mon,  4 Nov 2024 14:39:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2DF31A42EB3;
+	Mon,  4 Nov 2024 14:37:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B03C4CED1;
+	Mon,  4 Nov 2024 14:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730731163;
-	bh=f3+wrner1fvmQYtpg3rzuW+v/F9Y1jdlOE7AWj4oHxw=;
+	s=k20201202; t=1730731165;
+	bh=uuNW8QkqgnaDeBYjYCEj/zDRiaDiB3NGiL194aT02nA=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=WAq/bWwtL9b8OUOen7NK86oyDS9GaRNhjAAE5tMWd3n/pfhFGJEqRNOqDJNDa0IKo
-	 eMI5B9Pf39qdDVoa/xNCTjaMnZUZffVhC9nivynkiB2Gl6AAe17qTL38OU6Du3VeEk
-	 HUYeFOWMcTDr9CubWdJydXnTmvUN5so6PXTpqhO1/Q4UPVdNoiYwcejzzeUxjTwgKb
-	 jzU3qfJibM0Atev218lUSfgGhANg6vfSb81st1Et4lvEwrfWc0QimhZK8HsySDtAHC
-	 I1OpEoQ9NZsrU4YlTC9vYZS0thS4Sl+GXEIcywBaYufCksiIBIQfrE3SRnRqd8Wnti
-	 SBDNdz1ZZovXA==
-Date: Mon, 04 Nov 2024 08:39:21 -0600
+	b=cRn/+vtbSTam1Cs8Yl9oy23CvCJS08Zp0BZeig6G3nUi2Sm3Zl1DNOYMI+4ktZPVU
+	 eT930TVQMEqK5Z4NG2OCjLFwh5S3Q7K7cpKWRFeKa+KhZc+KYE7ruVB8f+A1YQex3W
+	 8G/qtAUPzZ9vLE63kJaYqThzf7mUqdGbIO4nRLCSOjNV7nZXteyaQWALOQOH0nF4YK
+	 0LvPU5O5h23KF8+dR30UxrV7llNQNvdCfOpM4mvCDoDHs++qWBA4Yx+n5bWMr++b19
+	 HVbS5pvttFfD2tlHSHnEHMbsxzU9kX2lCn7+N8t8icqFPq6EbjfZD8+JHurPSuurqM
+	 a//QVvoJooYzw==
+Date: Mon, 04 Nov 2024 08:39:23 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Naresh Solanki <naresh.solanki@9elements.com>
-Cc: jdelvare@suse.com, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Conor Dooley <conor.dooley@microchip.com>, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- krzk+dt@kernel.org, sylv@sylv.io, linux-arm-kernel@lists.infradead.org, 
- linux-hwmon@vger.kernel.org, linux@roeck-us.net, 
- Joel Stanley <joel@jms.id.au>, conor+dt@kernel.org
-In-Reply-To: <20241104092220.2268805-1-naresh.solanki@9elements.com>
-References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
-Message-Id: <173072771091.3690717.11563964377469449295.robh@kernel.org>
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add IBM SBP1 board
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Tero Kristo <kristo@kernel.org>, linux-usb@vger.kernel.org, 
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Devarsh Thakkar <devarsht@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Felipe Balbi <balbi@kernel.org>, Hari Nagalla <hnagalla@ti.com>, 
+ linux@ew.tq-group.com, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Nishanth Menon <nm@ti.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ linux-hardening@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
+In-Reply-To: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
+References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
+Message-Id: <173072771143.3690742.7100697196468196200.robh@kernel.org>
+Subject: Re: [PATCH 0/5] TQ-Systems TQMa62xx SoM and MBa62xx board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_063924_519628_54CCDC5B 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241104_063926_500456_0AE3376B 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +79,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 04 Nov 2024 14:52:14 +0530, Naresh Solanki wrote:
-> Document the new compatibles used on IBM SBP1.
+On Mon, 04 Nov 2024 10:47:23 +0100, Matthias Schiffer wrote:
+> This adds Device Trees for out AM62x-based SoM TQMa62xx and its
+> reference carrier board MBa62xx.
 > 
-> Signed-off-by: Naresh Solanki <naresh.solanki@9elements.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in V4:
-> - Retain Acked-by from v2.
-> - Fix alphabetic order
-> ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Two of the patches are adapted from the TI vendor repo ti-linux-kernel to
+> add RemoteProc/RPMsg support for the R5F core. A similar patch has been
+> submitted for mainline by TI themselves for the closely related AM62A SoC.
+> 
+> Not yet included are overlays to enable LVDS display output and MIPI-CSI
+> camera input.
+> 
+> Devarsh Thakkar (1):
+>   arm64: dts: ti: k3-am62: Add DM R5 ranges in cbass
+> 
+> Hari Nagalla (1):
+>   arm64: dts: ti: k3-am62-wakeup: Add R5F device node
+> 
+> Matthias Schiffer (3):
+>   dt-bindings: usb: dwc3: Allow connector in USB controller node
+>   dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM
+>     family and carrier board
+>   arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and MBa62xx carrier board
+>     Device Trees
+> 
+>  .../devicetree/bindings/arm/ti/k3.yaml        |   7 +
+>  .../devicetree/bindings/usb/snps,dwc3.yaml    |   6 +
+>  arch/arm64/boot/dts/ti/Makefile               |   1 +
+>  arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi    |  24 +
+>  arch/arm64/boot/dts/ti/k3-am62.dtsi           |   8 +-
+>  .../boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 917 ++++++++++++++++++
+>  arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi | 346 +++++++
+>  7 files changed, 1307 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
+> 
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> https://www.tq-group.com/
+> 
 > 
 
 
@@ -105,55 +137,10 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-ibm-sbp1.dtb' for 20241104092220.2268805-1-naresh.solanki@9elements.com:
+New warnings running 'make CHECK_DTBS=y ti/k3-am625-tqma62xx-mba62xx.dtb' for cover.1730299760.git.matthias.schiffer@ew.tq-group.com:
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/video@1e700000: failed to match any schema with compatible: ['aspeed,ast2600-video-engine']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@280/bmc-slave@10: failed to match any schema with compatible: ['ipmb-dev']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dtb: syscon@43000000: compatible: ['syscon', 'simple-mfd'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
 
 
 
