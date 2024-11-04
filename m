@@ -4,104 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0068D111B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA985D111B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOLycEB3fTB76jveJ6Ec3et2DfKHvs/Gj7ofAidlU2U=; b=eydTYvHNXkxo99MQ0nLeQ/8h6r
-	CDh+XOy2JZ4ywF68ATfYCAZ23wddu+oHIMSYqDaolbXMY2v3aL/i5aPC8g24i6fWdiAGIY02xdZrx
-	FszyQ3DdgxM1Hgxj3jYPtNPEowFpiFeiYpufeLF+ylT2VXgZ8TL+aMbU78h9x3T5zxmopjMRe8DyO
-	0Ap7O19ytIb9pZrQFQPJ9IrLv1uBefI92B5xEXqP2VCHr8ZZONhiElmQAfzl+wWtTcHEwUvyF0j+U
-	RxsGNrmcSysTwftIPka1iXHhiUceVU0sooruBnpKUCnMKa3dTPxaNH/m2DxazfK/DaLtmgPaA1dZu
-	kgtEBCvA==;
+	bh=hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=fryXWs+i6HfTW9IZQIbfX8tSTR
+	ui83ohfTiRq/mRXznepidyjYj7QVn36YRlkFjT6miAwIf8Yq2oleCs9kRUEyQgEEFT63ob5KBSK2U
+	hpl3YzS+QEq/wgS1IZbsg4GVfq1IlxFTnqBZPO1465EkLOtz7SnY5NG3YVNP2TTEjvt9GQKOVYI8r
+	bGpEQ1DGa0m0enJ3QZ4NEikr7ypWyker0ctea+WhiiJg1qj2YdlGqVmMY2LKcqcfErzFkCrZeRprM
+	p7p1p7Z9McUVjzB65VvJ0QUus/WWHPy2qZxEKKt+EVQpTsdQUlgWl0rA1G9Lk/w/+LuIPfcZryG6B
+	0STF8moA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84vS-0000000FDVn-14hF;
-	Mon, 04 Nov 2024 21:47:54 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1t84yt-0000000FE6S-2u4T;
+	Mon, 04 Nov 2024 21:51:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84r5-0000000FCtw-1bUd;
-	Mon, 04 Nov 2024 21:43:23 +0000
+	id 1t84x2-0000000FDnH-3Scm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 04 Nov 2024 21:49:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qOLycEB3fTB76jveJ6Ec3et2DfKHvs/Gj7ofAidlU2U=; b=lr6txmaPVkCwe/RG63e7dqiS0C
-	GGCWod32Bjy87DL1/SrSEghXmwvjQd1qP/LO122O97hS6sH4my2fOVt6xFy7hZ31SN7sRnkBYepJM
-	txbfVBwbe7Utj7xFNphFsRUjSQgNTg53RCm2+yBeLP7sfjsxY8IenEXvMaHsm/xd2MbhcSPRhSrgp
-	cIeOqB+p+u5qN2zJX65HO3A+BX2ii81AEKPw0r0mc/VF/IG4W0Jr6wqYmyFcC5ToBfbALnAVTFDGZ
-	f3RJMPd4XG7/Mcq9XVKWZIDr3dc+/k2eyEBn4II8uJae83hUF605Et0ci+D+4Bqc3vUwtecgjFLIU
-	+3lJwmTw==;
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84r1-00000001bX9-0bcd;
-	Mon, 04 Nov 2024 21:43:22 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-5ebc1af8e91so2210015eaf.1;
-        Mon, 04 Nov 2024 13:43:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730756595; x=1731361395; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qOLycEB3fTB76jveJ6Ec3et2DfKHvs/Gj7ofAidlU2U=;
-        b=ge9MHd0pdCrMvl2pTD+g6UgPH4VQUoiesBBmIJfAiMXM4y82FCY6isj2sXODptLU8b
-         PZcMddwDVoftH8X89L/ArYqFg+jJXYpxGZNYszlw07qtpfcSVcrF8+Jq/1qQPyn3iSg+
-         PSOEGL5QR+ARTMBMXoVIuUrEnBm1qEhp6gwwKVHrDYJ+bGtFdjt8Ta73CgIK6BZE3XoZ
-         J/p+cmYAA0NogJ9OCMPs/l1vhBCFxNVRoi5w5ycV7rF9iwI0Jlaedjhc9ujaIlOL4gbF
-         VrHhl/T4166JsIIhpB5uZm9peklZlpjb1qFUQlH2axKth8ZFUP+7rcB61HFDFCche6bg
-         8GWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730756595; x=1731361395;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qOLycEB3fTB76jveJ6Ec3et2DfKHvs/Gj7ofAidlU2U=;
-        b=f9kj6VeN5EkQuj0WqmQb+/Fr1urzHf1ooKGO/odpPzxXaC0Bsc76xLs51oyD1rXJea
-         VdjOjRY8mgdIf7jVUMxw4ogu90c65K6QiEVgBNVlsMddLPOhJEu/aeRBShZDOt8nSkqb
-         2vL6v+AYSbe6DHWrP3fr2xZsZ4CGqDr4HXZVpPRSzZSRGuho81ympYe9D8ZTi0PRNIvT
-         jUrkRdUG6ynUo44s9h1fpR9CltpcNmqWIt2xM9b6MrankkcGi5/GshuCDomJGfJalD29
-         sAMtyg3yGUg1KY8s97Yk7uEDvFw5nolFuubJ1YGWSh82aR7kI+sSFD8YZ7tIn6VTwuxt
-         Tkeg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2Jl1UY5ewgeIb+Qh7Gyleuf1yPmmc5YNud7NIt5mzdsAjJJxT9A/k4QagJBCB2QEzl5FO1xqGScern/jikA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUHazvJy1i8afjLu7Nw1UZ8wnzrDSoSV5IM5o6kkAzigBA+09x
-	LYsDcriWBj0p+qnMmSBBArIuBgxg8PToGaMrvWByBrf7Nx3bzElA
-X-Google-Smtp-Source: AGHT+IGnt1DbQccv8yv6iE45XBrqGyCFkNPY8U/R7NDQnyLk4H54QS9Fm7w3bkWhRyMLeNLeyX0P/A==
-X-Received: by 2002:a05:6358:7254:b0:1ad:10eb:cd39 with SMTP id e5c5f4694b2df-1c3f9f7979amr1635893255d.26.1730756595525;
-        Mon, 04 Nov 2024 13:43:15 -0800 (PST)
-Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d35415b1edsm52553916d6.75.2024.11.04.13.43.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 13:43:15 -0800 (PST)
-From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-To: rmk@dyn-67.arm.linux.org.uk,
-	max.schwarz@online.de,
-	dianders@chromium.org,
-	david.wu@rock-chips.com,
-	heiko@sntech.de,
-	vz@mleia.com,
-	andi.shyti@kernel.org,
-	wsa@kernel.org,
-	manabian@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH 2/3] i2c: pxa: Add check for clk_enable() and clk_prepare_enable()
-Date: Mon,  4 Nov 2024 21:43:09 +0000
-Message-Id: <20241104214310.6048-2-jiashengjiangcool@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241104214310.6048-1-jiashengjiangcool@gmail.com>
-References: <20241104214310.6048-1-jiashengjiangcool@gmail.com>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=NdSZZ6gAoYM+FWfIoOSsH59x2n
+	jaGMMDKmmE0p1/pScyDBbbqXn7w36umK1J1Bmhwnfg3l3MsTbQpz8tD9VT6gGSPfsw0rsYDgTv3Q6
+	ppkPJDnJ4KRQpkZsoma+5RGt6ffAWJQVfBiLXp+7zjwh0yJWPKLZaKkoUB/x068zdD2HNrJbWE/Xd
+	ENyg3d+mCIqRdT9BQEW4kBRoKYl63o1tMPYRaubLgo11mF2ODvF9+n32M++Ytn4xTPO7cqaAc+P/T
+	ZaHZabjjkeFDIXuDqQD74sQIHqr7CNEipsceKhlZwmsGXNHWXI3aKYP3bq2ljp1NlLgPJLw3hMsyi
+	vyo7f9pg==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t84wz-0000000BaXL-0Ytb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 21:49:31 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4LIoAM021589;
+	Mon, 4 Nov 2024 21:49:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=QgU7/hbyqCQQYFxZ
+	4JVW0m6daLV78oA0mqQJJ1Lsf5t+p7xLsOcoQlFwf6gPlex5kBH4ZIXMm2yJlO/o
+	UF06dKN983NsXXM0y9ievvPGdNfBXPqU5uKIOBZLOAo+coVCvxeXt2eihf81zW/y
+	j8dI45HYfB9Pt67gFRfHF67gy0YJE+fMKgN9VJqdN+ud6YLztE/jzOUkB1jtuA6e
+	11cbOEeBInHd4u54muW1kOLfbCtjysIHc0Q0mRy/bTg9tYMy6IXG1ZbNexjaTEpc
+	OciLrN1ZJamKIr8SapJtSg0fL0HzgDx6FyDIQD4eW6A52UHvHcD9iiyx1KbpLBSp
+	5ZOE9Q==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ncyxwgyj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 04 Nov 2024 21:49:12 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A4LnB35000548
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 4 Nov 2024 21:49:11 GMT
+Received: from [10.110.8.191] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 4 Nov 2024
+ 13:49:07 -0800
+Message-ID: <f2de77a4-d457-40d6-9651-66c2b24af378@quicinc.com>
+Date: Mon, 4 Nov 2024 13:49:02 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v1] net: stmmac: Disable PCS Link and AN interrupt
+ when PCS AN is disabled
+To: Andrew Lunn <andrew@lunn.ch>
+CC: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+        Serge Semin
+	<fancer.lancer@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        "David S . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        "Paolo
+ Abeni" <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Simon Horman <horms@kernel.org>, "Jon
+ Hunter" <jonathanh@nvidia.com>,
+        <kernel@quicinc.com>
+References: <20241018222407.1139697-1-quic_abchauha@quicinc.com>
+ <60119fa1-e7b1-4074-94ee-7e6100390444@lunn.ch>
+ <ZxYc2I9vgVL8i4Dz@shell.armlinux.org.uk>
+ <ZxYfmtPYd0yL51C5@shell.armlinux.org.uk>
+ <89f188d2-2d4e-43bf-98f3-aae7e9d68cab@quicinc.com>
+ <5e5783f0-6949-4d04-a887-e6b873ae42ff@quicinc.com>
+ <bc891f4e-4a3a-4664-b52c-871d173b7607@lunn.ch>
+Content-Language: en-US
+From: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>
+In-Reply-To: <bc891f4e-4a3a-4664-b52c-871d173b7607@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: Xi3iw7wjqsh69AY8gTh4haDt0C0NFoyi
+X-Proofpoint-GUID: Xi3iw7wjqsh69AY8gTh4haDt0C0NFoyi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
+ malwarescore=0 bulkscore=0 impostorscore=0 priorityscore=1501
+ lowpriorityscore=0 mlxscore=0 phishscore=0 adultscore=0 mlxlogscore=535
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411040174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_214319_866928_2E6B0C56 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20241104_214929_717904_D9632B4E 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,50 +133,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return values of clk_enable() and clk_prepare_enable()
-in order to catch the potential exceptions.
 
-Fixes: e7d48fa2b5fb ("[I2C] pxa: provide late suspend and early resume hooks")
-Fixes: c3cef3f3c07b ("[ARM] pxa: update pxa i2c driver to use clk support")
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
- drivers/i2c/busses/i2c-pxa.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
-index 4d76e71cdd4b..1118a7f5c6bf 100644
---- a/drivers/i2c/busses/i2c-pxa.c
-+++ b/drivers/i2c/busses/i2c-pxa.c
-@@ -1503,7 +1503,11 @@ static int i2c_pxa_probe(struct platform_device *dev)
- 				i2c->adap.name);
- 	}
- 
--	clk_prepare_enable(i2c->clk);
-+	ret = clk_prepare_enable(i2c->clk);
-+	if (ret) {
-+		dev_err(&dev->dev, "failed to enable clock: %d\n", ret);
-+		return ret;
-+	}
- 
- 	if (i2c->use_pio) {
- 		i2c->adap.algo = &i2c_pxa_pio_algorithm;
-@@ -1560,8 +1564,14 @@ static int i2c_pxa_suspend_noirq(struct device *dev)
- static int i2c_pxa_resume_noirq(struct device *dev)
- {
- 	struct pxa_i2c *i2c = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_enable(i2c->clk);
-+	if (ret) {
-+		dev_err(dev, "failed to enable clock: %d\n", ret);
-+		return ret;
-+	}
- 
--	clk_enable(i2c->clk);
- 	i2c_pxa_reset(i2c);
- 
- 	return 0;
--- 
-2.25.1
+On 10/25/2024 5:44 AM, Andrew Lunn wrote:
+>> Serge can you please respond on the PCS support in stmmac ?
+> 
+> Unfortunately, Serge has been removed as Maintainer of stmmac as part
+> of the Russian  sanctions.
+> 
+> stmmac currently has no active Maintainer.
+> 
+> 	Andrew
+That's very unfortunate that Serge is removed as Maintainers. 
+
+Andrew, I am not sure if you are the right person to ask this question
+How can i proceed with this problem ? I am kind of stuck now. :) 
+
+Please guide me through this.
+
+
+
 
 
