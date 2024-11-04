@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EA7D132C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29637D132C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajKBdEU5PIQsMa8A/QqMB1RazFgS6G29bWopDu0bhc8=; b=31IiDe2Db2CP9mQAhX+s9y5jn+
-	a6KlZycxVoREioEsY1dFEDSwROmt8q3KvnnTH0xLyaaSMZGMsrcdjBOPP5fVycmSRQV3nFg6+Txnq
-	71BwQxyS0wP/Jkt0CbmIl3lJCr0AjBhiFRAyaffThFwYPTZpNVKrlssmAhaAdSdK2oYPExIl6YmDh
-	YvCklCcZYVATWejsIjHEOqDLX04ZKZBAU9U7SACxA2N4YTN2bdWMHX6XzUrGgHU8IoXzqnp3t6uxB
-	EP6cOQ7DEDw/RInP4scZrmgiasM7BUoVy4MZ7brCDOB9k/Hmni2gPf7XEDVd27YU3aMYdLGAWkvQk
-	5Z4s07QQ==;
+	bh=FqDWQ6fhSe2gTpt/um6UruBk65uQkqperaVVlS0IWis=; b=BYKgQ2Q0WTVoS9u73ZreNskqXi
+	OInlJnUJFh+gBZONe/vhgy19B5fx1U7mAgyey6dehPTa59oR8FppVTj3COaunUjl6X2rb61/Q0cWP
+	MPOcQ5rWVY+015DkL+5qgFGFCPgoe4NJKeWgo6PGnASyR5PCp6buyoFxmznsy8Qb0ihXalBYduT/N
+	mwqhks6ZTvwsu9W4Pz2Qv/W8iOEstWjvHNuAhhOwxTemFGn3bJqHxx2ld9PV9zjjV7rvpQA4qVPa/
+	gYgMqQCujQBt4biIhb/VDbDfxDN11Jp9Tm/NmxYAOQgTWE6KnqH08k7XKKRlNmVNyrfWt7SqraZ4i
+	0nb099Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xBE-0000000DsAi-0Ig8;
-	Mon, 04 Nov 2024 13:31:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t7xCv-0000000Dscf-2jeW;
+	Mon, 04 Nov 2024 13:33:25 +0000
+Received: from baptiste.telenet-ops.be ([2a02:1800:120:4::f00:13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7x69-0000000Dqrv-0rwy
+	id 1t7x6V-0000000Dr0m-1sXU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 13:26:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CCE96A42F5E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A906CC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:26:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730726783;
-	bh=2npuqEnFVOpXdcm9SyHNNBtDUbAK48QR2TgxQxgOq6A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=heEWASTdPKalH4KWz6yWC0fw1k0Hvpx4eSRAXXtfjQI2Ta4s3XfORXm6PMlDu9obR
-	 5soBOxU1UXpU7WVp/8xuac0DzXiOeSEuRe0yBN4MFfO5XztMmqqVybcxOaHdMEBvK2
-	 jJZUDpcvNBMX2jlP3APzItgOrYUKyNdv1afZX1fmY01q9shp/7llhziS0c2YUvBDiC
-	 CoLMCaCeU5MStfCSKmcBzLBWbhtJ28OPmtK4UH7xt68368RTedY2fa3UxfBzO1g4/K
-	 3EToh1KPh6HSJV8WGgSzTzTioRs9xA7WIknyUTzoKl6Zd6N65XBn8XipMVGSPNsAan
-	 GspCFnxOWaEug==
-Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-288d70788d6so1919842fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:26:23 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX4PjyJciis++vrnz7iszG+wbJZWH85AlYUoUa9QJdN92Tt6pcdlAheczAGHg5ZlFAYbQUnkRD+4bm+tMBJFh9C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5jdslHyyiyE1UEyCE4Gf5ZOdxAgBsuPPzZE+PKiiL7IxRJQH+
-	H0oiqgFgoKwy4mpJbYBVeckFJ1uJ4nM5w4dYxF5baCwyOujTytwmU4GDrRMyjtGvicw4UtwXLFb
-	iA8kawKUz8fGKFGB1B6gRNTG6nlc=
-X-Google-Smtp-Source: AGHT+IEwFMFBr+iB4p24SxLNYDDx9k2+p4Ugv/iXpHNmlITDGQD35niXPFjoyq6b6OZ+jyJiLBzBOtQjvO8fTG5dhZE=
-X-Received: by 2002:a05:6870:d203:b0:261:2072:7b5d with SMTP id
- 586e51a60fabf-29051d77f8cmr26903985fac.29.1730726782995; Mon, 04 Nov 2024
- 05:26:22 -0800 (PST)
+	Mon, 04 Nov 2024 13:26:49 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:ae0d:26ef:36dd:9be1])
+	by baptiste.telenet-ops.be with cmsmtp
+	id YdSh2D00X31l0Qj01dShxN; Mon, 04 Nov 2024 14:26:42 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1t7x65-006FvO-U9;
+	Mon, 04 Nov 2024 14:26:41 +0100
+Received: from geert by rox.of.borg with local (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1t7x6P-000BK3-KO;
+	Mon, 04 Nov 2024 14:26:41 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [GIT PULL 2/2] Renesas DTS updates for v6.13 (take two)
+Date: Mon,  4 Nov 2024 14:26:40 +0100
+Message-Id: <cover.1730726155.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1730726152.git.geert+renesas@glider.be>
+References: <cover.1730726152.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-References: <20240913132944.1880703-1-beata.michalska@arm.com>
- <20240913132944.1880703-2-beata.michalska@arm.com> <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
- <CAJZ5v0i2KUPXfeAKhkimetOMpx+5opgt26URJF8cstnZsaeZwA@mail.gmail.com> <Zyh_PG1lAEC4Q3Hr@arm.com>
-In-Reply-To: <Zyh_PG1lAEC4Q3Hr@arm.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 4 Nov 2024 14:26:04 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gCRKzaFrwkoBpLHQUxoP_+jAyhMiCkLQaBUpduk9yxtA@mail.gmail.com>
-Message-ID: <CAJZ5v0gCRKzaFrwkoBpLHQUxoP_+jAyhMiCkLQaBUpduk9yxtA@mail.gmail.com>
-Subject: Re: [PATCH v7 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com, sudeep.holla@arm.com, 
-	will@kernel.org, catalin.marinas@arm.com, sumitg@nvidia.com, 
-	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com, 
-	lihuisong@huawei.com, zhanjie9@hisilicon.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_052625_428374_7E4BA178 
-X-CRM114-Status: GOOD (  36.18  )
+X-CRM114-CacheID: sfid-20241104_052647_647999_D7485F07 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,121 +71,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 4, 2024 at 9:01=E2=80=AFAM Beata Michalska <beata.michalska@arm=
-.com> wrote:
->
-> On Tue, Oct 29, 2024 at 12:31:11PM +0100, Rafael J. Wysocki wrote:
-> > On Tue, Oct 29, 2024 at 8:04=E2=80=AFAM Viresh Kumar <viresh.kumar@lina=
-ro.org> wrote:
-> > >
-> > > Apologies for the delay from my side. September was mostly holidays
-> > > for me and then I was stuck with other stuff plus email backlog and
-> > > this series was always a painful point to return to :(
-> > >
-> > > On 13-09-24, 14:29, Beata Michalska wrote:
-> > > > Currently the CPUFreq core exposes two sysfs attributes that can be=
- used
-> > > > to query current frequency of a given CPU(s): namely cpuinfo_cur_fr=
-eq
-> > > > and scaling_cur_freq. Both provide slightly different view on the
-> > > > subject and they do come with their own drawbacks.
-> > > >
-> > > > cpuinfo_cur_freq provides higher precision though at a cost of bein=
-g
-> > > > rather expensive. Moreover, the information retrieved via this attr=
-ibute
-> > > > is somewhat short lived as frequency can change at any point of tim=
-e
-> > > > making it difficult to reason from.
-> > > >
-> > > > scaling_cur_freq, on the other hand, tends to be less accurate but =
-then
-> > > > the actual level of precision (and source of information) varies be=
-tween
-> > > > architectures making it a bit ambiguous.
-> > > >
-> > > > The new attribute, cpuinfo_avg_freq, is intended to provide more st=
-able,
-> > > > distinct interface, exposing an average frequency of a given CPU(s)=
-, as
-> > > > reported by the hardware, over a time frame spanning no more than a=
- few
-> > > > milliseconds. As it requires appropriate hardware support, this
-> > > > interface is optional.
-> > >
-> > > From what I recall, the plan is to:
-> > > - keep cpuinfo_cur_freq as it is, not expose for x86 and call ->get()
-> > >   for ARM.
-> >
-> > Yes.
-> That one indeed remains unchanged.
-> >
-> > > - introduce cpuinfo_avg_freq() and make it return frequency from hw
-> > >   counters for both ARM and Intel and others who provide the API.
-> >
-> > Yes.
-> Will add changes for Intel as well.
-> >
-> > > - update scaling_cur_freq() to only return the requested frequency or
-> > >   error in case of X86
-> >
-> > Yes.
-> >
-> > Preferably, -ENOTSUPP for "setpolicy" drivers without the .get() callba=
-ck.
-> Right, my impression was that we want to leave that one as is.
+The following changes since commit 1e03bd2cf0d68a4138f2347bd77ef12b8726d214:
 
-For now, yes please.
+  arm64: dts: renesas: rzg3s-smarc: Use interrupts-extended for gpio-keys (2024-10-14 10:16:17 +0200)
 
-> Will add appropriate changes.
+are available in the Git repository at:
 
-In the future.
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.13-tag2
 
-> > >   and update documentation to reflect the same.
-> > >   Right now or after some time ? How much time ?
-> >
-> > After some time, I think at least two cycles, so people have the time
-> > to switch over, but much more may be necessary if someone is stuck
-> > with RHEL or similar user space.
-> >
-> > Anyway, x86 will be the only one affected and there may be a Kconfig
-> > option even to allow it to be changed at the kernel build time.
-> >
-> So just for my clarification we want a config switch to control what
-> scaling_cur_freq is to actually provide.
+for you to fetch changes up to 0cd647cd53db0315361e41056e10739a5ee1e668:
 
-Something like:
+  arm64: dts: renesas: rzg3s-smarc-som: Enable RTC (2024-11-03 12:29:51 +0100)
 
-    if (IS_ENABLED(CONFIG_CPUFREQ_CUR_FREQ_FROM_ARCH))) {
-        freq =3D arch_freq_get_on_cpu(policy->cpu);
-        if (freq)
-            return sysfs_emit(buf, "%u\n", freq);
-    }
+----------------------------------------------------------------
+Renesas DTS updates for v6.13 (take two)
 
-    if (cpufreq_driver->setpolicy) {
-        if (cpufreq_driver->get))
-            return sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu)=
-);
+  - Add a CPU Operating Performance Points table for the RZ/V2H SoC,
+  - Add Battery Backup Function (VBATTB) and RTC support for the RZ/G3S
+    SoC and the RZ/G3S SMARC SoM,
+  - Add DMAC support for MMC on the RZ/A1H SoC and the Genmai
+    development board,
+  - Miscellaneous fixes and improvements.
 
-        return -ENOTSUPP;
-    }
+----------------------------------------------------------------
+Claudiu Beznea (6):
+      dt-bindings: clock: r9a08g045-cpg: Add power domain ID for RTC
+      dt-bindings: clock: renesas,r9a08g045-vbattb: Document VBATTB
+      arm64: dts: renesas: r9a08g045: Add VBATTB node
+      arm64: dts: renesas: r9a08g045: Add RTC node
+      arm64: dts: renesas: rzg3s-smarc-som: Enable VBATTB
+      arm64: dts: renesas: rzg3s-smarc-som: Enable RTC
 
-    return sysfs_emit(buf, "%u\n", policy->cur);
+Geert Uytterhoeven (2):
+      arm64: dts: renesas: white-hawk-cpu-common: Add pin control for DSI-eDP IRQ
+      Merge tag 'renesas-r9a08g045-dt-binding-defs-tag3' into renesas-dts-for-v6.13
 
-And select CONFIG_CPUFREQ_CUR_FREQ_FROM_ARCH on x86 for now.
+Lad Prabhakar (2):
+      arm64: dts: renesas: r9a09g057: Add OPP table
+      arm64: dts: renesas: hihope: Drop #sound-dai-cells
 
-> It will keep the current behaviour as
-> default until we are ready to flip it and ultimately drop that temporary =
-config
-> option ?
+Wolfram Sang (2):
+      ARM: dts: renesas: r7s72100: Add DMAC node
+      ARM: dts: renesas: r7s72100: Add DMA support to MMCIF
 
-Yes.
-
-> > The documentation for cpuinfo_avg_freq() needs to be added along with i=
-t.
-> That one is already provided unless you have smth else on mind ?
-> Like updating scaling_cur_freq to reference the new sysfs attribute ?
-
-I haven't checked super-thoroughly, but generally all documentation
-needs to be consistent.
+ .../bindings/clock/renesas,r9a08g045-vbattb.yaml   | 84 ++++++++++++++++++++++
+ arch/arm/boot/dts/renesas/r7s72100.dtsi            | 33 +++++++++
+ arch/arm64/boot/dts/renesas/hihope-rev2.dtsi       |  3 -
+ arch/arm64/boot/dts/renesas/hihope-rev4.dtsi       |  3 -
+ arch/arm64/boot/dts/renesas/r9a08g045.dtsi         | 34 +++++++++
+ arch/arm64/boot/dts/renesas/r9a09g057.dtsi         | 41 +++++++++++
+ arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi   | 16 +++++
+ .../boot/dts/renesas/white-hawk-cpu-common.dtsi    |  8 +++
+ include/dt-bindings/clock/r9a08g045-cpg.h          |  1 +
+ .../dt-bindings/clock/renesas,r9a08g045-vbattb.h   | 13 ++++
+ 10 files changed, 230 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/renesas,r9a08g045-vbattb.yaml
+ create mode 100644 include/dt-bindings/clock/renesas,r9a08g045-vbattb.h
 
