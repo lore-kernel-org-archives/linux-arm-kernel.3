@@ -4,173 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ECF5D132DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEBFD132DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wK/QCHsvwxI5jajMDK5bmLW2wqApLKVfmMXXvNmjNTE=; b=mt3HIoipKNrXW8ENwMppUNxsT1
-	FJYNmK+xwW0AZQWElb9ViIUOYwRS9sfxPxy7HXkITHEuGPPR5ObdvCVSxkX3oUTjpsEYS7QwrY1K6
-	Bq5TAABgfrck8lefM5iPXjHikBl203LPLD7Qoy+WVd4OBn9Ifb0t4FwiNkJagXKrqqx/MmCWbcwzA
-	mFlu02BZTEu+Ut/Tl+rHq70AZa2vwbjLQ3Qmoa/WRiyf/+camKlR9E7v1uA1lcb5Meh89wZeD9bnP
-	si8KfB6x5RREZTNF/bzFE6CqNyeJ4kK9tV712ayB5Y/ajhuqE+rh/zTrfVc+cD75iycqZ3/bWZNdN
-	tE8KM54A==;
+	bh=ZNLtnXlcsjv6+bG/WiTbNNMC780ssIybEZlto6rwvE4=; b=wKrfZIu2/5pWEUHGC26Maj7C9k
+	h3jEe9cWmoIUHzVQjTlJCimB+u1Z+kIFdEuxZTblD1gIVVpyhEduDImdbyo9qbg66BksUJgrUF31D
+	CSCU3RFWOhh5ICqF8hm4PGa1GfGdfpmFgE96uLh7gLTEhaA6V/T+PdexRKfYAnMyWDVfjuIHqqUZa
+	wVE/kndK5NpXDHlhKYW0o04Cg6X5T4NR1VQVVZ7qX/7pOh66CWAbS0I3Qd+eK395CRoGMJ7EAqakU
+	MQvkOlSsmbQmHry0OoSKN7R7nwi6Swhxp2S7f0eqH+iv7lLbPn4xa/qRnPOXK+S1gVDzNU34wY5oB
+	wW9IrFbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7z2N-0000000EDBw-1qHY;
-	Mon, 04 Nov 2024 15:30:39 +0000
-Received: from mail-am0eur02on20627.outbound.protection.outlook.com ([2a01:111:f403:2606::627] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1t7z2s-0000000EDGJ-29tw;
+	Mon, 04 Nov 2024 15:31:10 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yvc-0000000EBte-0b3O
+	id 1t7xHY-0000000Dtq7-16OX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 15:23:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sY8j//p1L7S6TC8RDJ3Ms4kYB8DUi0dV1JR2fErC6vrxDIEvVKsumksxkkHFZBcDB53y+K6Am5m2fHWj3mPEBXZJUDH6DSFIW0YqJqY0FhmmJ4/sRV7rjbbVRGdmOSlnOevbvLDvALOPFMhC4/7AK9erT4PJS/0Z/lmMBD08dGMdTJ+S5dx1iB9N0wmlXXGMp2goqaes98Vzvydy1KJOgpxgq3ODVSF4CSyK0u4bJCBFDcuC9jRdfcchtveTYT7n2yQYkXeUIoyWBMHmSSnQHJ1T0/wzXltB0meHHow8AmxM3UUkW+nhGzjGEWJFyEwmZkZUIisdnGtM9v10ZXp+lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wK/QCHsvwxI5jajMDK5bmLW2wqApLKVfmMXXvNmjNTE=;
- b=TQplHTcp0OaMQitjTUt5x3UciwdgUifFC5lE96xWngHVDzk5zC2L4VNN9dlr3aqYH/20+tzwZDdTbudpQSDERMhJZUDEhsEIrB8BiPJt4yz9gtdFIjoarwl169NYXlR5Lcza/At2oUmtbZudWhCeSiLQlHk8F1TMUvdes5Qb5PUA6NYkjZDwV+6dhOqw+nT+PPtOSTV0ooudOmAnlEs531fyIsgho95xAh9bL5YyiN/ge0z1cAPeZ1IytZSAbHy+aMG1yg4bQN0GA+b29sb7QffkthRlE6GPjvLdck23TeTCa8+2MZGIuJV1JfmACybu6LlluLKvyJGxDd0EYcGMBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wK/QCHsvwxI5jajMDK5bmLW2wqApLKVfmMXXvNmjNTE=;
- b=iFuD+KaM7XLe7z/QC4HT40LPDlJBJmwVJ1u/6L4aKGwNQymg5D7Bv9iSspYc0xDE9jqc862KygffEhMIrvojaGryNg9pJWWfOnDIcze7YoJ+XBR0QW7eXA25i63B7fVpvhDMh2CrGJYIMSBUPGHGWPpOrojsdEKavU3Hjpuv2qT97H+WJdXWU948yxPLcE9Q7sbs+0Lt0xa2eLzAr79ogTytv1li8uxr0+bndMLOPueZIGzCxlX1Si9NTlx4+Obu1E03EAX9eKOZfre3r8L7YxU+hV6tTC5CPodWZhII4LXaYRr2VIgJnoDxyoK5GVUEPcuiCtb3JdH074DKpuG24g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by DB9PR04MB9451.eurprd04.prod.outlook.com (2603:10a6:10:368::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
- 2024 15:23:38 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%5]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
- 15:23:38 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Mon, 04 Nov 2024 20:48:40 +0530
-Subject: [PATCH v10 3/5] arm64: dts: imx8ulp-evk: add nxp secure enclave
- firmware
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241104-imx-se-if-v10-3-bf06083cc97f@nxp.com>
-References: <20241104-imx-se-if-v10-0-bf06083cc97f@nxp.com>
-In-Reply-To: <20241104-imx-se-if-v10-0-bf06083cc97f@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730733536; l=2640;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=mAzNbzRWOh6wFu0SMI2UVtcJ4QuBAqfaQJrwAklpA20=;
- b=BwtpFkkyOcytse5DDIb/SGMFGXycJT9LT/bawrKHKQfcQ3IQdqFqwE2m8oT1pfwWj5UlHzgtU
- uk5TxsrqpYHAWb6RqCaM7R/siLtoxu8gZjyUfQYfzO9bxIF4tL7/9pV
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SG2PR06CA0214.apcprd06.prod.outlook.com
- (2603:1096:4:68::22) To AM9PR04MB8604.eurprd04.prod.outlook.com
- (2603:10a6:20b:43b::21)
+	Mon, 04 Nov 2024 13:38:14 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4DKAPY029431;
+	Mon, 4 Nov 2024 14:37:59 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ZNLtnXlcsjv6+bG/WiTbNNMC780ssIybEZlto6rwvE4=; b=ArB+8vi+oYEc42Ev
+	kBmnpQ1kaXyOvHw3Bfm+ylkrZSJYqAlIWggkuDEuKLbVoyN9fce37EBOvt8o5m0+
+	vlTO8Erlg4qGdid6vBChNQbioGB4lPlRUKNRlN7KClWEa5JKZVdTAhD46V1XLsBF
+	2LEde0qOJ4oN7J4Mj9SUwm7Zgz683w0OrF+TX2d+xMIgeIZ26R86nN6SspXVciSj
+	TCL+T3vVSJ3eYPTj00Tzi0FKA1UzvRLbMSg7Sojij8omVgcRitUjYEfcRLe6YvWN
+	vrfwipJg03rMggnD8wOK/on91Detomn1SBzQaxNQn5F/EuYlK2yHFWgNIfRCyE8F
+	sYHiHA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nd0578u1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 04 Nov 2024 14:37:58 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9F8FE40047;
+	Mon,  4 Nov 2024 14:36:51 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1820F28AEE3;
+	Mon,  4 Nov 2024 14:35:56 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 4 Nov
+ 2024 14:35:55 +0100
+Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 4 Nov
+ 2024 14:35:55 +0100
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v13 3/7] remoteproc: core: Refactor resource table cleanup into rproc_release_fw
+Date: Mon, 4 Nov 2024 14:35:11 +0100
+Message-ID: <20241104133515.256497-4-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
+References: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|DB9PR04MB9451:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ffb19fe-aae3-4e1f-5d94-08dcfce4a7f6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmxJazN5NU0zNzVzTlp6Rmw4bk1zaVliOExpVy8rRytIUHp6bVAycGJwYnky?=
- =?utf-8?B?U2t4NEcrSUZRcVM0QjVScWROOXZTcDB1TnN4ZUxEQXNXS0NVZUJLNWpyc0NY?=
- =?utf-8?B?aGd2UUJCRjlVTzFHVkF0R3JWMi96YjQ3ajQ2SktXNzRpZmxKaWd3bmlkeFVu?=
- =?utf-8?B?NmFnVzlJL3ZOcHlJSVA3ZGF0QThmRm1mQUhwY1RubWtQOFhlREpJSFNLNWxx?=
- =?utf-8?B?RUJVRGJXWFZtbWRBcWZ4YzlRODhjSjZrY2dJM0tKTHJiU2NvM3dwNkI1bldR?=
- =?utf-8?B?QVRDQ29iSzhzc1RGNjJLZDBhTCtCQ1VsQ0dKT1k0cGY2U3U0VHBZZTc0RE1T?=
- =?utf-8?B?eUo4WUVSd1JtYi9HRlA4V0xvd2VMZ1dSQ3EzUWFOUm9RcXJidFR1Q2NxdjE2?=
- =?utf-8?B?c1ZaL0p0cmJVN1QwR2k2azNJYzgveXlMUnBMckpDUFNOeDBCTnJSaFR2QWp2?=
- =?utf-8?B?aUJMUHhHNlBCcHRZMzVNZW02OVQzQ3JySkd6L000MDZDQWZZbmlxd21oTlcx?=
- =?utf-8?B?RVA5UkMvOWNndU01TDNFWm9WeHdrZFd4YUwzUnpqNm1RNnEyRFcrblNRc2Nn?=
- =?utf-8?B?cXZlbmhzTVBmNWlXUHZjb1UrYVgrWWc2clRiNWpBTlJrVFhqNVlaVmZ1QjhC?=
- =?utf-8?B?U2FuOUsrRFRuZnFPamZKSVNZdVd4UVNseGd5d2h1bTRTbXdRK0hHUjRoeG1I?=
- =?utf-8?B?WlpVWE10d2lpQk9wZWorKzBmbUcvMTUyakRlUndrUUR2Z2hrK3kyUEZRWENm?=
- =?utf-8?B?TVVCRlhSQjFURWZzMkphQkZENUhZRHV2S2NrOUMySVJOM1luUXVFTXJlREw2?=
- =?utf-8?B?U3B2TVZYR2taMXllNUdnZkMxTkFSRXJNVktOdVE4a1pWZzIyd1Fya1NTSlVj?=
- =?utf-8?B?b0YzRk53UXJmRUtmOWR2TTdqT3U1bGwycStCSW9Xa0NNeWovajBxRHRUWGQv?=
- =?utf-8?B?OWFmVFJJTEZBSzB2eFJndGVobjF1ODMxZWxDL1d2UkRYY293cHg1YldhQ1RN?=
- =?utf-8?B?ZlV3MVNyTDFRQ0xlYmpNNHVPWHlRZzcxL09acnZDcll4R3RJUjlQSzFrNTlu?=
- =?utf-8?B?bDBsK1Jzek5OSEFFM2FscXY0QUsyd2dqclUzdmMrcjZYMmNveEtVM05GWS9D?=
- =?utf-8?B?TUpFbll5ZWdaYkVaWHNkVG5CUERKa1NwUGcxd0JFMUxBSGhtWHRuM3VhTWhS?=
- =?utf-8?B?WWR0SjhRNGZld0RKSEpHMnR4UEtaU1ZGYkFnWURUYkhFbXRNdHZ0Zk10TmNI?=
- =?utf-8?B?V1RhTVpjaEhyeDZwbWQ2UE94U21IWm9UUEhHMHdxWm9Yc2JIakJkMTFIbFph?=
- =?utf-8?B?UVlLS0Q5NkI1alZzRm5xSjhBWm4yZHZBZGJaWE9SNzRvWHBuL2VDVm8xTm0r?=
- =?utf-8?B?bkRMc04zWmFodC9qd3NlVDVoQnpjb0J4VWhzdllBRTN3MkNUSDA4K1FvR2ts?=
- =?utf-8?B?YWtKblJ5U0pWRVE3dTRvZ0V6M2N2YzBTQ3EvcHk3eGRHdzlMT1BjbGd0SFdk?=
- =?utf-8?B?SlYwSnluaVlMekhOUURRaThXOThjOGlHUjUveStQQndwVmQ4WU9TTGJCSThZ?=
- =?utf-8?B?cFh6WFcyOU92b0VXV01WZWo4UmhRam5hOGhHWmdRU0lOWDNhR2puK3hoV0VJ?=
- =?utf-8?B?bGZVcXJscE1Pc3QwbHgySHJBRnlYci9QWVhoMnU3OU1iall5UjhJaTljV0ZN?=
- =?utf-8?B?Uzl1QjRRK3lBbVFuTkUwNk5hd1RqVVBtN2xkWW9uYWV6L0RhL0RBaFFaOEF5?=
- =?utf-8?B?eVd1Z0dnbzlmLzNRckYrbzV6Y3I1T2p3VWsydmNlckhCVjh6Y0phYU9TQzN0?=
- =?utf-8?Q?Ql7OaK516Bqi/pjOG5hoZq6w25fjoiN2qhm/4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WWVEZFdFbStQMS80THhPdm85V2lyZVM4MHEyQkpWN3lUUmhXdEpHRFRveTEx?=
- =?utf-8?B?ZnBQNXYrZjZickRDR0IxNTdySElHWUdxTnMzSzF2SHV0RGE2Wng1N01EdEF0?=
- =?utf-8?B?Mm5hY2k5TzZPQlhZd3FESUM2ZFcwTTdVUlFwcVpCNXFhcFgwaUVzVEtDMHN1?=
- =?utf-8?B?MXZPb1QzU2RPRXBMSHk3NXpPQk1yNy8vZ2pVS3FKaFJVMFZlVUVRUWZFSUda?=
- =?utf-8?B?bStydHlyYzJrWkY5ZUdtcGNiaTBsNlNYcmVGamZvM3MyMUx5Y2xIOVJlYi83?=
- =?utf-8?B?TXpXVkZCdUlNSnpvUDhiNWRzc3Z0NkdRbmdmeFdMRHgxZnVHY1dqUm9jQStE?=
- =?utf-8?B?SmNkRmZHZFZNU3lXNzBValRIanhtdzk3YWxFVVgwelN4WVl4K0prdzZWbWtv?=
- =?utf-8?B?dFB0ZHRJWGhUUHlJT0hia0hVUCtiR0I2REkwcldzNWVHaWJJQm1RT1IwSnR5?=
- =?utf-8?B?VlZXMmRiQUpkVXlXVlVVL3ZIaG5EYnBRTUdWTExsZ1hUdUE0VW9PSW5ZNFNV?=
- =?utf-8?B?KzRFRGhiMVF1ZkJQUHEvelQzWXprb05Qd0pKU0szNmorMGxYRTltS3RSd1VN?=
- =?utf-8?B?YzRDV0NoYjV3dnZESkJJY3hQNjZTL1A2empyTmFUY0VabWsxYTJmR0tkNk5o?=
- =?utf-8?B?L0o2Mi9ZWTRrUVVra085bmUyWkN0RVBMZ0duRGk2bWVWQTlkRk0vKzNwcWRQ?=
- =?utf-8?B?cmdkM1lLc3ZNRHlJd2lYUTZiNklHYUlPU3U5TjgvWE5SdDJsQVBxb1ZjcnpU?=
- =?utf-8?B?b3J0aENUYmcrOUhRa1BEcCttWDBsTXcxbDBNZUdmd2p3L0ZOWFliZkdwRG5W?=
- =?utf-8?B?WlRrNHpDTjVOc0ZrL3cyVUVPWVA5V0FadU9FRjVQUWVnc2Fjc1BRdzVqbVBY?=
- =?utf-8?B?V0dKaURDZVViY3Q0Z2dERVJiZGFtK0JKRjlQZUkxVHoyRzNnYWZpTnk2Undi?=
- =?utf-8?B?YU9HOHRKNWJjRUd1VlJzMWNETTRTUVJ4RXo3UWRnMHQ3OE1RVGFxdHZEVnRw?=
- =?utf-8?B?Zm92TWFsdUdhSnFpSGpLVUVzcm9oNmVRL2VaUVRPL3JoYzIwSkl2QTZxWVJv?=
- =?utf-8?B?OUl1Y0ExY3JBcXBQOTdsdldBcDl2RUt0c3oxK3lzYlNad3pjWmRudk1LQVlG?=
- =?utf-8?B?QnUraWZFYkNQM2V6M1ltMEJFMHdPaUFjaWJ2QW9EZUVxQWY4aVpOUm00eUNL?=
- =?utf-8?B?anR4L21GZFRaWUt4NjNYUTJJcVVWS0tDcTNXTTkvdXE3aDBnNWJPNWxPU0o0?=
- =?utf-8?B?bHNEcVVheWh6NkMzelkvK1kzNkhoa016dUhBNjJ5b0VFWmgzNnNLQkxJSURh?=
- =?utf-8?B?ai9VSElyYW5zdUxhMXlEWExtZWtJMWx0YXhnWSsxdDhwVThsc080c28rTmk3?=
- =?utf-8?B?d2tIMXVDRVM2SmI2ZWZLK2tORVhkc0ptSGUzL2dkdkxJZ29mNStLeGVKSHR0?=
- =?utf-8?B?ZVlKbUdCd2hYQVBLM2ZIY1BwSUh3ZThWeWlLeWZvbzQrdGpNS0ZrTjRKSFdH?=
- =?utf-8?B?RXNMYjg5THRkZUZsRUs4Nk1OeUhaeHZJTUp2Z2Uvc0lRZmw0SzFJMVBvYXF2?=
- =?utf-8?B?L2ROVGFLZTVTQTZ0RXRBZ3lHMFJSODFKeUZqMENzSHhQVkhDQnZ4VEJONkRN?=
- =?utf-8?B?djFYc0hpWHlJYXJCSk5oNUc3RHZDY3l0akM3cXAvVjZsQzRWUFBaQWxseEdq?=
- =?utf-8?B?S1ZCTU5UN3p3clRwMU5QTnJ1M1ZtaWFqVXorYW5zNE9pTE41UmpKUmpmU2Nm?=
- =?utf-8?B?anNoR0ZMOVg4VVBlOTJhdDFoZWRoMS80dDB0WS9NdzEzKzYvQWgzRzk1TDBP?=
- =?utf-8?B?MXpZU3huenZma2NpZENXWGZrY0J2SUtMVEo1M01DMHNZU1k1b0x1V0lBYWl6?=
- =?utf-8?B?UGIvRUYwNTRneU1ndGg1OWhBbUI1L3J2Q3d1VVFTcFNOS3ljTy93OTZkeE4x?=
- =?utf-8?B?NVZRUTNZd2R6eWVxUFBob1NpdkRidWFweDczWDJnTkl6Tmx4TkhjVEs1QlhV?=
- =?utf-8?B?cmx4T2djWmdOUWg5NmFscm1ETmsyZFdsaE1RVnlqM0hMbU9Xb2RJbno3dUFN?=
- =?utf-8?B?V1RjNkxJemNldG1BWC8ySFBPVE1IaEo1TXM5ak5jMWxHK01CdFh3WWZxYkp3?=
- =?utf-8?Q?/rERdEn5awbCiJE5JcNKs6fVl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ffb19fe-aae3-4e1f-5d94-08dcfce4a7f6
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 15:23:38.7134
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6o6wJw3tPG5x5aWjvGiHXN/oKYGOzmqvKWTEOCQSLt6J7Z+TUZRCs6f1U1rgoilCc6QuqyvWcdLQjPvix6fmiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9451
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_072340_230167_E7676D2C 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20241104_053812_651286_7A02E28C 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,106 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for NXP secure enclave called EdgeLock Enclave
-firmware (se-fw) for imx8ulp-evk.
+This patch centralizing the cleanup of the resource table into a new
+helper function rproc_release_fw().
 
-EdgeLock Enclave has a hardware limitation of restricted access to DDR
-address: 0x80000000 to 0xAFFFFFFF, so reserve 1MB of DDR memory region
-from 0x80000000.
+More than just factorizing the code into a common function, it is the
+first step to integrate the release of the firmware image loaded by the
+OP-TEE remoteproc framework.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+Suggested-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 ---
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 17 ++++++++++++++++-
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi    | 13 +++++++++++--
- 2 files changed, 27 insertions(+), 3 deletions(-)
+ drivers/remoteproc/remoteproc_core.c | 21 ++++++++++-----------
+ 1 file changed, 10 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index e937e5f8fa8b..f5963f4043c4 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2024 NXP
-  */
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index ace11ea17097..7694817f25d4 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -1256,6 +1256,13 @@ static int rproc_alloc_registered_carveouts(struct rproc *rproc)
+ 	return 0;
+ }
  
- /dts-v1/;
-@@ -19,6 +19,17 @@ memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0 0x80000000>;
- 	};
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved@90000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x90000000 0 0x100000>;
-+			no-map;
-+		};
-+	};
++static void rproc_release_fw(struct rproc *rproc)
++{
++	/* Free the copy of the resource table */
++	kfree(rproc->cached_table);
++	rproc->cached_table = NULL;
++	rproc->table_ptr = NULL;
++}
  
- 	reserved-memory {
- 		#address-cells = <2>;
-@@ -204,6 +215,10 @@ &usdhc0 {
- 	status = "okay";
- };
+ /**
+  * rproc_resource_cleanup() - clean up and free all acquired resources
+@@ -1485,9 +1492,7 @@ static int rproc_fw_boot(struct rproc *rproc, const struct firmware *fw)
  
-+&ele_if0 {
-+	memory-region = <&ele_reserved>;
-+};
-+
- &fec {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_enet>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index e32d5afcf4a9..f98629b7f4cc 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2024 NXP
-  */
+ clean_up_resources:
+ 	rproc_resource_cleanup(rproc);
+-	kfree(rproc->cached_table);
+-	rproc->cached_table = NULL;
+-	rproc->table_ptr = NULL;
++	rproc_release_fw(rproc);
+ unprepare_rproc:
+ 	/* release HW resources if needed */
+ 	rproc_unprepare_device(rproc);
+@@ -2067,10 +2072,7 @@ int rproc_shutdown(struct rproc *rproc)
  
- #include <dt-bindings/clock/imx8ulp-clock.h>
-@@ -152,7 +152,7 @@ sosc: clock-sosc {
- 		#clock-cells = <0>;
- 	};
+ 	rproc_disable_iommu(rproc);
  
--	sram@2201f000 {
-+	sram0: sram@2201f000 {
- 		compatible = "mmio-sram";
- 		reg = <0x0 0x2201f000 0x0 0x1000>;
+-	/* Free the copy of the resource table */
+-	kfree(rproc->cached_table);
+-	rproc->cached_table = NULL;
+-	rproc->table_ptr = NULL;
++	rproc_release_fw(rproc);
+ out:
+ 	mutex_unlock(&rproc->lock);
+ 	return ret;
+@@ -2133,10 +2135,7 @@ int rproc_detach(struct rproc *rproc)
  
-@@ -167,6 +167,8 @@ scmi_buf: scmi-sram-section@0 {
- 	};
+ 	rproc_disable_iommu(rproc);
  
- 	firmware {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
- 		scmi {
- 			compatible = "arm,scmi-smc";
- 			arm,smc-id = <0xc20000fe>;
-@@ -184,6 +186,13 @@ scmi_sensor: protocol@15 {
- 				#thermal-sensor-cells = <1>;
- 			};
- 		};
-+
-+		ele_if0: secure-enclave {
-+			 compatible = "fsl,imx8ulp-se";
-+			 mbox-names = "tx", "rx";
-+			 mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
-+			 sram = <&sram0>;
-+		 };
- 	};
- 
- 	cm33: remoteproc-cm33 {
-
+-	/* Free the copy of the resource table */
+-	kfree(rproc->cached_table);
+-	rproc->cached_table = NULL;
+-	rproc->table_ptr = NULL;
++	rproc_release_fw(rproc);
+ out:
+ 	mutex_unlock(&rproc->lock);
+ 	return ret;
 -- 
-2.34.1
+2.25.1
 
 
