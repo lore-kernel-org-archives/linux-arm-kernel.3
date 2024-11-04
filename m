@@ -4,109 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADA0D11185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 06:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61665D111B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZcL58p8mF5Zl49nS7NSGvMtz/EmRjz2p/naj2ImhMnk=; b=y2gusgkrI+H/GKUaJyX8ZqENhD
-	NTzVa7kfyfmV1bEKavpy7NVKNZYaVDdWPzFANshcFUK0k2Lwvb4mYn/bmDkxVV5/bQinSFgswy57w
-	69imgjgAMLy+wXzQszcOsz+dZGRmg7Y2iNeBovsGYoLufbx+TMBKpBh4DKdslSNv2PkY4280GrROO
-	FtGRHXG+MzT0kr/Bf7qQJwK9hRxDwmFBUYFPdNCOcRyJPtujjdubV+R9CAMxTvuCMv8ZUAyMr3sOG
-	65V4onM4yVySK5sPhqXD/sldrEMvX4/6uxtJXvZoJztkWFJJNswaSagWRz8cqlqSNzYqyUF8sOVer
-	czOtINNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CJ1tB0tVqaqpi4zhFO0IzeYwSNrR2niI3jT8p2HXI7M=; b=WvhqbOTTXRmFgaPC+WbvjZjZaa
+	GoUtHkOVJMzDPbgXXV3FEmXys7lQeH9NRWal7rszEeH6K8ODDucewFnrD7CtDTu2RUpAxmxO+v0Q8
+	lNfPaGS+iAtbIi5lTUkghjyMpDi4VxOfQ/97ht4iqqZscwecGyBxukoi49RDFVYu/AmJT/3puQKTZ
+	Ad349r5cckEGPKme9bXFuoupzirT/NfcgdZFbTr/74+rai7VBIhfFuJu8PecMs/BcwUndirbRGQcM
+	7TvoX24P/X9S/g8+2HQNPMUEWeh+QYrnqm42hdQLAewl8trkC0ya3Lyr+PWNCJgjm56Tfb9c0zFm6
+	2tafYCGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7qtN-0000000Cnpx-0s3K;
-	Mon, 04 Nov 2024 06:48:49 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1t7rEB-0000000CpFF-13LX;
+	Mon, 04 Nov 2024 07:10:19 +0000
+Received: from mail-dm6nam04on20611.outbound.protection.outlook.com ([2a01:111:f403:2409::611] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7qrd-0000000CnaS-2SpX
+	id 1t7rCT-0000000Cp1q-3LBX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 06:47:04 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5cb615671acso2280252a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Nov 2024 22:47:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730702819; x=1731307619; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZcL58p8mF5Zl49nS7NSGvMtz/EmRjz2p/naj2ImhMnk=;
-        b=Zs++M51oTmMvHcHK+fJKZtFasGeChv0UCGrWzvDuItkss46zggHlgpPXLsLDI1hs9Q
-         LTojSstLUuuYGs0p7qGq+e7h5hHelEf3INvzFm5MMZ1Ur5zTgcQDwbjFEgn2JgSMX4VF
-         DgHq0fwjBgQ6xNUn1lW68TPq0E/C7KSeYsgIhD4TfBffjyUgKRwqBuusBgO5iDaQhhmN
-         iQzcJnzUn3qzMoixAzAQJao+hySpA/eW/N4pcH+Jreif4pms2ykHCBQZ5ID1eXl5Iw1q
-         7LiR9hSSwgOxo+o/7KsUu84onkkvCvXjfWrnekWt3Wl8z1Z1bofLAH1jKZbwITqiWk8v
-         6EbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730702819; x=1731307619;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZcL58p8mF5Zl49nS7NSGvMtz/EmRjz2p/naj2ImhMnk=;
-        b=KvOmqAr0+BneFWx+RdqDc2MqFdT/rm7RzNWrG6E9UAKpW0iDtMaQYC8iUSFvYmLdR4
-         Fo5lACCLP/P/pFR0WlwcH6o73uoxH3SCGkui7UbktDos81DZ7HSlv1SwkdRt0lKOll0d
-         OlH9nSZYW6FaUwz9h3hzOvjG1ok0IZoVkJ7tjz3WcUYYIdxSW7DT+eCh6Osx4m5CPOlI
-         8phEhtM9ABHii2K65hj6KX0kK/wVrEOsCFYq3mlQts9rAj0WxRimRVQeWusmNlDo6ESk
-         UStIUJEn0qhI1XwEQZBQBJ6JpaxG0JNWpG1yXsou12gFHbg0+nYLxme2MjsaYnnOTVPz
-         0Mog==
-X-Forwarded-Encrypted: i=1; AJvYcCVkj6my/udiP8YnXUYaPSqunfuAmybV/dbC0yWfmT2EldQS+MeQmy8wD4HIve7drGeqUMyRm5aWepHqGf9LUMrV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5022SGucY6z3rO/4IASuI6wq1noJnKkS/uvDhjqoMIsCHfDuR
-	4bEN9qDbK9u7f/+4DTFolK7jib3rU3Uv1a9CaLI5gjaOBsmqodqkTqeYFGrErVI=
-X-Google-Smtp-Source: AGHT+IFowEnMiDO/pTu4Oi8MLHthjGUPLyPZfFAjymH1tOvJMXm1s7ycGi2CQBqddOThNxzPIZCpmQ==
-X-Received: by 2002:a05:6402:524b:b0:5ce:afba:f48a with SMTP id 4fb4d7f45d1cf-5ceb935bbc3mr15128807a12.27.1730702819312;
-        Sun, 03 Nov 2024 22:46:59 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:6752:e162:c76c:a99b])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e565ef55bsm509953566b.137.2024.11.03.22.46.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Nov 2024 22:46:58 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Clark <robdclark@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Michael Shavit <mshavit@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Georgi Djakov <quic_c_gdjako@quicinc.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] iommu: Switch back to struct platform_driver::remove()
-Date: Mon,  4 Nov 2024 07:46:50 +0100
-Message-ID: <20241104064650.799122-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+	Mon, 04 Nov 2024 07:08:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MuGjVWYcqPbOYU+PRAD2kkmtJA0sP/wh1B01eGj1z6/bIzT4LzK9Lm+HIR08pNoZZKL4/8EdcaYHS1+mjT2WQk5j8tki3A+7l+EPp5lD3QBgGBni8K5afwpAX6sh/JHx/9FUVyUKY6KmveU14MLqh7ynHycuZkM3tK0liGZ8kMcRx72CFLeJRovisraMkVOjKNvR5Kbi9UNLdllA256T/CcD4tuzP/G8SGfYPA0NmDuR6cAqKmGi6jJ2oPiJSIgcqVKdSSlthuYkAIfGXesfwqGCnisgi5nHc9q0c5mh6Utk9YZv79RjkAhDEr6fgJdJCnVz/ECtiuEVxmpm0HaBhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CJ1tB0tVqaqpi4zhFO0IzeYwSNrR2niI3jT8p2HXI7M=;
+ b=bI+qsxdaq8mYP5ZwPrOLNxQmkWoIRgSqkWlheEHQ0zv1ICjHQkSLk59ruNmoaZEJA2c2I2w7HljxSoHDMRaRKACN7OiqICcF2aSYP2DiWihEToqS0EametN+xegq34vv+Vm50k2/+7GD5+fXoADufrYAAAm/izC4DDJLWUtd/O2wPr2iKrG/zYxygaul+c0dcj3Jao8t78ljP7CjAhEUdb3mZ3rn7NNXS2uWUVswlMGG4e+gidnxkcy+Q5l8ViWkpExJK0j8sDS9gkI/Hr+5KfQ6uX1r42zlYthLrrO/m14GKkfIV5tf08g0IlTXau5XlRFeue50Uz4DE56g7vo0+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CJ1tB0tVqaqpi4zhFO0IzeYwSNrR2niI3jT8p2HXI7M=;
+ b=DQwCRK9mMAp/WuhI/j+UEd4OkWrROBPsD1G+eZyRgLim5/HGsiy/6ykz8/hxkAHVnC2o0OZxQMWVy1Si/InC8lWvGRMlOZpARUHiQSPgqm9Ej5g2mj7c8vvZTogFoQtHe30vzyMlvnqQRCu7SFBVGfcv3jwwjQ2wyfqu+PKeuJo=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by DS0PR12MB8200.namprd12.prod.outlook.com (2603:10b6:8:f5::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 07:08:23 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 07:08:23 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
+	<michal.simek@amd.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>, "Katakam,
+ Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH net 2/2] net: xilinx: axienet: Check if Tx queue enabled
+Thread-Topic: [PATCH net 2/2] net: xilinx: axienet: Check if Tx queue enabled
+Thread-Index: AQHbKpSwiuiyx3qioE+hYG8VIIZTcbKmLKEAgACOHfA=
+Date: Mon, 4 Nov 2024 07:08:23 +0000
+Message-ID: <BL3PR12MB6571B8EF92F67BA98DF1B07AC9512@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20241030062533.2527042-1-suraj.gupta2@amd.com>
+	<20241030062533.2527042-3-suraj.gupta2@amd.com>
+ <20241103143700.3ce70273@kernel.org>
+In-Reply-To: <20241103143700.3ce70273@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|DS0PR12MB8200:EE_
+x-ms-office365-filtering-correlation-id: 7573caef-ff13-429a-ab3f-08dcfc9f78da
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?m0J4+JTunZMBcntnwSHarnx5dCFUGi9akzQGJMNlTTR+wqrbbOtngTojFaVQ?=
+ =?us-ascii?Q?A8dUao63bWo3yzx1opmk8Y6hdyIQW4+0XNjHl2Q8UJt8ViQz9cX+cI+a59g8?=
+ =?us-ascii?Q?1RF9Vx90XNigk5G9Xa9riDQW46EOZSaU7TUHidvjyvnK75x6yk1Nw05v8IgF?=
+ =?us-ascii?Q?vbDZ4M6XaC+c2dIOap1jBGfJXXP7dWGCRis6UqYlKsLeimZGdlZhAcxBA8Zu?=
+ =?us-ascii?Q?tUamppDAH2ZecHu5GnUKfIpaEDREdTOliiN/UlQBsYySDYrK13kcSqMU+IDN?=
+ =?us-ascii?Q?CinqTp1N5qRstDp8q9OoSkqIqSwczKwGqCmtRQ3JKm9LAs861aalVuI3i4NV?=
+ =?us-ascii?Q?0v1605cB3t4JUD4Jt2sjItWDb0EW1utBOgRUClOWsdDBJmWX1gGnQtO38eyJ?=
+ =?us-ascii?Q?xgbfi+hp7GyKEZaNjIuAA4cFWgWPUBlsQHmFi+L3A4PULM9baUxbeio12SRz?=
+ =?us-ascii?Q?nqO9DOJHpkOb0B8MWHpXq3RLuHp9R3r8NRAjdEXYggooKtnz0/CyP1WQgju/?=
+ =?us-ascii?Q?L3ltozeEHujXeqN7WJ9oWL4klZZDX+OvJQVYhitXBQM6N9w8C7ofl3RNeKB1?=
+ =?us-ascii?Q?p7abnkaFUpWAzX51vy4PalcIGRJUADeXFjRC1xtN3LC0Z92icTJbcXv/zvfr?=
+ =?us-ascii?Q?1Tv8F+mjmrNIL3oDu3aZwMNn2FePZ0g9D2ox3Napq1wUPKxScgD8zAFN9B8c?=
+ =?us-ascii?Q?+DMYTKYxnGgcJWAOyUcfheIdd3CzQevWsAIvnJErv6mCtM4Yct1poHbSFC+w?=
+ =?us-ascii?Q?eBHbae2N7DbVdt7jtIvJVUeC2d49CXY2jxqHH8C9JFvUiSbjYK8kWPwWhG0j?=
+ =?us-ascii?Q?cV+VsCvGzjV+CMDDrqSf5HpOJB1NQMFXUQ0BWrdE1Fq6ZNdIJBl0EITRPvmr?=
+ =?us-ascii?Q?vHpBQIEhqedzRac19AmYuxIFtfZ2uMLiTbpAu+PTTfsO1YXkIi3cufQsQ1Y7?=
+ =?us-ascii?Q?ygmTpa4QKjO1RLztZajMr4hg+ogqhtVTEMx8Slf62rSQ93GOX8Q1TZ7Ww042?=
+ =?us-ascii?Q?7LHt+w717WrjYzlB5wcouRhb/M/DzdOSCCx30mA61nbxJawQpO7WZ2TfhZvl?=
+ =?us-ascii?Q?N3L5rt/kAsVfIImajrdek+ZVsv5Ag0Un6rq5rke95fO+WROfMbokThDLAVtr?=
+ =?us-ascii?Q?qetf1TE9fbsMwRtifdJHn8LEB50g5D3+ttASmPXhX9INCI+Zd+sEgrpXVFYh?=
+ =?us-ascii?Q?digs497FJJ5j7AOF7Fq2LOASmUBVyYuDQs0dDZSNltvJ/ldPVZJe06Ywd/lw?=
+ =?us-ascii?Q?6hZXXhTsEWEbFNqZz500eohfeAM4Eqm79oYuOZQ6zgNB5e7uqqD1HOaMyjU/?=
+ =?us-ascii?Q?CbC5P7NsYPrGRpNl9KxUbRTC3mstdM8hLNjTmYo1iqOulJM9AYejsCZOd27Q?=
+ =?us-ascii?Q?jchFjCc=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?3eYhD+rEVCeIwM+yC8Evfq3PyITfcQT6yBwSs/899LgG28s2HYYeRCAEyYp/?=
+ =?us-ascii?Q?4rjF2kMb5YEr/shwYbxWgvdSIQJThThPVTY/V/AtuDgKJ3OhyHSKH0Skvf0u?=
+ =?us-ascii?Q?m7XF3UxQB2Q9XiQ5K2OE67oInbciK9HbNBD8moT7EQ9kMphlKroeZVaoglcD?=
+ =?us-ascii?Q?IRj5z5jkxEV/4jtuoVs8kI44p0DgQQKdoMvkU/2EAeJJG/vOQVG2wZPzXLl5?=
+ =?us-ascii?Q?qFssuwoYQ7brlXgFEA4WV2SoS3wNX/YylP7MNd6zIyfGSjRa5F/Qx+1qvanq?=
+ =?us-ascii?Q?d4y+TGW+QEYuKBBe774jdrcV6omC9Co9WsP7xgs5vkZXV/HqeLZCYy3b9k6n?=
+ =?us-ascii?Q?p3qza8KoOxGRmF0W/YotCAwXHu1iL+dtCvCONs5Bfh5SGAvM/4JEpietZTwo?=
+ =?us-ascii?Q?nFMIPE0GkXWAHZnGQkvvO+QDbdfzOd+Fml9bbaEKWRkMTb1E2wwntNaYX0+z?=
+ =?us-ascii?Q?E0sQm0Ez6d/IAlAldxPQMpxjcLZ9v7xvB1aooui0xnYj2oWtVhjXq6ozQuNo?=
+ =?us-ascii?Q?o0zatfrsrp/leFShm6zG/7AR2ilO8tX/5i4fdN1LcAGHNrosvSFMQFdkEfEd?=
+ =?us-ascii?Q?mqVvWp3VnIkAKJVqM0Qkz9CWpykrItlAk88Wj9JVPKxWgOmN/Lxjfjhx1a2I?=
+ =?us-ascii?Q?8EwvouRkujfVgTnCxbBVeAKr3ixDSMWDXuHWIFjabzBssUuKV1vI3ReVlg12?=
+ =?us-ascii?Q?DCLl77JItdXRzrVWvOf0r6SNxxBtUdt6WDnEv3fdDcVIpPebnmI9Ow3r/XUo?=
+ =?us-ascii?Q?jSdynn03e2gpnjv0FS618BJUOn9ML4cvkWLBYG1GDmsFCqyeKsKKoTqXMXLW?=
+ =?us-ascii?Q?zsSPpFPSgKlyyWK4QW/maO6p7k+T7Nv2Xh9Aqwyo8xadCzBewL54qQnDx79m?=
+ =?us-ascii?Q?IZ67ZeoC5uDlCAT5tJTjBJEUHW593QLdX8sthALoGnNif+nECQRbNy8JXz+t?=
+ =?us-ascii?Q?tMbRPktulwrWaJWtPnw5n5m9sgZfuSDNko003wkiwXx/5c71F3zBA46qVbD7?=
+ =?us-ascii?Q?pk0MxqQT0cMxkdCfHF+gQDi/ExYr760PFwFzHiyi9marwu9e7V3UtG/aV7Mb?=
+ =?us-ascii?Q?lZJ80x9JT6HhTmhw/77O5hF5rmuBKLtAHgaO0MqQGRPo1hC7QUhcMHsg3w10?=
+ =?us-ascii?Q?zRWWxRAPy/aKSNljMC8YRQUrUdXu5aQY9DpehtHXZw9HeKJp/HRoEEG1EqJs?=
+ =?us-ascii?Q?ehgGEgMand/M1B/iDPSR61YqxeQxcvEqHEZC/sXRkwpkm3GtdRqI5NSGar5B?=
+ =?us-ascii?Q?GsLbtPT92hz5q7/mLUQS8mhYeBSHpJ/kVyC4ups/beiBQR0mcKbSwRhsoolv?=
+ =?us-ascii?Q?2Pon3iLozS954d11XrT6JGvlpVOVOqW/3gHgtKNWplzrtxv97lkeCW4cyd+1?=
+ =?us-ascii?Q?LSrSisYI6SLg4mD9kImKearhd45RhgygzalG2z9KpgbIvobetrr7D1soZcW8?=
+ =?us-ascii?Q?/I+y5QNJTRXtf+Gm1bI8v0qAim5OzzDZXzz8ayaLXE8xBJ1cNefb25GumizW?=
+ =?us-ascii?Q?ZEOy9Olqn++I8/EzP+bMR1H/eOS6sueiXnzthIPmpNDyNuR1u4uqhW0PUCKu?=
+ =?us-ascii?Q?DRDcJm+bqxBg0xpK+Hk=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7687; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=QuoOFd8I0O91IyHHYYbLVeeFKUGtvwexJyPQTlJsxKA=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnKG3bdCqjD+kFfznlIAVOFLi0hJACxdKIJdHQs d8zimMeLKiJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZyht2wAKCRCPgPtYfRL+ TgZmCAC7iVNHyJXfgq1NuwUsLEKQCs0OdbK3FGJTFb087AzN3L8qoZWNQ/7naPMqAa/iO/4+GLC A2oKxi5X2YXXvN/Kvagsv2AIKk6AJIWZRiPsBFWj+Ps3gBnDLZgJ06lC7qiV+1i1/uGlT8iiVLZ vs03Vk0J5Z4QLsasSAI4jMdHc1DWGQ36eUKWoCE7UlpS9fKMTuh/6l7xI0DRyMSQbZ5jne7oyV6 iVuUCy8OTrl+hiJM3OKc27D8c5vO2QwVNuS2BuC/pmSLLBWDQ8MYAT0JekQ3ByC2urzrPcTq7QI fMrzr4D5inlV9p1UPCJQFs7/4VeLVbptwDWaOxKfcLSVvoUj
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7573caef-ff13-429a-ab3f-08dcfc9f78da
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Nov 2024 07:08:23.7337
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: okGvglCmn1GG+xAhUKnvbMGskVCAfpB6TSnwe3rBG4jZr9XIPWa4vXYD7Jl2dw3LUUSICbmP5Zk0Q/YzGW7vGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8200
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_224701_924886_CFDAAEF3 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20241103_230833_872526_B2D8B4D3 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,200 +167,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers.
 
-Convert all platform drivers below drivers/iommu to use .remove(), with
-the eventual goal to drop struct platform_driver::remove_new(). As
-.remove() and .remove_new() have the same prototypes, conversion is done
-by just changing the structure member name in the driver initializer.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
-Hello,
+> -----Original Message-----
+> From: Jakub Kicinski <kuba@kernel.org>
+> Sent: Monday, November 4, 2024 4:07 AM
+> To: Gupta, Suraj <Suraj.Gupta2@amd.com>
+> Cc: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
+> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>;
+> netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> <harini.katakam@amd.com>
+> Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Check if Tx queue enab=
+led
+>=20
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>=20
+>=20
+> On Wed, 30 Oct 2024 11:55:33 +0530 Suraj Gupta wrote:
+> > Check return value of netif_txq_maybe_stop() in transmit direction and
+> > start dma engine only if queue is enabled.
+>=20
+> The first patch makes sense, let me apply that one.
+> But this one I don't understand - what is the problem you're trying to fi=
+x?
+> netif_txq_maybe_stop() tries to stop the queue if the *next* packet may n=
+ot fit in the
+> queue. The currently processed packet is assumed to have already been que=
+ued.
 
-I did a single patch for all of drivers/iommu. While I usually prefer to
-do one logical change per patch, this seems to be overengineering here
-as the individual changes are really trivial and shouldn't be much in
-the way for stable backports. But I'll happily split the patch if you
-prefer it split.
+I was under impression that it tries to stop if "current" packet may not fi=
+t in the queue. This check won't be required then, thanks for applying firs=
+t patch.
 
-This is based on today's next, if conflicts arise when you apply it at
-some later time and don't want to resolve them, feel free to just drop
-the changes to the conflicting files. I'll notice and followup at a
-later time then. Or ask me for a fixed resend. (Having said that, I
-recommend b4 am -3 + git am -3 which should resolve most conflicts just
-fine.)
-
-Best regards
-Uwe
-
- drivers/iommu/apple-dart.c                  | 2 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 2 +-
- drivers/iommu/arm/arm-smmu/qcom_iommu.c     | 4 ++--
- drivers/iommu/ipmmu-vmsa.c                  | 2 +-
- drivers/iommu/msm_iommu.c                   | 2 +-
- drivers/iommu/mtk_iommu.c                   | 2 +-
- drivers/iommu/mtk_iommu_v1.c                | 2 +-
- drivers/iommu/omap-iommu.c                  | 2 +-
- drivers/iommu/riscv/iommu-platform.c        | 2 +-
- drivers/iommu/sprd-iommu.c                  | 2 +-
- 11 files changed, 12 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index eb1e62cd499a..c5bde50d1c42 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -1352,7 +1352,7 @@ static struct platform_driver apple_dart_driver = {
- 		.pm			= pm_sleep_ptr(&apple_dart_pm_ops),
- 	},
- 	.probe	= apple_dart_probe,
--	.remove_new = apple_dart_remove,
-+	.remove	= apple_dart_remove,
- };
- 
- module_platform_driver(apple_dart_driver);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 826db8894fb7..efbc78bffd33 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4679,7 +4679,7 @@ static struct platform_driver arm_smmu_driver = {
- 		.suppress_bind_attrs	= true,
- 	},
- 	.probe	= arm_smmu_device_probe,
--	.remove_new = arm_smmu_device_remove,
-+	.remove	= arm_smmu_device_remove,
- 	.shutdown = arm_smmu_device_shutdown,
- };
- module_driver(arm_smmu_driver, platform_driver_register,
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 8321962b3714..4e9bb9f4c4bd 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -2372,7 +2372,7 @@ static struct platform_driver arm_smmu_driver = {
- 		.suppress_bind_attrs    = true,
- 	},
- 	.probe	= arm_smmu_device_probe,
--	.remove_new = arm_smmu_device_remove,
-+	.remove = arm_smmu_device_remove,
- 	.shutdown = arm_smmu_device_shutdown,
- };
- module_platform_driver(arm_smmu_driver);
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index b98a7a598b89..9ce2fe50b22c 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -759,7 +759,7 @@ static struct platform_driver qcom_iommu_ctx_driver = {
- 		.of_match_table	= ctx_of_match,
- 	},
- 	.probe	= qcom_iommu_ctx_probe,
--	.remove_new = qcom_iommu_ctx_remove,
-+	.remove	= qcom_iommu_ctx_remove,
- };
- 
- static bool qcom_iommu_has_secure_context(struct qcom_iommu_dev *qcom_iommu)
-@@ -931,7 +931,7 @@ static struct platform_driver qcom_iommu_driver = {
- 		.pm		= &qcom_iommu_pm_ops,
- 	},
- 	.probe	= qcom_iommu_device_probe,
--	.remove_new = qcom_iommu_device_remove,
-+	.remove	= qcom_iommu_device_remove,
- };
- 
- static int __init qcom_iommu_init(void)
-diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
-index ff55b8c30712..074daf1aac4e 100644
---- a/drivers/iommu/ipmmu-vmsa.c
-+++ b/drivers/iommu/ipmmu-vmsa.c
-@@ -1159,6 +1159,6 @@ static struct platform_driver ipmmu_driver = {
- 		.pm = pm_sleep_ptr(&ipmmu_pm),
- 	},
- 	.probe = ipmmu_probe,
--	.remove_new = ipmmu_remove,
-+	.remove = ipmmu_remove,
- };
- builtin_platform_driver(ipmmu_driver);
-diff --git a/drivers/iommu/msm_iommu.c b/drivers/iommu/msm_iommu.c
-index 989e0869d805..ce40f0a419ea 100644
---- a/drivers/iommu/msm_iommu.c
-+++ b/drivers/iommu/msm_iommu.c
-@@ -838,6 +838,6 @@ static struct platform_driver msm_iommu_driver = {
- 		.of_match_table = msm_iommu_dt_match,
- 	},
- 	.probe		= msm_iommu_probe,
--	.remove_new	= msm_iommu_remove,
-+	.remove		= msm_iommu_remove,
- };
- builtin_platform_driver(msm_iommu_driver);
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index c45313c43b9e..72b68d037b95 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -1794,7 +1794,7 @@ MODULE_DEVICE_TABLE(of, mtk_iommu_of_ids);
- 
- static struct platform_driver mtk_iommu_driver = {
- 	.probe	= mtk_iommu_probe,
--	.remove_new = mtk_iommu_remove,
-+	.remove	= mtk_iommu_remove,
- 	.driver	= {
- 		.name = "mtk-iommu",
- 		.of_match_table = mtk_iommu_of_ids,
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index ee4e55b6b190..480e57ea6635 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -745,7 +745,7 @@ static const struct dev_pm_ops mtk_iommu_v1_pm_ops = {
- 
- static struct platform_driver mtk_iommu_v1_driver = {
- 	.probe	= mtk_iommu_v1_probe,
--	.remove_new = mtk_iommu_v1_remove,
-+	.remove	= mtk_iommu_v1_remove,
- 	.driver	= {
- 		.name = "mtk-iommu-v1",
- 		.of_match_table = mtk_iommu_v1_of_ids,
-diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-index 3f72aef8bd5b..b8ced5d0581c 100644
---- a/drivers/iommu/omap-iommu.c
-+++ b/drivers/iommu/omap-iommu.c
-@@ -1285,7 +1285,7 @@ static const struct of_device_id omap_iommu_of_match[] = {
- 
- static struct platform_driver omap_iommu_driver = {
- 	.probe	= omap_iommu_probe,
--	.remove_new = omap_iommu_remove,
-+	.remove	= omap_iommu_remove,
- 	.driver	= {
- 		.name	= "omap-iommu",
- 		.pm	= &omap_iommu_pm_ops,
-diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
-index da336863f152..382ba2841849 100644
---- a/drivers/iommu/riscv/iommu-platform.c
-+++ b/drivers/iommu/riscv/iommu-platform.c
-@@ -81,7 +81,7 @@ static const struct of_device_id riscv_iommu_of_match[] = {
- 
- static struct platform_driver riscv_iommu_platform_driver = {
- 	.probe = riscv_iommu_platform_probe,
--	.remove_new = riscv_iommu_platform_remove,
-+	.remove = riscv_iommu_platform_remove,
- 	.driver = {
- 		.name = "riscv,iommu",
- 		.of_match_table = riscv_iommu_of_match,
-diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-index a2f4ffe6d949..e84806eee281 100644
---- a/drivers/iommu/sprd-iommu.c
-+++ b/drivers/iommu/sprd-iommu.c
-@@ -531,7 +531,7 @@ static struct platform_driver sprd_iommu_driver = {
- 		.suppress_bind_attrs = true,
- 	},
- 	.probe	= sprd_iommu_probe,
--	.remove_new = sprd_iommu_remove,
-+	.remove	= sprd_iommu_remove,
- };
- module_platform_driver(sprd_iommu_driver);
- 
-base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
--- 
-2.45.2
-
+Regards,
+Suraj
 
