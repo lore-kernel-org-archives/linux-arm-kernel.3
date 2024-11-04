@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA4BD132A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC55D132A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBT4omu7lVco4BMm5XUNG7vIgR1mZZtpzsVwZM90Y7U=; b=ojUWvdr8hYLr5Pw7J09XrMgEF7
-	Nsj3oIssmDXkh5GXP19vdkQUKcuSCeVhwWajENsBD7c7wVXBSSwMIdDCUItnu45ZzPiV+OoEN+Y4I
-	EhFeQCBVREYcTIotKUd04pJeml1VfaFeFw+cUZsTQIApCGggQjKErd7WCRt9N5jVOiTpUq22gc6tp
-	0jGpkgwh7E/S+fi4z4jU/eh1cR3v3eB9h/IVnx7g4fQ+ZjrNNIvhvn3bckOfs2P9WK0vzECpvxyWH
-	7boG/hjjuQ6VlDYxw5CL197HFebGL1fRdu0/Cy3WofIijvf5w3X84uBgx8IzdOiAKoulOqNkx6Umu
-	MN5nuESw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k0AX5zW3xOotMnu0fE3qitweQ7iDEzxquKmOE/YQPbo=; b=bR1y2XTZSShNNyV+6jNJhfApID
+	pdKOb7/KdLcR4SSY988lZ7FcMlxwLQGg/Q9xbn410wa3fn7lixywkF8z5swhHNB04vJMs+rxmxwMP
+	cYlEqvccQfWAUJFA7uYnDy17MfM2AgIal40UQfmRpJpw3cFgRQoNQzQQ6uvTlZiGiaZEhLRx/6YDp
+	OKHl37bYeVx991vsuQB6hLvcOHJN3KiaSPVCDYFPSCZ1z+2ZuADsNqMnpjz+9JZVcGKd472UnVCEx
+	l/XMST/EMx75jGsdzRfSKQtJeBmrmScvN85a6eOQTLpl7yLDDO3nrs1lZ+swJjytDi8MZLoiMLOHw
+	QUCzx3Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tTA-0000000DANy-3Jmt;
-	Mon, 04 Nov 2024 09:33:56 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t7tXG-0000000DB4Y-1ewC;
+	Mon, 04 Nov 2024 09:38:10 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tRR-0000000DA6V-3wb5
+	id 1t7tVW-0000000DAcx-24oy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 09:32:11 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a99e3b3a411so771771466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 01:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730712728; x=1731317528; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gBT4omu7lVco4BMm5XUNG7vIgR1mZZtpzsVwZM90Y7U=;
-        b=xxD/ySkb/26nyISp7Lj7IY1c/RA5F5g92I2R8pIxBHZyKujtXgjJAGpgatX6XMuSUm
-         Nd5PMUGhkhUpOqrQthSKBVqw+Lsh+KSsiBFVlqfMe4KGlI6tSni2KVQpefeljJNLQ2xx
-         DHCXaYLEtq2kRPjnm8O8S7ZXyFPiPgBF23kf5thSIiV0j0X2MdM7J4BDZcSk0Us8OGzC
-         hR8UtA6tschQSW3G+n9RQAoS6p/KZODIu7mkbNppOC+yu5ZBW+VZianF4V7wnFO6wm+x
-         85poizsMDOfMjftenrCS4PfPLBDBX4z0Klfm+Z9luCqbUuu6trqycPvLj6yqy5MW//hA
-         lIrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730712728; x=1731317528;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gBT4omu7lVco4BMm5XUNG7vIgR1mZZtpzsVwZM90Y7U=;
-        b=SVWNHqpHw9a3gWR4QccePR2nm7VkmlSOnTkl9siSUKbaqRE4yZOLFGbgswb+ssAhcW
-         3VQmsQlyVcOlRAt4wwXnkyAKBN0emYb3hWT+39S93OYTvlLlh+WVNh84uO6HcREK2pgC
-         d164a/7OmyG9kr9MsMsDbWBAud2tGCueQxKULtcs2uPCuBpnW4P1cH1jjn3utOFxcOmt
-         wBoPVHIiNEbFPe0IquSAcVgcixh8SvzkgAlnFmx07eE2MP88g/IzIqHtM+6MEeSTQ/YT
-         ePOPXV5QGU94itOhhHcUhLiKG3JuWrqICA98RTil+nzgGTAP+2zf07O9hvD8aH4XAEEX
-         1HyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXcnTvY56WFPUhObfmsZo+XzoJcW4xnQL/TWVJqVsWj9hH12GoXm0AKWEjzfBF/vqqB0KJvmuda0FfKxpAdekmq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6+nzKkltOMJdikOKdn4gA+0KjRPq0A2TjUQr7YAvyFnU6y4xR
-	ud34MdvX5BOTEyk0bYCKfThjkaeRF164Anve1Q6DXvkvbI9uCdQG3kZSH80anu0=
-X-Google-Smtp-Source: AGHT+IFP7uDPMOtcJPWpn+z+rM3OxxIslWfpFco2yog0FSQmlxVhhiL3Isz0ruKyu2Q9v3QrVvfTVw==
-X-Received: by 2002:a17:907:86a6:b0:a9a:bbd1:aa5 with SMTP id a640c23a62f3a-a9e65499cdfmr911473866b.31.1730712728095;
-        Mon, 04 Nov 2024 01:32:08 -0800 (PST)
-Received: from localhost (p50915d2d.dip0.t-ipconnect.de. [80.145.93.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e564c53d6sm530652866b.68.2024.11.04.01.32.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 01:32:07 -0800 (PST)
-Date: Mon, 4 Nov 2024 10:32:06 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: George Stark <gnstark@salutedevices.com>
-Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, linux-pwm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@salutedevices.com
-Subject: Re: [PATCH v2 2/4] pwm: meson: Support constant and polarity bits
-Message-ID: <w3igi2jmva6mfa7anlieyp3iiwfzhsvi3t37wwcqqtzdy42fqn@btmdsfsmpw7r>
-References: <20241016152553.2321992-1-gnstark@salutedevices.com>
- <20241016152553.2321992-3-gnstark@salutedevices.com>
+	Mon, 04 Nov 2024 09:36:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730712982; x=1762248982;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=n06aomNea54LOIjl4FdYmKdQ3SaJdgCBi4KWYyxFzVE=;
+  b=Kk6dyaXj9YAlUeD7r3M6mVfPiH26deblUc+K0A1Aj8c+JbVGEkJyGDli
+   BMaF6SxgoUl1xue73Milcc5DxpxEWZe1WWJmU45yPdXEz2pSTpNHHUfdV
+   Idr4xUBRsyq2UoGPdwU24Tq9Y8NxlIFISPrwlWLhd3IuAUS3j4FiJpNfl
+   PmxUEaGTtw7R2GdipUIpUSkAIgUF0SPw6WtpHM4jRwY60a3ufpj5asfq5
+   mqTWZaBDL2a5nBG7OzPPoXUdhpfo6kAKvABhCcK+mH3MrlpLufDg+Pff1
+   wi5C6CD2JkzRCj/neXd+NkjHBV1/6maROGTe5P1s/lCyLEj96ELmpXmjq
+   A==;
+X-CSE-ConnectionGUID: OwOts5bsTcmvcMTmV062FA==
+X-CSE-MsgGUID: KmOvwloqQoeSApdGSXzHlQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11245"; a="30278741"
+X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
+   d="scan'208";a="30278741"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 01:36:16 -0800
+X-CSE-ConnectionGUID: 8Yb4jDMESFapTW0806TxMw==
+X-CSE-MsgGUID: msVvaH3ITSCCm1JSxsXAwA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
+   d="scan'208";a="83481188"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orviesa009.jf.intel.com with ESMTP; 04 Nov 2024 01:36:12 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 8F47E1C4; Mon, 04 Nov 2024 11:36:10 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Lee Jones <lee@kernel.org>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pavel Machek <pavel@ucw.cz>,
+	Dominik Brodowski <linux@dominikbrodowski.net>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: [PATCH v1 0/6] gpio: Get rid of deprecated GPIOF_ACTIVE_LOW
+Date: Mon,  4 Nov 2024 11:34:18 +0200
+Message-ID: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3rn6i6zl2o5dcpxg"
-Content-Disposition: inline
-In-Reply-To: <20241016152553.2321992-3-gnstark@salutedevices.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_013210_185522_651E1A07 
-X-CRM114-Status: GOOD (  29.84  )
+X-CRM114-CacheID: sfid-20241104_013622_604737_5848017B 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,145 +99,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series targets the deprecated GPIOF_ACTIVE_LOW as only a few users
+left. Convert those users to call modern APIs and drop this legacy piece
+from the source tree.
 
---3rn6i6zl2o5dcpxg
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/4] pwm: meson: Support constant and polarity bits
-MIME-Version: 1.0
+The idea is to route this via GPIO tree, please Ack.
 
-Hello George,
+Andy Shevchenko (6):
+  Input: gpio_keys - avoid using GPIOF_ACTIVE_LOW
+  Input: gpio_keys_polled - avoid using GPIOF_ACTIVE_LOW
+  leds: gpio: Avoid using GPIOF_ACTIVE_LOW
+  pcmcia: soc_common: Avoid using GPIOF_ACTIVE_LOW
+  USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
+  gpio: Get rid of GPIOF_ACTIVE_LOW
 
-there are two minor things I dislike in this patch/driver. But I'm not
-sure the alternatives are objectively considerably better. See below and
-judge yourself.
+ drivers/gpio/gpiolib-legacy.c             |  3 ---
+ drivers/input/keyboard/gpio_keys.c        | 10 ++++------
+ drivers/input/keyboard/gpio_keys_polled.c | 12 +++++-------
+ drivers/leds/leds-gpio.c                  |  9 ++++-----
+ drivers/pcmcia/soc_common.c               | 12 +++++-------
+ drivers/usb/gadget/udc/pxa27x_udc.c       |  7 ++++---
+ include/linux/gpio.h                      |  3 ---
+ 7 files changed, 22 insertions(+), 34 deletions(-)
 
-On Wed, Oct 16, 2024 at 06:25:51PM +0300, George Stark wrote:
-> Newer meson PWM IPs support constant and polarity bits. Support them to
-> correctly implement constant and inverted output levels.
->=20
-> Using constant bit allows to have truly stable low or high output level.
-> Since hi and low regs internally increment its values by 1 just writing
-> zero to any of them gives 1 clock count impulse. If constant bit is set
-> zero value in hi and low regs is not incremented.
->=20
-> Using polarity bit instead of swapping hi and low reg values allows to
-> correctly identify inversion in .get_state().
->=20
-> Signed-off-by: George Stark <gnstark@salutedevices.com>
-> ---
->  drivers/pwm/pwm-meson.c | 63 ++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 56 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-> index 2ef632caebcc..974c3c74768c 100644
-> --- a/drivers/pwm/pwm-meson.c
-> +++ b/drivers/pwm/pwm-meson.c
-> @@ -6,7 +6,7 @@
->   * PWM output is achieved by calculating a clock that permits calculating
->   * two periods (low and high). The counter then has to be set to switch =
-after
->   * N cycles for the first half period.
-> - * The hardware has no "polarity" setting. This driver reverses the peri=
-od
-> + * Partly the hardware has no "polarity" setting. This driver reverses t=
-he period
->   * cycles (the low length is inverted with the high length) for
->   * PWM_POLARITY_INVERSED. This means that .get_state cannot read the pol=
-arity
->   * from the hardware.
-> @@ -56,6 +56,10 @@
->  #define MISC_B_CLK_SEL_SHIFT	6
->  #define MISC_A_CLK_SEL_SHIFT	4
->  #define MISC_CLK_SEL_MASK	0x3
-> +#define MISC_B_CONSTANT_EN	BIT(29)
-> +#define MISC_A_CONSTANT_EN	BIT(28)
-> +#define MISC_B_INVERT_EN	BIT(27)
-> +#define MISC_A_INVERT_EN	BIT(26)
->  #define MISC_B_EN		BIT(1)
->  #define MISC_A_EN		BIT(0)
-> =20
-> @@ -68,6 +72,8 @@ static struct meson_pwm_channel_data {
->  	u8		clk_div_shift;
->  	u8		clk_en_shift;
->  	u32		pwm_en_mask;
-> +	u32		const_en_mask;
-> +	u32		inv_en_mask;
->  } meson_pwm_per_channel_data[MESON_NUM_PWMS] =3D {
->  	{
->  		.reg_offset	=3D REG_PWM_A,
-> @@ -75,6 +81,8 @@ static struct meson_pwm_channel_data {
->  		.clk_div_shift	=3D MISC_A_CLK_DIV_SHIFT,
->  		.clk_en_shift	=3D MISC_A_CLK_EN_SHIFT,
->  		.pwm_en_mask	=3D MISC_A_EN,
-> +		.const_en_mask	=3D MISC_A_CONSTANT_EN,
-> +		.inv_en_mask	=3D MISC_A_INVERT_EN,
->  	},
->  	{
->  		.reg_offset	=3D REG_PWM_B,
-> @@ -82,6 +90,8 @@ static struct meson_pwm_channel_data {
->  		.clk_div_shift	=3D MISC_B_CLK_DIV_SHIFT,
->  		.clk_en_shift	=3D MISC_B_CLK_EN_SHIFT,
->  		.pwm_en_mask	=3D MISC_B_EN,
-> +		.const_en_mask	=3D MISC_B_CONSTANT_EN,
-> +		.inv_en_mask	=3D MISC_B_INVERT_EN,
->  	}
->  };
+-- 
+2.43.0.rc1.1336.g36b5255a03ac
 
-So the generic register description describes the const and invert bits,
-but it doesn't apply to all IPs. Thinking about that, I wonder why this
-struct exists at all. I would have done this as follows:
-
-	#define MESON_PWM_REG_PWM(chan)		(0 + 4 * (chan))
-
-	#define MESON_PWM_REG_MISC		(8)
-	#define MESON_PWM_REG_MISC_EN(chan)		BIT(chan)
-	#define MESON_PWM_REG_MISC_CLK_SEL(chan)	GENMASK(5 + 2 * (chan), 4 + 2 * (=
-chan))
-	....
-
-and then use these constants directly (with pwm->hwpwm as parameter if
-needed) in the code. I would expect this to result in more efficient and
-smaller code.
-
-> @@ -227,6 +252,15 @@ static void meson_pwm_enable(struct pwm_chip *chip, =
-struct pwm_device *pwm)
-> =20
->  	value =3D readl(meson->base + REG_MISC_AB);
->  	value |=3D channel_data->pwm_en_mask;
-> +
-> +	if (meson->data->has_constant)
-> +		meson_pwm_assign_bit(&value, channel_data->const_en_mask,
-> +				     channel->constant);
-
-Personally I'd prefer:
-
-	value &=3D ~MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
-	if (meson->data->has_constant && channel->constant)
-		value |=3D MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
-
-even though your variant only mentions the mask once. While it has this
-repetition, it's clear what happens without having to know what
-meson_pwm_assign_bit() does. Maybe that's subjective?
-
-Best regards
-Uwe
-
---3rn6i6zl2o5dcpxg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcolJMACgkQj4D7WH0S
-/k5SmQf5AVHb+2560do8K6cpJeSamFxUb+0mKHgotG6R/mQStG7hRiLWlR3PAVOF
-iYSCZjorNJU44x/PBKG/mxlUJB5WiIy00ONqhivhr7Gh6n+KtyJBWMCcVZHiVktp
-6NcUGOCN/j7e1VjzGgL3oVaMk+eir+so5qsQ5Ptg7bD20YGkv1zQAAAF/Z/MkVBP
-CtV24+C5MHYn2a2BLcKcJ6+d6t+JAK6t4LQszmhYSaCq+cutcQ58rfXtx2zGLa10
-jBmyA3FYtcsQsv5gVLQxi5RxZSCuF+BwyMt0tdVubF3PF0Ba+3Mi5LgRIE2MdLW1
-r5YAWOH6z+iQA7gJhobnVcBh0QSpsQ==
-=217M
------END PGP SIGNATURE-----
-
---3rn6i6zl2o5dcpxg--
 
