@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AA3D132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0046D132B4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F6dYAwZ9/bdrvlhmbF4tqEkTAK8jQxmDHhN0h53JYs4=; b=zxsoC2QVkKRt173oazSunT/qt6
-	coeLSRaFQVGN8atXHZvCYAy9bEVhQ4s0RuDFSNrnEDIbDuffm/0Vu0zbGp8Gyg+pGofgCvbfkFCQ3
-	qIxipKf+q+i3iHq4nKA9DgIpXASyLmXXW1X6e/3hbi71bxXk8FihxP9yBBRjrsyW4SqnpRSE2WhBX
-	JWye8NAKSzTvnBSckL/nhjm3+C6RI8U9wqdK68UY0tAd1AtvaqXcdJyo0YwQz5TWG9O+0lcrkjIxJ
-	lNWzIMzaXWBdgDhX30KY2ru4QD+0IYdjNlIslOtOAJfpgAC2pl9zkSVMPGnefbkA6e9w5WfnSX9Jr
-	VjEi4OXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b/8Rj+ll4xmJpAgQwRFULejLJ462aBUN9BpO1b7fUiI=; b=hGMHPvDEau/SVNo18EmFUnFLa2
+	//eYy3N+8GkVPofHpj8rCXWACdKIp+4KjnPYonKANBPr9KFdOPbivfB4q9n32EuCrKjV+MECILcEX
+	L6IHT8xS1VckL+XVIA6AOc5+ED2gKAzWbUA6BqymJCHHkxwHORcy7/F7N/SF5oOTRWdbME1Wgk3B+
+	wlbVNGpbyGCsJFSXKfyVSyerBktFA9Q6sfrbhmMOhrFffyEJsuJ/kdsGNpS7ON1LesBU8Qv/wcw1X
+	nSwckmXdSWWp3oZ55n2qCwmx75oDxbkMr4tJ4mdlMY7RX9UYYWj+71tfAkVFeRKv+i7ft1tmLhrfV
+	CetWyReA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vYp-0000000Dagu-44z7;
-	Mon, 04 Nov 2024 11:47:56 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1t7vaa-0000000Db6k-0jKV;
+	Mon, 04 Nov 2024 11:49:44 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vOF-0000000DYfp-0WzY;
-	Mon, 04 Nov 2024 11:37:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XhqC51bcnz2Fb27;
-	Mon,  4 Nov 2024 19:35:13 +0800 (CST)
-Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id BEE361A0188;
-	Mon,  4 Nov 2024 19:36:51 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
- (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 4 Nov
- 2024 19:36:51 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <rafael@kernel.org>, <viresh.kumar@linaro.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <hector.yuan@mediatek.com>,
-	<lukasz.luba@arm.com>, <qperret@google.com>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2] PM: EM: Fix wrong return value in mtk_cpufreq_get_cpu_power()
-Date: Mon, 4 Nov 2024 19:36:15 +0800
-Message-ID: <20241104113615.1397410-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1t7vRF-0000000DZM0-08wM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 11:40:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730720381; x=1731325181; i=wahrenst@gmx.net;
+	bh=b/8Rj+ll4xmJpAgQwRFULejLJ462aBUN9BpO1b7fUiI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=P27KsnWvXb3p8seK7CdTpQwZJv+ajTYoGusu45XUUvcg9pEwFUhwLJElBwooJDvz
+	 YqlD1mGexa83y5y0vniGfg3cXSjrqtaZX9/2nFaqpNAr9C0rlMO65BultHblIM88M
+	 2zYJW5M/+NxCoRte76rJbnm6Wlcr5CuKSoD32i1Y6KX70b8wvSB5GV+r1/lLgg7tR
+	 Nj9XysPNAeUVSZ163uW7bGWeGkLKINEW6T597vAZJ3H95dOgy1DLuhzq6zWvrnxrA
+	 0n9F+raM2VBD4LNGisSzRTnMHGKQ+nu1PAmEYecR32fjCwQ9CCn79EAmE9gBB1NYJ
+	 JS3bm9TanNOG7jGSCw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MIMfc-1t4Ztx2DCe-001TxB; Mon, 04
+ Nov 2024 12:39:41 +0100
+Message-ID: <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net>
+Date: Mon, 4 Nov 2024 12:39:40 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemg200008.china.huawei.com (7.202.181.35)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: Shawn Guo <shawnguo2@yeah.net>, linux@armlinux.org.uk,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, elinor.montmasson@savoirfairelinux.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ Stefan Eichenberger <stefan.eichenberger@toradex.com>
+References: <20241030122128.115000-1-eichest@gmail.com>
+ <ZyXTFhEm9UCBii2c@dragon> <ZyY41nJY9ghwe-Y4@eichest-laptop>
+ <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
+ <ZyiAMpjmXuVMi5FX@eichest-laptop>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <ZyiAMpjmXuVMi5FX@eichest-laptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:i/Ff28dwutGChcGoN0CcwsmrcFyQ0cuAnKhb/YZT6ZjH0zaQ0pp
+ ZFZFY8D5HTEuTp8ow/BpcV9BFi6nixpw/w4wL8cj1SnGYC0Dvv08URliCvK5/1xAXKW8gX8
+ ZE3aMei11B8xUEHC8ozZe0+E3Iz0tYY21P+7VRm6gFjTKxGik6fQUPJjMLjGuWyWo+wMQ7/
+ v55ovpJ87i9Z5mR9jU78Q==
+UI-OutboundReport: notjunk:1;M01:P0:USca7qz7HGU=;jP9qSUW+W0J7zyAKcKBoMjwUm4p
+ Lo0q+L660AgjqhYFXdhddQ2G1A/003kLKpgOV6b8XklfW4yDsqRTyNfibQnc6icnJ0hakOeZJ
+ ZTyEzaeLTMTqTnK85K7f/jRiL6gBELdWEeALXK7GwLH3537A04jJKDsA8h88/iNl2WRZ6y/Md
+ BvLK+owpesJpme2sWT/Q+n6Uk/XShUU2AYU1wMfzu0xuL8F2oTmv+7rGmcAyPtXb+E70UtXk7
+ XOQJMkzK1mT6NqeMTK+5jJYQh1St39Ug11NAZ4BxmGAq8PCOLenKmtIRddqgt3SMUITDd2pjl
+ ckYs5ey92mhnqEWOaAnKVeM/ep432mQ2GsYJXL6oAa/dfuzkHYNx2OH7K+ISSw5jDiC3TfGVe
+ 0fGggUjAqF1GXRmrU2XXVuYqNcMRNm432VWrua+5edvFW/Q09QIX3bsZnZJeC2b0s/g8nM3yn
+ RX7Zpl/AMpmsH2jMfzBLjR3Q6zjC1LDLj6XmabduI0t8P2W6Y4xEyj0KgFg8FgxtuABRecF3g
+ TpBiZw4+4LOp8S3ojfhkkxUNVzzuVyH2r2S2SojSn8L42U+5gA/tl6RlUSqoEkk+g2HNUWHDq
+ hvMKPj2baCj7GB7Q3UCsW3/3LAgRMjXdgHZMxnVWNG4X6gy5l8/IweRWlxROmLaMh4QWRUx6s
+ +dtQs61hNZi6hsQP/fiM1yOXHOM0ZWRa7CgQ/xI+lIErTm/NpgtHzNG/W7RPVcTIQMv6fINFY
+ 5r09LJwrRikMivkWzwdD6ehWlsB6wWJ8HJgQ+2wFD4QN7lwhxPDEy6H7dSHjBwzaYN62nsMi4
+ OfYLkJfNSh0o27ZWV5voGlJQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_033659_351884_35771E14 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20241104_034005_484614_842A76B1 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,38 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_cpufreq_get_cpu_power() return 0 if the policy is NULL. Then in
-em_create_perf_table(), the later zero check for power is not invalid
-as power is uninitialized. As Lukasz suggested, it must return -EINVAL when
-the 'policy' is not found. So return -EINVAL to fix it.
+Hi Stefan,
 
-Cc: stable@vger.kernel.org
-Fixes: 4855e26bcf4d ("cpufreq: mediatek-hw: Add support for CPUFREQ HW")
-Suggested-by: Lukasz Luba <lukasz.luba@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v2:
-- Fix the driver instead of em_create_perf_table() as suggested.
-- Update the commit message.
-- Add Suggested-by.
----
- drivers/cpufreq/mediatek-cpufreq-hw.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Am 04.11.24 um 09:05 schrieb Stefan Eichenberger:
+> Hi Stefan,
+>
+> On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
+>> Hi Stefan,
+>>
+>> Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
+>>> Hi Shawn,
+>>>
+>>> On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
+>>>> On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
+>>>>> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+>>>>>
+>>>>> Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. =
+This
+>>>>> change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif s=
+ound
+>>>>> card node properties") which moves away from the old "spdif-controll=
+er"
+>>>>> property to the new "audio-codec" property.
+>>>>>
+>>>>> Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node p=
+roperties")
+>>>> It doesn't look a fix to me.
+>>> I agree somehow, it was just that before the referenced commit our tes=
+t
+>>> succeeds with the imx_v6_v7_defconfig and after that we get the
+>>> following error:
+>>> [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-=
+card: snd_soc_register_card failed
+>> this error should have been in the commit message including the
+>> information which platform/board is affected.
+> Okay, I will add this information to the next version. We see this error
+> on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
+>
+>>> So maybe it is not a fix in the sense of a bug, but it fixes the error
+>>> message. However, I'm also fine with removing the Fixes tag.
+>> But this patch doesn't look like the real approach.
+>>
+>> Could you please clarify the impact of the regression?
+> So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
+> update spdif sound card node properties") the audio driver was
+> using an implementation of linux,spdif-dit and linux,spdif-dir which was
+> directly inside the fsl,imx-audio-spdif compatible driver. Now with the
+> referenced commit the idea is to use the more generic linux,spdif-dir
+> and linux,spdif-dit compatible drivers. That's why this driver must be
+> enabled in the kernel configuration.
+>
+>> Is it just this error message and audio works fine or is audio also bro=
+ken?
+> It is not just the error message, audio is not working because the
+> driver deferes and because it is not enabled it will never succeed to
+> load. I don't know if this is called a regression, because the driver is
+> there it is just not enabled in the imx6_v7_defconfig. I thought because
+> a lot of the i.MX6 based board use the generic driver, it makes sense to
+> enable it in the imx_v6_v7_defconfig.
+okay, thanks for the clarification. From my understanding
+imx6_v7_defconfig is just an example config for testing. All possible
+users of these boards might have their own configs and stumble across
+the same issue. So I thought it would be better to add the dependency in
+the Kconfig of the FSL audio driver.
 
-diff --git a/drivers/cpufreq/mediatek-cpufreq-hw.c b/drivers/cpufreq/mediatek-cpufreq-hw.c
-index 8925e096d5b9..aeb5e6304542 100644
---- a/drivers/cpufreq/mediatek-cpufreq-hw.c
-+++ b/drivers/cpufreq/mediatek-cpufreq-hw.c
-@@ -62,7 +62,7 @@ mtk_cpufreq_get_cpu_power(struct device *cpu_dev, unsigned long *uW,
- 
- 	policy = cpufreq_cpu_get_raw(cpu_dev->id);
- 	if (!policy)
--		return 0;
-+		return -EINVAL;
- 
- 	data = policy->driver_data;
- 
--- 
-2.34.1
+I'm not that audio driver expert and don't know how the dependency
+handling between the FSL audio driver and the required codecs like
+SND_SOC_SPDIF. So it's possible that I'm completely wrong here and your
+approach is the best we can do.
 
+Best regards
 
