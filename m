@@ -4,121 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA985D111B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292C7D1CA01
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 22:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=fryXWs+i6HfTW9IZQIbfX8tSTR
-	ui83ohfTiRq/mRXznepidyjYj7QVn36YRlkFjT6miAwIf8Yq2oleCs9kRUEyQgEEFT63ob5KBSK2U
-	hpl3YzS+QEq/wgS1IZbsg4GVfq1IlxFTnqBZPO1465EkLOtz7SnY5NG3YVNP2TTEjvt9GQKOVYI8r
-	bGpEQ1DGa0m0enJ3QZ4NEikr7ypWyker0ctea+WhiiJg1qj2YdlGqVmMY2LKcqcfErzFkCrZeRprM
-	p7p1p7Z9McUVjzB65VvJ0QUus/WWHPy2qZxEKKt+EVQpTsdQUlgWl0rA1G9Lk/w/+LuIPfcZryG6B
-	0STF8moA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VY9tkcWTPJUgfHHmT3U5Z7yTaauPqUOAetmWDprOH4c=; b=Xl0xF6zyCoyqcS+ORwMBPKPoKd
+	gDzqZGwfsOb7NXe93RZZLPTC+I0Q8lI+UeZSdGVfSkupTf7rJygssYuDS+EskZtOv/jSSghlcnbZU
+	HLlSWPFa/qXbDWNAYviBKgaKWqCz8ERrviWKGvCQzj3UNf3rEKJ8GELEPXdyr14Fx+WBnk8deZ2Vi
+	a5fdDHC0m5Um3aEhOLo8r3GoiwsYA7oH2Zq1IR5vmdxnWCozm6SuSNKLL2Vb/pedw+jCqgOs/OFRw
+	HroWzCja+ZvXgpWT1sZ1yrt4kZ5/F4GvWBxGqxZidS4lF2d358ZXOFLJq8Bu32XS+wlgJ+VMOWwDk
+	34U57dGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84yt-0000000FE6S-2u4T;
-	Mon, 04 Nov 2024 21:51:27 +0000
+	id 1t859k-0000000FFPb-2qeU;
+	Mon, 04 Nov 2024 22:02:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84x2-0000000FDnH-3Scm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 04 Nov 2024 21:49:32 +0000
+	id 1t8584-0000000FFIr-0hcX;
+	Mon, 04 Nov 2024 22:00:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=NdSZZ6gAoYM+FWfIoOSsH59x2n
-	jaGMMDKmmE0p1/pScyDBbbqXn7w36umK1J1Bmhwnfg3l3MsTbQpz8tD9VT6gGSPfsw0rsYDgTv3Q6
-	ppkPJDnJ4KRQpkZsoma+5RGt6ffAWJQVfBiLXp+7zjwh0yJWPKLZaKkoUB/x068zdD2HNrJbWE/Xd
-	ENyg3d+mCIqRdT9BQEW4kBRoKYl63o1tMPYRaubLgo11mF2ODvF9+n32M++Ytn4xTPO7cqaAc+P/T
-	ZaHZabjjkeFDIXuDqQD74sQIHqr7CNEipsceKhlZwmsGXNHWXI3aKYP3bq2ljp1NlLgPJLw3hMsyi
-	vyo7f9pg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=VY9tkcWTPJUgfHHmT3U5Z7yTaauPqUOAetmWDprOH4c=; b=bcSGTo/XN1fFva9h7iZd06Q9ob
+	1sN23pvjYZwwq231qYFFzUscXakKn4U4OqPf/l7VDsKdCX3/8M2ZDdL9EsS6UqzJuR2exyLjh6qCy
+	djzXWVQq/K0P1xFS/tPvB40JCiyvSfPoWrOZdxtEFr5ZLHuR4WRJI8YUPv+3r53IOLobzzOf5nCtW
+	OYqXXK9/DQKmU05LncUv+9lG7F+kdzzzpSTSrSZ5acjidUBtGXNS8w0IF3kA09I0J79Us5bSZlEo4
+	XRf/p9GaZyPTCU0qCM1c8VXLgJW7n/9y3NXuuFmDmtZB9LvwK68FW5zgGdEHQ1aKNVPrLPvbFrIMW
+	NWESqU5A==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84wz-0000000BaXL-0Ytb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 21:49:31 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4LIoAM021589;
-	Mon, 4 Nov 2024 21:49:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hdewSeTalDhtOcLJsoqnljsUr3/ztd7Lz3JXE3vL+X0=; b=QgU7/hbyqCQQYFxZ
-	4JVW0m6daLV78oA0mqQJJ1Lsf5t+p7xLsOcoQlFwf6gPlex5kBH4ZIXMm2yJlO/o
-	UF06dKN983NsXXM0y9ievvPGdNfBXPqU5uKIOBZLOAo+coVCvxeXt2eihf81zW/y
-	j8dI45HYfB9Pt67gFRfHF67gy0YJE+fMKgN9VJqdN+ud6YLztE/jzOUkB1jtuA6e
-	11cbOEeBInHd4u54muW1kOLfbCtjysIHc0Q0mRy/bTg9tYMy6IXG1ZbNexjaTEpc
-	OciLrN1ZJamKIr8SapJtSg0fL0HzgDx6FyDIQD4eW6A52UHvHcD9iiyx1KbpLBSp
-	5ZOE9Q==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42ncyxwgyj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 Nov 2024 21:49:12 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A4LnB35000548
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 4 Nov 2024 21:49:11 GMT
-Received: from [10.110.8.191] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 4 Nov 2024
- 13:49:07 -0800
-Message-ID: <f2de77a4-d457-40d6-9651-66c2b24af378@quicinc.com>
-Date: Mon, 4 Nov 2024 13:49:02 -0800
+	id 1t857t-0000000Bauk-3F07;
+	Mon, 04 Nov 2024 22:00:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2AFA55C4CFB;
+	Mon,  4 Nov 2024 21:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 244E3C4CECE;
+	Mon,  4 Nov 2024 22:00:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730757641;
+	bh=+VNwD/bhJNlJ4Sdav4k2eb5Sxm4/XDUeAcINK2T1xvI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=K4L6yKwAxI9ReGi4IgdFDHSO/dOJfh2+ybOFRdVjT/DKszNgF5Kl6ipHld/hwCJNn
+	 gOPj0YYseZrnYeShBn2r2Mkh+ILYIpqYuaxY7WGomcgB7MQ1eLRfZFKOzCJSRJ19a6
+	 f1VgxRpCDLS30PkTCetfZuJuij2SumKirrq1QuNH3XzGpvGoDlaskdHIV8r/fXdenZ
+	 ila2hhWji/tXeixvKxSp9qN4hQZegVvfMUBCMUqEDdgWT/DWHk4JStfQHaJDuHhoKV
+	 0WEY4MGrtEX4c1c9/M47N65YxJXrwjVKUNyFXWxMuhBzQiD0HZEvMG5CiGePbdzCW6
+	 UKCH2nKUld2Hg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 04 Nov 2024 23:00:05 +0100
+Subject: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via PCIE_RSTB
+ for Airoha EN7581 SoC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1] net: stmmac: Disable PCS Link and AN interrupt
- when PCS AN is disabled
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-        Serge Semin
-	<fancer.lancer@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        "David S . Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        "Paolo
- Abeni" <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Simon Horman <horms@kernel.org>, "Jon
- Hunter" <jonathanh@nvidia.com>,
-        <kernel@quicinc.com>
-References: <20241018222407.1139697-1-quic_abchauha@quicinc.com>
- <60119fa1-e7b1-4074-94ee-7e6100390444@lunn.ch>
- <ZxYc2I9vgVL8i4Dz@shell.armlinux.org.uk>
- <ZxYfmtPYd0yL51C5@shell.armlinux.org.uk>
- <89f188d2-2d4e-43bf-98f3-aae7e9d68cab@quicinc.com>
- <5e5783f0-6949-4d04-a887-e6b873ae42ff@quicinc.com>
- <bc891f4e-4a3a-4664-b52c-871d173b7607@lunn.ch>
-Content-Language: en-US
-From: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>
-In-Reply-To: <bc891f4e-4a3a-4664-b52c-871d173b7607@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: Xi3iw7wjqsh69AY8gTh4haDt0C0NFoyi
-X-Proofpoint-GUID: Xi3iw7wjqsh69AY8gTh4haDt0C0NFoyi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
- malwarescore=0 bulkscore=0 impostorscore=0 priorityscore=1501
- lowpriorityscore=0 mlxscore=0 phishscore=0 adultscore=0 mlxlogscore=535
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411040174
+Message-Id: <20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAORDKWcC/32NQQ6CMBBFr0Jm7Zi2QAVX3sOw0DqFiaYlU9JoC
+ He3cgDzV+8n//0VEglTgnO1glDmxDEUMIcK3HQLIyE/CoNRplG9UTg7JqRwajuNkhb0/MZOW23
+ bzunaNVCWs1Cpd+t1KDxxWqJ89pOsf+1/X9ZYopra323tvesvT5JAr2OUEYZt274ZHstQtwAAA
+ A==
+X-Change-ID: 20240920-pcie-en7581-rst-fix-8161658c13c4
+To: Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ upstream@airoha.com, Hui Ma <hui.ma@airoha.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_214929_717904_D9632B4E 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20241104_220046_423234_3804A79B 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,25 +98,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+causing occasional PCIe link down issues. In order to overcome the
+problem, PCIE_RSTB signals are not asserted/released during device probe or
+suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+(0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
+module.
+Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+specify per-SoC capabilities.
 
+Tested-by: Hui Ma <hui.ma@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+  reset callback
+- fix the leftover case in mtk_pcie_suspend_noirq routine
+- add more comments
+- Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
+---
+ drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++---------
+ 1 file changed, 41 insertions(+), 18 deletions(-)
 
-On 10/25/2024 5:44 AM, Andrew Lunn wrote:
->> Serge can you please respond on the PCS support in stmmac ?
-> 
-> Unfortunately, Serge has been removed as Maintainer of stmmac as part
-> of the Russian  sanctions.
-> 
-> stmmac currently has no active Maintainer.
-> 
-> 	Andrew
-That's very unfortunate that Serge is removed as Maintainers. 
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..8e4704ff3509867fc0ff799e9fb99e71e46756cd 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -125,10 +125,18 @@
+ 
+ struct mtk_gen3_pcie;
+ 
++enum mtk_gen3_pcie_flags {
++	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
++				   * during device probing or suspend/resume
++				   * phase in order to avoid hw bugs/issues.
++				   */
++};
++
+ /**
+  * struct mtk_gen3_pcie_pdata - differentiate between host generations
+  * @power_up: pcie power_up callback
+  * @phy_resets: phy reset lines SoC data.
++ * @flags: pcie device flags.
+  */
+ struct mtk_gen3_pcie_pdata {
+ 	int (*power_up)(struct mtk_gen3_pcie *pcie);
+@@ -136,6 +144,7 @@ struct mtk_gen3_pcie_pdata {
+ 		const char *id[MAX_NUM_PHY_RESETS];
+ 		int num_resets;
+ 	} phy_resets;
++	u32 flags;
+ };
+ 
+ /**
+@@ -402,22 +411,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+ 	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+ 	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+ 
+-	/* Assert all reset signals */
+-	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+-	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+-
+ 	/*
+-	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+-	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+-	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+-	 * for the power and clock to become stable.
++	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
++	 * causing occasional PCIe link down. In order to overcome the issue,
++	 * PCIE_RSTB signals are not asserted/released at this stage and the
++	 * PCIe block is reset using REG_PCI_CONTROL (0x88) and
++	 * REG_RESET_CONTROL (0x834) registers available via the clock module.
+ 	 */
+-	msleep(100);
+-
+-	/* De-assert reset signals */
+-	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
++		/* Assert all reset signals */
++		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
++		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
++		       PCIE_PE_RSTB;
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++
++		/*
++		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
++		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
++		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
++		 * for the power and clock to become stable.
++		 */
++		msleep(PCIE_T_PVPERL_MS);
++
++		/* De-assert reset signals */
++		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
++			 PCIE_PE_RSTB);
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	}
+ 
+ 	/* Check if the link is up or not */
+ 	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+@@ -1160,10 +1180,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
+ 		return err;
+ 	}
+ 
+-	/* Pull down the PERST# pin */
+-	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+-	val |= PCIE_PE_RSTB;
+-	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
++		/* Pull down the PERST# pin */
++		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
++		val |= PCIE_PE_RSTB;
++		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
++	}
+ 
+ 	dev_dbg(pcie->dev, "entered L2 states successfully");
+ 
+@@ -1214,6 +1236,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
+ 		.id[2] = "phy-lane2",
+ 		.num_resets = 3,
+ 	},
++	.flags = SKIP_PCIE_RSTB,
+ };
+ 
+ static const struct of_device_id mtk_pcie_of_match[] = {
 
-Andrew, I am not sure if you are the right person to ask this question
-How can i proceed with this problem ? I am kind of stuck now. :) 
+---
+base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
+change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
 
-Please guide me through this.
-
-
-
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
