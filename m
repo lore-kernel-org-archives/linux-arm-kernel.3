@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6547CD111B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37693D111B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RBpswuLRxOZxNXlnIrevuU+zJUadRtGK4fTa3G3D7Cs=; b=LhLDbszyneyefVP0MwQh8LT0LB
-	nCZOXJ9E9QMqo1U8SIPc8YsBMMIf0eBhud3W7NMx3CpXbCa1GerIkiOv1JuUPYETiB+D9MYNg7Em3
-	H5i2mgKXuyeAthtSJ9Bt9FFrTHD5Y4Pc6ia5g15vyPj8fKVrlWnhRj12uA1v+H9z7Hn8n79eKFSnk
-	B4ZxBgRPiC6SVSzSsM9ZfVaPkoXHlNx3trPOUuapcz3yOD4OkZvrZ45rULZSVgtz/QKFpk9CGclIG
-	jYgqCWkrYsOaNooJUtqpjFD8uXC2MVFHVUT3M3ls3qe3gqbTKqBv7L0ufd1t5pPyxL7VLhBeKV6qU
-	OKeY3uGQ==;
+	bh=1IPe6UqXwt1Jn9/ptU0rjFmhQNp6In8Ac0X1HQzny+Q=; b=tukbP/sNSpnTnNnI102LQYf0LO
+	6s9GO4wQOoD2ptYh81WEyzLm6nBrGyMSwf55yQ4M/7q77PR5Mt3OLYqIdZZXmBPfUTxwOXrbuk9vo
+	TQdCVXyMBvTpIAAX3L2bRgJ8vFscL3f3PK6jdXfiUDAex3oa7rLO9heKpt6AcSS2krUZR2BHU8idx
+	BNgP0mE5U7cVHi3R9tm1PoOfezRziiTSk+vcdHRIYLk/N+iyLQqRGZmhIHGXtM6U2jYOmoeYfLQX1
+	nesaIqIVv6XVODYkxsbkCte1EnIahomGqw/ZONu/77lQscnIiDrtYWChSAROVIKOk/TaczlQGn2v/
+	b1LoXyXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rnI-0000000Ct86-0dE2;
-	Mon, 04 Nov 2024 07:46:36 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1t7rqd-0000000CtV6-0Zgv;
+	Mon, 04 Nov 2024 07:50:03 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rlZ-0000000CspR-20xb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 07:44:51 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A47iPJM075574;
-	Mon, 4 Nov 2024 01:44:25 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730706265;
-	bh=RBpswuLRxOZxNXlnIrevuU+zJUadRtGK4fTa3G3D7Cs=;
-	h=From:To:CC:Subject:Date;
-	b=lmHbUCcjSgY9hRjxgEpM8GRznC74D1elqB7AoasARInL54BaRHmUY4sGSOZSQwPe/
-	 1bNijh5yvg+YXTmJVH0Zuokrs3Q09Oxp2tzYVhWpPt+ZsJYM8cGesb/0cQ+vUXhYXS
-	 mfLCxPDjDHfA9o9PQVTZ8wJb39n/RcBWDGQmbvF8=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A47iPqx117294
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 4 Nov 2024 01:44:25 -0600
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 4
- Nov 2024 01:44:25 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 4 Nov 2024 01:44:25 -0600
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A47iKNV076611;
-	Mon, 4 Nov 2024 01:44:21 -0600
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <robh@kernel.org>, <vigneshr@ti.com>,
-        <manivannan.sadhasivam@linaro.org>, <kishon@kernel.org>,
-        <thomas.richard@bootlin.com>
-CC: <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH v2] PCI: j721e: Deassert PERST# after a delay of PCIE_T_PVPERL_MS ms
-Date: Mon, 4 Nov 2024 13:14:20 +0530
-Message-ID: <20241104074420.1862932-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.40.1
+	id 1t7row-0000000CtGK-2Ekd;
+	Mon, 04 Nov 2024 07:48:19 +0000
+Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5216122E;
+	Mon,  4 Nov 2024 08:48:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730706488;
+	bh=lIE2kYZAcfccRQOGzfpt1usumoHzGDS1Bwy7k9LLV+E=;
+	h=From:Date:Subject:To:Cc:From;
+	b=BGmUGZveLZQN2MpLF618g5rb5aAiPbO8bw6s4OPz3c6iYyzxCxVZj49vdBsHxe9nK
+	 /TkAEaDpajkRocAuxaZ60q+ceOtboaANMFoBTwFPt1GAZm/d8sxI4tRtg0L8I9XgQc
+	 Hyfr8vKtS6YvIsswuoR4DtMkzSruw3JoDX1rKE0s=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Mon, 04 Nov 2024 09:47:54 +0200
+Subject: [PATCH v2] media: raspberrypi: cfe: Fix mapping of dmabuf buffers
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241104-rp1-cfe-fixes-seg-size-v2-1-2afd9f6f9fac@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIACl8KGcC/4WNQQ6CMBBFr0K6dkyngkRX3sOwGNoBZiElHUNU0
+ rtbuYDL9/Pf/5tRTsJqrtVmEq+iEucC7lAZP9E8MkgobJx1NaJFSAuCHxgGebGC8ggqH4a+tSd
+ 7CdTW5EyRl8R7o7j3rvAk+ozpvf+s+Ev/Tq4ICJbIDy5Qc+bmJoFJ49xHSuHo48N0OecvgjVO7
+ 8MAAAA=
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Naushir Patuck <naush@raspberrypi.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1571;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=lIE2kYZAcfccRQOGzfpt1usumoHzGDS1Bwy7k9LLV+E=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnKHw5Vu8U1vmF8yEBEzPMGHgPaEVEwdvzzIApt
+ /MP+Y9gKpmJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZyh8OQAKCRD6PaqMvJYe
+ 9XcID/oCe7Uv2FXQrwj4bGBwcq9WWXRU9MVexVilLDXe8nzSBB73N6+QCNtpWKNSo7pRDBGush0
+ a5bI/js3YbnwNwf+aEt9ZUwmcQTuR8KDycf+o+y/hUrCq8k8N1aczqcdmOYbbBncB7rS7jdF0IP
+ tCOYLb4gTsgBNpq15bBFUyeCfASxt9qIa+zpq9Rrx4kJhMlR//Bls5gTZT6JWkIoENS9s/Se2j2
+ tz0BQV0rwC2Q4m+xz6Wnp9zoKHwr0Y3Xy10t+Q11zu5nzqT3AlHBWsHeUKLUNQEPdnTYqhHgi55
+ +hFOuG82gt/e1ved8pBqy9wp38GrihDvxrg1XWNYEtHCvDK0hRiayJtxo1rHvEd9aarTEYVMSVI
+ UlluKC13oSnp3uI2wnMLqVFxzbFKORlC5dlgKoo3xBdT/AHlDqoLcU0cEH3goGsaCxCadxzNUZD
+ PyUZ13WuEnux+XSRg4oCyfgAlyR/ZZxjEpvef+XPm5i16S/VeS0Fim7WyXl84Ug8DXulrSJ/NeF
+ cXeNFbovzuhZaiLb04We+Q0AZmjDAiexeYY59AIFOZRb4ckPMsRs3SLo522i3GLXcsaUOewcHeJ
+ YNvE25ecHZijTngKZ78tI2cc6KNDg6d9IN8q1Rj0TfieSeGXtksr4fACog+qlLys1zA64QqEtMt
+ OXs3uQgsczK+47A==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_234449_672128_4EBAE6F3 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20241103_234818_760028_02D56BFE 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +93,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to Section 2.2 of the PCI Express Card Electromechanical
-Specification (Revision 5.1), in order to ensure that the power and the
-reference clock are stable, PERST# has to be deasserted after a delay of
-100 milliseconds (TPVPERL). Currently, it is being assumed that the power
-is already stable, which is not necessarily true. Hence, change the delay
-to PCIE_T_PVPERL_MS to guarantee that power and reference clock are stable.
+When using buffers from DRM, DMA-API gives a warning about: "mapping sg
+segment longer than device claims to support [len=307200] [max=65536]"
 
-Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-Fixes: f96b69713733 ("PCI: j721e: Use T_PERST_CLK_US macro")
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Add a call to vb2_dma_contig_set_max_seg_size() to tell the DMA-API
+about the supported segment size (which is UINT_MAX).
+
+Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
+Changes in v2:
+- Drop the error print, as vb2_dma_contig_set_max_seg_size() already
+  prints one.
+- Link to v1: https://lore.kernel.org/r/20241101-rp1-cfe-fixes-seg-size-v1-1-0aacf2da56e5@ideasonboard.com
+---
+ drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Hello,
-
-This patch is based on commit
-59b723cd2adb Linux 6.12-rc6
-of Mainline Linux.
-
-v1:
-https://lore.kernel.org/r/20241022083147.2773123-1-s-vadapalli@ti.com/
-Changes since v1:
-- Rebased patch on Linux 6.12-rc6
-- Based on Krzysztof's feedback at:
-  https://lore.kernel.org/r/20241102141914.GA3440781@rocinante/
-  PCIE_T_PERST_CLK_US has been replaced with PCIE_T_PVPERL_MS in
-  j721e_pcie_probe() as well.
-- Added Fixes tag corresponding to the above change in the commit
-  message.
-
-Regards,
-Siddharth.
-
- drivers/pci/controller/cadence/pci-j721e.c | 26 ++++++++++------------
- 1 file changed, 12 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 284f2e0e4d26..e091c3e55b5c 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -572,15 +572,14 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 		pcie->refclk = clk;
+diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+index da9e1a1e4d0d..e808c80cd37c 100644
+--- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
++++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+@@ -2341,6 +2341,10 @@ static int cfe_probe(struct platform_device *pdev)
+ 		goto err_cfe_put;
+ 	}
  
- 		/*
--		 * The "Power Sequencing and Reset Signal Timings" table of the
--		 * PCI Express Card Electromechanical Specification, Revision
--		 * 5.1, Section 2.9.2, Symbol "T_PERST-CLK", indicates PERST#
--		 * should be deasserted after minimum of 100us once REFCLK is
--		 * stable. The REFCLK to the connector in RC mode is selected
--		 * while enabling the PHY. So deassert PERST# after 100 us.
-+		 * Section 2.2 of the PCI Express Card Electromechanical
-+		 * Specification (Revision 5.1) mandates that the deassertion
-+		 * of the PERST# signal should be delayed by 100 ms (TPVPERL).
-+		 * This shall ensure that the power and the reference clock
-+		 * are stable.
- 		 */
- 		if (gpiod) {
--			fsleep(PCIE_T_PERST_CLK_US);
-+			msleep(PCIE_T_PVPERL_MS);
- 			gpiod_set_value_cansleep(gpiod, 1);
- 		}
- 
-@@ -671,15 +670,14 @@ static int j721e_pcie_resume_noirq(struct device *dev)
- 			return ret;
- 
- 		/*
--		 * The "Power Sequencing and Reset Signal Timings" table of the
--		 * PCI Express Card Electromechanical Specification, Revision
--		 * 5.1, Section 2.9.2, Symbol "T_PERST-CLK", indicates PERST#
--		 * should be deasserted after minimum of 100us once REFCLK is
--		 * stable. The REFCLK to the connector in RC mode is selected
--		 * while enabling the PHY. So deassert PERST# after 100 us.
-+		 * Section 2.2 of the PCI Express Card Electromechanical
-+		 * Specification (Revision 5.1) mandates that the deassertion
-+		 * of the PERST# signal should be delayed by 100 ms (TPVPERL).
-+		 * This shall ensure that the power and the reference clock
-+		 * are stable.
- 		 */
- 		if (pcie->reset_gpio) {
--			fsleep(PCIE_T_PERST_CLK_US);
-+			msleep(PCIE_T_PVPERL_MS);
- 			gpiod_set_value_cansleep(pcie->reset_gpio, 1);
- 		}
- 
++	ret = vb2_dma_contig_set_max_seg_size(&pdev->dev, UINT_MAX);
++	if (ret)
++		goto err_cfe_put;
++
+ 	/* TODO: Enable clock only when running. */
+ 	cfe->clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(cfe->clk))
+
+---
+base-commit: c7ccf3683ac9746b263b0502255f5ce47f64fe0a
+change-id: 20241101-rp1-cfe-fixes-seg-size-b70309da74a2
+
+Best regards,
 -- 
-2.40.1
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
 
