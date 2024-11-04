@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F591D132A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F30D132A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VVyP+kG/x/vvff0g4CI/xATpn2KE+IcyF3JSkSbQ9Zg=; b=0boJG0bf3762Pv
-	cHSegB2AFjEzXh0QcdYyDJFJ1TaNtaXlSBqk0hFqRJGdMh8cAboVjL8pUJRWGRtr0H5XXvf0iCQbc
-	U+T7/0KNab4mS2luBKrFTo0bqRiDOcGCgXgBhV/YyD1NlLn1AmEzRAl7dw0bcriHHzX2yZuirKqmG
-	pxxZhPutzIfom15QySeF9E1vsYZjNMzVXZWb9SlN1h3MmDo8jCjo58u7HG6YRx58om8yZ9nPXv1Cx
-	BMbGoKYIpEE2l82wR8dLmXHbo4ZoyTU21QDs51T9x6YlmC/i2jYBgyiCh/3h2bHReLbplAum7Onyc
-	w+kJwFN/4mdfhZ7l/3Cg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v4mROjeJMuicb/OZXmHvtzOSOon30X2O05RT1/K8yb4=; b=oxBkb36mAGU75c/tguiNq79fLE
+	Y9v3XoT3BzT5Ujoim/itm5bAdJmSK56uE9acGdVuGpMtqur4/Kt6cRE2PxMVUF4E/QBCdCRFs3RCg
+	0nI2JwI67u3f1RP23sVzFPwWstSBbxX+VwVIPt/hO+0KcA+12f7x+0ZOB7rr8CQ43L65atRboozLE
+	qrwWb+7Mq/vqyJKMzIElDpPLJxQj83Gl2l2vyMh+wYvioRGuyEEFwR5MpeMLsZQYFrt0Fr7Rd3ddj
+	Ecvtp9pLPJueDKaaIOzBtpveBtIaYYKcUe7nRHOJkXbhENWI9UgjLMMNMNasoZC5gwS4P4uMfGNn6
+	POfjeW9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tCh-0000000D86X-2Kzc;
-	Mon, 04 Nov 2024 09:16:55 +0000
+	id 1t7tEM-0000000D8GA-3v5J;
+	Mon, 04 Nov 2024 09:18:38 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7t6p-0000000D6VX-36rb
+	id 1t7t6q-0000000D6W2-1xt3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 09:10:53 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A3Nw1ku032546;
-	Mon, 4 Nov 2024 09:10:31 GMT
+	Mon, 04 Nov 2024 09:10:54 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A40048x015498;
+	Mon, 4 Nov 2024 09:10:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=VVyP+kG/x/vvff0g4CI/xA
-	Tpn2KE+IcyF3JSkSbQ9Zg=; b=gInoj0cghHJriHPZrAghmX7V+6y3k9xHXe0RWg
-	+LXoRP6qeM7y/nLOOUNtVS0xfopsyaYWZUGbgDNOrgNTMp1DqEUz8VibMkQNvmw0
-	3qUyhV5rgFXJJTwquecUc3VaAvYM9JH4dE4hjowi1XH8NrR+Dv8GnOCTBs/omiTZ
-	IbKW45C0bCTMrtpZDQzEASi/D9RV6OjD0fKHSPAuQG/RfO8By0hDiPvniF2mS6TX
-	f0LaS2zlj5RxhZJFj1a/NoFln1xcUAvJeTIdUGuZHH97nINIzP43AjcqhiUky4Zg
-	5+eqq3+SEkAj1yMT75B6c2mK99jVOJwvO0Ik//Sd1p1HjsWg==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	v4mROjeJMuicb/OZXmHvtzOSOon30X2O05RT1/K8yb4=; b=Rc4BluuqSxMIay0w
+	PKEsD+f6RWAbnyjiE3p4Cgw7katyTawWn/Vp3hP7//gWYwegr49mrc/jDw5cqDsJ
+	yhI7aEk9BXJ0H4k/nyiPdHw+lyGfbNHs6h6hGUOSqtZuqcqR59KuIskI//Dq2vqP
+	XQCz5Fg3u3Y8USlYd0BL+kLnU4wZ50EcLzcQi3bRSyBGiI5LtMsoxpf8vy1YBBni
+	FZcWbf1OARqZQSW/EerVTEcLaMDgnFBLK5WAeGNeEqjk4MI97ozcncC41D7ogtub
+	hvfnGMYPs8Ik7p/RwJyCwLG37OV8lTtkN5NEBCFcRaOBARlJMyLq/FbuM5/vxDYp
+	6namFw==
 Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42p5ye1qa6-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42nd8hbh7p-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 Nov 2024 09:10:30 +0000 (GMT)
+	Mon, 04 Nov 2024 09:10:43 +0000 (GMT)
 Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A49AT11017116
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A49Ahfp017306
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 4 Nov 2024 09:10:29 GMT
+	Mon, 4 Nov 2024 09:10:43 GMT
 Received: from lijuang2-gv.ap.qualcomm.com (10.80.80.8) by
  nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 4 Nov 2024 01:10:23 -0800
+ 15.2.1544.9; Mon, 4 Nov 2024 01:10:37 -0800
 From: Lijuan Gao <quic_lijuang@quicinc.com>
-Subject: [PATCH v5 0/5] Add initial support for QCS615 SoC and QCS615 RIDE
- board
-Date: Mon, 4 Nov 2024 17:10:07 +0800
-Message-ID: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+Date: Mon, 4 Nov 2024 17:10:11 +0800
+Subject: [PATCH v5 4/5] arm64: dts: qcom: add base QCS615 RIDE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHCPKGcC/62RwW7DIBBEf8XiXCog4Ng+5T+qysLLOlk1Ng4QN
- 1WUfy9xUjWHVr30OCv2zexwZhEDYWRNcWYBZ4rkxyzMU8FgZ8ctcnJZMyWUllJobp1raaREdt/
- G4zT5kNreh/YAsZSGl0IbUJWslelYhkwBezotBi+vWe8oJh8+Fr9ZXqc3tFDqL/SsueDCGiOhd
- G6l1eZwJKARnsEP7AqfzX8CL7f4AfM0Urrd8N1KU1x9RC1rfufB3sMbd4FmDNytte3QlXVldDN
- r9ljo16oSS8R3m2Dn/LbNtpNN1O3xMSYiVLYCBbXKJPUjScqFdOin4IffOKtOqL7s7Vpik7vPn
- M5G5Pn1QKkpRjwlfv9nmc+/fALYWC1mHQIAAA==
+Message-ID: <20241104-add_initial_support_for_qcs615-v5-4-9dde8d7b80b0@quicinc.com>
+References: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+In-Reply-To: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio
 	<konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -79,14 +75,13 @@ To: Bjorn Andersson <andersson@kernel.org>,
 CC: <kernel@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>,
-        lijuang <quic_lijuang@quicinc.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        lijuang <quic_lijuang@quicinc.com>
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730711423; l=5567;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730711423; l=7446;
  i=quic_lijuang@quicinc.com; s=20240827; h=from:subject:message-id;
- bh=TOiLZB9+TUCbyQ6juA160AS0UCAnllOUb5owxKncID8=;
- b=yFhKjOYgT/VpkN3LvicTpOnL/CLsEY2c5kSJOyfLJWuBmpy3krJ47+R2k8KElL2iK3x6geIoa
- tSGBseBo7/SCSzHg+g0YSSR0xDbRWpONdi97pq7DO4s3wxSEH1JPzb6
+ bh=+mjAWl2xopuPXKR5mPOvg+qicXdgnmZO+CHBAiUNJsk=;
+ b=fqVa5So5HCxHQMyn2VkUsaNJMB9A8y8VrO1bzhsNuTGDBzoPCYXs5V9PqS89+9SoHtsWT+RvF
+ W4yvaPmdhURC2lChR9yAt2t61XTVaDHtbto635z0Rj4Mx8m+kBRC5Dy
 X-Developer-Key: i=quic_lijuang@quicinc.com; a=ed25519;
  pk=1zeM8FpQK/J1jSFHn8iXHeb3xt7F/3GvHv7ET2RNJxE=
 X-Originating-IP: [10.80.80.8]
@@ -94,19 +89,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01b.na.qualcomm.com (10.47.209.197)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: c1YygsRHlWKqlAfTiLzitq83E_FfM9b5
-X-Proofpoint-GUID: c1YygsRHlWKqlAfTiLzitq83E_FfM9b5
+X-Proofpoint-ORIG-GUID: Jz5YLebVsJChj_2UhgAiFEEhnJk7qhRM
+X-Proofpoint-GUID: Jz5YLebVsJChj_2UhgAiFEEhnJk7qhRM
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
- mlxscore=0 spamscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
- suspectscore=0 priorityscore=1501 clxscore=1015 mlxlogscore=999
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411040081
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
+ priorityscore=1501 phishscore=0 clxscore=1015 mlxscore=0 impostorscore=0
+ bulkscore=0 mlxlogscore=999 adultscore=0 suspectscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2411040081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_011051_907679_E08F7EE8 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20241104_011052_573842_C42F967D 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,123 +116,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduces the Device Tree for the QCS615 platform.
+Add initial support for Qualcomm QCS615 RIDE board and enable
+the QCS615 RIDE board to shell with uart console.
 
-Features added and enabled:
-- CPUs with PSCI idle states
-- Interrupt-controller with PDC wakeup support
-- Timers, TCSR Clock Controllers
-- Reserved Shared memory
-- QFPROM
-- TLMM
-- Watchdog
-- RPMH controller
-- Sleep stats driver
-- Rpmhpd power controller
-- Interconnect
-- GCC and Rpmhcc
-- QUP with Uart serial support
+Written with help from Tingguo Cheng (added regulator nodes).
 
-Bindings and base Device Tree for the QCS615 SoC are splited
-in four parts:
-- 1-2: Binding files for QCS615 SoC and PDC (Reviewed)
-- 3-4: Initial DTSI and RIDE board device tree
-- 5  : Enable uart related configs
-
-Bindings Dependencies:
-- watchdog: https://lore.kernel.org/all/20240920-add_watchdog_compatible_for_qcs615-v2-1-427944f1151e@quicinc.com/ - Reviewed
-- qfprom: https://lore.kernel.org/all/20240912-add_qfprom_compatible_for_qcs615-v1-1-9ef2e26c14ee@quicinc.com/ - Reviewed
-- tcsr: https://lore.kernel.org/all/20240920-add_tcsr_compatible_for_qcs615-v2-1-8ce2dbc7f72c@quicinc.com/ - Applied
-- tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-1-e03c42a9d055@quicinc.com/ - Applied
-- interconnect: https://lore.kernel.org/all/20240924143958.25-2-quic_rlaggysh@quicinc.com/ - Applied
-- rpmhcc: https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-1-3d716ad0d987@quicinc.com/  - Reviewed
-- gcc: https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-3-3d716ad0d987@quicinc.com/ - Reviewed
-- rpmhpd: https://lore.kernel.org/all/20240927-add_qcs615_qcs8300_powerdomains_driver_support-v2-3-18c030ad7b68@quicinc.com/ - Applied
-
-Build Dependencies:
-- tlmm: https://lore.kernel.org/all/20240920-add_qcs615_pinctrl_driver-v2-2-e03c42a9d055@quicinc.com/ - Applied
-- rpmhcc: https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com/ - Reviewed
-- gcc: https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com/
-
-Patch made the following verifications:
-- Successfully passed dt_binding_check with DT_CHECKER_FLAGS=-m for earch binding file
-- Successfully passed dtbs_check with W=1 for dts
-- Verified CPU Hotplug, idle and online CPUs on QCS615 ride board
-- Checked pinctrl-maps path
-- Verified watchdog functionality with "echo 1 > /dev/watchdog", can trigger
-  a watchdog bark and later bite
-- Verified functionality with UART console on QCS615 ride board
-- RPMH controller driver probed successfully
-- Sleep stats driver probed successfully and checked qcom_stats
-  node on QCS615 ride board
-
-Signed-off-by: lijuang <quic_lijuang@quicinc.com>
+Signed-off-by: Lijuan Gao <quic_lijuang@quicinc.com>
 ---
-Changes in v5:
-- Remove applied patches 2 and 4
-- Update the titles and commit messages of the initial DTSI and ride DTS
-- Update the commit message of defconfig patch
-- Pad register addresses to 8 hex digits
-- Link to v4: https://lore.kernel.org/r/20241022-add_initial_support_for_qcs615-v4-0-0a551c6dd342@quicinc.com
+ arch/arm64/boot/dts/qcom/Makefile        |   1 +
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts | 219 +++++++++++++++++++++++++++++++
+ 2 files changed, 220 insertions(+)
 
-Changes in v4:
-- Configure vreg_l17a to High Power Mode (HPM) as it supplies power to UFS
-  and eMMC, which can be utilized as boot devices.
-- Link to v3: https://lore.kernel.org/r/20240926-add_initial_support_for_qcs615-v3-0-e37617e91c62@quicinc.com
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index ac199f809b0d..9ec3f9f1c5d8 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-idp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
+diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+new file mode 100644
+index 000000000000..ee6cab3924a6
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+@@ -0,0 +1,219 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++/dts-v1/;
++
++#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
++#include "qcs615.dtsi"
++/ {
++	model = "Qualcomm Technologies, Inc. QCS615 Ride";
++	compatible = "qcom,qcs615-ride", "qcom,qcs615";
++	chassis-type = "embedded";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	clocks {
++		sleep_clk: sleep-clk {
++			compatible = "fixed-clock";
++			clock-frequency = <32000>;
++			#clock-cells = <0>;
++		};
++
++		xo_board_clk: xo-board-clk {
++			compatible = "fixed-clock";
++			clock-frequency = <38400000>;
++			#clock-cells = <0>;
++		};
++	};
++};
++
++&apps_rsc {
++	regulators-0 {
++		compatible = "qcom,pm8150-rpmh-regulators";
++		qcom,pmic-id = "a";
++
++		vreg_s3a: smps3 {
++			regulator-name = "vreg_s3a";
++			regulator-min-microvolt = <600000>;
++			regulator-max-microvolt = <650000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_s4a: smps4 {
++			regulator-name = "vreg_s4a";
++			regulator-min-microvolt = <1800000>;
++			regulator-max-microvolt = <1829000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_s5a: smps5 {
++			regulator-name = "vreg_s5a";
++			regulator-min-microvolt = <1896000>;
++			regulator-max-microvolt = <2040000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_s6a: smps6 {
++			regulator-name = "vreg_s6a";
++			regulator-min-microvolt = <1304000>;
++			regulator-max-microvolt = <1404000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l1a: ldo1 {
++			regulator-name = "vreg_l1a";
++			regulator-min-microvolt = <488000>;
++			regulator-max-microvolt = <852000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l2a: ldo2 {
++			regulator-name = "vreg_l2a";
++			regulator-min-microvolt = <1650000>;
++			regulator-max-microvolt = <3100000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l3a: ldo3 {
++			regulator-name = "vreg_l3a";
++			regulator-min-microvolt = <1000000>;
++			regulator-max-microvolt = <1248000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l5a: ldo5 {
++			regulator-name = "vreg_l5a";
++			regulator-min-microvolt = <875000>;
++			regulator-max-microvolt = <975000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l7a: ldo7 {
++			regulator-name = "vreg_l7a";
++			regulator-min-microvolt = <1800000>;
++			regulator-max-microvolt = <1900000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l8a: ldo8 {
++			regulator-name = "vreg_l8a";
++			regulator-min-microvolt = <1150000>;
++			regulator-max-microvolt = <1350000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l10a: ldo10 {
++			regulator-name = "vreg_l10a";
++			regulator-min-microvolt = <2950000>;
++			regulator-max-microvolt = <3312000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l11a: ldo11 {
++			regulator-name = "vreg_l11a";
++			regulator-min-microvolt = <1232000>;
++			regulator-max-microvolt = <1260000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l12a: ldo12 {
++			regulator-name = "vreg_l12a";
++			regulator-min-microvolt = <1800000>;
++			regulator-max-microvolt = <1890000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l13a: ldo13 {
++			regulator-name = "vreg_l13a";
++			regulator-min-microvolt = <3000000>;
++			regulator-max-microvolt = <3230000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l15a: ldo15 {
++			regulator-name = "vreg_l15a";
++			regulator-min-microvolt = <1800000>;
++			regulator-max-microvolt = <1904000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l16a: ldo16 {
++			regulator-name = "vreg_l16a";
++			regulator-min-microvolt = <3000000>;
++			regulator-max-microvolt = <3312000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_LPM>;
++			regulator-allow-set-load;
++			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
++						   RPMH_REGULATOR_MODE_HPM>;
++		};
++
++		vreg_l17a: ldo17 {
++			regulator-name = "vreg_l17a";
++			regulator-min-microvolt = <2950000>;
++			regulator-max-microvolt = <3312000>;
++			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
++		};
++	};
++};
++
++&gcc {
++	clocks = <&rpmhcc RPMH_CXO_CLK>,
++		 <&rpmhcc RPMH_CXO_CLK_A>,
++		 <&sleep_clk>;
++};
++
++&qupv3_id_0 {
++	status = "okay";
++};
++
++&rpmhcc {
++	clocks = <&xo_board_clk>;
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&watchdog {
++	clocks = <&sleep_clk>;
++};
 
-Changes in v3:
-- Added interconnect, GCC, RPMHCC, QPU, and RPMHPD related nodes for UART console
-- Enabled UART condole on ride board device
-- Link to v2: https://lore.kernel.org/r/20240913-add_initial_support_for_qcs615-v2-0-9236223e7dab@quicinc.com
-
-Changes in v2:
-- Collected reviewed-bys
-- Removed extra blank line
-- Removed redundant function
-- Renamed xo-board to xo-board-clk and move it and sleep-clk to board dts
-- Renamed system-sleep to cluster_sleep_2
-- Removed cluster1
-- Added entry-method for idle-states
-- Added DTS chassis type
-- Added TCSR Clock Controllers
-- Added Reserved Shared memory
-- Added QFPROM
-- Added TLMM
-- Added Watchdog
-- Added RPMH controller
-- Added Sleep stats driver
-- Link to v1: https://lore.kernel.org/r/20240828-add_initial_support_for_qcs615-v1-0-5599869ea10f@quicinc.com
-
----
-Lijuan Gao (5):
-      dt-bindings: arm: qcom: document QCS615 and the reference board
-      dt-bindings: qcom,pdc: document QCS615 Power Domain Controller
-      arm64: dts: qcom: add QCS615 platform
-      arm64: dts: qcom: add base QCS615 RIDE
-      arm64: defconfig: enable clock controller, interconnect and pinctrl for QCS615
-
- Documentation/devicetree/bindings/arm/qcom.yaml    |   6 +
- .../bindings/interrupt-controller/qcom,pdc.yaml    |   1 +
- arch/arm64/boot/dts/qcom/Makefile                  |   1 +
- arch/arm64/boot/dts/qcom/qcs615-ride.dts           | 219 +++++++
- arch/arm64/boot/dts/qcom/qcs615.dtsi               | 688 +++++++++++++++++++++
- arch/arm64/configs/defconfig                       |   3 +
- 6 files changed, 918 insertions(+)
----
-base-commit: ec29543c01b3dbfcb9a2daa4e0cd33afb3c30c39
-change-id: 20241104-add_initial_support_for_qcs615-6045c281925b
-prerequisite-change-id: 20240919-qcs615-clock-driver-d74abed69854:v4
-prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
-prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
-prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
-prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
-prerequisite-change-id: 20240920-add_watchdog_compatible_for_qcs615-eec8a8c2c924:v2
-prerequisite-patch-id: 3a76212d3a3e930d771312ff9349f87aee5c55d5
-prerequisite-change-id: 20240911-add_qfprom_compatible_for_qcs615-e3b02f6fa71e:v1
-prerequisite-patch-id: 8a2454d5e07e56a6dd03f762f498051065635d85
-
-Best regards,
 -- 
-lijuang <quic_lijuang@quicinc.com>
+2.46.0
 
 
