@@ -4,73 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5311CD132B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48329D132B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNJzNaryy4kHU8DxIjF6Clb4qY33tjCs9DMZRXUgfDk=; b=s2V4OTKhVFGxchXIZIg/Rj+/ni
-	8KjAFOxQD0Xdj4Ci0XW91y9KtlSsafRG+JVXGmDiJkn4tzTHqLcU4XmwpWE6Z9DU40hzLztvZ5Ny/
-	ayfwgUzaeVw0BKZUlp/giVjMskEeBKBxl7ep6eV3E4uXWcCQWW4OYKKaL5HEXc6QbwzicnodNPkyi
-	n2g3ZT/3BGnN/CrmxUzK56rt4MYK1NixBCBiTfTr9ZJiqR+IcxXpA0wnrj+JElUefj9MLyR54J5jT
-	l1hDOezZ5SwOaAFC4v77M5YzHUy8j4j68SDLzcZJ++1oABEYOZGz9duL/LdKtCQtKgKllqpxkQCOg
-	LYkYI0YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CxurNx6d5AHto7I4f9BSlwdf9oV9NR/+WNt3u4hy+rU=; b=pzxWycAOZoqhhQ++BHBBxB/BL0
+	WIEVXG+V2sDpQ4bmK19/8jV7hE/iVtc0Y2dyvobRs18jB7KrY+6IHwD5+8xVDhHj5R6ilVqLmsm2d
+	BcOH2HBr1Bg/6yRCg454PMSOsOAAjQrMDMDp/CEiI+n5X5RuV/TKWKpWMuTWpIRNpHwBzRsX4Kw3x
+	hYAXiHC4oExPI/MzY6iMBn4Xc8+TmVMakuYL0CVFMTDo/ZyNCMBU/xU1VSAqBQPQOOyBmIswPPQmT
+	UvcF/mlYUX4WznXAIizwy9Af5vhWwpDZZbTUJK9JcOLgHqfLvyKcmVbbmCX3MaULSowbPquudOfII
+	dk+gPIbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vIa-0000000DWw7-3MPI;
-	Mon, 04 Nov 2024 11:31:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t7vIb-0000000DWx1-3ynR;
+	Mon, 04 Nov 2024 11:31:09 +0000
+Received: from mail-dm6nam11on20626.outbound.protection.outlook.com ([2a01:111:f403:2415::626] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7uAd-0000000DIU7-45t1;
-	Mon, 04 Nov 2024 10:18:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730715530;
-	bh=/BqvSMpzIqUrh5h8PydNqYZk+71Ku8Hj2PODCROFwpI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CzWRbvj8/pyD1ZMGCxhxWd7tLZTkAJdm6ZqhdISZcqc3Of8hl7ClnfCJ9uNK29czu
-	 8qjJMjbf5L1ZAhAoNZhFfL4kdMsaSg9XYJfqUABwQgaFVEG+buPWl+uSMrhcDucnC6
-	 40Pwfvei/3WemTpOZRCRDi5GAo797qNEvZbbmNK2z1plwGdxckWhjdGvKeCL2/NrbR
-	 npqhZAEk5SIfyr4ksowGlfrFu9YBIvHaQnNNdjM81FCfLBf/QIg9GZBoLxaH29gpdg
-	 Yf8V060wqDVEK0istqFXnnYmQmJbF6pncJ9H/QfhC+m0LrITeVLX/LiYYc35E3RNFt
-	 drkQCwiPEF9KQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C1D017E1541;
-	Mon,  4 Nov 2024 11:18:49 +0100 (CET)
-Message-ID: <9a1ce320-e1ce-4d2f-a8d1-7680155ef71f@collabora.com>
-Date: Mon, 4 Nov 2024 11:18:48 +0100
+	id 1t7uBr-0000000DIcI-1tft
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 10:20:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yFjYXXHhd5+nwXX5pFhSumMfgI0VDsD+tB1DaVM0J0xn3/fUMASWx7somzUuZppby/WECBj01vIUI2Qoi2EGI+AuMvvhpaB4C/y1HyWFMdvp2xG1sbQhO21xJgzHzTx5nEfELCxB86pSNYbA1BHDBsRlTRhWJn7x4GNumUvEcU/CkCi/2GCmRJpNsUxzAM35lHmI5YgCTRIMxk2EHC1mRGtBA4OEjYvSgQ0+K3Kq59qTvutH/UC1glSFqtfngsi6cJcGq3w5OawpKFBGR7Nw6MvHgFvL56cgl2vHOuHuAq+Fbe2bzWETkKpZMAuMzpsAf0V0/QA8O8aHBdxk09AL4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CxurNx6d5AHto7I4f9BSlwdf9oV9NR/+WNt3u4hy+rU=;
+ b=awnHL9iQtPOwooKgjplnpQG+Kels8zwiaJ5i7bcrHasNps4+4WnDEFKoEnjNMkO8kR6l+c0BQsja/viDp8m9iCXOztG5WUmdcYXnVx4wfL24shWMoZ6hQhPHItqFAaKze9ALjeKqCDFJ+XcFyxxMAgCK7VLuQ73u3WqRW3UPpf3qcFvz2q/LOb51PAVKr4r8X5gUwUtLNkwfrlND7WqQksdNciTVotX6ee9rONOJ39ceP70FBzYCZlC1Zmuj6y3BhORrYN0vq5kl7oJKRSnAVix5Y4kQLEJmyIecLG1KgKbmcsVB4dLHsCa03/Rf+OIDfOpbY7u7jYM/vV1J93OnxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CxurNx6d5AHto7I4f9BSlwdf9oV9NR/+WNt3u4hy+rU=;
+ b=a08OoHr3s67mZfc8LUZ4/4codx5onUD95q4QCEwTVrkz0K10uXr0/l8NbEzrKbFPMEYKrDSju7rOAoCImpELZW4NZOBUy6g6Cnd3OpLK97NpgAsmxgJwdfsQyUD35Spv5dtPUEp3TghfEMK5sYZVKem+p61oU88qk7W2HzcJLvE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB8252.namprd12.prod.outlook.com (2603:10b6:8:ee::7) by
+ PH7PR12MB7020.namprd12.prod.outlook.com (2603:10b6:510:1ba::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 10:20:01 +0000
+Received: from DS7PR12MB8252.namprd12.prod.outlook.com
+ ([fe80::2d0c:4206:cb3c:96b7]) by DS7PR12MB8252.namprd12.prod.outlook.com
+ ([fe80::2d0c:4206:cb3c:96b7%6]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 10:20:01 +0000
+Date: Mon, 4 Nov 2024 15:49:49 +0530
+From: "Gautham R. Shenoy" <gautham.shenoy@amd.com>
+To: Cristian Prundeanu <cpru@amazon.com>
+Cc: linux-tip-commits@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Bjoern Doebel <doebel@amazon.com>,
+	Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
+	Geoff Blake <blakgeof@amazon.com>, Ali Saidi <alisaidi@amazon.com>,
+	Csaba Csoma <csabac@amazon.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
+ RUN_TO_PARITY and move them to sysctl
+Message-ID: <ZyifxfSV8k5vC0iG@BLRRASHENOY1.amd.com>
+References: <ZxuujhhrJcoYOdMJ@BLRRASHENOY1.amd.com>
+ <20241029045749.37257-1-cpru@amazon.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241029045749.37257-1-cpru@amazon.com>
+X-ClientProxiedBy: PN2PR01CA0178.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:26::33) To DS7PR12MB8252.namprd12.prod.outlook.com
+ (2603:10b6:8:ee::7)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] net: stmmac: dwmac-mediatek: Fix inverted logic for
- mediatek,mac-wol
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Biao Huang <biao.huang@mediatek.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB8252:EE_|PH7PR12MB7020:EE_
+X-MS-Office365-Filtering-Correlation-Id: be058bef-bb48-4164-8a43-08dcfcba3da3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JRloBRTIEdUTwHilknkeCbX684lpKBY8ZAKkbvHaPLC8TlahRjdOmd/T1iQr?=
+ =?us-ascii?Q?cdKutRBXKWbix+ctxXUiaqSnFHWlnKiZKOXvIB4Gl5kjn+xIMhXtrFW8yksc?=
+ =?us-ascii?Q?+m61+dwr8JK1MWSnCI4l7dooaQiU7Qwoqt1CDN1VPpi3dEAVe3SS4KLeThjC?=
+ =?us-ascii?Q?HuVhHR9OkFXxznDOrYXFBkkOA8yZKb8Ad5gy/woL7zoIPZxJpnnDkGf2jMXr?=
+ =?us-ascii?Q?7tdf/iV6yc8rcWLSNsgBp6tFz28B+jdvCYaY9J12k3VA4+nZL5oN7y4JeJYu?=
+ =?us-ascii?Q?J9BhDevgw93Qqp0y578mnH3dQAgovF/MzPY/qiLExMiiS+CYpg6x3sM855WY?=
+ =?us-ascii?Q?Zw404UPyQft00U1RvKAt0yl9mjYtHKZgivAY/xHg/GI1cZxOiQkcjdVcw0L+?=
+ =?us-ascii?Q?uFRXsWDo/cikvoIF5iJAvv2Bv6oRZ06pHxhUV6hF3Wx3f+YbJk690jlIuf2h?=
+ =?us-ascii?Q?nD6y/w0q8+H0G1+s/BXFhWBEVrR8FDaYBnbHwcBVOSVQAjHF4SyBPHeflvCJ?=
+ =?us-ascii?Q?vO9NQrOoe7gnvxKP8UCdc3RorL/J+3M8fYGAQ9Pgoj1Lz4B/HrSRNuBr56AB?=
+ =?us-ascii?Q?FhTFnpZZXf1F7pIJoKvOjLRcL8RMKaeuyasmIfdwz+MUt5tOCdGUo2SF3k+p?=
+ =?us-ascii?Q?DUaobW3XNsby7KL+7tOTuuidvXMVNiBRFktBV70x1HxUDFLDwepH4O3WnIO5?=
+ =?us-ascii?Q?/YNKas2oV/lZfKFdc0t/DGhPb6nwT5/0SHLXACzUq+YzPxNMbM7Ot3Tn5djK?=
+ =?us-ascii?Q?cAOfKsJ1U1S5InC12kIqbx8gkG0eWAM10yuqOpcZZ3tgP03hqc9LQKyZZ/RE?=
+ =?us-ascii?Q?Jii8y3myRjIaFPPWtU7gUNIqaJhHsRcP5UW86w2LZNCim40wuwSI4e5SiLe9?=
+ =?us-ascii?Q?7UfqNhfkK5g7LIKwGQgUcsLUkMmcXxzZWTLQfVgsWqXanGP+txZPOVJwlTxh?=
+ =?us-ascii?Q?zH4r6I6iPNMK2wtJCBshtIeoZmsSJ8wHZ4NWlZMNnrOduTtgv7HLDxzegIqD?=
+ =?us-ascii?Q?zxiYIeCo/NMzi3Nzg50hmpg3YMGB2vobgJ9MeTcNhq1TOWr4QxdU1OwspFB0?=
+ =?us-ascii?Q?SjklDWzfw3RGfOpb3Ylqhzj2I+zGBgxTcfesqn3xfBpLWApLdEL4cudrwKx0?=
+ =?us-ascii?Q?6VDuucgu5gCw38QAAPzV9s4u4B6S40yJqH00AQ8cEYI92LmDBwkmNm9/GPCl?=
+ =?us-ascii?Q?LHUI1HoKB4IrTxMtrnuorynHcimgYJ0QU2NPsFd9jdvQxr5hQ6gn/Kf6wAp0?=
+ =?us-ascii?Q?0pPAneAIcCc+MdNrK+ggbczmCEIvH1xO7oEj4+PY2GsrfkMIt1jodxC91Ezv?=
+ =?us-ascii?Q?3MuEKYH02dZGZbhzWweuT+gb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB8252.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m0PwYhKeaL8tOOkvnLvXiiyU6jDbZqOOpbz1n1PG70K1S4zelWjOXa8tkNiF?=
+ =?us-ascii?Q?MPETnY195rGHf1On2YyMnxzOC07mvYX3KVCBaMBAaQ+pwUHSqCK0Wxi35xB7?=
+ =?us-ascii?Q?hykqAXPxz8qCmOk+41enamLGCDHH9QJMA/wGKQ/O/qcJCa/ogJ9LivI7sOfK?=
+ =?us-ascii?Q?xpCXOZ8Q7n3xZNartRxWAhFMN4BEXeMvDvuudT8Gh21e+DmCQ2uAlAXqw0SN?=
+ =?us-ascii?Q?afHbcy//O/0HEjKF+nYNGgDHUqWR5oT1m50qSK8QGv/8Kq3Fd0CS2yphJ9jQ?=
+ =?us-ascii?Q?HVIfPK/HGxUUptxLJvRkzQVcu9HCJgnltZzuazIKsI3Tv1S+k7AFR38uig+V?=
+ =?us-ascii?Q?sH6gX90Swz+o8zDZ3UV8PbyL9srAxGWNisNtHAREcjg85Yt+Jhv2vw2PagYs?=
+ =?us-ascii?Q?5p4bQ0qjMDGZVN8vCfOvxncb2nz1rAqvQVkJYkGJYsagsH+4FDe4SObULtKQ?=
+ =?us-ascii?Q?he+JrsoP5p/l99qPIv5US6UzOeqLqVZBF5uksMEj/2ru05BRUjYNCzDkyZPQ?=
+ =?us-ascii?Q?+CM4daHaDV6fxPJapn1G28+jsNmzaW9bUCnnzk7JI3JTTSTmFy1Byv1BIHau?=
+ =?us-ascii?Q?Xavs1gHrabqLcgLUXNDIzjb+bWguhB+jvI8l0WnIBjFTQN4dfRAsAPLJ5Tpy?=
+ =?us-ascii?Q?7cbgWFb1PZTqyIglbUXla/i/A1qRjF7mTDkCt9TLq2FJBwpZBPC8X1zYTajX?=
+ =?us-ascii?Q?L78y2aFcvZqvgRnK4QgwbS0rELf0JR/CfhCUZggDBg5+UrUpWvv8LrboNP0t?=
+ =?us-ascii?Q?OqSWoWztN25tMQrfvq73GpKj+xwuJ1xdDUSZ7kB8JCVSW6yVwJCXdGt8Bmdf?=
+ =?us-ascii?Q?D89Q0m2EmzQEabbqK5cwwyeT1047hX5dukUlWvVZkaTJ+qN9KT/S2ti29gHW?=
+ =?us-ascii?Q?ot56rEoenzp+q1I2+LJxM7NHvVZYN4rJ5YXPa9RDxGnj3hn7vf5Hnn0haZyM?=
+ =?us-ascii?Q?2it/Uqect0aw79wNyWRIEveFqjYTuRA0RWcQEZKxl2l/qfqN1AxOXcxmAUdF?=
+ =?us-ascii?Q?Aqg7AmUsALQBuHEOKXq0MI/iMTyhDbB6EiwmknfGWSJCO2P9pIK4uhq4dtAH?=
+ =?us-ascii?Q?TQZZkQNNmIrTr6mfIFse4fICk58NCjlmzTmNximSnih2IvoqrRAxyuGOvNPl?=
+ =?us-ascii?Q?rh/Qa457awPXIQgUl7q1PwTCgnMwetEGM0dLwppmQxRu0hRdf+IwfsXS5KQE?=
+ =?us-ascii?Q?lsNQqmzN1myytJ8vLomjjki4KahGQ0LDhAT7hS4IsxCfjXWUG3bL1wokynmG?=
+ =?us-ascii?Q?HW2PP5iqdw4m2CyT8QI1Fjkgdll6ec7/L6ih2nwsdajqSyDBM27IiznWUS84?=
+ =?us-ascii?Q?rjk077cFW9NTBgZDtjfbBzIrjMq3ek8LikR8C/FMjgjH96+fR5wKk5W72dBc?=
+ =?us-ascii?Q?a0wtYPV3l+o4TGv/BRPKtvxfI/diDNZdGeiQnoRhzoeHfR3bX8XelIcuUMcL?=
+ =?us-ascii?Q?8OOnoYaTmzBvj0R184BXHfAXcvS3qQAAi/vmxYnszYKORYFfLYNTSWYBmWdb?=
+ =?us-ascii?Q?J1mHIX3iZ8isULTWpIxKbdKDk18WWEAaT3cxeuEFWY1Mmd5nVkaeuBTHT1/k?=
+ =?us-ascii?Q?TNbdYApGvIcrmeeMMX6jbNuze/WgCW2o0haZvirC?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be058bef-bb48-4164-8a43-08dcfcba3da3
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB8252.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 10:20:01.1925
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XeSzSuctgOgYQgTYx6Af7ib3P2tXajbe+ywpitk2d95++tWfHApA05SF0Cn6JOSu+pHFbvVkkZoR1fWq96Yv/w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_021852_210097_354FDD2E 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20241104_022007_527502_534E26A2 
+X-CRM114-Status: GOOD (  31.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +163,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 01/11/24 16:20, Nícolas F. R. A. Prado ha scritto:
-> This series fixes the inverted handling of the mediatek,mac-wol DT
-> property while keeping backward compatibility. It does so by introducing
-> a new property on patch 1 and updating the driver to handle it on patch
-> 2. Patch 3 adds this property on the Genio 700 EVK DT, where this issue
-> was noticed, to get WOL working on that platform. Patch 4 adds the new
-> property on all DTs with the MediaTek DWMAC ethernet node enabled
-> and inverts the presence of mediatek,mac-wol to maintain the
-> current behavior and have it match the description in the binding.
+On Mon, Oct 28, 2024 at 11:57:49PM -0500, Cristian Prundeanu wrote:
+> Hi Gautham,
 > 
-
-Actually, I'm sure that all of these boards *do* need MAC WOL and *not* PHY WOL.
-
-The only one I'm unsure about is MT2712, but that's an evaluation board and not
-a retail product with "that kind of diffusion".
-
-I think you can just fix the bug in the driver without getting new properties
-and such. One commit, two lines.
-
-Cheers,
-Angelo
-
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
-> Nícolas F. R. A. Prado (4):
->        net: dt-bindings: dwmac: Introduce mediatek,mac-wol-noninverted
->        net: stmmac: dwmac-mediatek: Handle non-inverted mediatek,mac-wol
->        arm64: dts: mediatek: mt8390-genio-700-evk: Enable ethernet MAC WOL
->        arm64: dts: mediatek: Add mediatek,mac-wol-noninverted to ethernet nodes
+> On 2024-10-25, 09:44, "Gautham R. Shenoy" <gautham.shenoy@amd.com <mailto:gautham.shenoy@amd.com>> wrote:
 > 
->   Documentation/devicetree/bindings/net/mediatek-dwmac.yaml     | 11 +++++++++++
->   arch/arm64/boot/dts/mediatek/mt2712-evb.dts                   |  2 ++
->   arch/arm64/boot/dts/mediatek/mt8195-demo.dts                  |  2 ++
->   arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts         |  1 +
->   arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts        |  2 +-
->   arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dts |  2 ++
->   arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts         |  2 +-
->   drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c          |  9 ++++++---
->   8 files changed, 26 insertions(+), 5 deletions(-)
-> ---
-> base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
-> change-id: 20241101-mediatek-mac-wol-noninverted-198c6c404536
+> > On Thu, Oct 24, 2024 at 07:12:49PM +1100, Benjamin Herrenschmidt wrote:
+> > > On Sat, 2024-10-19 at 02:30 +0000, Prundeanu, Cristian wrote:
+> > > > 
+> > > > The hammerdb test is a bit more complex than sysbench. It uses two
+> > > > independent physical machines to perform a TPC-C derived test [1], aiming
+> > > > to simulate a real-world database workload. The machines are allocated as
+> > > > an AWS EC2 instance pair on the same cluster placement group [2], to avoid
+> > > > measuring network bottlenecks instead of server performance. The SUT
+> > > > instance runs mysql configured to use 2 worker threads per vCPU (32
+> > > > total); the load generator instance runs hammerdb configured with 64
+> > > > virtual users and 24 warehouses [3]. Each test consists of multiple
+> > > > 20-minute rounds, run consecutively on multiple independent instance
+> > > > pairs.
+> > > 
+> > > Would it be possible to produce something that Prateek and Gautham
+> > > (Hi Gautham btw !) can easily consume to reproduce ?
+> > > 
+> > > Maybe a container image or a pair of container images hammering each
+> > > other ? (the simpler the better).
+> > 
+> > Yes, that would be useful. Please share your recipe. We will try and
+> > reproduce it at our end. In our testing from a few months ago (some of
+> > which was presented at OSPM 2024), most of the database related
+> > regressions that we observed with EEVDF went away after running these
+> > the server threads under SCHED_BATCH.
 > 
-> Best regards,
+> I am working on a repro package that is self contained and as simple to 
+> share as possible.
+
+Sorry for the delay in response. I was away for the Diwali festival.
+Thank you for working on the repro package.
 
 
+> 
+> My testing with SCHED_BATCH is meanwhile concluded. It did reduce the 
+> regression to less than half - but only with WAKEUP_PREEMPTION enabled. 
+> When using NO_WAKEUP_PREEMPTION, there was no performance change compared 
+> to SCHED_OTHER.
+> 
+> (At the risk of stating the obvious, using SCHED_BATCH only to get back to 
+> the default CFS performance is still only a workaround, just as disabling 
+> PLACE_LAG+RUN_TO_PARITY is; these give us more room to investigate the 
+> root cause in EEVDF, but shouldn't be seen as viable alternate solutions.)
+> 
+> Do you have more detail on the database regressions you saw a few months 
+> ago? What was the magnitude, and which workloads did it manifest on?
+
+
+There were three variants of sysbench + MySQL which showed regression
+with EEVDF.
+
+1. 1 Table, 10M Rows, read-only queries.
+2. 3 Tables, 10M Rows each, read-only queries.
+3. 1 Segmented Table, 10M Rows, read-only queries.
+
+These saw regressions in the range of 9-12%.
+
+The other database workload which showed regression was MongoDB + YCSB
+workload c. There the magnitude of the regression was around 17%.
+
+As mentioned by Dietmar, we observed these regressions to go away with
+the original EEVDF complete patches which had a feature called
+RESPECT_SLICE which allowed a running task to run till its slice gets
+over without being preempted by a newly woken up task.
+
+However, Peter suggested exploring SCHED_BATCH which fixed the
+regression even without EEVDF complete patchset.
+
+> 
+> -Cristian
+
+--
+Thanks and Regards
+gautham.
 
