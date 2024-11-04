@@ -4,115 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7420CD1BDFF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B5FD111B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=; b=gUU3eyWOwpR5UeB2dnYNdBeo2j
-	kK4kpfYZWqidTi3lHPg7XE3xVtuGtLVyeJtFsWOkt4CJA1OQovxr+Avq+1kV/pt15Bt0pQMVEgAER
-	kVdFcNyhJBfdjgQWV9SqCcdKYvaCJl6YU7Xl8GQBKUS1E20MUb0/P3M9Bt79M2w9IYwbWiY+bOVWp
-	2kIxwHc1PB4e2kJKinPGTcvdmhsMfYikaBpplA7E5VLlUrwHzFtTzjplLaa84dGtCS9Av5ZIRWFRY
-	AYLkvcYlkzbXAZg08A6RItSPWXdVjWu07+UVx0ms1uYvtpDtHpn1nRg1IxeRjPVjcKogADgqCQYbc
-	/iWN9CUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/4tmB1crXrQeW2xb2p4HQOS59dYvDstelXee2aLIlks=; b=UsU0vQpCKR9kV9+F53yl5F6fWX
+	Thk53fQD9novxkg0wVlJnPKLiY67fmSSxrpfP5zhBbTZMBRU67T3VasDtI5H92Ku3BJ5ywQFkmCOC
+	f7g74bz/PcDuvTV9Wk49GjPFnXiwIoldrmFxhmRNKOtIjolsA9vgPp7YECIJM8kzadtUowivGwP8T
+	AZrbYXw/lj9tshq91gnqH9GFWdF/GAoQbHn+X+HhfgOqfqh188iPLDbao7SgLnDBfqNynnBS+DN+C
+	uGv1+trGIPw3L+B0EClemcmO4vgo4LwQDKL5fPqKZCATPtSbsoLZl6ClsHqfsN6KYSDIlA3nJmvzi
+	JUEIIUCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84s7-0000000FD9A-1msa;
-	Mon, 04 Nov 2024 21:44:27 +0000
+	id 1t84tm-0000000FDKS-2JKV;
+	Mon, 04 Nov 2024 21:46:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84h9-0000000FB51-2UL0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 04 Nov 2024 21:33:07 +0000
+	id 1t84r3-0000000FCtA-3FJS;
+	Mon, 04 Nov 2024 21:43:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=; b=R+XnTxQYsL/G1l7E2Yd+y9SMjG
-	4nWSpPtZrv+FMWmwuXWcdJjY4FVyWI0PQE2XEXgqe183CBZrt1/ZEyO1iu11i1NFxWduDymHVoPfU
-	8hbw3naTAv6LihINda/KPUQY+HL9AqL8R8KTn6IshnaT5j9pBjMY0o4nOLc4engOBKSivYjjLWbt8
-	DoHA3h9jt69j8UhDxXAJ1d9AS5PPuljJ9Kcgto2OoWDQHu6DoSpZQ8BNxIZMgmRFovRP0YCvQYIdq
-	jlaCVm65Xzt9egY2RMU7v80WOxsqQE5xoxw1xAAy9oPMdOu7AnGv+k6VD1im3H5nqxGOBbX76k3uC
-	/VW3kJAA==;
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=/4tmB1crXrQeW2xb2p4HQOS59dYvDstelXee2aLIlks=; b=NcVkjO+XlpVfFsHODDo1D0stFq
+	CxKDkYvnX/YwTeDRHzXFD1w9nRNVRlo8KjrhckKYhlLx/JsIkGhJEK2Rk1WXmG2WIL/ugTBd7H1nj
+	8MhZVV5sRYuClMut4U3ui0Ge+3YL1lcU6XbQaUlx6bQf/Hm70SPret0lLoyHqtWhbBrlMsOStAyMq
+	QKI95bRjotpZ5dFplLfG+eXN41K03G7bLgKj6JEzKf8Kwarb2Vj/WbT7OeJdPRDK7H9A5F8TqKdJ2
+	LXQmF5dBGYUbGrndlqXOiGgSdgB4YreXDi3+4slRmYIxnVl1x76h7yMnc0qtgHjtduSObTzMt09VL
+	HMnrczVg==;
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84h3-0000000Ba2d-2Wmh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 21:33:05 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-720be27db27so3767366b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 13:32:58 -0800 (PST)
+	id 1t84r0-0000000BaJh-2E4f;
+	Mon, 04 Nov 2024 21:43:20 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6cbe9914487so33311236d6.1;
+        Mon, 04 Nov 2024 13:43:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730755977; x=1731360777; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=;
-        b=VvNTuHIniX0zk5sB28eq7jz4AkqmVBwQ7U191Hwg4SiXvzHhIKgDzX1SitfMjwu5p7
-         AoeW95ao3nPMycrTSc71MhSAR22DmCclaz3Lw8Ja3BbELVFqLetqNroHYXNGdUm/jtWf
-         3eiX1Wso4xLiNbDB7fxiQUAPci4eVyG6IknR4ycWm5aDW+zbnbej04iko8XEq31A+shX
-         +JrmqRlc/zPf0LMCJ5/u2FGtVDJKKTvyhH/m4149P2RfnmBZQ4to7WnM+NXDkZPGraiH
-         SkA6GlNPfFGPoMWFC/EPiE1Y2nL4EARgr9BU6f1DMA5UVwBzCESgIuQa/RlPdi8fjNnX
-         rSzg==
+        d=gmail.com; s=20230601; t=1730756594; x=1731361394; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/4tmB1crXrQeW2xb2p4HQOS59dYvDstelXee2aLIlks=;
+        b=RQYD7tJ1+VCrbQhuHxETdHT11bEXswcWrfkodlCufWg2sh3feebEamtKiABCVLmbFP
+         reUTbr4bvMWgEXNrwnQ8Pqtj7lwIwQhsYlCQW8QVis2gq/4NNhWQ7HRVTov+gjRremlL
+         N6qmPpY5U1LN7D5DcUG+K/fyylGBovZsRJiXQsTroM0SH3/YaswwutH9woydbT6Uce0m
+         QrSdQ8sS0ie7Xi49qtN0pISG2ka/2Kn/LVv5xUl0kUnA/cW/Cwhtzd8/omEU2Ne2LM+W
+         gfzUZ1sI3+241lW1EMyQ7S0yTox1+O22DmwWogmjJFtGOZVAjk95OeHZRgBqJkgzpRlP
+         gbLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730755977; x=1731360777;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=;
-        b=FkmY8lfvx9pIGcbW3MqqXofuqlh6wh1PzAZWTEKMkFf/z2Jhi8KRi9ie5vVYBCiFkk
-         lW626qYwGVi7HXfKpNcQURj3FQrCXXN3tuPK9BnBKnSfX5BVc/N7gi6otjqJdFcwOEkB
-         d3pZhRIyUwoV2OHWTX+s4jnrycr/CU+x3GpSbetuX2GeMV2+FComu2vEURBPT8gvlDGC
-         PtoH8G13VZVIAg7KgcFA2ex5PgnF62185SAApgjr8M7OYkHzMaqiTg7tHoZO4EBC8dnT
-         h8emaKN/kPnqyvSJUaIZgxX+k9lkO+wjiHn+3I9Jp4JGgDYTNLfZoKFI3+Cj3ezfahN3
-         uiSw==
-X-Forwarded-Encrypted: i=1; AJvYcCU0lJveaRhmNTflFh7yMQuvFVBeGBNW3fZBDbkBEK5r1QbA4889daQICoaw8tdjRxWw9hrdFVmnBJA0ruRLfcg+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxmmyoz1jxV82aPvKRL0SLID0LK1+KcmTKJpFfJmKScW/QWZQyx
-	1SuIkpBF/TUUy9CHxG+SaoZtF4uT7IC00i294LtVeBjPsZVT5ZK2I6wmr3rJN7w=
-X-Google-Smtp-Source: AGHT+IE1gCnZHDhbNSzOxIsLAwqp2zm4KQPfqsRjT/TyxizeRL+Gzx/ZXVxE+GJ5uzuO8nBhG5XzOQ==
-X-Received: by 2002:a05:6a21:9993:b0:1db:d8df:8c4e with SMTP id adf61e73a8af0-1dbd8dfc276mr7417523637.12.1730755977373;
-        Mon, 04 Nov 2024 13:32:57 -0800 (PST)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1ef7d9sm8114469b3a.83.2024.11.04.13.32.55
+        d=1e100.net; s=20230601; t=1730756594; x=1731361394;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/4tmB1crXrQeW2xb2p4HQOS59dYvDstelXee2aLIlks=;
+        b=Zd0bQYEZTq2NmRoQDYtHmWLF+/3BFRE9YuBSgEuauoC3Z86CwXrgj0JwlG+cx+OUpE
+         q6dIP8mmvGLuCUJGE5d+VSydUpJ1bcO+fPZIMHjzbGZ195m2b82KyhpwipSFIyOeXqM/
+         b1QmbhObtGKXnDhfBtDy1uwfU0QJo6yJRXPxtbmRLlB2ZPjEdjoC2LlaLiipx+SNwnvg
+         8Y+BOcn5Jm5FbsxMYhKXR4guq5qfDxxRQmna9nIQ5225XNagSvQS1YdgGldNpGlwhJJ4
+         sjwaclXIHQdBEl+Q2pRH3QVqAzdy6FBODHGhABKn5f1bwlEF39DcB2JizLoHRnxV1LP+
+         +zUw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIBG4youB9vZAA22Edmbu4dQNa8DoCJlm8fVCPq/kdnem8ud9tVnSxyHkOcww1tbAhl1ggwOc/ULVextD6Hg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoFw5/hGlb73rvB4ppD7XB6cSdtSmU7I/DwfVGLWv81PajdQR/
+	JTpplYBKp7YuhzHJL77Mf2/zjXM3jf43p+l6FW2+6tp8+2YUdYDx
+X-Google-Smtp-Source: AGHT+IHiD08rBdxTtb8aWm9tjEu6W9aqyM2twM5OiMs1ouAVCkDkPquU7pdY0W4uFRX0AKoynB85Ww==
+X-Received: by 2002:a05:6214:3386:b0:6cb:fa1c:87da with SMTP id 6a1803df08f44-6d351b2083emr248567506d6.38.1730756593883;
+        Mon, 04 Nov 2024 13:43:13 -0800 (PST)
+Received: from newman.cs.purdue.edu ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d35415b1edsm52553916d6.75.2024.11.04.13.43.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 13:32:56 -0800 (PST)
-Date: Mon, 4 Nov 2024 13:32:53 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for
- all archs
-Message-ID: <Zyk9hX8CB_2rbWsi@ghost>
-References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
- <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
+        Mon, 04 Nov 2024 13:43:13 -0800 (PST)
+From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+To: rmk@dyn-67.arm.linux.org.uk,
+	max.schwarz@online.de,
+	dianders@chromium.org,
+	david.wu@rock-chips.com,
+	heiko@sntech.de,
+	vz@mleia.com,
+	andi.shyti@kernel.org,
+	wsa@kernel.org,
+	manabian@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH 1/3] i2c: lpc2k: Add check for clk_enable()
+Date: Mon,  4 Nov 2024 21:43:08 +0000
+Message-Id: <20241104214310.6048-1-jiashengjiangcool@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_213303_834373_050CA885 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20241104_214318_867948_4BCCB23D 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,42 +113,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 10:13:18PM +0100, Arnd Bergmann wrote:
-> On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
-> > Standardize the generation of syscall headers around syscall tables.
-> > Previously each architecture independently selected how syscall headers
-> > would be generated, or would not define a way and fallback onto
-> > libaudit. Convert all architectures to use a standard syscall header
-> > generation script and allow each architecture to override the syscall
-> > table to use if they do not use the generic table.
-> >
-> > As a result of these changes, no architecture will require libaudit, and
-> > so the fallback case of using libaudit is removed by this series.
-> >
-> > Testing:
-> >
-> > I have tested that the syscall mappings of id to name generation works
-> > as expected for every architecture, but I have only validated that perf
-> > trace compiles and runs as expected on riscv, arm64, and x86_64.
-> >
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> 
-> Thanks for doing this, I had plans to do this myself, but hadn't
-> completed that bit so far. I'm travelling at the moment, so I'm
-> not sure I have time to look at it in enough detail this week.
-> 
-> One problem I ran into doing this previously was the incompatible
-> format of the tables for x86 and s390, which have conflicting
-> interpretations of what the '-' character means. It's possible
-> that this is only really relevant for the in-kernel table,
-> not the version in tools.
-> 
+Add check for the return value of clk_enable() in order to catch the
+potential exception.
 
-I don't think that is an issue for this usecase because the only
-information that is taken from the syscall table is the number and the
-name of the syscall. '-' doesn't appear in either of these columns! 
+Fixes: 3f9c37a0c9a5 ("i2c: lpc2k: add driver")
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+ drivers/i2c/busses/i2c-lpc2k.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-- Charlie
+diff --git a/drivers/i2c/busses/i2c-lpc2k.c b/drivers/i2c/busses/i2c-lpc2k.c
+index 9fb33cbf7419..ea9831f34cd6 100644
+--- a/drivers/i2c/busses/i2c-lpc2k.c
++++ b/drivers/i2c/busses/i2c-lpc2k.c
+@@ -442,8 +442,14 @@ static int i2c_lpc2k_suspend(struct device *dev)
+ static int i2c_lpc2k_resume(struct device *dev)
+ {
+ 	struct lpc2k_i2c *i2c = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_enable(i2c->clk);
++	if (ret) {
++		dev_err(dev, "failed to enable clock: %d\n", ret);
++		return ret;
++	}
+ 
+-	clk_enable(i2c->clk);
+ 	i2c_lpc2k_reset(i2c);
+ 
+ 	return 0;
+-- 
+2.25.1
 
->      Arnd
 
