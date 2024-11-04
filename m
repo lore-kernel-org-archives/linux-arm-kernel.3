@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C81D10C0D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432ECCFB422
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDVtNnbxDmw6YStqTqKP24wVqhbZxt7t6zFnX4qQvwU=; b=uFaiWXqszRcSWIw34FpsIWrCbA
-	huUC2Ctp7FyGAv4TeUtCYzLu3o0s1LGnK+OIk8nKgaD1ktVBl+0oQoGMI4ItWe5Kj9jwkYgV8OYvy
-	UYknD9daXsgxsIzOL2532EDsL5uDNTBRzPj1wc4lyGBR34WAAnAUBhqzu9+HPioOEOHXVGhQQ+ZeA
-	ajgnS8FN8qyGUvAXm1wBzQNF9cc1cKAablJkrtEC2HhiEaGSj5haLrz00LlPUajqOoQ6vJSKEhkRW
-	UgyhzUQRvPWEm803Dyy7ShK/ME7k1x5VMaVyNMzKfFfRQypFPGeIKFq+KS6aEIBi4Mc2c+n92wi7h
-	Kwte+DpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NRz/jCOR5nhO6PdsCUpGFQ7Ypz/AFG5Fmh0XSJYheh4=; b=nvM05X7AFqx2UmJL6POqQyKvTl
+	E5Bj51LjeATs+0LN1yeCmxAOMnvI+XZ+idSrFX0/74JZM//ETolELgJya8bgAcwNUJM3JjRnB/ioB
+	Q7wNMM3gkQo+6tm3D0KwzipRApYzL4t0Ch6TrzdlTdHKNSjZw9htEKSfy3IpDTXNNWwR7K6k7vInm
+	yTaiCdL+8OSFImWoRGx5f1kgcry6fHlK9OylWrnfyKRsfhlEyG9Y0QW7lxsHp7HCXiMzf4PV47Ozz
+	bCfG8Q55TjRjHVgCQkeIYCUE2Tk7924BqOAIH/KUeCmx8+JcwM3jYPDtvHGpx/6EDTiYrDgjJGh2j
+	3pux3+1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zHR-0000000EFxb-1sHl;
-	Mon, 04 Nov 2024 15:46:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7zJ8-0000000EGPx-16dq;
+	Mon, 04 Nov 2024 15:47:58 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zF5-0000000EFGr-2etR
+	id 1t7zH1-0000000EFqk-3LJg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 15:43:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DD987A43081;
-	Mon,  4 Nov 2024 15:41:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80928C4CECE;
-	Mon,  4 Nov 2024 15:43:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730735025;
-	bh=7Q2U9oss2EM4iM3PMEeL4JsDBihXmtIIsux04111JkY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ic9jv7DmA9iiQEJ/OSVpnEdHDhlMOqfFU2nHWthRPkYDGX5yCQYB3iTbneJjq+Og5
-	 rHEvIm0lzo/2tcuA0TQtO0arblv7UMeSIfL/FjM/X/ruKQ/9YgWV1p9lgTY2zn2bld
-	 kbt+awZpSfPJ4NXKc6opPsuArC4xfQEi6uAPYLJPFb9eN5nZXtl+voH1rvYfqQ2MSs
-	 0vQKjppQknbrmDpG2X/z+MgOfuyCF0ou63aFt9KKk9xkkhHjaduPvXuf6vh51SvrpH
-	 vEMTKUFxn1smD8qPS+KkffHKfoGta2/aBhSgz7UnV3BnGF7hH+v1Q+TCkvmcN9iYQC
-	 kdT1vOO0izLdg==
-Date: Mon, 4 Nov 2024 09:43:43 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Fabio Estevam <festevam@denx.de>, linux-arm-kernel@lists.infradead.org,
-	marex@denx.de, shawnguo@kernel.org, devicetree@vger.kernel.org,
-	conor+dt@kernel.org, dri-devel@lists.freedesktop.org,
-	a.fatoum@pengutronix.de, imx@lists.linux.dev, kernel@pengutronix.de,
-	krzk+dt@kernel.org, andreas@kemnade.info
+	Mon, 04 Nov 2024 15:45:49 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1t7zGg-0007oc-VO; Mon, 04 Nov 2024 16:45:27 +0100
+Message-ID: <4feae7cc-273a-40a3-a075-ad82b4ae542c@pengutronix.de>
+Date: Mon, 4 Nov 2024 16:45:26 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 2/3] dt-bindings: lcdif: Expand the imx6sl/imx6sll
  fallbacks
-Message-ID: <173073502322.211813.8204501104230548664.robh@kernel.org>
+To: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org
+Cc: marex@denx.de, andreas@kemnade.info, kernel@pengutronix.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Fabio Estevam <festevam@denx.de>
 References: <20241101135406.47836-1-festevam@gmail.com>
  <20241101135406.47836-2-festevam@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
 In-Reply-To: <20241101135406.47836-2-festevam@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_074347_769369_14B104A7 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20241104_074547_842193_5BF1039E 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,8 +71,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 01 Nov 2024 10:54:05 -0300, Fabio Estevam wrote:
+On 01.11.24 14:54, Fabio Estevam wrote:
 > From: Fabio Estevam <festevam@denx.de>
 > 
 > mx6sl.dtsi and imx6sll.dtsi have the following lcdif entries:
@@ -102,6 +96,9 @@ On Fri, 01 Nov 2024 10:54:05 -0300, Fabio Estevam wrote:
 > lcdif features found on imx6sl and imx6sll.
 > 
 > Signed-off-by: Fabio Estevam <festevam@denx.de>
+
+Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+
 > ---
 > Changes since v3:
 > - None.
@@ -109,7 +106,36 @@ On Fri, 01 Nov 2024 10:54:05 -0300, Fabio Estevam wrote:
 >  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 8 ++++++--
 >  1 file changed, 6 insertions(+), 2 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> index ad0cca562463..72e509bc975b 100644
+> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> @@ -23,14 +23,18 @@ properties:
+>            - fsl,imx93-lcdif
+>        - items:
+>            - enum:
+> -              - fsl,imx6sl-lcdif
+> -              - fsl,imx6sll-lcdif
+>                - fsl,imx6ul-lcdif
+>                - fsl,imx7d-lcdif
+>                - fsl,imx8mm-lcdif
+>                - fsl,imx8mn-lcdif
+>                - fsl,imx8mq-lcdif
+>            - const: fsl,imx6sx-lcdif
+> +      - items:
+> +          - enum:
+> +              - fsl,imx6sl-lcdif
+> +              - fsl,imx6sll-lcdif
+> +          - const: fsl,imx6sx-lcdif
+> +          - const: fsl,imx28-lcdif
+>        - items:
+>            - enum:
+>                - fsl,imx6sx-lcdif
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
