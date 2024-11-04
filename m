@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABF5D132D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A449D132D7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBFz0Xh8h8OXKDPYxDzsIhljgAc1tr+hzStvYF+4inc=; b=0rqFR18eRs5C+5n122mDnDSOT2
-	wirzLdQ0L5UQCLIpeWw01V4wEgEO4kt1/7Tldy3UH0wqAb1cHTIVcRa2DmdbYIi0Z2u98SP3W0OWz
-	Zc+XsJD6g/AmA5m/xJiHBHjKSzht+XXI4L9DtUs/FcS6VhqnCjK/7Fu30wX0Aprz/tLwBPcrEFRC3
-	1Me0KcrE4ekbLm5xWntfOBvgxmRvIDZ43NfqLOyO1n1wiOY30n54fqjO7SSNOlt84CoALriy/HmFK
-	co9indvoj2i9xW2fWA0C1ZrX4KgIsxugLxbt2JQlN1ojOiA5XK2IkskjT2++p5LxPeCXT+VohFEkr
-	wnMH/Bxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uE7/EEHJQMi0IC54XrajBkKpxP0fphrJFkkngDzHsLM=; b=hh2MYfrbJXt3nU4iS1qjzIVXDf
+	f+CUsoHdT5l7dtF2+T6NC2rsIz/18PmMkuVYMK49ODiJspWVOmZdK4dBeQlvsoj2us764IBC9ZiYd
+	xTvV2nH9DKZDcCDV8BT/qTLcjSzx0fyh7tgDviaFxHctFu3iHWoPZEQy2ewdkHKyetseiKlTrRnJ0
+	uJ1ALFMKesrZFTUZVYyottBYAKaxAdUZ6m2dJPHLli1F5k8BwaLd2MfFo3QU53koENZmM1OBo85+f
+	pj0tyzYSkaR4cMOaX67pv9YxoF0uV9EEUree/G4oRi61b7YZQy0AyWX3XTE5gsuL03XXsvaa+jPvY
+	yPB4ENWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yRP-0000000E7Yj-1KZu;
-	Mon, 04 Nov 2024 14:52:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t7yT3-0000000E7m8-1uji;
+	Mon, 04 Nov 2024 14:54:09 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7y0u-0000000E2X0-0LeK
+	id 1t7y8n-0000000E3na-3NSE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:26:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 51FB25C5619;
-	Mon,  4 Nov 2024 14:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A29C4CECE;
-	Mon,  4 Nov 2024 14:25:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730730302;
-	bh=aCdsocZNwSc0LaEHFPOtq6uw+UtTQbPbYCLT6rdIiSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R89pu2SkbTOdSoRFVO+RZw5wfgA4U27LfJeYYH88bCe+nfxHdadx02d8l9jhs8zid
-	 VrhbYNlRXhCr0Q59Q9+5nKXv8H2c1BwKOpmeMl+iNfLAGzPE0TH0kXY5h82VjvBbuK
-	 PVu3y1owBEg93MLEfo812PRB9qr+j1BwMNkIt7ke+Cjars0M+tMypPYeLcBc7rBZx5
-	 Y9cTGR7QhoXaXhGcUbDJuLJtxMEABrinBwwWZVTLBs+DBFxogiMaitSSm4sNHLb9w1
-	 PzuV8Rd94Va0gkGfpz2mNKhvLiScchTKZeAOUiGVs1SOr45IOTZePGcQYR7v98RXrt
-	 Oah2MOc+r3XXg==
-Date: Mon, 4 Nov 2024 23:24:58 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: fabrice.gasnier@foss.st.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, Jonathan.Cameron@huawei.com,
-	benjamin.gaignard@st.com, gregkh@linuxfoundation.org,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiashengjiangcool@outlook.com>
-Subject: Re: [PATCH] counter: stm32-timer-cnt: Add check for clk_enable()
-Message-ID: <ZyjZOt4LXL6vVrEC@ishi>
-References: <20241103182502.8384-1-jiashengjiangcool@gmail.com>
+	Mon, 04 Nov 2024 14:33:15 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Xhv8J72RNz9sSR;
+	Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id bWfhLmnpm9tF; Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Xhv8J6736z9sSN;
+	Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id B3EE88B770;
+	Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id X3XWHlYHgmaK; Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+Received: from [172.25.230.108] (unknown [172.25.230.108])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 811948B763;
+	Mon,  4 Nov 2024 15:33:04 +0100 (CET)
+Message-ID: <34c972b7-ba53-46ba-ada9-df741bc21e47@csgroup.eu>
+Date: Mon, 4 Nov 2024 15:33:03 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="A18abvT+dU0C7JZH"
-Content-Disposition: inline
-In-Reply-To: <20241103182502.8384-1-jiashengjiangcool@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/3] soc: fsl_qbman: use be16_to_cpu() in
+ qm_sg_entry_get_off()
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Breno Leitao <leitao@debian.org>,
+ Madalin Bucur <madalin.bucur@nxp.com>, Ioana Ciornei
+ <ioana.ciornei@nxp.com>, Radu Bulie <radu-andrei.bulie@nxp.com>,
+ Sean Anderson <sean.anderson@linux.dev>, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+References: <20241029164317.50182-1-vladimir.oltean@nxp.com>
+ <20241029164317.50182-2-vladimir.oltean@nxp.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20241029164317.50182-2-vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_062504_241167_B0EA5CCE 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20241104_063314_031371_0C5D38E2 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +86,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---A18abvT+dU0C7JZH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 03, 2024 at 06:25:02PM +0000, Jiasheng Jiang wrote:
-> From: Jiasheng Jiang <jiashengjiangcool@outlook.com>
->=20
-> Add check for the return value of clk_enable() in order to catch the
-> potential exception.
->=20
-> Fixes: c5b8425514da ("counter: stm32-timer-cnt: add power management supp=
-ort")
-> Fixes: ad29937e206f ("counter: Add STM32 Timer quadrature encoder")
-> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@outlook.com>
+Le 29/10/2024 à 17:43, Vladimir Oltean a écrit :
+> struct qm_sg_entry :: offset is a 13-bit field, declared as __be16.
+> 
+> When using be32_to_cpu(), a wrong value will be calculated on little
+> endian systems (Arm), because type promotion from 16-bit to 32-bit,
+> which is done before the byte swap and always in the CPU native
+> endianness, changes the value of the scatter/gather list entry offset in
+> big-endian interpretation (adds two zero bytes in the LSB interpretation).
+> The result of the byte swap is ANDed with GENMASK(12, 0), so the result
+> is always zero, because only those bytes added by type promotion remain
+> after the application of the bit mask.
+> 
+> The impact of the bug is that scatter/gather frames with a non-zero
+> offset into the buffer are treated by the driver as if they had a zero
+> offset. This is all in theory, because in practice, qm_sg_entry_get_off()
+> has a single caller, where the bug is inconsequential, because at that
+> call site the buffer offset will always be zero, as will be explained in
+> the subsequent change.
+> 
+> Flagged by sparse:
+> 
+> warning: cast to restricted __be32
+> warning: cast from restricted __be16
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+
+Acked-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+
 > ---
->  drivers/counter/stm32-timer-cnt.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/counter/stm32-timer-cnt.c b/drivers/counter/stm32-ti=
-mer-cnt.c
-> index 186e73d6ccb4..0593c9b73992 100644
-> --- a/drivers/counter/stm32-timer-cnt.c
-> +++ b/drivers/counter/stm32-timer-cnt.c
-> @@ -214,11 +214,15 @@ static int stm32_count_enable_write(struct counter_=
-device *counter,
->  {
->  	struct stm32_timer_cnt *const priv =3D counter_priv(counter);
->  	u32 cr1;
-> +	int ret;
-> =20
->  	if (enable) {
->  		regmap_read(priv->regmap, TIM_CR1, &cr1);
-> -		if (!(cr1 & TIM_CR1_CEN))
-> -			clk_enable(priv->clk);
-> +		if (!(cr1 & TIM_CR1_CEN)) {
-> +			ret =3D clk_enable(priv->clk);
-> +			if (ret)
-> +				return ret;
-> +		}
-> =20
->  		regmap_update_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN,
->  				   TIM_CR1_CEN);
-> @@ -816,7 +820,9 @@ static int __maybe_unused stm32_timer_cnt_resume(stru=
-ct device *dev)
->  		return ret;
-> =20
->  	if (priv->enabled) {
-> -		clk_enable(priv->clk);
-> +		ret =3D clk_enable(priv->clk);
-> +		if (ret)
-> +			return ret;
-> =20
->  		/* Restore registers that may have been lost */
->  		regmap_write(priv->regmap, TIM_SMCR, priv->bak.smcr);
-> --=20
-> 2.25.1
-
-It's not necessarily clear that an error in the count_enable_write()
-callback or cnt_resume() callback is due to a clk_enable() failure. You
-should call dev_err before returning to indicate the reason for the
-error code.
-
-William Breathitt Gray
-
---A18abvT+dU0C7JZH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZyjZOgAKCRC1SFbKvhIj
-K91QAQClpsDPi83ln4ZTMU9XMQcBPRklZisDe1L9SMCTzqjm3gEAq1L5KoqpNOaf
-YPPuPhpOYxmyb3wS6y/mZ8IWf4PZ9QQ=
-=zJcy
------END PGP SIGNATURE-----
-
---A18abvT+dU0C7JZH--
+>   include/soc/fsl/qman.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/include/soc/fsl/qman.h b/include/soc/fsl/qman.h
+> index 0d3d6beb7fdb..7f7a4932d7f1 100644
+> --- a/include/soc/fsl/qman.h
+> +++ b/include/soc/fsl/qman.h
+> @@ -242,7 +242,7 @@ static inline void qm_sg_entry_set_f(struct qm_sg_entry *sg, int len)
+>   
+>   static inline int qm_sg_entry_get_off(const struct qm_sg_entry *sg)
+>   {
+> -	return be32_to_cpu(sg->offset) & QM_SG_OFF_MASK;
+> +	return be16_to_cpu(sg->offset) & QM_SG_OFF_MASK;
+>   }
+>   
+>   /* "Frame Dequeue Response" */
 
