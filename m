@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40F4D1BDC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1264D1BDC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGXE4eDYjk2lR2ubbk00XXdKNVfRlNdbyZKN2+XEphI=; b=NSHItH9sDjU9RbVLUDLwUThLEH
-	+5JLRjH9Xld/t2NkrnUKMof+KVVe+ZWfiqHiaaRriZ6uuYF4Jv/D2Z4oF7IJykead6aTnopDBHnfy
-	BHtFcyEmn3logid2QpuYtCXQjD0NfumcFUdPJ7dzJbr+95PvJTtMYELQIcS7abzxhAx8dlfp88oA8
-	dmS+E52xAPpMB2Nfsbc7pf0Afx/3YD/JXznhRhridwK2jaynZTkybNkHCdeCjwcdHrg8GI6hkDldB
-	74nNTEiLNlX+0kkDCHkauotq6z/Tf+0/oUe+SDgNuyJIA1Im4HZytAFeeLsL4fPGOQl2APKuHmlXn
-	Ecm8ACaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YjrMDEEWBsrWVJKjOgmunNnT0rvcXHBBLrNpNk01FAg=; b=gScUgID9Nsn2BHjWCE651jKCHg
+	bT6UkTlg56tCNYtyhjtBrqXf4EcifWl7Lu9p5cxFWyElqAOBJXyQLicDI8/K82OtJ/vg99gzHGMqf
+	VW2ucQR4CoMR1eGlx3DV9xMQAUTRgFfZFOlkUeoXjHxjIxM4YcXiL58eLqPtxPuJQtbptHRT920Pb
+	vHkV2Pe6C3igx/l9wrYTadVIvi4Q+TcIhhXVWdwQvGmC70K2frGcp7VE0WH2f1OWNY5qGuJnu33Kd
+	eknoMciPn7RmsUmCpk+kqdG+9y1EmKDR+nnkM0QTjMLdnAFHWYK5BE2c0T11HqGiKX7BSAOiFUOo/
+	SMsEZW9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zef-0000000EKmz-014a;
-	Mon, 04 Nov 2024 16:10:13 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1t7zik-0000000ELPZ-1Aii;
+	Mon, 04 Nov 2024 16:14:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zaF-0000000EK0H-3hzq
+	id 1t7zh3-0000000ELAm-0W4F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 16:05:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D6E2460006;
-	Mon,  4 Nov 2024 16:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730736335;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bGXE4eDYjk2lR2ubbk00XXdKNVfRlNdbyZKN2+XEphI=;
-	b=oWBrESDjrkJ+vex81zeexplceHDPwXDVOl6tJO1sOBfkZdIDzT7P+MMRlsRP9DbqB1hrSg
-	Og3p5pVD7P1CtF7HDKs7Cf1Tey7iOj3vUaEr8cqMOXC4SkkKPp0Oeft+MWR+Ixmhs7BZv8
-	Y3WvpiXl9jyw7LnvZj80kF//6X6izUlkrewdxYzwnTGeEnfoNp/gKC6POszbZRLpOnzu6h
-	UvJYpqGa3LAlBke1UZic4dHZrV2joV6cRTjSBgKMTD80KAlurBItXgQ6nvYwuZYjfDurhJ
-	KbHc3ZLihnhXfUYtjU6DT9jf9M4cp1yz5WltPqtSZQpTyMWsGFLXH5oAnNrO6A==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: marvell: kirkwood: Fix at24 EEPROM node name
-In-Reply-To: <CAL_JsqLLRSEaDv=Zm_LQH9cpgH2prh21+cmovgSR=pzQTuRtZQ@mail.gmail.com>
-References: <20240910215914.823546-1-robh@kernel.org>
- <CAL_JsqLLRSEaDv=Zm_LQH9cpgH2prh21+cmovgSR=pzQTuRtZQ@mail.gmail.com>
-Date: Mon, 04 Nov 2024 17:05:34 +0100
-Message-ID: <878qtz9e7l.fsf@BLaptop.bootlin.com>
+	Mon, 04 Nov 2024 16:12:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 711435C47B2;
+	Mon,  4 Nov 2024 16:11:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D564C4CECE;
+	Mon,  4 Nov 2024 16:12:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730736759;
+	bh=CSI8nmFVeCBUZm3j23aCaLtGEVXGHX7F+EO7hopFI+Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bdwUCbNmHML9PrNRdfy29kUrRCJ+UtUsiVXu0fQDqOvjEDs1MiwEtWWsiE4TNtwCr
+	 15ttqIq17BRC9+3YTw8CQf1lIqQSb8DpE8Aqd6NFQjCvWdh6tnVjypmIbECUbk5EqU
+	 Rs+HYZR/snvujBQGJylaQ71jiUH+YmzyUYqQsTU8tzG/jq3jInKe5RrOyUeoI0BRrr
+	 X+OVVN4KzoshoecdzH9MWUr0wVrs2UhQpRNybBQbQKg6EFVcIJQG0KZrZgsd859jzN
+	 WQwHpxAZZwXAIcnelk0ZpR10LFHinC8ACu2kJ9+5k8K3burokUgzCmfAdxnBjizLpx
+	 gTsgy9KArpFbQ==
+Date: Mon, 4 Nov 2024 10:12:37 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: thierry.reding@gmail.com, linux-kernel@vger.kernel.org,
+	krzk+dt@kernel.org, tzimmermann@suse.de, mchehab@kernel.org,
+	mripard@kernel.org, geert+renesas@glider.be, jonas@kwiboo.se,
+	nfraprado@collabora.com, jernej.skrabec@gmail.com,
+	kernel@pengutronix.de, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	quic_jesszhan@quicinc.com, Laurent.pinchart@ideasonboard.com,
+	sam@ravnborg.org, arnd@arndb.de, neil.armstrong@linaro.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	dmitry.baryshkov@linaro.org, s.hauer@pengutronix.de,
+	tomi.valkeinen@ideasonboard.com, shawnguo@kernel.org,
+	simona@ffwll.ch, will@kernel.org, conor+dt@kernel.org,
+	marex@denx.de, quic_bjorande@quicinc.com, andrzej.hajda@intel.com,
+	catalin.marinas@arm.com, rfoss@kernel.org,
+	sakari.ailus@linux.intel.com, airlied@gmail.com,
+	maarten.lankhorst@linux.intel.com, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, hverkuil@xs4all.nl,
+	biju.das.jz@bp.renesas.com, festevam@gmail.com
+Subject: Re: [PATCH v5 08/13] dt-bindings: display: Document dual-link LVDS
+ display common properties
+Message-ID: <173073675713.309604.179338628102616229.robh@kernel.org>
+References: <20241104032806.611890-1-victor.liu@nxp.com>
+ <20241104032806.611890-9-victor.liu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: gregory.clement@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241104032806.611890-9-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_080540_082047_F35E47BC 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20241104_081241_226705_E86BAB82 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
 
-> On Tue, Sep 10, 2024 at 4:59=E2=80=AFPM Rob Herring (Arm) <robh@kernel.or=
-g> wrote:
->>
->> at24.yaml defines the node name for at24 EEPROMs as 'eeprom'.
->>
->> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->> ---
->>  arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> Ping!
->
-> Are Marvell platforms still maintained?
+On Mon, 04 Nov 2024 11:28:01 +0800, Liu Ying wrote:
+> Dual-link LVDS displays receive odd pixels and even pixels separately from
+> dual LVDS links.  One link receives odd pixels and the other receives even
+> pixels.  Some of those displays may also use only one LVDS link to receive
+> all pixels, being odd and even agnostic.  Document common properties for
+> those displays by extending LVDS display common properties defined in
+> lvds.yaml.
+> 
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> v5:
+> * Use patternProperties to define port@0 and port@1.  (Biju)
+> * Require port@0 or port@1.
+> 
+> v4:
+> * Squash change for advantech,idk-2121wr.yaml and
+>   panel-simple-lvds-dual-ports.yaml with lvds-dual-ports.yaml.  (Rob)
+> * Improve description in lvds-dual-ports.yaml.  (Krzysztof)
+> 
+> v3:
+> * New patch.  (Dmitry)
+> 
+>  .../bindings/display/lvds-dual-ports.yaml     | 63 +++++++++++++++++++
+>  .../display/panel/advantech,idk-2121wr.yaml   | 14 +----
+>  .../panel/panel-simple-lvds-dual-ports.yaml   | 20 +-----
+>  3 files changed, 65 insertions(+), 32 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/display/lvds-dual-ports.yaml
+> 
 
-Actually I just applied it this morning, and was about to notify about
-it.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Applied on mvebu/dt
-
-Thanks,
-
-Gregory
-
->
->>
->> diff --git a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts b/arch=
-/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
->> index 9c438f10f737..2bc4b68bd723 100644
->> --- a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
->> +++ b/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
->> @@ -44,7 +44,7 @@ sata@80000 {
->>                 i2c@11100 {
->>                         status =3D "okay";
->>
->> -                       s24c02: s24c02@50 {
->> +                       s24c02: eeprom@50 {
->>                                 compatible =3D "atmel,24c02";
->>                                 reg =3D <0x50>;
->>                         };
->> --
->> 2.45.2
->>
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
