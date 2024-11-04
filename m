@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A22ED132A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237A1D132A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLu2T/PbLidOgZaS0MkCdg+g3hDYDSGtIyHHHjXh1Y4=; b=b9Ss15Bt0qnT//ZW7rCw1HzyZP
-	8N2JJn8XfXZEtA0uOUKBuY48fVfTP0pyLLTTNsz+UwXCO737dul17sGPa5va6spWlrYSqhQTs+QTv
-	1snRWzid1WZVoserDEd6VPiKlD2haX81x1xoF+MLcIVSy1L+9HNGuaxRnQ+FXI2shBZmKNRid3IkN
-	s/QNJjL045CwT9wMdQZYTH5IvaklFWgvAVKCqwvFut3vYQCS0w/vN/qSL7tYaL2fNk525/jaFsZI7
-	DC+6PlBamW0ZTv67ZjSD529nfDkDt5tkeOMzt7A1uIfYKYoS6L0hSb6jrBbEuizMekBxIWCZRC8F3
-	1qECh/cw==;
+	bh=CJIIyWld/4qUn1AwmYOie1TxP8t7cmb0RJ1rcKUAN6A=; b=VZ8NZVUoKf8+fVxaCm7tRhioPO
+	SFVG842ETCVBBbE78gmXBYbqv7RtrYBxJc0OvrDTppVnJ6DhKv/3jrbJM246UcX+sYRU1XI62CuuJ
+	yiCV/jbAvq0hlFqo2R6rB9mnhO/3KrfpMjsGzeX5KvmZ8DgjyhV5z/ph0Sz7jMDmivt5QRbGSEyRC
+	a7cyflePKeh+aF9M3N8mJIbCK20sFfx7+E4N/0D89Xqp+VGSGbsWIQqbx2dDjwU2i5osDU51tzQyX
+	+oaIt971Usl+YODsJG0QQaE41Pw41N2BY+RxzRZEeBG8X6vohSqgi3QWb4UmSBZI6YrKXChnpCkrz
+	auUm4gjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7taa-0000000DBef-1wYs;
-	Mon, 04 Nov 2024 09:41:36 +0000
+	id 1t7tcE-0000000DBxr-3I73;
+	Mon, 04 Nov 2024 09:43:18 +0000
 Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tVW-0000000DAdP-24Xg
+	id 1t7tVY-0000000DAcx-1AMq
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 04 Nov 2024 09:36:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730712982; x=1762248982;
+  t=1730712984; x=1762248984;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=kUCUIekHAy2hQVeY+KDx2ZmkPhmDOVUUdVI2qaPtf0A=;
-  b=UBktejPaI/zFLOeLkY9Ms2qREZeAkHOZFas4aVttu9PULi5fkpRhNR3a
-   LkekdJqNAhryBaT040G6kp+++fnQ8Mm1rhSEl1hKDD/5PIGI8WOWqqRxn
-   Pzfn/hSAjFl53w9z4CHvQTFR4aYZmyuvXvhbH+1OHj3bICfe8HJlTQtpZ
-   TjMe/ivE7CiBN4f7/VVjQvW8Wqtls56tnGz9/bI0PnK9eF39jWIt0zpJK
-   2nYu1TaoV1A8oronWNok0JzbVZH8McVc/F5Bqn3lfButOSIfL1qUH2ChE
-   bBC9nK0xTUtUrFNo0gu0ACQEqOH9SCtAIlrJdOLFSZgi323xT99oGdBV7
-   A==;
-X-CSE-ConnectionGUID: Oh4f3wXxR/Kwaij/ceWMRA==
-X-CSE-MsgGUID: SYof0F6fS+Gbw4+0b6IfMg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11245"; a="30278752"
+  bh=l2TSS11EQDCPbhJt567UVr2avTbDJtRucAlK/U+ezRY=;
+  b=ZZO3XuhUSdGmpWTVn/yb4dcYixbyhDZQwPdSCnsj5s0doykpXc0X4UYy
+   1wDU01J9xjMSOv9R64s7UErTGzzmt0q1ZvOL3/LB2zbQCVE3Ch9evkUdr
+   gDQgxaI60KA0nyHVJ3s20QreTik8B58o2xgjXqKhQmnmzXSlSMj+QURQE
+   EuyIfTjeJ6sMo9mirk7oGDTGe5Frxj99e/5Y4oL0XDgXflIDiFAQM2ZKY
+   pKvmVOiL0qMAI4MrHCHpW1R39IAtFczDTiooP4+n9bVVUZIvz+oA0HHZC
+   PABlyBK04thyC9ofRBE1nffvm6OLGqCLr7JrbYXjxPhQoElOxuO+6Jp/n
+   Q==;
+X-CSE-ConnectionGUID: Jit9i6mATqy6wg6iHtlczw==
+X-CSE-MsgGUID: Ky/5mNDxSwGChEGuDnOFyw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11245"; a="30278764"
 X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="30278752"
+   d="scan'208";a="30278764"
 Received: from orviesa009.jf.intel.com ([10.64.159.149])
   by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 01:36:16 -0800
-X-CSE-ConnectionGUID: hvVNDrAtT+ibO2wGuf0PZw==
-X-CSE-MsgGUID: jao+gc8dRpqEnOSD9mauAA==
+X-CSE-ConnectionGUID: xcETve/0S9Oi+37Ks/vMog==
+X-CSE-MsgGUID: 5KT7PbBBRW6rQeZEXFrhbg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="83481189"
+   d="scan'208";a="83481190"
 Received: from black.fi.intel.com ([10.237.72.28])
   by orviesa009.jf.intel.com with ESMTP; 04 Nov 2024 01:36:12 -0800
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id AD59626A; Mon, 04 Nov 2024 11:36:10 +0200 (EET)
+	id C48AB3B4; Mon, 04 Nov 2024 11:36:10 +0200 (EET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
@@ -76,17 +76,17 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Haojian Zhuang <haojian.zhuang@gmail.com>,
 	Robert Jarzmik <robert.jarzmik@free.fr>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH v1 2/6] Input: gpio_keys_polled - avoid using GPIOF_ACTIVE_LOW
-Date: Mon,  4 Nov 2024 11:34:20 +0200
-Message-ID: <20241104093609.156059-3-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 4/6] pcmcia: soc_common: Avoid using GPIOF_ACTIVE_LOW
+Date: Mon,  4 Nov 2024 11:34:22 +0200
+Message-ID: <20241104093609.156059-5-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
 In-Reply-To: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
 References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_013622_622251_BA883A72 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20241104_013624_627536_E2D74179 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +105,40 @@ Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/input/keyboard/gpio_keys_polled.c | 12 +++++-------
+ drivers/pcmcia/soc_common.c | 12 +++++-------
  1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/input/keyboard/gpio_keys_polled.c b/drivers/input/keyboard/gpio_keys_polled.c
-index 41ca0d3c9098..e6707d72210e 100644
---- a/drivers/input/keyboard/gpio_keys_polled.c
-+++ b/drivers/input/keyboard/gpio_keys_polled.c
-@@ -306,13 +306,8 @@ static int gpio_keys_polled_probe(struct platform_device *pdev)
- 			 * Legacy GPIO number so request the GPIO here and
- 			 * convert it to descriptor.
- 			 */
--			unsigned flags = GPIOF_IN;
+diff --git a/drivers/pcmcia/soc_common.c b/drivers/pcmcia/soc_common.c
+index 61b0c8952bb5..1deb9960db34 100644
+--- a/drivers/pcmcia/soc_common.c
++++ b/drivers/pcmcia/soc_common.c
+@@ -204,14 +204,8 @@ static int soc_pcmcia_hw_init(struct soc_pcmcia_socket *skt)
+ 
+ 	for (i = 0; i < ARRAY_SIZE(skt->stat); i++) {
+ 		if (gpio_is_valid(skt->stat[i].gpio)) {
+-			unsigned long flags = GPIOF_IN;
 -
--			if (button->active_low)
+-			/* CD is active low by default */
+-			if (i == SOC_STAT_CD)
 -				flags |= GPIOF_ACTIVE_LOW;
 -
--			error = devm_gpio_request_one(dev, button->gpio,
--					flags, button->desc ? : DRV_NAME);
-+			error = devm_gpio_request_one(dev, button->gpio, GPIOF_IN,
-+						      button->desc ? : DRV_NAME);
- 			if (error)
- 				return dev_err_probe(dev, error,
- 						     "unable to claim gpio %u\n",
-@@ -325,6 +320,9 @@ static int gpio_keys_polled_probe(struct platform_device *pdev)
- 					button->gpio);
- 				return -EINVAL;
+ 			ret = devm_gpio_request_one(skt->socket.dev.parent,
+-						    skt->stat[i].gpio, flags,
++						    skt->stat[i].gpio, GPIOF_IN,
+ 						    skt->stat[i].name);
+ 			if (ret) {
+ 				__soc_pcmcia_hw_shutdown(skt, i);
+@@ -219,6 +213,10 @@ static int soc_pcmcia_hw_init(struct soc_pcmcia_socket *skt)
  			}
+ 
+ 			skt->stat[i].desc = gpio_to_desc(skt->stat[i].gpio);
 +
-+			if (button->active_low ^ gpiod_is_active_low(bdata->gpiod))
-+				gpiod_toggle_active_low(bdata->gpiod);
++			/* CD is active low by default */
++			if ((i == SOC_STAT_CD) ^ gpiod_is_active_low(skt->stat[i].desc))
++				gpiod_toggle_active_low(skt->stat[i].desc);
  		}
  
- 		bdata->last_state = -1;
+ 		if (i < SOC_STAT_VS1 && skt->stat[i].desc) {
 -- 
 2.43.0.rc1.1336.g36b5255a03ac
 
