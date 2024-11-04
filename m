@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D7CD1BDE5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754FCD1BDE5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/aiM+vVd6UIBfKnFJ4ciItRDXRUONO1YbxhZjMArTmQ=; b=d8lW9NpXIBbwiIMFJSqe18z4q/
-	k6jUJC9zPYr5yaPIKw5/vKG0QLbES9nARE2WVQnzPb+yrlIWS2KTCU2tgfA+C25Nay5rEjwKdQIrK
-	sGGpHdlT4xesooMr9rZEDyb6deEfLdyzd7kICz6EQu5HsnRe6ajozabuTQPiNzBzV2AET17r2aoQM
-	9VXbO0jEBxcSy9K6l32eq9xfr1YMGd3pA7Bh44pLyUKsvZuvzlnaRTsZz+bBwi4Nq8Hq0nafvyzXM
-	oqpdyGNA22vt+51vu95XLkq5r6cjq//AQDUSHWGfcAIvIOhkn12QuXcYs+OQKX/83uXWHryJaUHha
-	yCFP06Jw==;
+	bh=Tr/CFOKYD1rmcvrlItMpMX4YrUFhUOs+XXQs3S8RrrE=; b=2uE51K5y2b/T3a9G6IBDovqj49
+	LZ0Wb+9eHIOTFPoDrjCu7NvDOsoJXtOQQILa0eAMFoIoK5tGdxJ7rQHDU8IDebtUPSMELJCdcHdMI
+	qlN5xzjx+OdW6pHinD/qBgD9stupfwn/SG1siehR93X+6Z46HFQFNT8gnByZQsYcHlTS4O0e+F4KL
+	Xx8/pC1iAbBkhNF96daVQAJO8GLGRmDlMe1fpppG8TRZ8op2pUhdaYQbQROek8iUtALQGlkoZplmJ
+	KCHSAR30XF2vQIXTLWON44gslCfyYkElVXCi/vywmPP9Odtzu7ky2Q1QIV7XzLaZAqZmVFcjvLXXP
+	Agz//iTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82RE-0000000ErDZ-0RRk;
-	Mon, 04 Nov 2024 19:08:32 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t82Su-0000000ErXs-1Nr4;
+	Mon, 04 Nov 2024 19:10:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82Nr-0000000EqOb-2afI
+	id 1t82PC-0000000EqfW-3jLX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 19:05:05 +0000
+	Mon, 04 Nov 2024 19:06:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90C90A4331A;
-	Mon,  4 Nov 2024 19:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DA04C4CECE;
-	Mon,  4 Nov 2024 19:05:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A4CB5C0474;
+	Mon,  4 Nov 2024 19:05:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D51BC4CECE;
+	Mon,  4 Nov 2024 19:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730747102;
-	bh=IpevLm9zmMO/WRd+BeiK2wsuMbU3lla0NcYACvtD4YE=;
+	s=k20201202; t=1730747185;
+	bh=wMGuXVghL+bQd4b7q/UhbB4pOglwKLk0XTn4dCQA4jA=;
 	h=From:To:Cc:Subject:Date:From;
-	b=kAxJk0gPb0VUSWzcApxGGx8coNbK8gpwrnfLw3vl+JvRMGYNEwiAGt0MfbM+3mmoY
-	 yE+zMLacNqVwyflLLp6H75oT2XZ39qeeUom0hFKO28o3YXe3r/60x/2eCMW5DAQZWm
-	 1iwYew0JnXYxbZtBOX2c1skDFvEWcmbloQbKjitZhFWynICawctLz0LeFB//0Y5TSc
-	 7f4oAufA3fxs8MOhuKC979iztCKooqZeQ7CAaFG8bvhECOAeco3Kg//Hx3meUhsJr6
-	 aZQoIw9Autc9B4IPl8YsBq4DvLtHYKdhG/qY8i9hPDQ2lFoO0Qb0RqNdMFLPTe5ZAO
-	 1Rlu1GTu0gsIA==
+	b=ikmH/Wafqqp/NoIKBlkRHVfaRHzrw3vGSly8hlCNwdqk0x9QZUldb7kfdRkLsdpUG
+	 P1vqv4hv2lICBkPn9vRKJXsiYuQ3XJbqFf++EHJW47uCS2nlTtLLeMCJCTEclYHZEp
+	 z2gsgkxg48IykI3mkKVKMTVSQ7QhLfh61SfSYc8tXETcklhwi0hDnB2GhfrZRFbR+w
+	 twCl+Jh+4S1LOYsWULZa3yYnROMMnBi6n6sNYrAl9HYBVdZH068VE1E9Qp67pvNq7d
+	 eHjgwpVPSN7O3ebrm+o2FT3ZEUEIvlQAP4UAAdVv8Cyj95KrcHgL+PS4/FBazY46Ha
+	 U+Tj9dVeS8lvg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+To: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: sunxi-ng: Use of_property_present() for non-boolean properties
-Date: Mon,  4 Nov 2024 13:04:55 -0600
-Message-ID: <20241104190455.272527-1-robh@kernel.org>
+Subject: [PATCH] clocksource/drivers/arm_arch_timer: Use of_property_present() for non-boolean properties
+Date: Mon,  4 Nov 2024 13:05:06 -0600
+Message-ID: <20241104190505.272805-2-robh@kernel.org>
 X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_110503_748858_E2F7A938 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_110626_995469_28E513D1 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +78,40 @@ presence.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clocksource/arm_arch_timer.c       | 2 +-
+ drivers/clocksource/timer-ti-dm-systimer.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 87e23d16ed0f..724b202863a8 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -356,7 +356,7 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 		const char *fw_name;
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 03733101e231..7bd099f728a9 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -1430,7 +1430,7 @@ static int __init arch_timer_of_init(struct device_node *np)
  
- 		/* ext-osc32k was the only input clock in the old binding. */
--		fw_name = of_property_read_bool(dev->of_node, "clock-names")
-+		fw_name = of_property_present(dev->of_node, "clock-names")
- 			? "ext-osc32k" : NULL;
- 		ext_osc32k_clk = devm_clk_get_optional(dev, fw_name);
- 		if (IS_ERR(ext_osc32k_clk))
+ 	arch_timers_present |= ARCH_TIMER_TYPE_CP15;
+ 
+-	has_names = of_property_read_bool(np, "interrupt-names");
++	has_names = of_property_present(np, "interrupt-names");
+ 
+ 	for (i = ARCH_TIMER_PHYS_SECURE_PPI; i < ARCH_TIMER_MAX_TIMER_PPI; i++) {
+ 		if (has_names)
+diff --git a/drivers/clocksource/timer-ti-dm-systimer.c b/drivers/clocksource/timer-ti-dm-systimer.c
+index c2dcd8d68e45..c33c3b5e0e07 100644
+--- a/drivers/clocksource/timer-ti-dm-systimer.c
++++ b/drivers/clocksource/timer-ti-dm-systimer.c
+@@ -202,10 +202,10 @@ static bool __init dmtimer_is_preferred(struct device_node *np)
+ 
+ 	/* Secure gptimer12 is always clocked with a fixed source */
+ 	if (!of_property_read_bool(np, "ti,timer-secure")) {
+-		if (!of_property_read_bool(np, "assigned-clocks"))
++		if (!of_property_present(np, "assigned-clocks"))
+ 			return false;
+ 
+-		if (!of_property_read_bool(np, "assigned-clock-parents"))
++		if (!of_property_present(np, "assigned-clock-parents"))
+ 			return false;
+ 	}
+ 
 -- 
 2.45.2
 
