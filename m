@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DC3D111B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C8ED111B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0JY0l9KILWtgurR5lkp/s4CjaE73Dq2Pe4jWzYkjNc=; b=raX5RF86XZs8/6VXNw6Wy8qpgi
-	r5Xrpu80bzMEBsM0jv1DEqXsEbqnLVCM+vdk1TW65Qo48T+N2mVvEIE5o61BO4Ij2UAR3J5ipvbcM
-	HObFcGda5gXEotafmYb3b2eQgefROtN9TpyWbDlj6jg/K0iC19K00rFX5hPSWNIVa+2Z2YHEaY/ve
-	oNTegs2HA8a5zSTFLj6v0ruGgHBZcm6+MlSupzjj8C3IRX7qszuvXLYv17hDoA/UjRz7evGxAZ1qc
-	/87L4SHtfx78zeXh4Gsby9Ae3kQH8PTIEhP3nNPbMGoiTM4wbFOjrTpxCGsPbni5gM4Aa2Tf5UklB
-	OR0QrbDQ==;
+	bh=eCrYpQmHtF7S8qAhF1e10rg05ea10pvsNpYjs321mqo=; b=K0pxFBfaN10alX6y01L8ltKW/S
+	hZtlABRPc84SJevBcyPOiBjMhVnOgN/iHXPb6ijO2lDWk5jcip7JQmCWQrebInj553oxhdOVNWueq
+	BNPxgOxYXsA97JDXRTqZrnWyhpOC1IBFbNAcyVniBFZwbGBdGFOHLu6oWA+YEuxVCRtHYTzN8/nL1
+	1SYWRvoCl13aZZykk+dXRr6M8vlzWqh0Evi1W/R4BfS2mvmIMbtp+JJMsVIBq9SLm9AcOV5LaxTag
+	7qaLqhfNN7qFh1AImbY5BjtQFP9JzhbIksksZBbq8Q3m+qXE+uboFCeBe+XflsNHkxzwGVANJuoP7
+	Z8JvMxQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rNR-0000000Cq6q-2Tj7;
-	Mon, 04 Nov 2024 07:19:53 +0000
-Received: from mail-m16.yeah.net ([1.95.21.17])
+	id 1t7rW9-0000000CqnL-3PLa;
+	Mon, 04 Nov 2024 07:28:53 +0000
+Received: from mail-m16.yeah.net ([1.95.21.15])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rLk-0000000CpyB-44XE
+	id 1t7rUT-0000000CqhA-12ZU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 07:18:10 +0000
+	Mon, 04 Nov 2024 07:27:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=u0JY0l9KILWtgurR5lkp/s4CjaE73Dq2Pe4jWzYkjNc=;
-	b=a6eLp7oCTvtMLCXR6x0IO4FMP8fHujOklnFcuT4b4ukhJp1m3fyVygHDpbPAJ1
-	EcCK/gja+Y3oBj9oJcNInT08fPEvnT/h1qv2BxABaOohvsTvvgoVeRUnS1hP+k0s
-	T2KDbPY78ReV5iwzgvHlHtNmEYVmKYvtQ8youZKYCaXgs=
+	Content-Type; bh=eCrYpQmHtF7S8qAhF1e10rg05ea10pvsNpYjs321mqo=;
+	b=QyaHgJGpPpHLQyiIiQjRLzM7UFFWU8yPtjZfta4ZdxbGxCWvmeWHKpcNWlPew1
+	aGD2uMgD6tl4nzxOS5oUqioXtN3cbDBC0ufkeyAvwkEMkckqTzXwikf2Dcxya5qQ
+	XXqBtbr/31ojJj2vqgxM9bwvHcbHbE97/s6xAVPBJ4xlI=
 Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgDHDu8ZdShnBECmAQ--.16720S3;
-	Mon, 04 Nov 2024 15:17:46 +0800 (CST)
-Date: Mon, 4 Nov 2024 15:17:44 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgBX3tQqdyhnhWKmAQ--.16318S3;
+	Mon, 04 Nov 2024 15:26:36 +0800 (CST)
+Date: Mon, 4 Nov 2024 15:26:34 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v4 0/3] ARM: dts: add Kobo Clara 2E
-Message-ID: <Zyh1GKFk9fksLCQo@dragon>
-References: <20241103135201.25615-1-andreas@kemnade.info>
+To: alice.guo@oss.nxp.com
+Cc: alexander.stein@ew.tq-group.com, wahrenst@gmx.net, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
+Subject: Re: [PATCH v4] soc: imx: Add SoC device register for i.MX9
+Message-ID: <Zyh3KkEQ7ZFY9870@dragon>
+References: <20241031065438.3912960-1-alice.guo@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241103135201.25615-1-andreas@kemnade.info>
-X-CM-TRANSID: Mc8vCgDHDu8ZdShnBECmAQ--.16720S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZry7AFy8uw1UZr43ZrWfAFb_yoWxArX_uw
-	4kZ34UCa15CFs7Kwnxtr1q9r4rKr1jyrZ3ur1kKa4SyF93ZF98uFWkX34xu34UZan0qwnF
-	vF17W34kC3Wa9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8DDG5UUUUU==
+In-Reply-To: <20241031065438.3912960-1-alice.guo@oss.nxp.com>
+X-CM-TRANSID: Mc8vCgBX3tQqdyhnhWKmAQ--.16318S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUciL0UUUUU
 X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAgmNZWcocJkPOwAAsx
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhqNZWcoMhXQgwAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_231809_333424_9478D22C 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20241103_232709_659492_CF41006A 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,26 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 02:51:58PM +0100, Andreas Kemnade wrote:
-> Add a basic device tree for the Kobo Clara 2E Ebook reader.
-> It is equipped with an i.MX6SLL SoC. EPDC PMIC drivers
-> are not ready for mainline yet.
+On Thu, Oct 31, 2024 at 02:54:38PM +0800, alice.guo@oss.nxp.com wrote:
+> From: "alice.guo" <alice.guo@nxp.com>
 > 
-> Changes in V4:
-> - fix order of pinmux nodes
-> - remove some blank lines
+> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
+> which are provided by the corresponding ARM trusted firmware API. This
+> patch intends to use SMC call to obtain these information and then
+> register i.MX9 SoC as a device.
 > 
-> Changes in V3:
-> - removed 30MegaOhm current sense resistor nonsense
-> 
-> Changes in V2:
-> - improved commit message about devices without binding
-> 
-> Andreas Kemnade (3):
->   dt-bindings: arm: fsl: add compatible strings for Kobo Clara 2E
->   ARM: dts: imx: Add devicetree for Kobo Clara 2E
->   ARM: imx_v6_v7_defconfig: Enable drivers for Kobo Clara 2E
+> Signed-off-by: alice.guo <alice.guo@nxp.com>
 
-Applied all, thanks!
+A side note: could you git configure your user.name properly to make
+the author/SoB appear like:
+
+  Alice Guo <alice.guo@nxp.com>
+
+Thanks,
+Shawn
 
 
