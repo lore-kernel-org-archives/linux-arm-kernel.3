@@ -4,66 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C0CD1BDFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63380D111AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ge7cZ9ZbzoR8ao8b7oGum7vK7hHAW59mt0jCVyFPlis=; b=nc7MAwRHTHhx0HRy1Xdg+OONlv
-	Eo6E/WSKBPsffVOPFgia5f9B6MazYrlLeopPmlxd0cdlMDm9sRc+W1XYZrZfHiEU5bGWu+2eeeMxm
-	qRMH209rSPhLv13NuvM1KXF4n/AAwquEoQCJ9qpnxjhepSIRjRLI24f3kI0fKgzQTD0eu1Rs34TQw
-	jbI0JAv4mVYdY74kwfFOCUZAS1XOdJDkiZg6hw2+p43gS4P80VQ4Iu/LKbAhyrO5VXpQ9H0XDZ62W
-	24ayu9q1GGkrap9qT4IpWY2DQdVogfLn9ez+XTRLS0o+Ykw6LvO85Co/e6rYMs+v4rOgs+oYWuuCW
-	WBOogemQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=LCXwWCxq4WUHYQHfMYDDly3RkO
+	EE2fJZHHvKFLNKoLmMBIV2/HksDKNOa+xbE3cWgATKT0aiTPRqU2aUbAwtw4EAY9D1Tj3bQeXV4Jl
+	8vqHjgEeWTQ9vu+bAcRCV412v4+E+0qSMeWYq171as7rkSDlQpdqnFOayMvg5zZ03EQGsHUhO2Und
+	d24Abn+x5YzVIflPsCk+YW43oAsawR2h26CW6Fxjt7GRNsAHliKMneJE2BDyXExqKAJcU45A9m0Fr
+	5G6enhppzMcun11KT8NC/lGzhW+DH/yfQEGkItMLPhOtH0H1zama77u/qteZc+RSMVyuzjnyU8W6q
+	a7zmKRiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84mt-0000000FC4w-272c;
-	Mon, 04 Nov 2024 21:39:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t84ob-0000000FCHE-1F5D;
+	Mon, 04 Nov 2024 21:40:49 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84NC-0000000F7Lf-2FFs;
-	Mon, 04 Nov 2024 21:12:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 401875C55C5;
-	Mon,  4 Nov 2024 21:11:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AC93C4CECE;
-	Mon,  4 Nov 2024 21:12:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730754749;
-	bh=Ge7cZ9ZbzoR8ao8b7oGum7vK7hHAW59mt0jCVyFPlis=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QnVXECTHl2d+Yh8Hee++kEQr98gw8XdgecRqVNdWREggQWAkBRHHq7B8eZ4HV0mdH
-	 t6eKgu5p8k3PhjbmfHlxy9Y5SDAFP/uUtmYVT1tEecHuzlvH6eXKLoQ7CN6OJXHGzD
-	 1LoYsgokBL0q1187pOGSqiMTVkxknbFkKn94l7jvdl+2v71UuaCRXi0QydVJdlNrOg
-	 yluv3wPSNWyJalJ9p4K+PoTHsEtFAOTIohOuBD9+ZYHA6fHLwRTX9MIM3/8Y/GaIx1
-	 5HZ6HHZBvIisEMb8CI+TwDRFVwSf28+Nx4XHOMkwvV4LnJNQNXFsLR4umfUnIblTLt
-	 ZPFOLsOEYz+dg==
-Date: Mon, 4 Nov 2024 21:12:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Nicolas Belin <nbelin@baylibre.com>, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
-Message-ID: <d7bf7863-fd24-4f8e-8cd0-d84867a997bb@sirena.org.uk>
-References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
- <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
+	id 1t84OM-0000000F7is-34mC;
+	Mon, 04 Nov 2024 21:13:45 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 1785425400BB;
+	Mon,  4 Nov 2024 16:13:40 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Mon, 04 Nov 2024 16:13:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1730754819;
+	 x=1730841219; bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=
+	HYxM/F1j4lMV3qcZLf2/ywYPB0bgQgPU6nQk/K+naRkovv97U83DYHb5KcZpVf0x
+	ZhuynQAg2mHgQNN0HFSmADvFhF7W9d3aHDAY+PwKB96XTDbcfrRyBU5b3+YOqxF8
+	lSs3ySfRLS5x4/W/BuRz3ksq2PI415eD9vq5HefepgZdoRPI7NKVqZlqj8whkqJ1
+	3I4g4CTkC56DDZ51egRLXec1uHz0TMxxcMYZlCULGmJsX43AipvtOXBugK4W5eWO
+	V9dYVQHJjlW64YoXXdjryU6Nn0fsAb0X86QsCIBylrRXYd8Jbr+2HBFc01Yu89Ly
+	Jgxm0YMrYBejXJTS+Cdjag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730754819; x=
+	1730841219; bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=A
+	07LXhM+Iq1HCBnCunXqpgfNDV2r2wBsNjVcaZBED84teZ5OBI84eO40xTruVaIlb
+	CTu83Z7rZQ2g8IgSY0iTyGsddlsmaSymS8tyx1YgdBNMiEIdjPhO/8NyuWBsAQ4R
+	3BFY+ngJ4zsKrv96GIyRw/02pP+F6h35hwPpRiObV2FABJLxInkhSlBx2LpvWHul
+	V+Pf7xzFnQ5C4DWgfCzFo3teifpTB3Dfy14StP7CJfAPLbaUBebJEEZic94jUVZZ
+	kSnsXvCgjRtBS8YSngsbswoTuY+AYE4lBGLlDQb7KenMqJqKtDLPMDZFaSDjBtdi
+	tlbU1kJwhvS+te9me5dNQ==
+X-ME-Sender: <xms:AjkpZ7iLwMb7LS52CjGTazhHzh1hC8c78ofVs3xc41WaM4CjDfFK9g>
+    <xme:AjkpZ4DpGENhrWdnaGR8Via9b10QYZcLhlzRZMc6gY3rzc6XU4y_y32T3mzMtaXJO
+    gQ-LbupRVMkdcAaFvQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeliedgudeghecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
+    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
+    uddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhguse
+    grrhhmrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhr
+    tghpthhtohepmhhitgesughighhikhhougdrnhgvthdprhgtphhtthhopegrohhusegvvg
+    gtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepghhnohgrtghksehgohhoghhl
+    vgdrtghomhdprhgtphhtthhopehirhhoghgvrhhssehgohhoghhlvgdrtghomhdprhgtph
+    htthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrughr
+    ihgrnhdrhhhunhhtvghrsehinhhtvghlrdgtohhmpdhrtghpthhtoheprggtmhgvsehkvg
+    hrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:AjkpZ7HDxCwy4I__a2KM4WoXIAT-uVa-FUNo5xAINlv6PIc3MDmN3g>
+    <xmx:AjkpZ4TEpwHRFnIZ1r1FdqqUbIpgwi0-D_DPyXW0gWwGbaQgNqoybQ>
+    <xmx:AjkpZ4wI8UxMGhZhBFFMXFGGRBq8PaJdE2Bz84HCW1PVRGBfp3N5_Q>
+    <xmx:AjkpZ-4HRRofSWplUrAHFwaw7MrOvwaTcko0TgpGFlly-Euyx3Q6Ew>
+    <xmx:AzkpZx8kPUEQuc9kjEr7jGh3aP1zGFEnrt0qIDe_xxeUuWuooZ8w3Cme>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 708CF2220071; Mon,  4 Nov 2024 16:13:38 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JSrXVVE4KL1bPTNt"
-Content-Disposition: inline
-In-Reply-To: <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
-X-Cookie: The meek are contesting the will.
+Date: Mon, 04 Nov 2024 22:13:18 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Charlie Jenkins" <charlie@rivosinc.com>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+ "Jiri Olsa" <jolsa@kernel.org>, "Ian Rogers" <irogers@google.com>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
+ =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
+ "Christian Brauner" <brauner@kernel.org>, guoren <guoren@kernel.org>,
+ "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
+ "James Clark" <james.clark@linaro.org>, "Mike Leach" <mike.leach@linaro.org>,
+ "Leo Yan" <leo.yan@linux.dev>, "Jonathan Corbet" <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org,
+ bpf@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
+Message-Id: <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
+In-Reply-To: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
+References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
+Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for all archs
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_131230_654447_B3B75B3A 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20241104_131343_619747_50448FFC 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +129,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
+> Standardize the generation of syscall headers around syscall tables.
+> Previously each architecture independently selected how syscall headers
+> would be generated, or would not define a way and fallback onto
+> libaudit. Convert all architectures to use a standard syscall header
+> generation script and allow each architecture to override the syscall
+> table to use if they do not use the generic table.
+>
+> As a result of these changes, no architecture will require libaudit, and
+> so the fallback case of using libaudit is removed by this series.
+>
+> Testing:
+>
+> I have tested that the syscall mappings of id to name generation works
+> as expected for every architecture, but I have only validated that perf
+> trace compiles and runs as expected on riscv, arm64, and x86_64.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 
---JSrXVVE4KL1bPTNt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Thanks for doing this, I had plans to do this myself, but hadn't
+completed that bit so far. I'm travelling at the moment, so I'm
+not sure I have time to look at it in enough detail this week.
 
-On Mon, Nov 04, 2024 at 09:06:26PM +0200, Andy Shevchenko wrote:
-> On Thu, Oct 31, 2024 at 12:27:25PM +0200, Andy Shevchenko wrote:
-> > Update header inclusions to follow IWYU (Include What You Use)
-> > principle.
+One problem I ran into doing this previously was the incompatible
+format of the tables for x86 and s390, which have conflicting
+interpretations of what the '-' character means. It's possible
+that this is only really relevant for the in-kernel table,
+not the version in tools.
 
-> Hmm... I think we are waiting for somebody to Ack / review this change?
-
-Yes.
-
---JSrXVVE4KL1bPTNt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcpOLcACgkQJNaLcl1U
-h9A+Xgf8DL0xbsC9QTvJ6PRG9kwZT0mqrDxTEqD2aa7uKL/BWe/4iYsDhzva68pJ
-kMULqD+2acYoXMapAq5yXLcHKceCj0yGRUegY3xin06Qn5mxAIqq/+kUXwSYxHZ6
-GRZcB6QZZYIjuxMGbSFBbFYIU/yar28WL1JWFDoE8uLljBz0LeW2RHEqRgro6FnZ
-pXqcXsV9o7gruTH+FWeQukJ6yc2bun7IA2UQRrtFSW43u4lKNNv2IIweXu2hcek6
-lCq0OTQSDcK3wwTOKivjHm2e61Rxz0XWwrnHD4+94UZiGmvUITQWEeyBpgkZ72w1
-/UfnNCQ32IQc9tb3VECJdVgZekfXtA==
-=xe2s
------END PGP SIGNATURE-----
-
---JSrXVVE4KL1bPTNt--
+     Arnd
 
