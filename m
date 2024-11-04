@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA976D132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCFED132B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6u5YBWq3PcwdT15rNs5INrgZ65AXIf+4Xa7bQgYZE4c=; b=lqw7lGaC4HKZY+BGnNobf12XqH
-	cG+M6E2qUtywvcGCoodWeL4Z0t19ZFG9pyNJnDNGv+aVABzexf3u20oCqvSpnQPOhX3QcBxPJKs08
-	/tf/rWNbJXiKuXpEGpJQsK5/N1ZDjyYhsXrJzgUs1AuVVUPhDDo5YDB1Mx9BUp2dJzQyWLVHo1Fxh
-	UhAmTJ5yaepsj2q2PHjVsCk7VmPE7g3lVNiGyBOPGgZnmbSIa6kTVQbF13O5MBgM+w5Z7XFJ2hd1X
-	eb6+sHmH+Q/0zLeJdmNK8zhKEEMPqKBqN61ubkfuc4LtDwb3Ub9lI0P+gUOm3wCL8p3xWchYxEnVw
-	wZwz9p8g==;
+	bh=r7QGRJT45n0T5+Wc2ENAMTJgAWENYDW4gQh9c7sFtMA=; b=EwKPi29Dkc0waEVKvZW40nAc6n
+	nugHkNP129TOEphNGIlrJVVxTK4c8zIr9EClp/ED+FyCZMFXI6MS/Uy6IglrvG8tViAQqOxnPqdE1
+	40YvW1gESqVvUb50BMnDp+5+psXWdvxYFELIHvB4GS+sUQTZ7k6sVaP6ayrTdlprLYLAPwWo93zk9
+	kF6PsbdMl2IDPmqIvTNPJ3pZdteMSZkGASNMBTJkXa74hnp+MPjtpWDhr/vkCJcandwWoeTFSw340
+	h822CHXa7XSPGCMQ1m5z8fjMmDfQ+y3bzhWIrEoRlGEKjfQNANo15a8savBVAtPg4NA62BnB+V5MK
+	vzfotzWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vrR-0000000Ddop-3c1N;
-	Mon, 04 Nov 2024 12:07:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7vtA-0000000DeDk-1myf;
+	Mon, 04 Nov 2024 12:08:56 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vdP-0000000Dbbn-3N2K
+	id 1t7vhS-0000000DcAL-0HFT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:52:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B8AD3A42E72
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 11:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B4E7C4CED6
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 11:52:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730721158;
-	bh=jrlWt5vVEgQhbvNsEfxgX8LzoJjDyTOI4FiZQj4aXNk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=JYEf8ZaxDA3521GMC8+lsy2VXaVGTqZhAX+zb1BHjJw/uP87jDcMu6FsbntrY8nRX
-	 Hh0k4Umq2uJ0rUpt/kWc7F/aGSIJjQt813PhimAZ/+qayDAONP/MVdae+nBXUG9UCq
-	 t0SUsJGmKPVLC2THvhyZGaGUcMmHVvLLe/nM6ugJ/e9ocOkndyK018llbxPtCn42RX
-	 PkJj0N8kSFnT8fgQweftGSG/egbdTKqKRcgqK7FgrP157LOKdixAdNd9x9LeI4dtMV
-	 A+vayycmbsNz2wGH+gLNM2WG0jKYeieX/+phV4oNhr7r3w9BCH2gX75+S9iKF6UnmG
-	 hADpGfE9UpwCQ==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-539f58c68c5so7355505e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 03:52:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW9CxhYr447ZYCV+Dg0iU+nzYOjUhnUs3J4E8Uh/ov5xEVGeCVCFfxc4hZbi+NF3FWIM8weZnJWS/oDSCr96FCO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt9US4q7ABkPnJZjYhKSQD6ytZcubcQSIOvIZO2k6qFZ9QFb3F
-	hYbOO2ahncRv917DurfiRalwuSiiAzJN2gRMn17ujHubbNgwgC3LV8EBWe8aX4wspILCvkoP5pW
-	EmSahI2Kth3dhuzOOG+RX7IyMgPM=
-X-Google-Smtp-Source: AGHT+IHOLYnwFSb9KBpeoWpWkpPxWEFAYUIdVKIVNNpEmCe0aybibfjYsoY5R2GKKWfs4LrM9+oAoTYv4X5bZTldauU=
-X-Received: by 2002:a05:6512:1295:b0:538:9e36:7b6a with SMTP id
- 2adb3069b0e04-53d65df25a3mr8861824e87.32.1730721156964; Mon, 04 Nov 2024
- 03:52:36 -0800 (PST)
+	Mon, 04 Nov 2024 11:56:52 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4BjX6A013486;
+	Mon, 4 Nov 2024 11:56:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=r7QGRJT45n0T5+Wc2ENAMTJg
+	AWENYDW4gQh9c7sFtMA=; b=LGexz7H/pgS4ghvnQNtGWZnB/K1ux3FPGNogdG1O
+	x6g9u3m3lXOVdHf0DxcAo8CyzRkIB7zUjKmHldNU24zV44udehHErCY/h6kc1YJ4
+	rZzt7ULrH2XVZBp6E54eSO1nFctlsCmj+ZHnPdDHGyZ6uFMT7waHWlnkLgQcmL71
+	JdqviHOMgkdboF9ARsC+jFYM04vYpkhnixpTq1UPXobeagkuRmbC+brSB10HowQv
+	KYKQNfdWXvszOR521dm96y79j14Vi1Ck5XeD6nLK8fT6C4i5ImbEU9WY0uildXZe
+	SEFuJNInJ/M7zj1X7UfBWC85zOXoDKoDpSR/Dl7NpcNufg==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42nd4um2n9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 04 Nov 2024 11:56:36 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A4BuP6A004862
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 4 Nov 2024 11:56:25 GMT
+Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 4 Nov 2024 03:56:21 -0800
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+Subject: [PATCH v6 1/3] dt-bindings: arm: Add arm,static-trace-id for coresight dummy source
+Date: Mon, 4 Nov 2024 19:56:02 +0800
+Message-ID: <20241104115604.14522-2-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
+References: <20241104115604.14522-1-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <dk7dxsyunx47gvmlnarjkqx63en52hktdnzwyyeyhohts7rkjn@a6lx6sq46vb4>
-In-Reply-To: <dk7dxsyunx47gvmlnarjkqx63en52hktdnzwyyeyhohts7rkjn@a6lx6sq46vb4>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 4 Nov 2024 12:52:25 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEPM+4B4xTThOejMZ5bLHcwzNYbW333ZZu1YFJGy5johg@mail.gmail.com>
-Message-ID: <CAMj1kXEPM+4B4xTThOejMZ5bLHcwzNYbW333ZZu1YFJGy5johg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Linus Walleij <linus.walleij@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: JznvFPf7BOZQmtmtC0KLiLiT7LA1wo3w
+X-Proofpoint-ORIG-GUID: JznvFPf7BOZQmtmtC0KLiLiT7LA1wo3w
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 malwarescore=0
+ lowpriorityscore=0 bulkscore=0 phishscore=0 priorityscore=1501
+ mlxlogscore=910 impostorscore=0 suspectscore=0 spamscore=0 mlxscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411040105
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_035239_988588_80D7258C 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20241104_035650_245661_3A316511 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(cc Linus)
+Some dummy source HW has static trace id which cannot be changed via
+software programming. Add arm,static-trace-id for static id support to
+coresight dummy source.
 
-On Mon, 4 Nov 2024 at 12:51, Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
->
-> On Mon, Oct 14, 2024 at 04:55:19PM +0300, Dmitry Baryshkov wrote:
-> > Follow the ARM64 platform and implement simple cache information driver.
-> > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
-> > limited to the ARMv7 / ARMv7M, providing simple fallback or just
-> > returning -EOPNOTSUPP in case of older platforms.
-> >
-> > In theory we should be able to skip CLIDR reading and assume that Dcache
-> > and Icache (or unified L1 cache) always exist if CTR is supported and
-> > returns sensible value. However I think this better be handled by the
-> > maintainers of corresponding platforms.
-> >
-> > Other than just providing information to the userspace, this patchset is
-> > required in order to implement L2 cache driver (and in the end CPU
-> > frequency scaling) on ARMv7-based Qualcomm devices.
->
-> Sudeep, Ard, Arnd, Russell, I have been struggling to get reviews for
-> this for several months. Is there a chance to hear anything? I'd really
-> like to scratch this off my 'pending' list.
->
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > ---
-> > Changes in v2:
-> > - Handle cores like ARM1176, which have cpu_architecture() ==
-> >   CPU_ARCH_ARMv7 (because of VMSAv7 implementation), but no CLIDR
-> >   register (because they are ARMv6) (Arnd).
-> > - Link to v1: https://lore.kernel.org/r/20231231-armv7-cacheinfo-v1-0-9e8d440b59d9@linaro.org
->
-> --
-> With best wishes
-> Dmitry
+Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+---
+ .../devicetree/bindings/arm/arm,coresight-dummy-source.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
+index 04a8c37b4aff..742dc4e25d3b 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
+@@ -38,6 +38,12 @@ properties:
+     enum:
+       - arm,coresight-dummy-source
+ 
++  arm,static-trace-id:
++    description: If dummy source needs static id support, use this to set trace id.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 1
++    maximum: 111
++
+   out-ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+ 
+-- 
+2.17.1
+
 
