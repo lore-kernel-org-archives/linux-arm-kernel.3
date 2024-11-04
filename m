@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D325D132CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0378FD132D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaYYKQhdt5+WppBYnImCivL9U494+2hjcdM9oi2RwHw=; b=RBIK5fGu2msj3TUpVWHDwn7nDR
-	3CxQ7/2N/GUzQ/LLVYYmh+TYrTwhkhUcB1n+Mb0w+ckPQqC3HUIKLwUg27ac2iZ+P/GGSBCia1S2i
-	zZbvOU8LWeeXkTf5NPZ+qbhqYYfhS29gPPRwXovTcVXlrmZzkx3xoRFFwyK6WX4HSVdBSnI+E4/cv
-	to7iDdpPmJli13UwcrceJTYFBcTi8CUOOP5AVXx959S3oTKDHDYr/XsKNi1ITS/7i6AsGY7R6yXu4
-	jrb+0MssecFwhwW/FY0G9T6P5KKjls9WVDaifxtR4tuu+6UoA6VAnFYPZKtVyKEFKwxTR6mWIH+U1
-	q4cqIt4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+nWI6Xd/q/LZwmtaLVMw4xyJRrOQePjMO2FUfWARW0Q=; b=ezjntydqzJdlDkGPJ0yOSkjrlO
+	tCQ2Cn3sHMfjPHv+d7M0H59EerXhk+7dSLC0huTHsXSpA8e7n59M0UkbnZbWxCE5SpqssbIVda/YO
+	V8FCagXuFdzYnUoiMDmxkKPBN86EimC0DLXZlw6J7ObxVZHLwjNIsuA6tQYPQJXa98dCmUEY8VdTv
+	5HMofRYO46r5qoF+UpOwdDor4T7dq197vhZNfvtR6C5PGCRqSnSjgeX/whpfnxjsNPaqjugr+3zy/
+	wNsWurv3/SYvjehk8WWQkKLDQLaQ6c/7U2W0dIe7fFy+zRJLd/7xbqLAbJxppC9wGqBjiCkauEIU7
+	79nwc4Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xrF-0000000E0ct-26JH;
-	Mon, 04 Nov 2024 14:15:05 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1t7xsG-0000000E0qc-43ss;
+	Mon, 04 Nov 2024 14:16:09 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xHT-0000000Dtmz-0jVJ
+	id 1t7whP-0000000Dlsh-3pp4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 13:38:09 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4BhQZ7022058;
-	Mon, 4 Nov 2024 14:37:53 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	gaYYKQhdt5+WppBYnImCivL9U494+2hjcdM9oi2RwHw=; b=3cqb8K23PFYQpeoh
-	Pcx5BU36wN1dX3S7xsEntkg6Pr8zwC//yJSlss5bIsqzvTfj/fyNzkDGsCoERiTl
-	hsxp8QnfxVxY6PKUkC8JsafDo0yriFwNmvFicnDp7Sr6To3bGIXFo848+8N2Snns
-	TdIAxwqcPxLqnLepvM2AhxXhh/ShD8DTWuPWQMfN9Zphlrs5gMYpxwW51ZGUcb0s
-	BrlWzdyJkYg0S+fhtCygXs5/wVKh9HzJrOAnUI6pCKB73HfFa+2LKuzJH2I1BSag
-	9p1/WZWWROCp0gLM9Ou9zL8uc2ViXXQSoXzQ2qnoA+xq2Owc1IcNGzXGKFs3am/I
-	6i/eug==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42ncxbq9wu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 04 Nov 2024 14:37:53 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B8C8040049;
-	Mon,  4 Nov 2024 14:36:56 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 94B3928C10F;
-	Mon,  4 Nov 2024 14:35:57 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 4 Nov
- 2024 14:35:57 +0100
-Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 4 Nov
- 2024 14:35:57 +0100
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>,
-        "Rob Herring" <robh+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
-        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v13 5/7] dt-bindings: remoteproc: Add compatibility for TEE support
-Date: Mon, 4 Nov 2024 14:35:13 +0100
-Message-ID: <20241104133515.256497-6-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
-References: <20241104133515.256497-1-arnaud.pouliquen@foss.st.com>
+	Mon, 04 Nov 2024 13:00:53 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539f6e1f756so4231292e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:00:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730725250; x=1731330050; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+nWI6Xd/q/LZwmtaLVMw4xyJRrOQePjMO2FUfWARW0Q=;
+        b=TSrLY8cER/qEASnlwfRVBg8bICY1n1hjvf6QNY7HECCgo1GDu+4/xnJmQYMdltHEJ5
+         ucMTcbRmg3XNhMq8z4klxwOQE+ihPTk1p6IL6Wn1i6eEHc+ZvnfwVPx4ABm2F/hpxC1c
+         0ZWVDfpxVCMLPUGPESvIRlG8Wb/6UXZibwlNM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730725250; x=1731330050;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+nWI6Xd/q/LZwmtaLVMw4xyJRrOQePjMO2FUfWARW0Q=;
+        b=b+JPAsmEUlT1Q5RijWNb/D8eSif1YUnI5SzGN+Y4GUCVN1xHqN0OBbRNVz0dVVCWg1
+         r+u4jwANc2cQpp8NPwKj9rFAwxucOybd+B1HjKMfbYwMaoN9y6tmoSITgGTh7QtEiv3t
+         w0Ii3gsKSUeeK+tjEn8rv7a0UYTGfBwS9BB7w3ci3r8YPze3g9yhDDnwdX1iGvtaMbRm
+         2x1SFiMOw/f+wf44FDdoSHbv4a7BqWHy6u9sC8u6AkskmUTgDcfu8LvC3MpAVQa/BmXr
+         TA5/Hg1zQVnQkmzp9+Q+ApZk5bSqMSKKDhFKrZJ4Zx3PyVRpi3lCs8SrmnZAwqNQU8dG
+         axGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWpem+TIFvnpTzfFAI+V9x9CSTGvRqNPxLeWmNogkC/w108qqTXGnl4Rt3efzSW1nPJWUAfno46oAl2SOEAWrE9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUv/QpDVzssufyTaib/IA9bH8Z1fvexYdJ62dp9fx7dVXcgLi9
+	fHQ3SPrXuT91uPU67pR5IAR7d1jkUOUe9ZW31HRwo66STYEur4vxfkxsVx1HIXKnUsD6xKiDvIP
+	f30a41C6q7J3/crO1qvNm/xPt3c/hh9xL3am3
+X-Google-Smtp-Source: AGHT+IEaB8ZZda+xiJN8hKjO+7R4XsS7rVORV17qPKkGoFiz7+eoeVha8v/dIRlM1DAoeMrrYQuRDQrFwr1eS5hM8ts=
+X-Received: by 2002:a05:6512:3404:b0:530:ad7d:8957 with SMTP id
+ 2adb3069b0e04-53b34b36e63mr15028995e87.49.1730725249927; Mon, 04 Nov 2024
+ 05:00:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.121]
-X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+References: <20241030070224.1006331-1-wenst@chromium.org> <20241030070224.1006331-2-wenst@chromium.org>
+In-Reply-To: <20241030070224.1006331-2-wenst@chromium.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 4 Nov 2024 21:00:39 +0800
+Message-ID: <CAGXv+5HVy41qee6kwVUeLV_DfA0=wk2X77kv81rBKAZDGE6mww@mail.gmail.com>
+Subject: Re: [PATCH 1/4] arm64: dts: mediatek: mt8183-kukui-jacuzzi: Drop
+ pp3300_panel voltage settings
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_053807_634747_1288E34C 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20241104_050052_010814_FAC9481C 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,133 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "st,stm32mp1-m4-tee" compatible is utilized in a system configuration
-where the Cortex-M4 firmware is loaded by the Trusted Execution Environment
-(TEE).
+On Wed, Oct 30, 2024 at 3:02=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> The pp3300_panel fixed regulator is just a load switch. It does not have
+> any regulating capabilities. Thus having voltage constraints on it is
+> wrong.
+>
+> Remove the voltage constraints.
+>
+> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-For instance, this compatible is used in both the Linux and OP-TEE device
-trees:
-- In OP-TEE, a node is defined in the device tree with the
-  "st,stm32mp1-m4-tee" compatible to support signed remoteproc firmware.
-  Based on DT properties, the OP-TEE remoteproc framework is initiated to
-  expose a trusted application service to authenticate and load the remote
-  processor firmware provided by the Linux remoteproc framework, as well
-  as to start and stop the remote processor.
-- In Linux, when the compatibility is set, the Cortex-M resets should not
-  be declared in the device tree. In such a configuration, the reset is
-  managed by the OP-TEE remoteproc driver and is no longer accessible from
-  the Linux kernel.
+I see that the other three patches were merged and included in the pull
+request, but not this one. Were there any concerns?
 
-Associated with this new compatible, add the "st,proc-id" property to
-identify the remote processor. This ID is used to define a unique ID,
-common between Linux, U-Boot, and OP-TEE, to identify a coprocessor.
-This ID will be used in requests to the OP-TEE remoteproc Trusted
-Application to specify the remote processor.
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/remoteproc/st,stm32-rproc.yaml   | 58 ++++++++++++++++---
- 1 file changed, 50 insertions(+), 8 deletions(-)
+ChenYu
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-index 370af61d8f28..409123cd4667 100644
---- a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-@@ -16,7 +16,12 @@ maintainers:
- 
- properties:
-   compatible:
--    const: st,stm32mp1-m4
-+    enum:
-+      - st,stm32mp1-m4
-+      - st,stm32mp1-m4-tee
-+    description:
-+      Use "st,stm32mp1-m4" for the Cortex-M4 coprocessor management by non-secure context
-+      Use "st,stm32mp1-m4-tee" for the Cortex-M4 coprocessor management by secure context
- 
-   reg:
-     description:
-@@ -43,6 +48,10 @@ properties:
-           - description: The offset of the hold boot setting register
-           - description: The field mask of the hold boot
- 
-+  st,proc-id:
-+    description: remote processor identifier
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-   st,syscfg-tz:
-     deprecated: true
-     description:
-@@ -142,21 +151,43 @@ properties:
- required:
-   - compatible
-   - reg
--  - resets
- 
- allOf:
-   - if:
-       properties:
--        reset-names:
--          not:
--            contains:
--              const: hold_boot
-+        compatible:
-+          contains:
-+            const: st,stm32mp1-m4
-     then:
-+      if:
-+        properties:
-+          reset-names:
-+            not:
-+              contains:
-+                const: hold_boot
-+      then:
-+        required:
-+          - st,syscfg-holdboot
-+      else:
-+        properties:
-+          st,syscfg-holdboot: false
-+        required:
-+          - reset-names
-       required:
--        - st,syscfg-holdboot
--    else:
-+        - resets
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp1-m4-tee
-+    then:
-       properties:
-         st,syscfg-holdboot: false
-+        reset-names: false
-+        resets: false
-+      required:
-+        - st,proc-id
- 
- additionalProperties: false
- 
-@@ -188,5 +219,16 @@ examples:
-       st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
-       st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
-     };
-+  - |
-+    #include <dt-bindings/reset/stm32mp1-resets.h>
-+    m4@10000000 {
-+      compatible = "st,stm32mp1-m4-tee";
-+      reg = <0x10000000 0x40000>,
-+            <0x30000000 0x40000>,
-+            <0x38000000 0x10000>;
-+      st,proc-id = <0>;
-+      st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
-+      st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
-+    };
- 
- ...
--- 
-2.25.1
-
+> ---
+>  arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi b/arc=
+h/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> index 783c333107bc..7bbafe926558 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> @@ -35,8 +35,6 @@ pp1800_mipibrdg: pp1800-mipibrdg {
+>         pp3300_panel: pp3300-panel {
+>                 compatible =3D "regulator-fixed";
+>                 regulator-name =3D "pp3300_panel";
+> -               regulator-min-microvolt =3D <3300000>;
+> -               regulator-max-microvolt =3D <3300000>;
+>                 pinctrl-names =3D "default";
+>                 pinctrl-0 =3D <&pp3300_panel_pins>;
+>
+> --
+> 2.47.0.163.g1226f6d8fa-goog
+>
 
