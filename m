@@ -4,112 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358A4D132D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A72D132D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWQGK+gFqiAdlvvCufCcwMSL0mH6zzKf4LLgUnrZec4=; b=3GsqL1bfbdpoJSfIuvXyKt0ok9
-	VDe21ynW3PlOKguRO/92LYM5YUKd4yZssg7dO3TJVLBlGRZ26X6/1KTZW475FjNXzdnI+ZUWBFoud
-	KzRPel4oC4PWASWJyCYQ5WcAMxjN60EUo++gwqVlXrpVE34bkqzHLNA8PzO+M8p59wkCp1aPJdKuz
-	PZAY41HoPiXyLu3IELu07qJQlyH8T4WY6hHIZiJ0b7DBzHozCtGhUG61ptsQ5pgxxuQGYVDEsVHis
-	MnAf1Gn4L1tMS4RYFHY8U/e/wHdkWLXdbQVDzwRKX8h9schs0ZdRfw3TS7bThhDEj+IbQAp4IkfrJ
-	a2YhDXAA==;
+	bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=; b=vrPTFCmw9fMMQLao/EYC+O6DVi
+	6JuqFgKsu4vr+LquntgOIcAwQvBObHtQkzmeQvKfEPDKqgjoF+HSKGDQeIphZhX6euxQAY0lBqRlP
+	7r9/czB9S+uQLLNqxs6d7K8IFKztdrWQnfejtksmlyiKqhWwVvtTq6Jc69zkZPQagpqYC0DnLdoru
+	XUk8MjNtUulCB+FoawgEIkQhuFb6AMbBxDjyPLtM+Gsvzo7+gjbAVRMLTNcJkUoXgVEgzw2Bz1mJ7
+	KF86/DLT5ClZNIWk3wsE5uA0UkQVdc9jh9H0aA/RJrdDnNE9m4YgKxBmikfCIBOhqGz+bgulKc5XO
+	z78Vm5pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yIv-0000000E6D8-0aVp;
-	Mon, 04 Nov 2024 14:43:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t7yKZ-0000000E6ZM-37ZP;
+	Mon, 04 Nov 2024 14:45:23 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7xng-0000000E06Y-1Y0a
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:11:25 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A4BtpsT009787
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 4 Nov 2024 14:11:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OWQGK+gFqiAdlvvCufCcwMSL0mH6zzKf4LLgUnrZec4=; b=X5DayAdEp6wWCsxl
-	4YtvZQekepElalg4PMAXyJkPQOyArVsqiA4e5mpGb2vQoVxMGIkUSteUhmWvhDa5
-	yLUNgLAIEvjLKxUw4Q+7XUpk78mbA1pnKSK4aVUHTPfy4rLZYA2S9vxuTm+RWaiW
-	YJqRHwOPC9Y1FayC5yXGyP47tlgEKQLsUYfCMXdlEO/mBx0po+WODsWIMcR/Jb4v
-	t6EtKFrX8rTIe1qyNBrMIgYwgImC5NiNLgoky6h6r6KITLwTH/K8KhAXvxXTN4HC
-	Bh59JQN+rl2Y3PPGgk1PzXaQrc2Au+us40Ez7Mc6Ihc/fdSVtM4liQtfx1C0Mbfs
-	LnFb0w==
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42nd2s4fgx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 14:11:22 +0000 (GMT)
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-71810cd2d0eso265176a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 06:11:22 -0800 (PST)
+	id 1t7xqr-0000000E0Us-3116;
+	Mon, 04 Nov 2024 14:14:43 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ea16c7759cso2117358a12.1;
+        Mon, 04 Nov 2024 06:14:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730729680; x=1731334480; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=;
+        b=YZTXZQh85mwYBQLX7zrNryYWKhK4kxHAUWjRvEjWf7xyNr1c8p8fCzIuOYKIexE+un
+         TkmCimwXk+GhHcVpQIRgbl55yOSiyr9VbVsWvC2V9gwWikOwys3BA65P/xK8Qgv15a+R
+         yAL4+LwpPxsq4/FN0+kRboFc9VY5vchl4YuSRHQ5qNcppyHBy7u2ECjgRp8eHnffT7tU
+         4chnaJlwojX4d/qjpF8QerDMsoxOOcptJWonGWdwMY0T/CUdR6sj6bqGVb5Vvi+8+VIR
+         X5snySOYWUfa8gVFnHeJGDaiK/1LjFG9BE6iH+ZgHZkGlcnICMEByCLuLLR1jEGqOmPp
+         OdSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730729470; x=1731334270;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OWQGK+gFqiAdlvvCufCcwMSL0mH6zzKf4LLgUnrZec4=;
-        b=Ca2biq7FMC5HiW39TKSLj+bzoW0Wp3cuiZ6bpDnpuM6LvtgW6LKixzNIflE1avgYMB
-         rh2LSc4ozpkS/Atd5RQ+DbYLVbYPofQeFsTXAw8T3pvXmf77bDomMa2qhP4RPfj8ClNt
-         c0fSkaVQV5vcfCcHhfHeKL19oFxnhK+pIZKlvuf70F5NN3uo60V3wvLVnooRWYWrLHWz
-         O9HKazQ+wSvsSUjRSCZ8bcbeC9Y42/DVymH6AI3l6nkfnn5ritvtuWGGZYP/tmwpmm8l
-         SIzSdzI2Pp4MGZJBPyGZi6Zofi8CtBRnVbmWRKLmAGPvC0b4qT2lUbWSGbOPCQ0NHBg8
-         GBfg==
-X-Forwarded-Encrypted: i=1; AJvYcCXqK3dQ+bHNXNOKc8H5t3St+fbtMmT6r8gnUJQSnVqTAZF+5AOMDmekPhkEvNUpd5tM5L2jkvwpkHMSRsmOFhOJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzmry0F8GmSj+buf1n8MArdsr2QuDsZ5lGj575MPTGeR+Yy9WG7
-	hnV5GeOEX8romg7q6wSRcs4frk3C4ae5vEV0qcn7hqT+1vYxz093cSzyk8tP6xovKnD70OdFCpd
-	luCSABPycDAI/EawxPvMkqERymtqajUknccc4DBWTxYn+nAlcMzHVXc65C0NJ0SWfma0in8SM3g
-	==
-X-Received: by 2002:a05:6808:13c7:b0:3e5:f6b0:6ece with SMTP id 5614622812f47-3e6384c54e0mr8553314b6e.8.1730729470510;
-        Mon, 04 Nov 2024 06:11:10 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFeLnK3SNwDSbU/S8+Adq+C7BNiBcubtYMDM1I7j21B1MpWE1qSEckxqqAiiqRZlKmn1s3qYA==
-X-Received: by 2002:a05:6808:13c7:b0:3e5:f6b0:6ece with SMTP id 5614622812f47-3e6384c54e0mr8553301b6e.8.1730729470101;
-        Mon, 04 Nov 2024 06:11:10 -0800 (PST)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e56645da9sm556198566b.164.2024.11.04.06.11.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Nov 2024 06:11:08 -0800 (PST)
-Message-ID: <a41e3aeb-43b9-49c0-8243-29a78a3b1602@oss.qualcomm.com>
-Date: Mon, 4 Nov 2024 15:11:06 +0100
+        d=1e100.net; s=20230601; t=1730729680; x=1731334480;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=edAMo1PY72zkfTpbMxA+qP1Jihl1VWVJ/LFLScOHZxs=;
+        b=gNdyF45X/NmrwBcwLJZCvsKbWv6270wuoReUwvZgYAzLyMVQn3+/BsCZv9XmdcJzMB
+         kNyeUQU2AljIMgk7gyrp7+Occh05IYi1flmeiUuQjfGYPEyaFFssyh1D5ecSdox2fNTu
+         SfK02/i+kHJCLZ7iFI6MyG7UGaC6x/xFcCgSAzSg/eQCW2A0919PyPb2eIg0V639jEcw
+         zgDsRlhETCrAqSzYfQLe8Z2f8kKQPlfiXByMGFitZ/11vNSCpzSbcLLOpv9oibqyQiBn
+         r/W19917MLOZevqnj5D4kNI7351YILWs+RXW72my93+xV8zEfs51OyAOAc6p+lZpwz1y
+         hIqw==
+X-Forwarded-Encrypted: i=1; AJvYcCUuMsCeQvXB8M/OQonLnSbXeNcsj9LwxDh7fvGuCVnYJ3tTbtZvImeMzTQlCQile0Yk2BOLx2dyb300zjc0Us2P@lists.infradead.org, AJvYcCXm+RzxgqEksEN7Rr/LN4/l9zY6gXvI0X/S3dyGXez51eWyLngVROgU5ct2hWuKKe6mVsYkHHVdKOHt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTzeoY+98UR9I9e6XvJaKsvnW/PtRuggpNcPNME5GE/H0oypdE
+	cRdjsWYZ0jT8GDO5IQvru8nwQBuS3Z07+pDktMfpXXVxvqutme9u26WOcSuFIw1HpvxuBItWXGD
+	HRq6rz1Ztk1unCpNX7XPvPkWi8NE=
+X-Google-Smtp-Source: AGHT+IEmoWv2BQyjgSKvNZTyFnFU/aFLKu2M11dcp+q5xS3jkjmpk2PvhiOnId+cOj9tdQGGbgL5byubxkd+rHQu7UM=
+X-Received: by 2002:a17:90b:2dcc:b0:2e2:7f8f:3ad7 with SMTP id
+ 98e67ed59e1d1-2e93c1595b5mr21780271a91.7.1730729679934; Mon, 04 Nov 2024
+ 06:14:39 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: qcom: Add coresight nodes for QCS615
-To: Jie Gan <quic_jiegan@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>,
-        Tao Zhang <quic_taozha@quicinc.com>
-References: <20241017030005.893203-1-quic_jiegan@quicinc.com>
- <69be09ec-e9a5-4fb6-890e-74a65f3ce404@oss.qualcomm.com>
- <3f90b3d6-9637-47b7-ad8a-ff43cb28ad32@quicinc.com>
- <e263d461-9e2b-4ffe-8221-cd9ecdd142c9@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <e263d461-9e2b-4ffe-8221-cd9ecdd142c9@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: xGzRM-LxR2FGX5SDfkKMiFQW0tplrYHu
-X-Proofpoint-GUID: xGzRM-LxR2FGX5SDfkKMiFQW0tplrYHu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- lowpriorityscore=0 mlxlogscore=999 clxscore=1015 suspectscore=0
- adultscore=0 priorityscore=1501 bulkscore=0 mlxscore=0 malwarescore=0
- spamscore=0 impostorscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2409260000 definitions=main-2411040124
+References: <20241021155241.943665-1-Frank.Li@nxp.com> <DU2PR04MB86770FFB0CAEEBE95B91F5FC8C4C2@DU2PR04MB8677.eurprd04.prod.outlook.com>
+ <CAHCN7xJya+XjAP+kn5MePdrqNxaLnkYag23UaNatoh09ize+AA@mail.gmail.com> <AS8PR04MB8676D33E00DE6B0B961B5EB58C512@AS8PR04MB8676.eurprd04.prod.outlook.com>
+In-Reply-To: <AS8PR04MB8676D33E00DE6B0B961B5EB58C512@AS8PR04MB8676.eurprd04.prod.outlook.com>
+From: Adam Ford <aford173@gmail.com>
+Date: Mon, 4 Nov 2024 08:14:28 -0600
+Message-ID: <CAHCN7xKj9XYnsaTjFfE_jn7rsN86wv0bxKq3o83WNkamrqeU1g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just before
+ PHY PLL lock check
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, "vkoul@kernel.org" <vkoul@kernel.org>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "kishon@kernel.org" <kishon@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
+	Marcel Ziswiler <marcel.ziswiler@toradex.com>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_061124_545995_99BBB8D3 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20241104_061441_787964_28301FC3 
+X-CRM114-Status: GOOD (  46.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,64 +98,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28.10.2024 3:53 AM, Jie Gan wrote:
-> 
-> 
-> On 10/28/2024 8:54 AM, Jie Gan wrote:
->>
->>
->> On 10/26/2024 2:47 AM, Konrad Dybcio wrote:
->>> On 17.10.2024 5:00 AM, Jie Gan wrote:
->>>> Add following coresight components on QCS615, EUD, TMC/ETF, TPDM, dynamic
->>>> Funnel, TPDA, Replicator and ETM.
->>>>
->>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
->>>> ---
->>>> Already checked by command:dtbs_check W=1.
->>>>
->>>> Dependencies:
->>>> 1. Depends on qcs615 base dtsi change:
->>>> https://lore.kernel.org/all/20240926-add_initial_support_for_qcs615- v3-5-e37617e91c62@quicinc.com/
->>>> 2. Depends on qcs615 AOSS_QMP change:
->>>> https://lore.kernel.org/linux-arm-msm/20241017025313.2028120-4- quic_chunkaid@quicinc.com/
->>>> ---
->>>>   arch/arm64/boot/dts/qcom/qcs615.dtsi | 1632 ++++++++++++++++++++++++++
->>>>   1 file changed, 1632 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/qcom/qcs615.dtsi b/arch/arm64/boot/ dts/qcom/qcs615.dtsi
->>>> index 856b40e20cf3..87cca5de018e 100644
->>>> --- a/arch/arm64/boot/dts/qcom/qcs615.dtsi
->>>> +++ b/arch/arm64/boot/dts/qcom/qcs615.dtsi
->>>> @@ -202,6 +202,18 @@ l3_0: l3-cache {
->>>>           };
->>>>       };
->>>> +    dummy_eud: dummy_sink {
->>>
->>> Node names (after the ':' and before the '{' signs) can't contain
->>> underscores, use '-' instead.
->> Sure, will fix it.
->>
->>>
->>> [...]
->>>
->>>> +        stm@6002000 {
->>>> +            compatible = "arm,coresight-stm", "arm,primecell";
->>>> +            reg = <0x0 0x6002000 0x0 0x1000>,
->>>
->>> Please pad the non-zero address part to 8 hex digits with leading
->>> zeroes, across the board
->> Will fix it.
->>
->>>
->>> This looks like a lot of nodes, all enabled by default. Will this run
->>> on a production-fused device?
->> Yes, usually Coresight nodes are enabled by default. Those nodes can run on the commercial devices.
-> Sorry, my last clarification is not clearly. The Coresight nodes are enabled by default for commercial devices(fused), but only part of functions can run with commercial devices because it needs check fuse data before running.
-> 
-> If we want enable all debug functions related to coresight nodes on commercial devices, we need APDP override(APPS debug policy override) procedure first. The APDP override procedure will override some fuse data to allow debug sessions.
+On Sun, Nov 3, 2024 at 11:19=E2=80=AFPM Hongxing Zhu <hongxing.zhu@nxp.com>=
+ wrote:
+>
+> > -----Original Message-----
+> > From: Adam Ford <aford173@gmail.com>
+> > Sent: 2024=E5=B9=B411=E6=9C=882=E6=97=A5 3:53
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: Frank Li <frank.li@nxp.com>; vkoul@kernel.org; festevam@gmail.com;
+> > imx@lists.linux.dev; kernel@pengutronix.de; kishon@kernel.org;
+> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> > linux-phy@lists.infradead.org; Marcel Ziswiler <marcel.ziswiler@toradex=
+.com>;
+> > s.hauer@pengutronix.de; shawnguo@kernel.org; stable@vger.kernel.org
+> > Subject: Re: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just=
+ before
+> > PHY PLL lock check
+> >
+> > On Mon, Oct 21, 2024 at 11:06=E2=80=AFPM Hongxing Zhu <hongxing.zhu@nxp=
+.com>
+> > wrote:
+> > >
+> > > > -----Original Message-----
+> > > > From: Frank Li <frank.li@nxp.com>
+> > > > Sent: 2024=E5=B9=B410=E6=9C=8821=E6=97=A5 23:53
+> > > > To: vkoul@kernel.org
+> > > > Cc: Frank Li <frank.li@nxp.com>; festevam@gmail.com; Hongxing Zhu
+> > > > <hongxing.zhu@nxp.com>; imx@lists.linux.dev; kernel@pengutronix.de;
+> > > > kishon@kernel.org; linux-arm-kernel@lists.infradead.org;
+> > > > linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org; Marcel
+> > > > Ziswiler <marcel.ziswiler@toradex.com>; s.hauer@pengutronix.de;
+> > > > shawnguo@kernel.org; stable@vger.kernel.org
+> > > > Subject: [PATCH v2 1/1] phy: freescale: imx8m-pcie: Do CMN_RST just
+> > > > before PHY PLL lock check
+> > > >
+> > > > From: Richard Zhu <hongxing.zhu@nxp.com>
+> > > >
+> > > > When enable initcall_debug together with higher debug level below.
+> > > > CONFIG_CONSOLE_LOGLEVEL_DEFAULT=3D9
+> > > > CONFIG_CONSOLE_LOGLEVEL_QUIET=3D9
+> > > > CONFIG_MESSAGE_LOGLEVEL_DEFAULT=3D7
+> > > >
+> > > > The initialization of i.MX8MP PCIe PHY might be timeout failed rand=
+omly.
+> > > > To fix this issue, adjust the sequence of the resets refer to the
+> > > > power up sequence listed below.
+> > > >
+> > > > i.MX8MP PCIe PHY power up sequence:
+> > > >                           /----------------------------------------=
+-----
+> > > > 1.8v supply     ---------/
+> > > >                     /----------------------------------------------=
+-----
+> > > > 0.8v supply     ---/
+> > > >
+> > > >                 ---\ /---------------------------------------------=
+-----
+> > > >                     X        REFCLK Valid
+> > > > Reference Clock ---/ \---------------------------------------------=
+-----
+> > > >                              --------------------------------------=
+-----
+> > > >                              |
+> > > > i_init_restn    --------------
+> > > >                                     -------------------------------=
+-----
+> > > >                                     |
+> > > > i_cmn_rstn      ---------------------
+> > > >                                          --------------------------=
+-----
+> > > >                                          | o_pll_lock_done
+> > > > --------------------------
+> > > >
+> > > > Logs:
+> > > > imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
+> > > > imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff ->
+> > > > 0x0000000000
+> > > > imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff ->
+> > > > 0x0018000000
+> > > > probe of clk_imx8mp_audiomix.reset.0 returned 0 after 1052 usecs
+> > > > probe of 30e20000.clock-controller returned 0 after 32971 usecs phy
+> > > > phy-32f00000.pcie-phy.4: phy poweron failed --> -110 probe of
+> > > > 30e10000.dma-controller returned 0 after 10235 usecs imx6q-pcie
+> > > > 33800000.pcie: waiting for PHY ready timeout!
+> > > > dwhdmi-imx 32fd8000.hdmi: Detected HDMI TX controller v2.13a with
+> > > > HDCP
+> > > > (samsung_dw_hdmi_phy2) imx6q-pcie 33800000.pcie: probe with driver
+> > > > imx6q-pcie failed with error -110
+> > > >
+> > > > Fixes: dce9edff16ee ("phy: freescale: imx8m-pcie: Add i.MX8MP PCIe
+> > > > PHY
+> > > > support")
+> > > > Cc: stable@vger.kernel.org
+> > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > >
+> > > > v2 changes:
+> > > > - Rebase to latest fixes branch of linux-phy git repo.
+> > > > - Richard's environment have problem and can't sent out patch. So I
+> > > > help post this fix patch.
+> >
+> > Even with this patch, I am still seeing an occasional timeout on 8MP.
+> > I looked at some logs on a similarly functioning 8MM and I can't get th=
+is error to
+> > appear on Mini that I see on Plus.
+> >
+> > The TRM doesn't document the timing of the startup sequence, like this =
+e-mail
+> > patch did nor does it state how long a reasonable timeout should take. =
+So, I
+> > started looking through the code and I noticed that the Mini asserts th=
+e reset at
+> > the beginning, then makes all the changes, and de-asserts the resets to=
+ward the
+> > end.  Is there any reason we should not assert one or both of the reset=
+s on
+> > 8MP before setting up the reset of the registers like the way Mini does=
+ it?
+> Yes, I had the similar confusions when I try to bring up i.MX8MP PCIe.
+> i.MX8MP PCIe resets have the different designs but I don't know the reaso=
+n and
+> the details. These resets shouldn't be asserted/de-asserted as Mini does =
+during
+>  the initialization.
+>
+> On i.MX8MP, these resets should be configured one-shot. I used to toggle =
+them
+> in my own experiments. Unfortunately, the PCIe PHY wouldn't be functional=
+.
 
-In other words, will a production fused device boot with this patch
-applied?
+I started testing adding the resets before I asked, because it appears
+to be working ok, but if you're suggesting it's a bad idea, I won't
+continue down that path.  Do you have any other suggestions on how to
+eliminate the occasional timeout error?  I still see it at times on a
+cold-boot even with this latest patch applied.
 
-Konrad
+thanks
+
+adam
+
+>
+> Best Regards
+> Richard Zhu
+> >
+> > adam
+> >
+> > > > ---
+> > > Hi Frank:
+> > > Thanks a lot for your kindly help.
+> > > Since my server is down, I can't send out this v2 in the past days.
+> > >
+> > > Hi Vinod:
+> > > Sorry for the late reply, and bring you inconvenience.
+> > >
+> > > Best Regards
+> > > Richard Zhu
+> > >
+> > > >  drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 10 +++++-----
+> > > >  1 file changed, 5 insertions(+), 5 deletions(-)
+> > > >
+> > > > diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > > > b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > > > index 11fcb1867118c..e98361dcdeadf 100644
+> > > > --- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > > > +++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > > > @@ -141,11 +141,6 @@ static int imx8_pcie_phy_power_on(struct phy
+> > > > *phy)
+> > > >                          IMX8MM_GPR_PCIE_REF_CLK_PLL);
+> > > >       usleep_range(100, 200);
+> > > >
+> > > > -     /* Do the PHY common block reset */
+> > > > -     regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
+> > > > -                        IMX8MM_GPR_PCIE_CMN_RST,
+> > > > -                        IMX8MM_GPR_PCIE_CMN_RST);
+> > > > -
+> > > >       switch (imx8_phy->drvdata->variant) {
+> > > >       case IMX8MP:
+> > > >               reset_control_deassert(imx8_phy->perst);
+> > > > @@ -156,6 +151,11 @@ static int imx8_pcie_phy_power_on(struct phy
+> > > > *phy)
+> > > >               break;
+> > > >       }
+> > > >
+> > > > +     /* Do the PHY common block reset */
+> > > > +     regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
+> > > > +                        IMX8MM_GPR_PCIE_CMN_RST,
+> > > > +                        IMX8MM_GPR_PCIE_CMN_RST);
+> > > > +
+> > > >       /* Polling to check the phy is ready or not. */
+> > > >       ret =3D readl_poll_timeout(imx8_phy->base +
+> > > > IMX8MM_PCIE_PHY_CMN_REG075,
+> > > >                                val, val =3D=3D ANA_PLL_DONE, 10,
+> > 20000);
+> > > > --
+> > > > 2.34.1
+> > >
+> > > --
+> > > linux-phy mailing list
+> > > linux-phy@lists.infradead.org
+> > > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fl=
+ist
+> > >
+> > s.infradead.org%2Fmailman%2Flistinfo%2Flinux-phy&data=3D05%7C02%7Chongx=
+i
+> > >
+> > ng.zhu%40nxp.com%7C666c8968b3094147ed4408dcfaaec631%7C686ea1d3bc
+> > 2b4c6f
+> > >
+> > a92cd99c5c301635%7C0%7C0%7C638660875771545687%7CUnknown%7CTWF
+> > pbGZsb3d8
+> > >
+> > eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%
+> > 7C0
+> > > %7C%7C%7C&sdata=3D3Mg4SqcaA%2FlbScveriGBBMOq1YOTt3okydgHmjmdLps
+> > %3D&reser
+> > > ved=3D0
 
