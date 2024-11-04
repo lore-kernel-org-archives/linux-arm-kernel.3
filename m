@@ -4,86 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292C7D1CA01
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 22:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB700D1CA01
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 22:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VY9tkcWTPJUgfHHmT3U5Z7yTaauPqUOAetmWDprOH4c=; b=Xl0xF6zyCoyqcS+ORwMBPKPoKd
-	gDzqZGwfsOb7NXe93RZZLPTC+I0Q8lI+UeZSdGVfSkupTf7rJygssYuDS+EskZtOv/jSSghlcnbZU
-	HLlSWPFa/qXbDWNAYviBKgaKWqCz8ERrviWKGvCQzj3UNf3rEKJ8GELEPXdyr14Fx+WBnk8deZ2Vi
-	a5fdDHC0m5Um3aEhOLo8r3GoiwsYA7oH2Zq1IR5vmdxnWCozm6SuSNKLL2Vb/pedw+jCqgOs/OFRw
-	HroWzCja+ZvXgpWT1sZ1yrt4kZ5/F4GvWBxGqxZidS4lF2d358ZXOFLJq8Bu32XS+wlgJ+VMOWwDk
-	34U57dGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FwdJ/tZnq5Q1ZNjaalXxz9pm9mHtJsnsrILgdEWNMTI=; b=hQyQE4O26Iyi29a5A209I68LG1
+	Fl5UryVwRmcran8wBgS16QsB1TYC4iBgX/2yBS8bNQPNp3vZ6SwDNxkz8lcf6vtJonU2TfczsbkXI
+	qSy2V/r29i+qpmgtvcK1XHMqQz7AmqPvXymhLkNilCgmcJuZWLGcNM/xGzTg1uBZrtcJUyiiEqtRd
+	aIGCcIFOHCkTRoXxHBU3bVGJtV0EX4h/9jsbU4EDOuZuCnysKFgDCmepgyU4s27gFjVoHGHWp9YTS
+	DL1qBdBl1XWWVrSfZZ37k5YjZFna9FLfSwBwZFKtFRJ9luEOeRqzBUA3g3+Hj6orRbsDnyuLqf3qc
+	vZmeh9Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t859k-0000000FFPb-2qeU;
-	Mon, 04 Nov 2024 22:02:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t85CS-0000000FFtt-0npx;
+	Mon, 04 Nov 2024 22:05:28 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8584-0000000FFIr-0hcX;
-	Mon, 04 Nov 2024 22:00:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=VY9tkcWTPJUgfHHmT3U5Z7yTaauPqUOAetmWDprOH4c=; b=bcSGTo/XN1fFva9h7iZd06Q9ob
-	1sN23pvjYZwwq231qYFFzUscXakKn4U4OqPf/l7VDsKdCX3/8M2ZDdL9EsS6UqzJuR2exyLjh6qCy
-	djzXWVQq/K0P1xFS/tPvB40JCiyvSfPoWrOZdxtEFr5ZLHuR4WRJI8YUPv+3r53IOLobzzOf5nCtW
-	OYqXXK9/DQKmU05LncUv+9lG7F+kdzzzpSTSrSZ5acjidUBtGXNS8w0IF3kA09I0J79Us5bSZlEo4
-	XRf/p9GaZyPTCU0qCM1c8VXLgJW7n/9y3NXuuFmDmtZB9LvwK68FW5zgGdEHQ1aKNVPrLPvbFrIMW
-	NWESqU5A==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t857t-0000000Bauk-3F07;
-	Mon, 04 Nov 2024 22:00:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2AFA55C4CFB;
-	Mon,  4 Nov 2024 21:59:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 244E3C4CECE;
-	Mon,  4 Nov 2024 22:00:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730757641;
-	bh=+VNwD/bhJNlJ4Sdav4k2eb5Sxm4/XDUeAcINK2T1xvI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=K4L6yKwAxI9ReGi4IgdFDHSO/dOJfh2+ybOFRdVjT/DKszNgF5Kl6ipHld/hwCJNn
-	 gOPj0YYseZrnYeShBn2r2Mkh+ILYIpqYuaxY7WGomcgB7MQ1eLRfZFKOzCJSRJ19a6
-	 f1VgxRpCDLS30PkTCetfZuJuij2SumKirrq1QuNH3XzGpvGoDlaskdHIV8r/fXdenZ
-	 ila2hhWji/tXeixvKxSp9qN4hQZegVvfMUBCMUqEDdgWT/DWHk4JStfQHaJDuHhoKV
-	 0WEY4MGrtEX4c1c9/M47N65YxJXrwjVKUNyFXWxMuhBzQiD0HZEvMG5CiGePbdzCW6
-	 UKCH2nKUld2Hg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 04 Nov 2024 23:00:05 +0100
-Subject: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via PCIE_RSTB
- for Airoha EN7581 SoC
+	id 1t85Ai-0000000FFZc-4A0N
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 22:03:42 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20c87b0332cso27365ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 14:03:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730757820; x=1731362620; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FwdJ/tZnq5Q1ZNjaalXxz9pm9mHtJsnsrILgdEWNMTI=;
+        b=x64tpt009F04nas/6MK3THiBaAsJ/nv8fz9wd4/5xEPKHidnLOiaDxFxiAG6h0WDXJ
+         7JMKIf3EbLRIQ+GPS9wH2r457YwAKQQuPXuhf4QDnnL+1m1AV8wK+tbydBJm3DzRkKCV
+         UFuRNj6225A3nuoBI7kjlnz2ujqqRoD1lzpdIphdLBWRLXn6LowJ+Mkl+atiRzCuQhQ9
+         I0zaiqSwNyMfa85TRqDSLdLzCeG0CwFP19c5gtCYereS0uUtjM5eHSq9sCnpEmlYUC0G
+         k4prkYZ4Q+HpsvixsBG9zxUXrWYem771mk/+VR64xWfzovV/JmuCSHDQ7N4ZOyr38qv9
+         mgfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730757820; x=1731362620;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FwdJ/tZnq5Q1ZNjaalXxz9pm9mHtJsnsrILgdEWNMTI=;
+        b=EMZcWcdxfd4nGvQ4fE8qjx1tL9Rf8C7PEXHFzLu+P0xhKJFZ++vtqNZHzIBv9AAlSs
+         WcudymDckZEtx9gv+yNkefvaqhaW1H6/lOThgMVJui8EkK1sqmZ+8QIDLUzsDcXBzAwy
+         +M1WeCi8Cdc7R814duREZ9FJjkT8VFJsoDkTDWeVT3qFrCvSMULBUEDkWIOB2Rflwd1B
+         h7nzYSCFsHC/3eKBm5MvNsgH56yVCOjixajvZBCpI7mUuf0xBqG6NSnnSuv4JaBEO0Ym
+         YtytPTlOsRJYzPLnOLzMwRgVfm3Y21gz0xl3cp7WcYTbIGSei3tu2NblO5Y4dOJkIslU
+         Jb6g==
+X-Forwarded-Encrypted: i=1; AJvYcCV4Vu7o56wmF0jCWgOFILD16JeZ8cxmjUktrL2jZqBCqldSfSLmB9Omi64vXmzMRU9PoiF04TTbjnBvukKQAEaT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw05UetOQs70wus+xt39llN37S3tXuFeVAJxcv51wOfrwxpLBVS
+	qhDP3BgcFkZ59YEMww2ZsBdK5NOAsa1zCz5yXGCK51wXPUfOT0MTY0N72OuXC5HP/V/a7k4m4pH
+	S0eJeyGklXLCUP7hKusKjoG2Tlaw1PjJQ+Rr2
+X-Gm-Gg: ASbGnctAZ0Jnj129HOwiR5KFSPacBHdPyn5g4ZuYc0LFTIRpBt60Z3mf8JqraqXOCc3
+	TewC7s/g5PO+xD57wI11wPyFfTAJPdLpKja3XRSW58QrxjGOCLdvxOmG7uLQ4hTI=
+X-Google-Smtp-Source: AGHT+IEti60SDL7RHxI+cAhb1vGKCJSZIYIvkK03gIl3UEiSV24cOOJW04C/9MY0z0qdxUSpneeeMi3ERfOoxdjdYyo=
+X-Received: by 2002:a17:902:c401:b0:206:b7b2:4876 with SMTP id
+ d9443c01a7336-2115e2cb7c5mr1245345ad.20.1730757819913; Mon, 04 Nov 2024
+ 14:03:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAORDKWcC/32NQQ6CMBBFr0Jm7Zi2QAVX3sOw0DqFiaYlU9JoC
- He3cgDzV+8n//0VEglTgnO1glDmxDEUMIcK3HQLIyE/CoNRplG9UTg7JqRwajuNkhb0/MZOW23
- bzunaNVCWs1Cpd+t1KDxxWqJ89pOsf+1/X9ZYopra323tvesvT5JAr2OUEYZt274ZHstQtwAAA
- A==
-X-Change-ID: 20240920-pcie-en7581-rst-fix-8161658c13c4
-To: Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- upstream@airoha.com, Hui Ma <hui.ma@airoha.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
+ <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com> <Zyk9hX8CB_2rbWsi@ghost>
+In-Reply-To: <Zyk9hX8CB_2rbWsi@ghost>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 4 Nov 2024 14:03:28 -0800
+Message-ID: <CAP-5=fUdZRbCp+2ghEUdp+qJ1BuMDuTtw9R+dFAaom+3oqQV_g@mail.gmail.com>
+Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for all archs
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	=?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
+	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org, 
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_220046_423234_3804A79B 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20241104_140341_060911_CA323EF6 
+X-CRM114-Status: GOOD (  31.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,139 +107,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-causing occasional PCIe link down issues. In order to overcome the
-problem, PCIE_RSTB signals are not asserted/released during device probe or
-suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-(0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
-module.
-Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-specify per-SoC capabilities.
+On Mon, Nov 4, 2024 at 1:32=E2=80=AFPM Charlie Jenkins <charlie@rivosinc.co=
+m> wrote:
+>
+> On Mon, Nov 04, 2024 at 10:13:18PM +0100, Arnd Bergmann wrote:
+> > On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
+> > > Standardize the generation of syscall headers around syscall tables.
+> > > Previously each architecture independently selected how syscall heade=
+rs
+> > > would be generated, or would not define a way and fallback onto
+> > > libaudit. Convert all architectures to use a standard syscall header
+> > > generation script and allow each architecture to override the syscall
+> > > table to use if they do not use the generic table.
+> > >
+> > > As a result of these changes, no architecture will require libaudit, =
+and
+> > > so the fallback case of using libaudit is removed by this series.
+> > >
+> > > Testing:
+> > >
+> > > I have tested that the syscall mappings of id to name generation work=
+s
+> > > as expected for every architecture, but I have only validated that pe=
+rf
+> > > trace compiles and runs as expected on riscv, arm64, and x86_64.
+> > >
+> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> >
+> > Thanks for doing this, I had plans to do this myself, but hadn't
+> > completed that bit so far. I'm travelling at the moment, so I'm
+> > not sure I have time to look at it in enough detail this week.
+> >
+> > One problem I ran into doing this previously was the incompatible
+> > format of the tables for x86 and s390, which have conflicting
+> > interpretations of what the '-' character means. It's possible
+> > that this is only really relevant for the in-kernel table,
+> > not the version in tools.
+> >
+>
+> I don't think that is an issue for this usecase because the only
+> information that is taken from the syscall table is the number and the
+> name of the syscall. '-' doesn't appear in either of these columns!
 
-Tested-by: Hui Ma <hui.ma@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- introduce flags field in mtk_gen3_pcie_flags struct instead of adding
-  reset callback
-- fix the leftover case in mtk_pcie_suspend_noirq routine
-- add more comments
-- Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++---------
- 1 file changed, 41 insertions(+), 18 deletions(-)
+This is cool stuff. An area that may not be immediately apparent for
+improvement is that the x86-64 build only has access to the 64-bit
+syscall table. Perhaps all the syscall tables should always be built
+and then at runtime the architecture of the perf.data file, etc. used
+to choose the appropriate one. The cleanup to add an ELF host #define
+could help with this:
+https://lore.kernel.org/linux-perf-users/20241017002520.59124-1-irogers@goo=
+gle.com/
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..8e4704ff3509867fc0ff799e9fb99e71e46756cd 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -125,10 +125,18 @@
- 
- struct mtk_gen3_pcie;
- 
-+enum mtk_gen3_pcie_flags {
-+	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
-+				   * during device probing or suspend/resume
-+				   * phase in order to avoid hw bugs/issues.
-+				   */
-+};
-+
- /**
-  * struct mtk_gen3_pcie_pdata - differentiate between host generations
-  * @power_up: pcie power_up callback
-  * @phy_resets: phy reset lines SoC data.
-+ * @flags: pcie device flags.
-  */
- struct mtk_gen3_pcie_pdata {
- 	int (*power_up)(struct mtk_gen3_pcie *pcie);
-@@ -136,6 +144,7 @@ struct mtk_gen3_pcie_pdata {
- 		const char *id[MAX_NUM_PHY_RESETS];
- 		int num_resets;
- 	} phy_resets;
-+	u32 flags;
- };
- 
- /**
-@@ -402,22 +411,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
- 	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
- 	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
- 
--	/* Assert all reset signals */
--	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
--	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
--	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
--
- 	/*
--	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
--	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
--	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
--	 * for the power and clock to become stable.
-+	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-+	 * causing occasional PCIe link down. In order to overcome the issue,
-+	 * PCIE_RSTB signals are not asserted/released at this stage and the
-+	 * PCIe block is reset using REG_PCI_CONTROL (0x88) and
-+	 * REG_RESET_CONTROL (0x834) registers available via the clock module.
- 	 */
--	msleep(100);
--
--	/* De-assert reset signals */
--	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
--	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-+		/* Assert all reset signals */
-+		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-+		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-+		       PCIE_PE_RSTB;
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+
-+		/*
-+		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-+		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-+		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-+		 * for the power and clock to become stable.
-+		 */
-+		msleep(PCIE_T_PVPERL_MS);
-+
-+		/* De-assert reset signals */
-+		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-+			 PCIE_PE_RSTB);
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+	}
- 
- 	/* Check if the link is up or not */
- 	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
-@@ -1160,10 +1180,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
- 		return err;
- 	}
- 
--	/* Pull down the PERST# pin */
--	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
--	val |= PCIE_PE_RSTB;
--	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-+		/* Pull down the PERST# pin */
-+		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-+		val |= PCIE_PE_RSTB;
-+		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-+	}
- 
- 	dev_dbg(pcie->dev, "entered L2 states successfully");
- 
-@@ -1214,6 +1236,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
- 		.id[2] = "phy-lane2",
- 		.num_resets = 3,
- 	},
-+	.flags = SKIP_PCIE_RSTB,
- };
- 
- static const struct of_device_id mtk_pcie_of_match[] = {
+Ultimately I'd like to see less arch code as it inherently makes cross
+platform worker harder. That doesn't impact this work which I'm happy
+to review.
 
----
-base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
-change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Thanks,
+Ian
 
