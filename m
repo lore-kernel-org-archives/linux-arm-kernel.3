@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D691D1BDD9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F3ED1BDD9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 18:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7a6wZTAgFjyZIQRwbpzpwrJO+mZ8x5NXtG/M2aOltuk=; b=GAN4VQIj0cLD209jtboXAsAwoT
-	aaE37Xln/uUg5wFTOhydSaDSY5vV/k5aVfTyLQ7dUkOhBKhN0rBH9T1K2hIs/D56RYpzC/ZcuhaPc
-	cYrjVmqePq2IUObMXo6DRNtqpdiOxBlln7/GAmcl3Hv9TqOqJ/1r4c+UzUUIh8On7g2kH2/ww19YF
-	PomcAogiCNDAnFxcScyCqS2z+kNNx3+GUPnMPHgycABwo+ziiQSXpc+HiCM/MLTVkiP3Eh0owYC/9
-	rP0tKuLrYejHuBNnLpwRqg44U8/o8/EulEAmjf36xf7f2+fLzpQ0pjwXzqDFS/YBBbBbNvR10j6fZ
-	TUZg+DYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
+	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
+	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=laPuZq78S9MZZAPJV85SWKqbq5q6m37ivttbiKDGbJ0=; b=Z4+/24EotE9+ED+pVJlNGYdt4z
+	NCywvL3MS2nkV/IrtzZKEEsGBrCeOSE15217RlFW+e6qPrXy6lZ1qmD8Arf2LA+yj8pX3t5X/AsFw
+	b6hKau0hlxlIkpy16tgMfSXx5DTcLM5cTw2hGy6Ggsat+OPd5knRTWxAPV1t/6I2mVgApiyuxNwor
+	pvJs3Pb+eMioX2GueJRLHfDckbM5/E9aCr//Ft9jiDkAwGObZw7HiF8Bq1gQ4KDtSqJvStSfVELZd
+	Q9YX5Jsu2yB//4eUnb/ztmTIXZwcNrDwZ4eQiwzbSJO5s+bWtqb9Nwagsoz4DM2J5YLJW9iKkG8aO
+	ERk0NwXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t81b9-0000000EhJs-1Twk;
-	Mon, 04 Nov 2024 18:14:43 +0000
-Received: from smtp-28.smtpout.orange.fr ([80.12.242.28] helo=smtp.smtpout.orange.fr)
+	id 1t81cx-0000000EiHn-0hjj;
+	Mon, 04 Nov 2024 18:16:35 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t81GD-0000000EbWF-1eZy
+	id 1t81OY-0000000EdgK-05yJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 17:53:08 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id 81G3txN94lUew81G3tdlTw; Mon, 04 Nov 2024 18:52:58 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1730742778;
-	bh=7a6wZTAgFjyZIQRwbpzpwrJO+mZ8x5NXtG/M2aOltuk=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=i8Zom4zprEcgc7rXp/7A+2Gyn0tqLqyGKXS2VlQR3kkBazvYzhkgZ8pu3Fni5G0RI
-	 8cPWJtRZFZdloyd3LwvCMg0vXOtGmHwRuRLsYPuJb9iYFAMq9B1ypnMpTLnQkSpzT0
-	 pUTCfTkMTlSEsxkKh0/RUh3Xacer1Ma+VIP575EDx9MIJkPZ52CSsKYyZClZro+CUE
-	 3H9QEybVWX5QU6FmRYi8AXnfr5AXYl4LpZBDNjZy7MNaaOTA8alh972b8qoYKFcO7S
-	 FRjGI3A+kbMgZWlOcxdwqgFvrm8zPm/T1FyIumv9pJAJ6Ro/K0sgFFyLOBUk8Lvmro
-	 wytD53pp5YHrg==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Mon, 04 Nov 2024 18:52:58 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <32c796a7-7598-46d4-af78-00fcb47990f6@wanadoo.fr>
-Date: Mon, 4 Nov 2024 18:52:54 +0100
+	Mon, 04 Nov 2024 18:01:43 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-71e61b47c6cso4069038b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 10:01:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1730743301; x=1731348101; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=laPuZq78S9MZZAPJV85SWKqbq5q6m37ivttbiKDGbJ0=;
+        b=YKVzn2WWL5JVjMrZC4clISPWF7/wKgQ1rkQ3jNNAfMhs7EpkH0Y2D+BUc26C0OGk2r
+         oWE7KKbVvor7VdlVHKMjCXv3L6XvwR6bQcsxiu/IOsAuwVwS0C0L2TIxqQ/P40Yi8Ut4
+         3yXXWwyTub7+w3NJRJM9brOu31/u9+9YEbwZAv5sqpggur4Gw/NufNH9E8oInmjd81Ng
+         2qMoFel31lxuzdFFuy7jaig6ewelJi8Yx4EgdION6nm2TtpUrrZVctzF/FxvwLCJbMz2
+         OtN9UMhcPJexwAHp7CkYnavuc7wbXuxemlbmoylAWYYijE7NkPCvMYLTGTvQWrGEUBQ3
+         sesQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730743301; x=1731348101;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=laPuZq78S9MZZAPJV85SWKqbq5q6m37ivttbiKDGbJ0=;
+        b=oFIPiY5eLNrG6yytF7Phb8cpK9oV/m2XtIEyIvyz19wchYZYzDJuYSZkdlDyhmV71o
+         g66PkS+fu16m0bym7KkPsM7/ONoyGJjPdbiO9RxZJDj3qN71cTtiuFlEu/pd1jPV4Sio
+         BsxmxiGtLQKvlfZdeQlgWqRZkIPxqEzQtXbnLZXzroflSBSbeUslPyO0KEhdgYBPFP/m
+         2dptVxYRJ4zYZ8jy8OVlDMc4kojvlb3Jz7coexJHTGMJJDSNUutZSCLQRREhRTT7V/DA
+         4ScC5xsjSpJrD255KUzwGh34uvzXcfiIVGLSdZEuQ9HRZ/itkDL8EWj8ud9PsKo8enUe
+         jcJg==
+X-Forwarded-Encrypted: i=1; AJvYcCW+JQNkU+MzSMIKc4/yXTIVQNx7VwzGsLia3BR5P2+WtXf7sqpzJ4PTr0eaSWVPWt0r9Q0QACkhDYD+7dwEnXhL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUR9N4OTaFRcUlJmZxp/yFsDCm1sBuAIyc7hEd2ED/LclYZPXK
+	3eP8prQvWf5SNWiksK8wvAGxIKWSeG8SbSVMAWE5wLbKsmjvjq8rVHxMw/Oxv5k=
+X-Google-Smtp-Source: AGHT+IFFSFIP1TtkKpDJA24bIeWLGFadxRYQkcEBUgPi0ry7tozGLF7eHnKqsEzmosQgdIr2N01Lug==
+X-Received: by 2002:a05:6a00:2ea5:b0:71e:5a1d:ecdc with SMTP id d2e1a72fcca58-7206306e031mr45506332b3a.17.1730743300454;
+        Mon, 04 Nov 2024 10:01:40 -0800 (PST)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1b90dasm7807765b3a.30.2024.11.04.10.01.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 10:01:39 -0800 (PST)
+Message-ID: <67290c03.050a0220.e6cd0.2415@mx.google.com>
+Date: Mon, 04 Nov 2024 10:01:39 -0800 (PST)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/fpsimd: Fix a typo
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <2cbcb42615e9265bccc9b746465d7998382e605d.1730539907.git.christophe.jaillet@wanadoo.fr>
- <173074012615.2444105.10660252555826650982.b4-ty@arm.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <173074012615.2444105.10660252555826650982.b4-ty@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: v6.12-rc6-162-g46f782153ea2
+X-Kernelci-Branch: for-kernelci
+X-Kernelci-Tree: arm64
+Subject: arm64/for-kernelci build: 1 build: 0 failed,
+ 1 passed (v6.12-rc6-162-g46f782153ea2)
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
+ kernelci-results@groups.io
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_095305_868843_0D0D53D3 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20241104_100142_346733_FB3D86A7 
+X-CRM114-Status: UNSURE (   3.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,27 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 04/11/2024 à 18:10, Catalin Marinas a écrit :
-> On Sat, 02 Nov 2024 10:31:54 +0100, Christophe JAILLET wrote:
->> s/FPSMID/FPSIMD/
->> M and I inversted. Fix it
->>
->>
-> 
-> Applied to arm64 (for-next/misc), thanks! I also fixed the typo in the
-> commit log.
-> 
-> [1/1] arm64/fpsimd: Fix a typo
->        https://git.kernel.org/arm64/c/525fd6a1b34e
-> 
+arm64/for-kernelci build: 1 build: 0 failed, 1 passed (v6.12-rc6-162-g46f78=
+2153ea2)
 
-Strange, checkpatch does not complain. I was sure it was running a spell 
-checker.
+Full Build Summary: https://kernelci.org/build/arm64/branch/for-kernelci/ke=
+rnel/v6.12-rc6-162-g46f782153ea2/
 
-After checking, it is run, but does not spot it :(.
+Tree: arm64
+Branch: for-kernelci
+Git Describe: v6.12-rc6-162-g46f782153ea2
+Git Commit: 46f782153ea2c67ebd059b467cc09cf6161ad90c
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+Built: 1 unique architecture
 
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
 
-Thanks for fixing.
+Detailed per-defconfig build reports:
 
-CJ
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
 
