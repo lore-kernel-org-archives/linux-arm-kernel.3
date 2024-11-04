@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CB6D132DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A44DD132D7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcWFSZr9JVwe+FnVkwIBv8XwNCVApdz75FRgbSIp5fM=; b=HMFgTYh6c7HYs5Q+8+8jsA8DQk
-	l8/tu5g3TBlZLNV+F+z2z5AQ8USh00XYiFsfnzD4Uo25QhzuRvViiOH+nfWKHYWHFQIBKlQIdkbw+
-	DXwngQj5YJ1mngK0AvSrx+YBptoTK4jD78bhy3PBZJFSE/9f0WlaumI99Sc1I9Q67zX49UyEb/D1H
-	FRMgE4bWdnrVGBnhcsxRtx4f+Zr6Ilrx2A3EzV/OihjjkKC73QnXEUACvRXpn6tOvNX24FKiZznWW
-	T/5nP1x9snACrjAJppCws+ICHpQI3hTMxgRD0kFJjdNizD3U4D2AhwuqD6zTPrUyywvCi5h5Ve9Ku
-	U/20c9wQ==;
+	bh=eaYc2LVDsAE+818bdTnM3o6tmWXWgzcFVg9WXd40wow=; b=Y7SHmVIYp5ZkiZ2BCvB3qM3w4u
+	85NFjwjLpD5lmM2QTso0NC7sCv1uG29cIYOTZ70ZVy3BJrrowS/11TEeIVIvpWa+kotp5I4NGFvGC
+	7rrj0wA3CKoGOE5FyZ8SQxjeZjSzTOhqab8fNZVoyXMeJsXLRlwYfZWLTfIy6VAyd1ZtVYJn8A2RN
+	nb4416oiz5/xSgP7mzdkeIxrZpGOBMopixM1nUGUFgNiMSkVJnRudPQWrHvgSIjP3Qmjrzt3NKHqp
+	7U9/FgGAt1LKOHXtQ+G6wnXhsitlvj+zzmfSaXybU2KW7pBhUDWy+Ap1EZ5Z98if6nFBHyKtz9juT
+	kyoEWy5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7ybQ-0000000E8uJ-0ZoS;
-	Mon, 04 Nov 2024 15:02:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t7yd6-0000000E99M-12hI;
+	Mon, 04 Nov 2024 15:04:32 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yEo-0000000E59W-0exi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:39:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2DF31A42EB3;
-	Mon,  4 Nov 2024 14:37:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B03C4CED1;
-	Mon,  4 Nov 2024 14:39:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730731165;
-	bh=uuNW8QkqgnaDeBYjYCEj/zDRiaDiB3NGiL194aT02nA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=cRn/+vtbSTam1Cs8Yl9oy23CvCJS08Zp0BZeig6G3nUi2Sm3Zl1DNOYMI+4ktZPVU
-	 eT930TVQMEqK5Z4NG2OCjLFwh5S3Q7K7cpKWRFeKa+KhZc+KYE7ruVB8f+A1YQex3W
-	 8G/qtAUPzZ9vLE63kJaYqThzf7mUqdGbIO4nRLCSOjNV7nZXteyaQWALOQOH0nF4YK
-	 0LvPU5O5h23KF8+dR30UxrV7llNQNvdCfOpM4mvCDoDHs++qWBA4Yx+n5bWMr++b19
-	 HVbS5pvttFfD2tlHSHnEHMbsxzU9kX2lCn7+N8t8icqFPq6EbjfZD8+JHurPSuurqM
-	 a//QVvoJooYzw==
-Date: Mon, 04 Nov 2024 08:39:23 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1t7yLn-0000000E6rE-3gAl;
+	Mon, 04 Nov 2024 14:46:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730731597;
+	bh=OuS/4i+oygUwsdbc+DVGxua1yWNGYXVWyfGEWNFamiw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lTSHtLS836wcVaZJDpm8Yf8qGI47kjv7/IUuPAG4uEwoXmnGr4LDmIN2uQk2Iv82m
+	 Sm178fUyf/ZN8sJLsAA7CvSLgf48cQnCFrVbdors/KoZ1eCTtw4ktA/s/eA6d4ynYF
+	 OrpfuFm+okUH1/UIcJNuasDi4zp1oYo8hqDKZAnRQceI1Fba9HH6pBRRyygKWkuxdl
+	 xRXOUCV6dj8n0bzWIZdH6oqV12rZSeKcW6sXSjzBSNVH1N86162i8PGA5pHbMen/e9
+	 yG3hm8vszU5yTpruquqB0J5+PqIppIXloKC69s6VLbQEJBzlcFvgXe1rsM0kA5VYve
+	 msFOR5HntBqDA==
+Received: from notapiano (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1F2AF17E3696;
+	Mon,  4 Nov 2024 15:46:35 +0100 (CET)
+Date: Mon, 4 Nov 2024 09:46:33 -0500
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Biao Huang <biao.huang@mediatek.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, kernel@collabora.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 0/4] net: stmmac: dwmac-mediatek: Fix inverted logic for
+ mediatek,mac-wol
+Message-ID: <c6fec04a-7eed-4c61-85bf-a11542df441b@notapiano>
+References: <20241101-mediatek-mac-wol-noninverted-v1-0-75b81808717a@collabora.com>
+ <9a1ce320-e1ce-4d2f-a8d1-7680155ef71f@collabora.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Tero Kristo <kristo@kernel.org>, linux-usb@vger.kernel.org, 
- Vignesh Raghavendra <vigneshr@ti.com>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Devarsh Thakkar <devarsht@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
- Felipe Balbi <balbi@kernel.org>, Hari Nagalla <hnagalla@ti.com>, 
- linux@ew.tq-group.com, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Nishanth Menon <nm@ti.com>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- linux-hardening@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
-In-Reply-To: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
-References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
-Message-Id: <173072771143.3690742.7100697196468196200.robh@kernel.org>
-Subject: Re: [PATCH 0/5] TQ-Systems TQMa62xx SoM and MBa62xx board
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9a1ce320-e1ce-4d2f-a8d1-7680155ef71f@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_063926_500456_0AE3376B 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20241104_064640_091982_04D888EA 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,72 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 04 Nov 2024 10:47:23 +0100, Matthias Schiffer wrote:
-> This adds Device Trees for out AM62x-based SoM TQMa62xx and its
-> reference carrier board MBa62xx.
+On Mon, Nov 04, 2024 at 11:18:48AM +0100, AngeloGioacchino Del Regno wrote:
+> Il 01/11/24 16:20, N�colas F. R. A. Prado ha scritto:
+> > This series fixes the inverted handling of the mediatek,mac-wol DT
+> > property while keeping backward compatibility. It does so by introducing
+> > a new property on patch 1 and updating the driver to handle it on patch
+> > 2. Patch 3 adds this property on the Genio 700 EVK DT, where this issue
+> > was noticed, to get WOL working on that platform. Patch 4 adds the new
+> > property on all DTs with the MediaTek DWMAC ethernet node enabled
+> > and inverts the presence of mediatek,mac-wol to maintain the
+> > current behavior and have it match the description in the binding.
+> > 
 > 
-> Two of the patches are adapted from the TI vendor repo ti-linux-kernel to
-> add RemoteProc/RPMsg support for the R5F core. A similar patch has been
-> submitted for mainline by TI themselves for the closely related AM62A SoC.
+> Actually, I'm sure that all of these boards *do* need MAC WOL and *not* PHY WOL.
 > 
-> Not yet included are overlays to enable LVDS display output and MIPI-CSI
-> camera input.
+> The only one I'm unsure about is MT2712, but that's an evaluation board and not
+> a retail product with "that kind of diffusion".
 > 
-> Devarsh Thakkar (1):
->   arm64: dts: ti: k3-am62: Add DM R5 ranges in cbass
-> 
-> Hari Nagalla (1):
->   arm64: dts: ti: k3-am62-wakeup: Add R5F device node
-> 
-> Matthias Schiffer (3):
->   dt-bindings: usb: dwc3: Allow connector in USB controller node
->   dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM
->     family and carrier board
->   arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and MBa62xx carrier board
->     Device Trees
-> 
->  .../devicetree/bindings/arm/ti/k3.yaml        |   7 +
->  .../devicetree/bindings/usb/snps,dwc3.yaml    |   6 +
->  arch/arm64/boot/dts/ti/Makefile               |   1 +
->  arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi    |  24 +
->  arch/arm64/boot/dts/ti/k3-am62.dtsi           |   8 +-
->  .../boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 917 ++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi | 346 +++++++
->  7 files changed, 1307 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-> 
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> https://www.tq-group.com/
-> 
-> 
+> I think you can just fix the bug in the driver without getting new properties
+> and such. One commit, two lines.
 
+Alright, since you're sure all the boards need MAC WOL this is simpler: I can
+just fix the driver handling, and also update all the DTs to make sure they use
+MAC WOL. (Right now some are enabling PHY WOL, mt8395-genio-1200-evk.dts and
+mt8395-radxa-nio-12l.dts, while the others are enabling the MAC WOL)
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+The MT2712 EVB currently enables MAC WOL, so even though you're not sure about
+that one, I think it makes sense to keep the current behavior ie add the
+mediatek,mac-wol property just like for the others, so it keeps using MAC WOL.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+I'll wait a couple days in case there are more comments and then I'll send v2
+with those changes.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y ti/k3-am625-tqma62xx-mba62xx.dtb' for cover.1730299760.git.matthias.schiffer@ew.tq-group.com:
-
-arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dtb: syscon@43000000: compatible: ['syscon', 'simple-mfd'] is too short
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
-
-
-
-
-
+Thanks,
+N�colas
 
