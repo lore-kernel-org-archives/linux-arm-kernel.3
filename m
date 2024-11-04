@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3358AD132A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D7AD132A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJtJaZj33fuwEKIP13MQ2/iQsNSJg2DzS6bqrAC5H/8=; b=cKQH+pMrOdk81UPDLQprSgW3uD
-	3IKutWkPpJdv1KZ1rA3gmBMsFLxrE7UG3csZtWB5EQlvudVbhV2mVMD+RgLvLZZldC9ahEzTwMtHZ
-	jsHAEwyxjW1MFXU0f1NTpEA1FphkWH7gMyjqRyJWQd27zWmjbsBucWyKYZlKiXZMHrBNoYhJofflL
-	J1Uvr4tFYQohg0CENgs9FHw1aBQVLJid7V4xKkm9axI7splj1EisGhgxgBkvhK5oPoiU+wDprp6yf
-	pyJI8BvggA8o1sCZ9RTn6loojjTaC2Yi8j7ACvdpza5I23+uqTPwswQfuMtSizBjpzAIScM4fLIqR
-	CipW1IvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kTcx+OtPjGb9e4h+RTNoGpGZkyPv0DP+3tRsN7gnqPw=; b=i6ke6v0c2NqfokMWjbQb/p3/vq
+	CGvd16Tdx88i5o1c3cWBy5UutIMyVgIN3/symmLrMucuTXVzxjZ52APB338QvR6TeW1OCpqvibN3f
+	h8BFy7Xl4p/BEU32Kms6nv+N+OhvNtbK4MexS6DFEEe/AShsKbOQC/TWUY/e43ZYVu1GBWp+RRg4J
+	Xr/mgKCQBqLPnTEzOecr/dEuO1ZW/htiz9jW1g4pEGtREGfJQse3qjZ5aTOi8dwmQ6QgHdSZjQHaj
+	x+siUa/uaL4wDTBk5quV6cUtDWE654NfEijVWId1HU6e7PEpXV/VpXsjCqFo49NEykcaNuJHtBvxB
+	MkSQXigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7thH-0000000DD3l-2yd6;
-	Mon, 04 Nov 2024 09:48:31 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t7tj4-0000000DDZk-3Kno;
+	Mon, 04 Nov 2024 09:50:22 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tVc-0000000DAcy-2OKZ
+	id 1t7tYB-0000000DBGe-2koq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 09:36:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730712988; x=1762248988;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Sc+eqveINCgjfeZ/XCA8LOsWGvrDOO3Z75MHxHV6gP0=;
-  b=NIjCuRrCw8mWx+vnU2kLxDvjw0Fjv3mzOl2q7U9R0567jO9IB5ZJRQsQ
-   tca2Ik25WLVG+SHc76zPeGzPyv+gUEoUhri6NHdwXcdKmS8w7kpgGT/iP
-   FIa/Ig9Je6+HgmwKaGiKWJei6eY1LymeXhAnPRYwCNZS4VvvLPoUNXc8m
-   5sk555m2VesQD4oicI6u/DJdVSWQZNnz0kD54gFxkmIybjc/xCR1wAhmN
-   +8t8iYgOZy4ZqonrUHvfjfX0AqRNtOEqC5SdpMjUalAsohbKRCK9xQFtB
-   2kDlZUgFRfHeHo13+YKykP0Ks4a2EOia9cXs6nFLw1KGawzQUACn3iIEN
-   Q==;
-X-CSE-ConnectionGUID: K72xv7xMRMi+AvwQaE/5Ig==
-X-CSE-MsgGUID: MAlhuAdSSQupM0qSDmQHkg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11245"; a="30620096"
-X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="30620096"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 01:36:21 -0800
-X-CSE-ConnectionGUID: Ah+BKPYZTaqhFdk5MbXoWg==
-X-CSE-MsgGUID: 7yc422SjSi6VFqbnsmzs9g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,256,1725346800"; 
-   d="scan'208";a="83127064"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa006.fm.intel.com with ESMTP; 04 Nov 2024 01:36:16 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id D17216CE; Mon, 04 Nov 2024 11:36:10 +0200 (EET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Lee Jones <lee@kernel.org>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pavel Machek <pavel@ucw.cz>,
-	Dominik Brodowski <linux@dominikbrodowski.net>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH v1 5/6] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
-Date: Mon,  4 Nov 2024 11:34:23 +0200
-Message-ID: <20241104093609.156059-6-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.43.0.rc1.1336.g36b5255a03ac
-In-Reply-To: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
-References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
+	Mon, 04 Nov 2024 09:39:09 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t7tY6-0000aX-Mp; Mon, 04 Nov 2024 10:39:02 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t7tY5-001xM7-2T;
+	Mon, 04 Nov 2024 10:39:01 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t7tY5-00DP6z-27;
+	Mon, 04 Nov 2024 10:39:01 +0100
+Date: Mon, 4 Nov 2024 10:39:01 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>,
+	Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-next@vger.kernel.org,
+	regressions@lists.linux.dev
+Subject: Re: [PATCH RFC] mmc: pwrseq_simple: Handle !RESET_CONTROLLER properly
+Message-ID: <20241104093901.rb5ozxt7qkdgoatc@pengutronix.de>
+References: <20241102134522.333047-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241102134522.333047-1-wahrenst@gmx.net>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_013628_703667_160120F6 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20241104_013907_723843_48EE8865 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +81,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+Hi Stefan,
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/usb/gadget/udc/pxa27x_udc.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+On 24-11-02, Stefan Wahren wrote:
+> The recent introduction of reset control in pwrseq_simple introduced
+> a regression for platforms without RESET_CONTROLLER support, because
 
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index 7d3a8a5f3796..f9a55d4f189f 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -2355,18 +2355,19 @@ static int pxa_udc_probe(struct platform_device *pdev)
- 	struct pxa_udc *udc = &memory;
- 	int retval = 0, gpio;
- 	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
--	unsigned long gpio_flags;
- 
- 	if (mach) {
--		gpio_flags = mach->gpio_pullup_inverted ? GPIOF_ACTIVE_LOW : 0;
- 		gpio = mach->gpio_pullup;
- 		if (gpio_is_valid(gpio)) {
- 			retval = devm_gpio_request_one(&pdev->dev, gpio,
--						       gpio_flags,
-+						       GPIOF_OUT_INIT_LOW,
- 						       "USB D+ pullup");
- 			if (retval)
- 				return retval;
- 			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-+
-+			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
-+				gpiod_toggle_active_low(udc->gpiod);
- 		}
- 		udc->udc_command = mach->udc_command;
- 	} else {
--- 
-2.43.0.rc1.1336.g36b5255a03ac
+This is what I was afraid of :/
 
+> devm_reset_control_get_optional_shared() would return NULL and make all
+> resets no-ops. Instead of enforcing this dependency rely on this behavior
+> to determine reset support. As a benefit we can get the rid of the
+> use_reset flag.
+> 
+> Fixes: 73bf4b7381f7 ("mmc: pwrseq_simple: add support for one reset control")
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> ---
+>  drivers/mmc/core/pwrseq_simple.c | 16 +++++++---------
+>  1 file changed, 7 insertions(+), 9 deletions(-)
+> 
+> Hi,
+> will trying to reproduce the Rpi 4 regression from here [1], I found
+> the issue above. I'm pretty sure the Rpi 4 regression is caused by the same
+> commit. Unfortunately I wasn't able to reproduce it.
+> 
+> [1] - https://lore.kernel.org/linux-next/6724d7d5.170a0220.1281e9.910a@mx.google.com/T/#u
+> 
+> diff --git a/drivers/mmc/core/pwrseq_simple.c b/drivers/mmc/core/pwrseq_simple.c
+> index 24e4e63a5dc8..b8782727750e 100644
+> --- a/drivers/mmc/core/pwrseq_simple.c
+> +++ b/drivers/mmc/core/pwrseq_simple.c
+> @@ -32,7 +32,6 @@ struct mmc_pwrseq_simple {
+>  	struct clk *ext_clk;
+>  	struct gpio_descs *reset_gpios;
+>  	struct reset_control *reset_ctrl;
+> -	bool use_reset;
+>  };
+> 
+>  #define to_pwrseq_simple(p) container_of(p, struct mmc_pwrseq_simple, pwrseq)
+> @@ -71,7 +70,7 @@ static void mmc_pwrseq_simple_pre_power_on(struct mmc_host *host)
+>  		pwrseq->clk_enabled = true;
+>  	}
+> 
+> -	if (pwrseq->use_reset) {
+> +	if (pwrseq->reset_ctrl) {
+>  		reset_control_deassert(pwrseq->reset_ctrl);
+>  		reset_control_assert(pwrseq->reset_ctrl);
+>  	} else
+> @@ -82,7 +81,7 @@ static void mmc_pwrseq_simple_post_power_on(struct mmc_host *host)
+>  {
+>  	struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
+> 
+> -	if (pwrseq->use_reset)
+> +	if (pwrseq->reset_ctrl)
+>  		reset_control_deassert(pwrseq->reset_ctrl);
+>  	else
+>  		mmc_pwrseq_simple_set_gpios_value(pwrseq, 0);
+> @@ -95,7 +94,7 @@ static void mmc_pwrseq_simple_power_off(struct mmc_host *host)
+>  {
+>  	struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
+> 
+> -	if (pwrseq->use_reset)
+> +	if (pwrseq->reset_ctrl)
+>  		reset_control_assert(pwrseq->reset_ctrl);
+>  	else
+>  		mmc_pwrseq_simple_set_gpios_value(pwrseq, 1);
+> @@ -137,15 +136,14 @@ static int mmc_pwrseq_simple_probe(struct platform_device *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(pwrseq->ext_clk), "external clock not ready\n");
+> 
+>  	ngpio = of_count_phandle_with_args(dev->of_node, "reset-gpios", "#gpio-cells");
+> -	if (ngpio == 1)
+> -		pwrseq->use_reset = true;
+> -
+> -	if (pwrseq->use_reset) {
+> +	if (ngpio == 1) {
+>  		pwrseq->reset_ctrl = devm_reset_control_get_optional_shared(dev, NULL);
+>  		if (IS_ERR(pwrseq->reset_ctrl))
+>  			return dev_err_probe(dev, PTR_ERR(pwrseq->reset_ctrl),
+>  					     "reset control not ready\n");
+> -	} else {
+> +	}
+> +
+
+Can we add a comment like:
+
+/*
+ * Fallback to gpio based reset control in case of multiple reset lines
+ * are specified or the platform doesn't have support for RESET at all.
+ */
+
+Regards,
+  Marco
+
+> +	if (!pwrseq->reset_ctrl) {
+>  		pwrseq->reset_gpios = devm_gpiod_get_array(dev, "reset", GPIOD_OUT_HIGH);
+>  		if (IS_ERR(pwrseq->reset_gpios) &&
+>  		    PTR_ERR(pwrseq->reset_gpios) != -ENOENT &&
+> --
+> 2.34.1
+> 
+> 
 
