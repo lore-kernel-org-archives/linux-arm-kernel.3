@@ -4,68 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39600D132AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265CFD132AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 10:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPdM8zS/6EGRcTeT8TDzHQft4VCigiCiOOcC42fW7HE=; b=PD46kOsrWcWmQ4A/MEn55RaQsV
-	LPcGA4XEZipZz3HfvXwfyEKczUzOYpFUBTRPwjYyladY47JYA/GDFTGl7XcCVgbtcHJW0Uy9fDlHo
-	NyY0sA7Z9hHPDAwllEaJeR3yevdKlhwdE80iL63RfX8VilhDI3PAu88BeryaaXsyfa5LylFUU4XTQ
-	9EgaL/hGTf4yCF+oJgPmZotELNppqLqAsgYv1SZNnY5Ae35E2/xBrcGWZVGIEJ/q9X4j9to8Sy7EO
-	6LrW9u9CPn4p+w8pSB3lge7xaOME7uUzSVEVRmhPS0Lbt4j448UTtToCvIU95DiAG2AlqQaB5JA7P
-	+7pJX0dw==;
+	bh=UMPCvpty8bvYlxxda9KtYEpA33IxSbmzjG/LLp0K/yA=; b=rf389In3xgn1t+QIMzskwgOnVY
+	LQsb3SGPn42TalkfGO6kLUE9J+VWFABGeuKUcvVt74/4KIAZNPFqqls5gHPH0bXouB31lTTyK3znr
+	HS3cWzWQsJ2mDdL5DOngMwjkZQBl1uTs7Gq1L3hbu9A94fPqaO3Kg1cXlN0RiB55VksJHllXUZ/wP
+	tW6Pav5yHzR0uhklA2Obyl3UD36yjib4Z9yv1NmvX9D18HHOe9QFOVNYXpcgyOWfJl4d3v5C90yOF
+	MbFlWg/aLA4LpBW71dCL5VG8oHEnFH6akkAUBITEpAqWQEjXwFsIoYMC6LQBgEXxQjefZdGrBDzG7
+	yexigVUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7uPR-0000000DKQ2-03md;
-	Mon, 04 Nov 2024 10:34:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7uNg-0000000DK81-1fgo;
-	Mon, 04 Nov 2024 10:32:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 583E4FEC;
-	Mon,  4 Nov 2024 02:32:47 -0800 (PST)
-Received: from [10.57.88.110] (unknown [10.57.88.110])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FB933F66E;
-	Mon,  4 Nov 2024 02:32:12 -0800 (PST)
-Message-ID: <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
-Date: Mon, 4 Nov 2024 10:32:10 +0000
+	id 1t7uSC-0000000DKpn-0qVp;
+	Mon, 04 Nov 2024 10:37:00 +0000
+Received: from mail-co1nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2416::60e] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7uQU-0000000DKew-1qbL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 10:35:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EGqD7W8WFCOn4XT2Il06Myi5M0c3QNTJRQHI1wrwY5Bm9JyYoCMDy80cfmKJ0Gju6wGgI4LPAxbz2PV/YMOkrGgsVg1bvv1tJAo2QQGVy0xDPsBhwx5/jqVhqUeYRpVNEMRU9+6PZqGYv08mTGgMwa6cyz6givGtcnxOEoJu3B7TwxM6dj5dF+ydYNv+cj/kgyRaL4NaI6JFziosWUTTe6R313MCMctQ/s/PzSi7dCEjThYETwVw3JHC/dE5OvZL1VzDCvbsjB3GYD//qBVDZhYQmk5eqsT0YSY5Yup6rmODeIZu9aTyZ3CEz4C6EaAzpZez2JSFdEh8OdraTRG9Kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UMPCvpty8bvYlxxda9KtYEpA33IxSbmzjG/LLp0K/yA=;
+ b=JMPPEvs2UdimKwJURfFRDBOPwBbn7fgt3wN4yhCBSmzCH7ITNDPlUrjJYF1O8IbZMfr5wgQ1uhC8N+50zHiWMY9U0gI4Q0rL5cvIz4tLsWzPGcYel6C+CH5p1Q+DZULKQGyxkyYlNetMLra29KqmYjD/PRXAh9RBou0AQSBCcrL1GRqczoulen97eXf/ueswZfoyPHWvvZHz8i/e4PuT2w7oltyYG866VnmqxaZyGuGujW2ctRctKLJlkLddb2V5vN+5bDpLjpOADxvVwtJeGBNAgfgs1ZfRxQg+2meFuZHrj9gv6S4feW8QHYIK+OXX+FXK+ztWoNqkfyWhOCa4zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=amazon.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UMPCvpty8bvYlxxda9KtYEpA33IxSbmzjG/LLp0K/yA=;
+ b=BaLsYvBF4S5OKQklaL4ZLSf/i829fvJco1Bz1VwT+sALCZDqXXRKTSZJ8gybhAJkgJF7tC02pz/cPmryR/NklQPnlOFiGLcIT0CnASJBbeGJHgYc6jJAG0prsq8D07mCN5FZtX1cH1MJJb+5lz7ckZPdDgvaIv5cupbJ1pz+BUw=
+Received: from BY5PR04CA0006.namprd04.prod.outlook.com (2603:10b6:a03:1d0::16)
+ by DM4PR12MB7718.namprd12.prod.outlook.com (2603:10b6:8:102::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 10:35:09 +0000
+Received: from SJ1PEPF00002312.namprd03.prod.outlook.com
+ (2603:10b6:a03:1d0:cafe::56) by BY5PR04CA0006.outlook.office365.com
+ (2603:10b6:a03:1d0::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30 via Frontend
+ Transport; Mon, 4 Nov 2024 10:35:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ1PEPF00002312.mail.protection.outlook.com (10.167.242.166) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8137.17 via Frontend Transport; Mon, 4 Nov 2024 10:35:08 +0000
+Received: from [10.252.216.179] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 4 Nov
+ 2024 04:35:03 -0600
+Message-ID: <d3306655-c4e7-20ab-9656-b1b01417983c@amd.com>
+Date: Mon, 4 Nov 2024 16:04:56 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu: Switch back to struct platform_driver::remove()
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Clark <robdclark@gmail.com>,
- Yong Wu <yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
- Michael Shavit <mshavit@google.com>, Mostafa Saleh <smostafa@google.com>,
- Lu Baolu <baolu.lu@linux.intel.com>,
- Georgi Djakov <quic_c_gdjako@quicinc.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20241104064650.799122-2-u.kleine-koenig@baylibre.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241104064650.799122-2-u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.1
+Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
+ RUN_TO_PARITY and move them to sysctl
+Content-Language: en-US
+To: Cristian Prundeanu <cpru@amazon.com>, "Gautham R. Shenoy"
+	<gautham.shenoy@amd.com>
+CC: <linux-tip-commits@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	"Peter Zijlstra" <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>, Bjoern Doebel
+	<doebel@amazon.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>, "Geoff
+ Blake" <blakgeof@amazon.com>, Ali Saidi <alisaidi@amazon.com>, Csaba Csoma
+	<csabac@amazon.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>
+References: <ZxuujhhrJcoYOdMJ@BLRRASHENOY1.amd.com>
+ <20241029045749.37257-1-cpru@amazon.com>
+ <ZyifxfSV8k5vC0iG@BLRRASHENOY1.amd.com>
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <ZyifxfSV8k5vC0iG@BLRRASHENOY1.amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002312:EE_|DM4PR12MB7718:EE_
+X-MS-Office365-Filtering-Correlation-Id: 407de3c6-8941-4e1c-38ba-08dcfcbc5abf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N2RpTlpodk02TVpRdHlEMXVFN3RIc00rVG83dWdQWHN4cWtMNCtuN0VLaXh3?=
+ =?utf-8?B?M3RIRFRNaElHZVBFRzZzVW5ISDNhWlBGU3luUGs1NlVsQWw0Z2M2T0ZmTWdY?=
+ =?utf-8?B?ZTgyQWRLM0N6TnJWZDZNL0Z5TDUyczhIWVVuRXVnUXA0eWJKZjZreFJrK2F4?=
+ =?utf-8?B?S2NkcWtRVm1iUFRTNHJrdmZBMDVjcXMzZ3IydWZ6YzJvek1iZkRUcXQ2ZURt?=
+ =?utf-8?B?bk01MWRlNjNTUkVXWEtVOXVkaWlyS3gxdUJ5RS8wck5NUXJMZW01Ni9NbFBT?=
+ =?utf-8?B?QnlhcUpPdzU1eE8ybis2VTlGc2VVQzRXS2JTZ0E3Nlo2T1Y2clkzUjdzWmph?=
+ =?utf-8?B?aVRid2xMd0F1NUdXS3Avb0ZJQStXblBwS3RVN0ZJV3pWdGtBTGtyNXVDQXlE?=
+ =?utf-8?B?TWdKQU1TcUNyRVZabkhPdTRWN29wZmpDUzRZOTlqd1EyalZVV2o0cy9VM1N6?=
+ =?utf-8?B?WHk3VXJpSjB2UGw3WHQ5cmduOEFNOTl6Z3BSOVZGb01BTHZYYXNEUnk0Q1Bs?=
+ =?utf-8?B?ZlhIbVFFRGdhZGIycFFhVGdvbUNZNjZPaFZyOHNuWDdmNGhlUXltd2xNRmdk?=
+ =?utf-8?B?YUIrLzVaNi9sMDBLaUNLTVN5bk9nZFJnaStjaTN0SGFmNkxrNnAwQ2FQZGZK?=
+ =?utf-8?B?cFA2czZKcm54L3hFOUNTYTd3SUZGak1OckZMSmduM2NBTHZ3aS9pN3oyalBj?=
+ =?utf-8?B?TkhySmNHQXYvMWQyYkNBTjEzT0ZMMGVmelZ3RXVQcGJ0RDhaVlJGZG5KaWt0?=
+ =?utf-8?B?aldZYVpwK0NFSWp4OHY0VFJCQzEvWFJneEx6ejc1ZHdVSy9JdlNKczgwaUtS?=
+ =?utf-8?B?aGhXMzEvYnB6UFM2c3JXSEhkZ21tWDNGU0hvWHZVa1J4SS9aMThOMWpyZGRv?=
+ =?utf-8?B?M3pqWkdsQnc3dHFBK1JYRERPSHVXMnBGbzFYWmpYTE8vU2xKYWhvOUUyODBB?=
+ =?utf-8?B?R0FOYThMV3JXYi9qeXZrVVcxMmFPODVadFdzOEI0ME5jTUZLQ21nNW1sWDRq?=
+ =?utf-8?B?eFRTTjFVdVp0ajUzR3hVRVJPM0lyRVRIbGgzL1Btb3pyLzNVM1lMOUh6UzdI?=
+ =?utf-8?B?eXhGNGZyZDJCRU04eTkyRjBZMXNyYU9GUkoyenFnZGtBSkRJZjIrNXBaYmVv?=
+ =?utf-8?B?MmZRSGVtTys1VUl4cFg4aTBsUzhEQWZ2UjlTOTNWMTlQZEhpemlkQ2ZCbldh?=
+ =?utf-8?B?Qmt6WndFc1JvWlFmSzZWTWlxUlRtcElqVkZBbHhKTkpUZUdOa0oxN0xyVmNq?=
+ =?utf-8?B?T2oxSjZTVFVaM0pHd0U2ZENqVjBQalFTMWRncEMwNmtoUlo1eFNMWjdWQVNu?=
+ =?utf-8?B?T2JabmdpS1oyWjl0cldSblZKZWxPUXpBdHBSVUQ1aTZXMm03bkdib0VlSHd2?=
+ =?utf-8?B?M3FJbm9zVXpZbGdjYmpHaC9obG8xczlucXJmMWg5S0RWcTBNQ2Vlc1NZRHo0?=
+ =?utf-8?B?ZWFyeHR2VnhyVVQvYUpkbnlYREtjcVE2LzJ2MWNwWVdrWDRaVmlxclhmSjVa?=
+ =?utf-8?B?TitPdTM4S3VraHNQejBiK1lWUlpLSXlWQWl6ZzJ4ZVZtVld1SUZwUU56QVQ1?=
+ =?utf-8?B?cE9wOFRJbUc1c3VPakxSUUMxaEtjcGE2eEV6dERTT1FyOFFJUWZaVlp0U2hn?=
+ =?utf-8?B?TklNdHVSeXN3TU51VXBYa0xlZnowbUhlYUdUZFcvNkN6VWJ4KzVpdE5KZG1G?=
+ =?utf-8?B?NjNZdnl0bHpjcEMyNkIxV05BRFNCeU5KSWNMWU1XQ295NVlDazRrY3g2dSs1?=
+ =?utf-8?B?alYwZThiRFZBSGZ5dDJhNXVxUUQ2MXQyenJqVWdUbVBPSUFrZ0ZKR01Ma2pK?=
+ =?utf-8?B?b2k3WXhUdTF5ZUJ0RzgwYlVsNWlOMHk5UFJjZzNyWWY4TStaVjBQck8zM3po?=
+ =?utf-8?B?cTR4ZDY2cURua1I2ZndRV0ttR0lSL2JvZkQzMWJKY0ZJTEE9PQ==?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 10:35:08.4737
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 407de3c6-8941-4e1c-38ba-08dcfcbc5abf
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002312.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7718
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_023220_552684_25CE2C5A 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20241104_023514_583463_FED2A742 
+X-CRM114-Status: GOOD (  31.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,203 +159,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-04 6:46 am, Uwe Kleine-König wrote:
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers.
-> 
-> Convert all platform drivers below drivers/iommu to use .remove(), with
-> the eventual goal to drop struct platform_driver::remove_new(). As
-> .remove() and .remove_new() have the same prototypes, conversion is done
-> by just changing the structure member name in the driver initializer.
+Hello Cristian, Gautham,
 
-I dont see any major concern with doing it this way. FWIW,
+On 11/4/2024 3:49 PM, Gautham R. Shenoy wrote:
+> On Mon, Oct 28, 2024 at 11:57:49PM -0500, Cristian Prundeanu wrote:
+>> Hi Gautham,
+>>
+>> On 2024-10-25, 09:44, "Gautham R. Shenoy" <gautham.shenoy@amd.com <mailto:gautham.shenoy@amd.com>> wrote:
+>>
+>>> On Thu, Oct 24, 2024 at 07:12:49PM +1100, Benjamin Herrenschmidt wrote:
+>>>> On Sat, 2024-10-19 at 02:30 +0000, Prundeanu, Cristian wrote:
+>>>>>
+>>>>> The hammerdb test is a bit more complex than sysbench. It uses two
+>>>>> independent physical machines to perform a TPC-C derived test [1], aiming
+>>>>> to simulate a real-world database workload. The machines are allocated as
+>>>>> an AWS EC2 instance pair on the same cluster placement group [2], to avoid
+>>>>> measuring network bottlenecks instead of server performance. The SUT
+>>>>> instance runs mysql configured to use 2 worker threads per vCPU (32
+>>>>> total); the load generator instance runs hammerdb configured with 64
+>>>>> virtual users and 24 warehouses [3]. Each test consists of multiple
+>>>>> 20-minute rounds, run consecutively on multiple independent instance
+>>>>> pairs.
+>>>>
+>>>> Would it be possible to produce something that Prateek and Gautham
+>>>> (Hi Gautham btw !) can easily consume to reproduce ?
+>>>>
+>>>> Maybe a container image or a pair of container images hammering each
+>>>> other ? (the simpler the better).
+>>>
+>>> Yes, that would be useful. Please share your recipe. We will try and
+>>> reproduce it at our end. In our testing from a few months ago (some of
+>>> which was presented at OSPM 2024), most of the database related
+>>> regressions that we observed with EEVDF went away after running these
+>>> the server threads under SCHED_BATCH.
+>>
+>> I am working on a repro package that is self contained and as simple to
+>> share as possible.
+> 
+> Sorry for the delay in response. I was away for the Diwali festival.
+> Thank you for working on the repro package.
+> 
+> 
+>>
+>> My testing with SCHED_BATCH is meanwhile concluded. It did reduce the
+>> regression to less than half - but only with WAKEUP_PREEMPTION enabled.
+>> When using NO_WAKEUP_PREEMPTION, there was no performance change compared
+>> to SCHED_OTHER.
+>>
+>> (At the risk of stating the obvious, using SCHED_BATCH only to get back to
+>> the default CFS performance is still only a workaround, just as disabling
+>> PLACE_LAG+RUN_TO_PARITY is; these give us more room to investigate the
+>> root cause in EEVDF, but shouldn't be seen as viable alternate solutions.)
+>>
+>> Do you have more detail on the database regressions you saw a few months
+>> ago? What was the magnitude, and which workloads did it manifest on?
+> 
+> 
+> There were three variants of sysbench + MySQL which showed regression
+> with EEVDF.
+> 
+> 1. 1 Table, 10M Rows, read-only queries.
+> 2. 3 Tables, 10M Rows each, read-only queries.
+> 3. 1 Segmented Table, 10M Rows, read-only queries.
+> 
+> These saw regressions in the range of 9-12%.
+> 
+> The other database workload which showed regression was MongoDB + YCSB
+> workload c. There the magnitude of the regression was around 17%.
+> 
+> As mentioned by Dietmar, we observed these regressions to go away with
+> the original EEVDF complete patches which had a feature called
+> RESPECT_SLICE which allowed a running task to run till its slice gets
+> over without being preempted by a newly woken up task.
+> 
+> However, Peter suggested exploring SCHED_BATCH which fixed the
+> regression even without EEVDF complete patchset.
 
-Acked-by: Robin Murphy <robin.murphy@arm.com>
+Adding to that, since we had to test a variety of workloads, often where
+number of threads autoscales, we used the following methodology to check
+if using SCHED_BATCH solves the regressions observed:
 
-> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
-> ---
-> Hello,
-> 
-> I did a single patch for all of drivers/iommu. While I usually prefer to
-> do one logical change per patch, this seems to be overengineering here
-> as the individual changes are really trivial and shouldn't be much in
-> the way for stable backports. But I'll happily split the patch if you
-> prefer it split.
-> 
-> This is based on today's next, if conflicts arise when you apply it at
-> some later time and don't want to resolve them, feel free to just drop
-> the changes to the conflicting files. I'll notice and followup at a
-> later time then. Or ask me for a fixed resend. (Having said that, I
-> recommend b4 am -3 + git am -3 which should resolve most conflicts just
-> fine.)
-> 
-> Best regards
-> Uwe
-> 
->   drivers/iommu/apple-dart.c                  | 2 +-
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
->   drivers/iommu/arm/arm-smmu/arm-smmu.c       | 2 +-
->   drivers/iommu/arm/arm-smmu/qcom_iommu.c     | 4 ++--
->   drivers/iommu/ipmmu-vmsa.c                  | 2 +-
->   drivers/iommu/msm_iommu.c                   | 2 +-
->   drivers/iommu/mtk_iommu.c                   | 2 +-
->   drivers/iommu/mtk_iommu_v1.c                | 2 +-
->   drivers/iommu/omap-iommu.c                  | 2 +-
->   drivers/iommu/riscv/iommu-platform.c        | 2 +-
->   drivers/iommu/sprd-iommu.c                  | 2 +-
->   11 files changed, 12 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-> index eb1e62cd499a..c5bde50d1c42 100644
-> --- a/drivers/iommu/apple-dart.c
-> +++ b/drivers/iommu/apple-dart.c
-> @@ -1352,7 +1352,7 @@ static struct platform_driver apple_dart_driver = {
->   		.pm			= pm_sleep_ptr(&apple_dart_pm_ops),
->   	},
->   	.probe	= apple_dart_probe,
-> -	.remove_new = apple_dart_remove,
-> +	.remove	= apple_dart_remove,
->   };
->   
->   module_platform_driver(apple_dart_driver);
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 826db8894fb7..efbc78bffd33 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4679,7 +4679,7 @@ static struct platform_driver arm_smmu_driver = {
->   		.suppress_bind_attrs	= true,
->   	},
->   	.probe	= arm_smmu_device_probe,
-> -	.remove_new = arm_smmu_device_remove,
-> +	.remove	= arm_smmu_device_remove,
->   	.shutdown = arm_smmu_device_shutdown,
->   };
->   module_driver(arm_smmu_driver, platform_driver_register,
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 8321962b3714..4e9bb9f4c4bd 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -2372,7 +2372,7 @@ static struct platform_driver arm_smmu_driver = {
->   		.suppress_bind_attrs    = true,
->   	},
->   	.probe	= arm_smmu_device_probe,
-> -	.remove_new = arm_smmu_device_remove,
-> +	.remove = arm_smmu_device_remove,
->   	.shutdown = arm_smmu_device_shutdown,
->   };
->   module_platform_driver(arm_smmu_driver);
-> diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> index b98a7a598b89..9ce2fe50b22c 100644
-> --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> @@ -759,7 +759,7 @@ static struct platform_driver qcom_iommu_ctx_driver = {
->   		.of_match_table	= ctx_of_match,
->   	},
->   	.probe	= qcom_iommu_ctx_probe,
-> -	.remove_new = qcom_iommu_ctx_remove,
-> +	.remove	= qcom_iommu_ctx_remove,
->   };
->   
->   static bool qcom_iommu_has_secure_context(struct qcom_iommu_dev *qcom_iommu)
-> @@ -931,7 +931,7 @@ static struct platform_driver qcom_iommu_driver = {
->   		.pm		= &qcom_iommu_pm_ops,
->   	},
->   	.probe	= qcom_iommu_device_probe,
-> -	.remove_new = qcom_iommu_device_remove,
-> +	.remove	= qcom_iommu_device_remove,
->   };
->   
->   static int __init qcom_iommu_init(void)
-> diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
-> index ff55b8c30712..074daf1aac4e 100644
-> --- a/drivers/iommu/ipmmu-vmsa.c
-> +++ b/drivers/iommu/ipmmu-vmsa.c
-> @@ -1159,6 +1159,6 @@ static struct platform_driver ipmmu_driver = {
->   		.pm = pm_sleep_ptr(&ipmmu_pm),
->   	},
->   	.probe = ipmmu_probe,
-> -	.remove_new = ipmmu_remove,
-> +	.remove = ipmmu_remove,
->   };
->   builtin_platform_driver(ipmmu_driver);
-> diff --git a/drivers/iommu/msm_iommu.c b/drivers/iommu/msm_iommu.c
-> index 989e0869d805..ce40f0a419ea 100644
-> --- a/drivers/iommu/msm_iommu.c
-> +++ b/drivers/iommu/msm_iommu.c
-> @@ -838,6 +838,6 @@ static struct platform_driver msm_iommu_driver = {
->   		.of_match_table = msm_iommu_dt_match,
->   	},
->   	.probe		= msm_iommu_probe,
-> -	.remove_new	= msm_iommu_remove,
-> +	.remove		= msm_iommu_remove,
->   };
->   builtin_platform_driver(msm_iommu_driver);
-> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-> index c45313c43b9e..72b68d037b95 100644
-> --- a/drivers/iommu/mtk_iommu.c
-> +++ b/drivers/iommu/mtk_iommu.c
-> @@ -1794,7 +1794,7 @@ MODULE_DEVICE_TABLE(of, mtk_iommu_of_ids);
->   
->   static struct platform_driver mtk_iommu_driver = {
->   	.probe	= mtk_iommu_probe,
-> -	.remove_new = mtk_iommu_remove,
-> +	.remove	= mtk_iommu_remove,
->   	.driver	= {
->   		.name = "mtk-iommu",
->   		.of_match_table = mtk_iommu_of_ids,
-> diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-> index ee4e55b6b190..480e57ea6635 100644
-> --- a/drivers/iommu/mtk_iommu_v1.c
-> +++ b/drivers/iommu/mtk_iommu_v1.c
-> @@ -745,7 +745,7 @@ static const struct dev_pm_ops mtk_iommu_v1_pm_ops = {
->   
->   static struct platform_driver mtk_iommu_v1_driver = {
->   	.probe	= mtk_iommu_v1_probe,
-> -	.remove_new = mtk_iommu_v1_remove,
-> +	.remove	= mtk_iommu_v1_remove,
->   	.driver	= {
->   		.name = "mtk-iommu-v1",
->   		.of_match_table = mtk_iommu_v1_of_ids,
-> diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-> index 3f72aef8bd5b..b8ced5d0581c 100644
-> --- a/drivers/iommu/omap-iommu.c
-> +++ b/drivers/iommu/omap-iommu.c
-> @@ -1285,7 +1285,7 @@ static const struct of_device_id omap_iommu_of_match[] = {
->   
->   static struct platform_driver omap_iommu_driver = {
->   	.probe	= omap_iommu_probe,
-> -	.remove_new = omap_iommu_remove,
-> +	.remove	= omap_iommu_remove,
->   	.driver	= {
->   		.name	= "omap-iommu",
->   		.pm	= &omap_iommu_pm_ops,
-> diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
-> index da336863f152..382ba2841849 100644
-> --- a/drivers/iommu/riscv/iommu-platform.c
-> +++ b/drivers/iommu/riscv/iommu-platform.c
-> @@ -81,7 +81,7 @@ static const struct of_device_id riscv_iommu_of_match[] = {
->   
->   static struct platform_driver riscv_iommu_platform_driver = {
->   	.probe = riscv_iommu_platform_probe,
-> -	.remove_new = riscv_iommu_platform_remove,
-> +	.remove = riscv_iommu_platform_remove,
->   	.driver = {
->   		.name = "riscv,iommu",
->   		.of_match_table = riscv_iommu_of_match,
-> diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-> index a2f4ffe6d949..e84806eee281 100644
-> --- a/drivers/iommu/sprd-iommu.c
-> +++ b/drivers/iommu/sprd-iommu.c
-> @@ -531,7 +531,7 @@ static struct platform_driver sprd_iommu_driver = {
->   		.suppress_bind_attrs = true,
->   	},
->   	.probe	= sprd_iommu_probe,
-> -	.remove_new = sprd_iommu_remove,
-> +	.remove	= sprd_iommu_remove,
->   };
->   module_platform_driver(sprd_iommu_driver);
->   
-> base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
+     # echo 1 > /sys/kernel/tracing/events/task/enable
+     # cat dump_python.py
+     import time
+     import sys
+     
+     with open("/sys/kernel/tracing/trace_pipe") as tf:
+       for l in tf:
+         if not l.startswith("#") or "comm=bash" not in l:
+           pid_start = l.index("pid=") + 4
+           pid = int(l[pid_start: l.index(" ", pid_start)])
+           print(pid)
+           sys.stdout.flush()
 
+     # watch 'python3 dump_python.py | while read i; do chrt -v -b --pid 0 $i; done'
+
+
+Post running the above, we launch the benchmark. It is not pretty but it
+has worked for various different kind of benchmarks we've tested.
+
+On an addition note, since EEVDF got rid of both "wakeup_granularity_ns"
+and "latency_ns", and SCHED_BATCH helps with the absence of former, have
+you tested using a larger values of "base_slice_ns" in tandum with
+SCHED_BATCH / NO_WAKEUP_PREEMPTION ?
+
+> 
+>>
+>> -Cristian
+> 
+> --
+> Thanks and Regards
+> gautham.
+
+-- 
+Thanks and Regards,
+Prateek
 
