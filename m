@@ -4,85 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3C5D132DF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346B7D132DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d/3LogGj4xkkr4o1UTB8qXkiTCCsI8G7HemaQt+AbGo=; b=j/26Y00SECi4L/5h0cXf9J3NsY
-	ScIVJ0ED8ORNBSf7bdFatkMDwxIgjlT8U/diK/CABXKuqbLytiddKGUkGWleFdrsIPDh1n2JxbQSd
-	bEc1sNtxebytyn66SgpACh6K9kXYFdLSHS1RsawyoNsxmKm1jJzrLBE+U9qALw0FC6cG6I6iyUqZT
-	HDFVxnuPNgxihE1HYdbramMeQdTLTey0FyKRhn2ujKjubgePLCNz8vM5mXv9HQGAN8E34HSyEynOD
-	akKY7zg18RHpSq29m3MY+BEzqMH31dCPMa16e6XaR2q/O8s75SIOzRycNmSDRzdlnF6GjCn+sfFu2
-	gxjA3Hjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3cejFWgZjVhNSdf+AtDKV3I2BA47MGCY3F5EHM+rkR8=; b=lE0izubvh11RsWzPjk7LtE4FvW
+	8uPA6+amJy64BcGz+GxSngLjo7XsG93EkdcsbFVoOzTBHqR726kBc3TXumRo65ZdB2R9hzXq+7cBi
+	E9CfBy3LCjHMtr39n+Dalx+KlBAzSHn7d2h4tObA3oIbqjaNjZYtJOnseoHmQtHVLYyyIOMXDULbx
+	APe1kwoA51tmdbOsSxO6q970xJ0i48I6cvy+0e4KWoKwzmaxvy7kT+ydyhlB5PeVBF57IpJQWUXc7
+	/hJHhPMKHfhjrgFpIaZtCsnZnGkGV8k3IHrgPxFy7Yi6TYomORmNuIt6drOSLE9AGgC0UQDRJLx3W
+	/kMYGsWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zAk-0000000EEV3-2Ua5;
-	Mon, 04 Nov 2024 15:39:18 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t7zCP-0000000EEhK-1dIb;
+	Mon, 04 Nov 2024 15:41:01 +0000
+Received: from mail-am6eur05on20613.outbound.protection.outlook.com ([2a01:111:f403:2612::613] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7z34-0000000EDJp-0ki5;
-	Mon, 04 Nov 2024 15:31:23 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9a68480164so689611166b.3;
-        Mon, 04 Nov 2024 07:31:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730734279; x=1731339079; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=d/3LogGj4xkkr4o1UTB8qXkiTCCsI8G7HemaQt+AbGo=;
-        b=XWT5Os3Aq/xYzIN2goHtmmroS68PTF5hCN6TTIXgNxUcYttCwhS7MEinD0/qOhcv8p
-         Ht+0k8Fa9Ws10D3m0FDLFiCjMkMtYsVIguk0UnFRc8CZTIgzcbTIzaZhWh0v2H/tP/7/
-         YGkXRzgcOy2RThhkPV35tEwVfsSzDpAskt7bIPQ1xcfygKx/oSd2HAPUN86zyqA//obU
-         DyrceUI7d0xXocAAR8kMUvqcQXTPOt4J9FOaGRx6OaZ9KPbFmmlpZ5viWBzRWxgzBrUR
-         sHDE0fDBnXUTxbALJmMMy23IkgQ/f1m6yvxaV/z5I3Y/RVh2xwaOg9lBZJvnGv6pGU+t
-         4wpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730734279; x=1731339079;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d/3LogGj4xkkr4o1UTB8qXkiTCCsI8G7HemaQt+AbGo=;
-        b=xI00xCaE6ogwIdM+qwTY2W51D8ng2zvR8bKDReB9ZxTdehd20MSVQ0W1Z4C5PO/XC1
-         xPosG/CAkNB7fcB2kYDaJcJDx25I+IpAbwYsavs2DlhTW9+43H+q7WrCNZgZVx65UR6T
-         66iOtcnsbOWyvwGOBzlp5/dIwdqu6yxUQkz9q/Eoy0hDEPn/qyelFZgHHUDKhX6IpWc+
-         EAjn27F/cyr1X8lsCMh5vgn7qa7v+RErz7gXdHhnI4JmXZexuGyhsqyWgmi9upj2sDfa
-         ZL5vJTRBEtLy9+XM5J7uBSDgTg7Yq5h8elDiXVINuWeWmTSar7Ldexf3DhqfgrJwfQ5C
-         USOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1Icm0at+d2/gdPXfWkZKHW3Gm5Y1E6S/5FceXcYiyV+/PSAz5Ly26qKR5wmn7M6jdUVK45DioCZaL/T7kZ7Sq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQNyCJO6ZjGM/Hx/op2FkWEpX7hVSjV6FFLizLF2L9++Ybrvrz
-	AO2PXNl0Yh4585LBqKw70UwQhDZ66/tNdDjerp6DRFSgDOUCl67H2djVgg==
-X-Google-Smtp-Source: AGHT+IGRcKbIwGQbBQLPAesO3IxNhJ0Y1eyNVqxLs9jLYjV9pVflKzinTtL7MsseoMNKn2MXv+3bkA==
-X-Received: by 2002:a17:907:7f0e:b0:a9a:9df:5580 with SMTP id a640c23a62f3a-a9de5ce6778mr3147777866b.19.1730734279190;
-        Mon, 04 Nov 2024 07:31:19 -0800 (PST)
-Received: from ivaylo-T580.. (miroral.stz.ddns.bulsat.com. [91.139.249.115])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9e56649363sm559817166b.184.2024.11.04.07.31.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 07:31:18 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-actions@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: clock: actions,owl-cmu: convert to YAML
-Date: Mon,  4 Nov 2024 17:31:08 +0200
-Message-ID: <20241104153108.3053932-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1t7z99-0000000EEIi-3H7r
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 15:37:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lHleGUaf5Kitc9Tb4MXh/6WKDsaHCUjpyS3Eqnq13pMcUmwVz6XlM5K+WAHRzT1olW9Fk93B5AvNkTPFrmSimdI6HjIJQ/gf8mX86K9hR/lNYjcCA99Mf4oXOkRjafUVvWxOhyUboz4xerftoXaIWme/7+KPUPCM59RYBjKRi3lIa5BKt7twn/RaWE56+DG4D9WzUqHSpmOSrBCRFpW2e2ykkECmZJ341IGVonCzpfvEkWJ4B99DiDNyL2x+cxgypHb5neA+r7otJ0/EUrW4G30xtMP0XWXDxyYk9aQaYPhiwd5zkiEMR8etaRLKQ6LIGAGPEG53jvq7HbwFHahZtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3cejFWgZjVhNSdf+AtDKV3I2BA47MGCY3F5EHM+rkR8=;
+ b=TjPsKJ3FGf8E23xhO2ooehyzF3pT7T7iC03Zt3bHOiFSmH7DpcEnOItR6GhWPPJ/+hln7fE6kE0On4gHIvNMun1qs2j3avBDiN0xfjV/lhepFtandNKMUdKRiBDHjkQ9iDDYXOdz8Y3Fxo1fnUb4vTjzdwVOtvTymMyTM/wqEeMsSYjCKfIocnyD3SzS5vEo1UOzPd3IJ7t5cz30jwyPqYfUndSB3GNDlfrDM8Izw0oKaiSqcK7Nsb2qHtF92J2geM6ZRMWfdonBy0YhS4e0FDcCDg0vc9uc9YCgz/iFEDLmlHqFVimNu43TIWi4HKjKsv21/dAvSKejcJIOpvbj4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3cejFWgZjVhNSdf+AtDKV3I2BA47MGCY3F5EHM+rkR8=;
+ b=Hg6LC/ozKCPLEAUde4hecN/7M263G22Ldx+x/wz0sR2TGyy5Lm24wIjUK3k1rCKvILsAzLD+xxfVCjx37Q6gxRHnZ7ef+PpRuEK8aqbgrO4NEZzlTC2GnYqmam5xGJi4Ei2bWHxVntgOXqXG/I3H1DuHl0Z5WHK54cuAh4dwTsl4E1TiFWyCjitfDzqSSADbLuRjFHZXH7IEnHWO6y4/r/I58BWUoCR79VT03J6EB6f+fOyAArmUH6OhBCh8xMyJgIF4bdqKzorshXTBLhpprrBu8mFPtTVDMTYco1VumHvqxjyJfFyDt7QuD0cmuD/cpG2f5xkOK3Lm7S3R+ae1wQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
+ by PA4PR04MB8061.eurprd04.prod.outlook.com (2603:10a6:102:bb::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 15:37:33 +0000
+Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
+ ([fe80::708f:69ee:15df:6ebd%6]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 15:37:33 +0000
+Message-ID: <bb44b481-a1cb-480e-b842-5ca170371feb@oss.nxp.com>
+Date: Mon, 4 Nov 2024 17:37:29 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: rtc: add schema for NXP S32G2/S32G3
+ SoCs
+To: Rob Herring <robh@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+ Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
+ Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+References: <20241015105133.656360-1-ciprianmarian.costea@oss.nxp.com>
+ <20241015105133.656360-2-ciprianmarian.costea@oss.nxp.com>
+ <20241015211540.GA1968867-robh@kernel.org>
+ <20241015212717.GA1983714-robh@kernel.org>
+ <20241016160823c22ccb22@mail.local> <20241104152934.GA129622-robh@kernel.org>
+Content-Language: en-US
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <20241104152934.GA129622-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM0PR01CA0084.eurprd01.prod.exchangelabs.com
+ (2603:10a6:208:10e::25) To DU0PR04MB9251.eurprd04.prod.outlook.com
+ (2603:10a6:10:352::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|PA4PR04MB8061:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a326285-dc13-4ff8-7aa3-08dcfce699f1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VzdUUkZZYVdpdkt0c0VoMk1tU3lXUXhZbmNjN2gzK3UzRE5Lbk5GcXVrVHor?=
+ =?utf-8?B?SnVIUVFad0dUeVlpRlVDTzJBdjRuSHIzY2FLTnV3ZnZTUW9qSTk0aFprY2NP?=
+ =?utf-8?B?ZHdYREl1YmprSFdJZ0p5V3NtTFJ5dk5Eb2I5OENkOTNvNklSb2N5K2Qwakta?=
+ =?utf-8?B?YzJIRXU5blJtVmxqNkprRis0cFlESGFxWi9RYnJvY0wwaUR3V0JZcWZaM3RB?=
+ =?utf-8?B?MlUzaGR4MkorWXNLV0Y4MlpkdzlJaC9zcEZRZ3YzaFJ1RTVaeEpnc3NCRldL?=
+ =?utf-8?B?ejd5SC9KYkd2TFZMNEdDVmhCOUlqaVdsVDUrQXozWEhDWXB0bDZic2V5cmFM?=
+ =?utf-8?B?aWJ1eWhZRzMxSE5HOVozdldOVFl3SFpMWnN2NVNad1dMWFI3SDlqNkNsRTda?=
+ =?utf-8?B?WjBGckV1Nm9qVmFacFd5L1Zuc3ZWTEFKeGJaTTU1WjZYWXArdG03VHpYUEl2?=
+ =?utf-8?B?SG5WVGFWeFFmZU00cWpHR0JGb1RmOVNjR0VPN3o2VVRLUXNqeElHdlJMVHFs?=
+ =?utf-8?B?S3ViNkJQNVprcGZKVkErK2RILy8zdG1Bamk3MVRlSXZ6YUlIeWR4OFVSZVhJ?=
+ =?utf-8?B?WnhiYUxkVnVWRHNaeWJuQWZpQVZPMGFWbXJZY0sxM1RqaHptR0FaTGVvU09L?=
+ =?utf-8?B?WFE5V3ZyZHV5ZGRNU0VzWi9ZcWJWSHZDbDRRWUd5UGI0aUxvNitGYTVxVzNh?=
+ =?utf-8?B?aExqZlVCTGlJNWRsb0M2QjJES3hsb1N3WmZIbHk5Tm42bkZJNlV5SXVML0lV?=
+ =?utf-8?B?ZHRjY0laN3lNazBqbWcrdDRUaWJzNWxNSzVnUndYaC82Y2VMYU9kd0drdWFZ?=
+ =?utf-8?B?anE2amI5cTY3UGpiY3hVUWF0blJicHZad3ZKeGpVT1IrYmhvRHUyckRocE5u?=
+ =?utf-8?B?YXNHWlRhY2QrZDVWb2w2amR0bHZkeFdVV29KRFZSakZ1dkF4ZFUyZUJOSlI2?=
+ =?utf-8?B?N2hINnZtZDdKQUxBU3M4M2NtMjdQb2tISXAvTG5tUlVZV21xRTlIWm9OMGJV?=
+ =?utf-8?B?UjZoMEhlai9EOTRIYkV2WkNoYVlLcnRyL1UvUi96U1Q2emtnL0pvQWV6cTVC?=
+ =?utf-8?B?U3FMODZGaGk0TDFkR2U5d2dtaHdtMTJNTHM2ZWY5SlptL2IySUJSaUNHb1lL?=
+ =?utf-8?B?MzdWYzJiaE5TUml1d25vTm8wQkZid2M5SGpWQlRoYldYQU5ZRzA2T2RqWFdL?=
+ =?utf-8?B?YlBWdGVTbHNSclVXRVJtMm5GLy9tYVh2d1pxUktVSTVvTDBqbVNWV3dXbzRv?=
+ =?utf-8?B?V1RDZ2kyYk9EOWMybUo0RHVIRDlnZEZ5QkpTZ2c2WFVIMmZ2TGU1cDdvV3VD?=
+ =?utf-8?B?bFhKMWZscHdGUHlGZWVlajA3dDI5NXppVlMzMnc3Z3RVM3JrNlM0R0dwblJU?=
+ =?utf-8?B?WjNmajlPejhPNVBGMTc1SzF4elZERUE4Z0ltVGZuTlM2YVFjRndDVDlEQXFs?=
+ =?utf-8?B?VUg1QnIzUlNseGh6ZzlzWUN5RGo5Mmk5clVYTkptWWhDR0Z0ZlhhWHN4MkNP?=
+ =?utf-8?B?VFBaWVVQLzJFZ3F3dUo3UWVJeEd6N3N2QzV4OXl4dGErbXkxS2FlUnBNNjZy?=
+ =?utf-8?B?Z1kwaGw0MlZXMkVPNE14MitXNmo2bXdLdTNTNHlVQ3EwTlFsdDNVMUx2WEhN?=
+ =?utf-8?B?TWYzZEpPNlBiOWdCU2VFdXI1T1ZxbExHOVJkRHZnV0pFVnRaejVDVUNhYjJR?=
+ =?utf-8?B?cklrNEQxaGtCak1tN2Y1SWhZUmJ2WHF3Y3dlNFhFc3paTVRaWFliWFFRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3FjNkhIYVJDT2dlWVdCZ2ltQ0RUZVlrMkk2Nk1jaVI4OVBEaC9jeUhLZGxt?=
+ =?utf-8?B?d3NkSjZEUU5LWW9yeGpGNUpSdDZZODk5bVV6dTJvWnRPWUtUdkVHSVMrY1Zu?=
+ =?utf-8?B?Z3dBU1FwdGFLY1NEcit5QlkrOFdaVE8zMlFHUC82MUVncE5OUGVJTmx2OEho?=
+ =?utf-8?B?bnROK0tYelU3WDFkQmpWRVFsc3p2SzRUWnlTS3RxajBDd2hucFFXdWlwb3JN?=
+ =?utf-8?B?aXVhR1FiWmI2U2hicnZ6S2tEYUFvZXpVaTRGTkx0cWRvdjJLTldwaUlNSHAy?=
+ =?utf-8?B?ZDhWYTFPOFZFTVQ0RVgwVWFpN2M5VHZzeUpGR050d0xxRU1zaENYaXlhQ01q?=
+ =?utf-8?B?VTQ2YlZBRkZmODRRMjZBNHVkRHVOSU9NdXNCN1hscHUrd0NNMXJlSTdpY0ZK?=
+ =?utf-8?B?akZXTU02eWhlaHpOS0M3QlhqMzVtYjJwL1BHMzRucWRvLzdnRHZ0cEcwN09C?=
+ =?utf-8?B?YTBCeHZLOXVTMWNEQnFjRjRnUkhxRGtzK0tGR0JiMkduNHRYeE43alR3TUdW?=
+ =?utf-8?B?b2lLeWRZVmt1V2hBMFUyd3p2UllYdlNoa1FFak1oNjhDWkUzSlc1aitYY2Vi?=
+ =?utf-8?B?RkJlT0EvQXJjWHpicWw5ekpISFo3VTdhMDVSOXRablhUYmRBN3FRNWg4VkNT?=
+ =?utf-8?B?ZTE2blZncjVIVXJSN1E1SDZqWUVFZDRwbFpnNnkvaG8wWDZEK0JxbHVtelFO?=
+ =?utf-8?B?b0Y5MDJQL3UvRkRPTG5lZytOclVrZE5RbTM2bG1uTzg1YmZCQWU1eXkrVk83?=
+ =?utf-8?B?U0pGSTBUMTNGaVFoU3hCMi9wK3Y2ZEZ6TlQ5M1NxVGgvTEFrbE9MdTloNHRT?=
+ =?utf-8?B?bU5Oc1VodGhKYlJTNnpKbmtjVkVtNjN2YjJIVDJGbEREL21FSGlLNnlqbUZl?=
+ =?utf-8?B?cCtGWG84YTJmVnRBb0Z4R3puaGZVYVVHSXRxV1ZUbThTQU41RDgxbFRpdWJH?=
+ =?utf-8?B?ek43R3IvWFFxTkZjQ3NsaXkrZXZ1eXBobXhzUzI3b0Y2dE5EZVI3NzEzNith?=
+ =?utf-8?B?V1pDVUlzcFFQZGprT0NGOGYyc2UySmpsWm1KSnV6bzR1TVhRRmpxYkdqOCtU?=
+ =?utf-8?B?VTczTitMeW04clF4RE5RTHc1MzlmTko5MHVqYVU2T0wyVFVza0pmSlZWTUVv?=
+ =?utf-8?B?V0lnb21hdU96U05vKzJ2ZnF3RTJmdkltU1JOOUJPOGhNbURvNkxMbnQxM2th?=
+ =?utf-8?B?eTlUQmFSNDkyUW9xN2RRRldwdzZlZmdZQmthTWpzbG0wYnFpYitHVTJpd1JX?=
+ =?utf-8?B?aXZHN3o4SGVaZVZFa1ppMElrZktobzFaZ1hheGsyTWx5Qi9BeVVYMDJOQkZn?=
+ =?utf-8?B?NytQN0Erb3RpRE1lUmlYVmowOEFwczdtQlpTSWF0VExUSHNBcUtzVk9YRzBU?=
+ =?utf-8?B?R0lMRTBQQUM5clJaQk8vU1BNb3Rsdk5rZGFuNG5QUys3bWRUMzU0ZTA4UHkr?=
+ =?utf-8?B?WEtzSll2TXlLS1RhY01SaW9RSTRjZDM3QnV1ZGVqa0gxTEMvbXVLOWpUbTNS?=
+ =?utf-8?B?Um4zcUlkdzN6cWJOTHlzTmxRSHZRaXAwS1JnYk1qWDk3UlMzMFdQQ2pnZnVr?=
+ =?utf-8?B?bjI2ajdKWXhkZGtWc3A1T0lISCtlWjFDU1kvYXd2K0pESHlTZHlSRnU2RnhI?=
+ =?utf-8?B?V3BKeWNMQjJkQ2M2WmxzK2dPZWI4blFMUjRmamUzSmU1YlEvYzVZNkpqS3Vt?=
+ =?utf-8?B?Q05kaXp2RGxnU2FGdVJYOUd3UTVmazRJN0hqbVA0eHJ3ZGZCcUlsUFVTL2Ev?=
+ =?utf-8?B?YWErYytkZmFVNVRQSkJzYitMYkpCSGE4dGgwQUhvV2NxbmlXY25kQnk1S010?=
+ =?utf-8?B?a1ZMVnB1Y3g1czM5R1RPeERDemZkSzllbWFSS1BTMGQvemZLLzRjS01lZGkr?=
+ =?utf-8?B?SCtDMW9BVUs5WDdDRTJWaHg4SDFIbDhFODlaakNJWTE4ejFHdDlTbUtzVlEr?=
+ =?utf-8?B?ZEg5Q0xRNVVaanRwd2lNck1UYWZidjI5OTdoS3BYcm9sK0Q4MXhEb1VpTUJN?=
+ =?utf-8?B?aldjbUQzUlJ5RmNOajFVODIrTkNqR0diRGl1ZGQwb0tXUjhVenIxRmJ6cWJa?=
+ =?utf-8?B?NUM1clljU1FrdWZRaGdtZU02U1BSTmZyeGc0UXlGM0t1dEgvZ01TeVFsakw2?=
+ =?utf-8?B?cldKVmpDTE1wWWhWNTBNL2cvNGdacDlwWUlxTE9odjhDZHFmYVc4Yk1JOFB4?=
+ =?utf-8?Q?2NDzW7fUR/tw95x6t0xAHSw=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a326285-dc13-4ff8-7aa3-08dcfce699f1
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 15:37:33.7421
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q/L2SkykRdZ6m+ismcvUgwbHRiB9Kbd+OAeoYV2+dFeuPqSnW+6TqxsYw1NOtXVfbArIn66ePO7kSc9PxCY8ypH88wrvR84yO6aYfsA8ULI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB8061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_073122_307139_AE6D037E 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20241104_073740_092267_49E51C58 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,160 +187,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Actions Semi Owl CMU bindings to DT schema.
+On 11/4/2024 5:29 PM, Rob Herring wrote:
+> On Wed, Oct 16, 2024 at 06:08:23PM +0200, Alexandre Belloni wrote:
+>> On 15/10/2024 16:27:17-0500, Rob Herring wrote:
+>>> On Tue, Oct 15, 2024 at 04:15:40PM -0500, Rob Herring wrote:
+>>>> On Tue, Oct 15, 2024 at 01:51:30PM +0300, Ciprian Costea wrote:
+>>>>> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>>>
+>>>>> This patch adds the dt-bindings for NXP S32G2/S32G3 SoCs RTC driver.
+>>>>>
+>>>>> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+>>>>> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+>>>>> Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+>>>>> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+>>>>> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>>>>> ---
+>>>>>   .../devicetree/bindings/rtc/nxp,s32g-rtc.yaml | 102 ++++++++++++++++++
+>>>>>   1 file changed, 102 insertions(+)
+>>>>>   create mode 100644 Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+>>>>> new file mode 100644
+>>>>> index 000000000000..3a77d4dd8f3d
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/rtc/nxp,s32g-rtc.yaml
+>>>>> @@ -0,0 +1,102 @@
+>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/rtc/nxp,s32g-rtc.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: NXP S32G2/S32G3 Real Time Clock (RTC)
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+>>>>> +  - Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    oneOf:
+>>>>> +      - enum:
+>>>>> +          - nxp,s32g2-rtc
+>>>>> +      - items:
+>>>>> +          - const: nxp,s32g3-rtc
+>>>>> +          - const: nxp,s32g2-rtc
+>>>>> +
+>>>>> +  reg:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  interrupts:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  "#clock-cells":
+>>>>> +    const: 1
+>>>>> +
+>>>>> +  clocks:
+>>>>> +    items:
+>>>>> +      - description: ipg clock drives the access to the
+>>>>> +          RTC iomapped registers
+>>>>> +
+>>>>> +  clock-names:
+>>>>> +    items:
+>>>>> +      - const: ipg
+>>>>> +
+>>>>> +  assigned-clocks:
+>>>>> +    minItems: 1
+>>>>> +    items:
+>>>>> +      - description: Runtime clock source. It must be a clock
+>>>>> +            source for the RTC module. It will be disabled by hardware
+>>>>> +            during Standby/Suspend.
+>>>>> +      - description: Standby/Suspend clock source. It is optional
+>>>>> +            and can be used in case the RTC will continue ticking during
+>>>>> +            platform/system suspend. RTC hardware module contains a
+>>>>> +            hardware mux for clock source selection.
+>>>>
+>>>> If the RTC h/w contains a mux, then your mux inputs should be listed in
+>>>> 'clocks', not here.
+>>>>
+>>>>> +
+>>>>> +  assigned-clock-parents:
+>>>>> +    description: List of phandles to each parent clock.
+>>>>> +
+>>>>> +  assigned-clock-rates:
+>>>>> +    description: List of frequencies for RTC clock sources.
+>>>>> +            RTC module contains 2 hardware divisors which can be
+>>>>> +            enabled or not. Hence, available frequencies are the following
+>>>>> +            parent_freq, parent_freq / 512, parent_freq / 32 or
+>>>>> +            parent_freq / (512 * 32)
+>>>>
+>>>> In general, assigned-clocks* do not need to be documented and should
+>>>> never be required.
+>>>>
+>>>>> +
+>>>>> +required:
+>>>>> +  - compatible
+>>>>> +  - reg
+>>>>> +  - interrupts
+>>>>> +  - "#clock-cells"
+>>>>> +  - clocks
+>>>>> +  - clock-names
+>>>>> +  - assigned-clocks
+>>>>> +  - assigned-clock-parents
+>>>>> +  - assigned-clock-rates
+>>>>> +
+>>>>> +additionalProperties: false
+>>>>> +
+>>>>> +examples:
+>>>>> +  - |
+>>>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>>>> +
+>>>>> +    rtc0: rtc@40060000 {
+>>>>> +        compatible = "nxp,s32g3-rtc",
+>>>>> +                   "nxp,s32g2-rtc";
+>>>>> +        reg = <0x40060000 0x1000>;
+>>>>> +        interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+>>>>> +        #clock-cells = <1>;
+>>>>> +        clocks = <&clks 54>;
+>>>>> +        clock-names = "ipg";
+>>>>> +        /*
+>>>>> +         * Configuration of default parent clocks.
+>>>>> +         * 'assigned-clocks' 0-3 IDs are Runtime clock sources
+>>>>> +         * 4-7 IDs are Suspend/Standby clock sources.
+>>>>> +         */
+>>>>> +        assigned-clocks = <&rtc0 2>, <&rtc0 4>;
+>>>>
+>>>> That's weird...
+>>>>
+>>>>> +        assigned-clock-parents = <&clks 56>, <&clks 55>;
+>>>>
+>>>> I'd expect these should be in 'clocks'. I don't think this node should
+>>>> be a clock provider unless it provides a clock to something outside the
+>>>> RTC.
+>>>>
+>>>> Looks like you are just using assigned-clocks to configure the clock mux
+>>>> in the RTC. That's way over complicated. Just define a vendor specific
+>>>> property with the mux settings.
+>>>
+>>> I just read v1 and got told use the clock framework...
+>>>
+>>> I disagree completely. Tons of h/w blocks have the ability to select
+>>> (internal to the block) from multiple clock sources. Making the block a
+>>> clock provider to itself is completely pointless and an overkill, and
+>>> we *never* do that. Any display controller or audio interface has
+>>> mutiple clock sources as just 2 examples.
+>>
+>> And in 6 months, we are going to learn that the rtc is used to clock the
+>> wifi chip or whatever and we are going to need to add everything in the
+>> CCF and we will have an unused property that we are going to have to
+>> support forever to avoid breaking the ABI. This already happened...
+> 
+> For that to happen, the RTC needs to have a clock output. AFAICT, from
+> the series it doesn't have any clock output. If it does have an output
+> clock, then yes, I would agree with you. But I only know as much as what
+> is put here about this h/w.
+> 
+> Rob
 
-Changes during conversion:
- - Since all Actions Semi Owl SoCs utilize the internal low frequency
-   oscillator as a parent for some clocks, require it.
+Hello Rob,
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
- .../bindings/clock/actions,owl-cmu.txt        | 52 ----------------
- .../bindings/clock/actions,owl-cmu.yaml       | 61 +++++++++++++++++++
- MAINTAINERS                                   |  2 +-
- 3 files changed, 62 insertions(+), 53 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
- create mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
+Thank you for resuming discussion on this patchset.
+Indeed, the RTC does not have a clock output.
 
-diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt b/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-deleted file mode 100644
-index d19885b7c..000000000
---- a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-+++ /dev/null
-@@ -1,52 +0,0 @@
--* Actions Semi Owl Clock Management Unit (CMU)
--
--The Actions Semi Owl Clock Management Unit generates and supplies clock
--to various controllers within the SoC. The clock binding described here is
--applicable to S900, S700 and S500 SoC's.
--
--Required Properties:
--
--- compatible: should be one of the following,
--	"actions,s900-cmu"
--	"actions,s700-cmu"
--	"actions,s500-cmu"
--- reg: physical base address of the controller and length of memory mapped
--  region.
--- clocks: Reference to the parent clocks ("hosc", "losc")
--- #clock-cells: should be 1.
--- #reset-cells: should be 1.
--
--Each clock is assigned an identifier, and client nodes can use this identifier
--to specify the clock which they consume.
--
--All available clocks are defined as preprocessor macros in corresponding
--dt-bindings/clock/actions,s900-cmu.h or actions,s700-cmu.h or
--actions,s500-cmu.h header and can be used in device tree sources.
--
--External clocks:
--
--The hosc clock used as input for the plls is generated outside the SoC. It is
--expected that it is defined using standard clock bindings as "hosc".
--
--Actions Semi S900 CMU also requires one more clock:
-- - "losc" - internal low frequency oscillator
--
--Example: Clock Management Unit node:
--
--        cmu: clock-controller@e0160000 {
--                compatible = "actions,s900-cmu";
--                reg = <0x0 0xe0160000 0x0 0x1000>;
--                clocks = <&hosc>, <&losc>;
--                #clock-cells = <1>;
--                #reset-cells = <1>;
--        };
--
--Example: UART controller node that consumes clock generated by the clock
--management unit:
--
--        uart: serial@e012a000 {
--                compatible = "actions,s900-uart", "actions,owl-uart";
--                reg = <0x0 0xe012a000 0x0 0x2000>;
--                interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
--                clocks = <&cmu CLK_UART5>;
--        };
-diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-new file mode 100644
-index 000000000..e9c0dfb94
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/actions,owl-cmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Actions Semi Owl Clock Management Unit (CMU)
-+
-+maintainers:
-+  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-+
-+description: |
-+  The Actions Semi Owl Clock Management Unit generates and supplies clock
-+  to various controllers within the SoC.
-+
-+  All available clocks are defined as preprocessor macros in
-+  include/dt-bindings/clock/ headers.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - actions,s500-cmu
-+      - actions,s700-cmu
-+      - actions,s900-cmu
-+
-+  clocks:
-+    items:
-+      - description: Host oscillator source
-+      - description: Internal low frequency oscillator source
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        cmu: clock-controller@e0160000 {
-+          compatible = "actions,s900-cmu";
-+          reg = <0x0 0xe0160000 0x0 0x1000>;
-+          clocks = <&hosc>, <&losc>;
-+          #clock-cells = <1>;
-+          #reset-cells = <1>;
-+        };
-+    };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 420d06d37..652c9822a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2016,7 +2016,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	linux-actions@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/actions.yaml
--F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-+F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
- F:	Documentation/devicetree/bindings/dma/owl-dma.yaml
- F:	Documentation/devicetree/bindings/i2c/i2c-owl.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
--- 
-2.43.0
+In the meantime I've sent a V3 where 'assigned-*' entries are no longer 
+required.
+
+Please let me know if V3 is headed into the right direction since I 
+prefer not to throw away current 'assigned-*' CCF approach since IMHO 
+its scalable with the clock source selection for runtime and suspend.
+
+Ciprian
 
 
