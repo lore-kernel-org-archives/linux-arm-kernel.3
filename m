@@ -4,131 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0A8D132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6249BD132B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 11:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8hCNjyV4KIImElR4gHHT0N9YbPGoDH0xwSkwumilPE=; b=rpLw87rXVM1d1M2YpwFToXG40y
-	1zae21xMFKLvqHQXPDY4sjzi27HhVDzfzUJ/Th3GaG7m4oiZXkBWVWVIkDSjY40xLGBmacX4folKN
-	7srRP/2D3Wsfx3WOGRv6l9hEahD9xVRcU1vh9DjZtCo75ooxyxmq9SWhQqoBaKlkXmuLJ1j+o8wVJ
-	L/syYo0PSyBLhEf3qeOv3kCIe5ZcxpXo9RF2sx+V/YI+rZdlcjJ7N9kKnxd/9C7RaSZtviHKplDst
-	09jHJpFXUPNlo1KxIPiGFO5EDMXcSiSGvK2dox2dEIBHeP1bt93yPLKHfb1Tdr6vJoz/J/GgzXXiA
-	zIfd0N9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N+ekRC8r5VRaxPYErbg7eREsa7roK7CPfNnf7sCkuAI=; b=FSZ60xVGvSusaOHcIUbXnzSO37
+	bHVNEh7rsHmFsJAs4o+2XqtAIFZPMCXkD67xIlOIDKuPyy2sAEgskO6dZsYMJT9smTtnPf7ncChU1
+	KsFoJS7eGffVFCdskriIDLFG3yUP46BxUm43WtjqFEgwMHUK6PiwCPXyqe2Mt82f/oLo7jENSfIBd
+	Rco1rskWHdAl/5DvRy5glj/pFZUiaQgxDl7CAQKlRcHhwCWHZsFUDGA69dcn7mCM9reKPtDLGlILv
+	0E9nESLd9ZUZgOHgf5/8eGwpQruD10rHv6NNd7bAkayB2KqyR6oCaoRluZHOqKxJvwPH434lpIa3l
+	ASlVfdsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vSB-0000000DZXi-2c9K;
-	Mon, 04 Nov 2024 11:41:03 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1t7vTq-0000000DZhs-0BQU;
+	Mon, 04 Nov 2024 11:42:46 +0000
+Received: from mail-vi1eur03on20609.outbound.protection.outlook.com ([2a01:111:f403:260c::609] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vGw-0000000DWQI-2IMO
+	id 1t7vGx-0000000DWQ9-3LuC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:29:29 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20241104112915epoutp0150fd46e9675c3c9c7be5510211200ab5~EwHKNRWjU2540525405epoutp01h
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 11:29:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20241104112915epoutp0150fd46e9675c3c9c7be5510211200ab5~EwHKNRWjU2540525405epoutp01h
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1730719755;
-	bh=u8hCNjyV4KIImElR4gHHT0N9YbPGoDH0xwSkwumilPE=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=dXzmDXyP4D1IQKI+u+4p/W8hqDgs1aXri61NU55h9xLhYtt2ooPO+gkX7x2c8Nece
-	 wpuwnAs4XmXmurEXmsZ9c6ee7tq4bej4PltSiht7zAcgYNk/90bIZY29xQchP72O0T
-	 /1fxba+JnuT1XJ46lx5rsZ9MHz2bUfdNH6NN4YkE=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20241104112914epcas5p1a4de3251704b4186b1ed2cc025ac63ab~EwHJ1wrR-2778827788epcas5p15;
-	Mon,  4 Nov 2024 11:29:14 +0000 (GMT)
-Received: from epsmges5p3new.samsung.com (unknown [182.195.38.179]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Xhq486rDBz4x9Pp; Mon,  4 Nov
-	2024 11:29:12 +0000 (GMT)
-Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
-	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	21.84.09800.800B8276; Mon,  4 Nov 2024 20:29:12 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241104112912epcas5p21f80c9615e3ba9db23428fd524106d83~EwHH2ppKt2058320583epcas5p2v;
-	Mon,  4 Nov 2024 11:29:12 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20241104112912epsmtrp24cc6e92f40757ed4e60bcad5adebf9aa~EwHH05i_W2013320133epsmtrp2o;
-	Mon,  4 Nov 2024 11:29:12 +0000 (GMT)
-X-AuditID: b6c32a4b-4a7fa70000002648-dc-6728b008109c
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	77.82.18937.800B8276; Mon,  4 Nov 2024 20:29:12 +0900 (KST)
-Received: from INBRO002756 (unknown [107.122.12.5]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241104112910epsmtip27ee2183ec8fc729518a6bb0611aa65c5~EwHFuvfow2913929139epsmtip2s;
-	Mon,  4 Nov 2024 11:29:10 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Peter Griffin'" <peter.griffin@linaro.org>,
-	<James.Bottomley@HansenPartnership.com>, <martin.petersen@oracle.com>,
-	<avri.altman@wdc.com>, <bvanassche@acm.org>, <krzk@kernel.org>
-Cc: <tudor.ambarus@linaro.org>, <ebiggers@kernel.org>,
-	<andre.draszik@linaro.org>, <kernel-team@android.com>,
-	<willmcvicker@google.com>, <linux-scsi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <20241031150033.3440894-15-peter.griffin@linaro.org>
-Subject: RE: [PATCH v3 14/14] MAINTAINERS: Update UFS Exynos entry
-Date: Mon, 4 Nov 2024 16:59:08 +0530
-Message-ID: <000801db2eac$c5867ea0$50937be0$@samsung.com>
-MIME-Version: 1.0
+	Mon, 04 Nov 2024 11:29:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QgRPSx2nMV+qvyYLqsGgJD6gteMCHpXbmR6SARawteP4FvpXoZyGme77z6ak+kBLhL5J5DZ6qI0ftLa+Qb08bX3hy3PyAqCAptbW0UJQ7BUYTLtG5NbWcx8d3i/U01DeRihafHR0szKxbr7rSilG7RKz6xkQNc8cU2v7I7tZeUl+yGxBGdiyma+05LtYkhyYzHXw15YDTAgynesfzgaqvsvtlc3PmzBtCq35uaWXuZ/WoG0kFtwgTZvY/tIstrZl0glmdSwukymr7/vFNpNpHG9tA6qJN+Yse6TXulm2Gttax9tUnCwxzUm0aRtLNoekHW/KueaDgHwKNW3ODyZ1eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N+ekRC8r5VRaxPYErbg7eREsa7roK7CPfNnf7sCkuAI=;
+ b=OwAFcx+zN2wYCMsFr/UiyVSPXdCajygaOcTBEF+Ra6xg6lFiujqBJSbuJ3OX6ffRPK3FewxECdn/mYjW1nDCf/64hoYTw2+jG2yKBuJQvFQ//YQP7h1dIPFEsRmY1m32dwvnecc+9no7pJLmLkLC6FWC+CVGzvDtQ9xx5F7fB7CQeDGdPhVyIZtrxRyA3U4AaNgxbPJf8eznP2nIGYlR9KuwqHk17++vtGA4Swnm45cKtaMOIGlt7qH5Hgc2MxwAANoT+P/SumyxSFScmE6ssXWPJPirJmSlK5nYb0WImBGy5obWnjPt5s1ywxq+juJZ+gCT3h6dwU4xUk1vTMU2MA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N+ekRC8r5VRaxPYErbg7eREsa7roK7CPfNnf7sCkuAI=;
+ b=MncH9+PGAiZpmV67yHRQd/DNkWsFgPSGvpoC95hoxd3+GU2GBc4PNlcoz3dw9U+4Yb7+7T62zL/FcRNBsI5DwWW+Q9oPtX7G61LhEmxF3JMtHrAC1WToJkX5EdVtwiAOBBUWSaMaO81h74mQLXBogaf9tdRgebt/E2Ia5Qlxehx2acmHmbhxQxRp9juMrjVqSbR1DS9KP2ZmNPw+boqgl35r6umK11oTGc2VFT1zWodg9TWYKbyl0I8frHCX7tpWOUW2ympRuA1fyEnPwv12z0m2hMAw2eGbovG2+ayPiZRFpHMILVbZeTmXwt0qoPIQ4edS98wlBWtlFxVK+hkuhw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
+ by DB9PR04MB10034.eurprd04.prod.outlook.com (2603:10a6:10:4c4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Mon, 4 Nov
+ 2024 11:29:11 +0000
+Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
+ ([fe80::6d7a:8d2:f020:455%5]) with mapi id 15.20.8114.028; Mon, 4 Nov 2024
+ 11:29:10 +0000
+Message-ID: <c00566a9-3a3e-4c12-ab83-5e006d9273dc@oss.nxp.com>
+Date: Mon, 4 Nov 2024 13:29:00 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/7] mfd: nxp-siul2: add support for NXP SIUL2
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev
+References: <20241101080614.1070819-1-andrei.stefanescu@oss.nxp.com>
+ <20241101080614.1070819-3-andrei.stefanescu@oss.nxp.com>
+ <z5ky5g46tsdmrabplgjbt3ahlnkn7gljkwsxjshwpkdqqnirwr@wavvhc2wudlh>
+Content-Language: en-US
+From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+In-Reply-To: <z5ky5g46tsdmrabplgjbt3ahlnkn7gljkwsxjshwpkdqqnirwr@wavvhc2wudlh>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGpHNBxPlSoL7oKvevQtOJlaLn5RgKmbH/8AoOUSlyy4c80YA==
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrCJsWRmVeSWpSXmKPExsWy7bCmhi7HBo10g6uNRhZbXm1msXj58yqb
-	xbQPP5kt1u75w2yxsZ/DYsd2EYvz5zewW2x6fI3V4vKuOWwWM87vY7Lovr6DzWL58X9MFhtm
-	/GOx+HQrzmLVp/+MDvwel694e2zbvY3VY8GmUo9pk06xeWxa1cnmcefaHjaPzUvqPT4+vcXi
-	8XmTnEf7gW6mAK6obJuM1MSU1CKF1Lzk/JTMvHRbJe/geOd4UzMDQ11DSwtzJYW8xNxUWyUX
-	nwBdt8wcoA+UFMoSc0qBQgGJxcVK+nY2RfmlJakKGfnFJbZKqQUpOQUmBXrFibnFpXnpenmp
-	JVaGBgZGpkCFCdkZ/18tYivYx1HRsPAKWwPjEvYuRk4OCQETiWcT3rF0MXJxCAnsZpRYea6J
-	DcL5xCix5OwPsCowZ8peL5iOjn8dUPGdjBKTzgdCNLxglLh6+zYjSIJNQFdix+I2sEkiIGNv
-	zXvNDuIwC8xiklj/bAFYFaeAo0THrSesILawgJPEw0XTgGwODhYBFYkt981AwrwClhLNl/vZ
-	IGxBiZMzn7CA2MwC8hLb385hhrhIQeLn02VgrSJAY5ZOzoUoEZd4efQI2FoJgSccEm++NLJC
-	1LtIrHp/CKpXWOLV8S3QsJCS+PxuLxuEnS1x/OIsKLtCorv1I1SNvcTORzdZQHYxC2hKrN+l
-	D7GLT6L39xMmkLCEAK9ER5sQRLWqRPO7qywQtrTExO5uqAs8JD48+sk4gVFxFpLHZiF5bBaS
-	D2YhLFvAyLKKUTK1oDg3PbXYtMA4L7UcHt3J+bmbGMHJW8t7B+OjBx/0DjEycTAeYpTgYFYS
-	4Z2Xqp4uxJuSWFmVWpQfX1Sak1p8iNEUGNgTmaVEk/OB+SOvJN7QxNLAxMzMzMTS2MxQSZz3
-	devcFCGB9MSS1OzU1ILUIpg+Jg5OqQamwL+PH0nP5J1x1uWXuvSG0O2xOeZz7072DjJdbfc6
-	IFSu8uWE2+fTZ2nlapV6Lhba6mi9sCfAolNijtUr5Ue6udO2X9mfMWvnwvY7dUzCipJHVltf
-	ChBKfyO6Ot/6XOss2ysFsZc/eax+O/PKRZ5wmc68wJvbl+2IWOx5LqvkxNLj/cpHJyzfoH7a
-	30mu9d19lwt8+UER/8zMNpk7yBxa33tcTvlsxBaGZ1/0H0jskd/569WJTfyr2VxMm+Yx7bCb
-	dsYo5IPuzYJdyVP/tXG0tugxZSzsN/pcyyfvavxp76HjOj8mbLYtFvYuV4j4O3Vjr1Jp373i
-	fT9EVnf/qt3BWbnIhk1Ibf6UrN7Zlz4xKbEUZyQaajEXFScCAB57Fm5nBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrGIsWRmVeSWpSXmKPExsWy7bCSvC7HBo10g68LxCy2vNrMYvHy51U2
-	i2kffjJbrN3zh9liYz+HxY7tIhbnz29gt9j0+BqrxeVdc9gsZpzfx2TRfX0Hm8Xy4/+YLDbM
-	+Mdi8elWnMWqT/8ZHfg9Ll/x9ti2exurx4JNpR7TJp1i89i0qpPN4861PWwem5fUe3x8eovF
-	4/MmOY/2A91MAVxRXDYpqTmZZalF+nYJXBn/Xy1iK9jHUdGw8ApbA+MS9i5GTg4JAROJjn8d
-	QDYXh5DAdkaJDeceMkMkpCWub5wAVSQssfLfczBbSOAZo8TsM7wgNpuArsSOxW1sILaIwEFG
-	ifU3c0EGMQssYpLo6NrJCtFwjFGie5kSiM0p4CjRcesJWFxYwEni4aJpQDYHB4uAisSW+2Yg
-	YV4BS4nmy/1sELagxMmZT1hASpgF9CTaNjKChJkF5CW2v50DdaaCxM+ny8CmiABNXDo5F6JE
-	XOLl0SPsExiFZyEZNAth0Cwkg2Yh6VjAyLKKUTS1oDg3PTe5wFCvODG3uDQvXS85P3cTIzhq
-	tYJ2MC5b/1fvECMTB+MhRgkOZiUR3nmp6ulCvCmJlVWpRfnxRaU5qcWHGKU5WJTEeZVzOlOE
-	BNITS1KzU1MLUotgskwcnFINTJGlHLPPXJwQIiLAqca5ln+ijO1ua22dGXMLpc6lzM/8Grrs
-	yT7lu9/lDd9aGf24c7FjjTP/bdecxY90mZ+VTqk9Nv9sLZdx50Nt6a7dwcw5KbezZyxysfSp
-	LJl69PzPcNP2c7ektF7zX9H8mXX2Qh9Labc+q/KhvdUdz4VPWJxdozGv9IxPaOb/S0KaUg61
-	gaWdOYcPxi77XHDhoSTn2htKqXxnuhZwW25beN6P1/FT0HmOqTFHP65+9NHQXd+Wv2Aa18ug
-	KZsezX2jfnGFo8ol4famvzE5AbU7BBrdSzvytUN6bq+R8b58QT1mU8OWOzO9lkXudZ9lPWn3
-	+fL5EzPZvjqcfbhhtrgIf8gODiWW4oxEQy3mouJEAMqOm4lJAwAA
-X-CMS-MailID: 20241104112912epcas5p21f80c9615e3ba9db23428fd524106d83
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20241031150102epcas5p2b485ea44b17629f3abd0a53fd8d172e7
-References: <20241031150033.3440894-1-peter.griffin@linaro.org>
-	<CGME20241031150102epcas5p2b485ea44b17629f3abd0a53fd8d172e7@epcas5p2.samsung.com>
-	<20241031150033.3440894-15-peter.griffin@linaro.org>
+X-ClientProxiedBy: AM0PR02CA0018.eurprd02.prod.outlook.com
+ (2603:10a6:208:3e::31) To AM9PR04MB8487.eurprd04.prod.outlook.com
+ (2603:10a6:20b:41a::6)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|DB9PR04MB10034:EE_
+X-MS-Office365-Filtering-Correlation-Id: d32961a2-99f5-4e6e-f9f2-08dcfcc3e6fa
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VG5UcmhSendJMkluL0lzZ08xOHRKRTlQQ1FoKzJWWUxiWnYyWDFQVHNzYnlk?=
+ =?utf-8?B?c3FLN3B6MDBSRGF4SHFnWmJnSTkyalorTlVTQWlPMTVxblY1WVBPN1YyWHlV?=
+ =?utf-8?B?eWxVa3JXdThJV21jVGJIUzdDcmI3eGoxZXBCSWpvNStGbkJtRDB3aHdBZ2pj?=
+ =?utf-8?B?NkpaODI3bG5RR3lCL0hCRlorUjM0Vm1wQzhLSDVERVhpekk4cGpsVk9ZMjhr?=
+ =?utf-8?B?UEZmMlFjT0NtWXQ2NGhCQVJsaW43L1RxRWtJRzR4NXlCSzR6ZWRPYnRUQWpu?=
+ =?utf-8?B?ZVFDUzFJVEMrdU5Yb2QzSWxZVVdSV3JzY3U3VDdRZWRYQXprSGJrQ29PQjlR?=
+ =?utf-8?B?UFk2bmdPWWJLdUYrZjc5ZkJ4R1RXTi95NnlhYUgwR29tckdWUzVBWGZKNGNV?=
+ =?utf-8?B?UDFwK0ViZGdrTUNSemd2WXBuSkwvd2dFQkk5UUYwaHYrcDJOSXVkZ3J0TE1k?=
+ =?utf-8?B?NjNXcmdwVmV4eFdNeXQrZlpVMTdSSEd0N2l3OG13c2RMbjU2M0ttYy9LdFBV?=
+ =?utf-8?B?RmdiV2lOcW11YzRmUmxINUswa1lmeEtxTDAzN1N1NytXMGRRNXRrOXE4WTR1?=
+ =?utf-8?B?dDdoU1B4YWRCQS95WnFacjVGQ2U3eC9SYWZ0L0YrK3d5eXFsRHZKTlBaK3Y3?=
+ =?utf-8?B?bThtMTF2cENhUFlRVUVRenlSaU9wUjFqNHJPTnpMV2JKbnhvZUtCZituRzJR?=
+ =?utf-8?B?b0JKSkZpVGxHQVMwMjBrUVlWdnhjdittOXdkdithcVl4Q0c1SHpEQWJFQXNI?=
+ =?utf-8?B?SzlYN1Y0a2hlQWNYaXp4KzhwUkk1bDhLU1Q3Qnc0em5FeXQ2SVpNSU1ac21x?=
+ =?utf-8?B?QTFCclRtaDVVeGg2ODJFb0pWcGI2M2FoN0FFSmJJckUralFTNkdIMVhhUEJ3?=
+ =?utf-8?B?U3M2WVhNb3pSYXl2aVZuVHJhS1FmODJGTWpKVkN0K3duaDFycCtCemxyVTdw?=
+ =?utf-8?B?azRXNG9EazF3aWVuY3pKaEI1WTQ4U3pxbDBtTjJPMVZNVG1DcVdNTHlFNStV?=
+ =?utf-8?B?NTJ0dHNzeEliRHZyVW9wMmpnUytmODczRWszbm4wMVhKdFFWV0hHTHZmMCs2?=
+ =?utf-8?B?ZFh0cTBsUHhINllaUXg1YStOeVpJZlUvRWpjU0NHQ1hFbS9BcDVVanpITUJK?=
+ =?utf-8?B?YXFScEF2eWdtMXlPSGdmRjhxcFY2Q1NIYkIzZWUwU3NWSnVrbUFrS1dJblFk?=
+ =?utf-8?B?K3dPaHFIN043dEFCQzFrL1JZQ2crK1lvK3QvQmpyQmZGL0Zub2FzWFRlQWxG?=
+ =?utf-8?B?aXNsRmx5dzVGNHVSWk81d2l0SzRQckh6YWt2VnUxTGZqWkViUFZkcUtCSktl?=
+ =?utf-8?B?aGkvVnA4L1pCU2w1OGxuTnhMU1VZZ3FqWnZIdnlxWVZPamE0VGlWYm9HVHdN?=
+ =?utf-8?B?SFh6MDJGZm1iYklzYkxUdVUyVmJ1MURjYUh3Tm9PcUlnVEV4RWtybVBtL0lX?=
+ =?utf-8?B?eFhwRktyTFFpUlZPSUZ2U0VkSnVxSGdxRzhuYkt1SnNWOTBiNmJNTnhZTG44?=
+ =?utf-8?B?dkV5UmsrbkFsQXFPYXIyQ2hIbFRQc2JEVnkxVXRpQktVTHZ5YVV2S1RZWUpj?=
+ =?utf-8?B?UkFLbmRWRzZzVHVZcnRDdERxRTNZVkJZZ3pSS2UzWnVnd3k5dk96VjMyWTc1?=
+ =?utf-8?B?OWp1dFpjY0IyTlBUU2VjV2hBSFFKT3F3SldPaUZaQmpkbVRac3JDKzBZdXBi?=
+ =?utf-8?B?aEE4UE9XbGx6dFM4Kzk4Q1dRTFU0RTFHRVdueWV2OG9YOHlPZGw1TG9pNXBl?=
+ =?utf-8?Q?EznxXomWPLhf43HDdulxJSI53sHvAp9/1TTcix/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aTJEUENCZVJFUEp5RkxPdEYycmVsQ3c0bzFvRDcxNzhKZzVHVTR0emRtT2My?=
+ =?utf-8?B?QkNHWHd4VHhuOWt4NHdTQW5wdGcxVEh1aVVQbXl4cFVUaEFRdm40V3hMWU1N?=
+ =?utf-8?B?Q2dKMXlyQ01sYjVmaTV0YmpINVEvZCtHUzh5SWh5MUhkbERMVW5IZVNuNTRk?=
+ =?utf-8?B?SVJWZFc2WjdJbXU1QUxDK3JacUwzZHNhb1laQVEraGpXTW5qMngwbnBQMWI3?=
+ =?utf-8?B?Smo0cC9uSlFOZkJRYzFTdjQ0dVl3TXBxM241T1R1STFqNDQ1SlZkN01YcENT?=
+ =?utf-8?B?V2hoT25qTnpIYk95UnZRWFRqakFtWHdDOVB3RFJxRHBxdm5mSFgvWjAxNUlV?=
+ =?utf-8?B?R1pCS2l4eTQydWt6NEt5d2FlT3FtMFNNamRzWVRjamVPRjNTMGM0TThiKzVZ?=
+ =?utf-8?B?RWFlWXBmdUpTQ0NxV2VpbDFYa05WVzB2L05mRUhpNUxCcmxEdFRjLzVzeDQx?=
+ =?utf-8?B?NVJ1Z2JkNEozYzBEV0NLdUFpS0p0SnNHeDY2ZEFGWjR1QVMxQithZHZzMEdx?=
+ =?utf-8?B?VmQ5ZW5rNTdYTmdQMHMrK3hDUHNRcUpOSTk5bFBCNHJ3dnRwdGVGdyszNUNr?=
+ =?utf-8?B?NzVqQzliU2lZNWoydHNmM1kxZGdMRll5eG1pU0xkUGtrMGhkWTJFaHd2OFl6?=
+ =?utf-8?B?bXhjYjh1YmNNR2tsRmI2bkdCRFBDUXpaQ3k2bUp2QnJMaUVTbnQzV3hvNXY5?=
+ =?utf-8?B?SU45U3pVMEs0bmFRUUYvTUJ3RzZrMWRWaEw3VjVHbTVoR2xPTm1UTkxlREFq?=
+ =?utf-8?B?RWtId01obGhnQ1d6S3RGaVFlUHhnWDBVZVp0N0tmdFpJd29uNmlCa050YS83?=
+ =?utf-8?B?Mm0yV0I2T3NxU3c5NFI1dVcybHNTUWF3b0ZsdlYrM2huSVRhLzlGQVpINTZY?=
+ =?utf-8?B?Yjc2Nkh2ZVFSSGpQRzBvY2FsNmk4VHZDVURDTlkzd2VHU21qbzZ6V0VHR0lr?=
+ =?utf-8?B?OFA2T0pwQkJTVU5KU3ZrRFZSd3FyUzdYbWVJUW1FenBUVU9LZVFRcVI5c3Yr?=
+ =?utf-8?B?anhRZkE0UnBBTGdzK0hpbG9FVytVVXB5R3FTa3czUE82SXJmM3FIR2s4R2Vr?=
+ =?utf-8?B?K1piMC9oQlFaQ3l1M1NwOXEvRmVncmxhVkViOWJralRGUkNJV0tmRkRyY1VU?=
+ =?utf-8?B?eHJtWitpNkhIaTNnU09LdTh5NzhqSEh1cVpXQWZXcVdWeU1UY2JPT3lyRSs4?=
+ =?utf-8?B?engrY1I5alYvVFRjUFRQaU9WcE9odWhGR3ROWW1uVFF5UDlFUFBQdnpWQm1F?=
+ =?utf-8?B?MzM1Nzc5OTVqYnBsaUttdTVuam1oUW1tTmcrNTM3Qy9jLzZMZWhZOTFyOVh2?=
+ =?utf-8?B?TGE1UmVQTFFuLzZISFRCR2lxUWdwRTVuZnhRdEo4SVZlVC9FeGl4alZISVo1?=
+ =?utf-8?B?UDMrTWF4c2EwdG5xT3cwYmw5TjdGTEl0RFg1MVZUV2hDWWxNRDNZc2FXZGdy?=
+ =?utf-8?B?c0FSVUVUWTBxVFVIZFZwZndOODFuSXpmbVJiNWJJREpCb0owd0lGREZGT0hN?=
+ =?utf-8?B?Nk1rMk0yZk9wTlZES2ZtU1NnMDZ6THpTZE1Gam42SlFUeGVWSEtKUUhjRWVK?=
+ =?utf-8?B?Uk9UZldIRGdZUFk1b1lKT2hISC9RSVVxL3ZpQ1A0TXZRZ1Radzl5OGtCcHJw?=
+ =?utf-8?B?Y3pkaVFvd3VZR284bnFNS28xeXRSeXhaaVFTS0tFTGlLVGVwTjBJcnVYektQ?=
+ =?utf-8?B?V0U1QktMVUpla2R4QlJLeGZwcXk0TDlEMmRQRlFCWGtiQjBlaGV4cThkYTQ5?=
+ =?utf-8?B?NStmMWx0YmNRbGpNWXYxQ0lPNGg1MURUVmRNcHY0M1F5VFg4NUFQRWJXVEhT?=
+ =?utf-8?B?SFpDajR5VFI4WnZCSS84cndKbmxkeWUyQUlXSlRsNFk1eXVVYU9MVi9TQ0dq?=
+ =?utf-8?B?eWFtaDE5N3hNS0xrRzQ2RURhdHJnS0tENXQwVXNReXIzU2cxZ3dlWnB0Qkw3?=
+ =?utf-8?B?ZmRrdWUvM2tJVlhrS2cyMFlpZkRGd2xDT2ZkTzNmNEluODkzbXE1MWxUSUY1?=
+ =?utf-8?B?bHlWRzZNS1UwS1F3WnJ0MHhLd2Z0Q3d3eTVhTTN1dnQ1dHRkaHYzMUxjdWdy?=
+ =?utf-8?B?UDRzb1JqMnd1MEZxeU0vNmhNeHNjMFI0MHozL2ZVS1RYbXlHeDVuTS9FUzVr?=
+ =?utf-8?B?bzlGY1dpZ1M0OHlTc21rc0R2TnYxQVN6ZUtycHRtNnZKeTMrQ2o5ZDVqcnA1?=
+ =?utf-8?B?VGc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d32961a2-99f5-4e6e-f9f2-08dcfcc3e6fa
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 11:29:10.8171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: R7vmRaufJBE/9ebLq/BdMMniLgbppaleL9rE90mU95Zj8zptJUH1mJLgYrnnPM6DuHgonTkhddM2OaAfEjTVANCtQmtzykDDCizNd9csqZg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB10034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_032927_524716_105AFF73 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20241104_032927_981029_B29B5212 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,34 +192,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter
+Hi Krzysztof,
 
-> -----Original Message-----
-> From: Peter Griffin <peter.griffin@linaro.org>
-> Sent: Thursday, October 31, 2024 8:31 PM
-> To: alim.akhtar@samsung.com; James.Bottomley@HansenPartnership.com;
-> martin.petersen@oracle.com; avri.altman@wdc.com; bvanassche@acm.org;
-> krzk@kernel.org
-> Cc: tudor.ambarus@linaro.org; ebiggers@kernel.org;
-> andre.draszik@linaro.org; kernel-team@android.com;
-> willmcvicker@google.com; linux-scsi@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-
-> kernel@vger.kernel.org; Peter Griffin <peter.griffin@linaro.org>
-> Subject: [PATCH v3 14/14] MAINTAINERS: Update UFS Exynos entry
+On 02/11/2024 10:52, Krzysztof Kozlowski wrote:
+> On Fri, Nov 01, 2024 at 10:06:08AM +0200, Andrei Stefanescu wrote:
+>> +static int nxp_siul2_probe(struct platform_device *pdev)
+>> +{
+>> +	struct nxp_siul2_mfd *priv;
+>> +	int ret;
+>> +
+>> +	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+>> +	if (!priv)
+>> +		return -ENOMEM;
+>> +
+>> +	priv->num_siul2 = S32G_NUM_SIUL2;
+>> +	priv->siul2 = devm_kcalloc(&pdev->dev, priv->num_siul2,
+>> +				   sizeof(*priv->siul2), GFP_KERNEL);
+>> +	if (!priv->siul2)
+>> +		return -ENOMEM;
+>> +
+>> +	platform_set_drvdata(pdev, priv);
+>> +	ret = nxp_siul2_parse_dtb(pdev);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
+>> +				    nxp_siul2_devs, ARRAY_SIZE(nxp_siul2_devs),
+>> +				    NULL, 0, NULL);
+>> +}
+>> +
+>> +static const struct of_device_id nxp_siul2_dt_ids[] = {
+>> +	{ .compatible = "nxp,s32g2-siul2" },
+>> +	{ .compatible = "nxp,s32g3-siul2" },
 > 
-> Add myself as a reviewer for ufs-exynos as I'm doing various work in this
-> driver currently for gs101 SoC and would like to help review relevant
-patches.
+> So devices are comaptible? Why doesn't your binding express it?
+
+Yes, as far as I know, there is no difference in the integration
+of the SIUL2 module for S32G2 and S32G3 SoCs. I am not sure how
+to express this compatibility. Should I mention the "nxp,s32g3-siul2"
+compatible as a fallback one?
+
+Best regards,
+Andrei
+
 > 
-> Additionally add the linux-samsung-soc@vger.kernel.org list as that is
-> relevant to this driver.
+>> +	{ },
+>> +};
+>> +MODULE_DEVICE_TABLE(of, nxp_siul2_dt_ids);
+>> +
+>> +static struct platform_driver nxp_siul2_mfd_driver = {
+>> +	.driver = {
+>> +		.name		= "nxp-siul2-mfd",
+>> +		.of_match_table	= nxp_siul2_dt_ids,
+>> +	},
+>> +	.probe = nxp_siul2_probe,
+>> +};
 > 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-Thanks!
-
-Acked-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-
+> Best regards,
+> Krzysztof
+> 
 
 
