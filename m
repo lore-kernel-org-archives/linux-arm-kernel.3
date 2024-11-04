@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A46CD1BDD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA09D1BDD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 17:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDh3EdnrR/PCsOp5ZedOmai1CHRqkh3yfIKuvIijDks=; b=UAFXib6ZDCBtBAd49TT67j+cGC
-	qrr0mfchtWIpQBVcPPFgQqyF+hEQiFsTcZEmeyJfAb9KVbzf+ha17w+8XIkJ+VOI4eK5pw4ZaFrjK
-	UvD1IBcXjiSdJz1PuVMIdyoMHup0+IQ7au16aan+PeeBgwnxYUrNbVaGRgLZjWy9f1x8qsIQaIxgM
-	uT8Os/SDgK0oOJrh2xJ1wZFbXb+4frElZ/zAytn7jYj4bRidPxHhilsyrUXTUUOGAz5c54nVZtOZm
-	6qHT5ISld7u9/xpCmnw3e/P0wsi874sFc0Ap1+S8ZXfCgFxch/tTW3zd0MpIff8M/eNFwsupM/Au9
-	b2/tjexQ==;
+	bh=/SPSBRQipSII7hd35ejo1FRCOBIsfi2Df67vBJxKStA=; b=CSY+lXbf6PBMA9AA8R27bLRuR4
+	etFySA7bMCifvpMJfZvEI2FJD6RZjXQvJAS4s0KxnuSaoKhwXO4UKYTJFAdQHKazr4qG3+cp1ZGDb
+	V92VXeRCbwIjgg/+sx96w0Plx2FklxRCsUHGUZ7+DCIDrN7C18lyDRQocpfIUMNGdCSuRVeU4p0Um
+	7V2JMj7zTUOY0pptYyGYjvg1EFfINdBcsoFF265MeZ7ZYyLGMXl8yS64cNUsSl39KSbKtM7s7m/mh
+	wHQcnewwjvsFBlljRqhmNiLbLcUBHoPoYVTncEbbd8/NqmXzdMGB9bCegGJxUDCLzyyriAYjYvXMm
+	pWmoYIiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80wS-0000000EY0y-0uDG;
-	Mon, 04 Nov 2024 17:32:40 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1t80y6-0000000EYAQ-1aWM;
+	Mon, 04 Nov 2024 17:34:22 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t80Tm-0000000ES1P-36JD
+	id 1t80Tl-0000000ERzR-0M7u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 17:03:04 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 273D46000D;
-	Mon,  4 Nov 2024 17:03:00 +0000 (UTC)
+	Mon, 04 Nov 2024 17:03:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 67A0260003;
+	Mon,  4 Nov 2024 17:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730739780;
+	t=1730739778;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XDh3EdnrR/PCsOp5ZedOmai1CHRqkh3yfIKuvIijDks=;
-	b=KrYfvu8UGeDJygxO2L11K7UVqHgApKJ6B5G0XrJMQIaknLfvN9O3oLj6VKn4iOwqPDa/uu
-	EhN13ONnoDp3uK44HuLR8PjaIsGDhxayoGp6XlN6xWZ0vKUJlZmpk3Wef12J9DfQF4yL3o
-	qM53QmE/Km5NHFcwl/T2SFrG/xo8XyMinYndAxh03PHlN/fEKtaNeL08f6hiXo0UjiniHJ
-	g4rMCdzmBsX79GI2ttDupJSVo0MnV8gKUqaGKlmviuGke0jDKAJCEeZW2Jr6t66fK1lpPg
-	g5r9NG9D0k7Xl4s93XjRSQ1xCkLM/8oVqsDF0yRDRzpeqQ8TVEheT5eXVlfauA==
+	bh=/SPSBRQipSII7hd35ejo1FRCOBIsfi2Df67vBJxKStA=;
+	b=P/ylVa50a+BLdkHAgE7RjPYnPZ2RVCr9fPAnphAuuCYjYTKraswaYmWf0aDEbPzaYSLzrm
+	XsFpX1Fl0SPyWabDsuWUXldUhR8/MIbP3DTaB9Q1cabYNyxOLeKeOwLUmsbcIGXWH1xCwn
+	ZhK9tofPBP/dFq5TX9mBsdbyYNAdxVBZ6UczkW6HnnlFmRa56RJZeCPmZHH8qtUtt5RMLI
+	2/8BcVWO0ERuUpFB4OHm6NKrj+xIKToRjV5E1IVg2o4b46eFNHSDj6FzsHRoxBjsMI2EnA
+	SBX2dSDqxbVKNqRgRnDrd1L9+QB3y5PvPqI2tYPADfiNX8B1Qqsr5P8GHvc9+g==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -58,9 +58,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 6/9] net: stmmac: Enable timestamping interrupt on dwmac1000
-Date: Mon,  4 Nov 2024 18:02:46 +0100
-Message-ID: <20241104170251.2202270-7-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v2 3/9] net: stmmac: Only update the auto-discovered PTP clock features
+Date: Mon,  4 Nov 2024 18:02:43 +0100
+Message-ID: <20241104170251.2202270-4-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241104170251.2202270-1-maxime.chevallier@bootlin.com>
 References: <20241104170251.2202270-1-maxime.chevallier@bootlin.com>
@@ -68,8 +68,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_090303_103572_F5C8DC78 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20241104_090301_397114_DB4607F2 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default configuration for the interrupts on dwmac1000 have the
-timestamping interrupt masked. Now that the timestamping has been
-adapted to dwmac1000, enable the timestamping interrupt on these
-platforms.
-
-On dwmac1000, the external snapshot interrupt is configured through a
-dedicated bit, that is set as reserved on other dwmac variants. The
-timestaming interrupt is acknowledged by reading the
-GMAC3_X_TIMESTAMP_STATUS register.
-
-Make sure that this interrupt is enabled when snapshot is enabled, and
-masked when disabled.
+Some DWMAC variants such as dwmac1000 don't support discovering the
+number of output pps and auxiliary snapshots. Allow these parameters to
+be defined in default ptp_clock_info, and let them be updated only when
+the feature discovery yielded a result.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
-V2: Make that interrupt unmasked only when necessary
+V2: No changes
 
- .../net/ethernet/stmicro/stmmac/dwmac1000_core.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index dbbd834f9fc8..37374f5a15c4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -595,6 +595,20 @@ void dwmac1000_timestamp_interrupt(struct stmmac_priv *priv)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 41581f516ea9..8ea2b4226234 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -303,8 +303,14 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+ 		priv->plat->cdc_error_adj = (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_rate;
  
- /* DWMAC 1000 ptp_clock_info ops */
+-	priv->ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
+-	priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	/* Update the ptp clock parameters based on feature discovery, when
++	 * available
++	 */
++	if (priv->dma_cap.pps_out_num)
++		priv->ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
++
++	if (priv->dma_cap.aux_snapshot_n)
++		priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
  
-+static void dwmac1000_timestamp_interrupt_cfg(struct stmmac_priv *priv, bool en)
-+{
-+	void __iomem *ioaddr = priv->ioaddr;
-+
-+	u32 intr_mask = readl(ioaddr + GMAC_INT_MASK);
-+
-+	if (en)
-+		intr_mask &= ~GMAC_INT_DISABLE_TIMESTAMP;
-+	else
-+		intr_mask |= GMAC_INT_DISABLE_TIMESTAMP;
-+
-+	writel(intr_mask, ioaddr + GMAC_INT_MASK);
-+}
-+
- int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
- 			 struct ptp_clock_request *rq, int on)
- {
-@@ -628,6 +642,8 @@ int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
- 		ret = readl_poll_timeout(ptpaddr + PTP_TCR, tcr_val,
- 					 !(tcr_val & GMAC_PTP_TCR_ATSFC),
- 					 10, 10000);
-+
-+		dwmac1000_timestamp_interrupt_cfg(priv, on);
- 		break;
- 
- 	default:
+ 	if (priv->plat->ptp_max_adj)
+ 		priv->ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
 -- 
 2.47.0
 
