@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20820D132BF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9323ED132C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZzOT97FdjuvYJUzFPlXRhKn4ZHWlskpvnv56Nhd+Gg=; b=hsoWlMr5jAl/C/31EIrIvaN6ac
-	A6QkmIAAu2YhEsQGPWOv+8j+LlhJylxq28kQ7j0MB09mf1jJqTjqfwGOcWnnQ1Qpw3gJDwbOiBHq7
-	1jVUMLPOumpEexlKubzGqB/uLTLTG08ehycdPej66Wh37n/isegSJD8yvc+8nFxVtlLOZ310oWFZw
-	qrMui3brCVr/vn1ZhGdchrpxPhKfmgAmk5qePI86gCU/U2uFqW/rbXMHctuYCh5b53MkXkMD8D01c
-	ZvnVtVmTC2OHHF4sNTcjuXwjHIYAa7XMUFewyqTONLtdniHnHoMc+IzF3cBRxqAKXUJWHmYCyGgZO
-	X/eSvJng==;
+	bh=X/JcBLG9ZRntCDhqwrCH8dA655EdL6Qk+i6w/V5Velc=; b=B31O28N/MXRgQMeQzPhCmshakI
+	f9nfeLOPYYDEqVr0CzrNmkTcOFYRH5sRU3FwgQAqu0OF76Trt4C0o1ZVKYE6yGD+JDTU+V2EOVR2i
+	Q8o1/3sQwFMJL25vbgrbza8p6SRte2ZLQVGB4laDZclw9BUY6k5w5TqM6q3z0GO5SXHBg8ysCwb03
+	KdrpgR1HrYXvaPwtVLQkgtMv0Bj3bKd+02E//PBpUU1GblsK01eL9I0fu6VA5fydKeeXEPfSl/HBl
+	aDSn2algSGszFwBz5Vr81rU0sz7q/dsZen3ftXA3j+r3ouWyM9uvhbigdB3/NtWcwXntRTCHv3zyl
+	MVmnZWkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7woi-0000000Dn7O-2RNo;
-	Mon, 04 Nov 2024 13:08:24 +0000
-Received: from mail-pj1-f47.google.com ([209.85.216.47])
+	id 1t7wqM-0000000DnGj-2tBJ;
+	Mon, 04 Nov 2024 13:10:06 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wn1-0000000Dms2-1Puu;
-	Mon, 04 Nov 2024 13:06:40 +0000
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-2e2bd347124so3163864a91.1;
-        Mon, 04 Nov 2024 05:06:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730725598; x=1731330398;
-        h=in-reply-to:references:to:cc:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=zZzOT97FdjuvYJUzFPlXRhKn4ZHWlskpvnv56Nhd+Gg=;
-        b=TkV/AtGHdxdwkSP6u9Ly243aU213uVy3Yho5Mtrfz8h7GWs1DrPoyWJhuZ0juAhony
-         tztlX0Az746a2OSXuhUDO3746o/Rvf7oEfQDvtaZHPTwKVXkHrwHeB6obhOqVqaxiyQY
-         v0o5CTpH52WA6MHdYLXVmUCy7Jnz7nPMzs+VabEX31g2ZyRx+GkXyRVOyAQqMTeDUSlY
-         AnxrHw1Dafep39TYuDR8B48DnxTlTramdLYHhpK4GY1/Ol3iULvPHnsa0iLNv60Ip5G3
-         QKV6tGxrdYn2zvdXK692cIMhQU4OD2UKak0GpzSo0iTnT5QfR6rL4yIrUb27+p0IE6Kd
-         Vt7w==
-X-Forwarded-Encrypted: i=1; AJvYcCX6iwtFTiVL/OWWaj7YtNlS1jAiIbTAUR1Vcr5sG9R5ANYbeHcQFvJDm0eF6nwq/QtlRK4GZV3h0T6k4XOrpMg=@lists.infradead.org, AJvYcCXngu8Mg5u85NbTC0tZmNNM6HHfvZ7K9DMjpwmJDc0Mpm9podq59i0tiYMLubufWd5thnC3QhfboL+wafY64rGD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6Bpz6HhB1BJ7aNjBEUkJmlz0ur9lvq/3w73paGF2uRPA0FWSH
-	1TnKYn07q7by2YuuKp5yTs2rduyq3rN5I4XXCKTabT3BbA7VjtL3
-X-Google-Smtp-Source: AGHT+IHCAHuac8LcRXb6oXySdYiXNuST/E5hZ792qvOEl2kds238Dclz1//IuMmOtE6OMUv4eXmd6A==
-X-Received: by 2002:a17:90b:3755:b0:2e2:de27:db09 with SMTP id 98e67ed59e1d1-2e8f1078c4dmr33747346a91.19.1730725597840;
-        Mon, 04 Nov 2024 05:06:37 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e93da8e879sm7544666a91.10.2024.11.04.05.06.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 05:06:37 -0800 (PST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1t7wng-0000000DmxL-2hu8;
+	Mon, 04 Nov 2024 13:07:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1730725622; x=1731330422; i=markus.elfring@web.de;
+	bh=X/JcBLG9ZRntCDhqwrCH8dA655EdL6Qk+i6w/V5Velc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=dg6wG72PmBCTajz3zqwq23eIktpX+4mDA7NiR/yM9gRFG4w2lO6WZiTrqnG7YI1A
+	 CPDw5TVG4ILOZe4bMIqxcBJned5HJM8dyPFWAmErKGc6danEy3DBdlWutRk0h9Aeo
+	 sQW4gC8S1XAJ5rK8Na/rck/F53KDmJcigj5Kserk2dTfLnkF4ZrlAKzIIy+0YQRVp
+	 /EjasB2ZeU/GK9Ysq0IluAY6GvAwZKQXpGIXjD2aqPsWZ6SgH5J3/FVaDpfDJE8h8
+	 wMWwCoNCM8UpJLZKF8fqPWdcPgkGhilRiIPe4WORdj48Eu+2g3CyMiW4NJd305dhO
+	 0gt/fHmKH6qIPdH86g==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.21] ([94.31.88.95]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MECGl-1t0YOh1GC5-004TGg; Mon, 04
+ Nov 2024 14:07:02 +0100
+Message-ID: <c64a0c92-4528-4c87-ac2e-00ee2ec666ad@web.de>
+Date: Mon, 4 Nov 2024 14:06:56 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Shu-hsiang Yang <Shu-hsiang.Yang@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Hidenori Kobayashi <hidenorik@chromium.org>,
+ =?UTF-8?B?U2h1bi1ZaSBXYW5nICjnjovpoIblhIQp?= <Shun-Yi.Wang@mediatek.com>,
+ teddy.chen@mediatek.com, yaya.chang@mediatek.com,
+ Yunke Cao <yunkec@chromium.org>
+References: <20241009111551.27052-6-Shu-hsiang.Yang@mediatek.com>
+Subject: Re: [PATCH 05/10] media: platform: mediatek: add isp_7x camsys unit
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20241009111551.27052-6-Shu-hsiang.Yang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 04 Nov 2024 22:06:35 +0900
-Message-Id: <D5DF0QIO2UZQ.29U999LYCC05M@rocinante>
-Subject: Re: [PATCH v4 1/2] PCI: mediatek-gen3: Add support for setting
- max-link-speed limit
-From: =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>
-Cc: <ryder.lee@mediatek.com>, <jianjun.wang@mediatek.com>,
- <lpieralisi@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
- <matthias.bgg@gmail.com>, <linux-mediatek@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <kernel@collabora.com>, <fshao@chromium.org>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>
-To: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- <linux-pci@vger.kernel.org>
-X-Mailer: aerc 0.18.2
-References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com> <20241104114935.172908-2-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20241104114935.172908-2-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:bRyeFpZaX8wNJrlK6hdPLRc1mevh68UYevrSMj6u1GEWHCvYp0U
+ U7WMp+S6fbcCQsjvUzIRvGihCk2wnelpSPybJxv9aPgPvJH/2Q9Bp4FCbLhymk1TJdLACVY
+ tNke6VamALyDNd9theYf/QpwhLZShCQDhsO6KJzXj7Aihi1qKCJefHw1nU1/9YGR4Mh0VA4
+ 3t22eg/S+4Y5juXqsxN2w==
+UI-OutboundReport: notjunk:1;M01:P0:H3ddCuVI+08=;FuKuZdqE+LyO/ovYd7kI/LBYHH7
+ 1BquZJV7yDnZAq3QrkDvghilD4FPiEtRngTsk3KCj/omyHEfMVhKkX3zjOI6ddAMMKvJtI77U
+ v2nNOBon+Y5RKrDtdAKDwNPQpaNmnK8ZnxNzaNBDpkTrv2YLlzkH1YsNtlWAcFR0uy7nQ54c7
+ g55gmNEf7mk+GO8GM+b/VZRxtOc/ln1BBa2BE3HMRPZh0dAnffyko2z0yYuH2i7VqK8ZT96zU
+ 97OeKp0acHRETcR/WuIHP4LWNeq+TqlPa58qYIzc6SpOrAXNpZUGF6/op3zXDQQwrdkcUYABO
+ k1qPEuF455UBguUPoXaHmqwrlrrhLQgJfBphfAI/LhZwdNa1UTLafQEF7sCTt09j90rDpEwsc
+ vxVb5aQwAOudnybxQaYkHYfkO9+r2iBm7NWmR+19l8uEHJvmBEGA1Ae2jSian+hfwKmsGFfS6
+ An8akll0stTcaY3+aXRp36l5L8IgYHqpu43tlR7j6iNxZCl+4TLOmDEX8CyzSi6AwCc/hJhs/
+ cIuefjktwSXY0gol2oRmCXTd4+JPpvFoPcfsVUM6xez6Oj+mmpQ2CrmdQHAUHTIi1pueS+7Xk
+ 3q4/RUqz26ieSi1k+khwxlaJt6sCIYdkXtOPD3BikHFQtWCetvIiU8R+oZa9QGYEvGWNz8a2R
+ 9v8Ds7T9O5D8//Vnsnt+XFBUzi9f20lvfBG3HDCvxVG+5bmuR4ruvL6lkHKFL6jHUJcHZXUuG
+ j0ZN6ro3CkEghF7k9u1sjPWivH8BbyD9PgWXHFUEl7f+HaLB6FPW5F4ayuvpAns38oY6knOiB
+ TRqKsdO5ojH//9XY5JYKHO3w==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_050639_399466_DBB07F54 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20241104_050720_990688_466EED98 
+X-CRM114-Status: UNSURE (   4.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+=E2=80=A6
+> +++ b/drivers/media/platform/mediatek/isp/isp_7x/camsys/mtk_cam.c
+> @@ -0,0 +1,4168 @@
+=E2=80=A6
+> +void mtk_cam_dev_req_try_queue(struct mtk_cam_device *cam)
+> +{
+=E2=80=A6
+> +	spin_lock(&cam->running_job_lock);
+> +	job_count =3D cam->running_job_count;
+> +	spin_unlock(&cam->running_job_lock);
+=E2=80=A6
 
-> +	if (err > 0) {
+Under which circumstances would you become interested to apply a statement
+like =E2=80=9Cguard(spinlock)(&cam->running_job_lock);=E2=80=9D?
+https://elixir.bootlin.com/linux/v6.12-rc6/source/include/linux/spinlock.h=
+#L559
 
-You could drop > 0 here.
-
-> +		/* Get the maximum speed supported by the controller */
-> +		max_speed =3D mtk_pcie_get_controller_max_link_speed(pcie);
-> +
-> +		/* Set max_link_speed only if the controller supports it */
-> +		if (max_speed >=3D 0 && max_speed <=3D err) {
-> +			pcie->max_link_speed =3D err;
-> +			dev_dbg(pcie->dev,
-> +				"Max controller link speed Gen%d, override to Gen%u",
-> +				max_speed, pcie->max_link_speed);
-> +		}
-> +	}
-
-I wonder if this debug message would be better served as a warning to let
-the user know that the speed has been overridden due to the platform
-limitation.  Thoughts?
-
-Also, there is no need to sent a new series if you fine with the
-suggestions.  I will mend the code on the branch when applying.
-
-	Krzysztof
+Regards,
+Markus
 
