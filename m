@@ -4,117 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63380D111AE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7420CD1BDFF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=LCXwWCxq4WUHYQHfMYDDly3RkO
-	EE2fJZHHvKFLNKoLmMBIV2/HksDKNOa+xbE3cWgATKT0aiTPRqU2aUbAwtw4EAY9D1Tj3bQeXV4Jl
-	8vqHjgEeWTQ9vu+bAcRCV412v4+E+0qSMeWYq171as7rkSDlQpdqnFOayMvg5zZ03EQGsHUhO2Und
-	d24Abn+x5YzVIflPsCk+YW43oAsawR2h26CW6Fxjt7GRNsAHliKMneJE2BDyXExqKAJcU45A9m0Fr
-	5G6enhppzMcun11KT8NC/lGzhW+DH/yfQEGkItMLPhOtH0H1zama77u/qteZc+RSMVyuzjnyU8W6q
-	a7zmKRiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=; b=gUU3eyWOwpR5UeB2dnYNdBeo2j
+	kK4kpfYZWqidTi3lHPg7XE3xVtuGtLVyeJtFsWOkt4CJA1OQovxr+Avq+1kV/pt15Bt0pQMVEgAER
+	kVdFcNyhJBfdjgQWV9SqCcdKYvaCJl6YU7Xl8GQBKUS1E20MUb0/P3M9Bt79M2w9IYwbWiY+bOVWp
+	2kIxwHc1PB4e2kJKinPGTcvdmhsMfYikaBpplA7E5VLlUrwHzFtTzjplLaa84dGtCS9Av5ZIRWFRY
+	AYLkvcYlkzbXAZg08A6RItSPWXdVjWu07+UVx0ms1uYvtpDtHpn1nRg1IxeRjPVjcKogADgqCQYbc
+	/iWN9CUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84ob-0000000FCHE-1F5D;
-	Mon, 04 Nov 2024 21:40:49 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1t84s7-0000000FD9A-1msa;
+	Mon, 04 Nov 2024 21:44:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84OM-0000000F7is-34mC;
-	Mon, 04 Nov 2024 21:13:45 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 1785425400BB;
-	Mon,  4 Nov 2024 16:13:40 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Mon, 04 Nov 2024 16:13:40 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1730754819;
-	 x=1730841219; bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=
-	HYxM/F1j4lMV3qcZLf2/ywYPB0bgQgPU6nQk/K+naRkovv97U83DYHb5KcZpVf0x
-	ZhuynQAg2mHgQNN0HFSmADvFhF7W9d3aHDAY+PwKB96XTDbcfrRyBU5b3+YOqxF8
-	lSs3ySfRLS5x4/W/BuRz3ksq2PI415eD9vq5HefepgZdoRPI7NKVqZlqj8whkqJ1
-	3I4g4CTkC56DDZ51egRLXec1uHz0TMxxcMYZlCULGmJsX43AipvtOXBugK4W5eWO
-	V9dYVQHJjlW64YoXXdjryU6Nn0fsAb0X86QsCIBylrRXYd8Jbr+2HBFc01Yu89Ly
-	Jgxm0YMrYBejXJTS+Cdjag==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730754819; x=
-	1730841219; bh=V0h+HnwYM6G14tqfuEBcSfoAhMcxFQIDMQETosW9jT0=; b=A
-	07LXhM+Iq1HCBnCunXqpgfNDV2r2wBsNjVcaZBED84teZ5OBI84eO40xTruVaIlb
-	CTu83Z7rZQ2g8IgSY0iTyGsddlsmaSymS8tyx1YgdBNMiEIdjPhO/8NyuWBsAQ4R
-	3BFY+ngJ4zsKrv96GIyRw/02pP+F6h35hwPpRiObV2FABJLxInkhSlBx2LpvWHul
-	V+Pf7xzFnQ5C4DWgfCzFo3teifpTB3Dfy14StP7CJfAPLbaUBebJEEZic94jUVZZ
-	kSnsXvCgjRtBS8YSngsbswoTuY+AYE4lBGLlDQb7KenMqJqKtDLPMDZFaSDjBtdi
-	tlbU1kJwhvS+te9me5dNQ==
-X-ME-Sender: <xms:AjkpZ7iLwMb7LS52CjGTazhHzh1hC8c78ofVs3xc41WaM4CjDfFK9g>
-    <xme:AjkpZ4DpGENhrWdnaGR8Via9b10QYZcLhlzRZMc6gY3rzc6XU4y_y32T3mzMtaXJO
-    gQ-LbupRVMkdcAaFvQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeliedgudeghecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
-    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
-    uddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhguse
-    grrhhmrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhr
-    tghpthhtohepmhhitgesughighhikhhougdrnhgvthdprhgtphhtthhopegrohhusegvvg
-    gtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepghhnohgrtghksehgohhoghhl
-    vgdrtghomhdprhgtphhtthhopehirhhoghgvrhhssehgohhoghhlvgdrtghomhdprhgtph
-    htthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrughr
-    ihgrnhdrhhhunhhtvghrsehinhhtvghlrdgtohhmpdhrtghpthhtoheprggtmhgvsehkvg
-    hrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:AjkpZ7HDxCwy4I__a2KM4WoXIAT-uVa-FUNo5xAINlv6PIc3MDmN3g>
-    <xmx:AjkpZ4TEpwHRFnIZ1r1FdqqUbIpgwi0-D_DPyXW0gWwGbaQgNqoybQ>
-    <xmx:AjkpZ4wI8UxMGhZhBFFMXFGGRBq8PaJdE2Bz84HCW1PVRGBfp3N5_Q>
-    <xmx:AjkpZ-4HRRofSWplUrAHFwaw7MrOvwaTcko0TgpGFlly-Euyx3Q6Ew>
-    <xmx:AzkpZx8kPUEQuc9kjEr7jGh3aP1zGFEnrt0qIDe_xxeUuWuooZ8w3Cme>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 708CF2220071; Mon,  4 Nov 2024 16:13:38 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Mon, 04 Nov 2024 22:13:18 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Charlie Jenkins" <charlie@rivosinc.com>,
- "Peter Zijlstra" <peterz@infradead.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Namhyung Kim" <namhyung@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
- "Jiri Olsa" <jolsa@kernel.org>, "Ian Rogers" <irogers@google.com>,
- "Adrian Hunter" <adrian.hunter@intel.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
- =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>,
- "Christian Brauner" <brauner@kernel.org>, guoren <guoren@kernel.org>,
- "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
- "James Clark" <james.clark@linaro.org>, "Mike Leach" <mike.leach@linaro.org>,
- "Leo Yan" <leo.yan@linux.dev>, "Jonathan Corbet" <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org,
- bpf@vger.kernel.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
-Message-Id: <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
-In-Reply-To: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
+	id 1t84h9-0000000FB51-2UL0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 04 Nov 2024 21:33:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=; b=R+XnTxQYsL/G1l7E2Yd+y9SMjG
+	4nWSpPtZrv+FMWmwuXWcdJjY4FVyWI0PQE2XEXgqe183CBZrt1/ZEyO1iu11i1NFxWduDymHVoPfU
+	8hbw3naTAv6LihINda/KPUQY+HL9AqL8R8KTn6IshnaT5j9pBjMY0o4nOLc4engOBKSivYjjLWbt8
+	DoHA3h9jt69j8UhDxXAJ1d9AS5PPuljJ9Kcgto2OoWDQHu6DoSpZQ8BNxIZMgmRFovRP0YCvQYIdq
+	jlaCVm65Xzt9egY2RMU7v80WOxsqQE5xoxw1xAAy9oPMdOu7AnGv+k6VD1im3H5nqxGOBbX76k3uC
+	/VW3kJAA==;
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t84h3-0000000Ba2d-2Wmh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Nov 2024 21:33:05 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-720be27db27so3767366b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 13:32:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730755977; x=1731360777; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=;
+        b=VvNTuHIniX0zk5sB28eq7jz4AkqmVBwQ7U191Hwg4SiXvzHhIKgDzX1SitfMjwu5p7
+         AoeW95ao3nPMycrTSc71MhSAR22DmCclaz3Lw8Ja3BbELVFqLetqNroHYXNGdUm/jtWf
+         3eiX1Wso4xLiNbDB7fxiQUAPci4eVyG6IknR4ycWm5aDW+zbnbej04iko8XEq31A+shX
+         +JrmqRlc/zPf0LMCJ5/u2FGtVDJKKTvyhH/m4149P2RfnmBZQ4to7WnM+NXDkZPGraiH
+         SkA6GlNPfFGPoMWFC/EPiE1Y2nL4EARgr9BU6f1DMA5UVwBzCESgIuQa/RlPdi8fjNnX
+         rSzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730755977; x=1731360777;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EzIIL5jV51s8QxZDArUoUfDkcHu/NNqV1EZULNrSbms=;
+        b=FkmY8lfvx9pIGcbW3MqqXofuqlh6wh1PzAZWTEKMkFf/z2Jhi8KRi9ie5vVYBCiFkk
+         lW626qYwGVi7HXfKpNcQURj3FQrCXXN3tuPK9BnBKnSfX5BVc/N7gi6otjqJdFcwOEkB
+         d3pZhRIyUwoV2OHWTX+s4jnrycr/CU+x3GpSbetuX2GeMV2+FComu2vEURBPT8gvlDGC
+         PtoH8G13VZVIAg7KgcFA2ex5PgnF62185SAApgjr8M7OYkHzMaqiTg7tHoZO4EBC8dnT
+         h8emaKN/kPnqyvSJUaIZgxX+k9lkO+wjiHn+3I9Jp4JGgDYTNLfZoKFI3+Cj3ezfahN3
+         uiSw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0lJveaRhmNTflFh7yMQuvFVBeGBNW3fZBDbkBEK5r1QbA4889daQICoaw8tdjRxWw9hrdFVmnBJA0ruRLfcg+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxmmyoz1jxV82aPvKRL0SLID0LK1+KcmTKJpFfJmKScW/QWZQyx
+	1SuIkpBF/TUUy9CHxG+SaoZtF4uT7IC00i294LtVeBjPsZVT5ZK2I6wmr3rJN7w=
+X-Google-Smtp-Source: AGHT+IE1gCnZHDhbNSzOxIsLAwqp2zm4KQPfqsRjT/TyxizeRL+Gzx/ZXVxE+GJ5uzuO8nBhG5XzOQ==
+X-Received: by 2002:a05:6a21:9993:b0:1db:d8df:8c4e with SMTP id adf61e73a8af0-1dbd8dfc276mr7417523637.12.1730755977373;
+        Mon, 04 Nov 2024 13:32:57 -0800 (PST)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc1ef7d9sm8114469b3a.83.2024.11.04.13.32.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 13:32:56 -0800 (PST)
+Date: Mon, 4 Nov 2024 13:32:53 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, guoren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for
+ all archs
+Message-ID: <Zyk9hX8CB_2rbWsi@ghost>
 References: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
-Subject: Re: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for all archs
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+ <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3b56fc50-4c6c-4520-adba-461797a3b5ec@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_131343_619747_50448FFC 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20241104_213303_834373_050CA885 
+X-CRM114-Status: GOOD (  27.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,34 +127,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
-> Standardize the generation of syscall headers around syscall tables.
-> Previously each architecture independently selected how syscall headers
-> would be generated, or would not define a way and fallback onto
-> libaudit. Convert all architectures to use a standard syscall header
-> generation script and allow each architecture to override the syscall
-> table to use if they do not use the generic table.
->
-> As a result of these changes, no architecture will require libaudit, and
-> so the fallback case of using libaudit is removed by this series.
->
-> Testing:
->
-> I have tested that the syscall mappings of id to name generation works
-> as expected for every architecture, but I have only validated that perf
-> trace compiles and runs as expected on riscv, arm64, and x86_64.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Mon, Nov 04, 2024 at 10:13:18PM +0100, Arnd Bergmann wrote:
+> On Mon, Nov 4, 2024, at 22:06, Charlie Jenkins wrote:
+> > Standardize the generation of syscall headers around syscall tables.
+> > Previously each architecture independently selected how syscall headers
+> > would be generated, or would not define a way and fallback onto
+> > libaudit. Convert all architectures to use a standard syscall header
+> > generation script and allow each architecture to override the syscall
+> > table to use if they do not use the generic table.
+> >
+> > As a result of these changes, no architecture will require libaudit, and
+> > so the fallback case of using libaudit is removed by this series.
+> >
+> > Testing:
+> >
+> > I have tested that the syscall mappings of id to name generation works
+> > as expected for every architecture, but I have only validated that perf
+> > trace compiles and runs as expected on riscv, arm64, and x86_64.
+> >
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> 
+> Thanks for doing this, I had plans to do this myself, but hadn't
+> completed that bit so far. I'm travelling at the moment, so I'm
+> not sure I have time to look at it in enough detail this week.
+> 
+> One problem I ran into doing this previously was the incompatible
+> format of the tables for x86 and s390, which have conflicting
+> interpretations of what the '-' character means. It's possible
+> that this is only really relevant for the in-kernel table,
+> not the version in tools.
+> 
 
-Thanks for doing this, I had plans to do this myself, but hadn't
-completed that bit so far. I'm travelling at the moment, so I'm
-not sure I have time to look at it in enough detail this week.
+I don't think that is an issue for this usecase because the only
+information that is taken from the syscall table is the number and the
+name of the syscall. '-' doesn't appear in either of these columns! 
 
-One problem I ran into doing this previously was the incompatible
-format of the tables for x86 and s390, which have conflicting
-interpretations of what the '-' character means. It's possible
-that this is only really relevant for the in-kernel table,
-not the version in tools.
+- Charlie
 
-     Arnd
+>      Arnd
 
