@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3CFD1BDC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D336D1BDC2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 16:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCFNkOXlzIC4nbZOOGVRxV1kaQeAU/pJuUI7IWu3BR4=; b=E25gB4i4iaMx1lJV2yXK/zWmZV
-	aiWVjxJtLawIF9M2ihUSsMK5u2upAvHCGDY4o/gNOFy2jvlUzqLFNPn2MpFEnXrsE72ZzblcLcuM2
-	QuAockaXVUFYK0KeiuE0yd2/oI7aEYnGUWQZo0s185f6qPY1LEAU6Z5Jgy0JCTZEW/lLSsed54oEo
-	iCuZJ+GBkUWtGwkT+NbVGPEPYfEndlzawr2cqk+GwKFgJjrm5fiTlbSXALlFXBgHznc3pOuCTHzsp
-	x3I5+6Hn7Lnmdo0BoSDa3LltLPLHYhyp5a137LT+LUJ7GgdyVW/PIJJwjun78wccsN5eoTMyn57aj
-	OdTZpT7w==;
+	bh=/UglL73qHmfyJOd55YLmYbogEKgxUZxB1m0bcr6FhIg=; b=u70oOCa8FHr9QZTLSBSCTAz4AM
+	dW3YHHWsLNtVqnhMBLgJtl3ua+Ba++IRwUnbRusAOCO9m4aXBawCIzer7V9nIF/NFlScqFbamAu7a
+	ULpUugM00dy8lg66Ys72I736V/vtrQ1kMm366XtSTwVjDisbKFecNUVQy+dNUV++m+27AOJAhPp84
+	cFd3YsgQEvBI6gkUHcmvBFqAmIAVCzr8ar78BuWzUMbYTvGcLShCbkHWPYbH7F2Twz/ymGq6Uhja5
+	5j+lOBCstU0Pfq+0rRw17s1wMgj7GEv782QN+1ek9xYSR/9jvPXDX1W8c58Gem4lTa34+/+KdulH5
+	UHPia+Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zqS-0000000EN3k-0l6m;
-	Mon, 04 Nov 2024 16:22:24 +0000
-Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
+	id 1t7zs7-0000000ENQj-2Ea3;
+	Mon, 04 Nov 2024 16:24:07 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zoi-0000000EMgH-0tIR
+	id 1t7zop-0000000EMi0-0hPQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 16:20:37 +0000
-Received: from cwcc.thunk.org (pool-173-48-115-131.bstnma.fios.verizon.net [173.48.115.131])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 4A4GHeVP005285
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 4 Nov 2024 11:17:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1730737064; bh=HCFNkOXlzIC4nbZOOGVRxV1kaQeAU/pJuUI7IWu3BR4=;
-	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
-	b=oVO65S6tk8aYtsUJW4abfDTpafWiCHqifmtgz7vEn58onu4uTUTySA+AmGo3UVJT9
-	 QQil4qEcdDh06BYYMnHWbMuOcivNKlwrUgqB3NyzeTmJfoUwy4xiEy1BNuCR4Eu++H
-	 cIgfVEOfg91zv6X1OPeh48Xjg38/IEAN1zbNQgixYZCOjHc+QpUcsq2Uv1oLfNcmQE
-	 Bf/CuM+o0H1XLCvkG4LX/WwoUy7Sg139hmyTTLYtv3UmNW9L59QBTLp6ud/keG4y3P
-	 7O1qTZ5ZEGpzgROh+vZIYKFyf+CwYk8FneIPHXrRsfY3x1J+g1SIrG2lehvgiPVbt9
-	 ijt7dTTvk4gpQ==
-Received: by cwcc.thunk.org (Postfix, from userid 15806)
-	id CA48115C02FA; Mon, 04 Nov 2024 11:17:40 -0500 (EST)
-Date: Mon, 4 Nov 2024 11:17:40 -0500
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-        linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
-        linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-        sparclinux@vger.kernel.org, x86@kernel.org,
-        Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v3 16/18] jbd2: switch to using the crc32c library
-Message-ID: <20241104161740.GB43869@mit.edu>
-References: <20241103223154.136127-1-ebiggers@kernel.org>
- <20241103223154.136127-17-ebiggers@kernel.org>
+	Mon, 04 Nov 2024 16:20:44 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso38445705e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 08:20:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730737241; x=1731342041; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/UglL73qHmfyJOd55YLmYbogEKgxUZxB1m0bcr6FhIg=;
+        b=natZqgVOmNgpKtwm8JqBHgh/X4qqZ4DNPIPu5j76EipiqbWZsdbHDEQ9q614xF0lp+
+         H1VcGBpVfSCWiVrAEUv0RFkWorbmO0pbP+YtHxQrEdpTiIxFc2Cu1C4UPIxEN+Rtyh7J
+         +dhsXvOq5IVP5+fiqb7bZGHdSJH9/6y6TbpF0FoYa4rJ2Ia6WaRp9f/TnjFKJtP3VVme
+         vKvviyXElzKjeBoCOUX72vT88MqogB/2TZI6zpglEZkNZSlIUSuwpP+E/TaGnhbgSuVB
+         E30CX2ySZTyl9uwQrIO9Rl6otuYJ8d67dEPltH0NJOLaPIO9jq2QxniSgIzJDnQeWgRZ
+         cGJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730737241; x=1731342041;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/UglL73qHmfyJOd55YLmYbogEKgxUZxB1m0bcr6FhIg=;
+        b=OxAQydevzY9YviciXm5pNON0TtiLSiBx2cLKbZPgWKGsiSbVsHWQgP65ZiZaR9TX36
+         ItD7TQLFbaJ3tU55A3i3V3tAc5VOum5Y2FCZYv44eyx3y8Qk70yDchlZG4F1zlHWqqid
+         aRcowL+/rCLG7NF8xT9FdLyWGUUeaPPREYv4NPimT/L9G7Zu1M3IxEGwAvT7X3EFl/62
+         a+Kv3P10AMdHbqGpN3ScS7Qq4AMfNdMMUuaWaaG9Qk8x/qfbmJVmtyuFUzK4+WQ9NqO6
+         eYnLDLDEtuV6P+NZf8kY4RrhzbZtnEb09mRdnfZNYQF2e/zz1QyLodN6yDlb1M3enxLV
+         VhSw==
+X-Forwarded-Encrypted: i=1; AJvYcCX8jI5DG0xSfOmezP28B3bHvuFxr2PKSpa56eYaAzLP3TGsdwwRM13vmpQrj2Au+RESlTf1s+sueApNInf85e/s@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOs5iuWcqD71W2rU6j+ROtvN/lcKgW32vVdI4w/dxJpCpp5o6J
+	mSZrbilqUlA2dkt0rmVReRz2rG+6AqxOtlG4IKatGy/suJxi0XTj
+X-Google-Smtp-Source: AGHT+IHZU9mbh3Wbll+wBrT2PpnMr8Te/FNGNRZcuvQt76LTmp8E5SFmnb1+Tbb9yqea8lWe/FbiKg==
+X-Received: by 2002:a05:6000:1446:b0:37d:5103:8896 with SMTP id ffacd0b85a97d-381c7aa4830mr11584782f8f.41.1730737240702;
+        Mon, 04 Nov 2024 08:20:40 -0800 (PST)
+Received: from eichest-laptop ([2a02:168:af72:0:198c:8462:ddae:196b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c116abdasm13770112f8f.97.2024.11.04.08.20.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 08:20:40 -0800 (PST)
+Date: Mon, 4 Nov 2024 17:20:38 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Shawn Guo <shawnguo2@yeah.net>, linux@armlinux.org.uk,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, elinor.montmasson@savoirfairelinux.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
+Message-ID: <Zyj0VsTJ2qDHiss2@eichest-laptop>
+References: <20241030122128.115000-1-eichest@gmail.com>
+ <ZyXTFhEm9UCBii2c@dragon>
+ <ZyY41nJY9ghwe-Y4@eichest-laptop>
+ <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
+ <ZyiAMpjmXuVMi5FX@eichest-laptop>
+ <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241103223154.136127-17-ebiggers@kernel.org>
+In-Reply-To: <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_082036_416935_0890964B 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20241104_082043_245725_805D9302 
+X-CRM114-Status: GOOD (  47.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +100,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 02:31:52PM -0800, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Now that the crc32c() library function directly takes advantage of
-> architecture-specific optimizations, it is unnecessary to go through the
-> crypto API.  Just use crc32c().  This is much simpler, and it improves
-> performance due to eliminating the crypto API overhead.
-> 
-> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
+Hi Stefan,
 
-Acked-by: Theodore Ts'o <tytso@mit.edu>
+On Mon, Nov 04, 2024 at 12:39:40PM +0100, Stefan Wahren wrote:
+> Hi Stefan,
+> 
+> Am 04.11.24 um 09:05 schrieb Stefan Eichenberger:
+> > Hi Stefan,
+> > 
+> > On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
+> > > Hi Stefan,
+> > > 
+> > > Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
+> > > > Hi Shawn,
+> > > > 
+> > > > On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
+> > > > > On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
+> > > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > > > > > 
+> > > > > > Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. This
+> > > > > > change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif sound
+> > > > > > card node properties") which moves away from the old "spdif-controller"
+> > > > > > property to the new "audio-codec" property.
+> > > > > > 
+> > > > > > Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node properties")
+> > > > > It doesn't look a fix to me.
+> > > > I agree somehow, it was just that before the referenced commit our test
+> > > > succeeds with the imx_v6_v7_defconfig and after that we get the
+> > > > following error:
+> > > > [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-card: snd_soc_register_card failed
+> > > this error should have been in the commit message including the
+> > > information which platform/board is affected.
+> > Okay, I will add this information to the next version. We see this error
+> > on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
+> > 
+> > > > So maybe it is not a fix in the sense of a bug, but it fixes the error
+> > > > message. However, I'm also fine with removing the Fixes tag.
+> > > But this patch doesn't look like the real approach.
+> > > 
+> > > Could you please clarify the impact of the regression?
+> > So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
+> > update spdif sound card node properties") the audio driver was
+> > using an implementation of linux,spdif-dit and linux,spdif-dir which was
+> > directly inside the fsl,imx-audio-spdif compatible driver. Now with the
+> > referenced commit the idea is to use the more generic linux,spdif-dir
+> > and linux,spdif-dit compatible drivers. That's why this driver must be
+> > enabled in the kernel configuration.
+> > 
+> > > Is it just this error message and audio works fine or is audio also broken?
+> > It is not just the error message, audio is not working because the
+> > driver deferes and because it is not enabled it will never succeed to
+> > load. I don't know if this is called a regression, because the driver is
+> > there it is just not enabled in the imx6_v7_defconfig. I thought because
+> > a lot of the i.MX6 based board use the generic driver, it makes sense to
+> > enable it in the imx_v6_v7_defconfig.
+> okay, thanks for the clarification. From my understanding
+> imx6_v7_defconfig is just an example config for testing. All possible
+> users of these boards might have their own configs and stumble across
+> the same issue. So I thought it would be better to add the dependency in
+> the Kconfig of the FSL audio driver.
+> 
+> I'm not that audio driver expert and don't know how the dependency
+> handling between the FSL audio driver and the required codecs like
+> SND_SOC_SPDIF. So it's possible that I'm completely wrong here and your
+> approach is the best we can do.
 
+That might be a good point. I don't know how this is usually handled.
+@Shawn and @Elinor, do you think this could be an approach to make
+SND_SOC_FSL_ASOC_CARD select SND_SOC_SPDIF? It already seems to do this
+for SND_SOC_WM8994 and SND_SOC_FSL_SPDIF.
+
+Regards,
+Stefan
 
