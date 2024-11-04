@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F5ED111BA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 08:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0452ED111BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 08:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmjx6zA4K8y+qr1LBwquRLGW8I8RIiLSEH4MjF5V3eU=; b=eDmbF5nUZp9e/NW5L8uEHHmxWW
-	9JHOwJ4daRxIOzn0qv5dljlTKizzX+SeTzaZm/V3/35jArf0KVrIYAgQROXTUQRiSHP+MHe5dH7Ww
-	ywV+qXd7zY3Sfqblw//ePaUP8oy4hUgJ0lmIiFZ8Tp3qo47oa5ZY+ex17azTuTbPllJbxuvfI7k3e
-	sQpeKAHPpvqjLXAwtowd3NhSZ3/SyQN/U9dA3+MxsO6O8uBICrDLjoABnzdVfcKk04jSf8IYp7TMj
-	3v69D1yjXzJRheQrHQQqD5GjT3czA5utYLN7+aBf5UxGLySWhiw7tFcr+z5iGL1C3bb7I6G310JnH
-	gpantwZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q3ntq14sieQxa1nhBG/basKlbuGIdYqCF0ESPB8PElU=; b=ftVxfYC4jx0E9xMUAxLclDYbpb
+	yovjIi8Oh6VaswBfl6fxEPsJDD9hdn2BFjxz4FVWlkCEndgfe5R4A811BIXRdLXP2RTarf/fhMJea
+	3ktF4baVCdfIRRAxorSuC78AByF0M0NGmhgE3sfN/qA/mSRYf0/2lGr8uM2l+XFoeJ5/wjW5MqpW3
+	WQt72UOacU5ZGT3tmlmkxnDtABlHgr3+SM3qphTbZFrI85K3WaIPFvGvpcXarGAUUgSUPXG2LA8o3
+	A8gUStSl51cfaH4V59djGM5L9PGys4j/LbZW2/5UMSN0zVPP/Q62+QBhASh66oGiAFMNg7EZhKEfp
+	P+N2riTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7s84-0000000Cvf8-3dbo;
-	Mon, 04 Nov 2024 08:08:04 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1t7s9k-0000000CvwV-05xQ;
+	Mon, 04 Nov 2024 08:09:48 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7s5H-0000000CvCv-0Cod
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 08:05:12 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-37d4821e6b4so2372155f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 00:05:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730707509; x=1731312309; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rmjx6zA4K8y+qr1LBwquRLGW8I8RIiLSEH4MjF5V3eU=;
-        b=iqkE2H0/qIv1xDA3ueJRsiTEB8MQphy8VaXU/LSe4hZC7I3LNQ1Oxak+6iGX5WwNHo
-         Ujko9GRmf8ulOY0TC8hWQ6J+Tap0fHgEbJHmWeUt01uIejgiTlPh2Gvgs8h4l2tRaucx
-         A9RlY/gxG7lQc923rTVzeD5JszesvdtxeCqWGKd5obOf6LPw/iOXQeblxbUXihlhK6QJ
-         qlVYeoUuQqE00CG2pIJr12B+o9sOLe1zKJExKRkURM+zArCCquJbjc8NqjhJe6eeF3mv
-         kdlIct62/jo/Ckn8725qvSlvS1NAO5gxGgS7XLDt0OZNH8HF3G7V0dYef+SXYri1WKki
-         TU1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730707509; x=1731312309;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rmjx6zA4K8y+qr1LBwquRLGW8I8RIiLSEH4MjF5V3eU=;
-        b=jYkGcQz/qfFwBP4tWNay1HYBxMRV8dm4cKbV4tzTQlEP2A5S2bY84CFG5fYcT5Gyx/
-         G1O5Ud6de5a39g148vo3U0MBoD0gRW3xSbuoMjd9tBQ8kyfu9EIAifA0MdBDOHGvW6/c
-         tVQXHzSkOswQ64CerJ/sh//JF/5Qdj3St2G7Phw5VwQwwE9kOYhF7R+QWFylinsawSeV
-         VkdOd4WiSXTA5aw/mHMlOVyFQguAo2nmokpTZPZlu/fU09XuvD6mqFHp+xk84DpCbieG
-         JRd/M+++gGgrfbraQaXWPYk3Ovm4gD9ZHlQ3YfVKbb8D2j2iQROMgQkQsCFxoPsjXyox
-         XL7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU0kaInc/bexD/4u7tFb6LYv/T+2fVAGS3iw4mOI2dSRgSXC98RqFSE2sxNK0qWNdSeQEZ3PmQpaBOZdHT6QQTk@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywte62bJv/WK754V3pmBq4Ybx7MkVhqF7srJMl3WqSypDIst0J/
-	X4z7ERcHTdneBxBla7pMZjBe4hq0LPk0eEGQfcVJltosePWTFisM
-X-Google-Smtp-Source: AGHT+IGJZ1N0iKEAhj3LObQcIfZjoje2HIVVrTvS8omAzjtiJyXmwbcvyD/6ltNJYT44sT96drjLmQ==
-X-Received: by 2002:a5d:4d48:0:b0:37d:49d1:1e89 with SMTP id ffacd0b85a97d-3806115ab56mr23099545f8f.27.1730707508506;
-        Mon, 04 Nov 2024 00:05:08 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:58c3:98c7:13bb:aad2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10d414csm12396504f8f.26.2024.11.04.00.05.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 00:05:07 -0800 (PST)
-Date: Mon, 4 Nov 2024 09:05:06 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Shawn Guo <shawnguo2@yeah.net>, linux@armlinux.org.uk,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, elinor.montmasson@savoirfairelinux.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
-Message-ID: <ZyiAMpjmXuVMi5FX@eichest-laptop>
-References: <20241030122128.115000-1-eichest@gmail.com>
- <ZyXTFhEm9UCBii2c@dragon>
- <ZyY41nJY9ghwe-Y4@eichest-laptop>
- <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
+	id 1t7s6a-0000000CvQL-0LUI;
+	Mon, 04 Nov 2024 08:06:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3FA7DC0006;
+	Mon,  4 Nov 2024 08:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730707587;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Q3ntq14sieQxa1nhBG/basKlbuGIdYqCF0ESPB8PElU=;
+	b=WZTLngU33wA/P1ULCFNo2JgdIohqG7zwdBL8zM67L7WMw9uEJiGJ9vs/OEHt1kdDHJa3QH
+	1RDHwkC98KU6BybAQtrUfrhAa/EyKK7JFMlLJ1jVtsenVJZXYmui7HcXnZRUyksclcqJnP
+	8Kxn7QV/GcKQat03HHpO1AUb86XPr0H8Kmt31fxqcq3vxWSwm3lGDQ0aUWlv3Wa45ECESx
+	fLoTMGLcZQEE66wwOMWKZkgmalP6q6Xix7rUtKvVYj5nQGbsZLApYLepj0aGZStJ78Bb6t
+	AkKE3j/Lt/y/SNGcvYbq8UX14Bj/rv1riWsKEyNWSVzs0YnpwrMeLhHeIgT7KQ==
+Date: Mon, 4 Nov 2024 09:06:23 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Linus Walleij <linus.walleij@linaro.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, Dragan
+ Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan
+ <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org, Masahiro Yamada
+ <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU
+ bus address to dynamic bridge nodes
+Message-ID: <20241104090623.53f73d75@bootlin.com>
+In-Reply-To: <f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+	<f6b445b764312fd8ab96745fe4e97fb22f91ae4c.1730123575.git.andrea.porta@suse.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_000511_121583_F4776442 
-X-CRM114-Status: GOOD (  34.88  )
+X-CRM114-CacheID: sfid-20241104_000632_597455_B6E6805D 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,76 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Hi Andrea,
 
-On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
-> Hi Stefan,
+On Mon, 28 Oct 2024 15:07:22 +0100
+Andrea della Porta <andrea.porta@suse.com> wrote:
+
+> When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
+> incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
+> bridge, the window should instead be in PCI address space. Call
+> pci_bus_address() on the resource in order to obtain the PCI bus
+> address.
 > 
-> Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
-> > Hi Shawn,
-> > 
-> > On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
-> > > On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
-> > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > > > 
-> > > > Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. This
-> > > > change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif sound
-> > > > card node properties") which moves away from the old "spdif-controller"
-> > > > property to the new "audio-codec" property.
-> > > > 
-> > > > Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node properties")
-> > > It doesn't look a fix to me.
-> > I agree somehow, it was just that before the referenced commit our test
-> > succeeds with the imx_v6_v7_defconfig and after that we get the
-> > following error:
-> > [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-card: snd_soc_register_card failed
-> this error should have been in the commit message including the
-> information which platform/board is affected.
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 
-Okay, I will add this information to the next version. We see this error
-on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
+Tested ok with my LAN966x PCI device.
 
-> > So maybe it is not a fix in the sense of a bug, but it fixes the error
-> > message. However, I'm also fine with removing the Fixes tag.
-> But this patch doesn't look like the real approach.
-> 
-> Could you please clarify the impact of the regression?
+Tested-by: Herve Codina <herve.codina@bootlin.com>
 
-So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
-update spdif sound card node properties") the audio driver was
-using an implementation of linux,spdif-dit and linux,spdif-dir which was
-directly inside the fsl,imx-audio-spdif compatible driver. Now with the
-referenced commit the idea is to use the more generic linux,spdif-dir
-and linux,spdif-dit compatible drivers. That's why this driver must be
-enabled in the kernel configuration.
-
-> Is it just this error message and audio works fine or is audio also broken?
-
-It is not just the error message, audio is not working because the
-driver deferes and because it is not enabled it will never succeed to
-load. I don't know if this is called a regression, because the driver is
-there it is just not enabled in the imx6_v7_defconfig. I thought because
-a lot of the i.MX6 based board use the generic driver, it makes sense to
-enable it in the imx_v6_v7_defconfig.
-
-Here the output of git stat to show which boards are most likely showing
-the same behavior as the Apalis iMX6 with the current
-imx_v6_v7_defconfig:
-git show d469b771afe1 --stat
-....
- arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts          | 15 ++++++++++++---
- arch/arm/boot/dts/nxp/imx/imx6q-prti6q.dts          | 15 ++++++++++++---
- arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts         |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi       | 15 ++++++++++++---
- arch/arm/boot/dts/nxp/imx/imx6qdl-apf6dev.dtsi      |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi      | 15 ++++++++++++---
- arch/arm/boot/dts/nxp/imx/imx6qdl-cubox-i.dtsi      |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-hummingboard.dtsi |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi    |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi    |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6sx-sabreauto.dts      |  9 +++++++--
- arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi           |  9 +++++++--
-
-Regards,
-Stefan
+Best regards,
+Hervé
 
