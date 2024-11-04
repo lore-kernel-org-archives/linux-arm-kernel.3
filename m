@@ -4,69 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D7AD132A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4193CD132A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 09:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTcx+OtPjGb9e4h+RTNoGpGZkyPv0DP+3tRsN7gnqPw=; b=i6ke6v0c2NqfokMWjbQb/p3/vq
-	CGvd16Tdx88i5o1c3cWBy5UutIMyVgIN3/symmLrMucuTXVzxjZ52APB338QvR6TeW1OCpqvibN3f
-	h8BFy7Xl4p/BEU32Kms6nv+N+OhvNtbK4MexS6DFEEe/AShsKbOQC/TWUY/e43ZYVu1GBWp+RRg4J
-	Xr/mgKCQBqLPnTEzOecr/dEuO1ZW/htiz9jW1g4pEGtREGfJQse3qjZ5aTOi8dwmQ6QgHdSZjQHaj
-	x+siUa/uaL4wDTBk5quV6cUtDWE654NfEijVWId1HU6e7PEpXV/VpXsjCqFo49NEykcaNuJHtBvxB
-	MkSQXigQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+x8WbTWZicQ7znriEfViEdrXAvoFejolOMzYSLA+irU=; b=qflM7ndLSA6QBrR/VnqYmf83CQ
+	Joi79f7gpewbXMd529cK62aKRN4MmuNQaI0nhpqhNdaRPl1DuqXrN12mixlNVMWKrnheG+XjQ9/yZ
+	SWgYThTqHvPML835xf/aIkFrKqo+pZfDJtDPlRpCBf/s2obnnJg9TZMp735sjCUxRgIPJSGCyFW5P
+	iSYzbXXr2J6yjbQeHL9Ke4qAkrXWi85llHFuDWVkRsIQ6ul3G0GLBl2Z5WPRnMkfWtoD4ScdI11YF
+	aUsxNB3nfOhfxee/skhf42LyKc50jY4gx4BBAf0bE1dXkwdIKwJrAUSRyVazKylwdjDFs7IGT68u/
+	EUCDQ8RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tj4-0000000DDZk-3Kno;
-	Mon, 04 Nov 2024 09:50:22 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1t7tkm-0000000DDnT-015T;
+	Mon, 04 Nov 2024 09:52:08 +0000
+Received: from mail-tyzapc01on2070b.outbound.protection.outlook.com ([2a01:111:f403:2011::70b] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7tYB-0000000DBGe-2koq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 09:39:09 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t7tY6-0000aX-Mp; Mon, 04 Nov 2024 10:39:02 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t7tY5-001xM7-2T;
-	Mon, 04 Nov 2024 10:39:01 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t7tY5-00DP6z-27;
-	Mon, 04 Nov 2024 10:39:01 +0100
-Date: Mon, 4 Nov 2024 10:39:01 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Catalin Popescu <catalin.popescu@leica-geosystems.com>,
-	Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-next@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [PATCH RFC] mmc: pwrseq_simple: Handle !RESET_CONTROLLER properly
-Message-ID: <20241104093901.rb5ozxt7qkdgoatc@pengutronix.de>
-References: <20241102134522.333047-1-wahrenst@gmx.net>
+	id 1t7teE-0000000DCKT-3pfA;
+	Mon, 04 Nov 2024 09:45:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UP0BqFyJfD3hEo0W4bgV8qtZ7yDTqfGa5/p+Aa642PQET7c+gI/12rsfb0zhRS7VWOS3ilXeFQm80cgDWM2+SZq0eZfFjg8oFcYGNUT8+Yhq4bJBVVUKb61nJyldYyYOnyPjCrP2PF+5PfHa1xBYmpXAtNHcQRbQG7YIGTq361JhQJVKlFbrmjl6gacF1ZwZxHydjv8UEtIAlK0049VxAhDXkJm1HQ0ktJT5G/UdVesXJdmr+0OVSGYfBdkoVURa1bVkGEKa08XjUto4ZCqrL93VW/YQKeLt4NnWWw4x6w0MF4rWQQxtHEvqg1VZkflBCiDP4Ro/QYG5SlYfwvnCxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+x8WbTWZicQ7znriEfViEdrXAvoFejolOMzYSLA+irU=;
+ b=PBMYKHTvSCCrYgb51OHnW8Z2zwh89bKiq1yyqIj+ixePSIwnrtAJ7VV1j0qpUPryy05hsCUiNWwTr+JEXSmoUUgeyzJtsY8woygHIQkeoacgYhojjs5x9o4hUzp1aDlTtU/3F8NdD3a8oCvsrgAvVtXysJQ7avFGQBHHIdFi+7TX0QxPMC+chzjsOttEttFvfq+hHpgPQpAlDA9iW1TX81HvuCg1Ot8E0lOmHNqt31ytoLOnTcSnxGJ8gVHIWF92PdIL5SqtwmtZs2a9WsGGA3HeaeHZXO2IRb1nujKsN+PT85c8jsZw/fGpvtCBExUw5Wr8zeL8e7FKUEjqmVeIHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+x8WbTWZicQ7znriEfViEdrXAvoFejolOMzYSLA+irU=;
+ b=KrvN6GIpH6MKv65N+QDUBy7R05ZGJ5OfMJZWkXoG403Kx2dP1oOe68xooEGp2K01L4MCbCAlN9TkL7P5P1nIrjDcZ0ElKyZLYreU5sIUYo25DItMVk7maoILa31dJH0sRGVsjKemAu3U+FxT1zxqfpyzFyBt4xiS30hp9yVbkuU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from SEZPR02MB5782.apcprd02.prod.outlook.com (2603:1096:101:4f::8)
+ by KL1PR02MB6454.apcprd02.prod.outlook.com (2603:1096:820:cd::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.35; Mon, 4 Nov
+ 2024 09:44:56 +0000
+Received: from SEZPR02MB5782.apcprd02.prod.outlook.com
+ ([fe80::4843:bf84:bd17:827e]) by SEZPR02MB5782.apcprd02.prod.outlook.com
+ ([fe80::4843:bf84:bd17:827e%5]) with mapi id 15.20.8114.020; Mon, 4 Nov 2024
+ 09:44:56 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	haijun.liu@mediatek.com,
+	m.chetan.kumar@linux.intel.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@linaro.org,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	angelogioacchino.delregno@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	corbet@lwn.net,
+	linux-mediatek@lists.infradead.org,
+	helgaas@kernel.org,
+	danielwinkler@google.com,
+	korneld@google.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	Jinjian Song <jinjian.song@fibocom.com>
+Subject: [net-next v8 0/3] net: wwan: t7xx: Add t7xx debug ports
+Date: Mon,  4 Nov 2024 17:44:33 +0800
+Message-Id: <20241104094436.466861-1-jinjian.song@fibocom.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0008.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::10) To SEZPR02MB5782.apcprd02.prod.outlook.com
+ (2603:1096:101:4f::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241102134522.333047-1-wahrenst@gmx.net>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR02MB5782:EE_|KL1PR02MB6454:EE_
+X-MS-Office365-Filtering-Correlation-Id: cabc73e7-e361-41e0-0ead-08dcfcb55753
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KAOhuXXVmpQQlMojUMhy90mjj+dU0QAp8O9xPx7SLr/c5XWwXw02boEsMDGD?=
+ =?us-ascii?Q?dphvH8+rGheMgxMAPYUnd44Pd3W3CI1RF1/IhNTjF81tTP16hHaw++SrU//Q?=
+ =?us-ascii?Q?7bGgD0H3nqmOGbVLP6J48ntC+1KhIUT9QIjyquaupcZJcCDDXcHRPOh0zS2u?=
+ =?us-ascii?Q?Er9SAVKm6Rnr/M29PV+UCt2SPA3s4OLekcYcOZu3CjKScHxWUyESzv+E2lpG?=
+ =?us-ascii?Q?EZ8a62bU9CIN9fmDQwq2AqrDTfK71n9HWK8O5aRRpT+jf2TB7EAx4JN7B5xo?=
+ =?us-ascii?Q?RQeTkiADFITD5kdNX7rQ/oY163NLbft4oWV9t72ix+XP77GzLyyCN78acEPh?=
+ =?us-ascii?Q?DqiNxnKfBbVWEEkwxNKkzHF2wyyjadr9devp/RTVOU8dKyIyIJu25ONfR9Kl?=
+ =?us-ascii?Q?lcZLIg1UBKJjMUsgcEcTwCrrISe846Z+JVyWeRitSmS+hzDlOqh31rbfXx3G?=
+ =?us-ascii?Q?3z2hPjR1Q6kgXcjetZ3Qr3kM7GWWKZ0z/XRTtAhon1c8LF1sGbwEMbr29E24?=
+ =?us-ascii?Q?ufViHpQ3sqwtzRHMgJENiORWgAOpUEpd+Ys3zlwKScPG4p8GLEIWwq/yj4Fx?=
+ =?us-ascii?Q?XTy7fQp2Mld57G6Sagl17E+9MfJk2cgM8UmKIVQO6pI3nnBqXCN3qc9DP8lP?=
+ =?us-ascii?Q?phlBT6NlsZ47K/cwkVZeF/nbAYKB9fQzmyvEbzrjAeOPZIcTS/tIA7Q4oiSN?=
+ =?us-ascii?Q?7KMgcyb4FDaQFnStnkkFonaNm/yZNocGrABrbG8RB3C27n2d4DqGEdpyPIuV?=
+ =?us-ascii?Q?1w5YDK4oFvFGCjAWlvE8WDtQdESq2BmeZjZtHvoTQW4le6dYgqJR7fFoyyTa?=
+ =?us-ascii?Q?CnemSIlbbSjiItEYF54yIGAz5GUtWTqemXq1ANaFWmbjtM4aSRXL/4kmTbzT?=
+ =?us-ascii?Q?00oQ1w2BYZy1uU5p2gIrj1OgBcRg2UZWhC5j720VARLUITa3vpg7i1rHzyvR?=
+ =?us-ascii?Q?IIxP7CyKr5NlktTV8upTVnH1TDSSApz1bB8YL//pfiLiofrys86du3XwgDpz?=
+ =?us-ascii?Q?VLAaxqwrTmXxMxYwRP+r45i8DbTMlkvquqF0Kiii0Hk+5PrtNWF1Rt9eJEQG?=
+ =?us-ascii?Q?F/SOzWXhiimG2/8M0vjcYGxu/GKJKVI5uKkkt6+PoR9AoAOvUn4fRVo2EsNX?=
+ =?us-ascii?Q?8xDWrNWn+XFkH2SmbYM9hyQWyckTqiFH4WC1/AGUSUXZB9EI14mtG74oJ1D+?=
+ =?us-ascii?Q?6WLXsgVFcCtvG8a6jhcPhB3HCGFF9JG9RHvsxKv98noarl19/j4aollVW6Fa?=
+ =?us-ascii?Q?Z73S+yiLFngBPP1E3JkDz/tzNGCp1lH5IkkjCC6NkvA7zRiWP2IPgkDkKPx6?=
+ =?us-ascii?Q?rXKHLd3SLAs4Ts883rPKtYwIrJyeKuHxk73Q5/G4pNp1tl8kwgZBL5zwTw6f?=
+ =?us-ascii?Q?sPy3wEMludrrFWrqm8Bnzct7D40K?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR02MB5782.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QhVMNdemABAHHKzWeNZ1wnYHfyUhKIiNJfnDGPdej2FrD28CaiP7IhsOxeY6?=
+ =?us-ascii?Q?uUH8QFqDi9g7JCCu+C6k9oLabLlUlpDm4kvLZans1LZau4bcW/ZW3VcIP19C?=
+ =?us-ascii?Q?ldZyN/PxOiiyF2lTSbHsnRylJV1WchKePog57uiNB+Kr9Tyb/NVotdeD0qzZ?=
+ =?us-ascii?Q?XLWFQizBUe4cOhA7wNPP5SMv2VcGBjlon+t+O/jBLF7MYUpNwECl5z0IEM+t?=
+ =?us-ascii?Q?jSX2hKYiLbfevvSi5PesbFCCg+AvTQ5s8IzaBH7iyYO8c5srYkmmxMJHLHZ2?=
+ =?us-ascii?Q?CBkaF8lbnaaS6fM89+8xJ3aJBC1sNkOqkVRpRgbdmus/Z4TThd1BXl06scGZ?=
+ =?us-ascii?Q?PAhFQq1jGqxr5/iydKjm+j+JM7/g7RBN2BuldqCsQnD4R22SMgrKzwg3xRQ+?=
+ =?us-ascii?Q?sHXHnhSkOJ4S0eQHEMPgiR53NSKMzrse8erOCxruwA5LV3P0GubEaOBArQXC?=
+ =?us-ascii?Q?YIr0JizmL0K1xopeov/wrI7d0zbGhi4ZkIHaGVBDbBlc7Z2ATF+QkW+EQqhj?=
+ =?us-ascii?Q?+GOkQepyAcP/uDI45KZ5iixthX2Lpqipt27A8iinDQVc3bAV1iL1StIk4vu/?=
+ =?us-ascii?Q?jvYqjSLhMnB6meuNqyKAU8SCoQS6c6d+i6k+Hchl7JLdi7o2qRDfIRH78Vco?=
+ =?us-ascii?Q?4GXqvyAz/ehwmdHrUB6jBih2sOu2vOzKV6ITSBnjEXrn7qvPe4LWcZfc6Fos?=
+ =?us-ascii?Q?b8v6dXfIOXdN5wtP4kKIdWBxRiGnbZy0n/Y9T1RCR/yvYQpZ16FLsXGD4nrl?=
+ =?us-ascii?Q?pxyPXXQJGjY6ZHfeAcclbcuXmGiCpGAR88l3GExyVFXlV3EBNPuKikjL4UTE?=
+ =?us-ascii?Q?hRSaT4V63zfg3MYey+rn+L5NrGV9Jziq5NckDI2iHIAkOBLSqMSKsOrJPnv+?=
+ =?us-ascii?Q?u5Ujsnfba2g/ymgV3Ig4C8hcnfkbMmbBEtWmtvpt5BuUX8iV05jtd7p9v570?=
+ =?us-ascii?Q?yk3bEdvv0Jte5z5VWd8mcPqPfvc3R73RQpE+2t6UzNkluWUtcxGDd66IlEDg?=
+ =?us-ascii?Q?S+aHK47By62S9ZwXTvdw01bWmXUWYQ2tC7ZMm2yNTQikdDIgUoQn91Er/tiv?=
+ =?us-ascii?Q?n+/ekGAyqy8jNMVg0sUbQUnSFFcE8EUmumnAVXD84flMN0ASEpK6NzRXu6Gj?=
+ =?us-ascii?Q?blH5VfWeFdDQ6GzBYECcfPBQpTVeac16VQTapTlCi9fwBXGA63XQHoDwiRu1?=
+ =?us-ascii?Q?Cxg9Pi2Pov/DZ3TsEuGNymUJUWNX74zthZb0UEPlaO3QcNsXAyMityRittbA?=
+ =?us-ascii?Q?cjtJ64XbD7r1p69HytT1XSR+cIqHBhSPsBZkcBSte/WOtibraXpJLdPXR+Iz?=
+ =?us-ascii?Q?kS/q0UA4WR8kT37oRVk0OgZqLgnv5xmNiqo7NlMoFKvB5wLtKKX6PoGVUt/m?=
+ =?us-ascii?Q?48vKFSXvhDXWJouX/lwMfhLSC63PPJ2X1I4dIavbudg3/o4PMC5CPFdUR92X?=
+ =?us-ascii?Q?xez1Zz85+8+J8mJsCTZXXid4ycqniCcgijZKD1J+KcJGank2IqoO5J5PzVKf?=
+ =?us-ascii?Q?JmjwHj8MwszYc+ysh+84VA5/RYiYv1J+qMTcPIDKMUOhTgNwrzHtR3caKt5V?=
+ =?us-ascii?Q?HuheyD0HOpIaxn4Jg3RZa9Ybb0X/Po13YhvBwq1PYX58GQp+vSwavgS4zC77?=
+ =?us-ascii?Q?Iw=3D=3D?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cabc73e7-e361-41e0-0ead-08dcfcb55753
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR02MB5782.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2024 09:44:56.6742
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MJl64IDhSrQDOEtlne00p33q4L6og1z6cIssOtERpI6B5lub77is7eogppt3qN4G2TFzoa68jxPKJB9V79kOdiFuyzIxH/hPpp5rLI7x2Xg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR02MB6454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_013907_723843_48EE8865 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20241104_014522_961720_212116C3 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,104 +178,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Add support for t7xx WWAN device to debug by ADB (Android Debug Bridge)
+port and MTK MIPCi (Modem Information Process Center) port.
 
-On 24-11-02, Stefan Wahren wrote:
-> The recent introduction of reset control in pwrseq_simple introduced
-> a regression for platforms without RESET_CONTROLLER support, because
+Application can use ADB (Android Debug Bridge) port to implement
+functions (shell, pull, push ...) by ADB protocol commands.
 
-This is what I was afraid of :/
+Application can use MIPC (Modem Information Process Center) port
+to debug antenna tuner or noise profiling through this MTK modem
+diagnostic interface.
 
-> devm_reset_control_get_optional_shared() would return NULL and make all
-> resets no-ops. Instead of enforcing this dependency rely on this behavior
-> to determine reset support. As a benefit we can get the rid of the
-> use_reset flag.
-> 
-> Fixes: 73bf4b7381f7 ("mmc: pwrseq_simple: add support for one reset control")
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->  drivers/mmc/core/pwrseq_simple.c | 16 +++++++---------
->  1 file changed, 7 insertions(+), 9 deletions(-)
-> 
-> Hi,
-> will trying to reproduce the Rpi 4 regression from here [1], I found
-> the issue above. I'm pretty sure the Rpi 4 regression is caused by the same
-> commit. Unfortunately I wasn't able to reproduce it.
-> 
-> [1] - https://lore.kernel.org/linux-next/6724d7d5.170a0220.1281e9.910a@mx.google.com/T/#u
-> 
-> diff --git a/drivers/mmc/core/pwrseq_simple.c b/drivers/mmc/core/pwrseq_simple.c
-> index 24e4e63a5dc8..b8782727750e 100644
-> --- a/drivers/mmc/core/pwrseq_simple.c
-> +++ b/drivers/mmc/core/pwrseq_simple.c
-> @@ -32,7 +32,6 @@ struct mmc_pwrseq_simple {
->  	struct clk *ext_clk;
->  	struct gpio_descs *reset_gpios;
->  	struct reset_control *reset_ctrl;
-> -	bool use_reset;
->  };
-> 
->  #define to_pwrseq_simple(p) container_of(p, struct mmc_pwrseq_simple, pwrseq)
-> @@ -71,7 +70,7 @@ static void mmc_pwrseq_simple_pre_power_on(struct mmc_host *host)
->  		pwrseq->clk_enabled = true;
->  	}
-> 
-> -	if (pwrseq->use_reset) {
-> +	if (pwrseq->reset_ctrl) {
->  		reset_control_deassert(pwrseq->reset_ctrl);
->  		reset_control_assert(pwrseq->reset_ctrl);
->  	} else
-> @@ -82,7 +81,7 @@ static void mmc_pwrseq_simple_post_power_on(struct mmc_host *host)
->  {
->  	struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
-> 
-> -	if (pwrseq->use_reset)
-> +	if (pwrseq->reset_ctrl)
->  		reset_control_deassert(pwrseq->reset_ctrl);
->  	else
->  		mmc_pwrseq_simple_set_gpios_value(pwrseq, 0);
-> @@ -95,7 +94,7 @@ static void mmc_pwrseq_simple_power_off(struct mmc_host *host)
->  {
->  	struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
-> 
-> -	if (pwrseq->use_reset)
-> +	if (pwrseq->reset_ctrl)
->  		reset_control_assert(pwrseq->reset_ctrl);
->  	else
->  		mmc_pwrseq_simple_set_gpios_value(pwrseq, 1);
-> @@ -137,15 +136,14 @@ static int mmc_pwrseq_simple_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(pwrseq->ext_clk), "external clock not ready\n");
-> 
->  	ngpio = of_count_phandle_with_args(dev->of_node, "reset-gpios", "#gpio-cells");
-> -	if (ngpio == 1)
-> -		pwrseq->use_reset = true;
-> -
-> -	if (pwrseq->use_reset) {
-> +	if (ngpio == 1) {
->  		pwrseq->reset_ctrl = devm_reset_control_get_optional_shared(dev, NULL);
->  		if (IS_ERR(pwrseq->reset_ctrl))
->  			return dev_err_probe(dev, PTR_ERR(pwrseq->reset_ctrl),
->  					     "reset control not ready\n");
-> -	} else {
-> +	}
-> +
+Jinjian Song (3):
+  wwan: core: Add WWAN ADB and MIPC port type
+  net: wwan: t7xx: Add debug ports
+  net: wwan: t7xx: Unify documentation column width
 
-Can we add a comment like:
+ .../networking/device_drivers/wwan/t7xx.rst   | 64 ++++++++++++++++---
+ drivers/net/wwan/t7xx/t7xx_modem_ops.c        |  1 +
+ drivers/net/wwan/t7xx/t7xx_pci.c              | 58 +++++++++++++++--
+ drivers/net/wwan/t7xx/t7xx_pci.h              |  1 +
+ drivers/net/wwan/t7xx/t7xx_port.h             |  3 +
+ drivers/net/wwan/t7xx/t7xx_port_proxy.c       | 51 +++++++++++++--
+ drivers/net/wwan/t7xx/t7xx_port_proxy.h       |  1 +
+ drivers/net/wwan/t7xx/t7xx_port_wwan.c        |  8 ++-
+ drivers/net/wwan/wwan_core.c                  |  8 +++
+ include/linux/wwan.h                          |  4 ++
+ 10 files changed, 178 insertions(+), 21 deletions(-)
 
-/*
- * Fallback to gpio based reset control in case of multiple reset lines
- * are specified or the platform doesn't have support for RESET at all.
- */
+-- 
+2.34.1
 
-Regards,
-  Marco
-
-> +	if (!pwrseq->reset_ctrl) {
->  		pwrseq->reset_gpios = devm_gpiod_get_array(dev, "reset", GPIOD_OUT_HIGH);
->  		if (IS_ERR(pwrseq->reset_gpios) &&
->  		    PTR_ERR(pwrseq->reset_gpios) != -ENOENT &&
-> --
-> 2.34.1
-> 
-> 
 
