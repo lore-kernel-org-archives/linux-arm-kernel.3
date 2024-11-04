@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9323ED132C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DDAD132C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 13:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/JcBLG9ZRntCDhqwrCH8dA655EdL6Qk+i6w/V5Velc=; b=B31O28N/MXRgQMeQzPhCmshakI
-	f9nfeLOPYYDEqVr0CzrNmkTcOFYRH5sRU3FwgQAqu0OF76Trt4C0o1ZVKYE6yGD+JDTU+V2EOVR2i
-	Q8o1/3sQwFMJL25vbgrbza8p6SRte2ZLQVGB4laDZclw9BUY6k5w5TqM6q3z0GO5SXHBg8ysCwb03
-	KdrpgR1HrYXvaPwtVLQkgtMv0Bj3bKd+02E//PBpUU1GblsK01eL9I0fu6VA5fydKeeXEPfSl/HBl
-	aDSn2algSGszFwBz5Vr81rU0sz7q/dsZen3ftXA3j+r3ouWyM9uvhbigdB3/NtWcwXntRTCHv3zyl
-	MVmnZWkA==;
+	bh=6nouysTNh3Zd326+1kv3PE2U0GwzyP8B1+4gO04hKIQ=; b=EjNXeJraCfU9/OPfId/ATmLOX3
+	4qw39aelziiF/jvk180UAOYu+5Zabl+PDKwqmYMisFAnKm1NWUbnPR+zmuxfYCo2G1V4AlyPzUOOi
+	aNDW+uUjOkXHRtncZvCKYbJTyV85e1ay/MmpQ3ACHsNxo/+gqJCQZdV0UyFZJVm5JWZJ8wd5Qzu7+
+	5zy2vlWRzc4h47Y1j1kGxSnYyZ9Tg95XRnUdMxm+OUtgNrCrB4o2Sc2bFZO3+0UZPb+sgqUMlE2Eh
+	uAarvUfik6u/HQ93IutJy7XoFwWqdvNVuEtI9z/3PsYMYD1mZ6lrBu/UPPR2a8//+lKDbbYsqEwLR
+	eO9//tYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wqM-0000000DnGj-2tBJ;
-	Mon, 04 Nov 2024 13:10:06 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1t7wsP-0000000Dngx-31Bb;
+	Mon, 04 Nov 2024 13:12:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7wng-0000000DmxL-2hu8;
-	Mon, 04 Nov 2024 13:07:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1730725622; x=1731330422; i=markus.elfring@web.de;
-	bh=X/JcBLG9ZRntCDhqwrCH8dA655EdL6Qk+i6w/V5Velc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=dg6wG72PmBCTajz3zqwq23eIktpX+4mDA7NiR/yM9gRFG4w2lO6WZiTrqnG7YI1A
-	 CPDw5TVG4ILOZe4bMIqxcBJned5HJM8dyPFWAmErKGc6danEy3DBdlWutRk0h9Aeo
-	 sQW4gC8S1XAJ5rK8Na/rck/F53KDmJcigj5Kserk2dTfLnkF4ZrlAKzIIy+0YQRVp
-	 /EjasB2ZeU/GK9Ysq0IluAY6GvAwZKQXpGIXjD2aqPsWZ6SgH5J3/FVaDpfDJE8h8
-	 wMWwCoNCM8UpJLZKF8fqPWdcPgkGhilRiIPe4WORdj48Eu+2g3CyMiW4NJd305dhO
-	 0gt/fHmKH6qIPdH86g==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.88.95]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MECGl-1t0YOh1GC5-004TGg; Mon, 04
- Nov 2024 14:07:02 +0100
-Message-ID: <c64a0c92-4528-4c87-ac2e-00ee2ec666ad@web.de>
-Date: Mon, 4 Nov 2024 14:06:56 +0100
+	id 1t7wqg-0000000DnKn-0wiv;
+	Mon, 04 Nov 2024 13:10:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730725823;
+	bh=9HrB0hRfb9MPWXWPeZXQEXRRgtlF7QfDTCZF/aQwKS8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GbGCE6C8wudOGBSfu79muvMfKAR2yVIJY6fKZ3raaCqVJIaEX6fTCGnObJv5S9xT/
+	 LVcV69AQ/8Ic/fjsFUkOGpfUa3ye/hkVUzvgxHf635JfVvPj5givJN5R5OfiwMp2og
+	 oaMIEKQMW9AhQOWlVCztjeRseIPGGqaMZNn1ZUxi0LSKrqvvhbl+PFidY8kbPL9EkL
+	 gzC73UaJQr/1jJgT+Q1E8BDKjvymTZgHsGT1U2WBKNzN2cyPugLZUWGYIekG3XEJFQ
+	 Ni+VH9w3FQR2vuUZVrhyehfa3m76omIpOFcT3SmARcIwp93kKL4J75Yj1VI9Y74iFI
+	 1uM9UR5RxPozA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BBBB17E3630;
+	Mon,  4 Nov 2024 14:10:23 +0100 (CET)
+Message-ID: <f8ca0f82-2851-40d9-983b-2a143b44263a@collabora.com>
+Date: Mon, 4 Nov 2024 14:10:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Shu-hsiang Yang <Shu-hsiang.Yang@mediatek.com>,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Sumit Semwal <sumit.semwal@linaro.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Hidenori Kobayashi <hidenorik@chromium.org>,
- =?UTF-8?B?U2h1bi1ZaSBXYW5nICjnjovpoIblhIQp?= <Shun-Yi.Wang@mediatek.com>,
- teddy.chen@mediatek.com, yaya.chang@mediatek.com,
- Yunke Cao <yunkec@chromium.org>
-References: <20241009111551.27052-6-Shu-hsiang.Yang@mediatek.com>
-Subject: Re: [PATCH 05/10] media: platform: mediatek: add isp_7x camsys unit
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20241009111551.27052-6-Shu-hsiang.Yang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:bRyeFpZaX8wNJrlK6hdPLRc1mevh68UYevrSMj6u1GEWHCvYp0U
- U7WMp+S6fbcCQsjvUzIRvGihCk2wnelpSPybJxv9aPgPvJH/2Q9Bp4FCbLhymk1TJdLACVY
- tNke6VamALyDNd9theYf/QpwhLZShCQDhsO6KJzXj7Aihi1qKCJefHw1nU1/9YGR4Mh0VA4
- 3t22eg/S+4Y5juXqsxN2w==
-UI-OutboundReport: notjunk:1;M01:P0:H3ddCuVI+08=;FuKuZdqE+LyO/ovYd7kI/LBYHH7
- 1BquZJV7yDnZAq3QrkDvghilD4FPiEtRngTsk3KCj/omyHEfMVhKkX3zjOI6ddAMMKvJtI77U
- v2nNOBon+Y5RKrDtdAKDwNPQpaNmnK8ZnxNzaNBDpkTrv2YLlzkH1YsNtlWAcFR0uy7nQ54c7
- g55gmNEf7mk+GO8GM+b/VZRxtOc/ln1BBa2BE3HMRPZh0dAnffyko2z0yYuH2i7VqK8ZT96zU
- 97OeKp0acHRETcR/WuIHP4LWNeq+TqlPa58qYIzc6SpOrAXNpZUGF6/op3zXDQQwrdkcUYABO
- k1qPEuF455UBguUPoXaHmqwrlrrhLQgJfBphfAI/LhZwdNa1UTLafQEF7sCTt09j90rDpEwsc
- vxVb5aQwAOudnybxQaYkHYfkO9+r2iBm7NWmR+19l8uEHJvmBEGA1Ae2jSian+hfwKmsGFfS6
- An8akll0stTcaY3+aXRp36l5L8IgYHqpu43tlR7j6iNxZCl+4TLOmDEX8CyzSi6AwCc/hJhs/
- cIuefjktwSXY0gol2oRmCXTd4+JPpvFoPcfsVUM6xez6Oj+mmpQ2CrmdQHAUHTIi1pueS+7Xk
- 3q4/RUqz26ieSi1k+khwxlaJt6sCIYdkXtOPD3BikHFQtWCetvIiU8R+oZa9QGYEvGWNz8a2R
- 9v8Ds7T9O5D8//Vnsnt+XFBUzi9f20lvfBG3HDCvxVG+5bmuR4ruvL6lkHKFL6jHUJcHZXUuG
- j0ZN6ro3CkEghF7k9u1sjPWivH8BbyD9PgWXHFUEl7f+HaLB6FPW5F4ayuvpAns38oY6knOiB
- TRqKsdO5ojH//9XY5JYKHO3w==
+Subject: Re: [PATCH v4 1/2] PCI: mediatek-gen3: Add support for setting
+ max-link-speed limit
+To: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ linux-pci@vger.kernel.org
+Cc: ryder.lee@mediatek.com, jianjun.wang@mediatek.com, lpieralisi@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, matthias.bgg@gmail.com,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ fshao@chromium.org, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com>
+ <20241104114935.172908-2-angelogioacchino.delregno@collabora.com>
+ <D5DF0QIO2UZQ.29U999LYCC05M@rocinante>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <D5DF0QIO2UZQ.29U999LYCC05M@rocinante>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_050720_990688_466EED98 
-X-CRM114-Status: UNSURE (   4.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_051026_457469_97D2C75D 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,23 +81,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> +++ b/drivers/media/platform/mediatek/isp/isp_7x/camsys/mtk_cam.c
-> @@ -0,0 +1,4168 @@
-=E2=80=A6
-> +void mtk_cam_dev_req_try_queue(struct mtk_cam_device *cam)
-> +{
-=E2=80=A6
-> +	spin_lock(&cam->running_job_lock);
-> +	job_count =3D cam->running_job_count;
-> +	spin_unlock(&cam->running_job_lock);
-=E2=80=A6
+Il 04/11/24 14:06, Krzysztof Wilczyński ha scritto:
+> Hello,
+> 
+>> +	if (err > 0) {
+> 
+> You could drop > 0 here.
+> 
 
-Under which circumstances would you become interested to apply a statement
-like =E2=80=9Cguard(spinlock)(&cam->running_job_lock);=E2=80=9D?
-https://elixir.bootlin.com/linux/v6.12-rc6/source/include/linux/spinlock.h=
-#L559
+I have no strong opinions about that, would be fine for me.
 
-Regards,
-Markus
+>> +		/* Get the maximum speed supported by the controller */
+>> +		max_speed = mtk_pcie_get_controller_max_link_speed(pcie);
+>> +
+>> +		/* Set max_link_speed only if the controller supports it */
+>> +		if (max_speed >= 0 && max_speed <= err) {
+>> +			pcie->max_link_speed = err;
+>> +			dev_dbg(pcie->dev,
+>> +				"Max controller link speed Gen%d, override to Gen%u",
+>> +				max_speed, pcie->max_link_speed);
+>> +		}
+>> +	}
+> 
+> I wonder if this debug message would be better served as a warning to let
+> the user know that the speed has been overridden due to the platform
+> limitation.  Thoughts?
+> 
+> Also, there is no need to sent a new series if you fine with the
+> suggestions.  I will mend the code on the branch when applying.
+> 
+
+A warning seems to be a bit too much and would appear like something to worry
+about (or something unintended)...
+
+Perhaps a dev_info() would work better here?
+
+Thanks,
+Angelo
+
+> 	Krzysztof
+
+
+
 
