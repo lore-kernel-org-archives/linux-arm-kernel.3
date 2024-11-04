@@ -4,65 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A40D1BDF2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0213D1BDF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 21:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZwqcewzHupwjnvzMtZCoU8nz1w4yj2a+d4NluLVZaRk=; b=lJYUI3SJmDKqWPyQEN/3upKBlf
-	yiK20UqXWWKJS6McxnIKW7pPXf1OqkEobhZVqimtR84dL1unqwu6JSy/OM0ZnSDQIEoiZ26LlNgEz
-	cpoX1Lwn8HBAOpex7G7z5eBKwgfQXq/i+AYmcT/vsVxegVH0rnxGmwFyankCKGwU974lrkuqX4InS
-	wrEmlhwTtacJKfNblbmJPhTW1eMozcljBbWIW2Xq/yRgNZeC5FG2TMlZdcgUUIpLI9Wu9A3eHiq6V
-	Z8niaBJuTAR1jIpFuXPkSz2Vlg3vEmje4oF67ayA5crP77ld9pHY8VXPyKrFoclP+z5BOSpuFTfAB
-	JBL+rwSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4V9Yv2fAvOK/vMiP82IoKQz/aaC4GtvY8C8de1dPo6U=; b=dx6/3u5GpgrFvA
+	QakrzOu1BfzjauPyTmXS+b2iweWSHZLSNEaMhoCYrPSsEDmW0iX/DAp0fAq3rxZ3yAduDnBtF4A93
+	m0qmabYjyk8eMQm3yqINOeFi6KBRloklJIe0hMZtZY3r/blW+hRpZSTaJs9Zwmu/+eIO6QJQ7FDjU
+	f+INkuwuYLoRoxHV1IFycNt4PzOsfNWGaf1mHlQAXqobJyMXuly33zvFcpqfTDFujgI9zzhM1mRaE
+	oBxvpPt8etq9pSERDrj5b0Bu1nuelzkctritDRq6J7QP4neA2BFIT30841jhpZernoCh8Mn/Sapz3
+	iUQvdcOtcUvYEry5XOpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84Dr-0000000F54Y-45Ji;
-	Mon, 04 Nov 2024 21:02:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t84Jo-0000000F6Qs-1Jrl;
+	Mon, 04 Nov 2024 21:09:00 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t84C4-0000000F4fB-2NY7
+	id 1t84Hc-0000000F5ST-2UDw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 21:01:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0D5095C5574;
-	Mon,  4 Nov 2024 21:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBC61C4CECE;
-	Mon,  4 Nov 2024 21:00:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730754059;
-	bh=ZwqcewzHupwjnvzMtZCoU8nz1w4yj2a+d4NluLVZaRk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ojUt+swGQC2u860PKg99GnFJSis8f9vsn705qfEAUUUFJRNTMuaANEmYJ28+1w7qk
-	 FNv/mIO/SuXCCjtUWopqbhNAb+S4pC0MIJSct3mFS+Dfz+PKoTxOKAaeFSTTYiN6+A
-	 fFwJRGmO69mJBbMjNxE5fiYTWifgdGra5OWC38ugD3AKIOp40EBDJZa4XmaDqUszcq
-	 IDfVUjGomhm0EQ5AuIuJ1OaP7UO1dJnpd+l4mJgsPoAH89rFBKVSy7PPGSDhjb5Vx+
-	 VRT2AqluSoS0b1ZAfbfzMKh+dIb2+hFKEdomSubq/RvsIPj4VxbugGz1USkIHGfR01
-	 5AHsA/foYCeaQ==
-Date: Mon, 4 Nov 2024 21:00:55 +0000
-From: Mark Brown <broonie@kernel.org>
-To: kernelci-results@groups.io, denys.f@collabora.com
-Cc: will@kernel.org, "kernelci.org bot" <bot@kernelci.org>,
-	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	kernel-build-reports@lists.linaro.org
-Subject: Re: arm64/for-kernelci baseline: 14 runs, 4 regressions
- (v6.12-rc5-158-g5283dc78f4da)
-Message-ID: <9a899281-dea2-44b7-b4f3-1a0b1e10f1b3@sirena.org.uk>
-References: <67254346.170a0220.36a303.e8c0@mx.google.com>
- <20241104105548.GA11039@willie-the-truck>
- <a7e8a07cafbb1bcd215a7e9cc30351f6e028ee38.camel@collabora.com>
+	Mon, 04 Nov 2024 21:06:46 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-71e467c3996so3972307b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 13:06:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730754402; x=1731359202; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4V9Yv2fAvOK/vMiP82IoKQz/aaC4GtvY8C8de1dPo6U=;
+        b=e4qSwR2BfoKfepw2u1fcuHb+G1aA5pnq5wI6IkVujDJ0uGBPeYbbxeBc3dUlgXbsB6
+         xDFmB46cqqqE5OKDYVIGqFJq228SQFsD+B+xhGVweWkN4ZdVnlXNdd6K6wJJhdj0+E1Q
+         1OZy4qXlCIBI+nTG232yIAhn7UfAyjeO/5wl7763GtM0m7LCHNZ9VrPrI3OMmgkfGD+3
+         m9zkSown7f4z8SlM9gE+nRJkghC74ncaHu0U7PX1VI2kMncFN3m6THmok367/vsFSjUu
+         5PbLAP7133XGWiinALEAbhbuOwm+3bXAexxchuffpWwts3aQ+NW5E9cCIolTrWderNrH
+         ouKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730754402; x=1731359202;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4V9Yv2fAvOK/vMiP82IoKQz/aaC4GtvY8C8de1dPo6U=;
+        b=HSBX8shGqz4r7b04vqA4H6fvXbok0ui/zbRBTBL3OAudN0Y+Tem9s7KJmQpet7KVam
+         sVuaQBbdthJH6WDA6jgxQXjJN7dA50pH5IqLRFGtDzxapGlyqrPFOlvURz6/B5EFVXOX
+         X9Nvq+DzIVjTthbw2TuLhHp7SEuOsViunhGELCWyrvZBQeecDWzJQR3hTVIyj0Aldy1A
+         CLTLe6TaG3xIyKNY56KBy9Io0rNsgA2qTx4KOwSp8zgmexDIU4t9D/6rjU2SWHkqdRt0
+         gGMJ/ITq87AsrCDbGEqBDuLUohdPUM7afcQM9Vq2uDLTTnXQWo5bf40u8hprJNOdpem/
+         X/ew==
+X-Forwarded-Encrypted: i=1; AJvYcCXJJAGDsyEYgHuo5Dy3v1tqL803e+Vl0uMIrx9TUdkb/xcJZt4v83kac3jah0BQY6VeBdvLyc86ehaAvMEmxmih@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/uDya1dGs5jXERLT/6WNLk2MVNcH/gKhtjFiLWIDuEt3Ilixb
+	3VJF2sqhxLZuqdqnK6TD4ipTshEZn4ZfDPtRzROS6dAffsGm/uHVyvlz2dvUr38=
+X-Google-Smtp-Source: AGHT+IFk0UULo9afhQbnlnWjUo65KmcRu9RXVFubvhCDhtDv1i7bMZR037d187cAIN7jV72mG65BAw==
+X-Received: by 2002:a05:6a00:398f:b0:71e:3b8:666f with SMTP id d2e1a72fcca58-72062f712a6mr45086642b3a.11.1730754402245;
+        Mon, 04 Nov 2024 13:06:42 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee490e08f4sm7248293a12.40.2024.11.04.13.06.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 13:06:41 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH RFT 00/16] perf tools: Use generic syscall scripts for all
+ archs
+Date: Mon, 04 Nov 2024 13:06:02 -0800
+Message-Id: <20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+13vMPRzfz8U7SaH"
-Content-Disposition: inline
-In-Reply-To: <a7e8a07cafbb1bcd215a7e9cc30351f6e028ee38.camel@collabora.com>
-X-Cookie: The meek are contesting the will.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADs3KWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxMDS0Nj3YLUorT44sri5MScnJKkHF2zNEuLlNS05GSzNFMloK6CotS0zAq
+ widFKQW4hSrG1tQBojDoLZgAAAA==
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
+ =?utf-8?q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+ Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+ Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org, 
+ bpf@vger.kernel.org, linux-csky@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7158; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=5/i4aYa+bDmYTyC5+2MiIF90lU7UD7sa8a5447uXxv8=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7qmeciNY1P03++xMXAsfRHbpe+78drinTw1tXbGz7+Wr
+ Ju8KWh2RykLgxgHg6yYIgvPtQbm1jv6ZUdFyybAzGFlAhnCwMUpABM5EsbI8GVF2ZM24Xkrris0
+ z/sq5lEb29TY+lRskptvquex1zdnTmVkeMmzRCpUqM1DZ3Uzn/zaQNNXQb5t557syf19M6pitXc
+ /DwA=
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_130100_669850_CEEB19B3 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20241104_130644_939770_05EF78BB 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +119,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Standardize the generation of syscall headers around syscall tables.
+Previously each architecture independently selected how syscall headers
+would be generated, or would not define a way and fallback onto
+libaudit. Convert all architectures to use a standard syscall header
+generation script and allow each architecture to override the syscall
+table to use if they do not use the generic table.
 
---+13vMPRzfz8U7SaH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+As a result of these changes, no architecture will require libaudit, and
+so the fallback case of using libaudit is removed by this series.
 
-On Mon, Nov 04, 2024 at 09:31:22PM +0200, Denys Fedoryshchenko wrote:
-> On Mon, 2024-11-04 at 10:55 +0000, Will Deacon via groups.io wrote:
+Testing:
 
-> > Any chance of getting "lab-broonie" onto a version of QEMU containing
-> > [1]?
+I have tested that the syscall mappings of id to name generation works
+as expected for every architecture, but I have only validated that perf
+trace compiles and runs as expected on riscv, arm64, and x86_64.
 
-> Yes, i opened issue
-> https://github.com/kernelci/kernelci-core/issues/2733
-> We will try to add devices this week, and if they get tested ok, i will
-> push to production next week monday.
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Charlie Jenkins (16):
+      perf tools: Create generic syscall table support
+      perf tools: arc: Support generic syscall headers
+      perf tools: csky: Support generic syscall headers
+      perf tools: arm: Support syscall headers
+      perf tools: sh: Support syscall headers
+      perf tools: sparc: Support syscall headers
+      perf tools: xtensa: Support syscall header
+      perf tools: x86: Use generic syscall scripts
+      perf tools: alpha: Support syscall header
+      perf tools: parisc: Support syscall header
+      perf tools: arm64: Use syscall table
+      perf tools: loongarch: Use syscall table
+      perf tools: mips: Use generic syscall scripts
+      perf tools: powerpc: Use generic syscall table scripts
+      perf tools: s390: Use generic syscall table scripts
+      perf tools: Remove dependency on libaudit
 
-Just to clarify for Will this is a KernelCI side thing - the qemu used
-for the jobs comes from a container specified by the KernelCI jobs.
+ Documentation/admin-guide/workload-tracing.rst     |   2 +-
+ tools/build/feature/Makefile                       |   4 -
+ tools/build/feature/test-libaudit.c                |  11 -
+ tools/perf/Documentation/perf-check.txt            |   1 -
+ tools/perf/Makefile.config                         |  28 +-
+ tools/perf/Makefile.perf                           |  12 +-
+ tools/perf/arch/alpha/entry/syscalls/Kbuild        |   2 +
+ .../arch/alpha/entry/syscalls/Makefile.syscalls    |   5 +
+ tools/perf/arch/alpha/entry/syscalls/syscall.tbl   | 504 ++++++++++++++++++++
+ tools/perf/arch/alpha/include/syscall_table.h      |   2 +
+ tools/perf/arch/arc/entry/syscalls/Kbuild          |   2 +
+ .../perf/arch/arc/entry/syscalls/Makefile.syscalls |   3 +
+ tools/perf/arch/arc/include/syscall_table.h        |   2 +
+ tools/perf/arch/arm/entry/syscalls/Kbuild          |   4 +
+ .../perf/arch/arm/entry/syscalls/Makefile.syscalls |   2 +
+ tools/perf/arch/arm/entry/syscalls/syscall.tbl     | 479 +++++++++++++++++++
+ tools/perf/arch/arm/include/syscall_table.h        |   2 +
+ tools/perf/arch/arm64/Makefile                     |  22 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild        |   3 +
+ .../arch/arm64/entry/syscalls/Makefile.syscalls    |   6 +
+ tools/perf/arch/arm64/entry/syscalls/mksyscalltbl  |  46 --
+ .../perf/arch/arm64/entry/syscalls/syscall_32.tbl  | 476 +++++++++++++++++++
+ .../perf/arch/arm64/entry/syscalls/syscall_64.tbl  |   1 +
+ tools/perf/arch/arm64/include/syscall_table.h      |   8 +
+ tools/perf/arch/csky/entry/syscalls/Kbuild         |   2 +
+ .../arch/csky/entry/syscalls/Makefile.syscalls     |   3 +
+ tools/perf/arch/csky/include/syscall_table.h       |   2 +
+ tools/perf/arch/loongarch/Makefile                 |  22 -
+ tools/perf/arch/loongarch/entry/syscalls/Kbuild    |   2 +
+ .../loongarch/entry/syscalls/Makefile.syscalls     |   3 +
+ .../arch/loongarch/entry/syscalls/mksyscalltbl     |  45 --
+ tools/perf/arch/loongarch/include/syscall_table.h  |   2 +
+ tools/perf/arch/mips/Makefile                      |  18 -
+ tools/perf/arch/mips/entry/syscalls/Kbuild         |   2 +
+ .../arch/mips/entry/syscalls/Makefile.syscalls     |   5 +
+ tools/perf/arch/mips/entry/syscalls/mksyscalltbl   |  32 --
+ tools/perf/arch/mips/include/syscall_table.h       |   2 +
+ tools/perf/arch/parisc/entry/syscalls/Kbuild       |   3 +
+ .../arch/parisc/entry/syscalls/Makefile.syscalls   |   6 +
+ tools/perf/arch/parisc/entry/syscalls/syscall.tbl  | 463 +++++++++++++++++++
+ tools/perf/arch/parisc/include/syscall_table.h     |   8 +
+ tools/perf/arch/powerpc/Makefile                   |  25 -
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild      |   3 +
+ .../arch/powerpc/entry/syscalls/Makefile.syscalls  |   6 +
+ .../perf/arch/powerpc/entry/syscalls/mksyscalltbl  |  39 --
+ tools/perf/arch/powerpc/include/syscall_table.h    |   8 +
+ tools/perf/arch/riscv/entry/syscalls/Kbuild        |   2 +
+ .../arch/riscv/entry/syscalls/Makefile.syscalls    |   4 +
+ tools/perf/arch/riscv/include/syscall_table.h      |   8 +
+ tools/perf/arch/s390/Makefile                      |  21 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild         |   2 +
+ .../arch/s390/entry/syscalls/Makefile.syscalls     |   5 +
+ tools/perf/arch/s390/entry/syscalls/mksyscalltbl   |  32 --
+ tools/perf/arch/s390/include/syscall_table.h       |   2 +
+ tools/perf/arch/sh/entry/syscalls/Kbuild           |   2 +
+ .../perf/arch/sh/entry/syscalls/Makefile.syscalls  |   4 +
+ tools/perf/arch/sh/entry/syscalls/syscall.tbl      | 468 +++++++++++++++++++
+ tools/perf/arch/sh/include/syscall_table.h         |   2 +
+ tools/perf/arch/sparc/entry/syscalls/Kbuild        |   3 +
+ .../arch/sparc/entry/syscalls/Makefile.syscalls    |   5 +
+ tools/perf/arch/sparc/entry/syscalls/syscall.tbl   | 510 +++++++++++++++++++++
+ tools/perf/arch/sparc/include/syscall_table.h      |   8 +
+ tools/perf/arch/x86/Build                          |   1 -
+ tools/perf/arch/x86/Makefile                       |  25 -
+ tools/perf/arch/x86/entry/syscalls/Kbuild          |   3 +
+ .../perf/arch/x86/entry/syscalls/Makefile.syscalls |   6 +
+ tools/perf/arch/x86/entry/syscalls/syscalltbl.sh   |  42 --
+ tools/perf/arch/x86/include/syscall_table.h        |   8 +
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild       |   2 +
+ .../arch/xtensa/entry/syscalls/Makefile.syscalls   |   4 +
+ tools/perf/arch/xtensa/entry/syscalls/syscall.tbl  | 435 ++++++++++++++++++
+ tools/perf/arch/xtensa/include/syscall_table.h     |   2 +
+ tools/perf/builtin-check.c                         |   1 -
+ tools/perf/builtin-help.c                          |   2 -
+ tools/perf/builtin-trace.c                         |  30 --
+ tools/perf/check-headers.sh                        |   9 +
+ tools/perf/perf.c                                  |   6 +-
+ tools/perf/scripts/Makefile.syscalls               |  69 +++
+ tools/perf/scripts/syscalltbl.sh                   |  86 ++++
+ tools/perf/tests/make                              |   7 +-
+ tools/perf/util/env.c                              |   4 +-
+ tools/perf/util/generate-cmdlist.sh                |   4 +-
+ tools/perf/util/syscalltbl.c                       |  87 +---
+ tools/scripts/syscall.tbl                          | 405 ++++++++++++++++
+ 84 files changed, 4089 insertions(+), 555 deletions(-)
+---
+base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
+change-id: 20240913-perf_syscalltbl-6f98defcc6f5
+-- 
+- Charlie
 
---+13vMPRzfz8U7SaH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcpNgYACgkQJNaLcl1U
-h9B/DAf+Pxa3r5V7f2RgIashVaplAMn+5PKH9L76mEggr51GHmUSua+ytd7yUvA4
-HmKvT5l6W/udprxQY2lTUixeGgY5+yOg5vi/4MTXK2iiaGVQJ+R5gCCMrAR7eOf5
-0kASKqFlNs+TPQdDUmVZsNYjoG1bjs4EP8Kci+x/GuJDtMTKtlTz/bSsYwTGZIfR
-aOJ6kbFR5ZLGtsllcfsfzk7Q66EVBsTzt5pZX4vq0tVKepDr7LuxRWpdmGUBPir7
-ZVlNNHSy4lPUW0IYMhQstQqsUtrl8qvWF2V4VYFP3iQFRZWWZS8ixD5znUYqIpxR
-/iCEe2mwCL5i0JuhT75ioQIjY9HqVA==
-=NE4F
------END PGP SIGNATURE-----
-
---+13vMPRzfz8U7SaH--
 
