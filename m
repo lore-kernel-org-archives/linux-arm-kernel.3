@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA13D111B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB41D111B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 07:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZRpCxs1ZQTmZewSRGTv8tKfeNyI4SPc6Zju2MFK6Jg=; b=2qdZWI/MPSA7I98ABjGC8r9/9i
-	D8YrLQ+6SdV+2sQLI0E+BzC6dmq2f0f0MzQXrFQygXzgKCreyRvjNoAQkumIuJm/aNY0nG8TKAn1L
-	1eNNnMt5m99VG+lTDW5L7ejBrL6RVXgwJFIp7oZgSiF5Nie0qnbiHtJNI3ne60qO5SMnAGM2BgtVJ
-	IUnWNaZ+GYIKe8FDw96+9FBQytE7lDyDusTDbM0ZInAGwMCwQGDIkKZLOr2lkxDYUtrgSyK7t1wXb
-	YC8UTkpcAqK16QI7YLR7jObIyLKFErp+Yy9UwFK3oHxEQjZSABJpDdL416JR7JP+2jxim0sHXuH78
-	DXHWwVkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xv5bUFMxs4KAHpxzUJnsOpeLi4TFFl07AzHMQZEr5RI=; b=UR7xVdIyDw2z6yOcVCeCw2+OZo
+	uUmQ7QYmyZ40E11ZoswUJCEMFXMJVioXtrC8X15eUgmZ9lRtV/F+WArB6MhuaVM+PySw4iEjJ38N+
+	jORpP3TiLTx4Mo54qrMfh+uV4l116SeAwnk+x6aEtZvLPtMUQjse3xCm06K7RkQi2AnXhaPl64Feq
+	DVi5RhCV9ylQTDfULnpQp5Ix07GMA8FJn+KF2JuL5jFoG6W+PcYCTpXanFWHwq09+wzNZJWrDtlF/
+	Zz8jDuoE1iC52Cwc+CwUzWwINBVPYcalRpfOA4mAOe53mPQCb6FxmB0gAxzE6PefJfsPV8MK+GFdF
+	/1brAMgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rjA-0000000CsTc-1uRm;
-	Mon, 04 Nov 2024 07:42:20 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7rgv-0000000Cs9v-1xSA
+	id 1t7rko-0000000CshL-0POF;
+	Mon, 04 Nov 2024 07:44:02 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t7rj1-0000000CsRa-2Its
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 07:40:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=IZRpCxs1ZQTmZewSRGTv8tKfeNyI4SPc6Zju2MFK6Jg=;
-	b=gvGGCXOiiOnY2rDmLIb1mGs6sM8ngd9H+Ubx8cwyBOCLGJZw7qlZOcuunFvutj
-	4sonau3Vgnse4MItd3uIgjEAiNbE5MF82l2WMU4mLBUjPU5CRVmainI+IQUwOmIj
-	NT8+pqAbZunxJG2GNOoxnRt0pe7iaKxfOz6SzpeSAUuRo=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCnT+o6eihndZamAQ--.16521S3;
-	Mon, 04 Nov 2024 15:39:40 +0800 (CST)
-Date: Mon, 4 Nov 2024 15:39:38 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: alice.guo@oss.nxp.com
-Cc: alexander.stein@ew.tq-group.com, wahrenst@gmx.net, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>
-Subject: Re: [PATCH v4] soc: imx: Add SoC device register for i.MX9
-Message-ID: <Zyh6Oi+3cPXmMjz6@dragon>
-References: <20241031065438.3912960-1-alice.guo@oss.nxp.com>
- <ZydAVhFvHWCk6oNH@dragon>
+	Mon, 04 Nov 2024 07:42:16 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 9F2F4A03A7;
+	Mon,  4 Nov 2024 08:41:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=xv5bUFMxs4KAHpxzUJns
+	OpeLi4TFFl07AzHMQZEr5RI=; b=UjAozkVggqW7Pn76P3FQKyuO1H3QhUzKCKYG
+	MXPGw/eeO+RT3nzUhFoQww6cJYUhECAu0iFRc66fHZG2pPfoMgFHWfRR7mAkgnd6
+	tqvzdWluQ2BCtaPBInFwCA3LQ9cXcMpBFo1hv92cARW8sIYOz3OZPfWKrOOGRbR1
+	OLbxrn0RJhp7yVl5QJuBtUk/Ao7uu4hrRHFXsFONq93aMs2l2JPikLZG3/EKPQSa
+	tiSG6Oaoctb86Fnea2mE8+8+broZ1SdCvqRUBf/+cRLC/M1/QKhT3H3WacZyCU48
+	ViPwCTZKybSK/WEVoiBB2QZykK4UDM6pAIpanlaPl/5bjSDbfNrURQiYSg6xBJLG
+	ui1lCNRghhAk8JDqkxhZT7vUu+WazarSDyZcpIIXuNhkTPOKG8EVLjY/p14yukJ4
+	0zpZ5ILtEC0U4oneBRww62WoFibPhvK1Ky/hOERdtKazEBfFZ6O2FXJpwd8I8Nrs
+	TYKb0iKDMIxX8CtcmdiFfoQQNISwAg06LyBJOOqsLvlukQ6zoY3bbaN0CoXhl95H
+	dXhwlmsx14UbGUp7II0uUk9kwf6yr39SjAjR2b3dPgEWQbsnid1r+D3Y/rS3ILic
+	qb8inFrxASzV4CRmz1hldWWRMBvXcBIR8LWvWQGaAa2OSvcbKYizEv45MOUO88g8
+	uZiOEJ4=
+Message-ID: <656fab96-b326-4721-9b55-2b5e3d652703@prolan.hu>
+Date: Mon, 4 Nov 2024 08:41:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZydAVhFvHWCk6oNH@dragon>
-X-CM-TRANSID: Mc8vCgCnT+o6eihndZamAQ--.16521S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrKFyrArW3tw1UGryrAryftFb_yoWfAFX_uF
-	1DC34UWr1vgF4xuwn5Crn3ZFyftw1UXF98JrnFkFWfWry5Crn8JFs7X34fta1xW397tFy7
-	CF1Sqr4FvwnxKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUn6wZ7UUUUU==
-X-Originating-IP: [117.62.23.195]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCRCNZWcoYCtN+gABsD
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/5] dma-engine: sun4i: Add has_reset option to quirk
+To: Andre Przywara <andre.przywara@arm.com>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Mesih Kilinc
+	<mesihkilinc@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul
+	<vkoul@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>
+References: <20241102093140.2625230-1-csokas.bence@prolan.hu>
+ <20241102093140.2625230-3-csokas.bence@prolan.hu>
+ <20241102174516.02d124d6@minigeek.lan>
+Content-Language: en-US
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <20241102174516.02d124d6@minigeek.lan>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94855667261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241103_234002_665562_72812AAA 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20241103_234212_082879_536DE981 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 03, 2024 at 05:20:22PM +0800, Shawn Guo wrote:
-> On Thu, Oct 31, 2024 at 02:54:38PM +0800, alice.guo@oss.nxp.com wrote:
-> > From: "alice.guo" <alice.guo@nxp.com>
-> > 
-> > i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-> > which are provided by the corresponding ARM trusted firmware API. This
-> > patch intends to use SMC call to obtain these information and then
-> > register i.MX9 SoC as a device.
-> > 
-> > Signed-off-by: alice.guo <alice.guo@nxp.com>
-> > Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Hi!
+
+On 2024. 11. 02. 18:45, Andre Przywara wrote:
+> On Sat, 2 Nov 2024 10:31:41 +0100
+> "Csókás, Bence" <csokas.bence@prolan.hu> wrote:
 > 
-> Applied, thanks!
+> Hi,
+> 
+>> From: Mesih Kilinc <mesihkilinc@gmail.com>
+>>
+>>   static struct sun4i_dma_dev *to_sun4i_dma_dev(struct dma_device *dev)
+>> @@ -1215,6 +1218,13 @@ static int sun4i_dma_probe(struct platform_device *pdev)
+>>   		return PTR_ERR(priv->clk);
+>>   	}
+>>   
+>> +	if (priv->cfg->has_reset) {
+>> +		priv->rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
+> 
+> Can't we use devm_reset_control_get_optional_exclusive(), and then save
+> this whole has_reset bit?
 
-I have to drop it for now, as I just recall that we should probe SoC
-driver as platform driver.  Could you rework it a bit like what Marek
-has done for soc-imx8m driver?
+For suniv, reset is REQUIRED. For sun4i, reset DOES NOT EXIST.
 
-https://patchwork.kernel.org/project/imx/patch/20240929184930.73049-1-marex@denx.de/
+has_reset does not mean that whether this instance has a reset control 
+or not, that is handled by checking priv->rst for NULL. has_reset means 
+whether reset is REQUIRED by this type of DMA, specified by the DT match 
+data.
 
-Shawn
+Bence
 
 
