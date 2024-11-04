@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93055D132DF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F500D132DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 15:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IwUxPqFxY0PaGxvOEruDwl5ND0nzb9dvKiFbxQXwPog=; b=T9xZwSy//St5Ziw9lxW/mZCHzi
-	yhlAiYcxRaNMbX0APQ6GMqRPmeUNaaroKXVK1/txD3nBiA4Jqf4X5uPTHsVzMQgDinzrbFMKt/bKK
-	HrMrNSb8IYGaXy3aksz0IX92tXY/CG0rIvxgHV+UPapLoeg/oWi2is5BrMkh0mUFIDz9SuwCtYupq
-	VwJ5/17wJN0e7nXKKVR7uAUrrYNuIv5T++fcpqgweqmh4FkeGSGfVsGWlr+L8flqEcPgxmosKWFS+
-	dGUwUsd6YvEvVKaLtx+2NtDTQ71Y8ZkVRMYlnYOgpiBcynNO2baVL6BxCuiZIXZiwTpMEplq85BH+
-	nGNv7cKw==;
+	bh=Z7MfitmQ0PPEEtSeMhWJnxTy1ui+0bet397Seb2oWFY=; b=Eper6b+pwWKVib0mOVm8pfiaVx
+	mPv8umGpNqNZWonNtxSQYog93t93CcuPyehFzm+O27LBu9xZo7uhc0lx+TRpBHmpy4Rf/CBE92fMT
+	9qDEagrzljMj0yJVXkhluDV06ulZraIecI3Aj+C8aiuwcjQO+dTALQNsr1dSai+PwksZCU6gwhv0d
+	KjQ/O57WDaimJ24aY+fGmM0ixbLVY490CFWdQJo77iyjfgS4vFO4amV2i2flPCHvSHx4cOaXm2qxb
+	3W1pCW7ZTP9CjHiTShzFkuf5FpYo8mlGr0crhwvKtf1GsBKl9SFDoASsYpzEW0vFOeQ/ja5RfzAN7
+	MHN7eUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zFi-0000000EFRj-0AXu;
-	Mon, 04 Nov 2024 15:44:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t7zHO-0000000EFvp-1VuO;
+	Mon, 04 Nov 2024 15:46:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7zE1-0000000EF4Q-0Wh4
+	id 1t7xXI-0000000DwxG-1QRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 15:42:42 +0000
+	Mon, 04 Nov 2024 13:54:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B96915C1385;
-	Mon,  4 Nov 2024 15:41:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12439C4CECE;
-	Mon,  4 Nov 2024 15:42:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1C60B5C0E0B
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:53:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 959D4C4CECE
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 13:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730734960;
-	bh=ZcXj/+Ru/C7z54XGjpC8CnE2LPrcJkPTHoyWYQ9pIb4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pW1x9gp4OtQx8VqDjK0tsIaYR7endJuHczoLt6iYUv/95h4p332/L1+cC97vYrKXQ
-	 //gW+kRhjoe4ilQlsU68+SUsm9MLO9sdMiTbGDsfdP19fHLKez8w3oBFI17P7A/J2h
-	 1gadF1NH9mqoqADHr0S74m57GBUcqZiFTjUg7yJWPsLICz8Lq0th1uRT299z2RKeUc
-	 eFRdG8AGYExK5odt4EvAxfU5BNby34fmFB1p02tWytWbBBjASlFPY/+nc6JjYHzV9N
-	 452d+XtFt22hRTrRA+WKWWjTVBRBfS9fSij44NN5xbIu6dZq1ZMnz4HtEj+ft7MEaG
-	 ipyUeA5N8pQOA==
-Date: Mon, 4 Nov 2024 09:42:38 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, shawnguo@kernel.org, imx@lists.linux.dev,
-	conor+dt@kernel.org, Fabio Estevam <festevam@denx.de>,
-	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
-	krzk+dt@kernel.org, a.fatoum@pengutronix.de,
-	dri-devel@lists.freedesktop.org, andreas@kemnade.info,
-	marex@denx.de
-Subject: Re: [PATCH v4 1/3] dt-bindings: lcdif: Document a imx6sx-lcdif
- fallback
-Message-ID: <173073495749.210192.9138587910771237679.robh@kernel.org>
-References: <20241101135406.47836-1-festevam@gmail.com>
+	s=k20201202; t=1730728466;
+	bh=sZurbIwzYuS4yLWi6DkfdRraXzSZGcCRAs9+v0qzfrE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Q5BDM4Xi1gOJwvFZTupaLks/gQGYzcECQMKtb1FIfjgKOhTka1GRmJOghSmpApkE0
+	 EFJJrzoY8sI0C2SiN/3TkUZEwWSa0zsJ/fStV4D4BHtp3C+ua1QWa03YjFdQm1W6pr
+	 sjaxAwpqEhYb6xm8YBtIDy/P08x3jYzLbYAV/182HZcvh+G4JXSawt5TIBJpUi3Pdh
+	 ILgi2kqTxQzGA3eqx1VLHy5LdFwJXCOtZX3+cRs4c1/RFB1uaMzobP+6RKn46xIVgC
+	 MmQk1THwQSl8VvLYoEqqbzVyLlX+CYxykHAKFYnqghs7LsRhHe61DGjbbTejdNUJBJ
+	 nQSsKoC141iaw==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso62217331fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:54:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWJ83POmAFgdxqMXsNrLSktr2jd2iJrr1Vu/H4f73yZuU1ZrAIRId6n6exHMyWnEoKQE6KtrKLgw5YFcpOwVZJx@lists.infradead.org
+X-Gm-Message-State: AOJu0YycXeJaPXaLlMtpe0POGSwdeRtxQx9dCt4jpOLv2V/H2D7Cg/30
+	VzTl/xwe3QRE+m6rP9fwc9ke+in6sjyjihmC4DCGzYiad8/hFAJbY6PAiu2V7tWr8tFS46EzAfQ
+	4QAAUIv5EfH1oDOdb00y7dP+kI7s=
+X-Google-Smtp-Source: AGHT+IEDPSajd0Ijul/NTdTCOsnUC5WH3yaxWxO7av85XXQJwq7H6ghrIewBObwz96ILox5H6B1VjAJt6rSncXXA+ys=
+X-Received: by 2002:a05:651c:506:b0:2fc:9869:2e0b with SMTP id
+ 38308e7fff4ca-2fedb7c7dc2mr79712841fa.20.1730728464965; Mon, 04 Nov 2024
+ 05:54:24 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241101135406.47836-1-festevam@gmail.com>
+References: <20241019172459.2241939-1-dwmw2@infradead.org> <20241019172459.2241939-7-dwmw2@infradead.org>
+ <ZyPEn4qhaYyYqrzk@lpieralisi> <ZyUUh6KawapLkj0z@lpieralisi>
+In-Reply-To: <ZyUUh6KawapLkj0z@lpieralisi>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 4 Nov 2024 14:54:12 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFma8-GqKuOs5-UAQY9asbq2p9EubSjjbywaURa4T4WnA@mail.gmail.com>
+Message-ID: <CAMj1kXFma8-GqKuOs5-UAQY9asbq2p9EubSjjbywaURa4T4WnA@mail.gmail.com>
+Subject: Re: [PATCH v6 6/6] arm64: Use SYSTEM_OFF2 PSCI call to power off for hibernate
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: David Woodhouse <dwmw2@infradead.org>, sami.mujawar@arm.com, 
+	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@ucw.cz>, 
+	Len Brown <len.brown@intel.com>, Shuah Khan <shuah@kernel.org>, 
+	David Woodhouse <dwmw@amazon.co.uk>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, 
+	Francesco Lavra <francescolavra.fl@gmail.com>, Miguel Luis <miguel.luis@oracle.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_074241_229285_EE505DAE 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20241104_055428_500566_2C945E2F 
+X-CRM114-Status: GOOD (  34.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 1 Nov 2024 at 18:49, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+>
+> [+Ard, Sami, for EFI]
+>
+> On Thu, Oct 31, 2024 at 06:55:43PM +0100, Lorenzo Pieralisi wrote:
+> > On Sat, Oct 19, 2024 at 06:15:47PM +0100, David Woodhouse wrote:
+> >
+> > [...]
+> >
+> > > +#ifdef CONFIG_HIBERNATION
+> > > +static int psci_sys_hibernate(struct sys_off_data *data)
+> > > +{
+> > > +   /*
+> > > +    * Zero is an acceptable alternative to PSCI_1_3_OFF_TYPE_HIBERNATE_OFF
+> > > +    * and is supported by hypervisors implementing an earlier version
+> > > +    * of the pSCI v1.3 spec.
+> > > +    */
+> >
+> > It is obvious but with this patch applied a host kernel would start executing
+> > SYSTEM_OFF2 too if supported in firmware to hibernate, it is not a hypervisor
+> > only code path.
+> >
+> > Related to that: is it now always safe to override
+> >
+> > commit 60c0d45a7f7a ("efi/arm64: use UEFI for system reset and poweroff")
+> >
+> > for hibernation ? It is not very clear to me why overriding PSCI for
+> > poweroff was the right thing to do - tried to follow that patch history but
+> > the question remains (it is related to UpdateCapsule() but I don't know
+> > how that applies to the hibernation use case).
+>
+> RFC: It is unclear to me what happens in current mainline if we try to
+> hibernate with EFI runtime services enabled and a capsule update pending (we
+> issue EFI ResetSystem(EFI_RESET_SHUTDOWN,..) which might not be compatible
+> with the reset required by the pending capsule update request) what happens
+> in this case I don't know but at least the choice is all contained in
+> EFI firmware.
+>
+> Then if in the same scenario now we are switching to PSCI SYSTEM_OFF2 for the
+> hibernate reset I suspect that what happens to the in-flight capsule
+> update requests strictly depends on what "reset" PSCI SYSTEM_OFF2 will
+> end up doing ?
+>
+> I think this is just a corner case and it is unlikely it has been ever
+> tested (is it even possible ? Looking at EFI folks) - it would be good
+> to clarify it at least to make sure we understand this code path.
+>
 
-On Fri, 01 Nov 2024 10:54:04 -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
-> 
-> imx6sx.dtsi has the following lcdif entries:
-> 
-> compatible = "fsl,imx6sx-lcdif", "fsl,imx28-lcdif";
-> 
-> This causes the following dt-schema warning:
-> 
-> ['fsl,imx6sx-lcdif', 'fsl,imx28-lcdif'] is too long
-> 
-> To keep DT compatibility, document 'fsl,imx28-lcdif' as a possible
-> 'fsl,imx6sx-lcdif' fallback.
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> ---
-> Changes since v3:
-> - Also update the example.
-> 
->  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
+I'm not aware of any OS that actually uses capsule update at runtime
+(both Windows and Linux queue up the capsule and call the
+UpdateCapsule() runtime service at boot time after a reboot).
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+So it is unlikely that this would break anything, and I'd actually be
+inclined to disable capsule update at runtime altogether.
 
+I will also note that hibernation with EFI is flaky in general, given
+that EFI memory regions may move around
 
