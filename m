@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982D6D1BDE5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72030D1BDE5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 19:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wrWF1cb+G5yUKaLd7lIO4nWpRCaxUApW70lfAMCyKyQ=; b=GK353v6JdNavAwhJvfoM8IlPWv
-	Le4MKoOlRIu+WwcPHbEVDasq/3AGqwOKg90O1cfaWOrTGnXMNCpZysWCfb72osV4fCXh/v9f3L0lV
-	WdOO1SYcaTgcnZ1P2lubJE4W7Zx2CFDeUR5+DRprJc0P/roBZbTz8/G+T9Bn8i/oy+RgvpLW++7yM
-	Ev9shYWX7/QWslmSff4josPQU+BYCJgeRpl81t+kvIYvq+c3QFHDSQ/fFUmKaXe/+BCeXlWmFzpMH
-	52yt4CwZN6r00i9+Bv5VJ7iyh42p4xRFSARMUIxUTSi7Fi4SIDeL3c73ih1Ct7vjoUNRNigoKSnyh
-	EsbQMb5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jvOU4n4fJou0XKiIf5q8TS+v+gm3cxgWWiJedqF+Krc=; b=y/o8VgjSO7L9tujdb/ctdXokyr
+	UK605nmDXhoFZ8Jya/pTeuTar1RKxxh1ZvGW5/tTk50vSc63/6iQVGwhUFDj6gF6mBoxOXw8ZT+5G
+	NZep4DXnx15HCFr1RUhKgyBW3MdsNFXB/TV+2iWK3726MHFHL1ic61bppDrzOx5ShYYzzrgD23aCc
+	AcWn5gEdtRxxz8YSioaTDWSKVrb4jl7p3x5w9KUSSfTxI5VhQd7R+d+ksBshBcxEdvMO59C0aPfyM
+	PpPoRwR1cF23pGfo+RwEE9gcTmYq+hzLnHAtKf07Tuv3NpCNn/xtl1lG5wIcFbTo52b2qtMwq/nCc
+	seXnbghQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82UY-0000000Erg4-3U4N;
-	Mon, 04 Nov 2024 19:11:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t82WC-0000000ErnW-4BHs;
+	Mon, 04 Nov 2024 19:13:41 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t82PK-0000000EqhE-26Ha;
+	id 1t82PK-0000000EqhA-2QE3;
 	Mon, 04 Nov 2024 19:06:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0025C0474;
-	Mon,  4 Nov 2024 19:05:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E9CDC4CECE;
-	Mon,  4 Nov 2024 19:06:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730747193;
-	bh=Lu1Fi0IEy8M6BgnItjbqpPrJ7Hppzar99nXYlc6ZBCo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=G9VXQBg0OJr9ruK9K4Te4NS+RvBhpRlD4WWJHJs3yIccyl3pRBkCfGWgMIYEIKzmw
-	 rSTI1vpqCWAEaCVUnRfcPfmms/elbyEu3t9TBzjUBesAEXavjGErPlxcZmfy7PX9AQ
-	 hUT8bvNn5S5o3YO4inhpE3WV53tj4MY2OBS8rCzlkuJlL1q52+GUtxZybenNVrDEeJ
-	 H9OWVcFNMUU4JZk+6OVCq7VROHwDHURpj+XvwFN3bOf5eBG1dRfsn1wwx0tQbFVEM1
-	 0HU40fbhcQbo2vXvhy2E35buIOujmsJHWjU16F9IxXF3TtMrhRyeG29tUODrrpUyfq
-	 Oj0NfitO9kYEg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-gpio@vger.kernel.org,
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730747195; x=1762283195;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Mq6fY7BoRhA0N/3Lw6alJV11PuUSGJNdDgHSu7cCIQY=;
+  b=jRtnWmSyzlCyi0CUYWe1CHVwue6mjMXD15UkZKR9OrsmUQ7flHXjwJPf
+   cJmhij/bkN8IGHxfObmbLW6p9FK5Vq7A5Waiy1X0PA4Z3wEh5+SjSjVwW
+   Ua2CUU7rSiGp/LRu+KRarQbhfFM1F3b3SrdKBajO+/rwNqt2w8cobDhqn
+   QbNkXFNhzYfLyHDKXhBzj2Hpf2ubDd59ZJRMJxQFsOu3hoemtrOlwtqba
+   +HewVGFRu1HQSsp/nrOPOMNyPFKUbSFqdexKX0EGOh1MAIiZi+VsMqX7T
+   yiaCN4CBi/JvPTqwA+pT+2bmWp07mW79I3paESdsLHdpZQEl/2uWwXUHT
+   A==;
+X-CSE-ConnectionGUID: RGnI0iEmQZ22FmfPOt4eFg==
+X-CSE-MsgGUID: FevpSVN2T8uh9Innhs9Eqw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30626884"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="30626884"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 11:06:34 -0800
+X-CSE-ConnectionGUID: 0p2G7MeuSNaC+hVQwVNKOg==
+X-CSE-MsgGUID: d1XN3jwVSXGF/j5BIDN27A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,257,1725346800"; 
+   d="scan'208";a="84179430"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 11:06:30 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1t82PD-0000000BA62-0ml4;
+	Mon, 04 Nov 2024 21:06:27 +0200
+Date: Mon, 4 Nov 2024 21:06:26 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>, Nicolas Belin <nbelin@baylibre.com>,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] gpio: Use of_property_present() for non-boolean properties
-Date: Mon,  4 Nov 2024 13:06:27 -0600
-Message-ID: <20241104190628.274717-1-robh@kernel.org>
-X-Mailer: git-send-email 2.45.2
+	linux-mediatek@lists.infradead.org
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v1 1/1] ASoc: mediatek: mt8365: Don't use "proxy" headers
+Message-ID: <ZykbMlshvlwCaeGJ@smile.fi.intel.com>
+References: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241031102725.2447711-1-andriy.shevchenko@linux.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_110634_602060_ECA381E9 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20241104_110634_680753_47A9460D 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +93,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The use of of_property_read_bool() for non-boolean properties is
-deprecated in favor of of_property_present() when testing for property
-presence.
+On Thu, Oct 31, 2024 at 12:27:25PM +0200, Andy Shevchenko wrote:
+> Update header inclusions to follow IWYU (Include What You Use)
+> principle.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- drivers/gpio/gpio-rockchip.c | 2 +-
- drivers/gpio/gpiolib-of.c    | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Hmm... I think we are waiting for somebody to Ack / review this change?
 
-diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-index 365ab947983c..64924bc01591 100644
---- a/drivers/gpio/gpio-rockchip.c
-+++ b/drivers/gpio/gpio-rockchip.c
-@@ -602,7 +602,7 @@ static int rockchip_gpiolib_register(struct rockchip_pin_bank *bank)
- 	 * files which don't set the "gpio-ranges" property or systems that
- 	 * utilize ACPI the driver has to call gpiochip_add_pin_range().
- 	 */
--	if (!of_property_read_bool(bank->of_node, "gpio-ranges")) {
-+	if (!of_property_present(bank->of_node, "gpio-ranges")) {
- 		struct device_node *pctlnp = of_get_parent(bank->of_node);
- 		struct pinctrl_dev *pctldev = NULL;
- 
-diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
-index 880f1efcaca5..2e537ee979f3 100644
---- a/drivers/gpio/gpiolib-of.c
-+++ b/drivers/gpio/gpiolib-of.c
-@@ -337,7 +337,7 @@ static void of_gpio_flags_quirks(const struct device_node *np,
- 	 * to determine if the flags should have inverted semantics.
- 	 */
- 	if (IS_ENABLED(CONFIG_SPI_MASTER) && !strcmp(propname, "cs-gpios") &&
--	    of_property_read_bool(np, "cs-gpios")) {
-+	    of_property_present(np, "cs-gpios")) {
- 		u32 cs;
- 		int ret;
- 
 -- 
-2.45.2
+With Best Regards,
+Andy Shevchenko
+
 
 
