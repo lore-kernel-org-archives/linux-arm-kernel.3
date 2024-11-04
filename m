@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC54BD132B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA976D132B4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 12:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWjZ2fAcFvfnugj2MZeg8kZ1+ISzIxVNaHCOGBN1kPI=; b=ZLSEyPKqmc5DNkYQwafmGt76yS
-	sFDQkZlEeVnf8ME7F3uajylmDc3E7Zo23lm1L6aunRnKiHUBfFDS65Oewb2d/TMv/cUqkZMqW76eb
-	oIXB/MD4Y/G5cJmsO+Mi4bCLufiJtbjT79ozPQKDLIi1DaIfp/OkWbbEgJoLW0chvM6Gz6K8GEUh1
-	SRBl/umFXtstu6upcBtvwkFntS/3V4lszz7tHgd3hAABHgouq8JtyRBAYOWmqDAPasTdHnWYBIWBg
-	84cE+yw4n/jYBmgKUgr035Eyt/CPwv2zkUOkhEdUIOtPG3RFphteVVn3HoTRoOqA7JXi7xXly0rue
-	T3NWdvIw==;
+	bh=6u5YBWq3PcwdT15rNs5INrgZ65AXIf+4Xa7bQgYZE4c=; b=lqw7lGaC4HKZY+BGnNobf12XqH
+	cG+M6E2qUtywvcGCoodWeL4Z0t19ZFG9pyNJnDNGv+aVABzexf3u20oCqvSpnQPOhX3QcBxPJKs08
+	/tf/rWNbJXiKuXpEGpJQsK5/N1ZDjyYhsXrJzgUs1AuVVUPhDDo5YDB1Mx9BUp2dJzQyWLVHo1Fxh
+	UhAmTJ5yaepsj2q2PHjVsCk7VmPE7g3lVNiGyBOPGgZnmbSIa6kTVQbF13O5MBgM+w5Z7XFJ2hd1X
+	eb6+sHmH+Q/0zLeJdmNK8zhKEEMPqKBqN61ubkfuc4LtDwb3Ub9lI0P+gUOm3wCL8p3xWchYxEnVw
+	wZwz9p8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vpm-0000000DdYl-2JCm;
-	Mon, 04 Nov 2024 12:05:26 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1t7vrR-0000000Ddop-3c1N;
+	Mon, 04 Nov 2024 12:07:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7vc6-0000000DbQl-0YGy
+	id 1t7vdP-0000000Dbbn-3N2K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 11:51:19 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-539d9fffea1so4220773e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 03:51:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730721076; x=1731325876; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gWjZ2fAcFvfnugj2MZeg8kZ1+ISzIxVNaHCOGBN1kPI=;
-        b=vtld6hzywUG1im1WsAVvIxGBzdrN6Yx83E27hCzGSd9dQfNP2KQUaiR10xyjygXv1+
-         rDucaoSUc3MAopm+esBpG5dUvfsAuKFggptZpt2zCikWAz83UD0Z4rVnVfe5/i3B+Gme
-         w/xIo5XPzp6nUa/3+sA+i3atAp8y8eXG0BlFQdLtr/zzthMqI5Ikt/8D8cBmdqToSjNL
-         jhd58ACrZrvVcoFCLUpmm49LDbwxu+yvq53Nfl7tg8rGTq3BkHGHfmzi0KUqxYT6tOAw
-         PjW2UYYXmW37ghUtBsJ464Ef39IDpekTBb4Zc56n2K9bhxetKEr/oB+eorwhVPh1v/GV
-         FMzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730721076; x=1731325876;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gWjZ2fAcFvfnugj2MZeg8kZ1+ISzIxVNaHCOGBN1kPI=;
-        b=fNVkO1gcmv/EHL90oipFOIvjTkmAhOEWo1uKgf4ey4HMq5+3UXB9RAdNKWLS2+Kp5N
-         +WfkfMWs1RqS/8ePJ6S9cE6BmO5DkWW2LSTLMqrIPQ8NiPH9tVJAdWO1uwt9XcVQYk//
-         3iWncBkaeTwKkAkgrSENhxICO6Fmf2Gzs5RR1oIkKbEbrVeOyP4kKEsAOKDD+rOaxcxY
-         2Jj9OC/WEC8igm9cOvcKjswyAdYvP8935eRpCxj80RKX4YFxm01l1JWeDSXq7ynMS0/S
-         sNlBo3cbvisROBa+1PIz8JTt2BzP0csHEtL3lCBzvY6gSXVWGOvtRm6zey6Vl1j0z81z
-         kY1Q==
-X-Gm-Message-State: AOJu0Yx4nR9MQ7zjURRehHDdlCFAYLQQtS4O/0N1JmvaVEOjZ19Fyg5/
-	jpmrygHTUHQA8Tv/h7olGTQUq+C/S5MEx7bkHztkx863e2p3kTC56OYBcX6tReM=
-X-Google-Smtp-Source: AGHT+IEsY3WjapLgqqKasH08PLy7V+a6fwGhSfU7jg1V7TNXGG6HrJAt/MV9sJGj+pU1ZVOUP2LHAA==
-X-Received: by 2002:a05:6512:31c1:b0:530:c239:6fad with SMTP id 2adb3069b0e04-53b347234femr15796297e87.0.1730721075949;
-        Mon, 04 Nov 2024 03:51:15 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc9c0b5sm1643431e87.98.2024.11.04.03.51.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Nov 2024 03:51:14 -0800 (PST)
-Date: Mon, 4 Nov 2024 13:51:12 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	Mon, 04 Nov 2024 11:52:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B8AD3A42E72
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 11:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B4E7C4CED6
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  4 Nov 2024 11:52:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730721158;
+	bh=jrlWt5vVEgQhbvNsEfxgX8LzoJjDyTOI4FiZQj4aXNk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JYEf8ZaxDA3521GMC8+lsy2VXaVGTqZhAX+zb1BHjJw/uP87jDcMu6FsbntrY8nRX
+	 Hh0k4Umq2uJ0rUpt/kWc7F/aGSIJjQt813PhimAZ/+qayDAONP/MVdae+nBXUG9UCq
+	 t0SUsJGmKPVLC2THvhyZGaGUcMmHVvLLe/nM6ugJ/e9ocOkndyK018llbxPtCn42RX
+	 PkJj0N8kSFnT8fgQweftGSG/egbdTKqKRcgqK7FgrP157LOKdixAdNd9x9LeI4dtMV
+	 A+vayycmbsNz2wGH+gLNM2WG0jKYeieX/+phV4oNhr7r3w9BCH2gX75+S9iKF6UnmG
+	 hADpGfE9UpwCQ==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-539f58c68c5so7355505e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 03:52:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW9CxhYr447ZYCV+Dg0iU+nzYOjUhnUs3J4E8Uh/ov5xEVGeCVCFfxc4hZbi+NF3FWIM8weZnJWS/oDSCr96FCO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt9US4q7ABkPnJZjYhKSQD6ytZcubcQSIOvIZO2k6qFZ9QFb3F
+	hYbOO2ahncRv917DurfiRalwuSiiAzJN2gRMn17ujHubbNgwgC3LV8EBWe8aX4wspILCvkoP5pW
+	EmSahI2Kth3dhuzOOG+RX7IyMgPM=
+X-Google-Smtp-Source: AGHT+IHOLYnwFSb9KBpeoWpWkpPxWEFAYUIdVKIVNNpEmCe0aybibfjYsoY5R2GKKWfs4LrM9+oAoTYv4X5bZTldauU=
+X-Received: by 2002:a05:6512:1295:b0:538:9e36:7b6a with SMTP id
+ 2adb3069b0e04-53d65df25a3mr8861824e87.32.1730721156964; Mon, 04 Nov 2024
+ 03:52:36 -0800 (PST)
+MIME-Version: 1.0
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <dk7dxsyunx47gvmlnarjkqx63en52hktdnzwyyeyhohts7rkjn@a6lx6sq46vb4>
+In-Reply-To: <dk7dxsyunx47gvmlnarjkqx63en52hktdnzwyyeyhohts7rkjn@a6lx6sq46vb4>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 4 Nov 2024 12:52:25 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEPM+4B4xTThOejMZ5bLHcwzNYbW333ZZu1YFJGy5johg@mail.gmail.com>
+Message-ID: <CAMj1kXEPM+4B4xTThOejMZ5bLHcwzNYbW333ZZu1YFJGy5johg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Linus Walleij <linus.walleij@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
 	Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
-Message-ID: <dk7dxsyunx47gvmlnarjkqx63en52hktdnzwyyeyhohts7rkjn@a6lx6sq46vb4>
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_035118_190376_0B6D089E 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20241104_035239_988588_80D7258C 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 04:55:19PM +0300, Dmitry Baryshkov wrote:
-> Follow the ARM64 platform and implement simple cache information driver.
-> As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
-> limited to the ARMv7 / ARMv7M, providing simple fallback or just
-> returning -EOPNOTSUPP in case of older platforms.
-> 
-> In theory we should be able to skip CLIDR reading and assume that Dcache
-> and Icache (or unified L1 cache) always exist if CTR is supported and
-> returns sensible value. However I think this better be handled by the
-> maintainers of corresponding platforms.
-> 
-> Other than just providing information to the userspace, this patchset is
-> required in order to implement L2 cache driver (and in the end CPU
-> frequency scaling) on ARMv7-based Qualcomm devices.
+(cc Linus)
 
-Sudeep, Ard, Arnd, Russell, I have been struggling to get reviews for
-this for several months. Is there a chance to hear anything? I'd really
-like to scratch this off my 'pending' list.
-
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> ---
-> Changes in v2:
-> - Handle cores like ARM1176, which have cpu_architecture() ==
->   CPU_ARCH_ARMv7 (because of VMSAv7 implementation), but no CLIDR
->   register (because they are ARMv6) (Arnd).
-> - Link to v1: https://lore.kernel.org/r/20231231-armv7-cacheinfo-v1-0-9e8d440b59d9@linaro.org
-
--- 
-With best wishes
-Dmitry
+On Mon, 4 Nov 2024 at 12:51, Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
+>
+> On Mon, Oct 14, 2024 at 04:55:19PM +0300, Dmitry Baryshkov wrote:
+> > Follow the ARM64 platform and implement simple cache information driver.
+> > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
+> > limited to the ARMv7 / ARMv7M, providing simple fallback or just
+> > returning -EOPNOTSUPP in case of older platforms.
+> >
+> > In theory we should be able to skip CLIDR reading and assume that Dcache
+> > and Icache (or unified L1 cache) always exist if CTR is supported and
+> > returns sensible value. However I think this better be handled by the
+> > maintainers of corresponding platforms.
+> >
+> > Other than just providing information to the userspace, this patchset is
+> > required in order to implement L2 cache driver (and in the end CPU
+> > frequency scaling) on ARMv7-based Qualcomm devices.
+>
+> Sudeep, Ard, Arnd, Russell, I have been struggling to get reviews for
+> this for several months. Is there a chance to hear anything? I'd really
+> like to scratch this off my 'pending' list.
+>
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > ---
+> > Changes in v2:
+> > - Handle cores like ARM1176, which have cpu_architecture() ==
+> >   CPU_ARCH_ARMv7 (because of VMSAv7 implementation), but no CLIDR
+> >   register (because they are ARMv6) (Arnd).
+> > - Link to v1: https://lore.kernel.org/r/20231231-armv7-cacheinfo-v1-0-9e8d440b59d9@linaro.org
+>
+> --
+> With best wishes
+> Dmitry
 
