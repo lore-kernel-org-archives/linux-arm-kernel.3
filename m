@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6200D132D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359E7D132D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Nov 2024 14:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=no1EfJK0lKZHXyZkZ9r5pUJOdWcNp6ZojraAFTp+xu8=; b=Mm40oF8dikKDaZDIEBxBh1cnWn
-	SeZOjrMnYL+eV8AOOVwV8EX1aZQq0EUK/WGgeVmXlnnPQy/iKAgteA9nSXmvh6hfvlJkLdlJcBUoV
-	d66zYHc2gfAtiVZdn0YjX9oENbH6Xh8kk0btq0UH6xrvLjxcC+U1jxkFH7vi3IwvEdrdN8YrPMnVA
-	T4HTdfAo0gh660e4NiDMUep6yNHnpxrG1RyptNa5AkOTKEm52bY56CN+ig+ehtveP6HbK378bsNgl
-	B2+fKSGFBx4VqaU7CJUK4LVt8IjOK7coKmf4fMg590zrOgtEb12Y5pQ0dVXRvMte6SkSyToxXkXhZ
-	1bl+hfcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LsymmwIGsuVs7v1n+LWpRRRaG0hjIy9yDhaEU8VEsww=; b=NoBjGy9Dam5YaxTEpULA3UVlCj
+	vhP3CoMz646J99FnKO4odmhTwPXPdUuD+AOSzJXnYrtd+Mr0jv+BNg3Gxb15xfzMylSrvTZSRhPKa
+	ib/lHetm1ymIQKIgGfDujDEmbD8pFWvOVdBQU4zAqLQBvCAX1KuOAVDkZfZPCrWhrz1mBRiBCXyt6
+	/QXO+pEHjsokWV8svDoY0eKBcTI7UloGDKGPJIur8voghnBOuWaKQkfStMb/HDo9GwkCVF5jxbMGG
+	JbKMtFlRUeKMslBbsqJJN/eKVFbk4E+lVucTwiSc6qxISHkKoBECT2PpHIaQ7Ub7f6rLImibkikAz
+	zikp40rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7yMS-0000000E6yI-0Mtj;
-	Mon, 04 Nov 2024 14:47:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t7yO6-0000000E7Ec-1yog;
+	Mon, 04 Nov 2024 14:49:02 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7y1K-0000000E2ZU-1xoU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 04 Nov 2024 14:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=no1EfJK0lKZHXyZkZ9r5pUJOdWcNp6ZojraAFTp+xu8=; b=VS7MqUWnoIMeYtd9Fm+942KCMR
-	QEdEQudUNpRBSPiXwXMBX2vQNqQoGPmCpFq1NSDDQdLb6QIgc5xGYney99CfgAQ6RWwdD39AJw0Tc
-	ESU/Y+MA6jhFdkKWrJHHlxDrKOSHVqWARLbldDjm2ve8FORAmVKL7vmsI1b1S+AhhSMNjd1KwLq/1
-	SeWUvkgMd96pC94uluU/e7DP7vIVBPK6afE97miXH4tWLugnlkzRRoVw+B399aWXx4267KmU7U6i8
-	433LF+yxZqjboJUkTLdheJUpuoebn+LNqVKRPuEOoqeog0EUu/cWwxKG3kskHTy8CTxgPqDAqnlM5
-	jtbANa8w==;
-Received: from mgamail.intel.com ([192.198.163.13])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t7y1G-0000000BLpD-3x2Y
+	id 1t7xQl-0000000Dvlf-28Li
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Nov 2024 14:25:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730730327; x=1762266327;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CT7brXbn9NKpu0p4b2oRMcjvrtTgl29owzk4cIVFwAQ=;
-  b=hQzehbI16/GgcwApPkfTVCWhBa5PKPnJYmWChWzg6t1/NoCDWD9w63ie
-   tkQpXadgQQMByFrHVNp+FdkFkul5QkbFTV/hqvUTPAdZaP0hcUX+RJg/k
-   5kFnFWymsOlwTHMVv+quUrD4MNxCy4hEyeVxlub3J0Nu8bXvnP+jW9tGo
-   BiIHDnhiBrut8aVQz5K2jao3paXzi8enJ2FBVYkKf/z20EkFz65TPFhHK
-   Faww/ODqbmVT4IIGpa80oIsAzFmOymlHzkx0VyNVg75rDaldYjfrcPSHp
-   6QvypNj3gP7ULDQND5pQr5Z3w2Mq0rJpSL33+l5PGsQT+S6xboXkcu391
-   Q==;
-X-CSE-ConnectionGUID: 7EokaEX2T+OKZY0V7gfquw==
-X-CSE-MsgGUID: TxESpERaQXCnNi6xaSjChg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11246"; a="33265766"
-X-IronPort-AV: E=Sophos;i="6.11,257,1725346800"; 
-   d="scan'208";a="33265766"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 06:25:20 -0800
-X-CSE-ConnectionGUID: vKIxw/FaRaSqqupeNOnP6A==
-X-CSE-MsgGUID: hGrie7GzTXCqRPAazkBXmw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,257,1725346800"; 
-   d="scan'208";a="83778622"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 04 Nov 2024 06:25:15 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t7y13-000ktz-1V;
-	Mon, 04 Nov 2024 14:25:13 +0000
-Date: Mon, 4 Nov 2024 22:24:32 +0800
-From: kernel test robot <lkp@intel.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
-	bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	frank.li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com
-Cc: oe-kbuild-all@lists.linux.dev, imx@lists.linux.dev,
-	kernel@pengutronix.de, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
-Message-ID: <202411042110.bIIyBWlv-lkp@intel.com>
-References: <20241101070610.1267391-9-hongxing.zhu@nxp.com>
+	Mon, 04 Nov 2024 13:47:45 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539ee1acb86so4173998e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 05:47:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730728061; x=1731332861; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LsymmwIGsuVs7v1n+LWpRRRaG0hjIy9yDhaEU8VEsww=;
+        b=PJEDeqgmyyq7+jF1ZWC6npCD5y2xiXanmVl9115qF04uLJ3dpZP2c83mlGLh4BKPXy
+         XT0rcShCEccEXhAfan/bNc9b3pXp6aVxSPqIiFKmkQ32PgJ8Zp/yeVsMFSsPOhjOSh3U
+         cdVL5q2SyrEt/WaDuRHt7xQHscMbeL0roCE6M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730728061; x=1731332861;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LsymmwIGsuVs7v1n+LWpRRRaG0hjIy9yDhaEU8VEsww=;
+        b=xGkaDdEmx6RXHkAGBKoCo+1t/S3wj+abKRa31i95m/bytqnYLmHemgo+ldOv5zFJ6S
+         BncGCgNLyDNIAC3rqMk71K7f+RtsBSfDh6RlFto2bzzjrSOBoiROCQcu3Wo4VXX25TqB
+         6Id+vUKeG4AIR60kpg9Qm1bN07OLF66qGA/e/8bjjTNEx1Saju/upW3ahSIYuuod1l1G
+         KF2W729rxfQUUko+VxWF8wOWHK0Ye1yyH7FUSQ1iUQayrtUM/U2WBkWjUDx98BQmFa8o
+         15wYNtkTwzL8xjr7dnLb5sp4lPLq1uuLdcDaEVQax4TqubApNVnLkQGz8z7HsUkMdXLX
+         yinQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXn3LvAwF301FBzo7hYGEQ7P2AeBTRvyvCxMPjk9SmVsZFp2711uTjyS/La1IcxcL/jvQKxEdI6cc+HryOR2oGY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMG4LAW0UN9pn/u1gquTqBXfMxy9W1FvKTStNbx+5aZeiT+KNS
+	tct0PZo3uaiJMRNKf838uc7gg5V94Cyrpu6eUiMvDQ+wmiq4IB2CBpWkqoxlkZdHNL9L88j2W3g
+	XzT3Tzr1O8EzQ3soQEBtG95eL6/X3K4tnlvC1
+X-Google-Smtp-Source: AGHT+IG6XUFtsKbcLLl53KOkLywI84S6ITEyyTl9D7WkFTQfnMFACCzmN85bTtyfiBZP6XY2rRglSKd6AWN+dPBO6zo=
+X-Received: by 2002:a05:6512:230b:b0:539:9645:97ab with SMTP id
+ 2adb3069b0e04-53d65dfee01mr4788487e87.33.1730728061055; Mon, 04 Nov 2024
+ 05:47:41 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241101070610.1267391-9-hongxing.zhu@nxp.com>
+References: <20241030070224.1006331-1-wenst@chromium.org> <20241030070224.1006331-2-wenst@chromium.org>
+ <CAGXv+5HVy41qee6kwVUeLV_DfA0=wk2X77kv81rBKAZDGE6mww@mail.gmail.com> <bbaa0c8f-9702-4252-a674-e46fb51f0a2a@collabora.com>
+In-Reply-To: <bbaa0c8f-9702-4252-a674-e46fb51f0a2a@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 4 Nov 2024 21:47:30 +0800
+Message-ID: <CAGXv+5GHP1M1rKwR8j+bN8GmpxWtpkfLTnvBdkg5wOvWanc-kw@mail.gmail.com>
+Subject: Re: [PATCH 1/4] arm64: dts: mediatek: mt8183-kukui-jacuzzi: Drop
+ pp3300_panel voltage settings
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_142527_419356_7F76926E 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20241104_054743_609819_9AF71F11 
+X-CRM114-Status: GOOD (  29.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+On Mon, Nov 4, 2024 at 9:19=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 04/11/24 14:00, Chen-Yu Tsai ha scritto:
+> > On Wed, Oct 30, 2024 at 3:02=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.or=
+g> wrote:
+> >>
+> >> The pp3300_panel fixed regulator is just a load switch. It does not ha=
+ve
+> >> any regulating capabilities. Thus having voltage constraints on it is
+> >> wrong.
+> >>
+> >> Remove the voltage constraints.
+> >>
+> >> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board=
+")
+> >> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> >
+> > I see that the other three patches were merged and included in the pull
+> > request, but not this one. Were there any concerns?
+> >
+>
+> Sorry I forgot to actually provide an explanation for that - yes, I do ha=
+ve some
+> comment about this one.
+>
+> Despite this being a load switch, it's still switching power from regulat=
+or A to
+> target device X, so this is technically still providing 3.3V to device X.
+>
+> Think about how a "regular" full-fledged regulator works: you can (someti=
+mes) set
+> a voltage, and then you can ENABLE the VOUT for said regulator (/rail): t=
+his kind
+> of "load switch" does exactly the same as the ENABLE switch for a full-fl=
+edged
+> regulator.
 
-kernel test robot noticed the following build errors:
+But it does not provide regulation. One cannot "set" the voltage on a load
+switch; one can only set it on its upstream supply, if that supply provides
+regulation.
 
-[auto build test ERROR on pci/next]
-[also build test ERROR on pci/for-linus shawnguo/for-next mani-mhi/mhi-next linus/master v6.12-rc6 next-20241104]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+IIRC Mark said some years ago that if a regulator doesn't regulate the
+voltage, then the voltage constraints should not be given. The constraints
+are then derived from its upstream supply.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Zhu/dt-bindings-imx6q-pcie-Add-ref-clock-for-i-MX95-PCIe-RC/20241101-150006
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
-patch link:    https://lore.kernel.org/r/20241101070610.1267391-9-hongxing.zhu%40nxp.com
-patch subject: [PATCH v6 08/10] PCI: imx6: Use dwc common suspend resume method
-config: i386-buildonly-randconfig-004-20241104 (https://download.01.org/0day-ci/archive/20241104/202411042110.bIIyBWlv-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241104/202411042110.bIIyBWlv-lkp@intel.com/reproduce)
+That's the guideline I've followed for all the regulator related changes
+I've done over the years. Does that work for you?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411042110.bIIyBWlv-lkp@intel.com/
+> So, this is switching on and off a power rail that is derived from a sour=
+ce rail,
+> practically creating... well, a "new" rail, with...
+>
+>   VIN=3Dsomewhere-3.3v,
+>   VOUT=3Dsomewhere-still-3.3v
+>
+> Any objections/doubts/etc? :-)
 
-All errors (new ones prefixed by >>):
+I agree with most of it, except the part that I laid out above about the
+load switch not providing regulation.
 
-   ld: drivers/pci/controller/dwc/pci-imx6.o: in function `imx_pcie_resume_noirq':
->> pci-imx6.c:(.text+0x88): undefined reference to `dw_pcie_resume_noirq'
-   ld: drivers/pci/controller/dwc/pci-imx6.o: in function `imx_pcie_suspend_noirq':
->> pci-imx6.c:(.text+0x111): undefined reference to `dw_pcie_suspend_noirq'
-   ld: drivers/usb/misc/onboard_usb_dev.o: in function `onboard_dev_probe':
-   onboard_usb_dev.c:(.text+0x6ae): undefined reference to `i2c_find_device_by_fwnode'
-   ld: onboard_usb_dev.c:(.text+0x711): undefined reference to `i2c_smbus_write_block_data'
-   ld: onboard_usb_dev.c:(.text+0x72f): undefined reference to `i2c_smbus_write_word_data'
-   ld: onboard_usb_dev.c:(.text+0x74c): undefined reference to `i2c_smbus_write_word_data'
+> P.S.: I'm writing fast, sorry if anything appears unclear, feel free to s=
+hoot more
+>        questions in case :-)
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for MODVERSIONS
-   Depends on [n]: MODULES [=y] && !COMPILE_TEST [=y]
-   Selected by [y]:
-   - RANDSTRUCT_PERFORMANCE [=y] && GCC_PLUGINS [=y] && MODULES [=y]
-   WARNING: unmet direct dependencies detected for FB_IOMEM_HELPERS
-   Depends on [n]: HAS_IOMEM [=y] && FB_CORE [=n]
-   Selected by [m]:
-   - DRM_XE_DISPLAY [=y] && HAS_IOMEM [=y] && DRM [=m] && DRM_XE [=m] && DRM_XE [=m]=m [=m]
+No, it's pretty clear, and I believe one of the common interpretations
+I see. Thank you for the quick response.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+Thanks
+ChenYu
+
+> Cheers,
+> Angelo
+>
+> >
+> > ChenYu
+> >
+> >> ---
+> >>   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi | 2 --
+> >>   1 file changed, 2 deletions(-)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi b/=
+arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> >> index 783c333107bc..7bbafe926558 100644
+> >> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> >> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi.dtsi
+> >> @@ -35,8 +35,6 @@ pp1800_mipibrdg: pp1800-mipibrdg {
+> >>          pp3300_panel: pp3300-panel {
+> >>                  compatible =3D "regulator-fixed";
+> >>                  regulator-name =3D "pp3300_panel";
+> >> -               regulator-min-microvolt =3D <3300000>;
+> >> -               regulator-max-microvolt =3D <3300000>;
+> >>                  pinctrl-names =3D "default";
+> >>                  pinctrl-0 =3D <&pp3300_panel_pins>;
+> >>
+> >> --
+> >> 2.47.0.163.g1226f6d8fa-goog
+> >>
+>
 
