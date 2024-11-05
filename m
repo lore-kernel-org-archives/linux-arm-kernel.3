@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92883D12676
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C6FD12676
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FQqNCLOKvW9glyiLM/dzYJq3UH5mFHYuAMx5Xe+JRM=; b=SXJneE8BNFd6XN4tc0QPKWg/AO
-	S/XkvXQZe2G1fraOqrO+EBLhLxDdzn6WYUXpGTQzL26ISx0Gum+x9xO+CusDJqSmzjdjPCDIJawJX
-	4IVm+hhb7veJbohqzzEn6CtgUOizKdwvuqPj1PrTi/2CIKR4dxixal8gu8R55KlfQrtH1WZtnxGJ7
-	fwAaBKksvNwicgqhZhUhjkjqY0JRoV0EczTno8YgplrF/jglrg5BcD0Aq4cj00Sj04fIe7JDWx7lz
-	NgDy+uHGCbtgVFW3omUbzI2VK4wUIqVkR7dpWpfAuUBxPSUuRkNZqzr5w18wYCZZ4N4VzTSUFLkAB
-	9v5zTSLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9lI0+wgr82TyZrEEBx1bZzjaMASK7/afLHffU5gbfVA=; b=a/V9OhNycJ01HyEGSUhiAsEgVW
+	mjBXPXzCE/SPfgQ3OSfAAjwwHn8+R74lhtCwDOM2KyqkZs7EjVImQdRh9hf/YL/a4VbcCoqcPvEzC
+	gN5VkO0t5xpnylY203Uw+g0sRaC9y7vvJR65a0xC4usyk+vBoDOPlZrUDPDvxwn7ICZfRSeb1/eI0
+	tYKdALSI0OX4hc6aDg2/gwRRNzC1q02EezkWG0xKFhFM0yVN+avOjvXn90TrxTVnvBnIebcljS6Xg
+	gfWkW18w/RS2/3Ls3r1hYdu5d3oQQnvy4jJ2dtxFfSJ3ACHedTlt27Doo0ThxHYZOoJEO/MSzWyKY
+	oP/a2IMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8GKd-0000000GbHm-0DEg;
-	Tue, 05 Nov 2024 09:58:39 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1t8GMM-0000000Gbgd-0jsp;
+	Tue, 05 Nov 2024 10:00:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8GIp-0000000Gas2-1vhx;
-	Tue, 05 Nov 2024 09:56:49 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4XjNyz319Qz9sPd;
-	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id CpEO93zW8bQ7; Tue,  5 Nov 2024 10:56:43 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4XjNyz27jdz9rvV;
-	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 346688B770;
-	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id BXNslob-hZDZ; Tue,  5 Nov 2024 10:56:43 +0100 (CET)
-Received: from [192.168.232.44] (unknown [192.168.232.44])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 9E0918B763;
-	Tue,  5 Nov 2024 10:56:42 +0100 (CET)
-Message-ID: <9ee9c21b-179f-49aa-8c65-304c8ef2c9a7@csgroup.eu>
-Date: Tue, 5 Nov 2024 10:56:42 +0100
+	id 1t8GKW-0000000GbHH-0Eiq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 09:58:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BEA7D5C32DC;
+	Tue,  5 Nov 2024 09:57:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E3CC4CECF;
+	Tue,  5 Nov 2024 09:58:28 +0000 (UTC)
+Date: Tue, 5 Nov 2024 09:58:26 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Yicong Yang <yangyicong@huawei.com>, will@kernel.org,
+	mark.rutland@arm.com, broonie@kernel.org,
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev,
+	ryan.roberts@arm.com, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
+	prime.zeng@hisilicon.com, xuwei5@huawei.com,
+	wangkefeng.wang@huawei.com, yangyicong@hisilicon.com
+Subject: Re: [PATCH v4 3/5] arm64: Add support for FEAT_HAFT
+Message-ID: <ZynsQl6vpA8tOHY8@arm.com>
+References: <20241102104235.62560-1-yangyicong@huawei.com>
+ <20241102104235.62560-4-yangyicong@huawei.com>
+ <ZykEUGdkyYClM8Zi@arm.com>
+ <87cyjat6vs.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] asm-generic: add an optional pfn_valid check to
- page_to_phys
-To: Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org
-References: <20241023053644.311692-1-hch@lst.de>
- <20241023053644.311692-3-hch@lst.de>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20241023053644.311692-3-hch@lst.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87cyjat6vs.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_015647_680459_520A55CC 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20241105_015832_157427_B2E528FB 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +69,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 23/10/2024 à 07:36, Christoph Hellwig a écrit :
-> page_to_pfn is usually implemented by pointer arithmetics on the memory
-> map, which means that bogus input can lead to even more bogus output.
+On Tue, Nov 05, 2024 at 08:35:51AM +0000, Marc Zyngier wrote:
+> On Mon, 04 Nov 2024 17:28:48 +0000,
+> Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > On Sat, Nov 02, 2024 at 06:42:33PM +0800, Yicong Yang wrote:
+> > > diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> > > index ccbae4525891..0bc88df7cb35 100644
+> > > --- a/arch/arm64/mm/proc.S
+> > > +++ b/arch/arm64/mm/proc.S
+> > > @@ -498,6 +498,10 @@ alternative_else_nop_endif
+> > >  	and	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_MASK
+> > >  	cbz	x9, 1f
+> > >  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
+> > > +
+> > > +#ifdef CONFIG_ARM64_HAFT
+> > > +	orr	tcr2, tcr2, TCR2_EL1x_HAFT
+> > > +#endif /* CONFIG_ARM64_HAFT */
+> > >  1:
+> > >  #endif	/* CONFIG_ARM64_HW_AFDBM */
+> > >  	msr	mair_el1, mair
+> > 
+> > If you still want #ifdefs, I'd have left it outside the HW_AFDBM. We
+> > already have a dependency in the Kconfig. Anyway, I can fix this up.
+> > 
+> > I think as an additional patch we can also remove the ID checks for the
+> > tcr bit in tge HW_AFDBM case. But that's unrelated to this series.
 > 
-> Powerpc had a pfn_valid check on the intermediate pfn in the page_to_phys
-> implementation when CONFIG_DEBUG_VIRTUAL is defined, which seems
-> generally useful, so add that to the generic version.
+> I think you want to be careful with this one. I know of at least one
+> implementation that has a broken FEAT_HAFDBS implementation, that
+> removes it from the ID registers, but where the control bit in TCR_ELx
+> still takes effect.
 > 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> ---
->   include/asm-generic/memory_model.h | 10 ++++++++++
->   1 file changed, 10 insertions(+)
-> 
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
-> index a73a140cbecd..6d1fb6162ac1 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -64,7 +64,17 @@ static inline int pfn_valid(unsigned long pfn)
->   #define page_to_pfn __page_to_pfn
->   #define pfn_to_page __pfn_to_page
->   
-> +#ifdef CONFIG_DEBUG_VIRTUAL
-> +#define page_to_phys(page)						\
-> +({									\
-> +	unsigned long __pfn = page_to_pfn(page);			\
-> +									\
-> +	WARN_ON_ONCE(!pfn_valid(__pfn));				\
+> Please see 6df696cd9bc1 ("arm64: errata: Mitigate Ampere1 erratum
+> AC03_CPU_38 at stage-2") which indicates how we actually rely on the
+> check for S1 translation.
 
-On powerpc I think it was a WARN_ON().
+Ah, thanks for this. So the hardware with the erratum above can still
+update the pte after it has been marked invalid, hence we can't turn it
+on in TCR_EL1 even if the rest of the kernel considers the feature
+disabled. So yes, the HAFDBS code needs to stay as is.
 
-Will a WARN_ON_ONCE() be enough ?
+Let's hope the hardware people learnt and we won't have similar errata
+for FEAT_HAFT.
 
-> +	PFN_PHYS(__pfn);						\
-> +})
-> +#else
->   #define page_to_phys(page)	PFN_PHYS(page_to_pfn(page))
-> +#endif /* CONFIG_DEBUG_VIRTUAL */
->   #define phys_to_page(phys)	pfn_to_page(PHYS_PFN(phys))
->   
->   #endif /* __ASSEMBLY__ */
+-- 
+Catalin
 
