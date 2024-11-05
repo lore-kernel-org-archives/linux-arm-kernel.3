@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038BCD3176D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C9ED3176B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VkDMRUyOea8M36OIN+mQmnevH5Gj2ZReBvHOOQZVLiU=; b=shRparyW0P7tjoSUqoOqzFXLDb
-	V+cKZT+t+74ebtS22vL3g3fllE4ePyqSC9LfZTyo9RMdF1eAs5XEbv/kOY4fc6eYLumPBJRX4ZHwz
-	hzW+hXdCFuGZ9Ma+GSb3MeXdxdAqdVwns2Wzd9VErGODw1qdPz56lNhaUW1SptIaZ3LlO/2yN3OgE
-	N6S80ScBLzEywb42JPGam+D4BD02NVJPctkGENcr+wdLB/jJ3jN4LmOXE/RPG7E3TW+gMcnsBYJxr
-	Vej5CiKJyprVsnT/i07ud0YbQVtiTBzJVacPAN8zWSd12SX4jSQLbPTGYvA3JRfS+FF/G+K0yNH6o
-	ykFB+mOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HBg0QID7YLqrC4Qtre565hAluVRbFu/AYHC8KqiN4eI=; b=PSojEeSO4HdRWC6PK50/SVdxTX
+	X5Kkg56bjiBRAuwvEL+p9oRuirgmfD07SkjpygLF6PYor22qXiNhYGwAfH7vhAA39zferWft91tXy
+	BlxpsVu/XXTiVuYEELdsEkXVbXE9DvcCI1JYYCRAZDObc6p/JmpBzb+CUa77UHQnPhYCR8xEMtJjH
+	Ls5kl3f4XTyA6xaAzaalo5+IC84/db7fYQlA40Aeb0DWLEB/o2fgX9pPgLwaSCRu8T/1sUiYY8JR0
+	cFP/+LGxywSz7HPI4peGMkopZlDJFMXkQkSFGid/Pr+UJdDO9XGlTwT47gPE8rbxnXdcOu6BoW9cl
+	15TpfAxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NNt-00000000D0X-3nUI;
-	Tue, 05 Nov 2024 17:30:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8NNw-00000000D27-2KlY;
+	Tue, 05 Nov 2024 17:30:32 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Mju-000000006iw-0Lc1
+	id 1t8Mu0-000000008Zb-3aQj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 16:49:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C84535C063C;
-	Tue,  5 Nov 2024 16:48:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88223C4CECF;
-	Tue,  5 Nov 2024 16:49:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730825345;
-	bh=Vhm74JE/32/5am9D38BgIPqzhIeixvIp5eGDIh2BuU0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=eZjOMwQRwFCbCP4R1YtvzVOQsG8awqUDpOZEgcTM8mO5uI9bMAbSWHC2ZqjYnSy4E
-	 5k0FFxdMgMjnB0lbkJfrvS7Sn4yS+VefNbwrsXTeNealz6MCDlyh7vTu6FHXDfKgiY
-	 uuKDMoITa0Rnx7t76dqXksQxahRAPZr6HTVLedIpRmAy2Vg8QVzhLVXjujEEfFrJE6
-	 y5yf7WkoUUkN77Lj5HCgKThlThXHQEGm5NwSsxvM6gtEsGFP5td+C/T+5QJ2Sar48a
-	 Xtx12C3ug/8hnuXRXj1djL/GEyeXFKWT9x6XQatKGABiJPR4HzG6vYZQz5AxnPtxvh
-	 AnWNsSEMqZ0Sg==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Konrad Dybcio <quic_kdybcio@quicinc.com>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
-	Danila Tikhonov <danila@jiaxyga.com>,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Eugene Lepshy <fekz115@gmail.com>,
-	Jonathan Marek <jonathan@marek.ca>,
-	=?UTF-8?q?J=C3=A9r=C3=B4me=20de=20Bretagne?= <jerome.debretagne@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Tengfei Fan <quic_tengfan@quicinc.com>,
-	Viken Dadhaniya <quic_vdadhani@quicinc.com>,
-	Arnaud Vrac <avrac@freebox.fr>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
-	Manish Pandey <quic_mapa@quicinc.com>,
-	Marc Gonzalez <mgonzalez@freebox.fr>,
-	Maya Matuszczyk <maccraft123mc@gmail.com>,
-	Miaoqing Pan <quic_miaoqing@quicinc.com>,
-	Mukesh Ojha <quic_mojha@quicinc.com>,
-	Rob Herring <robh@kernel.org>,
-	Sachin Gupta <quic_sachgupt@quicinc.com>,
-	Sibi Sankar <quic_sibis@quicinc.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Vedang Nagar <quic_vnagar@quicinc.com>,
-	Yuvaraj Ranganathan <quic_yrangana@quicinc.com>
-Subject: [GIT PULL] Qualcomm Arm64 DeviceTree changes for v6.13
-Date: Tue,  5 Nov 2024 08:48:59 -0800
-Message-ID: <20241105164901.7787-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.47.0
+	Tue, 05 Nov 2024 16:59:38 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F08F73E;
+	Tue,  5 Nov 2024 17:59:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730825967;
+	bh=ydILT59GR8AEnvXxgxP0u5JaNtkOLQNmxYiS5gzdAA8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jPHZviItmxp0MX6rGq+j/1nW53lOV34Hr2i2bSDsQ0xDT+W7L1Cn1RbqrHaHByBgb
+	 R3hOioTR0i9iPhHwVNTOi5gXy8qRQzEWO0LSfa+puUUioFjBfNuXLcPGq+ibrM7c6r
+	 qEtjWyQuEwpmwvXH8KLzaU2rBSMbzzmPfIcCFqVM=
+Date: Tue, 5 Nov 2024 18:59:28 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] media: xilinx-tpg: fix double put in xtpg_parse_of()
+Message-ID: <20241105165928.GJ14276@pendragon.ideasonboard.com>
+References: <f41dfe97-6e6c-47b4-91bf-199c5938c6d0@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <f41dfe97-6e6c-47b4-91bf-199c5938c6d0@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_084910_286263_ACABEFE8 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20241105_085937_056945_2B37D36B 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,371 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dan,
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+Thank you for the patch.
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+On Mon, Nov 04, 2024 at 08:16:19PM +0300, Dan Carpenter wrote:
+> This loop was recently converted to use for_each_of_graph_port() which
+> automatically does __cleanup__ on the "port" iterator variable.  Delete
+> the calls to of_node_put(port) to avoid a double put bug.
+> 
+> Fixes: 393194cdf11e ("media: xilinx-tpg: use new of_graph functions")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-are available in the Git repository at:
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-for-6.13
+The offending commit wasn't merged through the media tree, so we can't
+easily merge the fix there either. I'm fine merging this fix through
+Rob's tree.
 
-for you to fetch changes up to d40fd02c1faf8faad57a7579b573bc5be51faabe:
+> ---
+>  drivers/media/platform/xilinx/xilinx-tpg.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/xilinx/xilinx-tpg.c b/drivers/media/platform/xilinx/xilinx-tpg.c
+> index cb93711ea3e3..7deec6e37edc 100644
+> --- a/drivers/media/platform/xilinx/xilinx-tpg.c
+> +++ b/drivers/media/platform/xilinx/xilinx-tpg.c
+> @@ -722,7 +722,6 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
+>  		format = xvip_of_get_format(port);
+>  		if (IS_ERR(format)) {
+>  			dev_err(dev, "invalid format in DT");
+> -			of_node_put(port);
+>  			return PTR_ERR(format);
+>  		}
+>  
+> @@ -731,7 +730,6 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
+>  			xtpg->vip_format = format;
+>  		} else if (xtpg->vip_format != format) {
+>  			dev_err(dev, "in/out format mismatch in DT");
+> -			of_node_put(port);
+>  			return -EINVAL;
+>  		}
+>  
 
-  arm64: dts: qcom: sdm845-db845c-navigation-mezzanine: Add cma heap for libcamera softisp support (2024-11-01 08:59:18 -0500)
+-- 
+Regards,
 
-----------------------------------------------------------------
-Qualcomm Arm64 DeviceTree changes for v6.13
-
-Introduce descriptions of the 8cx Gen3-based Microsoft Surface Pro 9 5G,
-X Elite based Dell XPS 13 9345, the QCS9100 platform and the "Ride"
-development boards thereon, and the SM7325 platform and the Nothing
-Phone 1.
-
-MSM8998 gains support for HDMI. The Lenovo Miix 630 gains support for
-volume keys, audio and sensor DSPs, touchscreen, and its specific WiFi
-calibration variant.
-
-On QCM6490, Fairphone FP5 gains a thermistor adjacent to UFS/RAM, while
-the IDP gains UFS and WiFi support. For QCS6490 changes to Rb3Gen2
-enables WiFi, Venus, PCIe, SD-card, and volume keys. Adreno speedbins
-are adjusted and PMU nodes' compatibles for the two clusters are
-corrected.
-
-The DB845C/RB3 and QRB5165 RB5 vision mezzanines are converted to
-DeviceTree overlays, and both gains CMA heap for libcamera to use.
-
-SA8775P gains GPI DMA support, support for controlling download mode
-(bootloader-assisted ramdump support), additional UARTs, and qcrypto
-support. The "Ride" development board gains WiFi and Bluetooth support.
-
-On SC8280XP (8cx Gen3) another UART is described, used in the
-Microsoft Surface 9 5G. The WiFi/BT combo chip's power management unit
-is described on the CRD and Lenovo ThinkPad X13s.
-
-On SDM630/660 the GPU SMMU and clock controller is added, as is the
-A2Noc and LPASS SMMU, and the DSP-based WiFi device. GPU, modem DSP and
-WiFi is then enabled on the Inforce 6560 development board.
-
-On SM8450 Hardware Development Kit, the WCN6855 is modelled to enable
-WiFi and Bluetooth. A "global" interrupt is defined on SM8450 PCIe RC
-controller, to enable hotplug.
-
-On X Elite, USB Type-C controllers are marked as usb-role-switch
-capable, the GICv3 ITS is enabled for PCIe. TCSR region is described and
-wired up to allow setting and cleaning the download mode
-(bootloader-assisted ramdump) flag, and residency numbers for C4/C5 are
-updated.
-
-USB role switch is enabled on Lenovo ThinkPad T14s and the ASUS Vivobook
-S15. The T14s also gains support for a second source trackpad. The
-Microsoft Surface Laptop gains LID switch and the USB Type-A connector
-attached to the multiport controller is enabled. The CRD has its HID
-device power supplies described.
-
-Application SMMU is flagged as DMA coherent across QDU1000, SC7180,
-SC8180X, SC8280XP, SDM670, SDM845, SM8150, SM8350, SM8450, and X1E80100.
-
-In addition to this, the effort to improve style and binding compliance
-continued.
-
-----------------------------------------------------------------
-Abel Vesa (2):
-      arm64: dts: qcom: x1e80100-slim7x: Drop orientation-switch from USB SS[0-1] QMP PHYs
-      arm64: dts: qcom: x1e80100-vivobook-s15: Drop orientation-switch from USB SS[0-1] QMP PHYs
-
-Aleksandrs Vinarskis (4):
-      dt-bindings: arm: qcom: Add Dell XPS 13 9345
-      arm64: dts: qcom: Add support for X1-based Dell XPS 13 9345
-      arm64: dts: qcom: x1e80100-dell-xps13-9345: route edp-panel enable gpio
-      arm64: dts: qcom: x1e80100-dell-xps13-9345: fix nvme regulator boot glitch
-
-Arnaud Vrac (1):
-      arm64: dts: qcom: msm8998: add HDMI nodes
-
-Bartosz Golaszewski (7):
-      arm64: dts: qcom: sm8650: extend the register range for UFS ICE
-      arm64: dts: qcom: sm8550: extend the register range for UFS ICE
-      arm64: dts: qcom: sa8775p: extend the register range for UFS ICE
-      arm64: dts: qcom: sc8280xp-crd: model the PMU of the on-board wcn6855
-      arm64: dts: qcom: sc8280xp-crd: enable bluetooth
-      arm64: dts: qcom: sc8280xp-x13s: model the PMU of the on-board wcn6855
-      arm64: dts: qcom: sm8450-hdk: model the PMU of the on-board wcn6855
-
-Bjorn Andersson (2):
-      arm64: dts: qcom: qcs6490-rb3gen2: Specify i2c1 clock frequency
-      Merge branch '20241011-sa8775p-mm-v4-resend-patches-v5-0-4a9f17dc683a@quicinc.com' into arm64-for-6.13
-
-Bryan O'Donoghue (6):
-      arm64: dts: qcom: qrb5165-rb5-vision-mezzanine: Convert mezzanine riser to dtbo
-      arm64: dts: qcom: sdm845-db845c-navigation-mezzanine: Convert mezzanine riser to dtso
-      arm64: dts: qcom: sc8280xp-x13s: Drop redundant clock-lanes from camera@10
-      arm64: dts: qcom: qrb5165-rb5-vision-mezzanine: Drop redundant clock-lanes from camera@1a
-      arm64: dts: qcom: qrb5165-rb5-vision-mezzanine: Add cma heap for libcamera softisp support
-      arm64: dts: qcom: sdm845-db845c-navigation-mezzanine: Add cma heap for libcamera softisp support
-
-Danila Tikhonov (4):
-      arm64: dts: qcom: sc7280: Fix PMU nodes for Cortex A55 and A78
-      dt-bindings: arm: cpus: Add qcom kryo670 compatible
-      dt-bindings: vendor-prefixes: Add Nothing Technology Limited
-      dt-bindings: arm: qcom: Add SM7325 Nothing Phone 1
-
-Dmitry Baryshkov (15):
-      arm64: dts: qcom: qcs6390-rb3gen2: use modem.mbn for modem DSP
-      arm64: dts: qcom: sc7280: don't enable GPU on unsupported devices
-      arm64: dts: qcom: qcm6490-idp: enable WiFi
-      arm64: dts: qcom: qcm6490-rb3gen2: enable WiFi
-      arm64: dts: qcom: sdm630: enable GPU SMMU and GPUCC
-      arm64: dts: qcom: sda660-ifc6560: enable GPU
-      arm64: dts: qcom: sda660-ifc6560: fix l10a voltage ranges
-      arm64: dts: qcom: sdm630: enable A2NOC and LPASS SMMU
-      arm64: dts: qcom: sdm630: add WiFI device node
-      arm64: dts: qcom: sda660-ifc6560: enable mDSP and WiFi devices
-      arm64: dts: qcom: msm8998-lenovo-miix-630: enable touchscreen
-      arm64: dts: qcom: msm8998-lenovo-miix-630: enable aDSP and SLPI
-      arm64: dts: qcom: msm8998-lenovo-miix-630: enable VolumeUp button
-      arm64: dts: qcom: msm8998-clamshell: enable resin/VolDown
-      arm64: dts: qcom: msm8998-lenovo-miix-630: add WiFi calibration variant
-
-Eugene Lepshy (3):
-      arm64: dts: qcom: sc7280: Add 0x81 Adreno speed bin
-      arm64: dts: qcom: Add SM7325 device tree
-      arm64: dts: qcom: sm7325: Add device-tree for Nothing Phone 1
-
-Johan Hovold (4):
-      arm64: dts: qcom: x1e80100: describe tcsr download mode register
-      arm64: dts: qcom: x1e80100: enable GICv3 ITS for PCIe
-      arm64: dts: qcom: x1e80100: rename vph-pwr regulator nodes
-      arm64: dts: qcom: x1e80100-crd: describe HID supplies
-
-Jonathan Marek (3):
-      arm64: dts: qcom: x1e80100: enable OTG on USB-C controllers
-      arm64: dts: qcom: x1e80100-crd: enable otg on usb ports
-      arm64: dts: qcom: x1e78100-t14s: enable otg on usb-c ports
-
-Jérôme de Bretagne (3):
-      dt-bindings: arm: qcom: Document Microsoft Surface Pro 9 5G
-      arm64: dts: qcom: sc8280xp: Add uart18
-      arm64: dts: qcom: sc8280xp: Add Microsoft Surface Pro 9 5G
-
-Konrad Dybcio (15):
-      arm64: dts: qcom: qdu1000: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sc7180: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sc8180x: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sc8280xp: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sdm670: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sm6350: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sm8150: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sm8350: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: sm8450: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: x1e80100: Affirm IDR0.CCTW on apps_smmu
-      arm64: dts: qcom: x1e80100-romulus: Add lid switch
-      arm64: dts: qcom: x1e80100-romulus: Set up USB Multiport controller
-      arm64: dts: qcom: qcs6490-rb3gen2: Enable PWR/VOL keys
-      arm64: dts: qcom: x1e80100: Update C4/C5 residency/exit numbers
-
-Krishna chaitanya chundru (1):
-      arm64: dts: qcom: qcs6490-rb3gen2: Add PCIe nodes
-
-Krzysztof Kozlowski (19):
-      arm64: dts: qcom: drop underscore in node names
-      arm64: dts: qcom: minor whitespace cleanup
-      arm64: dts: qcom: ipq: change labels to lower-case
-      arm64: dts: qcom: msm: change labels to lower-case
-      arm64: dts: qcom: msm8992-libra: drop unused regulators labels
-      arm64: dts: qcom: sc7180: change labels to lower-case
-      arm64: dts: qcom: sc8280xp: change labels to lower-case
-      arm64: dts: qcom: sc: change labels to lower-case
-      arm64: dts: qcom: sm6115: change labels to lower-case
-      arm64: dts: qcom: sm6350: change labels to lower-case
-      arm64: dts: qcom: sm8150: change labels to lower-case
-      arm64: dts: qcom: sm8250: change labels to lower-case
-      arm64: dts: qcom: sm8350: change labels to lower-case
-      arm64: dts: qcom: sm8450: change labels to lower-case
-      arm64: dts: qcom: sm8550: change labels to lower-case
-      arm64: dts: qcom: sm8650: change labels to lower-case
-      arm64: dts: qcom: sm: change labels to lower-case
-      arm64: dts: qcom: sdm: change labels to lower-case
-      arm64: dts: qcom: change labels to lower-case
-
-Luca Weiss (2):
-      arm64: dts: qcom: sm6350: Fix GPU frequencies missing on some speedbins
-      arm64: dts: qcom: qcm6490-fairphone-fp5: Add thermistor for UFS/RAM
-
-Manish Pandey (1):
-      arm64: dts: qcom: qcm6490-idp: Add UFS nodes
-
-Manivannan Sadhasivam (3):
-      arm64: dts: qcom: sa8775p: Add 'linux,pci-domain' to PCIe EP controller nodes
-      arm64: dts: qcom: sm8450: Add 'global' interrupt to the PCIe RC node
-      arm64: dts: qcom: Use 'ufshc' as the node name for UFS controller nodes
-
-Marc Gonzalez (1):
-      arm64: dts: qcom: msm8998: add HDMI GPIOs
-
-Maya Matuszczyk (1):
-      arm64: dts: qcom: x1e80100: Add debug uart to Lenovo Yoga Slim 7x
-
-Miaoqing Pan (1):
-      arm64: dts: qcom: sa8775p-ride: add WiFi/BT nodes
-
-Mukesh Ojha (1):
-      arm64: dts: qcom: sa8775p: Add TCSR halt register space
-
-Rob Herring (Arm) (1):
-      arm64: dts: qcom: Drop undocumented domain "idle-state-name"
-
-Sachin Gupta (1):
-      arm64: dts: qcom: qcs6490-rb3gen2: Add SD Card node
-
-Sibi Sankar (1):
-      arm64: dts: qcom: x1e80100: Resize GIC Redistributor register region
-
-Srinivas Kandagatla (1):
-      arm64: dts: qcom: x1e80100-t14s: add another trackpad support
-
-Taniya Das (3):
-      dt-bindings: clock: qcom: Add SA8775P video clock controller
-      dt-bindings: clock: qcom: Add SA8775P camera clock controller
-      dt-bindings: clock: qcom: Add SA8775P display clock controllers
-
-Tengfei Fan (2):
-      dt-bindings: arm: qcom: Document qcs9100-ride and qcs9100-ride Rev3
-      arm64: dts: qcom: qcs9100: Add support for the QCS9100 Ride and Ride Rev3 boards
-
-Vedang Nagar (1):
-      arm64: dts: qcom: qcs6460-rb3gen2: enable venus node
-
-Viken Dadhaniya (2):
-      arm64: dts: qcom: sa8775p: Populate additional UART DT nodes
-      arm64: dts: qcom: sa8775p: Add GPI configuration
-
-Vladimir Zapolskiy (9):
-      arm64: dts: qcom: sm8350-hdk: remove a blank overwrite of dispcc node status
-      arm64: dts: qcom: sm8450-qrd: explicitly disable dispcc on the board
-      arm64: dts: qcom: sm8450-sony-xperia-nagara: disable dispcc on derived boards
-      arm64: dts: qcom: sm8450: don't disable dispcc by default
-      arm64: dts: qcom: sm8450-hdk: remove status property from dispcc device tree node
-      arm64: dts: qcom: sm8650: don't disable dispcc by default
-      arm64: dts: qcom: sm8650-hdk: remove status property from dispcc device tree node
-      arm64: dts: qcom: sm8650-mtp: remove status property from dispcc device tree node
-      arm64: dts: qcom: sm8650-qrd: remove status property from dispcc device tree node
-
-Yuvaraj Ranganathan (1):
-      arm64: dts: qcom: sa8775p: add QCrypto nodes
-
- Documentation/devicetree/bindings/arm/cpus.yaml    |    1 +
- Documentation/devicetree/bindings/arm/qcom.yaml    |   16 +
- .../bindings/clock/qcom,sa8775p-camcc.yaml         |   62 +
- .../bindings/clock/qcom,sa8775p-dispcc.yaml        |   79 ++
- .../bindings/clock/qcom,sa8775p-videocc.yaml       |   62 +
- .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
- arch/arm/boot/dts/qcom/qcom-msm8916-smp.dtsi       |    2 +-
- arch/arm64/boot/dts/qcom/Makefile                  |   11 +
- arch/arm64/boot/dts/qcom/ipq5018.dtsi              |   10 +-
- arch/arm64/boot/dts/qcom/ipq5332.dtsi              |   18 +-
- arch/arm64/boot/dts/qcom/ipq6018.dtsi              |   26 +-
- arch/arm64/boot/dts/qcom/ipq8074.dtsi              |   18 +-
- arch/arm64/boot/dts/qcom/ipq9574.dtsi              |   52 +-
- .../boot/dts/qcom/msm8916-wingtech-wt86518.dts     |    2 +-
- arch/arm64/boot/dts/qcom/msm8916.dtsi              |  100 +-
- arch/arm64/boot/dts/qcom/msm8939.dtsi              |  110 +-
- arch/arm64/boot/dts/qcom/msm8953.dtsi              |   68 +-
- arch/arm64/boot/dts/qcom/msm8976.dtsi              |   34 +-
- arch/arm64/boot/dts/qcom/msm8992-lg-h815.dts       |   12 +-
- arch/arm64/boot/dts/qcom/msm8992-xiaomi-libra.dts  |    4 +-
- arch/arm64/boot/dts/qcom/msm8992.dtsi              |    4 +-
- arch/arm64/boot/dts/qcom/msm8994.dtsi              |   52 +-
- arch/arm64/boot/dts/qcom/msm8996.dtsi              |   54 +-
- arch/arm64/boot/dts/qcom/msm8998-clamshell.dtsi    |   38 +-
- .../boot/dts/qcom/msm8998-lenovo-miix-630.dts      |   68 ++
- arch/arm64/boot/dts/qcom/msm8998.dtsi              |  220 +++-
- arch/arm64/boot/dts/qcom/qcm2290.dtsi              |   68 +-
- arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts |   40 +
- arch/arm64/boot/dts/qcom/qcm6490-idp.dts           |   30 +
- arch/arm64/boot/dts/qcom/qcs404.dtsi               |   68 +-
- arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts       |  127 +-
- arch/arm64/boot/dts/qcom/qcs8550.dtsi              |    2 +-
- arch/arm64/boot/dts/qcom/qcs9100-ride-r3.dts       |   11 +
- arch/arm64/boot/dts/qcom/qcs9100-ride.dts          |   11 +
- arch/arm64/boot/dts/qcom/qdu1000.dtsi              |   89 +-
- arch/arm64/boot/dts/qcom/qrb2210-rb1.dts           |   14 +-
- arch/arm64/boot/dts/qcom/qrb4210-rb2.dts           |    4 +-
- ...anine.dts => qrb5165-rb5-vision-mezzanine.dtso} |   19 +-
- arch/arm64/boot/dts/qcom/qrb5165-rb5.dts           |    4 +-
- arch/arm64/boot/dts/qcom/sa8775p-ride.dtsi         |  121 ++
- arch/arm64/boot/dts/qcom/sa8775p.dtsi              |  701 +++++++++--
- arch/arm64/boot/dts/qcom/sc7180-firmware-tfa.dtsi  |   84 +-
- .../arm64/boot/dts/qcom/sc7180-trogdor-coachz.dtsi |    8 +-
- .../boot/dts/qcom/sc7180-trogdor-homestar.dtsi     |    8 +-
- .../boot/dts/qcom/sc7180-trogdor-wormdingler.dtsi  |    8 +-
- arch/arm64/boot/dts/qcom/sc7180.dtsi               |  366 +++---
- arch/arm64/boot/dts/qcom/sc7280-chrome-common.dtsi |   10 +-
- arch/arm64/boot/dts/qcom/sc7280.dtsi               |  397 +++---
- arch/arm64/boot/dts/qcom/sc8180x.dtsi              |  166 +--
- arch/arm64/boot/dts/qcom/sc8280xp-crd.dts          |  169 +++
- .../dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts     |  120 +-
- .../boot/dts/qcom/sc8280xp-microsoft-arcata.dts    | 1032 ++++++++++++++++
- arch/arm64/boot/dts/qcom/sc8280xp.dtsi             |  211 ++--
- .../arm64/boot/dts/qcom/sda660-inforce-ifc6560.dts |   32 +-
- arch/arm64/boot/dts/qcom/sdm450-lenovo-tbx605f.dts |    2 +-
- arch/arm64/boot/dts/qcom/sdm630.dtsi               |  190 +--
- arch/arm64/boot/dts/qcom/sdm632.dtsi               |   26 +-
- arch/arm64/boot/dts/qcom/sdm660.dtsi               |   16 +-
- arch/arm64/boot/dts/qcom/sdm670.dtsi               |  159 +--
- arch/arm64/boot/dts/qcom/sdm845-cheza.dtsi         |   74 +-
- ...dts => sdm845-db845c-navigation-mezzanine.dtso} |   23 +-
- arch/arm64/boot/dts/qcom/sdm845-db845c.dts         |    4 +-
- arch/arm64/boot/dts/qcom/sdm845.dtsi               |  179 +--
- arch/arm64/boot/dts/qcom/sdx75.dtsi                |   90 +-
- arch/arm64/boot/dts/qcom/sm4250.dtsi               |   16 +-
- arch/arm64/boot/dts/qcom/sm4450.dtsi               |  160 +--
- arch/arm64/boot/dts/qcom/sm6115.dtsi               |  154 +--
- arch/arm64/boot/dts/qcom/sm6125.dtsi               |   54 +-
- arch/arm64/boot/dts/qcom/sm6350.dtsi               |  207 ++--
- arch/arm64/boot/dts/qcom/sm6375.dtsi               |  160 +--
- arch/arm64/boot/dts/qcom/sm7125.dtsi               |   16 +-
- arch/arm64/boot/dts/qcom/sm7225.dtsi               |   16 +-
- .../boot/dts/qcom/sm7325-nothing-spacewar.dts      | 1260 ++++++++++++++++++++
- arch/arm64/boot/dts/qcom/sm7325.dtsi               |   17 +
- arch/arm64/boot/dts/qcom/sm8150.dtsi               |  371 +++---
- arch/arm64/boot/dts/qcom/sm8250.dtsi               |  366 +++---
- arch/arm64/boot/dts/qcom/sm8350-hdk.dts            |    4 -
- arch/arm64/boot/dts/qcom/sm8350.dtsi               |  353 +++---
- arch/arm64/boot/dts/qcom/sm8450-hdk.dts            |  161 ++-
- arch/arm64/boot/dts/qcom/sm8450-qrd.dts            |    4 +
- .../boot/dts/qcom/sm8450-sony-xperia-nagara.dtsi   |    4 +
- arch/arm64/boot/dts/qcom/sm8450.dtsi               |  176 +--
- arch/arm64/boot/dts/qcom/sm8550-samsung-q5q.dts    |    2 +-
- arch/arm64/boot/dts/qcom/sm8550.dtsi               |  167 +--
- arch/arm64/boot/dts/qcom/sm8650-hdk.dts            |    4 -
- arch/arm64/boot/dts/qcom/sm8650-mtp.dts            |    4 -
- arch/arm64/boot/dts/qcom/sm8650-qrd.dts            |    4 -
- arch/arm64/boot/dts/qcom/sm8650.dtsi               |  162 ++-
- .../dts/qcom/x1e78100-lenovo-thinkpad-t14s.dts     |   25 +-
- .../boot/dts/qcom/x1e80100-asus-vivobook-s15.dts   |   26 +-
- arch/arm64/boot/dts/qcom/x1e80100-crd.dts          |   70 +-
- .../boot/dts/qcom/x1e80100-dell-xps13-9345.dts     |  875 ++++++++++++++
- .../boot/dts/qcom/x1e80100-lenovo-yoga-slim7x.dts  |   39 +-
- .../boot/dts/qcom/x1e80100-microsoft-romulus.dtsi  |  104 +-
- arch/arm64/boot/dts/qcom/x1e80100.dtsi             |  229 ++--
- include/dt-bindings/clock/qcom,sa8775p-camcc.h     |  108 ++
- include/dt-bindings/clock/qcom,sa8775p-dispcc.h    |   87 ++
- include/dt-bindings/clock/qcom,sa8775p-videocc.h   |   47 +
- 98 files changed, 8314 insertions(+), 2946 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-camcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-dispcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,sa8775p-videocc.yaml
- create mode 100644 arch/arm64/boot/dts/qcom/qcs9100-ride-r3.dts
- create mode 100644 arch/arm64/boot/dts/qcom/qcs9100-ride.dts
- rename arch/arm64/boot/dts/qcom/{qrb5165-rb5-vision-mezzanine.dts => qrb5165-rb5-vision-mezzanine.dtso} (78%)
- create mode 100644 arch/arm64/boot/dts/qcom/sc8280xp-microsoft-arcata.dts
- rename arch/arm64/boot/dts/qcom/{sdm845-db845c-navigation-mezzanine.dts => sdm845-db845c-navigation-mezzanine.dtso} (85%)
- create mode 100644 arch/arm64/boot/dts/qcom/sm7325-nothing-spacewar.dts
- create mode 100644 arch/arm64/boot/dts/qcom/sm7325.dtsi
- create mode 100644 arch/arm64/boot/dts/qcom/x1e80100-dell-xps13-9345.dts
- create mode 100644 include/dt-bindings/clock/qcom,sa8775p-camcc.h
- create mode 100644 include/dt-bindings/clock/qcom,sa8775p-dispcc.h
- create mode 100644 include/dt-bindings/clock/qcom,sa8775p-videocc.h
+Laurent Pinchart
 
