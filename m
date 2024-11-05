@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A009D12663
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B13D12660
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnAbYm4VWUKZ0F1ePtL5cGK91Okpi3RKOo0VHnxT3ak=; b=e3PqnuucideYYteCgDaDnRFkw3
-	eNVddVfvXo/z/useVFui9EMW8LVtk0PYQMCUi/+aJFR2OXxXIjjV68H6hNizV5VHk2v9Pf3jpth+U
-	2H98PupdfApuSX1Ra13XiiPu425f1rbLXsn5FOLb5cpPCZTtYbVUzduMxj6hF0CMM3pCylJUDXw4Z
-	3fBAJocDeDsSBaNlWfklBxanZxWulQJYR8C/ehZ+to+Nimq6M7oAk1A86UId7jE6y6yYoP9SfJO4W
-	vZX7s5zlwtRiHpiq/6iSBgrD9VNH//lSKP4Q8InECrKD+qN9P1heMpK9og4twgSUYeRAxOXPpW/uO
-	tT40/oEg==;
+	bh=kO/XdeoBo7X02W334+E6LhxLlDrGOL8A5vE8mC37cg8=; b=b+uXlEhH16B4obTTZ4BIdJSWC5
+	DI52D/OMsRdKuPGyXtQI2Rl+pjK+J2iGmvk0vtzzt7e6tu/nhGqRO1YK+16vOGdSCqK31XEczkQ2k
+	u1WIBi3WRVNi18mxArQj+Ck+FFW0v8YO96Iapg7iUTSI6bcawYXsJDvKoaCYoff60wtWPBegji66U
+	oJJ/tSHdTAZohuiWfKpVFXTy/DIxFd13JM3YSHJvo9rRt8IyZO8/W90UWGg1GKmsNnW5AGKOnLA8l
+	KEcuQ/D0r12klj5J+NFPCTiyKlX8cKxXPEMQDaZrK9+LBiCRRa/uQVu4E/hwaCFfGBPhWJJxvfD+f
+	kRSVV/ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EeR-0000000GHyh-0myJ;
-	Tue, 05 Nov 2024 08:10:59 +0000
+	id 1t8Eg6-0000000GI9F-2dYd;
+	Tue, 05 Nov 2024 08:12:42 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EMd-0000000GEwf-2mHV
+	id 1t8EMd-0000000GEwi-3jae
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 07:52:37 +0000
 Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A549V48025479;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A56uQp6022315;
 	Tue, 5 Nov 2024 08:52:27 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	XnAbYm4VWUKZ0F1ePtL5cGK91Okpi3RKOo0VHnxT3ak=; b=AcmwMSynS2cZtSqX
-	TJVEsdn86r9uuFsyt5bwqAuKA6eYiWjgAOVfMgvxnFfzjRIP8ZrWBtAp1vQfpKSG
-	8Gtiy+06sRCuPSlE6TzCvrksd4ohbFRY/hoYZJ/cLfWAlGHmTro32+wdUhIPG+Dn
-	6O5DA8Bv2erZBoZfKnn6HblXPNyX/38TCs/y1OmW5UGBeQUomZd4HAtY5PUCl1ai
-	tjR37UNjcJngxsxG9yXO+8GdUw8boCcwu5ZbbZVS7UWiU/g28FPycM3/tF4S5uIH
-	98N68fD+p/V2oFqS2IlHHz6XwQPCZX4MQOFcv5TXw5SzY6TiePr/DZDnWLn960rr
-	+Zeqcg==
+	kO/XdeoBo7X02W334+E6LhxLlDrGOL8A5vE8mC37cg8=; b=XpkexCjym+l4hQgo
+	U6c1wzZjWYwCdjZqsUb7tcu4lZelqK17QRqJJkf+eLkVd0EK8n0xLUUmFpEVd4H4
+	HmVC+eMUmnfePgGeTlfkepYwIgmAXvbQts7BTPj3gp66aBIHYviZ09QnG89nnQZM
+	fFwy45+NXFMYDthNLbpJMcs0Gi3j/Cdr5TIm4mmc15h/2cWdIYv2loDMIS1wyQ3J
+	O1adt7S/XWxj8bdQ/moGAXiQFXL+M/D68QtqHs1uV7qIvvoTnuaLqVus8AEOn+h+
+	n0UYYt1D3QNamd4dq8SOQ9XMXMQYMKaOGzT6/xezRaXMQMUn2v2g/WYOwCcCapS4
+	wWe9cQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42ncxbtucu-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42ncxbtucv-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 05 Nov 2024 08:52:27 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AE4F040050;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9C6E440047;
 	Tue,  5 Nov 2024 08:50:26 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 088E72513C1;
-	Tue,  5 Nov 2024 08:49:37 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 64495250FA3;
+	Tue,  5 Nov 2024 08:49:33 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:49:36 +0100
+ 2024 08:49:33 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 5 Nov 2024 08:49:17 +0100
-Subject: [PATCH v2 14/15] arm64: dts: st: add csi & dcmipp node in
- stm32mp25
+Date: Tue, 5 Nov 2024 08:49:11 +0100
+Subject: [PATCH v2 08/15] media: stm32: dcmipp: add bayer 10~14 bits
+ formats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-csi_dcmipp_mp25-v2-14-b9fc8a7273c2@foss.st.com>
+Message-ID: <20241105-csi_dcmipp_mp25-v2-8-b9fc8a7273c2@foss.st.com>
 References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 In-Reply-To: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -90,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_235236_068543_82F92B91 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20241104_235236_346125_78ED05E2 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,48 +107,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes describing the csi and dcmipp controllers handling the
-camera pipeline on the stm32mp25x.
+Add support for bayer formats from 10 to 14 bits.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ .../media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c    | 12 ++++++++++++
+ .../media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c   | 12 ++++++++++++
+ 2 files changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 1167cf63d7e87aaa15c5c1ed70a9f6511fd818d4..6f8cabf2c5985f358689f15296300de24e9d9b25 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -518,6 +518,29 @@ i2c8: i2c@46040000 {
- 				status = "disabled";
- 			};
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index 48596592bfd517b9d46946d27f154f0d17ebed78..d6fad99e44bba5bcab1df056ba9208e82aff4bea 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -65,6 +65,18 @@ static const struct dcmipp_bytecap_pix_map dcmipp_bytecap_pix_map_list[] = {
+ 	PIXMAP_MBUS_PFMT(SGBRG8_1X8, SGBRG8),
+ 	PIXMAP_MBUS_PFMT(SGRBG8_1X8, SGRBG8),
+ 	PIXMAP_MBUS_PFMT(SRGGB8_1X8, SRGGB8),
++	PIXMAP_MBUS_PFMT(SBGGR10_1X10, SBGGR10),
++	PIXMAP_MBUS_PFMT(SGBRG10_1X10, SGBRG10),
++	PIXMAP_MBUS_PFMT(SGRBG10_1X10, SGRBG10),
++	PIXMAP_MBUS_PFMT(SRGGB10_1X10, SRGGB10),
++	PIXMAP_MBUS_PFMT(SBGGR12_1X12, SBGGR12),
++	PIXMAP_MBUS_PFMT(SGBRG12_1X12, SGBRG12),
++	PIXMAP_MBUS_PFMT(SGRBG12_1X12, SGRBG12),
++	PIXMAP_MBUS_PFMT(SRGGB12_1X12, SRGGB12),
++	PIXMAP_MBUS_PFMT(SBGGR14_1X14, SBGGR14),
++	PIXMAP_MBUS_PFMT(SGBRG14_1X14, SGBRG14),
++	PIXMAP_MBUS_PFMT(SGRBG14_1X14, SGRBG14),
++	PIXMAP_MBUS_PFMT(SRGGB14_1X14, SRGGB14),
+ 	PIXMAP_MBUS_PFMT(JPEG_1X8, JPEG),
+ };
  
-+			csi: csi@48020000 {
-+				compatible = "st,stm32mp25-csi";
-+				reg = <0x48020000 0x2000>;
-+				interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&rcc CSI_R>;
-+				clocks = <&rcc CK_KER_CSI>, <&rcc CK_KER_CSITXESC>,
-+					 <&rcc CK_KER_CSIPHY>;
-+				clock-names = "pclk", "txesc", "csi2phy";
-+				access-controllers = <&rifsc 86>;
-+				status = "disabled";
-+			};
-+
-+			dcmipp: dcmipp@48030000 {
-+				compatible = "st,stm32mp25-dcmipp";
-+				reg = <0x48030000 0x1000>;
-+				interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>;
-+				resets = <&rcc DCMIPP_R>;
-+				clocks = <&rcc CK_BUS_DCMIPP>, <&rcc CK_KER_CSI>;
-+				clock-names = "kclk", "mclk";
-+				access-controllers = <&rifsc 87>;
-+				status = "disabled";
-+			};
-+
- 			sdmmc1: mmc@48220000 {
- 				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
- 				arm,primecell-periphid = <0x00353180>;
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index a19c8235af565fb5f673ba90b37ebfcadf03d72e..72f1bb4c64ad4c194c14467dfc354a04bc69e208 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -57,6 +57,18 @@ static const struct dcmipp_byteproc_pix_map dcmipp_byteproc_pix_map_list[] = {
+ 	PIXMAP_MBUS_BPP(SGBRG8_1X8, 1),
+ 	PIXMAP_MBUS_BPP(SGRBG8_1X8, 1),
+ 	PIXMAP_MBUS_BPP(SRGGB8_1X8, 1),
++	PIXMAP_MBUS_BPP(SBGGR10_1X10, 2),
++	PIXMAP_MBUS_BPP(SGBRG10_1X10, 2),
++	PIXMAP_MBUS_BPP(SGRBG10_1X10, 2),
++	PIXMAP_MBUS_BPP(SRGGB10_1X10, 2),
++	PIXMAP_MBUS_BPP(SBGGR12_1X12, 2),
++	PIXMAP_MBUS_BPP(SGBRG12_1X12, 2),
++	PIXMAP_MBUS_BPP(SGRBG12_1X12, 2),
++	PIXMAP_MBUS_BPP(SRGGB12_1X12, 2),
++	PIXMAP_MBUS_BPP(SBGGR14_1X14, 2),
++	PIXMAP_MBUS_BPP(SGBRG14_1X14, 2),
++	PIXMAP_MBUS_BPP(SGRBG14_1X14, 2),
++	PIXMAP_MBUS_BPP(SRGGB14_1X14, 2),
+ 	PIXMAP_MBUS_BPP(JPEG_1X8, 1),
+ };
+ 
 
 -- 
 2.25.1
