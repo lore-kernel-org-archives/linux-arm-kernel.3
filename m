@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D256CD3E773
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 21:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41202D3E773
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 21:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JDqSCtTVCq4Qczhx09B9nJjBnN/eooqA5p++DfQuKoA=; b=RGuP8lgNHrnlPc
-	ZhcJYGXRSCBIAhcLx8ftKqsLEsQLXIrWyz1bPDsdRiEiGYFWb0IV8Ckagq+puOgK6gjeEO77Vfnbe
-	NGxIrHbKs2P7MPB7wGPG7TWyBzPA9VbeF0SsHHca5sD08uaA6vlgC+LFAql8YKAjrrhsk8yQrBSBO
-	SZCMQmgzG1qul8ulDiSoqg2XwRapEdwf10XdIU0sCEuIqCTKwoxtdlXflczY9+6j74crbt01tMl6X
-	KBn4pYgVgcKw2PNyUeXJOjjhBa13Vz1h7xBU/WBDywJ3aof1kEcwr9N0/M/JmwUySovSSWesMmKsi
-	zSEwtD86UjFDwjF457eg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=naUrljARLNrIdPlsJLerriMyE2VDqk5djRyAo9F8rDM=; b=eiUKTD1au/+r/PY19TdlTF8hc/
+	3buXZfk80metmhs771kN0lfIf42p8aywHMNiqTiWuh4yQwYFMiyOp0CzyyoLnR04Rdg6LU/tUvX+N
+	JA2adFpd0ufogAZsG9AtrBe3JjqPCN6YUlG0lzfyG3ppQ74qGIjiBJDfbVFIFPeJ4TbzDKcWxZb8M
+	Zc73R4E7RbhwQ4U281IUGkRlj1ByUJkqW6pg7hUG6R94SaOtOaJlt3dXN30VoUlM/tW87IuNJiNXc
+	x6fmH+/s9YmznCsGidIgI/n40kcH9WhWqg5BJEEqecKPR7aIZnMlDf4hiE/L9FeXpLSwzmOdfGvAp
+	zoFSaOnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Qyc-00000000qUf-42IB;
-	Tue, 05 Nov 2024 21:20:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8R0I-00000000qhG-2rWP;
+	Tue, 05 Nov 2024 21:22:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Qws-00000000q97-3b4C
+	id 1t8Qwu-00000000q9Q-2LTE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 21:18:52 +0000
+	Tue, 05 Nov 2024 21:18:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 76E48A439F9;
-	Tue,  5 Nov 2024 21:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08673C4CECF;
-	Tue,  5 Nov 2024 21:18:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F20335C567F;
+	Tue,  5 Nov 2024 21:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37E73C4CECF;
+	Tue,  5 Nov 2024 21:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730841529;
-	bh=ITqqGq6mWtWfAtqIp8o0iLGvCeORRBMChO8HBBT5CJQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Ny9sCyO6mFQ3XL9ao31MrZF9ooikmFG6s6XV/aBBCvYDQrH1D1qzfCsKcSn/xTEJ7
-	 QwxvKM07WDP0NvT3wVLx/5m4JQzB4V+0UoijRdoI4+6rBeR5v3Gj6gqlVxLU73r9hu
-	 S2FHh3GZ62ZoeNFbl5OoJBWTEZniFu50rGrFpnt4wx2Y6SFml9ReW5N6BfwajOsLAT
-	 pAy7sKp9am8qMsDijiHE+Sre7aj92gnIm2M9SyLKkUCzQD/RzGhunIois98/bWr42b
-	 Md09g0x8T1UIm09ya3ZGPSNxxVx6XtpyxlUb1DkfMUeXJwtKgBKfaXlx/2pC3KSE5n
-	 AgRtFFbv2v6JA==
+	s=k20201202; t=1730841531;
+	bh=Mggfy6UFGifZiD8v24Nk2yRnIHy9cWVERK7EVwoH540=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dSbbvE0/MJLi+MTyjeh/jTIxgGMBrMg7Uio/wlkfsa4ctlYN9aNJvXRw7xnyEC6S5
+	 jqISww+Mnu7BtIsa0FaVvRb5LnJ6jlfpQsU/uGonByI5uR5rzZLjF8idnjogLK33pG
+	 ZC6K276kvUaCS+PdxA9Kd/D2CfRdTzglI0MA42b2MXrrHgWyou+Iwoe9T1I0uko9Uz
+	 EZnk7ZZwiIx9D+6hi36uI3VKnOtxLztmdAH1MxfREtCA3/07B3j7GE2HJoes0ugfxx
+	 3FTKY+notdCWY6CSFMq1BB7yfVJ9pG7ReMYvayQRl60LlNZeRusKDqS6qhmDxdgjDg
+	 uTbO0mFSxjMmg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Subject: [PATCH RESEND v2 0/2] arm64: dts: PL022 clock fixes
-Date: Tue, 05 Nov 2024 15:18:38 -0600
-Message-Id: <20241105-dts-spi-fixes-v2-0-623501e5d1ca@kernel.org>
+Date: Tue, 05 Nov 2024 15:18:39 -0600
+Subject: [PATCH RESEND v2 1/2] arm64: dts: seattle: Update spi clock
+ properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK6LKmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
- vPSU3UzU4B8JSMDIxNDQwNT3ZSSYt3igkzdtMyK1GJdy2Qjk1RzczPjNOMkJaCegqJUsARQS7R
- SkGuwq5+LUmxtLQDbJBfPZwAAAA==
+Message-Id: <20241105-dts-spi-fixes-v2-1-623501e5d1ca@kernel.org>
+References: <20241105-dts-spi-fixes-v2-0-623501e5d1ca@kernel.org>
+In-Reply-To: <20241105-dts-spi-fixes-v2-0-623501e5d1ca@kernel.org>
 To: soc@kernel.org, Kuldeep Singh <singh.kuldeep87k@gmail.com>, 
  Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
  Tom Lendacky <thomas.lendacky@amd.com>, 
@@ -63,9 +63,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_131851_016888_F5E5C4D2 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241105_131852_784676_428DF5FF 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnd, this series[1] from 2.5 years ago was never applied. There was 
-some discussion on the lpc32xx patch, but nothing on the first 2 
-patches. So I'm resending the first 2. Please apply directly.
+From: Kuldeep Singh <singh.kuldeep87k@gmail.com>
 
-Rob
+PL022 binding require two clocks to be defined but AMD seattle platform
+does't comply with binding and define only one clock i.e apb_pclk.
 
-[1] https://lore.kernel.org/all/20220311093800.18778-1-singh.kuldeep87k@gmail.com/
+Update spi clocks and clocks-names property by adding appropriate clock
+reference to make it compliant with bindings.
 
+CC: Tom Lendacky <thomas.lendacky@amd.com>
+Signed-off-by: Kuldeep Singh <singh.kuldeep87k@gmail.com>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Kuldeep Singh (2):
-      arm64: dts: seattle: Update spi clock properties
-      arm64: dts: lg131x: Update spi clock properties
-
- arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi | 8 ++++----
- arch/arm64/boot/dts/lg/lg1312.dtsi           | 8 ++++----
- arch/arm64/boot/dts/lg/lg1313.dtsi           | 8 ++++----
- 3 files changed, 12 insertions(+), 12 deletions(-)
+Arnd, Please apply directly.
 ---
-base-commit: 6f2ca0f00f319c694ad5bb494b64745a43b40756
-change-id: 20241105-dts-spi-fixes-9c24e7763f3b
+ arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi b/arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi
+index 690020589d41..d3d931eb7677 100644
+--- a/arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi
++++ b/arch/arm64/boot/dts/amd/amd-seattle-soc.dtsi
+@@ -123,8 +123,8 @@ spi0: spi@e1020000 {
+ 			reg = <0 0xe1020000 0 0x1000>;
+ 			spi-controller;
+ 			interrupts = <0 330 4>;
+-			clocks = <&uartspiclk_100mhz>;
+-			clock-names = "apb_pclk";
++			clocks = <&uartspiclk_100mhz>, <&uartspiclk_100mhz>;
++			clock-names = "sspclk", "apb_pclk";
+ 		};
+ 
+ 		spi1: spi@e1030000 {
+@@ -133,8 +133,8 @@ spi1: spi@e1030000 {
+ 			reg = <0 0xe1030000 0 0x1000>;
+ 			spi-controller;
+ 			interrupts = <0 329 4>;
+-			clocks = <&uartspiclk_100mhz>;
+-			clock-names = "apb_pclk";
++			clocks = <&uartspiclk_100mhz>, <&uartspiclk_100mhz>;
++			clock-names = "sspclk", "apb_pclk";
+ 			num-cs = <1>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+
 -- 
-Rob Herring (Arm) <robh@kernel.org>
+2.45.2
 
 
