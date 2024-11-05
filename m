@@ -4,92 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A484D1268C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476F9D1268C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=; b=rgU48qnd5p2qNtVMUt693OtDQK
-	Xs+u6onJG5sYwtEgylHO/pZt3NjwwiKqgg/GOIKaeYjBXHEbR0Dn779MCN93m8/J+4MXZaYG37d3n
-	HyYb4jbWJY/eWJenwDdeKhmF7vC1jMAhKYheLeHhooaZfTARObk8RWVhLKcSrL65Ob/yX4b9cv8IE
-	QbM3KYMyoZ4cx1uinySE9NWGUYiRWc+LTyvghNuLkZqkgo8KQJKqo7WjAIUTihRIFP7TBX0WL5ZCM
-	pCgpgFdc6THrmim/fSje43/sq0QjNgo4DZ5GKpRLx6oFMInTW4SwYKXoqb6Cf6Iy8eEdtkYMgatun
-	S2qbYGsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=; b=XV4OHesUuS/WdJCPUNtlqzyryO
+	fqzB8arqRCR3msv2ZlfBq7Qau9cTrgTp5zyl14jxUL4dTYFYTn7S/2oviffMnUs/udA8iRoriwYIh
+	7IrZpiy/WTqWEPZ/bsbS0LOe54yoTPvBzbewMNkHeZ7dNSOC4gN4GYWVZgHyXbneQF3d8wM0NZTVT
+	Qzuh3e3E3rW9dPDj4QeduDSkucqqvdGYvKi/JSJDr8tZUP+JPChp3nfADdzIBboQl3Jn/bHVM/kIS
+	Upsmnn1wkmaXaazYeYTze6UyBHYcgdl3IduoB+FcHIKODZas9OKtpq12bFyc/C6PwJAzg75aMNbjU
+	MdcX+TKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HjM-0000000Gran-3xm5;
-	Tue, 05 Nov 2024 11:28:17 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1t8Hlm-0000000GsAc-0OaQ;
+	Tue, 05 Nov 2024 11:30:46 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Hhd-0000000Gr8e-2AHR
+	id 1t8Hk0-0000000GrnK-2Jh8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 11:26:30 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e30eca40c44so4713978276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 03:26:28 -0800 (PST)
+	Tue, 05 Nov 2024 11:28:59 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso5678029e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 03:28:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730805987; x=1731410787; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=;
-        b=LOr4YH1g4+l7Y59kzEsh1AVHtsUzJDVu87uABHlFdNqqZvOGCYZkDBFiCJMlE3SDLM
-         2xKVZtjJfSNMEftbTvayCDp3KagCgXJxQAAF5w6gaZMMClGHFsoz9qHD5L3EGRxkmizm
-         JSdzJ2IqFGeiYDGDb7q3nUHFP5NU4avZhrAPkZ2IExW77Mu+8MrB+gAt4Ph3IC8W7mJ+
-         GDoZVsWFcJuDfd2Jfr+lobgWyuzShEgNvXFI1D1gMb0ptc6T4id+aPu97eMZh/TagYYn
-         7K0dMsNMfuK9Kbpj8iojl+E7/wiKhhQB9Nor4Bo7I1j79JkWuKz0QNHhJ2qnu/CZnT2r
-         87dw==
+        d=linaro.org; s=google; t=1730806134; x=1731410934; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=;
+        b=fqkxL31iZC9dI6sM0e1liw9rIifKyGCmvjbD4+gnQsh5sOWyIlIh5lkAeiBOQ0Uouy
+         765DZoWX+mjXrlGJhjl15TUd1w/HMcKxYon0t+Qx3As4W/x3FFb70nljVGys8O5x57XU
+         GcyLTmwHI3kBPGgGy8ZbZphfOen7ZDEsuqS2wkQMUdVjKBBJWfV3mKbL+YlGXdIXyD+2
+         3oipE9sSliGiAElW8fnKJ6OwHzawOBw8mgLIRYdt7g1OfUuAPnLsDoiIdg2Zm2lFnM+9
+         uyJLb0ToV2JAoNksmA55J6fK2EAbqF5u0H5PVW5p9KCKDfnj/e85kaLtoAJkSfkrcQjW
+         C9Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730805987; x=1731410787;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=;
-        b=GhjyTKKXs1jhpwqmSzTCP9eIykzoo6YNPy0baW648KAJ1MoOiC5xsYt/Lk1DBqYrE+
-         VrhhGpJrXBv2xRPReTtXVglhmBtOpMnwPzYgLhvvuXXpjUrPRQVZa+hcRycuB6+Fpbvw
-         y2UGne5CBFdfOnqy4p843eh4AOLpRGN5unhCGQPIsfx4JidDj1vX4VFXts+H5W1D88sU
-         mynykG9mGKNMyF/UYJchnjQvHSWsc2StAEwMUp3Ie31Yu6epnKnWxaWNOa0zX/uGmXjj
-         euRMvPDnPNCn2FCeGvZCBuKgxis3jj9j7aYGtHTRaqJ/+3ze8wPuhvVm5VHmQQz2ney/
-         G8Cg==
-X-Forwarded-Encrypted: i=1; AJvYcCXUSiucOogVMw7wIddeYTvWwuFtCl1E+ufOxKtgNl8MXiaXel3mQbbTMsyNlKUG5z+yyj8qpaq0MEH4mwJH8YgT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEPpnykEtBoA0HBDpDFl2hQ4W3YLZv4GEOiUr3L9n6o8Jd3W2Y
-	/uodSYPRd0FfBFT0tSbjblOYLGd1ZO7kUbCrfHmAQDNZiplCFXjW49lVEpYAhFu4K/tstj3Duws
-	9PHjpP49ranT7LXRieg78pu7/gNfbql4l/StoaQ==
-X-Google-Smtp-Source: AGHT+IHwht1pfSwQlaqWWbyXJaYST2v470nqEkV0Y3tMwYWqipVeiUaNoITHKiBik6whym2zw0rsn51UBBneR8aGa1Y=
-X-Received: by 2002:a05:690c:fd0:b0:6ea:8d6f:b1bf with SMTP id
- 00721157ae682-6ea8d6fb48amr78680707b3.0.1730805987251; Tue, 05 Nov 2024
- 03:26:27 -0800 (PST)
-MIME-Version: 1.0
-References: <20241028023740.19732-1-victor.liu@nxp.com> <20241028023740.19732-5-victor.liu@nxp.com>
- <Zyn5CgZvyg05cgJW@kekkonen.localdomain>
-In-Reply-To: <Zyn5CgZvyg05cgJW@kekkonen.localdomain>
+        d=1e100.net; s=20230601; t=1730806134; x=1731410934;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=;
+        b=dXH9sctqiWBSqQwZmrfzXeAwz2YNFENvGHaau+JfESFnXYTwdz7brhYrYHBosWvx60
+         mFsQ2KYDGPxVmrgw8KFQo4gihZ96F1B9ynOHVV+p2EQY7SFEv7wbKAtYiySJMN9hoXl/
+         /iXoTuAf4Aad8hJDs6BIkspX6M2Sk+94E3ziOluV/RBSOQenunkxenxCunV5hLHUFNlY
+         9z2pu4ZlFUp3+v6i2oFf8d4kZFVYO/nXbsAmtYDS4vOw1avTyApB0V0w2TgXtUub4wZc
+         D19vY9A93rZYZelD907vh4CxG4z4BO6dUtFdIQhEwxykRkarMwLIoOLMB9rr3Q7Oz5Nq
+         OE5g==
+X-Forwarded-Encrypted: i=1; AJvYcCXsD44PfAcaWvhPiYs1oINTGHn8+csWelWV54hUHa/JMnMvrTmj5ssXOQnQ+vMDCfP4j/OLc7Z2dr3FavtirHHk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMm0EXKBW5GiIMJ99fiNUtaITFrjq+2qXhl1cs4N4Uqj9ZnPX7
+	Jfdjz9NluRhhI/Xms9Uhsp5qwYLL/cRLkENIh7YFYCD8l34mo1ekqCbBzU6rcWE=
+X-Google-Smtp-Source: AGHT+IGazolcFL8rsDXTC+coJxYFbQY28nmJAc6aKVJwz0sBWevsWrSg6NX0J5MzQM2/Ky5L0ke0DA==
+X-Received: by 2002:a05:6512:3e24:b0:539:918c:5124 with SMTP id 2adb3069b0e04-53d65df3203mr7408960e87.31.1730806134153;
+        Tue, 05 Nov 2024 03:28:54 -0800 (PST)
+Received: from eriador.lan (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc95957sm2098533e87.55.2024.11.05.03.28.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2024 03:28:52 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Tue, 5 Nov 2024 11:26:16 +0000
-Message-ID: <CAA8EJpoaLnw46DUaZ+z-YSkbdk-f45-dKMjoQWu16zaC6i-H-w@mail.gmail.com>
-Subject: Re: [PATCH v4 04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG,
- JEIDA}
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, quic_jesszhan@quicinc.com, mchehab@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com, 
-	quic_bjorande@quicinc.com, geert+renesas@glider.be, arnd@arndb.de, 
-	nfraprado@collabora.com, thierry.reding@gmail.com, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de, 
+To: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Liu Ying <victor.liu@nxp.com>
+Cc: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quic_jesszhan@quicinc.com,
+	mchehab@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	sakari.ailus@linux.intel.com,
+	hverkuil@xs4all.nl,
+	tomi.valkeinen@ideasonboard.com,
+	quic_bjorande@quicinc.com,
+	geert+renesas@glider.be,
+	arnd@arndb.de,
+	nfraprado@collabora.com,
+	thierry.reding@gmail.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	sam@ravnborg.org,
+	marex@denx.de,
 	biju.das.jz@bp.renesas.com
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: (subset) [PATCH v5 00/13] Add ITE IT6263 LVDS to HDMI converter support
+Date: Tue,  5 Nov 2024 13:28:48 +0200
+Message-ID: <173080602214.231309.12977765173766280536.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241104032806.611890-1-victor.liu@nxp.com>
+References: <20241104032806.611890-1-victor.liu@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_032629_573795_E71A6117 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20241105_032858_005116_84C07E75 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +131,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 Nov 2024 at 10:53, Sakari Ailus <sakari.ailus@linux.intel.com> wrote:
->
-> Hi Ying,
->
-> On Mon, Oct 28, 2024 at 10:37:31AM +0800, Liu Ying wrote:
-> > Add two media bus formats that identify 30-bit RGB pixels transmitted
-> > by a LVDS link with five differential data pairs, serialized into 7
-> > time slots, using standard SPWG/VESA or JEIDA data mapping.
-> >
-> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
->
-> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
->
-> It's fine to merge this via another tree, too.
+On Mon, 04 Nov 2024 11:27:53 +0800, Liu Ying wrote:
+> This patch series aims to add ITE IT6263 LVDS to HDMI converter on
+> i.MX8MP EVK.  Combined with LVDS receiver and HDMI 1.4a transmitter,
+> the IT6263 supports LVDS input and HDMI 1.4 output by conversion
+> function.  IT6263 product link can be found at [1].
+> 
+> Patch 1 is a preparation patch to allow display mode of an existing
+> panel to pass the added mode validation logic in patch 3.
+> 
+> [...]
 
-Thank you!
+Applied to drm-misc-next, thanks!
 
+[04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
+        commit: 5205b63099507a84458075c3ca7e648407e6c8cc
+[05/13] drm: of: Get MEDIA_BUS_FMT_RGB101010_1X7X5_{JEIDA, SPWG} LVDS data mappings
+        commit: 34902c2d022f9d36b739189efae3f5fd569983fd
+[06/13] drm: of: Add drm_of_lvds_get_dual_link_pixel_order_sink()
+        commit: 606410292f54ef08632bdfd5c58974cf4ebc3cc9
+[07/13] dt-bindings: display: lvds-data-mapping: Add 30-bit RGB pixel data mappings
+        commit: e3160748780c66f32ae5e7c17373c36a4a802bc3
+[08/13] dt-bindings: display: Document dual-link LVDS display common properties
+        commit: 8cd4937ebfeae03a094e9115ab3286bf01498a5f
+[09/13] dt-bindings: display: bridge: Add ITE IT6263 LVDS to HDMI converter
+        commit: 0a86a4d1a09185cebe071136599b7da619388f7a
+[10/13] drm/bridge: Add ITE IT6263 LVDS to HDMI converter
+        commit: 049723628716c7286d6265812567ef1b1ff4827e
+[13/13] MAINTAINERS: Add maintainer for ITE IT6263 driver
+        commit: 946f2b6a1c1383fb3a16780b425e0ddf40b3a2dd
 
+Best regards,
 -- 
 With best wishes
 Dmitry
+
 
