@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD580D40D08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB6DD40D08
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SU8DwkNDTzeQ2NIK+yrgU5JF0OSH+sCfFE5Eac/5L1o=; b=AOEaBY4GG1Wz/e2R7+PELO07To
-	FjIr38BwcgQWjkMZif0Sr9brpM33C38alZPJv/A0Sui0+momY6SQRbYGU0ovTx5v1OgG3IMDg4ZA8
-	+hsMAubI30n+5x16r9ZubaiAEKjx67UhHk2dt77Dhl7cqLMbfzHEC42Hcm3khu5cK215PauIL10gI
-	EGf9omWWQ7mxE8m6evKAM2QdapOgb2dpoOItr22W1oyisqULg8IXDlr1Pl0Po7sauR3xIoxGDe2+I
-	4btMv7EVAzDJJDs7anpFIuvWcfUI+T6+z1rKbmhQXqNI6jjx5v77qYnSPObZlApk0XBdbiw0IMEfw
-	8EVTl6NA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=u/KxNTQx98oneolstQRJpjGK16KMfxmMLMq7wPEVyP8=; b=GIC0Fekdg+TJvG
+	XJdKK9Om99+f1AwOk0/4TBrBHm282mX8l8qOT+YS2h9tZVBjGjzlkQwgHRwAo+0lR3sqRSAKgYgzy
+	mZJF9u9D398WrOoMDujfOuAvWzLXNFyuiBVK8yScif0jO5ARM8SibAIaT0eViyaHXHW5l8pVef/Kk
+	03IePkN5MP5OA8tlzAQxey8h1ttc0P/wMna9YxY8QP9HJJRK7WOmfLGeHuVdoQsyCmm4u6kwQZ4s8
+	bYrU6NMyGNTIJjI/Jq8+OOsbU3HSVOHlZNmhd3Mux1+8a9SZ3v89xUFzMBQcvweQXeMBPcvWxJNQo
+	d7txLsqatFO3n5wNaiPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8T6A-000000017Fg-3h9J;
-	Tue, 05 Nov 2024 23:36:35 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1t8T7q-000000017Ns-1c4a;
+	Tue, 05 Nov 2024 23:38:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8T4R-0000000172F-1MQA
+	id 1t8T4u-00000001761-08Zr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 23:34:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1730849685;
-	bh=SU8DwkNDTzeQ2NIK+yrgU5JF0OSH+sCfFE5Eac/5L1o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LSI/exDIwaTfqG20PDM3xVYWO4hEIO011twPHfviMD7kYq8tmjuruuV5scTmfWXUo
-	 PLpzOR4VeZR6BazKffzpoBqfihezqQ5rqTkrB5TwxQq5xW8dU44xlRq1gb7WEDDwPM
-	 ob7xrZzfkoOG8hhZYKEBXmVPV777crqx4z59yXxBLxBUzkz35SyLmL54mlZB5eslnW
-	 Gks3AYlypU74C0L1j+bxnKGXNAbSonX93xWZn9IPSKCZGdGrOyrU3Gwz4vlwh0zuKn
-	 YAb/LJxfkEKUNb4yW2zfLW65a09HK7nwFOPOYZWOUADL+LjdoD/3oYHELgEPIq9pl7
-	 cdHCmd46bCKBg==
-Received: from [192.168.68.112] (ppp118-210-162-114.adl-adc-lon-bras34.tpg.internode.on.net [118.210.162.114])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 91CD16B1F7;
-	Wed,  6 Nov 2024 07:34:44 +0800 (AWST)
-Message-ID: <ebdc6c112457db0ec73b43a404e240052dd3c7e4.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add IBM SBP1 board
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Conor Dooley <conor@kernel.org>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>, Naresh Solanki
- <naresh.solanki@9elements.com>, jdelvare@suse.com, Conor Dooley
- <conor.dooley@microchip.com>, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- krzk+dt@kernel.org,  sylv@sylv.io, linux-arm-kernel@lists.infradead.org,
- linux-hwmon@vger.kernel.org,  linux@roeck-us.net, Joel Stanley
- <joel@jms.id.au>, conor+dt@kernel.org
-Date: Wed, 06 Nov 2024 10:04:44 +1030
-In-Reply-To: <20241105-regroup-busily-adbb9b342abc@spud>
-References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
-	 <173072771091.3690717.11563964377469449295.robh@kernel.org>
-	 <20241104-saturate-device-d020a0d7321f@spud>
-	 <f468a5c0a0112cee35815fb6c7b7f9933934adc2.camel@codeconstruct.com.au>
-	 <20241105-regroup-busily-adbb9b342abc@spud>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Tue, 05 Nov 2024 23:35:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EE367A43C47;
+	Tue,  5 Nov 2024 23:33:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EF22C4CECF;
+	Tue,  5 Nov 2024 23:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730849714;
+	bh=EkLwGAD+vkQfJXaeXFFexTFClHB8gkvGZzJT+rMGMb4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=S8ydKuoZN3G8z4EUhrNgUlPaoxuqLwov1sbZ3LCb7eKt9f4xy4xTgGxsNTKEEBT8z
+	 5jnVRXoy/Fo9hZ+O72hUTG2ZOiPMv9lerDTCFyNlYG/6wHeGJAbvUPEgdQa8iv/+fT
+	 UPPOKHhQYb28JnnCr0Pll2UwGEJ2M2QEdaJ+UkGTyXyHbctXRyQHVBka6Cv9a+yGLb
+	 ErszweYPujZR1Z6TrfDFc+5RFV9CfLLE1VsSXhuxIyf6o6okDFTNpTFsY2BBQGWBKy
+	 nfeHXLXP4KrQiR06qAUSlH6A5Etsok8YuXLhdc7FHL+OjzgCMGKGcQvh0Xdu3M5oxf
+	 KPArUQhMj1cmg==
+Date: Tue, 5 Nov 2024 17:35:13 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: kwilczynski@kernel.org, bhelgaas@google.com, lorenzo.pieralisi@arm.com,
+	frank.li@nxp.com, mani@kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de, imx@lists.linux.dev
+Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Message-ID: <20241105233513.GA1495684@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1721628913-1449-1-git-send-email-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_153447_611359_88F498B9 
-X-CRM114-Status: GOOD (  36.23  )
+X-CRM114-CacheID: sfid-20241105_153516_300993_0A2FC50D 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2024-11-05 at 18:53 +0000, Conor Dooley wrote:
-> On Tue, Nov 05, 2024 at 10:39:34AM +1030, Andrew Jeffery wrote:
-> > Hi Conor,
-> >=20
-> > On Mon, 2024-11-04 at 18:49 +0000, Conor Dooley wrote:
-> > > On Mon, Nov 04, 2024 at 08:39:21AM -0600, Rob Herring (Arm)
-> > > wrote:
-> > > >=20
-> > > > On Mon, 04 Nov 2024 14:52:14 +0530, Naresh Solanki wrote:
-> > > > > Document the new compatibles used on IBM SBP1.
-> > > > >=20
-> > > > > Signed-off-by: Naresh Solanki <naresh.solanki@9elements.com>
-> > > > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > ---
-> > > > > Changes in V4:
-> > > > > - Retain Acked-by from v2.
-> > > > > - Fix alphabetic order
-> > > > > ---
-> > > > > =C2=A0Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | =
-1
-> > > > > +
-> > > > > =C2=A01 file changed, 1 insertion(+)
-> > > > >=20
-> > > >=20
-> > > >=20
-> > > > My bot found new DTB warnings on the .dts files added or
-> > > > changed in
-> > > > this
-> > > > series.
-> > > >=20
-> > > > Some warnings may be from an existing SoC .dtsi. Or perhaps the
-> > > > warnings
-> > > > are fixed by another series. Ultimately, it is up to the
-> > > > platform
-> > > > maintainer whether these warnings are acceptable or not. No
-> > > > need to
-> > > > reply
-> > > > unless the platform maintainer has comments.
-> > > >=20
-> > > > If you already ran DT checks and didn't see these error(s),
-> > > > then
-> > > > make sure dt-schema is up to date:
-> > > >=20
-> > > > =C2=A0 pip3 install dtschema --upgrade
-> > > >=20
-> > > >=20
-> > > > New warnings running 'make CHECK_DTBS=3Dy aspeed/aspeed-bmc-ibm-
-> > > > sbp1.dtb' for
-> > > > 20241104092220.2268805-1-naresh.solanki@9elements.com:
-> > >=20
-> > > Really? This many warnings on a v6?
-> > >=20
-> >=20
-> > I understand that it's surprising and disappointing, however these
-> > warnings are from the Aspeed DTSIs and not directly from the
-> > proposed
-> > DTS. Many are an artefact of history, and I'm (slowly) working to
-> > clean
-> > them up. Recently I haven't had any time to dedicate to that
-> > effort,
-> > and as I'm somewhat responsible for the state of things, I'm not
-> > prepared to block other people's patches and push my own
-> > responsibilities onto them.
->=20
-> Ah, you see that's where I would say "no new warnings" and get the
-> submitter to fix them ;) And were I the submitter, I'd want to
-> resolve
-> the warnings rather than run into issues down the road when things
-> get
-> "fixed"/documented.But I guess that's why I have the schmucks task of
-> reviewing bindings innit..
+On Mon, Jul 22, 2024 at 02:15:13PM +0800, Richard Zhu wrote:
+> The dw_pcie_suspend_noirq() function currently returns success directly
+> if no endpoint (EP) device is connected. However, on some platforms, power
+> loss occurs during suspend, causing dw_resume() to do nothing in this case.
+> This results in a system halt because the DWC controller is not initialized
+> after power-on during resume.
+> 
+> Change call to deinit() in suspend and init() at resume regardless of
+> whether there are EP device connections or not. It is not harmful to
+> perform deinit() and init() again for the no power-off case, and it keeps
+> the code simple and consistent in logic.
+> ...
 
-I have to manage that in tension with my concern of people simply not
-upstreaming their devicetrees in response. I'd prefer to have them
-merged upstream than to encourage more forks in this corner of the
-world. If people would like to take the initiative and do the binding
-conversions, corrections and devicetree fixes themselves, I'll
-definitely review them.
+> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val, val == DW_PCIE_LTSSM_L2_IDLE,
+> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
+> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> -	if (ret) {
+> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> -		return ret;
+> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val, val == DW_PCIE_LTSSM_L2_IDLE,
+> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
+> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> +		if (ret) {
+> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> +			return ret;
+> +		}
 
->=20
-> > I've been replying to those proposing new Aspeed-based devicetrees
-> > to
-> > separate the warnings they're introducing from the warnings that
-> > already exist, and requiring them to fix the issues they're
-> > responsible
-> > for. I hope that I'll have time to continue to improve the
-> > situation,
-> > as this is obviously a tedious task for me too.=20
->=20
-> Well, it is your platform and if you're confident that these nodes
-> are
-> correct despite the warnings, who am I to stop you!
+Not related to this patch, but what's the reason for waiting for the
+link to enter L2?  There are a few other drivers that do this, but
+most don't.  Is there something else the driver needs to do after the
+link is in L2?
 
-I think where things stand currently is a bit fuzzier than anyone would
-like. The nodes are not incorrect to the point of being non-functional
-with respect to their intent, but clearly they're not so correct that
-they do not have room for improvement.
-
-Andrew
+>  	}
+>  
+>  	if (pci->pp.ops->deinit)
+> -- 
+> 2.37.1
+> 
 
