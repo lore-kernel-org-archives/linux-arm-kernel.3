@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BA5D31765
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426F5D31768
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KmtWlz91TJSK4h5e5cNQt2Ayuv3I7VTg5EZ5rZ7D4Fs=; b=DSmtZEiNMD+EsDeYshDreRUvKx
-	r7mAtepOVzfoMeIQimUG1fTqox509xnak8f5kP/cuhCehd7/H8SAJF1zQWEBgUA9E7kYKiU2GypoI
-	sEX3e5XSdzEd9QA27GgTALI1/VBXgJj5aMhPVjuHsgnz9SqHt12dArOzOTnPFifVhR2PwNO8Vi66h
-	+qyr/bSMekoff3LDmgj5WWyEWBHQM8IzctmCShyTFG28rCXpLj6pA/UBI9ahGpIHj7RMnY6XpI2UU
-	Gu84BHybJcDH6x3bWcl5HPdxdBQbF28jaUTjwlFt6wP+d5lqabQbR0+x1ZripdJF13p+xr0tqb70p
-	I+56cXlQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=; b=GICtJVKuUXqzkHKcV04fv/5S/q
+	V1bvLF5Uv07vx1fRNuubF2AOtQOrj3LVAMThFS8dDxW3PHkOQ19XL1I5Tm66Tu9Zafs7ocmd1ceGy
+	e+EofZLLsXe+6j+0iSx5Xcq/zECXvI/6WWJletoMWcFkp4hcsdZ71FDPbcxSCSER9m6dGOkuLH8/L
+	S42u/TeteUpYQME3VuIt2e4Hfy8yzG/gs3sYIDzAGBE385qfb33MHPgw15tDlGo5zLkQ2rkZbQgFZ
+	11K/RqCcheFdpLhHW8etPNO1p5A2dIOSmnWhRDImtuLVjnTU8hjURluRtxdvn1JtgZZEz19Uq5lEq
+	OmWRYRNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Msm-000000008QG-2u2s;
-	Tue, 05 Nov 2024 16:58:20 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1t8MuS-000000008fH-3IuC;
+	Tue, 05 Nov 2024 17:00:04 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MG9-0000000014N-3tvE;
-	Tue, 05 Nov 2024 16:18:27 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7b1539faa0bso363693185a.1;
-        Tue, 05 Nov 2024 08:18:25 -0800 (PST)
+	id 1t8MGC-0000000014f-2fTL;
+	Tue, 05 Nov 2024 16:18:29 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7b158542592so399391985a.2;
+        Tue, 05 Nov 2024 08:18:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730823504; x=1731428304; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KmtWlz91TJSK4h5e5cNQt2Ayuv3I7VTg5EZ5rZ7D4Fs=;
-        b=bj42NX8jhhDebJznLM3bauGI+J6VQ6rWz0PeNFpoXQNXbhH9WFQqVziedxbh5Nz07t
-         e5nPMg82nrpyV9yyUXrnJJ08R1nd/LzqqoAIE7bUSdObMKNcnknOUgdb2iCftpMcdbMU
-         m2NiRwdUfSA1KaX/kCEVvmlq3fNfUseoNQsDes0g62FE8+ySEdGIij/qj5ClAJtV7x3K
-         OHVni4nYWMD3KP/VGweNP5dt0fjYr7lBC45NBB6Af79ObV0qZxGXOVItZz3/5DgZYSLV
-         hSMang0RLFPlyjOrYK/bb5eAIzgXuik38FnmJVujdCaSAmL4es2Udc9vy9vUB7sMW3SW
-         ry/w==
+        d=gmail.com; s=20230601; t=1730823506; x=1731428306; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=;
+        b=dUmuwXRN9J+ycj36wdL3/tbipuGmVajN942zZw0H8pVa3g7Vwr/M0s2LEcoH9h50oV
+         MStB9bviSuVT0qGSiLGePXBawW9sEXdzpAkFE0COw6FFxDhwr0zKMInMnmBl934vwC6u
+         yk5KskiefNUJlBfnpE4zwqdJA2Zg/TnSg6aqet4bi8femzN3rbcCAHe/pHXECFM5I66p
+         O6TAgtI6M8K+KsW2h76hsh1lIYoRTIgJHnduf85QmS9gIysQSAqB27OdPpOtblzOU+sg
+         EZfrUjAVtFrkYA6KE0wlAtqGU9KeBs/nuumzyRyjCVoA13Lp8WeO6Ur36R79uPXQkZ3j
+         RcnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730823504; x=1731428304;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KmtWlz91TJSK4h5e5cNQt2Ayuv3I7VTg5EZ5rZ7D4Fs=;
-        b=Mtvzwchf9KrYZKFuGEVXziI6UZfAfEoHUcKNi6m9FkWoAGvi46qGISmXNzcIJ5VaGT
-         txcQWPrG3URN1kbsmEHyu/IQ9WtJY1SBvu6neJyMhwLFjH2/RGWZv1JV+sGTTsg2uJlw
-         vihjqdKpKlyvmKFuBmj46A3RCw41fP1Rz9rsy9Hu8pXHA7ITxON5ffTU5ievRPJTPIFc
-         LeuO4CKki8UiwRsBcQK4re8IAjshy0qzei7oQQems116R1qCacx8B2EAEUpHePTTABTj
-         tOEmF9071771SK4AMO61eZe43WEHk+hxl4tUFIuywW26u9miCG4m3TKaqM6P4+vl+Tcf
-         2RBw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGQ25gqEA7eD8yuZj+oMLbERgyj45XwSju3BQp/TIuVZ/8VKGELs6SyhkbheTdHx1nZxmvYCkZWiZPt+UnyzPu@lists.infradead.org, AJvYcCW0LGo+uJL7wHKQ/PZccV60iD3/SY9+IukvQuegISGmPIlqTspVuExROG135Ll0LamYxVC7He87k3QOzm5GIFc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeTwaO8hE3D6kVnreQzUQjiLMZ31g0Vhrx7dMuV044UCCYwW8b
-	WpTWgoLUofko4agYfHU0vkuHQkzIF2wE1iCsGikKvfrge+Leq509
-X-Google-Smtp-Source: AGHT+IFeexANrtepr8tFxuvgULw0OpAvbMZOzidMyaWEF29zaJWbq8+xGIA3j9ZNrjvW8hCKk2crvg==
-X-Received: by 2002:a05:620a:4608:b0:7b1:4d3b:d618 with SMTP id af79cd13be357-7b2f25529e5mr2568975885a.57.1730823504072;
-        Tue, 05 Nov 2024 08:18:24 -0800 (PST)
+        d=1e100.net; s=20230601; t=1730823506; x=1731428306;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=;
+        b=VukY1H6qjwHJilgN1/GgozDrqRu+Wzl+tntUPTR3pKh7hDmwHdrpKNTpN8fPdYlfHN
+         Nyui/qO96E1y12X+WMaD/MERw5CrJywF00CR/JZ7QxjByN7bVtL8yWmxL94OIEf08XH7
+         m8DE86AXz0WFpvoXJSxEVFp5PGi/bl7zBWA/LmM20pNQSW4yIJHYFDVQh8abk3Eo1THE
+         emRTd6syBNvYAlaunZKudtpU5ldjyblPc2hAAnnHYhWasf0tmRyWYQOXmCKmqn5uH5lR
+         rkfIUwThA1OZfgX9/FE4yxym/DPYkYlCr4A6eEGFdHPi+hrzQgNWO4KPtqHBkCukQthL
+         1AyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfDqPlFVct4M3XifoimrtnCbcGgzAogJ2O1jd0CvuOMJrxogTrpidcNfKh2WgWWlZSG6qtw/zN85+akJvN+cI=@lists.infradead.org, AJvYcCXne2/g1PEfqw8ZdNoEMOq6GDfs9vqXnBhuiCT4k5CVrOXY3/IoQXZVT1arHlWUzOB0bDMfn2s0rxAwr+Puga1Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyieEqH4D4rfTUz4miSabdqn17gurwDeNLkyAbgfcEPPsPZWxtf
+	9x9lkALjxA36Fb+ZLtIwAl2vmn/o9Zz7Vw5Z3YzzT1XN4EnhUBqw
+X-Google-Smtp-Source: AGHT+IH/TVTagDdBicU9q7qr8NhSf15bW+aAQAdd0pCb97OHGnCjFbeCAMwnLUwjAeS4tg6AWJHmHQ==
+X-Received: by 2002:a05:620a:4492:b0:7b1:52a9:ae15 with SMTP id af79cd13be357-7b2fb948de3mr2387592485a.9.1730823506107;
+        Tue, 05 Nov 2024 08:18:26 -0800 (PST)
 Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f39eb14fsm538010885a.7.2024.11.05.08.18.23
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f39eb14fsm538010885a.7.2024.11.05.08.18.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 08:18:23 -0800 (PST)
+        Tue, 05 Nov 2024 08:18:25 -0800 (PST)
 From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 To: andi.shyti@kernel.org
 Cc: rmk@dyn-67.arm.linux.org.uk,
@@ -76,15 +77,17 @@ Cc: rmk@dyn-67.arm.linux.org.uk,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v2 1/3] i2c: lpc2k: Add check for clk_enable()
-Date: Tue,  5 Nov 2024 16:18:18 +0000
-Message-Id: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
+Subject: [PATCH v2 2/3] i2c: pxa: Add check for clk_enable() and clk_prepare_enable()
+Date: Tue,  5 Nov 2024 16:18:19 +0000
+Message-Id: <20241105161820.32512-2-jiashengjiangcool@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
+References: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_081825_986794_A62982F8 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20241105_081828_696098_AEA3F441 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,8 +102,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return value of clk_enable() in order to catch the
-potential exception.
+Add check for the return values of clk_enable() and clk_prepare_enable()
+in order to catch the potential exceptions.
 
 Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 ---
@@ -111,17 +114,28 @@ v1 -> v2:
 1. Remove the Fixes tag.
 2. Use dev_err_probe to simplify error handling.
 ---
- drivers/i2c/busses/i2c-lpc2k.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-pxa.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-lpc2k.c b/drivers/i2c/busses/i2c-lpc2k.c
-index 9fb33cbf7419..0fe7d4421a31 100644
---- a/drivers/i2c/busses/i2c-lpc2k.c
-+++ b/drivers/i2c/busses/i2c-lpc2k.c
-@@ -442,8 +442,12 @@ static int i2c_lpc2k_suspend(struct device *dev)
- static int i2c_lpc2k_resume(struct device *dev)
+diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
+index 4d76e71cdd4b..0ee6fe83de40 100644
+--- a/drivers/i2c/busses/i2c-pxa.c
++++ b/drivers/i2c/busses/i2c-pxa.c
+@@ -1503,7 +1503,9 @@ static int i2c_pxa_probe(struct platform_device *dev)
+ 				i2c->adap.name);
+ 	}
+ 
+-	clk_prepare_enable(i2c->clk);
++	ret = clk_prepare_enable(i2c->clk);
++	if (ret)
++		return dev_err_probe(&dev->dev, ret, "failed to enable clock: %d\n", ret);
+ 
+ 	if (i2c->use_pio) {
+ 		i2c->adap.algo = &i2c_pxa_pio_algorithm;
+@@ -1560,8 +1562,12 @@ static int i2c_pxa_suspend_noirq(struct device *dev)
+ static int i2c_pxa_resume_noirq(struct device *dev)
  {
- 	struct lpc2k_i2c *i2c = dev_get_drvdata(dev);
+ 	struct pxa_i2c *i2c = dev_get_drvdata(dev);
 +	int ret;
 +
 +	ret = clk_enable(i2c->clk);
@@ -129,7 +143,7 @@ index 9fb33cbf7419..0fe7d4421a31 100644
 +		return dev_err_probe(dev, ret, "failed to enable clock: %d\n", ret);
  
 -	clk_enable(i2c->clk);
- 	i2c_lpc2k_reset(i2c);
+ 	i2c_pxa_reset(i2c);
  
  	return 0;
 -- 
