@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8914FD31769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147B7D31769
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UUlPSBaOC9d+zd+83UAmHf4D5WXCkU2ZNOnKm544xr0=; b=y4XTeX+P6ihdIrs0nNB/Tv9Kb4
-	doeF05zvgyvF+ZUBqA546vKhSPQgq6IHXAlv/+2CldtdDpPJjHXNR85OvOV9cCbO0XZxPJOSPuLTY
-	5pX0/FYNeZ05Ew8/mJVl8Z+Rhisawww05j8bzTCaOWT1QcHYTO3dk2ryUX5sNi2Gg3Sc7yMJ0j60Z
-	HEqBF1dXCT41lkMIup2kJXAZroOonzzalAogSZSUvI6J2X2BTKZqHoGY5e2daw3NTBrxPm8E60WQR
-	Vi5TqpokdZLG57xp6jEBTN4sgADOTIo4LasCQeM28/yJgfXFJ7jQ+y+nIRR4PNHTZ2ihXonnMDRQe
-	Gp01lk4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c9IpN2FXIOCb/O9tDGTNVg2KhD6troiSDWiZCaqtbaA=; b=mffHLmGYSkOLVmyF+4NY47iU2E
+	BpPA1Q7wuF/HG5RYeEJno1eVPpp/DpU1verRJw4+QyxbD2oLHt7qVh7jJAW1Fxu7osaMzFJgBdKW4
+	/eoYGDsNr9P9v5VjRS7irlLIkbj4jzOzhLE0O1RoHb3CA5iYSWfhCgOUwyo5Ck+xWO/klbJhpxCr6
+	nltoXf2DdUm12bRfQF0yq1ev+idjWIVKSPG0kMoy/+aWmL+G8X0ZPNPIXyJjDKqu/FyQhXsc6MMxX
+	3GzAKXzc/oBxQdVxfrrhH4aWBrznxgxDtSuSdXsNumiVuF4k+c7vtS8pDpf5qImafl6NMtdhZrfaB
+	YNWela5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8N6J-00000000Ano-0Xxx;
-	Tue, 05 Nov 2024 17:12:19 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t8N80-00000000B6h-1LBK;
+	Tue, 05 Nov 2024 17:14:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8M97-0000000HaTP-2prp;
-	Tue, 05 Nov 2024 16:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=UUlPSBaOC9d+zd+83UAmHf4D5WXCkU2ZNOnKm544xr0=; b=P/tXaSv90nk6bdipbMTMj/vRGt
-	IDM6BNLW6i0VuzErzDEVBN9hV9vpg1mk49x1B86HjXEMDYd2KbpWOJCbfKSBC+0MqwPhZ+Re1MFVl
-	DLX3kutygIT+jIff8xJl1amvNNYrdugI58Avp4IfEuUjO5HHY7jTIFKMChmpCI8itX27ZSTxSS8JK
-	dHIlxB3WJt5DNgkyGFnjqn8ZcprfNgqQ095Dn78bln92O8zW5Q1w3lf5Il+GKH1TkQ58iUgrDv1xw
-	gFBTILN0O/GdxXUTjJ7uEYb0HlOdbVaaLnm3CRHpeNACeL0NUksu9xJ29unzDHxm2MSobs4bduzNi
-	IvQLbzKg==;
-Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t8M92-0000mH-59; Tue, 05 Nov 2024 17:11:04 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpio: Use of_property_present() for non-boolean properties
-Date: Tue, 05 Nov 2024 17:11:03 +0100
-Message-ID: <7731755.EvYhyI6sBW@diego>
-In-Reply-To: <20241104190628.274717-1-robh@kernel.org>
-References: <20241104190628.274717-1-robh@kernel.org>
+	id 1t8MZb-000000004OG-2sqL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 16:38:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5DC255C5500;
+	Tue,  5 Nov 2024 16:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED5DC4CED2;
+	Tue,  5 Nov 2024 16:38:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730824710;
+	bh=X3QevZg0rzrXDfQFtVrzDiR/bMaGBDN1CpqsOH1Ja48=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=aLwZYMYUdbc96SDQl4CZJP7laKG276AROeHoNAb/mbq0JLX8pGH2ErNkqqR3CVg8N
+	 wzFnZjVoe4to+XZpY9sJNCkq2NuZWXe7RB+L/RIxQawDz4LpKAaTkQ0Snkp/RocZ92
+	 V/JonNjeP1FzhAKY/9P7HCpDQh/8+WkvyZ35K1zzJmsMNtdNDlcPuf0LP39CUwV+Bu
+	 vb09gWYSP1T8UGfcjd3qkimmpy3Nfm8anUXei95OTdaq+ceTA+2hAypAq1K2R+2Z90
+	 E6USeKTASzsIsUwBQ1cB6RpFrTf+W4JEKSFJS07aA0pLz6ygCAEBzhLvmJHUNIMawB
+	 POu5V5s8j3nkg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20241028-esai_fix-v1-0-3c1432a5613c@nxp.com>
+References: <20241028-esai_fix-v1-0-3c1432a5613c@nxp.com>
+Subject: Re: (subset) [PATCH 0/2] ASoC: fsl-esai: allow fsl,imx8qm-esai
+ fallback to fsl,imx6ull-esai
+Message-Id: <173082470778.77847.10489834906356614772.b4-ty@kernel.org>
+Date: Tue, 05 Nov 2024 16:38:27 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_081109_775628_6AAA6511 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20241105_083831_806858_A1C80EF6 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,52 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 4. November 2024, 20:06:27 CET schrieb Rob Herring (Arm):
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated in favor of of_property_present() when testing for property
-> presence.
+On Mon, 28 Oct 2024 15:49:30 -0400, Frank Li wrote:
+> Update binding doc to allow fsl,imx8qm-esai fallback to fsl,imx6ull-esai.
+> Update dts add fsl,imx6ull-esai fallback.
 > 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-
-With of_property_present essentially just mapping to of_property_read_bool,
-this change looks correct and should not introduce any functional differences
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-> ---
->  drivers/gpio/gpio-rockchip.c | 2 +-
->  drivers/gpio/gpiolib-of.c    | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-> index 365ab947983c..64924bc01591 100644
-> --- a/drivers/gpio/gpio-rockchip.c
-> +++ b/drivers/gpio/gpio-rockchip.c
-> @@ -602,7 +602,7 @@ static int rockchip_gpiolib_register(struct rockchip_pin_bank *bank)
->  	 * files which don't set the "gpio-ranges" property or systems that
->  	 * utilize ACPI the driver has to call gpiochip_add_pin_range().
->  	 */
-> -	if (!of_property_read_bool(bank->of_node, "gpio-ranges")) {
-> +	if (!of_property_present(bank->of_node, "gpio-ranges")) {
->  		struct device_node *pctlnp = of_get_parent(bank->of_node);
->  		struct pinctrl_dev *pctldev = NULL;
->  
-> diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
-> index 880f1efcaca5..2e537ee979f3 100644
-> --- a/drivers/gpio/gpiolib-of.c
-> +++ b/drivers/gpio/gpiolib-of.c
-> @@ -337,7 +337,7 @@ static void of_gpio_flags_quirks(const struct device_node *np,
->  	 * to determine if the flags should have inverted semantics.
->  	 */
->  	if (IS_ENABLED(CONFIG_SPI_MASTER) && !strcmp(propname, "cs-gpios") &&
-> -	    of_property_read_bool(np, "cs-gpios")) {
-> +	    of_property_present(np, "cs-gpios")) {
->  		u32 cs;
->  		int ret;
->  
 > 
 
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
+Thanks!
+
+[1/2] ASoC: dt-bindings: fsl-esai: allow fsl,imx8qm-esai fallback to fsl,imx6ull-esai
+      commit: adf7ea48ce05a6c5c44f0f9d3f81e83e5cb70c3e
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
