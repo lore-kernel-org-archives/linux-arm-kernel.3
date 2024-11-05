@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F76D2B950
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0597DD31761
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNfi/wY6f+hx+iwsPIrEjzlSp82/FdjVAkxdyp5AbVo=; b=iM8h1XzISAM4ltOPbCi0fJy28y
-	dC586l5lstb7BuDLqw/Vd+D2lzoyNhOFTwSWE4Rk096fV3XB+frJKb9gkfIWrY2ebIkbAdY/BpQXr
-	86AyWSJEhN3kh4ZxZljqZeqRURDSsn+c4gcR5J5dTUfNQmCoM6Gd9duSqZUsagB9YLZ3jJYQCeMAF
-	D5SPVdz4TD5mBnBmwXc5KWOuYGt4adtYeifSB/+1eNLiUuFf8AzZ4z/oW/wjIpJ897D+F4BElFon9
-	F2au55glDsDoxLuobixcePlBM7dVDVumC926GNPSa/Xp87TxIZXbeMqIDSDHeKnu51GjpM2HD7KeH
-	F8oEl2rg==;
+	bh=dY/LHP00NtneYQ7ErH5EMOZJIrzL6QTNZfwa2E4UEHA=; b=JabHDjc5XAPnhG0TX+FyPFSer4
+	BvL83R8hrqd3FqttiSfq0UsstVsvnpB8bvBIJBmVqZ0MDPSwiUTv72AcAAVsI9WdyKfB0X9xMwA19
+	aEw1Xc0n6pZqDCEftM+9QzfLghXKwna+Q5sTsvy8Ku2A9XuRzdV5pa8JJbbmlyl/pv+C9IULdQM9v
+	iUnEXrqT/NfX1R+Y9lk667nfrgKyHTxyl7gX8ZMbm4E3C1k/ZwdKN6ejtIysIybkca5rJ8U02+NiS
+	rqLDcegphYrntKzCp6Kk4ds8d37LrqZKmppza9n77vkmolWLMrZtr+MR07sdHVKtS9MjdFEK1FlX2
+	aEF3t/6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8M9j-0000000Haec-1Pyl;
-	Tue, 05 Nov 2024 16:11:47 +0000
+	id 1t8MBU-000000000Ai-32Mf;
+	Tue, 05 Nov 2024 16:13:36 +0000
 Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxE-0000000HWuh-3ahD
+	id 1t8LxE-0000000HWud-3aQp
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 15:58:56 +0000
 Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EF3v0003827;
-	Tue, 5 Nov 2024 15:58:26 GMT
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EF3v3003827;
+	Tue, 5 Nov 2024 15:58:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=J
-	Nfi/wY6f+hx+iwsPIrEjzlSp82/FdjVAkxdyp5AbVo=; b=N3b687fn+WpSFVhfH
-	lLJz2wp/eAVs2O94XbX61ttjwOY1SWrrGQBUZuarOZT5Mcao+hVSfvkxKjwaLCFr
-	lpv9JazHtomqk1ILCzvH7hz04+GI8uALfwTryfELOYWe8gu7AjjsmATAHygIlqgQ
-	XO/gCYa9lifKYlXa7VDhSoLoCnSSF4bUTCRQW9zd4yzKQcPNPL6Fk0nBTLxeiZer
-	Z0rjlbZhEdFETFHERREP/EZQlh2TTTwyfq7uoJKK9mMc9hwfO1Csb0yIPzBgmUx1
-	LWIqnDkzp9ofUsAGvOf6qp5SJ40YrEU8AcU8TTCWVN4y+s6Xp6Ch2Yw1DFpsunJE
-	weAPQ==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=d
+	Y/LHP00NtneYQ7ErH5EMOZJIrzL6QTNZfwa2E4UEHA=; b=OI9f6FWdoOpPmVJUH
+	3/0nVfPn2xQka1LiEwxYi6FsJPATTT5Kdp8YF52Cx5VgZBB8DosRv7D3/as746nl
+	gFwXaN3ZwnzXQb1SQK8sFbqAuphGO3DeRNaxxO2teRZVWi/wxPVWrYM1FnkgKiff
+	1p3F9anYAEJ4qMBcU9apNKyWyfPidN0BzUHBpyKcvbuq+QENWjvzCKd4v8RIT1iJ
+	wnJIBHrUg7zYwi1EFKIkre5E/cL5tDUrqWJfAWFICNjBuk/mk+I6hY+G5sd68w3b
+	B0D01Xf6+G2P91IZh9ZmEGDthhM42lhtltTjVz09RUH2Nkz8J+4okR/lkO94DBCA
+	jYulQ==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0s-2
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0s-5
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 05 Nov 2024 15:58:25 +0000 (GMT)
+	Tue, 05 Nov 2024 15:58:27 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Tue, 5 Nov 2024 15:58:24 +0000
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:26 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Tue, 5 Nov 2024 15:58:07 +0000
-Subject: [PATCH 01/21] dt-bindings: gpu: img: More explicit compatible
- strings
+Date: Tue, 5 Nov 2024 15:58:10 +0000
+Subject: [PATCH 04/21] dt-bindings: gpu: img: Allow dma-coherent
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-1-4ed30e865892@imgtec.com>
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-4-4ed30e865892@imgtec.com>
 References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -76,24 +75,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2282;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=NdE3XgEBksWM/VvA3K43vqkpgsy84cdJ09dPBGNbu0A=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcyxfeB8rGOp+P6UvxOs9y4ziuy877Zj+9u4wkMrp
- cqUjQoOdJSyMIhxMMiKKbLsWGG5Qu2PmpbEjV/FMHNYmUCGMHBxCsBEDG8x/JUWXjPz5OcHnSKL
- OQv0XtRsZ3ZYssZ30aseHq9Uz8dxk2cwMswwm3pjocP9uRN3OkzqfTApKNspUDJnboTmgd+7RTN
- X/GUHAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=877; i=matt.coster@imgtec.com;
+ h=from:subject:message-id; bh=qEsCNa+I4uXibhOsM8VA0my3x9twcfeY08gntsHzYSU=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcypNTd/fjx6x+3Coinv9n16decIL/fThw/v83Q2e
+ 3C2pG+60lHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQAT+dLL8D8jxnp12K9s6zn6
+ c061pdkU/n0j0754W4bf3D0La+XLpJkYGeY7dU+1EJt+54AQ57GkwBK+M/8czq10KMmce2fD6y3
+ pfEwA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a1 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=nBKxard2HoEgs5BrZHgA:9 a=QEXdDO2ut3YA:10
- a=0zTtX2_PFEtYljZkrEkA:22 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: TACrFfPJEAhv1iDJNKGha1wf63SlIYim
-X-Proofpoint-ORIG-GUID: TACrFfPJEAhv1iDJNKGha1wf63SlIYim
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a3 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=UMSW3LcNhMnowj35pGIA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: 4ZaP-Ltp-wtGIMmkjc3h9GU25WFLuz0y
+X-Proofpoint-ORIG-GUID: 4ZaP-Ltp-wtGIMmkjc3h9GU25WFLuz0y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_075853_494527_D4F852B7 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20241105_075853_475365_CD014FC5 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,61 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current compatible strings are not specific enough to constrain the
-hardware in devicetree. For example, the current "img,img-axe" string
-refers to the entire family of Series AXE GPUs. The more specific
-"img,img-axe-1-16m" string refers to the AXE-1-16M GPU which, unlike the
-rest of its family, only uses a single power domain.
-
-Work is currently underway to add support for volcanic-based Imagination
-GPUs; also add a generic top-level "img,img-rogue" compatible string to
-allow for simpler differentiation in devicetrees.
-
-Make these changes now before introducing more compatible strings to keep
-the legacy versions to a minimum.
+This attribute will be required for the BXS-4-64 MC1 and will be enabled in
+the DTS for the TI k3-j721s2 in a subsequent patch; add it now so
+dtbs_check doesn't complain later.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml    | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-index 256e252f8087fa0d6081f771a01601d34b66fe19..ef7070daf213277d0190fe319e202fdc597337d4 100644
+index 55f422be1bc5b7564e3e81f24c4b93857f3e12fe..8a1861ca960c48853b2ceef414f588cc343b49b2 100644
 --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
 +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-@@ -12,10 +12,19 @@ maintainers:
+@@ -60,6 +60,8 @@ properties:
+           - const: a
+           - const: b
  
- properties:
-   compatible:
--    items:
--      - enum:
--          - ti,am62-gpu
--      - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
-+    oneOf:
-+      - items:
-+          - enum:
-+              - ti,am62-gpu
-+          - const: img,img-axe-1-16m
-+          - const: img,img-rogue
++  dma-coherent: true
 +
-+      # This legacy combination of compatible strings was introduced early on before the more
-+      # specific GPU identifiers were used. Keep it around here for compatibility, but never use
-+      # "img,img-axe" in new devicetrees.
-+      - items:
-+          - const: ti,am62-gpu
-+          - const: img,img-axe
- 
-   reg:
-     maxItems: 1
-@@ -64,7 +73,7 @@ examples:
-     #include <dt-bindings/soc/ti,sci_pm_domain.h>
- 
-     gpu@fd00000 {
--        compatible = "ti,am62-gpu", "img,img-axe";
-+        compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogue";
-         reg = <0x0fd00000 0x20000>;
-         clocks = <&k3_clks 187 0>;
-         clock-names = "core";
+ required:
+   - compatible
+   - reg
 
 -- 
 2.47.0
