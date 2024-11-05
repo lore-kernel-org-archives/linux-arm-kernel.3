@@ -4,74 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C49ED36103
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B37DD36108
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdvKRMgW7zF0SKQdqUfQdOZv/sf80HPqPrtGxl6gaIQ=; b=fBJstcA8cEFEOB3h1f7D5pBvra
-	f6RJrnuqReAxjH1QQl87ZNrhrAF0wZrjhCooWV5d/9iF/yi0rsTPm1wgBkqoy/xOD0bUeDYk8ezpO
-	O30/DssQ0gBowwUr7pVyAQEwXFtbR5IthPddPdn8c17hzt4ecVIDtd0VHIUrQBdm500wVIGcyCjXk
-	iFdM6vjtT/a23pH97WOFHDcqnrc/G9iP8USvtVoC5NBLI1fQWs2gY7fez090KwAEXe4SruQzPw/Cm
-	tWmuA1rzHjExEg6hL+LS2hqZEfIc0nFjc9ZnCLKG7cIR/kmek9EJIdp4O21ppoCQRFZOECnZLIIxy
-	O5E0blWg==;
+	bh=S/o1Sfs7jKQurNnafgcuR4sjtuRSNBj5DPUDtQwNcs8=; b=Q35mTIBOgmEKbDQxmGPzDHmRv/
+	yyhmGQSJQEyuMy575jUoN+AL7mpSKVIgT+WAqH55xyFdDz5W+k4qjwpS7DtzDXihyvzHHYgVtaS5o
+	F5dzJEmsExdMT4rS7NJNCfISIE1nBqTGhirdnSvTELbcyA58KfnCjgKh5D51qY8E8SS6PmMLNlpHi
+	q0UIVAL69+fZ+ffF6r1dHcCtnlglCzQ8u8M1QlWSPORz/BukgJKCL9J08EPR6xN5MATJIlnZ+4Rr+
+	XGZtZm0RsNVavK+cehZ4SAK43j6vJwAAWWIKra/jAVkdBweN+eoDfs8641xBBl8inw89S/riHfFEn
+	nRA+T4Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Ojy-00000000UNi-1NGh;
-	Tue, 05 Nov 2024 18:57:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OiE-00000000TyK-0Wxb
+	id 1t8P10-00000000WeV-2CUZ;
+	Tue, 05 Nov 2024 19:14:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8OzG-00000000WSQ-3gJy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 18:55:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 53CECA43952;
-	Tue,  5 Nov 2024 18:53:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 367CDC4CED3;
-	Tue,  5 Nov 2024 18:55:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730832933;
-	bh=fdvKRMgW7zF0SKQdqUfQdOZv/sf80HPqPrtGxl6gaIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=riXfZ0fP3TYDNEXcR84bacJljgVXs1yvtCSpGF6d0oi9AT/0PjnQgdGpb459+yjub
-	 /MVNxPsrXctufX4oDudFI6jIqlIHBpneRgJ0ryO5rPys1TCnH56noTJt4t4nL7XRoU
-	 YQLJbiVckj2UdroqxdDzCWkSax1UfOjdKZGa87ZX0hktzF2s+JCO42yXf1mu4Zsa0b
-	 qXLCKPFoD8cHOsXW5ONW/vKxFku4ROJ39T+6PPGMvh4HqzWbClYkPHU4raH6inlsA0
-	 7ffoHAW7rWCweJnUxXQ3oCiL2lHhyUdG+xPhV855qpNNRXU4lp3B+sTG/eCaidQQ4Z
-	 5MQnBQcNl0DBA==
-Date: Tue, 5 Nov 2024 18:55:27 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH 2/5] dt-bindings: arm: ti: Add compatible for AM625-based
- TQMa62xx SOM family and carrier board
-Message-ID: <20241105-tinsmith-countable-fbb51045bc98@spud>
-References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
- <4f5ad877f44df35a3b2c7f336647f057c4e6377d.1730299760.git.matthias.schiffer@ew.tq-group.com>
- <20241104-floral-dexterous-7d3fee2ff616@spud>
- <c73cac598788ccabd1791b1232e8fd9d7ce23ac6.camel@ew.tq-group.com>
+	Tue, 05 Nov 2024 19:13:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8EAA1063;
+	Tue,  5 Nov 2024 11:13:37 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B989B3F528;
+	Tue,  5 Nov 2024 11:13:06 -0800 (PST)
+Date: Tue, 5 Nov 2024 19:13:04 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64/sve: Flush foreign register state in
+ sve_init_regs()
+Message-ID: <ZypuQNhWHKut8mLl@J2N7QTR9R3.cambridge.arm.com>
+References: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
+ <20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BiH5KkwowkxZuLss"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c73cac598788ccabd1791b1232e8fd9d7ce23ac6.camel@ew.tq-group.com>
+In-Reply-To: <20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_105534_281611_A7868C93 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20241105_111311_102996_BF011C1F 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +65,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 30, 2024 at 08:23:50PM +0000, Mark Brown wrote:
+> When we update the in memory register state in sve_init_regs() we neglect
+> to flush the task's CPU binding, meaning if the task is rescheduled to
+> the last CPU it ran on it is possible for the check for current state in
+> fpsimd_thread_switch() to falsely determine that up to date register
+> state is present on the CPU.  This results in it incorrectly clearing
+> TIF_FOREIGN_FPSTATE and suppress reloading.
+> 
+> This will also suppress the sve_user_enable() done in
+> fpsimd_bind_task_to_cpu() as part of return to userspace, causing
+> spurious SVE access traps.
+> 
+> Call fpsimd_flush_task_state() to invalidate the last loaded CPU
+> recorded in the task.
+> 
+> Fixes: cccb78ce89c4 ("arm64/sve: Rework SVE access trap to convert state in registers")
+> Reported-by: Mark Rutlamd <mark.rutland@arm.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Cc: stable@vger.kernel.org
 
---BiH5KkwowkxZuLss
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+How about the following:
 
-On Tue, Nov 05, 2024 at 11:40:20AM +0100, Matthias Schiffer wrote:
-> On Mon, 2024-11-04 at 18:47 +0000, Conor Dooley wrote:
-> > On Mon, Nov 04, 2024 at 10:47:25AM +0100, Matthias Schiffer wrote:
-> > > The TQMa62xx is a SoM family with a pluggable connector. The MBa62xx =
-is
-> > > the matching reference/starterkit carrier board.
-> >=20
-> > Why all the wildcards? Why isn't there a compatible per device in the
-> > family?
->=20
-> For the compatible string we've chosen the TQMa6254 as the representative=
- for the TQMa62xx family.
+| arm64/sve: Discard stale CPU state when handling SVE traps
+| 
+| The logic for handling SVE traps manipulates saved FPSIMD/SVE state
+| incorrectly, and a race with preemption can result in a task having
+| TIF_SVE set and TIF_FOREIGN_FPSTATE clear even though the live CPU state
+| is stale (e.g. with SVE traps enabled). This has been observed to result
+| in warnings from do_sve_acc() where SVE traps are not expected while
+| TIF_SVE is set:
+| 
+| |         if (test_and_set_thread_flag(TIF_SVE))
+| |                 WARN_ON(1); /* SVE access shouldn't have trapped */
+| 
+| Warnings of this form have been reported intermittently, e.g.
+| 
+|   https://lore.kernel.org/linux-arm-kernel/CA+G9fYtEGe_DhY2Ms7+L7NKsLYUomGsgqpdBj+QwDLeSg=JhGg@mail.gmail.com/
+|   https://lore.kernel.org/linux-arm-kernel/000000000000511e9a060ce5a45c@google.com/
+| 
+| The race can occur when the SVE trap handler is preempted before and
+| after manipulating the saved FPSIMD/SVE state, starting and ending on
+| the same CPU, e.g.
+| 
+| | void do_sve_acc(unsigned long esr, struct pt_regs *regs)
+| | {
+| |         // Trap on CPU 0 with TIF_SVE clear, SVE traps enabled
+| |         // task->fpsimd_cpu is 0.
+| |         // per_cpu_ptr(&fpsimd_last_state, 0) is task.
+| | 
+| |         ...
+| | 
+| |         // Preempted; migrated from CPU 0 to CPU 1.
+| |         // TIF_FOREIGN_FPSTATE is set.
+| | 
+| |         get_cpu_fpsimd_context();
+| | 
+| |         if (test_and_set_thread_flag(TIF_SVE))
+| |                 WARN_ON(1); /* SVE access shouldn't have trapped */
+| | 
+| |         sve_init_regs() {
+| |                 if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+| |                         ...
+| |                         fpsimd_bind_task_to_cpu();
+| |                 } else {
+| |                         fpsimd_to_sve(current);
+| |                         current->thread.fp_type = FP_STATE_SVE;
+| |                 }
+| |         }
+| | 
+| |         put_cpu_fpsimd_context();
+| | 
+| |         // Preempted; migrated from CPU 1 to CPU 0.
+| |         // task->fpsimd_cpu is still 0
+| |         // If per_cpu_ptr(&fpsimd_last_state, 0) is still task then:
+| |         // - Stale HW state is reused (with SVE traps enabled)
+| |         // - TIF_FOREIGN_FPSTATE is cleared
+| |         // - A return to userspace skips HW state restore
+| | }
+| 
+| In the case where sve_init_regs() is called while the state is live and
+| TIF_FOREIGN_FPSTATE is clear, the state is correctly modified and the
+| call to fpsimd_bind_task_to_cpu() disables the SVE trap.
+| 
+| Fix the case where the state is not live and TIF_FOREIGN_FPSTATE is set
+| by calling fpsimd_flush_task_state() to detach from the saved CPU
+| state. This ensures that a subsequent context switch will not reuse the
+| stale CPU state, and will instead set TIF_FOREIGN_FPSTATE, forcing the
+| new state to be reloaded from memory prior to a return to userspace.
+| 
+| Fixes: cccb78ce89c4 ("arm64/sve: Rework SVE access trap to convert state in registers")
+| Reported-by: Mark Rutland <mark.rutland@arm.com>
+| Signed-off-by: Mark Brown <broonie@kernel.org>
+| Cc: stable@vger.kernel.org
 
-And all the boards in the family are the exact same?
+Note: I fixed the typo (s/Rutlamd/Rutland)
 
->=20
-> MBa62xx is the proper name of the baseboard; this board can be combined w=
-ith any TQMa62xx family
-> SOM.
+With that:
 
-Then that one is fine.
+Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 
+Mark.
 
---BiH5KkwowkxZuLss
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZypqHwAKCRB4tDGHoIJi
-0jlmAP9cOMTcv1GKBS/z0Rp5HGJWn1/Hbig/hZ/MpUT7ibMGbwD+PNjKY3hXXs+2
-2Co/oEtSJ8B74WmjFsXxTJYlYsmT8wA=
-=2Dxh
------END PGP SIGNATURE-----
-
---BiH5KkwowkxZuLss--
+> ---
+>  arch/arm64/kernel/fpsimd.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 77006df20a75aee7c991cf116b6d06bfe953d1a4..6d21971ae5594f32947480cfa168db400a69a283 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1367,6 +1367,7 @@ static void sve_init_regs(void)
+>  	} else {
+>  		fpsimd_to_sve(current);
+>  		current->thread.fp_type = FP_STATE_SVE;
+> +		fpsimd_flush_task_state(current);
+>  	}
+>  }
+>  
+> 
+> -- 
+> 2.39.2
+> 
+> 
 
