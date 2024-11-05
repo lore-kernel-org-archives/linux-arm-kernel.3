@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1A2D31768
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B88D31768
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDbwmIuBhshERCXYSkPhenLd2Mhjkk5MhETyYNbkb/Q=; b=WVzhXILCSfFu3ayElTUr5B9Amz
-	iE8hgBuXKCJUDZoLgf/oyHJEu1d8j/sv08/v2i/hzvywa5pkRAEmaUXo1QML01MACwsggYUqWGR87
-	62VfG4uxKcWisO1uiiTVU83XkIVwgA9B2u16OCR6E81i6AdBHQQcLH0kS7DrTLktsnDujoq+KY6fV
-	avVT4TOk/bQkROqfzvTRkX2nNai6omfFd2SFkWfUDb2CzxmsySj53dI1cvouqz+dlBiKcfBoxYmyW
-	iaCk8Lvab4NGP+jOfidWsvIZgwmewDXGOVS/jcDJVGiVXFQy0kgeVIfbqMfshlOiP9nJXCNwU9g8X
-	RIsxGvMQ==;
+	bh=4AN1bWAbi3duehwYx5SBuZr7Xa5uywTWSqhm9jKKAOk=; b=K+RWO2hDe3pXD8ru5HzH+ym1u8
+	0z9vsmZkjAryM1Sp1NdjyJa1ZP/m4YpjHeoGyw3xH+L/Pjo92dKgN76MIMz++SWU13CSnSJUPouD2
+	kSux5eZFlbW/yTtVfJLWf9Rs2fCz+fVXaykFcbQya3rw/ay8JGzTslo5E0iANS8pegpRoGLN3yzm0
+	2sgnjlYbCJsBd8CrHJwvFlqG+H7ossQnitfVHNxT7unb2Sdwd0BO7h6jlrmwTSSXMn90/IWEgVQqP
+	sXij1HYF2jiwNFTpnVwtB8Hxe1bMYLYRuhlV4iDvP/MHiyuLEfyGeKNYqZgTNWN81BVhhJVNI0F5k
+	eAx1bg1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MzV-000000009NJ-3QDL;
-	Tue, 05 Nov 2024 17:05:17 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1t8N1B-000000009Yj-2VnK;
+	Tue, 05 Nov 2024 17:07:01 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MON-000000002cQ-1MBA;
-	Tue, 05 Nov 2024 16:26:56 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-460d1145cd8so38462061cf.3;
-        Tue, 05 Nov 2024 08:26:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730824013; x=1731428813; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YDbwmIuBhshERCXYSkPhenLd2Mhjkk5MhETyYNbkb/Q=;
-        b=BGv49iUK3V+nOXJZwjyYXA2O9P2Jt7wH0kKEu0n0XZq0lzq8NTfrEIoD63J32s4kYT
-         lkTeEMptsfNLV7mixixbRvW1Px36vQnBx81PnlG+cv0ptrXq7f5sNo9bPI70iaoV7JKd
-         wU2NLDfg0CgQTFYFQ7Z2hupSFixDTi40uzQ+gJoWzRxYZYcZrReIgSrQ8j7F/GoPc+7x
-         atrYvrlBVB9Cs2c/5Es9qcMJ/IT5ROPmpWU4xgQqmRlVYrkKgjZZRZ0FAazR+Zb3UtyF
-         rxm0meB3QD3GRTjlaPN+/91RT76LjxwzhGQmWN5si4KMikI4gl6erkedVOyGBnaEJ41W
-         ImTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730824013; x=1731428813;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YDbwmIuBhshERCXYSkPhenLd2Mhjkk5MhETyYNbkb/Q=;
-        b=qgvETtUsMCiYX8aoFOOBoF86mTr2SK/fPUp8qR4vwVvSdwgwPExAlwn07z79RFJoN+
-         VjgGSCz2FRVvZhgsExEAF6CohbLatEV+dHG5MtdpHRzrBs+Me98w2NOemgH5M3p15vPB
-         KRZEaZU21HV0IM8H7jK/rl8EEaLyKuAk6GB1QqIwypzPvpHb8Za7P2mWiXm/t9bj26JC
-         LzvYOsaJt2IPID1GaIbMI4tQf4QgP8qypJOH1ctQYd2wO33IV2WgDpVh2ShZ+4ELKzQY
-         rSPeHuQEZ0bCW0XlKAweRfXpdAl59ljsUCFxPxbHNlrH/NBlQZeyMw0twT8/j468AHVJ
-         SJyg==
-X-Forwarded-Encrypted: i=1; AJvYcCWIRAeBMybg05DljihmyK1hQflc/Twt7rvZGrSYtm2subV46IYiL7r1ZYhq4dVvVvaFA6wJFXIYfKU5bQ8fH9NQ@lists.infradead.org, AJvYcCXIw/NuG0oiYM9hf7vVUrtUxjvyU34tXgpC1cMySf7qwcRKAGE6GIw5upbEsDjQJ37FF1iy6yC+9KTtGWm64tY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxPHkHZjfVlC+daAtOkMQS0bMxESLJinUgfh7Hcxu79iXJqk0c
-	2mpTexi/OxmZAwPW9DaCvD8eKLjFfG1YNDPwoufUGNNlkJgPwkpdmL6YARLPfrzCY4wJ6pgVnaW
-	yOxF4bjcSTErYT5deh/iVfHen0UNqXA==
-X-Google-Smtp-Source: AGHT+IGJ7XLtWYJje82bhRsHQKoOCawC7fDCWpQbhUa9IlTL2mavUPQDVtWKBU6r3gqBrgHI32tivQiaz5RCybz5S4k=
-X-Received: by 2002:a05:622a:1446:b0:460:9b2b:e8b5 with SMTP id
- d75a77b69052e-462b86536b2mr197191941cf.4.1730824013485; Tue, 05 Nov 2024
- 08:26:53 -0800 (PST)
+	id 1t8MQR-000000002ue-3NiZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 16:29:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5E0EC60005;
+	Tue,  5 Nov 2024 16:28:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730824138;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4AN1bWAbi3duehwYx5SBuZr7Xa5uywTWSqhm9jKKAOk=;
+	b=ARvzQqc5HPpCmHdnTV2rAb6bK/xZRs+BEcyWdS4dC/pjfvIUtH41X3QCUmZcFL2BFUml+3
+	hhNxXYZlAJrAN6HCztj7pdW8ApgO+OxeFRkGngR865q/ykH9cCRbMu2lfbDUf6Tr+RQDei
+	io4eHHm15qlQooA8v5SBu1AKl71tPBGHSgtcdexhg3OEXq3kn++qEBfSJRCsBP0R2I/zJ6
+	x8QpGvYpfvgPFXEYm0EplDvjKky8lc3PoGKpgTJtn/6NdKmVj5GfCgk45Tj3fG4BLeO4cD
+	M3SsaLCCrqNSTCyjlKD3BiiwCEloXaqBrdd0rsKR11wWyNORA48NtW6qiB2geQ==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Frank Wunderlich <linux@fw-web.de>
+Subject: Re: [PATCH] arm64: dts: marvell: Drop undocumented SATA phy names
+In-Reply-To: <20241014193528.1896905-2-robh@kernel.org>
+References: <20241014193528.1896905-2-robh@kernel.org>
+Date: Tue, 05 Nov 2024 17:28:57 +0100
+Message-ID: <87r07p8x12.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-References: <20241104214310.6048-1-jiashengjiangcool@gmail.com>
- <20241104214310.6048-2-jiashengjiangcool@gmail.com> <pyutqiut5yascxkwrv5ozrwdbmb4k4n2vu5jiia3fpgkra4up2@u7nvqpdscb4n>
-In-Reply-To: <pyutqiut5yascxkwrv5ozrwdbmb4k4n2vu5jiia3fpgkra4up2@u7nvqpdscb4n>
-From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Date: Tue, 5 Nov 2024 11:26:42 -0500
-Message-ID: <CANeGvZXsw-93j7YrHd=aa4bWCLioE-LbT5kakc9gjeHCK6O+qQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] i2c: pxa: Add check for clk_enable() and clk_prepare_enable()
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: rmk@dyn-67.arm.linux.org.uk, max.schwarz@online.de, dianders@chromium.org, 
-	david.wu@rock-chips.com, heiko@sntech.de, vz@mleia.com, wsa@kernel.org, 
-	manabian@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: gregory.clement@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_082655_390191_FBC3D971 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20241105_082904_132646_E3A8D7DE 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,46 +74,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
+"Rob Herring (Arm)" <robh@kernel.org> writes:
 
-On Tue, Nov 5, 2024 at 9:13=E2=80=AFAM Andi Shyti <andi.shyti@kernel.org> w=
-rote:
-
-> > Add check for the return values of clk_enable() and clk_prepare_enable(=
-)
-> > in order to catch the potential exceptions.
-> >
-> > Fixes: e7d48fa2b5fb ("[I2C] pxa: provide late suspend and early resume =
-hooks")
-> > Fixes: c3cef3f3c07b ("[ARM] pxa: update pxa i2c driver to use clk suppo=
-rt")
+> While "phy-names" is allowed for sata-port nodes, the names used aren't
+> documented and are incorrect ("sata-phy" is what's documented). The name
+> for a single entry is fairly useless, so just drop the property.
 >
-> I don't think we need the fixes tag here and nowhere else in this
-> series.
->
-> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-> > ---
-> >  drivers/i2c/busses/i2c-pxa.c | 14 ++++++++++++--
-> >  1 file changed, 12 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.=
-c
-> > index 4d76e71cdd4b..1118a7f5c6bf 100644
-> > --- a/drivers/i2c/busses/i2c-pxa.c
-> > +++ b/drivers/i2c/busses/i2c-pxa.c
-> > @@ -1503,7 +1503,11 @@ static int i2c_pxa_probe(struct platform_device =
-*dev)
-> >                               i2c->adap.name);
-> >       }
-> >
-> > -     clk_prepare_enable(i2c->clk);
-> > +     ret =3D clk_prepare_enable(i2c->clk);
-> > +     if (ret) {
-> > +             dev_err(&dev->dev, "failed to enable clock: %d\n", ret);
->
-> please use dev_err_probe here.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-Thanks, I have submitted a v2 series without the above problems.
+Applied on mvebu/dt64
 
--Jiasheng
+Thanks,
+
+Gregory
+> ---
+> Cc: Frank Wunderlich <linux@fw-web.de>
+>
+> There's also this 2 year old patch fixing other SATA errors[1] which=20
+> was never picked up. :(
+>
+> [1] https://lore.kernel.org/linux-arm-kernel/20220311210357.222830-3-linu=
+x@fw-web.de/
+>
+>  arch/arm64/boot/dts/marvell/armada-7040-db.dts             | 1 -
+>  arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts       | 2 --
+>  arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts | 1 -
+>  arch/arm64/boot/dts/marvell/armada-8040-db.dts             | 2 --
+>  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi         | 1 -
+>  arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts    | 2 --
+>  6 files changed, 9 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-db.dts b/arch/arm64/=
+boot/dts/marvell/armada-7040-db.dts
+> index 5e5baf6beea4..1e0ab35cc686 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+> @@ -214,7 +214,6 @@ &cp0_sata0 {
+>=20=20
+>  	sata-port@1 {
+>  		phys =3D <&cp0_comphy3 1>;
+> -		phy-names =3D "cp0-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts b/arch/=
+arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> index 40b7ee7ead72..7af949092b91 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> @@ -433,13 +433,11 @@ &cp0_sata0 {
+>  	/* 7 + 12 SATA connector (J24) */
+>  	sata-port@0 {
+>  		phys =3D <&cp0_comphy2 0>;
+> -		phy-names =3D "cp0-sata0-0-phy";
+>  	};
+>=20=20
+>  	/* M.2-2250 B-key (J39) */
+>  	sata-port@1 {
+>  		phys =3D <&cp0_comphy3 1>;
+> -		phy-names =3D "cp0-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts b=
+/arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts
+> index 67892f0d2863..7005a32a6e1e 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dts
+> @@ -475,7 +475,6 @@ &cp1_sata0 {
+>=20=20
+>  	sata-port@1 {
+>  		phys =3D <&cp1_comphy0 1>;
+> -		phy-names =3D "cp1-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-db.dts b/arch/arm64/=
+boot/dts/marvell/armada-8040-db.dts
+> index 92897bd7e6cf..2ec19d364e62 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+> @@ -145,11 +145,9 @@ &cp0_sata0 {
+>=20=20
+>  	sata-port@0 {
+>  		phys =3D <&cp0_comphy1 0>;
+> -		phy-names =3D "cp0-sata0-0-phy";
+>  	};
+>  	sata-port@1 {
+>  		phys =3D <&cp0_comphy3 1>;
+> -		phy-names =3D "cp0-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi b/arch/ar=
+m64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> index c864df9ec84d..e88ff5b179c8 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> @@ -245,7 +245,6 @@ &cp0_sata0 {
+>  	/* CPM Lane 5 - U29 */
+>  	sata-port@1 {
+>  		phys =3D <&cp0_comphy5 1>;
+> -		phy-names =3D "cp0-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts b/ar=
+ch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts
+> index 42a60f3dd5d1..3e5e0651ce68 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dts
+> @@ -408,12 +408,10 @@ &cp0_sata0 {
+>=20=20
+>  	sata-port@0 {
+>  		phys =3D <&cp0_comphy2 0>;
+> -		phy-names =3D "cp0-sata0-0-phy";
+>  	};
+>=20=20
+>  	sata-port@1 {
+>  		phys =3D <&cp0_comphy5 1>;
+> -		phy-names =3D "cp0-sata0-1-phy";
+>  	};
+>  };
+>=20=20
+> --=20
+> 2.45.2
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
