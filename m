@@ -4,96 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A400D12660
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8D8D12662
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=agzLPwjtyIVcmji+qBbiwXvdNNXbwTGcuXy/vqd4v6s=; b=EktPXixmbQdQWKPQUvz+5gUM9a
-	BCxgzx90FrQIdaXaIdHZs4/xtePkl3p2K8VaQD6xteBHFBTWmL/SZoa1C7+w0xzZbDsqk8YO5kg6l
-	VgZ6rV2LMve/2gBpioRxwrLIHno0tItSTpMDqQjFkuGiZG0VzWbzUcXu5CG2i+o39n7omd0B0qBte
-	luAVZPXOSMjGxobnzRw8E7w7U5JSQuUE5mCyvZ5x/I9hI+oMxZ/Bja81qMCZa90UWCU84ODOvCLgs
-	+Zni9LUdaSLOa5BgTvb/p+F4FJIFtnD2Jqb46MoYWwxTrgwJdMXhkFmCM8ivaMzJJlm5DBI1UbG9+
-	yQtGFjGw==;
+	bh=zBA7bLE2mHqRkfZsK3UY/Q+ay2kNLXGkfRxWpEsue8U=; b=vT0nUC01U4CnVrdToqZy4gj7wu
+	vmywS5HaqfP4BV7iXgVnJGFtfJ7g93O5Teaq4QSlj1z/gEiF+/gIwlIQwksmVR7SN4ffLgVAWRJ0f
+	X+0G77L0t/4JOOj5TXF47s25QsnJrx5sHRRmVzu8sDRMhM+5d/AF90+/TJL+VoS31XfDm2jo7yr2u
+	HGUeiGY5UTmev20ctr6XuxvzPEYIwL6L8O9ctFnExMRQxSKlYkkH4WPc6cJ/FGMp1V2/JMsKJ3Fwp
+	Mpyu7zTc2wcnMHQ+ApusbbYQk1N67tY+hKZ7Qi1ubLQ+Sm5FnozaWHGh1tHdbYDL7tfzi8W91Og2X
+	pdOhZDUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EKE-0000000GETE-0lzV;
-	Tue, 05 Nov 2024 07:50:06 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1t8ELt-0000000GEg1-2KdM;
+	Tue, 05 Nov 2024 07:51:49 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EG0-0000000GDra-0vRJ
+	id 1t8EGO-0000000GDuO-2WvX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 07:45:45 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5135JP023435;
-	Tue, 5 Nov 2024 08:45:34 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=selector1; bh=agzLPwjtyIVcmji+qBbiwXvd
-	NNXbwTGcuXy/vqd4v6s=; b=vobLQDZD2qNGcCFGeAPMOcHK1jX8XoKA7p8EXbY1
-	K7TkP1GZ/Fzwiy/clo5SiJKmvNeb6qiX5w3W/3e6ZxBG5qODvF508afDzJqHD0tc
-	LrZOPaZCFE1c5SaMzhYqES3dZrBn9vofv553ZFRnQS0xauUrqqIzPwRPjQqPDTwM
-	2TFw89arm5o/X1LQUrsIa5ef3G6WKEr5GgMiCKtPDE37F6dV44I/iz6CCoH7ovF4
-	WReqn0nR6pjMgPzFrpiKjDzG2XmdLvpaQS1IUYr85eACNf7eihE0WiTBETdLCZjE
-	HzZrLAXv6VNCjPoCp3MgE4NBdxP1P3ov4vc1JBNSX2blBA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nxh3rmc6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 08:45:34 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DA23B40047;
-	Tue,  5 Nov 2024 08:44:19 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7DA3824F7A7;
-	Tue,  5 Nov 2024 08:43:23 +0100 (CET)
-Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:43:22 +0100
-Date: Tue, 5 Nov 2024 08:43:21 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil
-	<hverkuil-cisco@xs4all.nl>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>, <linux-media@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 12/15] dt-bindings: media: addition of stm32mp25
- compatible of DCMIPP
-Message-ID: <20241105074321.GB1413559@gnbcxd0016.gnb.st.com>
-References: <20241008-csi_dcmipp_mp25-v1-0-e3fd0ed54b31@foss.st.com>
- <20241008-csi_dcmipp_mp25-v1-12-e3fd0ed54b31@foss.st.com>
- <lu252oltrh6bftg2e4hpthazd4r3lwbd75mboezhz7f4bbfdip@w5k4jx6oyyzx>
+	Tue, 05 Nov 2024 07:46:10 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 387761140202;
+	Tue,  5 Nov 2024 02:46:07 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-12.internal (MEProxy); Tue, 05 Nov 2024 02:46:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1730792767; x=1730879167; bh=zBA7bLE2mH
+	qRkfZsK3UY/Q+ay2kNLXGkfRxWpEsue8U=; b=i+Uy1IPw+rQa2KHZvHvCCRN+po
+	OSdEALT2ieuvZ0nyuDlrZdTxkf2Kd4bx/OiRlcV3c6eN5YZFK25ALK2mrg4mf+gQ
+	/UhbqXvKVP8DjhuKWzPq9CugJ5qD645f4NcT02OB2KROQKah1i89fl51YxmVzFmP
+	FWexC/2Q4cPi1Oujc8VDGeC8j2aNjVAbgQU96dYllErWLzDY2Y7WvtOKjMwwLnBn
+	UvUZURq9Anmqh2SONMpFVtAbfSV7FnKAAW33p24e2up8coNnRF2g9BxLZgVWsyPC
+	I13Wgujozbf5DQJQYyZILA6jQ4Sq4oPFh//xtI0EfYIRlwxxDSYrYSiP/A8w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1730792767; x=1730879167; bh=zBA7bLE2mHqRkfZsK3UY/Q+ay2kNLXGkfRx
+	WpEsue8U=; b=ZefMKQrXFc5eXO0xpC8u0IR/tkQcs3lh7r8al+MW6vPy3aeayet
+	7hD6Y+OAOOWttXSAIA/TjNXhJm5S54ea8icNIEZpG0RT1lDioej2mBoQ524PP0qI
+	73RaszP0DReS6Xd3focsHE3a+0MsFBdLJy6s6OWAl3uirhyQlX8nsKAAwpEABwNC
+	4s0QUZ9aI8s94Jv+Y1eH9G2bTuNh9hqT4dSjRPNf1NQizBN1JWPj7q1km6Qg0JfP
+	yHrTz5UIBHPW5ZgGTFWYcZbqQX4UVBoLhdjcLGoMaH0AXBkoqAYarV3D4ZEnoQea
+	DTxYiRjLOHyNLIftUX9ggmEnu0KeWeW44MA==
+X-ME-Sender: <xms:Ps0pZ5YttRNoH-iZitAsODK8Ed47ShS1B-14pDxzqAV2cPbx9IvQNw>
+    <xme:Ps0pZwZJV40ZXhMQbcn0QjX-7ZCcnshqTBR1uXtSg1wlD0wivlwbMtlkN1snky9Sg
+    MYAk0dVgqIBu5dQtZQ>
+X-ME-Received: <xmr:Ps0pZ7_TrRat-rMTcXXRoU2luraaF5BzmVKXt0fUt0RXbuXGEMbgRK3IqFcqeTdNDib1ffwFbNSrIebaeLDzptA1wzJIngAg-Dc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeljedguddufecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
+    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
+    cuggftrfgrthhtvghrnhepgfdvffevleegudejfeefheehkeehleehfefgjefffeetudeg
+    tefhuedufeehfeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedufedpmhhouggv
+    pehsmhhtphhouhhtpdhrtghpthhtoheptghonhhorheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhrtghpthhtohepshhvvghnsehs
+    vhgvnhhpvghtvghrrdguvghvpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvg
+    highdrihhopdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghp
+    thhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtse
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdho
+    rhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:Ps0pZ3ouOO9r2fHILp75GBvr27RNiBKWDC6cqH73XVz5Y3mnCnbRSw>
+    <xmx:Ps0pZ0oqaTVWRqBWF1wRLomqDTxlVJEZ_agc6C3K5on0CVvPJVRJGQ>
+    <xmx:Ps0pZ9QZ5OKB6dhDwkP2eMt84DQPccruOmWX_WBS2xTeMFHCcwT4Fg>
+    <xmx:Ps0pZ8oIYaRlI12mn8pzBO-ckFsbVZEuLOVK0NjhUMyTlnLFO2kgQA>
+    <xmx:P80pZx7W8nbujgAr3hEXhDKtDiUxyJ8001pmZ61njQ9KvQK5R5tZCQmN>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 5 Nov 2024 02:46:06 -0500 (EST)
+Date: Tue, 5 Nov 2024 08:46:05 +0100
+From: Janne Grunau <j@jannau.net>
+To: Conor Dooley <conor@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: spi: apple,spi: Add binding for
+ Apple SPI controllers
+Message-ID: <20241105074605.GB923511@robin.jannau.net>
+References: <20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net>
+ <20241101-asahi-spi-v3-1-3b411c5fb8e5@jannau.net>
+ <20241104-retract-wife-e1abe7425cc8@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <lu252oltrh6bftg2e4hpthazd4r3lwbd75mboezhz7f4bbfdip@w5k4jx6oyyzx>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+In-Reply-To: <20241104-retract-wife-e1abe7425cc8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_234544_582724_B2A4A9E6 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20241104_234608_729405_93A139B7 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +119,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mon, Nov 04, 2024 at 06:56:59PM +0000, Conor Dooley wrote:
+> On Fri, Nov 01, 2024 at 08:26:12PM +0100, Janne Grunau via B4 Relay wrote:
+> > +      spi: spi@39b104000 {
+> 
+> nit: the label here serves no purpose, and could be dropped. No need to
+> respin for that obviously.
 
-On Tue, Oct 08, 2024 at 03:41:59PM +0200, Krzysztof Kozlowski wrote:
-> On Tue, Oct 08, 2024 at 01:18:14PM +0200, Alain Volmat wrote:
-> > Addition of the stm32mp25 compatible for the DCMIPP.
-> 
-> "Add"
-> See submitting patches.
+removed since there will be a respin for minor driver changes
 
-Commit message corrected in the v2.
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> 
-> > The stm32mp25 distinguish with the stm32mp13 by the fact that:
-> >  - supports also csi inputs in addition to parallel inputs
-> >  - requires an addition csi clock to be present
-> > 
-> > The commit also adds access-controllers, an optional property that
-> 
-> "Add", see submitting patches.
-
-Here as well.
-
-> 
-> > allows a peripheral to refer to one or more domain access controller(s).
-> > 
-> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-> > ---
-> >  .../devicetree/bindings/media/st,stm32-dcmipp.yaml | 53 +++++++++++++++++++---
-> >  1 file changed, 47 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml b/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-> > index 87731f3ce7bd..bda28fef0b78 100644
-> > --- a/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-> > +++ b/Documentation/devicetree/bindings/media/st,stm32-dcmipp.yaml
-> > @@ -10,9 +10,40 @@ maintainers:
-> >    - Hugues Fruchet <hugues.fruchet@foss.st.com>
-> >    - Alain Volmat <alain.volmat@foss.st.com>
-> >  
-> > +allOf:
-> 
-> Please put allOf: like in example schema, so after required:.
-
-Done in v2.
-
-> 
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> 
-> Best regards,
-> Krzysztof
-> 
+thanks
+Janne
 
