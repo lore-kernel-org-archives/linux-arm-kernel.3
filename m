@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672A7D31769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA418D3176F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zME5MWzcWWFDNjFuSDE1vu6XBgVtTICe/pz7xUQmTYc=; b=43BZvfli2KPg/aLg1HpqRaEGX3
-	UpDHFTPtR0rEuVQLrOFHoDwu7lvinwVEgHFkj7agOV3KhbCzxDc6I2qYkgK4hJpC5/S4pOXUZNZ+q
-	Psf4sI2Eg9nT0GdQpMrv/L1MAmteBvpAXHlMvvH+qdY0dKy2LFod3lw7yvdb7Lbhryq3vKAwOYcC3
-	5FJI2sptjkdXb6deTxBInSFT0oomzKR0hHaWaZNujzrE6Mcb4CMmHHWM55CZTOFhLM0dkO5cNm8lB
-	RAEg9z6l0Ji9lwGd5GY7o+eqfI/wpw/bnp77OeGYERys1yNVFzVN3yq5zR2KhIkOpKY0K8qJZKSIY
-	RRbc8KvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eVarSUVImq3C17UtuBFKgjsAE8tZo13M6Xt5/flkrHA=; b=JawGmwEP9IwckluGXr5vX8Cccv
+	s4T74IxlNkqgYYue/awprQuBVlR9qztOxfks2ISgdas4PeaPV1gUfmk5haxc0CsuK1N1/W7xRx16N
+	nlSwZdhwemqqE0BSXnvrncvpTkCfT21SxjzpoPhsnI7MMTrJBiuKB36YvVkp8DgiJeK9BxPxTA3dX
+	h8erZgSIVqMZgM73kbaYE7R7VvRu606xpLTD5Pe3BuMj0CM9sR/6dQITEbG9dq+YcQngYlOBsnAle
+	VLcCcmRfsIgGT7TB6OdXsAHnymj2SDXCYNHwi+ul0DFeeEvYzuhUYbkso9y12z7YW3Mhmte17ZHnW
+	LqtyCyFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NYp-00000000FZb-2AGt;
-	Tue, 05 Nov 2024 17:41:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8Nlc-00000000IJo-0X7C;
+	Tue, 05 Nov 2024 17:55:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NWq-00000000FDa-2JdQ
+	id 1t8Njt-00000000IBu-1k55
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 17:39:45 +0000
+	Tue, 05 Nov 2024 17:53:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7A692A43790;
-	Tue,  5 Nov 2024 17:37:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9800EC4CED1;
-	Tue,  5 Nov 2024 17:39:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3C1A55C4636;
+	Tue,  5 Nov 2024 17:52:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 342D2C4CECF;
+	Tue,  5 Nov 2024 17:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730828383;
-	bh=QZbld1TF8KsohUr4pPq9BpKFDSwxyE2URVgltsDBIDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g9lKUavltsMy/YgW1mRbOREkoLHT6SzFY/ltRciRGIXWeU02o3fUYrVXpC4THnNEU
-	 j7CRaD86REpFzqxNAdJng+OPBJlIFv8GWy2JPT0v6DIfnAmoRsnFcBMbjtwBfxcjsA
-	 8h3IycPpR6OxDQfSm4/f7HNDy8qdVZvDw7AAS+zb6IfbfVwpTN3qO0x6ms25HfbaOq
-	 jUrNreINqb4mmREz3gmVLvFYPMp1qJIYKQnjwiqr6FWRYKHBpPY5ebPa3FEQiiQWPy
-	 bdfRmnZWJYR2Cmu8Yg4Xm1t447d6k8aQYaGzrabZsPey/BMbtvePXCilClscDGKPU0
-	 KYmhjE1Um9yZw==
-Date: Tue, 5 Nov 2024 18:39:40 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Liu Ying <victor.liu@nxp.com>, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, 
-	jonas@kwiboo.se, jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com, 
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, quic_jesszhan@quicinc.com, 
-	mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	sakari.ailus@linux.intel.com, hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com, 
-	quic_bjorande@quicinc.com, geert+renesas@glider.be, arnd@arndb.de, nfraprado@collabora.com, 
-	thierry.reding@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, 
-	marex@denx.de, biju.das.jz@bp.renesas.com
-Subject: Re: (subset) [PATCH v5 00/13] Add ITE IT6263 LVDS to HDMI converter
- support
-Message-ID: <20241105-succinct-pygmy-dingo-4db79c@houat>
-References: <20241104032806.611890-1-victor.liu@nxp.com>
- <173080602214.231309.12977765173766280536.b4-ty@linaro.org>
- <20241105-secret-seriema-of-anger-7acfdf@houat>
- <CD810D31-F9C5-499D-86CF-B94BEF82449A@linaro.org>
+	s=k20201202; t=1730829191;
+	bh=GBpdf1OVO9BOr56k/DS5sh/foQKQ7xW6cGQgQpR2NCA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Pw5KJOOypZ+1M8BcBE1sks8BopZNvfyjIUSRrCa8l9BsQDa57h+iIrOYogz4Z/R3F
+	 BGgMRI3BzVtRJZnrd8EPtO9bkkwfGVHl3pH2Wb9k32RvLss5b4kESmkAPGMFvsHWU7
+	 HsfImJ/9oLem4OZommuIE4+MHIC+59xP2TXTed92k01Z0Ns2ew0CGMHx4DACRKU4JJ
+	 Rt6gUyszCPAyqEP1rDnwCN2zxwe8JKeNsA5if3fvcBrbsH+KT6vrdO2jglYiHBjqQz
+	 2lzzf4V9w7F5Mxn1wsOslkLlsliJgQFtmY7DgHFTgI5KoAAPxXLXe1yuWuZKixE1Wi
+	 I40bxMdeGXilg==
+From: Mark Brown <broonie@kernel.org>
+To: amelie.delaunay@foss.st.com, 
+ Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Olivier Moysan <olivier.moysan@foss.st.com>
+Cc: Olivier Moysan <olivier.moysan@st.com>, linux-sound@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241105140242.527279-1-olivier.moysan@foss.st.com>
+References: <20241105140242.527279-1-olivier.moysan@foss.st.com>
+Subject: Re: [PATCH 1/1] ASoC: stm32: spdifrx: fix dma channel release in
+ stm32_spdifrx_remove
+Message-Id: <173082918893.89365.2926884723667800367.b4-ty@kernel.org>
+Date: Tue, 05 Nov 2024 17:53:08 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="lpikbxgr4ajy2ceg"
-Content-Disposition: inline
-In-Reply-To: <CD810D31-F9C5-499D-86CF-B94BEF82449A@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_093944_760482_F87CD5D6 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20241105_095313_553952_0EBF9AF1 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 05 Nov 2024 15:02:42 +0100, Olivier Moysan wrote:
+> In case of error when requesting ctrl_chan DMA channel, ctrl_chan is not
+> null. So the release of the dma channel leads to the following issue:
+> [    4.879000] st,stm32-spdifrx 500d0000.audio-controller:
+> dma_request_slave_channel error -19
+> [    4.888975] Unable to handle kernel NULL pointer dereference
+> at virtual address 000000000000003d
+> [...]
+> [    5.096577] Call trace:
+> [    5.099099]  dma_release_channel+0x24/0x100
+> [    5.103235]  stm32_spdifrx_remove+0x24/0x60 [snd_soc_stm32_spdifrx]
+> [    5.109494]  stm32_spdifrx_probe+0x320/0x4c4 [snd_soc_stm32_spdifrx]
+> 
+> [...]
 
---lpikbxgr4ajy2ceg
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: (subset) [PATCH v5 00/13] Add ITE IT6263 LVDS to HDMI converter
- support
-MIME-Version: 1.0
+Applied to
 
-On Tue, Nov 05, 2024 at 05:33:21PM +0000, Dmitry Baryshkov wrote:
-> On 5 November 2024 16:13:26 GMT, Maxime Ripard <mripard@kernel.org> wrote:
-> >On Tue, Nov 05, 2024 at 01:28:48PM +0200, Dmitry Baryshkov wrote:
-> >> On Mon, 04 Nov 2024 11:27:53 +0800, Liu Ying wrote:
-> >> > This patch series aims to add ITE IT6263 LVDS to HDMI converter on
-> >> > i.MX8MP EVK.  Combined with LVDS receiver and HDMI 1.4a transmitter,
-> >> > the IT6263 supports LVDS input and HDMI 1.4 output by conversion
-> >> > function.  IT6263 product link can be found at [1].
-> >> >=20
-> >> > Patch 1 is a preparation patch to allow display mode of an existing
-> >> > panel to pass the added mode validation logic in patch 3.
-> >> >=20
-> >> > [...]
-> >>=20
-> >> Applied to drm-misc-next, thanks!
-> >>=20
-> >> [04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
-> >>         commit: 5205b63099507a84458075c3ca7e648407e6c8cc
-> >
-> >Where's the immutable branch Laurent asked for?
->=20
-> The patch set has been picked up after getting an Ack from Sakari,
-> before Laurent's email. I am sorry if I rushed it in.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-I mean, this was less than a day after you've asked that question
-yourself. Waiting less than a day for a mail to be answered seems a bit
-short, especially when there's no rush to merge these patches in the
-first place.
+Thanks!
 
-Maxime
+[1/1] ASoC: stm32: spdifrx: fix dma channel release in stm32_spdifrx_remove
+      commit: 9bb4af400c386374ab1047df44c508512c08c31f
 
---lpikbxgr4ajy2ceg
-Content-Type: application/pgp-signature; name="signature.asc"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
------BEGIN PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZypYWAAKCRAnX84Zoj2+
-dqB2AX9GZdjTPnmcByvgBSDmocLc9jx/UxPVwoxcockjnXv6ZTkFXoDJPi/fdgYU
-ZVhEdvwBgMatI1KVXAWu/endQAK5PMRNxHeFsbekB5ouNQnFLuCJ1Hnf5FHt+whO
-wHHi4EMLFA==
-=rM90
------END PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
---lpikbxgr4ajy2ceg--
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
