@@ -4,134 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFAFD2C13E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBD0D2B944
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 15:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ooJDnnYNEbk1kr2lCujUoyFBk6F58+aUycb1FL/7jA=; b=YcU5mo6fDHoyg0ls2ZUXawZboi
-	9ri93s7sbyuq+GBUPdDUcliVVtpd9iPs0hsa/mD6qz8/wGtTtIK6pK4mrK+nT6t1xW7arLaI8Ls8H
-	bB8Y2JKzw9a67R+H97rQe8ATQEHWP9ekwcHEgwpLciHhWFyZ6+vT26IgmRR8/SxQ+y1onri+XGVaZ
-	NiT9RNArj8p3t/VdY3p4jtoMzvzmSsRi7JhQiyZI6qk2rONPysiJkkLPcaleJwatQBuhjruNXbDG5
-	X2lzCV3UnjhgajQCVDxoSDW+ETfctHlZULGjsTNHUwV3+UhuhwRcBLfMJkfl1gw/c2Ik9lLYslEh+
-	1dil62lQ==;
+	bh=w6BRqx3A6quV1vsoZcGcoTn++xiCKrR1U7u2eV5qVyc=; b=aORCjWRW3vz2GBcWJPniMa+k02
+	HSp1ng8e0xhvq/1nPlpBLwzzUM+xNiuFFuzUFnxbDjSVL7hVIdHluofJyk/IHtO2JvcHEPALJcUPF
+	2ifI9fCjKmCtEXuDK4v0RuDEc8MQvnFdXuoMJyAdxGFhvWp0oaaJjT0uOY88kaoSwRWecunIdS2Aw
+	q7XNNEhgzpThUfinMqSMLI0wr7xrOwMhOH7VVslzeAXQM0tTcCpC28zIsAGRRG1LbSuDtlMtuX7FV
+	aFuUyvdR1mpXiO3y/vHMC3P2P/pd3mFUGmvKKvl0jjWWqjbMrwuQB7BRSato+RHQHnU04mYEvmbHn
+	NJtDkVew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Lo5-0000000HUEX-2MN3;
-	Tue, 05 Nov 2024 15:49:25 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1t8Lsy-0000000HVn6-1hZQ;
+	Tue, 05 Nov 2024 15:54:28 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LmL-0000000HTwC-3Bpk
+	id 1t8Lr1-0000000HV8k-2U4T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 15:47:38 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20cb7139d9dso52328345ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 07:47:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730821656; x=1731426456; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ooJDnnYNEbk1kr2lCujUoyFBk6F58+aUycb1FL/7jA=;
-        b=nnaVHQPtasYgqR3/LL/f/YcgpOh5KdorPtpP5H9uho8CljAgewifaEoqxna9HB1+wh
-         dJrp2gwA7PNs0gndZA0BLgqGGQ/2oo+mzKG2Yqod1Ltw4VpgVkZTPu0v4g1mvFyKYeGj
-         yJJkBTYeG0NpBWo8MFKKC4gpp6mUIuQl3xMcKV6aCOdvUQ79ovgfk5V+wFaFJIfvGa8O
-         I4Rt3vaOA8Ml0yR3CJnHG0hDJSob8uNIJdqrwstmJWYTnCcb/hgqHACqp6Gv4tErU+/T
-         4FTK9JjStorvpHZumbQrVSWw412/QX4Oz+ILaFLrx9Dqo5yHatX9pWNp9dwGjTrQoBE7
-         hhIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730821656; x=1731426456;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1ooJDnnYNEbk1kr2lCujUoyFBk6F58+aUycb1FL/7jA=;
-        b=EC0Qj8X5yfE4uifKBJPjWD0exNSnvcNjScEFxJJg9A2gnnEbVnOLqSviN5Q9YC/HIt
-         7WDY2rhDfrt133fCLYzmQXrS4It6RyiozMXggmECdv40MGkznjaSpTVzI1f9rGfUDvUw
-         RAmxhBt5HqW7yunw48TzyDnYgWW3RdgtB1hWxkRSdiFZtKmnmlj2dSaOSrzi7V03Ovvj
-         ATzhQYc/HEeiUlgjuwBLklqTFqVsDtcap1z5WF40Gf/sAIzvBdVyjMwH2cA6pLVAG8cb
-         zFyopF1aeI8Rtx+oDEh2P5lkUEkaFvh+Qd9rlWQrNNczYn9o7pVRqbTOk21gk3Q/T6I+
-         cWqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXGFVuwphocuxc6Pemts1KHJ1XrmhPGYt3Q45Gkdo6KIvV/uDgEPNq8kSJl5f5UlfIbtDzwBlY+yo4uj0EvtlO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4t4US+rnY2GmCUmCy/sNufBfLRbZOvfOzbIPAFxn7s16rTRPx
-	rnjM99/1dks9XJNB+zThLGc6O0h1b75PyksBDbzSPUKyYw7iprAX
-X-Google-Smtp-Source: AGHT+IF9zcbwT3e7cLCiI/zQ31Uv++mbdyvSf96625AcWV9rKF0bSrU3s/WqP8Rl91+BbmZJqznG6A==
-X-Received: by 2002:a17:903:2445:b0:20c:bcd8:5ccb with SMTP id d9443c01a7336-210c6c0610amr518053055ad.30.1730821655815;
-        Tue, 05 Nov 2024 07:47:35 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057a2b83sm79133375ad.157.2024.11.05.07.47.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Nov 2024 07:47:35 -0800 (PST)
-Message-ID: <7d9657ff-1c4a-4167-982a-9f07e7b51f77@roeck-us.net>
-Date: Tue, 5 Nov 2024 07:47:33 -0800
+	Tue, 05 Nov 2024 15:52:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1730821928; x=1731426728; i=wahrenst@gmx.net;
+	bh=w6BRqx3A6quV1vsoZcGcoTn++xiCKrR1U7u2eV5qVyc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=YpneG5bJGnvLKmGToYXDgbt38gkeGGpnqWqhwoKiW1BeNfoCbt8f+6JG6M91H4h8
+	 25XIcg1MkxEbSvLsy0cGPwbcz2Lz4gqT2iM9RwmVwU7gG+yC7rVCVM6zcd3Tjt2CY
+	 wai51zIy6iMvP28wVyEOv1klz1PQe1lkb5MVo+8Pu/09HoEC7Cg1svAFakJzuJnAq
+	 BYEJwE6kbxuBsHMBMAE7cIVuvSPa9KOO+74tSyg5+MYxnMNpeWf8ufKMTKZieSbLs
+	 8Cp5sClw5qPUqvVkWoNJGgUEPaELVXemxDVUWCZPLkhe7HBurLCTQeLhgDv0qlson
+	 utqYcKbAIfieZjqCeg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MN5eX-1tROAf0k6P-00VvAM; Tue, 05
+ Nov 2024 16:52:08 +0100
+Message-ID: <283bbd2c-0997-43d6-bc24-08bf2cb2412b@gmx.net>
+Date: Tue, 5 Nov 2024 16:52:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] ARM: dts: aspeed: sbp1: IBM sbp1 BMC board
-To: Naresh Solanki <naresh.solanki@9elements.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, jdelvare@suse.com,
- sylv@sylv.io, linux-hwmon@vger.kernel.org, Joel Stanley <joel@jms.id.au>,
- Patrick Rudolph <patrick.rudolph@9elements.com>,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
- <20241104092220.2268805-2-naresh.solanki@9elements.com>
- <ac9698862598f0d09d35872d0e091537f822fbcd.camel@codeconstruct.com.au>
- <CABqG17j8RhFpNV+nJ=nLY8+uO_XXjbN55+Ce8op=6Dj5Z=_WOA@mail.gmail.com>
+Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
+To: Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+ Stefan Eichenberger <eichest@gmail.com>
+Cc: Shawn Guo <shawnguo2@yeah.net>, Russell King <linux@armlinux.org.uk>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ imx <imx@lists.linux.dev>, linux-kernel <linux-kernel@vger.kernel.org>,
+ Stefan Eichenberger <stefan.eichenberger@toradex.com>
+References: <20241030122128.115000-1-eichest@gmail.com>
+ <ZyXTFhEm9UCBii2c@dragon> <ZyY41nJY9ghwe-Y4@eichest-laptop>
+ <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net>
+ <ZyiAMpjmXuVMi5FX@eichest-laptop>
+ <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net>
+ <Zyj0VsTJ2qDHiss2@eichest-laptop>
+ <1044800423.57572.1730815098440.JavaMail.zimbra@savoirfairelinux.com>
 Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <CABqG17j8RhFpNV+nJ=nLY8+uO_XXjbN55+Ce8op=6Dj5Z=_WOA@mail.gmail.com>
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <1044800423.57572.1730815098440.JavaMail.zimbra@savoirfairelinux.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:0e9SmOcFNlaLT3rD7fmlk1piqiI0xf9twOaT6BfM28EqKj0nVcR
+ o4F+e9wg1F9KMTPgwieP7dUOCU4Afe313a882FpkfRtSLwwH97GTo6nJ7e+XCUMOcAuwPBa
+ o97vj3JRErBEF9dJMLCTGatCaOU/5oF/PKr2QJBh5HWfnQ0/iYxakx/Z12r8PHFlkZ6ilPs
+ xBLxMJ2xlnMEMtCNfm02g==
+UI-OutboundReport: notjunk:1;M01:P0:5y+4KYOBIe0=;7F6uroMgDxRYDS9DjneTwuHj82n
+ 6LD5t5muKL4oKm6lGgRVa+fz4MtGFqeZFq4B7cXclDheY6Pvd6yF70NB6PQXN8jcJo1IFMWDz
+ dED7W7xAE3/xAjck8Osso+Xdd1Cgwk4D7ndkPPM0sQPGwRMYKhvNfYFc4Z7HQ08ixeFakYBJy
+ hhEZfU0yo55E9cBkPz3xGV2FyUXfpTpUYmtHjrGZWOZN7KiB+mNkqIiGeIbMK+5TXk6GnRuzj
+ 8s1y+etj/xCoSTV0Q1sVOUdbT7Rz7jcw1AOCV1pndH+xfDsqWC2k297J5MI3awV36zb2Y1hd0
+ 5pLIffIyB0xyQkU/Qt+XRitQWNVyr0cqRWg07xb7W/YYH4u1ctjSkSJ1H6c+HBvrj5zTiOlkP
+ OMnpQhcfBbJGwqBS9jMJAcWip2OjCFe0tV5Mr1eksMsFjOe4eqA11GKocDObm11kWkDdY0jyI
+ io8qELe8gpKroPEzx0e37QilYl43nBsmTIvhdTRySRRCSaTXPXAuj2fAak1gKkciRXrl3p5UT
+ TdDoPGpDiA45KrGkE6Tl/qHhxQfx+zJ09rCMp59+RC/C01kEbt1qJ26gcjd5jcHYLh1fIE8gs
+ vdVbuemIOp16XsX9YvzurNKM9bDKmjdsU9Ekwbf5HOly5QnQTat6dPIsaAD9bMBHJAG9FTLmG
+ kqjQpF1LQ86mCx7/14NggNKP9N+evecjFk183kBgBUvcjpusL2hyFp83Y2Kf4CtqV0Mt1V38/
+ 7W+buQ6a4qTmx5Ce9Zg+xovDJHwhTkAuKccIw/Y1kikbsmpYnbGoHkBiWV6TCcnfDybegMM/R
+ VFqY+owNYAk+d8AO8QzpW8ug==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_074737_834870_4447A3BE 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241105_075228_040831_7F84EE87 
+X-CRM114-Status: GOOD (  38.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,19 +105,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/4/24 20:10, Naresh Solanki wrote:
-[ ... ]
-
->>  From a spot check, the warnings seem legitimate. Did you send the right
->> patches?
-> Just checked again. They are resolved. But I guess the dtbinding patch
-> for the above warning are merged in hwmon-next branch & not in dt/next
-> 
-
-Did I apply some patches which should have been applied elsewhere ?
-
-If so, please let me know, and I'll drop them.
-
-Guenter
+Am 05.11.24 um 14:58 schrieb Elinor Montmasson:
+> Hi Stefan,
+>
+> On Monday, 4 November, 2024 17:20:38, Stefan Eichenberger wrote:
+>> Hi Stefan,
+>>
+>> On Mon, Nov 04, 2024 at 12:39:40PM +0100, Stefan Wahren wrote:
+>>> Hi Stefan,
+>>>
+>>> Am 04.11.24 um 09:05 schrieb Stefan Eichenberger:
+>>>> Hi Stefan,
+>>>>
+>>>> On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
+>>>>> Hi Stefan,
+>>>>>
+>>>>> Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
+>>>>>> Hi Shawn,
+>>>>>>
+>>>>>> On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
+>>>>>>> On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
+>>>>>>>> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+>>>>>>>>
+>>>>>>>> Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. This
+>>>>>>>> change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif sound
+>>>>>>>> card node properties") which moves away from the old "spdif-controller"
+>>>>>>>> property to the new "audio-codec" property.
+>>>>>>>>
+>>>>>>>> Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node properties")
+>>>>>>> It doesn't look a fix to me.
+>>>>>> I agree somehow, it was just that before the referenced commit our test
+>>>>>> succeeds with the imx_v6_v7_defconfig and after that we get the
+>>>>>> following error:
+>>>>>> [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-card:
+>>>>>> snd_soc_register_card failed
+>>>>> this error should have been in the commit message including the
+>>>>> information which platform/board is affected.
+>>>> Okay, I will add this information to the next version. We see this error
+>>>> on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
+>>>>
+>>>>>> So maybe it is not a fix in the sense of a bug, but it fixes the error
+>>>>>> message. However, I'm also fine with removing the Fixes tag.
+>>>>> But this patch doesn't look like the real approach.
+>>>>>
+>>>>> Could you please clarify the impact of the regression?
+>>>> So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
+>>>> update spdif sound card node properties") the audio driver was
+>>>> using an implementation of linux,spdif-dit and linux,spdif-dir which was
+>>>> directly inside the fsl,imx-audio-spdif compatible driver. Now with the
+>>>> referenced commit the idea is to use the more generic linux,spdif-dir
+>>>> and linux,spdif-dit compatible drivers. That's why this driver must be
+>>>> enabled in the kernel configuration.
+>>>>
+>>>>> Is it just this error message and audio works fine or is audio also broken?
+>>>> It is not just the error message, audio is not working because the
+>>>> driver deferes and because it is not enabled it will never succeed to
+>>>> load. I don't know if this is called a regression, because the driver is
+>>>> there it is just not enabled in the imx6_v7_defconfig. I thought because
+>>>> a lot of the i.MX6 based board use the generic driver, it makes sense to
+>>>> enable it in the imx_v6_v7_defconfig.
+>>> okay, thanks for the clarification. From my understanding
+>>> imx6_v7_defconfig is just an example config for testing. All possible
+>>> users of these boards might have their own configs and stumble across
+>>> the same issue. So I thought it would be better to add the dependency in
+>>> the Kconfig of the FSL audio driver.
+>>>
+>>> I'm not that audio driver expert and don't know how the dependency
+>>> handling between the FSL audio driver and the required codecs like
+>>> SND_SOC_SPDIF. So it's possible that I'm completely wrong here and your
+>>> approach is the best we can do.
+>> That might be a good point. I don't know how this is usually handled.
+>> @Shawn and @Elinor, do you think this could be an approach to make
+>> SND_SOC_FSL_ASOC_CARD select SND_SOC_SPDIF? It already seems to do this
+>> for SND_SOC_WM8994 and SND_SOC_FSL_SPDIF.
+> SND_SOC_FSL_ASOC_CARD will compile the machine driver fsl-asoc-card,
+> SND_SOC_FSL_SPDIF the CPU DAI driver fsl_spdif for the SPDIF
+> and SND_SOC_SPDIF the codec drivers spdif-rx and spdif-tx.
+>
+> In my commit series I made SND_SOC_FSL_ASOC_CARD select SND_SOC_FSL_SPDIF
+> because the old machine driver previously compiled with SND_SOC_IMX_SPDIF
+> selected SND_SOC_FSL_SPDIF.
+> But because fsl-asoc-card is a generic driver, it could be used on a system
+> that doesn't have an SPDIF device, and therefore should not require
+> SND_SOC_SPDIF nor SND_SOC_FSL_SPDIF.
+> So maybe it is not a good idea to automatically select SND_SOC_FSL_SPDIF or SND_SOC_SPDIF.
+>
+> On the other hand, if every imx6 or imx7 boards have an SPDIF device, then
+> I suppose SND_SOC_SPDIF can be put in imx_v6_v7_defconfig.
+Okay, I'm fine with the original approach.
+>
+> Regards,
+> Elinor
+>
 
 
