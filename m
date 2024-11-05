@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB14D2B944
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCE5D2B944
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NI2x247CL/w4XtKP0tioWSfErbLdqr9CoH9XKQ6Av6Q=; b=Vpu9ya11Us2QbJV+8mBH/qSjaH
-	O05GexJbOGxW/+yjZ56fQ9SonT/ldzv2Exi9LRCElvs/UNv0uGrmc9Ge/wh2uIIftbKe2v6YPzAdv
-	LhQmo6EUdZVY0zVAQjbtTRJQFj/zTDiuLr1u34D13mdGiMJEjZxyEn+T+AeThzuUTD4W7b9dVB7PX
-	5R3+KjvpkSRCbE+d/XXaMs6NZD2ZX84/iYuJrnOuhc2qrbzPSXKR1hbIRyG2VLABx7hwqCi9Y6QOA
-	DVMeFXFTHfLF4DUTf4CYb4papgnOdp0N5gyOMK9wiPS4DVtEokLW2khA4SRdzRDPnjYq/gCj7HLuW
-	9NfUNqvQ==;
+	bh=m8MK1YmMNs1hdmI79eE3tV5JmoW7c58L5kQGDhzJT8o=; b=RSgm/AuiBiLGUkBS6QPHbu4PbE
+	IXXg4rYI4yvGA4wX92xjf8+bWiABU/rdtkLeGWSO+jRflicJhbu16KeWo0C5GsSA4DFZT9diP+65w
+	YuMZ5PvG0kgwOvHPa6UdR6s0pM/ctOf+ro9uUdTOC4CBqAeolso8907O73k7HHWTiPCk13+mn3dqB
+	eKmSgOT7hJwF370CKuITC9HdJi4wBNVR9vnPOphMQKnQq4FlcvjJExFM68PicyCiJSrLtocm15llW
+	Eq4+Ul3SPwq0KmzsKyygV/9J0fa2TzZEFlQiL+wfJA7mLHeAscZArYlDGYfbB7SffQuvPS/Rp9R39
+	XKXN852g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8M0x-0000000HYJ1-47sV;
-	Tue, 05 Nov 2024 16:02:44 +0000
+	id 1t8M2i-0000000HYoz-33eB;
+	Tue, 05 Nov 2024 16:04:32 +0000
 Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxE-0000000HWui-340r
+	id 1t8LxE-0000000HWul-377p
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 15:58:55 +0000
 Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5BvcWn014025;
-	Tue, 5 Nov 2024 15:58:35 GMT
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EF3v2003827;
+	Tue, 5 Nov 2024 15:58:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=N
-	I2x247CL/w4XtKP0tioWSfErbLdqr9CoH9XKQ6Av6Q=; b=O02TGZQ+htBjbVY0v
-	+EwvzbQJeb67JTo/N04arRoCDosazwMzOueXfruY0ck4I49hoHy7uYaq5y2/+wLu
-	DBWF7JCTlz45Qz83ndmj0BsrmiPn6NeQ53nzbWiXVsTvTxa/JQrDJtpmAZPDNNap
-	ysz6JqIvbWCMkjOsn8Dtg+8DtulyJiwbaaZ4fv8j7CUeL59XgRlqc8BhNXeDa63H
-	MoWXvkYSdPWpmfwe4JgnLX3SpjazNaK768AjlFvD01TbcAOysm2koBr7DIz4Cv6f
-	axLhXD7hpLORusHM15EuRTisOXSHa9FqlQK/zBqkaWKC2OQHDIIAoMYG19oL4pCd
-	36HCQ==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=m
+	8MK1YmMNs1hdmI79eE3tV5JmoW7c58L5kQGDhzJT8o=; b=sGfvAXTBnHssZO2GP
+	M3UgXbFzSq3kajMLVoI+lsrTF/oSxZOstban6QQIUaGfPEgKhhE0WJ7stP9/TyEJ
+	VF1HBIVUwK6n9lTcMzlYP+ygxqKXZ2YWJnknM/GtBL2cGFd0V3q5CIClRfJBWS34
+	YLa8AJR//q48d0CXgyseG1OL8f87QW+u3LCINewXIUubitX5VlExh9/HV0gVTalX
+	ELtNYLXEyA6w6bzhJuXcunws66zRg9Szyv7tmvYe4l57o1vKN4SK8lbW9WKJjLh2
+	9P2deoChaGtvad95gWhlssbF/stWemW/k37H0CZxockWzjTPW7WQie0vvZiHD9HT
+	81e5Q==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0w-1
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0s-4
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 05 Nov 2024 15:58:35 +0000 (GMT)
+	Tue, 05 Nov 2024 15:58:27 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Tue, 5 Nov 2024 15:58:34 +0000
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:25 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Tue, 5 Nov 2024 15:58:20 +0000
-Subject: [PATCH 14/21] drm/imagination: Use callbacks for fw irq handling
+Date: Tue, 5 Nov 2024 15:58:09 +0000
+Subject: [PATCH 03/21] dt-bindings: gpu: img: Power domain details
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-14-4ed30e865892@imgtec.com>
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-3-4ed30e865892@imgtec.com>
 References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -75,24 +75,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6728;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1915;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=OzT2nD1xXImENRUhHuP4fEL2u4ChLzPFpgFjdOLg6vI=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcz7tkmIMf5ZEpMc3/Jkl9ss+xQfPX3oy6O/u/LnF
- Fu3kpgNHaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjARAXGG/159G5WWBwoKVT78
- Kikn89KuImztA4cfT5Zc/s7gknPf4AjD/1CZjhvKbvknpjV6VC2aVhi+ZYHCDL/2mLScL1eut5r
- cYgIA
+ bh=xpvmkOGoJ8kLva6fvxTjzOM3lj7B471NHdnui9EiYKg=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcwJDtW9YnZ1UiZfOp+M491JKk5F3ALme6ZkzLazO
+ nZ8zwG7jlIWBjEOBlkxRZYdKyxXqP1R05K48asYZg4rE8gQBi5OAZjI7icM/8MK+9uT+5vOJJ5Y
+ qNq/SMr7tYXfv7rrJ/qOFO20LjA+6c7w30dXe9e77VnVTdPKSlTO6D3kkWY1em2pFdFxo6+aNWg
+ aJwA=
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40ab cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=9CIW0cMrGHIu6-ODVCQA:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: 5IyPgHdKP93p2xnn80Rvn8dbbFrnGioJ
-X-Proofpoint-ORIG-GUID: 5IyPgHdKP93p2xnn80Rvn8dbbFrnGioJ
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a3 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=aNuRvPZPtIV8pc9XrW8A:9 a=QEXdDO2ut3YA:10
+ a=aimXnJ6PnzgsTu0FwM6W:22 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: G43ywWuRVUE1PLqMd0PHqt08M6XrxAwv
+X-Proofpoint-ORIG-GUID: G43ywWuRVUE1PLqMd0PHqt08M6XrxAwv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_075853_277765_D3AC9060 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20241105_075853_337724_694DE3C9 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,188 +107,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This allows for more versatility in checking and clearing firmware
-registers used for interrupt handling.
+The single existing GPU (AXE-1-16M) only requires a single power domain.
+Subsequent patches will add support for BXS-4-64 MC1, which has two power
+domains. Add infrastructure now to allow for this.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
- drivers/gpu/drm/imagination/pvr_device.h  | 18 +++++++++++++
- drivers/gpu/drm/imagination/pvr_fw.h      | 45 +++++++++----------------------
- drivers/gpu/drm/imagination/pvr_fw_meta.c | 22 ++++++++++-----
- drivers/gpu/drm/imagination/pvr_fw_mips.c | 22 ++++++++++-----
- 4 files changed, 63 insertions(+), 44 deletions(-)
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 29 +++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index ec5eb78af82a3f3c32d6c89b68b7bc0fcee0b9d2..76f79b18af354f0e0070530dfc5c8fe0f6a41ce1 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -738,4 +738,22 @@ pvr_ioctl_union_padding_check(void *instance, size_t union_offset,
- 					      __union_size, __member_size);  \
- 	})
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index 6924831d3e9dd9b2b052ca8f9d7228ff25526532..55f422be1bc5b7564e3e81f24c4b93857f3e12fe 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -49,7 +49,16 @@ properties:
+     maxItems: 1
  
-+/*
-+ * These utility functions should more properly be placed in pvr_fw.h, but that
-+ * would cause a dependency cycle between that header and this one. Since
-+ * they're primarily used in pvr_device.c, let's put them in here for now.
-+ */
+   power-domains:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
 +
-+static __always_inline bool
-+pvr_fw_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_dev->fw_dev.defs->irq_pending(pvr_dev);
-+}
-+
-+static __always_inline void
-+pvr_fw_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_dev->fw_dev.defs->irq_clear(pvr_dev);
-+}
-+
- #endif /* PVR_DEVICE_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index 88ad713468ce3a1ee459b04dde5363c24791a4f1..ab69f40a7fbc6304171f16dd16d825a68b0362a5 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -167,29 +167,22 @@ struct pvr_fw_defs {
- 	int (*wrapper_init)(struct pvr_device *pvr_dev);
++  power-domain-names:
++    oneOf:
++      - items:
++          - const: a
++      - items:
++          - const: a
++          - const: b
  
- 	/**
--	 * @irq: FW Interrupt information.
-+	 * @irq_pending: Check interrupt status register for pending interrupts.
- 	 *
--	 * Those are processor dependent, and should be initialized by the
--	 * processor backend in pvr_fw_funcs::init().
-+	 * @pvr_dev: Target PowerVR device.
-+	 *
-+	 * This function is mandatory.
- 	 */
--	struct {
--		/** @status_reg: FW interrupt status register. */
--		u32 status_reg;
-+	bool (*irq_pending)(struct pvr_device *pvr_dev);
+ required:
+   - compatible
+@@ -57,10 +66,27 @@ required:
+   - clocks
+   - clock-names
+   - interrupts
++  - power-domains
++  - power-domain-names
  
--		/**
--		 * @clear_reg: FW interrupt clear register.
--		 *
--		 * If @status_reg == @clear_reg, we clear by write a bit to zero,
--		 * otherwise we clear by writing a bit to one.
--		 */
--		u32 clear_reg;
--
--		/** @status_mask: Bitmask of events to listen for in the status_reg. */
--		u32 status_mask;
--
--		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
--		u32 clear_mask;
--	} irq;
-+	/**
-+	 * @irq_clear: Clear pending interrupts.
-+	 *
-+	 * @pvr_dev: Target PowerVR device.
-+	 *
-+	 * This function is mandatory.
-+	 */
-+	void (*irq_clear)(struct pvr_device *pvr_dev);
+ additionalProperties: false
  
- 	/**
- 	 * @has_fixed_data_addr: Specify whether the firmware fixed data must be loaded at the
-@@ -390,18 +383,6 @@ struct pvr_fw_device {
- 	} fw_objs;
- };
- 
--#define pvr_fw_irq_read_reg(pvr_dev, name) \
--	pvr_cr_read32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg)
--
--#define pvr_fw_irq_write_reg(pvr_dev, name, value) \
--	pvr_cr_write32((pvr_dev), (pvr_dev)->fw_dev.defs->irq.name ## _reg, value)
--
--#define pvr_fw_irq_pending(pvr_dev) \
--	(pvr_fw_irq_read_reg(pvr_dev, status) & (pvr_dev)->fw_dev.defs->irq.status_mask)
--
--#define pvr_fw_irq_clear(pvr_dev) \
--	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
--
- enum pvr_fw_processor_type {
- 	PVR_FW_PROCESSOR_TYPE_META = 0,
- 	PVR_FW_PROCESSOR_TYPE_MIPS,
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index 4433b04e0adb3684b86a4e90f63d670a81ecd826..09de3a30b625013c190196e02074fe72d08629a6 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -531,6 +531,20 @@ pvr_meta_vm_unmap(struct pvr_device *pvr_dev, struct pvr_fw_object *fw_obj)
- 		     fw_obj->fw_mm_node.size);
- }
- 
-+static bool
-+pvr_meta_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_cr_read32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS) &
-+	       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN;
-+}
-+
-+static void
-+pvr_meta_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_cr_write32(pvr_dev, ROGUE_CR_META_SP_MSLVIRQSTATUS,
-+		       ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK);
-+}
-+
- const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.init = pvr_meta_init,
- 	.fw_process = pvr_meta_fw_process,
-@@ -538,11 +552,7 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.vm_unmap = pvr_meta_vm_unmap,
- 	.get_fw_addr_with_offset = pvr_meta_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_meta_wrapper_init,
--	.irq = {
--		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
--		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
--		.status_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
--		.clear_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_CLRMSK,
--	},
-+	.irq_pending = pvr_meta_irq_pending,
-+	.irq_clear = pvr_meta_irq_clear,
- 	.has_fixed_data_addr = false,
- };
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index 2c3172841886b70eb7a9992ec3851f18adcad8d5..524a9bd0a20b64c509f5708cc61d93b4c864b835 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -227,6 +227,20 @@ pvr_mips_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
- 	       ROGUE_FW_HEAP_MIPS_BASE;
- }
- 
-+static bool
-+pvr_mips_irq_pending(struct pvr_device *pvr_dev)
-+{
-+	return pvr_cr_read32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS) &
-+	       ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN;
-+}
-+
-+static void
-+pvr_mips_irq_clear(struct pvr_device *pvr_dev)
-+{
-+	pvr_cr_write32(pvr_dev, ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
-+		       ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN);
-+}
-+
- const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.init = pvr_mips_init,
- 	.fini = pvr_mips_fini,
-@@ -235,11 +249,7 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
- 	.vm_unmap = pvr_vm_mips_unmap,
- 	.get_fw_addr_with_offset = pvr_mips_get_fw_addr_with_offset,
- 	.wrapper_init = pvr_mips_wrapper_init,
--	.irq = {
--		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
--		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
--		.status_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
--		.clear_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR_EVENT_EN,
--	},
-+	.irq_pending = pvr_mips_irq_pending,
-+	.irq_clear = pvr_mips_irq_clear,
- 	.has_fixed_data_addr = true,
- };
+ allOf:
++  # Cores with a single power domain
++  - if:
++      properties:
++        compatible:
++          contains:
++            anyOf:
++              - const: img,img-axe-1-16m
++    then:
++      properties:
++        power-domains:
++          minItems: 1
++          maxItems: 1
++        power-domain-names:
++          items:
++            - const: a
+   # Vendor integrations using a single clock domain
+   - if:
+       properties:
+@@ -90,4 +116,5 @@ examples:
+         clock-names = "core";
+         interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+         power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
++        power-domain-names = "a";
+     };
 
 -- 
 2.47.0
