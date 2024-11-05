@@ -4,96 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D95AD12660
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11746D12662
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CE1Ann0N54YMVcubl0bdIuhoD0dbS3Lrp2O1zrujtXA=; b=KNRb/5411ii8gtm2zocTiWAier
-	xdGq3Cg3OwAUW9RYxha5Bg007oBqlxGQK/9ovx2Qsb5of1z7IhKxOE7w+4roDf/t8Aof7/EOVzPTP
-	fZARkKlhbIBK7cNQ/Y5n0FtIZXp8Urm1v6h9cACeB0glfUV18Xw2yJ4En4kis9ywRwEVsNl20NaMg
-	EFubPm+wUO1aPUP4MbpGC8ahzhqHJi9/KHTYyP1UQvycBC2JWDH4ELwtqglfU0J3yko9RSQhwn+My
-	AdJYy75aIgFEw7uAsbkK6Vls9163H/uAxC2YzBGwoKMLE6BPLAiYdvsBWt27BnZO9R69+Qyd4lG0X
-	EeodnIFQ==;
+	bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=NscLJ48ACY68vmT2jihobUMyvY
+	k//xht/12bTHjDmlZm1kNl+Cn4L6UF0jOonvCET0F7r2y6laWTRMU4183djYhflhYWJCHvu9t6a1A
+	kN1h8+nwPSgfOboljBp9T074p1aizj2Np+CFn2E+L5nSr70LUt2opF+GQWrqK7OFmglf/U3Rn72TS
+	zkn8PcHYjmzGH6PeVSijOuLnataG5uQ1E5cl6s/sUXfLryDek1TsEbSQUzm63F+3FiGvkQnRmT6es
+	O9nhx2VkOfkeuItcOcBDW0/OCXCUVK/ehdQQtRGnqW5HcGU6KGoGpY+Yalu6xBn8tT4zCQCpMna0T
+	FmDib7Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ENf-0000000GFER-3pLv;
-	Tue, 05 Nov 2024 07:53:39 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1t8EPO-0000000GFhw-2cGI;
+	Tue, 05 Nov 2024 07:55:26 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EIX-0000000GEFv-2B18
+	id 1t8EKM-0000000GEU7-4B6B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 07:48:23 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5504Ar010867;
-	Tue, 5 Nov 2024 08:48:08 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=selector1; bh=CE1Ann0N54YMVcubl0bdIuho
-	D0dbS3Lrp2O1zrujtXA=; b=a2TrC+MkfgqcIksGa6RUg20sxh1OXUUwRo+zdmMw
-	o1QMeG0MKNbEu3blOmlFzxX40Fzw0f69u+QlaLa3n7W7/iCsvjNFVcDgMQl8j1E6
-	hApY+vKZt1Ud8fO4mN7hIJCC1M3iuYjwdUPHXEohRuL9PBUwYeUxOn58PWhEh7+2
-	gsMMGg1SlNxuU7koI6OTq0Hy6sJt2r5M9sW2f1u+/wsS0J+jfMUO7KIIAH3An5uR
-	tblBbxA4qqZcl3z1Az+EoewQq+vdlI+F1re/nSqMdqbBeL+YFkPO7/xZ2hEPv0fW
-	shza+F96TN+/h+PkAC9V/mXuLh8v/9awt+dTen/lWPa7iw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nywn88cs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 08:48:08 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6230E40046;
-	Tue,  5 Nov 2024 08:46:53 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 21D3124A466;
-	Tue,  5 Nov 2024 08:45:55 +0100 (CET)
-Received: from gnbcxd0016.gnb.st.com (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:45:54 +0100
-Date: Tue, 5 Nov 2024 08:45:53 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil
-	<hverkuil-cisco@xs4all.nl>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>, <linux-media@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 15/15] arm64: dts: st: enable imx335/csi/dcmipp pipeline
- on stm32mp257f-ev1
-Message-ID: <20241105074553.GC1413559@gnbcxd0016.gnb.st.com>
-References: <20241008-csi_dcmipp_mp25-v1-0-e3fd0ed54b31@foss.st.com>
- <20241008-csi_dcmipp_mp25-v1-15-e3fd0ed54b31@foss.st.com>
- <fgxjk5tikvd5vihlzslovhlpy5xbbgnr3kywkvkd62ppx6ttm7@2rbaqvllyb25>
+	Tue, 05 Nov 2024 07:50:16 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfout.phl.internal (Postfix) with ESMTP id A86B21380601;
+	Tue,  5 Nov 2024 02:50:13 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Tue, 05 Nov 2024 02:50:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1730793013;
+	 x=1730879413; bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=
+	T9gosV/O6KKn+nbmM0uE04aOhEHtzDt9NRv8YLMqJubADrKNYMP+wz8IVqKxQbvp
+	/QZ94IbSeRF+2urkUBecDpSCqED4mKB3cDkBr4wjFGHJm71r1PocxpWsCHf/kLXo
+	nuctPwor1kwoTdOnxmex61J4IPl2LrjjGUS7ZUZ9SfvrknKeR5jpSSLcnbqLi3tO
+	SLkgiK4L/J0FR8/BgapBz/PF0aXeYvFeDkjt1vw7rJIv4mLUrbkE3/HSEiUfbr2P
+	SGA2G34XN9oljawyTaX8XPl8AFXKVpMUeVSN1hoDNfpBagSgcrV1sbW++WHIput3
+	fEEi7z6XiWMwCl/sc0cQOg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730793013; x=
+	1730879413; bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=T
+	mIgENc4DC3vg8e58XWWAlPPC+Q7U8v+QD+8CkhsocjVLSpaYLyScnXsaJvL/UpC4
+	L95Ypm2lS0Z2oouUPuqaDqyzqPuDLGR2z3NZ3pKEufaxwTJHtN8ECMQDfeL/RDd3
+	pGJStNFqyClN3XXPusEMqlFK0G5lhVio+pbqdEknxlGTY3izaYuzVn97rGkXu7jV
+	R+iV3jmz0/eG3SmWKj9eq4C+Z8+X5vRJPbLdNUgmL9lLWbNsUrumr9vrvpdcYB21
+	K7rZ+DsFlk3B8gxBUW4NcN2uiFbRMN66bdaPtJCDDmGYt2pROLffs2sJTmN9NLLy
+	Sd7MZZF3WDTFlipO8Wy7A==
+X-ME-Sender: <xms:Nc4pZ-3ECSKEE8XxIjWFt8cD9jqV6Wg5RtiOLlu7NLclo59Z7EuWfw>
+    <xme:Nc4pZxHjh50Tm9SE-eom3h44vf4JnHnQ0x0s2brwdU9iyZuQpGBELCMEFb8Sz159G
+    cZi99rawlcp05-xq8I>
+X-ME-Received: <xmr:Nc4pZ25M6TGHJzJasOsDM7YAoDrwhxU0M-8h8VHOVAawJrZX1qzzOTYvE8BHdf21tesvrSN6TzaVLkU5lEAwcNEcfD8J8uIn1Nk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeljedguddufecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtugfgjgesthekredttddt
+    jeenucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqe
+    enucggtffrrghtthgvrhhnpeevfeekuedutedtvdffvefhvedvkefhgfevheefhfffheef
+    tefgteffuefgveefhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
+    hlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepudegpdhmohgu
+    vgepshhmthhpohhuthdprhgtphhtthhopegthhhrihhsthhophhhvgdrjhgrihhllhgvth
+    esfigrnhgrughoohdrfhhrpdhrtghpthhtohepuggvvhhnuhhllhdojhdrjhgrnhhnrghu
+    rdhnvghtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrd
+    hlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehl
+    ihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqshhpih
+    esvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvges
+    vhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlh
+    esvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggrnhesmhgrrhgt
+    rghnrdhsthdprhgtphhtthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvh
+X-ME-Proxy: <xmx:Nc4pZ_3KS_ljVMmTlx3iWxMco4k3hhmRZ_NyMqBy1Z2cCLZBwK9Jvw>
+    <xmx:Nc4pZxGAJAFf6jqQo0MNohbbYF1WA22ckV8ur5ZbkxNT4uHdz9yn3w>
+    <xmx:Nc4pZ49pLJaX10Rw7OTYV2qav_Wltpptfqkle33erLrAdYpE0OtDrQ>
+    <xmx:Nc4pZ2n9MJzEklKJt5lkLPbGFqoFAcmtM4EWss9TldUKHy23GcdRHA>
+    <xmx:Nc4pZ-dm3BU-dKHsi2K66keV3bFCqxzPVu6XA7UvxuqJoD0cGTlScUMZ>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 5 Nov 2024 02:50:12 -0500 (EST)
+Date: Tue, 5 Nov 2024 08:50:12 +0100
+From: Janne Grunau <j@jannau.net>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v3 2/3] spi: apple: Add driver for Apple SPI controller
+Message-ID: <20241105075012.GC923511@robin.jannau.net>
+References: <20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net>
+ <20241101-asahi-spi-v3-2-3b411c5fb8e5@jannau.net>
+ <ff82c5bf-c757-4496-83ac-c3b257ef476c@wanadoo.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <fgxjk5tikvd5vihlzslovhlpy5xbbgnr3kywkvkd62ppx6ttm7@2rbaqvllyb25>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ff82c5bf-c757-4496-83ac-c3b257ef476c@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_234821_852156_E1EA47AB 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20241104_235015_154500_70638E9D 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,146 +124,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Tue, Oct 08, 2024 at 03:42:42PM +0200, Krzysztof Kozlowski wrote:
-> On Tue, Oct 08, 2024 at 01:18:17PM +0200, Alain Volmat wrote:
-> > Enable the camera pipeline with a imx335 sensor connected to the
-> > dcmipp via the csi interface.
+On Mon, Nov 04, 2024 at 08:16:25PM +0100, Christophe JAILLET wrote:
+> Le 01/11/2024 à 20:26, Janne Grunau via B4 Relay a écrit :
+> > From: Hector Martin <marcan-WKacp4m3WJJeoWH0uzbU5w@public.gmane.org>
 > > 
-> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> > This SPI controller is present in Apple SoCs such as the M1 (t8103) and
+> > M1 Pro/Max (t600x). It is a relatively straightforward design with two
+> > 16-entry FIFOs, arbitrary transfer sizes (up to 2**32 - 1) and fully
+> > configurable word size up to 32 bits. It supports one hardware CS line
+> > which can also be driven via the pinctrl/GPIO driver instead, if
+> > desired. TX and RX can be independently enabled.
+> > 
+> > There are a surprising number of knobs for tweaking details of the
+> > transfer, most of which we do not use right now. Hardware CS control
+> > is available, but we haven't found a way to make it stay low across
+> > multiple logical transfers, so we just use software CS control for now.
+> > 
+> > There is also a shared DMA offload coprocessor that can be used to handle
+> > larger transfers without requiring an IRQ every 8-16 words, but that
+> > feature depends on a bunch of scaffolding that isn't ready to be
+> > upstreamed yet, so leave it for later.
+> > 
+> > The hardware shares some register bit definitions with spi-s3c24xx which
+> > suggests it has a shared legacy with Samsung SoCs, but it is too
+> > different to warrant sharing a driver.
+> > 
+> > Signed-off-by: Hector Martin <marcan-WKacp4m3WJJeoWH0uzbU5w@public.gmane.org>
+> > Signed-off-by: Janne Grunau <j@jannau.net>
 > > ---
-> >  arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 87 ++++++++++++++++++++++++++++++
-> >  1 file changed, 87 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> > index 214191a8322b..599af4801d82 100644
-> > --- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> > +++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-> > @@ -27,6 +27,38 @@ chosen {
-> >  		stdout-path = "serial0:115200n8";
-> >  	};
-> >  
-> > +	clocks {
-> > +		clk_ext_camera: clk-ext-camera {
-> > +			#clock-cells = <0>;
-> > +			compatible = "fixed-clock";
-> > +			clock-frequency = <24000000>;
-> > +		};
-> > +	};
-> > +
-> > +	imx335_2v9: imx335-2v9 {
 > 
-> Please use name for all fixed regulators which matches current format
-> recommendation: 'regulator-[0-9]v[0-9]'
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
-
-Done in v2 for all 3 fixed-regulators.
-
+> Hi,
 > 
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "imx335-avdd";
-> > +		regulator-min-microvolt = <2900000>;
-> > +		regulator-max-microvolt = <2900000>;
-> > +		regulator-always-on;
-> > +	};
+> > diff --git a/drivers/spi/spi-apple.c b/drivers/spi/spi-apple.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..1a3f61501db56d0d7689cc3d6f987bf636130cdb
+> > --- /dev/null
+> > +++ b/drivers/spi/spi-apple.c
+> > @@ -0,0 +1,531 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +//
+> > +// Apple SoC SPI device driver
+> > +//
+> > +// Copyright The Asahi Linux Contributors
+> > +//
+> > +// Based on spi-sifive.c, Copyright 2018 SiFive, Inc.
 > > +
-> > +	imx335_1v8: imx335-1v8 {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "imx335-ovdd";
-> > +		regulator-min-microvolt = <1800000>;
-> > +		regulator-max-microvolt = <1800000>;
-> > +		regulator-always-on;
-> > +	};
-> > +
-> > +	imx335_1v2: imx335-1v2 {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "imx335-dvdd";
-> > +		regulator-min-microvolt = <1200000>;
-> > +		regulator-max-microvolt = <1200000>;
-> > +		regulator-always-on;
-> > +	};
-> > +
-> >  	memory@80000000 {
-> >  		device_type = "memory";
-> >  		reg = <0x0 0x80000000 0x1 0x0>;
-> > @@ -50,6 +82,40 @@ &arm_wdt {
-> >  	status = "okay";
-> >  };
-> >  
-> > +&csi {
-> > +	vdd-supply =  <&scmi_vddcore>;
-> > +	vdda18-supply = <&scmi_v1v8>;
-> > +	status = "okay";
-> > +	ports {
-> > +		#address-cells = <1>;
-> > +		#size-cells = <0>;
-> > +		port@0 {
-> > +			reg = <0>;
-> > +			csi_sink: endpoint {
-> > +				remote-endpoint = <&imx335_ep>;
-> > +				data-lanes = <0 1>;
-> > +				bus-type = <4>;
-> > +			};
-> > +		};
-> > +		port@1 {
-> > +			reg = <1>;
-> > +			csi_source: endpoint {
-> > +				remote-endpoint = <&dcmipp_0>;
-> > +			};
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&dcmipp {
-> > +	status = "okay";
-> > +	port {
-> > +		dcmipp_0: endpoint {
-> > +			remote-endpoint = <&csi_source>;
-> > +			bus-type = <4>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> >  &ethernet2 {
-> >  	pinctrl-names = "default", "sleep";
-> >  	pinctrl-0 = <&eth2_rgmii_pins_a>;
-> > @@ -81,6 +147,27 @@ &i2c2 {
-> >  	i2c-scl-falling-time-ns = <13>;
-> >  	clock-frequency = <400000>;
-> >  	status = "okay";
-> > +
-> > +	imx335: imx335@1a {
+> > +#include <linux/bitfield.h>
+> > +#include <linux/bits.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/module.h>
 > 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> Move a few lines below to keep alphabetical order?
 
-Changed to camera@1a.
+done
 
+> > +#include <linux/interrupt.h>
+> > +#include <linux/io.h>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pm_runtime.h>
+> > +#include <linux/spi/spi.h>
 > 
-> > +		compatible = "sony,imx335";
-> > +		reg = <0x1a>;
-> > +		clocks = <&clk_ext_camera>;
-> > +		avdd-supply = <&imx335_2v9>;
-> > +		ovdd-supply = <&imx335_1v8>;
-> > +		dvdd-supply = <&imx335_1v2>;
-> > +		reset-gpios = <&gpioi 7 (GPIO_ACTIVE_HIGH | GPIO_PUSH_PULL)>;
-> > +		powerdown-gpios = <&gpioi 0 (GPIO_ACTIVE_HIGH | GPIO_PUSH_PULL)>;
-> > +		status = "okay";
+> ...
 > 
-> Why? Didi you disable it anywhere?
-
-status property dropped in v2.  powerdown-gpios property dropped as
-well since not necessary nor described in the sensor yaml.
-reset-gpios polarity is as well corrected in v2, following an change
-within the imx335 sensor.
-
+> > +static int apple_spi_probe(struct platform_device *pdev)
+> > +{
+> > +	struct apple_spi *spi;
+> > +	int ret, irq;
+> > +	struct spi_controller *ctlr;
+> > +
+> > +	ctlr = devm_spi_alloc_master(&pdev->dev, sizeof(struct apple_spi));
+> > +	if (!ctlr)
+> > +		return -ENOMEM;
+> > +
+> > +	spi = spi_controller_get_devdata(ctlr);
+> > +	init_completion(&spi->done);
+> > +	platform_set_drvdata(pdev, ctlr);
 > 
-> Best regards,
-> Krzysztof
-> 
+> Is it needed?
+> There is no platform_get_drvdata()
 
-Regards,
-Alain
+no, it is not used anymore. It's a leftover from v1 which used
+platform_get_drvdata() in apple_spi_remove() which is gone now.
+
+thanks, I'll send a v4 shortly
+Janne
 
