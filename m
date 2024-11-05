@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE14D31764
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E096BD31764
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pbSSrfjHXefHVKFb3svyxVLRw8pIkOduf2jm/buLkA=; b=Otrh7oQMOx9/cRK9RsEezKSjBN
-	R8W27o6rBbBEbnOPlJbQTyEKR8vgwEj0N8nkOzsSrYOyj0JfQf3GpbMYIexsleAUPhUIMq2b2MJIC
-	ODK+vkBGLkDswzNU1XSSZcI4Mwai/TWqG9jf7AuvoAcysLoc/3rnUMVIrCrQKKfDiJMPvynO1/afu
-	ZZc15Mj4A5aB18puxpSW/bw+P2urY1OC3FTmEM7HuhI0JFDlz/h+MxHFj4XZcUVUjneVsV05owpSa
-	2B1Vk5OVqWDedbKBp/RBN40UYfLaCtG3M5uKdOUx4lw1xYeO4gxNXVR6aZgMRPjnf4dP+kg72+CbA
-	orogEoUg==;
+	bh=8FbW+/klHNo59/GhIcPNnug2ph8FauIZNB2f5CxwhoA=; b=ZLYfsh+37vtYeMyY+zVIZqTM3V
+	MPpujkGuhJAVRYxgBUqdxMIwY0aoxUa/0k4Soj93EoPb6R0YfnknZZBJg7lsek00USprh9adEGD3g
+	VjomCndTtVDSWQqecPZ5OmHdpn21V7/P+dtYTLYi8pdKqHqTUnzaW1+WATapdDh/8/nhhiDEMI0dx
+	us2nPe8UTM/MQRmth/2wIBlHJexzA9NWX5ThtLRFMWBUlM6PR9uyLiXy4G+LEYJeQAT0sugbOn66m
+	OGy8aG8EBiPkUnmOZjZwCFtqxC3BrnIT8iXnny5o8GY/ICLnXcwuI4sLbhivPJnv7TzjNPMcVTRsq
+	Vo4Ftlaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MNK-000000002Jj-3U23;
-	Tue, 05 Nov 2024 16:25:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t8MP0-000000002ko-29rN;
+	Tue, 05 Nov 2024 16:27:34 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxJ-0000000HX3C-3l8D
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 Nov 2024 15:58:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5pbSSrfjHXefHVKFb3svyxVLRw8pIkOduf2jm/buLkA=; b=fXudNqpTdnVVxJZ0kXdm27ZGeh
-	5kG+oDdP3NBGHTpy9/i4d/J1urn8z0BifDGg1++5BTTZ2d+KY7dTM01cxNOlgVFKZKYr2r4puwj8r
-	NfNOIVdkohxgT1csM8ghOxtsmy55LA7EcaIIMT2LVtE0RvJScAOYymRfbzsXME+J0TjXprpNDfeG0
-	11PEhOw+t/P7Mcj/oO7RAJV7MQI0eh2+Sw9SLN+rI7DH71biwBkE3qtyW/kAF0KWD9A9wNvs0IJcz
-	19ICgbHu/giukZamOzTPERdEKR33/dQabuh8gK0I4E5CflZSaDmMag4to2nmW3Qj9F2Mcac8H3YkU
-	hEXzh7eg==;
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxF-0000000Bme3-377E
+	id 1t8LxE-0000000HWue-31ol
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 15:58:56 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5DjjHV028612;
-	Tue, 5 Nov 2024 15:58:29 GMT
+	Tue, 05 Nov 2024 15:58:58 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EH6ie006936;
+	Tue, 5 Nov 2024 15:58:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=5
-	pbSSrfjHXefHVKFb3svyxVLRw8pIkOduf2jm/buLkA=; b=RwO8vRwZOqx86GCA0
-	j/RXyro0++J70P6wCRaJDFmmwH2mHbKQdoaXYce2OKSll1Nb5sBCNsSsyDTH6h0O
-	5N+mYJjzZieTwczq/C306VuIpSiYxHoY4jiW7rIZvPGzghYB3XbG94m5C9p6d36V
-	+jpfu1ubvH+nbZue62nS4oozgAEqorx+E9y647NrVOz6fjt9eFqphmepoXIyhMUZ
-	TP+nSjoDWkx5XT0T+zzfXlhKYGU2drptIbEqJOxmqaeO1aaaAbwbN2wZOXUZJ1WU
-	yc1IE8ef7mB8UytYdJNvrtnyEfbFMZua9LAEBlwFgmHqbN7PeFBi3Gd7Qgy4cCRP
-	DQDuA==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=8
+	FbW+/klHNo59/GhIcPNnug2ph8FauIZNB2f5CxwhoA=; b=B6xlfuBHj6CnpoR4Z
+	H57fQILL+fMeqeCItgh8CKMwjo2g2kEdPWGeKvkAd192+Ck4JNObhd2K0jyFB/8A
+	r1NWIqxJNWOZTfIqhBZLTRbhIBN/S1GRK5aNPDeuPGG7AbTDHUWhSLfckSQEhTAM
+	+LTk/poMvzfqPQv9UxcEXSS2Tepb+V0kWPbR/BgF0U+NmPjhYaOwrFizmk/0R4Ps
+	HIA8UnhwKJP2z91OEhcFu5787ZMXl3GFKIyMoh0K/frh5BotL/awb7mBGMSui4ZZ
+	DD8bu9jcS/JIHQKPRyobvm/T3UlrBD5vtRq21Om1VIUMw5IbTaxRjNSmLbsW5ddk
+	9uGDA==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 42nd212jtx-1
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0u-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 05 Nov 2024 15:58:29 +0000 (GMT)
+	Tue, 05 Nov 2024 15:58:31 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Tue, 5 Nov 2024 15:58:28 +0000
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:30 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Tue, 5 Nov 2024 15:58:12 +0000
-Subject: [PATCH 06/21] drm/imagination: Add power domain control
+Date: Tue, 5 Nov 2024 15:58:15 +0000
+Subject: [PATCH 09/21] drm/imagination: Revert to non-threaded IRQs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-6-4ed30e865892@imgtec.com>
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-9-4ed30e865892@imgtec.com>
 References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -90,24 +75,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7010;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12286;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=T96nTjTV5E0LMA3CCGCYuYZBuIDWL+aH7LYDFcmSYI0=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcxVV9muEXJUWrn+l27k5SPN/JNY47u4jqlZaH+fw
- JMhWZLbUcrCIMbBICumyLJjheUKtT9qWhI3fhXDzGFlAhnCwMUpABMRS2FkONnFJmcnv5H1Tjz3
- s8qveq/jTcNvbK6/bqfAL3m3ZYbfHIZ/lo+VX8St9px8vd/F4HFlrtFVHrusKIHqbtblzZvbg7k
- 5AA==
+ bh=Dvyy77yJ6mNJggcqhPvjfLyPZiXxALWFK/Z5NJWr2/M=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcw1vSExT8up8WDittl9PcJa10q3bbKZnMLJMJOzq
+ C/5w7+4jlIWBjEOBlkxRZYdKyxXqP1R05K48asYZg4rE8gQBi5OAZhI6C2Gf1ozp5Q/v8s2Rzuj
+ N+W03LnFRSFfC8xbOZauFDsRn7Bo6XtGhsfhV7ln33lo/jZ7v75BeE1Kg3E7f+Wsx9bXH6fnF29
+ /xQEA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=Q9aA4J2a c=1 sm=1 tr=0 ts=672a40a5 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=Iu228gY9Y64KKxsXE-4A:9 a=QEXdDO2ut3YA:10
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a7 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=FckY0g5-5Wue9xkI80cA:9 a=QEXdDO2ut3YA:10
  a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: De12S55yv_4lGSCwt3f1sYhXxp_5qrFo
-X-Proofpoint-ORIG-GUID: De12S55yv_4lGSCwt3f1sYhXxp_5qrFo
+X-Proofpoint-GUID: UtcYxMiXgSSuk6OJDvJfCuIjC5Z6bXD-
+X-Proofpoint-ORIG-GUID: UtcYxMiXgSSuk6OJDvJfCuIjC5Z6bXD-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_155854_114797_737AE948 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20241105_075853_486537_DD594612 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,239 +107,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first supported GPU only used a single power domain so this was
-automatically handled by the device runtime.
+For some reason, threaded IRQs do not play nice with the RISC-V firmware
+processor in BXS on our test platform (TI AM68).
 
-In order to support multiple power domains, they must be enumerated from
-devicetree and linked to both the GPU device and each other to ensure
-correct power sequencing at start time.
-
-For all Imagination Rogue GPUs, power domains are named "a", "b", etc. and
-the sequence A->B->... is always valid for startup with the reverse true
-for shutdown. Note this is not always the *only* valid sequence, but it's
-simple and does not require special-casing for different GPU power
-topologies.
+Until we can resolve this issue, revert to a more traditional workqueue-
+based IRQ implementation so the platform is at least functional.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
- drivers/gpu/drm/imagination/pvr_device.h |   8 +++
- drivers/gpu/drm/imagination/pvr_drv.c    |  10 ++-
- drivers/gpu/drm/imagination/pvr_power.c  | 114 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/imagination/pvr_power.h  |   3 +
- 4 files changed, 134 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/imagination/pvr_ccb.c    | 25 +++++++--
+ drivers/gpu/drm/imagination/pvr_device.c | 94 ++++++++++----------------------
+ drivers/gpu/drm/imagination/pvr_device.h | 12 ++++
+ drivers/gpu/drm/imagination/pvr_fw.c     |  1 +
+ drivers/gpu/drm/imagination/pvr_power.c  |  4 +-
+ drivers/gpu/drm/imagination/pvr_queue.c  | 23 +++++++-
+ 6 files changed, 87 insertions(+), 72 deletions(-)
 
+diff --git a/drivers/gpu/drm/imagination/pvr_ccb.c b/drivers/gpu/drm/imagination/pvr_ccb.c
+index 2bbdc05a3b97791426fd1f2ffe8f306d15622901..3bc3dc1bcc30ace720a09a2af5cadc1c6ccfd93f 100644
+--- a/drivers/gpu/drm/imagination/pvr_ccb.c
++++ b/drivers/gpu/drm/imagination/pvr_ccb.c
+@@ -156,6 +156,13 @@ process_fwccb_command(struct pvr_device *pvr_dev, struct rogue_fwif_fwccb_cmd *c
+ 	}
+ }
+ 
++static void pvr_fwccb_process_worker(struct work_struct *work)
++{
++	struct pvr_device *pvr_dev = container_of_const(work, struct pvr_device, fwccb_work);
++
++	pvr_fwccb_process(pvr_dev);
++}
++
+ /**
+  * pvr_fwccb_process() - Process any pending FWCCB commands
+  * @pvr_dev: Target PowerVR device
+@@ -463,19 +470,16 @@ struct pvr_kccb_fence {
+ };
+ 
+ /**
+- * pvr_kccb_wake_up_waiters() - Check the KCCB waiters
++ * pvr_kccb_check_waiters() - Check the KCCB waiters
+  * @pvr_dev: Target PowerVR device
+  *
+  * Signal as many KCCB fences as we have slots available.
+  */
+-void pvr_kccb_wake_up_waiters(struct pvr_device *pvr_dev)
++static void pvr_kccb_check_waiters(struct pvr_device *pvr_dev)
+ {
+ 	struct pvr_kccb_fence *fence, *tmp_fence;
+ 	u32 used_count, available_count;
+ 
+-	/* Wake up those waiting for KCCB slot execution. */
+-	wake_up_all(&pvr_dev->kccb.rtn_q);
+-
+ 	/* Then iterate over all KCCB fences and signal as many as we can. */
+ 	mutex_lock(&pvr_dev->kccb.ccb.lock);
+ 	used_count = pvr_kccb_used_slot_count_locked(pvr_dev);
+@@ -499,12 +503,20 @@ void pvr_kccb_wake_up_waiters(struct pvr_device *pvr_dev)
+ 	mutex_unlock(&pvr_dev->kccb.ccb.lock);
+ }
+ 
++static void pvr_kccb_process_worker(struct work_struct *work)
++{
++	struct pvr_device *pvr_dev = container_of_const(work, struct pvr_device, kccb.work);
++
++	pvr_kccb_check_waiters(pvr_dev);
++}
++
+ /**
+  * pvr_kccb_fini() - Cleanup device KCCB
+  * @pvr_dev: Target PowerVR device
+  */
+ void pvr_kccb_fini(struct pvr_device *pvr_dev)
+ {
++	cancel_work_sync(&pvr_dev->kccb.work);
+ 	pvr_ccb_fini(&pvr_dev->kccb.ccb);
+ 	WARN_ON(!list_empty(&pvr_dev->kccb.waiters));
+ 	WARN_ON(pvr_dev->kccb.reserved_count);
+@@ -525,6 +537,7 @@ pvr_kccb_init(struct pvr_device *pvr_dev)
+ 	INIT_LIST_HEAD(&pvr_dev->kccb.waiters);
+ 	pvr_dev->kccb.fence_ctx.id = dma_fence_context_alloc(1);
+ 	spin_lock_init(&pvr_dev->kccb.fence_ctx.lock);
++	INIT_WORK(&pvr_dev->kccb.work, pvr_kccb_process_worker);
+ 
+ 	return pvr_ccb_init(pvr_dev, &pvr_dev->kccb.ccb,
+ 			    ROGUE_FWIF_KCCB_NUMCMDS_LOG2_DEFAULT,
+@@ -639,6 +652,8 @@ void pvr_kccb_release_slot(struct pvr_device *pvr_dev)
+ int
+ pvr_fwccb_init(struct pvr_device *pvr_dev)
+ {
++	INIT_WORK(&pvr_dev->fwccb_work, pvr_fwccb_process_worker);
++
+ 	return pvr_ccb_init(pvr_dev, &pvr_dev->fwccb,
+ 			    ROGUE_FWIF_FWCCB_NUMCMDS_LOG2,
+ 			    sizeof(struct rogue_fwif_fwccb_cmd));
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 1704c0268589bdeb65fa6535f9ec63182b0a3e94..43411fe64fcecd8f84c0ceabb329f2901d63ed93 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -120,72 +120,24 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
+ 	return 0;
+ }
+ 
+-/**
+- * pvr_device_process_active_queues() - Process all queue related events.
+- * @pvr_dev: PowerVR device to check
+- *
+- * This is called any time we receive a FW event. It iterates over all
+- * active queues and calls pvr_queue_process() on them.
+- */
+-static void pvr_device_process_active_queues(struct pvr_device *pvr_dev)
+-{
+-	struct pvr_queue *queue, *tmp_queue;
+-	LIST_HEAD(active_queues);
+-
+-	mutex_lock(&pvr_dev->queues.lock);
+-
+-	/* Move all active queues to a temporary list. Queues that remain
+-	 * active after we're done processing them are re-inserted to
+-	 * the queues.active list by pvr_queue_process().
+-	 */
+-	list_splice_init(&pvr_dev->queues.active, &active_queues);
+-
+-	list_for_each_entry_safe(queue, tmp_queue, &active_queues, node)
+-		pvr_queue_process(queue);
+-
+-	mutex_unlock(&pvr_dev->queues.lock);
+-}
+-
+-static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
++static irqreturn_t pvr_device_irq_handler(int irq, void *data)
+ {
+ 	struct pvr_device *pvr_dev = data;
+-	irqreturn_t ret = IRQ_NONE;
+-
+-	/* We are in the threaded handler, we can keep dequeuing events until we
+-	 * don't see any. This should allow us to reduce the number of interrupts
+-	 * when the GPU is receiving a massive amount of short jobs.
+-	 */
+-	while (pvr_fw_irq_pending(pvr_dev)) {
+-		pvr_fw_irq_clear(pvr_dev);
+ 
+-		if (pvr_dev->fw_dev.booted) {
+-			pvr_fwccb_process(pvr_dev);
+-			pvr_kccb_wake_up_waiters(pvr_dev);
+-			pvr_device_process_active_queues(pvr_dev);
+-		}
++	if (!pvr_fw_irq_pending(pvr_dev))
++		return IRQ_NONE; /* Spurious IRQ - ignore */
+ 
+-		pm_runtime_mark_last_busy(from_pvr_device(pvr_dev)->dev);
++	pvr_fw_irq_clear(pvr_dev);
+ 
+-		ret = IRQ_HANDLED;
++	/* Only process IRQ work if FW is currently running */
++	if (pvr_dev->fw_dev.booted) {
++		queue_work(pvr_dev->irq_wq, &pvr_dev->fwccb_work);
++		wake_up_all(&pvr_dev->kccb.rtn_q);
++		queue_work(pvr_dev->irq_wq, &pvr_dev->kccb.work);
++		queue_work(pvr_dev->irq_wq, &pvr_dev->queues.work);
+ 	}
+ 
+-	/* Unmask FW irqs before returning, so new interrupts can be received. */
+-	pvr_fw_irq_enable(pvr_dev);
+-	return ret;
+-}
+-
+-static irqreturn_t pvr_device_irq_handler(int irq, void *data)
+-{
+-	struct pvr_device *pvr_dev = data;
+-
+-	if (!pvr_fw_irq_pending(pvr_dev))
+-		return IRQ_NONE; /* Spurious IRQ - ignore. */
+-
+-	/* Mask the FW interrupts before waking up the thread. Will be unmasked
+-	 * when the thread handler is done processing events.
+-	 */
+-	pvr_fw_irq_disable(pvr_dev);
+-	return IRQ_WAKE_THREAD;
++	return IRQ_HANDLED;
+ }
+ 
+ /**
+@@ -202,20 +154,33 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ {
+ 	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+ 	struct platform_device *plat_dev = to_platform_device(drm_dev->dev);
++	int err;
+ 
+ 	init_waitqueue_head(&pvr_dev->kccb.rtn_q);
+ 
++	pvr_dev->irq_wq = alloc_workqueue("powervr-irq", WQ_UNBOUND, 0);
++	if (!pvr_dev->irq_wq) {
++		err = -ENOMEM;
++		goto err_out;
++	}
++
+ 	pvr_dev->irq = platform_get_irq(plat_dev, 0);
+-	if (pvr_dev->irq < 0)
+-		return pvr_dev->irq;
++	if (pvr_dev->irq < 0) {
++		err = pvr_dev->irq;
++		goto err_destroy_wq;
++	}
+ 
+ 	/* Clear any pending events before requesting the IRQ line. */
+ 	pvr_fw_irq_clear(pvr_dev);
+ 	pvr_fw_irq_enable(pvr_dev);
+ 
+-	return request_threaded_irq(pvr_dev->irq, pvr_device_irq_handler,
+-				    pvr_device_irq_thread_handler,
+-				    IRQF_SHARED, "gpu", pvr_dev);
++	return request_irq(pvr_dev->irq, pvr_device_irq_handler, 0, "gpu", pvr_dev);
++
++err_destroy_wq:
++	destroy_workqueue(pvr_dev->irq_wq);
++
++err_out:
++	return err;
+ }
+ 
+ /**
+@@ -226,6 +191,7 @@ static void
+ pvr_device_irq_fini(struct pvr_device *pvr_dev)
+ {
+ 	free_irq(pvr_dev->irq, pvr_dev);
++	destroy_workqueue(pvr_dev->irq_wq);
+ }
+ 
+ /**
 diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index b574e23d484ba80785a2220e046dbab3f91f6e15..470945ccfcac7ce91161aa6c70d33177fbb3533f 100644
+index 470945ccfcac7ce91161aa6c70d33177fbb3533f..930129334807168cf11ee843f446eb5063464d55 100644
 --- a/drivers/gpu/drm/imagination/pvr_device.h
 +++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -18,6 +18,7 @@
- #include <linux/bits.h>
- #include <linux/compiler_attributes.h>
- #include <linux/compiler_types.h>
-+#include <linux/device.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-@@ -130,6 +131,13 @@ struct pvr_device {
- 	 */
- 	struct clk *mem_clk;
- 
-+	struct pvr_device_power {
-+		struct device **domain_devs;
-+		struct device_link **domain_links;
-+
-+		u32 domain_count;
-+	} power;
-+
+@@ -141,9 +141,15 @@ struct pvr_device {
  	/** @irq: IRQ number. */
  	int irq;
  
-diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-index fbd8802abcf1271e260209957d95ea705dbe7f14..1ab97933e14f20ee3fbf603c23b8dde2d33572c2 100644
---- a/drivers/gpu/drm/imagination/pvr_drv.c
-+++ b/drivers/gpu/drm/imagination/pvr_drv.c
-@@ -1409,13 +1409,17 @@ pvr_probe(struct platform_device *plat_dev)
- 
- 	platform_set_drvdata(plat_dev, drm_dev);
- 
-+	err = pvr_power_domains_init(pvr_dev);
-+	if (err)
-+		goto err_context_fini;
++	/** @irq_wq: Workqueue for actions triggered off the IRQ handler. */
++	struct workqueue_struct *irq_wq;
 +
- 	init_rwsem(&pvr_dev->reset_sem);
+ 	/** @fwccb: Firmware CCB. */
+ 	struct pvr_ccb fwccb;
  
- 	pvr_context_device_init(pvr_dev);
- 
- 	err = pvr_queue_device_init(pvr_dev);
- 	if (err)
--		goto err_context_fini;
-+		goto err_power_domains_fini;
- 
- 	devm_pm_runtime_enable(&plat_dev->dev);
- 	pm_runtime_mark_last_busy(&plat_dev->dev);
-@@ -1448,6 +1452,9 @@ pvr_probe(struct platform_device *plat_dev)
- err_context_fini:
- 	pvr_context_device_fini(pvr_dev);
- 
-+err_power_domains_fini:
-+	pvr_power_domains_fini(pvr_dev);
++	/** @fwccb_work: Work item for FWCCB processing. */
++	struct work_struct fwccb_work;
 +
- 	return err;
- }
+ 	/**
+ 	 * @kernel_vm_ctx: Virtual memory context used for kernel mappings.
+ 	 *
+@@ -210,6 +216,9 @@ struct pvr_device {
+ 		/** @queues.lock: Lock protecting access to the active/idle
+ 		 *  lists. */
+ 		struct mutex lock;
++
++		/** @queues.work: Work item for queue processing. */
++		struct work_struct work;
+ 	} queues;
  
-@@ -1468,6 +1475,7 @@ static void pvr_remove(struct platform_device *plat_dev)
- 	pvr_watchdog_fini(pvr_dev);
- 	pvr_queue_device_fini(pvr_dev);
- 	pvr_context_device_fini(pvr_dev);
-+	pvr_power_domains_fini(pvr_dev);
- }
+ 	/**
+@@ -258,6 +267,9 @@ struct pvr_device {
+ 		 *  future use. */
+ 		u32 reserved_count;
  
- static const struct of_device_id dt_match[] = {
++		/** @kccb.work: Work item for KCCB processing. */
++		struct work_struct work;
++
+ 		/**
+ 		 * @kccb.waiters: List of KCCB slot waiters.
+ 		 */
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 3debc9870a82ae7de9b2dc173df84c466c137bb3..9c8929d8602ead3390aa5c1b2505845b961b1406 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -1036,6 +1036,7 @@ pvr_fw_fini(struct pvr_device *pvr_dev)
+ 	 * Ensure FWCCB worker has finished executing before destroying FWCCB. The IRQ handler has
+ 	 * been unregistered at this point so no new work should be being submitted.
+ 	 */
++	flush_work(&pvr_dev->fwccb_work);
+ 	pvr_ccb_fini(&pvr_dev->fwccb);
+ 	pvr_kccb_fini(pvr_dev);
+ 	pvr_fw_cleanup(pvr_dev);
 diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-index ba7816fd28ec77e6ca5ce408302a413ce1afeb6e..19b079b357df78e8bcdecfa377fc9c05b6e8e4b0 100644
+index 19b079b357df78e8bcdecfa377fc9c05b6e8e4b0..000ded17f7ca4c5cdadc5aba4f4d76fac0bbcc0c 100644
 --- a/drivers/gpu/drm/imagination/pvr_power.c
 +++ b/drivers/gpu/drm/imagination/pvr_power.c
-@@ -10,10 +10,13 @@
+@@ -122,7 +122,7 @@ pvr_power_fw_enable(struct pvr_device *pvr_dev)
+ 		return err;
+ 	}
  
- #include <drm/drm_drv.h>
- #include <drm/drm_managed.h>
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/interrupt.h>
- #include <linux/mutex.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
- #include <linux/timer.h>
- #include <linux/types.h>
-@@ -431,3 +434,114 @@ pvr_watchdog_fini(struct pvr_device *pvr_dev)
+-	queue_delayed_work(pvr_dev->sched_wq, &pvr_dev->watchdog.work,
++	queue_delayed_work(pvr_dev->irq_wq, &pvr_dev->watchdog.work,
+ 			   msecs_to_jiffies(WATCHDOG_TIME_MS));
+ 
+ 	return 0;
+@@ -212,7 +212,7 @@ pvr_watchdog_worker(struct work_struct *work)
+ 
+ out_requeue:
+ 	if (!pvr_dev->lost) {
+-		queue_delayed_work(pvr_dev->sched_wq, &pvr_dev->watchdog.work,
++		queue_delayed_work(pvr_dev->irq_wq, &pvr_dev->watchdog.work,
+ 				   msecs_to_jiffies(WATCHDOG_TIME_MS));
+ 	}
+ }
+diff --git a/drivers/gpu/drm/imagination/pvr_queue.c b/drivers/gpu/drm/imagination/pvr_queue.c
+index c4f08432882b12f5cdfeb7fc991fd941f0946676..5f6a880987d9f35804da60e1258efa30beed56ab 100644
+--- a/drivers/gpu/drm/imagination/pvr_queue.c
++++ b/drivers/gpu/drm/imagination/pvr_queue.c
+@@ -838,7 +838,7 @@ pvr_queue_timedout_job(struct drm_sched_job *s_job)
+ 	} else {
+ 		atomic_set(&queue->in_flight_job_count, job_count);
+ 		list_move_tail(&queue->node, &pvr_dev->queues.active);
+-		pvr_queue_process(queue);
++		queue_work(pvr_dev->irq_wq, &pvr_dev->queues.work);
+ 	}
+ 	mutex_unlock(&pvr_dev->queues.lock);
+ 
+@@ -991,6 +991,26 @@ void pvr_queue_process(struct pvr_queue *queue)
+ 	pvr_queue_update_active_state_locked(queue);
+ }
+ 
++static void pvr_queue_process_worker(struct work_struct *work)
++{
++	struct pvr_device *pvr_dev = container_of_const(work, struct pvr_device, queues.work);
++	struct pvr_queue *queue, *tmp_queue;
++	LIST_HEAD(active_queues);
++
++	mutex_lock(&pvr_dev->queues.lock);
++
++	list_splice_init(&pvr_dev->queues.active, &active_queues);
++
++	list_for_each_entry_safe(queue, tmp_queue, &active_queues, node) {
++		pvr_queue_check_job_waiting_for_cccb_space(queue);
++		pvr_queue_signal_done_fences(queue);
++
++		pvr_queue_update_active_state_locked(queue);
++	}
++
++	mutex_unlock(&pvr_dev->queues.lock);
++}
++
+ static u32 get_dm_type(struct pvr_queue *queue)
  {
- 	cancel_delayed_work_sync(&pvr_dev->watchdog.work);
- }
-+
-+int pvr_power_domains_init(struct pvr_device *pvr_dev)
-+{
-+	struct device *dev = from_pvr_device(pvr_dev)->dev;
-+
-+	struct device_link **domain_links __free(kfree) = NULL;
-+	struct device **domain_devs __free(kfree) = NULL;
-+	int domain_count;
-+	int link_count;
-+
-+	char dev_name[2] = "a";
-+	int err;
-+	int i;
-+
-+	domain_count = of_count_phandle_with_args(dev->of_node, "power-domains",
-+						  "#power-domain-cells");
-+	if (domain_count < 0)
-+		return domain_count;
-+
-+	if (domain_count <= 1)
-+		return 0;
-+
-+	link_count = domain_count + (domain_count - 1);
-+
-+	domain_devs = kcalloc(domain_count, sizeof(*domain_devs), GFP_KERNEL);
-+	if (!domain_devs)
-+		return -ENOMEM;
-+
-+	domain_links = kcalloc(link_count, sizeof(*domain_links), GFP_KERNEL);
-+	if (!domain_links)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < domain_count; i++) {
-+		struct device *domain_dev;
-+
-+		dev_name[0] = 'a' + i;
-+		domain_dev = dev_pm_domain_attach_by_name(dev, dev_name);
-+		if (IS_ERR_OR_NULL(domain_dev)) {
-+			err = domain_dev ? PTR_ERR(domain_dev) : -ENODEV;
-+			goto err_detach;
-+		}
-+
-+		domain_devs[i] = domain_dev;
-+	}
-+
-+	for (i = 0; i < domain_count; i++) {
-+		struct device_link *link;
-+
-+		link = device_link_add(dev, domain_devs[i], DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-+		if (!link) {
-+			err = -ENODEV;
-+			goto err_unlink;
-+		}
-+
-+		domain_links[i] = link;
-+	}
-+
-+	for (i = domain_count; i < link_count; i++) {
-+		struct device_link *link;
-+
-+		link = device_link_add(domain_devs[i - domain_count + 1],
-+				       domain_devs[i - domain_count],
-+				       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-+		if (!link) {
-+			err = -ENODEV;
-+			goto err_unlink;
-+		}
-+
-+		domain_links[i] = link;
-+	}
-+
-+	pvr_dev->power = (struct pvr_device_power){
-+		.domain_devs = no_free_ptr(domain_devs),
-+		.domain_links = no_free_ptr(domain_links),
-+		.domain_count = domain_count,
-+	};
-+
-+	return 0;
-+
-+err_unlink:
-+	while (--i >= 0)
-+		device_link_del(domain_links[i]);
-+
-+	i = domain_count;
-+
-+err_detach:
-+	while (--i >= 0)
-+		dev_pm_domain_detach(domain_devs[i], true);
-+
-+	return err;
-+}
-+
-+void pvr_power_domains_fini(struct pvr_device *pvr_dev)
-+{
-+	const int domain_count = pvr_dev->power.domain_count;
-+
-+	int i = domain_count + (domain_count - 1);
-+
-+	while (--i >= 0)
-+		device_link_del(pvr_dev->power.domain_links[i]);
-+
-+	i = domain_count;
-+
-+	while (--i >= 0)
-+		dev_pm_domain_detach(pvr_dev->power.domain_devs[i], true);
-+
-+	kfree(pvr_dev->power.domain_links);
-+	kfree(pvr_dev->power.domain_devs);
-+
-+	pvr_dev->power = (struct pvr_device_power){ 0 };
-+}
-diff --git a/drivers/gpu/drm/imagination/pvr_power.h b/drivers/gpu/drm/imagination/pvr_power.h
-index 9a9312dcb2dab7d36ee8ff7f69e69d126c5469a9..ada85674a7ca762dcf92df40424230e1c3910342 100644
---- a/drivers/gpu/drm/imagination/pvr_power.h
-+++ b/drivers/gpu/drm/imagination/pvr_power.h
-@@ -38,4 +38,7 @@ pvr_power_put(struct pvr_device *pvr_dev)
- 	return pm_runtime_put(drm_dev->dev);
- }
+ 	switch (queue->type) {
+@@ -1407,6 +1427,7 @@ int pvr_queue_device_init(struct pvr_device *pvr_dev)
+ {
+ 	int err;
  
-+int pvr_power_domains_init(struct pvr_device *pvr_dev);
-+void pvr_power_domains_fini(struct pvr_device *pvr_dev);
-+
- #endif /* PVR_POWER_H */
++	INIT_WORK(&pvr_dev->queues.work, pvr_queue_process_worker);
+ 	INIT_LIST_HEAD(&pvr_dev->queues.active);
+ 	INIT_LIST_HEAD(&pvr_dev->queues.idle);
+ 	err = drmm_mutex_init(from_pvr_device(pvr_dev), &pvr_dev->queues.lock);
 
 -- 
 2.47.0
