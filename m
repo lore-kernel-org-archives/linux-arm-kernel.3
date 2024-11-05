@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11746D12662
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A248D12662
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 07:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=NscLJ48ACY68vmT2jihobUMyvY
-	k//xht/12bTHjDmlZm1kNl+Cn4L6UF0jOonvCET0F7r2y6laWTRMU4183djYhflhYWJCHvu9t6a1A
-	kN1h8+nwPSgfOboljBp9T074p1aizj2Np+CFn2E+L5nSr70LUt2opF+GQWrqK7OFmglf/U3Rn72TS
-	zkn8PcHYjmzGH6PeVSijOuLnataG5uQ1E5cl6s/sUXfLryDek1TsEbSQUzm63F+3FiGvkQnRmT6es
-	O9nhx2VkOfkeuItcOcBDW0/OCXCUVK/ehdQQtRGnqW5HcGU6KGoGpY+Yalu6xBn8tT4zCQCpMna0T
-	FmDib7Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K2o8RWIwZHcDnCoRZbJ0AgekAHRjrD6szKnoYOlNjHE=; b=MysaG5J0/UGy0lWv2QqyG+32vp
+	uMvoMpHZIbLi6ByrdsZgtUq7GHUxdHHRzLYa24I/bd0RhbZm03e3tbWkaefvRObzGyT3eYBjnjZt/
+	2ReykB1huYDbspb4Bqc3HfUWqSnUTYkuxW08nn32dSAIES/uDwdMKIeL8MLoCXKdwNk1Dbxt9JuPi
+	B183hz4B8W8ZVSq8iTvkePg6dOdhvJG5kRNN0spIzu9ZZBJZPmr26BeJiL433ExbM3FybZP9x3i7C
+	fN2MPIgc9pC7fQOVgb+E0s3BOp7moAzuBMDzEq+ojrkL+pKVUx2zO306eS6QaOtDqVDREQaSJy4Bw
+	IrerPYtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EPO-0000000GFhw-2cGI;
-	Tue, 05 Nov 2024 07:55:26 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1t8ER5-0000000GG45-1i7P;
+	Tue, 05 Nov 2024 07:57:11 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EKM-0000000GEU7-4B6B
+	id 1t8ELp-0000000GEe9-3qH9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 07:50:16 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id A86B21380601;
-	Tue,  5 Nov 2024 02:50:13 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Tue, 05 Nov 2024 02:50:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1730793013;
-	 x=1730879413; bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=
-	T9gosV/O6KKn+nbmM0uE04aOhEHtzDt9NRv8YLMqJubADrKNYMP+wz8IVqKxQbvp
-	/QZ94IbSeRF+2urkUBecDpSCqED4mKB3cDkBr4wjFGHJm71r1PocxpWsCHf/kLXo
-	nuctPwor1kwoTdOnxmex61J4IPl2LrjjGUS7ZUZ9SfvrknKeR5jpSSLcnbqLi3tO
-	SLkgiK4L/J0FR8/BgapBz/PF0aXeYvFeDkjt1vw7rJIv4mLUrbkE3/HSEiUfbr2P
-	SGA2G34XN9oljawyTaX8XPl8AFXKVpMUeVSN1hoDNfpBagSgcrV1sbW++WHIput3
-	fEEi7z6XiWMwCl/sc0cQOg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730793013; x=
-	1730879413; bh=D6OCx3NzmrJdDDip+0qK9zMAnmCzPOYRXUxgWn1goh8=; b=T
-	mIgENc4DC3vg8e58XWWAlPPC+Q7U8v+QD+8CkhsocjVLSpaYLyScnXsaJvL/UpC4
-	L95Ypm2lS0Z2oouUPuqaDqyzqPuDLGR2z3NZ3pKEufaxwTJHtN8ECMQDfeL/RDd3
-	pGJStNFqyClN3XXPusEMqlFK0G5lhVio+pbqdEknxlGTY3izaYuzVn97rGkXu7jV
-	R+iV3jmz0/eG3SmWKj9eq4C+Z8+X5vRJPbLdNUgmL9lLWbNsUrumr9vrvpdcYB21
-	K7rZ+DsFlk3B8gxBUW4NcN2uiFbRMN66bdaPtJCDDmGYt2pROLffs2sJTmN9NLLy
-	Sd7MZZF3WDTFlipO8Wy7A==
-X-ME-Sender: <xms:Nc4pZ-3ECSKEE8XxIjWFt8cD9jqV6Wg5RtiOLlu7NLclo59Z7EuWfw>
-    <xme:Nc4pZxHjh50Tm9SE-eom3h44vf4JnHnQ0x0s2brwdU9iyZuQpGBELCMEFb8Sz159G
-    cZi99rawlcp05-xq8I>
-X-ME-Received: <xmr:Nc4pZ25M6TGHJzJasOsDM7YAoDrwhxU0M-8h8VHOVAawJrZX1qzzOTYvE8BHdf21tesvrSN6TzaVLkU5lEAwcNEcfD8J8uIn1Nk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrvdeljedguddufecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtugfgjgesthekredttddt
-    jeenucfhrhhomheplfgrnhhnvgcuifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqe
-    enucggtffrrghtthgvrhhnpeevfeekuedutedtvdffvefhvedvkefhgfevheefhfffheef
-    tefgteffuefgveefhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
-    hlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepudegpdhmohgu
-    vgepshhmthhpohhuthdprhgtphhtthhopegthhhrihhsthhophhhvgdrjhgrihhllhgvth
-    esfigrnhgrughoohdrfhhrpdhrtghpthhtohepuggvvhhnuhhllhdojhdrjhgrnhhnrghu
-    rdhnvghtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrd
-    hlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehl
-    ihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqshhpih
-    esvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvges
-    vhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlh
-    esvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggrnhesmhgrrhgt
-    rghnrdhsthdprhgtphhtthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvh
-X-ME-Proxy: <xmx:Nc4pZ_3KS_ljVMmTlx3iWxMco4k3hhmRZ_NyMqBy1Z2cCLZBwK9Jvw>
-    <xmx:Nc4pZxGAJAFf6jqQo0MNohbbYF1WA22ckV8ur5ZbkxNT4uHdz9yn3w>
-    <xmx:Nc4pZ49pLJaX10Rw7OTYV2qav_Wltpptfqkle33erLrAdYpE0OtDrQ>
-    <xmx:Nc4pZ2n9MJzEklKJt5lkLPbGFqoFAcmtM4EWss9TldUKHy23GcdRHA>
-    <xmx:Nc4pZ-dm3BU-dKHsi2K66keV3bFCqxzPVu6XA7UvxuqJoD0cGTlScUMZ>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 5 Nov 2024 02:50:12 -0500 (EST)
-Date: Tue, 5 Nov 2024 08:50:12 +0100
-From: Janne Grunau <j@jannau.net>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 2/3] spi: apple: Add driver for Apple SPI controller
-Message-ID: <20241105075012.GC923511@robin.jannau.net>
-References: <20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net>
- <20241101-asahi-spi-v3-2-3b411c5fb8e5@jannau.net>
- <ff82c5bf-c757-4496-83ac-c3b257ef476c@wanadoo.fr>
+	Tue, 05 Nov 2024 07:51:48 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A53Dbis018217;
+	Tue, 5 Nov 2024 08:51:35 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	K2o8RWIwZHcDnCoRZbJ0AgekAHRjrD6szKnoYOlNjHE=; b=KoLzlDxqv9DVPeHW
+	vdjtmD/HREZkk34tSTtB5S9Bcp3srGYR3QkOgCkgWRZGQHuM5zuVT6j315plNGC4
+	LkknNEt4dgWCQOIcYrTMByuSViQlS+zzut8FBd9FbjLFR3/SD8uXNFvjk3+FRm3l
+	1YRU4NFRvBFscBwHsKP1F9FP2v4sGZiS89iQOxpiCs4NKy1GPp5wLb27dz+5wmZb
+	WaGPyhYMs79ZzT/YSJ56jOdzHiB9X6WWtAfAPWLsWflS7PTXUcgldOxfGZJDRqTH
+	typXjkSbqGuupaZ2PE4VvS0Z8ff2Z2gCCU4HJg9vlUWKU6OaR5V3NVJgWvTslfic
+	eRc5mg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42ncxbtu7k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 05 Nov 2024 08:51:35 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 822A24004B;
+	Tue,  5 Nov 2024 08:50:22 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 965DD25051F;
+	Tue,  5 Nov 2024 08:49:31 +0100 (CET)
+Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
+ 2024 08:49:31 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Tue, 5 Nov 2024 08:49:08 +0100
+Subject: [PATCH v2 05/15] media: stm32: dcmipp: replace s_stream with
+ enable/disable_streams
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ff82c5bf-c757-4496-83ac-c3b257ef476c@wanadoo.fr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241105-csi_dcmipp_mp25-v2-5-b9fc8a7273c2@foss.st.com>
+References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
+In-Reply-To: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+        Mauro Carvalho Chehab
+	<mchehab@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Hans Verkuil
+	<hverkuil-cisco@xs4all.nl>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.129.178.213]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_235015_154500_70638E9D 
-X-CRM114-Status: GOOD (  30.87  )
+X-CRM114-CacheID: sfid-20241104_235146_306508_BD693F04 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,89 +106,405 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 08:16:25PM +0100, Christophe JAILLET wrote:
-> Le 01/11/2024 à 20:26, Janne Grunau via B4 Relay a écrit :
-> > From: Hector Martin <marcan-WKacp4m3WJJeoWH0uzbU5w@public.gmane.org>
-> > 
-> > This SPI controller is present in Apple SoCs such as the M1 (t8103) and
-> > M1 Pro/Max (t600x). It is a relatively straightforward design with two
-> > 16-entry FIFOs, arbitrary transfer sizes (up to 2**32 - 1) and fully
-> > configurable word size up to 32 bits. It supports one hardware CS line
-> > which can also be driven via the pinctrl/GPIO driver instead, if
-> > desired. TX and RX can be independently enabled.
-> > 
-> > There are a surprising number of knobs for tweaking details of the
-> > transfer, most of which we do not use right now. Hardware CS control
-> > is available, but we haven't found a way to make it stay low across
-> > multiple logical transfers, so we just use software CS control for now.
-> > 
-> > There is also a shared DMA offload coprocessor that can be used to handle
-> > larger transfers without requiring an IRQ every 8-16 words, but that
-> > feature depends on a bunch of scaffolding that isn't ready to be
-> > upstreamed yet, so leave it for later.
-> > 
-> > The hardware shares some register bit definitions with spi-s3c24xx which
-> > suggests it has a shared legacy with Samsung SoCs, but it is too
-> > different to warrant sharing a driver.
-> > 
-> > Signed-off-by: Hector Martin <marcan-WKacp4m3WJJeoWH0uzbU5w@public.gmane.org>
-> > Signed-off-by: Janne Grunau <j@jannau.net>
-> > ---
-> 
-> Hi,
-> 
-> > diff --git a/drivers/spi/spi-apple.c b/drivers/spi/spi-apple.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..1a3f61501db56d0d7689cc3d6f987bf636130cdb
-> > --- /dev/null
-> > +++ b/drivers/spi/spi-apple.c
-> > @@ -0,0 +1,531 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +//
-> > +// Apple SoC SPI device driver
-> > +//
-> > +// Copyright The Asahi Linux Contributors
-> > +//
-> > +// Based on spi-sifive.c, Copyright 2018 SiFive, Inc.
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/bits.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/module.h>
-> 
-> Move a few lines below to keep alphabetical order?
+Replace s_stream ops with enable_streams and disable_streams.
+At the same time, use v4l2_subdev_enable_streams and
+v4l2_subdev_disable_streams functions instead of
+direct s_stream calls.
 
-done
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 
-> > +#include <linux/interrupt.h>
-> > +#include <linux/io.h>
-> > +#include <linux/of.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pm_runtime.h>
-> > +#include <linux/spi/spi.h>
-> 
-> ...
-> 
-> > +static int apple_spi_probe(struct platform_device *pdev)
-> > +{
-> > +	struct apple_spi *spi;
-> > +	int ret, irq;
-> > +	struct spi_controller *ctlr;
-> > +
-> > +	ctlr = devm_spi_alloc_master(&pdev->dev, sizeof(struct apple_spi));
-> > +	if (!ctlr)
-> > +		return -ENOMEM;
-> > +
-> > +	spi = spi_controller_get_devdata(ctlr);
-> > +	init_completion(&spi->done);
-> > +	platform_set_drvdata(pdev, ctlr);
-> 
-> Is it needed?
-> There is no platform_get_drvdata()
+---
+v2: add missing state argument within dcmipp_par_configure call
+---
+ .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         |  49 ++++------
+ .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        |  98 +++++++++++--------
+ .../st/stm32/stm32-dcmipp/dcmipp-parallel.c        | 107 ++++++++++++---------
+ 3 files changed, 139 insertions(+), 115 deletions(-)
 
-no, it is not used anymore. It's a leftover from v1 which used
-platform_get_drvdata() in apple_spi_remove() which is gone now.
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index 0f6918f4db383f4e0762030218101f759f375e95..48596592bfd517b9d46946d27f154f0d17ebed78 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -112,6 +112,7 @@ struct dcmipp_bytecap_device {
+ 	u32 sequence;
+ 	struct media_pipeline pipe;
+ 	struct v4l2_subdev *s_subdev;
++	u32 s_subdev_pad_nb;
+ 
+ 	enum dcmipp_state state;
+ 
+@@ -337,33 +338,6 @@ static const struct v4l2_ioctl_ops dcmipp_bytecap_ioctl_ops = {
+ 	.vidioc_streamoff = vb2_ioctl_streamoff,
+ };
+ 
+-static int dcmipp_pipeline_s_stream(struct dcmipp_bytecap_device *vcap,
+-				    int state)
+-{
+-	struct media_pad *pad;
+-	int ret;
+-
+-	/*
+-	 * Get source subdev - since link is IMMUTABLE, pointer is cached
+-	 * within the dcmipp_bytecap_device structure
+-	 */
+-	if (!vcap->s_subdev) {
+-		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
+-		if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
+-			return -EINVAL;
+-		vcap->s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-	}
+-
+-	ret = v4l2_subdev_call(vcap->s_subdev, video, s_stream, state);
+-	if (ret < 0) {
+-		dev_err(vcap->dev, "failed to %s streaming (%d)\n",
+-			state ? "start" : "stop", ret);
+-		return ret;
+-	}
+-
+-	return 0;
+-}
+-
+ static void dcmipp_start_capture(struct dcmipp_bytecap_device *vcap,
+ 				 struct dcmipp_buf *buf)
+ {
+@@ -395,11 +369,24 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 	struct dcmipp_bytecap_device *vcap = vb2_get_drv_priv(vq);
+ 	struct media_entity *entity = &vcap->vdev.entity;
+ 	struct dcmipp_buf *buf;
++	struct media_pad *pad;
+ 	int ret;
+ 
+ 	vcap->sequence = 0;
+ 	memset(&vcap->count, 0, sizeof(vcap->count));
+ 
++	/*
++	 * Get source subdev - since link is IMMUTABLE, pointer is cached
++	 * within the dcmipp_bytecap_device structure
++	 */
++	if (!vcap->s_subdev) {
++		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
++		if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++			return -EINVAL;
++		vcap->s_subdev = media_entity_to_v4l2_subdev(pad->entity);
++		vcap->s_subdev_pad_nb = pad->index;
++	}
++
+ 	ret = pm_runtime_resume_and_get(vcap->dev);
+ 	if (ret < 0) {
+ 		dev_err(vcap->dev, "%s: Failed to start streaming, cannot get sync (%d)\n",
+@@ -414,7 +401,8 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 		goto err_pm_put;
+ 	}
+ 
+-	ret = dcmipp_pipeline_s_stream(vcap, 1);
++	ret = v4l2_subdev_enable_streams(vcap->s_subdev,
++					 vcap->s_subdev_pad_nb, BIT_ULL(0));
+ 	if (ret)
+ 		goto err_media_pipeline_stop;
+ 
+@@ -482,7 +470,10 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
+ 	int ret;
+ 	u32 status;
+ 
+-	dcmipp_pipeline_s_stream(vcap, 0);
++	ret = v4l2_subdev_disable_streams(vcap->s_subdev,
++					  vcap->s_subdev_pad_nb, BIT_ULL(0));
++	if (ret)
++		dev_warn(vcap->dev, "Failed to disable stream\n");
+ 
+ 	/* Stop the media pipeline */
+ 	media_pipeline_stop(vcap->vdev.entity.pads);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 50500112eab9a7b10a0c5e29773e31ded1a66628..a19c8235af565fb5f673ba90b37ebfcadf03d72e 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -380,30 +380,19 @@ static int dcmipp_byteproc_set_selection(struct v4l2_subdev *sd,
+ 	return 0;
+ }
+ 
+-static const struct v4l2_subdev_pad_ops dcmipp_byteproc_pad_ops = {
+-	.enum_mbus_code		= dcmipp_byteproc_enum_mbus_code,
+-	.enum_frame_size	= dcmipp_byteproc_enum_frame_size,
+-	.get_fmt		= v4l2_subdev_get_fmt,
+-	.set_fmt		= dcmipp_byteproc_set_fmt,
+-	.get_selection		= dcmipp_byteproc_get_selection,
+-	.set_selection		= dcmipp_byteproc_set_selection,
+-};
+-
+ static int dcmipp_byteproc_configure_scale_crop
+-			(struct dcmipp_byteproc_device *byteproc)
++			(struct dcmipp_byteproc_device *byteproc,
++			 struct v4l2_subdev_state *state)
+ {
+ 	const struct dcmipp_byteproc_pix_map *vpix;
+-	struct v4l2_subdev_state *state;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	u32 hprediv, vprediv;
+ 	struct v4l2_rect *compose, *crop;
+ 	u32 val = 0;
+ 
+-	state = v4l2_subdev_lock_and_get_active_state(&byteproc->sd);
+ 	sink_fmt = v4l2_subdev_state_get_format(state, 0);
+ 	compose = v4l2_subdev_state_get_compose(state, 0);
+ 	crop = v4l2_subdev_state_get_crop(state, 1);
+-	v4l2_subdev_unlock_state(state);
+ 
+ 	/* find output format bpp */
+ 	vpix = dcmipp_byteproc_pix_map_by_code(sink_fmt->code);
+@@ -458,46 +447,73 @@ static int dcmipp_byteproc_configure_scale_crop
+ 	return 0;
+ }
+ 
+-static int dcmipp_byteproc_s_stream(struct v4l2_subdev *sd, int enable)
++static int dcmipp_byteproc_enable_streams(struct v4l2_subdev *sd,
++					  struct v4l2_subdev_state *state,
++					  u32 pad, u64 streams_mask)
+ {
+ 	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
+ 	struct v4l2_subdev *s_subdev;
+-	struct media_pad *pad;
+-	int ret = 0;
++	struct media_pad *s_pad;
++	int ret;
+ 
+ 	/* Get source subdev */
+-	pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
+-	if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
+ 		return -EINVAL;
+-	s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-
+-	if (enable) {
+-		ret = dcmipp_byteproc_configure_scale_crop(byteproc);
+-		if (ret)
+-			return ret;
+-
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(byteproc->dev,
+-				"failed to start source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
+-	} else {
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(byteproc->dev,
+-				"failed to stop source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = dcmipp_byteproc_configure_scale_crop(byteproc, state);
++	if (ret)
++		return ret;
++
++	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(byteproc->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
+ 	}
+ 
+ 	return 0;
+ }
+ 
++static int dcmipp_byteproc_disable_streams(struct v4l2_subdev *sd,
++					   struct v4l2_subdev_state *state,
++					   u32 pad, u64 streams_mask)
++{
++	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
++	struct v4l2_subdev *s_subdev;
++	struct media_pad *s_pad;
++	int ret;
++
++	/* Get source subdev */
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
++		return -EINVAL;
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(byteproc->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct v4l2_subdev_pad_ops dcmipp_byteproc_pad_ops = {
++	.enum_mbus_code		= dcmipp_byteproc_enum_mbus_code,
++	.enum_frame_size	= dcmipp_byteproc_enum_frame_size,
++	.get_fmt		= v4l2_subdev_get_fmt,
++	.set_fmt		= dcmipp_byteproc_set_fmt,
++	.get_selection		= dcmipp_byteproc_get_selection,
++	.set_selection		= dcmipp_byteproc_set_selection,
++	.enable_streams		= dcmipp_byteproc_enable_streams,
++	.disable_streams	= dcmipp_byteproc_disable_streams,
++};
++
+ static const struct v4l2_subdev_video_ops dcmipp_byteproc_video_ops = {
+-	.s_stream = dcmipp_byteproc_s_stream,
++	.s_stream = v4l2_subdev_s_stream_helper,
+ };
+ 
+ static const struct v4l2_subdev_ops dcmipp_byteproc_ops = {
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+index 05e8897ae37a4b6c8e16c066e83ff5b1d1e07635..823c9da336a7fc63dca2aeeb2ac9377821bf6371 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+@@ -260,18 +260,11 @@ static int dcmipp_par_set_fmt(struct v4l2_subdev *sd,
+ 	return 0;
+ }
+ 
+-static const struct v4l2_subdev_pad_ops dcmipp_par_pad_ops = {
+-	.enum_mbus_code		= dcmipp_par_enum_mbus_code,
+-	.enum_frame_size	= dcmipp_par_enum_frame_size,
+-	.get_fmt		= v4l2_subdev_get_fmt,
+-	.set_fmt		= dcmipp_par_set_fmt,
+-};
+-
+-static int dcmipp_par_configure(struct dcmipp_par_device *par)
++static int dcmipp_par_configure(struct dcmipp_par_device *par,
++				struct v4l2_subdev_state *state)
+ {
+ 	u32 val = 0;
+ 	const struct dcmipp_par_pix_map *vpix;
+-	struct v4l2_subdev_state *state;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	struct v4l2_mbus_framefmt *src_fmt;
+ 
+@@ -305,10 +298,8 @@ static int dcmipp_par_configure(struct dcmipp_par_device *par)
+ 	}
+ 
+ 	/* Set format */
+-	state = v4l2_subdev_lock_and_get_active_state(&par->sd);
+ 	sink_fmt = v4l2_subdev_state_get_format(state, 0);
+ 	src_fmt = v4l2_subdev_state_get_format(state, 1);
+-	v4l2_subdev_unlock_state(state);
+ 
+ 	vpix = dcmipp_par_pix_map_by_code(sink_fmt->code, src_fmt->code);
+ 	if (!vpix) {
+@@ -327,53 +318,79 @@ static int dcmipp_par_configure(struct dcmipp_par_device *par)
+ 	return 0;
+ }
+ 
+-static int dcmipp_par_s_stream(struct v4l2_subdev *sd, int enable)
++static int dcmipp_par_enable_streams(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state,
++				     u32 pad, u64 streams_mask)
+ {
+ 	struct dcmipp_par_device *par =
+ 				container_of(sd, struct dcmipp_par_device, sd);
+ 	struct v4l2_subdev *s_subdev;
+-	struct media_pad *pad;
+-	int ret = 0;
++	struct media_pad *s_pad;
++	int ret;
+ 
+ 	/* Get source subdev */
+-	pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
+-	if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
+ 		return -EINVAL;
+-	s_subdev = media_entity_to_v4l2_subdev(pad->entity);
+-
+-	if (enable) {
+-		ret = dcmipp_par_configure(par);
+-		if (ret)
+-			return ret;
+-
+-		/* Enable parallel interface */
+-		reg_set(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+-
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(par->dev,
+-				"failed to start source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
+-	} else {
+-		ret = v4l2_subdev_call(s_subdev, video, s_stream, enable);
+-		if (ret < 0) {
+-			dev_err(par->dev,
+-				"failed to stop source subdev streaming (%d)\n",
+-				ret);
+-			return ret;
+-		}
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = dcmipp_par_configure(par, state);
++	if (ret)
++		return ret;
++
++	/* Enable parallel interface */
++	reg_set(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+ 
+-		/* Disable parallel interface */
+-		reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(par->dev,
++			"failed to start source subdev streaming (%d)\n", ret);
++		return ret;
+ 	}
+ 
+-	return ret;
++	return 0;
+ }
+ 
++static int dcmipp_par_disable_streams(struct v4l2_subdev *sd,
++				      struct v4l2_subdev_state *state,
++				      u32 pad, u64 streams_mask)
++{
++	struct dcmipp_par_device *par =
++				container_of(sd, struct dcmipp_par_device, sd);
++	struct v4l2_subdev *s_subdev;
++	struct media_pad *s_pad;
++	int ret;
++
++	/* Get source subdev */
++	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
++	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
++		return -EINVAL;
++	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
++
++	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
++	if (ret < 0) {
++		dev_err(par->dev,
++			"failed to stop source subdev streaming (%d)\n", ret);
++		return ret;
++	}
++
++	/* Disable parallel interface */
++	reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
++
++	return 0;
++}
++
++static const struct v4l2_subdev_pad_ops dcmipp_par_pad_ops = {
++	.enum_mbus_code		= dcmipp_par_enum_mbus_code,
++	.enum_frame_size	= dcmipp_par_enum_frame_size,
++	.get_fmt		= v4l2_subdev_get_fmt,
++	.set_fmt		= dcmipp_par_set_fmt,
++	.enable_streams		= dcmipp_par_enable_streams,
++	.disable_streams	= dcmipp_par_disable_streams,
++};
++
+ static const struct v4l2_subdev_video_ops dcmipp_par_video_ops = {
+-	.s_stream = dcmipp_par_s_stream,
++	.s_stream = v4l2_subdev_s_stream_helper,
+ };
+ 
+ static const struct v4l2_subdev_ops dcmipp_par_ops = {
 
-thanks, I'll send a v4 shortly
-Janne
+-- 
+2.25.1
+
 
