@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B380D3176B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9F6D3176B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=oljPsmb6PyVhBGxuhwl4CovfkcoBjJyPZ3dxtEYJ5q4=; b=KagzmIKXRMHZI6
-	YBF8L3RpgGA5l1sBQmXdbMGIbVnd/V7gHHBdoPZ3VOTxXbv/cNoGjB1+ty+wgHqbNJ5vtfTGg7U8c
-	RMB/ilmzd8tIqEySUUz6rfR/aS/TESmfHqyPyItQPsyE8YXv0uMacF2TjWPWI8zcVAoeV7uxxrdGI
-	2W3FTRnCd8ktxX4FBHulc32kOYEUanWb1tcnw454sBcatlcSpKAV6UgHAgswUQVFgKkZTuMyhqavy
-	A/nuQa69ywfCCKulNCskxhgM9QcbsnHXGYACx4hSQBfboWt3Q1nBaXfDr8LEAeeXliZCVQHD7qMHI
-	VLmpi0O4CulXGTug07qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g1ULHxLk2aNzmAZMbI1YGUaChv8B7oW5ZuwT6Vf06Q0=; b=i6S/pCsw1qmkWNjvVs/PbdcuVe
+	qABjtvJJM6ZG53u9LRld9IXRHPEmhutLFh6QhIxXCQ4Hue1Z76xzRq4CBv0z2QtyTDGzh5wPj3oGK
+	kB1x3WnaaVrr27/5QkfcGHNZEDcIZZ7Jca0GgoQB4NbZ6F1PR16EjHdqQT9D+QTiCdblwUR20k7Bt
+	+St3CVON6XBkFp5mWRGo6N3unFOEjG3eHHfE5yFXYNlRoXKAbezyZpFp+uHfKjOg65Psc5H2w9+yf
+	Rq+bPWBuBvkAI0e6GZag4DQ2UYXBVdLSJr0m54+VCVZBTSPP4e3N8OV2VU4ei33YLT/1NSbk76r8V
+	Oh3Vsdcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NOK-00000000DQ6-3yiU;
-	Tue, 05 Nov 2024 17:30:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8NOQ-00000000DUO-2Hp0;
+	Tue, 05 Nov 2024 17:31:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NGb-00000000CAR-0n4O;
-	Tue, 05 Nov 2024 17:22:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E44A95C4A89;
-	Tue,  5 Nov 2024 17:22:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40B07C4CED1;
-	Tue,  5 Nov 2024 17:22:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730827376;
-	bh=zvORLLKvLulrWcA4oBGbbnyMDidVWOv949NeC6tWnAI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=mgLLV1rYaK4NSUvwU8HUu+uY2sk/iLccv6x0HEZ3C/4GIC2IKZKNxUxtVvFBv0gOm
-	 6Qf0GKQ+LtlWolM6z/6H4Bq+BXV63UTpm6Jxrk6ZjFhZeY2UOt+wBLNprG7k15UKTZ
-	 c0l2IbGJrylHWqfK8kTtB/hbsUiHPDU0PKn2BvNGBTNEP9BhZQlqRXr5I/XjDka7WP
-	 GmiR1JSv6NpFrcjDIe0Gyb1vRl5oQF432oHAn7Dsr+LpGZEd9NoQF0Wc1FVgv90BiK
-	 9TU34deY3A6C9jNM4+YM0adRUoUSzbJyaC8LmGlulGYawiqnOS01XRXWYjtRGBX1xP
-	 muE70Tfv2SpzA==
-Date: Tue, 5 Nov 2024 11:22:54 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
-	Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via
- PCIE_RSTB for Airoha EN7581 SoC
-Message-ID: <20241105172254.GA1447085@bhelgaas>
+	id 1t8NGm-00000000CD7-2rOq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 17:23:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1730827386;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=g1ULHxLk2aNzmAZMbI1YGUaChv8B7oW5ZuwT6Vf06Q0=;
+	b=C0Sez7e3+277me5Antm1T5KkxuaHKd/DCj9KD/ZB09nlGld3TucFp3gLKO8sSpuMCceK2j
+	6USvYZmhOtoxTiNOqZEd6UKiCEeD+ih0wEKs9TCZEkN25CAepswcjfFItcupX3vRUJGVsf
+	Z0eZevnd4BE1Xvc5DtnCrUSleOjh7WM=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-423--ZbuUb6oOBa5TcqIRw7o7Q-1; Tue,
+ 05 Nov 2024 12:23:05 -0500
+X-MC-Unique: -ZbuUb6oOBa5TcqIRw7o7Q-1
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F3EDE1955E9D;
+	Tue,  5 Nov 2024 17:23:03 +0000 (UTC)
+Received: from [172.64.4.44] (unknown [10.30.33.216])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2291A195607C;
+	Tue,  5 Nov 2024 17:23:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.12.0-rc6,
+ upstream-arm-next, 8936d33c)
+Date: Tue, 05 Nov 2024 17:23:02 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <27006.124110512230500667@us-mta-423.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_092257_339784_C76C741F 
-X-CRM114-Status: GOOD (  32.29  )
+X-CRM114-CacheID: sfid-20241105_092308_822860_BB13C608 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,153 +82,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 11:00:05PM +0100, Lorenzo Bianconi wrote:
-> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> causing occasional PCIe link down issues. In order to overcome the
-> problem, PCIE_RSTB signals are not asserted/released during device probe or
-> suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-> (0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
-> module.
-> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> specify per-SoC capabilities.
+Hi, we tested your kernel and here are the results:
 
-Add blank lines between paragraphs so we know where they end.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Where does this alternate way of doing reset (using REG_PCI_CONTROL
-and REG_RESET_CONTROL) happen?  Why isn't there something in this
-patch to use that alternate method at the same points where
-PCIE_PE_RSTB is used?
+Tested-by: CKI Project <cki-project@redhat.com>
 
-If we don't need to assert reset for Airoha EN7581, why do we need to
-do it for the other SoCs?
+Kernel information:
+    Commit message: Merge remote-tracking branch 'tip/irq/core' into for-ke=
+rnelci
 
-> Tested-by: Hui Ma <hui.ma@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
-> Changes in v2:
-> - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
->   reset callback
-> - fix the leftover case in mtk_pcie_suspend_noirq routine
-> - add more comments
-> - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
-> ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++---------
->  1 file changed, 41 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..8e4704ff3509867fc0ff799e9fb99e71e46756cd 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -125,10 +125,18 @@
->  
->  struct mtk_gen3_pcie;
->  
-> +enum mtk_gen3_pcie_flags {
-> +	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
-> +				   * during device probing or suspend/resume
-> +				   * phase in order to avoid hw bugs/issues.
-> +				   */
-> +};
-> +
->  /**
->   * struct mtk_gen3_pcie_pdata - differentiate between host generations
->   * @power_up: pcie power_up callback
->   * @phy_resets: phy reset lines SoC data.
-> + * @flags: pcie device flags.
->   */
->  struct mtk_gen3_pcie_pdata {
->  	int (*power_up)(struct mtk_gen3_pcie *pcie);
-> @@ -136,6 +144,7 @@ struct mtk_gen3_pcie_pdata {
->  		const char *id[MAX_NUM_PHY_RESETS];
->  		int num_resets;
->  	} phy_resets;
-> +	u32 flags;
->  };
->  
->  /**
-> @@ -402,22 +411,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
->  	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
->  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
->  
-> -	/* Assert all reset signals */
-> -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> -	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> -
->  	/*
-> -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> -	 * for the power and clock to become stable.
-> +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> +	 * causing occasional PCIe link down. In order to overcome the issue,
-> +	 * PCIE_RSTB signals are not asserted/released at this stage and the
-> +	 * PCIe block is reset using REG_PCI_CONTROL (0x88) and
-> +	 * REG_RESET_CONTROL (0x834) registers available via the clock module.
->  	 */
-> -	msleep(100);
-> -
-> -	/* De-assert reset signals */
-> -	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> +		/* Assert all reset signals */
-> +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> +		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> +		       PCIE_PE_RSTB;
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +
-> +		/*
-> +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
-> +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
-> +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> +		 * for the power and clock to become stable.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1528085066
 
-Blank line between paragraphs.
+One or more kernel tests failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
+robe of ARMHC500:20 failed with error -17
+            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
+YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
+            Affected tests:
+                Boot test [aarch64]
+                Reboot test [aarch64]
 
-> +		 */
-> +		msleep(PCIE_T_PVPERL_MS);
-> +
-> +		/* De-assert reset signals */
-> +		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
-> +			 PCIE_PE_RSTB);
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	}
->  
->  	/* Check if the link is up or not */
->  	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
-> @@ -1160,10 +1180,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
->  		return err;
->  	}
->  
-> -	/* Pull down the PERST# pin */
-> -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> -	val |= PCIE_PE_RSTB;
-> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
-> +		/* Pull down the PERST# pin */
-> +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
-> +		val |= PCIE_PE_RSTB;
-> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
-> +	}
->  
->  	dev_dbg(pcie->dev, "entered L2 states successfully");
->  
-> @@ -1214,6 +1236,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
->  		.id[2] = "phy-lane2",
->  		.num_resets = 3,
->  	},
-> +	.flags = SKIP_PCIE_RSTB,
->  };
->  
->  static const struct of_device_id mtk_pcie_of_match[] = {
-> 
-> ---
-> base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
-> change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
-> 
-> Best regards,
-> -- 
-> Lorenzo Bianconi <lorenzo@kernel.org>
-> 
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
