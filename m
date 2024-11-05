@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4734D12663
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50563D12663
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+5NKA5OeLwYp2s18/2yRobCN4T2C7yfGfCP/KatkZRY=; b=G3ea+JSo+PNaBSQ33MoR6DVtwj
-	qUECuKY3rDuI1ar9jjjjhq0rRxgRnhoCRz9siIHFX7ZeJPyELsycOb5e5s1x+OU/a/vxQc029DiTB
-	jFkyOVEQp6ZChGqIotUlMj9bf2z/O7UEN+cDS8BTLAv5fpv6jIVA+Rb40snEXdm/OCdIzHS8eMacO
-	LOm1tEZHV6vyGByGhZIQB5f7GuAjgRFqB9etUtRFg7DLLU9w8n+06/MEw2YVq0R7sOzOCfNeXGIGb
-	VDJm/zvANBuru0cYr6pkbOvhnVk6D4VjegHD0kIb7x2vlpRSn5PtG7Fnr52gspFIqI/ypmWkrruyh
-	OO8CxVMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PIog8vnUWQcpr9ST8Tuw9lIRAwFrz/lnkMIrsAhO41E=; b=MTRgpX8s/Llr2HE4fK1zBNwV2C
+	yYYGOaZIFCV8grso30pvmguQgJ0Vbq0+8f/X+rOqurCGx0eQUr6Lp1PxSB5jegs9ON8or8s9UFaYq
+	876KgtIrwgd16i3fhxbWoWcqj5Psk3OKRZ0y6h1SaGrIbs6yWanj9CWZU3ri9EQvs++rEbw2Yoylv
+	5ixJUrNcOLmlX1iuK8kHmV/OOwqmymVPlBSCHwjVQlFjySn9nufUz0WfuRUnW/RirffYxB4RmVIo6
+	BsWkaRNrYHyWPjIwE12DT+2duT1t9xvpnflJQl5P/a54zZSnE1Bw5NMqPPPC9ByrCgfCLg+ESjcqO
+	tQyhwaNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8F2o-0000000GM6i-2uKr;
-	Tue, 05 Nov 2024 08:36:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8F4U-0000000GMh9-3iH2;
+	Tue, 05 Nov 2024 08:37:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EcI-0000000GHZK-00kp
+	id 1t8ErU-0000000GKiQ-00s0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 08:08:47 +0000
+	Tue, 05 Nov 2024 08:24:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E63C85C5516;
-	Tue,  5 Nov 2024 08:07:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5994FC4CED3;
-	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AC665A42721;
+	Tue,  5 Nov 2024 08:22:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66C60C4CECF;
+	Tue,  5 Nov 2024 08:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730794124;
-	bh=dVybQkWmSxoyj1MofMAfodogbPNIcs6eTPaaE0ShWnY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=GeR9jp0DvXAik3U57DiJEkoWf6UurPcas8la40H39wzxvMSwrstClx0I4YIO7Aew2
-	 nx8ZYnWInFFnHhQELxRB8vQ4SqM2NBJ8RGocQEhrqVJDlVF1yqSJm/BCDB8fQb5YHk
-	 /A3Om1fQLCM08HTh3jMH9F36tA87+S/H4zfQKLmVJQ5TLZiKHKYxAxThf1CmHClu4M
-	 HSsYmABU4w7rCPtSrcEfj/UgJwAuoQYqjVJ9R1G8c8dJURr9cflHNV+Lp2aMv8QcR+
-	 8fyt7i3UYYm3JBaJnxAPArkaUf+OkO/oWOxRfxs3n6VN4K4loVVzX4w7eePQqO1LtC
-	 rdgwjH0UrtuRw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46FA9D12664;
-	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
-From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Subject: [PATCH v4 0/3] Apple SPI controller driver
-Date: Tue, 05 Nov 2024 09:08:28 +0100
-Message-Id: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHzSKWcC/3WMOw7CMBAFrxJtjZF/wYaKeyCKTbIhS2EiO1igK
- HfHSQUF5Ty9mRkSRaYEp2qGSJkTP0IBu6ugHTDcSHBXGLTUVnqlBCYcWKSRRe+dlQ26o+sclP8
- YqefX1rpcCw+cpkd8b+ms13WrKCW/K1kLKdzBoEdvO2/s+Y4h4HMfaII1k81f1RTVNGVu677xV
- P+oy7J8AP4MY8XeAAAA
-X-Change-ID: 20240811-asahi-spi-f8740ba797d7
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
- Nick Chan <towinchenmi@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3311; i=j@jannau.net;
- s=yk2024; h=from:subject:message-id;
- bh=dVybQkWmSxoyj1MofMAfodogbPNIcs6eTPaaE0ShWnY=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnTNS10XevU7NxYuDXF4oD1r3aXWQzJfnvfrV3A4PHJg+
- Wt5kmNHRykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgIm838nIsGpS31nzvbOvrSxo
- z+2fcMReKujW881Py+wbF82XuvBP4THDH56D2bWr5joo7ps+8dDuBI7i7wxO8y0Xnnqz9Kjbbga
- fLE4A
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
-X-Original-From: Janne Grunau <j@jannau.net>
+	s=k20201202; t=1730795065;
+	bh=WQVoBMcMnd4cN6ltZQpIlUoMB/qRd46baYLHrOsqSF0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=auP/m0oWrp2ePgbVkWlucJ56Ump4yD5v143VUk6HqWh4kJDg0wltjO3BZlYv+V/Ue
+	 7T8KQ/vFNc1l2Pygov8WrhG1oXtowc8gks8x48H4STJYNXdoZXm87LXVLPhVqVSJDF
+	 zJW5Hpam6OdLKTsQYaJc+kWlkyHbAN2rJXK0OHrFvW+Sg+bc/hBdpw4318KQpMAF3e
+	 gyYdT8Qd1le702Y+tunf2GUP8XLdbo+0b3j1+0Zkwp+uzbhSC9VvCmYO2yNhKJM2jK
+	 rLYNkN2+Vmy5jnXZ0m5ebFVsyO6unzIaTq9ZG9YMcchQFsHtyttzCTQUw1khhmsWS3
+	 9Kr0vUudRYKqA==
+Received: from 82-132-233-10.dab.02.net ([82.132.233.10] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t8ErN-009uTa-9L;
+	Tue, 05 Nov 2024 08:24:23 +0000
+Date: Tue, 05 Nov 2024 08:24:18 +0000
+Message-ID: <87ed3qt7f1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>,
+	Nianyao Tang <tangnianyao@huawei.com>
+Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+In-Reply-To: <20241104121143.2169264-1-wangzhou1@hisilicon.com>
+References: <20241104121143.2169264-1-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.233.10
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, tangnianyao@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_000846_172740_F0152678 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20241105_002428_199141_0AC2A5A2 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,92 +82,132 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Mon, 04 Nov 2024 12:11:43 +0000,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> When enabled GICv4.1 in hip09, VMAPP will fail to clear some caches
 
-This updated series address the review comments from the original
-submission in 2021 [1]. It adds a new SPI controller driver for Apple
-SoCs and is based on spi-sifive. It has been tested with the generic
-jedec,spi-nor support and with a downstream driver for an Apple specific
-HID over SPI transport.
+nit: enabling.
 
-As usual, I'm splitting off the MAINTAINERS and DT binding changes.
-We would rather merge the MAINTAINERS change through the Asahi-SoC
-tree to avoid merge conflicts as things trickle upstream, since
-we have other submissions touching that section of the file.
+> during unmapping operation, which will cause some vSGIs interrupts lost.
+> 
+> To fix the issue, it needs to send vinvall command after vmovp.
 
-The DT binding change can go via the SPI tree or via ours, but it's
-easier if we merge it, as then we can make the DT changes to
-instantiate it without worrying about DT validation failures depending
-on merge order.
+nit: commands need to be in capital letters (VINVALL, VMOVP). drop
+'interrupts'.
 
-This is mostly Hector's work with a few minor changes to address review
-comments from me.
+>
+> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 10 ++++++
+>  drivers/irqchip/irq-gic-v3-its.c            | 36 ++++++++++++++++-----
+>  3 files changed, 40 insertions(+), 8 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 65bfab1b1861..77db10e944f0 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -258,6 +258,8 @@ stable kernels.
+>  | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+>  |                | ,11} SMMU PMCG  |                 |                             |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index fd9df6dcc593..27082e075d1a 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1232,6 +1232,16 @@ config HISILICON_ERRATUM_161600802
+>  
+>  	  If unsure, say Y.
+>  
+> +config HISILICON_ERRATUM_162100801
+> +	bool "Hip09 162100801 erratum support"
+> +	default y
+> +	help
+> +	  When enabled GICv4.1 in hip09, VMAPP will fail to clear some caches
+> +	  during unmapping operation, which will cause some vSGIs interrupts
+> +	  lost. So fix it by sending vinvall commands after vmovp.
 
-[1] https://lore.kernel.org/linux-spi/20211212034726.26306-1-marcan@marcan.st/
+Same remarks as above.
 
-v2:
-- removed '#address-cells' and '#size-cells' from the bindings and added
-  Rob's Rb:
-- fixed (new) checkpatch warnings
-- added t8112 (M2) SoC
-- shorted long and complex source code lines
-- switch to devm_clk_prepare_enable() and devm_pm_runtime_enable()
-- switch to dev_err_probe() in probe function
-- removed "pdev->dev.dma_mask = NULL;"
-- got rid of apple_spi_remove()
+Now, the workaround seems odd. I understand from the description that
+VMAPP with V=0 results in leftover cached entries influencing the
+behaviour of a newly created VPE.
 
-Signed-off-by: Janne Grunau <j@jannau.net>
----
-Changes in v4:
-- removed the label from example in the bindings
-- really added Rob's Rb: for the bindings added Reviewed/Acked-by: for v3
-- alphabetically sorted #includes
-- removed leftover platform_set_drvdata
-- Link to v3: https://lore.kernel.org/r/20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net
+But if it is a VINVALL on each CPU that cures it, why don't we do that
+upfront, instead of on every single VMOVP?
 
-Changes in v3:
-- fixed bindings_check warning
-- converted top file comment to C++ style comments
-- dropped verbose dev_err_probe after failed devm_* function
-- stopped setting field in zero initialized struct to 0
-- added error handling for devm_pm_runtime_enable()
-- Link to v2: https://lore.kernel.org/r/20241101-asahi-spi-v2-0-763a8a84d834@jannau.net
+Or is the problem that VMAPP(V=0) can result in *existing* VPEs to
+observe an unrelated (or corrupted) state?
 
-Changes in v2:
-- removed '#address-cells' and '#size-cells' from the bindings and added
-  Rob's Rb:
-- fixed (new) checkpatch warnings
-- added t8112 (M2) SoC
-- shorted long and complex source code lines
-- switch to devm_clk_prepare_enable() and devm_pm_runtime_enable()
-- switch to dev_err_probe() in probe function
-- removed "pdev->dev.dma_mask = NULL;"
-- got rid of apple_spi_remove()
-- Link to v1: https://lore.kernel.org/linux-spi/20211212034726.26306-1-marcan@marcan.st/
+> +
+> +	  If unsure, say Y.
+> +
+>  config QCOM_FALKOR_ERRATUM_1003
+>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>  	default y
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 52f625e07658..69b09072d24d 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -44,6 +44,7 @@
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+>  
+>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+> @@ -1314,6 +1315,14 @@ static void its_send_vmapp(struct its_node *its,
+>  	its_send_single_vcommand(its, its_build_vmapp_cmd, &desc);
+>  }
+>  
+> +static void its_send_vinvall(struct its_node *its, struct its_vpe *vpe)
+> +{
+> +	struct its_cmd_desc desc;
+> +
+> +	desc.its_vinvall_cmd.vpe = vpe;
+> +	its_send_single_vcommand(its, its_build_vinvall_cmd, &desc);
+> +}
+> +
+>  static void its_send_vmovp(struct its_vpe *vpe)
+>  {
+>  	struct its_cmd_desc desc = {};
+> @@ -1351,17 +1360,12 @@ static void its_send_vmovp(struct its_vpe *vpe)
+>  
+>  		desc.its_vmovp_cmd.col = &its->collections[col_id];
+>  		its_send_single_vcommand(its, its_build_vmovp_cmd, &desc);
+> +		if (is_v4_1(its) && (its->flags &
+> +			    ITS_FLAGS_WORKAROUND_HISILICON_162100801))
+> +			its_send_vinvall(its, vpe);
+>  	}
+>  }
 
----
-Hector Martin (3):
-      dt-bindings: spi: apple,spi: Add binding for Apple SPI controllers
-      spi: apple: Add driver for Apple SPI controller
-      MAINTAINERS: Add apple-spi driver & binding files
+Please don't bury workarounds inside the command primitives (and VMOVP
+is complicated enough). There is a single place where we send VMOVP,
+and I'd rather you place the workaround there.
 
- .../devicetree/bindings/spi/apple,spi.yaml         |  62 +++
- MAINTAINERS                                        |   2 +
- drivers/spi/Kconfig                                |  11 +
- drivers/spi/Makefile                               |   1 +
- drivers/spi/spi-apple.c                            | 530 +++++++++++++++++++++
- 5 files changed, 606 insertions(+)
----
-base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
-change-id: 20240811-asahi-spi-f8740ba797d7
+But more importantly, this code isn't supposed to get executed with a
+GICv4.1 implementation, as the driver does not expect it to use an
+ITSList.
 
-Best regards,
+So what is your system implementing? Do you have such thing as GICv4.1
+with ITSList? If so, I'm pretty sure the driver is broken on with such
+mix...
+
+Thanks,
+
+	M.
+
 -- 
-Janne Grunau <j@jannau.net>
-
-
+Without deviation from the norm, progress is not possible.
 
