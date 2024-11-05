@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA418D3176F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09610D3177C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVarSUVImq3C17UtuBFKgjsAE8tZo13M6Xt5/flkrHA=; b=JawGmwEP9IwckluGXr5vX8Cccv
-	s4T74IxlNkqgYYue/awprQuBVlR9qztOxfks2ISgdas4PeaPV1gUfmk5haxc0CsuK1N1/W7xRx16N
-	nlSwZdhwemqqE0BSXnvrncvpTkCfT21SxjzpoPhsnI7MMTrJBiuKB36YvVkp8DgiJeK9BxPxTA3dX
-	h8erZgSIVqMZgM73kbaYE7R7VvRu606xpLTD5Pe3BuMj0CM9sR/6dQITEbG9dq+YcQngYlOBsnAle
-	VLcCcmRfsIgGT7TB6OdXsAHnymj2SDXCYNHwi+ul0DFeeEvYzuhUYbkso9y12z7YW3Mhmte17ZHnW
-	LqtyCyFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZNEAlyMpv4/QSa8dethAiQseRxvXopup9fe1tEoOWvs=; b=xCZ9jnE6tHMaajgfCl9W3vlwKL
+	ICmtUz+HHMR7J7t4IcIVpeMg30fzxqZW1X26rkz32AEJptPqurtUCUnTkEK0Cz6KGoVcG14oMm437
+	q5AqVqVQWJoNg+M9rwwx4Z87mAKQJlW5wCFVcujQlbuEDDTqb0ztysvQIrutRpM7C6HEcPY0aJYb/
+	Fn+ouuZ77HkYq0k7PuOx6n3JWJDiRNk+tcWLJhFmAH9Pz39Wej+DEwcXMqs5qeiAJxJ8Ldw5sSyNz
+	zF2CMFhH25cHRB0Jpg2CUV+7x73txHnk/1KaPk5I0RApiJPB5hHDIgo/L25b2mhwSwPFhSEzzdQb1
+	eghPhdTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Nlc-00000000IJo-0X7C;
-	Tue, 05 Nov 2024 17:55:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8Nw7-00000000Je4-1YpU;
+	Tue, 05 Nov 2024 18:05:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Njt-00000000IBu-1k55
+	id 1t8NuP-00000000JS0-39lZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 17:53:14 +0000
+	Tue, 05 Nov 2024 18:04:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C1A55C4636;
-	Tue,  5 Nov 2024 17:52:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 342D2C4CECF;
-	Tue,  5 Nov 2024 17:53:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0CFA65C53C2;
+	Tue,  5 Nov 2024 18:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6341C4CECF;
+	Tue,  5 Nov 2024 18:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730829191;
-	bh=GBpdf1OVO9BOr56k/DS5sh/foQKQ7xW6cGQgQpR2NCA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Pw5KJOOypZ+1M8BcBE1sks8BopZNvfyjIUSRrCa8l9BsQDa57h+iIrOYogz4Z/R3F
-	 BGgMRI3BzVtRJZnrd8EPtO9bkkwfGVHl3pH2Wb9k32RvLss5b4kESmkAPGMFvsHWU7
-	 HsfImJ/9oLem4OZommuIE4+MHIC+59xP2TXTed92k01Z0Ns2ew0CGMHx4DACRKU4JJ
-	 Rt6gUyszCPAyqEP1rDnwCN2zxwe8JKeNsA5if3fvcBrbsH+KT6vrdO2jglYiHBjqQz
-	 2lzzf4V9w7F5Mxn1wsOslkLlsliJgQFtmY7DgHFTgI5KoAAPxXLXe1yuWuZKixE1Wi
-	 I40bxMdeGXilg==
-From: Mark Brown <broonie@kernel.org>
-To: amelie.delaunay@foss.st.com, 
- Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Olivier Moysan <olivier.moysan@st.com>, linux-sound@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241105140242.527279-1-olivier.moysan@foss.st.com>
-References: <20241105140242.527279-1-olivier.moysan@foss.st.com>
-Subject: Re: [PATCH 1/1] ASoC: stm32: spdifrx: fix dma channel release in
- stm32_spdifrx_remove
-Message-Id: <173082918893.89365.2926884723667800367.b4-ty@kernel.org>
-Date: Tue, 05 Nov 2024 17:53:08 +0000
+	s=k20201202; t=1730829838;
+	bh=8+cIHaDK/PkRLZQNzEkaeipacB3Q8GDm8j9Yz0buIQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L8G1C9oo+hPHLWRYPvwmxqqVWfHAG4XeiZuNblLd111x+Q1yzSS+pJOqgM8/6hOP2
+	 O6thypMRrVz2WVEA24bcBHBMuR9V1vAzyt0HK6k8y+1ektuHJ9JSNhqxgTE9U5PZWX
+	 Rh0lHZ1hOHE+03rczdO2u4fjZGRbJcAa1Tq/pUWbtbNWyqkQ3n4RlUO+hQOtnYFJxS
+	 eVBZNlk8JwRT59FtFGMvz5eObS/DEFzf1JAMQd0jAXIZnCYN6zwNjZAqlxfVa+I+yP
+	 YBKoHvubYo0TbL/ynmb06QAsnQbzrqFKBJOeHXxUsdMR1UnPIrVs0u4tybuS9zIUZ1
+	 UxJlWTmX1IUSg==
+Date: Tue, 5 Nov 2024 18:03:52 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Matt Coster <matt.coster@imgtec.com>
+Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>,
+	Darren Etheridge <detheridge@ti.com>
+Subject: Re: [PATCH 08/21] dt-bindings: gpu: img: Add BXS-4-64 devicetree
+ bindings
+Message-ID: <20241105-sulfite-justness-d7b7fb98905c@spud>
+References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+ <20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xQXEB5mU2yf0jpDO"
+Content-Disposition: inline
+In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_095313_553952_0EBF9AF1 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20241105_100405_928493_5EC37A5A 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 Nov 2024 15:02:42 +0100, Olivier Moysan wrote:
-> In case of error when requesting ctrl_chan DMA channel, ctrl_chan is not
-> null. So the release of the dma channel leads to the following issue:
-> [    4.879000] st,stm32-spdifrx 500d0000.audio-controller:
-> dma_request_slave_channel error -19
-> [    4.888975] Unable to handle kernel NULL pointer dereference
-> at virtual address 000000000000003d
-> [...]
-> [    5.096577] Call trace:
-> [    5.099099]  dma_release_channel+0x24/0x100
-> [    5.103235]  stm32_spdifrx_remove+0x24/0x60 [snd_soc_stm32_spdifrx]
-> [    5.109494]  stm32_spdifrx_probe+0x320/0x4c4 [snd_soc_stm32_spdifrx]
-> 
-> [...]
 
-Applied to
+--xQXEB5mU2yf0jpDO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+On Tue, Nov 05, 2024 at 03:58:14PM +0000, Matt Coster wrote:
+> +    / {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +        interrupt-controller;
+> +        #interrupt-cells =3D <3>;
+> +
+> +        gpu@4e20000000 {
+> +            compatible =3D "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img=
+-rogue";
+> +            reg =3D /bits/ 64 <0x4e20000000 0x80000>;
 
-Thanks!
+Can you format this normally please? Drop the #address/size-cells down
+to 1 if you're against having 0x0s.
 
-[1/1] ASoC: stm32: spdifrx: fix dma channel release in stm32_spdifrx_remove
-      commit: 9bb4af400c386374ab1047df44c508512c08c31f
+Otherwise,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+> +            clocks =3D <&k3_clks 130 1>;
+> +            clock-names =3D "core";
+> +            interrupts =3D <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
+> +            power-domains =3D <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
+> +                            <&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
+> +            power-domain-names =3D "a", "b";
+> +            dma-coherent;
+> +        };
+> +    };
+>=20
+> --=20
+> 2.47.0
+>=20
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+--xQXEB5mU2yf0jpDO
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Mark
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZypeCAAKCRB4tDGHoIJi
+0rKRAQCPc+IctwmoZoddo4GAQ3JphX1ttBvWgJigLa3DJ8BDkgEA3T1r9hN1I0La
+vZrB0DbYFGc/m61hAVWkIrElbvEhwwo=
+=3MKw
+-----END PGP SIGNATURE-----
 
+--xQXEB5mU2yf0jpDO--
 
