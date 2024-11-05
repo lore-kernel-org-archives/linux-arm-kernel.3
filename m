@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BF9D31763
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B06D31765
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyuAtQyhTSA7LS3dSL0vetYnuP2tfqRP4xODv6XglSg=; b=R+i4ztwDCXgKqXpn8SOXPncMOb
-	P6hbziQQuOg+VZR0caJNQAba+DhEE6mO25RJnLPNDpP1CSca7HpWQaOHSk5JR2uE+WMBUJDKmpY8y
-	ta/WirB7KkE8mgQYlW5OSIX+R6RusfhnULi4t4CPh0wtF2dgja4SjvfAUVgjtC/fehlysgLWRXu1h
-	AHolxRymUP+Sd+Kz0V1d++/6AapkSB9UJ/BZ0p9z5xlSJd4n7+yekF2gHWGgdrxiYDpzgB8isrKCz
-	DrILrhbFaVIKYMjCd9XXeId0FmykH/sGgijaXjco0kEkZgsKtNFI0jBh5mtNthBGNf/g7PX9w/Gje
-	XEaChnng==;
+	bh=dgFYRKSLCsydHCPYVKboQ9O5kz+xG+4NN+Hl+uD6ovg=; b=axWih6BgNTUmB8R2RRzsSUWM+Q
+	3LcskU8zEGteY8SygPrRakxntOpzzsKhfCVXxrdeH0MClBvEOlRnXnBOnCCO4fslcgFwF0o6qAVoH
+	scPpLnb6Cei+2Qy4OHBlue4kOFR9tXh6u5YJQH6lruqAieA9NU3MBBO0oZHZsx9GVuLyrCJMthXBK
+	WyQaRptn/3K/4KF3gNtRlfJ65xmb/qVswNPsf2xqxmuC0DZPvxyFuYm5NAhTlIUDjnDWQ76kzN4VA
+	Mjc42E2mOok1ZjSW3myupr1yL1QIAyiY9DoqPygcv3tb0+DYi1thhhjHXPGIvl9V/790hWGfAkcps
+	jBwRG+iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MGa-000000001BD-262G;
-	Tue, 05 Nov 2024 16:18:52 +0000
+	id 1t8MIH-000000001RI-1GR7;
+	Tue, 05 Nov 2024 16:20:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxJ-0000000HX33-2z7A
+	id 1t8LxJ-0000000HX32-2hkx
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 05 Nov 2024 15:58:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=OyuAtQyhTSA7LS3dSL0vetYnuP2tfqRP4xODv6XglSg=; b=lrH/hE8NNVJpGnN5mc2kEQZREs
-	+OpYoFjKQ/xzk48qkLZWGqv+glRtpzz9hQalSdFH/7KvfStOiZl4UxT5BlrzuaTgJkumklusTkPCd
-	7rmqg0ktXNdEWIukagbWPiK2Pm2P2AgjMKWqyGwk1oM8fXJIQgmW3+8R9zu/ZiIR1pF7tB9CsYYFE
-	f+C2EMz4pCVS9PRLRS4BBDp7Y1txUIB2lTAVb/P4jsKrpZVybn4HwpSS/uphBwb2mdFOt6aUwDBIC
-	w5QiXtcM7tcg8rqDqUS7fDBooie92zTjpygrv2rn3RF2RWwfUQcAMcjq0q4/N1XG4ZuAOkDTEKAiQ
-	fqHdaCoA==;
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	bh=dgFYRKSLCsydHCPYVKboQ9O5kz+xG+4NN+Hl+uD6ovg=; b=IEGdIZdWfCl9UJgWXQ+j+nRoBc
+	kYAY+qb7In1nHWqvo9ld+yY9O5e/0U7zcLzh4rISZ5+PFDpze9qU/pAm4twwiTIvrXLNVrP+sPJ2O
+	gpeP4gxDUU5iJaHdWXMnsa1WRIYF/3u5KyxqzRDJdpybq8Q50GCT0tgNBGOVEeqdU7olJkOWVHLGu
+	8k1c9nxDtmN7P71JWtGoxZQZkhbcKFqlaYjM+sQf7aauoKH0d5UhOSmq80q0MZTwPQCW1+dtNbrgQ
+	rHg49dUj4XLpw2NiyV/YL0+tTsV6G7a9pkkcghguDB2LP9yT/gy/rrquRbN0KCOSpSjPpgIl2CVMf
+	MNeEXGJQ==;
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxF-0000000Bme2-2PUb
+	id 1t8LxF-0000000Bmdz-1oly
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 15:58:56 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5FtUqF005589;
-	Tue, 5 Nov 2024 15:58:37 GMT
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EF3v1003827;
+	Tue, 5 Nov 2024 15:58:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=O
-	yuAtQyhTSA7LS3dSL0vetYnuP2tfqRP4xODv6XglSg=; b=CPFu4gtV3fpBnDk2V
-	G+V92zsH//N2nKZoikGD3vayw13hSM1Hcn2babztnT/nK8WBYdZLQe6nTHvm9863
-	sGrN9lMoqWkgEzFHG9E9FhltWfmBNPByMRKf8SCoazT6XgQLLljNs+4Tsz9JobCP
-	+QeIB9uSsM/JC3mr5LPF6VAhyLFRu92Tw09mH6CtxK/qoxRFdg4Y211/UXzGqL5+
-	i9oFk8k888NNnzf6v1U4SYXRObsEGdxtOCgDTv69nXIEv4L74+BRaBLp098Kvurh
-	I/QiDeZZ6GjuUqR58JNQRiJ9EZkK1jldAAXxx4v2VytgA46vad95M+w8fhcRsDgg
-	MLt4w==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=d
+	gFYRKSLCsydHCPYVKboQ9O5kz+xG+4NN+Hl+uD6ovg=; b=TtgvvesQ9wUY75Bu4
+	1y5UiEGmfZgNzZP2oykAywYujXkEbRRhcPipvylfEdwwrInW93RHLi0iYi5UT8nW
+	fi6e3oUpOdzzsNCW/yjQbjRMJMqYT9cIUTUyPx8p1OcMaajbck78JomlypveixWZ
+	Y9Kbp5D3cj5NAEfICTr+0nerSsImjszuxQrCrT9sp7n+TWTZKWfxdBnaRBbJrxow
+	CINfwauj8+82cf1APKxukvRaTNX/7lgg1hv1XXV19bphlQCgreWie4yLq1t61/h/
+	RUuHrPCtdZv94WMO/owUP0qCTv/pz5f6DbPM2wotD0xkKbR7yrXaAXYQio2gD/Vs
+	4pI1Q==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 42nd212ju1-1
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0s-3
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 05 Nov 2024 15:58:36 +0000 (GMT)
+	Tue, 05 Nov 2024 15:58:26 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Tue, 5 Nov 2024 15:58:35 +0000
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:25 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Tue, 5 Nov 2024 15:58:22 +0000
-Subject: [PATCH 16/21] drm/imagination: Move ELF fw utils to common file
+Date: Tue, 5 Nov 2024 15:58:08 +0000
+Subject: [PATCH 02/21] dt-bindings: gpu: img: Further constrain clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-16-4ed30e865892@imgtec.com>
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-2-4ed30e865892@imgtec.com>
 References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -90,24 +90,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7100;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2010;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=UIrxOyYskkd2zV7XfHusZkCrqZMoV3h5lYs9UyJn5W0=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOczTnfb0pbFk06G9N4687Pxsu4ntC//T3n+lIvkXP
- QT28X+W6ShlYRDjYJAVU2TZscJyhdofNS2JG7+KYeawMoEMYeDiFICJ/HFnZNgdbbPQ2f9jkvXZ
- y4w10979u3XiptQl3xqlOs7ZyT+v3Wdi+KepkCDn0Lvj4yPRnr6r0idLw/f9mf36p0TlwcCYKWd
- 6d7ADAA==
+ bh=gmq1//uzSkip2I9hQnYT5ExcwUyJTx/G8+lls9+QmpE=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcyxXRAdu/B5jsbPjkeBrJdc/33s5OBLKFqc9OzdP
+ K5YnuA7HaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjCR6GZGhgWy0VNV93UxL++O
+ CImrXiYsJTD31vdPQhrlZ5avb4rdkszIMFflqP6eOd+0vS5JFUX9mvrwnUTx2S3yjscVU7lmGRw
+ 6wAMA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=Q9aA4J2a c=1 sm=1 tr=0 ts=672a40ac cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=nDXPDgtXl5tloLhz4E0A:9 a=QEXdDO2ut3YA:10
- a=CMhdClSkCJESED5Bpcyf:22 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: NQ5F50QJAP-3yDJEPQ6WleE3Kb4qEiOe
-X-Proofpoint-ORIG-GUID: NQ5F50QJAP-3yDJEPQ6WleE3Kb4qEiOe
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a2 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=cDXhS4k7GDcpIX9mfQgA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: 8l3_6SoqTe74P9tpv2dJ-Exgb2ItxLQy
+X-Proofpoint-ORIG-GUID: 8l3_6SoqTe74P9tpv2dJ-Exgb2ItxLQy
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_155854_104322_9175BEE5 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20241105_155853_737518_7B27C7CA 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,201 +122,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently only MIPS firmware processors use ELF-formatted firmware. When
-adding support for RISC-V firmware processors, it will be useful to have
-ELF handling functions ready to go.
+All Imagination GPUs use three clocks: core, mem and sys. All reasonably
+modern Imagination GPUs also support a single-clock mode where the SoC
+only hooks up core and the other two are derived internally. On GPUs which
+support this mode, it is the default and most commonly used integration.
+
+Codify this "1 or 3" constraint in our bindings and hang the specifics off
+the vendor compatible string to mirror the integration-time choice.
 
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
- drivers/gpu/drm/imagination/Makefile      |  1 +
- drivers/gpu/drm/imagination/pvr_fw.h      |  5 +++
- drivers/gpu/drm/imagination/pvr_fw_mips.c | 59 +--------------------------
- drivers/gpu/drm/imagination/pvr_fw_util.c | 67 +++++++++++++++++++++++++++++++
- 4 files changed, 75 insertions(+), 57 deletions(-)
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 27 +++++++++++++++-------
+ 1 file changed, 19 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/Makefile b/drivers/gpu/drm/imagination/Makefile
-index 9bc6a3884c2239e44265f3cdebee149841b270de..077e4762c7c383b6e339da1584c3865d830ef8d6 100644
---- a/drivers/gpu/drm/imagination/Makefile
-+++ b/drivers/gpu/drm/imagination/Makefile
-@@ -16,6 +16,7 @@ powervr-y := \
- 	pvr_fw_mips.o \
- 	pvr_fw_startstop.o \
- 	pvr_fw_trace.o \
-+	pvr_fw_util.o \
- 	pvr_gem.o \
- 	pvr_hwrt.o \
- 	pvr_job.o \
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index ab69f40a7fbc6304171f16dd16d825a68b0362a5..8d3f0ee0aac69373f15ac5919d5b0f27c67cb284 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -478,4 +478,9 @@ pvr_fw_object_get_fw_addr(struct pvr_fw_object *fw_obj, u32 *fw_addr_out)
- 	pvr_fw_object_get_fw_addr_offset(fw_obj, 0, fw_addr_out);
- }
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index ef7070daf213277d0190fe319e202fdc597337d4..6924831d3e9dd9b2b052ca8f9d7228ff25526532 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -30,15 +30,20 @@ properties:
+     maxItems: 1
  
-+/* Util functions defined in pvr_util.c. These are intended for use in pvr_fw_<arch>.c files. */
-+int
-+pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
-+				  u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr);
-+
- #endif /* PVR_FW_H */
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-index 524a9bd0a20b64c509f5708cc61d93b4c864b835..7f341ceb0661c61ac059654faeec91e149036467 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
-@@ -8,7 +8,6 @@
- #include "pvr_rogue_mips.h"
- #include "pvr_vm_mips.h"
+   clocks:
+-    minItems: 1
+-    maxItems: 3
++    oneOf:
++      - minItems: 1
++        maxItems: 1
++      - minItems: 3
++        maxItems: 3
  
--#include <linux/elf.h>
- #include <linux/err.h>
- #include <linux/types.h>
+   clock-names:
+-    items:
+-      - const: core
+-      - const: mem
+-      - const: sys
+-    minItems: 1
++    oneOf:
++      - items:
++          - const: core
++      - items:
++          - const: core
++          - const: mem
++          - const: sys
  
-@@ -16,60 +15,6 @@
- #define ROGUE_FW_HEAP_MIPS_SHIFT 24 /* 16 MB */
- #define ROGUE_FW_HEAP_MIPS_RESERVED_SIZE SZ_1M
+   interrupts:
+     maxItems: 1
+@@ -56,15 +61,21 @@ required:
+ additionalProperties: false
  
--/**
-- * process_elf_command_stream() - Process ELF firmware image and populate
-- *                                firmware sections
-- * @pvr_dev: Device pointer.
-- * @fw: Pointer to firmware image.
-- * @fw_code_ptr: Pointer to FW code section.
-- * @fw_data_ptr: Pointer to FW data section.
-- * @fw_core_code_ptr: Pointer to FW coremem code section.
-- * @fw_core_data_ptr: Pointer to FW coremem data section.
-- *
-- * Returns :
-- *  * 0 on success, or
-- *  * -EINVAL on any error in ELF command stream.
-- */
--static int
--process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw, u8 *fw_code_ptr,
--			   u8 *fw_data_ptr, u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
--{
--	struct elf32_hdr *header = (struct elf32_hdr *)fw;
--	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
--	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
--	u32 entry;
--	int err;
--
--	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
--		void *write_addr;
--
--		/* Only consider loadable entries in the ELF segment table */
--		if (program_header->p_type != PT_LOAD)
--			continue;
--
--		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
--					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
--					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
--		if (err) {
--			drm_err(drm_dev,
--				"Addr 0x%x (size: %d) not found in any firmware segment",
--				program_header->p_vaddr, program_header->p_memsz);
--			return err;
--		}
--
--		/* Write to FW allocation only if available */
--		if (write_addr) {
--			memcpy(write_addr, fw + program_header->p_offset,
--			       program_header->p_filesz);
--
--			memset((u8 *)write_addr + program_header->p_filesz, 0,
--			       program_header->p_memsz - program_header->p_filesz);
--		}
--	}
--
--	return 0;
--}
--
- static int
- pvr_mips_init(struct pvr_device *pvr_dev)
- {
-@@ -100,8 +45,8 @@ pvr_mips_fw_process(struct pvr_device *pvr_dev, const u8 *fw,
- 	u32 page_nr;
- 	int err;
+ allOf:
++  # Vendor integrations using a single clock domain
+   - if:
+       properties:
+         compatible:
+           contains:
+-            const: ti,am62-gpu
++            anyOf:
++              - const: ti,am62-gpu
+     then:
+       properties:
+         clocks:
++          minItems: 1
+           maxItems: 1
++        clock-names:
++          items:
++            - const: core
  
--	err = process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr, fw_core_code_ptr,
--					 fw_core_data_ptr);
-+	err = pvr_fw_process_elf_command_stream(pvr_dev, fw, fw_code_ptr, fw_data_ptr,
-+						fw_core_code_ptr, fw_core_data_ptr);
- 	if (err)
- 		return err;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_util.c b/drivers/gpu/drm/imagination/pvr_fw_util.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..7bc8a5c48e9b0eed2045607ab2cfed80a60a32b5
---- /dev/null
-+++ b/drivers/gpu/drm/imagination/pvr_fw_util.c
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/* Copyright (c) 2024 Imagination Technologies Ltd. */
-+
-+#include "pvr_device.h"
-+#include "pvr_fw.h"
-+
-+#include <drm/drm_device.h>
-+#include <drm/drm_print.h>
-+
-+#include <linux/elf.h>
-+#include <linux/string.h>
-+#include <linux/types.h>
-+
-+/**
-+ * pvr_fw_process_elf_command_stream() - Process ELF firmware image and populate
-+ *                                       firmware sections
-+ * @pvr_dev: Device pointer.
-+ * @fw: Pointer to firmware image.
-+ * @fw_code_ptr: Pointer to FW code section.
-+ * @fw_data_ptr: Pointer to FW data section.
-+ * @fw_core_code_ptr: Pointer to FW coremem code section.
-+ * @fw_core_data_ptr: Pointer to FW coremem data section.
-+ *
-+ * Returns :
-+ *  * 0 on success, or
-+ *  * -EINVAL on any error in ELF command stream.
-+ */
-+int
-+pvr_fw_process_elf_command_stream(struct pvr_device *pvr_dev, const u8 *fw,
-+				  u8 *fw_code_ptr, u8 *fw_data_ptr,
-+				  u8 *fw_core_code_ptr, u8 *fw_core_data_ptr)
-+{
-+	struct elf32_hdr *header = (struct elf32_hdr *)fw;
-+	struct elf32_phdr *program_header = (struct elf32_phdr *)(fw + header->e_phoff);
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-+	u32 entry;
-+	int err;
-+
-+	for (entry = 0; entry < header->e_phnum; entry++, program_header++) {
-+		void *write_addr;
-+
-+		/* Only consider loadable entries in the ELF segment table */
-+		if (program_header->p_type != PT_LOAD)
-+			continue;
-+
-+		err = pvr_fw_find_mmu_segment(pvr_dev, program_header->p_vaddr,
-+					      program_header->p_memsz, fw_code_ptr, fw_data_ptr,
-+					      fw_core_code_ptr, fw_core_data_ptr, &write_addr);
-+		if (err) {
-+			drm_err(drm_dev,
-+				"Addr 0x%x (size: %d) not found in any firmware segment",
-+				program_header->p_vaddr, program_header->p_memsz);
-+			return err;
-+		}
-+
-+		/* Write to FW allocation only if available */
-+		if (write_addr) {
-+			memcpy(write_addr, fw + program_header->p_offset,
-+			       program_header->p_filesz);
-+
-+			memset((u8 *)write_addr + program_header->p_filesz, 0,
-+			       program_header->p_memsz - program_header->p_filesz);
-+		}
-+	}
-+
-+	return 0;
-+}
+ examples:
+   - |
 
 -- 
 2.47.0
