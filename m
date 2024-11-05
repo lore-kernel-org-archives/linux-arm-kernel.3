@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C2DD3E760
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 20:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90452D3E765
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 21:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TQPCUdMCx39m0ZTNjhnYCaHxFkfeIc8TU+p5IJ3tkMk=; b=JLYt25hSD/PZPb
-	C1zN7kIcKd27mKyRgRmrZeD6SmL8MR29I/RNjzpIh5PMNwr8qs3J+ayKwzqMGa+QquI+j4L6LVClJ
-	22Dly4Xjr3ejyVXl91E9gqTnIuBkhZS+TFuARh90r7CrK4wgFUrxqqtW5F5imok+be3ZdDWC2/7RS
-	ADwKh79X++sFYOtSz7t3kNfheswOtwcA+MxYVaSVPS3QX7gM9cErX2UYrxFVO17K5yc1xBe2EeegA
-	S/xaBjBoVNYKAf7IbwVnh0PMkxwQ0tMKHQ6+M4YV925xu42mFyOrVQHunTVLqbles4+7Ik7d2fZ4z
-	B2T3mbtFFSeuTvfv8Z4g==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+vyhukru1uIeE+kCfGRSTvksfHKtqzKauF6SWXFu/M=; b=SRXP7M7Pv96njeZttT8i/uHpHA
+	cq8jwZ0HA5cXVcjeFLyseVDrZ5Dziutu14iKILlgjqe59vckamesdtDYQOEGOcOJ7O8fJaJm3/HwL
+	E2URXfmTWugYNGYyUxKTLhZ4jRYcZGBgR7E+hRqsC6gSCJhFYTTW7IeHLwyLh+hHtBNt47ULHtXWc
+	XqHmn4Haat/HarjjwUaWvjumLJMHEMqkSSeHpwGAIFaCsf+iucT2xHFPMmdZ18LEE7qT794OGWSqX
+	/WK4JCtM244VOGXuszz89O3bBk2PjYDwFd2h7WDoaQDNPsI7xP1a5grobEAwtI0Mo+10JTS9rxPy1
+	jnSNr00A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8QeH-00000000o0h-2mKT;
-	Tue, 05 Nov 2024 20:59:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8Qgv-00000000oVL-2b4i;
+	Tue, 05 Nov 2024 21:02:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8QcZ-00000000nj6-3AoK;
-	Tue, 05 Nov 2024 20:57:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DA119A4166A;
-	Tue,  5 Nov 2024 20:55:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5854CC4CECF;
-	Tue,  5 Nov 2024 20:57:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730840270;
-	bh=DYfBBj3JaDu67bf4HxYtGzC1oE1D8X/KxacexvlRTs8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=EEGT/NDigZAvieG+NbZ8bVmafnVdv5lQeTu46psHu8LRVQRAKknpPRZj7ox36oM+a
-	 QKCPkZYpWKK474piUG0cn5aVOARWAqhjMFdLIcPR0BVAhlStmLCNxfpXTHfB3FkpsQ
-	 aPZcOQQ+eU9bk+xj1gemiNL3JxKskhArqKP8OtrwLAIvMzRynQ7UMEHJlTI96+dm7g
-	 diX1CzAbC0FSW/Z8/wJAR08KPjX33v6jNGRFT5oF9xE1kg2dB1tthQlhZ9ISslpwgo
-	 Z7p5trRutiezgh5W7pXT6zX02+PhE11Wn9bU2gN6jIwiMlQ1nr31LkuzKDsecu3jPD
-	 fKv0Nsq6LrHaQ==
-Date: Tue, 5 Nov 2024 14:57:48 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
-	Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via
- PCIE_RSTB for Airoha EN7581 SoC
-Message-ID: <20241105205748.GA1484220@bhelgaas>
+	id 1t8QfB-00000000oAn-1QXJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 21:00:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=V+vyhukru1uIeE+kCfGRSTvksfHKtqzKauF6SWXFu/M=; b=EMLOHdhRqzpI6dSuwpLRH3iGqb
+	RGYoKlpFPRnoA/Fh6kyX2tOZFXigDkaI5v/cE074EzYFnfmnOMeNfPJezJL1wdDi/FPpPP9frAKCr
+	V+sL7N38ufFpzmbopw4WvkugHzE9+gEX7oFn7DqYGOYhAWj42L4FDV34AIZoEZw7j4q8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t8Qex-00CFpl-6A; Tue, 05 Nov 2024 22:00:19 +0100
+Date: Tue, 5 Nov 2024 22:00:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, vigneshr@ti.com, horms@kernel.org,
+	jan.kiszka@siemens.com, diogo.ivo@siemens.com, pabeni@redhat.com,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix 1 PPS sync
+Message-ID: <6a230b28-9298-410b-b873-21000af4c0f3@lunn.ch>
+References: <20241028111051.1546143-1-m-malladi@ti.com>
+ <20241031185905.610c982f@kernel.org>
+ <7c3318f4-a2d4-4cbf-8a93-33c6a8afd6c4@ti.com>
+ <20241104185031.0c843951@kernel.org>
+ <e5c5c9ba-fca1-4fa3-a416-1fc972ebd258@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZypgYOn7dcYIoW4i@lore-desk>
+In-Reply-To: <e5c5c9ba-fca1-4fa3-a416-1fc972ebd258@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_125752_148396_28A7FFFE 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20241105_130033_422320_5ABB855F 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +77,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 07:13:52PM +0100, Lorenzo Bianconi wrote:
-> > On Mon, Nov 04, 2024 at 11:00:05PM +0100, Lorenzo Bianconi wrote:
-> > > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> > > causing occasional PCIe link down issues. In order to overcome the
-> > > problem, PCIE_RSTB signals are not asserted/released during device probe or
-> > > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-> > > (0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
-> > > module.
-> > > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> > > specify per-SoC capabilities.
-> > 
-> > Where does this alternate way of doing reset (using REG_PCI_CONTROL
-> > and REG_RESET_CONTROL) happen?  Why isn't there something in this
-> > patch to use that alternate method at the same points where
-> > PCIE_PE_RSTB is used?
-> 
-> REG_RESET_CONTROL (0x834) is already asserted/released in the following flow:
-> 
-> mtk_pcie_en7581_power_up() -> reset_control_bulk_deassert() -> en7523_reset_update()
-> https://github.com/torvalds/linux/blob/master/drivers/clk/clk-en7523.c#L470
-> 
-> REG_PCI_CONTROL (0x88) is already asserted/released in the following flow:
-> mtk_pcie_en7581_power_up() -> clk_bulk_enable() -> en7581_pci_enable()
-> https://github.com/torvalds/linux/blob/master/drivers/clk/clk-en7523.c#L385
+> > I think you need to write a custom one. Example:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/meta/fbnic/fbnic_time.c#n40
+> Ok thank you. I will add custom function for this and update the patch.
 
-So IIUC, you're saying that on EN7581, the PCI hierarchy is reset by
-the soc->power_up() callback, mtk_pcie_en7581_power_up(), via
-REG_PCI_CONTROL and REG_RESET_CONTROL.
+Maybe look around and see if they could be reused by other drivers. If
+so, they should be put somewhere central.
 
-I assume the hierarchy is also reset by the non-EN7581 .power_up()
-callback, mtk_pcie_power_up()?
-
-And prior to this patch, we reset the hierarchy *again* in
-mtk_pcie_startup_port() via PCIE_RST_CTRL_REG, but this causes
-occasional "link down" issues because of a EN7581 hardware defect.
-
-So for EN7581, this patch skips the PCIE_RST_CTRL_REG reset in
-mtk_pcie_startup_port().
-
-.power_up() and mtk_pcie_startup_port() are used both at probe time
-and in mtk_pcie_resume_noirq().  So after this patch, I assume:
-
-  - EN7581 resets the hierarchy once at probe and resume instead of
-    twice.
-
-  - Non-EN7581 resets the hierarchy twice at probe and resume.
-
-I assume I'm missing something (maybe mtk_pcie_power_up() doesn't
-actually reset the hierarchy?) because I don't see why we would reset
-the hierarchy twice for either controller.
-
-Bjorn
+	Andrew
 
