@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80267D2B922
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 13:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A406AD2B924
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 13:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75q/2uNG5GagGmLcNKTZ1yzr7sxiIzgwwHQnedOpfWM=; b=ztjHy+01h2eKG3791aUbpMkbiI
-	canmvfplZ8B71+Eml6VKf80QGKbWc/UK0iyoHAelS68RMIVy4PifY1cnss1aCAU9F0LEWye9Lbbzm
-	qprynMoVsCrJxMP9LTNrWUQ/M1+iV+SS+op6O96HnsWRq8KukcKznEiVCrn1LOLVLjm8jtcJdd/2+
-	t2xI11qf9ndujQIny2WK5o+m9mOQgTYbYLu1vxDWiXSkT3zpmiZ58kVxp2TI9JZ04eysLrVjC/qBp
-	sZvg3xI2xtk6h2zs4qcMYoTgrwsb2QjopLIhIYelEuRWLChWVgScxfwXvokb5n0tGgTIOBq0fSunv
-	LecpVNhw==;
+	bh=zHPsY22RZLm2u4TaRI78rg0dJ6d7yv/4cPpkrnHj/ng=; b=ozmkUX4YnhGeTgvqqxMx9cp42P
+	KEUajGdgOcLCP9H5U6MbdeuFqQ+ikEhxUum1CA71w98GwZCIv+dZJOV4ZYCLRtCoL8y1DhhvYV5uL
+	IjCnJdfRp1fITJKunNQ5mjIMsVfC5ePm88Ictf03RlTiutTRvZwU6Y8U0YfnrTaAn+sV2YzzYvOC0
+	nZEPMGh7WK1HnduDM2A/H4rUJA04GPFoPpJT3u/ZlZuBRwQpHXsnHlgXCCVXL+vY206txyy1itenE
+	E+6zW2DfpdRP5W39zUeV7zpCjsnb5pp/3DyZzPS82IctJUmWYgRT7xQphnLFN6zoJu7FQSUoxqRkS
+	Dabtpxjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8JP4-0000000H5v6-47cq;
-	Tue, 05 Nov 2024 13:15:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8JQm-0000000H6C3-2dup;
+	Tue, 05 Nov 2024 13:17:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8JLc-0000000H5Ie-3H9b
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 13:11:54 +0000
+	id 1t8JLe-0000000H5Iy-1RZr;
+	Tue, 05 Nov 2024 13:11:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F32A6A43113;
-	Tue,  5 Nov 2024 13:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7003BC4CECF;
-	Tue,  5 Nov 2024 13:11:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2EDD1A43103;
+	Tue,  5 Nov 2024 13:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CF6C4CECF;
+	Tue,  5 Nov 2024 13:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730812311;
-	bh=RYg+9qoXpk0RokLOPEoCGkpTdaXIFEcqm0AEAZENBdQ=;
+	s=k20201202; t=1730812313;
+	bh=YLhgQZ3b+mFAPUPLHhQeQ8GMwm71ZLQrV9L93ZPAORQ=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=swMixeWMT1ATI82pRRWTfM3zNiWmq7gl/GYDRojGy9pBeGOWk1PdIHp0O1OrmNUIz
-	 dQBMgRGLU0hOnG7dHTiL8Sa+t5zORsYCwOtDcNdG8JVqtbuZ85DcM7xnZfjnotDA2W
-	 dtTBEauhULhtAiUMHzM6p4YfC4UDCXBhXeMF8PizeK6maCe+QQF9bExxjrCEZz91G4
-	 KtA4ZYe8+RkPewLTEBB1aweoPQLo8AHp2kdWjBLNdhbmkNQzGLfxRR50W9N4bOzRJl
-	 n9wG0OeOZMpT2HnB0wN82rZopMqr4AFlarYKjcBgeZ24ZxT2ibpff1y8Jz5n22DJjq
-	 q+SVhtMffhLHA==
-Date: Tue, 05 Nov 2024 07:11:49 -0600
+	b=RrzUDFWt0w5l32h+Uy7elEVAgw68JdhSpYDfdMV3KY2uJ4Ls7I0phvNxWQB30fTWO
+	 A7U6GZ3fAmCE87bfqvEOphawsVxp/yymop9vR2zpOmz8aDR6xfEM/idR9iWfJsPE+W
+	 lwHQaTmr5vHjnLy2jazMt/dmvINXtSMnQbq7ViPstKAlx9StC2ZYoUbaXleDKymMT0
+	 7xOiAeTiNKCEdLWHdWmxsA+fEmRm2muOnb87dNgmTsUU7tIfP02Xuc+rYaIECqRqiy
+	 wsXuozXTVrCIohRxH5BBsuUVnebqqrygJ/TL8R7Rlvdrv/orzwpKmmtLK7MeYQmJEL
+	 3y+bpj6d6GD4A==
+Date: Tue, 05 Nov 2024 07:11:51 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Heiko Schocher <hs@denx.de>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Mathieu Othacehe <m.othacehe@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Hiago De Franco <hiago.franco@toradex.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Joao Paulo Goncalves <joao.goncalves@toradex.com>, 
- Shawn Guo <shawnguo2@yeah.net>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, 
- Gregor Herburger <gregor.herburger@ew.tq-group.com>, 
- Max Merchel <Max.Merchel@ew.tq-group.com>, imx@lists.linux.dev, 
- Fabio Estevam <festevam@gmail.com>, linux-gpio@vger.kernel.org, 
- Michael Walle <mwalle@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
- Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org
-In-Reply-To: <20241105064206.43626-1-hs@denx.de>
-References: <20241105064206.43626-1-hs@denx.de>
-Message-Id: <173081219627.3053080.8796298549026571114.robh@kernel.org>
-Subject: Re: [PATCH v3 0/3] arm64: dts: imx8mp: add support for the ABB SoM
- and carrier
+To: Fei Shao <fshao@chromium.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+In-Reply-To: <20241105093222.4055774-1-fshao@chromium.org>
+References: <20241105093222.4055774-1-fshao@chromium.org>
+Message-Id: <173081219726.3053098.16931220466079803577.robh@kernel.org>
+Subject: Re: [PATCH v2 0/2] Add device tree for MT8188-based Chromebook
+ "Ciri"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_051152_971252_E32B139F 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20241105_051154_558408_F3766D32 
+X-CRM114-Status: GOOD (  32.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +77,104 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 05 Nov 2024 07:42:03 +0100, Heiko Schocher wrote:
-> The board uses an ABB specific SoM from ADLink, based on NXP
-> i.MX8MP SoC. The SoM is used on 3 different carrier boards,
-> with small differences.
+On Tue, 05 Nov 2024 17:30:11 +0800, Fei Shao wrote:
+> Hi maintainers,
 > 
-> series is based on:
-> 819837584309 - (tag: v6.12-rc5, origin/master, origin/HEAD) Linux 6.12-rc5
+> This is the v2 series to introduce the device trees for Ciri, a
+> MT8188-based Chromebook, commercially known as the Lenovo Chromebook
+> Duet (11", 9).
 > 
-> patches are now checked with
+> Ciri is a detachable device based on the ChromeOS Geralt reference
+> design, where Geralt is the codename for the MT8188 platform. Ciri has 8
+> SKUs to accommodate the combinations of second-source components,
+> including audio codecs, speaker amplifiers, and MIPI-DSI panels.
 > 
-> make W=1 dt_binding_check
-> make W=1 dtbs_check
-> make W=1 CHECK_DTBS=y {for each dtb introduced in this series)
+> The Geralt design is not used in any actual products, so its device tree
+> is not included.
 > 
-> as Krzysztof suggested.
+> The device trees are taken from the ChromeOS downstream v6.1 kernel,
+> ported to the mainline kernel and with cleanups. This series aims to
+> provide a basic device tree with the enabled components and features.
+> Additional support will be added in the future after validation with
+> the mainline kernel.
 > 
-> Changes in v3:
-> added Reviewed-by from Krzysztof
-> - worked in comments from Krzysztof
->   gpio-line-names should match the actual number of
->   gpios of the device.
-> - added comments from Shawn Guo
->   removed unneeded new lines
->   sort nodes, properties alphabetical
->   rename pcie0-refclk -> clock-xxx
->   used GPIO_ACTIVE_HIGH instead of 0
-> - added comments from Fabio Estevam
->   instead of settting each brightness-level in
->   brightness-levels add num-interpolated-steps
-> - changes from me
->   fix gpio-line-names for semtech gpio controller
->   in imx8mp-aristainetos3-proton2s.dts as patch
->   "dt-bindings: pinctrl: sx150xq: allow gpio line naming"
->   of this series adds the dtb checks for them and 17 entries
->   needed now.
+> This series has been tested on top of the next-20241018 branch.
+> 
+> Patch 1 adds entries for Ciri in the MediaTek DT binding.
+> Patch 2 adds the dtsi files for Geralt and Ciri, followed by 8 dts files
+> for all the available Ciri SKUs at this moment.
+> 
+> Note that there are some known dtbs_check warnings:
+> - sound: Unevaluated 'mediatek,adsp' property
+>     >> see [1] for the fix
+> - amplifier: '#sound-dai-cells' does not match any of the regexes
+>     >> see [2] for the fix
+> - dp-tx: '#sound-dai-cells' does not match any of the regexes
+>     >> see [3] for the fix
+> - audio-codec: 'interrupts-extended' does not match any of the regexes
+>     >> see [4] for the fix
+> - pmic: 'compatible' is a required property; 'adc', 'mt6359codec',
+>   'mt6359rtc' do not match any of the regexes
+>     >> see [5] for the fix
+> - amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+>     >> ti,tas2781 binding specifies that ti,tas2563 register range is
+>        0x4c-0x4f. The DT follows what the binding literally suggests.
+>        I tried changing the binding locally but didn't help.
+> 
+> [1]:
+> https://lore.kernel.org/all/20241105091246.3944946-1-fshao@chromium.org/
+> [2]:
+> https://lore.kernel.org/all/20241105091513.3963102-1-fshao@chromium.org/
+> [3]:
+> https://lore.kernel.org/all/20241105090207.3892242-1-fshao@chromium.org/
+> [4]:
+> https://lore.kernel.org/all/20241105091910.3984381-1-fshao@chromium.org/
+> [5]:
+> https://lore.kernel.org/all/20241004030148.13366-2-macpaul.lin@mediatek.com/
+> 
+> [v1]:
+> https://lore.kernel.org/all/20241025110111.1321704-1-fshao@chromium.org/
+> 
+> Regards,
+> Fei
 > 
 > Changes in v2:
-> reworked the compatible strings for ABB imx8mp based boards
-> called dtb checks, no errors for this patch
-> patch dt-bindings: pinctrl: sx150xq: allow gpio line naming new in v2
-> - worked in comments from Krzysztof
->   - removed unneeded dtbos and build now dtbs for each
->     carrierboard.
->   - removed user spidev entries, as I do not know the
->     real spi devices connected to...
->   - call dtb check targets as described in cover letter
->     and fixed warnings except warnings see below:
-> not fixed dtb check warnings
-> - pci (warning pops up for each new dtb from this patch, but
->   also for a lot of other boards, which are already in tree)
-> imx8mp-aristainetos3-adpismarc.dtb: pcie-ep@33800000: reg: [[864026624, 4194304], [402653184, 134217728]] is too short
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
-> imx8mp-aristainetos3-adpismarc.dtb: pcie-ep@33800000: reg-names: ['dbi', 'addr_space'] is too short
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
-> - proton2s dtb specific:
->   - rs485
->     imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: rs485-rts-delay:0: 0 is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
->     imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: rs485-rts-delay:1: 0 is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
->     imx8mp-aristainetos3-proton2s.dtb: serial@30a60000: Unevaluated properties are not allowed ('linux,rs485-enabled-at-boot-time', 'rs485-rts-active-low', 'rs485-rts-delay' were unexpected)
->         from schema $id: http://devicetree.org/schemas/serial/fsl-imx-uart.yaml#
->     do not see, what I am doing wrong, also rs485 works fine
->   - led driver
->     imx8mp-aristainetos3-proton2s.dtb: /soc@0/bus@30800000/i2c@30a30000/tlc59108@40: failed to match any schema with compatible: ['ti,tlc59108']
->     I use the comaptible entry used in drivers/leds/leds-tlc591xx.c
->     Ah, may because file
->     Documentation/devicetree/bindings/leds/leds-tlc591xx.txt
->     is not converted to yaml?
->   - pinctrl driver
->     adding 'gpio-line-names' leads in a warning as this property
->     is not checked yet (and so a warning is dropped).
->     add this check in new patch
->     dt-bindings: pinctrl: sx150xq: allow gpio line naming
->     in v2
+> - remove invalid or undocumented properties
+>     e.g. mediatek,dai-link, maxim,dsm_param_name etc.
+> - remove touchscreen as the driver is not yet accepted in upstream
+> - update sound DAI link node name to match the binding
+> - add missing pinctrls in audio codec nodes
 > 
-> Heiko Schocher (3):
->   dt-bindings: arm: fsl: Add ABB SoM and carrier
->   dt-bindings: pinctrl: sx150xq: allow gpio line naming
->   arm64: dts: imx8mp: add aristainetos3 board support
+> Fei Shao (2):
+>   dt-bindings: arm: mediatek: Add MT8188 Lenovo Chromebook Duet (11", 9)
+>   arm64: dts: mediatek: Introduce MT8188 Geralt platform based Ciri
 > 
->  .../devicetree/bindings/arm/fsl.yaml          |    9 +
->  .../bindings/pinctrl/semtech,sx1501q.yaml     |   43 +
->  arch/arm64/boot/dts/freescale/Makefile        |    5 +
->  .../imx8mp-aristainetos3-adpismarc.dts        |   37 +
->  .../imx8mp-aristainetos3-helios-lvds.dtso     |  113 ++
->  .../freescale/imx8mp-aristainetos3-helios.dts |   98 ++
->  .../imx8mp-aristainetos3-proton2s.dts         |  161 +++
->  .../imx8mp-aristainetos3a-som-v1.dtsi         | 1107 +++++++++++++++++
->  8 files changed, 1573 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-adpismarc.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios-lvds.dtso
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-helios.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
+>  .../devicetree/bindings/arm/mediatek.yaml     |   13 +
+>  arch/arm64/boot/dts/mediatek/Makefile         |    8 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   11 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   60 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   56 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   15 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   43 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   73 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   69 +
+>  .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   47 +
+>  .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |  397 +++++
+>  .../boot/dts/mediatek/mt8188-geralt.dtsi      | 1492 +++++++++++++++++
+>  12 files changed, 2284 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
 > 
 > --
-> 2.20.1
+> 2.47.0.277.g8800431eea-goog
 > 
 > 
 > 
@@ -206,9 +194,184 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y freescale/imx8mp-aristainetos3-adpismarc.dtb freescale/imx8mp-aristainetos3-helios.dtb freescale/imx8mp-aristainetos3-proton2s.dtb' for 20241105064206.43626-1-hs@denx.de:
+New warnings running 'make CHECK_DTBS=y mediatek/mt8188-geralt-ciri-sku0.dtb mediatek/mt8188-geralt-ciri-sku1.dtb mediatek/mt8188-geralt-ciri-sku2.dtb mediatek/mt8188-geralt-ciri-sku3.dtb mediatek/mt8188-geralt-ciri-sku4.dtb mediatek/mt8188-geralt-ciri-sku5.dtb mediatek/mt8188-geralt-ciri-sku6.dtb mediatek/mt8188-geralt-ciri-sku7.dtb' for 20241105093222.4055774-1-fshao@chromium.org:
 
-arch/arm64/boot/dts/freescale/imx8mp-aristainetos3-proton2s.dtb: /soc@0/bus@30800000/i2c@30a30000/tlc59108@40: failed to match any schema with compatible: ['ti,tlc59108']
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: sound: Unevaluated properties are not allowed ('mediatek,adsp' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/mediatek,mt8188-mt6359.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: syscon@10006000: power-controller:power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt8195-scpsys.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: power-controller: power-domain@15:power-domain@16:power-domain@29:power-domain@30: Unevaluated properties are not allowed ('power-domain@31', 'power-domain@32' were unexpected)
+	from schema $id: http://devicetree.org/schemas/power/mediatek,power-controller.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: pmic: regulators: 'compatible' is a required property
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: pmic: 'mt6359codec', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: mailbox@10320000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: mailbox@10330000: 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/mailbox/mediatek,gce-mailbox.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: amplifier@38: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: amplifier@39: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: audio-codec@19: 'interrupts-extended' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/everest,es8326.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: amplifier@38: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: amplifier@39: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: audio-codec@19: 'interrupts-extended' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/everest,es8326.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: audio-codec@19: 'interrupts-extended' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/everest,es8326.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+	from schema $id: http://devicetree.org/schemas/sound/ti,tas2781.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+	from schema $id: http://devicetree.org/schemas/sound/ti,tas2781.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: audio-codec@19: 'interrupts-extended' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/everest,es8326.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: amplifier@38: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+	from schema $id: http://devicetree.org/schemas/sound/ti,tas2781.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: amplifier@39: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: amplifier@4f: reg:0:0: 79 is greater than the maximum of 63
+	from schema $id: http://devicetree.org/schemas/sound/ti,tas2781.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: amplifier@38: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: amplifier@39: '#sound-dai-cells', 'sound-name-prefix' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/sound/maxim,max98390.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: jpeg-decoder@1a040000: iommus: [[141, 685], [141, 686], [141, 690], [141, 691], [141, 692], [141, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: jpeg-decoder@1a040000: iommus: [[141, 685], [141, 686], [141, 690], [141, 691], [141, 692], [141, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: jpeg-decoder@1a040000: iommus: [[139, 685], [139, 686], [139, 690], [139, 691], [139, 692], [139, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: jpeg-decoder@1a040000: iommus: [[139, 685], [139, 686], [139, 690], [139, 691], [139, 692], [139, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: jpeg-decoder@1a040000: iommus: [[139, 685], [139, 686], [139, 690], [139, 691], [139, 692], [139, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: jpeg-decoder@1a040000: iommus: [[141, 685], [141, 686], [141, 690], [141, 691], [141, 692], [141, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: jpeg-decoder@1a040000: iommus: [[139, 685], [139, 686], [139, 690], [139, 691], [139, 692], [139, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: jpeg-decoder@1a040000: iommus: [[141, 685], [141, 686], [141, 690], [141, 691], [141, 692], [141, 693]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-jpeg-decoder.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: dp-tx@1c600000: '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/display/mediatek/mediatek,dp.yaml#
 
 
 
