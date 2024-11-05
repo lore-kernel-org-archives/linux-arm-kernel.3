@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A19FD2B931
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15242D2B931
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvID57YmT4JMAq1iUTs3WtirP/sKV5Z6AefJvN/SSYM=; b=b6JWMcze+QwvGn4layf+fd5A6D
-	vzjaDfyfYT4yuZjag049yx+7bHHPKqTLX7BvF3tJduNyt7ctuqWAgeg6vf/jL+qDJHHX3EPh79huV
-	DsSmu7npdL+2X6ZYV4o5x8rXGzZ9WwxuedBpFgaeY2OpUQq63ainr6diDy+1CbKHoAF9S1mMH9N4h
-	qnXykSU+oBv7i1D/fDCGH0ovQdV3X6ONaJwZwSC7ny5MhJAw8sByE9ZfrJOzd+ZS3tDEIqHtzC/cd
-	CGwrMa7xYm6Zkri35Af9wK06FY+TR+pIdVLyDqMWjokTihYED4uGs8wOTlm4oMEg638nb7S0sS9TE
-	ohuuEsRA==;
+	bh=5w3lqEU7gUm0F3BOVXz2/65o7sBdt+XmCCpMe1M+kps=; b=1h7rsRPnYabfrTLCzqnoRAKaxV
+	6UCcHVckNBEh/lsz0+YES7kItERISvN9Oqybgg4xMFE23xdxwpRzMv+X/mEAKsO5rw7Ob/JV0nQOG
+	v4FZn+H91of1q/nBf1/q75uSDfa0zrD1Gxxbfx7IBDeGlrcsWTkg+ynPlDMqB/ybX81Lr8NYbx436
+	KYHAj44bcLhxJC+mNaEY14Q6zE4BllbmJFD1km1COo/FIXbWJss/cn8X7aQQXh3u/SyjAxdyDVQ+w
+	lXTzQhBOImIjxJazQWc9jWPBsYowS3aI+jIzfgsF2KcEtKX2F5d0zF9ldv/rPVY2XPzBaqDWkugLE
+	WUNvC7YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KbK-0000000HH8a-01bz;
-	Tue, 05 Nov 2024 14:32:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8Kbi-0000000HHSq-07L7;
+	Tue, 05 Nov 2024 14:32:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8K5L-0000000HC7Z-0iDB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 13:59:08 +0000
+	id 1t8KIs-0000000HDns-0Mzy;
+	Tue, 05 Nov 2024 14:13:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 06DEEA43218;
-	Tue,  5 Nov 2024 13:57:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB48CC4CECF;
-	Tue,  5 Nov 2024 13:59:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9B47BA432A0;
+	Tue,  5 Nov 2024 14:11:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC80EC4CECF;
+	Tue,  5 Nov 2024 14:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730815145;
-	bh=CvID57YmT4JMAq1iUTs3WtirP/sKV5Z6AefJvN/SSYM=;
+	s=k20201202; t=1730815984;
+	bh=o6Aw4cLXm/9l1y3eKvOCg9DO8JdisefQjjjqhLByyZI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SSc7j3I52dEaIwkDTn4ibAs0yL+sm1AUrdjsS5Foqi9CmitafJ0rmhkf8jgCLxDXv
-	 JLp2feUIvpp46K7GRII8y6DO1tvcztO0PFZdYUO5QMD3JD+SLVUz8OV0x0Z9jVBf+f
-	 dmc3hj4qkNab24foZVua9aC+kSzagud5ic/jNuGnRdZoG7bdTbZcIf8P4Z3GRHHPmX
-	 XfakUYr4UNG+yHNjgD6pu0ezdfKWFokPuu9x/Ww3WifZ6ghk4OhXiM7HuHM1BsulUx
-	 w8a8iXOrjgTucQAuuy+8372ySxPYNQ7IvnRIDd4kLjMwMmySgyIhaa/qX+/TgU8PbQ
-	 KYmLvcj2Zt7WQ==
-Date: Tue, 5 Nov 2024 13:59:00 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Nick Chan <towinchenmi@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 1/3] dt-bindings: spi: apple,spi: Add binding for
- Apple SPI controllers
-Message-ID: <722dbc29-3d37-4043-a0c1-f99ac1ceaa80@sirena.org.uk>
-References: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
- <20241105-asahi-spi-v4-1-d9734f089fc9@jannau.net>
+	b=of0sFt/wAowGigdCPNv+Qea29vcJbSjXU1qgp5ubsj1sJS6/DQVQ+8QGa+TB1Pvcj
+	 3KHR91v+HxumeQaBEK7eNhyAE/cEfVyZnKYq1uRRStbXwuprBPPeqvifajQoLfTYcb
+	 wzFnE5jb/xi84kZQ4d8JziHC1yP9uv51JVP6dXhE8wF4lBr5CUnw/IF2XCCUyYfHXt
+	 amKoZpY00RwnEyxZWIYoMlhl1iB22FCEufEBNZZsLdu4hU68Xax0WtDgROIhhUwhk4
+	 HORpbbOBekQGbYrXFpPyneK8ZeFZFm/0fCkUXvAwH1GWTBsvlrLn2pS4MLwLToCslW
+	 vKbz2bcZ0L43A==
+Date: Tue, 5 Nov 2024 15:13:00 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Cc: rmk@dyn-67.arm.linux.org.uk, max.schwarz@online.de, 
+	dianders@chromium.org, david.wu@rock-chips.com, heiko@sntech.de, vz@mleia.com, 
+	wsa@kernel.org, manabian@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] i2c: pxa: Add check for clk_enable() and
+ clk_prepare_enable()
+Message-ID: <pyutqiut5yascxkwrv5ozrwdbmb4k4n2vu5jiia3fpgkra4up2@u7nvqpdscb4n>
+References: <20241104214310.6048-1-jiashengjiangcool@gmail.com>
+ <20241104214310.6048-2-jiashengjiangcool@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="D7mzdCilsziPoams"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241105-asahi-spi-v4-1-d9734f089fc9@jannau.net>
-X-Cookie: I'll be Grateful when they're Dead.
+In-Reply-To: <20241104214310.6048-2-jiashengjiangcool@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_055907_297590_B271C276 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20241105_061306_211002_CEC90682 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jiasheng,
 
---D7mzdCilsziPoams
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Mon, Nov 04, 2024 at 09:43:09PM +0000, Jiasheng Jiang wrote:
+> Add check for the return values of clk_enable() and clk_prepare_enable()
+> in order to catch the potential exceptions.
+> 
+> Fixes: e7d48fa2b5fb ("[I2C] pxa: provide late suspend and early resume hooks")
+> Fixes: c3cef3f3c07b ("[ARM] pxa: update pxa i2c driver to use clk support")
 
-On Tue, Nov 05, 2024 at 09:08:29AM +0100, Janne Grunau wrote:
-> From: Hector Martin <marcan@marcan.st>
->=20
-> The Apple SPI controller is present in SoCs such as the M1 (t8103) and
-> M1 Pro/Max (t600x). This controller uses one IRQ and one clock, and
-> doesn't need any special properties, so the binding is trivial.
+I don't think we need the fixes tag here and nowhere else in this
+series.
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> ---
+>  drivers/i2c/busses/i2c-pxa.c | 14 ++++++++++++--
+>  1 file changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
+> index 4d76e71cdd4b..1118a7f5c6bf 100644
+> --- a/drivers/i2c/busses/i2c-pxa.c
+> +++ b/drivers/i2c/busses/i2c-pxa.c
+> @@ -1503,7 +1503,11 @@ static int i2c_pxa_probe(struct platform_device *dev)
+>  				i2c->adap.name);
+>  	}
+>  
+> -	clk_prepare_enable(i2c->clk);
+> +	ret = clk_prepare_enable(i2c->clk);
+> +	if (ret) {
+> +		dev_err(&dev->dev, "failed to enable clock: %d\n", ret);
 
---D7mzdCilsziPoams
-Content-Type: application/pgp-signature; name="signature.asc"
+please use dev_err_probe here.
 
------BEGIN PGP SIGNATURE-----
+Thanks for your patch.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcqJKMACgkQJNaLcl1U
-h9Clfgf+Pd2KCID4TdGn0iOZF2Js93e/8eeKynPSfYIathQZJzS1VgjiVV/2A4ed
-Pu2SpxxqQG93EebMnNm6MA+c9kR2ser/EC5Ty/9erPPkdFXPwiXIo260oxsdqmXz
-oJXob3jksOe5Zr+1jCksNjlpviRHrhToRqcJPPoLV5wWbmW20Uz9FAPKH/aMje7U
-QgLKNoIAISZGl2eKjjARFFIKmjtHxUQgbgmUTAncnGulmjlqFm3TWenZCFx7Scpf
-Ep5+910xQiNSfnQNmNGBPO+O6/VHRicXGUm7nWrCSAaghmOwdVDT231ELjxfY+Fm
-EXjZTcdv82Xqb6t4/J3wrJsgTBSqQw==
-=iEeU
------END PGP SIGNATURE-----
-
---D7mzdCilsziPoams--
+Andi
 
