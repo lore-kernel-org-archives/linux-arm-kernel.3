@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C777DD12663
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9319D12660
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0SEXjer4NUU2DKUJapl8bqAlE+SwlDXXIr03qjV7WU=; b=CxkPHtzwHyKPemrwEg2T2Y0EhV
-	yXSa7QsuwJgx8QxcBPRMmE8xabhTVxiD5Grbl9I2wEcuLRri+xQqjT7nt+qESsGI/pGiBUh7c52JV
-	/q34DF/blp7CWZIL0bcT4nJNbbh1v04ScC6W8Klrax0wEd5zVRYhohWjsA6qRLjAxdQYfszrLU5Q6
-	2/wC1rU4h7vmbNyaF/9NED3xLPX7yL48M+mgSqHVmXy+x0TWEZgs935cVOXHGbcPp3FXZ9ZPMJ5T9
-	rYiwJwedcwj8x6hFbbVkI9E6cyg0qX6PfMsBwoF2GJ54CZLGAE0fwLgyeuh2xOVHTcrzli97ZxK9F
-	6EmHrrjQ==;
+	bh=UMjisKeEpQSwI1Wvbjb6PN1AjDm43YkTXsgIuNYi82g=; b=EbWqjfLbO44rMfnr4sUpLWvzvs
+	h5sNEKRFBF9r3vqOHOXFKZnNaiGM4RFjLa3m6lI8RtMdS8YgxT3aN9Zo15GUyVfeGAi2HZqTc61TY
+	t/t8u+NUDorOXYAGgW24Yd9w2UsQB3vDE40aoaVm36kmii4zE/JRkod3lOtC0QrQU49fSIGqHtpeR
+	mUy6ivtQj7SKNNuKcf4NVjsdo1PBbF1ivZSI/E+B31uHdu0Ss6xBjtFYjYCFeqCHzpI6yvlMbXKcU
+	HFPLWMHAJBJ5GVbKmCQQeAdzQx6V+U2k/XQ6H39ia/OKoxlygSRhFysiW3ARnVv8+wFkrwALTfTCK
+	50wOoGhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Eb3-0000000GHMM-3R9V;
-	Tue, 05 Nov 2024 08:07:29 +0000
+	id 1t8Eck-0000000GHgA-07UF;
+	Tue, 05 Nov 2024 08:09:14 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EMN-0000000GEq2-41Ox
+	id 1t8EMc-0000000GEw6-2Cmv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 07:52:21 +0000
+	Tue, 05 Nov 2024 07:52:36 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A53M0JY005010;
-	Tue, 5 Nov 2024 08:52:12 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A53GSeY022439;
+	Tue, 5 Nov 2024 08:52:27 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	i0SEXjer4NUU2DKUJapl8bqAlE+SwlDXXIr03qjV7WU=; b=PVKwV3x5dgrvKDs4
-	CVTXpQti/lb4DAzxkkYtJA3QpfonI89d7Tv8JjurCZC8CrF75RC0dTzR4IQFMq5L
-	RmOlUVmlyodsdZ8cq24i3uURyZ24N3bLycByeNRtZKc69UHlmhvjGnNCzOqApGBJ
-	QhxB0x1QsG6rRSoG/knLu5EYecAJcRSYLA1610DQnS5gkvjlxwHwQM4safrKmxsp
-	ewJvEjhAVfrrRHIa1ic3B47udaD7WCkKL0YXYyIIswCgnnzpAI8foxrZM+UezxsB
-	Nq3TrYsN9MquOFYGwdKqFHWJI7u8v0ASo5NeGkxBqbu9sb81b4QfNsnswP5zGyxp
-	0tWsPA==
+	UMjisKeEpQSwI1Wvbjb6PN1AjDm43YkTXsgIuNYi82g=; b=SQSUSbUM2zkhZuws
+	PBy6S0AJewSp/6u3emy5wgWhSViEBlty0Wa9jCWGWeq3OnZTW+yDBQa5tdKRad+t
+	nhL/+BPn1tfwKUS9wVq7Z+5WnGo4lsSqpD1NX63G9FiXDzUIM61z8YTkdYksIgxp
+	MISSsopE+EBSc3bAYEArY8UYMiMf5UvK1byNc2zszl27ZiLCo9bvqkgIN/yiD0J5
+	DACOi5g36lZdDhU94mHYSYg2nhnO4ja2nWUQ3sxfW3VR6DWCJDKln4ohFJTLLcJ0
+	dT6WFF2mrB96vHBBXa5bRk/2av2m0Esa5r/tKbmUHE6V4uR2c6DnKLjO24EBt/UZ
+	kA2+bQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nxh3rnkd-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nxh3rnmj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 08:52:11 +0100 (CET)
+	Tue, 05 Nov 2024 08:52:27 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 07D3040056;
-	Tue,  5 Nov 2024 08:50:30 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D735C40052;
+	Tue,  5 Nov 2024 08:50:26 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9DA622513C4;
-	Tue,  5 Nov 2024 08:49:37 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2DBCA250FA5;
+	Tue,  5 Nov 2024 08:49:35 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:49:37 +0100
+ 2024 08:49:34 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 5 Nov 2024 08:49:18 +0100
-Subject: [PATCH v2 15/15] arm64: dts: st: enable imx335/csi/dcmipp pipeline
- on stm32mp257f-ev1
+Date: Tue, 5 Nov 2024 08:49:14 +0100
+Subject: [PATCH v2 11/15] media: stm32: dcmipp: fill media ctl hw_revision
+ field
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-csi_dcmipp_mp25-v2-15-b9fc8a7273c2@foss.st.com>
+Message-ID: <20241105-csi_dcmipp_mp25-v2-11-b9fc8a7273c2@foss.st.com>
 References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 In-Reply-To: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -90,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_235220_350021_087ED26D 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20241104_235234_887985_41EDB5CD 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,132 +106,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the camera pipeline with a imx335 sensor connected to the
-dcmipp via the csi interface.
+Add hw_revision field information of the media controller so that
+application can distinguish between variants of DCMIPP implementations.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-
 ---
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-v2:
-  - correct regulators & camera node names
-  - removal of powerdown property within imx335 node
-  - removal of useless status property within imx335 node
-  - correct imx335 reset-gpio polarity
----
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 85 ++++++++++++++++++++++++++++++
- 1 file changed, 85 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 214191a8322b81e7ae453503863b4465d9b625e0..d45851b3904d760f73298bf7b260f917b582db55 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -27,6 +27,38 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	clocks {
-+		clk_ext_camera: clk-ext-camera {
-+			#clock-cells = <0>;
-+			compatible = "fixed-clock";
-+			clock-frequency = <24000000>;
-+		};
-+	};
-+
-+	imx335_2v9: regulator-2v9 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "imx335-avdd";
-+		regulator-min-microvolt = <2900000>;
-+		regulator-max-microvolt = <2900000>;
-+		regulator-always-on;
-+	};
-+
-+	imx335_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "imx335-ovdd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	imx335_1v2: regulator-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "imx335-dvdd";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-always-on;
-+	};
-+
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x1 0x0>;
-@@ -50,6 +82,40 @@ &arm_wdt {
- 	status = "okay";
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 50b9b964fbc4674b870189736a49f1d6a02b2503..d2cc19bb40d77f67a1f5fe565bc62f45eff2d266 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -87,6 +87,7 @@ struct dcmipp_pipeline_config {
+ 	size_t num_ents;
+ 	const struct dcmipp_ent_link *links;
+ 	size_t num_links;
++	u32 hw_revision;
  };
  
-+&csi {
-+	vdd-supply =  <&scmi_vddcore>;
-+	vdda18-supply = <&scmi_v1v8>;
-+	status = "okay";
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		port@0 {
-+			reg = <0>;
-+			csi_sink: endpoint {
-+				remote-endpoint = <&imx335_ep>;
-+				data-lanes = <1 2>;
-+				bus-type = <4>;
-+			};
-+		};
-+		port@1 {
-+			reg = <1>;
-+			csi_source: endpoint {
-+				remote-endpoint = <&dcmipp_0>;
-+			};
-+		};
-+	};
-+};
-+
-+&dcmipp {
-+	status = "okay";
-+	port {
-+		dcmipp_0: endpoint {
-+			remote-endpoint = <&csi_source>;
-+			bus-type = <4>;
-+		};
-+	};
-+};
-+
- &ethernet2 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&eth2_rgmii_pins_a>;
-@@ -81,6 +147,25 @@ &i2c2 {
- 	i2c-scl-falling-time-ns = <13>;
- 	clock-frequency = <400000>;
- 	status = "okay";
-+
-+	imx335: camera@1a {
-+		compatible = "sony,imx335";
-+		reg = <0x1a>;
-+		clocks = <&clk_ext_camera>;
-+		avdd-supply = <&imx335_2v9>;
-+		ovdd-supply = <&imx335_1v8>;
-+		dvdd-supply = <&imx335_1v2>;
-+		reset-gpios = <&gpioi 7 (GPIO_ACTIVE_LOW | GPIO_PUSH_PULL)>;
-+
-+		port {
-+			imx335_ep: endpoint {
-+				remote-endpoint = <&csi_sink>;
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <594000000>;
-+			};
-+		};
-+	};
+ /* --------------------------------------------------------------------------
+@@ -122,11 +123,13 @@ static const struct dcmipp_ent_link stm32mp13_ent_links[] = {
+ 			MEDIA_LNK_FL_ENABLED | MEDIA_LNK_FL_IMMUTABLE),
  };
  
- &i2c8 {
++#define DCMIPP_STM32MP13_VERR	0x10
+ static const struct dcmipp_pipeline_config stm32mp13_pipe_cfg = {
+ 	.ents		= stm32mp13_ent_config,
+ 	.num_ents	= ARRAY_SIZE(stm32mp13_ent_config),
+ 	.links		= stm32mp13_ent_links,
+-	.num_links	= ARRAY_SIZE(stm32mp13_ent_links)
++	.num_links	= ARRAY_SIZE(stm32mp13_ent_links),
++	.hw_revision	= DCMIPP_STM32MP13_VERR
+ };
+ 
+ #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
+@@ -496,6 +499,7 @@ static int dcmipp_probe(struct platform_device *pdev)
+ 	/* Initialize media device */
+ 	strscpy(dcmipp->mdev.model, DCMIPP_MDEV_MODEL_NAME,
+ 		sizeof(dcmipp->mdev.model));
++	dcmipp->mdev.hw_revision = pipe_cfg->hw_revision;
+ 	dcmipp->mdev.dev = &pdev->dev;
+ 	media_device_init(&dcmipp->mdev);
+ 
 
 -- 
 2.25.1
