@@ -4,97 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B8DD3176B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A0FD31769
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wL1RRdJvbyow0/4Gx8okr/VQzPzKmrgzOSUtxcyZLw0=; b=vB8ucO5o12nl2IDUfx4yJAqx/q
-	By6c3KNGgAKAbb9tcBHocvgnvM8xUen2sCkExGZcK1cHgd3VIUKArh3jDdQmXAfLzJZ1NDHnZJEJr
-	/J7rsD0//mleu+Ma572RbPBBda9f08QJwJLyD91Vs7WteTKz6ArIU41mLap4pnIwMHOjp7FPkN51R
-	f9aayAR3Wa/KjjgmKi2MofCaP42qXFAM69xVNO2KYGHcYpkL0l815G15AZtBr+MP9/fOzp4i8jgYv
-	sFCAR4SolHrZNFMHHn9Oq8tkuDks2hUHr1Ymb8CDM5E3HXOGqHPU4zlYuALl5G+TcKrYXaKpR6A3u
-	hcr+iPvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SpVxQLLNLfLph3m6EIkv3r8u00CnaqvwEZ6ejt8Iwfo=; b=Dds7AFtTEzytEnsUPwt4+0RU88
+	VsTHf9SXwYm/WNmIJa4+441zfbDdEbM4hZQQOZ/bmhHymvhXzMY7ygQGvVmPoI1M/MDL9llqBEC3I
+	DMhKKgSQJRSgAiolSisxYKGSlXyXlg2Mu8WzUqOaQNDeFNaiYFgOesKlSSIweuH+8Kv71uPvqu2aJ
+	gccs6Rhc3AN15+gAle2Y1hSFWSJJzEOUALbeGeIKlWV9gGgQB21qvS0hk317eQtNt6NnqTh1GGh3Y
+	CnebHFv3iHlAa1FjKc3er1uZXgGR3oHeRxUiy7tlX5UWOhJfjnReXUjlCTuEItEX6H2iB4+d7jU8f
+	BXDvAqKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NSY-00000000ETR-1fvi;
-	Tue, 05 Nov 2024 17:35:18 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1t8NUE-00000000EhL-12kz;
+	Tue, 05 Nov 2024 17:37:02 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NQo-00000000EG2-4521
+	id 1t8NSD-00000000EOA-0PHz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 17:33:32 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539f6e1f756so6089250e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 09:33:30 -0800 (PST)
+	Tue, 05 Nov 2024 17:34:58 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e3686088c3so4159139a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 09:34:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730828009; x=1731432809; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=wL1RRdJvbyow0/4Gx8okr/VQzPzKmrgzOSUtxcyZLw0=;
-        b=znZjJhgwV6jrurXiDYyS1GJ+FoV4/v04/dAJLghke2FtfL5uBMn9t+A1T8Qa/Mo1t4
-         37u5YK0yxjHbqelR06oPgrWBaDt+KQ5T6TxOrmnFiFCKb4wqSvwQHpXUv5m+G73bH1ir
-         IutkLdMJ83jsIzsjxL6+OUr66AszK6JRvGlRS/WMa41tv17AlppdbMaKSBtSANcrZ0PU
-         0HV587KA/ZbZ3Mv2dtJuk+eEhxuoIubbsZiMibjLVGnQn8NR/P3Tlnrc1BB7F9Oa+9+W
-         3SKqA+kh7ToIcT8zin/eUak+4MCssfRhJ8unIWP323M1PYoD3hrzUnefm3Umtp7x8C6o
-         HIlQ==
+        d=9elements.com; s=google; t=1730828095; x=1731432895; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=SpVxQLLNLfLph3m6EIkv3r8u00CnaqvwEZ6ejt8Iwfo=;
+        b=TR4BlUgrs55t18Ac77C9glmlsIlAYuExp0ClgIW1PDhAAJkEsI+kxT/3l0C5gfLHpm
+         ucIxjdrs5xQUU3t1dJt/QL+NsQtnCZaj1w5ssY/gs0ebkSoRSPak7Uay4smn16QwykI7
+         WAIsCBLJyQH4KBLYjN4uDSZtYtAHqZqTpAi/F9dPf59DA94/iHL32b43Ve1eRtqhKobU
+         Rr1V7Xz1sBUVnd+4z+Jc6wxAd7YYMYpIOCgO4du7TGhFMvSvcQJBp41cpKHhKpCYjm7L
+         er6HE7rbGqbfB0dPJEA+RknAIqmSw97aQioKef1png4Qyae+Q1Oby4yoYWKoiHPefl7a
+         lfAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730828009; x=1731432809;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wL1RRdJvbyow0/4Gx8okr/VQzPzKmrgzOSUtxcyZLw0=;
-        b=nPbu8B2sbFW29d7J5cjlQ3Xp8w5egZg5YH55gQ0T/aySkBP7nMB6Pmlfsb2GsJziaj
-         SXXUV/cm6bHSbednBk0LjBMqHSa3YorHoUyGCuGDeJiKYHsqOXKmpJgHX34uV6767dAl
-         g7BxtNHRXBHGuWLeUgv7qfRnnFNsg4lEDdyx8lg89iptrmRVXXRzTCurJEpsOmXwmqCT
-         0aMyleN+ZgGjqq3S8Y/knCDHuei1qx60YcVc0OBdDjjJUFVlkTR/S+0H49subMKPZ6Mz
-         Bc1Kr8ch3OkdtYJCHQ/tPHfmgAX4lBEY0vQYT6XeJPNQl1jCzCJ1yeDQfNDmASL9dFmS
-         7PYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWmrT/8rwasyOd3qt/JhlmC+K1C+tWk/Fo8+co+77DlQGg6klpVORptEosXkSEIZoxxo8TXEJsRNPrLbM13NW7U@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaD/wilVOWQndEjGsnoQnR1E9aFuG7BDV+gblrozvY7oUW2Zez
-	I2gae36CyI3CpGxGmHdWMn1+q41QV18JfNuFA8/EypbtsyIq2lsW+Q9qoiGXMvI=
-X-Google-Smtp-Source: AGHT+IGi18Sva7NE2bGd9ATSS1dZp0tYBcKab71BKwIRnXTz0bTETPbOkVUJ2V8gRDOK6fT7ixUiNA==
-X-Received: by 2002:a05:6512:1307:b0:539:f886:31c6 with SMTP id 2adb3069b0e04-53b34a18f24mr19326836e87.38.1730828007874;
-        Tue, 05 Nov 2024 09:33:27 -0800 (PST)
-Received: from [127.0.0.1] (85-76-138-48-nat.elisa-mobile.fi. [85.76.138.48])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bdcbc3csm2221064e87.193.2024.11.05.09.33.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Nov 2024 09:33:26 -0800 (PST)
-Date: Tue, 05 Nov 2024 17:33:21 +0000
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maxime Ripard <mripard@kernel.org>
-CC: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Liu Ying <victor.liu@nxp.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
- maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- quic_jesszhan@quicinc.com, mchehab@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- catalin.marinas@arm.com, will@kernel.org, sakari.ailus@linux.intel.com,
- hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com,
- quic_bjorande@quicinc.com, geert+renesas@glider.be, arnd@arndb.de,
- nfraprado@collabora.com, thierry.reding@gmail.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de,
- biju.das.jz@bp.renesas.com
-Subject: =?US-ASCII?Q?Re=3A_=28subset=29_=5BPATCH_v5_00/13=5D_Add_ITE?=
- =?US-ASCII?Q?_IT6263_LVDS_to_HDMI_converter_support?=
-User-Agent: Thunderbird for Android
-In-Reply-To: <20241105-secret-seriema-of-anger-7acfdf@houat>
-References: <20241104032806.611890-1-victor.liu@nxp.com> <173080602214.231309.12977765173766280536.b4-ty@linaro.org> <20241105-secret-seriema-of-anger-7acfdf@houat>
-Message-ID: <CD810D31-F9C5-499D-86CF-B94BEF82449A@linaro.org>
+        d=1e100.net; s=20230601; t=1730828095; x=1731432895;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SpVxQLLNLfLph3m6EIkv3r8u00CnaqvwEZ6ejt8Iwfo=;
+        b=crL0Ck5oZWKpECyYwpL+sFS+yvpO0CJn35KgaeCRTBTStIuNN6gHE8AIhZFbwg2QQs
+         L743s18sYH4kCHc3Rp3S3xkarxR58fp9KcNzbdURC34TWrqopvvlYFXuvAnyM346hbWO
+         GmYAaYNd+w5LUTtJlRXqHtzqVMht7LhJ1kbpYoYsjrCn754rsKnonbMaQW25vDG/09Xz
+         mJxiSyaJanaUZxwKR4e56lz259JpoK71clRNHxtuc5+vm3SX0HyxKRKjBuVzfVpUsDJJ
+         DSaIGhD3WYcPt36Gf4ztx722SOLtqH7E9UwbPlgGKlqCBC2tR2M2tLhy3XAaijgkwLDy
+         FnKw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCFMIWweiPnz7d0QF42Jp1+6lFRWulMVnXFEtQPrIFgiU9K8/vAikKuNLfH6+zTXQipA0lp9B+LXZmqemvvDma@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHh7HlPQQvRwByKd6H/sO7vOzhMog6Vl3493GUhEjfPsFxvx1F
+	mhUo02WlENoVdeo490f1HKFHg8fodE4SIQN0UKU14zbl46dwZwo+998kDqpMPYJk/gZDH+/qHAr
+	0txoEipmrZhEMyYSIFVTYmCluz+sxPdHXjh2sQA==
+X-Google-Smtp-Source: AGHT+IH+bA1GiURFitv8kWYaSx/RW5cqeoyKLHZlSyIHFiiS2c0gxrHtSJy3vziWV/X5vWRNJ0DWzAshOtbMqV8BLE0=
+X-Received: by 2002:a17:90b:3581:b0:2e0:7b2b:f6a with SMTP id
+ 98e67ed59e1d1-2e92ce710a9mr24650088a91.17.1730828095207; Tue, 05 Nov 2024
+ 09:34:55 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
+ <20241104092220.2268805-2-naresh.solanki@9elements.com> <ac9698862598f0d09d35872d0e091537f822fbcd.camel@codeconstruct.com.au>
+ <CABqG17j8RhFpNV+nJ=nLY8+uO_XXjbN55+Ce8op=6Dj5Z=_WOA@mail.gmail.com> <7d9657ff-1c4a-4167-982a-9f07e7b51f77@roeck-us.net>
+In-Reply-To: <7d9657ff-1c4a-4167-982a-9f07e7b51f77@roeck-us.net>
+From: Naresh Solanki <naresh.solanki@9elements.com>
+Date: Tue, 5 Nov 2024 23:04:44 +0530
+Message-ID: <CABqG17i51TnPhAKKEAVYMXfqem9XWeNJuwzgLiYB81uCs0n91A@mail.gmail.com>
+Subject: Re: [PATCH v6 2/2] ARM: dts: aspeed: sbp1: IBM sbp1 BMC board
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	jdelvare@suse.com, sylv@sylv.io, linux-hwmon@vger.kernel.org, 
+	Joel Stanley <joel@jms.id.au>, Patrick Rudolph <patrick.rudolph@9elements.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_093331_055962_15A00A51 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20241105_093457_193760_09431FDA 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5 November 2024 16:13:26 GMT, Maxime Ripard <mripard@kernel=2Eorg> wrote=
-:
->On Tue, Nov 05, 2024 at 01:28:48PM +0200, Dmitry Baryshkov wrote:
->> On Mon, 04 Nov 2024 11:27:53 +0800, Liu Ying wrote:
->> > This patch series aims to add ITE IT6263 LVDS to HDMI converter on
->> > i=2EMX8MP EVK=2E  Combined with LVDS receiver and HDMI 1=2E4a transmi=
-tter,
->> > the IT6263 supports LVDS input and HDMI 1=2E4 output by conversion
->> > function=2E  IT6263 product link can be found at [1]=2E
->> >=20
->> > Patch 1 is a preparation patch to allow display mode of an existing
->> > panel to pass the added mode validation logic in patch 3=2E
->> >=20
->> > [=2E=2E=2E]
->>=20
->> Applied to drm-misc-next, thanks!
->>=20
->> [04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
->>         commit: 5205b63099507a84458075c3ca7e648407e6c8cc
+Hi Andrew, Guenter,
+
+@Andrew Shall I resend this patch series along with dependent
+dt-binding patches ?
+
+On Tue, 5 Nov 2024 at 21:17, Guenter Roeck <linux@roeck-us.net> wrote:
 >
->Where's the immutable branch Laurent asked for?
-
-The patch set has been picked up after getting an Ack from Sakari, before =
-Laurent's email=2E I am sorry if I rushed it in=2E
-
-
+> On 11/4/24 20:10, Naresh Solanki wrote:
+> [ ... ]
 >
->Maxime
+> >>  From a spot check, the warnings seem legitimate. Did you send the right
+> >> patches?
+> > Just checked again. They are resolved. But I guess the dtbinding patch
+> > for the above warning are merged in hwmon-next branch & not in dt/next
+> >
+>
+> Did I apply some patches which should have been applied elsewhere ?
+I think it should be fine.
 
+Regards,
+Naresh
+>
+> If so, please let me know, and I'll drop them.
+>
+> Guenter
+>
 
