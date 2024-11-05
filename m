@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0CAD3177B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6529DD3177B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QgTsReoaiEpOkyd8henLX224FFr8Bnzmqp3kECQu/8=; b=fsdgbNceirru0yBLyLmVkWqtoe
-	w7x9cJyfMsNnDq3l54vRUyt2XLbntVQzRB+CUyW34Efbf42oMQdxqyD3lPqhZj5WxLt3N7ESwtMYq
-	NJkCmu0Sh1z1dB2NZw+tuSfO4EaLlFinu3CEO5+N+TeB8v+PhVQCFFiLtbeCVO8d/Sll7yOieIZC9
-	NWMtrNnhCTZA1kt7zse+CY37/rS1JK/wzSJGRHB/hrivTZ4w7MSWEypSN/GeeZkibF+FisfX7YRIM
-	21QTQq/Al9u+N8eNaaCjq+dPPBPN2ae0RaPJqMFKTp9dkexPp2oGe/+UcUwy4+XH3rc+6TXZtKz/8
-	ChpPCyZA==;
+	bh=PLt1Ng3h3DOybqZ9j6JAkI9vGXELqWVzuQskNeMkCyU=; b=m7mWipLTFPcY1fKMi7XgKGhOnE
+	VgpGcYDr/yafIHs599zHiYCCecQl9VEsEbSlrj1693zS2xSAqlrErC8ovPBMKduC/XtjLORg2fuju
+	fUcmLhcXWxU3u/LBemwlFlXzz2G27dC232rCUv47jjoySTKINwfZJuOnYP1vWnmM+uiE5xnmKf6KW
+	VyHNa4Tpc6xmtfhBLjXoljIUtYbRz2WxnvI6p3A15NYDejZ3kdX2yVbHZQcngfY/Cqkixy5LoVzJm
+	wY4WvR3rzNYjcbeoYGvIOH7f89i2JiNh6lK+ejps9q9AhupXaCK6KsDzQEjCGz1bwBoSoASZjvYTr
+	vfggcxuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8O5I-00000000LOE-2bbJ;
-	Tue, 05 Nov 2024 18:15:20 +0000
+	id 1t8O6y-00000000LdR-1JYP;
+	Tue, 05 Nov 2024 18:17:04 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8O3D-00000000L1G-1ZRX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 18:13:33 +0000
+	id 1t8O3w-00000000LA7-28qf;
+	Tue, 05 Nov 2024 18:14:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 038AA5C53E2;
-	Tue,  5 Nov 2024 18:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D4DC4CECF;
-	Tue,  5 Nov 2024 18:13:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E3BBE5C53DF;
+	Tue,  5 Nov 2024 18:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFD60C4CED1;
+	Tue,  5 Nov 2024 18:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730830390;
-	bh=pxqB7qCPgf6SdrFqZG7JzmVzNL3Eokwf44mDjUQzHfY=;
+	s=k20201202; t=1730830435;
+	bh=Xen1diBQCGTGkPai9ifyoSgzJwfYP1crTTlWxSXYi88=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cuy7307NTZAW7l+Q8xtduxKrBLrSSffzLiuD9yd/Evp64dVBZJ+Yv8depWaLxk8dU
-	 7f7cKZeUP7FO2Sx7nQRC/0esYs/0R9cdKlFSp2PjHiwxBievF4nwZJZ+aRrx5gTWGe
-	 ZhSuvZXPjkrW+fzjwSQO6nVqE2Bzo6qemZSLV2L6gNnwXmREKWZSVvD1HQRP1STjS2
-	 Qp+HGKOTtMpl1H5yC4BoSFZhB1aTrL/IPwIhorI5HadxPaDhVZ1ZvkXVKZDwXdgkDb
-	 uFiJGIeoPns0ZSRFi6IEJa12b6ulyKiaguMvMgy+uiaLFQd2ZcsOtPDVkBzjgZJrjL
-	 oHszmpQmgCyRQ==
-Date: Tue, 5 Nov 2024 18:13:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matt Coster <matt.coster@imgtec.com>
-Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>,
-	Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH 01/21] dt-bindings: gpu: img: More explicit compatible
- strings
-Message-ID: <20241105-matron-gangway-64e78576ec47@spud>
-References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
- <20241105-sets-bxs-4-64-patch-v1-v1-1-4ed30e865892@imgtec.com>
+	b=SqSCKavngCVgtakBFoK/QNvcJ95y8UC2eRzb2nESbNueDZokzXwbZhNU6eXkXGDIE
+	 PmbAaOwf33zXa3RPAIQnzyiJ/RiZlzbVC8kX/ByVVWiUEFrmMENr1ZX06kWa3OFlg7
+	 Dxy3Zp/ruYbsfdTCbPXEoHeuxSMzhwAASoZQsAD0LDuFY37y2oDkVl1cjET1dPJl3e
+	 fnnWCUK7WOyKctQABU15LbyG4ZhFemim+6MEvOW22b9MnmvDzR93XHU/oPnWhfVZmZ
+	 HjVV7nGe3krmgq14Iv5e6kwqk/FdaL1XQuitcu87xe1YT4s9mi1uK45zfPkinl4CBy
+	 Scj+bvKXgmu7w==
+Date: Tue, 5 Nov 2024 19:13:52 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <ZypgYOn7dcYIoW4i@lore-desk>
+References: <20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org>
+ <20241105172254.GA1447085@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HC9jzF+yIAdMYD3B"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vqWK8aRdzgQTTEkC"
 Content-Disposition: inline
-In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-1-4ed30e865892@imgtec.com>
+In-Reply-To: <20241105172254.GA1447085@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_101311_540635_D7964046 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20241105_101356_691001_BF67E73D 
+X-CRM114-Status: GOOD (  38.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +84,203 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---HC9jzF+yIAdMYD3B
+--vqWK8aRdzgQTTEkC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 05, 2024 at 03:58:07PM +0000, Matt Coster wrote:
-> The current compatible strings are not specific enough to constrain the
-> hardware in devicetree. For example, the current "img,img-axe" string
-> refers to the entire family of Series AXE GPUs. The more specific
-> "img,img-axe-1-16m" string refers to the AXE-1-16M GPU which, unlike the
-> rest of its family, only uses a single power domain.
+> On Mon, Nov 04, 2024 at 11:00:05PM +0100, Lorenzo Bianconi wrote:
+> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > causing occasional PCIe link down issues. In order to overcome the
+> > problem, PCIE_RSTB signals are not asserted/released during device prob=
+e or
+> > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> > (0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
+> > module.
+> > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> > specify per-SoC capabilities.
+>=20
+> Add blank lines between paragraphs so we know where they end.
 
-That's not true, you could apply the rules using the ti,am62-gpu
-compatible, no?
-
-> Work is currently underway to add support for volcanic-based Imagination
-> GPUs; also add a generic top-level "img,img-rogue" compatible string to
-> allow for simpler differentiation in devicetrees.
-
-This makes no sense, how does adding another fallback compatible make
-it simpler? I have to assume that this means there will be geothermally
-powered axes in the future and you want to tell the difference between
-them and those pesky rogue axes that chop the heads off of naughty
-children?
+ack, I will fix it in v2.
 
 >=20
-> Make these changes now before introducing more compatible strings to keep
-> the legacy versions to a minimum.
->=20
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml    | 19 +++++++++++++=
-+-----
->  1 file changed, 14 insertions(+), 5 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml=
- b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 256e252f8087fa0d6081f771a01601d34b66fe19..ef7070daf213277d0190fe319=
-e202fdc597337d4 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -12,10 +12,19 @@ maintainers:
-> =20
->  properties:
->    compatible:
-> -    items:
-> -      - enum:
-> -          - ti,am62-gpu
-> -      - const: img,img-axe # IMG AXE GPU model/revision is fully discove=
-rable
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - ti,am62-gpu
-> +          - const: img,img-axe-1-16m
-> +          - const: img,img-rogue
-> +
-> +      # This legacy combination of compatible strings was introduced ear=
-ly on before the more
-> +      # specific GPU identifiers were used. Keep it around here for comp=
-atibility, but never use
-> +      # "img,img-axe" in new devicetrees.
-> +      - items:
-> +          - const: ti,am62-gpu
-> +          - const: img,img-axe
-> =20
->    reg:
->      maxItems: 1
-> @@ -64,7 +73,7 @@ examples:
->      #include <dt-bindings/soc/ti,sci_pm_domain.h>
-> =20
->      gpu@fd00000 {
-> -        compatible =3D "ti,am62-gpu", "img,img-axe";
-> +        compatible =3D "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogu=
-e";
->          reg =3D <0x0fd00000 0x20000>;
->          clocks =3D <&k3_clks 187 0>;
->          clock-names =3D "core";
->=20
-> --=20
-> 2.47.0
->=20
+> Where does this alternate way of doing reset (using REG_PCI_CONTROL
+> and REG_RESET_CONTROL) happen?  Why isn't there something in this
+> patch to use that alternate method at the same points where
+> PCIE_PE_RSTB is used?
 
---HC9jzF+yIAdMYD3B
+REG_RESET_CONTROL (0x834) is already asserted/released in the following flo=
+w:
+
+mtk_pcie_en7581_power_up() -> reset_control_bulk_deassert() -> en7523_reset=
+_update()
+https://github.com/torvalds/linux/blob/master/drivers/clk/clk-en7523.c#L470
+
+REG_PCI_CONTROL (0x88) is already asserted/released in the following flow:
+mtk_pcie_en7581_power_up() -> clk_bulk_enable() -> en7581_pci_enable()
+https://github.com/torvalds/linux/blob/master/drivers/clk/clk-en7523.c#L385
+
+
+>=20
+> If we don't need to assert reset for Airoha EN7581, why do we need to
+> do it for the other SoCs?
+
+I guess the other SoCs (mtk ones) do not have the same hw issue with
+PCIE_PE_RSTB (but I am not sure about it).
+
+Regards,
+Lorenzo
+
+>=20
+> > Tested-by: Hui Ma <hui.ma@airoha.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > Changes in v2:
+> > - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+> >   reset callback
+> > - fix the leftover case in mtk_pcie_suspend_noirq routine
+> > - add more comments
+> > - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1=
+-1-1043fb63ffc9@kernel.org
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++-=
+--------
+> >  1 file changed, 41 insertions(+), 18 deletions(-)
+> >=20
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..8e4704ff3509867fc0ff799=
+e9fb99e71e46756cd 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -125,10 +125,18 @@
+> > =20
+> >  struct mtk_gen3_pcie;
+> > =20
+> > +enum mtk_gen3_pcie_flags {
+> > +	SKIP_PCIE_RSTB	=3D BIT(0), /* skip PCIE_RSTB signals configuration
+> > +				   * during device probing or suspend/resume
+> > +				   * phase in order to avoid hw bugs/issues.
+> > +				   */
+> > +};
+> > +
+> >  /**
+> >   * struct mtk_gen3_pcie_pdata - differentiate between host generations
+> >   * @power_up: pcie power_up callback
+> >   * @phy_resets: phy reset lines SoC data.
+> > + * @flags: pcie device flags.
+> >   */
+> >  struct mtk_gen3_pcie_pdata {
+> >  	int (*power_up)(struct mtk_gen3_pcie *pcie);
+> > @@ -136,6 +144,7 @@ struct mtk_gen3_pcie_pdata {
+> >  		const char *id[MAX_NUM_PHY_RESETS];
+> >  		int num_resets;
+> >  	} phy_resets;
+> > +	u32 flags;
+> >  };
+> > =20
+> >  /**
+> > @@ -402,22 +411,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_=
+pcie *pcie)
+> >  	val |=3D PCIE_DISABLE_DVFSRC_VLT_REQ;
+> >  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+> > =20
+> > -	/* Assert all reset signals */
+> > -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > -
+> >  	/*
+> > -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > -	 * for the power and clock to become stable.
+> > +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > +	 * causing occasional PCIe link down. In order to overcome the issue,
+> > +	 * PCIE_RSTB signals are not asserted/released at this stage and the
+> > +	 * PCIe block is reset using REG_PCI_CONTROL (0x88) and
+> > +	 * REG_RESET_CONTROL (0x834) registers available via the clock module.
+> >  	 */
+> > -	msleep(100);
+> > -
+> > -	/* De-assert reset signals */
+> > -	val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RS=
+TB);
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Assert all reset signals */
+> > +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +		       PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +
+> > +		/*
+> > +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > +		 * for the power and clock to become stable.
+>=20
+> Blank line between paragraphs.
+>=20
+> > +		 */
+> > +		msleep(PCIE_T_PVPERL_MS);
+> > +
+> > +		/* De-assert reset signals */
+> > +		val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +			 PCIE_PE_RSTB);
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> > =20
+> >  	/* Check if the link is up or not */
+> >  	err =3D readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+> > @@ -1160,10 +1180,12 @@ static int mtk_pcie_suspend_noirq(struct device=
+ *dev)
+> >  		return err;
+> >  	}
+> > =20
+> > -	/* Pull down the PERST# pin */
+> > -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |=3D PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Pull down the PERST# pin */
+> > +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |=3D PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> > =20
+> >  	dev_dbg(pcie->dev, "entered L2 states successfully");
+> > =20
+> > @@ -1214,6 +1236,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_=
+soc_en7581 =3D {
+> >  		.id[2] =3D "phy-lane2",
+> >  		.num_resets =3D 3,
+> >  	},
+> > +	.flags =3D SKIP_PCIE_RSTB,
+> >  };
+> > =20
+> >  static const struct of_device_id mtk_pcie_of_match[] =3D {
+> >=20
+> > ---
+> > base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
+> > change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
+> >=20
+> > Best regards,
+> > --=20
+> > Lorenzo Bianconi <lorenzo@kernel.org>
+> >=20
+
+--vqWK8aRdzgQTTEkC
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZypgMAAKCRB4tDGHoIJi
-0nC4AQC4AzHjeKvDrm+ExJzNjJmg5LhdaVii97hh964tmhK59QD4jl8H5QIn/+vE
-4NZXGn3q7P2E/PvGBSyFkSd9XRUHBw==
-=IOI3
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZypgYAAKCRA6cBh0uS2t
+rPhYAP9axhSDdzxRbZRh8iXInGX5fkpcShFz0VS//r43s9MZfgEAoiTiyWcze16t
+KArG5YUlc0vzQp3pjMwBStrRVcFhVQA=
+=qiMV
 -----END PGP SIGNATURE-----
 
---HC9jzF+yIAdMYD3B--
+--vqWK8aRdzgQTTEkC--
 
