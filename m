@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD25CD31767
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4204D31765
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUTZKhO+m9CbRYTtzqazvIhlpnuTgx8VjiuBDf6t1Bk=; b=rlTi91TBVlBEZ5c3YDwBBuMW7S
-	J4fmRWMEBGFWVzt55mH8uc6wsK8FGbE3oA2qgp5uO91LE2mgp0SE1Bf+HoAoGn5hlb5eVJdT3pFZD
-	WLO4NIObVo7GmR3VNQ0NcoTsW6j2IqTm4agyFHW2eU4VvmmBffKJK9NtAuRhiIu3L0qKDb0C98hYQ
-	ewwYAJ2alsjQaDH0EIAK+yusQG9+pRneiTY5o4lC/ExxQWI9F6MPO59fQBwh8SA/7BJiljEcyRsmH
-	h4n4s1FTCy++NHiXoU0TZb4ZfeXj+msfVc/hS7ujFc6qTrux8Fc7DeaCSeP+pG4cAlc1lmYzY4+LJ
-	v/eL81eQ==;
+	bh=fn14AhmQ6OQTZ360sXt8YVpA23nVVdhA37ni/ACtb1c=; b=tzJ8igchZBTAZ2DVNkx6cBe5ZV
+	N5bUD1wgzl+sJV5Y3A3xzYkJ/HvxWkOAyG4KfmDfWQEtA0JRU+domLdenIOgH2STcDCGhciL8qpFf
+	bsaaSu/UH10oUrAqG78A8vCAdrfpGY0/FjaVVjvmvTB4uo9BghUVKmBmcbJxL6KoO7mwt862tO/5j
+	Py+J/KQpYK0KeROiMz7LsKcWvLoviP8+wwilAnAD8YucnxDDw0oyfHwEsyeF2djNAlIxX5iGPDc3z
+	2yW7eXlJVPerkUOusYOOJoYdBHMStXJk8P77nVZyAj3UbokOg5uERRdEKjLJthQ0Gw6ld3/yihaKq
+	XmXRH9IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Mk9-000000006nS-0AQI;
-	Tue, 05 Nov 2024 16:49:25 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1t8Mlq-000000007Ai-2YAK;
+	Tue, 05 Nov 2024 16:51:10 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MC6-000000000K1-0hCO
+	id 1t8MC9-000000000LC-2BJu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 16:14:15 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43157e3521dso38094525e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 08:14:12 -0800 (PST)
+	Tue, 05 Nov 2024 16:14:19 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43154a0886bso38151085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 08:14:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730823251; x=1731428051; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1730823254; x=1731428054; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cUTZKhO+m9CbRYTtzqazvIhlpnuTgx8VjiuBDf6t1Bk=;
-        b=tLlVH2ZOT4kB/GO/FqY97F7ve10igz8IVsxNFjGRcTmFm2MI/lhhehJgO56+KbCIRG
-         H5K7d1Hf16Z46A/oe7F4oHuCmMkm3+gr7W1twveowTEKahz5ZFqcqsG0GFCn9F3W2NVS
-         C9BR4Lj53JmrkL78KKi/EiD792EsL6jVR5ehAuCZP8RCWaR2tLARYDjJTkff2Gy2669U
-         3FQEW7UC1AIlaA+kE8fEutRdFJHLtW6W5jAYv5VDkB4G4VB1hecouDFWI8fRES+RVFJG
-         2zEipDE7xOHL+UHJDq7cHcigIX4nhGh1rvA7jJ6BhL66MwYI4ntWCt5Ywmvu3/g2GWry
-         kBSg==
+        bh=fn14AhmQ6OQTZ360sXt8YVpA23nVVdhA37ni/ACtb1c=;
+        b=pg/mP0sYBUhOTnnz7j6vWkBeHRAST+be/fGjv1KZS8lheteNOoBWmbiO7OMzT+LEKS
+         p+SROfeN55Vh91Sf4gDTcRlrQcwE5cQ8p7gihovlrF3cwR2fdMz01tPf+FsAJi21A3dk
+         2f+KZGMRUVE7ZI2oq6GJaZe2EXIfroShQL5GQMx+TlU/Ehu3h7YYEQvtIU547IQ+VDtc
+         Vgd33h9XRjURzjUEZ5pFIuZaXCQW7/WczLZiPg6U4lS1UMJR3YlkXFy+S9KgQoXzXAsI
+         Khs5CIEeaZfMIC0iQ11Q2iVCJcn9Ae7Z0lS/4omQooEB44GP4q6arlWGj/Y3mAE3PfUi
+         qlZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730823251; x=1731428051;
+        d=1e100.net; s=20230601; t=1730823254; x=1731428054;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cUTZKhO+m9CbRYTtzqazvIhlpnuTgx8VjiuBDf6t1Bk=;
-        b=Gq/+Figvu0nvS/+nrIuZP5dr0UKWa0lHeu9OHQqpIcILElyI/nJgByb7ODR781dnx5
-         cENDG1yqK0N95dC0xRyee8C+kWq7fVq6xkMqYE3qpvxSTabAlXFykIREd3EIkD7/qN5v
-         O4nGRB4KKmOSA2O51HJYRofdjxXA5z8+bPQPjb0yh9kT9lxmhwjc+Huses4XZick04zB
-         MejwaniRvZN9l/by+SWIA0Sjro0iLULZhNisH/T+aq7rrNu7nF8rwNUeiMaRQbdNQ+Gr
-         pF4FWVW5oGxCi7UV1MH/rvwIRgqWwI4uaUJnxLmRl4MCt/oyZBqjNdGrl22zGCQWfgY8
-         Nh3w==
-X-Gm-Message-State: AOJu0YztJFHKznGDVIBIyCWaO/K8TM1RM/mRR6Ob2O78Ow2eKArvtWbW
-	aXNcCkY0vuW/ch90eEkbOCFs37U8fl6RCVYXw6QBf0K2Yx1AOMwF4AJzVx511IQkasFIrg==
-X-Google-Smtp-Source: AGHT+IE1Nlhc8GIHkn95vE7fV4U4p21WsOlBR9O4RgNPNsEk4URCQoymAAI4dVUFa6csu+wXO7g9Q+4A
+        bh=fn14AhmQ6OQTZ360sXt8YVpA23nVVdhA37ni/ACtb1c=;
+        b=FWVFl979lQr9nXIpge/jfOddpYKruFRw4sbBJj+LcUk1N4ipWcip2umHYV8jFV8OeJ
+         La9YbDvJ3pKvwO1dvLIWvtSj6a+onsKsFI4RCHgs0OlGq03jgdXq8gDKGyWhbp5n3p7I
+         8mfYFSk7cxk/eaafM2YPIGlrtL93YcI/h0gOYXNwzg5yQA8MBr7sRSu42JHNXieAOPOh
+         HoxV28DoALc4mokXLWBrPMLPa7CxnYGPlkw6z3bxvdXRn6RahGkYhZHmew9EgYhFfZjG
+         4ITmQYcnRvOxiJUVkKJM3+fDMmJpiylS5raM8b4t45qfQBTDiG/VpZ5rpU29BBqGMelB
+         EH9g==
+X-Gm-Message-State: AOJu0YyRs9RuyJFlMI009ulUwG1Q2BqcVC7+UsQIxKzmW1vAHFB1W2TR
+	BYWxPLFgQKbZNYvY+QtAA8tYzLg6W99Avkdi2ym0/xJD0KT/SnpoRW3B7lQBQYLidZ8eUw==
+X-Google-Smtp-Source: AGHT+IEwdf0ONVUK6Zt2kw6p8pObMWZdsJrlr5Jei3x3dBdcZfmS1Juvb/jLGZBpeNe9JIrh5xFQoNLb
 X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a05:600c:2210:b0:431:47cf:4f59 with SMTP id
- 5b1f17b1804b1-432831cb821mr486115e9.0.1730823251479; Tue, 05 Nov 2024
- 08:14:11 -0800 (PST)
-Date: Tue,  5 Nov 2024 17:09:02 +0100
+ (user=ardb job=sendgmr) by 2002:a5d:410a:0:b0:37d:4e56:9a42 with SMTP id
+ ffacd0b85a97d-381c7a4ee79mr8427f8f.4.1730823254102; Tue, 05 Nov 2024 08:14:14
+ -0800 (PST)
+Date: Tue,  5 Nov 2024 17:09:03 +0100
 In-Reply-To: <20241105160859.1459261-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20241105160859.1459261-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9105; i=ardb@kernel.org;
- h=from:subject; bh=sF5Epk2ae4EBs5KvMvDtueP5LeUDeZZXIOLxDNupMtk=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV3LWf6rZTzfNf2uGcFSITdPTj271yi9/aDmlRmxC0S+n
- NI+q76wo5SFQYyDQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAExkQywjwyt/D/dvO14ZMiyS
- 6zu6+vAx31jBSE23ZqfUaQHnQuSWFTAy7Fxj82lfc+mxM1uX2ItPfzf1zJ549/P+3DkXg/RSjbp aOAE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11659; i=ardb@kernel.org;
+ h=from:subject; bh=5s52W2sO5L/bY0ndSW3KvGbMMMwPHHx3dy2G4v15k4A=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV3LWeHf38Yk9imzlE/cvnU4alpjxScXke0SR27NuSg9w
+ UL10VnljlIWBjEOBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjCR/+oM/+Njc20kouKjPSe9
+ mnPy9hWFNucN3z0fZjBu1FHOyJ/dmc7wP6/ibeDuzkVrQ2c7/DsjfUHofUNx1vQHuYbTfnjYKoc LcwMA
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-Message-ID: <20241105160859.1459261-10-ardb+git@google.com>
-Subject: [PATCH v2 2/6] crypto: arm64/crct10dif - Use faster 16x64 bit
- polynomial multiply
+Message-ID: <20241105160859.1459261-11-ardb+git@google.com>
+Subject: [PATCH v2 3/6] crypto: arm64/crct10dif - Remove remaining 64x64 PMULL
+ fallback code
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, ebiggers@kernel.org, 
@@ -79,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, ebiggers@kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_081414_270103_F982E1E1 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20241105_081417_610134_68A158A8 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,237 +97,378 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The CRC-T10DIF implementation for arm64 has a version that uses 8x8
-polynomial multiplication, for cores that lack the crypto extensions,
-which cover the 64x64 polynomial multiplication instruction that the
-algorithm was built around.
+The only remaining user of the fallback implementation of 64x64
+polynomial multiplication using 8x8 PMULL instructions is the final
+reduction from a 16 byte vector to a 16-bit CRC.
 
-This fallback version rather naively adopted the 64x64 polynomial
-multiplication algorithm that I ported from ARM for the GHASH driver,
-which needs 8 PMULL8 instructions to implement one PMULL64. This is
-reasonable, given that each 8-bit vector element needs to be multiplied
-with each element in the other vector, producing 8 vectors with partial
-results that need to be combined to yield the correct result.
-
-However, most PMULL64 invocations in the CRC-T10DIF code involve
-multiplication by a pair of 16-bit folding coefficients, and so all the
-partial results from higher order bytes will be zero, and there is no
-need to calculate them to begin with.
-
-Then, the CRC-T10DIF algorithm always XORs the output values of the
-PMULL64 instructions being issued in pairs, and so there is no need to
-faithfully implement each individual PMULL64 instruction, as long as
-XORing the results pairwise produces the expected result.
-
-Implementing these improvements results in a speedup of 3.3x on low-end
-platforms such as Raspberry Pi 4 (Cortex-A72)
+The fallback code is complicated and messy, and this reduction has
+little impact on the overall performance, so instead, let's calculate
+the final CRC by passing the 16 byte vector to the generic CRC-T10DIF
+implementation when running the fallback version.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/crypto/crct10dif-ce-core.S | 121 +++++++++++++++++---
- 1 file changed, 104 insertions(+), 17 deletions(-)
+ arch/arm64/crypto/crct10dif-ce-core.S | 244 +++++---------------
+ arch/arm64/crypto/crct10dif-ce-glue.c |  18 +-
+ 2 files changed, 68 insertions(+), 194 deletions(-)
 
 diff --git a/arch/arm64/crypto/crct10dif-ce-core.S b/arch/arm64/crypto/crct10dif-ce-core.S
-index 5604de61d06d..d2acaa2b5a01 100644
+index d2acaa2b5a01..87dd6d46224d 100644
 --- a/arch/arm64/crypto/crct10dif-ce-core.S
 +++ b/arch/arm64/crypto/crct10dif-ce-core.S
-@@ -1,8 +1,11 @@
- //
- // Accelerated CRC-T10DIF using arm64 NEON and Crypto Extensions instructions
- //
--// Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
--// Copyright (C) 2019 Google LLC <ebiggers@google.com>
-+// Copyright (C) 2016 Linaro Ltd
-+// Copyright (C) 2019-2024 Google LLC
-+//
-+// Authors: Ard Biesheuvel <ardb@google.com>
-+//          Eric Biggers <ebiggers@google.com>
- //
- // This program is free software; you can redistribute it and/or modify
- // it under the terms of the GNU General Public License version 2 as
-@@ -122,6 +125,13 @@
- 	sli		perm2.2d, perm1.2d, #56
- 	sli		perm3.2d, perm1.2d, #48
- 	sli		perm4.2d, perm1.2d, #40
-+
-+	// Compose { 0,0,0,0, 8,8,8,8, 1,1,1,1, 9,9,9,9 }
-+	movi		bd1.4h, #8, lsl #8
-+	orr		bd1.2s, #1, lsl #16
-+	orr		bd1.2s, #1, lsl #24
-+	zip1		bd1.16b, bd1.16b, bd1.16b
-+	zip1		bd1.16b, bd1.16b, bd1.16b
+@@ -74,137 +74,18 @@
+ 	init_crc	.req	w0
+ 	buf		.req	x1
+ 	len		.req	x2
+-	fold_consts_ptr	.req	x3
++	fold_consts_ptr	.req	x5
+ 
+ 	fold_consts	.req	v10
+ 
+-	ad		.req	v14
+-
+-	k00_16		.req	v15
+-	k32_48		.req	v16
+-
+ 	t3		.req	v17
+ 	t4		.req	v18
+ 	t5		.req	v19
+ 	t6		.req	v20
+ 	t7		.req	v21
+ 	t8		.req	v22
+-	t9		.req	v23
+-
+-	perm1		.req	v24
+-	perm2		.req	v25
+-	perm3		.req	v26
+-	perm4		.req	v27
+-
+-	bd1		.req	v28
+-	bd2		.req	v29
+-	bd3		.req	v30
+-	bd4		.req	v31
+-
+-	.macro		__pmull_init_p64
+-	.endm
+ 
+-	.macro		__pmull_pre_p64, bd
+-	.endm
+-
+-	.macro		__pmull_init_p8
+-	// k00_16 := 0x0000000000000000_000000000000ffff
+-	// k32_48 := 0x00000000ffffffff_0000ffffffffffff
+-	movi		k32_48.2d, #0xffffffff
+-	mov		k32_48.h[2], k32_48.h[0]
+-	ushr		k00_16.2d, k32_48.2d, #32
+-
+-	// prepare the permutation vectors
+-	mov_q		x5, 0x080f0e0d0c0b0a09
+-	movi		perm4.8b, #8
+-	dup		perm1.2d, x5
+-	eor		perm1.16b, perm1.16b, perm4.16b
+-	ushr		perm2.2d, perm1.2d, #8
+-	ushr		perm3.2d, perm1.2d, #16
+-	ushr		perm4.2d, perm1.2d, #24
+-	sli		perm2.2d, perm1.2d, #56
+-	sli		perm3.2d, perm1.2d, #48
+-	sli		perm4.2d, perm1.2d, #40
+-
+-	// Compose { 0,0,0,0, 8,8,8,8, 1,1,1,1, 9,9,9,9 }
+-	movi		bd1.4h, #8, lsl #8
+-	orr		bd1.2s, #1, lsl #16
+-	orr		bd1.2s, #1, lsl #24
+-	zip1		bd1.16b, bd1.16b, bd1.16b
+-	zip1		bd1.16b, bd1.16b, bd1.16b
+-	.endm
+-
+-	.macro		__pmull_pre_p8, bd
+-	tbl		bd1.16b, {\bd\().16b}, perm1.16b
+-	tbl		bd2.16b, {\bd\().16b}, perm2.16b
+-	tbl		bd3.16b, {\bd\().16b}, perm3.16b
+-	tbl		bd4.16b, {\bd\().16b}, perm4.16b
+-	.endm
+-
+-SYM_FUNC_START_LOCAL(__pmull_p8_core)
+-.L__pmull_p8_core:
+-	ext		t4.8b, ad.8b, ad.8b, #1			// A1
+-	ext		t5.8b, ad.8b, ad.8b, #2			// A2
+-	ext		t6.8b, ad.8b, ad.8b, #3			// A3
+-
+-	pmull		t4.8h, t4.8b, fold_consts.8b		// F = A1*B
+-	pmull		t8.8h, ad.8b, bd1.8b			// E = A*B1
+-	pmull		t5.8h, t5.8b, fold_consts.8b		// H = A2*B
+-	pmull		t7.8h, ad.8b, bd2.8b			// G = A*B2
+-	pmull		t6.8h, t6.8b, fold_consts.8b		// J = A3*B
+-	pmull		t9.8h, ad.8b, bd3.8b			// I = A*B3
+-	pmull		t3.8h, ad.8b, bd4.8b			// K = A*B4
+-	b		0f
+-
+-.L__pmull_p8_core2:
+-	tbl		t4.16b, {ad.16b}, perm1.16b		// A1
+-	tbl		t5.16b, {ad.16b}, perm2.16b		// A2
+-	tbl		t6.16b, {ad.16b}, perm3.16b		// A3
+-
+-	pmull2		t4.8h, t4.16b, fold_consts.16b		// F = A1*B
+-	pmull2		t8.8h, ad.16b, bd1.16b			// E = A*B1
+-	pmull2		t5.8h, t5.16b, fold_consts.16b		// H = A2*B
+-	pmull2		t7.8h, ad.16b, bd2.16b			// G = A*B2
+-	pmull2		t6.8h, t6.16b, fold_consts.16b		// J = A3*B
+-	pmull2		t9.8h, ad.16b, bd3.16b			// I = A*B3
+-	pmull2		t3.8h, ad.16b, bd4.16b			// K = A*B4
+-
+-0:	eor		t4.16b, t4.16b, t8.16b			// L = E + F
+-	eor		t5.16b, t5.16b, t7.16b			// M = G + H
+-	eor		t6.16b, t6.16b, t9.16b			// N = I + J
+-
+-	uzp1		t8.2d, t4.2d, t5.2d
+-	uzp2		t4.2d, t4.2d, t5.2d
+-	uzp1		t7.2d, t6.2d, t3.2d
+-	uzp2		t6.2d, t6.2d, t3.2d
+-
+-	// t4 = (L) (P0 + P1) << 8
+-	// t5 = (M) (P2 + P3) << 16
+-	eor		t8.16b, t8.16b, t4.16b
+-	and		t4.16b, t4.16b, k32_48.16b
+-
+-	// t6 = (N) (P4 + P5) << 24
+-	// t7 = (K) (P6 + P7) << 32
+-	eor		t7.16b, t7.16b, t6.16b
+-	and		t6.16b, t6.16b, k00_16.16b
+-
+-	eor		t8.16b, t8.16b, t4.16b
+-	eor		t7.16b, t7.16b, t6.16b
+-
+-	zip2		t5.2d, t8.2d, t4.2d
+-	zip1		t4.2d, t8.2d, t4.2d
+-	zip2		t3.2d, t7.2d, t6.2d
+-	zip1		t6.2d, t7.2d, t6.2d
+-
+-	ext		t4.16b, t4.16b, t4.16b, #15
+-	ext		t5.16b, t5.16b, t5.16b, #14
+-	ext		t6.16b, t6.16b, t6.16b, #13
+-	ext		t3.16b, t3.16b, t3.16b, #12
+-
+-	eor		t4.16b, t4.16b, t5.16b
+-	eor		t6.16b, t6.16b, t3.16b
+-	ret
+-SYM_FUNC_END(__pmull_p8_core)
++	perm		.req	v27
+ 
+ 	.macro		pmull16x64_p64, a16, b64, c64
+ 	pmull2		\c64\().1q, \a16\().2d, \b64\().2d
+@@ -266,7 +147,7 @@ SYM_FUNC_END(__pmull_p8_core)
+ 	 */
+ 	.macro		pmull16x64_p8, a16, b64, c64
+ 	ext		t7.16b, \b64\().16b, \b64\().16b, #1
+-	tbl		t5.16b, {\a16\().16b}, bd1.16b
++	tbl		t5.16b, {\a16\().16b}, perm.16b
+ 	uzp1		t7.16b, \b64\().16b, t7.16b
+ 	bl		__pmull_p8_16x64
+ 	ext		\b64\().16b, t4.16b, t4.16b, #15
+@@ -292,22 +173,6 @@ SYM_FUNC_START_LOCAL(__pmull_p8_16x64)
+ 	ret
+ SYM_FUNC_END(__pmull_p8_16x64)
+ 
+-	.macro		__pmull_p8, rq, ad, bd, i
+-	.ifnc		\bd, fold_consts
+-	.err
+-	.endif
+-	mov		ad.16b, \ad\().16b
+-	.ifb		\i
+-	pmull		\rq\().8h, \ad\().8b, \bd\().8b		// D = A*B
+-	.else
+-	pmull2		\rq\().8h, \ad\().16b, \bd\().16b	// D = A*B
+-	.endif
+-
+-	bl		.L__pmull_p8_core\i
+-
+-	eor		\rq\().16b, \rq\().16b, t4.16b
+-	eor		\rq\().16b, \rq\().16b, t6.16b
+-	.endm
+ 
+ 	// Fold reg1, reg2 into the next 32 data bytes, storing the result back
+ 	// into reg1, reg2.
+@@ -340,16 +205,7 @@ CPU_LE(	ext		v12.16b, v12.16b, v12.16b, #8	)
+ 	eor		\dst_reg\().16b, \dst_reg\().16b, \src_reg\().16b
  	.endm
  
- 	.macro		__pmull_pre_p8, bd
-@@ -196,6 +206,92 @@ SYM_FUNC_START_LOCAL(__pmull_p8_core)
- 	ret
- SYM_FUNC_END(__pmull_p8_core)
+-	.macro		__pmull_p64, rd, rn, rm, n
+-	.ifb		\n
+-	pmull		\rd\().1q, \rn\().1d, \rm\().1d
+-	.else
+-	pmull2		\rd\().1q, \rn\().2d, \rm\().2d
+-	.endif
+-	.endm
+-
+ 	.macro		crc_t10dif_pmull, p
+-	__pmull_init_\p
  
-+	.macro		pmull16x64_p64, a16, b64, c64
-+	pmull2		\c64\().1q, \a16\().2d, \b64\().2d
-+	pmull		\b64\().1q, \a16\().1d, \b64\().1d
-+	.endm
-+
-+	/*
-+	 * Pairwise long polynomial multiplication of two 16-bit values
-+	 *
-+	 *   { w0, w1 }, { y0, y1 }
-+	 *
-+	 * by two 64-bit values
-+	 *
-+	 *   { x0, x1, x2, x3, x4, x5, x6, x7 }, { z0, z1, z2, z3, z4, z5, z6, z7 }
-+	 *
-+	 * where each vector element is a byte, ordered from least to most
-+	 * significant.
-+	 *
-+	 * This can be implemented using 8x8 long polynomial multiplication, by
-+	 * reorganizing the input so that each pairwise 8x8 multiplication
-+	 * produces one of the terms from the decomposition below, and
-+	 * combining the results of each rank and shifting them into place.
-+	 *
-+	 * Rank
-+	 *  0            w0*x0 ^              |        y0*z0 ^
-+	 *  1       (w0*x1 ^ w1*x0) <<  8 ^   |   (y0*z1 ^ y1*z0) <<  8 ^
-+	 *  2       (w0*x2 ^ w1*x1) << 16 ^   |   (y0*z2 ^ y1*z1) << 16 ^
-+	 *  3       (w0*x3 ^ w1*x2) << 24 ^   |   (y0*z3 ^ y1*z2) << 24 ^
-+	 *  4       (w0*x4 ^ w1*x3) << 32 ^   |   (y0*z4 ^ y1*z3) << 32 ^
-+	 *  5       (w0*x5 ^ w1*x4) << 40 ^   |   (y0*z5 ^ y1*z4) << 40 ^
-+	 *  6       (w0*x6 ^ w1*x5) << 48 ^   |   (y0*z6 ^ y1*z5) << 48 ^
-+	 *  7       (w0*x7 ^ w1*x6) << 56 ^   |   (y0*z7 ^ y1*z6) << 56 ^
-+	 *  8            w1*x7      << 64     |        y1*z7      << 64
-+	 *
-+	 * The inputs can be reorganized into
-+	 *
-+	 *   { w0, w0, w0, w0, y0, y0, y0, y0 }, { w1, w1, w1, w1, y1, y1, y1, y1 }
-+	 *   { x0, x2, x4, x6, z0, z2, z4, z6 }, { x1, x3, x5, x7, z1, z3, z5, z7 }
-+	 *
-+	 * and after performing 8x8->16 bit long polynomial multiplication of
-+	 * each of the halves of the first vector with those of the second one,
-+	 * we obtain the following four vectors of 16-bit elements:
-+	 *
-+	 *   a := { w0*x0, w0*x2, w0*x4, w0*x6 }, { y0*z0, y0*z2, y0*z4, y0*z6 }
-+	 *   b := { w0*x1, w0*x3, w0*x5, w0*x7 }, { y0*z1, y0*z3, y0*z5, y0*z7 }
-+	 *   c := { w1*x0, w1*x2, w1*x4, w1*x6 }, { y1*z0, y1*z2, y1*z4, y1*z6 }
-+	 *   d := { w1*x1, w1*x3, w1*x5, w1*x7 }, { y1*z1, y1*z3, y1*z5, y1*z7 }
-+	 *
-+	 * Results b and c can be XORed together, as the vector elements have
-+	 * matching ranks. Then, the final XOR (*) can be pulled forward, and
-+	 * applied between the halves of each of the remaining three vectors,
-+	 * which are then shifted into place, and combined to produce two
-+	 * 80-bit results.
-+	 *
-+	 * (*) NOTE: the 16x64 bit polynomial multiply below is not equivalent
-+	 * to the 64x64 bit one above, but XOR'ing the outputs together will
-+	 * produce the expected result, and this is sufficient in the context of
-+	 * this algorithm.
-+	 */
-+	.macro		pmull16x64_p8, a16, b64, c64
-+	ext		t7.16b, \b64\().16b, \b64\().16b, #1
-+	tbl		t5.16b, {\a16\().16b}, bd1.16b
-+	uzp1		t7.16b, \b64\().16b, t7.16b
-+	bl		__pmull_p8_16x64
-+	ext		\b64\().16b, t4.16b, t4.16b, #15
-+	eor		\c64\().16b, t8.16b, t5.16b
-+	.endm
-+
-+SYM_FUNC_START_LOCAL(__pmull_p8_16x64)
-+	ext		t6.16b, t5.16b, t5.16b, #8
-+
-+	pmull		t3.8h, t7.8b, t5.8b
-+	pmull		t4.8h, t7.8b, t6.8b
-+	pmull2		t5.8h, t7.16b, t5.16b
-+	pmull2		t6.8h, t7.16b, t6.16b
-+
-+	ext		t8.16b, t3.16b, t3.16b, #8
-+	eor		t4.16b, t4.16b, t6.16b
-+	ext		t7.16b, t5.16b, t5.16b, #8
-+	ext		t6.16b, t4.16b, t4.16b, #8
-+	eor		t8.8b, t8.8b, t3.8b
-+	eor		t5.8b, t5.8b, t7.8b
-+	eor		t4.8b, t4.8b, t6.8b
-+	ext		t5.16b, t5.16b, t5.16b, #14
-+	ret
-+SYM_FUNC_END(__pmull_p8_16x64)
-+
- 	.macro		__pmull_p8, rq, ad, bd, i
- 	.ifnc		\bd, fold_consts
- 	.err
-@@ -218,14 +314,12 @@ SYM_FUNC_END(__pmull_p8_core)
- 	.macro		fold_32_bytes, p, reg1, reg2
- 	ldp		q11, q12, [buf], #0x20
- 
--	__pmull_\p	v8, \reg1, fold_consts, 2
--	__pmull_\p	\reg1, \reg1, fold_consts
-+	pmull16x64_\p	fold_consts, \reg1, v8
- 
- CPU_LE(	rev64		v11.16b, v11.16b		)
- CPU_LE(	rev64		v12.16b, v12.16b		)
- 
--	__pmull_\p	v9, \reg2, fold_consts, 2
--	__pmull_\p	\reg2, \reg2, fold_consts
-+	pmull16x64_\p	fold_consts, \reg2, v9
- 
- CPU_LE(	ext		v11.16b, v11.16b, v11.16b, #8	)
- CPU_LE(	ext		v12.16b, v12.16b, v12.16b, #8	)
-@@ -238,11 +332,9 @@ CPU_LE(	ext		v12.16b, v12.16b, v12.16b, #8	)
- 
- 	// Fold src_reg into dst_reg, optionally loading the next fold constants
- 	.macro		fold_16_bytes, p, src_reg, dst_reg, load_next_consts
--	__pmull_\p	v8, \src_reg, fold_consts
--	__pmull_\p	\src_reg, \src_reg, fold_consts, 2
-+	pmull16x64_\p	fold_consts, \src_reg, v8
- 	.ifnb		\load_next_consts
- 	ld1		{fold_consts.2d}, [fold_consts_ptr], #16
--	__pmull_pre_\p	fold_consts
- 	.endif
- 	eor		\dst_reg\().16b, \dst_reg\().16b, v8.16b
- 	eor		\dst_reg\().16b, \dst_reg\().16b, \src_reg\().16b
-@@ -296,7 +388,6 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
- 
- 	// Load the constants for folding across 128 bytes.
- 	ld1		{fold_consts.2d}, [fold_consts_ptr]
--	__pmull_pre_\p	fold_consts
- 
- 	// Subtract 128 for the 128 data bytes just consumed.  Subtract another
- 	// 128 to simplify the termination condition of the following loop.
-@@ -318,7 +409,6 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
- 	// Fold across 64 bytes.
- 	add		fold_consts_ptr, fold_consts_ptr, #16
- 	ld1		{fold_consts.2d}, [fold_consts_ptr], #16
--	__pmull_pre_\p	fold_consts
- 	fold_16_bytes	\p, v0, v4
- 	fold_16_bytes	\p, v1, v5
- 	fold_16_bytes	\p, v2, v6
-@@ -339,8 +429,7 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
- 	// into them, storing the result back into v7.
- 	b.lt		.Lfold_16_bytes_loop_done_\@
- .Lfold_16_bytes_loop_\@:
--	__pmull_\p	v8, v7, fold_consts
--	__pmull_\p	v7, v7, fold_consts, 2
-+	pmull16x64_\p	fold_consts, v7, v8
- 	eor		v7.16b, v7.16b, v8.16b
- 	ldr		q0, [buf], #16
- CPU_LE(	rev64		v0.16b, v0.16b			)
-@@ -387,9 +476,8 @@ CPU_LE(	ext		v0.16b, v0.16b, v0.16b, #8	)
- 	bsl		v2.16b, v1.16b, v0.16b
- 
- 	// Fold the first chunk into the second chunk, storing the result in v7.
--	__pmull_\p	v0, v3, fold_consts
--	__pmull_\p	v7, v3, fold_consts, 2
--	eor		v7.16b, v7.16b, v0.16b
-+	pmull16x64_\p	fold_consts, v3, v0
-+	eor		v7.16b, v3.16b, v0.16b
+ 	// For sizes less than 256 bytes, we can't fold 128 bytes at a time.
+ 	cmp		len, #256
+@@ -479,47 +335,7 @@ CPU_LE(	ext		v0.16b, v0.16b, v0.16b, #8	)
+ 	pmull16x64_\p	fold_consts, v3, v0
+ 	eor		v7.16b, v3.16b, v0.16b
  	eor		v7.16b, v7.16b, v2.16b
- 
- .Lreduce_final_16_bytes_\@:
-@@ -450,7 +538,6 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
- 
- 	// Load the fold-across-16-bytes constants.
- 	ld1		{fold_consts.2d}, [fold_consts_ptr], #16
+-
+-.Lreduce_final_16_bytes_\@:
+-	// Reduce the 128-bit value M(x), stored in v7, to the final 16-bit CRC.
+-
+-	movi		v2.16b, #0		// init zero register
+-
+-	// Load 'x^48 * (x^48 mod G(x))' and 'x^48 * (x^80 mod G(x))'.
+-	ld1		{fold_consts.2d}, [fold_consts_ptr], #16
 -	__pmull_pre_\p	fold_consts
+-
+-	// Fold the high 64 bits into the low 64 bits, while also multiplying by
+-	// x^64.  This produces a 128-bit value congruent to x^64 * M(x) and
+-	// whose low 48 bits are 0.
+-	ext		v0.16b, v2.16b, v7.16b, #8
+-	__pmull_\p	v7, v7, fold_consts, 2	// high bits * x^48 * (x^80 mod G(x))
+-	eor		v0.16b, v0.16b, v7.16b	// + low bits * x^64
+-
+-	// Fold the high 32 bits into the low 96 bits.  This produces a 96-bit
+-	// value congruent to x^64 * M(x) and whose low 48 bits are 0.
+-	ext		v1.16b, v0.16b, v2.16b, #12	// extract high 32 bits
+-	mov		v0.s[3], v2.s[0]	// zero high 32 bits
+-	__pmull_\p	v1, v1, fold_consts	// high 32 bits * x^48 * (x^48 mod G(x))
+-	eor		v0.16b, v0.16b, v1.16b	// + low bits
+-
+-	// Load G(x) and floor(x^48 / G(x)).
+-	ld1		{fold_consts.2d}, [fold_consts_ptr]
+-	__pmull_pre_\p	fold_consts
+-
+-	// Use Barrett reduction to compute the final CRC value.
+-	__pmull_\p	v1, v0, fold_consts, 2	// high 32 bits * floor(x^48 / G(x))
+-	ushr		v1.2d, v1.2d, #32	// /= x^32
+-	__pmull_\p	v1, v1, fold_consts	// *= G(x)
+-	ushr		v0.2d, v0.2d, #48
+-	eor		v0.16b, v0.16b, v1.16b	// + low 16 nonzero bits
+-	// Final CRC value (x^16 * M(x)) mod G(x) is in low 16 bits of v0.
+-
+-	umov		w0, v0.h[0]
+-	.ifc		\p, p8
+-	frame_pop
+-	.endif
+-	ret
++	b		.Lreduce_final_16_bytes_\@
  
- 	cmp		len, #16
- 	b.eq		.Lreduce_final_16_bytes_\@	// len == 16
+ .Lless_than_256_bytes_\@:
+ 	// Checksumming a buffer of length 16...255 bytes
+@@ -545,6 +361,8 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
+ 	b.ge		.Lfold_16_bytes_loop_\@		// 32 <= len <= 255
+ 	add		len, len, #16
+ 	b		.Lhandle_partial_segment_\@	// 17 <= len <= 31
++
++.Lreduce_final_16_bytes_\@:
+ 	.endm
+ 
+ //
+@@ -554,7 +372,22 @@ CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
+ //
+ SYM_FUNC_START(crc_t10dif_pmull_p8)
+ 	frame_push	1
++
++	// Compose { 0,0,0,0, 8,8,8,8, 1,1,1,1, 9,9,9,9 }
++	movi		perm.4h, #8, lsl #8
++	orr		perm.2s, #1, lsl #16
++	orr		perm.2s, #1, lsl #24
++	zip1		perm.16b, perm.16b, perm.16b
++	zip1		perm.16b, perm.16b, perm.16b
++
+ 	crc_t10dif_pmull p8
++
++CPU_LE(	rev64		v7.16b, v7.16b			)
++CPU_LE(	ext		v7.16b, v7.16b, v7.16b, #8	)
++	str		q7, [x3]
++
++	frame_pop
++	ret
+ SYM_FUNC_END(crc_t10dif_pmull_p8)
+ 
+ 	.align		5
+@@ -565,6 +398,41 @@ SYM_FUNC_END(crc_t10dif_pmull_p8)
+ //
+ SYM_FUNC_START(crc_t10dif_pmull_p64)
+ 	crc_t10dif_pmull	p64
++
++	// Reduce the 128-bit value M(x), stored in v7, to the final 16-bit CRC.
++
++	movi		v2.16b, #0		// init zero register
++
++	// Load 'x^48 * (x^48 mod G(x))' and 'x^48 * (x^80 mod G(x))'.
++	ld1		{fold_consts.2d}, [fold_consts_ptr], #16
++
++	// Fold the high 64 bits into the low 64 bits, while also multiplying by
++	// x^64.  This produces a 128-bit value congruent to x^64 * M(x) and
++	// whose low 48 bits are 0.
++	ext		v0.16b, v2.16b, v7.16b, #8
++	pmull2		v7.1q, v7.2d, fold_consts.2d	// high bits * x^48 * (x^80 mod G(x))
++	eor		v0.16b, v0.16b, v7.16b		// + low bits * x^64
++
++	// Fold the high 32 bits into the low 96 bits.  This produces a 96-bit
++	// value congruent to x^64 * M(x) and whose low 48 bits are 0.
++	ext		v1.16b, v0.16b, v2.16b, #12	// extract high 32 bits
++	mov		v0.s[3], v2.s[0]		// zero high 32 bits
++	pmull		v1.1q, v1.1d, fold_consts.1d	// high 32 bits * x^48 * (x^48 mod G(x))
++	eor		v0.16b, v0.16b, v1.16b		// + low bits
++
++	// Load G(x) and floor(x^48 / G(x)).
++	ld1		{fold_consts.2d}, [fold_consts_ptr]
++
++	// Use Barrett reduction to compute the final CRC value.
++	pmull2		v1.1q, v0.2d, fold_consts.2d	// high 32 bits * floor(x^48 / G(x))
++	ushr		v1.2d, v1.2d, #32		// /= x^32
++	pmull		v1.1q, v1.1d, fold_consts.1d	// *= G(x)
++	ushr		v0.2d, v0.2d, #48
++	eor		v0.16b, v0.16b, v1.16b		// + low 16 nonzero bits
++	// Final CRC value (x^16 * M(x)) mod G(x) is in low 16 bits of v0.
++
++	umov		w0, v0.h[0]
++	ret
+ SYM_FUNC_END(crc_t10dif_pmull_p64)
+ 
+ 	.section	".rodata", "a"
+diff --git a/arch/arm64/crypto/crct10dif-ce-glue.c b/arch/arm64/crypto/crct10dif-ce-glue.c
+index 7b05094a0480..08bcbd884395 100644
+--- a/arch/arm64/crypto/crct10dif-ce-glue.c
++++ b/arch/arm64/crypto/crct10dif-ce-glue.c
+@@ -20,7 +20,8 @@
+ 
+ #define CRC_T10DIF_PMULL_CHUNK_SIZE	16U
+ 
+-asmlinkage u16 crc_t10dif_pmull_p8(u16 init_crc, const u8 *buf, size_t len);
++asmlinkage void crc_t10dif_pmull_p8(u16 init_crc, const u8 *buf, size_t len,
++				    u8 out[16]);
+ asmlinkage u16 crc_t10dif_pmull_p64(u16 init_crc, const u8 *buf, size_t len);
+ 
+ static int crct10dif_init(struct shash_desc *desc)
+@@ -34,16 +35,21 @@ static int crct10dif_init(struct shash_desc *desc)
+ static int crct10dif_update_pmull_p8(struct shash_desc *desc, const u8 *data,
+ 			    unsigned int length)
+ {
+-	u16 *crc = shash_desc_ctx(desc);
++	u16 *crcp = shash_desc_ctx(desc);
++	u16 crc = *crcp;
++	u8 buf[16];
+ 
+-	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
++	if (length > CRC_T10DIF_PMULL_CHUNK_SIZE && crypto_simd_usable()) {
+ 		kernel_neon_begin();
+-		*crc = crc_t10dif_pmull_p8(*crc, data, length);
++		crc_t10dif_pmull_p8(crc, data, length, buf);
+ 		kernel_neon_end();
+-	} else {
+-		*crc = crc_t10dif_generic(*crc, data, length);
++
++		crc = 0;
++		data = buf;
++		length = sizeof(buf);
+ 	}
+ 
++	*crcp = crc_t10dif_generic(crc, data, length);
+ 	return 0;
+ }
+ 
 -- 
 2.47.0.199.ga7371fff76-goog
 
