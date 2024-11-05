@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ED3D33A23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96639D33A22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TrNQ3LJeAMesAmpKUJ7N1Al9kS1bwIA8hsz/KHf4MgU=; b=cBaUdPA7SuvRWE2V8iT/vwPYGj
-	9KPDnf4Bhb5A33LuDdBEe61aDXeVlq1pA6mf+7pDFzmd020fZjFIVc2CGFvQgVCI82cLu6WJIZJQl
-	0xvOs2u9WTWNn9c4jvpjQS6aSpb/oTAoZgTmcebgzD7m8UV6ugBZ1WG/kmJAabUjZSmz5iSgDtq5K
-	h2h+Gzm6dWLFZslHSOVVpRvh5gyH9lstvNEoW0knmTNt/o7u3IYCku1u7pSbwWEImqa+DUFDLUQD/
-	kgf23GCf9dNkDMn7bBdswwsZuyR6JLLE+hLUlZ30VoiXoAZB35HAL+ck3ks8AYCh7OS6RHXfsjfkQ
-	+ty5w3Mw==;
+	bh=Q/5k2rLKTo7KgnD4BR9+2dIjyjzlQVVkq8ThtV9wFto=; b=gXj6Jdfo6hVTTCIoEoE4BGzk+6
+	/eKZJcfA9RXSc3CI4sxVPUh9AGfamfxepIRrzvoIRnRoSp7nsLc5Y3nwR/2Hs2DZJCvrDkoJqrSRA
+	LRLcp4RgeK6KRsfM6csyKaJ8rJsbEy5QKqNGf0GYBkT5OYrAOUCKSo6WrhycZcnwKjHg9DMhuLgPp
+	DD+ID+HQnQHlebGP0hzp/Ls2Qu1wUEWvgPgP3NdMbjyDjItjksX0zqCmsl7c+ep1cmSrUEnKM5Zg2
+	4xQmVEAtSlKYz5MZpIysJ3OZ3sPD1Ty5pOQyKsequPjlGkoC1mvbKWRkkbdjHbKboS2Bt95kt/u9y
+	W9FJcfoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OV7-00000000Plb-08JZ;
-	Tue, 05 Nov 2024 18:42:01 +0000
-Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
+	id 1t8OXz-00000000R2c-2aCn;
+	Tue, 05 Nov 2024 18:44:59 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OM7-00000000Ngw-1ONS
+	id 1t8OVi-00000000QBN-0ItR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 18:32:45 +0000
+	Tue, 05 Nov 2024 18:42:43 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3a6c3230858so11150775ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 10:42:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1730831563; x=1762367563;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=TrNQ3LJeAMesAmpKUJ7N1Al9kS1bwIA8hsz/KHf4MgU=;
-  b=ddfYjFa7MUuOxQ8QeYde8QDpUhi4qbsRHpdPsao8CgU5mYvSvyDMm0Z5
-   yG58tJ8aABdkg+Ez6Jb6TQdK97Ujygc+JumhmqtN//DUedfULm0vIiP6T
-   bYIf86WQ2GeRTdBAiCZKpJ5RsgwA4IdR5xE26U5NqDEyvCOsKyQIksc7P
-   E=;
-X-IronPort-AV: E=Sophos;i="6.11,260,1725321600"; 
-   d="scan'208";a="440503091"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
-  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 18:32:39 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.7.35:4506]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.17.170:2525] with esmtp (Farcaster)
- id 3e5bd2bb-9e63-4844-b995-362add075696; Tue, 5 Nov 2024 18:32:39 +0000 (UTC)
-X-Farcaster-Flow-ID: 3e5bd2bb-9e63-4844-b995-362add075696
-Received: from EX19D001UWA003.ant.amazon.com (10.13.138.211) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Tue, 5 Nov 2024 18:32:37 +0000
-Received: from u34cccd802f2d52.amazon.com (10.106.239.17) by
- EX19D001UWA003.ant.amazon.com (10.13.138.211) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Tue, 5 Nov 2024 18:32:32 +0000
-From: Haris Okanovic <harisokn@amazon.com>
-To: <ankur.a.arora@oracle.com>, <catalin.marinas@arm.com>
-CC: <linux-pm@vger.kernel.org>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<will@kernel.org>, <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
-	<pbonzini@redhat.com>, <wanpengli@tencent.com>, <vkuznets@redhat.com>,
-	<rafael@kernel.org>, <daniel.lezcano@linaro.org>, <peterz@infradead.org>,
-	<arnd@arndb.de>, <lenb@kernel.org>, <mark.rutland@arm.com>,
-	<harisokn@amazon.com>, <mtosatti@redhat.com>, <sudeep.holla@arm.com>,
-	<cl@gentwo.org>, <misono.tomohiro@fujitsu.com>, <maobibo@loongson.cn>,
-	<joao.m.martins@oracle.com>, <boris.ostrovsky@oracle.com>,
-	<konrad.wilk@oracle.com>
-Subject: [PATCH 5/5] cpuidle: implement poll_idle() using smp_vcond_load_relaxed()
-Date: Tue, 5 Nov 2024 12:30:41 -0600
-Message-ID: <20241105183041.1531976-6-harisokn@amazon.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241105183041.1531976-1-harisokn@amazon.com>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
- <20241105183041.1531976-1-harisokn@amazon.com>
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730832156; x=1731436956; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q/5k2rLKTo7KgnD4BR9+2dIjyjzlQVVkq8ThtV9wFto=;
+        b=MzHOhaibyZhL6RpROdjkZWnt2KBGOyUm0RgOlT5FIyhsYtvh98fz1/oLNV8L52VKul
+         HtiOUlDruj9+XkS8BdpDuBcxuePmSHpz4VAU9TCAhYO0lchn5goZ7sH5qNtdQsi8FS16
+         f5IoTV2sw2Bf330uj3sYS4TIgd3KksH9m45ErvLIt6pnt1Oz4ncKPBhAhpFBCDe70rMy
+         BF+6x4o8R72qZ7KV+Yl0QCJyT24P7sQrLG/maADC5f5jFvk04My68/lZhzDu8bHB2JFQ
+         hlwuSXJsYD+ntsE+cOm5q1ZKNlLyV1/mmhZxkAtjd7+3HdJZuXttGcqC/DxVyVOM5aKK
+         oQmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730832156; x=1731436956;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q/5k2rLKTo7KgnD4BR9+2dIjyjzlQVVkq8ThtV9wFto=;
+        b=ZkgT4/AhFfIGj6mSsFvAE7FJ+THlm4f8AHA19XKLMDYTH1PDYH34Z2ML+DlWE6m2LQ
+         pJYdpvNXPjIFADpbYEdBxUCKW+LzQ3bvAZHMLQxd3TcoMN0B/a+XcYu4ABQMiBAs8145
+         TAZj9b9Ige/2WQJL31anyfLN3j41acNoZnQDzUkzxKJhppyqvHDLcDuc8nP+ji6JUwtv
+         b4mylZKH2+sdF1QV5GIews69x9jtFmrUcE/rNLvzx4ALOEW6cyzqfkP8I6N8Vd3+oJcu
+         QHmDjrCUdLdAMKMaqw/sCOdbxlqThCEUFcCpnK1jmgycpMUa+cO3oXcbx4jnYRqbNB19
+         BprQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXI7tX63JAV32i9rYwIVTs6rABSSAji/FTwtzvSH6mQWEZLGgaOwdO6tLN8XtORiY0R6hifnnmB8mZNs77/zApO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq6oBjje1T9dAmFrBR7Sc7zdHuBii+f6gsQV4GKgAGoz83KF7q
+	03I8/tHmFsovGGvh24EZ7y6mOL3bNUTPnZdzXUvx7l/hlY9KHLEyjdDc90gy44LmDM2rShn+NCa
+	NDtGtAAfM43a4xdI5DS7Shl96mbOT5FsNLg2CUg==
+X-Google-Smtp-Source: AGHT+IHafiE56RLycAX61PwBNuvy4TPzSnAPrcXkk0qt/3LnY4O4q/UmngQM9Vlm/dj0VEmvvCeNfFq4tqlEFF5LAvc=
+X-Received: by 2002:a05:6e02:152e:b0:3a6:b445:dc9c with SMTP id
+ e9e14a558f8ab-3a6b445decemr144631815ab.3.1730832155951; Tue, 05 Nov 2024
+ 10:42:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.106.239.17]
-X-ClientProxiedBy: EX19D033UWA004.ant.amazon.com (10.13.139.85) To
- EX19D001UWA003.ant.amazon.com (10.13.138.211)
+References: <20241104064650.799122-2-u.kleine-koenig@baylibre.com> <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
+In-Reply-To: <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
+Date: Tue, 5 Nov 2024 10:42:25 -0800
+Message-ID: <CAH2o1u77TViePZ2eh+FY7oQXxFAp+SEVM38ROP1uKfeMZ9E7hg@mail.gmail.com>
+Subject: Re: [PATCH] iommu: Switch back to struct platform_driver::remove()
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Hector Martin <marcan@marcan.st>, 
+	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Rob Clark <robdclark@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, Michael Shavit <mshavit@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	Georgi Djakov <quic_c_gdjako@quicinc.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_103243_561890_08A29204 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20241105_104238_790481_C3BF1951 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +103,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement poll_idle() using smp_vcond_load_relaxed() function.
+> > diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+> > index da336863f152..382ba2841849 100644
+> > --- a/drivers/iommu/riscv/iommu-platform.c
+> > +++ b/drivers/iommu/riscv/iommu-platform.c
+> > @@ -81,7 +81,7 @@ static const struct of_device_id riscv_iommu_of_match[] = {
+> >
+> >   static struct platform_driver riscv_iommu_platform_driver = {
+> >       .probe = riscv_iommu_platform_probe,
+> > -     .remove_new = riscv_iommu_platform_remove,
+> > +     .remove = riscv_iommu_platform_remove,
+> >       .driver = {
+> >               .name = "riscv,iommu",
+> >               .of_match_table = riscv_iommu_of_match,
+> > diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
+> > index a2f4ffe6d949..e84806eee281 100644
+> > --- a/drivers/iommu/sprd-iommu.c
+> > +++ b/drivers/iommu/sprd-iommu.c
+> > @@ -531,7 +531,7 @@ static struct platform_driver sprd_iommu_driver = {
+> >               .suppress_bind_attrs = true,
+> >       },
+> >       .probe  = sprd_iommu_probe,
+> > -     .remove_new = sprd_iommu_remove,
+> > +     .remove = sprd_iommu_remove,
+> >   };
+> >   module_platform_driver(sprd_iommu_driver);
+> >
+> > base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
+>
 
-Signed-off-by: Haris Okanovic <harisokn@amazon.com>
----
- drivers/cpuidle/poll_state.c | 36 +++++-------------------------------
- 1 file changed, 5 insertions(+), 31 deletions(-)
+Thanks, LGTM for iommu/riscv part of the patch.
 
-diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_state.c
-index 61df2395585e..5553e6f31702 100644
---- a/drivers/cpuidle/poll_state.c
-+++ b/drivers/cpuidle/poll_state.c
-@@ -7,46 +7,20 @@
- #include <linux/sched.h>
- #include <linux/sched/clock.h>
- #include <linux/sched/idle.h>
--
--#ifdef CONFIG_ARM64
--/*
-- * POLL_IDLE_RELAX_COUNT determines how often we check for timeout
-- * while polling for TIF_NEED_RESCHED in thread_info->flags.
-- *
-- * Set this to a low value since arm64, instead of polling, uses a
-- * event based mechanism.
-- */
--#define POLL_IDLE_RELAX_COUNT	1
--#else
--#define POLL_IDLE_RELAX_COUNT	200
--#endif
-+#include <asm/barrier.h>
- 
- static int __cpuidle poll_idle(struct cpuidle_device *dev,
- 			       struct cpuidle_driver *drv, int index)
- {
--	u64 time_start;
--
--	time_start = local_clock_noinstr();
-+	unsigned long flags;
- 
- 	dev->poll_time_limit = false;
- 
- 	raw_local_irq_enable();
- 	if (!current_set_polling_and_test()) {
--		u64 limit;
--
--		limit = cpuidle_poll_time(drv, dev);
--
--		while (!need_resched()) {
--			unsigned int loop_count = 0;
--			if (local_clock_noinstr() - time_start > limit) {
--				dev->poll_time_limit = true;
--				break;
--			}
--
--			smp_cond_load_relaxed(&current_thread_info()->flags,
--					      VAL & _TIF_NEED_RESCHED ||
--					      loop_count++ >= POLL_IDLE_RELAX_COUNT);
--		}
-+		u64 limit = cpuidle_poll_time(drv, dev);
-+		flags = smp_vcond_load_relaxed(limit, &current_thread_info()->flags, _TIF_NEED_RESCHED, _TIF_NEED_RESCHED);
-+		dev->poll_time_limit = !(flags & _TIF_NEED_RESCHED);
- 	}
- 	raw_local_irq_disable();
- 
--- 
-2.34.1
-
+Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 
