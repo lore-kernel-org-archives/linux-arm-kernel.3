@@ -4,150 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55291D3176C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A29D31769
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Mq4jiqJQ8ULJs0oi/mqNOp1q5Lxh6ffycIF3LfFD6o=; b=S6ZHrC163lCvrvPGHHSZ9ihjYF
-	IZQyNY/YKBFnxctkDbk1vraCNZVqce74ZMqIQtQC4xTzzizd1G9EaAN68bPehpQ1JyQq8dpJunok/
-	9kHrrWyqHkdhcRWajJ+WE9q+kQUDn4+OczcQpE4pcnFsDjiiKLfhTVAsSscPLm/dktIEO8itxfeBE
-	TwZqQcD4v4OJjSTU1mfU8SS6JtpmZ+PecWS/VvPOBkMUanWQED/E2Vu1TdD6rz2ZuY0h68teyoEPW
-	aLRKr5aNizv3sDBeiPmZ03h/4iYi2p0OsAU83OHXs/ejYR5L2uOXw4htjZKupkLBk7qcX7YexHCXI
-	CUpcnBqA==;
+	bh=WejhOkwY+boRql68KJYuAZ/BYj9wIZ1hhD0LeIc8FKs=; b=CjOj79n5qNQZlUHgMJFA0FCGKG
+	KmM/xbZv/Y9wclUu0FiPju5bbv0oOcSG+4uWa4XEs9y1N8cEbRXwazmyLIqV3zuumqjF/KS6jywVG
+	c7SCNMPT3Nre+v6Ewhm3HdBErsscLUy64uBDPpp0o35OrtkQkX2W1QTFW7DGdp+k6zPAFImz5XgsU
+	paevH9jEwV59qGbjFJm9ldwXuICjwFkTAPuFwgCykcpu9R1fse5amOHWAEPzOPLPVThAUfyEG9/AN
+	r5i0AyWRAuQhLFd+hgCIL5x9e2+iCx0HIz1OADK6ptBXivXHf3iRMji3FKEdd2bsOgYDRdlIlBFqx
+	OWFup0eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NNz-00000000D4X-1Sz7;
-	Tue, 05 Nov 2024 17:30:35 +0000
-Received: from mail-bn7nam10on2060c.outbound.protection.outlook.com ([2a01:111:f403:2009::60c] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1t8NNt-00000000D0J-0v60;
+	Tue, 05 Nov 2024 17:30:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8N5D-00000000AUq-1iRd
+	id 1t8MjP-000000006fN-2F4Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 17:11:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T2//nXte4ASpwDmpZqhD+kNWpevdR4hrBWRazb3X/xKi/5FCNBaqn0tCiV27DWqubEH9hAzDDzu+Kiz8dOwOUMwZPMkxjAOpu2/gODeirFim+YYK5IO0fezt6rTIwx76+mhrJNkYr6vrwwD5Hibg4PL51SLYM2lkYA0ayqX9e8jxZjov2jm8b2cPnA25y4DtMtk8Sl8Xq1SeLrOGT4cF+t6nu7DQeGGho0F1I8DBtgZ/Ev8vHvSJLW725S6dJQWUxIbi1X6V3q9CWFLvB1lkzu/qq3fLoTApLewwyBnqAtHjb7zgv8hYwbvt6mtI7JTZzmioISir1mrILtc/KtEb1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Mq4jiqJQ8ULJs0oi/mqNOp1q5Lxh6ffycIF3LfFD6o=;
- b=W1gHUa8v5CyrRsOD4ImZTrbBSGIhxMF6x13/WeUEnDgp1pzMitosdqjFMAPkLlMCB1liWHBNatnoERASwJiWiTLERqMRkXnGe9QzW3/9kulcVyd+RVJfxQQlGCe42snHWLc8RY8x4xKzM5cH5tPRha8ScOIzo4oqWDRbPqSJoOsncBxAG+atkvOkyPRH040K6KkLZjyknhsOq62iaalZO22WQJbtyieWXGpEkwCPamZ7mkow9r/U3FQR8pJaM+D/u7+A8tJmiekPylcp9oSWP7QWRn27b9ozUc/cAUUm3/FFuy8vynnYUFrkHl4HvX6m81/+nCrkMeBrfZi+a3PPRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Mq4jiqJQ8ULJs0oi/mqNOp1q5Lxh6ffycIF3LfFD6o=;
- b=UTcVMDYJ9bBQX8SVkvFfS1GKYfLRkIn/rKeprMt5avM/lO6fGMzov4lNOkgMrqWm8fzMuo1bSG8+uWFUKIWL55LyUsZhNodIwwl1bj63i9OHRmzraVwJHOSDL0NalYf3/IomntVbxrAcLNChkcJXuy5Xbmzkimv8ZUz4oKypqNmCNHPx5OA6b4OKvE75k/GFif9k0E8dxkhiwZY8fQH4Fkuj/RxVUwGcjNLQuPyLX4MDgYNWknr8azVmKt/a0m0L/M3LTtvsKsZKytTPxktFyGd0Iap/SN2xrtc+5ykxigDp2omIi7s+7JsXwa4152kwkXY4SrVVm+QkDbSiVEXoCg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BY5PR12MB4132.namprd12.prod.outlook.com (2603:10b6:a03:209::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Tue, 5 Nov
- 2024 17:11:02 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8137.018; Tue, 5 Nov 2024
- 17:11:02 +0000
-Date: Tue, 5 Nov 2024 13:11:00 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
-	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v2 2/3] iommu/io-pgtable-arm-v7s: Remove split on unmap
- behavior
-Message-ID: <20241105171100.GM458827@nvidia.com>
-References: <2-v2-fd55d00a60b2+c69-arm_no_split_jgg@nvidia.com>
- <cf17dc41-f72a-4d90-a78d-2d90fa0ac243@arm.com>
- <20241104200951.GE10193@nvidia.com>
- <20241105165942.GB12923@willie-the-truck>
+	Tue, 05 Nov 2024 16:48:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6C203A43641;
+	Tue,  5 Nov 2024 16:46:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75888C4CECF;
+	Tue,  5 Nov 2024 16:48:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730825318;
+	bh=C6Hk6/eHmDS2AcJbkrwiislpkRQ+Eud/EQoVHtBaVi4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rmtn0Fc+AfgQDPMBkouiMKC3eMbKISVCgolNAoUN/NA08NJsrDiDA9CHq+EyGxYSX
+	 x2ht6NAKiLYE7I83LKoVjs7jg+WAKplOum+cjLQwPnx6QE9f02LK28NYh1DXSPoCIc
+	 V2jJkCSywBTrXd5witeNe/+Mem8bo9sJiXuA6P+kvoMMIBSHTeozVamDGGbscZz8rq
+	 PsqlL2kps4ABTYU7rNalIhA4+bFroEHsgrPpcKIHDt4XA+9J0K5MhGl6Jy0ZFq24yK
+	 YPX0YKXKx4Bnece0a0viT+b8tEQ2HwOFXJfdcO2IFpDmtcJjlCjHkk1rJw7Zj2OCDK
+	 qwTGI0NNtQgBw==
+Date: Tue, 5 Nov 2024 16:48:29 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Michael Shavit <mshavit@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
+Message-ID: <20241105164829.GA12923@willie-the-truck>
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+ <20241101121849.GD8518@willie-the-truck>
+ <20241101132503.GU10193@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241105165942.GB12923@willie-the-truck>
-X-ClientProxiedBy: BN9PR03CA0708.namprd03.prod.outlook.com
- (2603:10b6:408:ef::23) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BY5PR12MB4132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40473b67-46d8-4fc4-41ef-08dcfdbcd31a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wIMXUyhsYrAvJuUFV2ra/c2b1DJmQ4Ahz7KNzjVFW9nutoNVqw1yKo5HzTnn?=
- =?us-ascii?Q?rQcq7aEu/rsmkWszL3OwB1x82B9+HBO5EOMAVCUtqy+OVGixIsBe4fmgZoXu?=
- =?us-ascii?Q?1UU5c4vNwFhvlyfUH9WEKAhMCcpSUCwpovr7U+DOJtmk8aQoj497eMmKun0Q?=
- =?us-ascii?Q?uEOLSJ2a0bicoRMNzFKE4IFI4V08aeln/RGRq4ho5syozNcrlZph4OuoCvZi?=
- =?us-ascii?Q?a2lha6cmRWprP3NkZBnNf7S+5Dk4g9VMcB8MaPJNVbxFYv/bDoh5neBUFX6l?=
- =?us-ascii?Q?aYP4t7sw784HsoJjKpXZxG6MG+NMlmlb1oOEo7uw2pfafzReTApdJqO+Mqsg?=
- =?us-ascii?Q?QIgwbR33G2eGGFJemJYuZITTf2nFUk3waUuv8WYiB/B7LGkiPJfXjl6LQBcL?=
- =?us-ascii?Q?0fse5pk6D2vbYUrrY8aSQDdj3DCvReQ+yDyYnx8/Bz1JgQ1cWCQwMlbao3ka?=
- =?us-ascii?Q?wMQTd+gZuqbpxdANgvnB2PGU30bOUOZc5r0xrnpZz0Vx0osqIbs10MNaQWAg?=
- =?us-ascii?Q?JMyy9kjePgxTdh7kypNiksY0ZeaZ2knS3NOoeMyXMdw6/dzzBn7ZIbKwZRMt?=
- =?us-ascii?Q?H7kKbvafF2V6zI9F60hXgokSFfajJP8x6bhBOmvld65PybXQffIN8s+pgpQ7?=
- =?us-ascii?Q?S5zebxA2+rCEtOMabN5BCi8QxIUY8GIibEw7DN7fPSU6sVH/TIUX9m7lsFN3?=
- =?us-ascii?Q?mvMv31A8GaCJM1n1cZ6nVwRN6ol1vVLJJeIwVpTxBetopwSmat+EWTwn3bt/?=
- =?us-ascii?Q?FN8HSiVwVrw6tbvKvUoHaOkwzZNIS1SICvtkRxbakbmQrZJCYP7Od5wpo0Ec?=
- =?us-ascii?Q?CVFDPenk9RqHjpCDV902QaDlKlFvJaxyfaXvrFVoG+Tc+zzwQr7TsaV7NM0K?=
- =?us-ascii?Q?Dw09GZNlL4IPD1VjOoDLyMVoyFe/uKs42gT/Ylfcole8vjQRoOWOsNo/7WWh?=
- =?us-ascii?Q?SyCrf4jtSCoNxW4yg9Gm5Cx9/YZoYwya55FYG2NHaTgd8ToxFcObXmOqO0Ql?=
- =?us-ascii?Q?mDaDibaZjTUts7hR1pl/H1CiIOWLK7NneG5BbiYFXEBZNzUEtHRJcOMZ5G0U?=
- =?us-ascii?Q?x4Haqc18gfa5uwQbVHqApsMrLibYsJocSpK69by8IRjJbmE5ZEeTdPgJ+E1u?=
- =?us-ascii?Q?zWB4WUHirGlnhmEZpV3j2QQeDJBooJnm5lJdMoH0fwWWZ8qwlEFUWWxN6lLY?=
- =?us-ascii?Q?ieMFb2AsKQrVxnNHKNaIfDXWMfELvBDapSBFYkE9vMXFSkVwSODP2F6EdHub?=
- =?us-ascii?Q?QM5+ALLU86V31E/JDoxIOfSnnbnVte9iVSJaisv60yD3KQEVmkOIF0zFz7bY?=
- =?us-ascii?Q?YR51aHk9HG/+s3dd/uOuHqsh?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vnp9ZlpTQZehntBMK6yFYFZ2TzsoJ+KnZyMiUDEPnWv2C578dcETDsL+P6mO?=
- =?us-ascii?Q?4AL00pfvjooaPggFrumfcVC9/ABkn1k36X2iK5Z3f2qrhM9nUs00zhKVmgCN?=
- =?us-ascii?Q?4sHnDAwXjKqmscmqfr+PhEu0CoFVZrPeVkonDoT0npNfbTGIH0mOb/aAdc2z?=
- =?us-ascii?Q?LWXbGzPD7oz4Rj1SClrjr6GCj/D/f73PRkl3ANRNgsShJK9brKlfbHhAfWi4?=
- =?us-ascii?Q?XoTCS1CA09yzEg0KiEv/NtcMzYuM3miXe5X5bma4eD0KO3vc5Cv2tEesTKUz?=
- =?us-ascii?Q?CudD6Wny4GNyeSn61mC80dIyCb7JtnrY4+LggWJ+akOGdlu0oLdjoEYoJ+qd?=
- =?us-ascii?Q?RoEA79/bXRVKxs7wHe1plWz+5U0iVNoynrfr0CoF1PASDLxKipj17Fa+sC8y?=
- =?us-ascii?Q?A5pCQxQq4kFB4mniI8c3gRv9PNnBVb7TyUUziGYlPXmLiD2rHMhSRKkMubqJ?=
- =?us-ascii?Q?GWKqGZvlzUULZKiNuwp29XJHBzj5+E/tt2+utX/SfKd2ZeDnj3zecX4i/j/h?=
- =?us-ascii?Q?aNDNkhKd7G0bVCzvPyANNNnCw3rK0uD0MjPcbPbLy6YAS+nMZPXexBBloAQW?=
- =?us-ascii?Q?KyKkcgjEK/+YG3cOcNRSr7joOXxCxfWM52n1bSU0xVvTSVe8ifH/+YlTVszb?=
- =?us-ascii?Q?rFpq+k8ebLiuUCo7a4IUPYq3E+w/ci3Wwub3oWPbQkKCcDco1P/JKmZ5D8Zu?=
- =?us-ascii?Q?j18NVgw86IjzeigT65zk0nG4WnNFx9ByMqjSp350QUGdplnplyRijvnpi7X4?=
- =?us-ascii?Q?tMGf9C2sdY2RVcXG4CDccV9iZ4SXC9M2mESSvQljExFacL0joPrk9UuDZAKl?=
- =?us-ascii?Q?J/UCp6T16GNF4t/iXQsDddh/9SzsEiRfSDGM/DZGkOjwraTRq5IeW/nINgbA?=
- =?us-ascii?Q?iUg78MTecc4mChkMzXodFhX2VVUOhRVloRoPV9pMuHgCa9XOEzYBFNW+1omg?=
- =?us-ascii?Q?/f86Ab7Y3LW/V01RBEkWm4YB9j0bgLsBfZmQPUmEDRsVVq/gw9xjLmldzy/V?=
- =?us-ascii?Q?TZuDwjZmhQIDbCdJSIAs6cr+KQo3/lt9ASXuzvr7mE9n6sa0skICa2xsorVF?=
- =?us-ascii?Q?sxq8ZSuI2zcIk7GxDAI2ETmSXvI4mexHjC0Ss5Z81nDOkuJ7NavwoWsRiY17?=
- =?us-ascii?Q?LEVDsz983QFwnSLCVQzzUJl+Qa+MJrzP0hxjHgveTWLntlGtUdbQV2jqoAKe?=
- =?us-ascii?Q?KHkt2RjWF9aqR7CvFGqGW79fKUACLgeG8n0RlisRx80UcTmTc0+YAGBhX6Cb?=
- =?us-ascii?Q?a8n4YULVTbkb93YN0e+V2gUHYFBY4ofeOW0XyvnaeSpvboA4TTgcliSMwoWU?=
- =?us-ascii?Q?ZT9/wmDiVEMQlYK8rqGL5SAlYjBvFZLDBMxBtABieooW/+HKxihs3MAo6fqT?=
- =?us-ascii?Q?jgIWJMAhizSgghZw6t9U+oM/noOJReZu8x/Kc4uI/GePqkABEj137x1dbdqN?=
- =?us-ascii?Q?Xv1iSCCAdOdoYROUmrYPUSQa66XaQ6UT6udDIn0IvoDjDAR3aptZGIjrpCOT?=
- =?us-ascii?Q?H/06VnharYziNHle9jWXXkVKvUe6q2jRSXHIJW4SGvPx7jjFnaijdhT4bdwF?=
- =?us-ascii?Q?enWRerb1P+wwEg87N+qWuxF9jaBZ1uznZUoB2ZwX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40473b67-46d8-4fc4-41ef-08dcfdbcd31a
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2024 17:11:01.8692
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /KBIZMtIN3gqeIHzQavvo77AhrIEi4b4FMaorLvwWhTpsNLjgDDCW9J2+0qbEWnr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4132
+In-Reply-To: <20241101132503.GU10193@nvidia.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_091111_497020_562338DE 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20241105_084839_659168_15F97F1A 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,61 +93,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 04:59:43PM +0000, Will Deacon wrote:
-> >  	/* Full unmap */
-> >  	iova = 0;
-> >  	for_each_set_bit(i, &cfg.pgsize_bitmap, BITS_PER_LONG) {
+Hi Jason,
+
+On Fri, Nov 01, 2024 at 10:25:03AM -0300, Jason Gunthorpe wrote:
+> On Fri, Nov 01, 2024 at 12:18:50PM +0000, Will Deacon wrote:
+> > On Wed, Oct 30, 2024 at 09:20:44PM -0300, Jason Gunthorpe wrote:
+> > > [This is now based on Nicolin's iommufd patches for vIOMMU and will need
+> > > to go through the iommufd tree, please ack]
+> > 
+> > Can't we separate out the SMMUv3 driver changes? They shouldn't depend on
+> > Nicolin's work afaict.
 > 
-> Yup, and you can do the same for the other selftest in io-pgtable-arm.c
+> We can put everything before "iommu/arm-smmu-v3: Support
+> IOMMU_VIOMMU_ALLOC" directly on a rc and share a branch with your tree.
+> 
+> That patch and following all depend on Nicolin's work, as they rely on
+> the VIOMMU due to how different ARM is from Intel.
+> 
+> How about you take these patches:
+> 
+>  [PATCH v4 01/12] vfio: Remove VFIO_TYPE1_NESTING_IOMMU
+>  [PATCH v4 02/12] ACPICA: IORT: Update for revision E.f
+>  [PATCH v4 03/12] ACPI/IORT: Support CANWBS memory access flag
+>  [PATCH v4 04/12] iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
+>  [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct arm_smmu_hw_info
+>  [PATCH v4 06/12] iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
+>  [PATCH v4 07/12] iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
+> 
+> Onto a branch.
 
-Ugh, yes, I ran it and thought the log it printed was the success log,
-it did actually fail too.
+I've pushed these onto a new branch in the IOMMU tree:
 
-This seems like the right output:
+	iommufd/arm-smmuv3-nested
 
-arm-v7s io-pgtable: self test ok
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 32
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 36
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 40
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 42
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 44
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x40201000, IAS 48
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 32
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 36
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 40
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 42
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 44
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x02004000, IAS 48
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 32
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 36
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 40
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 42
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 44
-arm-lpae io-pgtable: selftest: pgsize_bitmap 0x20010000, IAS 48
-arm-lpae io-pgtable: selftest: completed with 18 PASS 0 FAIL
+However, please can you give it a day or two to get some exposure in
+-next before you merge that into iommufd? I'll ping back here later in
+the week.
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 9c9ecfdf87be90..abaf323843e3c0 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -1283,19 +1283,6 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
-                        iova += SZ_1G;
-                }
- 
--               /* Partial unmap */
--               size = 1UL << __ffs(cfg->pgsize_bitmap);
--               if (ops->unmap_pages(ops, SZ_1G + size, size, 1, NULL) != size)
--                       return __FAIL(ops, i);
--
--               /* Remap of partial unmap */
--               if (ops->map_pages(ops, SZ_1G + size, size, size, 1,
--                                  IOMMU_READ, GFP_KERNEL, &mapped))
--                       return __FAIL(ops, i);
--
--               if (ops->iova_to_phys(ops, SZ_1G + size + 42) != (size + 42))
--                       return __FAIL(ops, i);
--
-                /* Full unmap */
-                iova = 0;
-                for_each_set_bit(j, &cfg->pgsize_bitmap, BITS_PER_LONG) {
+Cheers,
+
+Will
 
