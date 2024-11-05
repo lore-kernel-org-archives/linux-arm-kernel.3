@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E5BD2B944
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 15:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D768D2B944
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lzS+z+PKKsRoAWU8YZd2WpPyrsLfQqka5sWgVphen8=; b=RuEVDiKO0TZlpvmZ4Q938fJ+9d
-	bmxcDyY0ZBELNrTEQrZ5YogpVm+WbkxDTzWE2FLK80vkTI2p03SimRGlQLKOqH1Mr/YTPSt8Zntwc
-	nT17oKJjJLJhTYjHsMSK49fHYs3gk0OyvJyujDq3jj+tqEb0i/ZPRGCUwaJHhJ9vPuUsfokEuIExC
-	wshDlTB8pGp/d6G1JCNuqLTk+MDvesaxHaey4vu2izEUU8L1bwhgemwtlQlAzEuur4xunTXh1hnh1
-	OSzgmEm/EwnHyZ7il+gH3NmeJQyxz9DlZx2qVTL4FcS6UGkX80aHQZGULjNDBhzLO1AD9Ri7zv3ee
-	uUuNkpuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cq3ajAQ2kMi2/eED3gh1lxaZHvoIUZJP1/SKXoeTqXo=; b=r8DOyVZUMfgNdjOGXY2lbODUIP
+	dhbN3urcBDek/nfHHHQtVAsxSeI3X1Gv0Xt0sRCcocQRIYgMQk3YoeNxGGxbJ391gUrxKgMttraAL
+	uQEkVcrYrFiCmYuS7w9bP3ydSoEDJw7gOIGlORLdu3rrbOucvCuwlkrmNkjh7Pt9uxv1oslelJrAL
+	3+u4QrEx47aOQtzNpRkYsrAQpvcjEUes97AwoveQnYXKk3YFO+ghYkcYG+yk7DH6EKbkEfTQeCeif
+	w1KFyeuHeQMChjbWaCoOl8gjiFv0F+NRuRCZDAuHq2MqCEzcSut48CheJR1TTrJ2Z1GUNgb12Un/v
+	9iFIQ6qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LwU-0000000HWba-2dtz;
-	Tue, 05 Nov 2024 15:58:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8LzB-0000000HXgy-2Ozn;
+	Tue, 05 Nov 2024 16:00:53 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Ltm-0000000HW6j-2XMx
+	id 1t8LxE-0000000HWuj-2vDV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 15:55:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7E02FA43502;
-	Tue,  5 Nov 2024 15:53:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C57E7C4CECF;
-	Tue,  5 Nov 2024 15:55:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730822117;
-	bh=geNXIOmFhjUV44xeJJLj1CXb6YjQiBsxZnVw4EaQ3a4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u3ium1tQ4OrYGX9cs8sebcV86pFTUpuEmi/xq06tAxwG44Wf4fBqNl/2ZXimzpeTl
-	 E5hzBuZTXpgsXtnnXbZKQQZDd/7D+ICbBiB/Q7gYRY6BbGWub0pAgIgxPIem/7QIPF
-	 L8BvpGd11hjGXcfZsIryiQsmQkgDp2FaogxZ7aLLrVBFzLNJRvko+tlmgmnmidW+8s
-	 qDZISKEGjxk9P7qF+2z/rY7Rg3RKbGytVKH+wrAv/7m8Jiu5U84V/n4W4a/1wVtecc
-	 6rm25ErH7hceThPKadvYvo/Hap/GfVLAUoHFZOuIgXSVCb/gclVS01MzCVfpwct17H
-	 OlQ8zlYbkD/bw==
-Date: Tue, 5 Nov 2024 15:55:12 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64/signal: Avoid corruption of SME state when
- entering signal handler
-Message-ID: <709b6a9a-dcf1-46b9-ac81-e5093a9740f2@sirena.org.uk>
-References: <20241030-arm64-fp-sme-sigentry-v2-1-43ce805d1b20@kernel.org>
- <Zyo3QU8aBGmtbTRo@J2N7QTR9R3.cambridge.arm.com>
+	Tue, 05 Nov 2024 15:58:54 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EH6if006936;
+	Tue, 5 Nov 2024 15:58:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=C
+	q3ajAQ2kMi2/eED3gh1lxaZHvoIUZJP1/SKXoeTqXo=; b=FSxsmyKjeGhdj9no9
+	iqImq0hefg7l50/VohINt1e4txf+GG3ELUhtmnyMpmjhrDyhTYJL9fZ6HbIS7lvM
+	AaGcKMomuIdp+mxnNC7stno63wGfR9AJ6h4KZ45RnuHSKh41+1fXti5N6k3r7jXF
+	92HbIaW9hQthY/gg1XdOM4NjFl9Y7ZCcGDHccG5XT+HYMrtVvb4B3GVe7ruFJCrH
+	yNv1409GmE6Z2QndQM5y57R1IqJLUWtPdmlG/zIRI9uhDL2Fq3n2uZNQrp9yU4ah
+	T7sjaFJdeIOk2KX5BHt89l6366W1S7K60/4y5HIqHahV+fwYYt1/2P52BUwl31Hp
+	eml0Q==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0u-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 05 Nov 2024 15:58:32 +0000 (GMT)
+Received: from
+ 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+ (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:31 +0000
+From: Matt Coster <matt.coster@imgtec.com>
+Date: Tue, 5 Nov 2024 15:58:16 +0000
+Subject: [PATCH 10/21] drm/imagination: Remove firmware enable_reg
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/Y56n/3XFNEIyBPu"
-Content-Disposition: inline
-In-Reply-To: <Zyo3QU8aBGmtbTRo@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Don't get mad, get interest.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-10-4ed30e865892@imgtec.com>
+References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3945;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=2Z3laMbkgJH4qXm/x7wHPkpXvjQ+QZuwDLaHlpIH+MI=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcy1V92tz5tifZjH4qnLTLajgqpvVvzru6Tc9+mD5
+ bm7wh5RHaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjCRLbcY/kceaVQyytv7x+bc
+ 8YZVy8SlNji5bfSdfL5d7OmJXXd+KkQxMtzOVJpbMS/EIDh6nWmdrOaP9zNn3yl6aJPir9jloqn
+ DzA8A
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.16.114]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=NvQRLi1s1fuHPRDSktsA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: VsLPSR_BmbRTHGMT5S6YonmX2_SnQcto
+X-Proofpoint-ORIG-GUID: VsLPSR_BmbRTHGMT5S6YonmX2_SnQcto
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_075518_802121_9CA5AF94 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20241105_075853_162640_59A093BD 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +107,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+After the previous commit ("drm/imagination: Revert to non-threaded IRQs"),
+this register is now only used to enable firmware interrupts at
+start-of-day. This is, however, unnecessary since they are enabled by
+default.
 
---/Y56n/3XFNEIyBPu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In addition, the soon-to-be-added RISC-V firmware processors do not have
+an equivalent register.
 
-On Tue, Nov 05, 2024 at 03:18:33PM +0000, Mark Rutland wrote:
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+---
+ drivers/gpu/drm/imagination/pvr_device.c  |  1 -
+ drivers/gpu/drm/imagination/pvr_fw.h      | 11 +----------
+ drivers/gpu/drm/imagination/pvr_fw_meta.c |  1 -
+ drivers/gpu/drm/imagination/pvr_fw_mips.c |  1 -
+ 4 files changed, 1 insertion(+), 13 deletions(-)
 
-> I don't think that the foreign / non-foreign cases are equivalent. In
-> the foreign case we clear the entire fpsimd_state structure, i.e. all
-> of:
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 43411fe64fcecd8f84c0ceabb329f2901d63ed93..52d7641a1a0c62a9c4029092e846472d82950a61 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -172,7 +172,6 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ 
+ 	/* Clear any pending events before requesting the IRQ line. */
+ 	pvr_fw_irq_clear(pvr_dev);
+-	pvr_fw_irq_enable(pvr_dev);
+ 
+ 	return request_irq(pvr_dev->irq, pvr_device_irq_handler, 0, "gpu", pvr_dev);
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index b7966bd574a924862b7877c175fa2b5d757d89db..29bae4bc244a243a6a95bcf838d924060cc043e2 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -188,9 +188,6 @@ struct pvr_fw_defs {
+ 	 * processor backend in pvr_fw_funcs::init().
+ 	 */
+ 	struct {
+-		/** @enable_reg: FW interrupt enable register. */
+-		u32 enable_reg;
+-
+ 		/** @status_reg: FW interrupt status register. */
+ 		u32 status_reg;
+ 
+@@ -202,7 +199,7 @@ struct pvr_fw_defs {
+ 		 */
+ 		u32 clear_reg;
+ 
+-		/** @event_mask: Bitmask of events to listen for. */
++		/** @event_mask: Bitmask of events to listen for in the status_reg. */
+ 		u32 event_mask;
+ 
+ 		/** @clear_mask: Value to write to the clear_reg in order to clear FW IRQs. */
+@@ -412,12 +409,6 @@ struct pvr_fw_device {
+ #define pvr_fw_irq_clear(pvr_dev) \
+ 	pvr_fw_irq_write_reg(pvr_dev, clear, (pvr_dev)->fw_dev.defs->irq.clear_mask)
+ 
+-#define pvr_fw_irq_enable(pvr_dev) \
+-	pvr_fw_irq_write_reg(pvr_dev, enable, (pvr_dev)->fw_dev.defs->irq.event_mask)
+-
+-#define pvr_fw_irq_disable(pvr_dev) \
+-	pvr_fw_irq_write_reg(pvr_dev, enable, 0)
+-
+ extern const struct pvr_fw_defs pvr_fw_defs_meta;
+ extern const struct pvr_fw_defs pvr_fw_defs_mips;
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index c39beb70c3173ebdab13b4e810ce5d9a3419f0ba..76b24ad9aa221b6a384dc7b55ed2e78d2e761550 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -546,7 +546,6 @@ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.wrapper_init = pvr_meta_wrapper_init,
+ 	.has_fixed_data_addr = pvr_meta_has_fixed_data_addr,
+ 	.irq = {
+-		.enable_reg = ROGUE_CR_META_SP_MSLVIRQENABLE,
+ 		.status_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+ 		.clear_reg = ROGUE_CR_META_SP_MSLVIRQSTATUS,
+ 		.event_mask = ROGUE_CR_META_SP_MSLVIRQSTATUS_TRIGVECT2_EN,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_mips.c b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+index 0bed0257e2ab75f66d8b8966b2ceac6342396fb5..c810a67eeecf1016064e76baf534e31a44c859b5 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_mips.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_mips.c
+@@ -243,7 +243,6 @@ const struct pvr_fw_defs pvr_fw_defs_mips = {
+ 	.wrapper_init = pvr_mips_wrapper_init,
+ 	.has_fixed_data_addr = pvr_mips_has_fixed_data_addr,
+ 	.irq = {
+-		.enable_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_ENABLE,
+ 		.status_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS,
+ 		.clear_reg = ROGUE_CR_MIPS_WRAPPER_IRQ_CLEAR,
+ 		.event_mask = ROGUE_CR_MIPS_WRAPPER_IRQ_STATUS_EVENT_EN,
 
-You're right, they're not - thanks for spotting this.
+-- 
+2.47.0
 
-> AFAICT either:
-
-> (a) Our intended ABI is that signal handlers are entered as-if an SMSTOP
->     is executed to exit streaming mode and disable ZA storage.
->=20
->     In this case we'll need a more elaborate sequence here to simulate
->     that effect.
-
-That's the intention, so we do need to just clear the vregs instead of
-the whole user_fpsimd_state and add clearing of FPMR.
-
-> ... the description of FPMR (which is not in the latest ARM ARM) says:
-
-> | On entry to or exit from Streaming SVE mode, FPMR is set to 0.
-
-> ... so we'd need code to clobber that.
-
-Right, that was missed with the addition of FPMR support.  We'll have
-the same thing in ptrace streaming mode enter/exits, FPCR and FPSR
-should be better there as in most cases register state is provided when
-changing mode.
-
-> Our documentation in Documentation/arch/arm64/sme.rst says:
-
-> | Signal handlers are invoked with streaming mode and ZA disabled.
-
-> ... and doesn't mention FPCR/FPMR/FPSR, so we could go either way,
-> though I suspect we intended case (a) ?
-
-Yes.  The the intended goal is literally just that, but if we accomplish
-it by issuing a SMSTOP in the live registers case (which is the only
-reasonable implementation) then we should obviously behave the same in
-the live memory case.  I'll add a patch which makes this explicit in the
-documentation.
-
---/Y56n/3XFNEIyBPu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcqP+AACgkQJNaLcl1U
-h9AqDgf+PqN4Wj9YWUYWWu0trOvH3yqf++dzHWOidz87KPWWpOIWvLF3uL4rSYow
-fKMgrPnIVlv/pHdP4MiNSkWHmiUeodUcuaSTq4V7OqO2p8KXeTKvpb6AfnfB1IkI
-XQaeeclkboOBKyH4pP7SIpkB6PvsLU3cRxYHV5/ZbQesUZqIRgmzSBDRAxp9rKDV
-PcY5uFeqhFW8eXr7SS79bLYUiN2nfiTabXhPGBXapzoUsTctEVpzoD9C2GSuRmbv
-uoBgsv3bbABjRfA3tuA5HbUEARNNUw0Anq5KOyl75Rcb8RVE4rkF5GCy9sTtHsnT
-S/S2hG3y7xqCOFZleI5hBmrRtHu3OA==
-=ITo3
------END PGP SIGNATURE-----
-
---/Y56n/3XFNEIyBPu--
 
