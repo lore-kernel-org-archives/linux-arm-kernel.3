@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36703D1266A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAC0D1266A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXDDwUFZyaE/RsM7y+LjqGPAbZCI0j8Q6ZVfXNBJ3xs=; b=x0Q13XmyGohJyeYCOp3Zef8bH9
-	GzjeiMXA9ak+wSsfKE0NoCNg87UWHlA8+mFvfe6r6JbGFQ7BS41VFQegfyayip/yDJ5qQyOh1TqBv
-	MtBKT9T5dYtVfkoMNRDooEN/EV+7TKIkUU7w7HfW/afQMVZNeelpf9m9agx87AycaQmgxKBsStzRZ
-	UdQdU+k9FUhCR49yZBKAwtkrtv7ITK0MZjIDKx7MqNTB+Ef4JrGj9hD5Pg37UvFv5tQL6gygnjO2K
-	W57QVOxKTDpJf7d11cvf8vXzR8eMb42xK8nCcAayTRcGGK/6EskeGitAO3xqESGmT01OmxHi2P0pX
-	JB9GMvjg==;
+	bh=Kv2hVHm7LLZgDM4u5Pi87d/if2PauVm8V5/VtrFyYZo=; b=tKjhHe9d2DVvvoHvQo5C/3rpXb
+	n0aHzWCFCKclisojstftUyqEv2tF/DdaucdSIVhrZESeHeltVUmJiBVemDvHaEYSQdacQDjpNUPCl
+	Gj9o9FVitXOZdq4cFO/m/K1hLbr9yApFiA79b3I4KvGOI9C1/wbbhQqJuIwmckHZf/I+em/EX+Xo0
+	vF/MAkuSzgdFS/p92wdRd8pSEFna4zwMf+N19vw6uV8A1MqQYm2pqOwucRGwoG1n5ORPVJkS2elwk
+	riQzK3LYSe5/wn0DIdSd5mpL8HTYhrN3r/5WKoir+tzVPspPau/a0/hqrk4SXmxAAbX1AkQmAgcXl
+	qhEbZR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EpD-0000000GKSK-2Qbi;
-	Tue, 05 Nov 2024 08:22:07 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1t8Esp-0000000GKr2-40Ql;
+	Tue, 05 Nov 2024 08:25:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EMk-0000000GF08-2eOt
+	id 1t8EcI-0000000GHZL-0DES
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 07:52:44 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A56U0Ai026411;
-	Tue, 5 Nov 2024 08:52:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	VXDDwUFZyaE/RsM7y+LjqGPAbZCI0j8Q6ZVfXNBJ3xs=; b=oAqww/LlsHcoQ7fN
-	mdhDSQCZo0kQE+YF0NuDt1Ieq/wCy4PDmfOTM1IRHOYU5vmeYZga7YD7m9H0u9dV
-	cdV1TZMbDtct5+hK+WeoEcbWcSzoh2Cr/RG50cm1IMViTPyAaIriDzS8DHRucA4h
-	1T7UtDwU4ctna/IyYVdBKXF8A8xH7ZTGG1b4+lVZZEmxXDeoT/NsuzjgdCoOup6c
-	GTYxKTEgSQ77R9cZdU3dncAECUoTDWQ7OQj+0B1BtKHRSOf/TQ1qiO9s/9NYW5Fw
-	q2XFCwhUW5SYmnf737qSHYiRX3XnVOuutDRvj3XtdnOzTpNrGHWpuhgIx02XXuG+
-	yaXTFQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nxh3rnn8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 08:52:32 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BFE7940051;
-	Tue,  5 Nov 2024 08:50:26 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8F950250FBD;
-	Tue,  5 Nov 2024 08:49:34 +0100 (CET)
-Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:49:34 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 5 Nov 2024 08:49:13 +0100
-Subject: [PATCH v2 10/15] media: stm32: dcmipp: avoid duplicated format on
- enum in bytecap
+	Tue, 05 Nov 2024 08:08:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5FCC05C568C;
+	Tue,  5 Nov 2024 08:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7064EC4CED4;
+	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730794124;
+	bh=4CxI9hvqy+T0MQp7ejsVaS+wjhKMAoO93q+j3nHoUH0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=LfbtNqBzblOaof4O2CmjLQ6bmCxGRjHvkMy53Pn0AOhRZsgjMOwcFYyKDqIpUb9gi
+	 ysxnVZOTfeEY9c396N/WZeSR3zcG7O3hQ7pt14iUZYauiItnZ3Y3ouoG2chCeIijdS
+	 QxrAoeCUM/gE/8JkJ1dbgbVf5hRe5ZlOigdX4xTvj91ZMz3QeLLt2/IPX94apcps2F
+	 srlMK7NYHDhWfTIjgGZ1wnEEiTHVLTqLG213F+5apsl9wggdzsLfb2nXBl624LAP8/
+	 1eq6j8i7X6ds9PsAkNF5aqbIpdYwgEUUszlomoifqfPttXHuhn5hpDxSE9cysVdv1i
+	 wCjYMvL0Z7oiw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B16DD12660;
+	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
+From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
+Date: Tue, 05 Nov 2024 09:08:29 +0100
+Subject: [PATCH v4 1/3] dt-bindings: spi: apple,spi: Add binding for Apple
+ SPI controllers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-csi_dcmipp_mp25-v2-10-b9fc8a7273c2@foss.st.com>
-References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
-In-Reply-To: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil
-	<hverkuil-cisco@xs4all.nl>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
+Message-Id: <20241105-asahi-spi-v4-1-d9734f089fc9@jannau.net>
+References: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
+In-Reply-To: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
+ Nick Chan <towinchenmi@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Originating-IP: [10.129.178.213]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2217; i=j@jannau.net;
+ s=yk2024; h=from:subject:message-id;
+ bh=O9OlA0s3DQ4s9BDbe1rexPnrtmgzE8wHs1clsQ1vxYw=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnTNS13XVpvPeRp/qnz6ic/byz60LP4msHX97wkN9T7Lm
+ yOZCqce7ihlYRDjYpAVU2RJ0n7ZwbC6RjGm9kEYzBxWJpAhDFycAjCRglKG/6k6xcl8f48+np97
+ MdTqUeX12+XLCpfdL16z792Gme4yE6czMiyofXEnP0TkE9Nd7tDvU7e+12nvEW+/cP6BztQJVxn
+ FvvEAAA==
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
+X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_235243_062637_FC7ACE3B 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20241105_000846_222597_A34E7F5B 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +90,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid duplication of enumerated pixelformat on the bytecap
-video capture device.  Indeed, since the bytecap format list
-contains both CSI & parallel 16bits formats, ensure that same
-pixelformat are not reported twice when performing enumeration
-of supported formats.
+From: Hector Martin <marcan@marcan.st>
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+The Apple SPI controller is present in SoCs such as the M1 (t8103) and
+M1 Pro/Max (t600x). This controller uses one IRQ and one clock, and
+doesn't need any special properties, so the binding is trivial.
+
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Reviewed-by: Rob Herring <robh@kernel.org>
+Acked-by: Nick Chan <towinchenmi@gmail.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         | 42 +++++++++++-----------
- 1 file changed, 21 insertions(+), 21 deletions(-)
+ .../devicetree/bindings/spi/apple,spi.yaml         | 62 ++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index 99732d19dc4d5f4692588118eadb236d4ed9c8a1..8f5f69a3afc413b49d82303cd4d98da15f62e34d 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -268,34 +268,34 @@ static int dcmipp_bytecap_enum_fmt_vid_cap(struct file *file, void *priv,
- {
- 	const struct dcmipp_bytecap_pix_map *vpix;
- 	unsigned int index = f->index;
--	unsigned int i;
-+	unsigned int i, prev_pixelformat = 0;
- 
--	if (f->mbus_code) {
--		/*
--		 * If a media bus code is specified, only enumerate formats
--		 * compatible with it.
--		 */
--		for (i = 0; i < ARRAY_SIZE(dcmipp_bytecap_pix_map_list); i++) {
--			vpix = &dcmipp_bytecap_pix_map_list[i];
--			if (vpix->code != f->mbus_code)
--				continue;
-+	/*
-+	 * List up all formats (or only ones matching f->mbus_code), taking
-+	 * care of removing duplicated entries (due to support of both
-+	 * parallel & csi 16 bits formats
-+	 */
-+	for (i = 0; i < ARRAY_SIZE(dcmipp_bytecap_pix_map_list); i++) {
-+		vpix = &dcmipp_bytecap_pix_map_list[i];
-+		/* Skip formats not matching requested mbus code */
-+		if (f->mbus_code && vpix->code != f->mbus_code)
-+			continue;
- 
--			if (index == 0)
--				break;
-+		/* Skip duplicated pixelformat */
-+		if (vpix->pixelformat == prev_pixelformat)
-+			continue;
- 
--			index--;
--		}
-+		prev_pixelformat = vpix->pixelformat;
- 
--		if (i == ARRAY_SIZE(dcmipp_bytecap_pix_map_list))
--			return -EINVAL;
--	} else {
--		/* Otherwise, enumerate all formats. */
--		if (f->index >= ARRAY_SIZE(dcmipp_bytecap_pix_map_list))
--			return -EINVAL;
-+		if (index == 0)
-+			break;
- 
--		vpix = &dcmipp_bytecap_pix_map_list[f->index];
-+		index--;
- 	}
- 
-+	if (i == ARRAY_SIZE(dcmipp_bytecap_pix_map_list))
-+		return -EINVAL;
+diff --git a/Documentation/devicetree/bindings/spi/apple,spi.yaml b/Documentation/devicetree/bindings/spi/apple,spi.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7bef605a296353a62252282af4ba45a71b20b7b6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/apple,spi.yaml
+@@ -0,0 +1,62 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/apple,spi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	f->pixelformat = vpix->pixelformat;
- 
- 	return 0;
++title: Apple ARM SoC SPI controller
++
++allOf:
++  - $ref: spi-controller.yaml#
++
++maintainers:
++  - Hector Martin <marcan@marcan.st>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - apple,t8103-spi
++          - apple,t8112-spi
++          - apple,t6000-spi
++      - const: apple,spi
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/apple-aic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      spi@39b104000 {
++        compatible = "apple,t6000-spi", "apple,spi";
++        reg = <0x3 0x9b104000 0x0 0x4000>;
++        interrupt-parent = <&aic>;
++        interrupts = <AIC_IRQ 0 1107 IRQ_TYPE_LEVEL_HIGH>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        clocks = <&clk>;
++      };
++    };
 
 -- 
-2.25.1
+2.47.0
+
 
 
