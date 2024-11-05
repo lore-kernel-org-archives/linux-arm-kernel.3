@@ -4,124 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFEBD2C11B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E77ED2C11B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jDTbP3fOcL51JRwWKzuxSqaxfANeDb0GcrNEPDR3wvk=; b=IG5G6uQoGLjv7kaK8U8HIBq3C+
-	CTch/7d+T/zbZBIi7hXW+P7HYUlNQMSW4gcOHuvSxHMG8DNWIK84C6tKDRgoD2LOpruRELq7z8aTQ
-	FyYupq0N/MOUNVwZbgDPdQ7WgDKNKrtrkxRrNtGX/BQN6N6DWV/AAIbZAKhmUkfu/Cqn1ZzNu+snE
-	cQ3MJyfhS3ePa+Az+xU/KmfqQ7SENX+4B2Mbqh5aesZx0MPjWSEneyr8jet6994hG989sf32yktEa
-	9M1PhVWf3B9jB3xazaTKxZEOpn8492soVeS0T7f2kIWpzEu4/I88fEUkaJnYkEx6RRvp2CVHcmFf3
-	ie673j5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ee32TdMulUx3I73v+H9UKmfuOkSjV3xf62bP7n6clmg=; b=uXcOV/Zj2n0nXpvsmlSId+0wFi
+	YjI+D/CEnDa8XH7VNU/fqU2AvrozViZbCzI8BGeGpLIXTehqY8i5ZtmZTS2T1XanfZVj8pKqaXVV6
+	8eAGmVcFGgN+eUY/d+mzvi6hY7GgycuABB45ppdi8YAi2E9cwa6SNuV3ukbR5E5fwVDZoPdQRqGqh
+	3wnMWpiYRonNkQa+o+2OF4epP6ZuZogRGHnM/+HTjHnvzWwxLdFk1OIdEDILdUQ0gMbozG0JPnUKG
+	tgShlkRY0r3pI8EKD2eN0C8QKhJARtRRBaM8sAdtiUOMOyxR0iqka+FV/V032t4Qigzr0PMHKmrMI
+	xvDBdNtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Kp1-0000000HKFg-0996;
-	Tue, 05 Nov 2024 14:46:19 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1t8Ky6-0000000HLOf-3VXE;
+	Tue, 05 Nov 2024 14:55:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Jlp-0000000H9Sq-0zKP;
-	Tue, 05 Nov 2024 13:39:00 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1D3621FBB7;
-	Tue,  5 Nov 2024 13:38:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730813933; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jDTbP3fOcL51JRwWKzuxSqaxfANeDb0GcrNEPDR3wvk=;
-	b=nOuwBvL5K/lCDQnI/N1/mRbLRzzhXWQgb5qAwOeEznFiYqssnz3sJYjP8pB/2ZJbzI0Mw8
-	ub1PS+e2pktR/zrDZKDC1CUJ7M3i3ACQEhtTedIS0UP9MW+s1gaaZYc4KAgi7L9nPQGdVG
-	yA7zgD9MXR21iPh+6ntx7SA/OFAXFwQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730813933;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jDTbP3fOcL51JRwWKzuxSqaxfANeDb0GcrNEPDR3wvk=;
-	b=8cUUe5jSnqRzmRedg+YtmtB63W+fe91HG+PCahBKHkNSXve8vY3mP4rIVS+LmRPR1Fleu2
-	M0vnLYsCggVYFLAA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730813933; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jDTbP3fOcL51JRwWKzuxSqaxfANeDb0GcrNEPDR3wvk=;
-	b=nOuwBvL5K/lCDQnI/N1/mRbLRzzhXWQgb5qAwOeEznFiYqssnz3sJYjP8pB/2ZJbzI0Mw8
-	ub1PS+e2pktR/zrDZKDC1CUJ7M3i3ACQEhtTedIS0UP9MW+s1gaaZYc4KAgi7L9nPQGdVG
-	yA7zgD9MXR21iPh+6ntx7SA/OFAXFwQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730813933;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jDTbP3fOcL51JRwWKzuxSqaxfANeDb0GcrNEPDR3wvk=;
-	b=8cUUe5jSnqRzmRedg+YtmtB63W+fe91HG+PCahBKHkNSXve8vY3mP4rIVS+LmRPR1Fleu2
-	M0vnLYsCggVYFLAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC5BF1394A;
-	Tue,  5 Nov 2024 13:38:52 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id C/ubKOwfKmcuEQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 05 Nov 2024 13:38:52 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	groeck@chromium.org,
-	zyw@rock-chips.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	stable@vger.kernel.org
-Subject: [PATCH] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
-Date: Tue,  5 Nov 2024 14:38:16 +0100
-Message-ID: <20241105133848.480407-1-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.47.0
+	id 1t8KwM-0000000HKzE-0ovd;
+	Tue, 05 Nov 2024 14:53:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1730818427; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jxi2GQmxwbDRHoAb/jV/nhdQX7emwZgYCiM1D7UWm/jb0SghLxNUkj9Ickp6rB73yWEqWFlvITJIGIXOC7hmcD2qxvjPMXtGeWYMCCdijaPrfIbyIkiKsee5xDyRS0M4yPijxYbEmk2daNQb4z/sMUFnPop3LNXa7q3wuD75dV0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1730818427; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Ee32TdMulUx3I73v+H9UKmfuOkSjV3xf62bP7n6clmg=; 
+	b=M9mfj52Qug8z93qsGiDGcSjsT0Yy9Zn2lGkBB0gboQqQ4XnuHmw0HiZ9d0lQrZ8O2WstyvIp+SV7ZO0wt2p9RLk3z74827eKc9eRb7S1FSnX09eJbsWxjhyYl8FHNkzfO8C1a2CI3/hijQLBAhqCVRNL2t5JJon9OcuPGiRh2AE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1730818427;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=Ee32TdMulUx3I73v+H9UKmfuOkSjV3xf62bP7n6clmg=;
+	b=arTxF/M2IohZlL4d+0q9FMY/vZrAbFVQQ1Gff5Mx38cL5CKqDx8zuxiECbxZUMSI
+	J3F+mhj7lY7P3g6QZ9yXz3j4twt3ltOhEF4PGnqlSkyT7dOfXyMv0W35WwSV5U2HPjm
+	KY6tlGpJ6atorq0rsmcebvn2OFAXozf5fA7WS6NA=
+Received: by mx.zohomail.com with SMTPS id 1730818425742722.1607904366261;
+	Tue, 5 Nov 2024 06:53:45 -0800 (PST)
+Received: by mercury (Postfix, from userid 1000)
+	id A289A10604C3; Tue, 05 Nov 2024 15:53:40 +0100 (CET)
+Date: Tue, 5 Nov 2024 15:53:40 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, quentin.schulz@cherry.de, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v2 2/2] phy: rockchip: Add Samsung CSI/DSI Combo DCPHY
+ driver
+Message-ID: <fynyo2amqillioxwfyydvztakba5ecwa2qrtdtuoaffyvwc62c@3vizyubfqvsf>
+References: <20241104111121.99274-1-heiko@sntech.de>
+ <20241104111121.99274-3-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[rock-chips.com,sntech.de,linux.intel.com,kernel.org,gmail.com,ffwll.ch,chromium.org];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email]
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="i6mir4f2i4nre6yc"
+Content-Disposition: inline
+In-Reply-To: <20241104111121.99274-3-heiko@sntech.de>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.3.1/230.797.52
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_053857_450615_CB095BAB 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20241105_065354_331896_C6E06435 
+X-CRM114-Status: GOOD (  36.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,67 +86,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The code for detecting and updating the connector status in
-cdn_dp_pd_event_work() has a number of problems.
 
-- It does not aquire the locks to call the detect helper and update
-the connector status. These are struct drm_mode_config.connection_mutex
-and struct drm_mode_config.mutex.
+--i6mir4f2i4nre6yc
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 2/2] phy: rockchip: Add Samsung CSI/DSI Combo DCPHY
+ driver
+MIME-Version: 1.0
 
-- It does not use drm_helper_probe_detect(), which helps with the
-details of locking and detection.
+Hi,
 
-- It uses the connector's status field to determine a change to
-the connector status. The epoch_counter field is the correct one. The
-field signals a change even if the connector status' value did not
-change.
+On Mon, Nov 04, 2024 at 12:11:16PM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>=20
+> Add phy driver needed to drive either a MIPI DSI output to a DSI display
+> or MIPI CSI input from a camera on rk3588.
+>=20
+> Right now only the DSI portion is implemented as the whole camera part
+> needs more work in general.
+>=20
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
 
-Replace the code with a call to drm_connector_helper_hpd_irq_event(),
-which fixes all these problems.
+Do you have a git branch with the DSI controller driver, so that
+this can actually be tested? :)
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
-Cc: Chris Zhong <zyw@rock-chips.com>
-Cc: Guenter Roeck <groeck@chromium.org>
-Cc: Sandy Huang <hjc@rock-chips.com>
-Cc: "Heiko Stübner" <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: <stable@vger.kernel.org> # v4.11+
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+>  drivers/phy/rockchip/Kconfig                  |   12 +
+>  drivers/phy/rockchip/Makefile                 |    1 +
+>  .../phy/rockchip/phy-rockchip-samsung-dcphy.c | 1654 +++++++++++++++++
+>  3 files changed, 1667 insertions(+)
+>  create mode 100644 drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
+>=20
+> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+> index 2f7a05f21dc5..2bfb42996503 100644
+> --- a/drivers/phy/rockchip/Kconfig
+> +++ b/drivers/phy/rockchip/Kconfig
+> @@ -83,6 +83,18 @@ config PHY_ROCKCHIP_PCIE
+>  	help
+>  	  Enable this to support the Rockchip PCIe PHY.
+> =20
+> +config PHY_ROCKCHIP_SAMSUNG_DCPHY
+> +	tristate "Rockchip Samsung MIPI DCPHY driver"
+> +	depends on (ARCH_ROCKCHIP || COMPILE_TEST)
+> +	select GENERIC_PHY
+> +	select GENERIC_PHY_MIPI_DPHY
+> +	help
+> +	  Enable this to support the Rockchip MIPI DCPHY with
+> +	  Samsung IP block.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called phy-rockchip-samsung-dcphy
+> +
+>  config PHY_ROCKCHIP_SAMSUNG_HDPTX
+>  	tristate "Rockchip Samsung HDMI/eDP Combo PHY driver"
+>  	depends on (ARCH_ROCKCHIP || COMPILE_TEST) && OF
+> diff --git a/drivers/phy/rockchip/Makefile b/drivers/phy/rockchip/Makefile
+> index 010a824e32ce..117aaffd037d 100644
+> --- a/drivers/phy/rockchip/Makefile
+> +++ b/drivers/phy/rockchip/Makefile
+> @@ -8,6 +8,7 @@ obj-$(CONFIG_PHY_ROCKCHIP_INNO_HDMI)	+=3D phy-rockchip-in=
+no-hdmi.o
+>  obj-$(CONFIG_PHY_ROCKCHIP_INNO_USB2)	+=3D phy-rockchip-inno-usb2.o
+>  obj-$(CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY)	+=3D phy-rockchip-naneng-com=
+bphy.o
+>  obj-$(CONFIG_PHY_ROCKCHIP_PCIE)		+=3D phy-rockchip-pcie.o
+> +obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_DCPHY)	+=3D phy-rockchip-samsung-dcphy=
+=2Eo
+>  obj-$(CONFIG_PHY_ROCKCHIP_SAMSUNG_HDPTX)	+=3D phy-rockchip-samsung-hdptx=
+=2Eo
+>  obj-$(CONFIG_PHY_ROCKCHIP_SNPS_PCIE3)	+=3D phy-rockchip-snps-pcie3.o
+>  obj-$(CONFIG_PHY_ROCKCHIP_TYPEC)	+=3D phy-rockchip-typec.o
+> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/=
+phy/rockchip/phy-rockchip-samsung-dcphy.c
+> new file mode 100644
+> index 000000000000..a2f897fa5516
+> --- /dev/null
+> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
+> @@ -0,0 +1,1654 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright (C) Rockchip Electronics Co.Ltd
+> + * Author:
+> + *      Guochun Huang <hero.huang@rock-chips.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/init.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
 
-diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-index b04538907f95..f576b1aa86d1 100644
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -947,9 +947,6 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
- {
- 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
- 						event_work);
--	struct drm_connector *connector = &dp->connector;
--	enum drm_connector_status old_status;
--
- 	int ret;
- 
- 	mutex_lock(&dp->lock);
-@@ -1009,11 +1006,7 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
- 
- out:
- 	mutex_unlock(&dp->lock);
--
--	old_status = connector->status;
--	connector->status = connector->funcs->detect(connector, false);
--	if (old_status != connector->status)
--		drm_kms_helper_hotplug_event(dp->drm_dev);
-+	drm_connector_helper_hpd_irq_event(&dp->connector);
- }
- 
- static int cdn_dp_pd_event(struct notifier_block *nb,
--- 
-2.47.0
+I think this should be
 
+#include <linux/mod_devicetable.h>
+
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+> +
+
+[...]
+
+> +static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcp=
+hy *samsung)
+> +{
+> +	u32 bias_con2 =3D 0x3223;
+> +
+> +	regmap_write(samsung->regmap, BIAS_CON0, 0x0010);
+> +	regmap_write(samsung->regmap, BIAS_CON1, 0x0110);
+> +	regmap_write(samsung->regmap, BIAS_CON2, bias_con2);
+> +
+> +	/* default output voltage select:
+> +	 * dphy: 400mv
+> +	 * cphy: 530mv
+> +	 */
+> +	regmap_update_bits(samsung->regmap, BIAS_CON4,
+> +			   I_MUX_SEL_MASK, I_MUX_SEL_400MV);
+> +}
+> +
+> +static void samsung_mipi_dcphy_bias_block_disable(struct samsung_mipi_dc=
+phy *samsung)
+> +{
+> +}
+
+uhm? :)
+
+[...]
+
+> +static const struct samsung_mipi_dphy_timing *
+> +samsung_mipi_dphy_get_timing(struct samsung_mipi_dcphy *samsung)
+> +{
+> +	const struct samsung_mipi_dphy_timing *timings;
+> +	unsigned int num_timings;
+> +	unsigned int lane_mbps =3D div64_ul(samsung->pll.rate, USEC_PER_SEC);
+> +	unsigned int i;
+> +
+> +	timings =3D samsung_mipi_dphy_timing_table;
+> +	num_timings =3D ARRAY_SIZE(samsung_mipi_dphy_timing_table);
+> +
+> +	for (i =3D num_timings; i > 0; i--)
+> +		if (lane_mbps <=3D timings[i - 1].max_lane_mbps)
+> +			break;
+> +
+> +	if (i =3D=3D 0)
+> +		++i;
+
+I guess you can just do 'for (i =3D max; i > 1; i--)' instead of
+counting to 0 and then go back to 1?
+
+> +
+> +	return &timings[i - 1];
+> +}
+
+[...]
+
+> +static int samsung_mipi_dphy_power_on(struct samsung_mipi_dcphy *samsung)
+> +{
+> +	int ret;
+> +
+> +	reset_control_assert(samsung->m_phy_rst);
+> +
+> +	samsung_mipi_dcphy_bias_block_enable(samsung);
+> +	samsung_mipi_dcphy_pll_configure(samsung);
+> +	samsung_mipi_dphy_clk_lane_timing_init(samsung);
+> +	samsung_mipi_dphy_data_lane_timing_init(samsung);
+> +	ret =3D samsung_mipi_dcphy_pll_enable(samsung);
+> +	if (ret < 0) {
+> +		samsung_mipi_dcphy_bias_block_disable(samsung);
+> +		return ret;
+> +	}
+> +
+> +	samsung_mipi_dphy_lane_enable(samsung);
+> +
+> +	reset_control_deassert(samsung->m_phy_rst);
+> +
+> +	/* The TSKEWCAL maximum is 100 =B5sec
+> +	 * at initial calibration.
+> +	 */
+> +	usleep_range(100, 110);
+> +
+> +	return 0;
+> +}
+> +
+> +static int samsung_mipi_dcphy_power_on(struct phy *phy)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D phy_get_drvdata(phy);
+> +	enum phy_mode mode =3D phy_get_mode(phy);
+> +
+> +	pm_runtime_get_sync(samsung->dev);
+
+This already happened in samsung_mipi_dcphy_init?
+
+> +	reset_control_assert(samsung->apb_rst);
+> +	udelay(1);
+> +	reset_control_deassert(samsung->apb_rst);
+> +
+> +	switch (mode) {
+> +	case PHY_MODE_MIPI_DPHY:
+> +		return samsung_mipi_dphy_power_on(samsung);
+> +	default:
+> +		/* CSI cphy part to be implemented later */
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int samsung_mipi_dcphy_power_off(struct phy *phy)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D phy_get_drvdata(phy);
+> +	enum phy_mode mode =3D phy_get_mode(phy);
+> +
+> +	switch (mode) {
+> +	case PHY_MODE_MIPI_DPHY:
+> +		samsung_mipi_dphy_lane_disable(samsung);
+> +		break;
+> +	default:
+> +		/* CSI cphy part to be implemented later */
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	samsung_mipi_dcphy_pll_disable(samsung);
+> +	samsung_mipi_dcphy_bias_block_disable(samsung);
+> +
+> +	pm_runtime_put(samsung->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static int samsung_mipi_dcphy_set_mode(struct phy *phy, enum phy_mode mo=
+de,
+> +				       int submode)
+> +{
+> +	return 0;
+> +}
+
+You can just remove this. phy_set_mode_ext() will return 0 byself if
+the callback is NULL.
+
+[...]
+
+> +static int samsung_mipi_dcphy_init(struct phy *phy)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D phy_get_drvdata(phy);
+> +
+> +	pm_runtime_get_sync(samsung->dev);
+
+return pm_runtime_resume_and_get(samsung->dev);
+
+> +	return 0;
+> +}
+> +
+> +static int samsung_mipi_dcphy_exit(struct phy *phy)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D phy_get_drvdata(phy);
+> +
+> +	pm_runtime_put(samsung->dev);
+
+return pm_runtime_put(samsung->dev);
+
+> +
+> +	return 0;
+> +}
+
+[...]
+
+> +static __maybe_unused int samsung_mipi_dcphy_runtime_suspend(struct devi=
+ce *dev)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D dev_get_drvdata(dev);
+> +
+> +	clk_disable_unprepare(samsung->pclk);
+> +	clk_disable_unprepare(samsung->ref_clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static __maybe_unused int samsung_mipi_dcphy_runtime_resume(struct devic=
+e *dev)
+> +{
+> +	struct samsung_mipi_dcphy *samsung =3D dev_get_drvdata(dev);
+> +
+> +	clk_prepare_enable(samsung->pclk);
+> +	clk_prepare_enable(samsung->ref_clk);
+> +
+> +	return 0;
+> +}
+
+No error checking for managing the clocks?
+
+[...]
+
+> +static const struct of_device_id samsung_mipi_dcphy_of_match[] =3D {
+> +	{
+> +		.compatible =3D "rockchip,rk3576-mipi-dcphy",
+> +		.data =3D &rk3576_samsung_mipi_dcphy_plat_data,
+> +	}, {
+> +		.compatible =3D "rockchip,rk3588-mipi-dcphy",
+> +		.data =3D &rk3588_samsung_mipi_dcphy_plat_data,
+> +	},
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, samsung_mipi_dcphy_of_match);
+> +
+> +static struct platform_driver samsung_mipi_dcphy_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "samsung-mipi-dcphy",
+> +		.of_match_table	=3D of_match_ptr(samsung_mipi_dcphy_of_match),
+
+drop of_match_ptr(). The way it is used right now just brings
+a compiler warning for CONFIG_OF=3Dn.
+
+> +		.pm =3D &samsung_mipi_dcphy_pm_ops,
+> +	},
+> +	.probe	=3D samsung_mipi_dcphy_probe,
+> +};
+> +module_platform_driver(samsung_mipi_dcphy_driver);
+> +
+> +MODULE_AUTHOR("Guochun Huang<hero.huang@rock-chips.com>");
+
+space before <
+
+> +MODULE_DESCRIPTION("Samsung MIPI DCPHY Driver");
+> +MODULE_LICENSE("GPL");
+
+Greetings,
+
+-- Sebastian
+
+--i6mir4f2i4nre6yc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmcqMWgACgkQ2O7X88g7
++pqVJg/7BGqrI9xyIPDlozpRxfCLRIU82nO2vXrSxFG+rkgDHEdifsnhLRhYX2k9
+Jf886rm7pohlqTxtViKnn4hOE4yqNW3NuSXuKjZO6TnWHldvUzt4s7/fFQkViQEi
+Pr+/QJ9AUZxGH0hhN9FmUUcjhi0qShlqnsLiO42t9aaxyLktdp8N68xw9ZpX8F9K
+avZ8xSHbKBI37kMyqgU9cjFZ9pkAcf5JpMQusVCT6IqeuDzfvEbM08P7yPxPusPc
+UKxYS/YQGTOniKmpSZHQKtIcf6AFNZS1JoakYgv7tzWtNY7Vgswlg9KrzCEmFvIg
+aXNfFA1IUXngFtzlJL9KDOwqwMEowDjZzLUJCkzWl9DNo/qM2XjVXVwer6uDMdMm
+bIV3AVGamiBlvBghK+Rjd/9CiCFKUz4rl3rjgpFE+odrUvxff9gFYT/xow3YyvNN
+OBwD5VGijFHPq6jbra+nY/v6BroGSStHoY+JB4NVta515BI3ZYALpKxW4HTW5kcV
+5eABPItHa9+3rw23N6y/cGpjwbRBavnI1PJYclo5hLc4mDRW9O6j2C9luRxXVOnF
+Hq/sXX+c6h50U63Kd6msyt8qBIokhm7bxn6YGVvC23XoXhbZfg8yrYHEthkXl6bG
+2NM7FHwRAmylSkstCg9gzYfxdwSP8p3m8RA9ubJ7HVoHPGLML9I=
+=O1X7
+-----END PGP SIGNATURE-----
+
+--i6mir4f2i4nre6yc--
 
