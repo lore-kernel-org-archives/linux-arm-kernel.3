@@ -4,119 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476F9D1268C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF8FD1268F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=; b=XV4OHesUuS/WdJCPUNtlqzyryO
-	fqzB8arqRCR3msv2ZlfBq7Qau9cTrgTp5zyl14jxUL4dTYFYTn7S/2oviffMnUs/udA8iRoriwYIh
-	7IrZpiy/WTqWEPZ/bsbS0LOe54yoTPvBzbewMNkHeZ7dNSOC4gN4GYWVZgHyXbneQF3d8wM0NZTVT
-	Qzuh3e3E3rW9dPDj4QeduDSkucqqvdGYvKi/JSJDr8tZUP+JPChp3nfADdzIBboQl3Jn/bHVM/kIS
-	Upsmnn1wkmaXaazYeYTze6UyBHYcgdl3IduoB+FcHIKODZas9OKtpq12bFyc/C6PwJAzg75aMNbjU
-	MdcX+TKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7U0jp6W0t5PnT+nysQH2BMBVcFqmksXhFC+/Fq7vptc=; b=k/tI3/PqAk35r1O6gTyaiFI5zv
+	gVTwFmp4MvjZrR+ScP3ShdbFWtNYeHz7TvOUeiDiwFD//L8Uwnce+1hU1EGqhloWRI08ETGEw7P/h
+	2swTVhIdsrMNWsJ9H8KPfyakPq+KkYOYd04tgA1hqWNNbtk3GgHTyd/EwPqiXkhkeOh4ToMi+euEi
+	YyaNDpwWA5/kyTWjE+BixFwV/casMfUb2YCohTJNbbP8bEqk8YaqYxyDPr1qU5tLCHSSOywmSzi/6
+	qsfDUnxtO/7IkjZvY+DndXmWolOMCUhxyicgXxDdWgoYfdbEtr1BedVDAEKJaxhLgmeTVGg86n4Cz
+	dReEi3tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Hlm-0000000GsAc-0OaQ;
-	Tue, 05 Nov 2024 11:30:46 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1t8Hu3-0000000GtCw-3N7b;
+	Tue, 05 Nov 2024 11:39:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Hk0-0000000GrnK-2Jh8
+	id 1t8HsK-0000000Gswy-3zdQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 11:28:59 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso5678029e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 03:28:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730806134; x=1731410934; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=;
-        b=fqkxL31iZC9dI6sM0e1liw9rIifKyGCmvjbD4+gnQsh5sOWyIlIh5lkAeiBOQ0Uouy
-         765DZoWX+mjXrlGJhjl15TUd1w/HMcKxYon0t+Qx3As4W/x3FFb70nljVGys8O5x57XU
-         GcyLTmwHI3kBPGgGy8ZbZphfOen7ZDEsuqS2wkQMUdVjKBBJWfV3mKbL+YlGXdIXyD+2
-         3oipE9sSliGiAElW8fnKJ6OwHzawOBw8mgLIRYdt7g1OfUuAPnLsDoiIdg2Zm2lFnM+9
-         uyJLb0ToV2JAoNksmA55J6fK2EAbqF5u0H5PVW5p9KCKDfnj/e85kaLtoAJkSfkrcQjW
-         C9Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730806134; x=1731410934;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Lqc3fxtDc2RwHuGGy/EVNQGz4UxO/NG1km2hGQDTiaU=;
-        b=dXH9sctqiWBSqQwZmrfzXeAwz2YNFENvGHaau+JfESFnXYTwdz7brhYrYHBosWvx60
-         mFsQ2KYDGPxVmrgw8KFQo4gihZ96F1B9ynOHVV+p2EQY7SFEv7wbKAtYiySJMN9hoXl/
-         /iXoTuAf4Aad8hJDs6BIkspX6M2Sk+94E3ziOluV/RBSOQenunkxenxCunV5hLHUFNlY
-         9z2pu4ZlFUp3+v6i2oFf8d4kZFVYO/nXbsAmtYDS4vOw1avTyApB0V0w2TgXtUub4wZc
-         D19vY9A93rZYZelD907vh4CxG4z4BO6dUtFdIQhEwxykRkarMwLIoOLMB9rr3Q7Oz5Nq
-         OE5g==
-X-Forwarded-Encrypted: i=1; AJvYcCXsD44PfAcaWvhPiYs1oINTGHn8+csWelWV54hUHa/JMnMvrTmj5ssXOQnQ+vMDCfP4j/OLc7Z2dr3FavtirHHk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMm0EXKBW5GiIMJ99fiNUtaITFrjq+2qXhl1cs4N4Uqj9ZnPX7
-	Jfdjz9NluRhhI/Xms9Uhsp5qwYLL/cRLkENIh7YFYCD8l34mo1ekqCbBzU6rcWE=
-X-Google-Smtp-Source: AGHT+IGazolcFL8rsDXTC+coJxYFbQY28nmJAc6aKVJwz0sBWevsWrSg6NX0J5MzQM2/Ky5L0ke0DA==
-X-Received: by 2002:a05:6512:3e24:b0:539:918c:5124 with SMTP id 2adb3069b0e04-53d65df3203mr7408960e87.31.1730806134153;
-        Tue, 05 Nov 2024 03:28:54 -0800 (PST)
-Received: from eriador.lan (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc95957sm2098533e87.55.2024.11.05.03.28.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 03:28:52 -0800 (PST)
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Liu Ying <victor.liu@nxp.com>
-Cc: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quic_jesszhan@quicinc.com,
-	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	sakari.ailus@linux.intel.com,
-	hverkuil@xs4all.nl,
-	tomi.valkeinen@ideasonboard.com,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	thierry.reding@gmail.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	sam@ravnborg.org,
-	marex@denx.de,
-	biju.das.jz@bp.renesas.com
-Subject: Re: (subset) [PATCH v5 00/13] Add ITE IT6263 LVDS to HDMI converter support
-Date: Tue,  5 Nov 2024 13:28:48 +0200
-Message-ID: <173080602214.231309.12977765173766280536.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241104032806.611890-1-victor.liu@nxp.com>
-References: <20241104032806.611890-1-victor.liu@nxp.com>
+	Tue, 05 Nov 2024 11:37:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 36A32A42A7F;
+	Tue,  5 Nov 2024 11:35:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464F6C4CECF;
+	Tue,  5 Nov 2024 11:37:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730806650;
+	bh=C2eoHqLMgXl3OLemzSCLahR5X6G6WSWO5QNpUC3yNFw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aY7407j14pV53S6TwrTyDQRphP1jj3E1Exn7IZMG49gWH5p6O4VSqqrBcwjnP541n
+	 bhhgOCrap0cUEKx0gwbIxG67ltJzeuRceG5MwjrfBQWR+3m4eSI+r2ql5emA7GV7HX
+	 bolJqeWdSE9azgDScgDVBOlvzk2WPzTuVpc19/fuEsZ1B82WKGofvt0/z7TEdLQr8J
+	 6qN6MAlveMAtPNDWWTQcWnXj/k0nx4KuwXmglHbjmbUbf/z47gbcv7gUX4xYO/7qOh
+	 AQDV7pOz7k/r5qDjmQvghyA6VOFbuA0df78Kr8x/d1SbVnURCxGxiVMrAD9DHZpZQE
+	 YQyYgcBctfFPQ==
+Date: Tue, 5 Nov 2024 11:37:24 +0000
+From: Will Deacon <will@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com,
+	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
+	jsnitsel@redhat.com, robh@kernel.org,
+	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@linaro.org>
+Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in
+ smmu reset operation
+Message-ID: <20241105113723.GA12600@willie-the-truck>
+References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
+ <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
+ <20241024125241.GD30704@willie-the-truck>
+ <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
+ <20241029124708.GA4241@willie-the-truck>
+ <ygd6bryp73jgsm5zggy2jz4uc42dehht2e6ht5f6yowf74c6ns@u6dul4rnybt6>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ygd6bryp73jgsm5zggy2jz4uc42dehht2e6ht5f6yowf74c6ns@u6dul4rnybt6>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_032858_005116_84C07E75 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20241105_033733_300311_9A45AED9 
+X-CRM114-Status: GOOD (  49.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,39 +83,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Nov 2024 11:27:53 +0800, Liu Ying wrote:
-> This patch series aims to add ITE IT6263 LVDS to HDMI converter on
-> i.MX8MP EVK.  Combined with LVDS receiver and HDMI 1.4a transmitter,
-> the IT6263 supports LVDS input and HDMI 1.4 output by conversion
-> function.  IT6263 product link can be found at [1].
+On Mon, Nov 04, 2024 at 01:10:12PM +0200, Dmitry Baryshkov wrote:
+> On Tue, Oct 29, 2024 at 12:47:09PM +0000, Will Deacon wrote:
+> > On Fri, Oct 25, 2024 at 07:51:22PM +0530, Bibek Kumar Patro wrote:
+> > > 
+> > > 
+> > > On 10/24/2024 6:22 PM, Will Deacon wrote:
+> > > > On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
+> > > > > Default MMU-500 reset operation disables context caching in
+> > > > > prefetch buffer. It is however expected for context banks using
+> > > > > the ACTLR register to retain their prefetch value during reset
+> > > > > and runtime suspend.
+> > > > > 
+> > > > > Replace default MMU-500 reset operation with Qualcomm specific reset
+> > > > > operation which envelope the default reset operation and re-enables
+> > > > > context caching in prefetch buffer for Qualcomm SoCs.
+> > > > > 
+> > > > > Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> > > > > Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
+> > > > > ---
+> > > > >   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
+> > > > >   1 file changed, 42 insertions(+), 3 deletions(-)
+> > > > > 
+> > > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> > > > > index 087fb4f6f4d3..0cb10b354802 100644
+> > > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> > > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> > > > > @@ -16,6 +16,16 @@
+> > > > > 
+> > > > >   #define QCOM_DUMMY_VAL	-1
+> > > > > 
+> > > > > +/*
+> > > > > + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
+> > > > > + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
+> > > > > + * buffer). The remaining bits are implementation defined and vary across
+> > > > > + * SoCs.
+> > > > > + */
+> > > > > +
+> > > > > +#define CPRE			(1 << 1)
+> > > > > +#define CMTLB			(1 << 0)
+> > > > > +
+> > > > >   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+> > > > >   {
+> > > > >   	return container_of(smmu, struct qcom_smmu, smmu);
+> > > > > @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
+> > > > >   	return match ? IOMMU_DOMAIN_IDENTITY : 0;
+> > > > >   }
+> > > > > 
+> > > > > +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
+> > > > > +{
+> > > > > +	int ret;
+> > > > > +	u32 val;
+> > > > > +	int i;
+> > > > > +
+> > > > > +	ret = arm_mmu500_reset(smmu);
+> > > > > +	if (ret)
+> > > > > +		return ret;
+> > > > > +
+> > > > > +	/*
+> > > > > +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
+> > > > > +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
+> > > > > +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
+> > > > > +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
+> > > > > +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
+> > > > > +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
+> > > > > +	 * during reset and runtime suspend operations.
+> > > > > +	 */
+> > > > > +
+> > > > > +	for (i = 0; i < smmu->num_context_banks; ++i) {
+> > > > > +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
+> > > > > +		val |= CPRE;
+> > > > > +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
+> > > > > +	}
+> > > > 
+> > > > If CPRE only needs to be disabled prior to r2p2, then please teach the
+> > > > MMU-500 code about that instead of adding qualcomm-specific logic here.
+> > > > 
+> > > 
+> > > Doing this on MMU-500 code would make it generic and reflect for SoC of all
+> > > the vendors on this platform.
+> > > We can make sure that it won't cause any problems in Qualcomm SoCs as we
+> > > have been enabling this since for some years now and could not
+> > > observe/reproduce any issues around these errata.
+> > 
+> > Unless you can explain definitively hy that's the case, I still don't
+> > think we should be second-guessing the core SMMU driver code in the
+> > Qualcomm backend.
+> > 
+> > > But we won't be able to guarantee the same behavior in SoC for other vendors
+> > > where these errata might still be applicable as per [1] and [2].
+> > > So as per my understanding it's safe to include in Qualcomm specific
+> > > implementation and not changing the default behavior in all other vendors'
+> > > SoC even if they are not prior to r2p2 revision [3].
+> > 
+> > If you want to gate the errata workarounds on policy, then please follow
+> > what we do for the CPU: add a Kconfig option (e.g.
+> > ARM_SMMU_WORKAROUND_BROKEN_CPRE) which defaults to "on" (assuming that
+> > the relevant errata aren't all "rare") and update silicon-errata.rst
+> > accordingly.
+> > 
+> > Then you can choose to disable them in your .config if you're happy to
+> > pick up the pieces.
 > 
-> Patch 1 is a preparation patch to allow display mode of an existing
-> panel to pass the added mode validation logic in patch 3.
-> 
-> [...]
+> Is it actually going to work? For most of the CPU errata we can detect
+> and limit the workarounds to some class of CPUs. For SMMU, if I'm not
+> misunderstanding something, the errata will be enabled by default for
+> all SMMU-500 implementation, so only very few kernels, targeting only
+> the Qualcomm hardware, can get that disabled.
 
-Applied to drm-misc-next, thanks!
+We can add checks based on rXpY per the erratum documentation, but Robin
+was saying elsewhere in the thread that some of them are still open (i.e.
+unfixed).
 
-[04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
-        commit: 5205b63099507a84458075c3ca7e648407e6c8cc
-[05/13] drm: of: Get MEDIA_BUS_FMT_RGB101010_1X7X5_{JEIDA, SPWG} LVDS data mappings
-        commit: 34902c2d022f9d36b739189efae3f5fd569983fd
-[06/13] drm: of: Add drm_of_lvds_get_dual_link_pixel_order_sink()
-        commit: 606410292f54ef08632bdfd5c58974cf4ebc3cc9
-[07/13] dt-bindings: display: lvds-data-mapping: Add 30-bit RGB pixel data mappings
-        commit: e3160748780c66f32ae5e7c17373c36a4a802bc3
-[08/13] dt-bindings: display: Document dual-link LVDS display common properties
-        commit: 8cd4937ebfeae03a094e9115ab3286bf01498a5f
-[09/13] dt-bindings: display: bridge: Add ITE IT6263 LVDS to HDMI converter
-        commit: 0a86a4d1a09185cebe071136599b7da619388f7a
-[10/13] drm/bridge: Add ITE IT6263 LVDS to HDMI converter
-        commit: 049723628716c7286d6265812567ef1b1ff4827e
-[13/13] MAINTAINERS: Add maintainer for ITE IT6263 driver
-        commit: 946f2b6a1c1383fb3a16780b425e0ddf40b3a2dd
+So ultimately, the decision to disable workarounds for known errata on
+broken hardware is going to be a niche sport, yes.
 
-Best regards,
--- 
-With best wishes
-Dmitry
-
+Will
 
