@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F47D2B92E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A19FD2B931
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DBZ37o87693Es4cCNyLxHrd7NY4Ze7ssSN37sw3EsrI=; b=5BLvq9jjIMzzdN3pwbUAb9uFwk
-	EaRXjOSW/T5dCTU85P5kbUxeoZ+havaJpuY/W2Qn6VVUcWi2lXztX5w1lQAZwEyZtO+qXRVTo3Pj3
-	ox84fYQ9s44+FjVrITedBcUI7drjlFyztyCgFg02o3vDK1vuztvJrlrIZDNZHbGXupKI1/AmdMCr/
-	q6GmknTstEhjOPBTwzoZ8/6NHAJqMQfXRqe5sTO3YLVGGrNku83mZwp8D8n4CHva/OedlDVlGQlb/
-	yUCePPjBOyveNakkiHxd3d8utEAhm67yrGbMJxslDP2aRYbfDJhDL95F4vhXZ+BVP2x9FEyFcApn1
-	iWqFJEgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CvID57YmT4JMAq1iUTs3WtirP/sKV5Z6AefJvN/SSYM=; b=b6JWMcze+QwvGn4layf+fd5A6D
+	vzjaDfyfYT4yuZjag049yx+7bHHPKqTLX7BvF3tJduNyt7ctuqWAgeg6vf/jL+qDJHHX3EPh79huV
+	DsSmu7npdL+2X6ZYV4o5x8rXGzZ9WwxuedBpFgaeY2OpUQq63ainr6diDy+1CbKHoAF9S1mMH9N4h
+	qnXykSU+oBv7i1D/fDCGH0ovQdV3X6ONaJwZwSC7ny5MhJAw8sByE9ZfrJOzd+ZS3tDEIqHtzC/cd
+	CGwrMa7xYm6Zkri35Af9wK06FY+TR+pIdVLyDqMWjokTihYED4uGs8wOTlm4oMEg638nb7S0sS9TE
+	ohuuEsRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KbZ-0000000HHLl-3WBh;
-	Tue, 05 Nov 2024 14:32:25 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1t8KbK-0000000HH8a-01bz;
+	Tue, 05 Nov 2024 14:32:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KFp-0000000HDVM-2R2m
+	id 1t8K5L-0000000HC7Z-0iDB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 14:09:59 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5CGuu3004386;
-	Tue, 5 Nov 2024 15:09:44 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=DBZ37o87693Es4cCNyLxHr
-	d7NY4Ze7ssSN37sw3EsrI=; b=rFxDHAs2Zg4JtmHgavsKyIJBSzB8uluibICj1n
-	bQc5gX40ZUVHlzrHdvSZS+0H8eTfOS4P6bPIvFBbzIP94RTJ33vQB1PfoOS9UTmC
-	ZKS/qiL8NVPtL+TfZrxKwiPfX2TLspHlAlKnvi2CqV+SRoeGoquKi5n8Xj5I1HZF
-	REju30cgTt3NNjAxuaqnc4AFwnLsYPZw/xcxcgXrnvSYPTzLXbphaXmQ7lwp8Knf
-	bDjbuuP0A92IR6UDPVSfTy/qvGcjQltjha5haNsSkDVQKli/XZlFVlHAoZaY8+PR
-	Cwd2owMt3V+EbV9pBpR9KiUtFBy7leScXIOFahvlL353nrsg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nd00488c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 15:09:44 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2642D40049;
-	Tue,  5 Nov 2024 15:08:35 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8DDA22676BC;
-	Tue,  5 Nov 2024 15:07:49 +0100 (CET)
-Received: from localhost (10.252.16.126) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 15:07:49 +0100
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: <amelie.delaunay@foss.st.com>,
-        Olivier Moysan
-	<olivier.moysan@foss.st.com>,
-        Arnaud Pouliquen
-	<arnaud.pouliquen@foss.st.com>,
-        Liam Girdwood <lgirdwood@gmail.com>,
-        "Mark
- Brown" <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai
-	<tiwai@suse.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>
-CC: Olivier Moysan <olivier.moysan@st.com>, <linux-sound@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 1/1] ASoC: stm32: spdifrx: fix dma channel release in stm32_spdifrx_remove
-Date: Tue, 5 Nov 2024 15:02:42 +0100
-Message-ID: <20241105140242.527279-1-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 05 Nov 2024 13:59:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 06DEEA43218;
+	Tue,  5 Nov 2024 13:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB48CC4CECF;
+	Tue,  5 Nov 2024 13:59:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730815145;
+	bh=CvID57YmT4JMAq1iUTs3WtirP/sKV5Z6AefJvN/SSYM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SSc7j3I52dEaIwkDTn4ibAs0yL+sm1AUrdjsS5Foqi9CmitafJ0rmhkf8jgCLxDXv
+	 JLp2feUIvpp46K7GRII8y6DO1tvcztO0PFZdYUO5QMD3JD+SLVUz8OV0x0Z9jVBf+f
+	 dmc3hj4qkNab24foZVua9aC+kSzagud5ic/jNuGnRdZoG7bdTbZcIf8P4Z3GRHHPmX
+	 XfakUYr4UNG+yHNjgD6pu0ezdfKWFokPuu9x/Ww3WifZ6ghk4OhXiM7HuHM1BsulUx
+	 w8a8iXOrjgTucQAuuy+8372ySxPYNQ7IvnRIDd4kLjMwMmySgyIhaa/qX+/TgU8PbQ
+	 KYmLvcj2Zt7WQ==
+Date: Tue, 5 Nov 2024 13:59:00 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Janne Grunau <j@jannau.net>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Nick Chan <towinchenmi@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: spi: apple,spi: Add binding for
+ Apple SPI controllers
+Message-ID: <722dbc29-3d37-4043-a0c1-f99ac1ceaa80@sirena.org.uk>
+References: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
+ <20241105-asahi-spi-v4-1-d9734f089fc9@jannau.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.16.126]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="D7mzdCilsziPoams"
+Content-Disposition: inline
+In-Reply-To: <20241105-asahi-spi-v4-1-d9734f089fc9@jannau.net>
+X-Cookie: I'll be Grateful when they're Dead.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_060957_937887_7697997D 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20241105_055907_297590_B271C276 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +82,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
 
-In case of error when requesting ctrl_chan DMA channel, ctrl_chan is not
-null. So the release of the dma channel leads to the following issue:
-[    4.879000] st,stm32-spdifrx 500d0000.audio-controller:
-dma_request_slave_channel error -19
-[    4.888975] Unable to handle kernel NULL pointer dereference
-at virtual address 000000000000003d
-[...]
-[    5.096577] Call trace:
-[    5.099099]  dma_release_channel+0x24/0x100
-[    5.103235]  stm32_spdifrx_remove+0x24/0x60 [snd_soc_stm32_spdifrx]
-[    5.109494]  stm32_spdifrx_probe+0x320/0x4c4 [snd_soc_stm32_spdifrx]
+--D7mzdCilsziPoams
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-To avoid this issue, release channel only if the pointer is valid.
+On Tue, Nov 05, 2024 at 09:08:29AM +0100, Janne Grunau wrote:
+> From: Hector Martin <marcan@marcan.st>
+>=20
+> The Apple SPI controller is present in SoCs such as the M1 (t8103) and
+> M1 Pro/Max (t600x). This controller uses one IRQ and one clock, and
+> doesn't need any special properties, so the binding is trivial.
 
-Fixes: 794df9448edb ("ASoC: stm32: spdifrx: manage rebind issue")
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
----
- sound/soc/stm/stm32_spdifrx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-diff --git a/sound/soc/stm/stm32_spdifrx.c b/sound/soc/stm/stm32_spdifrx.c
-index d1b32ba1e1a2..9e30852de93c 100644
---- a/sound/soc/stm/stm32_spdifrx.c
-+++ b/sound/soc/stm/stm32_spdifrx.c
-@@ -939,7 +939,7 @@ static void stm32_spdifrx_remove(struct platform_device *pdev)
- {
- 	struct stm32_spdifrx_data *spdifrx = platform_get_drvdata(pdev);
- 
--	if (spdifrx->ctrl_chan)
-+	if (!IS_ERR(spdifrx->ctrl_chan))
- 		dma_release_channel(spdifrx->ctrl_chan);
- 
- 	if (spdifrx->dmab)
--- 
-2.25.1
+--D7mzdCilsziPoams
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcqJKMACgkQJNaLcl1U
+h9Clfgf+Pd2KCID4TdGn0iOZF2Js93e/8eeKynPSfYIathQZJzS1VgjiVV/2A4ed
+Pu2SpxxqQG93EebMnNm6MA+c9kR2ser/EC5Ty/9erPPkdFXPwiXIo260oxsdqmXz
+oJXob3jksOe5Zr+1jCksNjlpviRHrhToRqcJPPoLV5wWbmW20Uz9FAPKH/aMje7U
+QgLKNoIAISZGl2eKjjARFFIKmjtHxUQgbgmUTAncnGulmjlqFm3TWenZCFx7Scpf
+Ep5+910xQiNSfnQNmNGBPO+O6/VHRicXGUm7nWrCSAaghmOwdVDT231ELjxfY+Fm
+EXjZTcdv82Xqb6t4/J3wrJsgTBSqQw==
+=iEeU
+-----END PGP SIGNATURE-----
+
+--D7mzdCilsziPoams--
 
