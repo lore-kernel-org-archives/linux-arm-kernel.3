@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9285BD1266A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4734D12663
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GVir3aaEvQ5ZfVRybbexJTZ/9EY3vCUB2U7RE43OOPE=; b=TUeoZyxDv/S2XP
-	O9NSChb/NsdgDv3pUM+ht+avpH+zUIWllDS74iTi8FFs1gEch8mUR/kEfAqZbyxAZDlZfZNgUBV4Y
-	eH8cBnlm0/XrkxmnM14xqvOTja6N1mXJlq78D938cA0wBGXPNmB1rlJRa1M0EnLomaXD+txXG0jDB
-	1EzQ9B3NTaBQwoyoeYyxV3qak+0ToGtCVOOYNuatlkmCpInQdZoqstMDLCjjVTGNecT5giKpRm1Cy
-	H3lUv3at/4p8h+2r4ryE1xn0oNact5On4K5dAlyU/eWscfPXZkssjZArTk46vSAxH25FysAzpigYg
-	5lfdnrNDbyDpXbIY38Ow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+5NKA5OeLwYp2s18/2yRobCN4T2C7yfGfCP/KatkZRY=; b=G3ea+JSo+PNaBSQ33MoR6DVtwj
+	qUECuKY3rDuI1ar9jjjjhq0rRxgRnhoCRz9siIHFX7ZeJPyELsycOb5e5s1x+OU/a/vxQc029DiTB
+	jFkyOVEQp6ZChGqIotUlMj9bf2z/O7UEN+cDS8BTLAv5fpv6jIVA+Rb40snEXdm/OCdIzHS8eMacO
+	LOm1tEZHV6vyGByGhZIQB5f7GuAjgRFqB9etUtRFg7DLLU9w8n+06/MEw2YVq0R7sOzOCfNeXGIGb
+	VDJm/zvANBuru0cYr6pkbOvhnVk6D4VjegHD0kIb7x2vlpRSn5PtG7Fnr52gspFIqI/ypmWkrruyh
+	OO8CxVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8F19-0000000GLtb-1rPW;
-	Tue, 05 Nov 2024 08:34:27 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1t8F2o-0000000GM6i-2uKr;
+	Tue, 05 Nov 2024 08:36:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EjN-0000000GItu-3bIB
+	id 1t8EcI-0000000GHZK-00kp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 08:16:21 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4315e62afe0so44179195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 00:16:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1730794564; x=1731399364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GVir3aaEvQ5ZfVRybbexJTZ/9EY3vCUB2U7RE43OOPE=;
-        b=e1B24bqSTfrHPfX9zEc9dx3i9F0KL0h9fPoxhEkJeGK59EDH5TxOAH5cUVd4gKFRtG
-         +LLZCgg5ZYgeNWcTwF8G3VtR75fxeoPzUrwJKHYaOvrfmRewmg4j8TiOl9lEAk7dmCU/
-         iHd/ehDtzpDkBYXuwHZhFpzytdi4kLIV133eDiA0WLvld0mCGbWme+EAC2xzjW4ulx1+
-         NrYjAu1+y288y2STlUNzAUYxCK2Yc6FVYMLE2R+Y8zTEGNe5x/tQWfBeiVrheEotP/jW
-         2dYzlM4sTpe6ckNg3QDFXyLmKRGjFsYFvCV9W/jI3LnenawLPbgN/rqIH8z3C4Zhphrf
-         5+Yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730794564; x=1731399364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GVir3aaEvQ5ZfVRybbexJTZ/9EY3vCUB2U7RE43OOPE=;
-        b=kIPjaGnibfPOerMjYZBrYuKIy7ftyk52gROcLvpkhNUh6IpgkeMD7BSaJpCT5q/LO1
-         tLRR1mEoPfdRSBBwSvEFNS19KMiYiDIHRMYkdWAfFzCtZeoYOvvX9KQzp7RpRrM3212V
-         9WP2uFks5mjGPwfwXTuoAZ2Zxd325yLun63UDhiLA4+jvy0IRO19Z33dYOuD2cPRbwd0
-         0ej9es5HMwsBFdwTb0IKb3/GNKT9LQP7jSslDTMGaE90Tr9DUbFWohA8yGgd/Y5H9dmd
-         Us1LDIP7ZAg0PWbAEEZzLljXt3hSnhMTkhNIVGTVheeTAVJTRv+mCD7GYPqi4UmEKZ9Z
-         ADkw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBgToMOz2Qdj4VqpgIZwz+kZI3/F7s1Di2GMzRJXdxw4ONTVNSl0LTZU0nkCStoolUP6Ro7GJW5PNh/wT5qyiM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ7W0eerpyTApwb6jorD6LqYKTY2rHAXvk6LwJ6H6/ne8Xkf+B
-	flxOrXBNh8lP13XvrObKODENpiOrZWiLqirI7Z1zQfoka/aU0E4Kj0aLEFXKn/Q=
-X-Google-Smtp-Source: AGHT+IGZSzbOpvi2yCB1Frv/kF+9xIWAujcsdB9wLzuym7MnF60se5RTfFEikpDxPpdDPK7J73ngrw==
-X-Received: by 2002:a05:600c:350b:b0:42c:e0da:f15c with SMTP id 5b1f17b1804b1-4319acbb947mr274605165e9.20.1730794563965;
-        Tue, 05 Nov 2024 00:16:03 -0800 (PST)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd917f0bsm203801475e9.17.2024.11.05.00.16.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 00:16:03 -0800 (PST)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: arnd@arndb.de,
-	olof@lixom.net,
-	arm@kernel.org
-Subject: [GIT PULL] Microchip AT91 DT updates for v6.13
-Date: Tue,  5 Nov 2024 10:15:58 +0200
-Message-Id: <20241105081558.3980044-3-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241105081558.3980044-1-claudiu.beznea@tuxon.dev>
-References: <20241105081558.3980044-1-claudiu.beznea@tuxon.dev>
+	Tue, 05 Nov 2024 08:08:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E63C85C5516;
+	Tue,  5 Nov 2024 08:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5994FC4CED3;
+	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730794124;
+	bh=dVybQkWmSxoyj1MofMAfodogbPNIcs6eTPaaE0ShWnY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=GeR9jp0DvXAik3U57DiJEkoWf6UurPcas8la40H39wzxvMSwrstClx0I4YIO7Aew2
+	 nx8ZYnWInFFnHhQELxRB8vQ4SqM2NBJ8RGocQEhrqVJDlVF1yqSJm/BCDB8fQb5YHk
+	 /A3Om1fQLCM08HTh3jMH9F36tA87+S/H4zfQKLmVJQ5TLZiKHKYxAxThf1CmHClu4M
+	 HSsYmABU4w7rCPtSrcEfj/UgJwAuoQYqjVJ9R1G8c8dJURr9cflHNV+Lp2aMv8QcR+
+	 8fyt7i3UYYm3JBaJnxAPArkaUf+OkO/oWOxRfxs3n6VN4K4loVVzX4w7eePQqO1LtC
+	 rdgwjH0UrtuRw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46FA9D12664;
+	Tue,  5 Nov 2024 08:08:44 +0000 (UTC)
+From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
+Subject: [PATCH v4 0/3] Apple SPI controller driver
+Date: Tue, 05 Nov 2024 09:08:28 +0100
+Message-Id: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHzSKWcC/3WMOw7CMBAFrxJtjZF/wYaKeyCKTbIhS2EiO1igK
+ HfHSQUF5Ty9mRkSRaYEp2qGSJkTP0IBu6ugHTDcSHBXGLTUVnqlBCYcWKSRRe+dlQ26o+sclP8
+ YqefX1rpcCw+cpkd8b+ms13WrKCW/K1kLKdzBoEdvO2/s+Y4h4HMfaII1k81f1RTVNGVu677xV
+ P+oy7J8AP4MY8XeAAAA
+X-Change-ID: 20240811-asahi-spi-f8740ba797d7
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
+ Nick Chan <towinchenmi@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3311; i=j@jannau.net;
+ s=yk2024; h=from:subject:message-id;
+ bh=dVybQkWmSxoyj1MofMAfodogbPNIcs6eTPaaE0ShWnY=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnTNS10XevU7NxYuDXF4oD1r3aXWQzJfnvfrV3A4PHJg+
+ Wt5kmNHRykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgIm838nIsGpS31nzvbOvrSxo
+ z+2fcMReKujW881Py+wbF82XuvBP4THDH56D2bWr5joo7ps+8dDuBI7i7wxO8y0Xnnqz9Kjbbga
+ fLE4A
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
+X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_001606_026135_A69A0268 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20241105_000846_172740_F0152678 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +92,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org, claudiu.beznea@tuxon.dev
+Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+Hi all,
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+This updated series address the review comments from the original
+submission in 2021 [1]. It adds a new SPI controller driver for Apple
+SoCs and is based on spi-sifive. It has been tested with the generic
+jedec,spi-nor support and with a downstream driver for an Apple specific
+HID over SPI transport.
 
-are available in the Git repository at:
+As usual, I'm splitting off the MAINTAINERS and DT binding changes.
+We would rather merge the MAINTAINERS change through the Asahi-SoC
+tree to avoid merge conflicts as things trickle upstream, since
+we have other submissions touching that section of the file.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-6.13
+The DT binding change can go via the SPI tree or via ours, but it's
+easier if we merge it, as then we can make the DT changes to
+instantiate it without worrying about DT validation failures depending
+on merge order.
 
-for you to fetch changes up to 2bd3059f1ac59618eb4ed10b9fe4ca70a27947fb:
+This is mostly Hector's work with a few minor changes to address review
+comments from me.
 
-  ARM: dts: microchip: Rename LED sub nodes name (2024-10-13 18:56:19 +0300)
+[1] https://lore.kernel.org/linux-spi/20211212034726.26306-1-marcan@marcan.st/
 
-----------------------------------------------------------------
-Microchip AT91 device tree updates for v6.13
+v2:
+- removed '#address-cells' and '#size-cells' from the bindings and added
+  Rob's Rb:
+- fixed (new) checkpatch warnings
+- added t8112 (M2) SoC
+- shorted long and complex source code lines
+- switch to devm_clk_prepare_enable() and devm_pm_runtime_enable()
+- switch to dev_err_probe() in probe function
+- removed "pdev->dev.dma_mask = NULL;"
+- got rid of apple_spi_remove()
 
-It contains:
-- enable power monitor support for SAM9X60-EK, SAMA5D2-ICP,
-  SAMA7G45 Curiosity, SAMA7G5-EK boards
-- updates the uart nodes with missing properties
-- device tree cleanups
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+Changes in v4:
+- removed the label from example in the bindings
+- really added Rob's Rb: for the bindings added Reviewed/Acked-by: for v3
+- alphabetically sorted #includes
+- removed leftover platform_set_drvdata
+- Link to v3: https://lore.kernel.org/r/20241101-asahi-spi-v3-0-3b411c5fb8e5@jannau.net
 
-----------------------------------------------------------------
-Alexander Dahl (2):
-      ARM: dts: microchip: Add trng labels for all at91 SoCs
-      ARM: dts: microchip: Unify rng node names
+Changes in v3:
+- fixed bindings_check warning
+- converted top file comment to C++ style comments
+- dropped verbose dev_err_probe after failed devm_* function
+- stopped setting field in zero initialized struct to 0
+- added error handling for devm_pm_runtime_enable()
+- Link to v2: https://lore.kernel.org/r/20241101-asahi-spi-v2-0-763a8a84d834@jannau.net
 
-Andrei Simion (4):
-      ARM: dts: microchip: sam9x60: Add missing property atmel,usart-mode
-      ARM: dts: microchip: Rename the eeprom nodename
-      ARM: dts: microchip: Rename the pmic node
-      ARM: dts: microchip: Rename LED sub nodes name
+Changes in v2:
+- removed '#address-cells' and '#size-cells' from the bindings and added
+  Rob's Rb:
+- fixed (new) checkpatch warnings
+- added t8112 (M2) SoC
+- shorted long and complex source code lines
+- switch to devm_clk_prepare_enable() and devm_pm_runtime_enable()
+- switch to dev_err_probe() in probe function
+- removed "pdev->dev.dma_mask = NULL;"
+- got rid of apple_spi_remove()
+- Link to v1: https://lore.kernel.org/linux-spi/20211212034726.26306-1-marcan@marcan.st/
 
-Mihai Sain (4):
-      ARM: dts: microchip: sam9x60ek: Add power monitor support
-      ARM: dts: microchip: sama5d2_icp: Add power monitor support
-      ARM: dts: microchip: sama7g54_curiosity: Add power monitor support
-      ARM: dts: microchip: sama7g5ek: Add power monitor support
+---
+Hector Martin (3):
+      dt-bindings: spi: apple,spi: Add binding for Apple SPI controllers
+      spi: apple: Add driver for Apple SPI controller
+      MAINTAINERS: Add apple-spi driver & binding files
 
- arch/arm/boot/dts/microchip/aks-cdu.dts            | 12 ++++---
- arch/arm/boot/dts/microchip/animeo_ip.dts          |  8 ++---
- .../boot/dts/microchip/at91-kizbox2-common.dtsi    |  2 +-
- arch/arm/boot/dts/microchip/at91-sam9x60ek.dts     | 37 ++++++++++++++++++++--
- .../arm/boot/dts/microchip/at91-sama5d27_som1.dtsi |  2 +-
- .../boot/dts/microchip/at91-sama5d27_wlsom1.dtsi   |  2 +-
- .../boot/dts/microchip/at91-sama5d29_curiosity.dts |  2 +-
- arch/arm/boot/dts/microchip/at91-sama5d2_icp.dts   | 33 ++++++++++++++++++-
- .../arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts |  2 +-
- .../boot/dts/microchip/at91-sama5d2_xplained.dts   |  2 +-
- .../boot/dts/microchip/at91-sama5d3_xplained.dts   |  2 +-
- .../boot/dts/microchip/at91-sama7g54_curiosity.dts | 31 ++++++++++++++++++
- arch/arm/boot/dts/microchip/at91-sama7g5ek.dts     | 33 ++++++++++++++++++-
- arch/arm/boot/dts/microchip/at91rm9200ek.dts       |  6 ++--
- arch/arm/boot/dts/microchip/at91sam9260ek.dts      |  6 ++--
- arch/arm/boot/dts/microchip/at91sam9261ek.dts      |  6 ++--
- arch/arm/boot/dts/microchip/at91sam9263ek.dts      |  6 ++--
- arch/arm/boot/dts/microchip/at91sam9g20ek.dts      |  4 +--
- .../boot/dts/microchip/at91sam9g20ek_common.dtsi   |  2 +-
- arch/arm/boot/dts/microchip/at91sam9g45.dtsi       |  2 +-
- arch/arm/boot/dts/microchip/sam9x60.dtsi           | 14 +++++++-
- arch/arm/boot/dts/microchip/sama5d2.dtsi           |  2 +-
- arch/arm/boot/dts/microchip/sama5d3.dtsi           |  2 +-
- arch/arm/boot/dts/microchip/sama5d34ek.dts         |  2 +-
- arch/arm/boot/dts/microchip/sama5d3xcm_cmp.dtsi    |  2 +-
- arch/arm/boot/dts/microchip/sama5d4.dtsi           |  2 +-
- 26 files changed, 182 insertions(+), 42 deletions(-)
+ .../devicetree/bindings/spi/apple,spi.yaml         |  62 +++
+ MAINTAINERS                                        |   2 +
+ drivers/spi/Kconfig                                |  11 +
+ drivers/spi/Makefile                               |   1 +
+ drivers/spi/spi-apple.c                            | 530 +++++++++++++++++++++
+ 5 files changed, 606 insertions(+)
+---
+base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
+change-id: 20240811-asahi-spi-f8740ba797d7
+
+Best regards,
+-- 
+Janne Grunau <j@jannau.net>
+
+
 
