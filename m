@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17F7D1266B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC19BD1266B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=; b=VZaRU6+92Qz2hhsd1+dvEkLbel
-	FMoCrFTgn51zWtcoNomDkEvWoKwTA9KoO6r7VBowUMIxE4pG8cBVaWIvUCCDTSY2nVrXxyxrS97xS
-	LMNkDvBlpcwgHMbrsVZ2XyrhtjiLXW6YeFLxinzzyHKYARZPviCv71IhLmor0R2FAcL5aQYHwLFnh
-	itOtJnSZcwl7fT3iNZha4RVqWQumKbd1IFMRA5+wvOkAeibGLvIMrqfqierYlscSueJvulHdDN5YT
-	ypgwjghnaOLvYIFfGn+TMw4xzaDRhehorUln2oEuc0QNb25SEambFTINNSaShh7xojbDFLfMMYvV8
-	Iu+bQu0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H9O95ubP6Me8oTOSXo8EbkRnUD+yD7mWX15pGQ9Vkpc=; b=V/mmSExTPImPrGCEZYYs2OI5QR
+	Bevd8XOZ5Vah5tIuKAiOwSGj5JtQXW5cPn/YIcS9t1BbKSIZg3UdMaZeRM6gFn8L9gkjUzsmYNRGL
+	j6AMablDx8DBJXqPEYqTDYfFEFBr1kQ1XsXkO7GIoFhNH7KmlcI3+9rN7Vwb7nPNaLHsn8RDP+8/T
+	qBe54XrmY0Ep7JPSIEp5EEoYKdlSWz7tqLkB/QL4bPFpoPiv4va9djOr4Y0Xevascdm3gLkvUU3mW
+	TnyX2HdkbFtxZ09i6mwC2sKTlX2vh4+SpcnWnteWueYamwK7X5BYnZwn8clPSN8vLy8cugJwHoiGs
+	+/MljlBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FUI-0000000GRAI-3JT4;
-	Tue, 05 Nov 2024 09:04:34 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1t8FWU-0000000GRTd-0swC;
+	Tue, 05 Nov 2024 09:06:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FSK-0000000GQcF-0iWg
+	id 1t8FUm-0000000GREG-1SG1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 09:02:33 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7f3f1849849so171966a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 01:02:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730797351; x=1731402151; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=;
-        b=lpyeEORl8udmjWqnUg6BnidOsCfCZk0WtarVLTiVnl9w1OPGjTRgVogX8qoea2x0U2
-         fxCpwaEhrpWRBb0J8wyisMUOPiGSBZ6rSYBKdoCXOHT63ugonev6ZeTuOiTcRWrFxZz3
-         R8TJA0oUC5M2Wf/Q18ITt8FPcICc9xIJfSj/4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730797351; x=1731402151;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=;
-        b=Bufu83J2h519agmqL4RNm0d44d4Jjr2zLFsu44pIGLRXjdZEV9bmwRSRByk81l140p
-         74CGTCAOCmeaC8SwYrwjtFLKkhCdthmh6nIb1nLnnQzYyqtbxjAV2fczbm7HgtVpkoaV
-         55qD0oM6W+xb5MsBu9dET3MHJ0u+1RpR2Vrv4TBusx8zvdISpNEkevHTEaDySiFo886Y
-         rfapkwEVCgfcLrkC3oiVJ6Up5rb0C1F9xNZNQhH0Lt3+beZdg2BTatrzW9gsFC2CWd/H
-         lj9dYmwTMsLBLG1InfI2YBhzDh+jCTOiK6nz7knznIpgecucnNPQKuW2IBFWQtWZWyIu
-         wu8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWBc9r2nohZ5gyEEd2Vo3XgIcUTyHXHoEdAXtM+TJlkLKhj/F1nwUgBY3PwFhdAfBP9zaomHctzenLCmLTbEFH1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/QelPiCpaIQlqORbltX+u/kZM4wd4KyMtBKbC1FIhAR3qqtSo
-	nXKwmPfArVIOOUXhgWCRRFU4baReWJa+PCARltdgoB6qXlBv2txGY/p0NUKDdQ==
-X-Google-Smtp-Source: AGHT+IH1k+zMqS05NS5QvavH+ykcILKALPqruVdecenHRtfW6dG9qXj72cxb37tXkc0AOy3qeQYb5g==
-X-Received: by 2002:a17:90a:bc87:b0:2d3:da6d:8330 with SMTP id 98e67ed59e1d1-2e92ce32e36mr25501301a91.4.1730797350795;
-        Tue, 05 Nov 2024 01:02:30 -0800 (PST)
-Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:20ee:3712:ce0b:1ed7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2110570ad54sm72591315ad.111.2024.11.05.01.02.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 01:02:30 -0800 (PST)
-From: Fei Shao <fshao@chromium.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Cc: Fei Shao <fshao@chromium.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2] dt-bindings: display: mediatek: dp: Reference common DAI properties
-Date: Tue,  5 Nov 2024 17:00:28 +0800
-Message-ID: <20241105090207.3892242-1-fshao@chromium.org>
-X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+	Tue, 05 Nov 2024 09:05:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7A852A42A08;
+	Tue,  5 Nov 2024 09:03:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E660C4CECF;
+	Tue,  5 Nov 2024 09:05:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730797503;
+	bh=UnwmGlzFhaYNeqG3ngovYpYoNCY9R17OMQumYyjWslw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vAAUVxUOMfTvV6MaF23c1TmprwEH5rQs2leIXYBwpH4/W5u8GI5xtMUDYhEwUwyWr
+	 f4r6lNMsKUlfphfeH9nFw1QdrdGpoBRLqM97pGmLI1Y3H9sr3XZJo5QJieKJzEaKcC
+	 m2AyRAZWXNgmn6aI3UpNE8gYEtzxh3K8/P+RgBJ/luHNxVpEEOOx2dytYY96LXndzV
+	 +SJX6Ev65VdWWtst5NMZHg/xrnLG+Ns2ajpQBCUZpN03GVFyZkt1KjXdSkMK0QdiJs
+	 AfJtEtDq+PsRQGYg/qdbBNJPqbMIAUMCeJC/HAHukGCP9Cnvrh+UobBmXQtGvFYZK3
+	 jTtAT8EnlxFUg==
+Date: Tue, 5 Nov 2024 10:04:59 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Hugues Fruchet <hugues.fruchet@foss.st.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 02/15] dt-bindings: media: add description of stm32 csi
+Message-ID: <pp3t7we3niohooaiubs5l2grsobzgrcrc5gmt5ea7fmj6sbmpc@nvnviojusrxk>
+References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
+ <20241105-csi_dcmipp_mp25-v2-2-b9fc8a7273c2@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241105-csi_dcmipp_mp25-v2-2-b9fc8a7273c2@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_010232_219311_CED32A7B 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20241105_010504_469450_13D62AC8 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,65 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek DP hardware supports audio and exposes a DAI, so the
-'#sound-dai-cells' property is needed for describing the DAI links.
+On Tue, Nov 05, 2024 at 08:49:05AM +0100, Alain Volmat wrote:
+> Add the stm32 csi controller description.
+> 
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> 
+> ---
+> v2:
+>   - rename into st,stm32mp25-csi.yaml to match compatible
+>   - correct port / data-lanes (remove useless lines &
+>     use data-lanes 1 and 2 instead of 0 and 1)
+>   - correct commit log
+> ---
+>  .../bindings/media/st,stm32mp25-csi.yaml           | 125 +++++++++++++++++++++
+>  1 file changed, 125 insertions(+)
 
-Reference the dai-common.yaml schema to allow '#sound-dai-cells' to be
-used, and filter out non-DP compatibles as MediaTek eDP in the same
-binding doesn't support audio.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This fixes dtbs_check error:
-  '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
-
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
-
-Changes in v2:
-- reference to dai-common.yaml since the hardware exposes DAI
-  and update to `unevaluatedProperties: false`
-- update commit message
-
- .../display/mediatek/mediatek,dp.yaml         | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-index 2aef1eb32e11..75ce92f4a5fd 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-@@ -42,6 +42,9 @@ properties:
-   interrupts:
-     maxItems: 1
- 
-+  '#sound-dai-cells':
-+    const: 0
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
-     properties:
-@@ -85,7 +88,21 @@ required:
-   - ports
-   - max-linkrate-mhz
- 
--additionalProperties: false
-+allOf:
-+  - $ref: /schemas/sound/dai-common.yaml#
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - mediatek,mt8188-dp-tx
-+                - mediatek,mt8195-dp-tx
-+    then:
-+      properties:
-+        '#sound-dai-cells': false
-+
-+unevaluatedProperties: false
- 
- examples:
-   - |
--- 
-2.47.0.277.g8800431eea-goog
+Best regards,
+Krzysztof
 
 
