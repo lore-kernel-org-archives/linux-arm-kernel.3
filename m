@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBDDD36119
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D1ED36121
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VutQcHafKKq0a8sDGRTz9KmWMJ24nBgA/V5M2QzbTQE=; b=WrUY++XECtWsGBNuU+mSXZUGe9
-	XQ8Lbe0wFWG93QRbOdVomdgTPVUL5C30WNWYkE2BqRFdtthdtAy9X51wztb9C1rwR7xPG2PL5gE7J
-	7lYKz6ZfUyGK7H2CqC4dPteiUvpcCnPEvivUg+9pRHMoeaLJAVqyNfg5umcUEP4lPQ3OLKl6krsEJ
-	wzQZ6BSw3ldPUSMz9H2j3r9YdAqN8S3jM9ALqUnCdXCkxtS5lbRmzltQcIzAjJX3wkSR9PgHdkaug
-	QjMky/E+cNLEpLGLUI7n4em8YT0G6dqnTVxLc+KsM0eq+9dFIsu8uX1R6QfKlxyi5LYuRVzAtdkqg
-	+5H1tYzQ==;
+	bh=OdnFQdcZbnKD7gZyYCPM2XvmjtLUUKuQfJuGybABfRg=; b=P6PdEt+IAy34GbDa1Oj0TBmJek
+	r4ycvaqLVSi1icZzN9rInG9Q+Yz7wHCTndGy7SoUFZgGQl4JsW5nolvegJH09k5U8b3X6nJiP0WdD
+	ma8ZsiQ/1FMgSf4OElfoE800/cIkDNPbhVElNnTw/1pybddlQIndE9na9F6MSjhTykpoY3tLoyonl
+	LW8dOn16BAi+F8j1r+6mp4FLjlDo8wdUPxwSQFmmZBDYwiPKX+qc75Yh4FdWy8/0ncASWBLpgJVSP
+	he7uUk504mc69EG5KDWnTmmaSOpkpzjcf6EGUJ2AEN8zvgozBYjbvd1938KrpZzcI7No8wgSg7gVC
+	h2UJQvkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8PXd-00000000bLC-0UEj;
-	Tue, 05 Nov 2024 19:48:41 +0000
+	id 1t8PZH-00000000bVr-3aeC;
+	Tue, 05 Nov 2024 19:50:23 +0000
 Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8PS8-00000000aKO-0N6h
+	id 1t8PUp-00000000aug-0Jux
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 19:43:01 +0000
+	Tue, 05 Nov 2024 19:45:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1730835778;
-	bh=GiOBrRt8u3pbme+9crDvgrAOmXf8UgUMxXKx4GcDPvs=;
+	s=default; t=1730835946;
+	bh=1U3UU0vNK2UHqlFnB6QG7+izsLRF9HGSgXpwKtSG3OA=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=GHRsJVARCyKaKjxinMOObYFMZjO81KYlxs89D/N6BdPi3basQCsKMRDj2mc+jpOl8
-	 fHm9PAKJDm6cjsBwQ8+NERTkezcJsfkp0PIsOOc0k/4emMC3zBWfhG3a6DwU5LsYcl
-	 KMpD3PlvL+RDM17VJR+3Q1x4CVKdVo59/pElhBAY=
+	b=QExaPV0B5/PcD8M4wyyQL8ZSAkH2WoSHEwCG2/0klxJX0iv+ArrkvEkLOPp396e/D
+	 m+gORqTG38L7ug2odYbT12ywp5Bz8o6bUuXdhAV/j1t2PNijJsfQnzDYDzWpbTdZ4F
+	 4VogdWAIEQvMGxg8QW/d2ljyUEjWDBYg1KS7t/00=
 Received: by gentwo.org (Postfix, from userid 1003)
-	id D7D964027E; Tue,  5 Nov 2024 11:42:58 -0800 (PST)
+	id 7C1A34027E; Tue,  5 Nov 2024 11:45:46 -0800 (PST)
 Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id D59424026F;
-	Tue,  5 Nov 2024 11:42:58 -0800 (PST)
-Date: Tue, 5 Nov 2024 11:42:58 -0800 (PST)
+	by gentwo.org (Postfix) with ESMTP id 7A4F24026F;
+	Tue,  5 Nov 2024 11:45:46 -0800 (PST)
+Date: Tue, 5 Nov 2024 11:45:46 -0800 (PST)
 From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
 To: Haris Okanovic <harisokn@amazon.com>
 cc: ankur.a.arora@oracle.com, catalin.marinas@arm.com, 
@@ -53,16 +53,16 @@ cc: ankur.a.arora@oracle.com, catalin.marinas@arm.com,
     sudeep.holla@arm.com, misono.tomohiro@fujitsu.com, maobibo@loongson.cn, 
     joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, 
     konrad.wilk@oracle.com
-Subject: Re: [PATCH 3/5] arm64: refactor delay() to enable polling for
- value
-In-Reply-To: <20241105183041.1531976-4-harisokn@amazon.com>
-Message-ID: <efd92a03-f5a9-ba9b-338f-b9a5ad93174f@gentwo.org>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com> <20241105183041.1531976-1-harisokn@amazon.com> <20241105183041.1531976-4-harisokn@amazon.com>
+Subject: Re: [PATCH 5/5] cpuidle: implement poll_idle() using
+ smp_vcond_load_relaxed()
+In-Reply-To: <20241105183041.1531976-6-harisokn@amazon.com>
+Message-ID: <aeac3141-c480-52f9-610e-d9d222f3ecad@gentwo.org>
+References: <20240925232425.2763385-1-ankur.a.arora@oracle.com> <20241105183041.1531976-1-harisokn@amazon.com> <20241105183041.1531976-6-harisokn@amazon.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_114300_535164_36518B31 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20241105_114547_187395_7D9CF83E 
+X-CRM114-Status: UNSURE (   6.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,28 +80,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Tue, 5 Nov 2024, Haris Okanovic wrote:
 
-> -#define USECS_TO_CYCLES(time_usecs)			\
-> -	xloops_to_cycles((time_usecs) * 0x10C7UL)
-> -
-> -static inline unsigned long xloops_to_cycles(unsigned long xloops)
-> +static inline u64 xloops_to_cycles(u64 xloops)
 >  {
->  	return (xloops * loops_per_jiffy * HZ) >> 32;
->  }
->
-> -void __delay(unsigned long cycles)
-> +#define USECS_TO_XLOOPS(time_usecs) \
-> +	((time_usecs) * 0x10C7UL)
-> +
-> +#define USECS_TO_CYCLES(time_usecs) \
-> +	xloops_to_cycles(USECS_TO_XLOOPS(time_usecs))
-> +
+> -	u64 time_start;
+> -
+> -	time_start = local_clock_noinstr();
+> +	unsigned long flags;
 
-
-> +#define NSECS_TO_XLOOPS(time_nsecs) \
-> +	((time_nsecs) * 0x10C7UL)
-
-The constant here is the same value as for microseconds. If I remember
-correctly its 5UL for nanoseconds.
-
+Lets keep recording that start value here. Otherwise the timeout could me
+later than expected.
 
