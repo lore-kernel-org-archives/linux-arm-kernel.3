@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDEAD1267D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE039D1267E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97LDhbU/R137sG1a94RjgHUitoGS1ZofEiMXjlDl2pk=; b=IeQunVUh4CrY17eCOiAnn2WbBj
-	sFMiXG41BkYJS5nCvP2furJFVq58SI/gqsYvKaMZtDfGcEZDr+eePbRyGfFw+OlhwFrNYGebF3UE1
-	Ta5iizo2ivDDidHqF1cQfNYajdp4O8vtWaG7kueFHqaBDBUqO44yTQj4tbf5u1d5ml2MzC+txBfZh
-	NCN3H5C2BgxKxjog0Z1ySHOo/FK14vyb9Ty4VW/xYfQOWEQTkvB3162efgWJc5w1VgNr98XXwLP/j
-	XlIWMMS4T42HfsXAe/oOBsdOTqFSYyB6eK9rR+cQ+3lXYEjS+pits7l5kjRXrwNI6w6owDFgAHk1u
-	O1qrwfFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HnhOcDqM62BM39XeYtBpS6hPjPuyhp80jJ6lENbc2lQ=; b=q05PoxiCLK9t5I+krHH3atcwb4
+	wTN/rCqvxcZG2Hv7x76/F6MEX3+bEjGO4OHK7mMaGt4keRuXWQsvyh2EZA4apCJUvJsV+tBtdlc3J
+	7+1OwmHOE3WAu8cXoL02lCov8PMaE45AaGxUJiWplGO2pC+LRPTNpiImVepfLOk4GpISOmxoH3f1z
+	m/f1lEf6GoQZ7SA3LrRLFN6NIViIDTw+8N26J2nHnOX7OrKcuQLFzmgDkQkuJiNVMUAhrxxN9tV9n
+	PhY1eiPY5rtV6EDiIG0iOupH8PwFwpJM7vwLlBFrz6o8jmp+DURODBahNdEiT059AQ6OyNan6Cfac
+	QTXKf37g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8GzR-0000000GhMf-12Rc;
-	Tue, 05 Nov 2024 10:40:49 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1t8H18-0000000GhZ8-20uc;
+	Tue, 05 Nov 2024 10:42:34 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Gxg-0000000Ggz8-0ssD
+	id 1t8GzA-0000000GhIE-3rSA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 10:39:02 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4XjPpK57crz1JBBg;
-	Tue,  5 Nov 2024 18:34:17 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id B689314011F;
-	Tue,  5 Nov 2024 18:38:52 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 5 Nov 2024 18:38:52 +0800
-CC: <yangyicong@hisilicon.com>, <will@kernel.org>, <maz@kernel.org>,
-	<mark.rutland@arm.com>, <broonie@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <oliver.upton@linux.dev>,
-	<ryan.roberts@arm.com>, <linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>, <wangkefeng.wang@huawei.com>
-Subject: Re: [PATCH v4 3/5] arm64: Add support for FEAT_HAFT
-To: Catalin Marinas <catalin.marinas@arm.com>
-References: <20241102104235.62560-1-yangyicong@huawei.com>
- <20241102104235.62560-4-yangyicong@huawei.com> <ZykEUGdkyYClM8Zi@arm.com>
- <b851d802-ed2a-cad2-b96a-f7a9e3bb746e@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <965cde16-c1f6-dcdb-7471-6cf95e7f51f8@huawei.com>
-Date: Tue, 5 Nov 2024 18:38:51 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 05 Nov 2024 10:40:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1730803232; x=1762339232;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=HnhOcDqM62BM39XeYtBpS6hPjPuyhp80jJ6lENbc2lQ=;
+  b=LEB1Q9d+qDW6OAgtE9QRElFKpXTq2oLWYKI552S0AxC6VNM9faaPIXIB
+   If47PiHw0kHONsWxp8iIBpP4/bUAdbK8Ei+SiEFzuUmVkm51zjM6UhHo9
+   m6uHj5G1o4sf/hVVIEST1+/y7iN8FwXHB6FZgzenm8l0pcVYvqxoURsvU
+   DxGKrhaG9gDRCfIyJF3NPe5ZYNxiEBzkI35V1wKEMx16RVgJrkwsTqE6E
+   dZ/E9xMLiy/LHmoh6afkl82Yom5idMy8gg0ithkYod+wt5JgMO1B9xzG8
+   nhIHGpfJ3vlFnOpJ7+rQIkOGbqfvjoNjmf2dq7k3mhyvKEfcBCzPKW9Zd
+   g==;
+X-CSE-ConnectionGUID: AIkgqKuXSf2GqGYxRnWDAw==
+X-CSE-MsgGUID: vkGBDWlmR2O3XtYPq2HK6g==
+X-IronPort-AV: E=Sophos;i="6.11,259,1725314400"; 
+   d="scan'208";a="39855291"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 05 Nov 2024 11:40:28 +0100
+X-CheckPoint: {6729F61B-23-5736D786-D50827BE}
+X-MAIL-CPID: 51C17FF78442E03FAB7181DB78149BC6_2
+X-Control-Analysis: str=0001.0A682F22.6729F61C.004F,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 62129161302;
+	Tue,  5 Nov 2024 11:40:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1730803223;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=HnhOcDqM62BM39XeYtBpS6hPjPuyhp80jJ6lENbc2lQ=;
+	b=f3iygS1GUJvasDTnbGPHuttJdMX/2lqYoS/6+vCQ3Th8WLd+VqtaZU/BSlaJ4s76JNRSAd
+	4AVJQzH467QFo8Vhb1O3Q5/0cXAPTZQXXN2QGfFk+aPT4ZCQgrqnmFE5SCCLwBv+oBHMKu
+	6ZgBPDlVNnTJG/RauHtIV6h7Hw7SFQBOFzIV31ro/lK61PgD3/x09ma3pA4vqtLyhubA/2
+	2ooJNAQpQUUkFORsFBckki5hutdrOo+0Zx488XI3HBHwWXZEsiofyFfZjFVGy6zF8DrFQT
+	bDsPF6dlPkdL//VXddmybEYk1ZSkiApd7QJAaMaD1mH6DRCGsI8wYfXoTAgp/w==
+Message-ID: <c73cac598788ccabd1791b1232e8fd9d7ce23ac6.camel@ew.tq-group.com>
+Subject: Re: [PATCH 2/5] dt-bindings: arm: ti: Add compatible for
+ AM625-based TQMa62xx SOM family and carrier board
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Felipe Balbi <balbi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>, Hari
+ Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
+Date: Tue, 05 Nov 2024 11:40:20 +0100
+In-Reply-To: <20241104-floral-dexterous-7d3fee2ff616@spud>
+References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
+	 <4f5ad877f44df35a3b2c7f336647f057c4e6377d.1730299760.git.matthias.schiffer@ew.tq-group.com>
+	 <20241104-floral-dexterous-7d3fee2ff616@spud>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2 
 MIME-Version: 1.0
-In-Reply-To: <b851d802-ed2a-cad2-b96a-f7a9e3bb746e@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_023900_461381_895A9C4D 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241105_024033_699611_F5F2CBF3 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +103,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/5 10:47, Yicong Yang wrote:
-> On 2024/11/5 1:28, Catalin Marinas wrote:
->> On Sat, Nov 02, 2024 at 06:42:33PM +0800, Yicong Yang wrote:
->>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->>> index 3d261cc123c1..ed8c784ca082 100644
->>> --- a/arch/arm64/include/asm/cpufeature.h
->>> +++ b/arch/arm64/include/asm/cpufeature.h
->>> @@ -838,6 +838,12 @@ static inline bool system_supports_poe(void)
->>>  		alternative_has_cap_unlikely(ARM64_HAS_S1POE);
->>>  }
->>>  
->>> +static inline bool system_supports_haft(void)
->>> +{
->>> +	return IS_ENABLED(CONFIG_ARM64_HAFT) &&
->>> +		cpus_have_final_cap(ARM64_HAFT);
->>> +}
->>
->> I'm fine with this approach. If we ever get hardware with mismatched
->> FEAT_HAFT and some secondary CPUs don't come up, we can revisit.
->>
->>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>> index ccbae4525891..0bc88df7cb35 100644
->>> --- a/arch/arm64/mm/proc.S
->>> +++ b/arch/arm64/mm/proc.S
->>> @@ -498,6 +498,10 @@ alternative_else_nop_endif
->>>  	and	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_MASK
->>>  	cbz	x9, 1f
->>>  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
->>> +
->>> +#ifdef CONFIG_ARM64_HAFT
->>> +	orr	tcr2, tcr2, TCR2_EL1x_HAFT
->>> +#endif /* CONFIG_ARM64_HAFT */
->>>  1:
->>>  #endif	/* CONFIG_ARM64_HW_AFDBM */
->>>  	msr	mair_el1, mair
->>
->> If you still want #ifdefs, I'd have left it outside the HW_AFDBM. We
->> already have a dependency in the Kconfig. Anyway, I can fix this up.
-> 
-> yes it has already depend on the HW_AFDBM. And one asm won't cause much to the
-> Image size if user want CONFIG_ARM64_HAFT=n. I'll drop the #ifdef here.
-> 
+On Mon, 2024-11-04 at 18:47 +0000, Conor Dooley wrote:
+> On Mon, Nov 04, 2024 at 10:47:25AM +0100, Matthias Schiffer wrote:
+> > The TQMa62xx is a SoM family with a pluggable connector. The MBa62xx is
+> > the matching reference/starterkit carrier board.
+>=20
+> Why all the wildcards? Why isn't there a compatible per device in the
+> family?
 
-I rethink it and maybe we still need the #ifdef here considering one case: the hardware
-supports FEAT_HAFT while user make CONFIG_ARM64_HAFT=n, in such case the HAFT will be
-enabled unexpectedly if no CONFIG_ARM64_HAFT protection here.
+For the compatible string we've chosen the TQMa6254 as the representative f=
+or the TQMa62xx family.
 
-Thanks.
+MBa62xx is the proper name of the baseboard; this board can be combined wit=
+h any TQMa62xx family
+SOM.
+
+Best,
+Matthias
 
 
 
+>=20
+> >=20
+> > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> > ---
+> >  Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documen=
+tation/devicetree/bindings/arm/ti/k3.yaml
+> > index b0be02f9d1253..d8b52b95fba7b 100644
+> > --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> > @@ -73,6 +73,13 @@ properties:
+> >            - const: toradex,verdin-am62          # Verdin AM62 Module
+> >            - const: ti,am625
+> > =20
+> > +      - description: K3 AM625 SoC on TQ-Systems TQMa62xx SoM
+> > +        items:
+> > +          - enum:
+> > +              - tq,am625-tqma6254-mba62xx # MBa62xx base board
+> > +          - const: tq,am625-tqma6254
+> > +          - const: ti,am625
+> > +
+> >        - description: K3 AM642 SoC
+> >          items:
+> >            - enum:
+> > --=20
+> > TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, =
+Germany
+> > Amtsgericht M=C3=BCnchen, HRB 105018
+> > Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan=
+ Schneider
+> > https://www.tq-group.com/
+> >=20
+> Achtung externe E-Mail:=C2=A0=C3=96ffnen Sie Anh=C3=A4nge und Links nur, =
+wenn Sie wissen, dass diese aus einer sicheren Quelle stammen und sicher si=
+nd. Leiten Sie die E-Mail im Zweifelsfall zur Pr=C3=BCfung an den IT-Helpde=
+sk weiter.
+>   Attention external email:=C2=A0Open attachments and links only if you k=
+now that they are from a secure source and are safe. In doubt forward the e=
+mail to the IT-Helpdesk to check it.
+>=20
+> =C2=A0
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
