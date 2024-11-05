@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ECDD31778
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782F5D3177B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYnilOxaT8pDzsCEAqxmYbGzLr9kYweSMyGBo4Zh8Hk=; b=p3wSbnwnCwjdZ3jIWO479D9Obs
-	JaP25wY8SAEE25Fg44BIThy0hddM2W+ELF6+HicauoTVE7tOp68MTL2H8SlNkyWoiz4W3PnnW66y2
-	8blHjEMJgx8X3/uT4Ai4nGlSRiGu8FvoS6ZtDfqe5puH2LmgeVybEFCmNW1dk/l5dzXYarIO0Dl8W
-	qjB6270pz2DWK9KunbCHNKD//6EySb8TyAQ83Gt5DbK6k0rTCi9xCSXowjWfryThmEPhHpvyWUfAR
-	9WiKwJysZlelwi5aaluHk0rjAr1wwpvdcr4821/WvR8WRoQriIwm3SONL9cwTprYIGjpbBuaxVXLj
-	/dtVqsvQ==;
+	bh=w839YD3z1bir2jLhlM/mDsX9RjWUgyNjgUN2aaeUrCE=; b=yzJw/NuvLGhyXUT/OOHnH2w3Jw
+	1t2+CE8YfMiD8xED312FW1jcHikFeKLLSsDP1mbnKWVtGXLdgyu204or+3nD1KoyiE5mppNckVMFp
+	8bpt1QpBDCe8PWjyYNy2f1fFv2FBjQE+CUxNpoRAns4Kh101kwursvD9xbPY2VYfdzbxhki3Dsg4H
+	/bGKCyCtti2NEhRAnx8TJ/6VRm3IufMF0GjZOdeu9rmS1aV3yBUlakATGQsEuXAORwqf9xJwWdSAJ
+	iProWLnpDmGVdr4ExMGRB7ePXJJhhdBLmWWd6cdgP+ReEYDcE4PMJB+3fxxQI2O6RLbrc4MGE6yqM
+	P498MEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Ny4-00000000KCw-2GaQ;
-	Tue, 05 Nov 2024 18:07:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8Nzk-00000000KRi-3fN7;
+	Tue, 05 Nov 2024 18:09:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NwH-00000000Jjz-1FAE
+	id 1t8Nx5-00000000K08-1bqa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 18:06:03 +0000
+	Tue, 05 Nov 2024 18:06:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EB816A437D5;
-	Tue,  5 Nov 2024 18:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C10C4CED1;
-	Tue,  5 Nov 2024 18:05:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E69925C48DB;
+	Tue,  5 Nov 2024 18:06:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2976C4CECF;
+	Tue,  5 Nov 2024 18:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730829959;
-	bh=FA8YasXCkWty96pqWC0zbLicpOpd5y8Au/gsIejDV2Q=;
+	s=k20201202; t=1730830010;
+	bh=ocjrByOas5NhchIJiVvTx3nmU3SUFZrLi1qRmcnrqgY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JXPa2yZbl/YzFD6fN4IXrDTqd8EwkmHkksEM8AHSCKJIe5fBIMXKc59E24o2vevU7
-	 F2Ky3cwcsfqyKhbJRbeLpmreL3FYIzP/Cnrs4yI1gZbOXE/WJHbsF8l1nToXJ16qi5
-	 ax6x+yTZg+dbK7mXDVBLqVgy582W8oySuJApcK9ugfntggedBUYWjYAnwv9g3yRB6r
-	 pOsFUKhR+L7C1qeJdHFtJitcQu3U/Jrvy71zMhrEWSU+t6AmJoPsLuPFWz3OQiOZ2a
-	 2KSA5SPrmgJiJCoLNrQbyg4TvEzEJqUaF/HLw9xgNi2IhIsBCPDDFADHvp0kuIhkSd
-	 FXPH0XThYaJgg==
-Date: Tue, 5 Nov 2024 18:05:54 +0000
+	b=KH3nvH1wKtgOAdbmdI25MGBzoIlIZUU0DuJoNlsOeVJbdZaTVD/pW1K3FTVrB6Uf0
+	 FQnD2oWWlqeGpexF2tlqglZqcOcH0PB7QFh43/YKzrV5jbzi3liphlOSt343dBgHcZ
+	 Qw8qdPcknJdMN8rtEvlquuSLJnnf668tZfMgkK3MzlZvpByh+JmtXASIW6n3f08vmP
+	 fEu1+Y7fgreG8qwTvA9Coor9F2HXC7Irq258xMtSZKtHqGoR4/9Pbj0pLKmbaehTHW
+	 vG+rZB03i95oIS4gqIdT68miY3oA7HBvjIoyR3dIcH4CphIObSgiB/rg7QIBGh979K
+	 JqofCVlclV1Dw==
+Date: Tue, 5 Nov 2024 18:06:44 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Matt Coster <matt.coster@imgtec.com>
 Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
@@ -58,18 +58,18 @@ Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>,
 	Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH 03/21] dt-bindings: gpu: img: Power domain details
-Message-ID: <20241105-disarm-baggie-e2563299a24f@spud>
+Subject: Re: [PATCH 04/21] dt-bindings: gpu: img: Allow dma-coherent
+Message-ID: <20241105-linseed-steadfast-98cd8abe898c@spud>
 References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
- <20241105-sets-bxs-4-64-patch-v1-v1-3-4ed30e865892@imgtec.com>
+ <20241105-sets-bxs-4-64-patch-v1-v1-4-4ed30e865892@imgtec.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RoFUdNR+eVTM1NxM"
+	protocol="application/pgp-signature"; boundary="jZZZ0TtrazABMAIy"
 Content-Disposition: inline
-In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-3-4ed30e865892@imgtec.com>
+In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-4-4ed30e865892@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_100601_507323_E98CB80F 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20241105_100651_506551_7563B42F 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,99 +85,55 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---RoFUdNR+eVTM1NxM
+--jZZZ0TtrazABMAIy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 05, 2024 at 03:58:09PM +0000, Matt Coster wrote:
-> The single existing GPU (AXE-1-16M) only requires a single power domain.
-> Subsequent patches will add support for BXS-4-64 MC1, which has two power
-> domains. Add infrastructure now to allow for this.
+On Tue, Nov 05, 2024 at 03:58:10PM +0000, Matt Coster wrote:
+> This attribute will be required for the BXS-4-64 MC1 and will be enabled =
+in
+> the DTS for the TI k3-j721s2 in a subsequent patch; add it now so
+> dtbs_check doesn't complain later.
+
+Sounds like the property should be made required for that integration.
+
 >=20
 > Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 > ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 29 ++++++++++++++++=
-+++++-
->  1 file changed, 28 insertions(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 >=20
 > diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml=
  b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 6924831d3e9dd9b2b052ca8f9d7228ff25526532..55f422be1bc5b7564e3e81f24=
-c4b93857f3e12fe 100644
+> index 55f422be1bc5b7564e3e81f24c4b93857f3e12fe..8a1861ca960c48853b2ceef41=
+4f588cc343b49b2 100644
 > --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
 > +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -49,7 +49,16 @@ properties:
->      maxItems: 1
+> @@ -60,6 +60,8 @@ properties:
+>            - const: a
+>            - const: b
 > =20
->    power-domains:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
+> +  dma-coherent: true
 > +
-> +  power-domain-names:
-> +    oneOf:
-> +      - items:
-> +          - const: a
-> +      - items:
-> +          - const: a
-> +          - const: b
-> =20
 >  required:
 >    - compatible
-> @@ -57,10 +66,27 @@ required:
->    - clocks
->    - clock-names
->    - interrupts
-> +  - power-domains
-> +  - power-domain-names
-
-A new required property is an ABI break. Please explain why this is
-acceptable in your commit message.
-
-> =20
->  additionalProperties: false
-> =20
->  allOf:
-> +  # Cores with a single power domain
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            anyOf:
-> +              - const: img,img-axe-1-16m
-> +    then:
-> +      properties:
-> +        power-domains:
-> +          minItems: 1
-> +          maxItems: 1
-> +        power-domain-names:
-> +          items:
-> +            - const: a
->    # Vendor integrations using a single clock domain
->    - if:
->        properties:
-> @@ -90,4 +116,5 @@ examples:
->          clock-names =3D "core";
->          interrupts =3D <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
->          power-domains =3D <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
-> +        power-domain-names =3D "a";
->      };
+>    - reg
 >=20
 > --=20
 > 2.47.0
 >=20
 
---RoFUdNR+eVTM1NxM
+--jZZZ0TtrazABMAIy
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZypegQAKCRB4tDGHoIJi
-0hvYAP41d81+vVbGwurEhXKOPcmyx+xk6+iazN0Bol8EGVlghgEAg8Np/YUjcJ45
-HQFB+cbVr2jjAxIggFlx2U/eGOrdAA0=
-=CO6v
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZypetAAKCRB4tDGHoIJi
+0kjsAQCsk2h19nWNOK2QLV16dXvVjJGuABtG2kMsJv5im2dsSgD/VsBRyWBSA9aK
+3hEs1FqMGnHBcwnC2OCwsSUNxcO2hQI=
+=QtP+
 -----END PGP SIGNATURE-----
 
---RoFUdNR+eVTM1NxM--
+--jZZZ0TtrazABMAIy--
 
