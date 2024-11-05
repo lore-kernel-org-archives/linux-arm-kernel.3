@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DA2D2B931
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9219FD2B931
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NofeNN9AC//s6BEM3bevXlTodSmIgHrxhhrVsX/YYA=; b=Rd4XlcUdA+sx2YpQu3nOVU3m8q
-	c/DaaIlSy5NUEFAqBXCMQS+j+bGnTjLh2tubxTrOnRbJtJ32INQhDfm7Et3OcIjy9P3Mz9lMYmRT0
-	Ow8/2SHaYL4lCMhJ64tPd0RfJKy33evX6vlISSa7Pks7xzZl4Lma8qMjAXbcrhULGMWJHbjCDCWAi
-	tvFbvAUiY9nD3v4/CPFEBfQU0fotD69aYZd036UEgb+/cImiqnOimRLVqS2QdvujS0dpClh8GTe0U
-	R/1fdhWDfqNufBkS8lOHE6cVs8uDg6EeYO42yGzsOfNzdBCfeASceTxGY6clxjEPnWpki2TF43qVG
-	IXuwkOmw==;
+	bh=4Ta4J6k5jVAMZKZSpLijGX731ZlTwallmszrkrr+XXw=; b=1mvL1ZBRJVcx224JR0vRI98soX
+	FfQUAzXfs2/P9A6x84l1l9jVkDhYWzuAL9xpPWrY8K1ZgAo+U0/2ESB2ji3Ubqq6MwhPyfULuVvno
+	wO5x7GMNQ4SXpbKVHRT9xQBkWmJoJTHetCZ+iaWsKRYiPym8MNVi1iMVvvbLVrrUiL77F2IxNXi7W
+	o9N95286NLEkaHW6uWOY6GtDyZPDAD1on34gqkPLrVl2X3r3wmScJ95DUjhbxRbnHYtW4UgTQFjiq
+	ntXo8h5/t1HzorYDRGqk00hj1n+HoWV/qL0itnOaANhbSMbNS9ULY+Fs3XBxBjHa9P9H/xFqdKmQL
+	s7aCS4RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Kby-0000000HHiD-1Kug;
-	Tue, 05 Nov 2024 14:32:50 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t8Kdx-0000000HIYu-425m;
+	Tue, 05 Nov 2024 14:34:53 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KRi-0000000HFft-1A0E;
-	Tue, 05 Nov 2024 14:22:15 +0000
-X-UUID: 578d57929b8111ef82ff63e91e7eb18c-20241105
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5NofeNN9AC//s6BEM3bevXlTodSmIgHrxhhrVsX/YYA=;
-	b=KuM1+jq14icOLOp34in04Or+AvlNQJO+MjgbjMYY4ONVnLSoSXkato5V8Na4dWNPpskWOLbswi3B9IzbLJRzwFnqGiDZpCKWvHb+Ar0lnPuw9a1S4ul3e+apHUbzDC3pexTxRAI8RW53ko9/22GU/LrwcZD9blYtDetZPuPLNF4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:25594996-a943-47b5-b925-48acbaebe23d,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:171ebb48-ca13-40ea-8070-fa012edab362,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 578d57929b8111ef82ff63e91e7eb18c-20241105
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1304122472; Tue, 05 Nov 2024 07:22:09 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Tue, 5 Nov 2024 22:22:06 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Tue, 5 Nov 2024 22:22:06 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
- Horman <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, SkyLake.Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH net-next v2 4/5] net: phy: mediatek: Integrate read/write page helper functions
-Date: Tue, 5 Nov 2024 22:19:10 +0800
-Message-ID: <20241105141911.13326-5-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20241105141911.13326-1-SkyLake.Huang@mediatek.com>
-References: <20241105141911.13326-1-SkyLake.Huang@mediatek.com>
+	id 1t8KaR-0000000HGzc-2gIr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 14:31:18 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a9a6acac4c3so892559866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 06:31:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1730817073; x=1731421873; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4Ta4J6k5jVAMZKZSpLijGX731ZlTwallmszrkrr+XXw=;
+        b=WO7TyM8kS23Ke94w4d9ZJMbSA3AmgTuaioi/z9Tbnk6K8k1+eIaJZ3S3xUvwxK7raq
+         osBYPhpLhuIeWQC40Pu1PJOUk0oeSwIo/7MraQgovwx7Hr2JmlgwlXicrbREglYXVK4b
+         DHUMgK7gQpIYYGDVhQlyAmQNb9n/mDXfApFFqqkxdYl5XVE/p5k6hTWr0hwMmxfpFdTH
+         hV3wJ6KtWl4bBg9+u1EjX54CmVVLRPqboher/IPREIXYbXAlmsu/T97gyFzZLcS4EBrX
+         ldCfh8xBizb2TKBdzrD63cUHRYf+//GeB2IbFL/wXiHONSqwBdFNd/3hiEjU7Ce+Vrxs
+         2WtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730817073; x=1731421873;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4Ta4J6k5jVAMZKZSpLijGX731ZlTwallmszrkrr+XXw=;
+        b=IhsE7xra8fKKq9wEcb6vOvH7Nzh4BZm9qqM3A4uu83Bp2VxeImBoFEZ1R/iX9XQIqj
+         DAmRJN8NNiGb42lxPYObknpmBDDYxvpCzrXlD7RIslbvhr9QWW9hlxnn8XVTHsevUK3Q
+         q5aT02a337XMZOmaY5i93epqxDx8eZDawxy4Rj94w8V1Jgs5pZ+5H5N53cvKolzgBJWi
+         Hym0cB3N11Pm6UUwOUtepf2Ge3GWeMhi5ziIc9MWLBhZLsgr61bM3y9DQdiS1K476l35
+         FVCvPZfNbJGnUBJpAONqxUWfogIUdqQ8AcP9drbW1Z5JpuICurTGHGOLZAxd9eegsYUY
+         SDAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ3nlvI0KfK40XqXy7MrS+FnSalBtrbpNZ1iyjVmK3WCfr6tsdeuN2D2JIGMutYirY9ATZ/Iy0ZrvVL05EbLVl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx12EDbr/hcfavoJF30++dNy1IVdCw7HUFJnyzjq/zkZJPtKasn
+	Unuu/fEUTtShxVyK8lp3lmIFE62OXRprMYGOK1lN8m3OS80+IjSVu3ECbE+1ZHE=
+X-Google-Smtp-Source: AGHT+IGfFIA7pHiw/bQC/D2ASD/c0vYvs4DJcTYAQN6+XwmdDdmF15vw/BW0JRu8bqizSc9PGJFmeA==
+X-Received: by 2002:a17:906:a84a:b0:a9e:8522:19e1 with SMTP id a640c23a62f3a-a9e85221c0cmr968110466b.62.1730817073143;
+        Tue, 05 Nov 2024 06:31:13 -0800 (PST)
+Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb169fc18sm140394466b.10.2024.11.05.06.31.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2024 06:31:12 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 5 Nov 2024 15:31:38 +0100
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v3 09/12] arm64: dts: rp1: Add support for RaspberryPi's
+ RP1 device
+Message-ID: <ZyosSv4ecKxohSrM@apocalypse>
+References: <cover.1730123575.git.andrea.porta@suse.com>
+ <1f4cec50493ec5d3168735c0a005771787e5cd59.1730123575.git.andrea.porta@suse.com>
+ <4a474dae-6669-4678-87dd-e0e9692a749b@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4a474dae-6669-4678-87dd-e0e9692a749b@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_062214_355668_134D2535 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20241105_063115_700388_80F109B9 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,153 +121,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "SkyLake.Huang" <skylake.huang@mediatek.com>
+Hi Stan,
 
-This patch integrates read/write page helper functions as MTK phy lib.
-They are basically the same in mtk-ge.c & mtk-ge-soc.c.
+On 15:29 Mon 04 Nov     , Stanimir Varbanov wrote:
+> Hi Andrea,
+> 
+> On 10/28/24 16:07, Andrea della Porta wrote:
+> > RaspberryPi RP1 is a multi function PCI endpoint device that
+> > exposes several subperipherals via PCI BAR.
+> > Add a dtb overlay that will be compiled into a binary blob
+> > and linked in the RP1 driver.
+> > This overlay offers just minimal support to represent the
+> > RP1 device itself, the sub-peripherals will be added by
+> > future patches.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> > NOTE: this patch should be taken by the same maintainer that will take
+> > "[PATCH v3 10/12] misc: rp1: RaspberryPi RP1 misc driver", since they
+> > are closely related in terms of compiling.
+> > 
+> >  MAINTAINERS                           |  1 +
+> >  arch/arm64/boot/dts/broadcom/rp1.dtso | 61 +++++++++++++++++++++++++++
+> >  2 files changed, 62 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
+> > 
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 06277969a522..510a071ede78 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -19383,6 +19383,7 @@ F:	include/uapi/linux/media/raspberrypi/
+> >  RASPBERRY PI RP1 PCI DRIVER
+> >  M:	Andrea della Porta <andrea.porta@suse.com>
+> >  S:	Maintained
+> > +F:	arch/arm64/boot/dts/broadcom/rp1.dtso
+> >  F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
+> >  F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
+> >  F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
+> > diff --git a/arch/arm64/boot/dts/broadcom/rp1.dtso b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> > new file mode 100644
+> > index 000000000000..8d1bbf207a30
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/broadcom/rp1.dtso
+> > @@ -0,0 +1,61 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/interrupt-controller/irq.h>
+> > +#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
+> > +
+> > +/dts-v1/;
+> > +/plugin/;
+> > +
+> > +/ {
+> > +	fragment@0 {
+> > +		target-path="";
+> > +		__overlay__ {
+> > +			compatible = "pci1de4,1";
+> > +			#address-cells = <3>;
+> > +			#size-cells = <2>;
+> > +			interrupt-controller;
+> > +			#interrupt-cells = <2>;
+> > +
+> > +			pci_ep_bus: pci-ep-bus@1 {
+> > +				compatible = "simple-bus";
+> > +				ranges = <0xc0 0x40000000
+> > +					  0x01 0x00 0x00000000
+> > +					  0x00 0x00400000>;
+> > +				dma-ranges = <0x10 0x00000000
+> > +					      0x43000000 0x10 0x00000000
+> > +					      0x10 0x00000000>;
+> > +				#address-cells = <2>;
+> > +				#size-cells = <2>;
+> > +
+> > +				rp1_clocks: clocks@c040018000 {
+> > +					compatible = "raspberrypi,rp1-clocks";
+> > +					reg = <0xc0 0x40018000 0x0 0x10038>;
+> 
+> shouldn't this be:
+> 
+> 	rp1_clocks: clocks@18000 {
+> 		reg = <0x00 0x00018000 0x0 0x10038>;
+> 		...
+> 	}
+> 
+> ?
+> 
+> And for other nodes too...
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
----
- drivers/net/phy/mediatek/mtk-ge-soc.c  | 18 ++++--------------
- drivers/net/phy/mediatek/mtk-ge.c      | 20 ++++++--------------
- drivers/net/phy/mediatek/mtk-phy-lib.c | 12 ++++++++++++
- drivers/net/phy/mediatek/mtk.h         |  3 +++
- 4 files changed, 25 insertions(+), 28 deletions(-)
+For that to be @18000 instead of @c040018000, you should also change
+the "ranges" entry in pci-ep-bus node, as follows:
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index d3a8b39..38dc898 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -271,16 +271,6 @@ struct mtk_socphy_shared {
- 	struct mtk_socphy_priv	priv[4];
- };
- 
--static int mtk_socphy_read_page(struct phy_device *phydev)
--{
--	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
--}
--
--static int mtk_socphy_write_page(struct phy_device *phydev, int page)
--{
--	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
--}
--
- /* One calibration cycle consists of:
-  * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
-  *   until AD_CAL_COMP is ready to output calibration result.
-@@ -1337,8 +1327,8 @@ static struct phy_driver mtk_socphy_driver[] = {
- 		.probe		= mt7981_phy_probe,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
--		.read_page	= mtk_socphy_read_page,
--		.write_page	= mtk_socphy_write_page,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
- 		.led_blink_set	= mt798x_phy_led_blink_set,
- 		.led_brightness_set = mt798x_phy_led_brightness_set,
- 		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-@@ -1354,8 +1344,8 @@ static struct phy_driver mtk_socphy_driver[] = {
- 		.probe		= mt7988_phy_probe,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
--		.read_page	= mtk_socphy_read_page,
--		.write_page	= mtk_socphy_write_page,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
- 		.led_blink_set	= mt798x_phy_led_blink_set,
- 		.led_brightness_set = mt798x_phy_led_brightness_set,
- 		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-index 54ea64a..9122899 100644
---- a/drivers/net/phy/mediatek/mtk-ge.c
-+++ b/drivers/net/phy/mediatek/mtk-ge.c
-@@ -3,6 +3,8 @@
- #include <linux/module.h>
- #include <linux/phy.h>
- 
-+#include "mtk.h"
-+
- #define MTK_EXT_PAGE_ACCESS		0x1f
- #define MTK_PHY_PAGE_STANDARD		0x0000
- #define MTK_PHY_PAGE_EXTENDED		0x0001
-@@ -11,16 +13,6 @@
- #define MTK_PHY_PAGE_EXTENDED_2A30	0x2a30
- #define MTK_PHY_PAGE_EXTENDED_52B5	0x52b5
- 
--static int mtk_gephy_read_page(struct phy_device *phydev)
--{
--	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
--}
--
--static int mtk_gephy_write_page(struct phy_device *phydev, int page)
--{
--	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
--}
--
- static void mtk_gephy_config_init(struct phy_device *phydev)
- {
- 	/* Enable HW auto downshift */
-@@ -77,8 +69,8 @@ static struct phy_driver mtk_gephy_driver[] = {
- 		.handle_interrupt = genphy_handle_interrupt_no_ack,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
--		.read_page	= mtk_gephy_read_page,
--		.write_page	= mtk_gephy_write_page,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
- 	},
- 	{
- 		PHY_ID_MATCH_EXACT(0x03a29441),
-@@ -91,8 +83,8 @@ static struct phy_driver mtk_gephy_driver[] = {
- 		.handle_interrupt = genphy_handle_interrupt_no_ack,
- 		.suspend	= genphy_suspend,
- 		.resume		= genphy_resume,
--		.read_page	= mtk_gephy_read_page,
--		.write_page	= mtk_gephy_write_page,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
- 	},
- };
- 
-diff --git a/drivers/net/phy/mediatek/mtk-phy-lib.c b/drivers/net/phy/mediatek/mtk-phy-lib.c
-index 8d795bc..98a09d6 100644
---- a/drivers/net/phy/mediatek/mtk-phy-lib.c
-+++ b/drivers/net/phy/mediatek/mtk-phy-lib.c
-@@ -6,6 +6,18 @@
- 
- #include "mtk.h"
- 
-+int mtk_phy_read_page(struct phy_device *phydev)
-+{
-+	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
-+}
-+EXPORT_SYMBOL_GPL(mtk_phy_read_page);
-+
-+int mtk_phy_write_page(struct phy_device *phydev, int page)
-+{
-+	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
-+}
-+EXPORT_SYMBOL_GPL(mtk_phy_write_page);
-+
- int mtk_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
- 				unsigned long rules,
- 				unsigned long supported_triggers)
-diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index 9aaff2c..63d9fe1 100644
---- a/drivers/net/phy/mediatek/mtk.h
-+++ b/drivers/net/phy/mediatek/mtk.h
-@@ -66,6 +66,9 @@ struct mtk_socphy_priv {
- 	unsigned long		led_state;
- };
- 
-+int mtk_phy_read_page(struct phy_device *phydev);
-+int mtk_phy_write_page(struct phy_device *phydev, int page);
-+
- int mtk_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
- 				unsigned long rules,
- 				unsigned long supported_triggers);
--- 
-2.45.2
+ranges = <0x00 0x00018000	//This was: 0xc0 0x40000000
+          0x01 0x00 0x00000000
+          0x00 0x00400000>;
 
+which is of course feasible, but I prefer to use addresses that 
+resemble (at least to some extent) the ones in RP1 docs.
+
+Many thanks,
+Andrea
+
+> 
+> ~Stan
+> 
+> > +					#clock-cells = <1>;
+> > +					clocks = <&clk_rp1_xosc>;
+> > +					clock-names = "xosc";
+> > +					assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
+> > +							  <&rp1_clocks RP1_PLL_SYS>,
+> > +							  <&rp1_clocks RP1_CLK_SYS>;
+> > +					assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
+> > +							       <200000000>,  // RP1_PLL_SYS
+> > +							       <200000000>;  // RP1_CLK_SYS
+> > +				};
+> > +
+> > +				rp1_gpio: pinctrl@c0400d0000 {
+> > +					compatible = "raspberrypi,rp1-gpio";
+> > +					reg = <0xc0 0x400d0000  0x0 0xc000>,
+> > +					      <0xc0 0x400e0000  0x0 0xc000>,
+> > +					      <0xc0 0x400f0000  0x0 0xc000>;
+> > +					gpio-controller;
+> > +					#gpio-cells = <2>;
+> > +					interrupt-controller;
+> > +					#interrupt-cells = <2>;
+> > +					interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
+> > +						     <1 IRQ_TYPE_LEVEL_HIGH>,
+> > +						     <2 IRQ_TYPE_LEVEL_HIGH>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> 
 
