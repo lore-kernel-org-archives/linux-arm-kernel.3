@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C93ED12671
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A706D12671
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eaOEdiM8vn2ERNOOG3NcZYUWze94S3D9lG0o1BiU8uE=; b=oCWdHmrK1erztU03UY21XOcZqM
-	/hH+I1MgfyOGbP4NemrpasRjg5oIKMk2Jl3DBjuVSdS/VyBKVRyJOBQ/y+ehGghMrFtCpYVSlaOll
-	tMB76YQG1mkF6sShNRQ4Ud7OkeUe1BLK8kTnj0eW43kQqbj3KzDIWXDNJADEx4Pk4plMtxf4si6te
-	2wHdb/rWLHkDaW7P3YsuErlUiAtFIt3XDvEzafUc4V8SQoK9YbaijhTs7AOEPFjEWqk078PqCnRoT
-	/QcKcmRrbm+bv+kU2drY0NRy0jkpuLLet0FPCuwguW+u/tFo/Kz5T+D1P+H8q2FTUotChFpECOTE8
-	nl0OQ6Mw==;
+	bh=gaJyc33YpasxmzVq2msy7/YeZGB80Mh1Vt6dUG0iHBU=; b=klnnMweh/lVIKfh1OtFZPsZFzL
+	6xuSgdmbBd8FG4C1/CiKOeRnMj4bBdR8c9KbKy6f/Ua3fASDTkks52joyw8LMB9n6K6sgINpRRJ/A
+	m7kF08jPqimzbWyCHHD6U1TyZAEeaULmCnzb1mYGkpxUA0sBdv5cHhjYmvjCDjxQXzAiK+XAAIPhc
+	Q0339ztCJxK9mhF7hD57IbUYF8PnyfjXhbiVn/LOGMMi0PBIAClWNH2eN8kqlF78aVnlOxpfhp8kU
+	shesCbwcuwoWphUBLIQJWor97vcYBnt8AhswRkipa5ZIfp/6GpA/+2QxCtahE8wORt/oZ344IWsdi
+	vDoJsY9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8G4I-0000000GYPc-3fsl;
-	Tue, 05 Nov 2024 09:41:46 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1t8G5y-0000000GYfl-1lWA;
+	Tue, 05 Nov 2024 09:43:30 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Fw3-0000000GWRs-1Rrl
+	id 1t8Fw3-0000000GWRr-1DZA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 09:33:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4XjNPt0x2fz1SF2H;
-	Tue,  5 Nov 2024 17:31:30 +0800 (CST)
+	Tue, 05 Nov 2024 09:33:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4XjNQY6b8tzQppk;
+	Tue,  5 Nov 2024 17:32:05 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 69BE6140361;
-	Tue,  5 Nov 2024 17:33:10 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id E48321800A0;
+	Tue,  5 Nov 2024 17:33:11 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 5 Nov 2024 17:33:09 +0800
+ 15.2.1258.34; Tue, 5 Nov 2024 17:33:10 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
@@ -49,9 +49,9 @@ CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
 	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
 	<guohanjun@huawei.com>
-Subject: [PATCH v8 1/4] cpu/SMT: Provide a default topology_is_primary_thread()
-Date: Tue, 5 Nov 2024 17:32:34 +0800
-Message-ID: <20241105093237.63565-2-yangyicong@huawei.com>
+Subject: [PATCH v8 3/4] arm64: topology: Support SMT control on ACPI based system
+Date: Tue, 5 Nov 2024 17:32:36 +0800
+Message-ID: <20241105093237.63565-4-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20241105093237.63565-1-yangyicong@huawei.com>
 References: <20241105093237.63565-1-yangyicong@huawei.com>
@@ -62,8 +62,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_013315_768677_45D05DDD 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20241105_013315_645161_D33611B2 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,86 +80,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Currently if architectures want to support HOTPLUG_SMT they need to
-provide a topology_is_primary_thread() telling the framework which
-thread in the SMT cannot offline. However arm64 doesn't have a
-restriction on which thread in the SMT cannot offline, a simplest
-choice is that just make 1st thread as the "primary" thread. So
-just make this as the default implementation in the framework and
-let architectures like x86 that have special primary thread to
-override this function (which they've already done).
+For ACPI we'll build the topology from PPTT and we cannot directly
+get the SMT number of each core. Instead using a temporary xarray
+to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+and SMT information of the first core in its heterogeneous CPU cluster
+when building the topology. Then we can know the largest SMT number
+in the system. If a homogeneous system's using ACPI 6.2 or later,
+all the CPUs should be under the root node of PPTT. There'll be
+only one entry in the xarray and all the CPUs in the system will
+be assumed identical.
 
-There's no need to provide a stub function if !CONFIG_SMP or
-!CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
-the 1st CPU in the SMT so it's always the primary thread.
+The core's SMT control provides two interface to the users [1]:
+1) enable/disable SMT by writing on/off
+2) enable/disable SMT by writing thread number 1/max_thread_number
 
+If a system have more than one SMT thread number the 2) may
+not handle it well, since there're multiple thread numbers in the
+system and 2) only accept 1/max_thread_number. So issue a warning
+to notify the users if such system detected.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/powerpc/include/asm/topology.h |  1 +
- arch/x86/include/asm/topology.h     |  2 +-
- include/linux/topology.h            | 20 ++++++++++++++++++++
- 3 files changed, 22 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/topology.c | 57 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
-index 16bacfe8c7a2..da15b5efe807 100644
---- a/arch/powerpc/include/asm/topology.h
-+++ b/arch/powerpc/include/asm/topology.h
-@@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
- {
- 	return cpu == cpu_first_thread_sibling(cpu);
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 1a2c72f3e7f8..47f838d6e823 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -15,8 +15,10 @@
+ #include <linux/arch_topology.h>
+ #include <linux/cacheinfo.h>
+ #include <linux/cpufreq.h>
++#include <linux/cpu_smt.h>
+ #include <linux/init.h>
+ #include <linux/percpu.h>
++#include <linux/xarray.h>
+ 
+ #include <asm/cpu.h>
+ #include <asm/cputype.h>
+@@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+ 	return !!is_threaded;
  }
-+#define topology_is_primary_thread topology_is_primary_thread
  
- static inline bool topology_smt_thread_allowed(unsigned int cpu)
++struct cpu_smt_info {
++	int thread_num;
++	int core_id;
++};
++
+ /*
+  * Propagate the topology information of the processor_topology_node tree to the
+  * cpu_topology array.
+  */
+ int __init parse_acpi_topology(void)
  {
-diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
-index aef70336d624..3a7c18851016 100644
---- a/arch/x86/include/asm/topology.h
-+++ b/arch/x86/include/asm/topology.h
-@@ -219,11 +219,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
- {
- 	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
- }
-+#define topology_is_primary_thread topology_is_primary_thread
++	int max_smt_thread_num = 0;
++	struct cpu_smt_info *entry;
++	struct xarray hetero_cpu;
++	unsigned long hetero_id;
+ 	int cpu, topology_id;
  
- #else /* CONFIG_SMP */
- static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
- static inline int topology_max_smt_threads(void) { return 1; }
--static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
- static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
- #endif /* !CONFIG_SMP */
+ 	if (acpi_disabled)
+ 		return 0;
  
-diff --git a/include/linux/topology.h b/include/linux/topology.h
-index 52f5850730b3..7131e47876d6 100644
---- a/include/linux/topology.h
-+++ b/include/linux/topology.h
-@@ -240,6 +240,26 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
++	xa_init(&hetero_cpu);
++
+ 	for_each_possible_cpu(cpu) {
+ 		topology_id = find_acpi_cpu_topology(cpu, 0);
+ 		if (topology_id < 0)
+@@ -57,6 +70,32 @@ int __init parse_acpi_topology(void)
+ 			cpu_topology[cpu].thread_id = topology_id;
+ 			topology_id = find_acpi_cpu_topology(cpu, 1);
+ 			cpu_topology[cpu].core_id   = topology_id;
++
++			/*
++			 * In the PPTT, CPUs below a node with the 'identical
++			 * implementation' flag have the same number of threads.
++			 * Count the number of threads for only one CPU (i.e.
++			 * one core_id) among those with the same hetero_id.
++			 * See the comment of find_acpi_cpu_topology_hetero_id()
++			 * for more details.
++			 *
++			 * One entry is created for each node having:
++			 * - the 'identical implementation' flag
++			 * - its parent not having the flag
++			 */
++			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
++			entry = (struct cpu_smt_info *)xa_load(&hetero_cpu, hetero_id);
++			if (!entry) {
++				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
++				WARN_ON(!entry);
++
++				entry->core_id = topology_id;
++				entry->thread_num = 1;
++				xa_store(&hetero_cpu, hetero_id,
++					 entry, GFP_KERNEL);
++			} else if (entry->core_id == topology_id) {
++				entry->thread_num++;
++			}
+ 		} else {
+ 			cpu_topology[cpu].thread_id  = -1;
+ 			cpu_topology[cpu].core_id    = topology_id;
+@@ -67,6 +106,24 @@ int __init parse_acpi_topology(void)
+ 		cpu_topology[cpu].package_id = topology_id;
+ 	}
+ 
++	/*
++	 * This should be a short loop depending on the number of heterogeneous
++	 * CPU clusters. Typically on a homogeneous system there's only one
++	 * entry in the XArray.
++	 */
++	xa_for_each(&hetero_cpu, hetero_id, entry) {
++		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
++			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
++
++		if (entry->thread_num > max_smt_thread_num)
++			max_smt_thread_num = entry->thread_num;
++
++		xa_erase(&hetero_cpu, hetero_id);
++		kfree(entry);
++	}
++
++	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++	xa_destroy(&hetero_cpu);
+ 	return 0;
  }
  #endif
- 
-+#ifndef topology_is_primary_thread
-+
-+#define topology_is_primary_thread topology_is_primary_thread
-+
-+static inline bool topology_is_primary_thread(unsigned int cpu)
-+{
-+	/*
-+	 * On SMT hotplug the primary thread of the SMT won't be disabled.
-+	 * Architectures do have a special primary thread (e.g. x86) need
-+	 * to override this function. Otherwise just make the first thread
-+	 * in the SMT as the primary thread.
-+	 *
-+	 * The sibling cpumask of a offline CPU contains always the CPU
-+	 * itself.
-+	 */
-+	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
-+}
-+
-+#endif
-+
- static inline const struct cpumask *cpu_cpu_mask(int cpu)
- {
- 	return cpumask_of_node(cpu_to_node(cpu));
 -- 
 2.24.0
 
