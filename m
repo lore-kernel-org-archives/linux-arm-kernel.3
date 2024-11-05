@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A29D31769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B380D3176B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WejhOkwY+boRql68KJYuAZ/BYj9wIZ1hhD0LeIc8FKs=; b=CjOj79n5qNQZlUHgMJFA0FCGKG
-	KmM/xbZv/Y9wclUu0FiPju5bbv0oOcSG+4uWa4XEs9y1N8cEbRXwazmyLIqV3zuumqjF/KS6jywVG
-	c7SCNMPT3Nre+v6Ewhm3HdBErsscLUy64uBDPpp0o35OrtkQkX2W1QTFW7DGdp+k6zPAFImz5XgsU
-	paevH9jEwV59qGbjFJm9ldwXuICjwFkTAPuFwgCykcpu9R1fse5amOHWAEPzOPLPVThAUfyEG9/AN
-	r5i0AyWRAuQhLFd+hgCIL5x9e2+iCx0HIz1OADK6ptBXivXHf3iRMji3FKEdd2bsOgYDRdlIlBFqx
-	OWFup0eg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=oljPsmb6PyVhBGxuhwl4CovfkcoBjJyPZ3dxtEYJ5q4=; b=KagzmIKXRMHZI6
+	YBF8L3RpgGA5l1sBQmXdbMGIbVnd/V7gHHBdoPZ3VOTxXbv/cNoGjB1+ty+wgHqbNJ5vtfTGg7U8c
+	RMB/ilmzd8tIqEySUUz6rfR/aS/TESmfHqyPyItQPsyE8YXv0uMacF2TjWPWI8zcVAoeV7uxxrdGI
+	2W3FTRnCd8ktxX4FBHulc32kOYEUanWb1tcnw454sBcatlcSpKAV6UgHAgswUQVFgKkZTuMyhqavy
+	A/nuQa69ywfCCKulNCskxhgM9QcbsnHXGYACx4hSQBfboWt3Q1nBaXfDr8LEAeeXliZCVQHD7qMHI
+	VLmpi0O4CulXGTug07qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8NNt-00000000D0J-0v60;
-	Tue, 05 Nov 2024 17:30:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8NOK-00000000DQ6-3yiU;
+	Tue, 05 Nov 2024 17:30:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MjP-000000006fN-2F4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 16:48:40 +0000
+	id 1t8NGb-00000000CAR-0n4O;
+	Tue, 05 Nov 2024 17:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6C203A43641;
-	Tue,  5 Nov 2024 16:46:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75888C4CECF;
-	Tue,  5 Nov 2024 16:48:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E44A95C4A89;
+	Tue,  5 Nov 2024 17:22:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40B07C4CED1;
+	Tue,  5 Nov 2024 17:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730825318;
-	bh=C6Hk6/eHmDS2AcJbkrwiislpkRQ+Eud/EQoVHtBaVi4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rmtn0Fc+AfgQDPMBkouiMKC3eMbKISVCgolNAoUN/NA08NJsrDiDA9CHq+EyGxYSX
-	 x2ht6NAKiLYE7I83LKoVjs7jg+WAKplOum+cjLQwPnx6QE9f02LK28NYh1DXSPoCIc
-	 V2jJkCSywBTrXd5witeNe/+Mem8bo9sJiXuA6P+kvoMMIBSHTeozVamDGGbscZz8rq
-	 PsqlL2kps4ABTYU7rNalIhA4+bFroEHsgrPpcKIHDt4XA+9J0K5MhGl6Jy0ZFq24yK
-	 YPX0YKXKx4Bnece0a0viT+b8tEQ2HwOFXJfdcO2IFpDmtcJjlCjHkk1rJw7Zj2OCDK
-	 qwTGI0NNtQgBw==
-Date: Tue, 5 Nov 2024 16:48:29 +0000
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
-	kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	s=k20201202; t=1730827376;
+	bh=zvORLLKvLulrWcA4oBGbbnyMDidVWOv949NeC6tWnAI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=mgLLV1rYaK4NSUvwU8HUu+uY2sk/iLccv6x0HEZ3C/4GIC2IKZKNxUxtVvFBv0gOm
+	 6Qf0GKQ+LtlWolM6z/6H4Bq+BXV63UTpm6Jxrk6ZjFhZeY2UOt+wBLNprG7k15UKTZ
+	 c0l2IbGJrylHWqfK8kTtB/hbsUiHPDU0PKn2BvNGBTNEP9BhZQlqRXr5I/XjDka7WP
+	 GmiR1JSv6NpFrcjDIe0Gyb1vRl5oQF432oHAn7Dsr+LpGZEd9NoQF0Wc1FVgv90BiK
+	 9TU34deY3A6C9jNM4+YM0adRUoUSzbJyaC8LmGlulGYawiqnOS01XRXWYjtRGBX1xP
+	 muE70Tfv2SpzA==
+Date: Tue, 5 Nov 2024 11:22:54 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-Message-ID: <20241105164829.GA12923@willie-the-truck>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241101121849.GD8518@willie-the-truck>
- <20241101132503.GU10193@nvidia.com>
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v2] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <20241105172254.GA1447085@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241101132503.GU10193@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20241104-pcie-en7581-rst-fix-v2-1-ffe5839c76d8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_084839_659168_15F97F1A 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20241105_092257_339784_C76C741F 
+X-CRM114-Status: GOOD (  32.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +80,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+On Mon, Nov 04, 2024 at 11:00:05PM +0100, Lorenzo Bianconi wrote:
+> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> causing occasional PCIe link down issues. In order to overcome the
+> problem, PCIE_RSTB signals are not asserted/released during device probe or
+> suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> (0x88) and REG_RESET_CONTROL (0x834) registers available via the clock
+> module.
+> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> specify per-SoC capabilities.
 
-On Fri, Nov 01, 2024 at 10:25:03AM -0300, Jason Gunthorpe wrote:
-> On Fri, Nov 01, 2024 at 12:18:50PM +0000, Will Deacon wrote:
-> > On Wed, Oct 30, 2024 at 09:20:44PM -0300, Jason Gunthorpe wrote:
-> > > [This is now based on Nicolin's iommufd patches for vIOMMU and will need
-> > > to go through the iommufd tree, please ack]
-> > 
-> > Can't we separate out the SMMUv3 driver changes? They shouldn't depend on
-> > Nicolin's work afaict.
+Add blank lines between paragraphs so we know where they end.
+
+Where does this alternate way of doing reset (using REG_PCI_CONTROL
+and REG_RESET_CONTROL) happen?  Why isn't there something in this
+patch to use that alternate method at the same points where
+PCIE_PE_RSTB is used?
+
+If we don't need to assert reset for Airoha EN7581, why do we need to
+do it for the other SoCs?
+
+> Tested-by: Hui Ma <hui.ma@airoha.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+> Changes in v2:
+> - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+>   reset callback
+> - fix the leftover case in mtk_pcie_suspend_noirq routine
+> - add more comments
+> - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1-1-1043fb63ffc9@kernel.org
+> ---
+>  drivers/pci/controller/pcie-mediatek-gen3.c | 59 ++++++++++++++++++++---------
+>  1 file changed, 41 insertions(+), 18 deletions(-)
 > 
-> We can put everything before "iommu/arm-smmu-v3: Support
-> IOMMU_VIOMMU_ALLOC" directly on a rc and share a branch with your tree.
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..8e4704ff3509867fc0ff799e9fb99e71e46756cd 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -125,10 +125,18 @@
+>  
+>  struct mtk_gen3_pcie;
+>  
+> +enum mtk_gen3_pcie_flags {
+> +	SKIP_PCIE_RSTB	= BIT(0), /* skip PCIE_RSTB signals configuration
+> +				   * during device probing or suspend/resume
+> +				   * phase in order to avoid hw bugs/issues.
+> +				   */
+> +};
+> +
+>  /**
+>   * struct mtk_gen3_pcie_pdata - differentiate between host generations
+>   * @power_up: pcie power_up callback
+>   * @phy_resets: phy reset lines SoC data.
+> + * @flags: pcie device flags.
+>   */
+>  struct mtk_gen3_pcie_pdata {
+>  	int (*power_up)(struct mtk_gen3_pcie *pcie);
+> @@ -136,6 +144,7 @@ struct mtk_gen3_pcie_pdata {
+>  		const char *id[MAX_NUM_PHY_RESETS];
+>  		int num_resets;
+>  	} phy_resets;
+> +	u32 flags;
+>  };
+>  
+>  /**
+> @@ -402,22 +411,33 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+>  	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+>  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+>  
+> -	/* Assert all reset signals */
+> -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> -	val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> -
+>  	/*
+> -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> -	 * for the power and clock to become stable.
+> +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> +	 * causing occasional PCIe link down. In order to overcome the issue,
+> +	 * PCIE_RSTB signals are not asserted/released at this stage and the
+> +	 * PCIe block is reset using REG_PCI_CONTROL (0x88) and
+> +	 * REG_RESET_CONTROL (0x834) registers available via the clock module.
+>  	 */
+> -	msleep(100);
+> -
+> -	/* De-assert reset signals */
+> -	val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB);
+> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> +		/* Assert all reset signals */
+> +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> +		val |= PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> +		       PCIE_PE_RSTB;
+> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> +
+> +		/*
+> +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> +		 * for the power and clock to become stable.
+
+Blank line between paragraphs.
+
+> +		 */
+> +		msleep(PCIE_T_PVPERL_MS);
+> +
+> +		/* De-assert reset signals */
+> +		val &= ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> +			 PCIE_PE_RSTB);
+> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> +	}
+>  
+>  	/* Check if the link is up or not */
+>  	err = readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+> @@ -1160,10 +1180,12 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
+>  		return err;
+>  	}
+>  
+> -	/* Pull down the PERST# pin */
+> -	val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> -	val |= PCIE_PE_RSTB;
+> -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> +		/* Pull down the PERST# pin */
+> +		val = readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> +		val |= PCIE_PE_RSTB;
+> +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> +	}
+>  
+>  	dev_dbg(pcie->dev, "entered L2 states successfully");
+>  
+> @@ -1214,6 +1236,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_soc_en7581 = {
+>  		.id[2] = "phy-lane2",
+>  		.num_resets = 3,
+>  	},
+> +	.flags = SKIP_PCIE_RSTB,
+>  };
+>  
+>  static const struct of_device_id mtk_pcie_of_match[] = {
 > 
-> That patch and following all depend on Nicolin's work, as they rely on
-> the VIOMMU due to how different ARM is from Intel.
+> ---
+> base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
+> change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
 > 
-> How about you take these patches:
+> Best regards,
+> -- 
+> Lorenzo Bianconi <lorenzo@kernel.org>
 > 
->  [PATCH v4 01/12] vfio: Remove VFIO_TYPE1_NESTING_IOMMU
->  [PATCH v4 02/12] ACPICA: IORT: Update for revision E.f
->  [PATCH v4 03/12] ACPI/IORT: Support CANWBS memory access flag
->  [PATCH v4 04/12] iommu/arm-smmu-v3: Report IOMMU_CAP_ENFORCE_CACHE_COHERENCY for CANWBS
->  [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via struct arm_smmu_hw_info
->  [PATCH v4 06/12] iommu/arm-smmu-v3: Implement IOMMU_HWPT_ALLOC_NEST_PARENT
->  [PATCH v4 07/12] iommu/arm-smmu-v3: Expose the arm_smmu_attach interface
-> 
-> Onto a branch.
-
-I've pushed these onto a new branch in the IOMMU tree:
-
-	iommufd/arm-smmuv3-nested
-
-However, please can you give it a day or two to get some exposure in
--next before you merge that into iommufd? I'll ping back here later in
-the week.
-
-Cheers,
-
-Will
 
