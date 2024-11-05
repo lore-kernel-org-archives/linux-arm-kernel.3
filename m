@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147B7D31769
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455C4D3176D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c9IpN2FXIOCb/O9tDGTNVg2KhD6troiSDWiZCaqtbaA=; b=mffHLmGYSkOLVmyF+4NY47iU2E
-	BpPA1Q7wuF/HG5RYeEJno1eVPpp/DpU1verRJw4+QyxbD2oLHt7qVh7jJAW1Fxu7osaMzFJgBdKW4
-	/eoYGDsNr9P9v5VjRS7irlLIkbj4jzOzhLE0O1RoHb3CA5iYSWfhCgOUwyo5Ck+xWO/klbJhpxCr6
-	nltoXf2DdUm12bRfQF0yq1ev+idjWIVKSPG0kMoy/+aWmL+G8X0ZPNPIXyJjDKqu/FyQhXsc6MMxX
-	3GzAKXzc/oBxQdVxfrrhH4aWBrznxgxDtSuSdXsNumiVuF4k+c7vtS8pDpf5qImafl6NMtdhZrfaB
-	YNWela5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eO2Rc2ylDy//zWsYbxaCN7+Jb/tGlO2igB2V28DpRFE=; b=1CNiyxhVaK3ou7yaHKKRdmsGL6
+	yyWUoEwtnY9Gc+E5chEWJuVGGGgjOrLmI3CEn2Fpi56s8iYFGQ/XTfZ2b5qUp/PNW/C0FfQxvAPRD
+	/5cgW2qdGeDkjU87H/e2pU1OTxpQUjchBmVY6ZcwoKt+h2mfD3TvLgjE1fDGp1FoO2GP5freVFCvs
+	VpTGOlHr3QfEXWymDRj7ZiIYD51HFqwEF+Fv4EF4lZDj43cBOe/iwOtFDeH7R81MU77Z+nMCoMz8y
+	6FZkC7nHB420fsPsxjPstsXSxhsMTTpkuhscex+XmsG9Nhog4ggpalakCCOjAqCYqClTP0LJnhXKU
+	Q5UnZQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8N80-00000000B6h-1LBK;
-	Tue, 05 Nov 2024 17:14:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8NNs-00000000D0A-2Fov;
+	Tue, 05 Nov 2024 17:30:28 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MZb-000000004OG-2sqL
+	id 1t8MgZ-00000000676-2NQP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 16:38:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5DC255C5500;
-	Tue,  5 Nov 2024 16:37:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED5DC4CED2;
-	Tue,  5 Nov 2024 16:38:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730824710;
-	bh=X3QevZg0rzrXDfQFtVrzDiR/bMaGBDN1CpqsOH1Ja48=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=aLwZYMYUdbc96SDQl4CZJP7laKG276AROeHoNAb/mbq0JLX8pGH2ErNkqqR3CVg8N
-	 wzFnZjVoe4to+XZpY9sJNCkq2NuZWXe7RB+L/RIxQawDz4LpKAaTkQ0Snkp/RocZ92
-	 V/JonNjeP1FzhAKY/9P7HCpDQh/8+WkvyZ35K1zzJmsMNtdNDlcPuf0LP39CUwV+Bu
-	 vb09gWYSP1T8UGfcjd3qkimmpy3Nfm8anUXei95OTdaq+ceTA+2hAypAq1K2R+2Z90
-	 E6USeKTASzsIsUwBQ1cB6RpFrTf+W4JEKSFJS07aA0pLz6ygCAEBzhLvmJHUNIMawB
-	 POu5V5s8j3nkg==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20241028-esai_fix-v1-0-3c1432a5613c@nxp.com>
-References: <20241028-esai_fix-v1-0-3c1432a5613c@nxp.com>
-Subject: Re: (subset) [PATCH 0/2] ASoC: fsl-esai: allow fsl,imx8qm-esai
- fallback to fsl,imx6ull-esai
-Message-Id: <173082470778.77847.10489834906356614772.b4-ty@kernel.org>
-Date: Tue, 05 Nov 2024 16:38:27 +0000
+	Tue, 05 Nov 2024 16:45:46 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539f72c913aso9207549e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 08:45:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730825141; x=1731429941; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eO2Rc2ylDy//zWsYbxaCN7+Jb/tGlO2igB2V28DpRFE=;
+        b=fceYO2WuzwQR6Y3CyhdpFpUSHJZkOTPbA8krg8prsBbaBpoLWufxTFuEeda8tD8BhJ
+         iuHDb5qabZLi8DatT+3WqpKD219Iue90SKEAOfo0sycHzqXa/IzCtnWHHTu99kNXsm0I
+         E0KTawuxKRFrg9NGVTHkOGb94/kVpWgn0PUffxK3ge5jCoJ4ginsf7FjxJH/WbeW7vGj
+         vui/qdoBLK+5o0OJDoIbi05ADLLVuZIzUsKPTrW9nTB8MiaYtTl6tUW2z5HuFSsK/an5
+         ffbqi4XeApiJNprESlUdaHcwm8hpM42fkNqeL8+FZ/9jo1W7bfaj+BtpRiW6F98zmuLx
+         0Ufg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730825141; x=1731429941;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eO2Rc2ylDy//zWsYbxaCN7+Jb/tGlO2igB2V28DpRFE=;
+        b=drLWHSyMg3JVNcyZN2BhlKum77hFmaNfMVS4eFn2pyAumht3JnwpXPUc19S8xKzbUZ
+         KCRN+p5K8ZMw/AWFvRaITNqEmXcPhIAyJ9JO7EYe3M3d2sLDCj4AClDqTl8JwqXjjavo
+         AesgnzH3wJukuhF20RSCS55uD8UTW5g9Jz09c4cDrRfeI1Uo1KjwjdT4jTtjgg6f9Yja
+         3MKxV0jo6+KIqVXw+liK5ejwabT3XdQu/2uVfomSwzDZP76vB0MmoXnBZ+VLkyU3jdqM
+         U5AWQFCpwOZUV8c6hi+Nzf2a9PNTEtcAdboHrGQsaAbv0Sdf+w1B/KK96feJ7hcLmd+r
+         ha9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWnKCmPNNzHLygU0fuUCFCwKFgCE6WUXuquemigSKm4FyyHOYwWyVDLZoDHkO6p/PwABZh5Zn8iULiEiyVkI9+p@lists.infradead.org
+X-Gm-Message-State: AOJu0YygsNm/Vn6P8tyyaTXz5IhXK0yY9eb8pYafjHHMdyDErCJiN/Zx
+	hnhHqOsUXAXKdbLS2SK1pCe+aOm1W6P44gVjswEYkZj2AF/Hn3UHwb7DgOFGUh0=
+X-Google-Smtp-Source: AGHT+IHbbL60OFoSRKrDaKJLcmCLmCs0FTzW4o/g/NDSmkrMXRKBjyIAqB/wjh3gYIeBgf3U9lFeTQ==
+X-Received: by 2002:a05:6512:1307:b0:539:f886:31c6 with SMTP id 2adb3069b0e04-53b34a18f24mr19234091e87.38.1730825141265;
+        Tue, 05 Nov 2024 08:45:41 -0800 (PST)
+Received: from localhost ([89.101.134.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d698055sm195385765e9.40.2024.11.05.08.45.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2024 08:45:40 -0800 (PST)
+Date: Tue, 5 Nov 2024 19:45:39 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] media: xilinx-tpg: fix double put in xtpg_parse_of()
+Message-ID: <372abe0b-fd67-4498-883a-7139632ed43c@suswa.mountain>
+References: <f41dfe97-6e6c-47b4-91bf-199c5938c6d0@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f41dfe97-6e6c-47b4-91bf-199c5938c6d0@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_083831_806858_A1C80EF6 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20241105_084543_680812_953A75D4 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +97,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 15:49:30 -0400, Frank Li wrote:
-> Update binding doc to allow fsl,imx8qm-esai fallback to fsl,imx6ull-esai.
-> Update dts add fsl,imx6ull-esai fallback.
+On Mon, Nov 04, 2024 at 08:16:19PM +0300, Dan Carpenter wrote:
+> This loop was recently converted to use for_each_of_graph_port() which
+> automatically does __cleanup__ on the "port" iterator variable.  Delete
+> the calls to of_node_put(port) to avoid a double put bug.
 > 
-> 
+> Fixes: 393194cdf11e ("media: xilinx-tpg: use new of_graph functions")
 
-Applied to
+I guess the CI system applies this to the wrong git tree so it says
+the of_node_put() calls are necessary and it can't find the Fixes
+commit.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/2] ASoC: dt-bindings: fsl-esai: allow fsl,imx8qm-esai fallback to fsl,imx6ull-esai
-      commit: adf7ea48ce05a6c5c44f0f9d3f81e83e5cb70c3e
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+regards,
+dan carpenter
 
 
