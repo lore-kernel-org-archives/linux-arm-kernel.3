@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7648D2B932
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DA2D2B931
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBKGTrlLTDQIGERPKwoCpnmjiyE6/uKRwA3Oxcr3bRg=; b=fkFVky/8RCJrA8yZ31WTSDLBbT
-	XtUPntIibvAaIVQtmxOUJW+XTJ+vgwqEzk0xfN9YL3+4uYktXtJ0OhFjB6FVpgrl4dL6OaIC81UWk
-	1S2w+C0Amjw2b9fuBnvNY/g75QsS1O/CYSQHKB39AJOeE35eyIJkv4GCkxYrxWZkjlhsN2Q9ZPGn3
-	CGBXcHmLpPPu5uR1n4W5R0/pJTuKfrIyeETX6m5FuZYGBpZGn+6BusOJtdYElWzTLnFdcDAFYk0hy
-	FjjD6U4Tw7OIcFkz4NzIpBhE3v1Ss4/3Pnq0SbOv5m6phBG095RaM5fUQGeyfIjbz1pQ7RRrMH/ad
-	steSiNgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5NofeNN9AC//s6BEM3bevXlTodSmIgHrxhhrVsX/YYA=; b=Rd4XlcUdA+sx2YpQu3nOVU3m8q
+	c/DaaIlSy5NUEFAqBXCMQS+j+bGnTjLh2tubxTrOnRbJtJ32INQhDfm7Et3OcIjy9P3Mz9lMYmRT0
+	Ow8/2SHaYL4lCMhJ64tPd0RfJKy33evX6vlISSa7Pks7xzZl4Lma8qMjAXbcrhULGMWJHbjCDCWAi
+	tvFbvAUiY9nD3v4/CPFEBfQU0fotD69aYZd036UEgb+/cImiqnOimRLVqS2QdvujS0dpClh8GTe0U
+	R/1fdhWDfqNufBkS8lOHE6cVs8uDg6EeYO42yGzsOfNzdBCfeASceTxGY6clxjEPnWpki2TF43qVG
+	IXuwkOmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KbI-0000000HH8C-2RHb;
-	Tue, 05 Nov 2024 14:32:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t8Kby-0000000HHiD-1Kug;
+	Tue, 05 Nov 2024 14:32:50 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8K4p-0000000HBwD-2ATB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 Nov 2024 13:58:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=SBKGTrlLTDQIGERPKwoCpnmjiyE6/uKRwA3Oxcr3bRg=; b=ZcWNKrbn8h5z7Q1m1wfanGgPMt
-	QrakaBV5faEOnnTNN5PZsp/eTPL/4jzSf44b/ifwjcCTtA3wid0qq1T1UGaSq9NNvnpCa4uk48W5E
-	6qJ0qzg46cbXRbUzajkbnXXPDLhX2LuwP+R9p31kQyX8IAPVbSE6DRYDh4unITXeqVQO+ACpjcXhC
-	6L2QYjeA9G8Qs8twWDXCMl2knC6Ybq2lz5OGzssOZo+ZxFQnU4pM1eTVXYG6CwW+Ag6+x5dNuXv5y
-	0d2FMlKMukwy2nenmUKLp5gSQoJUr+nMavGZS4839d88Ka0Ofd9SVxMBTOpMrZGwcvqnJUhmsiAOw
-	nIn4rybA==;
-Received: from mail.savoirfairelinux.com ([208.88.110.44])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8K4m-0000000BlHB-1CcA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 13:58:34 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.savoirfairelinux.com (Postfix) with ESMTP id 74F009C5794;
-	Tue,  5 Nov 2024 08:58:19 -0500 (EST)
-Received: from mail.savoirfairelinux.com ([127.0.0.1])
- by localhost (mail.savoirfairelinux.com [127.0.0.1]) (amavis, port 10032)
- with ESMTP id VBzwaD1mWAko; Tue,  5 Nov 2024 08:58:18 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by mail.savoirfairelinux.com (Postfix) with ESMTP id AF3679C63E4;
-	Tue,  5 Nov 2024 08:58:18 -0500 (EST)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.savoirfairelinux.com AF3679C63E4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=savoirfairelinux.com; s=DFC430D2-D198-11EC-948E-34200CB392D2;
-	t=1730815098; bh=SBKGTrlLTDQIGERPKwoCpnmjiyE6/uKRwA3Oxcr3bRg=;
-	h=Date:From:To:Message-ID:MIME-Version;
-	b=vvEjIjNZBE+9/GzVkprdX13JfbvyhVjnJCzZZHS3fU3uJQu1pU0KybGYrg2m6z6co
-	 uMwJY9KT7NrXacgCmFv1V6myU7JtG4Y/TMiNRX6bB7wobei8Cvy88/0nCGTg3qhiZC
-	 sR2j3RsfVHtUwlkM5Qi+GPyvHez+nIllMlBgM3BlLcv1Gnot+M8G2jSmZJZ2+Nr5gw
-	 cgbRtOyqTUJ3CT6Xq8waGPGWX5MOCz6UwOrP1KekXYe2YTsY9a4mmeQEQOORUcoqmH
-	 qptzEcWOlWAqpYzeMJ9+mFcPYryr/HqZaF/ADF783b2T5GUJ6lkxNsWliGA6RX6Rwe
-	 JS/0pT5GRBwfA==
-X-Virus-Scanned: amavis at mail.savoirfairelinux.com
-Received: from mail.savoirfairelinux.com ([127.0.0.1])
- by localhost (mail.savoirfairelinux.com [127.0.0.1]) (amavis, port 10026)
- with ESMTP id xvHjvFmXB96q; Tue,  5 Nov 2024 08:58:18 -0500 (EST)
-Received: from mail.savoirfairelinux.com (mail.savoirfairelinux.com [192.168.48.237])
-	by mail.savoirfairelinux.com (Postfix) with ESMTP id 762169C5794;
-	Tue,  5 Nov 2024 08:58:18 -0500 (EST)
-Date: Tue, 5 Nov 2024 08:58:18 -0500 (EST)
-From: Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Shawn Guo <shawnguo2@yeah.net>, 
-	Russell King <linux@armlinux.org.uk>, 
-	Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	imx <imx@lists.linux.dev>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Message-ID: <1044800423.57572.1730815098440.JavaMail.zimbra@savoirfairelinux.com>
-In-Reply-To: <Zyj0VsTJ2qDHiss2@eichest-laptop>
-References: <20241030122128.115000-1-eichest@gmail.com> <ZyXTFhEm9UCBii2c@dragon> <ZyY41nJY9ghwe-Y4@eichest-laptop> <065268d6-84eb-4247-b834-40a9ff32c1f4@gmx.net> <ZyiAMpjmXuVMi5FX@eichest-laptop> <787b45a1-9f8d-493d-8930-e1c8d396c818@gmx.net> <Zyj0VsTJ2qDHiss2@eichest-laptop>
-Subject: Re: [PATCH v1] ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
+	id 1t8KRi-0000000HFft-1A0E;
+	Tue, 05 Nov 2024 14:22:15 +0000
+X-UUID: 578d57929b8111ef82ff63e91e7eb18c-20241105
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5NofeNN9AC//s6BEM3bevXlTodSmIgHrxhhrVsX/YYA=;
+	b=KuM1+jq14icOLOp34in04Or+AvlNQJO+MjgbjMYY4ONVnLSoSXkato5V8Na4dWNPpskWOLbswi3B9IzbLJRzwFnqGiDZpCKWvHb+Ar0lnPuw9a1S4ul3e+apHUbzDC3pexTxRAI8RW53ko9/22GU/LrwcZD9blYtDetZPuPLNF4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:25594996-a943-47b5-b925-48acbaebe23d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:171ebb48-ca13-40ea-8070-fa012edab362,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 578d57929b8111ef82ff63e91e7eb18c-20241105
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1304122472; Tue, 05 Nov 2024 07:22:09 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Tue, 5 Nov 2024 22:22:06 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Tue, 5 Nov 2024 22:22:06 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Steven Liu <Steven.Liu@mediatek.com>, SkyLake.Huang
+	<skylake.huang@mediatek.com>
+Subject: [PATCH net-next v2 4/5] net: phy: mediatek: Integrate read/write page helper functions
+Date: Tue, 5 Nov 2024 22:19:10 +0800
+Message-ID: <20241105141911.13326-5-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20241105141911.13326-1-SkyLake.Huang@mediatek.com>
+References: <20241105141911.13326-1-SkyLake.Huang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: Zimbra 8.8.15_GA_4581 (ZimbraWebClient - GC112 (Linux)/8.8.15_GA_4581)
-Thread-Topic: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
-Thread-Index: du0Xtk0rWav2/sd22e8hfQbQ+0Eh0A==
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_135832_667891_EF2889EC 
-X-CRM114-Status: GOOD (  45.46  )
+X-CRM114-CacheID: sfid-20241105_062214_355668_134D2535 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,95 +92,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+From: "SkyLake.Huang" <skylake.huang@mediatek.com>
 
-On Monday, 4 November, 2024 17:20:38, Stefan Eichenberger wrote:
-> Hi Stefan,
-> 
-> On Mon, Nov 04, 2024 at 12:39:40PM +0100, Stefan Wahren wrote:
->> Hi Stefan,
->> 
->> Am 04.11.24 um 09:05 schrieb Stefan Eichenberger:
->> > Hi Stefan,
->> > 
->> > On Sat, Nov 02, 2024 at 04:35:19PM +0100, Stefan Wahren wrote:
->> > > Hi Stefan,
->> > > 
->> > > Am 02.11.24 um 15:36 schrieb Stefan Eichenberger:
->> > > > Hi Shawn,
->> > > > 
->> > > > On Sat, Nov 02, 2024 at 03:21:58PM +0800, Shawn Guo wrote:
->> > > > > On Wed, Oct 30, 2024 at 01:21:12PM +0100, Stefan Eichenberger wrote:
->> > > > > > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
->> > > > > > 
->> > > > > > Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to support SPDIF audio. This
->> > > > > > change will fix commit d469b771afe1 ("ARM: dts: imx6: update spdif sound
->> > > > > > card node properties") which moves away from the old "spdif-controller"
->> > > > > > property to the new "audio-codec" property.
->> > > > > > 
->> > > > > > Fixes: d469b771afe1 ("ARM: dts: imx6: update spdif sound card node properties")
->> > > > > It doesn't look a fix to me.
->> > > > I agree somehow, it was just that before the referenced commit our test
->> > > > succeeds with the imx_v6_v7_defconfig and after that we get the
->> > > > following error:
->> > > > [   24.165534] platform sound-spdif: deferred probe pending: fsl-asoc-card:
->> > > > snd_soc_register_card failed
->> > > this error should have been in the commit message including the
->> > > information which platform/board is affected.
->> > Okay, I will add this information to the next version. We see this error
->> > on an Apalis iMX6 which has in my variant an NXP i.MX6Q SoC.
->> > 
->> > > > So maybe it is not a fix in the sense of a bug, but it fixes the error
->> > > > message. However, I'm also fine with removing the Fixes tag.
->> > > But this patch doesn't look like the real approach.
->> > > 
->> > > Could you please clarify the impact of the regression?
->> > So the problem is that before commit d469b771afe1 ("ARM: dts: imx6:
->> > update spdif sound card node properties") the audio driver was
->> > using an implementation of linux,spdif-dit and linux,spdif-dir which was
->> > directly inside the fsl,imx-audio-spdif compatible driver. Now with the
->> > referenced commit the idea is to use the more generic linux,spdif-dir
->> > and linux,spdif-dit compatible drivers. That's why this driver must be
->> > enabled in the kernel configuration.
->> > 
->> > > Is it just this error message and audio works fine or is audio also broken?
->> > It is not just the error message, audio is not working because the
->> > driver deferes and because it is not enabled it will never succeed to
->> > load. I don't know if this is called a regression, because the driver is
->> > there it is just not enabled in the imx6_v7_defconfig. I thought because
->> > a lot of the i.MX6 based board use the generic driver, it makes sense to
->> > enable it in the imx_v6_v7_defconfig.
->> okay, thanks for the clarification. From my understanding
->> imx6_v7_defconfig is just an example config for testing. All possible
->> users of these boards might have their own configs and stumble across
->> the same issue. So I thought it would be better to add the dependency in
->> the Kconfig of the FSL audio driver.
->> 
->> I'm not that audio driver expert and don't know how the dependency
->> handling between the FSL audio driver and the required codecs like
->> SND_SOC_SPDIF. So it's possible that I'm completely wrong here and your
->> approach is the best we can do.
-> 
-> That might be a good point. I don't know how this is usually handled.
-> @Shawn and @Elinor, do you think this could be an approach to make
-> SND_SOC_FSL_ASOC_CARD select SND_SOC_SPDIF? It already seems to do this
-> for SND_SOC_WM8994 and SND_SOC_FSL_SPDIF.
+This patch integrates read/write page helper functions as MTK phy lib.
+They are basically the same in mtk-ge.c & mtk-ge-soc.c.
 
-SND_SOC_FSL_ASOC_CARD will compile the machine driver fsl-asoc-card,
-SND_SOC_FSL_SPDIF the CPU DAI driver fsl_spdif for the SPDIF
-and SND_SOC_SPDIF the codec drivers spdif-rx and spdif-tx.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: SkyLake.Huang <skylake.huang@mediatek.com>
+---
+ drivers/net/phy/mediatek/mtk-ge-soc.c  | 18 ++++--------------
+ drivers/net/phy/mediatek/mtk-ge.c      | 20 ++++++--------------
+ drivers/net/phy/mediatek/mtk-phy-lib.c | 12 ++++++++++++
+ drivers/net/phy/mediatek/mtk.h         |  3 +++
+ 4 files changed, 25 insertions(+), 28 deletions(-)
 
-In my commit series I made SND_SOC_FSL_ASOC_CARD select SND_SOC_FSL_SPDIF
-because the old machine driver previously compiled with SND_SOC_IMX_SPDIF
-selected SND_SOC_FSL_SPDIF.
-But because fsl-asoc-card is a generic driver, it could be used on a system
-that doesn't have an SPDIF device, and therefore should not require
-SND_SOC_SPDIF nor SND_SOC_FSL_SPDIF.
-So maybe it is not a good idea to automatically select SND_SOC_FSL_SPDIF or SND_SOC_SPDIF.
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+index d3a8b39..38dc898 100644
+--- a/drivers/net/phy/mediatek/mtk-ge-soc.c
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
+@@ -271,16 +271,6 @@ struct mtk_socphy_shared {
+ 	struct mtk_socphy_priv	priv[4];
+ };
+ 
+-static int mtk_socphy_read_page(struct phy_device *phydev)
+-{
+-	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
+-}
+-
+-static int mtk_socphy_write_page(struct phy_device *phydev, int page)
+-{
+-	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
+-}
+-
+ /* One calibration cycle consists of:
+  * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
+  *   until AD_CAL_COMP is ready to output calibration result.
+@@ -1337,8 +1327,8 @@ static struct phy_driver mtk_socphy_driver[] = {
+ 		.probe		= mt7981_phy_probe,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
+-		.read_page	= mtk_socphy_read_page,
+-		.write_page	= mtk_socphy_write_page,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
+ 		.led_blink_set	= mt798x_phy_led_blink_set,
+ 		.led_brightness_set = mt798x_phy_led_brightness_set,
+ 		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
+@@ -1354,8 +1344,8 @@ static struct phy_driver mtk_socphy_driver[] = {
+ 		.probe		= mt7988_phy_probe,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
+-		.read_page	= mtk_socphy_read_page,
+-		.write_page	= mtk_socphy_write_page,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
+ 		.led_blink_set	= mt798x_phy_led_blink_set,
+ 		.led_brightness_set = mt798x_phy_led_brightness_set,
+ 		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 54ea64a..9122899 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -3,6 +3,8 @@
+ #include <linux/module.h>
+ #include <linux/phy.h>
+ 
++#include "mtk.h"
++
+ #define MTK_EXT_PAGE_ACCESS		0x1f
+ #define MTK_PHY_PAGE_STANDARD		0x0000
+ #define MTK_PHY_PAGE_EXTENDED		0x0001
+@@ -11,16 +13,6 @@
+ #define MTK_PHY_PAGE_EXTENDED_2A30	0x2a30
+ #define MTK_PHY_PAGE_EXTENDED_52B5	0x52b5
+ 
+-static int mtk_gephy_read_page(struct phy_device *phydev)
+-{
+-	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
+-}
+-
+-static int mtk_gephy_write_page(struct phy_device *phydev, int page)
+-{
+-	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
+-}
+-
+ static void mtk_gephy_config_init(struct phy_device *phydev)
+ {
+ 	/* Enable HW auto downshift */
+@@ -77,8 +69,8 @@ static struct phy_driver mtk_gephy_driver[] = {
+ 		.handle_interrupt = genphy_handle_interrupt_no_ack,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
+-		.read_page	= mtk_gephy_read_page,
+-		.write_page	= mtk_gephy_write_page,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
+ 	},
+ 	{
+ 		PHY_ID_MATCH_EXACT(0x03a29441),
+@@ -91,8 +83,8 @@ static struct phy_driver mtk_gephy_driver[] = {
+ 		.handle_interrupt = genphy_handle_interrupt_no_ack,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
+-		.read_page	= mtk_gephy_read_page,
+-		.write_page	= mtk_gephy_write_page,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
+ 	},
+ };
+ 
+diff --git a/drivers/net/phy/mediatek/mtk-phy-lib.c b/drivers/net/phy/mediatek/mtk-phy-lib.c
+index 8d795bc..98a09d6 100644
+--- a/drivers/net/phy/mediatek/mtk-phy-lib.c
++++ b/drivers/net/phy/mediatek/mtk-phy-lib.c
+@@ -6,6 +6,18 @@
+ 
+ #include "mtk.h"
+ 
++int mtk_phy_read_page(struct phy_device *phydev)
++{
++	return __phy_read(phydev, MTK_EXT_PAGE_ACCESS);
++}
++EXPORT_SYMBOL_GPL(mtk_phy_read_page);
++
++int mtk_phy_write_page(struct phy_device *phydev, int page)
++{
++	return __phy_write(phydev, MTK_EXT_PAGE_ACCESS, page);
++}
++EXPORT_SYMBOL_GPL(mtk_phy_write_page);
++
+ int mtk_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
+ 				unsigned long rules,
+ 				unsigned long supported_triggers)
+diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
+index 9aaff2c..63d9fe1 100644
+--- a/drivers/net/phy/mediatek/mtk.h
++++ b/drivers/net/phy/mediatek/mtk.h
+@@ -66,6 +66,9 @@ struct mtk_socphy_priv {
+ 	unsigned long		led_state;
+ };
+ 
++int mtk_phy_read_page(struct phy_device *phydev);
++int mtk_phy_write_page(struct phy_device *phydev, int page);
++
+ int mtk_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
+ 				unsigned long rules,
+ 				unsigned long supported_triggers);
+-- 
+2.45.2
 
-On the other hand, if every imx6 or imx7 boards have an SPDIF device, then
-I suppose SND_SOC_SPDIF can be put in imx_v6_v7_defconfig.
-
-Regards,
-Elinor
 
