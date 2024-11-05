@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5734CD36121
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9EAD36122
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YLBx9MU/RnKu6hw2T7hL3H8SirYRCnW93a3oWsqcq4=; b=T9xNdst+VQBG+mOpMvcOqmVRo8
-	doUrYjaZLR87r8dfnVZ16oyUR9nogqdAOvDo327DoXy+pbzV+HmSQM0Zv41dlMKdebGQTmzv4ZjqP
-	ygii6/uJNZNdjldY9u1JWv2LHOm5N7/b8c1gdU5E4/eDPG9oCWBpx03J6eCo8LRgmuRYqowLiXOSk
-	s7NqSu6zwuUINESm8rxVCRI0Y5oZ9HcBUlhTQsoeFl4YYQJn4o1avro8uhswMedOb7qVOiFpIRMuy
-	PFPZs5WBf75YqU7Y6ENskTibzTwRSjxP8Bwf12UbYRbhngBowq38segyJcAY5MS7OhNfF3qr35Qd1
-	mV8JMH+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hzMiS31Q99SH+ivi/H+fLjhfNr8W/1ENyadMPU3uzYk=; b=t2ogkEEUN2JriXb74mb1XeQR9L
+	c3/TzO/d6EHQ6wfHgc6cbxP6jkXNF28Lp406TiINSJDMa1td/83OvpjqB6wlW76/ZPzbISXN/e6Mo
+	RJAJW9ZHuEs7/LMuZmXGOvW3gZwYNmkfHmTzWly0YR2ntBvd8zTWo7gaW+w5eOgrvEvRbAji+LFbN
+	ljc7vr5U/3Zx9zs8GKKE2Nwp3rAKa2un3skuf1OIIKV2WcFZ1WBNtqXiYIIu3s2w1CeU5hq80eXVq
+	6DhtnXaSwspfP9V2u5mtCuv4vb5X+ICougd/tNa/WKs4aAOP4IDJwXCLsNYLcDwsT3KNz8/zPonIp
+	ukGOA4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Pby-00000000bq5-3IR2;
-	Tue, 05 Nov 2024 19:53:10 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1t8Ph2-00000000d60-3Oln;
+	Tue, 05 Nov 2024 19:58:25 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8PaF-00000000bbv-2eqi
+	id 1t8PfC-00000000cUx-2mku
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 19:51:25 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-539f4d8ef84so7453724e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 11:51:22 -0800 (PST)
+	Tue, 05 Nov 2024 19:56:32 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e1fbe2a6b1so109903147b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 11:56:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730836281; x=1731441081; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2YLBx9MU/RnKu6hw2T7hL3H8SirYRCnW93a3oWsqcq4=;
-        b=a+kYHTzTXBziExH008xSQRgktC/jbdSfrrogbE3E5qoP8aQX+yEHRcsMoPcJHD93La
-         FZuYhG7bo9KGCzRcsmWXTn8E8TPXrlhzATSAv+q7gE4JDMFUJbblBqIzSfR7xKSlpKyi
-         tTrwqOH19dyLoCg6iPGYr2y1GXWdOqEz2xCGFvd6/Wl/Q6vulkVduhcOvW7nKkzz1g10
-         qBKcOpd6L1/mPVwZ9Q16mZRyOqhrlzbzjS4zeNCKlg4pmu8GzHpAMhiYNJUSZL6FB+qa
-         yPDLBDz+jsKhRnBfJwuW1mo3f+1IELfRIJ/HVJAxf2nQk4BUwKYuRnTnInfinWPhaNU1
-         GTGQ==
+        d=google.com; s=20230601; t=1730836589; x=1731441389; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=hzMiS31Q99SH+ivi/H+fLjhfNr8W/1ENyadMPU3uzYk=;
+        b=qMpjxmypF3O1+4iI+crh343GYB316bf12x0Izzf8RNxvtWO0Fpg/q1ra0HPEKxu3Mc
+         CLPECcqpN2tN+yI1XTTr2kCKgIhvNGS8l2k0eWwVbAxbzy1gaVHecrk25AGkpTbtoHCf
+         15XXJLhFIxEOt3h/0ZFjluskyqWqBjUu6Gl8wuMolvYLCCpCmhvpS9qPuGorC73kVNDa
+         zirf3KGiXXPFymaJRPUPBbCjMkdoox3fM7gS79RD8mFlXZcSVZ/cUcrTaiYY5mcYk1bP
+         I/hCyDF7LuTWmtSrhyx/UMv7NXuxhuYvOYdMu/JxtznWrDXNYE3sGIl8pt3t2TyCJIQ6
+         GIRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730836281; x=1731441081;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2YLBx9MU/RnKu6hw2T7hL3H8SirYRCnW93a3oWsqcq4=;
-        b=Leqqek5NSkukP97QiWsfZQ9mBqiQEbd57uMwSs0xIkSCTcGjDjwgBRgtrFV0MkI3AC
-         IXiP4cqFdLstDxoqnc8u2pzdbS0OE3uTDYuT/o4ulkdkJgSOn+EiQm8npsQU0jnzoPve
-         STJGPYTMA4fuXiSxFUDDApHD1/KtWLIcVECWXoyohWL0rOcyUSGNBsugp3q61EFP5nDb
-         WRvaDAX076L2O+m5Rkx6DUUwigYzrIQLKdC4zi6vBysnb6DgsRoLLpdh3d3QQwO0VcwN
-         0sCGj1NuGD+oBnqwU1MGxnxWaVkaf+GTbsnd02Zm8iLetyle3rRFOnR7VV5cdTjFlh9g
-         g3NQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXhudfkr4keF8S/vEXFiGQDU5Ywk9H/Odlf5k9z33Ld+qICgMyF830hG/rVH6UroS2pIy3v9t633oKL6FZTem1K@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNcetc21x7q82mzCBTF0xcYiTkiWOAa5N1dtZ8FKi6I8MR6sVW
-	WI3CMIe511+12uVFEmpmiuMK4TMwqYetioW2j8U5NKagAt+Qfudl
-X-Google-Smtp-Source: AGHT+IEAvEwNFxRTIOEiFD35riTRwne/MzbdGzBgbKGwTB2zttyozqFADQNfZYmsA8AsuGWxLbzgHA==
-X-Received: by 2002:a05:6512:2398:b0:53c:74a7:43e1 with SMTP id 2adb3069b0e04-53c79e2f714mr10900704e87.13.1730836280887;
-        Tue, 05 Nov 2024 11:51:20 -0800 (PST)
-Received: from localhost ([94.19.228.143])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc9580bsm2249998e87.34.2024.11.05.11.51.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 11:51:20 -0800 (PST)
-Date: Tue, 5 Nov 2024 22:51:19 +0300
-From: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Shoji Keita <awaittrot@shjk.jp>,
-	Icenowy Zheng <icenowy@aosc.io>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH 1/2] arm64: dts: sun50i-a64-pinephone: Add AF8133J to
- PinePhone
-Message-ID: <Zyp3N9pGWhLqmtq1@skv.local>
-Mail-Followup-To: Andrey Skvortsov <andrej.skvortzov@gmail.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Shoji Keita <awaittrot@shjk.jp>,
-	Icenowy Zheng <icenowy@aosc.io>,
-	Andre Przywara <andre.przywara@arm.com>
-References: <20240908214718.36316-1-andrej.skvortzov@gmail.com>
- <20240908214718.36316-2-andrej.skvortzov@gmail.com>
- <CAGb2v65Laka+YaPyAecwxEhMkoodrXnDPn+UTwZUS_wsSBMzyg@mail.gmail.com>
- <ZuazIgLz5PP_Z8Cn@skv.local>
- <CAGb2v66-saec9RcQsCTNOz_Tz4+BSFPdDd6CEA+RrGcF6kCY=A@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v66-saec9RcQsCTNOz_Tz4+BSFPdDd6CEA+RrGcF6kCY=A@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1730836589; x=1731441389;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hzMiS31Q99SH+ivi/H+fLjhfNr8W/1ENyadMPU3uzYk=;
+        b=lrzbz0ngwHe6wNdJZUpPkcpgIqt6RvnGaGWXy8JmzBJd9ISwdoBC9UzpGSe6x+XNEh
+         8HYvndOd6pEtogIADm25OcpgO6wJda3/3WYgLd86BZtopc8Amj+e8TwunUoCJ8gJ+bOx
+         acZQjNUN6DmLR9wdExFTcwVWLKN7bIvhpSHwMDounJzXn+P3eCZXvKHqTUsMYOgBz9M5
+         ge+gDt2Msr7UTMPkTsWYJ8+7F3vdBDkBkxEF3fOhQGzPM0NM8gqkM6yP8JMcEuln8QzC
+         9Y0pRwiEqe2qkWSWg5II6W/zhiGrziZpnq4+efJ3noVHy3QwlTpGAKUWBrfK8OJaPW64
+         1cnA==
+X-Forwarded-Encrypted: i=1; AJvYcCXzHXUAWd69tkXdWBSZrvsbN7NEMnLC3yEulE6g9II7kSSLNpwvx+fkn3a0fOBYuk/JPLrthGmSpHr35nDOj+5a@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVZBJModwup8NN2W1bsP3qGmTUb0JrA9Y0YglO64nQoMEdhgc5
+	R+/9BIz3VY195MvefFlT4GKRc8vj7hre1cJaJNHUuPR67SkIv9uyOT/nFxfr38ToxsKS3Qv6UNc
+	0GugH8/iZaCT/T8qHoVP4qw==
+X-Google-Smtp-Source: AGHT+IGCeubudBZvDHKVyK9hoysogwq8Oy8BphtTGtN9ESDHF0Oe45MlIu4/byZXs6BbgdCbpbF4nba1Gh+JSm/9sQ==
+X-Received: from coltonlewis-kvm.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fa18])
+ (user=coltonlewis job=sendgmr) by 2002:a25:b28e:0:b0:e29:6df8:ef58 with SMTP
+ id 3f1490d57ef6-e3087a5bd64mr143088276.4.1730836589136; Tue, 05 Nov 2024
+ 11:56:29 -0800 (PST)
+Date: Tue,  5 Nov 2024 19:55:57 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
+Message-ID: <20241105195603.2317483-1-coltonlewis@google.com>
+Subject: [PATCH v6 0/5] Correct perf sampling with Guest VMs
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, Will Deacon <will@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_115123_721008_6ED7451C 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20241105_115630_782061_265CFBAA 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +103,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu Tsai,
+v6:
+* Apply all Reviewed-by and Acked-by trailers from previous versions
+* Rebase to v6.12-rc6
 
-On 24-10-19 10:04, Chen-Yu Tsai wrote:
-> On Sun, Sep 15, 2024 at 6:12 PM Andrey Skvortsov
-> <andrej.skvortzov@gmail.com> wrote:
-> >
-> > Hi Chen-Yu Tsai,
-> >
-> > On 24-09-09 16:08, Chen-Yu Tsai wrote:
-> > > On Mon, Sep 9, 2024 at 5:48 AM Andrey Skvortsov
-> > > <andrej.skvortzov@gmail.com> wrote:
-> > > >
-> > > > From: Icenowy Zheng <icenowy@aosc.io>
-> > > >
-> > > > New batches of PinePhones switched the magnetometer to AF8133J from
-> > > > LIS3MDL because lack of ST components.
-> > > >
-> > > > Both chips use the same PB1 pin, but in different modes.
-> > > > LIS3MDL uses it as an gpio input to handle interrupt.
-> > > > AF8133J uses it as an gpio output as a reset signal.
-> > > >
-> > > > It wasn't possible at runtime to enable both device tree nodes and
-> > > > detect supported sensor at probe time, because both drivers try to
-> > > > acquire the same gpio in different modes.
-> > > >
-> > > > Device tree fixup will be done in firmware without introducing new board
-> > > > revision and new dts.
-> > >
-> > > FYI I've been working on an in-kernel prober [1] for such alternative
-> > > components. This does not require firmware support.
-> > >
-> > > [1] https://lore.kernel.org/all/20240904090016.2841572-1-wenst@chromium.org/
-> >
-> > Thank you for the information.
-> >
-> > I've tried to use in-kernel prober from your v7 patchset [1] on top of
-> > -next and it worked without any changes to firmware.
-> >
-> > Since there is still on-going review of your patches it looks like
-> > it's to early to submit my changes for review. But I'm ready to test
-> > your new patches.
-> 
-> FYI I'm open to either approach. If the firmware can do it, that is also
-> fine. I don't know if it makes sense to have both disabled by default
-> though? That would break existing users, but so would the in-kernel
-> prober approach, which requires both components be marked as
-> "fail-needs-probe", and also requires that the kernel driver be enabled.
-> In other words, I think the firmware approach is friendlier for existing
-> users that have the original batches.
+v5:
+https://lore.kernel.org/all/20240920174740.781614-1-coltonlewis@google.com/
 
-Current patches leave original magnetometer enabled as before. So only
-the new alternative magnetometer is disabled. Firmware prober will set
-the correct status. So you are right firmware approach is a bit nicer
-for existing users, nothing will change for them with any combination
-of kernel and firmware. Let's go with a firmware approach with current
-patches then, if nobody 
+v4:
+https://lore.kernel.org/kvm/20240919190750.4163977-1-coltonlewis@google.com/
 
-But I like your in-kernel approach as well. 
-JFYI I've applied your v10 patches [1] on top of next-20241105 and retested
-it with patches for magnetometer. It's available here [2]. 
+v3:
+https://lore.kernel.org/kvm/20240912205133.4171576-1-coltonlewis@google.com/
 
-1. https://lore.kernel.org/lkml/20241030072229.1013235-1-wenst@chromium.org/#t
-2. https://github.com/AndreySV/linux-stable/commits/in-kernel-hwprober-magnetometer/
+v2:
+https://lore.kernel.org/kvm/20240911222433.3415301-1-coltonlewis@google.com/
 
--- 
-Best regards,
-Andrey Skvortsov
+v1:
+https://lore.kernel.org/kvm/20240904204133.1442132-1-coltonlewis@google.com/
+
+This series cleans up perf recording around guest events and improves
+the accuracy of the resulting perf reports.
+
+Perf was incorrectly counting any PMU overflow interrupt that occurred
+while a VCPU was loaded as a guest event even when the events were not
+truely guest events. This lead to much less accurate and useful perf
+recordings.
+
+See as an example the below reports of `perf record
+dirty_log_perf_test -m 2 -v 4` before and after the series on ARM64.
+
+Without series:
+
+Samples: 15K of event 'instructions', Event count (approx.): 31830580924
+Overhead  Command          Shared Object        Symbol
+  54.54%  dirty_log_perf_  dirty_log_perf_test  [.] run_test
+   5.39%  dirty_log_perf_  dirty_log_perf_test  [.] vcpu_worker
+   0.89%  dirty_log_perf_  [kernel.vmlinux]     [k] release_pages
+   0.70%  dirty_log_perf_  [kernel.vmlinux]     [k] free_pcppages_bulk
+   0.62%  dirty_log_perf_  dirty_log_perf_test  [.] userspace_mem_region_find
+   0.49%  dirty_log_perf_  dirty_log_perf_test  [.] sparsebit_is_set
+   0.46%  dirty_log_perf_  dirty_log_perf_test  [.] _virt_pg_map
+   0.46%  dirty_log_perf_  dirty_log_perf_test  [.] node_add
+   0.37%  dirty_log_perf_  dirty_log_perf_test  [.] node_reduce
+   0.35%  dirty_log_perf_  [kernel.vmlinux]     [k] free_unref_page_commit
+   0.33%  dirty_log_perf_  [kernel.vmlinux]     [k] __kvm_pgtable_walk
+   0.31%  dirty_log_perf_  [kernel.vmlinux]     [k] stage2_attr_walker
+   0.29%  dirty_log_perf_  [kernel.vmlinux]     [k] unmap_page_range
+   0.29%  dirty_log_perf_  dirty_log_perf_test  [.] test_assert
+   0.26%  dirty_log_perf_  [kernel.vmlinux]     [k] __mod_memcg_lruvec_state
+   0.24%  dirty_log_perf_  [kernel.vmlinux]     [k] kvm_s2_put_page
+
+With series:
+
+Samples: 15K of event 'instructions', Event count (approx.): 31830580924
+Samples: 15K of event 'instructions', Event count (approx.): 30898031385
+Overhead  Command          Shared Object        Symbol
+  54.05%  dirty_log_perf_  dirty_log_perf_test  [.] run_test
+   5.48%  dirty_log_perf_  [kernel.kallsyms]    [k] kvm_arch_vcpu_ioctl_run
+   4.70%  dirty_log_perf_  dirty_log_perf_test  [.] vcpu_worker
+   3.11%  dirty_log_perf_  [kernel.kallsyms]    [k] kvm_handle_guest_abort
+   2.24%  dirty_log_perf_  [kernel.kallsyms]    [k] up_read
+   1.98%  dirty_log_perf_  [kernel.kallsyms]    [k] __kvm_tlb_flush_vmid_ipa_nsh
+   1.97%  dirty_log_perf_  [kernel.kallsyms]    [k] __pi_clear_page
+   1.30%  dirty_log_perf_  [kernel.kallsyms]    [k] down_read
+   1.13%  dirty_log_perf_  [kernel.kallsyms]    [k] release_pages
+   1.12%  dirty_log_perf_  [kernel.kallsyms]    [k] __kvm_pgtable_walk
+   1.08%  dirty_log_perf_  [kernel.kallsyms]    [k] folio_batch_move_lru
+   1.06%  dirty_log_perf_  [kernel.kallsyms]    [k] __srcu_read_lock
+   1.03%  dirty_log_perf_  [kernel.kallsyms]    [k] get_page_from_freelist
+   1.01%  dirty_log_perf_  [kernel.kallsyms]    [k] __pte_offset_map_lock
+   0.82%  dirty_log_perf_  [kernel.kallsyms]    [k] handle_mm_fault
+   0.74%  dirty_log_perf_  [kernel.kallsyms]    [k] mas_state_walk
+
+Colton Lewis (5):
+  arm: perf: Drop unused functions
+  perf: Hoist perf_instruction_pointer() and perf_misc_flags()
+  powerpc: perf: Use perf_arch_instruction_pointer()
+  x86: perf: Refactor misc flag assignments
+  perf: Correct perf sampling with guest VMs
+
+ arch/arm/include/asm/perf_event.h            |  7 ---
+ arch/arm/kernel/perf_callchain.c             | 17 -------
+ arch/arm64/include/asm/perf_event.h          |  4 --
+ arch/arm64/kernel/perf_callchain.c           | 28 ------------
+ arch/powerpc/include/asm/perf_event_server.h |  6 +--
+ arch/powerpc/perf/callchain.c                |  2 +-
+ arch/powerpc/perf/callchain_32.c             |  2 +-
+ arch/powerpc/perf/callchain_64.c             |  2 +-
+ arch/powerpc/perf/core-book3s.c              |  4 +-
+ arch/s390/include/asm/perf_event.h           |  6 +--
+ arch/s390/kernel/perf_event.c                |  4 +-
+ arch/x86/events/core.c                       | 47 +++++++++++---------
+ arch/x86/include/asm/perf_event.h            | 12 ++---
+ include/linux/perf_event.h                   | 26 +++++++++--
+ kernel/events/core.c                         | 27 ++++++++++-
+ 15 files changed, 95 insertions(+), 99 deletions(-)
+
+
+base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
+--
+2.47.0.199.ga7371fff76-goog
 
