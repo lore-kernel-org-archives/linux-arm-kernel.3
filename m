@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8225D1CA0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 01:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5B6D1CA0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 01:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHOy9HMfGZsNYCZrwLCSvIFDt8NcrmF4jHCNX3GgtvM=; b=bl9G0Q79CulPCoLSfpzit17yTb
-	IOgMaHiDIx3++oeOpNlUM9vxO+nop3spFj8WY0tCI2F3xLxsIirvg8pyMs+7tkQuUYKmbDKy6/n2T
-	ZU/1p5in/4SLJtKzhGH4SeSkeUNBOlcut6wYwqptakMMGMmRjaXoKlHXhoQkq4aR7rV5KFtrE4YwV
-	pt3y4RDPc7ijPL8j6bc4dhI4mTDjPa12yCXSAUp+u01n8fP5EwGT/G9EdMLnvM9+y3/585deCGkuu
-	pKfGmAz6vvf3ZLipFtJRurxzRGsRuJYymSZdr20T6/XBv12cLPaC46SdPj7WvZUYoi71GUO7eW5O7
-	2JruA6Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3X6H2yWvjoxEZQk4S9UNqoGXZzKBiBUFGlISM0DDB9A=; b=bssze+e52aFvTpDnBF0iD4WUv/
+	BFmqaAzW4FhWAKFSk5oCHTQm+/qZDjsr3KvRT6Ftdt2AEr5kgwgQYGyjENIZEfyF4SI7x7kwiSdJ1
+	7sjy6tQcXozMfLnsIRtjeHjaiZFJqqLXrlk5J9a7MGCIyoq9dSiMHeZ0DvTRYXHIyjQ5M1Y3QJt+0
+	WoXduw3MtMXlWVqZ/2A3cXnO9xlL8ORk3D4+YZCEXUuLutLVrmBcJEtqM0FudT78EESkC6sUAIm4i
+	fegJmwVg6tNHYw2vkeQ6cmBTl0xUygBj2Hazht4wxtaBASbuTvJB2nps1u79vyS5+5ABdpAtlTLhD
+	GFsKUlEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t88Ve-0000000FaLi-16Pv;
-	Tue, 05 Nov 2024 01:37:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t88Xm-0000000FabD-0SXs;
+	Tue, 05 Nov 2024 01:39:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t88Sl-0000000FZof-1i8R;
-	Tue, 05 Nov 2024 01:34:32 +0000
+	id 1t88W3-0000000FaPy-3NO2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Nov 2024 01:37:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BD667A41C59;
-	Tue,  5 Nov 2024 01:32:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0B7C4CECE;
-	Tue,  5 Nov 2024 01:34:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4D84E5C10AE;
+	Tue,  5 Nov 2024 01:37:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A55C4CECE;
+	Tue,  5 Nov 2024 01:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730770469;
-	bh=pZqyeDU4Z0xb82ka1rqo9zPh5E+ZbwXvL5ApzcS2al4=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=cilUS0qQCFaxNF3zH63qgUIqVpBsK5ZAO2+Mc4CrXmk6QZIa3ZA/1eyWd894pH2td
-	 p6DeOBI4b44PBAllxDSwZ+pvc/5OEkcYzKgLtcgnvluIpjNagN96SxdO1hq1RTBHL4
-	 IsHQ3dUtDassq5aGIJOJqxs+MkAOhLYww1/sRgfew7akFKeqGOT8zYLFCTpqAtJETh
-	 hetvPOAoOKDF42PLByagmL9JEdRSFvR3DT2TRaUD4mTfYhVrokbWecXm5y2cdsb4O7
-	 uykYoTN0CALyatfk7dtT2vPJ/mDxiOvw5DHvt59QcW4RICZcRPoNv9l/f+5h04HOGk
-	 wE3h4ii4bPJsw==
-Message-ID: <43d8b52e-5e5b-4a37-9a18-6ac392048d92@kernel.org>
-Date: Tue, 5 Nov 2024 09:34:23 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: Chao Yu <chao@kernel.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org,
- linux-mips@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-crypto@vger.kernel.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-ext4@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [f2fs-dev] [PATCH v3 17/18] f2fs: switch to using the crc32
- library
-To: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org
-References: <20241103223154.136127-1-ebiggers@kernel.org>
- <20241103223154.136127-18-ebiggers@kernel.org>
-Content-Language: en-US
-From: Chao Yu <chao@kernel.org>
-In-Reply-To: <20241103223154.136127-18-ebiggers@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1730770673;
+	bh=Ey24GEdH76YotImuVoSeUAcRFspWSTyDjvx/6Eh9bQ0=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=WNomAKIfH6Y1wh1TfZs+yK8WDuHbfs7DbAzJClHvj288uq/Uo66G7RcGfe5afKBrc
+	 Cets2Vjo77hTG2kBz8Hl6Z54v71ruoe4o3fuYA1ReVTNAIiRY9Evpx2L0rGmb93azd
+	 7iXqu7WPUiCN/ZQ9T0HQQu6JBznmi1Gs1OUA080dPuqbBxp0/TnDuY7zHZhwJ0fVUK
+	 ds1OX4eoAyMFWociKYbAKWpilltaZ8Pf5Vzn2a2LqVqzT+rFl8VFtVVz3pLXiE9Ogc
+	 ioYTor9lKtc7FmHOMKMKkiWR3TGboW8UX1FXdwzvXzuNM9yn5x5vnYObcVzTUGa29T
+	 pd0Yh0/iN4/DQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE1653809A80;
+	Tue,  5 Nov 2024 01:38:03 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.12, part 2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <89b2c3f7-2740-4d85-b17b-ff7cb30c38a6@app.fastmail.com>
+References: <89b2c3f7-2740-4d85-b17b-ff7cb30c38a6@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <89b2c3f7-2740-4d85-b17b-ff7cb30c38a6@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/arm-fixes-6.12-2
+X-PR-Tracked-Commit-Id: bbfbb57958635912ba472925622f2bb0bab5f06c
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 2e1b3cc9d7f790145a80cb705b168f05dab65df2
+Message-Id: <173077068232.79719.6602076160879176034.pr-tracker-bot@kernel.org>
+Date: Tue, 05 Nov 2024 01:38:02 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_173431_547981_131D4B50 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20241104_173755_907379_E42ADEE2 
+X-CRM114-Status: UNSURE (   5.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,18 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/4 6:31, Eric Biggers via Linux-f2fs-devel wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Now that the crc32() library function takes advantage of
-> architecture-specific optimizations, it is unnecessary to go through the
-> crypto API.  Just use crc32().  This is much simpler, and it improves
-> performance due to eliminating the crypto API overhead.
-> 
-> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
+The pull request you sent on Mon, 04 Nov 2024 23:18:26 +0100:
 
-Acked-by: Chao Yu <chao@kernel.org>
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/arm-fixes-6.12-2
 
-Thanks,
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/2e1b3cc9d7f790145a80cb705b168f05dab65df2
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
