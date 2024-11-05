@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C4AD40CE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908E7D40D0D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Visze8T1/o6NUVrcZdRQoW4QaawF0ER2MqTcFpjP8Eg=; b=hXFzZHSuJzOwPgvcnW7r13pibw
-	Js1ouvibR4mVqbkoBS7X2Ax7ZEFfyP3Cq9xj2bxQ10+rkWRE/tcyITp8EQyKlRAT1iImXTTvuA0oc
-	BKGnwyey8DkoswLNsOYlM6niu03RPgPaQL8EEW2WP3659IddP3ne/yHZ7fXB105WwjDlYcapFnN8L
-	yRnpxzH1ux0ABzBvfm3EdMH0zPo86AOTcCw79N+f4KZOBs1lisxT8IWZP9lWdj9oF4kUvQW5XARCf
-	gl15zzPl6HOgPFvgROQ1YvCN1xxsgqqTm2aAlaL22M5shVcJq7Yw9g6nI5nqUWOwqKXhkZPNk6xv+
-	q6hTJZ8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LEYjQt96lWPstoeShAnU3G6jnpHJasceNuOR+43Qjrc=; b=A5bdmzNsN4NVQKXBGw8OnQciub
+	QYStRZj5cEwdkDs06W9i9d8Nrkqy6YBAhDIsiPZDlW/d+/fLaaFrE8FuKbS8vHuRYsXDy4bPKaLPz
+	R0r7gZ0GzRcwQxyW4Arhf94aEDugr15LZ/qzQ5ROfyBjnoTSx8gFCiIBtd8CX0Dl8I7kTmAzQvCMM
+	1N54l872AYVJaCKCv/V4mKRSvsIrLtGuf15KpD2kx4xHiOBBGJrvMRd7AtQeVoXMBq+d5PlvpjzSL
+	OAYb4XHZOntEVkvQU3N8VhYKGsCtFZdOsKepnJQAv3It0EfHOk0LZcIUTai1egjG+7Ad0msjZ2BYb
+	RtLs0XNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8TCY-000000017zW-317u;
-	Tue, 05 Nov 2024 23:43:10 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1t8TN5-000000018zg-13Ri;
+	Tue, 05 Nov 2024 23:54:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8TAq-000000017eL-3Nxu
+	id 1t8TLM-000000018p7-3t8S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 23:41:26 +0000
-Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 3F73F88E43;
-	Wed,  6 Nov 2024 00:41:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1730850081;
-	bh=Visze8T1/o6NUVrcZdRQoW4QaawF0ER2MqTcFpjP8Eg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ejvFprQH13kWl4SckkcMJ/PbMRZcGSzg08H2bIDBgvVuuEv/he9ahzWjdPIrMSKMo
-	 l76DYvu4E3IFY6fZ6/GOM08S0b9XQDHLh8Y4yKI1mgD8oLbL6QlY58+MtM7/yaH4Sy
-	 MOYsHua9eZffCK4pLqz6FzKEKh/qCH3c78vRGLdboIjP+y6s8l8T+X5kjT/iIEAWJ6
-	 b6AZV0qF5Bkfv4fTWoZFgOOw8Roo+RWCgBLM07DkKCPSNHAhPDpXnxM1c9xT7RFMC6
-	 j4/t0Tz2w2m10G44iVcNILWKhC0GwIolm1+cRWxwhzy/NQ8Ogd1GhDLfEjVE4Lrstg
-	 JHZEOpBH6N8MQ==
-From: Marek Vasut <marex@denx.de>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@denx.de>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	kernel@dh-electronics.com,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] ARM: dts: stm32: Sort M24256E write-lockable page in DH STM32MP13xx DHCOR SoM DT
-Date: Wed,  6 Nov 2024 00:40:41 +0100
-Message-ID: <20241105234106.162610-1-marex@denx.de>
-X-Mailer: git-send-email 2.45.2
+	Tue, 05 Nov 2024 23:52:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7A9EA4009F;
+	Tue,  5 Nov 2024 23:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D414C4CECF;
+	Tue,  5 Nov 2024 23:52:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730850735;
+	bh=9wnJ/RDSeWoiJUdNP0Uow5AMHKmQWu2URfnoiruZous=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=HII0ydHkTOJjKyLQD+5PEHXMwKiTCmGDEzUyDIVmIcY8L3F47Els3NVgs9fKonfqM
+	 N8IOZYmH3+fz+SpLRFljKaWy+/VpMf5dOu3ttqtSqWT+gTd9/tRhDtS+cHINKLMSZ0
+	 CEKhy/RKXfw2tUzWN/Ldlu7gY3FB5rGdzmH6JNxfKr8OpM2y4JDpbrGGiychrTNgZp
+	 hJWMitPckffcqu9U1ZXs0UOXhppfvtZnWaYcYPfPxFms5Gj9NbylHrr15Zp0FM7mW8
+	 jNhrlkDdVW7L76/lqyyhm1GOMCwfYAnPEKNTgQDdh7KeedJsGIF+U5vxkI7ueEQt+U
+	 sTdxfyagDBE3Q==
+Message-ID: <b312fadeefe5b77b8189f11570e0e109.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241102223956.868257-1-andersson@kernel.org>
+References: <20241102223956.868257-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock fixes for v6.12
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Abel Vesa <abel.vesa@linaro.org>, =?utf-8?b?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>, Johan Hovold <johan+linaro@kernel.org>, Qiang Yu <quic_qianyu@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Tue, 05 Nov 2024 15:52:13 -0800
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_154125_032112_4A8A9ED0 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20241105_155217_254539_6C57F6F4 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,55 +72,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the M24256E write-lockable page subnode after RTC subnode in
-DH STM32MP13xx DHCOR SoM DT to keep the list of nodes sorted by I2C
-address. No functional change.
+Quoting Bjorn Andersson (2024-11-02 15:39:54)
+>=20
+> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
+dc:
+>=20
+>   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-fixes-for-6.12
+>=20
+> for you to fetch changes up to e7f37a7d16310d3c9474825de26a67f00983ebea:
+>=20
+>   clk: qcom: gcc-x1e80100: Fix USB MP SS1 PHY GDSC pwrsts flags (2024-10-=
+22 15:35:15 -0500)
+>=20
+> ----------------------------------------------------------------
 
-Fixes: 3f2e7d167307 ("ARM: dts: stm32: Describe M24256E write-lockable page in DH STM32MP13xx DHCOR SoM DT")
-Signed-off-by: Marek Vasut <marex@denx.de>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
- arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-index 5edbc790d1d27..a181d5a816f69 100644
---- a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-@@ -201,17 +201,17 @@ eeprom0: eeprom@50 {
- 		pagesize = <64>;
- 	};
- 
--	eeprom0wl: eeprom@58 {
--		compatible = "st,24256e-wl";	/* ST M24256E WL page of 0x50 */
--		pagesize = <64>;
--		reg = <0x58>;
--	};
--
- 	rv3032: rtc@51 {
- 		compatible = "microcrystal,rv3032";
- 		reg = <0x51>;
- 		interrupts-extended = <&gpioi 0 IRQ_TYPE_EDGE_FALLING>;
- 	};
-+
-+	eeprom0wl: eeprom@58 {
-+		compatible = "st,24256e-wl";	/* ST M24256E WL page of 0x50 */
-+		pagesize = <64>;
-+		reg = <0x58>;
-+	};
- };
- 
- &iwdg2 {
--- 
-2.45.2
-
+Thanks. Pulled into clk-fixes
 
