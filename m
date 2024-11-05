@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426F5D31768
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6922ED31765
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 17:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=; b=GICtJVKuUXqzkHKcV04fv/5S/q
-	V1bvLF5Uv07vx1fRNuubF2AOtQOrj3LVAMThFS8dDxW3PHkOQ19XL1I5Tm66Tu9Zafs7ocmd1ceGy
-	e+EofZLLsXe+6j+0iSx5Xcq/zECXvI/6WWJletoMWcFkp4hcsdZ71FDPbcxSCSER9m6dGOkuLH8/L
-	S42u/TeteUpYQME3VuIt2e4Hfy8yzG/gs3sYIDzAGBE385qfb33MHPgw15tDlGo5zLkQ2rkZbQgFZ
-	11K/RqCcheFdpLhHW8etPNO1p5A2dIOSmnWhRDImtuLVjnTU8hjURluRtxdvn1JtgZZEz19Uq5lEq
-	OmWRYRNw==;
+	bh=rZsBpzkk5eIxxCoFTUQlG8fOz3VfVWVw0fc2odhFnds=; b=yO0rZh0CLuOCc8/Cnx3inWf6ZF
+	7LCuu4XryD2Rxwzsw/jslz8dF37pMsWxNBlK+WI0WpBzpgmncI1rrB8kRkGWSiyR21uTKKZVpVaUy
+	s15E2jctfGh9O12rkqxq1pK8a3cbvuqe40MT1IHdy5pseaMQs41Tk37fJETYfwVnPLIh2HGMo/STz
+	WdkdSfs4nSrX/1ifHUodha6n2Ye7iHBBbGS2Ow12cvZIg9DOzwBPj12SjIsA/OdHflvHIdoAkJOXx
+	AHBCl6SE9bHvNGsBs3EZid0puCr/hezfmvMrtI4ThNHaxm1qUMRLP5gMHEgzVE9+MaFrq0tONmxYU
+	+tX0WSgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MuS-000000008fH-3IuC;
-	Tue, 05 Nov 2024 17:00:04 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1t8Mw7-000000008pn-2RVi;
+	Tue, 05 Nov 2024 17:01:47 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8MGC-0000000014f-2fTL;
-	Tue, 05 Nov 2024 16:18:29 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7b158542592so399391985a.2;
-        Tue, 05 Nov 2024 08:18:26 -0800 (PST)
+	id 1t8MGD-0000000015J-2EAF;
+	Tue, 05 Nov 2024 16:18:30 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7b1507c42faso490831085a.0;
+        Tue, 05 Nov 2024 08:18:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730823506; x=1731428306; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730823508; x=1731428308; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=;
-        b=dUmuwXRN9J+ycj36wdL3/tbipuGmVajN942zZw0H8pVa3g7Vwr/M0s2LEcoH9h50oV
-         MStB9bviSuVT0qGSiLGePXBawW9sEXdzpAkFE0COw6FFxDhwr0zKMInMnmBl934vwC6u
-         yk5KskiefNUJlBfnpE4zwqdJA2Zg/TnSg6aqet4bi8femzN3rbcCAHe/pHXECFM5I66p
-         O6TAgtI6M8K+KsW2h76hsh1lIYoRTIgJHnduf85QmS9gIysQSAqB27OdPpOtblzOU+sg
-         EZfrUjAVtFrkYA6KE0wlAtqGU9KeBs/nuumzyRyjCVoA13Lp8WeO6Ur36R79uPXQkZ3j
-         RcnQ==
+        bh=rZsBpzkk5eIxxCoFTUQlG8fOz3VfVWVw0fc2odhFnds=;
+        b=LNEErJAtLAoY5YI1Btc1xEedaxEaZu/IpsL708Dl5kbLb6R9yDaKL3I3Tmq3eltvcR
+         mlQujkAlVNjDi5qoHjechkt+6VkcbYFn1bgaSr7A5LULoVca4wjXNLRi25vhFTYT7FZ4
+         cZS/aF/I9xXUlguUsvBjBJZUI7Q3z0KEIo2n0fzBA069PMxbYkwZCDO/JAcAJbVqOPbV
+         AXi7ouJGRzaBUAfcDZgD65bx/BDFzSZRcLngZx1KOSvRN2Ag1RLOqVIWZNDE28+xqFfN
+         fLXkCkJH4zY6DWLrRv7xLI2E7rg+KmRU4nD6irmNGjs5flkGUgxXjYc6LW+52d/2snUA
+         H6qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730823506; x=1731428306;
+        d=1e100.net; s=20230601; t=1730823508; x=1731428308;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eXGcEW/yKJ2kT/lKQoK+ikV2KsFoei/F8kGwDlFWQO8=;
-        b=VukY1H6qjwHJilgN1/GgozDrqRu+Wzl+tntUPTR3pKh7hDmwHdrpKNTpN8fPdYlfHN
-         Nyui/qO96E1y12X+WMaD/MERw5CrJywF00CR/JZ7QxjByN7bVtL8yWmxL94OIEf08XH7
-         m8DE86AXz0WFpvoXJSxEVFp5PGi/bl7zBWA/LmM20pNQSW4yIJHYFDVQh8abk3Eo1THE
-         emRTd6syBNvYAlaunZKudtpU5ldjyblPc2hAAnnHYhWasf0tmRyWYQOXmCKmqn5uH5lR
-         rkfIUwThA1OZfgX9/FE4yxym/DPYkYlCr4A6eEGFdHPi+hrzQgNWO4KPtqHBkCukQthL
-         1AyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVfDqPlFVct4M3XifoimrtnCbcGgzAogJ2O1jd0CvuOMJrxogTrpidcNfKh2WgWWlZSG6qtw/zN85+akJvN+cI=@lists.infradead.org, AJvYcCXne2/g1PEfqw8ZdNoEMOq6GDfs9vqXnBhuiCT4k5CVrOXY3/IoQXZVT1arHlWUzOB0bDMfn2s0rxAwr+Puga1Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YyieEqH4D4rfTUz4miSabdqn17gurwDeNLkyAbgfcEPPsPZWxtf
-	9x9lkALjxA36Fb+ZLtIwAl2vmn/o9Zz7Vw5Z3YzzT1XN4EnhUBqw
-X-Google-Smtp-Source: AGHT+IH/TVTagDdBicU9q7qr8NhSf15bW+aAQAdd0pCb97OHGnCjFbeCAMwnLUwjAeS4tg6AWJHmHQ==
-X-Received: by 2002:a05:620a:4492:b0:7b1:52a9:ae15 with SMTP id af79cd13be357-7b2fb948de3mr2387592485a.9.1730823506107;
-        Tue, 05 Nov 2024 08:18:26 -0800 (PST)
+        bh=rZsBpzkk5eIxxCoFTUQlG8fOz3VfVWVw0fc2odhFnds=;
+        b=XO6biJgPyWk8M7FxwAgcZc+wpKplg1MWnEXn6sCDai4KAyA1n58gLrHyQTPtyskCyY
+         8jLCdhbeMlfb0WBSX5/oe9DfrD5hW6XmR4jNhrfN7eVja5Ff16OknYSNuFluOhySNDUw
+         aSUjHc8UwHBlIxIgdnGJuTGXaIxRfKKrFVx8VuA0JdBmdSFeeldarE7zyAgy1xHfvaOt
+         B5o89q5FqIOlxG+oHtExwspDJaiyhLu7q+qKGCkKJqNySRXkHBZ+qL0EmYLMNxrOQwSX
+         H9JAPuCy58AAtu3am+tG0V74LTmI6reFU2ifPOM1bx7dkylMGayEbglceSTxIWt0bb76
+         bmBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVlomGeIqrgUN6qPhlEy0BfrjCoPVxhYKoVQkLjQLrSauofXm5xJPnpeGep88/gLPBMN2HDvoB/7C5Bfi3nQFA=@lists.infradead.org, AJvYcCVsVXlkEqnYivtq0OY9DhPKTf4rysFvMgJw8Iv8uZjj+Je23jP5wxgs1YJHJq2oKb4kpO4/FBLObQfNRudI1Ufj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+rf8JHU7Lsr3hEVNvsp8lB/P+P/+uXDW4Er1Wc2or0g1LgcdT
+	jk3hVqdaNVTA1/AJM2myu1eUVhYlsCjKbdqlZeWbzJ0dAs9v38Gi
+X-Google-Smtp-Source: AGHT+IGQEeuVCyhghtqvJgTQQUezecC0Efl6QzEbppiW669eVn4FBMz1WOBfVXc/9kFFbFVBKkX7wg==
+X-Received: by 2002:a05:620a:284b:b0:7a9:c129:504f with SMTP id af79cd13be357-7b2f3d3999emr2948846985a.23.1730823507790;
+        Tue, 05 Nov 2024 08:18:27 -0800 (PST)
 Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f39eb14fsm538010885a.7.2024.11.05.08.18.25
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b2f39eb14fsm538010885a.7.2024.11.05.08.18.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 08:18:25 -0800 (PST)
+        Tue, 05 Nov 2024 08:18:27 -0800 (PST)
 From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 To: andi.shyti@kernel.org
 Cc: rmk@dyn-67.arm.linux.org.uk,
@@ -77,17 +77,17 @@ Cc: rmk@dyn-67.arm.linux.org.uk,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v2 2/3] i2c: pxa: Add check for clk_enable() and clk_prepare_enable()
-Date: Tue,  5 Nov 2024 16:18:19 +0000
-Message-Id: <20241105161820.32512-2-jiashengjiangcool@gmail.com>
+Subject: [PATCH v2 3/3] i2c: rk3x: Add check for clk_enable()
+Date: Tue,  5 Nov 2024 16:18:20 +0000
+Message-Id: <20241105161820.32512-3-jiashengjiangcool@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
 References: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_081828_696098_AEA3F441 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20241105_081829_592809_9DA4067A 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,8 +102,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return values of clk_enable() and clk_prepare_enable()
-in order to catch the potential exceptions.
+Add check for the return value of clk_enable() in order to catch the
+potential exception. Moreover, convert the return type of
+rk3x_i2c_adapt_div() into int and add the check.
 
 Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 ---
@@ -114,38 +115,122 @@ v1 -> v2:
 1. Remove the Fixes tag.
 2. Use dev_err_probe to simplify error handling.
 ---
- drivers/i2c/busses/i2c-pxa.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/i2c/busses/i2c-rk3x.c | 51 +++++++++++++++++++++++++----------
+ 1 file changed, 37 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
-index 4d76e71cdd4b..0ee6fe83de40 100644
---- a/drivers/i2c/busses/i2c-pxa.c
-+++ b/drivers/i2c/busses/i2c-pxa.c
-@@ -1503,7 +1503,9 @@ static int i2c_pxa_probe(struct platform_device *dev)
- 				i2c->adap.name);
- 	}
+diff --git a/drivers/i2c/busses/i2c-rk3x.c b/drivers/i2c/busses/i2c-rk3x.c
+index 4ef9bad77b85..57c2d37fc7c3 100644
+--- a/drivers/i2c/busses/i2c-rk3x.c
++++ b/drivers/i2c/busses/i2c-rk3x.c
+@@ -871,7 +871,7 @@ static int rk3x_i2c_v1_calc_timings(unsigned long clk_rate,
+ 	return ret;
+ }
  
--	clk_prepare_enable(i2c->clk);
-+	ret = clk_prepare_enable(i2c->clk);
-+	if (ret)
-+		return dev_err_probe(&dev->dev, ret, "failed to enable clock: %d\n", ret);
- 
- 	if (i2c->use_pio) {
- 		i2c->adap.algo = &i2c_pxa_pio_algorithm;
-@@ -1560,8 +1562,12 @@ static int i2c_pxa_suspend_noirq(struct device *dev)
- static int i2c_pxa_resume_noirq(struct device *dev)
+-static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
++static int rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
  {
- 	struct pxa_i2c *i2c = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_enable(i2c->clk);
+ 	struct i2c_timings *t = &i2c->t;
+ 	struct rk3x_i2c_calced_timings calc;
+@@ -883,7 +883,9 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
+ 	ret = i2c->soc_data->calc_timings(clk_rate, t, &calc);
+ 	WARN_ONCE(ret != 0, "Could not reach SCL freq %u", t->bus_freq_hz);
+ 
+-	clk_enable(i2c->pclk);
++	ret = clk_enable(i2c->pclk);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable clock: %d\n", ret);
++		return dev_err_probe(i2c->dev, ret, "Can't enable bus clk for rk3399: %d\n", ret);
+ 
+ 	spin_lock_irqsave(&i2c->lock, flags);
+ 	val = i2c_readl(i2c, REG_CON);
+@@ -904,6 +906,8 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
+ 		clk_rate / 1000,
+ 		1000000000 / t->bus_freq_hz,
+ 		t_low_ns, t_high_ns);
++
++	return 0;
+ }
+ 
+ /**
+@@ -942,19 +946,27 @@ static int rk3x_i2c_clk_notifier_cb(struct notifier_block *nb, unsigned long
+ 			return NOTIFY_STOP;
+ 
+ 		/* scale up */
+-		if (ndata->new_rate > ndata->old_rate)
+-			rk3x_i2c_adapt_div(i2c, ndata->new_rate);
++		if (ndata->new_rate > ndata->old_rate) {
++			if (rk3x_i2c_adapt_div(i2c, ndata->new_rate))
++				return NOTIFY_STOP;
++		}
+ 
+ 		return NOTIFY_OK;
+ 	case POST_RATE_CHANGE:
+ 		/* scale down */
+-		if (ndata->new_rate < ndata->old_rate)
+-			rk3x_i2c_adapt_div(i2c, ndata->new_rate);
++		if (ndata->new_rate < ndata->old_rate) {
++			if (rk3x_i2c_adapt_div(i2c, ndata->new_rate))
++				return NOTIFY_STOP;
++		}
++
+ 		return NOTIFY_OK;
+ 	case ABORT_RATE_CHANGE:
+ 		/* scale up */
+-		if (ndata->new_rate > ndata->old_rate)
+-			rk3x_i2c_adapt_div(i2c, ndata->old_rate);
++		if (ndata->new_rate > ndata->old_rate) {
++			if (rk3x_i2c_adapt_div(i2c, ndata->old_rate))
++				return NOTIFY_STOP;
++		}
++
+ 		return NOTIFY_OK;
+ 	default:
+ 		return NOTIFY_DONE;
+@@ -1068,8 +1080,18 @@ static int rk3x_i2c_xfer_common(struct i2c_adapter *adap,
+ 
+ 	spin_lock_irqsave(&i2c->lock, flags);
  
 -	clk_enable(i2c->clk);
- 	i2c_pxa_reset(i2c);
+-	clk_enable(i2c->pclk);
++	ret = clk_enable(i2c->clk);
++	if (ret) {
++		spin_unlock_irqrestore(&i2c->lock, flags);
++		return dev_err_probe(i2c->dev, ret, "Can't enable bus clk: %d\n", ret);
++	}
++
++	ret = clk_enable(i2c->pclk);
++	if (ret) {
++		clk_disable(i2c->clk);
++		spin_unlock_irqrestore(&i2c->lock, flags);
++		return dev_err_probe(i2c->dev, ret, "Can't enable bus clk for rk3399: %d\n", ret);
++	}
  
- 	return 0;
+ 	i2c->is_last_msg = false;
+ 
+@@ -1149,9 +1171,7 @@ static __maybe_unused int rk3x_i2c_resume(struct device *dev)
+ {
+ 	struct rk3x_i2c *i2c = dev_get_drvdata(dev);
+ 
+-	rk3x_i2c_adapt_div(i2c, clk_get_rate(i2c->clk));
+-
+-	return 0;
++	return rk3x_i2c_adapt_div(i2c, clk_get_rate(i2c->clk));
+ }
+ 
+ static u32 rk3x_i2c_func(struct i2c_adapter *adap)
+@@ -1365,9 +1385,12 @@ static int rk3x_i2c_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	clk_rate = clk_get_rate(i2c->clk);
+-	rk3x_i2c_adapt_div(i2c, clk_rate);
++	ret = rk3x_i2c_adapt_div(i2c, clk_rate);
+ 	clk_disable(i2c->clk);
+ 
++	if (ret)
++		goto err_clk_notifier;
++
+ 	ret = i2c_add_adapter(&i2c->adap);
+ 	if (ret < 0)
+ 		goto err_clk_notifier;
 -- 
 2.25.1
 
