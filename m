@@ -4,82 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E74ED12685
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A484D1268C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDVspZ71dq5KAcHVIgTOcoCEUMJxMrE5sWF08fN2h6M=; b=kTvrjgbXJLJWowamMf75O7ajQK
-	MOucOL9AlEOzxHZuhueOWGktHjEkTlfg3Uc4B3JFxWyLgZuYTaW+kn8ULneaMWBAFAYYUpAWvGgnf
-	LeC+/x8YhjDVSOzs9gI6Rm+vl8aCLiaHkZYDU/HZMvbVQuzUvs5jjRf8agpQ/z5pizu5DwECyK6X2
-	fm96KllhD2g+1itb2X0/wmWCiDlAIoN6UHK3svaqGuuRXMSxfogP/98NOHU8V9F50AiDOQAXRTU99
-	PlEeXrgOeoOYkExLRR1jbWpgRZw4b5dKhAzsq6mK/ks883oY3SGcTYgBhXPxL5DOrUGJetcESCswo
-	QwucgjLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=; b=rgU48qnd5p2qNtVMUt693OtDQK
+	Xs+u6onJG5sYwtEgylHO/pZt3NjwwiKqgg/GOIKaeYjBXHEbR0Dn779MCN93m8/J+4MXZaYG37d3n
+	HyYb4jbWJY/eWJenwDdeKhmF7vC1jMAhKYheLeHhooaZfTARObk8RWVhLKcSrL65Ob/yX4b9cv8IE
+	QbM3KYMyoZ4cx1uinySE9NWGUYiRWc+LTyvghNuLkZqkgo8KQJKqo7WjAIUTihRIFP7TBX0WL5ZCM
+	pCgpgFdc6THrmim/fSje43/sq0QjNgo4DZ5GKpRLx6oFMInTW4SwYKXoqb6Cf6Iy8eEdtkYMgatun
+	S2qbYGsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HYI-0000000GouZ-3PM4;
-	Tue, 05 Nov 2024 11:16:50 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1t8HjM-0000000Gran-3xm5;
+	Tue, 05 Nov 2024 11:28:17 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HWZ-0000000GoTH-0yyc
+	id 1t8Hhd-0000000Gr8e-2AHR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 11:15:04 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A5BEoLO077893;
-	Tue, 5 Nov 2024 05:14:50 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730805290;
-	bh=IDVspZ71dq5KAcHVIgTOcoCEUMJxMrE5sWF08fN2h6M=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Fma2B8rFAMihl8HSEt6dH/hwvCAhjtKL0pZxJ6P6Sd/SiSnxOMvQ4lwG3q8vaz188
-	 cUNIcr3/59gJcDG263VwRYIO5DeI79gi6YWqz8GFe0gxXlCaV7hJKULF3dmrC0l7Vo
-	 6YOKf5LjSguE/EPmarxXMH0JW/nuUBbdx9LkotI0=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A5BEoHX052462
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 5 Nov 2024 05:14:50 -0600
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 5
- Nov 2024 05:14:50 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 5 Nov 2024 05:14:50 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A5BEhKc094758;
-	Tue, 5 Nov 2024 05:14:44 -0600
-Message-ID: <9dbaae62-fc18-4f87-a6a9-8226e7266473@ti.com>
-Date: Tue, 5 Nov 2024 16:44:43 +0530
+	Tue, 05 Nov 2024 11:26:30 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e30eca40c44so4713978276.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 03:26:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730805987; x=1731410787; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=;
+        b=LOr4YH1g4+l7Y59kzEsh1AVHtsUzJDVu87uABHlFdNqqZvOGCYZkDBFiCJMlE3SDLM
+         2xKVZtjJfSNMEftbTvayCDp3KagCgXJxQAAF5w6gaZMMClGHFsoz9qHD5L3EGRxkmizm
+         JSdzJ2IqFGeiYDGDb7q3nUHFP5NU4avZhrAPkZ2IExW77Mu+8MrB+gAt4Ph3IC8W7mJ+
+         GDoZVsWFcJuDfd2Jfr+lobgWyuzShEgNvXFI1D1gMb0ptc6T4id+aPu97eMZh/TagYYn
+         7K0dMsNMfuK9Kbpj8iojl+E7/wiKhhQB9Nor4Bo7I1j79JkWuKz0QNHhJ2qnu/CZnT2r
+         87dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730805987; x=1731410787;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZbPFk8wJiQvrTCXjlYgvumUQ0j3KXfVkR1pWzQFIBYw=;
+        b=GhjyTKKXs1jhpwqmSzTCP9eIykzoo6YNPy0baW648KAJ1MoOiC5xsYt/Lk1DBqYrE+
+         VrhhGpJrXBv2xRPReTtXVglhmBtOpMnwPzYgLhvvuXXpjUrPRQVZa+hcRycuB6+Fpbvw
+         y2UGne5CBFdfOnqy4p843eh4AOLpRGN5unhCGQPIsfx4JidDj1vX4VFXts+H5W1D88sU
+         mynykG9mGKNMyF/UYJchnjQvHSWsc2StAEwMUp3Ie31Yu6epnKnWxaWNOa0zX/uGmXjj
+         euRMvPDnPNCn2FCeGvZCBuKgxis3jj9j7aYGtHTRaqJ/+3ze8wPuhvVm5VHmQQz2ney/
+         G8Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCXUSiucOogVMw7wIddeYTvWwuFtCl1E+ufOxKtgNl8MXiaXel3mQbbTMsyNlKUG5z+yyj8qpaq0MEH4mwJH8YgT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEPpnykEtBoA0HBDpDFl2hQ4W3YLZv4GEOiUr3L9n6o8Jd3W2Y
+	/uodSYPRd0FfBFT0tSbjblOYLGd1ZO7kUbCrfHmAQDNZiplCFXjW49lVEpYAhFu4K/tstj3Duws
+	9PHjpP49ranT7LXRieg78pu7/gNfbql4l/StoaQ==
+X-Google-Smtp-Source: AGHT+IHwht1pfSwQlaqWWbyXJaYST2v470nqEkV0Y3tMwYWqipVeiUaNoITHKiBik6whym2zw0rsn51UBBneR8aGa1Y=
+X-Received: by 2002:a05:690c:fd0:b0:6ea:8d6f:b1bf with SMTP id
+ 00721157ae682-6ea8d6fb48amr78680707b3.0.1730805987251; Tue, 05 Nov 2024
+ 03:26:27 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 4/4] selftests: hsr: Add test for VLAN
-To: Paolo Abeni <pabeni@redhat.com>, <geliang@kernel.org>,
-        <liuhangbin@gmail.com>, <dan.carpenter@linaro.org>, <jiri@resnulli.us>,
-        <n.zhandarovich@fintech.ru>, <aleksander.lobakin@intel.com>,
-        <lukma@denx.de>, <horms@kernel.org>, <jan.kiszka@siemens.com>,
-        <diogo.ivo@siemens.com>, <shuah@kernel.org>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <m-malladi@ti.com>
-References: <20241024103056.3201071-1-danishanwar@ti.com>
- <20241024103056.3201071-5-danishanwar@ti.com>
- <3e443eb4-d15f-45ff-8b41-a8215fb4032b@redhat.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <3e443eb4-d15f-45ff-8b41-a8215fb4032b@redhat.com>
+References: <20241028023740.19732-1-victor.liu@nxp.com> <20241028023740.19732-5-victor.liu@nxp.com>
+ <Zyn5CgZvyg05cgJW@kekkonen.localdomain>
+In-Reply-To: <Zyn5CgZvyg05cgJW@kekkonen.localdomain>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Tue, 5 Nov 2024 11:26:16 +0000
+Message-ID: <CAA8EJpoaLnw46DUaZ+z-YSkbdk-f45-dKMjoQWu16zaC6i-H-w@mail.gmail.com>
+Subject: Re: [PATCH v4 04/13] media: uapi: Add MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG,
+ JEIDA}
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, andrzej.hajda@intel.com, 
+	neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, quic_jesszhan@quicinc.com, mchehab@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	hverkuil@xs4all.nl, tomi.valkeinen@ideasonboard.com, 
+	quic_bjorande@quicinc.com, geert+renesas@glider.be, arnd@arndb.de, 
+	nfraprado@collabora.com, thierry.reding@gmail.com, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org, marex@denx.de, 
+	biju.das.jz@bp.renesas.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_031503_446953_6267218B 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20241105_032629_573795_E71A6117 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 5 Nov 2024 at 10:53, Sakari Ailus <sakari.ailus@linux.intel.com> wrote:
+>
+> Hi Ying,
+>
+> On Mon, Oct 28, 2024 at 10:37:31AM +0800, Liu Ying wrote:
+> > Add two media bus formats that identify 30-bit RGB pixels transmitted
+> > by a LVDS link with five differential data pairs, serialized into 7
+> > time slots, using standard SPWG/VESA or JEIDA data mapping.
+> >
+> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>
+> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+>
+> It's fine to merge this via another tree, too.
 
+Thank you!
 
-On 31/10/24 8:11 pm, Paolo Abeni wrote:
-> On 10/24/24 12:30, MD Danish Anwar wrote:
->> @@ -183,9 +232,21 @@ trap cleanup_all_ns EXIT
->>  setup_hsr_interfaces 0
->>  do_complete_ping_test
->>  
->> +# Run VLAN Test
->> +if $vlan; then
->> +	setup_vlan_interfaces
->> +	hsr_vlan_ping
->> +fi
->> +
->>  setup_ns ns1 ns2 ns3
->>  
->>  setup_hsr_interfaces 1
->>  do_complete_ping_test
->>  
->> +# Run VLAN Test
->> +if $vlan; then
->> +	setup_vlan_interfaces
->> +	hsr_vlan_ping
->> +fi
-> 
-> The new tests should be enabled by default. Indeed ideally the test
-> script should be able to run successfully on kernel not supporting such
-> feature; you could cope with that looking for the hsr exposed feature
-> and skipping the vlan test when the relevant feature is not present.
-> 
-
-Sure Paolo, I will make the new tests enabled by default. During the
-test I will check the exposed feature `ethtool -k hsr1 | grep
-"vlan-challenged"` and if vlan is not supported, skip the vlan test.
-
-Below will be my API to run VLAN tests,
-
-run_vlan_tests() {
-	vlan_challenged_hsr1=$(ip net exec "$ns1" ethtool -k hsr1 | grep
-"vlan-challenged" | awk '{print $2}')
-	vlan_challenged_hsr2=$(ip net exec "$ns1" ethtool -k hsr2 | grep
-"vlan-challenged" | awk '{print $2}')
-	vlan_challenged_hsr3=$(ip net exec "$ns1" ethtool -k hsr3 | grep
-"vlan-challenged" | awk '{print $2}')
-
-	if [[ "$vlan_challenged_hsr1" = "off" || "$vlan_challenged_hsr2" =
-"off" || "$vlan_challenged_hsr3" = "off" ]]; then
-		setup_vlan_interfaces
-		hsr_vlan_ping
-	else
-		echo "INFO: Not Running VLAN tests as the device does not support VLAN"
-	fi
-}
-
-I will call this function after the ping test.
-Let me know if this looks okay to you.
-
-Thanks for the review.
-
-> Cheers,
-> 
-> Paolo
-> 
 
 -- 
-Thanks and Regards,
-Danish
+With best wishes
+Dmitry
 
