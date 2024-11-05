@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497C5D40CE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14AFD40CE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=/dpj45Wj4SyIwo7i9D3SK+9GRD+edSfTLXTW4lyMZDI=; b=sVyPq4AKYNMwyG
-	WgydRnKiS5WmiTgFHfQQHVQKzr39qqzhCnHkMuhnKwibs91/ds4Gv8AlpmJgCrkek9eDwAwTYz/mI
-	3rBSEJK/UpsdGwhJGOMbjPp0mKmB568tGFLrsqP4ec7qXLfpNt5LJmaNdsRTIHbZ1RhnTw292KMBQ
-	ChgZ5gsKUVKZ5pZ3zP/ZaiwCFhej8rksKIhfg+d9E7wRb3v8uaR53Pfzl+3jcAJ8LdT60Vzq4XZ2t
-	5miGoaw97lm/FJyMixLcidiMI/LS0D+XKvbaBbe0+S3KH/UYN3UxJJEeZ1bf+6DL+oMUZDCKwsoeC
-	SAsF6klSlkkPyTZNp9vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GL0GAPR6jFPg/XAdj5ZTtn6Z4oNSGAhsnvnHgYMD92k=; b=izyHhoGIXXuM4HgjoZbUEyZJnU
+	XQMeQhw0TopixSWtDTWMZ8dwEE7itDCPJHq6zKZ3SzbKcuIFdhKl72R/Gqu0icK8eFePyyAMYQVgz
+	kdQxz7jZ0VviXgmhsEIjs32tIX8T8ref+UTy20f6cbhfo1F8DNljUyPsslTkPiZ2l7TLSxv8UM4JA
+	EWHLBTVheKDFY+jBjjJKjb6DMXTplELppkHLhOggsXROxIWxgNDWy/HkONWyeNyODoygd4WAvsLXJ
+	ogggMpDnurAFZRrH+fHm3DXh+ctpdAYJ0edtP9AjYRPtEpSEMF6iXKurPGVyxRWnjGKNuaUjn2RPe
+	dcljdcLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Szi-000000016ZS-0lJD;
-	Tue, 05 Nov 2024 23:29:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8T2I-000000016px-3z2G;
+	Tue, 05 Nov 2024 23:32:35 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Swy-000000016I2-2a8Q
+	id 1t8T0Y-000000016g8-45SW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 23:27:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DC87C5C5783;
-	Tue,  5 Nov 2024 23:26:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 219AFC4CECF;
-	Tue,  5 Nov 2024 23:27:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730849223;
-	bh=UkvquMl7XDzAUrgt8bEdxCreNSRkuPZxntXUk0Q5qT4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ItX1lqbddjjJBLKfroS5uE/8N6rGlilUk0vqQmKsqt3ZQFip037N+gV6rUt8GbS4N
-	 NG+xvj5Eybh67ymoaYzjRVS/MmEHcPM/56mGv7R9MkER8wwp6kruNsw7+4Ro23/iZk
-	 Vl6XA1c9so009WImSIdyDnlRZTID2yj9VV9wXnT0qKTn7f2mp+Nda8rnoB/vjLLHqi
-	 zJAXSQD0FQYvlHlaooc4+Cyno+w+c7XIfXStgzFov96do97p46huWe0p/YBDeJjSNr
-	 cMRRthfXWLe+ZinbqnM4BIMfsY8iRHVtU5UEuewz4MvFQkxE+09zYv5yomE93b1pk/
-	 EJYktAZBv6o1g==
-Date: Tue, 5 Nov 2024 17:27:01 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: kwilczynski@kernel.org, bhelgaas@google.com, lorenzo.pieralisi@arm.com,
-	frank.li@nxp.com, mani@kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@pengutronix.de, imx@lists.linux.dev
-Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
- some platforms
-Message-ID: <20241105232701.GA1495103@bhelgaas>
+	Tue, 05 Nov 2024 23:30:48 +0000
+Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 4330888EBB;
+	Wed,  6 Nov 2024 00:30:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1730849444;
+	bh=GL0GAPR6jFPg/XAdj5ZTtn6Z4oNSGAhsnvnHgYMD92k=;
+	h=From:To:Cc:Subject:Date:From;
+	b=onB7/sx4/0zM8uccNeK5wlWG6kul7jeNj8h6l8EJPVXIU2aKXw0/FtBPaXOc/zaxW
+	 DdK2RD2y94KJckIJ/X3DXO2vVUK7B358aT6XyA8rrwsFzw1+faKVvjZ3cRagapzEMu
+	 ymKgp7Ls5sn4jtsvybw3rxSkFiWHOkm1A1M81HcwmRHDs3vYLxLP1Nb7CfclKSYmod
+	 asg9mm7fIh6JABMWpFxFykXIBqAUreUfkM/f8o+R3l2RP7BhEEmV9SXgYbdfobBlmU
+	 g5CCt6e3ONlUtqdpT9/Pncy1qhXyNzh1WnYGvKEfSGCdlE5+gs6E6ikpbtSNeOt3Qr
+	 oWWek9ufzpIDA==
+From: Marek Vasut <marex@denx.de>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@denx.de>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	kernel@dh-electronics.com,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] ARM: dts: stm32: Deduplicate serial aliases and chosen node for STM32MP15xx DHCOM SoM
+Date: Wed,  6 Nov 2024 00:29:44 +0100
+Message-ID: <20241105233026.161463-1-marex@denx.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1721628913-1449-1-git-send-email-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_152704_806423_AACF0D1D 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20241105_153047_368960_5BB3BEB8 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,79 +79,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 22, 2024 at 02:15:13PM +0800, Richard Zhu wrote:
-> The dw_pcie_suspend_noirq() function currently returns success directly
-> if no endpoint (EP) device is connected. However, on some platforms, power
-> loss occurs during suspend, causing dw_resume() to do nothing in this case.
-> This results in a system halt because the DWC controller is not initialized
-> after power-on during resume.
+Deduplicate /aliases { serialN = ... } and /chosen node into
+stm32mp15xx-dhcom-som.dtsi , since the content is identical
+on all carrier boards using the STM32MP15xx DHCOM SoM. No
+functional change.
 
-dw_resume() doesn't exist.  What function did you mean?
+Signed-off-by: Marek Vasut <marex@denx.de>
+---
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi   | 12 ------------
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi    | 10 ----------
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi | 10 ----------
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi     |  7 +++++++
+ 4 files changed, 7 insertions(+), 32 deletions(-)
 
-System halt?  In dw_pcie_resume_noirq()?  What causes the halt?  A
-NULL pointer dereference?  A CPU hang because a read of some
-controller register never completes?  Feels a little hand-wavy.
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
+index bb4f8a0b937f3..abe2dfe706364 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
+@@ -6,18 +6,6 @@
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/pwm/pwm.h>
+ 
+-/ {
+-	aliases {
+-		serial0 = &uart4;
+-		serial1 = &usart3;
+-		serial2 = &uart8;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0:115200n8";
+-	};
+-};
+-
+ &adc {
+ 	status = "disabled";
+ };
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
+index 171d7c7658fa8..0fb4e55843b9d 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
+@@ -7,16 +7,6 @@
+ #include <dt-bindings/pwm/pwm.h>
+ 
+ / {
+-	aliases {
+-		serial0 = &uart4;
+-		serial1 = &usart3;
+-		serial2 = &uart8;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0:115200n8";
+-	};
+-
+ 	clk_ext_audio_codec: clock-codec {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
+index b5bc53accd6b2..01c693cc03446 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
+@@ -7,16 +7,6 @@
+ #include <dt-bindings/pwm/pwm.h>
+ 
+ / {
+-	aliases {
+-		serial0 = &uart4;
+-		serial1 = &usart3;
+-		serial2 = &uart8;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0:115200n8";
+-	};
+-
+ 	led {
+ 		compatible = "gpio-leds";
+ 
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
+index 74a11ccc5333f..086d3a60ccce2 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
+@@ -14,6 +14,13 @@ aliases {
+ 		ethernet1 = &ksz8851;
+ 		rtc0 = &hwrtc;
+ 		rtc1 = &rtc;
++		serial0 = &uart4;
++		serial1 = &usart3;
++		serial2 = &uart8;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
+ 	};
+ 
+ 	memory@c0000000 {
+-- 
+2.45.2
 
-Another comment below.
-
-> Change call to deinit() in suspend and init() at resume regardless of
-> whether there are EP device connections or not. It is not harmful to
-> perform deinit() and init() again for the no power-off case, and it keeps
-> the code simple and consistent in logic.
-> 
-> Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../pci/controller/dwc/pcie-designware-host.c | 30 +++++++++----------
->  1 file changed, 15 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index a0822d5371bc5..cb8c3c2bcc790 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -933,23 +933,23 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
->  		return 0;
->  
-> -	if (dw_pcie_get_ltssm(pci) <= DW_PCIE_LTSSM_DETECT_ACT)
-> -		return 0;
-> -
-> -	if (pci->pp.ops->pme_turn_off)
-> -		pci->pp.ops->pme_turn_off(&pci->pp);
-> -	else
-> -		ret = dw_pcie_pme_turn_off(pci);
-> +	if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_ACT) {
-> +		/* Only send out PME_TURN_OFF when PCIE link is up */
-> +		if (pci->pp.ops->pme_turn_off)
-> +			pci->pp.ops->pme_turn_off(&pci->pp);
-> +		else
-> +			ret = dw_pcie_pme_turn_off(pci);
-
-This looks possibly racy since the link can go down at any point.
-
-> -	if (ret)
-> -		return ret;
-> +		if (ret)
-> +			return ret;
->  
-> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val, val == DW_PCIE_LTSSM_L2_IDLE,
-> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
-> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> -	if (ret) {
-> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> -		return ret;
-> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val, val == DW_PCIE_LTSSM_L2_IDLE,
-> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
-> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> +		if (ret) {
-> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> +			return ret;
-> +		}
->  	}
->  
->  	if (pci->pp.ops->deinit)
-> -- 
-> 2.37.1
-> 
 
