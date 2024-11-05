@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58812D2C11B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 14:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6D9D2C11E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 15:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
+	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
+	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QA9Z6DlABQAh/zHFAwCMIMgA9gtG670bOQgehg6enAk=; b=y/PeSm2TGp0jaZfCuldw05eJRD
-	C0Un0ntrwsTCx5X6lJvXuGNef84bCJbaOznfqGEmcbliTtYb25oP3cAJC1tV5Yry3JCZ4pg/RboOS
-	jUFYKXgtm3LzG18pugG67stVQLt0gMg/cxvLGAgLbRmPY4VND9TGwlbR1J1BfsUCTDRdb3Oeqfw7z
-	0h5X2kuiuo2UGG5X5oNm8bMvIebLRBgxbl6JnOsYUu1JKBoO8Zd/sOWAtnA9lStADmq8PSLsisFs/
-	ajjXF9IxdEEDE2Q/3XElUM0I9KnDomtbH33QWxVbwQ9L2s/d4dpMysJEZ+RotjU6ssxjevjhJg/Sb
-	Y7lMcbkQ==;
+	bh=pXz8rJ9Wyj8pAzg8jHMgybKdUaO5qDRCmQTfboRSW98=; b=Mqez5hfjppFLkhUQ5mwkqKG0E/
+	i9XgvtZu01lUo8dZMLmG3vKdHlTkoNgGZ1o0cUuJ9UGWHf50LG0L6Gw2iGSB+Bey6WLkl06ip5YZ6
+	EGU64qUfu2cq85ytNBZRfTkZ/lIHI3/TUD4Zz+jebLUmClcdwWydfHyVC/Yc7qC6hy9QrffqqxQPx
+	5yJq34PN9jMqb+plDD8yBEUIqLLPiGWBqylB/OgvVeN9sa3fVrMrcVU0ucXGTkCf4yF+id4MzMyjV
+	927lP8GZPF3RECTVZwwJ16H8Ppx8d1/zstRUrhrEn0c3ipl2iLLmcEgo5UpjmVfJxJLHVdFv4nios
+	n0/XgVxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8L17-0000000HM3m-1xuG;
-	Tue, 05 Nov 2024 14:58:49 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1t8L4c-0000000HMlB-2vWB;
+	Tue, 05 Nov 2024 15:02:26 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8KzK-0000000HLZE-3F80
+	id 1t8L2t-0000000HMY6-1r3X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 14:57:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 200CE40010;
-	Tue,  5 Nov 2024 14:56:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730818609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=QA9Z6DlABQAh/zHFAwCMIMgA9gtG670bOQgehg6enAk=;
-	b=KWaTZyu3vLcDyz9FWyowSmBHC3XiZrmKJULGPtt9hzaqj0+xJODq0QR1ihReN61VqnwxCk
-	cyoakzjNknp34vXM3mBZCHBYo0gmRejGd4PWdqrQoDSwYqgeQGazh5ofxOpKDGc6x7zm8X
-	kSgyKuZ0UDNSmVFqo+CFEGNa+MY+IsX8tKInCVCBVJh6Y73IoUTL2hHCZUv5yZeg+3gDmY
-	CP5ktynlkskg3ruNt8nCELLrlhibV7PF6UGal945LwEqulLbG5vGsWom8qQx5vINJf/c9s
-	QAXF8i1kCKMsokbKbWKwXiIEQqqY6emQ3dSvWkcVoiJ0juZ/S7e689/sACCY+g==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Herve Codina <herve.codina@bootlin.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Mark Brown <broonie@kernel.org>,
-	Li Yang <leoyang.li@nxp.com>
-Cc: linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: fsl: cpm1: qmc: Set the ret error code on platform_get_irq() failure
-Date: Tue,  5 Nov 2024 15:56:23 +0100
-Message-ID: <20241105145623.401528-1-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.46.2
+	Tue, 05 Nov 2024 15:00:41 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c714cd9c8so56973855ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 07:00:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1730818838; x=1731423638; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=pXz8rJ9Wyj8pAzg8jHMgybKdUaO5qDRCmQTfboRSW98=;
+        b=upGxT8gNf9YFs9TlZMmqF2wTYV52hdhPEDJ1Wi85o1JkQFCbYdrPqpq778uZQY6KwU
+         BXpn1sw2enaT75gYxRtUwPKhFbwFRCO1syc2Rivm/x2F7/KoO+Nfhx0bf2726jDKdBs6
+         7U7OIF8qmZU1H5GTt4Fdod5bLkloXMM2AtpAxYx+LrtIfmsaBi7+TM3BooxRG667VKrk
+         GGtBLpoc3OlRTkvgcWSySE3f8Rr+0EnVmoGKeD4fFdWdaS3R2kH+LDTpsMpfcxXMr/LU
+         7hdYZEWu0fmS/TGMlynFI3RGuEqOxEy2fjjSjZEUkoNvOPnW3fKWvf5dFvyj1i08OL1Z
+         EooA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730818838; x=1731423638;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pXz8rJ9Wyj8pAzg8jHMgybKdUaO5qDRCmQTfboRSW98=;
+        b=X9TxQTx1rLgqhps+s3N6OubfcY6WAPbYX3/E7bdjTKwa7pJ9H3Sr1WL+Y1NAu+Texp
+         1mCFeFKrINos852sJ/RnBVmi3JzI+nWUPfBwVSGP4I0vNn+IKlAlQI72juQxQo0PeoJp
+         TN3lxHIrilrloJj7gxqHHmqA8+Z6sDp3d9B8XsVqpQmb0+M9Hw3J7q0P8dimiVZ/1e9/
+         QMk7J4oWkBKeoBrKcYWjP7LAeZqEcq837vwxgsvf3dJyX4eFGShDTc4Bt+MPYdehvObk
+         h60XUY0nQL83PNewaaPqll03074bintwhg+23ghIhTCHwTacDSC1dE0LtadIY3uvI2wa
+         ACTg==
+X-Forwarded-Encrypted: i=1; AJvYcCX+BLbFsGcYfP53fKKPSIOcHN0NDcEbXRRXQQb4ZQKtwFEYWyxANxjG2hqjGMyuqQApkkaLLp61zVM8Dwb5yWHo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLcFy+oadm/XHYGqvs7agFZpn9GvhCkskJJMz0BrD5+oM8xhUQ
+	utsmkmmtdiFsftfRgbiNwRlVKnO3gpbnkpIqGS35kP1mhFbesVq2IP7z4mLOKE8=
+X-Google-Smtp-Source: AGHT+IERc1zqEIqgzkHKvwRfRs0rrsRRG7JUEZNTozdsOPdE/plz3o9mf5NOnnVPo1Uebu8UqNp2KA==
+X-Received: by 2002:a17:903:2343:b0:210:e75e:4649 with SMTP id d9443c01a7336-2111af3fbfbmr236595785ad.17.1730818838029;
+        Tue, 05 Nov 2024 07:00:38 -0800 (PST)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056edc4dsm79083995ad.28.2024.11.05.07.00.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2024 07:00:37 -0800 (PST)
+Message-ID: <672a3315.170a0220.db9e9.4013@mx.google.com>
+Date: Tue, 05 Nov 2024 07:00:37 -0800 (PST)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: v6.12-rc6-169-g8936d33c1f697
+X-Kernelci-Branch: for-kernelci
+X-Kernelci-Tree: arm64
+Subject: arm64/for-kernelci build: 1 build: 0 failed,
+ 1 passed (v6.12-rc6-169-g8936d33c1f697)
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
+ kernelci-results@groups.io
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_065659_229891_4F9A5958 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20241105_070039_769531_D8B41A48 
+X-CRM114-Status: UNSURE (   3.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A kernel test robot detected a missing error code:
-   qmc.c:1942 qmc_probe() warn: missing error code 'ret'
+arm64/for-kernelci build: 1 build: 0 failed, 1 passed (v6.12-rc6-169-g8936d=
+33c1f697)
 
-Indeed, the error returned by platform_get_irq() is checked and the
-operation is aborted in case of failure but the ret error code is
-not set in that case.
+Full Build Summary: https://kernelci.org/build/arm64/branch/for-kernelci/ke=
+rnel/v6.12-rc6-169-g8936d33c1f697/
 
-Set the ret error code.
+Tree: arm64
+Branch: for-kernelci
+Git Describe: v6.12-rc6-169-g8936d33c1f697
+Git Commit: 8936d33c1f697ce59b16896fcb793f23368e456c
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+Built: 1 unique architecture
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/r/202411051350.KNy6ZIWA-lkp@intel.com/
-Fixes: 3178d58e0b97 ("soc: fsl: cpm1: Add support for QMC")
-Cc: stable@vger.kernel.org
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
 ---
- drivers/soc/fsl/qe/qmc.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/soc/fsl/qe/qmc.c b/drivers/soc/fsl/qe/qmc.c
-index 19cc581b06d0..b3f773e135fd 100644
---- a/drivers/soc/fsl/qe/qmc.c
-+++ b/drivers/soc/fsl/qe/qmc.c
-@@ -2004,8 +2004,10 @@ static int qmc_probe(struct platform_device *pdev)
- 
- 	/* Set the irq handler */
- 	irq = platform_get_irq(pdev, 0);
--	if (irq < 0)
-+	if (irq < 0) {
-+		ret = irq;
- 		goto err_exit_xcc;
-+	}
- 	ret = devm_request_irq(qmc->dev, irq, qmc_irq_handler, 0, "qmc", qmc);
- 	if (ret < 0)
- 		goto err_exit_xcc;
--- 
-2.46.2
-
+For more info write to <info@kernelci.org>
 
