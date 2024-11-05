@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8DDD2B950
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268ACD2B950
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 16:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=B/abEZOC6tU29ZHO7iY0iyLPlTbvm1PrP9fAvufkChQ=; b=p/Gea8++9gMe49
-	SRr0FFjYru6TdzwH0uNVBXXcTorIZZIcdc56/ghZi+Nn8f+pB4j+ACFIqMleEZ2iBPH2X92FBfAzN
-	rfBBBtb+MakrLwV1BxQWCpucUgkTWpmFNSp/rANqHPaaUwmgmMEmi9QFpp5bmpjVilddZkLoVmLTH
-	Nh7jSId+/vE1s59dEp/rdQxaiyfUsfmjYRMIvOv8AKb/99NMfjRBjbeBUiN21E4YOTYe9mctC8fhq
-	HavuJkMczNkekcRpJNZHT9ukocP27NwzZIdmNJ1RkYNd69Ff0+Uw5VwkC78v9sjOoXxPD9AdIbjmh
-	y1Ow+Oy6fqKhHhBJUBnw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rBg5+36qAG3/U6TCUA7nVYufsOJ9DF8ZQP7Y/0/CzU4=; b=ZKX/LXazpvSESrn1bZ/hv04Eyf
+	027KPp2TbymtetIB176xb0exzqySDq8dBSpgV0TVCiCRsJhxQLz8k+1niB1QtfP6NJBS38636fqYq
+	XTE6rWjngEybm+HSf7DdNl2sbnp4ppLr+nJZ7CEkyenFAlFJyZkyaXNN4brMwYRDFowpaXVqrzYkQ
+	wJXqpWV7xkDADCzxb/T+kA6lJ8b0jVT3FadoVCMRXyUWImmAT6AG+XJ+kfdaTurOOg6g3TodcstV6
+	sVmEvK9FgtSk0eflsCCIitvDWO/K1mHKfxoc5FpTcSfB4PLMNomg9XtzGcR2Vz/lJGhlWbi2zzlgb
+	YBYLzdSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8M6G-0000000HZol-10U8;
-	Tue, 05 Nov 2024 16:08:12 +0000
+	id 1t8M7y-0000000HaH0-4AOT;
+	Tue, 05 Nov 2024 16:09:59 +0000
 Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8LxE-0000000HWuf-3XM1
+	id 1t8LxE-0000000HWvG-3YIE
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 15:58:56 +0000
 Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5EF3ux003827;
-	Tue, 5 Nov 2024 15:58:25 GMT
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A5BvcWo014025;
+	Tue, 5 Nov 2024 15:58:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=dk201812; bh=B/abEZOC6tU29ZHO7iY0iyL
-	PlTbvm1PrP9fAvufkChQ=; b=RvOZ5IzMozU1lgsuweUlSSda+F6CiT1eT3D8Rqu
-	lEx5hIAcFgOWBGR9NS5yDda6rNI7twTyq/+PIcneeKb/StUOxcAx8GTbCfhI2jux
-	UWoLD+qLzMXlKBvEb9HK8ncn/DoMyv3LNVMLZJG637pGWhbOZtRNFWq7Am+6EJra
-	9mmA/JJLNlwpA5R2hgpUOEv1XmSN9IcAQHaeUee9zNHfKdC1t/aKrziRRebSFLfM
-	3NtiICRvId7ODKgYkSI70m1oW/rD4V5swhgDKuMYSvPzdn/cFAlpVjsWBtvlTitm
-	Vw+qVQeER2eHrQxa2wUhsXMdw4mRqvdMQeANx6DcEf/Jr5Q==
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=r
+	Bg5+36qAG3/U6TCUA7nVYufsOJ9DF8ZQP7Y/0/CzU4=; b=lph8tXqVOWGVH40Fy
+	pLzu4cLxFFUm29ewGjAfk6hoThm0AlX8kQAvPirkQVe7iovgrRKV73HhuMGrl6f/
+	Uu7cIG517nHkZH2jJxxxeytcYEJPj1cGY0Mm6rLQO2FguUcEtuSNCsM1YzA4/7L2
+	CmKVJIp/nRPBd+L5XxHlk2NkH7Q7LeI+wB9JFUngWvlkeow3NWEPD2jD48QztJNu
+	btX40fZWi3rpFFM7b+i90vdhtdVTLQ4055TEmg/x3Bj+ZYRhoqoR1re2lCu48zNB
+	FXpJjsP5dfn5I8Ix1WgZKPQlQz6lv7wkAStNZWdtHEWUGF0bY6qK7HbcImsACAml
+	1IU/A==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0s-1
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 42nb7wta0w-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 05 Nov 2024 15:58:25 +0000 (GMT)
+	Tue, 05 Nov 2024 15:58:35 +0000 (GMT)
 Received: from
  1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
  (172.25.16.114) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.37; Tue, 5 Nov 2024 15:58:23 +0000
+ 15.1.2507.37; Tue, 5 Nov 2024 15:58:34 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Subject: [PATCH 00/21] Imagination BXS-4-64 MC1 GPU support
-Date: Tue, 5 Nov 2024 15:58:06 +0000
-Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+Date: Tue, 5 Nov 2024 15:58:21 +0000
+Subject: [PATCH 15/21] drm/imagination: Add register required for RISC-V
+ firmware
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAI5AKmcC/x3MMQqAMAxA0atIZgO2pIJeRRw0pppFpRERine3O
- L7h/wwmScWgrzIkudX02AtcXQFv074K6lIMvvHkGu/Q5DKcH0PClvCcLt7wdkjES+yYQwgRSnw
- mifr842F83w/6iJmbaAAAAA==
-X-Change-ID: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
+Message-ID: <20241105-sets-bxs-4-64-patch-v1-v1-15-4ed30e865892@imgtec.com>
+References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
         Matt Coster
 	<matt.coster@imgtec.com>,
@@ -74,28 +74,26 @@ To: Frank Binns <frank.binns@imgtec.com>,
         Tero Kristo <kristo@kernel.org>
 CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        Sarah Walker
-	<sarah.walker@imgtec.com>
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4626;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2059;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=UDHyhwvncQQ0+/VdyMOAScTvsSjhCbAR2gGCz0CJwCM=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcz5P9Fz+ZqrWhsz5lQcO5N9t0L13dTT9dezH9Y97
- Op5NzOzvaOUhUGMg0FWTJFlxwrLFWp/1LQkbvwqhpnDygQyhIGLUwAmcu0kwx9e/SYuyf0XHHc5
- b576QqrZvKb2MOsf36b8rcFWU7oPi7xiZOh0Ly8SFFIXL+AWcDDM/8O97rucxrSs451CJcw7ncJ
- suQE=
+ bh=2HpRktmfy1U6jr8J3ea/Pgv7sNS8R2Iklnor8GHoR+8=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaRrOcybuc3cb/W12IWiZiYCXIGP7Gdd7JXo89x+vCBb4
+ pLnuuqYjlIWBjEOBlkxRZYdKyxXqP1R05K48asYZg4rE8gQBi5OAZgIgxsjw0kfizPHT/RK8BcV
+ RQmpbt+zMKsy5zfHxNRP7wvlJPOWJTH8d08w8Nx/zHCfz6vVz+7xP/tuE/c2qD545YwlglK3ua3
+ deAA=
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.16.114]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40a1 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=e5mUnYsNAAAA:8 a=NEAV23lmAAAA:8 a=gAcbV61aEvjkjzSdo3MA:9
- a=QEXdDO2ut3YA:10 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-GUID: w_vyz2WEhYYv-zf7zPTWJIEcOasBRElO
-X-Proofpoint-ORIG-GUID: w_vyz2WEhYYv-zf7zPTWJIEcOasBRElO
+X-Authority-Analysis: v=2.4 cv=ddzS3mXe c=1 sm=1 tr=0 ts=672a40ab cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=hzDjp0mCheYA:10 a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=r_1tXGB3AAAA:8 a=7nAL0jd3kcEsRNnToT4A:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: GEJNvXW4nWR-VrQzYuyh-Sm4pi7y_bAI
+X-Proofpoint-ORIG-GUID: GEJNvXW4nWR-VrQzYuyh-Sm4pi7y_bAI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_075853_407858_A812D90D 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20241105_075853_461671_9F8110A9 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,91 +108,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This GPU is found in the TI AM68 family of SoCs, with initial support
-added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
+Add definitions for a register required for a subsequent patch adding
+support for RISC-V firmware. ROGUE_CR_FWCORE_DMI_DMCONTROL is used to
+control the debug module in the firmware processor.
 
-A suitable firmware binary can currently be found in the IMG
-linux-firmware repository[1] as powervr/rogue_36.53.104.796_v1.fw. A
-merge request will be sent out for this within the next few weeks.
-
-No new UAPI will be necessary for this platform as it is sufficiently
-similar to the already supported AXE-1-16M.
-
-The firmware successfully boots with basic job submission appearing to
-work correctly, as tested with a few of Sascha Willems' Vulkan demos[2].
-Note these do not necessarily render correctly due to incomplete UMD
-support.
-
-UMD support is still a work in progress. The branch at [3] is nearly
-feature complete from a Vulkan perspective. We're currently undertaking
-a significant rework of the compiler to better accommodate this and
-other Rogue GPUs which means we can't do more comprehensive driver
-testing at this point. However, we expect to send a Mesa merge request
-for the initial version of the compiler (capable of passing some of the
-Vulkan CTS smoke tests) within the next few days, with a fully
-functional version of the compiler in place by the end of the year.
-
-There are several dt-bindings changes at the beginning of this series.
-We expect the result to be versatile enough to handle all Imagination
-Rogue GPUs while being a strong foundation to build bindings for the
-newer Volcanic architecture (for which we're currently developing
-support).
-
-[1]: https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
-[2]: https://github.com/SaschaWillems/Vulkan
-[3]: https://gitlab.freedesktop.org/imagination/mesa/-/tree/dev/bxs
-
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
-Matt Coster (20):
-      dt-bindings: gpu: img: More explicit compatible strings
-      dt-bindings: gpu: img: Further constrain clocks
-      dt-bindings: gpu: img: Power domain details
-      dt-bindings: gpu: img: Allow dma-coherent
-      drm/imagination: Use more specific compatible strings
-      drm/imagination: Add power domain control
-      arm64: dts: ti: k3-am62: New GPU binding details
-      dt-bindings: gpu: img: Add BXS-4-64 devicetree bindings
-      drm/imagination: Revert to non-threaded IRQs
-      drm/imagination: Remove firmware enable_reg
-      drm/imagination: Rename event_mask -> status_mask
-      drm/imagination: Make has_fixed_data_addr a value
-      drm/imagination: Use a lookup table for fw defs
-      drm/imagination: Use callbacks for fw irq handling
-      drm/imagination: Add register required for RISC-V firmware
-      drm/imagination: Move ELF fw utils to common file
-      drm/imagination: Add platform overrides infrastructure
-      drm/imagination: Add device_memory_force_cpu_cached override
-      drm/imagination: Add support for TI AM68 GPU
-      arm64: dts: ti: k3-j721s2: Add GPU node
+ drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-Sarah Walker (1):
-      drm/imagination: Add RISC-V firmware processor support
+diff --git a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+index 2a90d02796d3e071b18e18dead105e29798bcddc..4e99832a667a2d88ee21469595d3abdad3a07c06 100644
+--- a/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
++++ b/drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h
+@@ -3751,7 +3751,22 @@
+ 
+ /* Register ROGUE_CR_FWCORE_DMI_DMCONTROL */
+ #define ROGUE_CR_FWCORE_DMI_DMCONTROL 0x3480U
+-#define ROGUE_CR_FWCORE_DMI_DMCONTROL_MASKFULL 0x0000000000000000ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_MASKFULL 0x00000000D0000003ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_HALTREQ_SHIFT 31U
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_HALTREQ_CLRMSK 0x7FFFFFFFULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_HALTREQ_EN 0x80000000ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_RESUMEREQ_SHIFT 30U
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_RESUMEREQ_CLRMSK 0xBFFFFFFFULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_RESUMEREQ_EN 0x40000000ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_ACKHAVERESET_SHIFT 28U
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_ACKHAVERESET_CLRMSK 0xEFFFFFFFULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_ACKHAVERESET_EN 0x10000000ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_NDMRESET_SHIFT 1U
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_NDMRESET_CLRMSK 0xFFFFFFFDULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_NDMRESET_EN 0x00000002ULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_DMACTIVE_SHIFT 0U
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_DMACTIVE_CLRMSK 0xFFFFFFFEULL
++#define ROGUE_CR_FWCORE_DMI_DMCONTROL_DMACTIVE_EN 0x00000001ULL
+ 
+ /* Register ROGUE_CR_FWCORE_DMI_DMSTATUS */
+ #define ROGUE_CR_FWCORE_DMI_DMSTATUS 0x3488U
 
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 122 +++++++++++++--
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   3 +-
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |  12 ++
- drivers/gpu/drm/imagination/Makefile               |   2 +
- drivers/gpu/drm/imagination/pvr_ccb.c              |  25 +++-
- drivers/gpu/drm/imagination/pvr_device.c           | 130 ++++++++--------
- drivers/gpu/drm/imagination/pvr_device.h           |  77 +++++++++-
- drivers/gpu/drm/imagination/pvr_drv.c              |  58 +++++++-
- drivers/gpu/drm/imagination/pvr_fw.c               |  26 +++-
- drivers/gpu/drm/imagination/pvr_fw.h               |  85 +++++------
- drivers/gpu/drm/imagination/pvr_fw_meta.c          |  23 +--
- drivers/gpu/drm/imagination/pvr_fw_mips.c          |  82 ++---------
- drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 163 +++++++++++++++++++++
- drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  21 +++
- drivers/gpu/drm/imagination/pvr_fw_util.c          |  67 +++++++++
- drivers/gpu/drm/imagination/pvr_gem.c              |   3 +
- drivers/gpu/drm/imagination/pvr_gem.h              |   7 +-
- drivers/gpu/drm/imagination/pvr_mmu.c              |   7 +-
- drivers/gpu/drm/imagination/pvr_power.c            | 118 ++++++++++++++-
- drivers/gpu/drm/imagination/pvr_power.h            |   3 +
- drivers/gpu/drm/imagination/pvr_queue.c            |  23 ++-
- drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h    |  17 ++-
- drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  41 ++++++
- 23 files changed, 881 insertions(+), 234 deletions(-)
----
-base-commit: d78f0ee0406803cda8801fd5201746ccf89e5e4a
+-- 
+2.47.0
 
 
