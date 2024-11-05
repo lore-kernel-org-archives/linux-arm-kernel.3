@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782DFD3177E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A39ED3177F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 18:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FmANFjhu/Dz9om5RF+XUmAJstx59ZVZL8FwtylwZGDY=; b=XdCr8atDGbigs3mFbINlBUEF9f
-	Dv6S3j6HH56vBEC9aadBLkZ6/Acwt9qNg1kb9ljdU4fwi7rRPG+mYoQDOieWG2Y9/wHKlLESy21cE
-	82aCeooo9rv8UjQBbJ64H8XtvkNaaL8IxW/d8jVvZRSdsgtTvBrcXp48ec3xBl7Nd72w8V/2hdiwU
-	XhIzgHNnvIn1sq3RwbZVmRgw8kknJZ7nw5zhSLYrqKgFhiXhrQ1Nx6TZxEBz54hzh9H1DxUirLsd+
-	mmY2msch1RNQVcXXlh5SRYcmjuWP7NTBGlMsKKvzoL9AT62ZNj+YT+25kJLHmVOnKavf7hANOhAK9
-	5df9/P4Q==;
+	bh=PyKcGEXb1boVL67P/iqRrnkjibAaY0whRvJpd8Laamw=; b=Qk21Tqv+4l5VtSomBWfhzyWEH9
+	2AI+umnVNW4miVxJghyylrxEccnUP16r2mOxs/wmWJ9yKptRcs6HHyFllDRnYzr80Osk+Bza1fgsM
+	FulNwxb0FwJKwviHE4rJQK4AJLNU0KZxeX7HKcIyxPbx71o+jiRt00j1idg/OnuLyQ986nvH8ZaAh
+	L+8y1PH9nEwvJ4dx40Z5oS5rOlEF5gT4PTXXULsg3BXirihn6MOczCbO0jE5CCL9v7Bcif+p1Uede
+	nMr5ugQi8BRR6ms8683dCsPBK2if7IBlEFpegC5fCRS8/ymi/qYJE0+3b6PYlz05SCBs0pQLZ/NYe
+	Djlmy+CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OIj-00000000N7U-02SM;
-	Tue, 05 Nov 2024 18:29:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t8OMX-00000000Nof-0qnb;
+	Tue, 05 Nov 2024 18:33:09 +0000
+Received: from smtp-fw-33001.amazon.com ([207.171.190.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8O6o-00000000Lck-2iiL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 05 Nov 2024 18:16:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=FmANFjhu/Dz9om5RF+XUmAJstx59ZVZL8FwtylwZGDY=; b=Ap3wAHWQHYMMMt8C9pfoT2uZGZ
-	PLLMY6geBq5UggkK9ZtdsdCNMEq2/zKRQg5TppElTjX2vUaL/shhS19/R3te5kXhNkhTJ3DpF+JGl
-	/453JNY6MJe8yJvuceWWkkrshPjgImrhX+GtWR2t4JtbufW0eWfjabO0PDo81UL0t2XBJpug5HH2i
-	iIG54RZ9ZR3k1M23GzOsoMXUkwrBwIVwPLLONCMNvjy/SboBHocETTa6XaGrw4P4jQPtZQi72aMa7
-	KDCMWaWECHsMKkyEBtyC09KCYFr3Zrkoymz5JjnqP4erqQctItCZmQBuhcmvmmy7L/ik1zdq3NJJ6
-	hOlGXxVg==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8O6l-0000000Bo7i-2rp0
+	id 1t8OKl-00000000NJ6-1YnM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 18:16:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B22215C53DF;
-	Tue,  5 Nov 2024 18:15:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85BA4C4CECF;
-	Tue,  5 Nov 2024 18:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730830602;
-	bh=gxbmixww9e8I54+a85Lk0u6Qwx29iopkn1bwWVNFU5k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WHgQ8LjqxMiYEcG4CIthiY+qyb8BJdbl9bqOF8Vdv1Giz2jL4Qm+VprGqVquRtP11
-	 csBm24NGhMOP9JX4x7Dm7bLaabuorAtEVqVAXySPJ2TTvMAtgvgaodmQA82oUpllaB
-	 wuIZbJuGQcYZoEXft7YQ2osOP+9l9i4gK49e+YHxH+iYuBvEBNSYIhaAbKGLuF47Ti
-	 SwkXgjjDYM64f5w1DsnZjNE/5Z5QAZ5kQRpPDinJ5HglGx9bPZgv/WZPR0ggoAPAJe
-	 2Na7tgqYoQRtHFwnL1zdfmLBedKBXJi//RPvNNJNkbej5IWHuxpgZeXlfITLKBf1Ow
-	 UgehZeMzcKlkw==
-Date: Tue, 5 Nov 2024 18:16:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matt Coster <matt.coster@imgtec.com>
-Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>,
-	Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH 02/21] dt-bindings: gpu: img: Further constrain clocks
-Message-ID: <20241105-blooper-unflawed-6181022944d9@spud>
-References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
- <20241105-sets-bxs-4-64-patch-v1-v1-2-4ed30e865892@imgtec.com>
+	Tue, 05 Nov 2024 18:31:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1730831480; x=1762367480;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=PyKcGEXb1boVL67P/iqRrnkjibAaY0whRvJpd8Laamw=;
+  b=M2/0bLP6BqEkU0ceL82rMVIs/PovxxMY/VfTq1CRhF+IMYORlXtaXT9e
+   UScncrEYO31rD7lmAmNen8QT8N0JRdEa5i8whckUjEUKlE/VQVgBa9ktV
+   atsF1ibdypqO5TC1Zr6/EriGzSZ8vDpsr/uPm7u5ZrFQYCc37EW0kGPC9
+   o=;
+X-IronPort-AV: E=Sophos;i="6.11,260,1725321600"; 
+   d="scan'208";a="382672584"
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-33001.sea14.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 18:31:16 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [10.0.38.20:19380]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.3.16:2525] with esmtp (Farcaster)
+ id 88fb91fb-2fb9-4573-83ff-78e8c1de0dfe; Tue, 5 Nov 2024 18:31:15 +0000 (UTC)
+X-Farcaster-Flow-ID: 88fb91fb-2fb9-4573-83ff-78e8c1de0dfe
+Received: from EX19D001UWA003.ant.amazon.com (10.13.138.211) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Tue, 5 Nov 2024 18:31:15 +0000
+Received: from u34cccd802f2d52.amazon.com (10.106.239.17) by
+ EX19D001UWA003.ant.amazon.com (10.13.138.211) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
+ Tue, 5 Nov 2024 18:31:09 +0000
+From: Haris Okanovic <harisokn@amazon.com>
+To: <ankur.a.arora@oracle.com>, <catalin.marinas@arm.com>
+CC: <linux-pm@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<will@kernel.org>, <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+	<pbonzini@redhat.com>, <wanpengli@tencent.com>, <vkuznets@redhat.com>,
+	<rafael@kernel.org>, <daniel.lezcano@linaro.org>, <peterz@infradead.org>,
+	<arnd@arndb.de>, <lenb@kernel.org>, <mark.rutland@arm.com>,
+	<harisokn@amazon.com>, <mtosatti@redhat.com>, <sudeep.holla@arm.com>,
+	<cl@gentwo.org>, <misono.tomohiro@fujitsu.com>, <maobibo@loongson.cn>,
+	<joao.m.martins@oracle.com>, <boris.ostrovsky@oracle.com>,
+	<konrad.wilk@oracle.com>
+Subject: Re: [PATCH v8 00/11] Enable haltpoll on arm64
+Date: Tue, 5 Nov 2024 12:30:36 -0600
+Message-ID: <20241105183041.1531976-1-harisokn@amazon.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
+References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TeFaw0Jl+M7/bDvg"
-Content-Disposition: inline
-In-Reply-To: <20241105-sets-bxs-4-64-patch-v1-v1-2-4ed30e865892@imgtec.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.239.17]
+X-ClientProxiedBy: EX19D033UWA004.ant.amazon.com (10.13.139.85) To
+ EX19D001UWA003.ant.amazon.com (10.13.138.211)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_181652_040072_2F47FABD 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20241105_103119_494231_859A9F74 
+X-CRM114-Status: UNSURE (   5.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +96,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ankur, Catalin,
 
---TeFaw0Jl+M7/bDvg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+How about the following series based on a refactor of arm64's delay()?
+Does it address your earlier concerns?
 
-On Tue, Nov 05, 2024 at 03:58:08PM +0000, Matt Coster wrote:
-> All Imagination GPUs use three clocks: core, mem and sys. All reasonably
-> modern Imagination GPUs also support a single-clock mode where the SoC
-> only hooks up core and the other two are derived internally. On GPUs which
-> support this mode, it is the default and most commonly used integration.
->=20
-> Codify this "1 or 3" constraint in our bindings and hang the specifics off
-> the vendor compatible string to mirror the integration-time choice.
->=20
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 27 +++++++++++++++-=
-------
->  1 file changed, 19 insertions(+), 8 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml=
- b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index ef7070daf213277d0190fe319e202fdc597337d4..6924831d3e9dd9b2b052ca8f9=
-d7228ff25526532 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -30,15 +30,20 @@ properties:
->      maxItems: 1
-> =20
->    clocks:
-> -    minItems: 1
-> -    maxItems: 3
-> +    oneOf:
-> +      - minItems: 1
-> +        maxItems: 1
-> +      - minItems: 3
-> +        maxItems: 3
+delay() already implements wfet() and falls back to wfe() w/ evstream
+or a cpu_relax loop. I refactored it to poll an address, and wrapped in
+a new platform-agnostic smp_vcond_load_relaxed() macro. More details in
+the following commit log.
 
-Just put the outer constraints here and...
+Regards,
+Haris Okanovic
+AWS Graviton Software
 
->    clock-names:
-> -    items:
-> -      - const: core
-> -      - const: mem
-> -      - const: sys
-> -    minItems: 1
-> +    oneOf:
-> +      - items:
-> +          - const: core
-> +      - items:
-> +          - const: core
-> +          - const: mem
-> +          - const: sys
-> =20
->    interrupts:
->      maxItems: 1
-> @@ -56,15 +61,21 @@ required:
->  additionalProperties: false
-> =20
->  allOf:
-> +  # Vendor integrations using a single clock domain
->    - if:
->        properties:
->          compatible:
->            contains:
-> -            const: ti,am62-gpu
-> +            anyOf:
-> +              - const: ti,am62-gpu
->      then:
->        properties:
->          clocks:
-> +          minItems: 1
->            maxItems: 1
-
-=2E..adjust the constraints in conditional bits. Setting minItems to 1
-should be a nop too. Pretty sure what you already had here was actually
-already sufficient.
-
-Cheers,
-Conor.
-
-> +        clock-names:
-> +          items:
-> +            - const: core
-> =20
->  examples:
->    - |
->=20
-> --=20
-> 2.47.0
->=20
-
---TeFaw0Jl+M7/bDvg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyphBAAKCRB4tDGHoIJi
-0mt+AQCX5TGxUHLmqloLO4UQ2/Z5nICBf/HCL/Q8rZcVfo8ebAEAlFYu7OnzNesz
-ZWwQOmVqab0lEHWZg2h1BTjxEg+tFwA=
-=fITo
------END PGP SIGNATURE-----
-
---TeFaw0Jl+M7/bDvg--
 
