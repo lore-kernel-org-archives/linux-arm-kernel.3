@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF8FD1268F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B40ED12690
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 11:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7U0jp6W0t5PnT+nysQH2BMBVcFqmksXhFC+/Fq7vptc=; b=k/tI3/PqAk35r1O6gTyaiFI5zv
-	gVTwFmp4MvjZrR+ScP3ShdbFWtNYeHz7TvOUeiDiwFD//L8Uwnce+1hU1EGqhloWRI08ETGEw7P/h
-	2swTVhIdsrMNWsJ9H8KPfyakPq+KkYOYd04tgA1hqWNNbtk3GgHTyd/EwPqiXkhkeOh4ToMi+euEi
-	YyaNDpwWA5/kyTWjE+BixFwV/casMfUb2YCohTJNbbP8bEqk8YaqYxyDPr1qU5tLCHSSOywmSzi/6
-	qsfDUnxtO/7IkjZvY+DndXmWolOMCUhxyicgXxDdWgoYfdbEtr1BedVDAEKJaxhLgmeTVGg86n4Cz
-	dReEi3tw==;
+	bh=GE6NO6jUMgtH5Ni7nEeIPVSYuddlnjEV6lleWwqh9Rg=; b=yUJkv5wDipqq9zzLHTQEVJdp/x
+	rMtvT2vibpjdTzL8nXMJqcZiiVcFW4nH1m5XqT7bGahZlroUg7arXm0UG/nhSPAuQMpHWloTzZXhY
+	HV6Hs+xfUbW5JvGVEoQRZFkPkTurfzU2vQH3bbPYCyVMLQ2NORAvzwQyj49jbvknt7kxqDNX1me2b
+	Bgh0N9XCMMIeQC2tV32pJAzSJ6QRnJClnW/tqx07K+4UcKAcoG9VNKZtMyI7qMTcXp8W4HI9ZpdoQ
+	2FTtU6m8xPmZDbLxS9DmVGDynklf4bl0h7oiCyAEnOIUxhx+quFAOfpqP2IKDo9lxl6B1AFbYjId7
+	gGGmpu2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Hu3-0000000GtCw-3N7b;
-	Tue, 05 Nov 2024 11:39:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8Hz3-0000000Gtk2-1oiy;
+	Tue, 05 Nov 2024 11:44:29 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HsK-0000000Gswy-3zdQ
+	id 1t8HxM-0000000GtZm-0AbD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 11:37:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 36A32A42A7F;
-	Tue,  5 Nov 2024 11:35:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464F6C4CECF;
-	Tue,  5 Nov 2024 11:37:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730806650;
-	bh=C2eoHqLMgXl3OLemzSCLahR5X6G6WSWO5QNpUC3yNFw=;
+	Tue, 05 Nov 2024 11:42:45 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 740B122E;
+	Tue,  5 Nov 2024 12:42:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730806949;
+	bh=soLQYbCpLZIaLFegrpwrQUNBdV9uOBFxjT17f4CUFPM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aY7407j14pV53S6TwrTyDQRphP1jj3E1Exn7IZMG49gWH5p6O4VSqqrBcwjnP541n
-	 bhhgOCrap0cUEKx0gwbIxG67ltJzeuRceG5MwjrfBQWR+3m4eSI+r2ql5emA7GV7HX
-	 bolJqeWdSE9azgDScgDVBOlvzk2WPzTuVpc19/fuEsZ1B82WKGofvt0/z7TEdLQr8J
-	 6qN6MAlveMAtPNDWWTQcWnXj/k0nx4KuwXmglHbjmbUbf/z47gbcv7gUX4xYO/7qOh
-	 AQDV7pOz7k/r5qDjmQvghyA6VOFbuA0df78Kr8x/d1SbVnURCxGxiVMrAD9DHZpZQE
-	 YQyYgcBctfFPQ==
-Date: Tue, 5 Nov 2024 11:37:24 +0000
-From: Will Deacon <will@kernel.org>
+	b=mX/KqtzsUGkkvGouOFOgJwVM6iriVdICrtOToTY6ko1kjUmQrqc8Ch+7eqTps3bcP
+	 OIYbukYWrHB8MLT1i354Td7nyKWeQsvohWhldAirLVSQ/ybOLZKf5X4ekQtYMjCj3Z
+	 H6x9fzoK+OD0ttwdFghiqEryJB1fFAATsEm5gqdc=
+Date: Tue, 5 Nov 2024 13:42:29 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
-	jsnitsel@redhat.com, robh@kernel.org,
-	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@linaro.org>
-Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in
- smmu reset operation
-Message-ID: <20241105113723.GA12600@willie-the-truck>
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
- <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
- <20241024125241.GD30704@willie-the-truck>
- <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
- <20241029124708.GA4241@willie-the-truck>
- <ygd6bryp73jgsm5zggy2jz4uc42dehht2e6ht5f6yowf74c6ns@u6dul4rnybt6>
+Cc: Liu Ying <victor.liu@nxp.com>, Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+	rfoss@kernel.org, jonas@kwiboo.se, jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	quic_jesszhan@quicinc.com, mchehab@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	sakari.ailus@linux.intel.com, hverkuil@xs4all.nl,
+	tomi.valkeinen@ideasonboard.com, quic_bjorande@quicinc.com,
+	geert+renesas@glider.be, arnd@arndb.de, nfraprado@collabora.com,
+	thierry.reding@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	sam@ravnborg.org, marex@denx.de, biju.das.jz@bp.renesas.com
+Subject: Re: [PATCH v5 04/13] media: uapi: Add
+ MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
+Message-ID: <20241105114229.GO27775@pendragon.ideasonboard.com>
+References: <20241104032806.611890-1-victor.liu@nxp.com>
+ <20241104032806.611890-5-victor.liu@nxp.com>
+ <ixckmdku6yriieo4ezzsepg5nflltzkvqbt7ylref4mu6a4t26@crooexpf3v57>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ygd6bryp73jgsm5zggy2jz4uc42dehht2e6ht5f6yowf74c6ns@u6dul4rnybt6>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <ixckmdku6yriieo4ezzsepg5nflltzkvqbt7ylref4mu6a4t26@crooexpf3v57>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_033733_300311_9A45AED9 
-X-CRM114-Status: GOOD (  49.65  )
+X-CRM114-CacheID: sfid-20241105_034244_234188_2AD3336E 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,120 +84,398 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 01:10:12PM +0200, Dmitry Baryshkov wrote:
-> On Tue, Oct 29, 2024 at 12:47:09PM +0000, Will Deacon wrote:
-> > On Fri, Oct 25, 2024 at 07:51:22PM +0530, Bibek Kumar Patro wrote:
-> > > 
-> > > 
-> > > On 10/24/2024 6:22 PM, Will Deacon wrote:
-> > > > On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
-> > > > > Default MMU-500 reset operation disables context caching in
-> > > > > prefetch buffer. It is however expected for context banks using
-> > > > > the ACTLR register to retain their prefetch value during reset
-> > > > > and runtime suspend.
-> > > > > 
-> > > > > Replace default MMU-500 reset operation with Qualcomm specific reset
-> > > > > operation which envelope the default reset operation and re-enables
-> > > > > context caching in prefetch buffer for Qualcomm SoCs.
-> > > > > 
-> > > > > Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> > > > > Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-> > > > > ---
-> > > > >   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
-> > > > >   1 file changed, 42 insertions(+), 3 deletions(-)
-> > > > > 
-> > > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > index 087fb4f6f4d3..0cb10b354802 100644
-> > > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > @@ -16,6 +16,16 @@
-> > > > > 
-> > > > >   #define QCOM_DUMMY_VAL	-1
-> > > > > 
-> > > > > +/*
-> > > > > + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
-> > > > > + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
-> > > > > + * buffer). The remaining bits are implementation defined and vary across
-> > > > > + * SoCs.
-> > > > > + */
-> > > > > +
-> > > > > +#define CPRE			(1 << 1)
-> > > > > +#define CMTLB			(1 << 0)
-> > > > > +
-> > > > >   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
-> > > > >   {
-> > > > >   	return container_of(smmu, struct qcom_smmu, smmu);
-> > > > > @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
-> > > > >   	return match ? IOMMU_DOMAIN_IDENTITY : 0;
-> > > > >   }
-> > > > > 
-> > > > > +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
-> > > > > +{
-> > > > > +	int ret;
-> > > > > +	u32 val;
-> > > > > +	int i;
-> > > > > +
-> > > > > +	ret = arm_mmu500_reset(smmu);
-> > > > > +	if (ret)
-> > > > > +		return ret;
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
-> > > > > +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
-> > > > > +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
-> > > > > +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
-> > > > > +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
-> > > > > +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
-> > > > > +	 * during reset and runtime suspend operations.
-> > > > > +	 */
-> > > > > +
-> > > > > +	for (i = 0; i < smmu->num_context_banks; ++i) {
-> > > > > +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
-> > > > > +		val |= CPRE;
-> > > > > +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
-> > > > > +	}
-> > > > 
-> > > > If CPRE only needs to be disabled prior to r2p2, then please teach the
-> > > > MMU-500 code about that instead of adding qualcomm-specific logic here.
-> > > > 
-> > > 
-> > > Doing this on MMU-500 code would make it generic and reflect for SoC of all
-> > > the vendors on this platform.
-> > > We can make sure that it won't cause any problems in Qualcomm SoCs as we
-> > > have been enabling this since for some years now and could not
-> > > observe/reproduce any issues around these errata.
+On Mon, Nov 04, 2024 at 02:00:56PM +0200, Dmitry Baryshkov wrote:
+> On Mon, Nov 04, 2024 at 11:27:57AM +0800, Liu Ying wrote:
+> > Add two media bus formats that identify 30-bit RGB pixels transmitted
+> > by a LVDS link with five differential data pairs, serialized into 7
+> > time slots, using standard SPWG/VESA or JEIDA data mapping.
 > > 
-> > Unless you can explain definitively hy that's the case, I still don't
-> > think we should be second-guessing the core SMMU driver code in the
-> > Qualcomm backend.
+> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> > ---
+> > v5:
+> > * No change.
 > > 
-> > > But we won't be able to guarantee the same behavior in SoC for other vendors
-> > > where these errata might still be applicable as per [1] and [2].
-> > > So as per my understanding it's safe to include in Qualcomm specific
-> > > implementation and not changing the default behavior in all other vendors'
-> > > SoC even if they are not prior to r2p2 revision [3].
+> > v4:
+> > * No change.
 > > 
-> > If you want to gate the errata workarounds on policy, then please follow
-> > what we do for the CPU: add a Kconfig option (e.g.
-> > ARM_SMMU_WORKAROUND_BROKEN_CPRE) which defaults to "on" (assuming that
-> > the relevant errata aren't all "rare") and update silicon-errata.rst
-> > accordingly.
+> > v3:
+> > * New patch.
 > > 
-> > Then you can choose to disable them in your .config if you're happy to
-> > pick up the pieces.
+> >  .../media/v4l/subdev-formats.rst              | 156 +++++++++++++++++-
+> >  include/uapi/linux/media-bus-format.h         |   4 +-
+> >  2 files changed, 157 insertions(+), 3 deletions(-)
 > 
-> Is it actually going to work? For most of the CPU errata we can detect
-> and limit the workarounds to some class of CPUs. For SMMU, if I'm not
-> misunderstanding something, the errata will be enabled by default for
-> all SMMU-500 implementation, so only very few kernels, targeting only
-> the Qualcomm hardware, can get that disabled.
+> Laurent, Hans, can we please hear your opinion on this patch?
+> 
+> Ideally we'd like to merge it together with the rest of the series
+> through drm-misc (or via an immutable tag/branch from your side).
 
-We can add checks based on rXpY per the erratum documentation, but Robin
-was saying elsewhere in the thread that some of them are still open (i.e.
-unfixed).
+I'm fine merging it through drm-misc, but creating an immutable branch
+on the DRM side would be nice, just to make sure we can pull it in
+linux-media in the unlikely case where we would have a conflicting patch
+for the next kernel version.
 
-So ultimately, the decision to disable workarounds for known errata on
-broken hardware is going to be a niche sport, yes.
+> > diff --git a/Documentation/userspace-api/media/v4l/subdev-formats.rst b/Documentation/userspace-api/media/v4l/subdev-formats.rst
+> > index d2a6cd2e1eb2..2a94371448dc 100644
+> > --- a/Documentation/userspace-api/media/v4l/subdev-formats.rst
+> > +++ b/Documentation/userspace-api/media/v4l/subdev-formats.rst
+> > @@ -2225,7 +2225,7 @@ The following table list existing packed 48bit wide RGB formats.
+> >      \endgroup
+> >  
+> >  On LVDS buses, usually each sample is transferred serialized in seven
+> > -time slots per pixel clock, on three (18-bit) or four (24-bit)
+> > +time slots per pixel clock, on three (18-bit) or four (24-bit) or five (30-bit)
 
-Will
+s/ or four/, four/
+
+with that,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
+> >  differential data pairs at the same time. The remaining bits are used
+> >  for control signals as defined by SPWG/PSWG/VESA or JEIDA standards. The
+> >  24-bit RGB format serialized in seven time slots on four lanes using
+> > @@ -2246,11 +2246,12 @@ JEIDA defined bit mapping will be named
+> >        - Code
+> >        -
+> >        -
+> > -      - :cspan:`3` Data organization
+> > +      - :cspan:`4` Data organization
+> >      * -
+> >        -
+> >        - Timeslot
+> >        - Lane
+> > +      - 4
+> >        - 3
+> >        - 2
+> >        - 1
+> > @@ -2262,6 +2263,7 @@ JEIDA defined bit mapping will be named
+> >        - 0
+> >        -
+> >        -
+> > +      -
+> >        - d
+> >        - b\ :sub:`1`
+> >        - g\ :sub:`0`
+> > @@ -2270,6 +2272,7 @@ JEIDA defined bit mapping will be named
+> >        - 1
+> >        -
+> >        -
+> > +      -
+> >        - d
+> >        - b\ :sub:`0`
+> >        - r\ :sub:`5`
+> > @@ -2278,6 +2281,7 @@ JEIDA defined bit mapping will be named
+> >        - 2
+> >        -
+> >        -
+> > +      -
+> >        - d
+> >        - g\ :sub:`5`
+> >        - r\ :sub:`4`
+> > @@ -2286,6 +2290,7 @@ JEIDA defined bit mapping will be named
+> >        - 3
+> >        -
+> >        -
+> > +      -
+> >        - b\ :sub:`5`
+> >        - g\ :sub:`4`
+> >        - r\ :sub:`3`
+> > @@ -2294,6 +2299,7 @@ JEIDA defined bit mapping will be named
+> >        - 4
+> >        -
+> >        -
+> > +      -
+> >        - b\ :sub:`4`
+> >        - g\ :sub:`3`
+> >        - r\ :sub:`2`
+> > @@ -2302,6 +2308,7 @@ JEIDA defined bit mapping will be named
+> >        - 5
+> >        -
+> >        -
+> > +      -
+> >        - b\ :sub:`3`
+> >        - g\ :sub:`2`
+> >        - r\ :sub:`1`
+> > @@ -2310,6 +2317,7 @@ JEIDA defined bit mapping will be named
+> >        - 6
+> >        -
+> >        -
+> > +      -
+> >        - b\ :sub:`2`
+> >        - g\ :sub:`1`
+> >        - r\ :sub:`0`
+> > @@ -2319,6 +2327,7 @@ JEIDA defined bit mapping will be named
+> >        - 0x1011
+> >        - 0
+> >        -
+> > +      -
+> >        - d
+> >        - d
+> >        - b\ :sub:`1`
+> > @@ -2327,6 +2336,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 1
+> >        -
+> > +      -
+> >        - b\ :sub:`7`
+> >        - d
+> >        - b\ :sub:`0`
+> > @@ -2335,6 +2345,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 2
+> >        -
+> > +      -
+> >        - b\ :sub:`6`
+> >        - d
+> >        - g\ :sub:`5`
+> > @@ -2343,6 +2354,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 3
+> >        -
+> > +      -
+> >        - g\ :sub:`7`
+> >        - b\ :sub:`5`
+> >        - g\ :sub:`4`
+> > @@ -2351,6 +2363,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 4
+> >        -
+> > +      -
+> >        - g\ :sub:`6`
+> >        - b\ :sub:`4`
+> >        - g\ :sub:`3`
+> > @@ -2359,6 +2372,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 5
+> >        -
+> > +      -
+> >        - r\ :sub:`7`
+> >        - b\ :sub:`3`
+> >        - g\ :sub:`2`
+> > @@ -2367,6 +2381,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 6
+> >        -
+> > +      -
+> >        - r\ :sub:`6`
+> >        - b\ :sub:`2`
+> >        - g\ :sub:`1`
+> > @@ -2377,6 +2392,7 @@ JEIDA defined bit mapping will be named
+> >        - 0x1012
+> >        - 0
+> >        -
+> > +      -
+> >        - d
+> >        - d
+> >        - b\ :sub:`3`
+> > @@ -2385,6 +2401,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 1
+> >        -
+> > +      -
+> >        - b\ :sub:`1`
+> >        - d
+> >        - b\ :sub:`2`
+> > @@ -2393,6 +2410,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 2
+> >        -
+> > +      -
+> >        - b\ :sub:`0`
+> >        - d
+> >        - g\ :sub:`7`
+> > @@ -2401,6 +2419,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 3
+> >        -
+> > +      -
+> >        - g\ :sub:`1`
+> >        - b\ :sub:`7`
+> >        - g\ :sub:`6`
+> > @@ -2409,6 +2428,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 4
+> >        -
+> > +      -
+> >        - g\ :sub:`0`
+> >        - b\ :sub:`6`
+> >        - g\ :sub:`5`
+> > @@ -2417,6 +2437,7 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 5
+> >        -
+> > +      -
+> >        - r\ :sub:`1`
+> >        - b\ :sub:`5`
+> >        - g\ :sub:`4`
+> > @@ -2425,10 +2446,141 @@ JEIDA defined bit mapping will be named
+> >        -
+> >        - 6
+> >        -
+> > +      -
+> > +      - r\ :sub:`0`
+> > +      - b\ :sub:`4`
+> > +      - g\ :sub:`3`
+> > +      - r\ :sub:`2`
+> > +    * .. _MEDIA-BUS-FMT-RGB101010-1X7X5-SPWG:
+> > +
+> > +      - MEDIA_BUS_FMT_RGB101010_1X7X5_SPWG
+> > +      - 0x1026
+> > +      - 0
+> > +      -
+> > +      - d
+> > +      - d
+> > +      - d
+> > +      - b\ :sub:`1`
+> > +      - g\ :sub:`0`
+> > +    * -
+> > +      -
+> > +      - 1
+> > +      -
+> > +      - b\ :sub:`9`
+> > +      - b\ :sub:`7`
+> > +      - d
+> > +      - b\ :sub:`0`
+> > +      - r\ :sub:`5`
+> > +    * -
+> > +      -
+> > +      - 2
+> > +      -
+> > +      - b\ :sub:`8`
+> > +      - b\ :sub:`6`
+> > +      - d
+> > +      - g\ :sub:`5`
+> > +      - r\ :sub:`4`
+> > +    * -
+> > +      -
+> > +      - 3
+> > +      -
+> > +      - g\ :sub:`9`
+> > +      - g\ :sub:`7`
+> > +      - b\ :sub:`5`
+> > +      - g\ :sub:`4`
+> > +      - r\ :sub:`3`
+> > +    * -
+> > +      -
+> > +      - 4
+> > +      -
+> > +      - g\ :sub:`8`
+> > +      - g\ :sub:`6`
+> > +      - b\ :sub:`4`
+> > +      - g\ :sub:`3`
+> > +      - r\ :sub:`2`
+> > +    * -
+> > +      -
+> > +      - 5
+> > +      -
+> > +      - r\ :sub:`9`
+> > +      - r\ :sub:`7`
+> > +      - b\ :sub:`3`
+> > +      - g\ :sub:`2`
+> > +      - r\ :sub:`1`
+> > +    * -
+> > +      -
+> > +      - 6
+> > +      -
+> > +      - r\ :sub:`8`
+> > +      - r\ :sub:`6`
+> > +      - b\ :sub:`2`
+> > +      - g\ :sub:`1`
+> >        - r\ :sub:`0`
+> > +    * .. _MEDIA-BUS-FMT-RGB101010-1X7X5-JEIDA:
+> > +
+> > +      - MEDIA_BUS_FMT_RGB101010_1X7X5_JEIDA
+> > +      - 0x1027
+> > +      - 0
+> > +      -
+> > +      - d
+> > +      - d
+> > +      - d
+> > +      - b\ :sub:`5`
+> > +      - g\ :sub:`4`
+> > +    * -
+> > +      -
+> > +      - 1
+> > +      -
+> > +      - b\ :sub:`1`
+> > +      - b\ :sub:`3`
+> > +      - d
+> >        - b\ :sub:`4`
+> > +      - r\ :sub:`9`
+> > +    * -
+> > +      -
+> > +      - 2
+> > +      -
+> > +      - b\ :sub:`0`
+> > +      - b\ :sub:`2`
+> > +      - d
+> > +      - g\ :sub:`9`
+> > +      - r\ :sub:`8`
+> > +    * -
+> > +      -
+> > +      - 3
+> > +      -
+> > +      - g\ :sub:`1`
+> >        - g\ :sub:`3`
+> > +      - b\ :sub:`9`
+> > +      - g\ :sub:`8`
+> > +      - r\ :sub:`7`
+> > +    * -
+> > +      -
+> > +      - 4
+> > +      -
+> > +      - g\ :sub:`0`
+> > +      - g\ :sub:`2`
+> > +      - b\ :sub:`8`
+> > +      - g\ :sub:`7`
+> > +      - r\ :sub:`6`
+> > +    * -
+> > +      -
+> > +      - 5
+> > +      -
+> > +      - r\ :sub:`1`
+> > +      - r\ :sub:`3`
+> > +      - b\ :sub:`7`
+> > +      - g\ :sub:`6`
+> > +      - r\ :sub:`5`
+> > +    * -
+> > +      -
+> > +      - 6
+> > +      -
+> > +      - r\ :sub:`0`
+> >        - r\ :sub:`2`
+> > +      - b\ :sub:`6`
+> > +      - g\ :sub:`5`
+> > +      - r\ :sub:`4`
+> >  
+> >  .. raw:: latex
+> >  
+> > diff --git a/include/uapi/linux/media-bus-format.h b/include/uapi/linux/media-bus-format.h
+> > index d4c1d991014b..ff62056feed5 100644
+> > --- a/include/uapi/linux/media-bus-format.h
+> > +++ b/include/uapi/linux/media-bus-format.h
+> > @@ -34,7 +34,7 @@
+> >  
+> >  #define MEDIA_BUS_FMT_FIXED			0x0001
+> >  
+> > -/* RGB - next is	0x1026 */
+> > +/* RGB - next is	0x1028 */
+> >  #define MEDIA_BUS_FMT_RGB444_1X12		0x1016
+> >  #define MEDIA_BUS_FMT_RGB444_2X8_PADHI_BE	0x1001
+> >  #define MEDIA_BUS_FMT_RGB444_2X8_PADHI_LE	0x1002
+> > @@ -68,6 +68,8 @@
+> >  #define MEDIA_BUS_FMT_ARGB8888_1X32		0x100d
+> >  #define MEDIA_BUS_FMT_RGB888_1X32_PADHI		0x100f
+> >  #define MEDIA_BUS_FMT_RGB101010_1X30		0x1018
+> > +#define MEDIA_BUS_FMT_RGB101010_1X7X5_SPWG	0x1026
+> > +#define MEDIA_BUS_FMT_RGB101010_1X7X5_JEIDA	0x1027
+> >  #define MEDIA_BUS_FMT_RGB666_1X36_CPADLO	0x1020
+> >  #define MEDIA_BUS_FMT_RGB888_1X36_CPADLO	0x1021
+> >  #define MEDIA_BUS_FMT_RGB121212_1X36		0x1019
+
+-- 
+Regards,
+
+Laurent Pinchart
 
