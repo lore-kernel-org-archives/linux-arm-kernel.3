@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA77D12662
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF065D12662
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 08:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Nnxla3UOXbGveUOQ2wYAl4yXcze3QodV3rJ6QQi4dk=; b=LaX6Jajn4C1OCmQ4ro23ocLOwB
-	uCt3Ic2rdNhdlcKGLVOK9+SDsmPEuDfP5WBfDwp0tWIi4T9pBoKsxAGgI6aynaroM4hN3WzSFXQ23
-	IP/Y+34G6JEdTPx9JOpMHShg7rrVsgvVMw6PBksyZLEKDFnV8cqiQjm2fCsgL454YTd2vPfBU6koz
-	GGhMoGc6ycGMNH7VFuJ/bnBCkc1eRstf3VZHajH/uWI1JT8NDVLrqjX62+oOxfNxkqgfr5UwzRDCd
-	EIstOW9eyiJ9itBN92D2QMKxN146N9rA4poXgTrKbCWOMi6kEoVS14lWxi9BOve7MoSxGURSDJji8
-	LFygVYPg==;
+	bh=Boh51om16/6cUq1DCmo9haIf3b5vZQi+saUvgPu/98Y=; b=IpDY41ZmK0Ri1/eNRz+qzLH4/Q
+	E376DEykGczLa4Wj+gdoCyAvKU9uEWvjGD2g5Tt5r6+sxsWXhpAVFMgrgrb3awdB5sK2BSDx7DXsb
+	qJ0kNQ9JH2AT+AtgnE2TGdt/qVwAhRWxe9104uRss8ZcwJoOewnJimfXDSh9z12Zst7Yvh3RR1Nhp
+	mw3eLUSDD4Ky1+LZdUYjLoXdSVM7hh8VPcU3N75D21ZE8flXN8/suLph92UgzTpJB10bLHTWMEnkp
+	fVKd0MfIB3QVJ7y10QO0OwMvMiR2eNEiboAiU7SnT5hTC+EG8h8BPjBCWuV9V6eAFWXmLxOC+xzNi
+	H0eehKOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EW5-0000000GGkl-1Lbm;
-	Tue, 05 Nov 2024 08:02:21 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1t8EXj-0000000GGuq-2mG3;
+	Tue, 05 Nov 2024 08:04:03 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8EM8-0000000GEkz-2C2h
+	id 1t8EM9-0000000GElO-1nc1
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Nov 2024 07:52:07 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A52iEOw028085;
-	Tue, 5 Nov 2024 08:51:55 +0100
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A53GSeR022439;
+	Tue, 5 Nov 2024 08:51:57 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7Nnxla3UOXbGveUOQ2wYAl4yXcze3QodV3rJ6QQi4dk=; b=sv76dPRE3yuQSR//
-	YJq+3qrrc+RITjDfS7CXlVj0Kzlj1WF0Z6kRg4OwMDHJ4vSbqih2zXewxPoGZ6wy
-	0izqYwxQ344vo/5D7UaFWFTQ+klpzZpX+R9mJ8THOYg1xKBN0z8Sqd0dSyIO/pht
-	PF+p/NZOeGXRHF8ikj84drHLuin0XIXMgqa4eOeIiBlQ7W7mfEg39/sWtcngC19z
-	h7gdQYJ8gaS2dkfIuFGftPLfK8pcXMEISTpUfoabNoap2qo8wz3Fibr7cRYhCFH2
-	Uu7n6YucKV3pIiUV2/yotBtWdXFUITxFUeWFdbg1+WD/IOwFfUN9mD83YeMmg/sj
-	69/i7A==
+	Boh51om16/6cUq1DCmo9haIf3b5vZQi+saUvgPu/98Y=; b=M480QcuiNz5z7pQA
+	LXJocxUpAq5ZgtUAwLy8QkxMolyCxe02Ar4CZMgwmCSJgXbqmLNccXCwpowO6TZP
+	mty4EsT32g2tE3is2pQv56E1X9n9kG+bHbjkJC+cJnHSnbOBDBWvy3YzXveZ8W0B
+	uyzhY/Hp4N3VqVo72bFly3+s7AoM+EoPEVr2V+mrTgPn9j2j6Ig0kPqKDFwntbJ4
+	AI4idtYgtjfaNZrX6SgHZu1LE2gUd1eDqxyYQoMT2kmkYpgn/zjnZgU/rvnGSpN4
+	yIQfsQNWR3h6g6gCxVKn27c7o/O4OVeZWDOcH0EyTQm9xDYdeYMBJnG6pxR/L1Mz
+	+8IyLQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nd00jdff-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42nxh3rnj1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 05 Nov 2024 08:51:55 +0100 (CET)
+	Tue, 05 Nov 2024 08:51:57 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 66F894002D;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CBF384004F;
 	Tue,  5 Nov 2024 08:50:22 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BB02924FE55;
-	Tue,  5 Nov 2024 08:49:29 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 026A62504FA;
+	Tue,  5 Nov 2024 08:49:31 +0100 (CET)
 Received: from localhost (10.129.178.213) by SHFDAG1NODE1.st.com
  (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 5 Nov
- 2024 08:49:29 +0100
+ 2024 08:49:30 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 5 Nov 2024 08:49:05 +0100
-Subject: [PATCH v2 02/15] dt-bindings: media: add description of stm32 csi
+Date: Tue, 5 Nov 2024 08:49:07 +0100
+Subject: [PATCH v2 04/15] media: stm32: dcmipp: use
+ v4l2_subdev_is_streaming
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241105-csi_dcmipp_mp25-v2-2-b9fc8a7273c2@foss.st.com>
+Message-ID: <20241105-csi_dcmipp_mp25-v2-4-b9fc8a7273c2@foss.st.com>
 References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 In-Reply-To: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -89,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_235204_993054_F1C8D156 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20241104_235206_043297_D0CFDC69 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,151 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the stm32 csi controller description.
+Rely on v4l2_subdev_is_streaming in order to know if the subdev
+is streaming or not instead of relying on a local variable.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-
 ---
-v2:
-  - rename into st,stm32mp25-csi.yaml to match compatible
-  - correct port / data-lanes (remove useless lines &
-    use data-lanes 1 and 2 instead of 0 and 1)
-  - correct commit log
----
- .../bindings/media/st,stm32mp25-csi.yaml           | 125 +++++++++++++++++++++
- 1 file changed, 125 insertions(+)
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c | 6 +-----
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c | 5 +----
+ 2 files changed, 2 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..33bedfe419244e12dbb98b358821bbc39ea6facf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-@@ -0,0 +1,125 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/st,stm32mp25-csi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics STM32 CSI controller
-+
-+description:
-+  The STM32 CSI controller allows connecting a CSI based
-+  camera to the DCMIPP camera pipeline.
-+
-+maintainers:
-+  - Alain Volmat <alain.volmat@foss.st.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - st,stm32mp25-csi
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 3
-+
-+  clock-names:
-+    items:
-+      - const: pclk
-+      - const: txesc
-+      - const: csi2phy
-+
-+  resets:
-+    maxItems: 1
-+
-+  vdd-supply:
-+    description: Digital core power supply (0.91V)
-+
-+  vdda18-supply:
-+    description: System analog power supply (1.8V)
-+
-+  access-controllers:
-+    minItems: 1
-+    maxItems: 2
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description:
-+          Input port node
-+
-+        properties:
-+          endpoint:
-+            $ref: video-interfaces.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              data-lanes:
-+                minItems: 1
-+                items:
-+                  - const: 1
-+                  - const: 2
-+
-+            required:
-+              - data-lanes
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description:
-+          Output port node
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/media/video-interfaces.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+    csi@48020000 {
-+        compatible = "st,stm32mp25-csi";
-+        reg = <0x48020000 0x2000>;
-+        interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
-+        resets = <&rcc CSI_R>;
-+        clocks = <&rcc CK_KER_CSI>, <&rcc CK_KER_CSITXESC>, <&rcc CK_KER_CSIPHY>;
-+        clock-names = "pclk", "txesc", "csi2phy";
-+
-+        ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            port@0 {
-+                reg = <0>;
-+                endpoint {
-+                    remote-endpoint = <&imx335_ep>;
-+                    data-lanes = <1 2>;
-+                    bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+                };
-+            };
-+
-+            port@1 {
-+                reg = <1>;
-+                endpoint {
-+                    remote-endpoint = <&dcmipp_0>;
-+                };
-+            };
-+        };
-+    };
-+
-+...
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 5a361ad6b0234c5de03c12b0b7b9d428eae63c06..50500112eab9a7b10a0c5e29773e31ded1a66628 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -78,7 +78,6 @@ struct dcmipp_byteproc_device {
+ 	struct v4l2_subdev sd;
+ 	struct device *dev;
+ 	void __iomem *regs;
+-	bool streaming;
+ };
+ 
+ static const struct v4l2_mbus_framefmt fmt_default = {
+@@ -239,11 +238,10 @@ static int dcmipp_byteproc_set_fmt(struct v4l2_subdev *sd,
+ 				   struct v4l2_subdev_state *sd_state,
+ 				   struct v4l2_subdev_format *fmt)
+ {
+-	struct dcmipp_byteproc_device *byteproc = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *mf;
+ 	struct v4l2_rect *crop, *compose;
+ 
+-	if (byteproc->streaming)
++	if (v4l2_subdev_is_streaming(sd))
+ 		return -EBUSY;
+ 
+ 	mf = v4l2_subdev_state_get_format(sd_state, fmt->pad);
+@@ -495,8 +493,6 @@ static int dcmipp_byteproc_s_stream(struct v4l2_subdev *sd, int enable)
+ 		}
+ 	}
+ 
+-	byteproc->streaming = enable;
+-
+ 	return 0;
+ }
+ 
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+index 62c5c3331cfecdf5fcf0a5d20b4051b1b024968e..05e8897ae37a4b6c8e16c066e83ff5b1d1e07635 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-parallel.c
+@@ -129,7 +129,6 @@ struct dcmipp_par_device {
+ 	struct v4l2_subdev sd;
+ 	struct device *dev;
+ 	void __iomem *regs;
+-	bool streaming;
+ };
+ 
+ static const struct v4l2_mbus_framefmt fmt_default = {
+@@ -230,7 +229,7 @@ static int dcmipp_par_set_fmt(struct v4l2_subdev *sd,
+ 	struct dcmipp_par_device *par = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *mf;
+ 
+-	if (par->streaming)
++	if (v4l2_subdev_is_streaming(sd))
+ 		return -EBUSY;
+ 
+ 	mf = v4l2_subdev_state_get_format(sd_state, fmt->pad);
+@@ -370,8 +369,6 @@ static int dcmipp_par_s_stream(struct v4l2_subdev *sd, int enable)
+ 		reg_clear(par, DCMIPP_PRCR, DCMIPP_PRCR_ENABLE);
+ 	}
+ 
+-	par->streaming = enable;
+-
+ 	return ret;
+ }
+ 
 
 -- 
 2.25.1
