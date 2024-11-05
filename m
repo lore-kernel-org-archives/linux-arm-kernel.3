@@ -4,84 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522C2D1CA2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 05:57:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAB9D1CA32
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 06:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aP7jzB397TwLHZpvq8Wp+ukhzKvSf6SOBV3UlPyP33I=; b=Q6t6Sbaff3IfW3wIMqWn3V8qZi
-	dMXFB1J3HfgLYyuLkIfI43tsIxH9KR+vEGG2P5jYzfpD8fTKQmPHM1czaNsDJo5f+W94n65crgiUf
-	w0lpXi3OAX2hZ13oSN5bJCLCeAEiyWT2dxv3EXh4rNyLWxPIcSfkeGQbc9yGvL3uSgtBdv+PAqigA
-	p27pyMMge6z3cYnTLKv3FKTRi1cIroySG764t2J3S4hHzdoBEXe8yMZe6QjjbRlyd5lJ8nMiMJDgy
-	gAJjzBqueQhfKgYYtSxIeNdPTuZfK/ucqsZxE7VTQoiMysjY5J4cqAty3KHHUCMh6fAPWumGcZthE
-	/4JundkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dOpCbIfJf4G3UaKhanNSH98fpbcQb6XosEQOUA3kUXg=; b=3jl0RYResWNJzilKB+inX5RWzn
+	srewvwzbHKKf/4rzYrj1UhcfTtsy/kABH9MPZ8wKDjvEmR0/8tKHKoU+0JvYo7L+kgy03qPaqvHEU
+	6KL5gvWzeS1W2FIOL++9xqZ/19NKVEk6GzS0JQ8NA1flttOrH4+d2uyS9mutKfnlfx65i5yqJf3uJ
+	sWgfFT8a+tgETRJ+kosWQ1k4LwUctIE9ayP7NU4aPqz/PUtlZgCE2UrfkRgrkmNEbRNSf54RTYwL4
+	vMFx5iV54DDVXs/s4kpI1BGG/ii47nl/VLWnHjEmPF6onzJOonRl728w8QJCd86TMN2T+THd3oaV9
+	W4yWnrPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8CZE-0000000FzSe-068o;
-	Tue, 05 Nov 2024 05:57:28 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1t8Cey-0000000G0nW-3W21;
+	Tue, 05 Nov 2024 06:03:24 +0000
+Received: from mail-am6eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2612::609] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8CW6-0000000FygM-3v2Q
+	id 1t8CdF-0000000G0Mo-3Qfm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 05:54:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730786055; x=1762322055;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mGA7O6fgfWIf/Pwu4MvEyfLhFnqrGvQTMMOxj9Qazzs=;
-  b=MZuf2N+oVUhi9caL1a3Vel/xnub9p04BYPnA5Jh5nWKlkEkMvhtwlyOG
-   P7r7YdhzgcaWMBegQ83h+dnseK+7ADLwtxfcRDJ1SbprG/REV791FkSbo
-   ZGqvL0KsL7IS6QDJPS0ur5lx1ro9Tzql6A3o9H4+3dfACr+p5ZWnfUPhB
-   QHwZyUOFfEOQn2gYKzQzLQiE/U9UhKUTivEwncaNfDZv1m7nejULU14aY
-   Ur6jmIWFqhjJJ9JQEB8088aDwSJA1mvk1zWEtoiKfDVD92P/amP4pzJGC
-   0bZrdwycZ/KRzynmzODPK6WFRYF54sZFDhj3/xKkuhtXL0UzZORHiCJZW
-   A==;
-X-CSE-ConnectionGUID: 32rLA05RSMGqH6NTeqSYtg==
-X-CSE-MsgGUID: G3+VUbJiTkiZitzhrDR6kA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="41618646"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="41618646"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 21:54:12 -0800
-X-CSE-ConnectionGUID: Ud1QZqu5Q7y+3MTYCN7GcA==
-X-CSE-MsgGUID: s6QMNsPpSXyaQICF17edmQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,259,1725346800"; 
-   d="scan'208";a="88447927"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 04 Nov 2024 21:54:08 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t8CVy-000lgf-0o;
-	Tue, 05 Nov 2024 05:54:06 +0000
-Date: Tue, 5 Nov 2024 13:53:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: Quentin Perret <qperret@google.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Tue, 05 Nov 2024 06:01:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IkaTFiSR7w3TfJ9bnLlEpF0g29dmrq2zw375LrFrbY4pc/DJ/1m1aE1m1MqhRHwx7qcoZiGGVBAiNQUJ/HwcUeZtI+VjGmW4D+I2C2RT+oJNDsyk2yamR8LJ7y8Hb9Ik/2GQay9MINIl760E3VPIG075lLigvPmAkwD6fcACeTAdhvY0EOBa/bR6HgNbOhsmMFhJmeUdyAKBzPLyiUotTMi//AqA5/ZBrJlt6Vbecf3iP8EPQdqAb/20my4WRO/qAN/+ibm5iN8o19yUlC82+ifXBxHlaTAS1BxzYYMEq4fnT8a2p05NHKwH4Cv/T36Bbor2P6HSgJ5K0j78pvlxXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dOpCbIfJf4G3UaKhanNSH98fpbcQb6XosEQOUA3kUXg=;
+ b=aBQFcs7NEvDg+w+kX/89jVVvoj2say3pTJh4m5p2GERaoeaCs1xZw0a6EYyyjdw1hp1nHtk+F9jmXrYMGJ4if0eMOAwrWZ0V1IKTXx+JPnH0KclkS2KZLuel48IgKIIZ1++yfPa3mlLyKBlmBpbmlTthP8VjyFcarCBSCa5nfTzL5QlLbEsuLvoMnal1k+96PQ2YUdiT3V7a7Ozi9C/y6kGa62hJ/dO4sPQOdBnLJZj5uQXVt1DL0memmDToHcHQENi5EH1YG04spnmX6SxowfhfJmM89Gi2KfSFCIw5CVElH1N1m9LBUcph1+HYAYrd9HLultfURgdxkqbZAd0/rA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dOpCbIfJf4G3UaKhanNSH98fpbcQb6XosEQOUA3kUXg=;
+ b=bHBnXVghwaLuFN9nNfV6B3elLPkvzGqMfhJKQtTXc1kxnqMJXU46GMo/p6cQYVsQwOj7XMUxdYXq0NmJDCV7o8p+zWhZ0lPWdyf18S3fr4znybn2M9ziJK5ATSR1SXnUzd4bvA3UF1DZvLrobnr1gyO34I6G2C26aDCbyH/7fT9EjguPX5QCub5E/ijUVCOqGouJTenQMzKFsIXX5htKKRFTszHjvhgJBt8ysnVuSnX4JXERm1ZU8aaiV8eHSWpe6+o07Mv9AYdNGiWL71T2xPhagjHwCKNC6vD/q0RPrphwI+XMHTdFPLpTUMPq2scy4RZXBm4nsHOdEoWsutyxKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by GV1PR04MB10895.eurprd04.prod.outlook.com (2603:10a6:150:20b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.31; Tue, 5 Nov
+ 2024 06:01:32 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%7]) with mapi id 15.20.8114.031; Tue, 5 Nov 2024
+ 06:01:32 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 18/18] KVM: arm64: Plumb the pKVM MMU in KVM
-Message-ID: <202411051325.EBkzE0th-lkp@intel.com>
-References: <20241104133204.85208-19-qperret@google.com>
+Subject: [PATCH] arm64: dts: imx95: correct the address length of netcmix_blk_ctrl
+Date: Tue,  5 Nov 2024 13:46:02 +0800
+Message-Id: <20241105054603.1470260-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6)
+ To PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104133204.85208-19-qperret@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|GV1PR04MB10895:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7ec75cd-be43-449e-b1f5-08dcfd5f4c51
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QdlXgnRvbVhF4NoQihS4fMa6cwlL8WuTRGhXElbvsU2GBjebnRDu9JQ2X/pA?=
+ =?us-ascii?Q?w6Z7ir/VhR16VnqqvBCLmav/U1+lxOoaLHf26f36as+BufE45YlrOmPO70pA?=
+ =?us-ascii?Q?Vzezfq3TFKu/nVehzd0u+GVefcnuG4FUGHt6oqGW3dvzsBCngSe2s7wxpUrb?=
+ =?us-ascii?Q?4GVYaVd2eICtOOYKr0gVkgUTyzOYDBIP7n2SPk5IDUWIvZOS3bYp+e0xoVaT?=
+ =?us-ascii?Q?3yKBEfrJmheHWs3r/rEO7xFB5vas0vqx/X9hnerqDAjMVqhO6ylgZ0+eEhiI?=
+ =?us-ascii?Q?Xzh1l0Bzdj9OkYAm4tNxlGE5rcdU/smPfCb34ZUdEeLNTEMIxD3LPz9QaDgT?=
+ =?us-ascii?Q?N+y8jeEmU8+pnIQ6Nr4ywWerkSFusVjxp4G8B0p1XwTHzieGDhKTyP0yfQ+y?=
+ =?us-ascii?Q?rSR3mQoQ2JLkGf2fnLHE786IcFsXCBbcp20LYhVIKaxgZCJmwHWVK6Kltt70?=
+ =?us-ascii?Q?yKVKEffo2QSkyiN1QV++LV3RlbzLOffTxSlYlwEhwGSRF04RJcxAa+YPHKq3?=
+ =?us-ascii?Q?y/UGKNwVhazvqbGj1Yz1e2NKH85zVtKlDqqIA0nI6KyfCyPVjOW8u7V5LPuG?=
+ =?us-ascii?Q?fOwD/4+Z6fim7fbAyPV5w2L85mrfxzGm0/ixn5FW1ALY5qChxWStdRh8Pz9/?=
+ =?us-ascii?Q?ytpuTKyqKSca72nDOAIbikZDhXAxrZxkirc3QdIbEYIXLHCJpA1jTTyaGG0W?=
+ =?us-ascii?Q?ftbRCvRPV5uvQD1c/pEWdOHeTfp5tEIUhf1IQbrVoUEOTn7CuT4hHd+iGYkR?=
+ =?us-ascii?Q?auvvFOOWRTerdT4L19EZ9ncRhBgQPfOqq6tbVDRk2HA8paESjqQGjOVhDXwC?=
+ =?us-ascii?Q?guwp6zURaZk5tlUZz6cjzfAiApG2D4XxHb2DHwb2MzshDukp/yysZ+RUgJ+d?=
+ =?us-ascii?Q?lrU75gadWyjEWcCMaf070x9vbWUWH4tGwj0WPK9uT7/ZElmmG8wxG6AZNdX/?=
+ =?us-ascii?Q?E0BMjZJzzVCXxkNlNQjaxDiI1e3A8+N4nxaEIrQjbq3yW+H14g4Db5EDGd9Z?=
+ =?us-ascii?Q?7z8Ar+3W9fGM9H2t/VBxjerrHcpgk8yafKNdj5nXCEfF0hjkHFil4oxN5P8c?=
+ =?us-ascii?Q?Jhlf3s/SK0BWWBBAyzU9dAl/Mh0SaJxEA9LGm+ymWkhRGEww1m1E6N+wDebv?=
+ =?us-ascii?Q?6NSRdYNJVxwj1ZcneGRLW0Rm5ZaCASGDdnXtJzO+71Ibqi5bczD5pEcYAs/y?=
+ =?us-ascii?Q?jBO+TQaDuoZuKZcocrPvJeUJKi/q9D/dPjnxUeY32veg79daOIcKmcsdM9PR?=
+ =?us-ascii?Q?YJLNJtfK4V6ZrlJjp2w6KEhmGjg2p6whDYAJwOQcEu3CMnOKDpptQk+y2K5I?=
+ =?us-ascii?Q?fddD2chz8cQEFH98iuPT0lkSL+ao3O+EY/gHD8xJkpCn0DnQbPSUtA89hRiM?=
+ =?us-ascii?Q?3pM5ihg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gwL7XhjIV7txYpyKFhxhOoM/fihuqkWczp2Mg9PEx1tJcqGNO5mZxRwdJKfA?=
+ =?us-ascii?Q?JA3noju3rsja5UAfJP1AH5IwU2YdIcthu57ilo8z3xLUDRM6aHySA35jYZQY?=
+ =?us-ascii?Q?6ZQxnbNAAyyDWY0PIOQw4vY3LJhGQwhkp8xP+P5a2iz1/mqiZ3Tq/tmnA2Gh?=
+ =?us-ascii?Q?wa42p5RrigeM2Tw66NDthTSZhF+1jD1PFIOlbmKWWeFd673JBdAsSBB60LjQ?=
+ =?us-ascii?Q?N+gCyWFOyfOGb8P0jJ7G+F8VDwBqVLZzgsx6LHOrNZemX7+S3AvXr6HWX/I+?=
+ =?us-ascii?Q?w5NaFm6G/nh6i7fzue8ezfesLvlnotlw8OrvOX7mgm42hCc+HY5rpcbvvkS9?=
+ =?us-ascii?Q?VugMy/0Dh2mzwMkCzZs/nlgkc8rMs4a+8RUkhTxz/u3X7nEhPG9AR+uBlCK2?=
+ =?us-ascii?Q?+BuJ1MKMaA+Xj0/yjPRdObnnuUkUhIaHMphs7DYqPPLzMZc/hpqSiEZVfTqL?=
+ =?us-ascii?Q?olfYSN438JujqL5TQ+M/aUX070fbpNBjvNHWwcAxhu4SqlWfyaw/rvOvj2Iq?=
+ =?us-ascii?Q?sWQweQBMsO8UgPtidvK0CVWQtoq6RopWEVlsU4Vd0KsL5yTNfHBNOEDvR98W?=
+ =?us-ascii?Q?Of6VTbA+/RcEfP3kh1gqghlD7p+3W4jOMAG7JWyxdUSV4qYoRMbCdbGyDElk?=
+ =?us-ascii?Q?1sQ0LGOWvsbxIs7A4PaHsHEbSwDt3RAnBwF0Y9dplhYUJKV1/vu8LlFpqPH3?=
+ =?us-ascii?Q?+xfFWZ2U/F9FxDqQIdW8bX9Q+R6y4QTcQoJgnSSbVURQz7bI/G8B8/f0fNUB?=
+ =?us-ascii?Q?3aqwGqubu6WW4yaQxRAS98497IrEyNDSCsr2djx3dJPYf+t5tV6haNxmoNtc?=
+ =?us-ascii?Q?+/LmCOnVjLr7HReu7VVs9txQ5eAOP0awxqROyKziOlb1/iWu19pqf4xfhcwR?=
+ =?us-ascii?Q?zBTpGMDPwTC+tUube1K5ZjAoFb9iWj7m9VLZBCFQuuqqIY8ZBLPDxWkLRV53?=
+ =?us-ascii?Q?8mAg/nHzZN6OLPOgl/qY2P9LdHVsjprxBNNA/qTkDDLY5v48vtVxh76bTTwY?=
+ =?us-ascii?Q?3OHQpHTIDYqarhjTx0kcc2xp7ljC+0rBJtbtCQzX8HtN6Pj3OBsuABYjT//7?=
+ =?us-ascii?Q?PAddDc3P8VcXUBcL0FiGxcCmxBTOk9hsVARakRe+vhYJizr0i10s8U9Hzq0B?=
+ =?us-ascii?Q?Hr+slWPPyMEdcCc1/8szjC88KfMGoy2QCJPKYRGhQ9X/xxtFKKASJzaPCOQ5?=
+ =?us-ascii?Q?nLS5l8Xhc58eZXsVBWTsXkfNHG0xz+Y+xKxqCICrhlcrRPyP9xHWd2W+4miE?=
+ =?us-ascii?Q?LH9fnt7GsOA1bo+lcL7IeV2X5dMMpByGSt+WdN9jtGPoyM22V67+NRFaPT2J?=
+ =?us-ascii?Q?kGCv+R64xCrapIk7AAQHcqsWNAfcQcwnKlbrAHj5q1F5djIvNRJqkABPTWnJ?=
+ =?us-ascii?Q?Kqaxj7fMh9IboOc2ccOvgCCcXbb6kY5SY/ZCdmZqF0qk5yhXLwsab3Y5fI0Y?=
+ =?us-ascii?Q?kFI7pppYzzrwtH/E3uelJE6W9f0zxi8VwiJF0jUR6xbQR3PFJClcqF8LJXop?=
+ =?us-ascii?Q?mrfheDiw+SqP51M+dXfPQIyqszcyhae46eSGcEW3YN9s2ZlhkAFgCU5KOkCw?=
+ =?us-ascii?Q?DHZ1dYJihHlwTEf28oopowoVCjLVU1gndGDeQX1y?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7ec75cd-be43-449e-b1f5-08dcfd5f4c51
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2024 06:01:32.7187
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ewaAlFcN47i4asxrkHwvCIa6OlQpYfY4CzvS8aMW/mSDEX+VN019N8CHViwhNrM9hyehK5VsjdqrO0FvTs93sQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10895
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_215415_055114_9E712A57 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20241104_220137_895576_7AFFFAB3 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +160,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+The netc_blk_ctrl is controlled by the imx95-blk-ctl clock driver and
+provides relevant clock configurations for NETC, SAI and MQS. Its address
+length should be 8 bytes instead of 0x1000.
 
-kernel test robot noticed the following build warnings:
+Fixes: 7764fef26ea9 ("arm64: dts: imx95: Add NETCMIX block control support")
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[auto build test WARNING on v6.12-rc6]
-[also build test WARNING on linus/master]
-[cannot apply to kvmarm/next next-20241104]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Quentin-Perret/KVM-arm64-Change-the-layout-of-enum-pkvm_page_state/20241104-213817
-base:   v6.12-rc6
-patch link:    https://lore.kernel.org/r/20241104133204.85208-19-qperret%40google.com
-patch subject: [PATCH 18/18] KVM: arm64: Plumb the pKVM MMU in KVM
-config: arm64-randconfig-002-20241105 (https://download.01.org/0day-ci/archive/20241105/202411051325.EBkzE0th-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241105/202411051325.EBkzE0th-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411051325.EBkzE0th-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> arch/arm64/kvm/mmu.c:338: warning: Function parameter or struct member 'pgt' not described in 'kvm_s2_unmap'
->> arch/arm64/kvm/mmu.c:338: warning: Function parameter or struct member 'addr' not described in 'kvm_s2_unmap'
->> arch/arm64/kvm/mmu.c:338: warning: expecting prototype for __unmap_stage2_range(). Prototype was for kvm_s2_unmap() instead
-
-
-vim +338 arch/arm64/kvm/mmu.c
-
-   299	
-   300	/*
-   301	 * Unmapping vs dcache management:
-   302	 *
-   303	 * If a guest maps certain memory pages as uncached, all writes will
-   304	 * bypass the data cache and go directly to RAM.  However, the CPUs
-   305	 * can still speculate reads (not writes) and fill cache lines with
-   306	 * data.
-   307	 *
-   308	 * Those cache lines will be *clean* cache lines though, so a
-   309	 * clean+invalidate operation is equivalent to an invalidate
-   310	 * operation, because no cache lines are marked dirty.
-   311	 *
-   312	 * Those clean cache lines could be filled prior to an uncached write
-   313	 * by the guest, and the cache coherent IO subsystem would therefore
-   314	 * end up writing old data to disk.
-   315	 *
-   316	 * This is why right after unmapping a page/section and invalidating
-   317	 * the corresponding TLBs, we flush to make sure the IO subsystem will
-   318	 * never hit in the cache.
-   319	 *
-   320	 * This is all avoided on systems that have ARM64_HAS_STAGE2_FWB, as
-   321	 * we then fully enforce cacheability of RAM, no matter what the guest
-   322	 * does.
-   323	 */
-   324	/**
-   325	 * __unmap_stage2_range -- Clear stage2 page table entries to unmap a range
-   326	 * @mmu:   The KVM stage-2 MMU pointer
-   327	 * @start: The intermediate physical base address of the range to unmap
-   328	 * @size:  The size of the area to unmap
-   329	 * @may_block: Whether or not we are permitted to block
-   330	 *
-   331	 * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
-   332	 * be called while holding mmu_lock (unless for freeing the stage2 pgd before
-   333	 * destroying the VM), otherwise another faulting VCPU may come in and mess
-   334	 * with things behind our backs.
-   335	 */
-   336	
-   337	static int kvm_s2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
- > 338	{
-   339		return KVM_PGT_S2(unmap, pgt, addr, size);
-   340	}
-   341	
-
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index d10f62eacfe0..e9c7a8265d71 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1673,7 +1673,7 @@ pcie1_ep: pcie-ep@4c380000 {
+ 
+ 		netcmix_blk_ctrl: syscon@4c810000 {
+ 			compatible = "nxp,imx95-netcmix-blk-ctrl", "syscon";
+-			reg = <0x0 0x4c810000 0x0 0x10000>;
++			reg = <0x0 0x4c810000 0x0 0x8>;
+ 			#clock-cells = <1>;
+ 			clocks = <&scmi_clk IMX95_CLK_BUSNETCMIX>;
+ 			assigned-clocks = <&scmi_clk IMX95_CLK_BUSNETCMIX>;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
