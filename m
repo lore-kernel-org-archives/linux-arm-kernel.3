@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33413D1266B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17F7D1266B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 09:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R3yJqC3ypONG67sfW18aA3TvWs+ZdO9Rsz+M0GDBdZo=; b=3LrQG4H62+uVAlEs04wweMvpJ5
-	gEDydeBSwPaXs8WcgqEJwKVoQwmVxAFrAiFPE+ad9CHtsiaTeJOanFIRQeL8KLn+czCrm9jpKslyo
-	z7otAFGB20ijcwGftrSuqGOisOmiDMLAhhnVcdXmXUqM35oO7U5a/pQNaBOJE8QWXAfU6T3XSdBXv
-	MKCX1uL6Qg+FIQs+X6r6+Eljd6vPcygqg1ywzwzb0Czr5a5xsKAcYsxoB3S+jUkgVxWYUMJeGucqP
-	/oeDoA6yG4UhRNkWCh3qmJawtbouADW8lS9mAl1zwxBv7JqBSeyLAbtrvYZu0YlJTItsp2LRPhOtW
-	Q9hnZYEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=; b=VZaRU6+92Qz2hhsd1+dvEkLbel
+	FMoCrFTgn51zWtcoNomDkEvWoKwTA9KoO6r7VBowUMIxE4pG8cBVaWIvUCCDTSY2nVrXxyxrS97xS
+	LMNkDvBlpcwgHMbrsVZ2XyrhtjiLXW6YeFLxinzzyHKYARZPviCv71IhLmor0R2FAcL5aQYHwLFnh
+	itOtJnSZcwl7fT3iNZha4RVqWQumKbd1IFMRA5+wvOkAeibGLvIMrqfqierYlscSueJvulHdDN5YT
+	ypgwjghnaOLvYIFfGn+TMw4xzaDRhehorUln2oEuc0QNb25SEambFTINNSaShh7xojbDFLfMMYvV8
+	Iu+bQu0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FSb-0000000GQlr-3Rx0;
-	Tue, 05 Nov 2024 09:02:49 +0000
-Received: from www.linux-watchdog.org ([185.87.125.42])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FQ5-0000000GQ9o-2v5x
+	id 1t8FUI-0000000GRAI-3JT4;
+	Tue, 05 Nov 2024 09:04:34 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8FSK-0000000GQcF-0iWg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 09:00:17 +0000
-Received: by www.linux-watchdog.org (Postfix, from userid 500)
-	id 80D2540A06; Tue,  5 Nov 2024 09:32:55 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 www.linux-watchdog.org 80D2540A06
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-watchdog.org;
-	s=odk20180602; t=1730795575;
-	bh=b+cUcGREjwIVOb8iVPWQ1xX9l5pWIaGxnqXDOFCzuIE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HsbnN/Tx+/Bvj8KL+ri+wWbTFp5C/N3vOAEZg0J4qoqhzSNsjJG1yl0RT1yU7xkvV
-	 3QOwZ2PWKt8zKELSK5Q699hFHBLRUkxAQrUh37XyMjN8cLi7UEYNNfOUixdIpCAAKr
-	 Ct0C2dZFrEG7Ytszd9Io//ao6Y3TMSBIQfV6PUzo=
-Date: Tue, 5 Nov 2024 09:32:55 +0100
-From: Wim Van Sebroeck <wim@linux-watchdog.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Tue, 05 Nov 2024 09:02:33 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7f3f1849849so171966a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 01:02:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1730797351; x=1731402151; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=;
+        b=lpyeEORl8udmjWqnUg6BnidOsCfCZk0WtarVLTiVnl9w1OPGjTRgVogX8qoea2x0U2
+         fxCpwaEhrpWRBb0J8wyisMUOPiGSBZ6rSYBKdoCXOHT63ugonev6ZeTuOiTcRWrFxZz3
+         R8TJA0oUC5M2Wf/Q18ITt8FPcICc9xIJfSj/4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730797351; x=1731402151;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=djQbbob5DRcgyzgtrmCeJK9wCGVRn3M70o+CkFeCAc0=;
+        b=Bufu83J2h519agmqL4RNm0d44d4Jjr2zLFsu44pIGLRXjdZEV9bmwRSRByk81l140p
+         74CGTCAOCmeaC8SwYrwjtFLKkhCdthmh6nIb1nLnnQzYyqtbxjAV2fczbm7HgtVpkoaV
+         55qD0oM6W+xb5MsBu9dET3MHJ0u+1RpR2Vrv4TBusx8zvdISpNEkevHTEaDySiFo886Y
+         rfapkwEVCgfcLrkC3oiVJ6Up5rb0C1F9xNZNQhH0Lt3+beZdg2BTatrzW9gsFC2CWd/H
+         lj9dYmwTMsLBLG1InfI2YBhzDh+jCTOiK6nz7knznIpgecucnNPQKuW2IBFWQtWZWyIu
+         wu8A==
+X-Forwarded-Encrypted: i=1; AJvYcCWBc9r2nohZ5gyEEd2Vo3XgIcUTyHXHoEdAXtM+TJlkLKhj/F1nwUgBY3PwFhdAfBP9zaomHctzenLCmLTbEFH1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/QelPiCpaIQlqORbltX+u/kZM4wd4KyMtBKbC1FIhAR3qqtSo
+	nXKwmPfArVIOOUXhgWCRRFU4baReWJa+PCARltdgoB6qXlBv2txGY/p0NUKDdQ==
+X-Google-Smtp-Source: AGHT+IH1k+zMqS05NS5QvavH+ykcILKALPqruVdecenHRtfW6dG9qXj72cxb37tXkc0AOy3qeQYb5g==
+X-Received: by 2002:a17:90a:bc87:b0:2d3:da6d:8330 with SMTP id 98e67ed59e1d1-2e92ce32e36mr25501301a91.4.1730797350795;
+        Tue, 05 Nov 2024 01:02:30 -0800 (PST)
+Received: from fshao-p620.tpe.corp.google.com ([2401:fa00:1:10:20ee:3712:ce0b:1ed7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2110570ad54sm72591315ad.111.2024.11.05.01.02.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2024 01:02:30 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Fei Shao <fshao@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx-wdt: Add missing
- 'big-endian' property
-Message-ID: <20241105083255.GA24194@www.linux-watchdog.org>
-References: <20241007212434.895521-1-Frank.Li@nxp.com>
- <ZyPUWaINgupm7dZ3@lizhi-Precision-Tower-5810>
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] dt-bindings: display: mediatek: dp: Reference common DAI properties
+Date: Tue,  5 Nov 2024 17:00:28 +0800
+Message-ID: <20241105090207.3892242-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyPUWaINgupm7dZ3@lizhi-Precision-Tower-5810>
-User-Agent: Mutt/1.5.20 (2009-12-10)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_010015_861179_A57BC60D 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20241105_010232_219311_CED32A7B 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +95,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+The MediaTek DP hardware supports audio and exposes a DAI, so the
+'#sound-dai-cells' property is needed for describing the DAI links.
 
-> On Mon, Oct 07, 2024 at 05:24:33PM -0400, Frank Li wrote:
-> > From: Animesh Agarwal <animeshagarwal28@gmail.com>
-> >
-> > Add missing big-endian property in watchdog/fsl-imx-wdt.yaml schema. Only
-> > allow big-endian property for ls1012a and ls1043a.
-> >
-> > Fix dtbs_check errors.
-> > arch/arm64/boot/dts/freescale/fsl-ls1012a-frwy.dtb: watchdog@2ad0000:
-> >     Unevaluated properties are not allowed ('big-endian' was unexpected)
-> >
-> > Cc: Daniel Baluta <daniel.baluta@nxp.com>
-> > Signed-off-by: Animesh Agarwal <animeshagarwal28@gmail.com>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> 
-> Wim Van Sebroeck:
-> 
-> 	Any update this patch? Kyzy already acked.
-> 
+Reference the dai-common.yaml schema to allow '#sound-dai-cells' to be
+used, and filter out non-DP compatibles as MediaTek eDP in the same
+binding doesn't support audio.
 
-Acked-by: Wim Van Sebroeck <wim@linux-watchdog.org>
+This fixes dtbs_check error:
+  '#sound-dai-cells' does not match any of the regexes: 'pinctrl-[0-9]+'
 
-Via which tree will this go upsteam?
+Signed-off-by: Fei Shao <fshao@chromium.org>
+---
 
-Kind regards,
-Wim.
+Changes in v2:
+- reference to dai-common.yaml since the hardware exposes DAI
+  and update to `unevaluatedProperties: false`
+- update commit message
 
-> 
-> Frank
-> 
-> 
-> >
-> > Change from v1 to v2:
-> >   only allow big endian for layerscape platform.
-> >
-> > previous post at:
-> > https://lore.kernel.org/imx/20240806103819.10890-1-animeshagarwal28@gmail.com/
-> >
-> > check spec, and dump watch dog reset value
-> > at ls1043a platform.
-> >
-> > 0x02A80000:  00 30 00 00 00 10 00 04 00 01 00 00 00 00 00 0
-> >
-> > It is big-endian. imx2_wdt.c use regmap which call regmap_get_val_endian()
-> > to handle endian.
-> >
-> > So this change is corret.
-> >
-> > big-endian for wdt is necessary
-> > ---
-> >  .../devicetree/bindings/watchdog/fsl-imx-wdt.yaml  | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> > index 36b836d0620c9..0da953cb71272 100644
-> > --- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> > +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> > @@ -48,6 +48,8 @@ properties:
-> >    clocks:
-> >      maxItems: 1
-> >
-> > +  big-endian: true
-> > +
-> >    fsl,ext-reset-output:
-> >      $ref: /schemas/types.yaml#/definitions/flag
-> >      description: |
-> > @@ -93,6 +95,18 @@ allOf:
-> >        properties:
-> >          fsl,suspend-in-wait: false
-> >
-> > +  - if:
-> > +      not:
-> > +        properties:
-> > +          compatible:
-> > +            contains:
-> > +              enum:
-> > +                - fsl,ls1012a-wdt
-> > +                - fsl,ls1043a-wdt
-> > +    then:
-> > +      properties:
-> > +        big-endian: false
-> > +
-> >  unevaluatedProperties: false
-> >
-> >  examples:
-> > --
-> > 2.34.1
-> >
+ .../display/mediatek/mediatek,dp.yaml         | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+index 2aef1eb32e11..75ce92f4a5fd 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+@@ -42,6 +42,9 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
++  '#sound-dai-cells':
++    const: 0
++
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+     properties:
+@@ -85,7 +88,21 @@ required:
+   - ports
+   - max-linkrate-mhz
+ 
+-additionalProperties: false
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - mediatek,mt8188-dp-tx
++                - mediatek,mt8195-dp-tx
++    then:
++      properties:
++        '#sound-dai-cells': false
++
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+-- 
+2.47.0.277.g8800431eea-goog
+
 
