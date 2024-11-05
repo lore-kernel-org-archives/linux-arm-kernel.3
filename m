@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16162D12676
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE6AD12678
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqjjzu00wo0rLZzR44vy7Mc+li1wHJBT4o2yabL2Nbg=; b=KNnnWlYxHGBQkygjOjLfUYtmRL
-	PLSUVgW+agwHWOIOLDJqraar7AMq3kQln4CMplxmNrvP+FLgO6AlAyWHY/k/6CZSXg0cfqmXdg3tj
-	PBnCXU3PsJ0o4qpfyouE33GyMy9h3m+XaC6fgcSSjozG5z06pJWoTwByMs2T7dU1vbMkItsY0gHRx
-	qGhyw/zzy5lJ3+z3X2515aB5zqd9ShbaGodbUaBF6LH1OXSbS9W+O1vYsnGKSqlRlukah3/T+li4e
-	XKPrUa2MARFxslgGq3eVp2eUG5SFoKmz5U7DSO92Eau3dKwQzd07IT+LDaoAFFx82Nv7I5LCVVf/v
-	7k1dFIew==;
+	bh=DTm4rcfM2cou5XGNrNuyprsRelg/e4+oAXKDruovYdA=; b=JWwTpL2st4l5LJQL3muTHyeKtV
+	3ahN7VMMRPp8hf8W5Zpa4wQOfxf22ACcf2q4BUh1+auKNI8s6OX2BGYP63puEeiLRfalTTy/UhslF
+	W4ioWvgyMnwKlnE87QhdgYPalizbuUD0FHEdO3gpc9DWWWWeDiabuyswfR4K5tD3JhJeFm6hjHen+
+	HrmySnHd0wLMCrxdxBcqhC9eqK53yxlYX0Cv74i2YrImbYaRowu0mQb6NA45vJtDCuHaGSFFPvLom
+	OJiAHMvsOqBtueGaHMPKOelEAWh6uTTqNBMwxwSug7tiye09NiD9EhrlTAgdMNVbjOj9pjdsMEzvz
+	SWkCHa3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8GRT-0000000Gcaz-3HVE;
-	Tue, 05 Nov 2024 10:05:43 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1t8GcN-0000000Ge28-485t;
+	Tue, 05 Nov 2024 10:16:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8GMo-0000000Gbpp-0zR9
+	id 1t8Gaf-0000000Gdnw-3zkF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 10:00:55 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43159c9f617so41431165e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 02:00:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730800852; x=1731405652; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qqjjzu00wo0rLZzR44vy7Mc+li1wHJBT4o2yabL2Nbg=;
-        b=q8PgytLPX3XL5xK5okErexGSsoBg0FiBSZbtOczXbSIgHFcITq9d/tc+xrgsHYVyGe
-         FIM7rrEC7We+tJXQB325lXe2DfSED0Ej+jopvRLlYNDBwpfZTBi2ii0huJSliKcJrKk0
-         2etep9ARc8sHryi/nL6RwVdpJTjDOgAC6S+HWFZvLYCFGX2MBlieD6O0jHzu2+o1+s/d
-         JBuvH6t8ides0h8+yeFq1nd5Dc9/QE+2oEZpNP5g2mOSaURmmtd0lHVa58kG6mN1vZ5w
-         s7mzqGVYgaefw1H5zD6Q4zf1BU6TDTnrMDBvymG72gMs/IlGXiKwhX3uRnvat2RyeGA1
-         ZLcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730800852; x=1731405652;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qqjjzu00wo0rLZzR44vy7Mc+li1wHJBT4o2yabL2Nbg=;
-        b=wLAsfG0nGoTgjhUqrn5PNlk/u2dk5d2cyg0uIE9J04F0G/6icfP57zZUnG8Kpkye60
-         xCiqxNMCWM07UuS4WBH5a4KvdhGse3M0bedYcWY1qvc9KHBxkybsI3p9lTQEa2A8l7Sr
-         d9UKJjqDDhWRdr5GvP8XsyWxPcsmEXu9+3fEsu1id35JtPD37uisV6hlCWFOLgsT+wcC
-         CDiBuMT4caLpl68Yj7gkzPLrsxjLLzYIhvi9hyV97GhWv6KcZg9xa1lyLCSssPJCK0Rf
-         CTEbatI9V5vdwpoLQZV+fkbbM2FldWOqzzNGp5O9oTc6fHriXr5c7ugoDgvomSG5f7ip
-         59Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCXPnSmWVVwus5M/DLpFqgZggFxVX50S6LfOfBTdPMdX+lqVj5A/c17NSKknxBhOqKHcjvxQDyrbVKMhoMuSw2re@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKNH64yYXFo1K1wRV+2Jp1AxM9P8ndb0AMsr785s9fcSU2Eyu3
-	HAAb102AsEz4GrPO2ZEQVBO7IdTgyWypdFCnr0geff85c0JMx+TIbSqgzCJcofo=
-X-Google-Smtp-Source: AGHT+IFm4Qb4M3oCZgWdKRIgQrNjub2F52DYcxA3WJCF5Ri03R0Wl6j6IdT3Hz00MkG2UHWSG6u6kw==
-X-Received: by 2002:a05:600c:458f:b0:431:3bf9:3ebb with SMTP id 5b1f17b1804b1-4319ad047a7mr311045735e9.24.1730800852400;
-        Tue, 05 Nov 2024 02:00:52 -0800 (PST)
-Received: from linaro.org ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4327d5bf4e7sm181024905e9.15.2024.11.05.02.00.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 02:00:51 -0800 (PST)
-Date: Tue, 5 Nov 2024 12:00:50 +0200
-From: Abel Vesa <abel.vesa@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aisheng Dong <aisheng.dong@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>
-Subject: Re: [PATCH v3 3/5] clk: imx: fracn-gppll: fix pll power up
-Message-ID: <Zyns0qfYpO3mZ4fa@linaro.org>
-References: <20241027-imx-clk-v1-v3-0-89152574d1d7@nxp.com>
- <20241027-imx-clk-v1-v3-3-89152574d1d7@nxp.com>
+	Tue, 05 Nov 2024 10:15:15 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t8GaH-00021Q-OL; Tue, 05 Nov 2024 11:14:49 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t8GaG-0027zm-0C;
+	Tue, 05 Nov 2024 11:14:48 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1t8GaF-0005OF-39;
+	Tue, 05 Nov 2024 11:14:47 +0100
+Message-ID: <8841158ed61b2b92a92ac6d2afcbd7cff12a6680.camel@pengutronix.de>
+Subject: Re: [PATCH v2 03/15] media: stm32: csi: addition of the STM32 CSI
+ driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Alain Volmat <alain.volmat@foss.st.com>, Hugues Fruchet
+ <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Date: Tue, 05 Nov 2024 11:14:47 +0100
+In-Reply-To: <20241105-csi_dcmipp_mp25-v2-3-b9fc8a7273c2@foss.st.com>
+References: <20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com>
+	 <20241105-csi_dcmipp_mp25-v2-3-b9fc8a7273c2@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241027-imx-clk-v1-v3-3-89152574d1d7@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_020054_307876_42100C93 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20241105_021514_003212_8DA95D5E 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,85 +84,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-10-27 20:00:09, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> To i.MX93 which features dual Cortex-A55 cores and DSU, when using
-> writel_relaxed to write value to PLL registers, the value might be
-> buffered. To make sure the value has been written into the hardware,
-> using readl to read back the register could achieve the goal.
-> 
-> current PLL power up flow can be simplified as below:
->   1. writel_relaxed to set the PLL POWERUP bit;
->   2. readl_poll_timeout to check the PLL lock bit:
->      a). timeout = ktime_add_us(ktime_get(), timeout_us);
->      b). readl the pll the lock reg;
->      c). check if the pll lock bit ready
->      d). check if timeout
-> 
-> But in some corner cases, both the write in step 1 and read in
-> step 2 will be blocked by other bus transaction in the SoC for a
-> long time, saying the value into real hardware is just before step b).
-> That means the timeout counting has begins for quite sometime since
-> step a), but value still not written into real hardware until bus
-> released just at a point before step b).
-> 
-> Then there maybe chances that the pll lock bit is not ready
-> when readl done but the timeout happens. readl_poll_timeout will
-> err return due to timeout. To avoid such unexpected failure,
-> read back the reg to make sure the write has been done in HW
-> reg.
-> 
-> So use readl after writel_relaxed to fix the issue.
-> 
-> Since we are here, to avoid udelay to run before writel_relaxed, use
-> readl before udelay.
-> 
-> Fixes: 1b26cb8a77a4 ("clk: imx: support fracn gppll")
-> Co-developed-by: Jacky Bai <ping.bai@nxp.com>
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
-
+On Di, 2024-11-05 at 08:49 +0100, Alain Volmat wrote:
+> The STM32 CSI controller is tightly coupled with the DCMIPP and act as an
+> input stage to receive data coming from the sensor and transferring
+> them into the DCMIPP.
+>=20
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+>=20
 > ---
->  drivers/clk/imx/clk-fracn-gppll.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
-> index 4749c3e0b7051cf53876664808aa28742f6861f7..85771afd4698ae6a0d8a7e82193301e187049255 100644
-> --- a/drivers/clk/imx/clk-fracn-gppll.c
-> +++ b/drivers/clk/imx/clk-fracn-gppll.c
-> @@ -254,9 +254,11 @@ static int clk_fracn_gppll_set_rate(struct clk_hw *hw, unsigned long drate,
->  	pll_div = FIELD_PREP(PLL_RDIV_MASK, rate->rdiv) | rate->odiv |
->  		FIELD_PREP(PLL_MFI_MASK, rate->mfi);
->  	writel_relaxed(pll_div, pll->base + PLL_DIV);
-> +	readl(pll->base + PLL_DIV);
->  	if (pll->flags & CLK_FRACN_GPPLL_FRACN) {
->  		writel_relaxed(rate->mfd, pll->base + PLL_DENOMINATOR);
->  		writel_relaxed(FIELD_PREP(PLL_MFN_MASK, rate->mfn), pll->base + PLL_NUMERATOR);
-> +		readl(pll->base + PLL_NUMERATOR);
->  	}
->  
->  	/* Wait for 5us according to fracn mode pll doc */
-> @@ -265,6 +267,7 @@ static int clk_fracn_gppll_set_rate(struct clk_hw *hw, unsigned long drate,
->  	/* Enable Powerup */
->  	tmp |= POWERUP_MASK;
->  	writel_relaxed(tmp, pll->base + PLL_CTRL);
-> +	readl(pll->base + PLL_CTRL);
->  
->  	/* Wait Lock */
->  	ret = clk_fracn_gppll_wait_lock(pll);
-> @@ -302,6 +305,7 @@ static int clk_fracn_gppll_prepare(struct clk_hw *hw)
->  
->  	val |= POWERUP_MASK;
->  	writel_relaxed(val, pll->base + PLL_CTRL);
-> +	readl(pll->base + PLL_CTRL);
->  
->  	ret = clk_fracn_gppll_wait_lock(pll);
->  	if (ret)
-> 
-> -- 
-> 2.37.1
-> 
+> v2: correct data-lanes handling, using values 1 & 2
+>     update yaml filename in MAINTAINERS
+> ---
+>  MAINTAINERS                                 |    8 +
+>  drivers/media/platform/st/stm32/Kconfig     |   14 +
+>  drivers/media/platform/st/stm32/Makefile    |    1 +
+>  drivers/media/platform/st/stm32/stm32-csi.c | 1144 +++++++++++++++++++++=
+++++++
+>  4 files changed, 1167 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/=
+platform/st/stm32/stm32-csi.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c7f47472c6b3699e94113ce0f=
+38b280a2e45ce15
+> --- /dev/null
+> +++ b/drivers/media/platform/st/stm32/stm32-csi.c
+> @@ -0,0 +1,1144 @@
+[...]
+> +static int stm32_csi_get_resources(struct stm32_csi_dev *csidev,
+> +				   struct platform_device *pdev)
+> +{
+> +	int irq, ret;
+> +
+> +	csidev->base =3D devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
+> +	if (IS_ERR(csidev->base))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(csidev->base),
+> +				     "Failed to ioremap resource\n");
+> +
+> +	csidev->pclk =3D devm_clk_get(&pdev->dev, "pclk");
+> +	if (IS_ERR(csidev->pclk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(csidev->pclk),
+> +				     "Couldn't get pclk\n");
+> +
+> +	csidev->txesc =3D devm_clk_get(&pdev->dev, "txesc");
+> +	if (IS_ERR(csidev->txesc))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(csidev->txesc),
+> +				     "Couldn't get txesc\n");
+> +
+> +	csidev->csi2phy =3D devm_clk_get(&pdev->dev, "csi2phy");
+> +	if (IS_ERR(csidev->csi2phy))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(csidev->csi2phy),
+> +				     "Couldn't get csi2phy\n");
+
+Consider using devm_clk_bulk_get().
+
+> +	csidev->rstc =3D devm_reset_control_get_exclusive(&pdev->dev, NULL);
+> +	if (IS_ERR(csidev->rstc))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(csidev->rstc),
+> +				     "Couldn't get reset control\n");
+
+If this wasn't in a separate function, rstc wouldn't have to be stored
+on csidev as it's only ever used in stm32_csi_probe().
+
+> +
+> +	csidev->supplies[0].supply =3D "vdd";
+> +	csidev->supplies[1].supply =3D "vdda18";
+> +	ret =3D devm_regulator_bulk_get(&pdev->dev, ARRAY_SIZE(csidev->supplies=
+),
+> +				      csidev->supplies);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "Failed to request regulator vdd\n");
+> +
+> +	irq =3D platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	ret =3D devm_request_threaded_irq(&pdev->dev, irq, NULL,
+> +					stm32_csi_irq_thread, IRQF_ONESHOT,
+> +					dev_name(&pdev->dev), csidev);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "Unable to request irq");
+> +
+> +	return 0;
+> +}
+
+regards
+Philipp
 
