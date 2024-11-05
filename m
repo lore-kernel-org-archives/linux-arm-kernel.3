@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97952D1CA31
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 05:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522C2D1CA2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 05:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o6I0lsXsH1rGJHzKMzLgK+XDkNKkWp36WmP2kFDs1jI=; b=CkYBf+w8JssWHhReKBlA6XTLas
-	PE+dW+vHQm5JE1CuKUtIaCHdGKjSmHmWPJO+58sUllhS6iatHAaC+8ORZmWolL2Kjzo+ydrfUOKno
-	H/ZXUzndEnqqKZ17ziCNZYKKpBvMzBrY+QACFbT0ZqszQrcG26eS3KWs35HITsf05rClkYm/m6+YZ
-	ZhcnFCFv8SSIq8mB6lGKaystui0Y1MvKisUgABWV75OVZWS1gwuuMMlFx8BdPQPxf7jvpT8pnc0FI
-	ingBNKkSv0S9Bo/oUzFVjP1b4T31veJasjAE2GikIFdw16/pf6DKtHqPnD3sQIVeeV1p5VjQNN/Fz
-	qVgUqNlw==;
+	bh=aP7jzB397TwLHZpvq8Wp+ukhzKvSf6SOBV3UlPyP33I=; b=Q6t6Sbaff3IfW3wIMqWn3V8qZi
+	dMXFB1J3HfgLYyuLkIfI43tsIxH9KR+vEGG2P5jYzfpD8fTKQmPHM1czaNsDJo5f+W94n65crgiUf
+	w0lpXi3OAX2hZ13oSN5bJCLCeAEiyWT2dxv3EXh4rNyLWxPIcSfkeGQbc9yGvL3uSgtBdv+PAqigA
+	p27pyMMge6z3cYnTLKv3FKTRi1cIroySG764t2J3S4hHzdoBEXe8yMZe6QjjbRlyd5lJ8nMiMJDgy
+	gAJjzBqueQhfKgYYtSxIeNdPTuZfK/ucqsZxE7VTQoiMysjY5J4cqAty3KHHUCMh6fAPWumGcZthE
+	/4JundkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8CXU-0000000Fz3B-1y4v;
-	Tue, 05 Nov 2024 05:55:40 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1t8CZE-0000000FzSe-068o;
+	Tue, 05 Nov 2024 05:57:28 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8CVk-0000000FyYb-0o03
+	id 1t8CW6-0000000FygM-3v2Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 05:53:53 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea9618de40so29701187b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Nov 2024 21:53:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730786030; x=1731390830; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o6I0lsXsH1rGJHzKMzLgK+XDkNKkWp36WmP2kFDs1jI=;
-        b=UiSu5jmxrCPFqG4AEvbwHH3d3VfWghekgqNWCcEG+JSkA3CBDgpLA//eV1r2nkkFBn
-         MoyuQz4IugR6z3ZAIb9LIRT5Ne8jwIRHplTKhpMS2vp/VbQVK5L/Q2xJOUAxIdzSi8HG
-         /NT3t+1ZO/9HFcSgKhYN4qbdxm5qk90cphbN7czUHl5tuymOqF7U/+quy6x+u+x1ZNew
-         ABYHJ6UssR0EtkWX/8Qr7hhH4ztS3+eEfBHgHr88d7FMacD3myqJFffBQADcY+YiB4fK
-         PEymEb5kOeXHZ3Ke0jsabTOSnRtHYE00KoIdw+JwDjocIMpEEcog3ecMoA26GsIzrdKB
-         MzLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730786030; x=1731390830;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o6I0lsXsH1rGJHzKMzLgK+XDkNKkWp36WmP2kFDs1jI=;
-        b=aB70TDIDuWX1ZYd042iXAGrDS5Csr3KynL2uMQCooojTSb9EB2ek9YADf/m5zv2v+n
-         t/tnEmJm6avSdAI8kLEaJ1CysSgehkXcMWSAbUUtQLJtXU26gcWDxrbA/YY7+L+gLRgF
-         9p/y1t+5LyF4Tho2c9iqJq1ymKRz4l9h8xvWAa80UsVfZfhZfrcRizt1asKw8sgd57pl
-         TKsyqJZYK/IVpCBzzcYhdLgIpiRtpAagpgVxA1iF89fbHMo81orkqvwNphzOY/GQ2Iqw
-         4boLJOzKEtXWavJZReG8ldnM/6a/Ucy4UKNDshAJoAjDrJxMDbhm0PWqRCBvLHhbdXdt
-         +jdQ==
-X-Gm-Message-State: AOJu0YyylxYdr3hpH3sPL3GgK+DBjcNa+mx7eGm+7S1NEJDaN9UvAcUq
-	EzJX8P1f3YU3QsfOi3MoOVkd/AUdfi/ZMgfzhrqW5EOYl3NHGk6IPNMC7WS15KvSCJP4347hnS0
-	g8Q==
-X-Google-Smtp-Source: AGHT+IHmt5sO/CGCgduHfJxMGbReWDqaMZI7StkG46sJTWcczU8fUEuPHD4g/HJnJzDHoYjdX9OGGAkVpzc=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
- (user=seanjc job=sendgmr) by 2002:a05:690c:4489:b0:6db:c6eb:bae9 with SMTP id
- 00721157ae682-6e9d898f08bmr16943867b3.2.1730786030202; Mon, 04 Nov 2024
- 21:53:50 -0800 (PST)
-Date: Mon, 4 Nov 2024 21:53:48 -0800
-In-Reply-To: <173039503553.1508387.3074658713815866060.b4-ty@google.com>
-Mime-Version: 1.0
-References: <20241009154953.1073471-1-seanjc@google.com> <173039503553.1508387.3074658713815866060.b4-ty@google.com>
-Message-ID: <Zymy7M5dHs6dWUmu@google.com>
-Subject: Re: [PATCH v3 00/14] KVM: selftests: Morph max_guest_mem to mmu_stress
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 05 Nov 2024 05:54:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730786055; x=1762322055;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mGA7O6fgfWIf/Pwu4MvEyfLhFnqrGvQTMMOxj9Qazzs=;
+  b=MZuf2N+oVUhi9caL1a3Vel/xnub9p04BYPnA5Jh5nWKlkEkMvhtwlyOG
+   P7r7YdhzgcaWMBegQ83h+dnseK+7ADLwtxfcRDJ1SbprG/REV791FkSbo
+   ZGqvL0KsL7IS6QDJPS0ur5lx1ro9Tzql6A3o9H4+3dfACr+p5ZWnfUPhB
+   QHwZyUOFfEOQn2gYKzQzLQiE/U9UhKUTivEwncaNfDZv1m7nejULU14aY
+   Ur6jmIWFqhjJJ9JQEB8088aDwSJA1mvk1zWEtoiKfDVD92P/amP4pzJGC
+   0bZrdwycZ/KRzynmzODPK6WFRYF54sZFDhj3/xKkuhtXL0UzZORHiCJZW
+   A==;
+X-CSE-ConnectionGUID: 32rLA05RSMGqH6NTeqSYtg==
+X-CSE-MsgGUID: G3+VUbJiTkiZitzhrDR6kA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="41618646"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="41618646"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2024 21:54:12 -0800
+X-CSE-ConnectionGUID: Ud1QZqu5Q7y+3MTYCN7GcA==
+X-CSE-MsgGUID: s6QMNsPpSXyaQICF17edmQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,259,1725346800"; 
+   d="scan'208";a="88447927"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 04 Nov 2024 21:54:08 -0800
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t8CVy-000lgf-0o;
+	Tue, 05 Nov 2024 05:54:06 +0000
+Date: Tue, 5 Nov 2024 13:53:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Quentin Perret <qperret@google.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 18/18] KVM: arm64: Plumb the pKVM MMU in KVM
+Message-ID: <202411051325.EBkzE0th-lkp@intel.com>
+References: <20241104133204.85208-19-qperret@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241104133204.85208-19-qperret@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_215352_254686_376146BC 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20241104_215415_055114_9E712A57 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +96,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 31, 2024, Sean Christopherson wrote:
-> On Wed, 09 Oct 2024 08:49:39 -0700, Sean Christopherson wrote:
-> > The main purpose of this series is to convert the max_guest_memory_test
-> > into a more generic mmu_stress_test.  The basic gist of the "conversion"
-> > is to have the test do mprotect() on guest memory while vCPUs are
-> > accessing said memory, e.g. to verify KVM and mmu_notifiers are working
-> > as intended.
-> > 
-> > Patches 1-4 are a somewhat unexpected side quest.  The original plan was
-> > that patch 3 would be a single patch, but things snowballed.
-> > 
-> > [...]
-> 
-> Applied to kvm-x86 selftests, with the typo fixup pointed out by James.  Thanks!
-> 
-> [01/14] KVM: Move KVM_REG_SIZE() definition to common uAPI header
->         https://github.com/kvm-x86/linux/commit/5e07fd0bf516
-> [02/14] KVM: selftests: Disable strict aliasing
->         https://github.com/kvm-x86/linux/commit/d1ce2bcd8d2e
-> [03/14] KVM: selftests: Return a value from vcpu_get_reg() instead of using an out-param
->         https://github.com/kvm-x86/linux/commit/5c6c7b71a45c
-> [04/14] KVM: selftests: Assert that vcpu_{g,s}et_reg() won't truncate
->         https://github.com/kvm-x86/linux/commit/6aa2df3eb90b
-> [05/14] KVM: selftests: Check for a potential unhandled exception iff KVM_RUN succeeded
->         https://github.com/kvm-x86/linux/commit/be9f2746d20b
-> [06/14] KVM: selftests: Rename max_guest_memory_test to mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/06694f27cfcc
-> [07/14] KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/8556ce365a07
-> [08/14] KVM: selftests: Compute number of extra pages needed in mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/c7b7876ac5d4
-> [09/14] KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
->         https://github.com/kvm-x86/linux/commit/a657856469e1
-> [10/14] KVM: selftests: Enable mmu_stress_test on arm64
->         https://github.com/kvm-x86/linux/commit/1e53cde06102
-> [11/14] KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/8630563012b9
-> [12/14] KVM: selftests: Precisely limit the number of guest loops in mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/3d4585c220dc
-> [13/14] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
->         https://github.com/kvm-x86/linux/commit/eaafeebca75a
-> [14/14] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
->         https://github.com/kvm-x86/linux/commit/a3cd5c187742
+Hi Quentin,
 
-As mentioned later in the thread[*], I dropped this series from the 6.13 queue
-and will instead target 6.14.
+kernel test robot noticed the following build warnings:
 
-I did however grab the no-strict-aliasing fix for 6.12, and tagged it for stable.
-There's no reason to wait to land that commit, and I definitely have no desire to
-ever debug that mess again.
+[auto build test WARNING on v6.12-rc6]
+[also build test WARNING on linus/master]
+[cannot apply to kvmarm/next next-20241104]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[02/14] KVM: selftests: Disable strict aliasing
-      https://github.com/kvm-x86/linux/commit/5b188cc4866a
+url:    https://github.com/intel-lab-lkp/linux/commits/Quentin-Perret/KVM-arm64-Change-the-layout-of-enum-pkvm_page_state/20241104-213817
+base:   v6.12-rc6
+patch link:    https://lore.kernel.org/r/20241104133204.85208-19-qperret%40google.com
+patch subject: [PATCH 18/18] KVM: arm64: Plumb the pKVM MMU in KVM
+config: arm64-randconfig-002-20241105 (https://download.01.org/0day-ci/archive/20241105/202411051325.EBkzE0th-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241105/202411051325.EBkzE0th-lkp@intel.com/reproduce)
 
-[*] https://lore.kernel.org/all/ZyT61FF0-g8gKZfc@google.com
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411051325.EBkzE0th-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> arch/arm64/kvm/mmu.c:338: warning: Function parameter or struct member 'pgt' not described in 'kvm_s2_unmap'
+>> arch/arm64/kvm/mmu.c:338: warning: Function parameter or struct member 'addr' not described in 'kvm_s2_unmap'
+>> arch/arm64/kvm/mmu.c:338: warning: expecting prototype for __unmap_stage2_range(). Prototype was for kvm_s2_unmap() instead
+
+
+vim +338 arch/arm64/kvm/mmu.c
+
+   299	
+   300	/*
+   301	 * Unmapping vs dcache management:
+   302	 *
+   303	 * If a guest maps certain memory pages as uncached, all writes will
+   304	 * bypass the data cache and go directly to RAM.  However, the CPUs
+   305	 * can still speculate reads (not writes) and fill cache lines with
+   306	 * data.
+   307	 *
+   308	 * Those cache lines will be *clean* cache lines though, so a
+   309	 * clean+invalidate operation is equivalent to an invalidate
+   310	 * operation, because no cache lines are marked dirty.
+   311	 *
+   312	 * Those clean cache lines could be filled prior to an uncached write
+   313	 * by the guest, and the cache coherent IO subsystem would therefore
+   314	 * end up writing old data to disk.
+   315	 *
+   316	 * This is why right after unmapping a page/section and invalidating
+   317	 * the corresponding TLBs, we flush to make sure the IO subsystem will
+   318	 * never hit in the cache.
+   319	 *
+   320	 * This is all avoided on systems that have ARM64_HAS_STAGE2_FWB, as
+   321	 * we then fully enforce cacheability of RAM, no matter what the guest
+   322	 * does.
+   323	 */
+   324	/**
+   325	 * __unmap_stage2_range -- Clear stage2 page table entries to unmap a range
+   326	 * @mmu:   The KVM stage-2 MMU pointer
+   327	 * @start: The intermediate physical base address of the range to unmap
+   328	 * @size:  The size of the area to unmap
+   329	 * @may_block: Whether or not we are permitted to block
+   330	 *
+   331	 * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
+   332	 * be called while holding mmu_lock (unless for freeing the stage2 pgd before
+   333	 * destroying the VM), otherwise another faulting VCPU may come in and mess
+   334	 * with things behind our backs.
+   335	 */
+   336	
+   337	static int kvm_s2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ > 338	{
+   339		return KVM_PGT_S2(unmap, pgt, addr, size);
+   340	}
+   341	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
