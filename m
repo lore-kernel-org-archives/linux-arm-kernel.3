@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B37DD36108
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34373D3610E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 19:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/o1Sfs7jKQurNnafgcuR4sjtuRSNBj5DPUDtQwNcs8=; b=Q35mTIBOgmEKbDQxmGPzDHmRv/
-	yyhmGQSJQEyuMy575jUoN+AL7mpSKVIgT+WAqH55xyFdDz5W+k4qjwpS7DtzDXihyvzHHYgVtaS5o
-	F5dzJEmsExdMT4rS7NJNCfISIE1nBqTGhirdnSvTELbcyA58KfnCjgKh5D51qY8E8SS6PmMLNlpHi
-	q0UIVAL69+fZ+ffF6r1dHcCtnlglCzQ8u8M1QlWSPORz/BukgJKCL9J08EPR6xN5MATJIlnZ+4Rr+
-	XGZtZm0RsNVavK+cehZ4SAK43j6vJwAAWWIKra/jAVkdBweN+eoDfs8641xBBl8inw89S/riHfFEn
-	nRA+T4Bw==;
+	bh=5rJ8OjMarO1f0kXcMSe37gM44KQQpMZTNvMWqhkN6Zw=; b=O+bCzUP/voxKPq7qVAtj2jAinr
+	1cCMAsKNYy/DHhPf06fwGJDZvt20zx4GQtDOCxaXyvjdAQAZEhWZ7SA2K92F78AH18A194YgofSlK
+	UeBtcemKZ+EB97bvTisbg+T5I9j8RsWdJo9jHgQOAfxPVTBvFrl6G8g40cBBlH/G0vTeZNgLtkOgP
+	Bqa9KFNW0fJP9gFvc5C2QbflA2yIhpOf+MZkMXlwgoFTf8Kp14/82RlrIokTbmacwssIiRQ5L+jGg
+	nEubrma3nD+oO/6gSplLgUR9QpzI8akm+lduCMxWrzYYsS5FbjMkKNnoPStp99k96BVsmvKo+bgTh
+	HORQ6F8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8P10-00000000WeV-2CUZ;
-	Tue, 05 Nov 2024 19:14:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OzG-00000000WSQ-3gJy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 19:13:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8EAA1063;
-	Tue,  5 Nov 2024 11:13:37 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B989B3F528;
-	Tue,  5 Nov 2024 11:13:06 -0800 (PST)
-Date: Tue, 5 Nov 2024 19:13:04 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64/sve: Flush foreign register state in
- sve_init_regs()
-Message-ID: <ZypuQNhWHKut8mLl@J2N7QTR9R3.cambridge.arm.com>
-References: <20241030-arm64-fpsimd-foreign-flush-v1-0-bd7bd66905a2@kernel.org>
- <20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org>
+	id 1t8P3Z-00000000Wwt-020V;
+	Tue, 05 Nov 2024 19:17:37 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8P1p-00000000WkB-3Far;
+	Tue, 05 Nov 2024 19:15:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730834150; x=1762370150;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9Shq7F5zshytH1TIeEjlYPA2wyJYy7tpdhCPane9pqc=;
+  b=ctzZ44VX4zU6Qfsml76ta/k2S/NzL2yg/UO/ADcCFZ4E8S2zF8Za89Vh
+   fZnrBy2AUWSbFROel5SZmi5y/fPdh1IyvH3yH+sNMEj5xcnxylSqpdGNL
+   F2HG4lB0w3vG87PROcZ4EKjWm72B2EpGePbEGtgbeRo5G//Ix9jGXZuYe
+   ePW0KLpaHVgsHvwwrXw+atvLLkRxScuEcqSjoYAASI7M/+6AcP0oY+wwJ
+   RO6kBGcFJtRk36rjWjtLuXw/XA8v1iaYI9TR2XcOLDxf2ctKvNzmz4CLh
+   5uJH/RaoBwCtqj4p8lzw1NNi/DYYm00vcZVZ9WZz8+yAiFyIamO9VmPQv
+   w==;
+X-CSE-ConnectionGUID: PDzMDsMLTG+VDGVrPd2Czg==
+X-CSE-MsgGUID: GxV1dDzzRcS0xnj2noXVZw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11247"; a="42001998"
+X-IronPort-AV: E=Sophos;i="6.11,260,1725346800"; 
+   d="scan'208";a="42001998"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 11:15:47 -0800
+X-CSE-ConnectionGUID: wR4K5R08S7SJ1rmt0i2Ouw==
+X-CSE-MsgGUID: ktw9GgY6Tl2VnQ74Ya5blg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,260,1725346800"; 
+   d="scan'208";a="84248501"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 05 Nov 2024 11:15:44 -0800
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t8P1h-000mNN-2I;
+	Tue, 05 Nov 2024 19:15:41 +0000
+Date: Wed, 6 Nov 2024 03:14:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Heiko Stuebner <heiko@sntech.de>, vkoul@kernel.org, kishon@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, quentin.schulz@cherry.de,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	heiko@sntech.de, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v2 2/2] phy: rockchip: Add Samsung CSI/DSI Combo DCPHY
+ driver
+Message-ID: <202411060336.yBL7jGAs-lkp@intel.com>
+References: <20241104111121.99274-3-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org>
+In-Reply-To: <20241104111121.99274-3-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_111311_102996_BF011C1F 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20241105_111549_908903_6E50CB76 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,127 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 08:23:50PM +0000, Mark Brown wrote:
-> When we update the in memory register state in sve_init_regs() we neglect
-> to flush the task's CPU binding, meaning if the task is rescheduled to
-> the last CPU it ran on it is possible for the check for current state in
-> fpsimd_thread_switch() to falsely determine that up to date register
-> state is present on the CPU.  This results in it incorrectly clearing
-> TIF_FOREIGN_FPSTATE and suppress reloading.
-> 
-> This will also suppress the sve_user_enable() done in
-> fpsimd_bind_task_to_cpu() as part of return to userspace, causing
-> spurious SVE access traps.
-> 
-> Call fpsimd_flush_task_state() to invalidate the last loaded CPU
-> recorded in the task.
-> 
-> Fixes: cccb78ce89c4 ("arm64/sve: Rework SVE access trap to convert state in registers")
-> Reported-by: Mark Rutlamd <mark.rutland@arm.com>
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> Cc: stable@vger.kernel.org
+Hi Heiko,
 
-How about the following:
+kernel test robot noticed the following build warnings:
 
-| arm64/sve: Discard stale CPU state when handling SVE traps
-| 
-| The logic for handling SVE traps manipulates saved FPSIMD/SVE state
-| incorrectly, and a race with preemption can result in a task having
-| TIF_SVE set and TIF_FOREIGN_FPSTATE clear even though the live CPU state
-| is stale (e.g. with SVE traps enabled). This has been observed to result
-| in warnings from do_sve_acc() where SVE traps are not expected while
-| TIF_SVE is set:
-| 
-| |         if (test_and_set_thread_flag(TIF_SVE))
-| |                 WARN_ON(1); /* SVE access shouldn't have trapped */
-| 
-| Warnings of this form have been reported intermittently, e.g.
-| 
-|   https://lore.kernel.org/linux-arm-kernel/CA+G9fYtEGe_DhY2Ms7+L7NKsLYUomGsgqpdBj+QwDLeSg=JhGg@mail.gmail.com/
-|   https://lore.kernel.org/linux-arm-kernel/000000000000511e9a060ce5a45c@google.com/
-| 
-| The race can occur when the SVE trap handler is preempted before and
-| after manipulating the saved FPSIMD/SVE state, starting and ending on
-| the same CPU, e.g.
-| 
-| | void do_sve_acc(unsigned long esr, struct pt_regs *regs)
-| | {
-| |         // Trap on CPU 0 with TIF_SVE clear, SVE traps enabled
-| |         // task->fpsimd_cpu is 0.
-| |         // per_cpu_ptr(&fpsimd_last_state, 0) is task.
-| | 
-| |         ...
-| | 
-| |         // Preempted; migrated from CPU 0 to CPU 1.
-| |         // TIF_FOREIGN_FPSTATE is set.
-| | 
-| |         get_cpu_fpsimd_context();
-| | 
-| |         if (test_and_set_thread_flag(TIF_SVE))
-| |                 WARN_ON(1); /* SVE access shouldn't have trapped */
-| | 
-| |         sve_init_regs() {
-| |                 if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
-| |                         ...
-| |                         fpsimd_bind_task_to_cpu();
-| |                 } else {
-| |                         fpsimd_to_sve(current);
-| |                         current->thread.fp_type = FP_STATE_SVE;
-| |                 }
-| |         }
-| | 
-| |         put_cpu_fpsimd_context();
-| | 
-| |         // Preempted; migrated from CPU 1 to CPU 0.
-| |         // task->fpsimd_cpu is still 0
-| |         // If per_cpu_ptr(&fpsimd_last_state, 0) is still task then:
-| |         // - Stale HW state is reused (with SVE traps enabled)
-| |         // - TIF_FOREIGN_FPSTATE is cleared
-| |         // - A return to userspace skips HW state restore
-| | }
-| 
-| In the case where sve_init_regs() is called while the state is live and
-| TIF_FOREIGN_FPSTATE is clear, the state is correctly modified and the
-| call to fpsimd_bind_task_to_cpu() disables the SVE trap.
-| 
-| Fix the case where the state is not live and TIF_FOREIGN_FPSTATE is set
-| by calling fpsimd_flush_task_state() to detach from the saved CPU
-| state. This ensures that a subsequent context switch will not reuse the
-| stale CPU state, and will instead set TIF_FOREIGN_FPSTATE, forcing the
-| new state to be reloaded from memory prior to a return to userspace.
-| 
-| Fixes: cccb78ce89c4 ("arm64/sve: Rework SVE access trap to convert state in registers")
-| Reported-by: Mark Rutland <mark.rutland@arm.com>
-| Signed-off-by: Mark Brown <broonie@kernel.org>
-| Cc: stable@vger.kernel.org
+[auto build test WARNING on rockchip/for-next]
+[also build test WARNING on robh/for-next linus/master v6.12-rc6 next-20241105]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Note: I fixed the typo (s/Rutlamd/Rutland)
+url:    https://github.com/intel-lab-lkp/linux/commits/Heiko-Stuebner/dt-bindings-phy-Add-Rockchip-MIPI-CSI-DSI-PHY-schema/20241104-193646
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+patch link:    https://lore.kernel.org/r/20241104111121.99274-3-heiko%40sntech.de
+patch subject: [PATCH v2 2/2] phy: rockchip: Add Samsung CSI/DSI Combo DCPHY driver
+config: m68k-randconfig-r113-20241105 (https://download.01.org/0day-ci/archive/20241106/202411060336.yBL7jGAs-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 14.1.0
+reproduce: (https://download.01.org/0day-ci/archive/20241106/202411060336.yBL7jGAs-lkp@intel.com/reproduce)
 
-With that:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411060336.yBL7jGAs-lkp@intel.com/
 
-Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+All warnings (new ones prefixed by >>):
 
-Mark.
+>> drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c:1630:34: warning: 'samsung_mipi_dcphy_of_match' defined but not used [-Wunused-const-variable=]
+    1630 | static const struct of_device_id samsung_mipi_dcphy_of_match[] = {
+         |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-> ---
->  arch/arm64/kernel/fpsimd.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index 77006df20a75aee7c991cf116b6d06bfe953d1a4..6d21971ae5594f32947480cfa168db400a69a283 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1367,6 +1367,7 @@ static void sve_init_regs(void)
->  	} else {
->  		fpsimd_to_sve(current);
->  		current->thread.fp_type = FP_STATE_SVE;
-> +		fpsimd_flush_task_state(current);
->  	}
->  }
->  
-> 
-> -- 
-> 2.39.2
-> 
-> 
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for GET_FREE_REGION
+   Depends on [n]: SPARSEMEM [=n]
+   Selected by [y]:
+   - RESOURCE_KUNIT_TEST [=y] && RUNTIME_TESTING_MENU [=y] && KUNIT [=y]
+
+
+vim +/samsung_mipi_dcphy_of_match +1630 drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
+
+  1629	
+> 1630	static const struct of_device_id samsung_mipi_dcphy_of_match[] = {
+  1631		{
+  1632			.compatible = "rockchip,rk3576-mipi-dcphy",
+  1633			.data = &rk3576_samsung_mipi_dcphy_plat_data,
+  1634		}, {
+  1635			.compatible = "rockchip,rk3588-mipi-dcphy",
+  1636			.data = &rk3588_samsung_mipi_dcphy_plat_data,
+  1637		},
+  1638		{ /* sentinel */ }
+  1639	};
+  1640	MODULE_DEVICE_TABLE(of, samsung_mipi_dcphy_of_match);
+  1641	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
