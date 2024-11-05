@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBB5D12683
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1080D12683
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 10:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByW08ySkPEAjMOPrL9vkTGYx/BAnS4D/BIPWSkRdVSY=; b=fUBt8ZHJjX7l8sEzVvao1B1jh+
-	d1PiJImf11YHbhv4pbUxIH5N7G7Ct/+rg+dq3c40PVg2fMW6ObDKzBpIYh223F6ciVFQFWR8j7y8L
-	31DQPEK6HsBFZ4msTc8tJGkxjBVnT+/HTKagaNxgGA4cPbMkvnzeGsD+jfIrZDdDCvzJexR3W54Oo
-	J0tbzxl+bQlDNkumTU+aYQcRSfVaqd4Oop06wrX0IJEQainLOWsUrhd46ELQijwCIcMyQFB9lGglr
-	MIbQVOzw4sapfzP9WzfTLJRmTW+iyW1f2RL8o7/tVb0+teexH7Q6qn+Xzki+nwJfmmclJGZSEsc8E
-	l85gGhgg==;
+	bh=NbC161uWLMKMLlOpOOas4QjEPtJhq4f1Zd7U4mjilZ4=; b=Hyp7syohN+XIftYiHw/50AyzZm
+	ZHDqTjMX5ijbd20YcdZNazyaI1hGTd8n89eviAsqKFCawti3A3Qdp2rlwiHgh5QgARx/UWsEDcUNw
+	nj+45LYzyALvxw2g009HEEA4sSCpmfSA5eAo4Z4eYKiFwqm5C09xVP/NWM31SBRlqT7YBUWzK9Fh2
+	vzzc2iLu2WzP8eKhS0aSHwwyrHewOSJ8ea+FOM37HGiPhbIvNq7AsCdRWgAD0TgzRqt/L9nPmfijy
+	GmBk1DRCjTewzV9VwElcTf9Nf8Ni91v6xP6PT3mKOohYRP0zC3zjUiqhiB87cB6XHDlzTGsRFFgAB
+	zb0A++fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HEL-0000000Gjr6-04Cv;
-	Tue, 05 Nov 2024 10:56:13 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1t8HG1-0000000GkMh-2BLv;
+	Tue, 05 Nov 2024 10:57:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8HBR-0000000Gj9K-0XfU
+	id 1t8HCl-0000000GjUu-0106
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 10:53:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730803993; x=1762339993;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KVvcpQ5F/M9q98s+qccoETOvBMw6mTVjp58jf47uN90=;
-  b=gBlk8Hf3U8O3ABIu9XeNFqo2qwLPokFbP1+EVPg0TaLQQMFJUNh65xfe
-   YKBcquJvnJfJnxWCf+qiJ1V7xdsIrgYCVn6tQVWYrG2VAmX8c8Js70KZ1
-   aKvqHip5jpWP3QOLcK7ABn7+iFxNcfG4dGFDGsoo2YI9YApDok8YUfWhK
-   0iDOJM8PdhBBIQAA1ltJ6rQif4tsxR9npuaq+YbMkSj9D+SD9fEmPCW3L
-   d/xOBU+mAJoVDdfadkZG1qetLzhUYqzwshsjCBwZEmS0fCPOZGMgaHvJn
-   wK6vzBzAXnZuPYRAVX8VOo373u1FPaz/BugcTe7oSaHRY5U6rtFSwJm0p
-   g==;
-X-CSE-ConnectionGUID: ZP0ZeE0/SvqZz2Ns+4UrAA==
-X-CSE-MsgGUID: 411riTKhRDSQr6RRqe6Gjg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11246"; a="30653528"
-X-IronPort-AV: E=Sophos;i="6.11,259,1725346800"; 
-   d="scan'208";a="30653528"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 02:53:11 -0800
-X-CSE-ConnectionGUID: h4i639knRvOKyDrJl0aW8w==
-X-CSE-MsgGUID: dV0VB4bERsKTIxQsQJPO6w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="88741763"
-Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 02:53:02 -0800
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id F131411F9C3;
-	Tue,  5 Nov 2024 12:52:58 +0200 (EET)
-Date: Tue, 5 Nov 2024 10:52:58 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
-	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se, jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	quic_jesszhan@quicinc.com, mchehab@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	catalin.marinas@arm.com, will@kernel.org, hverkuil@xs4all.nl,
-	tomi.valkeinen@ideasonboard.com, quic_bjorande@quicinc.com,
-	geert+renesas@glider.be, dmitry.baryshkov@linaro.org, arnd@arndb.de,
-	nfraprado@collabora.com, thierry.reding@gmail.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, sam@ravnborg.org,
-	marex@denx.de, biju.das.jz@bp.renesas.com
-Subject: Re: [PATCH v4 04/13] media: uapi: Add
- MEDIA_BUS_FMT_RGB101010_1X7X5_{SPWG, JEIDA}
-Message-ID: <Zyn5CgZvyg05cgJW@kekkonen.localdomain>
-References: <20241028023740.19732-1-victor.liu@nxp.com>
- <20241028023740.19732-5-victor.liu@nxp.com>
+	Tue, 05 Nov 2024 10:54:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A5C255C4AF5;
+	Tue,  5 Nov 2024 10:53:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916C3C4CECF;
+	Tue,  5 Nov 2024 10:54:31 +0000 (UTC)
+Date: Tue, 5 Nov 2024 10:54:29 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: yangyicong@hisilicon.com, will@kernel.org, maz@kernel.org,
+	mark.rutland@arm.com, broonie@kernel.org,
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev,
+	ryan.roberts@arm.com, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
+	prime.zeng@hisilicon.com, xuwei5@huawei.com,
+	wangkefeng.wang@huawei.com
+Subject: Re: [PATCH v4 3/5] arm64: Add support for FEAT_HAFT
+Message-ID: <Zyn5ZQ3K6FRSjVLO@arm.com>
+References: <20241102104235.62560-1-yangyicong@huawei.com>
+ <20241102104235.62560-4-yangyicong@huawei.com>
+ <ZykEUGdkyYClM8Zi@arm.com>
+ <b851d802-ed2a-cad2-b96a-f7a9e3bb746e@huawei.com>
+ <965cde16-c1f6-dcdb-7471-6cf95e7f51f8@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241028023740.19732-5-victor.liu@nxp.com>
+In-Reply-To: <965cde16-c1f6-dcdb-7471-6cf95e7f51f8@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_025313_237498_BDC28B12 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241105_025435_114250_32B67FA4 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +70,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ying,
-
-On Mon, Oct 28, 2024 at 10:37:31AM +0800, Liu Ying wrote:
-> Add two media bus formats that identify 30-bit RGB pixels transmitted
-> by a LVDS link with five differential data pairs, serialized into 7
-> time slots, using standard SPWG/VESA or JEIDA data mapping.
+On Tue, Nov 05, 2024 at 06:38:51PM +0800, Yicong Yang wrote:
+> On 2024/11/5 10:47, Yicong Yang wrote:
+> > On 2024/11/5 1:28, Catalin Marinas wrote:
+> >> On Sat, Nov 02, 2024 at 06:42:33PM +0800, Yicong Yang wrote:
+> >>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> >>> index 3d261cc123c1..ed8c784ca082 100644
+> >>> --- a/arch/arm64/include/asm/cpufeature.h
+> >>> +++ b/arch/arm64/include/asm/cpufeature.h
+> >>> @@ -838,6 +838,12 @@ static inline bool system_supports_poe(void)
+> >>>  		alternative_has_cap_unlikely(ARM64_HAS_S1POE);
+> >>>  }
+> >>>  
+> >>> +static inline bool system_supports_haft(void)
+> >>> +{
+> >>> +	return IS_ENABLED(CONFIG_ARM64_HAFT) &&
+> >>> +		cpus_have_final_cap(ARM64_HAFT);
+> >>> +}
+> >>
+> >> I'm fine with this approach. If we ever get hardware with mismatched
+> >> FEAT_HAFT and some secondary CPUs don't come up, we can revisit.
+> >>
+> >>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> >>> index ccbae4525891..0bc88df7cb35 100644
+> >>> --- a/arch/arm64/mm/proc.S
+> >>> +++ b/arch/arm64/mm/proc.S
+> >>> @@ -498,6 +498,10 @@ alternative_else_nop_endif
+> >>>  	and	x9, x9, ID_AA64MMFR1_EL1_HAFDBS_MASK
+> >>>  	cbz	x9, 1f
+> >>>  	orr	tcr, tcr, #TCR_HA		// hardware Access flag update
+> >>> +
+> >>> +#ifdef CONFIG_ARM64_HAFT
+> >>> +	orr	tcr2, tcr2, TCR2_EL1x_HAFT
+> >>> +#endif /* CONFIG_ARM64_HAFT */
+> >>>  1:
+> >>>  #endif	/* CONFIG_ARM64_HW_AFDBM */
+> >>>  	msr	mair_el1, mair
+> >>
+> >> If you still want #ifdefs, I'd have left it outside the HW_AFDBM. We
+> >> already have a dependency in the Kconfig. Anyway, I can fix this up.
+> > 
+> > yes it has already depend on the HW_AFDBM. And one asm won't cause much to the
+> > Image size if user want CONFIG_ARM64_HAFT=n. I'll drop the #ifdef here.
+> > 
 > 
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> I rethink it and maybe we still need the #ifdef here considering one case: the hardware
+> supports FEAT_HAFT while user make CONFIG_ARM64_HAFT=n, in such case the HAFT will be
+> enabled unexpectedly if no CONFIG_ARM64_HAFT protection here.
 
-Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-
-It's fine to merge this via another tree, too.
+Yes, still keeping the #ifdef but outside of HW_AFDBM. I can fix it up
+myself when applying the patches.
 
 -- 
-Regards,
-
-Sakari Ailus
+Catalin
 
