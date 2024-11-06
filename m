@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFEED44D57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D403D44D59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viBOCzehHuQdv8Iwl+euZ+ymNEyX2jv4vzW700Lh2lM=; b=en+OaqXUZCU2nNE1G+lZ38JFQR
-	8oHHE4ttyV9BPg/J1L7zSmqYGrCU2qmP/8diEBvnZxvXLGihHDifhSaUoB2zngergJLzflhieyUTx
-	ldHxAZRk5pzdshYK4HgXD2qzllCn0hFM3wwY6b8Plk7Mml1tymx+1DYb6PqGoaUSWBfaYH+m0jYcH
-	mTlzUCP+Pcm0B9BA7ndgcsaJf2PZCQfd4HzFpExqodi7E/aDHB9UR1ZhCn5d8XPGbOfbaC2agd+Gv
-	FM+MflY5HFrv9jfDhcLuWFeEfxAlV5AuaSoHgrjQbeqHzHcdaVOmArFv1rE8WfMut+MbRIa09vrBC
-	ARnEg+tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VVuOhTx5v4qB0ljx0iaK++os+TE50YnCzkgWkLTj+Zg=; b=s1juxqhZ882Ge2IV/w2ckbso4+
+	3sMHFgRaw3TKAtQu7pty4eoOs57wnb3GDerW0011OHdbgu7Ui1qaUQOZTJvNpfojUfTDJjoldeJ5T
+	Q+LWwZpw5JStjJPF6TRMqwQKudLnECUrv3QNQHwtBkp6T7EjaTMWxShbfRTdgwcEj7qfg8K3A4qWA
+	oSeNZg5fusJGDhxOeQQzHumBNQn32KyGl+yZufpTM51FCrj0ptS3CFxNAc8xsg/BJMrI63uKTPxih
+	wB+6BzftMF6GhLtR8oo/9Wz4MneC1NWJrMZ3HRkRF+cf0W8poAChfkXoa3r9J0W8VYrEUpSJjxdAl
+	5K79jn8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fCS-00000003Cek-0TSt;
-	Wed, 06 Nov 2024 12:31:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eOK-00000002xHV-08Be
+	id 1t8fFr-00000003DA1-2Ein;
+	Wed, 06 Nov 2024 12:35:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8eSj-00000002yL8-13Sc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:40:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E05FA436C2;
-	Wed,  6 Nov 2024 11:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1DEAC4CECD;
-	Wed,  6 Nov 2024 11:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730893202;
-	bh=LfdnWgo5Tult/Ytob/TpTZCRMLZX+e2O5Aaq1lroTOk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DMLUxF40Npvnh/AMFOwVE8QdM/kIH6EKpa2TMU3PnrLvzoByUUD2PJ69DHK6+lvXM
-	 +P1Xf/ScqLVAK+44sbMBY+wWkgGaoK3rUU1ax1KCIxzmGjyFkYor/nNZOHWmcLs4YQ
-	 tnDumX4PAM4bmx/Oc4/+ER7sml9dnjUBQW/iCLsOv6QV78QamVA/0ZCprB0U6wdU6O
-	 zvUUGCE0sESuBvyd/P2dJx7Hh0YWN3Klb+47AFXFQFyamEyQLdyPOz/uy+IZ06p5My
-	 JKou7Ixdg9i4eg8fqzBi9IfsCBT99V/ga/V2zDNlCy3rlBYsiulnKPsEgVnQq2ASjd
-	 ejpqgVZZChPPg==
-Date: Wed, 6 Nov 2024 11:39:54 +0000
-From: Will Deacon <will@kernel.org>
-To: Haris Okanovic <harisokn@amazon.com>
-Cc: ankur.a.arora@oracle.com, catalin.marinas@arm.com,
-	linux-pm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	pbonzini@redhat.com, wanpengli@tencent.com, vkuznets@redhat.com,
-	rafael@kernel.org, daniel.lezcano@linaro.org, peterz@infradead.org,
-	arnd@arndb.de, lenb@kernel.org, mark.rutland@arm.com,
-	mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
-	misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com
-Subject: Re: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Message-ID: <20241106113953.GA13801@willie-the-truck>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
- <20241105183041.1531976-1-harisokn@amazon.com>
- <20241105183041.1531976-2-harisokn@amazon.com>
+	Wed, 06 Nov 2024 11:44:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 69E0A1063;
+	Wed,  6 Nov 2024 03:45:06 -0800 (PST)
+Received: from [10.57.88.115] (unknown [10.57.88.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF9C13F6A8;
+	Wed,  6 Nov 2024 03:44:35 -0800 (PST)
+Message-ID: <3e26ec9a-4dc0-42e7-a383-2c1bd0a08412@arm.com>
+Date: Wed, 6 Nov 2024 11:44:34 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241105183041.1531976-2-harisokn@amazon.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] mm/slab: Avoid build bug for calls to kmalloc with a
+ large constant
+Content-Language: en-GB
+To: Dave Kleikamp <dave.kleikamp@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-1-ryan.roberts@arm.com>
+ <20241014105912.3207374-6-ryan.roberts@arm.com>
+ <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <44312f4a-8b9c-49ce-9277-5873a94ca1bb@oracle.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_034004_158994_27819960 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20241106_034437_357741_9DAC4962 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +69,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 12:30:37PM -0600, Haris Okanovic wrote:
-> Relaxed poll until desired mask/value is observed at the specified
-> address or timeout.
+On 01/11/2024 20:16, Dave Kleikamp wrote:
+> When boot-time page size is enabled, the test against KMALLOC_MAX_CACHE_SIZE
+> is no longer optimized out with a constant size, so a build bug may
+> occur on a path that won't be reached.
 > 
-> This macro is a specialization of the generic smp_cond_load_relaxed(),
-> which takes a simple mask/value condition (vcond) instead of an
-> arbitrary expression. It allows architectures to better specialize the
-> implementation, e.g. to enable wfe() polling of the address on arm.
-
-This doesn't make sense to me. The existing smp_cond_load() functions
-already use wfe on arm64 and I don't see why we need a special helper
-just to do a mask.
-
-> Signed-off-by: Haris Okanovic <harisokn@amazon.com>
+> Found compiling drivers/net/ethernet/qlogic/qed/qed_sriov.c
+> 
+> Signed-off-by: Dave Kleikamp <dave.kleikamp@oracle.com>
 > ---
->  include/asm-generic/barrier.h | 25 +++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
 > 
-> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> index d4f581c1e21d..112027eabbfc 100644
-> --- a/include/asm-generic/barrier.h
-> +++ b/include/asm-generic/barrier.h
-> @@ -256,6 +256,31 @@ do {									\
->  })
->  #endif
->  
-> +/**
-> + * smp_vcond_load_relaxed() - (Spin) wait until an expected value at address
-> + * with no ordering guarantees. Spins until `(*addr & mask) == val` or
-> + * `nsecs` elapse, and returns the last observed `*addr` value.
-> + *
-> + * @nsecs: timeout in nanoseconds
-> + * @addr: pointer to an integer
-> + * @mask: a bit mask applied to read values
-> + * @val: Expected value with mask
-> + */
-> +#ifndef smp_vcond_load_relaxed
+> Ryan,
+> 
+> Please consider incorporating this fix or something similar into your
+> mm patch in the boot-time pages size patches.
+> 
+>  include/linux/slab.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/slab.h b/include/linux/slab.h
+> index 9848296ca6ba..a4c7507ab8ec 100644
+> --- a/include/linux/slab.h
+> +++ b/include/linux/slab.h
+> @@ -685,7 +685,8 @@ static __always_inline unsigned int __kmalloc_index(size_t
+> size,
+>      if (size <= 1024 * 1024) return 20;
+>      if (size <=  2 * 1024 * 1024) return 21;
+>  
+> -    if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+> +    if (!IS_ENABLED(CONFIG_ARM64_BOOT_TIME_PAGE_SIZE) &&
 
-I know naming is hard, but "vcond" is especially terrible.
-Perhaps smp_cond_load_timeout()?
+Thanks for the patch! I think this may be better as:
 
-Will
+       if (PAGE_SHIFT_MIN == PAGE_SHIFT_MAX &&
+
+Since that is independent of the architecture. Your approach wouldn't work if
+another arch wanted to enable boot time page size, or if arm64 dropped the
+Kconfig because it decided only boot time page size will be supported in future.
+
+Thanks,
+Ryan
+
+> +        !IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES) && size_is_constant)
+>          BUILD_BUG_ON_MSG(1, "unexpected size in kmalloc_index()");
+>      else
+>          BUG();
+
 
