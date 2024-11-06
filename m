@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED63FD59F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AD8D59F50
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uyvG9j7150OKuwUK9iqtPri4u9myDwfhQithn1RLhIA=; b=Sjhp5R9/LBo1CFwRA+9WGbI3Fl
-	DJYrM9FQ15ss/oZpxHOGynYsfsW4bvPyEM+RvsfjnPzuJwctf4DZQXFXkNQcr+ihHamw3NVTEu3Om
-	9MLuUkG+pL6GpfRXVTxtA3F9P89esiO/NY71+X+ORF6l/KiJAKq3C7FfGktG4yY6aTZ8oKYXvQaI4
-	xN3hUHV6zzjrWyqYWAJscyhdsGGBLm+hAxQQvFNdz4nh/9EuHPeMWl52JHxIrnu2y1RREdByZoSf0
-	t6WGvpSD6tAfIhZfdSCmE55KlgTTQHjG66FAB6gueDGHT/bFMeRYUn/0StTU/YF8f8GKLQSBwNDl0
-	BEKFethw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JleaUPasr6t70wZaJk/wxLZq1vhjFjBAb+acJWYkRc0=; b=ns/CKp5FLzfh2MPrH7e/ys+IE9
+	M54rHTFTLpqscY25tb8l3Vq1I2r8SXFakemKUtxfkn3qp9lDQh3WYdzv4CwziTVMsQZrSDZMTIGBv
+	un9FNpsC1LfYF+l60oNmCbTOXkSkMaoZzerT9bOxirj8YS/ZyhtDsKDL7aaU4EiRr8kO9xS2g6Spx
+	muu5albM7DfnfLrJ6ZYFkVSbTfCNxPAgGVI8HShOKll3iaxKXMU+u5RgbkUwMuNh0gi+0tuj2EiC1
+	H8ODU8/d6Dtnd+h9MQLXHX2fJPgVqLTM+Fu2lY5ZLBkvFMgALwJgeBYl7SXtFcI3T+CajbbJ8zNjl
+	JwUYI+vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iUE-00000003wJR-2ikk;
-	Wed, 06 Nov 2024 16:02:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8iWq-00000003x7N-0Wan;
+	Wed, 06 Nov 2024 16:05:08 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iOF-00000003ubP-1P7h
+	id 1t8iV4-00000003wcf-1Dkn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 15:56:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5DB4AA407E5;
-	Wed,  6 Nov 2024 15:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C11AFC4CEC6;
-	Wed,  6 Nov 2024 15:56:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730908574;
-	bh=o+O3AVjyw4V0rGoTz6Alsf+x7tFbW7A4EL9HlfoJqaA=;
-	h=Date:From:To:Cc:Subject:From;
-	b=Z3+2ebY6w98hFl22Dlpx0YoZDGuyU9K2I1Pc1MYfgKZpQWGvgqkw8Q4mDrRhcBszg
-	 6+S/jrIxqfL4kIaVrPNuXLpZGugxzycRK4t/K+YESAz1Ffxriy5jCeW8tMEM1eCPQ5
-	 Zy39+Q4vaSW6EMZfaiD5JUkrRdnPBIN5rHJs1N/dA42py1faG++/69LLJWukthLhJG
-	 i8gSbHueRHx0AGUxGvtnMAcuxoX4tE2SAIrLVy73Y2e/R6S5nASDMwCeEsnRCq/QIZ
-	 N8ndc4S7rmGYQSqkgTD4xYsbdE5jk1KpUr+VfdHB8skEYRbuYR8L/y7dRdS68h2YtS
-	 UN41G7KkHjo6A==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 374985F8BA; Wed,  6 Nov 2024 23:56:11 +0800 (CST)
-Date: Wed, 6 Nov 2024 23:56:11 +0800
-From: Chen-Yu Tsai <wens@kernel.org>
-To: soc@kernel.org
-Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Allwinner device tree changes for 6.13 part 1
-Message-ID: <ZyuRm-gvJX_12NMA@wens.tw>
+	Wed, 06 Nov 2024 16:03:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730908998; x=1762444998;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=eeEXuIJ2vlczIF22PZRVZhnTIMIbHqdB4rwbCI1c/Sg=;
+  b=DXCnGztjOYA6n35Xw96KYPXOaCPtv0XNfSN7gVLlvd2haHnKGCMhjf9K
+   wmkgBGJr9JDgvCS5585E/UhjdTBDeEaOHfX2GoO0/3wCyiXqqndkS2BZG
+   x55Lc7YZAdi4gpwX/qV3Qzc/a0KloBYPq+I47QOWyUsGhmE3O+vs4Mr8h
+   EN96I3b9ra8pZdtnl/+mEG+F6bj+9ez5eP3dH/9zQBV9skDReQA8Omn0f
+   fK/ovLYWM/VrIEhjMKk8yAk7k7O/IgAk3Hi+AmZwgTiENvnP1DGXHLcMQ
+   VY+ExL6gbu18CZpHzT1wkdYZF0ISyQAifl0K5t9+gZhpNT5TC0zJ7yq5s
+   A==;
+X-CSE-ConnectionGUID: 0TzZ2sURRlK2R6iwVZNGLg==
+X-CSE-MsgGUID: I1+TDmMNREWU7pOS0JTgSQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="48176918"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="48176918"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 08:03:17 -0800
+X-CSE-ConnectionGUID: a5M3gJ+/QYaSWgS/qH6ALg==
+X-CSE-MsgGUID: phJVPBFJQuabQWlVho3xvg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,263,1725346800"; 
+   d="scan'208";a="84715253"
+Received: from linux.intel.com ([10.54.29.200])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 08:03:17 -0800
+Received: from [10.212.82.230] (kliang2-mobl1.ccr.corp.intel.com [10.212.82.230])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by linux.intel.com (Postfix) with ESMTPS id 2C51820B5703;
+	Wed,  6 Nov 2024 08:03:12 -0800 (PST)
+Message-ID: <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
+Date: Wed, 6 Nov 2024 11:03:10 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="V50nwjhcp48BVPt5"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/5] x86: perf: Refactor misc flag assignments
+To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+ Sean Christopherson <seanjc@google.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org
+References: <20241105195603.2317483-1-coltonlewis@google.com>
+ <20241105195603.2317483-5-coltonlewis@google.com>
+Content-Language: en-US
+From: "Liang, Kan" <kan.liang@linux.intel.com>
+In-Reply-To: <20241105195603.2317483-5-coltonlewis@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_075615_525797_5F3D67B9 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20241106_080318_427181_DD4A7F83 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,115 +112,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---V50nwjhcp48BVPt5
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+On 2024-11-05 2:56 p.m., Colton Lewis wrote:
+> Break the assignment logic for misc flags into their own respective
+> functions to reduce the complexity of the nested logic.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/x86/events/core.c            | 31 +++++++++++++++++++++++--------
+>  arch/x86/include/asm/perf_event.h |  2 ++
+>  2 files changed, 25 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+> index d19e939f3998..24910c625e3d 100644
+> --- a/arch/x86/events/core.c
+> +++ b/arch/x86/events/core.c
+> @@ -3011,16 +3011,34 @@ unsigned long perf_arch_instruction_pointer(struct pt_regs *regs)
+>  	return regs->ip + code_segment_base(regs);
+>  }
+>  
+> +static unsigned long common_misc_flags(struct pt_regs *regs)
+> +{
+> +	if (regs->flags & PERF_EFLAGS_EXACT)
+> +		return PERF_RECORD_MISC_EXACT_IP;
+> +
+> +	return 0;
+> +}
+> +
+> +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+> +{
+> +	unsigned long guest_state = perf_guest_state();
+> +	unsigned long flags = common_misc_flags(regs);
+> +
+> +	if (guest_state & PERF_GUEST_USER)
+> +		flags |= PERF_RECORD_MISC_GUEST_USER;
+> +	else if (guest_state & PERF_GUEST_ACTIVE)
+> +		flags |= PERF_RECORD_MISC_GUEST_KERNEL;
+> +
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+The logic of setting the GUEST_KERNEL flag is implicitly changed here.
 
-are available in the Git repository at:
+For the current code, the GUEST_KERNEL flag is set for !PERF_GUEST_USER,
+which include both guest_in_kernel and guest_in_NMI.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunx=
-i-dt-for-6.13-1
+With the above change, the GUEST_KERNEL flag should be only set for the
+guest_in_kernel case.
+IIUC, this is the series's target, right?
 
-for you to fetch changes up to fcfbb8d9ec584c256c0a6e1ae3174a21b007f399:
+If so, could you please move the explanation into this patch?
+For x86, the behavior has already been changed since this patch.
 
-  arm64: allwinner: a100: Add MMC related nodes (2024-11-02 19:32:40 +0800)
+Thanks,
+Kan
 
-A second pull request will likely be sent by the end of the week or
-early next week, once a couple stragglers are run through linux-next.
+> +	return flags;
+> +}
+> +
+>  unsigned long perf_arch_misc_flags(struct pt_regs *regs)
+>  {
+>  	unsigned int guest_state = perf_guest_state();
+> -	int misc = 0;
+> +	unsigned long misc = common_misc_flags(regs);
+>  
+>  	if (guest_state) {
+> -		if (guest_state & PERF_GUEST_USER)
+> -			misc |= PERF_RECORD_MISC_GUEST_USER;
+> -		else
+> -			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
+> +		misc |= perf_arch_guest_misc_flags(regs);
+>  	} else {
+>  		if (user_mode(regs))
+>  			misc |= PERF_RECORD_MISC_USER;
+> @@ -3028,9 +3046,6 @@ unsigned long perf_arch_misc_flags(struct pt_regs *regs)
+>  			misc |= PERF_RECORD_MISC_KERNEL;
+>  	}
+>  
+> -	if (regs->flags & PERF_EFLAGS_EXACT)
+> -		misc |= PERF_RECORD_MISC_EXACT_IP;
+> -
+>  	return misc;
+>  }
+>  
+> diff --git a/arch/x86/include/asm/perf_event.h b/arch/x86/include/asm/perf_event.h
+> index feb87bf3d2e9..d95f902acc52 100644
+> --- a/arch/x86/include/asm/perf_event.h
+> +++ b/arch/x86/include/asm/perf_event.h
+> @@ -538,7 +538,9 @@ struct x86_perf_regs {
+>  
+>  extern unsigned long perf_arch_instruction_pointer(struct pt_regs *regs);
+>  extern unsigned long perf_arch_misc_flags(struct pt_regs *regs);
+> +extern unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs);
+>  #define perf_arch_misc_flags(regs)	perf_arch_misc_flags(regs)
+> +#define perf_arch_guest_misc_flags(regs)	perf_arch_guest_misc_flags(regs)
+>  
+>  #include <asm/stacktrace.h>
+>  
 
-----------------------------------------------------------------
-Allwinner device tree changes for 6.13 part 1
-
-- Enabled audio codec for all H313/H616/H618/H700 boards
-- Added audio codec node for H616 SoC
-- Set disable-wp on MMC controllers with micro SD card slots
-- Added RerVision A33-Vstar board
-- Added A100 compatible string to USB and PHY bindings
-- Added MMC, USB, PMU and watchdog device nodes for Allwinner A100 SoC
-
-----------------------------------------------------------------
-Cody Eksal (3):
-      dt-bindings: phy: sun50i-a64: add a100 compatible
-      dt-bindings: usb: Add A100 compatible string
-      dt-bindings: usb: sunxi-musb: Add A100 compatible string
-
-Icenowy Zheng (2):
-      dt-bindings: arm: sunxi: document RerVision A33-Vstar board
-      ARM: dts: sunxi: add support for RerVision A33-Vstar board
-
-Kry=C5=A1tof =C4=8Cern=C3=BD (1):
-      arm64: dts: allwinner: Add disable-wp for boards with micro SD card
-
-Ryan Walklin (2):
-      arm64: dts: allwinner: h616: Add audio codec node
-      arm64: dts: allwinner: h313/h616/h618/h700: Enable audio codec for al=
-l supported boards
-
-Yangtao Li (4):
-      arm64: dts: allwinner: A100: Add PMU mode
-      arm64: dts: allwinner: a100: add watchdog node
-      arm64: dts: allwinner: a100: add usb related nodes
-      arm64: allwinner: a100: Add MMC related nodes
-
- Documentation/devicetree/bindings/arm/sunxi.yaml   |   6 +
- .../bindings/phy/allwinner,sun50i-a64-usb-phy.yaml |  10 +-
- .../bindings/usb/allwinner,sun4i-a10-musb.yaml     |   1 +
- .../devicetree/bindings/usb/generic-ehci.yaml      |   1 +
- .../devicetree/bindings/usb/generic-ohci.yaml      |   1 +
- arch/arm/boot/dts/allwinner/Makefile               |   1 +
- .../boot/dts/allwinner/sun8i-a33-vstar-core1.dtsi  |  96 ++++++++++
- arch/arm/boot/dts/allwinner/sun8i-a33-vstar.dts    | 205 +++++++++++++++++=
-++++
- arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi     | 185 +++++++++++++++++=
-+-
- .../boot/dts/allwinner/sun50i-h313-tanix-tx1.dts   |   5 +
- .../dts/allwinner/sun50i-h5-nanopi-neo-plus2.dts   |   1 +
- .../boot/dts/allwinner/sun50i-h5-nanopi-neo2.dts   |   1 +
- .../boot/dts/allwinner/sun50i-h5-nanopi-r1s-h5.dts |   1 +
- .../boot/dts/allwinner/sun50i-h5-orangepi-pc2.dts  |   1 +
- .../dts/allwinner/sun50i-h5-orangepi-prime.dts     |   1 +
- .../dts/allwinner/sun50i-h5-orangepi-zero-plus.dts |   1 +
- .../allwinner/sun50i-h5-orangepi-zero-plus2.dts    |   1 +
- .../boot/dts/allwinner/sun50i-h6-beelink-gs1.dts   |   1 +
- .../boot/dts/allwinner/sun50i-h6-orangepi-3.dts    |   1 +
- .../boot/dts/allwinner/sun50i-h6-orangepi.dtsi     |   1 +
- .../boot/dts/allwinner/sun50i-h6-pine-h64.dts      |   1 +
- arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi |   1 +
- .../dts/allwinner/sun50i-h616-orangepi-zero.dtsi   |   6 +
- .../boot/dts/allwinner/sun50i-h616-x96-mate.dts    |   6 +
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |  44 +++--
- .../boot/dts/allwinner/sun50i-h618-longanpi-3h.dts |   1 +
- .../dts/allwinner/sun50i-h618-orangepi-zero2w.dts  |   5 +
- .../allwinner/sun50i-h618-transpeed-8k618-t.dts    |   6 +
- .../allwinner/sun50i-h700-anbernic-rg35xx-2024.dts |  13 +-
- 29 files changed, 581 insertions(+), 23 deletions(-)
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a33-vstar-core1.dtsi
- create mode 100644 arch/arm/boot/dts/allwinner/sun8i-a33-vstar.dts
-
---V50nwjhcp48BVPt5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmcrkZoACgkQOJpUIZwP
-JDDPcBAAo1ztG2mpEqv60U3/VvivQib4VmMPKoQMn91NMsvM/yIjw1OhqeqeUwcJ
-LrPdSaWl1sxtIsp+6RZG8431DJzzMqXIIVX03T3kkz6Rc3mSq3BfAW7PbCDAwFZO
-yEIFDIwIp5jFn6qLpdrvK+CXitvzP0VK4j3jikLjISTJffNsv5wz7rfRb6HLF0iZ
-drSMEVa3HK2gKHDjHOlVKRQXWU1RQUcsj8clOmuoPbJZ774ywwoFSkGm3c5qQn+q
-9lTQOLDpO8Y91+qMNv0Bf03k4cJYRaLSYEFkZpOguQVAuC3n2Pvb9S8YCVis0OvD
-pRYNJK1JYNA52WAHQUkmT3vm06tJTlyea3hAsU84Omn4h42cByIRek74vw/Hnw7j
-rJXa0Vmwuso/ck1+1mDnBo9WMTszRryV4xAJFBcz/X86m7HBX62jMI4fkTISSaf6
-PevDApsjus3Z/KBTH3cbpQVcVUZft3wLjmXKjdqOmw3qzne9c2QgXVQTlM50QjH4
-It27+69a2xoG8SAKl/29TrgCRf3Y6thWfu8xL0bMin76n3uaPbMVn1fqDheK27q1
-5yA5IFESDsqLDPCFJ2Sc8WqDoan1QSp8Kjj6jSptYYsxb1cHlU9pGXB7Cj/SqCIB
-eZDWoP0JoLQOEYKAm2jCtScfABmLiAoR3wdq3Q7e/wc3BdyzQsM=
-=AEf3
------END PGP SIGNATURE-----
-
---V50nwjhcp48BVPt5--
 
