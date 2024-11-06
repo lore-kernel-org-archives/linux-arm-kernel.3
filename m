@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 362C2D59F6A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FE8D59F6B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF7/ktaa6n7PwbzciOgKkGQIXgDWrklYx6VwJJpF/NE=; b=BJCLHyU3k0lRNBIh7oUBUSdxAH
-	eo50U1l9gQpAzKNEsK5pkjG8o2oMZzCN7X5pHklWj9GI/DCOweMqkI1KD6a123IsI+AnJeyRyxQLa
-	cZk6EnYScI1kcOh7hvhjH2KWzHLtj6wtvNY4I0hIy2yQs8nsdv3kpH+Bp55ke8HGeLaeXhKbCQW2S
-	cJyGnHLudRt4Nc6bH+f9V00oAX/gj22lBMBDD6jOP92GonbIgZYguslb00kU27H0P5zDPDwmdPdFC
-	IsCtkyLivaBMIpHpgNY2tJSqSGMiw4bYNNdjBIHhE0/KsOvL3Fz9IsJtUQJffE+n4InLfWiG70UdC
-	0bxjfOzw==;
+	bh=IgGvRXAJpj726ODsHfIG2S7bKnZ+OBr0kVdo6l+s/Hc=; b=23tXJKDXiKgOLESS13AYZ1GvOr
+	vMLsvCJG7AJovkcoR2Npm6IfO6ESN84egk3lx8G0XsPhidV4EpTvdRHgWlV1Kv2/aK0p1vR/Rjok+
+	aqv6yRQTvSdufSesTEJE0Mtwy+HS65u04vSyoUAYqqCUAB+VUWeY9Rxk3WRl3rlXSNVC7b3NcDHrk
+	5JTaPGmGfxW1avc2Cz0hxqD5WIFPX2Y51FHADI/n7b38yBMxgWfWAuiH9DkjrD7afGgpafgrrpzeh
+	/UTCOUNS0e64wpPa597mDv8IGzcbSezllOnIJey8DOWbeB8GX1m1cwLkrqpJZy5a3ozl2PUtdIcf8
+	9iE8Vnqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lTo-00000004StN-2XeZ;
-	Wed, 06 Nov 2024 19:14:12 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1t8lVU-00000004T2W-3pcr;
+	Wed, 06 Nov 2024 19:15:56 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lLn-00000004RsR-3GZp
+	id 1t8lLw-00000004Rub-0OIw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 19:05:56 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a9ed49ec0f1so15889966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:05:55 -0800 (PST)
+	Wed, 06 Nov 2024 19:06:05 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a99ebb390a5so230639666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:06:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730919954; x=1731524754; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730919962; x=1731524762; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cF7/ktaa6n7PwbzciOgKkGQIXgDWrklYx6VwJJpF/NE=;
-        b=XFh3jj4srquusHtH0nZjPBDRClsuAlaM9E055tSMdpt0Mq/ZGWDnfgXoMCNtPyhVgj
-         4QubHWwaQWGQnCyLgeAHzggz0CLjoyaJdqhqVNdNjjNVCGm79K56NuVC7XDRQavbUD1l
-         C/mF5lEnYHthkFtssboewigVjdAM7h8/orN3Bc3iEN2Bu+0KxzfNw08uc8wQZMXSuvxZ
-         SNlyMckPEebpazDRDmvLkzmBsQj3dTLwV4bocF31r2/vVL8H/sUrsGT1+XO+2rbzrend
-         +OxhgJGepOKtjYo80sbAjQKLH11Q1iz8bSBcxCPt1Bb64Pv20t2EO5dKXdxUORmlNgUh
-         vkMw==
+        bh=IgGvRXAJpj726ODsHfIG2S7bKnZ+OBr0kVdo6l+s/Hc=;
+        b=ic0xHbOgrNBMuQkTQXYxFjEjiZhaJk/9yJyaz/9m6D9j8gmyrv0RgkrgNf1ze+1paV
+         AwjpsxoMnUeGh7GlM66c2I/j9Cto79BCWrB0J4Cse5Hij/6h2JkI8iaeESEdWIbj2bvI
+         acKWw5f5Cx0oPEvYpuuRrDTcfdipa/mHKo4RXwn5yaqk59I1JiGKrcdG8w1ODAZEa163
+         pJNdjeg2KuDjzPcD22cpbfTWSt7qulNimW4msWC/wPPc2RQbfAjO2BUGL2gsRjM22uJ9
+         No2thCAJzF5EIbeQa1oOMiHJsg9aVqMwZ1Qy1FIahGqqa7rx8F0xJEXYQdaxKshdmknj
+         cmKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730919954; x=1731524754;
+        d=1e100.net; s=20230601; t=1730919962; x=1731524762;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cF7/ktaa6n7PwbzciOgKkGQIXgDWrklYx6VwJJpF/NE=;
-        b=ezrWSJCz9o+YFaAUu49nquO6kHtlOUN2qzRQ1RqufxE5tR8d08Dc7mD+iv2m5Mx4iN
-         uXk0oEpVSQvaxu7yHuVRWjdbtRJ+bFFcdvZYSE0OXW8IWewQHQFc9Zzg3jRUiRQnUQtH
-         FpVhtvZBWm5eK0UaKv1Hr0WPMZFnoAVl9qef12KIDoeciM63+CjO0jKQdHPFbBqw2kpv
-         sGbx3Cyy78K4nJ2YGNoBIydIwTcG91V5RLaPXvdikxQI9HsF81db/jMNtjy2OA/D2zGd
-         V2K1STF2RfF4N8TdIvEL7PIbdJs1OpGzkmsRHw8vwwWUiEhP16McoEbS/FCPPLqwFICG
-         d0rA==
-X-Forwarded-Encrypted: i=1; AJvYcCUOcpvXKfWzMviC01wcltzmVzKyXbBhNVmQPuaaxUrNbK5B9HWxM/aONNAxAoaS+UDgc0t/UdtUcBCH/coFTB+b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdZkgCsbaU0HdfjLBOEyXM/vLAQYtw4xMcDCxJNpv8uaqeUSfg
-	4aTRJj1TR8T+Sh/c1K5FBvEHLIhBs/3gY1lxjAyA0i4N/AqscfJV
-X-Google-Smtp-Source: AGHT+IHb0/KCYL04U0/vg62SxELEsU7lhBB6XVEUFvURcuXb8fhbHoL2HuGK0YgGOMa9LJAnenQfnQ==
-X-Received: by 2002:a17:907:26cb:b0:a9a:c769:5a5 with SMTP id a640c23a62f3a-a9e3a6c9183mr3031181266b.50.1730919954233;
-        Wed, 06 Nov 2024 11:05:54 -0800 (PST)
+        bh=IgGvRXAJpj726ODsHfIG2S7bKnZ+OBr0kVdo6l+s/Hc=;
+        b=NVcUazG9cxKKha88D0ag+ih1jLTQZZW7nzBg+48xf1Rfb/GNIF54i41F09PCh4tpzc
+         q4MYzx28O1BQU5GRQydUMo19gEvwL9ZjZ8jwufM3VucJwMEFMuQLyQgzVQajAMMnvItn
+         CUGhOa5H+NxY9o+72uAZJ6uyNU9QCH6xiPRrlIMm5w3tmK7Uj10k1g65VMGFJnzyAuOr
+         mZmf54Lbx8DdlnWxXfY645+CHh+oeB2IKGE5v8aXk7x8kJtA1+Ql5fpEfSuxE8+afnvO
+         jHRuQyV9J0pvl5MM1U1mOaixm5ijMXBhiQhCu6sK3BccxrPfxtpP34OPUjbeoNH+6U9S
+         ijPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWnA/QEpjnH/uQ/xdsAqqLgv6EDvIVYxzyo0SOldIqsPEU1h+hMpKBEgcdrIvgYVhDkAFJHhEAXVpnKFBh74Y7z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxyd1IrJu5RGgrNwM4n8CcHBHgDrdjqufrImzqMJSAe8boJ3cmd
+	AoVnyXQHy9F8I9i0m+DsS4jwAfGQh+tSiewC4rWCeJC7GoNBvjV/mzIuKw==
+X-Google-Smtp-Source: AGHT+IHJzr9hbdLpV0PDZSH3MlBedQIIjCpH5cN/ogIiMjoiS6oKXKwoy7Qju43dBWT7plFuZ3cNUw==
+X-Received: by 2002:a17:906:d542:b0:a9e:b08f:867e with SMTP id a640c23a62f3a-a9ed4cb4df9mr40078066b.16.1730919961922;
+        Wed, 06 Nov 2024 11:06:01 -0800 (PST)
 Received: from standask-GA-A55M-S2HP (lu-nat-113-247.ehs.sk. [188.123.113.247])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb17cf906sm320785366b.112.2024.11.06.11.05.53
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16d9774sm324040166b.65.2024.11.06.11.06.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 11:05:53 -0800 (PST)
-Date: Wed, 6 Nov 2024 20:05:52 +0100
+        Wed, 06 Nov 2024 11:06:01 -0800 (PST)
+Date: Wed, 6 Nov 2024 20:05:59 +0100
 From: Stanislav Jakubek <stano.jakubek@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -71,16 +71,17 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Chunyan Zhang <zhang.lyra@gmail.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/5] arm64: dts: sprd: sc9863a: fix in-ports property
-Message-ID: <5318a47282b8c15a3135fd12dacedb8aa70592e2.1730918663.git.stano.jakubek@gmail.com>
+Subject: [PATCH v2 5/5] arm64: dts: sprd: sc9863a: reorder clocks,
+ clock-names per bindings
+Message-ID: <d235438fbbd53c28b63cada2cf7e1234c120355e.1730918663.git.stano.jakubek@gmail.com>
 References: <cover.1730918663.git.stano.jakubek@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1730918663.git.stano.jakubek@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_110555_837462_04AC80A2 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20241106_110604_160800_CA1E74E6 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This property is called "in-ports", not "in-port", fix it.
+DT bindings expect the SC9863A clock-controller clocks/clock-names to be
+in a specific order, reorder them.
 
 Signed-off-by: Stanislav Jakubek <stano.jakubek@gmail.com>
 ---
 Changes in V2:
 - new patch
 
- arch/arm64/boot/dts/sprd/sc9863a.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/sprd/sc9863a.dtsi | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/sprd/sc9863a.dtsi b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-index e5a2857721e2..31172ac44adc 100644
+index 31172ac44adc..e97000e560e7 100644
 --- a/arch/arm64/boot/dts/sprd/sc9863a.dtsi
 +++ b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-@@ -288,7 +288,7 @@ etf_little_out: endpoint {
- 				};
- 			};
+@@ -163,18 +163,18 @@ gic: interrupt-controller@14000000 {
+ 		ap_clk: clock-controller@21500000 {
+ 			compatible = "sprd,sc9863a-ap-clk";
+ 			reg = <0 0x21500000 0 0x1000>;
+-			clocks = <&ext_32k>, <&ext_26m>;
+-			clock-names = "ext-32k", "ext-26m";
++			clocks = <&ext_26m>, <&ext_32k>;
++			clock-names = "ext-26m", "ext-32k";
+ 			#clock-cells = <1>;
+ 		};
  
--			in-port {
-+			in-ports {
- 				port {
- 					etf_little_in: endpoint {
- 						remote-endpoint =
+ 		aon_clk: clock-controller@402d0000 {
+ 			compatible = "sprd,sc9863a-aon-clk";
+ 			reg = <0 0x402d0000 0 0x1000>;
+-			clocks = <&ext_26m>, <&rco_100m>,
+-				 <&ext_32k>, <&ext_4m>;
+-			clock-names = "ext-26m", "rco-100m",
+-				      "ext-32k", "ext-4m";
++			clocks = <&ext_26m>, <&ext_32k>,
++				 <&ext_4m>, <&rco_100m>;
++			clock-names = "ext-26m", "ext-32k",
++				      "ext-4m", "rco-100m";
+ 			#clock-cells = <1>;
+ 		};
+ 
 -- 
 2.43.0
 
