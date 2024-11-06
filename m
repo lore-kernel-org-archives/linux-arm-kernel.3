@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16262D29FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 23:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7487D59F7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 23:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCr20x8z8sRkhTPvZqrUzLvN/Ib1WmukL+yzAP4ZNi0=; b=fWhjQEKyySSYVQHMNN42A58fqb
-	O11yG88m9jZXZEIq7BSr2G3eEOzvDC4BadK3rHKV2A1Xs2ZXtqsxj6iGBUS37VBuoUKhWPSuM2Kyx
-	P4mpdLWyn9E91+/FLzFsCkf5Tjj05KmR4/FN5Aw/2t1vG4p7l7J1hKkGt+RHU86PkHvFYIkhqz0gN
-	ex6AMhYI/D/izlZZEUzrJfRiGpvKncowG9JQao26/C4uKs2LUaJNcq2lc/3ZmhYiGqjOGNOVSC3UV
-	h3Jbq/7wnH12n4UyojKQX908oTNypzgjj7+Yrls4htb7sjobtXzPWwoJ6flqoovj80pn/JWS7CcsV
-	ud/RmBnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oSn03W5A4cHNq1T/X45o+NX2ioV+T/YR260d8sL4aZk=; b=uzSMXmYvmVsX7aIBXB+9rqaGaM
+	SCHd8WvV0ngoahht2BR/ulniCE5HaIHvLBBBvy+nnroqMnjcfW8KG5wbDGSGP1VaypLfI5DDeXK8k
+	dE8rve42raf6D0yx+qvG773Ddxe98DLYkEzZJoUXwzZia0ymQhOLEphA1SeCoIMljhDxz/6bfVFb8
+	ysfKurpxTKPi+v2W8je8MtZwyI9VXq/2XQCnFVDnP0C48iF6XzzdJwh0RU2jk6ouKu2dVmWtqiTI9
+	I45rOujQ0SwLIGHiPjP4rS07XxYu8VwCE0FR+w5Znvi9ZMVY6UZeC3By1v6F84fFiVVe23TbzIBBU
+	LFONP8Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8p2P-00000004zu2-34Nc;
-	Wed, 06 Nov 2024 23:02:09 +0000
-Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
+	id 1t8p46-0000000505r-14v6;
+	Wed, 06 Nov 2024 23:03:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8p0f-00000004zgC-4Bt4;
-	Wed, 06 Nov 2024 23:00:23 +0000
-Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-84fb1225a89so103151241.2;
-        Wed, 06 Nov 2024 15:00:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730934020; x=1731538820; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mCr20x8z8sRkhTPvZqrUzLvN/Ib1WmukL+yzAP4ZNi0=;
-        b=ME6SmqLjiiWPDWbbETp0mu1XebWCAiosmvKQgR6FXUJLyhaM9iXNzkFLK1bWrTez4p
-         5vp4hwPUJXJzrtdaVwNRVVZGy+J15pvjg+7Yy2tA7QgoJOqO1N+u8zuoj/eJXQNdlDTC
-         VdQDcTr5lwuDw3wcliF45OYc8GzmmoxvRnnbk/ULS2OKHxQGo629Qg04yhsKa2DEFy3R
-         oa8KsuRPblPv7hvIfsi5dUb30vqxV/IFpaMd+xFCWHUA2KpyEHUwMiYXLI+dS6xFGD4q
-         fb9R2PGDH+7fgxZkqLfzMfEYIyIlwFTL+puM8UtWbxgxDg1s+M2qUTPXXW8Qb80oJqrI
-         2U4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730934020; x=1731538820;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mCr20x8z8sRkhTPvZqrUzLvN/Ib1WmukL+yzAP4ZNi0=;
-        b=ue6i5eObz94Um514zIQwWq1arMRFlJvZtggBGJvafrX7XAM+3Z0QvxBTTzi6ky0rJd
-         1mAnhRU8yGspTnMa7UqkYubjqohYZPNRGUNcvRRI8YUQw28w/6bi+LE2HkRNplN4vUXs
-         WIwXnR7CuP8mVvCdcjVIiJJf8O7C+5vC3HaCBidQZk7qhXeuOiRh0sJwPfKqc40eW45h
-         DV5B7A6xexu6zodksx418SzHf13QiscameJ931RlZCY8TtkwsGwjQnuw9UZ8f84y4tQc
-         gwYBMdwaNiLpCa1k9qMivXep6+FXMTCSAQR9nJFpN7Rfrjbghm+SdhnP3z/ygqXMvCB/
-         2GQg==
-X-Forwarded-Encrypted: i=1; AJvYcCX6+CwkD9+TcEO3Egm6QIsJtPtgAVa2qq96YeUej74eYCL+LfprMogyKrBDYzvZRNj9/NhDNj1zdM1565Nxpfs=@lists.infradead.org, AJvYcCXtMKp/5sKdoDfrpyIoWkJN7ptc+glqzEHIRYIKqFo+3OXzS8jSMimCY7Qp5jrDcLvm9pRoncyqozX04shq/XAm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4dcsjyxQZyeeDo6ZTkpjwLEp3V4EeL+qF4xZKgDTsWitixvpA
-	tO8KGy7+aFGrVKWuwFRXVjAZqGkfLWEsuVha7tv82o1oQqaQQahpMurdGG2Ld2d+Ummr6nyGf4R
-	uUcG7NxZ8MP/g+uXgJRh1/LIFbms=
-X-Google-Smtp-Source: AGHT+IFo1RR/AdVhpssmUpxzpPIge7KofwhVYW5Ad3uzitsFg+8Ea84XoncezE1UFB6bQpJj6zNAhVjXGdNO8YtEVEY=
-X-Received: by 2002:a05:6102:cd2:b0:4a5:ada5:7b27 with SMTP id
- ada2fe7eead31-4a8cfb4c602mr40754597137.9.1730934019692; Wed, 06 Nov 2024
- 15:00:19 -0800 (PST)
+	id 1t8p1b-00000004znb-0cdk;
+	Wed, 06 Nov 2024 23:01:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6530E5C4D92;
+	Wed,  6 Nov 2024 23:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85BCCC4CEC6;
+	Wed,  6 Nov 2024 23:01:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730934077;
+	bh=lsZM1OifQMR0Ewkk9yEiN0OytYyrRhK0WgUktu0fm2s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=poBQhvWMcBUshJScA6qi+VoJHKUku76KrYRKcZmXbwDWEI6cPLvtn2nbafsCAIfWB
+	 DuVj3zVc2G7Br0OzO5qRRqv/POtgTSYaYVvdwKPgdzzMHbq+mFw2UOso3RuatdyVtJ
+	 shgjV94yLZYvIusjXNG1HhfGJBN9CLyhXQ4gpii59YUJramoLURM7WlsZKO1P0Njd0
+	 K/xvVc2jxy1KVe6v7eDzmoYY+/OEglKrrzvDhLE+6sNpykrPv3P+UmuGOmZnLs65U7
+	 dyjL1VsLLV0yBAknZRA93bx1ZuBGu5itBLLZ9zfn8lW0tgZ/oHnaKDI4Z9rRbqouyF
+	 tdvSbC5m97xuQ==
+Date: Thu, 7 Nov 2024 00:01:12 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Jiasheng Jiang <jiashengjiangcool@gmail.com>, 
+	rmk@dyn-67.arm.linux.org.uk, max.schwarz@online.de, david.wu@rock-chips.com, heiko@sntech.de, 
+	vz@mleia.com, wsa@kernel.org, manabian@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] i2c: rk3x: Add check for clk_enable()
+Message-ID: <fj2vssllh7zgl76a4jfakrcngcflwvqxzwwa2dhpkauli2u7wb@pz23fznmy25e>
+References: <20241105161820.32512-1-jiashengjiangcool@gmail.com>
+ <20241105161820.32512-3-jiashengjiangcool@gmail.com>
+ <CAD=FV=VzqKa=fo4KRw4FSpPcH4mVnt8jBMo=FMzsGkdGrXCfxg@mail.gmail.com>
 MIME-Version: 1.0
-References: <aca00bd672ee576ad96d279414fc0835ff31f637.1720022580.git.lorenzo@kernel.org>
- <20241105213339.GA1487624@bhelgaas>
-In-Reply-To: <20241105213339.GA1487624@bhelgaas>
-From: Jim Quinlan <jim2101024@gmail.com>
-Date: Wed, 6 Nov 2024 18:00:08 -0500
-Message-ID: <CANCKTBuxKA8JdfYMCcGS=CpyuXGiLz1NdereCjqo-_2Er3Pfww@mail.gmail.com>
-Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add Airoha EN7581 support
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, linux-pci@vger.kernel.org, ryder.lee@mediatek.com, 
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, kw@linux.com, 
-	robh@kernel.org, bhelgaas@google.com, linux-mediatek@lists.infradead.org, 
-	lorenzo.bianconi83@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org, nbd@nbd.name, 
-	dd@embedd.com, upstream@airoha.com, angelogioacchino.delregno@collabora.com, 
-	Jim Quinlan <james.quinlan@broadcom.com>, 
-	Krishna Chaitanya Chundru <quic_krichai@quicinc.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD=FV=VzqKa=fo4KRw4FSpPcH4mVnt8jBMo=FMzsGkdGrXCfxg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_150022_068636_A65E46D0 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20241106_150119_257432_F34F4E51 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,75 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 5, 2024 at 4:33=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org> w=
-rote:
->
-> [+cc Jim, Krishna, Vidya, Shashank]
->
-> On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wrote:
-> > Introduce support for Airoha EN7581 PCIe controller to mediatek-gen3
-> > PCIe controller driver.
->
-> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
->
-> > +#define PCIE_EQ_PRESET_01_REG                0x100
-> > +#define PCIE_VAL_LN0_DOWNSTREAM              GENMASK(6, 0)
-> > +#define PCIE_VAL_LN0_UPSTREAM                GENMASK(14, 8)
-> > +#define PCIE_VAL_LN1_DOWNSTREAM              GENMASK(22, 16)
-> > +#define PCIE_VAL_LN1_UPSTREAM                GENMASK(30, 24)
-> > ...
->
-> > +static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> > +{
-> > ...
->
-> > +     val =3D FIELD_PREP(PCIE_VAL_LN0_DOWNSTREAM, 0x47) |
-> > +           FIELD_PREP(PCIE_VAL_LN1_DOWNSTREAM, 0x47) |
-> > +           FIELD_PREP(PCIE_VAL_LN0_UPSTREAM, 0x41) |
-> > +           FIELD_PREP(PCIE_VAL_LN1_UPSTREAM, 0x41);
-> > +     writel_relaxed(val, pcie->base + PCIE_EQ_PRESET_01_REG);
+Hi Doug,
 
-Not sure it is worth the trouble to define fields.  In fact, you are
-already combining fields (rec+trans) so why not go further and just
-write each lane as a u16?
->
-> This looks like it might be for the Lane Equalization Control
-> registers (PCIe r6.0, sec 7.7.3.4)?
->
-> I would expect those values (0x47, 0x41) to be related to the platform
-> design, so maybe not completely determined by the SoC itself?  Jim and
-> Krishna have been working on DT schema for the equalization values,
-> which seems like the right place for them:
->
-> https://lore.kernel.org/linux-pci/20241018182247.41130-2-james.quinlan@br=
-oadcom.com/
-> https://lore.kernel.org/r/77d3a1a9-c22d-0fd3-5942-91b9a3d74a43@quicinc.co=
-m
->
-> Maybe that would be applicable here as well?  It would at least be
-> nice to use a common #define for the Lane Equalization Control
-> register offset from the capability base.
+On Tue, Nov 05, 2024 at 01:29:40PM -0800, Doug Anderson wrote:
+> On Tue, Nov 5, 2024 at 8:18 AM Jiasheng Jiang
+> > Add check for the return value of clk_enable() in order to catch the
+> > potential exception. Moreover, convert the return type of
+> > rk3x_i2c_adapt_div() into int and add the check.
+> >
+> > Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> > ---
+> > Changelog:
+> >
+> > v1 -> v2:
+> >
+> > 1. Remove the Fixes tag.
+> > 2. Use dev_err_probe to simplify error handling.
+> > ---
+> >  drivers/i2c/busses/i2c-rk3x.c | 51 +++++++++++++++++++++++++----------
+> >  1 file changed, 37 insertions(+), 14 deletions(-)
+> 
+> Wow, this is a whole lot of code to add to check for an error that
+> can't really happen as far as I'm aware. Turning on a clock is just
+> some MMIO writes and can't fail, right? Is this really worth it? Maybe
+> just wrap clk_enable() and spam an error to the logs if it fails? If
+> we ever see that error we can figure out what's going on and if
+> there's a sensible reason it could fail we could add the more complex
+> code.
 
-FWIW, these registers are HwInit/RO.  In our (Broadcom) case we have
-to write them using an internal  register block that is not visible in
-the config space.  In other words, we do not use the cap offset.
+We've had this discussion several times. I'm of the school that
+if a function can return an error, that error should be checked.
+It's not spam, we do it everywhere.
 
-Regards,
-Jim
-Broadcom STB/CM
->
-> Although I see that no such #define exists in pci_regs.h, so I guess
-> there's nothing to do here yet.
->
-> The only users of equalization settings I could find so far are:
->
->   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/pci/controller/dwc/pcie-tegra194.c?id=3Dv6.11#n832
->   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/pci/controller/dwc/pcie-qcom-common.c?id=3Dv6.12-rc1#n11
->   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/drivers/pci/controller/pcie-mediatek-gen3.c?id=3Dv6.12-rc1#n909
->
-> Bjorn
->
+On the other hand, there is another school, bigger than mine,
+that doesn't want such a check.
+
+I decided not to bother. If someone adds the check, I'm going to
+accept it. If someone doesn't add the check, I won't bother
+asking for it.
+
+Said that, MMIO reads and writes can fail: in other drivers I'm
+seeing bogus reads due to some firmware failures during device
+reset.
+
+I agree with you with the rest of the comments and thanks for
+checking this out.
+
+Andi
 
