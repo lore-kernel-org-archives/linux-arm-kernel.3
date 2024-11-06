@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209D5D29FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE17D29FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXO9RRbs3HveLlIZZM8HN1XONyaSb0qVhG5bV+yNI6E=; b=IZe9NszmDgEMGZZLPN+kzteNv+
-	qfOuVxKDgU6XV3gAu0Rhz9gvK87wNOULOKd9YAz5vbNcySbppdg0KR+wxAvjP40VH6t3IaADqRIbD
-	Xy8JdMP6KpqZgpPvB1Jm0/xe+cvRPzzTqPFj94Nf40kqNPMRLGhPMT2ldK+sdC/cAC66FK07RLAZ4
-	voXT+6LNmcnMVs+3u8/iiV07SLePBp9JAjQK2smFYl8scMoej3cALe0ajOjOcip8vYlzNMiuFOM1D
-	+cAWZNzmoZlb4GjJKKH8aQ4DbGVEmNNkwz4muqaACYepa9wtGSl9twMjAEWC0+D+/8MEXLyQy5x/F
-	dZVWW6nQ==;
+	bh=9tJVmNlnjHGZjwH5ydtaGAqdg+C08rv7W0UGeEWTYAI=; b=zjlt1QyuBlVlC981yS6ABWqyw0
+	oa1I5OmGOrpBVGahwtprF4kAr1KPLlUVAH7ixZZ69rDF8HUsgFj+byO7TVug7u/gOrBnpbILcraVW
+	uWtyCsUrzac0yRmSv+KWpcEH7L9ynVZH6kekbIpvVjKIVh+pp6scFLCiw9WQ7wiLsC35apWU7GrcG
+	Z/XAXsW9jHqQX2dg8FfGmOQHlaPkG4lNupuuZPKQW9svAaSAvcrS4PCRzDStdosrQyVFIYNBDJA7+
+	cawlKcjfwf2kqBNjuCdeKAWmVsqilbgXlDd+iGvKhLwz7VlNmm8jSr64ZNJ7TwnDuMbcWyNo6jkEt
+	JgxkhDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aiR-000000029uY-2kzN;
-	Wed, 06 Nov 2024 07:44:35 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1t8ak9-00000002AEh-0iLY;
+	Wed, 06 Nov 2024 07:46:21 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aex-000000028tK-09Pa
+	id 1t8afT-000000029BW-0uQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 07:41:00 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-539f76a6f0dso5691110e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 23:40:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730878857; x=1731483657; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tXO9RRbs3HveLlIZZM8HN1XONyaSb0qVhG5bV+yNI6E=;
-        b=vsP0kZlxmZ30ASSh805xLxajnGhwKJLBYQw8AsGvOoWQk8xovpi3o5Gnufxp+/FdFB
-         Oi0duaAzavpk5Aaa8AKbhCJf0xuBpDiOWMgXSu/OYtZOPY7R3fG8IHuIc5xc22mzPHt4
-         eLuvRLpIkPc93SGQT4rMpImDEY1EYCujJ51N2g5Q2wdjv+sC7/tgnFrqr5BWyzgDvZtH
-         uFa3wln/wtlbMgt8919drDrGl69qxe9MEeI71XwuEhUeBcotso7qK6OjLO0tcDIo1VkT
-         wFSq3wGWnUAoflQ1eywxnkrLOqGtvFmDIJcN3M/Hyp90FxbW6+lHuXf+c793qWRYvBQc
-         T1vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730878857; x=1731483657;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tXO9RRbs3HveLlIZZM8HN1XONyaSb0qVhG5bV+yNI6E=;
-        b=Z93uLP7K2LjJWP6rwtFBjWapgvHmTV/7KNTrJARcItygpMwB/5lgNrRTr5DZjzqaOq
-         RQ2p0uMnCBYw7TeCxOjY2itqJCAcJ6MycnQi/jAjBxLrW2+2bCosy94xMY6bwRQtWntJ
-         P7ao0SysraNgULB/81fl1IIeRcLTrw5WPiEw6Mn8cyRXsHdnSrYsx6buf1xx14cVDChc
-         7pUv1pVL53K9v6pBMCmS17E3lOkjjRUl4J72WQAEkJyVOGy6EL1VhTDxXkRvrTA/WEO9
-         TB2slYPdCe3yxp+cuyrYpR+uZ+EJx5A4+9BCKeX3xfVlg3R9gzr1k5FA1BBsbwHepRpF
-         YWCw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZ87ocqoHusH00SHpQr2BaSHfMvRYuIVMxABqVEya7k9+imNPhWr86Wy1u692qJwFGqG/L+sKUUhcxVQby+yJb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6c9hf0guioJBD0WV9J+2DhG6CjawUbvIbUlQGtKz2pxqMAvZW
-	VQ/dUAsGPEsUz5O4ly7qTWDnFyQOvi+WqEztZRIjZoqkv7NRS9aDcrG+/XPgto4=
-X-Google-Smtp-Source: AGHT+IF0FcdGuJ0vO+niOKjEmLBEPpJB40aDmUzjOkTIqMnmTG4s9w+mRinnl+QEkzIM6X2Ng1KY4A==
-X-Received: by 2002:a05:6512:3c88:b0:539:e9f8:d45d with SMTP id 2adb3069b0e04-53c79ea6c5dmr10858734e87.52.1730878857022;
-        Tue, 05 Nov 2024 23:40:57 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53c7bc9c043sm2398395e87.102.2024.11.05.23.40.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 23:40:55 -0800 (PST)
-Date: Wed, 6 Nov 2024 09:40:53 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Will Deacon <will@kernel.org>
-Cc: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robdclark@gmail.com, 
-	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, jsnitsel@redhat.com, 
-	robh@kernel.org, krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com, 
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>
-Subject: Re: [PATCH v16 1/5] iommu/arm-smmu: re-enable context caching in
- smmu reset operation
-Message-ID: <uroldzsi6n7b6hyiutanqfqyqsny65zr4fzyggsmvqsmyfayrp@u5c27k3yi5cf>
-References: <20241008125410.3422512-1-quic_bibekkum@quicinc.com>
- <20241008125410.3422512-2-quic_bibekkum@quicinc.com>
- <20241024125241.GD30704@willie-the-truck>
- <092db44e-f254-4abd-abea-e9a64e70df12@quicinc.com>
- <20241029124708.GA4241@willie-the-truck>
- <ygd6bryp73jgsm5zggy2jz4uc42dehht2e6ht5f6yowf74c6ns@u6dul4rnybt6>
- <20241105113723.GA12600@willie-the-truck>
+	Wed, 06 Nov 2024 07:41:32 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A67fN4a012204;
+	Wed, 6 Nov 2024 01:41:23 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730878883;
+	bh=9tJVmNlnjHGZjwH5ydtaGAqdg+C08rv7W0UGeEWTYAI=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=JqVx6n244XpaD5KX2QAR1nSFQTYaScB9/zXmrQTIAgNsRcd8ueR1F5ZZZDvFku8Yg
+	 s5F8JMfROFv9kS6t+Xp7GB05dgiFBGucIHdHbrXQvBGkrY0DDOMFztLxhVM7nHx6BK
+	 XKFcDyrNT2BqMi8jNCD/QtuCf9kLjoBpL02puLTI=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A67fMHp111557;
+	Wed, 6 Nov 2024 01:41:22 -0600
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 01:41:22 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 01:41:22 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A67fM19024950;
+	Wed, 6 Nov 2024 01:41:22 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A67fL6t014462;
+	Wed, 6 Nov 2024 01:41:22 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <vigneshr@ti.com>, <m-karicheri2@ti.com>, <m-malladi@ti.com>,
+        <jan.kiszka@siemens.com>, <javier.carrasco.cruz@gmail.com>,
+        <jacob.e.keller@intel.com>, <horms@kernel.org>,
+        <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load sequence.
+Date: Wed, 6 Nov 2024 13:10:39 +0530
+Message-ID: <20241106074040.3361730-2-m-malladi@ti.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241106074040.3361730-1-m-malladi@ti.com>
+References: <20241106074040.3361730-1-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241105113723.GA12600@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_234059_111759_1BDB2E22 
-X-CRM114-Status: GOOD (  54.97  )
+X-CRM114-CacheID: sfid-20241105_234131_472476_B56E3688 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,128 +91,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 11:37:24AM +0000, Will Deacon wrote:
-> On Mon, Nov 04, 2024 at 01:10:12PM +0200, Dmitry Baryshkov wrote:
-> > On Tue, Oct 29, 2024 at 12:47:09PM +0000, Will Deacon wrote:
-> > > On Fri, Oct 25, 2024 at 07:51:22PM +0530, Bibek Kumar Patro wrote:
-> > > > 
-> > > > 
-> > > > On 10/24/2024 6:22 PM, Will Deacon wrote:
-> > > > > On Tue, Oct 08, 2024 at 06:24:06PM +0530, Bibek Kumar Patro wrote:
-> > > > > > Default MMU-500 reset operation disables context caching in
-> > > > > > prefetch buffer. It is however expected for context banks using
-> > > > > > the ACTLR register to retain their prefetch value during reset
-> > > > > > and runtime suspend.
-> > > > > > 
-> > > > > > Replace default MMU-500 reset operation with Qualcomm specific reset
-> > > > > > operation which envelope the default reset operation and re-enables
-> > > > > > context caching in prefetch buffer for Qualcomm SoCs.
-> > > > > > 
-> > > > > > Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> > > > > > Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-> > > > > > ---
-> > > > > >   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 45 ++++++++++++++++++++--
-> > > > > >   1 file changed, 42 insertions(+), 3 deletions(-)
-> > > > > > 
-> > > > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > > index 087fb4f6f4d3..0cb10b354802 100644
-> > > > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> > > > > > @@ -16,6 +16,16 @@
-> > > > > > 
-> > > > > >   #define QCOM_DUMMY_VAL	-1
-> > > > > > 
-> > > > > > +/*
-> > > > > > + * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
-> > > > > > + * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
-> > > > > > + * buffer). The remaining bits are implementation defined and vary across
-> > > > > > + * SoCs.
-> > > > > > + */
-> > > > > > +
-> > > > > > +#define CPRE			(1 << 1)
-> > > > > > +#define CMTLB			(1 << 0)
-> > > > > > +
-> > > > > >   static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
-> > > > > >   {
-> > > > > >   	return container_of(smmu, struct qcom_smmu, smmu);
-> > > > > > @@ -396,11 +406,40 @@ static int qcom_smmu_def_domain_type(struct device *dev)
-> > > > > >   	return match ? IOMMU_DOMAIN_IDENTITY : 0;
-> > > > > >   }
-> > > > > > 
-> > > > > > +static int qcom_smmu500_reset(struct arm_smmu_device *smmu)
-> > > > > > +{
-> > > > > > +	int ret;
-> > > > > > +	u32 val;
-> > > > > > +	int i;
-> > > > > > +
-> > > > > > +	ret = arm_mmu500_reset(smmu);
-> > > > > > +	if (ret)
-> > > > > > +		return ret;
-> > > > > > +
-> > > > > > +	/*
-> > > > > > +	 * arm_mmu500_reset() disables CPRE which is re-enabled here.
-> > > > > > +	 * The errata for MMU-500 before the r2p2 revision requires CPRE to be
-> > > > > > +	 * disabled. The arm_mmu500_reset function disables CPRE to accommodate all
-> > > > > > +	 * RTL revisions. Since all Qualcomm SoCs are on the r2p4 revision, where
-> > > > > > +	 * the CPRE bit can be enabled, the qcom_smmu500_reset function re-enables
-> > > > > > +	 * the CPRE bit for the next-page prefetcher to retain the prefetch value
-> > > > > > +	 * during reset and runtime suspend operations.
-> > > > > > +	 */
-> > > > > > +
-> > > > > > +	for (i = 0; i < smmu->num_context_banks; ++i) {
-> > > > > > +		val = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_ACTLR);
-> > > > > > +		val |= CPRE;
-> > > > > > +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_ACTLR, val);
-> > > > > > +	}
-> > > > > 
-> > > > > If CPRE only needs to be disabled prior to r2p2, then please teach the
-> > > > > MMU-500 code about that instead of adding qualcomm-specific logic here.
-> > > > > 
-> > > > 
-> > > > Doing this on MMU-500 code would make it generic and reflect for SoC of all
-> > > > the vendors on this platform.
-> > > > We can make sure that it won't cause any problems in Qualcomm SoCs as we
-> > > > have been enabling this since for some years now and could not
-> > > > observe/reproduce any issues around these errata.
-> > > 
-> > > Unless you can explain definitively hy that's the case, I still don't
-> > > think we should be second-guessing the core SMMU driver code in the
-> > > Qualcomm backend.
-> > > 
-> > > > But we won't be able to guarantee the same behavior in SoC for other vendors
-> > > > where these errata might still be applicable as per [1] and [2].
-> > > > So as per my understanding it's safe to include in Qualcomm specific
-> > > > implementation and not changing the default behavior in all other vendors'
-> > > > SoC even if they are not prior to r2p2 revision [3].
-> > > 
-> > > If you want to gate the errata workarounds on policy, then please follow
-> > > what we do for the CPU: add a Kconfig option (e.g.
-> > > ARM_SMMU_WORKAROUND_BROKEN_CPRE) which defaults to "on" (assuming that
-> > > the relevant errata aren't all "rare") and update silicon-errata.rst
-> > > accordingly.
-> > > 
-> > > Then you can choose to disable them in your .config if you're happy to
-> > > pick up the pieces.
-> > 
-> > Is it actually going to work? For most of the CPU errata we can detect
-> > and limit the workarounds to some class of CPUs. For SMMU, if I'm not
-> > misunderstanding something, the errata will be enabled by default for
-> > all SMMU-500 implementation, so only very few kernels, targeting only
-> > the Qualcomm hardware, can get that disabled.
-> 
-> We can add checks based on rXpY per the erratum documentation, but Robin
-> was saying elsewhere in the thread that some of them are still open (i.e.
-> unfixed).
-> 
-> So ultimately, the decision to disable workarounds for known errata on
-> broken hardware is going to be a niche sport, yes.
+From: MD Danish Anwar <danishanwar@ti.com>
 
-Yes, I understand that. I'm just trying to understand if we can have a
-better solution than having errata workarounds enabled on a majority of
-the kernels (which means less testing for the non-workaround-enabled
-setup on Qualcomm devices).
+Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
+and SLICE1. Currently whenever any ICSSG interface comes up we load the
+respective firmwares to PRU cores and whenever interface goes down, we
+stop the respective cores. Due to this, when SLICE0 goes down while
+SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
+stopped. This results in clock jump for SLICE1 interface as the timesync
+related operations are no longer running.
 
+Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
+ICSSG interface is up.
+
+rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
+it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
+used to let firmware know that the flow_id has been updated and to use the
+latest rx_flow_id.
+
+Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
+ drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
+ 4 files changed, 77 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+index 5d2491c2943a..f1f0c8659e2d 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_config.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+@@ -786,3 +786,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
+ 		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
+ }
+ EXPORT_SYMBOL_GPL(icssg_set_pvid);
++
++int emac_fdb_flow_id_updated(struct prueth_emac *emac)
++{
++	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
++	int slice = prueth_emac_slice(emac);
++	struct mgmt_cmd fdb_cmd = { 0 };
++	int ret = 0;
++
++	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
++	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
++	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
++	fdb_cmd.param  = 0;
++
++	fdb_cmd.param |= (slice << 4);
++	fdb_cmd.cmd_args[0] = 0;
++
++	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
++
++	if (ret)
++		return ret;
++
++	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
++	if (fdb_cmd_rsp.status == 1)
++		return 0;
++
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+index 92c2deaa3068..c884e9fa099e 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_config.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+@@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
+ #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
+ #define ICSSG_FW_MGMT_CMD_TYPE		0x04
+ #define ICSSG_FW_MGMT_PKT		0x80000000
++#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
+ 
+ struct icssg_r30_cmd {
+ 	u32 cmd[4];
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 0556910938fa..9df67539285b 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	int ret, i, num_data_chn = emac->tx_ch_num;
++	struct icssg_flow_cfg __iomem *flow_cfg;
+ 	struct prueth *prueth = emac->prueth;
+ 	int slice = prueth_emac_slice(emac);
+ 	struct device *dev = prueth->dev;
+@@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
+ 	/* set h/w MAC as user might have re-configured */
+ 	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
+ 
++	if (!prueth->emacs_initialized) {
++		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
++		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
++	}
++
+ 	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+-	icssg_class_default(prueth->miig_rt, slice, 0, false);
+ 	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+ 
+ 	/* Notify the stack of the actual queue counts. */
+@@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
+ 		goto cleanup_napi;
+ 	}
+ 
+-	/* reset and start PRU firmware */
+-	ret = prueth_emac_start(prueth, emac);
+-	if (ret)
+-		goto free_rx_irq;
++	if (!prueth->emacs_initialized) {
++		if (prueth->emac[ICSS_SLICE0]) {
++			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
++			if (ret) {
++				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
++				goto free_rx_irq;
++			}
++		}
++		if (prueth->emac[ICSS_SLICE1]) {
++			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
++			if (ret) {
++				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
++				goto halt_slice0_prus;
++			}
++		}
++	}
++
++	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
++	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
++	ret = emac_fdb_flow_id_updated(emac);
++
++	if (ret) {
++		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
++		goto stop;
++	}
+ 
+ 	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+ 
+@@ -644,7 +670,11 @@ static int emac_ndo_open(struct net_device *ndev)
+ free_tx_ts_irq:
+ 	free_irq(emac->tx_ts_irq, emac);
+ stop:
+-	prueth_emac_stop(emac);
++	if (prueth->emac[ICSS_SLICE1])
++		prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
++halt_slice0_prus:
++	if (prueth->emac[ICSS_SLICE0])
++		prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
+ free_rx_irq:
+ 	free_irq(emac->rx_chns.irq[rx_flow], emac);
+ cleanup_napi:
+@@ -680,7 +710,10 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 	if (ndev->phydev)
+ 		phy_stop(ndev->phydev);
+ 
+-	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
++	if (prueth->emacs_initialized == 1) {
++		icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
++		icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
++	}
+ 
+ 	if (emac->prueth->is_hsr_offload_mode)
+ 		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
+@@ -719,11 +752,14 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 	/* Destroying the queued work in ndo_stop() */
+ 	cancel_delayed_work_sync(&emac->stats_work);
+ 
+-	if (prueth->emacs_initialized == 1)
++	if (prueth->emacs_initialized == 1) {
+ 		icss_iep_exit(emac->iep);
+-
+-	/* stop PRUs */
+-	prueth_emac_stop(emac);
++		/* stop PRUs */
++		if (prueth->emac[ICSS_SLICE0])
++			prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
++		if (prueth->emac[ICSS_SLICE1])
++			prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
++	}
+ 
+ 	free_irq(emac->tx_ts_irq, emac);
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 8722bb4a268a..c4f5f0349ae7 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -365,6 +365,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
+ 		       u8 untag_mask, bool add);
+ u16 icssg_get_pvid(struct prueth_emac *emac);
+ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
++int emac_fdb_flow_id_updated(struct prueth_emac *emac);
+ #define prueth_napi_to_tx_chn(pnapi) \
+ 	container_of(pnapi, struct prueth_tx_chn, napi_tx)
+ 
 -- 
-With best wishes
-Dmitry
+2.25.1
+
 
