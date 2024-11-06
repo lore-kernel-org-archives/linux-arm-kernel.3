@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB95D44D54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:19:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74DED44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utuMCqpzw2ap7NG551P5yjgKWnue//yUgXgEoxu/4hg=; b=zlT2jw6rChhg15Geko8+BlhlzQ
-	/pv6N+yJVHrPOUWS+ulVTJaJKHUuNPafXGjtKapDmYKxMDeO9Lml9N+a6Rf9NZwPmaW+1v01HfvXH
-	RtVcMNCoJAXuKcF7tjjMKl3LICFUrd832OBotUPBWyDKAGp7qANyutP68HHS4ooYfRi182uG+v0wH
-	EywisI8p2FOx8oAqfKSBQHbKQbQCyto7/KVCy3NUZo3Dih2lf7CN4GZ4zhYYMLAuGp4QomtGBJmVU
-	6b3KHxY/q0RaTEZxB2gUE40JHjf1M38YowR49h+5ApKNxsIfjCbpOVT0dWNI6HHY8soIv4OGfBwCj
-	PCVm1E/g==;
+	bh=vis9DrxowZ/AktTU/z9vKtuDIMJQDhrIDdxt5nA9NwY=; b=icbBpPgFPHL8Ic4g6mLgm2pPec
+	e7/cBkgPz4e4cDLfezGXnlCs4mC3HcNk6pG08Jx1yFCTPRv1Xk8GaxxmCsGSgxNujiaQxl9Vr2HhS
+	ip6y2x9PSRVHOKk/nnzy5iRkf8Y7sV9b2x/iVmf9OhIpHUzoClmNK/Gok2WroJtdO55yNaHBpzs7H
+	8XkZQJiU12G/GkzSllk/QUvbqY/SSFfreLLQzRrlvZAn2lmqPoB7BzIIsVSBzReexY96/RF8uHvKZ
+	xgRltzTD3C0XSwebDKEceA1zxrwGUAe6WcHkHkw0Zj2HkPtMiMQRov8j598nvdD3MiBRySNB+UvTe
+	+utdhTew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8f0U-000000039n2-0jbp;
-	Wed, 06 Nov 2024 12:19:30 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1t8f2B-00000003A9R-3Ab1;
+	Wed, 06 Nov 2024 12:21:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8e0m-00000002tTX-07RI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:15:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730891744; x=1762427744;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VGxsjJni8GVkPbFXNANcrnf8kZf7wifiipk6hRa1wYY=;
-  b=l7Z6bS29TJa+zARsPhO710ujZIs9O2D3MhUAbWVumKv66Nb0GeqLWj0A
-   WIpw4LR604+QyIsChlzprNN39fG7yVe+Ow7epla0NS2Nlw8UTSVA9S9Or
-   eurmVO+neiWEOwrOVxn0V/cqzAncWKIu12dbRfKoY/FNxZVA3k4UFBXFN
-   oAf5VPpEKXzw2z8yYVGQeaUgs7lcJ91kWhJCiSU4jhc9EYE8SyWQ0gbG8
-   KOptFujVvZh97Lonq8J08CbuTh370i0I4ZfXk6Ab9H2+zN0HBjYtowtQ1
-   lLMAkvVpVxAzhfZL3UwUyLvf1mrZ8hyLrE/NCFm+QtcABq6XUdyGqv/Xe
-   Q==;
-X-CSE-ConnectionGUID: LaEFBUmbQwewXxiGZFsdFg==
-X-CSE-MsgGUID: ghm5yQ19TVOM4ZV7o0ss5w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="41231033"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="41231033"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 03:15:37 -0800
-X-CSE-ConnectionGUID: 4CW4v63uTKuAVbYgjM7Jtg==
-X-CSE-MsgGUID: z+o230JATEmPRbNbc5ytmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="84603766"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 03:15:33 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1t8e0X-0000000BlrG-22X7;
-	Wed, 06 Nov 2024 13:15:29 +0200
-Date: Wed, 6 Nov 2024 13:15:29 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Pavel Machek <pavel@ucw.cz>,
-	Dominik Brodowski <linux@dominikbrodowski.net>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v1 0/6] gpio: Get rid of deprecated GPIOF_ACTIVE_LOW
-Message-ID: <ZytP0XGgmz_R5gos@smile.fi.intel.com>
-References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
+	id 1t8e9V-00000002uf7-2ZMk;
+	Wed, 06 Nov 2024 11:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vis9DrxowZ/AktTU/z9vKtuDIMJQDhrIDdxt5nA9NwY=; b=L2/RcPKXHIPU7IIHUAjSMoHx/t
+	8HwvGQ4D+Nx8SxCH+ld24GX/I1F/AGJa2YN4UCFEzlmJGCv++/nfFb08IIaFlmVOo6P+WahmEAgdX
+	PKfAHuLOoHEBE4AL2RZv3nCcBGB0F8oIhz7M/B3474NeBCIzHwG2BGGuHnOR4pvmMkpNd+IkNIXAa
+	+c08jdnycrbGBoB3aq3Z3ZgHyxaux14UQ7flR3AIWzNhtSNoBMRT89eKjSAbzMY3NWilBGd9tk4TD
+	AsN45eQSfr4wBAeKg4K/OZWeoG0QbyVWnwW1qBKDiWSNIHZpQEeMFAaNEgq1qNREZyhL1meX+AIHn
+	+V6T2c3Q==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t8e9S-0006fE-Av; Wed, 06 Nov 2024 12:24:42 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org,
+ Quentin Schulz <quentin.schulz@cherry.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alchark@gmail.com
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Add OPP voltage ranges to RK3399 OP1 SoC
+ dtsi
+Date: Wed, 06 Nov 2024 12:24:41 +0100
+Message-ID: <3515804.QJadu78ljV@diego>
+In-Reply-To: <77bc2898bbbd2633d6713b4935bd5ee3@manjaro.org>
+References: <dbee35c002bda99e44f8533623d94f202a60da95.1730881777.git.dsimic@manjaro.org>
+ <3252308.5fSG56mABF@diego> <77bc2898bbbd2633d6713b4935bd5ee3@manjaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_031544_158479_6C1A5D11 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20241106_032445_700928_5CC3848A 
+X-CRM114-Status: GOOD (  32.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +77,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 11:34:18AM +0200, Andy Shevchenko wrote:
-> This series targets the deprecated GPIOF_ACTIVE_LOW as only a few users
-> left. Convert those users to call modern APIs and drop this legacy piece
-> from the source tree.
-> 
-> The idea is to route this via GPIO tree, please Ack.
+Am Mittwoch, 6. November 2024, 11:45:06 CET schrieb Dragan Simic:
+> Hello Heiko,
+>=20
+> On 2024-11-06 10:41, Heiko St=FCbner wrote:
+> > Am Mittwoch, 6. November 2024, 10:32:06 CET schrieb Quentin Schulz:
+> >> On 11/6/24 9:33 AM, Dragan Simic wrote:
+> >> > Add support for voltage ranges to the CPU, GPU and DMC OPPs defined =
+in the
+> >> > SoC dtsi for Rockchip OP1, as a variant of the Rockchip RK3399.  Thi=
+s may be
+> >> > useful if there are any OP1-based boards whose associated voltage re=
+gulators
+> >> > are unable to deliver the exact voltages; otherwise, it causes no fu=
+nctional
+> >> > changes to the resulting OPP voltages at runtime.
+> >> >
+> >> > These changes cannot cause stability issues or any kind of damage, b=
+ecause
+> >> > it's perfectly safe to use the highest voltage from an OPP group for=
+ each OPP
+> >> > in the same group.  The only possible negative effect of using highe=
+r voltages
+> >> > is wasted energy in form of some additionally generated heat.
+> >> >
+> >> > Reported-by: Quentin Schulz <quentin.schulz@cherry.de>
+> >>=20
+> >> Well, I merely highlighted that the voltage was different on OP1
+> >> compared to RK3399 for the 600MHz OPP :)
+> >>=20
+> >> So... If there's ONE SoC I'm pretty sure is working as expected it's=20
+> >> the
+> >> OP1 fitted on the Gru Chromebooks with the ChromiumOS kernel fork
+> >> (though yes, I believe all Gru CB are EoL since August 2023). In the=20
+> >> 6.1
+> >> kernel fork, there's also no range:
+> >> https://chromium.googlesource.com/chromiumos/third_party/kernel/+/refs=
+/heads/chromeos-6.1/arch/arm64/boot/dts/rockchip/rk3399-op1-opp.dtsi
+> >=20
+> > yeah, this somehow goes quite a bit into the "stuff that doesn't need=20
+> > to
+> > change" area. On the one hand it does make "some" sense to unify things
+> > if we're using ranges everywhere else.
+>=20
+> I agree that it might be unneeded, but there's no possible harm, and
+> unifying the things may be seen as beneficial.
+>=20
+> > On the other hand, as Quentin noted below, all existing OP1 devices=20
+> > seem
+> > to run just fine, and there won't be any more entering the kernel.
+>=20
+> Hmm, why can't we add more OP1-based devices?  As I mentioned in my
+> earlier response to Quentin, my plan is to implement the board dts
+> for OP1-based TinkerBoard 2S, so I'd like to know is there something
+> that might prevent that board dts from becoming merged?
+>=20
+> > So what do we realisitically gain here, except hiding existing=20
+> > git-history
+> > under another layer?
+>=20
+> Sorry, I'm not sure what would become hidden by this patch?
 
-Thank you for Acks, folks!
+When you change a part of the file, a git blame points to you,
+hiding the previous blame, so it makes traversing history a tiny
+bit harder.
 
-Dominik, is it possible to get yours or are you inactive nowadays (I saw
-last mention of your name ca. 2023).
+If you're actually doing the Tinkerboard and thus adding new things this
+changes the whole judgement a bit too.
+Like I was on the mindset-road of rk3399 is mostly done in terms of new
+boards, so what's in the kernel now will at max get some new peripherals
+but is in general already mostly working.
 
-Bart, we have all Acks except pcmcia (see also above), and the change is
-the same all over the places, do you think it's okay to apply if Dominik
-won't respond for a few days?
+If we're still adding new rk3399 boards, it does make more sense to go
+back and make the underlying parts nicer :-)
 
--- 
-With Best Regards,
-Andy Shevchenko
+
+Heiko
 
 
 
