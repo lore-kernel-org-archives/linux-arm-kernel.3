@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106E9D44D40
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6B6D44D40
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llYngkqgiFGTwpRX3D7wCxxqCsKOgB9wOxApc/ic0J8=; b=aC+DvNPygk5BRA6W8vTrpTb9Wj
-	kvQ2tbgjWwkagvTzzEyknTnDtLKGNffLzKWvcIIOMEQMdw0H5RxpnZKd3HpjCPv3sc3tZcSh/Sjbs
-	0TLmZnpEMHAq6ksSdPC8NmopegRQsTnwbMAOL7ZUHXC5KbDVZ2eFtrIYfGHsR7ZD91QEyBJdYsH+J
-	//1IOq+aScqLqZPUjZwtEVs4wu9Vas/6KP3O1ad5LL3FGPfXb9gDPtLa1d1kPzTH3bsK3yz8MRvqE
-	dKGKakRJEBLEtZk27HaHHU3HDkU1pS/0i4G6yJR6t1p7xE0SIoOp7wx2q39uCZBBTecGVLfkWMzZn
-	ukVILoRQ==;
+	bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=; b=apG6THMWXRrXg46WZz1E5f+QGn
+	ziFgVRAIQ4VtSKnhjr6W8RmwmYkcAlMqgKI9ZVv4n4jsEZyEI1dkDhv2CcGdKkihcgW+0rJivX2un
+	XAyooFro/0/GBp1jb63g7aZZgPasGH/hipqcWO6pCCJWd469Z5i5bfgSgVJrQPGT6h6J9lP0NNGYx
+	6aop90K1AZedBxwX28VcOylYzJx8qhci7R5ZMI6mpDMhLOInq//s6KwB9E35voZTS5kyTs+AmrIZX
+	LHAKXCcfarNR1alu73fNvz9zTAX9Qjnba5iaqsT9caq+fmKd1tNGJBCMet8HLpnBM/djQBaIdEZ+x
+	dy+0C7AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cv5-00000002fys-0LTw;
-	Wed, 06 Nov 2024 10:05:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1t8cwz-00000002gat-05Qo;
+	Wed, 06 Nov 2024 10:07:45 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cQT-00000002YTV-4Bg9
+	id 1t8cQX-00000002YUf-0JaK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:34:11 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c77459558so54640105ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 01:34:09 -0800 (PST)
+	Wed, 06 Nov 2024 09:34:14 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2110a622d76so49452805ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 01:34:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730885649; x=1731490449; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1730885652; x=1731490452; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=llYngkqgiFGTwpRX3D7wCxxqCsKOgB9wOxApc/ic0J8=;
-        b=C73wAv+FB4pDXNeUYdvtreCqhqJfpyKjUCwk2f0HhjcPseDfoBEHQRqpDiD2bmYhaE
-         m9eFScJ0blOqD/Ac51spxFRIQtSrhukemmWx3njME4Fryex3RFaVPwYxOWr8PoAcbFv9
-         hT9EQAe0OCD0sGu8Jwm0yQHVKS88IToSyk+2U=
+        bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=;
+        b=EdKqlkKxKrt3N1ZruSgjJwjxrIB7oKpWkb3J2pxuvSjlwma1hXugfZSB+LtPntYgf+
+         U+2xiyqDLbR2QpI+cd5RkjOsRJEx/4Eo6U82YrsdE02xgyEYeTgvKUFt1HkLV8dS8nHw
+         KHOey1X4J3vKdKbwhqTvSu/aOOi03KYpsLI1s=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730885649; x=1731490449;
+        d=1e100.net; s=20230601; t=1730885652; x=1731490452;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=llYngkqgiFGTwpRX3D7wCxxqCsKOgB9wOxApc/ic0J8=;
-        b=MHbRe8FvYqqhXsu6+X0KHAhpldRHz99ogRqxJWYpPzfeKIy5ulmuHhnrQCcbAQbQVx
-         3rvwh3Cono50qEG4wj1mBDIYKG9WswhwORGTo8mLLkUsPEBB3jP9O1rmHCxd3cOiqDN+
-         v12qEFa/csLcImcSoWWMXZ0xWbqBPgC9GPlP6D8BYhVsx14GNEmZ1piVIcIpBinZHm0H
-         /GEYQ6+YFbumq8Tcu2vM2dCt5MCXkiVIh8uOz3spbgDYiOTfoOfoFJRaxUIPuGOaS2M3
-         rEOnZKPA9LuZKLwRmaeZv+uI+Df+XSaEIiNiEzHiMyN9QA2xl3uro9Li3Kan09xA8Z0w
-         40nw==
-X-Forwarded-Encrypted: i=1; AJvYcCXXfiKtHur9ssSNyIRbePa83HzQotktsdFvVaIAlpQqgzxxP8F2h0fAp9m04A6/HjHXM4FEzWgIcihmZzXQ1VYD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdLOVR9GUqzWoOSp4dPKgJhCIH+0fZXEVIlv4hOw2owln+bc5C
-	xok0Eryz45Ln8PBcffs+b0mdZ+tSs3Gg+10lNM2FzwLWAadBhOrgSTsedq7t1FrIw1yOshsY8Eg
-	=
-X-Google-Smtp-Source: AGHT+IHKOHXdDAUgO9QjYpvJtulYfjKvmKS2PsJrrTevb2UOA/ICT/NZEufa/1uemsVqPCJNroTu4g==
-X-Received: by 2002:a17:903:230d:b0:20b:7731:e3df with SMTP id d9443c01a7336-210f76d6780mr400638435ad.43.1730885649028;
-        Wed, 06 Nov 2024 01:34:09 -0800 (PST)
+        bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=;
+        b=YAEuXA9UuqB/2STBvNtuVlDmWQMrW6v6Z80FdVN8W5NM+eYds1oZGqCwCOb+vxgvbk
+         POZzLU0RckZYMu/leCJLdxrwSSRpb+OBwIaFVt1NxsWwZF3iarM8DryLSTyUQ+8Ekice
+         iK9o1tm1gkR2U9hYW8LP3D1tTN2mRUoJ8DFgt2D+aefyJd04ldzmsPlPNOaP7Mn2k7wU
+         QDecgxC0L1uKQNz7seQd7f1hEBRpwMSVuoiNnRULwSRYCA1tTCXgmejkCDGuLxvvEOt9
+         17qcGC0G8+w9enQYKLAcQARFg6A973LoEhGByVlqJtd93MuGG+Q0dTeNLuDZijXfAsp/
+         22kg==
+X-Forwarded-Encrypted: i=1; AJvYcCXO5ZHPAwaBdApw7lQzBmt4Kzv/TCY9t8FLpDH03lfU66Q6ETqXqHowc7BxPtBAg2Z2qwJ3tuED2Re15nGA1PD2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy93kUAwAufLO5rhhGfKakjHfdmJwYDwlh/+BshYu//z8+SbZqV
+	BiiuYKT68FCbMxkfbNk8XPANgHUBPNpvLDVpDrzr2IyFIqySmVdeQkbJF8Jjbw==
+X-Google-Smtp-Source: AGHT+IGsqJnP2c29fT7ec18QitUEURWR4HKremiykkNa1vQPN87ztDDGEmp/BT6g/9KjaXSGkYd/CA==
+X-Received: by 2002:a17:903:234c:b0:20c:5b80:930f with SMTP id d9443c01a7336-210c68a9c02mr560445915ad.12.1730885652382;
+        Wed, 06 Nov 2024 01:34:12 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:93fe:1d68:b50:3213])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057062b8sm91478665ad.63.2024.11.06.01.34.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057062b8sm91478665ad.63.2024.11.06.01.34.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 01:34:08 -0800 (PST)
+        Wed, 06 Nov 2024 01:34:12 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -81,17 +80,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-i2c@vger.kernel.org,
 	Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: [PATCH v11 1/7] of: dynamic: Add of_changeset_update_prop_string
-Date: Wed,  6 Nov 2024 17:33:28 +0800
-Message-ID: <20241106093335.1582205-2-wenst@chromium.org>
+Subject: [PATCH v11 2/7] of: base: Add for_each_child_of_node_with_prefix()
+Date: Wed,  6 Nov 2024 17:33:29 +0800
+Message-ID: <20241106093335.1582205-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
 In-Reply-To: <20241106093335.1582205-1-wenst@chromium.org>
 References: <20241106093335.1582205-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_013410_074947_E6D1E2ED 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20241106_013413_135935_45BE8C81 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,105 +105,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a helper function to add string property updates to an OF changeset.
-This is similar to of_changeset_add_prop_string(), but instead of adding
-the property (and failing if it exists), it will update the property.
+There are cases where drivers would go through child device nodes and
+operate on only the ones whose node name starts with a given prefix.
 
-This shall be used later in the DT hardware prober.
+Provide a helper for these users. This will mainly be used in a
+subsequent patch that implements a hardware component prober for I2C
+busses.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 Changes since v7:
-none
-
+- Collected Rob's Reviewed-by
 Changes since v6:
-none
-
+- Changed helper name to "for_each_child_of_node_with_prefix()"
 Changes since v5:
-- Collected Rob's tag
-
-Changes since v4:
-- Use modern designated initializer for |prop|
-
-Changes since v3:
-- Use new __of_prop_free() helper
-- Add new line before header declaration
-
-Changes since v2:
-- New patch added in v3
+- New patch
 ---
- drivers/of/dynamic.c | 44 ++++++++++++++++++++++++++++++++++++++++++++
- include/linux/of.h   |  4 ++++
- 2 files changed, 48 insertions(+)
+ drivers/of/base.c  | 35 +++++++++++++++++++++++++++++++++++
+ include/linux/of.h |  9 +++++++++
+ 2 files changed, 44 insertions(+)
 
-diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
-index d45a8df61380..0aba760f7577 100644
---- a/drivers/of/dynamic.c
-+++ b/drivers/of/dynamic.c
-@@ -1072,3 +1072,47 @@ int of_changeset_add_prop_bool(struct of_changeset *ocs, struct device_node *np,
- 	return of_changeset_add_prop_helper(ocs, np, &prop);
+diff --git a/drivers/of/base.c b/drivers/of/base.c
+index d94efee4a7fc..a01e5534c2fd 100644
+--- a/drivers/of/base.c
++++ b/drivers/of/base.c
+@@ -628,6 +628,41 @@ struct device_node *of_get_next_child(const struct device_node *node,
  }
- EXPORT_SYMBOL_GPL(of_changeset_add_prop_bool);
-+
-+static int of_changeset_update_prop_helper(struct of_changeset *ocs,
-+					   struct device_node *np,
-+					   const struct property *pp)
-+{
-+	struct property *new_pp;
-+	int ret;
-+
-+	new_pp = __of_prop_dup(pp, GFP_KERNEL);
-+	if (!new_pp)
-+		return -ENOMEM;
-+
-+	ret = of_changeset_update_property(ocs, np, new_pp);
-+	if (ret)
-+		__of_prop_free(new_pp);
-+
-+	return ret;
-+}
-+
+ EXPORT_SYMBOL(of_get_next_child);
+ 
 +/**
-+ * of_changeset_update_prop_string - Add a string property update to a changeset
++ * of_get_next_child_with_prefix - Find the next child node with prefix
++ * @node:	parent node
++ * @prev:	previous child of the parent node, or NULL to get first
 + *
-+ * @ocs:	changeset pointer
-+ * @np:		device node pointer
-+ * @prop_name:	name of the property to be updated
-+ * @str:	pointer to null terminated string
++ * This function is like of_get_next_child(), except that it automatically
++ * skips any nodes whose name doesn't have the given prefix.
 + *
-+ * Create a string property to be updated and add it to a changeset.
-+ *
-+ * Return: 0 on success, a negative error value in case of an error.
++ * Return: A node pointer with refcount incremented, use
++ * of_node_put() on it when done.
 + */
-+int of_changeset_update_prop_string(struct of_changeset *ocs,
-+				    struct device_node *np,
-+				    const char *prop_name, const char *str)
++struct device_node *of_get_next_child_with_prefix(const struct device_node *node,
++						  struct device_node *prev,
++						  const char *prefix)
 +{
-+	struct property prop = {
-+		.name = (char *)prop_name,
-+		.length = strlen(str) + 1,
-+		.value = (void *)str,
-+	};
++	struct device_node *next;
++	unsigned long flags;
 +
-+	return of_changeset_update_prop_helper(ocs, np, &prop);
++	if (!node)
++		return NULL;
++
++	raw_spin_lock_irqsave(&devtree_lock, flags);
++	next = prev ? prev->sibling : node->child;
++	for (; next; next = next->sibling) {
++		if (!of_node_name_prefix(next, prefix))
++			continue;
++		if (of_node_get(next))
++			break;
++	}
++	of_node_put(prev);
++	raw_spin_unlock_irqrestore(&devtree_lock, flags);
++	return next;
 +}
-+EXPORT_SYMBOL_GPL(of_changeset_update_prop_string);
++EXPORT_SYMBOL(of_get_next_child_with_prefix);
++
+ static struct device_node *of_get_next_status_child(const struct device_node *node,
+ 						    struct device_node *prev,
+ 						    bool (*checker)(const struct device_node *))
 diff --git a/include/linux/of.h b/include/linux/of.h
-index 086a60f3b8a6..d0307e3b093d 100644
+index d0307e3b093d..f921786cb8ac 100644
 --- a/include/linux/of.h
 +++ b/include/linux/of.h
-@@ -1651,6 +1651,10 @@ static inline int of_changeset_add_prop_u32(struct of_changeset *ocs,
- 	return of_changeset_add_prop_u32_array(ocs, np, prop_name, &val, 1);
- }
+@@ -289,6 +289,9 @@ extern struct device_node *of_get_parent(const struct device_node *node);
+ extern struct device_node *of_get_next_parent(struct device_node *node);
+ extern struct device_node *of_get_next_child(const struct device_node *node,
+ 					     struct device_node *prev);
++extern struct device_node *of_get_next_child_with_prefix(const struct device_node *node,
++							 struct device_node *prev,
++							 const char *prefix);
+ extern struct device_node *of_get_next_available_child(
+ 	const struct device_node *node, struct device_node *prev);
+ extern struct device_node *of_get_next_reserved_child(
+@@ -1468,6 +1471,12 @@ static inline int of_property_read_s32(const struct device_node *np,
+ 	     child != NULL;						\
+ 	     child = of_get_next_child(parent, child))
  
-+int of_changeset_update_prop_string(struct of_changeset *ocs,
-+				    struct device_node *np,
-+				    const char *prop_name, const char *str);
++#define for_each_child_of_node_with_prefix(parent, child, prefix)	\
++	for (struct device_node *child __free(device_node) =		\
++	     of_get_next_child_with_prefix(parent, NULL, prefix);	\
++	     child != NULL;						\
++	     child = of_get_next_child_with_prefix(parent, child, prefix))
 +
- int of_changeset_add_prop_bool(struct of_changeset *ocs, struct device_node *np,
- 			       const char *prop_name);
- 
+ #define for_each_available_child_of_node(parent, child) \
+ 	for (child = of_get_next_available_child(parent, NULL); child != NULL; \
+ 	     child = of_get_next_available_child(parent, child))
 -- 
 2.47.0.199.ga7371fff76-goog
 
