@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BC6D59F75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 21:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAF8D59F75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhKRfDhGVrx+OiuzPY94+zTpKLh1NipoPytgXyaUKdE=; b=ITjbzmPfEDSsCpm1rawPVBhvX0
-	SwLKypvMxT5tZPs+gR0nod3XZ1GgacyZInw97/TEGo1r0ALT1JI3AvCz2y/WuPR1nnQCOYQpPf+le
-	aZtnwMB55Av4WRFikRKiRvG9+SjFDUH7NHjuE2i9wc5lu0lpCFh+kk9xRw7xEfy8elklNuFEbw6h8
-	OnvuFJ6TMZyIfNISnqmkALnPd0pRNUr5ZEXHLkY/Euc3pWkSiaozTNKaOqQklZ9yRO09iNLEouXdC
-	TBgo7TFdt+XsL7aQCZ/pVhD7iUKD5TonpkIHMTTbdq5hFGpzFrIY+EKoUeSfXL+GIW4fxSMcqOw4A
-	zn+CGk9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dqklnXtcZ0T+lSHc7mcdxj8FxKGKc9PBldQlZBXC1T4=; b=qXcXPgnCDf5IBU
+	tZAAOgoEO0PphqzQx6M1Mfe895WMTiYzA1LzK4j1bobAmyqkv1OlSNNZ/AOrSJj67oOlVTd3iLznL
+	K3EAud7I1+YntDaC070h9Xzw8vmyUVmr4fEEiiWfvHXuc7U4eWvDuuFZPTxwgGZ2Ku/UFKIzTaSLW
+	CiG/lgPCpj+V/fOZlMRkL1ykpjFSPPIDuODSnfwvs9FoZyEVPKVpykL7YRZ65TT+hX6tEorCYBhqp
+	G+jEUpiZYaaz5n7xSVZolPxmHm+7CVl7JVoUAh4UUqRCkvEAIYkiUSyZfX/va0Rh19m0pSa5qRuJU
+	sYi6cfKBXR66giKfHbAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8o2q-00000004qxu-1eJa;
-	Wed, 06 Nov 2024 21:58:32 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t8oBR-00000004s4I-2qBO;
+	Wed, 06 Nov 2024 22:07:25 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8nz6-00000004qZq-3SYy
+	id 1t8o9g-00000004rlv-1wQV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 21:54:42 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D014A670;
-	Wed,  6 Nov 2024 22:54:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730930070;
-	bh=vENICEnWjVMqE3gmHs1z3oU013ifba25gIzbAHFqT2w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qiq7frHc6wqs7Y6WaQAkle61hlwFJHd2vqhQWPVcCOPNDWyD9mq1rA8yke0EH1A7d
-	 1Buid7tZRwDWoaWzetI8D2gbDL3L+FMvSdUH76PViMZpPWTI8dQunCYVEvsTSzi/Do
-	 7dwcHh/iW88t8/KUJVHrMAmfgybuQGhoMKIUvgj8=
-Date: Wed, 6 Nov 2024 23:54:32 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	robh+dt@kernel.org, mchehab@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
-	sakari.ailus@iki.fi
-Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <20241106215432.GG21454@pendragon.ideasonboard.com>
-References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
- <20241106100534.768400-6-dan.scally@ideasonboard.com>
+	Wed, 06 Nov 2024 22:05:37 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43163667f0eso2784145e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 14:05:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730930734; x=1731535534; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dqklnXtcZ0T+lSHc7mcdxj8FxKGKc9PBldQlZBXC1T4=;
+        b=YufA8nA+/q14QCqi49lkcRbDCznIrE6yMi0Zg7g9jmWVAAI2Up7jA3mPS+idWdq8Ak
+         QkT7+QikdjZh15SEk0Os0AMD4gpsIdCufo8oyMs8u9PTrzb0DbEuuhE5I/70LgrD/uIL
+         Mdbe7ZynMYCTv1TeKA+1WC4xJeMIfC+5jIS9NrZt8EId0owrxsj9CYns2KukY0ydlC4p
+         M8G+hJb1dFEUPcUdVgRPsmCbDGdFX7DOtX7Kn46LWOSUKtyiztQM6ENKfkyuTH8+wPUM
+         npKV0M06y1VGWXDmsPYTf91tyv87+enyvUH/GPm5hUycPyr2pUp/zSgo2PlcoIPEVFNp
+         adlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730930734; x=1731535534;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dqklnXtcZ0T+lSHc7mcdxj8FxKGKc9PBldQlZBXC1T4=;
+        b=lg8tDM3cNH5f9jTMC034zZ5ZZI1qYJBqWQirH/mlR5FHY8lju4cCq9jhf6KS8pnu8e
+         3QIRMWIigeLxDa/IydKicNM0DqjBGpTl5uJDxSyLvVJM5H7w6Lcl33I4yKH9YgtthQVu
+         jRT9Ej+UJgX7Fao8tOkLO1aUYANh0Ssyo8uyxa7D33e/sMV25qogrB2zq/sYY21ioyR9
+         qztPWxmaHabkGHD0HFVp6z+0VVamD3wc5GtJsUnTAeaDilL24l3vKNoMZX04Pt+sgGFO
+         m9T/GYp45R8sgmVz27qfKcsjeFxi+zwegCDzCc7/USAudHIyXW0i32kHZ8WgqNooAFQG
+         60PA==
+X-Gm-Message-State: AOJu0YzwytZ4GK1ex+AiifRsQ4JZt7tGCogqk+sT1xUahA6CK+pjqOiA
+	IDOTTXtpzfx2suR+8+K55fEeLc9VeOCz+9X0aeUTSrP5cqKg9bpP
+X-Google-Smtp-Source: AGHT+IE6Y7ubo9iP0AJhvaqbFPGr9/zv6r/DCkyqFoxY8CAAbQQy/4bGLHV4b4+wJnMD6OeaRvp01Q==
+X-Received: by 2002:a05:600c:4f06:b0:431:5f1b:a7c6 with SMTP id 5b1f17b1804b1-432832965d2mr183460825e9.30.1730930734049;
+        Wed, 06 Nov 2024 14:05:34 -0800 (PST)
+Received: from [127.0.1.1] (2a02-8389-41cf-e200-20b4-40af-8ae8-9c61.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:20b4:40af:8ae8:9c61])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c116b0eesm20288493f8f.106.2024.11.06.14.05.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 14:05:33 -0800 (PST)
+From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Subject: [PATCH 0/2] pinctrl: samsung: fix fwnode refcount cleanup in error
+ path and update comment
+Date: Wed, 06 Nov 2024 23:04:38 +0100
+Message-Id: <20241106-samsung-pinctrl-put-v1-0-de854e26dd03@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241106100534.768400-6-dan.scally@ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPbnK2cC/x3MTQ5AMBBA4avIrE2i9ReuIhZVg0mopoNIxN01l
+ t/ivQeEApNAmzwQ6GLh3UWoNAG7GDcT8hgNOtOFUlmFYjY53YyenT3Civ480A5NnZu8pKnUEEs
+ faOL7v3b9+3723MfqZQAAAA==
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa <t.figa@samsung.com>, 
+ Thomas Abraham <thomas.abraham@linaro.org>, 
+ Kyungmin Park <kyungmin.park@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1730930732; l=794;
+ i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
+ bh=5hIr4DqH344QQRXKlkjp641JXAdj+t2BweafuQTt1EA=;
+ b=UW8O+ZSbS9ocVYCoSiiqQ02rZTe+4QqvnvDRkzg7Zoadme/L5yho3KU7WsPQfax8iYAh3Wjym
+ Cm+YahsvW+wDrI/MVuRCI05vflLgW6STYBl4o08MbpZsAZio+qsk7xP
+X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
+ pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_135441_034801_E06189DD 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20241106_140536_541451_AFECF6F7 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,162 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+The first patch completes a previous fix where one error path stayed as
+a direct return after the child nodes were acquired, and the second,
+completely trivial, updates the function name used in the comment to
+indicate where the references are released.
 
-Thank you for the patch.
+Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+---
+Javier Carrasco (2):
+      pinctrl: samsung: fix fwnode refcount cleanup if platform_get_irq_optional() fails
+      pinctrl: samsung: update child reference drop comment
 
-On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
-> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
-> 
-> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> Changes in v8:
-> 
-> 	- Added the video clock back in. Now that we have actual hardware it's
-> 	  clear that it's necessary.
-> 	- Added reset lines 
-> 	- Dropped R-bs
-> 
-> Changes in v7:
-> 
-> 	- None
-> 
-> Changes in v6:
-> 
-> 	- None
-> 
-> Changes in v5:
-> 
-> 	- None
-> 
-> Changes in v4:
-> 
-> 	- Switched to port instead of ports
-> 
-> Changes in v3:
-> 
-> 	- Dropped the video clock as suggested by Laurent. I didn't retain it
-> 	for the purposes of the refcount since this driver will call .s_stream()
-> 	for the sensor driver which will refcount the clock anyway.
-> 	- Clarified that the port is a parallel input port rather (Sakari)
-> 
-> Changes in v2:
-> 
-> 	- Added clocks information
-> 	- Fixed the warnings raised by Rob
-> 
->  .../bindings/media/arm,mali-c55.yaml          | 82 +++++++++++++++++++
->  1 file changed, 82 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> new file mode 100644
-> index 000000000000..efc88fd2c447
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali-C55 Image Signal Processor
-> +
-> +maintainers:
-> +  - Daniel Scally <dan.scally@ideasonboard.com>
-> +  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,mali-c55
+ drivers/pinctrl/samsung/pinctrl-samsung.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+---
+base-commit: 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
+change-id: 20241106-samsung-pinctrl-put-cb973a35ef52
 
-I have a feeling we may need to add an SoC-specific compatible string to
-support platform-specific integration quirks. Let's see if we will have
-a use for that in the RZ/V2H. It can also be addressed later if needed.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: ISP Video Clock
-> +      - description: ISP AXI clock
-> +      - description: ISP AHB-lite clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vclk
-> +      - const: aclk
-> +      - const: hclk
-> +
-> +  resets:
-> +    items:
-> +      - description: vclk domain reset
-> +      - description: aclk domain reset
-> +      - description: hclk domain reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: vresetn
-> +      - const: aresetn
-> +      - const: hresetn
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Input parallel video bus
-
-Doesn't the ISP have two input ports, for two exposures ? Depending on
-the SoC integration, could they be connected to two different devices,
-with the two connections having to be modelled in DT ? Looking at the
-changelog you've switched from 'ports' to 'port' in v4, but I think we
-should either have two ports right away, or be ready for a second port
-later if SoC integrations requires that. That could be a good enough
-reason to use 'ports' right away, even with a single port.
-
-> +
-> +    properties:
-> +      endpoint:
-> +        $ref: /schemas/graph.yaml#/properties/endpoint
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - port
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    mali_c55: isp@400000 {
-> +      compatible = "arm,mali-c55";
-> +      reg = <0x400000 0x200000>;
-> +      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
-> +      clock-names = "vclk", "aclk", "hclk";
-> +      resets = <&resets 0>, <&resets 1>, <&resets 2>;
-> +      reset-names = "vresetn", "aresetn", "hresetn";
-> +      interrupts = <0>;
-> +
-> +      port {
-> +        isp_in: endpoint {
-> +            remote-endpoint = <&csi2_rx_out>;
-> +        };
-> +      };
-> +    };
-> +...
-
+Best regards,
 -- 
-Regards,
+Javier Carrasco <javier.carrasco.cruz@gmail.com>
 
-Laurent Pinchart
 
