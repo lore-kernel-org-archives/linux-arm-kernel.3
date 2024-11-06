@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD0FD59F65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B77D59F6A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhKxn9mh9La978hmxe7Fc0A2OJRby56llbTMDvsHyfQ=; b=y4mz7qmNvnj9rPdS3NrNAvWq6K
-	1v71CthnbIZktb+GlBhB4jQkiPvAylEbouur9VZdrY3iLHhK1p3ZID+v/nXjbGuJBmB1qEi6/7E75
-	PGcCpIgpvRo7beKz7oZtXv4IywZzEH4oiGPTsmPOsDKYfS4ldqfT66avdILujaqdlcos2W7sV3Bim
-	m9sRPEr79Rt0H2DVJTiScxpsBHj55WazrFAhFF+POB4JlGuWJPzJFumXiNciZLZC9iLnSPzDLaxKz
-	VTPWbaT38cZ3mh7C4gZUH3A2UyeTm35iDA/DHnoYQ5UgTmcGP1G+sO6vVzcVK0rBpPGAszQNc4gaH
-	YDmDTGWw==;
+	bh=k+5NR2U5/34qqCFR+0XtXIXJvL9i/r1BxuGabzfLAIY=; b=rmuEJfz4SYSBcBhZ74QVMN8ula
+	wXx77YqQcMhzjsSJDjL6vWqLXJ2uPnGeCfPY3eTUiVucwR+kuAHaZF9tuHdeiiarjCiaYck22ctaD
+	foX1MpsB1GxaXkDTloCySXYKgeGIKee5kx6M6bTs6bBLdUNFG6+TqqNuetv0GG3wVy/m6Nl9NTJKx
+	7FIZ8NdhOnihfcYKmGDJZ/viSCBURaUdKr6FjkG0vtoIzbaUIzbwCanKRKIox5lCuxGD+XonIHUcw
+	He1QgkbMHKPipCqD6GX1IWuSg+hSWGs2hVVeB5azAa3YExe/rr1940O+i4ryQuhTGbmzp/I3799+w
+	b8/8UHPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lQR-00000004Sa1-3MKA;
-	Wed, 06 Nov 2024 19:10:43 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1t8lS8-00000004SiR-1Pys;
+	Wed, 06 Nov 2024 19:12:28 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lLZ-00000004RoL-1VET
+	id 1t8lLh-00000004Rpi-1Pej
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 19:05:43 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a9ed7d8d4e0so2393566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:05:41 -0800 (PST)
+	Wed, 06 Nov 2024 19:05:50 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9ec86a67feso14440266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:05:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730919940; x=1731524740; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730919947; x=1731524747; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IhKxn9mh9La978hmxe7Fc0A2OJRby56llbTMDvsHyfQ=;
-        b=lKLlNgOyKNBnELPIbU35gTVIlQxYjLps9GFlNP4ASAE5qXqBrv7ZBs01QT9c2PEUnU
-         sIWcyfjN/TA2T9iiNCIpHKZUEDX97hpsZNy0BUPsrlSRTDlc5FidIsP+z0jJK63+kzZx
-         f62e8V/RZDhomAfu6guol3Db+ewpTnwbsCX3LZOTdf+f/zFApTCsPO1XbKqvRz1s/MFO
-         FN6H97+sVAu53Rw23aJ2Mq5iKD+m1mUA4NBwPv+r6ErE070qjY0DmK/gi303YVoQVvuO
-         4tNmweREVj1duN6C8fysNPMjxDKn/XfoXnBdVzxSBJrXALXKWDuWAHYnlMhonkIS5tMv
-         1qqw==
+        bh=k+5NR2U5/34qqCFR+0XtXIXJvL9i/r1BxuGabzfLAIY=;
+        b=SFpfiyEgFvqMgOsGQsqPVkFKjCdEINLNnXUAGJWsihHCnA+5pT6vUlGxm37xm/Oia3
+         k55I7j6f+2BWQSzLRmSwvZpwnlaN5gdAUqdsxqTpNYG9s+szqX8z2qpYezmKSJd5mPUz
+         HJYTGA2sLmCk0UqURX59qiUDScBwT95ApL6sr1rKMGnecrv7t0kauA0UiKxS0hN1QBwH
+         c3GshAfzA/FR+1NftyRgDZRoRsdhSsHcjaOJAVEZGXtMPyPXI6fXPRmeq2IZDETPf++r
+         W6wYw4S8dVHuwQqMcCwtnM5xFHCkNDzfxAu482fjFtwaMrjNXMkcwjTVafR3TO5d6tYx
+         9D4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730919940; x=1731524740;
+        d=1e100.net; s=20230601; t=1730919947; x=1731524747;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IhKxn9mh9La978hmxe7Fc0A2OJRby56llbTMDvsHyfQ=;
-        b=i038QKHmMfdW9vrxGyKC8cumNEjc4HLMLFh7Nuh1Qwg/7M9WRma0VZ9camHm4sSiW6
-         qcrU3+F9L40PwoBMiLoUsO3XGCyESxxd/I7vRpGOnedENVLxSvxhPLxZ4sbUlA6I2l5s
-         FvEnF8d9LS3oQNZkgtfCnyqYe4njofHSX3Elnemuyva5ldoqzLdA4NRzYMsxrxgJfmmE
-         6zrUT/CPD70m6jfya7WTjM/yWIdUpd4kxwIuS4QdOkAqRDkyrQBWzOcLCYgfNev8D4st
-         BZDvPbfy8RT4FA6pa9KgHPYyvEP7VACn1i/cQGcjR0K9XVEqDGZwhEeOtxXEwy5sZtSv
-         RH3w==
-X-Forwarded-Encrypted: i=1; AJvYcCV+wm5Lept2f+Gs2LWdarx//Sh4igPLH+N5952lLfJ6UBZWizmdcz9hdaipVdKWP8SNnX9G7WdA0Opf6y2LaugA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxLoZZnZ4j4mkm9zYKlJPvS9IqOYM6CMPE1N0RoheTjimAILFc
-	8vzO9TmaEQlKfc+mU//kb3J6ZQtBNp1X2O7saZQ45p18sG5cWA0t
-X-Google-Smtp-Source: AGHT+IGI4oKgg7PABJwD5X3tevlDjTR+OfQLY6lSEUSJtjKLD8YmiD6b4oSzu+h3XfqjcTwDMlXWrQ==
-X-Received: by 2002:a17:907:9602:b0:a9a:420c:d1a6 with SMTP id a640c23a62f3a-a9e655b998amr1755144366b.48.1730919939703;
-        Wed, 06 Nov 2024 11:05:39 -0800 (PST)
+        bh=k+5NR2U5/34qqCFR+0XtXIXJvL9i/r1BxuGabzfLAIY=;
+        b=A1Yqy43E3PlyLXyKS24MRKepgxZFSoC1xtIjT1sDmkqaEaqXCXJuectckO9Fp2MjmD
+         MWkMqrsQ4fOC2cRnudRBWklyh8zn0txUJyRxOX/FOeQnHSewV3ERLOpPXlkLW2/cCpaa
+         ZQDbBDF3SnIUa9y8J6ZW9ZryeUx0l9D+h28+Q90VOV4gsXIZXbMH/WJvjpatb4mmFRZA
+         8PdLTzch3xU5NzNT9PEcClxgbT3HHR2bHfYTLQRywn352oCZWYDq0ilbh0Npmo300gbQ
+         wqrJ5m6UYJd/14KN6H03tJzQgoJxUC5jR+vIQq2moaKLJFoFwVCicBZK9tYMwZqcHg/o
+         VDxg==
+X-Forwarded-Encrypted: i=1; AJvYcCX1iCUp1WZxjHIwB+Zc0v8Ov5tw+j6h6L3fmo4TNvLgsIMS6ZqSvE47g9QMwT37yWylBZ0IS8JF4oKIO5Y1RlHM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN/YDvPHMpU+Mgsbn8ByP12RRUE/EMoWgLiGNV+lQQJgvMdZYI
+	g/xI3+Q67mvpGHecFDjNgNkf40utnwpM7iDSy5jI6fWelAX1/5gO
+X-Google-Smtp-Source: AGHT+IHMS38+uM800veYM3G4kYpXl0kTf038ie9RlOC8+llx9LpFwQI7AVl4zPEa8IaSkRK5Oel25A==
+X-Received: by 2002:a17:907:e8b:b0:a9a:714:4399 with SMTP id a640c23a62f3a-a9de6167a45mr4002316566b.51.1730919947162;
+        Wed, 06 Nov 2024 11:05:47 -0800 (PST)
 Received: from standask-GA-A55M-S2HP (lu-nat-113-247.ehs.sk. [188.123.113.247])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16d67bfsm316574366b.56.2024.11.06.11.05.39
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16d6620sm321092166b.54.2024.11.06.11.05.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 11:05:39 -0800 (PST)
-Date: Wed, 6 Nov 2024 20:05:37 +0100
+        Wed, 06 Nov 2024 11:05:46 -0800 (PST)
+Date: Wed, 6 Nov 2024 20:05:45 +0100
 From: Stanislav Jakubek <stano.jakubek@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -71,17 +71,17 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Chunyan Zhang <zhang.lyra@gmail.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/5] arm64: dts: sprd: sp9860g-1h10: fix
- factory-internal-resistance-micro-ohms property
-Message-ID: <30d7ad167400764b6fe37f63276c07d3e30d931d.1730918663.git.stano.jakubek@gmail.com>
+Subject: [PATCH v2 3/5] arm64: dts: sprd: sc2731: move fuel-gauge
+ monitored-battery to device DTS
+Message-ID: <2959aa8567afbef17337829072adce01158f00bb.1730918663.git.stano.jakubek@gmail.com>
 References: <cover.1730918663.git.stano.jakubek@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1730918663.git.stano.jakubek@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_110541_420261_4BDF058B 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20241106_110549_397308_B87DA506 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,32 +96,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per DT bindings, this property was missing the "factory-" prefix.
+The monitored-battery property is a property of the board, not the PMIC.
+Move this property to the DTS of its only user, sp9860g-1h10.
+While at it, disable the fuel-gauge node by default and enable it only
+for its users, as it requires board-specific properties to work correctly.
 
 Signed-off-by: Stanislav Jakubek <stano.jakubek@gmail.com>
 ---
 Changes in V2:
-- new patch
+- none
 
-I thought about squashing this with the 1st patch, but I wanted to keep
-Baolin's R-b, so I kept it separate.
+Note that the 'sprd,calib-resistance-micro-ohms' property isn't specified
+as I do not have the board or any other source of information about it.
 
- arch/arm64/boot/dts/sprd/sp9860g-1h10.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+If the SPRD folks could chime in here, that'd be great.
 
+ arch/arm64/boot/dts/sprd/sc2731.dtsi      | 4 ++--
+ arch/arm64/boot/dts/sprd/sp9860g-1h10.dts | 5 +++++
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/sprd/sc2731.dtsi b/arch/arm64/boot/dts/sprd/sc2731.dtsi
+index 12136e68dada..2d27427c41a2 100644
+--- a/arch/arm64/boot/dts/sprd/sc2731.dtsi
++++ b/arch/arm64/boot/dts/sprd/sc2731.dtsi
+@@ -94,17 +94,17 @@ pmic_adc: adc@480 {
+ 			nvmem-cells = <&adc_big_scale>, <&adc_small_scale>;
+ 		};
+ 
+-		fuel-gauge@a00 {
++		pmic_fgu: fuel-gauge@a00 {
+ 			compatible = "sprd,sc2731-fgu";
+ 			reg = <0xa00>;
+ 			bat-detect-gpio = <&pmic_eic 9 GPIO_ACTIVE_HIGH>;
+ 			io-channels = <&pmic_adc 3>, <&pmic_adc 6>;
+ 			io-channel-names = "bat-temp", "charge-vol";
+-			monitored-battery = <&bat>;
+ 			nvmem-cell-names = "fgu_calib";
+ 			nvmem-cells = <&fgu_calib>;
+ 			interrupt-parent = <&sc2731_pmic>;
+ 			interrupts = <4>;
++			status = "disabled";
+ 		};
+ 
+ 		vibrator@ec8 {
 diff --git a/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts b/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
-index cd8b1069e387..94af7700f3e2 100644
+index 94af7700f3e2..b1fa817ece1e 100644
 --- a/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
 +++ b/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
-@@ -72,7 +72,7 @@ bat: battery {
- 		charge-full-design-microamp-hours = <1900000>;
- 		charge-term-current-microamp = <120000>;
- 		constant-charge-voltage-max-microvolt = <4350000>;
--		internal-resistance-micro-ohms = <250000>;
-+		factory-internal-resistance-micro-ohms = <250000>;
- 		ocv-capacity-celsius = <20>;
- 		ocv-capacity-table-0 = <4185000 100>, <4113000 95>, <4066000 90>,
- 			<4022000 85>, <3983000 80>, <3949000 75>,
+@@ -84,6 +84,11 @@ bat: battery {
+ 	};
+ };
+ 
++&pmic_fgu {
++	monitored-battery = <&bat>;
++	status = "okay";
++};
++
+ &uart0 {
+ 	status = "okay";
+ };
 -- 
 2.43.0
 
