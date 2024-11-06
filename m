@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E737D3E78C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA3ED3E78C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGC6TPqRGXu1mF5aeFEhak+3rB765Th2HjWB1mjw0KQ=; b=Aj6RFfb0iwdzkXWdMGzMBbQwRF
-	9r17Tjiht0S+IL9GbMGe3wkeAM/SRNKDO9sBkEKinfjhnXdanmHQ8JEHUh10USNOE4XKNtzL5vve9
-	41Qwkx9ZrW8FlTGe/Yk0EH6YgOnv8i3nSqEqPF7FVTiMHed29MRuvgIMqq8H06nHY591HwarhzL9I
-	u0zRCo3YcCBhdUrSQ/EwedIkBddDOG/MqhqrEtdgxlDLwF4TZXkztNFExO81QyI4246ExXcFFyO16
-	Orvg1nd/+EzEBZws8edoT5f6/LsrL0sdB+/GWNcYq5LaRFXD6zRfCpTTxsXa7Xiw9lmg80XMM6HnY
-	7eStbJ8w==;
+	bh=eGCWRSOQMmjS9ZFY7AhKJ0VNqkvKkp9FxTzYgROnlPc=; b=g4HkAin0Z48E7BWm6EoFuR/0LU
+	XOYMzJ9bIoEKarJWr4SpTDkSbIoqc+CixAcXTMfFDAiFJMQ+2l6A6OtvpofsgwfqsZI4ZPC32ayf3
+	sph+sIcfGAhOH8vgjgHiYVM0xQ+EDt0UvPod4Vh9o62e4sB0+UCVLDFIk2EQKI/Idd1HXlmAwIdMT
+	ndJ7XDbef+imqwlFuWq4xsyxJlI3w89PobnXh/oNyRqseq6PkKW0X21H6RporcOr3iLsrCg3FHDeT
+	sbSNpG2CAhK/zQKxOXaQMF8kq4Mfo+qQJXn5w4KZQ4pl1ReyXdLkYFmM6RuYFS2t1kRQLtPK0vcDI
+	IBV0YtYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8c2I-00000002QTK-2Nn5;
-	Wed, 06 Nov 2024 09:09:10 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1t8c41-00000002R87-00Eh;
+	Wed, 06 Nov 2024 09:10:57 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8but-00000002O6z-0maP
+	id 1t8bww-00000002ORu-0kRu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:01:32 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20cdbe608b3so64287755ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 01:01:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730883690; x=1731488490; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sGC6TPqRGXu1mF5aeFEhak+3rB765Th2HjWB1mjw0KQ=;
-        b=jpU6h8yG50WsGLuIATVOsPQPsZCEuHkWH4CLpRqVJqJX4hILhiPl5Riu2DqxgHfSRX
-         V9hyn5RFPwFhLLYkpvc1RojY+roDs6GUuxXK/sKyDvm9d4h1ZcHXoqjEfLbnfOFy6h13
-         5rhmgaWr2CIjQpE5SbPOo8TLRxl3CoGJbEZT6zwMhgFhu7n7Zxwh+iPTdFjPaAN9mWjf
-         xEQOSD6A2qF6pxL1pLnrjlk/UXaaGgj6eKIr5al4+htgHu37wsruQwjWinQGIuY7umFB
-         nkGjCUVkK157bdGA4BsfrfA65AYNkND05f+vhS6e9Ec5gDxJ8Yq6w/ZSuF+Qf4jJysCI
-         Ap1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730883690; x=1731488490;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sGC6TPqRGXu1mF5aeFEhak+3rB765Th2HjWB1mjw0KQ=;
-        b=LxvEt5Pz7WyPl/juV6W7RR5kE38moO6fhWdSKCfQ4U8oGNr7GyKuI7dJefdVQBWXH9
-         yEG8Og3+BsZ+cmizLE/Yf+puoOtfj2FCfkquAl2+zuXN0f4rDfP1SX2szeXGeBqPqWuj
-         RVZnCyIQkeU9F1U9cYPmP9tS3LoHWmqiTYX0Ha8y27eoZaxSLh81LV3ALKmjk15tLKz1
-         U7OnIKJfkP0pJPPF738Vd0huFyDBYnXtr6qLzXPEsj9JJAMxm6L4lOdmxQzughoXiO7Z
-         QAmOtvyVN3HKDZunuBx0CKeRGvTMCNf9ZIedDLCvFUombg0S5UrRa7iCkaGzt4IGA1kr
-         XG8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUvGIl1vjMFyEOqomUHNLkJSuKJ8vdUP4AP6qDL9cYpv35KzhF0aHeocH0sovB0AfKlsXsHoUc62xJMIRMUlaAF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ+7crdkH1uCazbUCnylzeEioqCBXqM+RmI5Geuue2z9S0mRsA
-	iiyzmmvqU0uoIZ7Zg13AN8xkWqpxOhzkZ4AeLH8wNK/Z6SG/NVt2
-X-Google-Smtp-Source: AGHT+IEERyee8yuMkqt0ER6m9QzckotlvCf7D5ZemQxV4YVnYPTWKduYZ7ohuFoSiKwCKIa+Cet3hw==
-X-Received: by 2002:a17:902:dace:b0:20c:5cdd:a91 with SMTP id d9443c01a7336-210f76d6870mr381219045ad.41.1730883689798;
-        Wed, 06 Nov 2024 01:01:29 -0800 (PST)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057d380fsm91317665ad.240.2024.11.06.01.01.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 01:01:29 -0800 (PST)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Wed, 06 Nov 2024 16:58:52 +0800
-Subject: [PATCH 2/2] ARM: dts: aspeed: catalina: add hdd board cpld ioexp
+	Wed, 06 Nov 2024 09:03:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 698B3C0005;
+	Wed,  6 Nov 2024 09:03:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730883816;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eGCWRSOQMmjS9ZFY7AhKJ0VNqkvKkp9FxTzYgROnlPc=;
+	b=RWY7lVUmIWk6KHbkfB3AD3i1Nsocxd1OToyqCa4TOg0PWNoLZnYz9Kh0RdaSyEL98S14/6
+	4psxyailckfwsb755RTMsLqUPDmIdrq7P870xV0a7K732bmBuTXJj5F4Qh2SvpKV+FfimN
+	dS5ik7uDNPrpLtko8KETD5IiJc6fzTQIN2JP4GRAg+PA/duk9rLuLFw2aETgFZ0ZBQyyn8
+	hVb11yog8HElELmoJ+JcKuw5n0Oyf0SIE9GrKgIb+ngGaM359+87+3e93Gq1W9eojkNbH5
+	ugevFWL81vyY0HTtJ/OmfnXE3E8u/jDcJmMO2bFaXAakU7lzgVnWIHMPe3djVg==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3 1/9] net: stmmac: Don't modify the global ptp ops directly
+Date: Wed,  6 Nov 2024 10:03:22 +0100
+Message-ID: <20241106090331.56519-2-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
+References: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241106-catalina-cpld-ioexp-update-v1-2-3437bcfcb608@gmail.com>
-References: <20241106-catalina-cpld-ioexp-update-v1-0-3437bcfcb608@gmail.com>
-In-Reply-To: <20241106-catalina-cpld-ioexp-update-v1-0-3437bcfcb608@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Potin Lai <potin.lai@quantatw.com>, Cosmo Chou <cosmo.chou@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730883681; l=2784;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=Ma7zHm/VTawO0uhZBJJdi+x5g2IFHZE6w9ObR9Dz8mM=;
- b=9Mfn75WH2EHATjpkT8yHXktIYSE/oom0no6vIbpn29BER7AETsF/1yGpaSr1mOLp8P1Z7Jnx7
- BC/PFZV9qOlBWzy0AXX0GZ8TtazizPmWZFVoFLekpIsrhZ5YsIhjCBL
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_010131_261720_F76BF58A 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20241106_010338_371030_21FC212D 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,95 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add HDD board CPLD IO expender based on latest CPLD firmware support.
+The stmmac_ptp_clock_ops are copied into the stmmac_priv structure
+before being registered to the PTP core. Some adjustments are made prior
+to that, such as the number of snapshots or max adjustment parameters.
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+Instead of modifying the global definition, then copying into the local
+private data, let's first copy then modify the local parameters.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 65 ++++++++++++++++++++++
- 1 file changed, 65 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 10a9fca1b803..102d71234932 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -632,6 +632,36 @@ eeprom@51 {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index a6b1de9a251d..11ab1d6b916a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -298,20 +298,21 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 		priv->pps[i].available = true;
+ 	}
  
- &i2c3 {
- 	status = "okay";
-+
-+	// HDD CPLD IOEXP 0x10
-+	io_expander13: gpio@10 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x10>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	// HDD CPLD IOEXP 0x11
-+	io_expander14: gpio@11 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x11>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	// HDD CPLD IOEXP 0x12
-+	io_expander15: gpio@12 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x12>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
- };
+-	if (priv->plat->ptp_max_adj)
+-		stmmac_ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
+-
+ 	/* Calculate the clock domain crossing (CDC) error if necessary */
+ 	priv->plat->cdc_error_adj = 0;
+ 	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+ 		priv->plat->cdc_error_adj = (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_rate;
  
- &i2c4 {
-@@ -1067,3 +1097,38 @@ &io_expander12 {
- 		"PRSNT_CHASSIS1_LEAK_CABLE_R_N","PRSNT_CHASSIS0_LEAK_CABLE_R_N";
- };
+-	stmmac_ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
+-	stmmac_ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++	priv->ptp_clock_ops = stmmac_ptp_clock_ops;
++
++	priv->ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
++	priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
++
++	if (priv->plat->ptp_max_adj)
++		priv->ptp_clock_ops.max_adj = priv->plat->ptp_max_adj;
  
-+&io_expander13 {
-+	gpio-line-names =
-+		"wP3V3_RUNTIME_FLT_HDD0","wP12V_RUNTIME_FLT_HDD0",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD0","",
-+		"Host_PERST_SEQPWR_FLT_HDD0","wP3V3_SEQPWR_FLT_HDD0",
-+		"wP12V_SEQPWR_FLT_HDD0","wP3V3_AUX_SEQPWR_FLT_HDD0",
-+		"wP3V3_RUNTIME_FLT_HDD1","wP12V_RUNTIME_FLT_HDD1",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD1","",
-+		"Host_PERST_SEQPWR_FLT_HDD1","wP3V3_SEQPWR_FLT_HDD1",
-+		"wP12V_SEQPWR_FLT_HDD1","wP3V3_AUX_SEQPWR_FLT_HDD1";
-+};
-+
-+&io_expander14 {
-+	gpio-line-names =
-+		"wP3V3_RUNTIME_FLT_HDD2","wP12V_RUNTIME_FLT_HDD2",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD2","",
-+		"Host_PERST_SEQPWR_FLT_HDD2","wP3V3_SEQPWR_FLT_HDD2",
-+		"wP12V_SEQPWR_FLT_HDD2","wP3V3_AUX_SEQPWR_FLT_HDD2",
-+		"wP3V3_RUNTIME_FLT_HDD3","wP12V_RUNTIME_FLT_HDD3",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD3","",
-+		"Host_PERST_SEQPWR_FLT_HDD3","wP3V3_SEQPWR_FLT_HDD3",
-+		"wP12V_SEQPWR_FLT_HDD3","wP3V3_AUX_SEQPWR_FLT_HDD3";
-+};
-+
-+&io_expander15 {
-+	gpio-line-names =
-+		"P3V3_HDD3_FAULT_R","P3V3_HDD2_FAULT_R",
-+		"P3V3_HDD1_FAULT_R","P3V3_HDD0_FAULT_R",
-+		"P12V_HDD3_FLT_L","P12V_HDD2_FLT_L",
-+		"P12V_HDD1_FLT_L","P12V_HDD0_FLT_L",
-+		"HDD_23_PWRBRK_N_R","HDD_01_PWRBRK_N_R",
-+		"","",
-+		"HDD3_PRSNT_N_R","HDD2_PRSNT_N_R",
-+		"HDD1_PRSNT_N_R","HDD0_PRSNT_N_R";
-+};
-
+ 	rwlock_init(&priv->ptp_lock);
+ 	mutex_init(&priv->aux_ts_lock);
+-	priv->ptp_clock_ops = stmmac_ptp_clock_ops;
+ 
+ 	priv->ptp_clock = ptp_clock_register(&priv->ptp_clock_ops,
+ 					     priv->device);
 -- 
-2.31.1
+2.47.0
 
 
