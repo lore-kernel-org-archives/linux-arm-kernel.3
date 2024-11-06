@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05C2D59F66
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D62D59F65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:References:In-Reply-To:
-	Content-Type:Subject:Cc:To:From:Message-ID:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=li6C8f3t3SYbgMpO/kXts/p8GR96Pv4j3k0vjuIusI8=; b=Hec1RY93G0b4+x6pMJqBvvstRq
-	S0lco+4BC/SWlHQgkzlcOaeTrw141Gwu/VnKEuEyEt5OBUWMEFROE7yZQ1Ki9VCptNBPqDGZEelvg
-	yi4eQdLrYNEf6V/Mfq3zVYHW9qNTuyFL/0aZAQQnWnE6LtIWGlBBI7F9fh2JpeO7bN8pHXetcwGZB
-	Osd+q+xho5EDgKI6eDbRop84I609t17LS9rhdGCgtAcCWuuOyR5l1CkyVz08OKD73ldp215HieSbJ
-	qs2kbXKeaepfjEJMUYEoMAesKdXyANTdVxz4Whu50EdQ2/tBFlR5C0a1i7kPcsoZRy5mYCxMCgual
-	6jlP0U7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=; b=4oMqQTCWsN4/XBq8VtDnRRhekF
+	2I8feDwRmD8yqYJjUBD7N2g/a1E/qvH1T2mqVnLUd4FA3YqnDZglYaBdrPJzrYRCqS0cFmF+bw5TY
+	Lqo+umD6x8DmL6gINypmPxZvsV3ksMTHswMGvN42QH3W6r3NoMlsK7knjxgdE16d2CA5rJiw4sw4u
+	BiHl7HZGXPQ4PVS69fvAC46lipbunxPNUfiq+EA3cq+LWMmkeSfYEJelCRHYZMr6E6wNYn844a5Qo
+	6s7bWyuB9HiZcRehzzyAZVA64o/eppZcWW0zQi9CMeVSB7GGw5U84ejWmLs9ZoINipo7oavW0VJpq
+	r0jB1SnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8l7w-00000004PCx-1U2g;
-	Wed, 06 Nov 2024 18:51:36 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1t8lDM-00000004PsY-1fGC;
+	Wed, 06 Nov 2024 18:57:12 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8l69-00000004Oju-3V5i;
-	Wed, 06 Nov 2024 18:49:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1730918976; x=1731523776; i=frank-w@public-files.de;
-	bh=li6C8f3t3SYbgMpO/kXts/p8GR96Pv4j3k0vjuIusI8=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:In-Reply-To:References:Date:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Zhtz1ZjVOmW/RaDQV1THforkPHmN56+jsPkuY3IO1PPsj/x9Q4EUztT+4gSGdPlN
-	 pxX3XQpdtgF8z0wKMxWd4/I4oJP2h5GWmzRvrjHF31uxkQJwHJubWH3gP5fKsl2d+
-	 IeFUhPdNC7Fjk/0hQjCeOsKy3QpZsmxcvjPEEYOAA05dbHyr0MvDv/CgnqyH/+qQl
-	 zMgoBWtQlNKg+OUmDT9rVWWo7rHMCTPBTlWPl1q2x4AGut2QE4hALIaj2Io1Rmbjd
-	 j5PQfJZLqx9MzxcACE8upxBzeJjEHgDevlO3iclRpceERarm1IKOZRCya7kN6rOJD
-	 UtJ/AxWNeLjtq0Fwow==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [217.61.145.66] ([217.61.145.66]) by
- trinity-msg-rest-gmx-gmx-live-c75c5fb4b-p29nc (via HTTP); Wed, 6 Nov 2024
- 18:49:35 +0000
-MIME-Version: 1.0
-Message-ID: <trinity-ef654aa8-f10a-4195-82c8-65b3ea654c7b-1730918975868@trinity-msg-rest-gmx-gmx-live-c75c5fb4b-p29nc>
-From: frank-w@public-files.de
-To: angelogioacchino.delregno@collabora.com, robh+dt@kernel.org,
- matthias.bgg@gmail.com
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, daniel@makrotopia.org, linux@fw-web.de,
- leith@bade.nz
-Subject: Aw: Re: Aw: [PATCH v3 1/2] arm64: dts: mt7986: add dtbs with
- applied overlays for bpi-r3
-Content-Type: text/plain; charset=UTF-8
-In-Reply-To: <CAPDEroWUeR3iUFnjVr6WFLg3=dkML+5cbRPph9bj64F=zc1UWA@mail.gmail.com>
-Importance: normal
-References: <20240608080530.9436-1-linux@fw-web.de>
- <20240608080530.9436-2-linux@fw-web.de>
- <trinity-82c94d49-2a78-4470-83cd-3c6747e01849-1719434738199@3c-app-gmx-bs52>
- <726f2ed3-675f-45e8-94f0-d392181e7f92@collabora.com>
- <951E802C-1B53-45C4-B3E6-4A3400F47214@public-files.de>
- <CAPDEroWUeR3iUFnjVr6WFLg3=dkML+5cbRPph9bj64F=zc1UWA@mail.gmail.com>
-Date: Wed, 6 Nov 2024 18:49:35 +0000
-Sensitivity: Normal
-X-Priority: 3
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:04HA3rCBFobkKgyJv3PRzaWDTdIiPv8aXPTy1/iJeSgOHSEJUK9hCVHSD0wn2SSqhizMD
- BevU1VpOn8iWFu/s07qAKuNevpeLaJKGWlDCyOby34HfK6pyfLyeR2LuHLLwv1u3hD14BDfsaTQ7
- kcgvrKBmvIignRFMW2hYJ0/V+ejxxM7rUvgx0uWEWJ1J7EYsmMiDtxAguxMXnlwE+0Hwp7rKP1DH
- brAeezdmDRhJwcVWEjT6xhVcGyV5ppFuTdkON75qlQpJLixEaU+BLwbWQy7+/egEPEisDSCI83ft
- 3aH8fcxuhZD6XsiVXbZKih+kPSNPKBuu0O9/un9YC37QVP3QMYPwryNmXpBQClS4u8=
-UI-OutboundReport: notjunk:1;M01:P0:yLAILKCPSGk=;y4s2SKxblFf6I2c5Hh1WGxagP2c
- s3/HJr7M4R7iAGmMq7wRDbectAnOyqDRVNxXS6Xzt3QKbnwWpBSqY9uKvjn2bw1sci1ZyiVUT
- SjV85xR1mL1AxO6MTboC/ZaEeSdM+3Mk29biW/Ub8ZFeVxLR2sQYti0w8jMlnaJnJy2aQvo/v
- 6VMyrzcAceMplQ2fa59EyVxw0HusL6QoVLxm2q1nNL1CWLPZyzS9Stw6jJlONtIogHah1slco
- tTQWnfNCmeAd00R/SPxPgMWW1+M61D1snxM8r8RNiCIIKPDOcQMXiR71F79LZ57uLJ4bfGECj
- fS0/quA302g+2RZRHfEhi9MReQ+gqmWDzFS356kdkNOHXtCJS2OT2BntjC++Dlr4cD4BwxrNI
- t2km0ERAAngZR6sR5qfAjQlrgcBxjYxd4wbvNkjSU/ejtwocRKsFT41W+6+7uMzsJzroj7Vs7
- xPo9fmkTCG++dSTjMtk0koV/2pwtUoowt8+il1W2+8Yeru1LLvNbIHZH+Z2LFBreBUgXz4tYs
- LEf212+L/Bz4dP3ofsE+su1Za2YLt/hdd5TDy5T9ooimfTcc+sjMdUctNyhwqiQH1aG8yqtpN
- 06aXaiDnjxP7VXBTSEo3JuM8AE8c1KnsgPV2BJ2RPSiCdXUt1/ZSGEPfc62WLzVNfzbYANABU
- lMC1LJdN9+3XCAYmkHNinhbT/qUKhDWzeD1E3f+wBA==
+	id 1t8lBc-00000004PgW-3m2z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 18:55:26 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e28fc8902e6so219809276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730919323; x=1731524123; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=;
+        b=Jj+nUGsU3ZBmGtCR89RzjvQaTcWQQHCwD5TquwbcnHgCVcCxZsZqjUa6qGLsmz+RC5
+         DkWMd4W03iRhLDmvuhOBMsLvBsbfwtqUiQVn7GjOijwjMV3Yt/V+FR5b8xfynooJwRUY
+         j+uRCs+lsx7eJmoz+71QsFeUJTl7zO38qaKT5UeevKV3726tZ0kZTOtwXTbQHdK0pOmg
+         2MXnNfy7vzGCd2MFt+/BSqLgcQNJY/Bqk8l5z+vZdWxa2/UboUJlvo2bBlf7faX6buzH
+         ysRbkxd+ABPQ7UWSPzJpDjuu2f7JaLqHgUzx4Ipzr7BBCyWur1g6m8ntcXbEjf9/GDhV
+         d14Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730919323; x=1731524123;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=;
+        b=VVvVUtw0lV3K9h3M/GuL17ZyRgOuGCFmrD+8yGfOqD1WtM+1IgtLt+AoJesNKGlJ0O
+         2g24d0vlF3Tpi8C6Gd+AjcVDmYvq1IUUDi/MvmxFiLbK/aQQnEN5qeCRZ+eS6ExScH0S
+         QIvB0z0MGv33JxlR3X8lIx/oTlTst8dXUZ8IN0lYqiANLfk2vyag7VtNm0FpkZhpOOIK
+         VRoj3DSE92vMkAv7LQ9/A8VjTqeo6rJNdrgjosn75Jc3dyvLdwvoPz9Tj8C2rCvTG8ji
+         3p0UhETFDeiHU6KBYPiwgNBKa5oY9Ta6QWbIGkEj2RYMABeOiTwaTHuGnByqvWXKm9ej
+         PHKA==
+X-Gm-Message-State: AOJu0YzYIEjbDfBpMH9XI8SbrzP2IsGVrJr4/nZ91N26NksT+BGIatLZ
+	3+j0/wL4XmbpHjiau7DYKnqG5RiCH32O9i+MyZaKUwM+S3JZtRjSPFRPfDxyeLpbvE7pyaosbwE
+	92KVZ/UzVUjYqKdO/gaZfgDCg00gQZuDuXiQRSrQWlz7V6x+KOJmPYDMMG141JZ+dxVaeZiXaUn
+	ZbffthbHLLM4gbZ151rsWIBjQ/kpCf7eQe1kZMrFK0
+X-Google-Smtp-Source: AGHT+IGPONLChWBzDaI4hMdqix44IABUjxLoSmBsJREILiyu1wMZy3UK5o3COAt5JlLKdKUIEutRpT70
+X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
+ (user=ardb job=sendgmr) by 2002:a5b:91:0:b0:e28:f2a5:f1d with SMTP id
+ 3f1490d57ef6-e3087a4ed65mr73087276.4.1730919322888; Wed, 06 Nov 2024 10:55:22
+ -0800 (PST)
+Date: Wed,  6 Nov 2024 19:55:14 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1142; i=ardb@kernel.org;
+ h=from:subject; bh=Wni1dkCI5u5ccU9XlEF9N93Tkgd7rvPGwlYBCgQrDjs=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV179yQFyYTnn1+JzN51YdnKTOFXZgx7HI7LMj+VsBRLv
+ iB4t9mgo5SFQYyDQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAExk6zSG//4nAjnZvMSr3rD+
+ 498mphi0ocvy9znvXKG95xNcF0+uP8DwP+lvxp/LIqvPy+1VvH5JYFVbbuTFa4tsFCM2edhGMrl M5wMA
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Message-ID: <20241106185513.3096442-5-ardb+git@google.com>
+Subject: [PATCH 0/3] arm64: Dynamic shadow call stack fixes
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_104946_258749_62448D44 
-X-CRM114-Status: UNSURE (   4.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_105524_971071_A27BADF5 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,11 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+From: Ard Biesheuvel <ardb@kernel.org>
 
-any new state on this??
+When building modules using the large code model, the emitted DWARF
+metadata uses large fields for the code references too, and this is
+currently not being handled. 
 
-https://patchwork.kernel.org/project/linux-mediatek/patch/20240608080530.9436-2-linux@fw-web.de/
+The CIE header frame contains metadata that describes the size of these
+fields, and so this should be parsed and taken into account when
+processing the FDE frames (patch #2)
 
-regards Frank
+But first, the handling of this CIE frame header needs to be fixed, as
+it currently [inadvertently] used hardcoded defaults for some values
+that happen to always match what Clang emits in practice (patch #1) 
+
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+
+Ard Biesheuvel (3):
+  arm64/scs: Fix handling of DWARF augmentation data in CIE/FDE frames
+  arm64/scs: Deal with 64-bit relative offsets in FDE frames
+  arm64/scs: Drop unused prototype __pi_scs_patch_vmlinux()
+
+ arch/arm64/include/asm/scs.h     |  8 +-
+ arch/arm64/kernel/module.c       | 10 ++-
+ arch/arm64/kernel/pi/patch-scs.c | 93 ++++++++++++++------
+ 3 files changed, 80 insertions(+), 31 deletions(-)
+
+-- 
+2.47.0.277.g8800431eea-goog
+
 
