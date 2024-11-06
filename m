@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA7CD44D46
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6136BD44D49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeJST6CANo44jsXW4X1JleLj4IkEHTAq2Zz/9zGWSWI=; b=VNKe6cwybgOfBnmLVwDaXgDb59
-	zt/3FSxMpvhMKz8w/l72+hrWNjW0narXq8ZOy3aRFg/D+J3BUVkIM8yAEjeHB8tBVvqkmYtJxpyAq
-	xV6BKb2LFsLKV+qqt8Z1AqOeY2xE0TQ8gFWkPp5vYU1hZsgNXXuHSoKbsuUyKNPUZ8LOelmdfe8lK
-	Iy1DT96YUqRkbhb0yttx4MS8WUAGUzO9tZ4/0RAt7hffl8MBDVSdH2QL8BZnEEl4l2VQn1JtQ+iQU
-	LGgMe7QubplIGU2R0tlBiwgUkjrA+RX3qRA86B4JYAxUq/Stk0+xX5WIV7+RN5RoTNjRSEkJbvW51
-	Xga2C8Tw==;
+	bh=+y/sjIGtejwqvEP/Pe/jJlC0BS8F5mAPakIG7R4/pbc=; b=xu1vTghCov6r986HuQU/TmzAXw
+	banMxhynKCWkVFKCWyTd/z0WAUh0v0LiNaAoDcHkl/a/u6RRFxWEWSUi/80rZVmRTJ37jbD9yimEB
+	qHEumOc/Bz5DUCGZ3nbtDF5Z7M5TLLaeKMy/HATOjQ7tpe/f9ijfBBhlE5ZPGKFurd+e99TK3pFlM
+	RSV6FUwbqqVPDQ+NlAx29m/9b8NTZGiEffjpbOo7mpvaqQc+Gn2v1wrslsW794BCSTr0wW8Jltguw
+	xCuBdU5BKfzOk0Qc8lfpiUhz821jC0fcNaIeAVd62fyRI3b06sF4nCZkvoeflqczSm7TCiCzooHY9
+	HfUXZr6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dcF-00000002oey-1nzJ;
-	Wed, 06 Nov 2024 10:50:23 +0000
+	id 1t8de9-00000002pNR-1CIB;
+	Wed, 06 Nov 2024 10:52:21 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cv8-00000002g0E-4AvW
+	id 1t8cv9-00000002g0T-3nI6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 10:05:52 +0000
+	Wed, 06 Nov 2024 10:05:54 +0000
 Received: from mail.ideasonboard.com (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8241710B8;
-	Wed,  6 Nov 2024 11:05:37 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EBF8F196F;
+	Wed,  6 Nov 2024 11:05:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730887538;
-	bh=IBQvt13TTIadCT2H1PnuRDv+U8vt3pyKluZpl8m2ES8=;
+	s=mail; t=1730887540;
+	bh=iks4HLCkzWYWVGMmf0zGcfSNYrOOXYhYdaQr03WGHK4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=i07oqrK2bwlFKGdB9ov49jrAeouHRrv7liH7X0U6VTys2/KaG/Bh3I64V0X8ECLcF
-	 oerO0YRPtFKAj1AP/mS1V3CgohxtE7Kktc4D1PkFYbKbiexKK86PA5vPkW3OXDeU9f
-	 Qo4QjSGmGnRpybyBXgxSyuwlD2dqJ73zk7kOMsAU=
+	b=DxB442om4XqR4Tb1N/wBS/3cdzdGEpBa16A+Sk/G3c39k2dgmS3PecU7WgDcXRn5e
+	 MX8lrQXiIXM6oT4RGtkKUJn4dkgndhJULbltvAZau8XwmTXdKO06hM3n0a0POX2+Qv
+	 V1UunWNNrBTqwuzRtc4zvqAqxoieiV59ZJvyeKRs=
 From: Daniel Scally <dan.scally@ideasonboard.com>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -53,17 +53,17 @@ Cc: Anthony.McGivern@arm.com,
 	laurent.pinchart@ideasonboard.com,
 	sakari.ailus@iki.fi,
 	Daniel Scally <dan.scally@ideasonboard.com>
-Subject: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM mali-c55
-Date: Wed,  6 Nov 2024 10:05:22 +0000
-Message-Id: <20241106100534.768400-6-dan.scally@ideasonboard.com>
+Subject: [PATCH v8 08/17] MAINTAINERS: Add entry for mali-c55 driver
+Date: Wed,  6 Nov 2024 10:05:25 +0000
+Message-Id: <20241106100534.768400-9-dan.scally@ideasonboard.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241106100534.768400-1-dan.scally@ideasonboard.com>
 References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_020551_223887_A4CCDB69 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20241106_020552_189522_22C13E7A 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+Add a MAINTAINERS entry for the mali-c55 driver and its associated
+documentation.
 
-Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
 Changes in v8:
 
-	- Added the video clock back in. Now that we have actual hardware it's
-	  clear that it's necessary.
-	- Added reset lines 
-	- Dropped R-bs
+	- None
 
 Changes in v7:
 
@@ -105,113 +103,41 @@ Changes in v5:
 	- None
 
 Changes in v4:
-
-	- Switched to port instead of ports
+	- None
 
 Changes in v3:
 
-	- Dropped the video clock as suggested by Laurent. I didn't retain it
-	for the purposes of the refcount since this driver will call .s_stream()
-	for the sensor driver which will refcount the clock anyway.
-	- Clarified that the port is a parallel input port rather (Sakari)
+	- none
 
 Changes in v2:
 
-	- Added clocks information
-	- Fixed the warnings raised by Rob
+	- none
 
- .../bindings/media/arm,mali-c55.yaml          | 82 +++++++++++++++++++
- 1 file changed, 82 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+ MAINTAINERS | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-new file mode 100644
-index 000000000000..efc88fd2c447
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-@@ -0,0 +1,82 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7a14891a8fa9..c34e4bbbaff0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1854,6 +1854,17 @@ F:	drivers/gpu/drm/ci/xfails/panfrost*
+ F:	drivers/gpu/drm/panfrost/
+ F:	include/uapi/drm/panfrost_drm.h
+ 
++ARM MALI-C55 ISP DRIVER
++M:	Daniel Scally <dan.scally@ideasonboard.com>
++M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++T:	git git://linuxtv.org/media_tree.git
++F:	Documentation/admin-guide/media/mali-c55-graph.dot
++F:	Documentation/admin-guide/media/mali-c55.rst
++F:	Documentation/devicetree/bindings/media/arm,mali-c55.yaml
++F:	drivers/media/platform/arm/mali-c55/
 +
-+title: ARM Mali-C55 Image Signal Processor
-+
-+maintainers:
-+  - Daniel Scally <dan.scally@ideasonboard.com>
-+  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-+
-+properties:
-+  compatible:
-+    const: arm,mali-c55
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: ISP Video Clock
-+      - description: ISP AXI clock
-+      - description: ISP AHB-lite clock
-+
-+  clock-names:
-+    items:
-+      - const: vclk
-+      - const: aclk
-+      - const: hclk
-+
-+  resets:
-+    items:
-+      - description: vclk domain reset
-+      - description: aclk domain reset
-+      - description: hclk domain reset
-+
-+  reset-names:
-+    items:
-+      - const: vresetn
-+      - const: aresetn
-+      - const: hresetn
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description: Input parallel video bus
-+
-+    properties:
-+      endpoint:
-+        $ref: /schemas/graph.yaml#/properties/endpoint
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    mali_c55: isp@400000 {
-+      compatible = "arm,mali-c55";
-+      reg = <0x400000 0x200000>;
-+      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
-+      clock-names = "vclk", "aclk", "hclk";
-+      resets = <&resets 0>, <&resets 1>, <&resets 2>;
-+      reset-names = "vresetn", "aresetn", "hresetn";
-+      interrupts = <0>;
-+
-+      port {
-+        isp_in: endpoint {
-+            remote-endpoint = <&csi2_rx_out>;
-+        };
-+      };
-+    };
-+...
+ ARM MALI PANTHOR DRM DRIVER
+ M:	Boris Brezillon <boris.brezillon@collabora.com>
+ M:	Steven Price <steven.price@arm.com>
 -- 
 2.34.1
 
