@@ -4,160 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60637D3E78E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 06:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644CFD3E78C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 06:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rprtpvc1zdDrvybk3c/IlucgvRa5Vsy9qlFEqM2UhjA=; b=qykPsoWFcqnylH4k8oGx5+ok63
-	GpBRoYXPYxNvZb1cRrwAa7+i6qr/F+EIHD0CHqQgGPpeC7sDr7zW4Y4TOiaYzWyRG+4dLc4wgeKLE
-	e9grF4G1hjg+uq4BPfsnTHDT/+gIqHJ5U7oNyq2OC3z9et6lRWFgqvB777CqRxIOjez3J0miMxgEg
-	8nGrvLnbwE3e+x00HSygG+7N9oGqpUujvM+eVGHD89NlIWSmK2f7DP1MRkJXHqhcyM7hi07Ol8+Uj
-	c9APM2+vIqZ0ePkkQykwbcu9Qr1aNEJLLY+SNAX8cTpc3VqqjrwHfoIz86lwrdmMQb9nT4hhgm5GK
-	cRi+lCuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6bPchJhllR775OGnFP7XwIxgM0rvfta+iVqvr2lAyUw=; b=EJr63ur+80LKvrwhQyyZEYIb2g
+	qt5Op5mKE5toLIwxRFgg5EHAX0XWBQcT1Zf4BDG8YgkIsCEcz9kIKfNHH5NZhLDyHNb26b3+6TQsB
+	fYsDQafD6q8nfLWZb9Tna5ub4XwRuNthmSrzZ6aV/Vx9x+WM45SdiNU3ZufxJBf8TGWbBnAmOfYc8
+	QIUA1rmxNTbrOf51E0PHfpIvXLtu4G86Fxf/imbDZixNH9TIdRLP3nxLTEAtl4AXhCUJ2wFbzIfMC
+	lj3xZvDQZWb+eJxsirqnMhqmGS9gCXch8HSo6ddkD2eIb6PIcrcp/rKnnjkBvVQHWkuLM2lP5zO5u
+	xyXZPH4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ZME-00000001xzm-30aO;
-	Wed, 06 Nov 2024 06:17:34 +0000
-Received: from mail-am6eur05on2060b.outbound.protection.outlook.com ([2a01:111:f403:2612::60b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1t8ZPD-00000001yoA-3RmB;
+	Wed, 06 Nov 2024 06:20:39 +0000
+Received: from mail-am6eur05on20625.outbound.protection.outlook.com ([2a01:111:f403:2612::625] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ZDh-00000001wdS-3lxE
+	id 1t8ZNA-00000001yIc-0tK1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 06:08:49 +0000
+	Wed, 06 Nov 2024 06:18:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MzNsBLwgRGU5cWh3EtpR9CK2+BI6PcFukH2RTREgSKCUhXpRMihjbYME/CdmBDuOg6n803IbOpqviZMxuEojj2isFxi5B0p4vqLwYw+IVdye0R6tq2va97MzI7zoO43oLBpGU1qU70pIhfHpnVlBv48TbK74W6psxRD1pMPJDqpZ6H+OK8+ig0d2Q4y37Rq+nTkSEdOuuafnGebGgi9wgM/owQ1TOU2fQ9g2Rd2pT2UT86gOgJOr5lEgXLa9HNY18VKDAvd/FAv9Kmsfcryq81pyHL0DavwC6N594u14EKhXpufFHoikOQIKIItTihuqsJFB/IpAdNvJ7syUswQk4A==
+ b=J+CLFEjL7gaEbHu8X7T33tx3VGg1TYXKbf17tk1zhh5TBCr2jjAgkutZUrkQeXskH72XMzb+3pZcjq7bcMckWiCJc6uZ8IcGAC4qGP9diludlqHssYe3J3HeHtHOksY1Yu+PHePUiMoeqoBcuJ3crKcgi6f79VhMiGdhNuFcaRuqFjD8u9qye+SnlzbUGJ4+RQsOCDZyd+pAv0skVGTNPuHGOX6N9LwZi1guKOCUKZq7dLxJY+kvV4/G0YmdgAyfpoQ2nQBWVaahDi7Sy86cByaPIeF4TQ7X4WE/fjV+6xxntTq1HpiMKaL4aZZeCkJYNeQ1dnvj37mL5dHClflsQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rprtpvc1zdDrvybk3c/IlucgvRa5Vsy9qlFEqM2UhjA=;
- b=g2Hp0r0cd9j72tDI7+tHW69cPTm6bQiFvDpX4t8eEm2n9B4HX6hJ103HWid2yjPPawOdhjXEpyab24fXCkjLg5cg/km+Vyw6HR9Ue3saCM4H3jXGQpoXLzsuXFVEwDBjMKLIpdq9w5k1SmjBC8f1rAfCaqocnJDGAq3/vMNSW/V8iGnHXrt3yrUs2p2ZualyBZnyKvXUqr9xKGn7gxtYR3Mv+x7jeM6U9VGNcwDPfm3NKwWzKQpaMWrJBJCNgeYbxgYFURbCrBmpa+zqRRu64w0xj+wRjEPLgGv9gaHZf8mPXMNfk5fYHhmS0CMmATDR7cHwLGyVthzuX18xWed9Pw==
+ bh=6bPchJhllR775OGnFP7XwIxgM0rvfta+iVqvr2lAyUw=;
+ b=RNqd+ceAMNM/X9AAiGsT6NG36CiU9ORbHzrryY1yxlnV0snY8NjMXxRBjnZCs4c5B29xhSxJ2EtPzxvb3dI/KWUJpGecJRp5iombZ380RyMJmJy3WrIE6biXOeBFgGhwhSufCeuZqotE+CNaVV++AuUs15MnEqxQsSRorQOzm1xkYP4DONziP6BwsO5XnAc7m/p9cHtMopXadtKkJH+0iVW9j64jVZ4cPYGWFyF6HHUlYa6Sj08ETmKAsI4c1j2Q9dH+1HiAQc/pufZT5wx0mmxVtyauM6tZd2Ul5QfPaPNuZ/jv5yUwIdZNjSDUiyUkpcFQZku6zbVARkSKcJW6tw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rprtpvc1zdDrvybk3c/IlucgvRa5Vsy9qlFEqM2UhjA=;
- b=h+0gmSrDNljGYVkcSbTK8PtWBE8Tgy229o7HN1trRFq7KJRtdcQFKdw8ZDuPk7QBTHkBlRTTmvbUp0Yj6Hb43oTNbAd2LoJRiNZETCzcfjQktaEvjZ0f6BMW1au2V5LcFs1nNmmLVMW0QJ2pl/8cKco9soE2TqNg1FUcEnW21x64r+XN4Ix5ZJK6foyRQC4ffbNHpm94tCp29Kljm8zznRa4C2x3Fe1E1gv0ChRzFh7+70IQ202AV7sCF1nWvQADEfzKYB2F6GGX1XZi85bHf3pYOnvhIbFVTl2E87y1Qa4YHyNRQiaULSXtT755+Erd3xanBKJIJtBmumnk/mJnEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by PA2PR04MB10506.eurprd04.prod.outlook.com (2603:10a6:102:41e::15) with
+ bh=6bPchJhllR775OGnFP7XwIxgM0rvfta+iVqvr2lAyUw=;
+ b=PBBunqc2jazj5bIEAfDKREw1vkhIPjWIMKP87j4h0aSmntGdg+d4ptEGk105FrvhaosD5e30C9Y5h4iKYEM3EbJy6mxcE1SBePXh9TYJk4Pvm9ieSweirKJRiiPzxRJiOLjJ+ufS36bisPRZh6Gh+o0E3xjyudmWu/IzXqtOeKmPwyxvr1D5VIvgiI6P+Io2icot5lEGYCG/ks2C2+LQTHh6A3UGTjF6VECqJgfc2xXWM08qR8EfTH0xNh6sJkmABrMdvbeHV4QZ9Hx+MZU4Fu8bLhl+II7AFYQpC7b6CWSmQq0lL9e1INkb3iRIe715b5Z3w4ZgljiBfhM+snDG0A==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by GVXPR04MB10384.eurprd04.prod.outlook.com (2603:10a6:150:1dc::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Wed, 6 Nov
- 2024 06:08:42 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%3]) with mapi id 15.20.8114.031; Wed, 6 Nov 2024
- 06:08:42 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl
-Cc: yunkec@google.com,
-	nicolas@ndufresne.ca,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	xiahong.bao@nxp.com,
-	ming.zhou@nxp.com,
-	eagle.zhou@nxp.com,
-	tao.jiang_2@nxp.com,
-	ming.qian@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 4/4] media: v4l2-ctrls: Add video encoder ROI ctrls
-Date: Wed,  6 Nov 2024 15:07:52 +0900
-Message-ID: <20241106060752.205074-5-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0-rc1
-In-Reply-To: <20241106060752.205074-1-ming.qian@oss.nxp.com>
-References: <20241106060752.205074-1-ming.qian@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0013.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::9) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.31; Wed, 6 Nov
+ 2024 06:18:25 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%6]) with mapi id 15.20.8114.028; Wed, 6 Nov 2024
+ 06:18:24 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kwilczynski@kernel.org>
+CC: "bhelgaas@google.com" <bhelgaas@google.com>, "lorenzo.pieralisi@arm.com"
+	<lorenzo.pieralisi@arm.com>, Frank Li <frank.li@nxp.com>, "mani@kernel.org"
+	<mani@kernel.org>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Thread-Topic: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Thread-Index: AQHa3AEqv5bRdDxqKkSUwsC4eegPdrKmrdaAgAPAQkA=
+Date: Wed, 6 Nov 2024 06:18:24 +0000
+Message-ID: <AS8PR04MB8676B83C73ABBA45A34C58DB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <1721628913-1449-1-git-send-email-hongxing.zhu@nxp.com>
+ <20241103205659.GI237624@rocinante>
+In-Reply-To: <20241103205659.GI237624@rocinante>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|GVXPR04MB10384:EE_
+x-ms-office365-filtering-correlation-id: 8c40f459-1ce2-484d-9250-08dcfe2ad23e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
+x-microsoft-antispam-message-info: =?gb2312?B?Sm5kMS9SNEpNblRaSHRRYUNwYklvcVQyUG9tMjdDSndqTE1vVldOMHZmVVFT?=
+ =?gb2312?B?cHJqNzUzNCs0UGIrZGZyQ0Z3RjMxemxOV09XSEZXR0U3cFVTdTduT3NveVU0?=
+ =?gb2312?B?T0xnMWMzNUcreWlGd1BRcm95MVpwQkl4QlZtdnN1RmIrczVmdlhWSFdacGZM?=
+ =?gb2312?B?N2RnZHozTTRJckNjamMzSUdrcWk2RWNlRDNxUFZBem5VZ0JQNkRIL1kxc3Z4?=
+ =?gb2312?B?b2RyUS8zRDl5WjhkYS9ZZ3B2ejZROE9jUlRUcXNYZTNNOHl1Qk9aUXlUazZ4?=
+ =?gb2312?B?d3dhbHRCcHJCR2d6ZHo1d2hCaUdyQlFrKzcxM0hna1hEYys1VFJaUndTcWNJ?=
+ =?gb2312?B?MU5EVEhwRHcvdW1MWFFOSDdJcXBuK3BQVGVuSHVyUitPZ25jdmVLelVTNmhP?=
+ =?gb2312?B?Q1luSHpZVGdMU3dZWjdmZGsrTXFNVHR1aTFHSjFNODBHRlJ5aXdERllsSmhH?=
+ =?gb2312?B?WFg4VzB5OTJhRGFmZUlheHFxcmVlSVdSamtsTExEWW9PVWFVOUZoTTFOQ1Fa?=
+ =?gb2312?B?UnNtanRwQkV6Vm05b2lpRDNaWFhPaStsMTRGTDNoaFRUVFpVdnNsSzA2eTBJ?=
+ =?gb2312?B?NG1kTklmWlUraC9LcnRPWmtOVjhtOElOTFArd1JRWWZBTUxLdE4xTGlzRStm?=
+ =?gb2312?B?TjIwUk1MaTlvTC84MzlFV3RYaGlEVGlKTmw3YVorRm1uU2FXM0Y5Y3FodzhZ?=
+ =?gb2312?B?QkxtKzFNd1M2NE9HT0M4RWhDdS9vUzA3c3lBUHAwL1RkTFpFSHNDakd3N2xk?=
+ =?gb2312?B?bTFRdXVDa3dBcTkycmhqWWVkVzNNcHgxZGZyOVJzYnNqV3ZjVnRwSHIwMDNt?=
+ =?gb2312?B?Vmk5Z0dhb3hKZ010MUpRRnFVdFBQT0l4ZFZESEQ1TkIzcDVYa1FSVUk2VlZv?=
+ =?gb2312?B?OFE5dWdaaERwWDZidCt5Mko0NnArQVNFa0pXaGdrdVJyMFpnYzZwRjhjNVU2?=
+ =?gb2312?B?UFp3ZkJmU3p0OXZ6cVNVSlVWeVM4bXplcUZtOVlpUkhoSThLZzlvZi9zS3py?=
+ =?gb2312?B?VUZQcjdCOEpPVnlWRzB3TlFDQ2RtOEZTNkJZYzI4MjdCZ2UxaXlBbmRJOUgz?=
+ =?gb2312?B?dkh0VTZEYWEzY3kxRHd1UFp0SHVrbkdBMEQ2OU1GZTY3T2xjZWFyV29SYXNE?=
+ =?gb2312?B?WEt4NXhvcFgwQ09XVWl2azBhNGwyRVZ2K0FQN0ZyVzBydEpXbEI1V2xVVVZG?=
+ =?gb2312?B?clF5dHJzeUt3WTBna3U2RnY3M1RGNkIwd20xSTZkN3BVUG0raHBNTEtEYXVP?=
+ =?gb2312?B?YjNkTys2ZWZCZGU5VENYOXdBL1U1YXFTTGZsa0lSQXNZZEVrcnhyR1NZT0d4?=
+ =?gb2312?B?K01tUW85cFF6d0g2N25vQnBsRzQ5dnJEK2gvaTBjTkxXdUQzUm40cFR5bHds?=
+ =?gb2312?B?cW5LeDlQL3JCNmcwM0JHQVVpdis2cHlJZmxuVVZURjIyV2dQZk9IbXlWUkZs?=
+ =?gb2312?B?TlNXd29MWlBUU0VHNklFdzluUTg3MmFSSXgwQXNDWTltTWI3aS95T200U0lu?=
+ =?gb2312?B?MU53emdRaWhrTnFIYU5QbkRKMWRZQmx6SWY1aFZCWk5SM1YzeVN0aTdFSG0r?=
+ =?gb2312?B?LzZ1U1hMSUNkVTJhSnlPaERuVHV3RzE1dEtaVDJ6bW1WNjNxZkNMMm9CNGFh?=
+ =?gb2312?B?V3ZrNFg4UUJzQUVHZXA3MnJLa2NrOTV2bHJyN2hITXNROHRqL2t3TXpZVFVo?=
+ =?gb2312?B?dytBOC9CcXREYzhLQWRNNHQ5VXZaTGtyMkYvVTRNeWI2U2hpT3FTTTRZc3dC?=
+ =?gb2312?Q?0nVLykDv4GGkVEFYHQkYmCf/71RDKSMwJNUj6Zu?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?OFZpc3FtOGJzNzNxQlpsSUxsTE1tcGlTMXJPd3J3YzZjdVRDRmJXYzFuN3pE?=
+ =?gb2312?B?Z21GWnhQMHdXc1duQXpKMHlrd2lreTdQUU5jVU12ck9NMUo5NExHbWdGQWto?=
+ =?gb2312?B?dituODRmQmhRQ1VnUndyOG8yL2Y2eGdSTEJtTktXVTlXWUJqMC9qSFdoZ1RY?=
+ =?gb2312?B?YXdOUHdSZDdyL2VFRzQ5a2kySXpSZTJpMkRCcHl5QmZvTW0vTklTNVZ2OXdN?=
+ =?gb2312?B?ZWkzQVh1TnFqQVFQTGh0ODZlTmFKalZEUStUSG9OL0pNSHAwOHpyL3dCQTJJ?=
+ =?gb2312?B?WU12K1ZMQjR6OFN6azVwd2dhQVB0WDQ1UWMxNUtDL0E1OTljWEJoWUQwZzJQ?=
+ =?gb2312?B?UWtONUFUTzE1QnVlakp6VXpoVmF2SEJNMjcvUW5ZMHNIYloxWmE4QysrMXA0?=
+ =?gb2312?B?blhNL3g0dFdkdlh5U09obHNPMUdQV3oyWkpjZzJTbkJDWmNYYlNoSUp5Mmpp?=
+ =?gb2312?B?TTNlajJVRmFmZ1lEQzlwQWJnbTdyN1QrUWJVTWNrZjg4VmJZVWFMYkpMclV1?=
+ =?gb2312?B?YjUvemxWL2M2WHIrSlFiaEVCcG1OTG9VampSbTgxWFZReUozS29rcWNwQmFq?=
+ =?gb2312?B?cHJYNFVOSWRIWnVFb0lBb2l0b29ld2JnWEg3cTRDNjlmc2U2TllaMDJ6N21n?=
+ =?gb2312?B?elk5b29pLzNtLzk2S0VxSExGTTh3VWczRFdYS2JTS0hjY0NFN1M5K0FDVUZI?=
+ =?gb2312?B?YWVQRHJUTWt1a0dkTHZrNWVEQTdrd0VMQ3RMSXZzdmM4akluOS9PV21laFFH?=
+ =?gb2312?B?SGZuaUtsUFBGNzRSLzZOZyt2cWQwTDNtYXVJbUpxV2x6NlhYbXhnZ29CL3dp?=
+ =?gb2312?B?UzhrTGdMQy9IU0tMVXNYYmxDcXVwNS9yemxxbzlDQi9ZdzZLU2dKanBVZ2M4?=
+ =?gb2312?B?T1lPb3B3SURHWW9ZZUhWT25mWkt5ejcxbCs0VythckRQVlBiTFVVYi9XZGxD?=
+ =?gb2312?B?VWIyVHJPNzdPaWFOMUY2MDQrRnhwak9LdW5sRUxEMUwvQUV3M1U5MWE3ZDhD?=
+ =?gb2312?B?ZlJPajcyenA5ZnlJM1pFT0tOejJFMGx0aUhBV211b0ZDWlRPZU1iQ0xtSU85?=
+ =?gb2312?B?dXN1QVloTVVBQ1Njamh4SDlKVDZLeVFKNHo1TmI5VUEzU0UxTERSZFVtenpm?=
+ =?gb2312?B?eTVyTkxLUlZwS1laOC9kZU5iNG9JN2VZUE1wSmdFZ1pFQk5UUlJKS0xHaTlp?=
+ =?gb2312?B?TTQ4a3RFRWpqcWxUU0t5MVh1Uk1BRmxrbml3ZUpNVVlHTFF6T0VvTUo1RUNC?=
+ =?gb2312?B?ZE5ibWxZaXZGQUJGR2NucjYzM1RleE5xaHo5d2JlWVpuc2hrb0o0Mm5YU0hV?=
+ =?gb2312?B?MVBpWmtrTnZMRmNab245TmRJdUY5alEwSnRlQnM5elRLUkRMYVY3RXVvQmtT?=
+ =?gb2312?B?cUtSMlJTSlhIaTdHNXNlNmhYVVROcFdiQjhCd3p0KzhKMGVBZDFGVWFodVZI?=
+ =?gb2312?B?QWQyWTYxVHRWL3c0cVBvNUNadHpjOGFXL0RESGt6RjV4SjMzblh1U0RFb215?=
+ =?gb2312?B?T1YxaTMwMEpwRUhvMkZaMXBNMytpYnFDdTB5S0xYS1hhaUpmMzJqczlXSHZo?=
+ =?gb2312?B?TGNaRWlXOEdFZ3J6YnZtbGZjYTQrQkZNc0FheFFMM1YzR0ZLMkZZZ2pQN3ZJ?=
+ =?gb2312?B?dGFpZzMxV0NjZThOc2I0eUZSeEpZUjAwTVVyUHpreWthQUZucXpJc2pNOWFW?=
+ =?gb2312?B?SDh5MUc5U2NjUWZ4L0VzWlVoemh3R1Q0SWRORTZxNG4wUVRHM1M1MXRKenA3?=
+ =?gb2312?B?cjY4UDZhRHphalU1eVFxemtnZXBhTTA3T3hmbkc3QjdMQldiSDNRZWhkZHpM?=
+ =?gb2312?B?NFV2TkhQMHk2NXVZMXhUWk4yVG8xTnZWRzlCR2syOFNzVGMxMjhPV241Q0xT?=
+ =?gb2312?B?QUY4MTdWQXpBVU94bnBqeGpreEJBUnE4R3FEZm5GSG8wc0tNTzdqbkx2TGVL?=
+ =?gb2312?B?V2NsQytaYVlqUXlpTGtkbisyY3lzSm1SSE5oQ2drWTBCT2xLdy9CL3h6WGZt?=
+ =?gb2312?B?SEZTZk5la2ZPak5YUjdvMnowcjhmbS8xb0k2cEM3cFZKS1YxRHF2RzRFbGQ5?=
+ =?gb2312?B?L2wyVHRjNjB2T1VLRWJxNVIvZzlDUkZqSDBBK25xWUp3UWlOVHBOOXV1K1h1?=
+ =?gb2312?Q?10Y1lagF8+n9dYc3yxSgwHmWQ?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA2PR04MB10506:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b8be844-503b-49bc-6b40-08dcfe2976cf
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Nj7mKANf0/KR2QjzXzGgC9+pP7eVXSQ2aHZnQ2Ts2ApbTI46KRcs0AQOKUJT?=
- =?us-ascii?Q?MLpcE+hL1yTtcwfKh1nkAImFtw1RmHbjtbIuvnwKcjG6G5hT+kkNgHS0JbaP?=
- =?us-ascii?Q?UOP+Q/t6nMHgNEwxMADkIspgVNmn/7TeNj88VL9oiIVw5bXmMP0lW1somCl3?=
- =?us-ascii?Q?37U6C/oY7U1T+urD/ksajX4lAg1sqYyto6eczw93uVzr5HQ0VYDjRQLb5Tt+?=
- =?us-ascii?Q?PThoW7JLiJmTGet0yEgnqVZXc2qg6HO68J04b8Nt8JpzV8Sr05O8xzbSiV/i?=
- =?us-ascii?Q?75zJt/XlxesHNeVm3qVDcVD4jkthUpNvFLWP2YsSyqFh9hEmqoy6m5NxJ6tM?=
- =?us-ascii?Q?+liluFf/I9fgqGCSA1CvYLDF5ptCGs2JFRBmDeHuS5rm7JdPCeD1maE0JLE+?=
- =?us-ascii?Q?hunE1KDVPOseMb7kzHFSHsXhxchkwJGY7sySQe7cNG4tj7ut6nqBe1hgd3nR?=
- =?us-ascii?Q?DRUW0wZFWoLUIENs2w707WQUh9m9rFIP4IkO6q0z1nPnyjREazbzkuyV50cw?=
- =?us-ascii?Q?IpX9SeJsXHg/8nXEOY89RMgVK21gBc9fNB5WUzLEczckDRa/lelDYDpuDvjg?=
- =?us-ascii?Q?gQ60ejywJIFB/g9rzpGegKrGO/tKNU58V5iTZ6Kg69i5ZFc8QiUD7Ky9S+bq?=
- =?us-ascii?Q?TZwoAQYNUNr/6M6bt+3ZHOdJovMLzUEI01C4BS3oXonbha4YhlnuhEQPKoV6?=
- =?us-ascii?Q?mUxzdoDq87OfBPBPCfOyyc2cB2zPt/WJJhoixP9KN8ldBBlVz0zG7ulLqd1L?=
- =?us-ascii?Q?N/QCUQcP6B00qFpI31lEULG7GRL7MI4CFIrBMv/IQxcE74u9yrj8LeC4Y6P0?=
- =?us-ascii?Q?Zo1SzOa/60S9QpnhQOuk2XFj5MiCviZ6JIgW3L46yG39e9EY6iqRHoKrbu9N?=
- =?us-ascii?Q?xjFuMtIpivTniwU1wpdI5hKnng2ykZmtCHlwboL+uBhVn8jPkOoVpRRItSvV?=
- =?us-ascii?Q?A9mE3le1sK33EgmLisdXUTC3sKsQJojR29VLOeWBdYiMRt85jjCm5f6CYxq8?=
- =?us-ascii?Q?1DoYxe8pNqEln6RcqkhyDDLxi2cvATxpJl0hjDjWZhplsR3aWCMlZmQnzB0z?=
- =?us-ascii?Q?vPQ235i5HQiejIMafwS2qr6u5NbObKcU8vNVkm/P4dLrT1FgsKl2BY5Qi2Vx?=
- =?us-ascii?Q?6x35Hux1v90IFmiuaHXpnYBmeyF6tdFsFakOC3uPn8aLW3oVAtRpxlSYUBV9?=
- =?us-ascii?Q?R4Uit5f30nYGT+i1LPJkZs+tXqq4V/9WzHYNyPMANTOYK65uXwvCvaV1wUpI?=
- =?us-ascii?Q?+PLABim1+bycQgL8Y5x8fWgORRrRrYxqXClBau0Tyj+/HVVn+AKqImjMI9/f?=
- =?us-ascii?Q?ziueN4xShQ3dAOCnZb+T9JSyOljbDQsY8Rk52Vqisi0kVhmWt7986egjgrGN?=
- =?us-ascii?Q?Z6wSlIM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?o+Y3NiHgveFHzmiz1jIMOHCgqSK//jt3i9HymrnQ/Jk3rGz8ypFjc3J6h15A?=
- =?us-ascii?Q?AWDlb4XqDXN1YJardz9TZXCkueQ0NSVTRB02lXlLqTYVgFNW31P5i36G2U1T?=
- =?us-ascii?Q?i2zH2NnwiFfT5mw7trDfYuTP307y+VcCP6XE2hNLT7tblpCoqoGxKpv0K4JL?=
- =?us-ascii?Q?NFt2zck7E3HPgVip5E+hGM6DRVtPEFwWggX9z8JI7c0XQKrhVAS0jZ5mYSDo?=
- =?us-ascii?Q?j96dnMkJRyVO7VfTIl544fRZhQ8JxpS6w6eB+KIL+iTQn891HGb9rVR+XvXF?=
- =?us-ascii?Q?+8n3iORS50SVs4bSLwHXP26m2vwj2YnEt5SnDzBqIPHjaVMLr0hGPuGo31LM?=
- =?us-ascii?Q?ucDe3IghmMYgYV/8LJvcN6HJvNTv8yrWhFtosee9i776gqENzOPPMCttf5sx?=
- =?us-ascii?Q?RFydbL6RgiodkS753uz4eG+c1nfWBZDDwf7YxrirYwEFM/qDQxnQJo0zdD8f?=
- =?us-ascii?Q?jMtHRkOPtGZSTwE85qQMGLdpB+7EM30SDa8tKsld4/jEPcCwCHDgTFB90IFv?=
- =?us-ascii?Q?UiJEyxsrei6oEtSmJVHncY7IfwJUhTBK66V68O3obVBXqQp0R2mnttjGNCdW?=
- =?us-ascii?Q?LVyAl2EpBvqVT7cLU3ZjCfJTlMTjGR2ewlsP8hU7dJcwU1ZeY6PW4NC2jL9j?=
- =?us-ascii?Q?MVaS3YmnK8cYcqrUwp1Ws0aspuXw0Ua2qfRqK8oqHtce7d0lZs0ASLwalBrD?=
- =?us-ascii?Q?FkGzLKTajkwpDX4UiWPM2PwXD7bO1Ju3+h+pD6dQYjCkSD7vWb15MZcqDljT?=
- =?us-ascii?Q?DdWbajeqiRFV6E2osWR6mSpdr7FI/GjK65yQGwltWsPy9mJ4eh9msOWIgWSR?=
- =?us-ascii?Q?ceUy0sMW6XjLZiISDxi77rD8m/nA1APlNmZPwdimheRppro/TTP6kzs//aUm?=
- =?us-ascii?Q?aPp93E6wUEdWxMBfHw/fjzQIgaWzApHsYhERgpeSUkPB3H9ATm193lK9Ebwp?=
- =?us-ascii?Q?zIEl9yPKB6+BvCNF4JcQ4jOQBsWmJlD5qNf4ktfseUVVkTscA7vf7WuecTA/?=
- =?us-ascii?Q?6MK7dI81W7vAgjTZb4RY4A/RfIZ6vXaBglTg7ocMmrall4kDZDmYyWrnOIPj?=
- =?us-ascii?Q?TGz9UiKWPT4u6xDcBl64TZPjsyRTExPB4mh/YHmeMKnJczgCK9sIgMW4Hypi?=
- =?us-ascii?Q?Ng7GiGT+EPYVchFB/ulcL+A6gf0nVDc+n48TxlrsZiPJqw6Hm9rzk1u8JT6r?=
- =?us-ascii?Q?9Fh4D6GJe/VPpVQRljDL8E8uF5p/2nOmJ9XwSA3eHUlTJ5XagTn2CZO/g18P?=
- =?us-ascii?Q?tMRPgtc9NU2TttqjyHRRhc0oHCBPeEu9Ff4iVisTdCGQQSoYnrqJtHTnb57G?=
- =?us-ascii?Q?WPzrJQ2esOBsBHE62oMNLzcs3MrWBIUqBPeShRAlogzw+W3Rfd7aLFQiyU7T?=
- =?us-ascii?Q?Aj4N4RUctqmUD3lQvch2IhWKfncEa+9X2j8VVRaEIxNBYS+xk9gFf7qfbzc2?=
- =?us-ascii?Q?qSSh0MYtdmw59InTsfUWk/HV59tdQ/p/3fyH6eKQ72iUwOcRy5DP43k8SuNd?=
- =?us-ascii?Q?p49vZG2nf3NUI79r+sWAUaZUEmeermkf/AZrTNgeUcJ9W4leoEJ6GBWsnASg?=
- =?us-ascii?Q?FZl0taiMvbGnLyD/qJbkD37qnfGDyHg9hUyspmWY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b8be844-503b-49bc-6b40-08dcfe2976cf
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2024 06:08:42.1963
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8c40f459-1ce2-484d-9250-08dcfe2ad23e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2024 06:18:24.8759
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IQC8GSM8d+UlOgJn0P2/BPIAerAP3I4XrXX2AVcduszmAl6MQnF6iuW5TlGlTYbXOaSHb1dSboPUev4MpaTGsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10506
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2rul6mT5A6LCZQ8IsBFJKpMI9wWaK5upY4yhovBG3QroIobQEtY7ScgDBeB6I0R1sB4bb1/kTzKtCRYHjVHtFA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10384
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_220846_155893_EDA68F92 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20241105_221832_462117_FF824D39 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,272 +180,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@nxp.com>
-
-Add some ctrls to support the video encoder region-of-interest(ROI)
-feature. The ROI QP Map and rectangular configuration are supported.
-
-Signed-off-by: Ming Qian <ming.qian@nxp.com>
-Signed-off-by: TaoJiang <tao.jiang_2@nxp.com>
----
- .../media/v4l/ext-ctrls-codec.rst             | 136 ++++++++++++++++++
- drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  46 ++++++
- include/uapi/linux/v4l2-controls.h            |  16 +++
- 3 files changed, 198 insertions(+)
-
-diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
-index 4a379bd9e3fb..be0ce3e2f081 100644
---- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
-+++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec.rst
-@@ -1667,6 +1667,142 @@ enum v4l2_mpeg_video_h264_hierarchical_coding_type -
-     Codecs need to always use the specified range, rather then a HW custom range.
-     Applicable to encoders
- 
-+``V4L2_CID_MPEG_VIDEO_ROI_MODE``
-+    (enum)
-+
-+enum v4l2_mpeg_video_roi_mode -
-+    Indicates Video Encoding region-of-interest (ROI) Mode, enable different
-+    encoding strategies based on selected areas within a frame. Choosing a
-+    specific mode activates corresponding control or combinations of controls
-+    to configure the ROI, e.g. for rectangle delta QP mode, you need to provide
-+    V4L2_CID_MPEG_VIDEO_ROI_RECT and V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP.
-+    Applicable to encoders.
-+
-+    Possible values are:
-+
-+
-+.. flat-table::
-+    :header-rows:  0
-+    :stub-columns: 0
-+
-+    * - ``V4L2_MPEG_VIDEO_ROI_MODE_NONE``
-+      - No ROI in the MPEG stream. Default mode.
-+    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``
-+      - Rectangle ROI mode and specifies ROI delta QP.
-+        When enabled, define one or more rectangular ROI areas
-+        where QP delta is applied. The control
-+        V4L2_CID_MPEG_VIDEO_ROI_RECT is used to set ROI areas
-+        and V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP is used to
-+        set QP delta value.
-+    * - ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``
-+      - Rectangle ROI mode and specifies ROI priority.
-+        When enabled, define one or more rectangular ROI areas
-+        where priority is applied. The control
-+        V4L2_CID_MPEG_VIDEO_ROI_RECT is used to set ROI areas
-+        and V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY is used to
-+        set priority.
-+    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP``
-+      - Map ROI mode and specifies ROI delta QP.
-+        When enabled, the whole frame is configured into a grid map
-+        according to the ROI block region size in raster scan order,
-+        and each region can have a QP delta applied.
-+        The control V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP
-+        is used to configure the ROI Map with QP delta values.
-+    * - ``V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP``
-+      - Map ROI mode and specifies ROI absolute QP value.
-+        When enabled, configure a grid ROI map where each region
-+        has an absolute QP value assigned. The control
-+        V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP is used to
-+        configure the ROI Map with absolute QP values.
-+
-+``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE (struct)``
-+    This read-only control returns the ROI block size in pixels. The struct
-+    :c:type:`v4l2_area` provides the width and height in separate
-+    fields. The resolution of the frame will be rounded up to be
-+    aligned to this value when it's partitioned in blocks for QP
-+    maps and the number of QP values in those maps will be the
-+    number of blocks of these indicated pixel size that comprise
-+    a full frame. This control depends on the encoding format,
-+    and the detailed encoder hardware.
-+    Applicable to encoders.
-+
-+``V4L2_CID_MPEG_VIDEO_ROI_RECT (struct)``
-+    A struct :c:type:`v4l2_rect` provides the rectangular region
-+    described by the position of its top-left corner, the width
-+    and the height. The unit is in pixels. And it should be aligned
-+    to the ROI block size, which can be queried from
-+    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. If it is not aligned to
-+    the ROI block size, then X,Y gets rounded down, and width/height up.
-+    If the rectangle is outside the frame, then it will be ignored.
-+    The maximum number of rectangular regions depends on the hardware.
-+    This control is a dynamically sized array.
-+    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
-+    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP`` or
-+    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``. For overlapping
-+    regions, the value that is first in the ROI array will have priority.
-+    Applicable to encoders.
-+
-+``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP (integer)``
-+    Specifies the ROI delta QP of a rectangular region. The delta QP
-+    is the value that will be added on top of the frame level QP.
-+    It can be positive (more distortion) or negative (less distortion)
-+    values. This control is applicable when
-+    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
-+    ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP``, and must be used
-+    in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
-+    This control is a dynamically sized array, and the array size
-+    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``. If the array sizes
-+    do not match, then use the smallest size for both controls and
-+    ignore the remaining elements in the larger array.
-+    Applicable to encoders.
-+
-+``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY (integer)``
-+    Specifies the ROI priority of a rectangular region. it can
-+    be positive (more important) or negative (less important)
-+    values and is compared with non-ROI region (taken as value 0).
-+    This control is applicable when ``V4L2_CID_MPEG_VIDEO_ROI_MODE``
-+    value is ``V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY``, and must
-+    be used in combination with ``V4L2_CID_MPEG_VIDEO_ROI_RECT``.
-+    This control is a dynamically sized array, and the array size
-+    should match ``V4L2_CID_MPEG_VIDEO_ROI_RECT``. If the array sizes
-+    do not match, then use the smallest size for both controls and
-+    ignore the remaining elements in the larger array.
-+    Applicable to encoders.
-+
-+``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP (integer)``
-+    Configure a frame-wide grid map that divides the entire
-+    frame into blocks of the ROI block size, where each
-+    region will have a QP delta applied. The ROI map is
-+    arranged in raster scan order, and it's configured
-+    as an integer array. The block size can be got from
-+    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
-+    dynamically sized array, the array size can be calculated
-+    from video resolution and the ROI block size, and the
-+    width and height should be rounded up to be aligned to
-+    the block size. This control is applicable when
-+    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
-+    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP``.
-+    If the array size is mismatch with the frame resolution,
-+    the encoder should ignore the control completely.
-+    Applicable to encoders.
-+
-+``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP (integer)``
-+    Configure a frame-wide grid map that divides the entire
-+    frame into blocks of the ROI block size, where each
-+    region will have an absolute QP applied. The ROI map is
-+    arranged in raster scan order, and it's configured
-+    as an integer array. The block size can be got from
-+    ``V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE``. This control is a
-+    dynamically sized array, the array size can be calculated
-+    from video resolution and the ROI block size, and the
-+    width and height should be rounded up to be aligned to
-+    the block size. This control is applicable when
-+    ``V4L2_CID_MPEG_VIDEO_ROI_MODE`` value is
-+    ``V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP``.
-+    If the array size is mismatch with the frame resolution,
-+    the encoder should ignore the control completely.
-+    Applicable to encoders.
-+
- .. raw:: latex
- 
-     \normalsize
-diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-index 1ea52011247a..4d89309bf8d0 100644
---- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-+++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-@@ -612,6 +612,15 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
- 		NULL,
- 	};
- 
-+	static const char * const mpeg_video_roi_mode[] = {
-+		"None",
-+		"Rectangle Delta QP",
-+		"Rectangle Priority",
-+		"Map Delta QP",
-+		"Map Absolute QP",
-+		NULL,
-+	};
-+
- 	switch (id) {
- 	case V4L2_CID_MPEG_AUDIO_SAMPLING_FREQ:
- 		return mpeg_audio_sampling_freq;
-@@ -750,6 +759,8 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
- 		return camera_orientation;
- 	case V4L2_CID_MPEG_VIDEO_INTRA_REFRESH_PERIOD_TYPE:
- 		return intra_refresh_period_type;
-+	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
-+		return mpeg_video_roi_mode;
- 	default:
- 		return NULL;
- 	}
-@@ -971,6 +982,13 @@ const char *v4l2_ctrl_get_name(u32 id)
- 	case V4L2_CID_MPEG_VIDEO_FRAME_LTR_INDEX:		return "Frame LTR Index";
- 	case V4L2_CID_MPEG_VIDEO_USE_LTR_FRAMES:		return "Use LTR Frames";
- 	case V4L2_CID_MPEG_VIDEO_AVERAGE_QP:			return "Average QP Value";
-+	case V4L2_CID_MPEG_VIDEO_ROI_MODE:		return "Video ROI Mode";
-+	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:	return "Video ROI Block Size";
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT:		return "Video ROI Rectangle Region";
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:	return "Video ROI Rectangle Delta QP";
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:	return "Video ROI Rectangle Priority";
-+	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:	return "Video ROI Delta QP Map";
-+	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:	return "Video ROI Absolute QP Map";
- 	case V4L2_CID_FWHT_I_FRAME_QP:				return "FWHT I-Frame QP Value";
- 	case V4L2_CID_FWHT_P_FRAME_QP:				return "FWHT P-Frame QP Value";
- 
-@@ -1512,6 +1530,34 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
- 		*type = V4L2_CTRL_TYPE_INTEGER;
- 		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
- 		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_MODE:
-+		*type = V4L2_CTRL_TYPE_MENU;
-+		*flags |= V4L2_CTRL_FLAG_UPDATE;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE:
-+		*type = V4L2_CTRL_TYPE_AREA;
-+		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT:
-+		*type = V4L2_CTRL_TYPE_RECT;
-+		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP:
-+		*type = V4L2_CTRL_TYPE_INTEGER;
-+		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY:
-+		*type = V4L2_CTRL_TYPE_INTEGER;
-+		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP:
-+		*type = V4L2_CTRL_TYPE_INTEGER;
-+		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
-+		break;
-+	case V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP:
-+		*type = V4L2_CTRL_TYPE_INTEGER;
-+		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY | V4L2_CTRL_FLAG_HAS_WHICH_MIN_MAX;
-+		break;
- 	case V4L2_CID_PIXEL_RATE:
- 		*type = V4L2_CTRL_TYPE_INTEGER64;
- 		*flags |= V4L2_CTRL_FLAG_READ_ONLY;
-diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-index 974fd254e573..bf67d53af737 100644
---- a/include/uapi/linux/v4l2-controls.h
-+++ b/include/uapi/linux/v4l2-controls.h
-@@ -900,6 +900,22 @@ enum v4l2_mpeg_video_av1_level {
- 
- #define V4L2_CID_MPEG_VIDEO_AVERAGE_QP  (V4L2_CID_CODEC_BASE + 657)
- 
-+enum v4l2_mpeg_video_roi_mode {
-+	V4L2_MPEG_VIDEO_ROI_MODE_NONE,
-+	V4L2_MPEG_VIDEO_ROI_MODE_RECT_DELTA_QP,
-+	V4L2_MPEG_VIDEO_ROI_MODE_RECT_PRIORITY,
-+	V4L2_MPEG_VIDEO_ROI_MODE_MAP_DELTA_QP,
-+	V4L2_MPEG_VIDEO_ROI_MODE_MAP_ABSOLUTE_QP
-+};
-+
-+#define V4L2_CID_MPEG_VIDEO_ROI_MODE			(V4L2_CID_CODEC_BASE + 658)
-+#define V4L2_CID_MPEG_VIDEO_ROI_BLOCK_SIZE		(V4L2_CID_CODEC_BASE + 659)
-+#define V4L2_CID_MPEG_VIDEO_ROI_RECT			(V4L2_CID_CODEC_BASE + 660)
-+#define V4L2_CID_MPEG_VIDEO_ROI_RECT_DELTA_QP		(V4L2_CID_CODEC_BASE + 661)
-+#define V4L2_CID_MPEG_VIDEO_ROI_RECT_PRIORITY		(V4L2_CID_CODEC_BASE + 662)
-+#define V4L2_CID_MPEG_VIDEO_ROI_MAP_DELTA_QP		(V4L2_CID_CODEC_BASE + 663)
-+#define V4L2_CID_MPEG_VIDEO_ROI_MAP_ABSOLUTE_QP		(V4L2_CID_CODEC_BASE + 664)
-+
- /*  MPEG-class control IDs specific to the CX2341x driver as defined by V4L2 */
- #define V4L2_CID_CODEC_CX2341X_BASE				(V4L2_CTRL_CLASS_CODEC | 0x1000)
- #define V4L2_CID_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE		(V4L2_CID_CODEC_CX2341X_BASE+0)
--- 
-2.43.0-rc1
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBLcnp5c3p0b2YgV2lsY3p5qL1z
+a2kgPGt3aWxjenluc2tpQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IDIwMjTE6jEx1MI0yNUgNDo1Nw0K
+PiBUbzogSG9uZ3hpbmcgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gQ2M6IGJoZWxnYWFz
+QGdvb2dsZS5jb207IGxvcmVuem8ucGllcmFsaXNpQGFybS5jb207IEZyYW5rIExpDQo+IDxmcmFu
+ay5saUBueHAuY29tPjsgbWFuaUBrZXJuZWwub3JnOyBsaW51eC1wY2lAdmdlci5rZXJuZWwub3Jn
+Ow0KPiBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWtlcm5lbEB2
+Z2VyLmtlcm5lbC5vcmc7DQo+IGtlcm5lbEBwZW5ndXRyb25peC5kZTsgaW14QGxpc3RzLmxpbnV4
+LmRldg0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHYyXSBQQ0k6IGR3YzogRml4IHJlc3VtZSBmYWls
+dXJlIGlmIG5vIEVQIGlzIGNvbm5lY3RlZCBhdA0KPiBzb21lIHBsYXRmb3Jtcw0KPg0KPiBIZWxs
+bywNCj4NCj4gPiBUaGUgZHdfcGNpZV9zdXNwZW5kX25vaXJxKCkgZnVuY3Rpb24gY3VycmVudGx5
+IHJldHVybnMgc3VjY2Vzcw0KPiA+IGRpcmVjdGx5IGlmIG5vIGVuZHBvaW50IChFUCkgZGV2aWNl
+IGlzIGNvbm5lY3RlZC4gSG93ZXZlciwgb24gc29tZQ0KPiA+IHBsYXRmb3JtcywgcG93ZXIgbG9z
+cyBvY2N1cnMgZHVyaW5nIHN1c3BlbmQsIGNhdXNpbmcgZHdfcmVzdW1lKCkgdG8gZG8NCj4gbm90
+aGluZyBpbiB0aGlzIGNhc2UuDQo+ID4gVGhpcyByZXN1bHRzIGluIGEgc3lzdGVtIGhhbHQgYmVj
+YXVzZSB0aGUgRFdDIGNvbnRyb2xsZXIgaXMgbm90DQo+ID4gaW5pdGlhbGl6ZWQgYWZ0ZXIgcG93
+ZXItb24gZHVyaW5nIHJlc3VtZS4NCj4gPg0KPiA+IENoYW5nZSBjYWxsIHRvIGRlaW5pdCgpIGlu
+IHN1c3BlbmQgYW5kIGluaXQoKSBhdCByZXN1bWUgcmVnYXJkbGVzcyBvZg0KPiA+IHdoZXRoZXIg
+dGhlcmUgYXJlIEVQIGRldmljZSBjb25uZWN0aW9ucyBvciBub3QuIEl0IGlzIG5vdCBoYXJtZnVs
+IHRvDQo+ID4gcGVyZm9ybSBkZWluaXQoKSBhbmQgaW5pdCgpIGFnYWluIGZvciB0aGUgbm8gcG93
+ZXItb2ZmIGNhc2UsIGFuZCBpdA0KPiA+IGtlZXBzIHRoZSBjb2RlIHNpbXBsZSBhbmQgY29uc2lz
+dGVudCBpbiBsb2dpYy4NCj4NCj4gQXBwbGllZCB0byBjb250cm9sbGVyL2R3YywgdGhhbmsgeW91
+IQ0KPg0KPiBbMDEvMDFdIFBDSTogZHdjOiBGaXggcmVzdW1lIGZhaWx1cmUgaWYgbm8gRVAgaXMg
+Y29ubmVjdGVkIGF0IHNvbWUgcGxhdGZvcm1zDQoNCkhpIEtyenlzenRvZjoNClRoYW5rcyBmb3Ig
+eW91ciBwaWNrIHVwLg0KSSBjb21iaW5lIHRoaXMgZHdjIGJ1ZyBmaXggd2l0aCB0aGUgb3RoZXIg
+b25lLg0KQ2FuIHlvdSBoZWxwIHRvIHJlcGxhY2UgdGhpcyBjb21taXQgYnkgdGhlIGZvbGxvd2lu
+ZyBzZXJpZXM/DQpodHRwczovL2xrbWwub3JnL2xrbWwvMjAyNC8xMC8xMC8yNDANCg0KQmVzdCBS
+ZWdhcmRzDQpSaWNoYXJkIFpodQ0KDQo+DQo+IGh0dHBzOi8vZ2l0Lmtlci8NCj4gbmVsLm9yZyUy
+RnBjaSUyRnBjaSUyRmMlMkZlYzAwOGM0OTNjMjUmZGF0YT0wNSU3QzAyJTdDaG9uZ3hpbmcueg0K
+PiBodSU0MG54cC5jb20lN0M5OTYxMmMyNjRlNzA0ZGVlZjNmNTA4ZGNmYzRhMTIwNSU3QzY4NmVh
+MWQzYmMyYg0KPiA0YzZmYTkyY2Q5OWM1YzMwMTYzNSU3QzAlN0MwJTdDNjM4NjYyNjQyMjY3NDE5
+NTMxJTdDVW5rbm93bg0KPiAlN0NUV0ZwYkdac2IzZDhleUpXSWpvaU1DNHdMakF3TURBaUxDSlFJ
+am9pVjJsdU16SWlMQ0pCVGlJNklrMWhhDQo+IFd3aUxDSlhWQ0k2TW4wJTNEJTdDMCU3QyU3QyU3
+QyZzZGF0YT1ybElqVjJnWldubnJ1VVI4RHluVHF5VQ0KPiB2bk8lMkIlMkJ4dnp4aUNEdyUyRm5l
+b1FNdyUzRCZyZXNlcnZlZD0wDQo+DQo+ICAgICAgIEtyenlzenRvZg0K
 
