@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74E4D3E798
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB71D3E78C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsLQRHH9qcfVm0KFq9nbu7CAMOKMnDfpEsC1vjJ0/qg=; b=N9vqfJ8DzRJsxIl3i4+hin329P
-	N+FqzSXR6W+LgAtY7a4PmPPLgkuDKCeFtDS1jKeib112vqlQ650MQUB27E0H8vRFKBzMsw7cl2+yg
-	6s6uwNIj7aPTFXA5CgyRLEr0wIOXyMB+mEfRZ6owq4J8ry05/YqRtkDRMKGS8s1T2G2C0j1kfrvPd
-	ETLBwoGGXXLQBLvLgCbFvvw4FpzAI83C9pL4PhSiBJvpN8xRUtUESWt0l4z6Ar9ziO6NgYpGjX6+w
-	elOMu+f4pAgXZ3VkRfiAI/EoypKhMANifCa1Sas/0EDBVv6o8nf79iCWHwzpevATovdHR2cAi9pBH
-	zJhvitaQ==;
+	bh=+tS5coFjCL1GpMVLn+Jt4VDJfqi7WRWtEsSocGUBw08=; b=27QVcrDlc5LHSLbruvf4EI2dGz
+	aCmbasfYN5Ugd4QNPSupWNPJ1dQrwwUZUDpzOhy45j4Y/JTusZyXyRIeKl+HPQ+ox/TQmd2agac+A
+	tmTSuzWOuGFIbvBSltrV+Ck3Js3b8pbqPGbOzV8yj2YhGAMMuu7Z52SJnNLGtkLDaZtGySydgZYfk
+	5+S2Aba4BBPlZUV7D6MHLmtyS8745rxzhEZ5dmrbt/dU9lHJSUM5XoqhEeOIuRDkJHpDMEEG+xseP
+	9a0jQZh0fjd1DoaS+1rtqkrP7UpoFWjLJIKiEUxtGARdHQBFzFWPfCSgOPnfdBh0ihnfeUVmcZ82O
+	7AzP7QHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cEK-00000002V0M-04k5;
-	Wed, 06 Nov 2024 09:21:36 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1t8cGA-00000002VrK-3N1V;
+	Wed, 06 Nov 2024 09:23:30 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bx0-00000002OTe-1v8e
+	id 1t8bx1-00000002OTw-2GTn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:03:43 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1AC37C000E;
+	Wed, 06 Nov 2024 09:03:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 06823C0011;
 	Wed,  6 Nov 2024 09:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1730883820;
+	t=1730883821;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bsLQRHH9qcfVm0KFq9nbu7CAMOKMnDfpEsC1vjJ0/qg=;
-	b=XUpUb+JT6rjH1kpItlNyHplkrG9yd0WFPn/4A272FO38lRygb+7vRZeZF87FVMA1+KVHuP
-	9d7x0xGXW4XOMxQBvhpZEoYOLcUYrK8V3DXejJil2BlVTG3Z5VU5gMGmFbRv66lyBTWUW4
-	RjN7z5G02uX7prPHiOjVQNrTw98Se6eDYNCjBOzxQi93xpFREQaJyzXNqm7F1bfjZCdW5X
-	nUx2gaw4YiQXqwJBPJprBfY4wr1XaR68ftcIqs+IREamQgBcviKsDuGYcihuvzxYt8jSLq
-	oH/tr8EnhdN0x00dELjl7FqKL8TYKw7CY5CVs5FNtHRDbkV6S0ewPEE2jM+iGg==
+	bh=+tS5coFjCL1GpMVLn+Jt4VDJfqi7WRWtEsSocGUBw08=;
+	b=QSZdGVv3ycCS5kk4vrRroi+FE3i7NJdyKHC9j0KU6LTlVP+FToYYrp6RlSu4WylUgNfVqN
+	sNwVLKIPIZ2E6wIFjZUKv/zKjRY3MdR4SYvFlK1MB4pwPWcnkgg2q5NvxRuj/Ih6tRpvnV
+	JSyQFFjdckBWVY1F496Gh278MnqbIhxweZ+m48A4W/yvvzhwyQ/gN5+9L+FxWZroWSsrpL
+	vIL+28Ve0Amya4LMns9oMXdq4oBO04NDVit+lqtjbXJKTxU9LMOH6rkPTG7c6upxBHl2FP
+	ResMKZzz1cL4lAmvXPeIQFMON2mopaJjqA2irerfsB0mgnx5QspMgrdMbzil1w==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -58,9 +58,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v3 6/9] net: stmmac: Enable timestamping interrupt on dwmac1000
-Date: Wed,  6 Nov 2024 10:03:27 +0100
-Message-ID: <20241106090331.56519-7-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 7/9] net: stmmac: Don't include dwmac4 definitions in stmmac_ptp
+Date: Wed,  6 Nov 2024 10:03:28 +0100
+Message-ID: <20241106090331.56519-8-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
 References: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
@@ -68,8 +68,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_010342_688201_E022B471 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20241106_010343_746690_0ABDA220 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default configuration for the interrupts on dwmac1000 have the
-timestamping interrupt masked. Now that the timestamping has been
-adapted to dwmac1000, enable the timestamping interrupt on these
-platforms.
-
-On dwmac1000, the external snapshot interrupt is configured through a
-dedicated bit, that is set as reserved on other dwmac variants. The
-timestaming interrupt is acknowledged by reading the
-GMAC3_X_TIMESTAMP_STATUS register.
-
-Make sure that this interrupt is enabled when snapshot is enabled, and
-masked when disabled.
+The stmmac_ptp code doesn't need the dwmac4 register definitions, remove
+the inclusion.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac1000_core.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-index dbbd834f9fc8..37374f5a15c4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
-@@ -595,6 +595,20 @@ void dwmac1000_timestamp_interrupt(struct stmmac_priv *priv)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 430905f591b2..429b2d357813 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -9,7 +9,6 @@
+ *******************************************************************************/
+ #include "stmmac.h"
+ #include "stmmac_ptp.h"
+-#include "dwmac4.h"
  
- /* DWMAC 1000 ptp_clock_info ops */
- 
-+static void dwmac1000_timestamp_interrupt_cfg(struct stmmac_priv *priv, bool en)
-+{
-+	void __iomem *ioaddr = priv->ioaddr;
-+
-+	u32 intr_mask = readl(ioaddr + GMAC_INT_MASK);
-+
-+	if (en)
-+		intr_mask &= ~GMAC_INT_DISABLE_TIMESTAMP;
-+	else
-+		intr_mask |= GMAC_INT_DISABLE_TIMESTAMP;
-+
-+	writel(intr_mask, ioaddr + GMAC_INT_MASK);
-+}
-+
- int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
- 			 struct ptp_clock_request *rq, int on)
- {
-@@ -628,6 +642,8 @@ int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
- 		ret = readl_poll_timeout(ptpaddr + PTP_TCR, tcr_val,
- 					 !(tcr_val & GMAC_PTP_TCR_ATSFC),
- 					 10, 10000);
-+
-+		dwmac1000_timestamp_interrupt_cfg(priv, on);
- 		break;
- 
- 	default:
+ /**
+  * stmmac_adjust_freq
 -- 
 2.47.0
 
