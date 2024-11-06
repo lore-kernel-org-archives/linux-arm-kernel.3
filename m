@@ -4,73 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32C2D44D54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68777D44D57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYHJp3lV0KtpKPkeolpZ0pHqVkP/s8uSZ/khZ42PQ5g=; b=EO+gtd3ajl+MQw9aSI2I2C8s2g
-	i2gIMMpOspmIBM0nI2VkX9ONCkr2dDKYetqLaLtFoC6IFPugsahYMrmPvKeTTMAhHWQSqi23+pTez
-	BfFMMrmWuVe40pTDHWCpXXeFsEvlWoUYfQT0RhvNA/kwvI56uwHwRARBjGzaImWtj0eFzmQwajQjb
-	jA7awA8l4voW65ak6xtbOR0q7ZDuj7DAenzi6Y4FhiJ8Rtrq5VEzNemI50GSaZdZnJSWiY+F0cBzH
-	RQVgCvuBnxyoNneHUS0b57SJbhzqY4cuk7OKhvG+p0Q7CAZ5oX1OOEQZ8n1gdL93V7VJf5QU5O+0Y
-	YpvmI7Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5+8CEF8PGrkpuoZv09AoSuECiDMudOpJZwqH9DLQBI=; b=dPYm17MyEzN8Pr4mWYUT+ssnYP
+	jxaZ1xT7A//LQ95BKQV3jDJpL+N3I/Y40U1sASIu9gJthe/CfFeh5275rwQqJxSdiTg/3MI7SmQ98
+	WGDh6jt63STwsSXRzt/lBKB90y0aCd7c05xIj2F60dXXdfJmB6H6ff8PvL2i6KVX4S+Y4jmFou1EI
+	5EtEO3QwFCBcQvuEElNxNFn4D8WFCEKlUa9NbgJUliEMz5MI8D5osGAKFQSCia6JuGY1FOXLY/Fmm
+	MimyewjibvIhV/qtPFg+6wFz3lcwZ0VA0T2H4fLQ+jmkDHtvEwWyS4UYvxzdEVqRPIsf4vZ7VCfY9
+	vbMISJxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eqF-000000037El-3NlH;
-	Wed, 06 Nov 2024 12:08:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8ery-000000037fb-1c75;
+	Wed, 06 Nov 2024 12:10:43 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dv2-00000002sb2-0ijv;
-	Wed, 06 Nov 2024 11:09:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 295FAA435E6;
-	Wed,  6 Nov 2024 11:07:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AC2C4CECD;
-	Wed,  6 Nov 2024 11:09:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730891386;
-	bh=IzLPv/DEFXlj5cNSZvHDLkVkwT3mFl5/VFrMn/bL8oM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HPS9dy71VX/WNblUBBvKE0IJ2I7Hi6mKUf8ltHGt7NLvUkMo+X7xMhPmgrMPAp1sE
-	 oI5QQRZMBqWELl6ukQMN3/fjhEldNzdesRANfr+l2OCD7TWAnRj813CKLlluVcmq/O
-	 czhI+p1xspLM9rCarM4UvPq6C78z1r9dAh6hEcKsa0aCoP1O0afIx4A6zF00YGFZb9
-	 zTd5NEQh8bQTDC7fQ5BR0QBIFDgdVla/zEDC/mhqaCr1OUCna+eUKHaFQOcL//OsWG
-	 5CxeZQNKDaXvPwC5aF+AlZDp+kQqp43IK5Zsh9UEQGmCR4agO+5T6UxDSzOhuCfAHo
-	 dW8Xg4uKc95Qg==
-Date: Wed, 6 Nov 2024 12:09:44 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	upstream@airoha.com, benjamin.larsson@genexis.eu,
-	ansuelsmth@gmail.com, linux-pwm@vger.kernel.org
-Subject: Re: (subset) [PATCH v9 4/6] dt-bindings: mfd: Add support for Airoha
- EN7581 GPIO System Controller
-Message-ID: <ZytOeOkeF9xW2DOV@lore-desk>
-References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
- <20241023-en7581-pinctrl-v9-4-afb0cbcab0ec@kernel.org>
- <173088099542.3237297.18018729158887853624.b4-ty@kernel.org>
- <ZyssJpR7xwbMzUsm@lore-desk>
- <20241106110046.GR1807686@google.com>
+	id 1t8dwC-00000002spn-2jgs;
+	Wed, 06 Nov 2024 11:11:02 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6ea339a41f1so56590877b3.2;
+        Wed, 06 Nov 2024 03:11:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730891459; x=1731496259; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l5+8CEF8PGrkpuoZv09AoSuECiDMudOpJZwqH9DLQBI=;
+        b=FNysykbxWlHXDb/xvGNM/Ww0GIfSWsWR6Fk2z/EPBeHCLhCg6XaBCPJ/1xbw+zBHVl
+         j/WXWAmr/cJpZ1F9FuK8rGCZWIbP9PLpj1/dcgWhgENAC5Uo8pA8I2vzgUrvy5Rhk1jK
+         frqb/DRMtt360kWSwLAxnMzO0s/EqcBZWgT6BG1U8KTsGlFOJYKtE1x8DeEDYvgh21cX
+         qb/cSLGi9CZq6aX9CuskehxQ44hNFdozS11euL5p1Pm/ORSV/jcigYiDuBrdzU9s8/Ky
+         WV/Ia3djjhlACBLjZR0r8Bynt86+NfCli8T3mNfBOVSDyiv+pNpv97eBFyiILd4eueS0
+         9koQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730891459; x=1731496259;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l5+8CEF8PGrkpuoZv09AoSuECiDMudOpJZwqH9DLQBI=;
+        b=gCgxG1uveU98q4tamfKZ5oSlmNJ2QptK8yF0fbYsR7ZeflTyo7sjmDTK8M3qGRZIXb
+         qm+cMOrJw9r9PfgmD+LzPEzxHO5IN/7PsMAPGSjDLr55pJsmbQVf/Pg4E4Ypm9reHFlb
+         TOLJZBpJRndJ5ANDgcRjfXOx2B98YzQ9tKAStLM0ZqG7qywHBpcpiYcgBIiNek+Q1BuZ
+         w8ygtCNdRfSyCCJ+7cGyIa62EYfuInFf935Y9GEFq5zsTBSstNafL0eKPLObPkVuis7J
+         gV/l23LDY/2GfCficvapyrLdl2sQrzxyYjA3H5G0yl4b5S/vu/4SesvkLRIl9N5EleeG
+         tbpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWsKintg5B7Liqt41doQZ7Dk5+vJfEv6fxzRByQ/uxv0rktJ9b+cDnC+UdPs9YDMAWVuOzi47O3vlo3BIJ3HFs=@lists.infradead.org, AJvYcCXB8lSO1Vof+9+C5cNyvUT372pEnbB2XHN2ASR+3yZOyVeftbl8Y8KmiMt1o0CF20sXj6FRsEP3r9BZZFffq6CT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG5BrnmdEVm/2SE63eAe/XdDaV/QaP1ofhUQ0LQ6pdXZcSfMCb
+	bvX4ns/8TWA3wUrf8HDQq61WVbGO1pR5vac48scKwQbvV1fS3nUPGVai4A25xz8Q7ldx3PXYBT6
+	I8Zkytk5dvyd6zEioAwi6H9D48Pc=
+X-Google-Smtp-Source: AGHT+IE1sZpZbBwhB3vfOzE1oN0wLqnxcz1wrnDPvGC+Rpg+zy6pts2342ur4zYg+bx25KKddKleEKnBLApVYSKJgu8=
+X-Received: by 2002:a05:690c:dd2:b0:64b:5cc7:bcbc with SMTP id
+ 00721157ae682-6ea52520bb1mr244627657b3.32.1730891459226; Wed, 06 Nov 2024
+ 03:10:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="9VjFJ6tz3D5wTAI6"
-Content-Disposition: inline
-In-Reply-To: <20241106110046.GR1807686@google.com>
+References: <20241028073015.692794-1-wojackbb@gmail.com> <20241031185150.6ef22ce0@kernel.org>
+In-Reply-To: <20241031185150.6ef22ce0@kernel.org>
+From: =?UTF-8?B?5ZCz6YC86YC8?= <wojackbb@gmail.com>
+Date: Wed, 6 Nov 2024 19:10:48 +0800
+Message-ID: <CAAQ7Y6an8ZkxYpJehd8cBRPHjqyQofc6A4QdPzM_dhh1Sn0nng@mail.gmail.com>
+Subject: Re: [PATCH] [net] net: wwan: t7xx: Change PM_AUTOSUSPEND_MS to 5000
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, chandrashekar.devegowda@intel.com, 
+	chiranjeevi.rapolu@linux.intel.com, haijun.liu@mediatek.com, 
+	m.chetan.kumar@linux.intel.com, ricardo.martinez@linux.intel.com, 
+	loic.poulain@linaro.org, ryazanov.s.a@gmail.com, johannes@sipsolutions.net, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux-arm-kernel@lists.infradead.org, angelogioacchino.delregno@collabora.com, 
+	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_030948_297017_D65E2DC8 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20241106_031100_712161_B9F64A0C 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+If the PCIE connection remains in the D0 state, It will consume more power.
 
---9VjFJ6tz3D5wTAI6
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Receiving or sending data will cause PCIE to change D3 Cold to D0 state.
 
-On Nov 06, Lee Jones wrote:
-> On Wed, 06 Nov 2024, Lorenzo Bianconi wrote:
->=20
-> > On Nov 06, Lee Jones wrote:
-> > > On Wed, 23 Oct 2024 01:20:04 +0200, Lorenzo Bianconi wrote:
-> > > > Add support for Airoha EN7581 GPIO System Controller which provide a
-> > > > register map for controlling the GPIO, pinctrl and PWM of the SoC v=
-ia
-> > > > dedicated pinctrl and pwm child nodes.
-> > > >=20
-> > > >=20
-> > >=20
-> > > Applied, thanks!
-> > >=20
-> > > [4/6] dt-bindings: mfd: Add support for Airoha EN7581 GPIO System Con=
-troller
-> > >       commit: f49f37f3cfe1482d4dc77d26f3e8c38eab630d52
-> > >=20
-> > > --
-> > > Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
-> > >=20
-> >=20
-> > Hi Lee,
-> >=20
-> > according to my understanding this patch has been already applied by Li=
-nus
-> > here:
-> >=20
-> > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.gi=
-t/commit/?h=3Ddevel&id=3D50dedb1eb1e6755ccab55f6140916c2d192be765
->=20
-> An interesting choice.  Linus?
-
-I guess Linus applied all binding patches to his tree since there is a
-dependency between airoha,en7581-pwm.yaml/airoha,en7581-pinctrl.yaml
-and airoha,en7581-gpio-sysctl.yaml.
-
-Regards,
-Lorenzo
-
->=20
-> --=20
-> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
-
---9VjFJ6tz3D5wTAI6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZytOeAAKCRA6cBh0uS2t
-rAJKAQCziZ9I7pDgrsy7c4G4zSAJV33x5GtUnxzl90JJfuiDVwD+N3L3x58QswNA
-Q6MdWbHpRsM5P2NQLRkMsNnq30wJNwE=
-=IWqp
------END PGP SIGNATURE-----
-
---9VjFJ6tz3D5wTAI6--
+Jakub Kicinski <kuba@kernel.org> =E6=96=BC 2024=E5=B9=B411=E6=9C=881=E6=97=
+=A5 =E9=80=B1=E4=BA=94 =E4=B8=8A=E5=8D=889:51=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> On Mon, 28 Oct 2024 15:30:15 +0800 wojackbb@gmail.com wrote:
+> > Because optimizing the power consumption of t7XX,
+> > change auto suspend time to 5000.
+> >
+> > The Tests uses a script to loop through the power_state
+> > of t7XX.
+> > (for example: /sys/bus/pci/devices/0000\:72\:00.0/power_state)
+> >
+> > * If Auto suspend is 20 seconds,
+> >   test script show power_state have 0~5% of the time was in D3 state
+> >   when host don't have data packet transmission.
+> >
+> > * Changed auto suspend time to 5 seconds,
+> >   test script show power_state have 50%~80% of the time was in D3 state
+> >   when host don't have data packet transmission.
+>
+> I'm going to drop this from PW while we wait for your reply to Sergey
+> If the patch is still good after answering his questions please update
+> the commit message and resend with a [net-next] tag (we use [net] to
+> designate fixes for current release and stable)
 
