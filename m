@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B32D29FA8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C34BD29FAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9E01b5lO3ji2wEte0jqqAxO6EzU7eTUFjSnqcONGvZc=; b=GGwxeRQl5aqrlnOTFtUeuOtta+
-	btH4q96gXl7w3u+0yFNx4ffxp54jj93osX08Nhu9wrM6vozMK88uOvXtNu182NF9dYxu4GpLHxp+Z
-	06eC53UHuBYB3QgAZ1Kl9WyJRmP5LfTwtEaPSaqRj8pVfeBUo69PooFimCeFITirMkKY5dNmM2xMm
-	EnH32OMgSHlcYjFmQOFdRRW8pF5UWFAUgEbVPwu8A205Vqfq4atWWegO0uL2PljV1oYFctiYtlq8h
-	qIP0w6WdUsRWthH1tBsDitHHYY7Ce15RFi8DvSsTs8r7r6Vx9vE+WneGt/uOkyOAZgK1w2d8IDuBC
-	vjJIUW1g==;
+	bh=YgX+jABpEDgVJ7y+ku8zSISZJzTyTpboJWYdMW1CPxA=; b=cyOySHKq84bqLMcGKMlgtKYLM/
+	Vee6kGfRg8gMx1kyycUMvYUNgWvyc360ex4sm7Nc4STkk3fYN0ARz+bSIsqlzZr2vL//mPmgzhsze
+	2sFBPHNKounTy/EDr7eMr1jHQm5EY28GVUhG2JLF7rkwP3TzwYLp+se3Dj/riYGACvJjrFuSnCKZA
+	sZQPm3PrMggCjYIZAxpng8E07vBmTZZkFuy43gv1FbVHWcpah1msBAyeHy775fP4NmhTcF9JSav/+
+	Ew+ipCIltPh8cI578aay9vuKYZgfj8u5FOTrNNr0gz2mgUJSDE7K80arUTz/qCVvbOloF66cOsHzP
+	P9j3kCag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aHB-000000025JO-3ogv;
-	Wed, 06 Nov 2024 07:16:25 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ZC1-00000001wPN-13AK
+	id 1t8aMm-0000000264Q-0Rrc;
+	Wed, 06 Nov 2024 07:22:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8aL3-000000025qn-3VD4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 06:07:02 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A666eoj064806;
-	Wed, 6 Nov 2024 00:06:40 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730873200;
-	bh=9E01b5lO3ji2wEte0jqqAxO6EzU7eTUFjSnqcONGvZc=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=qPDAHpXryy/zsx9k3xi+1+JktRZXpwTSAAaZbCxu+fVm9me6Ucvf+J9wFHMvFMyAG
-	 rBbYwq3eCJu6qGSz87s/qsiRexf7/6RQDU/9N8q8kIVua1fJW0NBw8/BqbLHm1yBxT
-	 8bKkjOm2LgfkvqIbD8gyG473RFCpgZvZidgSvDuY=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A666eAH057444
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 6 Nov 2024 00:06:40 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
- Nov 2024 00:06:40 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 6 Nov 2024 00:06:40 -0600
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.81])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A666cvV042705;
-	Wed, 6 Nov 2024 00:06:39 -0600
-Date: Wed, 6 Nov 2024 11:36:38 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kw@linux.com>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <manivannan.sadhasivam@linaro.org>, <kishon@kernel.org>,
-        <u.kleine-koenig@pengutronix.de>, <cassel@kernel.org>,
-        <dlemoal@kernel.org>, <yoshihiro.shimoda.uh@renesas.com>,
-        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2 1/2] PCI: keystone: Set mode as RootComplex for
- "ti,keystone-pcie" compatible
-Message-ID: <5983ad5e-729d-4cdc-bdb4-d60333410675@ti.com>
-References: <20240524105714.191642-2-s-vadapalli@ti.com>
- <20241106005758.GA1498067@bhelgaas>
+	Wed, 06 Nov 2024 07:20:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70CE11063;
+	Tue,  5 Nov 2024 23:20:54 -0800 (PST)
+Received: from bogus (unknown [10.57.64.60])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9C3A3F66E;
+	Tue,  5 Nov 2024 23:20:16 -0800 (PST)
+Date: Wed, 6 Nov 2024 07:20:01 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Sibi Sankar <quic_sibis@quicinc.com>, cristian.marussi@arm.com,
+	ulf.hansson@linaro.org, jassisinghbrar@gmail.com,
+	dmitry.baryshkov@linaro.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org,
+	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org,
+	Johan Hovold <johan+linaro@kernel.org>
+Subject: Re: [PATCH V5 3/6] firmware: arm_scmi: Report duplicate opps as
+ firmware bugs
+Message-ID: <20241106072001.5jrbbctj7ud5uaxd@bogus>
+References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
+ <20241030125512.2884761-4-quic_sibis@quicinc.com>
+ <ZyThAFbOHKaBIgLg@hovoldconsulting.com>
+ <e173058b-57e7-7fd0-dab7-7398bf9d66ec@quicinc.com>
+ <ZyjViCVtPwe-tmMq@hovoldconsulting.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241106005758.GA1498067@bhelgaas>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <ZyjViCVtPwe-tmMq@hovoldconsulting.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_220701_405759_2BCA808C 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20241105_232025_969221_6031F366 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 06:57:58PM -0600, Bjorn Helgaas wrote:
-
-Hello Bjorn,
-
-> On Fri, May 24, 2024 at 04:27:13PM +0530, Siddharth Vadapalli wrote:
-> > From: Kishon Vijay Abraham I <kishon@ti.com>
+On Mon, Nov 04, 2024 at 03:09:12PM +0100, Johan Hovold wrote:
+> On Mon, Nov 04, 2024 at 07:20:01PM +0530, Sibi Sankar wrote:
+> > On 11/1/24 19:39, Johan Hovold wrote:
+> > > On Wed, Oct 30, 2024 at 06:25:09PM +0530, Sibi Sankar wrote:
+> 
+> > >> @@ -387,7 +387,7 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
+> > >>   
+> > >>   	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
+> > >>   	if (ret) {
+> > >> -		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
+> > >> +		dev_info(dev, FW_BUG "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
+> > >>   			 opp->perf, dom->info.name, ret);
+> > > 
+> > > I was hoping you could make the error message a bit more informative as
+> > > well, for example, by saying that a duplicate opp level was ignored:
+> > > 
+> > > 	arm-scmi arm-scmi.0.auto: [Firmware Bug]: Ignoring duplicate OPP 3417600 for NCC
 > > 
-> > commit 23284ad677a9 ("PCI: keystone: Add support for PCIe EP in AM654x
-> > Platforms") introduced configuring "enum dw_pcie_device_mode" as part of
-> > device data ("struct ks_pcie_of_data"). However it failed to set mode
-> > for "ti,keystone-pcie" compatible. Set mode as RootComplex for
-> > "ti,keystone-pcie" compatible here.
+> > I did think about doing something similar but xa_insert can fail
+> > with both -EXIST (duplicate) and -ENOMEM, so the we can't really
+> > use term duplicate when insert fails. I can add the perf level
+> > though to the message though.
 > 
-> 23284ad677a9 appeared in v5.10.  
+> We generally don't log errors for memory allocation failures (e.g. as
+> that would already have been taken care of by the allocators, if that is
+> the source of the -ENOMEM).
 > 
-> But I guess RC support has not been broken since v5.10 because we
-> never used ks_pcie_rc_of_data.mode anyway?
-> 
-> It looks like the only use is here:
-> 
->   #define DW_PCIE_VER_365A                0x3336352a
->   #define DW_PCIE_VER_480A                0x3438302a
-> 
->   ks_pcie_probe
->   {
->     ...
->     mode = data->mode;
->     ...
->     if (dw_pcie_ver_is_ge(pci, 480A))
->       ret = ks_pcie_am654_set_mode(dev, mode);
->     else
->       ret = ks_pcie_set_mode(dev);
+> But either way you should be able to check the errno to determine if
+> this is due to a duplicate entry or not.
 
-"mode" is used later on during probe at:
+Everyone has valid reasons for their argument here, so we need to find
+a safe middle ground. Will stating it as [Possible Firmware Bug] be any
+useful ? If there is -ENOMEM, other error messages will be seen before
+this and user can ignore this error until that memory issue is fixed ?
 
-....
-	switch (mode) {
-	case DW_PCIE_RC_TYPE:
-	...
-	case DW_PCIE_EP_TYPE:
-	...
-	default:
-		dev_err(dev, "INVALID device type %d\n", mode);
-	}
-....
-
-> 
-> so we don't even look at .mode unless the version is v4.80a or later,
-> and this is v3.65a?
-> 
-> So this is basically a cosmetic fix (but still worth doing for
-> readability!) and doesn't need a stable backport, right?
-
-I suppose that "data->mode" will default to zero for v3.65a prior to
-this commit, corresponding to "DW_PCIE_UNKNOWN_TYPE" rather than the
-correct value of "DW_PCIE_RC_TYPE". Since I don't have an SoC with the
-v3.65a version of the controller, I cannot test it out, but I presume
-that the "INVALID device type 0" error will be displayed. Though the probe
-will not fail since the "default" case doesn't return an error code, the
-controller probably will not be functional as the configuration associated
-with the "DW_PCIE_RC_TYPE" case has been skipped. Hence, I believe that
-this fix should be backported.
-
+-- 
 Regards,
-Siddharth.
+Sudeep
 
