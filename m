@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CAAD29FB8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B651BD29FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XA9PZwf+sJz4LH3JCk5SCD3ppC+GHhEdRkZJEIAPoq4=; b=GhKbKGuE4pWVa4AtUkzY8t+RSe
-	1zwLBlWz76Mgxi7fl6o3RFzMrrH+t3aLlFSxbVj5CWBrsOKtTZQGz9Pi1blDyyn7dtLlRxNTOa/if
-	wEJmCpEw2Ibq9L/RRqa97gWJxg3W1jkuDYeInNW//ZQnu+wi22c6EvM2zDF5yXIc4eerw3AqWi9dE
-	Xo1JBT9J9nJtlkWrj1xoQoL4uap2iPD3Q9ieXrsdEEHQNWTK7GHK0a80abO4o3dt/WM3Ya9WFLI+c
-	mycOOJNfGh807pVCpNjBqis62u85Ox1Gi0ri0JDRM2UIthzJ3J5SyIUcJx9ZiJRcYG+ddDfc5J6gv
-	AWGfPUDQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wggt6wmbTUXS4x4tV46Izk+39B3cnS2JlZr7SjlMcMc=; b=Uw895f0PjScCB9BY2yZlpiGnhv
+	T31nN6/Vrj5jyvkLvtL5WuH/xLMqew/flgskYqfFfRsIVUZ5PEJaem9lC8RNZM5w2FNNS7D/Q6KBT
+	irfMruWoRVhkRsvqNU5lx0chCXbaRxckQbBRfeQ6Q3xZa1Oc6EubKnqES2YaV9mzpxVAu8FJ0LHhe
+	KX3iWCs2nAOncjLR/l99jSy6lv9R9/+E6Ky5y+Aj2yk60Mp/WnkG6Pw+UR8DUvT1elJD76Vq/EJ1M
+	VaKiEAJBVd/m+Sir4sQzKTjmLx20iE2m3UaOcMpQip77gdSLU0U5nQjiiQ3lCALAHUuETupaKeMtm
+	prXr33rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8biT-00000002Lor-06ot;
-	Wed, 06 Nov 2024 08:48:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8bvO-00000002OEd-1b9N;
+	Wed, 06 Nov 2024 09:02:02 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8beN-00000002L6c-2ude
+	id 1t8btd-00000002NkP-1f5O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 08:44:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CDDC05C4A65;
-	Wed,  6 Nov 2024 08:43:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E91CC4CECD;
-	Wed,  6 Nov 2024 08:44:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730882666;
-	bh=epVEU2AYAhlpV2xVETpPhEIE78lqpbGzb/PrPhs7GSM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sgMe4KmOH7KJ1IcKn+B9Q79s6G9NZe5vOEBlKBzaiZHzZeOK0+NotQ+v2nOORZdpA
-	 46AIMqkYAd2Tmt+NDDGwIgyv++GFm6xhc9geukIkjFPthX+nxH5EtcezUywjY7Wkti
-	 mpq2aRs1pxyUMnJoJNpnM/3B0xt/Fk7FGC4WPflxBD6VVjNQiAa5+ga4GQNChoER6F
-	 mgoIr5qxqLTFZwexUfgLZuvjLAIJ80KrX9GZbHetq6TtgkucijjkI8WN8eMGu91C2f
-	 0KuhZQ6jvGo8Go5MpOzXYlgK09OYNZVczVQDGlBGLE743vpGiPNlSF+QH4ZrRfiBvV
-	 P8mFZzxa+0Zfw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t8beJ-00AHp5-UJ;
-	Wed, 06 Nov 2024 08:44:24 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] irqchip/gic-v3: Force propagation of the active state with a read-back
-Date: Wed,  6 Nov 2024 08:44:18 +0000
-Message-Id: <20241106084418.3794612-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Wed, 06 Nov 2024 09:00:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CE518FF813;
+	Wed,  6 Nov 2024 09:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1730883607;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wggt6wmbTUXS4x4tV46Izk+39B3cnS2JlZr7SjlMcMc=;
+	b=NYBVGt3DiBgndrXBPVl9Dcp0UOdXQJi5EvQ7PonofETdX7a6LslGUKmGWg+JmEXFg6J1pD
+	FyR/lcVrtOyxtFwamRmxUJPyyXfEYmdmwAfbKnh7KsDC1h0/7yLzOOjj2gpMp95dhRwz/y
+	U00g0SRdXOhgEJZq0rGu8T3aXByEJhDW4hW+nXBF++jjIDN1ts8qCm53sryCTfxOQX8Yq2
+	dKuII9OUOqM0Vzu43RL7eym79sijjZAbCZPdwdHf4gJ5f/K/SxfiWEdk9cHrJbVbD47voo
+	Bwd3eAwpnG8PM+1m1aaL299H0EEnmxVWwlHcJWN8H4iRMAF+3tiDYbYvwJhVow==
+Date: Wed, 6 Nov 2024 10:00:04 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
+ Cochran <richardcochran@gmail.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 0/9] Support external snapshots on dwmac1000
+Message-ID: <20241106100004.50ff4bb2@fedora.home>
+In-Reply-To: <20241105182050.2839f1e7@kernel.org>
+References: <20241104170251.2202270-1-maxime.chevallier@bootlin.com>
+	<20241105182050.2839f1e7@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tglx@linutronix.de, christoffer.dall@arm.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_004428_867359_2958ADCA 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20241106_010013_712788_A06782AC 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Christoffer reports that on some implementations, writing to
-GICR_ISACTIVER0 (and similar GICD registers) can race badly
-with a guest issuing a deactivation of that interrupt via the
-system register interface.
+On Tue, 5 Nov 2024 18:20:50 -0800
+Jakub Kicinski <kuba@kernel.org> wrote:
 
-There are multiple reasons to this:
+> On Mon,  4 Nov 2024 18:02:40 +0100 Maxime Chevallier wrote:
+> >   net: stmmac: Only update the auto-discovered PTP clock features  
+> 
+> Minor conflict in the context on this one, please respin.
 
-- we use an early write-acknoledgement memory type (nGnRE), meaning
-  that the write may only have made it as far as some interconnect
-  by the time the store is considered "done"
+Sure thing, I'll respin right away.
 
-- the GIC itself is allowed to buffer the write until it decides to
-  take it into account (as long as it is in finite time)
+Thanks,
 
-The effects are that the activation may not have taken effect by the
-time we enter the guest, forcing an immediate exit, or that a guest
-deactivation occurs before the interrupt is active, doing nothing.
-
-In order to guarantee that the write to the ISACTIVER register has
-taken effect, read back from it, forcing the interconnect to propagate
-the write, and the GIC to process the write before returning the read.
-
-Reported-by: Christoffer Dall <christoffer.dall@arm.com>
-Acked-by: Christoffer Dall <christoffer.dall@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
- drivers/irqchip/irq-gic-v3.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index ce87205e3e823..8b6159f4cdafa 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -524,6 +524,13 @@ static int gic_irq_set_irqchip_state(struct irq_data *d,
- 	}
- 
- 	gic_poke_irq(d, reg);
-+
-+	/*
-+	 * Force read-back to guarantee that the active state has taken
-+	 * effect, and won't race with a guest-driven deactivation.
-+	 */
-+	if (reg == GICD_ISACTIVER)
-+		gic_peek_irq(d, reg);
- 	return 0;
- }
- 
--- 
-2.39.2
-
+Maxime
 
