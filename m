@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1736D44D5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDE1D44D6A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7lkQPhLPvF5xtbLn91tPhS2UMpxEGhz5pnkWd5pwO8=; b=Zc6EAzrFiRURKgznC0kSdgobMz
-	LPSUNZFXBE3lLgoDU+NGTexBNnei7cFYEA4cOaF9a81oGEDl4bZK1vNvrKRHx9sF4Hkr74elJ3H5b
-	lpjCcVuYk5rkHAqQTP8kFoaEx+tH1aB21rE/S0fm6gWSveXKJzSqw+pHD0mTsXPskUDxLnz7NIbrF
-	ZmmN8ecVRv8e7oWwVvzqm3iLuAXrj0QOdbfx+y1/8NEvrHm0b4ybDEV4Z3EXwRjhZECgIYKAaaSWI
-	jCuYfGWweehW+UCWgmUginDW9FisI7Is99In1Z9kYPwWutcPS21mNK5Wh3ppKci7gzPeIwp0lCt7J
-	I1X5NraQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tlgJsnAnvOSQAv2o1TjW3T2/qusvj06B7TIapVcJ0rc=; b=S5rZr23HwzL6mS5ynEYNfDFcZw
+	0K+aGNcYlfFMkLDsikQLjtiGcqbmvDjsJE0jfejycHKP3aJlbsWdKjCA3lL/0c1syLIGXlWSpgCbf
+	hDhFO7M3njSXTMwfE6a57uWGOvvX2C0s7WPIXeUwFIEMXTTimY7HccJ6XJOScTjjItKzTjiLX0r0g
+	RUbRZpq66+5oqBUBw+FPVHTPFdqr5EsF4oyXP+OGJXPD/xqKxPie1anrikrLv9mNkj6yFxIpW2VpK
+	5f1FmGNwmRBqJPYWg9Xcxh986XHo75uNV6U33MOv1UbMPFzIu/i6XFY8g/nLcNjSOMr+YFkBJRLCC
+	sdFNKX8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gOk-00000003UF3-2Rdn;
-	Wed, 06 Nov 2024 13:48:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t8gQW-00000003UY5-45lj;
+	Wed, 06 Nov 2024 13:50:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fwJ-00000003OdD-3jUd;
-	Wed, 06 Nov 2024 13:19:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730899154;
-	bh=TAI+2CrEdmrSSIj6MqPr/UZzBM8r9QxzuoTVg0oNfqk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IetfN3Wc7H0SQ9+4KBQg46c0VJWWeNB011oOWRoCs2SAJzM/9SSRXf7QJtm3KzmDU
-	 xKvfIKoxd/bTCXdDY0EAoFrKida8py4Fwk/NQlhVJku64gZI9POZ9nSX3NL1/ktyhv
-	 z1zqSEOo8IckMSZtDWQS096sgWn/NL4MpukJ9LpbD/jA5o5eckyAAOnxwq0TaC+D3w
-	 /LI7N9S+PvoW29SSCgNw2ad2Y/wF/2uy+Vhjp43lYJ5AmXCzB6+h3kPHgZqEcODZeW
-	 iRNwPPnXG0dez1eMIIAV3rAO7UTxB3dy6OeFU9xHvYmUYhmoIHUlvZ2LeffXne+VOK
-	 Yj0bpUfdTBFuA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D132C17E3636;
-	Wed,  6 Nov 2024 14:19:13 +0100 (CET)
-Message-ID: <b66dbf9e-b35b-482c-9eb7-112ef1f398d6@collabora.com>
-Date: Wed, 6 Nov 2024 14:19:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Introduce MT8188 Geralt
- platform based Ciri
-To: Fei Shao <fshao@chromium.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-References: <20241105093222.4055774-1-fshao@chromium.org>
- <20241105093222.4055774-3-fshao@chromium.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241105093222.4055774-3-fshao@chromium.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1t8g3p-00000003PpR-41ua
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 13:27:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2885BA43CD9;
+	Wed,  6 Nov 2024 13:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE1B1C4CECD;
+	Wed,  6 Nov 2024 13:27:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730899620;
+	bh=YsdgsNLn3Pt94qYHQp37MqqUXQnx1YcTHDZKk+avfN0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=crHz1lLzZMb7i/uvSwBbyrGkEUN8bOUEZEnF9f8JAwv8cUCLPO+mWcZsYhF7bHFx/
+	 JQGwm2lV7eH7Of+HF0L5wXqRLQamQIITuhJMsiJH6aLlD0FpEJ8IGRAfhBmS5Y0CGC
+	 6lL4zO2okkyEXHXDeXcc2k8qekasXR64FcOHbsTTATUzZN1j9Klhu+2w1AjkUE9LmB
+	 ZJ3spHnXLMLVVIgzAaAepFVtxWcsaysfPq4Wk6O8+t+PKyHSHPkLzAUtnozE/QEtYw
+	 vAN/FkdjSxaCIuOZ5LEaPRMSMKfw52Fr+q58DGdNuieJhtdAlw7NdZI4s/mRAiyNTa
+	 1rVbDV1ANxMkQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t8g3m-00ANoh-KU;
+	Wed, 06 Nov 2024 13:26:58 +0000
+Date: Wed, 06 Nov 2024 13:26:57 +0000
+Message-ID: <86a5ec1oim.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jing Zhang <jingzhangos@google.com>
+Cc: KVM <kvm@vger.kernel.org>,
+	KVMARM <kvmarm@lists.linux.dev>,
+	ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Oliver Upton <oupton@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Eric Auger <eauger@redhat.com>
+Subject: Re: [PATCH v3 4/4] KVM: selftests: aarch64: Test VGIC ITS tables save/restore
+In-Reply-To: <20241106083035.2813799-5-jingzhangos@google.com>
+References: <20241106083035.2813799-1-jingzhangos@google.com>
+	<20241106083035.2813799-5-jingzhangos@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, jiangkunkun@huawei.com, pbonzini@redhat.com, andre.przywara@arm.com, coltonlewis@google.com, rananta@google.com, lishusen2@huawei.com, eauger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_051916_343078_2556C0EF 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20241106_052702_156915_64EF9779 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,1141 +97,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/11/24 10:30, Fei Shao ha scritto:
-> Introduce MT8188-based Chromebook Ciri, also known commercially as
-> Lenovo Chromebook Duet (11", 9).
-> 
-> Ciri is a detachable device based on the Geralt design, where Geralt is
-> the codename for the MT8188 platform. Ciri offers 8 SKUs to accommodate
-> different combinations of second-source components, including:
-> - audio codecs (RT5682S and ES8326)
-> - speaker amps (TAS2563 and MAX98390)
-> - MIPI-DSI panels (BOE nv110wum-l60 and IVO t109nw41)
-> 
-> Signed-off-by: Fei Shao <fshao@chromium.org>
-> ---
-> 
-> Changes in v2:
-> - remove invalid or undocumented properties
->      e.g. mediatek,dai-link, maxim,dsm_param_name etc.
-> - remove touchscreen as the driver is not yet accepted in upstream
-> - update sound DAI link node name to match the binding
-> - add missing pinctrls in audio codec nodes
-> 
->   arch/arm64/boot/dts/mediatek/Makefile         |    8 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   11 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   60 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   56 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   15 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   43 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   73 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   69 +
->   .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   47 +
->   .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |  397 +++++
->   .../boot/dts/mediatek/mt8188-geralt.dtsi      | 1492 +++++++++++++++++
->   11 files changed, 2271 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-> index 8fd7b2bb7a15..c6c34d99316b 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -69,6 +69,14 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-voltorb-sku589824.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-corsola-voltorb-sku589825.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8186-evb.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-evb.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku0.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku1.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku2.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku3.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku4.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku5.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku6.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku7.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-hayato-r1.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-hayato-r5-sku2.dtb
->   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-spherion-r0.dtb
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
-> new file mode 100644
-> index 000000000000..7a2edbaa74f1
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
-> @@ -0,0 +1,11 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2023 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku0 board";
-> +	compatible = "google,ciri-sku0", "google,ciri", "mediatek,mt8188";
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
-> new file mode 100644
-> index 000000000000..c40d41e1dd36
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
-> @@ -0,0 +1,60 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2023 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku1 board";
-> +	compatible = "google,ciri-sku1", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&dsi_panel {
-> +	compatible = "ivo,t109nw41", "himax,hx83102";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ audio-codec@1a;
-> +
-> +	es8326: audio-codec@19 {
-> +		compatible = "everest,es8326";
-> +		reg = <0x19>;
-> +		interrupts-extended = <&pio 108 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_codec_pins>;
-> +		#sound-dai-cells = <0>;
-> +		everest,jack-pol = [0e];
-> +		everest,interrupt-clk = [00];
-> +	};
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-es8326";
-> +	model = "mt8188_m98390_8326";
-> +
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"MIC1", "Headset Mic",
-> +		"Left Spk", "Front Left BE_OUT",
-> +		"Right Spk", "Front Right BE_OUT";
-> +	status = "okay";
-> +
-> +	dai-link-2 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
-> new file mode 100644
-> index 000000000000..846fd685d4b2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
-> @@ -0,0 +1,56 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku2 board";
-> +	compatible = "google,ciri-sku2", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ audio-codec@1a;
-> +
-> +	es8326: audio-codec@19 {
-> +		compatible = "everest,es8326";
-> +		reg = <0x19>;
-> +		interrupts-extended = <&pio 108 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_codec_pins>;
-> +		#sound-dai-cells = <0>;
-> +		everest,jack-pol = [0e];
-> +		everest,interrupt-clk = [00];
-> +	};
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-es8326";
-> +	model = "mt8188_m98390_8326";
-> +
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"MIC1", "Headset Mic",
-> +		"Left Spk", "Front Left BE_OUT",
-> +		"Right Spk", "Front Right BE_OUT";
-> +	status = "okay";
-> +
-> +	dai-link-2 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
-> new file mode 100644
-> index 000000000000..d037c2528fe2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
-> @@ -0,0 +1,15 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku3 board";
-> +	compatible = "google,ciri-sku3", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&dsi_panel {
-> +	compatible = "ivo,t109nw41", "himax,hx83102";
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
-> new file mode 100644
-> index 000000000000..591ffcd5b95f
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
-> @@ -0,0 +1,43 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku4 board (rev4)";
-> +	compatible = "google,ciri-sku4", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ amplifier@38;
-> +	/delete-node/ amplifier@39;
-> +
-> +	tas2563: amplifier@4f {
-> +		compatible = "ti,tas2563", "ti,tas2781";
-> +		reg = <0x4f>, <0x4c>; /* left / right channel */
-> +		reset-gpios = <&pio 118 GPIO_ACTIVE_HIGH>;
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-> +
-> +&sound {
-> +	model = "mt8188_tas2563_5682";
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"IN1P", "Headset Mic";
-> +	status = "okay";
-> +
-> +	dai-link-1 {
-> +		codec {
-> +			sound-dai = <&tas2563>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
-> new file mode 100644
-> index 000000000000..e352c3bf659b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
-> @@ -0,0 +1,73 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku5 board (rev4)";
-> +	compatible = "google,ciri-sku5", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&dsi_panel {
-> +	compatible = "ivo,t109nw41", "himax,hx83102";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ audio-codec@1a;
-> +	/delete-node/ amplifier@38;
-> +	/delete-node/ amplifier@39;
-> +
-> +	es8326: audio-codec@19 {
-> +		compatible = "everest,es8326";
-> +		reg = <0x19>;
-> +		interrupts-extended = <&pio 108 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_codec_pins>;
-> +		#sound-dai-cells = <0>;
-> +		everest,jack-pol = [0e];
-> +		everest,interrupt-clk = [00];
-> +	};
-> +
-> +	tas2563: amplifier@4f {
-> +		compatible = "ti,tas2563", "ti,tas2781";
-> +		reg = <0x4f>, <0x4c>; /* left / right channel */
-> +		reset-gpios = <&pio 118 GPIO_ACTIVE_HIGH>;
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-es8326";
-> +	model = "mt8188_tas2563_8326";
-> +
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"MIC1", "Headset Mic";
-> +	status = "okay";
-> +
-> +	dai-link-1 {
-> +		codec {
-> +			sound-dai = <&tas2563>;
-> +		};
-> +	};
-> +
-> +	dai-link-2 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
-> new file mode 100644
-> index 000000000000..7e14cda8b66a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
-> @@ -0,0 +1,69 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku6 board (rev4)";
-> +	compatible = "google,ciri-sku6", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ audio-codec@1a;
-> +	/delete-node/ amplifier@38;
-> +	/delete-node/ amplifier@39;
-> +
-> +	es8326: audio-codec@19 {
-> +		compatible = "everest,es8326";
-> +		reg = <0x19>;
-> +		interrupts-extended = <&pio 108 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_codec_pins>;
-> +		#sound-dai-cells = <0>;
-> +		everest,jack-pol = [0e];
-> +		everest,interrupt-clk = [00];
-> +	};
-> +
-> +	tas2563: amplifier@4f {
-> +		compatible = "ti,tas2563", "ti,tas2781";
-> +		reg = <0x4f>, <0x4c>; /* left / right channel */
-> +		reset-gpios = <&pio 118 GPIO_ACTIVE_HIGH>;
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-es8326";
-> +	model = "mt8188_tas2563_8326";
-> +
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"MIC1", "Headset Mic";
-> +	status = "okay";
-> +
-> +	dai-link-1 {
-> +		codec {
-> +			sound-dai = <&tas2563>;
-> +		};
-> +	};
-> +
-> +	dai-link-2 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		codec {
-> +			sound-dai = <&es8326>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
-> new file mode 100644
-> index 000000000000..7eda79f4484a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
-> @@ -0,0 +1,47 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2024 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt-ciri.dtsi"
-> +
-> +/ {
-> +	model = "Google Ciri sku7 board (rev4)";
-> +	compatible = "google,ciri-sku7", "google,ciri", "mediatek,mt8188";
-> +};
-> +
-> +&dsi_panel {
-> +	compatible = "ivo,t109nw41", "himax,hx83102";
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ amplifier@38;
-> +	/delete-node/ amplifier@39;
-> +
-> +	tas2563: amplifier@4f {
-> +		compatible = "ti,tas2563", "ti,tas2781";
-> +		reg = <0x4f>, <0x4c>; /* left / right channel */
-> +		reset-gpios = <&pio 118 GPIO_ACTIVE_HIGH>;
-> +		#sound-dai-cells = <0>;
-> +	};
-> +};
-> +
-> +&sound {
-> +	model = "mt8188_tas2563_5682";
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"IN1P", "Headset Mic";
-> +	status = "okay";
-> +
-> +	dai-link-1 {
-> +		codec {
-> +			sound-dai = <&tas2563>;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
-> new file mode 100644
-> index 000000000000..62c8a37a4c3d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
-> @@ -0,0 +1,397 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright 2023 Google LLC
-> + */
-> +/dts-v1/;
-> +#include "mt8188-geralt.dtsi"
-> +
-> +/delete-node/ &pp3300_edp_disp;
-> +
-> +&aud_etdm_hp_on {
-> +	pins-mclk {
-> +		pinmux = <PINMUX_GPIO114__FUNC_O_I2SO2_MCK>;
-> +	};
-> +};
-> +
-> +&aud_etdm_hp_off {
-> +	pins-mclk {
-> +		pinmux = <PINMUX_GPIO114__FUNC_B_GPIO114>;
-> +		bias-pull-down;
-> +		input-enable;
-> +	};
-> +};
-> +
-> +&aud_etdm_spk_on {
-> +	pins-bus {
-> +		drive-strength = <8>;
-> +	};
-> +};
-> +
-> +/* Ciri's TDP design target is 90 degrees */
+[Adding Eric to the list, since he worked a lot on the save/restore code]
 
-...and there's only Ciri in this submission, so move that to -geralt.dtsi
+On Wed, 06 Nov 2024 08:30:35 +0000,
+Jing Zhang <jingzhangos@google.com> wrote:
+>=20
+> Add a selftest to verify the correctness of the VGIC ITS mappings after
+> the save/restore operations (KVM_DEV_ARM_ITS_SAVE_TABLES /
+> KVM_DEV_ARM_ITS_RESTORE_TABLES).
 
-> +&cpu_little0_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&cpu_little1_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&cpu_little2_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&cpu_little3_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&cpu_big0_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&cpu_big1_alert0 {
-> +	temperature = <90000>;
-> +	hysteresis = <2000>;
-> +	type = "passive";
-> +};
-> +
-> +&dp_intf0 {
-> +	/delete-node/ port;
+What are you checking? The saved data? The restored data?
 
-Just don't add dp_intf0 if there's none, instead of removing the port here.
+> Also calculate the time spending on save/restore operations.
 
-> +};
-> +
-> +&dsi_panel {
-> +	compatible = "boe,nv110wum-l60", "himax,hx83102";
+Is that really relevant? I don't think performance matters at this
+stage, if we can't even have reliable data.
 
-Move this to each SKU dts file.
+> This test uses some corner cases to capture the save/restore bugs. It
 
-> +};
-> +
-> +&edp_tx {
-> +	/delete-node/ ports;
-> +	/delete-node/ aux-bus;
-> +};
-> +
-> +&i2c0 {
-> +	/delete-node/ audio-codec@1a;
-> +	/delete-node/ amplifier@3a;
-> +	/delete-node/ amplifier@3b;
+Which corner cases?
 
-No board ever uses those three nodes, because it's all Ciri and nothing else.
-Just never declare these in -geralt.dtsi and never delete them here.
+> will be used to verify the future incoming changes for the VGIC ITS
+> tables save/restore.
+>=20
+> To capture the "Invalid argument (-22)" error, run the test without any
+> option. To capture the wrong/lost mappings, run the test with '-s'
+> option.
+> Since the VGIC ITS save/restore bug is caused by orphaned DTE/ITE
+> entries, if we run the test with '-c' option whih clears the tables
+> before the save operation, the test will complete successfully.
 
-> +
-> +	rt5682s: audio-codec@1a {
-> +		compatible = "realtek,rt5682s";
-> +		reg = <0x1a>;
-> +		interrupts-extended = <&pio 108 IRQ_TYPE_EDGE_BOTH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_codec_pins>;
-> +		#sound-dai-cells = <1>;
-> +
-> +		AVDD-supply = <&mt6359_vio18_ldo_reg>;
-> +		DBVDD-supply = <&mt6359_vio18_ldo_reg>;
-> +		LDO1-IN-supply = <&mt6359_vio18_ldo_reg>;
-> +		MICVDD-supply = <&pp3300_s3>;
-> +		realtek,jd-src = <1>;
-> +	};
-> +};
-> +
-> +&i2c2 {
-> +	status = "disabled";
+I'm sorry, but this description is meaningless, as you need to know
+what is the bug that has been fixed.
 
-...and if there's no i2c2, just don't add it to -geralt.dtsi in the first place...
-but I believe that you just wanted to avoid probing the device that you declared
-in -geralt.dtsi on this bus, so you can either remove the nodes for all of the
-unused i2c busses in your board designs, or you can keep them but remove all of
-the devices that aren't actually there.
+Also, how is someone supposed to run this thing? Without options? With
+options? With any combination of options?
 
-It's your choice in the end, but disabling this here doesn't make much sense imo.
+=46rom what I understand, the various options are designed to help
+debugging a broken vgic implementation. So please document what the
+options do rather than an bug that is supposed to be already fixed.
 
-> +};
-> +
-> +&i2c_tunnel {
-> +	/delete-node/ sbs-battery@b;
+Thanks,
 
-Since nothing ever uses sbs-battery@b, just remove sbs-battery@b entirely
-from -geralt.dtsi instead of deleting it here.
+	M.
 
-Non-Ciri boards, if any, will define the @b one if necessary in their own
-dts/dtsi file(s).
-
-> +
-> +	battery: sbs-battery@f {
-> +		compatible = "sbs,sbs-battery";
-> +		reg = <0xf>;
-> +		sbs,i2c-retry-count = <2>;
-> +		sbs,poll-retry-count = <1>;
-> +	};
-> +};
-> +
-> +&max98390_38 {
-> +	sound-name-prefix = "Front Right";
-
-Move to -geralt.dtsi
-
-> +};
-> +
-> +&max98390_39 {
-> +	sound-name-prefix = "Front Left";
-
-ditto
-
-> +};
-> +
-> +&mipi_tx_config0 {
-> +	drive-strength-microamp = <5200>;
-> +};
-> +
-> +&mmc1 {
-> +	status = "disabled";
-
-Why are you configuring mmc1 in -geralt.dtsi if no board uses it at all?
-
-> +};
-> +
-> +&mt6359_vm18_ldo_reg {
-> +	regulator-min-microvolt = <1800000>;
-> +	regulator-max-microvolt = <1900000>;
-> +	regulator-microvolt-offset = <100000>;
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-rt5682s";
-> +	model = "mt8188_m98390_5682";
-> +
-> +	audio-routing =
-> +		"ETDM1_OUT", "ETDM_SPK_PIN",
-> +		"ETDM2_OUT", "ETDM_HP_PIN",
-> +		"ETDM1_IN", "ETDM_SPK_PIN",
-> +		"ETDM2_IN", "ETDM_HP_PIN",
-> +		"ADDA Capture", "MTKAIF_PIN",
-> +		"Headphone Jack", "HPOL",
-> +		"Headphone Jack", "HPOR",
-> +		"IN1P", "Headset Mic",
-> +		"Left Spk", "Front Left BE_OUT",
-> +		"Right Spk", "Front Right BE_OUT";
-
-Please move compatible, model and audio-routing to SKU0 (and also copy that to
-SKU3): as you're continuously overriding it in all other SKUs, having it here
-can only confuse people...
-
-> +	status = "okay";
-> +
-> +	dai-link-0 {
-> +		dai-format = "i2s";
-
-...and move dai-format to -geralt.dtsi.
-
-> +	};
-> +
-> +	dai-link-1 {
-> +		dai-format = "i2s";
-> +		codec {
-> +			sound-dai = <&max98390_38>,
-> +				    <&max98390_39>;
-> +		};
-> +	};
-> +
-> +	dai-link-2 {
-> +		codec {
-> +			sound-dai = <&rt5682s 0>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		codec {
-> +			sound-dai = <&rt5682s 0>;
-> +		};
-> +	};
-> +};
-> +
-> +&spi1 {
-> +	pinctrl-names = "default", "sleep";
-> +	pinctrl-0 = <&spi1_pins_default>;
-> +	pinctrl-1 = <&spi1_pins_sleep>;
-
-Also move this to -geralt.dtsi, it's even the same pins...!
-P.S.: Of course, move the spi1_pins_sleep to -geralt.dtsi as well.
-
-> +	num-cs = <1>;
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-
-...address and size cells, but no children nodes?
-
-> +};
-> +
-> +&pio {
-
-..snip..
-
-> +
-> +	touchscreen_rst: touchscreen-rst-pins {
-> +		pins-tchscr-rst {
-> +			pinmux = <PINMUX_GPIO5__FUNC_B_GPIO5>;
-> +			output-high;
-> +		};
-> +	};
-
-touchscreen_rst is unused - either use it or remove it.
-
-> +
-> +	spi1_pins_default: spi1-default-pins {
-> +		pins-bus {
-> +			pinmux = <PINMUX_GPIO75__FUNC_O_SPIM1_CSB>,
-> +				 <PINMUX_GPIO76__FUNC_O_SPIM1_CLK>,
-> +				 <PINMUX_GPIO77__FUNC_B0_SPIM1_MOSI>,
-> +				 <PINMUX_GPIO78__FUNC_B0_SPIM1_MISO>;
-> +			bias-disable;
-> +			drive-strength = <10>;
-> +		};
-> +	};
-> +
-> +	spi1_pins_sleep: spi1-sleep-pins {
-> +		pins-bus {
-> +			pinmux = <PINMUX_GPIO75__FUNC_B_GPIO75>,
-> +				 <PINMUX_GPIO76__FUNC_B_GPIO76>,
-> +				 <PINMUX_GPIO77__FUNC_B_GPIO77>,
-> +				 <PINMUX_GPIO78__FUNC_B_GPIO78>;
-> +			bias-pull-down;
-> +			input-enable;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> new file mode 100644
-> index 000000000000..0d33ae82f0eb
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> @@ -0,0 +1,1492 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2022 MediaTek Inc.
-> + */
-> +/dts-v1/;
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include "mt8188.dtsi"
-> +#include "mt6359.dtsi"
-> +
-> +/ {
-> +	aliases {
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		i2c2 = &i2c2;
-> +		i2c3 = &i2c3;
-> +		i2c4 = &i2c4;
-> +		i2c5 = &i2c5;
-> +		i2c6 = &i2c6;
-> +		mmc0 = &mmc0;
-> +		mmc1 = &mmc1;
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	backlight_lcd0: backlight-lcd0 {
-> +		compatible = "pwm-backlight";
-> +		brightness-levels = <0 1023>;
-> +		default-brightness-level = <576>;
-> +		enable-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
-> +		num-interpolated-steps = <1023>;
-> +		power-supply = <&ppvar_sys>;
-> +		pwms = <&disp_pwm0 0 500000>;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	dmic-codec {
-> +		compatible = "dmic-codec";
-> +		num-channels = <2>;
-> +		wakeup-delay-ms = <100>;
-> +	};
-> +
-> +	memory@40000000 {
-> +		device_type = "memory";
-
-		/* The size will be filled in by the bootloader */
-		reg = <0 0x40000000 0 0>;
-
-
-> +		reg = <0 0x40000000 0 0x80000000>;
-> +	};
-> +
-
-..snip..
-
-> +
-> +&disp_dsi0 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-> +
-> +	dsi_panel: panel@0 {
-> +		compatible = "boe,tv110c9m-ll3";
-
-Remove the compatible string, then add a comment (93 cols, it's ok in one line):
-
-/* Compatible string for different panels can be found in each device dts */
-
-> +		reg = <0>;
-> +		enable-gpios = <&pio 25 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&mipi_dsi_pins>;
-> +
-> +		backlight = <&backlight_lcd0>;
-> +		avdd-supply = <&ppvar_mipi_disp_avdd>;
-> +		avee-supply = <&ppvar_mipi_disp_avee>;
-> +		pp1800-supply = <&mt6359_vm18_ldo_reg>;
-> +		rotation = <270>;
-> +
-> +		status = "okay";
-> +
-> +		port {
-> +			dsi_panel_in: endpoint {
-> +				remote-endpoint = <&dsi_out>;
-> +			};
-> +		};
-> +	};
-> +
-> +	port {
-> +		dsi_out: endpoint {
-> +			remote-endpoint = <&dsi_panel_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&disp_pwm0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&disp_pwm0_pins>;
-> +	status = "okay";
-> +};
-> +
-> +&disp_pwm1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&disp_pwm1_pins>;
-> +};
-> +
-> +&dp_intf0 {
-> +	port {
-> +		dp_intf0_out: endpoint {
-> +			remote-endpoint = <&edp_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&dp_intf1 {
-> +	status = "okay";
-> +
-> +	port {
-> +		dp_intf1_out: endpoint {
-> +			remote-endpoint = <&dptx_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&dp_tx {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&dp_tx_hpd>;
-> +	#sound-dai-cells = <0>;
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +			dptx_in: endpoint {
-> +				remote-endpoint = <&dp_intf1_out>;
-> +			};
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +			dptx_out: endpoint {
-> +				data-lanes = <0 1 2 3>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&edp_tx {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&edp_tx_hpd>;
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@0 {
-> +			reg = <0>;
-> +			edp_in: endpoint {
-> +				remote-endpoint = <&dp_intf0_out>;
-> +			};
-> +		};
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +			edp_out: endpoint {
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&edp_panel_in>;
-> +			};
-> +		};
-> +	};
-> +
-> +	/*
-> +	 * Geralt also supports eDP OLED panels, which control panel
-> +	 * brightness via the AUX channel and don't require PWM pin
-> +	 * control.
-> +	 * This is an auxiliary panel path for hardware layout
-> +	 * validation and demonstration, so it's disabled by default.
-> +	 * Boards adopting MIPI-DSI panels may not have this path.
-> +	 **/
-
-There's no board using this: please remove edp_tx entirely, as this is
-only adding lines to this device tree for no useful reason.
-
-If a board with that appears, you can reintroduce this here, or if it is
-a single board, you can add that in the board dts.
-
-> +	aux-bus {
-> +		edp_panel: panel {
-> +			compatible = "lg,lp120up1";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&edp_bl_en>;
-> +			power-supply = <&pp3300_edp_disp>;
-> +			status = "disabled";
-> +
-> +			port {
-> +				edp_panel_in: endpoint {
-> +					remote-endpoint = <&edp_out>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
-
-..snip..
-> +	edp_bl_en: edp-bl-en-pins {
-> +		pins-ap-disp-bklten {
-> +			pinmux = <PINMUX_GPIO1__FUNC_B_GPIO1>;
-> +			output-low;
-> +		};
-> +	};
-> +
-> +	edp_disp_en: edp-disp-en-pins {
-> +		pins-en-pp3300-edp-disp {
-> +			pinmux = <PINMUX_GPIO27__FUNC_B_GPIO27>;
-> +			output-low;
-> +		};
-> +	};
-> +
-> +	edp_tx_hpd: edp-tx-hpd-pins {
-> +		pins-dp-tx-hpd {
-> +			pinmux = <PINMUX_GPIO17__FUNC_I0_EDP_TX_HPD>;
-> +		};
-> +	};
-
-After removing the always disabled edp nodes, you can also remove these pins
-as they are then unused.
-
-> +
-> +	gsc_int: gsc-int-pins {
-> +		pins-gsc-ap-int-odl {
-> +			pinmux = <PINMUX_GPIO0__FUNC_B_GPIO0>;
-> +			input-enable;
-> +		};
-> +	};
-> +
-
-..snip..
-
-> +&pmic {
-> +	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
-> +};
-> +
-> +&scp {
-
-Is this SCP-dual or SCP?
-I see SCP, but I also see a SCP-Dual memory region... what's going on here?
-
-Of course, the SCP-Dual won't work if you don't override the compatible string...
-
-> +	firmware-name = "mediatek/mt8188/scp.img";
-> +	memory-region = <&scp_mem>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&scp_pins>;
-> +	status = "okay";
-> +
-> +	cros-ec-rpmsg {
-> +		compatible = "google,cros-ec-rpmsg";
-> +		mediatek,rpmsg-name = "cros-ec-rpmsg";
-> +	};
-> +};
-> +
-> +&sound {
-> +	compatible = "mediatek,mt8188-nau8825";
-> +	model = "mt8188_m98390_8825";
-> +	pinctrl-names = "aud_etdm_hp_on",
-> +			"aud_etdm_hp_off",
-> +			"aud_etdm_spk_on",
-> +			"aud_etdm_spk_off",
-> +			"aud_mtkaif_on",
-> +			"aud_mtkaif_off";
-
-	pinctrl-names = "aud_etdm_hp_on", "aud_etdm_hp_off",
-			"aud_etdm_spk_on", "aud_etdm_spk_off",
-			"aud_mtkaif_on", "aud_mtkaif_off";
-
-> +	pinctrl-0 = <&aud_etdm_hp_on>;
-> +	pinctrl-1 = <&aud_etdm_hp_off>;
-> +	pinctrl-2 = <&aud_etdm_spk_on>;
-> +	pinctrl-3 = <&aud_etdm_spk_off>;
-> +	pinctrl-4 = <&aud_mtkaif_on>;
-> +	pinctrl-5 = <&aud_mtkaif_off>;
-
-Add a comment:
-
-	/* The audio-routing is defined in each board dts */
-
-> +	audio-routing = "ETDM1_OUT", "ETDM_SPK_PIN",
-> +			"ETDM2_OUT", "ETDM_HP_PIN",
-> +			"ETDM1_IN", "ETDM_SPK_PIN",
-> +			"ETDM2_IN", "ETDM_HP_PIN",
-> +			"ADDA Capture", "MTKAIF_PIN",
-> +			"Headphone Jack", "HPOL",
-> +			"Headphone Jack", "HPOR",
-> +			"MIC", "Headset Mic",
-> +			"Left Spk", "Front Left BE_OUT",
-> +			"Right Spk", "Front Right BE_OUT",
-> +			"Rear Left Spk", "Rear Left BE_OUT",
-> +			"Rear Right Spk", "Rear Right BE_OUT";
-> +
-
-...and remove the audio-routing from this dtsi; it's anyway being
-overridden by the -ciri.dtsi devicetree...
-
-> +	mediatek,adsp = <&adsp>;
-> +
-> +	status = "okay";
-> +
-> +	dai-link-0 {
-> +		link-name = "ETDM1_IN_BE";
-> +		dai-format = "dsp_b";
-> +		mediatek,clk-provider = "cpu";
-> +	};
-> +
-> +	dai-link-1 {
-> +		link-name = "ETDM1_OUT_BE";
-> +		dai-format = "dsp_b";
-> +		mediatek,clk-provider = "cpu";
-> +
-> +		codec {
-> +			sound-dai = <&max98390_38>,
-> +				    <&max98390_39>,
-> +				    <&max98390_3a>,
-> +				    <&max98390_3b>;
-> +		};
-> +	};
-> +
-> +	dai-link-2 {
-> +		link-name = "ETDM2_IN_BE";
-> +		mediatek,clk-provider = "cpu";
-> +
-> +		codec {
-> +			sound-dai = <&nau8825>;
-> +		};
-> +	};
-> +
-> +	dai-link-3 {
-> +		link-name = "ETDM2_OUT_BE";
-> +		mediatek,clk-provider = "cpu";
-> +
-> +		codec {
-> +			sound-dai = <&nau8825>;
-> +		};
-> +	};
-> +
-> +	dai-link-4 {
-> +		link-name = "DPTX_BE";
-> +
-> +		codec {
-> +			sound-dai = <&dp_tx>;
-> +		};
-> +	};
-> +};
-> +
-
-Cheers,
-Angelo
-
+--=20
+Without deviation from the norm, progress is not possible.
 
