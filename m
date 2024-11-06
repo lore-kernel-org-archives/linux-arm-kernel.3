@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EBBD59F7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6549D59F75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=; b=A1MNnNaYrdfClrkVoed6k6tQDq
-	Zuww+AaPrjNEZ5QWFgHv2ifePzFcVjWDwgoKeMra/q2m8OjN1QENUWPB8mqyGpXhsiwABeAck3CJf
-	pu8RqJspE95zE6D/6ro5OjK8Bv8speoe+uWAxK6fXbv0qqXDbI07NkYZjOvAyAADkKJ5Lg7L2Jrg8
-	JgQBmvcEJHz1uedsYPtiOowkM7NRkCaJUOlbHPRJUTslutsnGdxz5AFyw3Krt1riszteg4CWBchb7
-	9Ie0/i62Xf78ib2nDFy2mGzpAECDurCyQFRMV+cnqS2kCYoEvKQBcN3EXy2eBUQbTkZ3LgcoIMWdx
-	xmT5caoA==;
+	bh=ILai9bLOUx0Z2Eqc+N+CRl1kc/d4p0whz90+c+6dUNc=; b=LkF9XjN+neNvAugJDOF4TXAB/R
+	q+Sd2JTx+5If0dEpKyiQpkGq3u356eTR5/ydlM5GcfijFY9rOwKU4LcORa/4f3casHf/pwWT0vwr6
+	/n4+IB+Ovoc5ifQ2ZBMyLxVwcqiGHY2E01VIVYiQ3JY2g27jSwZ+bYpx/RvLdkYIV8TwGBukxpdqc
+	6R/RllrTr01rXT18ouSDvjXFKtsDJsmMg+qSqhrOS2x38JbRLtlGezGEfcarzi8aVil3NJo14HoQU
+	eAJg+60Jwq6sWk+O6qGLjKB4eYuEYEr2WoJoNe1JhqzagVVcuNVxI3lztlEaNytSGs0dr5y1gFqYM
+	D8SRW1BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8oI8-00000004t1y-1RiL;
-	Wed, 06 Nov 2024 22:14:20 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1t8oJs-00000004tWw-0ZAw;
+	Wed, 06 Nov 2024 22:16:08 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8oGO-00000004snH-16Iu;
-	Wed, 06 Nov 2024 22:12:34 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso2973645e9.0;
-        Wed, 06 Nov 2024 14:12:31 -0800 (PST)
+	id 1t8oHY-00000004suP-0eUD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 22:13:45 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5c934b2c991so7274a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 14:13:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730931150; x=1731535950; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=;
-        b=OguKIDAbAzdxsUwNs1xdNTzxbmbyluMLQ8Q2F4WkH/7NxrFENWp7s/9TOqQkJxLGj/
-         oHNFrs2zf3TC4gMLTjhqjoGDOcakgvLQXnZJRXBEpeW44swCO7JT4oLmAuexasaXmc5W
-         Hx8r2+YTNGjObXIXMHcU0z+eeTNR1G8jKRbvou8vL2K0qsXCaAHJ2BoYv6o+iN6gRaEY
-         mkiTGmaadWDcPCamafBLQS8ZAZ3xktonD2XAXGtXkLb3Lg1a2X5PzGVbN28DeO63L8DR
-         DH2il+Y7mnn8pwdVS1ObuuzG+xRi3lzTrohUcpME8Hda0GT/9IZJ6jEUsRMhtQcvms/+
-         jQZw==
+        d=google.com; s=20230601; t=1730931221; x=1731536021; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ILai9bLOUx0Z2Eqc+N+CRl1kc/d4p0whz90+c+6dUNc=;
+        b=TSoq4e7TFs/3+McAFiPoXVUzw/Y6OzbGuAET6RpJgJDn/YZHAgcgZZuKKrMmYe7wrg
+         1T6lBmumJOnIK4kizI3TL/apD7XQV9dl4NH6nfLKTH04umvJFKiDztwEtNlQeCqaLQpP
+         iK3vaXuQ2LNG8VUxDmh73SbEKiEMhswl42mYZVLox+kGjKciqSVwNHKx/gguR/U2xWib
+         x8auCRM7187WnT9fmVWhvushBR9oTgZ8M3LwAwT6rXKJWiKdwqpU1wFwBf+x2F7VXdIb
+         e8A373Ls8abMWsLr9Ay8+alV4xbc+5fS1J1ndIsms2k3QsMBGhDLcNPhOJ+BdUtSYXDU
+         IrMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730931150; x=1731535950;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=;
-        b=jKbPZF45pXDnz0UwifhL2TJd0S0obERNsolQb9bkWyEMoKw+cWan6BFtg6iu2FkGGn
-         asUwtS4rr6fjBvLehJpxBt79+N8YGkpUsKwaoVE3TZgZTSIbeVm2wlBqeVcuGqQuqrzv
-         1SQPmMqP82J+9yEMQOm6dg3l1HIb/B4MPbVV/WdEHbZ+uRhOOigeD+/yQTU+sIy4YGAl
-         fnUymaKcfbLrNTC3+vg1M0aJMkIlMTwPcQhz7mFDbzt+wXIbKOysQ+zqTQ9MlBze1qzV
-         5OF5HNlZKte/8lnGU2Z67tZVlxFJzAjqDbzak6YTYTsNvSAURMrMPREJa22z2JYcA6a0
-         bHZg==
-X-Forwarded-Encrypted: i=1; AJvYcCUTPcBh8lMnYjdb21X3j+Ndw9pvX4FvjxFq7lohtVObRzL86oXafpbWznU6KasHu9S67Yt9X08GF3ur1aF7tek=@lists.infradead.org, AJvYcCXpLDIDYlT3OSGOGebitkSkBMgqKu7y9fia8yAH+DtRYTAfQ9yliOR3SzHqD9NFU1B7HrXPv37mOqbq/v1G6CEA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVWfjQEG807xkEXP8o4o6nu9AeT904vuoBFDiXq7gLnx9Qn18/
-	JvGBKoF7JidB75abBxL+DiFbKEUX233NSZqGECbI7P1UB1bjl8+8
-X-Google-Smtp-Source: AGHT+IFfw5uAMtdU1Om11dpYAnWEuvswlrvP8MXiZx6I0NsIQwFcLiPX5mXS4Yxg1s/Iptb9rEr+Hw==
-X-Received: by 2002:a05:6000:4009:b0:37d:4e80:516 with SMTP id ffacd0b85a97d-381c7a5f773mr18655654f8f.34.1730931150127;
-        Wed, 06 Nov 2024 14:12:30 -0800 (PST)
-Received: from [192.168.0.2] ([69.6.8.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c113e771sm20526409f8f.81.2024.11.06.14.12.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Nov 2024 14:12:28 -0800 (PST)
-Message-ID: <3d17cd64-46c5-427f-b24f-9091546e2edf@gmail.com>
-Date: Thu, 7 Nov 2024 00:12:56 +0200
+        d=1e100.net; s=20230601; t=1730931221; x=1731536021;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ILai9bLOUx0Z2Eqc+N+CRl1kc/d4p0whz90+c+6dUNc=;
+        b=K1O46rctuN4ZxMJOYB5A+2C4FROYMLRfdIM8Z/vkOAIVT41baMQEO51DP+hzWysZRl
+         nICSsYxc4jLrj6i+fGwrETPtWYR/bOELEq0gBaM89aa+bpmyJvXmJx7U9i0z3nJg4soy
+         W6DC9iCOgJ9mgIBHWcfZO0buYmcMmTllpVtuWALvj6Ys6UWgy26nCBlaTDDBwRwewQes
+         HbAx4TYVNfPRd/HXiwnin6TUMLuyt3wZPD6dRy/MIBeLVdmefAuFF+oTiIb/ckdZvOpN
+         JBI7NdP+FGA/YUGdWMTzFvoD6DAh2m9JQso0gk4N6lVL/fy2tmTBpoM38ki+3GFI8hEo
+         t/VA==
+X-Gm-Message-State: AOJu0Yz6WuVqHhNYnuIEyAPJxFbOTlfhSHke/JJOOgzuGyP2stEh20nY
+	vGqTsC+gK51E9agP95QfZ5FwgUmdA4IGYoIQTxaG3yb0UdIt5JxZMtRftZeNqCeNvPnQxac5lTG
+	Wn7Q+MKdQnMV8BrfskcHrxFktd54qHUWTXPg2
+X-Gm-Gg: ASbGnct6dgqqSDYNjc5vpMOC9VMrLjh0mrCr+nY+zNPD4vcVBE2Do0Ig1xgK2F+Cnj7
+	VJC+GKr0BDjyBW2Etpwegeu47WLTL1MWnUGMAHMKPJF7oE6xxKoqYoxGV2Gk=
+X-Google-Smtp-Source: AGHT+IGHpCshlFNg2yBXekMszUfYyPONoY0Z5soa/+V5wSVkPSv2nrTWlMmJoR7+edgW2cwuDYLsGWwS+ganjsQ4/2g=
+X-Received: by 2002:a05:6402:206c:b0:5c8:a0b1:9c4 with SMTP id
+ 4fb4d7f45d1cf-5cefbcb8e25mr209547a12.6.1730931220726; Wed, 06 Nov 2024
+ 14:13:40 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] [net] net: wwan: t7xx: Change PM_AUTOSUSPEND_MS to 5000
-To: =?UTF-8?B?5ZCz6YC86YC8?= <wojackbb@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
- chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
- haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
- ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
- johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com
-References: <20241028073015.692794-1-wojackbb@gmail.com>
- <20241031185150.6ef22ce0@kernel.org>
- <CAAQ7Y6an8ZkxYpJehd8cBRPHjqyQofc6A4QdPzM_dhh1Sn0nng@mail.gmail.com>
-Content-Language: en-US
-From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-In-Reply-To: <CAAQ7Y6an8ZkxYpJehd8cBRPHjqyQofc6A4QdPzM_dhh1Sn0nng@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20241106185513.3096442-5-ardb+git@google.com> <20241106185513.3096442-6-ardb+git@google.com>
+In-Reply-To: <20241106185513.3096442-6-ardb+git@google.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Wed, 6 Nov 2024 22:13:02 +0000
+Message-ID: <CABCJKudxN=5Op96567rti9fYZXHWVLoWzGA8rJr8Y=t+8X9TNg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] arm64/scs: Fix handling of DWARF augmentation data in
+ CIE/FDE frames
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, 
+	will@kernel.org, mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_141232_326954_C09ACF9C 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20241106_141344_406884_CFF410CC 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +94,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jack,
+On Wed, Nov 6, 2024 at 6:55=E2=80=AFPM Ard Biesheuvel <ardb+git@google.com>=
+ wrote:
+>
+> Also introduce some error codes to specify why the patching failed, and
+> log it to the kernel console on failure when this happens when loading a
+> module. (Doing so for vmlinux is infeasible, as the patching is done
+> extremely early in the boot.)
 
-On 06.11.2024 13:10, 吳逼逼 wrote:
-> If the PCIE connection remains in the D0 state, It will consume more power.
+It's a bit unfortunate that we might fail quietly for vmlinux. Could
+we store scs_patch() return value somewhere and print out a warning in
+dynamic_scs_init() if something went wrong, for example?
 
-True. Keeping device active causes battery drainage and the idea to put 
-inactive device into the power saving mode is clear. My question was not 
-about power consumption. I am trying to understand what other 
-consequences of keeping modem suspended. More specifically, how the 
-suspend mode influences user data communication?
-
-> Receiving or sending data will cause PCIE to change D3 Cold to D0 state.
-
-Am I understand it correctly that even receiving IP packets on downlink 
-will cause PCIe link re-activation?
-
-
-I am concerned about a TCP connection that can be idle for a long period 
-of time. For example, an established SSH connection can stay idle for 
-minutes. If I connected to a server and execute something like this:
-
-user@host$ sleep 20 && echo "Done"
-
-Will I eventually see the "Done" message or will the autosuspended modem 
-effectively block any incoming traffic? And how long does it take for 
-the modem to wake up and deliver a downlink packet to the host? Have you 
-measured StDev change?
-
-> Jakub Kicinski <kuba@kernel.org> 於 2024年11月1日 週五 上午9:51寫道：
->>
->> On Mon, 28 Oct 2024 15:30:15 +0800 wojackbb@gmail.com wrote:
->>> Because optimizing the power consumption of t7XX,
->>> change auto suspend time to 5000.
->>>
->>> The Tests uses a script to loop through the power_state
->>> of t7XX.
->>> (for example: /sys/bus/pci/devices/0000\:72\:00.0/power_state)
->>>
->>> * If Auto suspend is 20 seconds,
->>>    test script show power_state have 0~5% of the time was in D3 state
->>>    when host don't have data packet transmission.
->>>
->>> * Changed auto suspend time to 5 seconds,
->>>    test script show power_state have 50%~80% of the time was in D3 state
->>>    when host don't have data packet transmission.
->>
->> I'm going to drop this from PW while we wait for your reply to Sergey
->> If the patch is still good after answering his questions please update
->> the commit message and resend with a [net-next] tag (we use [net] to
->> designate fixes for current release and stable)
-
---
-Sergey
+Sami
 
