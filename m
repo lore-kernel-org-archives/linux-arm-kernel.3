@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D62D59F65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD867D59F68
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=; b=4oMqQTCWsN4/XBq8VtDnRRhekF
-	2I8feDwRmD8yqYJjUBD7N2g/a1E/qvH1T2mqVnLUd4FA3YqnDZglYaBdrPJzrYRCqS0cFmF+bw5TY
-	Lqo+umD6x8DmL6gINypmPxZvsV3ksMTHswMGvN42QH3W6r3NoMlsK7knjxgdE16d2CA5rJiw4sw4u
-	BiHl7HZGXPQ4PVS69fvAC46lipbunxPNUfiq+EA3cq+LWMmkeSfYEJelCRHYZMr6E6wNYn844a5Qo
-	6s7bWyuB9HiZcRehzzyAZVA64o/eppZcWW0zQi9CMeVSB7GGw5U84ejWmLs9ZoINipo7oavW0VJpq
-	r0jB1SnA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rgwHKb2GqFqjlOKeWsyt+EQnMg954jRHbFfwtF7+VIo=; b=PTFvsD9qHuzq4J9Rz2f3ZHXFUO
+	b8nVuNxjZFoEMEfS8HG2qEOjLBGrQEp1iOKmFyZOteM+A7r16IkhgC/ab09ppLwxO2ny1DeABD75L
+	fWIBSnAl2neqY1WGxEUV4BYplT6+V5r/U+disumMAHakGtPJquM9L/f8ctchUE0Dp7XwLNldAVy45
+	DJgUxDPSGypbsyepQRf1VNDGijT1hyAkwfhc/NMCPZE8koFOniFYWA11pCQxJRsuGaqUWjdJBg4yG
+	GnuBUHXQY+IbChObdsfJLyd97Pv2mCSFJYz7vUYVQoQIXP9y0Z1oUPXOAlV4/c95ci1hm5P4iHuoW
+	2drLTW6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lDM-00000004PsY-1fGC;
-	Wed, 06 Nov 2024 18:57:12 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t8lF4-00000004QAA-2k4d;
+	Wed, 06 Nov 2024 18:58:58 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lBc-00000004PgW-3m2z
+	id 1t8lBg-00000004Pgu-09DQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 18:55:26 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e28fc8902e6so219809276.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:24 -0800 (PST)
+	Wed, 06 Nov 2024 18:55:29 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-37d5ca192b8so79315f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730919323; x=1731524123; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=;
-        b=Jj+nUGsU3ZBmGtCR89RzjvQaTcWQQHCwD5TquwbcnHgCVcCxZsZqjUa6qGLsmz+RC5
-         DkWMd4W03iRhLDmvuhOBMsLvBsbfwtqUiQVn7GjOijwjMV3Yt/V+FR5b8xfynooJwRUY
-         j+uRCs+lsx7eJmoz+71QsFeUJTl7zO38qaKT5UeevKV3726tZ0kZTOtwXTbQHdK0pOmg
-         2MXnNfy7vzGCd2MFt+/BSqLgcQNJY/Bqk8l5z+vZdWxa2/UboUJlvo2bBlf7faX6buzH
-         ysRbkxd+ABPQ7UWSPzJpDjuu2f7JaLqHgUzx4Ipzr7BBCyWur1g6m8ntcXbEjf9/GDhV
-         d14Q==
+        d=google.com; s=20230601; t=1730919325; x=1731524125; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rgwHKb2GqFqjlOKeWsyt+EQnMg954jRHbFfwtF7+VIo=;
+        b=mxZBJEN2U/73/BlaR9hYAjyVkHeRKkQ+VG2AqnblHm91r1Ced7fOsWlXEFtdHAM+vG
+         9vy/fArZSE6w34CDzNZ7cHO/CMEvtX9o5U7tAqpZAjWXKCBc2LEWVEf/cGnzAoxRkM6C
+         yn9yrltC6nW3k6xUIn/gsHEclzaq4+Vu6IhXkbucROV27toS34U8AQYtCHPG98hff89k
+         DtPpLL/l0qOh6yslpTKj+PScRcwO1kde3MP45WqjdzkN8qpiOcMbbJdemY4xaMillFGX
+         jsMkJJlLQxGqAPFvaF+cuC19g5QpGAsVgp/EbtvBstD6EZH6duo2L0fzwrinIUdeMi0B
+         izVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730919323; x=1731524123;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9aFwKcH7xfsxMqd/0dp9kMmenPJInTV5I1fxqsIE+8E=;
-        b=VVvVUtw0lV3K9h3M/GuL17ZyRgOuGCFmrD+8yGfOqD1WtM+1IgtLt+AoJesNKGlJ0O
-         2g24d0vlF3Tpi8C6Gd+AjcVDmYvq1IUUDi/MvmxFiLbK/aQQnEN5qeCRZ+eS6ExScH0S
-         QIvB0z0MGv33JxlR3X8lIx/oTlTst8dXUZ8IN0lYqiANLfk2vyag7VtNm0FpkZhpOOIK
-         VRoj3DSE92vMkAv7LQ9/A8VjTqeo6rJNdrgjosn75Jc3dyvLdwvoPz9Tj8C2rCvTG8ji
-         3p0UhETFDeiHU6KBYPiwgNBKa5oY9Ta6QWbIGkEj2RYMABeOiTwaTHuGnByqvWXKm9ej
-         PHKA==
-X-Gm-Message-State: AOJu0YzYIEjbDfBpMH9XI8SbrzP2IsGVrJr4/nZ91N26NksT+BGIatLZ
-	3+j0/wL4XmbpHjiau7DYKnqG5RiCH32O9i+MyZaKUwM+S3JZtRjSPFRPfDxyeLpbvE7pyaosbwE
-	92KVZ/UzVUjYqKdO/gaZfgDCg00gQZuDuXiQRSrQWlz7V6x+KOJmPYDMMG141JZ+dxVaeZiXaUn
-	ZbffthbHLLM4gbZ151rsWIBjQ/kpCf7eQe1kZMrFK0
-X-Google-Smtp-Source: AGHT+IGPONLChWBzDaI4hMdqix44IABUjxLoSmBsJREILiyu1wMZy3UK5o3COAt5JlLKdKUIEutRpT70
+        d=1e100.net; s=20230601; t=1730919325; x=1731524125;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rgwHKb2GqFqjlOKeWsyt+EQnMg954jRHbFfwtF7+VIo=;
+        b=ebHXECNrPgk/Hxo3sBERfVow+LBGNLiOUl0zsxetcmyiljxtiCtBEqZdO72FavLfzb
+         SV3669sLn3U+qGOvb3Lyu8TwIS53L7l+s1ZIfT4w+ACSyaIxBFWOVs5PsfzMnwJHg4Ju
+         BBkuitxOGVlE5wivPSS9LtBbobHS6V/7ZvEGVe8bfEPlsuTgx3t46ByKatLi6uaqZ6nG
+         dop5OPtYfkhGl0bKMzZhOiVuEThc8LFngAVC9NLI30kcDKNvTVj6uEYYTETO27wEyCPv
+         p3+I8SU5DicDUvWBRdR7MA1EyeG/HoDMeDBWQw1E3NTCKfk7tPml4lfA8EnnedHs636e
+         bueQ==
+X-Gm-Message-State: AOJu0YxNzoFnPrT9X+JKjF8cbFKXA1N1+vRsZeeYgEqxXm4jmNHaDJF2
+	EvHIue34/1zNVvT3vGe7heLX2Qbf7eHc+MTcBYIzx5R9nQS+qCgZoL6wPUolu0fDnyriyplQtee
+	4fGD7pLqF1sCh+VSQGVdJVzTpiF+mQuoIJ+k8n38Vz1ICXy9AoXIDqQnOWjdY461boKh+qT+s0C
+	WYpVuWywrhtOWj1yQ6qCf7EftqsclZlk9Qid/mNEUL
+X-Google-Smtp-Source: AGHT+IHpMI0YI7UU6jYcxNW1VgmRyWpMRzMCbohgzZJW6PuuM03Rjb83PD2E377wCi+LnHpIyC5qOFrB
 X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a5b:91:0:b0:e28:f2a5:f1d with SMTP id
- 3f1490d57ef6-e3087a4ed65mr73087276.4.1730919322888; Wed, 06 Nov 2024 10:55:22
+ (user=ardb job=sendgmr) by 2002:a5d:6683:0:b0:37c:ccea:1ab with SMTP id
+ ffacd0b85a97d-381ec60a868mr213f8f.6.1730919325098; Wed, 06 Nov 2024 10:55:25
  -0800 (PST)
-Date: Wed,  6 Nov 2024 19:55:14 +0100
+Date: Wed,  6 Nov 2024 19:55:15 +0100
+In-Reply-To: <20241106185513.3096442-5-ardb+git@google.com>
 Mime-Version: 1.0
+References: <20241106185513.3096442-5-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1142; i=ardb@kernel.org;
- h=from:subject; bh=Wni1dkCI5u5ccU9XlEF9N93Tkgd7rvPGwlYBCgQrDjs=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV179yQFyYTnn1+JzN51YdnKTOFXZgx7HI7LMj+VsBRLv
- iB4t9mgo5SFQYyDQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAExk6zSG//4nAjnZvMSr3rD+
- 498mphi0ocvy9znvXKG95xNcF0+uP8DwP+lvxp/LIqvPy+1VvH5JYFVbbuTFa4tsFCM2edhGMrl M5wMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6569; i=ardb@kernel.org;
+ h=from:subject; bh=hpEqkAuAH4m6BoctFK29ndCaAoho3ibLF1ND93uwZQI=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV1792Sb4LteDayfLUIsbK27JY5arhRcxN+859IZDU3RX
+ ym+nc86SlkYxDgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwES8ahn+6dps5vzcYDz3//vD
+ 5hGbPa/uV89rFJ4yPyzyxu77q67pRDH8ryudG9aabM+Y5FwpwdPKcT/g8vWdyhzJJd++SHCde8j EBAA=
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241106185513.3096442-5-ardb+git@google.com>
-Subject: [PATCH 0/3] arm64: Dynamic shadow call stack fixes
+Message-ID: <20241106185513.3096442-6-ardb+git@google.com>
+Subject: [PATCH 1/3] arm64/scs: Fix handling of DWARF augmentation data in
+ CIE/FDE frames
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
@@ -78,8 +81,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
 	Nathan Chancellor <nathan@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_105524_971071_A27BADF5 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20241106_105528_109032_2F5B50D5 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,32 +99,203 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-When building modules using the large code model, the emitted DWARF
-metadata uses large fields for the code references too, and this is
-currently not being handled. 
+The dynamic SCS patching code pretends to parse the DWARF augmentation
+data in the CIE (header) frame, and handle accordingly when processing
+the individual FDE frames based on this CIE frame. However, the boolean
+variable is defined inside the loop, and so the parsed value is ignored.
 
-The CIE header frame contains metadata that describes the size of these
-fields, and so this should be parsed and taken into account when
-processing the FDE frames (patch #2)
+The same applies to the code alignment field, which is also read from
+the header but then discarded.
 
-But first, the handling of this CIE frame header needs to be fixed, as
-it currently [inadvertently] used hardcoded defaults for some values
-that happen to always match what Clang emits in practice (patch #1) 
+This was never spotted before because Clang is the only compiler that
+supports dynamic SCS patching (which is essentially an Android feature),
+and the unwind tables it produces are highly uniform, and match the
+de facto defaults.
 
-Cc: Sami Tolvanen <samitolvanen@google.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>
+So instead of testing for the 'z' flag in the augmentation data field,
+require a fixed augmentation data string of 'zR', and simplify the rest
+of the code accordingly.
 
-Ard Biesheuvel (3):
-  arm64/scs: Fix handling of DWARF augmentation data in CIE/FDE frames
-  arm64/scs: Deal with 64-bit relative offsets in FDE frames
-  arm64/scs: Drop unused prototype __pi_scs_patch_vmlinux()
+Also introduce some error codes to specify why the patching failed, and
+log it to the kernel console on failure when this happens when loading a
+module. (Doing so for vmlinux is infeasible, as the patching is done
+extremely early in the boot.)
 
- arch/arm64/include/asm/scs.h     |  8 +-
- arch/arm64/kernel/module.c       | 10 ++-
- arch/arm64/kernel/pi/patch-scs.c | 93 ++++++++++++++------
- 3 files changed, 80 insertions(+), 31 deletions(-)
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/include/asm/scs.h     |  7 +++
+ arch/arm64/kernel/module.c       | 10 +++-
+ arch/arm64/kernel/pi/patch-scs.c | 63 +++++++++++---------
+ 3 files changed, 50 insertions(+), 30 deletions(-)
 
+diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
+index 2e010ea76be2..934e9217cd74 100644
+--- a/arch/arm64/include/asm/scs.h
++++ b/arch/arm64/include/asm/scs.h
+@@ -46,6 +46,13 @@ static inline void dynamic_scs_init(void)
+ static inline void dynamic_scs_init(void) {}
+ #endif
+ 
++enum {
++	EDYNSCS_INVALID_CIE_HEADER		= 1,
++	EDYNSCS_INVALID_CIE_SDATA_SIZE		= 2,
++	EDYNSCS_INVALID_FDE_AUGM_DATA_SIZE	= 3,
++	EDYNSCS_INVALID_CFA_OPCODE		= 4,
++};
++
+ int __pi_scs_patch(const u8 eh_frame[], int size);
+ asmlinkage void __pi_scs_patch_vmlinux(void);
+ 
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 36b25af56324..06bb680bfe97 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -462,14 +462,20 @@ int module_finalize(const Elf_Ehdr *hdr,
+ 		    struct module *me)
+ {
+ 	const Elf_Shdr *s;
++	int ret;
++
+ 	s = find_section(hdr, sechdrs, ".altinstructions");
+ 	if (s)
+ 		apply_alternatives_module((void *)s->sh_addr, s->sh_size);
+ 
+ 	if (scs_is_dynamic()) {
+ 		s = find_section(hdr, sechdrs, ".init.eh_frame");
+-		if (s)
+-			__pi_scs_patch((void *)s->sh_addr, s->sh_size);
++		if (s) {
++			ret = __pi_scs_patch((void *)s->sh_addr, s->sh_size);
++			if (ret)
++				pr_err("module %s: error occurred during dynamic SCS patching (%d)\n",
++				       me->name, ret);
++		}
+ 	}
+ 
+ 	return module_init_ftrace_plt(hdr, sechdrs, me);
+diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
+index 49d8b40e61bc..cec8f0a52bbc 100644
+--- a/arch/arm64/kernel/pi/patch-scs.c
++++ b/arch/arm64/kernel/pi/patch-scs.c
+@@ -120,7 +120,11 @@ struct eh_frame {
+ 	union {
+ 		struct { // CIE
+ 			u8	version;
+-			u8	augmentation_string[];
++			u8	augmentation_string[3];
++			u8	code_alignment_factor;
++			u8	data_alignment_factor;
++			u8	return_address_register;
++			u8	augmentation_data_size;
+ 		};
+ 
+ 		struct { // FDE
+@@ -132,25 +136,21 @@ struct eh_frame {
+ };
+ 
+ static int scs_handle_fde_frame(const struct eh_frame *frame,
+-				bool fde_has_augmentation_data,
+ 				int code_alignment_factor,
+ 				bool dry_run)
+ {
+ 	int size = frame->size - offsetof(struct eh_frame, opcodes) + 4;
+ 	u64 loc = (u64)offset_to_ptr(&frame->initial_loc);
+ 	const u8 *opcode = frame->opcodes;
++	int l;
+ 
+-	if (fde_has_augmentation_data) {
+-		int l;
++	// assume single byte uleb128_t for augmentation data size
++	if (*opcode & BIT(7))
++		return EDYNSCS_INVALID_FDE_AUGM_DATA_SIZE;
+ 
+-		// assume single byte uleb128_t
+-		if (WARN_ON(*opcode & BIT(7)))
+-			return -ENOEXEC;
+-
+-		l = *opcode++;
+-		opcode += l;
+-		size -= l + 1;
+-	}
++	l = *opcode++;
++	opcode += l;
++	size -= l + 1;
+ 
+ 	/*
+ 	 * Starting from 'loc', apply the CFA opcodes that advance the location
+@@ -201,7 +201,7 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
+ 			break;
+ 
+ 		default:
+-			return -ENOEXEC;
++			return EDYNSCS_INVALID_CFA_OPCODE;
+ 		}
+ 	}
+ 	return 0;
+@@ -209,12 +209,11 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
+ 
+ int scs_patch(const u8 eh_frame[], int size)
+ {
++	int code_alignment_factor = 1;
+ 	const u8 *p = eh_frame;
+ 
+ 	while (size > 4) {
+ 		const struct eh_frame *frame = (const void *)p;
+-		bool fde_has_augmentation_data = true;
+-		int code_alignment_factor = 1;
+ 		int ret;
+ 
+ 		if (frame->size == 0 ||
+@@ -223,28 +222,36 @@ int scs_patch(const u8 eh_frame[], int size)
+ 			break;
+ 
+ 		if (frame->cie_id_or_pointer == 0) {
+-			const u8 *p = frame->augmentation_string;
+-
+-			/* a 'z' in the augmentation string must come first */
+-			fde_has_augmentation_data = *p == 'z';
++			/*
++			 * Require presence of augmentation data (z) with a
++			 * specifier for the size of the FDE initial_loc and
++			 * range fields (R), and nothing else.
++			 */
++			if (strcmp(frame->augmentation_string, "zR"))
++				return EDYNSCS_INVALID_CIE_HEADER;
+ 
+ 			/*
+ 			 * The code alignment factor is a uleb128 encoded field
+ 			 * but given that the only sensible values are 1 or 4,
+-			 * there is no point in decoding the whole thing.
++			 * there is no point in decoding the whole thing.  Also
++			 * sanity check the size of the data alignment factor
++			 * field, and the values of the return address register
++			 * and augmentation data size fields.
+ 			 */
+-			p += strlen(p) + 1;
+-			if (!WARN_ON(*p & BIT(7)))
+-				code_alignment_factor = *p;
++			if ((frame->code_alignment_factor & BIT(7)) ||
++			    (frame->data_alignment_factor & BIT(7)) ||
++			    frame->return_address_register != 30 ||
++			    frame->augmentation_data_size != 1)
++				return EDYNSCS_INVALID_CIE_HEADER;
++
++			code_alignment_factor = frame->code_alignment_factor;
+ 		} else {
+-			ret = scs_handle_fde_frame(frame,
+-						   fde_has_augmentation_data,
+-						   code_alignment_factor,
++			ret = scs_handle_fde_frame(frame, code_alignment_factor,
+ 						   true);
+ 			if (ret)
+ 				return ret;
+-			scs_handle_fde_frame(frame, fde_has_augmentation_data,
+-					     code_alignment_factor, false);
++			scs_handle_fde_frame(frame, code_alignment_factor,
++					     false);
+ 		}
+ 
+ 		p += sizeof(frame->size) + frame->size;
 -- 
 2.47.0.277.g8800431eea-goog
 
