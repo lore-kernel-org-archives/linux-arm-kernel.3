@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413C3D59F6C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9214D59F6E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3nmlVLGBXgCWtosT8kzqyaZ7aneitiCpEA6ZoYORSo=; b=HRtdUERsWflvfjr5UAhlZ5Cyc7
-	VFZN6alMBnBRhO2yv41APf01ngLN382pmOQgsbNvr+ftnsih51+J8b7q9N/RHAaRv5ZvxLNA/DV3D
-	Ikh2sFr5lqda0n2e6m2FJb/1suDVQTT3bqT4kK1mw/dWqQryM232udlzvDRJXwI7sGxb/N44/k8rD
-	Vv09MPe3QiZz2SQLbB6GeZPnRxY9h1G7JQPEPjab2El4OGDiiI0BY7dO2tkYH7sd/mO5nWL7ZHVkR
-	aBqtUpWUrQEZSIBVdIf2EE96ZIMbSqUFdM9A2JUt8sbcMLqrRXrqcOYA372zmsfWofADj+Uq9oOan
-	LBZOBYkg==;
+	bh=SOBsyQjKR+aopD9T4x3Q0P1OVO7qyX9T6pAaFYsEySE=; b=RXORT84T63VWOfHdATAZRDeJtT
+	XCHe9G1H5cT8NQkF4WDLEi5pgExk/wf6y0wPwedFfwU8QYt2nfEx4Y1qRF5n9buOsvcZ/x6QaL5iI
+	uYlVkfiifYQyb4a2jY9BZN7dERi6m+Hunhkq2rmodSHgOpief/+jPTi5jCXjROd4dvXamhWZleoY7
+	XPtw3uOsJCUOcQyhdFRN9oVLuHDzM6+WTmSi65rhDKH1j2jHNXpwXY8XILQMv0wU8D5jLt39P9KBi
+	+i5jKUSJJpCIF6JH+wMQ7Gl2PW11/MN3MUPZxxfx/YFNRjYqOhDGrpXbjSZoP/I355Vg88OCF1cHU
+	lqKm463g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8m9u-00000004crf-3gzv;
-	Wed, 06 Nov 2024 19:57:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8mG7-00000004dqn-1vUN;
+	Wed, 06 Nov 2024 20:04:07 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8m8A-00000004cW1-37xV
+	id 1t8mEM-00000004dZU-3gTI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 19:55:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4AB1D5C1B07;
-	Wed,  6 Nov 2024 19:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B876EC4CED5;
-	Wed,  6 Nov 2024 19:55:48 +0000 (UTC)
-Date: Wed, 6 Nov 2024 19:55:46 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Okanovic, Haris" <harisokn@amazon.com>
-Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	"sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
-	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>,
-	"wanpengli@tencent.com" <wanpengli@tencent.com>,
-	"cl@gentwo.org" <cl@gentwo.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"misono.tomohiro@fujitsu.com" <misono.tomohiro@fujitsu.com>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"lenb@kernel.org" <lenb@kernel.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"mtosatti@redhat.com" <mtosatti@redhat.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>
-Subject: Re: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Message-ID: <ZyvJwjfKgnqMpM9P@arm.com>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
- <20241105183041.1531976-1-harisokn@amazon.com>
- <20241105183041.1531976-2-harisokn@amazon.com>
- <ZytOH2oigoC-qVLK@arm.com>
- <b62d938111c6ce52b91d0f2e3922857c5d4ef253.camel@amazon.com>
+	Wed, 06 Nov 2024 20:02:20 +0000
+Date: Wed, 6 Nov 2024 12:02:02 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1730923334;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SOBsyQjKR+aopD9T4x3Q0P1OVO7qyX9T6pAaFYsEySE=;
+	b=Ev2IHzSQp/e4ZHbWSktOjEbNH4Qrutu7t3FQZgZAUdjLZ2w0IRzdDpE0H0/CbqWzpKlYQ9
+	YoBodBX6TP/KL8N4d4CPCs7LoHILZ6KO7RZoORayqY7Bdtm+n+C1UqxpuBYqJothRojsuy
+	YXhRfwcYbNxEKBIQGEpmwmMsXoiL+Q4=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: "Liang, Kan" <kan.liang@linux.intel.com>
+Cc: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v6 4/5] x86: perf: Refactor misc flag assignments
+Message-ID: <ZyvLOjy8Vfvai5cG@linux.dev>
+References: <20241105195603.2317483-1-coltonlewis@google.com>
+ <20241105195603.2317483-5-coltonlewis@google.com>
+ <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b62d938111c6ce52b91d0f2e3922857c5d4ef253.camel@amazon.com>
+In-Reply-To: <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_115554_897501_C2687AB9 
-X-CRM114-Status: GOOD (  33.18  )
+X-CRM114-CacheID: sfid-20241106_120219_063926_CC86986E 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +94,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 06:13:35PM +0000, Okanovic, Haris wrote:
-> On Wed, 2024-11-06 at 11:08 +0000, Catalin Marinas wrote:
-> > On Tue, Nov 05, 2024 at 12:30:37PM -0600, Haris Okanovic wrote:
-> > > diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> > > index d4f581c1e21d..112027eabbfc 100644
-> > > --- a/include/asm-generic/barrier.h
-> > > +++ b/include/asm-generic/barrier.h
-> > > @@ -256,6 +256,31 @@ do {                                                                     \
-> > >  })
-> > >  #endif
-> > > 
-> > > +/**
-> > > + * smp_vcond_load_relaxed() - (Spin) wait until an expected value at address
-> > > + * with no ordering guarantees. Spins until `(*addr & mask) == val` or
-> > > + * `nsecs` elapse, and returns the last observed `*addr` value.
-> > > + *
-> > > + * @nsecs: timeout in nanoseconds
-> > 
-> > FWIW, I don't mind the relative timeout, it makes the API easier to use.
-> > Yes, it may take longer in absolute time if the thread is scheduled out
-> > before local_clock_noinstr() is read but the same can happen in the
-> > caller anyway. It's similar to udelay(), it can take longer if the
-> > thread is scheduled out.
-> > 
-> > > + * @addr: pointer to an integer
-> > > + * @mask: a bit mask applied to read values
-> > > + * @val: Expected value with mask
-> > > + */
-> > > +#ifndef smp_vcond_load_relaxed
-> > > +#define smp_vcond_load_relaxed(nsecs, addr, mask, val) ({    \
-> > > +     const u64 __start = local_clock_noinstr();              \
-> > > +     u64 __nsecs = (nsecs);                                  \
-> > > +     typeof(addr) __addr = (addr);                           \
-> > > +     typeof(*__addr) __mask = (mask);                        \
-> > > +     typeof(*__addr) __val = (val);                          \
-> > > +     typeof(*__addr) __cur;                                  \
-> > > +     smp_cond_load_relaxed(__addr, (                         \
-> > > +             (VAL & __mask) == __val ||                      \
-> > > +             local_clock_noinstr() - __start > __nsecs       \
-> > > +     ));                                                     \
-> > > +})
-> > 
-> > The generic implementation has the same problem as Ankur's current
-> > series. smp_cond_load_relaxed() can't wait on anything other than the
-> > variable at __addr. If it goes into a WFE, there's nothing executed to
-> > read the timer and check for progress. Any generic implementation of
-> > such function would have to use cpu_relax() and polling.
+On Wed, Nov 06, 2024 at 11:03:10AM -0500, Liang, Kan wrote:
+> > +static unsigned long common_misc_flags(struct pt_regs *regs)
+> > +{
+> > +	if (regs->flags & PERF_EFLAGS_EXACT)
+> > +		return PERF_RECORD_MISC_EXACT_IP;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+> > +{
+> > +	unsigned long guest_state = perf_guest_state();
+> > +	unsigned long flags = common_misc_flags(regs);
+> > +
+> > +	if (guest_state & PERF_GUEST_USER)
+> > +		flags |= PERF_RECORD_MISC_GUEST_USER;
+> > +	else if (guest_state & PERF_GUEST_ACTIVE)
+> > +		flags |= PERF_RECORD_MISC_GUEST_KERNEL;
+> > +
 > 
-> How would the caller enter wfe()? Can you give a specific scenario that
-> you're concerned about?
-
-Let's take the arm64 example with the event stream disabled. Without the
-subsequent patches implementing smp_vcond_load_relaxed(), just expand
-the arm64 smp_cond_load_relaxed() implementation in the above macro. If
-the timer check doesn't trigger an exit from the loop,
-__cmpwait_relaxed() only waits on the variable to change its value,
-nothing to do with the timer.
-
-> This code already reduces to a relaxed poll, something like this:
+> The logic of setting the GUEST_KERNEL flag is implicitly changed here.
 > 
-> ```
-> start = clock();
-> while((READ_ONCE(*addr) & mask) != val && (clock() - start) < nsecs) {
->   cpu_relax();
-> }
-> ```
+> For the current code, the GUEST_KERNEL flag is set for !PERF_GUEST_USER,
+> which include both guest_in_kernel and guest_in_NMI.
 
-Well, that's if you also use the generic implementation of
-smp_cond_load_relaxed() but have you checked all the other architectures
-that don't do something similar to the arm64 wfe (riscv comes close)?
-Even if all other architectures just use a cpu_relax(), that's still
-abusing the smp_cond_load_relaxed() semantics. And what if one places
-another loop in their __cmpwait()? That's allowed because you are
-supposed to wait on a single variable to change not on multiple states.
+Where is the "guest_in_NMI" state coming from? KVM only reports user v.
+kernel mode.
 
 -- 
-Catalin
+Thanks
+Oliver
 
