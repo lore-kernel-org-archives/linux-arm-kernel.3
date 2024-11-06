@@ -4,115 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B6DD44D75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAE4D44D78
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVOIv2tLzBMKag3Dfj/eIka07tj2vMmx3GPHRsK2KXs=; b=aHEG9FMgy8E8vYyRZNMY/j+Hqc
-	KIXPenAK8AxelezrO5MPLfBLmwzpsZfvxc3A8xuTlKUyVnRr2avixi0CdKgz3xw7H0vXO8E9gOM9y
-	umPnL4WumV110Z2ZZ3DK7qunv0NsKyotZMFr5ISxgfeE/JrVkSBLDw08COGQzEjGoomSCvycePJ3Y
-	qEqg0H8aRRMwM9XjVVidmQTSJp+ig+HL54hKkEPJz5I02jqg3viWd6aeTd1AKEuDHzs/i0FrPz5PL
-	vKfmyW9X41ps795SP1gZQwyIdFrQc38ziCqikyBxJ3YPYr9kT+rU41J+C1MiL6ahXeM4GpZ7eldSC
-	n1moN1WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdmqNqqp4Bk7buEsWzjxk7mkEA62rn6czo4XC8c0f/Q=; b=f2W/JOaqH7YfKs6MeY+z83WVFw
+	S4gHdxeu7Gt8lDjF74EQci6lu+uFmgfcnMufU8x3e4O3UilUYn3lvuRmCBX0fJLomJaRFW08DG/F0
+	/AGZ5iZgf0QeQunBKglfCw8iHURnjEREzwn4n2zkRbRfk4WazE0imWVxz4IhZvXp8T8LvKxG7W6rT
+	cp2v8rzqMWrecrh6yock7PMWKPSOH7RvyfbMb/3qji6yx+10X1frFaULRrx6+PEWlYwPttV9VVHJR
+	zgRMjh/BHEdWdfchmX4a5QcOtW3dGwMlPxcY1HGmBDMUNfre4+AleNx+/NUJ6r9bVBUK5ptDTTDGA
+	4WEc6GbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gxk-00000003agC-0tVn;
-	Wed, 06 Nov 2024 14:24:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8gzS-00000003b17-1JDY;
+	Wed, 06 Nov 2024 14:26:34 +0000
+Received: from out-176.mta0.migadu.com ([2001:41d0:1004:224b::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gn2-00000003YWv-31SF
+	id 1t8gqW-00000003ZPe-0GcK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 14:13:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6DBE85C078E;
-	Wed,  6 Nov 2024 14:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 535A7C4CEC6;
-	Wed,  6 Nov 2024 14:13:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730902423;
-	bh=+pLThVS1L/IAbP/3NgRHcs2F5PUAiuFpNCtGhSyvvF8=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=vRA45zPBaLdOc77fWsdIuvUEiqfe3+G8GIwHpl0Uek4hP1DTnRDRwMeU8IoVhjPnU
-	 DZB41e+XVNvEvRgEVJ4xgEEyIPLoZ6ZKKyH57Q5mJe8Yu/q3KzInppbwZUSzCXlSM7
-	 XRC2JCYAaz9Oe/tb1jXj2UAR/C7uRvjneHgJE/SCtm7ks5LNmaUlNhFg2yFV87IfzF
-	 2VF/Vu5y/Y7MDnkR8nudRqPsd0OpR1/6p9OXUA9WaIuiPO1CT031tpnppWGblCZv5e
-	 Hii6KRqNFVaNkwbSYGw/PT1F77BxhgDPpF156ch7BDDjGY68Q/C3PSg9ZpVNAehE/Y
-	 Hi2h07/JnFoxQ==
-Message-ID: <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org>
-Date: Wed, 6 Nov 2024 15:13:37 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
- spectrum clocking
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
- Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
- <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
- <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 06 Nov 2024 14:17:22 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1730902636;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sdmqNqqp4Bk7buEsWzjxk7mkEA62rn6czo4XC8c0f/Q=;
+	b=u+LcAaXyxYZ1m5RiP1Q6G4WEQS06mhDv0LvBxdrkpeyfdAWqHbev4lfFLZhV3OrmnQC9vo
+	qf3VfilxFSAJEFs3p2N9BlbKWXtgG2PCOUkgkBaj/Fy2fAYk0RyhKT3EYgyN1w6y0Ur9FA
+	ht7w0lw1sg8wv2Bl4XQu+kToVM3pK2lYfeaHXZSh1WGj6973fbCUoLLBH3YTZVRx/0WCkq
+	rFOYgk8eicCxYfCL5y8xGko3wWZtD8wLtwSkNJdQ28QYRtxfFOKoQK44n592ptKmBnNIM+
+	duIlk1CHEAOqUnC3KtcSYxifGZ4qw2Rvl5C9JGfJm+AMeEAc2PpP8QAbb2ddsQ==
+Content-Type: multipart/signed;
+ boundary=621d1a8e6e304e3c77a7347e6f41048798e325c45aa75fa6ab48b67fb5d0;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Wed, 06 Nov 2024 15:17:02 +0100
+Message-Id: <D5F5RRFVMP7R.19G82R4S878IL@cknow.org>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <quentin.schulz@cherry.de>, <linux-phy@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Heiko Stuebner" <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY
+ schema
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Heiko Stuebner" <heiko@sntech.de>, <vkoul@kernel.org>,
+ <kishon@kernel.org>
+References: <20241104111121.99274-1-heiko@sntech.de>
+ <20241104111121.99274-2-heiko@sntech.de>
+In-Reply-To: <20241104111121.99274-2-heiko@sntech.de>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_061345_029647_7017FFB9 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20241106_061720_288499_98FD893E 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,71 +76,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2024 15:10, Krzysztof Kozlowski wrote:
-> On Wed, Nov 06, 2024 at 09:57:57AM +0100, Dario Binacchi wrote:
->> The patch adds the DT bindings for enabling and tuning spread spectrum
->> clocking generation.
-> 
-> We had long talks about this but nothing of it got reflected in commit
-> msg. Sorry, I don't remember what I was talking in some particular patch
-> month ago, so you will get the same questions over and over...
-> 
->>
->> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->>
->> ---
->>
->> Changes in v3:
->> - Added in v3
->> - The dt-bindings have been moved from fsl,imx8m-anatop.yaml to
->>   imx8m-clock.yaml. The anatop device (fsl,imx8m-anatop.yaml) is
->>   indeed more or less a syscon, so it represents a memory area
->>   accessible by ccm (imx8m-clock.yaml) to setup the PLLs.
->>
->>  .../bindings/clock/imx8m-clock.yaml           | 46 +++++++++++++++++++
->>  1 file changed, 46 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
->> index c643d4a81478..7920393e518e 100644
->> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
->> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
->> @@ -43,6 +43,40 @@ properties:
->>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
->>        for the full list of i.MX8M clock IDs.
->>  
->> +  fsl,ssc-clocks:
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->> +    description:
->> +      Phandles of the PLL with spread spectrum generation hardware capability.
->> +    minItems: 1
->> +    maxItems: 4
-> 
-> 1. How is it possible that you change spread spectrum of some clocks from
-> main Clock Controller, while this device is not a consumer of them?
-> Basically this means that this device does not have these clocks but yet
-> you claim that it needs to configure spread for them! It's contradictory
-> to me and nohing got explained in commit msg about it. I am pretty sure
-> I asked about this alrady.
+--621d1a8e6e304e3c77a7347e6f41048798e325c45aa75fa6ab48b67fb5d0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-I digged my previous answer and it was pretty clear here:
+Hi,
 
-18:44 <krzk> You can, but I still have the same concerns. How this
-device - which does not take any clock input, has no clocks at all - can
-depend on spread spectrum of some PLLs? Thsi device does not have clocks.
-18:50 <krzk> device has no clocks, I checked now third time
-18:50 <krzk> If device has clocks, it must have clocks property
+On Mon Nov 4, 2024 at 12:11 PM CET, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>
+> Add dt-binding schema for the MIPI CSI/DSI PHY found on
+> Rockchip RK3588 SoCs.
+>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 82 +++++++++++++++++++
+>  1 file changed, 82 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588=
+-mipi-dcphy.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-d=
+cphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcph=
+y.yaml
+> new file mode 100644
+> index 000000000000..5ee8d7246fa0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.ya=
+ml
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip MIPI CSI/DSI PHY with Samsung IP block
+> +
+> +maintainers:
+> +  - Guochun Huang <hero.huang@rock-chips.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3576-mipi-dcphy
+> +      - rockchip,rk3588-mipi-dcphy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pclk
+> +      - const: ref
+> +
+> +  resets:
+> +    maxItems: 4
+> +
+> +  reset-names:
+> +    items:
+> +      - const: m_phy
+> +      - const: apb
+> +      - const: grf
+> +      - const: s_phy
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the syscon managing the 'mipi dcphy general register fi=
+les'.
 
-So again, you do not need this property at all. I repeated it multiple
-times - you are supposed to use clocks property.
+Should this dt-binding have a power-domains property?
+RK3588 TRM v1.0 part 1 page 1097 has ALIVE(PD_BUS) for
+MIPI_DC_PHY0~MIPI_DC_PHY1
 
-> 
-> 2. Why is this array flexible in size?
-> 
-> Best regards,
-> Krzysztof
-> 
+FTR: I made a similar remark on another patch sent by Heiko today. While
+that was incorrect, I do think it's appropriate for this binding after
+which it could also be added to the respective phy nodes in the dts(i)
+file(s).
 
-Best regards,
-Krzysztof
+Cheers,
+  Diederik
 
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
+> +
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      phy@feda0000 {
+> +        compatible =3D "rockchip,rk3588-mipi-dcphy";
+> +        reg =3D <0x0 0xfeda0000 0x0 0x10000>;
+> +        clocks =3D <&cru PCLK_MIPI_DCPHY0>,
+> +                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
+> +        clock-names =3D "pclk", "ref";
+> +        resets =3D <&cru SRST_M_MIPI_DCPHY0>,
+> +                 <&cru SRST_P_MIPI_DCPHY0>,
+> +                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
+> +                 <&cru SRST_S_MIPI_DCPHY0>;
+> +        reset-names =3D "m_phy", "apb", "grf", "s_phy";
+> +        rockchip,grf =3D <&mipidcphy0_grf>;
+> +        #phy-cells =3D <0>;
+> +      };
+> +    };
+
+
+--621d1a8e6e304e3c77a7347e6f41048798e325c45aa75fa6ab48b67fb5d0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZyt6YwAKCRDXblvOeH7b
+bi/sAPkBV9EJ6lxI2snofBThwqWbOjtpT4jPd/NnpQy6YWvmEQEAoUUz2gsMxZzy
+NTI0fYtiF0lrdWJnjQbXBvaGYJy3jww=
+=aVJh
+-----END PGP SIGNATURE-----
+
+--621d1a8e6e304e3c77a7347e6f41048798e325c45aa75fa6ab48b67fb5d0--
 
