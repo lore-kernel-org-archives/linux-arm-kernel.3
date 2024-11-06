@@ -4,99 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AD8D59F50
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77855D59F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JleaUPasr6t70wZaJk/wxLZq1vhjFjBAb+acJWYkRc0=; b=ns/CKp5FLzfh2MPrH7e/ys+IE9
-	M54rHTFTLpqscY25tb8l3Vq1I2r8SXFakemKUtxfkn3qp9lDQh3WYdzv4CwziTVMsQZrSDZMTIGBv
-	un9FNpsC1LfYF+l60oNmCbTOXkSkMaoZzerT9bOxirj8YS/ZyhtDsKDL7aaU4EiRr8kO9xS2g6Spx
-	muu5albM7DfnfLrJ6ZYFkVSbTfCNxPAgGVI8HShOKll3iaxKXMU+u5RgbkUwMuNh0gi+0tuj2EiC1
-	H8ODU8/d6Dtnd+h9MQLXHX2fJPgVqLTM+Fu2lY5ZLBkvFMgALwJgeBYl7SXtFcI3T+CajbbJ8zNjl
-	JwUYI+vQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y/q4BCbEj9yIgpcEuS0YvK8xL6CMjrVBXqetSLXMl9o=; b=OAEc61LKViRqleGd0DM7koRmSv
+	DYYP5XiOjTkPuJBAvoVW1Q8vcfe7IR9rMn5UB/xul9/Egnf9O0CJLJpOP08U3FfpPOhJ1FyVJQsIW
+	Fkp4Zn5bfqILkdYKdnkySAhbgPRyd8UbFubxOLVwzr4Wih1JAoGeZ7C7Imq/hR+Wr7mB3CfNkld5g
+	svFZA1OSHgUZsqbWJB3RN7n2J5uGknK1gXTodBeCv8iuAhQQeizdXouVROPCA6sGnhGzHseDEV+Ll
+	9dpDwBIZtto7AqNBbnRQRgzavBlqEtGtla08Cbk2tYRszhnIkQrW1dijaFcje12kAL6XeLhVZZojV
+	ZhY0QEEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iWq-00000003x7N-0Wan;
-	Wed, 06 Nov 2024 16:05:08 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iV4-00000003wcf-1Dkn
+	id 1t8iYZ-00000003xYb-03EU;
+	Wed, 06 Nov 2024 16:06:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8iWm-00000003x3y-0T3y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:03:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730908998; x=1762444998;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=eeEXuIJ2vlczIF22PZRVZhnTIMIbHqdB4rwbCI1c/Sg=;
-  b=DXCnGztjOYA6n35Xw96KYPXOaCPtv0XNfSN7gVLlvd2haHnKGCMhjf9K
-   wmkgBGJr9JDgvCS5585E/UhjdTBDeEaOHfX2GoO0/3wCyiXqqndkS2BZG
-   x55Lc7YZAdi4gpwX/qV3Qzc/a0KloBYPq+I47QOWyUsGhmE3O+vs4Mr8h
-   EN96I3b9ra8pZdtnl/+mEG+F6bj+9ez5eP3dH/9zQBV9skDReQA8Omn0f
-   fK/ovLYWM/VrIEhjMKk8yAk7k7O/IgAk3Hi+AmZwgTiENvnP1DGXHLcMQ
-   VY+ExL6gbu18CZpHzT1wkdYZF0ISyQAifl0K5t9+gZhpNT5TC0zJ7yq5s
-   A==;
-X-CSE-ConnectionGUID: 0TzZ2sURRlK2R6iwVZNGLg==
-X-CSE-MsgGUID: I1+TDmMNREWU7pOS0JTgSQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="48176918"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="48176918"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 08:03:17 -0800
-X-CSE-ConnectionGUID: a5M3gJ+/QYaSWgS/qH6ALg==
-X-CSE-MsgGUID: phJVPBFJQuabQWlVho3xvg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,263,1725346800"; 
-   d="scan'208";a="84715253"
-Received: from linux.intel.com ([10.54.29.200])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 08:03:17 -0800
-Received: from [10.212.82.230] (kliang2-mobl1.ccr.corp.intel.com [10.212.82.230])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by linux.intel.com (Postfix) with ESMTPS id 2C51820B5703;
-	Wed,  6 Nov 2024 08:03:12 -0800 (PST)
-Message-ID: <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
-Date: Wed, 6 Nov 2024 11:03:10 -0500
+	Wed, 06 Nov 2024 16:05:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE3E0497;
+	Wed,  6 Nov 2024 08:05:28 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 11A653F528;
+	Wed,  6 Nov 2024 08:04:57 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: ardb@kernel.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	stable@vger.kernel.org,
+	will@kernel.org
+Subject: [PATCH] arm64: smccc: Remove broken support for SMCCCv1.3 SVE discard hint
+Date: Wed,  6 Nov 2024 16:04:48 +0000
+Message-Id: <20241106160448.2712997-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/5] x86: perf: Refactor misc flag assignments
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: Oliver Upton <oliver.upton@linux.dev>,
- Sean Christopherson <seanjc@google.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Will Deacon <will@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org
-References: <20241105195603.2317483-1-coltonlewis@google.com>
- <20241105195603.2317483-5-coltonlewis@google.com>
-Content-Language: en-US
-From: "Liang, Kan" <kan.liang@linux.intel.com>
-In-Reply-To: <20241105195603.2317483-5-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_080318_427181_DD4A7F83 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20241106_080504_284099_83E03FD4 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,102 +65,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+SMCCCv1.3 added a hint bit which callers can set in an SMCCC function ID
+(AKA "FID") to indicate that it is acceptable for the SMCCC
+implementation to discard SVE and/or SME state over a specific SMCCC
+call. The kernel support for using this hint is broken and SMCCC calls
+may clobber the SVE and/or SME state of arbitrary tasks, though FPSIMD
+state is unaffected.
 
+The kernel support is intended to use the hint when there is no SVE or
+SME state to save, and to do this it checks whether TIF_FOREIGN_FPSTATE
+is set or TIF_SVE is clear in assembly code:
 
-On 2024-11-05 2:56 p.m., Colton Lewis wrote:
-> Break the assignment logic for misc flags into their own respective
-> functions to reduce the complexity of the nested logic.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  arch/x86/events/core.c            | 31 +++++++++++++++++++++++--------
->  arch/x86/include/asm/perf_event.h |  2 ++
->  2 files changed, 25 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index d19e939f3998..24910c625e3d 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -3011,16 +3011,34 @@ unsigned long perf_arch_instruction_pointer(struct pt_regs *regs)
->  	return regs->ip + code_segment_base(regs);
->  }
->  
-> +static unsigned long common_misc_flags(struct pt_regs *regs)
-> +{
-> +	if (regs->flags & PERF_EFLAGS_EXACT)
-> +		return PERF_RECORD_MISC_EXACT_IP;
-> +
-> +	return 0;
-> +}
-> +
-> +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
-> +{
-> +	unsigned long guest_state = perf_guest_state();
-> +	unsigned long flags = common_misc_flags(regs);
-> +
-> +	if (guest_state & PERF_GUEST_USER)
-> +		flags |= PERF_RECORD_MISC_GUEST_USER;
-> +	else if (guest_state & PERF_GUEST_ACTIVE)
-> +		flags |= PERF_RECORD_MISC_GUEST_KERNEL;
-> +
+|        ldr     <flags>, [<current_task>, #TSK_TI_FLAGS]
+|        tbnz    <flags>, #TIF_FOREIGN_FPSTATE, 1f   // Any live FP state?
+|        tbnz    <flags>, #TIF_SVE, 2f               // Does that state include SVE?
+|
+| 1:     orr     <fid>, <fid>, ARM_SMCCC_1_3_SVE_HINT
+| 2:
+|        << SMCCC call using FID >>
 
-The logic of setting the GUEST_KERNEL flag is implicitly changed here.
+This is not safe as-is:
 
-For the current code, the GUEST_KERNEL flag is set for !PERF_GUEST_USER,
-which include both guest_in_kernel and guest_in_NMI.
+(1) SMCCC calls can be made in a preemptible context and preemption can
+    result in TIF_FOREIGN_FPSTATE being set or cleared at arbitrary
+    points in time. Thus checking for TIF_FOREIGN_FPSTATE provides no
+    guarantee.
 
-With the above change, the GUEST_KERNEL flag should be only set for the
-guest_in_kernel case.
-IIUC, this is the series's target, right?
+(2) TIF_FOREIGN_FPSTATE only indicates that the live FP/SVE/SME state in
+    the CPU does not belong to the current task, and does not indicate
+    that clobbering this state is acceptable.
 
-If so, could you please move the explanation into this patch?
-For x86, the behavior has already been changed since this patch.
+    When the live CPU state is clobbered it is necessary to update
+    fpsimd_last_state.st to ensure that a subsequent context switch will
+    reload FP/SVE/SME state from memory rather than consuming the
+    clobbered state. This and the SMCCC call itself must happen in a
+    critical section with preemption disabled to avoid races.
 
-Thanks,
-Kan
+(3) Live SVE/SME state can exist with TIF_SVE clear (e.g. with only
+    TIF_SME set), and checking TIF_SVE alone is insufficient.
 
-> +	return flags;
-> +}
-> +
->  unsigned long perf_arch_misc_flags(struct pt_regs *regs)
->  {
->  	unsigned int guest_state = perf_guest_state();
-> -	int misc = 0;
-> +	unsigned long misc = common_misc_flags(regs);
->  
->  	if (guest_state) {
-> -		if (guest_state & PERF_GUEST_USER)
-> -			misc |= PERF_RECORD_MISC_GUEST_USER;
-> -		else
-> -			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
-> +		misc |= perf_arch_guest_misc_flags(regs);
->  	} else {
->  		if (user_mode(regs))
->  			misc |= PERF_RECORD_MISC_USER;
-> @@ -3028,9 +3046,6 @@ unsigned long perf_arch_misc_flags(struct pt_regs *regs)
->  			misc |= PERF_RECORD_MISC_KERNEL;
->  	}
->  
-> -	if (regs->flags & PERF_EFLAGS_EXACT)
-> -		misc |= PERF_RECORD_MISC_EXACT_IP;
-> -
->  	return misc;
->  }
->  
-> diff --git a/arch/x86/include/asm/perf_event.h b/arch/x86/include/asm/perf_event.h
-> index feb87bf3d2e9..d95f902acc52 100644
-> --- a/arch/x86/include/asm/perf_event.h
-> +++ b/arch/x86/include/asm/perf_event.h
-> @@ -538,7 +538,9 @@ struct x86_perf_regs {
->  
->  extern unsigned long perf_arch_instruction_pointer(struct pt_regs *regs);
->  extern unsigned long perf_arch_misc_flags(struct pt_regs *regs);
-> +extern unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs);
->  #define perf_arch_misc_flags(regs)	perf_arch_misc_flags(regs)
-> +#define perf_arch_guest_misc_flags(regs)	perf_arch_guest_misc_flags(regs)
->  
->  #include <asm/stacktrace.h>
->  
+Remove the broken support for the SMCCCv1.3 SVE saving hint. This is
+effectively a revert of commits:
+
+* cfa7ff959a789a95 ("arm64: smccc: Support SMCCC v1.3 SVE register saving hint")
+* a7c3acca53801e10 ("arm64: smccc: Save lr before calling __arm_smccc_sve_check()")
+
+... leaving behind the ARM_SMCCC_VERSION_1_3 and ARM_SMCCC_1_3_SVE_HINT
+definitions, since these are simply definitions from the SMCCC
+specification, and the latter is used in KVM via ARM_SMCCC_CALL_HINTS.
+
+If we want to bring this back in future, we'll probably want to handle
+this logic in C where we can use all the usual FPSIMD/SVE/SME helper
+functions, and that'll likely require some rework of the SMCCC code
+and/or its callers.
+
+Fixes: cfa7ff959a789a95 ("arm64: smccc: Support SMCCC v1.3 SVE register saving hint")
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kernel/smccc-call.S | 35 +++-------------------------------
+ drivers/firmware/smccc/smccc.c |  4 ----
+ include/linux/arm-smccc.h      | 32 +++----------------------------
+ 3 files changed, 6 insertions(+), 65 deletions(-)
+
+diff --git a/arch/arm64/kernel/smccc-call.S b/arch/arm64/kernel/smccc-call.S
+index 487381164ff6b..2def9d0dd3ddb 100644
+--- a/arch/arm64/kernel/smccc-call.S
++++ b/arch/arm64/kernel/smccc-call.S
+@@ -7,48 +7,19 @@
+ 
+ #include <asm/asm-offsets.h>
+ #include <asm/assembler.h>
+-#include <asm/thread_info.h>
+-
+-/*
+- * If we have SMCCC v1.3 and (as is likely) no SVE state in
+- * the registers then set the SMCCC hint bit to say there's no
+- * need to preserve it.  Do this by directly adjusting the SMCCC
+- * function value which is already stored in x0 ready to be called.
+- */
+-SYM_FUNC_START(__arm_smccc_sve_check)
+-
+-	ldr_l	x16, smccc_has_sve_hint
+-	cbz	x16, 2f
+-
+-	get_current_task x16
+-	ldr	x16, [x16, #TSK_TI_FLAGS]
+-	tbnz	x16, #TIF_FOREIGN_FPSTATE, 1f	// Any live FP state?
+-	tbnz	x16, #TIF_SVE, 2f		// Does that state include SVE?
+-
+-1:	orr	x0, x0, ARM_SMCCC_1_3_SVE_HINT
+-
+-2:	ret
+-SYM_FUNC_END(__arm_smccc_sve_check)
+-EXPORT_SYMBOL(__arm_smccc_sve_check)
+ 
+ 	.macro SMCCC instr
+-	stp     x29, x30, [sp, #-16]!
+-	mov	x29, sp
+-alternative_if ARM64_SVE
+-	bl	__arm_smccc_sve_check
+-alternative_else_nop_endif
+ 	\instr	#0
+-	ldr	x4, [sp, #16]
++	ldr	x4, [sp]
+ 	stp	x0, x1, [x4, #ARM_SMCCC_RES_X0_OFFS]
+ 	stp	x2, x3, [x4, #ARM_SMCCC_RES_X2_OFFS]
+-	ldr	x4, [sp, #24]
++	ldr	x4, [sp, #8]
+ 	cbz	x4, 1f /* no quirk structure */
+ 	ldr	x9, [x4, #ARM_SMCCC_QUIRK_ID_OFFS]
+ 	cmp	x9, #ARM_SMCCC_QUIRK_QCOM_A6
+ 	b.ne	1f
+ 	str	x6, [x4, ARM_SMCCC_QUIRK_STATE_OFFS]
+-1:	ldp     x29, x30, [sp], #16
+-	ret
++1:	ret
+ 	.endm
+ 
+ /*
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index d670635914ecb..a74600d9f2d72 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -16,7 +16,6 @@ static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+ static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+ 
+ bool __ro_after_init smccc_trng_available = false;
+-u64 __ro_after_init smccc_has_sve_hint = false;
+ s32 __ro_after_init smccc_soc_id_version = SMCCC_RET_NOT_SUPPORTED;
+ s32 __ro_after_init smccc_soc_id_revision = SMCCC_RET_NOT_SUPPORTED;
+ 
+@@ -28,9 +27,6 @@ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit)
+ 	smccc_conduit = conduit;
+ 
+ 	smccc_trng_available = smccc_probe_trng();
+-	if (IS_ENABLED(CONFIG_ARM64_SVE) &&
+-	    smccc_version >= ARM_SMCCC_VERSION_1_3)
+-		smccc_has_sve_hint = true;
+ 
+ 	if ((smccc_version >= ARM_SMCCC_VERSION_1_2) &&
+ 	    (smccc_conduit != SMCCC_CONDUIT_NONE)) {
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index f59099a213d0d..67f6fdf2e7cd8 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -315,8 +315,6 @@ u32 arm_smccc_get_version(void);
+ 
+ void __init arm_smccc_version_init(u32 version, enum arm_smccc_conduit conduit);
+ 
+-extern u64 smccc_has_sve_hint;
+-
+ /**
+  * arm_smccc_get_soc_id_version()
+  *
+@@ -414,15 +412,6 @@ struct arm_smccc_quirk {
+ 	} state;
+ };
+ 
+-/**
+- * __arm_smccc_sve_check() - Set the SVE hint bit when doing SMC calls
+- *
+- * Sets the SMCCC hint bit to indicate if there is live state in the SVE
+- * registers, this modifies x0 in place and should never be called from C
+- * code.
+- */
+-asmlinkage unsigned long __arm_smccc_sve_check(unsigned long x0);
+-
+ /**
+  * __arm_smccc_smc() - make SMC calls
+  * @a0-a7: arguments passed in registers 0 to 7
+@@ -490,20 +479,6 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+ 
+ #endif
+ 
+-/* nVHE hypervisor doesn't have a current thread so needs separate checks */
+-#if defined(CONFIG_ARM64_SVE) && !defined(__KVM_NVHE_HYPERVISOR__)
+-
+-#define SMCCC_SVE_CHECK ALTERNATIVE("nop \n",  "bl __arm_smccc_sve_check \n", \
+-				    ARM64_SVE)
+-#define smccc_sve_clobbers "x16", "x30", "cc",
+-
+-#else
+-
+-#define SMCCC_SVE_CHECK
+-#define smccc_sve_clobbers
+-
+-#endif
+-
+ #define __constraint_read_2	"r" (arg0)
+ #define __constraint_read_3	__constraint_read_2, "r" (arg1)
+ #define __constraint_read_4	__constraint_read_3, "r" (arg2)
+@@ -574,12 +549,11 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+ 		register unsigned long r3 asm("r3"); 			\
+ 		CONCATENATE(__declare_arg_,				\
+ 			    COUNT_ARGS(__VA_ARGS__))(__VA_ARGS__);	\
+-		asm volatile(SMCCC_SVE_CHECK				\
+-			     inst "\n" :				\
++		asm volatile(inst "\n" :				\
+ 			     "=r" (r0), "=r" (r1), "=r" (r2), "=r" (r3)	\
+ 			     : CONCATENATE(__constraint_read_,		\
+ 					   COUNT_ARGS(__VA_ARGS__))	\
+-			     : smccc_sve_clobbers "memory");		\
++			     : "memory");				\
+ 		if (___res)						\
+ 			*___res = (typeof(*___res)){r0, r1, r2, r3};	\
+ 	} while (0)
+@@ -628,7 +602,7 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+ 		asm ("" :						\
+ 		     : CONCATENATE(__constraint_read_,			\
+ 				   COUNT_ARGS(__VA_ARGS__))		\
+-		     : smccc_sve_clobbers "memory");			\
++		     : "memory");					\
+ 		if (___res)						\
+ 			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
+ 	} while (0)
+-- 
+2.30.2
 
 
