@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A73D59F7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EBBD59F7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TG5UJizDLgMxZKPQD1e03z/iuF1AG30m4Ug3E1znb/k=; b=tW3ZIjUfQ/PXj/c7u60+Ilgf5T
-	KFgSDeJP0Vf6YTvMMN+U+KV1Ah9pTxOD7EzXTenOU86nYIUGCGaCKJsrNcdyGjyBOQzrwaDT7Djl2
-	NqKMkjq+xSTYlbomuLRs9KSp1Lna5NuObjYR7Lt3xgT7SlsSe4hcWsxrNQA0e5txQwW7s7f4Fpl6y
-	d9S17kLRQNGAjm+b0Az4sAuSuXzpbobnOlLvNJvntBrh3mCFhp3At4xXTLfu4nlsmMXYA9z/8lF/u
-	HDyR+OQ47moaJOCVHqnna1pxRkyHg+lJiTeaTO0JPg29w/coBmGJRO+WFLum9MFG6L7DSGda0R/48
-	jUSikiGw==;
+	bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=; b=A1MNnNaYrdfClrkVoed6k6tQDq
+	Zuww+AaPrjNEZ5QWFgHv2ifePzFcVjWDwgoKeMra/q2m8OjN1QENUWPB8mqyGpXhsiwABeAck3CJf
+	pu8RqJspE95zE6D/6ro5OjK8Bv8speoe+uWAxK6fXbv0qqXDbI07NkYZjOvAyAADkKJ5Lg7L2Jrg8
+	JgQBmvcEJHz1uedsYPtiOowkM7NRkCaJUOlbHPRJUTslutsnGdxz5AFyw3Krt1riszteg4CWBchb7
+	9Ie0/i62Xf78ib2nDFy2mGzpAECDurCyQFRMV+cnqS2kCYoEvKQBcN3EXy2eBUQbTkZ3LgcoIMWdx
+	xmT5caoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8oEp-00000004sXO-2qXO;
-	Wed, 06 Nov 2024 22:10:55 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1t8oI8-00000004t1y-1RiL;
+	Wed, 06 Nov 2024 22:14:20 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8o9l-00000004rms-0a5y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 22:05:42 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-37d4a5ecc44so153149f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 14:05:40 -0800 (PST)
+	id 1t8oGO-00000004snH-16Iu;
+	Wed, 06 Nov 2024 22:12:34 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43155abaf0bso2973645e9.0;
+        Wed, 06 Nov 2024 14:12:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730930739; x=1731535539; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TG5UJizDLgMxZKPQD1e03z/iuF1AG30m4Ug3E1znb/k=;
-        b=Efa67CIsMDfcq1LcDC5a4JMNePe7slilVRvdswdGDmrNjmt9GHELlYLAWecV8jpu6P
-         hk7+YHRGDj5iiggkVuqDuLkH3/hOVuVpbPgZ6FxM3fIvWAO8boeRKZC+KcL7Gy9HFjxp
-         slU3mSDj8YDxuDBNTYJF74g0v7pwrln54/yNzo1KdmvNUrKsklDIzvH3pqfTv6PlJAIp
-         9aTFhJN+iXQeOHTOGQDbtHDejPqGUXBXLkW+jezVaaQjK9yir6b2Q+HntXN6ZqUwl3az
-         yLbnWVB9f0wabYDNHWX1ypHKm1W6OgG7Goj+ErQHpgub92MVAJZ7roMToFOdciHm5A/r
-         G/5Q==
+        d=gmail.com; s=20230601; t=1730931150; x=1731535950; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=;
+        b=OguKIDAbAzdxsUwNs1xdNTzxbmbyluMLQ8Q2F4WkH/7NxrFENWp7s/9TOqQkJxLGj/
+         oHNFrs2zf3TC4gMLTjhqjoGDOcakgvLQXnZJRXBEpeW44swCO7JT4oLmAuexasaXmc5W
+         Hx8r2+YTNGjObXIXMHcU0z+eeTNR1G8jKRbvou8vL2K0qsXCaAHJ2BoYv6o+iN6gRaEY
+         mkiTGmaadWDcPCamafBLQS8ZAZ3xktonD2XAXGtXkLb3Lg1a2X5PzGVbN28DeO63L8DR
+         DH2il+Y7mnn8pwdVS1ObuuzG+xRi3lzTrohUcpME8Hda0GT/9IZJ6jEUsRMhtQcvms/+
+         jQZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730930739; x=1731535539;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TG5UJizDLgMxZKPQD1e03z/iuF1AG30m4Ug3E1znb/k=;
-        b=PT8ExIoFb8gAsL2SRfrdNOjvCnkK4AIvB1BEqbYdL6o7vlgj8VB7cz7JHc4k7TMQ+x
-         1VWNaU3X75aBOg/pv17ByrOHn9hMwla8c3XTIifdzfCdNIWYivMCAaS+79sExtV4jJ+3
-         SRAI7T+2lftWd+5x0AULMstKFMop+zBQvO87Ww5mMi4KIsXXqty5Fge4dfH950A5JMqj
-         Fh+nc25pkP6Q0LWrApEyYie5HqBvxRTZEw0jq4SDqylMje4TsQxGofU6hw1T5rH/FZZ5
-         QcAL3flGaMEAQnHvRgaVRCsS7jQYp+Gp7ms7eB9vAA4WP8dLBwjHlNB3TSKyHIq1ceoJ
-         E0WA==
-X-Gm-Message-State: AOJu0YyTF9PqnhavcZPqk9A79z8pe9DiRSGboTur888I80oFyeNhcg6K
-	KpV3HyEihyfu1FMFrv9X2DOef7CYnXS+TQAIKqxTCu+nC+ykJXG5+M4DBw==
-X-Google-Smtp-Source: AGHT+IHseJSgbFNBVjoWiS3THi9dEo+NtqEvSttov0W6mgBFSYQFz5OMcDBoMLaZeVcaYvk10rAg0A==
-X-Received: by 2002:a5d:4106:0:b0:37c:d558:a931 with SMTP id ffacd0b85a97d-3806115902emr28098034f8f.31.1730930738992;
-        Wed, 06 Nov 2024 14:05:38 -0800 (PST)
-Received: from [127.0.1.1] (2a02-8389-41cf-e200-20b4-40af-8ae8-9c61.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:20b4:40af:8ae8:9c61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c116b0eesm20288493f8f.106.2024.11.06.14.05.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 14:05:38 -0800 (PST)
-From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
-Date: Wed, 06 Nov 2024 23:04:40 +0100
-Subject: [PATCH 2/2] pinctrl: samsung: update child reference drop comment
+        d=1e100.net; s=20230601; t=1730931150; x=1731535950;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YB3xeY071IgcEnEiq3AVPEiyG5ZVXfdzV1Ck//Skg7M=;
+        b=jKbPZF45pXDnz0UwifhL2TJd0S0obERNsolQb9bkWyEMoKw+cWan6BFtg6iu2FkGGn
+         asUwtS4rr6fjBvLehJpxBt79+N8YGkpUsKwaoVE3TZgZTSIbeVm2wlBqeVcuGqQuqrzv
+         1SQPmMqP82J+9yEMQOm6dg3l1HIb/B4MPbVV/WdEHbZ+uRhOOigeD+/yQTU+sIy4YGAl
+         fnUymaKcfbLrNTC3+vg1M0aJMkIlMTwPcQhz7mFDbzt+wXIbKOysQ+zqTQ9MlBze1qzV
+         5OF5HNlZKte/8lnGU2Z67tZVlxFJzAjqDbzak6YTYTsNvSAURMrMPREJa22z2JYcA6a0
+         bHZg==
+X-Forwarded-Encrypted: i=1; AJvYcCUTPcBh8lMnYjdb21X3j+Ndw9pvX4FvjxFq7lohtVObRzL86oXafpbWznU6KasHu9S67Yt9X08GF3ur1aF7tek=@lists.infradead.org, AJvYcCXpLDIDYlT3OSGOGebitkSkBMgqKu7y9fia8yAH+DtRYTAfQ9yliOR3SzHqD9NFU1B7HrXPv37mOqbq/v1G6CEA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVWfjQEG807xkEXP8o4o6nu9AeT904vuoBFDiXq7gLnx9Qn18/
+	JvGBKoF7JidB75abBxL+DiFbKEUX233NSZqGECbI7P1UB1bjl8+8
+X-Google-Smtp-Source: AGHT+IFfw5uAMtdU1Om11dpYAnWEuvswlrvP8MXiZx6I0NsIQwFcLiPX5mXS4Yxg1s/Iptb9rEr+Hw==
+X-Received: by 2002:a05:6000:4009:b0:37d:4e80:516 with SMTP id ffacd0b85a97d-381c7a5f773mr18655654f8f.34.1730931150127;
+        Wed, 06 Nov 2024 14:12:30 -0800 (PST)
+Received: from [192.168.0.2] ([69.6.8.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c113e771sm20526409f8f.81.2024.11.06.14.12.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Nov 2024 14:12:28 -0800 (PST)
+Message-ID: <3d17cd64-46c5-427f-b24f-9091546e2edf@gmail.com>
+Date: Thu, 7 Nov 2024 00:12:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241106-samsung-pinctrl-put-v1-2-de854e26dd03@gmail.com>
-References: <20241106-samsung-pinctrl-put-v1-0-de854e26dd03@gmail.com>
-In-Reply-To: <20241106-samsung-pinctrl-put-v1-0-de854e26dd03@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa <t.figa@samsung.com>, 
- Thomas Abraham <thomas.abraham@linaro.org>, 
- Kyungmin Park <kyungmin.park@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Javier Carrasco <javier.carrasco.cruz@gmail.com>
-X-Mailer: b4 0.14-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730930732; l=1049;
- i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
- bh=HZ84kAwePXH0iKsBrbTmJ8UZTEP9+KZqEVc88CIyNII=;
- b=GY6vOISzcv48AjyktwTvRi2p1sfYnHYxMpMijViPTLIYSWCBj4YfC+77AwLWNjcrZw5AN774I
- AJUXkmiayo/C8hgHn0p2gOJGfHYpceafRuVWOX8TmTl5w5PqmY565mo
-X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
- pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] [net] net: wwan: t7xx: Change PM_AUTOSUSPEND_MS to 5000
+To: =?UTF-8?B?5ZCz6YC86YC8?= <wojackbb@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
+ chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ haijun.liu@mediatek.com, m.chetan.kumar@linux.intel.com,
+ ricardo.martinez@linux.intel.com, loic.poulain@linaro.org,
+ johannes@sipsolutions.net, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com
+References: <20241028073015.692794-1-wojackbb@gmail.com>
+ <20241031185150.6ef22ce0@kernel.org>
+ <CAAQ7Y6an8ZkxYpJehd8cBRPHjqyQofc6A4QdPzM_dhh1Sn0nng@mail.gmail.com>
+Content-Language: en-US
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+In-Reply-To: <CAAQ7Y6an8ZkxYpJehd8cBRPHjqyQofc6A4QdPzM_dhh1Sn0nng@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_140541_214611_1B58A912 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20241106_141232_326954_C09ACF9C 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 954445c72fc7 ("pinctrl: samsung: Drop redundant node parameter in
-samsung_banks_of_node_get()") modified the name of the function used to
-release child nodes from samsung_drop_banks_of_node() to
-samsung_banks_node_put(). Update the comment to use the current function
-name.
+Hello Jack,
 
-Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
----
- drivers/pinctrl/samsung/pinctrl-samsung.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 06.11.2024 13:10, 吳逼逼 wrote:
+> If the PCIE connection remains in the D0 state, It will consume more power.
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
-index 3ab5878b69d1..cfced7afd4ca 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -1172,7 +1172,7 @@ static void samsung_banks_node_get(struct device *dev, struct samsung_pinctrl_dr
- 		else
- 			dev_warn(dev, "Missing node for bank %s - invalid DTB\n",
- 				 bank->name);
--		/* child reference dropped in samsung_drop_banks_of_node() */
-+		/* child reference dropped in samsung_banks_node_put() */
- 	}
- }
- 
+True. Keeping device active causes battery drainage and the idea to put 
+inactive device into the power saving mode is clear. My question was not 
+about power consumption. I am trying to understand what other 
+consequences of keeping modem suspended. More specifically, how the 
+suspend mode influences user data communication?
 
--- 
-2.43.0
+> Receiving or sending data will cause PCIE to change D3 Cold to D0 state.
 
+Am I understand it correctly that even receiving IP packets on downlink 
+will cause PCIe link re-activation?
+
+
+I am concerned about a TCP connection that can be idle for a long period 
+of time. For example, an established SSH connection can stay idle for 
+minutes. If I connected to a server and execute something like this:
+
+user@host$ sleep 20 && echo "Done"
+
+Will I eventually see the "Done" message or will the autosuspended modem 
+effectively block any incoming traffic? And how long does it take for 
+the modem to wake up and deliver a downlink packet to the host? Have you 
+measured StDev change?
+
+> Jakub Kicinski <kuba@kernel.org> 於 2024年11月1日 週五 上午9:51寫道：
+>>
+>> On Mon, 28 Oct 2024 15:30:15 +0800 wojackbb@gmail.com wrote:
+>>> Because optimizing the power consumption of t7XX,
+>>> change auto suspend time to 5000.
+>>>
+>>> The Tests uses a script to loop through the power_state
+>>> of t7XX.
+>>> (for example: /sys/bus/pci/devices/0000\:72\:00.0/power_state)
+>>>
+>>> * If Auto suspend is 20 seconds,
+>>>    test script show power_state have 0~5% of the time was in D3 state
+>>>    when host don't have data packet transmission.
+>>>
+>>> * Changed auto suspend time to 5 seconds,
+>>>    test script show power_state have 50%~80% of the time was in D3 state
+>>>    when host don't have data packet transmission.
+>>
+>> I'm going to drop this from PW while we wait for your reply to Sergey
+>> If the patch is still good after answering his questions please update
+>> the commit message and resend with a [net-next] tag (we use [net] to
+>> designate fixes for current release and stable)
+
+--
+Sergey
 
