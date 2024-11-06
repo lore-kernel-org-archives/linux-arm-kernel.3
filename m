@@ -4,83 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720D5D44D5C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5E9D44D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lkVF5Ck2aL5/nRoWWiSHMfNZ2x9Tn/8nkzKZBMBhoFw=; b=QBBBTFIx+zlvxZd8ney91FNINB
-	Uqgyle30fhEZTL0p1CMtD8mZAlZ25Tb3bJ8qeZB6NueacgNlzXOcA3wlcmummBB7wFUgeKqQtKePB
-	rDWmxAHaON892tqvWj5xEhMstMb4lNw3iaaXnxlxAfbCPDPFIm5RWiaSX3U4bmnSQKvr2ZrvHY7Zq
-	EEoWdAeqok7LuXVznOWw69JSnvyK0aK+XL2JjLdoNmgfEPudNoHzSI4t0iyK57Ok3Xaw3RFqLLCzh
-	YNWYdKTrVmWbCzM2RcoOjDTeNMkPDMPhYQip3/EI6uD6UEZt+WbXJRbfZixkUM8iWIeX2oxqzFzQr
-	Exhy652g==;
+	bh=2K6dgjN5KzaaH9tZiZ6WedJuuaUsgkKqMIFPblQUvKA=; b=bUkcUUFh0EqD9XkkArkx6uHcUk
+	wsaWLmBpdMMH/1qIqT9PAllDtICna3/YkLYbVez2pgsJYoVs2YdBzWxD+p/r+3mz3FfVnm0QNFQKk
+	PK/Z1IAJgSgOlnsjshLpXIaWGvKECKiFOx0W2KaCZknjel6JJD8XZr1pTNU6Ae1xneuvVIZCwgicW
+	6eQFFAByT5V3t2Vq7ZkWIBWmQtgVDzo1tAgIGBMCBAsZd6tTqcyMb9E4EKh7qm5gW0Gsy9iyEge7t
+	MzBaSIWENa12lGgNgeX/WWw/qRWwULJ/e4sImh0S7VXc/HDJI6voUG2jtb2iiU5uvZmOeUswB+Qvc
+	Nt67tr3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gJ1-00000003See-2YS2;
-	Wed, 06 Nov 2024 13:42:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8gKj-00000003T61-098A;
+	Wed, 06 Nov 2024 13:44:29 +0000
+Received: from mail-vi1eur03on2060f.outbound.protection.outlook.com ([2a01:111:f403:260c::60f] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8frK-00000003Mxd-45hh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:14:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A6FCE5C0407;
-	Wed,  6 Nov 2024 13:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C02DC4CECD;
-	Wed,  6 Nov 2024 13:14:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730898846;
-	bh=MmGh5gnPG4ku4438t9wd6nhTmZITzHrRx9liC5G5jFQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IDXVl+LEXd/wyx3XOjQDob0T+MiPN1VloT44CWnpCTwy/KdgfZd9pPNPsCNpzbAAW
-	 PD11WODvJst53qsb+lR5TlXq2F1GA3/ITB5zmGykjiO3RxEVxrSWiC2cn8tm+Yvu19
-	 9mzV1vweS2GFOWjJVC4xeL6ULQVrq51jLfLNdtRUDKGl6ZR9rXKrz2Lq1dtm49toQp
-	 sXVcB1ejVB/Mb6qBFRexOmBqRnWckXxCxhmv74Dy1oOz2P6XWpYHN/a8Emif82+Y9L
-	 j7ZLlB9iQpLJGX0vuwWajcZgLa0W4myZOKmxtXmCpKQ9OVuReusJ3br36TSFtN0aZU
-	 uU3pWdb/WjnMQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1t8frH-00ANY6-Nt;
-	Wed, 06 Nov 2024 13:14:03 +0000
-Date: Wed, 06 Nov 2024 13:14:02 +0000
-Message-ID: <86bjys1p45.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jing Zhang <jingzhangos@google.com>
-Cc: KVM <kvm@vger.kernel.org>,
-	KVMARM <kvmarm@lists.linux.dev>,
-	ARMLinux <linux-arm-kernel@lists.infradead.org>,
-	Oliver Upton <oupton@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Shusen Li <lishusen2@huawei.com>
-Subject: Re: [PATCH v3 2/4] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
-In-Reply-To: <20241106083035.2813799-3-jingzhangos@google.com>
-References: <20241106083035.2813799-1-jingzhangos@google.com>
-	<20241106083035.2813799-3-jingzhangos@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, jiangkunkun@huawei.com, pbonzini@redhat.com, andre.przywara@arm.com, coltonlewis@google.com, rananta@google.com, lishusen2@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1t8fw0-00000003OYe-0YWM;
+	Wed, 06 Nov 2024 13:18:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i0u1sx8qJvfFbUEyJq3uQMrg9wyly+232cwYJGJIY5kpSZjEukkuFX43svkM+Fr9RYL+sSPz2WHPh9DUj7URgBcr7sm32a+c1ORQXyOUgvAl85TQgs3P1g0S7+neReP3Mm4m6B2xvgd6isjCKPBFwIcVBY9/bIxzFCCpbceHJwso1MW00q6I91/7cKRCES67FELKy3u4c414Df+fngTqJajuIl0HyDE9uQ1A3NEy39+AdWUkFjLywe254U0x5W8fqMJOvbw1nFFk//DFMoGXPBV42az3A+ryjcfWH0ZQRgCcDSXdcGlsYiNz31VAgTocfaas3JFls4t9mnTwVfMjhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2K6dgjN5KzaaH9tZiZ6WedJuuaUsgkKqMIFPblQUvKA=;
+ b=KXM6VSXeg6/Zl0jt6wszZQKBBS6dEDM4YxNvxEAk329uc/TUjSaveUzCQjwkldV/F0Osrdsuzr0SBf3De/UnXvYI2qcpBhwUGfa287oS534sJsJu0qgBkOoANGEIOPJB65xpD1o5QZmJJoz+l3WnYTK0atLjkzcH9Xg80O386Sgw+FqTwfFkGxgah9A5nQTqUFE5R+raUEGQL/tBE6h5tCjY8pXJNQpH+9NK78U0dLjkc/DIn/JuKzXK96d7/t/fTJE5xLGRIMYdFCNiBMsoy0V69cZ80GPSr2E+4wEY3Db4IBM5T+Ubr0KZhDAPkUzKU9UUXDqeW4XCT+FkpH810g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2K6dgjN5KzaaH9tZiZ6WedJuuaUsgkKqMIFPblQUvKA=;
+ b=fntnaTIZBEK5ndOcG6DhM2ANa8khyLjHmFPpOZL2d6+FoMUnmoIbITZ39hzxfYBsbQOaViCdBlL/6+CXhEKnjnikyGRyVK9Bp8kgq+BufiGS/1zgCT7TZI14z+H0zc9lhOOCP4rJhNHEYPkJ4AYQEXLWl3u77GpoFNq4VourS/0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by PA4PR04MB7600.eurprd04.prod.outlook.com (2603:10a6:102:f2::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.31; Wed, 6 Nov
+ 2024 13:18:51 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8137.018; Wed, 6 Nov 2024
+ 13:18:50 +0000
+Message-ID: <c53b4149-fc8c-4357-a881-de07d6ebf7ac@cherry.de>
+Date: Wed, 6 Nov 2024 14:18:49 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: add overlay for tiger-haikou
+ video-demo adapter
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20241106123758.423584-1-heiko@sntech.de>
+ <20241106123758.423584-4-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20241106123758.423584-4-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR3P281CA0184.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a4::19) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA4PR04MB7600:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2172e59d-9d13-4390-11f2-08dcfe658dfc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WkJQaTBoL0F1K0ZHK1A5S1pLNkFFNGY3emF1NWRnNnlydi9ZbTZXNXpYblov?=
+ =?utf-8?B?Zy9Obzlmd3NJU0NHc1I2WW5nYWo1Tk5CMUszejNFSmpyVTBWMXRSZThjMHpN?=
+ =?utf-8?B?TU5CVGZCSGQ1WUVHT0VaVDVBVVdlbVZzdXRFaVpQTGtpcU91UEFBTXA0SFBV?=
+ =?utf-8?B?ZmVUQnJxL0g1RlB6b3Z0aUV2OXFqYUJzcWwvN1hUbHNmQnNEWmh4STRmYXFk?=
+ =?utf-8?B?SndGUG1lVmpQQlM1akVJclM1RlhKWk1YejA2eWRnajRJT3JsdUV4eUhUWEFl?=
+ =?utf-8?B?Rkp6eVBuWmIvTklYRmZOUS9EdHgvUlhReWhjZk9FU3h6NVoxL1paRmVWQWlI?=
+ =?utf-8?B?RU16Q2Z6MTNnbHlzRHZJQldMaytVY3N3N1RRZkxrWnI5N0tWNXMyN0dtOWh1?=
+ =?utf-8?B?V0V2cC9Pa1dER0xydkh4d2NJU3F4NE5wcnB2OE5lTjBDMzdkUTRHWVpaOXFu?=
+ =?utf-8?B?ZjJvZE5TS1puRU51Z3lSUFAxdU53bytTei9BejFlbGw5S0pqVlA0NS9MeFQx?=
+ =?utf-8?B?dHVlSzlneFdFYUVvRzhzRTFUai9JV0RsOXNRWFZ1cGFId3JXamJSTUJuWnpY?=
+ =?utf-8?B?N09WR2NaT3VuaXlyd0tUZkNqa0ZJK0dUQ3NTWEk4ZXl1SW5aMkZickpCVnRw?=
+ =?utf-8?B?N01wQnFYdjl3N0Uza2h5L0pIOWk5VXg1TndCUUZiVUdkTy9qY2NOZkczU0hz?=
+ =?utf-8?B?b0hMWWx0L1I0OVdZQ3BnV01VZC9Dc3JvUmZTVEZPWjc5M0hnbHNWUXlWTzY1?=
+ =?utf-8?B?bHZrNytDdFZhaG85UnhzQjV0STFmY3V6MCtZSTlsTFF4V2RCUkxEOVVwdFg3?=
+ =?utf-8?B?S0RYQStML3BJUHllVitnVXdRRFJpeWYvODJJYTZzaWVhb2N0RlduUGNLR0Zn?=
+ =?utf-8?B?MFJTTlIzbzFlS3VyT2hFWXl4bTZuRUUzdTBZS3pVaUFlZjhXUnNpZzdMQVYy?=
+ =?utf-8?B?OHhRdVNiR25uRXFzQnQ0UllMSE1RS3IxdlU5V2htY01wb2J2YW5YMFByV3Zj?=
+ =?utf-8?B?OUhJWEhJcDNVVDBRRVlnSkppVjRQWXBYcUZZanZzR1M1RVBXeFppSUZlUDM3?=
+ =?utf-8?B?RXZ4MHhoN1d0ZTVOZVJOVDBpamY0ZDBGYVdZdy82SWJ3bUlSK1VyZHMxOEhl?=
+ =?utf-8?B?b0F6aERmUEo2djZJT091NldYN3JTZ2ZLalY5Qy9oTzRpdEJUeThqQy9xbTFP?=
+ =?utf-8?B?UnQwMG5xNXZlU2ZEQWNpbStrVDBqK0diK2FvNWNqYkpUalhFa2JOQy9FUUxC?=
+ =?utf-8?B?NGFCZkJTc0MzTjlreTBOSjFIdjIyS2dhbEgyODB5N1h2cXZOMDNZb2Y3VEdx?=
+ =?utf-8?B?NS9XUEFzZ0RqRThQKytnZFkwT1lQRkRPbmtUT0gwd1BlbFJja3kxTngwbTZ1?=
+ =?utf-8?B?OEkvL3VLMGJWYjVCV0tOYmNKOUYvdHpwcG1VajdLdkxWL2F4c3NBOW1WazZ3?=
+ =?utf-8?B?cnBpWFlqWS9wTE5GOUdPQTRieDJETGxCaTUzandJVmZFc1pwN2pwcVJjRytX?=
+ =?utf-8?B?RDQ3Rjkwa3ZLSzg4ajNKUi93RENwdlRPNEM5TFpBanNhYi8rN0VHcHo1Mmlw?=
+ =?utf-8?B?WWF3M3grUXZBYnIwTzVlMXJjSHI5YkNFTDF1M2dMdS8rejA0R0VwL3hPb3Vl?=
+ =?utf-8?B?NE1EZHhjakIvQk13ZzdSU3RVQ0lESnhSR0xxM3lKcCsrbXNhNnQ1cFkwMng3?=
+ =?utf-8?Q?xKlpZa7zR0yoodZZkwr8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(10070799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TDlSZi9ORXp1cDN3dDdqazd2NEFUNCs1czh3ajdxS0o3aTZpZlRpU3F2aGNG?=
+ =?utf-8?B?Q2ZWTkxHODRTTklDNG13YlYvVnJXZzZhRDZORU5JRG0zUi96VmMwZGl0dUhV?=
+ =?utf-8?B?ZnlmcFFWTFhqZ2ZEdzM4TkVLdE1pVHN6bzkzbEdCR0hVVllzS3NWZjc1ZnJP?=
+ =?utf-8?B?WWZzTkNrajRnTTcyS1ltaTBwRlpFeXRCYjI0RGpSbkF1ekh4c3hEeTBpbFJl?=
+ =?utf-8?B?UTdKTmRHcDhiS0NVcS9VWlpHRkFHNTdPcGt5TEpzbjNtS3VQVzFRT00xSUJ4?=
+ =?utf-8?B?TFNWZTRiN0xEMlFqclFTUlhKZXdpaHlncFRYZTh2NWo3VGFZa2d5bjcxWElk?=
+ =?utf-8?B?N3RZanZyNk9uYkk2Z2JDSVhQQzVyYUczYlRUdnNpRWxLMml1U29CNlQvdWlS?=
+ =?utf-8?B?Q0JpczRnamwzTVE4UzVVUjNzM0dKK3lpMlJ2My9OSDRDeEVnaU5LWnByZWFp?=
+ =?utf-8?B?UHhUNzdUWGZ3cHZPOHdsRVBBMjVPeEd5RHdLN3pGUm9vajY5b2dVWGc3MnZh?=
+ =?utf-8?B?V1Ivckh2NjRVTFFmZjJrRnVSQlJLN2xxNnNYK2Y2akkxL1hUMzRBeVdkWDlS?=
+ =?utf-8?B?OSt1STlSRG56aTBqazlnZHNvSEhjbGw1ZHFUeXgwWVpVK1lmajNwK3NTUUky?=
+ =?utf-8?B?bUxwSVBCQWVldGdrUmVseldKcy9wZmxMN3k3eVdxTk14bS9JaVZ3K1k1UHVj?=
+ =?utf-8?B?b3RVOUh6MWlkRWhLclRJdnl6czRQeEtVa2U5UUZTYVFzdlJNcEZDU1p3R0dR?=
+ =?utf-8?B?eGduc05JMDRtSnBqTHJVKzVDTU5STEtpeHVDRlBEVGZmQTZxWURTd3E0TTdO?=
+ =?utf-8?B?RHRDMThqOUtyd3pVYjJLSjN0ZzRTWHlxSTAxUEh1WE1RRzJtT0RoeG1jTVEy?=
+ =?utf-8?B?V2pPWVdpbHR6bUZLcktUdldsaHhzMExGSDh4Qjh6WFB2ck0yVVhUVUlhSUEx?=
+ =?utf-8?B?c3QyTkxaZ25KMlYzU0JxVEgzM2pnV0JFTDkzeWRYZ2xBQ3puQzBWSHlicW4w?=
+ =?utf-8?B?N012THdFWlFlbS9nQ1Q3NW9SbmF1cXE3WGZoYUY5MFgyTCtpSWhJdzRQZUs3?=
+ =?utf-8?B?UXRTczYyblV3WlFBcm1xeUdSNHlxZ3ZGZDU0bkhNUXl3TlVTSS9mRHYwUDda?=
+ =?utf-8?B?SUwvQzhIRmczVzVwSFoyTU14RG1pd1B1YzNoaFpqNHhuM1J6RGhqclZIbTUz?=
+ =?utf-8?B?SnF5c0lHbGVOblNLQjdXS0QwaER0U2NTMmc0dkNwRXBIdXpmVjgzUnF2YW9u?=
+ =?utf-8?B?YXAyaFd0OGk2V2lsOWRJMHlMUy9Ba2tFbldEUkx5WFB2WUVJMlQ3VS9MZXdv?=
+ =?utf-8?B?amRyOFBTeGdkdFFiWHRpK1RpVkt1Y2MzRjl5RjJvcEh0eGtpd3pmM2NxMFpM?=
+ =?utf-8?B?dVpZUkY1WnZTblgxWlhwMHc4Z2VOZTdKNnVHV2ZTTmsyckJGMzJSbDlEN0ky?=
+ =?utf-8?B?U2lmNVhJQXNNZmxHZk5PYXlML2xpY0lTU2krdEVtUndrU2VNdUl2d25ickR1?=
+ =?utf-8?B?aG5FWXpXMVlBWnVKdkdYamxsV01wYUh0bnRrclo1S0ZTeis4ajArT2ZLWE1U?=
+ =?utf-8?B?N2piUWdhc2Q3S1FjSTA4a1Q3cUxKcXlRNlQ1MFgvN1crWDRBeDFDS0pldUV2?=
+ =?utf-8?B?SHRGQlppcnVpMnRGZlJPcVprU0djTGxRMmRvQXM1eW9pV05ueWVuYlVyeS8y?=
+ =?utf-8?B?V1NoU2pkTEhabmhWdjNqKzhRZHlEQTdTSnFEZjJadU1ReE5TcldibU1tRGsy?=
+ =?utf-8?B?c0VCZG9LOFVYZUpzWWg1VVBJeHJUei9XeE52Z1ZVNnNISGhqNXBGOU1GbElu?=
+ =?utf-8?B?MDU1a2dvSjlwSzMxM0tiaHNURVlCaEFlTmJld2Q3Mjg4c21RMzJ0ejNJM1Jq?=
+ =?utf-8?B?N2pkVTk1c28yZkNQNGw1VU9maEFXQnZEUEVIVFhNZUFGbjU4aCtTUXJ1ajZB?=
+ =?utf-8?B?eXpTVEZNaVY5QjRFK2pqSFNNc0pIblUyRG53aHFCNm1zN0k3c2dZR296RnRs?=
+ =?utf-8?B?R2xsbnk1a2s2ckFXNmhUMTRxbDFaOHRESi9LTDZNT1U2cFdwM1l2cWYwMGhh?=
+ =?utf-8?B?aTBLbWcyNkdWVXUvVERPbkFZbWpGaEdTUkI5Q1RTZHY0ZnRUaHlKdmR1K1J0?=
+ =?utf-8?B?eFRBRnZpNytJak9hV3FwdCsvMkpGS2NBQ3EzTDNWVjNIVElJdVJVSU9STHV5?=
+ =?utf-8?Q?L2xsGezY26OMrSmtn3Fstpo=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2172e59d-9d13-4390-11f2-08dcfe658dfc
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2024 13:18:50.8758
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8AaEgRisaHGbvMT+AWun/ZhEIxv9DHfNgPwAvQhKQAJJmJHKATGI5Eu15GMpDkfti+OqL8eQGULgnwTGatv/0Iyrhpg5odHMYa4tFKdrqDg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_051407_127220_7D091E33 
-X-CRM114-Status: GOOD (  31.58  )
+X-CRM114-CacheID: sfid-20241106_051856_390347_95AEA012 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,122 +174,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Nov 2024 08:30:33 +0000,
-Jing Zhang <jingzhangos@google.com> wrote:
+Hi Heiko,
+
+On 11/6/24 1:37 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> From: Kunkun Jiang <jiangkunkun@huawei.com>
+> This adds support for the video-demo-adapter for the Haikou devkit with
+> Tiger RK3588 SoM.
 > 
-> vgic_its_save_device_tables will traverse its->device_list to
-> save DTE for each device. vgic_its_restore_device_tables will
-> traverse each entry of device table and check if it is valid.
-> Restore if valid.
+> The Video Demo adapter is an adapter connected to the fake PCIe slot
+> labeled "Video Connector" on the Haikou devkit.
 > 
-> But when MAPD unmaps a device, it does not invalidate the
-> corresponding DTE. In the scenario of continuous saves
-> and restores, there may be a situation where a device's DTE
-> is not saved but is restored. This is unreasonable and may
-> cause restore to fail. This patch clears the corresponding
-> DTE when MAPD unmaps a device.
+> It's main feature is a Leadtek DSI-display with touchscreen. To drive these
+
+Well that and a camera :)
+
+Maybe we can provide the "official" name of that adapter so people can 
+easily find it on our product page?
+
+DEVKIT ADDON CAM-TS-A01
+https://embedded.cherry.de/product/development-kit/
+
+> components a number of additional regulators are grouped on the adapter as
+> well as a PCA9670 gpio-expander to provide the needed additional gpio-lines.
 > 
-> Co-developed-by: Shusen Li <lishusen2@huawei.com>
-> Signed-off-by: Shusen Li <lishusen2@huawei.com>
-> Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
-> Signed-off-by: Jing Zhang <jingzhangos@google.com>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 > ---
->  arch/arm64/kvm/vgic/vgic-its.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
+>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>   .../rk3588-tiger-haikou-video-demo.dtso       | 153 ++++++++++++++++++
+>   2 files changed, 154 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
 > 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index 2381bc5ce544..7c57c7c6fbff 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -1140,8 +1140,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
->  	u8 num_eventid_bits = its_cmd_get_size(its_cmd);
->  	gpa_t itt_addr = its_cmd_get_ittaddr(its_cmd);
->  	struct its_device *device;
-> +	gpa_t gpa;
->  
-> -	if (!vgic_its_check_id(its, its->baser_device_table, device_id, NULL))
-> +	if (!vgic_its_check_id(its, its->baser_device_table, device_id, &gpa))
->  		return E_ITS_MAPD_DEVICE_OOR;
->  
->  	if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-> @@ -1161,8 +1162,17 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
->  	 * The spec does not say whether unmapping a not-mapped device
->  	 * is an error, so we are done in any case.
->  	 */
-> -	if (!valid)
-> +	if (!valid) {
-> +		struct kvm *kvm = its->dev->kvm;
-> +		int dte_esz = vgic_its_get_abi(its)->dte_esz;
-> +		u64 val = 0;
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index 09423070c992..0c4ee6a767b8 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -143,6 +143,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+> new file mode 100644
+> index 000000000000..c7416349e7d5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+> @@ -0,0 +1,153 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * DT-overlay for the camera / DSI demo appliance for Haikou boards.
+> + * In the flavour for use with a Tiger system-on-module.
+
+Add the official name in the comment here (maybe a link too?).
+
+Aren't we missing a copyright notice here as well (I personally don't 
+care :) )?
+
+If so, that would be
+
+Copyright (C) 2024 Cherry Embedded Solutions GmbH
+
+for us.
+
+> + */
 > +
-> +		if (KVM_BUG_ON(dte_esz != sizeof(val), kvm))
-> +			return -EINVAL;
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+> +
+> +&{/} {
+> +	video-adapter-leds {
 
-I find it pretty odd to bug only in that case, and the sprinkling of
-these checks all over the place is horrible. I'm starting to wonder if
-we shouldn't simply wrap vgic_write_guest() and co to do the checking.
+Please order the register-less-direct-children-nodes-of-root alphabetically.
+
+> +		compatible = "gpio-leds";
+> +		status = "okay";
+
+Isn't the default if omitted already "okay"?
 
 > +
-> +		vgic_write_guest_lock(kvm, gpa, &val, dte_esz);
+> +		video-adapter-led {
+> +			color = <LED_COLOR_ID_BLUE>;
+> +			gpios = <&pca9670 7 GPIO_ACTIVE_HIGH>;
+> +			label = "video-adapter-led";
+> +			linux,default-trigger = "none";
+> +		};
+> +	};
+> +
+> +	backlight: backlight {
+> +		compatible = "pwm-backlight";
+> +		power-supply = <&dc_12v>;
+> +		pwms = <&pwm0 0 25000 0>;
+> +	};
+> +
+> +	hdmi-con {
+> +		compatible = "hdmi-connector";
+> +		type = "a";
+> +
+> +		port {
+> +			hdmi_con_in: endpoint {
+> +				remote-endpoint = <&hdmi0_out_con>;
+> +			};
+> +		};
+> +	};
+> +
 
-I'm thinking of something like:
+Wrong copy-paste here I guess? No HDMI connector on that adapter :)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index ba945ba78cc7d..d8e57aefcd3a5 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1128,6 +1128,19 @@ static struct its_device *vgic_its_alloc_device(struct vgic_its *its,
- 	return device;
- }
- 
-+
-+#define its_write_entry_lock(i, g, valp, t)				\
-+	({								\
-+		struct kvm *__k = (i)->dev->kvm;			\
-+		int __sz = vgic_its_get_abi(i)->t;			\
-+		int __ret = 0;						\
-+		if (KVM_BUG_ON(__sz != sizeof(*(valp)), __k))		\
-+			__ret = -EINVAL;				\
-+		else							\
-+			vgic_write_guest_lock(__k, (g), (valp), __sz);	\
-+		__ret;							\
-+	})
-+
- /*
-  * MAPD maps or unmaps a device ID to Interrupt Translation Tables (ITTs).
-  * Must be called with the its_lock mutex held.
-@@ -1140,8 +1153,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
- 	u8 num_eventid_bits = its_cmd_get_size(its_cmd);
- 	gpa_t itt_addr = its_cmd_get_ittaddr(its_cmd);
- 	struct its_device *device;
-+	gpa_t gpa;
- 
--	if (!vgic_its_check_id(its, its->baser_device_table, device_id, NULL))
-+	if (!vgic_its_check_id(its, its->baser_device_table, device_id, &gpa))
- 		return E_ITS_MAPD_DEVICE_OOR;
- 
- 	if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-@@ -1161,8 +1175,10 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
- 	 * The spec does not say whether unmapping a not-mapped device
- 	 * is an error, so we are done in any case.
- 	 */
--	if (!valid)
--		return 0;
-+	if (!valid) {
-+		u64 val = 0;
-+		return its_write_entry_lock(its, gpa, &val, dte_esz);
-+	}
- 
- 	device = vgic_its_alloc_device(its, device_id, itt_addr,
- 				       num_eventid_bits);
+> +	vcc1v8_video: regulator-vcc1v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc1v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
+> +
+> +	vcc2v8_video: regulator-vcc2v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc2v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
+> +};
+> +
+> +&dsi0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
 
-which can be generalised everywhere (you can even extract the check
-and move it to an out-of-line helper as required).
+Shouldn't those be in the SoC dtsi? Is there any world where this would 
+be different per board?
 
-	M.
+> +	status = "okay";
+> +
+> +	panel@0 {
+> +		compatible = "leadtek,ltk050h3148w";
+> +		reg = <0>;
+> +		backlight = <&backlight>;
+> +		iovcc-supply = <&vcc1v8_video>;
+> +		reset-gpios = <&pca9670 0 GPIO_ACTIVE_LOW>;
+> +		vci-supply = <&vcc2v8_video>;
+> +
+> +		port {
+> +			mipi_panel_in: endpoint {
+> +				remote-endpoint = <&dsi0_out_panel>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&dsi0_in {
+> +	dsi0_in_vp3: endpoint {
+> +		remote-endpoint = <&vp3_out_dsi0>;
+> +	};
+> +};
+> +
+> +&dsi0_out {
+> +	dsi0_out_panel: endpoint {
+> +		remote-endpoint = <&mipi_panel_in>;
+> +	};
+> +};
+> +
+> +&i2c6 {
+> +	/* OV5675, GT911, DW9714 are limited to 400KHz */
+> +	clock-frequency = <400000>;
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
 
--- 
-Without deviation from the norm, progress is not possible.
+Mmmm why the address and size cells properties here? They should already 
+be part of the SoC dtsi no?
+
+> +	touchscreen@14 {
+> +		compatible = "goodix,gt911";
+> +		reg = <0x14>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <RK_PC3 IRQ_TYPE_LEVEL_LOW>;
+> +		irq-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-0 = <&touch_int>;
+> +		pinctrl-names = "default";
+> +		reset-gpios = <&pca9670 1 GPIO_ACTIVE_HIGH>;
+
+So this is correct because of a cancelling mistake. The driver inverts 
+the signal and here we invert it as well. c.f. 
+https://lore.kernel.org/linux-rockchip/20221103-upstream-goodix-reset-v3-0-0975809eb183@theobroma-systems.com/
+
+I haven't send a new version yet, I don't really know what should be 
+done there. The main pain point being that this is probably a big patch 
+that spans multiple maintainer trees at once?
+
+> +		AVDD28-supply = <&vcc2v8_video>;
+> +		VDDIO-supply = <&vcc3v3_baseboard>;
+> +	};
+> +
+> +	pca9670: gpio@27 {
+> +		compatible = "nxp,pca9670";
+> +		reg = <0x27>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +};
+> +
+> +&mipidcphy0 {
+> +	status = "okay";
+> +};
+> +
+> +&pinctrl {
+> +	touch {
+> +		touch_int: touch-int {
+> +			rockchip,pins = <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +};
+> +
+> +&pwm0 {
+> +	pinctrl-0 = <&pwm0m1_pins>;
+> +	pinctrl-names = "default";
+
+The other two pin muxes for PWM0 are either:
+- the pin used for CAN
+- the pin routed to an internal component (unexposed to Q7) and used as 
+a GPIO
+
+so please move the pinctrl to the Tiger SoM DTSI.
+
+> +	status = "okay";
+> +};
+> +
+> +&vp3 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+
+Shouldn't those be in the SoC dtsi?
+
+Cheers,
+Quentin
 
