@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B09D59F75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 21:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DBFD59F67
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 21:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35JTbbr7dugNjzWfPAWoaZ0OWsfX+SrfErZHR9L07Ms=; b=WVZjN0joMz7zMa9XNabpUtOdxt
-	ZuMYcRaVAgViWHD1ODTwOjkfBFbYIQBMe6d5Sm+LX4N6v5RZhecZyr+6t9wGyf1uNCZd0SzpvE/Yn
-	cEI57XceXz5XoYhTpOuwTbur8JmzGSkSPEPHEMhNYwZ2hhJUPzcrHePSP0kqb2e++0W9A0WrcDthd
-	x0Sy1Z1jJX0oXhXrJ/CGsiFSwK2bYgoavbvqY2d/BmANu/qler6qPJvHizxuw2u5bdeXfmmzVa7Ql
-	TqUh8S8oeY0yFQFQAlT2t48P4ZG/ILs5ok533GjO8Igmk8U1ZVEcke8vSQNo7+lSOn2MzGooHz2kU
-	Lg4y6Ugw==;
+	bh=hBLyzvIh7CKmRzey/NIzdLIeO4OLcavrJ7K8Oj+KhKw=; b=OU1rHlsPC5hMB2TNyKNuSx8cOk
+	eW+pN2a2QvjpmlBhiJuhbdxavBqQbZrv9SI8VMANMHSLosg/e+69Qpb7sYNa3njf51Q5s+Af2xaXc
+	injM0s5GAuonKMBmvP6ojBqi61qQNWwFbt/v5RuSrCY4vRjrbAexZBfJ8oW29iDBfu7cXf/cmNSvK
+	IUmPI0fvN/jzOFgAEWIACWwZTjEoU5/9JfxmQvVSoLWzVOKMJh96WtzLw/Q9qcOZky686D+/Ut9Qj
+	p83u2Vte50U36Aoa4WIB0fJDM0RRUmwtJLWVh96FaaIdYxL7YCnrs0DbikdALb141PhSjvD7/Y1M1
+	GsFtSHUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8nFP-00000004lNB-0h5r;
-	Wed, 06 Nov 2024 21:07:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8nDf-00000004lC0-0AHo
+	id 1t8nQs-00000004mgB-1Ypc;
+	Wed, 06 Nov 2024 21:19:18 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8nP7-00000004mOp-0LPM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 21:05:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C19D7497;
-	Wed,  6 Nov 2024 13:06:01 -0800 (PST)
-Received: from [10.57.90.5] (unknown [10.57.90.5])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 920813F66E;
-	Wed,  6 Nov 2024 13:05:27 -0800 (PST)
-Message-ID: <2a0e69e3-63ba-475b-a5a9-0863ad0f2bf8@arm.com>
-Date: Wed, 6 Nov 2024 21:05:26 +0000
+	Wed, 06 Nov 2024 21:17:31 +0000
+Received: from mxbox1.masterlogin.de (unknown [192.168.10.88])
+	by mxout4.routing.net (Postfix) with ESMTP id 5A4E81015D2;
+	Wed,  6 Nov 2024 21:17:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1730927845;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hBLyzvIh7CKmRzey/NIzdLIeO4OLcavrJ7K8Oj+KhKw=;
+	b=LzIQnRUr49A6oV1zsN6hj4DQg175lI5Ckwwx0fKML1DlY02b6TiyogV0L4LmgS0z10j1Cf
+	zcH+mOp5qGZaocNlvqSXhAUcYDe5fbF2cNHQq3oCkkxWUQwYybxqfC+8rUhsD1C49k5P+l
+	AI7wyL3wE5PK1RctS0hhkd7w7TES++A=
+Received: from webmail.hosting.de (unknown [134.0.26.148])
+	by mxbox1.masterlogin.de (Postfix) with ESMTPSA id B16304009E;
+	Wed,  6 Nov 2024 21:17:24 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via
- struct arm_smmu_hw_info
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, acpica-devel@lists.linux.dev,
- iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
- Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
- Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <5-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241104114723.GA11511@willie-the-truck> <20241104124102.GX10193@nvidia.com>
- <8a5940b0-08f3-48b1-9498-f09f0527a964@arm.com>
- <20241106180531.GA520535@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241106180531.GA520535@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Date: Wed, 06 Nov 2024 22:17:24 +0100
+From: "Frank Wunderlich (linux)" <linux@fw-web.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, Andrew Lunn
+ <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, frank-w@public-files.de
+Subject: Re: [PATCH] arm64: dts: marvell: Drop undocumented SATA phy names
+In-Reply-To: <CAL_JsqKfpVVVh6L0PLmieBO3qMFpcDfWFwd+5=qzH_MbeZt31Q@mail.gmail.com>
+References: <20241014193528.1896905-2-robh@kernel.org>
+ <87r07p8x12.fsf@BLaptop.bootlin.com>
+ <0A5AFF77-D888-4151-9C15-15A408709857@fw-web.de>
+ <CAL_JsqKfpVVVh6L0PLmieBO3qMFpcDfWFwd+5=qzH_MbeZt31Q@mail.gmail.com>
+Message-ID: <4aa7f13e12646722d859ead240177eab@fw-web.de>
+X-Sender: linux@fw-web.de
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: 84ed6ef5-32e9-463f-b99c-fd8841002fe1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_130539_207055_F2C47DCE 
-X-CRM114-Status: GOOD (  52.00  )
+X-CRM114-CacheID: sfid-20241106_131729_305182_2F0A0763 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,168 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-06 6:05 pm, Jason Gunthorpe wrote:
-> On Wed, Nov 06, 2024 at 04:37:53PM +0000, Robin Murphy wrote:
->> On 2024-11-04 12:41 pm, Jason Gunthorpe wrote:
->>> On Mon, Nov 04, 2024 at 11:47:24AM +0000, Will Deacon wrote:
->>>>> +/**
->>>>> + * struct iommu_hw_info_arm_smmuv3 - ARM SMMUv3 hardware information
->>>>> + *                                   (IOMMU_HW_INFO_TYPE_ARM_SMMUV3)
->>>>> + *
->>>>> + * @flags: Must be set to 0
->>>>> + * @__reserved: Must be 0
->>>>> + * @idr: Implemented features for ARM SMMU Non-secure programming interface
->>>>> + * @iidr: Information about the implementation and implementer of ARM SMMU,
->>>>> + *        and architecture version supported
->>>>> + * @aidr: ARM SMMU architecture version
->>>>> + *
->>>>> + * For the details of @idr, @iidr and @aidr, please refer to the chapters
->>>>> + * from 6.3.1 to 6.3.6 in the SMMUv3 Spec.
->>>>> + *
->>>>> + * User space should read the underlying ARM SMMUv3 hardware information for
->>>>> + * the list of supported features.
->>>>> + *
->>>>> + * Note that these values reflect the raw HW capability, without any insight if
->>>>> + * any required kernel driver support is present. Bits may be set indicating the
->>>>> + * HW has functionality that is lacking kernel software support, such as BTM. If
->>>>> + * a VMM is using this information to construct emulated copies of these
->>>>> + * registers it should only forward bits that it knows it can support.
->>
->> But how *is* a VMM supposed to know what it can support?
+Am 2024-11-06 19:39, schrieb Rob Herring:
+> On Wed, Nov 6, 2024 at 12:34 PM Frank Wunderlich <linux@fw-web.de> 
+> wrote:
+>> 
+>> Am 5. November 2024 17:28:57 MEZ schrieb Gregory CLEMENT 
+>> <gregory.clement@bootlin.com>:
+>> >"Rob Herring (Arm)" <robh@kernel.org> writes:
+>> >
+>> >> While "phy-names" is allowed for sata-port nodes, the names used aren't
+>> >> documented and are incorrect ("sata-phy" is what's documented). The name
+>> >> for a single entry is fairly useless, so just drop the property.
+>> >>
+>> >> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>> >
+>> >Applied on mvebu/dt64
+>> >
+>> >Thanks,
+>> >
+>> >Gregory
+>> >> ---
+>> >> Cc: Frank Wunderlich <linux@fw-web.de>
+>> >>
+>> >> There's also this 2 year old patch fixing other SATA errors[1] which
+>> >> was never picked up. :(
+>> >>
+>> >> [1] https://lore.kernel.org/linux-arm-kernel/20220311210357.222830-3-linux@fw-web.de/
+>> 
+>> Hi
+>> 
+>> How to deal with my patch pointed by rob?
 > 
-> I answered a related question to Mostafa with an example:
+> I believe it will conflict with mine. Can you rebase on top of
+> mvebu/dt64 and resend it.
 > 
-> https://lore.kernel.org/linux-iommu/20240903235532.GJ3773488@nvidia.com/
-> 
-> "global" capabilities that are enabled directly from the CD entry
-> would follow the pattern.
-> 
->> Are they all expected to grovel the host devicetree/ACPI tables and
->> maintain their own knowledge of implementation errata to understand
->> what's actually usable?
-> 
-> No, VMMs are expected to only implement base line features we have
-> working today and not blindly add new features based only HW registers
-> reported here.
-> 
-> Each future capability we want to enable at the VMM needs an analysis:
-> 
->   1) Does it require kernel SW changes, ie like BTM? Then it needs a
->      kernel_capabilities bit to say the kernel SW exists
->   2) Does it require data from ACPI/DT/etc? Then it needs a
->      kernel_capabilities bit
->   3) Does it need to be "turned on" per VM, ie with a VMS enablement?
->      Then it needs a new request flag in ALLOC_VIOMMU
->   4) Otherwise it can be read directly from the idr[] array
-> 
-> This is why the comment above is so stern that the VMM "should only
-> forward bits that it knows it can support".
+> Rob
 
-So... you're saying this patch is in fact broken, or at least uselessly 
-incomplete, since VMMs aren't allowed to emulate a vSMMU at all without 
-first consulting some other interface which does not exist? Great.
+i have rebased my patch [1], but it seems there are much more errors 
+there (which i tried to fix there too).
 
->> S2 tables it its own business. AFAICS, unless the VMM wants to do some
->> fiddly CD shadowing, it's going to be kinda hard to prevent the SMMU seeing
->> a guest CD with CD.HA and/or CD.HD set if the guest expects S1 HTTU to work.
-> 
-> If the VMM wrongly indicates HTTU support to the VM, because it
-> wrongly inspected those bits in the idr report, then it is just
-> broken.
+To be honest marvell is confusing to me finding the right file to patch 
+because of many dtsi files included by each other mixed with some 
+macros.
 
-What do you mean? We could have a system right now where the hardware is 
-configured with SMMU_IDR0.HTTU=2, but it turned out that atomics were 
-broken in the interconnect so firmware sets the IORT "HTTU override" 
-field is set to 0. We know about that in the kernel, but all a VMM sees 
-is iommu_hw_info_arm_smmuv3.idr[0] indicating HTTU=2. If it is "broken" 
-to take the only information available at face value, assume HTTU is 
-available, and reflect that in a vSMMU interface, then what is the 
-correct thing to do, other than to not dare emulate a vSMMU at all, in 
-fear of a sternly worded comment?
+at least some properties have to be documented in yaml:
 
->> I would say it does. Advertising a feature when we already know it's not
->> usable at all puts a non-trivial and unnecessary burden on the VMM and VM to
->> then have to somehow derive that information from other sources, at the risk
->> of being confused by unexpected behaviour if they don't.
-> 
-> That is not the purpose here, the register report is not to be used as
-> "advertising features". It describes details of the raw HW that the
-> VMM may need to use *some* of the fields.
-> 
-> There are quite a few fields that fit #4 today: OAS, VAX, GRAN, BBML,
-> CD2L, etc.
-> 
-> Basically we will pass most of the bits and mask a few. If we get the
-> masking wrong and pass something we shouldn't, then we've improved
-> nothing compared to this proposal. I think we are likely to get the
-> masking wrong :)
+arch/arm64/boot/dts/marvell/armada-8040-db.dtb: sata@540000: Unevaluated 
+properties are not allowed ('#address-cells', '#size-cells', 
+'dma-coherent', 'iommus' were unexpected)
 
-Seriously? A simple inverse of the feature detection the kernel driver 
-already does for its own needs, implemented once in the same place, is hard?
+sata-node itself seems to be defined in 
+arch/arm64/boot/dts/marvell/armada-cp11x.dtsi (adress/size-cells and 
+dma-coherent are defined here)
 
-Compared to maintaining the exact same information within the driver but 
-in some new different form, and also maintaining it in the UAPI, and 
-having every VMM ever all do the same work to put the two together, and 
-always be up to date with the right UAPI, and never ever let any field 
-slip through as-is, especially not all the ones which were RES0 at time 
-of writing, enforced by a sternly worded comment? Why yes, of course I 
-can see how that's trivially easy and carries no risk whatsoever.
+iommus seems to be added with
+83a3545d9c37 2020-07-15 arm64: dts: marvell: add SMMU support Marcin 
+Wojtas  (tag: mvebu-dt64-5.9-1)
+which seems not be documented in txt before i converted the binding.
 
->> We sanitise CPU ID registers for userspace and KVM, so I see no compelling
->> reason for SMMU ID registers to be different.
-> 
-> We discussed this already:
-> 
-> https://lore.kernel.org/linux-iommu/20240904120103.GB3915968@nvidia.com
-> 
-> It is a false comparison, for KVM the kernel is responsible to control
-> the CPU ID registers. Reporting the registers the VM sees to the VMM
-> makes alot of sense. For SMMU the VMM exclusively controls the VM's ID
-> registers.
+so something like adding this to the binding:
 
-Pointing out that two things are different is a false comparison because 
-they are different, by virtue of your choice to make them different? 
-Please try making sense.
+   '#address-cells':
+     const: 1
 
-Your tautology still does not offer any reasoning against doing the 
-logical thing and following the same basic pattern: the kernel uses the 
-ID register mechanism itself to advertise the set of features it's 
-able/willing to support, by sanitising the values it offers to the VMM, 
-combining the notions of hardware and kernel support where the 
-distinction is irrelevant anyway. The VMM is then still free to take 
-those values and hide more features, or potentially add any that it is 
-capable of emulating without the kernel's help, and advertise that final 
-set to the VM. Obviously there are significant *implementation* 
-differences, most notably that the latter VMM->VM part doesn't need to 
-involve IOMMUFD at all since MMIO register emulation can stay entirely 
-in userspace, whereas for CPU system registers the final VM-visible 
-values need to be plugged back in to KVM for it to handle the traps.
+   '#size-cells':
+     const: 0
 
-We are all asking you to explain why you think doing the kernel->VMM 
-advertisement naturally and intuitively is somehow bad, and forcing VMMs 
-to instead rely on a more complex, fragile, and crucially non-existent 
-additional interface is better. You should take "We discussed this 
-already" as more of a clue to yourself than to me - if 4 different 
-people have all said the exact same thing in so many words, perhaps 
-there's something in it...
+   dma-coherent: true
 
-And in case I need to spell it out with less sarcasm, "we'll get masking 
-wrong in the kernel" only implies "we'll get kernel_capabilities wrong 
-in the kernel (and elsewhere)", so it's clearly not a useful argument to 
-keep repeating. Besides, as KVM + sysfs + MRS emulation shows, we're 
-pretty experienced at masking ID registers in the kernel. It's not hard 
-to do it right in a robust manner, where particularly with the nature of 
-SMMU features, the only real risk might be forgetting to expose 
-something new once we do actually support it.
+   iommus:
+     maxItems: 1
 
-> If you still feel strongly about this please let me know by Friday and
-> I will drop the idr[] array from this cycle. We can continue to
-> discuss a solution for the next cycle.
+dma-coherent was there in my version and seem to be broken with
 
-It already can't work as-is, I don't see how making it even more broken 
-would help. IMO it doesn't seem like a good idea to be merging UAPI at 
-all while it's still clearly incomplete and by its own definition unusable.
+6f997d4bb98b 2022-09-09 dt-bindings: ata: ahci-platform: Move 
+dma-coherent to sata-common.yaml Serge Semin
 
-Thanks,
-Robin.
+but maybe i only get the error for it because of my call with my yaml 
+only
+
+ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make dtbs_check 
+DT_SCHEMA_FILES=Documentation/devicetree/bindings/ata/ahci-platform.yaml
+
+adress/size-cells is strange to me, i'm sure i tested the yaml against 
+the example which also contains them...i guess it was defined somewhere 
+else.
+
+and this one:
+
+arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: sata@540000: 
+sata-port@0:phy-names:0: 'sata-phy' was expected
+	from schema $id: http://devicetree.org/schemas/ata/ahci-platform.yaml#
+
+i guess it is taken from here:
+Documentation/devicetree/bindings/ata/ahci-common.yaml:107:        
+const: sata-phy
+
+if i understand it the right way then if phy-names is defined in 
+sata-subnode it has to be value "sata-phy"...so basicly somewhere in the 
+chains of dtsi's a phy-name is defined to another value..am i right?
+
+it looks like it is in 
+arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi...if i drop the 
+phy-names for the other sata-ports (below cp1_sata0)
+
+seems dropping them were missing from your patch as you remove another 
+one in same file (&cp0_sata0)
+
+please correct me if i'm wrong
+
+regards Frank
+
+[1] https://github.com/frank-w/BPI-Router-Linux/commits/mvebu/dt64/
 
