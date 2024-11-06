@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6B6D44D40
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44703D44D40
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=; b=apG6THMWXRrXg46WZz1E5f+QGn
-	ziFgVRAIQ4VtSKnhjr6W8RmwmYkcAlMqgKI9ZVv4n4jsEZyEI1dkDhv2CcGdKkihcgW+0rJivX2un
-	XAyooFro/0/GBp1jb63g7aZZgPasGH/hipqcWO6pCCJWd469Z5i5bfgSgVJrQPGT6h6J9lP0NNGYx
-	6aop90K1AZedBxwX28VcOylYzJx8qhci7R5ZMI6mpDMhLOInq//s6KwB9E35voZTS5kyTs+AmrIZX
-	LHAKXCcfarNR1alu73fNvz9zTAX9Qjnba5iaqsT9caq+fmKd1tNGJBCMet8HLpnBM/djQBaIdEZ+x
-	dy+0C7AQ==;
+	bh=V9YWNiQV7UfISFGsxrUC0LHYRXl1oT91DPRmgjYHPeU=; b=qaQPdnFGNqm4glLz01ngSabQ7g
+	UPJzHN2TtdgfLtj45sSN4nHRAQXVHpwpmqrnm3bgmOlxP4BIQQW6ss7lROksk6kRIuaiRTEBSbZ3i
+	V9xfR5qA9UDRaRJH5xp2J8KLo6fFfqfaielP1y1n8MMGIsgaeKq86jRkxmeEksZs9pGadKR5BcOPd
+	72lr5V866u+OgK2/ijW7AFvkQPbXmvPcXoYMlbsI/wxRYRNcSwkisb1eqmD+Hxx0D38nr5ROBGvDx
+	lgM2la230y6qcfqnet7YRC862iKQLdekQ0NrO6BVoiRXq+nlQEDFI/YIvi2aMBBpf6g2xeAMwH81c
+	yK18whMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cwz-00000002gat-05Qo;
-	Wed, 06 Nov 2024 10:07:45 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1t8cyi-00000002h7t-3VSq;
+	Wed, 06 Nov 2024 10:09:32 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cQX-00000002YUf-0JaK
+	id 1t8cQa-00000002YVz-2zqp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:34:14 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2110a622d76so49452805ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 01:34:12 -0800 (PST)
+	Wed, 06 Nov 2024 09:34:18 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21145812538so29391975ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 01:34:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730885652; x=1731490452; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1730885656; x=1731490456; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=;
-        b=EdKqlkKxKrt3N1ZruSgjJwjxrIB7oKpWkb3J2pxuvSjlwma1hXugfZSB+LtPntYgf+
-         U+2xiyqDLbR2QpI+cd5RkjOsRJEx/4Eo6U82YrsdE02xgyEYeTgvKUFt1HkLV8dS8nHw
-         KHOey1X4J3vKdKbwhqTvSu/aOOi03KYpsLI1s=
+        bh=V9YWNiQV7UfISFGsxrUC0LHYRXl1oT91DPRmgjYHPeU=;
+        b=i+mxL39tZU5Bki5BQpeGmECfP04LqukL4jIETcmXNIOKc7d+bdxl6oQ0/rpJU1UNtC
+         /IlS90B8SQfMDKMPUdMsOYMBBN1LHeV+0+naetROcwHTWcdnz+Yem3dRUcJqFxaVATMb
+         lcUugaoitrDJNhEy95l2J4Mb+hMy7b+4amXlU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730885652; x=1731490452;
+        d=1e100.net; s=20230601; t=1730885656; x=1731490456;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tbfB757zoogv3EY5nGOvTyWU1LRL3RJGksVkmiyRShA=;
-        b=YAEuXA9UuqB/2STBvNtuVlDmWQMrW6v6Z80FdVN8W5NM+eYds1oZGqCwCOb+vxgvbk
-         POZzLU0RckZYMu/leCJLdxrwSSRpb+OBwIaFVt1NxsWwZF3iarM8DryLSTyUQ+8Ekice
-         iK9o1tm1gkR2U9hYW8LP3D1tTN2mRUoJ8DFgt2D+aefyJd04ldzmsPlPNOaP7Mn2k7wU
-         QDecgxC0L1uKQNz7seQd7f1hEBRpwMSVuoiNnRULwSRYCA1tTCXgmejkCDGuLxvvEOt9
-         17qcGC0G8+w9enQYKLAcQARFg6A973LoEhGByVlqJtd93MuGG+Q0dTeNLuDZijXfAsp/
-         22kg==
-X-Forwarded-Encrypted: i=1; AJvYcCXO5ZHPAwaBdApw7lQzBmt4Kzv/TCY9t8FLpDH03lfU66Q6ETqXqHowc7BxPtBAg2Z2qwJ3tuED2Re15nGA1PD2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy93kUAwAufLO5rhhGfKakjHfdmJwYDwlh/+BshYu//z8+SbZqV
-	BiiuYKT68FCbMxkfbNk8XPANgHUBPNpvLDVpDrzr2IyFIqySmVdeQkbJF8Jjbw==
-X-Google-Smtp-Source: AGHT+IGsqJnP2c29fT7ec18QitUEURWR4HKremiykkNa1vQPN87ztDDGEmp/BT6g/9KjaXSGkYd/CA==
-X-Received: by 2002:a17:903:234c:b0:20c:5b80:930f with SMTP id d9443c01a7336-210c68a9c02mr560445915ad.12.1730885652382;
-        Wed, 06 Nov 2024 01:34:12 -0800 (PST)
+        bh=V9YWNiQV7UfISFGsxrUC0LHYRXl1oT91DPRmgjYHPeU=;
+        b=tOqqi4L4YTbzbylB2idDbhOUOggrh4/xDQPgQbAofDb7mCiETORypgSN/5JxzdL7I2
+         QmN6M+zuDrrCuO/PlUZIpEETS2/e2anJa2lz6WcUMGos2vWtBg6pSGsv2YCFoOQIoWLg
+         5gjEYbgS0j/sVBowrTsO+1NUDY9YKCtYrfXEeit962Tq+ip+2+kt1ltzfUdWBt7SF1hB
+         RDu6Awr2deYNnSV75IvszUgYC30UCfexvgYWtiLqMlaossT6m4quEeUkRQWv+x3FZi2H
+         oqWlJt1HIFc3Wmou+PI25LYqwuQ8s9JNn3h+muUy2ow9/AhQph/jI2MDvrXfaxgYYBvZ
+         pmsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWz0oA1LO4b+kJ8C18asgCu0FUi0NXAS2d/m8o8DZUpooY7vxjxxJEnxtKPSg2EkLBZI7R/lomibC8J7jdW9qP8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRPRKhfYEHRZa2A2WaunHn+5s0vyG+LmP3Uq3QxBrIMpXRQtR1
+	tl81Era8AHfCYPJZKes5SZYs7GH8B5inWutRInayOvtuJMLUp57/AXYOlIpPHw==
+X-Google-Smtp-Source: AGHT+IGQaXlmVG56isfbKv5AqNR1DW/b1sfVXBLwutv0E9qOpoDIMAjzf/Z507RZQ99puv+tK8kijA==
+X-Received: by 2002:a17:902:dacb:b0:207:3a53:fe67 with SMTP id d9443c01a7336-210c6c0f5f2mr574697625ad.32.1730885655826;
+        Wed, 06 Nov 2024 01:34:15 -0800 (PST)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:93fe:1d68:b50:3213])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057062b8sm91478665ad.63.2024.11.06.01.34.09
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057062b8sm91478665ad.63.2024.11.06.01.34.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 01:34:12 -0800 (PST)
+        Wed, 06 Nov 2024 01:34:15 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -80,17 +80,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-i2c@vger.kernel.org,
 	Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: [PATCH v11 2/7] of: base: Add for_each_child_of_node_with_prefix()
-Date: Wed,  6 Nov 2024 17:33:29 +0800
-Message-ID: <20241106093335.1582205-3-wenst@chromium.org>
+Subject: [PATCH v11 3/7] i2c: Introduce OF component probe function
+Date: Wed,  6 Nov 2024 17:33:30 +0800
+Message-ID: <20241106093335.1582205-4-wenst@chromium.org>
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
 In-Reply-To: <20241106093335.1582205-1-wenst@chromium.org>
 References: <20241106093335.1582205-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_013413_135935_45BE8C81 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20241106_013416_814501_4DB5DDC9 
+X-CRM114-Status: GOOD (  46.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +105,433 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are cases where drivers would go through child device nodes and
-operate on only the ones whose node name starts with a given prefix.
+Some devices are designed and manufactured with some components having
+multiple drop-in replacement options. These components are often
+connected to the mainboard via ribbon cables, having the same signals
+and pin assignments across all options. These may include the display
+panel and touchscreen on laptops and tablets, and the trackpad on
+laptops. Sometimes which component option is used in a particular device
+can be detected by some firmware provided identifier, other times that
+information is not available, and the kernel has to try to probe each
+device.
 
-Provide a helper for these users. This will mainly be used in a
-subsequent patch that implements a hardware component prober for I2C
-busses.
+This change attempts to make the "probe each device" case cleaner. The
+current approach is to have all options added and enabled in the device
+tree. The kernel would then bind each device and run each driver's probe
+function. This works, but has been broken before due to the introduction
+of asynchronous probing, causing multiple instances requesting "shared"
+resources, such as pinmuxes, GPIO pins, interrupt lines, at the same
+time, with only one instance succeeding. Work arounds for these include
+moving the pinmux to the parent I2C controller, using GPIO hogs or
+pinmux settings to keep the GPIO pins in some fixed configuration, and
+requesting the interrupt line very late. Such configurations can be seen
+on the MT8183 Krane Chromebook tablets, and the Qualcomm sc8280xp-based
+Lenovo Thinkpad 13S.
+
+Instead of this delicate dance between drivers and device tree quirks,
+this change introduces a simple I2C component probe function. For a
+given class of devices on the same I2C bus, it will go through all of
+them, doing a simple I2C read transfer and see which one of them responds.
+It will then enable the device that responds.
+
+This requires some minor modifications in the existing device tree. The
+status for all the device nodes for the component options must be set
+to "fail-needs-probe". This makes it clear that some mechanism is
+needed to enable one of them, and also prevents the prober and device
+drivers running at the same time.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 ---
-Changes since v7:
-- Collected Rob's Reviewed-by
-Changes since v6:
-- Changed helper name to "for_each_child_of_node_with_prefix()"
-Changes since v5:
-- New patch
----
- drivers/of/base.c  | 35 +++++++++++++++++++++++++++++++++++
- include/linux/of.h |  9 +++++++++
- 2 files changed, 44 insertions(+)
+Changes since v9:
+- Picked up review-bys
+- Added inclusion of stddef.h for NULL
 
-diff --git a/drivers/of/base.c b/drivers/of/base.c
-index d94efee4a7fc..a01e5534c2fd 100644
---- a/drivers/of/base.c
-+++ b/drivers/of/base.c
-@@ -628,6 +628,41 @@ struct device_node *of_get_next_child(const struct device_node *node,
- }
- EXPORT_SYMBOL(of_get_next_child);
+Changes since v8:
+- Added missing include of <linux/kconfig.h> to i2c-of-prober.h
+- Expanded description of i2c_of_probe_ops::enable to mention that
+  returning -EPROBE_DEFER is valid (Doug)
+- Reworded descrption of i2c_of_probe_ops::cleanup_early to avoid
+  confusion with i2c_of_probe_ops::enable (Doug)
+- Reworked i2c_of_probe_get_i2c_node() to return NULL on failure,
+  matching most functions that return |struct device_node *|.
+
+Changes since v7:
+- Dropped log level of "enabling component" to debug
+- Dropped file name from header file
+- Reverted to __free() cleanup for i2c bus node
+- Corrected "failed-needs-probe" to "fail-needs-probe" in commit message
+- Fixed incorrectly positioned period ('.') in commit message
+- Expanded description of i2c_of_probe_component()
+- Expanded comment explaining check for "available" devices to note that
+  if such a device is found then the i2c probe function becomes a no-op
+- Simplified check for "available" devices for-each loop
+- Expanded description of @free_resources_early callback to explicitly
+  state that it is not called if no working components are found
+- Dropped !cfg check
+- Replaced "fail" with "fail-needs-probe" in i2c_of_probe_component()
+  kernel doc
+- Combined callbacks (.get_resources with .enable; .cleanup with
+  .free_resources_late); .free_resources_early renamed to .cleanup_early
+
+Changes since v6:
+- Correctly replaced for_each_child_of_node_scoped() with
+  for_each_child_of_node_with_prefix()
+- Added namespace for exported symbol
+- Made the probe function a framework with hooks
+- Split out a new header file
+- Added MAINTAINERS entry
+- Reworded kernel-doc
+- Dropped usage of __free from i2c_of_probe_component() since error
+  path cleanup is needed anyway
+
+Changes since v5:
+- Fixed indent in Makefile
+- Split regulator and GPIO TODO items
+- Reversed final conditional in i2c_of_probe_enable_node()
+
+Changes since v4:
+- Split code into helper functions
+- Use scoped helpers and __free() to reduce error path
+
+Changes since v3:
+- Complete kernel-doc
+- Return different error if I2C controller is disabled
+- Expand comment to explain assumptions and constraints
+- Split for-loop finding target node and operations on target node
+- Add missing i2c_put_adapter()
+- Move prober code to separate file
+
+Rob also asked why there was a limitation of "exactly one touchscreen
+will be enabled across the whole tree".
+
+The use case this prober currently targets is a component on consumer
+electronics (tablet or laptop) being swapped out due to cost or supply
+reasons. Designs with multiple components of the same type are pretty
+rare. The way the next patch is written also assumes this for efficiency
+reasons.
+
+Changes since v2:
+- New patch split out from "of: Introduce hardware prober driver"
+- Addressed Rob's comments
+  - Move i2c prober to i2c subsystem
+  - Use of_node_is_available() to check if node is enabled.
+  - Use OF changeset API to update status property
+- Addressed Andy's comments
+  - Probe function now accepts "struct device *dev" instead to reduce
+    line length and dereferences
+  - Move "ret = 0" to just before for_each_child_of_node(i2c_node, node)
+---
+ MAINTAINERS                      |   8 ++
+ drivers/i2c/Makefile             |   1 +
+ drivers/i2c/i2c-core-of-prober.c | 183 +++++++++++++++++++++++++++++++
+ include/linux/i2c-of-prober.h    |  75 +++++++++++++
+ 4 files changed, 267 insertions(+)
+ create mode 100644 drivers/i2c/i2c-core-of-prober.c
+ create mode 100644 include/linux/i2c-of-prober.h
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f595ee8c2d14..3edf77f920fd 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -10739,6 +10739,14 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/i2c/marvell,mv64xxx-i2c.yaml
+ F:	drivers/i2c/busses/i2c-mv64xxx.c
  
-+/**
-+ * of_get_next_child_with_prefix - Find the next child node with prefix
-+ * @node:	parent node
-+ * @prev:	previous child of the parent node, or NULL to get first
++I2C OF COMPONENT PROBER
++M:	Chen-Yu Tsai <wenst@chromium.org>
++L:	linux-i2c@vger.kernel.org
++L:	devicetree@vger.kernel.org
++S:	Maintained
++F:	drivers/i2c/i2c-core-of-prober.c
++F:	include/linux-i2c-of-prober.h
++
+ I2C OVER PARALLEL PORT
+ M:	Jean Delvare <jdelvare@suse.com>
+ L:	linux-i2c@vger.kernel.org
+diff --git a/drivers/i2c/Makefile b/drivers/i2c/Makefile
+index af95d6e7f004..d27de18de46f 100644
+--- a/drivers/i2c/Makefile
++++ b/drivers/i2c/Makefile
+@@ -9,6 +9,7 @@ i2c-core-y			:= i2c-core-base.o i2c-core-smbus.o
+ i2c-core-$(CONFIG_ACPI)		+= i2c-core-acpi.o
+ i2c-core-$(CONFIG_I2C_SLAVE)	+= i2c-core-slave.o
+ i2c-core-$(CONFIG_OF)		+= i2c-core-of.o
++i2c-core-$(CONFIG_OF_DYNAMIC)	+= i2c-core-of-prober.o
+ 
+ obj-$(CONFIG_I2C_SMBUS)		+= i2c-smbus.o
+ obj-$(CONFIG_I2C_CHARDEV)	+= i2c-dev.o
+diff --git a/drivers/i2c/i2c-core-of-prober.c b/drivers/i2c/i2c-core-of-prober.c
+new file mode 100644
+index 000000000000..21f7a4769293
+--- /dev/null
++++ b/drivers/i2c/i2c-core-of-prober.c
+@@ -0,0 +1,183 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Linux I2C core OF component prober code
 + *
-+ * This function is like of_get_next_child(), except that it automatically
-+ * skips any nodes whose name doesn't have the given prefix.
-+ *
-+ * Return: A node pointer with refcount incremented, use
-+ * of_node_put() on it when done.
++ * Copyright (C) 2024 Google LLC
 + */
-+struct device_node *of_get_next_child_with_prefix(const struct device_node *node,
-+						  struct device_node *prev,
-+						  const char *prefix)
++
++#include <linux/cleanup.h>
++#include <linux/device.h>
++#include <linux/dev_printk.h>
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/i2c-of-prober.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/slab.h>
++#include <linux/stddef.h>
++
++/*
++ * Some devices, such as Google Hana Chromebooks, are produced by multiple
++ * vendors each using their preferred components. Such components are all
++ * in the device tree. Instead of having all of them enabled and having each
++ * driver separately try and probe its device while fighting over shared
++ * resources, they can be marked as "fail-needs-probe" and have a prober
++ * figure out which one is actually used beforehand.
++ *
++ * This prober assumes such drop-in parts are on the same I2C bus, have
++ * non-conflicting addresses, and can be directly probed by seeing which
++ * address responds.
++ *
++ * TODO:
++ * - Support handling common regulators.
++ * - Support handling common GPIOs.
++ * - Support I2C muxes
++ */
++
++static struct device_node *i2c_of_probe_get_i2c_node(struct device *dev, const char *type)
 +{
-+	struct device_node *next;
-+	unsigned long flags;
-+
-+	if (!node)
++	struct device_node *node __free(device_node) = of_find_node_by_name(NULL, type);
++	if (!node) {
++		dev_err(dev, "Could not find %s device node\n", type);
 +		return NULL;
-+
-+	raw_spin_lock_irqsave(&devtree_lock, flags);
-+	next = prev ? prev->sibling : node->child;
-+	for (; next; next = next->sibling) {
-+		if (!of_node_name_prefix(next, prefix))
-+			continue;
-+		if (of_node_get(next))
-+			break;
 +	}
-+	of_node_put(prev);
-+	raw_spin_unlock_irqrestore(&devtree_lock, flags);
-+	return next;
++
++	struct device_node *i2c_node __free(device_node) = of_get_parent(node);
++	if (!of_node_name_eq(i2c_node, "i2c")) {
++		dev_err(dev, "%s device isn't on I2C bus\n", type);
++		return NULL;
++	}
++
++	if (!of_device_is_available(i2c_node)) {
++		dev_err(dev, "I2C controller not available\n");
++		return NULL;
++	}
++
++	return no_free_ptr(i2c_node);
 +}
-+EXPORT_SYMBOL(of_get_next_child_with_prefix);
 +
- static struct device_node *of_get_next_status_child(const struct device_node *node,
- 						    struct device_node *prev,
- 						    bool (*checker)(const struct device_node *))
-diff --git a/include/linux/of.h b/include/linux/of.h
-index d0307e3b093d..f921786cb8ac 100644
---- a/include/linux/of.h
-+++ b/include/linux/of.h
-@@ -289,6 +289,9 @@ extern struct device_node *of_get_parent(const struct device_node *node);
- extern struct device_node *of_get_next_parent(struct device_node *node);
- extern struct device_node *of_get_next_child(const struct device_node *node,
- 					     struct device_node *prev);
-+extern struct device_node *of_get_next_child_with_prefix(const struct device_node *node,
-+							 struct device_node *prev,
-+							 const char *prefix);
- extern struct device_node *of_get_next_available_child(
- 	const struct device_node *node, struct device_node *prev);
- extern struct device_node *of_get_next_reserved_child(
-@@ -1468,6 +1471,12 @@ static inline int of_property_read_s32(const struct device_node *np,
- 	     child != NULL;						\
- 	     child = of_get_next_child(parent, child))
- 
-+#define for_each_child_of_node_with_prefix(parent, child, prefix)	\
-+	for (struct device_node *child __free(device_node) =		\
-+	     of_get_next_child_with_prefix(parent, NULL, prefix);	\
-+	     child != NULL;						\
-+	     child = of_get_next_child_with_prefix(parent, child, prefix))
++static int i2c_of_probe_enable_node(struct device *dev, struct device_node *node)
++{
++	int ret;
 +
- #define for_each_available_child_of_node(parent, child) \
- 	for (child = of_get_next_available_child(parent, NULL); child != NULL; \
- 	     child = of_get_next_available_child(parent, child))
++	dev_dbg(dev, "Enabling %pOF\n", node);
++
++	struct of_changeset *ocs __free(kfree) = kzalloc(sizeof(*ocs), GFP_KERNEL);
++	if (!ocs)
++		return -ENOMEM;
++
++	of_changeset_init(ocs);
++	ret = of_changeset_update_prop_string(ocs, node, "status", "okay");
++	if (ret)
++		return ret;
++
++	ret = of_changeset_apply(ocs);
++	if (ret) {
++		/* ocs needs to be explicitly cleaned up before being freed. */
++		of_changeset_destroy(ocs);
++	} else {
++		/*
++		 * ocs is intentionally kept around as it needs to
++		 * exist as long as the change is applied.
++		 */
++		void *ptr __always_unused = no_free_ptr(ocs);
++	}
++
++	return ret;
++}
++
++static const struct i2c_of_probe_ops i2c_of_probe_dummy_ops;
++
++/**
++ * i2c_of_probe_component() - probe for devices of "type" on the same i2c bus
++ * @dev: Pointer to the &struct device of the caller, only used for dev_printk() messages.
++ * @cfg: Pointer to the &struct i2c_of_probe_cfg containing callbacks and other options
++ *       for the prober.
++ * @ctx: Context data for callbacks.
++ *
++ * Probe for possible I2C components of the same "type" (&i2c_of_probe_cfg->type)
++ * on the same I2C bus that have their status marked as "fail-needs-probe".
++ *
++ * Assumes that across the entire device tree the only instances of nodes
++ * with "type" prefixed node names (not including the address portion) are
++ * the ones that need handling for second source components. In other words,
++ * if "type" is "touchscreen", then all device nodes named "touchscreen*"
++ * are the ones that need probing. There cannot be another "touchscreen*"
++ * node that is already enabled.
++ *
++ * Assumes that for each "type" of component, only one actually exists. In
++ * other words, only one matching and existing device will be enabled.
++ *
++ * Context: Process context only. Does non-atomic I2C transfers.
++ *          Should only be used from a driver probe function, as the function
++ *          can return -EPROBE_DEFER if the I2C adapter or other resources
++ *          are unavailable.
++ * Return: 0 on success or no-op, error code otherwise.
++ *         A no-op can happen when it seems like the device tree already
++ *         has components of the type to be probed already enabled. This
++ *         can happen when the device tree had not been updated to mark
++ *         the status of the to-be-probed components as "fail-needs-probe".
++ *         Or this function was already run with the same parameters and
++ *         succeeded in enabling a component. The latter could happen if
++ *         the user had multiple types of components to probe, and one of
++ *         them down the list caused a deferred probe. This is expected
++ *         behavior.
++ */
++int i2c_of_probe_component(struct device *dev, const struct i2c_of_probe_cfg *cfg, void *ctx)
++{
++	const struct i2c_of_probe_ops *ops;
++	const char *type;
++	struct i2c_adapter *i2c;
++	int ret;
++
++	ops = cfg->ops ?: &i2c_of_probe_dummy_ops;
++	type = cfg->type;
++
++	struct device_node *i2c_node __free(device_node) = i2c_of_probe_get_i2c_node(dev, type);
++	if (!i2c_node)
++		return -ENODEV;
++
++	/*
++	 * If any devices of the given "type" are already enabled then this function is a no-op.
++	 * Either the device tree hasn't been modified to work with this probe function, or the
++	 * function had already run before and enabled some component.
++	 */
++	for_each_child_of_node_with_prefix(i2c_node, node, type)
++		if (of_device_is_available(node))
++			return 0;
++
++	i2c = of_get_i2c_adapter_by_node(i2c_node);
++	if (!i2c)
++		return dev_err_probe(dev, -EPROBE_DEFER, "Couldn't get I2C adapter\n");
++
++	/* Grab and enable resources */
++	ret = 0;
++	if (ops->enable)
++		ret = ops->enable(dev, i2c_node, ctx);
++	if (ret)
++		goto out_put_i2c_adapter;
++
++	for_each_child_of_node_with_prefix(i2c_node, node, type) {
++		union i2c_smbus_data data;
++		u32 addr;
++
++		if (of_property_read_u32(node, "reg", &addr))
++			continue;
++		if (i2c_smbus_xfer(i2c, addr, 0, I2C_SMBUS_READ, 0, I2C_SMBUS_BYTE, &data) < 0)
++			continue;
++
++		/* Found a device that is responding */
++		if (ops->cleanup_early)
++			ops->cleanup_early(dev, ctx);
++		ret = i2c_of_probe_enable_node(dev, node);
++		break;
++	}
++
++	if (ops->cleanup)
++		ops->cleanup(dev, ctx);
++out_put_i2c_adapter:
++	i2c_put_adapter(i2c);
++
++	return ret;
++}
++EXPORT_SYMBOL_NS_GPL(i2c_of_probe_component, I2C_OF_PROBER);
+diff --git a/include/linux/i2c-of-prober.h b/include/linux/i2c-of-prober.h
+new file mode 100644
+index 000000000000..e7e052ac9e48
+--- /dev/null
++++ b/include/linux/i2c-of-prober.h
+@@ -0,0 +1,75 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Definitions for the Linux I2C OF component prober
++ *
++ * Copyright (C) 2024 Google LLC
++ */
++
++#ifndef _LINUX_I2C_OF_PROBER_H
++#define _LINUX_I2C_OF_PROBER_H
++
++#include <linux/kconfig.h>
++
++struct device;
++struct device_node;
++
++/**
++ * struct i2c_of_probe_ops - I2C OF component prober callbacks
++ *
++ * A set of callbacks to be used by i2c_of_probe_component().
++ *
++ * All callbacks are optional. Callbacks are called only once per run, and are
++ * used in the order they are defined in this structure.
++ *
++ * All callbacks that have return values shall return %0 on success,
++ * or a negative error number on failure.
++ *
++ * The @dev parameter passed to the callbacks is the same as @dev passed to
++ * i2c_of_probe_component(). It should only be used for dev_printk() calls
++ * and nothing else, especially not managed device resource (devres) APIs.
++ */
++struct i2c_of_probe_ops {
++	/**
++	 * @enable: Retrieve and enable resources so that the components respond to probes.
++	 *
++	 * It is OK for this callback to return -EPROBE_DEFER since the intended use includes
++	 * retrieving resources and enables them. Resources should be reverted to their initial
++	 * state and released before returning if this fails.
++	 */
++	int (*enable)(struct device *dev, struct device_node *bus_node, void *data);
++
++	/**
++	 * @cleanup_early: Release exclusive resources prior to calling probe() on a
++	 *		   detected component.
++	 *
++	 * Only called if a matching component is actually found. If none are found,
++	 * resources that would have been released in this callback should be released in
++	 * @free_resourcs_late instead.
++	 */
++	void (*cleanup_early)(struct device *dev, void *data);
++
++	/**
++	 * @cleanup: Opposite of @enable to balance refcounts and free resources after probing.
++	 *
++	 * Should check if resources were already freed by @cleanup_early.
++	 */
++	void (*cleanup)(struct device *dev, void *data);
++};
++
++/**
++ * struct i2c_of_probe_cfg - I2C OF component prober configuration
++ * @ops: Callbacks for the prober to use.
++ * @type: A string to match the device node name prefix to probe for.
++ */
++struct i2c_of_probe_cfg {
++	const struct i2c_of_probe_ops *ops;
++	const char *type;
++};
++
++#if IS_ENABLED(CONFIG_OF_DYNAMIC)
++
++int i2c_of_probe_component(struct device *dev, const struct i2c_of_probe_cfg *cfg, void *ctx);
++
++#endif /* IS_ENABLED(CONFIG_OF_DYNAMIC) */
++
++#endif /* _LINUX_I2C_OF_PROBER_H */
 -- 
 2.47.0.199.ga7371fff76-goog
 
