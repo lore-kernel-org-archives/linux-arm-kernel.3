@@ -4,52 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F14FD44D54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73556D44D55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5q0oykchQxcjvhNmbML+h5LhyzXlsv/TTETJqpkYu78=; b=hCgJt/hxFZ7LDma4H4yZyv4IjC
-	mOWlainNrwzQUhIChLwj8wN2SIaoNumL2MeM3jH7A6m0RxjaX/kEKlrt2MMlcDZf5IT1XtOOCiE5D
-	3yhmcZySbmf+lS5T8nYxb2BlutL5rfDxu/f0SrChS5eP/IvvANm+mJDUFCascMLAklu6DZYy5+PH2
-	AamujdsHhNajIyxWMFkJfE9cSx5oRF4KFHTeaSuyCJRD9LcG9vl+hW2WIgg2zHP+eukJSejfY4XuU
-	peYFS7t75dz3AzKFkw4lxuO7qQJDmaGtckp6IZz9hs8UmGNXyh3G1vgyLo+E7HxGQ8S60VaerC+9u
-	yLrRSzfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=58kGrfeVq2CuCcd99sNgGdxG4moqweOY1MYVaFoTru8=; b=XEoIQH+vkK7kuTK8CL7YS+HQRC
+	a7FglJJNRyUVRtjRF9fxXPK30xq5T8ZJ84ZE1+4yORO0uDzJOrgB9LriypLeN6vZJwr+OZrS993Wo
+	Yy7Pw379tnXqx/q8g0AVdGwPiUCtMQQVOGaAsbgVnBMoEq3SF60XpoqXFPADpM3Qspyk5qCGe7kVK
+	ApkiqpgbwnBpYmMeXThDnWils0Ib7TT2gn+/ipFs0UCtXDRENrOKbVhrpHcPtTMgueQOckGa0u5oE
+	dLSvulQFpU5eUNPPaarq8+IDq5/R5c258C6CZeH7IFdfQrLMpuBH4DtObBOLvp/k5wdZ0ka3Tv0V3
+	ZzXz2aFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eds-000000032dx-1SHR;
-	Wed, 06 Nov 2024 11:56:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dsr-00000002sHt-2QaO
+	id 1t8eff-000000033Xf-2Mou;
+	Wed, 06 Nov 2024 11:57:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8dtf-00000002sNM-3wlq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:07:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB52A1063;
-	Wed,  6 Nov 2024 03:08:01 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B282B3F6A8;
-	Wed,  6 Nov 2024 03:07:30 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: ARM SoC Team <arm@kernel.org>,
-	SoC Team <soc@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Olof Johansson <olof@lixom.net>
-Subject: [GIT PULL] firmware: arm_scmi: Updates for v6.13
-Date: Wed,  6 Nov 2024 11:07:27 +0000
-Message-Id: <20241106110727.4007489-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 06 Nov 2024 11:08:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7859A5C585B;
+	Wed,  6 Nov 2024 11:07:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147B3C4CECD;
+	Wed,  6 Nov 2024 11:08:17 +0000 (UTC)
+Date: Wed, 6 Nov 2024 11:08:15 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Haris Okanovic <harisokn@amazon.com>
+Cc: ankur.a.arora@oracle.com, linux-pm@vger.kernel.org, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	pbonzini@redhat.com, wanpengli@tencent.com, vkuznets@redhat.com,
+	rafael@kernel.org, daniel.lezcano@linaro.org, peterz@infradead.org,
+	arnd@arndb.de, lenb@kernel.org, mark.rutland@arm.com,
+	mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
+	misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
+	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+	konrad.wilk@oracle.com
+Subject: Re: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
+Message-ID: <ZytOH2oigoC-qVLK@arm.com>
+References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
+ <20241105183041.1531976-1-harisokn@amazon.com>
+ <20241105183041.1531976-2-harisokn@amazon.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241105183041.1531976-2-harisokn@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_030733_726919_6A4C62A0 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20241106_030824_130878_578E2D83 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,88 +72,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC Team,
+On Tue, Nov 05, 2024 at 12:30:37PM -0600, Haris Okanovic wrote:
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..112027eabbfc 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -256,6 +256,31 @@ do {									\
+>  })
+>  #endif
+>  
+> +/**
+> + * smp_vcond_load_relaxed() - (Spin) wait until an expected value at address
+> + * with no ordering guarantees. Spins until `(*addr & mask) == val` or
+> + * `nsecs` elapse, and returns the last observed `*addr` value.
+> + *
+> + * @nsecs: timeout in nanoseconds
 
-Please pull ! Sorry for the late PR but most of the changes are in -next
-for a while now.
+FWIW, I don't mind the relative timeout, it makes the API easier to use.
+Yes, it may take longer in absolute time if the thread is scheduled out
+before local_clock_noinstr() is read but the same can happen in the
+caller anyway. It's similar to udelay(), it can take longer if the
+thread is scheduled out.
 
-Regards,
-Sudeep
+> + * @addr: pointer to an integer
+> + * @mask: a bit mask applied to read values
+> + * @val: Expected value with mask
+> + */
+> +#ifndef smp_vcond_load_relaxed
+> +#define smp_vcond_load_relaxed(nsecs, addr, mask, val) ({	\
+> +	const u64 __start = local_clock_noinstr();		\
+> +	u64 __nsecs = (nsecs);					\
+> +	typeof(addr) __addr = (addr);				\
+> +	typeof(*__addr) __mask = (mask);			\
+> +	typeof(*__addr) __val = (val);				\
+> +	typeof(*__addr) __cur;					\
+> +	smp_cond_load_relaxed(__addr, (				\
+> +		(VAL & __mask) == __val ||			\
+> +		local_clock_noinstr() - __start > __nsecs	\
+> +	));							\
+> +})
 
--->8
+The generic implementation has the same problem as Ankur's current
+series. smp_cond_load_relaxed() can't wait on anything other than the
+variable at __addr. If it goes into a WFE, there's nothing executed to
+read the timer and check for progress. Any generic implementation of
+such function would have to use cpu_relax() and polling.
 
-The following changes since commit 54962707f8b8b53812d3d7fca279a68c6e18faae:
-
-  firmware: arm_scmi: Use vendor string in max-rx-timeout-ms (2024-10-28 14:49:27 +0000)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-6.13
-
-for you to fetch changes up to 109aa654f85c5141e813b2cd1bd36d90be678407:
-
-  firmware: arm_scpi: Check the DVFS OPP count returned by the firmware (2024-11-06 10:48:13 +0000)
-
-----------------------------------------------------------------
-Arm SCMI updates for v6.13
-
-Just couple of main additions:
-1. Support for variable I/O width within ARM SCMI shared memory area.
-
-   Some shared memory areas might only support a certain access width,
-   such as 32-bit, which memcpy_{from,to}_io() does not adhere to at least
-   on ARM64 by making both 8-bit and 64-bit accesses to such memory.
-
-    This support updates the shmem layer to support reading from and
-    writing to such shared memory area using the specified I/O width
-    in the Device Tree. The various transport layers making use of the
-    shmem.c code are updated accordingly to pass the I/O accessors that
-    they store. The device tree bindings are also updated for the same.
-
-2. Extension of SCMI transport bindings to add more properties
-
-   SCMI transports are characterized by a number of properties. The
-   values assumed by some of them tightly depend on the choices taken at
-   design time and on the overall archiecture of the specific platform:
-   things like timeouts, maximum message size and number of in-flight
-   messages are closely tied to the architecture of the platform like
-   number of SCMI agents on the system, physical memory available to the
-   SCMI platform and so on. Such details are not discoverable as they are
-   outside the scope of the SCMI protocol specification.
-
-   Currently such properties are simple default values defined at build
-   time, but the increasing number and variety of platforms using SCMI
-   with a wide range of designs has increased the need to have a way to
-   describe such properties across all these platforms.
-
-Apart from the above two, there is one NULL pointer dereference fix for
-very age old SCPI protocol driver which seems to be still in use on few
-platforms.
-
-----------------------------------------------------------------
-Cristian Marussi (5):
-      firmware: arm_scmi: Account for SHMEM memory overhead
-      firmware: arm_scmi: Calculate virtio PDU max size dynamically
-      dt-bindings: firmware: arm,scmi: Introduce more transport properties
-      firmware: arm_scmi: Use max_msg and max_msg_size devicetree properties
-      firmware: arm_scmi: Relocate atomic_threshold to scmi_desc
-
-Florian Fainelli (2):
-      dt-bindings: sram: Document reg-io-width property
-      firmware: arm_scmi: Support 'reg-io-width' property for shared memory
-
-Luo Qiu (1):
-      firmware: arm_scpi: Check the DVFS OPP count returned by the firmware
-
- .../devicetree/bindings/firmware/arm,scmi.yaml     | 15 ++++
- Documentation/devicetree/bindings/sram/sram.yaml   |  6 ++
- drivers/firmware/arm_scmi/common.h                 | 45 ++++++++++--
- drivers/firmware/arm_scmi/driver.c                 | 42 ++++++-----
- drivers/firmware/arm_scmi/shmem.c                  | 85 ++++++++++++++++++++--
- drivers/firmware/arm_scmi/transports/mailbox.c     | 15 ++--
- drivers/firmware/arm_scmi/transports/optee.c       | 19 +++--
- drivers/firmware/arm_scmi/transports/smc.c         | 13 +++-
- drivers/firmware/arm_scmi/transports/virtio.c      | 15 ++--
- drivers/firmware/arm_scpi.c                        |  3 +
- 10 files changed, 204 insertions(+), 54 deletions(-)
+-- 
+Catalin
 
