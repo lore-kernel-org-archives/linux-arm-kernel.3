@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BE0D40D08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 00:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB04D40D08
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 00:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54KCy2+tWwmG7kdeIDPKVXvI/FDoFS+eIN7Y1DoFMCA=; b=TJKPGEyw1qHqD2RZ9Gck/L2YOj
-	degYOEQ5fxKGKSPiNzajERHgZDSg3zYh/mQ0JD4AfGr6EpBsB1XVSdkqaWVEFtOE8LIVsPNsTqkqQ
-	JrnaaORZGgQB539Dz1IkPnaWIU28BUE8i12oD1PGCAlRNmNAi2OUI5ivcD8mdwWMxvj8znPGqhw8G
-	S0S3AWwoII/Ty8Aq4SnSnzgg21Bq8fcz7LS4RgpX/WPQll3ZsyUb3ZgBdWoj+8vvKOlOPOAKO8eZP
-	0G7hIXz4fU7tx0MF04gJkOm0CwDfKAKiANa67bBHIul2NBBBDEOHNtqoMByg1hhtXGIHq4JverjH0
-	DS/9i2YQ==;
+	bh=IVR0eKtkvKn+O7PuPpZJuPLEegLJ2J6Z1/EPd7BVU4I=; b=FUCl8kPMXevjPkTO46XMtTqyHG
+	IMAXHnx15C/a9O2GHNopPxFmdSwT8kkH5M8EOUaCKQJhnaqud358E9MZEjIrn4NB2aNwtnz+DK8NE
+	gtU4k3UCs06h3qrRaTPHxaiINpzyQa95vOGb0pqhS8EwgVNUw2BCQOrfyTpjuBdaWNjNrrGBgk8sz
+	1evQ2M2usLfu9MTwePAJyrd6Wog632uShro3jPbOD/oLMq0LGHtrgGIpVkC4jBwDFqUMexYP2xJOg
+	SGeAbuOq2G4h0SyWPNcYWVrd3XgExgOGoPeefU3cJR5jnceoSDvVwdf1cObSle9+4ki3T8Vn8HfbQ
+	QbqzE/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8UBg-00000001EHA-1pOe;
-	Wed, 06 Nov 2024 00:46:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8UKo-00000001FOi-1HIL;
+	Wed, 06 Nov 2024 00:55:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8U9y-00000001E8T-1fOh
+	id 1t8UJ5-00000001F1h-00et
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 00:44:35 +0000
+	Wed, 06 Nov 2024 00:54:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C54E5C57A1;
-	Wed,  6 Nov 2024 00:43:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A5DC4CECF;
-	Wed,  6 Nov 2024 00:44:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C4795C57AA;
+	Wed,  6 Nov 2024 00:53:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB2EFC4CEDD;
+	Wed,  6 Nov 2024 00:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730853872;
-	bh=0IQzgFC4tYrsOmjeRzELhBNSRrs0Hh0neabXRQN73iQ=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=EgO4amoc8V59tRojC1uZBTXkNJJFTGrZ71vwpRv4+8O3kVGiEml9X3tqOjoN4xNBt
-	 CQIxSyduB1K3W9M8WNuzQxDejDS5zPjNdAraYy/1dR0Ia5jVBECwoEKeYH7KGWP+6J
-	 qhjuhy5kotKJQuW8eYHw6D6WT4GKVWVrQGW8iMgtyLL30rvn2VA/TrUlOUOHeYD8/k
-	 rqkh03yJD4lfU1SgqzNyVrQF0gDNiOCOF2jKcLDmzU92KXlfiKIjNr8YqLb12oqQK1
-	 r1rRtXNuDWkpiHi7YTCaPCXx4XQmTKp6LOJ2KX+xo7JJNr/0u9IymGQq98qU/CE91R
-	 np43H2J0k83Lg==
-Message-ID: <b5e47bf3229f3145cb705cfe83951d99.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1730854437;
+	bh=HPTg6F0AYPQEIKZS8GnAFmra5qXWz8AKMhVZCHGPW+I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=b9v0zHsQjN2hTRx2yrCy/4HS7d/jSxBpi8f/++f2qyq8D2UDYx3LrwDutMiLlTqlO
+	 q64b/Waq2CuLIhuHRS0m5eBc8UKnn0scn7a+5owraAIWwHPgRR3dsiY82q3NNdcyI4
+	 +rozCJzGgdOWevZGIWt+1PKNCCYlUbl5G/4yi74sxmJ93CEkhOr87SxDSP1CDgv1wZ
+	 sMByjejW+ec0YjFUG2x3U0HQrzPJOfThz0ApvJCtZ1wx4jO65RpkSZFwHL4xD+LeAc
+	 Zl7nth9qpixByJW306xgur9vTAyScFsNPQDSuHdK8Ytdbks2UdgkwVbbz3D/ZY3Vxo
+	 tO1roa2FTWnZw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: konradybcio@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	ulf.hansson@linaro.org,
+	linus.walleij@linaro.org,
+	catalin.marinas@arm.com,
+	p.zabel@pengutronix.de,
+	geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org,
+	neil.armstrong@linaro.org,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sricharan R <quic_srichara@quicinc.com>
+Cc: quic_varada@quicinc.com
+Subject: Re: (subset) [PATCH V5 0/6] Add minimal boot support for IPQ5424
+Date: Tue,  5 Nov 2024 16:53:49 -0800
+Message-ID: <173085441672.26510.12002868497417768812.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241028060506.246606-1-quic_srichara@quicinc.com>
+References: <20241028060506.246606-1-quic_srichara@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241104075037.13323-1-krzysztof.kozlowski@linaro.org>
-References: <20241104075037.13323-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: [GIT PULL] clk: samsung: drivers for v6.13
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Chanwoo Choi <cw00.choi@samsung.com>, linux-clk@vger.kernel.org, Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Michael Turquette <mturquette@baylibre.com>
-Date: Tue, 05 Nov 2024 16:44:30 -0800
-User-Agent: alot/0.10
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_164434_519331_84BC87DB 
-X-CRM114-Status: UNSURE (   7.09  )
+X-CRM114-CacheID: sfid-20241105_165359_296509_100A5BAF 
+X-CRM114-Status: UNSURE (   8.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,23 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Krzysztof Kozlowski (2024-11-03 23:50:36)
-> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
-dc:
->=20
->   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
->=20
-> are available in the Git repository at:
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/sam=
-sung-clk-6.13
->=20
-> for you to fetch changes up to 9174fac3b302a853b78c78f2f5ad11462b0c54b0:
->=20
->   clk: samsung: Introduce Exynos8895 clock driver (2024-10-26 14:00:12 +0=
-200)
->=20
-> ----------------------------------------------------------------
 
-Thanks. Pulled into clk-next
+On Mon, 28 Oct 2024 11:35:00 +0530, Sricharan R wrote:
+> From: Sricharan Ramabadhran <quic_srichara@quicinc.com>
+> 
+> The IPQ5424 is Qualcomm's 802.11be SoC for Routers, Gateways and
+> Access Points.
+> 
+> This series adds minimal board boot support for ipq5424-rdp466 board.
+> 
+> [...]
+
+Applied, thanks!
+
+[6/6] arm64: defconfig: Enable IPQ5424 RDP466 base configs
+      commit: fd516bb4f48fc527744cae42d8e156fb09bce157
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
