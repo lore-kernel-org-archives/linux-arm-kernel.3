@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCADDD44D62
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720D5D44D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqH/9btvqwX3RdcLHRb09L6d7Cq1aZ/kH5G2l32Sges=; b=0mWTx2zV2u/GTjDH9d5LxnTUCX
-	NVTsP8czXnVZqC/hT5IgJ07NM4eykuBx6FD/QYUhsm9WBJCIOheq1sOe2K3d+pOyrYz+lPvRhoW1w
-	mhUDH9p9ChVrsLtbALGiPHQwbb4269JZUJLmZ0VDomH3ml46g0Krc5CBNUMTM2zXC2aK3yEh3jaRS
-	eEkbYyEyxjs7xZ7yXpN5ZVTriupYOBOnMiG2p1rS2g4BsDAmmIKPvSGwg6S+H6lSWLq9gEeqbgjfk
-	Iv7HStcjFMULTtsfHa4V/4ulEE9CteLYVvVTsBRd9/DmUEoAA192FRIVqS81BxfaVrTuf84Vv+uOn
-	AgTZrv4w==;
+	bh=lkVF5Ck2aL5/nRoWWiSHMfNZ2x9Tn/8nkzKZBMBhoFw=; b=QBBBTFIx+zlvxZd8ney91FNINB
+	Uqgyle30fhEZTL0p1CMtD8mZAlZ25Tb3bJ8qeZB6NueacgNlzXOcA3wlcmummBB7wFUgeKqQtKePB
+	rDWmxAHaON892tqvWj5xEhMstMb4lNw3iaaXnxlxAfbCPDPFIm5RWiaSX3U4bmnSQKvr2ZrvHY7Zq
+	EEoWdAeqok7LuXVznOWw69JSnvyK0aK+XL2JjLdoNmgfEPudNoHzSI4t0iyK57Ok3Xaw3RFqLLCzh
+	YNWYdKTrVmWbCzM2RcoOjDTeNMkPDMPhYQip3/EI6uD6UEZt+WbXJRbfZixkUM8iWIeX2oxqzFzQr
+	Exhy652g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gHK-00000003SGE-3Gqw;
-	Wed, 06 Nov 2024 13:40:58 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1t8gJ1-00000003See-2YS2;
+	Wed, 06 Nov 2024 13:42:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fnb-00000003MUH-2MJO
+	id 1t8frK-00000003Mxd-45hh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:12:16 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1730898609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mqH/9btvqwX3RdcLHRb09L6d7Cq1aZ/kH5G2l32Sges=;
-	b=LkuJUNU78bIk0+BAeK4MxgN59BaYxOyzLuk75rbocDpCPlA5UyoZ3S0X379tEPyOXh6eq1
-	A7pnrO43z5yWKoskI/7yIutQJ0sdzksW6YP3TWmVTzbqrwFnMRIe4xlS7Cjc+ZtcrY4oOI
-	oWt3Hp2Nmf1F1VFJs9/sew/v4EsYNGBY5p2D3OzjV4tcU3c+2f+SPq3Mwba271qCdqiWEX
-	kEq8Ix+UBq3zEcwmbb4qlu8ZzLldNAUYANIBRJA8delJKr92HFFeRW+Z/+w3gv44krsHyS
-	+Dn+m4MMnp8MOSOITunVsO9jebmSi0FVvT5hwQe+89pwLyn1T42l+Agrp063Sw==
-Content-Type: multipart/signed;
- boundary=873c8ffaadf467f71a296828b2ff627c9b24ebf6d8e6d5229ed746de4cfd;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Wed, 06 Nov 2024 14:09:56 +0100
-Message-Id: <D5F4CDTI0BHA.3MIQH9MJ4OY3K@cknow.org>
-Cc: <andy.yan@rock-chips.com>, <maarten.lankhorst@linux.intel.com>,
- <mripard@kernel.org>, <tzimmermann@suse.de>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
- <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <quentin.schulz@cherry.de>, "Heiko Stuebner" <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/3] drm/bridge/synopsys: Add MIPI DSI2 host controller
- bridge
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Heiko Stuebner" <heiko@sntech.de>
-References: <20241106123304.422854-1-heiko@sntech.de>
- <20241106123304.422854-2-heiko@sntech.de>
-In-Reply-To: <20241106123304.422854-2-heiko@sntech.de>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 06 Nov 2024 13:14:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A6FCE5C0407;
+	Wed,  6 Nov 2024 13:13:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C02DC4CECD;
+	Wed,  6 Nov 2024 13:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730898846;
+	bh=MmGh5gnPG4ku4438t9wd6nhTmZITzHrRx9liC5G5jFQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IDXVl+LEXd/wyx3XOjQDob0T+MiPN1VloT44CWnpCTwy/KdgfZd9pPNPsCNpzbAAW
+	 PD11WODvJst53qsb+lR5TlXq2F1GA3/ITB5zmGykjiO3RxEVxrSWiC2cn8tm+Yvu19
+	 9mzV1vweS2GFOWjJVC4xeL6ULQVrq51jLfLNdtRUDKGl6ZR9rXKrz2Lq1dtm49toQp
+	 sXVcB1ejVB/Mb6qBFRexOmBqRnWckXxCxhmv74Dy1oOz2P6XWpYHN/a8Emif82+Y9L
+	 j7ZLlB9iQpLJGX0vuwWajcZgLa0W4myZOKmxtXmCpKQ9OVuReusJ3br36TSFtN0aZU
+	 uU3pWdb/WjnMQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t8frH-00ANY6-Nt;
+	Wed, 06 Nov 2024 13:14:03 +0000
+Date: Wed, 06 Nov 2024 13:14:02 +0000
+Message-ID: <86bjys1p45.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jing Zhang <jingzhangos@google.com>
+Cc: KVM <kvm@vger.kernel.org>,
+	KVMARM <kvmarm@lists.linux.dev>,
+	ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Oliver Upton <oupton@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Shusen Li <lishusen2@huawei.com>
+Subject: Re: [PATCH v3 2/4] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
+In-Reply-To: <20241106083035.2813799-3-jingzhangos@google.com>
+References: <20241106083035.2813799-1-jingzhangos@google.com>
+	<20241106083035.2813799-3-jingzhangos@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, jiangkunkun@huawei.com, pbonzini@redhat.com, andre.przywara@arm.com, coltonlewis@google.com, rananta@google.com, lishusen2@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_051016_216730_D1453823 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20241106_051407_127220_7D091E33 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,119 +95,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---873c8ffaadf467f71a296828b2ff627c9b24ebf6d8e6d5229ed746de4cfd
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Wed Nov 6, 2024 at 1:33 PM CET, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
->
-> Add a Synopsys Designware MIPI DSI host DRM bridge driver for their
-> DSI2 host controller, based on the Rockchip version from the driver
-> rockchip/dw-mipi-dsi2.c in their vendor-kernel with phy & bridge APIs.
->
-> While the driver is heavily modelled after the previous IP, the register
-> set of this DSI2 controller is completely different and there are also
-> additional properties like the variable-width phy interface.
->
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+On Wed, 06 Nov 2024 08:30:33 +0000,
+Jing Zhang <jingzhangos@google.com> wrote:
+> 
+> From: Kunkun Jiang <jiangkunkun@huawei.com>
+> 
+> vgic_its_save_device_tables will traverse its->device_list to
+> save DTE for each device. vgic_its_restore_device_tables will
+> traverse each entry of device table and check if it is valid.
+> Restore if valid.
+> 
+> But when MAPD unmaps a device, it does not invalidate the
+> corresponding DTE. In the scenario of continuous saves
+> and restores, there may be a situation where a device's DTE
+> is not saved but is restored. This is unreasonable and may
+> cause restore to fail. This patch clears the corresponding
+> DTE when MAPD unmaps a device.
+> 
+> Co-developed-by: Shusen Li <lishusen2@huawei.com>
+> Signed-off-by: Shusen Li <lishusen2@huawei.com>
+> Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> Signed-off-by: Jing Zhang <jingzhangos@google.com>
 > ---
->  drivers/gpu/drm/bridge/synopsys/Kconfig       |    6 +
->  drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
->  .../gpu/drm/bridge/synopsys/dw-mipi-dsi2.c    | 1034 +++++++++++++++++
->  include/drm/bridge/dw_mipi_dsi2.h             |   94 ++
->  4 files changed, 1135 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
->  create mode 100644 include/drm/bridge/dw_mipi_dsi2.h
->
-> diff --git a/drivers/gpu/drm/bridge/synopsys/Kconfig b/drivers/gpu/drm/br=
-idge/synopsys/Kconfig
-> index ca416dab156d..f3ab2f985f8c 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/Kconfig
-> +++ b/drivers/gpu/drm/bridge/synopsys/Kconfig
-> @@ -59,3 +59,9 @@ config DRM_DW_MIPI_DSI
->  	select DRM_KMS_HELPER
->  	select DRM_MIPI_DSI
->  	select DRM_PANEL_BRIDGE
+>  arch/arm64/kvm/vgic/vgic-its.c | 14 ++++++++++++--
+>  1 file changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 2381bc5ce544..7c57c7c6fbff 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -1140,8 +1140,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
+>  	u8 num_eventid_bits = its_cmd_get_size(its_cmd);
+>  	gpa_t itt_addr = its_cmd_get_ittaddr(its_cmd);
+>  	struct its_device *device;
+> +	gpa_t gpa;
+>  
+> -	if (!vgic_its_check_id(its, its->baser_device_table, device_id, NULL))
+> +	if (!vgic_its_check_id(its, its->baser_device_table, device_id, &gpa))
+>  		return E_ITS_MAPD_DEVICE_OOR;
+>  
+>  	if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
+> @@ -1161,8 +1162,17 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
+>  	 * The spec does not say whether unmapping a not-mapped device
+>  	 * is an error, so we are done in any case.
+>  	 */
+> -	if (!valid)
+> +	if (!valid) {
+> +		struct kvm *kvm = its->dev->kvm;
+> +		int dte_esz = vgic_its_get_abi(its)->dte_esz;
+> +		u64 val = 0;
 > +
-> +config DRM_DW_MIPI_DSI2
-> +	tristate
-> +	select DRM_KMS_HELPER
-> +	select DRM_MIPI_DSI
-> +	select DRM_PANEL_BRIDGE
-> diff --git a/drivers/gpu/drm/bridge/synopsys/Makefile b/drivers/gpu/drm/b=
-ridge/synopsys/Makefile
-> index 9869d9651ed1..9dc376d220ad 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/Makefile
-> +++ b/drivers/gpu/drm/bridge/synopsys/Makefile
-> @@ -8,3 +8,4 @@ obj-$(CONFIG_DRM_DW_HDMI_CEC) +=3D dw-hdmi-cec.o
->  obj-$(CONFIG_DRM_DW_HDMI_QP) +=3D dw-hdmi-qp.o
-> =20
->  obj-$(CONFIG_DRM_DW_MIPI_DSI) +=3D dw-mipi-dsi.o
-> +obj-$(CONFIG_DRM_DW_MIPI_DSI2) +=3D dw-mipi-dsi2.o
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c b/drivers/gpu=
-/drm/bridge/synopsys/dw-mipi-dsi2.c
-> new file mode 100644
-> index 000000000000..43738fe3cb93
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
-> @@ -0,0 +1,1034 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2024, Fuzhou Rockchip Electronics Co., Ltd
-> + *
-> + * Modified by Heiko Stuebner <heiko.stuebner@cherry.de>
-> + * This generic Synopsys DesignWare MIPI DSI2 host driver is based on th=
-e
-> + * Rockchip version from rockchip/dw-mipi-dsi2.c converted to use bridge=
- APIs.
-> + */
+> +		if (KVM_BUG_ON(dte_esz != sizeof(val), kvm))
+> +			return -EINVAL;
+
+I find it pretty odd to bug only in that case, and the sprinkling of
+these checks all over the place is horrible. I'm starting to wonder if
+we shouldn't simply wrap vgic_write_guest() and co to do the checking.
+
 > +
-> +#include <linux/clk.h>
-> ...
-> +#include <drm/drm_print.h>
-> +
-> +#define UPDATE(v, h, l)			(((v) << (l)) & GENMASK((h), (l)))
-> +
-> +#define DSI2_PWR_UP			0x000c
-> ...
-> +#define DSI2_MAX_REGISGER		DSI2_INT_FORCE_CRI
-> +
-> +#define MODE_STATUS_TIMEOUT_US		10000
-> +#define CMD_PKT_STATUS_TIMEOUT_US	20000
-> +
-> +enum vid_mode_type {
-> +	VID_MODE_TYPE_NON_BURST_SYNC_PULSES,
-> +	VID_MODE_TYPE_NON_BURST_SYNC_EVENTS,
-> +	VID_MODE_TYPE_BURST,
-> +};
-> +
-> +enum mode_ctrl {
-> +	IDLE_MODE,
-> +	AUTOCALC_MODE,
-> +	COMMAND_MODE,
-> +	VIDEO_MODE,
-> +	DATA_STREAM_MODE,
-> +	VIDE_TEST_MODE,
+> +		vgic_write_guest_lock(kvm, gpa, &val, dte_esz);
 
-VIDEO_TEST_MODE ?
+I'm thinking of something like:
 
-> +	DATA_STREAM_TEST_MODE,
-> +};
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index ba945ba78cc7d..d8e57aefcd3a5 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -1128,6 +1128,19 @@ static struct its_device *vgic_its_alloc_device(struct vgic_its *its,
+ 	return device;
+ }
+ 
++
++#define its_write_entry_lock(i, g, valp, t)				\
++	({								\
++		struct kvm *__k = (i)->dev->kvm;			\
++		int __sz = vgic_its_get_abi(i)->t;			\
++		int __ret = 0;						\
++		if (KVM_BUG_ON(__sz != sizeof(*(valp)), __k))		\
++			__ret = -EINVAL;				\
++		else							\
++			vgic_write_guest_lock(__k, (g), (valp), __sz);	\
++		__ret;							\
++	})
++
+ /*
+  * MAPD maps or unmaps a device ID to Interrupt Translation Tables (ITTs).
+  * Must be called with the its_lock mutex held.
+@@ -1140,8 +1153,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
+ 	u8 num_eventid_bits = its_cmd_get_size(its_cmd);
+ 	gpa_t itt_addr = its_cmd_get_ittaddr(its_cmd);
+ 	struct its_device *device;
++	gpa_t gpa;
+ 
+-	if (!vgic_its_check_id(its, its->baser_device_table, device_id, NULL))
++	if (!vgic_its_check_id(its, its->baser_device_table, device_id, &gpa))
+ 		return E_ITS_MAPD_DEVICE_OOR;
+ 
+ 	if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
+@@ -1161,8 +1175,10 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
+ 	 * The spec does not say whether unmapping a not-mapped device
+ 	 * is an error, so we are done in any case.
+ 	 */
+-	if (!valid)
+-		return 0;
++	if (!valid) {
++		u64 val = 0;
++		return its_write_entry_lock(its, gpa, &val, dte_esz);
++	}
+ 
+ 	device = vgic_its_alloc_device(its, device_id, itt_addr,
+ 				       num_eventid_bits);
 
-Cheers,
-  Diederik
+which can be generalised everywhere (you can even extract the check
+and move it to an out-of-line helper as required).
 
---873c8ffaadf467f71a296828b2ff627c9b24ebf6d8e6d5229ed746de4cfd
-Content-Type: application/pgp-signature; name="signature.asc"
+	M.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZytqqwAKCRDXblvOeH7b
-bjmoAP9MLtB4FYAubhN6YhCwXOuRPEOkgaaAYMSx9yyaDve7AQD/ZW+XkKIpIBLO
-zh+URJXh2/F28IGFhm1AJitdlC6rFQg=
-=9ZqU
------END PGP SIGNATURE-----
-
---873c8ffaadf467f71a296828b2ff627c9b24ebf6d8e6d5229ed746de4cfd--
+-- 
+Without deviation from the norm, progress is not possible.
 
