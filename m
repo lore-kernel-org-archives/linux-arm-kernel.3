@@ -4,80 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6C5D44D54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6851D44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWcePYTh3GffUeILuPKuTxypuUWopkhyezSXbvbjQNY=; b=X5mTygIuMO3tLEgOnx08rJtAxM
-	8jEliMri4arl/nWTdFDVQnicl5yxF98hLqx2qe47BYmu4+avGo/BU8crI5Pst+Wd9PgFj4c/LbysU
-	P6qi+EILwO+rA2B8G/l+1H+OJ0e4OqWxAtJI0yB55mByIM64LWp1gTl/CVReupR0992fWWh7aXZPT
-	8tLVn4YaXyhEmd198Oqbw7yGu6PWDqFnQ1CwOUZmQ1WRwv8P9xv94E6K9jlhtDbegpMHFQeO47+wa
-	xeBlfG6/TiT5rs4PhsMcHcXiKJxuQcMNXuzU0xquSpgZnf3b5fpVyXM8lYrSKvj1HJkUVWaTdAzfp
-	HxlSFl1w==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=44Jj4Axf6VhdEIAU0ENXCGhb1JV9u+U+0Mxi10i0Jj4=; b=d2Zkr/+E6gwYOOm8Tyrx8TEomz
+	lqOWO4L7A5NRo296Vpy5M8uzT/p1tUj1PeF1pJWnFg3Fy/crJtDKKf3HWGZD0adrPyfeyjliaFQop
+	u18Es9MGB5+ZFroK5WVuIKl+RqVLnNUghm4IVS4TXWLFI/9/KU08VALLCSxtD9Qu3fUPV/yJFxo7k
+	1zNW8KomAPVw721qVf7lc3ZLOU2ui1IgEuqH7RMwEBdktqnaalLPaCmEfd+yWjLWUFwtAkvd+FDQz
+	binGSX0/cspBj0JT72C9h7Yu+N1lydaG9nze5bZ9gkS/ACEaD4Nu/hmXQFx22DtfjYFxSLIx/jq7y
+	cYy/meKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ete-0000000380W-3vat;
-	Wed, 06 Nov 2024 12:12:26 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1t8evP-000000038TZ-0DHQ;
+	Wed, 06 Nov 2024 12:14:15 +0000
+Received: from mail-40140.protonmail.ch ([185.70.40.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dyA-00000002t1W-1loD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:13:03 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2fb518014b9so56252981fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 03:13:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730891580; x=1731496380; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TWcePYTh3GffUeILuPKuTxypuUWopkhyezSXbvbjQNY=;
-        b=g89+AzpPnVl0dCb6h2A31zvgEjLw6st1inZeI3j5J95Wm5DQkbob0g/PqVd0ILbzdK
-         wMlKJVhDfAoYzLeeKHcYTpWyJpMeH8rTXRFMWgo1HAHbsuAmHDvPNlTmWiJOF3JY1Myt
-         7fQUpnRJ9+G6mFcl5H+f5+B051mns0qKVPucXEjoVIpEa6+51gre7+Gk54dw5X1K4A2k
-         M6rFX4v7vCNoO+k6EF92iUFo1kwnqdyNmnefnfyvCMS6UzVoiB1yuE77zp53p0dbhFHn
-         921R2DG0rjqk+V66wQ811BUTaIFAAhDSLchNmaqYqOcdWHI2IgTPnnsAMzVFig9Cs1oB
-         325w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730891580; x=1731496380;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TWcePYTh3GffUeILuPKuTxypuUWopkhyezSXbvbjQNY=;
-        b=jOL9uee63imitWiFDKVjVhCbTsnYyeVN2oRtRiUYz3uszdP6sPAybaVcZBDbZ1WoON
-         BbIUnmhUNoGVBUurrzI5q9LOLGUduKtB1skufsT+8+rdTD3y6KT7ItfzRn3+1j8xPNz1
-         5667Hn6GdoXJDLwGsLKS69Nbd94HANN56AAwIjahKDFeJIMf9F4Qzpd9TKEBP7jWPdfE
-         RuVs6x2hlZy8Y5bq5Do4tuCmb2q1/n2ZLsf6PnHQef+lcduYiQEgexDi6Xun1Qg0mAU7
-         UlbXu9VXnlexB+1DIg6g9QlfDE+VjLfdoYhToIZBM4h53yEjpcn93EjTfnNLdg0s00MO
-         NrFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUp53PMhjNhQCIVle9k3xqzDoVlVW0tivK0BXJcLCX5ADzg/3pHRttHCp6qJ6CbD5eMahYKWfVHrsKy0tXj/9gW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1tOEq++LOzzYKnVDkvCsK9ux4tHtJv69+k4gn+oG579T9K8FR
-	dz1gUNHAwYYgj7fZ0Hip/tiLMqx9cnl3nkWlJK4ezRUjKMD/0/qlHHOUy7umW9IAs8RPs2BZLAx
-	HucM1BM40LyP3Qr/jhfpIQggCDv0=
-X-Google-Smtp-Source: AGHT+IGBnEOZBQXZRo83WTbMByT2bEvsn+eicYIabhpgI3gMWvYJvIZucMS06EKmA+kpHuporqgCTWChPl6dWRrkimQ=
-X-Received: by 2002:a2e:130a:0:b0:2fb:5cff:fcd8 with SMTP id
- 38308e7fff4ca-2fcbe04f0c7mr148646941fa.34.1730891579522; Wed, 06 Nov 2024
- 03:12:59 -0800 (PST)
+	id 1t8dzZ-00000002t9m-1QEB;
+	Wed, 06 Nov 2024 11:14:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1730891666; x=1731150866;
+	bh=44Jj4Axf6VhdEIAU0ENXCGhb1JV9u+U+0Mxi10i0Jj4=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
+	 List-Unsubscribe:List-Unsubscribe-Post;
+	b=w11ufpAuhZXSVRhO+3yN3KUxWb3+xqn+03qFy60Uh2a4PZ3L2c5gnRhKpCuIOTshI
+	 5qUnWNb8MrKU+4DJx/N4Of6Lz+b7RFD/5fFZBFzT7/xvC1wAOfAu2xyilaaeuSMvhn
+	 GDvCNJha3KWg0z12meCJ4lm8BNjeR3IZEu3cleJy5Ns0nef33P1tqE+Bw0QVS1Ieoi
+	 KnZZNJzcEMTwnrNZyavS3N4skMCnAcwWTA9CUnbqwkv8UmPUTkeYSjQqfyDBaEsXXh
+	 oGXDbc4hXpB1hCrgfEkNjyVIqio5cGhOCzqjmY6n253Qw4LC6i2X32RRJA2YF4EyU/
+	 oOAP4gbxEwyGg==
+Date: Wed, 06 Nov 2024 11:14:21 +0000
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, Sam Shih <sam.shih@mediatek.com>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, Daniel Golle <daniel@makrotopia.org>
+From: Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/2] MediaTek MT6735 syscon clock/reset controller support
+Message-ID: <20241106111402.200940-1-y.oudjana@protonmail.com>
+Feedback-ID: 6882736:user:proton
+X-Pm-Message-ID: 0dd6bd5ca0773cfa6c0df23af5f595a7210c9feb
 MIME-Version: 1.0
-References: <83aac8b2-f80a-46b5-93fc-3369b30cbfc7@collabora.com>
-In-Reply-To: <83aac8b2-f80a-46b5-93fc-3369b30cbfc7@collabora.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 6 Nov 2024 08:12:47 -0300
-Message-ID: <CAOMZO5A3dtic1CZS4RJ3RoBP_rV0PpK5oin4J8531XRebkb0ag@mail.gmail.com>
-Subject: Re: IMX8MQ EVK board not booting anymore with v6.12-rc
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_031302_479874_C6C1E3CE 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_031429_559915_911B80EE 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,14 +66,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 6, 2024 at 6:43=E2=80=AFAM Benjamin Gaignard
-<benjamin.gaignard@collabora.com> wrote:
+These patches are part of a larger effort to support the MT6735 SoC family
+in mainline Linux. More patches can found here[1].
 
-> Have you been able to boot IMX8MQ evk board with a kernel version since v=
-6.12-rc* ?
-> I don't have any log since kernel just don't start.
+This series adds support for clocks and resets of the following blocks:
+- IMGSYS (Camera)
+- MFGCFG (GPU)
+- VDECSYS (Video decoder)
+- VENCSYS (Video encoder, also has JPEG codec clocks)
 
-It is booting here for me:
+[1] https://gitlab.com/mt6735-mainline/linux/-/commits/mt6735-staging
 
-https://pastebin.com/raw/h95JZgjk
+Changes since v1:
+- Simplify Kconfig dependencies.
+- Remove some extra newlines.
+
+Yassine Oudjana (2):
+  dt-bindings: clock: mediatek: Add bindings for MT6735 syscon clock and
+    reset controllers
+  clk: mediatek: Add drivers for MT6735 syscon clock and reset
+    controllers
+
+ .../bindings/clock/mediatek,syscon.yaml       |  4 +
+ MAINTAINERS                                   | 10 +++
+ drivers/clk/mediatek/Kconfig                  | 28 +++++++
+ drivers/clk/mediatek/Makefile                 |  4 +
+ drivers/clk/mediatek/clk-mt6735-imgsys.c      | 57 +++++++++++++
+ drivers/clk/mediatek/clk-mt6735-mfgcfg.c      | 61 ++++++++++++++
+ drivers/clk/mediatek/clk-mt6735-vdecsys.c     | 79 +++++++++++++++++++
+ drivers/clk/mediatek/clk-mt6735-vencsys.c     | 53 +++++++++++++
+ .../clock/mediatek,mt6735-imgsys.h            | 15 ++++
+ .../clock/mediatek,mt6735-mfgcfg.h            |  8 ++
+ .../clock/mediatek,mt6735-vdecsys.h           |  9 +++
+ .../clock/mediatek,mt6735-vencsys.h           | 11 +++
+ .../reset/mediatek,mt6735-mfgcfg.h            |  9 +++
+ .../reset/mediatek,mt6735-vdecsys.h           |  9 +++
+ 14 files changed, 357 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt6735-imgsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt6735-mfgcfg.c
+ create mode 100644 drivers/clk/mediatek/clk-mt6735-vdecsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt6735-vencsys.c
+ create mode 100644 include/dt-bindings/clock/mediatek,mt6735-imgsys.h
+ create mode 100644 include/dt-bindings/clock/mediatek,mt6735-mfgcfg.h
+ create mode 100644 include/dt-bindings/clock/mediatek,mt6735-vdecsys.h
+ create mode 100644 include/dt-bindings/clock/mediatek,mt6735-vencsys.h
+ create mode 100644 include/dt-bindings/reset/mediatek,mt6735-mfgcfg.h
+ create mode 100644 include/dt-bindings/reset/mediatek,mt6735-vdecsys.h
+
+--=20
+2.47.0
+
+
 
