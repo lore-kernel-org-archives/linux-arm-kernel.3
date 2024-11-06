@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD62D35E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 01:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312A8D3E781
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 01:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jbQuAirramH5NKXP170nuUfwphAaBltV1w1eQkgls7o=; b=xabq5oxg+hchK0juSVQ5RtnHrj
-	eHs9mbmiU5kP4lmdgIm7k5St3vFVWemv3dHd1BYSR8WI7qM+h3F+xsJyXKOH9VGQWiRHfthYJsR3R
-	ORVvGjdsNkJe+Dupk/MGxoYFfXqQkXEJOOVH16/R5dKjE8MrVkPwv4bJZ5Unh5Qh5XrHqMM1Srhki
-	hIMrZ85WuDNoXa9j/dgYqKqbMEfi/aC0BnC0mY4pZXeEgZaFEr3AbgSkMrfMz/dkSQnfD+fjHdzNb
-	yOE9VsjTnT296vuefjLSbQ8shGlg9CZBfxPNqDqdRarhNKLhcJkS0YOIe/XjJ97KnmSkCwb5PJhz5
-	GMVYjJdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=usU9hnT7IETA/ykdqJZRS1VzMTFu1LSKqfko9ZaVXYc=; b=wvBtbilunu8YYEIJU721fQP9+B
+	J9mKfVpUWQiJbODo7vIpCj2NcD6aWfyCcI9YaYDuvKPJvzkcxM9bL/yDkct1AJU1/xaMQRfFPCCuT
+	+JnWWzasq6yYUVCq1RMQ+ymjnysbiBQbYOoDFNg4NJvPKp8BVV20QyuD28m1syfPY+BpHPF4JBFUp
+	FdBDX3Hun6V90W+IfDbS3uw6PRN3RNOrOJQcHnRlT4wzVkVEhEPRxdiBUe+At5faDLOqITZKupril
+	Wyj2LoPcIe4Rb9KRHQjzs16wpPazBA5056fN6NMNC8EVkUK3mTsTpJNtoDxoVG3qywcCP1dBxjQNJ
+	89or20VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8VAE-00000001M6R-0jbU;
-	Wed, 06 Nov 2024 01:48:54 +0000
-Received: from cmccmta6.chinamobile.com ([111.22.67.139] helo=cmccmta2.chinamobile.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8V8U-00000001Lz4-2qEx
+	id 1t8VDW-00000001MbB-0Oat;
+	Wed, 06 Nov 2024 01:52:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8VBm-00000001MEU-0KpT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 01:47:09 +0000
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee5672aca91e7e-d8e90;
-	Wed, 06 Nov 2024 09:46:58 +0800 (CST)
-X-RM-TRANSID: 2ee5672aca91e7e-d8e90
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from localhost.localdomain (unknown[223.108.79.103])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee1672aca907d5-09b81;
-	Wed, 06 Nov 2024 09:46:58 +0800 (CST)
-X-RM-TRANSID: 2ee1672aca907d5-09b81
-From: Luo Yifan <luoyifan@cmss.chinamobile.com>
-To: olivier.moysan@foss.st.com,
-	arnaud.pouliquen@foss.st.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com
-Cc: linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Luo Yifan <luoyifan@cmss.chinamobile.com>
-Subject: [PATCH] ASoC: stm: Prevent potential division by zero in stm32_sai_mclk_round_rate()
-Date: Wed,  6 Nov 2024 09:46:54 +0800
-Message-Id: <20241106014654.206860-1-luoyifan@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.27.0
+	Wed, 06 Nov 2024 01:50:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4F3795C5466;
+	Wed,  6 Nov 2024 01:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB3BFC4CECF;
+	Wed,  6 Nov 2024 01:50:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730857828;
+	bh=y8MG1WBPKCKkhseOfwN6igxneU0mxRhDtteJDtTIZ80=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=JwK13Mb+stiNLS4FappBwqATmT30X/8M77CVZWPXX0ILf0rvNKTm+fhkg8LmxGiMe
+	 B8oIrb9B5XKT+OAGhlLNtOnRCNUTv1Y6kzteIM8SWbTb7sEE9VMFPMdyvmJFcERcfB
+	 o5Sgy3AJaSZJ6uDsrtkNWdObQewVHpt/w3UVLLndy8ivr+ze04OrA05LCtihwkD2KI
+	 GeeNNvfQgAFGcTmUXUIBOtjvEmKxGsquWKxfn7j32Yw9lswZDsq3ylPgP2LYIl8377
+	 aww6Ayqqb1VebtT+WXNgvKwHIVTp1szu4MskpXIKHZ5W4LL5zRGJhcLOFpeX0gwSaS
+	 jAegtPvI35cgQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD233809A80;
+	Wed,  6 Nov 2024 01:50:38 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v1 0/2] Add support for Synopsis DesignWare version 3.72a
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173085783749.762099.1620260205741649555.git-patchwork-notify@kernel.org>
+Date: Wed, 06 Nov 2024 01:50:37 +0000
+References: <20241102114122.4631-1-l.rubusch@gmail.com>
+In-Reply-To: <20241102114122.4631-1-l.rubusch@gmail.com>
+To: Lothar Rubusch <l.rubusch@gmail.com>
+Cc: robh@kernel.org, kuba@kernel.org, alexandre.torgue@foss.st.com,
+ joabreu@synopsys.com, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, peppe.cavallaro@st.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_174707_270513_9C28A969 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20241105_175030_201930_E7294597 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch checks if div is less than or equal to zero (div <= 0). If
-div is zero or negative, the function returns -EINVAL, ensuring the
-division operation (*prate / div) is safe to perform.
+Hello:
 
-Signed-off-by: Luo Yifan <luoyifan@cmss.chinamobile.com>
----
- sound/soc/stm/stm32_sai_sub.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 7bc4a96b7..2570daa3e 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -378,8 +378,8 @@ static long stm32_sai_mclk_round_rate(struct clk_hw *hw, unsigned long rate,
- 	int div;
- 
- 	div = stm32_sai_get_clk_div(sai, *prate, rate);
--	if (div < 0)
--		return div;
-+	if (div <= 0)
-+		return -EINVAL;
- 
- 	mclk->freq = *prate / div;
- 
+On Sat,  2 Nov 2024 11:41:20 +0000 you wrote:
+> Add compatibility and dt-binding for Synopsis DesignWare version 3.72a.
+> The dwmac is used on some older Altera/Intel SoCs such as Arria10.
+> Updating compatibles in the driver and bindings for the DT improves the
+> binding check coverage for such SoCs.
+> 
+> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+> 
+> [...]
+
+Here is the summary with links:
+  - [v1,1/2] net: stmmac: add support for dwmac 3.72a
+    https://git.kernel.org/netdev/net-next/c/ffda5c62878f
+  - [v1,2/2] dt-bindings: net: snps,dwmac: add support for Arria10
+    https://git.kernel.org/netdev/net-next/c/8bed89232a8c
+
+You are awesome, thank you!
 -- 
-2.27.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
