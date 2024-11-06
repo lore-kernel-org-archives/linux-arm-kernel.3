@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D01BD44D58
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA4AD44D59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ta5KNS21UEn6OXLlp807nLSpRRb7UzRnrUsb9sZkcIs=; b=gQpE6d4rw4JoZqnU/OKXLOMr/n
-	9L/MyUnw48sAEaHmA6SbHIu809mWfB6toVC+feyp8Xh8ix43FtLegIu2DFIZGG2zfgYMRzDdxECFd
-	20hR0qcwzeyr1YHx7wxnIf6xTgjpqLhCykgJdFA3nXU1x8imFCL9Qe98r30gWhwZtcGpD1Lk5wZUZ
-	qnThaYIaUdL3TnmulL+VF+PNEZw944Q7Lz5VZztM1uQjRpmmX0G2KjzdQsxbu4ZvQDfK/LmUp+tMA
-	BNWEbNitzWgcxprJSDd+yeScBk5EjWY4kaHv2kSlxZho0JbdMjNM9rLY7uUTxi16X+mUkyYMN8Uxp
-	T+XFHn4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yYlyD3zqXFyoxb+CelAMJJx87NQG+9wl0/ZAf0jLWL4=; b=qKxKgY5ZE4+VYID0o/zvIKmXOL
+	/7q7dzI1BkhtWnqMC47dRVa7tMqxXX4MlO6NxNMhKxhoXwPfrgQ1I7MwVOMR3HV577IRM/YlBcXCQ
+	DtiPDpjKMKZOqjnqURjHf3SGNZ6/FyuCYsXk4AT43vZPWzAblSv99IxXi+4mK1Fl8mnweb0ezYTEf
+	W4BtNaxNEaqJwe+NAGkHWCCtrAZXM+XMiK00dJ6IQg0WWULR7Q1tY6HBm2wL2o+g5LH2XGl0ZXUlY
+	H+zD0PHXUYn1YZv/y3YyuTFmTM0FrnEJXznqE2Up8WphPMjGeLkE5sHOlCh6gMHG2BskKp2GaUBAJ
+	5/rwdlhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fuH-00000003NV6-3Avc;
-	Wed, 06 Nov 2024 13:17:09 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t8fu8-00000003NPG-1cE5;
+	Wed, 06 Nov 2024 13:17:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fIX-00000003F80-05GP;
-	Wed, 06 Nov 2024 12:38:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ta5KNS21UEn6OXLlp807nLSpRRb7UzRnrUsb9sZkcIs=; b=GMXE5ianbRdR/UjEa6+5nNK/8X
-	DmuFbVFNKg0C29lqCkZwI6X0pXfhZ8jqcJPmaKgF5Sm9K6aoBaJdbkF9m5b00hhUlgBleaSIwFGvq
-	XXmBDEkM1vursvBqLN3SvOKu11KOY9tBu4tFkXYrSLDqUEDD20joQYNAvJkXaP98XMAKJAtOzBAmY
-	++0J5y/cBmBY8mW64OYszATX0FgnUsvvG249uG9Rh070tOJDheXyMrizJ1dq89+/m/Hn10nR5iy/N
-	ajnDT1lkTFmPaVdpvbhA/AMgS5d0GsYqYK5aQHrengHvqnoPNHFvgsUKw8IqVr515zFaemesZUJkg
-	XjCYtdPw==;
-Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t8fIV-0007A8-HI; Wed, 06 Nov 2024 13:38:07 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] arm64: dts: rockchip: add and enable DSI2 on rk3588
-Date: Wed,  6 Nov 2024 13:37:55 +0100
-Message-ID: <20241106123758.423584-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1t8el8-000000035da-246H
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 12:03:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A1D78A437DE;
+	Wed,  6 Nov 2024 12:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 471E1C4CECD;
+	Wed,  6 Nov 2024 12:03:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730894617;
+	bh=lCwMBpljskyRCExLi/a8YWjzwY2eIH1YDr8GaeQK/sk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PGGGrkyUUUy0z1Mqcx5xqROA9jQDy6vuGf3cBZFvuzU0aUts8N9/2g/F0F9ssiIVo
+	 ZraIpV02Np+JVSYY+PHiS/v7Vfq1jeNjn+YghIkATbHmbg89oOqE37AaUcipNak0l+
+	 7cLUcOvr5iZo57XfgF3pjY6J8gfIXS67F6WRm/m5OBI+WESXazuYgEwxjrIiYuvG/K
+	 B8pHWJO7LU4uR2dmzxeGfLkZg6RqCTnfdF78+HQHL3hBZ7lfRq4qSZkW+DNSpKD1yw
+	 Yj/8eZXyaP9+wKZqQPvtPCmNa+Zp0l02m8o2jvShxbgtsBrFP8/n2GJe7uPyiylH5z
+	 S4tGuHYqsb1OA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t8el5-00AM93-6N;
+	Wed, 06 Nov 2024 12:03:35 +0000
+Date: Wed, 06 Nov 2024 12:03:34 +0000
+Message-ID: <86cyj81sdl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jing Zhang <jingzhangos@google.com>
+Cc: KVM <kvm@vger.kernel.org>,
+	KVMARM <kvmarm@lists.linux.dev>,
+	ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Oliver Upton <oupton@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Shusen Li <lishusen2@huawei.com>
+Subject: Re: [PATCH v3 1/4] KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
+In-Reply-To: <20241106083035.2813799-2-jingzhangos@google.com>
+References: <20241106083035.2813799-1-jingzhangos@google.com>
+	<20241106083035.2813799-2-jingzhangos@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, jiangkunkun@huawei.com, pbonzini@redhat.com, andre.przywara@arm.com, coltonlewis@google.com, rananta@google.com, lishusen2@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_043809_255539_3F3D5F5E 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20241106_040338_678693_15B819F8 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the dcphy and dsi2 controller nodes and adds an overlay
-for the Tiger-Haikou Video-Demo adapter that provides a DSI display.
+On Wed, 06 Nov 2024 08:30:32 +0000,
+Jing Zhang <jingzhangos@google.com> wrote:
+> 
+> From: Kunkun Jiang <jiangkunkun@huawei.com>
+> 
+> In all the vgic_its_save_*() functinos, they do not check whether
+> the data length is 8 bytes before calling vgic_write_guest_lock.
+> This patch adds the check. To prevent the kernel from being blown up
+> when the fault occurs, KVM_BUG_ON() is used. And the other BUG_ON()s
+> are replaced together.
+> 
+> Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> Signed-off-by: Jing Zhang <jingzhangos@google.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++++++++++++--
+>  1 file changed, 19 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index ba945ba78cc7..2381bc5ce544 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -2095,6 +2095,10 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
+>  	       ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
+>  		ite->collection->collection_id;
+>  	val = cpu_to_le64(val);
+> +
+> +	if (KVM_BUG_ON(ite_esz != sizeof(val), kvm))
+> +		return -EINVAL;
+> +
+>  	return vgic_write_guest_lock(kvm, gpa, &val, ite_esz);
+>  }
+>  
+> @@ -2250,6 +2254,10 @@ static int vgic_its_save_dte(struct vgic_its *its, struct its_device *dev,
+>  	       (itt_addr_field << KVM_ITS_DTE_ITTADDR_SHIFT) |
+>  		(dev->num_eventid_bits - 1));
+>  	val = cpu_to_le64(val);
+> +
+> +	if (KVM_BUG_ON(dte_esz != sizeof(val), kvm))
+> +		return -EINVAL;
+> +
+>  	return vgic_write_guest_lock(kvm, ptr, &val, dte_esz);
+>  }
+>  
+> @@ -2431,12 +2439,17 @@ static int vgic_its_save_cte(struct vgic_its *its,
+>  			     struct its_collection *collection,
+>  			     gpa_t gpa, int esz)
+>  {
+> +	struct kvm *kvm = its->dev->kvm;
 
-Heiko Stuebner (3):
-  arm64: dts: rockchip: add mipi dcphy nodes to rk3588
-  arm64: dts: rockchip: add dsi controller nodes on rk3588
-  arm64: dts: rockchip: add overlay for tiger-haikou video-demo adapter
+nit: just use its->dev->kvm consistently, as this is what we are
+already doing in this function.
 
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  98 +++++++++++
- .../rk3588-tiger-haikou-video-demo.dtso       | 153 ++++++++++++++++++
- 3 files changed, 252 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
+	M.
 
 -- 
-2.45.2
-
+Without deviation from the norm, progress is not possible.
 
