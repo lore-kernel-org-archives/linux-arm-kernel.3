@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABBAD44D75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C346D44D77
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	References:CC:To:From:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSqnZgLZFmjR/zI09hPj35lExE9DozM7LRLSXNYuBeQ=; b=SWW9Vxfvq12bvFw/Tm5d4ftUDw
-	/nf4Dgbs5Ob+DOI9bf/jkpiRhLte7N8HBPY9+padgI3FSOjfztucLrg0TI7AvBexavCU0Vzv1n1tH
-	n1aTYlEjZKmaHoGgCkCywC2X3NNQd3PicvxWVLE2Yt1G/hszAERhsiiBQyhGjni1ijY7QGFVRG/M4
-	xKr7l+1UklaCbSdTLjpPp8xpz4Si2GwByYoYYH/6j5jpl8S4UxoAImPiF/AtO7v+THB+LnuM9b30i
-	+38xh1BFZ0H6HTEta0If5cO+6YOe9Ea5tueKKU6k1GBurCGeYA2j8H7eMFoy6EM5ftsw9ayXUE9Ag
-	d7IhgNEw==;
+	bh=4PRWrlBN1fe5GdIYQH69+o+IM6TaCweq1lKM6yKDoek=; b=iycvojYB90qnOy93XTQjAoT9sU
+	ei1ZpIXpmL/bgsLB55AN8hdq+dCuqe0UIHCKvTGxCBec1aoJmQC4pdy+3M3wvjVRZFcljTC4Rt+D0
+	RU7uGqCsDC6sezW0dzmFXVo+z2Mx9wMMi+OuEn1X9JCbmoxPhr1yF9dEGMCBxg3jYvCgr57lTgfE8
+	BkRz6/sK8hJWV/2EUh17uTkGEvw9CPWLOcr6PUc0Lt8mM+R9TODTj8vW9lh6IRSVe+Tn/nXSEHqeV
+	turETUYo9n4zqooQEPjBvJRWsg5dEP2pgB8BhaqnOrjqr+ohKo1QFFGVjs1I97mnV8kg77CrAxoXk
+	r0JW4Hag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gr0-00000003ZZA-3Fbm;
-	Wed, 06 Nov 2024 14:17:50 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t8gsh-00000003ZsV-29a0;
+	Wed, 06 Nov 2024 14:19:35 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gXY-00000003Vwr-3xay
+	id 1t8gXs-00000003W2U-1xiU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:57:47 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A6Dvced099950;
-	Wed, 6 Nov 2024 07:57:38 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730901459;
-	bh=DSqnZgLZFmjR/zI09hPj35lExE9DozM7LRLSXNYuBeQ=;
-	h=Date:Subject:From:To:CC:References:In-Reply-To;
-	b=TesP+4rKGnJ6jtqqLzP9Yqm7ZsdGP4CH/HkGIMrdU7rORd+CDqLAdBQPBByR0pt9h
-	 wKcpnT7GG0WfBuolJIb4Ql/ADKwPuxA0QQZzdbYQySqDtt/g8Ql85pOVxuWKb/CgoS
-	 SZbL38q62GI1j1jAUcYp20FiVjtzyNuMcCCrNhLM=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A6DvcYS002611
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 6 Nov 2024 07:57:38 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
- Nov 2024 07:57:38 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 6 Nov 2024 07:57:38 -0600
-Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6DvZWm062961;
-	Wed, 6 Nov 2024 07:57:36 -0600
-Message-ID: <b13eabeb-48dd-493e-a7c7-fd247c971ae8@ti.com>
-Date: Wed, 6 Nov 2024 19:27:35 +0530
+	Wed, 06 Nov 2024 13:58:05 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 60E85475;
+	Wed,  6 Nov 2024 14:57:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730901474;
+	bh=JHxLQgSLWdft8dSzdvbt7oLzbR8ccNpS8nioRv0vsWc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l7cFdtyrLuTL573iQmGDrUByPoITVRPQxVYPi2KCf4Z/HiY8P4yZM8J5yLQi1eEJa
+	 HEU2+dt6x9zxxzatiMNtPjyM60RInhwTuyv+f9hEaoEkuOzFo7oaEZuMTvHN7fPsCz
+	 RVAjsnjvYS14JVV9hzz6PM2uqTSBptXcZWDCBsek=
+Date: Wed, 6 Nov 2024 15:57:56 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
+	robh+dt@kernel.org, mchehab@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+	sakari.ailus@iki.fi
+Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+Message-ID: <20241106135756.GI9369@pendragon.ideasonboard.com>
+References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
+ <20241106100534.768400-6-dan.scally@ideasonboard.com>
+ <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [GIT PULL 2/2] arm64: defconfig: Updates for v6.13 for TI K3
- platforms
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
-        arm-soc
-	<arm@kernel.org>, SoC <soc@kernel.org>
-CC: Tero Kristo <kristo@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, Nishanth Menon <nm@ti.com>
-References: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
-Content-Language: en-US
-In-Reply-To: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature";
-	boundary="------------0BYMO8heXxr4akuBJs0wGJ5K"
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_055745_099733_FA73E7A4 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_055804_671402_D6015E18 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +75,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---------------0BYMO8heXxr4akuBJs0wGJ5K
-Content-Type: multipart/mixed; boundary="------------Wti14dmmowaCZOnaHPCZPIia";
- protected-headers="v1"
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
- arm-soc <arm@kernel.org>, SoC <soc@kernel.org>
-Cc: Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Nishanth Menon <nm@ti.com>
-Message-ID: <b13eabeb-48dd-493e-a7c7-fd247c971ae8@ti.com>
-Subject: [GIT PULL 2/2] arm64: defconfig: Updates for v6.13 for TI K3
- platforms
-References: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
-In-Reply-To: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
+Hi Krzysztof,
 
---------------Wti14dmmowaCZOnaHPCZPIia
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+On Wed, Nov 06, 2024 at 01:15:23PM +0100, Krzysztof Kozlowski wrote:
+> On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
+> > Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+> > 
+> > Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+> > Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> > ---
+> > Changes in v8:
+> > 
+> > 	- Added the video clock back in. Now that we have actual hardware it's
+> > 	  clear that it's necessary.
+> > 	- Added reset lines 
+> > 	- Dropped R-bs
+> 
+> These are trivial, so I wish you kept the review... but since you ask,
+> then comment further
+> 
+> I recommend using b4, so your cover letter changelog comes with nice
+> links to previous versions. I scrolled through entire cover letter for
+> this (for me that's almost the only point of cover letter) and could
+> not find them. Anyway, just a remark.
+> 
+> 
+> ...
+> 
+> > +  resets:
+> > +    items:
+> > +      - description: vclk domain reset
+> > +      - description: aclk domain reset
+> > +      - description: hclk domain reset
+> > +
+> > +  reset-names:
+> > +    items:
+> > +      - const: vresetn
+> 
+> drop "reset", it's redundant and rather come here with logical name. I
+> wonder what "n" means as well. It's not a GPIO to be "inverted"...
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
-dc:
+The aresetn and hresetn names come directly from a hardware manual
+(vresetn seems to be called rstn in that document though). As far as I
+understand, they are the names of the external signals of the IP core.
+I tend to pick the hardware names for clock and reset names. That makes
+it easier for integrators, and from a driver point of view it doesn't
+change much as DT names are just a convention anyway.
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+That being said, if there's a good reason to do otherwise (such as
+standardizing property names to make handling through common code
+possible), that's fine too.
 
-are available in the Git repository at:
+> I wonder about reset domains for clocks as well... is this just gate
+> clock misrepresented?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3=
--config-for-v6.13
+No, those are real reset signals. There can be clock gates external to
+the IP, and those are handled by the clock providers. The IP has three
+domains of logical that are synchronous to three different clocks, and
+they have one reset signal each, hence the description mentioning "clock
+domain".
 
-for you to fetch changes up to 8461bcf0a3d9d39ff9d858c06c2c820f711a8182:
+-- 
+Regards,
 
-  arm64: defconfig: Enable PCF857X GPIO expander (2024-10-28 20:42:47 +05=
-30)
-
-----------------------------------------------------------------
-TI K3 defconfig updates for v6.13
-
-Enable driver for GPIO PCF857x I2C GPIO expander present on multiple TI
-boards
-
-----------------------------------------------------------------
-Wadim Egorov (1):
-      arm64: defconfig: Enable PCF857X GPIO expander
-
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
---------------Wti14dmmowaCZOnaHPCZPIia--
-
---------------0BYMO8heXxr4akuBJs0wGJ5K
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEyRC2zAhGcGjrhiNExEYeRXyRFuMFAmcrdc8FAwAAAAAACgkQxEYeRXyRFuM9
-sQgArcKMxrJqwx6+LcLpHZ3B8pOnVUXjfvva32PE059xUWqB636BxhMl/kGVlrxtUpPayNBTLniY
-QpQ/Fr/NnCDwuv0nhUEA+SQcChb8onDT0/hBAj5Y37vnQPQuywHRIrv9smXjsuFiM8gPt/ybi8+f
-V2XK6jrf9gFRpLBq/+mxqYt5/zbNeg5/oUge53EoT9v7MogH/ek3bI2zDu66jW+nwETGjyxk77F5
-eUEWSK/4M1vzfiapnmxW6h3jezQzlDAMqdjk2ezCMBUfQjYIPyOdDwGgB3iU5rH0SdVvC7fbV73I
-viUwcJ81+a9224s3MXWPiPWpyc3+riaEf+nRAPQGfw==
-=LJ9D
------END PGP SIGNATURE-----
-
---------------0BYMO8heXxr4akuBJs0wGJ5K--
+Laurent Pinchart
 
