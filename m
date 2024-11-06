@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599EFD59F55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5383D59F50
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Luvxj0VLfiOJMq44JnritBWkaYJg5kfsvYj2fMawU0k=; b=CNt1DxTe3rT8bmuc3fXJyzy4Cs
-	bJKVTDq7pCEPvMxnwffR3Oqx7JAFXYb1nmSYLOIk6FuyPTysX9TpkWbbNxvZeJNAmQ5lGNxR8nKgp
-	bylfji++E/GCsYKrSPH7aKOmNT5BFwHMcthGwY0DPZBMVv6BO+c+JnHgLtMrbcI9/HVIADQRBrAqd
-	lebrVT1Ea+Fz/LUMsjogudxJMuNbHbE3tlsmRkqzCWrqQSoO036h68TNSzuaNlJCxazL1jItUEOHt
-	G5fFpPF3+8tD3OzUsP8Hg4RL/j8+YM5wD15ySb8RugyR9aV7UBGoAvwGLlLDG9FjzewPwWM2nlaj5
-	x7/43T+g==;
+	bh=pu0Wia3hlf/LB7O+kFXEPDBndKHemByXqXEUjPGYIYA=; b=oJheCQbVrvYWOE87KTzQ29RtXr
+	ycYPEcY0+EMYDIp/Qh2GRTavCxFN+0cZnx7fCYscHKmyaekydhlPrHxRoXHZpDlChiOWqBwoepMrP
+	QNjraW31ZTG0UlSSIh4BYE8iXcTSMtPLz8zpoPs+yRuZzH2rrZhv0AEHOOHNiGoa49hRpMDOrl37f
+	j+UjqIeSHJDplxqklzV8PFBdfmSckpuDdfKASrzLNNTtahFyDA5YZvhSnWkG5/QN8ASMg9QmQ7tf2
+	iwAzaJuyZIEA/NGY2SeT7NxWbFiJmPsb9f/4Oq0i1FVNgZD6+HlaBZt/D0hyV+xRs8Z0Mkbs9h1FX
+	wtc/ajTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iaJ-00000003y3t-0LQH;
-	Wed, 06 Nov 2024 16:08:43 +0000
-Received: from mail-pl1-f169.google.com ([209.85.214.169])
+	id 1t8ic7-00000003yet-1pX5;
+	Wed, 06 Nov 2024 16:10:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iX6-00000003xAe-1fs2
+	id 1t8iYg-00000003xb8-0u2I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:05:25 +0000
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-20e6981ca77so72043585ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 08:05:23 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730909123; x=1731513923;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Luvxj0VLfiOJMq44JnritBWkaYJg5kfsvYj2fMawU0k=;
-        b=j8Y/s8wcTrFL7JEb21uNdIQBUPjlpDl9mB4tuzTGprvOWttdS2eR9p9rNgaWffmxHZ
-         bzH9u+FnMaB3Td/fERLqdQh+tZkNkdiudBPjvvlLBihdu2uvIXx7IaD9TdD24WwvKv74
-         gjYPYX38W3WVqqr+6tTvkUizbcmvIfY6+nGvmTKKAb02R+1x/q7Mej/f0hYjb04P4xuK
-         WI4Gk1n+Ot8A0b9hiLCtWjT9CRX9uTT1N3waX2JsBSSSB49Fy/Id+a1GbaX0jGpT8aGb
-         f8hSiTnvkonBasaD9t+iXuvd16PhqhDjiGh7Wk3HVLgTPUQ1Pr84e9W7mVfo1QegqONE
-         on2g==
-X-Forwarded-Encrypted: i=1; AJvYcCX0tDLJi3yqxLxTx2I1uNsaSwUDvdTCWlFWA5wKXRvgjLYIAF6h8OotkuOA8hMwW3YgIDCATt+BwVDE9P/Wl8Zo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSobSUq/3jIF1lDbp2KlVILEXsr3fE+FeDjfUpLO1RjVZQ3uAS
-	m0VpbKjZ3seEQwSN226BD/cEvb9U5q3l2PEss95JeY5Tnwi2eXbc2QlsSsGW
-X-Google-Smtp-Source: AGHT+IGqN+w4IPky+TA68avq1xcHDWrLnXLWGcNEqb+lHzUgWoLGrwx5sr9SnQ1ogPHGuRxHeFbnmg==
-X-Received: by 2002:a17:902:f68f:b0:20c:8839:c515 with SMTP id d9443c01a7336-21103ca485bmr325423375ad.56.1730909123048;
-        Wed, 06 Nov 2024 08:05:23 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057c7560sm97276685ad.237.2024.11.06.08.05.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 08:05:22 -0800 (PST)
-Date: Thu, 7 Nov 2024 01:05:20 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, lpieralisi@kernel.org,
-	robh@kernel.org, bhelgaas@google.com,
-	manivannan.sadhasivam@linaro.org, kishon@kernel.org,
-	u.kleine-koenig@pengutronix.de, cassel@kernel.org,
-	dlemoal@kernel.org, yoshihiro.shimoda.uh@renesas.com,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v2 1/2] PCI: keystone: Set mode as RootComplex for
- "ti,keystone-pcie" compatible
-Message-ID: <20241106160520.GD2745640@rocinante>
-References: <5983ad5e-729d-4cdc-bdb4-d60333410675@ti.com>
- <20241106154945.GA1526156@bhelgaas>
+	Wed, 06 Nov 2024 16:07:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1011FA43FCA;
+	Wed,  6 Nov 2024 16:05:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA84C4CEC6;
+	Wed,  6 Nov 2024 16:06:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730909220;
+	bh=pu0Wia3hlf/LB7O+kFXEPDBndKHemByXqXEUjPGYIYA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dVkglhNxPwWrrGeFU4VfNT+N0/Fmws0dpjk4ycr9Mq6G78ioY1aIW24tNqbnn3k7g
+	 ZqOY6kyG1qsAXiVt0zd/6lBzOvO+fQ/YpdV71+Yv3MVA7F3ACuNH8euLTQTttlk+v9
+	 GDuxdlR7EHAVK1dYNZFD92hTGXB5Q+nJB5n3IvEMzW8oD3njFDej1V6HvBFKDBN2S2
+	 4f0YKkEaYSoHsX/j+FIYMmHf3WFBHfXlzANK5e3r99QxyQbdNrscxxnbsVFDcEm0C6
+	 gpreuk6DBqv2LY86M2eg+L7qOtJJiqSKQTjBBr89+jig7kTsavD686oQmTpWun13+R
+	 dZ8KDWyHrwi/w==
+Date: Wed, 6 Nov 2024 16:06:56 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
+	catalin.marinas@arm.com, maz@kernel.org, stable@vger.kernel.org,
+	will@kernel.org
+Subject: Re: [PATCH] arm64: smccc: Remove broken support for SMCCCv1.3 SVE
+ discard hint
+Message-ID: <81419669-73e4-45ac-bf41-34d6ba486f7b@sirena.org.uk>
+References: <20241106160448.2712997-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3zLnHeDXX/K5rPDI"
 Content-Disposition: inline
-In-Reply-To: <20241106154945.GA1526156@bhelgaas>
+In-Reply-To: <20241106160448.2712997-1-mark.rutland@arm.com>
+X-Cookie: Include me out.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_080524_466717_9657D1CD 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20241106_080702_347246_F464386E 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-[...]
-> > I suppose that "data->mode" will default to zero for v3.65a prior to
-> > this commit, corresponding to "DW_PCIE_UNKNOWN_TYPE" rather than the
-> > correct value of "DW_PCIE_RC_TYPE". Since I don't have an SoC with the
-> > v3.65a version of the controller, I cannot test it out, but I presume
-> > that the "INVALID device type 0" error will be displayed. Though the probe
-> > will not fail since the "default" case doesn't return an error code, the
-> > controller probably will not be functional as the configuration associated
-> > with the "DW_PCIE_RC_TYPE" case has been skipped. Hence, I believe that
-> > this fix should be backported.
-> 
-> I guess nobody really cares too much since it's been broken for almost
-> four years.
-> 
-> But indeed, sounds like it should have a stable tag and maybe a commit
-> log hint about what the failure looks like.
+--3zLnHeDXX/K5rPDI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Added Cc for stable releases.  Siddharth, let me know how to update the
-commit log per Bjorn feedback, so I can do it directly on the branch.
+On Wed, Nov 06, 2024 at 04:04:48PM +0000, Mark Rutland wrote:
+> SMCCCv1.3 added a hint bit which callers can set in an SMCCC function ID
+> (AKA "FID") to indicate that it is acceptable for the SMCCC
+> implementation to discard SVE and/or SME state over a specific SMCCC
+> call. The kernel support for using this hint is broken and SMCCC calls
+> may clobber the SVE and/or SME state of arbitrary tasks, though FPSIMD
+> state is unaffected.
 
-Thank you!
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-	Krzysztof
+--3zLnHeDXX/K5rPDI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcrlB8ACgkQJNaLcl1U
+h9BqxAf9FJQETr3FKwFyRVvi66Y62WIGIGeFzckg32dx2UxLO8Yg1eRcUp7nB3jo
+qJ4pAmTrvh77Fddq0pv2C5CehTTI+Y3NmpkWTmcuejupSO7lOsH+Ysf8/b0aBE1Z
+r12WSzdvqj3t60quOmQ8h92vNwY6J9tuv9Iuwrj43tTrgB3C5EFXYQKx8ioCpyeA
+i4Z2kaFpJdTcAGtAumAfyUosK/FVE7DTmGTvKJtHvuuVjhNKS6GkW/9o/Mn6bbuB
+RElkfET7HuzX3oaWv5fAttzZXAIkQvD3tOMBy56pq0inUNxFNmynNxwBLraoe57k
+iX62RIodw2Kj2mDfAew15cQG6+Renw==
+=8QHA
+-----END PGP SIGNATURE-----
+
+--3zLnHeDXX/K5rPDI--
 
