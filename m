@@ -4,104 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DFBD59F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D65BD59F5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3lss5ZlgQtcQZUPoV/47IsRa1rCtwlXbhAIjG8ICcA=; b=Updvs05PGZnzlMAMopp9+4MO82
-	DVO6L8a1bAzHBj60j7LAr15NW7EF+aQGvJby5gJpHOw6D4S2zyEmee1ncgDyMMzvtACyQT6iR0eQo
-	sJxEIqWGLLWw5ZhNahkVWe/hI8oERa6vsC1XMhNmjfIj9lNZgAV80TniximZAuzJYcOtNjFJRwVWg
-	MdFf7bvLN+T7ZgepN4CbL9xWmw6Y+3E5XbBsiLG62XNkEJinkzKosgNVbu7wqvjl9yF4G49zTPwep
-	5YWc2vtmmsD1VPB2VfSFE/LzYI08GNipxhmXI3O7ukyunXDvm9bH7FXQSHN//YrowESsyK4cQGkn2
-	1p7kPlOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LeWA172BYFuvJUs17jk2BLJpPj+VSqEWSdhQr3Tt5lU=; b=aEBCqFR1Ht/icp4fvUp1BvHJxr
+	9Cpy/BkilMlP0ob7RJIYF6f8aVupYFlw1ZImnoa4Vq7l7T+nZYI2DfR+JtrBpxEzqfQKiY+t9lvuh
+	1nF6zZBrjusf3+JDiGV4j5qSM0apQO6WrwQkUbhYGbypni8zKqsnAXt3SXE8VHcGGeKM8PrApMA+K
+	hPBkdFTEFV2t0Tx38aRG4WZjWEXOsgSR1+ecyIM9LG5426tYYwyudb9nTGD9UXqhkJCq/U7wJWn+D
+	UNiluwOCRiTMakwXAQ0tbeOmKsNux0+xuyLOJCYx66mfSa7KR1Bk9bolfjppuzvdQkHqcNxUyzKmt
+	8i1ody7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8kaB-00000004JS1-2uGB;
-	Wed, 06 Nov 2024 18:16:43 +0000
-Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
+	id 1t8kcA-00000004Js4-3Sa0;
+	Wed, 06 Nov 2024 18:18:46 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8kXB-00000004Iik-3LJQ
+	id 1t8kaF-00000004JSR-07ST
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 18:13:40 +0000
+	Wed, 06 Nov 2024 18:16:48 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-539f1292a9bso7537e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:16:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1730916817; x=1762452817;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=B3lss5ZlgQtcQZUPoV/47IsRa1rCtwlXbhAIjG8ICcA=;
-  b=wFn4G1r0KziQ60+xOK6HtRYZty0/u7NiRHntnu4vHwVJoqUqgmGm0vz+
-   OdqfcIpmTN/bspkfXCb9A7aaDopKgMHYXGJmpUXpVmQm+STr492f0+2q7
-   A4yNWb5Q/9arj9HjPrItf8SlwhBFM13+Rbv3Y9sPUX+SUn0U5Gx+sEFMo
-   g=;
-X-IronPort-AV: E=Sophos;i="6.11,263,1725321600"; 
-   d="scan'208";a="144934645"
-Subject: Re: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Thread-Topic: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 18:13:36 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [10.0.21.151:4517]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.35.42:2525] with esmtp (Farcaster)
- id d9d6835a-7d5a-4cca-bcdf-5b1fad2f4435; Wed, 6 Nov 2024 18:13:36 +0000 (UTC)
-X-Farcaster-Flow-ID: d9d6835a-7d5a-4cca-bcdf-5b1fad2f4435
-Received: from EX19D001UWA003.ant.amazon.com (10.13.138.211) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 6 Nov 2024 18:13:35 +0000
-Received: from EX19D001UWA003.ant.amazon.com (10.13.138.211) by
- EX19D001UWA003.ant.amazon.com (10.13.138.211) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Wed, 6 Nov 2024 18:13:35 +0000
-Received: from EX19D001UWA003.ant.amazon.com ([fe80::256a:26de:3ee6:48a2]) by
- EX19D001UWA003.ant.amazon.com ([fe80::256a:26de:3ee6:48a2%7]) with mapi id
- 15.02.1258.035; Wed, 6 Nov 2024 18:13:35 +0000
-From: "Okanovic, Haris" <harisokn@amazon.com>
-To: "catalin.marinas@arm.com" <catalin.marinas@arm.com>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "rafael@kernel.org"
-	<rafael@kernel.org>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"joao.m.martins@oracle.com" <joao.m.martins@oracle.com>,
-	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>, "wanpengli@tencent.com"
-	<wanpengli@tencent.com>, "cl@gentwo.org" <cl@gentwo.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>, "maobibo@loongson.cn"
-	<maobibo@loongson.cn>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "misono.tomohiro@fujitsu.com"
-	<misono.tomohiro@fujitsu.com>, "daniel.lezcano@linaro.org"
-	<daniel.lezcano@linaro.org>, "arnd@arndb.de" <arnd@arndb.de>,
-	"lenb@kernel.org" <lenb@kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "boris.ostrovsky@oracle.com"
-	<boris.ostrovsky@oracle.com>, "vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>, "Okanovic, Haris" <harisokn@amazon.com>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "mtosatti@redhat.com"
-	<mtosatti@redhat.com>, "x86@kernel.org" <x86@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>
-Thread-Index: AQHbL7D0KO91MZWU0ESDfcp3e5ep6bKqGPiAgAB21IA=
-Date: Wed, 6 Nov 2024 18:13:35 +0000
-Message-ID: <b62d938111c6ce52b91d0f2e3922857c5d4ef253.camel@amazon.com>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
-	 <20241105183041.1531976-1-harisokn@amazon.com>
-	 <20241105183041.1531976-2-harisokn@amazon.com> <ZytOH2oigoC-qVLK@arm.com>
-In-Reply-To: <ZytOH2oigoC-qVLK@arm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.252.141.28]
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <1F8D000EE926994C84000A51FF37FABE@amazon.com>
-Content-Transfer-Encoding: base64
+        d=google.com; s=20230601; t=1730917005; x=1731521805; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LeWA172BYFuvJUs17jk2BLJpPj+VSqEWSdhQr3Tt5lU=;
+        b=yUEk4cbfn84eji0TrIAgr/mCKw8BhzL0f4HgJ9q9fHbXXIywjzl1wthhk6emws+mmX
+         IdRNJ82yWkH8cYmw3zFBWd+E26BaASLUupmyhpYKKLqZKJJRHppH0KKa0ZOL/mUI7qaV
+         7RrCXGzq69AhKnx6eE208ROPhNSi/gCU93yRgVSs7AqNjqnJxNhvWr2Cke6j/GFd262P
+         AE9a/Bww0aKFvGxowgM96pGL2iSHi02QCJPF/PK36FxvqXH6rF11cSaNBqTy3M9FqlHt
+         lpA1Rn+nIp40egVv3AzIb6Ba47wDO7myTt15CQaAchVa2LVH5iBVahRAMr86BFQaZP95
+         L2hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730917005; x=1731521805;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LeWA172BYFuvJUs17jk2BLJpPj+VSqEWSdhQr3Tt5lU=;
+        b=b43ehWVpPxwGxa0wwRYzTQeW0r1K3bU1SXSDfcUw6oyKYhIYMparRgu1i7ZDXtoxvw
+         2WkfPytsK4zDFS7RtOZ0qx/zK9NgR5lUDGu1P0Ym/JWS+KQKFMVrdKwE+sbbWWiujuXp
+         uK5o1jBveUM/ebE3L7VOP8gnexzG8Ix93tkseYym4EBmO4F59p8eUmFIOJ8yBwAz8Gnl
+         Z/qvs6ypDEJDj0M1LF87yupdCeOfNjb13TECqwJE/V/ISxVn/C5/ZwrkYbbvKSqS4yTO
+         QF0URy8h37o+MVeUYiaif888AsLkTs2o9FTxQL4VYQJtDQ+IXBzkFKKRVR2iorrk0h6r
+         +dAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW8OF6WE4owVRGF+Nssnn8hXFpUkggE/RPUSb58frKBsbFHLbRVI1257fDvMGu0xZ4eYirar66/NInEopk3KnxU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPHtGBA7hGPXgXPLN2LZb0GSnXUG142kZSFHSIVygjuDbeGx3P
+	9SBoahlE0RsTYVQPHqpnVD29x+X4QTuiCbT5o4zXUk/EG+m3AOFBZellaS7S82Jf7+lscEYvVkI
+	20yotfd1loSgC1NEYoAaa4Vb+5Frsr5CpeyTa
+X-Google-Smtp-Source: AGHT+IH0eyYrDiApka0FCPYt2gCEKlK4/mAq7uw29tSP1xJ7qJxDTSHGX9xhi6kEHhZbsrB00EH2FETbJzZH1P9TZow=
+X-Received: by 2002:a05:6512:12c5:b0:539:e88f:23a1 with SMTP id
+ 2adb3069b0e04-53b3491c80emr21831365e87.44.1730917005120; Wed, 06 Nov 2024
+ 10:16:45 -0800 (PST)
 MIME-Version: 1.0
+References: <20241106083035.2813799-1-jingzhangos@google.com>
+ <20241106083035.2813799-2-jingzhangos@google.com> <86cyj81sdl.wl-maz@kernel.org>
+In-Reply-To: <86cyj81sdl.wl-maz@kernel.org>
+From: Jing Zhang <jingzhangos@google.com>
+Date: Wed, 6 Nov 2024 10:16:33 -0800
+Message-ID: <CAAdAUtgiWxhY6DQrS_B=6PhL3+V-qfJVSsqWWeVuGqW7DLcotw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
+To: Marc Zyngier <maz@kernel.org>
+Cc: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
+	ARMLinux <linux-arm-kernel@lists.infradead.org>, Oliver Upton <oupton@google.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Kunkun Jiang <jiangkunkun@huawei.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>, 
+	Colton Lewis <coltonlewis@google.com>, Raghavendra Rao Ananta <rananta@google.com>, 
+	Shusen Li <lishusen2@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_101338_035617_78B10FB0 
-X-CRM114-Status: GOOD (  24.68  )
+X-CRM114-CacheID: sfid-20241106_101647_093189_DCCC9AFD 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,55 +96,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI0LTExLTA2IGF0IDExOjA4ICswMDAwLCBDYXRhbGluIE1hcmluYXMgd3JvdGU6
-DQo+IENBVVRJT046IFRoaXMgZW1haWwgb3JpZ2luYXRlZCBmcm9tIG91dHNpZGUgb2YgdGhlIG9y
-Z2FuaXphdGlvbi4gRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNz
-IHlvdSBjYW4gY29uZmlybSB0aGUgc2VuZGVyIGFuZCBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUu
-DQo+IA0KPiANCj4gDQo+IE9uIFR1ZSwgTm92IDA1LCAyMDI0IGF0IDEyOjMwOjM3UE0gLTA2MDAs
-IEhhcmlzIE9rYW5vdmljIHdyb3RlOg0KPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FzbS1nZW5l
-cmljL2JhcnJpZXIuaCBiL2luY2x1ZGUvYXNtLWdlbmVyaWMvYmFycmllci5oDQo+ID4gaW5kZXgg
-ZDRmNTgxYzFlMjFkLi4xMTIwMjdlYWJiZmMgMTAwNjQ0DQo+ID4gLS0tIGEvaW5jbHVkZS9hc20t
-Z2VuZXJpYy9iYXJyaWVyLmgNCj4gPiArKysgYi9pbmNsdWRlL2FzbS1nZW5lcmljL2JhcnJpZXIu
-aA0KPiA+IEBAIC0yNTYsNiArMjU2LDMxIEBAIGRvIHsgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcDQo+ID4gIH0pDQo+
-ID4gICNlbmRpZg0KPiA+IA0KPiA+ICsvKioNCj4gPiArICogc21wX3Zjb25kX2xvYWRfcmVsYXhl
-ZCgpIC0gKFNwaW4pIHdhaXQgdW50aWwgYW4gZXhwZWN0ZWQgdmFsdWUgYXQgYWRkcmVzcw0KPiA+
-ICsgKiB3aXRoIG5vIG9yZGVyaW5nIGd1YXJhbnRlZXMuIFNwaW5zIHVudGlsIGAoKmFkZHIgJiBt
-YXNrKSA9PSB2YWxgIG9yDQo+ID4gKyAqIGBuc2Vjc2AgZWxhcHNlLCBhbmQgcmV0dXJucyB0aGUg
-bGFzdCBvYnNlcnZlZCBgKmFkZHJgIHZhbHVlLg0KPiA+ICsgKg0KPiA+ICsgKiBAbnNlY3M6IHRp
-bWVvdXQgaW4gbmFub3NlY29uZHMNCj4gDQo+IEZXSVcsIEkgZG9uJ3QgbWluZCB0aGUgcmVsYXRp
-dmUgdGltZW91dCwgaXQgbWFrZXMgdGhlIEFQSSBlYXNpZXIgdG8gdXNlLg0KPiBZZXMsIGl0IG1h
-eSB0YWtlIGxvbmdlciBpbiBhYnNvbHV0ZSB0aW1lIGlmIHRoZSB0aHJlYWQgaXMgc2NoZWR1bGVk
-IG91dA0KPiBiZWZvcmUgbG9jYWxfY2xvY2tfbm9pbnN0cigpIGlzIHJlYWQgYnV0IHRoZSBzYW1l
-IGNhbiBoYXBwZW4gaW4gdGhlDQo+IGNhbGxlciBhbnl3YXkuIEl0J3Mgc2ltaWxhciB0byB1ZGVs
-YXkoKSwgaXQgY2FuIHRha2UgbG9uZ2VyIGlmIHRoZQ0KPiB0aHJlYWQgaXMgc2NoZWR1bGVkIG91
-dC4NCj4gDQo+ID4gKyAqIEBhZGRyOiBwb2ludGVyIHRvIGFuIGludGVnZXINCj4gPiArICogQG1h
-c2s6IGEgYml0IG1hc2sgYXBwbGllZCB0byByZWFkIHZhbHVlcw0KPiA+ICsgKiBAdmFsOiBFeHBl
-Y3RlZCB2YWx1ZSB3aXRoIG1hc2sNCj4gPiArICovDQo+ID4gKyNpZm5kZWYgc21wX3Zjb25kX2xv
-YWRfcmVsYXhlZA0KPiA+ICsjZGVmaW5lIHNtcF92Y29uZF9sb2FkX3JlbGF4ZWQobnNlY3MsIGFk
-ZHIsIG1hc2ssIHZhbCkgKHsgICAgXA0KPiA+ICsgICAgIGNvbnN0IHU2NCBfX3N0YXJ0ID0gbG9j
-YWxfY2xvY2tfbm9pbnN0cigpOyAgICAgICAgICAgICAgXA0KPiA+ICsgICAgIHU2NCBfX25zZWNz
-ID0gKG5zZWNzKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXA0KPiA+ICsgICAg
-IHR5cGVvZihhZGRyKSBfX2FkZHIgPSAoYWRkcik7ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-XA0KPiA+ICsgICAgIHR5cGVvZigqX19hZGRyKSBfX21hc2sgPSAobWFzayk7ICAgICAgICAgICAg
-ICAgICAgICAgICAgXA0KPiA+ICsgICAgIHR5cGVvZigqX19hZGRyKSBfX3ZhbCA9ICh2YWwpOyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgXA0KPiA+ICsgICAgIHR5cGVvZigqX19hZGRyKSBfX2N1
-cjsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXA0KPiA+ICsgICAgIHNtcF9jb25k
-X2xvYWRfcmVsYXhlZChfX2FkZHIsICggICAgICAgICAgICAgICAgICAgICAgICAgXA0KPiA+ICsg
-ICAgICAgICAgICAgKFZBTCAmIF9fbWFzaykgPT0gX192YWwgfHwgICAgICAgICAgICAgICAgICAg
-ICAgXA0KPiA+ICsgICAgICAgICAgICAgbG9jYWxfY2xvY2tfbm9pbnN0cigpIC0gX19zdGFydCA+
-IF9fbnNlY3MgICAgICAgXA0KPiA+ICsgICAgICkpOyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgXA0KPiA+ICt9KQ0KPiANCj4gVGhlIGdlbmVyaWMg
-aW1wbGVtZW50YXRpb24gaGFzIHRoZSBzYW1lIHByb2JsZW0gYXMgQW5rdXIncyBjdXJyZW50DQo+
-IHNlcmllcy4gc21wX2NvbmRfbG9hZF9yZWxheGVkKCkgY2FuJ3Qgd2FpdCBvbiBhbnl0aGluZyBv
-dGhlciB0aGFuIHRoZQ0KPiB2YXJpYWJsZSBhdCBfX2FkZHIuIElmIGl0IGdvZXMgaW50byBhIFdG
-RSwgdGhlcmUncyBub3RoaW5nIGV4ZWN1dGVkIHRvDQo+IHJlYWQgdGhlIHRpbWVyIGFuZCBjaGVj
-ayBmb3IgcHJvZ3Jlc3MuIEFueSBnZW5lcmljIGltcGxlbWVudGF0aW9uIG9mDQo+IHN1Y2ggZnVu
-Y3Rpb24gd291bGQgaGF2ZSB0byB1c2UgY3B1X3JlbGF4KCkgYW5kIHBvbGxpbmcuDQoNCkhvdyB3
-b3VsZCB0aGUgY2FsbGVyIGVudGVyIHdmZSgpPyBDYW4geW91IGdpdmUgYSBzcGVjaWZpYyBzY2Vu
-YXJpbyB0aGF0DQp5b3UncmUgY29uY2VybmVkIGFib3V0Pw0KDQpUaGlzIGNvZGUgYWxyZWFkeSBy
-ZWR1Y2VzIHRvIGEgcmVsYXhlZCBwb2xsLCBzb21ldGhpbmcgbGlrZSB0aGlzOg0KDQpgYGANCnN0
-YXJ0ID0gY2xvY2soKTsNCndoaWxlKChSRUFEX09OQ0UoKmFkZHIpICYgbWFzaykgIT0gdmFsICYm
-IChjbG9jaygpIC0gc3RhcnQpIDwgbnNlY3MpIHsNCiAgY3B1X3JlbGF4KCk7DQp9DQpgYGANCg0K
-PiANCj4gLS0NCj4gQ2F0YWxpbg0KDQo=
+On Wed, Nov 6, 2024 at 4:03=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 06 Nov 2024 08:30:32 +0000,
+> Jing Zhang <jingzhangos@google.com> wrote:
+> >
+> > From: Kunkun Jiang <jiangkunkun@huawei.com>
+> >
+> > In all the vgic_its_save_*() functinos, they do not check whether
+> > the data length is 8 bytes before calling vgic_write_guest_lock.
+> > This patch adds the check. To prevent the kernel from being blown up
+> > when the fault occurs, KVM_BUG_ON() is used. And the other BUG_ON()s
+> > are replaced together.
+> >
+> > Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> > Signed-off-by: Jing Zhang <jingzhangos@google.com>
+> > ---
+> >  arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++++++++++++--
+> >  1 file changed, 19 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-=
+its.c
+> > index ba945ba78cc7..2381bc5ce544 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-its.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> > @@ -2095,6 +2095,10 @@ static int vgic_its_save_ite(struct vgic_its *it=
+s, struct its_device *dev,
+> >              ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
+> >               ite->collection->collection_id;
+> >       val =3D cpu_to_le64(val);
+> > +
+> > +     if (KVM_BUG_ON(ite_esz !=3D sizeof(val), kvm))
+> > +             return -EINVAL;
+> > +
+> >       return vgic_write_guest_lock(kvm, gpa, &val, ite_esz);
+> >  }
+> >
+> > @@ -2250,6 +2254,10 @@ static int vgic_its_save_dte(struct vgic_its *it=
+s, struct its_device *dev,
+> >              (itt_addr_field << KVM_ITS_DTE_ITTADDR_SHIFT) |
+> >               (dev->num_eventid_bits - 1));
+> >       val =3D cpu_to_le64(val);
+> > +
+> > +     if (KVM_BUG_ON(dte_esz !=3D sizeof(val), kvm))
+> > +             return -EINVAL;
+> > +
+> >       return vgic_write_guest_lock(kvm, ptr, &val, dte_esz);
+> >  }
+> >
+> > @@ -2431,12 +2439,17 @@ static int vgic_its_save_cte(struct vgic_its *i=
+ts,
+> >                            struct its_collection *collection,
+> >                            gpa_t gpa, int esz)
+> >  {
+> > +     struct kvm *kvm =3D its->dev->kvm;
+>
+> nit: just use its->dev->kvm consistently, as this is what we are
+> already doing in this function.
+
+Sure. Will do.
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
