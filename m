@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A83BD59F73
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE98D59F75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 21:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTbQ6DPhP6MjHwSaDILXhZVjYXEH8BwsiSbm61YVqgE=; b=f/+UdtZJrvAQWxOEjAZYKwmGCx
-	pbQCX7L2viOPw62hLd09pVsMyVtmMbG9ze3SOvLI1H5jfEqmpxLfrRcK6DYOQgRnytiUFFtpLRadO
-	WmBgFZ2yPxa0X/DdVvHQXnx5/HjOZcv3K5tZG6XjY+7vnBVAh45Tpxr6JhobuittyYto+mfptxR9E
-	zZaLvrsWbLjX5q8n4mZ7rNupK3FoLc8T/WFC4xfTqWV0zfDrZjnyC3twuXxcxOQygPIhQQWdXGFAO
-	VUatgMzSpbOeHJGo/nncqj/hnQqj+BTb5TZpotqUUqf8CpWLNHKYrGWSyA4RnfE/Uf0vxmuHIkz5g
-	iXrn3tHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FCqhcREoWezk1bptt5InwAGRjoq8AME0oZulSzRglA0=; b=UcMBazjAoTBRg6W5bCeH8aNoc3
+	c4VFWBEGdqoMoVTlgPjM4wyDDKqMqfwOJLJhIXBzKGJZJ79/Rt5vfzDYG3mFX0euFSe6sUyWjfZ0S
+	i+h3updD5eE9Rd9D01M6WfEGp07/JQlxT+znX37pP/jNUekTZjxTfsDHnkJrRkbsmAmPIiXVaDc5d
+	aMaLWw5N+laTRrGB+3+HaERK/IDydYV7tfKxKN4liYgTEBqzETT2I6gslGOQYT+IFAr1KhXb+WwkT
+	4JBWm+Y70cBzLmiuw2x4/e4leFSPamXyaZUje4N+ZjUIHfLtpMjlx0AWOC6klqPmzAtEffNIJg6zJ
+	iHi/Rzrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8n2B-00000004jx7-3Yf8;
-	Wed, 06 Nov 2024 20:53:47 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1t8nCF-00000004kzX-1zkD;
+	Wed, 06 Nov 2024 21:04:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8n0R-00000004jkV-2k6r
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 20:52:01 +0000
-Date: Wed, 6 Nov 2024 12:51:40 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1730926316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iTbQ6DPhP6MjHwSaDILXhZVjYXEH8BwsiSbm61YVqgE=;
-	b=Bw/NSx1j2z8iH74+2uUPsORZOF/lHwjDSE1XgPO3bR7hc3VDGRgJjxxqihTFVbyt2Vu2w8
-	raQ7DhoPXKD5HHKOAaOJujYj6vS582FOQLBKtpnd3xvd1RSxRYMmmhyO+1CxVOE0maifyR
-	a4U5OreS2n4YhRCs77wj4S8lLE19n7c=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: "Liang, Kan" <kan.liang@linux.intel.com>
-Cc: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v6 4/5] x86: perf: Refactor misc flag assignments
-Message-ID: <ZyvW3FxcezmYyOMa@linux.dev>
-References: <20241105195603.2317483-1-coltonlewis@google.com>
- <20241105195603.2317483-5-coltonlewis@google.com>
- <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
- <ZyvLOjy8Vfvai5cG@linux.dev>
- <597dbcf6-8169-4084-881c-8942ed363189@linux.intel.com>
+	id 1t8nAW-00000004ko0-03XE;
+	Wed, 06 Nov 2024 21:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730926940;
+	bh=DLZ+xT7FS54/kaVDeqPCFh6lOCpCqzZIMMnQ9XE6XMs=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ocOJjefKZmTy6knNbSNW/ZiMuNCvnESs2KF1Q1Py5pKtFGxtABGwYk6Y+Z9Tm0ryo
+	 qa/efwBBYcmCLhThgvifgngBCqjbq1zQfool60Cv8Wz/6/KH0FioQVNgWLLjDp8U7h
+	 /brvxEiCvZQQWA7QcTHPAsBqluJsBOU34CWWj2tXPfinx+iXyae9QJzoZmj1q2hRW6
+	 34eJnXd1UWSzEUDFE4h4NcCXD0QcQR95y3Volpk7dF8tViwftbBMRwfelUM9XdgZ4J
+	 z2zXaETUFgJVR2MHr2RjxOHPE1Z/M0QPNe6ZDQnxy9MaT0Uejoh4aep9+4MGalBtEk
+	 vLT+fIFkuoy6Q==
+Received: from [192.168.1.51] (pool-100-2-116-133.nycmny.fios.verizon.net [100.2.116.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 529FF17E3786;
+	Wed,  6 Nov 2024 22:02:18 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Wed, 06 Nov 2024 16:01:45 -0500
+Subject: [PATCH] arm64: dts: mediatek: mt8186: Move wakeup to MTU3 to get
+ working suspend
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <597dbcf6-8169-4084-881c-8942ed363189@linux.intel.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241106-mt8186-suspend-with-usb-wakeup-v1-1-07734a4c8236@collabora.com>
+X-B4-Tracking: v=1; b=H4sIADjZK2cC/x3NwQqDMAyA4VeRnBdo6nTiq4wd4owzjNXS2CmI7
+ 76y43f5/wNMkopBXx2Q5KumSyigSwXPmcNLUMdi8M5fiVyLn7WjrkXLFiWMuOk6Y7YBN35Ljsg
+ 1i3Dj6eYGKJGYZNL9P7g/zvMHw+83JHAAAAA=
+X-Change-ID: 20241106-mt8186-suspend-with-usb-wakeup-a3aeea52170b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Allen-KH Cheng <allen-kh.cheng@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Wojciech Macek <wmacek@google.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_125200_277611_871F99CD 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20241106_130224_258159_98FB88C9 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +82,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 03:33:30PM -0500, Liang, Kan wrote:
-> On 2024-11-06 3:02 p.m., Oliver Upton wrote:
-> > On Wed, Nov 06, 2024 at 11:03:10AM -0500, Liang, Kan wrote:
-> >>> +static unsigned long common_misc_flags(struct pt_regs *regs)
-> >>> +{
-> >>> +	if (regs->flags & PERF_EFLAGS_EXACT)
-> >>> +		return PERF_RECORD_MISC_EXACT_IP;
-> >>> +
-> >>> +	return 0;
-> >>> +}
-> >>> +
-> >>> +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
-> >>> +{
-> >>> +	unsigned long guest_state = perf_guest_state();
-> >>> +	unsigned long flags = common_misc_flags(regs);
-> >>> +
-> >>> +	if (guest_state & PERF_GUEST_USER)
-> >>> +		flags |= PERF_RECORD_MISC_GUEST_USER;
-> >>> +	else if (guest_state & PERF_GUEST_ACTIVE)
-> >>> +		flags |= PERF_RECORD_MISC_GUEST_KERNEL;
-> >>> +
-> >>
-> >> The logic of setting the GUEST_KERNEL flag is implicitly changed here.
-> >>
-> >> For the current code, the GUEST_KERNEL flag is set for !PERF_GUEST_USER,
-> >> which include both guest_in_kernel and guest_in_NMI.
-> > 
-> > Where is the "guest_in_NMI" state coming from? KVM only reports user v.
-> > kernel mode.
-> 
-> I may understand the kvm_arch_pmi_in_guest() wrong.
+The current DT has the wakeup-source and mediatek,syscon-wakeup
+properties in the XHCI nodes, which configures USB wakeup after powering
+down the XHCI hardware block. However, since the XHCI controller is
+behind an MTU3 (USB3 DRD controller), the MTU3 only gets powered down
+after USB wakeup has been configured, causing the system to detect a
+wakeup, and results in broken suspend support as the system resumes
+immediately.
 
-kvm_arch_pmi_in_guest() is trying to *guess* whether or not an overflow
-interrupt caused the most recent VM-exit, implying a counter overflowed
-while in the VM. It has no idea what events are loaded on the PMU and
-which contexts they're intended to sample in.
+Move the wakeup properties to the MTU3 nodes so that USB wakeup is only
+enabled after the MTU3 has powered down.
 
-It only makes sense to check kvm_arch_pmi_in_guest() if you're dealing with
-an event that counts in both host and guest modes and you need to decide who
-to sample.
+With this change in place, it is possible to suspend and resume, and
+also to wakeup through USB, as tested on the Google Steelix (Lenovo 300e
+Yoga Chromebook Gen 4).
 
-> However, the kvm_guest_state() at least return 3 states.
-> 0
-> PERF_GUEST_ACTIVE
-> PERF_GUEST_ACTIVE | PERF_GUEST_USER
-> 
-> The existing code indeed assumes two modes. If it's not user mode, it
-> must be kernel mode.
-> However, the proposed code behave differently, or at least implies there
-> are more modes.
-> If it's not user mode and sets PERF_GUEST_ACTIVE, it's kernel mode.
+Fixes: f6c3e61c5486 ("arm64: dts: mediatek: mt8186: Add MTU3 nodes")
+Reported-by: Wojciech Macek <wmacek@google.com>
+Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-A precondition of the call to perf_arch_guest_misc_flags() is that guest
-state is nonzero, meaning a vCPU is loaded presently on this CPU.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186.dtsi b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+index d3c3c2a40adcdf439a1c74586c35cf63a1c7cb30..b91f88ffae0e8b81b70269ea2d058b016a50232b 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+@@ -1577,6 +1577,8 @@ ssusb0: usb@11201000 {
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+ 			ranges;
++			wakeup-source;
++			mediatek,syscon-wakeup = <&pericfg 0x420 2>;
+ 			status = "disabled";
+ 
+ 			usb_host0: usb@11200000 {
+@@ -1590,8 +1592,6 @@ usb_host0: usb@11200000 {
+ 					 <&infracfg_ao CLK_INFRA_AO_SSUSB_TOP_XHCI>;
+ 				clock-names = "sys_ck", "ref_ck", "mcu_ck", "dma_ck", "xhci_ck";
+ 				interrupts = <GIC_SPI 294 IRQ_TYPE_LEVEL_HIGH 0>;
+-				mediatek,syscon-wakeup = <&pericfg 0x420 2>;
+-				wakeup-source;
+ 				status = "disabled";
+ 			};
+ 		};
+@@ -1643,6 +1643,8 @@ ssusb1: usb@11281000 {
+ 			#address-cells = <2>;
+ 			#size-cells = <2>;
+ 			ranges;
++			wakeup-source;
++			mediatek,syscon-wakeup = <&pericfg 0x424 2>;
+ 			status = "disabled";
+ 
+ 			usb_host1: usb@11280000 {
+@@ -1656,8 +1658,6 @@ usb_host1: usb@11280000 {
+ 					 <&infracfg_ao CLK_INFRA_AO_SSUSB_TOP_P1_XHCI>;
+ 				clock-names = "sys_ck", "ref_ck", "mcu_ck", "dma_ck","xhci_ck";
+ 				interrupts = <GIC_SPI 324 IRQ_TYPE_LEVEL_HIGH 0>;
+-				mediatek,syscon-wakeup = <&pericfg 0x424 2>;
+-				wakeup-source;
+ 				status = "disabled";
+ 			};
+ 		};
 
+---
+base-commit: 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
+change-id: 20241106-mt8186-suspend-with-usb-wakeup-a3aeea52170b
+
+Best regards,
 -- 
-Thanks,
-Oliver
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
