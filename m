@@ -4,138 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07012D40D08
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Nov 2024 23:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00ABAD40D08
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 00:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0YNPE0BApDV8D9LH1clPl6cgfACiphUM10pWrK2zik=; b=Xp4JmxjJYvphmcPRsM7HJJTo7q
-	gsqcwqLxjL7Zck35+KliRO4sPwqBp15sWh7417m6IgXNUjannYbWZA2DsZpxDoFSHHPvOgjVfU7e+
-	h0pPnRx9wTw67K0kgRzvtevz6BHmhDPuyDB4KW5Q0Fw9op22CJ2GlbjWbUla2PEhB5aPjStRxrqNZ
-	rWvHPUxzAaB01yFKeFfWij+udeDJEgArpRGdK30QCZR4OYFlOjpDhygRzgSTYefkSGgjmzxR+Lmcy
-	7jJZ6LBNcxq0eQaMh7zkTAX7Hk+M+VBlg4tyGPS9vcyng1pj/W5mylrzBUG4lXhw46rSPdr4TUQw/
-	1Hu3qJWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OonQ3n27GpTNyHLcyJNSYW94OP6gRJ62TNjw/KhLJZQ=; b=zQCLnAGZlmBylAhqOkYcoQnmfb
+	OzwO1jAqcQ3/Y4X+vG/EBQdrkiJJqVe3WvpJTDwlUTKPbr9c1HBsoZhK4E060YCqlBsWLaHBHw+ia
+	VeAXgbqFjzgvsoAtj4q5NnbsBJQAZ7pC9s3XR4yh2sxboSQu+/zBENNdGfizhCPklgMW7/eSqL5Yd
+	0FcNIR7rMXAbjTfoOdaJ6MTOsuWD/SGzeaX5w1gyjGsLKA+D3zLEAmIFzanqjyflsU2lgVkmCwwgc
+	dG/lL9cABv5GCwZYvUkVljhcKvjOx8askZ5IvvvSP4eYctjsz2ba+O6YWPhkatjZfr/ebeB3fbiFK
+	QwNu2Yww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8TPa-000000019SB-2JJY;
-	Tue, 05 Nov 2024 23:56:38 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1t8U03-00000001D51-0vqz;
+	Wed, 06 Nov 2024 00:34:19 +0000
+Received: from mail-westcentralusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c112::] helo=CY4PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8TNl-0000000194I-22WZ
+	id 1t8TyK-00000001Cr8-0284
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Nov 2024 23:54:48 +0000
-Received: from epcas1p1.samsung.com (unknown [182.195.41.45])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20241105235437epoutp02d0983b927b38e3b6aba1de78c4989673~FN7PX0nhO0236102361epoutp02I
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 Nov 2024 23:54:37 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20241105235437epoutp02d0983b927b38e3b6aba1de78c4989673~FN7PX0nhO0236102361epoutp02I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1730850877;
-	bh=+0YNPE0BApDV8D9LH1clPl6cgfACiphUM10pWrK2zik=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=YfC6RSr8pMJqek4b1i0i0xbRWN+GOb7iJM38rdTZW/mxQD7N/6phrRq6feVzJI3cL
-	 OLA3lU62mSJSthnrJcvZ9nul2XmC851uBz9hYzxRZ0m7supKfF7X6K6IxATwk2poA4
-	 WVm90h6PlZrrVGSQJO0yaD60PPKrWevCgr8TIpSg=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241105235436epcas1p2e04590c97bfe779e87e873d4e4e1ad2a~FN7OgGF8K0460104601epcas1p24;
-	Tue,  5 Nov 2024 23:54:36 +0000 (GMT)
-Received: from epsmgec1p1-new.samsung.com (unknown [182.195.38.236]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4XjlYl3SDlz4x9Pt; Tue,  5 Nov
-	2024 23:54:35 +0000 (GMT)
-Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
-	epsmgec1p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	43.6E.19363.B30BA276; Wed,  6 Nov 2024 08:54:35 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241105235434epcas1p1069647697127465bc9f4dd832ee22271~FN7NKDP651947819478epcas1p1M;
-	Tue,  5 Nov 2024 23:54:34 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241105235434epsmtrp1aad7ef54cfaee17e5b54ac0a40f04a4f~FN7NIzozG2958329583epsmtrp1G;
-	Tue,  5 Nov 2024 23:54:34 +0000 (GMT)
-X-AuditID: b6c32a4c-02dff70000004ba3-50-672ab03be685
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	08.41.35203.A30BA276; Wed,  6 Nov 2024 08:54:34 +0900 (KST)
-Received: from inkidae001 (unknown [10.113.221.213]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20241105235434epsmtip17ee608fcfacf20d1619b46f6c0bdbf89~FN7M1kP6f3005730057epsmtip1h;
-	Tue,  5 Nov 2024 23:54:34 +0000 (GMT)
-From: =?UTF-8?B?64yA7J246riwL1RpemVuIFBsYXRmb3JtIExhYihTUikv7IK87ISx7KCE7J6Q?=
-	<inki.dae@samsung.com>
-To: "'Rob Herring'" <robh@kernel.org>
-Cc: "'Kaustabh Chakraborty'" <kauschluss@disroot.org>, "'Seung-Woo Kim'"
-	<sw0312.kim@samsung.com>, "'Kyungmin Park'" <kyungmin.park@samsung.com>,
-	"'David	Airlie'" <airlied@gmail.com>, "'Simona Vetter'" <simona@ffwll.ch>,
-	"'Krzysztof	Kozlowski'" <krzk@kernel.org>, "'Alim Akhtar'"
-	<alim.akhtar@samsung.com>, "'Maarten	Lankhorst'"
-	<maarten.lankhorst@linux.intel.com>, "'Maxime Ripard'" <mripard@kernel.org>,
-	"'Thomas Zimmermann'" <tzimmermann@suse.de>, "'Conor Dooley'"
-	<conor@kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-In-Reply-To: <CAL_JsqL62AvDEu3pmRLoV=2yFbHr_DfwsubtHbFS6cwXEhngHw@mail.gmail.com>
-Subject: RE: [PATCH 0/6] Samsung Exynos 7870 DECON driver support
-Date: Wed, 6 Nov 2024 08:54:34 +0900
-Message-ID: <000001db2fde$10bc1b50$323451f0$@samsung.com>
+	Wed, 06 Nov 2024 00:32:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pcCEuwnaqginx95X5UaFH4UcLe1sBgewVlirpna+B0C7NEKjMsvbeIONyZGcgDvar48Ngb2wRB14FQYlZIoE2hL7UW/b/9JSpFHzPeNBOTrSx3X/SgM1qWdH+5Y/9edtmWiVOd7Gma/2iME+hC4SdLtl1phjiHA3RN1j3gnjnMCZ3PQmIFYOyzaqm3AC31k2WmBin8nx4KvdTqaZKVrpROD+stVigiOEvygMKn6aX+djRB6NgYUjBnyhIZIg+0C6a/yta5MvFsP50yM8AzpuZ9YRRWpVIfPLoruCa2lpDzCA6g1aBXgzc2+obEDi5Zx6OdG59owBUrAWPlEiD+d65A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OonQ3n27GpTNyHLcyJNSYW94OP6gRJ62TNjw/KhLJZQ=;
+ b=qI2KLWsFs0QMeeGvEZcOb1nuhDglQbKi4naW8+eU7F4waTcIGCMaXmohLdghGebJb8RcNm30vit58rt2xhAFsOmbeHLO7IpbhcQFB7RSIa/dkkFdAnC6mpkOaye5OQXJmvJW21kczRrofiUU+O6CeS0mUEaYpfrRzzl3n72EMRB1Aqxe1byKhASg+ael1ytXRBgQyKTAZgRzME4f/VpjL8ZRuKJUWUL0FOfg8rY91jj1GOaXdZFWUUCNcAHA/07mHPIo7j/PfG8Wb3+hdRp0sTK5D2pusvPzcU/e+GGY7Y9X7BojklAMt/VFXoyo8+Q1Uf9oRC7ln/VCnf1iVgPAig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OonQ3n27GpTNyHLcyJNSYW94OP6gRJ62TNjw/KhLJZQ=;
+ b=Vo+bLEoI8uDRFYtVsAUJfipHdj6CRZyVT+LFqQnra5SDXSx92AyK+YKqEo+M+75iHDRUwNGTiBlEL0q6c5DMgSDiwIOG6arCZIaHnHy45m1LNzXBOCjP9/VVuAAvTRJ+SmR/gk0AoQ2Rj2LRtYhQLxFfxIs4uLlSicWVZpZYwGg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ SA1PR01MB6655.prod.exchangelabs.com (2603:10b6:806:1a3::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8137.19; Wed, 6 Nov 2024 00:32:25 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%3]) with mapi id 15.20.8137.018; Wed, 6 Nov 2024
+ 00:32:24 +0000
+Date: Tue, 5 Nov 2024 16:32:20 -0800 (PST)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: James Clark <james.clark@linaro.org>
+cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
+    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>, 
+    Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, 
+    Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, 
+    Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+    Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+    Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+    Adrian Hunter <adrian.hunter@intel.com>, 
+    "Liang, Kan" <kan.liang@linux.intel.com>, 
+    Graham Woodward <graham.woodward@arm.com>
+Subject: Re: [PATCH v2 2/2] perf arm-spe: Add support for SPE Data Source
+ packet on AmpereOne
+In-Reply-To: <ed15526d-9b1a-4204-92a3-4d319b03b790@linaro.org>
+Message-ID: <4c2aa7e9-8e4e-aa1a-9c0-23c62f6b15cd@os.amperecomputing.com>
+References: <20241031213533.11148-1-ilkka@os.amperecomputing.com> <20241031213533.11148-3-ilkka@os.amperecomputing.com> <ed15526d-9b1a-4204-92a3-4d319b03b790@linaro.org>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+X-ClientProxiedBy: MW4PR02CA0004.namprd02.prod.outlook.com
+ (2603:10b6:303:16d::19) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: ko
-Thread-Index: AQETcOy7JkGSF7VbGFg+ao1ZCztJewFhWZRKAdSMimcCXGuBibQMRcpA
-X-Brightmail-Tracker: H4sIAAAAAAAAA01TfUxTVxzNfW1fW0zZa2HZTWcYPHGGbnxUKHswSubGyNskS43GOMeGL+Wt
-	EKCt/ZAhyewYVFEnIhqg8uEHVEQCplREViRDJyB2ldmMZRkbrDAHIgsl4KqMreXhxn/nd3LO
-	O79z7308lmgSFfNy1QZap6bycTSI3XUrKjb6zasSVVyNL5QYHL2AEOMNXShx+UwrSjTe/o5D
-	uBf/RInlFRdKuFxXuYSzZJZL2Dw/cIgHPXUoUeO6iRDn56+xCXO5lUP84+jmEmfn+rhETdU0
-	SthnKzlvCcmh9k6E7F06xyZvWMa4pK21HCUbhnaQvx4bQMjOpkPkCXsrIDuHi8kFW5giaG9e
-	Sg5NZdO6cFqt1GTnqlVyfPvOrHeyZIlx0mhpEvEGHq6mCmg5npahiE7PzffXwcMPUPlGP6Wg
-	9Ho8NjVFpzEa6PAcjd4gx2ltdr5Wpo3RUwV6o1oVo6YNydK4uK0yv3BfXo5veBzVNkk+m7x3
-	CZjAF1FHAZ8HsQR4YaSPfRQE8USYA8CH170oM3gBbCm1cgMqEbYEoPPwhueOifu9XEbUC+Bf
-	y5fXhmkAy9wjrIAKxVRw7JgJCeBQbDMssYyvZrAwKwdOLwyufpaP7YDVtydWDSHYNrhyow4E
-	MBuLhB6n278HjyfAkqCnIihACzAhHKqdZAcwC3sNWs8/YjEbhUPflJXD8KHwbLmZxeSmw5lS
-	HwjkQuwwH7q8M4AxpMH6lk6UwSFwZsDOZbAYTleYuYyhCsCfR1vYzFAD4C3f6Jo7HvY1VyGB
-	7VhYFOzoiWWSg+Hc4nFOgIaYAB4xixg1Du+M/LjmhPB+UyXKSEj4Va3xJIiwrKtmWVfNsq6O
-	5f+sc4DdCsS0Vl+gopVSrTRaTRf+d+NKTYENrD53SUY3eNLxd0w/QHigH0AeCw8VNNBbVCJB
-	NlV0kNZpsnTGfFrfD2T+865kiV9Uavz/i9qQJU1IiktI3BqfQEgTpfhLgnvuA7QIU1EGOo+m
-	tbTuuQ/h8cUmZGPyourVyIGHgpJtl5avN5v/CI3odjwrPsgLm5cWByePlex7t/bm1PsVe0/V
-	3c19+0r6xY17Yk4u1NuHv/x4/MNDhUXLqsjc1FdGU7fUinuqFufu7m901zdrG09PTCj5KTUv
-	yzrk3cH72yRm07fTE2kYJ1P++PchxwZvYapzN+I1bxI6TZua7jxJ+yapun3qyNLOTx8VNZ8Y
-	eVAqr3j2edc1+rfuOkdtJjez7WvJ5oanOj5CTSqET0XCjJmQCM8v/e0vZKCe2e8lrZUf/JSV
-	vXIcjMY3dIzMP6ZMHcYyxXb+GUJmtPWfTmsz6pyfuN4rUzsmw+yDvmSjrXrX67s/umKFe3C2
-	PoeSSlg6PfUvhSPdYHcEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrFIsWRmVeSWpSXmKPExsWy7bCSnK7VBq10g6s3TSxOXF/EZPFg3jY2
-	i5VTV7FZzD9yjtXiytf3bBZ//p1nszh/fgO7xdmmN+wWmx5fY7W4vGsOm8WM8/uYLBZ+3Mpi
-	0da5jNXi/54d7Baz3+1nt5gx+SWbxZY3E1kdBD1OrtvM5LH32wIWj52z7rJ7bFrVyeYx72Sg
-	x/3u40wem5fUe/RtWcXosfl0tcfnTXIBXFFcNimpOZllqUX6dglcGSvW/mcp2CdXcW/nYpYG
-	xk7JLkZODgkBE4mHF/aydzFycQgJ7GaUWNO4jqWLkQMoISGxZSsHhCkscfhwMUTJc0aJ32dW
-	sID0sgmkStz49JEdxBYRUJVomvWABaSIWWATq8Tp9nYmiI5OJokrH18xglRxCgRKTD/ykBnE
-	FhZwlPi3cw5YnEVAReLx2StsINt4BSwlHvdzgYR5BQQlTs58AraMWUBbovdhKyOMvWzha2aI
-	BxQkfj5dxgoRF5GY3dnGDHGQm8Srlp+MExiFZyEZNQvJqFlIRs1C0r6AkWUVo2RqQXFuem6x
-	YYFhXmq5XnFibnFpXrpecn7uJkZwdGtp7mDcvuqD3iFGJg7GQ4wSHMxKIrzzUtXThXhTEiur
-	Uovy44tKc1KLDzFKc7AoifOKv+hNERJITyxJzU5NLUgtgskycXBKNTDN3f1l2t0TW+Zqnplx
-	+HfJqqANv7rn1E+x0zyysnCL1Ale8yQupkJb2yc2bx8c4758LvBo+LVPmUJtS0z0S6Mm9S+J
-	tlA5vaT4L29e3O1OywW7XNpL53yewqkdYDF3IY9HfGGX6ZnT+sf5PR3XiKxiv6KsUWrc0ypZ
-	sZBnRVVk923ZRboH7Xd/61RlYu/3WM+c9l+/6LHB/fMnbRq4UiNnTnn3Wjh3xjSVct348AvT
-	3u9m0p3Xf5B/mlZykWTcJSdGXXX/aSWWfA5bLLjky8WT0tT43i/ZonZrtd7JB5XJYrO2vW29
-	rtCt+Mbjw9/mliMWtzK+h9vvfsswafXnAC7NbdOTflf+39X18YDuayklluKMREMt5qLiRACh
-	MxUQXQMAAA==
-X-CMS-MailID: 20241105235434epcas1p1069647697127465bc9f4dd832ee22271
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20240919151130epcas1p10a885b3364250f5ff4e06975cfef13e4
-References: <CGME20240919151130epcas1p10a885b3364250f5ff4e06975cfef13e4@epcas1p1.samsung.com>
-	<20240919-exynosdrm-decon-v1-0-6c5861c1cb04@disroot.org>
-	<000001db2c1c$12e86c50$38b944f0$@samsung.com>
-	<CAL_JsqL62AvDEu3pmRLoV=2yFbHr_DfwsubtHbFS6cwXEhngHw@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|SA1PR01MB6655:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5102dbc1-7763-4604-fcf1-08dcfdfa7bcb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RgOYK6/UjwkdJh3DzLtOAb6Oyb9TDzwzoq/NFSrO9rc+ZpC0UYJzRzzfaY4W?=
+ =?us-ascii?Q?TXvcIf85Ro7jl+C+Igx2By1moPEkDKRQkic5CYrZG+qluvkKPWdtDDAQjhlX?=
+ =?us-ascii?Q?82UjYri7hZqkgTIx0v2GxAf+Vq1MgUBCt0LGSawfzQNXFalOl/E2VTu8nUsa?=
+ =?us-ascii?Q?Ur/tIJb1YIqerljOWu1AEpCO3x0oNMTM0TuKW/HqoT4348h1qJ8bje6+r+NE?=
+ =?us-ascii?Q?YJ0miXOyZNc7/HzXQXz5U4USf/l2gzO7U+lDDNt5YBrmclOpKbMURFzfyIWG?=
+ =?us-ascii?Q?zl7sGc6rTW6bZViI4DPvk82IZWzJ97d/UwRtG3YFzyf/+Tf83Nw4spE+RCRO?=
+ =?us-ascii?Q?T7Uafvsl21aa2tkak3I/V03OQWr5srZzWmfZTQMddrt4FDE5oQtKVz+7OliI?=
+ =?us-ascii?Q?lwY8yPftXaDgab2czTl4NKVFXNXTYh/Rq5yt0aRmZUktM3cxowBrsSBTP6OH?=
+ =?us-ascii?Q?+tZGTA0zgeNxEOOInnfAV0vB0xgVpj0puueOVet+fP1v4FZ7/Q3evMeurlRx?=
+ =?us-ascii?Q?ov6/hygHfHDdMHaNPN7Jhnq071C7pIw1vbWYAA5Sa/J+ydairJ9wxxT4xcSb?=
+ =?us-ascii?Q?Qlt05KGn+uk6ygeKYb72FkNaw6yfdyj5JHl+EFMFKckj8/2iKw7fjyB0Zf2S?=
+ =?us-ascii?Q?LtbMS779VyaWkS6PLIV2CXkpBEPBGcJsxx2RKqpSADFMbZly4W1EwoBqVTkE?=
+ =?us-ascii?Q?dCsSqIj0T7yKGjYshkR9op70dGqsLmlmuCJ6Sjlicu9m9JXfQyzx5cs4gDso?=
+ =?us-ascii?Q?ZWKSOfCfXKRkTh8Vs8oGzrgXwQAMaJtiYyrdzZO48QplnMaxGcepI1q5xaYp?=
+ =?us-ascii?Q?3m/kpmVyZYpQiMOGhkojkcfPO72GMho98NEI02W/KUFIYrKKT4XUTKVU8Jz0?=
+ =?us-ascii?Q?A9HoLBK//9aKVpYu/ne6w6J68yyf4LYlm+ON+ULS2/zOOXSoBG1JUHIkGi2j?=
+ =?us-ascii?Q?pYDJ8hweZF1SCKbYzxJhrhIQZTIjkGKJGGwhqi/9k2iYHcbd6jB9ExXWF41O?=
+ =?us-ascii?Q?Nc/6ZCxiWgTZODPl4EH234ckV24P+naxR8727vrppryL57NSfUpLNb/bG9JJ?=
+ =?us-ascii?Q?FjwcEgAxKXYtwtzjrkflfsmnPEOgItJOEiAbu8Eb6oAX0rWXRiX3tCy2WeT1?=
+ =?us-ascii?Q?9CHUxtfh/nQ1RqsRSnzxysCNOm0s/qkbSnQgvQAOoFmYaEZrWfzXentU29lq?=
+ =?us-ascii?Q?XmpLaAezacPtNxhPcn4DWYpfyoqpKciaFMaS/N+NyKVoS+C5G6/3USwCO3OV?=
+ =?us-ascii?Q?AydGv84d3eGQ/NxTAyTHeABpykfeeORK0jGhbulFFka0XcmlLs1YobzR7VKh?=
+ =?us-ascii?Q?MgbKzWwEGBcsOMGilfp82CFiXRT0AHX86yoU4X0MZpIDVYdaB5xABLT4jNHf?=
+ =?us-ascii?Q?gwBDX8s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nNZhg/7xiSa1dDpAm4tO7y+lC/AbCSktbk452dKp/gAXRRBpnQbatLqSsY7/?=
+ =?us-ascii?Q?cMGIsU3HD9y6RBwdFZE894JfPuI0sG4Uhh7noJs28M6SZ4To7HhfZOdFf4iF?=
+ =?us-ascii?Q?lB0+v4qShxIPEEtcunV6Zge83aXeNdTM2482dxUkS8YSORWfDE5jxr5jvJwe?=
+ =?us-ascii?Q?4Th6MZ2GLft+RGWE5P2Qq8seb5KHen1g/q/UlCweBgJdIiKgLJWRrim73/Hv?=
+ =?us-ascii?Q?R/T5RSTCx/anrKBGVKYodXbgwHj60AZl8R7rLdUsPVILvA3TsB3W2NOKndcg?=
+ =?us-ascii?Q?AzbZi7RtDwOGleWyIfXOfX4QB7PKsWmJBjF+srWEZX4/RH20/CSyLFt9zpmQ?=
+ =?us-ascii?Q?tiyuj8uQadIEgfcp9GBAFVi7mcEU1ntgl35u8S6+ffM9ZwFQ+Xg4lVCeyBXK?=
+ =?us-ascii?Q?XIVJSTMdGG1VD4U1dH9DBY2kR9i33iqlj4E+Mxp8Oumj9URijtoARlIKflvR?=
+ =?us-ascii?Q?Vh3MgAKEPhiOy3dSXRlBdMxSZWn6D3U/QEXxh0Gy97a5XfMpXIKIsDYALPBT?=
+ =?us-ascii?Q?AJCUoRRZb9Luv8AuRhkVqDYe7lrKZUQfrE6GVDZWkmlIj2vsNg9hs1pHJUDq?=
+ =?us-ascii?Q?x3cEDwLHgeH1bFH606my1wqNbZ/kFgE+3ANTvFfcdxJQ3lzZs4Sl2Vp76dZi?=
+ =?us-ascii?Q?GasCskUmHI6rtNPxY88fn17RTxQeSdJAz4AgePD729IrC1Srjmxq4W0eYxIJ?=
+ =?us-ascii?Q?hei8GCDumhiSIX1nYrpQw5GCAnUYbS6C5kL1xvbJCdd8CPRNjaYzT6cdIVIa?=
+ =?us-ascii?Q?6Vanlz4L/kBec5kCxJHNlBpKYLp/FGJUcW3wNPCk8GOiKxYUXpeNJyPLuDiC?=
+ =?us-ascii?Q?j4nfWOboTg3XVySjlxq95wHXyODTZLfiFA4yiZ21TsMiF7fFYvnb2ep6Qh5o?=
+ =?us-ascii?Q?3fjXBLYmz0q3bqi3D4hAZ9zxvzt3/JUIzo/Va190/ZoWvsyVsGKeNM/vzCJs?=
+ =?us-ascii?Q?qYn1PtlcPdyNnsINBP58Z503Ug8Nl/E3qwpRb56aV3EoavcHevyKirG+Q0AE?=
+ =?us-ascii?Q?ph6lkbZ10XLIKHe6BUwz8UrNS4GRQyiFDxlYDLV0U9lv7qFt60yV8/Cvvu6C?=
+ =?us-ascii?Q?S7/LD51ljJAoUnQ3lwY/mDIsDaUECljMcKxBF3y+WMZDUbwHFr3JEN6MTIdw?=
+ =?us-ascii?Q?35jCBo1Qctzo59VDpxb1DeVptP19njNgRmKqUhGaJA9DZZXGzMDRr2d6+UXf?=
+ =?us-ascii?Q?2XnpWofm0uTTkl93WZF+9aHJPgHo3+3OIr27UCOclg8VxNTIC8anyz6iY1Hd?=
+ =?us-ascii?Q?PynrRXM1z7kt7FlFog7fg0e5gxJ3PJnjxqCJ8tThXXhs8x5fXH/E3UF9Znzo?=
+ =?us-ascii?Q?kkM0yODtfR+EUmwjfemBDto+PVQl1oOVoau/d3/wGKlUe5OGWgFXhsuHUyr/?=
+ =?us-ascii?Q?OKBMLOcIoYawteD4909ytjhZm0TB/cv2X3CN/9q5aNIPrbXHdAmylU7T00dq?=
+ =?us-ascii?Q?zSaZ3NRfNvF6MsQctAr2scd71gItuqQjejFDfG0kRJ4/eZ6LilI7/X7gpHb/?=
+ =?us-ascii?Q?mX572Fb4J7OT82you/+/L+d4ClEjk2iLo3EJqltf7KWxS/yumOUsNDM2XElQ?=
+ =?us-ascii?Q?pBU39cIwwObudJ3kALwB16+nMrAEyXbLvz5fjy8skoldLHmYKkYi4arjEZHJ?=
+ =?us-ascii?Q?crMnfwHp/KYPSnZhpODm4gI=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5102dbc1-7763-4604-fcf1-08dcfdfa7bcb
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2024 00:32:24.1557
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aVYvZGgaUuvqEVe7q10ghgPSXh7cVRAj5tly+iIPgNxLoz144sRa+/BGePWdMN/F78egqrIugB478N9eA+m3RH8BsIEao8yi9Wx84BwG7/jCYEuQZEv5WAZuozPradKL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6655
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_155445_886498_ED271AF7 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20241105_163232_146123_62C285AA 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,77 +166,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob Herring,
 
-> -----Original Message-----
-> From: Rob Herring <robh=40kernel.org>
-> Sent: Wednesday, November 6, 2024 5:11 AM
-> To: =EB=8C=80=EC=9D=B8=EA=B8=B0/Tizen=20Platform=20Lab(SR)/=EC=82=BC=EC=
-=84=B1=EC=A0=84=EC=9E=90=20<inki.dae=40samsung.com>=0D=0A>=20Cc:=20Kaustabh=
-=20Chakraborty=20<kauschluss=40disroot.org>;=20Seung-Woo=20Kim=0D=0A>=20<sw=
-0312.kim=40samsung.com>;=20Kyungmin=20Park=20<kyungmin.park=40samsung.com>;=
-=20David=0D=0A>=20Airlie=20<airlied=40gmail.com>;=20Simona=20Vetter=20<simo=
-na=40ffwll.ch>;=20Krzysztof=0D=0A>=20Kozlowski=20<krzk=40kernel.org>;=20Ali=
-m=20Akhtar=20<alim.akhtar=40samsung.com>;=0D=0A>=20Maarten=20Lankhorst=20<m=
-aarten.lankhorst=40linux.intel.com>;=20Maxime=20Ripard=0D=0A>=20<mripard=40=
-kernel.org>;=20Thomas=20Zimmermann=20<tzimmermann=40suse.de>;=20Conor=0D=0A=
->=20Dooley=20<conor=40kernel.org>;=20dri-devel=40lists.freedesktop.org;=20l=
-inux-arm-=0D=0A>=20kernel=40lists.infradead.org;=20linux-samsung-soc=40vger=
-.kernel.org;=20linux-=0D=0A>=20kernel=40vger.kernel.org;=20devicetree=40vge=
-r.kernel.org=0D=0A>=20Subject:=20Re:=20=5BPATCH=200/6=5D=20Samsung=20Exynos=
-=207870=20DECON=20driver=20support=0D=0A>=20=0D=0A>=20On=20Fri,=20Nov=201,=
-=202024=20at=2012:08=E2=80=AFAM=20=EB=8C=80=EC=9D=B8=EA=B8=B0/Tizen=20Platf=
-orm=20Lab(SR)/=EC=82=BC=EC=84=B1=EC=A0=84=EC=9E=90=0D=0A>=20<inki.dae=40sam=
-sung.com>=20wrote:=0D=0A>=20>=0D=0A>=20>=20Hi=20Kaustabh=20Chakraborty,=0D=
-=0A>=20>=0D=0A>=20>=20Sorry=20for=20late.=0D=0A>=20>=0D=0A>=20>=20>=20-----=
-Original=20Message-----=0D=0A>=20>=20>=20From:=20Kaustabh=20Chakraborty=20<=
-kauschluss=40disroot.org>=0D=0A>=20>=20>=20Sent:=20Friday,=20September=2020=
-,=202024=2012:11=20AM=0D=0A>=20>=20>=20To:=20Inki=20Dae=20<inki.dae=40samsu=
-ng.com>;=20Seung-Woo=20Kim=0D=0A>=20>=20>=20<sw0312.kim=40samsung.com>;=20K=
-yungmin=20Park=20<kyungmin.park=40samsung.com>;=0D=0A>=20David=0D=0A>=20>=
-=20>=20Airlie=20<airlied=40gmail.com>;=20Simona=20Vetter=20<simona=40ffwll.=
-ch>;=20Krzysztof=0D=0A>=20>=20>=20Kozlowski=20<krzk=40kernel.org>;=20Alim=
-=20Akhtar=20<alim.akhtar=40samsung.com>;=0D=0A>=20>=20>=20Maarten=20Lankhor=
-st=20<maarten.lankhorst=40linux.intel.com>;=20Maxime=20Ripard=0D=0A>=20>=20=
->=20<mripard=40kernel.org>;=20Thomas=20Zimmermann=20<tzimmermann=40suse.de>=
-;=20Rob=0D=0A>=20Herring=0D=0A>=20>=20>=20<robh=40kernel.org>;=20Conor=20Do=
-oley=20<conor=40kernel.org>=0D=0A>=20>=20>=20Cc:=20dri-devel=40lists.freede=
-sktop.org;=20linux-arm-=0D=0A>=20kernel=40lists.infradead.org;=0D=0A>=20>=
-=20>=20linux-samsung-soc=40vger.kernel.org;=20linux-kernel=40vger.kernel.or=
-g;=0D=0A>=20>=20>=20devicetree=40vger.kernel.org;=20Kaustabh=20Chakraborty=
-=0D=0A>=20<kauschluss=40disroot.org>=0D=0A>=20>=20>=20Subject:=20=5BPATCH=
-=200/6=5D=20Samsung=20Exynos=207870=20DECON=20driver=20support=0D=0A>=20>=
-=20>=0D=0A>=20>=20>=20This=20patch=20series=20aims=20at=20adding=20support=
-=20for=20Exynos7870's=20DECON=20in=20the=0D=0A>=20>=20>=20Exynos7=20DECON=
-=20driver.=20It=20introduces=20a=20driver=20data=20struct=20so=20that=0D=0A=
->=20support=0D=0A>=20>=20>=20for=20DECON=20on=20other=20SoCs=20can=20be=20a=
-dded=20to=20it=20in=20the=20future.=0D=0A>=20>=20>=0D=0A>=20>=20>=20It=20al=
-so=20fixes=20a=20few=20bugs=20in=20the=20driver,=20such=20as=20functions=20=
-recieving=0D=0A>=20bad=0D=0A>=20>=20>=20pointers.=0D=0A>=20>=20>=0D=0A>=20>=
-=20>=20Tested=20on=20Samsung=20Galaxy=20J7=20Prime=20and=20Samsung=20Galaxy=
-=20A2=20Core.=0D=0A>=20>=20>=0D=0A>=20>=20>=20Signed-off-by:=20Kaustabh=20C=
-hakraborty=20<kauschluss=40disroot.org>=0D=0A>=20>=20>=20---=0D=0A>=20>=20>=
-=20Kaustabh=20Chakraborty=20(6):=0D=0A>=20>=20>=20=20=20=20=20=20=20drm/exy=
-nos:=20exynos7_drm_decon:=20fix=20uninitialized=20crtc=20reference=0D=0A>=
-=20in=0D=0A>=20>=20>=20functions=0D=0A>=20>=20>=20=20=20=20=20=20=20drm/exy=
-nos:=20exynos7_drm_decon:=20fix=20suspended=20condition=20in=0D=0A>=20>=20>=
-=20decon_commit()=0D=0A>=20>=20>=20=20=20=20=20=20=20drm/exynos:=20exynos7_=
-drm_decon:=20fix=20ideal_clk=20by=20converting=20it=20to=0D=0A>=20Hz=0D=0A>=
-=20>=20>=20=20=20=20=20=20=20drm/exynos:=20exynos7_drm_decon:=20properly=20=
-clear=20channels=20during=0D=0A>=20bind=0D=0A>=20>=20>=20=20=20=20=20=20=20=
-drm/exynos:=20exynos7_drm_decon:=20add=20driver=20data=20and=20support=20fo=
-r=0D=0A>=20>=20>=20Exynos7870=0D=0A>=20>=20>=20=20=20=20=20=20=20dt-binding=
-s:=20display:=20samsung,exynos7-decon:=20add=20exynos7870=0D=0A>=20>=20>=20=
-compatible=0D=0A>=20>=0D=0A>=20>=20I=20will=20apply=20all=20except=20for=20=
-the=20two=20patches=20below,=0D=0A>=20>=20=5BPATCH=202/6=5D=20drm/exynos:=
-=20exynos7_drm_decon:=20fix=20suspended=20condition=20in=0D=0A>=20decon_com=
-mit()=0D=0A>=20>=20=5BPATCH=206/6=5D=20dt-bindings:=20display:=20samsung,ex=
-ynos7-decon:=20add=20exynos7870=0D=0A>=20compatible=0D=0A>=20=0D=0A>=20Now=
-=20we=20have=20a=20warning=20in=20linux-next=20that=20samsung,exynos7870-de=
-con=20is=0D=0A>=20not=20documented.=0D=0A>=20=0D=0A>=20Please=20apply=20the=
-=20binding=20patch.=20Or=20let=20me=20know=20if=20it=20missed=206.13=20for=
-=0D=0A>=20DRM=20tree=20and=20I'll=20apply=20it.=0D=0A>=20=0D=0A=0D=0AAh...=
-=20sorry=20for=20this.=20I=20didn't=20check=20the=20warning.=20Will=20apply=
-=20the=20binding=20patch.=20I=20was=20awaiting=20the=20submission=20of=20DT=
-S.=0D=0A=0D=0AThanks,=0D=0AInki=20Dae=0D=0A=0D=0A>=20Rob=0D=0A=0D=0A=0D=0A
+Hi James,
+
+On Mon, 4 Nov 2024, James Clark wrote:
+> On 31/10/2024 9:35 pm, Ilkka Koskinen wrote:
+>> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
+>> 
+>> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+>> ---
+>>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++
+>>   tools/perf/util/arm-spe.c                     | 65 +++++++++++++++++++
+>>   2 files changed, 74 insertions(+)
+>> 
+>> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h 
+>> b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> index 358c611eeddb..4bcd627e859f 100644
+>> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+>> @@ -67,6 +67,15 @@ enum arm_spe_common_data_source {
+>>   	ARM_SPE_COMMON_DS_DRAM		= 0xe,
+>>   };
+>>   +enum arm_spe_ampereone_data_source {
+>> +	ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE    = 0x0,
+>> +	ARM_SPE_AMPEREONE_SLC                           = 0x3,
+>> +	ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE             = 0x5,
+>> +	ARM_SPE_AMPEREONE_DDR                           = 0x7,
+>> +	ARM_SPE_AMPEREONE_L1D                           = 0x8,
+>> +	ARM_SPE_AMPEREONE_L2D                           = 0x9,
+>> +};
+>> +
+>>   struct arm_spe_record {
+>>   	enum arm_spe_sample_type type;
+>>   	int err;
+>> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+>> index 9586416be30a..700d4bc8d8ec 100644
+>> --- a/tools/perf/util/arm-spe.c
+>> +++ b/tools/perf/util/arm-spe.c
+>> @@ -103,6 +103,30 @@ struct arm_spe_queue {
+>>   	u32				flags;
+>>   };
+>>   +struct arm_spe_source_mapping {
+>> +	u16 source;
+>> +	enum arm_spe_common_data_source common_src;
+>> +};
+>> +
+>> +#define MAP_SOURCE(src, common)				\
+>> +	{						\
+>> +		.source = ARM_SPE_##src,		\
+>> +		.common_src = ARM_SPE_COMMON_##common,  \
+>> +	}
+>> +
+>> +static int arm_spe__map_to_common_source(u16 source,
+>> +					 struct arm_spe_source_mapping *tbl,
+>> +					 int nr_sources)
+>> +{
+>> +	while (nr_sources--) {
+>> +		if (tbl->source == source)
+>> +			return tbl->common_src;
+>> +		tbl++;
+>> +	}
+>> +
+>
+> Hi Ilkka,
+>
+> I think a simple switch statement here would be easier to follow than the 
+> loop, custom macro and then having the mappings in some other place:
+>
+> switch(source)
+> case 0x0: /* AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE */
+>  return DS_PEER_CORE;
+>
+> etc...
+>
+>> +	return -1;
+>
+> And the default case can return 0xfff directly, which avoids the if else 
+> later only to convert this -1 back into 0xfff.
+
+I can surely do that.
+
+
+>
+>> +}
+>> +
+>>   static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
+>>   			 unsigned char *buf, size_t len)
+>>   {
+>> @@ -443,6 +467,11 @@ static const struct midr_range 
+>> common_ds_encoding_cpus[] = {
+>>   	{},
+>>   };
+>>   +static const struct midr_range ampereone_ds_encoding_cpus[] = {
+>> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+>> +	{},
+>> +};
+>> +
+>>   static void arm_spe__sample_flags(struct arm_spe_queue *speq)
+>>   {
+>>   	const struct arm_spe_record *record = &speq->decoder->record;
+>> @@ -532,6 +561,38 @@ static void arm_spe__synth_data_source_common(const 
+>> struct arm_spe_record *recor
+>>   	}
+>>   }
+>>   +static struct arm_spe_source_mapping ampereone_sources[] = {
+>> +	MAP_SOURCE(AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE, DS_PEER_CORE),
+>> +	MAP_SOURCE(AMPEREONE_SLC, DS_SYS_CACHE),
+>> +	MAP_SOURCE(AMPEREONE_REMOTE_CHIP_CACHE, DS_REMOTE),
+>> +	MAP_SOURCE(AMPEREONE_DDR, DS_DRAM),
+>> +	MAP_SOURCE(AMPEREONE_L1D, DS_L1D),
+>> +	MAP_SOURCE(AMPEREONE_L2D, DS_L2),
+>> +};
+>> +
+>> +/*
+>> + * Source is IMPDEF. Here we convert the source code used on AmpereOne 
+>> cores
+>> + * to the common (Neoverse, Cortex) to avoid duplicating the decoding 
+>> code.
+>> + */
+>> +static void arm_spe__synth_data_source_ampereone(const struct 
+>> arm_spe_record *record,
+>> +						 union perf_mem_data_src 
+>> *data_src)
+>> +{
+>> +	int common_src;
+>> +	struct arm_spe_record common_record;
+>> +
+>> +	common_src = arm_spe__map_to_common_source(record->source,
+>> +						   ampereone_sources,
+>> + 
+>> ARRAY_SIZE(ampereone_sources));
+>> +	if (common_src < 0)
+>> +		 /* Assign a bogus value that's not used for common coding */
+>> +		common_record.source = 0xfff;
+>> +	else
+>> +		common_record.source = common_src;
+>> +
+>> +	common_record.op = record->op;
+>> +	arm_spe__synth_data_source_common(&common_record, data_src);
+>> +}
+>> +
+>>   static void arm_spe__synth_memory_level(const struct arm_spe_record 
+>> *record,
+>>   					union perf_mem_data_src *data_src)
+>>   {
+>> @@ -606,6 +667,8 @@ static u64 arm_spe__synth_data_source(struct 
+>> arm_spe_queue *speq,
+>>   	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
+>>   	bool is_common = arm_spe__is_ds_encoding_supported(speq,
+>>   						common_ds_encoding_cpus);
+>> +	bool is_ampereone = arm_spe__is_ds_encoding_supported(speq,
+>> +						ampereone_ds_encoding_cpus);
+>
+> I know this probably already works, but we don't really need is_common 
+> is_ampere etc, it will only grow anyway. All we need is a list of midrs and 
+> function pairs. That also avoids doing is_ampereone even after we already 
+> know is_common == true.
+>
+> static const struct data_src[] = {
+> ...
+> 	DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2), common_ds),
+> 	DS(MIDR_ALL_VERSIONS(MIDR_AMPERE1A), ampere_ds),
+> 	{},
+> ...
+> };
+>
+> "arm_spe__is_ds_encoding_supported" then becomes a direct call to 
+> "arm_spe__synth_ds" and we can drop the is_ampereone and is_common vars. Then 
+> adding new ones doesn't require changing the function anymore.
+
+To be honest, I'm not a big fan of the is_xyz() thing but I just didn't 
+want to change it. Anyway, I'll change it for the next version.
+
+Cheers, Ilkka
+
+
+>
+>>     	if (record->op & ARM_SPE_OP_LD)
+>>   		data_src.mem_op = PERF_MEM_OP_LOAD;
+>> @@ -616,6 +679,8 @@ static u64 arm_spe__synth_data_source(struct 
+>> arm_spe_queue *speq,
+>>     	if (is_common)
+>>   		arm_spe__synth_data_source_common(record, &data_src);
+>> +	else if (is_ampereone)
+>> +		arm_spe__synth_data_source_ampereone(record, &data_src);
+>>   	else
+>>   		arm_spe__synth_memory_level(record, &data_src);
+>> 
+>
+>
 
