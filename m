@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA86D44D54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45147D44D57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7GJ5E8z9IAG02tIa6zRu8hniKsaqoJVZeW93ACvhTNk=; b=Q+SSJF25cHzSgHw+9mGeB6K28X
-	kOvXZ7DTM0heINjvUe8r5DAMCLCCE6/rJU+kBzxpNVAND5TvmS6SW27dBQ3/R663ltjjWXaSwJEPc
-	+q7NWHQuwKD28s8yoMnKr6WxCL0D+ZrOFzcHbBvWKht+0AY9cFTTyKKCuk44fGefFoa1EIwFdUuIk
-	e+KfC/THti56yaUjq/s9WeglDb/khc0WdWghUHK4lWvWe7JcZgZh4gBc8gT3Pt2P6Nd1k2pj/blnX
-	Qo5yR+olcSr1s7SrKZHpWLDK2mZ8pnRCc06tjWGrvVDEy7o/bWEq6x5Ibbqgc54XIk3YCARLtinvo
-	gtH3pQvg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BlLMQyMstC3sPzt2Orx206ooiIEP56wl/WvG5xtdvMo=; b=wvcHtXXu1tweMUzlfxY1HIsaxT
+	aoQqWeDSGy4A8BiSLm4LFM8z54OuugY1zsEAhTUj+T189aI/U3KN0MqnJQ/5aaxzeNQGYK+X+EqxT
+	qaboCRcNO9Y1npKwSB0VcOeL6jUPxEZuqANbf0dDZdf49QeskJuRtqdQgknRgZiI/H517hIlrg45i
+	LeRdnpchNhK+q/M6YXDVgZDbHgmFDnt/s9uTX9FOic8BgZKIIuByNXDBQuN17X27LC+1qX4USXZlM
+	1TX0/yZ5hMpCmy0+7hTOpU3wrn5zRpTPGBzWhroI/bFTqG6o1PiIiBGfSotijSYabFlEsTlurJ277
+	9g/hAOHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fL0-00000003G8y-4Aiu;
-	Wed, 06 Nov 2024 12:40:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1t8fMl-00000003Ggj-0x9X;
+	Wed, 06 Nov 2024 12:42:31 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fBq-00000003CWW-2nKe;
-	Wed, 06 Nov 2024 12:31:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730896273;
-	bh=A90cgTlUFFZc5KiS7CX3bzI9MZt05fj3oUZ7b1bgZxA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NyTq7xisbYlabWUUc2K6qfI2wmbfSFW3KysBoZPNfPboGrQNmJk9AZRBVzMofpnYg
-	 FuK93OA5HA3VEPgysk6Gu7wOzc3tmnUnEcT+H7PKR+iBYtrD6e7a0Tp8U9gZSUBEdD
-	 f3/YBkGJPcL4P2dK+wbxFuWgEK2UHpmC3dI7Z4AmYFMmvAorQfSO4CwVFMXJkqpq/C
-	 /cbJOc1ufSCCmMDFSUlexp6/LXd3m5iAuGki2yHxGWsPAhOLzj0LCt6WGQmEGRev5z
-	 rkqxrbszgEAji/rmNeIqa8CJx4nCD51II/TI29DicPLOy550PMnsul9qLff86pwgkv
-	 FvU6E7Vvb6VIQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7A7817E3629;
-	Wed,  6 Nov 2024 13:31:12 +0100 (CET)
-Message-ID: <2bd7a02d-c5bc-4926-8aee-0eed6eb490a2@collabora.com>
-Date: Wed, 6 Nov 2024 13:31:12 +0100
+	id 1t8fFD-00000003CwY-2aG3;
+	Wed, 06 Nov 2024 12:34:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=BlLMQyMstC3sPzt2Orx206ooiIEP56wl/WvG5xtdvMo=; b=hjjTrm4by7oyiQBvyo7Mq2PDbK
+	xbaWxAiWSQwaJGqmjdBdlmUWJCxU8EbarhB5EgnY8EbDbkWYBQCdnriCAE0CcEOLpHOWAeX/ffdNw
+	HYf1utXEMnqQ7bagVLYXN96FN476pL8qH6czOYRrT19LggAQo7XZF3pRgD136m1SMo8p4CfhGVE0H
+	DjHb6S0+s/c1eBw1X5Y+3PKA08RYs8DSR2ru5D4GYMi7YCgyVLXPWhSfPvgfpK+MFgrkvYCEqD137
+	RR6XJ2zscKhA5KzdVPTEtQjUcKj77kBQx3UKDyYfV2Gi+8xNOhMkM+pPivCXtG8EkR0IYgbeNRuny
+	erL/vVjg==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t8fEn-00076s-MJ; Wed, 06 Nov 2024 13:34:17 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de
+Subject: [PATCH 0/3] drm/rockchip: Add driver for the new DSI2 controller
+Date: Wed,  6 Nov 2024 13:33:01 +0100
+Message-ID: <20241106123304.422854-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] watchdog: mediatek: Fix mtk_wdt_restart
-To: Yassine Oudjana <y.oudjana@protonmail.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241106104738.195968-1-y.oudjana@protonmail.com>
- <20241106104738.195968-2-y.oudjana@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241106104738.195968-2-y.oudjana@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_043114_906670_F610CDDF 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20241106_043443_924215_AAD261A6 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 06/11/24 11:47, Yassine Oudjana ha scritto:
-> Clear the IRQ enable bit of WDT_MODE before asserting software reset
-> in order to make TOPRGU issue a system reset signal instead of an IRQ.
-> 
-> Fixes: a44a45536f7b ("watchdog: Add driver for Mediatek watchdog")
-> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+This series adds a bridge and glue driver for the DSI2 controller found
+in the rk3588 soc from Rockchip, that is based on a Synopsis IP block.
 
-I'd be more comfortable with a title like:
+As the manual states:
+The Display Serial Interface 2 (DSI-2) is part of a group of communication
+protocols defined by the MIPI Alliance. The MIPI DSI-2 Host Controller is
+a digital core that implements all protocol functions defined in the
+MIPI DSI-2 Specification.
 
-watchdog: mediatek: Make sure system reset gets asserted in mtk_wdt_restart()
 
-or along those lines, saying what's this commit about, because a generic
-"fix" doesn't really mean anything...
+While the driver structure is very similar to the previous DSI controller,
+the programming model of the core is quite different, with a completely
+new register set.
 
-About the commit description - that's good.
-Btw, I wonder if maintainers can fix the title without you sending a v3...
+Another notable difference is that the phy interface is variable now too
+in its width and some other settings.
 
-Anyway - you can get my:
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Heiko Stuebner (3):
+  drm/bridge/synopsys: Add MIPI DSI2 host controller bridge
+  dt-bindings: display: rockchip: Add schema for RK3588 DW DSI2
+    controller
+  drm/rockchip: Add MIPI DSI2 glue driver for RK3588
 
-Cheers!
-Angelo
+ .../rockchip/rockchip,rk3588-mipi-dsi2.yaml   |  119 ++
+ drivers/gpu/drm/bridge/synopsys/Kconfig       |    6 +
+ drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+ .../gpu/drm/bridge/synopsys/dw-mipi-dsi2.c    | 1034 +++++++++++++++++
+ drivers/gpu/drm/rockchip/Kconfig              |   10 +
+ drivers/gpu/drm/rockchip/Makefile             |    1 +
+ .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  524 +++++++++
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    2 +
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+ include/drm/bridge/dw_mipi_dsi2.h             |   94 ++
+ 10 files changed, 1792 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-mipi-dsi2.yaml
+ create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c
+ create mode 100644 drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c
+ create mode 100644 include/drm/bridge/dw_mipi_dsi2.h
 
-> ---
->   drivers/watchdog/mtk_wdt.c | 6 ++++++
->   1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
-> index c35f85ce8d69c..e2d7a57d6ea2e 100644
-> --- a/drivers/watchdog/mtk_wdt.c
-> +++ b/drivers/watchdog/mtk_wdt.c
-> @@ -225,9 +225,15 @@ static int mtk_wdt_restart(struct watchdog_device *wdt_dev,
->   {
->   	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
->   	void __iomem *wdt_base;
-> +	u32 reg;
->   
->   	wdt_base = mtk_wdt->wdt_base;
->   
-> +	/* Enable reset in order to issue a system reset instead of an IRQ */
-> +	reg = readl(wdt_base + WDT_MODE);
-> +	reg &= ~WDT_MODE_IRQ_EN;
-> +	writel(reg | WDT_MODE_KEY, wdt_base + WDT_MODE);
-> +
->   	while (1) {
->   		writel(WDT_SWRST_KEY, wdt_base + WDT_SWRST);
->   		mdelay(5);
-
+-- 
+2.45.2
 
 
