@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D182D29FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4476ED29FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AsoJeQT7lIbORupJmPx8o8UcNDx1QgoC4+ZDQJoGnSc=; b=qdAF6aOuA4e9u4GlFFLtG5HdKF
-	hZ/DUdBQapIMmjTg25zdTWKrbjVhBHvsk2Hy1t+zbgQQTM96gwBJIffWsDPz3kE11g4nExxyh9q60
-	HSJjB6X8j4A1MLmi3lncR1nezVNTj3CPvP7xEEds6hOiREyDvWpTjsR/wwmAjjEWccdugqsw7jh6g
-	AdydLclOk7MLeE4Q9/u3WjRLJ9X+ETnGLOH5sA4/mvGoMNv7LbP24F93L/CFmx8C5BoIEhZTKT9u0
-	tUx1hp9nvmfEXc0hoYGCYjPYZcgW3UckuhoErg5ckI2ifhkKGQl8a7i6KFu9Z7+HBErMZpFw3pyHH
-	SBBp9Ypg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T4GbN8ZDurMjcmVHL6T0Xi9xUq1GYOGvqk92rYIEnWQ=; b=P2xiYRI8741ri2oyUsqmFHudTY
+	l6KS04nBuV5frPrarbWujLLdhBtSkRtXLoP6D/GqpyHGqE1KX5aaqV9gbdzqCz5v3z72JO2w3IJYp
+	t8U9M3tz4g1uCvrOKywA78w0oId2xk3fZbfiWrBJLv7nnjKqUgCdhufb7dGn6aCT90fs7XTSGhHE0
+	u/g0S7AkYtdQRRm7MEgYrlPLddxpALUe7yMUAC7Z17u5ok/ViXLb6QfVX6BHhIqZIBa7zBdqQyum/
+	qL/elf0rdL/paYJqBtrNoAQhAwN3ZUr1Zu0tp7m4/fOYUOmVQpUQnUBBQY/3u8P+l5OL3MTorMXeU
+	JT1UG45A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bSr-00000002IjW-2fxP;
-	Wed, 06 Nov 2024 08:32:33 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1t8bUY-00000002J43-1pjq;
+	Wed, 06 Nov 2024 08:34:18 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bR4-00000002IQz-280Z
+	id 1t8bR6-00000002IRI-02Ws
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 08:30:44 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e35a643200so115608687b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 00:30:41 -0800 (PST)
+	Wed, 06 Nov 2024 08:30:45 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e30ceaa5feeso10910328276.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 00:30:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730881840; x=1731486640; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=AsoJeQT7lIbORupJmPx8o8UcNDx1QgoC4+ZDQJoGnSc=;
-        b=T6sB2CBcivToGByChNrIIuTHalPT0CMa/i2DBh9HISAPWiQo/Vgyc+Ludfml3oxz4t
-         UgLGIkBH4lT8ZjYwOF+hOtbdxU7baJiQZCXzxBIEQ91j+j1wPUQIboUR8/91Zzba8DM/
-         XA2JAdjsip9JoxojK0VCTE7upUMQ8PbxiHChAk1ffurYYYuWpuRA10N1qRoRLSY8HoKf
-         Y7kES7+s2EBdTlxYUcl5+P74pRIDQrXWN2XZ2H/DLRJ88hGY10ON/qWzH2ulwib7dAkP
-         IpP6OshOlj0OUYveOctPLZ2basKSodUcYNcBi27bj3s7fgJ+Y7Vaekb3UxakzlE8ZEKQ
-         1f2w==
+        d=google.com; s=20230601; t=1730881842; x=1731486642; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T4GbN8ZDurMjcmVHL6T0Xi9xUq1GYOGvqk92rYIEnWQ=;
+        b=MiUKvEYiK4axmCytd+Me8b0pRf3ZKHqKbwT8gFIAKOFUdHwLuzJ8lzPDu9lkXqRFvh
+         kPGuBz8PeoO2Ybz0ijD2A2+NJNKgANN0zydQ0slcJLhwxjRhYDsDwdR9Tc9lSwAk7c7x
+         SHojyrIx1PNX8+csF5b1gIcOKTsmv8D1+tvpWtgrQ3PnqAZzLCO/lBHho6x72aTJApbB
+         OKf2o5p15ec51slyqU/tb6+VoHSVGshCSO1Pp46d0J3IzA5HSQLS6i+Dlj8SpBrG8CUC
+         yFRsIl9TnQvkugWSt+1GbjRSZ22T4NYVBuK2JcJJXi4yw+wWSna5Uzs9QlpeBylxr9eN
+         b8Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730881840; x=1731486640;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AsoJeQT7lIbORupJmPx8o8UcNDx1QgoC4+ZDQJoGnSc=;
-        b=EUdVYDiHKvzDwaBu8Tjq68JMgJf75vC9Qj+t3ghJKeuCSGUVl4Yi/JvF1dy0CVRnSJ
-         q/WUQtsbcIHRZsUWAFDSEygB7C1CdUTsGoOCs9WwH0sZI0S5ecd+ujFmziUzld7KJ8W2
-         wWPQUcfMVlUlzxlQjxgt59cbtFmxZO04eW+Y+SQ/3EgT3ZpqsikMoDlCKIGvM56PX8VN
-         SqR4HJWZZKCgbtWq1YmWL/U935jZfsRO3q59NyiL4P8abi5kHjRzP9xRCFxsedApjpO5
-         u/jPAunpZVEpNjwR7IdDOvNhh1HPZiOOWuy70FVZ9Rr0S6U4sVeoMu6a6nzawwcaePdU
-         lvLw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhvfs418BJxD4YOSjXgk62O/gPPlt6aYY6RrG8X1LK8IedsxhDL/YSxUyGhg5BYbFAu2l1GEKxRzVK87dOR8DX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqMocRmm/rtX+8DN5mlicIKz76O0eVkOHxdqjkYhymHHGdpG0c
-	HLXqGrtIpi33EnKigDue4KKzns8qxiWHDq1kuzcj1Sh+xBkseJsPD/XyqAj+tW2wyDGQBKBU7AF
-	exl4uiINrK+U404xgex9naA==
-X-Google-Smtp-Source: AGHT+IFnO97LH4M7nakwImn7GhWO3dwEBs9GkzFartsysl46F+6jkXxf6aVj3MHFmDdtMe6k2kDQQQH6u4FDvb/Y/Q==
+        d=1e100.net; s=20230601; t=1730881842; x=1731486642;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T4GbN8ZDurMjcmVHL6T0Xi9xUq1GYOGvqk92rYIEnWQ=;
+        b=cFrqkVb+SH1SIVN398fqMY17EZKb4VBZBIOxyFv2Ei8rCwg3gPlGUQkncfRnWVFrzy
+         mLyIQPgUlUjfiPYKWHHxsI3fMDIgcj2CEz+eoaF7GL0UZak6W4NBnZ9TvkZv1eEfk/Mq
+         ffKyPLUV9Hycby6PeDCAAkBz+5ksv0UtepxskDKvg6GF30kSsCidDypowXO7AJLBGRCw
+         rShZrTlACQj1zA9iAjlY3FbPnjNjKr3itS/7J+si1PcX7cclUZp4W3DfGiQHapB3VUVp
+         nqg1Hu82qyxnXVeUPshR5JjQUleCjWzZQPP9uQSOzT+miJpp9BCIZ7d7939tQSN99e8v
+         e8TQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXqRVa79Ef14k+qEf1wz2+3vci8vJGGDc5QbelMMj0tshpemkODMEJmi3lXvRYuadMaEvU4HT9mxx5jdznkUehq@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpdy1KcjWZ3T4mVyb9eMdHguxrC4ciRYZxQAARna+y6VHSb3i7
+	+oUWmTAlyAl9uzWVJOypV0tndobchDdje5wVKiByl2VeXDnf59XUUe1agDPR6FW2fi/iu/kMr9M
+	oH1KsCBRezBevJwQkWrz6TA==
+X-Google-Smtp-Source: AGHT+IESgZ2HUDGTGAdUvYoZM+ViRqBFK9RcS/H99OhminhorZqyukanemB5KOr2KI9Z7I4wBJZ181jopq1rHk8LBA==
 X-Received: from jgzg.c.googlers.com ([fda3:e722:ac3:cc00:36:e7b8:ac13:c96f])
- (user=jingzhangos job=sendgmr) by 2002:a81:c745:0:b0:6e3:f32:5fc8 with SMTP
- id 00721157ae682-6ea52319152mr944207b3.1.1730881839861; Wed, 06 Nov 2024
- 00:30:39 -0800 (PST)
-Date: Wed,  6 Nov 2024 00:30:31 -0800
+ (user=jingzhangos job=sendgmr) by 2002:a5b:308:0:b0:e33:2432:8b75 with SMTP
+ id 3f1490d57ef6-e3324328dedmr19767276.7.1730881841856; Wed, 06 Nov 2024
+ 00:30:41 -0800 (PST)
+Date: Wed,  6 Nov 2024 00:30:32 -0800
+In-Reply-To: <20241106083035.2813799-1-jingzhangos@google.com>
 Mime-Version: 1.0
+References: <20241106083035.2813799-1-jingzhangos@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241106083035.2813799-1-jingzhangos@google.com>
-Subject: [PATCH v3 0/4] Some fixes about vgic-its
+Message-ID: <20241106083035.2813799-2-jingzhangos@google.com>
+Subject: [PATCH v3 1/4] KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
 From: Jing Zhang <jingzhangos@google.com>
 To: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
 	ARMLinux <linux-arm-kernel@lists.infradead.org>, Marc Zyngier <maz@kernel.org>, 
@@ -76,8 +78,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>
 	Shusen Li <lishusen2@huawei.com>, Jing Zhang <jingzhangos@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_003042_572360_0668933B 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20241106_003044_413943_1086407D 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series addresses a critical issue in the VGIC ITS tables'
-save/restore mechanism, accompanied by a comprehensive selftest for bug
-reproduction and verification.
+From: Kunkun Jiang <jiangkunkun@huawei.com>
 
-The fix is from Kunkun Jiang at [1]. Only a few typos are addressed.
+In all the vgic_its_save_*() functinos, they do not check whether
+the data length is 8 bytes before calling vgic_write_guest_lock.
+This patch adds the check. To prevent the kernel from being blown up
+when the fault occurs, KVM_BUG_ON() is used. And the other BUG_ON()s
+are replaced together.
 
-The identified bug manifests as a failure in VM suspend/resume operations.
-The root cause lies in the repeated suspend attempts often required for
-successful VM suspension, coupled with concurrent device interrupt registration
-and freeing. This concurrency leads to inconsistencies in ITS mappings before
-the save operation, potentially leaving orphaned Device Translation Entries
-(DTEs) and Interrupt Translation Entries (ITEs) in the respective tables.
-
-During the subsequent restore operation, encountering these orphaned entries
-can result in two error scenarios:
-* EINVAL Error: If an orphaned entry lacks a corresponding collection ID, the
-  restore operation fails with an EINVAL error.
-* Mapping Corruption: If an orphaned entry possesses a valid collection ID, the
-  restore operation may succeed but with incorrect or lost mappings,
-  compromising system integrity.
-
-The provided selftest facilitates the reproduction of both error scenarios:
-* EINVAL Reproduction: Execute ./vgic_its_tables without any options.
-* Mapping Corruption Reproduction: Execute ./vgic_its_tables -s
-  The -s option enforces identical collection IDs for all mappings.
-* A workaround within the selftest involves clearing the tables before the save
-  operation using the command ./vgic_its_tables -c. With this, we can run the
-  the selftest successfully on host w/o the fix.
-
+Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
+Signed-off-by: Jing Zhang <jingzhangos@google.com>
 ---
+ arch/arm64/kvm/vgic/vgic-its.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-* v2 -> v3:
-  - Rebased to v6.12-rc6
-  - Fixed some typos
-  - Added a selftest for bug reproduction and verification
-
-* v1 -> v2:
-  - Replaced BUG_ON() with KVM_BUG_ON()
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240704142319.728-1-jiangkunkun@huawei.com
-
----
-
-Jing Zhang (1):
-  KVM: selftests: aarch64: Test VGIC ITS tables save/restore
-
-Kunkun Jiang (3):
-  KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
-  KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
-  KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
-
- arch/arm64/kvm/vgic/vgic-its.c                |  44 +-
- tools/testing/selftests/kvm/Makefile          |   1 +
- .../selftests/kvm/aarch64/vgic_its_tables.c   | 566 ++++++++++++++++++
- .../kvm/include/aarch64/gic_v3_its.h          |   3 +-
- .../testing/selftests/kvm/include/kvm_util.h  |   4 +-
- .../selftests/kvm/lib/aarch64/gic_v3_its.c    |  24 +-
- 6 files changed, 632 insertions(+), 10 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/aarch64/vgic_its_tables.c
-
-
-base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index ba945ba78cc7..2381bc5ce544 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -2095,6 +2095,10 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
+ 	       ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
+ 		ite->collection->collection_id;
+ 	val = cpu_to_le64(val);
++
++	if (KVM_BUG_ON(ite_esz != sizeof(val), kvm))
++		return -EINVAL;
++
+ 	return vgic_write_guest_lock(kvm, gpa, &val, ite_esz);
+ }
+ 
+@@ -2250,6 +2254,10 @@ static int vgic_its_save_dte(struct vgic_its *its, struct its_device *dev,
+ 	       (itt_addr_field << KVM_ITS_DTE_ITTADDR_SHIFT) |
+ 		(dev->num_eventid_bits - 1));
+ 	val = cpu_to_le64(val);
++
++	if (KVM_BUG_ON(dte_esz != sizeof(val), kvm))
++		return -EINVAL;
++
+ 	return vgic_write_guest_lock(kvm, ptr, &val, dte_esz);
+ }
+ 
+@@ -2431,12 +2439,17 @@ static int vgic_its_save_cte(struct vgic_its *its,
+ 			     struct its_collection *collection,
+ 			     gpa_t gpa, int esz)
+ {
++	struct kvm *kvm = its->dev->kvm;
+ 	u64 val;
+ 
+ 	val = (1ULL << KVM_ITS_CTE_VALID_SHIFT |
+ 	       ((u64)collection->target_addr << KVM_ITS_CTE_RDBASE_SHIFT) |
+ 	       collection->collection_id);
+ 	val = cpu_to_le64(val);
++
++	if (KVM_BUG_ON(esz != sizeof(val), kvm))
++		return -EINVAL;
++
+ 	return vgic_write_guest_lock(its->dev->kvm, gpa, &val, esz);
+ }
+ 
+@@ -2453,7 +2466,9 @@ static int vgic_its_restore_cte(struct vgic_its *its, gpa_t gpa, int esz)
+ 	u64 val;
+ 	int ret;
+ 
+-	BUG_ON(esz > sizeof(val));
++	if (KVM_BUG_ON(esz != sizeof(val), kvm))
++		return -EINVAL;
++
+ 	ret = kvm_read_guest_lock(kvm, gpa, &val, esz);
+ 	if (ret)
+ 		return ret;
+@@ -2517,7 +2532,9 @@ static int vgic_its_save_collection_table(struct vgic_its *its)
+ 	 * with valid bit unset
+ 	 */
+ 	val = 0;
+-	BUG_ON(cte_esz > sizeof(val));
++	if (KVM_BUG_ON(cte_esz != sizeof(val), its->dev->kvm))
++		return -EINVAL;
++
+ 	ret = vgic_write_guest_lock(its->dev->kvm, gpa, &val, cte_esz);
+ 	return ret;
+ }
 -- 
 2.47.0.277.g8800431eea-goog
 
