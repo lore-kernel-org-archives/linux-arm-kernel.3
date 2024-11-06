@@ -4,86 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EDFD59F41
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 15:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB15CD59F43
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 15:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=; b=4kgNGmj8irPODC0PDMDm6EPrnq
-	NTgfqZqFwTlcmHrrFnoihg1qtXNqCJJ0x1bFOLcSyA1DWFHlw5vEAeGoihA5SeagYyDw5Eanauwzn
-	LZyMxqA/gjWyl7Bhg+5gz3fmllNcosLHcX9JSvsjjIgmvMkHwi6H6lnHSGYTL3+5jucCn1GXtSc1w
-	nJgeEhjAJfa7aiN6M5UwDyUUffMM2l2gJ9/6GtDwTdEmewKNWq6riOnytEZ7nPEcN8EHrKPhyFP2P
-	lCfeYkqL+cK7KOKaim/AzC91E5Wa7kJedZeo0JqoVHcdY7RxL50CMNfNEkFaos6ZRDxObr9Sy2dmb
-	UGcwT/ig==;
+	bh=/ti7UsIKyZqf2Hot2MVTOlKId95dgb1Zot1pr3BqVVw=; b=ZqZ3ofGtoATCCXaRMcESft3YqA
+	8xkpPDUCe7opG2MwtXJFjpjf4aUrpNoOQYRj8zAUkAhvUGvQIdgPFu0CFvQlpQFiOm4lJdWShfZCV
+	vC1iQkdRJgFJDxNswJAwG2FE1DiQL5JS3JzHqzpuOCdjRzE2PNmWsoqpzTvjMvezX33+Jnuj9eVpZ
+	R1qnDS8SM+dIW0lEBPiLYqPT5vV5LBGvdh84t6mi6Nr5G2eUiwOUZkpr0V+5qbDEGZ5a4QzBTOktl
+	+WN+O7oTd0hjT+Y1WHrnoFg9pqapXy9rLkBW/N3zgt5zburFuBjOAwoyQ3SYIlblta9G9Y7hubLnE
+	uXsDVmUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8iAI-00000003rUh-3qGa;
-	Wed, 06 Nov 2024 15:41:51 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1t8iCg-00000003s5p-185z;
+	Wed, 06 Nov 2024 15:44:18 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8i8X-00000003r8q-1Agk
+	id 1t8iAv-00000003rZm-28Ec
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 15:40:03 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4316a44d1bbso59367745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 07:40:00 -0800 (PST)
+	Wed, 06 Nov 2024 15:42:30 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d473c4bb6so6101597f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 07:42:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=resnulli-us.20230601.gappssmtp.com; s=20230601; t=1730907599; x=1731512399; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1730907747; x=1731512547; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=;
-        b=CWhzIdLnQlYRhgzBJetxysFemC2hCemunzCR7yjl+XEXd5uQQzS7GiWhWHzjiV/CUd
-         h9PgwCodxqGr2o+2XCpIsvDKTu3UMFS7aW3U0oY3M7Fwbz3bGGqSFVDG7LW4++kMj9Er
-         tnQjBkOCohyRejw+SHdhiroyccq15C9HfOEt++QN9d0fVRAHhvGwCISt9OetkNInGiqF
-         ZJ6WWLTu3vkT5xeYT/Z4lwFH40qZdJtoDjlKjExugbBoM1CBKU2LfB9X1Hx4KvSusWqr
-         ki9wJuN4mUTaewNJDo8Qjr2iT14LRJ0Uti7lkC1jq2pftW8K6Jq1gdxXjfe/el0rFmCh
-         yZRQ==
+        bh=/ti7UsIKyZqf2Hot2MVTOlKId95dgb1Zot1pr3BqVVw=;
+        b=gjY1DH8qI0u5AewcBAz7FM2ZwL6nbnIc59ALML+MtB1W9TRf7rPl2GtzLSBChGSgHE
+         jPSkVHf0YPllvlcxGRnzEPR/UNmzWh1giinYozrlrLzOcj/7Na0Rtpx3FJXorZabHbP6
+         cwFL1Vr70L3l496dPtdRXWbb0Jvig5ulry/AFZMnaMd/B/6o+FpPelcgKdhJje9ePAY8
+         LHIWOfdlY0r/gwh3+O2Vwmp/2HPPEEb8alLzssxVh2rNPM1M5L93/6dkspQG7GeUd8Jz
+         61QQFSEviRIpMMlUusaYvjP9VVS+DiRC7RXDy6ai3JY263453FtUhcwwB4X3zZwata9B
+         DAKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730907599; x=1731512399;
+        d=1e100.net; s=20230601; t=1730907747; x=1731512547;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=;
-        b=ww7YjMfYpEzOU7Ajw83UMU82WHxIAf+pnPDSxZz7+5NGGLPiXj298uJC7MImSFM4I/
-         9zvDo3ht9E/L+pKWn6Art4b9IVB3s3Vgv4VwMy9OSnfTfUmqI4MesnecS1Mf57LIu53h
-         6f57pZHfXgnBecysPj7e4x02INsRL5w27VvyMqej8Ls6SdYf+sD8IGnv6Eyh4tawDsxn
-         RlnDvcdcF9Ggid1W+Q1hdJZd4h+ISW/lBahpO74z256o7u8uoclQ9Ojp1KNDGxQ46itr
-         pUjXwOomuvziaz+rcrRDZrtJYvJw8tbseoTnmkgkR9ZzoG0ljkXdLf+vn95Vdp76y6fU
-         ZcVw==
-X-Forwarded-Encrypted: i=1; AJvYcCVJPQUCXAyAIdFEhMX+sSy/Pk2c1xT/AuwxjXJVuJhQLVipZhahGWzBdg8+PIqQyiEMtcrOcgGMTx/HLbUnv7DA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+noFAaICABr0ymmNawqwgeH4i+AKFDLfkdqkyY1bpNqvXWPKS
-	wYQoa87s3ffP6x2Q6ohbcF6K7BJ8H3mopDJuk6SApW6ZvQs4BBsEdwU2F2wio3Y=
-X-Google-Smtp-Source: AGHT+IHaXpKkIZTp98WaTVKW8arf8yLJ6KlxXz0Ga7zfB6YCb98iODL5Q30kaHjC536zM+O/RrwHzA==
-X-Received: by 2002:a05:6000:4711:b0:37c:cc67:8b1f with SMTP id ffacd0b85a97d-381bea0ee17mr17133942f8f.48.1730907598706;
-        Wed, 06 Nov 2024 07:39:58 -0800 (PST)
-Received: from localhost ([193.47.165.251])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10b7b32sm19556510f8f.18.2024.11.06.07.39.57
+        bh=/ti7UsIKyZqf2Hot2MVTOlKId95dgb1Zot1pr3BqVVw=;
+        b=cD5YGp4+/VWt5EE3ZoRftjm2CVu2eizWM6a92Q+EHeQCkfzisUB+4tMtPEVOo4/OsL
+         jQ1T7Il2IQEbxS7cgQlSz0cXsaYObyqdOdi9gXB777cAKlb0ysINGZeGmxUMYK/LlYLD
+         DAJmBazs+0ZbM9R33lGZxjVz2QHMFZFiGVXkoPzV5/JNyHF8gMNX8tLE529Tf8phL0yu
+         Jfo1faNZi9U6IXyYd4OTlOk/nNV0X0JePOcbLBqyG8jhUABZG81aD85P9ZnS7/pN2AT1
+         Add0czAfBhzm6HZYgWycMkrsFqASG26AKz0zxii1eHWuLCN4R5qtI33WwlCpOKHLDR2G
+         nUjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW5zfNyUjtj8pE40OXF6e/Sq8EOn2iEyY7NZWrCEYb41y2Waj8/BlVVyL/TrZf4qSINhD7LEX5ATJLOmPOq7M2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ/+VFMIYj5I66U5MhsIHFP4/V85XwXpqD2+USMSFx6cZpqbyi
+	BHj/C9NYkYFvcy1u6lj+jZKhi8HnxVhpUUiUIhKvYMZX4Re+C1pq31uib5Y0tpE=
+X-Google-Smtp-Source: AGHT+IHL/9OFC3B7xauZzAm3FztTY/x82hTX3rnLuRwwJLNiavrv7/WtChDCcQs0E4+aSR2o60E95Q==
+X-Received: by 2002:a05:6000:156e:b0:37d:61aa:67de with SMTP id ffacd0b85a97d-381c7ac3be6mr20806701f8f.42.1730907746813;
+        Wed, 06 Nov 2024 07:42:26 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.50])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa6eb5fesm28133095e9.41.2024.11.06.07.42.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 07:39:58 -0800 (PST)
-Date: Wed, 6 Nov 2024 16:39:55 +0100
-From: Jiri Pirko <jiri@resnulli.us>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: geliang@kernel.org, liuhangbin@gmail.com, w-kwok2@ti.com,
-	aleksander.lobakin@intel.com, lukma@denx.de, jan.kiszka@siemens.com,
-	diogo.ivo@siemens.com, shuah@kernel.org, horms@kernel.org,
-	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
-	davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH net-next v3 0/4] Introduce VLAN support in HSR
-Message-ID: <ZyuNyzu0kv1_pemU@nanopsycho.orion>
-References: <20241106091710.3308519-1-danishanwar@ti.com>
+        Wed, 06 Nov 2024 07:42:26 -0800 (PST)
+Date: Wed, 6 Nov 2024 16:42:23 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Esben Haabendal <esben@geanix.com>, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Stefan Wahren <wahrenst@gmx.net>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Ronald Wahl <ronald.wahl@raritan.com>, Udit Kumar <u-kumar1@ti.com>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	Rengarajan S <rengarajan.s@microchip.com>,
+	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH tty-next v3 4/6] serial: 8250: Specify console context
+ for rs485_start/stop_tx
+Message-ID: <ZyuOX4VVbfAFhMfV@pathway.suse.cz>
+References: <20241025105728.602310-1-john.ogness@linutronix.de>
+ <20241025105728.602310-5-john.ogness@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241106091710.3308519-1-danishanwar@ti.com>
+In-Reply-To: <20241025105728.602310-5-john.ogness@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_074001_341534_FA6451C4 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20241106_074229_554709_C458749D 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +114,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wed, Nov 06, 2024 at 10:17:06AM CET, danishanwar@ti.com wrote:
->This series adds VLAN support to HSR framework.
->This series also adds VLAN support to HSR mode of ICSSG Ethernet driver.
->
->Changes from v2 to v3:
->*) Modified hsr_ndo_vlan_rx_add_vid() to handle arbitrary HSR_PT_SLAVE_A,
->HSR_PT_SLAVE_B order and skip INTERLINK port in patch 2/4 as suggested by
->Paolo Abeni <pabeni@redhat.com>
->*) Removed handling of HSR_PT_MASTER in hsr_ndo_vlan_rx_kill_vid() as MASTER
->and INTERLINK port will be ignored anyway in the default switch case as
->suggested by Paolo Abeni <pabeni@redhat.com>
->*) Modified the selftest in patch 4/4 to use vlan by default. The test will
->check the exposed feature `vlan-challenged` and if vlan is not supported, skip
->the vlan test as suggested by Paolo Abeni <pabeni@redhat.com>. Test logs can be
->found at [1]
->
->Changes from v1 to v2:
->*) Added patch 4/4 to add test script related to VLAN in HSR as asked by
->Lukasz Majewski <lukma@denx.de>
->
->[1] https://gist.githubusercontent.com/danish-ti/d309f92c640134ccc4f2c0c442de5be1/raw/9cfb5f8bd12b374ae591f4bd9ba3e91ae509ed4f/hsr_vlan_logs
->v1 https://lore.kernel.org/all/20241004074715.791191-1-danishanwar@ti.com/
->v2 https://lore.kernel.org/all/20241024103056.3201071-1-danishanwar@ti.com/
->
->MD Danish Anwar (1):
->  selftests: hsr: Add test for VLAN
->
->Murali Karicheri (1):
->  net: hsr: Add VLAN CTAG filter support
->
->Ravi Gunasekaran (1):
->  net: ti: icssg-prueth: Add VLAN support for HSR mode
->
->WingMan Kwok (1):
->  net: hsr: Add VLAN support
->
-> drivers/net/ethernet/ti/icssg/icssg_prueth.c | 45 ++++++++-
-> net/hsr/hsr_device.c                         | 85 +++++++++++++++--
-> net/hsr/hsr_forward.c                        | 19 +++-
-> tools/testing/selftests/net/hsr/config       |  1 +
-> tools/testing/selftests/net/hsr/hsr_ping.sh  | 98 ++++++++++++++++++++
-> 5 files changed, 236 insertions(+), 12 deletions(-)
+On Fri 2024-10-25 13:03:26, John Ogness wrote:
+> For RS485 mode, if SER_RS485_RX_DURING_TX is not available, the
+> console write callback needs to enable/disable TX. It does this
+> by calling the rs485_start/stop_tx() callbacks. However, these
+> callbacks will disable/enable interrupts, which is a problem
+> for console write, as it must be responsible for
+> disabling/enabling interrupts.
 
+It is not clear to me what exactly is the problem. Is the main
+problem calling pm_runtime*() API because it uses extra locks
+and can cause deadlocks? Or is it more complicated?
 
-Looks fine to me.
-set-
-Reviewed-by: Jiri Pirko <jiri@nvidia.com>
+IMHO, it would deserve some explanation.
+
+> Add an argument @in_con to the rs485_start/stop_tx() callbacks
+> to specify if they are being called from console write. If so,
+> the callbacks will not handle interrupt disabling/enabling.
+> 
+> For all call sites other than console write, there is no
+> functional change.
+> 
+> Signed-off-by: John Ogness <john.ogness@linutronix.de>
+
+It looks like the code does what the description says. And honestly,
+I do not have any idea how to improve the naming. I would keep
+it as is after reading John's answers in the thread.
+
+IMHO, one thing which makes things comlicated is that
+serial8250_em485_start_tx() and serial8250_em485_stop_tx()
+are not completely reversible operations. Especially,
+the change done by __serial8250_stop_rx_mask_dr() is
+not reverted in serial8250_em485_stop_tx(). It makes
+things look tricky. But I think that it is beyond the scope
+of this patchset to do anything about it.
+
+Just 2 my cents.
+
+Best Regaards,
+Petr
 
