@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0D6D59F73
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB77BD59F74
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbdU6cNiXd22FmxLC90fw+xLrqqoSW6ZVbk3Iji2kRI=; b=oEuxDvyFJEjPIwOVXJel3T3RZ9
-	4rUXe9BmbBXH5aaZHGVWuOr3mmS++a5w+q8VtjUzKlsdxj0XtQvlO7KXCzpnPtx6r8DWeCX4W5TKZ
-	6WD8lMw3FmMsyCligZfleH5pGRjN2lclEHBIkv+pH1TdgP/9+4ATc3EQ8Y5TLXgPObPA1MLHl/Fdi
-	JrUOKxI2W2yw+bG4EL+vCm5P1aFj4ZctEq70d7ivgBLs/NBUKdJ9ZlE9Kezir+b32YZFQH1ioUr7E
-	4Z41Uw3nGcf2Iu7IEg4K+e0V3FnaXm4GmU7/URADn3b/TC50BovF1ku+wBM4wBJjNyiAAJbxHijcF
-	2mg7VkqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/DHszNOt4o1L1USKCkuHP6mgHhgm3F/Dpy7EQxrwpJY=; b=fz3Br1t3IWOOBd93yF6pUoQcwD
+	t1QeFgRHeHcNJLqo5ufxhqFnbKPXfyhgy2eR10JsZ+pPUX+a53HJfbk1hY98Jyz9Bz5zprvDngPPF
+	O8Z8SFj++LErH7kWhNN9oQUVA+efPgwnhGjWHlMYIjTa181TsBmJBZTtz0Iqx3kQC/SYsPnUOMezf
+	qKpVvIIsWYNADwICa4nynW/CT6r4xTeNesjpBOanl1caSgpp0If/VYRLIKXglYq7qgYRSRoy5ZRaD
+	It2DYZ16HlMLutmsgYf2c6FDbPYFClUM66xU0TfYmQAjHlv4MCZcQDc/Xo/Ihjk3nG7bFnMCyviZp
+	kuTOgw9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8muG-00000004j80-0bgd;
-	Wed, 06 Nov 2024 20:45:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8mvw-00000004jHc-2Lq4;
+	Wed, 06 Nov 2024 20:47:20 +0000
+Received: from [2a01:e0a:828:c7c0:e2d5:5eff:fe2d:8e8] (helo=luna.linkmauve.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8mqt-00000004iQN-3t1V
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 20:42:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 535C1A4443C;
-	Wed,  6 Nov 2024 20:40:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37867C4CED4;
-	Wed,  6 Nov 2024 20:42:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730925726;
-	bh=MyX3vKLdgoNWgBlUZe2r+I4QjJHT+W6zplpfpZ/F1mI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=eXtGBP3RqH+IvKcwi1Qkk5Nw4s/pFWZCpftB/e9XRwrImO+4M6CBJ/1FLRHVamJiw
-	 PYfL5Cv+2PD+Lx/L0ZDxEM+WaHbjUmpykx1KtaojE3Mgq+Q0rUZ/0NX9gYBvkOFILR
-	 pZb4RiAVTmbul7B1gdaQI0KY9DXdbEa+hQLTUStC/ZDBVaKf5TAiXxZgj5sTt9V3DR
-	 FVe7EdJM9EUUvdpHZWm0IbBKzWnZOukok6no1tk7CzST35iECYGHIPueU/3zgPEZam
-	 NQdbe23z/9fiv+ShgEUNohUnq4uWnYOBk9SP06edwf8wEs1Drl7WetqrDDGHzxfld1
-	 xfklhGblZVLaw==
-From: Mark Brown <broonie@kernel.org>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20241106-asahi-spi-v5-0-e81a4f3a8e19@jannau.net>
-References: <20241106-asahi-spi-v5-0-e81a4f3a8e19@jannau.net>
-Subject: Re: (subset) [PATCH v5 0/3] Apple SPI controller driver
-Message-Id: <173092572295.200222.12076711239744365643.b4-ty@kernel.org>
-Date: Wed, 06 Nov 2024 20:42:02 +0000
+	id 1t8mrI-00000004iUw-2c80;
+	Wed, 06 Nov 2024 20:42:35 +0000
+Received: by luna.linkmauve.fr (Postfix, from userid 1000)
+	id 7CC2F15E5A9A; Wed, 06 Nov 2024 21:42:25 +0100 (CET)
+Date: Wed, 6 Nov 2024 21:42:25 +0100
+From: Link Mauve <linkmauve@linkmauve.fr>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Luis de Arquer <ldearquer@gmail.com>,
+	Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	FUKAUMI Naoki <naoki@radxa.com>
+Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: Enable HDMI0 on rock-5b
+Message-ID: <ZyvUsdc8ZhiD8-DY@desktop>
+References: <20241019-rk3588-hdmi0-dt-v2-0-466cd80e8ff9@collabora.com>
+ <20241019-rk3588-hdmi0-dt-v2-2-466cd80e8ff9@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241019-rk3588-hdmi0-dt-v2-2-466cd80e8ff9@collabora.com>
+Jabber-ID: linkmauve@linkmauve.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_124208_068432_CB972B18 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20241106_124232_832983_933FDF13 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +67,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Nov 2024 08:53:59 +0100, Janne Grunau wrote:
-> This updated series address the review comments from the original
-> submission in 2021 [1]. It adds a new SPI controller driver for Apple
-> SoCs and is based on spi-sifive. It has been tested with the generic
-> jedec,spi-nor support and with a downstream driver for an Apple specific
-> HID over SPI transport.
+Hi,
+
+I’ve tested this series on a Radxa Rock 5B using Weston, and thus
+patches 1 and 2 are:
+Tested-by: Link Mauve <linkmauve@linkmauve.fr>
+
+On a TV which erroneously reports 1360×768 as its preferred mode,
+nothing gets displayed.  Only setting a 1920×1080 mode will display
+things correctly, every other mode stays black.
+
+Also, before starting Weston, drm_info reports Status: unknown, 0×0 mm,
+no modes, and no EDID blob.  After starting Weston all of these property
+get loaded properly, aside from the physical size which gets set to the
+obviously invalid 1600×900 mm.
+
+The first start of Weston after reboot takes a total of 7.4s, which
+seems very long just to (I believe) probe the screen and parse the EDID,
+if that’s what the driver is doing.  Subsequent launches complete in
+about 400 ms, which is closer to my expectation.
+
+Thanks a lot for this series!
+
+On Sat, Oct 19, 2024 at 01:12:11PM +0300, Cristian Ciocaltea wrote:
+> Add the necessary DT changes to enable HDMI0 on Radxa ROCK 5B.
 > 
-> As usual, I'm splitting off the MAINTAINERS and DT binding changes.
-> We would rather merge the MAINTAINERS change through the Asahi-SoC
-> tree to avoid merge conflicts as things trickle upstream, since
-> we have other submissions touching that section of the file.
+> Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 47 +++++++++++++++++++++++++
+>  1 file changed, 47 insertions(+)
 > 
-> [...]
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> index d6fff5b86b87020f115ce64795aee90c002a2255..0c3baf74981b714eb2a1edbc3fbbb69cd688cfc2 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> @@ -4,6 +4,7 @@
+>  
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+>  #include "rk3588.dtsi"
+>  
+>  / {
+> @@ -37,6 +38,17 @@ analog-sound {
+>  		pinctrl-0 = <&hp_detect>;
+>  	};
+>  
+> +	hdmi0-con {
+> +		compatible = "hdmi-connector";
+> +		type = "a";
+> +
+> +		port {
+> +			hdmi0_con_in: endpoint {
+> +				remote-endpoint = <&hdmi0_out_con>;
+> +			};
+> +		};
+> +	};
+> +
+>  	leds {
+>  		compatible = "gpio-leds";
+>  		pinctrl-names = "default";
+> @@ -192,6 +204,26 @@ &gpu {
+>  	status = "okay";
+>  };
+>  
+> +&hdmi0 {
+> +	status = "okay";
+> +};
+> +
+> +&hdmi0_in {
+> +	hdmi0_in_vp0: endpoint {
+> +		remote-endpoint = <&vp0_out_hdmi0>;
+> +	};
+> +};
+> +
+> +&hdmi0_out {
+> +	hdmi0_out_con: endpoint {
+> +		remote-endpoint = <&hdmi0_con_in>;
+> +	};
+> +};
+> +
+> +&hdptxphy_hdmi0 {
+> +	status = "okay";
+> +};
+> +
+>  &i2c0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&i2c0m2_xfer>;
+> @@ -858,3 +890,18 @@ &usb_host1_xhci {
+>  &usb_host2_xhci {
+>  	status = "okay";
+>  };
+> +
+> +&vop_mmu {
+> +	status = "okay";
+> +};
+> +
+> +&vop {
+> +	status = "okay";
+> +};
+> +
+> +&vp0 {
+> +	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+> +		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
+> +		remote-endpoint = <&hdmi0_in_vp0>;
+> +	};
+> +};
+> 
+> -- 
+> 2.47.0
+> 
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/3] spi: dt-bindings: apple,spi: Add binding for Apple SPI controllers
-      commit: 18096d339206de6cdb48500b2c3ad5ad0b48aad7
-[2/3] spi: apple: Add driver for Apple SPI controller
-      commit: c36212b2610d09eb42142beb0d5613c70206c658
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Link Mauve
 
