@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9A7D59F65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0F3D59F68
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7zw95KXqsc0jEsGVbctdtLEJt7iNPCsXUr27V0IUis=; b=XUDq1xBK4PAVLx5ZMWpe5+dIbo
-	YIWLX1iL7xxWmmvNNyyBdk+t6I7flBXhVGtW56W6syDIgdEImSNn2QQuQVIGJ8NZ4rmo/WG3oYA0R
-	Kdla42GJO1XM5iFEtqRf5hiugSGQIjc525XKY46D8wKWxZEqXG1/MZ4ecwjswiB3Qh/9AwrIw1l15
-	LNmPHN5yIoX19jVTCJk1ja+YbIb5BMQvswYrXMH95PcSoIzQCQ2ySdXTADSgcNg8sVkBwQVC4enOh
-	HpaMN2RR1S1uc5YCVpIeLuP/NSBTnojA0BF3D4WF5xak6QZEtEH8UDHy/30ZrNr4Mc3bOvTXxuATc
-	f9zoYSKQ==;
+	bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=; b=nM5fSAYDJ3tQiwraNTp7zO/vAU
+	s1fZFd/XKc13m8l5DodmqxF/c/PQ+tv+d8XK2j3sfxoQM9NzDr538Za+IxQAfRAvUD0jF0lgHHaZM
+	CDbH03GKoNUnATPGX02unOL4O9LkaFJZgmD0f8jgp80Zg+Wtn22XBjdDiFdmChXrUI+I7Q9u2jHmP
+	3zRz1YUef2jEQZLKkwCP9J3A22IY9loJe4ikkiJtnzJNIjwN9t+hpSM24uvaa20RaR035JU8Isp96
+	pkqOoiLqWu+aVKls+ZAI5UfPmTl1F7DKiOe9ezN6hDMFWtcw30rOrs/Fm+LDXeSkPOTGNExVj3N5M
+	XD5gVhgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lGn-00000004QfV-1i0H;
-	Wed, 06 Nov 2024 19:00:45 +0000
+	id 1t8lIX-00000004R1Y-03v7;
+	Wed, 06 Nov 2024 19:02:33 +0000
 Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lBh-00000004PhF-0sgt
+	id 1t8lBj-00000004Phx-2fMb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 18:55:30 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e2939e25402so177753276.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:28 -0800 (PST)
+	Wed, 06 Nov 2024 18:55:33 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e32ff6f578eso1641600276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730919328; x=1731524128; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1730919330; x=1731524130; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=h7zw95KXqsc0jEsGVbctdtLEJt7iNPCsXUr27V0IUis=;
-        b=QhpvQZti4OJZOpAf1l1+e7bOk7G0pRb716SeUyZw6EKIaeG33wfI0wqw0mQ0msCKhP
-         UpVU704x6ce5K6ZW5fXFerfwFUexuLEInxlpELCUSfg1X7NRwrdtirIJZIVcC4rFYgxp
-         7pG0VqNpnDqTEXK1KG8v1kDoI1LShu4RsIRCyRfurbJD8040ereUW0h0nEM0O36A63sj
-         dNUm6zlicZo9ATnnSvflnJZBWs/njCrAvX2DhLfETTQJDlyMVEQI6a1/cRYGyx4Rz35h
-         ltudYcXBNH9lWRXgIXor2HDzStZXvpoHBKymhBua6qhL1DLXGFQSIg/h8cb+3Dmpm5BC
-         AmXw==
+        bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=;
+        b=ycdW8jbuYjwmeBkrTqHAKrHj4P0lQCPe4tAylLZcB8xBDrQCfsDGar1IOhHfwcV32P
+         iJ/4GT3qHZX39GpFBe1k+1CpG0wdCFK6HNdikbPEfOPtQzLtauxTVMnGiC5vJaQt9Qvk
+         /PEmWZvsurW4ulX7YY4y0OJ4yZ2omvF6Sr6IvFApxeV6aJGc73nu08XypA+q7+LKHqjF
+         wwHmIiJn9aaEuJAx9buYJ7Kv6asi/3hMa0z6zvgk8vnGWZnybHYlUltkK4TLlMMUNnXN
+         ynEyNzNCorHS2eTqc5apm2zCUWp7Ai1/h/hOlKd1RpC7iGBAMdHftdUvm/2bFbqarsGQ
+         hPKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730919328; x=1731524128;
+        d=1e100.net; s=20230601; t=1730919330; x=1731524130;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h7zw95KXqsc0jEsGVbctdtLEJt7iNPCsXUr27V0IUis=;
-        b=aQZyJKkRDMHiCTfMN939s0wh2wYhObv5NKbzroNmzoqwKGSa1O0+yQ6ZQckPQK6W8+
-         G6+CFtiXNV4oDZFAVSD2K3RHdjJFOL2j3A1KyRfsxVmyXKl1q3l8FayJFa/bUzDmdhQ2
-         2Q+UfAM9T8NboD+c07+l5AGnpogfx/+ydT8nwMeoXsB+wMzboA/3rMZdy+xyWuVkDL7+
-         wz1mNzBStk7fKG0H0JLcfNCGSvHBYsxXhTADiH9DKuFD6looj1dPsohXFnwEvK9oCi89
-         hNFz8ohIKrjneycugijFmxWCd+mol4AJcTVD9IDbn4NkVu67sWZ01Czs9jU6ZOP1TafR
-         AI3w==
-X-Gm-Message-State: AOJu0YyskCMm7dggnZXJNgG9rFeeJTlWEo6AG7Z+ipZH08BEjkcN/22u
-	RcGU1EJtvkAcMmqh5r1Ullnk7JoYbAzrRW6/EpsBg8pWMg0V3vDTD7AkLv8OIdyCRFArSHFaa9b
-	G7sNb582C4Yi4uT+AEZzBCRfvNn80RZ8+XG5cP8SQQUwanHpNodNSkjPBlMQ7aVj0HNocshGaCo
-	MRj5vf4CYBwKmsPRTMaJIjW9pnKocWB9In6ZHScr/f
-X-Google-Smtp-Source: AGHT+IGXmbjUyumq+Q1xPHyL3Q7ZMGMe/qHQUihhxdCf7z8vw18tey1+7Lh8unD2dQ2/MQD8x/Y98L0E
+        bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=;
+        b=MJWbOo+hx2cQXYtfRLRhDYLug5dsIWSSyGVg/Q8l0pZzx0WyUdnldSI/bE1wJGR0Sx
+         3nVN4zEwtWRmrHYUIpkMV3v/EtVrZrZBKy/hIqOiNU2RYIK/nQ/Aex6hJh2hbRQteFww
+         FiZ2UBIxFrQsDGDkNWHrZmbdutUoU8bxOUFB6UTWsz4J/yn5KyLAKvFwztQ0vscL4Z1Y
+         w5gPVPK1QAArQC1JAtih0ix+zKeeTdFbuxzPpaId1yhYVhKaAqpqNjq8sUjbCilqiZ/E
+         6BlfrkjDR6TIcp37ZlN2Gz3GYTFf8EJRmdF+6VUeSCvTct1rZ0cuRR6UM5CZh/I+0qxo
+         4jeQ==
+X-Gm-Message-State: AOJu0Yy8AEW2F1KATkeW87iy9tcyoCFZlsxYRaP92Kt1OJTB4bcnenx1
+	Kwc4Vs4y/sTTNQaZVSB64SBh8i7On2TisxgHIWexWj/1EAjKdlxGxltwMOk41g6nUz4y+N6saLq
+	InnIRCV9t1GrkLP0H3YTCouVpchNBQ0ilUmwPG8IoCZEU+Hvt0WS8UEhfGuN7nTaGeeyCHN2ZZ+
+	mIC1iM2qv/pDbg2fFtRdo+HN52nay6Mptw/kAIp/Nr
+X-Google-Smtp-Source: AGHT+IFbkxJB6KrLbWCDU1cgKWzrAqRmI38va8SSmxrOmcic+Pe7Yqx8yb8h/dHxF6bwqDfWqaz2TxW2
 X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a25:360f:0:b0:e20:2db0:932e with SMTP id
- 3f1490d57ef6-e330263e7dbmr19862276.6.1730919327325; Wed, 06 Nov 2024 10:55:27
+ (user=ardb job=sendgmr) by 2002:a25:ae97:0:b0:e24:c330:f4cc with SMTP id
+ 3f1490d57ef6-e336928ba05mr1090276.6.1730919329805; Wed, 06 Nov 2024 10:55:29
  -0800 (PST)
-Date: Wed,  6 Nov 2024 19:55:16 +0100
+Date: Wed,  6 Nov 2024 19:55:17 +0100
 In-Reply-To: <20241106185513.3096442-5-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20241106185513.3096442-5-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3232; i=ardb@kernel.org;
- h=from:subject; bh=QH9bIf3UNp68ffMG5pH3fC91Bht166rtqMNyCQzaOSs=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV1791ST0AK1BMfHfhtj5xkcFmvVbMhO/yDyyeF+R65+g
- /KGy2UdpSwMYhwMsmKKLAKz/77beXqiVK3zLFmYOaxMIEMYuDgFYCKnOBj+2eZY84aZh78snKn4
- sSeK5d6MOPOTU5TjE302rlg2o1bzASPDPPOvAuXLHjpE2n/JYa9XyPL+NOdUwft765ZuL+pVVfT gBAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=634; i=ardb@kernel.org;
+ h=from:subject; bh=j2UA0RsND//Ot7oim5vKIZverHOpKm5DSLP/ih9MoGw=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV179zTBpkfL/y6qbT7d6LSUd/ItK+dINSH2186+VS96q
+ ybPy4juKGVhEONgkBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABMRmsfwv1rgS4/YMXa/U1ss
+ nq/UU3375ypv9Ts7uxtCKy1OvC+RCmdkWN80V+trEY/Q3s6ghYwsoYs8+s44yUrnhwkJNotPaX3 ODgA=
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241106185513.3096442-7-ardb+git@google.com>
-Subject: [PATCH 2/3] arm64/scs: Deal with 64-bit relative offsets in FDE frames
+Message-ID: <20241106185513.3096442-8-ardb+git@google.com>
+Subject: [PATCH 3/3] arm64/scs: Drop unused prototype __pi_scs_patch_vmlinux()
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
@@ -80,8 +80,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
 	Nathan Chancellor <nathan@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_105529_286888_681701DD 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20241106_105531_700495_3529F04D 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,109 +98,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-In some cases, the compiler may decide to emit DWARF FDE frames with
-64-bit signed fields for the code offset and range fields. This may
-happen when using the large code model, for instance, which permits
-an executable to be spread out over more than 4 GiB of address space.
-
-Whether this is the case can be inferred from the augmentation data in
-the CIE frame, so decode this data before processing the FDE frames.
+The function scs_patch_vmlinux() was removed in the LPA2 boot code
+refactoring so remove the declaration as well.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kernel/pi/patch-scs.c | 34 ++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/scs.h | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
-index cec8f0a52bbc..55d0cd64ef71 100644
---- a/arch/arm64/kernel/pi/patch-scs.c
-+++ b/arch/arm64/kernel/pi/patch-scs.c
-@@ -50,6 +50,10 @@ bool dynamic_scs_is_enabled;
- #define DW_CFA_GNU_negative_offset_extended 0x2f
- #define DW_CFA_hi_user                      0x3f
- 
-+#define DW_EH_PE_sdata4                     0x0b
-+#define DW_EH_PE_sdata8                     0x0c
-+#define DW_EH_PE_pcrel                      0x10
-+
- enum {
- 	PACIASP		= 0xd503233f,
- 	AUTIASP		= 0xd50323bf,
-@@ -125,6 +129,7 @@ struct eh_frame {
- 			u8	data_alignment_factor;
- 			u8	return_address_register;
- 			u8	augmentation_data_size;
-+			u8	fde_pointer_format;
- 		};
- 
- 		struct { // FDE
-@@ -132,11 +137,18 @@ struct eh_frame {
- 			s32	range;
- 			u8	opcodes[];
- 		};
-+
-+		struct { // FDE
-+			s64	initial_loc64;
-+			s64	range64;
-+			u8	opcodes64[];
-+		};
- 	};
+diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
+index 934e9217cd74..a76f9b387a26 100644
+--- a/arch/arm64/include/asm/scs.h
++++ b/arch/arm64/include/asm/scs.h
+@@ -54,7 +54,6 @@ enum {
  };
  
- static int scs_handle_fde_frame(const struct eh_frame *frame,
- 				int code_alignment_factor,
-+				bool use_sdata8,
- 				bool dry_run)
- {
- 	int size = frame->size - offsetof(struct eh_frame, opcodes) + 4;
-@@ -144,6 +156,12 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
- 	const u8 *opcode = frame->opcodes;
- 	int l;
+ int __pi_scs_patch(const u8 eh_frame[], int size);
+-asmlinkage void __pi_scs_patch_vmlinux(void);
  
-+	if (use_sdata8) {
-+		loc = (u64)&frame->initial_loc64 + frame->initial_loc64;
-+		opcode = frame->opcodes64;
-+		size -= 8;
-+	}
-+
- 	// assume single byte uleb128_t for augmentation data size
- 	if (*opcode & BIT(7))
- 		return EDYNSCS_INVALID_FDE_AUGM_DATA_SIZE;
-@@ -210,6 +228,7 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
- int scs_patch(const u8 eh_frame[], int size)
- {
- 	int code_alignment_factor = 1;
-+	bool fde_use_sdata8 = false;
- 	const u8 *p = eh_frame;
+ #endif /* __ASSEMBLY __ */
  
- 	while (size > 4) {
-@@ -245,13 +264,24 @@ int scs_patch(const u8 eh_frame[], int size)
- 				return EDYNSCS_INVALID_CIE_HEADER;
- 
- 			code_alignment_factor = frame->code_alignment_factor;
-+
-+			switch (frame->fde_pointer_format) {
-+			case DW_EH_PE_pcrel | DW_EH_PE_sdata4:
-+				fde_use_sdata8 = false;
-+				break;
-+			case DW_EH_PE_pcrel | DW_EH_PE_sdata8:
-+				fde_use_sdata8 = true;
-+				break;
-+			default:
-+				return EDYNSCS_INVALID_CIE_SDATA_SIZE;
-+			}
- 		} else {
- 			ret = scs_handle_fde_frame(frame, code_alignment_factor,
--						   true);
-+						   fde_use_sdata8, true);
- 			if (ret)
- 				return ret;
- 			scs_handle_fde_frame(frame, code_alignment_factor,
--					     false);
-+					     fde_use_sdata8, false);
- 		}
- 
- 		p += sizeof(frame->size) + frame->size;
 -- 
 2.47.0.277.g8800431eea-goog
 
