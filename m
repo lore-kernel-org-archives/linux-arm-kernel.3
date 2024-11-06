@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11675D44D4F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EE4D44D4C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
 	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w8f6EHwbpuXfJsXd4Hk0fYwMmDt3B1x7ZQQNymSJp28=; b=wcKc8IYuBPgs+9eQTFbBCdEf2+
-	Z2mY7BYhhM19BJNv1qoe6ZnFZlrXSWBqmy2RzUwwcm+3J7WrAKj5umAjPpwFqMTl/BFemNC2esSce
-	V8p49N5/LlMMxnNds6o+K4+DtVmRzAfhDcp/J5g0OEAHoiX+2i4E8nbIoUfbmkYKqD8XQpl3apsRI
-	oFdeYvnRcqJ9T8ejDkdHFUye4MS4m6+XEqgi/oSYNDrXe3y+qYEMmDhsyoZ9gIX5Dt1GcZg6kvgML
-	g3RC4XXWNT6bWrkh4bqek132Zy3tFGUtl/14otN9ZMw4HzXQdA5/yb/KDgPoZKnRcBjpxBEbC3Ig0
-	X6t+NA3Q==;
+	bh=4rDU23pzf+q4Fq/p7WgWy753TjJNM/Py3tStVTK1u3U=; b=30TBML19yqPxhZiAnMWwlj9q1z
+	1zrQ9qgecClfdDy04OMxBouDeqZM3d4WLCIhw78Vg+rWKm9OiEMqXRGjgktH9bkCpR/xx5kzbjoMz
+	oED4JmIO58CHZHavir8Zy9HAXtlm+w5IvV3/E3kD2hsnHY/iimGGgkv4TIsU27rPEtrfC7niiHLe8
+	Pksx9xf4x0L3AzNF075It3gaUyp3U47KE6z9Pg8Rg5sBsPCU0FCEMTJojdLTuHUUKtLPdt2fPJ5ut
+	Ouze2KX7VlA/z/dv9+Pfvr88BJXZz8r5KnfIwwWtrUIhR4/k8U2evQW7UGvecECCbseR0fubHshq0
+	5G0og2oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8e73-00000002uNU-071B;
-	Wed, 06 Nov 2024 11:22:13 +0000
-Received: from mail-43166.protonmail.ch ([185.70.43.166])
+	id 1t8e8k-00000002uYb-19uD;
+	Wed, 06 Nov 2024 11:23:58 +0000
+Received: from mail-4027.protonmail.ch ([185.70.40.27])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cyK-00000002gzS-2Bah;
-	Wed, 06 Nov 2024 10:09:09 +0000
+	id 1t8cyW-00000002h45-0ChO;
+	Wed, 06 Nov 2024 10:09:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1730887746; x=1731146946;
-	bh=w8f6EHwbpuXfJsXd4Hk0fYwMmDt3B1x7ZQQNymSJp28=;
+	s=protonmail3; t=1730887758; x=1731146958;
+	bh=4rDU23pzf+q4Fq/p7WgWy753TjJNM/Py3tStVTK1u3U=;
 	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
 	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
 	 Message-ID:BIMI-Selector:List-Unsubscribe:List-Unsubscribe-Post;
-	b=Cyj05UIYud+EGWKbDL/T2w+9INhPklVEKHI7ivjAwEMZIpfgBI6O9maYfGY2BeIJn
-	 e3xIn6yAisX2lPmR75opQnoz7GMJ2S/KNG2Qo9ewQI4O6cqogYLD7pJG1ScG3REj//
-	 NZzqL9qRna02ShS2BgJRkRsekOqZOioNym0LPxBW/goeHMxnPTYV1zK5mPMAA77qkJ
-	 mh7X3MIlRHqUe0PKBkIl74IAuZuFzPd3vtVR1fcvu4fIrRZGaWeDgFcEUcZkMeRY8E
-	 u3sYeIXcsBq78bbcgYYL0HrEqdCJJ9oEmlUZ/7coCy2sH9uwvhan6wHDbZnVuS3sUQ
-	 9gMd2/JqodGYQ==
-Date: Wed, 06 Nov 2024 10:09:03 +0000
+	b=q3x//zedOaDsIApgZSXVhf9alKkEswwgiIWag4AqM8gGNjuDJ2nFNE4FFbDg4ePK/
+	 sSQiI0pVrUzOjXPgykwuI/kEMn4TZW120aCDN1VpcpRxK6YRssszNpEV071NpcOP7a
+	 iei0aCor2ExrULaGJiBnuHw39rdEiwXZiq3DsicwB0zg87FOdY5XMHWIloluBspFav
+	 AHPR136u1Qnuk+XYdf7fSDc5nxWKWhDeE57XmdnC1B5QmoT07VD0bcXapbqSGnAAhi
+	 Qr31IH4vBfGC4vtX6bW4F3YKZ+NgJAPSO91HBYpXIxHSU8l/x+4CsxeCyimFo+ykej
+	 82QZ8vgdyB1UA==
+Date: Wed, 06 Nov 2024 10:09:11 +0000
 To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Teng <andy.teng@mediatek.com>
 From: Yassine Oudjana <y.oudjana@protonmail.com>
 Cc: Yassine Oudjana <y.oudjana@protonmail.com>, Yassine Oudjana <yassine.oudjana@gmail.com>, linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v7 4/7] arm64: dts: mediatek: mt6797: Make pin configuration nodes follow DT bindings
-Message-ID: <20241106100741.173825-5-y.oudjana@protonmail.com>
+Subject: [PATCH v7 5/7] dt-bindings: pinctrl: mediatek,mt6779-pinctrl: Document MT6765 pin controller
+Message-ID: <20241106100741.173825-6-y.oudjana@protonmail.com>
 In-Reply-To: <20241106100741.173825-1-y.oudjana@protonmail.com>
 References: <20241106100741.173825-1-y.oudjana@protonmail.com>
 Feedback-ID: 6882736:user:proton
-X-Pm-Message-ID: 16d86c1d179cbb388235fe4342731305526f5975
+X-Pm-Message-ID: 0cb5cae7981533bf96445ccd341cf792997e4428
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_020908_731094_E3450745 
-X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-CacheID: sfid-20241106_020920_269963_80B6EB5E 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,102 +69,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add -pins suffix to pin configuration nodes to follow DT bindings
-and pass dtbs_check.
+The MT6765 pin controller has had a driver for a while, but DT
+bindings were never documented for it.
 
 Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabor=
 a.com>
 ---
- arch/arm64/boot/dts/mediatek/mt6797.dtsi | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ .../pinctrl/mediatek,mt6779-pinctrl.yaml      | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6797.dtsi b/arch/arm64/boot/dts=
-/mediatek/mt6797.dtsi
-index 0e9d11b4585be..a786d1d08f683 100644
---- a/arch/arm64/boot/dts/mediatek/mt6797.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt6797.dtsi
-@@ -135,70 +135,70 @@ pio: pinctrl@10005000 {
- =09=09gpio-controller;
- =09=09#gpio-cells =3D <2>;
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinc=
+trl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctr=
+l.yaml
+index 7ac1a85f822f1..4bfbaebb790c3 100644
+--- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yam=
+l
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yam=
+l
+@@ -18,6 +18,7 @@ description:
+ properties:
+   compatible:
+     enum:
++      - mediatek,mt6765-pinctrl
+       - mediatek,mt6779-pinctrl
+       - mediatek,mt6795-pinctrl
+       - mediatek,mt6797-pinctrl
+@@ -61,6 +62,41 @@ required:
 =20
--=09=09uart0_pins_a: uart0 {
-+=09=09uart0_pins_a: uart0-pins {
- =09=09=09pins0 {
- =09=09=09=09pinmux =3D <MT6797_GPIO234__FUNC_UTXD0>,
- =09=09=09=09=09 <MT6797_GPIO235__FUNC_URXD0>;
- =09=09=09};
- =09=09};
-=20
--=09=09uart1_pins_a: uart1 {
-+=09=09uart1_pins_a: uart1-pins {
- =09=09=09pins1 {
- =09=09=09=09pinmux =3D <MT6797_GPIO232__FUNC_URXD1>,
- =09=09=09=09=09 <MT6797_GPIO233__FUNC_UTXD1>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c0_pins_a: i2c0 {
-+=09=09i2c0_pins_a: i2c0-pins {
- =09=09=09pins0 {
- =09=09=09=09pinmux =3D <MT6797_GPIO37__FUNC_SCL0_0>,
- =09=09=09=09=09 <MT6797_GPIO38__FUNC_SDA0_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c1_pins_a: i2c1 {
-+=09=09i2c1_pins_a: i2c1-pins {
- =09=09=09pins1 {
- =09=09=09=09pinmux =3D <MT6797_GPIO55__FUNC_SCL1_0>,
- =09=09=09=09=09 <MT6797_GPIO56__FUNC_SDA1_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c2_pins_a: i2c2 {
-+=09=09i2c2_pins_a: i2c2-pins {
- =09=09=09pins2 {
- =09=09=09=09pinmux =3D <MT6797_GPIO96__FUNC_SCL2_0>,
- =09=09=09=09=09 <MT6797_GPIO95__FUNC_SDA2_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c3_pins_a: i2c3 {
-+=09=09i2c3_pins_a: i2c3-pins {
- =09=09=09pins3 {
- =09=09=09=09pinmux =3D <MT6797_GPIO75__FUNC_SDA3_0>,
- =09=09=09=09=09 <MT6797_GPIO74__FUNC_SCL3_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c4_pins_a: i2c4 {
-+=09=09i2c4_pins_a: i2c4-pins {
- =09=09=09pins4 {
- =09=09=09=09pinmux =3D <MT6797_GPIO238__FUNC_SDA4_0>,
- =09=09=09=09=09 <MT6797_GPIO239__FUNC_SCL4_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c5_pins_a: i2c5 {
-+=09=09i2c5_pins_a: i2c5-pins {
- =09=09=09pins5 {
- =09=09=09=09pinmux =3D <MT6797_GPIO240__FUNC_SDA5_0>,
- =09=09=09=09=09 <MT6797_GPIO241__FUNC_SCL5_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c6_pins_a: i2c6 {
-+=09=09i2c6_pins_a: i2c6-pins {
- =09=09=09pins6 {
- =09=09=09=09pinmux =3D <MT6797_GPIO152__FUNC_SDA6_0>,
- =09=09=09=09=09 <MT6797_GPIO151__FUNC_SCL6_0>;
- =09=09=09};
- =09=09};
-=20
--=09=09i2c7_pins_a: i2c7 {
-+=09=09i2c7_pins_a: i2c7-pins {
- =09=09=09pins7 {
- =09=09=09=09pinmux =3D <MT6797_GPIO154__FUNC_SDA7_0>,
- =09=09=09=09=09 <MT6797_GPIO153__FUNC_SCL7_0>;
+ allOf:
+   - $ref: pinctrl.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt6765-pinctrl
++    then:
++      properties:
++        reg:
++          minItems: 9
++          maxItems: 9
++
++        reg-names:
++          items:
++            - const: iocfg0
++            - const: iocfg1
++            - const: iocfg2
++            - const: iocfg3
++            - const: iocfg4
++            - const: iocfg5
++            - const: iocfg6
++            - const: iocfg7
++            - const: eint
++
++        interrupts:
++          items:
++            - description: EINT interrupt
++
++      patternProperties:
++        '-pins$':
++          patternProperties:
++            '^pins':
++              properties:
++                drive-strength:
++                  enum: [1, 2, 4, 16]
++
+   - if:
+       properties:
+         compatible:
 --=20
 2.47.0
 
