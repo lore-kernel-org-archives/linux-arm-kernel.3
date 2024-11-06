@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0F1D29FA8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BED0D29FB1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtMjA3nRluk5JfTzcXPOpwMyIw2jC9zBNjVcIw8wN7w=; b=cIKWFS/7gb25n25hCp7kDvq50C
-	Pkheg0IMYRMWMtH3v/YHGBIdsMc54lpvLCxKtI41U/mv9J5ODUUrpjWbSiLbW9IjG0HnouCi6gvKN
-	IyBIkfDxrnlPOuSj1HU05iu9iqZcdj0T0BKaWuYjOeJhScNsnJ7E8255NBSlJW5lrQ4vTI/5svVlq
-	bmfFKRiqWwkhVyd8A5sWkI2HPSMG/g9KAz+UC7T5g3P/yOTRsWIgxfm0cnegjx5Horr1p0cE5U79z
-	oAETQdymbnIVGoh9poHd2mKx7hsVZjOsyCm/3dBrsRbtYYn828kliVTREAVuwIJ0KNSzx6uXw7XxC
-	MXNfT69A==;
+	bh=D/r6tXnUuPwmcrOqEYQI7dbDs3qpnado9Q9kI0QYsBk=; b=OiEF7oLZNPSFawTREHDkWiH/ex
+	ZLPyree44XKapZToUhC7f0rbsZBr3uJbApIS+fzlaV4h9mJlGHnytwWStZcH5A23Cg51jkMLv0Kyi
+	IcH/oSbYVvyJG+WClc8p8dZFWljWl4Z4XAt5mjVtB84qDEeIZdAORAJ/HEdWOkDh1/+GMNkIOVurq
+	EXIt//I9NWHhk46gwr8NBoXywxx14tX588V+dQmnSUVEFRpg6+O40ufC7YI+ZbOqsomYNC5imHeEc
+	qPQGW5xKhewetU5xOM37C+2TYz6SLYdJMOPCLDRGp3D25/UDSU9kUppKjAuHcl/7HaWR4A9ga3jAR
+	AUVker8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aSn-0000000270X-05yi;
-	Wed, 06 Nov 2024 07:28:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aQt-000000026jL-2aLI
+	id 1t8aev-000000028tE-3MhU;
+	Wed, 06 Nov 2024 07:40:57 +0000
+Received: from mail-yw1-f176.google.com ([209.85.128.176])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8adC-000000028TS-3sDL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 07:26:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD9681063;
-	Tue,  5 Nov 2024 23:26:56 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D06E83F66E;
-	Tue,  5 Nov 2024 23:26:24 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	quic_nkela@quicinc.com,
-	dan.carpenter@linaro.org
-Subject: Re: [PATCH v3 0/7] Expose SCMI Transport properties
-Date: Wed,  6 Nov 2024 07:26:21 +0000
-Message-Id: <173087788054.3975719.458271006715771508.b4-ty@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241028120151.1301177-1-cristian.marussi@arm.com>
-References: <20241028120151.1301177-1-cristian.marussi@arm.com>
+	Wed, 06 Nov 2024 07:39:12 +0000
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-6ea5f68e17aso63353407b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 23:39:09 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730878748; x=1731483548;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=D/r6tXnUuPwmcrOqEYQI7dbDs3qpnado9Q9kI0QYsBk=;
+        b=Da/RMikAv7jMTD9YkFnycjdw3+DF6Hag4yUmNtOdnwjKv327JZLS/GErBc+zRyGsoD
+         jKBZr7rlkTQUGgorHY/jZtCKDVqLNmPUZ6uk10r+l/2bb+RZYQRchls4jmqgWgN/cF9B
+         xJtl8zD81nQCN412hKKgVL/Pz9AZrj7Be19vfZ7k+60+hN6a6MPogeJdL+VxvUUXdNwk
+         3FBDcf9L9tGbc9QdrhsWTWCGEY21i2fWouhJjCl9JlD2AjwBmaJV0N/LUJhDD0hNh2fy
+         Tn59Y8X9t97tyo3QFdTiSRCygt/xGGAwckIf21yvxOtWYGkKJW31OXYr/uxYWXapWD67
+         ephA==
+X-Forwarded-Encrypted: i=1; AJvYcCUFc7g5sJrg/rA+YDGdgSI2wamOzBU5L76z+06sHE7tbzT+aGKmGXQ4/VRFceWIGQ6ooCbBpbE4jgsr+VJ8bwrT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyxIDcq9E2MPXnEeMwWsYZ8WP+GZOiy0ioTI1TBZOZqKMqQEA0
+	Efv/OhOJscUqd9uxGjlurey7A9dIykmxZqq/huPiCC0PQoR6tUBGRXMdEaJE
+X-Google-Smtp-Source: AGHT+IG4EaOkpyepn3+rk4cfugdUjOdaVS2j4rdW+flGzIiuz90GA6fAdaXf+QxWTW3n+co6h+gJrg==
+X-Received: by 2002:a05:690c:6e09:b0:6e6:248:37bf with SMTP id 00721157ae682-6e9d8994a47mr403693347b3.22.1730878747896;
+        Tue, 05 Nov 2024 23:39:07 -0800 (PST)
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com. [209.85.128.180])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ea55c4b37dsm26574007b3.80.2024.11.05.23.39.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 05 Nov 2024 23:39:06 -0800 (PST)
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-6e38ebcc0abso72712547b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 23:39:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX7Yjq96de3mbB6irK+ypPDYJi/J/wbxEg1FAxI7StfgnbqMx08f4MhEcNAQNubmSOwrE0LW+BDrHbKpeSp7DUO@lists.infradead.org
+X-Received: by 2002:a05:690c:6211:b0:6e3:28ec:1a7f with SMTP id
+ 00721157ae682-6e9d8995185mr433595127b3.23.1730878746661; Tue, 05 Nov 2024
+ 23:39:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20241101095720.2247815-1-claudiu.beznea.uj@bp.renesas.com>
+ <20241101095720.2247815-3-claudiu.beznea.uj@bp.renesas.com> <8aa04e346f65bc4fcb0efc47a4f0550a.sboyd@kernel.org>
+In-Reply-To: <8aa04e346f65bc4fcb0efc47a4f0550a.sboyd@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 6 Nov 2024 08:38:55 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVH3CK7Fvfj-jis5Ja+oOFcXN4ntRDfz3Pf9ZJrfFMk+A@mail.gmail.com>
+Message-ID: <CAMuHMdVH3CK7Fvfj-jis5Ja+oOFcXN4ntRDfz3Pf9ZJrfFMk+A@mail.gmail.com>
+Subject: Re: [PATCH v6 2/9] clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Claudiu <claudiu.beznea@tuxon.dev>, alexandre.belloni@bootlin.com, 
+	conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, 
+	magnus.damm@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, 
+	robh@kernel.org, linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_232627_717681_670C85F4 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241105_233910_983340_5E7A7F73 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Oct 2024 12:01:44 +0000, Cristian Marussi wrote:
-> SCMI transports are characterized by a number of properties: the values
-> assumed by some of them tightly depend on the choices taken at design
-> time and on the overall archiecture of the specific platform: things like
-> timeouts, maximum message size and number of in-flight messages are closely
-> tied to the architecture of the platform like number of SCMI agents on the
-> system, physical memory available to the SCMI server...so on and so forth.
-> 
-> [...]
+Hi Stephen,
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+On Wed, Nov 6, 2024 at 12:26=E2=80=AFAM Stephen Boyd <sboyd@kernel.org> wro=
+te:
+> Quoting Claudiu (2024-11-01 02:57:13)
+> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >
+> > Add devm_clk_hw_register_gate_parent_hw() macro to allow registering
+> > devres managed gate clocks providing struct clk_hw object as parent.
+> >
+> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > Acked-by: Stephen Boyd <sboyd@kernel.org>
+> > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> > ---
+>
+> Please fix the subject line to not have linux/clk-provider.h because
+> it's redundant.
 
-[1/7] firmware: arm_scmi: Account for SHMEM memory overhead
-      https://git.kernel.org/sudeep.holla/c/5c14f38893d0
-[2/7] firmware: arm_scmi: Calculate virtio PDU max size dynamically
-      https://git.kernel.org/sudeep.holla/c/3229e33311f8
-[3/7] dt-bindings: firmware: arm,scmi: Introduce more transport properties
-      https://git.kernel.org/sudeep.holla/c/5654d37268bc
-[4/7] firmware: arm_scmi: Use max_msg and max_msg_size devicetree properties
-      https://git.kernel.org/sudeep.holla/c/c091de2d383a
-[5/7] firmware: arm_scmi: Relocate atomic_threshold to scmi_desc
-      https://git.kernel.org/sudeep.holla/c/112ffc78dc8f
+OK, I will amend, and respin the PR.
 
-(The below 2 were applied as fixes and sent for v6.12, sorry I missed
-to send confirmation earlier)
+BTW, I had noticed it too, but since you had Acked the patch, I
+decided not to change it while applying.
 
-[6/7] dt-bindings: firmware: arm,scmi: Add missing vendor string
-      https://git.kernel.org/sudeep.holla/c/7bf46ec090b9
-[7/7] firmware: arm_scmi: Use vendor string in max-rx-timeout-ms
-      https://git.kernel.org/sudeep.holla/c/54962707f8b8
+Gr{oetje,eeting}s,
 
---
-Regards,
-Sudeep
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
