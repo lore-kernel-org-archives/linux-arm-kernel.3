@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B5EDD44D42
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03351D44D45
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=19QztSNR39Yv8poxA+mfIzYPMb9oWEv+tHdPnrrM4pM=; b=b4m40/reVQXSIXJrQ2tgLqXueP
-	hriZI500szOXlPhGjQ/m7LLqjnxkc1MNkrjxSsvXWrHRhIJAyoIy/KORE2GMQTdK4PIvuf9S8PKCg
-	PaMdQDTeDDWQUUyUJHfpnrIeyFXT5DDbrUjIAQN4BVGWOxaQaj0jpSCjGxpxNLr4IyezuFHPDj8hG
-	4qDrQPRVUzf3UT+ZcOPQJOc8gjm/+2Y+RSSoWySEkZUZ9i52y1SyPDqETf8Jrr7LoWrAYiy1QtbgQ
-	CPyUsjMGDLRuY1YV4EvOjvmGZ52l0G7odOp/hEKmaUJqQAhXwr5470q2Gx0fv19mGDSbwDWMqsQXz
-	PP3RspIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=55zvySz6mffWQ+++ZbZ/oF+SBTtaOs4T74NYodmXzqA=; b=qIonmnzGZZFRtFgJ3fVqz55J4m
+	Vo7o38dlN0g97AEwNZCgr8qw1rWKwpiAkyYy4fzmHLOkizw3dPcNYi/McrCfMQdvAB8vFAKvYgzi9
+	Rkx7jC6V3RBrhTrYdJJ+ddEyffKBxUpDW/gXhEPD0PtmQRW0y3TpxGj7x2DRy5MJZnjtozFPPfDah
+	POEXR2JvskN/DPIUoQYXWhIaQkiL3scqE5NkrbrntoYk6lpTJghpxBnkDb4ZMzOuHfnMpTrEuofaf
+	fvRxj5WZowGa/T2tCQI98jiow3mQ/0yZwpEyvuFrqSHrQJtSwqMRY4jlauVR6ccOdJSryjAKRvaVA
+	QiVrYfZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dKt-00000002krA-3aVC;
-	Wed, 06 Nov 2024 10:32:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1t8dMZ-00000002kzw-1PRR;
+	Wed, 06 Nov 2024 10:34:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cZW-00000002bEk-1hgV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:43:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1730886205; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Cf0amWWIstvFR5QgZScGuFWSe/ptlLRmdNgB0XRtJ5Ld0F5cb0s5WDBEc1E/ddl0qRKID9o1cjzllsML2ukNFI2qBbl+EvaXx+9KaHcRG1PLIdpKLRlMTobXzdqgZ5uorTJLdG7BrTAtWbxeRoGu/Nr7IQL/vWtZTmzKDTc3APE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1730886205; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=19QztSNR39Yv8poxA+mfIzYPMb9oWEv+tHdPnrrM4pM=; 
-	b=QsFmLpCBZ+fXU3SwIe4DymZPOpmmFevvc6cys5DX92jCJkzRfmdhhFBn21gHz967IpDKexylrzrzi9Wg2b129wCWDesA37bRLn/3AqODgExC6320832SeyarJ0uuyrFuQMB+DZgkJBAbNFk4FcX9sK1L7QTJdGiI6H0mLWuaxhY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1730886205;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:From:From:Subject:Subject:To:To:Cc:Cc:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=19QztSNR39Yv8poxA+mfIzYPMb9oWEv+tHdPnrrM4pM=;
-	b=dJJ1Xp6tPrD0aW1Sfldn8aFMJueS3VBTcEhlG/QPeKwKshxQRYrKnVcKRa7SpAb8
-	DUnr3Hp+zFibfeSPwCIif/mMgjSZChb3jW58V19BYaxrRbW3vrsyilmIVjRcGuxBNG8
-	u5KyxAJ8VMwFpifQFhuMiHjLPVr4W7XH3KlPHbNU=
-Received: by mx.zohomail.com with SMTPS id 1730886202930134.79232865862105;
-	Wed, 6 Nov 2024 01:43:22 -0800 (PST)
-Message-ID: <83aac8b2-f80a-46b5-93fc-3369b30cbfc7@collabora.com>
-Date: Wed, 6 Nov 2024 10:43:19 +0100
+	id 1t8caB-00000002bS3-0GHf;
+	Wed, 06 Nov 2024 09:44:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=55zvySz6mffWQ+++ZbZ/oF+SBTtaOs4T74NYodmXzqA=; b=D4LdaYL70wPDH+ZYvWP1kv/GRX
+	86a/H/2vzVYvjhlAmVf5xv5Pzb2T6Myj9Q2aNBx/kDUYkMOFIXvJY1pjNXQh/pYn0xxnPGVE8T9GG
+	lBp2unVeZVU/h83ROlppwJ4hUcwhqp3i1EdbRdnaWNsXFS0sff+CYBSSTgUkPqZzGPcacaSlGZPum
+	PKyqSfOIZ6VbeiQjC68KiNA7VyJsEoRZY+A3tc52HmlSb5oe6sr6PPz2VpRvsK/fMZ50AJpgyxK7v
+	yeGZIDtJOBOEit6X0qRZ1Blr19HP6iWXZ3X2O5SxDZwJ9NdF1mmNIVNKqWyJnC+7Vfy1lP9g8AwO6
+	MR9oZnAQ==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t8ca4-000639-VL; Wed, 06 Nov 2024 10:44:05 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, Frank Wang <frawang.cn@gmail.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, william.wu@rock-chips.com,
+ tim.chen@rock-chips.com, Kever Yang <kever.yang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>
+Subject: Re: [RESEND PATCH v3 2/2] phy: rockchip-naneng-combo: add rk3576 support
+Date: Wed, 06 Nov 2024 10:44:04 +0100
+Message-ID: <1809753.VLH7GnMWUR@diego>
+In-Reply-To: <20241106021357.19782-2-frawang.cn@gmail.com>
+References: <20241106021357.19782-1-frawang.cn@gmail.com>
+ <20241106021357.19782-2-frawang.cn@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: IMX8MQ EVK board not booting anymore with v6.12-rc
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_014330_535175_548C10EC 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_014411_134713_3F2C9B57 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +77,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Am Mittwoch, 6. November 2024, 03:13:57 CET schrieb Frank Wang:
+> From: Kever Yang <kever.yang@rock-chips.com>
+> 
+> Rockchip RK3576 integrates two naneng-combo PHY, PHY0 is used for
+> PCIE and SATA, PHY1 is used for PCIE, SATA and USB3.
+> 
+> This adds device specific data support.
+> 
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Signed-off-by: William Wu <william.wu@rock-chips.com>
+> Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
 
-I notice that my IMX8MQ evk board doesn't boot with the latest v6.12-rc*.
-After bisect I found the suspect commit:
-   commit b8979c6b4d0d1b36e94f5bc483fd86e38107e554
-   Merge: 7b17f5ebd5fc b62800736f61
-   Author: Linus Torvalds <torvalds@linux-foundation.org>
-   Date:   Tue Sep 17 10:48:09 2024 +0200
+With less magic values, everything looks a bit nicer now, thanks a lot.
 
-       Merge tag 'soc-drivers-6.12' of git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-I haven't been able to identify why the kernel isn't booting anymore.
-I have udpated u-boot (v2024.10) and firmware-imx (8.25-27879f8) on my board.
-When using the commit before or the tag 'soc-drivers-6.12' of git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc
-the kernel boot.
-
-I use the following command to cross-compile the kernel
-ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make defconfig
-ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make
-
-Have you been able to boot IMX8MQ evk board with a kernel version since v6.12-rc* ?
-I don't have any log since kernel just don't start.
-
-Regards,
-Benjamin
 
 
