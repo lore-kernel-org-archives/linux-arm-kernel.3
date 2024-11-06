@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC08D59F73
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA19D59F73
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 20:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=mbhU5u76CLOOGN/GOKDUc7hnrmQiVYMKws8rURDatl4=; b=UY+BeLjnkoWw6Z
-	VuUzPf4g/LfA5Qg3pn6Po+WS4ZenLe0LIiXIuLzIU6Pm7KhU+hzYf6qpPo0HdB8SHPXURNSIQJxdK
-	Um7P+ttTU2bag95lsadGfjHeZLEro64AJKNAbVySI4tGFuXLDwJHvMx4vA/sOkS94HzcblGTYAXDv
-	zmyV8ojSiv62/NwDLFyDUdZ84Q1B94KayIgUozsBwjWO0/YWC9KqzSrTtl39FotrhDPZGlnPyLWk/
-	mU+GhK4sSPrvuHtV32h6uZrGIa+WZ3S9SMKwGuzSFmHqyGywaYcqLKQFvllKtiv9YppCl4xXrPQQF
-	aPpGhzVDMFSSp+CmhAKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UO/fsunJcLHUv7ogKKQJZR3TGi/Dgpu/xOl2VgUzdS8=; b=bwZlAj67Inv0MTEuKYOjFpjZeE
+	TV/A9XVtR0E+BsLGt5m21hvpdpwLAPw97Cp5OP9qZAvwb84NGeYLGck9JMd6tLZ7i0NeX9KdMFHBR
+	le73Yrt2QGHXWHrfMmnC8VModyckif1/7pfsIYVtTwi67yfAEx7KZCj1JRzKs0Ib03Xm5aGF292Xp
+	oQFNYusfXWOQXKswTzpXtpdEVZmgahxletE1SWzksn7Upa7zApD/Ddp/jyEoJnmMK4hnAMHc3N8zG
+	vEpw10cLeYPWfSMIklITpZizwGOnkeBZvDOZmDBpl+XYeKEdQHZI38a08VVMkE/BHt91KaR5IMX+P
+	YbgWzUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8mk2-00000004h7U-2Xnq;
-	Wed, 06 Nov 2024 20:35:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8mlj-00000004hZD-2z8O;
+	Wed, 06 Nov 2024 20:36:48 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8mhS-00000004gjK-3WJ1;
-	Wed, 06 Nov 2024 20:32:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A9D4EA443C8;
-	Wed,  6 Nov 2024 20:30:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15120C4CEC6;
-	Wed,  6 Nov 2024 20:32:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730925141;
-	bh=1Ei0xMRvJVGpNZKZ8Xu5z8oPwa6biKFwhQZaFWCaniQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=tZg0J0eWyw29z9TlF5Dh4E6EQ5oPdCcO4Zz1/6he+K+beNXrwI5BYmOKhVX2TOsrL
-	 mAyajLN3o73Gvjnr3Ma+elCxVC6Ow693XoGe6S09/upNh68DhL/lmhJqnTnr1eaG2P
-	 vB982vUHSfGzwhi6hvbBmebGg7uoHTS6frYohB/PiF7IdB2PrwT1NTwcKUypN5ZWST
-	 +bDlMwFqgxqC0QYaudNUVdGHgRqi8jjbiJge483v+BpQXxLaXN5QcNCgttY6SgPyc+
-	 Q2BqAfBJ/xs1a9unoAlhKJDasaC2HI3NH5YOpLHp2NM7XuhVOU6VscBy9lyURxzNsn
-	 f8j4/RaEtgLGA==
-Date: Wed, 6 Nov 2024 14:32:19 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com,
-	linux-mediatek@lists.infradead.org, lorenzo.bianconi83@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
-	nbd@nbd.name, dd@embedd.com, upstream@airoha.com,
-	angelogioacchino.delregno@collabora.com
-Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add Airoha EN7581 support
-Message-ID: <20241106203219.GA1530199@bhelgaas>
+	id 1t8mij-00000004gry-1x5R
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 20:33:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1730925221; x=1762461221;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=zoRLMKW55o98JRmgTawjT4yCHMdI37JhvZnILfOLqRQ=;
+  b=nLJtP8XyL/91EAx2oycBn+CY856h64nenhiJuVR/02agn4ErgNQQGRkZ
+   +2OQZ74sPDYWBX2keXtdTF/xS3czCBWaKDu2c+lGrxCu7w/NTCBpHue/w
+   icSkSLqFPWHLAsTtGoDvpEBdavH7YzULRoiFj23YBiV0XERtXt9dRMFQ+
+   tDf15BFO6sGmr2S26LjNPHj9GJKKS5aSL5cS5bweLGoNeSMm8YEXPCCGY
+   Te3f3MC3iDKtxWaYG7aODK1c5hcuYKkzMfyJsPbgp6O+fNGv49yB+Zl6g
+   XlNN6h+9vJdlk5E6NZruhlgM73xPzw31f4oeYVPs90bNk1xIYmtjJCa9Y
+   Q==;
+X-CSE-ConnectionGUID: MfDP0m81QDi8Au4op4+Zfw==
+X-CSE-MsgGUID: hYNN7ftPSPW9pbie6GagAg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30705999"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="30705999"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 12:33:37 -0800
+X-CSE-ConnectionGUID: V8XizmLPQ5C6WPxTiJI6TA==
+X-CSE-MsgGUID: oNVXimYpTpmteoMQVxNatg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,263,1725346800"; 
+   d="scan'208";a="84355097"
+Received: from linux.intel.com ([10.54.29.200])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 12:33:37 -0800
+Received: from [10.212.82.230] (kliang2-mobl1.ccr.corp.intel.com [10.212.82.230])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by linux.intel.com (Postfix) with ESMTPS id 560D920B5703;
+	Wed,  6 Nov 2024 12:33:32 -0800 (PST)
+Message-ID: <597dbcf6-8169-4084-881c-8942ed363189@linux.intel.com>
+Date: Wed, 6 Nov 2024 15:33:30 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aca00bd672ee576ad96d279414fc0835ff31f637.1720022580.git.lorenzo@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/5] x86: perf: Refactor misc flag assignments
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org,
+ Sean Christopherson <seanjc@google.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org
+References: <20241105195603.2317483-1-coltonlewis@google.com>
+ <20241105195603.2317483-5-coltonlewis@google.com>
+ <65675ed8-e569-47f8-b1eb-40c853751bfb@linux.intel.com>
+ <ZyvLOjy8Vfvai5cG@linux.dev>
+Content-Language: en-US
+From: "Liang, Kan" <kan.liang@linux.intel.com>
+In-Reply-To: <ZyvLOjy8Vfvai5cG@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_123223_031125_6AD4C51E 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20241106_123341_569241_404AB13F 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,100 +113,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wrote:
-> Introduce support for Airoha EN7581 PCIe controller to mediatek-gen3
-> PCIe controller driver.
-> ...
 
-> +static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->dev;
-> +	int err;
-> +	u32 val;
-> +
-> +	/*
-> +	 * Wait for the time needed to complete the bulk assert in
-> +	 * mtk_pcie_setup for EN7581 SoC.
-> +	 */
-> +	mdelay(PCIE_EN7581_RESET_TIME_MS);
 
-It looks wrong to me to do the assert and deassert in different
-places:
+On 2024-11-06 3:02 p.m., Oliver Upton wrote:
+> On Wed, Nov 06, 2024 at 11:03:10AM -0500, Liang, Kan wrote:
+>>> +static unsigned long common_misc_flags(struct pt_regs *regs)
+>>> +{
+>>> +	if (regs->flags & PERF_EFLAGS_EXACT)
+>>> +		return PERF_RECORD_MISC_EXACT_IP;
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+>>> +{
+>>> +	unsigned long guest_state = perf_guest_state();
+>>> +	unsigned long flags = common_misc_flags(regs);
+>>> +
+>>> +	if (guest_state & PERF_GUEST_USER)
+>>> +		flags |= PERF_RECORD_MISC_GUEST_USER;
+>>> +	else if (guest_state & PERF_GUEST_ACTIVE)
+>>> +		flags |= PERF_RECORD_MISC_GUEST_KERNEL;
+>>> +
+>>
+>> The logic of setting the GUEST_KERNEL flag is implicitly changed here.
+>>
+>> For the current code, the GUEST_KERNEL flag is set for !PERF_GUEST_USER,
+>> which include both guest_in_kernel and guest_in_NMI.
+> 
+> Where is the "guest_in_NMI" state coming from? KVM only reports user v.
+> kernel mode.
 
-  mtk_pcie_setup
-    reset_control_bulk_assert(pcie->phy_resets)        <--
-    mtk_pcie_en7581_power_up
-      mdelay(PCIE_EN7581_RESET_TIME_MS)
-      reset_control_bulk_deassert(pcie->phy_resets)    <--
-      mdelay(PCIE_EN7581_RESET_TIME_MS)
+I may understand the kvm_arch_pmi_in_guest() wrong.
+However, the kvm_guest_state() at least return 3 states.
+0
+PERF_GUEST_ACTIVE
+PERF_GUEST_ACTIVE | PERF_GUEST_USER
 
-That makes the code hard to understand.
+The existing code indeed assumes two modes. If it's not user mode, it
+must be kernel mode.
+However, the proposed code behave differently, or at least implies there
+are more modes.
+If it's not user mode and sets PERF_GUEST_ACTIVE, it's kernel mode.
 
-> +	err = phy_init(pcie->phy);
-> +	if (err) {
-> +		dev_err(dev, "failed to initialize PHY\n");
-> +		return err;
-> +	}
-> +
-> +	err = phy_power_on(pcie->phy);
-> +	if (err) {
-> +		dev_err(dev, "failed to power on PHY\n");
-> +		goto err_phy_on;
-> +	}
-> +
-> +	err = reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
-> +	if (err) {
-> +		dev_err(dev, "failed to deassert PHYs\n");
-> +		goto err_phy_deassert;
-> +	}
-> +
-> +	/*
-> +	 * Wait for the time needed to complete the bulk de-assert above.
-> +	 * This time is specific for EN7581 SoC.
-> +	 */
-> +	mdelay(PCIE_EN7581_RESET_TIME_MS);
-> +
-> +	pm_runtime_enable(dev);
-> +	pm_runtime_get_sync(dev);
-> +
+Thanks,
+Kan
 
-> +	err = clk_bulk_prepare(pcie->num_clks, pcie->clks);
-> +	if (err) {
-> +		dev_err(dev, "failed to prepare clock\n");
-> +		goto err_clk_prepare;
-> +	}
-> +
-> +	val = FIELD_PREP(PCIE_VAL_LN0_DOWNSTREAM, 0x47) |
-> +	      FIELD_PREP(PCIE_VAL_LN1_DOWNSTREAM, 0x47) |
-> +	      FIELD_PREP(PCIE_VAL_LN0_UPSTREAM, 0x41) |
-> +	      FIELD_PREP(PCIE_VAL_LN1_UPSTREAM, 0x41);
-> +	writel_relaxed(val, pcie->base + PCIE_EQ_PRESET_01_REG);
-> +
-> +	val = PCIE_K_PHYPARAM_QUERY | PCIE_K_QUERY_TIMEOUT |
-> +	      FIELD_PREP(PCIE_K_PRESET_TO_USE_16G, 0x80) |
-> +	      FIELD_PREP(PCIE_K_PRESET_TO_USE, 0x2) |
-> +	      FIELD_PREP(PCIE_K_FINETUNE_MAX, 0xf);
-> +	writel_relaxed(val, pcie->base + PCIE_PIPE4_PIE8_REG);
 
-Why is this equalization stuff in the middle between
-clk_bulk_prepare() and clk_bulk_enable()?  Is the split an actual
-requirement, or could we use clk_bulk_prepare_enable() here, like we
-do in mtk_pcie_power_up()?
-
-If the split is required, a comment about why would be helpful.
-
-> +	err = clk_bulk_enable(pcie->num_clks, pcie->clks);
-> +	if (err) {
-> +		dev_err(dev, "failed to prepare clock\n");
-> +		goto err_clk_enable;
-> +	}
-
-Per https://lore.kernel.org/r/ZypgYOn7dcYIoW4i@lore-desk,
-REG_PCI_CONTROL is asserted/deasserted here by en7581_pci_enable().
-
-Is this where PERST# is asserted?  If so, a comment to that effect
-would be helpful.  Where is PERST# deasserted?  Where are the required
-delays before deassert done?
-
-Bjorn
 
