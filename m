@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A29A8D40D08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 00:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BE0D40D08
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 00:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEcFU5Iqsgm3U1kleL1AuXyG0d6sZHwbrluDEXSnsOE=; b=XRgWh7OBbxY7us9w1B6M7DnHux
-	+0Ino/rzwhhCmoHYPLk1hXULKsyDdP7Fc7cMD6w3J8dhbt8K4R6VEz1G4/+hDdRYD47o8fZLFp+EW
-	K1mGzQYqSWpfXypwPb290RPO4f2gX86odkM51O2xN+/XpBNohbuxOrEeBaM7PXdjGjDsM4feu//5w
-	PtyREx+1SgZKIm6Ri+ihLa1Ifzujgk2cUfu75c3l5N5cQbR8AxbQj1SrTwsc/Q877tWohdExsdrnf
-	jVUVTrPlz6qT08mzYRoPV4b1vJsCmB6VBaG2/r2jInb8MDkyyQqKLXOzyNG7PNyMWZ3sDIL8YYlGM
-	TjEdkD4w==;
+	bh=54KCy2+tWwmG7kdeIDPKVXvI/FDoFS+eIN7Y1DoFMCA=; b=TJKPGEyw1qHqD2RZ9Gck/L2YOj
+	degYOEQ5fxKGKSPiNzajERHgZDSg3zYh/mQ0JD4AfGr6EpBsB1XVSdkqaWVEFtOE8LIVsPNsTqkqQ
+	JrnaaORZGgQB539Dz1IkPnaWIU28BUE8i12oD1PGCAlRNmNAi2OUI5ivcD8mdwWMxvj8znPGqhw8G
+	S0S3AWwoII/Ty8Aq4SnSnzgg21Bq8fcz7LS4RgpX/WPQll3ZsyUb3ZgBdWoj+8vvKOlOPOAKO8eZP
+	0G7hIXz4fU7tx0MF04gJkOm0CwDfKAKiANa67bBHIul2NBBBDEOHNtqoMByg1hhtXGIHq4JverjH0
+	DS/9i2YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8U56-00000001DVb-2GgY;
-	Wed, 06 Nov 2024 00:39:32 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1t8UBg-00000001EHA-1pOe;
+	Wed, 06 Nov 2024 00:46:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8U3M-00000001DIg-3uQP
+	id 1t8U9y-00000001E8T-1fOh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 00:37:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1730853459;
-	bh=MEcFU5Iqsgm3U1kleL1AuXyG0d6sZHwbrluDEXSnsOE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=d2fqNuW7b4RXmB3s7G5PSJmu0Z6xCG88TD6MYvWYhkjYPejnPRZYYXKLr9d4Gw9rD
-	 P2yyInckCQLVw8ri12qNsZKAKnwTz07MOkRhuVsrmEJztJTZ81n+cAkDXagwI7Qnc+
-	 TV8HacgBK9b1iyD656HuSIs00K6kuz3Xfjd6TZeDSGcvcR7w3EGozUkAS7cb9cSvr8
-	 YmeyNv0cGwo/NOmbeS2UZalwT9pJNcD8v0KmjIako8kMbDlIV8ahDRxPuPBgijJbDl
-	 Xp1w0W9Mj9uKu4fwWQ6ibR/pj9iaO/xUBNmyo/cYrkIM8NfrmicA+49mQJxn8FVHk9
-	 koqwVmoXXpIzA==
-Received: from [127.0.1.1] (ppp118-210-162-114.adl-adc-lon-bras34.tpg.internode.on.net [118.210.162.114])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CF8176B28B;
-	Wed,  6 Nov 2024 08:37:35 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, jdelvare@suse.com, 
- linux@roeck-us.net, sylv@sylv.io, linux-hwmon@vger.kernel.org, 
- Joel Stanley <joel@jms.id.au>, 
- Naresh Solanki <naresh.solanki@9elements.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-In-Reply-To: <20241104092220.2268805-1-naresh.solanki@9elements.com>
-References: <20241104092220.2268805-1-naresh.solanki@9elements.com>
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add IBM SBP1 board
-Message-Id: <173085345571.351006.17162436911260710903.b4-ty@codeconstruct.com.au>
-Date: Wed, 06 Nov 2024 11:07:35 +1030
-MIME-Version: 1.0
+	Wed, 06 Nov 2024 00:44:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5C54E5C57A1;
+	Wed,  6 Nov 2024 00:43:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A5DC4CECF;
+	Wed,  6 Nov 2024 00:44:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730853872;
+	bh=0IQzgFC4tYrsOmjeRzELhBNSRrs0Hh0neabXRQN73iQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=EgO4amoc8V59tRojC1uZBTXkNJJFTGrZ71vwpRv4+8O3kVGiEml9X3tqOjoN4xNBt
+	 CQIxSyduB1K3W9M8WNuzQxDejDS5zPjNdAraYy/1dR0Ia5jVBECwoEKeYH7KGWP+6J
+	 qhjuhy5kotKJQuW8eYHw6D6WT4GKVWVrQGW8iMgtyLL30rvn2VA/TrUlOUOHeYD8/k
+	 rqkh03yJD4lfU1SgqzNyVrQF0gDNiOCOF2jKcLDmzU92KXlfiKIjNr8YqLb12oqQK1
+	 r1rRtXNuDWkpiHi7YTCaPCXx4XQmTKp6LOJ2KX+xo7JJNr/0u9IymGQq98qU/CE91R
+	 np43H2J0k83Lg==
+Message-ID: <b5e47bf3229f3145cb705cfe83951d99.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241104075037.13323-1-krzysztof.kozlowski@linaro.org>
+References: <20241104075037.13323-1-krzysztof.kozlowski@linaro.org>
+Subject: Re: [GIT PULL] clk: samsung: drivers for v6.13
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Chanwoo Choi <cw00.choi@samsung.com>, linux-clk@vger.kernel.org, Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Michael Turquette <mturquette@baylibre.com>
+Date: Tue, 05 Nov 2024 16:44:30 -0800
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_163745_215127_713C878B 
-X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-CacheID: sfid-20241105_164434_519331_84BC87DB 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,14 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Nov 2024 14:52:14 +0530, Naresh Solanki wrote:
-> Document the new compatibles used on IBM SBP1.
-> 
-> 
+Quoting Krzysztof Kozlowski (2024-11-03 23:50:36)
+> The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
+dc:
+>=20
+>   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/sam=
+sung-clk-6.13
+>=20
+> for you to fetch changes up to 9174fac3b302a853b78c78f2f5ad11462b0c54b0:
+>=20
+>   clk: samsung: Introduce Exynos8895 clock driver (2024-10-26 14:00:12 +0=
+200)
+>=20
+> ----------------------------------------------------------------
 
-Thanks, I've applied this to be picked up through the BMC tree.
-
---
-Andrew Jeffery <andrew@codeconstruct.com.au>
-
+Thanks. Pulled into clk-next
 
