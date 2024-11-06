@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD96D59F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EF5D59F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 18:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbT+MVFmQWldHSwvQIAZqRuAjWXImGGsq+3vijULiGE=; b=Duios73GaZI5H/wiCjeTZbGcgY
-	fOPyPWRr6v/PqqQN9S8CYA/AWLYLIVaC0G75DLy+KDJUAXU0oWk64mKplva7SPZ58+WK1kpqicPTk
-	6C3Y1y6QjfX/MnZK+f5mK5FTWHU2QT60Bv8kLBkR9OfpjaKs3dQ5MFempz3qCpFCLvZKH10sJO15a
-	JP2Czf+bYOGlGFmfmcdKErxTa0IzQrgIQaUMBuo2fWFf0TrAafWSaK1rkq0kgZ5tDUgwrbFjy3d3e
-	aqrxkDKuNIjxn/5WHt8XEW3ZkRtKP3aVFxUXQVI12iY2/DU+9YdaOdhDvUGr85ZvzT9kmhdXQPCQE
-	td7eMCVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwnwFqyElhS59Xfq7JeJ9Np9U8KffT4TejVqEqCOZp0=; b=LCsTXFqK3SC8bxgmypGg1FmH0V
+	iYVR9yylPTPt5T48BIhH8ZupF5CsoUgJVNygjsmPbbqJI+xs1mkgLBfhn5VIj/BdkAPA8ouDVKNyn
+	yiYG+yXgDEhnubwSU8J8yQdy1sRtdKtYb6bFT8GykM203vZBITPwgcRw9ME6su6+8FArf1ukST8vy
+	O3br1fy7cwZCMVHFwCIpFVHbKZmzyP9BOS8UjFpE8SrZO61wtMImcImxRmgI1QvD58ZiF6xkOoFHI
+	NwoPcdqbEOt487ZE5UZgRAymKcBC0vUW6zdIK4LKxYo4Y7o8Nbx3xbBE9NjlTTPRaBPXyRgHFeSud
+	bqHxy3cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8kpU-00000004LmJ-1YJn;
-	Wed, 06 Nov 2024 18:32:32 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1t8krB-00000004M7r-3zMc;
+	Wed, 06 Nov 2024 18:34:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8knX-00000004LPe-2aAY
+	id 1t8kno-00000004LUO-0T2f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 18:30:33 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so16874e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:30:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730917830; x=1731522630; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NbT+MVFmQWldHSwvQIAZqRuAjWXImGGsq+3vijULiGE=;
-        b=g0ArEkFVOhFa6qwCRxqmI5GX0ri7RP35npHVA2pT81JELwIAEt5LE3a3UFTR/PJIlq
-         Hpj09rmg1dWbKH5FrI7fm2MHPyvlkW8EiSPUjYAax5OzG+TVirT4WJ7DViL41I51Pag9
-         j5kps+9hYIgR+pu6rPIo6YEX248CJ86jnQTLFh5E/32deVY4hRlsDBzAkBzZFljoOZLG
-         OhUjUCvm/oyruzlPbwNExOJ20wc0aQoNReVXaVgRVu+102qMW9hNOWh/ztPEWX8PhP3c
-         4yllOsmMiH5QEleVfZ55bZnGWVEfikXegnoo2MB4AwYXXFPiAiIo3pNroDqfBZRs2pci
-         WHbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730917830; x=1731522630;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NbT+MVFmQWldHSwvQIAZqRuAjWXImGGsq+3vijULiGE=;
-        b=MBeKYrol0Y2pUQ4TTWD62t1ATIQA3ZeLCrWun8IxnhbfTdc7FlFNMC/AGABjAipC7w
-         xJqjvL+OpIEsCR9i5ygO9gynAh/NzwytMcwBSsZJdx6x6hEqkuAEF0UK+ZznPimy39Ug
-         +HAfyLikKAcrhC3BfHzg6CgbfMcjFu3WmFh2FHoFiANdvRnOg22cK63L3IQ6OAsFBSwe
-         lv6uU8mI7LDqQTc3YV7BiCNFR/AYE0ce9M+NfDTC1txIRAkbaMSxa1HvBetPHDenElhL
-         8Zy1JYd6O6DBLd7L68+DK4k9wyXkwF5iPZMx3D4JTU50p2Tgs2X/JSdBloQl4RM9N/Nt
-         Kc5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUBpLHKQkmgMTBeTz2NNO3VZNhAKwqSFXfq7glIKNhXs5Vty1v//sm3fYFtmBKfggsHz4L0wyOiCIEl8QZkI5Oo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi5sUeX7O9lfPxnvU033adWxblK+WBnkzDyhLADb9535evcfyA
-	lwbNRMaPVRw/yCQPPif9dJ7ZonWLXiAiqO0rye5Ka86uFG+CJJ2pihbNfJvuLdlwPuSuS6FaPpJ
-	p3L7MEZmdh9QS6EsSjSD0NSakecuj+0UWSXdV
-X-Google-Smtp-Source: AGHT+IGYKAJXEmT25HizfPd98EM7DkJ/wBTM9jTTkKgsvpun+NHaqwmwMvXWcTOmNi+oHO6/SxiZtFDZUwiPL4oYAew=
-X-Received: by 2002:a05:6512:159c:b0:539:8f3c:4586 with SMTP id
- 2adb3069b0e04-53d65e16881mr14669176e87.55.1730917829767; Wed, 06 Nov 2024
- 10:30:29 -0800 (PST)
+	Wed, 06 Nov 2024 18:30:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 604FFA44241;
+	Wed,  6 Nov 2024 18:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF61C4CEC6;
+	Wed,  6 Nov 2024 18:30:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730917847;
+	bh=lwnwFqyElhS59Xfq7JeJ9Np9U8KffT4TejVqEqCOZp0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ncga7DDBTtU5oQZ5uy2fj4VeVQineuf963jbAweI5cQL8TstTDlhAj0dNYtVpHgT9
+	 NjvMOiaYR8U0g+WtexhB47eFW1KxSqwXHprIWbQ+IThqovpgxFLCJq3bvaHXW0s0TH
+	 Nvi9g1U4hkfr7kVzo3/kIQYTaNqorVnhIn0+gzPIM1HaX5opU2d0i2AyDxEp0vYcWJ
+	 b3y/ndaOYgyNOiXTTHVfl/XquCmbuX9O7NV/LIAy0mb6t0sKa/Iq4Mg+Ux9O313/v/
+	 MfLvBNHGtUsRCKaSgoyYbXtpA2w2fu/DIgkl+bfeEDipcHanKFXw7VCZ2tgCJ589bg
+	 uNfuvfK34/DkQ==
+Date: Wed, 6 Nov 2024 18:30:41 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Matt Coster <Matt.Coster@imgtec.com>
+Cc: Frank Binns <Frank.Binns@imgtec.com>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
+Subject: Re: [PATCH 04/21] dt-bindings: gpu: img: Allow dma-coherent
+Message-ID: <20241106-dried-spoils-f6ddd8020f40@spud>
+References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
+ <20241105-sets-bxs-4-64-patch-v1-v1-4-4ed30e865892@imgtec.com>
+ <20241105-linseed-steadfast-98cd8abe898c@spud>
+ <5e26957f-dc79-42ef-a8a1-597fb386ae51@imgtec.com>
 MIME-Version: 1.0
-References: <20241106083035.2813799-1-jingzhangos@google.com>
- <20241106083035.2813799-3-jingzhangos@google.com> <86bjys1p45.wl-maz@kernel.org>
-In-Reply-To: <86bjys1p45.wl-maz@kernel.org>
-From: Jing Zhang <jingzhangos@google.com>
-Date: Wed, 6 Nov 2024 10:30:17 -0800
-Message-ID: <CAAdAUthN14kLmeH0eLK991soGeZD8qzD+Sp1jR2gZjqLVE771Q@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
-To: Marc Zyngier <maz@kernel.org>
-Cc: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
-	ARMLinux <linux-arm-kernel@lists.infradead.org>, Oliver Upton <oupton@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Kunkun Jiang <jiangkunkun@huawei.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>, 
-	Colton Lewis <coltonlewis@google.com>, Raghavendra Rao Ananta <rananta@google.com>, 
-	Shusen Li <lishusen2@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="f01tRNt2X5Z6+tQq"
+Content-Disposition: inline
+In-Reply-To: <5e26957f-dc79-42ef-a8a1-597fb386ae51@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_103031_721698_8DB12954 
-X-CRM114-Status: GOOD (  32.13  )
+X-CRM114-CacheID: sfid-20241106_103048_239842_468BC76A 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,145 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 6, 2024 at 5:14=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Wed, 06 Nov 2024 08:30:33 +0000,
-> Jing Zhang <jingzhangos@google.com> wrote:
-> >
-> > From: Kunkun Jiang <jiangkunkun@huawei.com>
-> >
-> > vgic_its_save_device_tables will traverse its->device_list to
-> > save DTE for each device. vgic_its_restore_device_tables will
-> > traverse each entry of device table and check if it is valid.
-> > Restore if valid.
-> >
-> > But when MAPD unmaps a device, it does not invalidate the
-> > corresponding DTE. In the scenario of continuous saves
-> > and restores, there may be a situation where a device's DTE
-> > is not saved but is restored. This is unreasonable and may
-> > cause restore to fail. This patch clears the corresponding
-> > DTE when MAPD unmaps a device.
-> >
-> > Co-developed-by: Shusen Li <lishusen2@huawei.com>
-> > Signed-off-by: Shusen Li <lishusen2@huawei.com>
-> > Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
-> > Signed-off-by: Jing Zhang <jingzhangos@google.com>
-> > ---
-> >  arch/arm64/kvm/vgic/vgic-its.c | 14 ++++++++++++--
-> >  1 file changed, 12 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-=
-its.c
-> > index 2381bc5ce544..7c57c7c6fbff 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-its.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> > @@ -1140,8 +1140,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *k=
-vm, struct vgic_its *its,
-> >       u8 num_eventid_bits =3D its_cmd_get_size(its_cmd);
-> >       gpa_t itt_addr =3D its_cmd_get_ittaddr(its_cmd);
-> >       struct its_device *device;
-> > +     gpa_t gpa;
-> >
-> > -     if (!vgic_its_check_id(its, its->baser_device_table, device_id, N=
-ULL))
-> > +     if (!vgic_its_check_id(its, its->baser_device_table, device_id, &=
-gpa))
-> >               return E_ITS_MAPD_DEVICE_OOR;
-> >
-> >       if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-> > @@ -1161,8 +1162,17 @@ static int vgic_its_cmd_handle_mapd(struct kvm *=
-kvm, struct vgic_its *its,
-> >        * The spec does not say whether unmapping a not-mapped device
-> >        * is an error, so we are done in any case.
-> >        */
-> > -     if (!valid)
-> > +     if (!valid) {
-> > +             struct kvm *kvm =3D its->dev->kvm;
-> > +             int dte_esz =3D vgic_its_get_abi(its)->dte_esz;
-> > +             u64 val =3D 0;
-> > +
-> > +             if (KVM_BUG_ON(dte_esz !=3D sizeof(val), kvm))
-> > +                     return -EINVAL;
->
-> I find it pretty odd to bug only in that case, and the sprinkling of
-> these checks all over the place is horrible. I'm starting to wonder if
-> we shouldn't simply wrap vgic_write_guest() and co to do the checking.
->
-> > +
-> > +             vgic_write_guest_lock(kvm, gpa, &val, dte_esz);
->
-> I'm thinking of something like:
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-it=
-s.c
-> index ba945ba78cc7d..d8e57aefcd3a5 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -1128,6 +1128,19 @@ static struct its_device *vgic_its_alloc_device(st=
-ruct vgic_its *its,
->         return device;
->  }
->
-> +
-> +#define its_write_entry_lock(i, g, valp, t)                            \
-> +       ({                                                              \
-> +               struct kvm *__k =3D (i)->dev->kvm;                       =
- \
-> +               int __sz =3D vgic_its_get_abi(i)->t;                     =
- \
-> +               int __ret =3D 0;                                         =
- \
-> +               if (KVM_BUG_ON(__sz !=3D sizeof(*(valp)), __k))          =
- \
-> +                       __ret =3D -EINVAL;                               =
- \
-> +               else                                                    \
-> +                       vgic_write_guest_lock(__k, (g), (valp), __sz);  \
-> +               __ret;                                                  \
-> +       })
-> +
->  /*
->   * MAPD maps or unmaps a device ID to Interrupt Translation Tables (ITTs=
-).
->   * Must be called with the its_lock mutex held.
-> @@ -1140,8 +1153,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm=
-, struct vgic_its *its,
->         u8 num_eventid_bits =3D its_cmd_get_size(its_cmd);
->         gpa_t itt_addr =3D its_cmd_get_ittaddr(its_cmd);
->         struct its_device *device;
-> +       gpa_t gpa;
->
-> -       if (!vgic_its_check_id(its, its->baser_device_table, device_id, N=
-ULL))
-> +       if (!vgic_its_check_id(its, its->baser_device_table, device_id, &=
-gpa))
->                 return E_ITS_MAPD_DEVICE_OOR;
->
->         if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-> @@ -1161,8 +1175,10 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kv=
-m, struct vgic_its *its,
->          * The spec does not say whether unmapping a not-mapped device
->          * is an error, so we are done in any case.
->          */
-> -       if (!valid)
-> -               return 0;
-> +       if (!valid) {
-> +               u64 val =3D 0;
-> +               return its_write_entry_lock(its, gpa, &val, dte_esz);
-> +       }
->
->         device =3D vgic_its_alloc_device(its, device_id, itt_addr,
->                                        num_eventid_bits);
->
-> which can be generalised everywhere (you can even extract the check
-> and move it to an out-of-line helper as required).
 
-Sounds good. Will do as you suggested.
+--f01tRNt2X5Z6+tQq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Jing
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+On Wed, Nov 06, 2024 at 10:18:06AM +0000, Matt Coster wrote:
+> On 05/11/2024 18:06, Conor Dooley wrote:
+> > On Tue, Nov 05, 2024 at 03:58:10PM +0000, Matt Coster wrote:
+> >> This attribute will be required for the BXS-4-64 MC1 and will be enabl=
+ed in
+> >> the DTS for the TI k3-j721s2 in a subsequent patch; add it now so
+> >> dtbs_check doesn't complain later.
+> >=20
+> > Sounds like the property should be made required for that integration.
+>=20
+> This is something I went back and forth on. Where is the line drawn
+> between things that should be enforced in bindings and things that only
+> ever need to be specified once, so should just be left to the dt itself
+> to be the source of truth?
+>=20
+> Having said that, I realise TI could spin a new SoC with a new dt but
+> use the same compatible string for the GPU;
+
+No they can't. New SoC, new compatible.
+
+> the "single" source of truth
+> then wouldn't be so single anymore. I guess by making this property
+> required for this compatible string, we're saying any use of it must
+> behave in exactly the same way, right?
+
+--f01tRNt2X5Z6+tQq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyu10QAKCRB4tDGHoIJi
+0oE5AP4yKMe2zZuHfZWRLLe1EVB1RY5SngwUhkXzFSPhIY8wLgEAlaS4WL2LzDDS
+8YfEDzUHezrqSxoOdDYmEg7VZOPVXwQ=
+=AxQP
+-----END PGP SIGNATURE-----
+
+--f01tRNt2X5Z6+tQq--
 
