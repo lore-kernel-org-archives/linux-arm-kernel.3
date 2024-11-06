@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13391D44D58
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0FFD44D58
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PPHd5Ml+4dhfKf7+W9PSlfsoxE25t0TD5o+m/lVsDyw=; b=Jjwtc4aFN+yFHGZmNgfaTxPHXS
-	K291+hTlSGmM/MZ07kQ2ngU9MJLv6TGFG9sjPIGKaZit8pjWhRh4VHaXd0colHRTZltIgRkCtjBUf
-	vKHHqABnK9N3zCdLSxOZ/lwVrI7i594D//8nS9mdotqAwYHP8kdl5nlxiwBxBJPcAC2AXaRAJTl+p
-	1dXO2ixnyfN6pctlxSizLAfsj8EUUygnFOEfSfacxTCCtt872kOYOEMVZz11JzwSh6s+CK4In4Czd
-	+YHW3ecpszaGucD1cSDjAoUworPhLe9YizazfD+t/oXfz3RqmV89VO6vI9MWN4LX23DOOIFSJHmDW
-	e+nBys+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VNbbyybsVA/llgCiGv5B8aYzpYH2qcy9VUJy2qkKAvI=; b=a7q+FuDLx/N/MSKxcG66iPrtn0
+	czfkgY3PPqxGwqiRuMNhvQpr6844WseR0084fU2WpHvTdbqH52VCub+2jUt2mUfnO9cLwlNF6btLU
+	Ykdlg/5qLtNwoXPcmEbBeNHk1hZKk/FufLQoJYKquWKBVMtBZlguSmSxhCWsm34FOhwbYGwU7hGQe
+	6Lt31WAjXvxkRGr2WTcALbu4D0tGUs7Xxt1iPbcygPvDldGyzXn5CYDnFy7+zJbBWVyUefvNGNAuu
+	Ad8jQKWK+I5JbsZUyNgu/Bhk7HovoejprxPWrSaPk1KEMEWrnkME473wzELXh17DL6aTjEFpHMciT
+	8eLPz8mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8g1u-00000003PUp-3Lnn;
-	Wed, 06 Nov 2024 13:25:02 +0000
-Received: from mail-yw1-f177.google.com ([209.85.128.177])
+	id 1t8g3c-00000003PlI-1aWa;
+	Wed, 06 Nov 2024 13:26:48 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fVu-00000003Jcm-0OXA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 12:51:59 +0000
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-6e34339d41bso56965737b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 04:51:57 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730897515; x=1731502315;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PPHd5Ml+4dhfKf7+W9PSlfsoxE25t0TD5o+m/lVsDyw=;
-        b=kP1DaCb9nUcU4WIAbJt8AzldRnOcQgP6IltbjBliAr7nFFbx7/iB44KWNsFj22OPWT
-         gqF+GzaJJeEXfppXU1V4S6A2VfHqddzHMNerOMhM1ykZ62p32Zz2mYXh0PZ3J9LBBZDf
-         w519ZFlBNoI2XE5sfVoyimCDUIJnfjOi73/mEZdsMDhClF43517TMzcjKtkC12TkPHuU
-         d+Ha++RhxD0udz9XLZ+aQ5OWrmA2AakHWywJ3cVVfDlKnC6etSFMNLkxWkm/S+EI0cqJ
-         apVKBpvQeNHtGBQN8pul7HLV+AadBWAKW3Z/oJWLfeHdtq67HQgAk/k2jm/4AoymSEa5
-         Yhpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfgDbS1xJNlFYAZ0WqOD4IUEtJq13n3G+1h77e+Uj5IONZ55ESEsyt798uBgnGAdhP0ZIQ80FFIGgcglW8bcIu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yycf0IjH/HY6KaZEEQfqARfoIe2VRQT1hDsGE9Dh9okkmRtHVhs
-	7648WkdEEEzs5Xpgj0U414zcXbPlyYsAyLayJWj+RWQJJ7qUfsopaTb7IfTl
-X-Google-Smtp-Source: AGHT+IFh5F7CJBy47zaXswLURuGDzMWIKwUoTNktNV1rS9hUq8R9mc8HOETzZNYnWZratGBI0z5CNQ==
-X-Received: by 2002:a05:690c:87:b0:6e3:410e:bb84 with SMTP id 00721157ae682-6e9d89950d4mr354758667b3.20.1730897515401;
-        Wed, 06 Nov 2024 04:51:55 -0800 (PST)
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ea92528c6fsm14975987b3.131.2024.11.06.04.51.53
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Nov 2024 04:51:53 -0800 (PST)
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-6ea8419a57eso43355317b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 04:51:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWcTDcVurStciipzXj6z0y3JUiF7MunE68tpmrSN8bCMgCu7e7BkZqbOR1Ehg5qCHbJm7S4JdM3b/0WfOdXk1Yx@lists.infradead.org
-X-Received: by 2002:a05:690c:6607:b0:6ea:9bca:9fcd with SMTP id
- 00721157ae682-6ea9bcaa376mr108385977b3.2.1730897513684; Wed, 06 Nov 2024
- 04:51:53 -0800 (PST)
+	id 1t8fYE-00000003K9m-30UK;
+	Wed, 06 Nov 2024 12:54:23 +0000
+X-UUID: 3966e78e9c3e11ef82ff63e91e7eb18c-20241106
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=VNbbyybsVA/llgCiGv5B8aYzpYH2qcy9VUJy2qkKAvI=;
+	b=HrN2wRySArCax9B4WRxPC50Y0jYLn4tFx8FR9eemNVCTzDrsKEdWOaNGaMZOnBIF4BuIMVzXomXGficksnXh5rB1kCCF68MtFXW4C3nSuYckrlkhJdWKbg7bxaiqbEqnSAKGYUhd9r2xZSHwHbSUF7AzmMoADlYzEBccb+2Enpg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:0b68642b-f88d-4a8e-8dd6-c3fda3a43a14,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:b24eb81b-4f51-4e1d-bb6a-1fd98b6b19d2,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 3966e78e9c3e11ef82ff63e91e7eb18c-20241106
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <zoie.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2031945666; Wed, 06 Nov 2024 05:54:13 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Wed, 6 Nov 2024 20:54:09 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Wed, 6 Nov 2024 20:54:09 +0800
+From: Zoie Lin <zoie.lin@mediatek.com>
+To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<teddy.chen@mediatek.com>, Zoie Lin <zoie.lin@mediatek.com>
+Subject: [v2,0/1] i2c: mediatek: add runtime PM operations and bus regulator control
+Date: Wed, 6 Nov 2024 20:52:11 +0800
+Message-ID: <20241106125212.27362-1-zoie.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-References: <9e56c0d03509d79736961ded7a1b90a361fd2e06.1730895069.git.geert+renesas@glider.be>
-In-Reply-To: <9e56c0d03509d79736961ded7a1b90a361fd2e06.1730895069.git.geert+renesas@glider.be>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Nov 2024 13:51:41 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVkMezR+opdwY=8QQuKRsniMhP3D6EiHVycn69PRUuPeg@mail.gmail.com>
-Message-ID: <CAMuHMdVkMezR+opdwY=8QQuKRsniMhP3D6EiHVycn69PRUuPeg@mail.gmail.com>
-Subject: Re: [PATCH] pcmcia: omap_cf: : Mark driver struct with __refdata to
- prevent section mismatch
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Dominik Brodowski <linux@dominikbrodowski.net>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, linux-omap@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--2.028600-8.000000
+X-TMASE-MatchedRID: jUWJaIY8sEkfbciQjfRltRC41kTKJMKFYoHH/gi0K9v8rSaNLblw6nWC
+	d6QvVzbeE1RLTRi8AtKQYj0iYjwwnf16VZJq9bHXM8XTtgUzttN9LQinZ4QefCP/VFuTOXUT3n8
+	eBZjGmUzkwjHXXC/4I8prJP8FBOIaQDrrEUSMSmZGNW3Yd29bnG18/yTfVZRoc/Od1SdTsJ9Xz+
+	9mseNN8R4L76ik4lwFRyQrl51F0DySbb/RKI1CTBxYxYG29kEALeu9/Cix+Fl0BNB20+SxH7f8m
+	JY57oZddJaBDYald1lvF9+X2GEIHA==
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--2.028600-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: 0CA8BD2969729531D72666269D686E64A92A1F7F1D4AD7EFAB7583DA1ADD897F2000:8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_045158_155034_A2BD1F37 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20241106_045422_785176_064B6545 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 6, 2024 at 1:14=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-> As described in the added code comment, a reference to .exit.text is ok
-> for drivers registered via platform_driver_probe().  Make this explicit
-> to prevent the following section mismatch warning
->
->     WARNING: modpost: drivers/pcmcia/omap_cf: section mismatch in referen=
-ce: omap_cf_driver+0x4 (section: .data) -> omap_cf_remove (section: .exit.t=
-ext)
->
-> that triggers on an omap1_defconfig + CONFIG_OMAP_CF=3Dm build.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+This series is based on linux-next, tag: next-20241105
 
-There is one more in the DaVinci cpufreq driver, but that one never
-triggers a warning, as it cannot be a module.
+Changes in v2:
+- author name modification
+- replacement of pm runtime API
+- removal of redundant error messages
+- return value adjustment
+- add runtime pm status check
 
-So either davinci_cpufreq_remove() should be removed (it is never
-emitted), or the __exit and __exit_p() should be dropped (then it can
-be unbound manually, but never rebound).
+The delay before runtime_put_autosuspend() actually executes 
+mtk_i2c_runtime_suspend() depends on the frequency of I2C usage by the 
+devices attached to this bus. A 1000ms delay is a balanced value for 
+latency and power metrics based on the MTK platform.
 
-https://elixir.bootlin.com/linux/v6.11.6/source/drivers/cpufreq/davinci-cpu=
-freq.c#L134
+Zoie Lin (1):
+  i2c: mediatek: add runtime PM operations and bus regulator control
 
-Thoughts?
+ drivers/i2c/busses/i2c-mt65xx.c | 77 ++++++++++++++++++++++++++++-----
+ 1 file changed, 65 insertions(+), 12 deletions(-)
 
-Gr{oetje,eeting}s,
+-- 
+2.45.2
 
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
