@@ -4,106 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0BED59F56
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 17:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88F9D59F55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 17:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pz81Pbck5wcyAI6JbvV2ZyEMZPVsLQdxsAgLdb8/Imw=; b=UNuvWQhnQedV2pYLPvHfgs6uYD
-	34b92guDL89VrbC9dTEaKMmAh2MyOcw258BqMEPF1ZermubbOHNBUjpuD3g4PPpi6s6Y2RJa/YNTC
-	qKev7uRz6KULSBP6TtmswQRSG9NTXpjvN/8Rf9jeesWOFVwxoShhR/jBOBAtltjrb1nDl3Vc1JKFn
-	xBwuW4DjoaXa/HBSMgJQuDX1lFS9J2KM4PaZpEYrYa/ORGpfbLA9ztRXPupauX2HdLU3Wh1PDADI2
-	g3KgCRY39PDk+LSrxyEiVCUY1UcbcqgkiZBt7XXlCJMwjU/RJUKua8vBDLioHiV0Uye7Jfc4p4ir+
-	1kprU0+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XHM9QeNlhOTneChj4bKhI5LC9ZZcmDxqXuZBfNBpX+4=; b=fvbaYNcdln91uougyCyZEynH4a
+	WyA5759uSbP6W2dKK3kLqQOHQYR92iKydmOLaiJbLaztjOUyQR04PDmELgh5oklRWdIIH4dKFMhan
+	WbpUW+tIec5EdTGr7ZX1mspNDbQ7dCLMUGEDCWb3k1if4Zpw9s1nAFD6Jp6Ag7fQBfDw/Rw4WSPPd
+	hbFbEO0bLKZyq5x2w1OtHA9lQwUwx4Xzhj6do4/ZlKJWTG8oSd2UACNR+bPS+rdYN9mRT+576Wfgd
+	ZPLIPsCwEzsXkU4F0pJMsE+kWUfashtgLnnGCHhjbuCo/7kljTIOfdE69/6fXLDAUXen2zZfmvX8e
+	UAn3BlIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8jZc-000000049bS-3AZN;
-	Wed, 06 Nov 2024 17:12:04 +0000
-Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
+	id 1t8jbK-000000049vX-2aHh;
+	Wed, 06 Nov 2024 17:13:50 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8jUf-000000048TY-3fOH
+	id 1t8jV6-000000048d1-1oW4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 17:06:59 +0000
+	Wed, 06 Nov 2024 17:07:26 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-539fb49c64aso9792619e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 09:07:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1730912817; x=1762448817;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=Pz81Pbck5wcyAI6JbvV2ZyEMZPVsLQdxsAgLdb8/Imw=;
-  b=fJT20p0iLEncS1e2Fx68pM7pfBgOmOlrqdvv27NcoKGlGVaawjMYHN+N
-   WRjHD9ojKc9v+juD57Orb0aimAG4WONlpQaPT6TzClAlFw5W4yCEBl62B
-   7JiJCqBtODR/qvab8h+tGPGnsZpjMIio16xZ08IwcaRqrZ08YXCre5ksv
-   k=;
-X-IronPort-AV: E=Sophos;i="6.11,263,1725321600"; 
-   d="scan'208";a="144914035"
-Subject: Re: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Thread-Topic: [PATCH 1/5] asm-generic: add smp_vcond_load_relaxed()
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 17:06:54 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.7.35:44945]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.17.195:2525] with esmtp (Farcaster)
- id 5bdf6e78-b305-43b2-b302-077e2957626d; Wed, 6 Nov 2024 17:06:54 +0000 (UTC)
-X-Farcaster-Flow-ID: 5bdf6e78-b305-43b2-b302-077e2957626d
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 6 Nov 2024 17:06:54 +0000
-Received: from EX19D001UWA003.ant.amazon.com (10.13.138.211) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Wed, 6 Nov 2024 17:06:54 +0000
-Received: from EX19D001UWA003.ant.amazon.com ([fe80::256a:26de:3ee6:48a2]) by
- EX19D001UWA003.ant.amazon.com ([fe80::256a:26de:3ee6:48a2%7]) with mapi id
- 15.02.1258.035; Wed, 6 Nov 2024 17:06:54 +0000
-From: "Okanovic, Haris" <harisokn@amazon.com>
-To: "cl@gentwo.org" <cl@gentwo.org>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "rafael@kernel.org"
-	<rafael@kernel.org>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"boris.ostrovsky@oracle.com" <boris.ostrovsky@oracle.com>,
-	"ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"konrad.wilk@oracle.com" <konrad.wilk@oracle.com>, "wanpengli@tencent.com"
-	<wanpengli@tencent.com>, "joao.m.martins@oracle.com"
-	<joao.m.martins@oracle.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "mingo@redhat.com" <mingo@redhat.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "tglx@linutronix.de"
-	<tglx@linutronix.de>, "misono.tomohiro@fujitsu.com"
-	<misono.tomohiro@fujitsu.com>, "daniel.lezcano@linaro.org"
-	<daniel.lezcano@linaro.org>, "arnd@arndb.de" <arnd@arndb.de>,
-	"lenb@kernel.org" <lenb@kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Okanovic, Haris"
-	<harisokn@amazon.com>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"bp@alien8.de" <bp@alien8.de>, "mtosatti@redhat.com" <mtosatti@redhat.com>,
-	"x86@kernel.org" <x86@kernel.org>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>
-Thread-Index: AQHbL7D0KO91MZWU0ESDfcp3e5ep6bKpFJ6AgAFojYA=
-Date: Wed, 6 Nov 2024 17:06:53 +0000
-Message-ID: <2306e1b324c135d7d2bf961202657031d02ad4b0.camel@amazon.com>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
-	 <20241105183041.1531976-1-harisokn@amazon.com>
-	 <20241105183041.1531976-2-harisokn@amazon.com>
-	 <f46a71b5-8e0f-c2a9-b3f8-d499c10f227a@gentwo.org>
-In-Reply-To: <f46a71b5-8e0f-c2a9-b3f8-d499c10f227a@gentwo.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.252.141.28]
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <764253D7DEDA7049AEB8E76EECF8AB1B@amazon.com>
-Content-Transfer-Encoding: base64
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730912842; x=1731517642; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XHM9QeNlhOTneChj4bKhI5LC9ZZcmDxqXuZBfNBpX+4=;
+        b=TCeown8tjcwWCBXA9HHUYyK5VtQabd7Em/nIFvbzC4+ZuFG/QyDcqPW9/n0o3pdSug
+         hksYQWWyr394/ZjVhWhtuNyAZEKnN2gSMb80FwAjeVildFnYFnzmmVeFi3Kpu351Z2Bg
+         NIZR95qgEHp0FbgPgna8UUo6Lq6lMQvg17e0vM9+cOV9qvBL/e38oa2iqHV7X3gnhZic
+         8eKTYYjapRF2G7xUsKTT828dNiO0CBnVQ+XSWfLWIjbH7I2/PH6uUuyysXTQCpE+ZTsR
+         ruVcGRpV9ReZmm1Ag7tJQ3tmg8/fxn9f2chgIkCED5PC4X0wBSi3yz24dbBcaJO5SKyN
+         KVdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730912842; x=1731517642;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XHM9QeNlhOTneChj4bKhI5LC9ZZcmDxqXuZBfNBpX+4=;
+        b=WFNnhjwirlcalrLXL4r6RddY0VlBaK0+diiA9IeFZkWD0Qvg3LjEXsN1Ht/J4yuqAH
+         tqKNPd0ld4oYY3oFP65YMaM5PrbWRtgWYDcnffhAWm+EdJBB+F3lXiLU+ylbn/lkha3f
+         FlgBqSkNcRHfhwUqqvSOr0iEgeW6SebEYlsOyyTl8uKhIuouvWAqCbrmVl+tYpLOEqew
+         qA+JQK6dsyf65cFMcV2vZKbiOKeqw7fMkyDwx+eQ1RbLVGVjhPwv4w4ccPNcdAHVKNeA
+         lUnqp0zTugEp+ZqZ9xVuxc3bg1Y0ruQJ6SyosfOJlatEk2kfS/VZwlUEeZqs2xxsxP/g
+         2suA==
+X-Forwarded-Encrypted: i=1; AJvYcCXFtB0FsRPlfJ53Tj6ZtDU5WHXiSbQacpVGykNQuSzu9OXKtyMCcOxzw8OP2eZx4HLqOdql84PJzPHEHAL1FwT/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHnE3lhgUDybWjvt7743DqXapJKoF2yN5rzb0PVy8+f3XUkTJO
+	JQdDT0F4Vm/I8NH6sXHA6JWVMp8q1Plzl+a68wDaTgcH2F0WxNECDvfZix0zimg=
+X-Google-Smtp-Source: AGHT+IGhBvl6PJej/erZYenNszqbzeKKntvkwDvg4ctncTyHT7L1mvB9FrEIevg7TtOD7POmTVj7AQ==
+X-Received: by 2002:a05:6512:e9b:b0:535:6951:9e1c with SMTP id 2adb3069b0e04-53d65de3305mr15940463e87.15.1730912841533;
+        Wed, 06 Nov 2024 09:07:21 -0800 (PST)
+Received: from localhost (p200300f65f28bb0063ffae39110fa2df.dip0.t-ipconnect.de. [2003:f6:5f28:bb00:63ff:ae39:110f:a2df])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16daf14sm303710566b.80.2024.11.06.09.07.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 09:07:21 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Kalle Valo <kvalo@kernel.org>
+Cc: Jeff Johnson <jjohnson@kernel.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Nick Kossifidis <mickflemm@gmail.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	=?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	Loic Poulain <loic.poulain@linaro.org>,
+	Arend van Spriel <arend.vanspriel@broadcom.com>,
+	Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Peter Chiu <chui-hao.chiu@mediatek.com>,
+	Breno Leitao <leitao@debian.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	linux-wireless@vger.kernel.org,
+	ath10k@lists.infradead.org,
+	ath11k@lists.infradead.org,
+	wcn36xx@lists.infradead.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: Switch back to struct platform_driver::remove()
+Date: Wed,  6 Nov 2024 18:07:06 +0100
+Message-ID: <20241106170706.38922-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9551; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=KMwi4wYhZdlHLCX2G2Q9HUhUPG50WPecsWOZ3KoLi9k=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnK6I7k3QwBHx4LDlthAT30A0zDc9WSJ6yBQ3NF 4O0KVmRJ9aJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZyuiOwAKCRCPgPtYfRL+ ThLbB/wNHseXuNO6BSs0X7tJr80GSCYLop1HgRzFN6qlnsLebiHcY7/fxrQIk4qvEabG2PB6fW1 7hZIqip47uQZYg+b+djnq7b1LAvKA+1hMzBs2MDcmIZbgfVtcmbBPt3UbZDo8krGzBj80RcVoJ7 3glArVF/Hp0VNmM+6IWIzxLKKWUr5lEPQk2lUPBd/9O8pbSrizA4gRnMP2Rif6goEFsYwWDgmZF yOTyIGlVcWgm86js57VuSJ+x+ys3kUiz2O67dCQEQiXLzRlCFyi7TKysdToW9E/jMTucq28WmUh J1zg5EM/JY/sa9jMUt7vzYlpMFHU8LP1xFH7gzizoH34q0Ts
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_090658_016977_5081ECA5 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20241106_090724_797359_4956ADBB 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,25 +116,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI0LTExLTA1IGF0IDExOjM2IC0wODAwLCBDaHJpc3RvcGggTGFtZXRlciAoQW1w
-ZXJlKSB3cm90ZToNCj4gQ0FVVElPTjogVGhpcyBlbWFpbCBvcmlnaW5hdGVkIGZyb20gb3V0c2lk
-ZSBvZiB0aGUgb3JnYW5pemF0aW9uLiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2ht
-ZW50cyB1bmxlc3MgeW91IGNhbiBjb25maXJtIHRoZSBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRl
-bnQgaXMgc2FmZS4NCj4gDQo+IA0KPiANCj4gT24gVHVlLCA1IE5vdiAyMDI0LCBIYXJpcyBPa2Fu
-b3ZpYyB3cm90ZToNCj4gDQo+ID4gKy8qKg0KPiA+ICsgKiBzbXBfdmNvbmRfbG9hZF9yZWxheGVk
-KCkgLSAoU3Bpbikgd2FpdCB1bnRpbCBhbiBleHBlY3RlZCB2YWx1ZSBhdCBhZGRyZXNzDQo+ID4g
-KyAqIHdpdGggbm8gb3JkZXJpbmcgZ3VhcmFudGVlcy4gU3BpbnMgdW50aWwgYCgqYWRkciAmIG1h
-c2spID09IHZhbGAgb3INCj4gPiArICogYG5zZWNzYCBlbGFwc2UsIGFuZCByZXR1cm5zIHRoZSBs
-YXN0IG9ic2VydmVkIGAqYWRkcmAgdmFsdWUuDQo+ID4gKyAqDQo+ID4gKyAqIEBuc2VjczogdGlt
-ZW91dCBpbiBuYW5vc2Vjb25kcw0KPiANCj4gUGxlYXNlIHVzZSBhbiBhYnNvbHV0ZSB0aW1lIGlu
-IG5zZWNzIGluc3RlYWQgb2YgYSB0aW1lb3V0Lg0KDQpJIHdlbnQgd2l0aCByZWxhdGl2ZSB0aW1l
-IGJlY2F1c2UgaXQgY2xvY2sgYWdub3N0aWMuIEkgYWdyZWUgZGVhZGxpbmUNCmlzIG5pY2VyIGJl
-Y2F1c2UgaXQgY2FuIHByb3BhZ2F0ZSBkb3duIGxheWVycyBvZiBmdW5jdGlvbnMsIGJ1dCBpdCBw
-aW5zDQp0aGUgY2FsbGVyIHRvIHNpbmdsZSB0aW1lIGJhc2UuDQoNCj4gWW91IGRvIG5vdCBrbm93
-DQo+IHdoYXQgd2lsbCBoYXBwZW4gdG8geW91ciBleGVjdXRpb24gdGhyZWFkIHVudGlsIHRoZSBs
-b2NhbF9jbG9ja19ub2luc3RyKCkNCj4gaXMgcnVuLg0KDQoNCk5vdCBzdXJlIHdoYXQgeW91IG1l
-YW4uIENvdWxkIHlvdSBwZXJoYXBzIGdpdmUgYW4gZXhhbXBsZSB3aGVyZSBpdA0Kd291bGQgYnJl
-YWs/DQoNCj4gDQo+IA0KDQpPbmUgYWx0ZXJuYXRpdmUgaXMgdG8gZG8gdGltZWtlZXBpbmcgd2l0
-aCBkZWxheSgpIGluIGFsbCBjYXNlcywgdG8NCmRlY291cGxlIGZyb20gc2NoZWQvY2xvY2suDQoN
-Cg==
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
+
+Convert all platform drivers below drivers/net/wireless to use
+.remove(), with the eventual goal to drop struct
+platform_driver::remove_new(). As .remove() and .remove_new() have the
+same prototypes, conversion is done by just changing the structure
+member name in the driver initializer.
+
+En passant several whitespace changes are done to make indentation
+consistent in the struct initializers.
+
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
+
+I did a single patch for all of drivers/net/wireless. While I usually
+prefer to do one logical change per patch, this seems to be
+overengineering here as the individual changes are really trivial and
+shouldn't be much in the way for stable backports. But I'll happily
+split the patch if you prefer it split. Also if you object the
+indentation stuff, I can rework that.
+
+This is based on today's next, if conflicts arise when you apply it at
+some later time and don't want to resolve them, feel free to just drop
+the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend. (Having said that, I
+recommend b4 am -3 + git am -3 which should resolve most conflicts just
+fine.)
+
+Best regards
+Uwe
+
+ drivers/net/wireless/ath/ath10k/ahb.c                  |  8 ++++----
+ drivers/net/wireless/ath/ath10k/snoc.c                 |  6 +++---
+ drivers/net/wireless/ath/ath11k/ahb.c                  |  8 ++++----
+ drivers/net/wireless/ath/ath5k/ahb.c                   |  8 ++++----
+ drivers/net/wireless/ath/ath9k/ahb.c                   | 10 +++++-----
+ drivers/net/wireless/ath/wcn36xx/main.c                |  8 ++++----
+ .../net/wireless/broadcom/brcm80211/brcmfmac/common.c  |  2 +-
+ drivers/net/wireless/mediatek/mt76/mt7603/soc.c        |  2 +-
+ drivers/net/wireless/mediatek/mt76/mt7615/soc.c        |  2 +-
+ drivers/net/wireless/mediatek/mt76/mt7915/soc.c        |  2 +-
+ drivers/net/wireless/ti/wl12xx/main.c                  |  2 +-
+ drivers/net/wireless/ti/wl18xx/main.c                  |  4 ++--
+ 12 files changed, 31 insertions(+), 31 deletions(-)
+
+diff --git a/drivers/net/wireless/ath/ath10k/ahb.c b/drivers/net/wireless/ath/ath10k/ahb.c
+index f0441b3d7dcb..db9f9ebcb62d 100644
+--- a/drivers/net/wireless/ath/ath10k/ahb.c
++++ b/drivers/net/wireless/ath/ath10k/ahb.c
+@@ -837,12 +837,12 @@ static void ath10k_ahb_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver ath10k_ahb_driver = {
+-	.driver         = {
+-		.name   = "ath10k_ahb",
++	.driver = {
++		.name = "ath10k_ahb",
+ 		.of_match_table = ath10k_ahb_of_match,
+ 	},
+-	.probe  = ath10k_ahb_probe,
+-	.remove_new = ath10k_ahb_remove,
++	.probe = ath10k_ahb_probe,
++	.remove = ath10k_ahb_remove,
+ };
+ 
+ int ath10k_ahb_init(void)
+diff --git a/drivers/net/wireless/ath/ath10k/snoc.c b/drivers/net/wireless/ath/ath10k/snoc.c
+index 0fe47d51013c..d436a874cd5a 100644
+--- a/drivers/net/wireless/ath/ath10k/snoc.c
++++ b/drivers/net/wireless/ath/ath10k/snoc.c
+@@ -1885,11 +1885,11 @@ static void ath10k_snoc_shutdown(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver ath10k_snoc_driver = {
+-	.probe  = ath10k_snoc_probe,
+-	.remove_new = ath10k_snoc_remove,
++	.probe = ath10k_snoc_probe,
++	.remove = ath10k_snoc_remove,
+ 	.shutdown = ath10k_snoc_shutdown,
+ 	.driver = {
+-		.name   = "ath10k_snoc",
++		.name = "ath10k_snoc",
+ 		.of_match_table = ath10k_snoc_dt_match,
+ 	},
+ };
+diff --git a/drivers/net/wireless/ath/ath11k/ahb.c b/drivers/net/wireless/ath/ath11k/ahb.c
+index 916402ad06b8..f2fc04596d48 100644
+--- a/drivers/net/wireless/ath/ath11k/ahb.c
++++ b/drivers/net/wireless/ath/ath11k/ahb.c
+@@ -1313,12 +1313,12 @@ static void ath11k_ahb_shutdown(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver ath11k_ahb_driver = {
+-	.driver         = {
+-		.name   = "ath11k",
++	.driver = {
++		.name = "ath11k",
+ 		.of_match_table = ath11k_ahb_of_match,
+ 	},
+-	.probe  = ath11k_ahb_probe,
+-	.remove_new = ath11k_ahb_remove,
++	.probe = ath11k_ahb_probe,
++	.remove = ath11k_ahb_remove,
+ 	.shutdown = ath11k_ahb_shutdown,
+ };
+ 
+diff --git a/drivers/net/wireless/ath/ath5k/ahb.c b/drivers/net/wireless/ath/ath5k/ahb.c
+index f27308ccb2f1..cb3e891ee1bd 100644
+--- a/drivers/net/wireless/ath/ath5k/ahb.c
++++ b/drivers/net/wireless/ath/ath5k/ahb.c
+@@ -218,10 +218,10 @@ static void ath_ahb_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver ath_ahb_driver = {
+-	.probe      = ath_ahb_probe,
+-	.remove_new = ath_ahb_remove,
+-	.driver		= {
+-		.name	= "ar231x-wmac",
++	.probe = ath_ahb_probe,
++	.remove = ath_ahb_remove,
++	.driver = {
++		.name = "ar231x-wmac",
+ 	},
+ };
+ 
+diff --git a/drivers/net/wireless/ath/ath9k/ahb.c b/drivers/net/wireless/ath/ath9k/ahb.c
+index 1a6697b6e3b4..d4805e02b927 100644
+--- a/drivers/net/wireless/ath/ath9k/ahb.c
++++ b/drivers/net/wireless/ath/ath9k/ahb.c
+@@ -158,12 +158,12 @@ static void ath_ahb_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver ath_ahb_driver = {
+-	.probe      = ath_ahb_probe,
+-	.remove_new = ath_ahb_remove,
+-	.driver		= {
+-		.name	= "ath9k",
++	.probe = ath_ahb_probe,
++	.remove = ath_ahb_remove,
++	.driver = {
++		.name = "ath9k",
+ 	},
+-	.id_table    = ath9k_platform_id_table,
++	.id_table = ath9k_platform_id_table,
+ };
+ 
+ MODULE_DEVICE_TABLE(platform, ath9k_platform_id_table);
+diff --git a/drivers/net/wireless/ath/wcn36xx/main.c b/drivers/net/wireless/ath/wcn36xx/main.c
+index 408776562a7e..8557d4826a46 100644
+--- a/drivers/net/wireless/ath/wcn36xx/main.c
++++ b/drivers/net/wireless/ath/wcn36xx/main.c
+@@ -1679,10 +1679,10 @@ static const struct of_device_id wcn36xx_of_match[] = {
+ MODULE_DEVICE_TABLE(of, wcn36xx_of_match);
+ 
+ static struct platform_driver wcn36xx_driver = {
+-	.probe      = wcn36xx_probe,
+-	.remove_new = wcn36xx_remove,
+-	.driver         = {
+-		.name   = "wcn36xx",
++	.probe = wcn36xx_probe,
++	.remove = wcn36xx_remove,
++	.driver = {
++		.name = "wcn36xx",
+ 		.of_match_table = wcn36xx_of_match,
+ 	},
+ };
+diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/common.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/common.c
+index 58d50918dd17..cfcf01eb0daa 100644
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/common.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/common.c
+@@ -594,7 +594,7 @@ static void brcmf_common_pd_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver brcmf_pd = {
+-	.remove_new	= brcmf_common_pd_remove,
++	.remove		= brcmf_common_pd_remove,
+ 	.driver		= {
+ 		.name	= BRCMFMAC_PDATA_NAME,
+ 	}
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/soc.c b/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
+index ec02148a7f1f..08590aa68356 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/soc.c
+@@ -71,7 +71,7 @@ MODULE_FIRMWARE(MT7628_FIRMWARE_E2);
+ 
+ struct platform_driver mt76_wmac_driver = {
+ 	.probe		= mt76_wmac_probe,
+-	.remove_new	= mt76_wmac_remove,
++	.remove		= mt76_wmac_remove,
+ 	.driver = {
+ 		.name = "mt76_wmac",
+ 		.of_match_table = of_wmac_match,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/soc.c b/drivers/net/wireless/mediatek/mt76/mt7615/soc.c
+index 12e3e4a91d27..06a0f2a141e8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/soc.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/soc.c
+@@ -63,7 +63,7 @@ struct platform_driver mt7622_wmac_driver = {
+ 		.of_match_table = mt7622_wmac_of_match,
+ 	},
+ 	.probe = mt7622_wmac_probe,
+-	.remove_new = mt7622_wmac_remove,
++	.remove = mt7622_wmac_remove,
+ };
+ 
+ MODULE_FIRMWARE(MT7622_FIRMWARE_N9);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
+index 90a6f61d1089..c823a7554a3a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
+@@ -1303,7 +1303,7 @@ struct platform_driver mt798x_wmac_driver = {
+ 		.of_match_table = mt798x_wmac_of_match,
+ 	},
+ 	.probe = mt798x_wmac_probe,
+-	.remove_new = mt798x_wmac_remove,
++	.remove = mt798x_wmac_remove,
+ };
+ 
+ MODULE_FIRMWARE(MT7986_FIRMWARE_WA);
+diff --git a/drivers/net/wireless/ti/wl12xx/main.c b/drivers/net/wireless/ti/wl12xx/main.c
+index b26d42b4e3cc..ffbf54776330 100644
+--- a/drivers/net/wireless/ti/wl12xx/main.c
++++ b/drivers/net/wireless/ti/wl12xx/main.c
+@@ -1939,7 +1939,7 @@ MODULE_DEVICE_TABLE(platform, wl12xx_id_table);
+ 
+ static struct platform_driver wl12xx_driver = {
+ 	.probe		= wl12xx_probe,
+-	.remove_new	= wl12xx_remove,
++	.remove		= wl12xx_remove,
+ 	.id_table	= wl12xx_id_table,
+ 	.driver = {
+ 		.name	= "wl12xx_driver",
+diff --git a/drivers/net/wireless/ti/wl18xx/main.c b/drivers/net/wireless/ti/wl18xx/main.c
+index 39d8eebb9b6e..4be1110bac88 100644
+--- a/drivers/net/wireless/ti/wl18xx/main.c
++++ b/drivers/net/wireless/ti/wl18xx/main.c
+@@ -2097,9 +2097,9 @@ MODULE_DEVICE_TABLE(platform, wl18xx_id_table);
+ 
+ static struct platform_driver wl18xx_driver = {
+ 	.probe		= wl18xx_probe,
+-	.remove_new	= wlcore_remove,
++	.remove		= wlcore_remove,
+ 	.id_table	= wl18xx_id_table,
+-	.driver = {
++	.driver		= {
+ 		.name	= "wl18xx_driver",
+ 	}
+ };
+
+base-commit: 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
+-- 
+2.45.2
+
 
