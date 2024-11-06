@@ -4,81 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7024BD44D42
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB38D44D42
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQeIu20MzRz4XzS62SE1VVsKP5u1apYeeQz1B3eKJi8=; b=3FCmVhNXlqkmLE7IjSI0WiM/DY
-	gzOQlrnPuVXq2j6YpgPL2KJJfXF3NNuiES4tSFUG+l/C90RXIIaiSnMPqP2qoLPWi3aAdBRtSidXm
-	bSOlo9yYGxPVyLHWr8fyFaiDehlRsKRRD5HyyHyLWskyzOtLZsf9So+lMkway3gdtS4PFrBfhzkpI
-	9kohfWSexduby0Nnuq4VWZpycWPgRhCv3xRFnWmrpIDLuHe9NDjLIAENYXiocGpmi/TfL+DVhEmU3
-	9q9+fHgeFw5LmSR7wsKrV9oEseeVkWE7dh9BYLFLS+yZ/yH9m134wdu8hzPDZjuTtlyXyeXq+jgEY
-	c212s5Uw==;
+	bh=oEtTihOn+DeXr9CNArEUdMwsSvKonvIn6NtpDvMyntQ=; b=rEi6UAfGsap1UIUz+kdxYpq8KE
+	9SteRRCPXqOgjapG8WW9h8OozqXaZCMzki6xslzdw5K92B7D8u7g8S5ZzBj7itO9YNTvzukyeBjwa
+	fjYRdUIQerz1mkQDoyGCSAIqgXUXQdHCpwtrklLYi8Tz5N3Aw59/IYrRhqGA6NCXOgeS0u0dy35no
+	luncnTtRGXxiLnqNN/27upTDfJrHKIDwoe0akhq4JonbH32o1CQWqAzO0ur2Q78JGevUPf9iietBY
+	Df+rS+loelPs+J0ffSr11VBSkhgx4awhLmLUTtEofxFozLZI2a3cQARPbsGv0Dg86ZmcLQfuEkSqn
+	vAbBGtHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dEA-00000002jr6-1BWw;
-	Wed, 06 Nov 2024 10:25:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1t8dFq-00000002k6Y-3c40;
+	Wed, 06 Nov 2024 10:27:15 +0000
+Received: from mail-bn8nam04on20615.outbound.protection.outlook.com ([2a01:111:f403:2408::615] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cRs-00000002YxA-3wrp
+	id 1t8cTW-00000002ZWl-38nu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:35:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1730885737; x=1762421737;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=EdjGUv9QhprpIhuWhKrPvJcZxio+p/FRanC4I1XYsrE=;
-  b=qV6+BAuoQj2uujrlEY8/7wYFDLUGKmlQBuo5ysXLMsvhVmCT9DnGZJPz
-   ihKqomBhAz7eIRDNoJ3Le9bR3xhs99LCkBmXlcVAM9XG+cId36SbPGc1m
-   xKqFN3MiAwxdCRgYFRblZDcLoKWdKXk+4bPd8PZeHoD1y2goBfgmcgpuK
-   em3xhoLQnravJ3nyS0s9hkwyd2eMVhetNOKHttBp4fmNqtRBAM/hS24oA
-   xHPPk+FPUgO1XxRmRi1te12YFNc+zcur7Wjc6WTIOq479Vjrwdy96xYyj
-   Chi+2DjdJkIEoFVn87L0rXCCkGEP3RDb1SWwqHBhIcf11mvlEPuJE571o
-   Q==;
-X-CSE-ConnectionGUID: 0kVQr9qhRguhY/PD4s+80w==
-X-CSE-MsgGUID: WVljJGQ4RmSB24KTc+7vAQ==
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="33940996"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Nov 2024 02:35:34 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 6 Nov 2024 02:35:11 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 6 Nov 2024 02:35:03 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>,
-	<rfoss@kernel.org>, <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
-	<jernej.skrabec@gmail.com>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux@armlinux.org.uk>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <varshini.rajendran@microchip.com>,
-	<dharma.b@microchip.com>, <arnd@arndb.de>, <dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <manikandan.m@microchip.com>
-Subject: [PATCH v5 2/4] drm/bridge: add Microchip DSI controller support for sam9x7 SoC series
-Date: Wed, 6 Nov 2024 15:04:27 +0530
-Message-ID: <20241106093429.157131-3-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241106093429.157131-1-manikandan.m@microchip.com>
-References: <20241106093429.157131-1-manikandan.m@microchip.com>
+	Wed, 06 Nov 2024 09:37:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q0LOTtm+3a8X6+lhU3JC6lgFKtt23v8fQuVH78NHhpwiYIkAKudq3ENJoWJNqhjJ7fRgsn0lQB3UQPz3WsUrA+3Bo8kSlZc1OvPtRFvFBlDSfyfN8tAp0eWpGDc38lDgsZ0/OExLNKiXUATuch8WitaMI8vUU+V9GInwnTzVbAWwWHi1In8dJX+6AiVqY4j1B0gCEHMMCqjppemdc52kFa9w4p/XYW6cYZ9y8qfzwRWXJ02CkHETdmU6jlH7pN1NJxWjNEC1SJEmcXSdIyt+R2aikDBWx54iCPyZLPhddes3U4QW5KsyjbReBW/JzbBlpC4Q5a/OX7KY0UxrO0k45w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oEtTihOn+DeXr9CNArEUdMwsSvKonvIn6NtpDvMyntQ=;
+ b=UuHDtNYqZ53O0G+TCsxBrnuWdupVOD2qjNvbcG5Cbye6K8xg2w79rsfqsgIu5v60RRo/kgn9FBhPviJX25ncr2cgV+9zU91KLwj5oc2yV9OfFPJkbHm8DsIJ/N9K0gtxsNOjQZFiE5Wcw2Mp95mDfPMRD3RJzKqEMHmZfHaktrSd7QZkzYRC0+VxmoDfNEgOULYNd3cVc0jerI3dJ2Czx4x0LtoO4SUKrFac2nqBc96BpgYa6ItmH72pkd53vTG/Le+/bhJ3RMxg0171lYhDII9zxAXU2Tf+Ftx+8xuOWaRhl9Ndj+YP21O8YZLrpiXjY73cItn9texLA925jE5FfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oEtTihOn+DeXr9CNArEUdMwsSvKonvIn6NtpDvMyntQ=;
+ b=Eol5JnHC8867gKJ9WMN7Lsjs1KSOKQ4JtCfb5ClahLlNt7RxrlULsrwIObGkcHs1PZVKrhjLbZ+40sCYhtxDMe4gEAp30IwfszHTxTv5zTxmjvgqrLFTnLZ4wsfQVAUCvRtlLp8s/E+bAYm7UZtIt93PdOLCiFbsy/qrH0RYO9U=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by DM4PR12MB7742.namprd12.prod.outlook.com (2603:10b6:8:102::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Wed, 6 Nov
+ 2024 09:37:01 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%4]) with mapi id 15.20.8137.018; Wed, 6 Nov 2024
+ 09:37:01 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Marek Vasut <marex@denx.de>, "dmaengine@vger.kernel.org"
+	<dmaengine@vger.kernel.org>
+CC: =?utf-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <u.kleine-koenig@baylibre.com>,
+	"Simek, Michal" <michal.simek@amd.com>, Peter Korsgaard
+	<peter@korsgaard.com>, Vinod Koul <vkoul@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH] dmaengine: xilinx_dma: Configure parking registers only
+ if parking enabled
+Thread-Topic: [PATCH] dmaengine: xilinx_dma: Configure parking registers only
+ if parking enabled
+Thread-Index: AQHbK7f72SUlhteDrkuv+BRxgRHjG7KqBxTQ
+Date: Wed, 6 Nov 2024 09:37:01 +0000
+Message-ID: <MN0PR12MB595398C872B58CA4A44BC182B7532@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20241031171132.56861-1-marex@denx.de>
+In-Reply-To: <20241031171132.56861-1-marex@denx.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|DM4PR12MB7742:EE_
+x-ms-office365-filtering-correlation-id: 3ada3268-718a-4c08-00a9-08dcfe4690d8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?U1lTeW9oZ1VHdFhxVyttOFQyVEhmbG5ZaXlydmZoSEd6L3k4YlRYLzZaM05t?=
+ =?utf-8?B?cjB1QW94M3pNWlE5NTBBempnRTJVMDNMb1ZmZU5CSmRGUzlSUWhKdjNzZ05T?=
+ =?utf-8?B?QWZLcjZHZHludll5Z0JGVGkzeUFiNjNYV2ZEWHEvaHZpRUFFbDRWY08yUFc0?=
+ =?utf-8?B?VlhnejdQcnVGbG1MUTZLajBaOUc5dldIMG1ZVFowSnY5OWlmUzlEU2ExWlp1?=
+ =?utf-8?B?RitJUHpvZjMxRFAzOUwzR0ZvRDlaZW9SQnpjS0FoWERTa3kwOEU2OXArc3Z3?=
+ =?utf-8?B?MUwzVk9yN0IzdDhQb1pzNUVvSThwUGlmYldQbnBXVnErQmo2UGNPbEMvbXZL?=
+ =?utf-8?B?ZjFzeEZqTXZSNTM2dU5QWEZwOXFVeXQ3dWZ1cTlCQ0lBQzUzdVJTWWZxUzBM?=
+ =?utf-8?B?Wm5LWVZpK1llaTlIQU5hdEFQN0NaT01NdHp5dmcxWnBJN1hHK3o3R0puUCtG?=
+ =?utf-8?B?azZSNWxsNlBxbVphN2p3SFNITks3MjJGV01yV2JkbU5VWk9QTHJpK3ZjT0Mr?=
+ =?utf-8?B?eDl1bWwySlhnd2xrbllNT0Zob2V4OWRZazVmelZXdE5GS2dXVE9XcER4L0Zv?=
+ =?utf-8?B?NUVCQ2NhWlFScmFtdlg1Nno1azBFR3h0ZStGMjIxRXJLMGgvckVqMkZkYWtT?=
+ =?utf-8?B?QzlNL0s2TjVKTnBYOHBhbm1TaW9sTFd5clk0UEk2ZFgyUGkvMUhIV1p6T2JI?=
+ =?utf-8?B?ZmFESDZ2ZFJSTzAraEJnWG91bFprOUxDS2c5WnlQaHhwbzM4dDRMNG1aZ2tS?=
+ =?utf-8?B?VFhENEJ2cWozMTdReE1wMkhDa3RkSGFwK2pjeUR1eFN5ZXZzSVB5d3M2eUdH?=
+ =?utf-8?B?aHplM2JzT0Jwd2FYM3d3MkZBeDFuRzBUZjI1Sm1vdzJmZUxkOGtOcVFOOEFy?=
+ =?utf-8?B?RFg0MG44S0l4alhhVjFKcEFYUUYyRE1GOCtCeFpTL3VoRlREOURUcVlaSnND?=
+ =?utf-8?B?NjEvTmxOdExxYkE0ZFJIV0tGa1dXbUNIOTBrNDNsNUNicmR2dGI4SzVKcVR2?=
+ =?utf-8?B?bTN0UlNIOWRnbGpRS3g5MkgwMmllTXBDMkpNYmh4ZVZOTzJ4T3ViWnljUTZ1?=
+ =?utf-8?B?aFhEME1ISnNQNC9ZcSszYnVWaVFEc2tDNWF1WGJ4bDc1bUI3T2EvZU5CQ3Vz?=
+ =?utf-8?B?NDF0a1ZyY00xY3UrYWpQYWtaMVB6d3NWTXZubzdnOFJnN0NtVTZ0UUVvVFJP?=
+ =?utf-8?B?NTBEdFdHcWZlbHRJbUIxcVZTRDkvM2VtekU1NGoxZDR6UCtvTGFzZG5pTVFi?=
+ =?utf-8?B?dDdZYkZpOVVEeENLOHpPc1M0bjk3a2pSK1NXbUZRMTBJOEN3bUhwQ09OWXBW?=
+ =?utf-8?B?WGIyWUkzT21US0VNMS91M295OVVlbi95bHpOc3dVRkVyM3JKZWh4aUFaMlJY?=
+ =?utf-8?B?cUNmYWV3bjd6UGJVMGtqNDE5MkZJR3crQ0NJMng5U2xnaDVqcFpJamxLWDlE?=
+ =?utf-8?B?TjhobVY0V0Z0Y3ErVVZna2dIelkrWWJuVkRNNEErUmpmTGVWYW5vbFRUc1Zv?=
+ =?utf-8?B?RU4zSTMyZXRZREdDVnBqalptM0RPTEMrQUd5RnlDeGpqM2ZtaCtlRmlDUndp?=
+ =?utf-8?B?bGJrRHBwcENrR0NyMGVzOUNkMVVkTW9XdHBRZUxnSzEzVzN4SEs1WU0zcXVi?=
+ =?utf-8?B?VFVVYzI2d05pNXBnUmZOZncvcncwR3JaMGRNWU9PbnF3U0c4N2ZWTFNrNzVK?=
+ =?utf-8?B?L1J5QXo1Ri81cmFQdVc4OFEzWStlKy9kZEJHa2xubTJMeXZTVlVuTTBydjda?=
+ =?utf-8?B?WUZsdlZBY1Z2RDVXd0YxZ2pRTkV5eDNsMG01NkU5ejBJK0lML2ZPemNCVmYv?=
+ =?utf-8?Q?lvZ502l/ZM+2s0vSJX/nZRTdMqMfUNboCziYo=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0RzNHM1anlKcTRXQVpnNTFON3BwODFydnBIQjhOQ1I2eWk0QnhtVW9iUHd4?=
+ =?utf-8?B?L3E3dmtUUWZDTDgrNmxyM1lNOFc2S2YvSmlPd1lWZ04yYXpVcURjWDZweWpM?=
+ =?utf-8?B?QmhXcTVGVlNRbXh5eHNWczh3TGtEYXBVWFRlMk5XR1Z0MWVnZmVCUVI3N1o1?=
+ =?utf-8?B?MHVCZ3pyL2xsWWJaelR5ZWhYTEhQamFTcW1ScEJGSWc3ZjlqN0pjWTBrbjB2?=
+ =?utf-8?B?NWl3Zy9TVGY3STUrRHlnOUJuZG1vTzlORkNQZEV0SDExalJHVEtsU1JNM3dF?=
+ =?utf-8?B?Z2xpTWlmbnkrdnFYUXZtVWx6alFLcEtkZy85TUlhejNTK1c4YTBsMTRHMWRz?=
+ =?utf-8?B?NnZIdlEvUkVaWW8yeG9RdktSVk9uS25NMjF4Um5UbnRTS3VFRmZPTitNWEhl?=
+ =?utf-8?B?L2VvSDBOa3YvZXg5NUs0bUc2NFZDbTRSNU9sY20vR1c0a3pBMjlTL0JUWUls?=
+ =?utf-8?B?SFAvWmNiVFlXQVVxL2JGNlVnZndkY1IrUWNodWtpcEdEcTkydzR0SWtES3BL?=
+ =?utf-8?B?b1BVazF4dUMzYUtYN0g0cWpabEpjTHljV2lnbjM4SkE4T1RnTkJLTXRZdU1R?=
+ =?utf-8?B?RXFwelI4T2l4YzlpWE1OK1VLZmNaMzFra0I3V0hGZy8rSEJmRzU4bk8zUTlv?=
+ =?utf-8?B?a3FCM2p5YVNvVkFyK2UvVG0zSDByaDBaNVY3U3hJbG84YW9MZStETUpLN01o?=
+ =?utf-8?B?WU1OdDlXbk5PbHc5dTFVM0ZxazIra1NnSTRIUG1IcEE1aFN3S253VFIybmdJ?=
+ =?utf-8?B?NUNnWS9ubnFiaDBUQXBuUTg0ODRvM2thOVUyejNRL05IenJpM2FyK1U1dWNv?=
+ =?utf-8?B?Z1lUZmh6TTZXZFA1YTNwTmFGbk5CNE1talVUa0s4cGp3WGJhYTRFMVU3akRi?=
+ =?utf-8?B?MlVKdzFJMmp5RXIyZFFHb25OZmJUSFdQY2dJaUJiU05HdXg3K1JxMWlrYURG?=
+ =?utf-8?B?QnJjNG9Kc1d1MXgxSWdCUWYwRVBWNjU5dDNjM29SN3RXUGtUdVF6QnJnY1c1?=
+ =?utf-8?B?NmU2NmtmT1BBdk1Td2NkUmt4cm1TODhjbW9STkJ1cXZTMnZ5aWJHMTNFbVU0?=
+ =?utf-8?B?Qnp6ekdSQ0lJUTRCZWdJRDV6RGt0UDc4V3NlUlh4NUZkWlJzbGFIdlBZM2Uy?=
+ =?utf-8?B?aXNMc1NaYll2ekJrcThWaHNBeEVmV2xyVlpOcDJMWTAweUdVcDM1V0tZc1A2?=
+ =?utf-8?B?WSszSVU2aVJBcGg4ZFQrYW9jdTlELzhEWEJFM1JMY25kdXRkb0M1WGk2MzFl?=
+ =?utf-8?B?ZW5WeElURXFKb3dtZkRqWU5ubGpwQkIzQWxTWlZIK3p0d1lkS2syWXRGOG5o?=
+ =?utf-8?B?SGRWZEFyM1pXMWI0dVJTQkxTeXpWMlNNNFhibURrRmJIek45Zmo5N2dHZDBK?=
+ =?utf-8?B?WENZZ2srT1FJSFhxNFQ4UjN6bWR4RkVWZ0lKTElTbVdTeVYxa28vVlc1dmZ6?=
+ =?utf-8?B?Z1ZjOTRKRVZMd0hONXFSOFp4R3R0cGZKOEZuN1lWSlhzZzRjdUtuTGxKYU5j?=
+ =?utf-8?B?c01jVnZ4Rm13cFBPVi96RmNsWDVrYjZpY1NGUEZLMnZCVjJBSVR6S0pCMzFL?=
+ =?utf-8?B?aytodFB5TnkxSTZ0TjVUYXFKRElNaFJRUEhtbTBIVzNGOSsrM2t0NVBmOGky?=
+ =?utf-8?B?MWR1WTRmQmxFZEFUb0Vtb1NxUXVONGFDb2h1bS9UUmczZlNyS0NjRVlMWjVM?=
+ =?utf-8?B?Vm5HYzg2WGJITWFJWkExSnpZbDJFZU1KOGtCOG1mcWs3WE9lYjRKaEhjWFF2?=
+ =?utf-8?B?WUJIcW5UQXRDRUF1RmFPZmVsZWd2VTdBcE44Q3JkMlR4dE5POHNkRHZiNnR1?=
+ =?utf-8?B?bVRzZkxxR2hzMVhVdVVOU1BISGMrKzAxdmQ4bXFQTE4vYjFuVGh6aHd4dVRT?=
+ =?utf-8?B?OHBScTVYQlRsWjYvVEQwbVVvR2dYcy9WWTRHaUlEU0dRWUtzQkNqM00rR0lk?=
+ =?utf-8?B?bjFxUXJUTGdPek92dlRsWXQ4UzdWSnJOdFJGVUFWdGxITGlJVjBWL3VWbGQ2?=
+ =?utf-8?B?ZXAwZlZySFZ4dkthcWtVOWhWVkd5K1FZZG4yVUJiWHlWUVNLY294eHBXeUV5?=
+ =?utf-8?B?dVM3bE5SdUprNnp6NWtENlhMY0FZdSs4Z2J0YVg1dkR6OER4VUQ2RnJmazQ3?=
+ =?utf-8?Q?sBYs=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ada3268-718a-4c08-00a9-08dcfe4690d8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2024 09:37:01.0782
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 95s3AOs6aqdoF6Fp4x3xAGOYI/41K7UeulApTRgl8jUnTaOuGaJFaCPLrnLp0bad
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7742
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_013537_050949_EB18CA6C 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20241106_013718_832842_D5AB499E 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,617 +178,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Microchip's DSI controller wrapper driver that uses
-the Synopsys DesignWare MIPI DSI host controller bridge.
-
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
-changes in v4:
-- Fixed issues reported by kernel test robot
-- replaced syscon_regmap_lookup_by_phandle with
-syscon_regmap_lookup_by_compatible
-
-changes in v3:
-- make remove callback return void
-
-changes in v2:
-- use static const with global variables
-- replace dev_err with dev_err_probe
-- move clk_prepare_enable to simplify the error path
-- use FIELD_PREP calls
-- remove unused macros and unused functions
-- rename function name with mchp_ suffix
-- add suspend and resume pm calls to handle pllref_clk
----
- drivers/gpu/drm/bridge/Kconfig            |   8 +
- drivers/gpu/drm/bridge/Makefile           |   1 +
- drivers/gpu/drm/bridge/dw-mipi-dsi-mchp.c | 545 ++++++++++++++++++++++
- 3 files changed, 554 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/dw-mipi-dsi-mchp.c
-
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 6b4664d91faa..73f6be141e86 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -209,6 +209,14 @@ config DRM_MICROCHIP_LVDS_SERIALIZER
- 	help
- 	  Support for Microchip's LVDS serializer.
- 
-+config DRM_MICROCHIP_DW_MIPI_DSI
-+	tristate "Microchip specific extensions for Synopsys DW MIPI DSI"
-+	depends on DRM_ATMEL_HLCDC
-+	select DRM_DW_MIPI_DSI
-+	help
-+	  This selects support for Microchip's SoC specific extensions
-+	  for the Synopsys DesignWare dsi driver.
-+
- config DRM_NWL_MIPI_DSI
- 	tristate "Northwest Logic MIPI DSI Host controller"
- 	depends on DRM
-diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index 97304b429a53..ee5bd77ebfe7 100644
---- a/drivers/gpu/drm/bridge/Makefile
-+++ b/drivers/gpu/drm/bridge/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_DRM_LONTIUM_LT9611UXC) += lontium-lt9611uxc.o
- obj-$(CONFIG_DRM_LVDS_CODEC) += lvds-codec.o
- obj-$(CONFIG_DRM_MEGACHIPS_STDPXXXX_GE_B850V3_FW) += megachips-stdpxxxx-ge-b850v3-fw.o
- obj-$(CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER) += microchip-lvds.o
-+obj-$(CONFIG_DRM_MICROCHIP_DW_MIPI_DSI) += dw-mipi-dsi-mchp.o
- obj-$(CONFIG_DRM_NXP_PTN3460) += nxp-ptn3460.o
- obj-$(CONFIG_DRM_PARADE_PS8622) += parade-ps8622.o
- obj-$(CONFIG_DRM_PARADE_PS8640) += parade-ps8640.o
-diff --git a/drivers/gpu/drm/bridge/dw-mipi-dsi-mchp.c b/drivers/gpu/drm/bridge/dw-mipi-dsi-mchp.c
-new file mode 100644
-index 000000000000..804c2d8bd88a
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/dw-mipi-dsi-mchp.c
-@@ -0,0 +1,545 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024 Microchip Technology Inc. and its subsidiaries
-+ *
-+ * Author: Manikandan Muralidharan <manikandan.m@microchip.com>
-+ *
-+ */
-+
-+#include <drm/bridge/dw_mipi_dsi.h>
-+#include <drm/drm_mipi_dsi.h>
-+#include <drm/drm_print.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define DSI_PLL_REF_CLK			24000000
-+
-+#define DSI_PWR_UP			0x04
-+#define HOST_RESET			BIT(0)
-+#define HOST_PWRUP			0
-+
-+#define DSI_PHY_RSTZ			0xa0
-+#define PHY_SHUTDOWNZ			0
-+
-+#define DSI_PHY_TST_CTRL0		0xb4
-+#define PHY_TESTCLK			BIT(1)
-+#define PHY_UNTESTCLK			0
-+#define PHY_UNTESTCLR			0
-+
-+#define DSI_PHY_TST_CTRL1		0xb8
-+#define PHY_TESTEN			BIT(16)
-+#define PHY_UNTESTEN			0
-+#define PHY_TESTDOUT_MASK		GENMASK(15, 8)
-+#define PHY_TESTDIN_MASK		GENMASK(7, 0)
-+
-+#define BYPASS_VCO_RANGE		BIT(7)
-+#define VCO_RANGE_CON_SEL_MASK		GENMASK(5, 3)
-+#define VCO_IN_CAP_CON_LOW		BIT(1)
-+
-+#define CP_CURRENT_0			0x2
-+#define CP_CURRENT_1			0x4
-+#define CP_CURRENT_2			0x5
-+#define CP_CURRENT_3			0x6
-+#define CP_CURRENT_4			0x7
-+#define CP_CURRENT_5			0x8
-+#define CP_CURRENT_6			0xc
-+#define CP_CURRENT_SEL_MASK		GENMASK(3, 0)
-+#define CP_PROGRAM_EN			BIT(7)
-+
-+#define LPF_RESISTORS_15_6KOHM		0x1
-+#define LPF_RESISTORS_14_4KOHM		0x4
-+#define LPF_RESISTORS_12_8KOHM		0x8
-+#define LPF_RESISTORS_11_4KOHM		0x10
-+#define LPF_PROGRAM_EN			BIT(6)
-+#define LPF_RESISTORS_SEL_MASK		GENMASK(5, 0)
-+
-+#define INPUT_DIVIDER(val)		(((val) - 1) & 0x7f)
-+#define LOW_PROGRAM_EN			0
-+#define HIGH_PROGRAM_EN			BIT(7)
-+#define LOOP_DIV_LOW_SEL(val)		(((val) - 1) & 0x1f)
-+#define LOOP_DIV_HIGH_SEL(val)		((((val) - 1) >> 5) & 0xf)
-+#define PLL_LOOP_DIV_EN			BIT(5)
-+#define PLL_INPUT_DIV_EN		BIT(4)
-+
-+#define PLL_BIAS_CUR_SEL_CAP_VCO_CONTROL		0x10
-+#define PLL_CP_CONTROL_PLL_LOCK_BYPASS			0x11
-+#define PLL_LPF_AND_CP_CONTROL				0x12
-+#define PLL_INPUT_DIVIDER_RATIO				0x17
-+#define PLL_LOOP_DIVIDER_RATIO				0x18
-+#define PLL_INPUT_AND_LOOP_DIVIDER_RATIOS_CONTROL	0x19
-+
-+#define SFR_ISS_CFG			0x240
-+#define ISS_CFG_DSI_MODE		1
-+
-+struct dw_mipi_dsi_mchp_chip_data {
-+	const struct dw_mipi_dsi_phy_ops *phy_ops;
-+	unsigned int max_data_lanes;
-+};
-+
-+struct dw_mipi_dsi_mchp {
-+	struct device *dev;
-+	void __iomem *base;
-+	struct dw_mipi_dsi *dsi;
-+	struct clk *pllref_clk;
-+	struct dw_mipi_dsi_plat_data pdata;
-+
-+	/* For PLL config */
-+	unsigned int lane_mbps;
-+	u16 input_div;
-+	u16 feedback_div;
-+	u32 format;
-+};
-+
-+struct dphy_pll_parameter_map {
-+	unsigned int max_mbps;
-+	u8 hsfreqrange;
-+	u8 icpctrl;
-+	u8 lpfctrl;
-+};
-+
-+static const struct dphy_pll_parameter_map dppa_map[] = {
-+	{  89, 0x00, CP_CURRENT_1, LPF_RESISTORS_11_4KOHM },
-+	{  99, 0x20, CP_CURRENT_1, LPF_RESISTORS_11_4KOHM },
-+	{ 109, 0x40, CP_CURRENT_1, LPF_RESISTORS_11_4KOHM },
-+	{ 129, 0x02, CP_CURRENT_5, LPF_RESISTORS_12_8KOHM },
-+	{ 139, 0x22, CP_CURRENT_5, LPF_RESISTORS_12_8KOHM },
-+	{ 149, 0x42, CP_CURRENT_5, LPF_RESISTORS_12_8KOHM },
-+	{ 169, 0x04, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 179, 0x24, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 199, 0x44, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 219, 0x06, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 239, 0x26, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 249, 0x46, CP_CURRENT_6, LPF_RESISTORS_12_8KOHM },
-+	{ 269, 0x08, CP_CURRENT_0, LPF_RESISTORS_12_8KOHM },
-+	{ 299, 0x28, CP_CURRENT_0, LPF_RESISTORS_12_8KOHM },
-+	{ 329, 0x0a, CP_CURRENT_2, LPF_RESISTORS_12_8KOHM },
-+	{ 359, 0x2a, CP_CURRENT_2, LPF_RESISTORS_12_8KOHM },
-+	{ 399, 0x4a, CP_CURRENT_2, LPF_RESISTORS_12_8KOHM },
-+	{ 449, 0x0C, CP_CURRENT_2, LPF_RESISTORS_15_6KOHM },
-+	{ 499, 0x2c, CP_CURRENT_2, LPF_RESISTORS_15_6KOHM },
-+	{ 549, 0x0e, CP_CURRENT_3, LPF_RESISTORS_11_4KOHM },
-+	{ 599, 0x2e, CP_CURRENT_3, LPF_RESISTORS_11_4KOHM },
-+	{ 649, 0x10, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 699, 0x30, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 749, 0x12, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 799, 0x32, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 849, 0x52, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 899, 0x72, CP_CURRENT_3, LPF_RESISTORS_14_4KOHM },
-+	{ 949, 0x14, CP_CURRENT_4, LPF_RESISTORS_11_4KOHM },
-+	{1000, 0x34, CP_CURRENT_4, LPF_RESISTORS_11_4KOHM }
-+};
-+
-+struct hstt {
-+	unsigned int maxfreq;
-+	struct dw_mipi_dsi_dphy_timing timing;
-+};
-+
-+#define HSTT(_maxfreq, _c_lp2hs, _c_hs2lp, _d_lp2hs, _d_hs2lp)	\
-+{					\
-+	.maxfreq = _maxfreq,		\
-+	.timing = {			\
-+		.clk_lp2hs = _c_lp2hs,	\
-+		.clk_hs2lp = _c_hs2lp,	\
-+		.data_lp2hs = _d_lp2hs,	\
-+		.data_hs2lp = _d_hs2lp,	\
-+	}				\
-+}
-+
-+static const struct hstt hstt_table[] = {
-+	HSTT(90,  32, 20,  26, 13),
-+	HSTT(100,  35, 23,  28, 14),
-+	HSTT(110,  32, 22,  26, 13),
-+	HSTT(130,  31, 20,  27, 13),
-+	HSTT(140,  33, 22,  26, 14),
-+	HSTT(150,  33, 21,  26, 14),
-+	HSTT(170,  32, 20,  27, 13),
-+	HSTT(180,  36, 23,  30, 15),
-+	HSTT(200,  40, 22,  33, 15),
-+	HSTT(220,  40, 22,  33, 15),
-+	HSTT(240,  44, 24,  36, 16),
-+	HSTT(250,  48, 24,  38, 17),
-+	HSTT(270,  48, 24,  38, 17),
-+	HSTT(300,  50, 27,  41, 18),
-+	HSTT(330,  56, 28,  45, 18),
-+	HSTT(360,  59, 28,  48, 19),
-+	HSTT(400,  61, 30,  50, 20),
-+	HSTT(450,  67, 31,  55, 21),
-+	HSTT(500,  73, 31,  59, 22),
-+	HSTT(550,  79, 36,  63, 24),
-+	HSTT(600,  83, 37,  68, 25),
-+	HSTT(650,  90, 38,  73, 27),
-+	HSTT(700,  95, 40,  77, 28),
-+	HSTT(750, 102, 40,  84, 28),
-+	HSTT(800, 106, 42,  87, 30),
-+	HSTT(850, 113, 44,  93, 31),
-+	HSTT(900, 118, 47,  98, 32),
-+	HSTT(950, 124, 47, 102, 34),
-+	HSTT(1000, 130, 49, 107, 35),
-+};
-+
-+static int mchp_max_mbps_to_parameter(unsigned int max_mbps)
-+{
-+	for (int index = 0; index < ARRAY_SIZE(dppa_map); index++)
-+		if (dppa_map[index].max_mbps >= max_mbps)
-+			return index;
-+
-+	return -EINVAL;
-+}
-+
-+static inline void mchp_phy_write(struct dw_mipi_dsi_mchp *dsi, u32 reg, u32 val)
-+{
-+	writel(val, dsi->base + reg);
-+}
-+
-+static void dw_mipi_dsi_mchp_phy_write(struct dw_mipi_dsi_mchp *dsi,
-+				       u8 test_code,
-+				       u8 test_data)
-+{
-+	/* General DPHY control operation */
-+
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL0, PHY_TESTCLK | PHY_UNTESTCLR);
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL1, PHY_TESTEN |
-+		       FIELD_PREP(PHY_TESTDOUT_MASK, 1) |
-+		       FIELD_PREP(PHY_TESTDIN_MASK, test_code));
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL0, PHY_UNTESTCLK | PHY_UNTESTCLR);
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL1, PHY_UNTESTEN |
-+		       FIELD_PREP(PHY_TESTDOUT_MASK, 0) |
-+		       FIELD_PREP(PHY_TESTDIN_MASK, test_data));
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL0, PHY_TESTCLK | PHY_UNTESTCLR);
-+	mchp_phy_write(dsi, DSI_PHY_TST_CTRL0, PHY_UNTESTCLK | PHY_UNTESTCLR);
-+}
-+
-+static int dw_mipi_dsi_mchp_init(void *priv_data)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = priv_data;
-+	int index, vco, ret = 0;
-+
-+	/*
-+	 * Get vco from frequency(lane_mbps)
-+	 * vco	frequency table
-+	 * 000 - between   80 and  200 MHz
-+	 * 001 - between  200 and  300 MHz
-+	 * 010 - between  300 and  500 MHz
-+	 * 011 - between  500 and  700 MHz
-+	 * 100 - between  700 and  900 MHz
-+	 * 101 - between  900 and 1000 MHz
-+	 */
-+	vco = (dsi->lane_mbps < 200) ? 0 : (dsi->lane_mbps + 100) / 200;
-+
-+	index = mchp_max_mbps_to_parameter(dsi->lane_mbps);
-+	if (index < 0) {
-+		dev_err(dsi->dev,
-+			"failed to get parameter for %dmbps clock\n",
-+			dsi->lane_mbps);
-+		return index;
-+	}
-+
-+	/* D-PHY in Shutdown mode */
-+	mchp_phy_write(dsi, DSI_PHY_RSTZ, PHY_SHUTDOWNZ);
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_BIAS_CUR_SEL_CAP_VCO_CONTROL,
-+				   BYPASS_VCO_RANGE |
-+				   FIELD_PREP(VCO_RANGE_CON_SEL_MASK, vco) |
-+				   VCO_IN_CAP_CON_LOW);
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_CP_CONTROL_PLL_LOCK_BYPASS,
-+				   FIELD_PREP(CP_CURRENT_SEL_MASK, dppa_map[index].icpctrl));
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_LPF_AND_CP_CONTROL,
-+				   CP_PROGRAM_EN | LPF_PROGRAM_EN |
-+				   FIELD_PREP(LPF_RESISTORS_SEL_MASK, dppa_map[index].lpfctrl));
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_INPUT_AND_LOOP_DIVIDER_RATIOS_CONTROL,
-+				   PLL_LOOP_DIV_EN | PLL_INPUT_DIV_EN);
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_INPUT_DIVIDER_RATIO,
-+				   INPUT_DIVIDER(dsi->input_div));
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_LOOP_DIVIDER_RATIO,
-+				   LOOP_DIV_LOW_SEL(dsi->feedback_div) |
-+				   LOW_PROGRAM_EN);
-+
-+	dw_mipi_dsi_mchp_phy_write(dsi, PLL_LOOP_DIVIDER_RATIO,
-+				   LOOP_DIV_HIGH_SEL(dsi->feedback_div) |
-+				   HIGH_PROGRAM_EN);
-+
-+	return ret;
-+}
-+
-+static int dw_mipi_dsi_mchp_get_lane_mbps(void *priv_data,
-+					  const struct drm_display_mode *mode,
-+					  unsigned long mode_flags, u32 lanes,
-+					  u32 format, unsigned int *lane_mbps)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = priv_data;
-+	unsigned long best_freq, fvco_min, fvco_max, fin, fout;
-+	unsigned long min_delta = ULONG_MAX, delta;
-+	unsigned int target_mbps = 0, mpclk, desired_mbps;
-+	unsigned int max_mbps = dppa_map[ARRAY_SIZE(dppa_map) - 1].max_mbps;
-+	unsigned int min_prediv, max_prediv;
-+	unsigned int _fbdiv, best_fbdiv, _prediv, best_prediv;
-+	int bpp;
-+	u64 freq_factor;
-+
-+	dsi->format = format;
-+	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
-+	if (bpp < 0) {
-+		dev_err(dsi->dev,
-+			"failed to get bpp for pixel format %d\n",
-+			dsi->format);
-+		return bpp;
-+	}
-+
-+	mpclk = DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
-+	if (mpclk) {
-+		/* take 1/0.8, since mbps must be bigger than bandwidth of RGB */
-+		desired_mbps = mpclk * (bpp / lanes) * 10 / 8;
-+		if (desired_mbps < max_mbps) {
-+			target_mbps = desired_mbps;
-+		} else {
-+			dev_err(dsi->dev,
-+				"DPHY clock frequency is out of range\n");
-+			return -ERANGE;
-+		}
-+	}
-+
-+	fin = clk_get_rate(dsi->pllref_clk);
-+	fout = target_mbps * USEC_PER_SEC;
-+
-+	/* constraint: 5Mhz <= Fref / N <= 40MHz */
-+	min_prediv = DIV_ROUND_UP(fin, 40 * USEC_PER_SEC);
-+	max_prediv = fin / (5 * USEC_PER_SEC);
-+
-+	/* constraint: 80MHz <= Fvco <= 1000Mhz */
-+	fvco_min = 80 * USEC_PER_SEC;
-+	fvco_max = 1000 * USEC_PER_SEC;
-+
-+	for (best_freq = 0, _prediv = min_prediv; _prediv <= max_prediv; _prediv++) {
-+		/* Fvco = Fref * M / N */
-+		freq_factor = fout * _prediv;
-+		do_div(freq_factor, fin);
-+		_fbdiv = freq_factor;
-+		/*
-+		 * Due to the use of a "by 2 pre-scaler," the range of the
-+		 * feedback multiplication value M is limited to even division
-+		 * numbers, and m must be greater than 6, not bigger than 512.
-+		 */
-+		if (_fbdiv < 6 || _fbdiv > 512)
-+			continue;
-+
-+		_fbdiv += _fbdiv % 2;
-+
-+		freq_factor = _fbdiv * fin;
-+		do_div(freq_factor, _prediv);
-+		if (freq_factor < fvco_min || freq_factor > fvco_max)
-+			continue;
-+
-+		delta = abs(fout - freq_factor);
-+		if (delta < min_delta) {
-+			best_prediv = _prediv;
-+			best_fbdiv = _fbdiv;
-+			min_delta = delta;
-+			best_freq = freq_factor;
-+		}
-+	}
-+
-+	if (best_freq) {
-+		dsi->lane_mbps = DIV_ROUND_UP(best_freq, USEC_PER_SEC);
-+		*lane_mbps = dsi->lane_mbps;
-+		dsi->input_div = best_prediv;
-+		dsi->feedback_div = best_fbdiv;
-+	} else {
-+		dev_err(dsi->dev, "Can not find best_freq for DPHY\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dw_mipi_dsi_mchp_get_timing(void *priv_data, unsigned int lane_mbps,
-+				       struct dw_mipi_dsi_dphy_timing *timing)
-+{
-+	int index = 0;
-+
-+	for (; index < ARRAY_SIZE(hstt_table); index++)
-+		if (lane_mbps < hstt_table[index].maxfreq)
-+			break;
-+
-+	if (index == ARRAY_SIZE(hstt_table))
-+		index--;
-+
-+	*timing = hstt_table[index].timing;
-+
-+	return 0;
-+}
-+
-+static void dw_mipi_dsi_mchp_power_on(void *priv_data)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = priv_data;
-+
-+	/* Enable the DSI wrapper */
-+	mchp_phy_write(dsi, DSI_PWR_UP, HOST_PWRUP);
-+}
-+
-+static void dw_mipi_dsi_mchp_power_off(void *priv_data)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = priv_data;
-+
-+	/* Disable the DSI wrapper */
-+	mchp_phy_write(dsi, DSI_PWR_UP, HOST_RESET);
-+}
-+
-+static int dw_mipi_dsi_mchp_probe(struct platform_device *pdev)
-+{
-+	struct dw_mipi_dsi_mchp *dsi;
-+	struct regmap *regmap_sfr;
-+	const struct dw_mipi_dsi_mchp_chip_data *cdata;
-+	int ret;
-+
-+	dsi = devm_kzalloc(&pdev->dev, sizeof(*dsi), GFP_KERNEL);
-+	if (!dsi)
-+		return -ENOMEM;
-+
-+	dsi->dev = &pdev->dev;
-+	cdata = of_device_get_match_data(dsi->dev);
-+
-+	dsi->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(dsi->base)) {
-+		ret = PTR_ERR(dsi->base);
-+		dev_err_probe(dsi->dev, ret, "Unable to get DSI Base address\n");
-+		return ret;
-+	}
-+
-+	dsi->pllref_clk = devm_clk_get(&pdev->dev, "refclk");
-+	if (IS_ERR(dsi->pllref_clk)) {
-+		ret = PTR_ERR(dsi->pllref_clk);
-+		dev_err_probe(dsi->dev, ret, "Unable to get DSI PHY PLL reference clock\n");
-+		return ret;
-+	}
-+
-+	regmap_sfr = syscon_regmap_lookup_by_compatible("microchip,sam9x60-sfr");
-+	if (IS_ERR(regmap_sfr)) {
-+		ret = PTR_ERR(regmap_sfr);
-+		dev_err_probe(dsi->dev, ret, "Failed to lookup Special Function Register\n");
-+		return ret;
-+	}
-+	/* Select DSI in SFR's ISS Configuration Register */
-+	ret = regmap_write(regmap_sfr, SFR_ISS_CFG, ISS_CFG_DSI_MODE);
-+	if (ret) {
-+		dev_err_probe(dsi->dev, ret, "Failed to enable DSI in SFR_ISS_CFG Register\n");
-+		return ret;
-+	}
-+
-+	clk_set_rate(dsi->pllref_clk, DSI_PLL_REF_CLK);
-+	if (clk_get_rate(dsi->pllref_clk) != DSI_PLL_REF_CLK) {
-+		ret = -EINVAL;
-+		dev_err_probe(dsi->dev, ret, "Failed to set DSI PHY PLL reference clock\n");
-+		return ret;
-+	}
-+
-+	ret = clk_prepare_enable(dsi->pllref_clk);
-+	if (ret) {
-+		dev_err_probe(dsi->dev, ret, "Failed to enable DSI PHY PLL reference clock\n");
-+		return ret;
-+	}
-+
-+	dsi->pdata.base = dsi->base;
-+	dsi->pdata.max_data_lanes = cdata->max_data_lanes;
-+	dsi->pdata.phy_ops = cdata->phy_ops;
-+	dsi->pdata.priv_data = dsi;
-+	platform_set_drvdata(pdev, dsi);
-+
-+	/* call synopsis probe */
-+	dsi->dsi = dw_mipi_dsi_probe(pdev, &dsi->pdata);
-+	if (IS_ERR(dsi->dsi)) {
-+		ret = PTR_ERR(dsi->dsi);
-+		dev_err_probe(dsi->dev, ret, "Failed to initialize mipi dsi host\n");
-+		clk_disable_unprepare(dsi->pllref_clk);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void dw_mipi_dsi_mchp_remove(struct platform_device *pdev)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = platform_get_drvdata(pdev);
-+
-+	dw_mipi_dsi_remove(dsi->dsi);
-+	clk_disable_unprepare(dsi->pllref_clk);
-+}
-+
-+static int dw_mipi_dsi_mchp_suspend(struct device *dev)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = dev_get_drvdata(dev);
-+
-+	clk_disable_unprepare(dsi->pllref_clk);
-+
-+	return 0;
-+}
-+
-+static int dw_mipi_dsi_mchp_resume(struct device *dev)
-+{
-+	struct dw_mipi_dsi_mchp *dsi = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(dsi->pllref_clk);
-+	if (ret) {
-+		dev_err(dsi->dev, "Failed to enable pllref_clk: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops dw_mipi_dsi_mchp_pm_ops = {
-+	SYSTEM_SLEEP_PM_OPS(dw_mipi_dsi_mchp_suspend,
-+			    dw_mipi_dsi_mchp_resume)
-+	RUNTIME_PM_OPS(dw_mipi_dsi_mchp_suspend,
-+		       dw_mipi_dsi_mchp_resume, NULL)
-+};
-+
-+static const struct dw_mipi_dsi_phy_ops dw_mipi_dsi_mchp_phy_ops = {
-+	.init = dw_mipi_dsi_mchp_init,
-+	.power_on = dw_mipi_dsi_mchp_power_on,
-+	.power_off = dw_mipi_dsi_mchp_power_off,
-+	.get_lane_mbps = dw_mipi_dsi_mchp_get_lane_mbps,
-+	.get_timing = dw_mipi_dsi_mchp_get_timing,
-+};
-+
-+static const struct dw_mipi_dsi_mchp_chip_data sam9x75_chip_data = {
-+	.max_data_lanes = 4,
-+	.phy_ops = &dw_mipi_dsi_mchp_phy_ops,
-+};
-+
-+static const struct of_device_id dw_mipi_dsi_mchp_dt_ids[] = {
-+	{
-+	 .compatible	= "microchip,sam9x75-mipi-dsi",
-+	 .data		= &sam9x75_chip_data,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, dw_mipi_dsi_mchp_dt_ids);
-+
-+struct platform_driver dw_mipi_dsi_mchp_driver = {
-+	.probe		= dw_mipi_dsi_mchp_probe,
-+	.remove		= dw_mipi_dsi_mchp_remove,
-+	.driver		= {
-+		.of_match_table = dw_mipi_dsi_mchp_dt_ids,
-+		.name		= "dw-mipi-dsi-mchp",
-+		.pm		= &dw_mipi_dsi_mchp_pm_ops,
-+	},
-+};
-+module_platform_driver(dw_mipi_dsi_mchp_driver);
-+
-+MODULE_AUTHOR("Manikandan Muralidharan <manikandan.m@microchip.com>");
-+MODULE_DESCRIPTION("Microchip DW MIPI DSI controller wrapper driver");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYXJlayBWYXN1dCA8bWFyZXhA
+ZGVueC5kZT4NCj4gU2VudDogVGh1cnNkYXksIE9jdG9iZXIgMzEsIDIwMjQgMTA6NDEgUE0NCj4g
+VG86IGRtYWVuZ2luZUB2Z2VyLmtlcm5lbC5vcmcNCj4gQ2M6IE1hcmVrIFZhc3V0IDxtYXJleEBk
+ZW54LmRlPjsgVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLQ0KPiBrb2VuaWdAYmF5bGlicmUu
+Y29tPjsgU2ltZWssIE1pY2hhbCA8bWljaGFsLnNpbWVrQGFtZC5jb20+OyBQZXRlciBLb3JzZ2Fh
+cmQNCj4gPHBldGVyQGtvcnNnYWFyZC5jb20+OyBQYW5kZXksIFJhZGhleSBTaHlhbQ0KPiA8cmFk
+aGV5LnNoeWFtLnBhbmRleUBhbWQuY29tPjsgVmlub2QgS291bCA8dmtvdWxAa2VybmVsLm9yZz47
+IGxpbnV4LWFybS0NCj4ga2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcNCj4gU3ViamVjdDogW1BB
+VENIXSBkbWFlbmdpbmU6IHhpbGlueF9kbWE6IENvbmZpZ3VyZSBwYXJraW5nIHJlZ2lzdGVycyBv
+bmx5IGlmIHBhcmtpbmcNCj4gZW5hYmxlZA0KPiANCj4gVGhlIFZETUEgY2FuIHdvcmsgaW4gdHdv
+IG1vZGVzLCBwYXJraW5nIG9yIGNpcmN1bGFyLiBEbyBub3QgcHJvZ3JhbSB0aGUgcGFya2luZw0K
+PiBtb2RlIHJlZ2lzdGVycyBpbiBjYXNlIGNpcmN1bGFyIG1vZGUgaXMgdXNlZCwgaXQgaXMgdXNl
+bGVzcy4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IE1hcmVrIFZhc3V0IDxtYXJleEBkZW54LmRlPg0K
+DQpSZXZpZXdlZC1ieTogUmFkaGV5IFNoeWFtIFBhbmRleSA8cmFkaGV5LnNoeWFtLnBhbmRleUBh
+bWQuY29tPg0KVGhhbmtzIQ0KPiAtLS0NCj4gQ2M6ICJVd2UgS2xlaW5lLUvDtm5pZyIgPHUua2xl
+aW5lLWtvZW5pZ0BiYXlsaWJyZS5jb20+DQo+IENjOiBNaWNoYWwgU2ltZWsgPG1pY2hhbC5zaW1l
+a0BhbWQuY29tPg0KPiBDYzogUGV0ZXIgS29yc2dhYXJkIDxwZXRlckBrb3JzZ2FhcmQuY29tPg0K
+PiBDYzogUmFkaGV5IFNoeWFtIFBhbmRleSA8cmFkaGV5LnNoeWFtLnBhbmRleUBhbWQuY29tPg0K
+PiBDYzogVmlub2QgS291bCA8dmtvdWxAa2VybmVsLm9yZz4NCj4gQ2M6IGRtYWVuZ2luZUB2Z2Vy
+Lmtlcm5lbC5vcmcNCj4gQ2M6IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZw0K
+PiAtLS0NCj4gIGRyaXZlcnMvZG1hL3hpbGlueC94aWxpbnhfZG1hLmMgfCAyMCArKysrKysrKysr
+Ky0tLS0tLS0tLQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKyksIDkgZGVsZXRp
+b25zKC0pDQo+IA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9kbWEveGlsaW54L3hpbGlueF9kbWEu
+YyBiL2RyaXZlcnMvZG1hL3hpbGlueC94aWxpbnhfZG1hLmMgaW5kZXgNCj4gNDg2NDdjOGE2NGE1
+Yi4uODdkYjM4MWZmMTI4NiAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9kbWEveGlsaW54L3hpbGlu
+eF9kbWEuYw0KPiArKysgYi9kcml2ZXJzL2RtYS94aWxpbngveGlsaW54X2RtYS5jDQo+IEBAIC0x
+NDA0LDE2ICsxNDA0LDE4IEBAIHN0YXRpYyB2b2lkIHhpbGlueF92ZG1hX3N0YXJ0X3RyYW5zZmVy
+KHN0cnVjdA0KPiB4aWxpbnhfZG1hX2NoYW4gKmNoYW4pDQo+IA0KPiAgCWRtYV9jdHJsX3dyaXRl
+KGNoYW4sIFhJTElOWF9ETUFfUkVHX0RNQUNSLCByZWcpOw0KPiANCj4gLQlqID0gY2hhbi0+ZGVz
+Y19zdWJtaXRjb3VudDsNCj4gLQlyZWcgPSBkbWFfcmVhZChjaGFuLCBYSUxJTlhfRE1BX1JFR19Q
+QVJLX1BUUik7DQo+IC0JaWYgKGNoYW4tPmRpcmVjdGlvbiA9PSBETUFfTUVNX1RPX0RFVikgew0K
+PiAtCQlyZWcgJj0gflhJTElOWF9ETUFfUEFSS19QVFJfUkRfUkVGX01BU0s7DQo+IC0JCXJlZyB8
+PSBqIDw8IFhJTElOWF9ETUFfUEFSS19QVFJfUkRfUkVGX1NISUZUOw0KPiAtCX0gZWxzZSB7DQo+
+IC0JCXJlZyAmPSB+WElMSU5YX0RNQV9QQVJLX1BUUl9XUl9SRUZfTUFTSzsNCj4gLQkJcmVnIHw9
+IGogPDwgWElMSU5YX0RNQV9QQVJLX1BUUl9XUl9SRUZfU0hJRlQ7DQo+ICsJaWYgKGNvbmZpZy0+
+cGFyaykgew0KPiArCQlqID0gY2hhbi0+ZGVzY19zdWJtaXRjb3VudDsNCj4gKwkJcmVnID0gZG1h
+X3JlYWQoY2hhbiwgWElMSU5YX0RNQV9SRUdfUEFSS19QVFIpOw0KPiArCQlpZiAoY2hhbi0+ZGly
+ZWN0aW9uID09IERNQV9NRU1fVE9fREVWKSB7DQo+ICsJCQlyZWcgJj0gflhJTElOWF9ETUFfUEFS
+S19QVFJfUkRfUkVGX01BU0s7DQo+ICsJCQlyZWcgfD0gaiA8PCBYSUxJTlhfRE1BX1BBUktfUFRS
+X1JEX1JFRl9TSElGVDsNCj4gKwkJfSBlbHNlIHsNCj4gKwkJCXJlZyAmPSB+WElMSU5YX0RNQV9Q
+QVJLX1BUUl9XUl9SRUZfTUFTSzsNCj4gKwkJCXJlZyB8PSBqIDw8IFhJTElOWF9ETUFfUEFSS19Q
+VFJfV1JfUkVGX1NISUZUOw0KPiArCQl9DQo+ICsJCWRtYV93cml0ZShjaGFuLCBYSUxJTlhfRE1B
+X1JFR19QQVJLX1BUUiwgcmVnKTsNCj4gIAl9DQo+IC0JZG1hX3dyaXRlKGNoYW4sIFhJTElOWF9E
+TUFfUkVHX1BBUktfUFRSLCByZWcpOw0KPiANCj4gIAkvKiBTdGFydCB0aGUgaGFyZHdhcmUgKi8N
+Cj4gIAl4aWxpbnhfZG1hX3N0YXJ0KGNoYW4pOw0KPiAtLQ0KPiAyLjQ1LjINCg0K
 
