@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DD8D59F7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD47D59F7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 22:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6umwoYj9OreXKl0xzSlbeae+yKTlKkVh5/dhD285sY=; b=MljoNqc8OVuzlpw7LIydKZtiSP
-	qGSOhu4+94KmTh/nkeZcRgoenJC9pcUyO+Fws9Ky4JWn+ZpHGSJt7S9k/ZBYjy3YrOP9qeyHJ5kpa
-	bxpq+A3ANt5CIUCt86p2WtN9up5zySwn694Dh0k+zuHO7pFggFduKvEuxXqW1F8UcN3Jdfffqv6yu
-	PmAhMBUl1AbF9AH/KbEaVYBu9FOtaaob9UT5MEEeL7ivgQ4+hE/qXRqkrG4CrKeCM0rOVcZm6JQh1
-	+PUySNC/sB5kMTw+wvLTLNY+uTwgC6Jx/Nsi+d2tq3T1KuA6sNq7WVNw7B6Y2dBO+CseEyW2JNweQ
-	f46W1BdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=z1G4jOFY4WZSl/RnI/u+wdBwGUR9bubBqZ4r/tCbtOo=; b=TuidP7sb7zg7nCT/CUoABUerCA
+	NwpNs6CApu0BcW4buyoU+Tj3vaC8NAd+sMRhbh5h/ifKYknpZ++UnZxkCLAdmy8CMxQjERmuzdjoI
+	2sUctGZVwv2l+V+iWysO0lgCyxNiF5U7AuA1lpuYnM/OS69nEGj4uGHSdLL4Rq1BtnO6Dt549BMse
+	EvwpbmYRL1RXUubFk1S5XMdADpTss4aAs64gHu4l5DCulMtK2UFNln8b3G47wTqRZ5dkFy2dlK4Gb
+	AaMV2gMrDgBukU9naVImEwP31tftYvjKymDoA34TU/Uum92AFUQFixM4mWtdt6t37Gsb5WFMWtLDU
+	c/Uksn2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8oOE-00000004uOl-0Fj0;
-	Wed, 06 Nov 2024 22:20:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1t8oYe-00000004wGP-3HHd;
+	Wed, 06 Nov 2024 22:31:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8oMT-00000004twB-2Apc
+	id 1t8oWu-00000004vya-2yoG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 22:18:51 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A6AGSmr003817;
-	Wed, 6 Nov 2024 22:18:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Y6umwoYj9OreXKl0xzSlbeae+yKTlKkVh5/dhD285sY=; b=C7zBWjkKMfiX6Tju
-	b11ykT+vFfcKGfkY1jkQ6k+eWsEzydPEhGQvxcw3bxUnZHY9Lod7tvZ30vjJBsNa
-	NMBoxzrQMc0nes4nF+3nkTi6ez7ikI45MjNrHkjy4NAAlw5fwk9Rg5VFZUvnPYTt
-	zClpkiG7mDNGKWrP1fF2r8OxPRFJYz0M4Mx6nY9/padiEZy/H3wsyR9Ol1jLxXDZ
-	QCy7jCvQZpXMpvjuE12sqRtZ3NO3u48Kb7wLqY/yW/BEwkjoY0uOqLCWlhmdAwTC
-	bS2HSez2qaiDX5rPLxLzjuesN7UuCsO9JQwjzaUQeuViS1VuuQXsXFDQFHArHeUp
-	V/3k/w==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42qvg3u8w4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 Nov 2024 22:18:41 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4A6MIea0022910
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 6 Nov 2024 22:18:40 GMT
-Received: from [10.226.59.182] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 6 Nov 2024
- 14:18:39 -0800
-Message-ID: <e77acdfe-43b9-a28b-11e4-2ffb481c4078@quicinc.com>
-Date: Wed, 6 Nov 2024 15:18:38 -0700
+	Wed, 06 Nov 2024 22:29:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 818535C4CD5;
+	Wed,  6 Nov 2024 22:28:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B420EC4CEC6;
+	Wed,  6 Nov 2024 22:29:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730932175;
+	bh=FHEZ8Db5PTgMmVRyesXrgUdXjQUoWglkt/etn3U6PNE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=VwBqoK488rj4i5ZAs5nN/uCeP7h7zth66K1wgO39pGpLfXIiXeWtenBjfJhyvMNe7
+	 mv07rsD6goSN/i0a8VR0F/IyfTPfMRI2Dv8i/Pvw8CLQaASyp4rwG1bScAnkMmqQ61
+	 v60vLFFo0q2VvD6AucpE0Tj5ln7xxE813lpwCzQGU0oJO0flmfj5X8mLi9v7BMW9Sz
+	 xSDL7J8lSfqV8JVK+mJBUZOmu2Je/8o5LQXTVqoEjnqjbMahPp4xtaqDCdfSInx1lT
+	 QPZVvbKUkgWbaDLDo2fR+Yic0+RMp1Gh3L2ncFFu7w90J4AGSqJZPCfpdZ5jMow2Ra
+	 S2rstTiEMhKzw==
+Date: Wed, 6 Nov 2024 16:29:33 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
+	Frank Li <frank.li@nxp.com>, "mani@kernel.org" <mani@kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Message-ID: <20241106222933.GA1543549@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.0
-Subject: Re: [PATCH V4 1/5] dt-bindings: firmware: Document bindings for QCOM
- SCMI Generic Extension
-Content-Language: en-US
-To: Sibi Sankar <quic_sibis@quicinc.com>, <sudeep.holla@arm.com>,
-        <cristian.marussi@arm.com>, <andersson@kernel.org>,
-        <konrad.dybcio@linaro.org>, <robh+dt@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_rgottimu@quicinc.com>, <quic_kshivnan@quicinc.com>,
-        <conor+dt@kernel.org>, <arm-scmi@vger.kernel.org>
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <20241007061023.1978380-2-quic_sibis@quicinc.com>
-From: Jeffrey Hugo <quic_jhugo@quicinc.com>
-In-Reply-To: <20241007061023.1978380-2-quic_sibis@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: OFrehKGGJi8JVLmM8D5HdD9jI8bRk7oR
-X-Proofpoint-GUID: OFrehKGGJi8JVLmM8D5HdD9jI8bRk7oR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- lowpriorityscore=0 priorityscore=1501 clxscore=1011 mlxscore=0 spamscore=0
- suspectscore=0 bulkscore=0 phishscore=0 adultscore=0 impostorscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411060171
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB8676998092241543AEABFAAB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_141849_599038_7A55E10B 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20241106_142936_859818_495DE7E1 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +79,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/7/2024 12:10 AM, Sibi Sankar wrote:
-> diff --git a/include/dt-bindings/firmware/qcom,scmi-memlat.h b/include/dt-bindings/firmware/qcom,scmi-memlat.h
-> new file mode 100644
-> index 000000000000..7ae8d8d5623b
-> --- /dev/null
-> +++ b/include/dt-bindings/firmware/qcom,scmi-memlat.h
-> @@ -0,0 +1,22 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +#ifndef __DT_BINDINGS_QCOM_SCMI_VENDOR_H
-> +#define __DT_BINDINGS_QCOM_SCMI_VENDOR
+On Wed, Nov 06, 2024 at 01:59:41AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> > Sent: 2024年11月6日 7:27
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: kwilczynski@kernel.org; bhelgaas@google.com;
+> > lorenzo.pieralisi@arm.com; Frank Li <frank.li@nxp.com>; mani@kernel.org;
+> > linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > linux-kernel@vger.kernel.org; kernel@pengutronix.de; imx@lists.linux.dev
+> > Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+> > some platforms
+> > 
+> > On Mon, Jul 22, 2024 at 02:15:13PM +0800, Richard Zhu wrote:
+> > > The dw_pcie_suspend_noirq() function currently returns success
+> > > directly if no endpoint (EP) device is connected. However, on some
+> > > platforms, power loss occurs during suspend, causing dw_resume() to do
+> > > nothing in this case.
+> > > This results in a system halt because the DWC controller is not
+> > > initialized after power-on during resume.
 
-The #define does not match the #ifndef (missing "_H")
+> > > @@ -933,23 +933,23 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+> > >  	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) &
+> > PCI_EXP_LNKCTL_ASPM_L1)
+> > >  		return 0;
+> > >
+> > > -	if (dw_pcie_get_ltssm(pci) <= DW_PCIE_LTSSM_DETECT_ACT)
+> > > -		return 0;
+> > > -
+> > > -	if (pci->pp.ops->pme_turn_off)
+> > > -		pci->pp.ops->pme_turn_off(&pci->pp);
+> > > -	else
+> > > -		ret = dw_pcie_pme_turn_off(pci);
+> > > +	if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_ACT) {
+> > > +		/* Only send out PME_TURN_OFF when PCIE link is up */
+> > > +		if (pci->pp.ops->pme_turn_off)
+> > > +			pci->pp.ops->pme_turn_off(&pci->pp);
+> > > +		else
+> > > +			ret = dw_pcie_pme_turn_off(pci);
+> > 
+> > This looks possibly racy since the link can go down at any point.
+>
+> When link is down and without this commit changes,
+> dw_pcie_suspend_noirq() return directly, and the PME_TURN_OFF
+> wouldn't be kicked off.
 
-> +
-> +/* Memory IDs */
-> +#define QCOM_MEM_TYPE_DDR	0x0
-> +#define QCOM_MEM_TYPE_LLCC	0x1
-> +#define QCOM_MEM_TYPE_DDR_QOS	0x2
-> +
-> +/*
-> + * QCOM_MEM_TYPE_DDR_QOS supports the following states.
-> + *
-> + * %QCOM_DDR_LEVEL_AUTO:	DDR operates with LPM enabled
-> + * %QCOM_DDR_LEVEL_PERF:	DDR operates with LPM disabled
-> + */
-> +#define QCOM_DDR_LEVEL_AUTO	0x0
-> +#define QCOM_DDR_LEVEL_PERF	0x1
-> +
-> +#endif /* __DT_BINDINGS_QCOM_SCMI_VENDOR_H */
+Right, that's the code change.
 
+> I change the behavior to issue the PME_TURN_OFF when link is up
+> here.
+
+But I don't think you responded to the race question.  What happens
+here?
+
+  if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_ACT) {
+    --> link goes down here <--
+    pci->pp.ops->pme_turn_off(&pci->pp);
+
+You decide the LTSSM is active and the link is up.  Then the link goes
+down.  Then you send PME_Turn_off.  Now what?
+
+If it's safe to try to send PME_Turn_off regardless of whether the
+link is up or down, there would be no need to test the LTSSM state.
+
+Bjorn
 
