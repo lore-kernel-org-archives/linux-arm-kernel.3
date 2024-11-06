@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD86D44D51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E691D44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 11:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9pw/ncIr5xOQG+ZVQBxpx/l5w//5qbE75eKMDsD6eQ=; b=Igf5rGqUhI/6d5qF9WjWc5oIS9
-	u3Iv3ZmJVIj7UQTJ6OJLpK5w+mJR2MeQpbWejj0rhxCgw+jjtJmt6Yidlz7vO5VVf8yoebmGMY0Cj
-	whNyMzeD9xfkiGNiOMRd1KY2q7Is2V5gVOlezbETfJwxP3qPke1pU9RMdoNQ4nekAkv/uzJeF50NZ
-	P2WY43TDMOrcycW+eGkr6TWsFUjH8qe2ibXsMfmFflOHqMvq+Y/Lf6No4hZi6/1xIJfOPTlgFjQy3
-	rJSWyqacRmh8FfAzOqLIDfeKUsO75HQ6a1qNItXqXJC/5hazL6rivzJ93O2WstJpVpYui+sDe34KT
-	hqPqgmFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=okwVwo7asZ9u+tVOHleOHRoJjZ574ZQY9yfS63ntQdM=; b=KaBdqN91tV0BA5wvYzSpgJMePP
+	JOOni0leyfi28Aw8BhsXM9cTX+pWtF40PNUpFsDn6JTrS9H/IztcQ+SM8colWgOYBq1/QAREQbuPF
+	V9Uu4u9LirZ9zWSuWhroq43Xr/IYdOmUrfpuUJ2I5HHGhwEbA2YGeokzCbUMr7cvXkgQ9zA7q/yf8
+	+nNmSA35OICw+32QF0MzUBvWuogHFWISArf9UK+QfDgbthO6oPaJj52HIkaaju5FHI1LIyqy4Oyct
+	rYy7vOOZx9r6Tit+yc0EEPqvZiqyNS/pyVrjnRLT1vwMJNmHrQI4PovrnvWF76ZEBjgU5irTAGVsb
+	kqBe853A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ePj-00000002xYW-0fby;
-	Wed, 06 Nov 2024 11:41:31 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1t8eRQ-00000002xzB-1bns;
+	Wed, 06 Nov 2024 11:43:16 +0000
+Received: from mail-40137.protonmail.ch ([185.70.40.137])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dYj-00000002nZr-2VzL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 06 Nov 2024 10:46:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=n9pw/ncIr5xOQG+ZVQBxpx/l5w//5qbE75eKMDsD6eQ=; b=RWgp7HSHErvWscYGf1Ffm3pndl
-	wZb86wwxZSTq50rJJ73hOf9XdgYa7NkwXbNsWfbMR490miX4DN5skr2j4TaPcbBBehFi2UOvpfs2L
-	iMGqnFjXS7MuIqFrjI67qlhWA0akoD+5TldIzUnkN+/gcwr/EY+smdDft6Fola4hDzOq2vcSr+x/m
-	OKXrbxMuJtXMOB0pJLvL1fHEP6UoS5BekteG+l+aaMlcIW5HN9kccPF0qkeqCIvSmHs9KXsRDxpkP
-	n9a/7rgziZhXmN3f7DYepd57Le/kzu9dDsPPNRv3I3xiXb26mQ9jPH8Udg8sXcdSgLXxIW/QWLdah
-	L/6nj1sg==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8dYd-00000004Olv-1fBL;
-	Wed, 06 Nov 2024 10:46:40 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2C45A300478; Wed,  6 Nov 2024 11:46:39 +0100 (CET)
-Date: Wed, 6 Nov 2024 11:46:39 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Ingo Molnar <mingo@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linux trace kernel <linux-trace-kernel@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, Oleg Nesterov <oleg@redhat.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Liao Chang <liaochang1@huawei.com>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"linux-perf-use." <linux-perf-users@vger.kernel.org>,
-	Kernel Team <kernel-team@meta.com>
-Subject: Re: The state of uprobes work and logistics
-Message-ID: <20241106104639.GL10375@noisy.programming.kicks-ass.net>
-References: <CAEf4BzarhiBHAQXECJzP5e-z0fbSaTpfQNPaSXwdgErz2f0vUA@mail.gmail.com>
- <ZyH_fWNeL3XYNEH1@krava>
- <CAEf4BzZTTuBdCT2Qe=n7gqhf3yENZwHYUdsrQP9WfaEC4C35rw@mail.gmail.com>
+	id 1t8dZp-00000002noQ-0t7v
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 10:48:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1730890070; x=1731149270;
+	bh=okwVwo7asZ9u+tVOHleOHRoJjZ574ZQY9yfS63ntQdM=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector:
+	 List-Unsubscribe:List-Unsubscribe-Post;
+	b=f03K9Ojm1YKTa2f7VqL7KWrRdp47xlYl0cBwVOYq6zyWRWu3LU3bZlKRsdIX4ROLa
+	 noPNHsmSxxgp3PQrt7SbxWSPx3Zpavi/X+ubull6a1XpFSS2c6KMd1E2JOShfklsQo
+	 uB1zNKPvFSNvNOo6TZvY6zePQdKaUqJBmNCoNPQmbTDqSOllCOu7AOPlT9r7xik+1T
+	 4vn94zWTP3xFu9MQaebWHAu01QJjlGYHnYenPohpc1bilsrDrLZCPiUgIiQuHFa3Pw
+	 dtHXbOgCFJAPv7cyUZj1YF/CUQBo93DVI1hi1vxgNG57oHz8UjKw1hQGAMDxtfPyTg
+	 EQLfSZfN2JecQ==
+Date: Wed, 06 Nov 2024 10:47:46 +0000
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>, linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: [PATCH v2 0/2] MediaTek MT6735 TOPRGU/WDT support
+Message-ID: <20241106104738.195968-1-y.oudjana@protonmail.com>
+Feedback-ID: 6882736:user:proton
+X-Pm-Message-ID: 09934d38fc3ebae1fee80fc7dd599a9c054ee796
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEf4BzZTTuBdCT2Qe=n7gqhf3yENZwHYUdsrQP9WfaEC4C35rw@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241106_024753_506423_3CEDCC0B 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +68,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 06:11:07PM -0800, Andrii Nakryiko wrote:
-> On Wed, Oct 30, 2024 at 2:42 AM Jiri Olsa <olsajiri@gmail.com> wrote:
-> >
-> > On Wed, Oct 16, 2024 at 12:35:21PM -0700, Andrii Nakryiko wrote:
-> >
-> > SNIP
-> >
-> > >   - Jiri Olsa's uprobe "session" support ([5]). This is less
-> > > performance focused, but important functionality by itself. But I'm
-> > > calling this out here because the first two patches are pure uprobe
-> > > internal changes, and I believe they should go into tip/perf/core to
-> > > avoid conflicts with the rest of pending uprobe changes.
-> > >
-> > > Peter, do you mind applying those two and creating a stable tag for
-> > > bpf-next to pull? We'll apply the rest of Jiri's series to
-> > > bpf-next/master.
-> >
-> >
-> > Hi Ingo,
-> > there's uprobe session support change that already landed in tip tree,
-> > but we have bpf related changes that need to go in through bpf-next tree
-> >
-> > could you please create the stable tag that we could pull to bpf-next/master
-> > and apply the rest of the uprobe session changes in there?
-> 
-> Ping. We (BPF) are blocked on this, we can't apply Jiri's uprobe
-> session series ([0]), until we merge two of his patches that landed
-> into perf/core. Can we please get a stable tag which we can use to
-> pull perf/core's patches into bpf-next/master?
+These patches are part of a larger effort to support the MT6735 SoC family
+in mainline Linux. More patches (unsent or sent and pending review or
+revision) can be found here[1].
 
-The whole tip/perf/core should be stable, but let me try and figure out
-how git tags work.. might as well read a man-page today.
+This series adds support for the top reset generation unit (TOPRGU) found
+on the MediaTek MT6735 SoC. TOPRGU generates several reset signals and
+provides watchdog timer functionality.
+
+While doing so, a fix is made to the restart handler to make it work even
+when the watchdog is disabled by default (never enabled by the bootloader).
+
+[1] https://gitlab.com/mt6735-mainline/linux/-/commits/mt6735-staging
+
+Changes since v1:
+- Split restart handler fix and MT6735 support into separate patches.
+
+Yassine Oudjana (2):
+  watchdog: mediatek: Fix mtk_wdt_restart
+  watchdog: mediatek: Add support for MT6735 TOPRGU/WDT
+
+ drivers/watchdog/mtk_wdt.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+--=20
+2.47.0
+
+
 
