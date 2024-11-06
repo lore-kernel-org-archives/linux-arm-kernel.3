@@ -4,76 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329EAD59F52
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED639D59F53
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GIrb8lH6MtB9ni0oZQC5O1PWk0ZuEvid3uRJD/gFEk=; b=M7PLJhLMqDA1bHjwPK0ckPKmII
-	oC+oSeiIEmgxvs+Y0/yr6cHoDU19oS4OLVrV4QBLwCcSXizkVKwU84Spjxn/Xcj6AeFCZXDdCzOdf
-	5vF2/kvw1SiSLZGIiIeuYXJx1uo8iwxeLQdg9UTqQC4EJ3H2zoR3b+TjebKflgFYP4YDN2Qu5F6Ps
-	gOAER9E6ATZnkgUTwgKsGMUmxnWJM1c1Zwd0WpznteVk4njzXYL/OAAhuj97wdvYAwdezBIqSe+23
-	eynEG0McVM6TEPM2W4hlPiZ0Ux4D8kXjJwbxjHXcifKTxlQP8R9/X7KQe0lwuYOnE+NLozRUbDTKX
-	7J8c7pIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/if1AiRZaUShOTuAFVIb1uest70Ah2Im5FIfKteFDIk=; b=TwfZKlx07T27MWBU6io6G7sBjU
+	zRFPQBNOyN12UUUVfElRdvSzdsCk0v2uWyhE58Slxh6aX1cZRj6qFlxjfG6AzHfFpSIVQ3ul6p+W8
+	5+nmG172C19CpHb1XFwAAcZlNHhIDK+ouCSrGMZNllJYgXcJ4k5cvkSvsQFOrLBcoM/JGYR/K2IZi
+	1N0gfpmaujTyPMG0sHuzejxBGuPNfBQ007ak2/0nSngXGzBnOZxEJBzguVU4WioAAc8Qo57cIQhIc
+	wc5PhOr6ES9sf4EbSopiyPV3wQCUhYOwWxw9DydqPwBQWEIW7Q7nJpEl8ddaUV3sGDUWIN5k5qI0L
+	jG8cUTew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j7q-000000044b8-0J2G;
-	Wed, 06 Nov 2024 16:43:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j5Y-000000044Ax-47SD
+	id 1t8j9W-000000044xJ-1fi8;
+	Wed, 06 Nov 2024 16:45:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8j75-000000044RP-0bjx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:41:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BBEDB5C04CE;
-	Wed,  6 Nov 2024 16:40:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC78C4CEC6;
-	Wed,  6 Nov 2024 16:40:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730911260;
-	bh=/GIrb8lH6MtB9ni0oZQC5O1PWk0ZuEvid3uRJD/gFEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a/tDVlPsFSxqrW/jxij2IoAoHIVPLSEYkIWy4w1eFfFs8RoMwmk3WbWBgmUVjitiR
-	 kYy7iRQs/rx0N5huEMCFuFRGHgVPtI7vVGbJfPS3N5bBwlcJA+3f02facNV4Y5RjBG
-	 o5UbkUB3XNhvFIjFLP0CsZwXriRM66aWfZYgBnRtIc9IgJ7ykIXwD2XPHBNoGbhQk0
-	 urJvbUcOaX0rmlSegERf/yG2qsPlR5Fl9OuKadaKKd7O18Q17zVcmszNnzVjeswddX
-	 El3xioF32fP6OkqbGaQdE+AqbuyJv92rowbq5itKl41dC3ZvJwaoQVjb3ro9SAgKTa
-	 yGUO3AyedBd/A==
-Date: Wed, 6 Nov 2024 16:40:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Felipe Balbi <balbi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
-	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
-Subject: Re: [PATCH 2/5] dt-bindings: arm: ti: Add compatible for AM625-based
- TQMa62xx SOM family and carrier board
-Message-ID: <20241106-happy-anything-46f7293f6aca@spud>
-References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
- <4f5ad877f44df35a3b2c7f336647f057c4e6377d.1730299760.git.matthias.schiffer@ew.tq-group.com>
- <20241104-floral-dexterous-7d3fee2ff616@spud>
- <c73cac598788ccabd1791b1232e8fd9d7ce23ac6.camel@ew.tq-group.com>
- <20241105-tinsmith-countable-fbb51045bc98@spud>
- <7286141141fe4930cd2581dac7a1fb36a98e62c4.camel@ew.tq-group.com>
+	Wed, 06 Nov 2024 16:42:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87D131063;
+	Wed,  6 Nov 2024 08:43:04 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F4673F528;
+	Wed,  6 Nov 2024 08:42:33 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: ardb@kernel.org,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	stable@vger.kernel.org,
+	will@kernel.org
+Subject: [PATCH] arm64: Kconfig: Make SME depend on BROKEN for now
+Date: Wed,  6 Nov 2024 16:42:20 +0000
+Message-Id: <20241106164220.2789279-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="oJ2Y6Urhi+vkl28I"
-Content-Disposition: inline
-In-Reply-To: <7286141141fe4930cd2581dac7a1fb36a98e62c4.camel@ew.tq-group.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_084101_156646_9ED529D6 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20241106_084235_245105_2FBFCC3D 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +65,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Although support for SME was merged in v5.19, we've since uncovered a
+number of issues with the implementation, including issues which might
+corrupt the FPSIMD/SVE/SME state of arbitrary tasks. While there are
+patches to address some of these issues, ongoing review has highlighted
+additional functional problems, and more time is necessary to analyse
+and fix these.
 
---oJ2Y6Urhi+vkl28I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+For now, mark SME as BROKEN in the hope that we can fix things properly
+in the near future. As SME is an OPTIONAL part of ARMv9.2+, and there is
+very little extant hardware, this should not adversely affect the vast
+majority of users.
 
-On Wed, Nov 06, 2024 at 01:03:08PM +0100, Matthias Schiffer wrote:
-> On Tue, 2024-11-05 at 18:55 +0000, Conor Dooley wrote:
-> > On Tue, Nov 05, 2024 at 11:40:20AM +0100, Matthias Schiffer wrote:
-> > > On Mon, 2024-11-04 at 18:47 +0000, Conor Dooley wrote:
-> > > > On Mon, Nov 04, 2024 at 10:47:25AM +0100, Matthias Schiffer wrote:
-> > > > > The TQMa62xx is a SoM family with a pluggable connector. The MBa6=
-2xx is
-> > > > > the matching reference/starterkit carrier board.
-> > > >=20
-> > > > Why all the wildcards? Why isn't there a compatible per device in t=
-he
-> > > > family?
->=20
-> Because all variants use the same Device Tree. There is also only one com=
-patible and one (main) DTSI
-> for the AM62 SoC family, which our Device Trees are based on.
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: <stable@vger.kernel.org> # 5.19
+---
+ arch/arm64/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-So what varies between the members of the family?
+Catalin, Will, if we take this, the minimal set of other fixes necessary
+for now is:
 
-> > > For the compatible string we've chosen the TQMa6254 as the representa=
-tive for the TQMa62xx family.
-> >=20
-> > And all the boards in the family are the exact same?
->=20
-> There is a single TQMa62xx PCB, which has some AM62 family SoC installed =
-(AM6254 in the case of the
-> TQMa6254, but all AM62 are possible). TQMa62xx is also the name used for =
-marketing when not talking
-> about a specific SoC variant:
-> https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma62x=
-x/
->=20
-> Some SoM variants with different RAM/eMMC/SPI-NOR/... do exist, but they =
-don't have separate device
-> trees (firmware may patch some variant information into the DTB however, =
-like the correct RAM size).
->=20
-> Choosing one representative for the family including the SoC variant numb=
-er, but not distinguishing
-> minor variants matches the level of detail used for our other SOMs alread=
-y supported by mainline
-> Linux (like the TQMa64xxL and various i.MX-based platforms).
+* "arm64/sve: Discard stale CPU state when handling SVE traps"
+  https://lore.kernel.org/linux-arm-kernel/20241030-arm64-fpsimd-foreign-flush-v1-1-bd7bd66905a2@kernel.org/
+  https://lore.kernel.org/linux-arm-kernel/ZypuQNhWHKut8mLl@J2N7QTR9R3.cambridge.arm.com/
+  (already queued by Will in for-next/fixes)
 
-I don't like any of this wildcard stuff at all, who is to say that the
-next soc you put on your SoM won't be an am62a7, which has a specific
-compatible in the kernel? Your fallback then would be ti,am62a7 not
-ti,am625. Probably someone will say "that's the am62a family not the
-am62 family" - but that exact thing is why I hate all of this
-wildcarding. It's barely any more effort to have a tqm6231 and a tqm6254
-compatible than what you're doing with wildcard but it is unambiguous.
+* "arm64: smccc: Remove broken support for SMCCCv1.3 SVE discard hint"
+  https://lore.kernel.org/linux-arm-kernel/20241106160448.2712997-1-mark.rutland@arm.com/
 
---oJ2Y6Urhi+vkl28I
-Content-Type: application/pgp-signature; name="signature.asc"
+Mark.
 
------BEGIN PGP SIGNATURE-----
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 3e29b44d2d7bd..14cc81e154ee2 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2213,6 +2213,7 @@ config ARM64_SME
+ 	bool "ARM Scalable Matrix Extension support"
+ 	default y
+ 	depends on ARM64_SVE
++	depends on BROKEN
+ 	help
+ 	  The Scalable Matrix Extension (SME) is an extension to the AArch64
+ 	  execution state which utilises a substantial subset of the SVE
+-- 
+2.30.2
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyucFgAKCRB4tDGHoIJi
-0nTOAP49AhXzVo1rMKvtd3ePJuffEjuHdGlp/GqT6bBrNTGtFwD/eogtLPtuaM+U
-fil0gvlsrbgOMKWtdE3BthhK3ZCfvQw=
-=yzQZ
------END PGP SIGNATURE-----
-
---oJ2Y6Urhi+vkl28I--
 
