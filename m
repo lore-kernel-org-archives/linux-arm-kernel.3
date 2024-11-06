@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC67D29FB8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CAAD29FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tA3kKlIajVNI5auwh+ymgX4xSwVj315HtDR3DLoI84o=; b=Y0bzpE72U7E2wWHU6pNNkzyq66
-	AFPfEAsqonk/Imxn9Ykz/cvxEe46HYrRZfVyWWqMCfm8HNlSIOQnq/Hm3CQs8p30z7Ycrcq6wOmZ8
-	Me4jY1eSQDuk2qMLnAzcciphK4r+fXNnRggSkfvLikNrOwSwhqyRmHPwjA9vU2aREZfVXsYHEJdt8
-	3gUPhYTjpOtoeb92lDOpJ0OagMkuqgFpXrEhcFAjRyzSyQgxCxJF7ylaHVcPqlLv3EwvERCjjAry9
-	xIcvCz6r6t4Uq8mXGme2kWrlKNgVRaeivxywPXQWDLZ29iDDsg+5WM0QorQqakzAhOMibW8inM9XG
-	ipvLbKlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XA9PZwf+sJz4LH3JCk5SCD3ppC+GHhEdRkZJEIAPoq4=; b=GhKbKGuE4pWVa4AtUkzY8t+RSe
+	1zwLBlWz76Mgxi7fl6o3RFzMrrH+t3aLlFSxbVj5CWBrsOKtTZQGz9Pi1blDyyn7dtLlRxNTOa/if
+	wEJmCpEw2Ibq9L/RRqa97gWJxg3W1jkuDYeInNW//ZQnu+wi22c6EvM2zDF5yXIc4eerw3AqWi9dE
+	Xo1JBT9J9nJtlkWrj1xoQoL4uap2iPD3Q9ieXrsdEEHQNWTK7GHK0a80abO4o3dt/WM3Ya9WFLI+c
+	mycOOJNfGh807pVCpNjBqis62u85Ox1Gi0ri0JDRM2UIthzJ3J5SyIUcJx9ZiJRcYG+ddDfc5J6gv
+	AWGfPUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bgm-00000002Laf-2CVg;
-	Wed, 06 Nov 2024 08:46:56 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1t8biT-00000002Lor-06ot;
+	Wed, 06 Nov 2024 08:48:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bdM-00000002Kue-2r1e
+	id 1t8beN-00000002L6c-2ude
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 08:43:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730882604; x=1762418604;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2FaB9DZ+5bt0vHcem3FiA70mddNIj2sFcK506ZwMn/Q=;
-  b=Uyg5pSBK8bmoNQVa8I2Aq6AHVt4MMJ/ZirgCghCVcKd1nhntHSTl/+AJ
-   /jJJMZVauqBdoM0w3by3f3wIVM9PoVYaP3aztcY/mDSHo3f19OtBLKias
-   KMXBAWjeUFWtYMkgSjBDELHlpMMe6506p9spGyXHXtB8rE5Ui4bRdZPu5
-   iEn13GGBF9OZNjQW67sJIa5S6xlr5fM0kBFjc/DvmNElprNdzN7jAptT0
-   yNEnyf2egCHaotF0w4Lhn9BevyoY5FSSn0LdSF7UnsS9W9JEsh+ZrGD1d
-   woTw/9gVDMh2hKKaDBZ8uMxly3DSOyNn/SYN2tvgLXlF2dRa2HQHXS/4F
-   Q==;
-X-CSE-ConnectionGUID: JZFk7ijKTiaLuzK0vSHPwA==
-X-CSE-MsgGUID: IzI0JPiJRzqJQC28SGNfZA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11247"; a="30889099"
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="30889099"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 00:43:21 -0800
-X-CSE-ConnectionGUID: FQSFjxl3TY2wyKbOXhKltw==
-X-CSE-MsgGUID: IM4k9HfgRNW2rIV3li9lkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="115233886"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 06 Nov 2024 00:43:18 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t8bdD-000n6B-37;
-	Wed, 06 Nov 2024 08:43:15 +0000
-Date: Wed, 6 Nov 2024 16:43:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
+	Wed, 06 Nov 2024 08:44:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CDDC05C4A65;
+	Wed,  6 Nov 2024 08:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E91CC4CECD;
+	Wed,  6 Nov 2024 08:44:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730882666;
+	bh=epVEU2AYAhlpV2xVETpPhEIE78lqpbGzb/PrPhs7GSM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sgMe4KmOH7KJ1IcKn+B9Q79s6G9NZe5vOEBlKBzaiZHzZeOK0+NotQ+v2nOORZdpA
+	 46AIMqkYAd2Tmt+NDDGwIgyv++GFm6xhc9geukIkjFPthX+nxH5EtcezUywjY7Wkti
+	 mpq2aRs1pxyUMnJoJNpnM/3B0xt/Fk7FGC4WPflxBD6VVjNQiAa5+ga4GQNChoER6F
+	 mgoIr5qxqLTFZwexUfgLZuvjLAIJ80KrX9GZbHetq6TtgkucijjkI8WN8eMGu91C2f
+	 0KuhZQ6jvGo8Go5MpOzXYlgK09OYNZVczVQDGlBGLE743vpGiPNlSF+QH4ZrRfiBvV
+	 P8mFZzxa+0Zfw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1t8beJ-00AHp5-UJ;
+	Wed, 06 Nov 2024 08:44:24 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	dri-devel@lists.freedesktop.org, Liviu Dudau <liviu.dudau@arm.com>,
-	patches@lists.linux.dev, Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v3 2/3] iommu/io-pgtable-arm-v7s: Remove split on unmap
- behavior
-Message-ID: <202411061634.3EtgZij8-lkp@intel.com>
-References: <2-v3-b3a5b5937f56+7bb-arm_no_split_jgg@nvidia.com>
+	kvmarm@lists.linux.dev
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] irqchip/gic-v3: Force propagation of the active state with a read-back
+Date: Wed,  6 Nov 2024 08:44:18 +0000
+Message-Id: <20241106084418.3794612-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2-v3-b3a5b5937f56+7bb-arm_no_split_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tglx@linutronix.de, christoffer.dall@arm.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_004324_756085_4B54E0A5 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20241106_004428_867359_2958ADCA 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,57 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+Christoffer reports that on some implementations, writing to
+GICR_ISACTIVER0 (and similar GICD registers) can race badly
+with a guest issuing a deactivation of that interrupt via the
+system register interface.
 
-kernel test robot noticed the following build warnings:
+There are multiple reasons to this:
 
-[auto build test WARNING on 8e929cb546ee42c9a61d24fae60605e9e3192354]
+- we use an early write-acknoledgement memory type (nGnRE), meaning
+  that the write may only have made it as far as some interconnect
+  by the time the store is considered "done"
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jason-Gunthorpe/iommu-io-pgtable-arm-Remove-split-on-unmap-behavior/20241106-021511
-base:   8e929cb546ee42c9a61d24fae60605e9e3192354
-patch link:    https://lore.kernel.org/r/2-v3-b3a5b5937f56%2B7bb-arm_no_split_jgg%40nvidia.com
-patch subject: [PATCH v3 2/3] iommu/io-pgtable-arm-v7s: Remove split on unmap behavior
-config: arm-randconfig-004-20241106 (https://download.01.org/0day-ci/archive/20241106/202411061634.3EtgZij8-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241106/202411061634.3EtgZij8-lkp@intel.com/reproduce)
+- the GIC itself is allowed to buffer the write until it decides to
+  take it into account (as long as it is in finite time)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411061634.3EtgZij8-lkp@intel.com/
+The effects are that the activation may not have taken effect by the
+time we enter the guest, forcing an immediate exit, or that a guest
+deactivation occurs before the interrupt is active, doing nothing.
 
-All warnings (new ones prefixed by >>):
+In order to guarantee that the write to the ISACTIVER register has
+taken effect, read back from it, forcing the interconnect to propagate
+the write, and the GIC to process the write before returning the read.
 
->> drivers/iommu/io-pgtable-arm-v7s.c:823:18: warning: variable 'loopnr' set but not used [-Wunused-but-set-variable]
-     823 |         unsigned int i, loopnr = 0;
-         |                         ^
-   1 warning generated.
+Reported-by: Christoffer Dall <christoffer.dall@arm.com>
+Acked-by: Christoffer Dall <christoffer.dall@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ drivers/irqchip/irq-gic-v3.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for GET_FREE_REGION
-   Depends on [n]: SPARSEMEM [=n]
-   Selected by [y]:
-   - RESOURCE_KUNIT_TEST [=y] && RUNTIME_TESTING_MENU [=y] && KUNIT [=y]
-
-
-vim +/loopnr +823 drivers/iommu/io-pgtable-arm-v7s.c
-
-e5fc9753b1a831 Robin Murphy    2016-01-26  810  
-e5fc9753b1a831 Robin Murphy    2016-01-26  811  static int __init arm_v7s_do_selftests(void)
-e5fc9753b1a831 Robin Murphy    2016-01-26  812  {
-e5fc9753b1a831 Robin Murphy    2016-01-26  813  	struct io_pgtable_ops *ops;
-e5fc9753b1a831 Robin Murphy    2016-01-26  814  	struct io_pgtable_cfg cfg = {
-e5fc9753b1a831 Robin Murphy    2016-01-26  815  		.tlb = &dummy_tlb_ops,
-e5fc9753b1a831 Robin Murphy    2016-01-26  816  		.oas = 32,
-e5fc9753b1a831 Robin Murphy    2016-01-26  817  		.ias = 32,
-4f41845b340783 Will Deacon     2019-06-25  818  		.coherent_walk = true,
-4f41845b340783 Will Deacon     2019-06-25  819  		.quirks = IO_PGTABLE_QUIRK_ARM_NS,
-e5fc9753b1a831 Robin Murphy    2016-01-26  820  		.pgsize_bitmap = SZ_4K | SZ_64K | SZ_1M | SZ_16M,
-e5fc9753b1a831 Robin Murphy    2016-01-26  821  	};
-76b8c2705cdd26 Jason Gunthorpe 2024-11-05  822  	unsigned int iova, size;
-e5fc9753b1a831 Robin Murphy    2016-01-26 @823  	unsigned int i, loopnr = 0;
-
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index ce87205e3e823..8b6159f4cdafa 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -524,6 +524,13 @@ static int gic_irq_set_irqchip_state(struct irq_data *d,
+ 	}
+ 
+ 	gic_poke_irq(d, reg);
++
++	/*
++	 * Force read-back to guarantee that the active state has taken
++	 * effect, and won't race with a guest-driven deactivation.
++	 */
++	if (reg == GICD_ISACTIVER)
++		gic_peek_irq(d, reg);
+ 	return 0;
+ }
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.2
+
 
