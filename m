@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4C0D29F9D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 06:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBC8D29F9D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 06:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxP9YcwVFKAJicqzFTfLQT+JXkODjBQKlOQxaMRpKVM=; b=Q+yZF4eAtHbYhr6cM1YeXAJwHA
-	qEpm6Scym41WSbq8TkRvF2+3+dH8vs5XQ9IB5tAvj4FfLThUbYUqjSwP/Yd9eBg7sVOwzXVDzvWUe
-	Z7AIMXOcK5nnZPfvLeSruALTRy2geUNC/nSfPcq/304l4osMzjuS9Xazonb0kRVezHfUYLl5e0S2V
-	HJsoS4CsZD7FRHLXxOdOTz8YolHpYdkLZR94mCkqvO/uIFtgWuvqCXXWbttPLFgzoRowTyY5h9OAz
-	SGFi+hfOnszV9YhkHRrZ3lHJiuEBJrm4p9EaWcnk/ZutSdFtf5OfXNbyZ/LtUNe6wfVz1dXae+/8D
-	RADu2YNw==;
+	bh=fCQZXkAS/Gp8UlJvk930Ptx2GDYmSbYH65zsCKiP7/U=; b=z3CvLXmHxUQgVmpQATvMlw8A8Q
+	0svUVdIO/zILfrVu1hk55YP2HCAtPLmtMWc9g8H2zVMZTOYfCTXAkliI0xU1ut2pqVTgYDKPOfAf3
+	e52wsAJ6qUCmEYLJQviUbE5EZPA04LfcjctlzuZtwDnuO0x8bexUt793OC4mjFx6jJfyjl/TeFMjk
+	B5iMXUnOIAnjs/qBWAMTGAFypuNSdshdunyTC2DoYUi3DC1uJBH4WLukuuMojNsPYgpaY/Wu5Oqiu
+	3AlEVmD5Nx7ka+SEZIQqmwVbm6vbtYGgokGWdjvqbpWqLhwOhQXX4uLOS/T52JiBJDnlzWXGwa1kg
+	MZHox/bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Zd7-000000020Ro-34wS;
-	Wed, 06 Nov 2024 06:35:01 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1t8ZrR-000000022Tm-0lv8;
+	Wed, 06 Nov 2024 06:49:49 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ZZz-0000000202o-36cR
+	id 1t8Zpj-000000022EW-0hOR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 06:31:49 +0000
+	Wed, 06 Nov 2024 06:48:04 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A66ljZA101137;
+	Wed, 6 Nov 2024 00:47:45 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730875665;
+	bh=fCQZXkAS/Gp8UlJvk930Ptx2GDYmSbYH65zsCKiP7/U=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=jgCf8X+KbnVPwoZYkCrJjbKjU7lomcVTTxf66Yr7vRmkCGENNVfycSCxXT1yUc+ST
+	 NvZt+GCYgIMGxG47fxRCplj3xaMuZsiZiSPofc59ArWpEBr9pHVK3ESw+yvYAEJFBT
+	 se28DcGXWZbxfaf/1gm1+9pTwptvKmDAaE7c+LLc=
+Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A66ljlM023491
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 6 Nov 2024 00:47:45 -0600
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 00:47:45 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 00:47:45 -0600
+Received: from [10.249.139.24] ([10.249.139.24])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A66lcBN008344;
+	Wed, 6 Nov 2024 00:47:39 -0600
+Message-ID: <8ccae9bb-8582-4c08-9dc3-f5608bb69aee@ti.com>
+Date: Wed, 6 Nov 2024 12:17:38 +0530
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1730874703;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qxP9YcwVFKAJicqzFTfLQT+JXkODjBQKlOQxaMRpKVM=;
-	b=LpiVX1//YTrlPkWN11MudX8FgoByS4d0xmlSxUWXzk7vnHOKtecxfFdOQ/nLZXERk6rSah
-	PEpjEY8lMRy+e13zIylC0H26XRIKNyY2HwOE+HFrudIHgc21PpI/RhBgNx0cckXEorEEzp
-	+gPx1m6fjgyAP01xz4lqx6JviRMUX6LQm/xNzyRv1E9NBQkjzZuShNfJPQ2xTmS/KGQw8M
-	aLroN0McUq7y1yE1lwHhGlbR+yqAYHPUVKsIH8W/GzN8KVp0m0MPd5PbgiVP0IhqE3PZKe
-	49is7ozXfnr/DE8t94Rh7Ie8F3F8ZDSPnB82bjcyKNkTIGEjaPS2Pc9sQZ3+1A==
-Date: Wed, 06 Nov 2024 07:31:41 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: wens@csie.org
-Cc: linux-sunxi@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, Ondrej Jirman
- <megi@xff.cz>, Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: Re: [PATCH] arm64: dts: allwinner: pinephone: Add mount matrix to
- accelerometer
-In-Reply-To: <CAGb2v67fLPf-yKObuds3LC77gT_W_OmgSK5y2KotRC-Zn9aL7w@mail.gmail.com>
-References: <129f0c754d071cca1db5d207d9d4a7bd9831dff7.1726773282.git.dsimic@manjaro.org>
- <bef0570137358c6c4a55f59e7a4977c4@manjaro.org>
- <CAGb2v66aody60h=Bpk49pxogq93FekmO48uThPET2RKxvx=OGw@mail.gmail.com>
- <cfc090cb87a8b926116d1a436694d17d@manjaro.org>
- <CAGb2v67fLPf-yKObuds3LC77gT_W_OmgSK5y2KotRC-Zn9aL7w@mail.gmail.com>
-Message-ID: <6f2c860c442838bd9892d5861b82e73e@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix 1 PPS sync
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Jakub Kicinski <kuba@kernel.org>, <vigneshr@ti.com>, <horms@kernel.org>,
+        <jan.kiszka@siemens.com>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>,
+        Vadim Fedorenko
+	<vadim.fedorenko@linux.dev>
+References: <20241028111051.1546143-1-m-malladi@ti.com>
+ <20241031185905.610c982f@kernel.org>
+ <7c3318f4-a2d4-4cbf-8a93-33c6a8afd6c4@ti.com>
+ <20241104185031.0c843951@kernel.org>
+ <e5c5c9ba-fca1-4fa3-a416-1fc972ebd258@ti.com>
+ <6a230b28-9298-410b-b873-21000af4c0f3@lunn.ch>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <6a230b28-9298-410b-b873-21000af4c0f3@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_223148_127927_0EBFD366 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20241105_224803_305249_6255D25A 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +96,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Chen-Yu,
 
-On 2024-11-06 03:19, Chen-Yu Tsai wrote:
-> On Sat, Oct 26, 2024 at 12:11 AM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> On 2024-10-25 16:47, Chen-Yu Tsai wrote:
->> > On Wed, Oct 23, 2024 at 5:11 AM Dragan Simic <dsimic@manjaro.org>
->> > wrote:
->> >> On 2024-09-19 21:15, Dragan Simic wrote:
->> >> > The way InvenSense MPU-6050 accelerometer is mounted on the user-facing
->> >> > side
->> >> > of the Pine64 PinePhone mainboard, which makes it rotated 90 degrees
->> >> > counter-
->> >> > clockwise, [1] requires the accelerometer's x- and y-axis to be
->> >> > swapped, and
->> >> > the direction of the accelerometer's y-axis to be inverted.
->> >> >
->> >> > Rectify this by adding a mount-matrix to the accelerometer definition
->> >> > in the Pine64 PinePhone dtsi file.
->> >> >
->> >> > [1] https://files.pine64.org/doc/PinePhone/PinePhone%20mainboard%20bottom%20placement%20v1.1%2020191031.pdf
->> >> >
->> >> > Fixes: 91f480d40942 ("arm64: dts: allwinner: Add initial support for
->> >> > Pine64 PinePhone")
->> >> > Cc: stable@vger.kernel.org
->> >> > Helped-by: Ondrej Jirman <megi@xff.cz>
->> >> > Helped-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
->> >> > Signed-off-by: Dragan Simic <dsimic@manjaro.org>
->> >>
->> >> Just a brief reminder about this patch...  Please, let me know if some
->> >> further work is needed for it to become accepted.
->> >
->> > There's no "Helped-by" tag, and checkpatch would complain. The closest
->> > would be either Suggested-by or Co-developed-by, but with the latter
->> > you would also need their Signed-off-by.
->> 
->> Thanks for your response.  You're totally right about checkpatch.pl
->> not supporting Helped-by tags, but including neither Suggested-by
->> nor Co-developed-by would fit very well in this case, because the
->> associated level of credit falls right somewhere between what's
->> indicated by these two tags.
->> 
->> > I can change it to Suggested-by if that's OK with you.
->> 
->> I've created and submitted a patch [*] that adds support for Helped-by
->> tags to checkpatch.pl.  Let's see what kind of feedback that patch
->> will receive, and then we'll be able to move forward accordingly.
+
+On 11/6/2024 2:30 AM, Andrew Lunn wrote:
+>>> I think you need to write a custom one. Example:
+>>> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/drivers/net/ethernet/meta/fbnic/fbnic_time.c#n40
+>> Ok thank you. I will add custom function for this and update the patch.
 > 
-> There doesn't seem to be any activity. Maybe also try adding it to the
+> Maybe look around and see if they could be reused by other drivers. If
+> so, they should be put somewhere central.
 > 
->     Documentation/process/submitting-patches.rst
-> 
-> document?
+> 	Andrew
+I have looked into it, and seems like wherever this is getting used it 
+is written as a custom function for that driver. Seems like writing our 
+own is inevitable.
 
-Good idea, thanks!  I've created and submitted the v2 [**] of my
-other patch, so it now also adds a description of the proposed
-Helped-by tag to Documentation/process/submitting-patches.rst.
-Let's see will that spark some interest.
+- Meghana.
 
-[*] 
-https://lore.kernel.org/linux-kernel/0e1ef28710e3e49222c966f07958a9879fa4e903.1729871544.git.dsimic@manjaro.org/T/#u
-[**] 
-https://lore.kernel.org/linux-kernel/cover.1730874296.git.dsimic@manjaro.org/T/#u
-
->> >> > ---
->> >> >
->> >> > Notes:
->> >> >     See also the linux-sunxi thread [2] that has led to this patch,
->> >> > which
->> >> >     provides a rather detailed analysis with additional details and
->> >> > pictures.
->> >> >     This patch effectively replaces the patch submitted in that thread.
->> >> >
->> >> >     [2]
->> >> > https://lore.kernel.org/linux-sunxi/20240916204521.2033218-1-andrej.skvortzov@gmail.com/T/#u
->> >> >
->> >> >  arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi | 3 +++
->> >> >  1 file changed, 3 insertions(+)
->> >> >
->> >> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
->> >> > b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
->> >> > index 6eab61a12cd8..b844759f52c0 100644
->> >> > --- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
->> >> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtsi
->> >> > @@ -212,6 +212,9 @@ accelerometer@68 {
->> >> >               interrupts = <7 5 IRQ_TYPE_EDGE_RISING>; /* PH5 */
->> >> >               vdd-supply = <&reg_dldo1>;
->> >> >               vddio-supply = <&reg_dldo1>;
->> >> > +             mount-matrix = "0", "1", "0",
->> >> > +                            "-1", "0", "0",
->> >> > +                            "0", "0", "1";
->> >> >       };
->> >> >  };
->> >>
 
