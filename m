@@ -4,109 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2325AD59F52
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329EAD59F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=69NgmVe3EoEmJQDLF30ZqHkFTuakoAGSMs/N5XjAM8w=; b=0bpnm9j43cpfTvI7iecsxZEa32
-	J2qTtvuaM0YVwTdJQd3TE4tJT5qfcKnudt8E75jEmPDz952Me5diggycicKhN9LJJxvA8p7crhkYw
-	Jp+V5H1DgyW8T1XQIWzntnrDVuQalq604ixY2ue6luboYNDggpmpg7VBytyWGpH9t7B2ZMR2Cermh
-	13+2+cddqYsPyw7MD2XOHgHF3vbR0Mio7a1X0ouX7GjFURgG3rPS9BcCgvrTZ4+L7ec/UY3fjNJrq
-	WKrp9dm5E5XW82WmBZTYhhmWOVKEawrmuWtwj4p8WJJ8GYccJaOMSxskWz5d2TymzY11iYKs+0Dwb
-	aJ5Y7jMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/GIrb8lH6MtB9ni0oZQC5O1PWk0ZuEvid3uRJD/gFEk=; b=M7PLJhLMqDA1bHjwPK0ckPKmII
+	oC+oSeiIEmgxvs+Y0/yr6cHoDU19oS4OLVrV4QBLwCcSXizkVKwU84Spjxn/Xcj6AeFCZXDdCzOdf
+	5vF2/kvw1SiSLZGIiIeuYXJx1uo8iwxeLQdg9UTqQC4EJ3H2zoR3b+TjebKflgFYP4YDN2Qu5F6Ps
+	gOAER9E6ATZnkgUTwgKsGMUmxnWJM1c1Zwd0WpznteVk4njzXYL/OAAhuj97wdvYAwdezBIqSe+23
+	eynEG0McVM6TEPM2W4hlPiZ0Ux4D8kXjJwbxjHXcifKTxlQP8R9/X7KQe0lwuYOnE+NLozRUbDTKX
+	7J8c7pIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j69-000000044IO-2zYx;
-	Wed, 06 Nov 2024 16:41:37 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t8j7q-000000044b8-0J2G;
+	Wed, 06 Nov 2024 16:43:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j2l-000000043bk-1PUL
+	id 1t8j5Y-000000044Ax-47SD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:38:08 +0000
-Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6D17559D;
-	Wed,  6 Nov 2024 17:37:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730911077;
-	bh=JYsSg8XGpZMd/iovEqFWzxyh+o/Jbj+GO3GOPMiOkmA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FkAo3EphpjzwcqhWGS5mYOA6rnUajxTEtPgd8dZEhtVXRU5F1JsTbh2YGe+7RDpQ6
-	 4lryiZEua/Q+NUjl2uIXlSOyyv6O7diiUKGEWTFLCAYQaHcoNkCR57hmMAU0DkAhP1
-	 5tQMP3s4BiTOgYBP7GcHFj+SAEJcaBuZGRs+JkBg=
-Message-ID: <636ad36f-3182-431c-ae2e-1f590a06ad7f@ideasonboard.com>
-Date: Wed, 6 Nov 2024 16:38:01 +0000
+	Wed, 06 Nov 2024 16:41:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BBEDB5C04CE;
+	Wed,  6 Nov 2024 16:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC78C4CEC6;
+	Wed,  6 Nov 2024 16:40:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730911260;
+	bh=/GIrb8lH6MtB9ni0oZQC5O1PWk0ZuEvid3uRJD/gFEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a/tDVlPsFSxqrW/jxij2IoAoHIVPLSEYkIWy4w1eFfFs8RoMwmk3WbWBgmUVjitiR
+	 kYy7iRQs/rx0N5huEMCFuFRGHgVPtI7vVGbJfPS3N5bBwlcJA+3f02facNV4Y5RjBG
+	 o5UbkUB3XNhvFIjFLP0CsZwXriRM66aWfZYgBnRtIc9IgJ7ykIXwD2XPHBNoGbhQk0
+	 urJvbUcOaX0rmlSegERf/yG2qsPlR5Fl9OuKadaKKd7O18Q17zVcmszNnzVjeswddX
+	 El3xioF32fP6OkqbGaQdE+AqbuyJv92rowbq5itKl41dC3ZvJwaoQVjb3ro9SAgKTa
+	 yGUO3AyedBd/A==
+Date: Wed, 6 Nov 2024 16:40:54 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Felipe Balbi <balbi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-hardening@vger.kernel.org, Devarsh Thakkar <devarsht@ti.com>,
+	Hari Nagalla <hnagalla@ti.com>, linux@ew.tq-group.com
+Subject: Re: [PATCH 2/5] dt-bindings: arm: ti: Add compatible for AM625-based
+ TQMa62xx SOM family and carrier board
+Message-ID: <20241106-happy-anything-46f7293f6aca@spud>
+References: <cover.1730299760.git.matthias.schiffer@ew.tq-group.com>
+ <4f5ad877f44df35a3b2c7f336647f057c4e6377d.1730299760.git.matthias.schiffer@ew.tq-group.com>
+ <20241104-floral-dexterous-7d3fee2ff616@spud>
+ <c73cac598788ccabd1791b1232e8fd9d7ce23ac6.camel@ew.tq-group.com>
+ <20241105-tinsmith-countable-fbb51045bc98@spud>
+ <7286141141fe4930cd2581dac7a1fb36a98e62c4.camel@ew.tq-group.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
- jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org,
- mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
- sakari.ailus@iki.fi
-References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
- <20241106100534.768400-6-dan.scally@ideasonboard.com>
- <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
- <20241106135756.GI9369@pendragon.ideasonboard.com>
- <a8cb35fd-d474-4104-b1f8-90ce5aa4a790@kernel.org>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
- 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
-In-Reply-To: <a8cb35fd-d474-4104-b1f8-90ce5aa4a790@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="oJ2Y6Urhi+vkl28I"
+Content-Disposition: inline
+In-Reply-To: <7286141141fe4930cd2581dac7a1fb36a98e62c4.camel@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_083807_558419_53211246 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20241106_084101_156646_9ED529D6 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,76 +88,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof - thanks for reviewing
 
-On 06/11/2024 14:29, Krzysztof Kozlowski wrote:
-> On 06/11/2024 14:57, Laurent Pinchart wrote:
->> Hi Krzysztof,
->>
->> On Wed, Nov 06, 2024 at 01:15:23PM +0100, Krzysztof Kozlowski wrote:
->>> On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
->>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
->>>>
->>>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
->>>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->>>> ---
->>>> Changes in v8:
->>>>
->>>> 	- Added the video clock back in. Now that we have actual hardware it's
->>>> 	  clear that it's necessary.
->>>> 	- Added reset lines
->>>> 	- Dropped R-bs
->>> These are trivial, so I wish you kept the review...
+--oJ2Y6Urhi+vkl28I
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fair enough, I just didn't want to be presumptuous
+On Wed, Nov 06, 2024 at 01:03:08PM +0100, Matthias Schiffer wrote:
+> On Tue, 2024-11-05 at 18:55 +0000, Conor Dooley wrote:
+> > On Tue, Nov 05, 2024 at 11:40:20AM +0100, Matthias Schiffer wrote:
+> > > On Mon, 2024-11-04 at 18:47 +0000, Conor Dooley wrote:
+> > > > On Mon, Nov 04, 2024 at 10:47:25AM +0100, Matthias Schiffer wrote:
+> > > > > The TQMa62xx is a SoM family with a pluggable connector. The MBa6=
+2xx is
+> > > > > the matching reference/starterkit carrier board.
+> > > >=20
+> > > > Why all the wildcards? Why isn't there a compatible per device in t=
+he
+> > > > family?
+>=20
+> Because all variants use the same Device Tree. There is also only one com=
+patible and one (main) DTSI
+> for the AM62 SoC family, which our Device Trees are based on.
 
+So what varies between the members of the family?
 
->>> but since you ask,
->>> then comment further
->>>
->>> I recommend using b4, so your cover letter changelog comes with nice
->>> links to previous versions. I scrolled through entire cover letter for
->>> this (for me that's almost the only point of cover letter) and could
->>> not find them. Anyway, just a remark.
+> > > For the compatible string we've chosen the TQMa6254 as the representa=
+tive for the TQMa62xx family.
+> >=20
+> > And all the boards in the family are the exact same?
+>=20
+> There is a single TQMa62xx PCB, which has some AM62 family SoC installed =
+(AM6254 in the case of the
+> TQMa6254, but all AM62 are possible). TQMa62xx is also the name used for =
+marketing when not talking
+> about a specific SoC variant:
+> https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma62x=
+x/
+>=20
+> Some SoM variants with different RAM/eMMC/SPI-NOR/... do exist, but they =
+don't have separate device
+> trees (firmware may patch some variant information into the DTB however, =
+like the correct RAM size).
+>=20
+> Choosing one representative for the family including the SoC variant numb=
+er, but not distinguishing
+> minor variants matches the level of detail used for our other SOMs alread=
+y supported by mainline
+> Linux (like the TQMa64xxL and various i.MX-based platforms).
 
+I don't like any of this wildcard stuff at all, who is to say that the
+next soc you put on your SoM won't be an am62a7, which has a specific
+compatible in the kernel? Your fallback then would be ti,am62a7 not
+ti,am625. Probably someone will say "that's the am62a family not the
+am62 family" - but that exact thing is why I hate all of this
+wildcarding. It's barely any more effort to have a tqm6231 and a tqm6254
+compatible than what you're doing with wildcard but it is unambiguous.
 
-Thanks for the recommendation - I'll take a look when I get time, but either way I can add a link to 
-the previous versions next time.
+--oJ2Y6Urhi+vkl28I
+Content-Type: application/pgp-signature; name="signature.asc"
 
->>>
->>>
->>> ...
->>>
->>>> +  resets:
->>>> +    items:
->>>> +      - description: vclk domain reset
->>>> +      - description: aclk domain reset
->>>> +      - description: hclk domain reset
->>>> +
->>>> +  reset-names:
->>>> +    items:
->>>> +      - const: vresetn
->>> drop "reset", it's redundant and rather come here with logical name. I
->>> wonder what "n" means as well. It's not a GPIO to be "inverted"...
->> The aresetn and hresetn names come directly from a hardware manual
->> (vresetn seems to be called rstn in that document though). As far as I
->> understand, they are the names of the external signals of the IP core.
->> I tend to pick the hardware names for clock and reset names. That makes
->> it easier for integrators, and from a driver point of view it doesn't
->> change much as DT names are just a convention anyway.
->>
->> That being said, if there's a good reason to do otherwise (such as
->> standardizing property names to make handling through common code
->> possible), that's fine too.
-> If these are from manual then it is fine, although sometimes the names
-> are really pointless in manual...
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Thanks
->
-> Best regards,
-> Krzysztof
->
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyucFgAKCRB4tDGHoIJi
+0nTOAP49AhXzVo1rMKvtd3ePJuffEjuHdGlp/GqT6bBrNTGtFwD/eogtLPtuaM+U
+fil0gvlsrbgOMKWtdE3BthhK3ZCfvQw=
+=yzQZ
+-----END PGP SIGNATURE-----
+
+--oJ2Y6Urhi+vkl28I--
 
