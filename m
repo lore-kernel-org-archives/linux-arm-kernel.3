@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3BCD59F41
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 15:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EDFD59F41
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 15:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TxZUEYefO8cHk0O3pZ6pSrkyLEtM/cjRFYGqJjEkBSc=; b=RDlFSjNPCU5WYf5q1ngf0uBd54
-	PGqxJA8j0DGTLxXcHtFh9J7Q4GgpKrTJQtzjcHHthK8firejFPh2nbaF7Qjg8lWtl+oOEBWHz0yU6
-	rZncUUtsTf8Lgyi+6IvMJzjETFxQi8RdVlgLnin9ozAwzLhX2icmCOhtApi87uy1XJ+KFmPi20OC9
-	D4BigohghDO/Yet7P4jovuyA/1C38hJIVEBz3F0I3Uay13Or3pqH5wu0BpliPlMrkK8qYl1UmzJc2
-	zSV13HgEdMhT+IKmnq6Ne0X/uOOzqbtpWlLziMccEpoKQvrK3wW94av2VHXPOnEcxNjsCnajT+KT3
-	iEKcUOqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=; b=4kgNGmj8irPODC0PDMDm6EPrnq
+	NTgfqZqFwTlcmHrrFnoihg1qtXNqCJJ0x1bFOLcSyA1DWFHlw5vEAeGoihA5SeagYyDw5Eanauwzn
+	LZyMxqA/gjWyl7Bhg+5gz3fmllNcosLHcX9JSvsjjIgmvMkHwi6H6lnHSGYTL3+5jucCn1GXtSc1w
+	nJgeEhjAJfa7aiN6M5UwDyUUffMM2l2gJ9/6GtDwTdEmewKNWq6riOnytEZ7nPEcN8EHrKPhyFP2P
+	lCfeYkqL+cK7KOKaim/AzC91E5Wa7kJedZeo0JqoVHcdY7RxL50CMNfNEkFaos6ZRDxObr9Sy2dmb
+	UGcwT/ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8i4n-00000003qGk-32XY;
-	Wed, 06 Nov 2024 15:36:09 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1t8iAI-00000003rUh-3qGa;
+	Wed, 06 Nov 2024 15:41:51 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8i0Z-00000003pJy-2pwa;
-	Wed, 06 Nov 2024 15:31:49 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a9a0c7abaa6so801545166b.2;
-        Wed, 06 Nov 2024 07:31:46 -0800 (PST)
+	id 1t8i8X-00000003r8q-1Agk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 15:40:03 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4316a44d1bbso59367745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 07:40:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730907105; x=1731511905; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TxZUEYefO8cHk0O3pZ6pSrkyLEtM/cjRFYGqJjEkBSc=;
-        b=AU+glQXAXWfXYQFEtrGoXZWdvP/m8bUQstqWRlsgkfDVthvAN061jqy1DmSSQHaFRX
-         Q+j0q0kC7pRcmdZIqKFu+pqDrmMEGiCfl4Wn+g6otxCeBFAQ1g925RAMn0wisPHjesy/
-         kwGc/giNNJ8P78CINwLj/EkhHGPRUy9cj/7LF1zqESSw/wJl3eF4hVDO4nAUl1l1Ie7t
-         rnA6Lq68B+giWn62zSIG7PS1L5QqldWztECYL4SEmP0EsQb0J8a7gpyBGACwMDGnKZT2
-         8q+OT8mc2hgcx3N8X/pHNkOub66KcMob8BeYVAwUejz/bAujEykXwCnkAv1/Dp4MTtGW
-         YgXg==
+        d=resnulli-us.20230601.gappssmtp.com; s=20230601; t=1730907599; x=1731512399; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=;
+        b=CWhzIdLnQlYRhgzBJetxysFemC2hCemunzCR7yjl+XEXd5uQQzS7GiWhWHzjiV/CUd
+         h9PgwCodxqGr2o+2XCpIsvDKTu3UMFS7aW3U0oY3M7Fwbz3bGGqSFVDG7LW4++kMj9Er
+         tnQjBkOCohyRejw+SHdhiroyccq15C9HfOEt++QN9d0fVRAHhvGwCISt9OetkNInGiqF
+         ZJ6WWLTu3vkT5xeYT/Z4lwFH40qZdJtoDjlKjExugbBoM1CBKU2LfB9X1Hx4KvSusWqr
+         ki9wJuN4mUTaewNJDo8Qjr2iT14LRJ0Uti7lkC1jq2pftW8K6Jq1gdxXjfe/el0rFmCh
+         yZRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730907105; x=1731511905;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TxZUEYefO8cHk0O3pZ6pSrkyLEtM/cjRFYGqJjEkBSc=;
-        b=dl0QvgyziBvn98JyUWSQp2p1IyADsv4yir8ut5GxEufuyQjur0+Ni9RRli7eQAD5aY
-         JRjpOOtwGrJTAl/Z+TBKFrtNBU9oQITpWDOQ3H0OS3YE3xIfDMjX1brn2GoGRlO3oVgj
-         X6aB8PFjjifTJzmD2F/DWaJYZJwa4RP4FVJdeLDkAGQh4uhVtVjXwyoGIT5EpP4gzqzS
-         QwYW6IVhD1lSwGtJqoStfIAqyLiG7RjqyiUk4+/YxNb6T9XYa5UWV85GetmNMUvUgonh
-         B0HMy4rcqNnjpXtLX7NB39EtgPUlf/4EEHxJe2T9itqNbC8ww8o5grfEJ4xCBejX3BRY
-         7TLw==
-X-Forwarded-Encrypted: i=1; AJvYcCXewlgUi4OUJXpe9dT+QvEZbV9wwTg1WrahFtah33mrKbnDcZ8pLdYriohBFYVqL+ewosBpcQOf+FPKXkK+RPLZZg==@lists.infradead.org, AJvYcCXvHqbrEa0PFGQLW9GHT9hZGuuxeFt/GHvLppG6tYOKDEhuFcwLfs4x2s9JMGKjSh5NyypWJbt8bItAPTTn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwstJ0QDrKeHSeOcybPYA1MfN+P3Kvr8nNOqIaRFU79qdE6aMFj
-	gKmLo6lHJDmZnVI4NhH2zIMYS73HFgngvAmPqxE2qwYarp8Sy6WjSwi1zg==
-X-Google-Smtp-Source: AGHT+IF0ZzyBdcVslRwOSTjEHqwVoJnmjkaO24ZdQOt67CgbkGTe+T3MfKCDKsQIMoe5M16dlGZRtg==
-X-Received: by 2002:a17:906:6a12:b0:a9a:1778:7024 with SMTP id a640c23a62f3a-a9e65576989mr2245715566b.20.1730907105078;
-        Wed, 06 Nov 2024 07:31:45 -0800 (PST)
-Received: from ivaylo-T580.. (miroral.stz.ddns.bulsat.com. [91.139.249.115])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb17cecd7sm302227066b.100.2024.11.06.07.31.43
+        d=1e100.net; s=20230601; t=1730907599; x=1731512399;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T+lke+kSJ/sHNhBrjG2QR3DbhnvDmE7dM4quD4X0oVI=;
+        b=ww7YjMfYpEzOU7Ajw83UMU82WHxIAf+pnPDSxZz7+5NGGLPiXj298uJC7MImSFM4I/
+         9zvDo3ht9E/L+pKWn6Art4b9IVB3s3Vgv4VwMy9OSnfTfUmqI4MesnecS1Mf57LIu53h
+         6f57pZHfXgnBecysPj7e4x02INsRL5w27VvyMqej8Ls6SdYf+sD8IGnv6Eyh4tawDsxn
+         RlnDvcdcF9Ggid1W+Q1hdJZd4h+ISW/lBahpO74z256o7u8uoclQ9Ojp1KNDGxQ46itr
+         pUjXwOomuvziaz+rcrRDZrtJYvJw8tbseoTnmkgkR9ZzoG0ljkXdLf+vn95Vdp76y6fU
+         ZcVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVJPQUCXAyAIdFEhMX+sSy/Pk2c1xT/AuwxjXJVuJhQLVipZhahGWzBdg8+PIqQyiEMtcrOcgGMTx/HLbUnv7DA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+noFAaICABr0ymmNawqwgeH4i+AKFDLfkdqkyY1bpNqvXWPKS
+	wYQoa87s3ffP6x2Q6ohbcF6K7BJ8H3mopDJuk6SApW6ZvQs4BBsEdwU2F2wio3Y=
+X-Google-Smtp-Source: AGHT+IHaXpKkIZTp98WaTVKW8arf8yLJ6KlxXz0Ga7zfB6YCb98iODL5Q30kaHjC536zM+O/RrwHzA==
+X-Received: by 2002:a05:6000:4711:b0:37c:cc67:8b1f with SMTP id ffacd0b85a97d-381bea0ee17mr17133942f8f.48.1730907598706;
+        Wed, 06 Nov 2024 07:39:58 -0800 (PST)
+Received: from localhost ([193.47.165.251])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381c10b7b32sm19556510f8f.18.2024.11.06.07.39.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 07:31:44 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] dt-bindings: clock: actions,owl-cmu: convert to YAML
-Date: Wed,  6 Nov 2024 17:31:41 +0200
-Message-ID: <20241106153141.375389-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Wed, 06 Nov 2024 07:39:58 -0800 (PST)
+Date: Wed, 6 Nov 2024 16:39:55 +0100
+From: Jiri Pirko <jiri@resnulli.us>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: geliang@kernel.org, liuhangbin@gmail.com, w-kwok2@ti.com,
+	aleksander.lobakin@intel.com, lukma@denx.de, jan.kiszka@siemens.com,
+	diogo.ivo@siemens.com, shuah@kernel.org, horms@kernel.org,
+	pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>
+Subject: Re: [PATCH net-next v3 0/4] Introduce VLAN support in HSR
+Message-ID: <ZyuNyzu0kv1_pemU@nanopsycho.orion>
+References: <20241106091710.3308519-1-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241106091710.3308519-1-danishanwar@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_073147_740314_4EA3637C 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20241106_074001_341534_FA6451C4 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,158 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Actions Semi Owl CMU bindings to DT schema.
+Wed, Nov 06, 2024 at 10:17:06AM CET, danishanwar@ti.com wrote:
+>This series adds VLAN support to HSR framework.
+>This series also adds VLAN support to HSR mode of ICSSG Ethernet driver.
+>
+>Changes from v2 to v3:
+>*) Modified hsr_ndo_vlan_rx_add_vid() to handle arbitrary HSR_PT_SLAVE_A,
+>HSR_PT_SLAVE_B order and skip INTERLINK port in patch 2/4 as suggested by
+>Paolo Abeni <pabeni@redhat.com>
+>*) Removed handling of HSR_PT_MASTER in hsr_ndo_vlan_rx_kill_vid() as MASTER
+>and INTERLINK port will be ignored anyway in the default switch case as
+>suggested by Paolo Abeni <pabeni@redhat.com>
+>*) Modified the selftest in patch 4/4 to use vlan by default. The test will
+>check the exposed feature `vlan-challenged` and if vlan is not supported, skip
+>the vlan test as suggested by Paolo Abeni <pabeni@redhat.com>. Test logs can be
+>found at [1]
+>
+>Changes from v1 to v2:
+>*) Added patch 4/4 to add test script related to VLAN in HSR as asked by
+>Lukasz Majewski <lukma@denx.de>
+>
+>[1] https://gist.githubusercontent.com/danish-ti/d309f92c640134ccc4f2c0c442de5be1/raw/9cfb5f8bd12b374ae591f4bd9ba3e91ae509ed4f/hsr_vlan_logs
+>v1 https://lore.kernel.org/all/20241004074715.791191-1-danishanwar@ti.com/
+>v2 https://lore.kernel.org/all/20241024103056.3201071-1-danishanwar@ti.com/
+>
+>MD Danish Anwar (1):
+>  selftests: hsr: Add test for VLAN
+>
+>Murali Karicheri (1):
+>  net: hsr: Add VLAN CTAG filter support
+>
+>Ravi Gunasekaran (1):
+>  net: ti: icssg-prueth: Add VLAN support for HSR mode
+>
+>WingMan Kwok (1):
+>  net: hsr: Add VLAN support
+>
+> drivers/net/ethernet/ti/icssg/icssg_prueth.c | 45 ++++++++-
+> net/hsr/hsr_device.c                         | 85 +++++++++++++++--
+> net/hsr/hsr_forward.c                        | 19 +++-
+> tools/testing/selftests/net/hsr/config       |  1 +
+> tools/testing/selftests/net/hsr/hsr_ping.sh  | 98 ++++++++++++++++++++
+> 5 files changed, 236 insertions(+), 12 deletions(-)
 
-Changes during conversion:
- - Since all Actions Semi Owl SoCs utilize the internal low frequency
-   oscillator as a parent for some clocks, require it.
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
-v2: drop address and size cells from example
----
- .../bindings/clock/actions,owl-cmu.txt        | 52 -----------------
- .../bindings/clock/actions,owl-cmu.yaml       | 57 +++++++++++++++++++
- MAINTAINERS                                   |  2 +-
- 3 files changed, 58 insertions(+), 53 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
- create mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-
-diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt b/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-deleted file mode 100644
-index d19885b7c..000000000
---- a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-+++ /dev/null
-@@ -1,52 +0,0 @@
--* Actions Semi Owl Clock Management Unit (CMU)
--
--The Actions Semi Owl Clock Management Unit generates and supplies clock
--to various controllers within the SoC. The clock binding described here is
--applicable to S900, S700 and S500 SoC's.
--
--Required Properties:
--
--- compatible: should be one of the following,
--	"actions,s900-cmu"
--	"actions,s700-cmu"
--	"actions,s500-cmu"
--- reg: physical base address of the controller and length of memory mapped
--  region.
--- clocks: Reference to the parent clocks ("hosc", "losc")
--- #clock-cells: should be 1.
--- #reset-cells: should be 1.
--
--Each clock is assigned an identifier, and client nodes can use this identifier
--to specify the clock which they consume.
--
--All available clocks are defined as preprocessor macros in corresponding
--dt-bindings/clock/actions,s900-cmu.h or actions,s700-cmu.h or
--actions,s500-cmu.h header and can be used in device tree sources.
--
--External clocks:
--
--The hosc clock used as input for the plls is generated outside the SoC. It is
--expected that it is defined using standard clock bindings as "hosc".
--
--Actions Semi S900 CMU also requires one more clock:
-- - "losc" - internal low frequency oscillator
--
--Example: Clock Management Unit node:
--
--        cmu: clock-controller@e0160000 {
--                compatible = "actions,s900-cmu";
--                reg = <0x0 0xe0160000 0x0 0x1000>;
--                clocks = <&hosc>, <&losc>;
--                #clock-cells = <1>;
--                #reset-cells = <1>;
--        };
--
--Example: UART controller node that consumes clock generated by the clock
--management unit:
--
--        uart: serial@e012a000 {
--                compatible = "actions,s900-uart", "actions,owl-uart";
--                reg = <0x0 0xe012a000 0x0 0x2000>;
--                interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
--                clocks = <&cmu CLK_UART5>;
--        };
-diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-new file mode 100644
-index 000000000..3504f70eb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-@@ -0,0 +1,57 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/actions,owl-cmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Actions Semi Owl Clock Management Unit (CMU)
-+
-+maintainers:
-+  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-+
-+description: |
-+  The Actions Semi Owl Clock Management Unit generates and supplies clock
-+  to various controllers within the SoC.
-+
-+  All available clocks are defined as preprocessor macros in
-+  include/dt-bindings/clock/ headers.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - actions,s500-cmu
-+      - actions,s700-cmu
-+      - actions,s900-cmu
-+
-+  clocks:
-+    items:
-+      - description: Host oscillator source
-+      - description: Internal low frequency oscillator source
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    cmu: clock-controller@e0160000 {
-+       compatible = "actions,s900-cmu";
-+       reg = <0xe0160000 0x1000>;
-+       clocks = <&hosc>, <&losc>;
-+       #clock-cells = <1>;
-+       #reset-cells = <1>;
-+     };
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 420d06d37..652c9822a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2016,7 +2016,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	linux-actions@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/actions.yaml
--F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-+F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
- F:	Documentation/devicetree/bindings/dma/owl-dma.yaml
- F:	Documentation/devicetree/bindings/i2c/i2c-owl.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
--- 
-2.43.0
-
+Looks fine to me.
+set-
+Reviewed-by: Jiri Pirko <jiri@nvidia.com>
 
