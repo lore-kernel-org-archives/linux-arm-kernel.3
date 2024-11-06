@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2FBD3E798
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06581D3E798
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 09:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n964dTNex7tpk0he9DOLYs/250I2jZHfL5mWxJ2ZSgM=; b=zw7Hba/etMf6Eei3FysLburv1m
-	SwxqrEtB86ZyAHPT9VyGWm/728VT5K3Bw9dixYwCqGBUJvexZOhh5ainEtWpKPz5szPPWUaUvzkOD
-	1V3rLvJ6BaC86RgrI7vp7rhmqkMzQt90dJgc0VII3mqEdF6h0N2bT5dU8bSFOBFgru/YB0WTz3F0w
-	YkBR2HmoD4v/RFKf+E9xK/SXHhaWVvxkdftpwNV/ATy7E9+y5Vkk+t2OBRxWfiFkZtvCDw+dZQL0A
-	s7E3xQzx+uInrF2AomdvSvlWUJjkjRQp0jbsIZGiUiu9GRdoZXWAFVLqe6NWbk+tyuWAbwB76ajpM
-	B300SEvQ==;
+	bh=rLlcShJe5zacwcN83f3SDxaOHpg6xeUc4ekG3drQ/gc=; b=x5DEmRPSD3LvyjpuRbTqPtT4j/
+	Je6d1I17tp8aicq6NbQFNZB1GA2nEiC/+81AC+O9W6smEvk/JQkE/IDDGNAeo0oqdyUvxo/Mtmyue
+	vLdf6VXarpNUrjqoPVb2kywWfw2DVstNpfxHt2h4CQRVX3VCJj8ZqOqBNxxWjI30ekvnLpXAkNNGc
+	2RM4vwx3+EDichjM3TOaFaNYDXXRwFQh0vM41yOZJAY4dDyxZvXhQJVG6lsX+E82A535RwrzHIjKG
+	gdEJjcI7b/8f128KP8o813H+UKJHihp5WawNkzhHc1vAd3nxKhTi1QryCe6cbtjVor/ad3twtE78r
+	1sI1HiQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cfn-00000002cWU-02zg;
-	Wed, 06 Nov 2024 09:49:59 +0000
+	id 1t8chT-00000002ct8-2Czy;
+	Wed, 06 Nov 2024 09:51:43 +0000
 Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cAQ-00000002TIu-0KRc
+	id 1t8cAQ-00000002TJQ-3b42
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 09:17:35 +0000
+	Wed, 06 Nov 2024 09:17:36 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A69HJrv035698;
-	Wed, 6 Nov 2024 03:17:19 -0600
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A69HLWm035703;
+	Wed, 6 Nov 2024 03:17:21 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730884639;
-	bh=n964dTNex7tpk0he9DOLYs/250I2jZHfL5mWxJ2ZSgM=;
+	s=ti-com-17Q1; t=1730884641;
+	bh=rLlcShJe5zacwcN83f3SDxaOHpg6xeUc4ekG3drQ/gc=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=frJ+21GN4k9d2q19iuYPBNNffn09Ba96IWHnT8nysNNserrsjJA/UY8StYaWncFL1
-	 0Hdryk1IW+j2A2RIGZzDbrIslByhg7wybbBOgx6JOEO3p8VDIMQOGvIX//B2CiMfN9
-	 Jz09wtpmXWYr2TPh30TYmQfjDsGO6EKjSW63BkXk=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A69HJEk116871
+	b=HnfGmM5uLcyLE7yRiZT/T9JMzo+mBAJ+hw9kgvSr2XhOEJenGvyMVhZDSgCKdFNoq
+	 FHNTmZb+OGK49ZB/VgvYoETi/Yu9wa77n7uA9+DM6w0eUMBSoIHqCDhHtC/1gnknpB
+	 +Ec5ab24s+nxA01I/usmX18Xa+ZmWXIsuSNjHi1g=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A69HLLU116896
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 6 Nov 2024 03:17:19 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 6 Nov 2024 03:17:21 -0600
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
- Nov 2024 03:17:18 -0600
-Received: from fllvsmtp7.itg.ti.com (10.64.40.31) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ Nov 2024 03:17:20 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 6 Nov 2024 03:17:18 -0600
+ Frontend Transport; Wed, 6 Nov 2024 03:17:20 -0600
 Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvsmtp7.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A69HInB081268;
-	Wed, 6 Nov 2024 03:17:18 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A69HKZq066912;
+	Wed, 6 Nov 2024 03:17:20 -0600
 Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A69HI80020792;
-	Wed, 6 Nov 2024 03:17:18 -0600
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A69HJ9f020797;
+	Wed, 6 Nov 2024 03:17:20 -0600
 From: MD Danish Anwar <danishanwar@ti.com>
 To: <geliang@kernel.org>, <liuhangbin@gmail.com>, <jiri@resnulli.us>,
         <w-kwok2@ti.com>, <aleksander.lobakin@intel.com>, <lukma@denx.de>,
@@ -66,9 +66,9 @@ CC: <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
         Roger Quadros
 	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next v3 3/4] net: ti: icssg-prueth: Add VLAN support for HSR mode
-Date: Wed, 6 Nov 2024 14:47:09 +0530
-Message-ID: <20241106091710.3308519-4-danishanwar@ti.com>
+Subject: [PATCH net-next v3 4/4] selftests: hsr: Add test for VLAN
+Date: Wed, 6 Nov 2024 14:47:10 +0530
+Message-ID: <20241106091710.3308519-5-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241106091710.3308519-1-danishanwar@ti.com>
 References: <20241106091710.3308519-1-danishanwar@ti.com>
@@ -77,8 +77,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_011734_268471_720D9388 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20241106_011735_017997_7B0D3E01 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +93,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ravi Gunasekaran <r-gunasekaran@ti.com>
+Add test for VLAN ping for HSR. The test adds vlan interfaces to the hsr
+interface and then verifies if ping to them works.
 
-Add support for VLAN addition/deletion in HSR mode.
-In HSR mode, even if the host port is not a member of
-the VLAN domain, the slave ports should simply forward the
-frames. So allow forwarding of all VLAN frames in HSR mode.
-
-Signed-off-by: Ravi Gunasekaran <r-gunasekaran@ti.com>
 Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 45 +++++++++++++++++++-
- 1 file changed, 44 insertions(+), 1 deletion(-)
+ tools/testing/selftests/net/hsr/config      |  1 +
+ tools/testing/selftests/net/hsr/hsr_ping.sh | 98 +++++++++++++++++++++
+ 2 files changed, 99 insertions(+)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 0556910938fa..b4d70c6e0cff 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -808,6 +808,47 @@ static netdev_features_t emac_ndo_fix_features(struct net_device *ndev,
- 	return features;
+diff --git a/tools/testing/selftests/net/hsr/config b/tools/testing/selftests/net/hsr/config
+index 241542441c51..555a868743f0 100644
+--- a/tools/testing/selftests/net/hsr/config
++++ b/tools/testing/selftests/net/hsr/config
+@@ -3,3 +3,4 @@ CONFIG_NET_SCH_NETEM=m
+ CONFIG_HSR=y
+ CONFIG_VETH=y
+ CONFIG_BRIDGE=y
++CONFIG_VLAN_8021Q=m
+diff --git a/tools/testing/selftests/net/hsr/hsr_ping.sh b/tools/testing/selftests/net/hsr/hsr_ping.sh
+index f5d207fc770a..5a65f4f836be 100755
+--- a/tools/testing/selftests/net/hsr/hsr_ping.sh
++++ b/tools/testing/selftests/net/hsr/hsr_ping.sh
+@@ -175,6 +175,100 @@ setup_hsr_interfaces()
+ 	ip -net "$ns3" link set hsr3 up
  }
  
-+static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
-+				    __be16 proto, u16 vid)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	int untag_mask = 0;
-+	int port_mask;
++setup_vlan_interfaces() {
++	ip -net "$ns1" link add link hsr1 name hsr1.2 type vlan id 2
++	ip -net "$ns1" link add link hsr1 name hsr1.3 type vlan id 3
++	ip -net "$ns1" link add link hsr1 name hsr1.4 type vlan id 4
++	ip -net "$ns1" link add link hsr1 name hsr1.5 type vlan id 5
 +
-+	if (prueth->is_hsr_offload_mode) {
-+		port_mask = BIT(PRUETH_PORT_HOST) | BIT(emac->port_id);
-+		untag_mask = 0;
++	ip -net "$ns2" link add link hsr2 name hsr2.2 type vlan id 2
++	ip -net "$ns2" link add link hsr2 name hsr2.3 type vlan id 3
++	ip -net "$ns2" link add link hsr2 name hsr2.4 type vlan id 4
++	ip -net "$ns2" link add link hsr2 name hsr2.5 type vlan id 5
 +
-+		netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
-+			   vid, port_mask, untag_mask);
++	ip -net "$ns3" link add link hsr3 name hsr3.2 type vlan id 2
++	ip -net "$ns3" link add link hsr3 name hsr3.3 type vlan id 3
++	ip -net "$ns3" link add link hsr3 name hsr3.4 type vlan id 4
++	ip -net "$ns3" link add link hsr3 name hsr3.5 type vlan id 5
 +
-+		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
-+		icssg_set_pvid(emac->prueth, vid, emac->port_id);
-+	}
-+	return 0;
++	ip -net "$ns1" addr add 100.64.2.1/24 dev hsr1.2
++	ip -net "$ns1" addr add 100.64.3.1/24 dev hsr1.3
++	ip -net "$ns1" addr add 100.64.4.1/24 dev hsr1.4
++	ip -net "$ns1" addr add 100.64.5.1/24 dev hsr1.5
++
++	ip -net "$ns2" addr add 100.64.2.2/24 dev hsr2.2
++	ip -net "$ns2" addr add 100.64.3.2/24 dev hsr2.3
++	ip -net "$ns2" addr add 100.64.4.2/24 dev hsr2.4
++	ip -net "$ns2" addr add 100.64.5.2/24 dev hsr2.5
++
++	ip -net "$ns3" addr add 100.64.2.3/24 dev hsr3.2
++	ip -net "$ns3" addr add 100.64.3.3/24 dev hsr3.3
++	ip -net "$ns3" addr add 100.64.4.3/24 dev hsr3.4
++	ip -net "$ns3" addr add 100.64.5.3/24 dev hsr3.5
++
++	ip -net "$ns1" link set dev hsr1.2 up
++	ip -net "$ns1" link set dev hsr1.3 up
++	ip -net "$ns1" link set dev hsr1.4 up
++	ip -net "$ns1" link set dev hsr1.5 up
++
++	ip -net "$ns2" link set dev hsr2.2 up
++	ip -net "$ns2" link set dev hsr2.3 up
++	ip -net "$ns2" link set dev hsr2.4 up
++	ip -net "$ns2" link set dev hsr2.5 up
++
++	ip -net "$ns3" link set dev hsr3.2 up
++	ip -net "$ns3" link set dev hsr3.3 up
++	ip -net "$ns3" link set dev hsr3.4 up
++	ip -net "$ns3" link set dev hsr3.5 up
++
 +}
 +
-+static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
-+				    __be16 proto, u16 vid)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	int untag_mask = 0;
-+	int port_mask;
++hsr_vlan_ping() {
++	do_ping "$ns1" 100.64.2.2
++	do_ping "$ns1" 100.64.3.2
++	do_ping "$ns1" 100.64.4.2
++	do_ping "$ns1" 100.64.5.2
 +
-+	if (prueth->is_hsr_offload_mode) {
-+		port_mask = BIT(PRUETH_PORT_HOST);
-+		untag_mask = 0;
++	do_ping "$ns1" 100.64.2.3
++	do_ping "$ns1" 100.64.3.3
++	do_ping "$ns1" 100.64.4.3
++	do_ping "$ns1" 100.64.5.3
 +
-+		netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
-+			   vid, port_mask, untag_mask);
++	do_ping "$ns2" 100.64.2.1
++	do_ping "$ns2" 100.64.3.1
++	do_ping "$ns2" 100.64.4.1
++	do_ping "$ns2" 100.64.5.1
 +
-+		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
-+	}
-+	return 0;
++	do_ping "$ns2" 100.64.2.3
++	do_ping "$ns2" 100.64.3.3
++	do_ping "$ns2" 100.64.4.3
++	do_ping "$ns2" 100.64.5.3
++
++	do_ping "$ns3" 100.64.2.1
++	do_ping "$ns3" 100.64.3.1
++	do_ping "$ns3" 100.64.4.1
++	do_ping "$ns3" 100.64.5.1
++
++	do_ping "$ns3" 100.64.2.2
++	do_ping "$ns3" 100.64.3.2
++	do_ping "$ns3" 100.64.4.2
++	do_ping "$ns3" 100.64.5.2
 +}
 +
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = emac_ndo_open,
- 	.ndo_stop = emac_ndo_stop,
-@@ -820,6 +861,8 @@ static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_get_stats64 = icssg_ndo_get_stats64,
- 	.ndo_get_phys_port_name = icssg_ndo_get_phys_port_name,
- 	.ndo_fix_features = emac_ndo_fix_features,
-+	.ndo_vlan_rx_add_vid = emac_ndo_vlan_rx_add_vid,
-+	.ndo_vlan_rx_kill_vid = emac_ndo_vlan_rx_del_vid,
- };
++run_vlan_tests() {
++	vlan_challenged_hsr1=$(ip net exec "$ns1" ethtool -k hsr1 | grep "vlan-challenged" | awk '{print $2}')
++	vlan_challenged_hsr2=$(ip net exec "$ns2" ethtool -k hsr2 | grep "vlan-challenged" | awk '{print $2}')
++	vlan_challenged_hsr3=$(ip net exec "$ns3" ethtool -k hsr3 | grep "vlan-challenged" | awk '{print $2}')
++
++	if [[ "$vlan_challenged_hsr1" = "off" || "$vlan_challenged_hsr2" = "off" || "$vlan_challenged_hsr3" = "off" ]]; then
++		echo "INFO: Running VLAN tests"
++		setup_vlan_interfaces
++		hsr_vlan_ping
++	else
++		echo "INFO: Not Running VLAN tests as the device does not support VLAN"
++	fi
++}
++
+ check_prerequisites
+ setup_ns ns1 ns2 ns3
  
- static int prueth_netdev_init(struct prueth *prueth,
-@@ -947,7 +990,7 @@ static int prueth_netdev_init(struct prueth *prueth,
- 	ndev->netdev_ops = &emac_netdev_ops;
- 	ndev->ethtool_ops = &icssg_ethtool_ops;
- 	ndev->hw_features = NETIF_F_SG;
--	ndev->features = ndev->hw_features;
-+	ndev->features = ndev->hw_features | NETIF_F_HW_VLAN_CTAG_FILTER;
- 	ndev->hw_features |= NETIF_PRUETH_HSR_OFFLOAD_FEATURES;
+@@ -183,9 +277,13 @@ trap cleanup_all_ns EXIT
+ setup_hsr_interfaces 0
+ do_complete_ping_test
  
- 	netif_napi_add(ndev, &emac->napi_rx, icssg_napi_rx_poll);
++run_vlan_tests
++
+ setup_ns ns1 ns2 ns3
+ 
+ setup_hsr_interfaces 1
+ do_complete_ping_test
+ 
++run_vlan_tests
++
+ exit $ret
 -- 
 2.34.1
 
