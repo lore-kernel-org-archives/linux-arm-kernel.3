@@ -4,54 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C02FD44D57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32C2D44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjhumPQzdlA5xRWWERY6wz09oOKAaAQIGShHlNJ/2P0=; b=OQg/CSQCtt0ONhw+FNGQ+CIH24
-	s9YDpOzOAYJgGyYrzCcRd8LXS4944uyP8zKxjH8J1TVCjEDxq7CHbCbNuiU6kQeXh1NVRhwF5FMlc
-	Rb0WdqTv0HpkCUo+LXP1+kfnzV3uuiPUYEU9/v7GN4ZnxiSMjhsYb30Pzuj1vVUeWrvZkVRAKj4Nb
-	H13qNR1eu+oxgFOyIVYODceevLifveaXEsNHMOl7leayM2sxKxbHZ5UQbAPYP12sV8qkqebEKvvVX
-	4CdZJ1+lPNY1kCU6g2nW13sbBZB6yX3fcE2UF1DsVSwll69V29+BQFo/U9oZkFnQ0Sqvl8iXUmpum
-	7K59aENg==;
+	bh=QYHJp3lV0KtpKPkeolpZ0pHqVkP/s8uSZ/khZ42PQ5g=; b=EO+gtd3ajl+MQw9aSI2I2C8s2g
+	i2gIMMpOspmIBM0nI2VkX9ONCkr2dDKYetqLaLtFoC6IFPugsahYMrmPvKeTTMAhHWQSqi23+pTez
+	BfFMMrmWuVe40pTDHWCpXXeFsEvlWoUYfQT0RhvNA/kwvI56uwHwRARBjGzaImWtj0eFzmQwajQjb
+	jA7awA8l4voW65ak6xtbOR0q7ZDuj7DAenzi6Y4FhiJ8Rtrq5VEzNemI50GSaZdZnJSWiY+F0cBzH
+	RQVgCvuBnxyoNneHUS0b57SJbhzqY4cuk7OKhvG+p0Q7CAZ5oX1OOEQZ8n1gdL93V7VJf5QU5O+0Y
+	YpvmI7Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eoX-000000036kd-074J;
-	Wed, 06 Nov 2024 12:07:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eHa-00000002w3R-3vMa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:33:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 695BB1063;
-	Wed,  6 Nov 2024 03:33:36 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 692493F6A8;
-	Wed,  6 Nov 2024 03:33:05 -0800 (PST)
-Date: Wed, 6 Nov 2024 11:33:03 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/6] kselftest/arm64: Test signal handler state
- modification in fp-stress
-Message-ID: <ZytT7z1EN97RaKmo@J2N7QTR9R3>
-References: <20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org>
- <20241023-arm64-fp-stress-irritator-v1-6-a51af298d449@kernel.org>
+	id 1t8eqF-000000037El-3NlH;
+	Wed, 06 Nov 2024 12:08:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8dv2-00000002sb2-0ijv;
+	Wed, 06 Nov 2024 11:09:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 295FAA435E6;
+	Wed,  6 Nov 2024 11:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AC2C4CECD;
+	Wed,  6 Nov 2024 11:09:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730891386;
+	bh=IzLPv/DEFXlj5cNSZvHDLkVkwT3mFl5/VFrMn/bL8oM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HPS9dy71VX/WNblUBBvKE0IJ2I7Hi6mKUf8ltHGt7NLvUkMo+X7xMhPmgrMPAp1sE
+	 oI5QQRZMBqWELl6ukQMN3/fjhEldNzdesRANfr+l2OCD7TWAnRj813CKLlluVcmq/O
+	 czhI+p1xspLM9rCarM4UvPq6C78z1r9dAh6hEcKsa0aCoP1O0afIx4A6zF00YGFZb9
+	 zTd5NEQh8bQTDC7fQ5BR0QBIFDgdVla/zEDC/mhqaCr1OUCna+eUKHaFQOcL//OsWG
+	 5CxeZQNKDaXvPwC5aF+AlZDp+kQqp43IK5Zsh9UEQGmCR4agO+5T6UxDSzOhuCfAHo
+	 dW8Xg4uKc95Qg==
+Date: Wed, 6 Nov 2024 12:09:44 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	upstream@airoha.com, benjamin.larsson@genexis.eu,
+	ansuelsmth@gmail.com, linux-pwm@vger.kernel.org
+Subject: Re: (subset) [PATCH v9 4/6] dt-bindings: mfd: Add support for Airoha
+ EN7581 GPIO System Controller
+Message-ID: <ZytOeOkeF9xW2DOV@lore-desk>
+References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
+ <20241023-en7581-pinctrl-v9-4-afb0cbcab0ec@kernel.org>
+ <173088099542.3237297.18018729158887853624.b4-ty@kernel.org>
+ <ZyssJpR7xwbMzUsm@lore-desk>
+ <20241106110046.GR1807686@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9VjFJ6tz3D5wTAI6"
 Content-Disposition: inline
-In-Reply-To: <20241023-arm64-fp-stress-irritator-v1-6-a51af298d449@kernel.org>
+In-Reply-To: <20241106110046.GR1807686@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_033307_039885_B0AA36EE 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20241106_030948_297017_D65E2DC8 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,40 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 23, 2024 at 09:38:34PM +0100, Mark Brown wrote:
-> Currently in fp-stress we test signal delivery to the test threads by
-> sending SIGUSR2 which simply counts how many signals are delivered. The
-> test programs now also all have a SIGUSR1 handler which for the threads
-> doing userspace testing additionally modifies the floating point register
-> state in the signal handler, verifying that when we return the saved
-> register state is restored from the signal context as expected. Switch over
-> to triggering that to validate that we are restoring as expected.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+--9VjFJ6tz3D5wTAI6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Mark.
+On Nov 06, Lee Jones wrote:
+> On Wed, 06 Nov 2024, Lorenzo Bianconi wrote:
+>=20
+> > On Nov 06, Lee Jones wrote:
+> > > On Wed, 23 Oct 2024 01:20:04 +0200, Lorenzo Bianconi wrote:
+> > > > Add support for Airoha EN7581 GPIO System Controller which provide a
+> > > > register map for controlling the GPIO, pinctrl and PWM of the SoC v=
+ia
+> > > > dedicated pinctrl and pwm child nodes.
+> > > >=20
+> > > >=20
+> > >=20
+> > > Applied, thanks!
+> > >=20
+> > > [4/6] dt-bindings: mfd: Add support for Airoha EN7581 GPIO System Con=
+troller
+> > >       commit: f49f37f3cfe1482d4dc77d26f3e8c38eab630d52
+> > >=20
+> > > --
+> > > Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+> > >=20
+> >=20
+> > Hi Lee,
+> >=20
+> > according to my understanding this patch has been already applied by Li=
+nus
+> > here:
+> >=20
+> > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.gi=
+t/commit/?h=3Ddevel&id=3D50dedb1eb1e6755ccab55f6140916c2d192be765
+>=20
+> An interesting choice.  Linus?
 
-> ---
->  tools/testing/selftests/arm64/fp/fp-stress.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
-> index faac24bdefeb9436e2daf20b7250d0ae25ca23a7..3d477249dee0632b662b48582433d39323d18e18 100644
-> --- a/tools/testing/selftests/arm64/fp/fp-stress.c
-> +++ b/tools/testing/selftests/arm64/fp/fp-stress.c
-> @@ -221,7 +221,7 @@ static void child_output(struct child_data *child, uint32_t events,
->  static void child_tickle(struct child_data *child)
->  {
->  	if (child->output_seen && !child->exited)
-> -		kill(child->pid, SIGUSR2);
-> +		kill(child->pid, SIGUSR1);
->  }
->  
->  static void child_stop(struct child_data *child)
-> 
-> -- 
-> 2.39.2
-> 
+I guess Linus applied all binding patches to his tree since there is a
+dependency between airoha,en7581-pwm.yaml/airoha,en7581-pinctrl.yaml
+and airoha,en7581-gpio-sysctl.yaml.
+
+Regards,
+Lorenzo
+
+>=20
+> --=20
+> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+
+--9VjFJ6tz3D5wTAI6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZytOeAAKCRA6cBh0uS2t
+rAJKAQCziZ9I7pDgrsy7c4G4zSAJV33x5GtUnxzl90JJfuiDVwD+N3L3x58QswNA
+Q6MdWbHpRsM5P2NQLRkMsNnq30wJNwE=
+=IWqp
+-----END PGP SIGNATURE-----
+
+--9VjFJ6tz3D5wTAI6--
 
