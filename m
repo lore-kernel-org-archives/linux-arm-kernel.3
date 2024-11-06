@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0F3D59F68
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101CAD59F6A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=; b=nM5fSAYDJ3tQiwraNTp7zO/vAU
-	s1fZFd/XKc13m8l5DodmqxF/c/PQ+tv+d8XK2j3sfxoQM9NzDr538Za+IxQAfRAvUD0jF0lgHHaZM
-	CDbH03GKoNUnATPGX02unOL4O9LkaFJZgmD0f8jgp80Zg+Wtn22XBjdDiFdmChXrUI+I7Q9u2jHmP
-	3zRz1YUef2jEQZLKkwCP9J3A22IY9loJe4ikkiJtnzJNIjwN9t+hpSM24uvaa20RaR035JU8Isp96
-	pkqOoiLqWu+aVKls+ZAI5UfPmTl1F7DKiOe9ezN6hDMFWtcw30rOrs/Fm+LDXeSkPOTGNExVj3N5M
-	XD5gVhgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=git7RwFThytpqBRPQPjG3NYoVolRMqPNPDVZ2KDiULc=; b=P798/ukZwv5VdiThdV+RZsGWdN
+	28YtDe3y2yq1deYNxQFcKWG9YTa1eRCsfvLg/stdCyuTJW7OE1TLYJiqEttF/HSTXpzfvyRHQ5Krc
+	BLzrX2jzvCIpH3e3jaKS7/K+w1s+4GjXGoNVRLmksEAJ0Td4REWFS+mWbPVBR5GJr1zE60vhtFQQr
+	uoVYCD1iYhGe4ejLSz0tdGIereGausM8bOhfz+b6mqycedEo4SltQZ0KelIk9jNwqkAQre7EsTYMH
+	n2s3CHAsTenKyS0Irta3b8vWHKo6FUvy6Nqv4VWNYkxjHe8+5HGrerWy55mEfR9izGjdst+xzVHeV
+	uhC0Lisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lIX-00000004R1Y-03v7;
-	Wed, 06 Nov 2024 19:02:33 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t8lN3-00000004SCK-3m2T;
+	Wed, 06 Nov 2024 19:07:13 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lBj-00000004Phx-2fMb
+	id 1t8lLI-00000004Rkv-1vEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 18:55:33 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e32ff6f578eso1641600276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 10:55:31 -0800 (PST)
+	Wed, 06 Nov 2024 19:05:26 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-a9e8522c10bso25794966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:05:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730919330; x=1731524130; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=;
-        b=ycdW8jbuYjwmeBkrTqHAKrHj4P0lQCPe4tAylLZcB8xBDrQCfsDGar1IOhHfwcV32P
-         iJ/4GT3qHZX39GpFBe1k+1CpG0wdCFK6HNdikbPEfOPtQzLtauxTVMnGiC5vJaQt9Qvk
-         /PEmWZvsurW4ulX7YY4y0OJ4yZ2omvF6Sr6IvFApxeV6aJGc73nu08XypA+q7+LKHqjF
-         wwHmIiJn9aaEuJAx9buYJ7Kv6asi/3hMa0z6zvgk8vnGWZnybHYlUltkK4TLlMMUNnXN
-         ynEyNzNCorHS2eTqc5apm2zCUWp7Ai1/h/hOlKd1RpC7iGBAMdHftdUvm/2bFbqarsGQ
-         hPKw==
+        d=gmail.com; s=20230601; t=1730919922; x=1731524722; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=git7RwFThytpqBRPQPjG3NYoVolRMqPNPDVZ2KDiULc=;
+        b=MZmDyBSR22D6Pv97aIoAuIlkgGXsOrO47YnkO6IqqcDQspuXErsync3o2H9pouGVBF
+         2BAHum6z1DjCEZCDvZLrQFihqX1Dlhnb0fR6A0X2abr3i02KQ06/lTXijgPnesBTxXay
+         ufgTbsUe7IL94y+hwyE/cK8l+fmqn612Y7xhvKqB57q2vyOy9M58E8Dv3+78k6rICDLB
+         a0lCLIYNR8+ZxouDCsfs2fckGzi1tIsCHzLaC4mty3QT1o1qqqD3rnWpOqSwsTYezkkI
+         MZN/Ox6QltQxV5hsAYNokZjxBibUMh4LjB9WPja/Wx4ecmahYwuEc/PtcE2zNALYxGdu
+         OAow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730919330; x=1731524130;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=krNk9QZ4aoSbL/uIeucFo+XpMFh2YwtRi+jdnWIyJTE=;
-        b=MJWbOo+hx2cQXYtfRLRhDYLug5dsIWSSyGVg/Q8l0pZzx0WyUdnldSI/bE1wJGR0Sx
-         3nVN4zEwtWRmrHYUIpkMV3v/EtVrZrZBKy/hIqOiNU2RYIK/nQ/Aex6hJh2hbRQteFww
-         FiZ2UBIxFrQsDGDkNWHrZmbdutUoU8bxOUFB6UTWsz4J/yn5KyLAKvFwztQ0vscL4Z1Y
-         w5gPVPK1QAArQC1JAtih0ix+zKeeTdFbuxzPpaId1yhYVhKaAqpqNjq8sUjbCilqiZ/E
-         6BlfrkjDR6TIcp37ZlN2Gz3GYTFf8EJRmdF+6VUeSCvTct1rZ0cuRR6UM5CZh/I+0qxo
-         4jeQ==
-X-Gm-Message-State: AOJu0Yy8AEW2F1KATkeW87iy9tcyoCFZlsxYRaP92Kt1OJTB4bcnenx1
-	Kwc4Vs4y/sTTNQaZVSB64SBh8i7On2TisxgHIWexWj/1EAjKdlxGxltwMOk41g6nUz4y+N6saLq
-	InnIRCV9t1GrkLP0H3YTCouVpchNBQ0ilUmwPG8IoCZEU+Hvt0WS8UEhfGuN7nTaGeeyCHN2ZZ+
-	mIC1iM2qv/pDbg2fFtRdo+HN52nay6Mptw/kAIp/Nr
-X-Google-Smtp-Source: AGHT+IFbkxJB6KrLbWCDU1cgKWzrAqRmI38va8SSmxrOmcic+Pe7Yqx8yb8h/dHxF6bwqDfWqaz2TxW2
-X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a25:ae97:0:b0:e24:c330:f4cc with SMTP id
- 3f1490d57ef6-e336928ba05mr1090276.6.1730919329805; Wed, 06 Nov 2024 10:55:29
- -0800 (PST)
-Date: Wed,  6 Nov 2024 19:55:17 +0100
-In-Reply-To: <20241106185513.3096442-5-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20241106185513.3096442-5-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=634; i=ardb@kernel.org;
- h=from:subject; bh=j2UA0RsND//Ot7oim5vKIZverHOpKm5DSLP/ih9MoGw=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIV179zTBpkfL/y6qbT7d6LSUd/ItK+dINSH2186+VS96q
- ybPy4juKGVhEONgkBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABMRmsfwv1rgS4/YMXa/U1ss
- nq/UU3375ypv9Ts7uxtCKy1OvC+RCmdkWN80V+trEY/Q3s6ghYwsoYs8+s44yUrnhwkJNotPaX3 ODgA=
-X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241106185513.3096442-8-ardb+git@google.com>
-Subject: [PATCH 3/3] arm64/scs: Drop unused prototype __pi_scs_patch_vmlinux()
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1730919922; x=1731524722;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=git7RwFThytpqBRPQPjG3NYoVolRMqPNPDVZ2KDiULc=;
+        b=J+/BSZddko840LLFZWrZF02hoWDHH2oCUwtCjnxtOinfIlwwwSkJs9Y60OD/CEQFY0
+         6MO/0t3wwQBp+g1EAvt4VZPOVtDudMJbvW5HzUr0uJp+5BMwqRH03HUgl7sB+BRDCj5o
+         S0fbDu1ZMOw3LeOJk6nh5JQrj3rFU2Zptp3YR6CKez2TApCrcdWN6J2RQuI741CLUvnt
+         BuQVbktdIVtUFQhwPPxp2cvRyGvU6s9uDnSdNnU8+LeKTIea85gasG8VC9FIu3881HCI
+         RHtz9mye98vxjs6+MYqQ7QGcdMvWDIihW/5pC10OayDgCEbs4OpX2cWlha7nd1jRtULw
+         fK9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVCrlKJJq17pN14+waFR6zkM7Ncg6JCddwCxDOAI/tpoLp+hoBfvNwK4wqUOyt3zh81jnqOt3M0WWF05eU8XM2o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy94hExVydHNrls+DBen6XvC2HJnymZYdxFboa2sLZOT0exjV2P
+	Huu4V1xAZBoPoSWbZi2MkN/BdA/xz8Yxd/l925P62a0/KS9SscFT
+X-Google-Smtp-Source: AGHT+IGLfWHfvOwk4Ib9st26djdKrupvyFqM40x8jybcV9FDbvsNfHRBmNjr49ZmGYpdWJR61X1euA==
+X-Received: by 2002:a17:907:a4b:b0:a9a:babb:b916 with SMTP id a640c23a62f3a-a9ed50fb64emr23526166b.15.1730919921834;
+        Wed, 06 Nov 2024 11:05:21 -0800 (PST)
+Received: from standask-GA-A55M-S2HP (lu-nat-113-247.ehs.sk. [188.123.113.247])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16aecbasm319207266b.32.2024.11.06.11.05.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 11:05:21 -0800 (PST)
+Date: Wed, 6 Nov 2024 20:05:19 +0100
+From: Stanislav Jakubek <stano.jakubek@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/5] Cleanup Spreadtrum/Unisoc ARM64 DT (part 2)
+Message-ID: <cover.1730918663.git.stano.jakubek@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_105531_700495_3529F04D 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20241106_110524_522118_F73454EC 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +92,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+This series continues cleaning up various issues with the Spreadtrum/Unisoc
+ARM64 DeviceTrees.
 
-The function scs_patch_vmlinux() was removed in the LPA2 boot code
-refactoring so remove the declaration as well.
+Changes in V2:
+- dropped original patch 2, as it was split off into its own series [1]
+- new patches 2, 4 and 5 which fix some issues found by Rob's bot
+  and/or CHECK_DTBS=y
+- rebase on next-20241106
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/include/asm/scs.h | 1 -
- 1 file changed, 1 deletion(-)
+[1] https://lore.kernel.org/lkml/cover.1730720720.git.stano.jakubek@gmail.com/
 
-diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
-index 934e9217cd74..a76f9b387a26 100644
---- a/arch/arm64/include/asm/scs.h
-+++ b/arch/arm64/include/asm/scs.h
-@@ -54,7 +54,6 @@ enum {
- };
- 
- int __pi_scs_patch(const u8 eh_frame[], int size);
--asmlinkage void __pi_scs_patch_vmlinux(void);
- 
- #endif /* __ASSEMBLY __ */
- 
+Link to V1: https://lore.kernel.org/lkml/cover.1723716331.git.stano.jakubek@gmail.com/
+
+Stanislav Jakubek (5):
+  arm64: dts: sprd: sp9860g-1h10: fix
+    constant-charge-voltage-max-microvolt property
+  arm64: dts: sprd: sp9860g-1h10: fix
+    factory-internal-resistance-micro-ohms property
+  arm64: dts: sprd: sc2731: move fuel-gauge monitored-battery to device
+    DTS
+  arm64: dts: sprd: sc9863a: fix in-ports property
+  arm64: dts: sprd: sc9863a: reorder clocks, clock-names per bindings
+
+ arch/arm64/boot/dts/sprd/sc2731.dtsi      |  4 ++--
+ arch/arm64/boot/dts/sprd/sc9863a.dtsi     | 14 +++++++-------
+ arch/arm64/boot/dts/sprd/sp9860g-1h10.dts |  9 +++++++--
+ 3 files changed, 16 insertions(+), 11 deletions(-)
+
 -- 
-2.47.0.277.g8800431eea-goog
+2.43.0
 
 
