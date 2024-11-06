@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C9D3D29FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45B6D29FB8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kv2hVHm7LLZgDM4u5Pi87d/if2PauVm8V5/VtrFyYZo=; b=JRP9cRBK7WM9G1sZ4l1YUKb+eP
-	0LzQDHWG2CRPD/CsIDQWlOwKTXFwRrK0N7KUGeaXDHFuYkyyQRNWqg+3chl6IpFUGiVhU2bwqxc1e
-	3XL671QEtDJuNate1aMUGw6irCCED0G/jUO7WmdCibkwEJwI/8Z/Bc1QIqNIXFf7mxnINptjemaCf
-	U6sROF+hMd1hHwUc4aLHMq/Bjr7N8fymSVsCLMebtQ4eaabGpKf7LxcreLLaNo6dSJe0OnguOuxtc
-	JAPgKFiv/0jiSD+axK5ksP8Sgqct+aSMNpnwdmTgPRytOayeorWXs2CDOIzOZ6ovQZKvQQPh8DoSy
-	b+8s8x7Q==;
+	bh=+g5zscsCZ9HNh2uooTO1VH1ohwqoUi9dUWlAaeKGxYY=; b=h11U4+i0wN6Dk6H/QCbNQ9aToI
+	FT1Zkx8pIv3UwLOKXwGdd9/cyEpdAodt7xFVeNpoOHX0gt4Zr6VnGgmpM0a3xk02QPnrNm8B1+Asi
+	KZByLf6fdRTFp9W5PI7F1xzFsV/aKJCH2u2a77RvGd8gDTZI6oX0sQcmpfQpdjn1RdtQnKPcxB1Cl
+	P2ccLoPS6XektCObAG4wTFdigmh6OvWM7AL8ZIJH+QokxhaVCfYsAaC4/eUoNfcoN/soAiRV8Wlp5
+	gXNQ/O9o5CnXtwYBQWn02uX+bkVp7B0sVp6L4nHKNVHJx1/Jku27fuBTrwmMx74EriSvBoHbzWJh9
+	mqfCZ9sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8atz-00000002BxO-0lO5;
-	Wed, 06 Nov 2024 07:56:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8avf-00000002C9p-4By4;
+	Wed, 06 Nov 2024 07:58:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ary-00000002BSW-0QtR
+	id 1t8ary-00000002BSc-39xl
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 06 Nov 2024 07:54:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C68D05C069C;
-	Wed,  6 Nov 2024 07:53:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D32E1C4CED3;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1D7045C2CB5;
+	Wed,  6 Nov 2024 07:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E7E4EC4CED7;
 	Wed,  6 Nov 2024 07:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730879664;
-	bh=4CxI9hvqy+T0MQp7ejsVaS+wjhKMAoO93q+j3nHoUH0=;
+	s=k20201202; t=1730879665;
+	bh=7vrEPIQ4bAMycnZ9O2SmDP1fd541LGxGZlIiiqJbkww=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=W0+vbyNtK0fmXOzDVhfAGCF0Ic+GhcetALnCsK/b1vlS/Qcio+fYGqhglIvRu12GU
-	 +YEVjIQHpvNor3WRoqavLw+qTuSBhWZRjWeBV6tTj/mFSA2lVr5Ord743Bvg4CUwoR
-	 gBpz9t5NA+DBRm4c/aiaduiNYJQtlbdk/ZjCfVfomKUpFZiewM899gW05TLhP2gi8K
-	 1JKM6AeVfXEBnIxbhvk+RxcyHu7f6MBjTpV/1euFyAopJ2/amZLQbTnwi9vOVnNP2r
-	 i46qC/KPB+8C6SGhRYZz/N5pqHDrG9dXUzMQ2MnADVgViD1ucVvElu5e6Wr4otvefw
-	 u+3zLywlzkqTA==
+	b=Iu+PeePE/GEEYfb6FbpeMRTK51rUkWH6GMgJntrqO1ajwKzF+EPvc1d1Yy7xqKUHP
+	 BWzjVi/SjgQURLOqBaLfGRZaIkCm0m0I/s5sE/DWQi+bdlJn1BCjDQhGZ+z9FWS6t9
+	 DZDD/VE+z+QOuaofcf23X948QMmQGBAaGllNeovOueanW02Q1Q8fh4s9Rv0mOn1uNs
+	 qOwdNyYswVaZ64tjIpNRbmSJiq0R+yH31y/aaq9/KmI1iBhxUING1KW7jAsjkSdki9
+	 /ocbtcBvTe+Svg4PL04/q8Sy++ZU/YtSbdayXSFnY5DanL4Z2W/ZjHjTKfWAeDlPgk
+	 pajSAR2bKjv4A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BDD6CD29FB3;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D87F4D29FB5;
 	Wed,  6 Nov 2024 07:54:24 +0000 (UTC)
 From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
-Date: Wed, 06 Nov 2024 08:54:00 +0100
-Subject: [PATCH v5 1/3] spi: dt-bindings: apple,spi: Add binding for Apple
- SPI controllers
+Date: Wed, 06 Nov 2024 08:54:02 +0100
+Subject: [PATCH v5 3/3] MAINTAINERS: Add apple-spi driver & binding files
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241106-asahi-spi-v5-1-e81a4f3a8e19@jannau.net>
+Message-Id: <20241106-asahi-spi-v5-3-e81a4f3a8e19@jannau.net>
 References: <20241106-asahi-spi-v5-0-e81a4f3a8e19@jannau.net>
 In-Reply-To: <20241106-asahi-spi-v5-0-e81a4f3a8e19@jannau.net>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -61,24 +60,23 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
- Nick Chan <towinchenmi@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2217; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1316; i=j@jannau.net;
  s=yk2024; h=from:subject:message-id;
- bh=O9OlA0s3DQ4s9BDbe1rexPnrtmgzE8wHs1clsQ1vxYw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnRthfVLjea1h21MsuPzsJYXPcTB//xyaH9ikdqMJc6zZ
- f7tPfyxo5SFQYyLQVZMkSVJ+2UHw+oaxZjaB2Ewc1iZQIYwcHEKwEQCWhj+yvp692/VeRPIIDP5
- L7OVWARfz9bksjPC7rOYCu/630lYzvCLaZJ279Fp2ornv6uZKT/9Em/0VPaDdsMNzuUMSqtLGCO
- ZAA==
+ bh=wbyAeXiak8ymhiqSGZePVuZ0IdBpI3guim8H/E8/EiU=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhnRthfUzOlZFlm65nPWA31d2+UxpfaX3bhb9xmdWlsk/M
+ dfttwrsKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJG3Lgz/7EJ9pv446XDkfNcc
+ vRr1wn7ufpEozhxfWdOnuxxXlu09w/BP+cxVu9ZHHV8kPmvfsX1v5qap9Jm9rneJi47p+8tRwn3
+ MAA==
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
 X-Original-From: Janne Grunau <j@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_235426_377572_D7B65026 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20241105_235426_993956_4E91FC7E 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,87 +94,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hector Martin <marcan@marcan.st>
 
-The Apple SPI controller is present in SoCs such as the M1 (t8103) and
-M1 Pro/Max (t600x). This controller uses one IRQ and one clock, and
-doesn't need any special properties, so the binding is trivial.
+This Apple SPI controller is present on Apple ARM SoCs (t8103/t6000).
+
+Splitting this change from the binding/driver commits to avoid merge
+conflicts with other things touching this section, as usual.
 
 Signed-off-by: Hector Martin <marcan@marcan.st>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Acked-by: Nick Chan <towinchenmi@gmail.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- .../devicetree/bindings/spi/apple,spi.yaml         | 62 ++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/spi/apple,spi.yaml b/Documentation/devicetree/bindings/spi/apple,spi.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..7bef605a296353a62252282af4ba45a71b20b7b6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/spi/apple,spi.yaml
-@@ -0,0 +1,62 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/spi/apple,spi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple ARM SoC SPI controller
-+
-+allOf:
-+  - $ref: spi-controller.yaml#
-+
-+maintainers:
-+  - Hector Martin <marcan@marcan.st>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,t8103-spi
-+          - apple,t8112-spi
-+          - apple,t6000-spi
-+      - const: apple,spi
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - interrupts
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/apple-aic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      spi@39b104000 {
-+        compatible = "apple,t6000-spi", "apple,spi";
-+        reg = <0x3 0x9b104000 0x0 0x4000>;
-+        interrupt-parent = <&aic>;
-+        interrupts = <AIC_IRQ 0 1107 IRQ_TYPE_LEVEL_HIGH>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        clocks = <&clk>;
-+      };
-+    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cc40a9d9b8cd10e2e00caa5a5881381cd40c0d9a..552febcb12a95766ff502960782941d9d016d5e0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2068,6 +2068,7 @@ F:	Documentation/devicetree/bindings/pci/apple,pcie.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+ F:	Documentation/devicetree/bindings/power/apple*
+ F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
++F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+ F:	arch/arm64/boot/dts/apple/
+ F:	drivers/bluetooth/hci_bcm4377.c
+@@ -2085,6 +2086,7 @@ F:	drivers/nvmem/apple-efuses.c
+ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/pwm/pwm-apple.c
+ F:	drivers/soc/apple/*
++F:	drivers/spi/spi-apple.c
+ F:	drivers/watchdog/apple_wdt.c
+ F:	include/dt-bindings/interrupt-controller/apple-aic.h
+ F:	include/dt-bindings/pinctrl/apple.h
 
 -- 
 2.47.0
