@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB36D44D75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6C1D44D78
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNTsaYFvcdTX0Wb0OiiTSdCFogGY84Psmg3dgcA2ZBU=; b=c0avRrJEWKbQTQX8fKu96zj8kA
-	TPaOKdPgPwbaG2thwERAsasjNrN/ls81xTE6PudIQRm8fY3RpxrsSkwd/Cu5rtHrCPrEKX4kSzxQx
-	10VWQ06Wzny2P7MeQ83iJnbp3DTtypsrXRWiFDKoWHRbvJm7LhOCyV1T1nbkKzCxDGtamX7yuPGiv
-	eJ5thgcCNTDkZ/VrlzDT4Ph8XLYH1DIvsfybVuXeTmYMZPI6OZsbkSdpAAp+irEFiaV07nx72uPBM
-	WXJf7v+dXfIFYCHnVZqpYoym3dbrlqp/iaJtLDtatZeoRVsoVI9EuP3amLv/NchAleT1sALQuliEU
-	7KVHBmwQ==;
+	bh=CA2vIBemzjnd2BMiveFteBT32BnqzsjYQDCA9tW3z/s=; b=f1HFtjtciG/tWk0p/mnkDEZV4g
+	UAsh0Zs1jmL7uMlYMgSDXRrrwkW7GZDjKjKXNrdmLmxvnuN8CQX+mxHMijBB6gmyyIoPNFBojwSnQ
+	+3BmKGeo2g5XIKbOqQ57NGj5z1VZeQLMALDMbNHkthWEr+dccYJN/Cq1OMwMsbA+gwSRgXKuTzyeb
+	OKfVPkUsmuS0l74DkjgDaWjxPUWvNSO0vZ8LFBSan5C4tIGr20NTtrROxMYw9r42h3tGCKNwV/l3w
+	eRVQDxRkRU3Bnir0CjUBpwIkOeYQWRudiaexCciG5qP3NWlXp/VkIuyYQE8h5nTPizF03vib55MrL
+	QHEdN7RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8guN-00000003a7x-2rzC;
-	Wed, 06 Nov 2024 14:21:19 +0000
-Received: from mail-pl1-f171.google.com ([209.85.214.171])
+	id 1t8gw4-00000003aRb-0y5v;
+	Wed, 06 Nov 2024 14:23:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gc0-00000003Wm2-4A5R;
-	Wed, 06 Nov 2024 14:02:22 +0000
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-20cf3e36a76so70778435ad.0;
-        Wed, 06 Nov 2024 06:02:20 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730901739; x=1731506539;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BNTsaYFvcdTX0Wb0OiiTSdCFogGY84Psmg3dgcA2ZBU=;
-        b=g7pPxb1CbjnSIQcPrVMXEKmj1EDSd9FRmxBTbNMDm6Xn/w33QP2r9HUN7vsy0kp0Xr
-         h23c0fhiICM519NtUTiqv5fRn7HHbHHK6l2G5WEypnysv6iqeKL1fgEHjtiLTM1ETF7U
-         CRmzrfTruI10ymtIbVk9gZCbNUZuOen7LKHJg2CI7cRUt0YNyEeAEM8sYKvRdOxhPtUu
-         sp2K8tHkOyf/FQsM/fqMlXRqMuzpDzzoMR/PFVYUwwQIPWP8Yr22Z+wKCI/nQD5V2OGZ
-         5Y1gI2Ml72/qQ5R0bh/cJGoGmZv3DRdhcA/1qKMLTW8lHmMl4yslvBOyZ4P3BS8k5dLQ
-         w/Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCWj8qzs/fBc1vQkIkdVsWKlGeEyQFA73wm+zSS+Y6Cw4HCU0J8kGJcSPMHc9BoKa/VwA/5nQpxK+AoAOD45TbaA@lists.infradead.org, AJvYcCX6n0jQ9KFE8fWi3AE84zJ7njdowGftkDb0gJu6uHgjIfFMy+w451tTBB1Dz2IEQ/k9JOGhqFLGFbqKAl09BoA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxT5ziaVZnr9sNRWJqPWXGA6IvutwZTh49r4Sn80w4IjIHcjuEc
-	ZFRvYGM8dVSq2vJrFeHpHU4e1gj6Or0IhgD8BW7oldoNE07V+3zw
-X-Google-Smtp-Source: AGHT+IG0KnpOVHJ6+FPyEIHnirGzIJjQbRttLyC4hJlcGX6Aev5lMijV1T5yRMGkqHzmL80DPHdBew==
-X-Received: by 2002:a17:903:2286:b0:20c:5fd7:d71 with SMTP id d9443c01a7336-21103ace2aemr335361755ad.22.1730901739340;
-        Wed, 06 Nov 2024 06:02:19 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056ef5f6sm96699695ad.8.2024.11.06.06.02.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 06:02:18 -0800 (PST)
-Date: Wed, 6 Nov 2024 23:02:17 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, matthias.bgg@gmail.com,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	fshao@chromium.org,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: Re: [PATCH v4 2/2] PCI: mediatek-gen3: Add support for restricting
- link width
-Message-ID: <20241106140217.GA2745640@rocinante>
-References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com>
- <20241104114935.172908-3-angelogioacchino.delregno@collabora.com>
- <20241104132046.GA2504924@rocinante>
- <e2e41af9-ed09-4ac5-9481-e605d1340b3d@collabora.com>
+	id 1t8gk6-00000003Y1l-2YpL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 14:10:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4B48B5C580B;
+	Wed,  6 Nov 2024 14:09:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09C0AC4CEC6;
+	Wed,  6 Nov 2024 14:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730902241;
+	bh=hR+M/12mz686XDw6qw79yyMcaey3EbYKRvazPCDOwQg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oxK/9pf0bxWdLwkJ0XFrOHc/8z9aGFghLqiMYid+PmJ4KUJHrrf9hchG0UZuKR5sS
+	 JTk4Vhwpmmz2AcIrmkWeogxx/hS1lMNYA5JUMklzJnjthm016pojlcdRNdL66S9W4C
+	 WI0+4LoX0k54++97cUt9QpSVWeHEVHV4EsxZ4Cxr8iikxOv326+hzoeNoX8VsJl+nK
+	 uI4Ex2g18XPIbmhCvqt+R7VmC9DB3+Ms07DkgrDg7lIqG3k2bgaY8VLMDWj3/d4S4s
+	 36j9fSScrodXntyF7oIqtADJOkp26IMc2WYrgHaPQKNvbYgA3Z7spI2wV0j0abOVe/
+	 yKJ9lMPNwvqaA==
+Date: Wed, 6 Nov 2024 15:10:38 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+Message-ID: <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
+References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
+ <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <e2e41af9-ed09-4ac5-9481-e605d1340b3d@collabora.com>
+In-Reply-To: <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_060221_047202_897AFD18 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20241106_061042_758804_2E049DAE 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,15 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Wed, Nov 06, 2024 at 09:57:57AM +0100, Dario Binacchi wrote:
+> The patch adds the DT bindings for enabling and tuning spread spectrum
+> clocking generation.
 
-> > Does this make sense here?  Thoughts?
-[...]
-> There's a problem here: this property has to be optional - and if you change that
-> to return like that, you're breaking compatibility with older device trees, which
-> are not specifying any "num-lanes" property.
+We had long talks about this but nothing of it got reflected in commit
+msg. Sorry, I don't remember what I was talking in some particular patch
+month ago, so you will get the same questions over and over...
 
-Makes sense.  I will keep your version.  Thank you!
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+> Changes in v3:
+> - Added in v3
+> - The dt-bindings have been moved from fsl,imx8m-anatop.yaml to
+>   imx8m-clock.yaml. The anatop device (fsl,imx8m-anatop.yaml) is
+>   indeed more or less a syscon, so it represents a memory area
+>   accessible by ccm (imx8m-clock.yaml) to setup the PLLs.
+> 
+>  .../bindings/clock/imx8m-clock.yaml           | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> index c643d4a81478..7920393e518e 100644
+> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+> @@ -43,6 +43,40 @@ properties:
+>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
+>        for the full list of i.MX8M clock IDs.
+>  
+> +  fsl,ssc-clocks:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description:
+> +      Phandles of the PLL with spread spectrum generation hardware capability.
+> +    minItems: 1
+> +    maxItems: 4
 
-	Krzysztof
+1. How is it possible that you change spread spectrum of some clocks from
+main Clock Controller, while this device is not a consumer of them?
+Basically this means that this device does not have these clocks but yet
+you claim that it needs to configure spread for them! It's contradictory
+to me and nohing got explained in commit msg about it. I am pretty sure
+I asked about this alrady.
+
+2. Why is this array flexible in size?
+
+Best regards,
+Krzysztof
+
 
