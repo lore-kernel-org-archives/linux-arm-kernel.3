@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BED0D29FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6D4D29FB0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/r6tXnUuPwmcrOqEYQI7dbDs3qpnado9Q9kI0QYsBk=; b=OiEF7oLZNPSFawTREHDkWiH/ex
-	ZLPyree44XKapZToUhC7f0rbsZBr3uJbApIS+fzlaV4h9mJlGHnytwWStZcH5A23Cg51jkMLv0Kyi
-	IcH/oSbYVvyJG+WClc8p8dZFWljWl4Z4XAt5mjVtB84qDEeIZdAORAJ/HEdWOkDh1/+GMNkIOVurq
-	EXIt//I9NWHhk46gwr8NBoXywxx14tX588V+dQmnSUVEFRpg6+O40ufC7YI+ZbOqsomYNC5imHeEc
-	qPQGW5xKhewetU5xOM37C+2TYz6SLYdJMOPCLDRGp3D25/UDSU9kUppKjAuHcl/7HaWR4A9ga3jAR
-	AUVker8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dkLZdfHad0BvKfYRCTi1v7nlEmkz9+TB8S+Kq67QAis=; b=jYYdkThbgWIVfyXrbQYFQfYPE+
+	SKBMKv7cyeCWZWU/04A89fLhtSqES5DhJR/k7wvYSEodvQ7GabrADex8G4YK+PeRNBrlJ/edbzq3n
+	J8HRtIH0gUWjgAWziiuOo+so1738JfnrIJFooClb1W3EaxJDzV2aDm82ZpI4Hx3cHmaPNQscaj52l
+	HKCSVdyuKHh4M697ZB4diw7i9O0liJqJeMTJ6+3CEPMyRM4cz40bb6634WA03oB2X72iule1jA3zj
+	pZwCzYJn7oXnvWot+WEpbzlbphhWwb+ATmds0lf1JuQEKeiec8qFCIFCfvmeT2ABtRYjMj2m8hPk0
+	fUd4JJIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aev-000000028tE-3MhU;
-	Wed, 06 Nov 2024 07:40:57 +0000
-Received: from mail-yw1-f176.google.com ([209.85.128.176])
+	id 1t8agm-000000029YY-0RaL;
+	Wed, 06 Nov 2024 07:42:52 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8adC-000000028TS-3sDL
+	id 1t8aeu-000000028ri-023P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 07:39:12 +0000
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-6ea5f68e17aso63353407b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 23:39:09 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730878748; x=1731483548;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D/r6tXnUuPwmcrOqEYQI7dbDs3qpnado9Q9kI0QYsBk=;
-        b=Da/RMikAv7jMTD9YkFnycjdw3+DF6Hag4yUmNtOdnwjKv327JZLS/GErBc+zRyGsoD
-         jKBZr7rlkTQUGgorHY/jZtCKDVqLNmPUZ6uk10r+l/2bb+RZYQRchls4jmqgWgN/cF9B
-         xJtl8zD81nQCN412hKKgVL/Pz9AZrj7Be19vfZ7k+60+hN6a6MPogeJdL+VxvUUXdNwk
-         3FBDcf9L9tGbc9QdrhsWTWCGEY21i2fWouhJjCl9JlD2AjwBmaJV0N/LUJhDD0hNh2fy
-         Tn59Y8X9t97tyo3QFdTiSRCygt/xGGAwckIf21yvxOtWYGkKJW31OXYr/uxYWXapWD67
-         ephA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFc7g5sJrg/rA+YDGdgSI2wamOzBU5L76z+06sHE7tbzT+aGKmGXQ4/VRFceWIGQ6ooCbBpbE4jgsr+VJ8bwrT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyxIDcq9E2MPXnEeMwWsYZ8WP+GZOiy0ioTI1TBZOZqKMqQEA0
-	Efv/OhOJscUqd9uxGjlurey7A9dIykmxZqq/huPiCC0PQoR6tUBGRXMdEaJE
-X-Google-Smtp-Source: AGHT+IG4EaOkpyepn3+rk4cfugdUjOdaVS2j4rdW+flGzIiuz90GA6fAdaXf+QxWTW3n+co6h+gJrg==
-X-Received: by 2002:a05:690c:6e09:b0:6e6:248:37bf with SMTP id 00721157ae682-6e9d8994a47mr403693347b3.22.1730878747896;
-        Tue, 05 Nov 2024 23:39:07 -0800 (PST)
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com. [209.85.128.180])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6ea55c4b37dsm26574007b3.80.2024.11.05.23.39.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Nov 2024 23:39:06 -0800 (PST)
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-6e38ebcc0abso72712547b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Nov 2024 23:39:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX7Yjq96de3mbB6irK+ypPDYJi/J/wbxEg1FAxI7StfgnbqMx08f4MhEcNAQNubmSOwrE0LW+BDrHbKpeSp7DUO@lists.infradead.org
-X-Received: by 2002:a05:690c:6211:b0:6e3:28ec:1a7f with SMTP id
- 00721157ae682-6e9d8995185mr433595127b3.23.1730878746661; Tue, 05 Nov 2024
- 23:39:06 -0800 (PST)
+	Wed, 06 Nov 2024 07:40:57 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A67elLw017749;
+	Wed, 6 Nov 2024 01:40:47 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730878847;
+	bh=dkLZdfHad0BvKfYRCTi1v7nlEmkz9+TB8S+Kq67QAis=;
+	h=From:To:CC:Subject:Date;
+	b=uaJaysG9L3CXJigKp/2PPoUI4evbSyGirFRIIw2EJ0pMpM8LD+x5J3Y/vzFlhdFbp
+	 +ZlEE5TtRPC+RXSq0WCvfeH0twaMD2+lMmRKTAI/5nCaEhlToVleWyPZxFLioPlEaG
+	 RwsUgQy/jgEWP120DXuWz+TM1r4o3rO+dqBMOMIA=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A67elYO054237
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 6 Nov 2024 01:40:47 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 01:40:46 -0600
+Received: from fllvsmtp7.itg.ti.com (10.64.40.31) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 01:40:46 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvsmtp7.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A67ekts010485;
+	Wed, 6 Nov 2024 01:40:46 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A67ejXK014385;
+	Wed, 6 Nov 2024 01:40:46 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <vigneshr@ti.com>, <m-karicheri2@ti.com>, <m-malladi@ti.com>,
+        <jan.kiszka@siemens.com>, <javier.carrasco.cruz@gmail.com>,
+        <jacob.e.keller@intel.com>, <horms@kernel.org>,
+        <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net 0/2] IEP clock module bug fixes
+Date: Wed, 6 Nov 2024 13:10:38 +0530
+Message-ID: <20241106074040.3361730-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20241101095720.2247815-1-claudiu.beznea.uj@bp.renesas.com>
- <20241101095720.2247815-3-claudiu.beznea.uj@bp.renesas.com> <8aa04e346f65bc4fcb0efc47a4f0550a.sboyd@kernel.org>
-In-Reply-To: <8aa04e346f65bc4fcb0efc47a4f0550a.sboyd@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Nov 2024 08:38:55 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVH3CK7Fvfj-jis5Ja+oOFcXN4ntRDfz3Pf9ZJrfFMk+A@mail.gmail.com>
-Message-ID: <CAMuHMdVH3CK7Fvfj-jis5Ja+oOFcXN4ntRDfz3Pf9ZJrfFMk+A@mail.gmail.com>
-Subject: Re: [PATCH v6 2/9] clk: linux/clk-provider.h: Add devm_clk_hw_register_gate_parent_hw()
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Claudiu <claudiu.beznea@tuxon.dev>, alexandre.belloni@bootlin.com, 
-	conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, 
-	magnus.damm@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, 
-	robh@kernel.org, linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_233910_983340_5E7A7F73 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20241105_234056_414514_CC239FDB 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+Hi All,
+This series has some bug fixes for IEP module needed by PPS and
+timesync operations.
 
-On Wed, Nov 6, 2024 at 12:26=E2=80=AFAM Stephen Boyd <sboyd@kernel.org> wro=
-te:
-> Quoting Claudiu (2024-11-01 02:57:13)
-> > From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> >
-> > Add devm_clk_hw_register_gate_parent_hw() macro to allow registering
-> > devres managed gate clocks providing struct clk_hw object as parent.
-> >
-> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > Acked-by: Stephen Boyd <sboyd@kernel.org>
-> > Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> > ---
->
-> Please fix the subject line to not have linux/clk-provider.h because
-> it's redundant.
+Patch 1/2 fixes firmware load sequence to ensure IEP module
+is always running when either of the ethernet interfaces is up.
 
-OK, I will amend, and respin the PR.
+Patch 2/2 fixes distorted PPS signal when the ethernet interfaces
+are brough down and up. This patch also fixes enabling PPS signal
+after bringing the interface up, without disabling PPS.
 
-BTW, I had noticed it too, but since you had Acked the patch, I
-decided not to change it while applying.
+MD Danish Anwar (1):
+  net: ti: icssg-prueth: Fix firmware load sequence.
 
-Gr{oetje,eeting}s,
+Meghana Malladi (1):
+  net: ti: icssg-prueth: Fix clearing of IEP_CMP_CFG registers during
+    iep_init
 
-                        Geert
+ drivers/net/ethernet/ti/icssg/icss_iep.c     | 10 ++++
+ drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
+ drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
+ 5 files changed, 87 insertions(+), 11 deletions(-)
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+base-commit: 73840ca5ef361f143b89edd5368a1aa8c2979241
+-- 
+2.25.1
+
 
