@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAD0D44D5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AC4D44D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/fydsM2O5CxZlPZ86HFX2vV5UFv4fQGWtN0bNA59As=; b=GK4nHN9XmNSxU5Ix666CIwsI+R
-	coXoIN4SmhSxjHy5q7ikCiL1pEizGqQqF+FV7Bgm5cq+KU72BUsONVJICPZW2mMdarkTSu5UQvKl/
-	681GVWkR+hffwhJlutqnKZi4NaR4wUEN8D8kMpMkBpO5xnovI2O4ed/KxChUu/GLP0tX5LlB4xdJa
-	KPTNBq9+KIXUj6bC9T8KY4Hyz0W+UNJrYfZf/Gyv6obkpbdHC+n+yS1ruJbNdMteZ48xK0/LA3y07
-	59OXN6Ieqvkdt2KjDbjLJg3GH945dU3qnRCuW98fWz91mjQXVke6JhvmLJKwa+dKfkhqmAqe58TzP
-	4Q3T54lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hn1S9lWBHuUKbus44nPTH3c4ORyo1VO2LlD3UDGH4/o=; b=yOsFwInCxTkO79OZaonxSGmZ+n
+	FEHKHOrp8zBPwfrtLXjNL43nugJiLA8bYQ8HjcFwx1p52ES+mBm8n9lDnEvkt/l8Uuu38r5FLK4Oy
+	hey0p6EilE489aKKgkiUeEdyrqGR3rrVIm//QvjYQtvfQRgpC3kN8mAmtMIfS5rB9SxStMrc4U97x
+	41as2FrVOqWkYAUeamZs3nCFW3XPwf5lf4dHkDqcMK/bPffu8fzaLBrCDJhzQvNVloi2cUVC3b2h6
+	nYZouo491UnyyGT3z6YzgB+iWkrJihuaepR+rdDujte1RZf0SsyCKYGLAHyV8eDmq655SWzP8sj4p
+	HZZA8HQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gDs-00000003RYn-3jn3;
-	Wed, 06 Nov 2024 13:37:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t8gFd-00000003Rw2-3ZTi;
+	Wed, 06 Nov 2024 13:39:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fiL-00000003LkC-19nK;
-	Wed, 06 Nov 2024 13:04:57 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0B6BA475;
-	Wed,  6 Nov 2024 14:04:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730898275;
-	bh=682rZ4W8M3E5mVOEB3/2mrEAAw15OgHnlpXKz526rA0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iF+f2JrOf8LKiTjHV1UChMRbmf6ckq9rA1BPUFp1xg1DRGXF+rkuI5950BTGfwpL+
-	 Yu4AWc7mmgpAU2nekPMMSN1CPfv8fof6p/lUxd1J/aU5O1aWQByo6hUgRFK9fVFltt
-	 vI+mieU5JY7lKw6pBcmWAlmuai8Wap7Qb23EoTFI=
-Date: Wed, 6 Nov 2024 15:04:37 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: CK Hu =?utf-8?B?KOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-Cc: "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>,
-	"christian.koenig@amd.com" <christian.koenig@amd.com>,
-	"mchehab@kernel.org" <mchehab@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shu-hsiang Yang =?utf-8?B?KOaliuiIkue/lCk=?= <Shu-hsiang.Yang@mediatek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"yunkec@chromium.org" <yunkec@chromium.org>,
-	"linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Yaya Chang =?utf-8?B?KOW8tembhea4hSk=?= <Yaya.Chang@mediatek.com>,
-	Project_Global_Chrome_Upstream_Group <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	Teddy Chen =?utf-8?B?KOmZs+S5vuWFgyk=?= <Teddy.Chen@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"hidenorik@chromium.org" <hidenorik@chromium.org>,
-	Shun-Yi Wang =?utf-8?B?KOeOi+mghuWEhCk=?= <Shun-Yi.Wang@mediatek.com>
-Subject: Re: [PATCH v1 10/10] uapi: linux: add mediatek isp_7x camsys user api
-Message-ID: <20241106130437.GA16791@pendragon.ideasonboard.com>
-References: <20241009111551.27052-1-Shu-hsiang.Yang@mediatek.com>
- <20241009111551.27052-11-Shu-hsiang.Yang@mediatek.com>
- <ff96b314cdd3d52a14a5e91f79ec3097d04c4380.camel@mediatek.com>
+	id 1t8fmt-00000003MOU-0dzs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 13:11:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CFF135C53EC;
+	Wed,  6 Nov 2024 13:08:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C39C4CECD;
+	Wed,  6 Nov 2024 13:09:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1730898570;
+	bh=qj4uj7AZmp8rIbbHTr6nwxt1mZ93c8WKnY5n82P/B+4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JFJDMmlVGLBwfye8FG8d5P4nOLMV1ER8Nh3+uncSJ16nhaWUO+yMXuwb+zKenYU6u
+	 x2BdN3G2mpy7PCwjdLgDoR0G/co8xhxToXKAnhXZv2rKudPm3pHErLtNq1v9OANRhJ
+	 9ZLoo3ZwbYzGaSurBYmdV321ja32yYVqg523L/D4=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.4 283/462] arm64: Add Cortex-715 CPU part definition
+Date: Wed,  6 Nov 2024 13:02:56 +0100
+Message-ID: <20241106120338.513377717@linuxfoundation.org>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241106120331.497003148@linuxfoundation.org>
+References: <20241106120331.497003148@linuxfoundation.org>
+User-Agent: quilt/0.67
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ff96b314cdd3d52a14a5e91f79ec3097d04c4380.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_050449_461113_166A2D56 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20241106_050931_255930_471F8DCC 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 05:56:40AM +0000, CK Hu (胡俊光) wrote:
-> Hi, Shu-hsiang:
-> 
-> On Wed, 2024-10-09 at 19:15 +0800, Shu-hsiang Yang wrote:
-> > Add UAPI for MediaTek ISP platform, providing user-space
-> > interfaces for the new camsys driver.
-> > 
-> > Signed-off-by: Shu-hsiang Yang <Shu-hsiang.Yang@mediatek.com>
-> > ---
-> 
-> [snip]
-> 
-> > +
-> > +/* MTK ISP camsys controls */
-> > +#define V4L2_CID_MTK_CAM_USED_ENGINE_LIMIT	(V4L2_CID_USER_MTK_CAM_BASE + 1)
-> > +#define V4L2_CID_MTK_CAM_BIN_LIMIT		(V4L2_CID_USER_MTK_CAM_BASE + 2)
-> > +#define V4L2_CID_MTK_CAM_FRZ_LIMIT		(V4L2_CID_USER_MTK_CAM_BASE + 3)
-> > +#define V4L2_CID_MTK_CAM_RESOURCE_PLAN_POLICY	(V4L2_CID_USER_MTK_CAM_BASE + 4)
-> > +#define V4L2_CID_MTK_CAM_USED_ENGINE		(V4L2_CID_USER_MTK_CAM_BASE + 5)
-> > +#define V4L2_CID_MTK_CAM_BIN			(V4L2_CID_USER_MTK_CAM_BASE + 6)
-> > +#define V4L2_CID_MTK_CAM_FRZ			(V4L2_CID_USER_MTK_CAM_BASE + 7)
-> > +#define V4L2_CID_MTK_CAM_USED_ENGINE_TRY	(V4L2_CID_USER_MTK_CAM_BASE + 8)
-> > +#define V4L2_CID_MTK_CAM_BIN_TRY		(V4L2_CID_USER_MTK_CAM_BASE + 9)
-> > +#define V4L2_CID_MTK_CAM_FRZ_TRY		(V4L2_CID_USER_MTK_CAM_BASE + 10)
-> > +#define V4L2_CID_MTK_CAM_PIXEL_RATE		(V4L2_CID_USER_MTK_CAM_BASE + 11)
-> > +#define V4L2_CID_MTK_CAM_FEATURE		(V4L2_CID_USER_MTK_CAM_BASE + 12)
-> > +#define V4L2_CID_MTK_CAM_SYNC_ID		(V4L2_CID_USER_MTK_CAM_BASE + 13)
-> > +#define V4L2_CID_MTK_CAM_RAW_PATH_SELECT	(V4L2_CID_USER_MTK_CAM_BASE + 14)
-> > +#define V4L2_CID_MTK_CAM_HSF_EN			(V4L2_CID_USER_MTK_CAM_BASE + 15)
-> > +#define V4L2_CID_MTK_CAM_PDE_INFO		(V4L2_CID_USER_MTK_CAM_BASE + 16)
-> > +#define V4L2_CID_MTK_CAM_MSTREAM_EXPOSURE	(V4L2_CID_USER_MTK_CAM_BASE + 17)
-> > +#define V4L2_CID_MTK_CAM_RAW_RESOURCE_CALC	(V4L2_CID_USER_MTK_CAM_BASE + 18)
-> > +#define V4L2_CID_MTK_CAM_TG_FLASH_CFG		(V4L2_CID_USER_MTK_CAM_BASE + 19)
-> > +#define V4L2_CID_MTK_CAM_RAW_RESOURCE_UPDATE	(V4L2_CID_USER_MTK_CAM_BASE + 20)
-> > +#define V4L2_CID_MTK_CAM_CAMSYS_HW_MODE		(V4L2_CID_USER_MTK_CAM_BASE + 21)
-> > +
-> 
-> Please give introduction of how to use these user space interface.
+5.4-stable review patch.  If anyone has any objections, please let me know.
 
-I'm very, very *not* thrilled by all this. It looks like a big pile of
-hacks really. Every single parameter used by those controls needs to be
-clearly documented, including explaining how they are used, in order for
-us to review the API. I suspect that many of the parameters should
-instead be handled through the ISP parameters buffers, or be controlled
-from standard V4L2 APIs.
+------------------
 
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+
+[ Upstream commit 07e39e60bbf0ccd5f895568e1afca032193705c0 ]
+
+Add the CPU Partnumbers for the new Arm designs.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Link: https://lore.kernel.org/r/20221116140915.356601-2-anshuman.khandual@arm.com
+Signed-off-by: Will Deacon <will@kernel.org>
+[ Mark: Trivial backport ]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/include/asm/cputype.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 18b5267ff48e1..cf5636e5c6c8b 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -77,6 +77,7 @@
+ #define ARM_CPU_PART_CORTEX_A78		0xD41
+ #define ARM_CPU_PART_CORTEX_X1		0xD44
+ #define ARM_CPU_PART_CORTEX_A710	0xD47
++#define ARM_CPU_PART_CORTEX_A715	0xD4D
+ #define ARM_CPU_PART_CORTEX_X2		0xD48
+ #define ARM_CPU_PART_NEOVERSE_N2	0xD49
+ #define ARM_CPU_PART_CORTEX_A78C	0xD4B
+@@ -126,6 +127,7 @@
+ #define MIDR_CORTEX_A78	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78)
+ #define MIDR_CORTEX_X1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X1)
+ #define MIDR_CORTEX_A710 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A710)
++#define MIDR_CORTEX_A715 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A715)
+ #define MIDR_CORTEX_X2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X2)
+ #define MIDR_NEOVERSE_N2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N2)
+ #define MIDR_CORTEX_A78C	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78C)
 -- 
-Regards,
+2.43.0
 
-Laurent Pinchart
+
+
 
