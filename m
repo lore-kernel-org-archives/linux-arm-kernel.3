@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD67DD44D48
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA7CD44D46
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 10:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5OodSx7fHnkz/g1rIABSsBU5p7TRd/AzVR3ldVftyQ=; b=OKotw//j4YuH2+rBU8lkm+G72n
-	hTDkX6zjRvG0xzZjweOfXC4uv7g7IX0A8UiNplMN6iZoASs6Yyq+xlgZ5LMiaJdaBqgIlVZRDdChi
-	O2eqnKD29c5LaPpa23MPtOf6sr0V+wFNdI1HIsJYomSs6Ac3S2m9IcLeAzuHJx9KDzicjjFwO/OhS
-	KpAlftaMfBhCzHMCWDqQ8xOsiei6e+Bue6/Czcxr3F5kwQrofftZ9P8YEELKVr5ufOGCqPfbxMg+3
-	zrFiiIeo0HcLRtCvaU8MBJZ5ySgTyRvT7/mt2HY2nVj5O3p0662NrJqil0mlyjwR+lxFHIkE9U/s5
-	KsFj6Oeg==;
+	bh=KeJST6CANo44jsXW4X1JleLj4IkEHTAq2Zz/9zGWSWI=; b=VNKe6cwybgOfBnmLVwDaXgDb59
+	zt/3FSxMpvhMKz8w/l72+hrWNjW0narXq8ZOy3aRFg/D+J3BUVkIM8yAEjeHB8tBVvqkmYtJxpyAq
+	xV6BKb2LFsLKV+qqt8Z1AqOeY2xE0TQ8gFWkPp5vYU1hZsgNXXuHSoKbsuUyKNPUZ8LOelmdfe8lK
+	Iy1DT96YUqRkbhb0yttx4MS8WUAGUzO9tZ4/0RAt7hffl8MBDVSdH2QL8BZnEEl4l2VQn1JtQ+iQU
+	LGgMe7QubplIGU2R0tlBiwgUkjrA+RX3qRA86B4JYAxUq/Stk0+xX5WIV7+RN5RoTNjRSEkJbvW51
+	Xga2C8Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8daI-00000002o0q-2fv5;
-	Wed, 06 Nov 2024 10:48:22 +0000
+	id 1t8dcF-00000002oey-1nzJ;
+	Wed, 06 Nov 2024 10:50:23 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8cv7-00000002fyo-2yxc
+	id 1t8cv8-00000002g0E-4AvW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 10:05:51 +0000
+	Wed, 06 Nov 2024 10:05:52 +0000
 Received: from mail.ideasonboard.com (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2A5D4D01;
-	Wed,  6 Nov 2024 11:05:36 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8241710B8;
+	Wed,  6 Nov 2024 11:05:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730887536;
-	bh=zGEfDLrcWkvx7xAREloga71cAZuwOLVQm03St+oQpIQ=;
+	s=mail; t=1730887538;
+	bh=IBQvt13TTIadCT2H1PnuRDv+U8vt3pyKluZpl8m2ES8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B6bSrig0hcl7G7PegmZUBT8iEy1by59b9TGD9X6LupVqw80WrlzZogxJprVP43oso
-	 hUrwD41bwpKS5ChHis5BpMZ206H+OVVXg5ej2GrD595Ed4fcyqDeTESK0e+231v29z
-	 v0H2iLvQSWIVdo8QFuSbDw7ZmETJloC1JMusSXsk=
+	b=i07oqrK2bwlFKGdB9ov49jrAeouHRrv7liH7X0U6VTys2/KaG/Bh3I64V0X8ECLcF
+	 oerO0YRPtFKAj1AP/mS1V3CgohxtE7Kktc4D1PkFYbKbiexKK86PA5vPkW3OXDeU9f
+	 Qo4QjSGmGnRpybyBXgxSyuwlD2dqJ73zk7kOMsAU=
 From: Daniel Scally <dan.scally@ideasonboard.com>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -53,18 +53,17 @@ Cc: Anthony.McGivern@arm.com,
 	laurent.pinchart@ideasonboard.com,
 	sakari.ailus@iki.fi,
 	Daniel Scally <dan.scally@ideasonboard.com>
-Subject: [PATCH v8 03/17] media: v4l2-common: Add RAW16 format info
-Date: Wed,  6 Nov 2024 10:05:20 +0000
-Message-Id: <20241106100534.768400-4-dan.scally@ideasonboard.com>
+Subject: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM mali-c55
+Date: Wed,  6 Nov 2024 10:05:22 +0000
+Message-Id: <20241106100534.768400-6-dan.scally@ideasonboard.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241106100534.768400-1-dan.scally@ideasonboard.com>
 References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_020549_953833_5F9E3B97 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_020551_223887_A4CCDB69 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,15 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add entries to v4l2_format_info describing the 16-bit bayer
-formats so that they can be used in drivers.
+Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
 Changes in v8:
 
-	- None
+	- Added the video clock back in. Now that we have actual hardware it's
+	  clear that it's necessary.
+	- Added reset lines 
+	- Dropped R-bs
 
 Changes in v7:
 
@@ -99,26 +102,116 @@ Changes in v6:
 
 Changes in v5:
 
-	- New patch
+	- None
 
- drivers/media/v4l2-core/v4l2-common.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Changes in v4:
 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index 0a2f4f0d0a07..e600d99ae913 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -333,6 +333,10 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- 		{ .format = V4L2_PIX_FMT_SGBRG12,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_SGRBG12,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_SRGGB12,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_SBGGR16,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_SGBRG16,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_SGRBG16,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_SRGGB16,	.pixel_enc = V4L2_PIXEL_ENC_BAYER, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 	};
- 	unsigned int i;
- 
+	- Switched to port instead of ports
+
+Changes in v3:
+
+	- Dropped the video clock as suggested by Laurent. I didn't retain it
+	for the purposes of the refcount since this driver will call .s_stream()
+	for the sensor driver which will refcount the clock anyway.
+	- Clarified that the port is a parallel input port rather (Sakari)
+
+Changes in v2:
+
+	- Added clocks information
+	- Fixed the warnings raised by Rob
+
+ .../bindings/media/arm,mali-c55.yaml          | 82 +++++++++++++++++++
+ 1 file changed, 82 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+
+diff --git a/Documentation/devicetree/bindings/media/arm,mali-c55.yaml b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+new file mode 100644
+index 000000000000..efc88fd2c447
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/arm,mali-c55.yaml
+@@ -0,0 +1,82 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/arm,mali-c55.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ARM Mali-C55 Image Signal Processor
++
++maintainers:
++  - Daniel Scally <dan.scally@ideasonboard.com>
++  - Jacopo Mondi <jacopo.mondi@ideasonboard.com>
++
++properties:
++  compatible:
++    const: arm,mali-c55
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ISP Video Clock
++      - description: ISP AXI clock
++      - description: ISP AHB-lite clock
++
++  clock-names:
++    items:
++      - const: vclk
++      - const: aclk
++      - const: hclk
++
++  resets:
++    items:
++      - description: vclk domain reset
++      - description: aclk domain reset
++      - description: hclk domain reset
++
++  reset-names:
++    items:
++      - const: vresetn
++      - const: aresetn
++      - const: hresetn
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++    description: Input parallel video bus
++
++    properties:
++      endpoint:
++        $ref: /schemas/graph.yaml#/properties/endpoint
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - port
++
++additionalProperties: false
++
++examples:
++  - |
++    mali_c55: isp@400000 {
++      compatible = "arm,mali-c55";
++      reg = <0x400000 0x200000>;
++      clocks = <&clk 0>, <&clk 1>, <&clk 2>;
++      clock-names = "vclk", "aclk", "hclk";
++      resets = <&resets 0>, <&resets 1>, <&resets 2>;
++      reset-names = "vresetn", "aresetn", "hresetn";
++      interrupts = <0>;
++
++      port {
++        isp_in: endpoint {
++            remote-endpoint = <&csi2_rx_out>;
++        };
++      };
++    };
++...
 -- 
 2.34.1
 
