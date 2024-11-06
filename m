@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425B2D44D77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABBAD44D75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	References:CC:To:From:Subject:MIME-Version:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHHYML0BEoPmu07uEuVWCMR6UzMbCnRMamSxbmnkn0o=; b=Gps16uKuQ5+ncYnNOG5SJ3uXV+
-	JnxltfQ8rTut9CLoXHUvqxDG1SQbxZcjSUus40ONZ+1lSsUq6A41xZyn8620QOwwEAXj26CrZugFs
-	JoOkikVt6Clgcw+0OIjU8AMjmG/ciCthUiZecborgqVVTFiGGh+K4zjy/RMPiynOmKva7zZ1EQAr0
-	OVkUuSYfTb7m3iIjeuiSb/aDGvjFpiAO2UMdXr0AKrKt5qjOIKLzd5sDQGsonkrxDFp0mShF+x9Je
-	IfX3W9HOQq8MlVMsKSF0TsICE1mJKvWfEtcymxltfzG/wgIIu+GC3l5YA8u+jXUX4r1udtwzmQFw8
-	0+WJUeVQ==;
+	bh=DSqnZgLZFmjR/zI09hPj35lExE9DozM7LRLSXNYuBeQ=; b=SWW9Vxfvq12bvFw/Tm5d4ftUDw
+	/nf4Dgbs5Ob+DOI9bf/jkpiRhLte7N8HBPY9+padgI3FSOjfztucLrg0TI7AvBexavCU0Vzv1n1tH
+	n1aTYlEjZKmaHoGgCkCywC2X3NNQd3PicvxWVLE2Yt1G/hszAERhsiiBQyhGjni1ijY7QGFVRG/M4
+	xKr7l+1UklaCbSdTLjpPp8xpz4Si2GwByYoYYH/6j5jpl8S4UxoAImPiF/AtO7v+THB+LnuM9b30i
+	+38xh1BFZ0H6HTEta0If5cO+6YOe9Ea5tueKKU6k1GBurCGeYA2j8H7eMFoy6EM5ftsw9ayXUE9Ag
+	d7IhgNEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gpJ-00000003ZH2-40nc;
-	Wed, 06 Nov 2024 14:16:06 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1t8gr0-00000003ZZA-3Fbm;
+	Wed, 06 Nov 2024 14:17:50 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gWf-00000003VnC-0jSQ
+	id 1t8gXY-00000003Vwr-3xay
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:56:50 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1730901402;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NHHYML0BEoPmu07uEuVWCMR6UzMbCnRMamSxbmnkn0o=;
-	b=civDo1qoh0TP45iFIHWo4U31+mpvHe8lkbDh3GuEa0ZZmzQA7y+buDTUPY8xijrRBFSqrA
-	zb3ECm1xYuV+iBNrn1zt5jb/GJLTMj06G+kgpeUfKzmgfNYRKy3DE3naaYSbrmmPFeYAg/
-	9x2nE4nLfvRsjInfpYCYoa0zGncOLDL2YA3n0tAYHybQEsTG6oqYJmsL4ywlHV9x6iHVij
-	txY05WsCJ9qvX8B72j01ZStfRUv20+6gxHIhIWisOLMziav2EQ8BjtmVp0OHdG/qHfOb4Z
-	V3j4BzFKr+Owb0XOY3mlV9SJIJCzEdOJgxJIINdOjazassPtDa5APqVneEMwag==
-Content-Type: multipart/signed;
- boundary=012b4e88e5ada0d79e0d754e24911a278ebf87aafc76bd346a02ee35533f;
- micalg=pgp-sha256; protocol="application/pgp-signature"
-Date: Wed, 06 Nov 2024 14:56:31 +0100
-Message-Id: <D5F5C1RWVHG5.TSHPO29TXYEF@cknow.org>
-Cc: <quentin.schulz@cherry.de>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Heiko Stuebner" <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: add mipi dcphy nodes to
- rk3588
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Heiko Stuebner" <heiko@sntech.de>
-References: <20241106123758.423584-1-heiko@sntech.de>
- <20241106123758.423584-2-heiko@sntech.de>
- <D5F525WYXDO1.3I92CTU67RVF6@cknow.org>
-In-Reply-To: <D5F525WYXDO1.3I92CTU67RVF6@cknow.org>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 06 Nov 2024 13:57:47 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A6Dvced099950;
+	Wed, 6 Nov 2024 07:57:38 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730901459;
+	bh=DSqnZgLZFmjR/zI09hPj35lExE9DozM7LRLSXNYuBeQ=;
+	h=Date:Subject:From:To:CC:References:In-Reply-To;
+	b=TesP+4rKGnJ6jtqqLzP9Yqm7ZsdGP4CH/HkGIMrdU7rORd+CDqLAdBQPBByR0pt9h
+	 wKcpnT7GG0WfBuolJIb4Ql/ADKwPuxA0QQZzdbYQySqDtt/g8Ql85pOVxuWKb/CgoS
+	 SZbL38q62GI1j1jAUcYp20FiVjtzyNuMcCCrNhLM=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A6DvcYS002611
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 6 Nov 2024 07:57:38 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 07:57:38 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 07:57:38 -0600
+Received: from [172.24.227.94] (uda0132425.dhcp.ti.com [172.24.227.94])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6DvZWm062961;
+	Wed, 6 Nov 2024 07:57:36 -0600
+Message-ID: <b13eabeb-48dd-493e-a7c7-fd247c971ae8@ti.com>
+Date: Wed, 6 Nov 2024 19:27:35 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: [GIT PULL 2/2] arm64: defconfig: Updates for v6.13 for TI K3
+ platforms
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
+        arm-soc
+	<arm@kernel.org>, SoC <soc@kernel.org>
+CC: Tero Kristo <kristo@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, Nishanth Menon <nm@ti.com>
+References: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
+Content-Language: en-US
+In-Reply-To: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------0BYMO8heXxr4akuBJs0wGJ5K"
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_055649_358205_0857DF99 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20241106_055745_099733_FA73E7A4 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +89,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---012b4e88e5ada0d79e0d754e24911a278ebf87aafc76bd346a02ee35533f
-Content-Transfer-Encoding: quoted-printable
+--------------0BYMO8heXxr4akuBJs0wGJ5K
+Content-Type: multipart/mixed; boundary="------------Wti14dmmowaCZOnaHPCZPIia";
+ protected-headers="v1"
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
+ arm-soc <arm@kernel.org>, SoC <soc@kernel.org>
+Cc: Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Nishanth Menon <nm@ti.com>
+Message-ID: <b13eabeb-48dd-493e-a7c7-fd247c971ae8@ti.com>
+Subject: [GIT PULL 2/2] arm64: defconfig: Updates for v6.13 for TI K3
+ platforms
+References: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
+In-Reply-To: <3ded4795-2186-4e06-bda6-9c9a65a3fdb9@ti.com>
+
+--------------Wti14dmmowaCZOnaHPCZPIia
 Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758e=
+dc:
 
-On Wed Nov 6, 2024 at 2:43 PM CET, Diederik de Haas wrote:
-> On Wed Nov 6, 2024 at 1:37 PM CET, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >
-> > Add the two MIPI-DC-phy nodes to the RK3588, that will be used by the
-> > DSI2 controllers and hopefully in some future also for camera input.
-> >
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 42 +++++++++++++++++++
-> >  1 file changed, 42 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64=
-/boot/dts/rockchip/rk3588-base.dtsi
-> > index 51ba7563f7d0..8c95c56e8097 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> > @@ -576,6 +576,16 @@ sys_grf: syscon@fd58c000 {
-> >  		reg =3D <0x0 0xfd58c000 0x0 0x1000>;
-> >  	};
-> > =20
->
-> No power-domains property?
-> RK3588 TRM v1.0 part 1 page 1097 has ALIVE(PD_BUS) for
-> MIPI_DC_PHY0~MIPI_DC_PHY1
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
-Please ignore. They're defined in patch 2 of the series.
+are available in the Git repository at:
 
-Cheers,
-  Diederik
+  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3=
+-config-for-v6.13
 
+for you to fetch changes up to 8461bcf0a3d9d39ff9d858c06c2c820f711a8182:
 
---012b4e88e5ada0d79e0d754e24911a278ebf87aafc76bd346a02ee35533f
-Content-Type: application/pgp-signature; name="signature.asc"
+  arm64: defconfig: Enable PCF857X GPIO expander (2024-10-28 20:42:47 +05=
+30)
+
+----------------------------------------------------------------
+TI K3 defconfig updates for v6.13
+
+Enable driver for GPIO PCF857x I2C GPIO expander present on multiple TI
+boards
+
+----------------------------------------------------------------
+Wadim Egorov (1):
+      arm64: defconfig: Enable PCF857X GPIO expander
+
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+--------------Wti14dmmowaCZOnaHPCZPIia--
+
+--------------0BYMO8heXxr4akuBJs0wGJ5K
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZyt1kwAKCRDXblvOeH7b
-btIaAP9GEyWWHj2Ucfg8SHEqGPFXB1DOlzMCnFSxDRzE8HkkHQEAoDu8i0KMPRAh
-xQ0hirMyEoP9TjRU/1stf0TaofvvzQQ=
-=oNr/
+wsB5BAABCAAjFiEEyRC2zAhGcGjrhiNExEYeRXyRFuMFAmcrdc8FAwAAAAAACgkQxEYeRXyRFuM9
+sQgArcKMxrJqwx6+LcLpHZ3B8pOnVUXjfvva32PE059xUWqB636BxhMl/kGVlrxtUpPayNBTLniY
+QpQ/Fr/NnCDwuv0nhUEA+SQcChb8onDT0/hBAj5Y37vnQPQuywHRIrv9smXjsuFiM8gPt/ybi8+f
+V2XK6jrf9gFRpLBq/+mxqYt5/zbNeg5/oUge53EoT9v7MogH/ek3bI2zDu66jW+nwETGjyxk77F5
+eUEWSK/4M1vzfiapnmxW6h3jezQzlDAMqdjk2ezCMBUfQjYIPyOdDwGgB3iU5rH0SdVvC7fbV73I
+viUwcJ81+a9224s3MXWPiPWpyc3+riaEf+nRAPQGfw==
+=LJ9D
 -----END PGP SIGNATURE-----
 
---012b4e88e5ada0d79e0d754e24911a278ebf87aafc76bd346a02ee35533f--
+--------------0BYMO8heXxr4akuBJs0wGJ5K--
 
