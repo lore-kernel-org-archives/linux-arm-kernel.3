@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58CFD59F55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5727D59F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 17:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFDRCa0XKMHFYOR3uG48ep5LCFtGy7INevzQqLdyhe0=; b=LXQ6XUd/ArHHBazGXIi1Qicgih
-	5xDkqhtY2YNkwNZ90G1nj0a7G/JUj35+4Gu+aCTtNsY7uUCqTfR1LN0661iTbi268qnUAfZ6UmTCI
-	3jsMPFXGFag2MWXCGQ+1E1fxzzYrc1BM2RUiUlj99sm59W9+L/05dbwpskjYwxe77Rmd0sMbE0kPd
-	Ji5GzgxPyi84JEckuGhmMBo1gV/rhCT94nMCPgPAKgqus6H7GBTloPHbA/bUeN+bEaV0pb6GdmcNL
-	etsHQB7u4esPFMvKOwMHLi5kVxkBUw3+GmrlzJdNafSGfp0EKVzi9ylH1fSH+GzQFLoquVjeZw8xt
-	jJd3zYVA==;
+	bh=T2Kg6GaH7gYTnb++jbY4MBBC4c65ettqYa6wLql3FJE=; b=vquo7BC0gbZ5PlPARwE228rNKW
+	AUbVQLy485K4d4S///w08jEzCZG9cEmxUWnlWGUXQdWMMqBUAsdspv23TM18Xbofgrt8RbthBY9o0
+	yJEkmpYjLZ77Jk2nnD+KbR8V7fBZRvVi20pwpvIAYNRRQAY2X2BgN4BD55DinyRMrqlGqaTmmhuuY
+	89WHFd5yDFRa8thYkXb9YVvaIjUU3bGmX3qDnLUTg7uUxkhUEIJ+6Cqv/KXDQ1UMZRWgw8elheH8B
+	NWV79rcGiuk639JP7acL7sxHuxWlD7z6bCVQko8Y4gfa8W1M0mWdEkQWXqZmp6qZldJDJkgypG2B1
+	mEyUy4cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8jNX-000000047DO-3wNt;
-	Wed, 06 Nov 2024 16:59:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8jPE-000000047WF-0crI;
+	Wed, 06 Nov 2024 17:01:20 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8jLo-000000046lk-1A1P
+	id 1t8jN3-000000046z0-0bXw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:57:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C80895C4A0F;
-	Wed,  6 Nov 2024 16:57:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9119CC4CEC6;
-	Wed,  6 Nov 2024 16:57:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730912267;
-	bh=kFDRCa0XKMHFYOR3uG48ep5LCFtGy7INevzQqLdyhe0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S3yxVTiBm47hSjot2DdT1qMfPqitnfZ1ftMpEVbNszJEhXknaWzfPwufHIOB9g9hK
-	 m7hMugw2ooCnuVEOFYWW3nMazspNkD/Q2GhHm+uDCZTPb0wQd7L7R3G1q6S3z8mdye
-	 8UJvWwrSxOqCq1P3bSBFad2iRMkbwXzjG/ySfkt8wMpm99V3euPdc4YDNncU3sB8gM
-	 pNRerVg25YNkCWuBJ25s99UHUBADlbgvA0nJFF1yGP+WfYECnFNiWxcqanNqk5J5Kv
-	 t4+2g/l2/U4pgnlbF1L8mmkY6hi8+J73TSwopd+NvcaT2yC8ccxHT14CfNS5heyo6P
-	 UWQEjZHCE5b2A==
-Date: Wed, 6 Nov 2024 16:57:41 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matt Coster <Matt.Coster@imgtec.com>
-Cc: Frank Binns <Frank.Binns@imgtec.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>
-Subject: Re: [PATCH 01/21] dt-bindings: gpu: img: More explicit compatible
- strings
-Message-ID: <20241106-flagstone-mandarin-8caf9da78f19@spud>
-References: <20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com>
- <20241105-sets-bxs-4-64-patch-v1-v1-1-4ed30e865892@imgtec.com>
- <20241105-matron-gangway-64e78576ec47@spud>
- <d70a01d3-24d5-4e31-92ab-7f6626452852@imgtec.com>
+	Wed, 06 Nov 2024 16:59:06 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5cec93719ccso5924267a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 08:59:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1730912342; x=1731517142; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=T2Kg6GaH7gYTnb++jbY4MBBC4c65ettqYa6wLql3FJE=;
+        b=AgYMvcF7R9sIkT4mVCzhxsKw9EziOWIM3ScZum0DWPjXiAzgY9jZ3JKgsvbJDX8nYU
+         o30atFcAO6+kY/cw+BaH4tdgH0ZkPjjEhI+FX+gAAEpi3Hn6V+m/t5uo9NpI53ftMLbf
+         lpdz6KPsbCVmwxGFXzAjPEA8PR0KpddYDQJliRCMqEiesyI8R/U13DUuVjZxKbdO91z3
+         xFLdsvnMQOXJ8CjAiLHAS/GpKtLRUec+DzGVUqPVHlkSssU5bascRyfmB+Hbba0T8dG+
+         tmuyhUpDv+WRO4IMufmkn9XWPPQuMLUtKitddaO6qA+b7kw/6kEaNwOZqlAWmKx8gz+4
+         pyjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730912342; x=1731517142;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T2Kg6GaH7gYTnb++jbY4MBBC4c65ettqYa6wLql3FJE=;
+        b=BKhlB8IwftedFqUNmX9oJgoaCZtDKVLU9btGWGqR0LZ2sl1tH2IC2j1Dg0TTJLwsP7
+         g8Y6l7+k5mTQe5k6kEkLIkYsdLGdz1StfyCN3m9xMrpQN8k6xpq/ilS8+qmDp6XvNg2n
+         ozkMQp6SXuCKQZ+Gk664+qO6EgePBpHhPe1sYGI+ptwne3aOni4GMiHFA4fmxKNiU2j1
+         WT03omXwZhM1gaWmYkek5jx4udY9p5QTJtTXT/OkmQtg8XOBAA9trKzXY0aLXT0C1N9T
+         GHrd1bcgJ/HZpHXkGAydPn7VESvZFeY73f6D2irtireBnMOdIUYBZ+GWtXSmKHBWjvrz
+         sGyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZ0w7avbXsjN5djrlEe/zUfJQbBj3D6s4uXjyN11VhZN1imUotgk9zZzr/BsiuLFXtdjKhBgbnNTkfrZ3c4g+A@lists.infradead.org
+X-Gm-Message-State: AOJu0YymV9RXTsXySA6D+lW+1dNSzWqdzcXwwFOTmBMbz4c4jXnI7iKA
+	RMVeI8EzdgPulZixA8Sm/5Ec1LLlOOGqxTVhvRBHi0zFKpPStgYMo/qt3VJXSw==
+X-Google-Smtp-Source: AGHT+IGvdZ2IaD+BzOBp7O9t8aJG3Fn8CPmHBQZKasjV9H+9x/GBg968m+XOOjPPD2/pEN1skbtRkA==
+X-Received: by 2002:a17:907:7f14:b0:a9a:6855:1820 with SMTP id a640c23a62f3a-a9e3a5a0357mr2809681466b.15.1730912342073;
+        Wed, 06 Nov 2024 08:59:02 -0800 (PST)
+Received: from google.com (40.162.204.35.bc.googleusercontent.com. [35.204.162.40])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9eb16a1440sm304413166b.31.2024.11.06.08.59.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 08:59:01 -0800 (PST)
+Date: Wed, 6 Nov 2024 16:58:58 +0000
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 17/18] KVM: arm64: Introduce the EL1 pKVM MMU
+Message-ID: <ZyugUvS5dMwXU5nW@google.com>
+References: <20241104133204.85208-1-qperret@google.com>
+ <20241104133204.85208-18-qperret@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tUKQCQPIgKD2Ml6c"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d70a01d3-24d5-4e31-92ab-7f6626452852@imgtec.com>
+In-Reply-To: <20241104133204.85208-18-qperret@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_085748_427718_C324F3FD 
-X-CRM114-Status: GOOD (  30.15  )
+X-CRM114-CacheID: sfid-20241106_085905_201728_E409E057 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +101,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Monday 04 Nov 2024 at 13:32:03 (+0000), Quentin Perret wrote:
+> +bool pkvm_pgtable_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold)
+> +{
+> +	pkvm_handle_t handle = pkvm_pgt_to_handle(pgt);
+> +	struct pkvm_mapping *mapping;
+> +	struct rb_node *tmp;
+> +	bool young = false;
+> +
+> +	read_lock(&pgt->pkvm.mappings_lock);
+> +	for_each_mapping_in_range(pgt, addr, addr + size, mapping, tmp)
+> +		young |= kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn, mkold);
+> +	read_unlock(&pgt->pkvm.mappings_lock);
+> +
+> +	return young;
+> +}
 
---tUKQCQPIgKD2Ml6c
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Nov 06, 2024 at 10:17:47AM +0000, Matt Coster wrote:
-> On 05/11/2024 18:13, Conor Dooley wrote:
-> > On Tue, Nov 05, 2024 at 03:58:07PM +0000, Matt Coster wrote:
-> >> The current compatible strings are not specific enough to constrain the
-> >> hardware in devicetree. For example, the current "img,img-axe" string
-> >> refers to the entire family of Series AXE GPUs. The more specific
-> >> "img,img-axe-1-16m" string refers to the AXE-1-16M GPU which, unlike t=
-he
-> >> rest of its family, only uses a single power domain.
-> >=20
-> > That's not true, you could apply the rules using the ti,am62-gpu
-> > compatible, no?
->=20
-> The intent here is to draw a line between properties inherent to the IP
-> core and choices made by the silicon vendor at integration time. The
-> number of power domains is a property of the IP core, whereas the
-> decision to use one or three clocks (next patch) is a vendor choice.
-
-That's a different argument than the one in your commit message, but I
-will accept it.
-
-> >> Work is currently underway to add support for volcanic-based Imaginati=
-on
-> >> GPUs; also add a generic top-level "img,img-rogue" compatible string to
-> >> allow for simpler differentiation in devicetrees.
-> >=20
-> > This makes no sense, how does adding another fallback compatible make
-> > it simpler? I have to assume that this means there will be geothermally
-> > powered axes in the future and you want to tell the difference between
-> > them and those pesky rogue axes that chop the heads off of naughty
-> > children?
->=20
-> The intent is to add Volcanic bindings in img,powervr-volcanic.yaml, but
-> the split between Rogue and Volcanic is... a bit weird. The BXS-4-64
-> we're adding support for here is Rogue but, for example, the BXS-32-1024
-> is Volcanic. I figured it would be nice to be able to grok from the
-> devicetree which architecture a core is using without having to refer
-> back to the bindings.
-
-So not geothermally powered axes, but it was the rationale.
-
-> The primary differentiator from a dt perspective is power topology. In
-> Rogue, there are few (poorly named) power domains. Volcanic has (a)
-> better domain names and (b) typically more granularity in domains,
-> leading to actual dependency trees we need to care about besides the
-> trivial A->B->... in Rogue.
-
-Please add that detail to the commit message. Not all of it, but the
-bits in the first paragraph.
-
-Cheers,
-Conor.
-
---tUKQCQPIgKD2Ml6c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyugBQAKCRB4tDGHoIJi
-0o5WAP9qdPoidxf7Wb9XEMajnxOl7aWPCFarHIxFdXJMcNDRsAD/SjbnAVWJB8zS
-+/+GsnqRLs/GRLCfNIKRr1NjFUN4uw4=
-=QMO4
------END PGP SIGNATURE-----
-
---tUKQCQPIgKD2Ml6c--
+I just observed a funny behaviour in one of my tests, the above explains
+it ... Can you find the bug? Ahem. I'll fix in v2 obviously.
 
