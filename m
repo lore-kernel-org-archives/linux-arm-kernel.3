@@ -4,131 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ED0D44D75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA04D44D57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QE+J/MUl90fr1k+pjzuWCIKEdYrTZK5ku+2+au8m6g=; b=xn30gcQZKl/XLJtWXSajBe/ohL
-	kEcLfVfpPhv1/+kYdodZ5tsvSDkZsdzeWve7ZivMuB6MazeWD2L/9cFkiESO3nxcTWnKzQb52shfc
-	P60ONrwaDFklnrlEpJs8ystS6lNrYUmH6GSovxFk1hJZ5Y13SeBeE4dmKDnCpKgX2e1a69UrD04Nm
-	xQoCodmW+TOAZaHGoOrghL14n5MEUJKZNDHctL7PPPAUcHFOTL0WEXmgsjstvZmliQpN0DmMupmtW
-	Zzs8nB/pBUbPAfX26sBTatQIJD/b927s4whtrrMY/N3ROKKcoZ3RjwuZGuzfnI90kcywGdPY5MsHk
-	0ftxtn+w==;
+	bh=efS7acrXh5DSwLU5SzsYhrAffKDNrSh6CsFPp+MqqO8=; b=GIp8AQrUQwPsFKhm92Sd5+OkvJ
+	FyH8TJMQdUo/VOE5A3RIIPsZN7ibQAZCdj6EwrrVnZsqAgUJXmjeuggrQfYRadI0t3QQX6DFGsryi
+	u/Vt0ItkX/+k0d2SEnyk8I28K7sb+b74TCO/jRE1YPD5zXH3axq79TK8BGCbIjuR3EoEJEAoTBsA0
+	e3TRpcwBnSqZoSlRORTG4w4Krcgz4FBzlsxsSUK6mMOBdIvm23rT57MUdSf44wkpTI1oddkSO+q78
+	2FX8lQDaXRe0JFqdPBWgCffwk7HzNtofeX8Rx/KjLW3deK5HBV/QFGc7hYny5AqhiqdemjhGzZ8CC
+	MkYHEHwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8hJy-00000003gkA-2B3I;
-	Wed, 06 Nov 2024 14:47:46 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1t8hOD-00000003hUC-17nz;
+	Wed, 06 Nov 2024 14:52:09 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8hIA-00000003gDz-3mcf
+	id 1t8hMS-00000003h8D-0fNe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 14:45:56 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4314c006fa4so5989275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 06:45:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730904352; x=1731509152; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=8QE+J/MUl90fr1k+pjzuWCIKEdYrTZK5ku+2+au8m6g=;
-        b=Fsqrdwmhxe3y0RWE7jrv1wVx2Jj06Nh4os2zmn1d+tozWRj0OhuWfvoICIs9TCrQHZ
-         f9cMhTd+vOmkmluyBFth3BUfGz+WO0T57sfPZCE/+bLlk2hdl9Yh8PqvihfWuiGCxcJg
-         FreNGSa+fNT1kPFgK+vDUmUK8122tmF99hL1gUiIdOmzkOw48V2ZN4ZYl+qgMmeD4TO8
-         FmaJiyquU6zNQ8TNy3k5sAmdG6/ie99DusYFeIOF9+69RG23Wqc9CsoI3/wc6BpwHvtv
-         qEK5m4WjSdXUZSqFj7Sk0cQO+nqVK0iriJTq2U3RRAV7W5ZA9lAOcY3aKQHVEY8To0Qb
-         7C9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730904352; x=1731509152;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8QE+J/MUl90fr1k+pjzuWCIKEdYrTZK5ku+2+au8m6g=;
-        b=c1M9XxxWA+Dnrj6rE+8YcceuUARjjvGXo8O5SDGnvaVfC7f0YYZQNDAaT9qioZK7pE
-         cS7gMxYQ8rUggk8YQAlXkJajEEdsc8TZAE7qc67apGqAKlpnX7aos0caW+X/WlTqkZpV
-         skrYcYV/NWEB4/tJTQHoL9QerDps4DU6IbK9X3wXWas7X7uGZxxIsh9RqqjVidVjJEbb
-         dK/eEtDqQcFUiRwOUV/YJNDoiSKC2zsQNCp53or7gehrw0STuK7EOKCSEqdsp9MMr4UN
-         hqVloE7JjsnG/srNBo24vNLilaWwFtu+SS5diPuTtMAHlAW/yoH2V3dCdCMpXLzeF+b8
-         yURw==
-X-Forwarded-Encrypted: i=1; AJvYcCUiHx5ynRh3ADfIxWzYD1g3JpBYPtQKJW0vytrZ5ePTqK0qb5DyrZmhFo4AmW8cvWaLK0gcmdjvzGc+VifvSYiR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5hs8kWA0Xp+92Xy0TarBNDb9qjYs0gEdz5h6n2MyadVVfgn02
-	QbwPFnEVCS2X6MqvQGBeSbTt8egQe+wx9MTkhZdaQLLxckdRyPRZrL5FCCS7Hqg=
-X-Google-Smtp-Source: AGHT+IHTC8YB+104SGMNaJvSSsUBF7Jns183stPdUQjc+afzc+5XBHOdKHfqwF26pT+CVg4/tI45ng==
-X-Received: by 2002:a05:600c:468d:b0:42c:aeee:80c with SMTP id 5b1f17b1804b1-4319ad74341mr158179235e9.9.1730904352565;
-        Wed, 06 Nov 2024 06:45:52 -0800 (PST)
-Received: from [172.16.24.83] ([154.14.63.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa6b2a3bsm25743395e9.11.2024.11.06.06.45.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Nov 2024 06:45:52 -0800 (PST)
-Message-ID: <52f9bfc5-b2c5-47d0-b790-913dc8a8631e@linaro.org>
-Date: Wed, 6 Nov 2024 15:45:50 +0100
+	Wed, 06 Nov 2024 14:50:21 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A6EoGQR128579;
+	Wed, 6 Nov 2024 08:50:16 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730904616;
+	bh=efS7acrXh5DSwLU5SzsYhrAffKDNrSh6CsFPp+MqqO8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=uz7Wy61NG52aUG4vO4CcVaa8rbIdwKQxfFw17U4hcchUIUS+SnjsA/oNgZQWJ7E/+
+	 gaMcdGmDU7OA3eWc7xWSW9dOSvyNwRd4R38h3cvjAtLFK2paUAYiOsxAftbIfE5U/C
+	 k7SUDZnXCzWW5+TghopuTYcov2Nhy2+YNCMUfWDo=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6EoGGs110252;
+	Wed, 6 Nov 2024 08:50:16 -0600
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 08:50:15 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 08:50:15 -0600
+Received: from [10.249.129.69] ([10.249.129.69])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6EoBrI125773;
+	Wed, 6 Nov 2024 08:50:12 -0600
+Message-ID: <4891b955-b2aa-4590-9369-65a4b77ce0fa@ti.com>
+Date: Wed, 6 Nov 2024 20:20:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm64: dts: ti: k3-am642-evm: Add dt overlay to disable
  icssg for Linux
-To: MD Danish Anwar <danishanwar@ti.com>, vigneshr@ti.com, nm@ti.com
-Cc: conor+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- robh+dt@kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kristo@kernel.org, srk@ti.com, Roger Quadros <rogerq@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        MD Danish Anwar
+	<danishanwar@ti.com>, <vigneshr@ti.com>, <nm@ti.com>
+CC: <conor+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+        <robh+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kristo@kernel.org>, <srk@ti.com>, Roger Quadros <rogerq@kernel.org>
 References: <20241030114458.1358800-1-danishanwar@ti.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ <52f9bfc5-b2c5-47d0-b790-913dc8a8631e@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+FiEE
- m9B+DgxR+NWWd7dUG5NDfTtBYpsFAmI+BxMCGwMFCRRfreEFCwkIBwIGFQoJCAsCBBYCAwEC
- HgECF4AACgkQG5NDfTtBYptgbhAAjAGunRoOTduBeC7V6GGOQMYIT5n3OuDSzG1oZyM4kyvO
- XeodvvYv49/ng473E8ZFhXfrre+c1olbr1A8pnz9vKVQs9JGVa6wwr/6ddH7/yvcaCQnHRPK
- mnXyP2BViBlyDWQ71UC3N12YCoHE2cVmfrn4JeyK/gHCvcW3hUW4i5rMd5M5WZAeiJj3rvYh
- v8WMKDJOtZFXxwaYGbvFJNDdvdTHc2x2fGaWwmXMJn2xs1ZyFAeHQvrp49mS6PBQZzcx0XL5
- cU9ZjhzOZDn6Apv45/C/lUJvPc3lo/pr5cmlOvPq1AsP6/xRXsEFX/SdvdxJ8w9KtGaxdJuf
- rpzLQ8Ht+H0lY2On1duYhmro8WglOypHy+TusYrDEry2qDNlc/bApQKtd9uqyDZ+rx8bGxyY
- qBP6bvsQx5YACI4p8R0J43tSqWwJTP/R5oPRQW2O1Ye1DEcdeyzZfifrQz58aoZrVQq+innR
- aDwu8qDB5UgmMQ7cjDSeAQABdghq7pqrA4P8lkA7qTG+aw8Z21OoAyZdUNm8NWJoQy8m4nUP
- gmeeQPRc0vjp5JkYPgTqwf08cluqO6vQuYL2YmwVBIbO7cE7LNGkPDA3RYMu+zPY9UUi/ln5
- dcKuEStFZ5eqVyqVoZ9eu3RTCGIXAHe1NcfcMT9HT0DPp3+ieTxFx6RjY3kYTGLOwU0EVUNc
- NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
- hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
- oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
- H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
- yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
- 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
- 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
- +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
- FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
- 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
- DFH41ZZ3t1Qbk0N9O0FimwUCYDzvagUJFF+UtgAKCRAbk0N9O0Fim9JzD/0auoGtUu4mgnna
- oEEpQEOjgT7l9TVuO3Qa/SeH+E0m55y5Fjpp6ZToc481za3xAcxK/BtIX5Wn1mQ6+szfrJQ6
- 59y2io437BeuWIRjQniSxHz1kgtFECiV30yHRgOoQlzUea7FgsnuWdstgfWi6LxstswEzxLZ
- Sj1EqpXYZE4uLjh6dW292sO+j4LEqPYr53hyV4I2LPmptPE9Rb9yCTAbSUlzgjiyyjuXhcwM
- qf3lzsm02y7Ooq+ERVKiJzlvLd9tSe4jRx6Z6LMXhB21fa5DGs/tHAcUF35hSJrvMJzPT/+u
- /oVmYDFZkbLlqs2XpWaVCo2jv8+iHxZZ9FL7F6AHFzqEFdqGnJQqmEApiRqH6b4jRBOgJ+cY
- qc+rJggwMQcJL9F+oDm3wX47nr6jIsEB5ZftdybIzpMZ5V9v45lUwmdnMrSzZVgC4jRGXzsU
- EViBQt2CopXtHtYfPAO5nAkIvKSNp3jmGxZw4aTc5xoAZBLo0OV+Ezo71pg3AYvq0a3/oGRG
- KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
- fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241030114458.1358800-1-danishanwar@ti.com>
-Content-Type: text/plain; charset=UTF-8
+From: "Anwar, Md Danish" <a0501179@ti.com>
+In-Reply-To: <52f9bfc5-b2c5-47d0-b790-913dc8a8631e@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_064554_987950_2B6D860E 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_065020_278026_AC51C96A 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,17 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2024 12:44, MD Danish Anwar wrote:
-> Add k3-am642-evm-icssg1-disable.dtso overlay file that disables
-> icssg1-eth from Linux so that icssg peripherals can be used by
-> RTOS or some other OS running on R5 core.
+
+
+On 11/6/2024 8:15 PM, Krzysztof Kozlowski wrote:
+> On 30/10/2024 12:44, MD Danish Anwar wrote:
+>> Add k3-am642-evm-icssg1-disable.dtso overlay file that disables
+>> icssg1-eth from Linux so that icssg peripherals can be used by
+>> RTOS or some other OS running on R5 core.
+>>
+> 
+> I first approach privately but you deny, so let's make it public: this
+> is based on some old kernel. Please don't. You need to rebase and work
+> on recent kernel.
 > 
 
-I first approach privately but you deny, so let's make it public: this
-is based on some old kernel. Please don't. You need to rebase and work
-on recent kernel.
+I might have not re-based it on latest kernel before posting this. Will
+make sure to re-base on the latest kernel.
 
-Best regards,
-Krzysztof
+> Best regards,
+> Krzysztof
+> 
 
+-- 
+Thanks and Regards,
+Md Danish Anwar
 
