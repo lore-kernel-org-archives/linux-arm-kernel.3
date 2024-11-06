@@ -4,88 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6840D29F9D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 06:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C60D29F9D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SNsUUFVROgEAFUOuehxQDjiKtWvJbtWkNJ0nAOnJ+wc=; b=MWF82WKGYBXcGyBGX3BSSyFbVB
-	GKO7XhIRrBgK0n0tps0op5OrQc53JdSoB2mQ/Hi97VTXlzwMZCFghXkdUc9POn1NpOT5lb6VRMwth
-	FgtBp+qzxW73zqk2GE0KqiPxvk46T+r5UGpd3MsRBMBRvKfz4qfr6BWXlcXh1e3P95k5nv8djB3LY
-	29wZCBEw0MFEQahofLDPXjwFhxmDxxb6u0oM+C591LTQ/gllm0S5Zh4FOz/FTqcN9hVF/n4AZHrGp
-	fhaDYnP4Ed4yY91bts7ywCYq72rxW2tSywhDQJVesLNbYKZRlZj4ZhvS/jS6rl4rq9pFbhocS/HMi
-	k9S4XbtQ==;
+	bh=cprnL8UiFwQzL/WrdFftKzEgHGjA7PfGU1YQSXHETos=; b=o67Lskqirnua+PPA9ahKuJLb6A
+	sQf+XJZtZnNinF4umnmfk5OLudeftZxcBnFmjvxZSjEGkokaSlTjdF+gXWy1LIjACoeXKVxc5uCNB
+	mwEqCCWlgwmrqxi3A+fwWmJfKgre0arTEKL3XsKAEDwwZl4w82p9GaCnOJmXOaWtvUZQ4xRIeGhQG
+	Z/Pc3ZLmi2NU61MUag1GkLJoit3XscCbx0aTFwV0p2/bDkxNWVjH92pAEegKbbyxQT+w8cmK1RRg7
+	A9Rn4Pc8muVdyNj22tbjdNbmwbnA+HRsBwqRPaRkpyxLvTEaRsjvIm34ulbJ7dSsQN6ZfzWNCrWKq
+	AdUGLmsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Zzf-000000023HJ-0ggH;
-	Wed, 06 Nov 2024 06:58:19 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1t8a4v-000000023l5-3ysE;
+	Wed, 06 Nov 2024 07:03:46 +0000
+Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Zxw-0000000237U-1e9X;
-	Wed, 06 Nov 2024 06:56:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730876192; x=1762412192;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7Blh7p02YI4RwiQup76IUOMLyinN3Qo+MpfCB2iFvv8=;
-  b=eiKQTj8He7m4DLB3sU9JC7vT5B8ICCmvbpboTZV0P77ju5rmHHoCKe2g
-   qCyIA7iUeKtwRHq9TyszLoXMo7/lU/NUGMqwVxdkntnM5L2Mf0WKZsAIQ
-   dUq4sD3mlDf/FfIs76lJSM22Ftl4U5/6nsnQmXoCkn3mRhdFb8VPv93b3
-   5THn6q1xhmpY9U+UEwroFpm0M4nrQbavh3T7vd4jSxiUilR+dRysdtqXr
-   P3t2wKPMefCnyFahFIuEX+642E/TGjLWvyKk2YjgVVX4K4Qhk4XynhDRG
-   Ro1EQgl3fjVYwOAwAY881G6OPDJDwZMwxQWFT0TgT6S8A6NiayyS07nyr
-   g==;
-X-CSE-ConnectionGUID: ZomVP0eDTxOAvh0kDqALZA==
-X-CSE-MsgGUID: Wa78mq0+Txm7nZexrHA1jQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11247"; a="41285078"
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="41285078"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2024 22:56:31 -0800
-X-CSE-ConnectionGUID: suoCvPbpTgCv3vpY5bfu7w==
-X-CSE-MsgGUID: 79adoSYUTq+OVmjKJvESiw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,262,1725346800"; 
-   d="scan'208";a="84308090"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 05 Nov 2024 22:56:12 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t8ZxZ-000n1a-2o;
-	Wed, 06 Nov 2024 06:56:09 +0000
-Date: Wed, 6 Nov 2024 14:55:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sky Huang <SkyLake.Huang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, Steven Liu <Steven.Liu@mediatek.com>,
-	"SkyLake.Huang" <skylake.huang@mediatek.com>
-Subject: Re: [PATCH net-next v2 4/5] net: phy: mediatek: Integrate read/write
- page helper functions
-Message-ID: <202411061420.eK9LoyP8-lkp@intel.com>
-References: <20241105141911.13326-5-SkyLake.Huang@mediatek.com>
+	id 1t8a3C-000000023ZT-3Gzb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 07:02:00 +0000
+Received: from phl-compute-08.internal (phl-compute-08.phl.internal [10.202.2.48])
+	by mailfout.phl.internal (Postfix) with ESMTP id 1D21F138013C;
+	Wed,  6 Nov 2024 02:01:57 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-08.internal (MEProxy); Wed, 06 Nov 2024 02:01:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1730876517;
+	 x=1730962917; bh=cprnL8UiFwQzL/WrdFftKzEgHGjA7PfGU1YQSXHETos=; b=
+	Bu7zWX9KLsSF8WY/LuaCK1MPoVWnK7l4Y0Llv7OHZeA7gSbfQevck3AgeRQ2qvwS
+	A0ZQDKguQUOuCka+ZBJKqudJkbCjTdWfQaPX193UlGK6nOG9RIrfJK0KYrQg8XZ1
+	r1RpuH/sbfX2d7fhVcqYrZfAVgdSjkpg2V6UQGvyP8tSGnQZ/1E+Sa68sgDxNcQO
+	IFJrO1//EhADGVIU0MIp6QEqSY3LaaGnulJsppen99aCmt15OZwQ6P9XFSXuOMuL
+	nop5bM4QuQIYJ7KWArKaude2uhh86EbD19xAmTBNPuqn/qjYDU8lxX6lNccjXuNX
+	dPtNq/lwzoIECGDMK7NIMQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1730876517; x=
+	1730962917; bh=cprnL8UiFwQzL/WrdFftKzEgHGjA7PfGU1YQSXHETos=; b=e
+	9Q77xqHbWl/KJ3XbEP3ujy1zzen0vLcdby60M3Af4yXhkIoa36tzBb3qDn+u//S/
+	iO3YFM6TMc9/TMrTwJvOcC/IZNTq4UlvQqDJYXSYntnguF1MevJxmvjX2OoVjcS2
+	PBcqd28yuXYUxCElS0Jw3waO7nK7Wb4+IyCtplJv+IJ/ACviaXnlL0zz0Hlyd9rR
+	hV2cNc4KOv/n1XDjnDY/1H95kKY8KAv/+mTn3+Zfid5jmlyizo4ZGLglMniAExKm
+	wJGFEu5srp0Yu1pKYJ2mYgSasPrkPvlFl1cfNhboYqaWoRXP3tHcHvTI/bdDaJhb
+	8yLSrDnq1DIUPwzaS/MQQ==
+X-ME-Sender: <xms:YxQrZ-4PL29SD9AMNCjrk4Fg2oPhCy1s-z1Z1whB_-9yVRaI-_NXRA>
+    <xme:YxQrZ364t_ptQHLMZsW_XrVTFKTOIyeTb7bXRlcyI5PoTDlXS5tHWonRATwVLGZB2
+    7cBakYHBy_KaSn4W8w>
+X-ME-Received: <xmr:YxQrZ9cZgx8Tqjtq3IES5qYtOJoDCEuTvUyg8R4JL3bNC7eLYyOCkZ3tyFYn2Vxkfuq3eIv2tBma-gZTqoITqqlHaCPSOMVmTGM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrtddugddutdefucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggugfgjsehtkeertddttdej
+    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
+    cuggftrfgrthhtvghrnhepveefkeeuudettddvffevhfevvdekhffgveehfefhffehfeet
+    gfetffeugfevfefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeduvddpmhhouggv
+    pehsmhhtphhouhhtpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhrtghpthhtohepshhvvghn
+    sehsvhgvnhhpvghtvghrrdguvghvpdhrtghpthhtoheprghlhihsshgrsehrohhsvghnii
+    ifvghighdrihhopdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrod
+    gutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhi
+    nhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhish
+    htshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:YxQrZ7KWIL1PLVuPebP1JPoj7LZvkenJ7gD4QKAymmGiswEcPaq5LA>
+    <xmx:YxQrZyLan1K6P42UA47EhgE6HyUodfJpQKT9Ghcl1s3vVpO_6aBbbA>
+    <xmx:YxQrZ8wISeA-D-fL7XRz-oJvFTh9m65ZaDvkzD1uG-M0GP6ljoqldg>
+    <xmx:YxQrZ2KYrZPynxOMFFO_cBqC3lwgl8uRvvvSslDGpfZhfOGEXd80Gw>
+    <xmx:ZRQrZ0B1WE2iuezHwdzgTKxzPlPsBLu-fGR0Fs36Jo5hJ-_5eee0Ncue>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 6 Nov 2024 02:01:55 -0500 (EST)
+Date: Wed, 6 Nov 2024 08:01:52 +0100
+From: Janne Grunau <j@jannau.net>
+To: Mark Brown <broonie@kernel.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] spi: apple: Add driver for Apple SPI controller
+Message-ID: <20241106070152.GA928468@robin.jannau.net>
+References: <20241105-asahi-spi-v4-0-d9734f089fc9@jannau.net>
+ <20241105-asahi-spi-v4-2-d9734f089fc9@jannau.net>
+ <947246c5-b9e6-43e7-a516-7b82136e6e8e@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241105141911.13326-5-SkyLake.Huang@mediatek.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <947246c5-b9e6-43e7-a516-7b82136e6e8e@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_225632_734065_6257602B 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20241105_230159_586752_184054BC 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sky,
+On Tue, Nov 05, 2024 at 01:58:36PM +0000, Mark Brown wrote:
+> On Tue, Nov 05, 2024 at 09:08:30AM +0100, Janne Grunau wrote:
+> > From: Hector Martin <marcan@marcan.st>
+> > 
+> > This SPI controller is present in Apple SoCs such as the M1 (t8103) and
+> > M1 Pro/Max (t600x). It is a relatively straightforward design with two
+> > 16-entry FIFOs, arbitrary transfer sizes (up to 2**32 - 1) and fully
+> > configurable word size up to 32 bits. It supports one hardware CS line
+> > which can also be driven via the pinctrl/GPIO driver instead, if
+> > desired. TX and RX can be independently enabled.
+> 
+> This breaks the build with current code:
+> 
+> /build/stage/linux/drivers/spi/spi-apple.c: In function ‘apple_spi_probe’:
+> /build/stage/linux/drivers/spi/spi-apple.c:463:16: error: implicit declaration o
+> f function ‘devm_spi_alloc_master’; did you mean ‘devm_spi_alloc_target’? [-Werr
+> or=implicit-function-declaration]
+>   463 |         ctlr = devm_spi_alloc_master(&pdev->dev, sizeof(struct apple_spi
+> ));
+>       |                ^~~~~~~~~~~~~~~~~~~~~
+>       |                devm_spi_alloc_target
+> /build/stage/linux/drivers/spi/spi-apple.c:463:14: error: assignment to ‘struct 
+> spi_controller *’ from ‘int’ makes pointer from integer without a cast [-Werror=
+> int-conversion]
+>   463 |         ctlr = devm_spi_alloc_master(&pdev->dev, sizeof(struct apple_spi
+> ));
+>       |              ^
+> cc1: all warnings being treated as errors
+> 
+> It needs an update for the retirement of the old API name.
 
-kernel test robot noticed the following build errors:
+A pitty that there is no good way to enable deprecated warnings just for
+new code.
+Switched to devm_spi_alloc_host() and changed the prefix for
+the bindings commit msg to "spi: dt-bindings:".
 
-[auto build test ERROR on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Sky-Huang/net-phy-mediatek-Re-organize-MediaTek-ethernet-phy-drivers/20241105-222556
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20241105141911.13326-5-SkyLake.Huang%40mediatek.com
-patch subject: [PATCH net-next v2 4/5] net: phy: mediatek: Integrate read/write page helper functions
-config: hexagon-randconfig-002-20241106 (https://download.01.org/0day-ci/archive/20241106/202411061420.eK9LoyP8-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241106/202411061420.eK9LoyP8-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411061420.eK9LoyP8-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> ld.lld: error: undefined symbol: mtk_phy_read_page
-   >>> referenced by mtk-ge.c
-   >>>               drivers/net/phy/mediatek/mtk-ge.o:(mtk_gephy_driver) in archive vmlinux.a
-   >>> referenced by mtk-ge.c
-   >>>               drivers/net/phy/mediatek/mtk-ge.o:(mtk_gephy_driver) in archive vmlinux.a
---
->> ld.lld: error: undefined symbol: mtk_phy_write_page
-   >>> referenced by mtk-ge.c
-   >>>               drivers/net/phy/mediatek/mtk-ge.o:(mtk_gephy_driver) in archive vmlinux.a
-   >>> referenced by mtk-ge.c
-   >>>               drivers/net/phy/mediatek/mtk-ge.o:(mtk_gephy_driver) in archive vmlinux.a
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+thanks
+Janne
 
