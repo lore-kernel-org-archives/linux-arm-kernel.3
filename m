@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B2DD44D57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA86D44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 12:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRu3U7TUo0Hx7e9QqYQ6NdG3rIvTztattNfWqBF7hKU=; b=GAX+cJzBpsdiyK/TJU7lypRok9
-	FEiQhSHjS0b7ws9S2754aPBO3HVumYkRtiN31Js5PoV2TXtKewVD1ZDff/9iblxfX6ejkiqp3yqGi
-	SMdOU0PTIyn3x21OagknlWFSTYCW7BwuqdRcfT2DNEFGQWYcS3Q7m7fN4Dv/xrCwYXroraXpwn2Js
-	lGnpNv2CQ6odTwNk82pEEJn3ezIGObiMOo3y9DCzsgn6Nwa31yaFMxXRL3wHgxnuR9bzgSUuciy66
-	Q6hMGA8381irADxL9v/ZFnkf83lodsoCs10Z2RbL0XBbYAFh0pfgmwXw3laWbXcTEu9bLlPoU0Ck8
-	puij6ewQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7GJ5E8z9IAG02tIa6zRu8hniKsaqoJVZeW93ACvhTNk=; b=Q+SSJF25cHzSgHw+9mGeB6K28X
+	kOvXZ7DTM0heINjvUe8r5DAMCLCCE6/rJU+kBzxpNVAND5TvmS6SW27dBQ3/R663ltjjWXaSwJEPc
+	+q7NWHQuwKD28s8yoMnKr6WxCL0D+ZrOFzcHbBvWKht+0AY9cFTTyKKCuk44fGefFoa1EIwFdUuIk
+	e+KfC/THti56yaUjq/s9WeglDb/khc0WdWghUHK4lWvWe7JcZgZh4gBc8gT3Pt2P6Nd1k2pj/blnX
+	Qo5yR+olcSr1s7SrKZHpWLDK2mZ8pnRCc06tjWGrvVDEy7o/bWEq6x5Ibbqgc54XIk3YCARLtinvo
+	gtH3pQvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fFq-00000003D9R-2eE3;
-	Wed, 06 Nov 2024 12:35:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8fL0-00000003G8y-4Aiu;
+	Wed, 06 Nov 2024 12:40:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eRN-00000002xxS-0sYd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 11:43:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 608FEA435E7;
-	Wed,  6 Nov 2024 11:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D46F5C4CECD;
-	Wed,  6 Nov 2024 11:43:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730893392;
-	bh=CZlxUMF7h6qY7n2j8niZdY+BvTgqh4tqKKQndIQgF1s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f55ksqmW4WB2ytuUuaXqtOk6lZw8OU1h4fp86og9ZiCOIrMBrE56cTF38d2+5GMu7
-	 RSx7v4nNpm3AYPjXHPDyHlzDP0hBlB8hOk/HMZ5ZmqQpWIcJEonVGFgVvOASKI2Xyd
-	 YtJwHV7PoP5fIKWwwT0r4zCG0pKoLDeB7lP16WpRXeL1XJKtcY/m3vFTDPBeAoy47/
-	 MbtHn3oXogSwreZvOTbEJFIQlcWBw6/KsIsmU+PRtStWAvMUjrci7TvZxitmIHLKCk
-	 wvEs4Os+qFnvW6z1kAdtHpan1tvKOx5EZYKz3it1Arl35EeafMmG9mpb/Y0m9S5Ib5
-	 1Bq/ZfwniUT7g==
-Date: Wed, 6 Nov 2024 11:43:03 +0000
-From: Will Deacon <will@kernel.org>
-To: Haris Okanovic <harisokn@amazon.com>
-Cc: ankur.a.arora@oracle.com, catalin.marinas@arm.com,
-	linux-pm@vger.kernel.org, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	pbonzini@redhat.com, wanpengli@tencent.com, vkuznets@redhat.com,
-	rafael@kernel.org, daniel.lezcano@linaro.org, peterz@infradead.org,
-	arnd@arndb.de, lenb@kernel.org, mark.rutland@arm.com,
-	mtosatti@redhat.com, sudeep.holla@arm.com, cl@gentwo.org,
-	misono.tomohiro@fujitsu.com, maobibo@loongson.cn,
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com
-Subject: Re: [PATCH 2/5] arm64: add __READ_ONCE_EX()
-Message-ID: <20241106114302.GB13801@willie-the-truck>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
- <20241105183041.1531976-1-harisokn@amazon.com>
- <20241105183041.1531976-3-harisokn@amazon.com>
+	id 1t8fBq-00000003CWW-2nKe;
+	Wed, 06 Nov 2024 12:31:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730896273;
+	bh=A90cgTlUFFZc5KiS7CX3bzI9MZt05fj3oUZ7b1bgZxA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NyTq7xisbYlabWUUc2K6qfI2wmbfSFW3KysBoZPNfPboGrQNmJk9AZRBVzMofpnYg
+	 FuK93OA5HA3VEPgysk6Gu7wOzc3tmnUnEcT+H7PKR+iBYtrD6e7a0Tp8U9gZSUBEdD
+	 f3/YBkGJPcL4P2dK+wbxFuWgEK2UHpmC3dI7Z4AmYFMmvAorQfSO4CwVFMXJkqpq/C
+	 /cbJOc1ufSCCmMDFSUlexp6/LXd3m5iAuGki2yHxGWsPAhOLzj0LCt6WGQmEGRev5z
+	 rkqxrbszgEAji/rmNeIqa8CJx4nCD51II/TI29DicPLOy550PMnsul9qLff86pwgkv
+	 FvU6E7Vvb6VIQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7A7817E3629;
+	Wed,  6 Nov 2024 13:31:12 +0100 (CET)
+Message-ID: <2bd7a02d-c5bc-4926-8aee-0eed6eb490a2@collabora.com>
+Date: Wed, 6 Nov 2024 13:31:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241105183041.1531976-3-harisokn@amazon.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] watchdog: mediatek: Fix mtk_wdt_restart
+To: Yassine Oudjana <y.oudjana@protonmail.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241106104738.195968-1-y.oudjana@protonmail.com>
+ <20241106104738.195968-2-y.oudjana@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241106104738.195968-2-y.oudjana@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_034313_405803_DC36CDB7 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20241106_043114_906670_F610CDDF 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 05, 2024 at 12:30:38PM -0600, Haris Okanovic wrote:
-> Perform an exclusive load, which atomically loads a word and arms the
-> exclusive monitor to enable wfet()/wfe() accelerated polling.
+Il 06/11/24 11:47, Yassine Oudjana ha scritto:
+> Clear the IRQ enable bit of WDT_MODE before asserting software reset
+> in order to make TOPRGU issue a system reset signal instead of an IRQ.
 > 
-> https://developer.arm.com/documentation/dht0008/a/arm-synchronization-primitives/exclusive-accesses/exclusive-monitors
-> 
-> Signed-off-by: Haris Okanovic <harisokn@amazon.com>
+> Fixes: a44a45536f7b ("watchdog: Add driver for Mediatek watchdog")
+> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
+
+I'd be more comfortable with a title like:
+
+watchdog: mediatek: Make sure system reset gets asserted in mtk_wdt_restart()
+
+or along those lines, saying what's this commit about, because a generic
+"fix" doesn't really mean anything...
+
+About the commit description - that's good.
+Btw, I wonder if maintainers can fix the title without you sending a v3...
+
+Anyway - you can get my:
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+Cheers!
+Angelo
+
 > ---
->  arch/arm64/include/asm/readex.h | 46 +++++++++++++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
->  create mode 100644 arch/arm64/include/asm/readex.h
+>   drivers/watchdog/mtk_wdt.c | 6 ++++++
+>   1 file changed, 6 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/readex.h b/arch/arm64/include/asm/readex.h
-> new file mode 100644
-> index 000000000000..51963c3107e1
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/readex.h
-> @@ -0,0 +1,46 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Based on arch/arm64/include/asm/rwonce.h
-> + *
-> + * Copyright (C) 2020 Google LLC.
-> + * Copyright (C) 2024 Amazon.com, Inc. or its affiliates.
-> + */
+> diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+> index c35f85ce8d69c..e2d7a57d6ea2e 100644
+> --- a/drivers/watchdog/mtk_wdt.c
+> +++ b/drivers/watchdog/mtk_wdt.c
+> @@ -225,9 +225,15 @@ static int mtk_wdt_restart(struct watchdog_device *wdt_dev,
+>   {
+>   	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
+>   	void __iomem *wdt_base;
+> +	u32 reg;
+>   
+>   	wdt_base = mtk_wdt->wdt_base;
+>   
+> +	/* Enable reset in order to issue a system reset instead of an IRQ */
+> +	reg = readl(wdt_base + WDT_MODE);
+> +	reg &= ~WDT_MODE_IRQ_EN;
+> +	writel(reg | WDT_MODE_KEY, wdt_base + WDT_MODE);
 > +
-> +#ifndef __ASM_READEX_H
-> +#define __ASM_READEX_H
-> +
-> +#define __LOAD_EX(sfx, regs...) "ldaxr" #sfx "\t" #regs
-> +
-> +#define __READ_ONCE_EX(x)						\
-> +({									\
-> +	typeof(&(x)) __x = &(x);					\
-> +	int atomic = 1;							\
-> +	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
-> +	switch (sizeof(x)) {						\
-> +	case 1:								\
-> +		asm volatile(__LOAD_EX(b, %w0, %1)			\
-> +			: "=r" (*(__u8 *)__u.__c)			\
-> +			: "Q" (*__x) : "memory");			\
-> +		break;							\
-> +	case 2:								\
-> +		asm volatile(__LOAD_EX(h, %w0, %1)			\
-> +			: "=r" (*(__u16 *)__u.__c)			\
-> +			: "Q" (*__x) : "memory");			\
-> +		break;							\
-> +	case 4:								\
-> +		asm volatile(__LOAD_EX(, %w0, %1)			\
-> +			: "=r" (*(__u32 *)__u.__c)			\
-> +			: "Q" (*__x) : "memory");			\
-> +		break;							\
-> +	case 8:								\
-> +		asm volatile(__LOAD_EX(, %0, %1)			\
-> +			: "=r" (*(__u64 *)__u.__c)			\
-> +			: "Q" (*__x) : "memory");			\
-> +		break;							\
-> +	default:							\
-> +		atomic = 0;						\
-> +	}								\
-> +	atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
-> +})
+>   	while (1) {
+>   		writel(WDT_SWRST_KEY, wdt_base + WDT_SWRST);
+>   		mdelay(5);
 
-I think this is a bad idea. Load-exclusive needs to be used very carefully,
-preferably when you're able to see exactly what instructions it's
-interacting with. By making this into a macro, we're at the mercy of the
-compiler and we give the wrong impression that you could e.g. build atomic
-critical sections out of this macro.
 
-So I'm fairly strongly against this interface.
-
-Will
 
