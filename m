@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C346D44D77
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB36D44D75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4PRWrlBN1fe5GdIYQH69+o+IM6TaCweq1lKM6yKDoek=; b=iycvojYB90qnOy93XTQjAoT9sU
-	ei1ZpIXpmL/bgsLB55AN8hdq+dCuqe0UIHCKvTGxCBec1aoJmQC4pdy+3M3wvjVRZFcljTC4Rt+D0
-	RU7uGqCsDC6sezW0dzmFXVo+z2Mx9wMMi+OuEn1X9JCbmoxPhr1yF9dEGMCBxg3jYvCgr57lTgfE8
-	BkRz6/sK8hJWV/2EUh17uTkGEvw9CPWLOcr6PUc0Lt8mM+R9TODTj8vW9lh6IRSVe+Tn/nXSEHqeV
-	turETUYo9n4zqooQEPjBvJRWsg5dEP2pgB8BhaqnOrjqr+ohKo1QFFGVjs1I97mnV8kg77CrAxoXk
-	r0JW4Hag==;
+	bh=BNTsaYFvcdTX0Wb0OiiTSdCFogGY84Psmg3dgcA2ZBU=; b=c0avRrJEWKbQTQX8fKu96zj8kA
+	TPaOKdPgPwbaG2thwERAsasjNrN/ls81xTE6PudIQRm8fY3RpxrsSkwd/Cu5rtHrCPrEKX4kSzxQx
+	10VWQ06Wzny2P7MeQ83iJnbp3DTtypsrXRWiFDKoWHRbvJm7LhOCyV1T1nbkKzCxDGtamX7yuPGiv
+	eJ5thgcCNTDkZ/VrlzDT4Ph8XLYH1DIvsfybVuXeTmYMZPI6OZsbkSdpAAp+irEFiaV07nx72uPBM
+	WXJf7v+dXfIFYCHnVZqpYoym3dbrlqp/iaJtLDtatZeoRVsoVI9EuP3amLv/NchAleT1sALQuliEU
+	7KVHBmwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gsh-00000003ZsV-29a0;
-	Wed, 06 Nov 2024 14:19:35 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1t8guN-00000003a7x-2rzC;
+	Wed, 06 Nov 2024 14:21:19 +0000
+Received: from mail-pl1-f171.google.com ([209.85.214.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gXs-00000003W2U-1xiU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:58:05 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 60E85475;
-	Wed,  6 Nov 2024 14:57:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1730901474;
-	bh=JHxLQgSLWdft8dSzdvbt7oLzbR8ccNpS8nioRv0vsWc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l7cFdtyrLuTL573iQmGDrUByPoITVRPQxVYPi2KCf4Z/HiY8P4yZM8J5yLQi1eEJa
-	 HEU2+dt6x9zxxzatiMNtPjyM60RInhwTuyv+f9hEaoEkuOzFo7oaEZuMTvHN7fPsCz
-	 RVAjsnjvYS14JVV9hzz6PM2uqTSBptXcZWDCBsek=
-Date: Wed, 6 Nov 2024 15:57:56 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	robh+dt@kernel.org, mchehab@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
-	sakari.ailus@iki.fi
-Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <20241106135756.GI9369@pendragon.ideasonboard.com>
-References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
- <20241106100534.768400-6-dan.scally@ideasonboard.com>
- <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
+	id 1t8gc0-00000003Wm2-4A5R;
+	Wed, 06 Nov 2024 14:02:22 +0000
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-20cf3e36a76so70778435ad.0;
+        Wed, 06 Nov 2024 06:02:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730901739; x=1731506539;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BNTsaYFvcdTX0Wb0OiiTSdCFogGY84Psmg3dgcA2ZBU=;
+        b=g7pPxb1CbjnSIQcPrVMXEKmj1EDSd9FRmxBTbNMDm6Xn/w33QP2r9HUN7vsy0kp0Xr
+         h23c0fhiICM519NtUTiqv5fRn7HHbHHK6l2G5WEypnysv6iqeKL1fgEHjtiLTM1ETF7U
+         CRmzrfTruI10ymtIbVk9gZCbNUZuOen7LKHJg2CI7cRUt0YNyEeAEM8sYKvRdOxhPtUu
+         sp2K8tHkOyf/FQsM/fqMlXRqMuzpDzzoMR/PFVYUwwQIPWP8Yr22Z+wKCI/nQD5V2OGZ
+         5Y1gI2Ml72/qQ5R0bh/cJGoGmZv3DRdhcA/1qKMLTW8lHmMl4yslvBOyZ4P3BS8k5dLQ
+         w/Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCWj8qzs/fBc1vQkIkdVsWKlGeEyQFA73wm+zSS+Y6Cw4HCU0J8kGJcSPMHc9BoKa/VwA/5nQpxK+AoAOD45TbaA@lists.infradead.org, AJvYcCX6n0jQ9KFE8fWi3AE84zJ7njdowGftkDb0gJu6uHgjIfFMy+w451tTBB1Dz2IEQ/k9JOGhqFLGFbqKAl09BoA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT5ziaVZnr9sNRWJqPWXGA6IvutwZTh49r4Sn80w4IjIHcjuEc
+	ZFRvYGM8dVSq2vJrFeHpHU4e1gj6Or0IhgD8BW7oldoNE07V+3zw
+X-Google-Smtp-Source: AGHT+IG0KnpOVHJ6+FPyEIHnirGzIJjQbRttLyC4hJlcGX6Aev5lMijV1T5yRMGkqHzmL80DPHdBew==
+X-Received: by 2002:a17:903:2286:b0:20c:5fd7:d71 with SMTP id d9443c01a7336-21103ace2aemr335361755ad.22.1730901739340;
+        Wed, 06 Nov 2024 06:02:19 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211056ef5f6sm96699695ad.8.2024.11.06.06.02.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 06:02:18 -0800 (PST)
+Date: Wed, 6 Nov 2024 23:02:17 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
+	jianjun.wang@mediatek.com, lpieralisi@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, matthias.bgg@gmail.com,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	fshao@chromium.org,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Subject: Re: [PATCH v4 2/2] PCI: mediatek-gen3: Add support for restricting
+ link width
+Message-ID: <20241106140217.GA2745640@rocinante>
+References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com>
+ <20241104114935.172908-3-angelogioacchino.delregno@collabora.com>
+ <20241104132046.GA2504924@rocinante>
+ <e2e41af9-ed09-4ac5-9481-e605d1340b3d@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
+In-Reply-To: <e2e41af9-ed09-4ac5-9481-e605d1340b3d@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_055804_671402_D6015E18 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20241106_060221_047202_897AFD18 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +88,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hello,
 
-On Wed, Nov 06, 2024 at 01:15:23PM +0100, Krzysztof Kozlowski wrote:
-> On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
-> > Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
-> > 
-> > Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> > Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > ---
-> > Changes in v8:
-> > 
-> > 	- Added the video clock back in. Now that we have actual hardware it's
-> > 	  clear that it's necessary.
-> > 	- Added reset lines 
-> > 	- Dropped R-bs
-> 
-> These are trivial, so I wish you kept the review... but since you ask,
-> then comment further
-> 
-> I recommend using b4, so your cover letter changelog comes with nice
-> links to previous versions. I scrolled through entire cover letter for
-> this (for me that's almost the only point of cover letter) and could
-> not find them. Anyway, just a remark.
-> 
-> 
-> ...
-> 
-> > +  resets:
-> > +    items:
-> > +      - description: vclk domain reset
-> > +      - description: aclk domain reset
-> > +      - description: hclk domain reset
-> > +
-> > +  reset-names:
-> > +    items:
-> > +      - const: vresetn
-> 
-> drop "reset", it's redundant and rather come here with logical name. I
-> wonder what "n" means as well. It's not a GPIO to be "inverted"...
+> > Does this make sense here?  Thoughts?
+[...]
+> There's a problem here: this property has to be optional - and if you change that
+> to return like that, you're breaking compatibility with older device trees, which
+> are not specifying any "num-lanes" property.
 
-The aresetn and hresetn names come directly from a hardware manual
-(vresetn seems to be called rstn in that document though). As far as I
-understand, they are the names of the external signals of the IP core.
-I tend to pick the hardware names for clock and reset names. That makes
-it easier for integrators, and from a driver point of view it doesn't
-change much as DT names are just a convention anyway.
+Makes sense.  I will keep your version.  Thank you!
 
-That being said, if there's a good reason to do otherwise (such as
-standardizing property names to make handling through common code
-possible), that's fine too.
-
-> I wonder about reset domains for clocks as well... is this just gate
-> clock misrepresented?
-
-No, those are real reset signals. There can be clock gates external to
-the IP, and those are handled by the clock providers. The IP has three
-domains of logical that are synchronous to three different clocks, and
-they have one reset signal each, hence the description mentioning "clock
-domain".
-
--- 
-Regards,
-
-Laurent Pinchart
+	Krzysztof
 
