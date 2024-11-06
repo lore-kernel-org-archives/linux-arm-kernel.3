@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716D9D59F53
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2325AD59F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 16:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f58pFLugsKcc/d4XGbCZCV+kGRTnf6k+Mgp4dHcxmaY=; b=LXfsAwRE5yLv65lAwspbCy3SsN
-	XF+Tb/EEQXXUnhXx0gr5i7j8HYnABC38Ree3A4H7tEOgnIf6e7jRor0CVYzETO4Vx/wtKupW6dY/j
-	F2p3MSuFmjl5mzOjiRrITEZIj7Oi8b5SUhj9uuIDyHsZwmU0VIrt4Wl1e4WpopPK8OSRxOF++5jWS
-	CFJ7TUszLx0Gr+Z8g8BvhfO8mLgfjhvYgnZRAvwRs4BBVfvwhXoNZKmKzTTXLmlS62cA9bt2OwaHm
-	QOuh+SiUWPTSHb6073r/azzGsXIpzmyO3xqok3XNSeQt7TzpliF4qBhqIJ5kUSRv4LL3ubFkALNSp
-	qlVcxACQ==;
+	bh=69NgmVe3EoEmJQDLF30ZqHkFTuakoAGSMs/N5XjAM8w=; b=0bpnm9j43cpfTvI7iecsxZEa32
+	J2qTtvuaM0YVwTdJQd3TE4tJT5qfcKnudt8E75jEmPDz952Me5diggycicKhN9LJJxvA8p7crhkYw
+	Jp+V5H1DgyW8T1XQIWzntnrDVuQalq604ixY2ue6luboYNDggpmpg7VBytyWGpH9t7B2ZMR2Cermh
+	13+2+cddqYsPyw7MD2XOHgHF3vbR0Mio7a1X0ouX7GjFURgG3rPS9BcCgvrTZ4+L7ec/UY3fjNJrq
+	WKrp9dm5E5XW82WmBZTYhhmWOVKEawrmuWtwj4p8WJJ8GYccJaOMSxskWz5d2TymzY11iYKs+0Dwb
+	aJ5Y7jMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j4O-000000043mV-3CCo;
-	Wed, 06 Nov 2024 16:39:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8j2f-000000043b6-22EQ
+	id 1t8j69-000000044IO-2zYx;
+	Wed, 06 Nov 2024 16:41:37 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t8j2l-000000043bk-1PUL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 16:38:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 118FC497;
-	Wed,  6 Nov 2024 08:38:28 -0800 (PST)
-Received: from [10.57.90.5] (unknown [10.57.90.5])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6850B3F528;
-	Wed,  6 Nov 2024 08:37:54 -0800 (PST)
-Message-ID: <8a5940b0-08f3-48b1-9498-f09f0527a964@arm.com>
-Date: Wed, 6 Nov 2024 16:37:53 +0000
+	Wed, 06 Nov 2024 16:38:08 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6D17559D;
+	Wed,  6 Nov 2024 17:37:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1730911077;
+	bh=JYsSg8XGpZMd/iovEqFWzxyh+o/Jbj+GO3GOPMiOkmA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FkAo3EphpjzwcqhWGS5mYOA6rnUajxTEtPgd8dZEhtVXRU5F1JsTbh2YGe+7RDpQ6
+	 4lryiZEua/Q+NUjl2uIXlSOyyv6O7diiUKGEWTFLCAYQaHcoNkCR57hmMAU0DkAhP1
+	 5tQMP3s4BiTOgYBP7GcHFj+SAEJcaBuZGRs+JkBg=
+Message-ID: <636ad36f-3182-431c-ae2e-1f590a06ad7f@ideasonboard.com>
+Date: Wed, 6 Nov 2024 16:38:01 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO via
- struct arm_smmu_hw_info
-To: Jason Gunthorpe <jgg@nvidia.com>, Will Deacon <will@kernel.org>
-Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
- kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <5-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241104114723.GA11511@willie-the-truck> <20241104124102.GX10193@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241104124102.GX10193@nvidia.com>
+Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+ jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org,
+ mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ sakari.ailus@iki.fi
+References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
+ <20241106100534.768400-6-dan.scally@ideasonboard.com>
+ <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
+ <20241106135756.GI9369@pendragon.ideasonboard.com>
+ <a8cb35fd-d474-4104-b1f8-90ce5aa4a790@kernel.org>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <a8cb35fd-d474-4104-b1f8-90ce5aa4a790@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_083801_680010_7935E60E 
-X-CRM114-Status: GOOD (  32.55  )
+X-CRM114-CacheID: sfid-20241106_083807_558419_53211246 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,90 +121,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-11-04 12:41 pm, Jason Gunthorpe wrote:
-> On Mon, Nov 04, 2024 at 11:47:24AM +0000, Will Deacon wrote:
->>> +/**
->>> + * struct iommu_hw_info_arm_smmuv3 - ARM SMMUv3 hardware information
->>> + *                                   (IOMMU_HW_INFO_TYPE_ARM_SMMUV3)
->>> + *
->>> + * @flags: Must be set to 0
->>> + * @__reserved: Must be 0
->>> + * @idr: Implemented features for ARM SMMU Non-secure programming interface
->>> + * @iidr: Information about the implementation and implementer of ARM SMMU,
->>> + *        and architecture version supported
->>> + * @aidr: ARM SMMU architecture version
->>> + *
->>> + * For the details of @idr, @iidr and @aidr, please refer to the chapters
->>> + * from 6.3.1 to 6.3.6 in the SMMUv3 Spec.
->>> + *
->>> + * User space should read the underlying ARM SMMUv3 hardware information for
->>> + * the list of supported features.
->>> + *
->>> + * Note that these values reflect the raw HW capability, without any insight if
->>> + * any required kernel driver support is present. Bits may be set indicating the
->>> + * HW has functionality that is lacking kernel software support, such as BTM. If
->>> + * a VMM is using this information to construct emulated copies of these
->>> + * registers it should only forward bits that it knows it can support.
+Hi Krzysztof - thanks for reviewing
 
-But how *is* a VMM supposed to know what it can support? Are they all 
-expected to grovel the host devicetree/ACPI tables and maintain their 
-own knowledge of implementation errata to understand what's actually usable?
-
->>> + *
->>> + * In future, presence of required kernel support will be indicated in flags.
+On 06/11/2024 14:29, Krzysztof Kozlowski wrote:
+> On 06/11/2024 14:57, Laurent Pinchart wrote:
+>> Hi Krzysztof,
 >>
->> What about the case where we _know_ that some functionality is broken in
->> the hardware? For example, we nobble BTM support on MMU 700 thanks to
->> erratum #2812531 yet we'll still cheerfully advertise it in IDR0 here.
->> Similarly, HTTU can be overridden by IORT, so should we update the view
->> that we advertise for that as well?
-> 
-> My knee jerk answer is no, these struct fields should just report the
-> raw HW register. A VMM should not copy these fields directly into a
-> VM. The principle purpose is to give the VMM the same details about the
-> HW as the kernel so it can apply erratas/etc.
-> 
-> For instance, if we hide these fields how will the VMM/VM know to
-> apply the various flushing errata? With vCMDQ/etc the VM is directly
-> pushing flushes to HW, it must know the errata.
+>> On Wed, Nov 06, 2024 at 01:15:23PM +0100, Krzysztof Kozlowski wrote:
+>>> On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
+>>>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+>>>>
+>>>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+>>>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>> ---
+>>>> Changes in v8:
+>>>>
+>>>> 	- Added the video clock back in. Now that we have actual hardware it's
+>>>> 	  clear that it's necessary.
+>>>> 	- Added reset lines
+>>>> 	- Dropped R-bs
+>>> These are trivial, so I wish you kept the review...
 
-That doesn't seem like a valid argument. We obviously can't abstract 
-SMMU_IIDR, that would indeed be an invitation for trouble, but 
-otherwise, if an erratum affects S1 operation under conditions dependent 
-on an optional feature, then not advertising that feature would make the 
-workaround irrelevant anyway, since as far as the VM is concerned it 
-would be wrong to expect a non-existent feature to work in the first place.
+Fair enough, I just didn't want to be presumptuous
 
-> For BTM/HTTU/etc - those all require kernel SW support and per-device
-> permission in the kernel to turn on. For instance requesting a nested
-> vSTE that needs BTM will fail today during attach. Turning on HTTU on
-> the S2 already has an API that will fail if the IORT blocks it.
 
-What does S2 HTTU have to do with the VM? How the host wants to maintain 
-its S2 tables it its own business. AFAICS, unless the VMM wants to do 
-some fiddly CD shadowing, it's going to be kinda hard to prevent the 
-SMMU seeing a guest CD with CD.HA and/or CD.HD set if the guest expects 
-S1 HTTU to work.
+>>> but since you ask,
+>>> then comment further
+>>>
+>>> I recommend using b4, so your cover letter changelog comes with nice
+>>> links to previous versions. I scrolled through entire cover letter for
+>>> this (for me that's almost the only point of cover letter) and could
+>>> not find them. Anyway, just a remark.
 
-I'm not sure what "vSTE that needs BTM" means. Even if the system does 
-support BTM, the only control is the global SMMU_CR2.PTM, and a vSMMU 
-can't usefully emulate changing that either way. Either the host set 
-PTM=0 before enabling the SMMU, so BTM can be advertised and expected to 
-work, or it didn't, in which case there can be no BTM, full stop.
 
-> Incrementally dealing with expanding the support is part of the
-> "required kernel support will be indicated in flags."
-> 
-> Basically, exposing the information as-is doesn't do any harm.
+Thanks for the recommendation - I'll take a look when I get time, but either way I can add a link to 
+the previous versions next time.
 
-I would say it does. Advertising a feature when we already know it's not 
-usable at all puts a non-trivial and unnecessary burden on the VMM and 
-VM to then have to somehow derive that information from other sources, 
-at the risk of being confused by unexpected behaviour if they don't.
-
-We sanitise CPU ID registers for userspace and KVM, so I see no 
-compelling reason for SMMU ID registers to be different.
-
-Thanks,
-Robin.
+>>>
+>>>
+>>> ...
+>>>
+>>>> +  resets:
+>>>> +    items:
+>>>> +      - description: vclk domain reset
+>>>> +      - description: aclk domain reset
+>>>> +      - description: hclk domain reset
+>>>> +
+>>>> +  reset-names:
+>>>> +    items:
+>>>> +      - const: vresetn
+>>> drop "reset", it's redundant and rather come here with logical name. I
+>>> wonder what "n" means as well. It's not a GPIO to be "inverted"...
+>> The aresetn and hresetn names come directly from a hardware manual
+>> (vresetn seems to be called rstn in that document though). As far as I
+>> understand, they are the names of the external signals of the IP core.
+>> I tend to pick the hardware names for clock and reset names. That makes
+>> it easier for integrators, and from a driver point of view it doesn't
+>> change much as DT names are just a convention anyway.
+>>
+>> That being said, if there's a good reason to do otherwise (such as
+>> standardizing property names to make handling through common code
+>> possible), that's fine too.
+> If these are from manual then it is fine, although sometimes the names
+> are really pointless in manual...
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Thanks
+>
+> Best regards,
+> Krzysztof
+>
 
