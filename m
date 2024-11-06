@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08F8D44D58
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A44D44D54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nd7Yyls8bxkG0sJ+SExvF+TjygQKqRXiCTn67uB60tY=; b=AHhD9NwQOwIj5N8dTza/X7fAXt
-	Y4qLuWh7mU/yC9q0DGDHMZJsU9xS4AWomwpzJfG2yiqHEpJ0BeRqaoBVc9xcWKLIq3ks4T8S0TpsU
-	28Obcv8FLK/XDgQ5FXIpGN7M2o1IuQZinkBQAuwgvwiPMzYTjPDow60C3q8sBpVOnQn2W/Z68z+9J
-	+hUpB6AE34QlY9FWR1GG3b0Ndg8Z2mq+TkPjyLUD0XR1uvKxU6k9BA6MOa9f0+vybCxllWurENNDW
-	muuzkPCbtDwGAQG7jOm1Xc2g/5YJmIBaEwSfQxwGOBldMap4JV5KXV2qyLjPR6l/vWyf3e0m0d329
-	gGoHRL4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=en9Oppm0PBQa7v+USqeuyBCcDLGrikeSqttRAARRMfw=; b=SH/rNNqgq0VbyNvw70Ge92B7C6
+	k4dVV58LTp6NbKrFIly6VpQ7q+XMSBMeYQzFlDjWpSYOqAARquZ5Fr2KV5+izP9UlEEytmV8w+5sV
+	MC2sw7g/BowcmIqnKI887AaCqX7i9/XijF6tOUOv8OEuLLDxdLtZzAcvW1OTgPgyAgdPEcl5QJHnr
+	XvgDNmwrPO2DXoCA4LoGPBdxT/n9XVnpU791fTlc3yEib0I/O5MAOUhDqX7g7TuAohPLSYm5f9ijG
+	jO8FJFtDcQZZGRazt+TD3CwzwDfczZmpEuwlij/0BLs6bRKM1STRZ1VsxMG2T5557CZS/0xsaFdTO
+	VXks/fyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fuA-00000003NPV-0MbR;
-	Wed, 06 Nov 2024 13:17:02 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1t8fu8-00000003NPK-3zQV;
+	Wed, 06 Nov 2024 13:17:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8eyY-000000039Fu-3HpL
+	id 1t8ewb-000000038pA-12bZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 12:17:32 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A6CH8Ju067692;
-	Wed, 6 Nov 2024 06:17:08 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730895428;
-	bh=Nd7Yyls8bxkG0sJ+SExvF+TjygQKqRXiCTn67uB60tY=;
-	h=Date:From:To:CC:Subject;
-	b=y1FjKAkQy+DIMAOY3LAIOFtY+pK8j13tRSL3QiLK0iDhwAa64FEkdG8O4m0cOFXtt
-	 1oM+AX6hbxLjzxg0s7vvsOFba/ioeifLpN2ndhMvOpTygMNSpM1KD2q3LEBUsNncy/
-	 3KDsQa3Ee43nX60nSKytjiuJH1cF1I8lie13uEyk=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6CH8Hb017034;
-	Wed, 6 Nov 2024 06:17:08 -0600
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
- Nov 2024 06:17:08 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 6 Nov 2024 06:17:07 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A6CH8Qn083811;
-	Wed, 6 Nov 2024 06:17:08 -0600
-Date: Wed, 6 Nov 2024 06:17:08 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Arnd <arnd@arndb.de>, Olof <olof@lixom.net>, SoC <soc@kernel.org>
-CC: <arm@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        Tony
- Lindgren <tony@atomide.com>
-Subject: [GIT PULL] soc: ti: Driver updates for v6.13
-Message-ID: <20241106121708.rso5wvc7wbhfi6xk@maverick>
+	Wed, 06 Nov 2024 12:15:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1545EA43779;
+	Wed,  6 Nov 2024 12:13:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7F62C4CED4;
+	Wed,  6 Nov 2024 12:15:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730895327;
+	bh=4X1EMH5tA+soi9e7aJenYXkBhoLeM5x1Oo1HusEqNdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ob31dCImiO5LUyoZ2tXR58lUtPFZlzyEZOF9idbBzHvNzVfTzMx7JvYisYtpUaqD3
+	 COaP1kllGCs2OR/UhZGHSAjT70jBBpNSEqKOsnPse6c8LBPEhdncCRTJB0fJsuk2TW
+	 W/AnHN8dM28yClpB2zZKJAcygInemHjXJOp8WcmpPue3Yb6Ld6dzPuGwc/6O+4NafQ
+	 ej+kb/HKpzY+OwU9eONrWAj8TSmOPvRkexm5+fSPXEGrFsLmROYNoKyzANPw5aPSbr
+	 Lj3b2CeZDNF7AY4BiLXxo/CQD095n/oQd2v687j2GYWDSdceVGtLrK5sMDBd511tqP
+	 DNqrSAog9Gkag==
+Date: Wed, 6 Nov 2024 13:15:23 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Daniel Scally <dan.scally@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
+	nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jerome.forissier@linaro.org, 
+	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, sakari.ailus@iki.fi
+Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
+ mali-c55
+Message-ID: <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
+References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
+ <20241106100534.768400-6-dan.scally@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ih4nfsy4jsvbujjr"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20241106100534.768400-6-dan.scally@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_041731_041359_FEFAA375 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20241106_041529_380128_89568C7E 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,94 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---ih4nfsy4jsvbujjr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
+> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+> 
+> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> ---
+> Changes in v8:
+> 
+> 	- Added the video clock back in. Now that we have actual hardware it's
+> 	  clear that it's necessary.
+> 	- Added reset lines 
+> 	- Dropped R-bs
 
-Hi,
+These are trivial, so I wish you kept the review... but since you ask,
+then comment further
 
-Please pull
+I recommend using b4, so your cover letter changelog comes with nice
+links to previous versions. I scrolled through entire cover letter for
+this (for me that's almost the only point of cover letter) and could
+not find them. Anyway, just a remark.
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+...
 
-are available in the Git repository at:
+> +  resets:
+> +    items:
+> +      - description: vclk domain reset
+> +      - description: aclk domain reset
+> +      - description: hclk domain reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: vresetn
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-driv=
-er-soc-for-v6.13
+drop "reset", it's redundant and rather come here with logical name. I
+wonder what "n" means as well. It's not a GPIO to be "inverted"...
 
-for you to fetch changes up to a4c14f509509a6a24f25edb7619f55f204a8433f:
+I wonder about reset domains for clocks as well... is this just gate
+clock misrepresented?
 
-  firmware: ti_sci: Remove use of of_match_ptr() helper (2024-10-25 12:56:3=
-7 -0500)
+Best regards,
+Krzysztof
 
-----------------------------------------------------------------
-TI SoC driver updates for v6.13
-
-- knav_qmss_queue: Cleanups around request_irq params and redundant code.
-- ti_sci: Power management ops in preperation for suspend/resume capability.
-  Also includes dependency patch to export dev_pm_qos_read_value
-  (acked by Rafael).
-
-----------------------------------------------------------------
-Alessandro Zanni (1):
-      soc: ti: knav_qmss_queue: Drop redundant continue statement
-
-Andrew Davis (1):
-      firmware: ti_sci: Remove use of of_match_ptr() helper
-
-Dave Gerlach (1):
-      firmware: ti_sci: Introduce Power Management Ops
-
-Georgi Vlaev (1):
-      firmware: ti_sci: Add support for querying the firmware caps
-
-Jinjie Ruan (1):
-      soc: ti: knav_qmss_queue: Use IRQF_NO_AUTOEN flag in request_irq()
-
-Kevin Hilman (1):
-      firmware: ti_sci: add CPU latency constraint management
-
-Markus Schneider-Pargmann (1):
-      PM: QoS: Export dev_pm_qos_read_value
-
-Vibhore Vardhan (1):
-      firmware: ti_sci: Add system suspend and resume call
-
- drivers/base/power/qos.c               |   1 +
- drivers/firmware/ti_sci.c              | 489 +++++++++++++++++++++++++++++=
-+++-
- drivers/firmware/ti_sci.h              | 143 +++++++++-
- drivers/soc/ti/knav_qmss_queue.c       |   6 +-
- include/linux/soc/ti/ti_sci_protocol.h |  30 ++
- 5 files changed, 662 insertions(+), 7 deletions(-)
---=20
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
- 849D 1736 249D
-
---ih4nfsy4jsvbujjr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmcrXj0ACgkQ3bWEnRc2
-JJ36TxAAh4kYatZvq4I71XeciAfFK6VujsT+qEMjXfxf077vPRRiJkvjV3Kr0Yok
-RvuYgSysH7zx5vFYEnvImlgE7cesq5DQeXeMalFSv4QSU+wKgDI5K7EJefAfXX1x
-0BFQG1cIcdMJ1D1etL/evVrB2KG7V/zsouVVRvlx2rAmqVYREYFasO1GbbB4P4Df
-UTHFORVlqRby3HuoLujCBULsE8giPx0XJEu2qgOVbgKjzaeXcVOkqS17W//EszTZ
-8bRiGDhF73oWoDyzo5ERgNI4QyaWAQJSfROt3Atm4DBYiAkWvrPT4JoLhrZRvJ1v
-1OYLxs5sCFY/uv2Fryq1fCPmYSV5JXorgOfJRdPa2LDURZvBaFn744brbz1yFtAT
-QaxalE5ISlN+PeanHtqJ1Cov02BxdT1hv2nhmCPUWaOM2iQ+3wD9rQiww1qhQmgR
-XthNmZ2l7toBzdw3zKvX5CN9FbMZ5oXRLvWG8/NzXcFGjJbxBm9wqRVaCLSqA8Cl
-vq8KTTb1XTTVveBc1rOBfQ5EiF6GKRlqMcpzY5NcSpfJRgzCST43EgZsWm8y8aO5
-XQK8n04nF7QLP4MLvVr8O41xDXaB+oO95y2PgbVNgz/Ktijakxc4/2Dn8gJrqnsV
-G9SXyl7SaLch0YYlArACBiZeIIkCVr2EGsUMRkRrGHRTl5tE7kI=
-=3YLN
------END PGP SIGNATURE-----
-
---ih4nfsy4jsvbujjr--
 
