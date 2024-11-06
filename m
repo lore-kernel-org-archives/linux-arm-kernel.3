@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59E4D29FB8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C13D29FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 08:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=diXjwQHhYDrLApdizCzZAM2Cz7No88ZBnmospkxRJcg=; b=f9WQNsZ70YYk41PLEAw0YETArX
-	aTi+e4GjzjK/Staa0YH9B9V7CwKTGUgn1gzqTdaaHy65ueYGcl55W7CXMK4nHSo1ml2yi8RdMX88s
-	G/dthcSvtZLk8t4ss+sz/x6N4yuus/7MEzcpGE2KPzxbL05GROuYAEz02b7Nrguva6FkuXFrXCxrd
-	O1UWDjPWyfLPTd1lNyLROJasp+wfHN8v6QKtFONB4V+ilCyEPuv9cjmPeZGqmJ4oUhf4fQaoJPeG+
-	pPHpRx23Pp+lZwpy30MmEsPJSQsusOIMpLnTBzQO/yG5jztXHyiKwI80KH9pHGXhxY2yrd3FC5jVc
-	GnOExVEw==;
+	bh=E9OqfUOMAqbpcWXjOPS3HeNW6CbTb26wA4+Tx2JMJgo=; b=heUmFxkg1fwr50qm8uPBOsMVQb
+	nwsi03FoRVLBKqW7irCL9XYVFJSzYRdRKHMyJ4aTD7T/z6uQUBCO84ey2HxQ6M++4c+jqZyfMd3v3
+	wTw/tvH2Bv2TFfzWZDKT9nx6q1u1NPC5WXnoW+shtD7844aLzNRHYUfXcHihOmaeHYl2BFxioh3Kc
+	lq+jfSi20wzIm2lgmvfnDeZkggK1Ik8QAaDj4rYDcInA76GzHI3WE4ReZ2gPrg02VsenwI+y+TLTr
+	BwY/d979y418nUqByqYLYRPwonApf4jHSz4nWy7lfgE3kSFFgiGWcqv/i8m0r1c5xW6XQ1xBP0EVa
+	8lkeac1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bWE-00000002JRl-3Q96;
-	Wed, 06 Nov 2024 08:36:02 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t8bXv-00000002JsD-24mO;
+	Wed, 06 Nov 2024 08:37:47 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8bR7-00000002IRk-0Hgo
+	id 1t8bR8-00000002ISY-1X07
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 08:30:46 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e59dc7df64so7779507b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 00:30:43 -0800 (PST)
+	Wed, 06 Nov 2024 08:30:47 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7e6cc094c2fso583510a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 00:30:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730881843; x=1731486643; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1730881845; x=1731486645; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=diXjwQHhYDrLApdizCzZAM2Cz7No88ZBnmospkxRJcg=;
-        b=DjX//2zizE4JcCkk/wy6AlE1aryqFObunUhqCd7zcuAZ2x+u+8g5mi1fUrZ8Xf0G07
-         8nvkLYfxdbGzeMWry4bev86ZHK0KrTptG5QiRPqiExOa+vSZU2RybP3/ODk2MSZweyYo
-         UD77AqGmoJ63yfFcUYzSCJeZ3nGp4TpJuwx+R3HxUT7ypmbjxd5zUTnNFkmIbHTx/2M7
-         5U9pWQnyMBDmXzosRr8dbazteRk8nGDpJSuy9ogApVxxr/gbupAfdULECYjZnaRvnINx
-         GfcWihdaZ9V3ghGytx5wcMijJaTk7vnirCdtWBN0UfNla9A2b4oPhywaRVpJx0s3M8Xg
-         AkwQ==
+        bh=E9OqfUOMAqbpcWXjOPS3HeNW6CbTb26wA4+Tx2JMJgo=;
+        b=2BYExZQREs7TGkDYsfJvlIzXZqqX7Jep8Ng53GMFdMGPAISNTwnx+Lia5YqTIjoIOm
+         rV1Rr7sPvLpGA2u8erqTmWWuHUKJ1TFcSsjqpy6y5DaE9w7OvuHkpEyMiEam2IMYg/Jr
+         H0sY5C1wSmeX4RthRzbzrerZywUvRvJ+jK3gLAZ1znbTpY/wJoHHIxw6qHF2ME+xOR2Q
+         q1qhJSMlHoaWPNbXQyVj8YYWFtx8o7ab5A36JmIFWHSuFPA2z/XbJTaMVCq8pbqxJ9p1
+         +qYZV+l0Dv+tMLKjfdIMZEZ8piVC2Pu3EbgOBpd3MnBTvqv80jVpSkiYKl9PjlQ/rR3n
+         VzEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730881843; x=1731486643;
+        d=1e100.net; s=20230601; t=1730881845; x=1731486645;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=diXjwQHhYDrLApdizCzZAM2Cz7No88ZBnmospkxRJcg=;
-        b=aQsG9OUG2bH7EFipfB6+M/ykh2xiqofsefE4tU7looXo0PNB19NWpw/5tQw5VEIzug
-         mFb+080Y9KBDRo5nLIL9O6+i8Nmw1iNWwcg/bgcK0isgq61oiOgI7jO0fdBHA9fbPK11
-         VTnbSJz8ZZqFOIlem2irO9PulBhgHIg9HT1/xoZzlBA3bKerUBfYvC/CPA5IqaJsi5RE
-         dn4fIfys3f5zQ52ZvbqAG2su6RcmoU7IEo5XWgmEhGR/PwjRj8uNPv0qHaealtYP864M
-         Kxm0sI8NTIYQP264+jsJ5m4fUovayWxAfurBcDs4nGPxKwrhDBo+cJ/9PNlPnhwW1lSv
-         IfFA==
-X-Forwarded-Encrypted: i=1; AJvYcCUz495xE/cuZnVe9HdOcdj7QusBnBHib7GYYbmEJRAWPokC/z1Mg7jYcdApZuLF5rNcvw4OEUSw78yQ9o/e9kSB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwWrEBbQzUk2Lz5Xa2/WaVt1eobv+QyrdwwHp1V+sfsZV72E9L
-	PQS0rMKBgQOG1cabq0crafC11xv7o1Vng7jygTaAv2LKbMJVImmYJ8z+VCkNdW3DOxW6RuZ0lDn
-	wIANm0kI28vzgcu664kzQ6A==
-X-Google-Smtp-Source: AGHT+IHBjq15b6Y9u9NLiJuGhJ0HwVi1u2HdYmZIETeo0dLVKCCo/ZW6prnAhvaB3StzEMzIb/ffCzTWRHXU7A2VXw==
+        bh=E9OqfUOMAqbpcWXjOPS3HeNW6CbTb26wA4+Tx2JMJgo=;
+        b=Ix9siBPLFwiHcAN0+VRhIRbuLaE5K0q9jz2aTUWfexDw2lx6Bx7+SU74qgeV1QEuXD
+         0HPcbsYGs90XDeznMDSnND3sZpEmadV+uFBSzMOmYJkJv2l/Ml6OtSbIhz3YINYDWKHd
+         Pp640vFlT4r4CmPcxFWgm/FiE5FSA6fXvaTK++cSW9QJ4kDo94VIHNgRU3KOoVSoIEoG
+         FVZ0xRK6FqUBw+f1Mq1/soMRYDXaVULFlDwcVHefnU1TMOUW+xKDzYA2JBQSlSUnRbz6
+         eISy6BqhAu7f3M79USLKkpAzRgDkyJ5ltQwaAKMu8KgJ0k3UtHs+qYTZw9MysUiItOTi
+         9ebQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXdaA1eAj43pqMtv+Wc+k4V+SCTJsIXdmpVwRbL0jU8hnUdV9lj6yKiqvKSJmsNUl/GXB1tQiOWA9UHT96+w0NJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzrr3EfUpoYsX6Rxo9box4YLG6XMdzLOGj0OFo1sD8Y3+2HBvbu
+	z5yuDMo7CsXK7fT1MomAirHrCIlMS8ny3xr4ICWooZDL2yRS+vpo9Kl+NEiA7YHGhP8tHztL8lT
+	nN5y9nT8Ui7L5jHl6ysqmvw==
+X-Google-Smtp-Source: AGHT+IEIX/6hVDGOmxY1iHcCV7jeryOMcpYeUgvJ4PGHYdhp40R/dK9bTBilzwLgwCsXlLEKi3MnqQQmu9vQlZaSIw==
 X-Received: from jgzg.c.googlers.com ([fda3:e722:ac3:cc00:36:e7b8:ac13:c96f])
- (user=jingzhangos job=sendgmr) by 2002:a05:690c:4a04:b0:6ea:881b:b545 with
- SMTP id 00721157ae682-6eabf0290c6mr591907b3.4.1730881843278; Wed, 06 Nov 2024
- 00:30:43 -0800 (PST)
-Date: Wed,  6 Nov 2024 00:30:33 -0800
+ (user=jingzhangos job=sendgmr) by 2002:a17:902:b686:b0:20b:8d7d:fe08 with
+ SMTP id d9443c01a7336-2116c9c51demr90245ad.6.1730881844849; Wed, 06 Nov 2024
+ 00:30:44 -0800 (PST)
+Date: Wed,  6 Nov 2024 00:30:34 -0800
 In-Reply-To: <20241106083035.2813799-1-jingzhangos@google.com>
 Mime-Version: 1.0
 References: <20241106083035.2813799-1-jingzhangos@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241106083035.2813799-3-jingzhangos@google.com>
-Subject: [PATCH v3 2/4] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
+Message-ID: <20241106083035.2813799-4-jingzhangos@google.com>
+Subject: [PATCH v3 3/4] KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
 From: Jing Zhang <jingzhangos@google.com>
 To: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
 	ARMLinux <linux-arm-kernel@lists.infradead.org>, Marc Zyngier <maz@kernel.org>, 
@@ -78,8 +78,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>
 	Shusen Li <lishusen2@huawei.com>, Jing Zhang <jingzhangos@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_003045_134002_AF5E5134 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20241106_003046_440020_B8A5D6AC 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +96,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Kunkun Jiang <jiangkunkun@huawei.com>
 
-vgic_its_save_device_tables will traverse its->device_list to
-save DTE for each device. vgic_its_restore_device_tables will
-traverse each entry of device table and check if it is valid.
-Restore if valid.
+When DISCARD frees an ITE, it does not invalidate the
+corresponding ITE. In the scenario of continuous saves and
+restores, there may be a situation where an ITE is not saved
+but is restored. This is unreasonable and may cause restore
+to fail. This patch clears the corresponding ITE when DISCARD
+frees an ITE.
 
-But when MAPD unmaps a device, it does not invalidate the
-corresponding DTE. In the scenario of continuous saves
-and restores, there may be a situation where a device's DTE
-is not saved but is restored. This is unreasonable and may
-cause restore to fail. This patch clears the corresponding
-DTE when MAPD unmaps a device.
-
-Co-developed-by: Shusen Li <lishusen2@huawei.com>
-Signed-off-by: Shusen Li <lishusen2@huawei.com>
 Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
 Signed-off-by: Jing Zhang <jingzhangos@google.com>
 ---
- arch/arm64/kvm/vgic/vgic-its.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/vgic/vgic-its.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 2381bc5ce544..7c57c7c6fbff 100644
+index 7c57c7c6fbff..df8408ceae30 100644
 --- a/arch/arm64/kvm/vgic/vgic-its.c
 +++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1140,8 +1140,9 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
- 	u8 num_eventid_bits = its_cmd_get_size(its_cmd);
- 	gpa_t itt_addr = its_cmd_get_ittaddr(its_cmd);
- 	struct its_device *device;
-+	gpa_t gpa;
+@@ -782,6 +782,10 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
  
--	if (!vgic_its_check_id(its, its->baser_device_table, device_id, NULL))
-+	if (!vgic_its_check_id(its, its->baser_device_table, device_id, &gpa))
- 		return E_ITS_MAPD_DEVICE_OOR;
- 
- 	if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
-@@ -1161,8 +1162,17 @@ static int vgic_its_cmd_handle_mapd(struct kvm *kvm, struct vgic_its *its,
- 	 * The spec does not say whether unmapping a not-mapped device
- 	 * is an error, so we are done in any case.
- 	 */
--	if (!valid)
-+	if (!valid) {
-+		struct kvm *kvm = its->dev->kvm;
-+		int dte_esz = vgic_its_get_abi(its)->dte_esz;
+ 	ite = find_ite(its, device_id, event_id);
+ 	if (ite && its_is_collection_mapped(ite->collection)) {
++		struct its_device *device = find_its_device(its, device_id);
++		int ite_esz = vgic_its_get_abi(its)->ite_esz;
++		gpa_t gpa = device->itt_addr + ite->event_id * ite_esz;
 +		u64 val = 0;
+ 		/*
+ 		 * Though the spec talks about removing the pending state, we
+ 		 * don't bother here since we clear the ITTE anyway and the
+@@ -790,6 +794,11 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
+ 		vgic_its_invalidate_cache(its);
+ 
+ 		its_free_ite(kvm, ite);
 +
-+		if (KVM_BUG_ON(dte_esz != sizeof(val), kvm))
++		if (KVM_BUG_ON(ite_esz != sizeof(val), kvm))
 +			return -EINVAL;
 +
-+		vgic_write_guest_lock(kvm, gpa, &val, dte_esz);
++		vgic_write_guest_lock(kvm, gpa, &val, ite_esz);
  		return 0;
-+	}
+ 	}
  
- 	device = vgic_its_alloc_device(its, device_id, itt_addr,
- 				       num_eventid_bits);
 -- 
 2.47.0.277.g8800431eea-goog
 
