@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C34BD29FAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9F0D29FA8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 07:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YgX+jABpEDgVJ7y+ku8zSISZJzTyTpboJWYdMW1CPxA=; b=cyOySHKq84bqLMcGKMlgtKYLM/
-	Vee6kGfRg8gMx1kyycUMvYUNgWvyc360ex4sm7Nc4STkk3fYN0ARz+bSIsqlzZr2vL//mPmgzhsze
-	2sFBPHNKounTy/EDr7eMr1jHQm5EY28GVUhG2JLF7rkwP3TzwYLp+se3Dj/riYGACvJjrFuSnCKZA
-	sZQPm3PrMggCjYIZAxpng8E07vBmTZZkFuy43gv1FbVHWcpah1msBAyeHy775fP4NmhTcF9JSav/+
-	Ew+ipCIltPh8cI578aay9vuKYZgfj8u5FOTrNNr0gz2mgUJSDE7K80arUTz/qCVvbOloF66cOsHzP
-	P9j3kCag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v/QayrR3K81EzQnJA2xuLUJ4DfrBk30rvmMwysRQ+sw=; b=cjzZp3ypVaPnI1a5mf/tSqFRJb
+	7/fxxelpX8HAxP86R8STXiuGrQQNMXbSpgAFKAXgiMNTlAOwp7ZOFh+YP+FxIHKgy3s4cjtCjA2IA
+	SYPKT0cHhpKjl+Ik4+JELjbRDa9X0XTndLeq9DbT57vfL0HFAPL7eWg5lOMjtLfcyff5jJ70kcwHO
+	HARMETM0ol9Nqt6ISEyMLCHTqeAHpvDhoJn2X07Poi8JlJszKfl9y+776sk5LWy5jntucmcWoeoYL
+	ggcnUsy0CbqUgBxjFqXfPwWs9uPagwIXqMVPTJDOLlCZcyvixVeDcRvYUwSEZDp6+uuaDRZqYwtMZ
+	GsEQKxhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aMm-0000000264Q-0Rrc;
-	Wed, 06 Nov 2024 07:22:12 +0000
+	id 1t8aPR-000000026Wd-2vIl;
+	Wed, 06 Nov 2024 07:24:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8aL3-000000025qn-3VD4
+	id 1t8aNi-000000026Cy-3cSI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 07:20:27 +0000
+	Wed, 06 Nov 2024 07:23:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70CE11063;
-	Tue,  5 Nov 2024 23:20:54 -0800 (PST)
-Received: from bogus (unknown [10.57.64.60])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9C3A3F66E;
-	Tue,  5 Nov 2024 23:20:16 -0800 (PST)
-Date: Wed, 6 Nov 2024 07:20:01 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF7671063;
+	Tue,  5 Nov 2024 23:23:39 -0800 (PST)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AA44D3F66E;
+	Tue,  5 Nov 2024 23:23:07 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Johan Hovold <johan@kernel.org>
-Cc: Sibi Sankar <quic_sibis@quicinc.com>, cristian.marussi@arm.com,
-	ulf.hansson@linaro.org, jassisinghbrar@gmail.com,
-	dmitry.baryshkov@linaro.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org,
-	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>
-Subject: Re: [PATCH V5 3/6] firmware: arm_scmi: Report duplicate opps as
- firmware bugs
-Message-ID: <20241106072001.5jrbbctj7ud5uaxd@bogus>
-References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
- <20241030125512.2884761-4-quic_sibis@quicinc.com>
- <ZyThAFbOHKaBIgLg@hovoldconsulting.com>
- <e173058b-57e7-7fd0-dab7-7398bf9d66ec@quicinc.com>
- <ZyjViCVtPwe-tmMq@hovoldconsulting.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
+	justin.chen@broadcom.com,
+	opendmb@gmail.com,
+	kapil.hali@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v4 0/2] Support for I/O width within ARM SCMI SHMEM
+Date: Wed,  6 Nov 2024 07:23:04 +0000
+Message-Id: <173087767267.3975373.2771980370736261734.b4-ty@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20240827182450.3608307-1-florian.fainelli@broadcom.com>
+References: <20240827182450.3608307-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZyjViCVtPwe-tmMq@hovoldconsulting.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_232025_969221_6031F366 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20241105_232310_964731_C7913D35 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 03:09:12PM +0100, Johan Hovold wrote:
-> On Mon, Nov 04, 2024 at 07:20:01PM +0530, Sibi Sankar wrote:
-> > On 11/1/24 19:39, Johan Hovold wrote:
-> > > On Wed, Oct 30, 2024 at 06:25:09PM +0530, Sibi Sankar wrote:
+On Tue, 27 Aug 2024 11:24:48 -0700, Florian Fainelli wrote:
+> We just got our hands on hardware that only supports 32-bit access width
+> to the SRAM being used. This patch series adds support for the
+> 'reg-io-width' property and allows us to specify the exact access width
+> that the SRAM supports.
 > 
-> > >> @@ -387,7 +387,7 @@ process_response_opp(struct device *dev, struct perf_dom_info *dom,
-> > >>   
-> > >>   	ret = xa_insert(&dom->opps_by_lvl, opp->perf, opp, GFP_KERNEL);
-> > >>   	if (ret) {
-> > >> -		dev_warn(dev, "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
-> > >> +		dev_info(dev, FW_BUG "Failed to add opps_by_lvl at %d for %s - ret:%d\n",
-> > >>   			 opp->perf, dom->info.name, ret);
-> > > 
-> > > I was hoping you could make the error message a bit more informative as
-> > > well, for example, by saying that a duplicate opp level was ignored:
-> > > 
-> > > 	arm-scmi arm-scmi.0.auto: [Firmware Bug]: Ignoring duplicate OPP 3417600 for NCC
-> > 
-> > I did think about doing something similar but xa_insert can fail
-> > with both -EXIST (duplicate) and -ENOMEM, so the we can't really
-> > use term duplicate when insert fails. I can add the perf level
-> > though to the message though.
+> Changes in v4:
 > 
-> We generally don't log errors for memory allocation failures (e.g. as
-> that would already have been taken care of by the allocators, if that is
-> the source of the -ENOMEM).
-> 
-> But either way you should be able to check the errno to determine if
-> this is due to a duplicate entry or not.
+> [...]
 
-Everyone has valid reasons for their argument here, so we need to find
-a safe middle ground. Will stating it as [Possible Firmware Bug] be any
-useful ? If there is -ENOMEM, other error messages will be seen before
-this and user can ignore this error until that memory issue is fixed ?
+(with some trivial rebasing)
 
--- 
+Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+
+[1/2] dt-bindings: sram: Document reg-io-width property
+      https://git.kernel.org/sudeep.holla/c/14b2157a9c14
+[2/2] firmware: arm_scmi: Support 'reg-io-width' property for shared memory
+      https://git.kernel.org/sudeep.holla/c/2cd7f3db25fe
+
+--
 Regards,
 Sudeep
+
 
