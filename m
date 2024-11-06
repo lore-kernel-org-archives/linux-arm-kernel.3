@@ -4,85 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7FFD44D71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 13:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A77D44D70
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=07turtyFaUtqmTN7irIArurWZHjH3oZpuJFzYmQgqlU=; b=Vh4pZfij5qRzaBk3Mhr0wuwEgw
-	oTEc/w12r3qzuc8q+t5fYVu5yscI/BHvyBPjs+H/jMwiaQPBANkA7NMqiFl7F3Lqgco9MzM6tB98Y
-	dSS+3fJW2TDMZ64znukTnNANnGU5dmVkbCd7Nc4YU71S1Ebfdi3KDo2i44ykuAGDGEXCvzvrWVBiB
-	O9hA6h7NCyjBTXp8PIlNsGa3r2yZPY+cI5uCgCK2JfJ/d3tI5gnm47JBgoudy9K7UNqffjTW5l0U8
-	rIHq8fP2L28Nz5Hh77+njmKeqwqBAocDrrIb3HPKLDCL8mKvDj6sE9ZIZmqsKJlp3F5EFtN0aO+qr
-	sfSwcY9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z1t9SmRdC1grTnxYfq0WRsgynjzOVFKr29y6dkcaAKA=; b=0i3QZZH3pQWge1
+	pY5E6t66lHO/6aDz8BhbBbivN76U+gbwhDkpCH0GagYae5T91/+xCgAXcoQcvi1SDPfQKrWLLVbDT
+	ipsfSQ9+4UaUvkfB3cUcBi4GVcBhWkXi9ybO11Mc5hsH5Snf5qE43al9h8ZSW7/W1g4Q/F9nB/EAS
+	eY84esJ45dCLpwTTJ+QMRUYNfqwEygCbCQArnYLYCNTJZ4uc4eyzDSbGGzy8CFqKod5PJSiUYgkX7
+	5DywYSJJJMo47gbEfhf+r4ocoCj642G0S7PaziWVs/pahRNxO0ltR2OEH3RwqVuli5XFnrNTs2JgF
+	ISgHUsL8PGLrO3QMOL3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gZ4-00000003WBS-0B1V;
-	Wed, 06 Nov 2024 13:59:18 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1t8gam-00000003WYZ-2ufg;
+	Wed, 06 Nov 2024 14:01:04 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gK3-00000003Ssu-0276
+	id 1t8gKT-00000003T1H-2HgQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 13:43:48 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2fb3ce15172so9055251fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 05:43:46 -0800 (PST)
+	Wed, 06 Nov 2024 13:44:16 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43159c9f617so52647165e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 05:44:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1730900624; x=1731505424; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=07turtyFaUtqmTN7irIArurWZHjH3oZpuJFzYmQgqlU=;
-        b=b42tbmS/JJgFLd8FE5XQWb8olf/sjc89lbbfEVlXG00iBSRrZjrnnpcPWsrXBrV6Df
-         khorwk+sWKEDz1itMtMDv/EMlI8I4lXuSBNRbEt0uFqyHIfPocXrux3WXqll+N0/vM28
-         CXoaqKBxaaCXqj35ENOddqlaT9WY3jdZ33//w1yh52DZgM1v7CXXWWUB5+CPYwcbaNZR
-         kdNTfb0oX8tiYdI7qZiYpMNaKxBeRVTZsrrCni7yir/+e11ts6NzhCRm3c5NSnS+QBMF
-         Cpq+dlA8La+ZnEPx2+aPnv6HDFwLMqcUt6ZUFPg9FNk8TuKn6TAVwKvkWUtZZ3VHZA1K
-         AIjg==
+        d=linaro.org; s=google; t=1730900651; x=1731505451; darn=lists.infradead.org;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Z1t9SmRdC1grTnxYfq0WRsgynjzOVFKr29y6dkcaAKA=;
+        b=O0KtdupuRMZbKzc87eCpOZOVjn1N9KVvXZMrzm0sL0nywnl94+2Ts69fVXAgSvLm5i
+         mJRwVUSStKL2iA5Iy4KVf48aiR0Q4n9xH1//YKBoRnKd5VNKAT+pLpSxIh0pxiByd834
+         TMeUPbq71uHE78jgO19Qm3sog8q4yN2IbvzWDVE3xMyOXQ1L4uwNMZY7ZxQY7G41BLKx
+         5ZixxcnzGotvZxV4F9NY0E8dGYoUr3coItUeiDMhec0NYNIMSSZgPx4gc9/oPYO9uSUa
+         jOhDiHAzmJYMhvAqiAarJprpLsbZfVW0cpxkWztd9Fx0Orw2Akx9+DRLAtUfREPWfA/s
+         sRkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730900624; x=1731505424;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=07turtyFaUtqmTN7irIArurWZHjH3oZpuJFzYmQgqlU=;
-        b=sHL/OJzdnro8RBuAnD4mpVb+hoLRo/JwbUKpXw26U+SgF89r2RsOgzdG4s2OiTFp+d
-         6H/IJgXv4KfhtBhL3TNy979PYyo6qxnbdnU5E5i1miU2jf7d5IE8ec3clg9DcpN/6I4T
-         cr1JnXMHMBk2Tf/9J1PM07AxBga+lr8/xlcwQTag0tAnqYjfe8q0jUcgsddvXkzjR6xi
-         q6tmlZ/+HzjAgyWr5InP5Ped5IEDkGlMmOZt5olfOFFFBCt4s4z6vwUzN4L6FUfE8W35
-         AhD7vuJM9yDTrhy7x0vfJuvEjeh2GZYjIdd+KfUrMgsRYND6bWaPHFFd9ppZcYc406Zj
-         hpHA==
-X-Forwarded-Encrypted: i=1; AJvYcCXRPwBHoUigt4UnG9/DIPie14EO4/8R63q/7hzh0bpZUDjqJdL2gz91axAhA92UB+8YdzaL9x59JhHJRkjGXtwo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCyk7YhSO7OGacJ2FnKIsnKkKGNtxnozGO+zrLK6R8VZShOUTO
-	pX9T5Zpgp2DSv/DpVox7BljWP/Ew3nfgb1yG8MWTCprnZONvUOUKazufhyToyqc5GIAUSd2MC8S
-	dNC4qcFgtoL6EHdTiBpSIT4eTFWi5s9VGMYUW+w==
-X-Google-Smtp-Source: AGHT+IHUtnnhEva3lCB8uWh8uIWC06tcgEpMXvu5am5NhlAEbhUxeQ79Id1SoLC6uXkPBOCC/N9jH1BHhM6ITnKzWf8=
-X-Received: by 2002:a05:651c:210a:b0:2fa:ce0d:ec34 with SMTP id
- 38308e7fff4ca-2ff0cb2376emr8634191fa.2.1730900624427; Wed, 06 Nov 2024
- 05:43:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1730900651; x=1731505451;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z1t9SmRdC1grTnxYfq0WRsgynjzOVFKr29y6dkcaAKA=;
+        b=gvVekelqXpqfUMCTit0QlrxQ1ZANbr97IDQcZre7e2jYzGgbkQNHC0MQE8rAP2TNiR
+         G/Q5/32VA1vOhsIUKFfvjzANitZknIRg4Nttw39eKQrdQdjTNnzrEgM3TC0yCqiL/Mgy
+         jKOC3DfUDcWEhIxWp/8oRpsJ+kxXaINdkM2NFBJ4trW0GdlbppCp1Csbv3NOc8LI44PH
+         5YAUl4abaBRtXMiCmpUNcB9Phc2Czvah1bLkTe5tUniF+JQvqF62B6ApbSCIkcYKY0Bt
+         jethfTMjUpMPsLS0CcAALga3FpftZKd1ZnFjFuMxXh6d75ozyDAwzXwLmXo1TeIAN0wh
+         bVBg==
+X-Forwarded-Encrypted: i=1; AJvYcCV0o3+D6DrdC6DF5VTXH8XXNrzhcXGHnqpghjggdqHCJK3D9XqdFTF8YMWLve971E0qRo1Qwsv7rUCWdVDjifYC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy3ei0WWtRunzvOkmMJe5Au387hvBUvTmjNW8+OuxA50WZApbV
+	j3kcnJO6BsIZ0/dbKIDqtS9geG5hOnU2KHjVMfmTRt6qfvFkwNrlE536l5tGAjg=
+X-Google-Smtp-Source: AGHT+IEDfXHPYnEzdKdGDOIx5isWt6UJom2MOYrbNvWHKRq/DHETWuaNiRBX5ymPlQgTN2VRGVjI+g==
+X-Received: by 2002:a05:600c:524c:b0:426:5e91:3920 with SMTP id 5b1f17b1804b1-4319ad24a7fmr381006385e9.29.1730900651357;
+        Wed, 06 Nov 2024 05:44:11 -0800 (PST)
+Received: from [172.16.23.252] ([89.101.134.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa6ae726sm22960195e9.3.2024.11.06.05.44.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Nov 2024 05:44:10 -0800 (PST)
+Message-ID: <ffaa3755-8c5d-4fc3-86bf-9129d3889bff@linaro.org>
+Date: Wed, 6 Nov 2024 14:44:09 +0100
 MIME-Version: 1.0
-References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com> <ZytP0XGgmz_R5gos@smile.fi.intel.com>
-In-Reply-To: <ZytP0XGgmz_R5gos@smile.fi.intel.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 6 Nov 2024 14:43:32 +0100
-Message-ID: <CAMRc=MfQw1YmOoq-rK5Bq3uDK8cmjG_xsUgVDs28phsqkcHofA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/6] gpio: Get rid of deprecated GPIOF_ACTIVE_LOW
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
-	Linus Walleij <linus.walleij@linaro.org>, Pavel Machek <pavel@ucw.cz>, 
-	Dominik Brodowski <linux@dominikbrodowski.net>, Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [GIT PULL] amlogic ARM DT updates for v6.13
+To: soc@kernel.org, arm@kernel.org
+Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_054347_068190_EB4B1ADA 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20241106_054413_608546_9085EBFE 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,31 +113,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 6, 2024 at 12:15=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Mon, Nov 04, 2024 at 11:34:18AM +0200, Andy Shevchenko wrote:
-> > This series targets the deprecated GPIOF_ACTIVE_LOW as only a few users
-> > left. Convert those users to call modern APIs and drop this legacy piec=
-e
-> > from the source tree.
-> >
-> > The idea is to route this via GPIO tree, please Ack.
->
-> Thank you for Acks, folks!
->
-> Dominik, is it possible to get yours or are you inactive nowadays (I saw
-> last mention of your name ca. 2023).
->
-> Bart, we have all Acks except pcmcia (see also above), and the change is
-> the same all over the places, do you think it's okay to apply if Dominik
-> won't respond for a few days?
->
+Hi,
 
-If we don't get an ack until Friday, I will take it as is.
+Here's the first set of fixes towards fixing all bindings check errors,
+this set + the dt-bindings fixes picked by other subsystems fixes most
+of the errors.
 
-Bart
+Thanks,
+Neil
+
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+
+   Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+
+are available in the Git repository at:
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm-dt-for-v6.13
+
+for you to fetch changes up to 2b901e9ef05d84e99582607e85393a6eba0e2363:
+amlogic-arm-dt-for-v6.13
+   ARM: dts: amlogic: meson8/8b: remove invalid pinctrl reg (2024-10-17 10:21:32 +0200)
+
+----------------------------------------------------------------
+Amlogic ARM DT changes for v6.13:
+- DT fixes to pass bindings chedk, including:
+  - fixing nodes names
+  - dropping meson6 ATV1200 board
+  - add missing properties
+
+----------------------------------------------------------------
+Neil Armstrong (12):
+       ARM: dts: amlogic: meson6: fix clk81 node name
+       ARM: dts: amlogic: meson8: fix soc thermal-zone node name
+       ARM: dts: amlogic: meson8: fix ao_arc_sram node name
+       ARM: dts: amlogic: meson6: remove support for ATV1200 board
+       ARM: dts: amlogic: meson8b-odroidc1: fix invalid reset-gpio
+       ARM: dts: amlogic: fix /memory node name
+       ARM: dts: amlogic: meson8: use correct pinctrl bank node name
+       ARM: dts: amlogic: add missing phy-mode in ethmac node
+       ARM: dts: amlogic: meson8-minix-neo-x8: fix invalid pnictrl-names
+       ARM: dts: amlogic: meson8b-ec100: add missing clocks property in sound card
+       ARM: dts: amlogic: meson8b-ec100: add missing gpio-line-names entry
+       ARM: dts: amlogic: meson8/8b: remove invalid pinctrl reg
+
+  arch/arm/boot/dts/amlogic/Makefile                |  2 -
+  arch/arm/boot/dts/amlogic/meson6-atv1200.dts      | 33 ----------
+  arch/arm/boot/dts/amlogic/meson6.dtsi             | 73 -----------------------
+  arch/arm/boot/dts/amlogic/meson8-minix-neo-x8.dts |  5 +-
+  arch/arm/boot/dts/amlogic/meson8.dtsi             | 32 +++++-----
+  arch/arm/boot/dts/amlogic/meson8b-ec100.dts       |  8 ++-
+  arch/arm/boot/dts/amlogic/meson8b-mxq.dts         |  2 +-
+  arch/arm/boot/dts/amlogic/meson8b-odroidc1.dts    |  4 +-
+  arch/arm/boot/dts/amlogic/meson8b.dtsi            | 32 +++++-----
+  arch/arm/boot/dts/amlogic/meson8m2-mxiii-plus.dts |  2 +-
+  10 files changed, 43 insertions(+), 150 deletions(-)
+  delete mode 100644 arch/arm/boot/dts/amlogic/meson6-atv1200.dts
+  delete mode 100644 arch/arm/boot/dts/amlogic/meson6.dtsi
 
