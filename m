@@ -4,113 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01586D44D57
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22569D44D57
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 14:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMI+r3WnPfXX7p/LlfKQXRhm8Yq1mViixw5m8bI5dmU=; b=1hnbXINEL2Yx84rr+lgcZRQJ3j
-	d5ldQAOnQ9URpsTq0iFZRqBjqVl1/KMJWacGAZPZCKZS9SuVtdJkphnQi6UwwhLAJikKxnRb8z7Qb
-	ciJnjQEUZdkQ4PMZp09VRsxVnEjsihL7e/zZ6ccV/lWgeZt04pCnBNgss9IGLIcaLY6WhlV+b+D3D
-	WhKa26SGnMezg0v8LPpWlpRMac/Rq5pBR4xoAIVgRyLjnTWtwcanchp2HwqNLAioYqZVDFzOoGanZ
-	2wq58O1zyE1psgmp2mU6fAPAVYjMHjSuMRuqHCBzRq3xE4sAuFzuXx9BulblplDB2Kx45SGH1USkH
-	mAVzh6uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bnXDazCQ0RtTKBnn8REjgqiFnugp5BLQz0FcP1jAvLs=; b=gjXqHLwMGCdSroCoIAvjGXNHmj
+	DxpKNELTGn+/eJQ6nxjk0bZ1EASRQs8Czm6LkIhXGdotcylZ9MqHmZ7xj02p4yCN1BfHqpAwbB0ZQ
+	JmfjB73iXI1W7+pkY9z+tv/VLYvLWd1hSijDkHrI+luw5A7e5xnoxsetOd9Dx8OlD2Ifrnuiz4MW7
+	uS89ZeluMrb2tKFQ+QmcTK1n0Vy0FlZRCzC6Cf/gSNWTISL3TJI6neD6n7uFfWWtYTQjr57z/wUb1
+	S7Rp8yDoYemACzmAVP6Euf9ke3GVCODglQ556MoCSUPWOUI4EPQzNlo3d8uqUYQ670WLMWz0NmfzE
+	8ZCkAwyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8h6I-00000003dz0-3FJr;
-	Wed, 06 Nov 2024 14:33:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8h9i-00000003exI-0jWe;
+	Wed, 06 Nov 2024 14:37:10 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8h2B-00000003c6B-3ZAC
+	id 1t8h7s-00000003eeK-46IT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Nov 2024 14:29:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E4809A43DBC;
-	Wed,  6 Nov 2024 14:27:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEF74C4CECC;
-	Wed,  6 Nov 2024 14:29:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730903362;
-	bh=PQkhyej+3msxWtwdvICDp2SXr6agJstmZdE0qQDLpy4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r02PlFyQNeF/mPFOyM7dXapPv60s9nyuscTGIwmcJUlm+YmLHl/Y6UC9kTRke3PE3
-	 NU8KIRSWQEO1G8ughJ5lg0gSJ7vre+NKbjeRPmP4ALLF5eX8St6tNiaDY2TCPOiqfz
-	 zkcTKXsvlIMeNIMjq4OSp41eFwzptOwn2rkj0B4x1Q5PmLCzukBfjFoB7Wy5LRpDlW
-	 dk78dg0NRwRTuhn822L5Gfxv+M3IGmI5azrEgOk2pV5i9T42RAVZvtzZqcJ+vRg79j
-	 qd37SwxwoxJqSMTnjFmJdxEpAcoo7q1aA5VBQLoieuDi863l8Q31rbHwEkYL/Gd8fK
-	 tYK1FYWQGFS+w==
-Message-ID: <a8cb35fd-d474-4104-b1f8-90ce5aa4a790@kernel.org>
-Date: Wed, 6 Nov 2024 15:29:17 +0100
+	Wed, 06 Nov 2024 14:35:21 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539e8607c2aso7473608e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 06:35:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730903714; x=1731508514; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bnXDazCQ0RtTKBnn8REjgqiFnugp5BLQz0FcP1jAvLs=;
+        b=R7xjJWd8NIT9DdCv1ULA/lKneJXlgzHZCZ8d89aNYnpuHYlgZeYYcrzQdWc6K1IEnn
+         2Ikczj1oGFmhOj2LN6ZNWhiudyJPWJDm5oW+haVEeU1Q2jZsqmR50d/fXxQlvS167rC5
+         8f0xWQ7wW4nXLR0dvMlAVPqOCWSsezKQ5kZeu8p53exCMaP4f0ft68yP2i1nhs5F+lH4
+         1iJOWk9c+XMpRMUvFE0ud9FgrARBsSwLXtfG3mPPL6mcDn1RLNjOFxbygvc/TYhbrY38
+         BsAzc5LYlrOYSUpYAzWtj9K9KRoJxkBj9xI3Rv8bXGEvW7soGB9IYIBtUZJccypk49+P
+         o+gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730903714; x=1731508514;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bnXDazCQ0RtTKBnn8REjgqiFnugp5BLQz0FcP1jAvLs=;
+        b=uCnotwcOcaKA8CgjJRaqDXqtdPy/gCBe2ZTmSuVipXM7BWEyvqfi6YOVAxDAgkyizN
+         Lmk46WvYjyt5xptBl0w2csvkv44RBmYv6QDY5EzYoc4YLXYXVV3rlT+lssam8pkdI3jR
+         crsh7g7FRur9EvXGyiy5Onr/qO3KInLy3RUTL1nZLD664cMGoPO9fTAxApziD5Js8ck2
+         uQkfgnpJPnvmNGWRHWRZoDiT8GZjZf5ru0n7SYQrbyT4/9cMbOhq7hEOh29LKc/9FFsM
+         wD/zGDoAvKfMmJMErGPqUrtXtS2m8jVHOU4IQusbeq/Eq7PxJhYWChB9YfZt1h85ZZ0+
+         CehA==
+X-Forwarded-Encrypted: i=1; AJvYcCUuKUaI7cHBdgvCU6fJRtGALGEyKlNgwpzJzMo7J7V6uJxWlam+mumdNkgxOu8BU2kPoyETEKYPvymqR4AA3i4x@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfHaEPu53Q9xmovQ91ZtbL/ZsSnVBcudbqkkTk5IfJpzou6Gj1
+	9cupn1mennrMWgBuVPHFfzYaeIV7gIZGMZkPFTt+8nNL+IHgz2daMZqXkU1HnA==
+X-Google-Smtp-Source: AGHT+IFY7xsniFJYwZTMCPs0XA34VZgv3LQnQ0nmsY4lMKbdJP685p4rmkNLWAvlojUA7tIwGlZepw==
+X-Received: by 2002:a05:6512:1324:b0:539:8980:2009 with SMTP id 2adb3069b0e04-53b348e76femr20895757e87.36.1730903714190;
+        Wed, 06 Nov 2024 06:35:14 -0800 (PST)
+Received: from thinkpad ([89.101.134.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa7378e9sm26380495e9.37.2024.11.06.06.35.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2024 06:35:13 -0800 (PST)
+Date: Wed, 6 Nov 2024 14:35:11 +0000
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
+ address to dynamic bridge nodes
+Message-ID: <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
+References: <20241104150521.r4hbsurw4dbzlxpg@thinkpad>
+ <20241104234937.GA1446920@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 05/17] dt-bindings: media: Add bindings for ARM
- mali-c55
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
- nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
- jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
- sakari.ailus@iki.fi
-References: <20241106100534.768400-1-dan.scally@ideasonboard.com>
- <20241106100534.768400-6-dan.scally@ideasonboard.com>
- <lag7gfpuj2hdxw6i5pumaivxl5rylt2hztd57rynjestffwool@ate7u3zhrgfn>
- <20241106135756.GI9369@pendragon.ideasonboard.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241106135756.GI9369@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241104234937.GA1446920@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_062924_242537_61A70919 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20241106_063517_114599_FD7C56C2 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,66 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/11/2024 14:57, Laurent Pinchart wrote:
-> Hi Krzysztof,
+On Mon, Nov 04, 2024 at 05:49:37PM -0600, Bjorn Helgaas wrote:
+> On Mon, Nov 04, 2024 at 08:35:21PM +0530, Manivannan Sadhasivam wrote:
+> > On Mon, Nov 04, 2024 at 09:54:57AM +0100, Andrea della Porta wrote:
+> > > On 22:39 Sat 02 Nov     , Manivannan Sadhasivam wrote:
+> > > > On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
+> > > > > When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
+> > > > > incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
+> > > > > bridge, the window should instead be in PCI address space. Call
+> > > > > pci_bus_address() on the resource in order to obtain the PCI bus
+> > > > > address.
+> > > > 
+> > > > of_pci_prop_ranges() could be called for PCI devices also (not just PCI
+> > > > bridges), right?
+> > > 
+> > > Correct. Please note however that while the PCI-PCI bridge has the parent
+> > > address in CPU space, an endpoint device has it in PCI space: here we're
+> > > focusing on the bridge part. It probably used to work before since in many
+> > > cases the CPU and PCI address are the same, but it breaks down when they
+> > > differ.
+> > 
+> > When you say 'focusing', you are specifically referring to the
+> > bridge part of this API I believe. But I don't see a check for the
+> > bridge in your change, which is what concerning me. Am I missing
+> > something?
 > 
-> On Wed, Nov 06, 2024 at 01:15:23PM +0100, Krzysztof Kozlowski wrote:
->> On Wed, Nov 06, 2024 at 10:05:22AM +0000, Daniel Scally wrote:
->>> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
->>>
->>> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
->>> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
->>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->>> ---
->>> Changes in v8:
->>>
->>> 	- Added the video clock back in. Now that we have actual hardware it's
->>> 	  clear that it's necessary.
->>> 	- Added reset lines 
->>> 	- Dropped R-bs
->>
->> These are trivial, so I wish you kept the review... but since you ask,
->> then comment further
->>
->> I recommend using b4, so your cover letter changelog comes with nice
->> links to previous versions. I scrolled through entire cover letter for
->> this (for me that's almost the only point of cover letter) and could
->> not find them. Anyway, just a remark.
->>
->>
->> ...
->>
->>> +  resets:
->>> +    items:
->>> +      - description: vclk domain reset
->>> +      - description: aclk domain reset
->>> +      - description: hclk domain reset
->>> +
->>> +  reset-names:
->>> +    items:
->>> +      - const: vresetn
->>
->> drop "reset", it's redundant and rather come here with logical name. I
->> wonder what "n" means as well. It's not a GPIO to be "inverted"...
+> I think we want this change for all devices in the PCI address
+> domain, including PCI-PCI bridges and endpoints, don't we?  All those
+> "ranges" addresses should be in the PCI domain.
 > 
-> The aresetn and hresetn names come directly from a hardware manual
-> (vresetn seems to be called rstn in that document though). As far as I
-> understand, they are the names of the external signals of the IP core.
-> I tend to pick the hardware names for clock and reset names. That makes
-> it easier for integrators, and from a driver point of view it doesn't
-> change much as DT names are just a convention anyway.
-> 
-> That being said, if there's a good reason to do otherwise (such as
-> standardizing property names to make handling through common code
-> possible), that's fine too.
 
-If these are from manual then it is fine, although sometimes the names
-are really pointless in manual...
+Yeah, right. I was slightly confused by the commit message. Maybe including a
+sentence about how the change will work fine for endpoint devices would help.
+Also, why it went unnoticed till now (ie., both CPU and PCI addresses are same
+in many SoCs).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Also there should be a fixes tag (also CC stable) since this is a potential bug
+fix.
 
-Best regards,
-Krzysztof
+- Mani
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
