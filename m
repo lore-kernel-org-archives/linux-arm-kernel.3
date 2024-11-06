@@ -4,169 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31511D59F6A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C9FD59F6C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Nov 2024 19:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9cgxrgZ5QweTjZVAls0+VnU7DvWiw/WuVZdcBszAL4=; b=XrCQhCoKJziyDOVXivVBCk4SDV
-	N8h58TKJX63rTeVM0UKGfaKytT8u6GZf8y2eUiQfsF/Xa+xByN0qOmSIpM/PHj61vrXh9hdEFe5Pd
-	jOQjx6tShlkX00Q7pnzMy1Tx8aIDi4beEmmJOyC9V29xJXMdJaZMyjxQ5S8oIPv/BE4cYFootfE8u
-	/akFVVXsvU91bhjnyS7BD9xhwX7zo6ugBxu7GNsn+pIQQDYdXkGd2SKp4mFbr7mR0/6E0HjIGsFnH
-	aDafRJQLRuNYXHNKlWb0405smT6MF5LUPO+MQSCYZSwqFrjbnlX5BhKktqDYWwhAVnP6Q8r6bX0nl
-	Kvz4ZdOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ERW3U817ICJVWH5C1bIPnSiPS7bcsAi0OHsZw8R5di4=; b=lO77tG0RkHSDjhrLqh3myZ6du3
+	ltgC9TGxvsLxRq5kP7f2fBnDNwO4fzo4VX81Q1j05qjD6Dfi9A4cz1jqc4QZRTcaswUoYuIfEIcAc
+	E/iLL8aJ+uD5pUVs7K44+RSssWJAfGNv16BC3as8R4oyDcHml42to8Y3kKQtGmiqa0xtqZLQRyZOn
+	msbShQptLxLvOm1DwsVnZsKClT/51QHlgBeVSUPVL/tA2MaLRM1ck5lPXKfxMgLUQv0W2hzyhv2+k
+	lqHwgDCE3l4GqSgy1qHGWzedwu62i7GaBlKnYf+9IJYaOOhYS/8WkNFYXA2AOK6X/CPyVz/o4aBzG
+	pg6dT1Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lyx-00000004aJG-2W1h;
-	Wed, 06 Nov 2024 19:46:23 +0000
-Received: from mail-eastasiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c400::2] helo=HK3PR03CU002.outbound.protection.outlook.com)
+	id 1t8m0h-00000004apc-2K69;
+	Wed, 06 Nov 2024 19:48:11 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lsv-00000004YHq-2QS1;
-	Wed, 06 Nov 2024 19:40:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aFKwzuulguWUKrS223a/b4lZFs+mHxyf3knUuRGIZp0UQ7ZkMwHscxIhXn56P/w0vMi7FkzZhZEcDPRTnVsAI5sxBWFlKc8rbTQgrAE4LiMy9vz0GFOtwh7o49h8qGbHwDhI9YJ+GMTHK/5qzk5rtm4b/kORzJxE0Jr92LHico/Ow+8dUHzHtNvh7VhFJwCmE0b4WqQiViNjoUepzDVQ2c1nf2cAIsrvBur5uS3qvPWZVQePaSprUzjeHsnyKKuNVLvFW8QYLGqS9l6V1mvUIg7GhTLCjW4IwJ78ZcldTON8KJdRfzsfhxQNpgOhGPJ1E0earV0hIW2jBON0+43RRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i9cgxrgZ5QweTjZVAls0+VnU7DvWiw/WuVZdcBszAL4=;
- b=eeLRD0EBqqmoR/ttx4q8LMshdBd2K1Vdvu2d9g2abWVVKdHWYthCoYeHcgAhw5eFFjyImO3Fae4JnsvXJmxGZOn7GVPeAMgQZkRSwr3ceABQd3mSrY26py45q118Nmw3pALnVSX9J/F5yG8GISCrtDBX8hIu/3fQmuqfGSPRN23+G5FdLfPc3qsY/UPxJagSMcKfdeo4GH219/swnrNapJwNtPDE3L/fJOplkGXIoRsu9EnJzJK72r2msraSwQTk9bCAv3Ch5fZfkt2gHadZS9N0BWrfX6dX+9JIopc03K2SODRjGQz6XDcPDG99jZgdsld/5GFwNfYg329NI+8Pcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
- dkim=pass header.d=fibocom.com; arc=none
+	id 1t8lxw-00000004a3z-3xe2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Nov 2024 19:45:24 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2e2a97c2681so149746a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 11:45:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i9cgxrgZ5QweTjZVAls0+VnU7DvWiw/WuVZdcBszAL4=;
- b=dr0i/mg2hJNCDYo2K0eqVnX98MaYKcqDQTTmrAOSCG/VoZfvFHsUeuVRb7447zOdIeaeT5I93M/K04znftVhHbH1stfO8MvzsUjFvrAGqGIbPJBR+JrJpp/6jJv9NH0hl26E1N/3IGiodiENkjzTObeMaLBGm/5Hyj23NT9phB0=
-Received: from SEZPR02MB5495.apcprd02.prod.outlook.com (2603:1096:101:4a::13)
- by SEZPR02MB5758.apcprd02.prod.outlook.com (2603:1096:101:45::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Wed, 6 Nov
- 2024 19:39:59 +0000
-Received: from SEZPR02MB5495.apcprd02.prod.outlook.com
- ([fe80::4fba:bc9b:33e3:6f95]) by SEZPR02MB5495.apcprd02.prod.outlook.com
- ([fe80::4fba:bc9b:33e3:6f95%4]) with mapi id 15.20.8137.018; Wed, 6 Nov 2024
- 19:39:59 +0000
-From: "Haowei Cheng(Harvey)" <harvey.cheng@fibocom.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-CC: "chunfeng.yun@mediatek.com" <chunfeng.yun@mediatek.com>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: =?gb2312?B?u9i4tDogMDAwMS11c2ItbXR1My1maXgtcGFuaWMtaW4tbXR1M19nYWRnZXRf?=
- =?gb2312?Q?wakeup.patch?=
-Thread-Topic: 0001-usb-mtu3-fix-panic-in-mtu3_gadget_wakeup.patch
-Thread-Index: AQHbLuJOhIt9NRu7m0GuzhYM0mppkLKoX0aAgAJKK4Q=
-Date: Wed, 6 Nov 2024 19:39:59 +0000
-Message-ID: <SEZPR02MB5495A8637098B92CDEBBFC6C8E532@SEZPR02MB5495.apcprd02.prod.outlook.com>
-References: <SEZPR02MB54953820B2A9EEBD807D0ED18E512@SEZPR02MB5495.apcprd02.prod.outlook.com>
- <2024110512-popcorn-germless-01be@gregkh>
-In-Reply-To: <2024110512-popcorn-germless-01be@gregkh>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fibocom.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEZPR02MB5495:EE_|SEZPR02MB5758:EE_
-x-ms-office365-filtering-correlation-id: e1d35761-17b7-4a87-f34a-08dcfe9accd1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?gb2312?B?YTVOMnk0ZVRJL2lJWFhpNWhCMmNYQ2ZneXZtZHFRS1lPVzBEa3Zibmx5R2Q4?=
- =?gb2312?B?R040Z3VibTk4WG1mQWlzMGFLbUdyeTBjczRXQTQ4YVgzYzNQc2ZsVTRjazk5?=
- =?gb2312?B?MHNCU1Fnd00xY0ZrSUVMR1E5d2hXVnVzR3puZTJkblQxdTJsQXJSQ3BXNjZL?=
- =?gb2312?B?Qm5EQSt1TTFwM3Z1d0RCRUo5UkFXdHV2S0t1cyswQ05yb3RkeTE0b2QyeTdN?=
- =?gb2312?B?SFU5MEJXbUFnb3pZaStQcXlUTklIMXZtTEV0MEpCVCtsRCt2RWF6VGxLZ3NH?=
- =?gb2312?B?cXhsRXM4M1lZWW5UTUIwbjJENi93Z3d1VjhYd2RidUI1SjNXbnpPK0JZY283?=
- =?gb2312?B?YnBtMW96T0trZjZ5QzRTNTcvSWNETjYxUFRTWmFLSEVFdS9SUjdwQVMrWndY?=
- =?gb2312?B?YWViNkg4M1o4S1FuVUpsQjM1RkRzSWUxdWhTQnEzSkRmQlBtaHZqb1BuMjU4?=
- =?gb2312?B?N3FvTWF3WDNoVHFsNWtQaHN3RjNiWkJlb2w4VEJ5dm1BWHZCQkRnbnA3bVJX?=
- =?gb2312?B?ODhpblZMRDRzNUVXazNLRXA2ZlpyTXEvYUdRMElFNVRiaTNCaXJaVmYxcDRr?=
- =?gb2312?B?c0RUUlpHOGhac0xCTmRDY2FVQXlwZlJQQU1xaTRtSk81S2d6RGZvVEdLWEp3?=
- =?gb2312?B?dnRjNG5yblpFdzJKWW0yanMvazVpcXFtM2x4dktsRjM0ZVBBSHlKRTVWeXBo?=
- =?gb2312?B?cXdnT2NvaU00RFpmOUVRS2lLS0Q5M1VqQmpSd0J4SmxuZFBvMldza25YMFpi?=
- =?gb2312?B?bFhjRGczS0w5aStvMEFqVGNxOUs0TFBhWmxITkg2L3J4c25DQXlXZStzN3FH?=
- =?gb2312?B?QmoxUTRuSW1CODdhQlFxUWk1WkdUdzV1UkJoUzQ3WGgzWXRiNFFMVlQ2NGp5?=
- =?gb2312?B?MEpJTWhsT1M3RzB3TmZSMmszVUtwSVFsQ09NaW1IQ282RUovOFI3THhoWHVu?=
- =?gb2312?B?blIzL0JKY1d2YjNwQStUd25qVHF2UE80V0VVWDZ6NlZZcUJPaFA0akxXci9a?=
- =?gb2312?B?Vm9kUDdQUWcvZlFwTnJGOXB4ejgrSlJhZ0k5UktwRmRmZHF3VEowN2FLZzVt?=
- =?gb2312?B?Ly9zVTBNVWpTYUNMK3dOQlFiK2pYaXpGZWc5L3pla080QTdBQTNaTzltWlFE?=
- =?gb2312?B?REpQNm1oZFhwYzF0d1BjSWpUOExUZFluREE5ZXRUcE5ZT0RuMFpNYnRXd2NL?=
- =?gb2312?B?NnF4QlJpTnR3N3JpSXBsbVk4L2dhOURsN2tqTFRWMHJxNllMdUtPOThnT0d0?=
- =?gb2312?B?ejc4YVJrcVJYUENxMWo2NGFRZmYyNkJzczZnRjY4NVZEWTR5Q09qYUZaSVZ2?=
- =?gb2312?B?bVdYY0ZEZHZYbVNhWE5vcnE2a09vdFozOFBVRW5JcHpxQ1J1L1drcFZPcTFK?=
- =?gb2312?B?a3B1cSsxa21lbi91SHFBNzZEemRKOFBDd0FyUENRVDRob0VOdGpqQVdiVGwz?=
- =?gb2312?B?N2xWcXpIYVRWTSt3WUZROWxvT09LV3lxQWFIODI1NXdBN2R6a2llYm1zZUpW?=
- =?gb2312?B?dkhQQ3p4L3dqcERRdVpuWGJqbm5SbTJkTDBmSGJSVktYcVdVU0JIVTFJQy82?=
- =?gb2312?B?bjFZaXJWWXBSQTQzRnBZVFJoSWlPcXVTY3ZuNUR1dnpDcjVxa1c4QUVXbHJS?=
- =?gb2312?B?cm9pT1o4dmFpN1B0VzZ6eWRNK2VjQ3RObmk0UW5obVV5VmRLOWN5UXNtWHlV?=
- =?gb2312?B?cnRXNDF6ek1wdE9nN2tKeUluSFg1eDBCNTdWampmeFQ0WDRRRWRxSnJCQlF3?=
- =?gb2312?B?K2UrOWdvT01MQnJTK1FkZ3hlUWFVeXZ2TzcvNmhlWUYwWFhUbWh5YU54MFNl?=
- =?gb2312?Q?JpCvnJSQgzCF4mPu1AwOTTGmDotIfpAZgkwjA=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR02MB5495.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?MEVNYzRtREptaFhWV3ljZ20xRGRXV0M2TE1DT2dRQXU3WUpYbll2dDVEa2ly?=
- =?gb2312?B?VUlZVTRPNkFmTzZ4cjdiY3E0T0puMXFhbWd4VmgxNHUwbllaamhmeEQ5MFF1?=
- =?gb2312?B?YUEvNFJzVjJXVHVkMjl1QkMrdHExdFY1bXNVQnlkdGhlVFFlOGVvN2lKWGw3?=
- =?gb2312?B?cXRJekdHVUpDTGI2KzRVMTZ3L1NFK3BSVGVnQWRvRS8zcDNRQXZSUmZZT3dL?=
- =?gb2312?B?dTRYT3ZWampQcWduTVdrQnZzK0dnc3VkY1g2UHFuV0xQcU56a0N5NnA5d2tu?=
- =?gb2312?B?YzlablMwNjA1a3AybjJZVlFxZ0lxdm0rU0ZRSmJIL2duNmF6UFR5T01sVWI0?=
- =?gb2312?B?UlpwMGR0LytsRmRFU24za21sdmxSbTBYYzluVUpRd0hjVytPNkdKdXpWYUQ5?=
- =?gb2312?B?ZElPWjd5YldGZFVYeElhaktneW90eVg5ZTRlc1ZVUFBLNzhaNTJSN1ErZ1dL?=
- =?gb2312?B?VWxUYXNYL1RSU2tmVG9HWDdHd2gvZWJiRktyYStON1A2L3ZZSDJ0NVlSbnhS?=
- =?gb2312?B?TE1scGY3ci93ZmlTdnBTOHJUN21vTTZjY2gwQ1BkV1Z2b29pVjZHYzJNSGxa?=
- =?gb2312?B?K0tYSTl4OGFLak5Jc255b3F0UDJIcjJycTRFTjluRVptRnVIS0JMYVRFUFdP?=
- =?gb2312?B?UUtjd0R0dzlUM2NydXBDWVdoSy8ycE5hbUM2dHYvUTVXUEQ0YXVaYlBjNS9t?=
- =?gb2312?B?RmFoMXVSNDIvQndrbXd1a2tkYURhT2xDNFJyalhvMU02ejRyaVdQN2FPSXRu?=
- =?gb2312?B?S2hERGZhQ2NpSjY5Sk9Qb0FDaHYybFdJWlZTWmRGVlJ6bEFZdkpENEhnSEQr?=
- =?gb2312?B?ZGl4RkhVYkIxMlJZS05lOEJGLzRlYU9kWEpmRzBoaWhva3RxSHFleEZxR1JZ?=
- =?gb2312?B?ai82d0lyV0MyZUxLZTZYeGRDeml4YTdNOFRTUUE4UVV4UzFuaXIySi9rOU1y?=
- =?gb2312?B?MjhFRS9EY3ZQOUU1R1JxZEFTTFhKZ0N6SDhoMHdTZHdzWmtsY0tlVkVSOHRv?=
- =?gb2312?B?UHBrTTNhclNMbkR0WjAxc2RPNTFuTndXZkhYWE1vdHV0VUxPcUp0Z0owd251?=
- =?gb2312?B?WExWZnNqbnB5Nkd1US8zaCt6NHdGMytId2k3SGtqcU41M2hiWFc5ZmwvMnRT?=
- =?gb2312?B?VnNPb2IzVjA3MGY2MWVZRCt2b3o4bnZRb0FmY05OeFBJbHVrMkZZcHVyUmZZ?=
- =?gb2312?B?V1J3S25iVUxlTmkxY3pIWTN4REh2OS9tS3VBWFZQUWtPcys0bmx0Z2hRTE5X?=
- =?gb2312?B?aVVuMFVSQkk5YVpjSjhZcnJMMUsvdVg0N0ROVmpLMldxMUljMmlmUW0wdjFr?=
- =?gb2312?B?NXRvZXkrMzVJMUxuUTlMUGQrZjlrN2J3WGpxZEcxSTVOZFVEeXpwRzBqSWdJ?=
- =?gb2312?B?OHRicEppQ2Q2ajZtdDJQS0tPaGpHK3UyMHZ4ZGlmdzVDRGxKT3RlNXRYd3Z0?=
- =?gb2312?B?TThnMUw0MzV4T2JYWGtrbENneHhTRlBJTDBFOVJDMDFLMXl4VkVJb3lMRDR0?=
- =?gb2312?B?ejNFeGZDeWdvS2tHR0U3KzhkNDdMUjN0eGNNRUlqQW1oVTB3QVB6UlE0c05v?=
- =?gb2312?B?dWZNTWM4c1pxZ1FoYXZRWDgwR29XWWlDUnlHb1QwWERScmkzZ3ZEMm9xdk9u?=
- =?gb2312?B?NjNTN2dwZEJGbjRmYVMraGVqSVFKL0ppTndRWkxOT2JIN0pQY290QjZhbVNS?=
- =?gb2312?B?Rk8rRUptbk5nclphbHF1U29FbTNxZzRpZWt3M1hFd20ya05Fcy9vYzVGSG9I?=
- =?gb2312?B?VjlNWlF4VDVtQXRFU24xTkZOV0pBM1daei9VbFhsS0lpYllEaHZ2Q1J4anVk?=
- =?gb2312?B?TnY0SHNPdmxpY1JucVV6S1VqeGt6aWFHb09BQTBRQUtRRUdWS0JrTU0rejE1?=
- =?gb2312?B?RENId242Rzk1aUxBYnVreXZxWGtzaytOclVXZzE5OHRzK0w2R0dqd0ZUbkpL?=
- =?gb2312?B?ZWtwR1lycHgyVC9xL1k2aldNMFg1Z3ZSMmtzTS9ycnVTMTJsUzlwdG9iRnZi?=
- =?gb2312?B?MzBiRmJHbXU0T3A4LzZsUzlwQ2hxeEtZTmZrM2I0S3JLUlV3ckp4TWtPaTBU?=
- =?gb2312?B?OThBMDJZZVJ0RDBjYTFxeHYxcDNyRDEvZzRrUGZmVzgvM21kWThrejRuSlNv?=
- =?gb2312?Q?gvEp0OrltWFjFzOB7UxkRphn7?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+        d=gmail.com; s=20230601; t=1730922320; x=1731527120; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ERW3U817ICJVWH5C1bIPnSiPS7bcsAi0OHsZw8R5di4=;
+        b=eupxutSLg1Yvy7StNyWpLdC80MwOn1QymwTvGjGpwIeXEIVNMzYNrHMfvwF43pHeiv
+         nW+uX2XcLpqqvw6NRcndoxrQoQXLGcK35X29Pv9Sxg4JxzfuGxder8c3My0kDNvQ51hB
+         cTj0GZib2mJI3eOiNZ13Sy1nksvgWIRy4AteNCTzX97gmkINN7pbr64m6BHuF0o6FYu5
+         7kC4GSgFwHFVeR1O2CgqKN/LPXU1Nj7o4NiwLMvkC+bPxMZHWEVuzemq/3gG4BJAUcK5
+         Uul2MC+OhzmB4PbY8obv3vZatqFdC3vLVa3VFXDCRD6UUYOLEnYNsI/m0K+ANdbJsbgY
+         KdhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730922320; x=1731527120;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ERW3U817ICJVWH5C1bIPnSiPS7bcsAi0OHsZw8R5di4=;
+        b=jQbyK2kEoffjN1fJ2eyNYweqBh+iNDcbxtr2XGTKkoLMkQ0l5OPBLdv2mMoE9UBYzF
+         KYACm7RqTn46D4otJTANzL5/g1YhvPAAHchUp57w2Jy3ExR2IsKSk/EfBixZmvP8Ioxz
+         W8T55hZz78qSpm2TF67U94d6rJMNDfLvQs0ufL5oNzzmr2hdMxRh/Tei9ss2WONRBBUo
+         p3s2OCIYa1xfGzaCM+s/zRiXXAtji7HxYP/qHiwumcP2CEgCJNZom6e3RHEmvS8Whshg
+         dmZMmCF+B8sSMd3Tj3yuLtLD0f2650git0Zyd7Rs4geiOSn9mmZSejWcx2hb0JcvRS5o
+         Zy0A==
+X-Forwarded-Encrypted: i=1; AJvYcCXBkL3jrCksuzzExlUc7ewsA+z2lzCtb/HDNxIzJPnQEn1eqVi37v5MBNZv5F1edMwWXD+cpMF3GRJxMJ85l7AS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6Yr0L8mbRkWcEPpT2rsGL4108fZzkzq/g0vrMMTHiPyGY+TI5
+	SZtZ2RH74YmooFWyGs96bKd/D3tkErCzbH1uec1aMahlhSbuwZLDV9r0/HkBJBbwvpEnjgZYwLV
+	DqF08bnzYNJJNjsaWi4DMtZ5DGw4=
+X-Google-Smtp-Source: AGHT+IFbmQxTWeLNB8XV7BIfN4wjfQBgzF4RxF4R5uqD3wQNs02fm9aOsTQRWdT5wxISCZLrRRJ6WTjtbBhWxYa886M=
+X-Received: by 2002:a17:90a:ad91:b0:2d1:bf48:e767 with SMTP id
+ 98e67ed59e1d1-2e92cf2dc3emr31095159a91.29.1730922318060; Wed, 06 Nov 2024
+ 11:45:18 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: fibocom.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR02MB5495.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1d35761-17b7-4a87-f34a-08dcfe9accd1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2024 19:39:59.4419
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 889bfe61-8c21-436b-bc07-3908050c8236
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GCndrXsx7aTfAzICsXu2xk/gdLTSSkQ86AzPtQwXbwdttoTm23yAU2wlqNaHZVC/17vysGVcb3V6DFBLdp6VGJqkc9yFUrT7k7WbLbk0S14=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR02MB5758
+References: <20240910060407.1427716-1-liaochang1@huawei.com>
+ <ZxpUX1rbppLqS0bD@J2N7QTR9R3.cambridge.arm.com> <CAEf4Bzb9fM+hx8quHpCCeRh2p7UVk9Kk6yGj3XvyJLTQu9C-2w@mail.gmail.com>
+ <46451dbe-056c-4c13-bfae-7ee8d6e115b5@huawei.com>
+In-Reply-To: <46451dbe-056c-4c13-bfae-7ee8d6e115b5@huawei.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 6 Nov 2024 11:45:06 -0800
+Message-ID: <CAEf4BzYBAtNbCyCLybPxQrp-CZ9NVOco9X=xctnQ7BuDfhoadA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: uprobes: Simulate STP for pushing fp/lr into user stack
+To: "Liao, Chang" <liaochang1@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, catalin.marinas@arm.com, will@kernel.org, 
+	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org, ast@kernel.org, 
+	puranjay@kernel.org, andrii@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_114009_645870_4694BF49 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_114521_024481_A8BAA309 
+X-CRM114-Status: GOOD (  70.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,60 +95,381 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgZ3JlZyBrLWijrA0KDQpXZSBmb3VuZCBkdXJpbmcgZGV2ZWxvcG1lbnQgdGhhdCB3aGVuIHRo
-ZXJlIGFyZSBkYXRhIHBhY2tldHMgdG8gYmUgc2VudCBvbiB0aGUgVVNCIFJORElTIG5ldHdvcmsg
-Y2FyZCwNCiB1bnBsdWdnaW5nIHRoZSBVU0IgY2FibGUgd2lsbCB0cmlnZ2VyIGEgY2VydGFpbiBw
-cm9iYWJpbGl0eSBvZiBzeXN0ZW0gd2FybmluZyBvciBwYW5pYy4NCldlIG9ic2VydmVkIHRoYXQg
-dGhlIG10dTNfZ2FkZ2V0X3dha2V1cCBmdW5jdGlvbiB1c2VzIHRoZSB1c2xlZXBfcmFuZ2Vfc3Rh
-dGUgZnVuY3Rpb24sDQp3aGljaCBoYXMgY2VydGFpbiBzY2VuYXJpbyBsaW1pdGF0aW9ucy4gVGhl
-cmVmb3JlLCB3ZSBtYWRlIHRoaXMgb3B0aW1pemF0aW9uLg0KDQogVGhlIHNwZWNpZmljIGNhbGwg
-dHJhY2UgaW5mb3JtYXRpb24gaXMgYXMgZm9sbG93czoNClsgIDU5NC42Mzg3NDldIENhbGwgdHJh
-Y2U6DQpbICA1OTQuNjM5MDU5XSAgZHVtcF9iYWNrdHJhY2UrMHgwLzB4MTc0DQpbICA1OTQuNjM5
-NTMxXSAgc2hvd19zdGFjaysweDE4LzB4MjQNClsgIDU5NC42Mzk5NTNdICBkdW1wX3N0YWNrX2x2
-bCsweDY0LzB4ODANClsgIDU5NC42NDA0MjBdICBkdW1wX3N0YWNrKzB4MTgvMHgzNA0KWyAgNTk0
-LjY0MDg0Ml0gIF9fc2NoZWR1bGVfYnVnKzB4NTAvMHg2Yw0KWyAgNTk0LjY0MTMwOF0gIF9fc2No
-ZWR1bGUrMHg5NC8weDQ2OA0KWyAgNTk0LjY0MTc0MV0gIHNjaGVkdWxlKzB4YTAvMHhlOA0KWyAg
-NTk0LjY0MjE0MF0gIHNjaGVkdWxlX2hydGltZW91dF9yYW5nZV9jbG9jaysweGE4LzB4ZTANClsg
-IDU5NC42NDI3ODBdICBzY2hlZHVsZV9ocnRpbWVvdXRfcmFuZ2UrMHgxNC8weDIwDQpbICA1OTQu
-NjQzMzUyXSAgdXNsZWVwX3JhbmdlX3N0YXRlKzB4NWMvMHg5MA0KWyAgNTk0LjY0Mzg1OV0gIG10
-dTNfZ2FkZ2V0X3dha2V1cCsweDkwLzB4ZDQNClsgIDU5NC42NDQzNjldICB1c2JfZ2FkZ2V0X3dh
-a2V1cCsweDFjLzB4MzANClsgIDU5NC42NDQ4NjhdICAweGZmZmZmZmMwMDE1MGYxMTANClsgIDU5
-NC42NDUzMTVdICAweGZmZmZmZmMwMDE1MTAwNmMNClsgIDU5NC42NDU3MjNdICBuZXRkZXZfc3Rh
-cnRfeG1pdCsweDQwLzB4NmMNClsgIDU5NC42NDYyMjNdICBkZXZfaGFyZF9zdGFydF94bWl0KzB4
-OTAvMHhlNA0KWyAgNTk0LjY0Njc0M10gIHNjaF9kaXJlY3RfeG1pdCsweDEwMC8weDI3MA0KWyAg
-NTk0LjY0NzI0Ml0gIF9fZGV2X3F1ZXVlX3htaXQrMHg0MDQvMHg2MDANClsgIDU5NC42NDc3NTBd
-ICBkZXZfcXVldWVfeG1pdCsweDE0LzB4MjANClsgIDU5NC42NDgyMTRdICBicl9kZXZfcXVldWVf
-cHVzaF94bWl0KzB4MTNjLzB4MWI0DQpbICA1OTQuNjQ4Nzg4XSAgTkZfSE9PSy5jb25zdHByb3Au
-MCsweDVjLzB4ZDQNClsgIDU5NC42NDkzMDddICBicl9mb3J3YXJkX2ZpbmlzaCsweDM0LzB4NDAN
-ClsgIDU5NC42NDk4MDRdICBORl9IT09LLmNvbnN0cHJvcC4wKzB4NWMvMHhkNA0KWyAgNTk0LjY1
-MDMyM10gIF9fYnJfZm9yd2FyZCsweGNjLzB4ZTANClsgIDU5NC42NTA3NjZdICBicl9mb3J3YXJk
-KzB4ODAvMHg5OA0KWyAgNTk0LjY1MTE4N10gIGJyX2Rldl94bWl0KzB4MzU0LzB4MzgwDQpbICA1
-OTQuNjUxNjM5XSAgbmV0ZGV2X3N0YXJ0X3htaXQrMHg0MC8weDZjDQpbICA1OTQuNjUyMTM3XSAg
-ZGV2X2hhcmRfc3RhcnRfeG1pdCsweDkwLzB4ZTQNClsgIDU5NC42NTI2NTZdICBfX2Rldl9xdWV1
-ZV94bWl0KzB4NTJjLzB4NjAwDQpbICA1OTQuNjUzMTY0XSAgZGV2X3F1ZXVlX3htaXQrMHgxNC8w
-eDIwDQpbICA1OTQuNjUzNjI4XSAgbmVpZ2hfcmVzb2x2ZV9vdXRwdXQrMHhmNC8weDEyYw0KWyAg
-NTk0LjY1NDE3MF0gIF9fbmVpZ2hfdXBkYXRlKzB4NTE0LzB4NjUwDQpbICA1OTQuNjU0NjU2XSAg
-bmVpZ2hfdXBkYXRlKzB4MTQvMHgyMA0KWyAgNTk0LjY1NTA5OF0gIGFycF9pb2N0bCsweDQxMC8w
-eDU4Yw0KWyAgNTk0LjY1NTUzMV0gIGluZXRfaW9jdGwrMHgxMWMvMHgxYjQNClsgIDU5NC42NTU5
-NzRdICBzb2NrX2RvX2lvY3RsKzB4NDgvMHhmOA0KWyAgNTk0LjY1NjQyOV0gIHNvY2tfaW9jdGwr
-MHgxNTAvMHgzMzgNClsgIDU5NC42NTY4NzFdICB2ZnNfaW9jdGwrMHgyOC8weDQ4DQpbICA1OTQu
-NjU3MjgzXSAgX19hcm02NF9zeXNfaW9jdGwrMHg3OC8weGFjDQpbICA1OTQuNjU3NzgxXSAgaW52
-b2tlX3N5c2NhbGwrMHg2Yy8weGY4DQpbICA1OTQuNjU4MjQ3XSAgZWwwX3N2Y19jb21tb24uY29u
-c3Rwcm9wLjArMHg3OC8weGU0DQpbICA1OTQuNjU4ODQyXSAgZG9fZWwwX3N2YysweDY0LzB4NzAN
-ClsgIDU5NC42NTkyNjNdICBlbDBfc3ZjKzB4MTgvMHg0NA0KWyAgNTk0LjY1OTY1Ml0gIGVsMHRf
-NjRfc3luY19oYW5kbGVyKzB4YjQvMHgxMzQNClsgIDU5NC42NjAxOTNdICBlbDB0XzY0X3N5bmMr
-MHgxODQvMHgxODgNClsgIDU5NC42NjIzMTldIC0tLS0tLS0tLS0tLVsgY3V0IGhlcmUgXS0tLS0t
-LS0tLS0tLQ0KWyAgNTk0LjY2MjMyMl0gV0FSTklORzogQ1BVOiAyIFBJRDogMTQxNjIgYXQga2Vy
-bmVsL3NvZnRpcnEuYzozNjIgX19sb2NhbF9iaF9lbmFibGVfaXArMHgxYy8weDgwDQoNCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18NCreivP7IyzogR3JlZyBLcm9haC1I
-YXJ0bWFuIDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz4NCreiy83KsbzkOiAyMDI0xOoxMdTC
-NcjVIDE2OjQxDQrK1bz+yMs6IEhhb3dlaSBDaGVuZyhIYXJ2ZXkpDQqzrcvNOiBjaHVuZmVuZy55
-dW5AbWVkaWF0ZWsuY29tOyBsaW51eC11c2JAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2Vy
-bmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LW1lZGlhdGVrQGxpc3RzLmluZnJhZGVhZC5v
-cmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcNCtb3zOI6IFJlOiAwMDAxLXVzYi1tdHUz
-LWZpeC1wYW5pYy1pbi1tdHUzX2dhZGdldF93YWtldXAucGF0Y2gNCg0KT24gTW9uLCBOb3YgMDQs
-IDIwMjQgYXQgMDU6NTQ6NDNQTSArMDAwMCwgSGFvd2VpIENoZW5nKEhhcnZleSkgd3JvdGU6DQo+
-DQoNCg0KRm9yIHNvbWUgcmVhc29uIHlvdSBvbmx5IGF0dGFjaGVkIGEgcGF0Y2gsIHBsZWFzZSBz
-ZW5kIGl0IHByb3Blcmx5IHNvIHdlDQpjYW4gYWN0dWFsbHkgcmV2aWV3IGFuZCBhcHBseSBpdCBp
-ZiBuZWVkZWQuDQoNCnRoYW5rcywNCg0KZ3JlZyBrLWgNCg==
+On Tue, Nov 5, 2024 at 4:22=E2=80=AFAM Liao, Chang <liaochang1@huawei.com> =
+wrote:
+>
+> Andrii and Mark.
+>
+> =E5=9C=A8 2024/10/26 4:51, Andrii Nakryiko =E5=86=99=E9=81=93:
+> > On Thu, Oct 24, 2024 at 7:06=E2=80=AFAM Mark Rutland <mark.rutland@arm.=
+com> wrote:
+> >>
+> >> On Tue, Sep 10, 2024 at 06:04:07AM +0000, Liao Chang wrote:
+> >>> This patch is the second part of a series to improve the selftest ben=
+ch
+> >>> of uprobe/uretprobe [0]. The lack of simulating 'stp fp, lr, [sp, #im=
+m]'
+> >>> significantly impact uprobe/uretprobe performance at function entry i=
+n
+> >>> most user cases. Profiling results below reveals the STP that execute=
+s
+> >>> in the xol slot and trap back to kernel, reduce redis RPS and increas=
+e
+> >>> the time of string grep obviously.
+> >>>
+> >>> On Kunpeng916 (Hi1616), 4 NUMA nodes, 64 Arm64 cores@2.4GHz.
+> >>>
+> >>> Redis GET (higher is better)
+> >>> ----------------------------
+> >>> No uprobe: 49149.71 RPS
+> >>> Single-stepped STP: 46750.82 RPS
+> >>> Emulated STP: 48981.19 RPS
+> >>>
+> >>> Redis SET (larger is better)
+> >>> ----------------------------
+> >>> No uprobe: 49761.14 RPS
+> >>> Single-stepped STP: 45255.01 RPS
+> >>> Emulated stp: 48619.21 RPS
+> >>>
+> >>> Grep (lower is better)
+> >>> ----------------------
+> >>> No uprobe: 2.165s
+> >>> Single-stepped STP: 15.314s
+> >>> Emualted STP: 2.216s
+> >>
+> >> The results for grep are concerning.
+> >>
+> >> In theory, the overhead for stepping should be roughly double the
+> >> overhead for emulating, assuming the exception-entry and
+> >> exception-return are the dominant cost. The cost of stepping should be
+> >> trivial.
+> >>
+> >> Those results show emulating adds 0.051s (for a ~2.4% overhead), while
+> >> stepping adds 13.149s (for a ~607% overhead), meaning stepping is 250x
+> >> more expensive.
+> >>
+> >> Was this tested bare-metal, or in a VM?
+> >
+> > Hey Mark, I hope Liao will have a chance to reply, I don't know the
+> > details of his benchmarking. But I can try to give you my numbers and
+> > maybe answer a few questions, hopefully that helps move the
+> > conversation forward.
+> >
+> > So, first of all, I did a quick benchmark on bare metal (without
+> > Liao's optimization, though), here are my results:
+> >
+> > uprobe-nop            ( 1 cpus):    2.334 =C2=B1 0.011M/s  (  2.334M/s/=
+cpu)
+> > uprobe-push           ( 1 cpus):    2.321 =C2=B1 0.010M/s  (  2.321M/s/=
+cpu)
+> > uprobe-ret            ( 1 cpus):    4.144 =C2=B1 0.041M/s  (  4.144M/s/=
+cpu)
+> >
+> > uretprobe-nop         ( 1 cpus):    1.684 =C2=B1 0.004M/s  (  1.684M/s/=
+cpu)
+> > uretprobe-push        ( 1 cpus):    1.736 =C2=B1 0.003M/s  (  1.736M/s/=
+cpu)
+> > uretprobe-ret         ( 1 cpus):    2.502 =C2=B1 0.006M/s  (  2.502M/s/=
+cpu)
+> >
+> > uretprobes are inherently slower, so I'll just compare uprobe, as the
+> > differences are very clear either way.
+> >
+> > -nop is literally nop (Liao solved that issue, I just don't have his
+> > patch applied on my test machine). -push has `stp     x29, x30, [sp,
+> > #-0x10]!` instruction traced. -ret is literally just `ret`
+> > instruction.
+> >
+> > So you can see that -ret is almost twice as fast as the -push variant
+> > (it's a microbenchmark, yes, but still).
+> >
+> >>
+> >> AFAICT either:
+> >>
+> >> * Single-stepping is unexpectedly expensive.
+> >>
+> >>   Historically we had performance issues with hypervisor trapping of
+> >>   debug features, and there are things we might be able to improve in
+> >>   the hypervisor and kernel, which would improve stepping *all*
+> >>   instructions.
+> >>
+> >
+> > Single-stepping will always be more expensive, as it necessitates
+> > extra hop kernel->user space->kernel, so no matter the optimization
+> > for single-stepping, if we can avoid it, we should. It will be
+> > noticeable.
+> >
+> >>   If stepping is the big problem, we could move uprobes over to a BRK
+> >>   rather than a single-step. That would require require updating and
+> >>   fixing the logic to decide which instructions are steppable, but
+> >>   that's necessary anyway given it has extant soundness issues.
+> >
+> > I'm afraid I don't understand what BRK means and what are the
+> > consequences in terms of overheads. I'm not an ARM person either, so
+> > sorry if that's a stupid question. But either way, I can't address
+> > this. But see above, emulating an instruction feels like a much better
+> > approach, if possible.
+>
+> As I understand, Mark's suggestion is to place a BRK instruction next to
+> the instruction in the xol slot. Once the instruction in the xol slot
+> executed, the BRK instruction would trigger a trap into kernel. This is
+> a common technique used on platforms that don't support hardware single-
+> step. However, since Arm64 does support hardware single-stepping, kernel
+> enables it in pre_ssout(), allowing the CPU to automatically trap into ke=
+rnel
+> after instruction in xol slot executed. But even we move uprobes over
+> to a BRK rather than a single-step. It can't reduce the overhead of user-=
+>
+> kernel->user context switch on the bare-metal. Maybe I am wrong, Mark,
+> could you give more details about the BRK.
+>
+
+I see, thanks for elaborating. So the suggestion was to go from very
+expensive single-stepping mode to still expensive breakpoint-based
+kernel->user->kernel workflow.
+
+I think either way it's going to be much slower than avoiding
+kernel->user->kernel hop, so we should emulate STP instead, yep.
+
+> >
+> >>
+> >> * XOL management is absurdly expensive.
+> >>
+> >>   Does uprobes keep the XOL slot around (like krpobes does), or does i=
+t
+> >>   create the slot afresh for each trap?
+> >
+> > XOL *page* is created once per process, lazily, and then we just
+> > juggle a bunch of fixed slots there for each instance of
+> > single-stepped uprobe. And yes, there are some bottlenecks in XOL
+> > management, though it's mostly due to lock contention (as it is
+> > implemented right now). Liao and Oleg have been improving XOL
+> > management, but still, avoiding XOL in the first place is the much
+> > preferred way.
+> >
+> >>
+> >>   If that's trying to create a slot afresh for each trap, there are
+> >>   several opportunities for improvement, e.g. keep the slot around for
+> >>   as long as the uprobe exists, or pre-allocate shared slots for commo=
+n
+> >>   instructions and use those.
+> >
+> > As I mentioned, a XOL page is allocated and mapped once, but yes, it
+> > seems like we dynamically get a slot in it for each single-stepped
+> > execution (see xol_take_insn_slot() in kernel/events/uprobes.c). It's
+> > probably not a bad idea to just cache and hold a XOL slot for each
+> > specific uprobe, I don't see why we should limit ourselves to just one
+> > XOL page. We also don't need to pre-size each slot, we can probably
+> > allocate just the right amount of space for a given uprobe.
+> >
+> > All good ideas for sure, we should do them, IMO. But we'll still be
+> > paying an extra kernel->user->kernel switch, which almost certainly is
+> > slower than doing a simple stack push emulation just like we do in
+> > x86-64 case, no?
+> >
+> >
+> > BTW, I did a quick local profiling run. I don't think XOL management
+> > is the main source of overhead. I see 5% of CPU cycles spent in
+> > arch_uprobe_copy_ixol, but other than that XOL doesn't figure in stack
+> > traces. There are at least 22% CPU cycles spent in some
+> > local_daif_restore function, though, not sure what that is, but might
+> > be related to interrupt handling, right?
+>
+> The local_daif_restore() is part of the path for all user->kernel->user
+> context switch, including interrupt handling, breakpoints, and single-ste=
+pping
+> etc. I am surprised to see it consuming 22% of CPU cycles as well. I have=
+n't
+> been enable to reproduce this on my local machine.
+>
+> Andrii, could you use the patch below to see if it can reduce the 5% of
+> CPU cycles spent in arch_uprobe_copy_ixol, I doubt that D/I cache
+> synchronization is the cause of this part of overhead.
+>
+> https://lore.kernel.org/all/20240919121719.2148361-1-liaochang1@huawei.co=
+m/
+
+tbh, I think pre-allocating and setting up fixed XOL slots instead of
+dynamically allocating them is the way to go. We can allocate as many
+special "[uprobes]" pages as necessary to accommodate all the
+single-stepped uprobes in XOL, remember their index, etc. I think
+that's much more performant (and simpler, IMO) approach overall. All
+this preparation, however expensive it might be, will be done once per
+each attached/detached uprobe/uretprobe, which is the place where we
+want to do expensive stuff. Not when uprobe/uretprobe is actually
+triggered.
+
+>
+> >
+> >
+> > The take away I'd like to communicate here is avoiding the
+> > single-stepping need is *the best way* to go, IMO. So if we can
+> > emulate those STP instructions for uprobe *cheaply*, that would be
+> > awesome.
+>
+> Given some significant uprobe optimizations from Oleg and Andrii
+> merged, I am curious to see how these changes impact the profiling
+> result on Arm64. So I re-ran the selftest bench on the latest kernel
+> (based on tag next-20241104) and the kernel (based on tag next-20240909)
+> that I used when I submitted this patch. The results re-ran are shown
+> below.
+>
+> next-20240909(xol stp + xol nop)
+> --------------------------------
+> uprobe-nop      ( 1 cpus):    0.424 =C2=B1 0.000M/s  (  0.424M/s/cpu)
+> uprobe-push     ( 1 cpus):    0.415 =C2=B1 0.001M/s  (  0.415M/s/cpu)
+> uprobe-ret      ( 1 cpus):    2.101 =C2=B1 0.002M/s  (  2.101M/s/cpu)
+> uretprobe-nop   ( 1 cpus):    0.347 =C2=B1 0.000M/s  (  0.347M/s/cpu)
+> uretprobe-push  ( 1 cpus):    0.349 =C2=B1 0.000M/s  (  0.349M/s/cpu)
+> uretprobe-ret   ( 1 cpus):    1.051 =C2=B1 0.001M/s  (  1.051M/s/cpu)
+>
+> next-20240909(sim stp + sim nop)
+> --------------------------------
+> uprobe-nop      ( 1 cpus):    2.042 =C2=B1 0.002M/s  (  2.042M/s/cpu)
+> uprobe-push     ( 1 cpus):    1.363 =C2=B1 0.002M/s  (  1.363M/s/cpu)
+> uprobe-ret      ( 1 cpus):    2.052 =C2=B1 0.002M/s  (  2.052M/s/cpu)
+> uretprobe-nop   ( 1 cpus):    1.049 =C2=B1 0.001M/s  (  1.049M/s/cpu)
+> uretprobe-push  ( 1 cpus):    0.780 =C2=B1 0.000M/s  (  0.780M/s/cpu)
+> uretprobe-ret   ( 1 cpus):    1.065 =C2=B1 0.001M/s  (  1.065M/s/cpu)
+>
+> next-20241104 (xol stp + sim nop)
+> ---------------------------------
+> uprobe-nop      ( 1 cpus):    2.044 =C2=B1 0.003M/s  (  2.044M/s/cpu)
+> uprobe-push     ( 1 cpus):    0.415 =C2=B1 0.001M/s  (  0.415M/s/cpu)
+> uprobe-ret      ( 1 cpus):    2.047 =C2=B1 0.001M/s  (  2.047M/s/cpu)
+> uretprobe-nop   ( 1 cpus):    0.832 =C2=B1 0.003M/s  (  0.832M/s/cpu)
+> uretprobe-push  ( 1 cpus):    0.328 =C2=B1 0.000M/s  (  0.328M/s/cpu)
+> uretprobe-ret   ( 1 cpus):    0.833 =C2=B1 0.003M/s  (  0.833M/s/cpu)
+>
+> next-20241104 (sim stp + sim nop)
+> ---------------------------------
+> uprobe-nop      ( 1 cpus):    2.052 =C2=B1 0.002M/s  (  2.052M/s/cpu)
+> uprobe-push     ( 1 cpus):    1.411 =C2=B1 0.002M/s  (  1.411M/s/cpu)
+> uprobe-ret      ( 1 cpus):    2.052 =C2=B1 0.005M/s  (  2.052M/s/cpu)
+> uretprobe-nop   ( 1 cpus):    0.839 =C2=B1 0.005M/s  (  0.839M/s/cpu)
+> uretprobe-push  ( 1 cpus):    0.702 =C2=B1 0.002M/s  (  0.702M/s/cpu)
+> uretprobe-ret   ( 1 cpus):    0.837 =C2=B1 0.001M/s  (  0.837M/s/cpu)
+>
+> It seems that the STP simluation approach in this patch significantly
+> improves uprobe-push throughtput by 240% (from 0.415Ms/ to 1.411M/s)
+> and uretprobe-push by 114% (from 0.328M/s to 0.702M/s) on kernels
+> bases on next-20240909 and next-20241104. While there is still room
+> for improvement to reach the throughput of -nop and -ret, the gains
+> are very substantail.
+>
+> But I'm a bit puzzled by the throughput of uprobe/uretprobe-push using
+> single-stepping stp, which are far lower compared to the result when
+> when I submitted patch(look closely to the uprobe-push and uretprobe-push
+> results in commit log). I'm certain that the tests were run on the
+> same bare-metal machine with background tasked minimized. I doubt some
+> uncommitted uprobe optimization on my local repo twist the result of
+> -push using single-step.
+
+You can always profiler and compare before/after, right? See where
+added costs are coming from?
+
+>
+> In addition to the micro benchmark, I also re-ran Redis benchmark to
+> compare the impact of single-stepping STP and simluated STP to the
+> throughput of redis-server. I believe the impact of uprobe on the real
+> application depends on the frequency of uprobe triggered and the applicat=
+ion's
+> hot paths. Therefore, I wouldn't say the simluated STP will benefit all
+> real world applications.
+
+It will benefit *a lot* of real world applications, though, so I think
+it's very important to improve.
+
+>
+> $ redis-benchmark -h [redis-server IP] -p 7778 -n 64000 -d 4 -c 128 -t SE=
+T
+> $ redis-server --port 7778 --protected-mode no --save "" --appendonly no =
+& &&
+>   bpftrace -e 'uprobe:redis-server:readQueryFromClient{}
+>                uprobe:redis-server:processCommand{}
+>                uprobe:redis-server:aeApiPoll {}'
+>
+> next-20241104
+> -------------
+> RPS: 55602.1
+>
+> next-20241104 + ss stp
+> ----------------------
+> RPS: 47220.9
+> uprobe@@aeApiPoll: 554565
+> uprobe@processCommand: 1275160
+> uprobe@readQueryFromClient: 1277710
+>
+> next-20241104 + sim stp
+> -----------------------
+> RPS           54290.09
+> uprobe@aeApiPoll: 496007
+> uprobe@processCommand: 1275160
+> uprobe@readQueryFromClient: 1277710
+>
+> Andrii expressed concern that the STP simulation in this patch is too
+> expensive. If we believe the result I re-ran, perhaps it is not a
+> bad way to simluate STP. Looking forward to your feedbacks, or someone
+> could propose a cheaper way to simluate STP, I'm very happy to test it
+> on my machine, thanks.
+
+I'm no ARM64 expert, but seeing that we simulate stack pushes with
+just memory reads/write for x86-64, it feels like that should be
+satisfactory for ARM64. So I'd suggest you to go back to the initial
+implementation, clean it up, rebase, re-benchmark, and send a new
+revision. Let's continue the discussion there?
+
+>
+> [...]
+>
+> >>>
+> >>> xol-stp
+> >>> -------
+> >>> uprobe-nop      ( 1 cpus):    1.566 =C2=B1 0.006M/s  (  1.566M/s/cpu)
+> >>> uprobe-push     ( 1 cpus):    0.868 =C2=B1 0.001M/s  (  0.868M/s/cpu)
+> >>> uprobe-ret      ( 1 cpus):    1.629 =C2=B1 0.001M/s  (  1.629M/s/cpu)
+> >>> uretprobe-nop   ( 1 cpus):    0.871 =C2=B1 0.001M/s  (  0.871M/s/cpu)
+> >>> uretprobe-push  ( 1 cpus):    0.616 =C2=B1 0.001M/s  (  0.616M/s/cpu)
+> >>> uretprobe-ret   ( 1 cpus):    0.878 =C2=B1 0.002M/s  (  0.878M/s/cpu)
+> >>>
+> >>> simulated-stp
+> >>> -------------
+> >>> uprobe-nop      ( 1 cpus):    1.544 =C2=B1 0.001M/s  (  1.544M/s/cpu)
+> >>> uprobe-push     ( 1 cpus):    1.128 =C2=B1 0.002M/s  (  1.128M/s/cpu)
+> >>> uprobe-ret      ( 1 cpus):    1.550 =C2=B1 0.005M/s  (  1.550M/s/cpu)
+> >>> uretprobe-nop   ( 1 cpus):    0.872 =C2=B1 0.004M/s  (  0.872M/s/cpu)
+> >>> uretprobe-push  ( 1 cpus):    0.714 =C2=B1 0.001M/s  (  0.714M/s/cpu)
+> >>> uretprobe-ret   ( 1 cpus):    0.896 =C2=B1 0.001M/s  (  0.896M/s/cpu)
+> >>>
+> >>> The profiling results based on the upstream kernel with spinlock
+> >>> optimization patches [2] reveals the simulation of STP increase the
+> >>> uprobe-push throughput by 29.3% (from 0.868M/s/cpu to 1.1238M/s/cpu) =
+and
+> >>> uretprobe-push by 15.9% (from 0.616M/s/cpu to 0.714M/s/cpu).
+> >>>
+> >>> [0] https://lore.kernel.org/all/CAEf4BzaO4eG6hr2hzXYpn+7Uer4chS0R99zL=
+n02ezZ5YruVuQw@mail.gmail.com/
+> >>> [1] https://lore.kernel.org/all/Zr3RN4zxF5XPgjEB@J2N7QTR9R3/
+> >>> [2] https://lore.kernel.org/all/20240815014629.2685155-1-liaochang1@h=
+uawei.com/
+> >>>
+> >>> Signed-off-by: Liao Chang <liaochang1@huawei.com>
+> >>> ---
+> >>>  arch/arm64/include/asm/insn.h            |  1 +
+> >>>  arch/arm64/kernel/probes/decode-insn.c   | 16 +++++
+> >>>  arch/arm64/kernel/probes/decode-insn.h   |  1 +
+> >>>  arch/arm64/kernel/probes/simulate-insn.c | 89 ++++++++++++++++++++++=
+++
+> >>>  arch/arm64/kernel/probes/simulate-insn.h |  1 +
+> >>>  arch/arm64/kernel/probes/uprobes.c       | 21 ++++++
+> >>>  arch/arm64/lib/insn.c                    |  5 ++
+> >>>  7 files changed, 134 insertions(+)
+> >>>
+> >
+> > [...]
+>
+> --
+> BR
+> Liao, Chang
+>
 
