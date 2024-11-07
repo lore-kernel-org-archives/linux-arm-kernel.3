@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F760D43374
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27A6D43374
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIHIHPfH6OgeKiARQYIOZs8H5AMrRFipvkUG3E4Iwp0=; b=A/nbrPw3ezOAJ79CLMoWSD4lxz
-	agktKj6FmEu6vi3bhRDi9ty9Am9BmqMBCalU553FUPYF7rnRBZzEXct5aUNMBVCI3zaRGqbTalb5R
-	H31VZHE0hOSc4bwe3asiKP08h/dNfG/WTyvFmNg2LbxgZkK0rSfr9SaFfy2R62EcCuMmBx4UIo0k9
-	5fy3QyUPkxTmXfma3ssrTG8Em3/vR5QtXaGetQ/vA9P2lkYX1FhTf6k6WSb6q+D23HxcsDyP4Ht0u
-	5FcWfoad34jtdckpL1qxMIcvKeTatiQ5JitdgjGY5/Qm+2LoEQPkAY8Pn/DBRt2yuvp7DV6u0Dy0N
-	P0Vd7Gvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=; b=gTApm1qKgQzKdkBfn06NfvoHrh
+	A4nxtedcI6OcMXNzodiOB5f4ImLTqIAwXZer2azmSsPo/jDECHPU5jhFWNbDsIllwYfYf9iLmJpBZ
+	HeGd3W6GX67RkebwNl7CBwb7hKXhLa6BV1ZAauW4LLtuJoKCJIWfcilMeIC9Quwjr17+d3KZzvbKI
+	dWxa4laHB0y6elBaHDuc2TR0kwUwQQshzx4M9Nk/TS0mlbT+BmWe+7an2GL8XzD9qZ9wiIYv6QzRt
+	98bYq7D/hJttjeayKIP5mRAK03wsmLPQ7q43qpoWlflf/i57e0R0KOKs6bRgXFNiWslJ5MGpU1WIp
+	tx6YHb7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t953M-00000007Y7d-27Ug;
-	Thu, 07 Nov 2024 16:08:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9559-00000007YaV-393u;
+	Thu, 07 Nov 2024 16:10:03 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t950A-00000007XcE-36Ow
+	id 1t94y0-00000007X8E-0tEa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:04:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A9B0BA4481F;
-	Thu,  7 Nov 2024 16:02:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6C94C4CECD;
-	Thu,  7 Nov 2024 16:04:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730995493;
-	bh=++Ve2R0sTl3/Af3ywbFC4oo8hw4a8zRpz8+lgtmrgu0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RHHwuF4fxfRW3tQjxVEZ4VJfnCvaN1TO837iTx6nKNtwcVYVhMgPP2hylh24GcwL4
-	 a6i0fd0+GhfSvKYhOIdoltsV0KhycO6jLLedxhAPHSjvC95vZQL++eY42jjVwrgiGt
-	 YCAkX6I5DoUZUY5usnPt8tbbPqCfjJP4iJXf+rN6lvA4qnu75YO9vh5Jd+u4lcICag
-	 xT0CrlMrtiGM7uU7lnm1/HhWRrgdZ5YPDcwmpBpJZRZhY1Nv0EB/g8r3KKlOOl/C+i
-	 qYSWy9OEcAV0RTMlHQglL1+PAzLO1mOGd+4WDzY//q4094mwQ9R+RvEw9L7kCCsK5r
-	 dsPqx893IaLPQ==
-Date: Thu, 7 Nov 2024 10:04:51 -0600
-From: Rob Herring <robh@kernel.org>
-To: Abhinav Saxena <xandfury@gmail.com>
-Cc: linux-kernel-mentees@lists.linuxfoundation.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH 1/2] Documentation: dt-bindings: Fix repeated words
-Message-ID: <20241107160451.GB2770783-robh@kernel.org>
-References: <20241107061124.105930-1-xandfury@gmail.com>
- <20241107061124.105930-2-xandfury@gmail.com>
+	Thu, 07 Nov 2024 16:02:42 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a99f3a5a44cso147106866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:02:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730995357; x=1731600157; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=;
+        b=VaSJBKrGgC91qhhUv1Q24eLVCBMuvAAKYbN/CqIvRnY7dCh45WBdh5l9vnzkaJlbQH
+         le5gnr6m63iCcrw3rozAVZrnwZacc64kXcVdaZFWxMZB3ZrU8gEaah3mba9vFMaT13et
+         +Mt0WdhtU8SVc/xbhVGAdPPsiVra0yKFvod50Q5zesSL/BnUtnGaVxPQagbbbSSdKLvT
+         O2DIuMIDT2O1xNr5ctkkOvHqy6xK8DhUeV/w94H7opD0Dw7cmvxy955SJ20cD0ZMoFAX
+         JOv4OIbxHRi2J0+YqtFdd5lC1DAhQA5vTCbszI+9W+/C4qwQGZ/WpAyofFRfNwXz2DRC
+         lTUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730995357; x=1731600157;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=;
+        b=iNWG7BdEGBPltnmAirgF7FZLAJgrWRtZErgDMhKlFtcy3wcvxDPXZ8aBaWEf1xlTzJ
+         hQJ3A7yDiOt5LSbU6dw5L9jEZ1U+zJYdzvI5F/8GzhTsWIoBL0x81R+WKhHG529ecGeY
+         uNdQPVtTshhsNENJcU5cFXJBBKG6Ffcr4XtMtUZPn5OXoFHUKtNlDjoVgg0ijF6F4mhv
+         EYqBBDjgFbzW4IN543B9QVrEZ/Hc1Oy5F1dx8nclhwlHXz57a7Tjm9a8pCQ0LTi5aQ/8
+         SwQeYLEmyj+x6o3eH5V1zXKMCI+dnofNhKzcpp5xdi2mXDwU72VG4e/RObwp1YMVkZE/
+         7h0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUIA8XF7NW0yrXa59Fw0kLMRYEZ/omF2dXxsiVIJ7tHNw73M/4N/eq0rdqVKdRHQ+DlaA+R3TqmgePPJYjAOD2w@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/QbGUQueR0EAKsRQJI+jzpJvR6ZSFovXLBiwNNfdQxk+a68Wv
+	r2bGnx37FHzmKdbSW2xFonWPakl95lcRC5YsgPxB+IC8urgX75Xi
+X-Google-Smtp-Source: AGHT+IFIPPiN4cxhxgS9k3tSd7lQ8QWj5rw6OUhe8AjJY3X7cg7WQ56GBHxgkVfInFoc7myICEPjJg==
+X-Received: by 2002:a17:907:9413:b0:a9a:1f8:6c9b with SMTP id a640c23a62f3a-a9de5fe7455mr4423365066b.37.1730995355539;
+        Thu, 07 Nov 2024 08:02:35 -0800 (PST)
+Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc4c7asm108284566b.96.2024.11.07.08.02.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 Nov 2024 08:02:34 -0800 (PST)
+Message-ID: <cd326e01-75b8-495c-bc15-1d9ebde8c4fc@gmail.com>
+Date: Thu, 7 Nov 2024 18:02:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107061124.105930-2-xandfury@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
+ and spi_0/1
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
+ <172994467264.24870.11860096857422265131.b4-ty@linaro.org>
+ <f232dbb0-9036-46d6-83f9-27363813930d@gmail.com>
+Content-Language: en-US
+In-Reply-To: <f232dbb0-9036-46d6-83f9-27363813930d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_080454_934302_E9D58E55 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20241107_080240_305488_98C3EE4C 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,84 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 11:11:23PM -0700, Abhinav Saxena wrote:
-> Fix unintentional word repetitions in devicetree binding documentation:
-> - usb.txt: Fix repeated "two"
-> - mvebu-devbus.txt: Fix repeated "from"
-> - gpio.txt: Fix repeated "Both"
-> - pinctrl-bindings.txt: Fix repeated "device"
-> - cavium/bootbus.txt: Fix repeated "one"
-> 
-> These issues were identified using the checkpatch.pl script.
-> 
-> Signed-off-by: Abhinav Saxena <xandfury@gmail.com>
-> ---
->  Documentation/devicetree/bindings/gpio/gpio.txt                 | 2 +-
 
-This and...
 
->  .../devicetree/bindings/memory-controllers/mvebu-devbus.txt     | 2 +-
->  Documentation/devicetree/bindings/mips/cavium/bootbus.txt       | 2 +-
->  Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt  | 2 +-
 
-...this I'll take. The others need to be converted to schema.
+On 10/26/24 15:18, Ivaylo Ivanov wrote:
+>
+>
+> On 10/26/24 15:12, Krzysztof Kozlowski wrote:
+>> On Wed, 23 Oct 2024 12:17:29 +0300, Ivaylo Ivanov wrote:
+>>> Hey folks,
+>>>
+>>> This patchset adds device tree nodes for multiple clock management unit
+>>> blocks, MCT, SPI and UART for Exynos8895.
+>>>
+>>> Exynos8895 uses USIv1 for most of its serial buses, except a few that
+>>> have been implemented in this series. Support for USIv1 and HSI2C will
+>>> be added in the future.
+>>>
+>>> [...]
+>> NOT applied patch 4/5 - I wait for bindings to be accepted by Greg.
+> Alright, thanks for applying the rest!
+>
+> Best regards, Ivo.
 
->  Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt     | 2 +-
->  5 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio.txt b/Documentation/devicetree/bindings/gpio/gpio.txt
-> index d82c32217fff..530420475a4f 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio.txt
-> +++ b/Documentation/devicetree/bindings/gpio/gpio.txt
-> @@ -304,7 +304,7 @@ pins 50..69.
->  It is also possible to use pin groups for gpio ranges when pin groups are the
->  easiest and most convenient mapping.
->  
-> -Both both <pinctrl-base> and <count> must set to 0 when using named pin groups
-> +Both <pinctrl-base> and <count> must set to 0 when using named pin groups
->  names.
->  
->  The property gpio-ranges-group-names must contain exactly one string for each
-> diff --git a/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt b/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-> index 8b9388cc1ccc..1983d7eabd2b 100644
-> --- a/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-> +++ b/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-> @@ -43,7 +43,7 @@ Read parameters:
->   - devbus,bus-width:    Defines the bus width, in bits (e.g. <16>).
->                          Mandatory, except if devbus,keep-config is used.
->  
-> - - devbus,badr-skew-ps: Defines the time delay from from A[2:0] toggle,
-> + - devbus,badr-skew-ps: Defines the time delay from A[2:0] toggle,
->                          to read data sample. This parameter is useful for
->                          synchronous pipelined devices, where the address
->                          precedes the read data by one or two cycles.
-> diff --git a/Documentation/devicetree/bindings/mips/cavium/bootbus.txt b/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-> index 6581478225a2..1bc655d285ce 100644
-> --- a/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-> +++ b/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-> @@ -15,7 +15,7 @@ Properties:
->  
->  - #size-cells: Must be <1>.
->  
-> -- ranges: There must be one one triplet of (child-bus-address,
-> +- ranges: There must be one triplet of (child-bus-address,
->    parent-bus-address, length) for each active chip select.  If the
->    length element for any triplet is zero, the chip select is disabled,
->    making it inactive.
-> diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt b/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-> index 6904072d3944..500b76ba2ab3 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-> +++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-> @@ -18,7 +18,7 @@ states. The number and names of those states is defined by the client device's
->  own binding.
->  
->  The common pinctrl bindings defined in this file provide an infrastructure
-> -for client device device tree nodes to map those state names to the pin
-> +for client device tree nodes to map those state names to the pin
+Bump - now that the uart patches are merged, are you gonna merge the DT
+changes after the merge window? If not, I can send a new patchset that
+includes them and also adds PMU compatible node for the mongoose cores,
+since that got merged with exynos9810.
 
-Actually I think this was correct. See "client device" used above. 
-Maybe "client device Devicetree nodes" would be a bit clearer and use 
-the right form of Devicetree.
+Best regards, Ivo.
 
-Rob
+>
+>> Applied, thanks!
+>>
+>> [1/5] dt-bindings: timer: exynos4210-mct: Add samsung,exynos8895-mct compatible
+>>       https://git.kernel.org/krzk/linux/c/e54eb0465e548a7c6115e336ec5cfec04bbe8747
+>> [2/5] arm64: dts: exynos8895: Add clock management unit nodes
+>>       https://git.kernel.org/krzk/linux/c/fa986d1073805154888a788eda38d46a796346e8
+>> [3/5] arm64: dts: exynos8895: Add Multi Core Timer (MCT) node
+>>       https://git.kernel.org/krzk/linux/c/9ad6c3bd1bcbb73e2a5723e13b9d06e2296b07e4
+>> [5/5] arm64: dts: exynos8895: Add spi_0/1 nodes
+>>       https://git.kernel.org/krzk/linux/c/a5541d737c8de71948bcdaee912bcb6b0781af7e
+>>
+>> Best regards,
+
 
