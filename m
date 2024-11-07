@@ -4,158 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0959FD43356
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D804DD43356
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TVxag8U9jM75UljVybG40T486hx4iXnhCGVMNG4jU7M=; b=xY4jvWIMLb1Swciupn+JkPrBAN
-	scQ6YBD4rpqd0cWTfRY1oP5XH3jygA+vnqT+M07fRCkCuFcZujeBTR7H6MJ+HyRE6T6YqlmbHQS6g
-	ciMzdLQhPgxj7oORjb1JLKssEyx2z2zo5FmJ5k3LXSUX/O6GSh/AqBxi+h/4tC77Oy8LXLdFX8O5D
-	QAVty5//tQPNyGxWPYpZ3ml9SdWUPYvis6tup3QxBvSpM7FtR/C61uJGwtnS6l73CYJEK9RkRXIp7
-	ksX1HV2nIW3ChGAlH/K0EP8GfwpVT4lCyoQat9D2TFDEzfmr4Vm/q1FVymmN4VDlbQR7OHKF8yYaV
-	Ujt9VWyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:From:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pBZllDFIOmH/RzJOjKr84Vsut0PkmIArsmUEJHGaFVQ=; b=tS7VEPhOJJJv1o
+	d+Hl1EbOUcjSuRpqueudMGRqsFgV0H1OjI7bS8XF3GSQ1VtmIVhnWqtgu8/cXkctyy0fkVjP6TgLy
+	1kNeyScZPi9MeHX70afrjHgMpzbWTEVqFHNUJdgJ+E3croBSDYHpMb3YdfvHxufbPceNPC+k09p18
+	WNWs+/W/W5epu5KZXlrJYnRUK61tmtm+vm2fyW7+oSbpwO3kc2/HjCcZ19sWLNfgng2EpWgeES0eM
+	xNa4/OmiAX1ZRxJpX5wbDGGEpVVaJYQscyVy03SM+UnMs1EA/K4XrrUwFRkVP4Uoldtxe7ogdU/pP
+	DiiUc7p6znvGLywrMh+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91Mu-00000006ssE-0qMv;
-	Thu, 07 Nov 2024 12:12:08 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1t91Ow-00000006tDC-3vBp;
+	Thu, 07 Nov 2024 12:14:14 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9139-00000006opi-2p6m;
-	Thu, 07 Nov 2024 11:51:46 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 357D221E89;
-	Thu,  7 Nov 2024 11:51:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730980300; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TVxag8U9jM75UljVybG40T486hx4iXnhCGVMNG4jU7M=;
-	b=WKtYcyJuRmqBS3wgJmdiVAEnAF9xdtDvh65mXQjicVeYTeafMBIe0Hx7hZgKjsTezRkblW
-	Wk0Ja3RTnsFBvX4jq/ez4kVZdf0a71Cm0+xEdcB7oZ11DJutMxZQX+bmzulAUQPEdaXMNx
-	vaBWhG7miv+uB9cO2d2kbBKW2pbgtFQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730980300;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TVxag8U9jM75UljVybG40T486hx4iXnhCGVMNG4jU7M=;
-	b=6y9VBDS0rtz+KzPrMSFQsof1tuHYCDd2aDlgjyBFIEcheGKdjWTJQlGjNIj0J3wqo2YB7B
-	nuIuiUn2iT52tiDw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=WKtYcyJu;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=6y9VBDS0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1730980300; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TVxag8U9jM75UljVybG40T486hx4iXnhCGVMNG4jU7M=;
-	b=WKtYcyJuRmqBS3wgJmdiVAEnAF9xdtDvh65mXQjicVeYTeafMBIe0Hx7hZgKjsTezRkblW
-	Wk0Ja3RTnsFBvX4jq/ez4kVZdf0a71Cm0+xEdcB7oZ11DJutMxZQX+bmzulAUQPEdaXMNx
-	vaBWhG7miv+uB9cO2d2kbBKW2pbgtFQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1730980300;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TVxag8U9jM75UljVybG40T486hx4iXnhCGVMNG4jU7M=;
-	b=6y9VBDS0rtz+KzPrMSFQsof1tuHYCDd2aDlgjyBFIEcheGKdjWTJQlGjNIj0J3wqo2YB7B
-	nuIuiUn2iT52tiDw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CAC3B139B3;
-	Thu,  7 Nov 2024 11:51:38 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id xRswL8qpLGeLJQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Thu, 07 Nov 2024 11:51:38 +0000
-Message-ID: <49aeb2b6-3635-4094-97bd-cbff506f017c@suse.de>
-Date: Thu, 7 Nov 2024 13:51:34 +0200
+	id 1t91AA-00000006qSG-0a7I
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 11:58:59 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A7BwhGH029340;
+	Thu, 7 Nov 2024 05:58:43 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730980723;
+	bh=pBZllDFIOmH/RzJOjKr84Vsut0PkmIArsmUEJHGaFVQ=;
+	h=Date:Subject:From:To:CC:References:In-Reply-To;
+	b=EOgOEvrrrpSlNSXlcbrmmNDYIymvXHmWHJnujzhBGWoLLK88N+Tu1k/69iwGNKcyQ
+	 iTx9O3k5h4o24lNf5gX2sxIKc/w6FMb/fljqONtjreT6kCpCgZZ+M1ap/UpS0VVnqU
+	 gFXlHht+Zqh1wF/lP/ukkYooIStQUqg4B4Zkwlp0=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A7BwhvC072030;
+	Thu, 7 Nov 2024 05:58:43 -0600
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 7
+ Nov 2024 05:58:43 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 7 Nov 2024 05:58:43 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A7BwcNP112985;
+	Thu, 7 Nov 2024 05:58:39 -0600
+Message-ID: <2e7a1eb6-df8f-44d4-9342-1bc6d8b5ad11@ti.com>
+Date: Thu, 7 Nov 2024 17:28:38 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
- address to dynamic bridge nodes
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <helgaas@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof Wilczynski <kw@linux.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>,
- Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>
-References: <20241104150521.r4hbsurw4dbzlxpg@thinkpad>
- <20241104234937.GA1446920@bhelgaas>
- <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
+Subject: Re: [PATCH 1/2] dt-bindings: soc: ti: pruss: Add clocks for ICSSG
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, <conor+dt@kernel.org>,
+        <krzk+dt@kernel.org>, <robh@kernel.org>, <ssantosh@kernel.org>,
+        <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20241107104557.1442800-1-danishanwar@ti.com>
+ <20241107104557.1442800-2-danishanwar@ti.com>
+ <7f0a73c3-9977-4d07-b996-683ed18e4724@kernel.org>
+ <8156fd61-c476-4b58-b3b2-e8bc4f93035e@ti.com>
+ <2c368f5a-4b58-45de-8140-21b2f7af4d12@kernel.org>
+ <4ba0381b-d30a-4469-a7c4-327f6ac20c9c@ti.com>
 Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 357D221E89
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[35];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmx.net];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[suse.com,baylibre.com,kernel.org,broadcom.com,linux.com,google.com,linaro.org,arm.com,bgdev.pl,amd.com,arndb.de,linuxfoundation.org,vger.kernel.org,lists.infradead.org,gmx.net,bootlin.com,lunn.ch];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TAGGED_RCPT(0.00)[dt];
-	R_RATELIMIT(0.00)[to_ip_from(RLd4hfed5x1rwp7wawiizx89ec)];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+In-Reply-To: <4ba0381b-d30a-4469-a7c4-327f6ac20c9c@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_035143_904759_A3FA7E14 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20241107_035858_294956_A770B7AE 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,49 +85,143 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: srk@ti.com, devicetree@vger.kernel.org, kristo@kernel.org, linux-kernel@vger.kernel.org, Roger Quadros <rogerq@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mani,
 
-On 11/6/24 16:35, Manivannan Sadhasivam wrote:
-> On Mon, Nov 04, 2024 at 05:49:37PM -0600, Bjorn Helgaas wrote:
->> On Mon, Nov 04, 2024 at 08:35:21PM +0530, Manivannan Sadhasivam wrote:
->>> On Mon, Nov 04, 2024 at 09:54:57AM +0100, Andrea della Porta wrote:
->>>> On 22:39 Sat 02 Nov     , Manivannan Sadhasivam wrote:
->>>>> On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
->>>>>> When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
->>>>>> incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
->>>>>> bridge, the window should instead be in PCI address space. Call
->>>>>> pci_bus_address() on the resource in order to obtain the PCI bus
->>>>>> address.
->>>>>
->>>>> of_pci_prop_ranges() could be called for PCI devices also (not just PCI
->>>>> bridges), right?
->>>>
->>>> Correct. Please note however that while the PCI-PCI bridge has the parent
->>>> address in CPU space, an endpoint device has it in PCI space: here we're
->>>> focusing on the bridge part. It probably used to work before since in many
->>>> cases the CPU and PCI address are the same, but it breaks down when they
->>>> differ.
+
+On 07/11/24 5:16 pm, MD Danish Anwar wrote:
+> 
+> 
+> On 07/11/24 5:14 pm, Krzysztof Kozlowski wrote:
+>> On 07/11/2024 12:36, MD Danish Anwar wrote:
 >>>
->>> When you say 'focusing', you are specifically referring to the
->>> bridge part of this API I believe. But I don't see a check for the
->>> bridge in your change, which is what concerning me. Am I missing
->>> something?
+>>>
+>>> On 07/11/24 5:01 pm, Krzysztof Kozlowski wrote:
+>>>> On 07/11/2024 11:45, MD Danish Anwar wrote:
+>>>>> Add clocks, assigned-clocks and assigned-clock-parents for ICSSG
+>>>>
+>>>> Why? We see what you are doing from the diff, no point to repeat it. I
+>>>> don't understand why you are doing it.
+>>>>
+>>>>>
+>>>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>>>>> ---
+>>>>>  .../devicetree/bindings/soc/ti/ti,pruss.yaml          | 11 +++++++++++
+>>>>>  1 file changed, 11 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+>>>>> index 3cb1471cc6b6..cf4c5884d8be 100644
+>>>>> --- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+>>>>> @@ -92,6 +92,17 @@ properties:
+>>>>>      description: |
+>>>>>        This property is as per sci-pm-domain.txt.
+>>>>>  
+>>>>> +  clocks:
+>>>>> +    items:
+>>>>> +      - description: ICSSG_CORE Clock
+>>>>> +      - description: ICSSG_ICLK Clock
+>>>>> +
+>>>>> +  assigned-clocks:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  assigned-clock-parents:
+>>>>> +    maxItems: 1
+>>>>
+>>>> Why? This is really not needed, so you need to explain why you are doing
+>>>> things differently than entire Linux kernel / DT bindings.
+>>>>
+>>>
+>>> I need to add this to the device tree node
+>>>
+>>> +		clocks = <&k3_clks 81 0>,  /* icssg0_core_clk */
+>>> +			 <&k3_clks 81 20>; /* icssg0_iclk */
+>>> +		assigned-clocks = <&k3_clks 81 0>;
+>>> +		assigned-clock-parents = <&k3_clks 81 2>;
+>>>
+>>> But without the above change in the binding I am getting below errors
+>>> while running dtbs check.
+>>>
+>>> /workdir/arch/arm64/boot/dts/ti/k3-am642-evm-nand.dtb: icssg@30000000:
+>>> 'assigned-clock-parents', 'assigned-clocks' do not match any of the
+>>> regexes: '^(pru|rtu|txpru)@[0-9a-f]+$', '^pa-stats@[a-f0-9]+$',
+>>> 'cfg@[a-f0-9]+$', 'iep@[a-f0-9]+$', 'interrupt-controller@[a-f0-9]+$',
+>>> 'mdio@[a-f0-9]+$', 'memories@[a-f0-9]+$', 'mii-g-rt@[a-f0-9]+$',
+>>> 'mii-rt@[a-f0-9]+$', 'pinctrl-[0-9]+'
+>>> +/workdir/arch/arm64/boot/dts/ti/k3-am642-evm-nand.dtb: icssg@30080000:
+>>> 'anyOf' conditional failed, one must be fixed:
+>>>
+>>> To fix this warning I added these in the binding and the warnings were
+>>> fixed.
 >>
->> I think we want this change for all devices in the PCI address
->> domain, including PCI-PCI bridges and endpoints, don't we?  All those
->> "ranges" addresses should be in the PCI domain.
+>> nah, cannot reproduce. Just be sure you work on recent kernel (last time
+>> you were sending it on some ancient stuff) and your packages are
+>> updated, including dt schema and other kernel dependencies.
 >>
 > 
-> Yeah, right. I was slightly confused by the commit message. Maybe including a
-> sentence about how the change will work fine for endpoint devices would help.
-> Also, why it went unnoticed till now (ie., both CPU and PCI addresses are same
-> in many SoCs).
+> I have posted this series on the latest kernel. Base commit
+> 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
+> 
+> Let me check if the schema is up to date or not. I will re test and
+> reply. Thanks for pointing it out.
+> 
 
-Most probably it is unnoticed because until now nobody has enabled
-/selected CONFIG_PCI_DYNAMIC_OF_NODES ?
+Krzysztof, I re-checked.
+I am on the latest kernel (commit
+5b913f5d7d7fe0f567dea8605f21da6eaa1735fb (tag: next-20241106,
+origin/master, origin/HEAD)) and I am using the lastest dtschema v2024.9
 
-~Stan
+❯ python3 -m pip list|grep 'dtschema'
+dtschema                      2024.9
+
+Still I am getting the below dtbs check errors while running `make
+CHECK_DTBS=y ti/k3-am642-evm.dtb` without the binding change.
+
+Let me know if I am missing something else.
+
+/home/danish/workspace/linux-next/arch/arm64/boot/dts/ti/k3-am642-evm.dtb:
+icssg@30000000: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do
+not match any of the regexes: '^(pru|rtu|txpru)@[0-9a-f]+$',
+'^pa-stats@[a-f0-9]+$', 'cfg@[a-f0-9]+$', 'iep@[a-f0-9]+$',
+'interrupt-controller@[a-f0-9]+$', 'mdio@[a-f0-9]+$',
+'memories@[a-f0-9]+$', 'mii-g-rt@[a-f0-9]+$', 'mii-rt@[a-f0-9]+$',
+'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,pruss.yaml#
+/home/danish/workspace/linux-next/arch/arm64/boot/dts/ti/k3-am642-evm.dtb:
+icssg@30000000: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do
+not match any of the regexes: '^(pru|rtu|txpru)@[0-9a-f]+$',
+'^pa-stats@[a-f0-9]+$', 'cfg@[a-f0-9]+$', 'iep@[a-f0-9]+$',
+'interrupt-controller@[a-f0-9]+$', 'mdio@[a-f0-9]+$',
+'memories@[a-f0-9]+$', 'mii-g-rt@[a-f0-9]+$', 'mii-rt@[a-f0-9]+$',
+'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,pruss.yaml#
+/home/danish/workspace/linux-next/arch/arm64/boot/dts/ti/k3-am642-evm.dtb:
+icssg@30080000: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do
+not match any of the regexes: '^(pru|rtu|txpru)@[0-9a-f]+$',
+'^pa-stats@[a-f0-9]+$', 'cfg@[a-f0-9]+$', 'iep@[a-f0-9]+$',
+'interrupt-controller@[a-f0-9]+$', 'mdio@[a-f0-9]+$',
+'memories@[a-f0-9]+$', 'mii-g-rt@[a-f0-9]+$', 'mii-rt@[a-f0-9]+$',
+'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,pruss.yaml#
+/home/danish/workspace/linux-next/arch/arm64/boot/dts/ti/k3-am642-evm.dtb:
+icssg@30080000: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do
+not match any of the regexes: '^(pru|rtu|txpru)@[0-9a-f]+$',
+'^pa-stats@[a-f0-9]+$', 'cfg@[a-f0-9]+$', 'iep@[a-f0-9]+$',
+'interrupt-controller@[a-f0-9]+$', 'mdio@[a-f0-9]+$',
+'memories@[a-f0-9]+$', 'mii-g-rt@[a-f0-9]+$', 'mii-rt@[a-f0-9]+$',
+'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,pruss.yaml#
+
+> 
+> 
+>> Best regards,
+>> Krzysztof
+>>
+> 
+
+-- 
+Thanks and Regards,
+Danish
 
