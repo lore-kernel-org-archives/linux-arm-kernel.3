@@ -4,172 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A19D5AE73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9ACD5AE73
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rn9fQXuzYUxz5ZCeChXyG9zoCPIJ/U9SOj6hv8xBWmg=; b=Vp/hMSxTey86BmGQcMW5dSm6fw
-	BbG5AUJYMXtwFj4Yz7QolUMroQtI7Pyi7iaLzc50Z/eJVFMsHg8Zn+Vzdw2vBCApO/Dy+kKjthMeb
-	UNOWDDa6JShR294gJ82VJ52ocZT1lPqL6DHNYGTACDbmdSIqjqNsj1xb0FQrKQm1Fz4sLpLxsQY0w
-	PMM0dbKYaM/Gwb6F6q3nWAieXJFitkh2zpvs3z9V0f60OOcWen4mI/OH4pvOyGQ7QQPWKl3Qrttlf
-	glLZ8jYDzW9v1rOpZpZH9BnfLIZjHjgEn5ZKBdPgnJyz7xhT1A8r3eP/tgxBztNM833JiLfTC/N7r
-	UsPeWaTg==;
+	bh=gCBwFpuOJkUFhUsOyTcZgxDubddLr0CvKoCO+bs50mg=; b=pCCbCiZeo98wnkjSVq+nV9WDIy
+	6vwn6FrSOYS3tE1m13s/bz6XvkR3i4wBBQxVJw+QOpIuQBrrOL+ce4H9XKT5eLN7K/Plamh5JkPaY
+	6HQLq2XVhZG46q9T/GlOecEiO/oDgnH0xxuibcN5Re6c3rrKxCDL60i8lBn7oCs8Hg3g6b2Tiw8iT
+	RiE5kNIcVPn1SkALOedgIGxdbZZTRAevdBeyA1Ah0AUJubDCl6kw4xv/AGwBX3JWtI2Q2XJc9voRH
+	c2Pr4ViPsw3BbaHinNSqUnzB6kUii4PDmUnam1Je50E0nMC2JoIHX2kyGvcbljy4KPiYeUTO5kPQX
+	7KHXf8EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8y6T-000000069vQ-1LBO;
-	Thu, 07 Nov 2024 08:42:57 +0000
-Received: from mail-vi1eur02on20620.outbound.protection.outlook.com ([2a01:111:f403:2607::620] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1t8y8A-00000006ADT-04B1;
+	Thu, 07 Nov 2024 08:44:42 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8y4i-000000069WX-0W40
+	id 1t8y5C-000000069gZ-2Ij2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 08:41:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GMargfC3+fBqd1hbcJ8xMSzimz6R0Pkp7avhqn5tIK+G0jxloA7HVlU2sT9DOUsZu2f8zq2DS3QYY5hfy2UX8B33L2wcFRZQ53PYsgSKZsxaCN75q10QGVQNgPZY9AobRDZxWnOPOcmhHPM3XdlwBp2o9fH0+SsHLIEVnd3EXElSGkchDxQxEf13kX4sUllsSOSHb3b5Gbw+w/LB9eweq8mVae6OhprwL/OYDEN/W1vnLubrUip32U53RtatYZ9SFEY13DvS8gLf1k407tLd2aMbB2R9a5D2bpF4dPzQMPQiLx1Rjt0BPs927gNfx6hd1pORchO/IyWho3LkkgZ2Rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rn9fQXuzYUxz5ZCeChXyG9zoCPIJ/U9SOj6hv8xBWmg=;
- b=ZRK/z1bBI0HIFK6qnyazG3v9jLeA/ndH9Zu2RbH6Yaa3TholVqOV2QZXOvxsaztNe8Cr6pT0OFyzAZdHtmfxSr1DJzKGsku6LwgJrszxjGxeR6s8fxfQERFPNwnJabqD8Y3E5MWT8SP4GsMl9tmnthvy39jGBFXv1Pul/oUMB4dTXdHVikztO44QDQGaGML2bF8VtnoFXTT/oTmu3Rm4sGepueYOkkwjtmq4Fr5Hndu6ktTDUCAns6fsifUBZzgl16X2TqeQOn7L6q3Y9SStnOe448cF29CxhGWt/hbP0O/21wswfnqsRIvPVL31JqZpDbLRi1vkmqhCOXHvVyUZug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rn9fQXuzYUxz5ZCeChXyG9zoCPIJ/U9SOj6hv8xBWmg=;
- b=Idx0sygVaP21+hdcUxJGyV0u7sFq2+bM0YYftqzarzwJLc//YNNwr2/tMuxXImRKH00zxQZ37TQZSMZ2mWjlLrOH1I1dgCV4aXeOdp2S72uMCLulD4YtxrwwWcarSmqhs2DCDKLauG1ORG1rLRA/Ktf+I4t60gpoVeYDpgJO/zpb7Rmqn+kZ8mDQz9DfaIZ/ba2nHsCN83Z5s+zFCafLDr1kTfMPLggLS4ZxHb4i/Wd+DMhbKkFqsaB2lI5YJf11EjCq8wMJRgsL912R+EG9lkeU7iojLWeYKxPfCq40c8OWWR5kYBZONyMkYJ1hZMa65XckcIuGpvtzCbhrum5K8A==
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by GV1PR04MB9150.eurprd04.prod.outlook.com (2603:10a6:150:25::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
- 2024 08:40:57 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%7]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
- 08:40:56 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kw@linux.com>
-CC: Bjorn Helgaas <helgaas@kernel.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "lorenzo.pieralisi@arm.com"
-	<lorenzo.pieralisi@arm.com>, Frank Li <frank.li@nxp.com>, "mani@kernel.org"
-	<mani@kernel.org>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
- some platforms
-Thread-Topic: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
- some platforms
-Thread-Index: AQHa3AEqv5bRdDxqKkSUwsC4eegPdrKp/GuAgAAjY0CAAV7kgIAAfShQgAAXEoCAABUTEA==
-Date: Thu, 7 Nov 2024 08:40:56 +0000
-Message-ID: <AS8PR04MB8676F00E8F76B695772EB3B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
-References: <AS8PR04MB8676998092241543AEABFAAB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <20241106222933.GA1543549@bhelgaas>
- <AS8PR04MB8676C98C4001DDC4851035B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <20241107072005.GA378841@rocinante>
-In-Reply-To: <20241107072005.GA378841@rocinante>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|GV1PR04MB9150:EE_
-x-ms-office365-filtering-correlation-id: 0b5271d9-2ce2-479c-e856-08dcff07e5dd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|38070700018;
-x-microsoft-antispam-message-info: =?gb2312?B?OSt2WER0bGxnMW0xZkQvNWZMR3lPMVlRbmtxWDhoWS9Zc3FhWGRFRE5uNmVI?=
- =?gb2312?B?c3pudmtsQllncEV1RHZXanQ4ZDNrMWx0L1ozVHcvZ3RnQ3NIclRLYVdZSFlz?=
- =?gb2312?B?NElSRDZTUzY1VS85cFR1clEvK0UyVEpvTTBDWDRUcjJJOHZrTDhQWTZLOVA3?=
- =?gb2312?B?WXJBL1M5VmdDZG94ZUtyOUxxVWt1c3Vzcm9sYVp5M2N0MTFnOCs1bmdGZjdo?=
- =?gb2312?B?NEpQTW1ZdDBKWitBdEZITU5NZEFkeUFSZXIyOWpQUnRmaHB0dUpDWDRUTnhQ?=
- =?gb2312?B?MVRGTlppN0UzWE5pV0YrMWtIMlBvc2x3MGhzNS9iNU9PbnFOeWt2dmJSMCtF?=
- =?gb2312?B?dDhSYWh5M2hpRkROQS81SXFocW5CdG9adWVqVXNSalFoYUM2cFhTbi9zbldR?=
- =?gb2312?B?SUZsZThOUVhuUmZTV0VKaUlaaktjdEkwcVFWS0I2Z2k3UjVwVE9idVpIYWZh?=
- =?gb2312?B?SVR5TDhPaFliQkNmMmxJQSt6a2FhSlB6RVAzQ3EzTW5sOEZZZVRmZ05YdDAw?=
- =?gb2312?B?dUxnY1FtMVVGTjBmQ3ZFSGwrdm5pdDQ1bmpneWdzYkxQQUZsQ216OGFMZFlI?=
- =?gb2312?B?S05YYmJzNzh3Zzc4TWxBTkdFVXRKd1VOWXVaZ1hxbnk0cFRhNGFkSjBxNXNj?=
- =?gb2312?B?a3E1U2hyakF4MWhPQ1FOZVgrVU1PeStnWGpxMmg1NDJwNUxTb0FNRkxwVFps?=
- =?gb2312?B?d0pWUmhXemNPU0dINFF6U0hra3hDSGtkZFkyNlhtWmM1MDhuT3hsZmo1RTlG?=
- =?gb2312?B?Q041ZW5ic0tURlpGK1ZzZG9XQVNnNVlYa2xXVlY4S3JncWJLaC95U3c0TjJS?=
- =?gb2312?B?OWhPdm0weTZmMVZET3ZmTEhTeTcxWjFNdnROQjltdUtkV01xMml1SmhSVlpN?=
- =?gb2312?B?SGo1THhpY0dIOVRDUjJicmp5WW4wbjlDQ1diN1QreW12MEMxRFZObVpiQVhN?=
- =?gb2312?B?QUZLWHhiSkNCU3FoNnhZTG5wYS9oMkQzUG5KMEE1MWdHR29ZdWM0blFucmgr?=
- =?gb2312?B?U0lTMW9xY2ZkOWZTalBONEEwWW9UQzl5RWkxdGpIT3UzL2pITGx2cmlNM1J4?=
- =?gb2312?B?VE1EKzg3NVFhcGJBZGlod1BFb2J6ODBLYWpQckF2NU5MQnNVVENwZ0V5YzU2?=
- =?gb2312?B?WHh1RWUwWDFaUFdOVzZtY1Bka2FaTXlLYjlqTHZGQnBhV3dWSkpMOG1DejF4?=
- =?gb2312?B?YjRmRTRScy80bFkyMWJHckpZNDVIVGtCQUFZTFYzUVRSc2J0aWFZVzlvREJv?=
- =?gb2312?B?eGIzczFQek1BbjZsY2tyVjBQSGpmUHNFWUNET2lMVUNGYWpsQlZ1elNJL2Zz?=
- =?gb2312?B?R2hOWVRlWXQweG5YcXJvaENDZVp4elk2MUdrSzlhYm9WY2NzOXV2MDg5OWhX?=
- =?gb2312?B?d0pFRGc1ZkVGYWQ2bTAzOEJ3TE1TSC9Ea1QwMlFkaUl5SEpLMnhzN1RYVmdQ?=
- =?gb2312?B?VncrVjJrNDRJVDRZbTB1NWcrMFg2K2p5eE81bUJZMlA0eTY1d0MwVXdMNjJQ?=
- =?gb2312?B?MUVadVlYZ3RaMGhBS1k4SVY0eWQ3c25DVmRsM1dyUUZ1ajUwQSt2RnRTemdN?=
- =?gb2312?B?Q3Raa3pENHdGejdKTnhSOUxXR3BURVg1L09ndVhINDh3dmRyZk03K283cnJi?=
- =?gb2312?B?WGRVbWk4VTcyK0V6ZWxLVmdiNEVKdml6dEhkcTFSN3Y1TEhlYzVUbGVGNjc3?=
- =?gb2312?B?ZGtxVjFwL1hQcDN2OVJBOXFLMSs5b3JKcURxekMvZ3ZxTUViaDlXZEZtdm5a?=
- =?gb2312?B?d1VYd1YvRURNYjBqZFBGQVg4RjJZTUdGekJlWTRLQTZHc1RMWU5XSnN4V3RU?=
- =?gb2312?Q?Am1Bp2L1dG3p0/PeBMFA+S4FJPHBYrXI3Ty5U=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?WjN0Wi9wRVBlSXN5RnozZUUyNHA0VEV2dDA4T3V4UnlrQlhSNnQ3QSsvSmNq?=
- =?gb2312?B?NllBeHpKWDRkVFFjVHE4clBFenhqUmovTy92Q2d3a0RyMHBBR2ZmOUU0U29x?=
- =?gb2312?B?dWJrVXRLZXVYOUlVL3gzeEtxakhIaHl6aUdVcnBtQW5VUFo1ZVlnUDI4Vy9Z?=
- =?gb2312?B?blVjM2VMQ2t2c2hZNk0waExvbHpVTG9IUkVqYWVrL2ZkUHpVZ0ZJMTd0Uzkv?=
- =?gb2312?B?NGtpVmtiUkhtd1BKSm1UckR2WFcvMnA3aUxtelhLd2FxUmJiTE9kWWs3bkt1?=
- =?gb2312?B?bkg5RisvbzJvaW9XVlpnamlHbjlwZW5leURpRU9laW1mZWl2aHN0b1JWRXpo?=
- =?gb2312?B?ZVd4eTVwTjgwNTQ4T2sxZ3dJVVRKcGhpSkZHcjZ6OFQ3NW1XcE94MUNLSzB4?=
- =?gb2312?B?aVpKdU82T2s4SmpFcldtb3R4b0xwVTYrbDg1SFlFeTdsU3JUMXlnV1NPemh2?=
- =?gb2312?B?U2s4UUZZTko3TStNUWZTaDVLaUJCYU1kYUVkQ0ZTUDlxMkRuWkZQTktuTFRT?=
- =?gb2312?B?WUxQcjZ5T3MrQTVaalIzZjRFRnlKQ0JjU05WWkNSSzhDSlh4ZHNkNGtHaTR3?=
- =?gb2312?B?SzZhNWc1TktuYTZMUkU4NzFYcE5CRW1mMTFVVGdQd2tKQ2RpVWUvb2xCTnhQ?=
- =?gb2312?B?ZER0b1cwNk1PYU1uMDFJOWVpeWhzZ2dmeEJkaXRad3p5bTNxcVBzbEJ2aUtR?=
- =?gb2312?B?QlpIbXNNVFRBMSt2Mi9Xc2FoR0FtcElwY2Z4bkdvS0hQY1lDYjQ1SXUyT2kz?=
- =?gb2312?B?WU1JbzRMdTE2ZXU1UmNxRS8vSGt2MVZrU2orSWtJNE5IcDhLblR4L2daamRs?=
- =?gb2312?B?T3phbzFEakZpbkhJZHlIWkphWDNjdVBwTjVDWHQrTlE3eXNtZEZkbmZobEp6?=
- =?gb2312?B?RTJCSytabCt2UWpYR3dYWjNock1LLzlnekQwOCtOMVZtcTRrNHNTS1BXanRQ?=
- =?gb2312?B?R0NiYWVDRkpXLzZZRzhJMWErWjFIVjFyMGpuajdwQWFySzdUbW1jNzVTZTQz?=
- =?gb2312?B?M0R6Vk5LZmRtR1hITXJiNHVrS28rRUdHWHFEa0JoV1VGV0JnVEM0MzRtWE9h?=
- =?gb2312?B?SjVFNW11KzJydzVSejdsVkhJMWdKOTRMS1ZwNzl1K1dnNUFDZGFEeVkwUmJV?=
- =?gb2312?B?S0Jnc0FrMWZaMGtpcnQrWUJWU3BwRHNvRmpNTVFGSUVnSFRjdVZubXIzS1ZT?=
- =?gb2312?B?ZVVBaWRyejVKb2g2UWZUaGNzbkpYWDBqMC9XRUxveXp1SjF6dnE5cXdNOWM0?=
- =?gb2312?B?RHRnL2RPTjNGQWRBcVI5clBwOUprQ1JJK0JvQnA2UmY3Y0IzSm90VGNVNHRp?=
- =?gb2312?B?NGdyNUdWeUJOYnRsMFU5NU1XRm1xTEppRjVZTWpNb2ltZ1JBOUx5Vjk3b21y?=
- =?gb2312?B?dW9QVWhIdjc5TnZzU3k4VlE2Tzk5K1JwakpSb08wRDhYWndsRy84MHVUd2dn?=
- =?gb2312?B?MDJ4YjRPbW9RZlVQVHZJYUUyVVIrYXU0N0pjdEpEMy9jSU9YK2ZxOEh4emE1?=
- =?gb2312?B?L0NUNlhBOHJpZGJacHhHL1h4YkNadFcwamhIWmlHdFh3Mko3cUlMcmNwUTB2?=
- =?gb2312?B?OTRZKzVvRngvaFlodmdGL2xUZG5OSll6bXdXbjlZcUo2cDZOVTYrK1NSQTZQ?=
- =?gb2312?B?S1NpQ1N4WENwLzZucXM3a0o0V1dpVkl5OHIxUHBUSm9lektaMkNRUDdJbXk4?=
- =?gb2312?B?MXRMRHpjUHBCdTRWdmgvb3F0M0ptZjNaYk91aytKVWQxek4vZzUvK2pydmNP?=
- =?gb2312?B?QVo0NUV3K1ZsYlErazExSFVRQytObUoxYWsvVDFiVytUVEFzK1dMSm5aZExU?=
- =?gb2312?B?UmJHajFoYkJsd1lsTi80UDhYai9LOHZSSG9QVktabmdXR3Roam9Db0YrUlli?=
- =?gb2312?B?UHRlNFhHNmxJUmIwMnZzTjYrZmhjbUF1VXhKcFBHUWlsZDdFQmVXdCthWnBw?=
- =?gb2312?B?SVM1S3N6VEdTZWRGQnZDOWg1ditLeW5WQ1psU3lra09wYlJOQ1RabWE0UDk2?=
- =?gb2312?B?WnpOeW5vMXppSmRUS2RIdHhPYzlSWVNDc21qNzMxYVV6R2JickJNdW4wWlV1?=
- =?gb2312?B?OVJrZlB4T0t6elZjK1JxWFk3dkRGemFlVEp1d0FQSTJkZ0I1SnRQWkNHR2k5?=
- =?gb2312?Q?0djC4WJ0Kij74T2Bs8/Iy6FqJ?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	Thu, 07 Nov 2024 08:41:40 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a9a0c7abaa6so72030066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 00:41:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730968896; x=1731573696; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gCBwFpuOJkUFhUsOyTcZgxDubddLr0CvKoCO+bs50mg=;
+        b=x5p0fRbQTVb8aRcHMQet/k0Ehd5BLGGBsLRziCjdZ0f8255rT9BiXZVZPRxsiUE28U
+         8ZAonCeQrpxYLeX45FABeRHtPOC3UUimGTAxrVBxnIuctWsZUdMc277BkmjtjWIq6Suj
+         r26rTZTatNsmP30gKbin0Kd7UkAnou/8l47qGTi04ppMwpxKv2QW08gopFi7Da7OgF8O
+         TDPOIUH4X8riEuPivpsrQqLcWs2/SSCmhsC/AcTKT0c5NzXkYHciF2kGtt17zDoUJDoH
+         t5xPigpwmDaVOkw5cK9AjEIKxW5+yMXWHoIbboFg942b4dgRJ/X7HHaZR5wDO5BD4HMF
+         gY7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730968896; x=1731573696;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gCBwFpuOJkUFhUsOyTcZgxDubddLr0CvKoCO+bs50mg=;
+        b=C83vCUEb90iwrz2P4wuY0jo2gOvlyz4apLMj0sBApH7jn+oOhKbAGuD2S3pUsFmpPl
+         SLsN0kDYeZXmYnH8i9VGhI37udezlConcwIiAMrGHbyoYcgWJuEqrggnEUZh233ReaZ/
+         K2QzrCv3dBSK0NAt4FZRqPhvUvA3NEJwIuSNFgxwlkpCROaoykWqxy3uSq9Fs9yuI5S5
+         btTePRKhxGDlZaMDN+Gy4rNxJe5J+rGOM1wgk5VVnEPUVh7pd+H4FlA7iUIlEPKcmzET
+         Xsn+sqnB+fTYv1T1Sfm+aBVZME23am+gYOlYH9lcSCgQLrWoNEIzRXy7b4Z7poYKjC30
+         GO1g==
+X-Forwarded-Encrypted: i=1; AJvYcCU5/OlobaqtGVlWRvb3H6oyHNQFc5RCXB1Jrhey2YdsWHk78SX9U79LNqoWYe3DhF3vFE46NrqVXPDK2WuBfHVW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz41ILAUq0lfY6XQYsgOHrY8R/ell6o71/Gb3hjk/ld3YCf5llJ
+	5xoXU/09qMFyghj1DOpQ3brwZdshWSjGc4Bp+VEAf8VzC9UpH2qin/KvL7hDX4YKqmEwaFCblJS
+	v
+X-Google-Smtp-Source: AGHT+IECtbyHGknyaysdu7uNuPBdqFJ/lC8OST23yihlsX4TuSJya+GcgvzFJKIKUAa2ZP1s0r51nw==
+X-Received: by 2002:a17:907:1c02:b0:a99:a9b6:2eb6 with SMTP id a640c23a62f3a-a9e652c179emr2216146166b.0.1730968896486;
+        Thu, 07 Nov 2024 00:41:36 -0800 (PST)
+Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a46119sm60879066b.46.2024.11.07.00.41.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 00:41:35 -0800 (PST)
+Date: Thu, 7 Nov 2024 09:41:34 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: George Stark <gnstark@salutedevices.com>
+Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, linux-pwm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@salutedevices.com
+Subject: Re: [PATCH v2 2/4] pwm: meson: Support constant and polarity bits
+Message-ID: <l5xvdndysdvtil472it6ylthcfam5jp7lh3son45mezq7dh2yk@3yj557k2o5k5>
+References: <20241016152553.2321992-1-gnstark@salutedevices.com>
+ <20241016152553.2321992-3-gnstark@salutedevices.com>
+ <w3igi2jmva6mfa7anlieyp3iiwfzhsvi3t37wwcqqtzdy42fqn@btmdsfsmpw7r>
+ <f08513c8-56d6-4551-8ac6-84641c134552@salutedevices.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b5271d9-2ce2-479c-e856-08dcff07e5dd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2024 08:40:56.5704
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wQXWkjehK9cT6Ob0MQE8seColzG/thVnR0kYa+VZDT+Au8IKBEIK3DPYPi1t9H56tr/e2g8EXpCMhW0TScNBlw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9150
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7ur3dmr5dbhirxpm"
+Content-Disposition: inline
+In-Reply-To: <f08513c8-56d6-4551-8ac6-84641c134552@salutedevices.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_004108_202525_CD105A1D 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20241107_004138_830159_796A38C3 
+X-CRM114-Status: GOOD (  32.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,41 +97,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBLcnp5c3p0b2YgV2lsY3p5qL1z
-a2kgPGt3QGxpbnV4LmNvbT4NCj4gU2VudDogMjAyNMTqMTHUwjfI1SAxNToyMA0KPiBUbzogSG9u
-Z3hpbmcgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gQ2M6IEJqb3JuIEhlbGdhYXMgPGhl
-bGdhYXNAa2VybmVsLm9yZz47IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+IGxvcmVuem8ucGllcmFs
-aXNpQGFybS5jb207IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgbWFuaUBrZXJuZWwub3Jn
-Ow0KPiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
-ZnJhZGVhZC5vcmc7DQo+IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IGtlcm5lbEBwZW5n
-dXRyb25peC5kZTsgaW14QGxpc3RzLmxpbnV4LmRldg0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHYy
-XSBQQ0k6IGR3YzogRml4IHJlc3VtZSBmYWlsdXJlIGlmIG5vIEVQIGlzIGNvbm5lY3RlZCBhdA0K
-PiBzb21lIHBsYXRmb3Jtcw0KPiANCj4gSGVsbG8sDQo+IA0KPiA+ID4gQnV0IEkgZG9uJ3QgdGhp
-bmsgeW91IHJlc3BvbmRlZCB0byB0aGUgcmFjZSBxdWVzdGlvbi4gIFdoYXQgaGFwcGVucw0KPiBo
-ZXJlPw0KPiA+ID4NCj4gPiA+ICAgaWYgKGR3X3BjaWVfZ2V0X2x0c3NtKHBjaSkgPiBEV19QQ0lF
-X0xUU1NNX0RFVEVDVF9BQ1QpIHsNCj4gPiA+ICAgICAtLT4gbGluayBnb2VzIGRvd24gaGVyZSA8
-LS0NCj4gPiA+ICAgICBwY2ktPnBwLm9wcy0+cG1lX3R1cm5fb2ZmKCZwY2ktPnBwKTsNCj4gPiA+
-DQo+ID4gPiBZb3UgZGVjaWRlIHRoZSBMVFNTTSBpcyBhY3RpdmUgYW5kIHRoZSBsaW5rIGlzIHVw
-LiAgVGhlbiB0aGUgbGluayBnb2VzDQo+IGRvd24uDQo+ID4gPiBUaGVuIHlvdSBzZW5kIFBNRV9U
-dXJuX29mZi4gIE5vdyB3aGF0Pw0KPiA+ID4NCj4gPiA+IElmIGl0J3Mgc2FmZSB0byB0cnkgdG8g
-c2VuZCBQTUVfVHVybl9vZmYgcmVnYXJkbGVzcyBvZiB3aGV0aGVyIHRoZQ0KPiA+ID4gbGluayBp
-cyB1cCBvciBkb3duLCB0aGVyZSB3b3VsZCBiZSBubyBuZWVkIHRvIHRlc3QgdGhlIExUU1NNIHN0
-YXRlLg0KPiA+IEkgbWFkZSBhIGxvY2FsIHRlc3RzIG9uIGkuTVg5NS9pLk1YOFFNL2kuTVg4TVAv
-aS5NWDhNTS9pLk1YOE1RLA0KPiBhbmQNCj4gPiBjb25maXJtIHRoYXQgaXQncyBzYWZlIHRvIHNl
-bmQgUE1FX1RVUk5fT0ZGIGFsdGhvdWdoIHRoZSBsaW5rIGlzIGRvd24uDQo+ID4gWW91J3JlIHJp
-Z2h0LiBJdCdzIG5vIG5lZWQgdG8gdGVzdCBMVFNTTSBzdGF0ZSBoZXJlLg0KPiA+IFNvIGRvIHRo
-ZSBMMiBwb2xsIGxpc3RlZCBhYm92ZSBhZnRlciBQTUVfVFVSTl9PRkYgaXMgc2VudC4NCj4gPg0K
-PiA+IFNpbmNlIHRoZSA2LjEzIG1lcmdlIHdpbmRvdyBpcyBhbG1vc3QgY2xvc2VkLg0KPiA+IEhv
-dyBhYm91dCBJIHByZXBhcmUgYW5vdGhlciBGaXggcGF0Y2ggdG8gZG8gdGhlIGZvbGxvd2luZyBp
-dGVtcyBmb3INCj4gPiBpbmNvbWluZyA2LjE0Pw0KPiA+IC0gQmVmb3JlIHNlbmRpbmcgUE1FX1RV
-Uk5fT0ZGLCBkb24ndCB0ZXN0IHRoZSBMVFNTTSBzdGF0Lg0KPiA+IC0gUmVtb3ZlIHRoZSBMMiBz
-dGF0IHBvbGwsIGFmdGVyIHNlbmRpbmcgUE1FX1RVUk5fT0ZGLg0KPiANCj4gSWYgdGhlIGNoYW5n
-ZXMgYXJlbid0IHRvbyBpbnZvbHZlZCwgdGhlbiBJIHdvdWxkIHJhdGhlciBmaXggaXQgb3IgZHJv
-cCB0aGUgbm90DQo+IG5lZWRlZCBjb2RlIG5vdywgYmVmb3JlIHdlIHNlbnQgdGhlIFB1bGwgUmVx
-dWVzdC4NCj4gDQo+IFNvLCBmZWVsIGZyZWUgdG8gc2VudCBhIHNtYWxsIHBhdGNoIGFnYWluc3Qg
-dGhlIGN1cnJlbnQgYnJhbmNoLCBvciBzaW1wbHkgbGV0IG1lDQo+IGtub3cgaG93IGRvIHlvdSB3
-aXNoIHRoZSBjdXJyZW50IGNvZGUgdG8gYmUgY2hhbmdlZCwgc28gSSBjYW4gZG8gaXQgYWdhaW5z
-dA0KPiB0aGUgY3VycmVudCBicmFuY2guDQpUaGFua3MgZm9yIHlvdXIga2luZGx5IHJlbWluZGVy
-Lg0KVGhpcyBjbGVhbiB1cCBzbWFsbCBwYXRjaCBpcyBvbiB0aGUgd2F5Lg0KDQpCZXN0IFJlZ2Fy
-ZHMNClJpY2hhcmQgWmh1DQo+IA0KPiBUaGFuayB5b3UhDQo+IA0KPiAJS3J6eXN6dG9mDQo=
+
+--7ur3dmr5dbhirxpm
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 2/4] pwm: meson: Support constant and polarity bits
+MIME-Version: 1.0
+
+On Wed, Nov 06, 2024 at 04:54:41PM +0300, George Stark wrote:
+> On 11/4/24 12:32, Uwe Kleine-K=F6nig wrote:
+> > > @@ -68,6 +72,8 @@ static struct meson_pwm_channel_data {
+> > >   	u8		clk_div_shift;
+> > >   	u8		clk_en_shift;
+> > >   	u32		pwm_en_mask;
+> > > +	u32		const_en_mask;
+> > > +	u32		inv_en_mask;
+> > >   } meson_pwm_per_channel_data[MESON_NUM_PWMS] =3D {
+> > >   	{
+> > >   		.reg_offset	=3D REG_PWM_A,
+> > > @@ -75,6 +81,8 @@ static struct meson_pwm_channel_data {
+> > >   		.clk_div_shift	=3D MISC_A_CLK_DIV_SHIFT,
+> > >   		.clk_en_shift	=3D MISC_A_CLK_EN_SHIFT,
+> > >   		.pwm_en_mask	=3D MISC_A_EN,
+> > > +		.const_en_mask	=3D MISC_A_CONSTANT_EN,
+> > > +		.inv_en_mask	=3D MISC_A_INVERT_EN,
+> > >   	},
+> > >   	{
+> > >   		.reg_offset	=3D REG_PWM_B,
+> > > @@ -82,6 +90,8 @@ static struct meson_pwm_channel_data {
+> > >   		.clk_div_shift	=3D MISC_B_CLK_DIV_SHIFT,
+> > >   		.clk_en_shift	=3D MISC_B_CLK_EN_SHIFT,
+> > >   		.pwm_en_mask	=3D MISC_B_EN,
+> > > +		.const_en_mask	=3D MISC_B_CONSTANT_EN,
+> > > +		.inv_en_mask	=3D MISC_B_INVERT_EN,
+> > >   	}
+> > >   };
+> >=20
+> > So the generic register description describes the const and invert bits,
+> > but it doesn't apply to all IPs. Thinking about that, I wonder why this
+> > struct exists at all. I would have done this as follows:
+> >=20
+> > 	#define MESON_PWM_REG_PWM(chan)		(0 + 4 * (chan))
+> >=20
+> > 	#define MESON_PWM_REG_MISC		(8)
+> > 	#define MESON_PWM_REG_MISC_EN(chan)		BIT(chan)
+> > 	#define MESON_PWM_REG_MISC_CLK_SEL(chan)	GENMASK(5 + 2 * (chan), 4 + 2=
+ * (chan))
+> > 	....
+> >=20
+> > and then use these constants directly (with pwm->hwpwm as parameter if
+> > needed) in the code. I would expect this to result in more efficient and
+> > smaller code.
+>=20
+> I've been looking into this driver for more than a year and got used to
+> it so much so never thought about changing the foundations :) Although it=
+'s
+> an interesting thought.
+>=20
+> 1. I took meson_pwm_enable() without
+> const patches and reimplemented it using only defines (e.g. w/o local
+> var channel_data) and objdumped current and new versions. New version
+> turned out to be one instruction longer (arm64, gcc, default -O2). So tot=
+al
+> difference in executable code may be not that significant although
+> we can win in C-code line count.
+
+Oh, I indeed would have expected a slight advantage size-wise. Maybe the
+compiler already optimizes out the meson_pwm_per_channel_data variable.
+
+> 2. Things like
+> #define MISC_B_EN		BIT(1)
+> #define MISC_A_EN		BIT(0)
+> is more straightforward and can be matched to the datasheet easier
+> comparing to (a + b * (chan)) things.
+
+In my (subjective) view that comparison isn't hard with the
+parametrised definition.
+
+> So I'm not sure either.
+>=20
+> > > @@ -227,6 +252,15 @@ static void meson_pwm_enable(struct pwm_chip *ch=
+ip, struct pwm_device *pwm)
+> > >   	value =3D readl(meson->base + REG_MISC_AB);
+> > >   	value |=3D channel_data->pwm_en_mask;
+> > > +
+> > > +	if (meson->data->has_constant)
+> > > +		meson_pwm_assign_bit(&value, channel_data->const_en_mask,
+> > > +				     channel->constant);
+> >=20
+> > Personally I'd prefer:
+> >=20
+> > 	value &=3D ~MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
+> > 	if (meson->data->has_constant && channel->constant)
+> > 		value |=3D MESON_PWM_REG_MISC_CONST_EN(pwm->hwpwm);
+> >=20
+> > even though your variant only mentions the mask once. While it has this
+> > repetition, it's clear what happens without having to know what
+> > meson_pwm_assign_bit() does. Maybe that's subjective?
+>=20
+> Actually I also don't like meson_pwm_assign_bit() too match and I'm
+> surprised there's no something like this in the kernel already.
+> I again objdumped versions meson_pwm_assign_bit() vs double mask repetiti=
+on.
+> Unconditional bit clearing takes only a single instruction:
+>=20
+> // value &=3D ~channel_data->const_en_mask;
+> 9ac:	0a250040 	bic	w0, w2, w5
+>=20
+> So in the current series I could drop meson_pwm_assign_bit() and use:
+>=20
+> value &=3D ~channel_data->const_en_mask;
+> if (meson->data->has_constant && channel->constant)
+> 	value |=3D channel_data->const_en_mask;
+>=20
+> If it's decided now or later to drop meson_pwm_channel_data then
+> w\o meson_pwm_assign_bit() future patch will be line-to-line change.
+>=20
+> What you think?
+
+Sounds sensible.
+
+Best regards
+Uwe
+
+--7ur3dmr5dbhirxpm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmcsfTwACgkQj4D7WH0S
+/k7W2ggAiWbFklqZfRb0lCzJW9msXnzW0j2vYPkmdTdU4UXb+bz4Nc/vo6AbIG4V
+zgaSDWYTwULDPzgKvkP403SAaZeB6Jg875zyty8nLVyCuydPE9LM7fc598PPzfUf
+8VgBR7p3x7iq/Zlnpb5btp2o3nCwniHPCc2wsjooAYy6j50dCK1UVvtlbJL8zzN4
+vgc98VppmOeutOa8/2ZhcXhczb5pgJfCviPGyyXlwoaeHB7WV358AkaOcvcMpDbN
+1TKOPew6x4fiRd56KOzN0C/M1Fpb3DSPhf21z3kdo/9LKPnap/sZ1Au22xOHTawD
++8ZSV6hZqzueMQJQY307eFT+otZ9hg==
+=7j4z
+-----END PGP SIGNATURE-----
+
+--7ur3dmr5dbhirxpm--
 
