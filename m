@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC92AD43346
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A357D43346
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7GI8ImiSFmMn/ByFin0ufEHoMIcEskZZRYYN8hVylc=; b=vl+MdUY5ndC6ktxtSN7ELS5EQf
-	PfcBYr1DfXWQxuH5ByAj/+C+m2AHPinmzC2raJ3OYNLmaEEjejnk8SXWqlqdfwqL0KmroQttRauV6
-	ZqQOx0eoTP5RIacA9keLQeUWQ0M7eo4mmFtMVUnEosxhNLNmlwd9wNaWGaOw475k7gdECGGEOtLRH
-	zro5A41vAxbCau1AvSC/9z/5cLiFaFakMp7jAUEsfFPc3CzIx/Z8np6ausj5vhI21c2uWMLV3glGt
-	Pjd3cuT3wLP39KnrzPklcoFxU7pXvpGl7uDJ2NJspVUiUaJRrvnnNDe7Vs57V2qGDuvctdm7Yfm6y
-	l2ifJJ0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qxThl5afrOvPLVqB4A2Wiiyp36R80L2UE1nggdLYscE=; b=wBtlZ0ohHpCLjgmkMUJ2FQOho1
+	xg6tJD8OQADTc7JS5RVs6K5lzqwJ6F2/5B4WL22vwjF75icVESt2rU2/mGGleQYGX3Q50dFQq84s6
+	gcwedT155j0o7zyAWFSBrTsO2qW5/nHAOr9g6rKaXDa9yDZxYOY6voUe9EajAQH3x3MuyHYoGS96N
+	iqU92pFuvzTDZ89VOOWV7kZ6SPMNyWLsdR6GofiOPH3Q3sZOTvFaeRAZbqjPm/uXIDieLH+07wH0i
+	U97oXzKFJVsUT8bqSdg2+wLkgWyV1PsRbbOm1Kdf54NXxyflRGw598q9n88ioShzOY6t8m79tHYGM
+	KATmLp3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90JZ-00000006beW-0Gsn;
-	Thu, 07 Nov 2024 11:04:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t90LH-00000006c14-26W1;
+	Thu, 07 Nov 2024 11:06:23 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90Hc-00000006azB-2BLG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 11:02:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 30E395C57A8;
-	Thu,  7 Nov 2024 11:01:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C1BDC4CED0;
-	Thu,  7 Nov 2024 11:02:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730977355;
-	bh=XPXzTBydfU0tNU9z2BgGa6DkHPQcDioWlU+fnXhanAQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p8tB6yZ258syUr1ek0tZTtb+RurPUY+6mR2sE7oxFqCjYJtywTKHCgYnfD0eYt8mw
-	 GqgjRReTXPy3/m+SWUedidkbZRT/BYIdtaPeVo5wuHSmpg6uJmoPzOIKIEMr4PXB8x
-	 iKFoboncs9qeaL1Nxe7dlszu8WyV5hsUPztKea8g9rCpeXKjiVW4VZe1ETnAEdTKQH
-	 SeFG4JLYW3UVvFJtZUOTxdTEuPKu8NeqgXhznJDriEYHqgrN+etpVmaXuulaBpjPQB
-	 pzOH3d/HDqzIkLOg1Q+xQDUI4BnKgzIxC4tkDSx+4MhrjBQmxywSAE+nnCaLiQDRce
-	 r5GgHUzJIyYOQ==
-Date: Thu, 7 Nov 2024 12:02:31 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] ASoC: dt-bindings: add stm32mp25 support for i2s
-Message-ID: <ynddlgloyliun6eiiep2ry6l5h2uqu7ujkusrptpqe74nvan7t@j44ltlokati3>
-References: <20241106152528.939232-1-olivier.moysan@foss.st.com>
- <20241106152528.939232-2-olivier.moysan@foss.st.com>
+	id 1t90Hd-00000006azC-2Eik;
+	Thu, 07 Nov 2024 11:02:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730977355;
+	bh=b0bTy290Gv4Pae9BlhjI0SkrHyDgzfB15dcSYgwkuhU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lNkq8uuXecRWDRa2Ptic2EWcNh7IFeOscAVOFNFIJqBbRh2VZA7NRdn8eMKeWcNi1
+	 Ch4B7WgNl2Ca8+xjNc/v0fkK3lmS7xMhwYpv805KcoNyP3Kx63SEl5wjQwqpIA3y+l
+	 7dwTqO65OjBxvK4hHyrvRCsdRUtGLi9wqvCbSgMORdMPXWdmOUIVMWhupR+GZMMV5S
+	 8jiS89xYjKKHPeSi9/ywpl0QRo4jrheiYLoz2MT83m4kmOl6tIEmULpnmOcP75EUSw
+	 +oqsWtWHizEu8JVgRGWYtFPhMH8nUaUlEG2vNvExmV/+FX67SVQkmFWYNCplxSvD+n
+	 saI9kp/FNePFg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B71F17E35E3;
+	Thu,  7 Nov 2024 12:02:35 +0100 (CET)
+Message-ID: <900eb529-9868-4455-8f13-3e6ce6c99983@collabora.com>
+Date: Thu, 7 Nov 2024 12:02:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241106152528.939232-2-olivier.moysan@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: mtk-sd: Fix error handle of probe function
+To: Andy-ld Lu <andy-ld.lu@mediatek.com>, ulf.hansson@linaro.org,
+ matthias.bgg@gmail.com, wenbin.mei@mediatek.com
+Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241107014714.24981-1-andy-ld.lu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241107014714.24981-1-andy-ld.lu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_030236_669524_37C9CAC1 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20241107_030237_787449_87BFF02D 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,124 +75,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 04:25:27PM +0100, Olivier Moysan wrote:
-> Add STM32MP25 support for STM32 I2S peripheral,
-> through "st,stm32mp25-i2s" compatible.
+Il 07/11/24 02:47, Andy-ld Lu ha scritto:
+> In the probe function, it goes to 'release_mem' label and returns after
+> some procedure failure. But if the clocks (partial or all) have been
+> enabled previously, they would not be disabled in msdc_runtime_suspend,
+> since runtime PM is not yet enabled for this case.
 > 
-> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> ---
->  .../bindings/sound/st,stm32-i2s.yaml          | 60 +++++++++++++++----
->  1 file changed, 47 insertions(+), 13 deletions(-)
+> That cause mmc related clocks always on during system suspend and block
+> suspend flow. Below log is from a SDCard issue of MT8196 chromebook, it
+> returns -ETIMEOUT while polling clock stable in the msdc_ungate_clock()
+> and probe failed, but the enabled clocks could not be disabled anyway.
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml b/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-> index 8978f6bd63e5..8f08f1f28a1b 100644
-> --- a/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-> +++ b/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-> @@ -13,13 +13,11 @@ description:
->    The SPI/I2S block supports I2S/PCM protocols when configured on I2S mode.
->    Only some SPI instances support I2S.
->  
-> -allOf:
-> -  - $ref: dai-common.yaml#
-> -
->  properties:
->    compatible:
->      enum:
->        - st,stm32h7-i2s
-> +      - st,stm32mp25-i2s
->  
->    "#sound-dai-cells":
->      const: 0
-> @@ -28,18 +26,12 @@ properties:
->      maxItems: 1
->  
->    clocks:
-> -    items:
-> -      - description: clock feeding the peripheral bus interface.
-> -      - description: clock feeding the internal clock generator.
-> -      - description: I2S parent clock for sampling rates multiple of 8kHz.
-> -      - description: I2S parent clock for sampling rates multiple of 11.025kHz.
-> +    minItems: 2
+> [  129.059253] clk_chk_dev_pm_suspend()
+> [  129.350119] suspend warning: msdcpll is on
+> [  129.354494] [ck_msdc30_1_sel : enabled, 1, 1, 191999939,   ck_msdcpll_d2]
+> [  129.362787] [ck_msdcpll_d2   : enabled, 1, 1, 191999939,         msdcpll]
+> [  129.371041] [ck_msdc30_1_ck  : enabled, 1, 1, 191999939, ck_msdc30_1_sel]
+> [  129.379295] [msdcpll         : enabled, 1, 1, 383999878,          clk26m]
+> 
+> Add a new 'release_clk' label and reorder the error handle functions to
+> make sure the clocks be disabled after probe failure.
+> 
+> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
 
-Keep old list and just add minItms here
+Please add the relevant Fixes tag, as this is a fix and should be backported.
 
-> +    maxItems: 4
->  
->    clock-names:
-> -    items:
-> -      - const: pclk
-> -      - const: i2sclk
-> -      - const: x8k
-> -      - const: x11k
-> +    minItems: 2
+After which, I'll give you my R-b.
 
-Ditto
-
-> +    maxItems: 4
->  
->    interrupts:
->      maxItems: 1
-> @@ -79,6 +71,48 @@ required:
->    - dmas
->    - dma-names
->  
-> +allOf:
-> +  - $ref: dai-common.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32h7-i2s
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: clock feeding the peripheral bus interface.
-> +            - description: clock feeding the internal clock generator.
-> +            - description: I2S parent clock for sampling rates multiple of 8kHz.
-> +            - description: I2S parent clock for sampling rates multiple of 11.025kHz.
-
-Instead: minItems: 4
-
-> +
-> +        clock-names:
-> +          items:
-> +            - const: pclk
-> +            - const: i2sclk
-> +            - const: x8k
-> +            - const: x11k
-
-ditto
-
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp25-i2s
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: clock feeding the peripheral bus interface.
-> +            - description: clock feeding the internal clock generator.
-
-instead: maxItems: 2
-
-> +
-> +        clock-names:
-> +          items:
-> +            - const: pclk
-> +            - const: i2sclk
-
-ditto
-
-Thanks to this you keep the lists synchronized between variants - they
-share the items.
-
-Best regards,
-Krzysztof
+Cheers,
+Angelo
 
 
