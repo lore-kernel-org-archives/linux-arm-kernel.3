@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DC0D5D688
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFD6D5D683
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AskLkmd+5R6eqmkHaSAvvDU+5LmiCInoewkuXBDBPA=; b=iWEdj4hPj56VaggYXIMWRF0CQI
-	Mk8AM2rl6PZaPdsg1YFbVHtW9/Q/ibA7lDnrVtcmKRP21eOeAvUdYkleR5Q5sxD8+WcnaI+Bu661+
-	6L4/kH9q8xKxDBf2EwCBBH1YXBarnhYo94X/GTLYwicIIQX11+tWVtdlS7wCwOlHjHhoEbOacsWjH
-	1Q/D1xU8f1+HcacUbB6VyUfN1d/QMDgDOdMzSVtbbNc1kI8o7ay8FWQtfx48i7lWJ7PPPDG8XR2QU
-	1i6cuT9RnOYomKV1RbBt9DS7HlXwWcEfG9oA9kdXzWujAlTnJm3AWkaS7Y7r3FcTk1XenMYb6caT/
-	9/If59UQ==;
+	bh=S3HxVOUBt76AC6WLe7o07JkecNHctt3qyaCBDX9dXHw=; b=o3gogs5RJ8ZxYioIiJhnMT2fcu
+	TwbTJC03iGYpJ4Kpl1BmY9r/i567Qwbo+1eGVLEhd1Esrj1RPh99HcT9Rwq7Wm351Eh8HjzEfiyqx
+	ZJdCsVi7ZOFCRh4cyIQeYIC6nlMR0jgLkzAcgHSifIYgMRfiP0+w+fNt79uznNQ98/9J2DdvhrW4e
+	wtZ7W6x559XBV1Sw5Myk3X2m5pn28zh9gRNlfMW1jh4zzfZhS7GiTIKkgw6kFrAbYD/oPjbfxKqSj
+	ORrQ8qVHLQJJ2RhsAmONAVU9JMGTNbXkjcI0XrRYNwe24xaY5frL4xPDbiT0PRZM2JN9Ftdsuc9y5
+	/ElL3Z/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98V8-000000088qa-2whL;
-	Thu, 07 Nov 2024 19:49:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t98Wr-0000000899V-34UY;
+	Thu, 07 Nov 2024 19:50:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t981v-000000083jN-0uQb;
-	Thu, 07 Nov 2024 19:18:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C921F5C4C6E;
-	Thu,  7 Nov 2024 19:18:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62E73C4CECC;
-	Thu,  7 Nov 2024 19:18:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731007134;
-	bh=tUz0GhcRj0ZxROqC6ULAO/ba2Gcn5tZO8oBwGXYih7Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FIABmJhOPM5gQ7aJobDAz51TgVD4v06smmwBLjo+3W+IRu0fwDcA2/6HEgiUoSa3E
-	 ZiichYPLU5m8WkFGTlGAL1/bVqe//nbrD55Jtn8P0bXqcQ58cwdjGbTUMQAGT3V67R
-	 oV6PsAeZvk05AEdHaHBCXlWhJ83NO5OvgKwvDA2ldVCWKtZWhKhzhjx555gHxYc6Kn
-	 tRV7gfxi1Z3azWFgw66neiEJVh48t5RBrAVSdtKWOt3UurvhGCX9d2x5+CCNrbuWVa
-	 8y3YX/LpV3B7HxG56PTNNkzccFmtoVuEHNhNMMph5xwjU95xoe0KlJzWfejQj60Bpj
-	 Ujmu/DK6ORCnw==
-Date: Thu, 7 Nov 2024 11:18:50 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
-	Guilherme Amadio <amadio@gentoo.org>,
-	Changbin Du <changbin.du@huawei.com>,
-	Daniel Bristot de Oliveira <bristot@kernel.org>,
-	Daniel Wagner <dwagner@suse.de>,
-	Aditya Gupta <adityag@linux.ibm.com>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Kajol Jain <kjain@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
-	Shenlin Liang <liangshenlin@eswincomputing.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	"Steinar H. Gunderson" <sesse@google.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Dima Kogan <dima@secretsauce.net>,
-	Yury Norov <yury.norov@gmail.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 16/31] perf dwarf-regs: Pass accurate disassembly
- machine to get_dwarf_regnum
-Message-ID: <Zy0SmlDrmksra_OD@google.com>
-References: <20241005195541.380070-1-irogers@google.com>
- <20241005195541.380070-17-irogers@google.com>
- <20241007170755.03697b9178ed3dcac24dfa21@kernel.org>
- <CAP-5=fU4hTL1hfB7-FpMnFopJJriZAOXY_8iakW5yHC_gfhTWg@mail.gmail.com>
+	id 1t982k-000000083ve-2xrS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 19:19:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1731007186; x=1762543186;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=eN0VRTCZM2WBAT9cgFw9DTUrSpwbJpwTFubfXheWoYM=;
+  b=Aqr9FNpqc0Vm4SXL9oki1pWvE48VFyRxojLIjoBsr0CX183bKKplLna9
+   BPw21N5KZ9RiVZj/7fRKj39veFnZaUw6E2dQkgG5mY9zL2ySjTJWsZbwS
+   2SvzmGGgOqivuohYtL+o/uYAoU11VWJdFCpeA1QdjSimKkJUZ9yodmTbX
+   n6JcZHVd9CFv9ebwzSRodvicIrqFX9vJRHqCIL5d+KZJUObpPIMaRqA7S
+   XKjlm8XBK+uqAMkFkruPeX9/KBfkWK/tVpd2EUA+4lXr45sVAgIyxJoCO
+   XCz+u/FSZStnKlVh13rGRVmTF9aUajrK1UB+bLQVJWZZuizw7+nKo/GU0
+   Q==;
+X-CSE-ConnectionGUID: MDDVaqVhRqenuoSd1grXjg==
+X-CSE-MsgGUID: wGoZR4F7TSiOLGn00rOoNA==
+X-IronPort-AV: E=Sophos;i="6.12,135,1728975600"; 
+   d="scan'208";a="34539067"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Nov 2024 12:19:43 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 7 Nov 2024 12:19:22 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Thu, 7 Nov 2024 12:19:20 -0700
+Date: Thu, 7 Nov 2024 19:19:19 +0000
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+	<joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+	Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 0/9] Support external snapshots on dwmac1000
+Message-ID: <20241107191919.sngc2x664lp7jeg2@DEN-DL-M70577>
+References: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fU4hTL1hfB7-FpMnFopJJriZAOXY_8iakW5yHC_gfhTWg@mail.gmail.com>
+In-Reply-To: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_111855_371614_C9F6048A 
-X-CRM114-Status: GOOD (  39.22  )
+X-CRM114-CacheID: sfid-20241107_111946_943465_37ACFFC2 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,142 +91,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-Sorry for the late reply.
-
-On Mon, Oct 07, 2024 at 08:46:59AM -0700, Ian Rogers wrote:
-> On Mon, Oct 7, 2024 at 1:08â€¯AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
-> >
-> > On Sat,  5 Oct 2024 12:55:26 -0700
-> > Ian Rogers <irogers@google.com> wrote:
-> >
-> > > Rather than pass 0/EM_NONE, use the value computed in the disasm
-> > > struct arch. Switch the EM_NONE case to EM_HOST, rewriting EM_NONE if
-> > > it were passed to get_dwarf_regnum. Pass a flags value as
-> > > architectures like csky need the flags to determine the ABI variant.
-> > >
-> >
-> > Does this change the command output when we use it for cross-build
-> > environment? E.g. remote arch is different from host arch? If so,
-> > please add output examples with/without this change.
+> Hi,
 > 
-> The cases where this would apply are small as get_arch_regnum is only
-> implemented for x86. get_dwarf_regnum likewise only works for x86 and
-> it is only called by annotate.
-
-Yep, it's used only in the data type profiling.  I don't expect it to
-work in the cross environment yet.  This change moves it closer to the
-working state though. :)
-
-
-> In this code without this patch the behavior is to return -ENOTSUP, ie
-> the code is set up to fail and this code just makes it not fail for
-> the x86 case (when not on x86) with code that is well tested on x86.
-> The code exists as x86 registers may be the same dwarf number but have
-> different names: e.g. rax, eax, ax, al. I'm not sure this reaches a
-> high complexity level for extensive testing. I'll see if I can grab an
-> x86 perf.data file to analyze on ARM, but I don't think doing this
-> should gate the series.
-
-Yep, as I said it's not supported yet and I don't think that's the goal
-of this patch series.  So probably it's ok to merge it without the
-extensive testing.
-
-Thanks,
-Namhyung
-
+> This V3 is just a rebase a V2 on top of net-next to address some minor
+> conflicts. No changes were made.
 > 
-> > > Signed-off-by: Ian Rogers <irogers@google.com>
-> > > ---
-> > >  tools/perf/util/annotate.c           | 6 +++---
-> > >  tools/perf/util/dwarf-regs.c         | 8 ++++++--
-> > >  tools/perf/util/include/dwarf-regs.h | 5 +++--
-> > >  3 files changed, 12 insertions(+), 7 deletions(-)
-> > >
-> > > diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-> > > index 37ce43c4eb8f..b1d98da79be8 100644
-> > > --- a/tools/perf/util/annotate.c
-> > > +++ b/tools/perf/util/annotate.c
-> > > @@ -2292,7 +2292,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
-> > >       if (regname == NULL)
-> > >               return -1;
-> > >
-> > > -     op_loc->reg1 = get_dwarf_regnum(regname, 0);
-> > > +     op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
-> > >       free(regname);
-> > >
-> > >       /* Get the second register */
-> > > @@ -2305,7 +2305,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
-> > >               if (regname == NULL)
-> > >                       return -1;
-> > >
-> > > -             op_loc->reg2 = get_dwarf_regnum(regname, 0);
-> > > +             op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
-> > >               free(regname);
-> > >       }
-> > >       return 0;
-> > > @@ -2405,7 +2405,7 @@ int annotate_get_insn_location(struct arch *arch, struct disasm_line *dl,
-> > >                               return -1;
-> > >
-> > >                       if (*s == arch->objdump.register_char)
-> > > -                             op_loc->reg1 = get_dwarf_regnum(s, 0);
-> > > +                             op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
-> > >                       else if (*s == arch->objdump.imm_char) {
-> > >                               op_loc->offset = strtol(s + 1, &p, 0);
-> > >                               if (p && p != s + 1)
-> > > diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-> > > index 7c01bc4d7e5b..1321387f6948 100644
-> > > --- a/tools/perf/util/dwarf-regs.c
-> > > +++ b/tools/perf/util/dwarf-regs.c
-> > > @@ -70,7 +70,7 @@ __weak int get_arch_regnum(const char *name __maybe_unused)
-> > >  }
-> > >
-> > >  /* Return DWARF register number from architecture register name */
-> > > -int get_dwarf_regnum(const char *name, unsigned int machine)
-> > > +int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
-> > >  {
-> > >       char *regname = strdup(name);
-> > >       int reg = -1;
-> > > @@ -84,8 +84,12 @@ int get_dwarf_regnum(const char *name, unsigned int machine)
-> > >       if (p)
-> > >               *p = '\0';
-> > >
-> > > +     if (machine == EM_NONE) {
-> > > +             /* Generic arch - use host arch */
-> > > +             machine = EM_HOST;
-> > > +     }
-> > >       switch (machine) {
-> > > -     case EM_NONE:   /* Generic arch - use host arch */
-> > > +     case EM_HOST:
-> > >               reg = get_arch_regnum(regname);
-> > >               break;
-> > >       default:
-> > > diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-> > > index f4f87ded5e3d..ee0a734564c7 100644
-> > > --- a/tools/perf/util/include/dwarf-regs.h
-> > > +++ b/tools/perf/util/include/dwarf-regs.h
-> > > @@ -93,12 +93,13 @@ int get_arch_regnum(const char *name);
-> > >   * name: architecture register name
-> > >   * machine: ELF machine signature (EM_*)
-> > >   */
-> > > -int get_dwarf_regnum(const char *name, unsigned int machine);
-> > > +int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags);
-> > >
-> > >  #else /* HAVE_LIBDW_SUPPORT */
-> > >
-> > >  static inline int get_dwarf_regnum(const char *name __maybe_unused,
-> > > -                                unsigned int machine __maybe_unused)
-> > > +                                unsigned int machine __maybe_unused,
-> > > +                                unsigned int flags __maybe_unused)
-> > >  {
-> > >       return -1;
-> > >  }
-> > > --
-> > > 2.47.0.rc0.187.ge670bccf7e-goog
-> > >
-> >
-> >
-> > --
-> > Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> This series is another take on the pervious work [1] done by
+> Alexis Lothoré, that fixes the support for external snapshots
+> timestamping in GMAC3-based devices.
+> 
+> Details on why this is needed are mentionned on the cover [2] from V1.
+> 
+> This V2 addresses multiple issues found in V1 :
+> 
+>  - The PTP_TCR register is configured from multiple places, as reported
+>    by Alexis, so we need to make sure that the extts configuration
+>    doesn't interfere with the hwtstamp configuration.
+> 
+>  - The interrupt management in V1 was incomplete, as the interrupt
+>    wasn't correctly acked.
+> 
+>  - This series also makes so that we only enable the extts interrupt
+>    when necessary.
+> 
+> [1]: https://lore.kernel.org/netdev/20230616100409.164583-1-alexis.lothore@bootlin.com/
+> [2]: https://lore.kernel.org/netdev/20241029115419.1160201-1-maxime.chevallier@bootlin.com/
+> 
+> Thanks Alexis for laying the groundwork for this,
+> 
+> Best regards,
+> 
+> Maxime
+> 
+> Link to V1: https://lore.kernel.org/netdev/20241029115419.1160201-1-maxime.chevallier@bootlin.com/
+> Link to V2: https://lore.kernel.org/netdev/20241104170251.2202270-1-maxime.chevallier@bootlin.com/
+
+Hi Maxime,
+
+Dont know much about this particular driver, but the patches looked good
+to me!
+
+For the series:
+
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 
