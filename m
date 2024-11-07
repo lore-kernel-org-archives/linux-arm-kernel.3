@@ -4,63 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD5BD5AE61
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 05:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CE1D5AE60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 05:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OZuRUaeq2SVIUcbqz41Eky50lEh8bbVD+B44rIfT5/4=; b=Ydh5FeRNaNOlYbpZQC154B6+9R
-	kUR39W9ozcsfXUAZ0mS4+1cYVNjByr22KuEDgmuxxP7aRnsvQbLOKpYTVme5ioAhwNDNTDt6/YVNi
-	sa5tp7DmDy6+94+nWoWr4/hVIY0kXAmdco1nJHLHVZQJ7OFfqD/bdX7uPCKw7QlqHL8LUejNfPxji
-	1SS1gM8d7tYOnJD1BjYpRSGZBdQTxOYaCjeoauknzS58fgYBz4IZsvhwkhmsuklV9sMQg7S+S8V3M
-	FYbTLVfF0DW1liV4kZalMrSsDjLxpcXH/PEjvkUW3qG0RdZTwxe9Rj8moyxaY0fbEaJiQTccHkIOQ
-	aKrxKY5g==;
+	bh=toF9EjNYE9Oaua3AvOkVvNCOdKXRYgbT57PY7LZ58d0=; b=P9wsmJqdUGJjtdDfpSP434NYN3
+	y7pgrOJUi7BiXQIKaaNKOFandMhejOXiZ+HWT4sm8KtD8ctexgHcFCJM/HD+RvkIfCFjj2hHh0rw2
+	Pq/cfLu1DRDe3kOO6ZoAghQAp2obcZ9fhtHDcNPvw6R7fcT0/ms+zOlnX35Z5WXX+trTXjH8PC5Pp
+	sywDcY+efju0SGOUm7qMwI4+fwTZhRmJhkabOQSIcDCEOwQxLI03Ju2/7LCoIANl4r/xK6pX72zvT
+	eN/S5rVzsWm1IhG4yjfOTM+qWOV1Wt/CK9IcZUM/GXUVA9NHHHZEAgkDTLYhlCspAmpE4T9o6GYB5
+	X5mqmmPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8utY-00000005h3b-3Rnq;
-	Thu, 07 Nov 2024 05:17:24 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8vCV-00000005ix0-3z19;
+	Thu, 07 Nov 2024 05:36:59 +0000
+Received: from mail-eastasiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c400::2] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ur6-00000005gja-0xXx;
-	Thu, 07 Nov 2024 05:14:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2A7AA41FBD;
-	Thu,  7 Nov 2024 05:12:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB45C4CECC;
-	Thu,  7 Nov 2024 05:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1730956490;
-	bh=iWGb3Yl9quIHI+wNbOzG+7sm0t9ullzXkfB6TkNObxk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qDg32I1IACZtoMDuRxAlSPTrcanjkn58Pdda3Y5Q0sOeVXZ+/Cf7Z0XKPE2V9OQRu
-	 HJLL3kvWSROiS31MQwIuhUFSJtd56pm7i/LJqdEqXkPZBUGC9DmHdXO5y4J1G3h9Mc
-	 eQn3PAdfGFffix5yG/t+uCgicuNo1hge1I2d1Wz4=
-Date: Thu, 7 Nov 2024 06:14:31 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: "Haowei Cheng(Harvey)" <harvey.cheng@fibocom.com>
-Cc: "chunfeng.yun@mediatek.com" <chunfeng.yun@mediatek.com>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: =?utf-8?B?5Zue5aSN?= =?utf-8?Q?=3A?=
- 0001-usb-mtu3-fix-panic-in-mtu3_gadget_wakeup.patch
-Message-ID: <2024110735-lunacy-salvation-684c@gregkh>
-References: <SEZPR02MB54953820B2A9EEBD807D0ED18E512@SEZPR02MB5495.apcprd02.prod.outlook.com>
- <2024110512-popcorn-germless-01be@gregkh>
- <SEZPR02MB5495A8637098B92CDEBBFC6C8E532@SEZPR02MB5495.apcprd02.prod.outlook.com>
+	id 1t8vAk-00000005igu-1VCT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 05:35:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z1KVAgs7h+Gg+vCh/0N8tyMy9eeveRFxsRP8hHkg2LJ5LFX7W7sRfz6Kh1JFPQE1RDkgaoKXoK5NpKDmVSRkD0YdXks5N4x40YpT7XjUfmNXE185Un64AHBxq//a/65h6F/ZGBYGva5bv4zmGweDwvfR61vWFUsEn3G97U5rF9cGpoQktOQiQs/VOyTAnwZANI2gaLz6OKtBVgjvmzdkGqPjDkF+53c+X9tWEfrcK7Rx4EyW16xMOosusaqelid+MLlBM/WGSs76ORjqD3aZc8RHnh+hOJ6W2TATF2Cm0dd05MRKhPWdMZewBw8+qDR8hsFfx2GV4mXyua9lRBzV+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=toF9EjNYE9Oaua3AvOkVvNCOdKXRYgbT57PY7LZ58d0=;
+ b=v7Z9OmNINbRft6P6zcNRL2hhr4SybLrS3SvK9B3SHC9j2yvy2HredmExVJJMFiz/XqGumYTBBX4A6yH0/rsZYD3wD729jFUa5/Ec3bslUiAhQgfZDTlx53wv4Ykd7eOJSySK1Mq5A3k6X9n1xDqn6Y/BacS49QnumpdWltWoxOpK+aGuPdlqadDgye7pZRVVCLw8gKvB3JfXa16I1a5aIXUzI8xizzRHFKnX/lU89np1sc90hQ4WtEWXwXblAC4NHlXhZGvugHhisWxwhd/kQfE0Z0cTtXPK9usgcJryPgglnXsIjWNq/2aDMEy7ZVQOqT8gP1S0EyDU5QG+mCZdsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=toF9EjNYE9Oaua3AvOkVvNCOdKXRYgbT57PY7LZ58d0=;
+ b=ff8rZfhAmosUYhrfchrkuoxZj1kf+4yb510FYJ+RZC9Et/xqZLnrZqABZOseP94L0QqNZe9YI6Fv5CBl6YeKnQhjOTVTRJdwV73DOq8lTDGW1E1vFEaJY5ntqOUnH9IepHTpRXGRAFpk5OFEhhdpu9A8XPocLj7Y2YaPaaWR9m/d6X7AhMgkr7KY981KMn1OZGQW0PkJYQV3M8KrqfIQxyVI8qDN9HVdcrTjTJB8YO4G5+0P981VeNadJ1KyDPCe2mxs9XxW086tmahPi6HOAzgL/2ZtwDcmFPsOfi+PHk6E6xPwMHq2INCTkwHzVOSUgT8dlv8Q3htwTwOftoNE3A==
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com (2603:1096:400:1f9::9)
+ by JH0PR06MB6319.apcprd06.prod.outlook.com (2603:1096:990:b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.18; Thu, 7 Nov
+ 2024 05:34:50 +0000
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::b7e4:5d25:213:ef9b]) by TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::b7e4:5d25:213:ef9b%3]) with mapi id 15.20.8137.014; Thu, 7 Nov 2024
+ 05:34:50 +0000
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: Patrick Williams <patrick@stwcx.xyz>
+CC: "joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "wim@linux-watchdog.org"
+	<wim@linux-watchdog.org>, "linux@roeck-us.net" <linux@roeck-us.net>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-watchdog@vger.kernel.org"
+	<linux-watchdog@vger.kernel.org>, "Peter.Yin@quantatw.com"
+	<Peter.Yin@quantatw.com>, "Patrick_NC_Lin@wiwynn.com"
+	<Patrick_NC_Lin@wiwynn.com>, "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
+	"DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>, BMC-SW
+	<BMC-SW@aspeedtech.com>, "chnguyen@amperecomputing.com"
+	<chnguyen@amperecomputing.com>
+Subject: RE: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+Thread-Topic: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+Thread-Index: AQHbLFdFSiy5MyUwCUe0YBcXjsWUGrKivQQAgAhvEgA=
+Date: Thu, 7 Nov 2024 05:34:50 +0000
+Message-ID: <TYZPR06MB520328BE1AEE561EB54F0A53B25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+ <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+ <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+In-Reply-To: <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR06MB5203:EE_|JH0PR06MB6319:EE_
+x-ms-office365-filtering-correlation-id: 8ebb15e6-bc52-4fd8-698b-08dcfeede626
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?oYa5bGKJBU+xXLn3XxQZ7JpyOxJg5B7D12E8OpTkzhARRIxFU+RK6HPNWswT?=
+ =?us-ascii?Q?SuUEyZpJqMzR1xyBHK4XdmzNDtjbK46QDMibOW54583xlfFgnJGvKoPOzEUT?=
+ =?us-ascii?Q?dJIAdaM/1aaEkV7fc0jv8qS4J/p8MQZVO/lyJcSRvQtziZ/6R2XMcoENTBSa?=
+ =?us-ascii?Q?YMD9CcnCLg52ChuIK4jzz6peUrcJP2jhhoBU8jM6h6IUdo94aPdBjSSvO+5X?=
+ =?us-ascii?Q?8nwKEQUm4pNog6i33bQjJ/gz1qGiW/tnsUSKxtaCiyBH7quIGaC2SGa2qzc8?=
+ =?us-ascii?Q?yQUMwg+Ic5qREQlqI2rmHr8Hr+/nMRDyXSuOrVp13kUwfFpXsxSGyDf47+63?=
+ =?us-ascii?Q?Zmqs0pzqyRAOVOb3PMiJ7CCUmeFeik+oSXm26HzWgPp+x/uS7ApqPRHtP4wE?=
+ =?us-ascii?Q?1uEw0yMlQmIsPM4xzUxsVczPQ4iUx5ZxQDYx6V1PTblF4u37pXrSVt0i4B2F?=
+ =?us-ascii?Q?NccZkNtpwzlmY1rxuSJ/5Us/w0966GU04AMzLFKrm+h0Eusfu/9XdffelpAq?=
+ =?us-ascii?Q?uzQ4g+VYNsaAu63Zsl/S8W5mHZUdW22IyYYpOpZYQQBsswdaI1BQ6fGK9sAm?=
+ =?us-ascii?Q?YBakxCluCCcl4wTfBuzOUI0Nzo+QVMsn1DdDnkQQKkfo3cQfBxTSfI00LWSs?=
+ =?us-ascii?Q?SJ1HffT0kQWczt7Cbbgo4Psl4SwOxVJ7ezSu1EIhNQIvN10oFle3MmMqqqmg?=
+ =?us-ascii?Q?n2MRagYgWnHKeI/dhnCdZLK7B2cxSaf7myKTZ9qzhLIa3IUY716mb9xpFUjL?=
+ =?us-ascii?Q?m4luiA8OYZdCAiAAUswr3ulyxO/KO3xWUVv+4zBNmcupv/VL5KzKOAJoYgr1?=
+ =?us-ascii?Q?zIebZajfqAxCf6ePyqp1Ylo5kEqDO6Dm9IE5K/yTb8BLaJxTuVYfLc9lx43Z?=
+ =?us-ascii?Q?A1ouuyXzjldZEOpd9C0H8k4vvQfbWi/EmwgYyzEhhMwHPFVAUPiWGEseMTer?=
+ =?us-ascii?Q?wLjXXSE/M0nXbdaQNoDKH+/dy+CCPe9xdiNuYxFwx1lzaiPlyaXcuUEf8KEK?=
+ =?us-ascii?Q?A34y/hqGjyQGmnXcqBPUeA1jYx7WGX/Xcy+FLB0RcjEYvDUXWQl7Yg6Iee6v?=
+ =?us-ascii?Q?+V4DUJaonO2cqEnpLPl9CK3tvreCnwonWNCDZ3bYQieFgGc4krHRcuhMVJya?=
+ =?us-ascii?Q?g7N0T8Im+qvMIpx4PLJjFYXIerW77ZccoeWrCZu7eR3wgKlsrH2XgSExKiKY?=
+ =?us-ascii?Q?S+ktw2LL+A9H9SznMINiGsui/Yck8FKLGsNHuqoUOhjgMR+61gd8SWdO9e1Q?=
+ =?us-ascii?Q?Y8m9+vfLrC4D+dYn4Y0JxlmKISowCg1SPYn6C2L1fhD8IPq1BYj2UUxDWCuA?=
+ =?us-ascii?Q?onhv2Xo+XCRVtv8X1z9mmqlr?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB5203.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?n7qhKhdRL1JswDEDqqYGCUEdfHw21GKOe5w79Uza3LYExeE7IKFQIV9ijk4D?=
+ =?us-ascii?Q?MbbNijsTCv7tUYkDVlw0b+J/fl5C5MF1uK4tDV92qY9KFdRA5ntGziun1bS2?=
+ =?us-ascii?Q?IEy9yysh93ROZ80KXBxb1BTuE11BxJ/4J6KPVd5JU/0kM+m6V53LDvhHpYOK?=
+ =?us-ascii?Q?xH2BK/VAOkQWc4KO1f6GvnOYYHLoXPKYMOESOu6pDMLtjd7tynqTqR3Xe5PZ?=
+ =?us-ascii?Q?qo1EuS8hHPQ4UEf2o5tgRm2GQ5+cmjtRI1Pbi0gp18Gykvj6iGNloLAqKmVz?=
+ =?us-ascii?Q?/WKxsZkhXc74mwlAtEyIIeVehM7QRI9Tvsl+N5tI/3LYUNtYASLkPxIUP4qO?=
+ =?us-ascii?Q?a3WYUhJnoYAcFGJFJ1+oaQXAugHbnSyIPLH3FYwTfRNUCbIOVqOPTnQqjSTr?=
+ =?us-ascii?Q?voPA5mLux5rrbeP3Q7xf33yZKk1sWtVvNao6PxbETxWbQJDTwL6L68PzOawh?=
+ =?us-ascii?Q?PeTmhC2LHLv7cNByzS5fm6IurNrptEq+Zna/Mzmsmtdv0elEpn+VszCmCf3b?=
+ =?us-ascii?Q?9D+1JC84QJzVi48yYlj6JtBwH2mGLAECMGkuRbmznDTdoH6BKj8ZVaMLe7kh?=
+ =?us-ascii?Q?2eb8VNgp3JpD4vXCq4QFf9Scgx0v9XXOxXzSrY5hTvalTNK3nw/fQA0uMFNG?=
+ =?us-ascii?Q?5pu/TrmobRTd5SxSzFrIVab74or6zoS5bfrckPmrSVoYT1VQrAjqjjO201LS?=
+ =?us-ascii?Q?KcqIg6T4nDHOreNUegD7fLDpFxr1kpkAid37JWBDHor5mO/fNSd8+Ps1m2WO?=
+ =?us-ascii?Q?Trmtqin/57+jz1aDqmcNdkatvrf0M8sK7QsmFCn8l5wuFuXgbpNUFCrIab9T?=
+ =?us-ascii?Q?Mio6zu/mejVWz7mCHIKJM9dX0hJcSwp7mCmHLIvr+usjrrY3gO2rflibnOX1?=
+ =?us-ascii?Q?ld+7sD1lcwC1mLfGof7uIh70VNdzO5a25S7XvDYoE3SrngjNDyJzPylejPwU?=
+ =?us-ascii?Q?MnWD3WdsminAU3fg7lYvcqj9OlIoI88AsZ5QxVVkTzjB7jKUsQ5agQzoLzSK?=
+ =?us-ascii?Q?nS+OL34doNrATKISZTGWRkG+bRR1AxuTSV9FuezM1DgSCoA1qv6EJqW9TGBn?=
+ =?us-ascii?Q?U5AT/jPxlBieJsBr8he6VHrza0Zbo4x/inbuY+CkYkn6xAAey6mW9CqxR8NA?=
+ =?us-ascii?Q?9YkPiznzBSXgFExc0F1gtet4bT7uyF7H5dk5XsZi/arCokNGBkUaACNr5jlj?=
+ =?us-ascii?Q?AdNYammHldGGkqTs07b9zqRaqItYAu+/TNIoi5CfENMe6loAWHHwlouFgQ5+?=
+ =?us-ascii?Q?pRCKr9AVkqtOTvbg2U7aT3PRpePYQjBSgldcHjNN/5y1hOp7pU06FAfS2Tg/?=
+ =?us-ascii?Q?tuVhskE6Uyf2yNYedzN58RAzFEiaEHJgRMeqSfoPEV5oG7LUqP0Ze+GVGmfb?=
+ =?us-ascii?Q?KyM/KJRqHtwBlOfWyTT7CKFZz90KGHKp3p0tU7Hy30ptyno+Ne+gl34F+i+A?=
+ =?us-ascii?Q?Gr+fpIHeunwAQmX6M5sOfvMub71RfeW6Epa/H/O53MGEda+VYce4D6Bokz1v?=
+ =?us-ascii?Q?p9u++MXEdB3umZozZjcUmkdfxvuryJZiXKpiOIFfPdkv67b0AXmJmpFoKg2a?=
+ =?us-ascii?Q?l/SipmPXjXJdctMOsfVYmrZn+R/X9dV4bQBoxjTdYN2FYXsMcw43+afJh1wn?=
+ =?us-ascii?Q?5g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <SEZPR02MB5495A8637098B92CDEBBFC6C8E532@SEZPR02MB5495.apcprd02.prod.outlook.com>
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB5203.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ebb15e6-bc52-4fd8-698b-08dcfeede626
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2024 05:34:50.1545
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /JlkrR+C86BhUgB8oNmdXQ50wDLKiS+685Kqulo8Ug3OZRm7VPYl4xDcCnTLurV1wWDyjPLAi2GPhglD8u5g9d/ENJV4TlQyNIY3THSGN6E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_211452_358765_1762CD6E 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_213510_425621_314A470B 
+X-CRM114-Status: GOOD (  30.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +171,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 07:39:59PM +0000, Haowei Cheng(Harvey) wrote:
-> Hi greg k-h，
-> 
-> We found during development that when there are data packets to be sent on the USB RNDIS network card,
+Hi Patrick,
 
-Also, wait, why in the world are you using RNDIS when it is documented
-to be an insecure and broken protocol?  Do you really trust both sides
-of that connection?  If so, that's fine, but if not, please do not use
-that protocol at all.
+Thanks for the check and reply.
+=09
+> -----Original Message-----
+> From: Patrick Williams <patrick@stwcx.xyz>
+> Sent: Saturday, November 2, 2024 2:21 AM
+> Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+>=20
+> On Fri, Nov 01, 2024 at 08:11:59PM +0800, Chin-Ting Kuo wrote:
+> > The boot status mapping rule follows the latest design guide from the
+> > OpenBMC shown as below.
+> >
+> https://github.com/openbmc/docs/blob/master/designs/bmc-reboot-cause-up
+> date.md#proposed-design
+> > - WDIOF_EXTERN1   =3D> system is reset by Software
+> > - WDIOF_CARDRESET =3D> system is reset by WDT SoC reset
+> > - Others          =3D> other reset events, e.g., power on reset.
+>=20
+> I'm quite surprised that the above is relevant for a kernel driver at all=
+.  Isn't
+> "EXTERN1" a name of a real watchdog signal from your hardware (my
+> recollection is that there are 2 external watchdogs).  I think the point =
+of this
+> referenced design document was that most users of BMCs have "EXTERN1"
+> used a for software reset conditions.
+> `CARDRESET` should be representing resets by the watchdog itself.
+>=20
 
-thanks,
+ASPEED WDT controller is able to generate an external signal, wdt_ext, when=
+ the
+WDT timeout occurs. However, after system is rebooted, WDT controller doesn=
+'t
+know whether wdt_ext signal is generated previously. Moreover, whether BMC =
+is
+reset due to this wdt_ext signal depends on the HW board design. On some bo=
+ards,
+wdt_ext can affect EXTRST#, BMC external reset signal, indirectly. For this=
+ scenario,
+EXTERN1 can be classified to wdt_ext. On the other boards, wdt_ext just rep=
+resents
+WDT timeout event for specific tasks. Thus, EXTERN1 boot status can be igno=
+red in
+ASPEED WDT driver and just implement "CARDRESET" and "others" since EXTERN1
+is not always affected/controlled by WDT controller directly. Or, an additi=
+onal
+property in dts can be added to distinguish whether the EXTRST# reset event=
+ is
+triggered by wdt_ext signal.
 
-greg k-h
+> The purpose of this design proposal was not to require very specific chan=
+ges to
+> individual watchdog drivers, but to align the userspace use with the best
+> practices already from other watchdog drivers.  I don't think the kernel =
+driver
+> should be bending to match a particular userspace implementation; you sho=
+uld
+> be exposing the information available to your hardware.
+>=20
+
+Agree.
+
+> Having said that, it was known that there would need to be changes to the
+> driver because some of these conditions were not adequately exposed at al=
+l.
+> I'm just still surprised that we're needing to reference that document as=
+ part of
+> these changes.
+>=20
+
+Yes, if only "CARDRESET" and "others" types are taken into consideration, s=
+ome
+patches are still needed to complete the boot status mechanism in ASPEED
+WDT driver.
+
+> >
+> > On ASPEED platform, the boot status is recorded in the SCU registers.
+> > - AST2400: Only a bit represents for any WDT reset.
+> > - AST2500: The reset triggered by different WDT controllers can be
+> >            distinguished by different SCU bits. But, WDIOF_EXTERN1 or
+> >            WDIOF_CARDRESET still cannot be identified due to
+> >            HW limitation.
+> > - AST2600: Different from AST2500, additional HW bits are added for
+> >            distinguishing WDIOF_EXTERN1 and WDIOF_CARDRESET.
+>=20
+> --
+> Patrick Williams
+
+
+Chin-Ting
 
