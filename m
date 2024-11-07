@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A357D43346
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E39D43346
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxThl5afrOvPLVqB4A2Wiiyp36R80L2UE1nggdLYscE=; b=wBtlZ0ohHpCLjgmkMUJ2FQOho1
-	xg6tJD8OQADTc7JS5RVs6K5lzqwJ6F2/5B4WL22vwjF75icVESt2rU2/mGGleQYGX3Q50dFQq84s6
-	gcwedT155j0o7zyAWFSBrTsO2qW5/nHAOr9g6rKaXDa9yDZxYOY6voUe9EajAQH3x3MuyHYoGS96N
-	iqU92pFuvzTDZ89VOOWV7kZ6SPMNyWLsdR6GofiOPH3Q3sZOTvFaeRAZbqjPm/uXIDieLH+07wH0i
-	U97oXzKFJVsUT8bqSdg2+wLkgWyV1PsRbbOm1Kdf54NXxyflRGw598q9n88ioShzOY6t8m79tHYGM
-	KATmLp3Q==;
+	bh=K2iQWKi+iMZjurZnIXvfzn16/7cDYCLjFarj3dgv6kU=; b=Yfwlge3U8P38P17Q/M2HsA3d2u
+	tpntRix2upnbHfYZvuH99SMiNA3TmpmMdP6w69QogPwHg41a4ju0Q98UfF+OCU3VXU18tr0YTpjhC
+	r9iYrQE4f+Fd6DbIIbDsbKQBYA+OuEisJLG4/ibTlTOdFZjtqYGe2faC1g0xiNFXNq4eZdLkZHBjZ
+	YeO9m+uUV95KgbHblt4UXfTwDx5gkZbK0RdNYyHNDaUdsVOWWFp0nxitn1WsWVU6yItRH4CpbLVWo
+	Wj4FC3jSBHdQ4HAFO86aosu2ySNp9jFiun3PW2JkGsCwEASCdMmHn2Yx+IveaFTqL/wUKvjl/XW+W
+	Xe0rgzbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90LH-00000006c14-26W1;
-	Thu, 07 Nov 2024 11:06:23 +0000
+	id 1t90N0-00000006cNT-0JxM;
+	Thu, 07 Nov 2024 11:08:10 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90Hd-00000006azC-2Eik;
-	Thu, 07 Nov 2024 11:02:39 +0000
+	id 1t90J9-00000006bYb-22QN;
+	Thu, 07 Nov 2024 11:04:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730977355;
-	bh=b0bTy290Gv4Pae9BlhjI0SkrHyDgzfB15dcSYgwkuhU=;
+	s=mail; t=1730977449;
+	bh=slKSHyyrpH08lOUmIwOolaT0TYsVF5P5RcNmJWsE9JI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lNkq8uuXecRWDRa2Ptic2EWcNh7IFeOscAVOFNFIJqBbRh2VZA7NRdn8eMKeWcNi1
-	 Ch4B7WgNl2Ca8+xjNc/v0fkK3lmS7xMhwYpv805KcoNyP3Kx63SEl5wjQwqpIA3y+l
-	 7dwTqO65OjBxvK4hHyrvRCsdRUtGLi9wqvCbSgMORdMPXWdmOUIVMWhupR+GZMMV5S
-	 8jiS89xYjKKHPeSi9/ywpl0QRo4jrheiYLoz2MT83m4kmOl6tIEmULpnmOcP75EUSw
-	 +oqsWtWHizEu8JVgRGWYtFPhMH8nUaUlEG2vNvExmV/+FX67SVQkmFWYNCplxSvD+n
-	 saI9kp/FNePFg==
+	b=AOjC2qNwONp6VivyirmZI01GGHr0yA4PwxISQQbbznkDiz8xuWX0n9oNqVo9o6h1P
+	 mowVA20Mbhgj4Ck9eI8GCEL/7AogRz2B3QUkxJ5CJWdfU/eHJs95WhLv7a+2df+kQr
+	 Mq6qmF1QlPUzovydpAV6n2r4bUXQPSVJulfG7tg8pKNCy9GzYcJfrHPItZwLz13o5u
+	 B6dNB21xvRXZUYpYiUIKpoN9hqVQzjNrDo5KYLNyDCbmtuOrJ4vtqVDteeO+97jDXK
+	 UnMmKhlUAnIERktjI5TQMhN8/1GAklUo7Qtmq4x0Dp3U5obkHTOqGxNWPP65PN7OXs
+	 bhbeiGCTlChcg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B71F17E35E3;
-	Thu,  7 Nov 2024 12:02:35 +0100 (CET)
-Message-ID: <900eb529-9868-4455-8f13-3e6ce6c99983@collabora.com>
-Date: Thu, 7 Nov 2024 12:02:34 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8842E17E35E0;
+	Thu,  7 Nov 2024 12:04:09 +0100 (CET)
+Message-ID: <55c07154-8917-4273-9e91-39433474bbf2@collabora.com>
+Date: Thu, 7 Nov 2024 12:04:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: mtk-sd: Fix error handle of probe function
-To: Andy-ld Lu <andy-ld.lu@mediatek.com>, ulf.hansson@linaro.org,
- matthias.bgg@gmail.com, wenbin.mei@mediatek.com
-Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241107014714.24981-1-andy-ld.lu@mediatek.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8186: Move wakeup to MTU3 to get
+ working suspend
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Allen-KH Cheng <allen-kh.cheng@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Wojciech Macek <wmacek@google.com>
+References: <20241106-mt8186-suspend-with-usb-wakeup-v1-1-07734a4c8236@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241107014714.24981-1-andy-ld.lu@mediatek.com>
+In-Reply-To: <20241106-mt8186-suspend-with-usb-wakeup-v1-1-07734a4c8236@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_030237_787449_87BFF02D 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20241107_030411_712337_969FF6FE 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +79,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/11/24 02:47, Andy-ld Lu ha scritto:
-> In the probe function, it goes to 'release_mem' label and returns after
-> some procedure failure. But if the clocks (partial or all) have been
-> enabled previously, they would not be disabled in msdc_runtime_suspend,
-> since runtime PM is not yet enabled for this case.
+Il 06/11/24 22:01, Nícolas F. R. A. Prado ha scritto:
+> The current DT has the wakeup-source and mediatek,syscon-wakeup
+> properties in the XHCI nodes, which configures USB wakeup after powering
+> down the XHCI hardware block. However, since the XHCI controller is
+> behind an MTU3 (USB3 DRD controller), the MTU3 only gets powered down
+> after USB wakeup has been configured, causing the system to detect a
+> wakeup, and results in broken suspend support as the system resumes
+> immediately.
 > 
-> That cause mmc related clocks always on during system suspend and block
-> suspend flow. Below log is from a SDCard issue of MT8196 chromebook, it
-> returns -ETIMEOUT while polling clock stable in the msdc_ungate_clock()
-> and probe failed, but the enabled clocks could not be disabled anyway.
+> Move the wakeup properties to the MTU3 nodes so that USB wakeup is only
+> enabled after the MTU3 has powered down.
 > 
-> [  129.059253] clk_chk_dev_pm_suspend()
-> [  129.350119] suspend warning: msdcpll is on
-> [  129.354494] [ck_msdc30_1_sel : enabled, 1, 1, 191999939,   ck_msdcpll_d2]
-> [  129.362787] [ck_msdcpll_d2   : enabled, 1, 1, 191999939,         msdcpll]
-> [  129.371041] [ck_msdc30_1_ck  : enabled, 1, 1, 191999939, ck_msdc30_1_sel]
-> [  129.379295] [msdcpll         : enabled, 1, 1, 383999878,          clk26m]
+> With this change in place, it is possible to suspend and resume, and
+> also to wakeup through USB, as tested on the Google Steelix (Lenovo 300e
+> Yoga Chromebook Gen 4).
 > 
-> Add a new 'release_clk' label and reorder the error handle functions to
-> make sure the clocks be disabled after probe failure.
-> 
-> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+> Fixes: f6c3e61c5486 ("arm64: dts: mediatek: mt8186: Add MTU3 nodes")
+> Reported-by: Wojciech Macek <wmacek@google.com>
+> Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-Please add the relevant Fixes tag, as this is a fix and should be backported.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-After which, I'll give you my R-b.
-
-Cheers,
-Angelo
 
 
