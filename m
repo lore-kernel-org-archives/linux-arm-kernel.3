@@ -4,115 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FE4D5AE7D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82869D5AE7D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=; b=goRdZAznBSIu6lOOhTnfZIpoON
-	ucH9x9KpxJ028mox/nsIrgBsxS91vRWxJL4jkJB4oUFE6Pt/FUMJ0nKZvyYspkQHGNMM/2vXztgF3
-	nxMK4rI5uQEvhyB/bkfk88sGoTomRl1P+A5cbiBvVE8MN8TTx9Xnz+F2v6ig+l4GbUDgX3qf3F5OV
-	N6tLTnVlVJoKLO6IQfGbJiqS0FkTlaM2aYIZOTNs7CTWk9n/Lf6kxclUPo42IX2UpVWxiTiK75U9M
-	Rz4ZfFmkTJdiK0VPNc16U65I2dByScrpN7VNWRFTWJ8KylZP7Begv2N2sibITFzhN04gJ1VsOpXn+
-	/UPkT7WA==;
+	bh=0mWxqHY0qzteNKyUaRYx4c3+OBLGt8Tt5MupYOj8mb4=; b=CgDx1oF2juLlFxx2imarlt9mbY
+	WZQYMcui3eXkappfeflWcpyYkG1CGg+71655gadR3/DbkPQdNbabnw5qEbdhHxjcatB9x59LS2y05
+	d62V8CaaAQvWl9QovUGHpzaiHjjPLQx2W+3H3Lla2jw/u4SUOys2cKffukCot9TnUe2K2k/ltW4CK
+	U8u7UWLCMphvsy0XwOvcpnhJ1zl7H6YuboVbF0s4K8l/tMEspOervUDwIsJXoccSrbK63/TzIoGrg
+	a4glmwZ1b/W4cvZzEWu8NhyxuXE+aA9J2yuNDguH1+xLrtjY/a6vCfFWHji2F2ztJXftaShLm1X6N
+	34BPg+Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zRW-00000006PRl-3hsf;
-	Thu, 07 Nov 2024 10:08:46 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1t8zTE-00000006PmK-0q0Z;
+	Thu, 07 Nov 2024 10:10:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zJD-00000006Nnl-09GD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 10:00:13 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3807dd08cfcso700605f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 02:00:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1730973609; x=1731578409; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:references:cc:to:from
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=;
-        b=oiD9NqA3DLQtH/MAdj/Si0IoKGCXW7POiJq9DDN68QsqUlncSiTtOum8k9lI2f/mWl
-         /afMwkrilacLCMTnWdsbN5PhdwQwAWgTCJZZjo3hj9FTZodnnaxYWODqIr6ROSeQPl+S
-         gs1ro/37lC5nrEfDdtr5YVuNzfBjRHbbKFYHzaak+u+VDm/QkCRCAn5JX9sA1jAwaRs5
-         v5uUE7jHTuNkNspCaURDZ9JSOs29fQQxz80LqLKNoqPNANx7P8WN6m3XlvnLKZi4LLxk
-         tKLuT6xC4rn/nlD+QtMzKWgtsRnaqwAYq7vbprjnRa23/jYLTRTndG4Aviyk8RS1Tgsy
-         nZ8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730973609; x=1731578409;
-        h=content-transfer-encoding:in-reply-to:references:cc:to:from
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=;
-        b=baHynPzDq3RRMAF4Eg8wnrin5FVxMA9JNjcsr+0t9bNlYC6e8lgNCfMaCZVV8OxIfl
-         FF75+BCtUf4RWTmbevWCidpCwoTpYeyoDdFZGNm13x7Ra6YbVry5y22YZz+ubUOu34pn
-         KSgMbJs77p76Hg95+G8fRRmhG5jtHcb0TqY27fn/T+Y/bhDTFhBxJGTmO6HcBg26fMGo
-         0TBUXd09NOLcmrNZtUi1tttLtojVpYP1HqIfVvVN8+2bENN45SuGcXaTA9UDtydXpXuZ
-         8XjEahs1wzgKsjoA2ncqQl0v6teJYaSjalpbFOk7bWHyZfni2gGA623Zje8jlMBZzobJ
-         X4bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU6mJHKbLbe7uAh9uzVdeZtgziSihzkjTXdtIELVzSlNwQ6UhnNF5NFMyxKAZiZuy18upXOF8lKjFl6UZO1kCUa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwesR1FAKi9TaIqJ1U4vLVQVAZ7ZjydA5LCTzk22vLZXHhJV7xI
-	P6v8aMUacexjy4H3GMBdAaQlYOnJowNHlNOXrA7nCA1cVl6W/80SbvI0YEEimbc=
-X-Google-Smtp-Source: AGHT+IEffb2xJDgmV6dLSuFyO1fmxJvqSnlcu1KUumgCd4EHyMTsYXx5V2d5rZ79w6rYl9OZ0LDdOw==
-X-Received: by 2002:a5d:47ac:0:b0:37d:48f2:e749 with SMTP id ffacd0b85a97d-381c7a4636cmr23082414f8f.10.1730973608986;
-        Thu, 07 Nov 2024 02:00:08 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05e5871sm17547405e9.37.2024.11.07.02.00.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Nov 2024 02:00:07 -0800 (PST)
-Message-ID: <91916297-8156-44d9-b56f-9a67e651a9a4@tuxon.dev>
-Date: Thu, 7 Nov 2024 12:00:05 +0200
+	id 1t8zKN-00000006O5i-0N7w;
+	Thu, 07 Nov 2024 10:01:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D0BDBA435D9;
+	Thu,  7 Nov 2024 09:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA20C4CECC;
+	Thu,  7 Nov 2024 10:01:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730973681;
+	bh=kZpnoeo+yOi6IwHGZQ6A9p+1Cx22KzYBk6XOMAh7Phk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oJtqxUS4FXmDdr1yfaBhzU6v24y9OW2HxGiEoHdouDekEi/I3KzujWaWJgTRMFQcT
+	 e0pkdBSaq/+iRrDPQy1sFtsyt5TlyxjPkknnjoru/NXTEYQ2VZXavCPdV2ncG7XpCm
+	 dqyHAZQE8Y7rdHUJJACt0AuJ7aGUTwgvj4WaHhPleu+18c05ut/D9bzIEUCWW/b2YW
+	 345yZCgo0MO4jyYGpqtdaKwpr1iSYbvt9Jb3YiyTIiPcoqsHjGoAZSik4TuztdWHKv
+	 roxt/Uqf/1KfcWuXwcj/TFeI853KRhgs54trIvSgipCyWIW8rYLs0EcIRSxFjlGQOZ
+	 xxHILT/8TPxMA==
+Message-ID: <d3890b5e-26e1-46ef-81ba-5427892517bf@kernel.org>
+Date: Thu, 7 Nov 2024 11:01:14 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas RZ/G3S SoC
+Subject: Re: [PATCH] wifi: Switch back to struct platform_driver::remove()
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Kalle Valo <kvalo@kernel.org>
+Cc: Jeff Johnson <jjohnson@kernel.org>, Nick Kossifidis
+ <mickflemm@gmail.com>, Luis Chamberlain <mcgrof@kernel.org>,
+ =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+ Loic Poulain <loic.poulain@linaro.org>,
+ Arend van Spriel <arend.vanspriel@broadcom.com>, Felix Fietkau
+ <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Peter Chiu <chui-hao.chiu@mediatek.com>, Breno Leitao <leitao@debian.org>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
+ ath11k@lists.infradead.org, wcn36xx@lists.infradead.org,
+ brcm80211@lists.linux.dev, brcm80211-dev-list.pdl@broadcom.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241106170706.38922-2-u.kleine-koenig@baylibre.com>
 Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: Biju Das <biju.das.jz@bp.renesas.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: "vkoul@kernel.org" <vkoul@kernel.org>,
- "kishon@kernel.org" <kishon@kernel.org>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20240822152801.602318-1-claudiu.beznea.uj@bp.renesas.com>
- <35dc7414-f5bd-4ed4-bfa1-f723f4f0078c@tuxon.dev>
- <TY3PR01MB11346A4814F83FE296A1DED8886922@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <TY3PR01MB1134648BF51F1B52BFE34DD6D86932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <fbfa9179-2f52-429f-8b69-f7f4064e796b@tuxon.dev>
- <TYCPR01MB11332EF1A8D064C491D8F261286932@TYCPR01MB11332.jpnprd01.prod.outlook.com>
- <f7c57e76-b890-491f-880d-62d060b7b31e@tuxon.dev>
- <TYCPR01MB11332BE2EDB318950B9C7B54C86932@TYCPR01MB11332.jpnprd01.prod.outlook.com>
- <TY3PR01MB113469FC8A9F49D9B1FA432FD86932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <0b73544b-0253-43b9-b631-6578b48eaca8@tuxon.dev>
- <TY3PR01MB1134689573A785E91A9041E1886932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <5bcdc677-e61e-4312-a19b-57b4600685d3@tuxon.dev>
- <TY3PR01MB1134690F9D37E3BB4814D864386932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <d64243fe-48ea-4cb5-b6d6-e9f820e1b8a3@tuxon.dev>
-In-Reply-To: <d64243fe-48ea-4cb5-b6d6-e9f820e1b8a3@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20241106170706.38922-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_020011_515396_01FE6B8A 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20241107_020123_273256_682E8128 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,170 +131,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, all,
-
-On 03.09.2024 17:48, claudiu beznea wrote:
+On 06. 11. 24, 18:07, Uwe Kleine-König wrote:
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
 > 
+> Convert all platform drivers below drivers/net/wireless to use
+> .remove(), with the eventual goal to drop struct
+> platform_driver::remove_new(). As .remove() and .remove_new() have the
+> same prototypes, conversion is done by just changing the structure
+> member name in the driver initializer.
 > 
-> On 03.09.2024 16:45, Biju Das wrote:
->> Hi Claudiu,
->>
->>> -----Original Message-----
->>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
->>> Sent: Tuesday, September 3, 2024 1:57 PM
->>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas RZ/G3S SoC
->>>
->>>
->>>
->>> On 03.09.2024 15:37, Biju Das wrote:
->>>>
->>>>
->>>>> -----Original Message-----
->>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
->>>>> Sent: Tuesday, September 3, 2024 1:26 PM
->>>>> To: Biju Das <biju.das.jz@bp.renesas.com>; Ulf Hansson
->>>>> <ulf.hansson@linaro.org>
->>>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->>>>> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de;
->>>>> geert+renesas@glider.be; magnus.damm@gmail.com;
->>>>> gregkh@linuxfoundation.org; mturquette@baylibre.com;
->>>>> sboyd@kernel.org; Yoshihiro Shimoda
->>>>> <yoshihiro.shimoda.uh@renesas.com>;
->>>>> linux-phy@lists.infradead.org; devicetree@vger.kernel.org;
->>>>> linux-kernel@vger.kernel.org; linux- renesas-soc@vger.kernel.org;
->>>>> linux-usb@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->>>>> linux- clk@vger.kernel.org; linux-pm@vger.kernel.org; Claudiu Beznea
->>>>> <claudiu.beznea.uj@bp.renesas.com>
->>>>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas
->>>>> RZ/G3S SoC
->>>>>
->>>>>
->>>>>
->>>>> On 03.09.2024 15:00, Biju Das wrote:
->>>>>>
->>>>>>
->>>>>>> -----Original Message-----
->>>>>>> From: Biju Das <biju.das.jz@bp.renesas.com>
->>>>>>> Sent: Tuesday, September 3, 2024 12:07 PM
->>>>>>> To: Claudiu.Beznea <claudiu.beznea@tuxon.dev>; Ulf Hansson
->>>>>>> <ulf.hansson@linaro.org>
->>>>>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->>>>>>> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de;
->>>>>>> geert+renesas@glider.be; magnus.damm@gmail.com;
->>>>>>> gregkh@linuxfoundation.org; mturquette@baylibre.com;
->>>>>>> sboyd@kernel.org; Yoshihiro Shimoda
->>>>>>> <yoshihiro.shimoda.uh@renesas.com>;
->>>>>>> linux-phy@lists.infradead.org; devicetree@vger.kernel.org;
->>>>>>> linux-kernel@vger.kernel.org; linux- renesas-soc@vger.kernel.org;
->>>>>>> linux-usb@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->>>>>>> linux- clk@vger.kernel.org; linux-pm@vger.kernel.org; Claudiu
->>>>>>> Beznea <claudiu.beznea.uj@bp.renesas.com>
->>>>>>> Subject: RE: [PATCH 00/16] Add initial USB support for the Renesas
->>>>>>> RZ/G3S SoC
->>>>>>>
->>>>>>> Hi Claudiu,
->>>>>>>
->>>>>>>> -----Original Message-----
->>>>>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
->>>>>>>> Sent: Tuesday, September 3, 2024 12:00 PM
->>>>>>>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas
->>>>>>>> RZ/G3S SoC
->>>>>>>>
->>>>>>>>
->>>>>>>>
->>>>>>>> On 03.09.2024 13:31, Biju Das wrote:
->>>>>>>>>>> During boot clr USB PWR READY signal in TF-A.
->>>>>>>>>>> STR case, suspend set USB PWR READY signal in TF-A.
->>>>>>>>>>> STR case, resume clr USB PWR READY signal in TF-A.
->>>>>>>>>> As I said previously, it can be done in different ways. My point
->>>>>>>>>> was to let Linux set what it needs for all it's devices to work.
->>>>>>>>>> I think the way to go forward is a
->>>>>>>> maintainer decision.
->>>>>>>>>
->>>>>>>>> I agree, there can be n number of solution for a problem.
->>>>>>>>>
->>>>>>>>> Since you modelled system state signal (USB PWRRDY) as reset
->>>>>>>>> control signal, it is reset/DT maintainer's decision to say the
->>>>>>>>> final word whether this signal fits in reset
->>>>>>>> system framework or not?
->>>>>>>>
->>>>>>>> I was thinking:
->>>>>>>> 1/ Geert would be the best to say if he considers it OK to handle this
->>>>>>>>    in Linux
->>>>>>>
->>>>>>> I agree Geert is the right person for taking SYSTEM decisions,
->>>>>>> since the signal is used only during state transitions (Table
->>>>>>> 41.6.4 AWO to ALL_ON and 41.6.3 ALL_ON to AWO)
->>>>>>
->>>>>> One more info, as per [1], this USB PWRRDY signal setting to be before Linux kernel boots.
->>>>>
->>>>> The "controlled by" column mentions CA-55 on PWRRDY signal control
->>>>> line and it is b/w steps "DDR exits from retention mode" and  "clock
->>>>> start settings for system bus and peripheral modules". AFAICT, after DDR exists retention mode
->>> Linux is ready to run.
->>>>
->>>> DDR retention exit happens in TF-A and it jumps into reset code where it executes BL2 in TF_A. Bl2
->>> checks for warm or cold reset.
->>>> If it is warm reset, it sets required minimal clocks/resets and pass
->>>> the control to linux by calling the SMC callback handler. Which in turn calls resume(step 11-->14)
->>> path.
->>>
->>> Is this from HW manual or some specific documentation? I'm referring at "resume" == "steps 11-->14"
->>>
->>>>
->>>> Step 8, Cortex-A55 Exit from DDR retention mode (when using) Setting
->>>> for exiting form DDR retention mode Step 9, Cortex-A55 USB PHY PWRRDY
->>>> signal control (if use USB) SYS_USB_PWRRDY Step 10, Cortex-A55 PCIe
->>>> RST_RSM_B signal control (if use PCIe) SYS_PCIE_RST_RSM_B
->>>
->>> Note *if use*: how does the TF-A know if USB/PCIe is used by Linux? The documentation mention to set
->>> it *if use*. Same note is on ALL_ON to VBATT transition documentation (namely "if using USB", "if
->>> using PCIe"). If TF-A will do this it should set this signals unconditionally. It will not be
->>> something wrong though. We don't know at the moment what this involves in terms of power consumption,
->>> if it means something...
->>
->> IIUC,
->> The only information we have is,
->>
->> "SYS_USB_PWRRDY and SYS_PCIE_RST_RSM_B are used when transition from ALL_ON to AWO (or from AWO to ALL_ON).
->> "When turning off USB PHY and PCIe PHY, if they are not controlled, PHY may break"
->>
->> ALL_ON to AWO_MODE state transition: 
->> USB/PCIe are part of PD_ISOVCC power domain and before turning PD_ISOVCC to off,
->> we need to set USBPWRRDY signal.
->>
->> AWO_MODE to ALL_ON state transition:
->>
->> Turn on PD_ISOVCC first, then clr USBPWRRDY signal for USB usage in linux.
->>
->> Maybe we need to ask hw team, exact usage of USBPWRRDY signal other than state transition.
-> 
-> As you may already know, this is open for quite some time and is ongoing.
+> En passant several whitespace changes are done to make indentation
+> consistent in the struct initializers.
+...
+>   drivers/net/wireless/ath/ath5k/ahb.c                   |  8 ++++----
 
-I got more clarification about the USB PWRRDY signal from the HW team.
+For the above:
 
-The conclusion is that the USB PWRRDY is a signal controlled by SYSC
-controller that goes to the USB PHY and it tells the USB PHY if the power
-supply is ready or not.
+Acked-by: Jiri Slaby <jirislaby@kernel.org>
 
-In the diagram at [1] the PWRRDY signal need to be asserted/de-asserted
-before/after G6, G7, G8, G9, G10 signals.
-
-Philipp,
-
-Can you please confirm that you don't want this signal to be implemented as
-a reset signal to know clearly your input on it? I would like to start
-looking for another approach in that case.
-
-Thank you,
-Claudiu Beznea
-
-[1] https://pasteboard.co/0a1zYBFZXZVb.png
-
-> 
->>
->> Cheers,
->> Biju
->>
->>
+-- 
+js
+suse labs
 
