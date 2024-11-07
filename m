@@ -4,80 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C193AD5AE73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7009D5AE71
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yy3jbiWhfC1BoQO3G8Vh+H5xvdyWRttdESA7beXhJL4=; b=iwYP0/57hs0rVA+rvVE8oUt4bG
-	38M8OJ/0opJM+7quyRo8Qs5qsuCLPvtlXKaIK6ZPkWaSCqss7uYOsDCZEF50CkpDmrRwWntXiIhr5
-	KntaVJhYILT/jC6LU57Nr7ZPEA6CtSsr5XDdgh60OhrQjQExpjQcI6xgP1PRD2MU1Sc4TkhURcKgG
-	yioHkZQVO+/YrrNsn1/xmTXII8tS50lN9tgBGPYa4rrdrBmj9QEz6R3nxwiULTL+jFS/VUi+o+1g0
-	xcYPYvLnycYpoqTD4sx1nvb2N+D1zv327OY/ySqBEZTVImj07B4s3RfCB3zCUt2wqJCDAuzYyyO5x
-	xwJpORSQ==;
+	bh=ugsclbuuKnq3L65xb+/Kym9PH/GRIWF+1WlHr/77Rfc=; b=JsZcYIG7rQGa4K+xZx6M7MTClZ
+	SgTPAi7o8w2AvT5M3g/5w+Oe6Qntmx4qRaHLQPJr0I9o1+Ap72tKOkMTkWadxyOjJXTaYUunlRWW7
+	4ePDFa1JGWo7IkTcv9p0ufYmvqo0SHkO2iEo2O4+2K8Gx7jJErvzKvnHqhsCfN+tbBbhE3MzQ6Ekf
+	Vj678F3/Lr/5cREdfS05lxCKRimwKYxYGEoFREcP+rTATBfeEytjg/yw9P/EL0p5yLCzOL0WhinIH
+	1s3DF56Xn/i+tz8vPPd7uRFRieFJ5sD9x40Dxprd12wQQBeextfbR0Q9Qc/27EtI49sd+KjtLVgsd
+	EuS2mw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yAC-00000006B7D-0ZT7;
-	Thu, 07 Nov 2024 08:46:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t8yD9-00000006C36-3lx2;
+	Thu, 07 Nov 2024 08:49:52 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8x7S-0000000616m-2cmN;
-	Thu, 07 Nov 2024 07:39:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Yy3jbiWhfC1BoQO3G8Vh+H5xvdyWRttdESA7beXhJL4=; b=cGd+Nt0nMNKU5t1z6TGSvHj3ux
-	SU2Lg8Dp46YGrGmQlzdQpb3vmmW36DjxmeBqglW/UNllxjedl39fY3NmtDZt9R+LrRzSiT1/LAVen
-	iPXex+8UkEPGipuZOANOq3KqAM/Jk3Lr/2WVejBQyBkIcJj0JyhKhZcacUOOjkFc1xSpL3yt5RNmd
-	bWYit+zzaSzpGbP+lL9LMlgXdcGyTkzAeNwVS2FItRCDsmqOUAIhWemM+6ijOdUHkZkddxnu1bY76
-	g4r3onbAczIAoaHQID7VU25iC4ySydryBeOKkD2yJxO96DP9E9w9EZqp23a51wGziNuO6+vgPCzYV
-	B529yQQA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8x7P-0000000C548-1AgF;
-	Thu, 07 Nov 2024 07:39:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 63F03A425D5;
-	Thu,  7 Nov 2024 07:37:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73ADEC4CECC;
-	Thu,  7 Nov 2024 07:39:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730965185;
-	bh=OF7uVedWDkVcu3u4hTGElGYjTCq1Zh0FZbzgtFlmKS0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tv5xJKY1TeK8ah+qZVYnrRwl4f5IJdTxaXzKHIHq8ciU9e19Xj4NRuXhXM5lj/enN
-	 1hX4slCdNIzz/r5/NnZcN5JUo7m+EyRkwhR1bckvSM11waKfz2jGorbJ68RfPMjiUr
-	 LP6zp0+XL18V9kN5LpPA8R5WP8yNqLnRFJm0w4e558EobqIh0O7/bcHgqbQ+rWVe3j
-	 2JOkvTYIdhh9CKrATFqzUf+tRe4h77jdJkrq4T7voo/VuIHM1KEHholi04OzTGPnwv
-	 IUsdfc5mM6vv5ZPmVPxCGvKTFuhczK/tghS8FCpuMtbcUvAjCPehdhm4WtYXavBqXX
-	 diL4BYRaaf//A==
-Date: Thu, 7 Nov 2024 08:39:43 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com,
-	linux-mediatek@lists.infradead.org, lorenzo.bianconi83@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
-	nbd@nbd.name, dd@embedd.com, upstream@airoha.com,
-	angelogioacchino.delregno@collabora.com
-Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add Airoha EN7581 support
-Message-ID: <Zyxuv-2SPuEXiL5R@lore-desk>
-References: <ZyvwXHMRz0kI0J5O@lore-desk>
- <20241106233123.GA1580663@bhelgaas>
+	id 1t8yBK-00000006BeQ-40dV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 08:48:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oGujPZgaMt2SdgfkZPclGASR2z1j0W5MXQrwcqchRsPQwcAokQKh0ieUhIJ6QWie00GuzdNwDxq/5gKg8ZnX2fGmF8rUTquHpq6S57hQICDp4S+nvcmQ4XhObfxguOxjVFw2rjsPUyPpv3T+sJ0xkUjSer9m5WRd+qxorrL+gA3yMfiETUe+XmDbakq2M0BmXmx4REjbL2R0nAWuVZ/3BmpGZFb8j4RDlvWZNksTgnXZ5huTxer+17dg73YKzTAXM+eGUjgeKbV/ApqV/EYuVb8j3jhXAyag2WHOmn9Up55B2NgUSN/Fm1H2c7w2yvKV6wO56sdZSCx1UvhzZioMGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ugsclbuuKnq3L65xb+/Kym9PH/GRIWF+1WlHr/77Rfc=;
+ b=F6UBPzlILm0kd3Rzd4g4+oSohG/fcRPUj/y5rfvKff/KyEyGaMyq0GrjlblnZ25/SgOuUSePqRFdLPVkmejRkGkw6FVEwvRIJxItNcAfM9DDonEQjy6v2Ep9uqxudyeJsmG92w4Bv/52psa6SzJbGwy1PSP2BEoevRCMRqwgCpGgM/BB9jA8juvD00NBr9WObtHNjEJ/zBrxa+Q5huj8FnV+ea8UkjWDpkfyZlSa/p6RkeJyhvoNYg/iCAkfwGUMTSIEnSCwBUXkXF/9UrRwMF6JXhbdqXSdOZ20j5C+jTwPaTaXqVHKoZyveFzgS4W6G2a203T0ozv47X1gOH9ILg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ugsclbuuKnq3L65xb+/Kym9PH/GRIWF+1WlHr/77Rfc=;
+ b=dUobK3a7kEUa4RAOPg1jEEoiB8u5X59BRetS35BPjEQLaxCnbMfX8pfNtptfGL7IBlSUvBBTBok3JpVP3Lboour780epzVu5pCgq7AO17NZOcooVzsvzhGcxsvjbuaoDF9lAbM1FVTnkui0q+AJ0NZqxrNgeuGBwYcEiPzh+LsAOtYeTxzQwNHqxnHCFVVHXiX4BdVQp3LYxKjGAvkQ/wLK+KaDPKrYkAtD/qclpZRROggyBx2F5KHUPvxBqrdf/v09jirl4cfCgf3bufqp7oteWNnEtkXt7xwxYWWdNuYThzomIkCTlOJoXDk0VU/NjMfSY/xSE9FyU+qRja1KFpA==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by PAXPR04MB8704.eurprd04.prod.outlook.com (2603:10a6:102:21f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
+ 2024 08:47:54 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%7]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
+ 08:47:54 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kw@linux.com>
+CC: Bjorn Helgaas <helgaas@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "lorenzo.pieralisi@arm.com"
+	<lorenzo.pieralisi@arm.com>, Frank Li <frank.li@nxp.com>, "mani@kernel.org"
+	<mani@kernel.org>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Thread-Topic: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Thread-Index: AQHa3AEqv5bRdDxqKkSUwsC4eegPdrKp/GuAgAAjY0CAAV7kgIAAfShQgAAXEoCAABUTEIAAA0CA
+Date: Thu, 7 Nov 2024 08:47:54 +0000
+Message-ID: <AS8PR04MB86765B904FEC1AA88F6F83468C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <AS8PR04MB8676998092241543AEABFAAB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <20241106222933.GA1543549@bhelgaas>
+ <AS8PR04MB8676C98C4001DDC4851035B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <20241107072005.GA378841@rocinante>
+ <AS8PR04MB8676F00E8F76B695772EB3B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+In-Reply-To: <AS8PR04MB8676F00E8F76B695772EB3B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|PAXPR04MB8704:EE_
+x-ms-office365-filtering-correlation-id: f6b721c5-a9a7-4bbb-cb2a-08dcff08def8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|38070700018;
+x-microsoft-antispam-message-info: =?gb2312?B?RjlMSVpQVDlZRmViSklZUndQK1llTlU0eWJHOHVDeVFqL1Q4RDhDUXpNT3A5?=
+ =?gb2312?B?TnAvQ0N3QkFwd2w4ZUxIbDJwQkVrZjh0ZXVReElEN3FpUjU3eDlQVWFGVzV2?=
+ =?gb2312?B?NDJ6dHRtRGxTQlNqTEdFVnZra3NTV0g4enNDcTJYdUUvRVd5cUJzRGdXNUFH?=
+ =?gb2312?B?OHZRZy9sblo3UE93aHdCVWViUEk3bXBZcU5pUFBSdzg1c01oTFo4Q1FEcW9M?=
+ =?gb2312?B?WU96RzdEa3AxdzRHN1BxeGZXTVVIQWhsZU95ZUcwUG1RbjdGZklIUDJzTG05?=
+ =?gb2312?B?ck1abGNqV1hjWjNiSGV3a0dYbCtwR21ybmpEYVpYY2dtank1S1J0TFlMMTRu?=
+ =?gb2312?B?T3ZHanpkbElDUGlISlhXblp5eG11V0FxcGpxN3JYQnkzemlpeTNrOStaTDYr?=
+ =?gb2312?B?UzFhbmUzempiOEVSUFlXYnd3d0JlUDRRaThjN0x2SjMxNlVEZEpGRFp1a1Yv?=
+ =?gb2312?B?bVVtS1RQZkNabjA5VnpUMEtGSEJleUNBbFZYdXRLc0ttaHdOUjRRMmZUbUxN?=
+ =?gb2312?B?VlF6QVZVTVZMeWt0YjBFQ2tIM045cnZuNzE3R0VpMlpPMk42WFlrZ2Jvd1BJ?=
+ =?gb2312?B?SlIyRENKSnV4QWxKamNiY1JkOFFZempIZE0vRzZLOU9KcTg1MGQ0YkZxcUtn?=
+ =?gb2312?B?ei8ramhyVk8rQWNvQ3BzNnpmaWJJR2FydEIrb1lMMk1oTFhaZjd3MFFqZGNI?=
+ =?gb2312?B?ZXpsdGRtYXVHeFVsVWkwdmdnVHVKTHIreUlrTnhJUkVXZ0kraHYrcElEak5H?=
+ =?gb2312?B?V29LTnNUUjJHeWszemRRajJuRDR0dlV0eVQ3cmFaLzZoak5WUXR0MW5CQS96?=
+ =?gb2312?B?TWJ1RGt3M1JnalV1NDVHNzBjTmRKaXROY1AzR3g2WlMvZ2ZtVjlqbXNIR1NV?=
+ =?gb2312?B?eStVZ3ZhamY1UWZZekxHVXkxOU0yNFk5SVFzNjY0NkFEYmZoSUcwQXd1MzV3?=
+ =?gb2312?B?ZUxvOVdXa3FHU1VzL0FQYXRBa0d1RmlJUnEranR2ZEJtT09uNDRwVDdZWGZa?=
+ =?gb2312?B?eVFkVVpIeFJ1WnNyb0lMUVZzR0NmQ2laNHVyVXlyYS8zRDNCbmtRcmptSHRs?=
+ =?gb2312?B?Qm5xMFJvQWpNWE9wbFdqVjJGeXB5MDJKYWdPRXhaSDl0b1RIcXhaL2tZb0Vp?=
+ =?gb2312?B?MXkzWnhTSWlaeTJYQkhjTEpmaGVRRjlpaVF4c3NnVGJqbW9HUVVWa1JwbVgz?=
+ =?gb2312?B?SW9Kbk9ud050L1MvcXhYdVNoNnlvVlprdk8wNVVGMTlLVk1Kck00UUVQaW1h?=
+ =?gb2312?B?c0VrWit4THVkT0Y0STRDUDFTdVZqV252NG5RdHFQVW51UWg2WDRLc2lmUTlQ?=
+ =?gb2312?B?RzZUQXJaTXJZbXJxQjJPWXo2V29YNXJhbVBBQ0NLWXgyV2xIYzRqQTh3VWdy?=
+ =?gb2312?B?dlRhWXdGTGQyaGh5K0MwQW0vb0ZWUGp5MWxoSVdpZDVCOENYaVl5Q2pvaTVy?=
+ =?gb2312?B?TWx4UFZnVEo3bm12cTNzYnZ0OTBwcWs5a2YyZWZMTndWVXJmZ0txZ0ZIMWRQ?=
+ =?gb2312?B?VzBYbDVUTS9JNnJ4ckRtZFNjdWltMnpVR3FxRkFoU0hNT3NpdnpHVmhTTXAv?=
+ =?gb2312?B?WVNhWEZxMXFwck5pd0I3U2RpSkhYMlg1QlRUcEFxUGZ4WTA3Ymg5aTRMRFpa?=
+ =?gb2312?B?Qk1HT0JuUUUxUVJXckUwMGlHQzVtM3hMcytJT0lsNzBTdEFJajF3TGZKUGVI?=
+ =?gb2312?B?S0hMUlY2RSt0TUFpUWw2NURzTHlURElvbkJXTjIrbzEvNitEdHlyNWRBZ2gy?=
+ =?gb2312?B?ODlBUUhBdXZVNCtONFVvVVpoWEhBWXQ3eWg3QW81YTVyWWsyTy93dVd6d3J2?=
+ =?gb2312?B?elpmcm4zL0ZXNXh5TzZCcXpsc2RMUkovazkvaDVvcjlBWEQvNlN3RTJaby9r?=
+ =?gb2312?Q?dz9CC+qlw7Em5?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?VldPSE1GZk5KM0hNb3FmNkNvWU1nazNzWDQ1YjZ3VXpBWC9hTCtiNWFCOU9k?=
+ =?gb2312?B?VlVWUmt3Q21ybiszWllnRktZNGQxc1VUSkpYUGxKT1Jnamg0dnR6OGV2THN5?=
+ =?gb2312?B?T0tYVGNzd2lIbXpoME1GbW8rb0xzdE5OSzFUV3h1b25vSlB2YUhIQ09MSlJa?=
+ =?gb2312?B?T0tNOVl1Vk5tZ2tZSC9PNGY1VzZRQTR3MFlrcDlDTG9QSy9rNDZNZlM1OUg1?=
+ =?gb2312?B?WUZEWUVVemw4YmsxOFlISFNhY0JHNU9GVTRaZ0lLSk9SUjVWTmc2WGxzdjl3?=
+ =?gb2312?B?UVZ4UXFDT1VJcVBtd0tqaWNDQ3dhUTJ1RFhaSDYzWUppU3BHWnZPem84MUFP?=
+ =?gb2312?B?cHRqcDZxWUNrMlVJY0FqTytKa2w5UTVIUVdZa3FPZjcydW14WG9nK0pId09j?=
+ =?gb2312?B?aDhFNjFxd25wWUtlQlVOU2N6MHpnTnNleDJCaldpUDR3U2d1Y1ppUHRXMEdM?=
+ =?gb2312?B?NzU5Q2tBWi84VnpwVmhxbnpyMEx1ZmhpSWhhQXhvMUk0YVV4MUZ6NE1NcHhi?=
+ =?gb2312?B?VVdwbksrbURRcUVoZ1YwY3Q0VnJxVDJzM25hN0tmYS9SSEYvOGtoNnczTTFq?=
+ =?gb2312?B?OGNiOGVhSDZCQjlSbjlCWWJ2TjFjTFAzZW54ZFlsVlUxWGQzRXBqUmJlMUNG?=
+ =?gb2312?B?NFBFa3plWGNwZGIweFlrMytkUVFEZ0lLUHg4WlJmWEtyWU52S2hONU4zbk9m?=
+ =?gb2312?B?K1ptTDEreVJVU3hSUW90R0NQNUhrYUg1ZkYvYnZUL2R5YWNvVDZKT25jMlZT?=
+ =?gb2312?B?WkVpTEprYUxGdVVrTnVCbm9DRzAyUkxobnozc2QrYldxM01ORHpFazBwMWZs?=
+ =?gb2312?B?UDErc0pWVHpoc3g4bFhjcFZMVHFBaS83ZnZZR0Z3THlNekExOW1pb2ZtSjBR?=
+ =?gb2312?B?RENzdTRlV2FLMWNzdUo5NEQxVHhBSEdrR2pzQzBlOHJ5cEFTMElzUUtaRTlw?=
+ =?gb2312?B?YU5nVnVEdVVJbGczcXBZeE1YV29Wci95dTBGeGVDbzF0NFpOY2xZWlFMR1V3?=
+ =?gb2312?B?b3hRZS9zWnZwaE5BeCtUSWVobVYzVm8rY0F2ZC8yVmprNTNiY2FwY01STlR6?=
+ =?gb2312?B?Yzh1blV6S3ppeWo5QzBzajBOTjdEV0ZVNGtoSGpmVmNNV0ZFazJqUWNML1Yy?=
+ =?gb2312?B?UWl5bEhKMlpsb0UvREd2MDR4dVlRN3gxamZDcjZrWEFleWMxUnhId0lRU3pW?=
+ =?gb2312?B?V3Q3cGFmbGdVVk8xcmhHeW5GVnZUMVVFS2YzQ3JseDNVNlM5N1NhRUoxYUo2?=
+ =?gb2312?B?VldYZGRxellEWXowL3IxdzVXeHlGUWxZempjaWhyOGpFalJ5aDJ5WEJ6dHFz?=
+ =?gb2312?B?K0N1c2FqbnZkLzVCZjNrWXFmbldIblRrZW1TNFUyb1lOS3FSNzduV1JadER1?=
+ =?gb2312?B?UmtMc05pbG9WTjliaklBSUk3OHZvOVhoeXkwdjhpcmNCMkQySnkxaHRlaWtu?=
+ =?gb2312?B?K00ydUtiaVUwM3kwL2s4WkNEMWNxSGJDWTI5Z0RrQzdUaVVRcy9mWGgwLzV3?=
+ =?gb2312?B?Q3JPY0FvQ1NtUk5rSHNHdk1jVm96Y2lIY3BLZkRIV3F2blhZT1N5K3JNQ1FL?=
+ =?gb2312?B?eVRRc0llSXB4eUZkZXMxVXhzS2lLWXR1ZkJEVFN5YlRpcFhsSjMzSHAwNVlJ?=
+ =?gb2312?B?dlVuSFlGeFE4M1RzbWYzWHBHUEpCd1BZSDhjdm5OY1o5TDY2ODlFMy9saVYz?=
+ =?gb2312?B?Z01aUXVBYVVGQVJtajMzWkVXUzFkUHgybHJkVjdFSUNUUzEwYVcwRXYyemYw?=
+ =?gb2312?B?VVAyeitFRW1Xb3J2YXNNaDYwbm90Z1hhQXEzcFlhOWFIdXhkWmtlQWY4WHhi?=
+ =?gb2312?B?SHFYa1RYemVwMHRKdXdJSm82L3MvUDdpQ0s5empiWTdpWmZNaHEzeDhRT013?=
+ =?gb2312?B?UU8wZ0tkSW1CQm1OQ2Z2dEo2bElHR1Mwdnoxa1V5emRTL3JQWWJTb3g2TXdY?=
+ =?gb2312?B?ME81YWlJMlNIdkMvNUhJdVJtUXpJTkJsY2gvWEtJcVRsK3JNSnhuNmpiVWpi?=
+ =?gb2312?B?OW5lR3JndkJKaVBFb2xYSnBHSTZibFkyMjhkRG1xa3R2TEdNM2ZUUW1zRXNr?=
+ =?gb2312?B?T1d1K0M1cDkvNURZenRaVlYyR015aGJMLzNZRlNLaE5hUFI0Nkg3eWt0QnE2?=
+ =?gb2312?Q?wLYVNpeX8dV/cr7Bl+q/SAczm?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SkwM6sguX1BTFpU9"
-Content-Disposition: inline
-In-Reply-To: <20241106233123.GA1580663@bhelgaas>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6b721c5-a9a7-4bbb-cb2a-08dcff08def8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2024 08:47:54.5091
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 88nXmNBm4WPplseio4SAKepHwjIOqN3emDf82l4X/f3zgxeq7oNz2WNPDd57DBSDNPH82r1TY+e+9SnQDC7Y2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8704
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_073951_767813_44889E9E 
-X-CRM114-Status: GOOD (  41.78  )
+X-CRM114-CacheID: sfid-20241107_004759_044581_9514244A 
+X-CRM114-Status: GOOD (  31.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,202 +186,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---SkwM6sguX1BTFpU9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> On Wed, Nov 06, 2024 at 11:40:28PM +0100, Lorenzo Bianconi wrote:
-> > > On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wrote:
-> > > > Introduce support for Airoha EN7581 PCIe controller to mediatek-gen3
-> > > > PCIe controller driver.
-> > > > ...
-> > >=20
-> > > > +static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> > > > +{
-> > > > +	struct device *dev =3D pcie->dev;
-> > > > +	int err;
-> > > > +	u32 val;
-> > > > +
-> > > > +	/*
-> > > > +	 * Wait for the time needed to complete the bulk assert in
-> > > > +	 * mtk_pcie_setup for EN7581 SoC.
-> > > > +	 */
-> > > > +	mdelay(PCIE_EN7581_RESET_TIME_MS);
-> >=20
-> > > It looks wrong to me to do the assert and deassert in different
-> > > places:
-> > >=20
-> > >   mtk_pcie_setup
-> > >     reset_control_bulk_assert(pcie->phy_resets)        <--
-> > >     mtk_pcie_en7581_power_up
-> > >       mdelay(PCIE_EN7581_RESET_TIME_MS)
-> > >       reset_control_bulk_deassert(pcie->phy_resets)    <--
-> > >       mdelay(PCIE_EN7581_RESET_TIME_MS)
-> > >=20
-> > > That makes the code hard to understand.
-> >=20
-> > The phy reset line was already asserted running reset_control_assert() =
-in
-> > mtk_pcie_setup() and de-asserted running reset_control_deassert() in
-> > mtk_pcie_power_up() before adding EN7581 support. Moreover, EN7581 requ=
-ires
-> > to run phy_init()/phy_power_on() before de-asserting the phy reset line=
-s.
-> > I guess I can add a comment to make it more clear. Agree?
->=20
-> I assume the first deassert(phy_resets) in mtk_pcie_setup() is not
-> paired with anything in this driver.
-
-correct
-
->=20
-> I think it would be better to pair the other assert/deasserts in the
-> same functions like the below.  Then it's easy to see the matching.
-
-ack, I will post a fix for it
-
->=20
-> While looking at this, I noticed that we assert(mac_reset) in
-> mtk_pcie_setup(), but it's never deasserted for EN7581.
-
-ack, I will post a fix for it
-
->=20
->   mtk_pcie_setup
->     reset_control_bulk_deassert(phy_resets)
->     mtk_pcie_en7581_power_up
->       reset_control_bulk_assert(phy_resets)  # move here
->       reset_control_assert(mac_reset)        # move here
->       mdelay(PCIE_EN7581_RESET_TIME_MS)
->       phy_init
->       phy_power_on
->       reset_control_deassert(mac_reset)      # add; seems missing?
->       reset_control_bulk_deassert(phy_resets)
->       mdelay(PCIE_EN7581_RESET_TIME_MS)
->=20
->   mtk_pcie_setup
->     reset_control_bulk_deassert(phy_resets)
->     mtk_pcie_power_up
->       reset_control_bulk_assert(phy_resets)  # move here
->       reset_control_assert(mac_reset)        # move here
->       reset_control_bulk_deassert(phy_resets)
->       phy_init
->       phy_power_on
->       reset_control_deassert(mac_reset)
->=20
-> > > > +	err =3D phy_init(pcie->phy);
-> > > > +	if (err) {
-> > > > +		dev_err(dev, "failed to initialize PHY\n");
-> > > > +		return err;
-> > > > +	}
-> > > > +
-> > > > +	err =3D phy_power_on(pcie->phy);
-> > > > +	if (err) {
-> > > > +		dev_err(dev, "failed to power on PHY\n");
-> > > > +		goto err_phy_on;
-> > > > +	}
-> > > > +
-> > > > +	err =3D reset_control_bulk_deassert(pcie->soc->phy_resets.num_res=
-ets, pcie->phy_resets);
-> > > > +	if (err) {
-> > > > +		dev_err(dev, "failed to deassert PHYs\n");
-> > > > +		goto err_phy_deassert;
-> > > > +	}
-> > > > +
-> > > > +	/*
-> > > > +	 * Wait for the time needed to complete the bulk de-assert above.
-> > > > +	 * This time is specific for EN7581 SoC.
-> > > > +	 */
-> > > > +	mdelay(PCIE_EN7581_RESET_TIME_MS);
-> > > > +
-> > > > +	pm_runtime_enable(dev);
-> > > > +	pm_runtime_get_sync(dev);
-> > > > +
-> > >=20
-> > > > +	err =3D clk_bulk_prepare(pcie->num_clks, pcie->clks);
-> > > > +	if (err) {
-> > > > +		dev_err(dev, "failed to prepare clock\n");
-> > > > +		goto err_clk_prepare;
-> > > > +	}
-> > > > +
-> > > > +	val =3D FIELD_PREP(PCIE_VAL_LN0_DOWNSTREAM, 0x47) |
-> > > > +	      FIELD_PREP(PCIE_VAL_LN1_DOWNSTREAM, 0x47) |
-> > > > +	      FIELD_PREP(PCIE_VAL_LN0_UPSTREAM, 0x41) |
-> > > > +	      FIELD_PREP(PCIE_VAL_LN1_UPSTREAM, 0x41);
-> > > > +	writel_relaxed(val, pcie->base + PCIE_EQ_PRESET_01_REG);
-> > > > +
-> > > > +	val =3D PCIE_K_PHYPARAM_QUERY | PCIE_K_QUERY_TIMEOUT |
-> > > > +	      FIELD_PREP(PCIE_K_PRESET_TO_USE_16G, 0x80) |
-> > > > +	      FIELD_PREP(PCIE_K_PRESET_TO_USE, 0x2) |
-> > > > +	      FIELD_PREP(PCIE_K_FINETUNE_MAX, 0xf);
-> > > > +	writel_relaxed(val, pcie->base + PCIE_PIPE4_PIE8_REG);
-> > >=20
-> > > Why is this equalization stuff in the middle between
-> > > clk_bulk_prepare() and clk_bulk_enable()?  Is the split an actual
-> > > requirement, or could we use clk_bulk_prepare_enable() here, like we
-> > > do in mtk_pcie_power_up()?
-> >=20
-> > Nope, we can replace clk_bulk_enable() with clk_bulk_prepare_enable() a=
-nd
-> > remove clk_bulk_prepare() in mtk_pcie_en7581_power_up() since we actual=
-ly
-> > implements just enable callback for EN7581 in clk-en7523.c.
-> >=20
-> > > If the split is required, a comment about why would be helpful.
-> > >=20
-> > > > +	err =3D clk_bulk_enable(pcie->num_clks, pcie->clks);
-> > > > +	if (err) {
-> > > > +		dev_err(dev, "failed to prepare clock\n");
-> > > > +		goto err_clk_enable;
-> > > > +	}
-> > >=20
-> > > Per https://lore.kernel.org/r/ZypgYOn7dcYIoW4i@lore-desk,
-> > > REG_PCI_CONTROL is asserted/deasserted here by en7581_pci_enable().
-> >=20
-> > correct
-> >=20
-> > > Is this where PERST# is asserted?  If so, a comment to that effect
-> > > would be helpful.  Where is PERST# deasserted?  Where are the required
-> > > delays before deassert done?
-> >=20
-> > I can add a comment in en7581_pci_enable() describing the PERST issue f=
-or
-> > EN7581. Please note we have a 250ms delay in en7581_pci_enable() after
-> > configuring REG_PCI_CONTROL register.
-> >=20
-> > https://github.com/torvalds/linux/blob/master/drivers/clk/clk-en7523.c#=
-L396
->=20
-> Does that 250ms delay correspond to a PCIe mandatory delay, e.g.,
-> something like PCIE_T_PVPERL_MS?  I think it would be nice to have the
-> required PCI delays in this driver if possible so it's easy to verify
-> that they are all covered.
-
-IIRC I just used the delay value used in the vendor sdk. I do not have a st=
-rong
-opinion about it but I guess if we move it in the pcie-mediatek-gen3 driver=
-, we
-will need to add it in each driver where this clock is used. What do you th=
-ink?
-
-Regards,
-Lorenzo
-
->=20
-> Bjorn
-
---SkwM6sguX1BTFpU9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZyxuvwAKCRA6cBh0uS2t
-rFEQAQDZvJA94ZUr5Q+qYfreXv2YWgDIn0wXsSmdZWK8dKtF8AEAhGu0vKD+JOYK
-ORyTYxUPc6l6vMTwvoB7PaJz0xrmdQc=
-=BQEf
------END PGP SIGNATURE-----
-
---SkwM6sguX1BTFpU9--
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBIb25neGluZyBaaHUNCj4gU2Vu
+dDogMjAyNMTqMTHUwjfI1SAxNjo0MQ0KPiBUbzogS3J6eXN6dG9mIFdpbGN6eai9c2tpIDxrd0Bs
+aW51eC5jb20+DQo+IENjOiBCam9ybiBIZWxnYWFzIDxoZWxnYWFzQGtlcm5lbC5vcmc+OyBiaGVs
+Z2Fhc0Bnb29nbGUuY29tOw0KPiBsb3JlbnpvLnBpZXJhbGlzaUBhcm0uY29tOyBGcmFuayBMaSA8
+ZnJhbmsubGlAbnhwLmNvbT47IG1hbmlAa2VybmVsLm9yZzsNCj4gbGludXgtcGNpQHZnZXIua2Vy
+bmVsLm9yZzsgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOw0KPiBsaW51eC1r
+ZXJuZWxAdmdlci5rZXJuZWwub3JnOyBrZXJuZWxAcGVuZ3V0cm9uaXguZGU7IGlteEBsaXN0cy5s
+aW51eC5kZXYNCj4gU3ViamVjdDogUkU6IFtQQVRDSCB2Ml0gUENJOiBkd2M6IEZpeCByZXN1bWUg
+ZmFpbHVyZSBpZiBubyBFUCBpcyBjb25uZWN0ZWQgYXQNCj4gc29tZSBwbGF0Zm9ybXMNCj4gDQo+
+ID4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gPiBGcm9tOiBLcnp5c3p0b2YgV2lsY3p5
+qL1za2kgPGt3QGxpbnV4LmNvbT4NCj4gPiBTZW50OiAyMDI0xOoxMdTCN8jVIDE1OjIwDQo+ID4g
+VG86IEhvbmd4aW5nIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+ID4gQ2M6IEJqb3JuIEhl
+bGdhYXMgPGhlbGdhYXNAa2VybmVsLm9yZz47IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+ID4gbG9y
+ZW56by5waWVyYWxpc2lAYXJtLmNvbTsgRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5jb20+Ow0KPiA+
+IG1hbmlAa2VybmVsLm9yZzsgbGludXgtcGNpQHZnZXIua2VybmVsLm9yZzsNCj4gPiBsaW51eC1h
+cm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+ID4gbGludXgta2VybmVsQHZnZXIua2Vy
+bmVsLm9yZzsga2VybmVsQHBlbmd1dHJvbml4LmRlOw0KPiA+IGlteEBsaXN0cy5saW51eC5kZXYN
+Cj4gPiBTdWJqZWN0OiBSZTogW1BBVENIIHYyXSBQQ0k6IGR3YzogRml4IHJlc3VtZSBmYWlsdXJl
+IGlmIG5vIEVQIGlzDQo+ID4gY29ubmVjdGVkIGF0IHNvbWUgcGxhdGZvcm1zDQo+ID4NCj4gPiBI
+ZWxsbywNCj4gPg0KPiA+ID4gPiBCdXQgSSBkb24ndCB0aGluayB5b3UgcmVzcG9uZGVkIHRvIHRo
+ZSByYWNlIHF1ZXN0aW9uLiAgV2hhdA0KPiA+ID4gPiBoYXBwZW5zDQo+ID4gaGVyZT8NCj4gPiA+
+ID4NCj4gPiA+ID4gICBpZiAoZHdfcGNpZV9nZXRfbHRzc20ocGNpKSA+IERXX1BDSUVfTFRTU01f
+REVURUNUX0FDVCkgew0KPiA+ID4gPiAgICAgLS0+IGxpbmsgZ29lcyBkb3duIGhlcmUgPC0tDQo+
+ID4gPiA+ICAgICBwY2ktPnBwLm9wcy0+cG1lX3R1cm5fb2ZmKCZwY2ktPnBwKTsNCj4gPiA+ID4N
+Cj4gPiA+ID4gWW91IGRlY2lkZSB0aGUgTFRTU00gaXMgYWN0aXZlIGFuZCB0aGUgbGluayBpcyB1
+cC4gIFRoZW4gdGhlIGxpbmsNCj4gPiA+ID4gZ29lcw0KPiA+IGRvd24uDQo+ID4gPiA+IFRoZW4g
+eW91IHNlbmQgUE1FX1R1cm5fb2ZmLiAgTm93IHdoYXQ/DQo+ID4gPiA+DQo+ID4gPiA+IElmIGl0
+J3Mgc2FmZSB0byB0cnkgdG8gc2VuZCBQTUVfVHVybl9vZmYgcmVnYXJkbGVzcyBvZiB3aGV0aGVy
+IHRoZQ0KPiA+ID4gPiBsaW5rIGlzIHVwIG9yIGRvd24sIHRoZXJlIHdvdWxkIGJlIG5vIG5lZWQg
+dG8gdGVzdCB0aGUgTFRTU00gc3RhdGUuDQo+ID4gPiBJIG1hZGUgYSBsb2NhbCB0ZXN0cyBvbiBp
+Lk1YOTUvaS5NWDhRTS9pLk1YOE1QL2kuTVg4TU0vaS5NWDhNUSwNCj4gPiBhbmQNCj4gPiA+IGNv
+bmZpcm0gdGhhdCBpdCdzIHNhZmUgdG8gc2VuZCBQTUVfVFVSTl9PRkYgYWx0aG91Z2ggdGhlIGxp
+bmsgaXMgZG93bi4NCj4gPiA+IFlvdSdyZSByaWdodC4gSXQncyBubyBuZWVkIHRvIHRlc3QgTFRT
+U00gc3RhdGUgaGVyZS4NCj4gPiA+IFNvIGRvIHRoZSBMMiBwb2xsIGxpc3RlZCBhYm92ZSBhZnRl
+ciBQTUVfVFVSTl9PRkYgaXMgc2VudC4NCj4gPiA+DQo+ID4gPiBTaW5jZSB0aGUgNi4xMyBtZXJn
+ZSB3aW5kb3cgaXMgYWxtb3N0IGNsb3NlZC4NCj4gPiA+IEhvdyBhYm91dCBJIHByZXBhcmUgYW5v
+dGhlciBGaXggcGF0Y2ggdG8gZG8gdGhlIGZvbGxvd2luZyBpdGVtcyBmb3INCj4gPiA+IGluY29t
+aW5nIDYuMTQ/DQo+ID4gPiAtIEJlZm9yZSBzZW5kaW5nIFBNRV9UVVJOX09GRiwgZG9uJ3QgdGVz
+dCB0aGUgTFRTU00gc3RhdC4NCj4gPiA+IC0gUmVtb3ZlIHRoZSBMMiBzdGF0IHBvbGwsIGFmdGVy
+IHNlbmRpbmcgUE1FX1RVUk5fT0ZGLg0KPiA+DQo+ID4gSWYgdGhlIGNoYW5nZXMgYXJlbid0IHRv
+byBpbnZvbHZlZCwgdGhlbiBJIHdvdWxkIHJhdGhlciBmaXggaXQgb3IgZHJvcA0KPiA+IHRoZSBu
+b3QgbmVlZGVkIGNvZGUgbm93LCBiZWZvcmUgd2Ugc2VudCB0aGUgUHVsbCBSZXF1ZXN0Lg0KPiA+
+DQo+ID4gU28sIGZlZWwgZnJlZSB0byBzZW50IGEgc21hbGwgcGF0Y2ggYWdhaW5zdCB0aGUgY3Vy
+cmVudCBicmFuY2gsIG9yDQo+ID4gc2ltcGx5IGxldCBtZSBrbm93IGhvdyBkbyB5b3Ugd2lzaCB0
+aGUgY3VycmVudCBjb2RlIHRvIGJlIGNoYW5nZWQsIHNvDQo+ID4gSSBjYW4gZG8gaXQgYWdhaW5z
+dCB0aGUgY3VycmVudCBicmFuY2guDQo+IFRoYW5rcyBmb3IgeW91ciBraW5kbHkgcmVtaW5kZXIu
+DQo+IFRoaXMgY2xlYW4gdXAgc21hbGwgcGF0Y2ggaXMgb24gdGhlIHdheS4NCkhlcmUgaXQgaXMu
+DQpodHRwczovL2xrbWwub3JnL2xrbWwvMjAyNC8xMS83LzQwOQ0KDQpUaGFua3MuDQpCZXN0IFJl
+Z2FyZHMNClJpY2hhcmQgWmh1DQo+IA0KPiBCZXN0IFJlZ2FyZHMNCj4gUmljaGFyZCBaaHUNCj4g
+Pg0KPiA+IFRoYW5rIHlvdSENCj4gPg0KPiA+IAlLcnp5c3p0b2YNCg==
 
