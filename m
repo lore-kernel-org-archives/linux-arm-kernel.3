@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14854D29FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 02:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07387D29FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 02:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LOdfE5x4EKrySyBVmxKS94qCwTLAMgW8NOpDH3vP8WU=; b=SCxfytWsBzg/DcHqegtZppGoBV
-	tXumsAsYfjZuEqu0UgAjIoxJpW/2wWB15JkEbjuhzfXonm5HBdxJKmBiX5ChNkPG8aytGHPMwc8hD
-	yAmUDx7Z5Lhy2sKlil53sjLeYlrH6wM2bWwZLB9DKMvID2sVNx1HHUHNN1eG/TQCYm5btGHY2sblL
-	NWjVzqfGe7Bd4ZTPiaF+DqsqcrM4G4GY80Ohpc4x2U6UVmMNSEBvYrSVSFG4W6bz1TodYt7by4jRA
-	qktjdx5Uof85HEqZnyq/N9txjm0qU94hnBP/oNqyg2RNlrCMgN8mHdFxBKTaYb7O5SFHbyLAtvDyk
-	SMHO0x4A==;
+	bh=dFwUVkp1LFUrT1bd0e5cxLw4J6G7gfMz/1czgC7EWMY=; b=pHDja/GeRrAUYbjHa8FnRjH98K
+	w8IACw3dVKUh3pcojxWfIYbEKblWlvbBCzW2dxEpp1u9EZoJZvddGcE8t06RIoJkowmZQnhFjEUo+
+	NWZzE57ZcjHXR/Iu78sXFC/VihlFeex3cb/OnGgafb+/mm5iUrgkpshpbFeU2yEd+eQfdRUO1cLC7
+	o1q/gmS1QfQ8pebt8r1J0+/Ysh3PYeSDOo5AzNMSZoSIckDsoDq5W2ibbLGiYhCZNQnzKK1XVYAyT
+	Cy5gshR6Tzgi7edmcVCdBdCoLr9S0s84jUkogQtaDW3ABG5yJRU+cwenjt9O7qxTVVV29baxv4mi2
+	GbLQEXDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rso-00000005OXs-0PK8;
-	Thu, 07 Nov 2024 02:04:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8ruV-00000005Ozz-2mCO;
+	Thu, 07 Nov 2024 02:06:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rZ2-00000005KGy-3wI6
+	id 1t8rZ4-00000005KIF-3i8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:44:02 +0000
+	Thu, 07 Nov 2024 01:44:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B541A5C54C7;
-	Thu,  7 Nov 2024 01:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2BB7C4CECC;
-	Thu,  7 Nov 2024 01:43:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B166E5C54A1;
+	Thu,  7 Nov 2024 01:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC4BC4CEC6;
+	Thu,  7 Nov 2024 01:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730943840;
-	bh=leVU7E1xUyU67WCn5RdQJAXMEOCia4xbUFczyjMgbo0=;
+	s=k20201202; t=1730943842;
+	bh=vmq9jrn8vuSD3VpJFg9vZzUggmSUeit7J7xVMGFrJhg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jD80AIlzSqU2r/cv9e/ie7Owo+WfjDElCsL6B8UgadlAaRiP+5loHocFvNnVoXa3b
-	 oG8RmynJUtK37v71OIhLcZ69krDJBhOFA0AeuVVW27cAGQZionXdR24/7k0cRDqCk7
-	 iUgTosPk1f5VAvyd9OHB6ztAXzsPufCXXbu9EQKqM8rMrotlyka3xcBKE/zQe7Dm+9
-	 Am0HwME3N8tHhzwS2JxuGME7wRWy4Bdv4SY/M689QhbIdy/rP0KVDWZHhYAwaUSc+O
-	 qGu4/mSb5RC+oydJLjZTYmjZ4HhgbkKe72gq7teGXdHUNvHWNniMIDf6rr69kggRVh
-	 nNhCsTdzDcVqg==
+	b=SNyWj4hXoSwtKFE4Q23qDjAbNQV2HYafmT6nfUhsCGj9bJC1XOa/8scYdkfYM6zdj
+	 4PtEtBF0uPRREIwL7lgIH8w9Rss3EgVdkR/dT+GNsrpHOdr7q9lIX5JS5qKH6oBzLP
+	 g3XgNT2cdhbFuf2e4JcEv7KlSMnuxUPwN5D/E8X9PlX0yjjbweoTHyTjW1nlskRBBd
+	 rIvle74315XTZEpG7Q7owSb+06aLjmK5wVYhfct1/A+rsJ4x5SOg8HXa+HAcv6V/KL
+	 AZx46JsJ2IDBxapUvJgrlXfLsxqNc4syQGUNE8BrDKf1xnOFZ/ZPwadSVTMrmjfX+3
+	 ytP5fOQ0Kn7JA==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 07 Nov 2024 01:39:24 +0000
-Subject: [PATCH v2 5/6] kselftest/arm64: Provide a SIGUSR1 handler in the
- kernel mode FP stress test
+Date: Thu, 07 Nov 2024 01:39:25 +0000
+Subject: [PATCH v2 6/6] kselftest/arm64: Test signal handler state
+ modification in fp-stress
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-arm64-fp-stress-irritator-v2-5-c4b9622e36ee@kernel.org>
+Message-Id: <20241107-arm64-fp-stress-irritator-v2-6-c4b9622e36ee@kernel.org>
 References: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
 In-Reply-To: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -58,21 +58,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1313; i=broonie@kernel.org;
- h=from:subject:message-id; bh=leVU7E1xUyU67WCn5RdQJAXMEOCia4xbUFczyjMgbo0=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBtS2FRnGevJn8KdIwsF19SK/BkdiQ/yz1S77N3e
- u1IvERGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywbUgAKCRAk1otyXVSH0DadB/
- 41K/s/wFQumB72ze1INxlRbvEQrpNju8Mfu7P81epd5uw2x02Ey2Bg9GCyHSCnA6T+2mHk4N5NK+FS
- vPG6XeN9PkdLjANLz/0gx91TrUw/Sf4Cbun9GSYKk7tmLBqHMJrEEAWoeJtfWXVi0aj/UZ78bTikSw
- nA90uLjIeY8Gnr9Sdo0xss5XTV1RjfGNScF7EPgMreb6nGCHmhfq9i1rqauJwqT2oCTJUsGYMxcLi9
- XDVrtAY14aXzBud0yt2s442KvlKVj/EcHfZdnM5cR8ZtRmPbYH3Aj3qb6JQOiIrczBxYLAGuT2TRs/
- EPkj0uwDq0d7TChyA7GwaXUmott0Rf
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1345; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vmq9jrn8vuSD3VpJFg9vZzUggmSUeit7J7xVMGFrJhg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBtTWoXA4eHd6zfw971HD8lilDRJqnyTNW/1R2WW
+ DSk3ur+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywbUwAKCRAk1otyXVSH0NxLB/
+ 0QhT6wTv8THELHvP8ObPV5Wls/EzSymSLag6pDrd4ya2LZ50x0Q6/+4Yni77XBfDvIMGDzADqk9d1y
+ pPC6kx+WhBONPXVYzCcG+oeucfATYVRlJem/srypiq84viWGUdETPLB3tyJun/CcptYd37d2PNrhcP
+ cOakCK+6UKQjnTZYU2ERhh1zRPHoavzLs/5eBz54TqQBgsLVd37WPGHVh/gKjlkLLucyFfpNCATfqT
+ /vKAnFfvgVjPegyVyYXKfFpee2BIk+e92YdZTYJHREdL19GhFfMhDfWbMgDI2U0lpW/swoLG0QXSMn
+ aKXv8WLvIqS08/7aj4Zn88rMvcrV7N
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_174401_150731_D103F198 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_174403_022818_130522A0 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The other stress test programs provide a SIGUSR1 handler which modifies the
-live register state in order to validate that signal context is being
-restored during signal return. While we can't usefully do this when testing
-kernel mode FP usage provide a handler for SIGUSR1 which just counts the
-number of signals like we do for SIGUSR2, allowing fp-stress to treat all
-the test programs uniformly.
+Currently in fp-stress we test signal delivery to the test threads by
+sending SIGUSR2 which simply counts how many signals are delivered. The
+test programs now also all have a SIGUSR1 handler which for the threads
+doing userspace testing additionally modifies the floating point register
+state in the signal handler, verifying that when we return the saved
+register state is restored from the signal context as expected. Switch over
+to triggering that to validate that we are restoring as expected.
 
 Acked-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/kernel-test.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ tools/testing/selftests/arm64/fp/fp-stress.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/kernel-test.c b/tools/testing/selftests/arm64/fp/kernel-test.c
-index e8da3b4cbd23202c6504ffd8043f8ef351d739f6..859345379044fc287458644309d66cf5f3d8bdf5 100644
---- a/tools/testing/selftests/arm64/fp/kernel-test.c
-+++ b/tools/testing/selftests/arm64/fp/kernel-test.c
-@@ -267,6 +267,10 @@ int main(void)
- 		       strerror(errno), errno);
+diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
+index faac24bdefeb9436e2daf20b7250d0ae25ca23a7..3d477249dee0632b662b48582433d39323d18e18 100644
+--- a/tools/testing/selftests/arm64/fp/fp-stress.c
++++ b/tools/testing/selftests/arm64/fp/fp-stress.c
+@@ -221,7 +221,7 @@ static void child_output(struct child_data *child, uint32_t events,
+ static void child_tickle(struct child_data *child)
+ {
+ 	if (child->output_seen && !child->exited)
+-		kill(child->pid, SIGUSR2);
++		kill(child->pid, SIGUSR1);
+ }
  
- 	sa.sa_sigaction = handle_kick_signal;
-+	ret = sigaction(SIGUSR1, &sa, NULL);
-+	if (ret < 0)
-+		printf("Failed to install SIGUSR1 handler: %s (%d)\n",
-+		       strerror(errno), errno);
- 	ret = sigaction(SIGUSR2, &sa, NULL);
- 	if (ret < 0)
- 		printf("Failed to install SIGUSR2 handler: %s (%d)\n",
+ static void child_stop(struct child_data *child)
 
 -- 
 2.39.2
