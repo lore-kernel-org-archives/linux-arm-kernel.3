@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE95DD43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C46D43352
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lFEM2XRj+4jfdUpSmt8rXreEAc43KfUaW7x9In1LlQ=; b=CjhfaX1pNq/oCSqGF4u0Qlo0c+
-	58fJ18AxlUfZisOK50s4hmlDGH0FYDAnJFlADxpXju20/Agcc8899YLV0JzS6r5/bYp6OrKB01lpm
-	7y8tu2YMCRguZ3G77N4uJdvbabAYH9wY8ncHzyhLXvEd8z8B+J09Fv54S8tZPJWU0boeE0Fu1TdBk
-	x5/8/T6+CwamvpY0enMEVrtWvapZtseZR7pYpeM15Qr7akYsSYs8uEyfQpJpG87Nkz59oLAfbi4O0
-	khheHDzwg6WekLBm+X5bNkgck95aH1O/qz2exrUENDfcarMTWbnTJ2l8RP5Kdr6nQ1zcN0HFsw4LM
-	yZ2QY4uQ==;
+	bh=L5jZ67UFMuR5+p1vHH99I2vZy5VYNF4A4KwKPGbVKFA=; b=FRfzYyiytlw1fxMN2uU7Tulm9k
+	MBGS7BDG7pYHGnt8HCAq59ZEC4YnF6COhZ0GYpMBKwkj96h8HBPenQpA6BTnuHhA31dVpIiJZVmrA
+	7nvhSNkq6yl8yUwAKMhMI/oLMCiM2YTOduDhTjBanz/hxEZeS4kbuDgFuaQBZth4rAyvf5r2FgWUD
+	d5fILnVHi2nNfBZSKZxDGyp0I50LWmXORfNFPtKRjdk9QTkfZVTu7aEn9XOmXXzA4BdoJitZ5rbwD
+	3Jy4IJxjZtlj1e0CW1v5wY4LdepcQiGF0Q6r93uOF+olEpmGJ4GCTyrFlRgoqR5HeI4quXSvwd/Q8
+	/HwFDkVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91vN-00000006ywY-1hms;
-	Thu, 07 Nov 2024 12:47:45 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91qF-00000006xym-0CS7
+	id 1t91x6-00000006zEH-0x8Q;
+	Thu, 07 Nov 2024 12:49:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t91vD-00000006yum-2uGi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 12:42:28 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-207115e3056so9212505ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 04:42:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730983346; x=1731588146; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1lFEM2XRj+4jfdUpSmt8rXreEAc43KfUaW7x9In1LlQ=;
-        b=LthYmCxX0hZVFLJvF7PCqS/+AbNusV/FMtBrfNnYpWMQF9RHR4Nl7EARvzuEoInA0p
-         X8qXd8U73nd4MsRvU3mejKGiAW7Y6ZdkuLJmc92PLr0yWqNt3BJVHIOhiDBzgYulDfQB
-         xB1pP/3G2lYTNh81gTec/ZyaV2uo7QdKKAMA6Xq3/tB9/4ooBry2sTJy6tFZqNZu+kX+
-         xgq2Vj0Z3VwL6q+ylq+PL1dHRGCrSFMYG/tpLDl4ksP48FaWOqPM2j+k9vZbudCU/N2J
-         LOD4K1385Nv2lwcCg8HN3+vnB4u26WlXx7mueSEtxG0X180qtecBrNc/CAiOMjShWDU+
-         s2tQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730983346; x=1731588146;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1lFEM2XRj+4jfdUpSmt8rXreEAc43KfUaW7x9In1LlQ=;
-        b=OjeFuKrBv+gjnREADoGqJwHCrNO4uduqfLAfZsFJ+JGSqemNwsoNhjp7J3KG4wdoi4
-         aAAu6CgyE5lAXrZLi5gM8ZWSnRJ1TqBdRenEyK84H08nGhvBAsA7/eW2rTiKAplLGiCH
-         36u2Dromwrkl5gBX5gYs/TDXium3ONXQLzmGQjfsorhxUd16a/RM6QlgDmHzNnKP9Unt
-         AURPkw354iVreeyCh8jOPCMY4Mq2I8R0WpB/ZnLSrDQhpx7jargnzUYjaqfZwtDJrpnH
-         IPRzKuTzmYgfSxsXoZTfWzcQpkBnxcrfltMH5dp9VryXXMYx9KxF0FE5cv0bD+H69qsL
-         pKYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUM2QCzdx37CBrkU5S8gpiKPZU+Q8AYkdKgBx36sInGtfdbSAd8zO0nJJfc4p4DIcpCZHy/zs5Wv8u99kt8GXvH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9VI0APLKnpu026oqWLARwxchWD7pl2ttBkp52JbInatebnbKm
-	fn/q2VfobATkGwCAC9ufTrJVf61vKOcvFOC0UdmvFN3bDWIzv9gc
-X-Google-Smtp-Source: AGHT+IFuD+Xx2XTx19q908xHLwUL9xed5Q6pQGCkFR2QHhE8PIBdNyA98Icm/09ejWxglfMpDVTuYw==
-X-Received: by 2002:a17:902:db0f:b0:20c:cf39:fe3c with SMTP id d9443c01a7336-210c6c34824mr585270765ad.41.1730983345945;
-        Thu, 07 Nov 2024 04:42:25 -0800 (PST)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e412d8sm11101975ad.113.2024.11.07.04.42.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 04:42:25 -0800 (PST)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Thu, 07 Nov 2024 20:39:58 +0800
-Subject: [PATCH v2 2/2] ARM: dts: aspeed: catalina: add hdd board cpld
- ioexp
+	Thu, 07 Nov 2024 12:47:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FA7F497;
+	Thu,  7 Nov 2024 04:48:02 -0800 (PST)
+Received: from [10.57.89.216] (unknown [10.57.89.216])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03C113F66E;
+	Thu,  7 Nov 2024 04:47:29 -0800 (PST)
+Message-ID: <537c1a6a-6379-4c0e-9a6d-0ceaf2c43633@arm.com>
+Date: Thu, 7 Nov 2024 12:47:28 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, David Hildenbrand <david@redhat.com>,
+ Greg Marsden <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
+ Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
+ Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <ZyPxhF34JjT3Ky9K@arm.com> <083d9e98-b6b8-4702-a700-24aea95cef9e@arm.com>
+ <Zyy0DpOIu63isKZR@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <Zyy0DpOIu63isKZR@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-catalina-cpld-ioexp-update-v2-2-d7742eabc0e6@gmail.com>
-References: <20241107-catalina-cpld-ioexp-update-v2-0-d7742eabc0e6@gmail.com>
-In-Reply-To: <20241107-catalina-cpld-ioexp-update-v2-0-d7742eabc0e6@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Potin Lai <potin.lai@quantatw.com>, Cosmo Chou <cosmo.chou@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1730983338; l=2806;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=YtgoH8nC8HzrEXlSjsTGbSqJDdm7lP26pU2kbrrMZgg=;
- b=fgk9z23oAMZdgTzX2DJ9eMhOC0Bh5c6Lmv07tC0TXF+/bgCq4twQdVIo5L2vKAQYhk41GZd76
- caMnNjnvwhLCoIWH3dRlsHRdQwMCRoERqqdvKvGDzODn4JHY73fjrKk
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_044227_427956_9BAC059C 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20241107_044736_020290_78A29107 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,96 +73,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add HDD board CPLD IO expender based on latest DVT HDD board CPLD
-firmware implementation.
+On 07/11/2024 12:35, Catalin Marinas wrote:
+> On Wed, Nov 06, 2024 at 11:37:58AM +0000, Ryan Roberts wrote:
+>> On 31/10/2024 21:07, Catalin Marinas wrote:
+>>> So, first of all, I'd like to understand the overall maintainability
+>>> impact better. I assume you tested mostly defconfig. If you run an
+>>> allmodconfig build with make -k, how many build failures do you get with
+>>> this patchset? Similarly for some distro configs.
+>>
+>> I've roughly done:
+>>
+>>     make alldefconfig &&
+>>         ./scripts/config --enable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE &&
+>> 	make -s -j`nproc` -k &> allmodconfig.log
+> 
+> Is it alldefconfig or allmodconfig? The former has a lot less symbols
+> enabled than even defconfig (fairly close to allnoconfig actually):
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
----
- .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 65 ++++++++++++++++++++++
- 1 file changed, 65 insertions(+)
+Eek, that was a typo when I wrote the email... I built allmodconfig - the big one.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 10a9fca1b803..102d71234932 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -632,6 +632,36 @@ eeprom@51 {
- 
- &i2c3 {
- 	status = "okay";
-+
-+	// HDD CPLD IOEXP 0x10
-+	io_expander13: gpio@10 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x10>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	// HDD CPLD IOEXP 0x11
-+	io_expander14: gpio@11 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x11>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	// HDD CPLD IOEXP 0x12
-+	io_expander15: gpio@12 {
-+		compatible = "nxp,pca9555";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <ASPEED_GPIO(I, 6) IRQ_TYPE_LEVEL_LOW>;
-+		reg = <0x12>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
- };
- 
- &i2c4 {
-@@ -1067,3 +1097,38 @@ &io_expander12 {
- 		"PRSNT_CHASSIS1_LEAK_CABLE_R_N","PRSNT_CHASSIS0_LEAK_CABLE_R_N";
- };
- 
-+&io_expander13 {
-+	gpio-line-names =
-+		"wP3V3_RUNTIME_FLT_HDD0","wP12V_RUNTIME_FLT_HDD0",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD0","",
-+		"Host_PERST_SEQPWR_FLT_HDD0","wP3V3_SEQPWR_FLT_HDD0",
-+		"wP12V_SEQPWR_FLT_HDD0","wP3V3_AUX_SEQPWR_FLT_HDD0",
-+		"wP3V3_RUNTIME_FLT_HDD1","wP12V_RUNTIME_FLT_HDD1",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD1","",
-+		"Host_PERST_SEQPWR_FLT_HDD1","wP3V3_SEQPWR_FLT_HDD1",
-+		"wP12V_SEQPWR_FLT_HDD1","wP3V3_AUX_SEQPWR_FLT_HDD1";
-+};
-+
-+&io_expander14 {
-+	gpio-line-names =
-+		"wP3V3_RUNTIME_FLT_HDD2","wP12V_RUNTIME_FLT_HDD2",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD2","",
-+		"Host_PERST_SEQPWR_FLT_HDD2","wP3V3_SEQPWR_FLT_HDD2",
-+		"wP12V_SEQPWR_FLT_HDD2","wP3V3_AUX_SEQPWR_FLT_HDD2",
-+		"wP3V3_RUNTIME_FLT_HDD3","wP12V_RUNTIME_FLT_HDD3",
-+		"wP3V3_AUX_RUNTIME_FLT_HDD3","",
-+		"Host_PERST_SEQPWR_FLT_HDD3","wP3V3_SEQPWR_FLT_HDD3",
-+		"wP12V_SEQPWR_FLT_HDD3","wP3V3_AUX_SEQPWR_FLT_HDD3";
-+};
-+
-+&io_expander15 {
-+	gpio-line-names =
-+		"P3V3_HDD3_FAULT_R","P3V3_HDD2_FAULT_R",
-+		"P3V3_HDD1_FAULT_R","P3V3_HDD0_FAULT_R",
-+		"P12V_HDD3_FLT_L","P12V_HDD2_FLT_L",
-+		"P12V_HDD1_FLT_L","P12V_HDD0_FLT_L",
-+		"HDD_23_PWRBRK_N_R","HDD_01_PWRBRK_N_R",
-+		"","",
-+		"HDD3_PRSNT_N_R","HDD2_PRSNT_N_R",
-+		"HDD1_PRSNT_N_R","HDD0_PRSNT_N_R";
-+};
+> 
+> $ make defconfig
+> $ grep -v "^#\|^$" .config | wc -l
+> 4449
+> 
+> $ make alldefconfig
+> $ grep -v "^#\|^$" .config | wc -l
+> 713
+> 
+> $ make allmodconfig
+> $ grep -v "^#\|^$" .config | wc -l
+> 14401
+> 
+>> In the end, I decided to go for r'(\S+\.[ch]):.*(error|note):', which is any
+>> files described as having an error or being the callsite of the thing with the
+>> error. I think this is likely most accurate from eyeballing the log:
+> 
+> I think that's good enough to give us a rough idea.
+> 
+>> |            |     C&H files | percentage of |
+>> | directory  |      w/ error | all C&H files |
+>> |------------|---------------|---------------|
+>> | arch/arm64 |             7 |          1.3% |
+>> | drivers    |           127 |          0.4% |
+>> | fs         |            25 |          1.1% |
+>> | include    |            27 |          0.4% |
+>> | init       |             1 |          8.3% |
+>> | kernel     |             7 |          1.3% |
+>> | lib        |             1 |          0.2% |
+>> | mm         |             6 |          3.2% |
+>> | net        |             7 |          0.4% |
+>> | security   |             2 |          0.8% |
+>> | sound      |            21 |          0.8% |
+>> |------------|---------------|---------------|
+>> | TOTAL      |           231 |          0.4% |
+>> |------------|---------------|---------------|
+> 
+> This doesn't look that bad _if_ you actually built most modules. But if
+> it was alldefconfig, you likely missed the majority of modules.
 
--- 
-2.31.1
+I definitely built allmodconfig, so I guess "this doesn't look bad" :)
+
+> 
+>>> Do we have any better way to detect this other than actual compilation
+>>> on arm64? Can we hack something around COMPILE_TEST like redefine
+>>> PAGE_SIZE (for modules only) to a variable so that we have a better
+>>> chance of detecting build failures when modules are only tested on other
+>>> architectures?
+>>
+>> I can certainly look into this. But if the concern is that drivers are not being
+>> compiled against arm64, what is the likelyhood of them being compiled against
+>> COMPILE_TEST?
+> 
+> Hopefully some CIs out there catching them. Well, if we are to fix them
+> anyway, we might as well eventually force a non-const PAGE_SIZE
+> generically even if it returns a constant.
+> 
+> I'm building allmod now with something like below (and some hacks in
+> arch and core code to use STATIC_PAGE_* as I did not apply your
+> patches). alldefconfig passes with my hacks but, as you can see, the
+> non-const PAGE_SIZE kicks in only if MODULE is defined. So, not an
+> accurate test, just to get a feel of the modules problem.
+
+Nice. I guess that's pretty much the change we would add for x86 with COMPILE_TEST.
+
+> 
+> ----------8<---------------------------
+> diff --git a/arch/arm64/include/asm/page-def.h b/arch/arm64/include/asm/page-def.h
+> index 792e9fe881dc..71a761f86b15 100644
+> --- a/arch/arm64/include/asm/page-def.h
+> +++ b/arch/arm64/include/asm/page-def.h
+> @@ -12,7 +12,19 @@
+>  
+>  /* PAGE_SHIFT determines the page size */
+>  #define PAGE_SHIFT		CONFIG_PAGE_SHIFT
+> -#define PAGE_SIZE		(_AC(1, UL) << PAGE_SHIFT)
+> +#define STATIC_PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
+> +#define STATIC_PAGE_MASK	(~(STATIC_PAGE_SIZE-1))
+> +
+> +#if !defined(MODULE) || defined(__ASSEMBLY__)
+> +#define PAGE_SIZE		STATIC_PAGE_SIZE
+> +#else
+> +static inline unsigned long __runtime_page_size(void)
+> +{
+> +	return 1UL << PAGE_SHIFT;
+> +}
+> +#define PAGE_SIZE		(__runtime_page_size())
+> +#endif
+> +
+>  #define PAGE_MASK		(~(PAGE_SIZE-1))
+>  
+>  #endif /* __ASM_PAGE_DEF_H */
+> ----------8<---------------------------
+> 
 
 
