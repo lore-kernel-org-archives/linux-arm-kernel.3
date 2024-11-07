@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B11AD5D693
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EACAD5D693
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 22:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkMBSTqG7JoQ+u7V8y1daDJE4ZmqQFu6+aWdD0o4OaA=; b=kECshjMaw6YrpYCE4kUOSZDCKV
-	M4UKS2tAHDz6WsvoCm5i2AFKTyrA1uLjBouCNZafA+1oVF04pzHg1HsyFMpOApGLH5Wwc4Cfj2/DH
-	818HzVzYjg5b+ptmCnC7w8D9PYPQ5oAw2SUPCDgV6UDof1vqBXv1GgVnu9zaRkLKySU1fYa4WxBfA
-	vJd9lC12awV6G1d5x+klBsJocVKY560Tr4ufyEQqwF3m+gI0+gLAydhZ7p0+oqK31ADELAfTAXGYN
-	hWoZPQ6HrKQ77j7Irq7pKQ1LtdxvFm+LpUYiNTG+WyWrC/PW9d82uxw2cMZ1DI4xzMAnZD5qOi6Vv
-	RlZ2UYnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gtY+hQlMOB+auZZ9MVGgAKHoK8XC+h0pobgnTF7y3AY=; b=zQ1CrW+cdC9OqFD8znRqjYoB0E
+	RUDtJrRp0FMYrCqthRov+gGXYwc8jUQIKGsZAX5JbC6+1cfr5Q2GLvYELHbz3nbIBK/yrCYv9VAB4
+	Jph3vkNeIpbeCfAVCPSJbSrxFNK81iHXfoVkjeLRZx2pb8xqavcA/rQwmIV8RwH5ufEeeA4dxbIs4
+	aoj7Uc5THhAISunIMmCRd6yO8GQI08tTVdgGawpc8nkB5OwodU6XdSot2iHmvBCDwSo1dsAqANapp
+	6txfTFdG58bOXcTpmJU4XwUgs4H1VXLy8mN7Br0C1R/kJ7QeLovk3qo+wW9aphXwEqVwGL7/+lbnV
+	wBwBDSgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9AW4-00000008UPN-3EV2;
-	Thu, 07 Nov 2024 21:58:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t9AZZ-00000008Upt-3cdO;
+	Thu, 07 Nov 2024 22:01:49 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9AUJ-00000008UHE-1pgt;
-	Thu, 07 Nov 2024 21:56:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 97C33A444EA;
-	Thu,  7 Nov 2024 21:54:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D54C4CECC;
-	Thu,  7 Nov 2024 21:56:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731016582;
-	bh=5Eo6qcoFVa2y7T4CA1LjJm2ItuxSl1cXVLYwgGdG78A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=snaNZ8tSicUvWD7PrD0LYJBkh3bGKBJbprEa1e+L3I9yynNSTobD5JQQuUlyw1qa4
-	 Dee43LquYgLNye0D58HYWkPeK3vv1Fjl0PXXslYuvC/3FzXfQISP8Pcb0zMXYgFz6m
-	 cHamLikSD3g7zIowC61gJhcQ6Dzrt2BQgKRDoFdySc2MndGz9iPb5vcRGQdzAvC7Z6
-	 HGDMn/bHcXYLINTIT8HTZQ+glD+27KI5EUbkg5H4pd2BskirInQW74jUwTvq/3MSq1
-	 MHi0wzGVR3iunnxMS2AQJf0gXVODH79ifsLJyVx7jKw2SbAk3eVgwUXVxrhrF6xmBt
-	 22vW8hoSJemEg==
-Date: Thu, 7 Nov 2024 22:56:19 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com,
-	linux-mediatek@lists.infradead.org, lorenzo.bianconi83@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
-	nbd@nbd.name, dd@embedd.com, upstream@airoha.com,
-	angelogioacchino.delregno@collabora.com, Hui.Ma@airoha.com
-Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add Airoha EN7581 support
-Message-ID: <Zy03gz7czVIMQUcD@lore-desk>
-References: <ZyzpGSyAVe6bz9H2@lore-desk>
- <20241107164624.GA1618716@bhelgaas>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1W+fFQH7ARG+B5PJ"
-Content-Disposition: inline
-In-Reply-To: <20241107164624.GA1618716@bhelgaas>
+	id 1t9AXp-00000008UhJ-1j9K
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 22:00:03 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e36cfed818so22893027b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 14:00:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731016799; x=1731621599; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=gtY+hQlMOB+auZZ9MVGgAKHoK8XC+h0pobgnTF7y3AY=;
+        b=Zz5fXfSAO90Jdh63igESEhxX5vQkZl9J29FTH5FGxq1mMWlBsDPD88Mck+Q1PNGpqy
+         ZAvaFszYMSk2JjK/WEf8MQ5TV/rm5FCZRHPAvlrPX8yRdklt0fJVh5E+POiTnLQwj7Q6
+         PjIMxBbAkpSv61brgkaA7bWPN+c8ulPvg+WmKUXi3ck1n7KJOBrft4uAu1dClzSVBCfi
+         SCn42uhbLUvDF/zrihTf9K97Y16ifAdophkSGe2mK8maoSNGcgJ5pdTUJ6PECWjRa9WI
+         zYLbjgeLZhfU2b8fFKM59qig+dL9n6YfPzksdV75L4pNOaf0duk3X4lF7aEUE5D8w+t1
+         kHbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731016799; x=1731621599;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gtY+hQlMOB+auZZ9MVGgAKHoK8XC+h0pobgnTF7y3AY=;
+        b=tRASjpMQ+JmUk9DeyKdzYv0EWRUx/FVv/9KR3o70ocl0ACYpEUKleNvZ//IoJeDFe0
+         VqUTQPbbpcLsFK6bvAFHJnot+pKWN+bYtS02ux+ieSX7XZycrF9Id07jC1/pE2khXAAA
+         JobF939Lim1WuBAuUhCDkFoXgm//PF9pBUye30NCen1W4/+7DuV5iUAV2BaW+dIj0X0a
+         fXH+lr0++lTBkqtRYtgRujpjyFKKTAOCdk58N29wfpnBc7Q761TcFpMNbc/zIjdstwLU
+         M702bOnE2oYOJlyQFbRJbJX6vmYqt2A5kBtnBZfNdjEyHyADFD61BDaBOLdChjOJYDj8
+         8KaA==
+X-Forwarded-Encrypted: i=1; AJvYcCUn4dK8OAPUbM1FNGxGCxlbazJgY9Jj7LmsMgB+iUaSCVl1Uo2yVnIJFdHGEkvFGzCXElcv70af6x0TwJnCV+Dq@lists.infradead.org
+X-Gm-Message-State: AOJu0YymPQylxpzCqTfjXu4SuY/YtiEWCHSjktECyLL1PxZ0iKBsFRjX
+	E0DyFo3NFSyqyG0Qs0sj985tZulDd9dmkc7advzy5AZphkjdsh9MS2ZKOe+fTnDMu8Vk0Ej9qjs
+	9wg==
+X-Google-Smtp-Source: AGHT+IEBoD/+PLidUWzTFlXIEkUGdpqIY92WXMs23wir0KWmLxUl/0R1hyGSqpFepm1jXlRwU0nKDc6bsIk=
+X-Received: from colette.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:ce7])
+ (user=ctshao job=sendgmr) by 2002:a05:690c:d19:b0:6e3:eab:18b1 with SMTP id
+ 00721157ae682-6eaddd6378fmr47907b3.1.1731016799454; Thu, 07 Nov 2024 13:59:59
+ -0800 (PST)
+Date: Thu,  7 Nov 2024 21:59:20 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Message-ID: <20241107215921.3518636-1-ctshao@google.com>
+Subject: [PATCH] perf/arm-smmuv3: Fix lockdep assert in ->event_init()
+From: Chun-Tse Shao <ctshao@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: Chun-Tse Shao <ctshao@google.com>, Greg Thelen <gthelen@google.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Tuan Phan <tuanphan@os.amperecomputing.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_135623_625537_D7A14EAB 
-X-CRM114-Status: GOOD (  41.37  )
+X-CRM114-CacheID: sfid-20241107_140001_689414_DB05BBB7 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Same as
+https://lore.kernel.org/all/20240514180050.182454-1-namhyung@kernel.org/,
+we should skip `for_each_sibling_event()` for group leader since it
+doesn't have the ctx yet.
 
---1W+fFQH7ARG+B5PJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: f3c0eba28704 ("perf: Add a few assertions")
+Reported-by: Greg Thelen <gthelen@google.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Tuan Phan <tuanphan@os.amperecomputing.com>
+Signed-off-by: Chun-Tse Shao <ctshao@google.com>
+---
+ drivers/perf/arm_smmuv3_pmu.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-> On Thu, Nov 07, 2024 at 05:21:45PM +0100, Lorenzo Bianconi wrote:
-> > On Nov 07, Bjorn Helgaas wrote:
-> > > On Thu, Nov 07, 2024 at 08:39:43AM +0100, Lorenzo Bianconi wrote:
-> > > > > On Wed, Nov 06, 2024 at 11:40:28PM +0100, Lorenzo Bianconi wrote:
-> > > > > > > On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wr=
-ote:
-> > > > > > > > Introduce support for Airoha EN7581 PCIe controller to medi=
-atek-gen3
-> > > > > > > > PCIe controller driver.
-> > > > > > > > ...
-> > >=20
-> > > > > > > Is this where PERST# is asserted?  If so, a comment to that e=
-ffect
-> > > > > > > would be helpful.  Where is PERST# deasserted?  Where are the=
- required
-> > > > > > > delays before deassert done?
-> > > > > >=20
-> > > > > > I can add a comment in en7581_pci_enable() describing the PERST=
- issue for
-> > > > > > EN7581. Please note we have a 250ms delay in en7581_pci_enable(=
-) after
-> > > > > > configuring REG_PCI_CONTROL register.
-> > > > > >=20
-> > > > > > https://github.com/torvalds/linux/blob/master/drivers/clk/clk-e=
-n7523.c#L396
-> > > > >=20
-> > > > > Does that 250ms delay correspond to a PCIe mandatory delay, e.g.,
-> > > > > something like PCIE_T_PVPERL_MS?  I think it would be nice to hav=
-e the
-> > > > > required PCI delays in this driver if possible so it's easy to ve=
-rify
-> > > > > that they are all covered.
-> > > >=20
-> > > > IIRC I just used the delay value used in the vendor sdk. I do not
-> > > > have a strong opinion about it but I guess if we move it in the
-> > > > pcie-mediatek-gen3 driver, we will need to add it in each driver
-> > > > where this clock is used. What do you think?
-> > >=20
-> > > I don't know what the 250ms delay is for.  If it is for a required PCI
-> > > delay, we should use the relevant standard #define for it, and it
-> > > should be in the PCI controller driver.  Otherwise it's impossible to
-> > > verify that all the drivers are doing the correct delays.
-> >=20
-> > ack, fine to me. Do you prefer to keep 250ms after clk_bulk_prepare_ena=
-ble()
-> > in mtk_pcie_en7581_power_up() or just use PCIE_T_PVPERL_MS (100)?
-> > I can check if 100ms works properly.
->=20
-> It's not clear to me where the relevant events are for these chips.
->=20
-> Do you have access to the PCIe CEM spec?  The diagram in r6.0, sec
-> 2.2.1, is helpful.  It shows the required timings for Power Stable,
-> REFCLK Stable, PERST# deassert, etc.
->=20
-> Per sec 2.11.2, PERST# must be asserted for at least 100us (T_PERST),
-> PERST# must be asserted for at least 100ms after Power Stable
-> (T_PVPERL), and PERST# must be asserted for at least 100us after
-> REFCLK Stable.
->=20
-> It would be helpful if we could tell by reading the source where some
-> of these critical events happen, and that the relevant delays are
-> there.  For example, if PERST# is asserted/deasserted by
-> "clk_enable()" or similar, it's not at all obvious from the code, so
-> we should have a comment to that effect.
+diff --git a/drivers/perf/arm_smmuv3_pmu.c b/drivers/perf/arm_smmuv3_pmu.c
+index d5fa92ba8373..09789599fccc 100644
+--- a/drivers/perf/arm_smmuv3_pmu.c
++++ b/drivers/perf/arm_smmuv3_pmu.c
+@@ -431,6 +431,11 @@ static int smmu_pmu_event_init(struct perf_event *event)
+ 			return -EINVAL;
+ 	}
+ 
++	hwc->idx = -1;
++
++	if (event->group_leader == event)
++		return 0;
++
+ 	for_each_sibling_event(sibling, event->group_leader) {
+ 		if (is_software_event(sibling))
+ 			continue;
+@@ -442,8 +447,6 @@ static int smmu_pmu_event_init(struct perf_event *event)
+ 			return -EINVAL;
+ 	}
+ 
+-	hwc->idx = -1;
+-
+ 	/*
+ 	 * Ensure all events are on the same cpu so all events are in the
+ 	 * same cpu context, to avoid races on pmu_enable etc.
+-- 
+2.47.0.277.g8800431eea-goog
 
-I reviewed the vendor sdk and it just do something like in clk_enable():
-
-	...
-	val =3D readl(0x88);
-	writel(val | BIT(16) | BIT(29) | BIT(26), 0x88);
-	/*wait link up*/
-	mdelay(1000);
-	...
-
-@Hui.Ma: is it fine use msleep(100) (so PCIE_T_PVPERL_MS) instead of msleep=
-(1000)
-(so PCIE_LINK_RETRAIN_TIMEOUT_MS)?
-
-Regards,
-Lorenzo
-
->=20
-> Bjorn
-
---1W+fFQH7ARG+B5PJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy03gwAKCRA6cBh0uS2t
-rJ64AP40vgr/oweTeYBRjXYZBVQY5QwDDuhEhSNWwtsmfHK6fAEAtiON0J6fTwIC
-3wlDpNdKoaRVFQc7zFP/K1csNJqSNgk=
-=KhIT
------END PGP SIGNATURE-----
-
---1W+fFQH7ARG+B5PJ--
 
