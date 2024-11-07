@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6F0D5AE76
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC37D5AE75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Juwn84S5vUX2aH6VsMCIM7pJOc3sVKVbXwLzJq3+1Jw=; b=ZS3awyVCl+1Z8EstqFhsbO5Fl5
-	GCCqoq5VQeaNpYH2bxJzgOFtBDkx/P/ExzDuSJCWpYloVUN2RgVkl0LXzs4zs89lbqvrXxQjXKpWh
-	j2Jh43/dvjok7MMJHYCQgcEnlXjTcbqOJ3tIjkfqny3F9fscXrZrK/M9jq6fM1T+G2w2ESjNs2iv5
-	qJHK7TQWKPIvMnScfxAEhlxpSV4l8d9c8wAU5dkczvfTAqnYP6cJWISfyLcNGR8mBIQPHlBZsx18w
-	veHIJD9C12in6f1B9qC+m+7xXy5y9qNW/TmxlPWMLXxSO5h2zga6y2tQd+HmM+tLq63Xy+YyTAn3d
-	RXGizLEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SLobudUPRJu3yO+WgY5nbSK+JQEjFbZ/4gXbodXRIpU=; b=IOcqR0nLuBfHUxbkME9BpyOjvH
+	SMWsiIRfcM1yaUt5mWVOgS2fDxQOBTVIlC7Sz051+J8o2eYSPbRYmk4T9oYizncvhKXpiJ4OZ9BjI
+	zzFvPR1uGQuYKNzCkFumMaQJAz8QFPHcgnmToJ1LI1m6o8VmMWucXpqKFNGgYEpCTQchPY7nK7WHJ
+	TRs0shSCwL9E7/McyQtB4ZHk8pobPi/NSyN4IRf5zVuIsgiswIrg5IlUaoM+Uh3y8N5PQw9mLV2jQ
+	7zY2WGUmyyMerGgHHCoaZzZOdP9l2RH8b/lehvnE3YKJx0Maip2q0h1zjUfNX65AiZXn5Sz9CeeQr
+	dg9JstjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yOE-00000006ERr-1cSS;
-	Thu, 07 Nov 2024 09:01:18 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1t8yOX-00000006EVs-37Yq;
+	Thu, 07 Nov 2024 09:01:38 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yKl-00000006Dl3-2DWA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 08:57:45 +0000
-Received: from localhost.localdomain (85-222-111-42.dynamic.chello.pl [85.222.111.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: lukma@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 32480891FD;
-	Thu,  7 Nov 2024 09:57:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1730969861;
-	bh=Juwn84S5vUX2aH6VsMCIM7pJOc3sVKVbXwLzJq3+1Jw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ZrhR2YFiEJSDeBRViCLCwwv1sJXOY5/PxxKtfkmDpYRzjSvJ3eD0Qa4qprD8iQL0l
-	 pXeIEbpBGEL9otKCUwP7JWKDD+ARP/I8NhmAfEg2HbfmZ5UNdhY9ru5TidVLzqXbMj
-	 A0wrsfk6WfA0HYpJYSXxSJM5Bo1zAX7Sv23x3dc+3K6fSuwCV3gMmGFvNjAwNioF/L
-	 RMsghUxgakjOvRqqyBlTd38hxkcpWDNSwpclWRZqUlYPsLbrnXOfT/7X5uCLlH/QM+
-	 WzAid5hldGQDCNnMn+fryDoJQWqEPgbnYhvY80xkjaBXSWAtggPFqXZ+/CEZ2zhla1
-	 KMGuP4MN/+zYA==
-From: Lukasz Majewski <lukma@denx.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [PATCH v11 1/3] dt-bindings: display: Add powertip,{st7272|hx8238a} as DT Schema description
-Date: Thu,  7 Nov 2024 09:57:03 +0100
-Message-Id: <20241107085705.490940-1-lukma@denx.de>
-X-Mailer: git-send-email 2.39.2
+	id 1t8xDX-000000061mA-1om0;
+	Thu, 07 Nov 2024 07:46:13 +0000
+X-UUID: 58fafd769cdc11ef82ff63e91e7eb18c-20241107
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=SLobudUPRJu3yO+WgY5nbSK+JQEjFbZ/4gXbodXRIpU=;
+	b=BUp1DtqwDQpT8ca2Q0oG+7n/29tpLZQ+53q/PkwqX1f1H8v/9GjC0vvnmFZblCsyIQQIIZXKRndIp8TqczwKONl8pW1PBJEtbkbSMYeJi9g+tXazsvTrkCgvYGNUhf8K5LN1AXY3kZxZ/R0d1QO9h8rp0Z19WC6ebY4vhPZzXmQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:6444fddc-46d3-49df-8dc7-f24abb118730,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:854caaca-91e6-4060-9516-6ba489b4e2dc,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 58fafd769cdc11ef82ff63e91e7eb18c-20241107
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <yunfei.dong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1735101752; Thu, 07 Nov 2024 00:46:07 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 7 Nov 2024 15:46:04 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 7 Nov 2024 15:46:03 +0800
+From: Yunfei Dong <yunfei.dong@mediatek.com>
+To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
+	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
+	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>
+CC: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
+	Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>, Steve
+ Cho <stevecho@chromium.org>, Yunfei Dong <yunfei.dong@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3 0/6] media: mediatek: vcodec: support h264 extend vsi
+Date: Thu, 7 Nov 2024 15:45:54 +0800
+Message-ID: <20241107074603.31998-1-yunfei.dong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_005744_238397_ECE352F9 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20241106_234611_506626_5932BE18 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +92,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch provides the DT Schema description of:
-- powertip,st7272  320 x 240 LCD display
-- powertip,hx8238a 320 x 240 LCD display
+The working buffer address start and end are calculated in kernel
+side currently, the address end can't be calculated if the driver
+only getting the address file handle, not the real physical address.
+Need to send the extended vsi to firmware to calculate the address
+end.
 
-Used with the different HW revisions of btt3 devices.
-
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Rob Herring <robh@kernel.org>
+Re-construct some interface and add configuration to support extend
+and non extend driver at the same time. Needn't to parse nal info for
+extended architecture.
 ---
+This patch series depends on:
+[1] https://patchwork.kernel.org/project/linux-mediatek/cover/20241012064333.27269-1-yunfei.dong@mediatek.com
 
-Changes for v9:
-- New patch
-
-Changes for v10:
-- None
-
-Changes for v11:
-- Combine both separate dt-bindings patches for powertip,st7272 and
-  powertip,hx8238a into one
-- Drop the quotes for in "title" entry of powertip*.yaml files
 ---
- .../display/panel/powertip,hx8238a.yaml       | 29 +++++++++++++++++++
- .../display/panel/powertip,st7272.yaml        | 29 +++++++++++++++++++
- 2 files changed, 58 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
- create mode 100644 Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
+compared with v2:
+- squash patch 2/3/4 together
+- re-write commit message for patch 1
 
-diff --git a/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml b/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
-new file mode 100644
-index 000000000000..b7d74faeb5d5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/powertip,hx8238a.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/powertip,hx8238a.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Powertip Electronic Technology Co. 320 x 240 LCD panel
-+
-+maintainers:
-+  - Lukasz Majewski <lukma@denx.de>
-+
-+allOf:
-+  - $ref: panel-dpi.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: powertip,hx8238a
-+      - {} # panel-dpi, but not listed here to avoid false select
-+
-+  height-mm: true
-+  panel-timing: true
-+  port: true
-+  power-supply: true
-+  width-mm: true
-+
-+additionalProperties: false
-+
-+...
-diff --git a/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml b/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
-new file mode 100644
-index 000000000000..f3622800f13f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/powertip,st7272.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/powertip,st7272.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Powertip Electronic Technology Co. 320 x 240 LCD panel
-+
-+maintainers:
-+  - Lukasz Majewski <lukma@denx.de>
-+
-+allOf:
-+  - $ref: panel-dpi.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: powertip,st7272
-+      - {} # panel-dpi, but not listed here to avoid false select
-+
-+  height-mm: true
-+  panel-timing: true
-+  port: true
-+  power-supply: true
-+  width-mm: true
-+
-+additionalProperties: false
-+
-+...
+compared with v1:
+- combine some pathes together for patch 2
+- re-write patch 4
+---
+Yunfei Dong (3):
+  media: mediatek: vcodec: remove vsi operation in common interface
+  media: mediatek: vcodec: support extended h264 decode
+  media: mediatek: vcodec: add description for vsi struct
+
+ .../vcodec/decoder/mtk_vcodec_dec_drv.h       |   2 +
+ .../decoder/vdec/vdec_h264_req_multi_if.c     | 505 +++++++++++++++++-
+ 2 files changed, 482 insertions(+), 25 deletions(-)
+
 -- 
-2.39.5
+2.46.0
 
 
