@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E7AD43360
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089A7D43364
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=; b=vDMSNXzDSaprAwZY9z2S/DmYP8
-	i1LzxESQIO+dVfzzyUEfMb86NegjGR1G/6sN3WJiFbnyL2qNwmxHnvRjLJI/0nbuMZJ9KfqH263iC
-	LEsTiNcMZ7XIRsbKh+yE9gF62aZuabyKXlOGpHpLw2qsuT73+hGY0SufL4Jhv3uel5KPkhRJ79S2d
-	UYj4PIf1M+c1HJQDcHGKPXVcr0O+rkEEZvk6gNnX/XcvXauiPtE2fdWEtoUYVkcsBts7CgY0sdA0q
-	IPhxjjit1IIGSidJEjqssiRz+zOIVfOkR9ggSoe+GY5UMOBv/Ml3fkU/NykOvEW+v72+39hE4JTwi
-	PjWOMa8Q==;
+	bh=CrwXI6vmrfJw1w0ZuAtqZZwpQ2YVQiSVnr8XYbo34/E=; b=4yv//aMqHYSAia6gLd/qKCLRIU
+	zaPPL2cNlxXYX9npQvxyVBPMrVnmjS1cvs+xulvObri4gmHL6OJtdNYX+uq9yNQBn6ovFokO9jnz1
+	Vo83cm8DGLKXEB30QmIh0l6WgGKHt1m/wvE7gzMlS8YOneMxaorSqT9Ggt4AKyGEKDY5C2JiNzso9
+	UMCYF2gE1kF8iqb3YhcXjoBNaLle04eWTjymRX78RaHhOzGTJuBKBogasAZpguGoVeVgsxNjFkx2T
+	bBVllXOCi2OFVc6BjhT5jZT/7FYf2SLQMVzhTkCIHwFavNwCEvq98VBNsC5D1FZyKGo0lIiN9TLTT
+	2vsL0JZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t938o-00000007E5F-3CBD;
-	Thu, 07 Nov 2024 14:05:42 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1t93G0-00000007FdG-2gpF;
+	Thu, 07 Nov 2024 14:13:08 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92zY-00000007CJ9-0Whq
+	id 1t93EE-00000007FOF-1nJE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 13:56:09 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fc968b3545so9171161fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:56:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730987766; x=1731592566; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=;
-        b=USTLnKNLPoejKI0uttPE8vDeJGyUR8Sd/rDiu3SnsRoSQ3gZeNDpjbRo7d1id89GuY
-         zkHYTAfrUzl3UiBpiFVX/qAJfvHtxyGdVHd25mzPJ9AuuVAPwA3XuFpuiMPJCBt9CEW1
-         DCNjHC1JOM4qgsW7Q8Av42FrwdMTS21TyWaJmMx3CgRZiUb7/8E+an0K9rjJnt94jbhK
-         YACOpSG9f0damZhpv1ch2Twa9WV8PbtyLLlW8S8leuL9LjUSwnH5H4ss7OW+Bjdm87kH
-         WRkGFEqH1esR5P+zz+6mmIPBTXBOxh1Mg+2bhxKGZMdToYdcf35GCs+3zVCFHiCXa56X
-         YloQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730987766; x=1731592566;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=;
-        b=wx7/4CK0bAczHzEtOGV6LGd4C3WmlGGb4JJWpWd+CPpVY/Am7+vEM3ZoDB7hHNJ5iX
-         0sIFbOnsXi/DxSTUWVTdgpub6blWD2G3H06jsrCMlZWT0dTE/0Mtc/veuu2J1OAYKygh
-         5QpBKy56ozzvbmxvAsbH065mavfknW0wFu0zW6kRVkYSF9wyDEDYChySok4VZ0iCjhuq
-         8BngyjYvBi6YyBBgKvoJV384e/sOvXPU24N2a1FzalHA9u/Zi1Kkj8QpUqX6y1R/KSeL
-         eF1xzTwYnwdFpIoKBsf7iQFXT6kuKA3KVUiBtFJMhe5nh3FINuhiy3H4Ej6SEi9DPirS
-         Dcng==
-X-Forwarded-Encrypted: i=1; AJvYcCUe/uvvZDBd3sbSYuCgVRBQafF7k3jsIZaKE3LIVOC0EXKxQM/v1kZkzC0aGoeD4FwjuNSLObB6rmawwIWgtRIM@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcl/V3sPWzwOwiOa7li69GQ3VApJJqRJYy3O7TuHi3nAdG8EZu
-	Sv2MWaxwUBH8lG8QIQMCsFwpb2V75UTW0JXSQ/ziz8v4+zzxYzLR2o7lkFImMlcJCVeFWyHU0+C
-	t4XhtttPUAVSfQWApGV6/NfbMyWAsIXeyB+Ysqg==
-X-Google-Smtp-Source: AGHT+IFrud7HairE/9EIYpHYq1Qq4YumL/GF1pww8t5Xiei+et58qHUoVolZLH2rni1Z35DhKc3CTAu8t4LeeyRCaLs=
-X-Received: by 2002:a2e:bd0a:0:b0:2fb:5014:8eb9 with SMTP id
- 38308e7fff4ca-2ff1e8b49e0mr470261fa.10.1730987766341; Thu, 07 Nov 2024
- 05:56:06 -0800 (PST)
+	Thu, 07 Nov 2024 14:11:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XkkTW5kJkz2Fbjl;
+	Thu,  7 Nov 2024 22:09:19 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 533D61A0190;
+	Thu,  7 Nov 2024 22:11:02 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Thu, 7 Nov 2024 22:11:01 +0800
+CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
+	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
+	<prime.zeng@hisilicon.com>
+Subject: Re: [PATCH v3 2/8] drivers/perf: hisi: Improve the detection of
+ associated CPUs
+To: Will Deacon <will@kernel.org>
+References: <20241026072424.29887-1-yangyicong@huawei.com>
+ <20241026072424.29887-3-yangyicong@huawei.com>
+ <20241029132826.GB4416@willie-the-truck>
+ <5895fd31-04f8-f1ea-0639-12dd1f19069c@huawei.com>
+ <9a64ed90-6c9f-a32a-85cf-9d0c41e2fd81@huawei.com>
+ <20241106115134.GC13801@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <df38a326-bb5c-5a17-9375-f1695cd7d937@huawei.com>
+Date: Thu, 7 Nov 2024 22:11:01 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
-In-Reply-To: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 7 Nov 2024 14:55:55 +0100
-Message-ID: <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241106115134.GC13801@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_055608_257954_3B4F421B 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20241107_061118_665466_D301269E 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+On 2024/11/6 19:51, Will Deacon wrote:
+> On Wed, Nov 06, 2024 at 04:33:18PM +0800, Yicong Yang wrote:
+>> Hi Will,
+>>
+>> Further comment on this patch?
+> 
+> You failed to convince me that copying the online mask is safe, but I
+> haven't had time to look into that in more depth myself. Saying "It should
+> be safe" isn't really enough -- it _must_ be safe!
+> 
 
-On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
+I assume the "safe" here means we won't have trouble if CPU in the copied cpumask
+offlined since we don't synchronize with the cpuhp here. Accessing cpu_online_mask
+itself is safe since it's a piece of static memory.
 
-> Follow the ARM64 platform and implement simple cache information driver.
-> As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
-> limited to the ARMv7 / ARMv7M, providing simple fallback or just
-> returning -EOPNOTSUPP in case of older platforms.
->
-> In theory we should be able to skip CLIDR reading and assume that Dcache
-> and Icache (or unified L1 cache) always exist if CTR is supported and
-> returns sensible value. However I think this better be handled by the
-> maintainers of corresponding platforms.
->
-> Other than just providing information to the userspace, this patchset is
-> required in order to implement L2 cache driver (and in the end CPU
-> frequency scaling) on ARMv7-based Qualcomm devices.
->
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+We'll initialize the hisi_pmu::associated_cpus from cpu_online_mask in the below
+cases. For other cases the associated CPUs is initalized in the cpuhp callback
+and we won't come here.
+1) for a PMU does have associated CPUs like L3C PMU, but the associcated CPUs
+   not onlined at probe
+2) for a PMU has no association like CPA PMU which locates on a SICL. Before this
+   patch this kind of PMU'associated CPUs are initliazed in the cpuhp callbacks
 
-I added my review tags to the v2 patches, can you put them
-into Russell's patch tracker?
+For the above 2 cases it is safe since the driver's not using hisi_pmu::assoicated_cpus
+directly but combined with cpu_online_masks. PMU indicates the user the preferred CPU
+to open events on by "cpumask" sysfs which shows hisi_pmu::on_cpu. It's initialized/updated in:
+1) hisi_pmu_init_associated_cpus() by cpumask_local_spread() which tries to
+   found a nearest CPU of the node that the device locates
+2) cpuhp callbacks we registered where holds the cpumap upate lock.
 
-Yours,
-Linus Walleij
+Actually we allow hisi_pmu::associated_cpus contains offline CPUs which is also
+mentioned in the commit.
+
+Based on above it's safe to use the cpu_online_mask here. But I find one case
+doesn't covered by this patch - if boot with maxcpus=1, offline CPU X and offline
+CPU0 (both are not assocaited CPUs), hisi_pmu::on_cpu will not be updated. Since
+hisi_pmu::associated_cpus won't be updated when onlining an unassociated CPU
+and hisi_pmu::on_cpu is selected from the intersection of the associated CPUs
+and the online CPUs, the intersection will be empty in this case.
+
+I'll see how to handle in this case and update the patch.
+
+Thanks.
+
 
