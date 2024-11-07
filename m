@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B14D29FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCE7D29FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPXX2RTY5JzFj6GZG8fNLuHJexQGMPA/tPpOA9KWVJY=; b=rK0R6ja8jBvT3LU8j8iILzs9gI
-	zwbtwyFW8WmJ9SX2uE1QeY4JOKSe2JEDjacSJKy2dfshYSAU8TR2DFV3pA6eP94WhZvWzegRJjUj7
-	dfJMrRwARRhMr+YE9Ko3WsyZL5+O+kmVKd/kDkcGtGKM2vcx/sMot0oeZTX0uGUGFlbBXftS8HaXG
-	Fx+gWlx2Ly7qYlt9c3Yl/MNtriAoHtrkr656luRXiWYFb72EsawZ2NqaSD2+3dAESOvlBkNby1rnX
-	JBsajCZIzUsLjDMoqKWiaP8SH8KwaTuzJiTCPJ47g0EJHno22jMrnZEF0kCCPUs96C1/3kZTYPFZb
-	qlRWOkGA==;
+	bh=iy8rRSF/s2XKfY3J79i1KeVNn/pqiUl1hx7t3GJGWV4=; b=hhw5YCSDOWPlYDSy24sNsQnxlA
+	i9dTchXMLoENZM95kjZTvr64cLawBgDHIUrj6sko9KeTDyaElKF4okXwA6EMc8n7zTa17+i9H8oGd
+	tWgkrPdzMs7xBz6qeoEkNZnaIj5NAULgprfojK0H+9geV8kK/KWL7Qs0zAQi7n051SVx1u8FQTGYz
+	kYYfc5wGxG2Z2VQM6J7yEwN/cO7JrA9mx6hsnBzY7AKNM863d5x24OH+pggug0fD5/V9vWppwvD6G
+	KwI9J6kRGtGzpfHP+a2BPuzDdZ/QVMVMynJFqRG+pV3EAwU72jZYv5rOdqQzfCA6w4croCKpVmAqH
+	OP6NCqpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rXg-00000005Jry-46wG;
-	Thu, 07 Nov 2024 01:42:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t8rZP-00000005KOU-1jg8;
+	Thu, 07 Nov 2024 01:44:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rUC-00000005J7i-2WtG
+	id 1t8rUE-00000005J8l-2Spe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:39:02 +0000
+	Thu, 07 Nov 2024 01:39:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E2C0A41EF2;
-	Thu,  7 Nov 2024 01:37:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1396CC4CED3;
-	Thu,  7 Nov 2024 01:38:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 395585C0291;
+	Thu,  7 Nov 2024 01:38:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1E0C4CECC;
+	Thu,  7 Nov 2024 01:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730943539;
-	bh=sHgpnAmwrG4+1gtZ1DoGby2CzV9Xqsof8Foy1rHp9dc=;
+	s=k20201202; t=1730943541;
+	bh=xEt/GuYUc1T9GgP1WKMvPTj91jfRIyjXPBA0FfOjlmo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZZ5deBStt9L4pL1S1PrWBtHcGuaq+NcLPe4RNU2Cglos+sUxS+Y9DQBefw22tGLZz
-	 9urb4h+5fNj9kuD4cyp5ySw4onOUztWCX5zuHLu+AU6BB+/cJ1WsWexbN1oeAZzkkE
-	 rHHTwwEemO+dc4h8BBmAn58Oxq/18D5RAU7pBPS9DvsfkQdHyFJkKjFNShSjX0/1Gb
-	 WvzR8NCbs2RPwTvP1BpNZk6pGhA8CHAPPzipLk1wh/eWy8LeuvASyvMso3O8jCcvlN
-	 caWDuH9arf2jtczKWR3BKNaKD2Y6t6UgTk33WUMIrftCsdHn9UDNmzT7kJhkV2Ryzb
-	 jKHQb3zs9Xozw==
+	b=FcbnYj6pNPCownppWPz9g3BOYuf0qtvn8EI/+FXdiefIiTwh6JPdy3yvnIxtbniyY
+	 Qo3swFx2VtluDzWQvgH/6YmdZfIkqsVGJaZv8rLZ1gDeRfSg/QeFgoDDCBZs2/qXLu
+	 IsoaIndGp2bJcrMDVVcpzwxkPull6XiF3k3YmV0HK7NNPsdR0haoSdggGvo9GtTE9B
+	 Syqt9HRiDzc/ZdcPszYNxy2cD/oZ0c22LNPgWsrZQ2WXLxzLczo3aBAfxnr9gwg/g7
+	 8Xcvfeg4d+qPCzGXCLweTlU08bQG1PKELHUf8AkRqzs80HXCF0y+fttOFv+gWRvVjL
+	 gdR947cLmVnug==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 07 Nov 2024 01:38:04 +0000
-Subject: [PATCH 1/4] kselftets/arm64: Use flag bits for features in
- fp-ptrace assembler code
+Date: Thu, 07 Nov 2024 01:38:05 +0000
+Subject: [PATCH 2/4] kselftest/arm64: Use a define for SVCR
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-arm64-fp-ptrace-fpmr-v1-1-3e5e0b6e3be9@kernel.org>
+Message-Id: <20241107-arm64-fp-ptrace-fpmr-v1-2-3e5e0b6e3be9@kernel.org>
 References: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
 In-Reply-To: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -58,20 +57,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5038; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sHgpnAmwrG4+1gtZ1DoGby2CzV9Xqsof8Foy1rHp9dc=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBosVLcUCeHCcFI93H9y5DQcwWYH0KaO9ZpY9ZuG
- PYJhcOeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywaLAAKCRAk1otyXVSH0BuEB/
- kBfDFCsdJlYaLADzG66C/1Ew3Su1ykSAhp0U835snXXbIgvLsGv47hVdCiUAs/flLcnp4u7GWnd1IS
- uFmAejsXoSKl62Z6gBGsB8kya91sbr6I2buljDCx+G4dYLnFw6+B+ViU3j2Z31UMZaAPq6z5PKlwb9
- n+RxtOroqzN3aLvHHUBYW5wZo17pcI1Jjknp2ausrCkMnpcJ27ZsV4USyongTVa0IfRUd0hJeElAkl
- Bl29S+uG6qkQ07D3uWHLmrExMlI8W/sy5QT5YM38yJ/5iORXzupqEAH8W1SdHtMlWqlGXRDHEnG2l5
- rU9RvkgYfiX0KUK7kLK2WxmlH4lhhc
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9048; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=xEt/GuYUc1T9GgP1WKMvPTj91jfRIyjXPBA0FfOjlmo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBot0iYhrXXS1NhlawJ/mRd21YVB/8pIGXMBsIab
+ kM7AwVuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywaLQAKCRAk1otyXVSH0CnPB/
+ 4lgz8hA8FciW1nHlseNZvf/8dnW5DCVdcdPYyR8611uKFzozwpy5zD2fYJNhgL9cBx9jTvSnnmjBad
+ 46VGA9vqxoTeri342M0Gf2e4MaHMbu2X0fWVr7CytWvpiJgT8RdNzpAIezh1QDKdlzgOfrpiQM0wFp
+ xXMu88I5h+8wZW5Mufa2INlLMZZ7OdD5xfl4ECC4BXpfqVfHWVii84Aw6/okJ0KnYpBXgU3nZtMfI+
+ rnLvpMz9mNbG4WZPlO34AJlkAwhtwOW0/GDxvjA6o/wda/qrOb4CIbBp0Q34Yes56DML8qQQ2KNEzd
+ cXNeeZlnOAecoKyFlWqMhEVh+u2ivm
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_173900_805069_8D583F49 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20241106_173902_822535_390CE766 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,182 +85,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The assembler portions of fp-ptrace are passed feature flags by the C code
-indicating which architectural features are supported. Currently these use
-an entire register for each flag which is wasteful and gets cumbersome as
-new flags are added. Switch to using flag bits in a single register to make
-things easier to maintain.
+For some reason when we're accessing SVCR in the FP tests we use the raw
+numerical version of the register name rather than hiding that behind a
+preprocessor macro for readability. Since we already use the generated
+defines for sysreg bitfields in other the KVM selftests let's do the same
+thing here, also replacing the defines for the SVCR bitfields which we
+have.
 
-No functional change.
+The build setup for fp-ptrace is a little fun so we have to manually define
+__ASSEMBLY__ in the source code for that.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/fp-ptrace-asm.S | 32 +++++++++++++-----------
- tools/testing/selftests/arm64/fp/fp-ptrace.c     | 17 ++++++++++---
- tools/testing/selftests/arm64/fp/fp-ptrace.h     | 10 ++++++++
- 3 files changed, 41 insertions(+), 18 deletions(-)
+ tools/testing/selftests/arm64/fp/Makefile        | 20 +++++++++++++-------
+ tools/testing/selftests/arm64/fp/fp-ptrace-asm.S | 11 ++++++++---
+ tools/testing/selftests/arm64/fp/fp-ptrace.c     |  2 ++
+ tools/testing/selftests/arm64/fp/fp-ptrace.h     |  6 +-----
+ tools/testing/selftests/arm64/fp/sve-test.S      |  5 +++--
+ tools/testing/selftests/arm64/fp/za-fork-asm.S   |  3 ++-
+ tools/testing/selftests/arm64/fp/za-test.S       |  6 ++++--
+ tools/testing/selftests/arm64/fp/zt-test.S       |  5 +++--
+ 8 files changed, 36 insertions(+), 22 deletions(-)
 
+diff --git a/tools/testing/selftests/arm64/fp/Makefile b/tools/testing/selftests/arm64/fp/Makefile
+index d171021e4cdd1a880f842c7d58b1b149e79e4794..da808074e6ca9388c0ab7a716632742d1a8acbf4 100644
+--- a/tools/testing/selftests/arm64/fp/Makefile
++++ b/tools/testing/selftests/arm64/fp/Makefile
+@@ -3,7 +3,13 @@
+ # A proper top_srcdir is needed by KSFT(lib.mk)
+ top_srcdir = $(realpath ../../../../../)
+ 
+-CFLAGS += $(KHDR_INCLUDES)
++ARCH_TOOLS_INCLUDES=\
++	-I${top_srcdir}/tools/include \
++	-I${top_srcdir}/tools/arch/arm64/include \
++	-I${top_srcdir}/tools/arch/arm64/include/generated
++
++CFLAGS += $(KHDR_INCLUDES) $(ARCH_TOOLS_INCLUDES)
++ASFLAGS += -D__ASSEMBLY__ $(ARCH_TOOLS_INCLUDES)
+ 
+ TEST_GEN_PROGS := \
+ 	fp-ptrace \
+@@ -26,18 +32,18 @@ EXTRA_CLEAN += $(OUTPUT)/asm-utils.o $(OUTPUT)/rdvl.o $(OUTPUT)/za-fork-asm.o
+ 
+ # Build with nolibc to avoid effects due to libc's clone() support
+ $(OUTPUT)/fp-pidbench: fp-pidbench.S $(OUTPUT)/asm-utils.o
+-	$(CC) -nostdlib $^ -o $@
++	$(CC) $(ASFLAGS) -nostdlib $^ -o $@
+ $(OUTPUT)/fp-ptrace: fp-ptrace.c fp-ptrace-asm.S
+ $(OUTPUT)/fpsimd-test: fpsimd-test.S $(OUTPUT)/asm-utils.o
+-	$(CC) -nostdlib $^ -o $@
++	$(CC) $(ASFLAGS) -nostdlib $^ -o $@
+ $(OUTPUT)/rdvl-sve: rdvl-sve.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/rdvl-sme: rdvl-sme.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/sve-ptrace: sve-ptrace.c
+ $(OUTPUT)/sve-probe-vls: sve-probe-vls.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/sve-test: sve-test.S $(OUTPUT)/asm-utils.o
+-	$(CC) -nostdlib $^ -o $@
++	$(CC) $(ASFLAGS) -nostdlib $^ -o $@
+ $(OUTPUT)/ssve-test: sve-test.S $(OUTPUT)/asm-utils.o
+-	$(CC) -DSSVE -nostdlib $^ -o $@
++	$(CC) -DSSVE $(ASFLAGS) -nostdlib $^ -o $@
+ $(OUTPUT)/vec-syscfg: vec-syscfg.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/vlset: vlset.c
+ $(OUTPUT)/za-fork: za-fork.c $(OUTPUT)/za-fork-asm.o
+@@ -46,9 +52,9 @@ $(OUTPUT)/za-fork: za-fork.c $(OUTPUT)/za-fork-asm.o
+ 		-static -ffreestanding -Wall $^ -o $@
+ $(OUTPUT)/za-ptrace: za-ptrace.c
+ $(OUTPUT)/za-test: za-test.S $(OUTPUT)/asm-utils.o
+-	$(CC) -nostdlib $^ -o $@
++	$(CC) $(ASFLAGS) -nostdlib $^ -o $@
+ $(OUTPUT)/zt-ptrace: zt-ptrace.c
+ $(OUTPUT)/zt-test: zt-test.S $(OUTPUT)/asm-utils.o
+-	$(CC) -nostdlib $^ -o $@
++	$(CC) $(ASFLAGS) -nostdlib $^ -o $@
+ 
+ include ../../lib.mk
 diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S b/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
-index 7ad59d92d02b28e4a6b328fde96039329ea8862a..5e7e9c878f2ce797e3ba5f4033a42526830393e6 100644
+index 5e7e9c878f2ce797e3ba5f4033a42526830393e6..4a9242296ef75cf1a83ec561cda11a31e9f69bd4 100644
 --- a/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
 +++ b/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
-@@ -15,10 +15,7 @@
- 
- // Load and save register values with pauses for ptrace
+@@ -8,6 +8,11 @@
+ // break on a further breakpoint
  //
--// x0 - SVE in use
--// x1 - SME in use
--// x2 - SME2 in use
--// x3 - FA64 supported
-+// x0 - HAVE_ flags indicating which features are in use
  
- .globl load_and_save
- load_and_save:
-@@ -44,7 +41,7 @@ load_and_save:
- 	ldp	q30, q31, [x7, #16 * 30]
++/* The build system is dumb and doesn't do this for us */
++#define __ASSEMBLY__
++
++#include <asm/sysreg.h>
++
+ #include "fp-ptrace.h"
+ #include "sme-inst.h"
  
- 	// SME?
--	cbz	x1, check_sve_in
-+	tbz	x0, #HAVE_SME_SHIFT, check_sve_in
- 
- 	adrp	x7, svcr_in
+@@ -47,7 +52,7 @@ load_and_save:
  	ldr	x7, [x7, :lo12:svcr_in]
-@@ -64,7 +61,7 @@ load_and_save:
- 	bne	1b
+ 	// SVCR is 0 by default, avoid triggering SME if not in use
+ 	cbz	x7, check_sve_in
+-	msr	S3_3_C4_C2_2, x7
++	msr	REG_SVCR, x7
  
- 	// ZT?
--	cbz	x2, check_sm_in
-+	tbz	x0, #HAVE_SME2_SHIFT, check_sm_in
- 	adrp	x6, zt_in
- 	add	x6, x6, :lo12:zt_in
- 	_ldr_zt 6
-@@ -72,12 +69,16 @@ load_and_save:
- 	// In streaming mode?
- check_sm_in:
- 	tbz	x7, #SVCR_SM_SHIFT, check_sve_in
--	mov	x4, x3		// Load FFR if we have FA64
-+
-+	// Load FFR if we have FA64
-+	mov	x4, #0
-+	tbz	x0, #HAVE_FA64_SHIFT, load_sve
-+	mov	x4, #1
- 	b	load_sve
- 
- 	// SVE?
- check_sve_in:
--	cbz	x0, wait_for_writes
-+	tbz	x0, #HAVE_SVE_SHIFT, wait_for_writes
- 	mov	x4, #1
- 
- load_sve:
-@@ -165,8 +166,7 @@ wait_for_writes:
- 	stp	q28, q29, [x7, #16 * 28]
- 	stp	q30, q31, [x7, #16 * 30]
- 
--	// SME?
--	cbz	x1, check_sve_out
-+	tbz	x0, #HAVE_SME_SHIFT, check_sve_out
- 
- 	rdsvl	11, 1
+ 	// ZA?
+ 	tbz	x7, #SVCR_ZA_SHIFT, check_sm_in
+@@ -172,7 +177,7 @@ wait_for_writes:
  	adrp	x6, sme_vl_out
-@@ -187,7 +187,7 @@ wait_for_writes:
- 	bne	1b
+ 	str	x11, [x6, :lo12:sme_vl_out]
  
- 	// ZT?
--	cbz	x2, check_sm_out
-+	tbz	x0, #HAVE_SME2_SHIFT, check_sm_out
- 	adrp	x6, zt_out
- 	add	x6, x6, :lo12:zt_out
- 	_str_zt 6
-@@ -195,12 +195,16 @@ wait_for_writes:
- 	// In streaming mode?
- check_sm_out:
- 	tbz	x7, #SVCR_SM_SHIFT, check_sve_out
--	mov	x4, x3				// FFR?
-+
-+	// Do we have FA64 and FFR?
-+	mov	x4, #0
-+	tbz	x0, #HAVE_FA64_SHIFT, read_sve
-+	mov	x4, #1
- 	b	read_sve
+-	mrs	x7, S3_3_C4_C2_2
++	mrs	x7, REG_SVCR
+ 	adrp	x6, svcr_out
+ 	str	x7, [x6, :lo12:svcr_out]
  
- 	// SVE?
- check_sve_out:
--	cbz	x0, wait_for_reads
-+	tbz	x0, #HAVE_SVE_SHIFT, wait_for_reads
- 	mov	x4, #1
- 
- 	rdvl	x7, #1
-@@ -271,7 +275,7 @@ wait_for_reads:
- 	brk #0
+@@ -276,7 +281,7 @@ wait_for_reads:
  
  	// Ensure we don't leave ourselves in streaming mode
--	cbz	x1, out
-+	tbz	x0, #HAVE_SME_SHIFT, out
- 	msr	S3_3_C4_C2_2, xzr
+ 	tbz	x0, #HAVE_SME_SHIFT, out
+-	msr	S3_3_C4_C2_2, xzr
++	msr	REG_SVCR, xzr
  
  out:
+ 	ldp	x11, x12, [sp, #-0x10]
 diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-index c7ceafe5f4712b2c93823c1025f3a23ac0594325..d96af27487fa642e94ecc971f53cb78c233e7b44 100644
+index d96af27487fa642e94ecc971f53cb78c233e7b44..22d52a75ac9687673c4354f66abcf7204ce17875 100644
 --- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
 +++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-@@ -82,7 +82,7 @@ uint64_t sve_vl_out;
- uint64_t sme_vl_out;
- uint64_t svcr_in, svcr_expected, svcr_out;
+@@ -27,6 +27,8 @@
+ #include <asm/sve_context.h>
+ #include <asm/ptrace.h>
  
--void load_and_save(int sve, int sme, int sme2, int fa64);
-+void load_and_save(int flags);
- 
- static bool got_alarm;
- 
-@@ -198,7 +198,7 @@ static int vl_expected(struct test_config *config)
- 
- static void run_child(struct test_config *config)
- {
--	int ret;
-+	int ret, flags;
- 
- 	/* Let the parent attach to us */
- 	ret = ptrace(PTRACE_TRACEME, 0, 0, 0);
-@@ -224,8 +224,17 @@ static void run_child(struct test_config *config)
- 	}
- 
- 	/* Load values and wait for the parent */
--	load_and_save(sve_supported(), sme_supported(),
--		      sme2_supported(), fa64_supported());
-+	flags = 0;
-+	if (sve_supported())
-+		flags |= HAVE_SVE;
-+	if (sme_supported())
-+		flags |= HAVE_SME;
-+	if (sme2_supported())
-+		flags |= HAVE_SME2;
-+	if (fa64_supported())
-+		flags |= HAVE_FA64;
++#include <asm/sysreg.h>
 +
-+	load_and_save(flags);
+ #include "../../kselftest.h"
  
- 	exit(0);
- }
+ #include "fp-ptrace.h"
 diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.h b/tools/testing/selftests/arm64/fp/fp-ptrace.h
-index db4f2c4d750c5c04e3d257e37a1966296ca74956..36ca627e1980f6a384d9ed0f2e9d4bd32d90f893 100644
+index 36ca627e1980f6a384d9ed0f2e9d4bd32d90f893..a3849817cf4ee23879da835cb7f66821b5e09bd0 100644
 --- a/tools/testing/selftests/arm64/fp/fp-ptrace.h
 +++ b/tools/testing/selftests/arm64/fp/fp-ptrace.h
-@@ -10,4 +10,14 @@
- #define SVCR_SM (1 << SVCR_SM_SHIFT)
- #define SVCR_ZA (1 << SVCR_ZA_SHIFT)
+@@ -4,11 +4,7 @@
+ #ifndef FP_PTRACE_H
+ #define FP_PTRACE_H
  
-+#define HAVE_SVE_SHIFT		0
-+#define HAVE_SME_SHIFT		1
-+#define HAVE_SME2_SHIFT		2
-+#define HAVE_FA64_SHIFT		3
-+
-+#define HAVE_SVE	(1 << HAVE_SVE_SHIFT)
-+#define HAVE_SME	(1 << HAVE_SME_SHIFT)
-+#define HAVE_SME2	(1 << HAVE_SME2_SHIFT)
-+#define HAVE_FA64	(1 << HAVE_FA64_SHIFT)
-+
+-#define SVCR_SM_SHIFT 0
+-#define SVCR_ZA_SHIFT 1
+-
+-#define SVCR_SM (1 << SVCR_SM_SHIFT)
+-#define SVCR_ZA (1 << SVCR_ZA_SHIFT)
++#include <asm/sysreg.h>
+ 
+ #define HAVE_SVE_SHIFT		0
+ #define HAVE_SME_SHIFT		1
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index fff60e2a25addfd4850ef71aa3cf6535ac880ffd..20da6398f98afaa410d81b2d776643b4d7716f35 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -10,6 +10,7 @@
+ // (leave it running for as long as you want...)
+ // kill $pids
+ 
++#include <asm/sysreg.h>
+ #include <asm/unistd.h>
+ #include "assembler.h"
+ #include "asm-offsets.h"
+@@ -474,7 +475,7 @@ function _start
+ //	svc	#0
+ 
+ #ifdef SSVE
+-	mrs	x0, S3_3_C4_C2_2	// SVCR should have ZA=0,SM=1
++	mrs	x0, REG_SVCR	// SVCR should have ZA=0,SM=1
+ 	and	x1, x0, #3
+ 	cmp	x1, #1
+ 	b.ne	svcr_barf
+@@ -516,7 +517,7 @@ function barf
+ 	mov	x12, x2	// data size
+ 
+ #ifdef SSVE
+-	mrs	x13, S3_3_C4_C2_2
++	mrs	x13, REG_SVCR
  #endif
+ 
+ 	puts	"Mismatch: PID="
+diff --git a/tools/testing/selftests/arm64/fp/za-fork-asm.S b/tools/testing/selftests/arm64/fp/za-fork-asm.S
+index 2fafadd491c326a31d6193551d6b26835ac7ade0..13d882ec40f2f5ab9fb6ab776e9a3e498594680d 100644
+--- a/tools/testing/selftests/arm64/fp/za-fork-asm.S
++++ b/tools/testing/selftests/arm64/fp/za-fork-asm.S
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ // Copyright (C) 2021 ARM Limited.
+ 
++#include <asm/sysreg.h>
+ #include "sme-inst.h"
+ 
+ .arch_extension sve
+@@ -35,7 +36,7 @@ fork_test:
+ .globl verify_fork
+ verify_fork:
+ 	// SVCR should have ZA=1, SM=0
+-	mrs	x0, S3_3_C4_C2_2
++	mrs	x0, REG_SVCR
+ 	and	x1, x0, #3
+ 	cmp	x1, #2
+ 	beq	1f
+diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
+index 095b45531640966e685408057c08ada67e68998b..fc8e1f47d6463efd8e59221b14b2502e960e64c4 100644
+--- a/tools/testing/selftests/arm64/fp/za-test.S
++++ b/tools/testing/selftests/arm64/fp/za-test.S
+@@ -10,6 +10,8 @@
+ // (leave it running for as long as you want...)
+ // kill $pids
+ 
++
++#include <asm/sysreg.h>
+ #include <asm/unistd.h>
+ #include "assembler.h"
+ #include "asm-offsets.h"
+@@ -305,7 +307,7 @@ function _start
+ 1:
+ 	svc	#0
+ 
+-	mrs	x0, S3_3_C4_C2_2	// SVCR should have ZA=1,SM=0
++	mrs	x0, REG_SVCR	// SVCR should have ZA=1,SM=0
+ 	and	x1, x0, #3
+ 	cmp	x1, #2
+ 	b.ne	svcr_barf
+@@ -334,7 +336,7 @@ function barf
+ //	svc	#0
+ // end hack
+ 
+-	mrs	x13, S3_3_C4_C2_2
++	mrs	x13, REG_SVCR
+ 
+ 	smstop
+ 	mov	x10, x0	// expected data
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index b5c81e81a37946c1bffe810568855939e9ceb08e..0066ba3d5818beda9901bead8725d3909714ddeb 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -6,6 +6,7 @@
+ // Repeatedly writes unique test patterns into ZT0
+ // and reads them back to verify integrity.
+ 
++#include <asm/sysreg.h>
+ #include <asm/unistd.h>
+ #include "assembler.h"
+ #include "asm-offsets.h"
+@@ -244,7 +245,7 @@ function _start
+ 	mov	x8, #__NR_sched_yield	// Encourage preemption
+ 	svc	#0
+ 
+-	mrs	x0, S3_3_C4_C2_2	// SVCR should have ZA=1,SM=0
++	mrs	x0, REG_SVCR	// SVCR should have ZA=1,SM=0
+ 	and	x1, x0, #3
+ 	cmp	x1, #2
+ 	b.ne	svcr_barf
+@@ -268,7 +269,7 @@ function barf
+ //	svc	#0
+ // end hack
+ 
+-	mrs	x13, S3_3_C4_C2_2
++	mrs	x13, REG_SVCR
+ 	smstop
+ 	mov	x10, x0	// expected data
+ 	mov	x11, x1	// actual data
 
 -- 
 2.39.2
