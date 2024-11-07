@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6B5D44D56
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF5ED44D56
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0KSHsMKeAaP2NyytT4cGNT2lzMnqZuAvu8V5wHhb+MQ=; b=ScVndhHfGM4fzxoiKJg5XRuMCp
-	vk2pnegpgiEiXo9xLCZQ7VgkjtossuS96Ivy9DmnS2MPLpPmS1M8GrBdZe2Kvw8I70QY/G/Jr+B/r
-	+wq7B4KNc1nJR1WZi0wEyun5D7nbT1Z+ycujv7RxXNtc3ixy1JF/FqDAV6t+Jm14Xu4xXpzhwrTzs
-	ZfE94k62ig73BEMrYoTLdowwmSNaDq97eqhlLRCYsizTwytpoxOxTl2kxUxsGwK/32S4K+e0DiyFU
-	lCPdR8XLGEI1Wj60mG+Z/cbIO7jYQOTaJa6E7Os1ltnYvZTT40VFpydILK1HgisopZpEcQ/MhFltf
-	gEVI4SQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+1qLLA7rZ+s0MA27nCdKQOKEZrSgHLBdQd9OWvEge48=; b=e6N0YjY46cftKeJm3MNvMdKjTX
+	6yaN78JMtsVIP+XYEGnwz0q8NPKkSADzuOETzWdtNGmQ1ahROh/E1Gd0S+GTxCew4h+GWnLNc2tUp
+	llXMa6dE77O/JUm5lz+kJWr6dRIxPYGQOy4H3k2Wv1yemZWQsBJ1NEdSvexQ9tzRU75NEafec/Y+B
+	8prNW9jtiTiUnGzbLW11TUBtDLHp5lmvj8BGuyoNjR1FI2lW8l1DFJdoT7Zj70u/JQ8Fe4GfZYhNU
+	qlNu4NZLmlJNSSAom6MMYVSvpgIOjWupra7NH3tfvIReRsBUwRIVPdw4TDTik687R8DOKviWE4hoK
+	Wfe4qc7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zz5-00000006X2n-2tHJ;
-	Thu, 07 Nov 2024 10:43:27 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1t900r-00000006XmP-0xWT;
+	Thu, 07 Nov 2024 10:45:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ztR-00000006VUx-0ZJm;
-	Thu, 07 Nov 2024 10:37:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730975855;
-	bh=jRvsshBvtU/WBgIHhfAeu/Lb0e0oxCz8G6yAfOku9p0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dh7LiPnQl8luK4lXoov3CcdVUIXDM0d4+LzuIqO0dFGeYrmNwA2HtxutzHJ6Yoa9m
-	 VoFOSZIHtd9yzP3ssnHOBGW+p4DPeBQds+FUXwJC1EPurG6JCbmTTvbptIRVn6Eu1s
-	 EIz5obxv8S5gMR+NYZZYdMMkWcsQD0l6tUHPqJOxNCsOhKwjjgk3TDE2K4sPiKs12A
-	 LiV62UIWXOc0yRHa307dOKLCsZdCqJblBYz/KrjEn6hyTip8Hw2fbKFu4ota9klOwj
-	 slQiT/OqZQDXVKopjaUodcWkuZZW8HVn+6u8yZkeL8Vi4Tgd2/UDJYh4TUjUNYu0tA
-	 nBvmKjihEomvw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0700917E35CB;
-	Thu,  7 Nov 2024 11:37:34 +0100 (CET)
-Message-ID: <59f4bcc1-c752-4f2f-8e55-349cc2432b8a@collabora.com>
-Date: Thu, 7 Nov 2024 11:37:34 +0100
+	id 1t8zw7-00000006WBt-2LTq;
+	Thu, 07 Nov 2024 10:40:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1954D5C5662;
+	Thu,  7 Nov 2024 10:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC7EC4CECC;
+	Thu,  7 Nov 2024 10:40:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730976022;
+	bh=VRa2mI7dVpDSpKy9Wwljp/gFO/T3/KSxHI247WS5TrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VADCOzFPpJ4Ika22a9Ctfw75oRTQdgYokAlAjZd7OPy2rtj96ZMEvXjBocKAby9Sj
+	 LNDIf1+TNqRu9rzfDXyfZGArMqnzr5eD29925xfyx2xbKcm1+kFHQQz1ULdYqt5IUi
+	 xzXk2O8tgvikkGJnkUJbf00OfoN5fMdTuOf01iVZaCBCRakNRvw1zzcsdB8pdbrSFx
+	 /zSVDyHU/BRFTb1/BtXuJi1e3AR6GVVUZfpsNTmpnOpDoosHtpr3fOVmKHIiYfMdBZ
+	 K80KZOxtyfYqsQtuLxFCIbVIm5W1Xurj/6Vws6p7gBL/LO8dDcVGrfaTQ8e9Uik1Nn
+	 rQGnyoryKt0Eg==
+Date: Thu, 7 Nov 2024 11:40:16 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: clock: actions,owl-cmu: convert to YAML
+Message-ID: <4kmt23n5v5ppqf3sc5bdag76r7vxsnryazh5xytfevt25c3wrq@ptnk5wpb67ol>
+References: <20241106153141.375389-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: mediatek: Introduce MT8188 Geralt
- platform based Ciri
-To: Fei Shao <fshao@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org
-References: <20241105093222.4055774-1-fshao@chromium.org>
- <20241105093222.4055774-3-fshao@chromium.org>
- <b66dbf9e-b35b-482c-9eb7-112ef1f398d6@collabora.com>
- <CAC=S1ngozo11g1vF2jnHjTLcNmP8tOMsQhK+LR0QWqoeXwSJjg@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAC=S1ngozo11g1vF2jnHjTLcNmP8tOMsQhK+LR0QWqoeXwSJjg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241106153141.375389-1-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_023737_394942_1ADAAFA1 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20241107_024023_670385_E782102D 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,156 +74,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/11/24 07:58, Fei Shao ha scritto:
-> On Wed, Nov 6, 2024 at 9:19 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> Il 05/11/24 10:30, Fei Shao ha scritto:
->>> Introduce MT8188-based Chromebook Ciri, also known commercially as
->>> Lenovo Chromebook Duet (11", 9).
->>>
->>> Ciri is a detachable device based on the Geralt design, where Geralt is
->>> the codename for the MT8188 platform. Ciri offers 8 SKUs to accommodate
->>> different combinations of second-source components, including:
->>> - audio codecs (RT5682S and ES8326)
->>> - speaker amps (TAS2563 and MAX98390)
->>> - MIPI-DSI panels (BOE nv110wum-l60 and IVO t109nw41)
->>>
->>> Signed-off-by: Fei Shao <fshao@chromium.org>
->>> ---
->>>
->>> Changes in v2:
->>> - remove invalid or undocumented properties
->>>       e.g. mediatek,dai-link, maxim,dsm_param_name etc.
->>> - remove touchscreen as the driver is not yet accepted in upstream
->>> - update sound DAI link node name to match the binding
->>> - add missing pinctrls in audio codec nodes
->>>
->>>    arch/arm64/boot/dts/mediatek/Makefile         |    8 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku0.dts  |   11 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku1.dts  |   60 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku2.dts  |   56 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku3.dts  |   15 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku4.dts  |   43 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku5.dts  |   73 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku6.dts  |   69 +
->>>    .../dts/mediatek/mt8188-geralt-ciri-sku7.dts  |   47 +
->>>    .../boot/dts/mediatek/mt8188-geralt-ciri.dtsi |  397 +++++
->>>    .../boot/dts/mediatek/mt8188-geralt.dtsi      | 1492 +++++++++++++++++
->>>    11 files changed, 2271 insertions(+)
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
->>>    create mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
->>>
-> [...]
+On Wed, Nov 06, 2024 at 05:31:41PM +0200, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl CMU bindings to DT schema.
 > 
-
-[...]
-
->>> +&pmic {
->>> +     interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
->>> +};
->>> +
->>> +&scp {
->>
->> Is this SCP-dual or SCP?
->> I see SCP, but I also see a SCP-Dual memory region... what's going on here?
->>
->> Of course, the SCP-Dual won't work if you don't override the compatible string...
+> Changes during conversion:
+>  - Since all Actions Semi Owl SoCs utilize the internal low frequency
+>    oscillator as a parent for some clocks, require it.
 > 
-> To clarify, the second SCP core is used for MIPI camera in downstream,
-> and I deliberately only describe the first SCP core here since the MTK
-> camera ISP driver isn't in upstream at the moment.
-> I had a fixup patch for removing the scp-dual reserved memory region,
-> but likely it was missing during the rebase... let me check again if
-> it can be removed, just in case there's firmware protecting the region
-> and the kernel shouldn't access it.
-> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+> v2: drop address and size cells from example
 
-Hmm... but the second SCP core can still be brought up, even if the MIPI Camera
-driver is not upstreamed yet, right?
+...
 
-That shouldn't cause lockups and/or other kinds of bad behavior, and should
-bring up a core and just never use it, without any particular issues.
+> +description: |
+> +  The Actions Semi Owl Clock Management Unit generates and supplies clock
+> +  to various controllers within the SoC.
+> +
+> +  All available clocks are defined as preprocessor macros in
+> +  include/dt-bindings/clock/ headers.
 
-If we can enable the secondary core, let's just go for it.. as that will help
-specifying the exact memory layout of this board (and failing to do that may
-create some other issues, that's why I'm proposing to enable that even if it
-is not really used in this case).
+You could list the headers. Otherwise it is pretty obvious and could be
+skipped.
 
-What do you think? :-)
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - actions,s500-cmu
+> +      - actions,s700-cmu
+> +      - actions,s900-cmu
+> +
+> +  clocks:
+> +    items:
+> +      - description: Host oscillator source
+> +      - description: Internal low frequency oscillator source
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#clock-cells"
 
->>
->>> +     firmware-name = "mediatek/mt8188/scp.img";
->>> +     memory-region = <&scp_mem>;
->>> +     pinctrl-names = "default";
->>> +     pinctrl-0 = <&scp_pins>;
->>> +     status = "okay";
->>> +
->>> +     cros-ec-rpmsg {
->>> +             compatible = "google,cros-ec-rpmsg";
->>> +             mediatek,rpmsg-name = "cros-ec-rpmsg";
->>> +     };
->>> +};
->>> +
->>> +&sound {
->>> +     compatible = "mediatek,mt8188-nau8825";
->>> +     model = "mt8188_m98390_8825";
->>> +     pinctrl-names = "aud_etdm_hp_on",
->>> +                     "aud_etdm_hp_off",
->>> +                     "aud_etdm_spk_on",
->>> +                     "aud_etdm_spk_off",
->>> +                     "aud_mtkaif_on",
->>> +                     "aud_mtkaif_off";
->>
->>          pinctrl-names = "aud_etdm_hp_on", "aud_etdm_hp_off",
->>                          "aud_etdm_spk_on", "aud_etdm_spk_off",
->>                          "aud_mtkaif_on", "aud_mtkaif_off";
-> 
-> Acked.
-> 
->>
->>> +     pinctrl-0 = <&aud_etdm_hp_on>;
->>> +     pinctrl-1 = <&aud_etdm_hp_off>;
->>> +     pinctrl-2 = <&aud_etdm_spk_on>;
->>> +     pinctrl-3 = <&aud_etdm_spk_off>;
->>> +     pinctrl-4 = <&aud_mtkaif_on>;
->>> +     pinctrl-5 = <&aud_mtkaif_off>;
->>
->> Add a comment:
->>
->>          /* The audio-routing is defined in each board dts */
->>
->>> +     audio-routing = "ETDM1_OUT", "ETDM_SPK_PIN",
->>> +                     "ETDM2_OUT", "ETDM_HP_PIN",
->>> +                     "ETDM1_IN", "ETDM_SPK_PIN",
->>> +                     "ETDM2_IN", "ETDM_HP_PIN",
->>> +                     "ADDA Capture", "MTKAIF_PIN",
->>> +                     "Headphone Jack", "HPOL",
->>> +                     "Headphone Jack", "HPOR",
->>> +                     "MIC", "Headset Mic",
->>> +                     "Left Spk", "Front Left BE_OUT",
->>> +                     "Right Spk", "Front Right BE_OUT",
->>> +                     "Rear Left Spk", "Rear Left BE_OUT",
->>> +                     "Rear Right Spk", "Rear Right BE_OUT";
->>> +
->>
->> ...and remove the audio-routing from this dtsi; it's anyway being
->> overridden by the -ciri.dtsi devicetree...
-> 
-> Acknowledged, and thanks for all the feedback here.
-> 
+In the future: please keep the same order of items here in required: as
+in properties:. No need to resend just for that... but:
 
-You're welcome :-)
+The clocks property were required in the old binding.
 
-Cheers,
-Angelo
+
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    cmu: clock-controller@e0160000 {
+
+Drop unused label 'cmu'
+
+Best regards,
+Krzysztof
 
 
