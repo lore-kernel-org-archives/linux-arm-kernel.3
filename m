@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC889D4336D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0239FD4336F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=7+MSWZ3O7GR/ROLyIQXfwA8Pb+NeBIp0y9XyrMxs8QQ=; b=bKE46SEufO/aF0
-	B7QY4KwIqHHE4fIsRaRkYnL8YuU4zPz0fhT/faKUSSChYsoxEioZJBJgFUJpADiIM9LZW0BTK7fAc
-	TzE2OmsV0AsdDDS/IE2av0zcxK4qHRvww7MtVw96Me92ynWL3F/20Q08OmAla9yz3dCjRRMU8D9Ip
-	LPmE5+zflltxleIWqZd8qXMdkL98ExnsTO4CmqKdyFPyr4H3gxhbQd1vhZmfmJhKmN2dT7/Qf8Kue
-	og0vS6/Gl85X4cbEGFh+OrsxlRRhLHLJ0AdnBbYnnd8WGnvI6NZU7kGfDVMb9QC9Mmk2VdXFc0Vov
-	lJJTC7LY4HyNW2xHKTZA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mvitz88nMRcF5L9IC1TcF5EovfY75x7QV/h+zTVJIRE=; b=LX4t5vZxUuXaagHexfIgy5Dism
+	qRiTp4JnCl/XtEJuExBEHfbHjK4cDdEGSpaYikMo+dak3FZ8Yn3e3ccviTXZHXluAfw4G+fOt3O8b
+	NWjgb6doc+vcS2lHyUd3zt4fnjpvwqsQ6ON6FuI+ItC5BpWCBUiBxlIYz9D4h0QTW/BONS6mRcNG1
+	otG1sgij6BtchA6Rnawwv0qSeF4r8Ut0UlZqsvufgekN2a0mBnnNX4+C/hrP9fHNpfnfniJvnTeXC
+	TRaUToAteauQV2m6EShqRTaTZs3wL9YmU2l44u9k59EFCAgbmvBPIBLxLbinb2zG+qsiF3AbfNKsY
+	YTKtrRCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94M0-00000007Qhr-21wI;
-	Thu, 07 Nov 2024 15:23:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94Ie-00000007QEM-46NH;
-	Thu, 07 Nov 2024 15:19:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 92E015C4AC4;
-	Thu,  7 Nov 2024 15:19:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0946C4CECD;
-	Thu,  7 Nov 2024 15:19:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730992795;
-	bh=A8YzchHkB7DFLxQ1pkz4RahkI6OHG7kU5FDQKVKsZYs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=WTV9NgC98AZVB9z8/2hlOTj3wjF8lh+yzQtX3pGqSqq4CoSyLlgU5D5xe4UeW5bS4
-	 rDlwj18jamA1MUpzkGLEW6ZxJBlo6/5UyqekHUlttGTYzJ/oOp74PSzfMqujpcC8zt
-	 /v3BheXuFcnWjmoMT9/uU5UuLFWj/pbeG0j0Cwt2peiMqe5bDWz9hUQZuBCHYuIL3B
-	 hToK8XpEHoigZRoiQc0GJ5+vYefqaBirBmMJQRq3Mm2IARKOD4+yWCeNu39EoXLrBb
-	 XCPQZLdZfA6T8tdZC4iQeMt94g4/f9ZcD07meUFv+i7EuhkAzXAqZRACmVPRjDe//X
-	 zbFbcZ5lFMdkA==
-Date: Thu, 7 Nov 2024 09:19:53 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] PCI: mediatek-gen3: rely on clk_bulk_prepare_enable
- in mtk_pcie_en7581_power_up
-Message-ID: <20241107151953.GA1614560@bhelgaas>
+	id 1t94Q6-00000007RS6-0RgB;
+	Thu, 07 Nov 2024 15:27:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t94OL-00000007RCz-3A7Q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 15:25:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63405497;
+	Thu,  7 Nov 2024 07:26:17 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 304C53F66E;
+	Thu,  7 Nov 2024 07:25:47 -0800 (PST)
+Date: Thu, 7 Nov 2024 15:25:42 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Graham Woodward <graham.woodward@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] perf arm-spe: Prepare for adding data source
+ packet implementations for other cores
+Message-ID: <20241107152542.GC47850@e132581.arm.com>
+References: <20241106193740.6159-1-ilkka@os.amperecomputing.com>
+ <20241106193740.6159-2-ilkka@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241107-pcie-en7581-fixes-v1-2-af0c872323c7@kernel.org>
+In-Reply-To: <20241106193740.6159-2-ilkka@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_071957_085035_C2055F3C 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20241107_072549_907559_14437FE9 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,60 +77,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 02:50:54PM +0100, Lorenzo Bianconi wrote:
-> Squash clk_bulk_prepare and clk_bulk_enable in
-> clk_bulk_prepare_enable in mtk_pcie_en7581_power_up routine
+Hi Ilkka,
 
-Thank you, this is much better.
+This is a good refactoring for me.  Just several minor comments.
 
-Can you add "()" after function names in subject and commit logs here
-and in other patches?
-
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On Wed, Nov 06, 2024 at 07:37:39PM +0000, Ilkka Koskinen wrote:
+> 
+> Split Data Source Packet handling to prepare adding support for
+> other implementations.
+> 
+> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 > ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 14 +++-----------
->  1 file changed, 3 insertions(+), 11 deletions(-)
+>  tools/perf/util/arm-spe.c | 65 ++++++++++++++++++++++++---------------
+>  1 file changed, 40 insertions(+), 25 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index 0fac0b9fd785e463d26d29d695b923db41eef9cc..8c8c733a145634cdbfefd339f4a692f25a6e24de 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -903,12 +903,6 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  	pm_runtime_enable(dev);
->  	pm_runtime_get_sync(dev);
->  
-> -	err = clk_bulk_prepare(pcie->num_clks, pcie->clks);
-> -	if (err) {
-> -		dev_err(dev, "failed to prepare clock\n");
-> -		goto err_clk_prepare;
-> -	}
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index dbf13f47879c..b222557cc27a 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -103,6 +103,18 @@ struct arm_spe_queue {
+>         u32                             flags;
+>  };
+> 
+> +struct data_src {
+> +       struct midr_range midr_range;
+> +       void (*ds_synth)(const struct arm_spe_record *record,
+> +                        union perf_mem_data_src *data_src);
+> +};
+
+The naming is a bit mess. The data structure and the parameter both
+are called "data_src", though this will not cause building issue.
+
+How about rename the structure "data_src" to "data_source_handle" or
+"data_source_class"?
+
+For the "midr_range" field, I'd like to change it to a pointer:
+
+  struct midr_range *midr_range;
+
+Please see below comments, which will present the reason for defining
+it as a pointer.
+
+> +
+> +#define DS(range, func)                        \
+> +       {                                               \
+> +               .midr_range = range,                    \
+> +               .ds_synth = arm_spe__synth_##func,      \
+> +       }
+> +
+>  static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
+>                          unsigned char *buf, size_t len)
+>  {
+> @@ -430,19 +442,6 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
+>         return arm_spe_deliver_synth_event(spe, speq, event, &sample);
+>  }
+> 
+> -static const struct midr_range common_ds_encoding_cpus[] = {
+> -       MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
+> -       MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
+> -       MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C),
+> -       MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
+> -       MIDR_ALL_VERSIONS(MIDR_CORTEX_X925),
+> -       MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+> -       MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2),
+> -       MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
+> -       MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
+> -       {},
+> -};
+
+We can keep this data structure.  For Ampere CPUs, you can add a new
+data structure:
+
+  static const struct midr_range ampereone_ds_encoding_cpus[] = {
+      MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+      {},
+  };
+
 > -
->  	val = FIELD_PREP(PCIE_VAL_LN0_DOWNSTREAM, 0x47) |
->  	      FIELD_PREP(PCIE_VAL_LN1_DOWNSTREAM, 0x47) |
->  	      FIELD_PREP(PCIE_VAL_LN0_UPSTREAM, 0x41) |
-> @@ -921,17 +915,15 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
->  	      FIELD_PREP(PCIE_K_FINETUNE_MAX, 0xf);
->  	writel_relaxed(val, pcie->base + PCIE_PIPE4_PIE8_REG);
->  
-> -	err = clk_bulk_enable(pcie->num_clks, pcie->clks);
-> +	err = clk_bulk_prepare_enable(pcie->num_clks, pcie->clks);
->  	if (err) {
->  		dev_err(dev, "failed to prepare clock\n");
-> -		goto err_clk_enable;
-> +		goto err_clk_init;
->  	}
->  
->  	return 0;
->  
-> -err_clk_enable:
-> -	clk_bulk_unprepare(pcie->num_clks, pcie->clks);
-> -err_clk_prepare:
-> +err_clk_init:
->  	pm_runtime_put_sync(dev);
->  	pm_runtime_disable(dev);
->  	reset_control_assert(pcie->mac_reset);
+>  static void arm_spe__sample_flags(struct arm_spe_queue *speq)
+>  {
+>         const struct arm_spe_record *record = &speq->decoder->record;
+> @@ -532,6 +531,19 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
+>         }
+>  }
 > 
-> -- 
+> +static const struct data_src data_sources[] = {
+> +       DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_A720), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_A725), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_X3), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_X925), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2), data_source_common),
+> +       {},
+> +};
+> +
+
+As a result, we can simplify the structure as:
+
+  static const struct data_src data_sources[] = {
+         DS(common_ds_encoding_cpus, data_source_common),
+         DS(ampereone_ds_encoding_cpus, data_source_ampereone),
+  };
+
+>  static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+>                                         union perf_mem_data_src *data_src)
+>  {
+> @@ -555,12 +567,14 @@ static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+>                 data_src->mem_lvl |= PERF_MEM_LVL_REM_CCE1;
+>  }
+> 
+> -static bool arm_spe__is_common_ds_encoding(struct arm_spe_queue *speq)
+> +static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
+> +                             const struct arm_spe_record *record,
+> +                             union perf_mem_data_src *data_src)
+>  {
+>         struct arm_spe *spe = speq->spe;
+> -       bool is_in_cpu_list;
+> +       const struct data_src *src = data_sources;
+>         u64 *metadata = NULL;
+> -       u64 midr = 0;
+> +       u64 midr;
+> 
+>         /* Metadata version 1 assumes all CPUs are the same (old behavior) */
+>         if (spe->metadata_ver == 1) {
+> @@ -592,18 +606,21 @@ static bool arm_spe__is_common_ds_encoding(struct arm_spe_queue *speq)
+>                 midr = metadata[ARM_SPE_CPU_MIDR];
+>         }
+> 
+> -       is_in_cpu_list = is_midr_in_range_list(midr, common_ds_encoding_cpus);
+> -       if (is_in_cpu_list)
+> -               return true;
+> -       else
+> -               return false;
+> +       while (src->midr_range.model) {
+> +               if (is_midr_in_range(midr, &src->midr_range)) {
+> +                       src->ds_synth(record, data_src);
+> +                       return true;
+> +               }
+> +               src++;
+> +       }
+
+Here we can traverse the 'data_sources' array:
+
+          for (i = 0; i < ARRAY_SIZE(data_sources); i++) {
+               if (is_midr_in_range(midr, data_sources[i]->midr_range)) {
+                   ...
+               }
+          }
+
+Thanks,
+Leo
+
+> +
+> +       return false;
+>  }
+> 
+>  static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
+>                                       const struct arm_spe_record *record)
+>  {
+>         union perf_mem_data_src data_src = { .mem_op = PERF_MEM_OP_NA };
+> -       bool is_common = arm_spe__is_common_ds_encoding(speq);
+> 
+>         if (record->op & ARM_SPE_OP_LD)
+>                 data_src.mem_op = PERF_MEM_OP_LOAD;
+> @@ -612,9 +629,7 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
+>         else
+>                 return 0;
+> 
+> -       if (is_common)
+> -               arm_spe__synth_data_source_common(record, &data_src);
+> -       else
+> +       if (!arm_spe__synth_ds(speq, record, &data_src))
+>                 arm_spe__synth_memory_level(record, &data_src);
+> 
+>         if (record->type & (ARM_SPE_TLB_ACCESS | ARM_SPE_TLB_MISS)) {
+> --
 > 2.47.0
+> 
 > 
 
