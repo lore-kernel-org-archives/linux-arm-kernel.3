@@ -4,65 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66439D5D695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 22:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00DAD5D695
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 23:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/Fg7hJcFNbkaFQNMrRSc1TG0qh4lSIlIOsatLO1aUo=; b=JjgOy1F3f5SC4afj6bTv5o7NuM
-	LOBR+faZHfLLoJZkSMryhxlP6KsjWOtyVHDViDAY7qzMxMeuqSj14fGd0i6qF1tB8PzUbW2AJNS/A
-	6zK1BuiY21Ks91QLvPD5LlCg8h/HeEOKMpZ4Qlj86O+mTmTa7FC8Ids50aZt2OFZbHh5wOJQOdgvc
-	HCoqsTKbumsouu6XNiswjEt2ebYrgPGf7cOYbcIMo2SjcHynUuJ2VFNvx883auKJUn6C3UK4dD8Oc
-	AD3RTRB43Djh0MORUDIre7tu2IZqqRmcW2yxVw/238/Dvpi+UUn7VPagJxblt4d93RJ7rFSmEZPJh
-	QL4AUe2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+k7ybGQWeQbkRAnZeryM7CGSkMB1SjtatAYTn6jx0kc=; b=ewvViCpRMs0gfz9G+ze7TOkrAz
+	cul8fFC4D/P71/LqQnA87Gt1ec7aR/UtYisEWfBPfJpF8YK8iadKSu6m2PYbvzCYyZ28BjRiLgNOU
+	kQDl2h7kQy7GsJJ6GMgfZNAywIkUyGrp2FcsIdMG+7yMTFd6AqKvRsPc8WnnLMFrrciZU1LxZll+e
+	zb+wecrBSRyAC8EMNUq0g8G6o6hNeZMe99UdH1IlfoEfHO7wSSPstQKuQA4PfxW4IuxNxsKPqNgDP
+	uD6O57OsaBigIP4/vyYz3EhvVYyICxPps51bRa5EmgR/mA/10luhG1G8UFR/ylEdYRL+2U25TJJjZ
+	UH/3TNsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9BSl-00000008cNE-11UF;
-	Thu, 07 Nov 2024 22:58:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1t9BYq-00000008dsL-12JK;
+	Thu, 07 Nov 2024 23:05:08 +0000
+Received: from mail-vi1eur02on20621.outbound.protection.outlook.com ([2a01:111:f403:2607::621] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9BR1-00000008bry-14Py
+	id 1t9BX5-00000008dKF-0ddJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 22:57:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=p/Fg7hJcFNbkaFQNMrRSc1TG0qh4lSIlIOsatLO1aUo=; b=he9bN0s8NNYDRfG3RF5YDWFgU6
-	/EZr9xTizP07l0FGwwHdDoQFySEymwaGsAPGywABvJf9UNGeZUnEdGDqeuW/bXkbg/EvG07XEZtEf
-	MCJvWpEWGrcGBrLfuzB0HzUSMATlkn5hXs6mnP6IznI7C0J5ALBcyj+EuyQLeEkvu0yI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1t9BQo-00CWID-61; Thu, 07 Nov 2024 23:56:50 +0100
-Date: Thu, 7 Nov 2024 23:56:50 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lars Povlsen <lars.povlsen@microchip.com>,
-	Steen Hegelund <Steen.Hegelund@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Russell King <linux@armlinux.org.uk>, jacob.e.keller@intel.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next 7/7] net: lan969x: add function for configuring
- RGMII port devices
-Message-ID: <6fee4db6-0085-4ce8-a6b5-050fddd0bc5a@lunn.ch>
-References: <20241106-sparx5-lan969x-switch-driver-4-v1-0-f7f7316436bd@microchip.com>
- <20241106-sparx5-lan969x-switch-driver-4-v1-7-f7f7316436bd@microchip.com>
+	Thu, 07 Nov 2024 23:03:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=np0ujMAvoISQ3Sv0/1LqQ7Th1+jkk01oiwmj0Aslax0nkL6O7B0o8WIFBczaKxwCF+yfClAejQfDptU2LCaY8ZtCFVQXEdBPB5lIEcwHTIyucBFarisfMokEe9s8Ry55FZuZXuGoD9sq2yhs09hyVEui0UujM9O9LLuu9Vj3osvAT0WiWfaQqHJYj3Hb1+HOY+SRmUlrUYr+4iG85IIOvIoDlBNH3+OniMkW/QXwT+mHD3xlvgdv6TwHyhKmEwXksNN4c2KVdqgxW1TRhc5Oy6TZ/XfzvYGUC0OqNkTZHJ+8olxYLTsLc2CJwpkhdi0d4sxOPElFkecNuWJCfUPP3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+k7ybGQWeQbkRAnZeryM7CGSkMB1SjtatAYTn6jx0kc=;
+ b=Geuoc3eXM7zQz1QF18hUgJQf/qnyCDY7t5VqAxTA630lBeWXmNNnE9Eayr1X3p3Xm+lPERYA61Wc7c+W5SqjvV1vk74tbTof0068pa3skUg9H5fUCj7zlX3yX0LlxPRx6UGPD5QIQ1ymSi+RBEZdy9MMfcI+hSrqNjCEOtc5+9OC4RCPCH5Hd7jjR3GSa+GSJAi0VTsNTu2xDkKbFT+EQBnQQm3pZ/2wMRadlR9QhXkIGYxt2p7TZnDjoD2jz1uebQodkkHvfIMTg5XBygwFrIwp1HH+0yTOo1rP7zHJDRmGPWIYE954NaNCmc0/pckVBKy2z1IyM1NU8awL56pe2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+k7ybGQWeQbkRAnZeryM7CGSkMB1SjtatAYTn6jx0kc=;
+ b=e/AG9f/l1WAHwkArV/+SpmXwrrs+CcUAHkZWmTfn4LKtmBvntSxb3m4ZdHACCLzOT54b2Q2u8bkUPf6qGFL6X6WBct1AgVeOcwL6sbpKe3al3Uq4mYCeYPepJ8kjzszamMX8AkrNBJgnEoTsavDBDFPVxvpswQ4i1fgeuQLYvEHsKdXHH9CRkwZifk9CHwomQwbtGWIkOGxHSb79u7c6JSMbSLePIMMb01FqWZ9m6peeYnUxW5kDhYnzQtaXT7f5Hc17/HfnXzgUl17QmIgpdVuR4npE3PzBGHIKHt0tSCafmj5QWijz4Sr0lme+y7ENAw3AknHtgN+U37dJYLNimw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM0PR04MB6851.eurprd04.prod.outlook.com (2603:10a6:208:182::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.18; Thu, 7 Nov
+ 2024 23:03:14 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
+ 23:03:14 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH 0/3] iio: temperature: Add support for P3T1085
+Date: Thu, 07 Nov 2024 18:02:26 -0500
+Message-Id: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAJHLWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDQwNz3QLjEkMDC1PdtKQUC3Mjs+SkZINUJaDqgqLUtMwKsEnRsbW1APa
+ zWK5ZAAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+ Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-iio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
+ Carlos Song <carlos.song@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731020589; l=1300;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=ugUf7LXDuQ1++QqLWN64clcLePqHZHxg5norw9ccZSs=;
+ b=bYpj+uWdoW3IuzuwJttEWoaqpm2Ho7rs8LYBlY4Hp5C1SvEiOw7F87OIHzqnN0hDRk2DgIS4O
+ Nzvnb14xv8lDwJ/Dtcq8Ywv90q8TV1UU/vMIP8xOCNUsF38Pcsd3JN3
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR05CA0094.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241106-sparx5-lan969x-switch-driver-4-v1-7-f7f7316436bd@microchip.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB6851:EE_
+X-MS-Office365-Filtering-Correlation-Id: 295368e6-7026-4d5a-94b6-08dcff805bba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SUVjdEM2dEdETnFKWEhzNUpRNUlGR3RPQzQ4NzFlUitZNjF3NGZxOVlHeGVi?=
+ =?utf-8?B?TitGQng1dkwyT3lnL2FJd2lkOEZaQS9lVzZ6SmlDMzZqQVAycE1nVmplRFQw?=
+ =?utf-8?B?UFpKZEpNallVMVYxSXE4Y0hnVFplb3lQUU5EcmROSzRJQjZYNEVDUWZ1aWxT?=
+ =?utf-8?B?a0hMVDlwZzU3b3laTWFQV1FOd0ZSMXRRRHNNc0crdDB1dXAvVEZoZjZzbEdB?=
+ =?utf-8?B?RVppMURXVUsyM1cwN0hyTENOYVp0cVV4UTZnWXlXTHBhOGpKem55SGxFNzBn?=
+ =?utf-8?B?MGdsa2FsSVpTTmdBY09jQU9CbURQR3VWZXlTMUpsM0Z1ZG5sZzc2Z216TUtq?=
+ =?utf-8?B?U2FzeWNMb01WNFNIanZjU3N6SUcwVFJvYVpRcWZZQXJLMTF6YTZPTVBYQjRN?=
+ =?utf-8?B?SjNZU0hJYUpTcTg2MUxBZkVuVmZzYjNFK1FoWFlFVXhwWU84S2lJSS9PVlps?=
+ =?utf-8?B?Q25PbDdLNXZ5UUJXZ04rSHlIcnFHRHk4bHVZYkNtTmlkcWk1aTZtVFVydXFY?=
+ =?utf-8?B?UE5xdkRKQ3diZU4vTlBBZm1nZHVvbkZ4b3UxU0lCRHRtWXdPbkZPQWR5aFAw?=
+ =?utf-8?B?NzhySkhsankxUVFoWjM3Z1V5SWNMdXB2UmlLbXZ1WDRkTUVMQnJOMnhhV3dY?=
+ =?utf-8?B?b0pESHYvTDZQZHExZzlKV0RFL0U4TFVoYjJyZ2ZJVGxFN1lxMWRhck02cllu?=
+ =?utf-8?B?SmtiMFIyNkw1SUdJQXJVNFVpY0RCNCtVRnRlSHI4M0c5Tm4wcFpoMXZyb2Nw?=
+ =?utf-8?B?am8zZ2dYQVd2eEp2cTR4TnZjTnBUSC9VeUQ4QUttL0xNbzJZK1pGSDIyVnlI?=
+ =?utf-8?B?bCtFOVdjNGZwV3RkRkVuNDVTWEpWb2lVSGM0U3crSUdtdUQvcjY1YlBKZUJs?=
+ =?utf-8?B?WDlOMFhXeEkwLzVFak1Wb2lWVVJiWm9Jci80L1QxUG5UL3BRZ3JrNkl3Zy8w?=
+ =?utf-8?B?TFZXVnNSaEZpVks0WDAvdFNKL2swUWxLb3hjK0hsaG1MektCNGtnYjduK3hm?=
+ =?utf-8?B?a3YvclBrdGVLTUg1UVFScUZNTlI1cytmMDBnY2ZIcGx2Z1hNc0o5T1ovY1lX?=
+ =?utf-8?B?RElDazVjbzlOdlJDRjJOU0VkM0hwanMxWXVpZlBWTXl6VU5GbnV2TElhY00r?=
+ =?utf-8?B?ZVUrS2FERkk3ZGZyWnRQSFQxRk05Tk1GU2xqZkNRWWh3Smp0N0JZS01lM2Jz?=
+ =?utf-8?B?SUZlK2Y2SlZSbzg2cVp5QTg5V3BDRGlzckp2cFJySDFsUVpmSzBESmFXNDB5?=
+ =?utf-8?B?L3MyVlpLRytwMXhVb2JaSzhBTDZQYURIL3FBTUVMVExPL2kybytOTXk2NzZ2?=
+ =?utf-8?B?SFFzblMrWkFIT1A3dGwwaVM2V01SRVQ1dCtRSGpkSmd5Q0pLQyt0RWNrVjFX?=
+ =?utf-8?B?aDYvbUJldVdkU1NkUVdvdTBiMUFjMzRBQ0dBMUJ5S25yRkwxS3ZSY0oySytR?=
+ =?utf-8?B?QTROR0J0bzNWTlU5S3YyWG1tNzlQSncvYS8yTUd6L24vWHllNXZHbldKZWZQ?=
+ =?utf-8?B?TWViRFg1aWxEcGQ0Y0pKOTl2SFFYMDZ6cXJvL0xZQ3pLMzhXakg3OEFwSGRG?=
+ =?utf-8?B?WHhobHk0Qk5VYmlQb0g5elkzQlJ1ZW16TjlZK0hUWTRtSXpFWS9aK0MyWDdj?=
+ =?utf-8?B?TVloMFJKZFhVdmVtRTJJc1BXSy9hMnBFSEZSNEl0MXVOZ3ljV2NpMnByRmVl?=
+ =?utf-8?B?SWZMbEhKQ2VMbmhtL2czamYvTm9RRXVRbHNJR25OYk9nRERwTUw0SUN2QjFl?=
+ =?utf-8?B?Vzk0T0hvVEwrbjNQTVpKUEFCZDUvREJUUHpRMnFSc1RhZW43TjdESCtUcHZF?=
+ =?utf-8?Q?Seo0z6NVB456WlxjYanVNh6AxLWgomIL6iSm0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlZSQ1J1MWg2RUtiWXdXWkp5VEhtaGRwcXdNVUhXOUI3RWJ4eVNOaEZMZnpZ?=
+ =?utf-8?B?dEs0ejBSWTFKVG81MXM4bm15ZVRoNFZreXBJMnpQcVR4eloxVWVGVXZraElI?=
+ =?utf-8?B?anRmV2dtMmVRN3hYNnlDMnBFNy9CYitwazFVTHFxNC9LcVhFQ011YWdobjRj?=
+ =?utf-8?B?RXJ1ek00ZW04VHhvWmdZOS80UUd4V3VIL2g2bGNYaCtzR0JHVUdSeVZ1TDlK?=
+ =?utf-8?B?S01FRHUrUDFBR2xwVDBmVDhtMUJhVmt0SnAxNXZZQWF5QTBVVUdYdU95MXFF?=
+ =?utf-8?B?cW0zMHhocGw5aTBLMUJwcG9pRG84NlM3SnluZmNhY1NvY090NzJWUGcvSE5S?=
+ =?utf-8?B?Yk9ncUg4MStKS2NvYjRxZTMybk5HNisvMVg4T0VuNUwvWlVIRDZhVWZTT2c4?=
+ =?utf-8?B?Q09Ka29WbFZoZXo5Rm5GY1d1Um4yd1NwUjJYUmR2c1NRcVdQNE9YNFVvTXRQ?=
+ =?utf-8?B?cEFkV1EvVmx1YnE1OEFLT1ArQStVZzhCRkNBTDFoNkRMU3ZjcVlEekk4ejVm?=
+ =?utf-8?B?MW11MG80cUxkbXpzSXFvZWhpNkdRdU1uVkZra0pseUQ4amo4NlJSNEhXN3FP?=
+ =?utf-8?B?TWZ2WkNhZ3R0d3FkN0wrd21Sa2JWNy9mbGl3dVlaVEZuQk5MUHRVaVdOZWQ1?=
+ =?utf-8?B?NXpmZXJoRlpDUWJQb3dPZ2tyaGRNZ3Y1ajFBVDVnaVZCWTkzNDFlVC80a3VB?=
+ =?utf-8?B?UGQxVzVMQkFKRUNGNmVCYU9vclF0Njljd3FQbktCZTlVaU1oa3hYTVdBY3hM?=
+ =?utf-8?B?d1RvN3lvNHFiMmh1bU95azRjQjV6WFVETTgreTJJY0YwQTliNmY4THJBd3lR?=
+ =?utf-8?B?L2ZjUURqclNXYm9lNVdSTU9XcSs4VFB5N3JSb2Z4MmlqaTlvdDNXNTYxcDdI?=
+ =?utf-8?B?TFFiMmxEQm5HendOU0tOSFRsVmVndFdGOUNhSXdhWkdBZkVoeFRENHNZdVNN?=
+ =?utf-8?B?UDZQSGtWVFVQRlpqaFV2VUtITUNVNDcxME10Z3VUNVRxVEJxSW1lQm1WakFw?=
+ =?utf-8?B?ZTlLQ0xoZlpnenRLa2kzZFVOUUJmanpuaGYzS2p6d1hFYnA3eE0zSGVFK3pD?=
+ =?utf-8?B?VWhmSi9lTFRHZlZtL3RZemorbktJR3pFdjBqZXhrTys0bm1Wb2RiaHNCQUlY?=
+ =?utf-8?B?bFRnK0dQVmZDazdCeEkrbzBvN0EyaWZ5YnR3dE9kaWtZWXA4YmFCWkpVb2Na?=
+ =?utf-8?B?WW0yaE9rb05tUjEzcmtzaUt2YUZwUC9DbnNYYmdzdGNMTGVpelNTQ3hUN0dk?=
+ =?utf-8?B?SmhPbXBkS1JFMjVFemNxYTl2R0N4TEl6Y2dHaFNqNHd5OTNyVTF3ZkovYWh0?=
+ =?utf-8?B?V2dKelpuSUR5WUhxWDF2Y1Q3cjBHZ2s0QjBnN1BkajViT1oyWklHZkVIajE5?=
+ =?utf-8?B?NDFDc1pxcWl3azkvSHJmRjA2VFp6aXhGcTJ4RjNhK1RZeTVnVzZkSWJSeThl?=
+ =?utf-8?B?V3dMS0E5OFpqemtKeTVxVG16WGhJS1pkVXNzS0NhSW9VNGtyK3dqS3VRdmJn?=
+ =?utf-8?B?NmloUmV2OHJSNHN0azQxTHNROU5xQjR2L05UMDFXY1RYV0FoNEJJSXVwS25C?=
+ =?utf-8?B?N3lKU2RNSi9PMzhXcU9KU1BIY1dOVXNVQkZieGNScCtYRXQxZ2c0NDJzaytL?=
+ =?utf-8?B?WDN0eDBpN2s1bG9rQWJ6bEd4SXRobi9xU1VNUGNZWVBobmNLSkRneXprdENK?=
+ =?utf-8?B?QUZ0cG5KS2hoTyt6T3pSZ25WNmtHS1pFSElyZy9mSno4MU56SzVsejFZWjk0?=
+ =?utf-8?B?eXAwaWZDcVU5dXNMeUpMaW9pbXNnSWpjQzRVQnBkOEZyYWNrRUZJTWMrRFB1?=
+ =?utf-8?B?eFJyMjRBY1Q2MkI0QkRSV0xaVWUzVFdwb2FzdURaTmxHUENkK1B0WU51Z1pD?=
+ =?utf-8?B?eHFUVGhRWFdzNzhETmgyZnV0eXpHZ3FGQzViVVR2NFhGTG9ZbGxDbkJUc2hW?=
+ =?utf-8?B?ZGxWYllScm5yR2FQOXkrazNrd3AyN1pMczdnZDZkZ251ZHJpS29LSzdkY3hQ?=
+ =?utf-8?B?QnB1bGs0L2g5SzR3WDFlNEJna3hsdVFvZ1V2MTcrS1J3UjZVZ3V4cWpPeFBj?=
+ =?utf-8?B?Y2ZCNklreTM0b1E3MTdnRktjenVwejRxQ1RzUWJ2V09ZYUJIN2RCSGVQVHVz?=
+ =?utf-8?Q?ZwI3ULM+a9RE9jqGg6vSPF84D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 295368e6-7026-4d5a-94b6-08dcff805bba
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 23:03:14.0626
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ud1+7sd0Xd3b/HzDcyV3O9nZofGlxdWV8l9u57AFC+Tn6Q44TR7u5V7VOWoNYt6ZosHhSHsT6+6tpQphSGFMcg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6851
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_145703_326400_7E780E0F 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20241107_150319_236864_C6AFD768 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,87 +187,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 08:16:45PM +0100, Daniel Machon wrote:
-> The lan969x switch device includes two RGMII interfaces (port 28 and 29)
-> supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps.
-> 
-> Add new function: rgmii_config() to the match data ops, and use it to
-> configure RGMII port devices when doing a port config.  On Sparx5, the
-> RGMII configuration will always be skipped, as the is_port_rgmii() will
-> return false.
-> 
-> Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-> Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-> ---
->  drivers/net/ethernet/microchip/lan969x/lan969x.c   | 105 +++++++++++++++++++++
->  .../net/ethernet/microchip/sparx5/sparx5_main.h    |   2 +
->  .../net/ethernet/microchip/sparx5/sparx5_port.c    |   3 +
->  3 files changed, 110 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-> index cfd57eb42c04..0681913a05d4 100644
-> --- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
-> +++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
-> @@ -9,6 +9,17 @@
->  #define LAN969X_SDLB_GRP_CNT 5
->  #define LAN969X_HSCH_LEAK_GRP_CNT 4
->  
-> +#define LAN969X_RGMII_TX_CLK_DISABLE 0  /* Disable TX clock generation*/
-> +#define LAN969X_RGMII_TX_CLK_125MHZ 1   /* 1000Mbps */
-> +#define LAN969X_RGMII_TX_CLK_25MHZ  2   /* 100Mbps */
-> +#define LAN969X_RGMII_TX_CLK_2M5MHZ 3   /* 10Mbps */
-> +#define LAN969X_RGMII_PORT_START_IDX 28 /* Index of the first RGMII port */
-> +#define LAN969X_RGMII_PORT_RATE 2       /* 1000Mbps  */
-> +#define LAN969X_RGMII_SHIFT_90DEG 3     /* Phase shift 90deg. (2 ns @ 125MHz) */
-> +#define LAN969X_RGMII_IFG_TX 4          /* TX Inter Frame Gap value */
-> +#define LAN969X_RGMII_IFG_RX1 5         /* RX1 Inter Frame Gap value */
-> +#define LAN969X_RGMII_IFG_RX2 1         /* RX2 Inter Frame Gap value */
-> +
->  static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
->  	{ TARGET_CPU,                   0xc0000, 0 }, /* 0xe00c0000 */
->  	{ TARGET_FDMA,                  0xc0400, 0 }, /* 0xe00c0400 */
-> @@ -293,6 +304,99 @@ static irqreturn_t lan969x_ptp_irq_handler(int irq, void *args)
->  	return IRQ_HANDLED;
->  }
->  
-> +static int lan969x_port_config_rgmii(struct sparx5 *sparx5,
-> +				     struct sparx5_port *port,
-> +				     struct sparx5_port_config *conf)
-> +{
-> +	int tx_clk_freq, idx = port->portno - LAN969X_RGMII_PORT_START_IDX;
-> +	enum sparx5_port_max_tags max_tags = port->max_vlan_tags;
-> +	enum sparx5_vlan_port_type vlan_type = port->vlan_type;
-> +	bool dtag, dotag, tx_delay = false, rx_delay = false;
-> +	u32 etype;
-> +
-> +	tx_clk_freq = (conf->speed == SPEED_10	? LAN969X_RGMII_TX_CLK_2M5MHZ :
-> +		       conf->speed == SPEED_100 ? LAN969X_RGMII_TX_CLK_25MHZ :
-> +						  LAN969X_RGMII_TX_CLK_125MHZ);
+Add basic function support for P3T1085 temperature sensor.
+- Add binding doc trivial.yaml
+- Add basic read temperature driver
+- Update imx93-9x9-qsb.dts
 
-https://www.spinics.net/lists/netdev/msg1040925.html
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Carlos Song (1):
+      iio: temperature: Add support for P3T1085
 
-Once it is merged, i think this does what you want.
+Frank Li (2):
+      dt-bindings: trivial-devices: Add NXP P3T1085UK I3C/I2C temperature sensor
+      arm64: dts: imx93-9x9-qsb: add temp-sensor nxp,p3t1085
 
-> +	if (conf->phy_mode == PHY_INTERFACE_MODE_RGMII ||
-> +	    conf->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
-> +		rx_delay = true;
-> +
-> +	if (conf->phy_mode == PHY_INTERFACE_MODE_RGMII ||
-> +	    conf->phy_mode == PHY_INTERFACE_MODE_RGMII_RXID)
-> +		tx_delay = true;
+ .../devicetree/bindings/trivial-devices.yaml       |  2 +
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |  5 ++
+ drivers/iio/temperature/Kconfig                    |  1 +
+ drivers/iio/temperature/Makefile                   |  2 +
+ drivers/iio/temperature/p3t/Kconfig                | 29 ++++++++
+ drivers/iio/temperature/p3t/Makefile               |  5 ++
+ drivers/iio/temperature/p3t/p3t1085.h              | 31 +++++++++
+ drivers/iio/temperature/p3t/p3t1085_core.c         | 79 ++++++++++++++++++++++
+ drivers/iio/temperature/p3t/p3t1085_i2c.c          | 68 +++++++++++++++++++
+ drivers/iio/temperature/p3t/p3t1085_i3c.c          | 59 ++++++++++++++++
+ 10 files changed, 281 insertions(+)
+---
+base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
+change-id: 20241107-p3t1085-fbd8726cbc0e
 
-O.K, now warning bells are ringing in this reviews head.
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
 
-What i don't see is the value you pass to the PHY? You obviously need
-to mask out what the MAC is doing when talking to the PHY, otherwise
-both ends will add delays.
-
-And in general in Linux, we have the PHY add the delays, not the
-MAC. It is somewhat arbitrary, but the vast majority of systems do
-that. The exception is systems where the PHY is too dumb/cheap to add
-the delays and so the MAC has to do it. I'm don't know of any
-Microchip PHYs which don't support RGMII delays.
-
-	Andrew
 
