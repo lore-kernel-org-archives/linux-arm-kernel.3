@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC2AD43374
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2C1D43370
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68iYgYZPtTrqGDWuMYx5z5BMV4YrJufQaee60Zp3m/s=; b=oMaU3C3Swe/IVZZS/OlNuDBNvM
-	x3a0iQJfg9y0xpjkhRH1Lkbmw3JhGo0DYEdJEVMZDMxBJV2dVVFZgxpAWEnBAbBAsmZRQr3Mviqho
-	2PzMajsGWPGqUd7G+CHBDAKtAz76mkeKqdRy+JFUcsEiskEXHHqiljA3hAJk2Tkc3LEFwzW3U8I3+
-	X1zWb/hMmJ9aTIaCjUL7d4vV2WxO/U2V6HrnFkQ8B7izvWA1pdFRJiJ/goHqnXX64cUe06arwvWPz
-	om8T/QsJggyQ56xcw1BbaIJ7sZBxNx8vSQE1wzPTeGHuBnZLdCI136KBKhOFY5qn2xfugP3R83RMK
-	OG3uCwyQ==;
+	bh=DdQ63519VTwDDYOb2ko9io8ZGiOolYAXq3k/7DS5g7Q=; b=UFWPmPlu5W7MOmMyRCtzAEcKl/
+	lZZuxh8pVKlyd/a9eSXM2LOiDw1CbzcjHlgWkFg6mgFdpajY0nQNYeAur+LROUOjXF1RvvMlb3YpX
+	tw/PNLadxQO2b0Cln92em8NwYhjjAtOoqVnvWxd7Vy4QWvQcJ1rWygLKhmsFhX8QnOX5BpbOSUt9e
+	EfxbMmkYRA5lcAxyyvl80kXMpRZUbTDVo91sKdyNonx41tgLl0ifms8TTrzC20TsQXPdLIWUpDdiM
+	7NQRdQrmzCoimoBGs3i0apxZsV1zU4C7kjVuNeYZAMHTAN4K5w29TcCJ8vG917M0GtAD/tWW1g8/P
+	7kyIrLaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94se-00000007Vxk-1KZY;
-	Thu, 07 Nov 2024 15:57:08 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1t94uM-00000007WOs-3WOl;
+	Thu, 07 Nov 2024 15:58:54 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94qK-00000007VWR-0Ahk
+	id 1t94qQ-00000007VXk-3y9e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 15:54:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1730994884; x=1762530884;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=68iYgYZPtTrqGDWuMYx5z5BMV4YrJufQaee60Zp3m/s=;
-  b=Tg2iT9d1a8wGC2b2mUjr22O8jtfx+41gy5ql0WrvLBf9IHUSycxTJtSl
-   hh0a9zqFQ7nlmlHN0iSikAs0y4jCPASyE2i7cyiQXQkE73hqY1jT7xaJ+
-   zuYd0npBE6YGkq0rBj7oKXmU4Al8Qtyo4JDWH2ELRKqkHhVEAc6R6WuK4
-   FNFhUFaM+KnlB0HaFEgRCJkp8NalXpPVxmWBfM7xZ/zwv36VEnEsHzXhS
-   34WJxolpkzxGnC3Y9eDk9dpCH73OnMUIAUxwqsYxpdWIUf9cnKzwtO0oI
-   fNFNT2WZmaGU53gd4QAphAUH8lgfGk9j/wSqJGZFNDcPEd0sdohaKDZ1W
-   A==;
-X-CSE-ConnectionGUID: LKRP2YrGS4ONzZAbOb2EiA==
-X-CSE-MsgGUID: MDn25V+cRaaaZRjeLpSeFA==
-X-IronPort-AV: E=Sophos;i="6.12,135,1728943200"; 
-   d="scan'208";a="39916599"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Nov 2024 16:54:41 +0100
-X-CheckPoint: {672CE2C1-19-5736D786-D50827BE}
-X-MAIL-CPID: C8E8D31C487399C5B2FEDBBF237F0518_2
-X-Control-Analysis: str=0001.0A682F17.672CE2C1.0089,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C6BCF16145B;
-	Thu,  7 Nov 2024 16:54:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1730994876;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=68iYgYZPtTrqGDWuMYx5z5BMV4YrJufQaee60Zp3m/s=;
-	b=No6iMnStLW+6z6qd0KOV7E/8Og4zat+TPgQM1mTFFG7ZRt2onLR3PI7q48V6fH+i8/55qZ
-	oMoyIXArrvKNSJoCqpRjnNJfWROoppfaT3AqxD+iQJdcaeG15xXy5sfBXIb57JwxfHYeJG
-	xqbEAAyOnnR26cmBp4zp8iGMFXRNh/S1nAa3R4zEqmIbikhN+v4JF1pOKTB1ehNG9i3SjF
-	OWYRS1wKwH1mXr/UvU1V9Ja+idGCa5y/LSzj8cRTbN2Elu6ZEcY92dZL2xIU6/CpJqzk25
-	6j2TLjRWumG4crJGCCw0SUoqdo889W+KeDEQWOhucpWXNMtN0KZE1n7fbe+whA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Pengfei Li <pengfei.li_1@nxp.com>, Frank Li <Frank.li@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, joao.goncalves@toradex.com, frieder.schrempf@kontron.de, marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com, m.othacehe@gmail.com, mwalle@kernel.org, Max.Merchel@ew.tq-group.com, hiago.franco@toradex.com, tharvey@gateworks.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com, ye.li@nxp.com, aisheng.dong@nxp.com
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: Add i.MX91 dtsi support
-Date: Thu, 07 Nov 2024 16:54:34 +0100
-Message-ID: <2966679.e9J7NaK4W3@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <ZyzXcktk/sjAtNCg@lizhi-Precision-Tower-5810>
-References: <20241108022703.1877171-1-pengfei.li_1@nxp.com> <20241108022703.1877171-3-pengfei.li_1@nxp.com> <ZyzXcktk/sjAtNCg@lizhi-Precision-Tower-5810>
+	Thu, 07 Nov 2024 15:54:53 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7Ap0oi001233;
+	Thu, 7 Nov 2024 16:54:43 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	DdQ63519VTwDDYOb2ko9io8ZGiOolYAXq3k/7DS5g7Q=; b=dqTLO5o5EoF+cjp9
+	WQj/kqPQSsBdtHKkEjAJ2ge82+b0WHRCd26G5Oaao5bHaTmeVUnfa76STxJXqwtC
+	mnZzHEFhfsVOM6Q/2FjGZlN6lL8QtkmzBd1Mf4o55TTiKnYKX3J5tR8sTwUuInMf
+	ajeGPPzxNSjCLtWluzu6s1HCUBmfi2ne61uYhNzocSqmmhQIPdzrCbZ46/gqhX3b
+	ZHMQhBM/j3gTetLawEjT7zuELoP4NOhjFitIDFAnY8jLRBKx/+kVLqA5NR4H6dfz
+	Yj7tfN00ZzoG0ovrRo0v49mYKTQJ+ovPF92qFY2XmBIZi4tVUOyU38rQUs968DZw
+	gQ7MlQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42r9765y3j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 Nov 2024 16:54:43 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 07AA140048;
+	Thu,  7 Nov 2024 16:53:49 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A95982B7342;
+	Thu,  7 Nov 2024 16:52:01 +0100 (CET)
+Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 7 Nov
+ 2024 16:52:01 +0100
+From: Olivier Moysan <olivier.moysan@foss.st.com>
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+        Arnaud Pouliquen
+	<arnaud.pouliquen@foss.st.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 1/2] ASoC: dt-bindings: add stm32mp25 support for sai
+Date: Thu, 7 Nov 2024 16:51:41 +0100
+Message-ID: <20241107155143.1340523-2-olivier.moysan@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241107155143.1340523-1-olivier.moysan@foss.st.com>
+References: <20241107155143.1340523-1-olivier.moysan@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.132]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_075444_458791_D920E982 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20241107_075451_524956_6C57529F 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,123 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Add STM32MP25 support for STM32 SAI peripheral,
+through "st,stm32mp25-sai" compatible.
 
-Am Donnerstag, 7. November 2024, 16:06:26 CET schrieb Frank Li:
-> On Thu, Nov 07, 2024 at 06:27:02PM -0800, Pengfei Li wrote:
-> > The i.MX 91 family features an Arm Cortex-A55 running at up to
-> > 1.4GHz, support for modern LPDDR4 memory to enable platform longevity,
-> > along with a rich set of peripherals targeting medical, industrial
-> > and consumer IoT market segments.
-> >
-> > The design of the i.MX91 platform is very similar to i.MX93.
-> > The mainly difference between i.MX91 and i.MX93 is as follows:
-> > - i.MX91 removed some clocks and modified the names of some clocks.
-> > - i.MX91 only has one A core
->=20
-> - pinmux change
->=20
-> >
-> > Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 ++++++++++++++++++
-> >  arch/arm64/boot/dts/freescale/imx91.dtsi      |  66 ++
-> >  2 files changed, 836 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
-> >
-> [snip]
-> > diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/boot=
-/dts/freescale/imx91.dtsi
-> > new file mode 100644
-> > index 000000000000..a9f4c1fe61cc
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
-> > @@ -0,0 +1,66 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright 2024 NXP
-> > + */
-> > +
-> > +#include "imx91-pinfunc.h"
-> > +#include "imx93.dtsi"
-> > +
-> > +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
-> > +	cooling-device =3D
-> > +		<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> > +};
-> > +
-> > +&clk {
-> > +	compatible =3D "fsl,imx91-ccm";
-> > +};
-> > +
-> > +&eqos {
-> > +	clocks =3D <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
-> > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
-> > +			<&clk IMX91_CLK_ENET_TIMER>,
-> > +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
-> > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
-> > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
-> > +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
-> > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
-> > +};
-> > +
-> > +&fec {
-> > +	clocks =3D <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
-> > +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
-> > +			<&clk IMX91_CLK_ENET_TIMER>,
-> > +			<&clk IMX91_CLK_ENET2_REGULAR>,
-> > +			<&clk IMX93_CLK_DUMMY>;
-> > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
-> > +				<&clk IMX91_CLK_ENET2_REGULAR>;
-> > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
-> > +	assigned-clock-rates =3D <100000000>, <250000000>;
-> > +};
-> > +
-> > +&i3c1 {
-> > +	clocks =3D <&clk IMX93_CLK_BUS_AON>,
-> > +			<&clk IMX93_CLK_I3C1_GATE>,
-> > +			<&clk IMX93_CLK_DUMMY>;
-> > +};
-> > +
-> > +&i3c2 {
-> > +	clocks =3D <&clk IMX93_CLK_BUS_WAKEUP>,
-> > +			<&clk IMX93_CLK_I3C2_GATE>,
-> > +			<&clk IMX93_CLK_DUMMY>;
-> > +};
-> > +
-> > +&tmu {
-> > +	status =3D "disabled";
-> > +};
-> > +
-> > +/* i.MX91 only has one A core */
-> > +/delete-node/ &A55_1;
-> > +
-> > +/* i.MX91 not has cm33 */
-> > +/delete-node/ &cm33;
-> > +
-> > +/* i.MX91 not has power-domain@44461800 */
-> > +/delete-node/ &mlmix;
->=20
-> If someone want to use it in overlay file, /delete-node/ will not work.
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+---
+ .../bindings/sound/st,stm32-sai.yaml          | 26 ++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-Do you expect someone including this SoC-dtsi in an overlay?
-I personally don't, well I'll welcome other comments.
-
-As imx93 is an upgrade to imx91, there is also the possibility to do it
-the other way around, similar to imx7s and imx7d. The latter one including
-imx7.dtsi and adding additionally peripherals.
-
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+diff --git a/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml b/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
+index 68f97b462598..4a7129d0b157 100644
+--- a/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
++++ b/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
+@@ -20,6 +20,7 @@ properties:
+     enum:
+       - st,stm32f4-sai
+       - st,stm32h7-sai
++      - st,stm32mp25-sai
+ 
+   reg:
+     items:
+@@ -43,9 +44,11 @@ properties:
+     const: 1
+ 
+   clocks:
++    minItems: 1
+     maxItems: 3
+ 
+   clock-names:
++    minItems: 1
+     maxItems: 3
+ 
+   access-controllers:
+@@ -156,7 +159,13 @@ allOf:
+           items:
+             - const: x8k
+             - const: x11k
+-    else:
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: st,stm32mph7-sai
++    then:
+       properties:
+         clocks:
+           items:
+@@ -170,6 +179,21 @@ allOf:
+             - const: x8k
+             - const: x11k
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: st,stm32mp25-sai
++    then:
++      properties:
++        clocks:
++          items:
++            - description: pclk feeds the peripheral bus interface.
++
++        clock-names:
++          items:
++            - const: pclk
++
+ additionalProperties: false
+ 
+ examples:
+-- 
+2.25.1
 
 
