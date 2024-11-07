@@ -4,157 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D539D3E787
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A396ED3E787
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2ZqRaKKEXfE4yU+gdYBhY+45dFlriq5DQBDWAPOAj8=; b=lKYHw3CTjA3XF/YkI9JD2k/oT2
-	4e6XFLAJCBFPlHFCfF04RVdG+vvlIanQGXO0IdGOC0iZ9Yfdv2bvYpqQLy8Om27FWP7cSTNkUHLax
-	9FwtPxaMgvaubvLrz5/MiuyuAxIpQwLM9t+QUrCYjjeWzKZGB+7o4hcoO7RaFhqrdC418JNulWefl
-	OhiRy0bYe3Qi8/okpPSSKnNwaRNsEAthrr4fjSG1kNqqye44L5UHQuiHrrYfCFgktpPqFbriUTovR
-	HcZuDi2vbE1qz8BDehYtwoKkzTETl5BDtnz3WTePOH3wr81T7AwWLKV8WAbkaPH+4CxbOURdQRtQR
-	5J2SbZ1A==;
+	bh=6pEMRGidtdwO6FvYtRBzMsrDmpDGnl3AsUrIEMjv+yo=; b=wALueRxD2OhislA5wv+tCy1QON
+	MdPAbkFtVB2gftqNfdiaHK4nViLhZadiW+nnQgbWdWioiPAhSDuW/f7IT8HE9Yd1SABkX9aMO9YjO
+	WgVcAAosSd1xYiCWIr4CuHEuIoW/mo88XVxaYTf1EZVZHrIb3VxwqoswvcEl/H7PaPXh0b0CrZg+O
+	2hqDfSixdniTq4i/gVRA8iDeiu70ph5FCPxM5m+vLOJOh3A3XyV2WzZChWT/XefiUSqBUYoQAE/US
+	+YHDb/I1JXCnYKaVyfWaIGsqT6jrvEBHkkMGV/iXbNFiv3WR4o3LHV/BYk6D9b/ROvAiHtPH/Wobb
+	5LLjxA4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zbm-00000006RMx-0jSQ;
-	Thu, 07 Nov 2024 10:19:22 +0000
-Received: from mail-am6eur05on20626.outbound.protection.outlook.com ([2a01:111:f403:2612::626] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1t8zdY-00000006Rmg-1eEh;
+	Thu, 07 Nov 2024 10:21:12 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zTm-00000006Pwg-1rHx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 10:11:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PPfYEDJ2VVk2J7B2w9bcwLxtBpN97ufYe6fmE/ayG9D+iudei39nKulctVUEBN0o4m4kAPc0SAkY1CaB4t+ijruslEEUP0tpGC+0lF33Zs1vDso6P+btmzqhGMUucI3KGM2nyHvP1+jJvV5JXMJxcNJtuiCKP1zsKTDPEup3s0gQQgy9UGxzrLHt8Hz/7QGPFtOiIb9FAe9TIPImjr25mhEqUp1zsW2njMtCZtDfKYeeZY1q4CQMqEcI/T08KF95Cm2JhXb79vi58avdQrswkg7KJFj/jr0f42p9ESZxKHQbFhrzYZ2ISHQ/6yHWrPM843ZUW/mZsU8ZEfDo5FMPhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q2ZqRaKKEXfE4yU+gdYBhY+45dFlriq5DQBDWAPOAj8=;
- b=WzagxcnEcOZBHmppt8YZo5XliAg8xlhKLe1oRFVHXYKKQAG3I2S7sfcz38zXtilwCFRHMMi5hayXqIR9f+k0KRE40jJ98zsYm2aRAbS+5JsYdSeRSJLJ/SFLe2O/pogSeF0zm/OkAyHUmMbzZx+L+h4Zd/N6+zmUyrtWj5N2vbVw/9x7shTODLP+iVzXcR2zaOQz17AMsiyJIpxWbxOUq4T0o0vnSIEo5Y0Z3AbHZpC2l7AdvDv98MEPrP7JQKoxJrPWu/aTlTnleFsN3o9wWuTEG7oQkaT/VwyYkC2xjkDpsYK8uM7EamTIqQy2axDjez8gL6HpVLGKhm1I+FgXhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q2ZqRaKKEXfE4yU+gdYBhY+45dFlriq5DQBDWAPOAj8=;
- b=f2ROS9N+H4thf1slyD2OZYAO/Xper4ATFXqbo8CdOExyWzo2ll1905JoKeJzguZFP8XxuYN52rAOsaB00GBh7v9eYgSGHyiBudzelt6tOCAXLt0Hfq4o14ALP+xQPpMFsSR8mKeU9+ujW2ZczUOxzGi1mAthEsLL+PZaxcFkW0lJwGy4wM1CkXf0foKDtt45zTzNUMRthYeHVFnEVHnlNOaqjmPKh8hfjq0eohj6uS2W0s3dqrmlcJvXxdC6+nntNW9Jnh9EjeGQC7+ZRwpvbMo4Gi3FaBiRDIaaxBtxeQLSNYd+4Esjk+dQjZyl/HC63EvzK21TCXY7xy2RgDA5xw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
- by PAXPR04MB8991.eurprd04.prod.outlook.com (2603:10a6:102:20e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
- 2024 10:10:51 +0000
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8]) by VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8%3]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
- 10:10:50 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: abelvesa@kernel.org,
-	peng.fan@nxp.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	shengjiu.wang@gmail.com
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: imx93: Use IMX93_CLK_SPDIF_IPG as SPDIF IPG clock
-Date: Thu,  7 Nov 2024 18:20:08 +0800
-Message-Id: <20241107102008.3626023-4-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20241107102008.3626023-1-shengjiu.wang@nxp.com>
-References: <20241107102008.3626023-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0028.apcprd02.prod.outlook.com
- (2603:1096:3:18::16) To VI1PR04MB7055.eurprd04.prod.outlook.com
- (2603:10a6:800:123::21)
+	id 1t8zWS-00000006QW9-3lzv;
+	Thu, 07 Nov 2024 10:13:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730974430;
+	bh=qGL+owtZbc1lnLogLE8XlKsc16UpGYGBcPFpDTZdqk8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PMIS4rejvUGx/AV6FPb0rxG6CIyLbGVPSXwSi7+sIZiYQHrjVICYMJVtJXOtTPAdH
+	 6u8ODv5ojFaKj2YGjTQM2PyZqe2HxzMi6lv6BHSjkPAGGkqZwWXlpmUq6/T18/6l7u
+	 UwcaaBQmEoDd6HDAYJgG2L0teyNoKRleZe44H2lfPHEDqOxAL5Wi7L7QLGYin/Ty9p
+	 ueGV0nEaVFr2TKjIHKGo6dEfbqfTNa+iG7Rj9YyTwYNfaQHJeYdFde4zdIOXnWG0lM
+	 Gj3286ptUSdpdcucpF/tFxLhAodvljsUWC0U8/ASc8ypnlF3tukG1lTBnT+UR+ZhGR
+	 8xB1kl4GiTHAg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DF58717E14FB;
+	Thu,  7 Nov 2024 11:13:49 +0100 (CET)
+Message-ID: <c7c5e802-3df8-4218-865f-81a207c517cd@collabora.com>
+Date: Thu, 7 Nov 2024 11:13:49 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB7055:EE_|PAXPR04MB8991:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36831b53-b82f-4d4f-0e9a-08dcff147220
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wFVOhW3sK6nMMF2xDRrOM0THlpC7Q7wOWJiQg6JXcV1ObXkgIPSHrIClkOWT?=
- =?us-ascii?Q?eG5dW8IpydbmvW3XE39B7Xf+Wa1ykkDkVK+YhFcqycDRa8rPvHvRR8pGInzg?=
- =?us-ascii?Q?hMxSJ1SEjnd/uBKjD4X5/I0hMHw0FKtjSf/UYDcF97yVVoCE/lThg0t9jb9d?=
- =?us-ascii?Q?W0T9urWy5xYont252YvKPwByu/OyYqKGFk8iNBSLAxd0Kj1w3EqwTDebn66S?=
- =?us-ascii?Q?Zi08Lq5D8T1iRW9mK1ca4sjCQttTSHZUmEV+pebNeAoGVHKtMmrXPyBolS+o?=
- =?us-ascii?Q?G7DFfVQvDCj/qVUJq+a5HBGvC2TrCoGnhCFbo3luy1zJm+RLFj4USrxCipCO?=
- =?us-ascii?Q?fI7T31yjhYg6hstwair7ZWjqHVf3zqxlKGPpnEIS7eSZ7Tt5ccCRisNdtWUd?=
- =?us-ascii?Q?IIBwRU0Xfaug2Te9ew+b+saACCA9DhZ8AxelNzn3qfoqOhKNwIupaCoU1wrI?=
- =?us-ascii?Q?+Qq3UgaJzPa5pKBcNjWIpiuWe1lGxHZOoCesIC0vGmobp6T7UIA6mrNxKYkl?=
- =?us-ascii?Q?85nZp44ZVyu8DDnARwpi49og3nlE3RQE1P/JuRj6S6YS8iZlv90yroy9vyBN?=
- =?us-ascii?Q?zAacHTPpApZKWdExkP0kASGJneAhDz6BNhQcbucRi8g71Fy927RADlErXObo?=
- =?us-ascii?Q?2m0eNmBnuGJ2cV/KXzjJ+t495d8MsmvbXSnMtAbs28OALdrOrHrkvnYqa3+u?=
- =?us-ascii?Q?kpfZK2xN+yO6xB5fQAQRwDwPBB0hVa6tuljuvUib5ntPSSSH2ePxIUoCOmiC?=
- =?us-ascii?Q?G3ZpMnoIcJ1+hngsy8BB/syhiTk75m24M2Pa9NiLAdBEV7BNCo9+EzapS8fm?=
- =?us-ascii?Q?ooYqx9Fr3XULTS4bz1IaQbr9aHqCbGcvPeENBdTVGDsw0fAAyCE+FYFqjg/A?=
- =?us-ascii?Q?khRYuEvKanPy8jqJq/Blo1iS+o3Zfk/HLtAA3BQ9br4TboqOQuOXhi/QgkiJ?=
- =?us-ascii?Q?qRQvKFAqieNj9rtmGGfTDJJt4QfbNWjKoRcvjbqswwbo5uQeOPoXwmCtbud3?=
- =?us-ascii?Q?8Uy8micAQD3IAaocCj33vFhRIUSQLnoyPTFjq5F7kAhuHjg+lt2rsN88yl7u?=
- =?us-ascii?Q?AiJqWanGB4gIWMlXf0g8LQgj1e0rr6W/JB8wD+rP2IEUVm9Q86Ua+RHhcefR?=
- =?us-ascii?Q?Ia53Lk+5avt/RFKbBxY4G/ibCqF0opeDp0EqFh2E4W/XW9QXa0iniUSBBKeQ?=
- =?us-ascii?Q?9iHJCS3Z3r70PYE4Gb0kQC/nvvFFvwASn221rvyedebapQMNw5klRWf4gD99?=
- =?us-ascii?Q?EvqRWwnCGYzM7Q2fxWguJafxC17h4KLZmRqFv/vohd83Ylt71vvdLp+WCL3m?=
- =?us-ascii?Q?+z7Mkm2L7hNpT21ffjzmxOwgKFuCyJK1HQkwnkYEE37w9yc21qnRO2UlbrZw?=
- =?us-ascii?Q?fi9EIjHQob9ehAVgHprKS2u/59KY?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB7055.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a5Mqtif7GjYhZSFF+SgRTAoweDtq3YkVFh4kD8Dy5v0ED+rUWpIXvAQkIR0C?=
- =?us-ascii?Q?wb05U6QLAGBIWyK0uLfFQP6vO93o2D0MBJ/oqdlWtNA7BxtiIykiEIzoONS8?=
- =?us-ascii?Q?vmGlqXq+MzySEyLSI/aOuDg32wZiP/fJh/xU5t3EsbZZG6W2ie1rko+2Quji?=
- =?us-ascii?Q?JVUFCDFELpNfeYk+QWVjVpRNxO2AqC1URdv2dGHsWRWC2gL81mFAmkCQ4Fgm?=
- =?us-ascii?Q?jlIY2NdgObmnMgFKWtcIb/C/qcnZtsAH6wh6PUHO4uzQTl804dXQMjG4knUz?=
- =?us-ascii?Q?i6EPR9OsrxEmuzld6YB7B/fuL4WY8utNyOAGBBtuLtjUeBYJh2xfQ/1zCWsu?=
- =?us-ascii?Q?xbE6c22Hj4aJJzAcD3KfIy8r9/w2aC0H/v4mniheVi9ukO0Rx3ou16KjG5bE?=
- =?us-ascii?Q?tb/sFslWXMsIpJFIfg3z3P5t5cvjTuK0kzPj6+C0SSc6U3gI75Z8kNeyCvo4?=
- =?us-ascii?Q?m1X6W3T7r+mEjNh+8yn2rfJQpN+y7lGLgsFks5kR54//RWU04B+2ilU3XR03?=
- =?us-ascii?Q?UBq3uTs3dMQ1yryv5rzeqjs5+bOC3IvVQqtJt9xPMDo5JH/P47eyXPrRL7Zt?=
- =?us-ascii?Q?vOWrfymk+quMILEz28ngurWHteUbVU9JqGMt+bRFEhIO06KsSd4vMZfmlhsE?=
- =?us-ascii?Q?zqdtZ7vGJk8ZoMSkIwBKrGE2jmNlYYQJmBiWymKXHPScEr7wDHZoFc8hC70e?=
- =?us-ascii?Q?qRzC0UrzIUYJjhgC8uh77rGBuz+IGgQKHREEA/FXdji++opjYyWyrIJVlEkx?=
- =?us-ascii?Q?ryAN9RrrIzdZ8FOzV8ZssnhEA7E/Bm7747+sBYdjci0zz6fDWCqkzuU7wJPL?=
- =?us-ascii?Q?6TolX8BIWnFSX2TwXfx1mdX4kr0r126nwuzGuQgDEZkkDAJVlwtK9wV5frVu?=
- =?us-ascii?Q?6y1Pj+7ZlsadUIFuazQUu8dz3FZ2+88DV8jk/LlmssqkikDJ+mdQLbB0PsTI?=
- =?us-ascii?Q?4WWt62q2gh1JT0V8HVPHbqxmFkLaAuoZLEgVDg/rbRkWInJ1PJKSm8DTQHXa?=
- =?us-ascii?Q?pxaKzI578w76Is9bSX5Ohpu8E0+660FIBfDvF9dgtyYSZ0RipU03hgmO9f+S?=
- =?us-ascii?Q?V3xBv5AFkH15YfrNLGtMM2NeNPcLI2D24Q4CStuBgefJ2RAK3EFWMO/dvSb5?=
- =?us-ascii?Q?6TyMGed9TLwRSkasPlE5Q4ajnQAyA4wJFJWpzMbcIxm5BkMsKekKtrbtmMGi?=
- =?us-ascii?Q?hyBFFCMEOypchIjyO2xxWMQVFjAevxrDCu6ps08zWLtVD+mtuU5Lhnm04Iyn?=
- =?us-ascii?Q?sJ8DpuUwsWTdXt0MkNjM0tnWx+Oh5a2zdmG0iLYJNuwJkQrfR3pKbmo4tpiF?=
- =?us-ascii?Q?rMrH6b7zmx+vjOwcYcWI8HAfZleI61CR9Ax2joTbudNPphIlgirZMiM067u1?=
- =?us-ascii?Q?VBYS9OLV+j9IWWVxyu0Hx5lD9HdPBRe/pyt7T/Jd/Q8TksZvFr8JJYTRlvma?=
- =?us-ascii?Q?zmTKMLNrDuuDTTFaFWShHtxPbaxgM1FrtUfQh/8s6F8f1NV69Z4BAvh/sar2?=
- =?us-ascii?Q?O2zNygejcg/0KM65nhHTI9kLlmxLw6G4gZfWfDLzZZP03tjy/jQlwxzsRs21?=
- =?us-ascii?Q?IowJT06lMmq1L4mou4qMCBuNr6EgwoLa3A5+ErHD?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36831b53-b82f-4d4f-0e9a-08dcff147220
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB7055.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 10:10:46.2441
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FJV8vi6IurZg2zUyboAfTq4SP4uVIKKQ6FZNn0GjObcnNdOi+DQdPJw9RGx2BlEm++gM9yo2BjoXNfbFGD4shw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8991
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2,1/1] i2c: mediatek: add runtime PM operations and bus
+ regulator control
+To: Zoie Lin <zoie.lin@mediatek.com>, Qii Wang <qii.wang@mediatek.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com, teddy.chen@mediatek.com
+References: <20241106125212.27362-1-zoie.lin@mediatek.com>
+ <20241106125212.27362-2-zoie.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241106125212.27362-2-zoie.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_021106_508941_B0394221 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241107_021353_162594_580B9F47 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,28 +78,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IMX93_CLK_BUS_WAKEUP is not accurate IPG clock, which missed
-the clock gate. IMX93_CLK_SPDIF_IPG is the correct clock.
+Il 06/11/24 13:52, Zoie Lin ha scritto:
+> This commit introduces support for runtime PM operations in
+> the I2C driver, enabling runtime suspend and resume functionality.
+> 
+> Although in the most platforms, the bus power of i2c are always
+> on, some platforms disable the i2c bus power in order to meet
+> low power request.
+> 
+> This implementation includes bus regulator control to facilitate
+> proper handling of the bus power based on platform requirements.
+> 
+> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
+> ---
+>   drivers/i2c/busses/i2c-mt65xx.c | 77 ++++++++++++++++++++++++++++-----
+>   1 file changed, 65 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
+> index 5bd342047d59..4209daec1efa 100644
+> --- a/drivers/i2c/busses/i2c-mt65xx.c
+> +++ b/drivers/i2c/busses/i2c-mt65xx.c
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx93.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+..snip..
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-index 688488de8cd2..56766fdb0b1e 100644
---- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-@@ -925,7 +925,7 @@ xcvr: xcvr@42680000 {
- 				reg-names = "ram", "regs", "rxfifo", "txfifo";
- 				interrupts = <GIC_SPI 203 IRQ_TYPE_LEVEL_HIGH>,
- 					     <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH>;
--				clocks = <&clk IMX93_CLK_BUS_WAKEUP>,
-+				clocks = <&clk IMX93_CLK_SPDIF_IPG>,
- 					 <&clk IMX93_CLK_SPDIF_GATE>,
- 					 <&clk IMX93_CLK_DUMMY>,
- 					 <&clk IMX93_CLK_AUD_XCVR_GATE>;
--- 
-2.34.1
+> @@ -1370,6 +1373,40 @@ static int mtk_i2c_parse_dt(struct device_node *np, struct mtk_i2c *i2c)
+>   	return 0;
+>   }
+>   
+> +static int mtk_i2c_runtime_suspend(struct device *dev)
+> +{
+> +	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	if (i2c->adap.bus_regulator)
+> +		regulator_disable(i2c->adap.bus_regulator);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_i2c_runtime_resume(struct device *dev)
+> +{
+> +	int ret = 0;
+> +	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+
+	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+	int ret;
+
+> +
+> +	if (i2c->adap.bus_regulator) {
+> +		ret = regulator_enable(i2c->adap.bus_regulator);
+> +		if (ret) {
+> +			dev_err(dev, "enable regulator failed!\n");
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	if (ret) {
+> +		if (i2c->adap.bus_regulator)
+> +			regulator_disable(i2c->adap.bus_regulator);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int mtk_i2c_probe(struct platform_device *pdev)
+>   {
+>   	int ret = 0;
+> @@ -1472,13 +1509,18 @@ static int mtk_i2c_probe(struct platform_device *pdev)
+>   		}
+>   	}
+>   
+> -	ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>   	if (ret) {
+> -		dev_err(&pdev->dev, "clock enable failed!\n");
+>   		return ret;
+>   	}
+> +
+> +	platform_set_drvdata(pdev, i2c);
+> +
+> +	ret = mtk_i2c_runtime_resume(i2c->dev);
+> +	if (ret < 0)
+> +		goto err_clk_bulk_unprepare;
+>   	mtk_i2c_init_hw(i2c);
+> -	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	mtk_i2c_runtime_suspend(i2c->dev);
+>   
+>   	ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
+>   			       IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
+> @@ -1486,19 +1528,22 @@ static int mtk_i2c_probe(struct platform_device *pdev)
+>   	if (ret < 0) {
+>   		dev_err(&pdev->dev,
+>   			"Request I2C IRQ %d fail\n", irq);
+> -		goto err_bulk_unprepare;
+> +		goto err_clk_bulk_unprepare;
+>   	}
+> +	pm_runtime_set_autosuspend_delay(&pdev->dev, 1000);
+
+You had comments from me and from Andi on this delay, and you completely ignored
+both of us.
+
+We're still waiting for an answer to our question.
+
+
+> +	pm_runtime_use_autosuspend(&pdev->dev);
+> +	pm_runtime_enable(&pdev->dev);
+
+devm_pm_runtime_enable() please.
+
+>   
+>   	i2c_set_adapdata(&i2c->adap, i2c);
+>   	ret = i2c_add_adapter(&i2c->adap);
+>   	if (ret)
+> -		goto err_bulk_unprepare;
+> -
+> -	platform_set_drvdata(pdev, i2c);
+> +		goto err_pm_runtime_disable;
+>   
+>   	return 0;
+>   
+> -err_bulk_unprepare:
+> +err_pm_runtime_disable:
+> +	pm_runtime_disable(&pdev->dev);
+> +err_clk_bulk_unprepare:
+>   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>   
+>   	return ret;
+> @@ -1510,6 +1555,7 @@ static void mtk_i2c_remove(struct platform_device *pdev)
+>   
+>   	i2c_del_adapter(&i2c->adap);
+>   
+> +	pm_runtime_disable(&pdev->dev);
+>   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>   }
+>   
+> @@ -1518,6 +1564,10 @@ static int mtk_i2c_suspend_noirq(struct device *dev)
+>   	struct mtk_i2c *i2c = dev_get_drvdata(dev);
+>   
+>   	i2c_mark_adapter_suspended(&i2c->adap);
+> +
+> +	if (!pm_runtime_status_suspended(dev))
+> +		mtk_i2c_runtime_suspend(dev);
+> +
+>   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>   
+>   	return 0;
+> @@ -1536,7 +1586,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
+>   
+>   	mtk_i2c_init_hw(i2c);
+>   
+> -	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> +	if (pm_runtime_status_suspended(dev))
+> +		mtk_i2c_runtime_suspend(dev);
+
+You want to resume, not to suspend, in a resume handler.
+
+>   
+>   	i2c_mark_adapter_resumed(&i2c->adap);
+>   
+> @@ -1546,6 +1597,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
+>   static const struct dev_pm_ops mtk_i2c_pm = {
+>   	NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
+>   				  mtk_i2c_resume_noirq)
+> +	SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend, mtk_i2c_runtime_resume,
+> +			   NULL)
+>   };
+>   
+>   static struct platform_driver mtk_i2c_driver = {
+
+
 
 
