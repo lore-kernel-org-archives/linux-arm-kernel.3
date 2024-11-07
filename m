@@ -4,148 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E3ED43377
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D5B6D43379
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=; b=4CbAAzsYay031b/gxK6EbvTZ9H
-	0Xrma7sGQJCDXgWLRUfqSvL29Un++7O0JFW7bw6v1C8aCtS8YDRYM79zUd3WjM1d6Q3Mb9DfQKC1e
-	PFEdDGF01P9TP82qcMjUtfHTEw8gc93A4tQoYODSXTv63ciFeziHtZRC18HnUj4GaQ0uI6NPDu36H
-	ePkYKrBtU17iXeFf6HuPuMnhJbMpCPFlxZByscxy7v6SMHkYlMid43+q/qn/MpGysi9j3sCzPUBOV
-	OtI0ahSOBr9/3yw3RXcmCIG1ng5Aip3gUbomgSg3wak/n0v5f0Nhe9dv7y9GqxNHVARwPXyn6P2SI
-	cyjNZTnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3rMK1Q2ahD4EZ/sgz2Aa4gk5obzAN4PTkk6x7PuveCU=; b=BOOLiEoN/p6yDZ
+	1ddSDiMmZgTxz6rA+/hwBDjyAaK/uKaXzBhA9avDwQUmeOqcvVkUs6+e9VWphIrbgOJXtzbJT1jRD
+	B13WvtUAy/pFjbqw6sJmo/FV6qmbmpaRrJ8uQG6SmsTeAiKTqUCHKZbH2850AmU7crrPWTKEoleP2
+	3+YEwc7l2wQ8M9fPSokxBzu4CCubgks6NOkXCVkHZrLxB17fR4KI1kkRDhr8qqRDCHuGiC6RO5m2V
+	BlHV47UeiWawnw/yuVOSGZhfIc1qaEX8QqPodW1OH0xvyxQLZG/oXDr3TG7YWudT7ggBDl0BV4EEN
+	uK6BHCG8NxOHaYWIQTJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95Hw-00000007cDw-0AVG;
-	Thu, 07 Nov 2024 16:23:16 +0000
-Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1t95Jg-00000007d0E-3fQ1;
+	Thu, 07 Nov 2024 16:25:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t955D-00000007YbO-1Au4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:10:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i4KaHqTaPQt834ofmxDNnOMNVQ1dKI+AJupfJo+TabCC3inh/jvHK34u20KyU8Owjopo7bvlDIrgYUYLt0gfLzN7LsJ/RpKLNeQ4AQkP4IPrvggMO8d/9nlgmgGlLeomV6KG7/GSaw296eI2E+JvxeUj+fIxV8pf7veJbSEwghx/hvI5k4yFLGyCGMPN3Whpk0Vwf6k1Sra2DVzFwLdFioDFGgpczfvf97O82G2BdjGkOysNG91+5xIXcf5wxCXedAZpn4wslFY03sF4YW96oB7d+2KbJW7Tmu67gbUMerte/H+A7AaukoTX0zs7xBtC2zooM9hLVtC07Riv0CxVHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=;
- b=TVNCxqhpzvnxbGcQyiUWeC7AwLM9baXaBBVpmb+KaR+v49JzgMxDA+9FomlDevDluLXw+7Nkaitm+HwPS5MYPcZALuggMkE5mRIKUFSNgGWEZvoOBajz1JgiiwvALNYJooXuIYaAYMfXrJZ3L3JU9xdKbWNte2ADu6vhzmsX7fcHJfq2vV6cLGCnv/3yqR7QvHOnPeiHoSCGsJDSvk88DbYNmmAaJTbVN/mVJ/yn5pJlf5+fdKtlxdkz5JWRBLVa26tJ/1aCoED0hPGVS+sxXyz8XBuPHBgV2M1u5JnkhDAv8fUbzVZScsTplxolXHWBGD1MYcdvka2Jua8zYaPyIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=;
- b=Dc3RdW6wRo8NkmoMnuur7dQOQW8DOFH9UIcZ+uo1a3Quz/0Vg6upMTIG90W95br5Ev4EI2MmADCNNUAFZWz5DzNq1MMEWtPOLNV5dnZwJuP9IgTEIzvjH7BKe3+/V3C9bUKsWg31Dv74nHNDzRwD6EfmQJJeKEAF1+A5ZP72L6mVDnuvtZttG2MMJ6duS0LDXnIgEzg3QCgPx04h6SPkJAPc7YBx5R408rtX/YWkq+gvhkTk4OJyRgbBC7UuuD9kAU7+603t/OQXvQQarM/CSxDjHfNgNOJ8GKPNa7zu9/kZBs5oyxIEVX7SOZU1UY8JQXGSCoCR7AOXG81XGeqkgg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM7PR04MB6838.eurprd04.prod.outlook.com (2603:10a6:20b:10a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
- 2024 16:10:03 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
- 16:10:03 +0000
-Date: Thu, 7 Nov 2024 11:09:54 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	shengjiu.wang@gmail.com, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: clock: imx93: Add SPDIF IPG clk
-Message-ID: <ZyzmUvMHQCZDKp9K@lizhi-Precision-Tower-5810>
-References: <20241107102008.3626023-1-shengjiu.wang@nxp.com>
- <20241107102008.3626023-2-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107102008.3626023-2-shengjiu.wang@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0024.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1t95C6-00000007acl-3vLb;
+	Thu, 07 Nov 2024 16:17:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 16CDC5C58AB;
+	Thu,  7 Nov 2024 16:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4033EC4CED2;
+	Thu,  7 Nov 2024 16:17:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730996232;
+	bh=zN+pl9zJR84rYItU6Yg9zEk1E0RL8c2wM8TpZNYN80A=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:From;
+	b=ChUGDMoA8DTbMWlkKGtZgJKs5aW68D2goW+t7eAPWd6wsq0X9UD1ZnWqyC9fLe6i6
+	 zQYcx0Z2q+miHhym4U3ndivoR+haHo2mps+TVog5Th8VZmkqmBmnLXELuNrL7LGtQq
+	 yFeDQSD0bzvArdYIyAhuHUorlpDarJI6BHpVEjn5a00vcgdO2eeERsazoH1RfKroPF
+	 EaqvBjJJwp3KEiIw2KxgIsTwyJ90vXqcknAYRVvTCM98lWJxpYimjLCt3B1s9+5RvY
+	 tC2WOZqpXrota8kAa6GW9oSebcYmow0p8PG0HqhZ00TmDcqGeCkzZParu4KVW7G5sA
+	 a5ZPwxKZ+x24A==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-539f72c8fc1so1819343e87.1;
+        Thu, 07 Nov 2024 08:17:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVWW8jifDrHlMzIsw9If9SlOSNelAfLmeNV0Dp9A1FAEedY1MonjEMowm+FuSs5SePtwB4G/Bx8vwnFKba53/w=@lists.infradead.org, AJvYcCVy/pz8SNIssM6xaq1xd8p2CvfzaxgQg8EOVg2tRm3doR12t/HKnQpOwy02b1V81Fx7Ldl0e5gDZNapoo8UJTGh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPvHLUNo8Jo09+Seh3MRdGKWFrUcZK9VzStKeiTS/JMNXrXlrk
+	MZPfRsoXGiV3wurZ7dEmTJXvkDhXGLuLv5rXje9SaVbeU0x19cHgT2E3qDasahNC+Fhf6YPboI0
+	xP1GbRxeC5xSox3CmKU+JqY0V3PI=
+X-Google-Smtp-Source: AGHT+IFTwC5oSyOppuutH6sQ9QNYhG4XSpDWF3RZsZH50TypzUpILgioGVWRfVgBkbwirmI6YuHNZSrQGLMfHq+3uPw=
+X-Received: by 2002:a05:651c:98d:b0:2fb:522c:7ee2 with SMTP id
+ 38308e7fff4ca-2ff1e930d0fmr4176911fa.21.1730996230502; Thu, 07 Nov 2024
+ 08:17:10 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB6838:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2accc5fb-c4bb-402d-0a86-08dcff46a360
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2yzfzacvqdP5wC9Xu6A7mk6sh54ZKcaxzAiDKQtFa4xwYNyJgl5MP2StCHQZ?=
- =?us-ascii?Q?p0ODn7oCAcjAK6PCSSAjNDAhvVMGisiWVRmNDWNFiRE/9Cmz1+g0cR/XEofu?=
- =?us-ascii?Q?Ay7YOOxhd3q4fhafg2ZQx3owZx6IofimWNN8dy44EtNivDTpPfUnjMGREqkS?=
- =?us-ascii?Q?yMQ9BfCv9CjbuU0+KpPAgK/DEUU8JfqRVtP/G36FtLrmF0WoE6KtDb8bSlT3?=
- =?us-ascii?Q?I7gRPR/FskbyIAkyYBfgdlXQ1OKwk3zAYZhOsjS0L/p6z6NU6+t0rYd8bXcI?=
- =?us-ascii?Q?2o5aE4TcpHxNRxHBRibC5+kRInLWN86bC44IFpVSW4j/zbRiZks2oCBuGF58?=
- =?us-ascii?Q?2JuRjVpyfJA54MPKCIXX8wV0YxEkMQ5XLRmpHHEO5a6AHwF87z4V+EkgwuBm?=
- =?us-ascii?Q?nAyd0HvolW6eCs5JM7T3xvKZRwxNLyJREDmIaLG3M2whLUxDN6VF5ZSbCmiz?=
- =?us-ascii?Q?xGuSBVI6R9HyuxzdGDWdq2Y/rfYlLC8VnksqAEqqus8APDBmEqDj4ZWdriOu?=
- =?us-ascii?Q?Q2la1t7cR2EVESIHXE8dfAw1bUd9JC8D+JDENfE0hiQwF0XQ1PGDb4wYhYMp?=
- =?us-ascii?Q?Zz7SBDyq8r+RF/lkaoQGb53M6Q3j5JyWXrg18L5QX+y8T9DoxDytygUArRzx?=
- =?us-ascii?Q?te6FqCmyuKaqI86Tsu4C1ozzxqFoRtbH0X4cywhYzUT7wl8+izhfIvELMH+7?=
- =?us-ascii?Q?/zZFuaRDYW3f5Spfmlic2ZwhOrxwLVJRFAfuJADCFTEU1bYo1gfYfo7uvdBu?=
- =?us-ascii?Q?V8u01agWkHEL5Iy67BBJCeezTY4t4W7WByCVQJTMkO4ZbWZeiEtyWDfGw8iC?=
- =?us-ascii?Q?QPs5jMP+xnLVD0ubZHxMwKQlQPv+glzFeTSC5VI//tpnAjVUHlDIMB04E0mx?=
- =?us-ascii?Q?0gbLtS1AsqbqJq8ZG/hKYDwnnIbZ4l0/xaQC+h0jjxnI+KwH/q/t3h+DMq/P?=
- =?us-ascii?Q?lZEhqx+CbfeL9glYxqJIxY6bQYh7aiPQrx9E+Bgy+EVNyREXs/L7cMn120g2?=
- =?us-ascii?Q?anm5O1Hsj43/148JgRO30w8ZmaXlBPiIIJJKGWKaJlzWcSroTA1mCFiYmFZs?=
- =?us-ascii?Q?NHHJKpxw306AEw9uieNvN0juffTLUbV9Ed8GCzMiTnej2iF/2ufugaSItuVY?=
- =?us-ascii?Q?GAQpOHTckBWtCsraXu+xOl57v8t/o7FR7RSGf5pPN/w/220+xn1WuD/ZKgu6?=
- =?us-ascii?Q?HP8NvVffTxM+2c2kICYTZp29Bcur2/28GFT1RGkvBx+Ffk1+6lOeLUdzWK4b?=
- =?us-ascii?Q?UxpvbYxrEbDXeC2Qq1xgW5qiP/NN/26N1/jxuQFii4cdQ9BVgsNl4ymfEsZb?=
- =?us-ascii?Q?Z6C64fPWY1+8EEUve4ve1wvIeLvD+I3pt2+5IjULvJvxPqGvDfB7YZ27b56C?=
- =?us-ascii?Q?UVxZ4So=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wbhrm+YAumYGH/LN9NNoKvjESIwHfg6CMkUBhYKXI/uHOaFxrzDYj+4ffYBI?=
- =?us-ascii?Q?00DYfniAjHiPTCn0uXGI2OJh8RK8caL9BLDNhdmE1uN8Rux2xUlf/YMg3Kv3?=
- =?us-ascii?Q?CTFjrxCOYr4syF4j5VKIeZ1fiL1PDNJGYZqrds2GZHRZf48ZNgYQ4G1eTlS6?=
- =?us-ascii?Q?yObIo74NKgAKrEe+L1Nq5J3q2TvQnJMiAWRyk/a2P9mD1eoG0iPwXo6QLLau?=
- =?us-ascii?Q?1TdxIES2qMjgrxcbkHn4F8dXGRX/pbehRI3X+LxSWzI0tDix2ZFM6BNHM4YD?=
- =?us-ascii?Q?D9c+l1HT9giMq8zUPm5ttfAvnwXYnS/uHJPY+V/B8FE5B/C8+qXs4RchcnS2?=
- =?us-ascii?Q?PxSWEqTVMuIzMwuEk4K4FfSS1RW2sBdKN7rdYPsvmv6nNuhS1LgJVaXET7bA?=
- =?us-ascii?Q?CmUv5LUadA8z1520X5qDRThu89oU6L2t5t3mimvW8KiGuX+aaybzVUBJUFui?=
- =?us-ascii?Q?Q9Hj08t8h9nyUeKenE7WRi/qqKqz8fTLp5etBdXhMH0oq9E7GM06tWElT/dn?=
- =?us-ascii?Q?FT1tPY3QyhAsSjDmTwOmQxMZSQt2kw6awMyRG3FZPF7gtfvFuzqivCfbzWO+?=
- =?us-ascii?Q?WVqjD8EDV+YhFI3Y0vc1QPHR9iVPtOqoLfr5ek6+vnc4YiLDrt5WSgUwYz9x?=
- =?us-ascii?Q?V33cdOrS0irQ13ecqS+EbVMTKrD/ZGxnRDVlXWJvf1KBTkHp8q9I18LZ/Zmz?=
- =?us-ascii?Q?QZtZDEclUYJJwXPIpKU/oC/R3AvOiA6jzQmRG+FQEywNBayrv82y4NG9Lsbv?=
- =?us-ascii?Q?9YZRz895qdlKwCosqcrYK9qBbCUzdJEi70xr1RCHKYryGMTNO/f5+avqlTfv?=
- =?us-ascii?Q?hMN69NPNpXCI8kuRF5xytCb4YIHHaEWoYYcFc3YWO/ZqbFfF7sTFpwyYHBPp?=
- =?us-ascii?Q?kWO1BWyKRIkdr5rLtb6OTgOEovgaVNNHDRiRGK1MQT6eM10gUFZN22XJAynl?=
- =?us-ascii?Q?7qY0pGLeRvz20AVlocPBZCD5GDKgH8yCCbcEi4mLc0LSFPnnfdcGRA1v+W5P?=
- =?us-ascii?Q?oPrazIU0wz8Pumu+aZldPwdFgrnuLyg5lZvEwCBhcC8l1Ix91J8MN1VHPcTQ?=
- =?us-ascii?Q?4RiImHBTMgxz/ONQ/6ZeGyl+80HyziaCfT1+roQXa4VmQzs0abmBDtUgUbz3?=
- =?us-ascii?Q?jyp352VhIt6vsOpgPja6q4KLtkNjsDOtsVZjLjkNPE/NqAHN869VgaJV07AV?=
- =?us-ascii?Q?3H+OzPRvneUYsRRMqtQcbSM2D1d/bjJIdGWp0PCeD4WLCWsKqXImh5IGgwJ0?=
- =?us-ascii?Q?mxPl5ocBCgTer/hE7PdoPxmEmzSJyhiADdZh37YQ6GZf5wHwjEr3MSHXREf8?=
- =?us-ascii?Q?NmnLepx3V1Q3fj5lfMMYbxjZxRuP3AFseGG29IuICJNZ3n0MeszI88mLkM5K?=
- =?us-ascii?Q?beAKgu88z98cxlqmZmM94c3du5MZVztsj+g8R18XcGMh9sqzdKAuTw+yQyBj?=
- =?us-ascii?Q?hwrvHe/aEry76k0Tt2wX1CLh3fcwmU/XmjmgEZgzpeUX1vH4AO5BsmlajRN5?=
- =?us-ascii?Q?pLYokQ8dcBSYS/D3YpIA5o6xzvFJrfFTxcU7WNe+zVKdV/7f6Ok5HAGnDRtb?=
- =?us-ascii?Q?5ps8/bNr0hOiu0SYlpvXwJ2FXzvEZNDil5OMlrh4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2accc5fb-c4bb-402d-0a86-08dcff46a360
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 16:10:03.5204
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FbDHxGTQ9Ju/qus7WPvUDUmZKnVxvHSYbtLGe6vjtCNz1n4hQU4LLmv7L2i3+lCi3Y3bpfrUuAX36RfbyZ/2lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6838
+References: <20241025175415.887368-1-wens@kernel.org> <pe2ornjaqn24i7e3x64rfdtqbp2c347mc5okgj5y6bfvkwnv6z@jux5yei3vxxa>
+In-Reply-To: <pe2ornjaqn24i7e3x64rfdtqbp2c347mc5okgj5y6bfvkwnv6z@jux5yei3vxxa>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 8 Nov 2024 00:16:57 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66WNDVDVqncPNjep3Usqwj2txuXVMxK_Uy0fSgbMFbX_Q@mail.gmail.com>
+Message-ID: <CAGb2v66WNDVDVqncPNjep3Usqwj2txuXVMxK_Uy0fSgbMFbX_Q@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0 ports
+To: =?UTF-8?Q?Ond=C5=99ej_Jirman?= <megi@xff.cz>, 
+	Chen-Yu Tsai <wens@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_081007_366578_F2F20E60 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20241107_081715_101270_D18362A6 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,35 +79,278 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 06:20:06PM +0800, Shengjiu Wang wrote:
-> Add SPDIF IPG clk. The SPDIF IPG clock and root clock share
-> same clock gate.
+On Mon, Oct 28, 2024 at 6:47=E2=80=AFAM Ond=C5=99ej Jirman <megi@xff.cz> wr=
+ote:
+>
+> Hello Chen-Yu,
+>
+> On Sat, Oct 26, 2024 at 01:54:15AM GMT, Chen-Yu Tsai wrote:
+> > From: Chen-Yu Tsai <wens@csie.org>
+> >
+> > The Orange Pi 5 Plus has its first USB 3.0 interface on the SoC wired
+> > directly to the USB type C port next to the MASKROM button, and the
+> > second interface wired to a USB 3.0 hub which in turn is connected to
+> > the USB 3.0 host ports on the board, as well as the USB 2.0 connection
+> > on the M.2 E-key slot.
+> >
+> > Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+>
+> CCing the DTS author would be nice. :)
 
-nit: wrap at 75 char
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
+Ack.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Thanks for submitting this. I found a few issues. See below:
+>
+> > ---
+> >  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 132 ++++++++++++++++++
+> >  1 file changed, 132 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/=
+arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> > index dd03c9db6953..b826c5e368aa 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
+> > @@ -177,6 +177,18 @@ daicodec: simple-audio-card,codec {
+> >               };
+> >       };
+> >
+> > +     vbus_typec: vbus-typec-regulator {
+> > +             compatible =3D "regulator-fixed";
+> > +             enable-active-high;
+> > +             gpio =3D <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&typec5v_pwren>;
+> > +             regulator-name =3D "vbus_typec";
+>
+> This is named vbus5v0_typec in the schematic.
 
->  include/dt-bindings/clock/imx93-clock.h | 1 +
->  1 file changed, 1 insertion(+)
+Ack.
+
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             vin-supply =3D <&vcc5v0_sys>;
+> > +     };
+> > +
+> >       vcc3v3_pcie30: vcc3v3-pcie30-regulator {
+> >               compatible =3D "regulator-fixed";
+> >               enable-active-high;
+> > @@ -339,6 +351,56 @@ &i2c6 {
+> >       clock-frequency =3D <400000>;
+> >       status =3D "okay";
+> >
+> > +     usbc0: usb-typec@22 {
+> > +             compatible =3D "fcs,fusb302";
+> > +             reg =3D <0x22>;
+> > +             interrupt-parent =3D <&gpio0>;
+> > +             interrupts =3D <RK_PD3 IRQ_TYPE_LEVEL_LOW>;
+> > +             pinctrl-names =3D "default";
+> > +             pinctrl-0 =3D <&usbc0_int>;
+> > +             vbus-supply =3D <&vbus_typec>;
+> > +             status =3D "okay";
+> > +
+> > +             usb_con: connector {
+> > +                     compatible =3D "usb-c-connector";
+> > +                     label =3D "USB-C";
+> > +                     data-role =3D "dual";
+> > +                     op-sink-microwatt =3D <1000000>;
+> > +                     power-role =3D "dual";
+> > +                     sink-pdos =3D
+> > +                             <PDO_FIXED(5000, 1000, PDO_FIXED_USB_COMM=
+)>;
 >
-> diff --git a/include/dt-bindings/clock/imx93-clock.h b/include/dt-bindings/clock/imx93-clock.h
-> index 6c685067288b..c393fad3a346 100644
-> --- a/include/dt-bindings/clock/imx93-clock.h
-> +++ b/include/dt-bindings/clock/imx93-clock.h
-> @@ -209,5 +209,6 @@
->  #define IMX91_CLK_ENET2_REGULAR     204
->  #define IMX91_CLK_ENET2_REGULAR_GATE		205
->  #define IMX91_CLK_ENET1_QOS_TSN_GATE		206
-> +#define IMX93_CLK_SPDIF_IPG		207
+> The board can't sink power from this port. It's a source only port. So si=
+nk-pdos
+> can be lower, so that if you plug this into type-c hub as a peripheral, t=
+he hub
+> doesn't need to reserve 5W for this port.
 >
->  #endif
-> --
-> 2.34.1
+> op-sink-microwat can also be lower. The port will not sink any power when
+> connected to 5V VBUS externally.
 >
+> Otherwise you can probably keep power-role =3D "dual";
+
+I guess it should just be power-role =3D "source";
+And then drop all the sink related properties.
+
+> > +                     source-pdos =3D
+> > +                             <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM=
+)>;
+>
+> This port can't source 3A. U22 (SY6280AAC) is configured via Rset for 1.4=
+4A
+> limit. So let's say 1.5A.
+
+Probably 1.4A to be safe?
+
+> > +                     try-power-role =3D "source";
+> > +
+> > +                     ports {
+> > +                             #address-cells =3D <1>;
+> > +                             #size-cells =3D <0>;
+> > +
+> > +                             port@0 {
+> > +                                     reg =3D <0>;
+> > +                                     usbc0_hs: endpoint {
+> > +                                             remote-endpoint =3D <&usb=
+_host0_xhci_drd_sw>;
+> > +                                     };
+> > +                             };
+> > +
+> > +                             port@1 {
+> > +                                     reg =3D <1>;
+> > +                                     usbc0_ss: endpoint {
+> > +                                             remote-endpoint =3D <&usb=
+dp_phy0_typec_ss>;
+> > +                                     };
+> > +                             };
+> > +
+> > +                             port@2 {
+> > +                                     reg =3D <2>;
+> > +                                     usbc0_sbu: endpoint {
+> > +                                             remote-endpoint =3D <&usb=
+dp_phy0_typec_sbu>;
+> > +                                     };
+> > +                             };
+> > +                     };
+> > +             };
+> > +     };
+> > +
+> >       hym8563: rtc@51 {
+> >               compatible =3D "haoyu,hym8563";
+> >               reg =3D <0x51>;
+> > @@ -480,6 +542,16 @@ vcc5v0_usb20_en: vcc5v0-usb20-en {
+> >                       rockchip,pins =3D <3 RK_PB7 RK_FUNC_GPIO &pcfg_pu=
+ll_none>;
+> >               };
+> >       };
+> > +
+> > +     usb-typec {
+> > +             usbc0_int: usbc0-int {
+> > +                     rockchip,pins =3D <0 RK_PD3 RK_FUNC_GPIO &pcfg_pu=
+ll_up>;
+> > +             };
+> > +
+> > +             typec5v_pwren: typec5v-pwren {
+> > +                     rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pu=
+ll_none>;
+> > +             };
+> > +     };
+> >  };
+> >
+> >  &pwm2 {
+> > @@ -871,6 +943,22 @@ &tsadc {
+> >       status =3D "okay";
+> >  };
+> >
+> > +&u2phy0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&u2phy0_otg {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&u2phy1 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&u2phy1_otg {
+>
+> Needs:
+>         phy-supply =3D <&vcc5v0_host>;
+
+You probably mean vcc5v0_sys?
+
+The power switch that feeds the ports is controlled by the hub directly.
+The hub is powered off vcc5v0_sys.
+
+> > +     status =3D "okay";
+> > +};
+> > +
+> >  &u2phy2 {
+> >       status =3D "okay";
+> >  };
+> > @@ -899,6 +987,33 @@ &uart9 {
+> >       status =3D "okay";
+> >  };
+> >
+> > +&usbdp_phy0 {
+> > +     mode-switch;
+> > +     orientation-switch;
+> > +     sbu1-dc-gpios =3D <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+> > +     sbu2-dc-gpios =3D <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
+> > +     status =3D "okay";
+> > +
+> > +     port {
+> > +             #address-cells =3D <1>;
+> > +             #size-cells =3D <0>;
+> > +
+> > +             usbdp_phy0_typec_ss: endpoint@0 {
+> > +                     reg =3D <0>;
+> > +                     remote-endpoint =3D <&usbc0_ss>;
+> > +             };
+> > +
+> > +             usbdp_phy0_typec_sbu: endpoint@1 {
+> > +                     reg =3D <1>;
+> > +                     remote-endpoint =3D <&usbc0_sbu>;
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&usbdp_phy1 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> >  &usb_host0_ehci {
+> >       status =3D "okay";
+> >  };
+> > @@ -907,6 +1022,18 @@ &usb_host0_ohci {
+> >       status =3D "okay";
+> >  };
+> >
+> > +&usb_host0_xhci {
+> > +     dr_mode =3D "otg";
+>
+> This is the default. No need to have it here.
+
+Ack.
+
+Thanks
+ChenYu
+
+> Kind regards,
+>         o.
+>
+> > +     usb-role-switch;
+> > +     status =3D "okay";
+> > +
+> > +     port {
+> > +             usb_host0_xhci_drd_sw: endpoint {
+> > +                     remote-endpoint =3D <&usbc0_hs>;
+> > +             };
+> > +     };
+> > +};
+> > +
+> >  &usb_host1_ehci {
+> >       status =3D "okay";
+> >  };
+> > @@ -915,6 +1042,11 @@ &usb_host1_ohci {
+> >       status =3D "okay";
+> >  };
+> >
+> > +&usb_host1_xhci {
+> > +     dr_mode =3D "host";
+> > +     status =3D "okay";
+> > +};
+> > +
+> >  &vop_mmu {
+> >       status =3D "okay";
+> >  };
+> > --
+> > 2.39.5
+> >
 
