@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AC7D43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9A8D43350
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPKia8mc29LBHIBoWFB0OJoeWWo9xwpVLeKPu0E5yTY=; b=X29VR9Y1cfv8ekHsSorFSWFgbt
-	9OS60/38CPhm6iZ/4RBidpPiKDasYkkK9qVJ9+TBcQcxCEnHDCNQ4L0ddwmdIQ8p11OvG0pZ73KDP
-	ZPmTwV8kAC/iAgMraatx5XS1t+hSzCfRfMT55NDdmNgPwie6OLqLBvA/6+7jA1NVSCpXc/WrC5Ci0
-	G9tXw+nROGpsDXPJXcvcGUKn46EsxhIguPdx4VrROyxDG5mUEdDiM/ZV5TWZfIR1Avyu3w9051kwZ
-	HTpfH9w61Z52M0Yz45X+wii5roGvuAebj8sPABdUl3vJnJbECNehbolEJa8sA5SVh6T3P1PxBlJrK
-	KiotRtKw==;
+	bh=AkbOc3cbibJ6pZjyluyM/+M+k4gt1KmWg6RTkksjTKs=; b=mxZXa+ZDmmfgTf9DNGQqdyd1in
+	okrex0YQXBqOPFMpfTlte7QBqjazdNpS0WwUTmc8Zm6H8cdYhuBSHFbh76Ac3D1Z0e9ei5JUsHwJf
+	G5jKj6lqNPk8AaWa5ALciAqKCarNKOR+tH0Xo79vKT3ZA7XFxI4kLlKKBUzk3+8ezvhymH+/PxLv8
+	yXURzl6Ioff45nfG5mjBKsPN5uwrFpTgb8zzTcVrNVqzuiD/CVuGxKeB23jh/L2Yce2JAJ5VewPk4
+	zu1yrGmV3QLo8gUAYLT3iYIeBdXfe2hHd21G0qWNp1y+PuA0q3BNyf5HLWhX9diMkygFXMj1rLQs0
+	CE7U3khQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91EG-00000006r7z-3Tds;
-	Thu, 07 Nov 2024 12:03:12 +0000
+	id 1t91Fy-00000006rTB-0eiH;
+	Thu, 07 Nov 2024 12:04:58 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90zQ-00000006nl4-2wQa;
+	id 1t90zQ-00000006nl2-2cyh;
 	Thu, 07 Nov 2024 11:47:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
@@ -32,17 +32,17 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rPKia8mc29LBHIBoWFB0OJoeWWo9xwpVLeKPu0E5yTY=; b=oOwdF9XhUQua5TsDyAUqVgld6g
-	q1t6fDXZRQJVLg30c7i652Mp6G3/GqiqGB/k82Kyi7YNiXtQxb8kN+sgM5zpd9UG+Xkk3R/H84nbB
-	pAvSHCi/uWHzRhJQyXKMNDq+15gxh3IpcAa4l/41wK0jUUQpurl1GVhhkc8PWU/E0t0Enkh/feVuL
-	1KhS9DJ6OzyvTqreMGctZQQlLGOUNTAGh5nK0B11pB7jJdqhZZUjR0OtMJxzUydbv47KaN1Z43JHO
-	Is7Arus0usp2Gmdufp6kQiJKJ/PCHIYoP9W1qpxDr/N7y3yH2anY4F3xaEYoHFOv569J7qz2BMbuS
-	4x9wIXvg==;
+	bh=AkbOc3cbibJ6pZjyluyM/+M+k4gt1KmWg6RTkksjTKs=; b=L1l1ohYzJNoXAmGPs556J58WGO
+	/K78ADjq4sdMlLWZxpX98XW0Qe2wi5Sy5/zmFYMXLEDfa4uE51JiVuODf9s/n2xkOAzg/goUHW6GQ
+	uLQDwCGCIxznk3T88niDGh/q2tltu4JFz77ipJOxuqfsZur63CNjlxQwCRwMqd2+N54p4PNUxEKeH
+	PaF2Owy/4YpOeZ56qLt/D9rQFe4J2qtCjDIWD1gtIbI0x93X1PyAbwsXapzxo5XBKPEDEJF53JrTu
+	BvFrwMgrZBEYXYfmmLFXwx2sPEZhpYN7aaaAj4BWRHkj4pPjG5jIje01VFivFEzZoMU1d4LAD1pFF
+	Mckza78w==;
 Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1t90yy-0005lF-Nn; Thu, 07 Nov 2024 12:47:24 +0100
+	id 1t90z2-0005lF-TX; Thu, 07 Nov 2024 12:47:28 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: lee@kernel.org,
 	jikos@kernel.org,
@@ -65,19 +65,18 @@ Cc: robh@kernel.org,
 	linux-input@vger.kernel.org,
 	linux-iio@vger.kernel.org,
 	linux-leds@vger.kernel.org,
-	heiko@sntech.de,
-	stable@vger.kernel.org
-Subject: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data on remove
-Date: Thu,  7 Nov 2024 12:47:04 +0100
-Message-ID: <20241107114712.538976-2-heiko@sntech.de>
+	heiko@sntech.de
+Subject: [PATCH v9 6/9] Input: add driver for the input part of qnap-mcu devices
+Date: Thu,  7 Nov 2024 12:47:09 +0100
+Message-ID: <20241107114712.538976-7-heiko@sntech.de>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241107114712.538976-1-heiko@sntech.de>
 References: <20241107114712.538976-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_034752_810620_A5F4C920 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20241107_034752_851285_C7E8B354 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,79 +91,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hid-sensor-hub creates the individual device structs and transfers them
-to the created mfd platform-devices via the platform_data in the mfd_cell.
+The MCU controls the power-button and beeper, so expose them as input
+device. There is of course no interrupt line, so the status of the
+power-button needs to be polled. To generate an event the power-button
+also needs to be held for 1-2 seconds, so the polling interval does
+not need to be overly fast.
 
-Before e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous reads")
-the sensor-hub was managing access centrally, with one "completion" in the
-hub's data structure, which needed to be finished on removal at the latest.
-
-The mentioned commit then moved this central management to each hid sensor
-device, resulting on a completion in each struct hid_sensor_hub_device.
-The remove procedure was adapted to go through all sensor devices and
-finish any pending "completion".
-
-What this didn't take into account was, platform_device_add_data() that is
-used by mfd_add{_hotplug}_devices() does a kmemdup on the submitted
-platform-data. So the data the platform-device gets is a copy of the
-original data, meaning that the device worked on a different completion
-than what sensor_hub_remove() currently wants to access.
-
-To fix that, use device_for_each_child() to go through each child-device
-similar to how mfd_remove_devices() unregisters the devices later and
-with that get the live platform_data to finalize the correct completion.
-
-Fixes: e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous reads")
-Cc: stable@vger.kernel.org
-Acked-by: Benjamin Tissoires <bentiss@kernel.org>
-Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Acked-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- drivers/hid/hid-sensor-hub.c | 21 ++++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
+ MAINTAINERS                         |   1 +
+ drivers/input/misc/Kconfig          |  12 +++
+ drivers/input/misc/Makefile         |   1 +
+ drivers/input/misc/qnap-mcu-input.c | 153 ++++++++++++++++++++++++++++
+ 4 files changed, 167 insertions(+)
+ create mode 100644 drivers/input/misc/qnap-mcu-input.c
 
-diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
-index 7bd86eef6ec7..4c94c03cb573 100644
---- a/drivers/hid/hid-sensor-hub.c
-+++ b/drivers/hid/hid-sensor-hub.c
-@@ -730,23 +730,30 @@ static int sensor_hub_probe(struct hid_device *hdev,
- 	return ret;
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9abea0772d2b..9e66441c50da 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18881,6 +18881,7 @@ F:	drivers/media/tuners/qm1d1c0042*
+ QNAP MCU DRIVER
+ M:	Heiko Stuebner <heiko@sntech.de>
+ S:	Maintained
++F:	drivers/input/misc/qnap-mcu-input.c
+ F:	drivers/leds/leds-qnap-mcu.c
+ F:	drivers/mfd/qnap-mcu.c
+ F:	include/linux/qnap-mcu.h
+diff --git a/drivers/input/misc/Kconfig b/drivers/input/misc/Kconfig
+index 6a852c76331b..13d135257e06 100644
+--- a/drivers/input/misc/Kconfig
++++ b/drivers/input/misc/Kconfig
+@@ -917,6 +917,18 @@ config INPUT_HISI_POWERKEY
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called hisi_powerkey.
  
-+static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
-+{
-+	struct hid_sensor_hub_device *hsdev = dev->platform_data;
++config INPUT_QNAP_MCU
++	tristate "Input Support for QNAP MCU controllers"
++	depends on MFD_QNAP_MCU
++	help
++	  This option enables support for input elements available on
++	  embedded controllers used in QNAP NAS devices.
 +
-+	if (hsdev->pending.status)
-+		complete(&hsdev->pending.ready);
++	  This includes a polled power-button as well as a beeper.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called qnap-mcu-input.
++
+ config INPUT_RAVE_SP_PWRBUTTON
+ 	tristate "RAVE SP Power button Driver"
+ 	depends on RAVE_SP_CORE
+diff --git a/drivers/input/misc/Makefile b/drivers/input/misc/Makefile
+index 4f7f736831ba..6d91804d0a6f 100644
+--- a/drivers/input/misc/Makefile
++++ b/drivers/input/misc/Makefile
+@@ -68,6 +68,7 @@ obj-$(CONFIG_INPUT_PMIC8XXX_PWRKEY)	+= pmic8xxx-pwrkey.o
+ obj-$(CONFIG_INPUT_POWERMATE)		+= powermate.o
+ obj-$(CONFIG_INPUT_PWM_BEEPER)		+= pwm-beeper.o
+ obj-$(CONFIG_INPUT_PWM_VIBRA)		+= pwm-vibra.o
++obj-$(CONFIG_INPUT_QNAP_MCU)		+= qnap-mcu-input.o
+ obj-$(CONFIG_INPUT_RAVE_SP_PWRBUTTON)	+= rave-sp-pwrbutton.o
+ obj-$(CONFIG_INPUT_RB532_BUTTON)	+= rb532_button.o
+ obj-$(CONFIG_INPUT_REGULATOR_HAPTIC)	+= regulator-haptic.o
+diff --git a/drivers/input/misc/qnap-mcu-input.c b/drivers/input/misc/qnap-mcu-input.c
+new file mode 100644
+index 000000000000..76e62f0816c1
+--- /dev/null
++++ b/drivers/input/misc/qnap-mcu-input.c
+@@ -0,0 +1,153 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++/*
++ * Driver for input events on QNAP-MCUs
++ *
++ * Copyright (C) 2024 Heiko Stuebner <heiko@sntech.de>
++ */
++
++#include <linux/input.h>
++#include <linux/mfd/qnap-mcu.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <uapi/linux/input-event-codes.h>
++
++/*
++ * The power-key needs to be pressed for a while to create an event,
++ * so there is no use for overly frequent polling.
++ */
++#define POLL_INTERVAL		500
++
++struct qnap_mcu_input_dev {
++	struct input_dev *input;
++	struct qnap_mcu *mcu;
++	struct device *dev;
++
++	struct work_struct beep_work;
++	int beep_type;
++};
++
++static void qnap_mcu_input_poll(struct input_dev *input)
++{
++	struct qnap_mcu_input_dev *idev = input_get_drvdata(input);
++	static const u8 cmd[] = { '@', 'C', 'V' };
++	u8 reply[4];
++	int state, ret;
++
++	/* poll the power button */
++	ret = qnap_mcu_exec(idev->mcu, cmd, sizeof(cmd), reply, sizeof(reply));
++	if (ret)
++		return;
++
++	/* First bytes must mirror the sent command */
++	if (memcmp(cmd, reply, sizeof(cmd))) {
++		dev_err(idev->dev, "malformed data received\n");
++		return;
++	}
++
++	state = reply[3] - 0x30;
++	input_event(input, EV_KEY, KEY_POWER, state);
++	input_sync(input);
++}
++
++static void qnap_mcu_input_beeper_work(struct work_struct *work)
++{
++	struct qnap_mcu_input_dev *idev =
++		container_of(work, struct qnap_mcu_input_dev, beep_work);
++	const u8 cmd[] = { '@', 'C', (idev->beep_type == SND_TONE) ? '3' : '2' };
++
++	qnap_mcu_exec_with_ack(idev->mcu, cmd, sizeof(cmd));
++}
++
++static int qnap_mcu_input_event(struct input_dev *input, unsigned int type,
++				unsigned int code, int value)
++{
++	struct qnap_mcu_input_dev *idev = input_get_drvdata(input);
++
++	if (type != EV_SND || (code != SND_BELL && code != SND_TONE))
++		return -EOPNOTSUPP;
++
++	if (value < 0)
++		return -EINVAL;
++
++	/* beep runtime is determined by the MCU */
++	if (value == 0)
++		return 0;
++
++	/* Schedule work to actually turn the beeper on */
++	idev->beep_type = code;
++	schedule_work(&idev->beep_work);
 +
 +	return 0;
 +}
 +
- static void sensor_hub_remove(struct hid_device *hdev)
- {
- 	struct sensor_hub_data *data = hid_get_drvdata(hdev);
- 	unsigned long flags;
--	int i;
- 
- 	hid_dbg(hdev, " hardware removed\n");
- 	hid_hw_close(hdev);
- 	hid_hw_stop(hdev);
++static void qnap_mcu_input_close(struct input_dev *input)
++{
++	struct qnap_mcu_input_dev *idev = input_get_drvdata(input);
 +
- 	spin_lock_irqsave(&data->lock, flags);
--	for (i = 0; i < data->hid_sensor_client_cnt; ++i) {
--		struct hid_sensor_hub_device *hsdev =
--			data->hid_sensor_hub_client_devs[i].platform_data;
--		if (hsdev->pending.status)
--			complete(&hsdev->pending.ready);
--	}
-+	device_for_each_child(&hdev->dev, NULL,
-+			      sensor_hub_finalize_pending_fn);
- 	spin_unlock_irqrestore(&data->lock, flags);
++	cancel_work_sync(&idev->beep_work);
++}
 +
- 	mfd_remove_devices(&hdev->dev);
- 	mutex_destroy(&data->mutex);
- }
++static int qnap_mcu_input_probe(struct platform_device *pdev)
++{
++	struct qnap_mcu *mcu = dev_get_drvdata(pdev->dev.parent);
++	struct qnap_mcu_input_dev *idev;
++	struct device *dev = &pdev->dev;
++	struct input_dev *input;
++	int ret;
++
++	idev = devm_kzalloc(dev, sizeof(*idev), GFP_KERNEL);
++	if (!idev)
++		return -ENOMEM;
++
++	input = devm_input_allocate_device(dev);
++	if (!input)
++		return dev_err_probe(dev, -ENOMEM, "no memory for input device\n");
++
++	idev->input = input;
++	idev->dev = dev;
++	idev->mcu = mcu;
++
++	input_set_drvdata(input, idev);
++
++	input->name		= "qnap-mcu";
++	input->phys		= "qnap-mcu-input/input0";
++	input->id.bustype	= BUS_HOST;
++	input->id.vendor	= 0x0001;
++	input->id.product	= 0x0001;
++	input->id.version	= 0x0100;
++	input->event		= qnap_mcu_input_event;
++	input->close		= qnap_mcu_input_close;
++
++	input_set_capability(input, EV_KEY, KEY_POWER);
++	input_set_capability(input, EV_SND, SND_BELL);
++	input_set_capability(input, EV_SND, SND_TONE);
++
++	INIT_WORK(&idev->beep_work, qnap_mcu_input_beeper_work);
++
++	ret = input_setup_polling(input, qnap_mcu_input_poll);
++	if (ret)
++		return dev_err_probe(dev, ret, "unable to set up polling\n");
++
++	input_set_poll_interval(input, POLL_INTERVAL);
++
++	ret = input_register_device(input);
++	if (ret)
++		return dev_err_probe(dev, ret, "unable to register input device\n");
++
++	return 0;
++}
++
++static struct platform_driver qnap_mcu_input_driver = {
++	.probe = qnap_mcu_input_probe,
++	.driver = {
++		.name = "qnap-mcu-input",
++	},
++};
++module_platform_driver(qnap_mcu_input_driver);
++
++MODULE_ALIAS("platform:qnap-mcu-input");
++MODULE_AUTHOR("Heiko Stuebner <heiko@sntech.de>");
++MODULE_DESCRIPTION("QNAP MCU input driver");
++MODULE_LICENSE("GPL");
 -- 
 2.45.2
 
