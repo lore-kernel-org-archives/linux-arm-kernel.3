@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4706AD5D688
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2869D5D688
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nTO4EjkwFAgYaEHynQq99LWUAaYcLMNoIrZ4RtMDNiw=; b=HMz4mavsVLWqseIzufM7urmyQy
-	rtp05h/Dm1QDdmAy0G9oKT8QtxcdAVgi5xR1Oyfd4UcdrgDA7bSHI50Bk24zbQGY8ma3NDPjehyLC
-	QQttE0DdU7JcRhUFIgR10KciOXsXWUw77OkDC2Ge8fnrAzc2SddYqBLCQJ4rk0kc5UHi7v0wuf6Cg
-	RCV+NH9HvbKHG6kqsDmuiJFfbeI4QIxIuhf0O4Cq8YrZvXQCZas2vWHyv+F2+KQ17hxjF1uIpS6kM
-	BSvxeUEgwAa7TAJpbOUF47cV/uN4CMxccF74iK8Uotz0HmTQYbrqemGiNj9DSKP1nrGZH2vMgo7xF
-	yj7ZiyNw==;
+	bh=eF3avHwQtvQTUdE1QAl4QZ2NDeHSLkfflTgz6TjoqgY=; b=fJOal2p4YlqtC5aAV/V19zoEaU
+	trahoaocYLLe5eOCOfdKGoc/LyseyT4OdbUm7ycWMiEggIYAWyQeiscmPcDyqyJo7GBDA7oiDhq0l
+	M1UPwGEH97CLJWhZzhwCrOaQ7w+xSjSAWQAyhEOWjvyIycGxfpKtIJTQr2k3FtG/+anBbksjtY3d6
+	bO1S3NiSOaNK3baEHSLYs5S7EmngKG3Nhfte4qHUDLQnxb5bBzwRqyOHRkELbBtVlC9ynGh905ihm
+	YhXSfa9CTPZfL0I7e7cc2mLpEMSTR/lzo/Kpm4Q0yvoP5MOe/KjQdmmioSSgYsxq9ofIfK9n67WDo
+	zFT6yB1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t99n6-00000008Mr4-1uEY;
-	Thu, 07 Nov 2024 21:11:44 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1t99rJ-00000008NgN-085R;
+	Thu, 07 Nov 2024 21:16:05 +0000
+Received: from smtp.forwardemail.net ([207.246.76.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t99lK-00000008MQT-1SVv
+	id 1t99pY-00000008NKj-2gWP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 21:09:56 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-7ee51d9ae30so1134930a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 13:09:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1731013792; x=1731618592; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=nTO4EjkwFAgYaEHynQq99LWUAaYcLMNoIrZ4RtMDNiw=;
-        b=h5NDrERonAxljpAyk/kxlZDXgTkbrItR8yl1czOvsDXscxyaYK02zPomO2AthCYTxQ
-         KNDB/R/xBnAWRsGNOu/R3JMDU8GH1ujKbhvHvXnpse5mfZzJj2vQPawYvtisFlIkPGuD
-         jrdCpkCxhQ/8gKbSDxRxd44fzwhJhArzrKjOBUa4bJQHXySpC5zN14e77aeT+FcoUH20
-         zSEXL04IwS1FMuq/wv95Ql6/Sl92NEAHxQ587xqKaxZhn2bojNcW/mxSGtdjsM/wGXNd
-         7tE2g4T5mSs8Dsk8jIgi/PQeAWfG01M2ZfZFtqTARBAxzGZoyE2qlEBIikpeuNm8Ibip
-         M6GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731013792; x=1731618592;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nTO4EjkwFAgYaEHynQq99LWUAaYcLMNoIrZ4RtMDNiw=;
-        b=YKWH2cMt9e/Zwhqa3VDC7Mu42ckqHXnjSHlVQFHkuMI6QLRLFa/r3y5FOYTZmk615J
-         WDVVRWReKFfaabrVODC3HHHa7PmP96GpSrXrT9WM+fm6kiIxFSn/QNJh0/9RlI8XkIr9
-         It5R80IO2PGrwhh6bNXEvS2SGxPMtmYwHZRr+eCS/OoJ9vklGvb2o5XqFBzhKJ/yUzCV
-         PgIKwdJiWeWBVwXtu4o+is8Pk4u8IJYp2jOCXq92+B/SxaqWIq6OJy4iCHWslPCUJjVD
-         SuxGG0Kb6AIxzoQUgKx+vTBzmkJfI9aJrqTf/BlgoeLeiDpp23WoXqmICmgR8nb9K3To
-         zkMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX1noChFWDg28vT4uxnF6FeaLLDDDaYC1L3dKVAGOuzznA3D2AXVfnxTzkykEAwBUynQtAkTWcNPpijwBx5W6up@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxre2i9HfgbHhx/Xk0R8MHjAzL4yStA4dHL2J2FD5gx4s3SieDt
-	Kp6uBp7T+NKHnQUZDKNUTX1x/yPbFzSBNDyPpCLcfMUMIZ6oulyrS3EuAfA1Ov4=
-X-Google-Smtp-Source: AGHT+IFk6qXB0bVZKyp0tke33OTnolngc3ijaSpPvGk5swNG+Q39aLuFGnQ6FeHS+CQLJ1vBlZUqUg==
-X-Received: by 2002:a05:6a20:7fa4:b0:1db:e04b:16c9 with SMTP id adf61e73a8af0-1dc22838fd2mr623024637.1.1731013792602;
-        Thu, 07 Nov 2024 13:09:52 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724078a7e7asm2134929b3a.70.2024.11.07.13.09.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 13:09:52 -0800 (PST)
-Message-ID: <672d2ca0.050a0220.33ae7f.a548@mx.google.com>
-Date: Thu, 07 Nov 2024 13:09:52 -0800 (PST)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 07 Nov 2024 21:14:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1731014036;
+ bh=eF3avHwQtvQTUdE1QAl4QZ2NDeHSLkfflTgz6TjoqgY=;
+ b=qmvhoHXWCnTlfRqUZx+vX6Sxq4aZ5aBi2Y6tBbu6HOcqiwFBB42NKEhlwy/sJ57Hlrb3Q43n+
+ NKGxrayngPqSZq8htri63K/lvgfuqQmGHBksxE7+czeYQM39J8wETMUEvyjor2x9z1R6rd6cIDx
+ MjZ0YlnpEhnNlKdLzRdRQgrK/Nw1bAk4Qk7IBlHBdZLb/maBnnaUTI/iB+IV3HvnL6IsW9asxtr
+ IuCA4YVWPCWbqS3nPQmupKHipF3aB/a32jSuQtv+qIO1SoDTY7wxJ8BwbbgFlFR+EZ11DU0MRiy
+ 5xCKez6EZGm22ocApyqAlcuHIOZCgomLHPe4/p4xmUHA==
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Enable HDMI on Hardkernel ODROID-M2
+Date: Thu,  7 Nov 2024 21:13:43 +0000
+Message-ID: <20241107211345.1318046-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.46.2
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: build
-X-Kernelci-Kernel: v6.12-rc6-194-geb17c12d043da
-X-Kernelci-Branch: for-kernelci
-X-Kernelci-Tree: arm64
-Subject: arm64/for-kernelci build: 1 build: 0 failed,
- 1 passed (v6.12-rc6-194-geb17c12d043da)
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
- kernelci-results@groups.io
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Transfer-Encoding: 8bit
+X-Report-Abuse-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-ForwardEmail-Version: 0.4.40
+X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 207.246.76.47
+X-ForwardEmail-ID: 672d2d906ff4b179fef283e3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_130954_565190_FA81274C 
-X-CRM114-Status: UNSURE (   2.89  )
+X-CRM114-CacheID: sfid-20241107_131416_820997_2D0AC10A 
+X-CRM114-Status: UNSURE (   8.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,31 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64/for-kernelci build: 1 build: 0 failed, 1 passed (v6.12-rc6-194-geb17c=
-12d043da)
+Add the necessary DT changes to enable HDMI on Hardkernel ODROID-M2.
 
-Full Build Summary: https://kernelci.org/build/arm64/branch/for-kernelci/ke=
-rnel/v6.12-rc6-194-geb17c12d043da/
-
-Tree: arm64
-Branch: for-kernelci
-Git Describe: v6.12-rc6-194-geb17c12d043da
-Git Commit: eb17c12d043dad3f1ef9376a2d80d7e0a665e887
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-Built: 1 unique architecture
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-For more info write to <info@kernelci.org>
+Tested and working with video=1920x1080@60 cmdline on a ODROID-M2.
+---
+ .../boot/dts/rockchip/rk3588s-odroid-m2.dts   | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
+index 63d91236ba9f..8f034c6d494c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
+@@ -5,6 +5,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588s.dtsi"
+ 
+@@ -22,6 +23,17 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+ 
++	hdmi-con {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi0_out_con>;
++			};
++		};
++	};
++
+ 	leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -236,6 +248,26 @@ &gpu {
+ 	status = "okay";
+ };
+ 
++&hdmi0 {
++	status = "okay";
++};
++
++&hdmi0_in {
++	hdmi0_in_vp0: endpoint {
++		remote-endpoint = <&vp0_out_hdmi0>;
++	};
++};
++
++&hdmi0_out {
++	hdmi0_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
++&hdptxphy_hdmi0 {
++	status = "okay";
++};
++
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
+@@ -901,3 +933,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
+ 		};
+ 	};
+ };
++
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vp0 {
++	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
++		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
++		remote-endpoint = <&hdmi0_in_vp0>;
++	};
++};
+-- 
+2.46.2
+
 
