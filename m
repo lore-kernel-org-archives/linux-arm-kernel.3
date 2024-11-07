@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC37D5AE75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8BCD5AE76
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SLobudUPRJu3yO+WgY5nbSK+JQEjFbZ/4gXbodXRIpU=; b=IOcqR0nLuBfHUxbkME9BpyOjvH
-	SMWsiIRfcM1yaUt5mWVOgS2fDxQOBTVIlC7Sz051+J8o2eYSPbRYmk4T9oYizncvhKXpiJ4OZ9BjI
-	zzFvPR1uGQuYKNzCkFumMaQJAz8QFPHcgnmToJ1LI1m6o8VmMWucXpqKFNGgYEpCTQchPY7nK7WHJ
-	TRs0shSCwL9E7/McyQtB4ZHk8pobPi/NSyN4IRf5zVuIsgiswIrg5IlUaoM+Uh3y8N5PQw9mLV2jQ
-	7zY2WGUmyyMerGgHHCoaZzZOdP9l2RH8b/lehvnE3YKJx0Maip2q0h1zjUfNX65AiZXn5Sz9CeeQr
-	dg9JstjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n/xPTnVXxQLof8xR+YCu8vKSmbmrmkJfuMYj7u5LNmg=; b=USdDO3djYvy6gaSbl9zoByUEM6
+	swCzfuUN/zSFQ0diDr/twES9gbkYCM6wDRfM1H+ky+dEFvn3+ZhqabepIsLwWnO+/aXhd4Fsm1Fly
+	azNtCo8JtoB5pifuOowSYUzICkLrA26JG3SQjQrpOSxzCYgs5S6XTuFfg5tqXnFMYpmOts3lQnMpw
+	qv8jOXPqhpNpf0KZh+YwrM3G9FFBJgQmPSzODYvFBvzHasrMrEmh06AG4wgQgcqNZNWBMBZjukJIl
+	ONBOo+2fAtQwniuupm6k8RQZziSd4ZZDZr1F/sn3/TJCfLezrGLhasy25oSAM6sifGRWrCN08DcIH
+	OuMV9bgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yOX-00000006EVs-37Yq;
-	Thu, 07 Nov 2024 09:01:38 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1t8yPw-00000006EkG-2bfT;
+	Thu, 07 Nov 2024 09:03:04 +0000
+Received: from phobos.denx.de ([85.214.62.61])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8xDX-000000061mA-1om0;
-	Thu, 07 Nov 2024 07:46:13 +0000
-X-UUID: 58fafd769cdc11ef82ff63e91e7eb18c-20241107
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=SLobudUPRJu3yO+WgY5nbSK+JQEjFbZ/4gXbodXRIpU=;
-	b=BUp1DtqwDQpT8ca2Q0oG+7n/29tpLZQ+53q/PkwqX1f1H8v/9GjC0vvnmFZblCsyIQQIIZXKRndIp8TqczwKONl8pW1PBJEtbkbSMYeJi9g+tXazsvTrkCgvYGNUhf8K5LN1AXY3kZxZ/R0d1QO9h8rp0Z19WC6ebY4vhPZzXmQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:6444fddc-46d3-49df-8dc7-f24abb118730,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:854caaca-91e6-4060-9516-6ba489b4e2dc,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 58fafd769cdc11ef82ff63e91e7eb18c-20241107
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <yunfei.dong@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1735101752; Thu, 07 Nov 2024 00:46:07 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 7 Nov 2024 15:46:04 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 7 Nov 2024 15:46:03 +0800
-From: Yunfei Dong <yunfei.dong@mediatek.com>
-To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
-	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
-	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
-	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>
-CC: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
-	Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>, Steve
- Cho <stevecho@chromium.org>, Yunfei Dong <yunfei.dong@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 0/6] media: mediatek: vcodec: support h264 extend vsi
-Date: Thu, 7 Nov 2024 15:45:54 +0800
-Message-ID: <20241107074603.31998-1-yunfei.dong@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1t8yKm-00000006Dl9-22Ec
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 08:57:46 +0000
+Received: from localhost.localdomain (85-222-111-42.dynamic.chello.pl [85.222.111.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: lukma@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 54E55891FE;
+	Thu,  7 Nov 2024 09:57:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1730969862;
+	bh=n/xPTnVXxQLof8xR+YCu8vKSmbmrmkJfuMYj7u5LNmg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=jBaegw7+Q7P4kqERE5TSZjA+UBPfZeHGAbxo5e7mx9d4x1a5sdaE/JSeYqOh6S41R
+	 GTwDd+ByWD+kqPPRMEAHE97A7twgLePYpOe+/N6Vh0jJygga33j7XLIeOdqEu+AzLJ
+	 87YpzWHOF1NEO+idoCVoJ9ssLPfH5Rso9bAlUUWnT94m8AfGcwLpPIjMIg1KqYvkjk
+	 xNvF2RvlFrkA9sc6GUWwcsiwB6yQhAxvJ3XI8lDbvDTSbDlNOz9vv0NU9900qQzcKg
+	 +HGURk23owUSQGxBnYs6qqd2NSc0M+lwhlnHVWgYEXH5BzdbJUfMH31NUbSK8E3vTN
+	 MJS+X6Y/3yALg==
+From: Lukasz Majewski <lukma@denx.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287 based btt3-[012] devices
+Date: Thu,  7 Nov 2024 09:57:05 +0100
+Message-Id: <20241107085705.490940-3-lukma@denx.de>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20241107085705.490940-1-lukma@denx.de>
+References: <20241107085705.490940-1-lukma@denx.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_234611_506626_5932BE18 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20241107_005744_983000_0E7C2844 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +84,483 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The working buffer address start and end are calculated in kernel
-side currently, the address end can't be calculated if the driver
-only getting the address file handle, not the real physical address.
-Need to send the extended vsi to firmware to calculate the address
-end.
+The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are to
+some extend similar to already upstreamed XEA devices, hence are
+using common imx28-lwe.dtsi file.
 
-Re-construct some interface and add configuration to support extend
-and non extend driver at the same time. Needn't to parse nal info for
-extended architecture.
+New, imx28-btt3.dtsi has been added to embrace common DTS
+properties for different HW revisions for this device.
+
+As a result - changes introduced in imx28-btt3-[012].dts are
+minimal.
+
+Signed-off-by: Lukasz Majewski <lukma@denx.de>
+
 ---
-This patch series depends on:
-[1] https://patchwork.kernel.org/project/linux-mediatek/cover/20241012064333.27269-1-yunfei.dong@mediatek.com
+Changes for v2:
+- Rename dts file from btt3-[012] to imx28-btt3-[012] to match current
+  linux kernel naming convention
+- Remove 'wlf,wm8974' from compatible for codec@1a
 
+Changes for v3:
+- Keep alphabethical order for Makefile entries
+
+Changes for v4:
+- Change compatible for btt3 board (to 'lwn,imx28-btt3')
+
+Changes for v5:
+- Combine patch, which adds btt3-[012] with one adding board entry to
+  fsl.yaml
+
+Changes for v6:
+- Make the patch series for adding entry in fsl.yaml and btt3
+
+Changes for v7:
+- Use "panel" property as suggested by the community
+- Use panel-timing to specify the display parameters
+- Update subject line with correct tags
+
+Changes for v8:
+- Use GPIO_ACTIVE_HIGH instead of '0'
+- Add the comment regarding mac address specification
+- Remove superfluous comment
+- Change wifi-en-pin node name
+
+Changes for v9:
+- Remove not used 'pm-ignore-notify'
+- Add display names for 'panel-dpi' compatible to avoid Schema warnings
+
+Changes for v10:
+- Drop new line with panel-timing definitions
+- Add new lines with 'sound' node
+- Change 'codec' to 'audio-codec'
+- Change order of properties for saif1 node
+
+Changes for v11:
+- None
 ---
-compared with v2:
-- squash patch 2/3/4 together
-- re-write commit message for patch 1
+ arch/arm/boot/dts/nxp/mxs/Makefile         |   3 +
+ arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts |  12 +
+ arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts |   8 +
+ arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts |  39 +++
+ arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi  | 313 +++++++++++++++++++++
+ 5 files changed, 375 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
 
-compared with v1:
-- combine some pathes together for patch 2
-- re-write patch 4
----
-Yunfei Dong (3):
-  media: mediatek: vcodec: remove vsi operation in common interface
-  media: mediatek: vcodec: support extended h264 decode
-  media: mediatek: vcodec: add description for vsi struct
-
- .../vcodec/decoder/mtk_vcodec_dec_drv.h       |   2 +
- .../decoder/vdec/vdec_h264_req_multi_if.c     | 505 +++++++++++++++++-
- 2 files changed, 482 insertions(+), 25 deletions(-)
-
+diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile b/arch/arm/boot/dts/nxp/mxs/Makefile
+index a430d04f9c69..96dd31ea19ba 100644
+--- a/arch/arm/boot/dts/nxp/mxs/Makefile
++++ b/arch/arm/boot/dts/nxp/mxs/Makefile
+@@ -8,6 +8,9 @@ dtb-$(CONFIG_ARCH_MXS) += \
+ 	imx28-apf28.dtb \
+ 	imx28-apf28dev.dtb \
+ 	imx28-apx4devkit.dtb \
++	imx28-btt3-0.dtb \
++	imx28-btt3-1.dtb \
++	imx28-btt3-2.dtb \
+ 	imx28-cfa10036.dtb \
+ 	imx28-cfa10037.dtb \
+ 	imx28-cfa10049.dtb \
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+new file mode 100644
+index 000000000000..6ac46e4b21bb
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-0.dts
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright 2024
++ * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
++ */
++
++/dts-v1/;
++#include "imx28-btt3.dtsi"
++
++&hog_pins_rev {
++	fsl,pull-up = <MXS_PULL_ENABLE>;
++};
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+new file mode 100644
+index 000000000000..213fe931c58b
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-1.dts
+@@ -0,0 +1,8 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright 2024
++ * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
++ */
++
++/dts-v1/;
++#include "imx28-btt3.dtsi"
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+new file mode 100644
+index 000000000000..4bccd784d065
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3-2.dts
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright 2024
++ * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
++ */
++
++/dts-v1/;
++#include "imx28-btt3.dtsi"
++
++/ {
++	panel {
++		compatible = "powertip,st7272", "panel-dpi";
++		power-supply = <&reg_3v3>;
++		width-mm = <70>;
++		height-mm = <52>;
++
++		panel-timing {
++			clock-frequency = <6500000>;
++			hactive = <320>;
++			vactive = <240>;
++			hfront-porch = <20>;
++			hback-porch = <68>;
++			hsync-len = <30>;
++			vfront-porch = <4>;
++			vback-porch = <14>;
++			vsync-len = <4>;
++			hsync-active = <0>;
++			vsync-active = <0>;
++			de-active = <1>;
++			pixelclk-active = <1>;
++		};
++
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&display_out>;
++			};
++		};
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
+new file mode 100644
+index 000000000000..2c52e67e5c14
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/mxs/imx28-btt3.dtsi
+@@ -0,0 +1,313 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright 2024
++ * Lukasz Majewski, DENX Software Engineering, lukma@denx.de
++ */
++/dts-v1/;
++#include "imx28-lwe.dtsi"
++
++/ {
++	model = "BTT3";
++
++	compatible = "lwn,imx28-btt3", "fsl,imx28";
++
++	chosen {
++	       bootargs = "root=/dev/mmcblk0p2 rootfstype=ext4 ro rootwait console=ttyAMA0,115200 panic=1 quiet";
++	};
++
++	memory@40000000 {
++		reg = <0x40000000 0x10000000>;
++		device_type = "memory";
++	};
++
++	panel {
++		compatible = "powertip,hx8238a", "panel-dpi";
++		power-supply = <&reg_3v3>;
++		width-mm = <70>;
++		height-mm = <52>;
++
++		panel-timing {
++			clock-frequency = <6500000>;
++			hactive = <320>;
++			vactive = <240>;
++			hfront-porch = <20>;
++			hback-porch = <38>;
++			hsync-len = <30>;
++			vfront-porch = <4>;
++			vback-porch = <14>;
++			vsync-len = <4>;
++			hsync-active = <0>;
++			vsync-active = <0>;
++			de-active = <0>;
++			pixelclk-active = <1>;
++		};
++
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&display_out>;
++			};
++		};
++	};
++
++	poweroff {
++		compatible = "gpio-poweroff";
++		gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
++	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,name = "BTTC Audio";
++		simple-audio-card,widgets = "Speaker", "BTTC Speaker";
++		simple-audio-card,routing = "BTTC Speaker", "SPKOUTN", "BTTC Speaker", "SPKOUTP";
++
++		simple-audio-card,dai-link@0 {
++			format = "left_j";
++			bitclock-master = <&dai0_master>;
++			frame-master = <&dai0_master>;
++			mclk-fs = <256>;
++
++			dai0_master: cpu {
++				sound-dai = <&saif0>;
++			};
++
++			codec {
++				sound-dai = <&wm89xx>;
++				clocks = <&saif0>;
++			};
++		};
++	};
++
++	wifi_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_en_pin_bttc>;
++		reset-gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
++		/* W1-163 needs 60us for WL_EN to be low and */
++		/* 150ms after high before downloading FW is possible */
++		post-power-on-delay-ms = <200>;
++		power-off-delay-us = <100>;
++	};
++};
++
++&auart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&auart0_2pins_a>;
++	status = "okay";
++};
++
++&auart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&auart3_pins_a>;
++	uart-has-rtscts;
++	status = "okay";
++};
++
++&i2c0 {
++	wm89xx: audio-codec@1a {
++		compatible = "wlf,wm8940";
++		reg = <0x1a>;
++		#sound-dai-cells = <0>;
++	};
++};
++
++&lcdif {
++	pinctrl-names = "default";
++	pinctrl-0 = <&lcdif_24bit_pins_a>, <&lcdif_sync_pins_bttc>,
++		    <&lcdif_reset_pins_bttc>;
++	status = "okay";
++
++	port {
++		display_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
++};
++
++&mac0 {
++	clocks = <&clks 57>, <&clks 57>, <&clks 64>;
++	clock-names = "ipg", "ahb", "enet_out";
++	phy-handle = <&mac0_phy>;
++	phy-mode = "rmii";
++	phy-supply = <&reg_3v3>;
++	/*
++	 * This MAC address is adjusted during production.
++	 * Value specified below is used as a fallback during recovery.
++	 */
++	local-mac-address = [ 00 11 B8 00 BF 8A ];
++	status = "okay";
++
++	mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		mac0_phy: ethernet-phy@0 {
++			/* LAN8720Ai - PHY ID */
++			compatible = "ethernet-phy-id0007.c0f0","ethernet-phy-ieee802.3-c22";
++			reg = <0>;
++			smsc,disable-energy-detect;
++			max-speed = <100>;
++			reset-gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <1000>;
++			reset-deassert-us = <1000>;
++		};
++	};
++};
++
++&pinctrl {
++	pinctrl-names = "default";
++	pinctrl-0 = <&hog_pins_a>, <&hog_pins_rev>;
++
++	hog_pins_a: hog@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <
++			MX28_PAD_GPMI_RDY2__GPIO_0_22
++			MX28_PAD_GPMI_RDY3__GPIO_0_23
++			MX28_PAD_GPMI_RDN__GPIO_0_24
++			MX28_PAD_LCD_VSYNC__GPIO_1_28
++			MX28_PAD_SSP2_SS1__GPIO_2_20
++			MX28_PAD_SSP2_SS2__GPIO_2_21
++			MX28_PAD_AUART2_CTS__GPIO_3_10
++			MX28_PAD_AUART2_RTS__GPIO_3_11
++			MX28_PAD_GPMI_WRN__GPIO_0_25
++			MX28_PAD_ENET0_RXD2__GPIO_4_9
++			MX28_PAD_ENET0_TXD2__GPIO_4_11
++		>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_DISABLE>;
++	};
++
++	hog_pins_rev: hog@1 {
++		reg = <1>;
++		fsl,pinmux-ids = <
++			MX28_PAD_ENET0_RXD3__GPIO_4_10
++			MX28_PAD_ENET0_TX_CLK__GPIO_4_5
++			MX28_PAD_ENET0_COL__GPIO_4_14
++			MX28_PAD_ENET0_CRS__GPIO_4_15
++		>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_DISABLE>;
++	};
++
++	keypad_pins_bttc: keypad-bttc@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <
++			MX28_PAD_GPMI_D00__GPIO_0_0
++			MX28_PAD_AUART0_CTS__GPIO_3_2
++			MX28_PAD_AUART0_RTS__GPIO_3_3
++			MX28_PAD_GPMI_D03__GPIO_0_3
++			MX28_PAD_GPMI_D04__GPIO_0_4
++			MX28_PAD_GPMI_D05__GPIO_0_5
++			MX28_PAD_GPMI_D06__GPIO_0_6
++			MX28_PAD_GPMI_D07__GPIO_0_7
++			MX28_PAD_GPMI_CE1N__GPIO_0_17
++			MX28_PAD_GPMI_CE2N__GPIO_0_18
++			MX28_PAD_GPMI_CE3N__GPIO_0_19
++			MX28_PAD_GPMI_RDY0__GPIO_0_20
++		>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_DISABLE>;
++	};
++
++	lcdif_sync_pins_bttc: lcdif-bttc@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <
++			MX28_PAD_LCD_DOTCLK__LCD_DOTCLK
++			MX28_PAD_LCD_ENABLE__LCD_ENABLE
++			MX28_PAD_LCD_HSYNC__LCD_HSYNC
++			MX28_PAD_LCD_RD_E__LCD_VSYNC
++		>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_DISABLE>;
++	};
++
++	lcdif_reset_pins_bttc: lcdif-bttc@1 {
++		reg = <1>;
++		fsl,pinmux-ids = <
++			MX28_PAD_LCD_RESET__GPIO_3_30
++		>;
++		fsl,drive-strength = <MXS_DRIVE_4mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_ENABLE>;
++	};
++
++	ssp1_sdio_pins_a: ssp1-sdio@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <
++			MX28_PAD_SSP1_DATA0__SSP1_D0
++			MX28_PAD_GPMI_D01__SSP1_D1
++			MX28_PAD_GPMI_D02__SSP1_D2
++			MX28_PAD_SSP1_DATA3__SSP1_D3
++			MX28_PAD_SSP1_CMD__SSP1_CMD
++			MX28_PAD_SSP1_SCK__SSP1_SCK
++		>;
++		fsl,drive-strength = <MXS_DRIVE_8mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_ENABLE>;
++	};
++
++	wifi_en_pin_bttc: wifi-en-pin@0 {
++		reg = <0>;
++		fsl,pinmux-ids = <
++			MX28_PAD_GPMI_CLE__GPIO_0_27
++		>;
++		fsl,drive-strength = <MXS_DRIVE_8mA>;
++		fsl,voltage = <MXS_VOLTAGE_HIGH>;
++		fsl,pull-up = <MXS_PULL_ENABLE>;
++	};
++};
++
++&pwm {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm3_pins_a>;
++	status = "okay";
++};
++
++&reg_usb_5v {
++	gpio = <&gpio1 28 GPIO_ACTIVE_HIGH>;
++};
++
++&saif0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&saif0_pins_a>;
++	#sound-dai-cells = <0>;
++	assigned-clocks = <&clks 53>;
++	assigned-clock-rates = <12000000>;
++	status = "okay";
++};
++
++&saif1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&saif1_pins_a>;
++	#sound-dai-cells = <0>;
++	fsl,saif-master = <&saif0>;
++	status = "okay";
++};
++
++&ssp1 {
++	compatible = "fsl,imx28-mmc";
++	pinctrl-names = "default";
++	pinctrl-0 = <&ssp1_sdio_pins_a>;
++	bus-width = <4>;
++	no-1-8-v;       /* force 3.3V VIO */
++	non-removable;
++	vmmc-supply = <&reg_3v3>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	keep-power-in-suspend;
++	status = "okay";
++
++	wlan@1 {
++		reg = <1>;
++		compatible = "brcm,bcm4329-fmac";
++	};
++};
++
++&ssp2 {
++	compatible = "fsl,imx28-spi";
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi2_pins_a>;
++	status = "okay";
++};
 -- 
-2.46.0
+2.39.5
 
 
