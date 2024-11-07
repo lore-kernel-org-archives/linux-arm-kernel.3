@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8065FD43370
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D72D43372
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLZv2hZapQf0Pn2+hYeiUM3OJTQ+xkP1KiCe6pE/VBY=; b=BMFCc9UqHwBAU/eUXvagH5u6FP
-	mRbe19NS7Zx0SD8nig+EXZo2w2WQWYNIdnoDptebNHphtWRYGQujZy4XZGB6hlKcP+F2sW/yDR3xi
-	gKp51LqikFjoYp7wZNO6TqYk/pUE0lir1DlkfH+bjfJktypzsPCKbSe0sjpzeTypkHUhbwL3lX8/k
-	RpaF5DLs6e62Ua4323tgSzezw8nRg/uJmL4VJXS0lhCJxiloyYnMBlGjLwqp/OTNgD8dOANHTtJlN
-	0MU6f8VBY7FWmun2J+ov07ILt/g0UhR7FHlrLkGPvwlO7nCog/PZ7gGtpLNpwCJM2uZWRLN1d6M3X
-	1qtlY0yA==;
+	bh=loj03VXQQxLxwh6a0siXAf9ODdSbPFsDWNgihY4G8Tc=; b=T5QBWREa3sbL9g71qACRhXyJjm
+	u+Csk647WudngSdpMBeiRDqllckot0GOZr7taqgJMAv4q9LU6w8sFMXIYwIDa45t9f+Go2EVmY3bv
+	Kjbp0fOYM86VxlISWDm1nkcfOtzCmR5UIiR1U6pIytnMdPpx49l/AjmS+g2RTHpchwjXJi8PYYDo7
+	KLJrsS4UdAghf9vKOEfIuiH33K3CvlSleJ/w0RnGKND6LcRiyGnAs5brAuf4xt2WO1ShLWSnMX4Yv
+	GZvt9drX012eIa34VaYLgom9QCEaEU0zUyphej6q+OmPDzaSMBNRvKR70QkVMS0eSgNfR93O2J5B5
+	b9ICT2DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94eZ-00000007TOO-0KDh;
-	Thu, 07 Nov 2024 15:42:35 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1t94gG-00000007TYd-1yv2;
+	Thu, 07 Nov 2024 15:44:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94Xs-00000007ScW-2wKa
+	id 1t94Xu-00000007SdF-3Fq8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 15:37:40 +0000
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <jre@pengutronix.de>)
-	id 1t94Xf-0005DD-T8; Thu, 07 Nov 2024 16:35:27 +0100
-From: Jonas Rebmann <jre@pengutronix.de>
-Date: Thu, 07 Nov 2024 16:35:21 +0100
-Subject: [PATCH 2/2] spi: imx: support word delay
+	Thu, 07 Nov 2024 15:37:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E6B2AA447FC;
+	Thu,  7 Nov 2024 15:33:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A73EDC4CECC;
+	Thu,  7 Nov 2024 15:35:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730993741;
+	bh=GyWaCebIJB2MBOnYngkj3Xcn9uP7TVQyYFsiEtrBw/s=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=O0FdVTFC5osat40Kl8QsKEksm5KYhlIo5NrZMfDOCPV+33J80/w0sk1jN8WQLjdm2
+	 2JEHzlQrUeXXnPuBQDTkIGdu+U8oPmjVOb6CtFO22CGrF1ZC7iF6DOcbf1kU/EG3kz
+	 ezSLxJFz3mcmYwP4tN8TcR4Xdy6Ve+8aAWY6ydQv31RiO2sD+J7piuXZMWbm+sJ3Ao
+	 fKXx09KCWPvrKc9YUbuAT5EEqi8cmZmXK21YH9J5bFyaj/ITJ00HNsSKXOaY9EQqM9
+	 YA1chybHueuY1SurPPDGmfPFR1jdyo953Hf+8tDAFvR4S/ZV7pAIs+RjXF2xw2IcOX
+	 Wr7u5As/3eo5Q==
+From: Mark Brown <broonie@kernel.org>
+To: olivier.moysan@foss.st.com, arnaud.pouliquen@foss.st.com, 
+ lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ Luo Yifan <luoyifan@cmss.chinamobile.com>
+Cc: linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241106014654.206860-1-luoyifan@cmss.chinamobile.com>
+References: <20241106014654.206860-1-luoyifan@cmss.chinamobile.com>
+Subject: Re: [PATCH] ASoC: stm: Prevent potential division by zero in
+ stm32_sai_mclk_round_rate()
+Message-Id: <173099373941.145735.10149404268306602537.b4-ty@kernel.org>
+Date: Thu, 07 Nov 2024 15:35:39 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-imx-spi-word-delay-v1-2-2a969214d796@pengutronix.de>
-References: <20241107-imx-spi-word-delay-v1-0-2a969214d796@pengutronix.de>
-In-Reply-To: <20241107-imx-spi-word-delay-v1-0-2a969214d796@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@pengutronix.de, 
- Jonas Rebmann <jre@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
-X-SA-Exim-Mail-From: jre@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15-dev-9b746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_073540_788829_04C71003 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20241107_073542_911391_5A345A1F 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,184 +75,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement support for the word delay feature of i.MX51 (and onwards) via
-the ECSPI interface.
+On Wed, 06 Nov 2024 09:46:54 +0800, Luo Yifan wrote:
+> This patch checks if div is less than or equal to zero (div <= 0). If
+> div is zero or negative, the function returns -EINVAL, ensuring the
+> division operation (*prate / div) is safe to perform.
+> 
+> 
 
-Convert the requested delay to SPI cycles and account for an extra
-inter-word delay inserted by the controller in addition to the requested
-number of cycles, which was observed when testing this patch.
+Applied to
 
-Disable dynamic burst when word delay is set. As the configurable delay
-period in the controller is inserted after bursts, the burst length must
-equal the word length.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Account for word delay in the transfer time estimation for
-polling_limit_us.
+Thanks!
 
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
- drivers/spi/spi-imx.c | 93 +++++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 83 insertions(+), 10 deletions(-)
+[1/1] ASoC: stm: Prevent potential division by zero in stm32_sai_mclk_round_rate()
+      commit: 63c1c87993e0e5bb11bced3d8224446a2bc62338
+[1/1] ASoC: stm: Prevent potential division by zero in stm32_sai_get_clk_div()
+      commit: 23569c8b314925bdb70dd1a7b63cfe6100868315
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 65a8303b80b1191cd2c19d61f88836e7fd3c7ae9..c50c256e6e695659c23d5292949a98bda0a2cd1a 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -13,7 +13,9 @@
- #include <linux/io.h>
- #include <linux/irq.h>
- #include <linux/kernel.h>
-+#include <linux/math.h>
- #include <linux/module.h>
-+#include <linux/overflow.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -302,6 +304,18 @@ static bool spi_imx_can_dma(struct spi_controller *controller, struct spi_device
- #define MX51_ECSPI_STAT		0x18
- #define MX51_ECSPI_STAT_RR		(1 <<  3)
- 
-+#define MX51_ECSPI_PERIOD	0x1c
-+#define MX51_ECSPI_PERIOD_MASK		0x7fff
-+/*
-+ * As measured on the i.MX6, the SPI host controller inserts a 4 SPI-Clock
-+ * (SCLK) delay after each burst if the PERIOD reg is 0x0. This value will be
-+ * called MX51_ECSPI_PERIOD_MIN_DELAY_SCK.
-+ *
-+ * If the PERIOD register is != 0, the controller inserts a delay of
-+ * MX51_ECSPI_PERIOD_MIN_DELAY_SCK + register value + 1 SCLK after each burst.
-+ */
-+#define MX51_ECSPI_PERIOD_MIN_DELAY_SCK 4
-+
- #define MX51_ECSPI_TESTREG	0x20
- #define MX51_ECSPI_TESTREG_LBC	BIT(31)
- 
-@@ -653,6 +667,7 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
- 				       struct spi_device *spi, struct spi_transfer *t)
- {
- 	u32 ctrl = readl(spi_imx->base + MX51_ECSPI_CTRL);
-+	u64 word_delay_sck;
- 	u32 clk;
- 
- 	/* Clear BL field and set the right value */
-@@ -684,6 +699,49 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
- 
- 	writel(ctrl, spi_imx->base + MX51_ECSPI_CTRL);
- 
-+	/* calculate word delay in SPI Clock (SCLK) cycles */
-+	if (t->word_delay.value == 0) {
-+		word_delay_sck = 0;
-+	} else if (t->word_delay.unit == SPI_DELAY_UNIT_SCK) {
-+		word_delay_sck = t->word_delay.value;
-+
-+		if (word_delay_sck <= MX51_ECSPI_PERIOD_MIN_DELAY_SCK)
-+			word_delay_sck = 0;
-+		else if (word_delay_sck <= MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1)
-+			word_delay_sck = 1;
-+		else
-+			word_delay_sck -= MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1;
-+	} else {
-+		int word_delay_ns;
-+
-+		word_delay_ns = spi_delay_to_ns(&t->word_delay, t);
-+		if (word_delay_ns < 0)
-+			return word_delay_ns;
-+
-+		if (word_delay_ns <= mul_u64_u32_div(NSEC_PER_SEC,
-+						     MX51_ECSPI_PERIOD_MIN_DELAY_SCK,
-+						     spi_imx->spi_bus_clk)) {
-+			word_delay_sck = 0;
-+		} else if (word_delay_ns <= mul_u64_u32_div(NSEC_PER_SEC,
-+							    MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1,
-+							    spi_imx->spi_bus_clk)) {
-+			word_delay_sck = 1;
-+		} else {
-+			word_delay_ns -= mul_u64_u32_div(NSEC_PER_SEC,
-+							 MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1,
-+							 spi_imx->spi_bus_clk);
-+
-+			word_delay_sck = DIV_U64_ROUND_UP((u64)word_delay_ns * spi_imx->spi_bus_clk,
-+							  NSEC_PER_SEC);
-+		}
-+	}
-+
-+	if (!FIELD_FIT(MX51_ECSPI_PERIOD_MASK, word_delay_sck))
-+		return -EINVAL;
-+
-+	writel(FIELD_PREP(MX51_ECSPI_PERIOD_MASK, word_delay_sck),
-+	       spi_imx->base + MX51_ECSPI_PERIOD);
-+
- 	return 0;
- }
- 
-@@ -1264,11 +1322,13 @@ static int spi_imx_setupxfer(struct spi_device *spi,
- 
- 	/*
- 	 * Initialize the functions for transfer. To transfer non byte-aligned
--	 * words, we have to use multiple word-size bursts, we can't use
--	 * dynamic_burst in that case.
-+	 * words, we have to use multiple word-size bursts. To insert word
-+	 * delay, the burst size has to equal the word size. We can't use
-+	 * dynamic_burst in these cases.
- 	 */
- 	if (spi_imx->devtype_data->dynamic_burst && !spi_imx->target_mode &&
- 	    !(spi->mode & SPI_CS_WORD) &&
-+	    !(t->word_delay.value) &&
- 	    (spi_imx->bits_per_word == 8 ||
- 	    spi_imx->bits_per_word == 16 ||
- 	    spi_imx->bits_per_word == 32)) {
-@@ -1611,12 +1671,30 @@ static int spi_imx_pio_transfer_target(struct spi_device *spi,
- 	return ret;
- }
- 
-+static unsigned int spi_imx_transfer_estimate_time_us(struct spi_transfer *transfer)
-+{
-+	u64 result;
-+
-+	result = DIV_U64_ROUND_CLOSEST((u64)USEC_PER_SEC * transfer->len * BITS_PER_BYTE,
-+				       transfer->effective_speed_hz);
-+	if (transfer->word_delay.value) {
-+		unsigned int word_delay_us;
-+		unsigned int words;
-+
-+		words = DIV_ROUND_UP(transfer->len * BITS_PER_BYTE, transfer->bits_per_word);
-+		word_delay_us = DIV_ROUND_CLOSEST(spi_delay_to_ns(&transfer->word_delay, transfer),
-+						  NSEC_PER_USEC);
-+		result += words * word_delay_us;
-+	}
-+
-+	return min(result, U32_MAX);
-+}
-+
- static int spi_imx_transfer_one(struct spi_controller *controller,
- 				struct spi_device *spi,
- 				struct spi_transfer *transfer)
- {
- 	struct spi_imx_data *spi_imx = spi_controller_get_devdata(spi->controller);
--	unsigned long hz_per_byte, byte_limit;
- 
- 	spi_imx_setupxfer(spi, transfer);
- 	transfer->effective_speed_hz = spi_imx->spi_bus_clk;
-@@ -1635,15 +1713,10 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
- 	 */
- 	if (spi_imx->usedma)
- 		return spi_imx_dma_transfer(spi_imx, transfer);
--	/*
--	 * Calculate the estimated time in us the transfer runs. Find
--	 * the number of Hz per byte per polling limit.
--	 */
--	hz_per_byte = polling_limit_us ? ((8 + 4) * USEC_PER_SEC) / polling_limit_us : 0;
--	byte_limit = hz_per_byte ? transfer->effective_speed_hz / hz_per_byte : 1;
- 
- 	/* run in polling mode for short transfers */
--	if (transfer->len < byte_limit)
-+	if (transfer->len == 1 || (polling_limit_us &&
-+				   spi_imx_transfer_estimate_time_us(transfer) < polling_limit_us))
- 		return spi_imx_poll_transfer(spi, transfer);
- 
- 	return spi_imx_pio_transfer(spi, transfer);
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
--- 
-2.39.5
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
