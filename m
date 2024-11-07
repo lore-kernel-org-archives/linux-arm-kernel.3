@@ -4,83 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C1BD5AE7D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FE4D5AE7D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=; b=S3/C4TltFFZz8Ba0WF9IdooKOh
-	5faDx1YXTamG+8jw/CLS7RdzNaPPzfVmdPhQymTNZqSE5INJSpYCMpZKwfkPsQPBohOaJYG19VrK+
-	pRL3LZfXpwHg0e9eEtPrATO/D+7AIgWxz2Teif8beCn9Ytsd3z67Dequ9uFl47xl1y0IH4j41NjmB
-	UOu7ZCzCacSH7BjFf5aIi9ulxGs/iHbDVmX1PlcJMDl2r5GXHhKl1q2kvUs92JBYUk4y0LsheAJG6
-	wFy6wNyQgQeObEWBbxUNFoXLmvbY+RUoPN64lqs/SJ9iA3UlTR44hw6gLMZqnpEVAaPI2aWlTbmUk
-	CdkbwnOQ==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=; b=goRdZAznBSIu6lOOhTnfZIpoON
+	ucH9x9KpxJ028mox/nsIrgBsxS91vRWxJL4jkJB4oUFE6Pt/FUMJ0nKZvyYspkQHGNMM/2vXztgF3
+	nxMK4rI5uQEvhyB/bkfk88sGoTomRl1P+A5cbiBvVE8MN8TTx9Xnz+F2v6ig+l4GbUDgX3qf3F5OV
+	N6tLTnVlVJoKLO6IQfGbJiqS0FkTlaM2aYIZOTNs7CTWk9n/Lf6kxclUPo42IX2UpVWxiTiK75U9M
+	Rz4ZfFmkTJdiK0VPNc16U65I2dByScrpN7VNWRFTWJ8KylZP7Begv2N2sibITFzhN04gJ1VsOpXn+
+	/UPkT7WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zPq-00000006PEE-1TbL;
-	Thu, 07 Nov 2024 10:07:02 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1t8zRW-00000006PRl-3hsf;
+	Thu, 07 Nov 2024 10:08:46 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zJ4-00000006Nlx-2we7
+	id 1t8zJD-00000006Nnl-09GD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 10:00:04 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso11192221fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 02:00:02 -0800 (PST)
+	Thu, 07 Nov 2024 10:00:13 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3807dd08cfcso700605f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 02:00:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730973600; x=1731578400; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=;
-        b=Fo0sT46VVxq94suHM5PS+UUOmwCq8pwxJN5idodNhJhcF+HdvrtJVEZ5uCynRIxB5w
-         tehreu+hgV6pbJLU5kAy6P/x4jfIc2TCnjnxKmZzdTI/jRNqGFbiDukqM7+xYqyxhPah
-         W209iOk1gpBqdMZSAsfarDKjRNdSDg2+LRiqhkiIm+9tNsyR3+e5sSJyLJfXha6AYBFa
-         77OL8HlSLkcS4D4ZB+uGB9FpoGXorYCUYW5o+imyXB9bXbdGvM924q1pp1BjPv2XLdqQ
-         CMJmzCAr4B+WVyUE28enLenxmte2HZfiNhXZ0lqELl+iYwTnxpzBghC0/3IsX2QQ4WoW
-         gXZA==
+        d=tuxon.dev; s=google; t=1730973609; x=1731578409; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=;
+        b=oiD9NqA3DLQtH/MAdj/Si0IoKGCXW7POiJq9DDN68QsqUlncSiTtOum8k9lI2f/mWl
+         /afMwkrilacLCMTnWdsbN5PhdwQwAWgTCJZZjo3hj9FTZodnnaxYWODqIr6ROSeQPl+S
+         gs1ro/37lC5nrEfDdtr5YVuNzfBjRHbbKFYHzaak+u+VDm/QkCRCAn5JX9sA1jAwaRs5
+         v5uUE7jHTuNkNspCaURDZ9JSOs29fQQxz80LqLKNoqPNANx7P8WN6m3XlvnLKZi4LLxk
+         tKLuT6xC4rn/nlD+QtMzKWgtsRnaqwAYq7vbprjnRa23/jYLTRTndG4Aviyk8RS1Tgsy
+         nZ8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730973600; x=1731578400;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=;
-        b=EMXMfGTNvbZumGLoFlK3Arh1SWSUt/zU5lxR23AGegla2UCttZ489WSWJ9WYmhZr1d
-         F3/SQ7hPvzM4SPt0n+9HZW/JcU3qRE9tNLLHJM/f645NRGdM+2p3wHLg5i9xJKnPxbrs
-         Fl8ffPpMiN2RL1Z5+9iqMjBcpxCzEh1HO4HHJgiJr04LpzSc4E1xBcaa7Wy58j+cvlCo
-         Rxp1ELilWVBOvdYz+A4PBEwloCr8063Q0kPITINUHyCPewr4kYLR5b/UQQlG7w2WMfeX
-         apxcMiAhh+TIZdVXWgeh4OFR/uzFFEJkYdpWwEQ0J/KqCzqD0LYCPJrm9k+h1wQ+eo4C
-         H9lw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwYrMFHtsPjWd0EqPoJtqjAcct8h4FrXnNsBeaUCJjMKaXutR0Xja4qSSDrBjSbWd2cSUWwNcFwQKdeqYNjzpe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxppVghOCgFxzk8HkmjSPW8N0UUEjmUPPrW96G0I/vzmiTYIEgH
-	yY1F0P6PAURMvJYTw2mssp3drdOrMFCgyZII7vpwSxHrxnWKdOzh98ll6i+HsJw=
-X-Google-Smtp-Source: AGHT+IFCiFNbVvRuQfoFDwv+RPdYoiKrDS08WoKMvLYSNKcFfmHvemOy+zCjZFBgqMyl2WR5wPEciQ==
-X-Received: by 2002:a05:651c:19a5:b0:2fa:de13:5c34 with SMTP id 38308e7fff4ca-2fedb7c7ad4mr180086761fa.19.1730973599705;
-        Thu, 07 Nov 2024 01:59:59 -0800 (PST)
-Received: from localhost (p200300f65f28bb0063ffae39110fa2df.dip0.t-ipconnect.de. [2003:f6:5f28:bb00:63ff:ae39:110f:a2df])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc577fsm70612366b.93.2024.11.07.01.59.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 01:59:59 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Dinh Nguyen <dinguyen@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ARM: dts: socfpga_cyclone5_mcvevk: Drop unused #address-cells/#size-cells
-Date: Thu,  7 Nov 2024 10:59:52 +0100
-Message-ID: <20241107095952.73926-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1730973609; x=1731578409;
+        h=content-transfer-encoding:in-reply-to:references:cc:to:from
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R02EDs+did3sWf/l/M/xZDeb+Ibpap6rP6djlTEoJvs=;
+        b=baHynPzDq3RRMAF4Eg8wnrin5FVxMA9JNjcsr+0t9bNlYC6e8lgNCfMaCZVV8OxIfl
+         FF75+BCtUf4RWTmbevWCidpCwoTpYeyoDdFZGNm13x7Ra6YbVry5y22YZz+ubUOu34pn
+         KSgMbJs77p76Hg95+G8fRRmhG5jtHcb0TqY27fn/T+Y/bhDTFhBxJGTmO6HcBg26fMGo
+         0TBUXd09NOLcmrNZtUi1tttLtojVpYP1HqIfVvVN8+2bENN45SuGcXaTA9UDtydXpXuZ
+         8XjEahs1wzgKsjoA2ncqQl0v6teJYaSjalpbFOk7bWHyZfni2gGA623Zje8jlMBZzobJ
+         X4bQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU6mJHKbLbe7uAh9uzVdeZtgziSihzkjTXdtIELVzSlNwQ6UhnNF5NFMyxKAZiZuy18upXOF8lKjFl6UZO1kCUa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwesR1FAKi9TaIqJ1U4vLVQVAZ7ZjydA5LCTzk22vLZXHhJV7xI
+	P6v8aMUacexjy4H3GMBdAaQlYOnJowNHlNOXrA7nCA1cVl6W/80SbvI0YEEimbc=
+X-Google-Smtp-Source: AGHT+IEffb2xJDgmV6dLSuFyO1fmxJvqSnlcu1KUumgCd4EHyMTsYXx5V2d5rZ79w6rYl9OZ0LDdOw==
+X-Received: by 2002:a5d:47ac:0:b0:37d:48f2:e749 with SMTP id ffacd0b85a97d-381c7a4636cmr23082414f8f.10.1730973608986;
+        Thu, 07 Nov 2024 02:00:08 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05e5871sm17547405e9.37.2024.11.07.02.00.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 Nov 2024 02:00:07 -0800 (PST)
+Message-ID: <91916297-8156-44d9-b56f-9a67e651a9a4@tuxon.dev>
+Date: Thu, 7 Nov 2024 12:00:05 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas RZ/G3S SoC
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: Biju Das <biju.das.jz@bp.renesas.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: "vkoul@kernel.org" <vkoul@kernel.org>,
+ "kishon@kernel.org" <kishon@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "geert+renesas@glider.be" <geert+renesas@glider.be>,
+ "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20240822152801.602318-1-claudiu.beznea.uj@bp.renesas.com>
+ <35dc7414-f5bd-4ed4-bfa1-f723f4f0078c@tuxon.dev>
+ <TY3PR01MB11346A4814F83FE296A1DED8886922@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <TY3PR01MB1134648BF51F1B52BFE34DD6D86932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <fbfa9179-2f52-429f-8b69-f7f4064e796b@tuxon.dev>
+ <TYCPR01MB11332EF1A8D064C491D8F261286932@TYCPR01MB11332.jpnprd01.prod.outlook.com>
+ <f7c57e76-b890-491f-880d-62d060b7b31e@tuxon.dev>
+ <TYCPR01MB11332BE2EDB318950B9C7B54C86932@TYCPR01MB11332.jpnprd01.prod.outlook.com>
+ <TY3PR01MB113469FC8A9F49D9B1FA432FD86932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <0b73544b-0253-43b9-b631-6578b48eaca8@tuxon.dev>
+ <TY3PR01MB1134689573A785E91A9041E1886932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <5bcdc677-e61e-4312-a19b-57b4600685d3@tuxon.dev>
+ <TY3PR01MB1134690F9D37E3BB4814D864386932@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+ <d64243fe-48ea-4cb5-b6d6-e9f820e1b8a3@tuxon.dev>
+In-Reply-To: <d64243fe-48ea-4cb5-b6d6-e9f820e1b8a3@tuxon.dev>
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1146; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=po4N9CwjBZgXso+4pKcXeUTXi6JnMCQw0mFDrt6dX5o=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnLI+ZUNMbOpZaUhvAo4+rsYExY3P3TcxuIcfsx yHtGtx40nGJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZyyPmQAKCRCPgPtYfRL+ Ti2OCAC6JZMVR/TlHLkoWK1XnqrgoC8ZZ2/KnTklmBleznsLFzrRmKwimHfjj7lBCrchzlbjYfQ KiAKaTL3IJX5dpbfAoJauRk9uEiR0MCl8RJ6C17ScGXwqkI7FyiQYS5G4tkkoK55iHj9Vav+rZS LsxP0DrkXwLrqn9g3K91sYTTdLu9udPA1987cNSIW1m1i93/HOCRZSCnY99emZvVzyUykNo+Y8i U78MceAWFPNbq9lUcuhS/jDDc+T1f1n+IwAzYcI28+roXklobnbT6doOCT+zju7REwT3vbKqokp BLMRbDkITSm5E90lkK8LyDOjlN9eSw/qmyg45n1To/0nJ0r4
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_020003_108506_86A62EEB 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20241107_020011_515396_01FE6B8A 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +127,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The properties #address-cells and #size-cells are only useful if there
-is a ranges property or child nodes with "reg" properties.
+Hi, all,
 
-This fixes a W=1 warning:
+On 03.09.2024 17:48, claudiu beznea wrote:
+> 
+> 
+> On 03.09.2024 16:45, Biju Das wrote:
+>> Hi Claudiu,
+>>
+>>> -----Original Message-----
+>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>>> Sent: Tuesday, September 3, 2024 1:57 PM
+>>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas RZ/G3S SoC
+>>>
+>>>
+>>>
+>>> On 03.09.2024 15:37, Biju Das wrote:
+>>>>
+>>>>
+>>>>> -----Original Message-----
+>>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>>>>> Sent: Tuesday, September 3, 2024 1:26 PM
+>>>>> To: Biju Das <biju.das.jz@bp.renesas.com>; Ulf Hansson
+>>>>> <ulf.hansson@linaro.org>
+>>>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
+>>>>> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de;
+>>>>> geert+renesas@glider.be; magnus.damm@gmail.com;
+>>>>> gregkh@linuxfoundation.org; mturquette@baylibre.com;
+>>>>> sboyd@kernel.org; Yoshihiro Shimoda
+>>>>> <yoshihiro.shimoda.uh@renesas.com>;
+>>>>> linux-phy@lists.infradead.org; devicetree@vger.kernel.org;
+>>>>> linux-kernel@vger.kernel.org; linux- renesas-soc@vger.kernel.org;
+>>>>> linux-usb@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>>>>> linux- clk@vger.kernel.org; linux-pm@vger.kernel.org; Claudiu Beznea
+>>>>> <claudiu.beznea.uj@bp.renesas.com>
+>>>>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas
+>>>>> RZ/G3S SoC
+>>>>>
+>>>>>
+>>>>>
+>>>>> On 03.09.2024 15:00, Biju Das wrote:
+>>>>>>
+>>>>>>
+>>>>>>> -----Original Message-----
+>>>>>>> From: Biju Das <biju.das.jz@bp.renesas.com>
+>>>>>>> Sent: Tuesday, September 3, 2024 12:07 PM
+>>>>>>> To: Claudiu.Beznea <claudiu.beznea@tuxon.dev>; Ulf Hansson
+>>>>>>> <ulf.hansson@linaro.org>
+>>>>>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
+>>>>>>> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de;
+>>>>>>> geert+renesas@glider.be; magnus.damm@gmail.com;
+>>>>>>> gregkh@linuxfoundation.org; mturquette@baylibre.com;
+>>>>>>> sboyd@kernel.org; Yoshihiro Shimoda
+>>>>>>> <yoshihiro.shimoda.uh@renesas.com>;
+>>>>>>> linux-phy@lists.infradead.org; devicetree@vger.kernel.org;
+>>>>>>> linux-kernel@vger.kernel.org; linux- renesas-soc@vger.kernel.org;
+>>>>>>> linux-usb@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>>>>>>> linux- clk@vger.kernel.org; linux-pm@vger.kernel.org; Claudiu
+>>>>>>> Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>>>>>> Subject: RE: [PATCH 00/16] Add initial USB support for the Renesas
+>>>>>>> RZ/G3S SoC
+>>>>>>>
+>>>>>>> Hi Claudiu,
+>>>>>>>
+>>>>>>>> -----Original Message-----
+>>>>>>>> From: claudiu beznea <claudiu.beznea@tuxon.dev>
+>>>>>>>> Sent: Tuesday, September 3, 2024 12:00 PM
+>>>>>>>> Subject: Re: [PATCH 00/16] Add initial USB support for the Renesas
+>>>>>>>> RZ/G3S SoC
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> On 03.09.2024 13:31, Biju Das wrote:
+>>>>>>>>>>> During boot clr USB PWR READY signal in TF-A.
+>>>>>>>>>>> STR case, suspend set USB PWR READY signal in TF-A.
+>>>>>>>>>>> STR case, resume clr USB PWR READY signal in TF-A.
+>>>>>>>>>> As I said previously, it can be done in different ways. My point
+>>>>>>>>>> was to let Linux set what it needs for all it's devices to work.
+>>>>>>>>>> I think the way to go forward is a
+>>>>>>>> maintainer decision.
+>>>>>>>>>
+>>>>>>>>> I agree, there can be n number of solution for a problem.
+>>>>>>>>>
+>>>>>>>>> Since you modelled system state signal (USB PWRRDY) as reset
+>>>>>>>>> control signal, it is reset/DT maintainer's decision to say the
+>>>>>>>>> final word whether this signal fits in reset
+>>>>>>>> system framework or not?
+>>>>>>>>
+>>>>>>>> I was thinking:
+>>>>>>>> 1/ Geert would be the best to say if he considers it OK to handle this
+>>>>>>>>    in Linux
+>>>>>>>
+>>>>>>> I agree Geert is the right person for taking SYSTEM decisions,
+>>>>>>> since the signal is used only during state transitions (Table
+>>>>>>> 41.6.4 AWO to ALL_ON and 41.6.3 ALL_ON to AWO)
+>>>>>>
+>>>>>> One more info, as per [1], this USB PWRRDY signal setting to be before Linux kernel boots.
+>>>>>
+>>>>> The "controlled by" column mentions CA-55 on PWRRDY signal control
+>>>>> line and it is b/w steps "DDR exits from retention mode" and  "clock
+>>>>> start settings for system bus and peripheral modules". AFAICT, after DDR exists retention mode
+>>> Linux is ready to run.
+>>>>
+>>>> DDR retention exit happens in TF-A and it jumps into reset code where it executes BL2 in TF_A. Bl2
+>>> checks for warm or cold reset.
+>>>> If it is warm reset, it sets required minimal clocks/resets and pass
+>>>> the control to linux by calling the SMC callback handler. Which in turn calls resume(step 11-->14)
+>>> path.
+>>>
+>>> Is this from HW manual or some specific documentation? I'm referring at "resume" == "steps 11-->14"
+>>>
+>>>>
+>>>> Step 8, Cortex-A55 Exit from DDR retention mode (when using) Setting
+>>>> for exiting form DDR retention mode Step 9, Cortex-A55 USB PHY PWRRDY
+>>>> signal control (if use USB) SYS_USB_PWRRDY Step 10, Cortex-A55 PCIe
+>>>> RST_RSM_B signal control (if use PCIe) SYS_PCIE_RST_RSM_B
+>>>
+>>> Note *if use*: how does the TF-A know if USB/PCIe is used by Linux? The documentation mention to set
+>>> it *if use*. Same note is on ALL_ON to VBATT transition documentation (namely "if using USB", "if
+>>> using PCIe"). If TF-A will do this it should set this signals unconditionally. It will not be
+>>> something wrong though. We don't know at the moment what this involves in terms of power consumption,
+>>> if it means something...
+>>
+>> IIUC,
+>> The only information we have is,
+>>
+>> "SYS_USB_PWRRDY and SYS_PCIE_RST_RSM_B are used when transition from ALL_ON to AWO (or from AWO to ALL_ON).
+>> "When turning off USB PHY and PCIe PHY, if they are not controlled, PHY may break"
+>>
+>> ALL_ON to AWO_MODE state transition: 
+>> USB/PCIe are part of PD_ISOVCC power domain and before turning PD_ISOVCC to off,
+>> we need to set USBPWRRDY signal.
+>>
+>> AWO_MODE to ALL_ON state transition:
+>>
+>> Turn on PD_ISOVCC first, then clr USBPWRRDY signal for USB usage in linux.
+>>
+>> Maybe we need to ask hw team, exact usage of USBPWRRDY signal other than state transition.
+> 
+> As you may already know, this is open for quite some time and is ongoing.
 
-	arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts:51.22-72.4: Warning (avoid_unnecessary_addr_size): /soc/i2c@ffc04000/stmpe811@41: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
+I got more clarification about the USB PWRRDY signal from the HW team.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
- arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts | 2 --
- 1 file changed, 2 deletions(-)
+The conclusion is that the USB PWRRDY is a signal controlled by SYSC
+controller that goes to the USB PHY and it tells the USB PHY if the power
+supply is ready or not.
 
-diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
-index ceaec29770c6..c1e1264bcb09 100644
---- a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
-+++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
-@@ -50,8 +50,6 @@ &i2c0 {
- 
- 	stmpe1: stmpe811@41 {
- 		compatible = "st,stmpe811";
--		#address-cells = <1>;
--		#size-cells = <0>;
- 		reg = <0x41>;
- 		id = <0>;
- 		blocks = <0x5>;
+In the diagram at [1] the PWRRDY signal need to be asserted/de-asserted
+before/after G6, G7, G8, G9, G10 signals.
 
-base-commit: 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
--- 
-2.45.2
+Philipp,
 
+Can you please confirm that you don't want this signal to be implemented as
+a reset signal to know clearly your input on it? I would like to start
+looking for another approach in that case.
+
+Thank you,
+Claudiu Beznea
+
+[1] https://pasteboard.co/0a1zYBFZXZVb.png
+
+> 
+>>
+>> Cheers,
+>> Biju
+>>
+>>
 
