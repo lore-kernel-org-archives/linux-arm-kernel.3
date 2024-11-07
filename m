@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F54ED43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF248D4335D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qXP9PtnD3J1SEZfBjhXKxJm6M7T6ar/XdT7J55dA7tI=; b=obo0SjoUHs7JbsWVMj5EzYUZNM
-	kEJjjW7axaSBxCzQxJqOwZMkLlyOtyVr/MzluU4vLJRo0BcwMhUwZWfN2YSBW2SfLvusq6gzeihN8
-	beSclKDdcy+YGYR4AvKf8Mm9jhkedlUkQ3OnPSDAi5NhNm4WMoExgHGiOTRU4NAoJF7bYhXcVm9si
-	ql/ivZcx1y2BVtOPsivdSifaW0SkIohzkfbTKY9/pNYYh0ljlb+B14u8LzkBJSkZ0ijwt6xMoCSaA
-	FRv7V0N+SD/G6DWuND9MIxlQPwmmSGBdf8b/2+CU//xxmlFp8eTQZYUaPxrQOzvA4DXbEGDB30eBM
-	GlVEB9rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1o0PT+VvYeF2Yc1hTEqEhN6nNmR8jwyG9x4O7dGE/Wk=; b=0+zB+Cko5CZzDFF9QwvEpV7gpe
+	LwDN3Ad/5zirNP1krsZ+fAp66XUzmkNmyg7HSDDZxtIZcFbZqKg0PjpvLIgjTqAPxDDWzNSpz97ZQ
+	HC4tijuBe2+Kjq2hYkEERazrpjMy7Z6GIyEVSSnoC6PmxakwgiNnWn2e6N4y2KWKhImqu82E+N7f6
+	nBXGLH1dnZ+Hgqz+HIzHeyMpjsWq3jJ7gEkMulVUWKTm1XXMrqjWkrRsSrh3C7kqg10USAtmEuG5N
+	glbtnQ7Ib2JFkQtUMESmIkU9LfnkfR1sjEzhqqzGjog6anihKkm/ja6Kn1F0dtJDBVSUE294u8PDF
+	EL6uIsQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92Q2-000000074CQ-2aMm;
-	Thu, 07 Nov 2024 13:19:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92OI-0000000743z-0wgN
+	id 1t92Rj-000000074Vx-3glp;
+	Thu, 07 Nov 2024 13:21:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t92Pi-000000074As-2MJk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 13:17:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 808B7497;
-	Thu,  7 Nov 2024 05:18:04 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35CED3F66E;
-	Thu,  7 Nov 2024 05:17:33 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com,
-	yury.khrustalev@arm.com,
-	will@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Aishwarya TCV <aishwarya.tcv@arm.com>
-Subject: [PATCH] selftests/mm: Define PKEY_UNRESTRICTED for pkey_sighandler_tests
-Date: Thu,  7 Nov 2024 13:16:40 +0000
-Message-ID: <20241107131640.650703-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 07 Nov 2024 13:19:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=1o0PT+VvYeF2Yc1hTEqEhN6nNmR8jwyG9x4O7dGE/Wk=; b=qo
+	PZCD8fmKsuqe8MM0+5HAxgA1V6sLxp1dxWT6dgRzFLKJ+Uj612/2my5BcrbEkzNKu2cGnhqk12oGB
+	/a4BAt4NCaZn7xVX092i/qM2JCfjxaohRr5xqBfTcg7hjl+yJ2+6TiiQ3PRLlum+gfT49bcro6kXI
+	u2un0pipZbINs5Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1t92PO-00CSlH-Qe; Thu, 07 Nov 2024 14:18:46 +0100
+Date: Thu, 7 Nov 2024 14:18:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/3] dt-bindings: net: nuvoton: Add schema for Nuvoton
+ MA35 family GMAC
+Message-ID: <9455e2f6-b41d-476e-bda9-fc01958e48d5@lunn.ch>
+References: <20241106111930.218825-1-a0987203069@gmail.com>
+ <20241106111930.218825-2-a0987203069@gmail.com>
+ <f3c6b67f-5c15-43e2-832e-28392fbe52ec@lunn.ch>
+ <21a00f02-7f2f-46da-a67f-be3e64019303@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <21a00f02-7f2f-46da-a67f-be3e64019303@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_051738_324749_D3F32381 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_051906_623094_9DDA2026 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,44 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 6e182dc9f268 ("selftests/mm: Use generic pkey register
-manipulation") makes use of PKEY_UNRESTRICTED in
-pkey_sighandler_tests. The macro has been proposed for addition to
-uapi headers [1], but the patch hasn't landed yet.
+On Thu, Nov 07, 2024 at 06:31:26PM +0800, Joey Lu wrote:
+> Dear Andrew,
+> 
+> Thank you for your reply.
+> 
+> Andrew Lunn 於 11/7/2024 2:13 AM 寫道:
+> > > +  phy-mode:
+> > > +    enum:
+> > > +      - rmii
+> > > +      - rgmii-id
+> > The phy-mode deepened on the board design. All four rgmii values are
+> > valid.
+> I will add them.
+> > > +
+> > > +  tx_delay:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      Control transmit clock path delay in nanoseconds.
+> > > +
+> > > +  rx_delay:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      Control receive clock path delay in nanoseconds.
+> > If you absolutely really need these, keep them, but i suggest you drop
+> > them. They just cause confusion, when ideally we want the PHY to be
+> > adding RGMII delays, not the MAC.
+> > 
+> > If you do need them, then they should be in pS.
+> 
+> I will fix it.
+> 
+> We have customers who use a fixed link instead of a PHY, so these properties
+> may be necessary.
 
-Define PKEY_UNRESTRICTED in pkey-helpers.h for the time being to fix
-the build.
+That is a legitimate use case which can require the MAC to add delays,
+but i generally try to get the switch on the other end to add the
+delays, just to keep with the uniform setup.
 
-[1] https://lore.kernel.org/all/20241028090715.509527-2-yury.khrustalev@arm.com/
+Also, please take a look at ethernet-controller.yaml, these should be
+called rx-internal-delay-ps & tx-internal-delay-ps.
 
-Fixes: 6e182dc9f268 ("selftests/mm: Use generic pkey register
-manipulation")
-Reported-by: Aishwarya TCV <aishwarya.tcv@arm.com>
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
-
-Based on arm64 for-next/pkey-signal (49f59573e9e0).
-
----
- tools/testing/selftests/mm/pkey-helpers.h | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/tools/testing/selftests/mm/pkey-helpers.h b/tools/testing/selftests/mm/pkey-helpers.h
-index 9ab6a3ee153b..319f5b6b7132 100644
---- a/tools/testing/selftests/mm/pkey-helpers.h
-+++ b/tools/testing/selftests/mm/pkey-helpers.h
-@@ -112,6 +112,10 @@ void record_pkey_malloc(void *ptr, long size, int prot);
- #define PKEY_MASK	(PKEY_DISABLE_ACCESS | PKEY_DISABLE_WRITE)
- #endif
- 
-+#ifndef PKEY_UNRESTRICTED
-+#define PKEY_UNRESTRICTED 0x0
-+#endif
-+
- #ifndef set_pkey_bits
- static inline u64 set_pkey_bits(u64 reg, int pkey, u64 flags)
- {
--- 
-2.43.0
-
+	Andrew
 
