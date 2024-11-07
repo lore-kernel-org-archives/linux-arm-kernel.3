@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F2AD5D695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 22:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66439D5D695
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 22:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ttKD2JDCoDptxDdNvZxe09sisTs9kAndANsW/SPTeA=; b=UvaaTaTEz8QjaLz+tq0OtOl1PX
-	hgrsxBmZCY9MizRP7cjzziNZFhVuiAScz0D+D7kwduxVD+4SasZDE4g6kctriK7nG0p3lxdjGfkR6
-	Y9Rmg/P1Hw6C4ujbiB67iub9Lb9WBo+Vj0Jf7pKKKkM+JPF2otsdX42j2gwxFxn7SZ2cOuU4NuAuS
-	3hfecoaV2oVlWzmuFQBLV43kPV7iz54hg0s4ZtntyE6GuJ5LyJ4m+S+3WpPY0P2vC7B3TavDBQcf0
-	fbS250CkEuPyd2G5xufLW2ATytooDW+2vOwfWT+7JKvnWA8dHMZ5i9pWWCuJmkRojUpOngtXYDTLH
-	h5U4RYDg==;
+	bh=p/Fg7hJcFNbkaFQNMrRSc1TG0qh4lSIlIOsatLO1aUo=; b=JjgOy1F3f5SC4afj6bTv5o7NuM
+	LOBR+faZHfLLoJZkSMryhxlP6KsjWOtyVHDViDAY7qzMxMeuqSj14fGd0i6qF1tB8PzUbW2AJNS/A
+	6zK1BuiY21Ks91QLvPD5LlCg8h/HeEOKMpZ4Qlj86O+mTmTa7FC8Ids50aZt2OFZbHh5wOJQOdgvc
+	HCoqsTKbumsouu6XNiswjEt2ebYrgPGf7cOYbcIMo2SjcHynUuJ2VFNvx883auKJUn6C3UK4dD8Oc
+	AD3RTRB43Djh0MORUDIre7tu2IZqqRmcW2yxVw/238/Dvpi+UUn7VPagJxblt4d93RJ7rFSmEZPJh
+	QL4AUe2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9BE0-00000008a2V-0ib4;
-	Thu, 07 Nov 2024 22:43:36 +0000
+	id 1t9BSl-00000008cNE-11UF;
+	Thu, 07 Nov 2024 22:58:51 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9BAU-00000008ZIk-0w7R
+	id 1t9BR1-00000008bry-14Py
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 22:39:59 +0000
+	Thu, 07 Nov 2024 22:57:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=/ttKD2JDCoDptxDdNvZxe09sisTs9kAndANsW/SPTeA=; b=PVc2/FJbnnIVZfzKiosEU+z98F
-	gktCgfnYSPaIom6AWSVBBcCmjffJWd3ApVDOfBVRL2IY686q0nApdagicSKh1qXmYtJYCKe3DHB8V
-	pvdsNO5lTO5Jihdx7iKSaSvDC9wShIzWb999eAbq4UwpvV5r6997wO8OwlxeSzIcSgIc=;
+	bh=p/Fg7hJcFNbkaFQNMrRSc1TG0qh4lSIlIOsatLO1aUo=; b=he9bN0s8NNYDRfG3RF5YDWFgU6
+	/EZr9xTizP07l0FGwwHdDoQFySEymwaGsAPGywABvJf9UNGeZUnEdGDqeuW/bXkbg/EvG07XEZtEf
+	MCJvWpEWGrcGBrLfuzB0HzUSMATlkn5hXs6mnP6IznI7C0J5ALBcyj+EuyQLeEkvu0yI=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1t9BAC-00CWEw-Ll; Thu, 07 Nov 2024 23:39:40 +0100
-Date: Thu, 7 Nov 2024 23:39:40 +0100
+	id 1t9BQo-00CWID-61; Thu, 07 Nov 2024 23:56:50 +0100
+Date: Thu, 7 Nov 2024 23:56:50 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Daniel Machon <daniel.machon@microchip.com>
 Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -51,18 +51,18 @@ Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>,
 	Russell King <linux@armlinux.org.uk>, jacob.e.keller@intel.com,
 	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next 3/7] net: sparx5: use is_port_rgmii() throughout
-Message-ID: <4748d3a9-55e8-48f9-b281-60ec619bf304@lunn.ch>
+Subject: Re: [PATCH net-next 7/7] net: lan969x: add function for configuring
+ RGMII port devices
+Message-ID: <6fee4db6-0085-4ce8-a6b5-050fddd0bc5a@lunn.ch>
 References: <20241106-sparx5-lan969x-switch-driver-4-v1-0-f7f7316436bd@microchip.com>
- <20241106-sparx5-lan969x-switch-driver-4-v1-3-f7f7316436bd@microchip.com>
+ <20241106-sparx5-lan969x-switch-driver-4-v1-7-f7f7316436bd@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241106-sparx5-lan969x-switch-driver-4-v1-3-f7f7316436bd@microchip.com>
+In-Reply-To: <20241106-sparx5-lan969x-switch-driver-4-v1-7-f7f7316436bd@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_143958_285559_E78B43AA 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_145703_326400_7E780E0F 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +77,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> @@ -1087,6 +1087,9 @@ int sparx5_port_init(struct sparx5 *sparx5,
->  		 ANA_CL_FILTER_CTRL_FILTER_SMAC_MC_DIS,
->  		 sparx5, ANA_CL_FILTER_CTRL(port->portno));
+On Wed, Nov 06, 2024 at 08:16:45PM +0100, Daniel Machon wrote:
+> The lan969x switch device includes two RGMII interfaces (port 28 and 29)
+> supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps.
+> 
+> Add new function: rgmii_config() to the match data ops, and use it to
+> configure RGMII port devices when doing a port config.  On Sparx5, the
+> RGMII configuration will always be skipped, as the is_port_rgmii() will
+> return false.
+> 
+> Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
+> Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> ---
+>  drivers/net/ethernet/microchip/lan969x/lan969x.c   | 105 +++++++++++++++++++++
+>  .../net/ethernet/microchip/sparx5/sparx5_main.h    |   2 +
+>  .../net/ethernet/microchip/sparx5/sparx5_port.c    |   3 +
+>  3 files changed, 110 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> index cfd57eb42c04..0681913a05d4 100644
+> --- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> +++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+> @@ -9,6 +9,17 @@
+>  #define LAN969X_SDLB_GRP_CNT 5
+>  #define LAN969X_HSCH_LEAK_GRP_CNT 4
 >  
-> +	if (ops->is_port_rgmii(port->portno))
-> +		return 0;
+> +#define LAN969X_RGMII_TX_CLK_DISABLE 0  /* Disable TX clock generation*/
+> +#define LAN969X_RGMII_TX_CLK_125MHZ 1   /* 1000Mbps */
+> +#define LAN969X_RGMII_TX_CLK_25MHZ  2   /* 100Mbps */
+> +#define LAN969X_RGMII_TX_CLK_2M5MHZ 3   /* 10Mbps */
+> +#define LAN969X_RGMII_PORT_START_IDX 28 /* Index of the first RGMII port */
+> +#define LAN969X_RGMII_PORT_RATE 2       /* 1000Mbps  */
+> +#define LAN969X_RGMII_SHIFT_90DEG 3     /* Phase shift 90deg. (2 ns @ 125MHz) */
+> +#define LAN969X_RGMII_IFG_TX 4          /* TX Inter Frame Gap value */
+> +#define LAN969X_RGMII_IFG_RX1 5         /* RX1 Inter Frame Gap value */
+> +#define LAN969X_RGMII_IFG_RX2 1         /* RX2 Inter Frame Gap value */
 > +
->  	/* Configure MAC vlan awareness */
->  	err = sparx5_port_max_tags_set(sparx5, port);
->  	if (err)
+>  static const struct sparx5_main_io_resource lan969x_main_iomap[] =  {
+>  	{ TARGET_CPU,                   0xc0000, 0 }, /* 0xe00c0000 */
+>  	{ TARGET_FDMA,                  0xc0400, 0 }, /* 0xe00c0400 */
+> @@ -293,6 +304,99 @@ static irqreturn_t lan969x_ptp_irq_handler(int irq, void *args)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +static int lan969x_port_config_rgmii(struct sparx5 *sparx5,
+> +				     struct sparx5_port *port,
+> +				     struct sparx5_port_config *conf)
+> +{
+> +	int tx_clk_freq, idx = port->portno - LAN969X_RGMII_PORT_START_IDX;
+> +	enum sparx5_port_max_tags max_tags = port->max_vlan_tags;
+> +	enum sparx5_vlan_port_type vlan_type = port->vlan_type;
+> +	bool dtag, dotag, tx_delay = false, rx_delay = false;
+> +	u32 etype;
+> +
+> +	tx_clk_freq = (conf->speed == SPEED_10	? LAN969X_RGMII_TX_CLK_2M5MHZ :
+> +		       conf->speed == SPEED_100 ? LAN969X_RGMII_TX_CLK_25MHZ :
+> +						  LAN969X_RGMII_TX_CLK_125MHZ);
 
-That looks odd. What has RGMII to do with MAC VLAN awareness?
-Maybe it just needs a comment?
+https://www.spinics.net/lists/netdev/msg1040925.html
+
+Once it is merged, i think this does what you want.
+
+> +	if (conf->phy_mode == PHY_INTERFACE_MODE_RGMII ||
+> +	    conf->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
+> +		rx_delay = true;
+> +
+> +	if (conf->phy_mode == PHY_INTERFACE_MODE_RGMII ||
+> +	    conf->phy_mode == PHY_INTERFACE_MODE_RGMII_RXID)
+> +		tx_delay = true;
+
+O.K, now warning bells are ringing in this reviews head.
+
+What i don't see is the value you pass to the PHY? You obviously need
+to mask out what the MAC is doing when talking to the PHY, otherwise
+both ends will add delays.
+
+And in general in Linux, we have the PHY add the delays, not the
+MAC. It is somewhat arbitrary, but the vast majority of systems do
+that. The exception is systems where the PHY is too dumb/cheap to add
+the delays and so the MAC has to do it. I'm don't know of any
+Microchip PHYs which don't support RGMII delays.
 
 	Andrew
 
