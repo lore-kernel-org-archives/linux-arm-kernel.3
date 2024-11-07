@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76224D29FBC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AEFD29FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7nMDuaCmHzuDu+vzqYAf2Ao4YDpMJQ1LC3DQ9Aqn/w=; b=I9n9XsAGh9KCHiQ5jHCZFDOsGl
-	WX0DAucxgvp764sDci3YsHFF03Vlw+EXlY7tXmLrfGibbx2djJ0fefsKoYQMKSDn3EXaJb/pZWF6c
-	MRNSTUJLs0v+0JF90C8VjNPlWUAvQ8kyvdWrkh/tYy6uwB0Kaua+LDjAMdEBs/ITTPMv6EFeTD/pm
-	i+7Qan2fM4xZMsRUeUAgi83jLhxxZrvcvdyqNOOYYBWowUzl3QQGfM14eXbZaVkvdDwc5jQ0RbNaK
-	ns6fsfeSShANFv2ExNAuxYeialxT6bApJA1zGo4JB1Ow+vt+TwvjJjyHtS7F2xBTB1aB1nN4EdAht
-	EB4VIl7w==;
+	bh=1Kv0j8n6OgbyEtl8S2ISVzAkmC/lfSFUHPm7gO3mtUM=; b=gf2KXO9Io2z+Vpc6NwH7USD7RT
+	tMzkR8eFyHz/Ui+T/pxle0F8q4aHtzkB0ENhselEKfVdNKL7gUnMvfBtU7+MBY3v215v9IYZokqDe
+	fysr4PXaTj1UTVIHQQb4223mXazRqGBXzMC4t2PhtdjABNgiy1i2JxabHJfHLxAf4MjnPoVY9wLYa
+	JD8mpfVxi/3AF7zd1mPZzQKTrkw3QnU8tOUedMGqes/hNNqGYPdY+R2tViOrdK3y93qA2VZZ2nGxU
+	3DcdVMOc5wPDZXKT7d2S4MeeeSc3wFFaUfUZPijoRK9EQ9QxzbwftVroFlmK1wFw26NwfPBi2EB7A
+	cOa0Scgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8reb-00000005LUo-3E4w;
-	Thu, 07 Nov 2024 01:49:45 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1t8rgK-00000005Ls5-02vK;
+	Thu, 07 Nov 2024 01:51:32 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rUq-00000005JMc-1L4K
+	id 1t8rXh-00000005Jrk-2Nho
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:39:41 +0000
+	Thu, 07 Nov 2024 01:42:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1730943578; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=H7nMDuaCmHzuDu+vzqYAf2Ao4YDpMJQ1LC3DQ9Aqn/w=;
-	b=WiDs7RkpbR0NMiso9XQ0kae5yz+S8Cy3X20yQDz6EayLlEXQaZR1DuXP3w/A/WwK42NBBNsjsXOTP6RjAtsETQNW0g8PYRWVwdMkpk4TZeZ2FHji8YRl3B808rGM3TK6BcheguW6j7x91vJ4fdi9sARdxbsPnnL/XDMV6pnx7Zk=
-Received: from 30.74.144.126(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WIthrqX_1730943574 cluster:ay36)
+	t=1730943755; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=1Kv0j8n6OgbyEtl8S2ISVzAkmC/lfSFUHPm7gO3mtUM=;
+	b=lhH2/HrHQDWP2FyrafsFtOlo9Q4sC0L6ZPlx9lnC8CEeX/eyPBZqZa8HVNNbbBs5wy9x0BWZBoF6h5gNaBfRdGYtKfEPZCO2PNKx9s20XrC/3G6JVrrJT4ISfIo3cdBCt7LTfLyu6cYgBvK3vQbqwt9IsCVsjIqTlQG18fXRZuo=
+Received: from 30.74.144.126(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WItht-N_1730943752 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 07 Nov 2024 09:39:36 +0800
-Message-ID: <ef09f0d0-c8c1-408f-85d9-31fa8de13a92@linux.alibaba.com>
-Date: Thu, 7 Nov 2024 09:39:34 +0800
+          Thu, 07 Nov 2024 09:42:33 +0800
+Message-ID: <d410c617-7917-4776-967b-058817f40022@linux.alibaba.com>
+Date: Thu, 7 Nov 2024 09:42:32 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] arm64: dts: sprd: sc9863a: fix in-ports property
+Subject: Re: [PATCH v2 5/5] arm64: dts: sprd: sc9863a: reorder clocks,
+ clock-names per bindings
 To: Stanislav Jakubek <stano.jakubek@gmail.com>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
@@ -47,14 +48,14 @@ To: Stanislav Jakubek <stano.jakubek@gmail.com>, Rob Herring
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <cover.1730918663.git.stano.jakubek@gmail.com>
- <5318a47282b8c15a3135fd12dacedb8aa70592e2.1730918663.git.stano.jakubek@gmail.com>
+ <d235438fbbd53c28b63cada2cf7e1234c120355e.1730918663.git.stano.jakubek@gmail.com>
 From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <5318a47282b8c15a3135fd12dacedb8aa70592e2.1730918663.git.stano.jakubek@gmail.com>
+In-Reply-To: <d235438fbbd53c28b63cada2cf7e1234c120355e.1730918663.git.stano.jakubek@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_173940_560111_06230291 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20241106_174238_109981_D055CFE4 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +73,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 2024/11/7 03:05, Stanislav Jakubek wrote:
-> This property is called "in-ports", not "in-port", fix it.
+> DT bindings expect the SC9863A clock-controller clocks/clock-names to be
+> in a specific order, reorder them.
 > 
 > Signed-off-by: Stanislav Jakubek <stano.jakubek@gmail.com>
 
-LGTM.
+Thanks.
 Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
 > ---
 > Changes in V2:
 > - new patch
 > 
->   arch/arm64/boot/dts/sprd/sc9863a.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   arch/arm64/boot/dts/sprd/sc9863a.dtsi | 12 ++++++------
+>   1 file changed, 6 insertions(+), 6 deletions(-)
 > 
 > diff --git a/arch/arm64/boot/dts/sprd/sc9863a.dtsi b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-> index e5a2857721e2..31172ac44adc 100644
+> index 31172ac44adc..e97000e560e7 100644
 > --- a/arch/arm64/boot/dts/sprd/sc9863a.dtsi
 > +++ b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-> @@ -288,7 +288,7 @@ etf_little_out: endpoint {
->   				};
->   			};
+> @@ -163,18 +163,18 @@ gic: interrupt-controller@14000000 {
+>   		ap_clk: clock-controller@21500000 {
+>   			compatible = "sprd,sc9863a-ap-clk";
+>   			reg = <0 0x21500000 0 0x1000>;
+> -			clocks = <&ext_32k>, <&ext_26m>;
+> -			clock-names = "ext-32k", "ext-26m";
+> +			clocks = <&ext_26m>, <&ext_32k>;
+> +			clock-names = "ext-26m", "ext-32k";
+>   			#clock-cells = <1>;
+>   		};
 >   
-> -			in-port {
-> +			in-ports {
->   				port {
->   					etf_little_in: endpoint {
->   						remote-endpoint =
+>   		aon_clk: clock-controller@402d0000 {
+>   			compatible = "sprd,sc9863a-aon-clk";
+>   			reg = <0 0x402d0000 0 0x1000>;
+> -			clocks = <&ext_26m>, <&rco_100m>,
+> -				 <&ext_32k>, <&ext_4m>;
+> -			clock-names = "ext-26m", "rco-100m",
+> -				      "ext-32k", "ext-4m";
+> +			clocks = <&ext_26m>, <&ext_32k>,
+> +				 <&ext_4m>, <&rco_100m>;
+> +			clock-names = "ext-26m", "ext-32k",
+> +				      "ext-4m", "rco-100m";
+>   			#clock-cells = <1>;
+>   		};
+>   
 
