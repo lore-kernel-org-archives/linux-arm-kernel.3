@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3001D43379
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6A3D4337C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Zi7/BGIzk4kmPbaIIn5N5Q89D8reWg5dpAnu28NGJw=; b=dNJF6uNRi7nYfmfywaunGSwlPk
-	4PAXMd/9FgziedhOeR7Elk+UuYDGVVW0qwdNva4rAQmYxIWfwSe+phEjrXbaHo1xFxRum9zqvV2NV
-	p0sRl2/Lx6rBkZjATAYf4OfyQmvMzTFvShPpxm9JP3v4C3ECQvf3pUrOKwA3gx1As/mbNmoxPqNQi
-	0UpfX9mS+BpvX4gQVIw/serNPNuBDQNFqAxCepGfskLODqDTIpL/EQdkrr6SY37AopnYFKvaE97XU
-	R9fjmKwsPjvcPoQa08Mlx/d38fUYvj719CXfWnkv4lUqg8eRTKhgZU8vEfXj6D5m9uGGwca9M4BBk
-	w2Z5DNUA==;
+	bh=l25I5Jel5U2/0S9AyIDPTs5/QytgoUZMY3CNnmJZTzE=; b=5G9M89nyZ668eZFV1Ns2YoeVTH
+	6B2qQh8yqinI5HpTbhKYFmnGhNOAgziimonABkMG7w3RHkXHEy249aGPe1paJBcOTBQKe/ClhNwCx
+	P5F6Yze6FbVXX+o8MS3cYsotIFT5EVyZXqBaWnrkNmB53tH/3cplA76pQs9Gt1xS7CMqNGcQ/WCr/
+	Pw/6mrHUTPOZBq+cieIwrQ1o+M5QHqOIk0A+MhLN7h54oYyFy3dGTXqHySdT/EbnEXDsbG21gJfo0
+	BX/O1qWbpjLcHzZ0QoYCv8AX7Tc5xtsqEIzoZEYNPF9sH2gSEWDK5iUHqiL9DF+W/jVl+zFedHYqv
+	vf6PH6xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95Qf-00000007epr-2oRh;
-	Thu, 07 Nov 2024 16:32:17 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1t95SQ-00000007fCN-39LP;
+	Thu, 07 Nov 2024 16:34:06 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95FU-00000007ba0-3CfZ
+	id 1t95FW-00000007bbH-1433
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:20:47 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e32ff6f578eso2897814276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:20:43 -0800 (PST)
+	Thu, 07 Nov 2024 16:20:48 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea8d6fb2ffso21218397b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:20:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730996443; x=1731601243; darn=lists.infradead.org;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Zi7/BGIzk4kmPbaIIn5N5Q89D8reWg5dpAnu28NGJw=;
-        b=4eZEb5YKOsCuVJyP/wxLUOH7Ob6tr1iB2puKnruaAd6sUngRbq1OaCk43BvEt98ENw
-         2TOR5CqjZAkMpHcz2kNeKsh6aDZwe1+R8YIghZ+s7E2MSLkCbZr9EAf4xqaBAKk9AOPR
-         NMAH34lGSPLmqhCI8sWyXw+GcOFdcwbxHZD2Q6Mqs6211JV12ffNZAs022/dmuPyZlFZ
-         7jOkEfGQzlEiqwHj4yit2JcQNQXSanINrIikTyvmPZWYLVm8ahQ5LlPYODGZMNnkovg3
-         suPE24g99z4NBWUxzhlws0/J0+9h8Y58D7cevCIJ+Bys+u00Hu69ktufnfs6DaS2Z8E2
-         458g==
+        d=google.com; s=20230601; t=1730996445; x=1731601245; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=l25I5Jel5U2/0S9AyIDPTs5/QytgoUZMY3CNnmJZTzE=;
+        b=RwQx6CuJDFrzx8h3PmdtYAPtN3XsdDHDxDD3UA9D8MghVoAgM3/XmYcOnyw68Xwa4B
+         /RZ453TnrJKt0uQ24q0VHGKnwLSJ5z++c2tG4ObnWAKUAk/uELTUdsPR64TuHSftw2E4
+         TMShdRA1PzNDQRn57BQvtFb5uGmBe1Q0/0pg5w/dU41MkVP9VIBfdXohchw8YpJpEA4w
+         bovwyCI1wlup/LF2tVFYlYsaYvHmtyeNbcTM32jrJWNuF1KLnezWPTVwdJ4adT9rDlAX
+         8aXl0T7Razw1fR30ERIlb24FUosKiqjU/nmGdkLzX6ypVvGYOEOvbgIHpVjzRm2LCfx0
+         E/5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730996443; x=1731601243;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Zi7/BGIzk4kmPbaIIn5N5Q89D8reWg5dpAnu28NGJw=;
-        b=Ut69Zd8uIRldRKbGZFGgxCcPIHwD6AGhGrdguW+C6qykl3biD3lMRFbKawzObLdIOq
-         cGScrB1TuDUR5jsMs6a7nb9UEI5WogrysmQK9zfj7a7j/GZhy8yz0YxBrwGTZT7u2ihh
-         wx9FxkBO8W5e821iMtTVoIAAStE22JQTWVLZ/GWFaaCRTzHQd7evz0cv/0D1+/ux+qXW
-         3nnethUIv7YIQ2PQjIa6OLZupkF8iz5mCLV6Hp7/J/yxnLmqQREXUAyCgZw41sYSIsu7
-         OFl+FQQMc0djedXAJEEKpGsnSLsAaHOP9OYBiIXnZZ1XrtlfJNSMSwj2aWeRODukWVUC
-         zqbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVRMqZfBpDA/CQll1nkgho3ax7TkBBQlSLevQ3npiTcQ/aeI8UCZy+tP2gg41zsLcv1QewO0FBYJK9goaAu/v9h@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQe7V1BcfEo9XzenP0bi8GmuaMgBgrEpl/xe1GxRxXoHEk8jno
-	uZPwOrYOXtBFkFoMd4QknJAS0LZvDdxqWOhPskRtt7p0PGW8Y9GA/jgAuQ62WBr50As99hB8KZJ
-	uLxTj1A==
-X-Google-Smtp-Source: AGHT+IH0/hEWrV52DVmrj7Z6n0WIT9Ut3IVouygX8jmB/XLHKPkNRIO9up6ksFd2vuXYZmCZkrEILwBAMRRP
+        d=1e100.net; s=20230601; t=1730996445; x=1731601245;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=l25I5Jel5U2/0S9AyIDPTs5/QytgoUZMY3CNnmJZTzE=;
+        b=UCBJ4Xl9yVfjin/pyshuA4qXBKIwkVc/2/UfXkP5C9hxXRkwlZcszOUlmxZWByMCJE
+         vvABbnKJspeJfvZ7ahZvEz3S5zCbVSAljPLV0Vp/Cd8Vqu7RDaG0zHulFNuTH/r5JYtB
+         C2wqdxfsv1p54OYpvzbHm1vDUbCj6W1yRRdtPyL7m6YnbIhZwFLSfJFNJUS3VppdAVwP
+         h8o4EL8BbuSND9hlacLwfLTH3c82AWIMjGOxJtBU4ubh5/+sltN5+3A1zQ07N1deq2mL
+         qTPdUhJYCX2HrvcttSwrIb/+y9xF9ghqBYPUk8vXfPyR6RNgEGYZQcLgtIt1A3evHGre
+         kODg==
+X-Forwarded-Encrypted: i=1; AJvYcCUR64k2oT4uES/ImjF4+i88q4MMABQPAsPmil5cfXqOTv5hQm8pi54rBlkmFFNpCAnJGIwB5CNsKIJk1rHTy0UJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsMgHlHbKIx7eubwWQ7JqRKbllZKzzEWISrHFnJu7GjcWE9RAu
+	mI1J4+CaZpMdOPWunRyebMCd6su9Pcoun1/4KAap4wnPtbHQCJlSSFcSnlD3SpG7GAf1F6Oe98g
+	3iOtpuw==
+X-Google-Smtp-Source: AGHT+IFnTI4IcNJ51YDO3rsAiQCbXWeV3EQq6I2FsC+sGE3SpDVNd7WlWxpa52LoAfCUNYpttoUYsg4Abinq
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:acc7:bda:7167:18d8])
- (user=irogers job=sendgmr) by 2002:a25:d843:0:b0:e29:7454:e773 with SMTP id
- 3f1490d57ef6-e337e1d738cmr33276.5.1730996442881; Thu, 07 Nov 2024 08:20:42
- -0800 (PST)
-Date: Thu,  7 Nov 2024 08:20:28 -0800
+ (user=irogers job=sendgmr) by 2002:a05:690c:6313:b0:6e3:6414:80c5 with SMTP
+ id 00721157ae682-6eadbedccc8mr2287b3.0.1730996445083; Thu, 07 Nov 2024
+ 08:20:45 -0800 (PST)
+Date: Thu,  7 Nov 2024 08:20:29 -0800
 In-Reply-To: <20241107162035.52206-1-irogers@google.com>
-Message-Id: <20241107162035.52206-2-irogers@google.com>
+Message-Id: <20241107162035.52206-3-irogers@google.com>
 Mime-Version: 1.0
 References: <20241107162035.52206-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-Subject: [PATCH v2 1/8] perf jevents: fix breakage when do perf stat on system metric
+Subject: [PATCH v2 2/8] perf header: Move is_cpu_online to numa bench
 From: Ian Rogers <irogers@google.com>
 To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
 	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
@@ -87,11 +87,10 @@ To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
 	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
-Cc: stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_082044_816004_C8AA8528 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20241107_082046_372306_E3F67FBA 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,108 +105,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xu Yang <xu.yang_2@nxp.com>
+The helper function is only used in the NUMA benchmark as typically
+online CPUs are determined through
+perf_cpu_map__new_online_cpus(). Reduce the scope of the function for
+now.
 
-When do perf stat on sys metric, perf tool output nothing now:
-$ perf stat -a -M imx95_ddr_read.all -I 1000
-$
-
-This command runs on an arm64 machine and the Soc has one DDR hw pmu
-except one armv8_cortex_a55 pmu. Their maps show as follows:
-
-const struct pmu_events_map pmu_events_map[] = {
-{
-	.arch = "arm64",
-	.cpuid = "0x00000000410fd050",
-	.event_table = {
-		.pmus = pmu_events__arm_cortex_a55,
-		.num_pmus = ARRAY_SIZE(pmu_events__arm_cortex_a55)
-	},
-	.metric_table = {
-		.pmus = NULL,
-		.num_pmus = 0
-	}
-},
-
-static const struct pmu_sys_events pmu_sys_event_tables[] = {
-{
-	.event_table = {
-		.pmus = pmu_events__freescale_imx95_sys,
-		.num_pmus = ARRAY_SIZE(pmu_events__freescale_imx95_sys)
-	},
-	.metric_table = {
-		.pmus = pmu_metrics__freescale_imx95_sys,
-		.num_pmus = ARRAY_SIZE(pmu_metrics__freescale_imx95_sys)
-	},
-	.name = "pmu_events__freescale_imx95_sys",
-},
-
-Currently, pmu_metrics_table__find() will return NULL when only do perf
-stat on sys metric. Then parse_groups() will never be called to parse
-sys metric_name, finally perf tool will exit directly. This should be a
-common problem. To fix the issue, this will keep the logic before commit
-f20c15d13f01 ("perf pmu-events: Remember the perf_events_map for a PMU")
-to return a empty metric table rather than a NULL pointer. This should
-be fine since the removed part just check if the table match provided
-metric_name. Without these code, the code in parse_groups() will also
-check the validity of metrci_name too.
-
-Fixes: f20c15d13f01 ("perf pmu-events: Remember the perf_events_map for a PMU")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-Acked-by: Ian Rogers <irogers@google.com>
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/pmu-events/empty-pmu-events.c | 12 +-----------
- tools/perf/pmu-events/jevents.py         | 12 +-----------
- 2 files changed, 2 insertions(+), 22 deletions(-)
+ tools/perf/bench/numa.c  | 53 ++++++++++++++++++++++++++++++++++++++++
+ tools/perf/util/header.c | 51 --------------------------------------
+ tools/perf/util/header.h |  1 -
+ 3 files changed, 53 insertions(+), 52 deletions(-)
 
-diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
-index 2b7516946ded..b8719dab264d 100644
---- a/tools/perf/pmu-events/empty-pmu-events.c
-+++ b/tools/perf/pmu-events/empty-pmu-events.c
-@@ -585,17 +585,7 @@ const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pm
-         if (!map)
-                 return NULL;
+diff --git a/tools/perf/bench/numa.c b/tools/perf/bench/numa.c
+index 1fbd7c947abc..19be2aaf4dc0 100644
+--- a/tools/perf/bench/numa.c
++++ b/tools/perf/bench/numa.c
+@@ -27,6 +27,7 @@
+ #include <sys/resource.h>
+ #include <sys/wait.h>
+ #include <sys/prctl.h>
++#include <sys/stat.h>
+ #include <sys/types.h>
+ #include <linux/kernel.h>
+ #include <linux/time64.h>
+@@ -35,6 +36,7 @@
  
--        if (!pmu)
--                return &map->metric_table;
--
--        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
--                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
--                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
--
--                if (pmu__name_match(pmu, pmu_name))
--                           return &map->metric_table;
--        }
--        return NULL;
-+	return &map->metric_table;
+ #include "../util/header.h"
+ #include "../util/mutex.h"
++#include <api/fs/fs.h>
+ #include <numa.h>
+ #include <numaif.h>
+ 
+@@ -533,6 +535,57 @@ static int parse_cpu_list(const char *arg)
+ 	return 0;
  }
  
- const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 6e71b09dbc2a..70f4fd5395fb 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -1101,17 +1101,7 @@ const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pm
-         if (!map)
-                 return NULL;
- 
--        if (!pmu)
--                return &map->metric_table;
--
--        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
--                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
--                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
--
--                if (pmu__name_match(pmu, pmu_name))
--                           return &map->metric_table;
--        }
--        return NULL;
-+	return &map->metric_table;
++/*
++ * Check whether a CPU is online
++ *
++ * Returns:
++ *     1 -> if CPU is online
++ *     0 -> if CPU is offline
++ *    -1 -> error case
++ */
++static int is_cpu_online(unsigned int cpu)
++{
++	char *str;
++	size_t strlen;
++	char buf[256];
++	int status = -1;
++	struct stat statbuf;
++
++	snprintf(buf, sizeof(buf),
++		"/sys/devices/system/cpu/cpu%d", cpu);
++	if (stat(buf, &statbuf) != 0)
++		return 0;
++
++	/*
++	 * Check if /sys/devices/system/cpu/cpux/online file
++	 * exists. Some cases cpu0 won't have online file since
++	 * it is not expected to be turned off generally.
++	 * In kernels without CONFIG_HOTPLUG_CPU, this
++	 * file won't exist
++	 */
++	snprintf(buf, sizeof(buf),
++		"/sys/devices/system/cpu/cpu%d/online", cpu);
++	if (stat(buf, &statbuf) != 0)
++		return 1;
++
++	/*
++	 * Read online file using sysfs__read_str.
++	 * If read or open fails, return -1.
++	 * If read succeeds, return value from file
++	 * which gets stored in "str"
++	 */
++	snprintf(buf, sizeof(buf),
++		"devices/system/cpu/cpu%d/online", cpu);
++
++	if (sysfs__read_str(buf, &str, &strlen) < 0)
++		return status;
++
++	status = atoi(str);
++
++	free(str);
++	return status;
++}
++
+ static int parse_setup_cpu_list(void)
+ {
+ 	struct thread_data *td;
+diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
+index a6386d12afd7..55c28e4377ec 100644
+--- a/tools/perf/util/header.c
++++ b/tools/perf/util/header.c
+@@ -987,57 +987,6 @@ static int write_dir_format(struct feat_fd *ff,
+ 	return do_write(ff, &data->dir.version, sizeof(data->dir.version));
  }
  
- const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+-/*
+- * Check whether a CPU is online
+- *
+- * Returns:
+- *     1 -> if CPU is online
+- *     0 -> if CPU is offline
+- *    -1 -> error case
+- */
+-int is_cpu_online(unsigned int cpu)
+-{
+-	char *str;
+-	size_t strlen;
+-	char buf[256];
+-	int status = -1;
+-	struct stat statbuf;
+-
+-	snprintf(buf, sizeof(buf),
+-		"/sys/devices/system/cpu/cpu%d", cpu);
+-	if (stat(buf, &statbuf) != 0)
+-		return 0;
+-
+-	/*
+-	 * Check if /sys/devices/system/cpu/cpux/online file
+-	 * exists. Some cases cpu0 won't have online file since
+-	 * it is not expected to be turned off generally.
+-	 * In kernels without CONFIG_HOTPLUG_CPU, this
+-	 * file won't exist
+-	 */
+-	snprintf(buf, sizeof(buf),
+-		"/sys/devices/system/cpu/cpu%d/online", cpu);
+-	if (stat(buf, &statbuf) != 0)
+-		return 1;
+-
+-	/*
+-	 * Read online file using sysfs__read_str.
+-	 * If read or open fails, return -1.
+-	 * If read succeeds, return value from file
+-	 * which gets stored in "str"
+-	 */
+-	snprintf(buf, sizeof(buf),
+-		"devices/system/cpu/cpu%d/online", cpu);
+-
+-	if (sysfs__read_str(buf, &str, &strlen) < 0)
+-		return status;
+-
+-	status = atoi(str);
+-
+-	free(str);
+-	return status;
+-}
+-
+ #ifdef HAVE_LIBBPF_SUPPORT
+ static int write_bpf_prog_info(struct feat_fd *ff,
+ 			       struct evlist *evlist __maybe_unused)
+diff --git a/tools/perf/util/header.h b/tools/perf/util/header.h
+index a63a361f20f4..e91e89d22537 100644
+--- a/tools/perf/util/header.h
++++ b/tools/perf/util/header.h
+@@ -196,7 +196,6 @@ int write_padded(struct feat_fd *fd, const void *bf,
+ 
+ #define MAX_CACHE_LVL 4
+ 
+-int is_cpu_online(unsigned int cpu);
+ int build_caches_for_cpu(u32 cpu, struct cpu_cache_level caches[], u32 *cntp);
+ 
+ /*
 -- 
 2.47.0.199.ga7371fff76-goog
 
