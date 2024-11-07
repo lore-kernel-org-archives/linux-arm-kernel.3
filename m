@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0672BD4337D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DC9D5D66B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UwowlylA6AIUxnupqsBpgpXD1xGTxlGCKAu++1GW+o=; b=Cb+mQzKERWItygQvDB5GY0Jc9W
-	7v7ig7wvYiW+W7Sa8WisHbGOW/q0A5Fd8iQoHfNw8k7TYin8bMvrBBinEHcndX/VkiVFJF8aGSX76
-	9ivW9X/l4Z+ZmSShUEI7hUEEMPzQGO7zGi+fDWfcX5qcNr4nII21pl75Q8YTHH6xth+ypt4yd+CjW
-	PPwUKCTbBjT0pSv7N6FmWZuin4Xk0/57pvgNvVy/IetSPU8pbPqzhNgkBMePI9VDJT09fDptBe71I
-	V8j8enZFVrtdWnuMz2GgC2R+qEJNXH9ZTsvPEKd/HCZ5ueWvWUtyFqLRwSJBZjsIgHw0JgOgUHdVu
-	5EkceI8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ptraWJ/oCw3RnfVoIC63lk3NjQMyZyCPgNFnowI93Q=; b=QWQxzofrg9m2oNIN4IJxLcNKIR
+	8WLW7N2rCJyxcI86TRV0RgRSpbvhFUiFfLNJEEBdr3c9AfKofdys30UDqg+yQHVWxYauwtoQUlLg8
+	5xkRLOrslj0qBDXfLApc0tN8v112OaMMkEBXXDw25KNRu8MfEEPO7VdlaZA6vTYEsckjHCsDcFaYW
+	3uJajdZLBAOqzwssENJC/0Tipo21ggRaEtsvNXaHW5V3R9Iol/DSZWWDriW41kbCkfwc8klIJIG4e
+	1j95HhL9swntWIMHQL0Hx1RB/M2TjVSkgw1ohmqWRTqaLEUZKjjYq2bwOrkPwh6mop6cROz6RFeW1
+	5EmkG2Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t962R-00000007m7F-1Yf5;
-	Thu, 07 Nov 2024 17:11:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t960f-00000007lez-3rc5
+	id 1t96DE-00000007no9-1B6y;
+	Thu, 07 Nov 2024 17:22:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t96BL-00000007nHA-1sM8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 17:09:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A2C5A5C062E;
-	Thu,  7 Nov 2024 17:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243F8C4CECC;
-	Thu,  7 Nov 2024 17:09:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730999369;
-	bh=9f54dxIl3eMwRNQ9RNH0nhNpQ6mFCD7DUPK+U+I+s2A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h1ceALmOpXVDmMxRbzPEfjf44ktMb8IJIw5lCn4O2WlljA5gnCeFuqPvPRcu98S4V
-	 6HAILwGAs7kg8T56TOAySl75Sp1LxU3tBT53AkwaWgpikEnuuALLIP2KJZJwpXv6W0
-	 9Ghf5BuxO0K+n81/KZhb1PcxyiH6msIl3EWOog8mq1rYdc0o1rizGr+Kn5BdR+CKJh
-	 +H11tCH5HBVLIDlDemnlhdooj3Z8xdwOlQJdtkPLI6fgPxN8/TSnVpBXbmdzifW4MQ
-	 qAExp1IDuQTjDvnnukK3cn4UfHgedhjHz6g+pX4clyeJlf6w0mAtZu13eHXdULURBr
-	 2TkK3rA5gn+Gw==
-Date: Thu, 7 Nov 2024 17:09:23 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 1/3] dt-bindings: net: nuvoton: Add schema for Nuvoton
- MA35 family GMAC
-Message-ID: <20241107-slip-graceful-767507d20d1b@spud>
-References: <20241106111930.218825-1-a0987203069@gmail.com>
- <20241106111930.218825-2-a0987203069@gmail.com>
- <20241106-bloated-ranch-be94506d360c@spud>
- <7c2f6af3-5686-452a-8d8a-191899b3d225@gmail.com>
+	Thu, 07 Nov 2024 17:20:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9AE8497;
+	Thu,  7 Nov 2024 09:20:59 -0800 (PST)
+Received: from [10.57.26.139] (unknown [10.57.26.139])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C155B3F6A8;
+	Thu,  7 Nov 2024 09:20:24 -0800 (PST)
+Message-ID: <63792865-46ad-44a5-a1f2-9a17da5b4bfc@arm.com>
+Date: Thu, 7 Nov 2024 18:20:22 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="yB3ZUxT4SMqLRowR"
-Content-Disposition: inline
-In-Reply-To: <7c2f6af3-5686-452a-8d8a-191899b3d225@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/4] arm64: topology: Support SMT control on ACPI based
+ system
+To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, sudeep.holla@arm.com, tglx@linutronix.de,
+ peterz@infradead.org, mpe@ellerman.id.au,
+ linux-arm-kernel@lists.infradead.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, dietmar.eggemann@arm.com
+Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+ linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
+ gregkh@linuxfoundation.org, rafael@kernel.org, jonathan.cameron@huawei.com,
+ prime.zeng@hisilicon.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
+ xuwei5@huawei.com, guohanjun@huawei.com
+References: <20241030125415.18994-1-yangyicong@huawei.com>
+ <20241030125415.18994-4-yangyicong@huawei.com>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20241030125415.18994-4-yangyicong@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_090930_067575_08C2B8B6 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20241107_092031_617127_F166760F 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +74,148 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---yB3ZUxT4SMqLRowR
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 07, 2024 at 06:15:51PM +0800, Joey Lu wrote:
-> Conor Dooley =E6=96=BC 11/6/2024 11:44 PM =E5=AF=AB=E9=81=93:
-> > On Wed, Nov 06, 2024 at 07:19:28PM +0800, Joey Lu wrote:
-> > > +  nuvoton,sys:
-> > > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > > +    description: phandle to access GCR (Global Control Register) reg=
-isters.
-> > Why do you need a phandle to this? You appear to have multiple dwmacs on
-> > your device if the example is anything to go by, how come you don't need
-> > to access different portions of this depending on which dwmac instance
-> > you are?
-> On our platform, a system register is required to specify the TX/RX clock
-> path delay control, switch modes between RMII and RGMII, and configure ot=
-her
-> related settings.
-> > > +  resets:
-> > > +    maxItems: 1
-> > > +
-> > > +  reset-names:
-> > > +    items:
-> > > +      - const: stmmaceth
-> > > +
-> > > +  mac-id:
-> > > +    maxItems: 1
-> > > +    description:
-> > > +      The interface of MAC.
-> > A vendor prefix is required for custom properties, but I don't think you
-> > need this and actually it is a bandaid for some other information you're
-> > missing. Probably related to your nuvoton,sys property only being a
-> > phandle with no arguments.
-> This property will be removed.
+On 10/30/24 13:54, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> For ACPI we'll build the topology from PPTT and we cannot directly
+> get the SMT number of each core. Instead using a temporary xarray
+> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+> and SMT information of the first core in its heterogeneous CPU cluster
+> when building the topology. Then we can know the largest SMT number
+> in the system. If a homogeneous system's using ACPI 6.2 or later,
+> all the CPUs should be under the root node of PPTT. There'll be
+> only one entry in the xarray and all the CPUs in the system will
+> be assumed identical.
+> 
+> The core's SMT control provides two interface to the users [1]:
+> 1) enable/disable SMT by writing on/off
+> 2) enable/disable SMT by writing thread number 1/max_thread_number
+> 
+> If a system have more than one SMT thread number the 2) may
+> not handle it well, since there're multiple thread numbers in the
+> system and 2) only accept 1/max_thread_number. So issue a warning
+> to notify the users if such system detected.
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>   arch/arm64/kernel/topology.c | 57 ++++++++++++++++++++++++++++++++++++
+>   1 file changed, 57 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 1a2c72f3e7f8..47f838d6e823 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -15,8 +15,10 @@
+>   #include <linux/arch_topology.h>
+>   #include <linux/cacheinfo.h>
+>   #include <linux/cpufreq.h>
+> +#include <linux/cpu_smt.h>
+>   #include <linux/init.h>
+>   #include <linux/percpu.h>
+> +#include <linux/xarray.h>
+>   
+>   #include <asm/cpu.h>
+>   #include <asm/cputype.h>
+> @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+>   	return !!is_threaded;
+>   }
+>   
+> +struct cpu_smt_info {
+> +	int thread_num;
+> +	int core_id;
+> +};
+> +
+>   /*
+>    * Propagate the topology information of the processor_topology_node tree to the
+>    * cpu_topology array.
+>    */
+>   int __init parse_acpi_topology(void)
+>   {
+> +	int max_smt_thread_num = 0;
+> +	struct cpu_smt_info *entry;
+> +	struct xarray hetero_cpu;
+> +	unsigned long hetero_id;
+>   	int cpu, topology_id;
+>   
+>   	if (acpi_disabled)
+>   		return 0;
+>   
+> +	xa_init(&hetero_cpu);
+> +
+>   	for_each_possible_cpu(cpu) {
+>   		topology_id = find_acpi_cpu_topology(cpu, 0);
+>   		if (topology_id < 0)
+> @@ -57,6 +70,32 @@ int __init parse_acpi_topology(void)
+>   			cpu_topology[cpu].thread_id = topology_id;
+>   			topology_id = find_acpi_cpu_topology(cpu, 1);
+>   			cpu_topology[cpu].core_id   = topology_id;
+> +
+> +			/*
+> +			 * In the PPTT, CPUs below a node with the 'identical
+> +			 * implementation' flag have the same number of threads.
+> +			 * Count the number of threads for only one CPU (i.e.
+> +			 * one core_id) among those with the same hetero_id.
+> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
+> +			 * for more details.
+> +			 *
+> +			 * One entry is created for each node having:
+> +			 * - the 'identical implementation' flag
+> +			 * - its parent not having the flag
+> +			 */
+> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
+> +			entry = (struct cpu_smt_info *)xa_load(&hetero_cpu, hetero_id);
+> +			if (!entry) {
+> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+> +				WARN_ON(!entry);
+> +
+> +				entry->core_id = topology_id;
+> +				entry->thread_num = 1;
+> +				xa_store(&hetero_cpu, hetero_id,
+> +					 entry, GFP_KERNEL);
+> +			} else if (entry->core_id == topology_id) {
+> +				entry->thread_num++;
+> +			}
+>   		} else {
+>   			cpu_topology[cpu].thread_id  = -1;
+>   			cpu_topology[cpu].core_id    = topology_id;
+> @@ -67,6 +106,24 @@ int __init parse_acpi_topology(void)
+>   		cpu_topology[cpu].package_id = topology_id;
+>   	}
+>   
+> +	/*
+> +	 * This should be a short loop depending on the number of heterogeneous
+> +	 * CPU clusters. Typically on a homogeneous system there's only one
+> +	 * entry in the XArray.
+> +	 */
+> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
+> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
+> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+> +
+> +		if (entry->thread_num > max_smt_thread_num)
+> +			max_smt_thread_num = entry->thread_num;
+> +
+> +		xa_erase(&hetero_cpu, hetero_id);
+> +		kfree(entry);
+> +	}
 
-I'm almost certain you can't just remove this property, because you need
-it to tell which portion of the GCR is applicable to the dwmac instance
-in question. Instead, you need to ad an argument to your phandle. The
-starfive dwmac binding/driver has an example of what you can do.
+I think you need to check that max_smt_thread_num !=0,
+like in the DT path. Otherwise on a platform with no SMT,
+max_smt_thread_num = 0 and I hit:
 
---yB3ZUxT4SMqLRowR
-Content-Type: application/pgp-signature; name="signature.asc"
+kernel/cpu::cpu_smt_set_num_threads()
+WARN_ON(!num_threads || (num_threads > max_threads));
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyz0QgAKCRB4tDGHoIJi
-0lP1AP97tmKwKt+UudFKraxNYO3cXznEar2+8w3QtbqK/bnqlwD9H1utLpv2RnF0
-zj3DwLQ3RnwTIwDLuyIHy2v/2FNbawI=
-=i7sq
------END PGP SIGNATURE-----
+->
+if (max_smt_thread_num)
+     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
 
---yB3ZUxT4SMqLRowR--
+> +
+> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> +	xa_destroy(&hetero_cpu);
+>   	return 0;
+>   }
+>   #endif
 
