@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B14D4335D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4BED43360
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=; b=i8RDZMlT5ocBGSqWTVEcCVT3ax
-	fS60Cyu8cgyquW2EjTexDSQ9ogQjeN/J+vOfxl9BO3pG2isOnAA9Q+KTlxeiWdbsrCIm7cdoMyWBa
-	vVNmoBEHD0fSRPAhYSFWRVY850nBkrCMdloSGdm6Y3OBCFITXa0KDyvruJg8NiXzFSQOwxk8t5q0V
-	szxPVVpRAZ7jdgd4b2G/ZiN+zNJIrKXCWyhP5syMFdvTL4AaK1XqeCsuD6y6bCbmtmwoya4MXQ9Cb
-	EtQ83E7Wnk2IzLzIcXa8ae4v5gBDmMoi7MMH3ImxK0jX3QUv34IuzMJmAFGBz6wVROURN9nlqehSR
-	6htzKf7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nj05JeNbx4CnDMtvSdHFQExqg5uMDG7Qle6mMTZ13ik=; b=EcA8JGuXziyK19
+	r3RG6p2MXtM+wrqSz6D/XKYEJdTCHYo4vBPOSYUipUfYFZOb/SgQ9sq0NwlyUTAMd3k3MqC8LMoL6
+	qZ4CdrdAUjdrQLbUg6GJ/keklkT/vKcqiGfxWGhiTHLst7zS8QiFg98pDVXeNSSgCpTsG+3p8pgE2
+	ujlBBXlg3Kt/YNZ+Mq0ms25T42/ZgApvnRAR0e4H59ocblYrjwfqxJ7bz8EldjEzRJbrM2fow0Z+l
+	lILCfNzB/5ba4QNdEUUaGr1HaKAZSgeH/SFTDX6Wm81lEK8sxiLV2wJ9FgGBWx41bxjEy1lgYBKSr
+	CrHKiA7ACoDgl5c+XHww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92wb-00000007Btr-3CXJ;
-	Thu, 07 Nov 2024 13:53:05 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1t92yJ-00000007C5O-08jX;
+	Thu, 07 Nov 2024 13:54:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92uq-00000007BTl-0M3T
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 13:51:17 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb587d0436so10360671fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:51:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730987474; x=1731592274; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=;
-        b=k+G8H4Uq0UFEkqUcl6sbGT/mNr1IsfSFCCJqK3sedCE9IGgeHyVMRS3JC79o5Aiq1t
-         FUqVytLlMHBfQb5t/HEyAxX1Pl8Ct9iq/FiCjUtFHaUvxhZ0sXJxHncN5CPDi/760CB7
-         P8G8/j/cb7xubYAzfGBWonuegYZLNd4Ac+jo0FEBYZyKecPLViEy3Y7+qPGpslFy/Mge
-         CN3BMf0DgaXqjbYEBYcMOT5yX+v0dTVSCaBuq9u7eL1ordbm02bNGZ2c7U+uyUuFNe3o
-         6N/U6f/xJN9S4Oe3LohcPCMtVnkTny6miFuLLoSEOaXQ/ciFcRqTT3mWRmc9PkVRO9le
-         o4Hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730987474; x=1731592274;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=;
-        b=BvR440gCQVxfzHBdlNVaauCYgUmRhiY1+TQAOcQ4ddvAMDJoz+oz2idFQHj6Kvi2sk
-         QTrzC5pVvm6X/yVuctBtw/NBBgQ0JJZqH1NQUhtLWaFdcpuOPkFOqalSCxVaTou7Jaf2
-         dKWFu46X3ID/p1B8nee9/xmiNGX2uctS9it66mnvNDUSKYGrAXSoS2CpW31GSBTaEBGW
-         F4rY8ukuHP93KAT4LQf2/HtvZvJk9fwW9xEJCY2gX8K2SOlG3pQCejRAfpcT2r1gL6BK
-         uIU4mtj4POKJpQKjBXlTX/PcNV4tjtw9LI+qT1SIUSXwYwOl7foCN/aLesEXFFekCWK9
-         59nQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUfwJGOb8WN2z4mEqg1KTk7au4QAD3ScaFrE7CbW2J/GQo0SomE8mfRSV8q9jSK1gTTT8ING2Cr4ncPSSvTUrXS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKtvI9EmeulZjKNvQ+HKwdhjf9fsFTuL4IZPgFmAgUHjXQjQQJ
-	2i9D/faKCEVnIUSwsem1xxLpWsQPeG9LH4wN6+g2S4ygx3EHdcm6jmZWaTi941PGYJeEVwyLx19
-	6e/ZNFL00OMnw7OE6NHrdEa8HmF7lPAZTTgKslQ==
-X-Google-Smtp-Source: AGHT+IGiWq7PtiVgzCFFWXw5DpnT7owotNtkDOgrZOKmEF+j8eLRrqW6X8/sDWUO8xLANvzfCAOHbn0yaa5j804ukJc=
-X-Received: by 2002:a05:651c:1596:b0:2fc:ba7a:c97a with SMTP id
- 38308e7fff4ca-2fedb83155emr127846251fa.39.1730987473829; Thu, 07 Nov 2024
- 05:51:13 -0800 (PST)
+	id 1t92ux-00000007BVh-1Ywt;
+	Thu, 07 Nov 2024 13:51:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 802865C58BD;
+	Thu,  7 Nov 2024 13:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2D1C4CED0;
+	Thu,  7 Nov 2024 13:51:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730987481;
+	bh=dLpTfBzBR4l3dk9jBKmt+I9L2IwzEPpeAgKAP5o9ehU=;
+	h=From:Subject:Date:To:Cc:From;
+	b=T1OiSVUqVLAXBaN/1uR2cwpX8Y8CSgSn93azivwoF7bOH8onOWdu+1rmVKVYfXcZq
+	 u8pEb8u1xDgsH0eauIFXgmyuIbPf2ErEYsQRP/DsvUC/jKoAM3+V2xkkrvgFZmDS8w
+	 ZEZbJ8VHWK123nH9VvhBGcAC4hWTOSbSlWVeOqnX+S6rB0qrqziv2GhwjwMG2uCr5u
+	 rY9slBGbl9/qhIf8Wcv4OGI9i0fduvlUTg1fngPI+Q50zsCYP5P6HtD4bsGGS2kIdY
+	 eMb8u8GAGkYchsT5qsZfqtR17Is0hOSMcm201ahVo7HA+LBP4oVze4hKTl8afU3XVt
+	 m3iTBD4GwgEnQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH 0/3] PCI: mediatek-gen3: mtk_pcie_en7581_power_up code
+ refactoring
+Date: Thu, 07 Nov 2024 14:50:52 +0100
+Message-Id: <20241107-pcie-en7581-fixes-v1-0-af0c872323c7@kernel.org>
 MIME-Version: 1.0
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <20241014-armv7-cacheinfo-v2-1-38ab76d2b7fa@linaro.org>
-In-Reply-To: <20241014-armv7-cacheinfo-v2-1-38ab76d2b7fa@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 7 Nov 2024 14:51:02 +0100
-Message-ID: <CACRpkdZ8--4fKxT6+AbYSvTbA7-7EM_HutNVPT7yS90NN1r5nw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] ARM: add CLIDR accessor functions
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALzFLGcC/x3LTQqAIBBA4avIrBtQy/6uEi3CxpqNiQMRhHdPW
+ n483gtCmUlgVi9kuln4ihWmUeDPLR6EvFeD1bYzRg+YPBNSHNxoMPBDgnbqnXZht61roX4p0x/
+ qtqylfD+3Q5BjAAAA
+X-Change-ID: 20241107-pcie-en7581-fixes-296505fd2353
+To: Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_055116_143877_93F21484 
-X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-CacheID: sfid-20241107_055123_490945_C61DBE1B 
+X-CRM114-Status: UNSURE (   5.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,15 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
+Minor fixes and code refactoring in mtk_pcie_en7581_power_up routine
 
-> Add functions to read the CLIDR, Cache Level ID Register.
->
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+---
+Lorenzo Bianconi (3):
+      PCI: mediatek-gen3: Add missing reset_control_deassert for mac_rst in mtk_pcie_en7581_power_up
+      PCI: mediatek-gen3: rely on clk_bulk_prepare_enable in mtk_pcie_en7581_power_up
+      PCI: mediatek-gen3: Move reset/assert callbacks in .power_up()
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+ drivers/pci/controller/pcie-mediatek-gen3.c | 42 ++++++++++++++++-------------
+ 1 file changed, 23 insertions(+), 19 deletions(-)
+---
+base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
+change-id: 20241107-pcie-en7581-fixes-296505fd2353
 
-Yours,
-Linus Walleij
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
