@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089A7D43364
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CB6D43369
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrwXI6vmrfJw1w0ZuAtqZZwpQ2YVQiSVnr8XYbo34/E=; b=4yv//aMqHYSAia6gLd/qKCLRIU
-	zaPPL2cNlxXYX9npQvxyVBPMrVnmjS1cvs+xulvObri4gmHL6OJtdNYX+uq9yNQBn6ovFokO9jnz1
-	Vo83cm8DGLKXEB30QmIh0l6WgGKHt1m/wvE7gzMlS8YOneMxaorSqT9Ggt4AKyGEKDY5C2JiNzso9
-	UMCYF2gE1kF8iqb3YhcXjoBNaLle04eWTjymRX78RaHhOzGTJuBKBogasAZpguGoVeVgsxNjFkx2T
-	bBVllXOCi2OFVc6BjhT5jZT/7FYf2SLQMVzhTkCIHwFavNwCEvq98VBNsC5D1FZyKGo0lIiN9TLTT
-	2vsL0JZQ==;
+	bh=cPfsizR0GhWQSjoMoj6ev7y0kRO6mxVltbXk9yQ6RCw=; b=u7/Z9WoknNH7mvtiXh2bXGRA56
+	HyqMuDcNQ17986trrspxHGVedwhTH2TTAVZS45rvblqI47dwKO7joLDS9OgkDfXijutHE9OTtXSsK
+	XESVAwqq0qWM4dPRPs2lf9Y9zCbpxuaA/lEvn5C2pCNoPEISeGK6T09OljWWomOSE9IGGUzOG7Grl
+	d58ZhIwaJ48GI8xRW1drVZfX+rbau07SZFkq/fAoo2KfJ4FvCawOxugyEjI+YhglyiFEKkyBfl6aB
+	gBBuVHIsek+Z+xaGqfsYd69+uL28sVMbq9hOPdt8uBjkiWDA1t97BijuKERMSKYLxdxjHp6uWdmmQ
+	GEZ550/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93G0-00000007FdG-2gpF;
-	Thu, 07 Nov 2024 14:13:08 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1t93cZ-00000007IcM-3hOx;
+	Thu, 07 Nov 2024 14:36:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93EE-00000007FOF-1nJE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 14:11:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XkkTW5kJkz2Fbjl;
-	Thu,  7 Nov 2024 22:09:19 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 533D61A0190;
-	Thu,  7 Nov 2024 22:11:02 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Thu, 7 Nov 2024 22:11:01 +0800
-CC: <yangyicong@hisilicon.com>, <jonathan.cameron@huawei.com>,
-	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
-	<prime.zeng@hisilicon.com>
-Subject: Re: [PATCH v3 2/8] drivers/perf: hisi: Improve the detection of
- associated CPUs
-To: Will Deacon <will@kernel.org>
-References: <20241026072424.29887-1-yangyicong@huawei.com>
- <20241026072424.29887-3-yangyicong@huawei.com>
- <20241029132826.GB4416@willie-the-truck>
- <5895fd31-04f8-f1ea-0639-12dd1f19069c@huawei.com>
- <9a64ed90-6c9f-a32a-85cf-9d0c41e2fd81@huawei.com>
- <20241106115134.GC13801@willie-the-truck>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <df38a326-bb5c-5a17-9375-f1695cd7d937@huawei.com>
-Date: Thu, 7 Nov 2024 22:11:01 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1t93an-00000007IDT-2wi9;
+	Thu, 07 Nov 2024 14:34:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1DBB9A44434;
+	Thu,  7 Nov 2024 14:32:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10C0CC4CECC;
+	Thu,  7 Nov 2024 14:34:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730990076;
+	bh=cPfsizR0GhWQSjoMoj6ev7y0kRO6mxVltbXk9yQ6RCw=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=mKF4NHK9r1+8tE9VEE779JEN4YPJLcLdTe0ttAjyIwDylxoTTtqzFbRIggnKq6uO6
+	 h0ALIHV3VWB3WAFXjQfzSLL0my3BWqJfXs4I7YMzmIOnpVxYEU8JG+OMCC8Aw5lx5Y
+	 P4X6ee9KvpVlu/bdq1FZZJu1k1GlZFJdrz5LM13BCPXSr54i109bus6IZWoj9hSMzh
+	 oSRr+qhDaLaA5MkqRK7XwxLsFRkjTbTmOfHzQzur7abh7e+N2u0P4BjreVSRnErD//
+	 G8Px6e6FJtL+VivgnxwhJaqhTXu8wxx9Q4cnHk/ZFAHffhIUx5iGO1pogYTgw6Fbgi
+	 a5kieyYvbkBrg==
+Date: Thu, 7 Nov 2024 15:34:33 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>
+cc: lee@kernel.org, jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+    conor+dt@kernel.org, jdelvare@suse.com, linux@roeck-us.net, 
+    srinivas.pandruvada@linux.intel.com, bentiss@kernel.org, 
+    dmitry.torokhov@gmail.com, pavel@ucw.cz, ukleinek@debian.org, 
+    devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org, 
+    linux-iio@vger.kernel.org, linux-leds@vger.kernel.org, 
+    stable@vger.kernel.org
+Subject: Re: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data
+ on remove
+In-Reply-To: <4934964.GXAFRqVoOG@diego>
+Message-ID: <nycvar.YFH.7.76.2411071534110.20286@cbobk.fhfr.pm>
+References: <20241107114712.538976-1-heiko@sntech.de> <20241107114712.538976-2-heiko@sntech.de> <nycvar.YFH.7.76.2411071358210.20286@cbobk.fhfr.pm> <4934964.GXAFRqVoOG@diego>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
-In-Reply-To: <20241106115134.GC13801@willie-the-truck>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_061118_665466_D301269E 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20241107_063437_824779_05F6503A 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/6 19:51, Will Deacon wrote:
-> On Wed, Nov 06, 2024 at 04:33:18PM +0800, Yicong Yang wrote:
->> Hi Will,
->>
->> Further comment on this patch?
-> 
-> You failed to convince me that copying the online mask is safe, but I
-> haven't had time to look into that in more depth myself. Saying "It should
-> be safe" isn't really enough -- it _must_ be safe!
-> 
+On Thu, 7 Nov 2024, Heiko St=FCbner wrote:
 
-I assume the "safe" here means we won't have trouble if CPU in the copied cpumask
-offlined since we don't synchronize with the cpuhp here. Accessing cpu_online_mask
-itself is safe since it's a piece of static memory.
+> This change was more or less a surprise find, because I wanted to make
+> the platform_data pointer in the mfd_cell struct const and this the hid
+> sensor hub stood out as doing something strange ;-) .
+>=20
+> So patch 2 of this series actually depends on this change to not cause
+> build errors.
 
-We'll initialize the hisi_pmu::associated_cpus from cpu_online_mask in the below
-cases. For other cases the associated CPUs is initalized in the cpuhp callback
-and we won't come here.
-1) for a PMU does have associated CPUs like L3C PMU, but the associcated CPUs
-   not onlined at probe
-2) for a PMU has no association like CPA PMU which locates on a SICL. Before this
-   patch this kind of PMU'associated CPUs are initliazed in the cpuhp callbacks
+Ah, right.
 
-For the above 2 cases it is safe since the driver's not using hisi_pmu::assoicated_cpus
-directly but combined with cpu_online_masks. PMU indicates the user the preferred CPU
-to open events on by "cpumask" sysfs which shows hisi_pmu::on_cpu. It's initialized/updated in:
-1) hisi_pmu_init_associated_cpus() by cpumask_local_spread() which tries to
-   found a nearest CPU of the node that the device locates
-2) cpuhp callbacks we registered where holds the cpumap upate lock.
+> But seeing that we're after -rc6 alredy, I would assume the brunt of the=
+=20
+> mcu series might need to wait after 6.13-rc1 anyway - but I guess that=20
+> depends on how Lee sees things ;-) .
 
-Actually we allow hisi_pmu::associated_cpus contains offline CPUs which is also
-mentioned in the commit.
+OK, I am keeping my hands off it for the time being.
 
-Based on above it's safe to use the cpu_online_mask here. But I find one case
-doesn't covered by this patch - if boot with maxcpus=1, offline CPU X and offline
-CPU0 (both are not assocaited CPUs), hisi_pmu::on_cpu will not be updated. Since
-hisi_pmu::associated_cpus won't be updated when onlining an unassociated CPU
-and hisi_pmu::on_cpu is selected from the intersection of the associated CPUs
-and the online CPUs, the intersection will be empty in this case.
+Thanks,
 
-I'll see how to handle in this case and update the patch.
-
-Thanks.
+--=20
+Jiri Kosina
+SUSE Labs
 
 
