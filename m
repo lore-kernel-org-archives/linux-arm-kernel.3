@@ -4,172 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2DDD4337D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0672BD4337D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oSVqercAspMclC7eqImftDhrpLSDMkTFBbZboNhWVfY=; b=bF5Bd/7d3akRe12jpno14G33Cb
-	ZKRTd/YDv2DHOlE4tHdtqlYuDBaK3Fh903y8kz8Y+XAnAsnmWuttTguwx4Wlkj93nzsda8eEtd2iw
-	wrnTBx4XBaYi5v+PN1rG9JssfLdAUXrDw9AU8XSDXr02oBjP9YQPN3AVqp3IuvSxDgDcLWIwAvjBU
-	Dd/oRjfxFl1kjwLuG8BMko0NE9tzS5X/GlmTNKi2GSvLvNF6faL6aNherKRe4AKwfzHDaBvT8+wzF
-	Okgbkd1RWZCH4STJT9Y7pVmhzrYUP+WvFvKum2Bru3lg2SY2qpXqXbjJKZ5JcTbQvq/4VKTfTRvf3
-	9Vl6uZgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2UwowlylA6AIUxnupqsBpgpXD1xGTxlGCKAu++1GW+o=; b=Cb+mQzKERWItygQvDB5GY0Jc9W
+	7v7ig7wvYiW+W7Sa8WisHbGOW/q0A5Fd8iQoHfNw8k7TYin8bMvrBBinEHcndX/VkiVFJF8aGSX76
+	9ivW9X/l4Z+ZmSShUEI7hUEEMPzQGO7zGi+fDWfcX5qcNr4nII21pl75Q8YTHH6xth+ypt4yd+CjW
+	PPwUKCTbBjT0pSv7N6FmWZuin4Xk0/57pvgNvVy/IetSPU8pbPqzhNgkBMePI9VDJT09fDptBe71I
+	V8j8enZFVrtdWnuMz2GgC2R+qEJNXH9ZTsvPEKd/HCZ5ueWvWUtyFqLRwSJBZjsIgHw0JgOgUHdVu
+	5EkceI8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95wr-00000007kp9-3Vzf;
-	Thu, 07 Nov 2024 17:05:33 +0000
-Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1t962R-00000007m7F-1Yf5;
+	Thu, 07 Nov 2024 17:11:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95uE-00000007kGw-3Vew
+	id 1t960f-00000007lez-3rc5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 17:02:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o370UdlCo7huGtmYYfBbl12HbuF9Xoyhc328vzhiG5Ktx5fAP4vvzSDA1gfE/yLN+cWYf8OoiLqyIFEgQMW93Bg9z1yykB7fIi2rhxtF9tvDtBXUhHb2k2tt6s7Cpr0s+uYBHMaJ8kGz2aJYXi72Ey0GLhXSf3BIvikwpbzNd6k8n8FWE4veGfoVTclmYPpTfluzue1afJ/i/NM9NItZsancH0+DzOBQotDMTNjkGvdSApILc3SHkFBwJJsSgZDPwkQQHFM8hLuVnrCj8FXwWzf1n7fUYc8RsRyYVD9oCUr/Z+jcahPitIksLfKuGVe7MWRoAIG7gwdu0CU3ol5loA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oSVqercAspMclC7eqImftDhrpLSDMkTFBbZboNhWVfY=;
- b=fMA2kGd/yuSE4xV+de0Xurxfs+Wbgdt5g1MI3/jAlj2fTmi06cG2SeJEPmyLMZjC13tCz4zUSqFyb8tzMOv3kYJ7lLWMiDLUDTu6nXXCxXulaNWf1E62hUSD1tflXtaXN2LekMRhQCQUY07Gt/TJRI5KM1R9tCcQqG11Q678o3MIhV37jksDjHfH+cs9I4GJcuunOgCb9REmUJ5J16tsW+fwzDZ9ayrAqz/i7gX18d3Wxo0Bo7xd5ZI09DiIJqXO0zFITTWhVTA3fHK490fnqsC4L2IAOR7YMwc6MBkSmRaFhBj9e2jXdyh+u65C2HD3kpLkGp/nENzIVi1LJ7hB9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oSVqercAspMclC7eqImftDhrpLSDMkTFBbZboNhWVfY=;
- b=k4X3AFqqGuHa0oTUx8feefyg5mk+S7A82uLC/LsaFv2NVho6lyD1FaWD3yBt4y00nj334eKIYRqnqsS9vW+HCFS2+PEiLHSIi7j7HuD8Bcb8wcL2n/x4H8WUdt3kG4zQsJEMIxphTUEqxyWy8ePmAerVZji+UYWTJjnf+0fwEQ+ron5ZxeamHacBqk5g4skL/OGg7FjlGV6x9h4ynsozzMzNRL5O6we6IW8QywC+KJkBDFGepDVYFSiRhG0kj4P2pN5ft2LTjNvPYeD4kRTOIHRqKFZPpQH6IG/fZw83dS5BZxGKiEC2F4V3YKJO5KfDd+0hVNpePGNnZ++kfHZDKQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GVXPR04MB10327.eurprd04.prod.outlook.com (2603:10a6:150:1e2::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
- 2024 17:02:45 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
- 17:02:45 +0000
-Date: Thu, 7 Nov 2024 12:02:35 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
-Message-ID: <ZyzyqzpBKb2xedWs@lizhi-Precision-Tower-5810>
-References: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241029-pci_fixup_addr-v7-0-8310dc24fb7c@nxp.com>
-X-ClientProxiedBy: BYAPR05CA0019.namprd05.prod.outlook.com
- (2603:10b6:a03:c0::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 07 Nov 2024 17:09:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A2C5A5C062E;
+	Thu,  7 Nov 2024 17:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243F8C4CECC;
+	Thu,  7 Nov 2024 17:09:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730999369;
+	bh=9f54dxIl3eMwRNQ9RNH0nhNpQ6mFCD7DUPK+U+I+s2A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h1ceALmOpXVDmMxRbzPEfjf44ktMb8IJIw5lCn4O2WlljA5gnCeFuqPvPRcu98S4V
+	 6HAILwGAs7kg8T56TOAySl75Sp1LxU3tBT53AkwaWgpikEnuuALLIP2KJZJwpXv6W0
+	 9Ghf5BuxO0K+n81/KZhb1PcxyiH6msIl3EWOog8mq1rYdc0o1rizGr+Kn5BdR+CKJh
+	 +H11tCH5HBVLIDlDemnlhdooj3Z8xdwOlQJdtkPLI6fgPxN8/TSnVpBXbmdzifW4MQ
+	 qAExp1IDuQTjDvnnukK3cn4UfHgedhjHz6g+pX4clyeJlf6w0mAtZu13eHXdULURBr
+	 2TkK3rA5gn+Gw==
+Date: Thu, 7 Nov 2024 17:09:23 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/3] dt-bindings: net: nuvoton: Add schema for Nuvoton
+ MA35 family GMAC
+Message-ID: <20241107-slip-graceful-767507d20d1b@spud>
+References: <20241106111930.218825-1-a0987203069@gmail.com>
+ <20241106111930.218825-2-a0987203069@gmail.com>
+ <20241106-bloated-ranch-be94506d360c@spud>
+ <7c2f6af3-5686-452a-8d8a-191899b3d225@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10327:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02cfdc37-de5c-4c63-6be3-08dcff4dffbc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?K05abFJHd0Rpb1ZHYXV3L2t3Sjl1M1ZUdWdDemE0cDhzdnVNb1BpVmsrOXJV?=
- =?utf-8?B?cEtHdzRtYUVTS2ViSGFzcTJaSlJyakMrUlBIWlpORFZOT1Z1NG5PMkZsL3Rx?=
- =?utf-8?B?YXFvK0JONWVhUmQ2Nk56R0hjY0NncHJFVHdYVGFYZDFGVEVaWGw5SFNwNjRx?=
- =?utf-8?B?TTdwU1lROENIVkwxMTI5VlpyRkU1TU5QY3VGRE8wZmg5VFpiNUx3V3QxZXZ0?=
- =?utf-8?B?Y2I2N284Y0ZhSVdCYWlzZnQyYUdOeHBjT1h6Yi9KNGFaWFdLRU1SL0lnMHp4?=
- =?utf-8?B?WWRxcUNqNDlFcldrdzhzbzh3VVluaG5CYVZQTjJ0UzNFd0NPL0psS2dhYzR0?=
- =?utf-8?B?Y1FXRlNWYTRIa1JOVnZ6T0g4dENCSFBGSHZGZ1dWU3JxdUo0WGcxQTJ6WkpM?=
- =?utf-8?B?MGZ6cGxYNmVhOGRia1R5WFEzVzU4aDdTM0xZUjRreElCWEdZWDYwNWpKNjlD?=
- =?utf-8?B?d2Z2MWN3Y0FrcWFlTWsrMGJlejN1bGZFQVdCZ25PKytnT0QzeEhnRzY3Unlx?=
- =?utf-8?B?WDl0ZDB3cUxaRnE5K2wzdU5KbnJqWjRla1pYbzQxVTB0a0wwMHJ1ZklKTXFT?=
- =?utf-8?B?eGhwRE1va3BhdGJiY1ErRmFOT0p4ZkxxeE9KUWNROGJGS0x4NFpmM2phNHpt?=
- =?utf-8?B?R045Z0E2VmowaWc5Z1dQcWlwdG10SVZpWjFxaVhUdVhpc0J2d1VsWmRDNUM1?=
- =?utf-8?B?UWdIMlYxb3JncmJzQWF0aUMxZ1hqUUErREVlWWNxSVlKRzdPUE9xTitiRzQx?=
- =?utf-8?B?QmlsVnZueUx3Wis2T3pmWXB4QXd0dzZUTzViOHJuZGFOOExxRktQeUthVWhV?=
- =?utf-8?B?dHRRZytHeGpoaUVJZ2dEUXlCNWdjN1JjeWVMWGhpUWZHNnIyOG1hS0JxYXcy?=
- =?utf-8?B?d0tZcXZxQnpxU1kxREM3ZlRRVEloRVlEQzI0ZGxmeGl2bjRMYmZ5NmJIbGZ2?=
- =?utf-8?B?TzRXS0w0c0NqWWVtU3BVby82MFhvSXNpM3g0OSsvOHRpNlNUK1RWT2dHeUVs?=
- =?utf-8?B?UEUxSllpOHRPdC9sWlE5RkZzS1BvK3BTZ3pJbVVnNnVMQUo4Yzg4c243ZUE5?=
- =?utf-8?B?ejN1MmRWNDVnTzMxUTZ4eTloZlFvUk9wQm5yeitiWUV2SUJOMkdTeTN0bC9r?=
- =?utf-8?B?T0Jxd3U4WWJ1SUlHSUFVc0VBb1Vib242cC9TQzhDSFcrWEdHWnUzQjJQWmRO?=
- =?utf-8?B?Z3pWR2RIblF3eldvcFR5RlFMYUVvbHhVZFVmZkhBVzYwY0RINWhkUGkxMXBt?=
- =?utf-8?B?Vnd2aXA3Smord0pRRHhGcnkvWks0aHdIb2YvZ1lqSy9LRTBKMHRZdHpMWGVL?=
- =?utf-8?B?ZWhSNVU4c3kvQ1V4dnF2TnV2RzBRYmc5Ukx1ZnFNcTNUUmtaTy9WZEV3dnFl?=
- =?utf-8?B?U3FrcStoWWJ6T3NRQlIvdW4yZzgzS01tOSt4aU9CK2Y2MnovSWlOSlRISU5D?=
- =?utf-8?B?WVFJMVZMNmhrZi9NcUJVblpySTJuVElpMGhVQ3V1ZXRUeW03YkNPVTVGY2h5?=
- =?utf-8?B?TkZ3UmFLeVA1bkxnVThMeDRmaUFQcDZEQTU5T3FOb0FjdlpNRkR3QklocHVt?=
- =?utf-8?B?NTlibW5haEVLeWt3WDBQbkhrRk9GTHVyMWo1MUREd0ZIakJ1SEo4am9MZlds?=
- =?utf-8?B?dTNHVTVGU1BOSGxweElsOTZtZDJJbXF3S3NubERrZ1dqd1JoRVhXd1djeFJr?=
- =?utf-8?B?SEE4cVZSSWFHYVBQbFlzaDZHQ1RFMHZGN1VaaUZ3Q0VjRHZjWU05d2F4cTVG?=
- =?utf-8?B?aU9ZSTQwVTlNM3E1eVFUdENkR2dyM2hkcGhXdHFPeG9Md2dNZjQ2MUdEOHJt?=
- =?utf-8?B?bDU0ejgraFd5ejlKaS8wNSs3a0Q1TFA1RnFLRk1Cb2ZvT3M1VWtsTm45OHRy?=
- =?utf-8?Q?svY35yI3vFiH2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0dtcFNkWjNQcEN2cjMyUnZiOVRTMlpxeFFZazlWQU95TWJLV0FtT3RTMjhN?=
- =?utf-8?B?VWl3NTI3ckY3aGRKUk8rSnRabGtEVktCOHNWSGx2U1A0c1dqajZRM0dzM1FF?=
- =?utf-8?B?QzlZcjlTajV4cWhlZkcxWXV4WVRrY1ErTVZYYU8wbGR4UUNqb2JzbHlMbm0y?=
- =?utf-8?B?aUhKc3BFYXd2M01DM0EvU3BuaTg3anMxZXpHMUFOKzNFeXFFMnNFVEpGNVE5?=
- =?utf-8?B?ZXB5RmVaOXZ5ZjA3Y1htNVFjbVlKWlIxUjRGNFdxSTBmTXNsQVloMW9nWGtO?=
- =?utf-8?B?djlHR1haNHNicnJBL1BtTFhCbVhPbGpXcE5pNDhVWFJPakZLYVpKTUViVmR1?=
- =?utf-8?B?b0JxWVdwNURDT2s5T3JhUzJYL1dSelpKYTNhY0NxSWdGY0Y1TitsaE1lS3lt?=
- =?utf-8?B?c1lIc2dQb1hpYVNKNkFwSWwrcmYrVytUQ0syNkg0QW1QVDJ4cXNMSDdVc1FR?=
- =?utf-8?B?NmJnQTRmTDd6N3YvOWNsQXhWS3RxSm1GdHVrZ3JvdXhOT3ZWdjl2QjlTQ0d4?=
- =?utf-8?B?TDdpcDByUVFWTGdUWm9wWlFtbWdraVNrdENrSUhGQlkzZUJXRVk3NHEyOUs1?=
- =?utf-8?B?ZWt5SmhHamF1NVpqQk1RMTVqOWFxTFR0L0ZUTVdmVVZqemkrSFhRQUhUVEFp?=
- =?utf-8?B?b0pmcW4vUGtUbERwRlA2Wmh6bFZYdGxHN0FYZXIrdE1iQXNBdHJZY3h5Qnkv?=
- =?utf-8?B?MTVJclZXWEZLU29IV3NOUGx2STJEcjBCRU4rSmlpai9obFR6ZFBBRWYyVTVa?=
- =?utf-8?B?ajZwandnWnpBMDlZS0pmazJ4U3pYTU5BN3EwOHZLU0pRQUdVQVJYbTFZdXY3?=
- =?utf-8?B?V3VMaGxkOVFPd1EzblNRR0FVRnZJT0dJVHYvVWpmQ1hUUEhucG9BMjc4c3ZB?=
- =?utf-8?B?WlFMSVcwVWVIeFJNbkZVUW16dExtWUdsMXI5S081UjFIbnliTGthcXpFMVVH?=
- =?utf-8?B?aU5LNUt3dnlnNUI4ckFoUHF6cWxMZ2Q1NTJBakNqNDZ6THNjNkRqUmQ5S3Bp?=
- =?utf-8?B?QXh0MFp5cTBCUnZpQ3hEa1ZoSkdUR0V5bFRuZW1MazZoRXdQMmVWWW0yVnYx?=
- =?utf-8?B?a1VuOGNSZUJsaHVLTjk1dWdQR2dTbHI5UGlJVnZkS0VmQjlwUy9kTHczV09N?=
- =?utf-8?B?VVZmNGFkRlQxbnRmWE9DY0hFYlVPK0F2dUNTOTBubXNHOEFyRzNvYmVPdHBi?=
- =?utf-8?B?ak9jOW43V1BDOVRKWTVya2xJR2VZd0JtNWJ6N1hLOEJHTG9rb1hlZ01XZkNt?=
- =?utf-8?B?NmxlTko0d0pQNnlGN0p0UkN0MWhBRkZ6NEtIcjhNWHIzWk40N2ltVlNDTGls?=
- =?utf-8?B?VWhuSkd6TS9oaDFqSkQ3UzhEMldHaExTQ1A2RTNVVnJoNVlaMGQ3R3dmZlpz?=
- =?utf-8?B?dEt5cTcyUVZMSVkxN2FvdUkwU2ViMDAwZjZ4cmNGK2pvZXV5K0luVm8vczVo?=
- =?utf-8?B?MlJvSC9vMlNxRXdldkdhVExqQldDQi9LdUh0aW9SREJTdlN5L0YvaHlvMGt1?=
- =?utf-8?B?dnhxSmpxUi91MjRoQkdUTzhibDBVSGVYdE1vRlJMNjBRM3hEUnhsTDVBV3Y2?=
- =?utf-8?B?WDVJd1NnOXdTZnV1SmpXU3Y0Q3pKSHZaSW03cFdLMHdHVERYZWNwb05DWW5q?=
- =?utf-8?B?MzZpYS9kVUplUGx1Qk9yTkVCN0dLQ2Q0LzA3cTZsVklqbUExdnlXYU1JL0dU?=
- =?utf-8?B?TFFkbGpwQU8xOFdzbGl0S2habkI3cEVrSzRjbDJFRmszWnJJNFJubjVLaE0w?=
- =?utf-8?B?MVcrdm5CQ3EyKytPcncwc1pvZmZySE50SUgrWjlVUFltQjFyTXNhQWY3aEQw?=
- =?utf-8?B?VkQ1S2JmSHdhS2Y5TWZZQ3hVbHVGbU9udkVBb091Z3oxalFOeWFhcEpndHVa?=
- =?utf-8?B?bDllaGZiajhnV29MQ3l5alhIOEdDeGlRYjJOajc5Y2ovK3JXclpDQkJLb0Uz?=
- =?utf-8?B?VVdXWERIa2tHU1ArSWJ6OTk1WWE5eUxKc3EvejkrQUYvYUZuOEhhRVhHeDlq?=
- =?utf-8?B?ald4WGMrV0EyOG11cHlIaUUvYnRJSE90dDVIbjJyV0RZSWMxWnpmMXdpOTVL?=
- =?utf-8?B?ZjBid2hQcHZZRUVJdzYrdkthZ00vRGpKam41VDgvMG82T2l3VjlqWVdpd2F3?=
- =?utf-8?Q?FAwI1fCucwQRcORO42O2ksM7E?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02cfdc37-de5c-4c63-6be3-08dcff4dffbc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 17:02:45.1790
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hd/WLo2861KwdJUuvgK3RVtuQ0LvKGwexB/2bw3xkLyjHnZiK9wsoi3CBSjexTNx+86Spxrj1S6MjbXxtIIhHg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10327
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yB3ZUxT4SMqLRowR"
+Content-Disposition: inline
+In-Reply-To: <7c2f6af3-5686-452a-8d8a-191899b3d225@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_090251_065899_EEE79A48 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20241107_090930_067575_08C2B8B6 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,175 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 29, 2024 at 12:36:33PM -0400, Frank Li wrote:
 
-Mani:
-	Do you have chance to check dwc and imx6 pci part? I combine EP and
-RC thread to one.
+--yB3ZUxT4SMqLRowR
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Frank
+On Thu, Nov 07, 2024 at 06:15:51PM +0800, Joey Lu wrote:
+> Conor Dooley =E6=96=BC 11/6/2024 11:44 PM =E5=AF=AB=E9=81=93:
+> > On Wed, Nov 06, 2024 at 07:19:28PM +0800, Joey Lu wrote:
+> > > +  nuvoton,sys:
+> > > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > > +    description: phandle to access GCR (Global Control Register) reg=
+isters.
+> > Why do you need a phandle to this? You appear to have multiple dwmacs on
+> > your device if the example is anything to go by, how come you don't need
+> > to access different portions of this depending on which dwmac instance
+> > you are?
+> On our platform, a system register is required to specify the TX/RX clock
+> path delay control, switch modes between RMII and RGMII, and configure ot=
+her
+> related settings.
+> > > +  resets:
+> > > +    maxItems: 1
+> > > +
+> > > +  reset-names:
+> > > +    items:
+> > > +      - const: stmmaceth
+> > > +
+> > > +  mac-id:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      The interface of MAC.
+> > A vendor prefix is required for custom properties, but I don't think you
+> > need this and actually it is a bandaid for some other information you're
+> > missing. Probably related to your nuvoton,sys property only being a
+> > phandle with no arguments.
+> This property will be removed.
 
-> == RC side:
->
->             ┌─────────┐                    ┌────────────┐
->  ┌─────┐    │         │ IA: 0x8ff8_0000    │            │
->  │ CPU ├───►│   ┌────►├─────────────────┐  │ PCI        │
->  └─────┘    │   │     │ IA: 0x8ff0_0000 │  │            │
->   CPU Addr  │   │  ┌─►├─────────────┐   │  │ Controller │
-> 0x7ff8_0000─┼───┘  │  │             │   │  │            │
->             │      │  │             │   │  │            │   PCI Addr
-> 0x7ff0_0000─┼──────┘  │             │   └──► IOSpace   ─┼────────────►
->             │         │             │      │            │    0
-> 0x7000_0000─┼────────►├─────────┐   │      │            │
->             └─────────┘         │   └──────► CfgSpace  ─┼────────────►
->              BUS Fabric         │          │            │    0
->                                 │          │            │
->                                 └──────────► MemSpace  ─┼────────────►
->                         IA: 0x8000_0000    │            │  0x8000_0000
->                                            └────────────┘
->
-> Current dwc implimemnt, pci_fixup_addr() call back is needed when bus
-> fabric convert cpu address before send to PCIe controller.
->
->     bus@5f000000 {
->             compatible = "simple-bus";
->             #address-cells = <1>;
->             #size-cells = <1>;
->             ranges = <0x80000000 0x0 0x70000000 0x10000000>;
->
->             pcie@5f010000 {
->                     compatible = "fsl,imx8q-pcie";
->                     reg = <0x5f010000 0x10000>, <0x8ff00000 0x80000>;
->                     reg-names = "dbi", "config";
->                     #address-cells = <3>;
->                     #size-cells = <2>;
->                     device_type = "pci";
->                     bus-range = <0x00 0xff>;
->                     ranges = <0x81000000 0 0x00000000 0x8ff80000 0 0x00010000>,
->                              <0x82000000 0 0x80000000 0x80000000 0 0x0ff00000>;
->             ...
->             };
->     };
->
-> Device tree already can descript all address translate. Some hardware
-> driver implement fixup function by mask some bits of cpu address. Last
-> pci-imx6.c are little bit better by fetch memory resource's offset to do
-> fixup.
->
-> static u64 imx_pcie_cpu_addr_fixup(struct dw_pcie *pcie, u64 cpu_addr)
-> {
-> 	...
-> 	entry = resource_list_first_type(&pp->bridge->windows, IORESOURCE_MEM);
-> 	return cpu_addr - entry->offset;
-> }
->
-> But it is not good by using IORESOURCE_MEM to fix up io/cfg address map
-> although address translate is the same as IORESOURCE_MEM.
->
-> This patches to fetch untranslate range information for PCIe controller
-> (pcie@5f010000: ranges). So current config ATU without cpu_fixup_addr().
->
-> == EP side:
->
->                    Endpoint
->   ┌───────────────────────────────────────────────┐
->   │                             pcie-ep@5f010000  │
->   │                             ┌────────────────┐│
->   │                             │   Endpoint     ││
->   │                             │   PCIe         ││
->   │                             │   Controller   ││
->   │           bus@5f000000      │                ││
->   │           ┌──────────┐      │                ││
->   │           │          │ Outbound Transfer     ││
->   │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
->   ││     │    │  Fabric  │Bus   │                ││PCI Addr
->   ││ CPU ├───►│          │Addr  │                ││0xA000_0000
->   ││     │CPU │          │0x8000_0000            ││
->   │└─────┘Addr└──────────┘      │                ││
->   │       0x7000_0000           └────────────────┘│
->   └───────────────────────────────────────────────┘
->
-> bus@5f000000 {
->         compatible = "simple-bus";
->         ranges = <0x80000000 0x0 0x70000000 0x10000000>;
->
->         pcie-ep@5f010000 {
->                 reg = <0x5f010000 0x00010000>,
->                       <0x80000000 0x10000000>;
->                 reg-names = "dbi", "addr_space";
->                 ...                ^^^^
->         };
->         ...
-> };
->
-> Add `bus_addr_base` to configure the outbound window address for CPU write.
-> The BUS fabric generally passes the same address to the PCIe EP controller,
-> but some BUS fabrics convert the address before sending it to the PCIe EP
-> controller.
->
-> Above diagram, CPU write data to outbound windows address 0x7000_0000,
-> Bus fabric convert it to 0x8000_0000. ATU should use BUS address
-> 0x8000_0000 as input address and convert to PCI address 0xA000_0000.
->
-> Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
-> the device tree provides this information.
->
-> The both pave the road to eliminate ugle cpu_fixup_addr() callback function.
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v7:
-> - fix
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202410291546.kvgEWJv7-lkp@intel.com/
-> - Link to v6: https://lore.kernel.org/r/20241028-pci_fixup_addr-v6-0-ebebcd8fd4ff@nxp.com
->
-> Changes in v6:
-> - merge RC and EP to one thread!
-> - Link to v5: https://lore.kernel.org/r/20241015-pci_fixup_addr-v5-0-ced556c85270@nxp.com
->
-> Changes in v5:
-> - update address order in diagram patches.
-> - remove confused 0x5f00_0000 range
-> - update patch1's commit message.
-> - Link to v4: https://lore.kernel.org/r/20241008-pci_fixup_addr-v4-0-25e5200657bc@nxp.com
->
-> Changes in v4:
-> - Improve commit message by add driver source code path.
-> - Link to v3: https://lore.kernel.org/r/20240930-pci_fixup_addr-v3-0-80ee70352fc7@nxp.com
->
-> Changes in v3:
-> - see each patch
-> - Link to v2: https://lore.kernel.org/r/20240926-pci_fixup_addr-v2-0-e4524541edf4@nxp.com
->
-> Changes in v2:
-> - see each patch
-> - Link to v1: https://lore.kernel.org/r/20240924-pci_fixup_addr-v1-0-57d14a91ec4f@nxp.com
->
-> ---
-> Frank Li (7):
->       of: address: Add parent_bus_addr to struct of_pci_range
->       PCI: dwc: Using parent_bus_addr in of_range to eliminate cpu_addr_fixup()
->       PCI: dwc: ep: Add bus_addr_base for outbound window
->       PCI: imx6: Remove cpu_addr_fixup()
->       dt-bindings: PCI: fsl,imx6q-pcie-ep: Add compatible string fsl,imx8q-pcie-ep
->       PCI: imx6: Pass correct sub mode when calling phy_set_mode_ext()
->       PCI: imx6: Add i.MX8Q PCIe Endpoint (EP) support
->
->  .../devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml | 38 ++++++++++++++-
->  drivers/of/address.c                               |  2 +
->  drivers/pci/controller/dwc/pci-imx6.c              | 46 +++++++++---------
->  drivers/pci/controller/dwc/pcie-designware-ep.c    | 21 ++++++++-
->  drivers/pci/controller/dwc/pcie-designware-host.c  | 55 +++++++++++++++++++++-
->  drivers/pci/controller/dwc/pcie-designware.h       |  9 ++++
->  include/linux/of_address.h                         |  1 +
->  7 files changed, 148 insertions(+), 24 deletions(-)
-> ---
-> base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
-> change-id: 20240924-pci_fixup_addr-a8568f9bbb34
->
-> Best regards,
-> ---
-> Frank Li <Frank.Li@nxp.com>
->
+I'm almost certain you can't just remove this property, because you need
+it to tell which portion of the GCR is applicable to the dwmac instance
+in question. Instead, you need to ad an argument to your phandle. The
+starfive dwmac binding/driver has an example of what you can do.
+
+--yB3ZUxT4SMqLRowR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyz0QgAKCRB4tDGHoIJi
+0lP1AP97tmKwKt+UudFKraxNYO3cXznEar2+8w3QtbqK/bnqlwD9H1utLpv2RnF0
+zj3DwLQ3RnwTIwDLuyIHy2v/2FNbawI=
+=i7sq
+-----END PGP SIGNATURE-----
+
+--yB3ZUxT4SMqLRowR--
 
