@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE55D43360
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACD2D43360
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fe1XkCMgAm93kRVSui+O4pp9iL/Xdz+F3nAoflksEcY=; b=2YR/EL6rdqr7RnV6KfiMquK6iP
-	x68DKGibinnhJTaw27K37nNLRobk+5ZfGSHicanc6EEGors/vYGYtYdtNGuHZAzDi24omvpiag8IT
-	++AmgbLeQ0TIWsI+D4GoAPBSzUMMaYQuwxibmCVDVLeiAM7/4lJBIib/4IZHTdkPT6mxZpLYVn+Ov
-	KJeZIHplZcV5xR1s6uROCiZUAu8TncMp+Ry/0187OLtYy6aevhwfhQDbggTzwdYXbSXy9gQAGS8Ve
-	rbedIXIMUhbbONcjaH80+uqZ3HDqKl8PIsau+oWTdjoM9/BvPiV+j1QuePI84esErlaX/Gxitdn90
-	tt04E1Ig==;
+	bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=; b=iK7ltAXfBifJFxKaPKZO/mxFCX
+	HNB4lZuMiY0OgD8HHNEza0yzd2q1k5YVVmp+lxXizSzhQ3WUj2Eey3WlMrN2ZgDxfKxyRHgCgQWav
+	YXDOYbVVTi0chKCqnj8Uc1NrZZic+tp9jnBiCw63argkPU4fMK5wvSNb7oonZcULpeAbHVHNZFA5n
+	Bo4HZyE76KTEP4IPtH6HR4UgXCHa4KZpN5RhgG0zIP71RWebGEDjzPE0elSPnW44/v8wXhgQsKRFx
+	JZB1dLihdZ0Xl8yoOX0cj2ivbXWMSMVVqlBu//4L4+pmzR+Z81UxlsfexCPrqmhB0j4Bna1aUFcNp
+	Z1EzkIuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t935N-00000007DTM-3LUL;
-	Thu, 07 Nov 2024 14:02:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t9377-00000007Dm7-03BQ;
+	Thu, 07 Nov 2024 14:03:57 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92v5-00000007BaD-0IVY;
-	Thu, 07 Nov 2024 13:51:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DDBDE5C2736;
-	Thu,  7 Nov 2024 13:50:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E196BC4CECC;
-	Thu,  7 Nov 2024 13:51:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730987490;
-	bh=btGOvKZTxZhuaxAnzRi1ntXNxujI8W8vvUilrAMbVOE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Zikc2VXFiWG6/99xKSMZnRo6dLllsbHAsCjJjy7JHGNrfbHuwtWCrEQcLnJ5Xp+ID
-	 /VYRfkguYkSTn/d6DCMrjYv4Scq8fIshoRYWkg45ttHdpuIdGluoJLVsCZy5Q4QhJ6
-	 sXK/hFtofEGozO18hsVQnDNcrnKu36od0fVooytjIAddhozdY5CFXaml6RGoxXbRaC
-	 iBZg6gxCBMmWN0wVHfk7Q/iwuRj8v8YleKr7zoO8IZMZEkNGy71tLinT65t4z3u+pr
-	 cxuHCc0fNRJVcssxCE1A5/HPOJz2Ubn43OknWXDQkxH4X7bD389u2zHn48KceYGQzn
-	 24uMjxTfiiFJg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 07 Nov 2024 14:50:55 +0100
-Subject: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
- .power_up()
+	id 1t92yh-00000007C9N-30Cn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 13:55:17 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fb470a8b27so19735611fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:55:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1730987713; x=1731592513; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=;
+        b=Naqd8PFG0h501nU+HbL/tpkJr/uTDW5sDBWp3kiAiXCBNZCl8Y2IxbfiewuSK6niSc
+         2Fjif+TBtNA2CczWPaOy6tCVwocRf+VaC75UthgffswqFlQCmCxVkquINMXMprt0XPyG
+         iZ3tb5s9RkJeQd8VeCGHu6pN7l97nI7d+ZezSGceFh1wOsl7FwbxzJ4vQygIKsYkL2CQ
+         Tou910twXL81dO5EkswlxODM8t2EaWmxA4fnYusFtVwYdd38sUoaVBM01+9+VALVQCgt
+         tJewTDnl6K1KLMsqJNRRamgKFvAKZVxGIsikE5sHN3WEWHCSnOE/oHabw+KeyqBvpFCe
+         /qhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730987713; x=1731592513;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=;
+        b=d39xXStNNDUeUu0ZBSyRH9Y6sqGfQLrs7fSrE1zxELs1mE0tc0sX0uRzuxGpHmUly0
+         lzvtEdUEMuGzuC7kTvij0Zg1P7Qrwvp+BjmHpxG5+007Je0upEouNmpckPiH6fjvPZdh
+         pa1Su1zLZtuPLVDDcVOGiUOcshKZ4cQ82kQW50STpHgs2agJRP5tlfhtpFYrmyzSZebP
+         XLi6Xex4LJBd8M2aX9ELS8Ro9Ubqkgb8XDITI2dSOXsLwDP2FK6dP9Ezh7EyxdRMrRoN
+         PlUlURGvrW3TVq8PksdQH9cEAm4hYEp9FtVOYhbWip6FLy71bU0iv62B1pUgmEMhVAoB
+         vicA==
+X-Forwarded-Encrypted: i=1; AJvYcCWiAmJkyVTq04QOBSeJSadp+UTIz74LqxIFiLXz11AnHOqMqQ2zHpbkIxMjaBPGr9jpuNQLF6KmYgqBtO7RbS5P@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfsZXE5Fu6AISwU+iMjSCnCkcurXsO6ZhG/n8wHAPUKENS7QC/
+	TedOsjT8x+gSSbpB8gU8RqbHLG7kOCX+dZrV8SOlRH/TPt3jo3f1n7DzfkdzwH+lZtGUWZPvKv7
+	HGEz3dxYL++GnQvwmDricE+rjI8y81Na+ocuSsA==
+X-Google-Smtp-Source: AGHT+IFNavuHzM67z8nD84tGq8SasaggEERCVa8QxVSdpo1jnmEECTHbl3HJt9yjMo5chmDOsynf6pkzaU7GoLeC2Hk=
+X-Received: by 2002:a2e:a106:0:b0:2fb:579a:fff with SMTP id
+ 38308e7fff4ca-2ff1e9044e9mr169261fa.8.1730987712796; Thu, 07 Nov 2024
+ 05:55:12 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-pcie-en7581-fixes-v1-3-af0c872323c7@kernel.org>
-References: <20241107-pcie-en7581-fixes-v1-0-af0c872323c7@kernel.org>
-In-Reply-To: <20241107-pcie-en7581-fixes-v1-0-af0c872323c7@kernel.org>
-To: Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
+In-Reply-To: <20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 7 Nov 2024 14:55:01 +0100
+Message-ID: <CACRpkdZ1Pkd_iKDNE+m_R4Anbdv=dcg77oC95yqaAM_dp0BRYA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] ARM: implement cacheinfo support
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_055131_234451_D5862867 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20241107_055515_777632_D28C5756 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +93,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to make the code more readable, move phy and mac reset lines
-assert/de-assert configuration in .power_up callback
-(mtk_pcie_en7581_power_up/mtk_pcie_power_up).
+On Mon, Oct 14, 2024 at 3:56=E2=80=AFPM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
+> On ARMv7 / v7m machines read CTR and CLIDR registers to provide
+> information regarding the cache topology. Earlier machines should
+> describe full cache topology in the device tree.
+>
+> Note, this follows the ARM64 cacheinfo support and provides only minimal
+> support required to bootstrap cache info. All useful properties should
+> be decribed in Device Tree.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 8c8c733a145634cdbfefd339f4a692f25a6e24de..c0127d0fb4f059b9f9e816360130e183e8f0e990 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -867,6 +867,13 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	int err;
- 	u32 val;
- 
-+	/*
-+	 * The controller may have been left out of reset by the bootloader
-+	 * so make sure that we get a clean start by asserting resets here.
-+	 */
-+	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-+				  pcie->phy_resets);
-+	reset_control_assert(pcie->mac_reset);
- 	/*
- 	 * Wait for the time needed to complete the bulk assert in
- 	 * mtk_pcie_setup for EN7581 SoC.
-@@ -941,6 +948,15 @@ static int mtk_pcie_power_up(struct mtk_gen3_pcie *pcie)
- 	struct device *dev = pcie->dev;
- 	int err;
- 
-+	/*
-+	 * The controller may have been left out of reset by the bootloader
-+	 * so make sure that we get a clean start by asserting resets here.
-+	 */
-+	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-+				  pcie->phy_resets);
-+	reset_control_assert(pcie->mac_reset);
-+	usleep_range(10, 20);
-+
- 	/* PHY power on and enable pipe clock */
- 	err = reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
- 	if (err) {
-@@ -1013,14 +1029,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
- 	 * counter since the bulk is shared.
- 	 */
- 	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
--	/*
--	 * The controller may have been left out of reset by the bootloader
--	 * so make sure that we get a clean start by asserting resets here.
--	 */
--	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
--
--	reset_control_assert(pcie->mac_reset);
--	usleep_range(10, 20);
- 
- 	/* Don't touch the hardware registers before power up */
- 	err = pcie->soc->power_up(pcie);
+It's really neat actually!
 
--- 
-2.47.0
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
+Yours,
+Linus Walleij
 
