@@ -4,90 +4,220 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27A6D43374
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829F2D43375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=; b=gTApm1qKgQzKdkBfn06NfvoHrh
-	A4nxtedcI6OcMXNzodiOB5f4ImLTqIAwXZer2azmSsPo/jDECHPU5jhFWNbDsIllwYfYf9iLmJpBZ
-	HeGd3W6GX67RkebwNl7CBwb7hKXhLa6BV1ZAauW4LLtuJoKCJIWfcilMeIC9Quwjr17+d3KZzvbKI
-	dWxa4laHB0y6elBaHDuc2TR0kwUwQQshzx4M9Nk/TS0mlbT+BmWe+7an2GL8XzD9qZ9wiIYv6QzRt
-	98bYq7D/hJttjeayKIP5mRAK03wsmLPQ7q43qpoWlflf/i57e0R0KOKs6bRgXFNiWslJ5MGpU1WIp
-	tx6YHb7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=imYS8DI8E4tiVChbKkiQXUN9AItMte/SwBew5hwT0Hg=; b=c4WD1PTPMWPPjjRfqbN6oizi3j
+	sbosS+xq9sl218a2ztBv33PN6WtMeOciRd/xnjsAwc8VutDFbHmeQBZVwAbBcMgK+TwCvckG364rg
+	63GGdFqPBRKDAMDKdeCsGzuJwLJpwBl/d5B+VeHy64ggI9U6ywcnf3GwJKlmXHwDMFlN5m0e97ELD
+	9SN1m7MhIGRIU6ci8/ag5xZuYX4cxDgzjkHatyXlfoOdo+UAx4VSw4reeWs1tbVKru7Tv/l7R7zEL
+	BxWPZxv6YtOR6A44KvojUM6wdFb2SI2He2xecVg+FrBVoiE7759Sz5leaFtZnHXmmiUwx5DO+cuAG
+	KAjZ4jrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9559-00000007YaV-393u;
-	Thu, 07 Nov 2024 16:10:03 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1t9570-00000007ZD4-2sgJ;
+	Thu, 07 Nov 2024 16:11:58 +0000
+Received: from mail-dbaeur03on2062f.outbound.protection.outlook.com ([2a01:111:f403:260d::62f] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94y0-00000007X8E-0tEa
+	id 1t953N-00000007Y7b-1mg2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:02:42 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a99f3a5a44cso147106866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:02:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730995357; x=1731600157; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=;
-        b=VaSJBKrGgC91qhhUv1Q24eLVCBMuvAAKYbN/CqIvRnY7dCh45WBdh5l9vnzkaJlbQH
-         le5gnr6m63iCcrw3rozAVZrnwZacc64kXcVdaZFWxMZB3ZrU8gEaah3mba9vFMaT13et
-         +Mt0WdhtU8SVc/xbhVGAdPPsiVra0yKFvod50Q5zesSL/BnUtnGaVxPQagbbbSSdKLvT
-         O2DIuMIDT2O1xNr5ctkkOvHqy6xK8DhUeV/w94H7opD0Dw7cmvxy955SJ20cD0ZMoFAX
-         JOv4OIbxHRi2J0+YqtFdd5lC1DAhQA5vTCbszI+9W+/C4qwQGZ/WpAyofFRfNwXz2DRC
-         lTUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730995357; x=1731600157;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJvjIBgWdRVHGu4BERauGlILYwLjHhOYN8wmcaPbpjw=;
-        b=iNWG7BdEGBPltnmAirgF7FZLAJgrWRtZErgDMhKlFtcy3wcvxDPXZ8aBaWEf1xlTzJ
-         hQJ3A7yDiOt5LSbU6dw5L9jEZ1U+zJYdzvI5F/8GzhTsWIoBL0x81R+WKhHG529ecGeY
-         uNdQPVtTshhsNENJcU5cFXJBBKG6Ffcr4XtMtUZPn5OXoFHUKtNlDjoVgg0ijF6F4mhv
-         EYqBBDjgFbzW4IN543B9QVrEZ/Hc1Oy5F1dx8nclhwlHXz57a7Tjm9a8pCQ0LTi5aQ/8
-         SwQeYLEmyj+x6o3eH5V1zXKMCI+dnofNhKzcpp5xdi2mXDwU72VG4e/RObwp1YMVkZE/
-         7h0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUIA8XF7NW0yrXa59Fw0kLMRYEZ/omF2dXxsiVIJ7tHNw73M/4N/eq0rdqVKdRHQ+DlaA+R3TqmgePPJYjAOD2w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/QbGUQueR0EAKsRQJI+jzpJvR6ZSFovXLBiwNNfdQxk+a68Wv
-	r2bGnx37FHzmKdbSW2xFonWPakl95lcRC5YsgPxB+IC8urgX75Xi
-X-Google-Smtp-Source: AGHT+IFIPPiN4cxhxgS9k3tSd7lQ8QWj5rw6OUhe8AjJY3X7cg7WQ56GBHxgkVfInFoc7myICEPjJg==
-X-Received: by 2002:a17:907:9413:b0:a9a:1f8:6c9b with SMTP id a640c23a62f3a-a9de5fe7455mr4423365066b.37.1730995355539;
-        Thu, 07 Nov 2024 08:02:35 -0800 (PST)
-Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc4c7asm108284566b.96.2024.11.07.08.02.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Nov 2024 08:02:34 -0800 (PST)
-Message-ID: <cd326e01-75b8-495c-bc15-1d9ebde8c4fc@gmail.com>
-Date: Thu, 7 Nov 2024 18:02:33 +0200
+	Thu, 07 Nov 2024 16:08:15 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=MoC/9kSTABOJNvwRlpjO+16y8Lc3yxI7NjDBQgdtOUv2Njw0nZtJK/4f76J3ya2HKtDRwVs6flcJyl2uGeWp7um0tuvEusFfK//K4MNs1tnKRkhb7WkbMdboU3M2BS5LH+9cygNcJdKDMnLxVeeqkVYPP0by3oAqKBJA1XIRDai+SYniGccE8sqvErLhKxYFTQeyGZPxSJx7VW+0n96fLiqRTDuiBPTJbkFxrq8F7xpx5UPWyhW1PIpZB7WRh79BZsd/Z8ct2NO1160hFyRHF69A3mKTchZ3BFePs5AUTtWklCPIXkzcVyAEF3FloT+uObh9XiNzR8dmy0Z5Cp0Ygg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=imYS8DI8E4tiVChbKkiQXUN9AItMte/SwBew5hwT0Hg=;
+ b=IoPNjySbuIxrrU/G1Et2XOEXfRogP4eWQ6HLAPi8D+249p7OempoC2IzSZL2KhpOxwjhtxuiHpFqb/ayITlGeI4NLV4/zz7e6kMcCP7SB0lyB+ZbA5TFrJR1PBbPXtWrEWYH6OwBNXIddCQk1iHek5N53rD3anbOXWCyejx82HbKKy0ixfrErToKM/xnpMd2bX3MskAbmYK8FENVkNpOuonpMCLeZ4EsaT3EvUuoloGt1Yp92Jt8M+4SC7MI1zkTHCdXBhe7IHckRMuetT4uxifoWKMkoZGz6ou2URrZMElKuc8DdKoFfkwZkryRrgLxeLVekBgba1BRpR+IK+NFEA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=imYS8DI8E4tiVChbKkiQXUN9AItMte/SwBew5hwT0Hg=;
+ b=nG28rnejWiQSuKe3k+gYr4fkh741DhN+xDD/H5P69RsHENPE6lCpT4YtLZdzLhkwMUgewdJR+mpKLEZEvgaabZ5um/2HWbOO1bBsKK2z7O1zCtf2BlskG+RFqfNmma0kljppeCbe+wCXoGduKgEwcG3P6++G+3MFNN+wTbVNo/o=
+Received: from AS9PR05CA0333.eurprd05.prod.outlook.com (2603:10a6:20b:490::19)
+ by DB3PR08MB9112.eurprd08.prod.outlook.com (2603:10a6:10:43c::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
+ 2024 16:08:04 +0000
+Received: from AM3PEPF0000A795.eurprd04.prod.outlook.com
+ (2603:10a6:20b:490:cafe::f) by AS9PR05CA0333.outlook.office365.com
+ (2603:10a6:20b:490::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20 via Frontend
+ Transport; Thu, 7 Nov 2024 16:08:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
+ client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
+ pr=C
+Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
+ AM3PEPF0000A795.mail.protection.outlook.com (10.167.16.100) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8137.17
+ via Frontend Transport; Thu, 7 Nov 2024 16:08:02 +0000
+Received: ("Tessian outbound 0fe1877cedb7:v490"); Thu, 07 Nov 2024 16:08:02 +0000
+X-CheckRecipientChecked: true
+X-CR-MTA-CID: 955455c070d0fd57
+X-TessianGatewayMetadata: 1NXyiMFdCwX5V/iBG2noyGF5gUAe5DI1yjhjWFuw8kGhayV5D10pUw5DxC+FbanL3VJ/75d6qiEwJMELZTWQ2JwVRoVdOzE4vRzyCsTfhMBOt2u1B6pL0+xWWpqiwDvQ6oaLjltjuAGWRQIrHvjLdvmYOiFdXwPjoxBs9IFDxhc=
+X-CR-MTA-TID: 64aa7808
+Received: from Ld3718656196f.1
+	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 4519121B-5FF0-4EA1-A76F-AD37C88C1892.1;
+	Thu, 07 Nov 2024 16:07:55 +0000
+Received: from EUR05-DB8-obe.outbound.protection.outlook.com
+    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id Ld3718656196f.1
+    (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+    Thu, 07 Nov 2024 16:07:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hIxWZBPFWjMMZFCQrZMG4XGsijA59B/7WZUPOpvv0cR7MZFssTFVulIQeRJM+cwebNYJngxwgtARFFiWQJ9RxVf5v9OfKU7dW/GC0C48NQyC5DosOOa1QPn19CogRokTWpkSD+vP7ugDuCYV5WfFTTxNB6yoDWey8FTpehCsLPdtxsXEgf7O/j8mnjk/nj71QP+NRPu5f8BlDkX2VsbEsN71daGjlkoTn3GBG1/gUDBPPG3a94QFRXXcaeM/64iQ2/61pgTKIW02b3rc4DZ17/S1bSRiEELjopqz82Y5DwwKvtG5v9liB/4pvtZBZe4iyc9C0NlNHGb33PHwjFEdMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=imYS8DI8E4tiVChbKkiQXUN9AItMte/SwBew5hwT0Hg=;
+ b=W8pisDYIPSbs7l1OJE55mOlAtYZ0uPkVs3lVfS1I0D+nJnDTYxf/mHeIiXSE4Ds11EormbGKejHz+v2b5Z7ClNnhWxqXIO1LSMo9ruNed/i7EiUXZrva5mRnVZZuYp7ei42JuOkJ1WeTc5YB9Agh4f6HzZCSJGUIh3AnZbdH5r6tpiyxLfBW78lT6BwwIxr2SP2EHE4f73syr4EL8USuLJYF2Scxz5Uod7M5d4EiyIgfmfRxAULmUp6E4b+rLJvi5S+vY3q9uJP5lUR+PrQsTn6ldNbEU1KZCh2zawPVsJx/VMyxR2YWlP5jpFwkvuwjPfcPLHlud6GqG6YR9bDPRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 40.67.248.234) smtp.rcpttodomain=infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=imYS8DI8E4tiVChbKkiQXUN9AItMte/SwBew5hwT0Hg=;
+ b=nG28rnejWiQSuKe3k+gYr4fkh741DhN+xDD/H5P69RsHENPE6lCpT4YtLZdzLhkwMUgewdJR+mpKLEZEvgaabZ5um/2HWbOO1bBsKK2z7O1zCtf2BlskG+RFqfNmma0kljppeCbe+wCXoGduKgEwcG3P6++G+3MFNN+wTbVNo/o=
+Received: from AS9PR06CA0668.eurprd06.prod.outlook.com (2603:10a6:20b:49c::13)
+ by GV2PR08MB8001.eurprd08.prod.outlook.com (2603:10a6:150:a9::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Thu, 7 Nov
+ 2024 16:07:47 +0000
+Received: from AM2PEPF0001C711.eurprd05.prod.outlook.com
+ (2603:10a6:20b:49c:cafe::b0) by AS9PR06CA0668.outlook.office365.com
+ (2603:10a6:20b:49c::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19 via Frontend
+ Transport; Thu, 7 Nov 2024 16:07:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 40.67.248.234)
+ smtp.mailfrom=arm.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 40.67.248.234 as permitted sender) receiver=protection.outlook.com;
+ client-ip=40.67.248.234; helo=nebula.arm.com; pr=C
+Received: from nebula.arm.com (40.67.248.234) by
+ AM2PEPF0001C711.mail.protection.outlook.com (10.167.16.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8137.17 via Frontend Transport; Thu, 7 Nov 2024 16:07:47 +0000
+Received: from AZ-NEU-EX06.Arm.com (10.240.25.134) by AZ-NEU-EX04.Arm.com
+ (10.251.24.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Nov
+ 2024 16:07:46 +0000
+Received: from AZ-NEU-EX04.Arm.com (10.251.24.32) by AZ-NEU-EX06.Arm.com
+ (10.240.25.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Nov
+ 2024 16:07:45 +0000
+Received: from e132406.cambridge.arm.com (10.2.3.22) by mail.arm.com
+ (10.251.24.32) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Thu, 7 Nov 2024 16:07:44 +0000
+From: Deepak Surti <deepak.surti@arm.com>
+To: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>
+CC: <deepak.surti@arm.com>, <mark.barnett@arm.com>, <ben.gainey@arm.com>,
+	<ak@linux.intel.com>, <will@kernel.org>, <james.clark@arm.com>,
+	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+	<jolsa@kernel.org>, <irogers@google.com>, <adrian.hunter@intel.com>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v1 3/4] tools/perf: Modify event parser to support alt-period term
+Date: Thu, 7 Nov 2024 16:07:20 +0000
+Message-ID: <20241107160721.1401614-4-deepak.surti@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241107160721.1401614-1-deepak.surti@arm.com>
+References: <20241107160721.1401614-1-deepak.surti@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] arm64: dts: exynos8895: Add cmu, mct, serial_0/1
- and spi_0/1
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Mark Brown <broonie@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241023091734.538682-1-ivo.ivanov.ivanov1@gmail.com>
- <172994467264.24870.11860096857422265131.b4-ty@linaro.org>
- <f232dbb0-9036-46d6-83f9-27363813930d@gmail.com>
-Content-Language: en-US
-In-Reply-To: <f232dbb0-9036-46d6-83f9-27363813930d@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 1
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C711:EE_|GV2PR08MB8001:EE_|AM3PEPF0000A795:EE_|DB3PR08MB9112:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48d5b617-20fd-47ac-d7f1-08dcff465b8a
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?ijSdgZ3eM7n+KJl6Zb3YZaqV24eO9ml2s+AUsLLKviY/P/JC6r9eIT13+LCK?=
+ =?us-ascii?Q?fAiZvoG1LYtl130cgX+NeNf2DjJ35vo+sdGl6zMb2cxlc7GdBWR1VBu8WWWJ?=
+ =?us-ascii?Q?RijPj9qybGDur9OFOZ6u4cdp3OkO5B8aF1KHv7uwTef6gFOXDK9XqIpeWWdQ?=
+ =?us-ascii?Q?oi23qlDHLaXjngJ6zEzB8tWPb2e7o22VFV6G3T+/SJBs5UT6Ba9oA7qxY6IN?=
+ =?us-ascii?Q?5PYT7XiaY1Yf6oS9GyFs/Wc8pCSFhhwZIMpsZLXCel3MktWbe0aCDMrgU9GT?=
+ =?us-ascii?Q?oY9aEh3mnG15M+xtXl0vkLFV1rfIhTmttskdy0Raf55PriyVvw8RnkScGQVr?=
+ =?us-ascii?Q?wqOMZou+noHhU1G7NLE5mdumN7JXgXqy/gME7PgOoFQdl8bmFo7PPKStt1Y+?=
+ =?us-ascii?Q?QreQekhaIwfQCLoJ6bhHW2G0SR7ZkeAo5fAzSzt4mZLm3MmJdqKwRJWxn4l1?=
+ =?us-ascii?Q?yEURoJ6BCVmexS1eSLw4vBPy9rN8ss2XbkAf7Ek2KZRBlV9YE8tt10oMnv8u?=
+ =?us-ascii?Q?BJgUPzvP3ExhkgA/y8daSFDGtJuMj/tK0LIx83fBR9Lx3iLMOU0oerSfio65?=
+ =?us-ascii?Q?xFpGA41M5mJ3mwfmLmSAl+MjZJE4YN9BEiHuGrlt3Q/CtD98bywT5HVEImau?=
+ =?us-ascii?Q?PRuH7YeRStI6/LPPQl4hFEDSBaQiSl9y3G1Jt5oFSgyslfJtTKjAoOlAyDU8?=
+ =?us-ascii?Q?sJa0suam0gT6yLVbKeNK7Cs7QGpMOsG3BDLzjvxeYOg7wRRvTeigg3JqLvB8?=
+ =?us-ascii?Q?s1CWsSzPHfrTzXhyi3QJBdJabCWc3yupfsLpEs8KWq/uDHDp1wmOtcPDFucj?=
+ =?us-ascii?Q?iQ3N6WLK/G+1Z8QnX27IdanCPXl7bmOya0AKFj1UUAV6GXJg+Kwd/tUhdHeO?=
+ =?us-ascii?Q?i2LYC8ngjdJJM5F7KoKqaSShYZnrwnDQTneNKAFZKFIMeF68oGJkTl5raATZ?=
+ =?us-ascii?Q?XCsLrME+AcnvOCKSa0qSmKx7ljCQG/GBD0u3T4OnlohieDgtzCiFF7jtK7M4?=
+ =?us-ascii?Q?DAJ1Iifjd4qjz7uCHspnhP2ym7jKruMQTh21redw91MebKQ7lLzYMGV1X51d?=
+ =?us-ascii?Q?KT3ldPKc42fRcY71mO6vm447NZkvKdrUfSaynn+d8Uy66OIlH9Ot1AjEVVVv?=
+ =?us-ascii?Q?FYmGd9QcpQAHJDNrSdmplow1sF8UtVo6pKuO2HWfJp5oTho99rn//XAI5qzO?=
+ =?us-ascii?Q?lh78yJnaMKO3HzsaMLZzi8kIBpLsrvWuDA58qs4OJCDaW/djGbPzV8AuZS4v?=
+ =?us-ascii?Q?S4YJaDaRtYDIK+x9+Z1l6z4CT7tisknWfqJZYH3GhbysVmm3gVi28KWYjrv5?=
+ =?us-ascii?Q?/idUdPoTS9HDUUyVKBDzB5B4sGzt40IK/5FTf8+I1Bg22KnCnmfHxa/BEtig?=
+ =?us-ascii?Q?T4vsUXnqw1DrIRCLwoba4h6nYrCHj5PFSj9unwvYcorL3o67BQ=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:40.67.248.234;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:nebula.arm.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8001
+X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:20b:49c::13];domain=AS9PR06CA0668.eurprd06.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A795.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8d01a7ba-7508-444e-7403-08dcff465293
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|35042699022|36860700013|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jrxq212VcyTNJa1EInnXjflDNv3g/GpaaIptRQn2l266aJOHxpk4lAFPdwXL?=
+ =?us-ascii?Q?8ivO080XNaSElidqWXWx1QcWXWZ9n9ypan04YOBv5vrgURpxQjbZ3ZyosKzh?=
+ =?us-ascii?Q?J/FhKx2UqIBPWyZzmnWNdL7vr0sASAEssAz9pE1go0/mi5I8k/TxCnea0GAq?=
+ =?us-ascii?Q?lL6n0HtG0ykIR4iaXnNnhjwWLnxBrygyu4mqeG+kL2Uk+N/6z9QRLchabGyB?=
+ =?us-ascii?Q?8jIiXFDi4J1NpT5oeb+2/qjr+75k7QlnTh0gd5/gZX37AZaDJ2w4HzjxZV1k?=
+ =?us-ascii?Q?cRCAD3/B4HFZhqTs/cgL78B9p+TbMlYGEZUq9TaeOPn8ItzrPYLT7+l9LzHY?=
+ =?us-ascii?Q?P4huln/g4flyWguUSL+C0MdHwlK0e8dr0wwwpNdBTuP+MEKxHKbW2BxZOBXa?=
+ =?us-ascii?Q?phdFUGEtC/pUU4SiSvv7+7VvOfJBUMrQiMEjd/b8d2eS1DZiu8YxCsVIXd+g?=
+ =?us-ascii?Q?4NG0Nw4S3vjC3MKLojpLI0x4FkhppekrdQcBCn1cth6REJwW3/Lk2sWA+7Mg?=
+ =?us-ascii?Q?Eszbhkxe75OrKGqVYMmXVdyV57ZB6C1HOX48SZxQkb0f+4GuSx5ctbf63/On?=
+ =?us-ascii?Q?uhdXa2EIO1KM0OjkWXbVgZ+sc6XlRyRKHmt/8H3g12kKTSfJ1D1VTZp3fJZt?=
+ =?us-ascii?Q?9rq3VrYpTHJR0I79EAbXXNXE5wiMcm4ofb+okkM+TlVUZQ9M3hIgcChN60GS?=
+ =?us-ascii?Q?8ob8zf+ENS00Y6EqoFq7ul9TNjWRDvTMvccFQsmYd7XMt+YkU9JwJKz0efi8?=
+ =?us-ascii?Q?wjMdWjIwS9duWrNZYqtdJWJ0nHtdRzUPPZiFqIiFbzaN/JNscySRhHcQb9So?=
+ =?us-ascii?Q?2SH3z7wTg/5s/qTkSpE9CqiK61kVRz2Stu9CS/tKQhZh0Utmz7vOOyoouy3f?=
+ =?us-ascii?Q?7h8rlp2u/TLcIMkQvC1P0tQbAtJZE/vlfXXK2S2aMwPYHFsPqR8Rs4BebPJ1?=
+ =?us-ascii?Q?ezJXDai317BWsb422THHrCc1eR/TliqxoJGTu4FdfFzQDRh1VPJnHl23GPvI?=
+ =?us-ascii?Q?mUg5R0jW7l8Abqz2hBQceSaW+bBG7FkPot4h4ftEAlOrSJox9sYJRPqY6f5H?=
+ =?us-ascii?Q?f4oLhFJh3YU/8pQov06/OZuJS5HoKyhqlAGVmxlmVHK3Lnf0FUZ0yLnlM5SW?=
+ =?us-ascii?Q?VxNp3tKliyVCUfRan7Cq4DMq9VNpNNmZH/xI9F8mDygngv+V2aL3Z6gl7V2n?=
+ =?us-ascii?Q?zTIOgg8W9b91LAqTeMTrwb6FtCSU3lJ4YhJHGdyR8W+62YeIAzMjeZhbvYGP?=
+ =?us-ascii?Q?WTEUm+gBH0fCkCyEIcRfXDY1t0DKl0KSgtmlvLZRo5uKz9PFZeo3d3SWvTSt?=
+ =?us-ascii?Q?QfOlr/Pm/UB/4b7u7r4nywdwjEK3P52m2OJ6ceEymzMNuUtAZvC4lkHvbTgl?=
+ =?us-ascii?Q?F+hFsr2wnat2ufEmAc1nmniqkVny8LytUUeeXzj0jJ7DlGHgKw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230040)(14060799003)(35042699022)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 16:08:02.7606
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48d5b617-20fd-47ac-d7f1-08dcff465b8a
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A795.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB9112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_080240_305488_98C3EE4C 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20241107_080813_851660_8EB8E310 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +232,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ben Gainey <ben.gainey@arm.com>
 
+parse-events is modified, adding the "alt-period" term which can be used
+to specify the alternative sampling period.
 
+Signed-off-by: Ben Gainey <ben.gainey@arm.com>
+---
+ tools/include/uapi/linux/perf_event.h             |  3 +++
+ tools/perf/tests/attr.c                           |  1 +
+ tools/perf/tests/attr.py                          |  1 +
+ tools/perf/tests/attr/base-record                 |  3 ++-
+ tools/perf/tests/attr/base-record-spe             |  1 +
+ tools/perf/tests/attr/base-stat                   |  3 ++-
+ tools/perf/tests/attr/system-wide-dummy           |  3 ++-
+ tools/perf/tests/attr/test-record-alt-period-term | 12 ++++++++++++
+ tools/perf/tests/attr/test-record-dummy-C0        |  3 ++-
+ tools/perf/util/parse-events.c                    | 15 +++++++++++++++
+ tools/perf/util/parse-events.h                    |  3 ++-
+ tools/perf/util/parse-events.l                    |  1 +
+ tools/perf/util/perf_event_attr_fprintf.c         |  1 +
+ tools/perf/util/pmu.c                             |  1 +
+ 14 files changed, 46 insertions(+), 5 deletions(-)
+ create mode 100644 tools/perf/tests/attr/test-record-alt-period-term
 
-On 10/26/24 15:18, Ivaylo Ivanov wrote:
->
->
-> On 10/26/24 15:12, Krzysztof Kozlowski wrote:
->> On Wed, 23 Oct 2024 12:17:29 +0300, Ivaylo Ivanov wrote:
->>> Hey folks,
->>>
->>> This patchset adds device tree nodes for multiple clock management unit
->>> blocks, MCT, SPI and UART for Exynos8895.
->>>
->>> Exynos8895 uses USIv1 for most of its serial buses, except a few that
->>> have been implemented in this series. Support for USIv1 and HSI2C will
->>> be added in the future.
->>>
->>> [...]
->> NOT applied patch 4/5 - I wait for bindings to be accepted by Greg.
-> Alright, thanks for applying the rest!
->
-> Best regards, Ivo.
-
-Bump - now that the uart patches are merged, are you gonna merge the DT
-changes after the merge window? If not, I can send a new patchset that
-includes them and also adds PMU compatible node for the mongoose cores,
-since that got merged with exynos9810.
-
-Best regards, Ivo.
-
->
->> Applied, thanks!
->>
->> [1/5] dt-bindings: timer: exynos4210-mct: Add samsung,exynos8895-mct compatible
->>       https://git.kernel.org/krzk/linux/c/e54eb0465e548a7c6115e336ec5cfec04bbe8747
->> [2/5] arm64: dts: exynos8895: Add clock management unit nodes
->>       https://git.kernel.org/krzk/linux/c/fa986d1073805154888a788eda38d46a796346e8
->> [3/5] arm64: dts: exynos8895: Add Multi Core Timer (MCT) node
->>       https://git.kernel.org/krzk/linux/c/9ad6c3bd1bcbb73e2a5723e13b9d06e2296b07e4
->> [5/5] arm64: dts: exynos8895: Add spi_0/1 nodes
->>       https://git.kernel.org/krzk/linux/c/a5541d737c8de71948bcdaee912bcb6b0781af7e
->>
->> Best regards,
+diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
+index 4842c36fdf80..bedae424ba36 100644
+--- a/tools/include/uapi/linux/perf_event.h
++++ b/tools/include/uapi/linux/perf_event.h
+@@ -379,6 +379,7 @@ enum perf_event_read_format {
+ #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
+ #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
+ #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
++#define PERF_ATTR_SIZE_VER9	144	/* add: alternative_sample_period */
+ 
+ /*
+  * Hardware event_id to monitor via a performance monitoring event:
+@@ -522,6 +523,8 @@ struct perf_event_attr {
+ 	__u64	sig_data;
+ 
+ 	__u64	config3; /* extension of config2 */
++
++	__u64	alternative_sample_period;
+ };
+ 
+ /*
+diff --git a/tools/perf/tests/attr.c b/tools/perf/tests/attr.c
+index 97e1bdd6ec0e..956b58c7ba8f 100644
+--- a/tools/perf/tests/attr.c
++++ b/tools/perf/tests/attr.c
+@@ -139,6 +139,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
+ 	WRITE_ASS(branch_sample_type, "llu");
+ 	WRITE_ASS(sample_regs_user,   "llu");
+ 	WRITE_ASS(sample_stack_user,  PRIu32);
++	WRITE_ASS(alternative_sample_period,  "llu");
+ 
+ 	fclose(file);
+ 	return 0;
+diff --git a/tools/perf/tests/attr.py b/tools/perf/tests/attr.py
+index e890c261ad26..75c4527393f9 100644
+--- a/tools/perf/tests/attr.py
++++ b/tools/perf/tests/attr.py
+@@ -91,6 +91,7 @@ class Event(dict):
+         'branch_sample_type',
+         'sample_regs_user',
+         'sample_stack_user',
++        'alternative_sample_period',
+     ]
+ 
+     def add(self, data):
+diff --git a/tools/perf/tests/attr/base-record b/tools/perf/tests/attr/base-record
+index b44e4e6e4443..403de2e2c891 100644
+--- a/tools/perf/tests/attr/base-record
++++ b/tools/perf/tests/attr/base-record
+@@ -5,7 +5,7 @@ group_fd=-1
+ flags=0|8
+ cpu=*
+ type=0|1
+-size=136
++size=144
+ config=0|1
+ sample_period=*
+ sample_type=263
+@@ -39,3 +39,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alternative_sample_period=0
+\ No newline at end of file
+diff --git a/tools/perf/tests/attr/base-record-spe b/tools/perf/tests/attr/base-record-spe
+index 08fa96b59240..db528d7d8b73 100644
+--- a/tools/perf/tests/attr/base-record-spe
++++ b/tools/perf/tests/attr/base-record-spe
+@@ -38,3 +38,4 @@ config2=*
+ branch_sample_type=*
+ sample_regs_user=*
+ sample_stack_user=*
++alternative_sample_period=0
+\ No newline at end of file
+diff --git a/tools/perf/tests/attr/base-stat b/tools/perf/tests/attr/base-stat
+index fccd8ec4d1b0..27ef0fa1386f 100644
+--- a/tools/perf/tests/attr/base-stat
++++ b/tools/perf/tests/attr/base-stat
+@@ -5,7 +5,7 @@ group_fd=-1
+ flags=0|8
+ cpu=*
+ type=0
+-size=136
++size=144
+ config=0
+ sample_period=0
+ sample_type=65536
+@@ -39,3 +39,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alternative_sample_period=0
+diff --git a/tools/perf/tests/attr/system-wide-dummy b/tools/perf/tests/attr/system-wide-dummy
+index a1e1d6a263bf..5c4d2a60931d 100644
+--- a/tools/perf/tests/attr/system-wide-dummy
++++ b/tools/perf/tests/attr/system-wide-dummy
+@@ -7,7 +7,7 @@ cpu=*
+ pid=-1
+ flags=8
+ type=1
+-size=136
++size=144
+ config=9
+ sample_period=1
+ # PERF_SAMPLE_IP | PERF_SAMPLE_TID | PERF_SAMPLE_TIME |
+@@ -50,3 +50,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alternative_sample_period=0
+diff --git a/tools/perf/tests/attr/test-record-alt-period-term b/tools/perf/tests/attr/test-record-alt-period-term
+new file mode 100644
+index 000000000000..e0de4c8eb1c8
+--- /dev/null
++++ b/tools/perf/tests/attr/test-record-alt-period-term
+@@ -0,0 +1,12 @@
++[config]
++command = record
++args    = --no-bpf-event -e cycles/period=3,alt-period=2/ -- kill >/dev/null 2>&1
++ret     = 1
++kernel_since = 6.11
++
++[event-10:base-record]
++sample_period=3
++alternative_sample_period=2
++
++freq=0
++sample_type=7
+diff --git a/tools/perf/tests/attr/test-record-dummy-C0 b/tools/perf/tests/attr/test-record-dummy-C0
+index 576ec48b3aaf..d4f0546e02b6 100644
+--- a/tools/perf/tests/attr/test-record-dummy-C0
++++ b/tools/perf/tests/attr/test-record-dummy-C0
+@@ -10,7 +10,7 @@ cpu=0
+ pid=-1
+ flags=8
+ type=1
+-size=136
++size=144
+ config=9
+ sample_period=4000
+ # PERF_SAMPLE_IP | PERF_SAMPLE_TID | PERF_SAMPLE_TIME |
+@@ -53,3 +53,4 @@ config2=0
+ branch_sample_type=0
+ sample_regs_user=0
+ sample_stack_user=0
++alternative_sample_period=0
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 9a8be1e46d67..48723cea3a51 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -826,6 +826,7 @@ static const char *config_term_name(enum parse_events__term_type term_type)
+ 		[PARSE_EVENTS__TERM_TYPE_RAW]                   = "raw",
+ 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
+ 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
++		[PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD]	= "alt-period",
+ 	};
+ 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
+ 		return "unknown term";
+@@ -854,6 +855,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
+ 	case PARSE_EVENTS__TERM_TYPE_NAME:
+ 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
+ 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
+ 		return true;
+ 	case PARSE_EVENTS__TERM_TYPE_USER:
+@@ -998,6 +1000,16 @@ do {									   \
+ 			return -EINVAL;
+ 		}
+ 		break;
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
++		CHECK_TYPE_VAL(NUM);
++		if (term->val.num == 0) {
++			parse_events_error__handle(err, term->err_val,
++						strdup("expected a non-zero value"),
++						NULL);
++			return -EINVAL;
++		}
++		attr->alternative_sample_period = term->val.num;
++		break;
+ 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+ 	case PARSE_EVENTS__TERM_TYPE_USER:
+ 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+@@ -1124,6 +1136,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
+ 	case PARSE_EVENTS__TERM_TYPE_RAW:
+ 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 	default:
+ 		if (err) {
+ 			parse_events_error__handle(err, term->err_term,
+@@ -1255,6 +1268,7 @@ do {								\
+ 		case PARSE_EVENTS__TERM_TYPE_RAW:
+ 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 		default:
+ 			break;
+ 		}
+@@ -1308,6 +1322,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
+ 		case PARSE_EVENTS__TERM_TYPE_RAW:
+ 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
+ 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
++		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
+ 		default:
+ 			break;
+ 		}
+diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
+index 10cc9c433116..f1482361321a 100644
+--- a/tools/perf/util/parse-events.h
++++ b/tools/perf/util/parse-events.h
+@@ -79,7 +79,8 @@ enum parse_events__term_type {
+ 	PARSE_EVENTS__TERM_TYPE_RAW,
+ 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
+ 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
+-#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_HARDWARE + 1)
++	PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD,
++#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD + 1)
+ };
+ 
+ struct parse_events_term {
+diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
+index 5a0bcd7f166a..1972a5a696ef 100644
+--- a/tools/perf/util/parse-events.l
++++ b/tools/perf/util/parse-events.l
+@@ -331,6 +331,7 @@ percore			{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_PERCORE); }
+ aux-output		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT); }
+ aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
+ metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
++alt-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD); }
+ cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
+ stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
+ stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
+diff --git a/tools/perf/util/perf_event_attr_fprintf.c b/tools/perf/util/perf_event_attr_fprintf.c
+index 59fbbba79697..c6af598070b5 100644
+--- a/tools/perf/util/perf_event_attr_fprintf.c
++++ b/tools/perf/util/perf_event_attr_fprintf.c
+@@ -335,6 +335,7 @@ int perf_event_attr__fprintf(FILE *fp, struct perf_event_attr *attr,
+ 	PRINT_ATTRf(sample_max_stack, p_unsigned);
+ 	PRINT_ATTRf(aux_sample_size, p_unsigned);
+ 	PRINT_ATTRf(sig_data, p_unsigned);
++	PRINT_ATTRf(alternative_sample_period, p_unsigned);
+ 
+ 	return ret;
+ }
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index 61bdda01a05a..7615d05e389f 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -1738,6 +1738,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
+ 		"percore",
+ 		"aux-output",
+ 		"aux-sample-size=number",
++		"alt-period=number",
+ 	};
+ 	struct perf_pmu_format *format;
+ 	int ret;
+-- 
+2.43.0
 
 
