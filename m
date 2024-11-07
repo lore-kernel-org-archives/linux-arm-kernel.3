@@ -4,111 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6CCD5AE75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA71D5AE79
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 09:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDS79c1EbW77w8pj3qSP6QnMmTuMvK8jjpykFUSlOEE=; b=EhyaMaBAHod7mGAkAfWaF6pAPK
-	K+08sUwrhNzEVU7w5lTDD/Z0XL0KfmgPRwu7m0Qg9JLmtSK0eWYchRsVQ5lx8v7mI4DHRlEUDTBAy
-	nuDZJgy0WuwdOxNoDKJIKFy7q+V2DEyzznqzDNnoFkpy+h6Gd7WtH9ODcf7wqMkSMBAU2XtRHvYMF
-	TRRrwZUZF5x1/VYY7hogiiuJHG5GlAZCj5Bf4Q+w80mRjj2oFOt8rijn6nb9eDGhsc1T2YTK+CBm5
-	qqxnCcK75zbjuhtlQX3fj6VeY2z7BzK2Nckjjc/eD9FkQD7vEJMn7NZoRv6eFj3iYheMV/vfjZQvW
-	LkdnYxYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QfLhfzclAKzK4qI0kEKhOeHTfA7oiXCvlD5MtUOHlY8=; b=nV2QBL/80oxrPxPc9/gpYs1eIJ
+	hULb0vfJQwpnUHBNMVNKI4WarIzQ4ccRJ7+uupMPvCYmjC3znWlUiEl3IqWRPqIfIk6oTWNxf5AGq
+	8Ge33eOK8ir0F+yRkEXJLiabWA7ol78nl+zFpHbbrk5DkSDUVNZfzj4B/Sr3nILKB1jrmPmWk4kb7
+	VND8nTJqvXZoPrpTv86l+OHWBJfVvX3rqxoZjj7XgoXyLC/+pDozi8IMXMQOVmfbPor9dFRPGQ3Te
+	oWRn3VvdCedxKAfBZANuU9MnVWHErAaRLtORKV3i+z8ngVy3SmPOdPH5fo7AqbuR1sYcdcgV0vFcW
+	F/fsZhpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yXr-00000006FrD-47LN;
-	Thu, 07 Nov 2024 09:11:15 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1t8yiW-00000006Hfl-0lJ9;
+	Thu, 07 Nov 2024 09:22:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8yTE-00000006F57-2n3s
+	id 1t8ygf-00000006H3Y-1onu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 09:06:30 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-a99e3b3a411so313243966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 01:06:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730970387; x=1731575187; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=LDS79c1EbW77w8pj3qSP6QnMmTuMvK8jjpykFUSlOEE=;
-        b=Jc8QHOY7PJ3IYM80d8rwMEGuyzwltfyTH+srUPNkHzRDXKueDLndZtkUOphVq6wt3m
-         3f4dDcpJUJHoUg+4krVWYdTSPBBI4q4QDJ2F6rUDA23t9MwWejR9SniaWJhL60TLyMa8
-         FZJv9anDiqy5eeHiPN6TUPCau2tza+y+47PXa08UmsUSsrvFgDo7UyuxxQ/5FkGv/HdV
-         /oOhfWa+IJyuM4F1WxMhfh783NzoayPo8N+9mgpDKdktyhEYbFi6zTxG58YwZmJjpqFz
-         nygcQNID/F9+fRgunRP20WQ9BW4PnOpTTveykraLi290G8O7wFtaIbohUmQprGxq3O/D
-         fH4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730970387; x=1731575187;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LDS79c1EbW77w8pj3qSP6QnMmTuMvK8jjpykFUSlOEE=;
-        b=S6LMhIVqtoG8VhGR/WLbyBgcpZ8wyXceWt2suXdHFTGjEQbpnnOS1emMFedj3gam1j
-         GxhWuOFGalH9mBqbmOHg5S3gG0x51fWO/94pJHiax02W6RJKs7H5qVcUzyndwsEfpNQH
-         vSbGfu5Y015yAzag9WhTRcYtlr01AbOKW5bZzqCY7G1SK0gfYV8cteMBJjIeLzpQyV8f
-         QX2tds27AXnr5QQsxFbzb5OugRmIyvueD9Ebb/n+leMcJftONeWchFHfY269xNtuzAbz
-         B4/ta5SUkOcR3gLtlQw4mkzay0d+v+3qaD31Fpyj/KvGSSyIVDMSwEu4UfKM5ZxeSGnI
-         DR1g==
-X-Forwarded-Encrypted: i=1; AJvYcCVT6C63n44/nXWwq9DlLWStB3e89QPc5N6ttSmLQWZpcuVIRBmnj7vqEEvhk/70FbcXDvFtjAa67riCvG2n3etN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3JUVQxJ0WhZS3YzXtQY9a5iIhAfgg4xF/SC9XGSFqyMw3sTM5
-	gthUOkWi/y1pW6Odm4BsN4epT87IHZqpS1JVvywBELuocqEK13LOyRxyoChRc5w=
-X-Google-Smtp-Source: AGHT+IFON3UoYGa4dZUjWhusmO+MQQIyUIBnD4omw89HENTEvvSMRWoF17W5/XTmfi7sq10ML4ePGw==
-X-Received: by 2002:a17:907:930d:b0:a9a:ca:4436 with SMTP id a640c23a62f3a-a9ed4cb3071mr214594766b.13.1730970387092;
-        Thu, 07 Nov 2024 01:06:27 -0800 (PST)
-Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0defba9sm63637066b.165.2024.11.07.01.06.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 01:06:26 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 7 Nov 2024 10:06:53 +0100
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
- address to dynamic bridge nodes
-Message-ID: <ZyyDLaWsikcNw4wT@apocalypse>
-References: <20241104150521.r4hbsurw4dbzlxpg@thinkpad>
- <20241104234937.GA1446920@bhelgaas>
- <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
+	Thu, 07 Nov 2024 09:20:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5FB12A430E2;
+	Thu,  7 Nov 2024 09:18:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4A5EC4CECC;
+	Thu,  7 Nov 2024 09:20:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730971219;
+	bh=MzAtMnBa36cvwhj9J6ISxKGN8qWAOmIs4UqZoAWc1x8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=nzZ/lzqqzJaLDXBN1l74ys9/c85Yaqeq3wvmQOwXthEaMxW+9whlB0DxNEKfhS2fx
+	 Vq5nIVqJvNG7wFBdfgljy4080TwcTq9XYX64WLEjrTDhB8vLb81A05E/KD/KyKjYA9
+	 Gox8Ev5qFK10ejsUSEHp3Wh7yQ8pKaCDzCIP+vC+wU2yI94zyDnkOzf7JWV9utuV8a
+	 XxtMQgat1ye6FLYP15oXodBdo8X4OoSx3bBHxXTTkUVgDxkuY5A5i/7BcScgSjfoiI
+	 kdVCjfqM/Y305cuisfX0+snkjIdg0VqzT7nKpwBLJcbsZBwDpKFsOtYMG4AjJaE69o
+	 rK41u5M2ZWQfQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34EE13809A80;
+	Thu,  7 Nov 2024 09:20:30 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
+Subject: Re: [PATCH] net: stmmac: Fix unbalanced IRQ wake disable warning on
+ single irq case
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173097122904.1579640.5010342385326557978.git-patchwork-notify@kernel.org>
+Date: Thu, 07 Nov 2024 09:20:29 +0000
+References: <20241101-stmmac-unbalanced-wake-single-fix-v1-1-5952524c97f0@collabora.com>
+In-Reply-To: <20241101-stmmac-unbalanced-wake-single-fix-v1-1-5952524c97f0@collabora.com>
+To: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado_=3Cnfraprado=40collabora=2Ecom?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	=?utf-8?q?=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, horms@kernel.org, maqianga@uniontech.com,
+ kernel@collabora.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ angelogioacchino.delregno@collabora.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_010628_759079_67AA9399 
-X-CRM114-Status: GOOD (  29.42  )
+X-CRM114-CacheID: sfid-20241107_012021_555419_E760CB7F 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,66 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
+Hello:
 
-On 14:35 Wed 06 Nov     , Manivannan Sadhasivam wrote:
-> On Mon, Nov 04, 2024 at 05:49:37PM -0600, Bjorn Helgaas wrote:
-> > On Mon, Nov 04, 2024 at 08:35:21PM +0530, Manivannan Sadhasivam wrote:
-> > > On Mon, Nov 04, 2024 at 09:54:57AM +0100, Andrea della Porta wrote:
-> > > > On 22:39 Sat 02 Nov     , Manivannan Sadhasivam wrote:
-> > > > > On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
-> > > > > > When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
-> > > > > > incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
-> > > > > > bridge, the window should instead be in PCI address space. Call
-> > > > > > pci_bus_address() on the resource in order to obtain the PCI bus
-> > > > > > address.
-> > > > > 
-> > > > > of_pci_prop_ranges() could be called for PCI devices also (not just PCI
-> > > > > bridges), right?
-> > > > 
-> > > > Correct. Please note however that while the PCI-PCI bridge has the parent
-> > > > address in CPU space, an endpoint device has it in PCI space: here we're
-> > > > focusing on the bridge part. It probably used to work before since in many
-> > > > cases the CPU and PCI address are the same, but it breaks down when they
-> > > > differ.
-> > > 
-> > > When you say 'focusing', you are specifically referring to the
-> > > bridge part of this API I believe. But I don't see a check for the
-> > > bridge in your change, which is what concerning me. Am I missing
-> > > something?
-> > 
-> > I think we want this change for all devices in the PCI address
-> > domain, including PCI-PCI bridges and endpoints, don't we?  All those
-> > "ranges" addresses should be in the PCI domain.
-> > 
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Fri, 01 Nov 2024 17:17:29 -0400 you wrote:
+> Commit a23aa0404218 ("net: stmmac: ethtool: Fixed calltrace caused by
+> unbalanced disable_irq_wake calls") introduced checks to prevent
+> unbalanced enable and disable IRQ wake calls. However it only
+> initialized the auxiliary variable on one of the paths,
+> stmmac_request_irq_multi_msi(), missing the other,
+> stmmac_request_irq_single().
 > 
-> Yeah, right. I was slightly confused by the commit message. Maybe including a
-> sentence about how the change will work fine for endpoint devices would help.
-> Also, why it went unnoticed till now (ie., both CPU and PCI addresses are same
-> in many SoCs).
+> [...]
 
-Sorry for the (admittedly) confusing explanation from my side. What I would
-have really liked to convey is that although the root complex (that is itself
-a bridge) is the ultimate 'translator' between CPU and PCI addresses, all the
-other entities are of course under PCI address space. In fact, any resource
-submitted to of_pci_set_address() is intended to be a PCI bus address,
-and this is valid for both sub-bridges and EPs.
+Here is the summary with links:
+  - net: stmmac: Fix unbalanced IRQ wake disable warning on single irq case
+    https://git.kernel.org/netdev/net/c/25d70702142a
 
-> 
-> Also there should be a fixes tag (also CC stable) since this is a potential bug
-> fix.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Sure. I think it could be better to resend this specific patch (and maybe also the 
-patch "of: address: Preserve the flags portion on 1:1 dma-ranges mapping", which
-is also a kind of bugfix) as standalone ones instead of prerequisites for the RP1
-patchset, if it's not a concern to anyone...
 
-Regards,
-Andrea
-
-> 
-> - Mani
-> 
-> -- 
-> மணிவண்ணன் சதாசிவம்
 
