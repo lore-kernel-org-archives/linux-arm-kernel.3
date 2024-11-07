@@ -4,110 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B96D5AE6F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 07:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5670D5AE6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 07:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbOrRriYh6w4F8LVkNHZr22RHexrNFjFKA4icR8e7Vs=; b=GyrXOBvtGea2ET4lMG0HQD2Xqn
-	V7FmevC2jvHhV0voFU8GD0F1JY6rbaxIwKyQyJIR0EvpH/z03C+tt/Ib8XMEsGSw+mtWIc/gxB3Td
-	gqcAwloDxzt+dWlXXE+Gmpgp9FcFq8DMhfI6D2qZYxKgSP/sGrumuR1iVLIabhpLijhz8QuawjimL
-	CCMRIDRuJFlhV9+b2nbfqzKi+g/RHBwPFM3+iLCaRPojeCGGthNR58ywAAWtmKM45bxgRl8oEG4aJ
-	PFznlM/3uAZ8vBjTa0HpqYdaN6+RQtuEuVtijt5RWKQNJOgvW8zxHfreoa5fk9NPCibgnQn3e0fPp
-	RjwNeAZg==;
+	bh=ij/Pkc68/tMvKFouIIkQzd6NRGM3PpJwsMpduvSrW6c=; b=dMaAFFPW8GrQuXWTnbIz7j9aCH
+	mw1hR4PeUBrzEyD7cwXQVzNzJoK8waN7cP0PEj/8EYfWgdTKgk8PwNhnL04v/PRCd93JUGbqcI4I5
+	k4w1a4Wnhz2SMo9Ex2MfegQkMFTej9eExSEzaAHinl5oXyNRA4zHZ7ioNj8xiC5Ljpyb4AU9qPKGM
+	SRRidx0sPw/TQwAZsDCL7JXMDF/iXspMrsZxOwkBbEGFk/hMezI0h/CtKCjS6AtJQd3KSrutmeEog
+	7b3Bj+fukhi9kiVuVaMKH2tR1WkL0q4EiAdivSiTDp5uRKJbktGzKjTdvMxZwPi8QSvyF4VEvRQnM
+	+8IxQleQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8x0M-000000060FT-25Uv;
-	Thu, 07 Nov 2024 07:32:34 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1t8xGz-000000062JL-1x5o;
+	Thu, 07 Nov 2024 07:49:45 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8wlq-00000005xMG-30tY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 07:17:37 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-a93c1cc74fdso75643566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 23:17:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1730963852; x=1731568652; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nbOrRriYh6w4F8LVkNHZr22RHexrNFjFKA4icR8e7Vs=;
-        b=eO4TnnsVybc55jMemt0pH4FEqG9kN1M1rpHHiUTcQZ76+RkiXMo47DZt+1zGYF18+I
-         /UT80N5c2MmaIMFehZTDFmaYDvlwlaJQuSTk44zP1sMJZqknut6o4Z5RDLhFTGRInxrK
-         iG1ruS+T9RKk3gMaLd0jSz9JIXgmdNCF0c3orhPLfNx9JPG+HObPMhhqG1bdaJb/QoQZ
-         f0t3x7EA3lII4mGuXs/PRCgOPKzykhjLGXInrxZzWrlIRh4ZRxbyt8OAuV1b211iNMcV
-         eGPhRb5Z51kGy5Qq8FZYJXIRuwEj85WG7RRdsdjRqXAxeLlK155IkYtrABHBcjU2oYyA
-         9A8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730963852; x=1731568652;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nbOrRriYh6w4F8LVkNHZr22RHexrNFjFKA4icR8e7Vs=;
-        b=WdvjpWk0W4rhgCrUL7fo3Rdv186SU2tzS2iijkcN+PxMctSH79hb7jmkP2aEeB6HF4
-         6fyXNgLjKMqNgDk51JdBsB5gSR3M0wwls8e0A+nIKUDChv2c1/65ZWvT0PVSWmU8WJWm
-         rR10KFXwDcPatHIhrTy6jESRNlhKARRhBxSpF7QRBbqC3NtevbjZhW4gpgiCKQ6aBG0E
-         TJDj5uAuWRQ6Rp+dY8jRU7zw5VeAnMHity4OFyAYfRC10pB5SDN4aG7sOh3leafE9s4D
-         u80ExexfAvOF6KPudBv1vcjZamUokoWqiEW9+S/2NdQQrVtLHbDHfDJqd8QWUAQrbsFf
-         nwrw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfwJhxMlYKgduysDOAOI8V56/Gi7glIIi2Ti9Q/KV1D991R437/2ItK6JwfTb27t686Z6lg2z1D9rBUT30QD9u@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGwwjmC5YhW865gtCdgfG0Qi7Hbxs6Jw/jDLvcDtybRP1qRAHR
-	86o8rF0fbTNaGGrq4Q0Gn7F7PHI7GJA1nymUIIMWgL0+dAfShDRhU9NkMZJ4YaQ=
-X-Google-Smtp-Source: AGHT+IFPT6mzuetQvJyLFc7e08zxC/5UPQxA/Xio6fkK4wjMcfEmL06ep3a65TdFRwza/k5rV5x/ew==
-X-Received: by 2002:a17:907:70d4:b0:a9e:b5d0:de6 with SMTP id a640c23a62f3a-a9eb5d00edemr628074966b.50.1730963852370;
-        Wed, 06 Nov 2024 23:17:32 -0800 (PST)
-Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0defaefsm49539066b.164.2024.11.06.23.17.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 23:17:32 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 7 Nov 2024 08:17:58 +0100
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v3 04/12] dt-bindings: misc: Add device specific bindings
- for RaspberryPi RP1
-Message-ID: <ZyxppoSeZhOQ8h2L@apocalypse>
-References: <cover.1730123575.git.andrea.porta@suse.com>
- <768d2307342e1054c58324a9d51957456dc82cbf.1730123575.git.andrea.porta@suse.com>
- <20241106145022.t7w2762t7zxpefc3@thinkpad>
+	id 1t8xDa-000000061mz-0oM4;
+	Thu, 07 Nov 2024 07:46:15 +0000
+X-UUID: 5a80ceaa9cdc11ef9048ed6ed365623b-20241107
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=ij/Pkc68/tMvKFouIIkQzd6NRGM3PpJwsMpduvSrW6c=;
+	b=IruzngkeGkEaiwPhu8PKxFmoWr8q+ndImzLzRTAutGWW6aHgEQ5akzkykRl9kIlASOH+1mN+hM1T+8wivsSSXiV5wAwJvJfZR4JQ/wcuED3qhFzYuQEpf4Hft7yHCwFqL2P3ryf7y6MX0IevojcOtOSSwg5NXcurv/xxP1yQCmY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:f2823831-3167-4f25-9575-95be6c3bd3a7,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:78aac41b-4f51-4e1d-bb6a-1fd98b6b19d2,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 5a80ceaa9cdc11ef9048ed6ed365623b-20241107
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <yunfei.dong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 536070109; Thu, 07 Nov 2024 00:46:09 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 7 Nov 2024 15:46:07 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 7 Nov 2024 15:46:06 +0800
+From: Yunfei Dong <yunfei.dong@mediatek.com>
+To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
+	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil
+	<hverkuil-cisco@xs4all.nl>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>
+CC: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
+	Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>, "Steve
+ Cho" <stevecho@chromium.org>, Yunfei Dong <yunfei.dong@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3 3/3] media: mediatek: vcodec: add description for vsi struct
+Date: Thu, 7 Nov 2024 15:45:57 +0800
+Message-ID: <20241107074603.31998-4-yunfei.dong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20241107074603.31998-1-yunfei.dong@mediatek.com>
+References: <20241107074603.31998-1-yunfei.dong@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241106145022.t7w2762t7zxpefc3@thinkpad>
+Content-Type: text/plain
+X-TM-AS-Product-Ver: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-AS-Result: No-10--4.830300-8.000000
+X-TMASE-MatchedRID: qT9V7Qri98/4Q348LKfXODTV/B1Uu+XCVF5mUd6sIMbfUZT83lbkEFYL
+	5En8iw1cYK2MeoqGYrsTf/L7yykBhRgHZ8655DOPFEUknJ/kEl7dB/CxWTRRu3aDLLDbFMGF0UT
+	/dQxOY20mHAOqHmr56RRj6h8FWziDnwc2O+AmjnI5/p3swc1Qyd8iVj83f8BmXC985TxzPD5yCf
+	lkZIkD29G2RxJZVcZ6hJVRlkc0uv5GBXoeyrLHXVBo425nomviD2TeXwRpghwOIqZ2uUSDWA==
+X-TM-AS-User-Approved-Sender: No
+X-TM-AS-User-Blocked-Sender: No
+X-TMASE-Result: 10--4.830300-8.000000
+X-TMASE-Version: SMEX-14.0.0.3152-9.1.1006-23728.005
+X-TM-SNTS-SMTP: 4012359CA539B8B849F8ECBF0882470F25AB36637C77F575576BC230D5F7D4F42000:8
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_231734_826444_DD844ECA 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20241106_234614_261947_5643FB5A 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,134 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
+If the video shared information (vsi) is changed accidentally,
+will leading to play h264 bitstream fail if the firmware won't
+be changed at the same time. Marking the shared struct with
+"shared interface with firmware".
 
-On 14:50 Wed 06 Nov     , Manivannan Sadhasivam wrote:
-> On Mon, Oct 28, 2024 at 03:07:21PM +0100, Andrea della Porta wrote:
-> > The RP1 is a MFD that exposes its peripherals through PCI BARs. This
-> > schema is intended as minimal support for the clock generator and
-> > gpio controller peripherals which are accessible through BAR1.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  .../devicetree/bindings/misc/pci1de4,1.yaml   | 80 +++++++++++++++++++
-> >  MAINTAINERS                                   |  1 +
-> >  2 files changed, 81 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/misc/pci1de4,1.yaml b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-> > new file mode 100644
-> > index 000000000000..d66b2fc130d1
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-> > @@ -0,0 +1,80 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/misc/pci1de4,1.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: RaspberryPi RP1 MFD PCI device
-> > +
-> > +maintainers:
-> > +  - Andrea della Porta <andrea.porta@suse.com>
-> > +
-> > +description:
-> > +  The RaspberryPi RP1 is a PCI multi function device containing
-> > +  peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > +  and others.
-> > +  The peripherals are accessed by addressing the PCI BAR1 region.
-> > +
-> > +allOf:
-> > +  - $ref: /schemas/pci/pci-ep-bus.yaml
-> > +
-> > +properties:
-> > +  compatible:
-> > +    additionalItems: true
-> > +    maxItems: 3
-> > +    items:
-> > +      - const: pci1de4,1
-> > +
-> > +  '#interrupt-cells':
-> > +    const: 2
-> > +    description:
-> > +      Specifies respectively the interrupt number and flags as defined
-> > +      in include/dt-bindings/interrupt-controller/irq.h.
-> > +
-> > +  interrupt-controller: true
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - '#interrupt-cells'
-> > +  - interrupt-controller
-> > +  - pci-ep-bus@1
-> > +
-> > +examples:
-> > +  - |
-> > +    pci {
-> > +        #address-cells = <3>;
-> > +        #size-cells = <2>;
-> > +
-> > +        rp1@0,0 {
-> > +            compatible = "pci1de4,1";
-> > +            ranges = <0x01 0x00 0x00000000
-> > +                      0x82010000 0x00 0x00
-> > +                      0x00 0x400000>;
-> 
-> Could you please have the 'ranges' in a single line as used everywhere?
-> 
-> - Mani
+Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+---
+ .../mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c    | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Sure.
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+index d0aecd9621d9..661ea84b6621 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+@@ -30,6 +30,7 @@ enum vdec_h264_core_dec_err_type {
+ 
+ /**
+  * struct vdec_h264_slice_lat_dec_param  - parameters for decode current frame
++ *        (shared interface with firmware)
+  *
+  * @sps:		h264 sps syntax parameters
+  * @pps:		h264 pps syntax parameters
+@@ -48,7 +49,7 @@ struct vdec_h264_slice_lat_dec_param {
+ };
+ 
+ /**
+- * struct vdec_h264_slice_info - decode information
++ * struct vdec_h264_slice_info - decode information (shared interface with firmware)
+  *
+  * @nal_info:		nal info of current picture
+  * @timeout:		Decode timeout: 1 timeout, 0 no timeout
+@@ -72,7 +73,7 @@ struct vdec_h264_slice_info {
+ 
+ /**
+  * struct vdec_h264_slice_vsi - shared memory for decode information exchange
+- *        between SCP and Host.
++ *        between SCP and Host (shared interface with firmware).
+  *
+  * @wdma_err_addr:		wdma error dma address
+  * @wdma_start_addr:		wdma start dma address
+-- 
+2.46.0
 
-Many thanks,
-Andrea
-
-> 
-> > +            #address-cells = <3>;
-> > +            #size-cells = <2>;
-> > +            interrupt-controller;
-> > +            #interrupt-cells = <2>;
-> > +
-> > +            pci_ep_bus: pci-ep-bus@1 {
-> > +                compatible = "simple-bus";
-> > +                ranges = <0xc0 0x40000000
-> > +                          0x01 0x00 0x00000000
-> > +                          0x00 0x00400000>;
-> > +                dma-ranges = <0x10 0x00000000
-> > +                              0x43000000 0x10 0x00000000
-> > +                              0x10 0x00000000>;
-> > +                #address-cells = <2>;
-> > +                #size-cells = <2>;
-> > +
-> > +                rp1_clocks: clocks@c040018000 {
-> > +                    compatible = "raspberrypi,rp1-clocks";
-> > +                    reg = <0xc0 0x40018000 0x0 0x10038>;
-> > +                    #clock-cells = <1>;
-> > +                    clocks = <&clk_rp1_xosc>;
-> > +                    clock-names =  "xosc";
-> > +                };
-> > +            };
-> > +        };
-> > +    };
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index ccf123b805c8..2aea5a6166bd 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -19384,6 +19384,7 @@ RASPBERRY PI RP1 PCI DRIVER
-> >  M:	Andrea della Porta <andrea.porta@suse.com>
-> >  S:	Maintained
-> >  F:	Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-> > +F:	Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-> >  F:	Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
-> >  F:	Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> >  F:	include/dt-bindings/clock/rp1.h
-> > -- 
-> > 2.35.3
-> > 
-> 
-> -- 
-> மணிவண்ணன் சதாசிவம்
 
