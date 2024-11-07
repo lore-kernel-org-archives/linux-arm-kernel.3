@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29659D5D690
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B11AD5D693
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=; b=WQTH03/9gbXbb35rVlXpY4OdkR
-	iO29TU9QkU3dRUc7FUgSnOGpOdC9L9CggOXqQaWL15WkY5AT6dObMIIRTl11uv+aQG/SySlU9BuM4
-	Eqc6iho57psxrCHZjdzur3MCih2rOTg3ln0WIuGwOsjo4z1wuL6Y0jCQEPCQ+XXeAajLgi+iVy8o0
-	TDcx2OnXutr+VFyaF9Dx5v+T+PNQ7q0WwLAmMkghagmdCT2kazGrakhhSHVqYf9v10ELAwVg7HsK6
-	EqK4Bqt3cV7fkbakgIVK4sNAx5qATLrVLj/exwtCqfEzmnHC9ETkolvLg5zb1FvprQZhFll9awO2H
-	gVcYh4lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fkMBSTqG7JoQ+u7V8y1daDJE4ZmqQFu6+aWdD0o4OaA=; b=kECshjMaw6YrpYCE4kUOSZDCKV
+	M4UKS2tAHDz6WsvoCm5i2AFKTyrA1uLjBouCNZafA+1oVF04pzHg1HsyFMpOApGLH5Wwc4Cfj2/DH
+	818HzVzYjg5b+ptmCnC7w8D9PYPQ5oAw2SUPCDgV6UDof1vqBXv1GgVnu9zaRkLKySU1fYa4WxBfA
+	vJd9lC12awV6G1d5x+klBsJocVKY560Tr4ufyEQqwF3m+gI0+gLAydhZ7p0+oqK31ADELAfTAXGYN
+	hWoZPQ6HrKQ77j7Irq7pKQ1LtdxvFm+LpUYiNTG+WyWrC/PW9d82uxw2cMZ1DI4xzMAnZD5qOi6Vv
+	RlZ2UYnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ASv-00000008U0M-46Uz;
-	Thu, 07 Nov 2024 21:54:57 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1t9AW4-00000008UPN-3EV2;
+	Thu, 07 Nov 2024 21:58:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9AR9-00000008Te0-43iy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 21:53:09 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2e2a999b287so1204656a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 13:53:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1731016386; x=1731621186; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=;
-        b=F93ZarJf/BxYXYLHx4+DtCctk9gmsGAlbhfG0uxhhmhVYEm7GEzkFQlxNGGAfuc2dj
-         VSyLvq2YUT8H17RfZx+eqWSHX3yOUXmjpT6tQfXHzc0taTZVtBhFxpCQ6ZdM1xullxtC
-         efp2PTeCCeq7si1grSw0heyiqwOmEbdXV2BmCgbohJSYQscS9dOEd8vn/RtneVq6He3v
-         bXjZ7X1vdc8wrmcBZQMCnaQQ0qbW+3ne6wv+xatHaswVO+yIC9QzPM75gUOZYKIX6G62
-         m2AEUKAUeDZCtRfk1sHl8gO3omN9DXVWbeV4gQ39zQILtzLjl+6rdVJ7qfd+6MvbrAyZ
-         eL8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731016386; x=1731621186;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=;
-        b=ViufeJ3iOLdFPQ/5OBHCE4DokvyS3QNg6b+NiRLbdea/RnrwCegoNu8ysBbHVmaUpp
-         EciyvUE7Dya76DXS7rfpQ97spyc+Pfyl3CJcQreeutOa3dIwYbLGn9QVBv5kfIJF5YrD
-         UY1Zkh/FsXjK20oRkDtMsT80/bx+ezHTRfYCI1ZHVob6qILhzmuro8jeuVeZo3yUWTE9
-         /60vXsud0DM+pgPkYDh5jw3kkcpeROTn1NcEsMLh6YUOZzh420K/XX0PVD28GcOLAidO
-         +12dCUMkYnuIMMUk87zDfFjyxUbLK1AD7z696ZE1yY8l4JXoJYk9I/ScVrQoViyFDUoU
-         Y4Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCWUUEWJNzZcZWkePh8yWf0QWWBlXS8go7d3S4YkPk6B47xRZPLd3XQ19OKhcVlupNVb9EqXOIsILBTUBdfWAjtI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9iC6v8o1vX4EFGl0R2FC6YsmI6DkLOu3Yj1UksDlII/S/4Zh7
-	UnTTjDXkbh99sKRJlGps0ObgZC9SPupsB+2v7Mgd53yEAjkmjWFrlNZ5akXsLgs=
-X-Google-Smtp-Source: AGHT+IFYtKHCkmnYGMgHehNW90Ih7W2EH62Ir3mEb2k8AkcggJ4PhxCcNsJAMCBgYwLn0r4VtQlZWA==
-X-Received: by 2002:a17:90b:1a90:b0:2d3:c638:ec67 with SMTP id 98e67ed59e1d1-2e9b147d4fcmr1058582a91.0.1731016386547;
-        Thu, 07 Nov 2024 13:53:06 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9b244d330sm114394a91.21.2024.11.07.13.53.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 13:53:06 -0800 (PST)
-Message-ID: <672d36c2.170a0220.daee.04a2@mx.google.com>
-Date: Thu, 07 Nov 2024 13:53:06 -0800 (PST)
-Content-Type: text/plain; charset="utf-8"
+	id 1t9AUJ-00000008UHE-1pgt;
+	Thu, 07 Nov 2024 21:56:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 97C33A444EA;
+	Thu,  7 Nov 2024 21:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D54C4CECC;
+	Thu,  7 Nov 2024 21:56:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731016582;
+	bh=5Eo6qcoFVa2y7T4CA1LjJm2ItuxSl1cXVLYwgGdG78A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=snaNZ8tSicUvWD7PrD0LYJBkh3bGKBJbprEa1e+L3I9yynNSTobD5JQQuUlyw1qa4
+	 Dee43LquYgLNye0D58HYWkPeK3vv1Fjl0PXXslYuvC/3FzXfQISP8Pcb0zMXYgFz6m
+	 cHamLikSD3g7zIowC61gJhcQ6Dzrt2BQgKRDoFdySc2MndGz9iPb5vcRGQdzAvC7Z6
+	 HGDMn/bHcXYLINTIT8HTZQ+glD+27KI5EUbkg5H4pd2BskirInQW74jUwTvq/3MSq1
+	 MHi0wzGVR3iunnxMS2AQJf0gXVODH79ifsLJyVx7jKw2SbAk3eVgwUXVxrhrF6xmBt
+	 22vW8hoSJemEg==
+Date: Thu, 7 Nov 2024 22:56:19 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, ryder.lee@mediatek.com,
+	jianjun.wang@mediatek.com, lpieralisi@kernel.org, kw@linux.com,
+	robh@kernel.org, bhelgaas@google.com,
+	linux-mediatek@lists.infradead.org, lorenzo.bianconi83@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
+	nbd@nbd.name, dd@embedd.com, upstream@airoha.com,
+	angelogioacchino.delregno@collabora.com, Hui.Ma@airoha.com
+Subject: Re: [PATCH v4 4/4] PCI: mediatek-gen3: Add Airoha EN7581 support
+Message-ID: <Zy03gz7czVIMQUcD@lore-desk>
+References: <ZyzpGSyAVe6bz9H2@lore-desk>
+ <20241107164624.GA1618716@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: test
-X-Kernelci-Kernel: v6.12-rc6-194-geb17c12d043da
-X-Kernelci-Branch: for-kernelci
-X-Kernelci-Tree: arm64
-Subject: arm64/for-kernelci baseline: 16 runs,
- 4 regressions (v6.12-rc6-194-geb17c12d043da)
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
- kernelci-results@groups.io
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1W+fFQH7ARG+B5PJ"
+Content-Disposition: inline
+In-Reply-To: <20241107164624.GA1618716@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_135308_032022_FC9CDAC2 
-X-CRM114-Status: UNSURE (   3.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_135623_625537_D7A14EAB 
+X-CRM114-Status: GOOD (  41.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,173 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64/for-kernelci baseline: 16 runs, 4 regressions (v6.12-rc6-194-geb17c12=
-d043da)
 
-Regressions Summary
--------------------
+--1W+fFQH7ARG+B5PJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+> On Thu, Nov 07, 2024 at 05:21:45PM +0100, Lorenzo Bianconi wrote:
+> > On Nov 07, Bjorn Helgaas wrote:
+> > > On Thu, Nov 07, 2024 at 08:39:43AM +0100, Lorenzo Bianconi wrote:
+> > > > > On Wed, Nov 06, 2024 at 11:40:28PM +0100, Lorenzo Bianconi wrote:
+> > > > > > > On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wr=
+ote:
+> > > > > > > > Introduce support for Airoha EN7581 PCIe controller to medi=
+atek-gen3
+> > > > > > > > PCIe controller driver.
+> > > > > > > > ...
+> > >=20
+> > > > > > > Is this where PERST# is asserted?  If so, a comment to that e=
+ffect
+> > > > > > > would be helpful.  Where is PERST# deasserted?  Where are the=
+ required
+> > > > > > > delays before deassert done?
+> > > > > >=20
+> > > > > > I can add a comment in en7581_pci_enable() describing the PERST=
+ issue for
+> > > > > > EN7581. Please note we have a 250ms delay in en7581_pci_enable(=
+) after
+> > > > > > configuring REG_PCI_CONTROL register.
+> > > > > >=20
+> > > > > > https://github.com/torvalds/linux/blob/master/drivers/clk/clk-e=
+n7523.c#L396
+> > > > >=20
+> > > > > Does that 250ms delay correspond to a PCIe mandatory delay, e.g.,
+> > > > > something like PCIE_T_PVPERL_MS?  I think it would be nice to hav=
+e the
+> > > > > required PCI delays in this driver if possible so it's easy to ve=
+rify
+> > > > > that they are all covered.
+> > > >=20
+> > > > IIRC I just used the delay value used in the vendor sdk. I do not
+> > > > have a strong opinion about it but I guess if we move it in the
+> > > > pcie-mediatek-gen3 driver, we will need to add it in each driver
+> > > > where this clock is used. What do you think?
+> > >=20
+> > > I don't know what the 250ms delay is for.  If it is for a required PCI
+> > > delay, we should use the relevant standard #define for it, and it
+> > > should be in the PCI controller driver.  Otherwise it's impossible to
+> > > verify that all the drivers are doing the correct delays.
+> >=20
+> > ack, fine to me. Do you prefer to keep 250ms after clk_bulk_prepare_ena=
+ble()
+> > in mtk_pcie_en7581_power_up() or just use PCIE_T_PVPERL_MS (100)?
+> > I can check if 100ms works properly.
+>=20
+> It's not clear to me where the relevant events are for these chips.
+>=20
+> Do you have access to the PCIe CEM spec?  The diagram in r6.0, sec
+> 2.2.1, is helpful.  It shows the required timings for Power Stable,
+> REFCLK Stable, PERST# deassert, etc.
+>=20
+> Per sec 2.11.2, PERST# must be asserted for at least 100us (T_PERST),
+> PERST# must be asserted for at least 100ms after Power Stable
+> (T_PVPERL), and PERST# must be asserted for at least 100us after
+> REFCLK Stable.
+>=20
+> It would be helpful if we could tell by reading the source where some
+> of these critical events happen, and that the relevant delays are
+> there.  For example, if PERST# is asserted/deasserted by
+> "clk_enable()" or similar, it's not at all obvious from the code, so
+> we should have a comment to that effect.
 
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+I reviewed the vendor sdk and it just do something like in clk_enable():
 
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+	...
+	val =3D readl(0x88);
+	writel(val | BIT(16) | BIT(29) | BIT(26), 0x88);
+	/*wait link up*/
+	mdelay(1000);
+	...
 
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
+@Hui.Ma: is it fine use msleep(100) (so PCIE_T_PVPERL_MS) instead of msleep=
+(1000)
+(so PCIE_LINK_RETRAIN_TIMEOUT_MS)?
 
+Regards,
+Lorenzo
 
-  Details:  https://kernelci.org/test/job/arm64/branch/for-kernelci/kernel/=
-v6.12-rc6-194-geb17c12d043da/plan/baseline/
+>=20
+> Bjorn
 
-  Test:     baseline
-  Tree:     arm64
-  Branch:   for-kernelci
-  Describe: v6.12-rc6-194-geb17c12d043da
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-  SHA:      eb17c12d043dad3f1ef9376a2d80d7e0a665e887 =
+--1W+fFQH7ARG+B5PJ
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy03gwAKCRA6cBh0uS2t
+rJ64AP40vgr/oweTeYBRjXYZBVQY5QwDDuhEhSNWwtsmfHK6fAEAtiON0J6fTwIC
+3wlDpNdKoaRVFQc7zFP/K1csNJqSNgk=
+=KhIT
+-----END PGP SIGNATURE-----
 
-Test Regressions
----------------- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672d2c6d0ac9aaabbbc8685e
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv2.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv2.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672d2c6d0ac9aaabbbc86=
-85f
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672d2c6b3980bd4bcbc86857
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv2-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv2-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672d2c6b3980bd4bcbc86=
-858
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672d2c6d857e460b7cc8689d
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv3.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv3.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672d2c6d857e460b7cc86=
-89e
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672d2c6c7d05eecb17c868ad
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv3-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
-rt-gicv3-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672d2c6c7d05eecb17c86=
-8ae
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =20
+--1W+fFQH7ARG+B5PJ--
 
