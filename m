@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8525D5AE7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C1BD5AE7D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MNGDZFn6BFfHOXHdbqmi5GIr1NOgRIL8yzEY3j9R85k=; b=doSRH4dIs2coaw1ADxxqB7d2Vs
-	jBuseHUVq97pgTcRysFliiGJOSL6xKbQPz6fZecVBUkxNVStPNXDxfqtWxBCrYuqGN3tJx4xqdRda
-	/tE9yucsv/vS+zzdwUoNBDN/e/P3gM9FlJ79org1WWTmBzaxAKTECTJxvez/RBvwQ11jU7/gsX3q8
-	lt0xguU/kKX+xLccdGfL6cmTsG1H7XQMa9P4iONotSe6C9tMpAR9bwoF5ahXn1PTWZVrs6Cud5RZJ
-	lLt1a9n7JXU/xgLzB1gxJDGTYPcz2xHe0W6hLVGNQjhb8TyNqyX6mwE3xafY/Q6htRtFL6czksNwN
-	uHZBAEbg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=; b=S3/C4TltFFZz8Ba0WF9IdooKOh
+	5faDx1YXTamG+8jw/CLS7RdzNaPPzfVmdPhQymTNZqSE5INJSpYCMpZKwfkPsQPBohOaJYG19VrK+
+	pRL3LZfXpwHg0e9eEtPrATO/D+7AIgWxz2Teif8beCn9Ytsd3z67Dequ9uFl47xl1y0IH4j41NjmB
+	UOu7ZCzCacSH7BjFf5aIi9ulxGs/iHbDVmX1PlcJMDl2r5GXHhKl1q2kvUs92JBYUk4y0LsheAJG6
+	wFy6wNyQgQeObEWBbxUNFoXLmvbY+RUoPN64lqs/SJ9iA3UlTR44hw6gLMZqnpEVAaPI2aWlTbmUk
+	CdkbwnOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zO8-00000006OyU-2LSu;
-	Thu, 07 Nov 2024 10:05:16 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1t8zPq-00000006PEE-1TbL;
+	Thu, 07 Nov 2024 10:07:02 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8zBE-00000006MBb-0dzF
+	id 1t8zJ4-00000006Nlx-2we7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 09:51:58 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-539eb97f26aso534877e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 01:51:54 -0800 (PST)
+	Thu, 07 Nov 2024 10:00:04 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso11192221fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 02:00:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1730973113; x=1731577913; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MNGDZFn6BFfHOXHdbqmi5GIr1NOgRIL8yzEY3j9R85k=;
-        b=d1+1f75vcZtUDJAtIADvGzPpiT720vpDopzxRFBUxUd5BySR32ISCM9npXdlRsxeSI
-         T6bia7jLRrV5rFJW5eE9fuIyM24B3jQHH3BsulCUkJnTMnXLY3K1uRsSehjLcVTdnQDZ
-         tybaT2oIUNI9S4lZYdt0zgifSNZV3qIc8MdUY=
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1730973600; x=1731578400; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=;
+        b=Fo0sT46VVxq94suHM5PS+UUOmwCq8pwxJN5idodNhJhcF+HdvrtJVEZ5uCynRIxB5w
+         tehreu+hgV6pbJLU5kAy6P/x4jfIc2TCnjnxKmZzdTI/jRNqGFbiDukqM7+xYqyxhPah
+         W209iOk1gpBqdMZSAsfarDKjRNdSDg2+LRiqhkiIm+9tNsyR3+e5sSJyLJfXha6AYBFa
+         77OL8HlSLkcS4D4ZB+uGB9FpoGXorYCUYW5o+imyXB9bXbdGvM924q1pp1BjPv2XLdqQ
+         CMJmzCAr4B+WVyUE28enLenxmte2HZfiNhXZ0lqELl+iYwTnxpzBghC0/3IsX2QQ4WoW
+         gXZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730973113; x=1731577913;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MNGDZFn6BFfHOXHdbqmi5GIr1NOgRIL8yzEY3j9R85k=;
-        b=GwEE/+VkZTnfyHWsSb87WnlpfVyLVt6bTrSJc4F9SlQyktivPFgwa/aexgkDXyz7Gn
-         Uzz6i85Fc/en9yX9XqmPtPXocwzMDUuIOUqSVA6zGccrdht9axaaeJi0hEJvBjEPnlUU
-         wTYUeEuY+eAXR/hrm4mxSJtvWulkhXJYRIKElR/xLgHH8uIfntAD9rkln9jKy10X9XYg
-         fwcIoH4qu7e5Ga3WoNEEp77q7XvG62i+GkPYETFJnZH/Zu3dSbGHM8hp/AembAhITs/O
-         DnJcZk16aRzFXE9YotKqZ8pVx5LQ8PqoTC1IPZzfiOwm3VXqnkwFQ3ry5dNKCLPkuMeL
-         hi8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUO5PohyfJ3XtOVOLiVW7czCi0FlD7sZb/8RRaPNgfYuNM9UUhppBwthJ6Bo0TllejY3nIEh/MspJAjHhrP4y6W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+dJksjUfoa7WDqc4Nq8cLM9cLisRmtz9lkRp7sAUhzC7kPshu
-	5yXURflA6b+5xr5/1zuJ1UaFM8tNuLusUobVyxeqbzf6glLxtczySjQ6Zfptawgo9EoynvML8OQ
-	Pe4hViXLEy0rdesrRdjFiZyB1SjCnCF6yHsC4
-X-Google-Smtp-Source: AGHT+IEnXPQWMP+Dvcvi+dUp8x3Ks93IzGCACftaRF0ayAabRXNIc0K3QoU6l6e3upA/E3kiCMYfJSgDzYjB+oi7sEs=
-X-Received: by 2002:a05:6512:3ca9:b0:535:6aa9:9868 with SMTP id
- 2adb3069b0e04-53d8408370amr240812e87.19.1730973113190; Thu, 07 Nov 2024
- 01:51:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1730973600; x=1731578400;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IN95TsZhKzuxf3wXQLN3cqZMNtXRheqBLbmEr8nS2fc=;
+        b=EMXMfGTNvbZumGLoFlK3Arh1SWSUt/zU5lxR23AGegla2UCttZ489WSWJ9WYmhZr1d
+         F3/SQ7hPvzM4SPt0n+9HZW/JcU3qRE9tNLLHJM/f645NRGdM+2p3wHLg5i9xJKnPxbrs
+         Fl8ffPpMiN2RL1Z5+9iqMjBcpxCzEh1HO4HHJgiJr04LpzSc4E1xBcaa7Wy58j+cvlCo
+         Rxp1ELilWVBOvdYz+A4PBEwloCr8063Q0kPITINUHyCPewr4kYLR5b/UQQlG7w2WMfeX
+         apxcMiAhh+TIZdVXWgeh4OFR/uzFFEJkYdpWwEQ0J/KqCzqD0LYCPJrm9k+h1wQ+eo4C
+         H9lw==
+X-Forwarded-Encrypted: i=1; AJvYcCXwYrMFHtsPjWd0EqPoJtqjAcct8h4FrXnNsBeaUCJjMKaXutR0Xja4qSSDrBjSbWd2cSUWwNcFwQKdeqYNjzpe@lists.infradead.org
+X-Gm-Message-State: AOJu0YxppVghOCgFxzk8HkmjSPW8N0UUEjmUPPrW96G0I/vzmiTYIEgH
+	yY1F0P6PAURMvJYTw2mssp3drdOrMFCgyZII7vpwSxHrxnWKdOzh98ll6i+HsJw=
+X-Google-Smtp-Source: AGHT+IFCiFNbVvRuQfoFDwv+RPdYoiKrDS08WoKMvLYSNKcFfmHvemOy+zCjZFBgqMyl2WR5wPEciQ==
+X-Received: by 2002:a05:651c:19a5:b0:2fa:de13:5c34 with SMTP id 38308e7fff4ca-2fedb7c7ad4mr180086761fa.19.1730973599705;
+        Thu, 07 Nov 2024 01:59:59 -0800 (PST)
+Received: from localhost (p200300f65f28bb0063ffae39110fa2df.dip0.t-ipconnect.de. [2003:f6:5f28:bb00:63ff:ae39:110f:a2df])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc577fsm70612366b.93.2024.11.07.01.59.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 01:59:59 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ARM: dts: socfpga_cyclone5_mcvevk: Drop unused #address-cells/#size-cells
+Date: Thu,  7 Nov 2024 10:59:52 +0100
+Message-ID: <20241107095952.73926-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20241012064333.27269-1-yunfei.dong@mediatek.com> <20241012064333.27269-4-yunfei.dong@mediatek.com>
-In-Reply-To: <20241012064333.27269-4-yunfei.dong@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 7 Nov 2024 17:51:42 +0800
-Message-ID: <CAGXv+5Fc98b_VTYopo38t1O3M1G+pyAzAQzUeu917UFKSRLZaQ@mail.gmail.com>
-Subject: Re: [PATCH v5 3/5] media: mediatek: vcodec: Get SRC buffer from
- bitstream instead of M2M
-To: Yunfei Dong <yunfei.dong@mediatek.com>
-Cc: =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Sebastian Fricke <sebastian.fricke@collabora.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Hsin-Yi Wang <hsinyi@chromium.org>, 
-	Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>, 
-	Steve Cho <stevecho@chromium.org>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1146; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=po4N9CwjBZgXso+4pKcXeUTXi6JnMCQw0mFDrt6dX5o=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnLI+ZUNMbOpZaUhvAo4+rsYExY3P3TcxuIcfsx yHtGtx40nGJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZyyPmQAKCRCPgPtYfRL+ Ti2OCAC6JZMVR/TlHLkoWK1XnqrgoC8ZZ2/KnTklmBleznsLFzrRmKwimHfjj7lBCrchzlbjYfQ KiAKaTL3IJX5dpbfAoJauRk9uEiR0MCl8RJ6C17ScGXwqkI7FyiQYS5G4tkkoK55iHj9Vav+rZS LsxP0DrkXwLrqn9g3K91sYTTdLu9udPA1987cNSIW1m1i93/HOCRZSCnY99emZvVzyUykNo+Y8i U78MceAWFPNbq9lUcuhS/jDDc+T1f1n+IwAzYcI28+roXklobnbT6doOCT+zju7REwT3vbKqokp BLMRbDkITSm5E90lkK8LyDOjlN9eSw/qmyg45n1To/0nJ0r4
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_015156_552958_9E0EA0E9 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20241107_020003_108506_86A62EEB 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,141 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 12, 2024 at 2:44=E2=80=AFPM Yunfei Dong <yunfei.dong@mediatek.c=
-om> wrote:
->
-> Getting the SRC buffer from M2M will pick a different than the one
-> used for current decode operation when the SRC buffer is removed
-> from ready list.
->
-> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
-> ---
->  .../vcodec/decoder/vdec/vdec_av1_req_lat_if.c     | 13 +++++++------
->  .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c     | 15 +++++++--------
->  2 files changed, 14 insertions(+), 14 deletions(-)
->
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1=
-_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av=
-1_req_lat_if.c
-> index 90217cc8e242..a744740ba5f1 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_la=
-t_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_la=
-t_if.c
-> @@ -1062,19 +1062,20 @@ static inline void vdec_av1_slice_vsi_to_remote(s=
-truct vdec_av1_slice_vsi *vsi,
->
->  static int vdec_av1_slice_setup_lat_from_src_buf(struct vdec_av1_slice_i=
-nstance *instance,
->                                                  struct vdec_av1_slice_vs=
-i *vsi,
-> +                                                struct mtk_vcodec_mem *b=
-s,
->                                                  struct vdec_lat_buf *lat=
-_buf)
->  {
-> -       struct vb2_v4l2_buffer *src;
-> +       struct mtk_video_dec_buf *src_buf_info;
->         struct vb2_v4l2_buffer *dst;
->
-> -       src =3D v4l2_m2m_next_src_buf(instance->ctx->m2m_ctx);
-> -       if (!src)
-> +       src_buf_info =3D container_of(bs, struct mtk_video_dec_buf, bs_bu=
-ffer);
-> +       if (!src_buf_info)
->                 return -EINVAL;
+The properties #address-cells and #size-cells are only useful if there
+is a ranges property or child nodes with "reg" properties.
 
-This doesn't make sense.
+This fixes a W=1 warning:
 
-First of all, you are getting the container of bs, and
-mtk_video_dec_buf.bs_buffer is at a non-zero offset, so even if bs is NULL,
-container_of(bs, struct mtk_video_dec_buf, bs_buffer) is not going to be
-NULL.
+	arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts:51.22-72.4: Warning (avoid_unnecessary_addr_size): /soc/i2c@ffc04000/stmpe811@41: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
 
-Second, vdec_av1_slice_setup_lat_from_src_buf() is called from
-vdec_av1_slice_setup_lat(), which itself is called from
-vdec_av1_slice_lat_decode(). Earlier in that function, bs is already
-checked. If bs is NULL, it's considered a request to flush the decoder.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts | 2 --
+ 1 file changed, 2 deletions(-)
 
-The other changes look OK. It's just the check that seems meaningless.
+diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
+index ceaec29770c6..c1e1264bcb09 100644
+--- a/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
++++ b/arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mcvevk.dts
+@@ -50,8 +50,6 @@ &i2c0 {
+ 
+ 	stmpe1: stmpe811@41 {
+ 		compatible = "st,stmpe811";
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		reg = <0x41>;
+ 		id = <0>;
+ 		blocks = <0x5>;
 
->
-> -       lat_buf->vb2_v4l2_src =3D src;
-> +       lat_buf->vb2_v4l2_src =3D &src_buf_info->m2m_buf.vb;
->
->         dst =3D &lat_buf->ts_info;
-> -       v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +       v4l2_m2m_buf_copy_metadata(lat_buf->vb2_v4l2_src, dst, true);
->         vsi->frame.cur_ts =3D dst->vb2_buf.timestamp;
->
->         return 0;
-> @@ -1724,7 +1725,7 @@ static int vdec_av1_slice_setup_lat(struct vdec_av1=
-_slice_instance *instance,
->         struct vdec_av1_slice_vsi *vsi =3D &pfc->vsi;
->         int ret;
->
-> -       ret =3D vdec_av1_slice_setup_lat_from_src_buf(instance, vsi, lat_=
-buf);
-> +       ret =3D vdec_av1_slice_setup_lat_from_src_buf(instance, vsi, bs, =
-lat_buf);
->         if (ret)
->                 return ret;
->
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9=
-_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp=
-9_req_lat_if.c
-> index 3dceb668ba1c..c50a454ab4f7 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
-t_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
-t_if.c
-> @@ -712,19 +712,18 @@ int vdec_vp9_slice_setup_single_from_src_to_dst(str=
-uct vdec_vp9_slice_instance *
->  }
->
->  static int vdec_vp9_slice_setup_lat_from_src_buf(struct vdec_vp9_slice_i=
-nstance *instance,
-> +                                                struct mtk_vcodec_mem *b=
-s,
->                                                  struct vdec_lat_buf *lat=
-_buf)
->  {
-> -       struct vb2_v4l2_buffer *src;
-> -       struct vb2_v4l2_buffer *dst;
-> +       struct mtk_video_dec_buf *src_buf_info;
->
-> -       src =3D v4l2_m2m_next_src_buf(instance->ctx->m2m_ctx);
-> -       if (!src)
-> +       src_buf_info =3D container_of(bs, struct mtk_video_dec_buf, bs_bu=
-ffer);
-> +       if (!src_buf_info)
->                 return -EINVAL;
+base-commit: 5b913f5d7d7fe0f567dea8605f21da6eaa1735fb
+-- 
+2.45.2
 
-Same thing here.
-
-> -       lat_buf->vb2_v4l2_src =3D src;
-> +       lat_buf->vb2_v4l2_src =3D &src_buf_info->m2m_buf.vb;
->
-> -       dst =3D &lat_buf->ts_info;
-> -       v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +       v4l2_m2m_buf_copy_metadata(lat_buf->vb2_v4l2_src, &lat_buf->ts_in=
-fo, true);
->         return 0;
->  }
->
-> @@ -1154,7 +1153,7 @@ static int vdec_vp9_slice_setup_lat(struct vdec_vp9=
-_slice_instance *instance,
->         struct vdec_vp9_slice_vsi *vsi =3D &pfc->vsi;
->         int ret;
->
-> -       ret =3D vdec_vp9_slice_setup_lat_from_src_buf(instance, lat_buf);
-> +       ret =3D vdec_vp9_slice_setup_lat_from_src_buf(instance, bs, lat_b=
-uf);
->         if (ret)
->                 goto err;
->
-> --
-> 2.46.0
->
->
 
