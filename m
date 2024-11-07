@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC594D29FBC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C19FD29FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3es5RRP8wDvjlZykvA3iGHnHUcsAvyoChZWhO3H3jMo=; b=iFJ9YvakI1hI+A4b6huU4Wa+V5
-	gVcPWY6MQ/bKprCrtB66nHMdFGsMPd85FAC8qtFv7dVOrhOU13ioq1VFQvChnwNdVDw5zJolK5xaL
-	rWtUKaka4YGsG4+GGsJmai+vzHykRpVWu0Z9tXQZw3kap+TdCqdm8gYxNkNirsGXr1gqJixvPluiZ
-	kZkLcVw7EB1qrzyzZLol3oWo0NZQr2IzfOcLd2QuymnrQUF+M/sO3hy4KE2wBAOIGYxuYWKrw7p5Z
-	dEHx2qcZqRBBlNoeqwCto86my1m+Ewo4zzzg6tHVpdk5p22QgpxklGr+CEC0c67cuHSvOvTiiVR7i
-	pi7tca/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fmnixL3RcmDVMH9diB+WJ+i2th3M/oRNlctOBDcUDeI=; b=DS4byu6wK6TLCHTECDaKv7KVyQ
+	4El8K/SeAVzr4MLYRT14kp3F44yf/wLNYgD21UFLNo7R7SS84HMJe0X7Fhl57jl92uSa5J7hnxyVx
+	W0422dS6I9EOvMW+AMoJIHtXZ6ZJc+4oQEPiSJNNkjDV3iyS5stehFKW27KSGojOpWDedQUJIGKZU
+	NjS+Q8bNq/qjl4CqZB6qdeut+vQX6PyC7MGyJWkvYWMbFXmOevtXoLg+xsB/4qFuGgrI9ygiiJFDs
+	URZa54tL+k/bNyNN3yqmiToXEHeAlYu3IlwEYY0QfzCRBuwlOnOGedawBzP09L3O8Lv+cdnbosJHL
+	0Pgj0Xkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8qw2-00000005E0N-1V7y;
-	Thu, 07 Nov 2024 01:03:42 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1t8rU9-00000005J6C-3N39;
+	Thu, 07 Nov 2024 01:38:57 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8quI-00000005Dnl-4B2q;
-	Thu, 07 Nov 2024 01:01:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1730941315; x=1762477315;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8LZPvUCN9C3yUR3J6KQF9rZje6rFNhSf2IWdy4LztfM=;
-  b=QbRbxW6R9Ei/Poc8Rr/cBlAe1pibBRY4d8UUhSWLxTM3CdUwunKyBqGF
-   t6+SJHIcRu+C6ukHOJMuMRGgkKpjnO7TjLaVpehxx8zjm7uL0NRCJF10e
-   Ptt6EwsjsVdrM1Pi+0Ll5mM/ml2lfgsgRu9F0BXo6qDoM33uTzSK6k0fj
-   N826NnSAb0YvvSr6Cs4IY/Sw1Fl6kjW9F794nvxfD0+rKIGdeW768R08d
-   2zM0tYZR5FjgtiNjEEh6tApnMYBxvMzvjLCsevw8M9T4c/1XcPlTFzyzx
-   B/aEdtE7dNgQ6npWwfn/Xr6jzeAEW6u7LtB+KlpTbOUIk+/Mh28X7pks9
-   Q==;
-X-CSE-ConnectionGUID: Ydm33zfmRR6TUM7RwYtfPQ==
-X-CSE-MsgGUID: ToOtmcbcSkq36Y6ZJwilLA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11248"; a="30868872"
-X-IronPort-AV: E=Sophos;i="6.11,264,1725346800"; 
-   d="scan'208";a="30868872"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 17:01:48 -0800
-X-CSE-ConnectionGUID: w39IjmtKRLq/XpI8W46YJw==
-X-CSE-MsgGUID: tU/9JlygSBWKwC5v93+JRQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,264,1725346800"; 
-   d="scan'208";a="88828063"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 06 Nov 2024 17:01:44 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t8qu6-000pb4-12;
-	Thu, 07 Nov 2024 01:01:42 +0000
-Date: Thu, 7 Nov 2024 09:01:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yassine Oudjana <y.oudjana@protonmail.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Teng <andy.teng@mediatek.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 7/7] pinctrl: mediatek: Add MT6735 pinctrl driver
-Message-ID: <202411070804.SS4EF03K-lkp@intel.com>
-References: <20241106100741.173825-8-y.oudjana@protonmail.com>
+	id 1t8rSP-00000005IoM-49gk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 01:37:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1730943424; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=fmnixL3RcmDVMH9diB+WJ+i2th3M/oRNlctOBDcUDeI=;
+	b=LxBTzkexj0f1JdIZRDeanqaHFDTbBfRqOrMVYeSzXZ+89sS9joXQodiqQ7llKF799Q8pEcYxdai0Dxaur3r/86m9rY7XrAH9x00Mmw6bAhXa7n672XqJUdd5eEEpmPq7RSQwwPN6Z4ocMtarNlFBq0baMhaFn1G/JZSPotBaf/E=
+Received: from 30.74.144.126(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WItbwvQ_1730943421 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 07 Nov 2024 09:37:02 +0800
+Message-ID: <9f70dc40-2199-44c6-ac68-4d09074f9a72@linux.alibaba.com>
+Date: Thu, 7 Nov 2024 09:37:01 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241106100741.173825-8-y.oudjana@protonmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] arm64: dts: sprd: sp9860g-1h10: fix
+ factory-internal-resistance-micro-ohms property
+To: Stanislav Jakubek <stano.jakubek@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+ Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1730918663.git.stano.jakubek@gmail.com>
+ <30d7ad167400764b6fe37f63276c07d3e30d931d.1730918663.git.stano.jakubek@gmail.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <30d7ad167400764b6fe37f63276c07d3e30d931d.1730918663.git.stano.jakubek@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_170155_076796_0F1852B7 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20241106_173710_400430_A0B4A407 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +70,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yassine,
 
-kernel test robot noticed the following build errors:
 
-[auto build test ERROR on linusw-pinctrl/devel]
-[also build test ERROR on linusw-pinctrl/for-next robh/for-next linus/master v6.12-rc6 next-20241106]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+On 2024/11/7 03:05, Stanislav Jakubek wrote:
+> As per DT bindings, this property was missing the "factory-" prefix.
+> 
+> Signed-off-by: Stanislav Jakubek <stano.jakubek@gmail.com>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yassine-Oudjana/dt-bindings-pinctrl-mediatek-mt6779-pinctrl-Pull-pinctrl-node-changes-from-MT6795-document/20241106-181127
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git devel
-patch link:    https://lore.kernel.org/r/20241106100741.173825-8-y.oudjana%40protonmail.com
-patch subject: [PATCH v7 7/7] pinctrl: mediatek: Add MT6735 pinctrl driver
-config: arm64-randconfig-002-20241107 (https://download.01.org/0day-ci/archive/20241107/202411070804.SS4EF03K-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241107/202411070804.SS4EF03K-lkp@intel.com/reproduce)
+Thanks. LGTM.
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411070804.SS4EF03K-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> aarch64-linux-ld: drivers/pinctrl/mediatek/pinctrl-mt6735.o:(.data+0xa0): undefined reference to `mtk_paris_pinctrl_pm_ops'
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+> Changes in V2:
+> - new patch
+> 
+> I thought about squashing this with the 1st patch, but I wanted to keep
+> Baolin's R-b, so I kept it separate.
+> 
+>   arch/arm64/boot/dts/sprd/sp9860g-1h10.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts b/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
+> index cd8b1069e387..94af7700f3e2 100644
+> --- a/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
+> +++ b/arch/arm64/boot/dts/sprd/sp9860g-1h10.dts
+> @@ -72,7 +72,7 @@ bat: battery {
+>   		charge-full-design-microamp-hours = <1900000>;
+>   		charge-term-current-microamp = <120000>;
+>   		constant-charge-voltage-max-microvolt = <4350000>;
+> -		internal-resistance-micro-ohms = <250000>;
+> +		factory-internal-resistance-micro-ohms = <250000>;
+>   		ocv-capacity-celsius = <20>;
+>   		ocv-capacity-table-0 = <4185000 100>, <4113000 95>, <4066000 90>,
+>   			<4022000 85>, <3983000 80>, <3949000 75>,
 
