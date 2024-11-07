@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66548D4336A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE46ED4336B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFw8yXJLqrkXU5hRV9LHBA5xHB7hRhKhK9JeN1oXec4=; b=heM+WEdzXeGB7+FU6+B15SMr9L
-	npueF4iQDtc360boK1SeZVM2mN7THRAQ8LoNe76dEYgLCBfLyWnV60c/ZYTbdFDwBsilc3FszfDyJ
-	QFIisKQs+hCUB7+B5zIDCyQyDIziv0w2xyo8SYLN/VqRqB6x1KEmXVHChTG7MfxNpNETaDKq9d+OD
-	jIFPka1X23O4yfZQE6pK7RptoxP2cS1NwFQdc+1YDRy2z2t14yFJzrl2Z7P+PeJeHMVukeLOUIUtG
-	LH2jfb4oz5YGoT5xCd5gSYx50AcJJqcR93hWO8NqftGqk439utzJgahAqiY9UqVdFAqn5enLOcVzu
-	8YcJVRDQ==;
+	bh=1dQAd843ES3xmCieQuDm1lBdSMltEfLPQp2fdzWJf88=; b=qM27jxn76EhZgZTR2ls2LzDSdE
+	uL/KarZr5z1KSXm5oTtif1vebprNt4/R96NUW21ISyWiEEh9ktge1USIoW2ZQEtxe8SFK3CvaCFYu
+	G6C+34Pp4/BAwPgTzADoYh+Kroe9t/dPGKI4C+OdI130DYPAabJlceeCZwbUpiItxeJU3TUdAa+1W
+	4fTHGCfNMi59RSix8m31fiIbpJiIi7KOiwcuJBCGXEJVeJKDjPKy9dU9mHpR6o95A8EodD6U2j5we
+	qm+U8299DXIgcxpn0hxiyUt7tzw3U5T811fqZ1fSVsKvgfA0W9p5ZIBdYjzFK7ej8sXcFK7/kk29q
+	FeWOWxNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93g7-00000007J7q-2IER;
-	Thu, 07 Nov 2024 14:40:07 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93ar-00000007IE4-1HJf
+	id 1t93iC-00000007JLy-0bV0;
+	Thu, 07 Nov 2024 14:42:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t93gR-00000007JCk-2Ouk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 14:34:42 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb443746b8so8774181fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 06:34:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730990079; x=1731594879; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=sFw8yXJLqrkXU5hRV9LHBA5xHB7hRhKhK9JeN1oXec4=;
-        b=WaWmbulM4XWPy+9jMRnsOX03M9KYGJSPOqur9mW/5JS6s/mfHLalJdL09L9s5c+c+f
-         dlOqU/Wn/BtZiAAz3hR/JW2JKH32xT9zJpI3bVk0S6Stq4/sMVNgmm3WVPskW3D1gfT/
-         s9/oSdrXpa+rtQFUw9+4IjOjsCszKLPR/eDa1cfUGFxOTbTXy+5hqz/PI+8opl0WQNXe
-         cwRpP+nobqpXYeisYsyeLf33TAVGx3mKFqhzKx6J5JJN6itMfvuslR6uKp8Ur8Oj+8jb
-         WhQwj132CDmypEt8NtvCL1eWNhySK5Uk53zkfxmFQHGquVgaA41Ky6F08uEHVPs2j4w8
-         W+Sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730990079; x=1731594879;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sFw8yXJLqrkXU5hRV9LHBA5xHB7hRhKhK9JeN1oXec4=;
-        b=JKtKWNcQn8aDRzd0pFbPBYxQdfQjipMw7jLf/iKZrARXcJGbMPVp7N6d+xptJ0P7Xa
-         QGKUC5ltiuCd8Fha2Yjw/JP2xnt3GqLNtPdyZjK6KV773W3OQ+9p0Mqd+bh6lbKESeXD
-         9W5ErBZtKKnPkKa52Cm0pDim0R6WpZEsUkmhHpDOEWC5gfV8VcaHKufxi2b3TrLGUoGq
-         hqs/xdtqWB8+UwCiy3n1JDxT7DozZI6RWJRjgaXNcig35uPYaTmzs3XXTCRszKSRiH2D
-         mQHwUww51nNoF6x4VFtif/PFemoxQccQBQsWEE6JsW26dYZuVDaTuK5NUMGqQW8fPcEZ
-         Svlw==
-X-Forwarded-Encrypted: i=1; AJvYcCVvCQX8eAYQmOiSQ5Cp2MtqouZlH32mA0PahPe/wykwzix8CoT+1ACIgn0ZSHSrnzs88/F5AS4o2HeDVn9+YT0k@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfMVjYT7rz93e7z0peTAtgVLuhVz2fvVgO4HhsJoZgDzqgQF9s
-	H1cqv04DKIT2e9YV30KKDzjFlUg9IQ8u4aWNzUw//goqyD9XJIQKqyOPyRlN9AU=
-X-Google-Smtp-Source: AGHT+IE6u/vwpetFFBTpREnEATNArVxMnib3hilqhpSQwRreBBwE7Un+H8iFwlJKP4tC/3/OAp4Img==
-X-Received: by 2002:a2e:a1ca:0:b0:2fb:9180:250f with SMTP id 38308e7fff4ca-2fcbdfd77bfmr168671801fa.18.1730990079154;
-        Thu, 07 Nov 2024 06:34:39 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff179d7d5dsm2406701fa.108.2024.11.07.06.34.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 06:34:37 -0800 (PST)
-Date: Thu, 7 Nov 2024 16:34:36 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
-Message-ID: <lkxm6m2u25o4qfvpja7qsldqm7zjxejkn6d5qihyxbg2zvntwh@icvun74e6rll>
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
- <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
+	Thu, 07 Nov 2024 14:40:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BB64497;
+	Thu,  7 Nov 2024 06:40:54 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEB613F6A8;
+	Thu,  7 Nov 2024 06:40:23 -0800 (PST)
+Date: Thu, 7 Nov 2024 14:40:18 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Steve Clevenger <scclevenger@os.amperecomputing.com>
+Cc: namhyung@kernel.org, james.clark@linaro.org, mike.leach@linaro.org,
+	suzuki.poulose@arm.com, ilkka@os.amperecomputing.com,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH V10 RESEND 0/2] arm-cs-trace-disasm.py/perf must
+ accommodate non-zero DSO text offset
+Message-ID: <20241107144018.GB47850@e132581.arm.com>
+References: <cover.1728599785.git.scclevenger@os.amperecomputing.com>
+ <cover.1728599785.git.scclevenger@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
+In-Reply-To: <cover.1728599785.git.scclevenger@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_063441_387953_F0F009B6 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20241107_064027_678800_3F43CC49 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +67,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 02:55:55PM +0100, Linus Walleij wrote:
-> Hi Dmitry,
-> 
-> On Mon, Oct 14, 2024 at 3:55 PM Dmitry Baryshkov
-> <dmitry.baryshkov@linaro.org> wrote:
-> 
-> > Follow the ARM64 platform and implement simple cache information driver.
-> > As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
-> > limited to the ARMv7 / ARMv7M, providing simple fallback or just
-> > returning -EOPNOTSUPP in case of older platforms.
-> >
-> > In theory we should be able to skip CLIDR reading and assume that Dcache
-> > and Icache (or unified L1 cache) always exist if CTR is supported and
-> > returns sensible value. However I think this better be handled by the
-> > maintainers of corresponding platforms.
-> >
-> > Other than just providing information to the userspace, this patchset is
-> > required in order to implement L2 cache driver (and in the end CPU
-> > frequency scaling) on ARMv7-based Qualcomm devices.
-> >
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> 
-> I added my review tags to the v2 patches, can you put them
-> into Russell's patch tracker?
+Hi Steve,
 
-Done, 9432/1 and 9433/1, thank you!
+On Wed, Nov 06, 2024 at 04:51:11PM -0700, Steve Clevenger wrote:
 
--- 
-With best wishes
-Dmitry
+[...]
+
+> Changes in V10:
+>   - Removed errant space in patch file 0002. Passed 'git apply --check'
+>     at perf-tools-next, 6.11.0-rc6.
+>   - Added back missing prefixes.
+
+The subject prefixes in two patches are not quite right.
+
+The subjects would be:
+
+  perf script python: Add map_pgoff to python dictionary
+  perf script cs-etm: Adjust objdump start/end range per map pgoff parameter
+
+With above change, you could keep my review tags.
+
+Please use git commands to generate patches ('git commit --amend' and
+'git format-patch').  If directly modify the plain patch files and resend
+them, I suspect this is the reason that the archieve website messes up
+rendering the patch series v9 and v10 [1].
+
+Thanks,
+Leo
+
+[1] https://lore.kernel.org/linux-perf-users/cover.1728599785.git.scclevenger@os.amperecomputing.com/T/#t
 
