@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D00D5D689
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 20:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBDFD5D689
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 20:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=; b=sYFLWNwcchuSj5afPXMGvC0LOP
-	OcTSqxjcepn2UyAPYmFuGIxJt5EEdyvXrbTxQ65Nc0anuXj2VhsMQUoHZvMa5RIVp1UwTfSsT0DMd
-	keqY3tEbSMQ0hyq1H6txvYKy7bYzw8p5lHm/sRq7QohWC5xtel1gbs5NntlpMuyE/JT1LMX1kK/iT
-	pn9TFu59ffICK2FN35jgMXohur2S5+CrWrvNzRfIOmWK8jxFZDCAFw9WdT8o8SaOIXwtCE7cWe89p
-	bDKj9nKfdH8DYaPxr8z5fj2YMKOHNUhRfpBlPZt31m76wIx7ftFmanxXn9qtsie2yqrPqvq6RtSX+
-	c+qLy3Ag==;
+	bh=Oo5C9e0+cl8r7hE7UWmRxwqyWt2dE16i/xTv+Vqu/GQ=; b=auXtLy/s93FbCSAeME6bSsTpjY
+	gSlA59bLV9nl2L1ZHBWGBieo8NXy+S9+NY/uS49uP9f32d+DsB/LmhxLUbS/N6AtI1SPMdeeawCSH
+	zRrhftovlgzYbRmiEWAx+AI4bhajA0GBsUCgUp2l7Zx5M+xImDzbIVSp7HZO2UlDMytTwNGG/4Yh1
+	vKz1wjamB/K+wR1RAaxltqodNZ1DfRT5Up7clJddzUGH9koLUFEJWVnQSUuMdw2YLcJRU2QSJrWL7
+	+GXbrbD367CdT2rP3peNmA2wN3HN51nw13tPpZKSXJvaGcU/dMhkkMHu9C6XVZlLNoD8NZjVDDebq
+	JLYH9H3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t993C-00000008Edv-1IU0;
-	Thu, 07 Nov 2024 20:24:18 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1t994u-00000008EoX-3Yhz;
+	Thu, 07 Nov 2024 20:26:04 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98zi-00000008E2u-0cLB
+	id 1t98zk-00000008E3H-2tUf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 20:20:43 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e59dc7df64so17925147b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 12:20:40 -0800 (PST)
+	Thu, 07 Nov 2024 20:20:46 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6ea527764c3so24331677b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 12:20:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731010840; x=1731615640; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731010843; x=1731615643; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=;
-        b=2CXDU0isuYRCSj4pcsHYtr8GvI8GzFUwFstB2zmkSx6VmxnEdMr72hY/l1352c6/kA
-         +bpHAs3eP73L6Ce0Q/mFkYsh1ZFSgbVQKzM+M2STrcm5RabKIekcvy94q1QZCbxR0STg
-         bU1hDJ5frw5S78YfOlA/1QevmDyi6wzycNLpGYGXVAV3VxTbsBDLXC6zAXZSaQrJjn6x
-         K3GZ01cSzmn9CimPos3/usLPc4NnlkyH24Rj0V58YTgi41xtqP78iSa2eyLTW17uBsff
-         Zb5vYjY5NvCUjY1ssUdTjF/oZ39+4C3YlBXW9r2sD84w5q+yQ62plD7uTzvEvekhg9Qh
-         YgMQ==
+        bh=Oo5C9e0+cl8r7hE7UWmRxwqyWt2dE16i/xTv+Vqu/GQ=;
+        b=dVXgi5wL3+/yZhsfifJerY+kXuSSmQSnd1rWGbexeRB0BTWuBa0N+DnUkk/TaNmGqJ
+         FlUByfNHPnL/OgsvEOuNrLccx3bDT9OqQyRg8aCGRDyzuVw1sIUYAOyv2MTo/D1PlTkj
+         7VqavHOnRMTGVVTw5u0NGAN9J8GFNLPC4nGKSMYXNotm/OS6DxiPVMTfRiDxo/+dGjG3
+         D4QkscChzaal2X0GG373tuxIz0wUiLzjwnr0pZ7ZM9UyNatde86UGsGNsz7VHnL3E4GR
+         iucMlycad82rWUDHWadRcOCDkUxxp9pwHOQU1zs0cMvmvnUUkFyuIgU+4GijKGy94k1L
+         8zOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731010840; x=1731615640;
+        d=1e100.net; s=20230601; t=1731010843; x=1731615643;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=;
-        b=Gyiz0+ZCG9gCZV8t7T0MQ/SlfdbifBUFXTGA5CzSQVVIqFgxMF/owufuj94HxT8y9Q
-         wpLcCCXr0gXKITL0d63uxgqNaBqrR7cPCO9pCTa4mHOc+kHciagStks6lQsNmSvVVnTn
-         a6eeNLsSbqXdadXQKIDCIWphrPYXyKJnbaojw6X4uPREVI62bl4FO5SV2B2ae+zlVEza
-         EZOMr11PfF6eqABI0nIB/1dBk2emyngq0pguF2EhMHqGBuyFE3kkPRzqElgHth6woTVb
-         51B9t5ZAwC+Gd+ufHCYYVOlBfO/fKuUcQvTMPZY0alxCdgncX0QEgqhOD8LiV4huS6Pl
-         f2xw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwLznsFwizpYFrTRJttOclfcxRxxw79x8Lpl+joy0C7EScc3TUPsYSdiSa+Lm8WO9GEKRBeybvAwRIJyFlp7I0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhLv8mMZ+Mj/itVzvUCVivMxa9a9g4MGzK5Qsg3OSZ8pToW9s6
-	cMqG9wW4ont4m9DEg4D/8DFz5opAFzsirvcnE76LQXtB/Qw8WrjutlIx20Kch9r8luytmKD/Eon
-	3zw==
-X-Google-Smtp-Source: AGHT+IGTqsn/Xtckt6+UQcvmaBMjWwhX3GjS38ldjfYHLBKaWt3NH7a5E1E88BJehCRrOBEtvF7Ru96C8rA=
+        bh=Oo5C9e0+cl8r7hE7UWmRxwqyWt2dE16i/xTv+Vqu/GQ=;
+        b=KAVjfQvn5Xw4QChplD9p4hFEJxoe2zvp9afqzYLz34H9IFdenZ7wHHaqwhnB9EbzvS
+         wHg7jZER9xtZsLWh3S+YV7dOcQord33GU3kHKoj5+V9vMe+FV9V465RDKVG1T/mRlBp4
+         lukkDcUNxvQYqVQ/6zzIKfXLkk0QkVXQ0Y4THu+K/0tAfoOBhEgY/mwogqpx+3InlWZT
+         O+ovZ/ofTonAUYGBqO/HVt7p+Op0FwvBPc2nfBCgDZRRa2dVvbbSPxeeDcu14w/ku+Fx
+         8tUy+rfS1fWohCq36OWbJz+fCiONY2ixCKPq2L/mfGVmSkP4xSvvEl/iCKCmzVvN21nt
+         qUOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVnp0iQxl5/+Hq7cnAlKjyT/N9sZWVvtmaOn5BEEkUpoQOuk/2BIzcQ06MmaX1QX4fXA0I/d2zogRJl+nYZuYGF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2z1WYWR7A8a/D8XcddlVNwQD+Oe+Ceuvq0So2SHm9eFgj0qhE
+	fN3xOlmk0spvcQMHcvpV+UPMoR8Sh7ToOX3QigYxqWFVWVeU4yAmjYL+XHhO3Fcr8TCZulyDkNp
+	YEw==
+X-Google-Smtp-Source: AGHT+IFItECqZ2dxgSyANVkerUl0Fg/UFqJy0LSXkY8wHLj1uLzeJdS7jFKPfch4UM5ukL5EJb9In+OVPNo=
 X-Received: from yuzhao2.bld.corp.google.com ([2a00:79e0:2e28:6:a4c0:c64f:6cdd:91f8])
- (user=yuzhao job=sendgmr) by 2002:a05:690c:255:b0:6ea:4b3a:6703 with SMTP id
- 00721157ae682-6eadc16949bmr149247b3.5.1731010840283; Thu, 07 Nov 2024
- 12:20:40 -0800 (PST)
-Date: Thu,  7 Nov 2024 13:20:28 -0700
+ (user=yuzhao job=sendgmr) by 2002:a05:690c:4a13:b0:6e3:b93:3ae2 with SMTP id
+ 00721157ae682-6eaddd704d6mr14027b3.1.1731010842758; Thu, 07 Nov 2024 12:20:42
+ -0800 (PST)
+Date: Thu,  7 Nov 2024 13:20:29 -0700
 In-Reply-To: <20241107202033.2721681-1-yuzhao@google.com>
 Mime-Version: 1.0
 References: <20241107202033.2721681-1-yuzhao@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241107202033.2721681-2-yuzhao@google.com>
-Subject: [PATCH v2 1/6] mm/hugetlb_vmemmap: batch-update PTEs
+Message-ID: <20241107202033.2721681-3-yuzhao@google.com>
+Subject: [PATCH v2 2/6] mm/hugetlb_vmemmap: add arch-independent helpers
 From: Yu Zhao <yuzhao@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
@@ -76,8 +76,8 @@ Cc: Douglas Anderson <dianders@chromium.org>, Mark Rutland <mark.rutland@arm.com
 	linux-kernel@vger.kernel.org, linux-mm@kvack.org, Yu Zhao <yuzhao@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_122042_220883_7058B057 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20241107_122044_762207_28595036 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,297 +92,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert vmemmap_remap_walk->remap_pte to ->remap_pte_range so that
-vmemmap remap walks can batch-update PTEs.
+Add architecture-independent helpers to allow individual architectures
+to work around their own limitations when updating vmemmap.
 
-The goal of this conversion is to allow architectures to implement
-their own optimizations if possible, e.g., only to stop remote CPUs
-once for each batch when updating vmemmap on arm64. It is not intended
-to change the remap workflow nor should it by itself have any side
-effects on performance.
+Specifically, the current remap workflow requires break-before-make
+(BBM) on arm64. By overriding the default helpers later in this
+series, arm64 will be able to support the current HVO implementation.
 
 Signed-off-by: Yu Zhao <yuzhao@google.com>
 ---
- mm/hugetlb_vmemmap.c | 163 ++++++++++++++++++++++++-------------------
- 1 file changed, 91 insertions(+), 72 deletions(-)
+ include/linux/mm_types.h |  7 +++
+ mm/hugetlb_vmemmap.c     | 99 ++++++++++++++++++++++++++++++++++------
+ 2 files changed, 92 insertions(+), 14 deletions(-)
 
-diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index 57b7f591eee8..46befab48d41 100644
---- a/mm/hugetlb_vmemmap.c
-+++ b/mm/hugetlb_vmemmap.c
-@@ -22,7 +22,7 @@
- /**
-  * struct vmemmap_remap_walk - walk vmemmap page table
-  *
-- * @remap_pte:		called for each lowest-level entry (PTE).
-+ * @remap_pte_range:	called on a range of PTEs.
-  * @nr_walked:		the number of walked pte.
-  * @reuse_page:		the page which is reused for the tail vmemmap pages.
-  * @reuse_addr:		the virtual address of the @reuse_page page.
-@@ -32,8 +32,8 @@
-  *			operations.
-  */
- struct vmemmap_remap_walk {
--	void			(*remap_pte)(pte_t *pte, unsigned long addr,
--					     struct vmemmap_remap_walk *walk);
-+	void			(*remap_pte_range)(pte_t *pte, unsigned long start,
-+					unsigned long end, struct vmemmap_remap_walk *walk);
- 	unsigned long		nr_walked;
- 	struct page		*reuse_page;
- 	unsigned long		reuse_addr;
-@@ -101,10 +101,6 @@ static int vmemmap_pmd_entry(pmd_t *pmd, unsigned long addr,
- 	struct page *head;
- 	struct vmemmap_remap_walk *vmemmap_walk = walk->private;
- 
--	/* Only splitting, not remapping the vmemmap pages. */
--	if (!vmemmap_walk->remap_pte)
--		walk->action = ACTION_CONTINUE;
--
- 	spin_lock(&init_mm.page_table_lock);
- 	head = pmd_leaf(*pmd) ? pmd_page(*pmd) : NULL;
- 	/*
-@@ -129,33 +125,36 @@ static int vmemmap_pmd_entry(pmd_t *pmd, unsigned long addr,
- 			ret = -ENOTSUPP;
- 	}
- 	spin_unlock(&init_mm.page_table_lock);
--	if (!head || ret)
-+	if (ret)
- 		return ret;
- 
--	return vmemmap_split_pmd(pmd, head, addr & PMD_MASK, vmemmap_walk);
--}
-+	if (head) {
-+		ret = vmemmap_split_pmd(pmd, head, addr & PMD_MASK, vmemmap_walk);
-+		if (ret)
-+			return ret;
-+	}
- 
--static int vmemmap_pte_entry(pte_t *pte, unsigned long addr,
--			     unsigned long next, struct mm_walk *walk)
--{
--	struct vmemmap_remap_walk *vmemmap_walk = walk->private;
-+	if (vmemmap_walk->remap_pte_range) {
-+		pte_t *pte = pte_offset_kernel(pmd, addr);
- 
--	/*
--	 * The reuse_page is found 'first' in page table walking before
--	 * starting remapping.
--	 */
--	if (!vmemmap_walk->reuse_page)
--		vmemmap_walk->reuse_page = pte_page(ptep_get(pte));
--	else
--		vmemmap_walk->remap_pte(pte, addr, vmemmap_walk);
--	vmemmap_walk->nr_walked++;
-+		vmemmap_walk->nr_walked += (next - addr) / PAGE_SIZE;
-+		/*
-+		 * The reuse_page is found 'first' in page table walking before
-+		 * starting remapping.
-+		 */
-+		if (!vmemmap_walk->reuse_page) {
-+			vmemmap_walk->reuse_page = pte_page(ptep_get(pte));
-+			pte++;
-+			addr += PAGE_SIZE;
-+		}
-+		vmemmap_walk->remap_pte_range(pte, addr, next, vmemmap_walk);
-+	}
- 
- 	return 0;
- }
- 
- static const struct mm_walk_ops vmemmap_remap_ops = {
- 	.pmd_entry	= vmemmap_pmd_entry,
--	.pte_entry	= vmemmap_pte_entry,
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 6e3bdf8e38bc..0f3ae6e173f6 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -1499,4 +1499,11 @@ enum {
+ 	/* See also internal only FOLL flags in mm/internal.h */
  };
  
- static int vmemmap_remap_range(unsigned long start, unsigned long end,
-@@ -172,7 +171,7 @@ static int vmemmap_remap_range(unsigned long start, unsigned long end,
++/* Skip the TLB flush when we split the PMD */
++#define VMEMMAP_SPLIT_NO_TLB_FLUSH	BIT(0)
++/* Skip the TLB flush when we remap the PTE */
++#define VMEMMAP_REMAP_NO_TLB_FLUSH	BIT(1)
++/* synchronize_rcu() to avoid writes from page_ref_add_unless() */
++#define VMEMMAP_SYNCHRONIZE_RCU		BIT(2)
++
+ #endif /* _LINUX_MM_TYPES_H */
+diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+index 46befab48d41..e50a196399f5 100644
+--- a/mm/hugetlb_vmemmap.c
++++ b/mm/hugetlb_vmemmap.c
+@@ -38,16 +38,56 @@ struct vmemmap_remap_walk {
+ 	struct page		*reuse_page;
+ 	unsigned long		reuse_addr;
+ 	struct list_head	*vmemmap_pages;
+-
+-/* Skip the TLB flush when we split the PMD */
+-#define VMEMMAP_SPLIT_NO_TLB_FLUSH	BIT(0)
+-/* Skip the TLB flush when we remap the PTE */
+-#define VMEMMAP_REMAP_NO_TLB_FLUSH	BIT(1)
+-/* synchronize_rcu() to avoid writes from page_ref_add_unless() */
+-#define VMEMMAP_SYNCHRONIZE_RCU		BIT(2)
+ 	unsigned long		flags;
+ };
+ 
++#ifndef VMEMMAP_ARCH_TLB_FLUSH_FLAGS
++#define VMEMMAP_ARCH_TLB_FLUSH_FLAGS 0
++#endif
++
++#ifndef vmemmap_update_supported
++static bool vmemmap_update_supported(void)
++{
++	return true;
++}
++#endif
++
++#ifndef vmemmap_update_lock
++static void vmemmap_update_lock(void)
++{
++}
++#endif
++
++#ifndef vmemmap_update_unlock
++static void vmemmap_update_unlock(void)
++{
++}
++#endif
++
++#ifndef vmemmap_update_pte_range_start
++static void vmemmap_update_pte_range_start(pte_t *pte, unsigned long start, unsigned long end)
++{
++}
++#endif
++
++#ifndef vmemmap_update_pte_range_end
++static void vmemmap_update_pte_range_end(void)
++{
++}
++#endif
++
++#ifndef vmemmap_update_pmd_range_start
++static void vmemmap_update_pmd_range_start(pmd_t *pmd, unsigned long start, unsigned long end)
++{
++}
++#endif
++
++#ifndef vmemmap_update_pmd_range_end
++static void vmemmap_update_pmd_range_end(void)
++{
++}
++#endif
++
+ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+ 			     struct vmemmap_remap_walk *walk)
+ {
+@@ -83,7 +123,9 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+ 
+ 		/* Make pte visible before pmd. See comment in pmd_install(). */
+ 		smp_wmb();
++		vmemmap_update_pmd_range_start(pmd, start, start + PMD_SIZE);
+ 		pmd_populate_kernel(&init_mm, pmd, pgtable);
++		vmemmap_update_pmd_range_end();
+ 		if (!(walk->flags & VMEMMAP_SPLIT_NO_TLB_FLUSH))
+ 			flush_tlb_kernel_range(start, start + PMD_SIZE);
+ 	} else {
+@@ -164,10 +206,12 @@ static int vmemmap_remap_range(unsigned long start, unsigned long end,
+ 
+ 	VM_BUG_ON(!PAGE_ALIGNED(start | end));
+ 
++	vmemmap_update_lock();
+ 	mmap_read_lock(&init_mm);
+ 	ret = walk_page_range_novma(&init_mm, start, end, &vmemmap_remap_ops,
+ 				    NULL, walk);
+ 	mmap_read_unlock(&init_mm);
++	vmemmap_update_unlock();
  	if (ret)
  		return ret;
  
--	if (walk->remap_pte && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
-+	if (walk->remap_pte_range && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
- 		flush_tlb_kernel_range(start, end);
- 
- 	return 0;
-@@ -204,33 +203,45 @@ static void free_vmemmap_page_list(struct list_head *list)
- 		free_vmemmap_page(page);
- }
- 
--static void vmemmap_remap_pte(pte_t *pte, unsigned long addr,
--			      struct vmemmap_remap_walk *walk)
-+static void vmemmap_remap_pte_range(pte_t *pte, unsigned long start, unsigned long end,
-+				    struct vmemmap_remap_walk *walk)
- {
--	/*
--	 * Remap the tail pages as read-only to catch illegal write operation
--	 * to the tail pages.
--	 */
--	pgprot_t pgprot = PAGE_KERNEL_RO;
--	struct page *page = pte_page(ptep_get(pte));
--	pte_t entry;
--
--	/* Remapping the head page requires r/w */
--	if (unlikely(addr == walk->reuse_addr)) {
--		pgprot = PAGE_KERNEL;
--		list_del(&walk->reuse_page->lru);
-+	int i;
-+	struct page *page;
-+	int nr_pages = (end - start) / PAGE_SIZE;
- 
-+	for (i = 0; i < nr_pages; i++) {
-+		page = pte_page(ptep_get(pte + i));
-+
-+		list_add(&page->lru, walk->vmemmap_pages);
-+	}
-+
-+	page = walk->reuse_page;
-+
-+	if (start == walk->reuse_addr) {
-+		list_del(&page->lru);
-+		copy_page(page_to_virt(page), (void *)walk->reuse_addr);
- 		/*
--		 * Makes sure that preceding stores to the page contents from
--		 * vmemmap_remap_free() become visible before the set_pte_at()
--		 * write.
-+		 * Makes sure that preceding stores to the page contents become
-+		 * visible before set_pte_at().
- 		 */
+@@ -228,6 +272,8 @@ static void vmemmap_remap_pte_range(pte_t *pte, unsigned long start, unsigned lo
  		smp_wmb();
  	}
  
--	entry = mk_pte(walk->reuse_page, pgprot);
--	list_add(&page->lru, walk->vmemmap_pages);
--	set_pte_at(&init_mm, addr, pte, entry);
-+	for (i = 0; i < nr_pages; i++) {
-+		pte_t val;
++	vmemmap_update_pte_range_start(pte, start, end);
 +
-+		/*
-+		 * The head page must be mapped read-write; the tail pages are
-+		 * mapped read-only to catch illegal modifications.
-+		 */
-+		if (!i && start == walk->reuse_addr)
-+			val = mk_pte(page, PAGE_KERNEL);
-+		else
-+			val = mk_pte(page, PAGE_KERNEL_RO);
+ 	for (i = 0; i < nr_pages; i++) {
+ 		pte_t val;
+ 
+@@ -242,6 +288,8 @@ static void vmemmap_remap_pte_range(pte_t *pte, unsigned long start, unsigned lo
+ 
+ 		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
+ 	}
 +
-+		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
-+	}
++	vmemmap_update_pte_range_end();
  }
  
  /*
-@@ -252,27 +263,39 @@ static inline void reset_struct_pages(struct page *start)
- 	memcpy(start, from, sizeof(*from) * NR_RESET_STRUCT_PAGE);
- }
- 
--static void vmemmap_restore_pte(pte_t *pte, unsigned long addr,
--				struct vmemmap_remap_walk *walk)
-+static void vmemmap_restore_pte_range(pte_t *pte, unsigned long start, unsigned long end,
-+				      struct vmemmap_remap_walk *walk)
- {
--	pgprot_t pgprot = PAGE_KERNEL;
-+	int i;
- 	struct page *page;
--	void *to;
--
--	BUG_ON(pte_page(ptep_get(pte)) != walk->reuse_page);
-+	int nr_pages = (end - start) / PAGE_SIZE;
- 
- 	page = list_first_entry(walk->vmemmap_pages, struct page, lru);
--	list_del(&page->lru);
--	to = page_to_virt(page);
--	copy_page(to, (void *)walk->reuse_addr);
--	reset_struct_pages(to);
-+
-+	for (i = 0; i < nr_pages; i++) {
-+		BUG_ON(pte_page(ptep_get(pte + i)) != walk->reuse_page);
-+
-+		copy_page(page_to_virt(page), (void *)walk->reuse_addr);
-+		reset_struct_pages(page_to_virt(page));
-+
-+		page = list_next_entry(page, lru);
-+	}
- 
- 	/*
- 	 * Makes sure that preceding stores to the page contents become visible
--	 * before the set_pte_at() write.
-+	 * before set_pte_at().
+@@ -287,6 +335,8 @@ static void vmemmap_restore_pte_range(pte_t *pte, unsigned long start, unsigned
  	 */
  	smp_wmb();
--	set_pte_at(&init_mm, addr, pte, mk_pte(page, pgprot));
+ 
++	vmemmap_update_pte_range_start(pte, start, end);
 +
-+	for (i = 0; i < nr_pages; i++) {
-+		pte_t val;
+ 	for (i = 0; i < nr_pages; i++) {
+ 		pte_t val;
+ 
+@@ -296,6 +346,8 @@ static void vmemmap_restore_pte_range(pte_t *pte, unsigned long start, unsigned
+ 		val = mk_pte(page, PAGE_KERNEL);
+ 		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
+ 	}
 +
-+		page = list_first_entry(walk->vmemmap_pages, struct page, lru);
-+		list_del(&page->lru);
-+
-+		val = mk_pte(page, PAGE_KERNEL);
-+		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
-+	}
++	vmemmap_update_pte_range_end();
  }
  
  /**
-@@ -290,7 +313,6 @@ static int vmemmap_remap_split(unsigned long start, unsigned long end,
- 			       unsigned long reuse)
+@@ -513,7 +565,8 @@ static int __hugetlb_vmemmap_restore_folio(const struct hstate *h,
+  */
+ int hugetlb_vmemmap_restore_folio(const struct hstate *h, struct folio *folio)
  {
- 	struct vmemmap_remap_walk walk = {
--		.remap_pte	= NULL,
- 		.flags		= VMEMMAP_SPLIT_NO_TLB_FLUSH,
- 	};
+-	return __hugetlb_vmemmap_restore_folio(h, folio, VMEMMAP_SYNCHRONIZE_RCU);
++	return __hugetlb_vmemmap_restore_folio(h, folio,
++			VMEMMAP_SYNCHRONIZE_RCU | VMEMMAP_ARCH_TLB_FLUSH_FLAGS);
+ }
  
-@@ -322,10 +344,10 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
- {
- 	int ret;
- 	struct vmemmap_remap_walk walk = {
--		.remap_pte	= vmemmap_remap_pte,
--		.reuse_addr	= reuse,
--		.vmemmap_pages	= vmemmap_pages,
--		.flags		= flags,
-+		.remap_pte_range	= vmemmap_remap_pte_range,
-+		.reuse_addr		= reuse,
-+		.vmemmap_pages		= vmemmap_pages,
-+		.flags			= flags,
- 	};
- 	int nid = page_to_nid((struct page *)reuse);
- 	gfp_t gfp_mask = GFP_KERNEL | __GFP_NORETRY | __GFP_NOWARN;
-@@ -340,8 +362,6 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
- 	 */
- 	walk.reuse_page = alloc_pages_node(nid, gfp_mask, 0);
- 	if (walk.reuse_page) {
--		copy_page(page_to_virt(walk.reuse_page),
--			  (void *)walk.reuse_addr);
- 		list_add(&walk.reuse_page->lru, vmemmap_pages);
- 		memmap_pages_add(1);
+ /**
+@@ -553,7 +606,7 @@ long hugetlb_vmemmap_restore_folios(const struct hstate *h,
+ 		list_move(&folio->lru, non_hvo_folios);
  	}
-@@ -371,10 +391,9 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
- 		 * They will be restored in the following call.
- 		 */
- 		walk = (struct vmemmap_remap_walk) {
--			.remap_pte	= vmemmap_restore_pte,
--			.reuse_addr	= reuse,
--			.vmemmap_pages	= vmemmap_pages,
--			.flags		= 0,
-+			.remap_pte_range	= vmemmap_restore_pte_range,
-+			.reuse_addr		= reuse,
-+			.vmemmap_pages		= vmemmap_pages,
- 		};
  
- 		vmemmap_remap_range(reuse, end, &walk);
-@@ -425,10 +444,10 @@ static int vmemmap_remap_alloc(unsigned long start, unsigned long end,
+-	if (restored)
++	if (restored && !(VMEMMAP_ARCH_TLB_FLUSH_FLAGS & VMEMMAP_REMAP_NO_TLB_FLUSH))
+ 		flush_tlb_all();
+ 	if (!ret)
+ 		ret = restored;
+@@ -641,7 +694,8 @@ void hugetlb_vmemmap_optimize_folio(const struct hstate *h, struct folio *folio)
  {
  	LIST_HEAD(vmemmap_pages);
- 	struct vmemmap_remap_walk walk = {
--		.remap_pte	= vmemmap_restore_pte,
--		.reuse_addr	= reuse,
--		.vmemmap_pages	= &vmemmap_pages,
--		.flags		= flags,
-+		.remap_pte_range	= vmemmap_restore_pte_range,
-+		.reuse_addr		= reuse,
-+		.vmemmap_pages		= &vmemmap_pages,
-+		.flags			= flags,
- 	};
  
- 	/* See the comment in the vmemmap_remap_free(). */
+-	__hugetlb_vmemmap_optimize_folio(h, folio, &vmemmap_pages, VMEMMAP_SYNCHRONIZE_RCU);
++	__hugetlb_vmemmap_optimize_folio(h, folio, &vmemmap_pages,
++			VMEMMAP_SYNCHRONIZE_RCU | VMEMMAP_ARCH_TLB_FLUSH_FLAGS);
+ 	free_vmemmap_page_list(&vmemmap_pages);
+ }
+ 
+@@ -683,7 +737,8 @@ void hugetlb_vmemmap_optimize_folios(struct hstate *h, struct list_head *folio_l
+ 			break;
+ 	}
+ 
+-	flush_tlb_all();
++	if (!(VMEMMAP_ARCH_TLB_FLUSH_FLAGS & VMEMMAP_SPLIT_NO_TLB_FLUSH))
++		flush_tlb_all();
+ 
+ 	list_for_each_entry(folio, folio_list, lru) {
+ 		int ret;
+@@ -701,24 +756,35 @@ void hugetlb_vmemmap_optimize_folios(struct hstate *h, struct list_head *folio_l
+ 		 * allowing more vmemmap remaps to occur.
+ 		 */
+ 		if (ret == -ENOMEM && !list_empty(&vmemmap_pages)) {
+-			flush_tlb_all();
++			if (!(VMEMMAP_ARCH_TLB_FLUSH_FLAGS & VMEMMAP_REMAP_NO_TLB_FLUSH))
++				flush_tlb_all();
+ 			free_vmemmap_page_list(&vmemmap_pages);
+ 			INIT_LIST_HEAD(&vmemmap_pages);
+ 			__hugetlb_vmemmap_optimize_folio(h, folio, &vmemmap_pages, flags);
+ 		}
+ 	}
+ 
+-	flush_tlb_all();
++	if (!(VMEMMAP_ARCH_TLB_FLUSH_FLAGS & VMEMMAP_REMAP_NO_TLB_FLUSH))
++		flush_tlb_all();
+ 	free_vmemmap_page_list(&vmemmap_pages);
+ }
+ 
++static int hugetlb_vmemmap_sysctl(const struct ctl_table *ctl, int write,
++				  void *buffer, size_t *lenp, loff_t *ppos)
++{
++	if (!vmemmap_update_supported())
++		return -ENODEV;
++
++	return proc_dobool(ctl, write, buffer, lenp, ppos);
++}
++
+ static struct ctl_table hugetlb_vmemmap_sysctls[] = {
+ 	{
+ 		.procname	= "hugetlb_optimize_vmemmap",
+ 		.data		= &vmemmap_optimize_enabled,
+ 		.maxlen		= sizeof(vmemmap_optimize_enabled),
+ 		.mode		= 0644,
+-		.proc_handler	= proc_dobool,
++		.proc_handler	= hugetlb_vmemmap_sysctl,
+ 	},
+ };
+ 
+@@ -729,6 +795,11 @@ static int __init hugetlb_vmemmap_init(void)
+ 	/* HUGETLB_VMEMMAP_RESERVE_SIZE should cover all used struct pages */
+ 	BUILD_BUG_ON(__NR_USED_SUBPAGE > HUGETLB_VMEMMAP_RESERVE_PAGES);
+ 
++	if (READ_ONCE(vmemmap_optimize_enabled) && !vmemmap_update_supported()) {
++		pr_warn("HugeTLB: disabling HVO due to missing support.\n");
++		WRITE_ONCE(vmemmap_optimize_enabled, false);
++	}
++
+ 	for_each_hstate(h) {
+ 		if (hugetlb_vmemmap_optimizable(h)) {
+ 			register_sysctl_init("vm", hugetlb_vmemmap_sysctls);
 -- 
 2.47.0.277.g8800431eea-goog
 
