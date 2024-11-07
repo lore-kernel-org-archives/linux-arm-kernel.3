@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D72D43372
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1E7D43370
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 15:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=loj03VXQQxLxwh6a0siXAf9ODdSbPFsDWNgihY4G8Tc=; b=T5QBWREa3sbL9g71qACRhXyJjm
-	u+Csk647WudngSdpMBeiRDqllckot0GOZr7taqgJMAv4q9LU6w8sFMXIYwIDa45t9f+Go2EVmY3bv
-	Kjbp0fOYM86VxlISWDm1nkcfOtzCmR5UIiR1U6pIytnMdPpx49l/AjmS+g2RTHpchwjXJi8PYYDo7
-	KLJrsS4UdAghf9vKOEfIuiH33K3CvlSleJ/w0RnGKND6LcRiyGnAs5brAuf4xt2WO1ShLWSnMX4Yv
-	GZvt9drX012eIa34VaYLgom9QCEaEU0zUyphej6q+OmPDzaSMBNRvKR70QkVMS0eSgNfR93O2J5B5
-	b9ICT2DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hup0pnvWTu61mfUbCzSJRRpXGOfCqeeb+ttX8cQycfY=; b=TJAd7tUboY+jI+r5Fwp1Ji1bdj
+	BM2JC7cd+C/ybaT4pODTx42vDJ8Zka64dG+dvTLZkuKlPdNerEjB3MPWxP2pKRw1QSNWxgQ1JpAFd
+	uUoLHpQtS9iBUd5LYDVLJwS0sABIyq6u9e5/RmUydEZNsLk4wDJHm+ksLxCBOdKJ8ilW9sslH48bY
+	Hfw4g0sbVvX3fPHhDc5+jFVpsGpzzCitZ9rRTBh9kfNeOWE2jrbFmF2KO0TaShrMxda6M2Id23mWv
+	3qQgU458HV6eo9nElFu+4jRL+YQEQy+68kUue3vbvAgCUUPV4WN8fMDneTAU5vuTGugiUL/HiST88
+	Gf/2uqaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94gG-00000007TYd-1yv2;
-	Thu, 07 Nov 2024 15:44:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94Xu-00000007SdF-3Fq8
+	id 1t94iI-00000007U1v-1v6x;
+	Thu, 07 Nov 2024 15:46:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t94gW-00000007Teo-46sG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 15:37:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6B2AA447FC;
-	Thu,  7 Nov 2024 15:33:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A73EDC4CECC;
-	Thu,  7 Nov 2024 15:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730993741;
-	bh=GyWaCebIJB2MBOnYngkj3Xcn9uP7TVQyYFsiEtrBw/s=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=O0FdVTFC5osat40Kl8QsKEksm5KYhlIo5NrZMfDOCPV+33J80/w0sk1jN8WQLjdm2
-	 2JEHzlQrUeXXnPuBQDTkIGdu+U8oPmjVOb6CtFO22CGrF1ZC7iF6DOcbf1kU/EG3kz
-	 ezSLxJFz3mcmYwP4tN8TcR4Xdy6Ve+8aAWY6ydQv31RiO2sD+J7piuXZMWbm+sJ3Ao
-	 fKXx09KCWPvrKc9YUbuAT5EEqi8cmZmXK21YH9J5bFyaj/ITJ00HNsSKXOaY9EQqM9
-	 YA1chybHueuY1SurPPDGmfPFR1jdyo953Hf+8tDAFvR4S/ZV7pAIs+RjXF2xw2IcOX
-	 Wr7u5As/3eo5Q==
-From: Mark Brown <broonie@kernel.org>
-To: olivier.moysan@foss.st.com, arnaud.pouliquen@foss.st.com, 
- lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- Luo Yifan <luoyifan@cmss.chinamobile.com>
-Cc: linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241106014654.206860-1-luoyifan@cmss.chinamobile.com>
-References: <20241106014654.206860-1-luoyifan@cmss.chinamobile.com>
-Subject: Re: [PATCH] ASoC: stm: Prevent potential division by zero in
- stm32_sai_mclk_round_rate()
-Message-Id: <173099373941.145735.10149404268306602537.b4-ty@kernel.org>
-Date: Thu, 07 Nov 2024 15:35:39 +0000
+	Thu, 07 Nov 2024 15:44:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79F4E1063;
+	Thu,  7 Nov 2024 07:45:05 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4639F3F66E;
+	Thu,  7 Nov 2024 07:44:35 -0800 (PST)
+Date: Thu, 7 Nov 2024 15:44:24 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Graham Woodward <graham.woodward@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] perf arm-spe: Add support for SPE Data Source
+ packet on AmpereOne
+Message-ID: <20241107154424.GD47850@e132581.arm.com>
+References: <20241106193740.6159-1-ilkka@os.amperecomputing.com>
+ <20241106193740.6159-3-ilkka@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241106193740.6159-3-ilkka@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_073542_911391_5A345A1F 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241107_074437_131734_F7427A10 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +77,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Nov 2024 09:46:54 +0800, Luo Yifan wrote:
-> This patch checks if div is less than or equal to zero (div <= 0). If
-> div is zero or negative, the function returns -EINVAL, ensuring the
-> division operation (*prate / div) is safe to perform.
+On Wed, Nov 06, 2024 at 07:37:40PM +0000, Ilkka Koskinen wrote:
+> Warning: EXTERNAL SENDER, use caution when opening links or attachments.
 > 
 > 
+> Decode SPE Data Source packets on AmpereOne. The field is IMPDEF.
+> 
+> Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+> ---
+>  .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 +++++
+>  tools/perf/util/arm-spe.c                     | 39 +++++++++++++++++++
+>  2 files changed, 48 insertions(+)
+> 
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> index 358c611eeddb..4bcd627e859f 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> @@ -67,6 +67,15 @@ enum arm_spe_common_data_source {
+>         ARM_SPE_COMMON_DS_DRAM          = 0xe,
+>  };
+> 
+> +enum arm_spe_ampereone_data_source {
+> +       ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE    = 0x0,
+> +       ARM_SPE_AMPEREONE_SLC                           = 0x3,
+> +       ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE             = 0x5,
+> +       ARM_SPE_AMPEREONE_DDR                           = 0x7,
+> +       ARM_SPE_AMPEREONE_L1D                           = 0x8,
+> +       ARM_SPE_AMPEREONE_L2D                           = 0x9,
+> +};
+> +
+>  struct arm_spe_record {
+>         enum arm_spe_sample_type type;
+>         int err;
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index b222557cc27a..40847a3d18b0 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -531,6 +531,44 @@ static void arm_spe__synth_data_source_common(const struct arm_spe_record *recor
+>         }
+>  }
+> 
+> +/*
+> + * Source is IMPDEF. Here we convert the source code used on AmpereOne cores
+> + * to the common (Neoverse, Cortex) to avoid duplicating the decoding code.
+> + */
+> +static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *record,
+> +                                                union perf_mem_data_src *data_src)
+> +{
+> +       struct arm_spe_record common_record;
+> +
+> +       switch (record->source) {
+> +       case ARM_SPE_AMPEREONE_LOCAL_CHIP_CACHE_OR_DEVICE:
+> +               common_record.source = ARM_SPE_COMMON_DS_PEER_CORE;
+> +               break;
+> +       case ARM_SPE_AMPEREONE_SLC:
+> +               common_record.source = ARM_SPE_COMMON_DS_SYS_CACHE;
+> +               break;
+> +       case ARM_SPE_AMPEREONE_REMOTE_CHIP_CACHE:
+> +               common_record.source = ARM_SPE_COMMON_DS_REMOTE;
+> +               break;
+> +       case ARM_SPE_AMPEREONE_DDR:
+> +               common_record.source = ARM_SPE_COMMON_DS_DRAM;
+> +               break;
+> +       case ARM_SPE_AMPEREONE_L1D:
+> +               common_record.source = ARM_SPE_COMMON_DS_L1D;
+> +               break;
+> +       case ARM_SPE_AMPEREONE_L2D:
+> +               common_record.source = ARM_SPE_COMMON_DS_L2;
+> +               break;
+> +       default:
+> +               /* Assign a bogus value that's not used for common coding */
+> +               common_record.source = 0xffff;
 
-Applied to
+For unsupported source value, just bail out and no need to calling
+arm_spe__synth_data_source_common().
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/1] ASoC: stm: Prevent potential division by zero in stm32_sai_mclk_round_rate()
-      commit: 63c1c87993e0e5bb11bced3d8224446a2bc62338
-[1/1] ASoC: stm: Prevent potential division by zero in stm32_sai_get_clk_div()
-      commit: 23569c8b314925bdb70dd1a7b63cfe6100868315
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+It is good to use pr_warning_once() to print out warning log to remind
+users.
 
 Thanks,
-Mark
+Leo
 
+> +               break;
+> +       }
+> +
+> +       common_record.op = record->op;
+> +       arm_spe__synth_data_source_common(&common_record, data_src);
+> +}
+> +
+>  static const struct data_src data_sources[] = {
+>         DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_A720), data_source_common),
+>         DS(MIDR_ALL_VERSIONS(MIDR_CORTEX_A725), data_source_common),
+> @@ -541,6 +579,7 @@ static const struct data_src data_sources[] = {
+>         DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N2), data_source_common),
+>         DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1), data_source_common),
+>         DS(MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2), data_source_common),
+> +       DS(MIDR_ALL_VERSIONS(MIDR_AMPERE1A), data_source_ampereone),
+>         {},
+>  };
+> 
+> --
+> 2.47.0
+> 
+> 
 
