@@ -4,125 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A71D35E5D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3744AD35E5D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 10:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQgl/AX8mMVE9EUDQBv/3f4z18FoWTN9mAKyzIZgOL4=; b=PEKQNpGQ7g7Auil4L1pG5hpHWT
-	2YUi4KD2RjgtKn+axcbgMWiMU+KTadhofSBgt1V22HzxRVlk2vzAGL8QmPVOhHaXasjAwtnd+Shn0
-	KZOvwv7OenPhFqE+fuehgaUG/KKUvY7PSPQ5YjUYqPGOB9nGOsyehbShblHjAk5rivPYwsRxAgPsI
-	/6CRsxdmVpu4Rf0MrkWVPr8uycjUYRXhgC6IpNdpAlVVmy/Sp3Rg6f/F4L8GUbMyvYCaKxX4XAKGk
-	Y84Qoxa9jTDnkKhl0GHrAf2AWn3a1goZJ5bUO8PTC+fLq0ZQ5v5JsIrpgB3R3q3nfi8obPuK9AnOz
-	zEcDBqSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=POcsNmLN0SCWlrTO0moi7W9PCblhnaTgmuDGBIJLrBY=; b=TB6X6pGLP0GgEQEOhe3jFVuoj/
+	LVrLZ/BtHp9Jnug+00EQ32fDA4s1o2BQuQ4wzsAAt6nRNKW3u++mPybthCbs0ayToNGPesjRCW0DX
+	UwTd37yfcMBSvpfdk0PU1nusle50gNztQz4Dx1O90KDPHEQlHY/puKvXkK1gIEqSy6aSY45R+b3ek
+	dqLdMTe7YGn4NSeXR3Lp5GCD42fWaa0Ua8Lz9FY3oPIrQpc/osGP+M1mnD7xUo3Bmlw2QN116pUui
+	JBTMXpTW2CT1kv6JmIeGNYjSnrVErpGUoxSQmiZBCcJYrYw/Om+bP48j5YS/WpPjjNDk617TtXmFA
+	HruYVHHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t908n-00000006ZMU-1p22;
-	Thu, 07 Nov 2024 10:53:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t90AV-00000006Zbh-1ve6;
+	Thu, 07 Nov 2024 10:55:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t904F-00000006YTl-3QCD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 07 Nov 2024 10:48:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nQgl/AX8mMVE9EUDQBv/3f4z18FoWTN9mAKyzIZgOL4=; b=oclIDQrwCc6yzjDej0Rfmy54Ho
-	kc4o+LWLDW8g8Wp7AYjCnTGP//ALE6l8vurXdA1Ie3ggxz9cfq+rVMMf+wMPglKRhdxZq04o0AUOz
-	bw5nV3Y/UWhY8gQu31KTSnCLsOmL06vEi9hdCDGEadrhXxRoPsnFs4uwRkwHintMQumuri7ZnBBYP
-	STv9zbapHdSW10cVuAr1PYwd5dkWozZtvBA2huowylo0AIVuPra0De73DYmi0r7s7hGSVBvK0hFp6
-	OwEv8fDEczL0MDjohT5/pihHAMUM6kyCVIiqcPf13eyfzYIV6+SR8xSF34xwW54FNt1qhRbibeEc8
-	cP7BGtwQ==;
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t904C-0000000C6pP-1irE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 10:48:46 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4314c452180so11062565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 02:48:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730976521; x=1731581321; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nQgl/AX8mMVE9EUDQBv/3f4z18FoWTN9mAKyzIZgOL4=;
-        b=mi4yDdAhP+cgNmBsG8YiLSnFsCemgDJnlEeasi6K743q/QEYkQILiJhUnFRdZZAV2l
-         biV5ABPpZgKGmXalccoTV/uQpfKp+T35FMrazeoLzhDe7qXVF9wCg9KQ1ksx3T2IRsRn
-         qA8uzC6v6v0e68guS4MJvE83wLQlViBq/XIxh4ZFETRfOtIXjy23ndlZWmHL0jy+uDUz
-         4H0+jZ6xspK4ZDxfjHCPCRyXHpE2xJJFUXrAworC8aNQFsBvgYVQdOip+CyGrytAXZEX
-         Tm3Bo9oX+JhuVkUEZN22gXcwK3AftvHivjNPdhI+MB+u6p9uga1ozUSHv3zRzVs5EK/e
-         zyww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730976521; x=1731581321;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nQgl/AX8mMVE9EUDQBv/3f4z18FoWTN9mAKyzIZgOL4=;
-        b=DtQS/IMTH05MnkE0Rm9HkQlGSXpXp/srmk8kcoO0w4DzwbPpG2zWRlWpHnXG6+t4W/
-         poTvE/kr/wttG3Q13DiC36rsPc9Kbi57omu6Lx7WmTk9/nNyjC4O3fBup3D2lFRmEeg8
-         p2zKxvpbHDzbrVpJs2tCoUt2mn+0MZbS1fS/5dMjeHTxn8tRNsV/eUHZBE9xvfWqo1KQ
-         o6aqtfYwDrp5drsdvWZS6ahOy35B9jmGiXTMs+N2vaQejZBx5YhxJqF5ByxNMFaznHEP
-         dCO8uLWOATQ4XHd/JA4Hw2KZZd3Sj3zRVoeqeElVOHtcvgg1KGba09NLgTmXbyAigG6P
-         kERg==
-X-Forwarded-Encrypted: i=1; AJvYcCWU+eqk3VJUJOxDcjRlGZS41M2V2OCdqxHAQUZt0OwjEyhjNBRwFW7Prr8i+c4SW7ar54QZVbaSNf9b4QQfgm/+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkQCc1yb/q/BktYZiDnnqcDCXoy1XJjYeLIy26GcxMvo5NbxqQ
-	Z257++90wrq8ax0M9ii0Fa4B7ySXAzI5E5W+eluto8DVvpY8OdV6D8nNEKgloA==
-X-Google-Smtp-Source: AGHT+IHB/YpX7yDBIiMKQf1XABXotq1JmIw871lEb1D2SOU7hMooBIqwLjF+jMYHMwzyvT2gdYzl5g==
-X-Received: by 2002:a05:6000:400e:b0:381:eba9:12c7 with SMTP id ffacd0b85a97d-381ec61f7aemr2189560f8f.27.1730976521502;
-        Thu, 07 Nov 2024 02:48:41 -0800 (PST)
-Received: from thinkpad ([154.14.63.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b054a5ccsm19688595e9.11.2024.11.07.02.48.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 02:48:40 -0800 (PST)
-Date: Thu, 7 Nov 2024 10:48:37 +0000
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v3 05/12] PCI: of_property: Assign PCI instead of CPU bus
- address to dynamic bridge nodes
-Message-ID: <20241107104837.pre7tgc3mdb7lyit@thinkpad>
-References: <20241104150521.r4hbsurw4dbzlxpg@thinkpad>
- <20241104234937.GA1446920@bhelgaas>
- <20241106143511.2ao7nwjrxi3tiatt@thinkpad>
- <ZyyDLaWsikcNw4wT@apocalypse>
+	id 1t908C-00000006ZFG-0hcS;
+	Thu, 07 Nov 2024 10:52:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1730976770;
+	bh=cnpp2TKMHv1gK8Yy2Zpt8olDnfx3n0TPEPZ9lucWymU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gHOmQb2gzrh17lPVK0V41gcSYPwvUfOVnvZPfNkDhFRD2ruZlgjqo2mqNiyqdLELn
+	 UedWM4hWzT0LGQetXp1QTN4MMTnp1XtrqcchepmWo4dI9M3hCMxfKwEDeCOIH9M/9z
+	 Nqu7SM6F/E49HialrekHtJFcr3TKvWgz4r2wzMWkAaA8D4+XtlKuTZKanrV76dx3GZ
+	 ZbXL/uyODk9XNtdOKS8cJJ5Z2JhiHbsHD2bY+fvl0oZuEOeurB/Tm4gzHAPgdv9NWG
+	 dyp8z2XjxfcUwjtdReLPNTKFe/kqgflUIuXeF2M3x5O23BpjNAdeC5r579cU7pzfxD
+	 iQoTKTUqohyDw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F330217E35DC;
+	Thu,  7 Nov 2024 11:52:49 +0100 (CET)
+Message-ID: <90fe898c-0352-46da-aee3-898cdf2b5d26@collabora.com>
+Date: Thu, 7 Nov 2024 11:52:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ZyyDLaWsikcNw4wT@apocalypse>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] media: mediatek: vcodec: support extended h264
+ decode
+To: Yunfei Dong <yunfei.dong@mediatek.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Nathan Hebert <nhebert@chromium.org>
+Cc: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
+ Fritz Koenig <frkoenig@chromium.org>, Daniel Vetter <daniel@ffwll.ch>,
+ Steve Cho <stevecho@chromium.org>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20241107074603.31998-1-yunfei.dong@mediatek.com>
+ <20241107074603.31998-3-yunfei.dong@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241107074603.31998-3-yunfei.dong@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_104844_693459_788F1E0B 
-X-CRM114-Status: GOOD (  32.78  )
+X-CRM114-CacheID: sfid-20241107_025252_415365_3906C7C7 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,71 +86,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 10:06:53AM +0100, Andrea della Porta wrote:
-> Hi Manivannan,
+Il 07/11/24 08:45, Yunfei Dong ha scritto:
+> The address end of working buffer can't be calculated directly with buffer
+> size in kernel for some special architecture. Adding new extend vsi_ex to
+> calculate the address end in firmware.
+> Adding capability to separate extend and non extend driver for different
+> platform.
+> At last, hardware can parse the syntax to get nal information in firmware
+> for extend architecture, needn't to parse it again in kernel.
 > 
-> On 14:35 Wed 06 Nov     , Manivannan Sadhasivam wrote:
-> > On Mon, Nov 04, 2024 at 05:49:37PM -0600, Bjorn Helgaas wrote:
-> > > On Mon, Nov 04, 2024 at 08:35:21PM +0530, Manivannan Sadhasivam wrote:
-> > > > On Mon, Nov 04, 2024 at 09:54:57AM +0100, Andrea della Porta wrote:
-> > > > > On 22:39 Sat 02 Nov     , Manivannan Sadhasivam wrote:
-> > > > > > On Mon, Oct 28, 2024 at 03:07:22PM +0100, Andrea della Porta wrote:
-> > > > > > > When populating "ranges" property for a PCI bridge, of_pci_prop_ranges()
-> > > > > > > incorrectly use the CPU bus address of the resource. Since this is a PCI-PCI
-> > > > > > > bridge, the window should instead be in PCI address space. Call
-> > > > > > > pci_bus_address() on the resource in order to obtain the PCI bus
-> > > > > > > address.
-> > > > > > 
-> > > > > > of_pci_prop_ranges() could be called for PCI devices also (not just PCI
-> > > > > > bridges), right?
-> > > > > 
-> > > > > Correct. Please note however that while the PCI-PCI bridge has the parent
-> > > > > address in CPU space, an endpoint device has it in PCI space: here we're
-> > > > > focusing on the bridge part. It probably used to work before since in many
-> > > > > cases the CPU and PCI address are the same, but it breaks down when they
-> > > > > differ.
-> > > > 
-> > > > When you say 'focusing', you are specifically referring to the
-> > > > bridge part of this API I believe. But I don't see a check for the
-> > > > bridge in your change, which is what concerning me. Am I missing
-> > > > something?
-> > > 
-> > > I think we want this change for all devices in the PCI address
-> > > domain, including PCI-PCI bridges and endpoints, don't we?  All those
-> > > "ranges" addresses should be in the PCI domain.
-> > > 
-> > 
-> > Yeah, right. I was slightly confused by the commit message. Maybe including a
-> > sentence about how the change will work fine for endpoint devices would help.
-> > Also, why it went unnoticed till now (ie., both CPU and PCI addresses are same
-> > in many SoCs).
+> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> ---
+>   .../vcodec/decoder/mtk_vcodec_dec_drv.h       |   2 +
+>   .../decoder/vdec/vdec_h264_req_multi_if.c     | 487 +++++++++++++++++-
+>   2 files changed, 472 insertions(+), 17 deletions(-)
 > 
-> Sorry for the (admittedly) confusing explanation from my side. What I would
-> have really liked to convey is that although the root complex (that is itself
-> a bridge) is the ultimate 'translator' between CPU and PCI addresses, all the
-> other entities are of course under PCI address space. In fact, any resource
-> submitted to of_pci_set_address() is intended to be a PCI bus address,
-> and this is valid for both sub-bridges and EPs.
-> 
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> index 886fa385e2e6..1e697bc810b0 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -17,6 +17,7 @@
+>   
+>   #define IS_VDEC_LAT_ARCH(hw_arch) ((hw_arch) >= MTK_VDEC_LAT_SINGLE_CORE)
+>   #define IS_VDEC_INNER_RACING(capability) ((capability) & MTK_VCODEC_INNER_RACING)
+> +#define IS_VDEC_SUPPORT_EX(capability) ((capability) & MTK_VDEC_IS_SUPPORT_EX)
+>   
+>   enum mtk_vcodec_dec_chip_name {
+>   	MTK_VDEC_INVAL = 0,
+> @@ -42,6 +43,7 @@ enum mtk_vdec_format_types {
+>   	MTK_VDEC_FORMAT_HEVC_FRAME = 0x1000,
+>   	MTK_VCODEC_INNER_RACING = 0x20000,
+>   	MTK_VDEC_IS_SUPPORT_10BIT = 0x40000,
+> +	MTK_VDEC_IS_SUPPORT_EX = 0x80000,
+>   };
+>   
+>   /*
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+> index 851a8490b828..d0aecd9621d9 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
 
-Sounds good. We usually have empty ranges for PCI bridges (1:1 mapping), so that
-also lead to the confusion at my end.
+..snip..
 
-> > 
-> > Also there should be a fixes tag (also CC stable) since this is a potential bug
-> > fix.
-> 
-> Sure. I think it could be better to resend this specific patch (and maybe also the 
-> patch "of: address: Preserve the flags portion on 1:1 dma-ranges mapping", which
-> is also a kind of bugfix) as standalone ones instead of prerequisites for the RP1
-> patchset, if it's not a concern to anyone...
-> 
+>   	inst->vsi_ctx.dec.y_fb_dma = y_fb_dma;
+> @@ -816,8 +1260,17 @@ static int vdec_h264_slice_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
+>   	if (!h_vdec)
+>   		return -EINVAL;
+>   
+> -	if (inst->ctx->dev->vdec_pdata->hw_arch == MTK_VDEC_PURE_SINGLE_CORE)
+> -		ret = vdec_h264_slice_single_decode(h_vdec, bs, unused, res_chg);
+> +	if (inst->ctx->dev->vdec_pdata->hw_arch == MTK_VDEC_PURE_SINGLE_CORE) {
+> +		if (IS_VDEC_SUPPORT_EX(inst->ctx->dev->dec_capability))
+> +			ret = vdec_h264_slice_single_decode_ex(h_vdec, bs, unused, res_chg);
 
-In fact, it is recommended to send fixes separately (or at the start of the
-series). So there should be no concerns.
+I wonder if we can use function pointers here, as I feel like vcodec is becoming
+a bit "full of branches here and there"...
 
-- Mani
+The rough idea is:
 
--- 
-மணிவண்ணன் சதாசிவம்
+/* there, or somewhere that's called only once in the driver lifetime anyway */
+static int vdec_h264_slice_init(.....)
+{
+	........
+
+	if (hw_arch == MTK_VDEC_PURE_SINGLE_CORE) {
+		if (inst->ctx->dev->dec_capability & MTK_VDEC_IS_SUPPORT_EX)
+			inst->decode = vdec_h264_slice_single_decode_ex;
+		else
+			inst->decode = vdec_h264_slice_single_decode;
+	}  else {
+		if (inst->ctx->dev->dec_capability & MTK_VDEC_IS_SUPPORT_EX)
+			inst->decode = vdec_h264_slice_lat_decode_ex;
+		else
+			inst->decode = vdec_h264_slice_lat_decode;
+	}
+
+	......
+}
+
+static int vdec_h264_slice_decode(...)
+{
+	if (!inst)
+		return -EINVAL;
+
+	return inst->decode( .... )
+}
+
+...less branches during decoding *of each frame* :-)
+
+Cheers,
+Angelo
 
