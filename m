@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBA3D4335E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B14D4335D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 13:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYfmjInTwSrf8wkLQDjO5520/3amtQeI91RgnNq7ubc=; b=oKMZrpFxHsHFe9UnQB3mPo1+c9
-	uQ1hAt9/sDLhiBvkd4dl1I/Cio90xuyqOE2DHcd/XVP4x1DvJVH6z+Ikeveph/uJexqgqvQYXV0CV
-	ddVcS4I8STQJvmc8MDTQE0D/M9aLt5CUb1k7IzacCcPLBPrHVvdq/5D2YTPRTuci8XoCG0H2v2zt3
-	uEvjDutY6V4T3JWIuqi42SdBAsfAJrBG5NI5tO5nm0hJ4qgS5HiA6ppQF2SZmdGxMqLD0klr6aNbX
-	GPKdYV6AlLvkdfGYtmYvEuWgUhr1CNJig1P7NrV25itUlmxYvsb9RkwzZsI8AvvgldTlMNn+zPwCo
-	sqBmrixg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=; b=i8RDZMlT5ocBGSqWTVEcCVT3ax
+	fS60Cyu8cgyquW2EjTexDSQ9ogQjeN/J+vOfxl9BO3pG2isOnAA9Q+KTlxeiWdbsrCIm7cdoMyWBa
+	vVNmoBEHD0fSRPAhYSFWRVY850nBkrCMdloSGdm6Y3OBCFITXa0KDyvruJg8NiXzFSQOwxk8t5q0V
+	szxPVVpRAZ7jdgd4b2G/ZiN+zNJIrKXCWyhP5syMFdvTL4AaK1XqeCsuD6y6bCbmtmwoya4MXQ9Cb
+	EtQ83E7Wnk2IzLzIcXa8ae4v5gBDmMoi7MMH3ImxK0jX3QUv34IuzMJmAFGBz6wVROURN9nlqehSR
+	6htzKf7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92qm-00000007AHh-0jVn;
-	Thu, 07 Nov 2024 13:47:04 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1t92wb-00000007Btr-3CXJ;
+	Thu, 07 Nov 2024 13:53:05 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92oz-000000079sz-2syq
+	id 1t92uq-00000007BTl-0M3T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 13:45:14 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-53c779ef19cso1086590e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:45:13 -0800 (PST)
+	Thu, 07 Nov 2024 13:51:17 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb587d0436so10360671fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:51:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730987111; x=1731591911; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oYfmjInTwSrf8wkLQDjO5520/3amtQeI91RgnNq7ubc=;
-        b=EbWiM0Rc5+b4JyMpt1bCcADaYcwNT+gUpA/mrIjQnE1W5UGrAtzsRz+F7MQPtXQ6Pn
-         ggmOhnm/koQQCNfr90BvjVmof+7njUegXyaiTsznQbFflJoMqIvPK9Xm2ct19xMB7t89
-         1UkOoQDjstmwYNeBw2yT3RdDs48HnVighe6+yDQL3bpHl/3dISaP8KZflIvuvlQZ29o2
-         LcLxbNLnBiTt3wdSOfGAAE3xwA33x2RYpR6dFCsoSQA9G/R/r2pzWfASAz/BYhe8tnpn
-         ezQkAKCsgj7k9wcyDwKukbewwmfJXjdGXyysYOd129X88qJ/JQNn+AwzHvMWi/qVpKc4
-         z5yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730987111; x=1731591911;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1730987474; x=1731592274; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oYfmjInTwSrf8wkLQDjO5520/3amtQeI91RgnNq7ubc=;
-        b=spLV3mSJSgGXou4zJspF0rVqTc3xiAMrYGXO2bgD691d6nUjMQa8W/9FITnaNwk8ec
-         nA/r1dGLyyVyCwAIl0l1eTBKSp08KA9tx8WOVTZsjk1IqL1ztX/CeN0hnQ4yzjj5C/T/
-         AECq/B7/tVJSZRd5QePifCyZBTJODbxAu5ktswQ5d/Niz2dGAQ3RWo9Tw/qDXviPrF5l
-         fOZgxKejAf1kZ7B15puFg5WRCibj0jhPnAi9s7y8huXfI6RiX9rKCMwysVQLXhe3dLNa
-         Rz7u6r1zSCJ5/SGIIrCG8LnQQG5cybT6puPbgEF3OWNRNHgF+V+mcQ0KgmwZhzV9blJ5
-         rvlg==
-X-Forwarded-Encrypted: i=1; AJvYcCU5Np6Z6rA9QQB3Rjh8hGj4dNDf/x/c7+naxlHPQggNlCQzB+F/3Uo0VwgudPSf30qtrfIno+lOOFPQhO7JGn4h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQZTravKkOVlbmDEQDMQDp+o8zh7f99z/feULaKULaIko6bjtJ
-	IgQ/glnHq6D8xZZ/wenW+jHx+n6toxUBrAfJSDesQzcBAw/inNB7ImrdbqGZGy0=
-X-Google-Smtp-Source: AGHT+IFl+p0mMdxu5dSXrUkocxo9piGoG3Bvth7m60W3yHUYwLPE2t5/+pSBydipp+y555REAJVHHg==
-X-Received: by 2002:a05:651c:543:b0:2fb:628c:2580 with SMTP id 38308e7fff4ca-2ff1e88880amr264501fa.2.1730987111409;
-        Thu, 07 Nov 2024 05:45:11 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff178f3ba1sm2202531fa.35.2024.11.07.05.45.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 05:45:10 -0800 (PST)
-Date: Thu, 7 Nov 2024 15:45:08 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: Re: [PATCH v5 4/4] ARM: configs: at91: Enable Microchip's MIPI DSI
- Host Controller support
-Message-ID: <6r4nna5i63eo7oo2xoclqxpuodbttvxceuwn2yl4to7aqti3md@i2wtdzhsj4fp>
-References: <20241106093429.157131-1-manikandan.m@microchip.com>
- <20241106093429.157131-5-manikandan.m@microchip.com>
+        bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=;
+        b=k+G8H4Uq0UFEkqUcl6sbGT/mNr1IsfSFCCJqK3sedCE9IGgeHyVMRS3JC79o5Aiq1t
+         FUqVytLlMHBfQb5t/HEyAxX1Pl8Ct9iq/FiCjUtFHaUvxhZ0sXJxHncN5CPDi/760CB7
+         P8G8/j/cb7xubYAzfGBWonuegYZLNd4Ac+jo0FEBYZyKecPLViEy3Y7+qPGpslFy/Mge
+         CN3BMf0DgaXqjbYEBYcMOT5yX+v0dTVSCaBuq9u7eL1ordbm02bNGZ2c7U+uyUuFNe3o
+         6N/U6f/xJN9S4Oe3LohcPCMtVnkTny6miFuLLoSEOaXQ/ciFcRqTT3mWRmc9PkVRO9le
+         o4Hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730987474; x=1731592274;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NcVjILp/caZepFFB60+3XLNmk+XNW05BoJNj51Dg95o=;
+        b=BvR440gCQVxfzHBdlNVaauCYgUmRhiY1+TQAOcQ4ddvAMDJoz+oz2idFQHj6Kvi2sk
+         QTrzC5pVvm6X/yVuctBtw/NBBgQ0JJZqH1NQUhtLWaFdcpuOPkFOqalSCxVaTou7Jaf2
+         dKWFu46X3ID/p1B8nee9/xmiNGX2uctS9it66mnvNDUSKYGrAXSoS2CpW31GSBTaEBGW
+         F4rY8ukuHP93KAT4LQf2/HtvZvJk9fwW9xEJCY2gX8K2SOlG3pQCejRAfpcT2r1gL6BK
+         uIU4mtj4POKJpQKjBXlTX/PcNV4tjtw9LI+qT1SIUSXwYwOl7foCN/aLesEXFFekCWK9
+         59nQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUfwJGOb8WN2z4mEqg1KTk7au4QAD3ScaFrE7CbW2J/GQo0SomE8mfRSV8q9jSK1gTTT8ING2Cr4ncPSSvTUrXS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKtvI9EmeulZjKNvQ+HKwdhjf9fsFTuL4IZPgFmAgUHjXQjQQJ
+	2i9D/faKCEVnIUSwsem1xxLpWsQPeG9LH4wN6+g2S4ygx3EHdcm6jmZWaTi941PGYJeEVwyLx19
+	6e/ZNFL00OMnw7OE6NHrdEa8HmF7lPAZTTgKslQ==
+X-Google-Smtp-Source: AGHT+IGiWq7PtiVgzCFFWXw5DpnT7owotNtkDOgrZOKmEF+j8eLRrqW6X8/sDWUO8xLANvzfCAOHbn0yaa5j804ukJc=
+X-Received: by 2002:a05:651c:1596:b0:2fc:ba7a:c97a with SMTP id
+ 38308e7fff4ca-2fedb83155emr127846251fa.39.1730987473829; Thu, 07 Nov 2024
+ 05:51:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241106093429.157131-5-manikandan.m@microchip.com>
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <20241014-armv7-cacheinfo-v2-1-38ab76d2b7fa@linaro.org>
+In-Reply-To: <20241014-armv7-cacheinfo-v2-1-38ab76d2b7fa@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 7 Nov 2024 14:51:02 +0100
+Message-ID: <CACRpkdZ8--4fKxT6+AbYSvTbA7-7EM_HutNVPT7yS90NN1r5nw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] ARM: add CLIDR accessor functions
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_054513_755003_0BCEBF79 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20241107_055116_143877_93F21484 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +91,18 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, dri-devel@lists.freedesktop.org, claudiu.beznea@tuxon.dev, Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, varshini.rajendran@microchip.com, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, rfoss@kernel.org, linux@armlinux.org.uk, jernej.skrabec@gmail.com, dharma.b@microchip.com, devicetree@vger.kernel.org, conor+dt@kernel.org, arnd@arndb.de, jonas@kwiboo.se, maarten.lankhorst@linux.intel.com, mripard@kernel.org, linux-arm-kernel@lists.infradead.org, neil.armstrong@linaro.org, linux-kernel@vger.kernel.org, tzimmermann@suse.de, krzk+dt@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 03:04:29PM +0530, Manikandan Muralidharan wrote:
-> Enable the Microchip's DSI controller wrapper driver that uses
-> the Synopsys DesignWare MIPI DSI host controller bridge.
+On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
 
-... It used on the board ABC DEF.
+> Add functions to read the CLIDR, Cache Level ID Register.
+>
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-> 
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> ---
->  arch/arm/configs/at91_dt_defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-> index 2022a7fca0f9..3ff89e27e770 100644
-> --- a/arch/arm/configs/at91_dt_defconfig
-> +++ b/arch/arm/configs/at91_dt_defconfig
-> @@ -145,6 +145,7 @@ CONFIG_VIDEO_OV7740=m
->  CONFIG_DRM=y
->  CONFIG_DRM_ATMEL_HLCDC=y
->  CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER=y
-> +CONFIG_DRM_MICROCHIP_DW_MIPI_DSI=y
->  CONFIG_DRM_PANEL_SIMPLE=y
->  CONFIG_DRM_PANEL_EDP=y
->  CONFIG_FB_ATMEL=y
-> -- 
-> 2.25.1
-> 
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
--- 
-With best wishes
-Dmitry
+Yours,
+Linus Walleij
 
