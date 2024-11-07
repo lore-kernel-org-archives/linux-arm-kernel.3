@@ -4,220 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43A1D43377
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E3ED43377
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZ/alzjkXRVhJbyU/UQMeY9dzEOt1z/ZPXPWZpB/Yhk=; b=0QgvpP2VmxF4sAm2ZsVgsX9RQz
-	fVxo1YRV4mx1ixAq5Jn4FwAitOoY4Pw/S1OUkl9ngHrVqwZhsKXHsF9s36MXFz3wVQAcI8bbnSrTP
-	C95g1nfh959bO4JyG0Hs+XwvbKgdL3owFlCi5vo/hYzNpYmIcWadJm6A/S5AROW/zRS6Gr72sC4/f
-	W+nrjxWxP+q6kjk0x0QNDfY3oELJESZ+00OtA3kFKDD4/lcJ9+QDUVGpODqMQc+s5dHPTy/tGPJH8
-	UA7wV3uoUli6I88j7qlT4h1KoH0flbFIQXdI4Zum7czJeqGNAxRt4vZdjYUe1HrOU/vj9QP3c26pI
-	rBIM6BTQ==;
+	bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=; b=4CbAAzsYay031b/gxK6EbvTZ9H
+	0Xrma7sGQJCDXgWLRUfqSvL29Un++7O0JFW7bw6v1C8aCtS8YDRYM79zUd3WjM1d6Q3Mb9DfQKC1e
+	PFEdDGF01P9TP82qcMjUtfHTEw8gc93A4tQoYODSXTv63ciFeziHtZRC18HnUj4GaQ0uI6NPDu36H
+	ePkYKrBtU17iXeFf6HuPuMnhJbMpCPFlxZByscxy7v6SMHkYlMid43+q/qn/MpGysi9j3sCzPUBOV
+	OtI0ahSOBr9/3yw3RXcmCIG1ng5Aip3gUbomgSg3wak/n0v5f0Nhe9dv7y9GqxNHVARwPXyn6P2SI
+	cyjNZTnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95G8-00000007bqS-2hSe;
-	Thu, 07 Nov 2024 16:21:24 +0000
-Received: from mail-vi1eur05on20620.outbound.protection.outlook.com ([2a01:111:f403:2613::620] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1t95Hw-00000007cDw-0AVG;
+	Thu, 07 Nov 2024 16:23:16 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t954p-00000007YUg-0m4i
+	id 1t955D-00000007YbO-1Au4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:09:44 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=XQBNgIDcqc71H6nfNsyCy9wAOMiAlQ98a8AUc1oij8y/uPcOFArlnrN75erdcuOnXGH8Qxe4sDWrdMpa7UgD1hRYWq4lNKdDwJUEjZmgDzH+/m4WrODP0YKOeInvHDGeuId1fb2cTGD6QFmWHHHxrxhcpJxvXIzmzRSJF7QCE2FRCGn7PawgkVxBmUrf3PXM2T+kPcrAyvix7p647LtyT2ssywSy7noDybV/lJpsPgOouCvZYBU/tgIKE4qehfYnQOLVkD3gGEL0yswAbnQcrCqBrWziNGOGlaOrUBYbbVny0gUM6XLV5udPf4Wd3zN3mTjqwEf5di9pxgoqi++mWA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tZ/alzjkXRVhJbyU/UQMeY9dzEOt1z/ZPXPWZpB/Yhk=;
- b=w0pfJKVB4tcyOWziUtqqYss/EC6w3zzFc95c2jRCWGrQReeGnDncJ0INOVAYXZDvkIjP79Mer3GfVo9F0ObwEExgACen1TWT+k/iBTY5w4CK8xawDJalDYZwpA/dhQ/9CHmXfj9g5i6cYz1AvrqwUn4Ljjly7DXN5ht0+3PJWa9EJLODa8MHdh6kWImZT/qEtQ0gypVxtf1wJTwHFmu1BWAG0azf8ZLKBajwUYFLF1Lq8GsgNVW5sS8Cb3Ez92CUWVpvLaqVdCE5isqsBnDxC7Av6tY+ZmIcweVFgc13VIQ4cbPviyYQpMVdkd2h9UpjUoOrZJBWwTxnp5Tm+VqpEQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tZ/alzjkXRVhJbyU/UQMeY9dzEOt1z/ZPXPWZpB/Yhk=;
- b=nZNWolRWhiTa4NrCUVQvV0rkSRp+2bU+ZHUispC3ljs4Cc9dEGpWHwi4JdZVS5nJ0lIgEK80HPa6SlsmFpl4YnsVIkaI+gzxyGR5UQDtadsMFhn127v2UcACBHj6aZhf1aEWL5bsAx4xPjs34qsi4Cm1dxhXS4zMm4M+oJASzs0=
-Received: from DUZP191CA0041.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::20)
- by AS8PR08MB8945.eurprd08.prod.outlook.com (2603:10a6:20b:5b5::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.30; Thu, 7 Nov
- 2024 16:09:34 +0000
-Received: from DB1PEPF00039234.eurprd03.prod.outlook.com
- (2603:10a6:10:4f8:cafe::4) by DUZP191CA0041.outlook.office365.com
- (2603:10a6:10:4f8::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20 via Frontend
- Transport; Thu, 7 Nov 2024 16:09:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- DB1PEPF00039234.mail.protection.outlook.com (10.167.8.107) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8137.17
- via Frontend Transport; Thu, 7 Nov 2024 16:09:33 +0000
-Received: ("Tessian outbound 8223600b7a9c:v490"); Thu, 07 Nov 2024 16:08:33 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: 573f6fff17491099
-X-TessianGatewayMetadata: 4HNeXTWXU6Akrp+qb97tsQiIN2nyXEpUHsNm/72iCnoMtr5UU+T3Ytl6EhQreN2xOHcfKIuQZ1ZoTqRtusWxWAq6OUiPZV1Zy1htG2Gmx57XPwvDjPcbYd8jPx7vl66NbQFYyg7GUoY/knpvvBP67GO2ZkZZd8ULCZt5pHY+Ajs=
-X-CR-MTA-TID: 64aa7808
-Received: from L2e95e45bda57.1
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id CBF47E2A-0E0A-4469-9404-D7318797DC7F.1;
-	Thu, 07 Nov 2024 16:08:25 +0000
-Received: from EUR05-VI1-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id L2e95e45bda57.1
-    (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-    Thu, 07 Nov 2024 16:08:25 +0000
+	Thu, 07 Nov 2024 16:10:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O9m3c+0tVFEz6e3QGwTnCMsM3CaPDsBdD5uxU4Pwhn2jJzMjauCDEErnGw6/cwlZ2/D5Og9ApJcPU7UB4rNJlZAsxZqOXrLw+LP4xNh1bqjposmyfZLZCXUusHlgouqKFWcTDwrNTnTc8WrCAIIDaSHmQlJnoRXUBmIQNo3SK82bNWOlZGz6nr8ZIwClXaLd6ftwVLTaBWGl/NYXIoIqKbS9aDrvUAK9K9+sHT77vL/UN4HpCUVWTeS82ThZHiV2Q0GbO0ZnB6kD6lNW+RwkawyRy9LVHZqueO9O6eg2BHLoNpBQnAvnAp11d43caiHdzkAnR+ePjFGsspkBznDJSA==
+ b=i4KaHqTaPQt834ofmxDNnOMNVQ1dKI+AJupfJo+TabCC3inh/jvHK34u20KyU8Owjopo7bvlDIrgYUYLt0gfLzN7LsJ/RpKLNeQ4AQkP4IPrvggMO8d/9nlgmgGlLeomV6KG7/GSaw296eI2E+JvxeUj+fIxV8pf7veJbSEwghx/hvI5k4yFLGyCGMPN3Whpk0Vwf6k1Sra2DVzFwLdFioDFGgpczfvf97O82G2BdjGkOysNG91+5xIXcf5wxCXedAZpn4wslFY03sF4YW96oB7d+2KbJW7Tmu67gbUMerte/H+A7AaukoTX0zs7xBtC2zooM9hLVtC07Riv0CxVHg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tZ/alzjkXRVhJbyU/UQMeY9dzEOt1z/ZPXPWZpB/Yhk=;
- b=JWp8RrmHHhjf23w91TijVpZgyeOA7ZQcBVQPIW/T5o6KbkU7XdPBGI6wLk9WB1zRnXI7OJaq5QA/HUhlhOy/aTLbcrjmqkwJ+8RGjYNAqIN7JyrAEJrrjXbhxg0WtPPLtnwMaSlOryMzpHfvBqeWSWH3v/29aq2K9BVmZ5YnJuz+bX3p3SXXh99Gm2g3Ls0fh2B3uaY7fXrfuFHZPdYQahXqcHFJv+X13ztmD06rMieVsRDp1VvLFvmqr8DTDk3alGR8k+Ss6c0L7uq5GKjJCPbD+apkFg/p42/bjplOyZbF504xEseN99+WVnr++DIoi5Vr8ziyZM+FFcKdMcQ09g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 40.67.248.234) smtp.rcpttodomain=infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=;
+ b=TVNCxqhpzvnxbGcQyiUWeC7AwLM9baXaBBVpmb+KaR+v49JzgMxDA+9FomlDevDluLXw+7Nkaitm+HwPS5MYPcZALuggMkE5mRIKUFSNgGWEZvoOBajz1JgiiwvALNYJooXuIYaAYMfXrJZ3L3JU9xdKbWNte2ADu6vhzmsX7fcHJfq2vV6cLGCnv/3yqR7QvHOnPeiHoSCGsJDSvk88DbYNmmAaJTbVN/mVJ/yn5pJlf5+fdKtlxdkz5JWRBLVa26tJ/1aCoED0hPGVS+sxXyz8XBuPHBgV2M1u5JnkhDAv8fUbzVZScsTplxolXHWBGD1MYcdvka2Jua8zYaPyIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tZ/alzjkXRVhJbyU/UQMeY9dzEOt1z/ZPXPWZpB/Yhk=;
- b=nZNWolRWhiTa4NrCUVQvV0rkSRp+2bU+ZHUispC3ljs4Cc9dEGpWHwi4JdZVS5nJ0lIgEK80HPa6SlsmFpl4YnsVIkaI+gzxyGR5UQDtadsMFhn127v2UcACBHj6aZhf1aEWL5bsAx4xPjs34qsi4Cm1dxhXS4zMm4M+oJASzs0=
-Received: from AS4P190CA0028.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::17)
- by PAWPR08MB10239.eurprd08.prod.outlook.com (2603:10a6:102:367::17) with
+ bh=ekxa2E/MJp/T6VV6vBEWa0FKkWLiS4MepydyaoKjTBw=;
+ b=Dc3RdW6wRo8NkmoMnuur7dQOQW8DOFH9UIcZ+uo1a3Quz/0Vg6upMTIG90W95br5Ev4EI2MmADCNNUAFZWz5DzNq1MMEWtPOLNV5dnZwJuP9IgTEIzvjH7BKe3+/V3C9bUKsWg31Dv74nHNDzRwD6EfmQJJeKEAF1+A5ZP72L6mVDnuvtZttG2MMJ6duS0LDXnIgEzg3QCgPx04h6SPkJAPc7YBx5R408rtX/YWkq+gvhkTk4OJyRgbBC7UuuD9kAU7+603t/OQXvQQarM/CSxDjHfNgNOJ8GKPNa7zu9/kZBs5oyxIEVX7SOZU1UY8JQXGSCoCR7AOXG81XGeqkgg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM7PR04MB6838.eurprd04.prod.outlook.com (2603:10a6:20b:10a::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.31; Thu, 7 Nov
- 2024 16:08:21 +0000
-Received: from AMS0EPF00000199.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d0:cafe::52) by AS4P190CA0028.outlook.office365.com
- (2603:10a6:20b:5d0::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20 via Frontend
- Transport; Thu, 7 Nov 2024 16:08:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 40.67.248.234)
- smtp.mailfrom=arm.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 40.67.248.234 as permitted sender) receiver=protection.outlook.com;
- client-ip=40.67.248.234; helo=nebula.arm.com; pr=C
-Received: from nebula.arm.com (40.67.248.234) by
- AMS0EPF00000199.mail.protection.outlook.com (10.167.16.245) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8137.17 via Frontend Transport; Thu, 7 Nov 2024 16:08:21 +0000
-Received: from AZ-NEU-EX06.Arm.com (10.240.25.134) by AZ-NEU-EX03.Arm.com
- (10.251.24.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Nov
- 2024 16:07:48 +0000
-Received: from AZ-NEU-EX04.Arm.com (10.251.24.32) by AZ-NEU-EX06.Arm.com
- (10.240.25.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Nov
- 2024 16:07:47 +0000
-Received: from e132406.cambridge.arm.com (10.2.3.22) by mail.arm.com
- (10.251.24.32) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 7 Nov 2024 16:07:46 +0000
-From: Deepak Surti <deepak.surti@arm.com>
-To: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>
-CC: <deepak.surti@arm.com>, <mark.barnett@arm.com>, <ben.gainey@arm.com>,
-	<ak@linux.intel.com>, <will@kernel.org>, <james.clark@arm.com>,
-	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
-	<jolsa@kernel.org>, <irogers@google.com>, <adrian.hunter@intel.com>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v1 4/4] tools/perf: Modify event parser to support alt-period-jitter term
-Date: Thu, 7 Nov 2024 16:07:21 +0000
-Message-ID: <20241107160721.1401614-5-deepak.surti@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241107160721.1401614-1-deepak.surti@arm.com>
-References: <20241107160721.1401614-1-deepak.surti@arm.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Thu, 7 Nov
+ 2024 16:10:03 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
+ 16:10:03 +0000
+Date: Thu, 7 Nov 2024 11:09:54 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+	shengjiu.wang@gmail.com, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: clock: imx93: Add SPDIF IPG clk
+Message-ID: <ZyzmUvMHQCZDKp9K@lizhi-Precision-Tower-5810>
+References: <20241107102008.3626023-1-shengjiu.wang@nxp.com>
+ <20241107102008.3626023-2-shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107102008.3626023-2-shengjiu.wang@nxp.com>
+X-ClientProxiedBy: SJ0PR13CA0024.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 1
-X-MS-TrafficTypeDiagnostic: AMS0EPF00000199:EE_|PAWPR08MB10239:EE_|DB1PEPF00039234:EE_|AS8PR08MB8945:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1e194c2-f01a-4700-975c-08dcff4691cd
-x-checkrecipientrouted: true
-NoDisclaimer: true
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB6838:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2accc5fb-c4bb-402d-0a86-08dcff46a360
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?xVdQLaGkhG4+9fxwBWBvjoM0NOiXnoKS3bQz5gbUNR0ixDA6lDgm/tGbae4v?=
- =?us-ascii?Q?TMIwwsPPbHTaS4phEez2htm9bdUVK3qwjTAxul1APTSeu/Om/QNZPA6lLvbr?=
- =?us-ascii?Q?M2sWXXXb8wGI3xXTioFRR0so7dqwKpUTaAPmopJg6gE5xfO0KA97VXi/MyfL?=
- =?us-ascii?Q?AwXqF8DHP+7XcCiK9GPPpMQ7Xu634Hr5x4IgfpVUm0JztynW0FpDfSkrNoMk?=
- =?us-ascii?Q?Mq94nQ0lsu7kj7ZBd+FRdKZE4ntFF/1/KXt3hlXJ3kBu3sGE4SDH15YM34lZ?=
- =?us-ascii?Q?dEid+75y20XUccdVhesuEReKD/BuiYd7esvRbo2xSolQVMDe8DQc7NW8XeII?=
- =?us-ascii?Q?lN+s1unuFV6PdidP8yC2lVNmvUqYogltXHH/g+fAV5HiF2DM7qagkzgR0MNi?=
- =?us-ascii?Q?+xce4h4b02wSgLxy2x0cFw+1T1Mng7m5XEu+wV4uYxOLvzc/HwCTcS42Ldfo?=
- =?us-ascii?Q?bwE0ulIKvY7eWleYcSDpUVqZtyIePl/unMlc9QYPLvgc/nJ7Pox65MsP8/lf?=
- =?us-ascii?Q?1Ub7yzxlshCtYM1w1c5TRJxvraOS6fgdghuMFWYbGaJFREkU+LnBtE3g3RI1?=
- =?us-ascii?Q?Q0HPprkycEyUiRpjVtKByY4OnKedBosjLOubTAKjehdlDx9tOK3cHkJg6PD1?=
- =?us-ascii?Q?fFtEpzVi1PVdXo710buvSYjLIzll1ElsXm011mNSWISZbgO5PQV0ilnHMUHP?=
- =?us-ascii?Q?gR/eM+jMKlL+8ZKOYKvSyK3T+aoBmx+373/qYFXR3GVKC05mG5nqUeJT4VKH?=
- =?us-ascii?Q?4Puto0lnonMj5b1lqvbg1d+Waf+2mw1oUj+0GJ8iULTnf0jYpeRtlH8IEln8?=
- =?us-ascii?Q?pK33VgZH7LpANFhvIQmi88xi74Vku32/FHSMm1LgQMo/P5BdopgZr9cIF0IQ?=
- =?us-ascii?Q?MfHo8R+dptoZRhXTYUl3gkKkRiZQZ0sICvwvAJYDp35d/PUEgGDKEKnkYhi2?=
- =?us-ascii?Q?YNrh/JI5xfK0wenaLXBEqQ/LgT11BW+vZSWbdGdLTf03JOpepRYIe67NN7By?=
- =?us-ascii?Q?uyDh15HTNZuPz5pSnDgdSPzkzd9mVePgFdZM/8Xr0ebjWv/qot7Txb/05YzY?=
- =?us-ascii?Q?qMwfUYH/XurOlXZrdONpvJkIt1AuCyw3SmiEYgewDCIiyHBBcg9+Sjxbb4Bs?=
- =?us-ascii?Q?1maL6pvweH454XZFZTkUGVBgyfcYFswPgS7qoBnjjaiaWzy860LHs5PeaPdg?=
- =?us-ascii?Q?w9f2nR6iHzpC1LaseiJZ46b7jLIYq99D4jE9XUoQ/oxtjsGHrtSHhsOnfguc?=
- =?us-ascii?Q?gFMDrDFwCS2EKRvw96PaHuUl7Pc/jiWofNIgYt0/5SZtR/THK2094L6FvKA2?=
- =?us-ascii?Q?ENy6zg4+e0kWCAM/2m/MR1yPQqIWQKHIZx1cvgoOFVOh3ei5q//ftgje0lG0?=
- =?us-ascii?Q?Npoqaa8ndJSq0+Gpsa4sjJdDEEz4sdW0mWkHAgK2fesY5tEUXQ=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:40.67.248.234;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:nebula.arm.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10239
-X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:20b:5d0::17];domain=AS4P190CA0028.EURP190.PROD.OUTLOOK.COM
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF00039234.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b81b87fd-2e59-48b8-3a72-08dcff466688
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|35042699022|1800799024|82310400026|376014|14060799003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Qz69eaf5j/sUMLBXypMpo9yZBP3be/axJLRPXi7IAbo21ElwQ+bSHQiyIPjW?=
- =?us-ascii?Q?WEJo0rXWqBMq/P1Lw6K26vOGGbyln1gTZjVL7fg1JK0RSFyWTHvHrTteQXz4?=
- =?us-ascii?Q?LsVYFBnFYQvkPfM0RwScssQTDMTjs4a7Rk3r4Wz1HaAmBDaX2jA/+vD6LN8a?=
- =?us-ascii?Q?M34Ju5IPT/zDb7FRNl8CRyGgTMyzyPiRMUwDuA0BKSdUB2mP8tmaXrTslIm9?=
- =?us-ascii?Q?TxgekxsZk0tWTk8D6G0ZfPy+j5lkmxcYO/ibEwrANjTDTpAZN4JQ3QVvTGHo?=
- =?us-ascii?Q?TDO3COXLs8rsB5DazeKuhKvwf4cM6orNmkZxibjoWLdxkLbdk8Dp0TLwP3AW?=
- =?us-ascii?Q?GuA+YMpK7oh76ob7v6Fk9onixIZajLSpsvpJH8YnIvEeAfnoxhO95Crop4UW?=
- =?us-ascii?Q?IsiMqBtivQISbg12G+VyOgQZZha0yxnHyxMyv8j4bhxnLduh2BwJHTkF7UR1?=
- =?us-ascii?Q?dRbWGM9EFIbzn3xY/T+wyDAAhBcn4LSa+f+h/s5goek+wlOQJ8dHZiwe9u4s?=
- =?us-ascii?Q?Ixr4zgyqWlm3jpGPPUUWc8GEtObotwhAoZfcqIFSBmoqS29DkdI7kWu7l3VH?=
- =?us-ascii?Q?DI301fmgi6Xexvqv9z4xmy+xk4+Q/IDKN1ViPbdC+MjAGHDhku1hyoqxrpSe?=
- =?us-ascii?Q?eKReu+WynKknREI3n+4+WBtlIFlT9L06Y5Yl0MzEaUURL3dWrYdmKoN75C9E?=
- =?us-ascii?Q?j6aQala+pBqbF38KT5+NGYEYkWhqEbwd0R8a24gVyV2LOMlE6q39/J26DT8a?=
- =?us-ascii?Q?ybcax/U3FJNJ3zU1vL4bRdtRWePy3zG/Oo6imyFVCGcxJTnBdZihE0v0ih3Q?=
- =?us-ascii?Q?bQLj7vUePhd5cETviNJbsKHoCVF+PgtK9/S3La+t1W+/fdNp4Ci+xZtgqNCQ?=
- =?us-ascii?Q?L05ySh9N4KugOMA0hnA5aN3v9QA3aE9Sk+7URpZ7oVeYQTSHi2WvLmsNMo1U?=
- =?us-ascii?Q?kr8vXUTD5XxkxsFdnFPQ6fpXyoNZZ2Uzt066YbBjnPrNBX4T+alJluT6rNPM?=
- =?us-ascii?Q?ZUoVZZzGlbLoHcg64hF2q5g5xTMzdL4OCBM5axWj1/K8BiTdg5YLjql/Jgnf?=
- =?us-ascii?Q?0NRpx85YPxgdmPuttV5f7yREEhGBDlsyMTr8enofejtFA7l02aDopNapAh/n?=
- =?us-ascii?Q?8eGpQCcUhT75mYZkPShAxU9n5OPd6CQi12L/NSKPrz9P1R8rTV+O2QYb+UWb?=
- =?us-ascii?Q?GyTYlaT1d1aq2DJc9CMSo6qKZ8pM+7d1ychaerNbpX0FjCCeMJ6+I8aclReL?=
- =?us-ascii?Q?HvVGxIMIxonSJoMCu/cg+zOREX9Ah1rd098n6XwcWBhgHPxizEhv9v5JgJD2?=
- =?us-ascii?Q?epR6++W5znT1rKjKbKzYCe/va2yYNZC8yUoPcwKtazeu4eZtG3YLClIa39Ox?=
- =?us-ascii?Q?MciitdVdb3egZYhBBknhp67aI6yz+LHmhujrxwvN+PJPb1kS7g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:ec2-63-35-35-123.eu-west-1.compute.amazonaws.com;CAT:NONE;SFS:(13230040)(36860700013)(35042699022)(1800799024)(82310400026)(376014)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 16:09:33.8575
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2yzfzacvqdP5wC9Xu6A7mk6sh54ZKcaxzAiDKQtFa4xwYNyJgl5MP2StCHQZ?=
+ =?us-ascii?Q?p0ODn7oCAcjAK6PCSSAjNDAhvVMGisiWVRmNDWNFiRE/9Cmz1+g0cR/XEofu?=
+ =?us-ascii?Q?Ay7YOOxhd3q4fhafg2ZQx3owZx6IofimWNN8dy44EtNivDTpPfUnjMGREqkS?=
+ =?us-ascii?Q?yMQ9BfCv9CjbuU0+KpPAgK/DEUU8JfqRVtP/G36FtLrmF0WoE6KtDb8bSlT3?=
+ =?us-ascii?Q?I7gRPR/FskbyIAkyYBfgdlXQ1OKwk3zAYZhOsjS0L/p6z6NU6+t0rYd8bXcI?=
+ =?us-ascii?Q?2o5aE4TcpHxNRxHBRibC5+kRInLWN86bC44IFpVSW4j/zbRiZks2oCBuGF58?=
+ =?us-ascii?Q?2JuRjVpyfJA54MPKCIXX8wV0YxEkMQ5XLRmpHHEO5a6AHwF87z4V+EkgwuBm?=
+ =?us-ascii?Q?nAyd0HvolW6eCs5JM7T3xvKZRwxNLyJREDmIaLG3M2whLUxDN6VF5ZSbCmiz?=
+ =?us-ascii?Q?xGuSBVI6R9HyuxzdGDWdq2Y/rfYlLC8VnksqAEqqus8APDBmEqDj4ZWdriOu?=
+ =?us-ascii?Q?Q2la1t7cR2EVESIHXE8dfAw1bUd9JC8D+JDENfE0hiQwF0XQ1PGDb4wYhYMp?=
+ =?us-ascii?Q?Zz7SBDyq8r+RF/lkaoQGb53M6Q3j5JyWXrg18L5QX+y8T9DoxDytygUArRzx?=
+ =?us-ascii?Q?te6FqCmyuKaqI86Tsu4C1ozzxqFoRtbH0X4cywhYzUT7wl8+izhfIvELMH+7?=
+ =?us-ascii?Q?/zZFuaRDYW3f5Spfmlic2ZwhOrxwLVJRFAfuJADCFTEU1bYo1gfYfo7uvdBu?=
+ =?us-ascii?Q?V8u01agWkHEL5Iy67BBJCeezTY4t4W7WByCVQJTMkO4ZbWZeiEtyWDfGw8iC?=
+ =?us-ascii?Q?QPs5jMP+xnLVD0ubZHxMwKQlQPv+glzFeTSC5VI//tpnAjVUHlDIMB04E0mx?=
+ =?us-ascii?Q?0gbLtS1AsqbqJq8ZG/hKYDwnnIbZ4l0/xaQC+h0jjxnI+KwH/q/t3h+DMq/P?=
+ =?us-ascii?Q?lZEhqx+CbfeL9glYxqJIxY6bQYh7aiPQrx9E+Bgy+EVNyREXs/L7cMn120g2?=
+ =?us-ascii?Q?anm5O1Hsj43/148JgRO30w8ZmaXlBPiIIJJKGWKaJlzWcSroTA1mCFiYmFZs?=
+ =?us-ascii?Q?NHHJKpxw306AEw9uieNvN0juffTLUbV9Ed8GCzMiTnej2iF/2ufugaSItuVY?=
+ =?us-ascii?Q?GAQpOHTckBWtCsraXu+xOl57v8t/o7FR7RSGf5pPN/w/220+xn1WuD/ZKgu6?=
+ =?us-ascii?Q?HP8NvVffTxM+2c2kICYTZp29Bcur2/28GFT1RGkvBx+Ffk1+6lOeLUdzWK4b?=
+ =?us-ascii?Q?UxpvbYxrEbDXeC2Qq1xgW5qiP/NN/26N1/jxuQFii4cdQ9BVgsNl4ymfEsZb?=
+ =?us-ascii?Q?Z6C64fPWY1+8EEUve4ve1wvIeLvD+I3pt2+5IjULvJvxPqGvDfB7YZ27b56C?=
+ =?us-ascii?Q?UVxZ4So=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wbhrm+YAumYGH/LN9NNoKvjESIwHfg6CMkUBhYKXI/uHOaFxrzDYj+4ffYBI?=
+ =?us-ascii?Q?00DYfniAjHiPTCn0uXGI2OJh8RK8caL9BLDNhdmE1uN8Rux2xUlf/YMg3Kv3?=
+ =?us-ascii?Q?CTFjrxCOYr4syF4j5VKIeZ1fiL1PDNJGYZqrds2GZHRZf48ZNgYQ4G1eTlS6?=
+ =?us-ascii?Q?yObIo74NKgAKrEe+L1Nq5J3q2TvQnJMiAWRyk/a2P9mD1eoG0iPwXo6QLLau?=
+ =?us-ascii?Q?1TdxIES2qMjgrxcbkHn4F8dXGRX/pbehRI3X+LxSWzI0tDix2ZFM6BNHM4YD?=
+ =?us-ascii?Q?D9c+l1HT9giMq8zUPm5ttfAvnwXYnS/uHJPY+V/B8FE5B/C8+qXs4RchcnS2?=
+ =?us-ascii?Q?PxSWEqTVMuIzMwuEk4K4FfSS1RW2sBdKN7rdYPsvmv6nNuhS1LgJVaXET7bA?=
+ =?us-ascii?Q?CmUv5LUadA8z1520X5qDRThu89oU6L2t5t3mimvW8KiGuX+aaybzVUBJUFui?=
+ =?us-ascii?Q?Q9Hj08t8h9nyUeKenE7WRi/qqKqz8fTLp5etBdXhMH0oq9E7GM06tWElT/dn?=
+ =?us-ascii?Q?FT1tPY3QyhAsSjDmTwOmQxMZSQt2kw6awMyRG3FZPF7gtfvFuzqivCfbzWO+?=
+ =?us-ascii?Q?WVqjD8EDV+YhFI3Y0vc1QPHR9iVPtOqoLfr5ek6+vnc4YiLDrt5WSgUwYz9x?=
+ =?us-ascii?Q?V33cdOrS0irQ13ecqS+EbVMTKrD/ZGxnRDVlXWJvf1KBTkHp8q9I18LZ/Zmz?=
+ =?us-ascii?Q?QZtZDEclUYJJwXPIpKU/oC/R3AvOiA6jzQmRG+FQEywNBayrv82y4NG9Lsbv?=
+ =?us-ascii?Q?9YZRz895qdlKwCosqcrYK9qBbCUzdJEi70xr1RCHKYryGMTNO/f5+avqlTfv?=
+ =?us-ascii?Q?hMN69NPNpXCI8kuRF5xytCb4YIHHaEWoYYcFc3YWO/ZqbFfF7sTFpwyYHBPp?=
+ =?us-ascii?Q?kWO1BWyKRIkdr5rLtb6OTgOEovgaVNNHDRiRGK1MQT6eM10gUFZN22XJAynl?=
+ =?us-ascii?Q?7qY0pGLeRvz20AVlocPBZCD5GDKgH8yCCbcEi4mLc0LSFPnnfdcGRA1v+W5P?=
+ =?us-ascii?Q?oPrazIU0wz8Pumu+aZldPwdFgrnuLyg5lZvEwCBhcC8l1Ix91J8MN1VHPcTQ?=
+ =?us-ascii?Q?4RiImHBTMgxz/ONQ/6ZeGyl+80HyziaCfT1+roQXa4VmQzs0abmBDtUgUbz3?=
+ =?us-ascii?Q?jyp352VhIt6vsOpgPja6q4KLtkNjsDOtsVZjLjkNPE/NqAHN869VgaJV07AV?=
+ =?us-ascii?Q?3H+OzPRvneUYsRRMqtQcbSM2D1d/bjJIdGWp0PCeD4WLCWsKqXImh5IGgwJ0?=
+ =?us-ascii?Q?mxPl5ocBCgTer/hE7PdoPxmEmzSJyhiADdZh37YQ6GZf5wHwjEr3MSHXREf8?=
+ =?us-ascii?Q?NmnLepx3V1Q3fj5lfMMYbxjZxRuP3AFseGG29IuICJNZ3n0MeszI88mLkM5K?=
+ =?us-ascii?Q?beAKgu88z98cxlqmZmM94c3du5MZVztsj+g8R18XcGMh9sqzdKAuTw+yQyBj?=
+ =?us-ascii?Q?hwrvHe/aEry76k0Tt2wX1CLh3fcwmU/XmjmgEZgzpeUX1vH4AO5BsmlajRN5?=
+ =?us-ascii?Q?pLYokQ8dcBSYS/D3YpIA5o6xzvFJrfFTxcU7WNe+zVKdV/7f6Ok5HAGnDRtb?=
+ =?us-ascii?Q?5ps8/bNr0hOiu0SYlpvXwJ2FXzvEZNDil5OMlrh4?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2accc5fb-c4bb-402d-0a86-08dcff46a360
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 16:10:03.5204
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1e194c2-f01a-4700-975c-08dcff4691cd
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00039234.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8945
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FbDHxGTQ9Ju/qus7WPvUDUmZKnVxvHSYbtLGe6vjtCNz1n4hQU4LLmv7L2i3+lCi3Y3bpfrUuAX36RfbyZ/2lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_080943_408293_8742D8AA 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_081007_366578_F2F20E60 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -232,245 +160,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ben Gainey <ben.gainey@arm.com>
+On Thu, Nov 07, 2024 at 06:20:06PM +0800, Shengjiu Wang wrote:
+> Add SPDIF IPG clk. The SPDIF IPG clock and root clock share
+> same clock gate.
 
-parse-events is modified, adding the "alt-period-jitter" term which
-can be used to enable random jitter of the alternative sample
-period.
+nit: wrap at 75 char
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> ---
 
-Signed-off-by: Ben Gainey <ben.gainey@arm.com>
----
- tools/include/uapi/linux/perf_event.h             | 10 +++++++++-
- tools/perf/tests/attr.c                           |  1 +
- tools/perf/tests/attr.py                          |  1 +
- tools/perf/tests/attr/base-record                 |  3 ++-
- tools/perf/tests/attr/base-record-spe             |  3 ++-
- tools/perf/tests/attr/base-stat                   |  1 +
- tools/perf/tests/attr/system-wide-dummy           |  1 +
- .../tests/attr/test-record-alt-period-jitter-term | 13 +++++++++++++
- tools/perf/tests/attr/test-record-dummy-C0        |  1 +
- tools/perf/util/parse-events.c                    | 15 +++++++++++++++
- tools/perf/util/parse-events.h                    |  3 ++-
- tools/perf/util/parse-events.l                    |  1 +
- tools/perf/util/pmu.c                             |  1 +
- 13 files changed, 50 insertions(+), 4 deletions(-)
- create mode 100644 tools/perf/tests/attr/test-record-alt-period-jitter-term
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index bedae424ba36..16dbeea5803e 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -461,7 +461,15 @@ struct perf_event_attr {
- 				inherit_thread :  1, /* children only inherit if cloned with CLONE_THREAD */
- 				remove_on_exec :  1, /* event is removed from task on exec */
- 				sigtrap        :  1, /* send synchronous SIGTRAP on event */
--				__reserved_1   : 26;
-+				/*
-+				 * jitter_alternate_period:
-+				 *
-+				 * add a limited amount of jitter on each
-+				 * alternate period, where the jitter is between
-+				 * [0, (2<<jitter_alternate_period) - 1]
-+				 */
-+				jitter_alternate_period : 3,
-+				__reserved_1   : 23;
- 
- 	union {
- 		__u32		wakeup_events;	  /* wakeup every n events */
-diff --git a/tools/perf/tests/attr.c b/tools/perf/tests/attr.c
-index 956b58c7ba8f..7fb5d1d0b0ab 100644
---- a/tools/perf/tests/attr.c
-+++ b/tools/perf/tests/attr.c
-@@ -140,6 +140,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
- 	WRITE_ASS(sample_regs_user,   "llu");
- 	WRITE_ASS(sample_stack_user,  PRIu32);
- 	WRITE_ASS(alternative_sample_period,  "llu");
-+	WRITE_ASS(jitter_alternate_period,  "d");
- 
- 	fclose(file);
- 	return 0;
-diff --git a/tools/perf/tests/attr.py b/tools/perf/tests/attr.py
-index 75c4527393f9..ecab8e69418f 100644
---- a/tools/perf/tests/attr.py
-+++ b/tools/perf/tests/attr.py
-@@ -92,6 +92,7 @@ class Event(dict):
-         'sample_regs_user',
-         'sample_stack_user',
-         'alternative_sample_period',
-+        'jitter_alternate_period',
-     ]
- 
-     def add(self, data):
-diff --git a/tools/perf/tests/attr/base-record b/tools/perf/tests/attr/base-record
-index 403de2e2c891..39a7228612c2 100644
---- a/tools/perf/tests/attr/base-record
-+++ b/tools/perf/tests/attr/base-record
-@@ -39,4 +39,5 @@ config2=0
- branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
--alternative_sample_period=0
-\ No newline at end of file
-+alternative_sample_period=0
-+jitter_alternate_period=0
-diff --git a/tools/perf/tests/attr/base-record-spe b/tools/perf/tests/attr/base-record-spe
-index db528d7d8b73..b228cd98cfa1 100644
---- a/tools/perf/tests/attr/base-record-spe
-+++ b/tools/perf/tests/attr/base-record-spe
-@@ -38,4 +38,5 @@ config2=*
- branch_sample_type=*
- sample_regs_user=*
- sample_stack_user=*
--alternative_sample_period=0
-\ No newline at end of file
-+alternative_sample_period=0
-+jitter_alternate_period=0
-diff --git a/tools/perf/tests/attr/base-stat b/tools/perf/tests/attr/base-stat
-index 27ef0fa1386f..d9057d780262 100644
---- a/tools/perf/tests/attr/base-stat
-+++ b/tools/perf/tests/attr/base-stat
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alternative_sample_period=0
-+jitter_alternate_period=0
-diff --git a/tools/perf/tests/attr/system-wide-dummy b/tools/perf/tests/attr/system-wide-dummy
-index 5c4d2a60931d..4d80542c3a68 100644
---- a/tools/perf/tests/attr/system-wide-dummy
-+++ b/tools/perf/tests/attr/system-wide-dummy
-@@ -51,3 +51,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alternative_sample_period=0
-+jitter_alternate_period=0
-diff --git a/tools/perf/tests/attr/test-record-alt-period-jitter-term b/tools/perf/tests/attr/test-record-alt-period-jitter-term
-new file mode 100644
-index 000000000000..cda28c1ec8dd
---- /dev/null
-+++ b/tools/perf/tests/attr/test-record-alt-period-jitter-term
-@@ -0,0 +1,13 @@
-+[config]
-+command = record
-+args    = --no-bpf-event -e cycles/period=3,alt-period=2,alt-period-jitter=7/ -- kill >/dev/null 2>&1
-+ret     = 1
-+kernel_since = 6.11
-+
-+[event-10:base-record]
-+sample_period=3
-+alternative_sample_period=2
-+jitter_alternate_period=7
-+
-+freq=0
-+sample_type=7
-diff --git a/tools/perf/tests/attr/test-record-dummy-C0 b/tools/perf/tests/attr/test-record-dummy-C0
-index d4f0546e02b6..0f3360c35a5e 100644
---- a/tools/perf/tests/attr/test-record-dummy-C0
-+++ b/tools/perf/tests/attr/test-record-dummy-C0
-@@ -54,3 +54,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alternative_sample_period=0
-+jitter_alternate_period=0
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 48723cea3a51..d3a4f52a7644 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -827,6 +827,7 @@ static const char *config_term_name(enum parse_events__term_type term_type)
- 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
- 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
- 		[PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD]	= "alt-period",
-+		[PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER]	= "alt-period-jitter",
- 	};
- 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
- 		return "unknown term";
-@@ -856,6 +857,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
- 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
- 		return true;
- 	case PARSE_EVENTS__TERM_TYPE_USER:
-@@ -1010,6 +1012,16 @@ do {									   \
- 		}
- 		attr->alternative_sample_period = term->val.num;
- 		break;
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
-+		CHECK_TYPE_VAL(NUM);
-+		if ((unsigned int)term->val.num > 7) {
-+			parse_events_error__handle(err, term->err_val,
-+						strdup("expected a value between 0-7"),
-+						NULL);
-+			return -EINVAL;
-+		}
-+		attr->jitter_alternate_period = (unsigned int)term->val.num;
-+		break;
- 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
- 	case PARSE_EVENTS__TERM_TYPE_USER:
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
-@@ -1137,6 +1149,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	default:
- 		if (err) {
- 			parse_events_error__handle(err, term->err_term,
-@@ -1269,6 +1282,7 @@ do {								\
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-@@ -1323,6 +1337,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index f1482361321a..9b9649da1932 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -80,7 +80,8 @@ enum parse_events__term_type {
- 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
- 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
- 	PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD,
--#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD + 1)
-+	PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER,
-+#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER + 1)
- };
- 
- struct parse_events_term {
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 1972a5a696ef..c22e64407d64 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -332,6 +332,7 @@ aux-output		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT); }
- aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
- metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
- alt-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD); }
-+alt-period-jitter	{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER); }
- cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
- stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
- stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 7615d05e389f..c7a5ee61c436 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1739,6 +1739,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
- 		"aux-output",
- 		"aux-sample-size=number",
- 		"alt-period=number",
-+		"alt-period-jitter=number",
- 	};
- 	struct perf_pmu_format *format;
- 	int ret;
--- 
-2.43.0
-
+>  include/dt-bindings/clock/imx93-clock.h | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/include/dt-bindings/clock/imx93-clock.h b/include/dt-bindings/clock/imx93-clock.h
+> index 6c685067288b..c393fad3a346 100644
+> --- a/include/dt-bindings/clock/imx93-clock.h
+> +++ b/include/dt-bindings/clock/imx93-clock.h
+> @@ -209,5 +209,6 @@
+>  #define IMX91_CLK_ENET2_REGULAR     204
+>  #define IMX91_CLK_ENET2_REGULAR_GATE		205
+>  #define IMX91_CLK_ENET1_QOS_TSN_GATE		206
+> +#define IMX93_CLK_SPDIF_IPG		207
+>
+>  #endif
+> --
+> 2.34.1
+>
 
