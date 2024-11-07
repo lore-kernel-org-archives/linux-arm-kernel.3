@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D39DD5D693
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29659D5D690
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fS4eYbDYlT6ZjxYCs7YFPGo/Zn24dUoWIUuzZbUwo90=; b=uiIWFwpVtMY2Y2FRmNremlF8Ik
-	P0Y/tOb05Yi86cZT0j6XsaVbP5iBhPNJl3+CqgpcRYlzsqUTeNr6MhIvQrz0wMCdgsmt9Js7sB6/v
-	2LsibOMcgCO+HLxXCpmnmMCpJJU3RhUoNaYHxeJu7z2xD+/aRmiyX6L30KG0o0RS4Vp7bovudUIy2
-	uojUNmOkJNo/1jzK7kc5hGH0AGuQujNvWUhwrW+j3w/dlJ3Bxixuvc0jjmOn14rt2LDjPxcoItgLi
-	v5Sb68ULCisqAEeJ5ZigWk82xMMKQ28+bk+DWEdhIFLcRaDZIDKWb3HvMljWjmtQygiRAqysSt2mE
-	NFFY7Q2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
+	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
+	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=; b=WQTH03/9gbXbb35rVlXpY4OdkR
+	iO29TU9QkU3dRUc7FUgSnOGpOdC9L9CggOXqQaWL15WkY5AT6dObMIIRTl11uv+aQG/SySlU9BuM4
+	Eqc6iho57psxrCHZjdzur3MCih2rOTg3ln0WIuGwOsjo4z1wuL6Y0jCQEPCQ+XXeAajLgi+iVy8o0
+	TDcx2OnXutr+VFyaF9Dx5v+T+PNQ7q0WwLAmMkghagmdCT2kazGrakhhSHVqYf9v10ELAwVg7HsK6
+	EqK4Bqt3cV7fkbakgIVK4sNAx5qATLrVLj/exwtCqfEzmnHC9ETkolvLg5zb1FvprQZhFll9awO2H
+	gVcYh4lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9AQR-00000008TRP-3r3t;
-	Thu, 07 Nov 2024 21:52:23 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1t9ASv-00000008U0M-46Uz;
+	Thu, 07 Nov 2024 21:54:57 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9AGF-00000008Rle-3OrA
+	id 1t9AR9-00000008Te0-43iy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 21:41:53 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7f3d8081c5cso2048032a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 13:41:50 -0800 (PST)
+	Thu, 07 Nov 2024 21:53:09 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2e2a999b287so1204656a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 13:53:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731015710; x=1731620510; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fS4eYbDYlT6ZjxYCs7YFPGo/Zn24dUoWIUuzZbUwo90=;
-        b=4PPTxk96fAuSsAYmH7lZVOK5MRTkhxEMuTsCJPCdI98itS0flmjAXaIdSKnRuCgZTj
-         QacooSvSFo6Os9gTw9W7TvWiTR1BiUdCRNFL+MR0tawD8P8lXt0c9NrOPcxhjdJ50a8O
-         oM24N8GdKaudQ6k8RxIxAPE1kyeAgiVz9pt4v4L+iviqxziuka2Gw0MKe9GJgVBoW3s9
-         7ZTF4xmuDDSnSOZa4w6CiW8zOseDspX9EvOx/W8lzER8piYYuV8+mxOQz5rDAhHoyqzO
-         llgpMIS1DCOCtAno7MocmdtWyK9ijDxG70/Jshg/mmDnk6zrmw/CmVCXEJcTOP+0oFDv
-         KmAA==
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1731016386; x=1731621186; darn=lists.infradead.org;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=;
+        b=F93ZarJf/BxYXYLHx4+DtCctk9gmsGAlbhfG0uxhhmhVYEm7GEzkFQlxNGGAfuc2dj
+         VSyLvq2YUT8H17RfZx+eqWSHX3yOUXmjpT6tQfXHzc0taTZVtBhFxpCQ6ZdM1xullxtC
+         efp2PTeCCeq7si1grSw0heyiqwOmEbdXV2BmCgbohJSYQscS9dOEd8vn/RtneVq6He3v
+         bXjZ7X1vdc8wrmcBZQMCnaQQ0qbW+3ne6wv+xatHaswVO+yIC9QzPM75gUOZYKIX6G62
+         m2AEUKAUeDZCtRfk1sHl8gO3omN9DXVWbeV4gQ39zQILtzLjl+6rdVJ7qfd+6MvbrAyZ
+         eL8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731015710; x=1731620510;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fS4eYbDYlT6ZjxYCs7YFPGo/Zn24dUoWIUuzZbUwo90=;
-        b=PYmhyOgLn8GCnJ1Q0SKM9uJy68ZQjqaQktz70Yrae2PpAQ4yzei8lGOnEzK9b/Zqqb
-         ctBje0NqPSGQR1GBVLJn6lHG8XFQk/P6mcQ+jn+vf6AkylZGr2oGaFkE7vx/6pMl2v+B
-         IRke5seRTJyUT2o4gWZDeH8HwTYnnD1dVEfrQt5/acoEmJ9lsHTCZhN5jiCLjLSsfqxz
-         uANmPvZIrUdkGORg9UnBEh9GNfxJ+IHzD+Ai41UB8SFlIEBFKGhS5SsXhTHnIbYYxQAI
-         f+zh7ZwU6bkiOmR3/gemGlAVuXpFR8hetqGloJRiKSL/x1LvUp0YqxeFS2a3nxrd58aK
-         CUOg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhuMntGgRGl/J1u2M8VfL+rQmrLKuI9KRGMH9dGy1D1Ne07WQeETuBRi9997tkehV+bGdLgZVHr3DAHC4VNRgo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq0BUhu6i9XYXNxxpmNgJFLVAAJIWNJy4F4qJ8ETxRP+6WwwvI
-	ImIMvu/0iVA4WL6SkX7mfxtLM64AIZ9SvtSydqOivo9lVEFEl9mOXAyHqouKuPCW/l4RK/haG5D
-	VtYjcIH1GGe9WCEM32BYDLQ==
-X-Google-Smtp-Source: AGHT+IHZvcyra0ifDWGBgFJCy/j+FkQf7fYD/6K0phYB7aIm7PHY7A4aDCP/RnuVnWME187Wgbt6jqNTLj0tZimfxw==
-X-Received: from jgzg.c.googlers.com ([fda3:e722:ac3:cc00:36:e7b8:ac13:c96f])
- (user=jingzhangos job=sendgmr) by 2002:a17:90a:b018:b0:2e2:b41b:8549 with
- SMTP id 98e67ed59e1d1-2e9b20ab802mr988a91.4.1731015708623; Thu, 07 Nov 2024
- 13:41:48 -0800 (PST)
-Date: Thu,  7 Nov 2024 13:41:37 -0800
-In-Reply-To: <20241107214137.428439-1-jingzhangos@google.com>
-Mime-Version: 1.0
-References: <20241107214137.428439-1-jingzhangos@google.com>
-X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241107214137.428439-6-jingzhangos@google.com>
-Subject: [PATCH v4 5/5] KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
-From: Jing Zhang <jingzhangos@google.com>
-To: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
-	ARMLinux <linux-arm-kernel@lists.infradead.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Kunkun Jiang <jiangkunkun@huawei.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>, 
-	Colton Lewis <coltonlewis@google.com>, Raghavendra Rao Ananta <rananta@google.com>, 
-	Shusen Li <lishusen2@huawei.com>, Eric Auger <eauger@redhat.com>, 
-	Jing Zhang <jingzhangos@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1731016386; x=1731621186;
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R/uGgDzxBTMwJeme/h8t+/Y5+MaW5JJnJNkGRbB5RAs=;
+        b=ViufeJ3iOLdFPQ/5OBHCE4DokvyS3QNg6b+NiRLbdea/RnrwCegoNu8ysBbHVmaUpp
+         EciyvUE7Dya76DXS7rfpQ97spyc+Pfyl3CJcQreeutOa3dIwYbLGn9QVBv5kfIJF5YrD
+         UY1Zkh/FsXjK20oRkDtMsT80/bx+ezHTRfYCI1ZHVob6qILhzmuro8jeuVeZo3yUWTE9
+         /60vXsud0DM+pgPkYDh5jw3kkcpeROTn1NcEsMLh6YUOZzh420K/XX0PVD28GcOLAidO
+         +12dCUMkYnuIMMUk87zDfFjyxUbLK1AD7z696ZE1yY8l4JXoJYk9I/ScVrQoViyFDUoU
+         Y4Uw==
+X-Forwarded-Encrypted: i=1; AJvYcCWUUEWJNzZcZWkePh8yWf0QWWBlXS8go7d3S4YkPk6B47xRZPLd3XQ19OKhcVlupNVb9EqXOIsILBTUBdfWAjtI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9iC6v8o1vX4EFGl0R2FC6YsmI6DkLOu3Yj1UksDlII/S/4Zh7
+	UnTTjDXkbh99sKRJlGps0ObgZC9SPupsB+2v7Mgd53yEAjkmjWFrlNZ5akXsLgs=
+X-Google-Smtp-Source: AGHT+IFYtKHCkmnYGMgHehNW90Ih7W2EH62Ir3mEb2k8AkcggJ4PhxCcNsJAMCBgYwLn0r4VtQlZWA==
+X-Received: by 2002:a17:90b:1a90:b0:2d3:c638:ec67 with SMTP id 98e67ed59e1d1-2e9b147d4fcmr1058582a91.0.1731016386547;
+        Thu, 07 Nov 2024 13:53:06 -0800 (PST)
+Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9b244d330sm114394a91.21.2024.11.07.13.53.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 13:53:06 -0800 (PST)
+Message-ID: <672d36c2.170a0220.daee.04a2@mx.google.com>
+Date: Thu, 07 Nov 2024 13:53:06 -0800 (PST)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: test
+X-Kernelci-Kernel: v6.12-rc6-194-geb17c12d043da
+X-Kernelci-Branch: for-kernelci
+X-Kernelci-Tree: arm64
+Subject: arm64/for-kernelci baseline: 16 runs,
+ 4 regressions (v6.12-rc6-194-geb17c12d043da)
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
+ kernelci-results@groups.io
+From: "kernelci.org bot" <bot@kernelci.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_134151_966007_A0DF6B33 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241107_135308_032022_FC9CDAC2 
+X-CRM114-Status: UNSURE (   3.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +95,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kunkun Jiang <jiangkunkun@huawei.com>
+arm64/for-kernelci baseline: 16 runs, 4 regressions (v6.12-rc6-194-geb17c12=
+d043da)
 
-When DISCARD frees an ITE, it does not invalidate the
-corresponding ITE. In the scenario of continuous saves and
-restores, there may be a situation where an ITE is not saved
-but is restored. This is unreasonable and may cause restore
-to fail. This patch clears the corresponding ITE when DISCARD
-frees an ITE.
+Regressions Summary
+-------------------
 
-Signed-off-by: Kunkun Jiang <jiangkunkun@huawei.com>
-[Jing: Update with entry write helper]
-Signed-off-by: Jing Zhang <jingzhangos@google.com>
----
- arch/arm64/kvm/vgic/vgic-its.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+platform                   | arch  | lab         | compiler | defconfig | r=
+egressions
+---------------------------+-------+-------------+----------+-----------+--=
+----------
+qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 7f931e33a425..5d5104af8768 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -782,6 +782,9 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
- 
- 	ite = find_ite(its, device_id, event_id);
- 	if (ite && its_is_collection_mapped(ite->collection)) {
-+		struct its_device *device = find_its_device(its, device_id);
-+		int ite_esz = vgic_its_get_abi(its)->ite_esz;
-+		gpa_t gpa = device->itt_addr + ite->event_id * ite_esz;
- 		/*
- 		 * Though the spec talks about removing the pending state, we
- 		 * don't bother here since we clear the ITTE anyway and the
-@@ -790,7 +793,8 @@ static int vgic_its_cmd_handle_discard(struct kvm *kvm, struct vgic_its *its,
- 		vgic_its_invalidate_cache(its);
- 
- 		its_free_ite(kvm, ite);
--		return 0;
-+
-+		return vgic_its_write_entry_lock(its, gpa, 0, ite_esz);
- 	}
- 
- 	return E_ITS_DISCARD_UNMAPPED_INTERRUPT;
--- 
-2.47.0.277.g8800431eea-goog
+qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
 
+qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+
+  Details:  https://kernelci.org/test/job/arm64/branch/for-kernelci/kernel/=
+v6.12-rc6-194-geb17c12d043da/plan/baseline/
+
+  Test:     baseline
+  Tree:     arm64
+  Branch:   for-kernelci
+  Describe: v6.12-rc6-194-geb17c12d043da
+  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+  SHA:      eb17c12d043dad3f1ef9376a2d80d7e0a665e887 =
+
+
+
+Test Regressions
+---------------- =
+
+
+
+platform                   | arch  | lab         | compiler | defconfig | r=
+egressions
+---------------------------+-------+-------------+----------+-----------+--=
+----------
+qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+
+  Details:     https://kernelci.org/test/plan/id/672d2c6d0ac9aaabbbc8685e
+
+  Results:     0 PASS, 1 FAIL, 0 SKIP
+  Full config: defconfig
+  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
+  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv2.txt
+  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv2.html
+  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
+t-baseline/20230703.0/arm64/rootfs.cpio.gz =
+
+
+
+  * baseline.login: https://kernelci.org/test/case/id/672d2c6d0ac9aaabbbc86=
+85f
+        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
+ fail: v6.12-rc3-67-gb9e20acb61ba) =
+
+ =
+
+
+
+platform                   | arch  | lab         | compiler | defconfig | r=
+egressions
+---------------------------+-------+-------------+----------+-----------+--=
+----------
+qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+
+  Details:     https://kernelci.org/test/plan/id/672d2c6b3980bd4bcbc86857
+
+  Results:     0 PASS, 1 FAIL, 0 SKIP
+  Full config: defconfig
+  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
+  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv2-uefi.txt
+  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv2-uefi.html
+  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
+t-baseline/20230703.0/arm64/rootfs.cpio.gz =
+
+
+
+  * baseline.login: https://kernelci.org/test/case/id/672d2c6b3980bd4bcbc86=
+858
+        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
+ fail: v6.12-rc3-67-gb9e20acb61ba) =
+
+ =
+
+
+
+platform                   | arch  | lab         | compiler | defconfig | r=
+egressions
+---------------------------+-------+-------------+----------+-----------+--=
+----------
+qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+
+  Details:     https://kernelci.org/test/plan/id/672d2c6d857e460b7cc8689d
+
+  Results:     0 PASS, 1 FAIL, 0 SKIP
+  Full config: defconfig
+  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
+  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv3.txt
+  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv3.html
+  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
+t-baseline/20230703.0/arm64/rootfs.cpio.gz =
+
+
+
+  * baseline.login: https://kernelci.org/test/case/id/672d2c6d857e460b7cc86=
+89e
+        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
+ fail: v6.12-rc3-67-gb9e20acb61ba) =
+
+ =
+
+
+
+platform                   | arch  | lab         | compiler | defconfig | r=
+egressions
+---------------------------+-------+-------------+----------+-----------+--=
+----------
+qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
+          =
+
+
+  Details:     https://kernelci.org/test/plan/id/672d2c6c7d05eecb17c868ad
+
+  Results:     0 PASS, 1 FAIL, 0 SKIP
+  Full config: defconfig
+  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
+  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv3-uefi.txt
+  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
+94-geb17c12d043da/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vi=
+rt-gicv3-uefi.html
+  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
+t-baseline/20230703.0/arm64/rootfs.cpio.gz =
+
+
+
+  * baseline.login: https://kernelci.org/test/case/id/672d2c6c7d05eecb17c86=
+8ae
+        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
+ fail: v6.12-rc3-67-gb9e20acb61ba) =
+
+ =20
 
