@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFD6D5D683
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAE7D5D687
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3HxVOUBt76AC6WLe7o07JkecNHctt3qyaCBDX9dXHw=; b=o3gogs5RJ8ZxYioIiJhnMT2fcu
-	TwbTJC03iGYpJ4Kpl1BmY9r/i567Qwbo+1eGVLEhd1Esrj1RPh99HcT9Rwq7Wm351Eh8HjzEfiyqx
-	ZJdCsVi7ZOFCRh4cyIQeYIC6nlMR0jgLkzAcgHSifIYgMRfiP0+w+fNt79uznNQ98/9J2DdvhrW4e
-	wtZ7W6x559XBV1Sw5Myk3X2m5pn28zh9gRNlfMW1jh4zzfZhS7GiTIKkgw6kFrAbYD/oPjbfxKqSj
-	ORrQ8qVHLQJJ2RhsAmONAVU9JMGTNbXkjcI0XrRYNwe24xaY5frL4xPDbiT0PRZM2JN9Ftdsuc9y5
-	/ElL3Z/g==;
+	bh=I7jKe0VhAZMO69k6s3j7rDnq+tQfHJZEZbLSKj50CvQ=; b=ykA8ldNbrbWIP60niYixzO6ylI
+	llIgqX5ioH7iRU9enUsVysHOGkGUEWYHATRe3371gmYBRbdDQJ0zd8kTkaRYEDJFbumeDOkE9xe7S
+	TTzXu23J2gRw7k8vOyAJmsrrtWrb7Qwavm33iBFTsScjb9Rdd5f4nSl0joT/NCJcD3pN9kGW081/s
+	vchIqN8Nz/t2KTbWREwCKOTkC1xBjAUGrx9H3i9WJQb64RVIHiq1nYE9+HYPG9TUHZ756P9WUV+DX
+	oC4jQEpelI/NNfhLqB51W21wafEGEo8yHbPSYFLWu1emJwsDTY/HguzS3AXshj/wniiYw+UujlyEv
+	l0fnL6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98Wr-0000000899V-34UY;
-	Thu, 07 Nov 2024 19:50:53 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1t98Ya-000000089UG-2xJs;
+	Thu, 07 Nov 2024 19:52:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t982k-000000083ve-2xrS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 19:19:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731007186; x=1762543186;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=eN0VRTCZM2WBAT9cgFw9DTUrSpwbJpwTFubfXheWoYM=;
-  b=Aqr9FNpqc0Vm4SXL9oki1pWvE48VFyRxojLIjoBsr0CX183bKKplLna9
-   BPw21N5KZ9RiVZj/7fRKj39veFnZaUw6E2dQkgG5mY9zL2ySjTJWsZbwS
-   2SvzmGGgOqivuohYtL+o/uYAoU11VWJdFCpeA1QdjSimKkJUZ9yodmTbX
-   n6JcZHVd9CFv9ebwzSRodvicIrqFX9vJRHqCIL5d+KZJUObpPIMaRqA7S
-   XKjlm8XBK+uqAMkFkruPeX9/KBfkWK/tVpd2EUA+4lXr45sVAgIyxJoCO
-   XCz+u/FSZStnKlVh13rGRVmTF9aUajrK1UB+bLQVJWZZuizw7+nKo/GU0
-   Q==;
-X-CSE-ConnectionGUID: MDDVaqVhRqenuoSd1grXjg==
-X-CSE-MsgGUID: wGoZR4F7TSiOLGn00rOoNA==
-X-IronPort-AV: E=Sophos;i="6.12,135,1728975600"; 
-   d="scan'208";a="34539067"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Nov 2024 12:19:43 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 7 Nov 2024 12:19:22 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Thu, 7 Nov 2024 12:19:20 -0700
-Date: Thu, 7 Nov 2024 19:19:19 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
-	<joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
-	Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 0/9] Support external snapshots on dwmac1000
-Message-ID: <20241107191919.sngc2x664lp7jeg2@DEN-DL-M70577>
-References: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
+	id 1t987s-000000084Wr-18g8;
+	Thu, 07 Nov 2024 19:25:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12946A44A4F;
+	Thu,  7 Nov 2024 19:23:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A98C4CECC;
+	Thu,  7 Nov 2024 19:25:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731007502;
+	bh=6q3di7FCObUiv+8Jph+EMw//u0ETdnwSd7iOqeptPbE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GG73QAevx0zlzfcdWAvXpV28VzlJoMdMbX0AMjUcQI5vRN+7+pMfRGgqU0cDfptSb
+	 zL2MQbJ6cjAH3Kg5SzBu7m7j14xnl/Pw+YVlvNdqS2jOHNCUnnBLn/bw/GEN8Al1Vm
+	 h79qPml7pCyhy1l6XdwW6rHsctM7ryhCv2NTyRg8wXWMHsRBW8Jduz4Oi/v+MfUUaP
+	 4wTFJIdKoIbBBEjHQAgG0A4oRVx5kYPCGe67ZROg3W+7wYMcljYzILh4wU7dN7t6kE
+	 mR473WoU0J7nZIGUw0BdXT67ZoZLu/6e1QiZVvH0drnfh+vRUNdfkjYTbJSFflSC7h
+	 Lddp+3GFnvwWg==
+Date: Thu, 7 Nov 2024 11:24:59 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
+	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
+	Guilherme Amadio <amadio@gentoo.org>,
+	Changbin Du <changbin.du@huawei.com>,
+	Daniel Bristot de Oliveira <bristot@kernel.org>,
+	Daniel Wagner <dwagner@suse.de>,
+	Aditya Gupta <adityag@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Kajol Jain <kjain@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Shenlin Liang <liangshenlin@eswincomputing.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Steinar H. Gunderson" <sesse@google.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Dima Kogan <dima@secretsauce.net>,
+	Yury Norov <yury.norov@gmail.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 17/31] perf dwarf-regs: Pass ELF flags to
+ get_dwarf_regstr
+Message-ID: <Zy0UCxKmD3_mQmNh@google.com>
+References: <20241005195541.380070-1-irogers@google.com>
+ <20241005195541.380070-18-irogers@google.com>
+ <20241007170927.f30fced63c5e777628bea311@kernel.org>
+ <CAP-5=fVmD-M-ZOinkWZ7AOtfRHqo89gFtDeeatwufq0TcBiZUA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <CAP-5=fVmD-M-ZOinkWZ7AOtfRHqo89gFtDeeatwufq0TcBiZUA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_111946_943465_37ACFFC2 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20241107_112504_451005_3E594D80 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +111,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi,
+On Mon, Oct 07, 2024 at 08:05:23AM -0700, Ian Rogers wrote:
+> On Mon, Oct 7, 2024 at 1:09â€¯AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> >
+> > On Sat,  5 Oct 2024 12:55:27 -0700
+> > Ian Rogers <irogers@google.com> wrote:
+> >
+> > > Pass a flags value as architectures like csky need the flags to
+> > > determine the ABI variant.
+> > >
+> >
+> > Same here. I need some examples of this chaneg.
 > 
-> This V3 is just a rebase a V2 on top of net-next to address some minor
-> conflicts. No changes were made.
-> 
-> This series is another take on the pervious work [1] done by
-> Alexis Lothoré, that fixes the support for external snapshots
-> timestamping in GMAC3-based devices.
-> 
-> Details on why this is needed are mentionned on the cover [2] from V1.
-> 
-> This V2 addresses multiple issues found in V1 :
-> 
->  - The PTP_TCR register is configured from multiple places, as reported
->    by Alexis, so we need to make sure that the extts configuration
->    doesn't interfere with the hwtstamp configuration.
-> 
->  - The interrupt management in V1 was incomplete, as the interrupt
->    wasn't correctly acked.
-> 
->  - This series also makes so that we only enable the extts interrupt
->    when necessary.
-> 
-> [1]: https://lore.kernel.org/netdev/20230616100409.164583-1-alexis.lothore@bootlin.com/
-> [2]: https://lore.kernel.org/netdev/20241029115419.1160201-1-maxime.chevallier@bootlin.com/
-> 
-> Thanks Alexis for laying the groundwork for this,
-> 
-> Best regards,
-> 
-> Maxime
-> 
-> Link to V1: https://lore.kernel.org/netdev/20241029115419.1160201-1-maxime.chevallier@bootlin.com/
-> Link to V2: https://lore.kernel.org/netdev/20241104170251.2202270-1-maxime.chevallier@bootlin.com/
+> The code here was already using the ELF machine, so dwarf-regs.c
+> functions would already support cross building. There is the addition
+> of ELF flags as on csky the registers change depending on the ABI
+> version in the ELF flags.
 
-Hi Maxime,
+I think it's used by the probe-finder only which won't support
+cross-arch environment.  So probably no changes to users at this point.
 
-Dont know much about this particular driver, but the patches looked good
-to me!
+Thanks,
+Namhyung
 
-For the series:
-
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 
