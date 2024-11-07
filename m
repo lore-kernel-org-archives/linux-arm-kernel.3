@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF3CD29FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C337D29FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jzlyVk+AVcvH3QU4ipMxv3YkT63k9s9bH9ssnRNUGEs=; b=tZAQVt3Gn5ujdf
-	MjRkCTBbyr/JvS8guiyJecXwhF8enXTlgDffsMVRuEtvcZ09ZsFto+6KGPOZxfTqQDINRg97lKpRX
-	CdKNUf5BjA9w82sngxEjzaIeKjuCwSWKugNVSpQja3vyk4n3LI8otGctAt1FxjckC44cpOE/eyu7n
-	88z/4cbpyMOTXny/lHtJLkwN5eCJqlCtc/hbgzQ7w6aNfr2WROOg7Z1AKjte1hxeYkBMFgv7hRZKR
-	M625YFMD5DILkGXy55mmsM0Aj01W3Xkq6gFZcAUq4Rik1n8GyY5ulqgEzCeoXLLO+VfkuyqIAe9mW
-	rg6xzDublldkbuUNlu+Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJ7B7W97ZbQz4BUZdGp7fg4qj3BBLPP4ihosl5lMMic=; b=EcIxdOXgyq3g7rJylayP/MRefP
+	0fFhXDlpMIFYWIiyOXhTs2ICGmEWCJBfhLeHBph7IAUo6FCosEchIl4TW9F2HKtPIkvvMy2351IRo
+	EqNLbTKV6tZnJK7OjouEk7X8vfrKnIAJGREFxk76+f3PVhBdTotT71utfhXSs7qAJ0+i6oc8uUVnI
+	suAtsRkjgMji7I2wzaNSNEhnyWZi7gBAyJTS5fU3S85aOD8PcGD+U9Cx0DC0CbBqQoqHUw5YZ8iB+
+	3jaDI8CmNYybolyJ8h2z3NVWcVJTZVlMy55hdlChaHmIQIpn71PrxxaDFy0WyTvHZTBvFVQT/ufKn
+	O0AMIV2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rjh-00000005MHw-0SzK;
-	Thu, 07 Nov 2024 01:55:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8rlP-00000005MZD-2aZx;
+	Thu, 07 Nov 2024 01:56:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rYu-00000005KBL-3srY
+	id 1t8rYv-00000005KBW-0sLD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:43:55 +0000
+	Thu, 07 Nov 2024 01:43:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 013DDA41F27;
-	Thu,  7 Nov 2024 01:41:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C59F8C4CED2;
-	Thu,  7 Nov 2024 01:43:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DC8F05C54A8;
+	Thu,  7 Nov 2024 01:43:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8410C4CED6;
+	Thu,  7 Nov 2024 01:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730943830;
-	bh=FhICeJvrCrMnhdIC0qbv97Akl1RvVJJpaEaD5gQEQkI=;
-	h=From:Subject:Date:To:Cc:From;
-	b=nhvhSiowtMf8/jmGZFs5hS9PWKjCrMfrUBKFofjAdOsy7xW4rruML9GDvgRv3864C
-	 cL/xowZYZdQt07JxJBXHUOeVrTdY+qTLLuCFwyuLgPq9ZNXWgdpn8yrmDpiITcZBBZ
-	 PuDFJXPmoDEGDK+jA+KlgKkXRuyWVCmHnLWEDWIf7R6iDd28Svw7xa0E//AvGon9XB
-	 bfOlahysdUQK7jjMvBKNXEm4zXhuKq8hgrYVF5ps82dDdWpY2EcF/9eJDpOdJjj6Ug
-	 dasT1MrzMMbpWomAw02dpYx0xVdQy6ttfWx3EBs8HVi5waNWLRpLir6Qm9Jd8gd5Om
-	 XbNIqGFAl6XOQ==
+	s=k20201202; t=1730943832;
+	bh=0bSqJfCBOTI4Jmz4xl8iWhEjG/ZUwMwS5LAsSpOElfs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=hUkKATgwOUiynyRaCLwhg28ZBXndF/nkmS5+NsBGFJ77E7tKRWc/xWWmBq9AWEU20
+	 eg2Hp3nUIYojB8nOZ8XR4cc2XfMip+g6ql6M7kqgmNUcqFN+5fyI3qkR2GL9BeZL9h
+	 lh5kXV3HvpngOLIxX8qHzWzCRT7Mtk8un0l5AbzHkvdzN4JxyFQP2CpvWDJMtXjU8i
+	 Qx32HnMp3RRo1gRJHT2yEy4/KSqHRSFSYgr+YqFT+xyGbI3TlAzQPguEw1XcXiq4Kt
+	 xsCzOIC7X1QZ+N9hhv926A1Q87jHK+ye6aJHB/tDVPJp9TZtBtCzuPcSxLmPmvh8g6
+	 FD3EtRnT8uUAg==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 0/6] kselftest/arm64: Test floating point signal context
- restore in fp-stress
-Date: Thu, 07 Nov 2024 01:39:19 +0000
-Message-Id: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
+Date: Thu, 07 Nov 2024 01:39:20 +0000
+Subject: [PATCH v2 1/6] kselftest/arm64: Correct misleading comments on
+ fp-stress irritators
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEcaLGcC/42NQQ6CMBBFr0Jm7RhaWyOuuIdh0dgpTFQgMw3RE
- O5u5QQu38//76+gJEwK12oFoYWVp7GAPVRwH8LYE3IsDLa2ztT2hEFeZ4dpRs1CqsginEOeBL0
- zPlFjQ6QEZT8LJX7v7ltXeGAttc9+tZhf+o91MVhj8CYk21yic037IBnpeZykh27bti+YJFURw
- wAAAA==
-X-Change-ID: 20241023-arm64-fp-stress-irritator-5415fe92adef
+Message-Id: <20241107-arm64-fp-stress-irritator-v2-1-c4b9622e36ee@kernel.org>
+References: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
+In-Reply-To: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2115; i=broonie@kernel.org;
- h=from:subject:message-id; bh=FhICeJvrCrMnhdIC0qbv97Akl1RvVJJpaEaD5gQEQkI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBtPi1qDcL+XawjQAGXXQlcQzDYJjTrJcbT0hrdY
- f6lTU3mJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywbTwAKCRAk1otyXVSH0KqqB/
- 94CvW0iwYt/m+SSaM1tOpg0sIMZGdjqX9W9LiI1I9s+MgwaQO6VWnL1ZmxWKVBh4wtuqgnl8iGwh2s
- QeHdfTFAKXd6j7rDgD14MgjEZsu42KjRuey45UBc8zEUVhN1GJxshOfBz9pxcTC0o4TFlymX6UJhiF
- 39++v7nxzary5Z1hwOv/WnIb68f4SgBDjbGxWICR0mYwl66Op/AYbzRkbveCGQoC/ud7f1vCVRYF2j
- RPnv4gU+VhDtXq6VxDPLFMlAItqxN4QsdXssCiikt9Sle5Cz4dSsiR7TVq6hnckL8kMI6NvmFcBOam
- TNoaSZZeMLYY2GObPj5bVHUN7tyLKJ
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2159; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=0bSqJfCBOTI4Jmz4xl8iWhEjG/ZUwMwS5LAsSpOElfs=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhnQdaf+pybN0Nz+Uf9z3XOk/V30ft+Kz1H8Tmw408aVGujZr
+ OizuZDRmYWDkYpAVU2RZ+yxjVXq4xNb5j+a/ghnEygQyhYGLUwAmoqTB/j/zXSXPHp5Q9wuqnNlTJ/
+ dy394V1xd7XDPEomniW1H/wPiQuLtZr5umd9tWtG73vXfvHdfeLa+jnz5Q5QtfM0+6Z4r7T73gxzGS
+ du+vftWfu7jsqljFFaWZ69/VPCzc02Dpy2nnEv7UrfmK14N7ETPjZBuvTvqgExTcX7BrAqObn2ntzb
+ /8wso5LZ65i3NXv3R5zKhkrC+16v1Xx1umR2eItCXvuz1rVx3HrLwGO6/921vbCoWOF19u23xCVtTw
+ 6yq/lmAD5bdzZ8unqJ/gSFfu3Xh4tsU35/46hZxQQ7uM5ZtOZEb+/XXNPiw5oP5PjQSjCFPothdGgT
+ 9VT/CcDzwfr31v3vN4bp8Yb+aPAA==
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_174353_449061_2C63A361 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20241106_174353_789481_1A87B9F7 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +86,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently we test signal delivery to the programs run by fp-stress but
-our signal handlers simply count the number of signals seen and don't do
-anything with the floating point state.  The original fpsimd-test and
-sve-test programs had signal handlers called irritators which modify the
-live register state, verifying that we restore the signal context on
-return, but a combination of misleading comments and code resulted in
-them never being used and the equivalent handlers in the other tests
-being stubbed or omitted.
+The comments in the handlers for the irritator signal in the test threads
+for fp-stress suggest that the irritator will corrupt the register state
+observed by the main thread but this is not the case, instead the FPSIMD
+and SVE irritators (which are the only ones that are implemented) modify
+the current register state which is expected to be overwritten on return
+from the handler by the saved register state. Update the comment to reflect
+what the handler is actually doing.
 
-Clarify the code, implement effective irritator handlers for the test
-programs that can have them and then switch the signals generated by the
-fp-stress program over to use the irritators, ensuring that we validate
-that we restore the saved signal context properly.
-
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v2:
-- Change instruction and commit log for corruption of predicat
-  registers.
-- Link to v1: https://lore.kernel.org/r/20241023-arm64-fp-stress-irritator-v1-0-a51af298d449@kernel.org
+ tools/testing/selftests/arm64/fp/fpsimd-test.S | 3 +--
+ tools/testing/selftests/arm64/fp/sve-test.S    | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
----
-Mark Brown (6):
-      kselftest/arm64: Correct misleading comments on fp-stress irritators
-      kselftest/arm64: Remove unused ADRs from irritator handlers
-      kselftest/arm64: Corrupt P0 in the irritator when testing SSVE
-      kselftest/arm64: Implement irritators for ZA and ZT
-      kselftest/arm64: Provide a SIGUSR1 handler in the kernel mode FP stress test
-      kselftest/arm64: Test signal handler state modification in fp-stress
+diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+index 8b960d01ed2e0ef516893b68794078ddf8c01e1f..bdfb7cf2e4ec175fda62c1c2f38c6ebb1a1c48bf 100644
+--- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
++++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+@@ -134,8 +134,7 @@ function check_vreg
+ 	b	memcmp
+ endfunction
+ 
+-// Any SVE register modified here can cause corruption in the main
+-// thread -- but *only* the registers modified here.
++// Modify live register state, the signal return will undo our changes
+ function irritator_handler
+ 	// Increment the irritation signal count (x23):
+ 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index fff60e2a25addfd4850ef71aa3cf6535ac880ffd..e3c0d585684df29723a49265f3df6d23817498c7 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -291,8 +291,7 @@ function check_ffr
+ #endif
+ endfunction
+ 
+-// Any SVE register modified here can cause corruption in the main
+-// thread -- but *only* the registers modified here.
++// Modify live register state, the signal return will undo our changes
+ function irritator_handler
+ 	// Increment the irritation signal count (x23):
+ 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
 
- tools/testing/selftests/arm64/fp/fp-stress.c   |  2 +-
- tools/testing/selftests/arm64/fp/fpsimd-test.S |  4 +---
- tools/testing/selftests/arm64/fp/kernel-test.c |  4 ++++
- tools/testing/selftests/arm64/fp/sve-test.S    |  8 +++-----
- tools/testing/selftests/arm64/fp/za-test.S     | 13 ++++---------
- tools/testing/selftests/arm64/fp/zt-test.S     | 13 ++++---------
- 6 files changed, 17 insertions(+), 27 deletions(-)
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241023-arm64-fp-stress-irritator-5415fe92adef
-
-Best regards,
 -- 
-Mark Brown <broonie@kernel.org>
+2.39.2
 
 
