@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB79D5AE60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 06:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B380ED5AE66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 06:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALXydKzISbFOwh8LfCoyMfvmblNdzLozEw5VVs994Xc=; b=t7MA7ZsVZk1xwrdyllS1T2dAqu
-	lexXi9aBEfEtSzFvM9Sxi/4XyFdjxZPEo+9xMKGa7/+OZ7qND+e7sYKJmI+ZAkGq9pS1CO3SF9zll
-	7dn4F82lN2klIPPDcx1d0OVFvJ5UW953wk69RZFF04nTCCfko0gvZ0VYRpaNlAEu89zCBYN84IEtH
-	5WI7U6ylcRZ257lUR+fiMjUhmvW+HIaC/pP2KOR+HaaKH7ZyOPvutejYUImFqzlCJ9bMxD2cCV7/W
-	pK4NW6zCUZb601hOosjxInyOX17x9JY4JqfBq1d4ff/EFXfC8RQ+/QsoVl0ligI3HOCvvR8UY0x+G
-	PkBfaFBQ==;
+	bh=cXBEpFmFzi8INkB2Bb0DSvGG6kE3LNqjdEC99i0wI3w=; b=tosHdkTNZnEa+NnpwJmxklvAcK
+	mpkI28XczUyvMmhTSZ5kz1uY3pXrS88T7oCboTE70ZSyL9Eqt3/+mMlc5Y6b9hOWM1bowddpDgz36
+	K0AfiH75V+VfU8YUJ7nqHjArCGZLDoar5DC6BNHXQtUpwOEJ01ZyT6DX6k73bhNXZp7zsqr/Hg96q
+	Do+lG+lMtO+OwotYgh/MH261txJYNo/tcXtkyHtuSx2x9tecfKmoOGR1+ykzfINrmfrUSHM7EGytf
+	nmjU3911F579CWSZ3xP/oj/N2FJ37jmgwBgl6WTKwzlmD9NDEWommz8SvthRiPilpKc+trzSdKbHp
+	rV3KtPjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8vnM-00000005oNf-3BXp;
-	Thu, 07 Nov 2024 06:15:04 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1t8vp4-00000005odj-1Yi7;
+	Thu, 07 Nov 2024 06:16:50 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8vjw-00000005nlS-3PM8
+	id 1t8vjy-00000005nlq-20QS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 06:11:34 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20c7ee8fe6bso6261185ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 22:11:32 -0800 (PST)
+	Thu, 07 Nov 2024 06:11:35 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20cdb889222so6367715ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 22:11:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730959892; x=1731564692; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1730959893; x=1731564693; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ALXydKzISbFOwh8LfCoyMfvmblNdzLozEw5VVs994Xc=;
-        b=X/h0im1HmBI00sM20sHUHQxHUw+pnqKlvS+nH91oYKW5bipx9B2lujbmr8ssED/nUK
-         0XtVJsr6GdBBbFPiKSmxmDTsngZ65tvKiVWF5FGdMfKjVkaJVWRqmG7G8nux2/MC5HZP
-         15ZaXg/h5Jk+JCUJLmBs34SylVOheopt2uKNap+pwriCNfmdiEl9BYJCwV+NLkElSVFA
-         YXDFipsUW69gK+qYzbdmgmFnJY0bhmRdj9/gAd/ak4NSbujY/bGm7tcXH3CdfWRV/xzd
-         BYRMisbp/NN+Tu35GACzgZbs0Fmi0NgC/hzm6xQ2Wo3B1KBttLjl7xZOYjpCAULFbaZb
-         wiYA==
+        bh=cXBEpFmFzi8INkB2Bb0DSvGG6kE3LNqjdEC99i0wI3w=;
+        b=B/d2ZEdRIY4N3RYBBnuZZpUq7Jhg8NyGUXcBgo2lUAqcGni3tPoVUzo6C2mAMaXUUw
+         NmStE2BmXx8xS8tO1DGCG3ILO1229qJXgemaK8fNnAa8/SXBHW49LfK3PxP0Brii3ttG
+         xn4LrVVV3K1aoOwCAJS4FDy+Gx8N5wkx6pGMzQ0sF+eRIUm0RgVH4/WiFb1HFVBjySZr
+         BwBhMMDzKhyHjPxz9hnCxgn8ztDEO71lb/e1bwRGExn/X+lNzM7FtW0/27vYNqPuVeW1
+         2TGaf/pygSHIpkhSPiUCGaxxvLsmhorQI48wWDHNgxTOgczwu+E45gZgZmYzxw2bD6UZ
+         97KA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730959892; x=1731564692;
+        d=1e100.net; s=20230601; t=1730959893; x=1731564693;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ALXydKzISbFOwh8LfCoyMfvmblNdzLozEw5VVs994Xc=;
-        b=X5ZUDn8OaPfBGQc7ddA+92zSxOJjOklkAAjr0Tdsvi7yODZuWb96WrSw6W4HG8inCZ
-         Et6j4S766bD8W6KSwx8TA6ayuc4VcltwnMTBeMwsM93a52bX/p99EsVu3Clxq8VQNx3r
-         /dtjlPglA/Qu9QtCh6bKYiMkyOJeFjwFIcH7loWBHfcZoGKxUw8BvZmdbcHc7aQEeHnh
-         wjS8q4IYMUnkWe75YA0WGl6vxCRPc2y4zxcpC/xcxJTuIN/Q3Q01yXaXSiCKQy0sM7oG
-         GwAveOzJKFTy+1ItBPk+HHsWjuTL6ikDgs2S7S4hQZGa/wbAiNQ3YSTEIbAZRtrAbOXo
-         rHvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWT+cLiO4UvpKJ+fCA/+4lddN1AzpzWc205KEuNiPEjoseaxDSzNtV7ymawXx//UIYBgEgjcORgSHr8HqkfYlgU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA99EM/q1QwxIyaLP8pbefj1ABAWPXtGtmvMzHHdsZGIl3vfpZ
-	5dGK+lXRZMlxF23zxWYW9TvNQIQg2K6M2UNTPWaeTc3XU47YJ0aA
-X-Google-Smtp-Source: AGHT+IH+74hwtw/dolRKBe95lMKx0IkBL+BrHnQnQvcxznJIGMkm653MQz7fgmgSPs8j9V5HslOTGw==
-X-Received: by 2002:a17:902:cecd:b0:20c:a97d:cc7f with SMTP id d9443c01a7336-210c6c3ec78mr584066825ad.41.1730959891752;
-        Wed, 06 Nov 2024 22:11:31 -0800 (PST)
+        bh=cXBEpFmFzi8INkB2Bb0DSvGG6kE3LNqjdEC99i0wI3w=;
+        b=BfZj20bcQo1pTXU/+3qvP6pX7NB+FBDkrM0dkEnCz2ZIQUSRZXWEO+ymT841uTPnSm
+         5NkdC2JW1F+Hqkqh2BLjUoL3U73UGCDG3Ii5B0SIXBKM1Y0P31TzfBszDGSTsKQfsUOM
+         ijMHn6zTNVL8YogIuZXZl6Atw0e00B37rjtkFI60wl2xQt0IDx3DG8pCT91WsNOz7YYp
+         0mkOkM+3qk5tTDUZ7nGKJTHdrtI7g6BaOCiWuHSzsW7UP09CfA8Qb3CXrKHppbaTi/E6
+         D2dkSShgS/KXnTAFNHj9lb7aIWZZg8mXlAs3Uj3PL2Iy9j+R9TIJC+g1qqr+k/vZ20AE
+         a2gg==
+X-Forwarded-Encrypted: i=1; AJvYcCVut83PbuzV0P7CF9rexpt4Vr9j6SaeiH30U4yXYrGTdKP69IAqxJJW29gqBuH3GodSPC7v70eSg1GM9bgFZDLx@lists.infradead.org
+X-Gm-Message-State: AOJu0YywU00GQbHxnQgoSu9C9gIc/a4TWI811rj419DwQ5txHJ0Dsq1B
+	bJXTZ5VTmJA9xIHHpUpvIyQA8d/V9nPOzq0GwBdeI6p36TZoyhqw
+X-Google-Smtp-Source: AGHT+IEhLX1Ix3kvbnhGTk3oM5FNMOle9lT4S2S6mmMGQXogZWZm53W55lSd+4P4hV9Wykx6SDq4ig==
+X-Received: by 2002:a17:902:ec88:b0:20b:8ef3:67a with SMTP id d9443c01a7336-211785b1234mr10045595ad.7.1730959893349;
+        Wed, 06 Nov 2024 22:11:33 -0800 (PST)
 Received: from 1337.tail8aa098.ts.net (ms-studentunix-nat0.cs.ucalgary.ca. [136.159.16.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dc7cf8sm4652465ad.34.2024.11.06.22.11.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dc7cf8sm4652465ad.34.2024.11.06.22.11.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Nov 2024 22:11:31 -0800 (PST)
+        Wed, 06 Nov 2024 22:11:32 -0800 (PST)
 From: Abhinav Saxena <xandfury@gmail.com>
 To: linux-kernel-mentees@lists.linuxfoundation.org,
 	linux-gpio@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Mark Brown <broonie@kernel.org>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
 	Abhinav Saxena <xandfury@gmail.com>
-Subject: [PATCH 1/2] Documentation: dt-bindings: Fix repeated words
-Date: Wed,  6 Nov 2024 23:11:23 -0700
-Message-Id: <20241107061124.105930-2-xandfury@gmail.com>
+Subject: [PATCH 2/2] Documentation: dt-bindings: Remove trailing whitespace
+Date: Wed,  6 Nov 2024 23:11:24 -0700
+Message-Id: <20241107061124.105930-3-xandfury@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241107061124.105930-1-xandfury@gmail.com>
 References: <20241107061124.105930-1-xandfury@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_221132_881605_7F83DC8B 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20241106_221134_541686_081311AA 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,89 +110,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix unintentional word repetitions in devicetree binding documentation:
-- usb.txt: Fix repeated "two"
-- mvebu-devbus.txt: Fix repeated "from"
-- gpio.txt: Fix repeated "Both"
-- pinctrl-bindings.txt: Fix repeated "device"
-- cavium/bootbus.txt: Fix repeated "one"
+Remove trailing whitespace from devicetree binding documentation files:
+- regulator/regulator-max77620.txt
+- interrupt-controller/nvidia,tegra20-ictlr.txt
+- interrupt-controller/msi.txt
 
-These issues were identified using the checkpatch.pl script.
+No functional changes. Issues detected using checkpatch.pl script.
 
 Signed-off-by: Abhinav Saxena <xandfury@gmail.com>
 ---
- Documentation/devicetree/bindings/gpio/gpio.txt                 | 2 +-
- .../devicetree/bindings/memory-controllers/mvebu-devbus.txt     | 2 +-
- Documentation/devicetree/bindings/mips/cavium/bootbus.txt       | 2 +-
- Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt  | 2 +-
- Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt     | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ .../devicetree/bindings/interrupt-controller/msi.txt   | 10 +++++-----
+ .../interrupt-controller/nvidia,tegra20-ictlr.txt      |  2 +-
+ .../bindings/regulator/regulator-max77620.txt          |  4 ++--
+ 3 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/gpio.txt b/Documentation/devicetree/bindings/gpio/gpio.txt
-index d82c32217fff..530420475a4f 100644
---- a/Documentation/devicetree/bindings/gpio/gpio.txt
-+++ b/Documentation/devicetree/bindings/gpio/gpio.txt
-@@ -304,7 +304,7 @@ pins 50..69.
- It is also possible to use pin groups for gpio ranges when pin groups are the
- easiest and most convenient mapping.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/msi.txt b/Documentation/devicetree/bindings/interrupt-controller/msi.txt
+index c20b51df7138..2109a3454cf6 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/msi.txt
++++ b/Documentation/devicetree/bindings/interrupt-controller/msi.txt
+@@ -12,17 +12,17 @@ potentially including additional information.
+ MSIs are distinguished by some combination of:
  
--Both both <pinctrl-base> and <count> must set to 0 when using named pin groups
-+Both <pinctrl-base> and <count> must set to 0 when using named pin groups
- names.
+ - The doorbell (the MMIO address written to).
+-  
++
+   Devices may be configured by software to write to arbitrary doorbells which
+   they can address. An MSI controller may feature a number of doorbells.
  
- The property gpio-ranges-group-names must contain exactly one string for each
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt b/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-index 8b9388cc1ccc..1983d7eabd2b 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-+++ b/Documentation/devicetree/bindings/memory-controllers/mvebu-devbus.txt
-@@ -43,7 +43,7 @@ Read parameters:
-  - devbus,bus-width:    Defines the bus width, in bits (e.g. <16>).
-                         Mandatory, except if devbus,keep-config is used.
+ - The payload (the value written to the doorbell).
+-  
++
+   Devices may be configured to write an arbitrary payload chosen by software.
+   MSI controllers may have restrictions on permitted payloads.
  
-- - devbus,badr-skew-ps: Defines the time delay from from A[2:0] toggle,
-+ - devbus,badr-skew-ps: Defines the time delay from A[2:0] toggle,
-                         to read data sample. This parameter is useful for
-                         synchronous pipelined devices, where the address
-                         precedes the read data by one or two cycles.
-diff --git a/Documentation/devicetree/bindings/mips/cavium/bootbus.txt b/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-index 6581478225a2..1bc655d285ce 100644
---- a/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-+++ b/Documentation/devicetree/bindings/mips/cavium/bootbus.txt
-@@ -15,7 +15,7 @@ Properties:
+ - Sideband information accompanying the write.
+-  
++
+   Typically this is neither configurable nor probeable, and depends on the path
+   taken through the memory system (i.e. it is a property of the combination of
+   MSI controller and device rather than a property of either in isolation).
+@@ -48,7 +48,7 @@ Optional properties:
+   not encode doorbells or payloads as these can be configured dynamically.
  
- - #size-cells: Must be <1>.
+   The meaning of the msi-specifier is defined by the device tree binding of
+-  the specific MSI controller. 
++  the specific MSI controller.
  
--- ranges: There must be one one triplet of (child-bus-address,
-+- ranges: There must be one triplet of (child-bus-address,
-   parent-bus-address, length) for each active chip select.  If the
-   length element for any triplet is zero, the chip select is disabled,
-   making it inactive.
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt b/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-index 6904072d3944..500b76ba2ab3 100644
---- a/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-+++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
-@@ -18,7 +18,7 @@ states. The number and names of those states is defined by the client device's
- own binding.
  
- The common pinctrl bindings defined in this file provide an infrastructure
--for client device device tree nodes to map those state names to the pin
-+for client device tree nodes to map those state names to the pin
- configuration used by those states.
+ MSI clients
+@@ -117,7 +117,7 @@ Example
+ 		reg = <0x1 0xf00>;
+ 		compatible = "vendor-c,some-device";
  
- Note that pin controllers themselves may also be client devices of themselves.
-diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt
-index da13999337a4..682db2b561bb 100644
---- a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt
-+++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/usb.txt
-@@ -3,7 +3,7 @@ Freescale QUICC Engine USB Controller
- Required properties:
- - compatible : should be "fsl,<chip>-qe-usb", "fsl,mpc8323-qe-usb".
- - reg : the first two cells should contain usb registers location and
--  length, the next two two cells should contain PRAM location and
-+  length, the next two cells should contain PRAM location and
-   length.
- - interrupts : should contain USB interrupt.
- - fsl,fullspeed-clock : specifies the full speed USB clock source:
+-		/* 
++		/*
+ 		 * Can generate MSIs to either A or B.
+ 		 */
+ 		msi-parent = <&msi_a>, <&msi_b 0x17>;
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.txt b/Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.txt
+index 2ff356640100..0c37e569e6f3 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.txt
++++ b/Documentation/devicetree/bindings/interrupt-controller/nvidia,tegra20-ictlr.txt
+@@ -12,7 +12,7 @@ Required properties:
+ - compatible : should be: "nvidia,tegra<chip>-ictlr". The LIC on
+   subsequent SoCs remained backwards-compatible with Tegra30, so on
+   Tegra generations later than Tegra30 the compatible value should
+-  include "nvidia,tegra30-ictlr".	
++  include "nvidia,tegra30-ictlr".
+ - reg : Specifies base physical address and size of the registers.
+   Each controller must be described separately (Tegra20 has 4 of them,
+   whereas Tegra30 and later have 5).
+diff --git a/Documentation/devicetree/bindings/regulator/regulator-max77620.txt b/Documentation/devicetree/bindings/regulator/regulator-max77620.txt
+index bcf788897e44..7484c0728e27 100644
+--- a/Documentation/devicetree/bindings/regulator/regulator-max77620.txt
++++ b/Documentation/devicetree/bindings/regulator/regulator-max77620.txt
+@@ -65,14 +65,14 @@ Following are additional properties:
+ 					Valid values are 0 to 7.
+ 					This is applicable if FPS source is
+ 					selected as FPS0, FPS1 or FPS2.
+-			
++
+ - maxim,active-fps-power-down-slot:	Sequencing event slot number on which
+ 					the regulator get disabled when master
+ 					FPS input event set to LOW.
+ 					Valid values are 0 to 7.
+ 					This is applicable if FPS source is
+ 					selected as FPS0, FPS1 or FPS2.
+-			
++
+ - maxim,suspend-fps-source:		This is same as property
+ 					"maxim,active-fps-source" but value
+ 					get configured when system enters in
 -- 
 2.34.1
 
