@@ -4,56 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A38D5D688
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37660D5D690
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjOE6fPlOtZcaKC6yQdeSPVI0KYBfYAvpsXXnNqME2k=; b=D2JAVBn/TtY938sK0XwNGeXDJp
-	rH5lAHqgcoGVm+RCz3S6ZS2UZciUD2YkPxVxqq9VOhk+Jx2JiT+lWdopwRzlPYqDWC/3ADO2cxonv
-	UTxSkLczp7+1dKWvXioNwYrdS0GEi478tai+M6mY1CkLJInD0Esdw5qZjdI3tbENjZaBKtwocEkhY
-	FDJScBQ+os9f/sxaHd750XG1ZfPqMd0la9ZqzdOsHmTO5vu2hRUg9rr3p/WTaoBU2LA8F9U3BtjWZ
-	lBfU30SV+vAuEY2RmvZIVUGes3ekhkzVS20M0aixwTZvjHeV3ComGF/cUSAs2jWAdxSoiptGOw3a6
-	lfJWz/Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U/2V0k0nsK2UijeufbuSOipQUsU110T9hQl5WTfC5qM=; b=udxw0Uu6iWf+CTNhFYahHkdVhp
+	PEPYKCgXldtDA9jbv0OWwPAF/SvA9H98Odk/xu4bdRZ4Qc1aB4nGGM9chmK/w+pwTgSkYKduhd+K/
+	0+qZHzWaEM5yOzctq8VfHaQynPzsm4K0NEHsBU1GwpKXnVTxNq3ENNX4tm1LzeH9qq8CU40jPF2mv
+	qdoxWTwcoDqzPOo8hXgjB1qqUyIUsGU/VgvAHREpBkYGvvKyruSwtqkzmVgQDyY47eiyWy2M4l801
+	Ks7qjFVeCabVxP9rhZiZB/TZijjOqyH6z49ORTzXEjtkqJ3uEV3mnKoOJNS6AeBRuHnIgQgYE4481
+	BjPYT2zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ABN-00000008QYe-3ZAQ;
-	Thu, 07 Nov 2024 21:36:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t9AHt-00000008SGt-49Oo;
+	Thu, 07 Nov 2024 21:43:33 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9A99-00000008QKc-3YBx
+	id 1t9AG5-00000008RhL-1qTy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 21:34:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8D873A41BA6;
-	Thu,  7 Nov 2024 21:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B35BC4CECC;
-	Thu,  7 Nov 2024 21:34:28 +0000 (UTC)
-Date: Thu, 7 Nov 2024 21:34:26 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, dave.hansen@linux.intel.com,
-	yury.khrustalev@arm.com, will@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Aishwarya TCV <aishwarya.tcv@arm.com>
-Subject: Re: [PATCH] selftests/mm: Define PKEY_UNRESTRICTED for
- pkey_sighandler_tests
-Message-ID: <Zy0yYo5feyJx1Y6D@arm.com>
-References: <20241107131640.650703-1-kevin.brodsky@arm.com>
- <96cc8ce1-1f64-45d5-8567-eb2adba1b47a@linuxfoundation.org>
- <Zy0AQnqIWRM8s9kb@arm.com>
- <50f87b47-e326-4e87-a1d4-cc24ea70f432@linuxfoundation.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <50f87b47-e326-4e87-a1d4-cc24ea70f432@linuxfoundation.org>
+	Thu, 07 Nov 2024 21:41:42 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e355f1ff4bso32009067b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 13:41:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731015700; x=1731620500; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=U/2V0k0nsK2UijeufbuSOipQUsU110T9hQl5WTfC5qM=;
+        b=ub4oYbUQpVi9HP6Hpk/I1hj9WiUQRjS2XaocNElm7fSqJ8WtXRMrN1KHXNZfj0qT1A
+         0godhZ3l+wjoFuYY3QuDN2S8U7+cDjvEiLAJCMnZyr4Yn+m4lenWpnRhFu2SKizqRoV2
+         c8PvEAQuqvteMsBFqouVwSegjSeSY51Tb0jhHXI6UtqGtzqwS2lbQgwIO/aIOEruuQjq
+         DCeSh2a+RoVz14R294MydJbrdvHdIMScB1o1s4uQXztSB0ZtaiBGCYeJL6F+B+SFD/Gb
+         aG2RSgLQ1hapc+EfNj7PNiYW8srvwUotj4k43l1VrjDMCY0jX4AiTfbGRirLDwpTk3Bp
+         k6xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731015700; x=1731620500;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U/2V0k0nsK2UijeufbuSOipQUsU110T9hQl5WTfC5qM=;
+        b=q3HQ+5RBTftUu2IEItA0jZPagvaPMcFt/nvTRsDXVnKw3NpD/IwKZVrLZkcfpfQon0
+         o4HYlsQyOauFcmIZS9f9YBAPNt6SaJXZ7AxkfOD/dBpBqhTf8a13N8UHqVpeXKag9Wbf
+         +B/OEXfsEnRJy5MjmpNDPf7X5EHsNNhmP3DcQ6Bjj/fGoX2M9N2Oe4zY9qGgnBfo9Ane
+         SNCXl1jsC4c+J8+Cc+YqrIMooqaIyg/i274a4HWJ+c3ihJUxCI8N+9JvYTDl/FzM0MAG
+         0AfVHrf77VfrhdYxqTm4LMCoTPf/I1cs6hPJLFJoK50ZZaYGsexgloMlw4pSCoAws4GV
+         J/2w==
+X-Forwarded-Encrypted: i=1; AJvYcCVDD+9IJ+d0IYrzw/027oXepRDIoI6T6SCz0sMmaVwJfXdbhsiIss6XOPux4umNyhI4h/vjjNxhQ4/sR8rXBW1B@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzXLwkr4mTqd0DFfyJoO6T/rogJFYAPAozutGxHSLV3QnFztGS
+	YMCs/WGDO4uB/MlAL9iHVeBNqEFJ3GiGyesLs6T1xKyxOZ8JpU/po1oXuZSGk0lDrTTX7KBwBuE
+	oApSRX2W14HhCwM0w9v3IEw==
+X-Google-Smtp-Source: AGHT+IHQa4/WDLxhwkTlxQKoJnSpSbWPLr4U+354oC+COKsIp0AWg/aYpXuPUvHJ5Ube9TvWVckE07rwKroGFx7ioQ==
+X-Received: from jgzg.c.googlers.com ([fda3:e722:ac3:cc00:36:e7b8:ac13:c96f])
+ (user=jingzhangos job=sendgmr) by 2002:a25:aaea:0:b0:e2b:d28f:bf28 with SMTP
+ id 3f1490d57ef6-e337f844036mr1537276.2.1731015699859; Thu, 07 Nov 2024
+ 13:41:39 -0800 (PST)
+Date: Thu,  7 Nov 2024 13:41:32 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Message-ID: <20241107214137.428439-1-jingzhangos@google.com>
+Subject: [PATCH v4 0/5] Some fixes about vgic-its
+From: Jing Zhang <jingzhangos@google.com>
+To: KVM <kvm@vger.kernel.org>, KVMARM <kvmarm@lists.linux.dev>, 
+	ARMLinux <linux-arm-kernel@lists.infradead.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Kunkun Jiang <jiangkunkun@huawei.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Andre Przywara <andre.przywara@arm.com>, 
+	Colton Lewis <coltonlewis@google.com>, Raghavendra Rao Ananta <rananta@google.com>, 
+	Shusen Li <lishusen2@huawei.com>, Eric Auger <eauger@redhat.com>, 
+	Jing Zhang <jingzhangos@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_133431_972205_43D1D3EE 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20241107_134141_504637_A66BCE56 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,43 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 02:26:11PM -0700, Shuah Khan wrote:
-> On 11/7/24 11:00, Catalin Marinas wrote:
-> > On Thu, Nov 07, 2024 at 09:50:20AM -0700, Shuah Khan wrote:
-> > > On 11/7/24 06:16, Kevin Brodsky wrote:
-> > > > Commit 6e182dc9f268 ("selftests/mm: Use generic pkey register
-> > > > manipulation") makes use of PKEY_UNRESTRICTED in
-> > > > pkey_sighandler_tests. The macro has been proposed for addition to
-> > > > uapi headers [1], but the patch hasn't landed yet.
-> > > > 
-> > > > Define PKEY_UNRESTRICTED in pkey-helpers.h for the time being to fix
-> > > > the build.
-> > > 
-> > > What does mean to say "time being" - can this be removed in the
-> > > future. If so please add a FIXME so this define can be removed
-> > > later.
-> > 
-> > There's a dependency on this series:
-> > 
-> > https://lore.kernel.org/r/20241028090715.509527-2-yury.khrustalev@arm.com/
-> > 
-> > Which I did not notice. Typically the uapi patches are picked by Arnd
-> > but first that series needs to be reposted with the comments addressed.
-> > 
-> > I think for now we either merge this fix from Kevin (happy to add a
-> > FIXME comment when applying), change the kselftest to use 0 instead of
-> > PKEY_UNRESTRICTED or revert the top two patches here:
-> > 
-> > https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/pkey-signal
-> > 
-> > I'm fine with all options really, it's not essential that we get the
-> > kselftest patches above merged in 6.13.
-> 
-> I am good with taking this patch as is with a FIXME to cleanup
-> later.
+This patch series addresses a critical issue in the VGIC ITS tables'
+save/restore mechanism, accompanied by a comprehensive selftest for bug
+reproduction and verification.
 
-Thanks Shuah.
+The fix is originally from Kunkun Jiang at [1]. 
 
+The identified bug manifests as a failure in VM suspend/resume operations.
+The root cause lies in the repeated suspend attempts often required for
+successful VM suspension, coupled with concurrent device interrupt registration
+and freeing. This concurrency leads to inconsistencies in ITS mappings before
+the save operation, potentially leaving orphaned Device Translation Entries
+(DTEs) and Interrupt Translation Entries (ITEs) in the respective tables.
+
+During the subsequent restore operation, encountering these orphaned entries
+can result in two error scenarios:
+* EINVAL Error: If an orphaned entry lacks a corresponding collection ID, the
+  restore operation fails with an EINVAL error.
+* Mapping Corruption: If an orphaned entry possesses a valid collection ID, the
+  restore operation may succeed but with incorrect or lost mappings,
+  compromising system integrity.
+
+The provided selftest facilitates the reproduction of both error scenarios:
+* EINVAL Reproduction: Execute ./vgic_its_tables without any options.
+* Mapping Corruption Reproduction: Execute ./vgic_its_tables -s
+  The -s option enforces identical collection IDs for all mappings.
+* A workaround within the selftest involves clearing the tables before the save
+  operation using the command ./vgic_its_tables -c. With this, we can run the
+  the selftest successfully on host w/o the fix.
+
+---
+
+* v3 -> v4:
+  - Added two helper functions for table entry read/write in guest memory.
+  - Move selftest as the first patch to easily run on a host without the fix.
+
+* v2 -> v3:
+  - Rebased to v6.12-rc6
+  - Fixed some typos
+  - Added a selftest for bug reproduction and verification
+
+* v1 -> v2:
+  - Replaced BUG_ON() with KVM_BUG_ON()
+
+[1] https://lore.kernel.org/linux-arm-kernel/20240704142319.728-1-jiangkunkun@huawei.com
+
+---
+
+Jing Zhang (2):
+  KVM: selftests: aarch64: Add VGIC selftest for save/restore ITS table
+    mappings
+  KVM: arm64: vgic-its: Add read/write helpers on ITS table entries.
+
+Kunkun Jiang (3):
+  KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
+  KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
+  KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
+
+ arch/arm64/kvm/vgic/vgic-its.c                |  31 +-
+ arch/arm64/kvm/vgic/vgic.h                    |  23 +
+ tools/testing/selftests/kvm/Makefile          |   1 +
+ .../selftests/kvm/aarch64/vgic_its_tables.c   | 565 ++++++++++++++++++
+ .../kvm/include/aarch64/gic_v3_its.h          |   3 +-
+ .../testing/selftests/kvm/include/kvm_util.h  |   4 +-
+ .../selftests/kvm/lib/aarch64/gic_v3_its.c    |  24 +-
+ 7 files changed, 631 insertions(+), 20 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/aarch64/vgic_its_tables.c
+
+
+base-commit: 59b723cd2adbac2a34fc8e12c74ae26ae45bf230
 -- 
-Catalin
+2.47.0.277.g8800431eea-goog
+
 
