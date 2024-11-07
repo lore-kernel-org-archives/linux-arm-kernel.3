@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77723D5D688
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A38D5D688
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 21:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s35hfQLt9bSo6W0C/uoTYaEkOoDd04wiZKrv3+ugeqU=; b=DDVgwKBv2FvB1kzJQCRE2bRGUp
-	8usURfnK/km0FXcBPt+3ijVgRDG0IywmqRhyy3tNRE9DQ7BeJRgvUEi+hr9HSbToDRP4c5zSE8kfo
-	IkAJhPkzvLtPCcbNYK0zUE9RkbBl3M/LMRB+qxKkKnmyiKWM0+zE3FjU+7GAQxGfx1xd+iPIcqPke
-	vlh00OtD9EvEMhXWwABfMEiz3WQ8rvq9sW7WQFD5Jt+jjxAICYg+3Ltdy3EuvyXiZzMys0tVpHbLQ
-	c1sYXxad3C/3M1NRwPSgit61mRjjNGcKIcKqsGIAffwpDIZrQT6lGF2RPqOF1BVe67XBtbOvSiZQa
-	//3M12tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TjOE6fPlOtZcaKC6yQdeSPVI0KYBfYAvpsXXnNqME2k=; b=D2JAVBn/TtY938sK0XwNGeXDJp
+	rH5lAHqgcoGVm+RCz3S6ZS2UZciUD2YkPxVxqq9VOhk+Jx2JiT+lWdopwRzlPYqDWC/3ADO2cxonv
+	UTxSkLczp7+1dKWvXioNwYrdS0GEi478tai+M6mY1CkLJInD0Esdw5qZjdI3tbENjZaBKtwocEkhY
+	FDJScBQ+os9f/sxaHd750XG1ZfPqMd0la9ZqzdOsHmTO5vu2hRUg9rr3p/WTaoBU2LA8F9U3BtjWZ
+	lBfU30SV+vAuEY2RmvZIVUGes3ekhkzVS20M0aixwTZvjHeV3ComGF/cUSAs2jWAdxSoiptGOw3a6
+	lfJWz/Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9A9f-00000008QMt-43gA;
-	Thu, 07 Nov 2024 21:35:03 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1t9ABN-00000008QYe-3ZAQ;
+	Thu, 07 Nov 2024 21:36:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9A4X-00000008Pjy-46oG
+	id 1t9A99-00000008QKc-3YBx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 21:29:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1731014977; bh=s35hfQLt9bSo6W0C/uoTYaEkOoDd04wiZKrv3+ugeqU=;
- b=MwVc7G88Def5/rwUePLN5WAXiYkud5mZL9U9qz7scJbmfY133G0BEcw2jdG6GypBaccYJXvH/
- gYfS3TbmTvF1A+SpaPt7lrFD3mMv0ID5nzqblnrtHLe4v1Y7+Dm1j3zhsLbv+0nHgq2bLhXim/Q
- fuNK7SVcPiRrfs8lhoAsHzJjEOnuNu97MZOdl+P8USY7iDNM4Fq0aFOyE4MYljNLQqEv8/dphiV
- hXJmn56sPubhfkrJbgByr6TusrGuL2noo5k7dlqnR2Mr53uKujEUmmJgxp7q3bYLxzwvwEFbv0c
- AQvoW9l33A93vFVBPFAjhA/6gLYASnNRCjUf977uEh9Q==
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 2/2] arm64: dts: rockchip: Enable HDMI on NanoPi R6C/R6S
-Date: Thu,  7 Nov 2024 21:29:10 +0000
-Message-ID: <20241107212913.1322666-3-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.46.2
-In-Reply-To: <20241107212913.1322666-1-jonas@kwiboo.se>
-References: <20241107212913.1322666-1-jonas@kwiboo.se>
+	Thu, 07 Nov 2024 21:34:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8D873A41BA6;
+	Thu,  7 Nov 2024 21:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B35BC4CECC;
+	Thu,  7 Nov 2024 21:34:28 +0000 (UTC)
+Date: Thu, 7 Nov 2024 21:34:26 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, dave.hansen@linux.intel.com,
+	yury.khrustalev@arm.com, will@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Aishwarya TCV <aishwarya.tcv@arm.com>
+Subject: Re: [PATCH] selftests/mm: Define PKEY_UNRESTRICTED for
+ pkey_sighandler_tests
+Message-ID: <Zy0yYo5feyJx1Y6D@arm.com>
+References: <20241107131640.650703-1-kevin.brodsky@arm.com>
+ <96cc8ce1-1f64-45d5-8567-eb2adba1b47a@linuxfoundation.org>
+ <Zy0AQnqIWRM8s9kb@arm.com>
+ <50f87b47-e326-4e87-a1d4-cc24ea70f432@linuxfoundation.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-ForwardEmail-Version: 0.4.40
-X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-ForwardEmail-ID: 672d31406ff4b179fef288d5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <50f87b47-e326-4e87-a1d4-cc24ea70f432@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_132946_076692_CADB917A 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_133431_972205_43D1D3EE 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,90 +68,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable HDMI on NanoPi R6C/R6S.
+On Thu, Nov 07, 2024 at 02:26:11PM -0700, Shuah Khan wrote:
+> On 11/7/24 11:00, Catalin Marinas wrote:
+> > On Thu, Nov 07, 2024 at 09:50:20AM -0700, Shuah Khan wrote:
+> > > On 11/7/24 06:16, Kevin Brodsky wrote:
+> > > > Commit 6e182dc9f268 ("selftests/mm: Use generic pkey register
+> > > > manipulation") makes use of PKEY_UNRESTRICTED in
+> > > > pkey_sighandler_tests. The macro has been proposed for addition to
+> > > > uapi headers [1], but the patch hasn't landed yet.
+> > > > 
+> > > > Define PKEY_UNRESTRICTED in pkey-helpers.h for the time being to fix
+> > > > the build.
+> > > 
+> > > What does mean to say "time being" - can this be removed in the
+> > > future. If so please add a FIXME so this define can be removed
+> > > later.
+> > 
+> > There's a dependency on this series:
+> > 
+> > https://lore.kernel.org/r/20241028090715.509527-2-yury.khrustalev@arm.com/
+> > 
+> > Which I did not notice. Typically the uapi patches are picked by Arnd
+> > but first that series needs to be reposted with the comments addressed.
+> > 
+> > I think for now we either merge this fix from Kevin (happy to add a
+> > FIXME comment when applying), change the kselftest to use 0 instead of
+> > PKEY_UNRESTRICTED or revert the top two patches here:
+> > 
+> > https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/pkey-signal
+> > 
+> > I'm fine with all options really, it's not essential that we get the
+> > kselftest patches above merged in 6.13.
+> 
+> I am good with taking this patch as is with a FIXME to cleanup
+> later.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
- .../boot/dts/rockchip/rk3588s-nanopi-r6.dtsi  | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+Thanks Shuah.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index dc16d60b8228..2e22a49000e5 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -5,6 +5,7 @@
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3588s.dtsi"
- 
- / {
-@@ -45,6 +46,17 @@ button-user {
- 		};
- 	};
- 
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -223,6 +235,26 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi0 {
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdptxphy_hdmi0 {
-+	status = "okay";
-+};
-+
- &i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&i2c0m2_xfer>;
-@@ -763,3 +795,18 @@ &usb_host0_ehci {
- &usb_host0_ohci {
- 	status = "okay";
- };
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
 -- 
-2.46.2
-
+Catalin
 
