@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2402D29FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 02:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2574D29FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 02:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ey6XNX5PbqVGBWLGb03G/bAnkJUej94evD8jcDY62k8=; b=pqQ2du9HqGP4ph5o1wQMTKS/C2
-	ZDx+SGJHc6X2I0smFRBSKi7Jw5mAOthFHMENcQNiA4HNgTvJKRyk4xAPlpUuED8qYRSGPS4LMITEg
-	vXmxabi92/3+RbUBif8nJhMgbQeemwwWCX0C8mtWfdz6KyA72xJu7JuFSlDcYA8x2aM8P0p1ZFmU1
-	Vh54m4DmXnJjoES7dXFS1TNo8n2XdILtVYtHBY3oQRURS8dYF+0f7vZ9eHf9lz8kTfuAcSr/xZeIa
-	mzdaJYdCNAorRl1m55ME3clecqsK8oco0fBZqkV6v91GIVVa/RmWYgwVs873grpd9zQToufqGEHQR
-	0t6ZtxPg==;
+	bh=7fr1aydG1CeWxI3Ir6yD5jRjXFZ0+WsHcDj2lCQ3QPI=; b=Ea565E0U0VA17LYbQAA0xce5QS
+	LqQyhHyMCIjU37p5cYXT5/MdAZuU7ntl4/sAaMbCeYbCHXrNar9/NCx3hl9EFZOt2ljNXwRuRnIE6
+	Ybe9gun0emp367a7Q1OcEbQ0L3flW2t7UwxFb1z78wk4DyYvV++vqx08byTrtG/BYykXVpRn296pB
+	TM7KK2eebpnmluXJPPyE86Dvx6THwVQ2CUTbFffV2eaGq/UStPQkkavCKQH9tkwHg22hurrbfNHJS
+	ZHBsj4DM/PeKuri8J/HF6BvS3gmHwxyuof81orMtdq5nhPUu4S12edXb3QMb5H4yZAFOPKSmejFdO
+	o6KqR8Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rot-00000005NBa-3xxg;
-	Thu, 07 Nov 2024 02:00:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8rqv-00000005NvZ-2uWT;
+	Thu, 07 Nov 2024 02:02:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rYz-00000005KEe-0KBC
+	id 1t8rZ1-00000005KFd-0Axt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:43:58 +0000
+	Thu, 07 Nov 2024 01:44:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBC5A5C5438;
-	Thu,  7 Nov 2024 01:43:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBD3AC4CED2;
-	Thu,  7 Nov 2024 01:43:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D800B5C54A8;
+	Thu,  7 Nov 2024 01:43:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7C76C4CED3;
+	Thu,  7 Nov 2024 01:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730943836;
-	bh=Ntx8WxDk8rLB1Q5ojb39wO8KX0zB/auSEfmEWkUG1Zw=;
+	s=k20201202; t=1730943838;
+	bh=UoJTq/4nL7BvDS6uY/r24/IvWcAW7qJlvfXTsku1iBE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eOGRyaQBHLWbThvMfSOe+NdKSSWq47FiT6b0jbREJrCrmCCkKRYzBX+kI8uqf4FGB
-	 8Rv3aIyC0qor9e7OhXBedZ/cj9Of9jgpTWw/ukU8ZRaZzBW1kRxPIXrz7wQ72uT3Go
-	 k3T+rD5Fmj8phhkMIU94o0Mc6vDXwQiq9tz8HUaiJBhUqOzNkve1cErbwnm5NhPshu
-	 AzS2XHxlYB6oBLepZrn7YXVck1C5VRttG7VoARVhv4jOm4klkosh8LV7cTGDr1rCI+
-	 r+4m1zmGwPYFpV3s2XQgqfkehkMXEBiIgUHjIOC0VUa5YYa+5E4YFmg/XikX2smBGe
-	 eVxd6sDElshsA==
+	b=JoGAVFaMtyTqLWfIgNr/IR1H96/1i3JXJuY1GBIIhGy/MSX8l0z2eMmOBuO+vEchH
+	 XW3dC68fRE0dOb9WdFfGmPTbBPCyctuR1/2OiSz+9Ci9bKIVgivsauXlYRbYGvOQQU
+	 t5hgPhXjvQtcFGBj6e+RuRYMSqa4/3Yb0Tj8mNQIyuYDUtu88A8/KWta9+IbHc7HcT
+	 SNsjwZAmaG1xwVEih+yu/ebwYh+SwgiAlANhJ9mLnCP5IQZ4uSm2iCw1NzPcFssxcO
+	 ccoYPDLBaX6GKL7xFL1HRRss4zU8P5K45fnIqAnLdBwBy8usY/7Hpaq3luJUcHieyU
+	 tfemnMhet+hKA==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 07 Nov 2024 01:39:22 +0000
-Subject: [PATCH v2 3/6] kselftest/arm64: Corrupt P0 in the irritator when
- testing SSVE
+Date: Thu, 07 Nov 2024 01:39:23 +0000
+Subject: [PATCH v2 4/6] kselftest/arm64: Implement irritators for ZA and ZT
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241107-arm64-fp-stress-irritator-v2-3-c4b9622e36ee@kernel.org>
+Message-Id: <20241107-arm64-fp-stress-irritator-v2-4-c4b9622e36ee@kernel.org>
 References: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
 In-Reply-To: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -58,20 +57,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=949; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Ntx8WxDk8rLB1Q5ojb39wO8KX0zB/auSEfmEWkUG1Zw=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBtRwxb32ApH8TNCcyHne3pvmw/cpBt6AyUptaVN
- CbigTQOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywbUQAKCRAk1otyXVSH0Ez4B/
- wOuFw0QZXOAEYlFcCsYcnod9CvSTtuMwy5tDEnl0yp9kzzWK0P1Y3U89+XaFPf37gas7ljxNTWD85P
- ep6hgFfDMW3ZUzsQks3C8oSQPvpGEdsaNW7Bb3lCM6k30WJxpcA1AbWsNpgXEG2TAQHqSwLcZUHbr/
- Phe9TzUtRbi2szmDxzDGMzOL/JOz6K/v3AziIWHW3LWds5gA1DfXMFf2Y8tONxzQk/I6JXuX3MWZxV
- PNGhLcDB1GZx1onv67RT3a2zDo5zgAmJvV4dwJbMMvljWihwNE+pv35clsC/22S07uBgQRK8VFpNGU
- J36mxVJYc8xIgrRjhbJxYU2fCZ8E4U
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2558; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=UoJTq/4nL7BvDS6uY/r24/IvWcAW7qJlvfXTsku1iBE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBtSwoIBhD3y9ti90AkhESfq9btN6AviJzAkJBpX
+ JMLOoZCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywbUgAKCRAk1otyXVSH0PY7B/
+ 4pynI9BeZ8ypvO8mQZDFKRkRl06pvwb0CZjNnHowWK4SQFeZQ69MZ1Bn2LD87oQiKDerIG6YmzQh6L
+ tYGa+qzUGMOxhhVpXX1nEE2AA8/4cOVbjG1gjo0LnDtl53wdeI12qPSO7UOSc17WgfHJLVf7AA8S0q
+ E8C7T6gnyfhtT/RPLB6k6+x7S76ra+U4yvVGGnuO9EjcByDdHdKrIz/7BEg8l7vmWbb+Hv0x8PXvke
+ 0S9JnXkgAeIrTH7X47McaV+BsgXHXI4PEhw40BJI6TKGhIB+gR8rpiLifeHX+mHuhL8dZiQ5YW9fzI
+ V8CA8bt3/idVoZ+zcv6yZe6ckghDjl
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_174357_201920_C271B32C 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20241106_174359_235711_20A8448F 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building for streaming SVE the irritator for SVE skips updates of both
-P0 and FFR. While FFR is skipped since it might not be present there is no
-reason to skip corrupting P0 so switch to an instruction valid in streaming
-mode and move the ifdef.
+Currently we don't use the irritator signal in our floating point stress
+tests so when we added ZA and ZT stress tests we didn't actually bother
+implementing any actual action in the handlers, we just counted the signal
+deliveries. In preparation for using the irritators let's implement them,
+just trivially SMSTOP and SMSTART to reset all bits in the register to 0.
 
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/sve-test.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ tools/testing/selftests/arm64/fp/za-test.S | 12 ++++--------
+ tools/testing/selftests/arm64/fp/zt-test.S | 12 ++++--------
+ 2 files changed, 8 insertions(+), 16 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
-index f1fb9745c681786f686f1fafcb7e1154f3c8e1a3..28eb8b5cc2d2e6f51818f29db037e55c9b838a41 100644
---- a/tools/testing/selftests/arm64/fp/sve-test.S
-+++ b/tools/testing/selftests/arm64/fp/sve-test.S
-@@ -302,9 +302,9 @@ function irritator_handler
- 	movi	v0.8b, #1
- 	movi	v9.16b, #2
- 	movi	v31.8b, #3
--#ifndef SSVE
- 	// And P0
--	rdffr	p0.b
-+	ptrue	p0.d
-+#ifndef SSVE
- 	// And FFR
- 	wrffr	p15.b
- #endif
+diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
+index 1ee0ec36766d2bef92aff50a002813e76e22963c..f902e6ef9077bfa34fa7f85ce572ce3df4346789 100644
+--- a/tools/testing/selftests/arm64/fp/za-test.S
++++ b/tools/testing/selftests/arm64/fp/za-test.S
+@@ -148,20 +148,16 @@ function check_za
+ 	b	memcmp
+ endfunction
+ 
+-// Any SME register modified here can cause corruption in the main
+-// thread -- but *only* the locations modified here.
++// Modify the live SME register state, signal return will undo our changes
+ function irritator_handler
+ 	// Increment the irritation signal count (x23):
+ 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+ 	add	x0, x0, #1
+ 	str	x0, [x2, #ucontext_regs + 8 * 23]
+ 
+-	// Corrupt some random ZA data
+-#if 0
+-	movi	v0.8b, #1
+-	movi	v9.16b, #2
+-	movi	v31.8b, #3
+-#endif
++	// This will reset ZA to all bits 0
++	smstop
++	smstart
+ 
+ 	ret
+ endfunction
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index ade9c98abcdafc2755ef4796670566d99e919e5c..c96cb7c2ad4b406c54099fe3f73917259bd947e4 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -117,20 +117,16 @@ function check_zt
+ 	b	memcmp
+ endfunction
+ 
+-// Any SME register modified here can cause corruption in the main
+-// thread -- but *only* the locations modified here.
++// Modify the live SME register state, signal return will undo our changes
+ function irritator_handler
+ 	// Increment the irritation signal count (x23):
+ 	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+ 	add	x0, x0, #1
+ 	str	x0, [x2, #ucontext_regs + 8 * 23]
+ 
+-	// Corrupt some random ZT data
+-#if 0
+-	movi	v0.8b, #1
+-	movi	v9.16b, #2
+-	movi	v31.8b, #3
+-#endif
++	// This will reset ZT to all bits 0
++	smstop
++	smstart
+ 
+ 	ret
+ endfunction
 
 -- 
 2.39.2
