@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D178AD43349
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26AE8D43349
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWy454JTOGwB3Dt5B8irjoHMNnCGPA3U2n8E8e3Bk0M=; b=Hcwr/zx+LUpvUbXI9AvZcpaFjI
-	gWKcukKJGUhXb8loEJlXFl0glpwUPlHY0N0t1mxsHkQWFWSx4soAJGBKW171yBL4uZe/wU1OLdNKW
-	6W3BCDkUlwSwHVm9FZUdwYgMrESHGKApNGLpEdKXpiMAjzi5Hioc70TZExA1Ea7yPH7s6UyZPdlca
-	zRMGaWArFqtB8CKULV2LGStAt8VkKrwu4MyPvdT72DV/sudB0Z2VDK0qZa5nHzseHCmKulHQleWVv
-	Q7Sy+MQiBghnh/SVWrk6cie5C1WGBquFbQwK1GyzAdNCrerXC4Y4SNtTvoU8gORiS34JTVj45qJop
-	emZAD7/w==;
+	bh=crOUcDlEzUR3DZ0n6a2QmAqKobcrOvKf5Agt2Wh69jA=; b=Jl2SoI/qZ0B54Y6A29Q8iQfRim
+	jmBGkPq82YwMNttoNAKzTEO6gEwG+hB3uQU8HtoXI+DJGOCXzJEiAeoc1c4qr3K39OOx/gDnErYBw
+	fOKXN/udEbGtR2yzbvQpgKNpdCjrNod+k8ve5v+hlR07xqXIQdj4o1ixJ4C4pPV2BhEnESFUEeoWQ
+	xx03ljd55UT/VZCSHvk3jLvOFxVgoAKZpLP+KaF0KeUVPRWgF9JOh49VjsLwROBOJ6sBg/FpLY95Z
+	7ULUOptFaZygUm2ils5d+pKL8SmDOkKYXQqIIGXHeelpbS35CesPeUTsgc2tmhNu2TbMorkW75EJY
+	NgdUi5vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90Oj-00000006ciR-2CT9;
-	Thu, 07 Nov 2024 11:09:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t90QU-00000006dJl-31nb;
+	Thu, 07 Nov 2024 11:11:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90MJ-00000006c8V-3JT9
+	id 1t90Mi-00000006cH1-3iLS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 11:07:30 +0000
+	Thu, 07 Nov 2024 11:07:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 61344A4378D;
-	Thu,  7 Nov 2024 11:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B3D8C4CECC;
-	Thu,  7 Nov 2024 11:07:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 951715C0496;
+	Thu,  7 Nov 2024 11:07:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 504A7C4CECC;
+	Thu,  7 Nov 2024 11:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730977624;
-	bh=wWy454JTOGwB3Dt5B8irjoHMNnCGPA3U2n8E8e3Bk0M=;
+	s=k20201202; t=1730977672;
+	bh=3RDsctzj+jKcHyPmCDmgDEvkYRZVjj3F2h2JnfN6XYg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CWZa3o68QMtmlz5POUfbiLm5sYgt9IukvYZXN97Djjp9HIdmseiG15pDIVmBC6RiA
-	 m2POD/vZ4N06dRngbW2hegsUAdIFmM/r86xPqXoLUPY4D0BTkQ7Y/W8jjnxYLKRadn
-	 6pvdun9SekcnvlcAE/R/faCsTcDAueuGZXcpO2ZLfG8SL4eFlNWtJWzUnykueK3CFa
-	 0WJ23Z+8RlCz9+fPUa1uNv2z6pXpFbOUj+9ORYnifzISrGxwQEEuhJ+OC3ft2fv0DD
-	 4asM8n3W0BkaqI4fbNgICo9Og/FQv+ZgLBWjyjAJwyR6vibJrt85QY2gVIiO4Mq1oC
-	 H5F67hRkq2pOw==
-Date: Thu, 7 Nov 2024 12:07:01 +0100
+	b=CEkUUHT2AyhLlnl5b5Kr1aHQP+HLUSQogHUG19q1+lqDySaWJ0NwDuaoCr01ID9vp
+	 ErMXgC7nML7+V9kF1Mp0H2Dz1RPL/xYpcwwUr1eyHZWAw+R8FB8t7L2730xLblaMnp
+	 W4H5RJYM2bn2TSm1bIAOHaonkfGI/TxTIj6+fxZZ69fnVmt5EFUWD0jBE1DVkzottY
+	 LW91NKPMxk3T3e2WcVXGU0x7L64WnT80R2SpOoNMeAgUln7KQEKgcDTpKOOBRkHtxa
+	 xaOyhJt+VrQA7oR8749NarQRcwH42e7ilCnd6UWg8cdc2/eWVMHqtvQvuMsaqadkam
+	 dECzA0PDtrbSg==
+Date: Thu, 7 Nov 2024 12:07:46 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Abhinav Saxena <xandfury@gmail.com>
 Cc: linux-kernel-mentees@lists.linuxfoundation.org, 
@@ -55,17 +55,18 @@ Cc: linux-kernel-mentees@lists.linuxfoundation.org,
 	Jonathan Hunter <jonathanh@nvidia.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
 	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
 	Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH 1/2] Documentation: dt-bindings: Fix repeated words
-Message-ID: <huswmfhrf4mfewxchalts4chpddo4z67bg3kmsr3cfhhstob75@pzzuwfcvoiay>
+Subject: Re: [PATCH 2/2] Documentation: dt-bindings: Remove trailing
+ whitespace
+Message-ID: <gjxevyovxhymwm2ps37hfq3vmpmmr4pqmohq67llxrb2plb5zz@pvsmkqmhemx7>
 References: <20241107061124.105930-1-xandfury@gmail.com>
- <20241107061124.105930-2-xandfury@gmail.com>
+ <20241107061124.105930-3-xandfury@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241107061124.105930-2-xandfury@gmail.com>
+In-Reply-To: <20241107061124.105930-3-xandfury@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_030728_820052_8B482B5E 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20241107_030752_992660_591C3515 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,26 +82,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 11:11:23PM -0700, Abhinav Saxena wrote:
-> Fix unintentional word repetitions in devicetree binding documentation:
-> - usb.txt: Fix repeated "two"
-> - mvebu-devbus.txt: Fix repeated "from"
-> - gpio.txt: Fix repeated "Both"
-> - pinctrl-bindings.txt: Fix repeated "device"
-> - cavium/bootbus.txt: Fix repeated "one"
+On Wed, Nov 06, 2024 at 11:11:24PM -0700, Abhinav Saxena wrote:
+> Remove trailing whitespace from devicetree binding documentation files:
+> - regulator/regulator-max77620.txt
+> - interrupt-controller/nvidia,tegra20-ictlr.txt
+> - interrupt-controller/msi.txt
+> 
+> No functional changes. Issues detected using checkpatch.pl script.
 
-This we see from the diff. This is trivial commit, so rather write
-concise commit msg.
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-With changes above:
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Instead I would prefer these files to be converted to DT schema which
+would result in their full removal.
 
 Best regards,
 Krzysztof
