@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC10D4337D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 763BED43379
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 16:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3aIunwJJZwjkSc47JIdSCmw2c2ZlsEQ7RGvz1daEzI=; b=2/heoMWl47V+TWNZszo8YxYuju
-	0jOw2HcsZD9YBX+mQUKAlHB5KLwR3FnX5P0JvlxbRZpMZjAIeHU7M6X2rvFUnTIpApMgHsuWg1cRJ
-	zSVyeOzBUymeFuMu56PulkkQrKcITFaTMF/zN3E/WRd9ol6fQhQQeq+wUsY32p05tQStZglO+DhpN
-	qRYeUGYKK9GrJv9WaPqF/gyWcCK/uKvgYYzuwJwu+Ip/RrIQs8rpQVSe7J3wBlyvfNkvxCJBxKx/F
-	0v/4c/uaXuiTenqUsn403XjVcLDfKZCQFcuBe+36aGiqr7emO2AjkCa3takIuBCTmQMDFOavbXPAs
-	O5BB3xUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nH0O+1ikWMG8QC8IE2A8+a7BT7IU8/OaYlea9rc3Ptc=; b=CDEJ/PHRbpoQzX8OkVT1EqN2vM
+	zsokcIMLtJm9J5T1x4AdbHP+mhy8Cs0T7Xr6Ok5ul5eURcNjShagjPGJmLBcSYIO+CGUGequCENLv
+	5M3H9RKyUwWYxHIiuOhDYJX57ubsA6/ArvyzLhVK5alygnYA4NmRsgIUYmuX1iDdRoWw3SZNwSdzR
+	LKoqowPQoozrayS7euPvY/K6GGYIIzf7ujCrj1aIZFlymoNpyd4uYlMsnP1HPBKkW7p8wT6ve6jDH
+	nBQflj4mYyyKb8IrLmVnaW+YCUlDk3g4bpRf9yUPh6g3wtFBe7ic7MnXSTDdnYWfYmieE48d4z+M0
+	FIU/RUYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95oK-00000007jPF-173D;
-	Thu, 07 Nov 2024 16:56:44 +0000
-Received: from mail-pl1-f169.google.com ([209.85.214.169])
+	id 1t95q1-00000007jc8-1nVk;
+	Thu, 07 Nov 2024 16:58:29 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95PR-00000007eXS-0Wc8
+	id 1t95iB-00000007hkx-2rjO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 16:31:02 +0000
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-20cf6eea3c0so12867035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:31:00 -0800 (PST)
+	Thu, 07 Nov 2024 16:50:25 +0000
+Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3e5fcf464ecso856195b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 08:50:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1730998222; x=1731603022; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nH0O+1ikWMG8QC8IE2A8+a7BT7IU8/OaYlea9rc3Ptc=;
+        b=GrQtvpbR4r8EUXjxX2kXAk5aE5ok95H0COBoAFb7HaGUmvsWXViB7Le13KgyihhtgJ
+         2jhLREcB7mAI+4DajfVOvVWiBpGDz9Im61/9+gUD6Qzfai7Pxprbzh71DMKZBkMTgliD
+         mbwMKrJTEjIBxcYLxXXcsPFkm+Z2zhjSf5D9s=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730997060; x=1731601860;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1730998222; x=1731603022;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=i3aIunwJJZwjkSc47JIdSCmw2c2ZlsEQ7RGvz1daEzI=;
-        b=fWBx5QW9UHnSTwxO5CjEw1tZB56WfDLEgE4NCj4veDYmEMZ3O+X05RnzuJssXmVq/y
-         ZNTta5CYMd3HBCCV5r+R+rYY7iI3mTdai/uR2YYR/I/cHM5rbXbP95pjM0ffRnh97ZE2
-         SpEiJ47/FAZ5flYlAi9Kuq41YjoMKk5fJLo5SB26IHJ7Hzjvzd+Tl7AhdyFgIe1G3K0b
-         IRvEkrLyPMTWCxuO7Ya2B0uW+b4UsZl257Cz3d+Ko9BTSBb4hxCCu9IP/m++lRNV7VCs
-         YXWoXJlGwh1TDUo+XFrMcYweT3BUztWbAjHWDeZAzZMXx9/AVuLfJSRo9zPjLEkerwrc
-         lBxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXrMja95uJT8A1e5Q46FnEWh/B6gbALOCPTZ+XJjKslrP4xdZtOlPyTd/4+QXWK+sWhvCg8yeqbgNCabzSOeaXD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyePlrOv1c0nrfrvXjWCzg8xKUvUzZf+up+YB3ZwbieTN7lBtg
-	q+G1poeIjpWtyoS94H/WiiJBbAqkrKoErDmiiaI6gKQ/tAH5Em9P
-X-Google-Smtp-Source: AGHT+IEGJto+1JijDqrubHaDC0FIg58jiL9pnEaSMfPJmuQ+AA54UQg+DzpAhfYNveKIfglNcXt2pw==
-X-Received: by 2002:a17:903:2343:b0:20c:d18c:1704 with SMTP id d9443c01a7336-2118232bcfbmr352135ad.23.1730997059913;
-        Thu, 07 Nov 2024 08:30:59 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dde241sm14228755ad.81.2024.11.07.08.30.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 08:30:59 -0800 (PST)
-Date: Fri, 8 Nov 2024 01:30:58 +0900
-From: Krzysztof =?utf-8?B?V2lsY3p577+977+9c2tp?= <kw@linux.com>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
-	Frank Li <frank.li@nxp.com>, "mani@kernel.org" <mani@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
- some platforms
-Message-ID: <20241107163058.GD1297107@rocinante>
-References: <AS8PR04MB8676998092241543AEABFAAB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <20241106222933.GA1543549@bhelgaas>
- <AS8PR04MB8676C98C4001DDC4851035B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <20241107072005.GA378841@rocinante>
- <AS8PR04MB8676F00E8F76B695772EB3B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <AS8PR04MB86765B904FEC1AA88F6F83468C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+        bh=nH0O+1ikWMG8QC8IE2A8+a7BT7IU8/OaYlea9rc3Ptc=;
+        b=CMSBRTsTdc+jDkW8Y6YDHzsp70S55RZ9IFUkM4cF3lCUBzB5kpLA1NgOvgEldiUFbx
+         krpjU+tCsk2ZhWL/tBaHcGvDyq71Sii81Q/TjY3yY9WTQSlzUv78cxz+/7cNVXWNW+4r
+         gezuZP9Wh6J5yo1YhzR9RmeBrLhgMLvB8zWK7V00wui1oYnKwloHIVIcY7pPSjLKLYQ2
+         NESyVYZshuO60exnNH3Bkd3Ovdm7eV9viYjkcGQaoPUVJiQ4S17ufNruwMGxUteYuq+z
+         J0EbaqguSWSQPxx3qlL6AxycV8xmsiup/rc6DzG15ohzJuzgzHy3JX0SOM6eA01iI8WC
+         7e+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUvyZd837iSOlPUR0AQD10IbN5QXx0jhEnjGukoWw7VHc4wMUAmj/c558uCr2SJwsriJbXXgeH6dfgPDNUEpvmI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy29qdTfAj8sul3tA96XCPVeeKxpmJNHF5aOkhnMpQ2a7nPpwB0
+	mtxtO3Jyapl/8D49xzVcc5H+W9XaRi6xYNP7e/3VxsT4EovhpQEvIYEeQiyX87Y=
+X-Google-Smtp-Source: AGHT+IFyR0ojR5woZ+2sRiyIAtT6NrnlTxRk6o3IwcKgmMiBK8pN+bSw5rHmGwTuEAWjxtrJMD1uaQ==
+X-Received: by 2002:a05:6808:338b:b0:3e6:2a7c:837f with SMTP id 5614622812f47-3e63849ee59mr41268395b6e.39.1730998221897;
+        Thu, 07 Nov 2024 08:50:21 -0800 (PST)
+Received: from [192.168.1.128] ([38.175.170.29])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4de5f8335d6sm375540173.74.2024.11.07.08.50.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 Nov 2024 08:50:21 -0800 (PST)
+Message-ID: <96cc8ce1-1f64-45d5-8567-eb2adba1b47a@linuxfoundation.org>
+Date: Thu, 7 Nov 2024 09:50:20 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AS8PR04MB86765B904FEC1AA88F6F83468C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] selftests/mm: Define PKEY_UNRESTRICTED for
+ pkey_sighandler_tests
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, dave.hansen@linux.intel.com,
+ yury.khrustalev@arm.com, will@kernel.org, linux-kselftest@vger.kernel.org,
+ Aishwarya TCV <aishwarya.tcv@arm.com>, Shuah Khan <skhan@linuxfoundation.org>
+References: <20241107131640.650703-1-kevin.brodsky@arm.com>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20241107131640.650703-1-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_083101_193468_8F6B3968 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20241107_085023_797317_197D12F4 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +94,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 11/7/24 06:16, Kevin Brodsky wrote:
+> Commit 6e182dc9f268 ("selftests/mm: Use generic pkey register
+> manipulation") makes use of PKEY_UNRESTRICTED in
+> pkey_sighandler_tests. The macro has been proposed for addition to
+> uapi headers [1], but the patch hasn't landed yet.
+> 
+> Define PKEY_UNRESTRICTED in pkey-helpers.h for the time being to fix
+> the build.
 
-[...]
-> > > If the changes aren't too involved, then I would rather fix it or drop
-> > > the not needed code now, before we sent the Pull Request.
-> > >
-> > > So, feel free to sent a small patch against the current branch, or
-> > > simply let me know how do you wish the current code to be changed, so
-> > > I can do it against the current branch.
-> > Thanks for your kindly reminder.
-> > This clean up small patch is on the way.
-> Here it is.
-> https://lkml.org/lkml/2024/11/7/409
+What does mean to say "time being" - can this be removed in the
+future. If so please add a FIXME so this define can be removed
+later.
 
-Thank you!
+> 
+> [1] https://lore.kernel.org/all/20241028090715.509527-2-yury.khrustalev@arm.com/
+> 
+> Fixes: 6e182dc9f268 ("selftests/mm: Use generic pkey register
+> manipulation")
+> Reported-by: Aishwarya TCV <aishwarya.tcv@arm.com>
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+> 
+> Based on arm64 for-next/pkey-signal (49f59573e9e0).
+> 
+> ---
+>   tools/testing/selftests/mm/pkey-helpers.h | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/mm/pkey-helpers.h b/tools/testing/selftests/mm/pkey-helpers.h
+> index 9ab6a3ee153b..319f5b6b7132 100644
+> --- a/tools/testing/selftests/mm/pkey-helpers.h
+> +++ b/tools/testing/selftests/mm/pkey-helpers.h
+> @@ -112,6 +112,10 @@ void record_pkey_malloc(void *ptr, long size, int prot);
+>   #define PKEY_MASK	(PKEY_DISABLE_ACCESS | PKEY_DISABLE_WRITE)
+>   #endif
+>   
+> +#ifndef PKEY_UNRESTRICTED
+> +#define PKEY_UNRESTRICTED 0x0
+> +#endif
 
-That said, there here have been some concerns raised following a review of
-the new patch, see:
+Where would this be defined in the future? I couldn't find it
+in any kernel header files on linux-next.
 
-  - https://lore.kernel.org/linux-pci/20241107084455.3623576-1-hongxing.zhu@nxp.com
 
-Hence, I wonder whether we should drop this patch and then focus on
-refinements to the new version, and perhaps, once its ready, then we
-will include it—this might have to be for the next release at this
-point, sadly.
+> +
+>   #ifndef set_pkey_bits
+>   static inline u64 set_pkey_bits(u64 reg, int pkey, u64 flags)
+>   {
 
-Thoughts?
-
-	Krzysztof
+thanks,
+-- Shuah
 
