@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A2DD5AE72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C60D5AE71
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 08:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xNlMMjciLevQNjZxyRD3U9zk6KPHdhrwCerUrHCtyJU=; b=LDlBh2Gp9gJchDlaUjTIYrPpVo
-	Hzh3tN2h6D77V4/FWu01mZBUT/DPS69jE4du1O57a/tsIE/ae6EpaNnmvgZUZA+BDWHxstmVJkOEu
-	27kFcIwhQEzEnPTtMikkioYtC84XaqvbJM8+gygMZdzdIJ7v35JpqjsU1IQTwGvXF876vGNwoCgPZ
-	laGCO277M8z/1xw0gS9mF0I0aL6NsExj+ngrIEvIR3v/R4D6ZBJ/TZq+MtfJ1kJaIRaSMPvUvjuLI
-	atzpf/vYwSd0ZlKz13dI1/WnDjIXDBEF7s4ME/Xd1KiKN7cqHg0KTeJlaOtK8BosoY9/5ZvmkjZKo
-	FUAi3n9Q==;
+	bh=ZoHtGBbIT7cejHYPy7w5YjJwSa89U1o7+v8ap+q+GxE=; b=WYEFUiWHtiVrbp+Tz2SSrZ9kaK
+	HPsJmqQqvHn6DbES5YAzf7JQ5/Xz6RwRbgn3p/gbmJ5u+Xzbr26YbIKuQoDAuTa7cnkxXkgEBvLyF
+	Ez/GB9PuQ9rwfa/StUzvx5i0tgQH0S2+nrNMyyK01s4m85IFx0dcTqHOwu8ugI1NRhYhtqKaimCT4
+	9pF7MYrMOKEQB12D/RmJLsA2VwspgU3SQ7LV2911VeDH5QZe4HpeJUwaLvLmalotKJS84B0yzI4GC
+	142nKC16kvy69qmIL6W2+6BFayyenccapEAJazmVwB7c/eb/l2Q5mFhSPPUNNnObJGMXSAmEzALpO
+	HFIa6IGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8xvV-000000067i1-0cbY;
-	Thu, 07 Nov 2024 08:31:37 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t8y0B-000000068dm-0eKi;
+	Thu, 07 Nov 2024 08:36:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8wkZ-00000005wvM-4AIs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 07:16:18 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6ea863ecfe9so12794287b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Nov 2024 23:16:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730963774; x=1731568574; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xNlMMjciLevQNjZxyRD3U9zk6KPHdhrwCerUrHCtyJU=;
-        b=M6XV/8nKtkc2KRllya0vZhixhP0yO4+SPmgdJb/Nx9Ca+MzcWcn/EfffsfF5AQkabW
-         OfO0o+eGn15DHYrTQC37tzViHLTN5Z8NXTSV9ZqvaNkCmWsMYJZO4/904SK08TKQYlgK
-         GiWvgFkwvsgVfmhocERlFv/Nz72xOVkMs7WrXSiAXSc4jhVC6RK/iwOlDzaHgzgleZ34
-         0chbxya93dfxsSqHCSzbGVDV3d75wHHkdUlaGadM4yP05DG2xLZsskSnlG4ThoEP+DFP
-         FC9kQUP9skFQaPKalYQdDzrS4r+6HZI0WlpoX//Strh3QiFjRqvQhjYtWh9ZDR74/pIc
-         CPQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730963774; x=1731568574;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xNlMMjciLevQNjZxyRD3U9zk6KPHdhrwCerUrHCtyJU=;
-        b=B0U1tBizyg+vU4v20WSSyz58JSTe82/8YinxAhNkvLN1eL+fuZw4SsGzhsl95vckSv
-         KSyGGL6xqSGjmFXJCGV48A+bjUtKvgVBxMvUUSHP8xmWb3BNBq1RgwsgiiSDACDXBWnO
-         fV1VPOn4ArgOAvZ3NKIkm18VqQFTW3M7Qk3cwtbLdmevQhs5ftA99HG9MThDX44M134r
-         djIVkqY4zWgnfLzqYMv6T8xvTGtDxpub1pjmjSe6T7f1CEXCS0fZICCrAYyCDoMtMaKS
-         WbS/RhFOYG6oP2tQeX4vGago02LdmVVS0DIFWeb65H4dV/dJeP4aVy1+rWFTlzQG6m6w
-         bHWg==
-X-Forwarded-Encrypted: i=1; AJvYcCVusuZMKt44yqTbOviQ/m9w5vS2nu2bsrAu+8QIZ/QjmYdMET03Ixnjw8hsKZjBeMhndD1/wlxedvhunAc0Z1dg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzavYQKiUdjv6CFpS09QhmjXPE2PvyUV9Vz2WXZDSrFlrl0gP3u
-	U09me7x/p4RGJoj419lc4jci2GLl2v6YcrCf2v2zpzc4RMHbJZnjHta+VlrOl/iXSjpn1opwIM5
-	1NehzVg==
-X-Google-Smtp-Source: AGHT+IG/7XhxHMGfAm7DZPUmoPIpXEULkLsWBXpgZNT6RrqUGymhXMvB92mJcPp186PEHd4y9zeHZVV5R7g4
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:acc7:bda:7167:18d8])
- (user=irogers job=sendgmr) by 2002:a05:690c:4484:b0:6dd:bf69:7e06 with SMTP
- id 00721157ae682-6e9d8b2173amr9142837b3.7.1730963774596; Wed, 06 Nov 2024
- 23:16:14 -0800 (PST)
-Date: Wed,  6 Nov 2024 23:15:58 -0800
-In-Reply-To: <20241107071600.9082-1-irogers@google.com>
-Message-Id: <20241107071600.9082-6-irogers@google.com>
-Mime-Version: 1.0
-References: <20241107071600.9082-1-irogers@google.com>
-X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-Subject: [PATCH v1 5/7] perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-From: Ian Rogers <irogers@google.com>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Benjamin Gray <bgray@linux.ibm.com>, Xu Yang <xu.yang_2@nxp.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, 
-	"=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?=" <clement.legoffic@foss.st.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1t8xyP-000000068BI-0KpK;
+	Thu, 07 Nov 2024 08:34:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CC135C46D1;
+	Thu,  7 Nov 2024 08:33:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B21BC4CECC;
+	Thu,  7 Nov 2024 08:34:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1730968475;
+	bh=ekfKStdaRvxQJ8LnLOTxDNbCdjD/Ffnq9L/mjy1VY3E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AAXJaD3UZ0pIe5Zb+H5PrAOqqYxl+hu6sVhz+/a5gLCVgRToujV+i7YZbM5Ne2n92
+	 RoVevRrtY6vgO16does91zknKuqf7n5KmWhIjTNuK6rUSbFQr4SKQg2W0gDLgg0lYr
+	 ZxWE9YwKZHxw2vlDeO75a2U6amknWfLro6LBf1LA=
+Date: Thu, 7 Nov 2024 09:14:19 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Haowei Cheng(Harvey)" <harvey.cheng@fibocom.com>
+Cc: "chunfeng.yun@mediatek.com" <chunfeng.yun@mediatek.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue5aSNOiDlm57lpI0=?= =?utf-8?Q?=3A?=
+ 0001-usb-mtu3-fix-panic-in-mtu3_gadget_wakeup.patch
+Message-ID: <2024110705-manmade-nullify-b95b@gregkh>
+References: <SEZPR02MB54953820B2A9EEBD807D0ED18E512@SEZPR02MB5495.apcprd02.prod.outlook.com>
+ <2024110512-popcorn-germless-01be@gregkh>
+ <SEZPR02MB5495A8637098B92CDEBBFC6C8E532@SEZPR02MB5495.apcprd02.prod.outlook.com>
+ <2024110735-lunacy-salvation-684c@gregkh>
+ <SEZPR02MB5495C6CAF78EC669F65CD6398E5C2@SEZPR02MB5495.apcprd02.prod.outlook.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEZPR02MB5495C6CAF78EC669F65CD6398E5C2@SEZPR02MB5495.apcprd02.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_231616_090827_C2358693 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20241107_003437_192588_234F3512 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,406 +75,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ARM the cpuid is dependent on the core type of the CPU in
-question. The PMU was passed for the sake of the CPU map but this
-means in places a temporary PMU is created just to pass a CPU
-value. Just pass the CPU and fix up the callers.
+A: http://en.wikipedia.org/wiki/Top_post
+Q: Were do I find info about this thing called top-posting?
+A: Because it messes up the order in which people normally read text.
+Q: Why is top-posting such a bad thing?
+A: Top-posting.
+Q: What is the most annoying thing in e-mail?
 
-As there are no longer PMU users in header.h, shuffle forward
-declarations earlier to work around build failures.
+A: No.
+Q: Should I include quotations after my reply?
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/arch/arm64/util/arm-spe.c     | 14 ++------------
- tools/perf/arch/arm64/util/header.c      | 12 ++++--------
- tools/perf/arch/loongarch/util/header.c  |  2 +-
- tools/perf/arch/powerpc/util/header.c    |  2 +-
- tools/perf/arch/riscv/util/header.c      |  2 +-
- tools/perf/arch/s390/util/header.c       |  4 ++--
- tools/perf/arch/x86/util/header.c        |  3 +--
- tools/perf/pmu-events/empty-pmu-events.c |  5 ++++-
- tools/perf/pmu-events/jevents.py         |  5 ++++-
- tools/perf/tests/expr.c                  |  7 +++----
- tools/perf/util/expr.c                   |  6 +++---
- tools/perf/util/header.c                 | 22 +++++++++++++++++++++-
- tools/perf/util/header.h                 | 19 ++++++++++---------
- tools/perf/util/pmu.c                    | 20 --------------------
- tools/perf/util/pmu.h                    |  1 -
- 15 files changed, 57 insertions(+), 67 deletions(-)
+http://daringfireball.net/2007/07/on_top
 
-diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-index 7ccdea3cd461..22b19dcc6beb 100644
---- a/tools/perf/arch/arm64/util/arm-spe.c
-+++ b/tools/perf/arch/arm64/util/arm-spe.c
-@@ -23,6 +23,7 @@
- #include "../../../util/debug.h"
- #include "../../../util/auxtrace.h"
- #include "../../../util/record.h"
-+#include "../../../util/header.h"
- #include "../../../util/arm-spe.h"
- #include <tools/libc_compat.h> // reallocarray
- 
-@@ -85,22 +86,11 @@ static int arm_spe_save_cpu_header(struct auxtrace_record *itr,
- 	struct arm_spe_recording *sper =
- 			container_of(itr, struct arm_spe_recording, itr);
- 	struct perf_pmu *pmu = NULL;
--	struct perf_pmu tmp_pmu;
--	char cpu_id_str[16];
- 	char *cpuid = NULL;
- 	u64 val;
- 
--	snprintf(cpu_id_str, sizeof(cpu_id_str), "%d", cpu.cpu);
--	tmp_pmu.cpus = perf_cpu_map__new(cpu_id_str);
--	if (!tmp_pmu.cpus)
--		return -ENOMEM;
--
- 	/* Read CPU MIDR */
--	cpuid = perf_pmu__getcpuid(&tmp_pmu);
--
--	/* The CPU map will not be used anymore, release it */
--	perf_cpu_map__put(tmp_pmu.cpus);
--
-+	cpuid = get_cpuid_allow_env_override(cpu);
- 	if (!cpuid)
- 		return -ENOMEM;
- 	val = strtol(cpuid, NULL, 16);
-diff --git a/tools/perf/arch/arm64/util/header.c b/tools/perf/arch/arm64/util/header.c
-index f0907daad3ae..f445a2dd6293 100644
---- a/tools/perf/arch/arm64/util/header.c
-+++ b/tools/perf/arch/arm64/util/header.c
-@@ -62,22 +62,18 @@ int get_cpuid(char *buf, size_t sz, struct perf_cpu cpu)
- 	return EINVAL;
- }
- 
--char *get_cpuid_str(struct perf_pmu *pmu)
-+char *get_cpuid_str(struct perf_cpu cpu)
- {
--	char *buf = NULL;
-+	char *buf = malloc(MIDR_SIZE);
- 	int res;
- 
--	if (!pmu || !pmu->cpus)
--		return NULL;
--
--	buf = malloc(MIDR_SIZE);
- 	if (!buf)
- 		return NULL;
- 
- 	/* read midr from list of cpus mapped to this pmu */
--	res = get_cpuid(buf, MIDR_SIZE, perf_cpu_map__min(pmu->cpus));
-+	res = get_cpuid(buf, MIDR_SIZE, cpu);
- 	if (res) {
--		pr_err("failed to get cpuid string for PMU %s\n", pmu->name);
-+		pr_err("failed to get cpuid string for CPU %d\n", cpu.cpu);
- 		free(buf);
- 		buf = NULL;
- 	}
-diff --git a/tools/perf/arch/loongarch/util/header.c b/tools/perf/arch/loongarch/util/header.c
-index f1f0b116962d..0c6d823334a2 100644
---- a/tools/perf/arch/loongarch/util/header.c
-+++ b/tools/perf/arch/loongarch/util/header.c
-@@ -90,7 +90,7 @@ int get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu __maybe_unused)
- 	return ret;
- }
- 
--char *get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+char *get_cpuid_str(struct perf_cpu cpu __maybe_unused)
- {
- 	return _get_cpuid();
- }
-diff --git a/tools/perf/arch/powerpc/util/header.c b/tools/perf/arch/powerpc/util/header.c
-index 6d1a63a2922f..c7df534dbf8f 100644
---- a/tools/perf/arch/powerpc/util/header.c
-+++ b/tools/perf/arch/powerpc/util/header.c
-@@ -42,7 +42,7 @@ get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu __maybe_unused)
- }
- 
- char *
--get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+get_cpuid_str(struct perf_cpu cpu __maybe_unused)
- {
- 	char *bufp;
- 	unsigned long pvr;
-diff --git a/tools/perf/arch/riscv/util/header.c b/tools/perf/arch/riscv/util/header.c
-index ebac294c877f..4b839203d4a5 100644
---- a/tools/perf/arch/riscv/util/header.c
-+++ b/tools/perf/arch/riscv/util/header.c
-@@ -98,7 +98,7 @@ int get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu __maybe_unused)
- }
- 
- char *
--get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+get_cpuid_str(struct perf_cpu cpu __maybe_unused)
- {
- 	return _get_cpuid();
- }
-diff --git a/tools/perf/arch/s390/util/header.c b/tools/perf/arch/s390/util/header.c
-index 2add1a561242..db54677a17d2 100644
---- a/tools/perf/arch/s390/util/header.c
-+++ b/tools/perf/arch/s390/util/header.c
-@@ -137,11 +137,11 @@ int get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu __maybe_unused)
- 	return (nbytes >= sz) ? ENOBUFS : 0;
- }
- 
--char *get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+char *get_cpuid_str(struct perf_cpu cpu)
- {
- 	char *buf = malloc(128);
- 
--	if (buf && get_cpuid(buf, 128))
-+	if (buf && get_cpuid(buf, 128, cpu))
- 		zfree(&buf);
- 	return buf;
- }
-diff --git a/tools/perf/arch/x86/util/header.c b/tools/perf/arch/x86/util/header.c
-index 690f86cbbb1c..412977f8aa83 100644
---- a/tools/perf/arch/x86/util/header.c
-+++ b/tools/perf/arch/x86/util/header.c
-@@ -63,8 +63,7 @@ get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu __maybe_unused)
- 	return __get_cpuid(buffer, sz, "%s,%u,%u,%u$");
- }
- 
--char *
--get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+char *get_cpuid_str(struct perf_cpu cpu __maybe_unused)
- {
- 	char *buf = malloc(128);
- 
-diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
-index 2b7516946ded..1f7f39a89ffd 100644
---- a/tools/perf/pmu-events/empty-pmu-events.c
-+++ b/tools/perf/pmu-events/empty-pmu-events.c
-@@ -515,13 +515,16 @@ static const struct pmu_events_map *map_for_pmu(struct perf_pmu *pmu)
-         } last_map_search;
-         static bool has_last_result, has_last_map_search;
-         const struct pmu_events_map *map = NULL;
-+        struct perf_cpu cpu = {-1};
-         char *cpuid = NULL;
-         size_t i;
- 
-         if (has_last_result && last_result.pmu == pmu)
-                 return last_result.map;
- 
--        cpuid = perf_pmu__getcpuid(pmu);
-+        if (pmu)
-+                cpu = perf_cpu_map__min(pmu->cpus);
-+        cpuid = get_cpuid_allow_env_override(cpu);
- 
-         /*
-          * On some platforms which uses cpus map, cpuid can be NULL for
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 6e71b09dbc2a..17cd1b1c6b66 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -1031,13 +1031,16 @@ static const struct pmu_events_map *map_for_pmu(struct perf_pmu *pmu)
-         } last_map_search;
-         static bool has_last_result, has_last_map_search;
-         const struct pmu_events_map *map = NULL;
-+        struct perf_cpu cpu = {-1};
-         char *cpuid = NULL;
-         size_t i;
- 
-         if (has_last_result && last_result.pmu == pmu)
-                 return last_result.map;
- 
--        cpuid = perf_pmu__getcpuid(pmu);
-+        if (pmu)
-+                cpu = perf_cpu_map__min(pmu->cpus);
-+        cpuid = get_cpuid_allow_env_override(cpu);
- 
-         /*
-          * On some platforms which uses cpus map, cpuid can be NULL for
-diff --git a/tools/perf/tests/expr.c b/tools/perf/tests/expr.c
-index d60f1ac1d720..41ff1affdfcd 100644
---- a/tools/perf/tests/expr.c
-+++ b/tools/perf/tests/expr.c
-@@ -4,10 +4,9 @@
- #include "util/expr.h"
- #include "util/hashmap.h"
- #include "util/header.h"
--#include "util/pmu.h"
--#include "util/pmus.h"
- #include "util/smt.h"
- #include "tests.h"
-+#include <perf/cpumap.h>
- #include <math.h>
- #include <stdlib.h>
- #include <string.h>
-@@ -78,8 +77,8 @@ static int test__expr(struct test_suite *t __maybe_unused, int subtest __maybe_u
- 	struct expr_parse_ctx *ctx;
- 	bool is_intel = false;
- 	char strcmp_cpuid_buf[256];
--	struct perf_pmu *pmu = perf_pmus__find_core_pmu();
--	char *cpuid = perf_pmu__getcpuid(pmu);
-+	struct perf_cpu cpu = {-1};
-+	char *cpuid = get_cpuid_allow_env_override(cpu);
- 	char *escaped_cpuid1, *escaped_cpuid2;
- 
- 	TEST_ASSERT_VAL("get_cpuid", cpuid);
-diff --git a/tools/perf/util/expr.c b/tools/perf/util/expr.c
-index 5e3732bc2fa5..f289044a1f7c 100644
---- a/tools/perf/util/expr.c
-+++ b/tools/perf/util/expr.c
-@@ -8,7 +8,6 @@
- #include "debug.h"
- #include "evlist.h"
- #include "expr.h"
--#include "pmu.h"
- #include "smt.h"
- #include "tool_pmu.h"
- #include <util/expr-bison.h>
-@@ -16,6 +15,7 @@
- #include "util/hashmap.h"
- #include "util/header.h"
- #include "util/pmu.h"
-+#include <perf/cpumap.h>
- #include <linux/err.h>
- #include <linux/kernel.h>
- #include <linux/zalloc.h>
-@@ -456,8 +456,8 @@ double expr__strcmp_cpuid_str(const struct expr_parse_ctx *ctx __maybe_unused,
- 		       bool compute_ids __maybe_unused, const char *test_id)
- {
- 	double ret;
--	struct perf_pmu *pmu = perf_pmus__find_core_pmu();
--	char *cpuid = perf_pmu__getcpuid(pmu);
-+	struct perf_cpu cpu = {-1};
-+	char *cpuid = get_cpuid_allow_env_override(cpu);
- 
- 	if (!cpuid)
- 		return NAN;
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index 60b42ddc3dac..06ca5762f61f 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -819,11 +819,31 @@ static int write_group_desc(struct feat_fd *ff,
-  * Each architecture should provide a more precise id string that
-  * can be use to match the architecture's "mapfile".
-  */
--char * __weak get_cpuid_str(struct perf_pmu *pmu __maybe_unused)
-+char * __weak get_cpuid_str(struct perf_cpu cpu __maybe_unused)
- {
- 	return NULL;
- }
- 
-+char *get_cpuid_allow_env_override(struct perf_cpu cpu)
-+{
-+	char *cpuid;
-+	static bool printed;
-+
-+	cpuid = getenv("PERF_CPUID");
-+	if (cpuid)
-+		cpuid = strdup(cpuid);
-+	if (!cpuid)
-+		cpuid = get_cpuid_str(cpu);
-+	if (!cpuid)
-+		return NULL;
-+
-+	if (!printed) {
-+		pr_debug("Using CPUID %s\n", cpuid);
-+		printed = true;
-+	}
-+	return cpuid;
-+}
-+
- /* Return zero when the cpuid from the mapfile.csv matches the
-  * cpuid string generated on this platform.
-  * Otherwise return non-zero.
-diff --git a/tools/perf/util/header.h b/tools/perf/util/header.h
-index 3bb768455a60..5201af6305f4 100644
---- a/tools/perf/util/header.h
-+++ b/tools/perf/util/header.h
-@@ -10,9 +10,14 @@
- #include <linux/bitmap.h>
- #include <linux/types.h>
- #include "env.h"
--#include "pmu.h"
- #include <perf/cpumap.h>
- 
-+struct evlist;
-+union perf_event;
-+struct perf_header;
-+struct perf_session;
-+struct perf_tool;
-+
- enum {
- 	HEADER_RESERVED		= 0,	/* always cleared */
- 	HEADER_FIRST_FEATURE	= 1,
-@@ -92,8 +97,6 @@ struct perf_pipe_file_header {
- 	u64				size;
- };
- 
--struct perf_header;
--
- int perf_file_header__read(struct perf_file_header *header,
- 			   struct perf_header *ph, int fd);
- 
-@@ -125,11 +128,6 @@ struct perf_header_feature_ops {
- 	bool	   synthesize;
- };
- 
--struct evlist;
--struct perf_session;
--struct perf_tool;
--union perf_event;
--
- extern const char perf_version_string[];
- 
- int perf_session__read_header(struct perf_session *session);
-@@ -204,6 +202,9 @@ int build_caches_for_cpu(u32 cpu, struct cpu_cache_level caches[], u32 *cntp);
-  */
- int get_cpuid(char *buffer, size_t sz, struct perf_cpu cpu);
- 
--char *get_cpuid_str(struct perf_pmu *pmu __maybe_unused);
-+char *get_cpuid_str(struct perf_cpu cpu);
-+
-+char *get_cpuid_allow_env_override(struct perf_cpu cpu);
-+
- int strcmp_cpuid_str(const char *s1, const char *s2);
- #endif /* __PERF_HEADER_H */
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 0789758598c0..514cb865f57b 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -818,26 +818,6 @@ static int is_sysfs_pmu_core(const char *name)
- 	return file_available(path);
- }
- 
--char *perf_pmu__getcpuid(struct perf_pmu *pmu)
--{
--	char *cpuid;
--	static bool printed;
--
--	cpuid = getenv("PERF_CPUID");
--	if (cpuid)
--		cpuid = strdup(cpuid);
--	if (!cpuid)
--		cpuid = get_cpuid_str(pmu);
--	if (!cpuid)
--		return NULL;
--
--	if (!printed) {
--		pr_debug("Using CPUID %s\n", cpuid);
--		printed = true;
--	}
--	return cpuid;
--}
--
- __weak const struct pmu_metrics_table *pmu_metrics_table__find(void)
- {
- 	return perf_pmu__find_metrics_table(NULL);
-diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-index b86b3c3685a2..fba3fc608b64 100644
---- a/tools/perf/util/pmu.h
-+++ b/tools/perf/util/pmu.h
-@@ -260,7 +260,6 @@ void perf_pmu__arch_init(struct perf_pmu *pmu);
- void pmu_add_cpu_aliases_table(struct perf_pmu *pmu,
- 			       const struct pmu_events_table *table);
- 
--char *perf_pmu__getcpuid(struct perf_pmu *pmu);
- const struct pmu_metrics_table *pmu_metrics_table__find(void);
- bool pmu_uncore_identifier_match(const char *compat, const char *id);
- 
--- 
-2.47.0.199.ga7371fff76-goog
+On Thu, Nov 07, 2024 at 07:47:14AM +0000, Haowei Cheng(Harvey) wrote:
+> Hi greg k-h,
+>    We have configured the USB RNDIS port protocol by default on the product and conducted extensive stress testing and validation.
 
+Where are the RNDIS stress testing and validation tests?  What host did
+you use for this testing, Linux or Windows?
+
+> This issue was discovered during compatibility verification, and after making clear modifications to the API usage,
+> the issue has not been reproduced in subsequent tests.
+
+I do not understand what you mean by this, sorry.
+
+Again, you need to submit this patch properly if you wish to have it
+applied...
+
+thanks,
+
+greg k-h
 
