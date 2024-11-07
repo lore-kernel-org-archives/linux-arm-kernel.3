@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACD2D43360
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E7AD43360
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=; b=iK7ltAXfBifJFxKaPKZO/mxFCX
-	HNB4lZuMiY0OgD8HHNEza0yzd2q1k5YVVmp+lxXizSzhQ3WUj2Eey3WlMrN2ZgDxfKxyRHgCgQWav
-	YXDOYbVVTi0chKCqnj8Uc1NrZZic+tp9jnBiCw63argkPU4fMK5wvSNb7oonZcULpeAbHVHNZFA5n
-	Bo4HZyE76KTEP4IPtH6HR4UgXCHa4KZpN5RhgG0zIP71RWebGEDjzPE0elSPnW44/v8wXhgQsKRFx
-	JZB1dLihdZ0Xl8yoOX0cj2ivbXWMSMVVqlBu//4L4+pmzR+Z81UxlsfexCPrqmhB0j4Bna1aUFcNp
-	Z1EzkIuQ==;
+	bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=; b=vDMSNXzDSaprAwZY9z2S/DmYP8
+	i1LzxESQIO+dVfzzyUEfMb86NegjGR1G/6sN3WJiFbnyL2qNwmxHnvRjLJI/0nbuMZJ9KfqH263iC
+	LEsTiNcMZ7XIRsbKh+yE9gF62aZuabyKXlOGpHpLw2qsuT73+hGY0SufL4Jhv3uel5KPkhRJ79S2d
+	UYj4PIf1M+c1HJQDcHGKPXVcr0O+rkEEZvk6gNnX/XcvXauiPtE2fdWEtoUYVkcsBts7CgY0sdA0q
+	IPhxjjit1IIGSidJEjqssiRz+zOIVfOkR9ggSoe+GY5UMOBv/Ml3fkU/NykOvEW+v72+39hE4JTwi
+	PjWOMa8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9377-00000007Dm7-03BQ;
-	Thu, 07 Nov 2024 14:03:57 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1t938o-00000007E5F-3CBD;
+	Thu, 07 Nov 2024 14:05:42 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t92yh-00000007C9N-30Cn
+	id 1t92zY-00000007CJ9-0Whq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 13:55:17 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fb470a8b27so19735611fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:55:14 -0800 (PST)
+	Thu, 07 Nov 2024 13:56:09 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fc968b3545so9171161fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 05:56:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1730987713; x=1731592513; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1730987766; x=1731592566; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=;
-        b=Naqd8PFG0h501nU+HbL/tpkJr/uTDW5sDBWp3kiAiXCBNZCl8Y2IxbfiewuSK6niSc
-         2Fjif+TBtNA2CczWPaOy6tCVwocRf+VaC75UthgffswqFlQCmCxVkquINMXMprt0XPyG
-         iZ3tb5s9RkJeQd8VeCGHu6pN7l97nI7d+ZezSGceFh1wOsl7FwbxzJ4vQygIKsYkL2CQ
-         Tou910twXL81dO5EkswlxODM8t2EaWmxA4fnYusFtVwYdd38sUoaVBM01+9+VALVQCgt
-         tJewTDnl6K1KLMsqJNRRamgKFvAKZVxGIsikE5sHN3WEWHCSnOE/oHabw+KeyqBvpFCe
-         /qhw==
+        bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=;
+        b=USTLnKNLPoejKI0uttPE8vDeJGyUR8Sd/rDiu3SnsRoSQ3gZeNDpjbRo7d1id89GuY
+         zkHYTAfrUzl3UiBpiFVX/qAJfvHtxyGdVHd25mzPJ9AuuVAPwA3XuFpuiMPJCBt9CEW1
+         DCNjHC1JOM4qgsW7Q8Av42FrwdMTS21TyWaJmMx3CgRZiUb7/8E+an0K9rjJnt94jbhK
+         YACOpSG9f0damZhpv1ch2Twa9WV8PbtyLLlW8S8leuL9LjUSwnH5H4ss7OW+Bjdm87kH
+         WRkGFEqH1esR5P+zz+6mmIPBTXBOxh1Mg+2bhxKGZMdToYdcf35GCs+3zVCFHiCXa56X
+         YloQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730987713; x=1731592513;
+        d=1e100.net; s=20230601; t=1730987766; x=1731592566;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pAUOPbJ3bRm/k22zy5CUSLWAw1T4ExN+FFkWUH7eKiU=;
-        b=d39xXStNNDUeUu0ZBSyRH9Y6sqGfQLrs7fSrE1zxELs1mE0tc0sX0uRzuxGpHmUly0
-         lzvtEdUEMuGzuC7kTvij0Zg1P7Qrwvp+BjmHpxG5+007Je0upEouNmpckPiH6fjvPZdh
-         pa1Su1zLZtuPLVDDcVOGiUOcshKZ4cQ82kQW50STpHgs2agJRP5tlfhtpFYrmyzSZebP
-         XLi6Xex4LJBd8M2aX9ELS8Ro9Ubqkgb8XDITI2dSOXsLwDP2FK6dP9Ezh7EyxdRMrRoN
-         PlUlURGvrW3TVq8PksdQH9cEAm4hYEp9FtVOYhbWip6FLy71bU0iv62B1pUgmEMhVAoB
-         vicA==
-X-Forwarded-Encrypted: i=1; AJvYcCWiAmJkyVTq04QOBSeJSadp+UTIz74LqxIFiLXz11AnHOqMqQ2zHpbkIxMjaBPGr9jpuNQLF6KmYgqBtO7RbS5P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfsZXE5Fu6AISwU+iMjSCnCkcurXsO6ZhG/n8wHAPUKENS7QC/
-	TedOsjT8x+gSSbpB8gU8RqbHLG7kOCX+dZrV8SOlRH/TPt3jo3f1n7DzfkdzwH+lZtGUWZPvKv7
-	HGEz3dxYL++GnQvwmDricE+rjI8y81Na+ocuSsA==
-X-Google-Smtp-Source: AGHT+IFNavuHzM67z8nD84tGq8SasaggEERCVa8QxVSdpo1jnmEECTHbl3HJt9yjMo5chmDOsynf6pkzaU7GoLeC2Hk=
-X-Received: by 2002:a2e:a106:0:b0:2fb:579a:fff with SMTP id
- 38308e7fff4ca-2ff1e9044e9mr169261fa.8.1730987712796; Thu, 07 Nov 2024
- 05:55:12 -0800 (PST)
+        bh=2HB8S68hF9jRWaNI9mJ35YjWMaC3waBLoGHDR9I3wbQ=;
+        b=wx7/4CK0bAczHzEtOGV6LGd4C3WmlGGb4JJWpWd+CPpVY/Am7+vEM3ZoDB7hHNJ5iX
+         0sIFbOnsXi/DxSTUWVTdgpub6blWD2G3H06jsrCMlZWT0dTE/0Mtc/veuu2J1OAYKygh
+         5QpBKy56ozzvbmxvAsbH065mavfknW0wFu0zW6kRVkYSF9wyDEDYChySok4VZ0iCjhuq
+         8BngyjYvBi6YyBBgKvoJV384e/sOvXPU24N2a1FzalHA9u/Zi1Kkj8QpUqX6y1R/KSeL
+         eF1xzTwYnwdFpIoKBsf7iQFXT6kuKA3KVUiBtFJMhe5nh3FINuhiy3H4Ej6SEi9DPirS
+         Dcng==
+X-Forwarded-Encrypted: i=1; AJvYcCUe/uvvZDBd3sbSYuCgVRBQafF7k3jsIZaKE3LIVOC0EXKxQM/v1kZkzC0aGoeD4FwjuNSLObB6rmawwIWgtRIM@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcl/V3sPWzwOwiOa7li69GQ3VApJJqRJYy3O7TuHi3nAdG8EZu
+	Sv2MWaxwUBH8lG8QIQMCsFwpb2V75UTW0JXSQ/ziz8v4+zzxYzLR2o7lkFImMlcJCVeFWyHU0+C
+	t4XhtttPUAVSfQWApGV6/NfbMyWAsIXeyB+Ysqg==
+X-Google-Smtp-Source: AGHT+IFrud7HairE/9EIYpHYq1Qq4YumL/GF1pww8t5Xiei+et58qHUoVolZLH2rni1Z35DhKc3CTAu8t4LeeyRCaLs=
+X-Received: by 2002:a2e:bd0a:0:b0:2fb:5014:8eb9 with SMTP id
+ 38308e7fff4ca-2ff1e8b49e0mr470261fa.10.1730987766341; Thu, 07 Nov 2024
+ 05:56:06 -0800 (PST)
 MIME-Version: 1.0
-References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org> <20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
-In-Reply-To: <20241014-armv7-cacheinfo-v2-2-38ab76d2b7fa@linaro.org>
+References: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
+In-Reply-To: <20241014-armv7-cacheinfo-v2-0-38ab76d2b7fa@linaro.org>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 7 Nov 2024 14:55:01 +0100
-Message-ID: <CACRpkdZ1Pkd_iKDNE+m_R4Anbdv=dcg77oC95yqaAM_dp0BRYA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] ARM: implement cacheinfo support
+Date: Thu, 7 Nov 2024 14:55:55 +0100
+Message-ID: <CACRpkdbfckBBW5W5sEvz1LwzdOvTKi_fi7tDu+9nPeKumYkPeA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] ARM: implement cacheinfo support (for v7/v7m)
 To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
 	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
@@ -77,8 +77,8 @@ Cc: Sudeep Holla <sudeep.holla@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_055515_777632_D28C5756 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20241107_055608_257954_3B4F421B 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,22 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 14, 2024 at 3:56=E2=80=AFPM Dmitry Baryshkov
+Hi Dmitry,
+
+On Mon, Oct 14, 2024 at 3:55=E2=80=AFPM Dmitry Baryshkov
 <dmitry.baryshkov@linaro.org> wrote:
 
-> On ARMv7 / v7m machines read CTR and CLIDR registers to provide
-> information regarding the cache topology. Earlier machines should
-> describe full cache topology in the device tree.
+> Follow the ARM64 platform and implement simple cache information driver.
+> As it reads data from CTR (ARMv6+) and CLIDR (ARMv7+) registers, it is
+> limited to the ARMv7 / ARMv7M, providing simple fallback or just
+> returning -EOPNOTSUPP in case of older platforms.
 >
-> Note, this follows the ARM64 cacheinfo support and provides only minimal
-> support required to bootstrap cache info. All useful properties should
-> be decribed in Device Tree.
+> In theory we should be able to skip CLIDR reading and assume that Dcache
+> and Icache (or unified L1 cache) always exist if CTR is supported and
+> returns sensible value. However I think this better be handled by the
+> maintainers of corresponding platforms.
+>
+> Other than just providing information to the userspace, this patchset is
+> required in order to implement L2 cache driver (and in the end CPU
+> frequency scaling) on ARMv7-based Qualcomm devices.
 >
 > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-It's really neat actually!
-
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+I added my review tags to the v2 patches, can you put them
+into Russell's patch tracker?
 
 Yours,
 Linus Walleij
