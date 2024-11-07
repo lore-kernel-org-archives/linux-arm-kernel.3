@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0570FD29FBC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B14D29FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 01:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WpKvGVCQTUM0sd8ufzJHoJZPmEfl3FVqhyWfAV31iUI=; b=CWaFhtG23T7SM3
-	5OyunhNX5RBjR0y3PkpSOFqkmqcSO9V5ZFmx0OiD+7E/ns6pmCz3g9t6Ili80q/QtT+nHeHCKIvQq
-	XujGu95rjgpbrDdwtEjny7UL3o9iK4x/zbfqmVJ1MSflPflr7dRpthBFQAs+9Yuz0h4/4KP/Vgeql
-	Px4U8Lko/K26vfQ1wEU2EeRrsvGqbenkxsE/6e06ze6EdsyxP7AHhL4W0NrmpKrM5xYv2M3yiacwY
-	fN/LZPaxAMuvSmxYe/p/9m0NYjvIR/8eQudpsK79ML/eifxldCAhIv9JLo6WOct5vAV5FaHZtpYSD
-	6Ej+q3WuQBMhcn9mdjxA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oPXX2RTY5JzFj6GZG8fNLuHJexQGMPA/tPpOA9KWVJY=; b=rK0R6ja8jBvT3LU8j8iILzs9gI
+	zwbtwyFW8WmJ9SX2uE1QeY4JOKSe2JEDjacSJKy2dfshYSAU8TR2DFV3pA6eP94WhZvWzegRJjUj7
+	dfJMrRwARRhMr+YE9Ko3WsyZL5+O+kmVKd/kDkcGtGKM2vcx/sMot0oeZTX0uGUGFlbBXftS8HaXG
+	Fx+gWlx2Ly7qYlt9c3Yl/MNtriAoHtrkr656luRXiWYFb72EsawZ2NqaSD2+3dAESOvlBkNby1rnX
+	JBsajCZIzUsLjDMoqKWiaP8SH8KwaTuzJiTCPJ47g0EJHno22jMrnZEF0kCCPUs96C1/3kZTYPFZb
+	qlRWOkGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rW0-00000005JcP-2hyS;
-	Thu, 07 Nov 2024 01:40:52 +0000
+	id 1t8rXg-00000005Jry-46wG;
+	Thu, 07 Nov 2024 01:42:36 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8rUA-00000005J6i-3xRB
+	id 1t8rUC-00000005J7i-2WtG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 01:39:00 +0000
+	Thu, 07 Nov 2024 01:39:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10DF7A41C76;
-	Thu,  7 Nov 2024 01:37:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B55FC4CEC6;
-	Thu,  7 Nov 2024 01:38:55 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E2C0A41EF2;
+	Thu,  7 Nov 2024 01:37:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1396CC4CED3;
+	Thu,  7 Nov 2024 01:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730943537;
-	bh=Ifv5eEqDTr2IOlKTWcHRHgBuh8QWxP57/E+ccYr3L0Y=;
-	h=From:Subject:Date:To:Cc:From;
-	b=exZfFAGQhJuBxMeDca1D2ULoSH6/Cau6DPJjdnNWyJodAoP/de3xGH+SBIsRZKFJ9
-	 NRw6el1FxQJXcuJB1syFgQLqp6vyla5URvy2l3hB+gtz6YIFxep6i3e5o5O1wDNipp
-	 ZbrxbEh8cmkSPKoKhCIG2kCY6qqMV7vMHdkGB0mK9jZ97bwCIDGSBGhhGQftYZ54zp
-	 gJ8T6K3gMGdSo8xNSq1k83TEPf2E43SpvMpbeoPiK9q5LjuBC1t/BqM+UTZVmlHuo3
-	 y3DMXwv1E1ORjlJTnEe+HlzSfBy3zyUoB06qNRJjRx5IAW7HqNgLY2hF1XmbtobS8F
-	 jTQ1rLzZLWOBg==
+	s=k20201202; t=1730943539;
+	bh=sHgpnAmwrG4+1gtZ1DoGby2CzV9Xqsof8Foy1rHp9dc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZZ5deBStt9L4pL1S1PrWBtHcGuaq+NcLPe4RNU2Cglos+sUxS+Y9DQBefw22tGLZz
+	 9urb4h+5fNj9kuD4cyp5ySw4onOUztWCX5zuHLu+AU6BB+/cJ1WsWexbN1oeAZzkkE
+	 rHHTwwEemO+dc4h8BBmAn58Oxq/18D5RAU7pBPS9DvsfkQdHyFJkKjFNShSjX0/1Gb
+	 WvzR8NCbs2RPwTvP1BpNZk6pGhA8CHAPPzipLk1wh/eWy8LeuvASyvMso3O8jCcvlN
+	 caWDuH9arf2jtczKWR3BKNaKD2Y6t6UgTk33WUMIrftCsdHn9UDNmzT7kJhkV2Ryzb
+	 jKHQb3zs9Xozw==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 0/4] kselftest/arm64: fp-ptrace enhancements
-Date: Thu, 07 Nov 2024 01:38:03 +0000
-Message-Id: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
+Date: Thu, 07 Nov 2024 01:38:04 +0000
+Subject: [PATCH 1/4] kselftets/arm64: Use flag bits for features in
+ fp-ptrace assembler code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPwZLGcC/x2MuwqAMAwAf0UyG2h9Df6KOIQ20QxqSUUE8d8tb
- nfD3QOZTTnDWD1gfGnWYy/i6wrCSvvCqLE4NK7pvHc9km1Dh5IwnUaBC22GIm7wQiG2kaCkyVj
- 0/rfT/L4fqOoOW2YAAAA=
-X-Change-ID: 20241105-arm64-fp-ptrace-fpmr-ff061facd3da
+Message-Id: <20241107-arm64-fp-ptrace-fpmr-v1-1-3e5e0b6e3be9@kernel.org>
+References: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
+In-Reply-To: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-9b746
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1535; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Ifv5eEqDTr2IOlKTWcHRHgBuh8QWxP57/E+ccYr3L0Y=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBorcyPXQv9O6VGBSffTN5lbz52kyZ7iddgyCHsm
- ZmsNreGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywaKwAKCRAk1otyXVSH0LNmB/
- 9r1nEAa2KYrg61SyLhV+PEyYdh9oZixDxbqjxaong7sj7tZorvInnQjIe8IW27S33Goi6twBiNaA2D
- uu+u7l8tUy3fkQRx0xSe7VC4GR10DmHj/hZ6LXjOGaimnKN58rvxPy4gy0lVomc1/cpydriPU89UoF
- DHkRisqnCR0hb0Sn1BG4+shxc3KO1o9zyjo0aCGTHzpqat1gMkG+6fw+GTOEkZUBQIwCxo2kFekqtg
- Zda+FiPOkRQstaJu/bmFxJJSroi/qK7QUKxjlOaxdSZfySO0OP5nJxdspxWdRjKEHBJIqNcH+ijIee
- v8C4FeFdNoFuAPPfuWxAJLe9jVJu3m
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5038; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sHgpnAmwrG4+1gtZ1DoGby2CzV9Xqsof8Foy1rHp9dc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnLBosVLcUCeHCcFI93H9y5DQcwWYH0KaO9ZpY9ZuG
+ PYJhcOeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZywaLAAKCRAk1otyXVSH0BuEB/
+ kBfDFCsdJlYaLADzG66C/1Ew3Su1ykSAhp0U835snXXbIgvLsGv47hVdCiUAs/flLcnp4u7GWnd1IS
+ uFmAejsXoSKl62Z6gBGsB8kya91sbr6I2buljDCx+G4dYLnFw6+B+ViU3j2Z31UMZaAPq6z5PKlwb9
+ n+RxtOroqzN3aLvHHUBYW5wZo17pcI1Jjknp2ausrCkMnpcJ27ZsV4USyongTVa0IfRUd0hJeElAkl
+ Bl29S+uG6qkQ07D3uWHLmrExMlI8W/sy5QT5YM38yJ/5iORXzupqEAH8W1SdHtMlWqlGXRDHEnG2l5
+ rU9RvkgYfiX0KUK7kLK2WxmlH4lhhc
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_173859_082571_0F3CAB6C 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241106_173900_805069_8D583F49 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +86,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series contains a bit of a grab bag of improvements to the floating
-point tests, mainly fp-ptrace.  Globally over all the tests we start
-using defines from the generated sysregs (following the example of the
-KVM selftests) for SVCR, stop being quite so wasteful with registers
-when calling into the assembler code then expand the coverage of both ZA
-writes and FPMR (which was not there since fp-ptrace and the 2023 dpISA
-extensions were on the list at the same time).
+The assembler portions of fp-ptrace are passed feature flags by the C code
+indicating which architectural features are supported. Currently these use
+an entire register for each flag which is wasteful and gets cumbersome as
+new flags are added. Switch to using flag bits in a single register to make
+things easier to maintain.
+
+No functional change.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Mark Brown (4):
-      kselftets/arm64: Use flag bits for features in fp-ptrace assembler code
-      kselftest/arm64: Use a define for SVCR
-      kselftest/arm64: Expand the set of ZA writes fp-ptrace does
-      kselftest/arm64: Add FPMR coverage to fp-ptrace
+ tools/testing/selftests/arm64/fp/fp-ptrace-asm.S | 32 +++++++++++++-----------
+ tools/testing/selftests/arm64/fp/fp-ptrace.c     | 17 ++++++++++---
+ tools/testing/selftests/arm64/fp/fp-ptrace.h     | 10 ++++++++
+ 3 files changed, 41 insertions(+), 18 deletions(-)
 
- tools/testing/selftests/arm64/fp/Makefile        |  20 ++-
- tools/testing/selftests/arm64/fp/fp-ptrace-asm.S |  52 +++++---
- tools/testing/selftests/arm64/fp/fp-ptrace.c     | 155 +++++++++++++++++++++--
- tools/testing/selftests/arm64/fp/fp-ptrace.h     |  16 ++-
- tools/testing/selftests/arm64/fp/sve-test.S      |   5 +-
- tools/testing/selftests/arm64/fp/za-fork-asm.S   |   3 +-
- tools/testing/selftests/arm64/fp/za-test.S       |   6 +-
- tools/testing/selftests/arm64/fp/zt-test.S       |   5 +-
- 8 files changed, 213 insertions(+), 49 deletions(-)
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241105-arm64-fp-ptrace-fpmr-ff061facd3da
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S b/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
+index 7ad59d92d02b28e4a6b328fde96039329ea8862a..5e7e9c878f2ce797e3ba5f4033a42526830393e6 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace-asm.S
+@@ -15,10 +15,7 @@
+ 
+ // Load and save register values with pauses for ptrace
+ //
+-// x0 - SVE in use
+-// x1 - SME in use
+-// x2 - SME2 in use
+-// x3 - FA64 supported
++// x0 - HAVE_ flags indicating which features are in use
+ 
+ .globl load_and_save
+ load_and_save:
+@@ -44,7 +41,7 @@ load_and_save:
+ 	ldp	q30, q31, [x7, #16 * 30]
+ 
+ 	// SME?
+-	cbz	x1, check_sve_in
++	tbz	x0, #HAVE_SME_SHIFT, check_sve_in
+ 
+ 	adrp	x7, svcr_in
+ 	ldr	x7, [x7, :lo12:svcr_in]
+@@ -64,7 +61,7 @@ load_and_save:
+ 	bne	1b
+ 
+ 	// ZT?
+-	cbz	x2, check_sm_in
++	tbz	x0, #HAVE_SME2_SHIFT, check_sm_in
+ 	adrp	x6, zt_in
+ 	add	x6, x6, :lo12:zt_in
+ 	_ldr_zt 6
+@@ -72,12 +69,16 @@ load_and_save:
+ 	// In streaming mode?
+ check_sm_in:
+ 	tbz	x7, #SVCR_SM_SHIFT, check_sve_in
+-	mov	x4, x3		// Load FFR if we have FA64
++
++	// Load FFR if we have FA64
++	mov	x4, #0
++	tbz	x0, #HAVE_FA64_SHIFT, load_sve
++	mov	x4, #1
+ 	b	load_sve
+ 
+ 	// SVE?
+ check_sve_in:
+-	cbz	x0, wait_for_writes
++	tbz	x0, #HAVE_SVE_SHIFT, wait_for_writes
+ 	mov	x4, #1
+ 
+ load_sve:
+@@ -165,8 +166,7 @@ wait_for_writes:
+ 	stp	q28, q29, [x7, #16 * 28]
+ 	stp	q30, q31, [x7, #16 * 30]
+ 
+-	// SME?
+-	cbz	x1, check_sve_out
++	tbz	x0, #HAVE_SME_SHIFT, check_sve_out
+ 
+ 	rdsvl	11, 1
+ 	adrp	x6, sme_vl_out
+@@ -187,7 +187,7 @@ wait_for_writes:
+ 	bne	1b
+ 
+ 	// ZT?
+-	cbz	x2, check_sm_out
++	tbz	x0, #HAVE_SME2_SHIFT, check_sm_out
+ 	adrp	x6, zt_out
+ 	add	x6, x6, :lo12:zt_out
+ 	_str_zt 6
+@@ -195,12 +195,16 @@ wait_for_writes:
+ 	// In streaming mode?
+ check_sm_out:
+ 	tbz	x7, #SVCR_SM_SHIFT, check_sve_out
+-	mov	x4, x3				// FFR?
++
++	// Do we have FA64 and FFR?
++	mov	x4, #0
++	tbz	x0, #HAVE_FA64_SHIFT, read_sve
++	mov	x4, #1
+ 	b	read_sve
+ 
+ 	// SVE?
+ check_sve_out:
+-	cbz	x0, wait_for_reads
++	tbz	x0, #HAVE_SVE_SHIFT, wait_for_reads
+ 	mov	x4, #1
+ 
+ 	rdvl	x7, #1
+@@ -271,7 +275,7 @@ wait_for_reads:
+ 	brk #0
+ 
+ 	// Ensure we don't leave ourselves in streaming mode
+-	cbz	x1, out
++	tbz	x0, #HAVE_SME_SHIFT, out
+ 	msr	S3_3_C4_C2_2, xzr
+ 
+ out:
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+index c7ceafe5f4712b2c93823c1025f3a23ac0594325..d96af27487fa642e94ecc971f53cb78c233e7b44 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+@@ -82,7 +82,7 @@ uint64_t sve_vl_out;
+ uint64_t sme_vl_out;
+ uint64_t svcr_in, svcr_expected, svcr_out;
+ 
+-void load_and_save(int sve, int sme, int sme2, int fa64);
++void load_and_save(int flags);
+ 
+ static bool got_alarm;
+ 
+@@ -198,7 +198,7 @@ static int vl_expected(struct test_config *config)
+ 
+ static void run_child(struct test_config *config)
+ {
+-	int ret;
++	int ret, flags;
+ 
+ 	/* Let the parent attach to us */
+ 	ret = ptrace(PTRACE_TRACEME, 0, 0, 0);
+@@ -224,8 +224,17 @@ static void run_child(struct test_config *config)
+ 	}
+ 
+ 	/* Load values and wait for the parent */
+-	load_and_save(sve_supported(), sme_supported(),
+-		      sme2_supported(), fa64_supported());
++	flags = 0;
++	if (sve_supported())
++		flags |= HAVE_SVE;
++	if (sme_supported())
++		flags |= HAVE_SME;
++	if (sme2_supported())
++		flags |= HAVE_SME2;
++	if (fa64_supported())
++		flags |= HAVE_FA64;
++
++	load_and_save(flags);
+ 
+ 	exit(0);
+ }
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.h b/tools/testing/selftests/arm64/fp/fp-ptrace.h
+index db4f2c4d750c5c04e3d257e37a1966296ca74956..36ca627e1980f6a384d9ed0f2e9d4bd32d90f893 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace.h
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace.h
+@@ -10,4 +10,14 @@
+ #define SVCR_SM (1 << SVCR_SM_SHIFT)
+ #define SVCR_ZA (1 << SVCR_ZA_SHIFT)
+ 
++#define HAVE_SVE_SHIFT		0
++#define HAVE_SME_SHIFT		1
++#define HAVE_SME2_SHIFT		2
++#define HAVE_FA64_SHIFT		3
++
++#define HAVE_SVE	(1 << HAVE_SVE_SHIFT)
++#define HAVE_SME	(1 << HAVE_SME_SHIFT)
++#define HAVE_SME2	(1 << HAVE_SME2_SHIFT)
++#define HAVE_FA64	(1 << HAVE_FA64_SHIFT)
++
+ #endif
 
-Best regards,
 -- 
-Mark Brown <broonie@kernel.org>
+2.39.2
 
 
