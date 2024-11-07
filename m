@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD94D5D687
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C62BD5D687
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=is4AcHV+SYZzbL6LpQ+EwY2j+3oJw8i/feDsqKpf+2Y=; b=hKhxV+U8cHhzCOr6dzJyL4khyB
-	xNS735XprQS0PnCVSvFTp7gi+/N3AJqao6hgLQ2CkEimYreW64o+YmwBIsuBtRHUhyy6J14gNq6hV
-	oc8OK5dPGIdARGwVClA0oPnJoB5GUvhVlHMuDq9k+rl7qsk/bPKUk5qNxidFr5oeBCf0tRij/e+Fp
-	/zijUdJ6+986YG7aiinJn+YdPWl1AgEBm5+q79vS07qrYW0lXnVnKjxtEy6HTuwXRuHn3UI4W+iio
-	rPp5xQQU43oZhiounCat5hf0m2FssJSVUx8imvi8EZL9J51VnyXPWBIZ2ars8Vian+q6x7fiIviCv
-	P8v+FmsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=shJRP66gOhT4DazMS1XuGuw7WkBdrSKa9fDvAIGOtx8=; b=ZCdJr5PJMA8Pgcklfc6NYPUoX5
+	EO/HlH0vfartPFPjHRC+NfLsKl8ybQiNn7bG0b0xnp4+OAP++s57TXs7k2GmolitJ9yuK66UPS3Kf
+	4fS93hHkwM/uznHGwUQb5WrziOiJdB2j3HiRgADdM3EPeTDzHId0PaNxoioEPK7xgzMpWv/rUXIEe
+	lfmp5P3An6Z0AZPh709faF7M+V6hYQ/QMG5Qls47t0+OI/ehsiUekDjebAzq94NzD5oimo46oEare
+	az6fU8MPVHi338FW3Ysxd9zGjjMSWuPlRmFDNG4YHjAO2eWhUecBW6Ir6k1ORMDpLh7u6YKWpED1A
+	i81C7DkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98Rg-0000000882s-2RWp;
-	Thu, 07 Nov 2024 19:45:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t98TQ-000000088VK-0OsD;
+	Thu, 07 Nov 2024 19:47:20 +0000
+Received: from mail-pl1-f169.google.com ([209.85.214.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t97yr-000000082wu-2dWm
+	id 1t97zu-000000083DF-1AV7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 19:15:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A3E72A44A17;
-	Thu,  7 Nov 2024 19:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B5DC4CECC;
-	Thu,  7 Nov 2024 19:15:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731006944;
-	bh=AXeeQfete81ISpYgNwsN8kdIw/YYe8eDWp3sCIfbE68=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dzEsujxiLm9jgs5KenIALt1j57ZJaqU3WMguX/GXwrFC6V8Uw/IDuxM00h+yqs5zR
-	 Xk94+DsceskjHyO5WXJ6txnG5arhKh++b2ECRq1E62cDHuUwC7orSgrlfkCvUFkwXI
-	 ofEiio+pzHdsrLZwzDqO9vWn6gF2HhGk1pdWtSOqtnqe8bxAws+N9EFYGhr5lVmQIi
-	 TTwaEu2iQ2ZIdAmQtOemfZx+vNEO55Za+tVBxNGaD5sr614m9bIjnI+sZnR/jQyNHn
-	 tjMIalXYaORr4KumgXAcbTXMiFbMHkZILqxgiAuSA+Mf+kq1dm21ueOsFARt/jDP+n
-	 heKuYvUZLmaZw==
-Date: Thu, 7 Nov 2024 11:15:42 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: <vigneshr@ti.com>, <horms@kernel.org>, <jan.kiszka@siemens.com>,
- <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <edumazet@google.com>,
- <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Roger Quadros
- <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: Re: [PATCH net v4] net: ti: icssg-prueth: Fix 1 PPS sync
-Message-ID: <20241107111542.19dc55e2@kernel.org>
-In-Reply-To: <20241106072314.3361048-1-m-malladi@ti.com>
-References: <20241106072314.3361048-1-m-malladi@ti.com>
+	Thu, 07 Nov 2024 19:16:51 +0000
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-20ca1b6a80aso15578585ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 11:16:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731007009; x=1731611809;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=shJRP66gOhT4DazMS1XuGuw7WkBdrSKa9fDvAIGOtx8=;
+        b=Hqwujl2hHs2E24jV1s9onFBXnQlTfEWyok5x6XJZczsT3uGqrZ96vCHHAzKt+SETM8
+         xZEXAeokO4bKJ/PEMjwGPH2pj+rlHO/6lXSNu5g+bYCzgLHJ4Ln53suK+rW3gEeQCw3B
+         Um93iDEw8/W6A4XV4dyxtSPB2KeFdpQtNMAVnUugVSS8WyBRsPzEhrMJNoQwrTzOeegr
+         5D1ZO5BUOYwockINPWVav7DI39qCsFXO32g0pothbK0PudOOiH/cC2/BKKxAqJVTrKYv
+         vjkQHTpq75HavLvwmLdjygzfddD4XnCmR3SBYLDVSxU7mqQAuIpQ8KJDBFYzY80G5LXZ
+         OwdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX5DgbSj3/j5cZoVsCvaueauzsX1qwlwK5JsbmfII1y97sHoDvYhdiod2AxSGMSvOAZSQ7QzC5fL1217PhBMJc8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7aAFVcvx1GpZQTVCZU3MWWMni0Vm4hMnL0IP8XBklbXN9DkaU
+	WZXDql6Z2+6JXZ5psvIeBnGJZ6yQvEWnicmFn3eMat39F5Z6iV+BS0kbAnxK3ss=
+X-Google-Smtp-Source: AGHT+IHCwxuyvUx7QMGwsvCo5NxhXWDcduS3t5NeeWQsOyZnHRWMAi39zpy99fSjHtRjJzPSmc4iOQ==
+X-Received: by 2002:a17:902:e747:b0:20c:79f1:fee9 with SMTP id d9443c01a7336-211834e1040mr259375ad.11.1731007009332;
+        Thu, 07 Nov 2024 11:16:49 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dc7e44sm15883785ad.6.2024.11.07.11.16.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 11:16:48 -0800 (PST)
+Date: Fri, 8 Nov 2024 04:16:47 +0900
+From: Krzysztof =?utf-8?B?V2lsY3p577+977+9c2tp?= <kw@linux.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, Bjorn Helgaas <helgaas@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"lorenzo.pieralisi@arm.com" <lorenzo.pieralisi@arm.com>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH v2] PCI: dwc: Fix resume failure if no EP is connected at
+ some platforms
+Message-ID: <20241107191647.GA1869604@rocinante>
+References: <AS8PR04MB8676998092241543AEABFAAB8C532@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <20241106222933.GA1543549@bhelgaas>
+ <AS8PR04MB8676C98C4001DDC4851035B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <20241107072005.GA378841@rocinante>
+ <AS8PR04MB8676F00E8F76B695772EB3B18C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <AS8PR04MB86765B904FEC1AA88F6F83468C5C2@AS8PR04MB8676.eurprd04.prod.outlook.com>
+ <20241107163058.GD1297107@rocinante>
+ <ZyzxdnC4mm4GwoOx@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ZyzxdnC4mm4GwoOx@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_111545_838324_7E2E7A49 
-X-CRM114-Status: UNSURE (   6.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_111650_338557_A1A41001 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,14 +96,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 Nov 2024 12:53:14 +0530 Meghana Malladi wrote:
-> +static inline __u64 icssg_readq(const void __iomem *addr)
+Hello,
 
-two nit picks:
- - since the function is now fairly special purpose I think a name less
-   generic than readq would be appropriate. Maybe icssg_read_time() ?
- - __u64 is for uAPI, to avoid type name conflicts, in the kernel
-   please use u64 without the underscores
--- 
-pw-bot: cr
+[...]
+> > > > > If the changes aren't too involved, then I would rather fix it or drop
+> > > > > the not needed code now, before we sent the Pull Request.
+> > > > >
+> > > > > So, feel free to sent a small patch against the current branch, or
+> > > > > simply let me know how do you wish the current code to be changed, so
+> > > > > I can do it against the current branch.
+> > > > Thanks for your kindly reminder.
+> > > > This clean up small patch is on the way.
+> > > Here it is.
+> > > https://lkml.org/lkml/2024/11/7/409
+> >
+> > Thank you!
+> >
+> > That said, there here have been some concerns raised following a review of
+> > the new patch, see:
+> >
+> >   - https://lore.kernel.org/linux-pci/20241107084455.3623576-1-hongxing.zhu@nxp.com
+> >
+> > Hence, I wonder whether we should drop this patch and then focus on
+> > refinements to the new version, and perhaps, once its ready, then we
+> > will include it—this might have to be for the next release at this
+> > point, sadly.
+> 
+> I think we can continue discussion at refine patch. Add kept this patch
+> because it really fix some important problem. Refine patch is just make it
+> better.
+
+Sounds good!  Thank you!
+
+	Krzysztof
 
