@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A3ED4336D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664BAD4336D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 14:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ienHGXKCWAz/ANukHZpdgkhnrKTvDCmbAMpuaZRiPmI=; b=bJykQpcKJ16/l3y5s8KmdLLPaP
-	/1yz/zEQy38awFIc7zHgzW90U++lI90T1zKLFlxeTaprg6FEfbzlwaka6YJHj/oBlHMZgBt5bCf3O
-	P9j6acVZUVQLrYH0+rRhaeiWl/ktTWjJaDTZa9q1+jV9q3C6qyb52977NMcBZRikwMeEv5AwjNvo8
-	bPmrfT64FfYffdOjvY2FB9qVBzzoFi6Y19Jqn3Ehib+gokkHkRfspMDzjewJy0Y1cvdKYKNz47FWR
-	w8hXTYk50pzBVIA3cZqeYCS6IM7iRMb9JCwQUVLOxuNH8bzh1vvSCZavPy96Je4SDeZ+5hJ2Mx5BB
-	FAoFeODA==;
+	bh=AV/+6bQSjKfamtobRHSLeM/m0DwhYt5ZKh5uq1zC2gA=; b=hcqFnWJnrCfZ74QTd4Xp56TfAl
+	+0yx9AEP7/18IJ/wIwxJRCXxeagi59a84dKQUqI/ceYT9vzk7u7a+xhqL3yustBn/TX114RTJo4CX
+	tzikOvU78w0mvJREXrtFgYpvGxD7lu4CPFOdsBbwzLUA2uOfM3ku2ENhaSe52cnQejfedpFXFsdy/
+	ZF8t8plqMRfydOxXRBBm8tR4Ora/S3sqjjuJ+/GI+mYDssdCvCLQJk5HSctXJKnrAf7lxE87fe4XZ
+	+NYTQbZu/FZgfaYEw//PvyjmvBg9TNZ9MwXNOk3QJEQ/5TKQp0g0oVIi1daXp593B9tO5XjQ9eXLq
+	FuySdXyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93qv-00000007L2R-03aw;
-	Thu, 07 Nov 2024 14:51:17 +0000
+	id 1t93sd-00000007LPp-1zTw;
+	Thu, 07 Nov 2024 14:53:03 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t93p8-00000007Kh7-2uP0
+	id 1t93p8-00000007KhA-2uUV
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 07 Nov 2024 14:49:28 +0000
 Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7BPOxb001277;
-	Thu, 7 Nov 2024 15:49:18 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7BK0ff001253;
+	Thu, 7 Nov 2024 15:49:19 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	ienHGXKCWAz/ANukHZpdgkhnrKTvDCmbAMpuaZRiPmI=; b=GCsEjwdqoQWsIWta
-	2m5eWnfgDeOV9wLIgabL+vUnYSe6hYGROVrGv3zcvyPY8khtzjGMErbUO9E84dRj
-	AzcjJLlLSeP1w8G5aW36WtSoLmLm4admIo7aHBHomAw9XJ69HvNIpp50Z7mAkBlP
-	mYIoBPrTb4IO2Z4/M3Awr5TZekUP9QTFhkTJYlQZS3wO7xHQ5QlmmBUMtQI6ZGEA
-	8RxhxM1tmne2dTCua5NUrROqBWwgUww4TNE9Z3vB0UbMcN/VnGNW8SkpEMou3v4V
-	1CuTODTNpq7av7riP8K+0cEOLV4YrhI9EUzzTk8HWLXmBfpZ4PZGZpg3TQmH6I+9
-	QNu0rA==
+	AV/+6bQSjKfamtobRHSLeM/m0DwhYt5ZKh5uq1zC2gA=; b=CSGQtXNs2pj3/Or3
+	HZXsuabQdDsq20L9cQn+d53mAxvzYRWbKR0CqBKqr+LOW24KeKhbzZm0HT+Pdsxm
+	10L1H+QH5MJx2zC6TeVZpCGZGxBBx70v/hXLJ9E7FeJ15gUZfYYy0F8PgyYmRcSi
+	Td9dAIZB0RJ802BrrZTf7fFu6emnDJsS+hXZ4bUZaPOJL3zq9/+yVYRSywP8KOr7
+	3PMNp1MPa9UbfE+8R3Zm4v7NaAB/10SQOpBquCcwsiekLu5ntoTTh3vM4O2svQEB
+	p5kAjX7uxVmnszpmLAcuzF0SGriKOozjbnjFHLR+Ms4Xao+PWmx2o90s968Pbl8C
+	sruHPA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42r9765p3p-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42r9765p3n-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 07 Nov 2024 15:49:18 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 74DCA40047;
-	Thu,  7 Nov 2024 15:48:21 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 75EC040044;
+	Thu,  7 Nov 2024 15:48:16 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8D1D22BA0A8;
-	Thu,  7 Nov 2024 15:47:37 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A086626711E;
+	Thu,  7 Nov 2024 15:47:38 +0100 (CET)
 Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 7 Nov
- 2024 15:47:37 +0100
+ 2024 15:47:38 +0100
 From: Olivier Moysan <olivier.moysan@foss.st.com>
 To: Olivier Moysan <olivier.moysan@foss.st.com>,
         Arnaud Pouliquen
 	<arnaud.pouliquen@foss.st.com>,
         Liam Girdwood <lgirdwood@gmail.com>, Mark
  Brown <broonie@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
+        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+	<tiwai@suse.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 1/2] ASoC: dt-bindings: add stm32mp25 support for i2s
-Date: Thu, 7 Nov 2024 15:47:11 +0100
-Message-ID: <20241107144712.1305638-2-olivier.moysan@foss.st.com>
+Subject: [PATCH v2 2/2] ASoC: stm32: i2s: add stm32mp25 support
+Date: Thu, 7 Nov 2024 15:47:12 +0100
+Message-ID: <20241107144712.1305638-3-olivier.moysan@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241107144712.1305638-1-olivier.moysan@foss.st.com>
 References: <20241107144712.1305638-1-olivier.moysan@foss.st.com>
@@ -87,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_064927_207222_A8FA53A3 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20241107_064927_198791_882D5DE5 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,86 +99,345 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add STM32MP25 support for STM32 I2S peripheral,
-through "st,stm32mp25-i2s" compatible.
+Add STM32MP25 support for STM32 I2S.
+
+On STM32MP25 the I2S driver does not manage I2S kernel clock rate
+by choosing its parent clock, depending on audio stream rate.
+
+The driver requests a rate change on I2S kernel clock instead.
+It tries to set the higher possible rate, which is a multiple of
+the audio stream rate and which gives an accuracy of at least 1000 ppm.
 
 Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
 ---
- .../bindings/sound/st,stm32-i2s.yaml          | 36 +++++++++++++++++--
- 1 file changed, 33 insertions(+), 3 deletions(-)
+ sound/soc/stm/stm32_i2s.c | 211 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 189 insertions(+), 22 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml b/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-index 8978f6bd63e5..b4f44f9c7c7d 100644
---- a/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-+++ b/Documentation/devicetree/bindings/sound/st,stm32-i2s.yaml
-@@ -13,13 +13,11 @@ description:
-   The SPI/I2S block supports I2S/PCM protocols when configured on I2S mode.
-   Only some SPI instances support I2S.
+diff --git a/sound/soc/stm/stm32_i2s.c b/sound/soc/stm/stm32_i2s.c
+index faa00103ee7f..19dc61008a75 100644
+--- a/sound/soc/stm/stm32_i2s.c
++++ b/sound/soc/stm/stm32_i2s.c
+@@ -200,10 +200,13 @@ enum i2s_datlen {
  
--allOf:
--  - $ref: dai-common.yaml#
--
- properties:
-   compatible:
-     enum:
-       - st,stm32h7-i2s
-+      - st,stm32mp25-i2s
+ #define STM32_I2S_NAME_LEN		32
+ #define STM32_I2S_RATE_11K		11025
++#define STM32_I2S_MAX_SAMPLE_RATE_8K	192000
++#define STM32_I2S_MAX_SAMPLE_RATE_11K	176400
++#define STM32_I2S_CLK_RATE_TOLERANCE	1000 /* ppm */
  
-   "#sound-dai-cells":
-     const: 0
-@@ -33,6 +31,7 @@ properties:
-       - description: clock feeding the internal clock generator.
-       - description: I2S parent clock for sampling rates multiple of 8kHz.
-       - description: I2S parent clock for sampling rates multiple of 11.025kHz.
-+    minItems: 2
+ /**
+  * struct stm32_i2s_data - private data of I2S
+- * @regmap_conf: I2S register map configuration pointer
++ * @conf: I2S configuration pointer
+  * @regmap: I2S register map pointer
+  * @pdev: device data pointer
+  * @dai_drv: DAI driver pointer
+@@ -224,11 +227,14 @@ enum i2s_datlen {
+  * @divider: prescaler division ratio
+  * @div: prescaler div field
+  * @odd: prescaler odd field
++ * @i2s_clk_flg: flag set while exclusivity on I2S kernel clock is active
+  * @refcount: keep count of opened streams on I2S
+  * @ms_flg: master mode flag.
++ * @set_i2s_clk_rate: set I2S kernel clock rate
++ * @put_i2s_clk_rate: put I2S kernel clock rate
+  */
+ struct stm32_i2s_data {
+-	const struct regmap_config *regmap_conf;
++	const struct stm32_i2s_conf *conf;
+ 	struct regmap *regmap;
+ 	struct platform_device *pdev;
+ 	struct snd_soc_dai_driver *dai_drv;
+@@ -249,8 +255,21 @@ struct stm32_i2s_data {
+ 	unsigned int divider;
+ 	unsigned int div;
+ 	bool odd;
++	bool i2s_clk_flg;
+ 	int refcount;
+ 	int ms_flg;
++	int (*set_i2s_clk_rate)(struct stm32_i2s_data *i2s, unsigned int rate);
++	void (*put_i2s_clk_rate)(struct stm32_i2s_data *i2s);
++};
++
++/**
++ * struct stm32_i2s_conf - I2S configuration
++ * @regmap_conf: regmap configuration pointer
++ * @get_i2s_clk_parent: get parent clock of I2S kernel clock
++ */
++struct stm32_i2s_conf {
++	const struct regmap_config *regmap_conf;
++	int (*get_i2s_clk_parent)(struct stm32_i2s_data *i2s);
+ };
  
-   clock-names:
-     items:
-@@ -40,6 +39,7 @@ properties:
-       - const: i2sclk
-       - const: x8k
-       - const: x11k
-+    minItems: 2
+ struct stm32_i2smclk_data {
+@@ -261,6 +280,8 @@ struct stm32_i2smclk_data {
  
-   interrupts:
-     maxItems: 1
-@@ -79,6 +79,36 @@ required:
-   - dmas
-   - dma-names
+ #define to_mclk_data(_hw) container_of(_hw, struct stm32_i2smclk_data, hw)
  
-+allOf:
-+  - $ref: dai-common.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32h7-i2s
++static int stm32_i2s_get_parent_clk(struct stm32_i2s_data *i2s);
 +
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 4
-+
-+        clock-names:
-+          minItems: 4
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp25-i2s
-+
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 2
-+
-+        clock-names:
-+          maxItems: 2
-+
- unevaluatedProperties: false
+ static int stm32_i2s_calc_clk_div(struct stm32_i2s_data *i2s,
+ 				  unsigned long input_rate,
+ 				  unsigned long output_rate)
+@@ -312,6 +333,33 @@ static int stm32_i2s_set_clk_div(struct stm32_i2s_data *i2s)
+ 				  cgfr_mask, cgfr);
+ }
  
- examples:
++static bool stm32_i2s_rate_accurate(struct stm32_i2s_data *i2s,
++				    unsigned int max_rate, unsigned int rate)
++{
++	struct platform_device *pdev = i2s->pdev;
++	u64 delta, dividend;
++	int ratio;
++
++	if (!rate) {
++		dev_err(&pdev->dev, "Unexpected null rate\n");
++		return false;
++	}
++
++	ratio = DIV_ROUND_CLOSEST(max_rate, rate);
++	if (!ratio)
++		return false;
++
++	dividend = mul_u32_u32(1000000, abs(max_rate - (ratio * rate)));
++	delta = div_u64(dividend, max_rate);
++
++	if (delta <= STM32_I2S_CLK_RATE_TOLERANCE)
++		return true;
++
++	dev_dbg(&pdev->dev, "Rate [%u] not accurate\n", rate);
++
++	return false;
++}
++
+ static int stm32_i2s_set_parent_clock(struct stm32_i2s_data *i2s,
+ 				      unsigned int rate)
+ {
+@@ -332,6 +380,87 @@ static int stm32_i2s_set_parent_clock(struct stm32_i2s_data *i2s,
+ 	return ret;
+ }
+ 
++static void stm32_i2s_put_parent_rate(struct stm32_i2s_data *i2s)
++{
++	if (i2s->i2s_clk_flg) {
++		i2s->i2s_clk_flg = false;
++		clk_rate_exclusive_put(i2s->i2sclk);
++	}
++}
++
++static int stm32_i2s_set_parent_rate(struct stm32_i2s_data *i2s,
++				     unsigned int rate)
++{
++	struct platform_device *pdev = i2s->pdev;
++	unsigned int i2s_clk_rate, i2s_clk_max_rate, i2s_curr_rate, i2s_new_rate;
++	int ret, div;
++
++	/*
++	 * Set maximum expected kernel clock frequency
++	 * - mclk on:
++	 *   f_i2s_ck = MCKDIV * mclk-fs * fs
++	 *   Here typical 256 ratio is assumed for mclk-fs
++	 * - mclk off:
++	 *   f_i2s_ck = MCKDIV * FRL * fs
++	 *   Where FRL=[16,32], MCKDIV=[1..256]
++	 *   f_i2s_ck = i2s_clk_max_rate * 32 / 256
++	 */
++	if (!(rate % STM32_I2S_RATE_11K))
++		i2s_clk_max_rate = STM32_I2S_MAX_SAMPLE_RATE_11K * 256;
++	else
++		i2s_clk_max_rate = STM32_I2S_MAX_SAMPLE_RATE_8K * 256;
++
++	if (!i2s->i2smclk)
++		i2s_clk_max_rate /= 8;
++
++	/* Request exclusivity, as the clock may be shared by I2S instances */
++	clk_rate_exclusive_get(i2s->i2sclk);
++	i2s->i2s_clk_flg = true;
++
++	/*
++	 * Check current kernel clock rate. If it gives the expected accuracy
++	 * return immediately.
++	 */
++	i2s_curr_rate = clk_get_rate(i2s->i2sclk);
++	if (stm32_i2s_rate_accurate(i2s, i2s_clk_max_rate, i2s_curr_rate))
++		return 0;
++
++	/*
++	 * Otherwise try to set the maximum rate and check the new actual rate.
++	 * If the new rate does not give the expected accuracy, try to set
++	 * lower rates for the kernel clock.
++	 */
++	i2s_clk_rate = i2s_clk_max_rate;
++	div = 1;
++	do {
++		/* Check new rate accuracy. Return if ok */
++		i2s_new_rate = clk_round_rate(i2s->i2sclk, i2s_clk_rate);
++		if (stm32_i2s_rate_accurate(i2s, i2s_clk_rate, i2s_new_rate)) {
++			ret = clk_set_rate(i2s->i2sclk, i2s_clk_rate);
++			if (ret) {
++				dev_err(&pdev->dev, "Error %d setting i2s_clk_rate rate. %s",
++					ret, ret == -EBUSY ?
++					"Active stream rates may be in conflict\n" : "\n");
++				goto err;
++			}
++
++			return 0;
++		}
++
++		/* Try a lower frequency */
++		div++;
++		i2s_clk_rate = i2s_clk_max_rate / div;
++	} while (i2s_clk_rate > rate);
++
++	/* no accurate rate found */
++	dev_err(&pdev->dev, "Failed to find an accurate rate");
++
++err:
++	stm32_i2s_put_parent_rate(i2s);
++
++	return -EINVAL;
++}
++
+ static long stm32_i2smclk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 				     unsigned long *prate)
+ {
+@@ -635,12 +764,16 @@ static int stm32_i2s_set_sysclk(struct snd_soc_dai *cpu_dai,
+ 				clk_rate_exclusive_put(i2s->i2smclk);
+ 				i2s->mclk_rate = 0;
+ 			}
++
++			if (i2s->put_i2s_clk_rate)
++				i2s->put_i2s_clk_rate(i2s);
++
+ 			return regmap_update_bits(i2s->regmap,
+ 						  STM32_I2S_CGFR_REG,
+ 						  I2S_CGFR_MCKOE, 0);
+ 		}
+ 		/* If master clock is used, set parent clock now */
+-		ret = stm32_i2s_set_parent_clock(i2s, freq);
++		ret = i2s->set_i2s_clk_rate(i2s, freq);
+ 		if (ret)
+ 			return ret;
+ 		ret = clk_set_rate_exclusive(i2s->i2smclk, freq);
+@@ -667,10 +800,11 @@ static int stm32_i2s_configure_clock(struct snd_soc_dai *cpu_dai,
+ 	u32 cgfr;
+ 	int ret;
+ 
+-	if (!(rate % 11025))
+-		clk_set_parent(i2s->i2sclk, i2s->x11kclk);
+-	else
+-		clk_set_parent(i2s->i2sclk, i2s->x8kclk);
++	if (!i2s->mclk_rate) {
++		ret = i2s->set_i2s_clk_rate(i2s, rate);
++		if (ret)
++			return ret;
++	}
+ 	i2s_clock_rate = clk_get_rate(i2s->i2sclk);
+ 
+ 	/*
+@@ -915,6 +1049,14 @@ static void stm32_i2s_shutdown(struct snd_pcm_substream *substream,
+ 
+ 	clk_disable_unprepare(i2s->i2sclk);
+ 
++	/*
++	 * Release kernel clock if following conditions are fulfilled
++	 * - Master clock is not used. Kernel clock won't be released trough sysclk
++	 * - Put handler is defined. Involve that clock is managed exclusively
++	 */
++	if (!i2s->i2smclk && i2s->put_i2s_clk_rate)
++		i2s->put_i2s_clk_rate(i2s);
++
+ 	spin_lock_irqsave(&i2s->irq_lock, flags);
+ 	i2s->substream = NULL;
+ 	spin_unlock_irqrestore(&i2s->irq_lock, flags);
+@@ -1012,14 +1154,36 @@ static int stm32_i2s_dais_init(struct platform_device *pdev,
+ 	return 0;
+ }
+ 
++static const struct stm32_i2s_conf stm32_i2s_conf_h7 = {
++	.regmap_conf = &stm32_h7_i2s_regmap_conf,
++	.get_i2s_clk_parent = stm32_i2s_get_parent_clk,
++};
++
++static const struct stm32_i2s_conf stm32_i2s_conf_mp25 = {
++	.regmap_conf = &stm32_h7_i2s_regmap_conf
++};
++
+ static const struct of_device_id stm32_i2s_ids[] = {
+-	{
+-		.compatible = "st,stm32h7-i2s",
+-		.data = &stm32_h7_i2s_regmap_conf
+-	},
++	{ .compatible = "st,stm32h7-i2s", .data = &stm32_i2s_conf_h7 },
++	{ .compatible = "st,stm32mp25-i2s", .data = &stm32_i2s_conf_mp25 },
+ 	{},
+ };
+ 
++static int stm32_i2s_get_parent_clk(struct stm32_i2s_data *i2s)
++{
++	struct device *dev = &i2s->pdev->dev;
++
++	i2s->x8kclk = devm_clk_get(dev, "x8k");
++	if (IS_ERR(i2s->x8kclk))
++		return dev_err_probe(dev, PTR_ERR(i2s->x8kclk), "Cannot get x8k parent clock\n");
++
++	i2s->x11kclk = devm_clk_get(dev, "x11k");
++	if (IS_ERR(i2s->x11kclk))
++		return dev_err_probe(dev, PTR_ERR(i2s->x11kclk), "Cannot get x11k parent clock\n");
++
++	return 0;
++}
++
+ static int stm32_i2s_parse_dt(struct platform_device *pdev,
+ 			      struct stm32_i2s_data *i2s)
+ {
+@@ -1031,8 +1195,8 @@ static int stm32_i2s_parse_dt(struct platform_device *pdev,
+ 	if (!np)
+ 		return -ENODEV;
+ 
+-	i2s->regmap_conf = device_get_match_data(&pdev->dev);
+-	if (!i2s->regmap_conf)
++	i2s->conf = device_get_match_data(&pdev->dev);
++	if (!i2s->conf)
+ 		return -EINVAL;
+ 
+ 	i2s->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+@@ -1052,15 +1216,18 @@ static int stm32_i2s_parse_dt(struct platform_device *pdev,
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->i2sclk),
+ 				     "Could not get i2sclk\n");
+ 
+-	i2s->x8kclk = devm_clk_get(&pdev->dev, "x8k");
+-	if (IS_ERR(i2s->x8kclk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->x8kclk),
+-				     "Could not get x8k parent clock\n");
++	if (i2s->conf->get_i2s_clk_parent) {
++		i2s->set_i2s_clk_rate = stm32_i2s_set_parent_clock;
++	} else {
++		i2s->set_i2s_clk_rate = stm32_i2s_set_parent_rate;
++		i2s->put_i2s_clk_rate = stm32_i2s_put_parent_rate;
++	}
+ 
+-	i2s->x11kclk = devm_clk_get(&pdev->dev, "x11k");
+-	if (IS_ERR(i2s->x11kclk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->x11kclk),
+-				     "Could not get x11k parent clock\n");
++	if (i2s->conf->get_i2s_clk_parent) {
++		ret = i2s->conf->get_i2s_clk_parent(i2s);
++		if (ret)
++			return ret;
++	}
+ 
+ 	/* Register mclk provider if requested */
+ 	if (of_property_present(np, "#clock-cells")) {
+@@ -1126,7 +1293,7 @@ static int stm32_i2s_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	i2s->regmap = devm_regmap_init_mmio_clk(&pdev->dev, "pclk",
+-						i2s->base, i2s->regmap_conf);
++						i2s->base, i2s->conf->regmap_conf);
+ 	if (IS_ERR(i2s->regmap))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->regmap),
+ 				     "Regmap init error\n");
 -- 
 2.25.1
 
