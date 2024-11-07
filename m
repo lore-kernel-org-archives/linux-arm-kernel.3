@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C83D5D688
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 20:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D00D5D689
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 20:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l7+Mjo89P4AdQIIV//Uu9js0oVBe923zMULMp7p6G5Y=; b=GQstDS9rBYNr0ZvLs0mpycCvC1
-	NuexMLIkcjq+1zU2hHwzQ4pcwYwLz+nlor6gcghWLD+NXf7qH9SW4fm1KpSh54uTkDule2VBjx1Gm
-	p69yZrdd3kVvpu9IfqkOkLzJMQj8WM407h5ZodD0BE7Qwq8E55g2KIquM58QjMZPSXo9THBbID5XW
-	amKkj/r/L67tenR6RAkQ+7PPdytnduAjdPk4KDvtEXlKsy9YozDxZycjlJ+/gay67Qn5s3N/dYw2Q
-	7GKstE9r56L1z2ydKY/CjPR/BbFOTx3/QRgIgFDSh9R0T8NqexFx07b3iPA7Ryt0+G32rsFTf/lQ3
-	5vu7w4zA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=; b=sYFLWNwcchuSj5afPXMGvC0LOP
+	OcTSqxjcepn2UyAPYmFuGIxJt5EEdyvXrbTxQ65Nc0anuXj2VhsMQUoHZvMa5RIVp1UwTfSsT0DMd
+	keqY3tEbSMQ0hyq1H6txvYKy7bYzw8p5lHm/sRq7QohWC5xtel1gbs5NntlpMuyE/JT1LMX1kK/iT
+	pn9TFu59ffICK2FN35jgMXohur2S5+CrWrvNzRfIOmWK8jxFZDCAFw9WdT8o8SaOIXwtCE7cWe89p
+	bDKj9nKfdH8DYaPxr8z5fj2YMKOHNUhRfpBlPZt31m76wIx7ftFmanxXn9qtsie2yqrPqvq6RtSX+
+	c+qLy3Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t991U-00000008ESi-16li;
-	Thu, 07 Nov 2024 20:22:32 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t993C-00000008Edv-1IU0;
+	Thu, 07 Nov 2024 20:24:18 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98zf-00000008E2e-37fF
+	id 1t98zi-00000008E2u-0cLB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 20:20:41 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e290947f6f8so2269113276.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 12:20:38 -0800 (PST)
+	Thu, 07 Nov 2024 20:20:43 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e59dc7df64so17925147b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 12:20:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731010838; x=1731615638; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=l7+Mjo89P4AdQIIV//Uu9js0oVBe923zMULMp7p6G5Y=;
-        b=HvCa/OAcGbsZ8DpSzuiw2Er6ruT4r4ShTISWFuognz4yZuRfX3WQp4dGxqbfNeJYYa
-         j9jneOXsmMFWT5TmCxY6ojJw2tMb+8c8J5BZuxwkTNLn+0HzekpsN1uaBUGZxS0MS+I1
-         XkR/psqST2NZqIKUbPNPOMHNWMuhLv2kXjGZluEJ4UIokMg8/GpZJsQXhwILDFYNfyaA
-         N/aUoJeAeLRfb+kkHOTJA1Xw2o7Fwb0wLTJ8lAyFEuXEOTUTaq7YzQ5eeKBbeF0twGMu
-         9/fe6a6UC9lQoqCLEMEu1hmfhyqCx/qdd9iNd/04Pr+x2fKCU833xz1T8bJtq/rur20K
-         pnAw==
+        d=google.com; s=20230601; t=1731010840; x=1731615640; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=;
+        b=2CXDU0isuYRCSj4pcsHYtr8GvI8GzFUwFstB2zmkSx6VmxnEdMr72hY/l1352c6/kA
+         +bpHAs3eP73L6Ce0Q/mFkYsh1ZFSgbVQKzM+M2STrcm5RabKIekcvy94q1QZCbxR0STg
+         bU1hDJ5frw5S78YfOlA/1QevmDyi6wzycNLpGYGXVAV3VxTbsBDLXC6zAXZSaQrJjn6x
+         K3GZ01cSzmn9CimPos3/usLPc4NnlkyH24Rj0V58YTgi41xtqP78iSa2eyLTW17uBsff
+         Zb5vYjY5NvCUjY1ssUdTjF/oZ39+4C3YlBXW9r2sD84w5q+yQ62plD7uTzvEvekhg9Qh
+         YgMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731010838; x=1731615638;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=l7+Mjo89P4AdQIIV//Uu9js0oVBe923zMULMp7p6G5Y=;
-        b=fgOfWTOH5TYnEOf6hdXJFaCvBur55SD3Z0nmNUZOC+jTvzFVhA3CnUE2ogAEVbAENR
-         8qlI9ph9QTBWPQvlkqisjKtVt/fV4irl5ipTZVP9Khr9jfe1xlLJ8H6j/mS0BvAkeeyl
-         jp58Hn/VIFWS40uy+9+4PfsH/lGwom1CHkUfvZCcxny2H7qUZWoIBH6scIwqXa81HtG6
-         pDjmMGRIU2sxDhCluMERknIwGqKWKAQmVtSuVHRy3wSAmgv7J1Q00jzPEiSjbo5dGHKo
-         csYJuqoD2B4biRwdj5v/ycrZSldnTxvzjbi9VtR9nK/Bfiag0R6hnTLZIOwgSbeXHf7s
-         +qrg==
-X-Forwarded-Encrypted: i=1; AJvYcCUIJRLrQdJ0vnmIPYup/b8TNMllUYDxl0+wHxq501j/4q5rhpkqaLHcfoaYhMVbomeJgvGgTXPn19ilXl1wJbeb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8ZsWDjS2MoTeKqoQrvROlJeHW8fZm+FAM8Bsn6/dPdyDcShLO
-	I/VherHsZcQFdEnc9KZswBQCY32hB1rHHe3xd2Bjw4p3gbuy/hdVhgy5OOvfDK4pf1q2SldhlwO
-	ENQ==
-X-Google-Smtp-Source: AGHT+IGMlauM2Ccm7lpcq+NmFLTze2u+1oA+ThJ4YgG3NG0DPe4hsPEtWI2lkBjtgT/O9I9Gq0F9hjCGH4Y=
+        d=1e100.net; s=20230601; t=1731010840; x=1731615640;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1tthOirtAYAbVODGiUuOcdhR/O6us8nRui7ePy/4XFU=;
+        b=Gyiz0+ZCG9gCZV8t7T0MQ/SlfdbifBUFXTGA5CzSQVVIqFgxMF/owufuj94HxT8y9Q
+         wpLcCCXr0gXKITL0d63uxgqNaBqrR7cPCO9pCTa4mHOc+kHciagStks6lQsNmSvVVnTn
+         a6eeNLsSbqXdadXQKIDCIWphrPYXyKJnbaojw6X4uPREVI62bl4FO5SV2B2ae+zlVEza
+         EZOMr11PfF6eqABI0nIB/1dBk2emyngq0pguF2EhMHqGBuyFE3kkPRzqElgHth6woTVb
+         51B9t5ZAwC+Gd+ufHCYYVOlBfO/fKuUcQvTMPZY0alxCdgncX0QEgqhOD8LiV4huS6Pl
+         f2xw==
+X-Forwarded-Encrypted: i=1; AJvYcCVwLznsFwizpYFrTRJttOclfcxRxxw79x8Lpl+joy0C7EScc3TUPsYSdiSa+Lm8WO9GEKRBeybvAwRIJyFlp7I0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhLv8mMZ+Mj/itVzvUCVivMxa9a9g4MGzK5Qsg3OSZ8pToW9s6
+	cMqG9wW4ont4m9DEg4D/8DFz5opAFzsirvcnE76LQXtB/Qw8WrjutlIx20Kch9r8luytmKD/Eon
+	3zw==
+X-Google-Smtp-Source: AGHT+IGTqsn/Xtckt6+UQcvmaBMjWwhX3GjS38ldjfYHLBKaWt3NH7a5E1E88BJehCRrOBEtvF7Ru96C8rA=
 X-Received: from yuzhao2.bld.corp.google.com ([2a00:79e0:2e28:6:a4c0:c64f:6cdd:91f8])
- (user=yuzhao job=sendgmr) by 2002:a25:dc4a:0:b0:e25:5cb1:77d8 with SMTP id
- 3f1490d57ef6-e337f8ed8bbmr193276.6.1731010837952; Thu, 07 Nov 2024 12:20:37
- -0800 (PST)
-Date: Thu,  7 Nov 2024 13:20:27 -0700
+ (user=yuzhao job=sendgmr) by 2002:a05:690c:255:b0:6ea:4b3a:6703 with SMTP id
+ 00721157ae682-6eadc16949bmr149247b3.5.1731010840283; Thu, 07 Nov 2024
+ 12:20:40 -0800 (PST)
+Date: Thu,  7 Nov 2024 13:20:28 -0700
+In-Reply-To: <20241107202033.2721681-1-yuzhao@google.com>
 Mime-Version: 1.0
+References: <20241107202033.2721681-1-yuzhao@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241107202033.2721681-1-yuzhao@google.com>
-Subject: [PATCH v2 0/6] mm/arm64: re-enable HVO
+Message-ID: <20241107202033.2721681-2-yuzhao@google.com>
+Subject: [PATCH v2 1/6] mm/hugetlb_vmemmap: batch-update PTEs
 From: Yu Zhao <yuzhao@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Marc Zyngier <maz@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
@@ -74,8 +76,8 @@ Cc: Douglas Anderson <dianders@chromium.org>, Mark Rutland <mark.rutland@arm.com
 	linux-kernel@vger.kernel.org, linux-mm@kvack.org, Yu Zhao <yuzhao@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_122039_845874_23178F8B 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20241107_122042_220883_7058B057 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,74 +92,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HVO was disabled by commit 060a2c92d1b6 ("arm64: mm: hugetlb: Disable
-HUGETLB_PAGE_OPTIMIZE_VMEMMAP") due to the following reason:
+Convert vmemmap_remap_walk->remap_pte to ->remap_pte_range so that
+vmemmap remap walks can batch-update PTEs.
 
-  This is deemed UNPREDICTABLE by the Arm architecture without a
-  break-before-make sequence (make the PTE invalid, TLBI, write the
-  new valid PTE). However, such sequence is not possible since the
-  vmemmap may be concurrently accessed by the kernel.
+The goal of this conversion is to allow architectures to implement
+their own optimizations if possible, e.g., only to stop remote CPUs
+once for each batch when updating vmemmap on arm64. It is not intended
+to change the remap workflow nor should it by itself have any side
+effects on performance.
 
-This series presents one of the previously discussed approaches to
-re-enable HugeTLB Vmemmap Optimization (HVO) on arm64. Other
-approaches that have been discussed include:
-  A. Handle kernel PF while doing BBM [1],
-  B. Use stop_machine() while doing BBM [2], and,
-  C. Enable FEAT_BBM level 2 and keep the memory contents at the old
-     and new output addresses unchanged to avoid BBM (D8.16.1-2) [3].
+Signed-off-by: Yu Zhao <yuzhao@google.com>
+---
+ mm/hugetlb_vmemmap.c | 163 ++++++++++++++++++++++++-------------------
+ 1 file changed, 91 insertions(+), 72 deletions(-)
 
-A quick comparison between this approach (D) and the above approaches:
-  --+------------------------------+-----------------------------+
-    |              Pros            |             Cons            |
-  --+------------------------------+-----------------------------+
-  A | Low latency, h/w independent | Predictability concerns [4] |
-  B | Predictable, h/w independent | High latency                |
-  C | Predictable, low latency     | H/w dependent, complex      |
-  D | Predictable, h/w independent | Medium latency              |
-  --+------------------------------+-----------------------------+
-
-This approach is being tested for Google's production systems, which
-generally find the "cons" above acceptable, making it the preferred
-trade-off for our use cases:
-  +------------------------------+------------+----------+--------+
-  | HugeTLB operations           | Before [0] + After    | Change |
-  +------------------------------+------------+----------+--------+
-  | Alloc 600 1GB                | 0m3.526s   | 0m3.649s | +4%    |
-  | Free 600 1GB                 | 0m0.880s   | 0m0.917s | +4%    |
-  | Demote 600 1GB to 307200 2MB | 0m1.575s   | 0m3.640s | +231%  |
-  | Free 307200 2MB              | 0m0.946s   | 0m2.921s | +309%  |
-  +------------------------------+------------+----------+--------+
-
-[0] For comparison purposes, this only includes the last patch in the
-    series, i.e., CONFIG_ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP=y.
-[1] https://lore.kernel.org/20240113094436.2506396-1-sunnanyong@huawei.com/
-[2] https://lore.kernel.org/ZbKjHHeEdFYY1xR5@arm.com/
-[3] https://lore.kernel.org/Zo68DP6siXfb6ZBR@arm.com/
-[4] https://lore.kernel.org/20240326125409.GA9552@willie-the-truck/
-
-Major changes from v1, based on Marc Zyngier's help:
-  1. Switched from CPU masks to a counter when pausing remote CPUs.
-  2. Removed unnecessary memory barriers.
-
-Yu Zhao (6):
-  mm/hugetlb_vmemmap: batch-update PTEs
-  mm/hugetlb_vmemmap: add arch-independent helpers
-  irqchip/gic-v3: support SGI broadcast
-  arm64: broadcast IPIs to pause remote CPUs
-  arm64: pause remote CPUs to update vmemmap
-  arm64: select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
-
- arch/arm64/Kconfig               |   1 +
- arch/arm64/include/asm/pgalloc.h |  69 ++++++++
- arch/arm64/include/asm/smp.h     |   3 +
- arch/arm64/kernel/smp.c          |  85 +++++++++-
- drivers/irqchip/irq-gic-v3.c     |  31 +++-
- include/linux/mm_types.h         |   7 +
- mm/hugetlb_vmemmap.c             | 262 +++++++++++++++++++++----------
- 7 files changed, 362 insertions(+), 96 deletions(-)
-
-
-base-commit: 80fb25341631b75f57b84f99cc35b95ca2aad329
+diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+index 57b7f591eee8..46befab48d41 100644
+--- a/mm/hugetlb_vmemmap.c
++++ b/mm/hugetlb_vmemmap.c
+@@ -22,7 +22,7 @@
+ /**
+  * struct vmemmap_remap_walk - walk vmemmap page table
+  *
+- * @remap_pte:		called for each lowest-level entry (PTE).
++ * @remap_pte_range:	called on a range of PTEs.
+  * @nr_walked:		the number of walked pte.
+  * @reuse_page:		the page which is reused for the tail vmemmap pages.
+  * @reuse_addr:		the virtual address of the @reuse_page page.
+@@ -32,8 +32,8 @@
+  *			operations.
+  */
+ struct vmemmap_remap_walk {
+-	void			(*remap_pte)(pte_t *pte, unsigned long addr,
+-					     struct vmemmap_remap_walk *walk);
++	void			(*remap_pte_range)(pte_t *pte, unsigned long start,
++					unsigned long end, struct vmemmap_remap_walk *walk);
+ 	unsigned long		nr_walked;
+ 	struct page		*reuse_page;
+ 	unsigned long		reuse_addr;
+@@ -101,10 +101,6 @@ static int vmemmap_pmd_entry(pmd_t *pmd, unsigned long addr,
+ 	struct page *head;
+ 	struct vmemmap_remap_walk *vmemmap_walk = walk->private;
+ 
+-	/* Only splitting, not remapping the vmemmap pages. */
+-	if (!vmemmap_walk->remap_pte)
+-		walk->action = ACTION_CONTINUE;
+-
+ 	spin_lock(&init_mm.page_table_lock);
+ 	head = pmd_leaf(*pmd) ? pmd_page(*pmd) : NULL;
+ 	/*
+@@ -129,33 +125,36 @@ static int vmemmap_pmd_entry(pmd_t *pmd, unsigned long addr,
+ 			ret = -ENOTSUPP;
+ 	}
+ 	spin_unlock(&init_mm.page_table_lock);
+-	if (!head || ret)
++	if (ret)
+ 		return ret;
+ 
+-	return vmemmap_split_pmd(pmd, head, addr & PMD_MASK, vmemmap_walk);
+-}
++	if (head) {
++		ret = vmemmap_split_pmd(pmd, head, addr & PMD_MASK, vmemmap_walk);
++		if (ret)
++			return ret;
++	}
+ 
+-static int vmemmap_pte_entry(pte_t *pte, unsigned long addr,
+-			     unsigned long next, struct mm_walk *walk)
+-{
+-	struct vmemmap_remap_walk *vmemmap_walk = walk->private;
++	if (vmemmap_walk->remap_pte_range) {
++		pte_t *pte = pte_offset_kernel(pmd, addr);
+ 
+-	/*
+-	 * The reuse_page is found 'first' in page table walking before
+-	 * starting remapping.
+-	 */
+-	if (!vmemmap_walk->reuse_page)
+-		vmemmap_walk->reuse_page = pte_page(ptep_get(pte));
+-	else
+-		vmemmap_walk->remap_pte(pte, addr, vmemmap_walk);
+-	vmemmap_walk->nr_walked++;
++		vmemmap_walk->nr_walked += (next - addr) / PAGE_SIZE;
++		/*
++		 * The reuse_page is found 'first' in page table walking before
++		 * starting remapping.
++		 */
++		if (!vmemmap_walk->reuse_page) {
++			vmemmap_walk->reuse_page = pte_page(ptep_get(pte));
++			pte++;
++			addr += PAGE_SIZE;
++		}
++		vmemmap_walk->remap_pte_range(pte, addr, next, vmemmap_walk);
++	}
+ 
+ 	return 0;
+ }
+ 
+ static const struct mm_walk_ops vmemmap_remap_ops = {
+ 	.pmd_entry	= vmemmap_pmd_entry,
+-	.pte_entry	= vmemmap_pte_entry,
+ };
+ 
+ static int vmemmap_remap_range(unsigned long start, unsigned long end,
+@@ -172,7 +171,7 @@ static int vmemmap_remap_range(unsigned long start, unsigned long end,
+ 	if (ret)
+ 		return ret;
+ 
+-	if (walk->remap_pte && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
++	if (walk->remap_pte_range && !(walk->flags & VMEMMAP_REMAP_NO_TLB_FLUSH))
+ 		flush_tlb_kernel_range(start, end);
+ 
+ 	return 0;
+@@ -204,33 +203,45 @@ static void free_vmemmap_page_list(struct list_head *list)
+ 		free_vmemmap_page(page);
+ }
+ 
+-static void vmemmap_remap_pte(pte_t *pte, unsigned long addr,
+-			      struct vmemmap_remap_walk *walk)
++static void vmemmap_remap_pte_range(pte_t *pte, unsigned long start, unsigned long end,
++				    struct vmemmap_remap_walk *walk)
+ {
+-	/*
+-	 * Remap the tail pages as read-only to catch illegal write operation
+-	 * to the tail pages.
+-	 */
+-	pgprot_t pgprot = PAGE_KERNEL_RO;
+-	struct page *page = pte_page(ptep_get(pte));
+-	pte_t entry;
+-
+-	/* Remapping the head page requires r/w */
+-	if (unlikely(addr == walk->reuse_addr)) {
+-		pgprot = PAGE_KERNEL;
+-		list_del(&walk->reuse_page->lru);
++	int i;
++	struct page *page;
++	int nr_pages = (end - start) / PAGE_SIZE;
+ 
++	for (i = 0; i < nr_pages; i++) {
++		page = pte_page(ptep_get(pte + i));
++
++		list_add(&page->lru, walk->vmemmap_pages);
++	}
++
++	page = walk->reuse_page;
++
++	if (start == walk->reuse_addr) {
++		list_del(&page->lru);
++		copy_page(page_to_virt(page), (void *)walk->reuse_addr);
+ 		/*
+-		 * Makes sure that preceding stores to the page contents from
+-		 * vmemmap_remap_free() become visible before the set_pte_at()
+-		 * write.
++		 * Makes sure that preceding stores to the page contents become
++		 * visible before set_pte_at().
+ 		 */
+ 		smp_wmb();
+ 	}
+ 
+-	entry = mk_pte(walk->reuse_page, pgprot);
+-	list_add(&page->lru, walk->vmemmap_pages);
+-	set_pte_at(&init_mm, addr, pte, entry);
++	for (i = 0; i < nr_pages; i++) {
++		pte_t val;
++
++		/*
++		 * The head page must be mapped read-write; the tail pages are
++		 * mapped read-only to catch illegal modifications.
++		 */
++		if (!i && start == walk->reuse_addr)
++			val = mk_pte(page, PAGE_KERNEL);
++		else
++			val = mk_pte(page, PAGE_KERNEL_RO);
++
++		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
++	}
+ }
+ 
+ /*
+@@ -252,27 +263,39 @@ static inline void reset_struct_pages(struct page *start)
+ 	memcpy(start, from, sizeof(*from) * NR_RESET_STRUCT_PAGE);
+ }
+ 
+-static void vmemmap_restore_pte(pte_t *pte, unsigned long addr,
+-				struct vmemmap_remap_walk *walk)
++static void vmemmap_restore_pte_range(pte_t *pte, unsigned long start, unsigned long end,
++				      struct vmemmap_remap_walk *walk)
+ {
+-	pgprot_t pgprot = PAGE_KERNEL;
++	int i;
+ 	struct page *page;
+-	void *to;
+-
+-	BUG_ON(pte_page(ptep_get(pte)) != walk->reuse_page);
++	int nr_pages = (end - start) / PAGE_SIZE;
+ 
+ 	page = list_first_entry(walk->vmemmap_pages, struct page, lru);
+-	list_del(&page->lru);
+-	to = page_to_virt(page);
+-	copy_page(to, (void *)walk->reuse_addr);
+-	reset_struct_pages(to);
++
++	for (i = 0; i < nr_pages; i++) {
++		BUG_ON(pte_page(ptep_get(pte + i)) != walk->reuse_page);
++
++		copy_page(page_to_virt(page), (void *)walk->reuse_addr);
++		reset_struct_pages(page_to_virt(page));
++
++		page = list_next_entry(page, lru);
++	}
+ 
+ 	/*
+ 	 * Makes sure that preceding stores to the page contents become visible
+-	 * before the set_pte_at() write.
++	 * before set_pte_at().
+ 	 */
+ 	smp_wmb();
+-	set_pte_at(&init_mm, addr, pte, mk_pte(page, pgprot));
++
++	for (i = 0; i < nr_pages; i++) {
++		pte_t val;
++
++		page = list_first_entry(walk->vmemmap_pages, struct page, lru);
++		list_del(&page->lru);
++
++		val = mk_pte(page, PAGE_KERNEL);
++		set_pte_at(&init_mm, start + PAGE_SIZE * i, pte + i, val);
++	}
+ }
+ 
+ /**
+@@ -290,7 +313,6 @@ static int vmemmap_remap_split(unsigned long start, unsigned long end,
+ 			       unsigned long reuse)
+ {
+ 	struct vmemmap_remap_walk walk = {
+-		.remap_pte	= NULL,
+ 		.flags		= VMEMMAP_SPLIT_NO_TLB_FLUSH,
+ 	};
+ 
+@@ -322,10 +344,10 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
+ {
+ 	int ret;
+ 	struct vmemmap_remap_walk walk = {
+-		.remap_pte	= vmemmap_remap_pte,
+-		.reuse_addr	= reuse,
+-		.vmemmap_pages	= vmemmap_pages,
+-		.flags		= flags,
++		.remap_pte_range	= vmemmap_remap_pte_range,
++		.reuse_addr		= reuse,
++		.vmemmap_pages		= vmemmap_pages,
++		.flags			= flags,
+ 	};
+ 	int nid = page_to_nid((struct page *)reuse);
+ 	gfp_t gfp_mask = GFP_KERNEL | __GFP_NORETRY | __GFP_NOWARN;
+@@ -340,8 +362,6 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
+ 	 */
+ 	walk.reuse_page = alloc_pages_node(nid, gfp_mask, 0);
+ 	if (walk.reuse_page) {
+-		copy_page(page_to_virt(walk.reuse_page),
+-			  (void *)walk.reuse_addr);
+ 		list_add(&walk.reuse_page->lru, vmemmap_pages);
+ 		memmap_pages_add(1);
+ 	}
+@@ -371,10 +391,9 @@ static int vmemmap_remap_free(unsigned long start, unsigned long end,
+ 		 * They will be restored in the following call.
+ 		 */
+ 		walk = (struct vmemmap_remap_walk) {
+-			.remap_pte	= vmemmap_restore_pte,
+-			.reuse_addr	= reuse,
+-			.vmemmap_pages	= vmemmap_pages,
+-			.flags		= 0,
++			.remap_pte_range	= vmemmap_restore_pte_range,
++			.reuse_addr		= reuse,
++			.vmemmap_pages		= vmemmap_pages,
+ 		};
+ 
+ 		vmemmap_remap_range(reuse, end, &walk);
+@@ -425,10 +444,10 @@ static int vmemmap_remap_alloc(unsigned long start, unsigned long end,
+ {
+ 	LIST_HEAD(vmemmap_pages);
+ 	struct vmemmap_remap_walk walk = {
+-		.remap_pte	= vmemmap_restore_pte,
+-		.reuse_addr	= reuse,
+-		.vmemmap_pages	= &vmemmap_pages,
+-		.flags		= flags,
++		.remap_pte_range	= vmemmap_restore_pte_range,
++		.reuse_addr		= reuse,
++		.vmemmap_pages		= &vmemmap_pages,
++		.flags			= flags,
+ 	};
+ 
+ 	/* See the comment in the vmemmap_remap_free(). */
 -- 
 2.47.0.277.g8800431eea-goog
 
