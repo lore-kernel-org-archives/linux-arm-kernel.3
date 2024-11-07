@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81F4D43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 867F6D4335A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8msaSe+3oWz+aKRykRN807B2tz3tiigw8hAFdXd/xuE=; b=4LjzAfZzfuaM7BMEMHJ2rVsyjJ
-	WaJn5UI0x0ucX9sY3qzXMpLZKq181u8ijL64lHQ3Q6P0pVpm1ELsJ0eNUPpW49kWUzFsxWhOGe5Yj
-	WcPyK9jStjn7XNUgFNC5cuXueuhOxEGlLvZNF3bTzSzojmgYrSsuGpJtMOuYnF5TlMqiA/XL0W8by
-	FYnXmJAIIC/IsA5m7ulp6gJoAR4bUgdRVfDlSwObcngWbqWdBL+QEFaNnEr0Mhbeoj4TFQdhgvMtA
-	rIHZgQ4wYB41CV2YiPZ++H4OBZu+X7kbiynpN/XM66fBqzTMqRHuAcq37+I1TI2YX0xonBSpyZ4g+
-	TwNxQMUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+UmpOQw8zuRGya0xzGUDJxvT1+Zri4pO+UBWJC150Dk=; b=FyJFTHBrupV6jMuf7g4r2Tm6Of
+	Stt1JVhLk42Pp1UisNWeWQe5J5KUVTHBk8a3JuADn7/HFuwUbuygmEusRMtK8Ufydus9ytTX2646X
+	/Nj60unsJ7rVsxcAGrRlGiduQJAG/6IOiW+PmCgcDqdFzwfToQc9qfjgLomAjekgLw6tt2ETSFXaI
+	eyiPXRkSKANJbfws6Ds/ZD1kNpK6i603k51tnAeUiQIPSC+uoz2Apo5+Hb5bAa5tdm3QGTlXABo4W
+	xt2Y5/3l4T9DsSOU2GV6xaachUHGMsUuTRxyHKEXUyEWPII3kfMXl6JF9bFaYCpeFb8aexU6jpz8b
+	Nu+9WMOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91fx-00000006wWJ-1mGd;
-	Thu, 07 Nov 2024 12:31:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1t91lN-00000006x9u-3PEs;
+	Thu, 07 Nov 2024 12:37:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91eC-00000006wCB-1PXC;
-	Thu, 07 Nov 2024 12:30:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1730982597;
-	bh=9UJ51zCp7wFqF/ltQGzkqv1QEUcQEdNvnUFBhAv+OvE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TseUTXg8aYui9PetXY++xfEKHvzIkL108Spbu+2pRgYESsPB/z0XT192r4r4XDDUG
-	 rOUVEV1tCflaYxFHUPx+wvBjqjZxpUk0IKChZYjccyrOeotMc9cmfDWUxqci8YJvMx
-	 vqFKvpllM0rdm9ifsMTTvx6aTwMtLaM9hq+oD3QKT9zmR+ppNy1PGoTlsNSRNwwbT6
-	 CVhADPi8Gn4iN841t9T/o6qQyUmta5PCBOOpkzSnI0q8MKE8pVJhfGOEK0QCJ/hUu2
-	 TSBxGbMOfWkHu0fAwbIja2WifkwbFep/f+HvocZcJHpEoaPjsqq5DTWLn0z5lVjvwB
-	 IzUovG/SKhmcQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5ADE217E3624;
-	Thu,  7 Nov 2024 13:29:57 +0100 (CET)
-Message-ID: <451c8f42-f8eb-4734-a19a-1e9a2694ce34@collabora.com>
-Date: Thu, 7 Nov 2024 13:29:56 +0100
+	id 1t91jc-00000006wss-3R4k
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 12:35:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6E5345C584D;
+	Thu,  7 Nov 2024 12:34:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F6EC4CECC;
+	Thu,  7 Nov 2024 12:35:32 +0000 (UTC)
+Date: Thu, 7 Nov 2024 12:35:26 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	David Hildenbrand <david@redhat.com>,
+	Greg Marsden <greg.marsden@oracle.com>,
+	Ivan Ivanov <ivan.ivanov@suse.com>,
+	Kalesh Singh <kaleshsingh@google.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
+Message-ID: <Zyy0DpOIu63isKZR@arm.com>
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <ZyPxhF34JjT3Ky9K@arm.com>
+ <083d9e98-b6b8-4702-a700-24aea95cef9e@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mmc: mtk-sd: Fix error handle of probe function
-To: Andy-ld Lu <andy-ld.lu@mediatek.com>, ulf.hansson@linaro.org,
- matthias.bgg@gmail.com, wenbin.mei@mediatek.com
-Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241107121215.5201-1-andy-ld.lu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241107121215.5201-1-andy-ld.lu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <083d9e98-b6b8-4702-a700-24aea95cef9e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_043000_562532_D6A5F48D 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20241107_043537_048088_BAAAD90A 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +73,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/11/24 13:11, Andy-ld Lu ha scritto:
-> In the probe function, it goes to 'release_mem' label and returns after
-> some procedure failure. But if the clocks (partial or all) have been
-> enabled previously, they would not be disabled in msdc_runtime_suspend,
-> since runtime PM is not yet enabled for this case.
+On Wed, Nov 06, 2024 at 11:37:58AM +0000, Ryan Roberts wrote:
+> On 31/10/2024 21:07, Catalin Marinas wrote:
+> > So, first of all, I'd like to understand the overall maintainability
+> > impact better. I assume you tested mostly defconfig. If you run an
+> > allmodconfig build with make -k, how many build failures do you get with
+> > this patchset? Similarly for some distro configs.
 > 
-> That cause mmc related clocks always on during system suspend and block
-> suspend flow. Below log is from a SDCard issue of MT8196 chromebook, it
-> returns -ETIMEOUT while polling clock stable in the msdc_ungate_clock()
-> and probe failed, but the enabled clocks could not be disabled anyway.
+> I've roughly done:
 > 
-> [  129.059253] clk_chk_dev_pm_suspend()
-> [  129.350119] suspend warning: msdcpll is on
-> [  129.354494] [ck_msdc30_1_sel : enabled, 1, 1, 191999939,   ck_msdcpll_d2]
-> [  129.362787] [ck_msdcpll_d2   : enabled, 1, 1, 191999939,         msdcpll]
-> [  129.371041] [ck_msdc30_1_ck  : enabled, 1, 1, 191999939, ck_msdc30_1_sel]
-> [  129.379295] [msdcpll         : enabled, 1, 1, 383999878,          clk26m]
-> 
-> Add a new 'release_clk' label and reorder the error handle functions to
-> make sure the clocks be disabled after probe failure.
-> 
-> Fixes: ffaea6ebfe9c ("mmc: mtk-sd: Use readl_poll_timeout instead of open-coded polling")
-> Fixes: 7a2fa8eed936 ("mmc: mtk-sd: use devm_mmc_alloc_host")
-> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+>     make alldefconfig &&
+>         ./scripts/config --enable CONFIG_ARM64_BOOT_TIME_PAGE_SIZE &&
+> 	make -s -j`nproc` -k &> allmodconfig.log
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Is it alldefconfig or allmodconfig? The former has a lot less symbols
+enabled than even defconfig (fairly close to allnoconfig actually):
 
+$ make defconfig
+$ grep -v "^#\|^$" .config | wc -l
+4449
 
+$ make alldefconfig
+$ grep -v "^#\|^$" .config | wc -l
+713
+
+$ make allmodconfig
+$ grep -v "^#\|^$" .config | wc -l
+14401
+
+> In the end, I decided to go for r'(\S+\.[ch]):.*(error|note):', which is any
+> files described as having an error or being the callsite of the thing with the
+> error. I think this is likely most accurate from eyeballing the log:
+
+I think that's good enough to give us a rough idea.
+
+> |            |     C&H files | percentage of |
+> | directory  |      w/ error | all C&H files |
+> |------------|---------------|---------------|
+> | arch/arm64 |             7 |          1.3% |
+> | drivers    |           127 |          0.4% |
+> | fs         |            25 |          1.1% |
+> | include    |            27 |          0.4% |
+> | init       |             1 |          8.3% |
+> | kernel     |             7 |          1.3% |
+> | lib        |             1 |          0.2% |
+> | mm         |             6 |          3.2% |
+> | net        |             7 |          0.4% |
+> | security   |             2 |          0.8% |
+> | sound      |            21 |          0.8% |
+> |------------|---------------|---------------|
+> | TOTAL      |           231 |          0.4% |
+> |------------|---------------|---------------|
+
+This doesn't look that bad _if_ you actually built most modules. But if
+it was alldefconfig, you likely missed the majority of modules.
+
+> > Do we have any better way to detect this other than actual compilation
+> > on arm64? Can we hack something around COMPILE_TEST like redefine
+> > PAGE_SIZE (for modules only) to a variable so that we have a better
+> > chance of detecting build failures when modules are only tested on other
+> > architectures?
+> 
+> I can certainly look into this. But if the concern is that drivers are not being
+> compiled against arm64, what is the likelyhood of them being compiled against
+> COMPILE_TEST?
+
+Hopefully some CIs out there catching them. Well, if we are to fix them
+anyway, we might as well eventually force a non-const PAGE_SIZE
+generically even if it returns a constant.
+
+I'm building allmod now with something like below (and some hacks in
+arch and core code to use STATIC_PAGE_* as I did not apply your
+patches). alldefconfig passes with my hacks but, as you can see, the
+non-const PAGE_SIZE kicks in only if MODULE is defined. So, not an
+accurate test, just to get a feel of the modules problem.
+
+----------8<---------------------------
+diff --git a/arch/arm64/include/asm/page-def.h b/arch/arm64/include/asm/page-def.h
+index 792e9fe881dc..71a761f86b15 100644
+--- a/arch/arm64/include/asm/page-def.h
++++ b/arch/arm64/include/asm/page-def.h
+@@ -12,7 +12,19 @@
+ 
+ /* PAGE_SHIFT determines the page size */
+ #define PAGE_SHIFT		CONFIG_PAGE_SHIFT
+-#define PAGE_SIZE		(_AC(1, UL) << PAGE_SHIFT)
++#define STATIC_PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
++#define STATIC_PAGE_MASK	(~(STATIC_PAGE_SIZE-1))
++
++#if !defined(MODULE) || defined(__ASSEMBLY__)
++#define PAGE_SIZE		STATIC_PAGE_SIZE
++#else
++static inline unsigned long __runtime_page_size(void)
++{
++	return 1UL << PAGE_SHIFT;
++}
++#define PAGE_SIZE		(__runtime_page_size())
++#endif
++
+ #define PAGE_MASK		(~(PAGE_SIZE-1))
+ 
+ #endif /* __ASM_PAGE_DEF_H */
+----------8<---------------------------
+
+-- 
+Catalin
 
