@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE71FD43350
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415F8D4334F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 11:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/h7WdzZG9vjrQc7OkWmpZJ7JRIc5Cq4to1XZ7bI6xI=; b=Lg0QYWM+vqaGX9gwNjb4lyFGD+
-	4Y5FaRv7+sxMjFCqRJC7txwuNF/GeqjCXYBkIORb7ntSqWfnAAKg8G36njY1SFsen/XPf4lrim4fv
-	r55VnNoBzjbd0OHvksu1vfNXtMVn+rMexjlkC6hF0ozlyDACBSkWhYMZTBUYpzzrzE0t6ZbcME7D+
-	jm6dfIHqM5yLJQ04FVngsvBFnQBNMDbe5RpGP35a5RRYvg47D81PAQmjfdhc2USJeoBg7csNOtEo+
-	hL8T8XFt8kf6jPn4xFuEEiocRPqGlF9MkXPWvJUJnh4MALhADZWpjsjY9chRWN6DmDvaf8x40SbE8
-	4WbR/VnA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RAahKqW3YpKeIKLPCckgcq3vCFHoB1MSxhlhtUGlvLQ=; b=PHACA5MLGu6src5DWy9YUd1FII
+	Y9FL/UBh33sawHhYmr7evxjbEZOF3Ki4GVrunL6TyMQODaa3K0PIYqOMn68GM0CuAW+YlQi1zpKyO
+	Q2UPO61gba3hH38cm+ZEZIRqqkApyyjB8ewfoCY6KPV9udtjoElS9xSdFInIuO+UDtoSKgkj7B4zu
+	HrYbE9mhKR7op9ouaPZMCrSEo4Excu+DnirROUpKjfCTI6Do6G8rhWKKiRtPrdOAnKrswc7zTt0tS
+	/PYayz3Q5A5HN+a5OVEeS0CrEG5Ja7c4ypHdCZO2cZvYYsKArpvyHRuoKTTMjI44Zw03BftwL0WsB
+	RdmaRlwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t917J-00000006pkG-2zta;
-	Thu, 07 Nov 2024 11:56:01 +0000
+	id 1t9193-00000006q2l-3ewZ;
+	Thu, 07 Nov 2024 11:57:49 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t90zL-00000006nhf-0dTh;
-	Thu, 07 Nov 2024 11:47:49 +0000
+	id 1t90zL-00000006nhg-0qQO;
+	Thu, 07 Nov 2024 11:47:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9/h7WdzZG9vjrQc7OkWmpZJ7JRIc5Cq4to1XZ7bI6xI=; b=E1W78ZCeCgemPK0BsMm3lPTBvM
-	kfXODipqL7t/BzoWn95KOdCT1wx4Y5qdj857R1BozY9A+3h/ol0/Ebom8AQsSlQ4MnSTm5JodrDu6
-	aYfzS5CzEcBgdfmUiHh7wKCczn7HVVoTh91EFcq/yjIu4VcuiuCdNT0tEpMVoc2txQHENW4MHTFlq
-	FP+Rbygfg3/0tKHAW+UuqTtv51KUBzair3NZDLlXeqi2syacrgi2fjXTnGBraKkTT/h2Ebwl3Hz7+
-	elRiG/UqtIidFYdNF/0nMAFHILjl1ZjWAjFYF2xt7eRR2ku0tIBWNqwugpEPX1hmZ8fIyo2bbsyzT
-	fR0q5K7Q==;
+	bh=RAahKqW3YpKeIKLPCckgcq3vCFHoB1MSxhlhtUGlvLQ=; b=rC9Sk2t0fiLbLWRGQnI0Xg5GEA
+	3qbzhXqrP1irOfjUNTs9sJ/vM9fJsVkdaxQZ8y3SqdgsRdxdHtZYaXwygVdUJv1uPej6DNH23Khtp
+	YU1+CAgJGXJGpTef5E1lyFcAfF9jpVmg9dGUzo9DqNKC98++2r+/NLJM/i+QaZtmx4k4pkGRkSdl4
+	3uvRzCzBHzP7m4p4xxbRVK2Hszy+M026g27md6kD4eiO2CCgq3Ptr7BmoDtZeDYxFU3zypYKxxrYb
+	cT3q07oGdMfcP3IqsmPu9cB+R7u6wwfTMp/nsb/YvG0+cZvg+DHlQXhdaDo6qXjbMf/DT2jIe7wa3
+	bq6cleMQ==;
 Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1t90z5-0005lF-DJ; Thu, 07 Nov 2024 12:47:31 +0100
+	id 1t90yx-0005lF-Rb; Thu, 07 Nov 2024 12:47:23 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: lee@kernel.org,
 	jikos@kernel.org,
@@ -66,17 +66,15 @@ Cc: robh@kernel.org,
 	linux-iio@vger.kernel.org,
 	linux-leds@vger.kernel.org,
 	heiko@sntech.de
-Subject: [PATCH v9 9/9] arm64: dts: rockchip: set hdd led labels on qnap-ts433
-Date: Thu,  7 Nov 2024 12:47:12 +0100
-Message-ID: <20241107114712.538976-10-heiko@sntech.de>
+Subject: [PATCH v9 0/9] Drivers to support the MCU on QNAP NAS devices
+Date: Thu,  7 Nov 2024 12:47:03 +0100
+Message-ID: <20241107114712.538976-1-heiko@sntech.de>
 X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241107114712.538976-1-heiko@sntech.de>
-References: <20241107114712.538976-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_034747_246705_485E1BE0 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241107_034747_347997_67D2D113 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +89,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The automatically generated names for the LEDs from color and function
-do not match nicely for the 4 hdds, so set them manually per the label
-property to also match the LEDs generated from the MCU.
+This implements a set of drivers for the MCU used on QNAP NAS devices.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+Of course no documentation for the serial protocol is available, so
+thankfully QNAP has a tool on their rescue-inird to talk to the MCU and
+I found interceptty [0] to listen to what goes over the serial connection.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-index 4bc5f5691d45..7bd32d230ad2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-@@ -50,6 +50,7 @@ led-0 {
- 			color = <LED_COLOR_ID_GREEN>;
- 			function = LED_FUNCTION_DISK;
- 			gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_LOW>;
-+			label = "hdd1:green:disk";
- 			linux,default-trigger = "disk-activity";
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&hdd1_led_pin>;
-@@ -59,6 +60,7 @@ led-1 {
- 			color = <LED_COLOR_ID_GREEN>;
- 			function = LED_FUNCTION_DISK;
- 			gpios = <&gpio1 RK_PD6 GPIO_ACTIVE_LOW>;
-+			label = "hdd2:green:disk";
- 			linux,default-trigger = "disk-activity";
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&hdd2_led_pin>;
-@@ -68,6 +70,7 @@ led-2 {
- 			color = <LED_COLOR_ID_GREEN>;
- 			function = LED_FUNCTION_DISK;
- 			gpios = <&gpio1 RK_PD7 GPIO_ACTIVE_LOW>;
-+			label = "hdd3:green:disk";
- 			linux,default-trigger = "disk-activity";
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&hdd3_led_pin>;
-@@ -77,6 +80,7 @@ led-3 {
- 			color = <LED_COLOR_ID_GREEN>;
- 			function = LED_FUNCTION_DISK;
- 			gpios = <&gpio2 RK_PA0 GPIO_ACTIVE_LOW>;
-+			label = "hdd4:green:disk";
- 			linux,default-trigger = "disk-activity";
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&hdd4_led_pin>;
+In general it looks like there are two different generations in general,
+an "EC" device and now this "MCU" - referenced in the strings of the
+userspace handlers for those devices.
+
+For the MCU "SPEC3" and "SPEC4" are listed which is configured in
+the model.conf of the device. When setting the value from SPEC4 to
+SPEC3 on my TS433, the supported commands change, but the command
+interface stays the same and especially the version command is the
+same.
+
+The binding also does not expose any interals of the device that
+might change, so hopefully there shouldn't be big roadblocks to
+support different devices, apart from possibly adapting the commands.
+
+
+changes in v9:
+- add Acks + cc-stable to HID patch
+- make timeout-value a constant in core mfd-driver
+- some flush serdev before sending a new command
+
+changes in v8:
+- patch for hid-sensor hub to not do wonky stuff with an old
+  platform-data copy
+  I hope my reading of the situation is correct here, but that
+  initial platform_data really seemed wrong
+
+mfd:
+- flush serial before writing a new command
+- wait for send to complete before starting the receive wait-timeout
+- set expected length to 0 directly when the reply is complete
+  not after leaving the receive callback
+
+
+changes in v7:
+- use ASCII representation in commands where possible instead of hex vals
+- drop get_variant function and use mfd platform-data instead
+
+mfd:
+- a lot of style improvements
+
+leds:
+- name variables better (value -> brightness, num -> num_err_led)
+- handle preservation of blink mode more effectively
+- snprintf -> scnprintf
+- drop duplicate "failed to register ... LED" messages
+
+
+changes in v6:
+- format mcu commands arrays in single lines (Lee)
+
+mfd:
+- drop obsolete remain kdoc for the removed
+  reply_lock (kernel test robot)
+
+
+changes in v5:
+binding:
+- add Conor's Reviewed-by
+
+mfd:
+Address comments from Lee
+- improve commit message
+- improve Kconfig help text
+- sort headers alphabetical
+- style and spelling improvements
+- constants for magic numbers
+- drop reply assignment, the mcu only replies to commands sent to it,
+  so there should only ever be one command in fligth.
+
+hwmon:
+Add Acked-by from Guenter and address some remarks
+  - don't allow empty fan subnode
+  - use num var directly when getting cooling levels, without using ret
+    intermediate
+  - use dev_err_probe in thermal init function
+
+
+changes in v4:
+binding:
+- move cooling properties into a fan subnode and reference
+  fan-common.yaml (Rob)
+- dropped Krzysztof's Ack because of this
+
+mfd:
+- use correct format-string for size_t (kernel test robot)
+
+input:
+- added Dmitry's Ack
+
+hwmon:
+- adapted to fan-subnode when reading cooling properties
+- dropped Guenter's Ack because of this
+
+
+changes in v3:
+mfd
+- use correct power-off priority: default
+- constify the cmd-data array in command functions (Dmitry)
+
+leds:
+- don't point to temporary buffers for cdev->name (Florian Eckert)
+
+hwmon:
+- use clamp_val(), don't try to reimplement (Guenter)
+- add Guenter's Ack
+
+input:
+address Dmitry's comments
+- constify some cmd arrays
+- add input-close callback to cancel beep worker
+- drop initial input event report
+
+
+changes in v2:
+binding:
+- rename to qnap,ts433-mcu.yaml (Krzysztof)
+- drop "preserve formatting" indicator (Krzysztof)
+- add Krzysztof's Review tag
+
+mfd:
+- fix checkpatch --strict CHECKs
+- add a MAINTAINERS entry for all qnap-mcu-parts
+
+Heiko Stuebner (9):
+  HID: hid-sensor-hub: don't use stale platform-data on remove
+  mfd: core: make platform_data pointer const in struct mfd_cell
+  dt-bindings: mfd: add binding for qnap,ts433-mcu devices
+  mfd: add base driver for qnap-mcu devices
+  leds: add driver for LEDs from qnap-mcu devices
+  Input: add driver for the input part of qnap-mcu devices
+  hwmon: add driver for the hwmon parts of qnap-mcu devices
+  arm64: dts: rockchip: hook up the MCU on the QNAP TS433
+  arm64: dts: rockchip: set hdd led labels on qnap-ts433
+
+ .../bindings/mfd/qnap,ts433-mcu.yaml          |  42 ++
+ Documentation/hwmon/index.rst                 |   1 +
+ Documentation/hwmon/qnap-mcu-hwmon.rst        |  27 ++
+ MAINTAINERS                                   |   9 +
+ .../boot/dts/rockchip/rk3568-qnap-ts433.dts   |  61 +++
+ drivers/hid/hid-sensor-hub.c                  |  21 +-
+ drivers/hwmon/Kconfig                         |  12 +
+ drivers/hwmon/Makefile                        |   1 +
+ drivers/hwmon/qnap-mcu-hwmon.c                | 364 ++++++++++++++++++
+ drivers/input/misc/Kconfig                    |  12 +
+ drivers/input/misc/Makefile                   |   1 +
+ drivers/input/misc/qnap-mcu-input.c           | 153 ++++++++
+ drivers/leds/Kconfig                          |  11 +
+ drivers/leds/Makefile                         |   1 +
+ drivers/leds/leds-qnap-mcu.c                  | 227 +++++++++++
+ drivers/mfd/Kconfig                           |  13 +
+ drivers/mfd/Makefile                          |   2 +
+ drivers/mfd/qnap-mcu.c                        | 338 ++++++++++++++++
+ include/linux/mfd/core.h                      |   2 +-
+ include/linux/mfd/qnap-mcu.h                  |  26 ++
+ 20 files changed, 1316 insertions(+), 8 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/qnap,ts433-mcu.yaml
+ create mode 100644 Documentation/hwmon/qnap-mcu-hwmon.rst
+ create mode 100644 drivers/hwmon/qnap-mcu-hwmon.c
+ create mode 100644 drivers/input/misc/qnap-mcu-input.c
+ create mode 100644 drivers/leds/leds-qnap-mcu.c
+ create mode 100644 drivers/mfd/qnap-mcu.c
+ create mode 100644 include/linux/mfd/qnap-mcu.h
+
 -- 
 2.45.2
 
