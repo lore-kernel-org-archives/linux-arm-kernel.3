@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7957D5D67D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D880D5D674
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 17:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrEaqzRh9RjFI0C6ur6R2GS+/CXjD2mh4UQc0jLEjks=; b=zVWQgsGNTWtqjeWvUecjALcE+8
-	WmFGRcwuy+qmzUhIYEwzttaR3jQTC53g3jJhME3/sIdX4F/VU+bRZMfkmNa2aVykW7UYtyAMFLpXd
-	vONgbl6mvqWb1ziO1a2m+1KfyEZdfTve048AuD0FZzLy6waXzx15+v1B8sPIR4WKBHbSo+cjNUsxQ
-	KxS6S3BHPC2SqILtse0o0M1Fq+t8MxleqsQ1IgGRa2HJIeVFQBPhz+eDTMEKhCe4AvFDBPPNLt398
-	tsjA4i/O0npoz7FPQpLLIoO2ujDfxbq0CFQlW2XT6FZTKaaWPWC8XXwwFHp9Kl9Sbh1+i8d90WIrw
-	rNYeVb+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:Cc:To:References:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cdgcV6wo3982K6zQ+QcgyGnlNupSEkHhyOdc+H7ya3w=; b=C9uq/SiEHGp9bIRe38GDPN8KID
+	Lusc3+tbWxTslF5cWysGRqtqjgk6c18d1PgfFdhswjM109DoOSSl27M3+kwqYnsSyI5Jaf+fVpxev
+	Y7sOzN0k/I6FvDkQaYod3r/XrHHA6Jt91EdrioSU8d89Fra+cBL5L6dlO2zK0HWXielkJXCrEgfpQ
+	huf2YRXPSmGVoR1hC1OYXwJp6M4uCBUj6W8WiSGwsI0nFIUGBQozZAsEGl+Gi8lB9ec3ue269XVOk
+	e17qN3HhrLfGBzockQK3R6AMPX/8+GPc/2M47NwSu5nFQT77DfSKkAra9nZIefM2ERuxTyRfBEzcB
+	xKaSHJiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t96Re-00000007poW-3jba;
-	Thu, 07 Nov 2024 17:37:22 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1t96jX-00000007sE7-0lzt;
+	Thu, 07 Nov 2024 17:55:51 +0000
+Received: from smtp-16.smtpout.orange.fr ([80.12.242.16] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t96Pt-00000007pVV-2mtq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 17:35:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731000933; x=1762536933;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Fh7b2FLtKZz1fA4g8oA+3ghKoAEai4NjPZV7Xf1oozk=;
-  b=iXMpCZghLNFUyVJ2QFQmS6wTbaXVU0Ur3mAH0figEqBnmC1BSErj+NuO
-   JRGq8DbIp0g6jgxL51VZHi+PA7+5nUduug9Lqgf8KmDc6R92rE0kS0W7G
-   5AxFDXMg+Yk/Vy1sQPqPao2HxIH0r/EnnQwl3/u/vi+mlOS8+skslXm7g
-   at3upLZewJVhyg85CRclD5ZFd2R5ojl5gLNHTFlYwF5EYaS2R0frM1ndQ
-   3p1mf7Lomo0WH4hURPlgcbgiMwXmDpbdCkyGkpXkl5wwUcM9340HoMVuo
-   HLCzaKVgzLN1VQoE6DMGhKlhcO3Ypfv+J5IhWn/sgYTgvfqCYs6cbgR1Z
-   w==;
-X-CSE-ConnectionGUID: Bkihuy9uQRmT0scVT0ECKw==
-X-CSE-MsgGUID: qfoqKn22RWWBUrx8woLK8Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11249"; a="30281677"
-X-IronPort-AV: E=Sophos;i="6.12,135,1728975600"; 
-   d="scan'208";a="30281677"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2024 09:35:31 -0800
-X-CSE-ConnectionGUID: sRYe6437RISlO9BLWn+mog==
-X-CSE-MsgGUID: Hd+P5H2JSPSX7Ag2FJXLJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,135,1728975600"; 
-   d="scan'208";a="84786005"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 07 Nov 2024 09:35:27 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t96Pk-000qY8-39;
-	Thu, 07 Nov 2024 17:35:24 +0000
-Date: Fri, 8 Nov 2024 01:35:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vabhav Sharma <vabhav.sharma@nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, frank.li@nxp.com,
-	pankaj.gupta@nxp.com, daniel.baluta@nxp.com,
-	silvano.dininno@nxp.com, V.Sethi@nxp.com,
-	meenakshi.aggarwal@nxp.com, Vabhav Sharma <vabhav.sharma@nxp.com>,
-	Franck LENORMAND <franck.lenormand@nxp.com>
-Subject: Re: [PATCH v3 4/4] firmware: imx: secvio: Add support for SNVS
- secvio and tamper via SCFW
-Message-ID: <202411080130.F3kATjgU-lkp@intel.com>
-References: <20241107-secvio-v3-4-ea27f1e9ced4@nxp.com>
+	id 1t96hl-00000007ryD-3Q5d;
+	Thu, 07 Nov 2024 17:54:04 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id 96hdtNA5ljpcy96hdtxdSs; Thu, 07 Nov 2024 18:53:58 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1731002038;
+	bh=cdgcV6wo3982K6zQ+QcgyGnlNupSEkHhyOdc+H7ya3w=;
+	h=Message-ID:Date:MIME-Version:From:Subject:To;
+	b=OyqtHaea2fjLJu0H/uOFpRuDkMdy4/RBnhtlN+dvZY0oouNgU++MeW7A2UyeKd73T
+	 KQTySv04bVQEoVMjE6VGH61YVW1zlLSdYfeq9wJFE82Jtjc23iNzrGWCTvQXcu8/o7
+	 7YdowhKH0jxZWzj2I/jTomCm7+WUU0m7vzqE/HcYa5fx/2B1p7Yeoy4bIaJMnvqpjc
+	 uo9EyePb9gFbaz8KAvpk+gR7h/GjNdO3bnWxvHPpiZwglSOBd9h6FbYhCy65CwZhdu
+	 fJsrdoZP4sZgscMOz96BUjhPDgl9KL59akPQ3eGO5MYoRyDklOm1LkTNz+AJoNqGj/
+	 lPorkANdFP9NQ==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Thu, 07 Nov 2024 18:53:58 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <4318897e-0f1a-42c7-8f20-065dc690a112@wanadoo.fr>
+Date: Thu, 7 Nov 2024 18:53:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107-secvio-v3-4-ea27f1e9ced4@nxp.com>
+User-Agent: Mozilla Thunderbird
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Subject: Re: [net-next PATCH v3 2/3] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+References: <20241106122254.13228-1-ansuelsmth@gmail.com>
+ <20241106122254.13228-3-ansuelsmth@gmail.com>
+Content-Language: en-US, fr-FR
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ "AngeloGioacchino Del Regno," <angelogioacchino.delregno@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@airoha.com
+In-Reply-To: <20241106122254.13228-3-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_093533_983199_18E118E9 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20241107_095402_395748_873853C3 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +87,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vabhav,
+Le 06/11/2024 à 13:22, Christian Marangi a écrit :
+> Add Airoha AN8855 5-Port Gigabit DSA switch.
+> 
+> The switch is also a nvmem-provider as it does have EFUSE to calibrate
+> the internal PHYs.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>
+> ---
 
-kernel test robot noticed the following build warnings:
+Hi,
 
-[auto build test WARNING on 9852d85ec9d492ebef56dc5f229416c925758edc]
+...
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Vabhav-Sharma/dt-bindings-firmware-imx-add-nvmem-phandle/20241107-134504
-base:   9852d85ec9d492ebef56dc5f229416c925758edc
-patch link:    https://lore.kernel.org/r/20241107-secvio-v3-4-ea27f1e9ced4%40nxp.com
-patch subject: [PATCH v3 4/4] firmware: imx: secvio: Add support for SNVS secvio and tamper via SCFW
-config: nios2-randconfig-r131-20241107 (https://download.01.org/0day-ci/archive/20241108/202411080130.F3kATjgU-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 14.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20241108/202411080130.F3kATjgU-lkp@intel.com/reproduce)
+> +#include <linux/bitfield.h>
+> +#include <linux/ethtool.h>
+> +#include <linux/etherdevice.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/if_bridge.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/mdio.h>
+> +#include <linux/netdevice.h>
+> +#include <linux/of_mdio.h>
+> +#include <linux/of_net.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/nvmem-provider.h>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411080130.F3kATjgU-lkp@intel.com/
+Could be moved a few lines above to keep order.
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/firmware/imx/imx-scu-secvio.c:59:15: sparse: sparse: symbol 'scdev' was not declared. Should it be static?
->> drivers/firmware/imx/imx-scu-secvio.c:387:37: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected void [noderef] __user *to @@     got void * @@
-   drivers/firmware/imx/imx-scu-secvio.c:387:37: sparse:     expected void [noderef] __user *to
-   drivers/firmware/imx/imx-scu-secvio.c:387:37: sparse:     got void *
->> drivers/firmware/imx/imx-scu-secvio.c:399:46: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void const [noderef] __user *from @@     got void * @@
-   drivers/firmware/imx/imx-scu-secvio.c:399:46: sparse:     expected void const [noderef] __user *from
-   drivers/firmware/imx/imx-scu-secvio.c:399:46: sparse:     got void *
+> +#include <linux/phylink.h>
+> +#include <linux/regmap.h>
+> +#include <net/dsa.h>
+...
 
-vim +/scdev +59 drivers/firmware/imx/imx-scu-secvio.c
+> +static int an8855_port_fdb_dump(struct dsa_switch *ds, int port,
+> +				dsa_fdb_dump_cb_t *cb, void *data)
+> +{
+> +	struct an8855_priv *priv = ds->priv;
+> +	struct an8855_fdb _fdb = {  };
 
-    56	
-    57	static struct platform_driver imx_secvio_sc_driver;
-  > 58	struct platform_device *pdev;
-  > 59	struct device *scdev;
-    60	
+Should it but reseted in the do loop below, instead of only once here?
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +	int banks, count = 0;
+> +	u32 rsp;
+> +	int ret;
+> +	int i;
+> +
+> +	mutex_lock(&priv->reg_mutex);
+> +
+> +	/* Load search port */
+> +	ret = regmap_write(priv->regmap, AN8855_ATWD2,
+> +			   FIELD_PREP(AN8855_ATWD2_PORT, port));
+> +	if (ret)
+> +		goto exit;
+> +	ret = an8855_fdb_cmd(priv, AN8855_ATC_MAT(AND8855_FDB_MAT_MAC_PORT) |
+> +			     AN8855_FDB_START, &rsp);
+> +	if (ret < 0)
+> +		goto exit;
+> +
+> +	do {
+> +		/* From response get the number of banks to read, exit if 0 */
+> +		banks = FIELD_GET(AN8855_ATC_HIT, rsp);
+> +		if (!banks)
+> +			break;
+> +
+> +		/* Each banks have 4 entry */
+> +		for (i = 0; i < 4; i++) {
+> +			count++;
+> +
+> +			/* Check if bank is present */
+> +			if (!(banks & BIT(i)))
+> +				continue;
+> +
+> +			/* Select bank entry index */
+> +			ret = regmap_write(priv->regmap, AN8855_ATRDS,
+> +					   FIELD_PREP(AN8855_ATRD_SEL, i));
+> +			if (ret)
+> +				break;
+> +			/* wait 1ms for the bank entry to be filled */
+> +			usleep_range(1000, 1500);
+> +			an8855_fdb_read(priv, &_fdb);
+> +
+> +			if (!_fdb.live)
+> +				continue;
+> +			ret = cb(_fdb.mac, _fdb.vid, _fdb.noarp, data);
+> +			if (ret < 0)
+> +				break;
+> +		}
+> +
+> +		/* Stop if reached max FDB number */
+> +		if (count >= AN8855_NUM_FDB_RECORDS)
+> +			break;
+> +
+> +		/* Read next bank */
+> +		ret = an8855_fdb_cmd(priv, AN8855_ATC_MAT(AND8855_FDB_MAT_MAC_PORT) |
+> +				     AN8855_FDB_NEXT, &rsp);
+> +		if (ret < 0)
+> +			break;
+> +	} while (true);
+> +
+> +exit:
+> +	mutex_unlock(&priv->reg_mutex);
+> +	return ret;
+> +}
+
+...
+
+> +	ret = regmap_set_bits(priv->regmap, AN8855_RG_RATE_ADAPT_CTRL_0,
+> +			      AN8855_RG_RATE_ADAPT_RX_BYPASS |
+> +			      AN8855_RG_RATE_ADAPT_TX_BYPASS |
+> +			      AN8855_RG_RATE_ADAPT_RX_EN |
+> +			      AN8855_RG_RATE_ADAPT_TX_EN);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Disable AN if not in autoneg */
+> +	ret = regmap_update_bits(priv->regmap, AN8855_SGMII_REG_AN0, BMCR_ANENABLE,
+> +				 neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED ? BMCR_ANENABLE :
+> +									      0);
+
+Should 'ret' be tested here?
+
+> +
+> +	if (interface == PHY_INTERFACE_MODE_SGMII &&
+> +	    neg_mode == PHYLINK_PCS_NEG_INBAND_DISABLED) {
+> +		ret = regmap_set_bits(priv->regmap, AN8855_PHY_RX_FORCE_CTRL_0,
+> +				      AN8855_RG_FORCE_TXC_SEL);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+...
+
+> +	priv->ds = devm_kzalloc(&mdiodev->dev, sizeof(*priv->ds), GFP_KERNEL);
+> +	if (!priv->ds)
+> +		return -ENOMEM;
+> +
+> +	priv->ds->dev = &mdiodev->dev;
+> +	priv->ds->num_ports = AN8855_NUM_PORTS;
+> +	priv->ds->priv = priv;
+> +	priv->ds->ops = &an8855_switch_ops;
+> +	mutex_init(&priv->reg_mutex);
+
+devm_mutex_init() to slightly simplify the remove function?
+
+> +	priv->ds->phylink_mac_ops = &an8855_phylink_mac_ops;
+> +
+> +	priv->pcs.ops = &an8855_pcs_ops;
+> +	priv->pcs.neg_mode = true;
+> +	priv->pcs.poll = true;
+> +
+> +	ret = an8855_sw_register_nvmem(priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dev_set_drvdata(&mdiodev->dev, priv);
+> +
+> +	return dsa_register_switch(priv->ds);
+> +}
+> +
+> +static void
+> +an8855_sw_remove(struct mdio_device *mdiodev)
+> +{
+> +	struct an8855_priv *priv = dev_get_drvdata(&mdiodev->dev);
+> +
+> +	dsa_unregister_switch(priv->ds);
+> +	mutex_destroy(&priv->reg_mutex);
+> +}
+> +
+> +static const struct of_device_id an8855_of_match[] = {
+> +	{ .compatible = "airoha,an8855" },
+> +	{ /* sentinel */ },
+
+Ending comma is usually not needed after a terminator.
+
+> +};
+> +
+> +static struct mdio_driver an8855_mdio_driver = {
+> +	.probe = an8855_sw_probe,
+> +	.remove = an8855_sw_remove,
+> +	.mdiodrv.driver = {
+> +		.name = "an8855",
+> +		.of_match_table = an8855_of_match,
+> +	},
+> +};
+
+...
+
+> +#define	  AN8855_VA0_VTAG_EN		BIT(10) /* Per VLAN Egress Tag Control */
+> +#define	  AN8855_VA0_IVL_MAC		BIT(5) /* Independent VLAN Learning */
+> +#define	  AN8855_VA0_VLAN_VALID		BIT(0) /* VLAN Entry Valid */
+> +#define AN8855_VAWD1			0x10200608
+> +#define	  AN8855_VA1_PORT_STAG		BIT(1)
+> +
+> +/* Same register map of VAWD0 */
+
+Not sure to follow. AN8855_VAWD0 above is 0x10200604, not 0x10200618
+
+> +#define AN8855_VARD0			0x10200618
+> +
+> +enum an8855_vlan_egress_attr {
+> +	AN8855_VLAN_EGRESS_UNTAG = 0,
+> +	AN8855_VLAN_EGRESS_TAG = 2,
+> +	AN8855_VLAN_EGRESS_STACK = 3,
+> +};
+> +
+> +/* Register for port STP state control */
+> +#define AN8855_SSP_P(x)			(0x10208000 + ((x) * 0x200))
+> +#define	 AN8855_FID_PST			GENMASK(1, 0)
+> +
+> +enum an8855_stp_state {
+> +	AN8855_STP_DISABLED = 0,
+> +	AN8855_STP_BLOCKING = 1,
+> +	AN8855_STP_LISTENING = 1,
+
+Just wondering if this 0, 1, *1*, 2, 3 was intentional?
+
+> +	AN8855_STP_LEARNING = 2,
+> +	AN8855_STP_FORWARDING = 3
+> +};
+> +
+> +/* Register for port control */
+> +#define AN8855_PCR_P(x)			(0x10208004 + ((x) * 0x200))
+> +#define	  AN8855_EG_TAG			GENMASK(29, 28)
+> +#define	  AN8855_PORT_PRI		GENMASK(26, 24)
+> +#define	  AN8855_PORT_TX_MIR		BIT(20)
+> +#define	  AN8855_PORT_RX_MIR		BIT(16)
+> +#define	  AN8855_PORT_VLAN		GENMASK(1, 0)
+> +
+> +enum an8855_port_mode {
+> +	/* Port Matrix Mode: Frames are forwarded by the PCR_MATRIX members. */
+> +	AN8855_PORT_MATRIX_MODE = 0,
+> +
+> +	/* Fallback Mode: Forward received frames with ingress ports that do
+> +	 * not belong to the VLAN member. Frames whose VID is not listed on
+> +	 * the VLAN table are forwarded by the PCR_MATRIX members.
+> +	 */
+> +	AN8855_PORT_FALLBACK_MODE = 1,
+> +
+> +	/* Check Mode: Forward received frames whose ingress do not
+> +	 * belong to the VLAN member. Discard frames if VID ismiddes on the
+> +	 * VLAN table.
+> +	 */
+> +	AN8855_PORT_CHECK_MODE = 1,
+
+Just wondering if this 0, 1, *1*, 3 was intentional?
+
+> +
+> +	/* Security Mode: Discard any frame due to ingress membership
+> +	 * violation or VID missed on the VLAN table.
+> +	 */
+> +	AN8855_PORT_SECURITY_MODE = 3,
+> +};
+...
+
+CJ
 
