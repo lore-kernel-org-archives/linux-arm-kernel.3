@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420F0D43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AC7D43352
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 12:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kKjKdh8uIYu5IDKofoXchUb2lw7bLvsxB0RuFLbP7sQ=; b=egFlR+c/BITG3wmIyk9iXPveYE
-	gaq+cbZoTjlXv71/CjJ2Mb1L/GiPPWUtwM1O88MtF39GYuKACQcKDGaTLsj+/QZXyOf6103a/3/E+
-	ED9e6YJ48N1djeAoRsWk3yRYY7Q4THxtWr4blSZy10nXFvvDAc8/q9DspQgT5OrUFkQHgcqQsahNB
-	tNil1zxSNRFCrN6WMoTnaKFSQVcV/h5swsGBLTRItBYImYUCG9Zve55XJG6WwWlT12sdtCOGn9sOo
-	TwsHf0+7Nio4BqQ8bvytkWyH/QE9g+XUm2JzmAxXWxpvpmtNhUmobPxfDnf1l75+tizmcztSO3hij
-	XqS7dylA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rPKia8mc29LBHIBoWFB0OJoeWWo9xwpVLeKPu0E5yTY=; b=X29VR9Y1cfv8ekHsSorFSWFgbt
+	9OS60/38CPhm6iZ/4RBidpPiKDasYkkK9qVJ9+TBcQcxCEnHDCNQ4L0ddwmdIQ8p11OvG0pZ73KDP
+	ZPmTwV8kAC/iAgMraatx5XS1t+hSzCfRfMT55NDdmNgPwie6OLqLBvA/6+7jA1NVSCpXc/WrC5Ci0
+	G9tXw+nROGpsDXPJXcvcGUKn46EsxhIguPdx4VrROyxDG5mUEdDiM/ZV5TWZfIR1Avyu3w9051kwZ
+	HTpfH9w61Z52M0Yz45X+wii5roGvuAebj8sPABdUl3vJnJbECNehbolEJa8sA5SVh6T3P1PxBlJrK
+	KiotRtKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t91Cl-00000006qt2-0abm;
-	Thu, 07 Nov 2024 12:01:39 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1t91EG-00000006r7z-3Tds;
+	Thu, 07 Nov 2024 12:03:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t901i-00000006Xyp-2AnM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 10:46:33 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A7Ak5R1014571;
-	Thu, 7 Nov 2024 04:46:05 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1730976365;
-	bh=kKjKdh8uIYu5IDKofoXchUb2lw7bLvsxB0RuFLbP7sQ=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=b7h7yqBBAWX4ElR3KCABGzUdBgEM/B1t37LOzboM20P+KEcnrh+X8PS4VdRZi7v0Y
-	 JOtOEPzFWf+bpRPx8Cc9QGlOTvOe/l8+HoO7Hd+iINymUPB+EJOSi14Bo1uO1kraES
-	 lbD/d2LxuWbAwSVnP1DxBVc4id/Hm2C6y6ONvg4s=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A7Ak5m9035596;
-	Thu, 7 Nov 2024 04:46:05 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 7
- Nov 2024 04:46:05 -0600
-Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 7 Nov 2024 04:46:05 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A7Ak5dj123522;
-	Thu, 7 Nov 2024 04:46:05 -0600
-Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A7Ak4k9019865;
-	Thu, 7 Nov 2024 04:46:04 -0600
-From: MD Danish Anwar <danishanwar@ti.com>
-To: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-        <ssantosh@kernel.org>, <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am64-main: Switch ICSSG clock to core clock
-Date: Thu, 7 Nov 2024 16:15:57 +0530
-Message-ID: <20241107104557.1442800-3-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241107104557.1442800-1-danishanwar@ti.com>
-References: <20241107104557.1442800-1-danishanwar@ti.com>
+	id 1t90zQ-00000006nl4-2wQa;
+	Thu, 07 Nov 2024 11:47:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rPKia8mc29LBHIBoWFB0OJoeWWo9xwpVLeKPu0E5yTY=; b=oOwdF9XhUQua5TsDyAUqVgld6g
+	q1t6fDXZRQJVLg30c7i652Mp6G3/GqiqGB/k82Kyi7YNiXtQxb8kN+sgM5zpd9UG+Xkk3R/H84nbB
+	pAvSHCi/uWHzRhJQyXKMNDq+15gxh3IpcAa4l/41wK0jUUQpurl1GVhhkc8PWU/E0t0Enkh/feVuL
+	1KhS9DJ6OzyvTqreMGctZQQlLGOUNTAGh5nK0B11pB7jJdqhZZUjR0OtMJxzUydbv47KaN1Z43JHO
+	Is7Arus0usp2Gmdufp6kQiJKJ/PCHIYoP9W1qpxDr/N7y3yH2anY4F3xaEYoHFOv569J7qz2BMbuS
+	4x9wIXvg==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t90yy-0005lF-Nn; Thu, 07 Nov 2024 12:47:24 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: lee@kernel.org,
+	jikos@kernel.org,
+	jic23@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	jdelvare@suse.com,
+	linux@roeck-us.net,
+	srinivas.pandruvada@linux.intel.com,
+	bentiss@kernel.org,
+	dmitry.torokhov@gmail.com,
+	pavel@ucw.cz,
+	ukleinek@debian.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-input@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	heiko@sntech.de,
+	stable@vger.kernel.org
+Subject: [PATCH v9 1/9] HID: hid-sensor-hub: don't use stale platform-data on remove
+Date: Thu,  7 Nov 2024 12:47:04 +0100
+Message-ID: <20241107114712.538976-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241107114712.538976-1-heiko@sntech.de>
+References: <20241107114712.538976-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_024610_669882_655BFFDB 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241107_034752_810620_A5F4C920 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +89,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: srk@ti.com, devicetree@vger.kernel.org, kristo@kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, Roger Quadros <rogerq@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ICSSG currently uses ICSSG_ICLK (clk id 20) which operates at 250MHz.
-Switch ICSSG clock to ICSSG_CORE clock (clk id 0) which operates at
-333MHz.
+The hid-sensor-hub creates the individual device structs and transfers them
+to the created mfd platform-devices via the platform_data in the mfd_cell.
 
-ICSSG_CORE clock will help get the most out of ICSSG as more cycles are
-needed to fully support all ICSSG features.
+Before e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous reads")
+the sensor-hub was managing access centrally, with one "completion" in the
+hub's data structure, which needed to be finished on removal at the latest.
 
-This commit also changes assigned-clock-parents of coreclk-mux to
-ICSSG_CORE clock from ICSSG_ICLK.
+The mentioned commit then moved this central management to each hid sensor
+device, resulting on a completion in each struct hid_sensor_hub_device.
+The remove procedure was adapted to go through all sensor devices and
+finish any pending "completion".
 
-Performance update in dual mac mode
-  With ICSSG_CORE Clk @ 333MHz
-    Tx throughput - 934 Mbps
-    Rx throuhput - 914 Mbps,
+What this didn't take into account was, platform_device_add_data() that is
+used by mfd_add{_hotplug}_devices() does a kmemdup on the submitted
+platform-data. So the data the platform-device gets is a copy of the
+original data, meaning that the device worked on a different completion
+than what sensor_hub_remove() currently wants to access.
 
-  With ICSSG_ICLK clk @ 250MHz,
-    Tx throughput - 920 Mbps
-    Rx throughput - 706 Mbps
+To fix that, use device_for_each_child() to go through each child-device
+similar to how mfd_remove_devices() unregisters the devices later and
+with that get the live platform_data to finalize the correct completion.
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Fixes: e651a1da442a ("HID: hid-sensor-hub: Allow parallel synchronous reads")
+Cc: stable@vger.kernel.org
+Acked-by: Benjamin Tissoires <bentiss@kernel.org>
+Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/arm64/boot/dts/ti/k3-am64-main.dtsi | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ drivers/hid/hid-sensor-hub.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-index c66289a4362b..ceceee2affd9 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-@@ -1227,6 +1227,10 @@ icssg0: icssg@30000000 {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x00 0x30000000 0x80000>;
-+		clocks = <&k3_clks 81 0>,  /* icssg0_core_clk */
-+			 <&k3_clks 81 20>; /* icssg0_iclk */
-+		assigned-clocks = <&k3_clks 81 0>;
-+		assigned-clock-parents = <&k3_clks 81 2>;
+diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
+index 7bd86eef6ec7..4c94c03cb573 100644
+--- a/drivers/hid/hid-sensor-hub.c
++++ b/drivers/hid/hid-sensor-hub.c
+@@ -730,23 +730,30 @@ static int sensor_hub_probe(struct hid_device *hdev,
+ 	return ret;
+ }
  
- 		icssg0_mem: memories@0 {
- 			reg = <0x0 0x2000>,
-@@ -1252,7 +1256,7 @@ icssg0_coreclk_mux: coreclk-mux@3c {
- 					clocks = <&k3_clks 81 0>,  /* icssg0_core_clk */
- 						 <&k3_clks 81 20>; /* icssg0_iclk */
- 					assigned-clocks = <&icssg0_coreclk_mux>;
--					assigned-clock-parents = <&k3_clks 81 20>;
-+					assigned-clock-parents = <&k3_clks 81 0>;
- 				};
++static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
++{
++	struct hid_sensor_hub_device *hsdev = dev->platform_data;
++
++	if (hsdev->pending.status)
++		complete(&hsdev->pending.ready);
++
++	return 0;
++}
++
+ static void sensor_hub_remove(struct hid_device *hdev)
+ {
+ 	struct sensor_hub_data *data = hid_get_drvdata(hdev);
+ 	unsigned long flags;
+-	int i;
  
- 				icssg0_iepclk_mux: iepclk-mux@30 {
-@@ -1397,6 +1401,10 @@ icssg1: icssg@30080000 {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x00 0x30080000 0x80000>;
-+		clocks = <&k3_clks 82 0>,   /* icssg1_core_clk */
-+			 <&k3_clks 82 20>;  /* icssg1_iclk */
-+		assigned-clocks = <&k3_clks 82 0>;
-+		assigned-clock-parents = <&k3_clks 82 2>;
- 
- 		icssg1_mem: memories@0 {
- 			reg = <0x0 0x2000>,
-@@ -1422,7 +1430,7 @@ icssg1_coreclk_mux: coreclk-mux@3c {
- 					clocks = <&k3_clks 82 0>,   /* icssg1_core_clk */
- 						 <&k3_clks 82 20>;  /* icssg1_iclk */
- 					assigned-clocks = <&icssg1_coreclk_mux>;
--					assigned-clock-parents = <&k3_clks 82 20>;
-+					assigned-clock-parents = <&k3_clks 82 0>;
- 				};
- 
- 				icssg1_iepclk_mux: iepclk-mux@30 {
+ 	hid_dbg(hdev, " hardware removed\n");
+ 	hid_hw_close(hdev);
+ 	hid_hw_stop(hdev);
++
+ 	spin_lock_irqsave(&data->lock, flags);
+-	for (i = 0; i < data->hid_sensor_client_cnt; ++i) {
+-		struct hid_sensor_hub_device *hsdev =
+-			data->hid_sensor_hub_client_devs[i].platform_data;
+-		if (hsdev->pending.status)
+-			complete(&hsdev->pending.ready);
+-	}
++	device_for_each_child(&hdev->dev, NULL,
++			      sensor_hub_finalize_pending_fn);
+ 	spin_unlock_irqrestore(&data->lock, flags);
++
+ 	mfd_remove_devices(&hdev->dev);
+ 	mutex_destroy(&data->mutex);
+ }
 -- 
-2.34.1
+2.45.2
 
 
