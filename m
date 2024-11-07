@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81821D5D695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 23:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3279D5D699
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 23:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M7EBu2hI2Wen9mY+ig9Znskinv3CvH8fxvPBfCZCmmE=; b=p2xLpJFa+voRBgbGRCx+ZW/nqx
-	uyp7mOqBDcqnzrgnakSL6zI/4Mwf0w7MMBI/OxjCaXJAqtXvWdghJHG1IYPmNHdtxqISjv+EyRVP5
-	vSEvmd1Sa/8XZJnOKKGmKeZxtXHhjLP/DSWRy0MO9yBo/3VDTHLT60wmMM7Bn77tG9GsnX3+IRbjq
-	0jFzrg5cSgcJ5MyMQz6RyGB1fpOCqTeF9/ZpqDbsRMSpi13FfaZpQawuimE3iFxPCOeLVyEL6f1ZU
-	neAclH6MMZGwenIIaPk8Hzn2HiYOIqNnryVsft+rCzmnkzA2aOZB8M1MPc5BhDJ108BlIeTNrN/mX
-	Z1oNUDwg==;
+	bh=sB9WbFBpbPjCLPWf25Q6cNTRTz1ZxYwqcOTV66sDiIk=; b=3bxVXFKUG7/HndVciXXaGQ/GRP
+	vcLXOnPDuZ9CaoSrh/WGkdazb7VH0YAO5twQ0pfXQ9C76MVPwaP3ZJWRqtwwh4ltb0pc1X/0ue4At
+	iOCk7dZlLR0d0yyGVWVH5uqFCG7XMZ5tSn2yOwasy65d8GZEdyzMdFEIhs6Tggx0s3o3aEE8WUu7h
+	ctm0ucltKGWEscbeERWK35hSuk0cHlN5ubz4QtIYBDkLQvp8f6KwLHfG7y862bIlUA/87Wy1qI4eo
+	U5mgTMzXwpwpbCHyDYAp5BJHKw/h58+4Lrg/gHxhNiy5tSIMH86rkNPpKu9ZxoA2Jim/LEJQjfzqq
+	7h/qDoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Bwc-00000008iM5-14TN;
-	Thu, 07 Nov 2024 23:29:42 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1t9C67-00000008jxi-0j1H;
+	Thu, 07 Nov 2024 23:39:31 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Buo-00000008hnn-1o2T;
-	Thu, 07 Nov 2024 23:27:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1731022065; bh=IkJAGvDQkZovXD1x3n8hplojH9ac0PufnJnE8gv8k9c=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=YDcb/89fw1nXBP4aHT2wQl02i2QGXRsHIFvmr5knquIfn4RQXgS3a8ii279dvM+Ff
-	 HE+h7PO/048ET1Oeissg2gXHTpMxyzSHsU56+PG3+M/d8ZdJ6VB6yuEVBs6hv1QaI6
-	 xFsiJ1DMm6dS5fRgoYaDJYQ6/XdKe8bGZcFwh/g8=
-Date: Fri, 8 Nov 2024 00:27:45 +0100
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: orangepi-5-plus: Enable USB 3.0
- ports
-Message-ID: <fzrnp55hcmszqcdc6m6qacfv4rka5tlvp3kpll5i6d6fjm2mc5@d6yo5c25gv6i>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Chen-Yu Tsai <wens@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai <wens@csie.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20241025175415.887368-1-wens@kernel.org>
- <pe2ornjaqn24i7e3x64rfdtqbp2c347mc5okgj5y6bfvkwnv6z@jux5yei3vxxa>
- <CAGb2v66WNDVDVqncPNjep3Usqwj2txuXVMxK_Uy0fSgbMFbX_Q@mail.gmail.com>
+	id 1t9C4L-00000008jhN-0Wko
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Nov 2024 23:37:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1731022653;
+	bh=sB9WbFBpbPjCLPWf25Q6cNTRTz1ZxYwqcOTV66sDiIk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=c8md9D9T5JUduyHph29pPdPnY7w/3iZEYl8eeCd5EOJSX66dP9k9iydIqE0HXCPyi
+	 DjiCfNC4o2EFaCMetlEvYuPLeFCV++2G7k45SA7oA7t9Ziy2ihmAMjySdj5aIrCq8O
+	 m4UjPv7OEbc3uBm0jZJBzHyVwA5i0oqDcc7JxyK/lzoXZ4lxLn/BPqBP5QXMV56vOD
+	 7VWPQKvP0QnqVCenDj6iZDILl4LN5Aza1KJz5Kw8K1/azoqvLt5GT+z5iu9sR8Jksv
+	 slHkyrZedpDOAqfsH9kjnMjTedB/oAb0AsGNjTW98Q2/os6kSm5kOqZksbBGNoofEB
+	 ccB2MndkxgVzA==
+Received: from [192.168.68.112] (ppp118-210-167-185.adl-adc-lon-bras34.tpg.internode.on.net [118.210.167.185])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C37FB6B922;
+	Fri,  8 Nov 2024 07:37:31 +0800 (AWST)
+Message-ID: <1c8f39015eae7cc71fbfb9136af8a728d743a991.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 1/2] ARM: dts: aspeed: catalina: update pdb board cpld
+ ioexp linename
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Potin Lai <potin.lai.pt@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Patrick
+ Williams <patrick@stwcx.xyz>,  devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,  linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, Potin Lai <potin.lai@quantatw.com>, Cosmo
+ Chou <cosmo.chou@quantatw.com>
+Date: Fri, 08 Nov 2024 10:07:31 +1030
+In-Reply-To: <CAGfYmwVxwaZk-si1OkP4xeaODhAO74Hv43U=SpzOsGOBkTH8Bw@mail.gmail.com>
+References: <20241106-catalina-cpld-ioexp-update-v1-0-3437bcfcb608@gmail.com>
+	 <20241106-catalina-cpld-ioexp-update-v1-1-3437bcfcb608@gmail.com>
+	 <8e858e760c78ddf533e9e03c20b34fce29862c2e.camel@codeconstruct.com.au>
+	 <CAGfYmwVxwaZk-si1OkP4xeaODhAO74Hv43U=SpzOsGOBkTH8Bw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v66WNDVDVqncPNjep3Usqwj2txuXVMxK_Uy0fSgbMFbX_Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_152750_944662_FAF828C8 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20241107_153741_379201_E238994D 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,67 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 2024-11-07 at 19:22 +0800, Potin Lai wrote:
+> On Thu, Nov 7, 2024 at 7:41=E2=80=AFAM Andrew Jeffery
+> <andrew@codeconstruct.com.au> wrote:
+> >=20
+> > On Wed, 2024-11-06 at 16:58 +0800, Potin Lai wrote:
+> > > Update the GPIO linename of each PDB CPLD IO expander based on
+> > > latest
+> > > CPLD firmware.
+> >=20
+> > What version is the latest CPLD firmware? What was the previous
+> > version
+> > with the old pin assignments?
+>=20
+> Because the hardware changes from EVT to DVT, the CPLD firmware
+> reallocated the IOEXP pin mapping in DVT version.
+> I will add more description into the commit message in the next
+> version.
 
-On Fri, Nov 08, 2024 at 12:16:57AM GMT, Chen-Yu Tsai wrote:
-> On Mon, Oct 28, 2024 at 6:47 AM Ondřej Jirman <megi@xff.cz> wrote:
-> >
-> > > +
-> > > +             usb_con: connector {
-> > > +                     compatible = "usb-c-connector";
-> > > +                     label = "USB-C";
-> > > +                     data-role = "dual";
-> > > +                     op-sink-microwatt = <1000000>;
-> > > +                     power-role = "dual";
-> > > +                     sink-pdos =
-> > > +                             <PDO_FIXED(5000, 1000, PDO_FIXED_USB_COMM)>;
-> >
-> > The board can't sink power from this port. It's a source only port. So sink-pdos
-> > can be lower, so that if you plug this into type-c hub as a peripheral, the hub
-> > doesn't need to reserve 5W for this port.
-> >
-> > op-sink-microwat can also be lower. The port will not sink any power when
-> > connected to 5V VBUS externally.
-> >
-> > Otherwise you can probably keep power-role = "dual";
-> 
-> I guess it should just be power-role = "source";
-> And then drop all the sink related properties.
+If you have different revisions of the board, it would seem sensible to
+have separate devicetrees, one for each, rather than constantly
+evolving one devicetree? Tack on an `-evt`/`-dvt` suffix as required?
+From there you can always have a suffix-less dts file that #includes
+the most recent board revision. See some of the Aspeed EVB devicetrees
+for an example.
 
-Probably not. The board is not powered from that port, but I should still be able
-to plug it via that port to a PC, and in that case it should not act as power
-source (vbus should be disabled), because PC's port will provide power. (say
-via USB-A <-> USB-C cable connected to PC's USB host port)
+>=20
+> >=20
+> > I'm also interested in some discussion of the coordination between
+> > CPLD
+> > firmware, the devicetree and the BMC userspace configuration. This
+> > change feels pretty painful.
+>=20
+> I am not from the CPLD firmware team,
 
-It should still be capable of being in power sink mode on that port, but it will
-just not physically sink anything. Just the board's vbus will be disabled.
+I don't see why you need to be? This is a cross-component concern, and
+you need to make all the pieces of the puzzle line up.
 
-We should just describe that in sink mode it will not sink much of anything.
+>  I only know our CPLD team was
+> redesigning the entire struct which causes the huge changes of IOEXP
+> pins.
+>=20
+> This is probably a different topic, I am curious about is it possible
+> to assign the linename in userspace?
+> In OpenBMC, there are many services that depend on GPIO linename, it
+> will be more flexible if I can assign the linename before service
+> starts.
 
-> > > +                     source-pdos =
-> > > +                             <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-> >
-> > This port can't source 3A. U22 (SY6280AAC) is configured via Rset for 1.44A
-> > limit. So let's say 1.5A.
-> 
-> Probably 1.4A to be safe?
+Not that I'm aware, and to determine otherwise I'd probably need to
+read the implementation as much as you :)
 
-Ok.
+However, separating the devicetrees would go a long way here if the
+CPLD firmware is tied to the board revision...
 
-> > > +&u2phy1 {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&u2phy1_otg {
-> >
-> > Needs:
-> >         phy-supply = <&vcc5v0_host>;
-> 
-> You probably mean vcc5v0_sys?
-
-Sorry, ignore this request completely. I was mis-looking at quartzpro DTS, when
-reviewing this part of the patch.
-
-Thank you,
-	o.
+Andrew
 
