@@ -4,101 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306E5D5AE5F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 04:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1AAAD5AE61
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 04:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yLSujXjZ1vWyoNhn9Q/+EnZQtwboxPDVegByiRGcUI=; b=TV3l3O4pP230SIDh9Jb3EUt4SV
-	g5UuZJ9vK+fRZ10LiVRggDdW3Nm0bAVlutcYYHPABR4Bh17B63DAglGcqplJXlLUSBA+IXSaMuV9z
-	yecWdPiGDu9CXGOERwnyZdMq1rhLSTUnHnfwK0Bx2rYz/yIy/XzwmY9zgp1l/g88PV0fwy/GM0pGU
-	PRMFCxfWM0Rb+rAxPOe6xyfYuhBxV/BxPXnXMj20prJzCw/bJ30z7ju+Yzc3K2sRRY9UINB8H7vxC
-	qhHl5ZSKnaATX3M4TeQRtpW960hH9QePGHNXmr1n8AM9fmacqOcLC5oo2apOi+lVX1XnlD8gaaTQr
-	tX5f6tdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Smefj2JoEA0WPG52LM77apkAI/T2PGFdONYOL+motPc=; b=Hi7bOzdcyRlNg00DfZ4sjZBSrr
+	HxO0j/+SxkeU6zzMbGmOXGkb8TxgAQToHR/NmkkF/WnhzVsUgHFWAqAvnSOeQ+gF8mzpSjKCCAdvF
+	z8OXgnHZlnabNlvRP7HJm/GONxUdgCEH9uQIbvVVK792R06RLitIuDfgOtEXov/QGPfZ42n6DlJXw
+	dsqRrzmROg2V5VT2zRJjBa6hps5cw7sb4irHOohFhObM0D4t5Xe6YmzqYhXd6cIjSB21PfouXg4/J
+	otBD9+Cv/i+oVfBE0M34AZS8c5rpAWL2U4EOubUkHv2RLZpf26mOWwTlwnY7eqt+2Iy+Uv10rcu8Z
+	n6MJrlog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8u0O-00000005cSS-2RtK;
-	Thu, 07 Nov 2024 04:20:24 +0000
-Received: from omta034.useast.a.cloudfilter.net ([44.202.169.33])
+	id 1t8uLA-00000005eAi-2z9S;
+	Thu, 07 Nov 2024 04:41:52 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8tyf-00000005cKE-2KHD
+	id 1t8uJR-00000005dys-2x7J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Nov 2024 04:18:39 +0000
-Received: from eig-obgw-6004a.ext.cloudfilter.net ([10.0.30.197])
-	by cmsmtp with ESMTPS
-	id 8MFctzIyHrKrb8tyNtpPQY; Thu, 07 Nov 2024 04:18:19 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id 8tyJtBDTQWdNZ8tyKtOkiK; Thu, 07 Nov 2024 04:18:17 +0000
-X-Authority-Analysis: v=2.4 cv=FtTO/Hrq c=1 sm=1 tr=0 ts=672c3f89
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10 a=VwQbUJbxAAAA:8
- a=7CQSdrXTAAAA:8 a=vU9dKmh3AAAA:8 a=rQIMLdAWvKoWWgQMOJcA:9 a=QEXdDO2ut3YA:10
- a=a-qgeE7W1pNrGK8U0ZQC:22 a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1yLSujXjZ1vWyoNhn9Q/+EnZQtwboxPDVegByiRGcUI=; b=Ae+uZ+VP8cnIBy/ygVfCll2Z2h
-	1Aqzf+23wPlMaOpCuvSlLqS9smUrQC9QISA+tkOzEKoLfUnU09AWYs3lIQRojNJOm3caBBIurcKzi
-	iMeSsWbskf4cQIru86EXaXX1A7RaBE9mQGg26z6Buwe39AB33Sdaa+f6T0HuGIr15bWRqUYRItaQE
-	la1LDTaIuFLQUzIT/mNxz+2EcJHnC9XV2H6Rak0PozS2rWtRvPPGWHDPu/JBbh9MA9E0j5E9Ky00A
-	FqzPxSOgIxlWUAgcFNliQ9lCzxXHZBMnWusNWs3At6uI4iWNCwSKN3f7FV6pv1RGXMXtz1zVQ5llb
-	pxjLd1yA==;
-Received: from [122.165.245.213] (port=38142 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1t8tyI-0040BA-0J;
-	Thu, 07 Nov 2024 09:48:14 +0530
-Message-ID: <411e2025-6e2c-4755-bb44-d2388ed5058e@linumiz.com>
-Date: Thu, 7 Nov 2024 09:48:11 +0530
+	Thu, 07 Nov 2024 04:40:07 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A74duqZ038732;
+	Wed, 6 Nov 2024 22:39:56 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1730954396;
+	bh=Smefj2JoEA0WPG52LM77apkAI/T2PGFdONYOL+motPc=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=XkS3s5aviT4YQUW9oziQzJW6u7Bro4/lKQu+nhITyJ3FWeMMBgKHPdiCvf3XfYk0F
+	 OG92pn/kgYNHmm3ixrduzFui++aQrBOqt4o6ehwYFFtnnd4pPrvvd7ZUi4W28gXSp/
+	 onx1CA9J309HF8s+B05TVJjqb/atwEU5K2hvIHTY=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A74duqG023536
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 6 Nov 2024 22:39:56 -0600
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 6
+ Nov 2024 22:39:55 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 6 Nov 2024 22:39:55 -0600
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.81])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A74dsnc005772;
+	Wed, 6 Nov 2024 22:39:55 -0600
+Date: Thu, 7 Nov 2024 10:09:54 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+CC: Bjorn Helgaas <helgaas@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>,
+        <manivannan.sadhasivam@linaro.org>, <kishon@kernel.org>,
+        <u.kleine-koenig@pengutronix.de>, <cassel@kernel.org>,
+        <dlemoal@kernel.org>, <yoshihiro.shimoda.uh@renesas.com>,
+        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH v2 1/2] PCI: keystone: Set mode as RootComplex for
+ "ti,keystone-pcie" compatible
+Message-ID: <4fc87e39-ae2f-4ac9-ace3-26b2b79e2297@ti.com>
+References: <5983ad5e-729d-4cdc-bdb4-d60333410675@ti.com>
+ <20241106154945.GA1526156@bhelgaas>
+ <20241106160520.GD2745640@rocinante>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, linux-mmc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Yangtao Li <tiny.windzz@gmail.com>, Cody Eksal <masterr3c0rd@epochal.quest>,
- stable@vger.kernel.org
-Subject: Re: [PATCH] mmc: sunxi-mmc: Fix A100 compatible description
-To: Andre Przywara <andre.przywara@arm.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-References: <20241107014240.24669-1-andre.przywara@arm.com>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <20241107014240.24669-1-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1t8tyI-0040BA-0J
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:38142
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 5
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfOksEIrDFNMX+dibY1yY4ina3fIK1TBHI65br18HjRBBrXj2n9BUpD/u61aU6IeYtawHh12XWk/MPAlhOZxVk4FPeLnW72dVU4+Pf9ouRyj7zND/s0Kj
- lCCRZDqICHfwrSpAnyTVji4EThUzk78WcVZR9rWvJtsSJsi+f+udADPX7jn9nEeQhHDCIROQiXM03yxiJZzyJYJxaS13c7bhXEY0s2uJ4X+/GdO9z9v8+HqY
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241106160520.GD2745640@rocinante>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_201837_675032_E39F0A65 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20241106_204005_930528_1AF11825 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,58 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/7/24 7:12 AM, Andre Przywara wrote:
-> It turns out that the Allwinner A100/A133 SoC only supports 8K DMA
-> blocks (13 bits wide), for both the SD/SDIO and eMMC instances.
-> And while this alone would make a trivial fix, the H616 falls back to
-> the A100 compatible string, so we have to now match the H616 compatible
-> string explicitly against the description advertising 64K DMA blocks.
+On Thu, Nov 07, 2024 at 01:05:20AM +0900, Krzysztof Wilczyński wrote:
+
+Hello Krzysztof,
+
+> Hello,
 > 
-> As the A100 is now compatible with the D1 description, let the A100
-> compatible string point to that block instead, and introduce an explicit
-> match against the H616 string, pointing to the old description.
-> Also remove the redundant setting of clk_delays to NULL on the way.
+> [...]
+> > > I suppose that "data->mode" will default to zero for v3.65a prior to
+> > > this commit, corresponding to "DW_PCIE_UNKNOWN_TYPE" rather than the
+> > > correct value of "DW_PCIE_RC_TYPE". Since I don't have an SoC with the
+> > > v3.65a version of the controller, I cannot test it out, but I presume
+> > > that the "INVALID device type 0" error will be displayed. Though the probe
+> > > will not fail since the "default" case doesn't return an error code, the
+> > > controller probably will not be functional as the configuration associated
+> > > with the "DW_PCIE_RC_TYPE" case has been skipped. Hence, I believe that
+> > > this fix should be backported.
+> > 
+> > I guess nobody really cares too much since it's been broken for almost
+> > four years.
+> > 
+> > But indeed, sounds like it should have a stable tag and maybe a commit
+> > log hint about what the failure looks like.
 > 
-> Fixes: 3536b82e5853 ("mmc: sunxi: add support for A100 mmc controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Tested working with SD card in mmc0.
+> Added Cc for stable releases.  Siddharth, let me know how to update the
+> commit log per Bjorn feedback, so I can do it directly on the branch.
 
-Tested-by: Parthiban Nallathambi <parthiban@linumiz.com>
+The existing commit message could be replaced by the following:
 
-Thanks,
-Parthiban
+------------------------------------------------------------------------
+commit 23284ad677a9 ("PCI: keystone: Add support for PCIe EP in AM654x
+Platforms") introduced configuring "enum dw_pcie_device_mode" as part of
+device data ("struct ks_pcie_of_data"). However it failed to set the mode
+for "ti,keystone-pcie" compatible.
 
-> ---
->  drivers/mmc/host/sunxi-mmc.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
-> index d3bd0ac99ec46..e0ab5fd635e6c 100644
-> --- a/drivers/mmc/host/sunxi-mmc.c
-> +++ b/drivers/mmc/host/sunxi-mmc.c
-> @@ -1191,10 +1191,9 @@ static const struct sunxi_mmc_cfg sun50i_a64_emmc_cfg = {
->  	.needs_new_timings = true,
->  };
->  
-> -static const struct sunxi_mmc_cfg sun50i_a100_cfg = {
-> +static const struct sunxi_mmc_cfg sun50i_h616_cfg = {
->  	.idma_des_size_bits = 16,
->  	.idma_des_shift = 2,
-> -	.clk_delays = NULL,
->  	.can_calibrate = true,
->  	.mask_data0 = true,
->  	.needs_new_timings = true,
-> @@ -1217,8 +1216,9 @@ static const struct of_device_id sunxi_mmc_of_match[] = {
->  	{ .compatible = "allwinner,sun20i-d1-mmc", .data = &sun20i_d1_cfg },
->  	{ .compatible = "allwinner,sun50i-a64-mmc", .data = &sun50i_a64_cfg },
->  	{ .compatible = "allwinner,sun50i-a64-emmc", .data = &sun50i_a64_emmc_cfg },
-> -	{ .compatible = "allwinner,sun50i-a100-mmc", .data = &sun50i_a100_cfg },
-> +	{ .compatible = "allwinner,sun50i-a100-mmc", .data = &sun20i_d1_cfg },
->  	{ .compatible = "allwinner,sun50i-a100-emmc", .data = &sun50i_a100_emmc_cfg },
-> +	{ .compatible = "allwinner,sun50i-h616-mmc", .data = &sun50i_h616_cfg },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, sunxi_mmc_of_match);
+Since the mode defaults to "DW_PCIE_UNKNOWN_TYPE", the following error
+message is displayed:
+	"INVALID device type 0"
+for the v3.65a controller. Despite the driver probing successfully, the
+controller may not be functional in the Root Complex mode of operation.
 
+So, set the mode as Root Complex for "ti,keystone-pcie" compatible to fix
+this.
+------------------------------------------------------------------------
+
+Regards,
+Siddharth.
 
