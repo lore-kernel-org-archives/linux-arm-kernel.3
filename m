@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAE7D5D687
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF8BD5D688
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Nov 2024 19:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7jKe0VhAZMO69k6s3j7rDnq+tQfHJZEZbLSKj50CvQ=; b=ykA8ldNbrbWIP60niYixzO6ylI
-	llIgqX5ioH7iRU9enUsVysHOGkGUEWYHATRe3371gmYBRbdDQJ0zd8kTkaRYEDJFbumeDOkE9xe7S
-	TTzXu23J2gRw7k8vOyAJmsrrtWrb7Qwavm33iBFTsScjb9Rdd5f4nSl0joT/NCJcD3pN9kGW081/s
-	vchIqN8Nz/t2KTbWREwCKOTkC1xBjAUGrx9H3i9WJQb64RVIHiq1nYE9+HYPG9TUHZ756P9WUV+DX
-	oC4jQEpelI/NNfhLqB51W21wafEGEo8yHbPSYFLWu1emJwsDTY/HguzS3AXshj/wniiYw+UujlyEv
-	l0fnL6Sw==;
+	bh=JYfQD1LO7Pj5Kh2Bzw44ilXTmQ96EXOVLKD7OHHovMo=; b=mOhgYcI92nX3l42gD9Vsl4VTJB
+	X5zvTiVRPWunrNDUqg01M2lwP5uQfHWRX6Lgei3LzSV+8reUMZEyEwZCvlv3A42yzY7x10JIyd+/O
+	zKq70LivUAqZCRnAyDfRIc+GhjAu4VlhIMTVuMqdqMMOMQGJkLD+cMaXUHdzl4t3reEn4BsH7HEiv
+	ANzolN3zXjsx7z/eBx1ZzBrtQdZ4KJzwbhCbLeagvFu8FZibZdEWAjpWTJeEKXq3vz0OAHzKr8umq
+	Dlgnatlk3zPIRz9apU4j3Cku2FHxqfG3AxQ4xD2fzQISh6bbfZz3WC1xR+6IoHIjccqYOCBFVZluF
+	fgYYb4jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98Ya-000000089UG-2xJs;
-	Thu, 07 Nov 2024 19:52:40 +0000
+	id 1t98aJ-000000089lq-2ykM;
+	Thu, 07 Nov 2024 19:54:28 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t987s-000000084Wr-18g8;
-	Thu, 07 Nov 2024 19:25:05 +0000
+	id 1t98CJ-00000008515-2gSL;
+	Thu, 07 Nov 2024 19:29:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 12946A44A4F;
-	Thu,  7 Nov 2024 19:23:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A98C4CECC;
-	Thu,  7 Nov 2024 19:25:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 60585A44A57;
+	Thu,  7 Nov 2024 19:27:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E73C4CECC;
+	Thu,  7 Nov 2024 19:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731007502;
-	bh=6q3di7FCObUiv+8Jph+EMw//u0ETdnwSd7iOqeptPbE=;
+	s=k20201202; t=1731007777;
+	bh=pFuu4ur8ByrGcBHWxub8jqAtvOmUlbf655Tz0YWkJFk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GG73QAevx0zlzfcdWAvXpV28VzlJoMdMbX0AMjUcQI5vRN+7+pMfRGgqU0cDfptSb
-	 zL2MQbJ6cjAH3Kg5SzBu7m7j14xnl/Pw+YVlvNdqS2jOHNCUnnBLn/bw/GEN8Al1Vm
-	 h79qPml7pCyhy1l6XdwW6rHsctM7ryhCv2NTyRg8wXWMHsRBW8Jduz4Oi/v+MfUUaP
-	 4wTFJIdKoIbBBEjHQAgG0A4oRVx5kYPCGe67ZROg3W+7wYMcljYzILh4wU7dN7t6kE
-	 mR473WoU0J7nZIGUw0BdXT67ZoZLu/6e1QiZVvH0drnfh+vRUNdfkjYTbJSFflSC7h
-	 Lddp+3GFnvwWg==
-Date: Thu, 7 Nov 2024 11:24:59 -0800
+	b=ix6bpZFIcawTsaDVxd6xilVi9YAocvMDHjQpWNhprUoPIr9tqUyAx9/uIeMsj/MGd
+	 APh0azlPL6pJAizK/INSmRzTlR5Vc5gGk5bXgLN9W0CQe/hfI4hVDSpoxyZRDZsmw8
+	 JgvQlBF5eazyiBKhh5PDfcrUe/5AOdebkQ5/j1Ea46xvIkf063NSucoTTHz3yOwgqM
+	 hBWUQ3trDvDV2PZU7pbY5Y4hbIiZaJDYhs/yt2vhkdF7Sq5DIV9KWx88UiEn4SqiNq
+	 iSaKEUynI3wxWnlYwbCvcTSSxu5H4fxrVwr/qWBVMutr1/xKzoE9mVeLLLxEgR0c2v
+	 VElYg7ug/Nt7w==
+Date: Thu, 7 Nov 2024 11:29:34 -0800
 From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
+To: Ian Rogers <irogers@google.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -60,43 +59,37 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
-	Guilherme Amadio <amadio@gentoo.org>,
 	Changbin Du <changbin.du@huawei.com>,
-	Daniel Bristot de Oliveira <bristot@kernel.org>,
-	Daniel Wagner <dwagner@suse.de>,
+	Guilherme Amadio <amadio@gentoo.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
 	Aditya Gupta <adityag@linux.ibm.com>,
 	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
 	Masahiro Yamada <masahiroy@kernel.org>,
-	Kajol Jain <kjain@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
 	Shenlin Liang <liangshenlin@eswincomputing.com>,
+	Anup Patel <anup@brainfault.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	"Steinar H. Gunderson" <sesse@google.com>,
 	"Dr. David Alan Gilbert" <linux@treblig.org>,
 	Chen Pei <cp0613@linux.alibaba.com>,
 	Dima Kogan <dima@secretsauce.net>,
-	Yury Norov <yury.norov@gmail.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Alexander Lobakin <aleksander.lobakin@intel.com>,
 	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 17/31] perf dwarf-regs: Pass ELF flags to
- get_dwarf_regstr
-Message-ID: <Zy0UCxKmD3_mQmNh@google.com>
-References: <20241005195541.380070-1-irogers@google.com>
- <20241005195541.380070-18-irogers@google.com>
- <20241007170927.f30fced63c5e777628bea311@kernel.org>
- <CAP-5=fVmD-M-ZOinkWZ7AOtfRHqo89gFtDeeatwufq0TcBiZUA@mail.gmail.com>
+Subject: Re: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
+Message-ID: <Zy0VHro3wE-ZTKsq@google.com>
+References: <20241017002520.59124-1-irogers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fVmD-M-ZOinkWZ7AOtfRHqo89gFtDeeatwufq0TcBiZUA@mail.gmail.com>
+In-Reply-To: <20241017002520.59124-1-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_112504_451005_3E594D80 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20241107_112939_823877_04ABD6B8 
+X-CRM114-Status: GOOD (  28.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +104,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 07, 2024 at 08:05:23AM -0700, Ian Rogers wrote:
-> On Mon, Oct 7, 2024 at 1:09 AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
-> >
-> > On Sat,  5 Oct 2024 12:55:27 -0700
-> > Ian Rogers <irogers@google.com> wrote:
-> >
-> > > Pass a flags value as architectures like csky need the flags to
-> > > determine the ABI variant.
-> > >
-> >
-> > Same here. I need some examples of this chaneg.
-> 
-> The code here was already using the ELF machine, so dwarf-regs.c
-> functions would already support cross building. There is the addition
-> of ELF flags as on csky the registers change depending on the ABI
-> version in the ELF flags.
+Hi all,
 
-I think it's used by the probe-finder only which won't support
-cross-arch environment.  So probably no changes to users at this point.
+On Wed, Oct 16, 2024 at 05:25:00PM -0700, Ian Rogers wrote:
+> These changes are on top of:
+> https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
+> 
+> Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
+> dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
+> functions:
+> 
+> 1) regs_query_register_offset would translate a register name into a
+> pt_regs offset and was used by BPF prologues. BPF prologues existed
+> for BPF events and support for these was removed many releases ago.
+> This code was dead and could be removed.
+> 
+> 2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
+> removed.  The case for csky was a little more complicated as the ABI
+> controlled the string. The callers of get_dwarf_regstr were updated to
+> also pass the ELF flags so that on csky the ABI appropriate table
+> could be used. As the argument is only used on csky this a no-op for
+> everything else.
+> 
+> 3) get_arch_regnum translated a register name back to a dwarf number
+> and only existed on x86 where "al", "ax", "eax" and "rax" could all
+> mean register 0. This code was moved to util with similar
+> machine/flags logic to get_arch_regstr and for consistency with it.
+> 
+> 4) get_powerpc_regs a PowerPC specific function used by annotate that
+> should really be in util.
+> 
+> 2 and 3 required the wiring through of the ELF machine and flags in
+> callers to get_dwarf_regstr and get_dwarf_regnum. When these values
+> weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
+> to give the host ELF machine and flags. These 2 #defines got rid of
+> the existing separate arch files and #ifdefs.
+> 
+> v3: These files were separated from the rest of the v2 libdw clean up
+>     in:
+> https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
+> 
+> Ian Rogers (20):
+>   perf bpf-prologue: Remove unused file
+>   perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+>   perf dwarf-regs: Add EM_HOST and EF_HOST defines
+>   perf disasm: Add e_machine/e_flags to struct arch
+>   perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
+>   perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
+>   perf dwarf-regs: Move x86 dwarf-regs out of arch
+>   perf arm64: Remove dwarf-regs.c
+>   perf arm: Remove dwarf-regs.c
+>   perf dwarf-regs: Move csky dwarf-regs out of arch
+>   perf loongarch: Remove dwarf-regs.c
+>   perf mips: Remove dwarf-regs.c
+>   perf dwarf-regs: Move powerpc dwarf-regs out of arch
+>   perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
+>   perf s390: Remove dwarf-regs.c
+>   perf sh: Remove dwarf-regs.c
+>   perf sparc: Remove dwarf-regs.c
+>   perf xtensa: Remove dwarf-regs.c
+>   perf dwarf-regs: Remove get_arch_regstr code
+>   perf build: Remove PERF_HAVE_DWARF_REGS
+
+These look all good and I'm about to apply the series.
+
+Masami, do you have any remaining concerns?  It'd be nice if you can
+give your Reviewed-by.
 
 Thanks,
-Namhyung
+Namhyug
 
+> 
+>  tools/perf/Makefile.config                    |  17 +-
+>  tools/perf/arch/arc/annotate/instructions.c   |   2 +
+>  tools/perf/arch/arm/Makefile                  |   3 -
+>  tools/perf/arch/arm/annotate/instructions.c   |   2 +
+>  tools/perf/arch/arm/util/Build                |   2 -
+>  tools/perf/arch/arm/util/dwarf-regs.c         |  61 -------
+>  tools/perf/arch/arm64/Makefile                |   4 -
+>  tools/perf/arch/arm64/annotate/instructions.c |   2 +
+>  tools/perf/arch/arm64/util/Build              |   1 -
+>  tools/perf/arch/arm64/util/dwarf-regs.c       |  92 -----------
+>  tools/perf/arch/csky/Makefile                 |   4 -
+>  tools/perf/arch/csky/annotate/instructions.c  |   7 +-
+>  tools/perf/arch/csky/util/Build               |   1 -
+>  tools/perf/arch/loongarch/Makefile            |   4 -
+>  .../arch/loongarch/annotate/instructions.c    |   2 +
+>  tools/perf/arch/loongarch/util/Build          |   1 -
+>  tools/perf/arch/loongarch/util/dwarf-regs.c   |  44 -----
+>  tools/perf/arch/mips/Makefile                 |   4 -
+>  tools/perf/arch/mips/annotate/instructions.c  |   2 +
+>  tools/perf/arch/mips/util/Build               |   1 -
+>  tools/perf/arch/mips/util/dwarf-regs.c        |  38 -----
+>  tools/perf/arch/powerpc/Makefile              |   5 -
+>  .../perf/arch/powerpc/annotate/instructions.c |   2 +
+>  tools/perf/arch/powerpc/util/Build            |   1 -
+>  tools/perf/arch/powerpc/util/dwarf-regs.c     | 153 ------------------
+>  tools/perf/arch/riscv/Makefile                |   5 +-
+>  .../arch/riscv/include/dwarf-regs-table.h     |  42 +++++
+>  tools/perf/arch/riscv/util/Build              |   1 -
+>  tools/perf/arch/riscv/util/dwarf-regs.c       |  72 ---------
+>  .../perf/arch/riscv64/annotate/instructions.c |   2 +
+>  tools/perf/arch/s390/Makefile                 |   4 -
+>  tools/perf/arch/s390/annotate/instructions.c  |   2 +
+>  tools/perf/arch/s390/util/Build               |   1 -
+>  tools/perf/arch/s390/util/dwarf-regs.c        |  43 -----
+>  tools/perf/arch/sh/Build                      |   1 -
+>  tools/perf/arch/sh/Makefile                   |   4 -
+>  tools/perf/arch/sh/util/Build                 |   1 -
+>  tools/perf/arch/sh/util/dwarf-regs.c          |  41 -----
+>  tools/perf/arch/sparc/Build                   |   1 -
+>  tools/perf/arch/sparc/Makefile                |   4 -
+>  tools/perf/arch/sparc/annotate/instructions.c |   2 +
+>  tools/perf/arch/sparc/util/Build              |   1 -
+>  tools/perf/arch/sparc/util/dwarf-regs.c       |  39 -----
+>  tools/perf/arch/x86/Makefile                  |   4 -
+>  tools/perf/arch/x86/annotate/instructions.c   |   3 +-
+>  tools/perf/arch/x86/util/Build                |   3 -
+>  tools/perf/arch/x86/util/dwarf-regs.c         | 153 ------------------
+>  tools/perf/arch/xtensa/Build                  |   1 -
+>  tools/perf/arch/xtensa/Makefile               |   4 -
+>  tools/perf/arch/xtensa/util/Build             |   1 -
+>  tools/perf/arch/xtensa/util/dwarf-regs.c      |  21 ---
+>  tools/perf/util/Build                         |   3 +
+>  tools/perf/util/annotate.c                    |   6 +-
+>  tools/perf/util/bpf-prologue.h                |  37 -----
+>  tools/perf/util/disasm.h                      |   4 +
+>  .../dwarf-regs.c => util/dwarf-regs-csky.c}   |  19 +--
+>  tools/perf/util/dwarf-regs-powerpc.c          |  61 +++++++
+>  tools/perf/util/dwarf-regs-x86.c              |  50 ++++++
+>  tools/perf/util/dwarf-regs.c                  |  38 +++--
+>  tools/perf/util/include/dwarf-regs.h          | 110 ++++++++++---
+>  tools/perf/util/probe-finder.c                |  13 +-
+>  tools/perf/util/probe-finder.h                |   3 +-
+>  62 files changed, 328 insertions(+), 927 deletions(-)
+>  delete mode 100644 tools/perf/arch/arm/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/arm64/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/csky/Makefile
+>  delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/powerpc/util/dwarf-regs.c
+>  create mode 100644 tools/perf/arch/riscv/include/dwarf-regs-table.h
+>  delete mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/s390/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/sh/Build
+>  delete mode 100644 tools/perf/arch/sh/Makefile
+>  delete mode 100644 tools/perf/arch/sh/util/Build
+>  delete mode 100644 tools/perf/arch/sh/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/sparc/Build
+>  delete mode 100644 tools/perf/arch/sparc/util/Build
+>  delete mode 100644 tools/perf/arch/sparc/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/x86/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/arch/xtensa/Build
+>  delete mode 100644 tools/perf/arch/xtensa/Makefile
+>  delete mode 100644 tools/perf/arch/xtensa/util/Build
+>  delete mode 100644 tools/perf/arch/xtensa/util/dwarf-regs.c
+>  delete mode 100644 tools/perf/util/bpf-prologue.h
+>  rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
+>  create mode 100644 tools/perf/util/dwarf-regs-powerpc.c
+>  create mode 100644 tools/perf/util/dwarf-regs-x86.c
+> 
+> -- 
+> 2.47.0.105.g07ac214952-goog
+> 
 
