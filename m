@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E63BD5E147
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3069D5E147
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y5aZ+Qr7uBJihwHSMM10XcZFpa18UKc4xjfgChU2A0Q=; b=HLVfb4sRbmdY4JxdyTRGlg3lC2
-	j4HdjZKzcgbRvhl/M5iTzZqwoUHH1lxdIElFhvxYgcvIjThy4tHtopNH3Pq2xWBjATm7CG+H2p1Wd
-	9JiSIDhdcgADmati8y9bxVfbzDNUwpY0rY5eJzP4Zb2BJXXyQ7CR+jJA8vt+cCginHl5p4GmpBR57
-	WsHslyJg5hGcmXf2B5qo0JjmkV/TIUE83boqaJB/ZNno/PviDZsv156UQeKoLocFC+nltBQBnzk8e
-	PnpbJ63xv+nn4SeFt3BuEDhE/RRFpV883j9y+zcM7SYE6KfsCKE1EmP9A6qowA/bNb2dMDmCMEHLz
-	gugE9DlA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kaMh04+CLb7ZuQdQwd4gSI6K1RpPGQ2X0wWmQyg4vCo=; b=MDZIRE4q7GqLU3dxX49ydIMx5W
+	OHEhVrZEVRZpNPadUItkZ35I+kpRxTdSpdtbgnNpGSUxSjP7Rn9opBLxMPnTR+nYglxQbK6SrqdBX
+	jqPXzmQNpPDBulcV+5fRDIOd/Edp5s9Hkr/CsQmlcB+Cji3uwYOE6zuL58BndRXlzJhXISkY3WzhF
+	zCWndA2XxtJF3rkO8Ji/L6OckKr/OWRVguQI70opPIROF1UMUHE92NUrYPzhByR9JOlgEzujGrFu1
+	sIZ8uRzfm6X+rUlTLlDUHZCol4ZRKAQPkMdnJX83giBQwvllcTC5+QT/XkPG8GnFmWteYJpq5eJXX
+	dS9eBwPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KQ8-00000009mms-1XrD;
-	Fri, 08 Nov 2024 08:32:44 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1t9KRt-00000009nBn-1tP0;
+	Fri, 08 Nov 2024 08:34:33 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KJz-00000009lYk-2JVR;
-	Fri, 08 Nov 2024 08:26:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1731054318;
-	bh=Y5aZ+Qr7uBJihwHSMM10XcZFpa18UKc4xjfgChU2A0Q=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=GWcHLQdo69wBfPUeDpF095h/U0zijx7IcChhxevxkH4mc1wr1OJKCglNZXlASpe0U
-	 KKn3lI9BR4Yzgc2+1T9L7QKenjkeZxnFgInExC+eSgaeTGviUKjuVAyv2F7b9qQEZp
-	 YrpLy4gNnsbGiRSZJckKz0ckjeHqaMVYcHex2zmo=
-X-QQ-mid: bizesmtpsz12t1731054281tg0oin
-X-QQ-Originating-IP: Sx0xA5UTm3rmnPoQf4T0Y5NJKNDLks94XZpHSFSsZpo=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 08 Nov 2024 16:24:39 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 12830856679117254942
-From: WangYuli <wangyuli@uniontech.com>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com,
-	johan.hedberg@gmail.com,
-	matthias.bgg@gmail.com,
-	hello@felixjara.me,
-	wangyuli@uniontech.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	guanwentao@uniontech.com,
-	zhanjun@uniontech.com,
-	aaron.ma@canonical.com
-Subject: [PATCH v3] Bluetooth: btusb: Add MT7925 support for ID 0x13d3:0x3608
-Date: Fri,  8 Nov 2024 16:24:18 +0800
-Message-ID: <D3E1285F7DBFAB3E+20241108082418.187499-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.45.2
+	id 1t9KM4-00000009lrt-3888
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 08:28:34 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2fb57f97d75so19923441fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:28:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731054511; x=1731659311; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kaMh04+CLb7ZuQdQwd4gSI6K1RpPGQ2X0wWmQyg4vCo=;
+        b=LVZ+M4sR07FZL6yhmqbhjNryw0GuhkfFxMFtqikSc2vvg9U6Rmxkdm2Qio+v85YAZM
+         6RiefHOcRDNxqEi9BgZ95oDoTcsBsxYpGt5gr3WGmP1nbEmKiNaDG3bYEvw7jHWnwCk0
+         2bmaliiQZXHDZ0dBNZ2HUbWTm/OAw2IjgvCRKGouKG21GII/vEf2UTi4dUTzXjby2v2a
+         CT9LC9C3xXah2u5inEtDwdRZbgNtWb6petIHR8y1sV88/YQk0jbTfqy7QhJrBMeTVUbN
+         Tab4Z1JEUaZsz2S8GFwBrvBayxHlUoNWQc6gA1RKFCxQSCGnwrTehoZ3y6Y+fpwXTjBo
+         EFkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731054511; x=1731659311;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kaMh04+CLb7ZuQdQwd4gSI6K1RpPGQ2X0wWmQyg4vCo=;
+        b=NNHaDhFjy9ryn3l84Md7wLrdTxT9MRQxneQY2h7cuS/O46pE3x44MIvkBSJGaTny64
+         +aYAP2Z+6CGg3jRc0O0LXUDwwDnUcu/Ugc2IVCDi28fIP7zpP5f5EBRIfKUVHG+aFzE4
+         ByCtk7PyrGrztPzOd+T3Mgvm/kQjjQ0t9Z0MtlAChUnVwJbPLVKZKlYaZdMMZp3ZCiKr
+         Y9HedO7pt6TWrQt3fdd0OvrzJ97dcFMGmmBmdeW81xYW7VYc2Edfde3scvA7IxnM8SYL
+         +4O3TB/HuVyoGuzfSh5ALMZmfYwOk+NICDUrcsbCfuIIaBIPKIF7c+CbwYKuOhkV81Mk
+         GR8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXHqrfvHJc47I3H10zYNl1/30+TKgSfqvPpWrgX2tafTQEmz+YdI+uunkUARytM5DXJAm103rb9DS+4zs1ubSY8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcCk/dzDJaI/SDL2X+C25DiiWWfFG6osS9D3EgY90ruPD39xfI
+	2Wjpf9IZE8ZVsQ0Z5diP9oYtUbHmyn90loMlKugjmPfeYPn6fQPsIIdnkmQLbuda0d5xCctrCJy
+	gEMd+dQkQLAwKhFswXayGVHCtN7bE0yoigc3uNw==
+X-Google-Smtp-Source: AGHT+IG+g9QB/Q7yhaX//JsVe1DFtQNOzLjrFeQ0iseJ97Cr2u/qsa6qFZ/FQqJfsYHVTCRrxZ6pRHR0v/dSmSX5cBg=
+X-Received: by 2002:a2e:b8c2:0:b0:2fb:48f6:27e4 with SMTP id
+ 38308e7fff4ca-2ff2015261amr8351291fa.3.1731054510817; Fri, 08 Nov 2024
+ 00:28:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: MRPQukou9wBmtIoxkX4J6YWKSNjospfUU4eivDK7LT8qv3nUNqNWqIJG
-	+6ttL/xTmvSMAAOSI0Q/R3BrBowjhIU8+S6MybpV0/9Bz0L7n2Oj80bC0CIzbGzWGpItlT9
-	rql5web14XTGDzl04pqou9LBK9E/EIbgjh9ugvrDprpn/u52kIAonJ1ZDRJ8z75J3xN8cJA
-	Qb/imEcyXz6DnaJrnTPg0EKkdbMuQ9JF4KdVQ8tZNKBRJA03TCz8upUPZWS0+IDsxcfcP9G
-	dZpf28roZ5ZpzjVN1xoMO82K/PIkUz48xTqLnqkPBLVqUDb7yKSWJZ5L8NgMrfWPjaNZklG
-	xmABN8FzFemipuIsfdiuBf9XhLRlegGFgV+GTcClFov/JCFQUWnvOPFhmttP2kMDOicJE0a
-	pubgeqwTmAcixu085F715xPX997qP2dt5hf48K0LWXY4gAypJinHRa5dDyrwEg1SZQYR4j1
-	nVuHoebZGNUaXC1z8XzHqeYJk4RaT1h9eqGRtdpoqwICTLfAXr4tRxu5306hgP92UjEJVgH
-	rrvUdQMsBoh1T4XeRROHvEXfcajJzBIeLdL3QzkL0x0Jx8RowSdjKTKAV4ebo/ieapxGnfm
-	VfId54Xpl5n4oaYchIKyQ+r11tv20Vdn1S5fG/JCg+8bcz5dvZW1KMm1eXGjuFQUvVrrtvo
-	9D8XfaymkQlLi5egl7qPY3fuKLdk/xJgndECOfvm5W9T30tomSf/tI9fNOqx9zJXxhbs7ZR
-	QAtKNJmChlGqwyvzl6LXrfvhKziL7EV+1NCJclZ0Ak8mjLqsRrcDNL/PWA19EI4RnOKD7rP
-	uebLfSvS0lw0hzA5rtz7rhpbMM+hP2w9JMqyT2UW/iO4knoRp+J66WbUFE/P5qsVP23xrrP
-	ATFuRcKKQGGv8y2vyYmH4ihs45CG1/FkvXrgIyXhh+IJYNDxQzw0v12PnmEgqTjpGiBlVSZ
-	Ks4vr1RD+PrsSNWKte/9AslWsicBvicDgSGYhXr85cztq4gzHp07U/EytGFtja/CKJbneHE
-	tv2MYVGUcq4yaiTW16
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
-X-QQ-RECHKSPAM: 0
+References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com> <20241104093609.156059-5-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20241104093609.156059-5-andriy.shevchenko@linux.intel.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 8 Nov 2024 09:28:19 +0100
+Message-ID: <CACRpkdYF-_6vb3SsJ9EHh1mCbqeW5=qoYkLF7Re+XyGq36OJSg@mail.gmail.com>
+Subject: Re: [PATCH v1 4/6] pcmcia: soc_common: Avoid using GPIOF_ACTIVE_LOW
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Pavel Machek <pavel@ucw.cz>, 
+	Dominik Brodowski <linux@dominikbrodowski.net>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_002624_518726_CC59832B 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20241108_002832_812053_0B8D11A2 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,81 +98,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Félix Jara <hello@felixjara.me>
+On Mon, Nov 4, 2024 at 10:36=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
 
-Add compatibility Bluetooth device MT7925 for Asus UM5606 with
-ID 13d3:3608.
+> Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+>
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-The device info from /sys/kernel/debug/usb/devices as below.
+Looks right to me, some testing would be even better
+because I never trust these flags to get right.
 
-T:  Bus=03 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  2 Spd=480  MxCh= 0
-D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=13d3 ProdID=3608 Rev= 1.00
-S:  Manufacturer=MediaTek Inc.
-S:  Product=Wireless_Device
-S:  SerialNumber=000000000
-C:* #Ifs= 3 Cfg#= 1 Atr=e0 MxPwr=100mA
-A:  FirstIf#= 0 IfCount= 3 Cls=e0(wlcon) Sub=01 Prot=01
-I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=81(I) Atr=03(Int.) MxPS=  16 Ivl=125us
-E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-I:  If#= 1 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-I:  If#= 1 Alt= 2 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-I:  If#= 1 Alt= 3 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-I:  If#= 1 Alt= 4 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-I:  If#= 1 Alt= 5 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-I:  If#= 1 Alt= 6 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-I:* If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
-E:  Ad=8a(I) Atr=03(Int.) MxPS=  64 Ivl=125us
-E:  Ad=0a(O) Atr=03(Int.) MxPS=  64 Ivl=125us
-I:  If#= 2 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
-E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
-E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Tested in Asus Zenbook S 16 UM5606XA
-
-Co-developed-by: Félix Jara <hello@felixjara.me>
-Signed-off-by: Félix Jara <hello@felixjara.me>
-Tested-by: Félix Jara <hello@felixjara.me>
-Link: https://github.com/openSUSE/kernel/pull/10
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
----
- drivers/bluetooth/btusb.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index e9534fbc92e3..2175a09e21be 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -645,6 +645,11 @@ static const struct usb_device_id quirks_table[] = {
- 	{ USB_DEVICE(0x13d3, 0x3608), .driver_info = BTUSB_MEDIATEK |
- 						     BTUSB_WIDEBAND_SPEECH },
- 
-+	/* MediaTek MT7925 Bluetooth devices */
-+	{ USB_DEVICE(0x13d3, 0x3608), .driver_info = BTUSB_MEDIATEK |
-+						     BTUSB_WIDEBAND_SPEECH |
-+						     BTUSB_VALID_LE_STATES },
-+
- 	/* Additional Realtek 8723AE Bluetooth devices */
- 	{ USB_DEVICE(0x0930, 0x021d), .driver_info = BTUSB_REALTEK },
- 	{ USB_DEVICE(0x13d3, 0x3394), .driver_info = BTUSB_REALTEK },
--- 
-2.45.2
-
+Yours,
+Linus Walleij
 
