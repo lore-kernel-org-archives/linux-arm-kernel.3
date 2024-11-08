@@ -4,80 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACF5D5E145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47E8D5E145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4o7fhe2V5dd+UE3dA/uAT0KHoDiGtLUhf89NGPnqv0=; b=4cThBByBgHngj1kr/jqOA9sIlH
-	QeIkWn7CC6V9S389QxpaZ02ZmetUKTdLbLxVanWMjxBd6Nt9BD2amxdS29yDrMgfEFQ3KME1dknXZ
-	rfYEHlcN9h8EA+qqaBuZ3h0R1LRWyK3Yzf0wXN9G9Uy+dq/fo42pI7wjnVsJUuS/ZU2nqPuvZj53T
-	gIAZRHzJL31plpKZrknsLCQDuD3Wiui/kSB8eSQmea1ICgGIrLSSqeAAIhecMvp1yHgMeMB+6RxkP
-	xDUbiB4elDOJJ80zd47v6UrDcqdvTCSVWJYyxDEF8y7aXhPuOByhidEdWpD3eYsgYSObdeWMaofmd
-	j1J7XgQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K3J7aF3mrdJJ0VktfLKfcseRACubiNr0JpArQqh8d+A=; b=mWduaqhMCpubSVLOWI2/O0G+h5
+	mYjDP/9hKMTn35hBWBe7QsN3c/tqNYVG34BvSIew4gdwjBwAYkBymYSOknIqIJcPcqUF2UOD1nYCy
+	uOZCGasdNRF0qSBh8WITFOy20My2AvcWMwelq+DQgA6Tp+6UfGxoRJD+XUNYywCF1MJwTRK8om3r7
+	bQ6ANrXsUWpBakbKYCxedqpl5nbq2HEtV+VQgk2goJxfodSpQgHkkROyiDtaT79cRcxZ3cKsDImhR
+	i25/1wZFFvIkibA2jv7dvR8YSZA5Ro42APgxmAf9yd+EmJQS/yxHXO71L4Iv7AHCuWhDywBKrPLsF
+	2pGlkAfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KGu-00000009l5t-3ipc;
-	Fri, 08 Nov 2024 08:23:13 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1t9KJ2-00000009lRU-2bOm;
+	Fri, 08 Nov 2024 08:25:24 +0000
+Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KF6-00000009ki1-3zc0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 08:21:22 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-539e690479cso1761472e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:21:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1731054079; x=1731658879; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j4o7fhe2V5dd+UE3dA/uAT0KHoDiGtLUhf89NGPnqv0=;
-        b=klAy5QbfeqBXjPH6Qqr/MKNeH1/NG6EgxcJixLLrQESzRhox/NMiPNU3abhR3d0IZT
-         dLnWX6T7qPPZBc+XFoLREIBrNW/UaC0lZddNHEoiR2zqHyM1WQAnMekC9/u3BPInn0NX
-         +8zQWc+9h9mVRiBKarmxqn46w3TLJ4ZY7+pUs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731054079; x=1731658879;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=j4o7fhe2V5dd+UE3dA/uAT0KHoDiGtLUhf89NGPnqv0=;
-        b=Mng0e+gBbjTtU3MeLrZBU6dNwYWBUSiv5c14kbMQa7zUCNZ1pKc8mAsPJuWcc+n1hY
-         kfLSW2hgNsVBzQ/v+Ccq3qaT9zayFv45F7xoh+Wq5kSoGfnUVKeGWH3mFZtWkd7XardK
-         g68uXyGPFwC3O473eyvNTVZg1/U7Uy4nJN092TO4DwoFGuEwBdetj609SwyWZn0xiNTC
-         AAJ1dZWGJGKzFBiNPICMv2JPuQp5l6ou7iwjBjerVNpmdcPRLg9b7VSOzySqjemAbtBD
-         viMktgwYQxEfqezMZKIdaBhw+uvOzybHSOLQnuOuFDTQ11M7Yjvkq+UxgJdhRlSmLmYm
-         kIMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWKB6NTRw7cc5tC4Lgv8Y/1wr+mgjRu1pKMMC9+sRHXQ/daBgESUVhIg3WOHoZTdsoAH4avwcaZFQJnefvljiRL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPYB8d/Og2HLTcHVvw38Qg9xojaDakNY3RoV+SnWDimIOpEIam
-	XnqSC9+k2QbcWWNpbeHG+lyzk2aQ87KoCSvQlAKohMst0esLy6LR532YVeP36WUi6S4MeDteYK4
-	8c5hJ7EeRqCccezq3l5nKjdlFKs+0zCJT0b8p
-X-Google-Smtp-Source: AGHT+IE2S4gjvQOpSK8kJaaKxLV5rdskh4etefXYjl17eLQ1scFoBJFDNNCqeEcFChM7or3BIVTeHmM7tSYZlf0ID34=
-X-Received: by 2002:a05:6512:ac3:b0:539:e513:1f66 with SMTP id
- 2adb3069b0e04-53d862fe1cfmr903159e87.37.1731054078864; Fri, 08 Nov 2024
- 00:21:18 -0800 (PST)
+	id 1t9KHE-00000009l7n-39E8;
+	Fri, 08 Nov 2024 08:23:34 +0000
+Received: from droid10-sz.amlogic.com (10.28.11.69) by mail-sh.amlogic.com
+ (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Fri, 8 Nov 2024
+ 16:23:07 +0800
+From: zelong dong <zelong.dong@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Kevin Hilman <khilman@baylibre.com>, Rob Herring
+	<robh@kernel.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kelvin.zhang@amlogic.com>, Zelong Dong <zelong.dong@amlogic.com>
+Subject: [PATCH v3 0/3 RESEND] reset: amlogic-a4/a5: add reset driver
+Date: Fri, 8 Nov 2024 16:23:00 +0800
+Message-ID: <20241108082303.25207-1-zelong.dong@amlogic.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-References: <20241108-lvts-v1-1-eee339c6ca20@chromium.org>
-In-Reply-To: <20241108-lvts-v1-1-eee339c6ca20@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 8 Nov 2024 16:21:07 +0800
-Message-ID: <CAGXv+5EOcg0pQxj=iOn_ff8-t6pyGKwemA9mdn=VCpxg6Uzt+g@mail.gmail.com>
-Subject: Re: [PATCH] thermal/drivers/mediatek/lvts_thermal: Switch to IMMEDIATE_MODE
-To: Hsin-Te Yuan <yuanhsinte@chromium.org>, 
-	=?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.28.11.69]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_002121_356950_027DE910 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20241108_002332_833522_B2B58591 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +64,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 8, 2024 at 2:51=E2=80=AFPM Hsin-Te Yuan <yuanhsinte@chromium.or=
-g> wrote:
->
-> Currently, MT8192 cannot suspend with FILTERED_MODE. Switch to
-> IMMEDIATE_MODE will fix this.
->
+From: Zelong Dong <zelong.dong@amlogic.com>
 
-Probably should have a Fixes tag.
+This patchset adds Reset controller driver support for
+Amlogic A4/A5 SoC. The RESET registers count and offset
+for A4/A5 Soc are same as S4 Soc.
 
-Also, Nicolas previously reported that the threshold interrupts don't
-work with the immediate mode [1], which is why filtered mode was used
-in the final version.
+Changes since v2:
+- rebase on 'amlogic,t7-reset' patchset
 
+Changes since v1:
+- remove 'amlogic,t7-reset'
+- move 'amlogic,c3-reset' to the other enum list
+- move reset node from amlogic-a4-common.dtsi to
+  amlogic-a4.dtsi/amlogic-a5.dtsi
 
-ChenYu
+---
+v1:https://lore.kernel.org/all/20240703061610.37217-1-zelong.dong@amlogic.com/
+v2:https://lore.kernel.org/all/20240715051217.5286-1-zelong.dong@amlogic.com/
 
-[1] https://lore.kernel.org/linux-mediatek/37680c5e-e61c-410b-b48d-82991420=
-0e4a@notapiano/
+Zelong Dong (3):
+  dt-bindings: reset: Add compatible for Amlogic A4/A5 Reset Controller
+  arm64: dts: amlogic: Add Amlogic A4 reset controller
+  arm64: dts: amlogic: Add Amlogic A5 reset controller
 
-> Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
-> ---
->  drivers/thermal/mediatek/lvts_thermal.c | 3 ---
->  1 file changed, 3 deletions(-)
->
-> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/me=
-diatek/lvts_thermal.c
-> index 1997e91bb3be94a3059db619238aa5787edc7675..daad52f14fc03d0c4131f2ffd=
-f3eb6b49a4a43d0 100644
-> --- a/drivers/thermal/mediatek/lvts_thermal.c
-> +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> @@ -1541,7 +1541,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_=
-data_ctrl[] =3D {
->                 },
->                 VALID_SENSOR_MAP(1, 1, 0, 0),
->                 .offset =3D 0x0,
-> -               .mode =3D LVTS_MSR_FILTERED_MODE,
->         },
->         {
->                 .lvts_sensor =3D {
-> @@ -1552,7 +1551,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_=
-data_ctrl[] =3D {
->                 },
->                 VALID_SENSOR_MAP(1, 1, 0, 0),
->                 .offset =3D 0x100,
-> -               .mode =3D LVTS_MSR_FILTERED_MODE,
->         },
->         {
->                 .lvts_sensor =3D {
-> @@ -1567,7 +1565,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_=
-data_ctrl[] =3D {
->                 },
->                 VALID_SENSOR_MAP(1, 1, 1, 1),
->                 .offset =3D 0x200,
-> -               .mode =3D LVTS_MSR_FILTERED_MODE,
->         }
->  };
->
->
-> ---
-> base-commit: 906bd684e4b1e517dd424a354744c5b0aebef8af
-> change-id: 20241108-lvts-f7beb36efc59
->
-> Best regards,
-> --
-> Hsin-Te Yuan <yuanhsinte@chromium.org>
->
->
+ .../bindings/reset/amlogic,meson-reset.yaml   | 23 +++--
+ .../arm64/boot/dts/amlogic/amlogic-a4-reset.h | 93 ++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi   | 10 ++
+ .../arm64/boot/dts/amlogic/amlogic-a5-reset.h | 95 +++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi   | 10 ++
+ 5 files changed, 223 insertions(+), 8 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h
+ create mode 100644 arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h
+
+-- 
+2.35.1
+
 
