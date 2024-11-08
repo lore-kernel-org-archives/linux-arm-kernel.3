@@ -4,164 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C8AD5E149
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88798D5E14A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOrneh37RY5YF34IRYatVQBAURj2GjL0MOzafrgJ+1o=; b=sJcskY9HWWt/INQhnGH1srbm2O
-	QXpYWC2UfPXO6sOMe8Wabf373K88A3J3dSymNzEMg+ZyNJoqf86LfOIA1eIcpPluZ/maAUj05vyvZ
-	J5G0RITw5AWV7NoU/65rvWrG/XP9dnt9xx2/OMPabx4D4XdBAoctMCgKc+p16dQr0T55eQNjOcscb
-	TBwGr48mqwhXiPO+KGNBgwmeXcRPyQ1BxYRYWECuh6aXMse/YTqqU3koytAWZ6C2tLhdMMW3HcmTi
-	X0lbPovN7YxwVOpLYFj/4sl2BcWeQnZGapV9VTZJcHfJSp+1KPmxK62IUI2MglqTN61Tj1qzxacAU
-	h+/7RhHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XntAqJuL0NV1KX+kzLWD7QKp8DgAkKe6PX7aJGRi2j8=; b=pVq9TK36w0RwHaIzlN0QRCSXPe
+	b9m7rEAJANSewWD9c4MzcdmlfbCbChwOD3oX6aT68J6dv0c5X8fRTJuKtzbYEmm6OB0ZsOAgcNjCv
+	MTRMXGoqmYzvHaYeynPHs+Cjdw0Tb2wS0KB/GRzaIsb77yOgZ5X/OivrPGoSLhlCjpVkvV7P1Ugoi
+	LXLijsvAlo2bami/n6YB6rz+au8jYTleS6kBAI1gBCtfFlsVaWs1sjmCojk5Nm+hu1b6qXg5KYM/J
+	cUyt7qzj/VmmcFprKJYab2ome1gOltWWUGCKlq71tv9dly7YMl2r3n0pU0VUTf32cR77x/ToY8tSc
+	5NhmBinQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9LHd-00000009xRP-219j;
-	Fri, 08 Nov 2024 09:28:01 +0000
-Received: from mail-tyzapc01on20731.outbound.protection.outlook.com ([2a01:111:f403:2011::731] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1t9LPr-00000009yUa-1Zbg;
+	Fri, 08 Nov 2024 09:36:31 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9LET-00000009ww2-3JZS;
-	Fri, 08 Nov 2024 09:24:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nltTnOEICS4Q60ulGYZdHZCzkmNcbtHyuAEiMEeWKvK2q0XB5IuTf6ZoHTcFym63ttbvGOrJYxvtqmKhj3dTGdr9HX02amAwZH/+HtHwWRrfWu6yddBURm9BFyWg3f1y4lF0pi3xrW0PUB6YcDFuguiNJnEzqOTeOqGnLDS68A0bi6X1syGIY3OtHUAsfu9AqRQx6LPqKD8JAdGlmhfTHXomJvLR9LI6IHtoan+eFUOPOYYGcR/AqA+jQdd+sG6hxPSvRknCPKAjdvmIU+kbcOstHgopf4/OqXQSwsS7K/AHGLxJUFrcIQKJcoeqPA/YphxUIlfbE3nnKfLdQmpR2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wOrneh37RY5YF34IRYatVQBAURj2GjL0MOzafrgJ+1o=;
- b=HJ++9ZsGRN9Cq32aoSVl1o1Lb+sN3AX0vJatXehcqPlv0r9KyiKYHRl4DFzhzQuDAdAEGQ8RQ6dz6NEDZbWmPz1u4cLKhWOTFrAAlM6ZKSqmzHPcktX3A2o3yUgjz4V2GtR896acGnTCvM/blrjKOQHuRalppgM8KDKkv5kyvJTS9P0O3CTnZIeYdf++VMcDYSjsetgjZ1/znudkNmRNUnAcgsnV19+bP/zJMWD8rHAzsOGK88GNx13lMPCMW9FBA8wJgydtfv5oDdQF67g2lJ69YQddzolGY3wn1IybaOF0BMSnxe1B74rd8dtpV28KGs30ccVV2+7g4kDQz0tYxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wOrneh37RY5YF34IRYatVQBAURj2GjL0MOzafrgJ+1o=;
- b=H0md+mJCpNFeUWSjw9L7Hy6E1mO/dhacTOlOF0A3Iia1OY68v4lhrpVXTamQXQ2diFcchFXM9EJcyJfTPse69nxYg+/7ZZQgwHJvDAAT9WbMrtdxjQQYqjKIfbBxIngauOTvWuAd8yb/d4Vs/s6PwI6vH2SQ1xKrsmdARTQwuKL2J/kVTVYzEZ4OM1YOTFXSE6RoV/UMdSRapBhOWvLOhzXAlrFxO2A7HC/clxvTDSDmvUgsrEDQPD62IFzb5cul7d/b9SOP/HIQNoT4+g5zYu0KXjtyJeSjoqFt3OlztnRKswnpUejkeUctW9vsD/BfGRh3g1VgPp7Qw2T32YjEPA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by TYZPR03MB6790.apcprd03.prod.outlook.com (2603:1096:400:201::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8114.25; Fri, 8 Nov
- 2024 09:24:40 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca%7]) with mapi id 15.20.8137.019; Fri, 8 Nov 2024
- 09:24:33 +0000
-Message-ID: <85aae140-5c9b-4ff9-a522-549009f62601@amlogic.com>
-Date: Fri, 8 Nov 2024 17:23:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] clk: core: refine disable unused clocks
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <1jcykltj7g.fsf@starbuckisacylon.baylibre.com>
- <20241004133953.494445-1-jbrunet@baylibre.com>
- <07594a59-c999-4592-84b8-4e163d3edba4@amlogic.com>
- <1jttci2k8k.fsf@starbuckisacylon.baylibre.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <1jttci2k8k.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2P153CA0045.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::14)
- To KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+	id 1t9LO4-00000009yBq-1Ywq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 09:34:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 828A31BF204;
+	Fri,  8 Nov 2024 09:34:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1731058476;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XntAqJuL0NV1KX+kzLWD7QKp8DgAkKe6PX7aJGRi2j8=;
+	b=ZLZn9Z7ihEzf16221kXvKJ2zd5NJ3tBbw7EC5QnHf7DNoRvy5thrU1+/c4aHyf8iGesIAs
+	tkNEMMMSj/ENr8Q7VriTXzXFjwGSWnrINp7CQhjwhj3xRuAzmr5CvSgZODWdLbn57CoU3R
+	U30tffKL+Nqn0/FxCVDB/CERWCEytSkqHK1kGXrPmqb0Oi3KamosSlLwSsGJCO4rGzqDJ3
+	geJKqxdbeI2Mm7IqwOeiNcKHabLNKruzYfsYnYNNJhG6duJ7caYXfQwtmZzsKcxB223URV
+	p0UXXquom9oeKxX+adqQt2YVELRxTFU04AGAwGKv/SfE5owjoBewt4YavoMF7A==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+ <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: dt for v6.13 (#1)
+Date: Fri, 08 Nov 2024 10:34:35 +0100
+Message-ID: <87bjyq83x0.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|TYZPR03MB6790:EE_
-X-MS-Office365-Filtering-Correlation-Id: 35f7266b-5bca-482a-a869-08dcffd72793
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RFZyL3NrM3U3aUJYK0Y2S1dEc0FKYW9wK1l5YUMrZXZ5eFRySlczV0JqYUYx?=
- =?utf-8?B?OGZkZ01uWGdyNTd2SWtZandjZTF0WnZzL3Nzb29VanNBVnExckZZUDRCUWM3?=
- =?utf-8?B?M2o2MHRkUmtGVGhMSWdiNi9xU2VnNnhKUWZlTjhRdmdEUU5ZcUJtbGJLdUdG?=
- =?utf-8?B?MmdBZS9WWEtiS1NaSWV1NXE1amg3OGVLRXBzSHhZQTBSME94VFgzSFBEaFNX?=
- =?utf-8?B?NmFGdVVmdDR6bktadkhkQTNmUFZMSnl5bGd2cklWanhhaW4vY2ErVnNoYjZu?=
- =?utf-8?B?Z2hHT3NseVpRNGJkNktVZnlhejRhVkMvU0J4SW0wbFRCbytmaG1HaTNZVFl3?=
- =?utf-8?B?Rk5EU3hHeDRFanJwQzBHWWhCTTJCUTdxQ0x1ZDZwU1N2UTFZL1NxREpmWUFk?=
- =?utf-8?B?dVh3MUtmUzYrUStEYkxuY1FDRC9QSWhBR2VEMjFaUFIrVGh3blpkTzVsMENX?=
- =?utf-8?B?WjZvYjFBWlBSM2Y3YVhaYitxWGZNY1VLL3NTdnE0Zk9lQTUydmE1Ky9waThs?=
- =?utf-8?B?UGRUQWsrVHNNMWVBdWNmVWtOQWR5dU9INEtkU3NFRmJRc0hzMUVvMW5VcGt4?=
- =?utf-8?B?M1NQOEZ0eXFweDZ0RGVRSmxtQTA3aHpKa0tVdVV1ZXN1VExiSTFia1NiUXkr?=
- =?utf-8?B?T293R2pOQWRVUnJ6YlRtTVRPZmR5TG5WV0JWVG5CaStzZTFjWDd4SVBBS3I3?=
- =?utf-8?B?TDVWTks3T3FreWdjSUdyeVJ2d1RiZU0yam9QTWRGcGVSSjNBR2VFQko5ZkU3?=
- =?utf-8?B?RFhHTUpyYUkvdGFXZmQzbjQwcEQ0TDdnYTBmbVFNaUl4RGxyZk5uSTZIcmJH?=
- =?utf-8?B?a3V2N05sc3paazFXMlJId09iQ1VicXVnRWE0dnVkR0tVR2tBZmZYZGdwWDV1?=
- =?utf-8?B?UFEwbTZHY25NdkNkSHZGVUxLMlpkR0VLeUp5WHg5Q2lRWFc0cUwyMDVBVW9l?=
- =?utf-8?B?Z01qNjNLTVdHdFBJcG03NG5GeTJ6eTBRUEtxald6SnRBTWFDZS9odHN5ZkJR?=
- =?utf-8?B?bE5EazJETjluSXVGYVFWVGhMMksrci9SSTF0QzIvak53ZGdGeFM2ZkdUaVAr?=
- =?utf-8?B?cllFM1ZMV21lYjVsTHRsYVBYZTJ3bmNPTFIxclQ2ZUJYVm5zVlFnV0lROVNG?=
- =?utf-8?B?UUhDVnpzV0dTSVVWOGdrTTBtMGRIWERNbUJXRzRiRXV2UE1ibElqWmJ2ZUFh?=
- =?utf-8?B?YThhY2hxcEsyVWlRbmdPTjdzcXg5cU0rS3pjRWo4TmM3eGRXNk9OZEo2Ly9G?=
- =?utf-8?B?d25wZ2lBQm83bU9KR092QUpMeXRzeE1qdG9lekY2Z0RLYlNPRXRJSTdXYjBR?=
- =?utf-8?B?emNSWUl1bHB6MU81dnVQY1Y0MEFqR2wrODhGMythQjVmdVUxY2IreEczQlBl?=
- =?utf-8?B?MkNnanZMQlFrUnc2Z0lOajh6L2t4Z3hkRFhnWE1mZ1V0cjN6UCtlTlR1OHc5?=
- =?utf-8?B?Y0NhK00zejVOcGUvU1JkbjJiV0M1Sks2ZVEzbzgvQzlVRFI0eGZtS0hYb1N6?=
- =?utf-8?B?a05iOVErU3dWSVN0VkJJUzNxeDhyQzIrclFvQmM3Z2MvZ21teHhXMXd2TU9T?=
- =?utf-8?B?MlZGSXNsWGd0RG9OajZmL3JvV25ZQ2dUMzFpNDkvMmZTZ0ZkZWtxNnZOVktr?=
- =?utf-8?B?MUgxUkN5Wmx5bHRlUVI1NkM0V0NxakRiYWRvcVNaTjlIWGtneWY0RzJMZFZX?=
- =?utf-8?B?VnZ0eGw1MlpTK2IwdG9vcWNScE02UkYwd3F5aUJrWnBJcEtpUFUzSmVURG5a?=
- =?utf-8?Q?9vym1fN8VYuBnPo5ZnWi0aTu9B8bIVbuF6znOX5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L0NacmQxRHhreTJqSjZReGpqUEErNm9RbzJNMDkrdGVycGdoRnJmbllWZW5j?=
- =?utf-8?B?RnlQQy9pVndaaFlreVBqSllwT29TRnZzaFkvK0YrNTM3dmFhYzhRQ2U1NS9Z?=
- =?utf-8?B?UjBzNytQYlNPa21mSjh1dFl1bkhjclJFVGV6Z2FLa1pzenQrQ0laZGJUZ0Jy?=
- =?utf-8?B?N3dMMENhaFUyRzlWYnlFcFJuREpxUEJMUmR2OStjMDNTNmF1RW8xRGVxa1BP?=
- =?utf-8?B?OC9USDk3M2p0ZTUxVTBXVEo2aTMvVTFxUlNkaHRjNzh5OGRXOWlQVlZGWmJM?=
- =?utf-8?B?MHkwa2ozNnV1M2RUUDJ6WjhVbEpDcmVNWmNycUNiU05iLzYvY3RrU3YzS21F?=
- =?utf-8?B?cWEySkhNYldWdWR6OVFOQjl0Z05jSnVnR1Y5d2gxVnJBL2JxdVVkZUxWRTA0?=
- =?utf-8?B?Ri9jTU1lckpCOUptVEN3UE1ja2NyYUlFNlRGcUtrUi82NGlZMzB1djcrSFl1?=
- =?utf-8?B?clEyYzJDWDI2VDR5cDg3Uld5MnFXZUx5K2FySHNDZ0JKUWUyb0NNRitGMHhy?=
- =?utf-8?B?anB0Z2xHY25GanFNWjJEN09ZOW1uTnB0bGRmMzVzVDUwd3JJNGcxR1MydVlp?=
- =?utf-8?B?TDFZdDZCWDdOcnNIdnpHS0J2cEx4NHRjNVpnam1pQXBtNUR6aHlhZC9oMHpm?=
- =?utf-8?B?UGNjR3dIWFRLVjBZUWlWSUZzYUdrNkw1ek9qTGFNSXQ5NjJCTkdFem5KbmFH?=
- =?utf-8?B?WjIvQVdWNUVWMUhSN3F5dHNNTUsvRGg1YVZjd3krc0lCUmNEM3I2Y2NibW9l?=
- =?utf-8?B?MFVoZWhlQVdHWHhUTXJTTElNZDBvc2tIKzc2V0JFcE1LdS9rK1U1SEdYbEtw?=
- =?utf-8?B?TER4V0tyK0lQbHJXTVNDNWFuK2ZvWWw2bGN1eWU2QzJKMU9iVUlwcXlBdUZt?=
- =?utf-8?B?RTYzeFFEd2V2TC9LQ0ozSkkyT1k2d1V5R1k4TVJHa216SW1GandQU1VVbHMz?=
- =?utf-8?B?dHJIa0xhWmNkbzJhVWVkWU1PdURUclpJam1SQklWeEJyYW1YQ1VMc3lIeGVJ?=
- =?utf-8?B?d2tOS1U0UlgxWTJqNXAwdmFjcU5SNlhzV1Z3TmpKU3k5Y1VpanVZbWZ1Mlcv?=
- =?utf-8?B?VWJDTHRJTVN0bjNpam43dHlkTGYvbFlCbUNraHFkUWVCd2V5WFF2dUh4a0J1?=
- =?utf-8?B?OG5OdUx1cXQxaU9EdFhPVCt1T0RxMnFYTnpZbEhGZ3M5MGVTTzVtZkQ3TlFh?=
- =?utf-8?B?SUdyWXh2V2VOSk85K1JhTnFOTzhvN2p5STVkUVRzSmZaaFJlTkVLMEZQdjM0?=
- =?utf-8?B?YzVPb2ZFbUx6Y3JnZnJoQ1kyWEpyeXNCUlIxeEhVazUxZzVyOXFtVm5Ldlk2?=
- =?utf-8?B?MllTOWhiNi93bUttbUJtZWpKSjZWNXpWakhIR1NJZWNrMDVyaDFTUmJYbzdh?=
- =?utf-8?B?N0ZIWlM3MzAwd29GUUp4WDJFdGlEWUkxQy93RXVJemk5cHB6VjVwZ3EzTmJL?=
- =?utf-8?B?bVp3SEZ6ZWEyUW9aSEJ0bHNrdVBacjROTlA3NHltbUNBaTBaWGNrNVBQOTJH?=
- =?utf-8?B?c3ptL1ZzZkZWRnYrdnF0a3p5bTBTRVlDYnFNdDVBbjFaYlBaRmhvWUREMFJo?=
- =?utf-8?B?UFlHTFNpdUhMb2NLTFl5UERmR3BBc1JnejM1STg5K1VWUWxvcGRDbVh6MDND?=
- =?utf-8?B?RjdrYmRTNGVWaGNXVDROR1U3RFUwNVNxMkJCMmdxdm4vREdaaUpNRHBhVnZP?=
- =?utf-8?B?Q2FkMjhlZzE1U01oV1E3NUVDdkxxamJLQ0d1QU9BZGRHK2JYRnViUEc2SDZy?=
- =?utf-8?B?d2VnTXNtWXAvU2VWUGpSdk9Nak9sMnAvWTBxbzNZMEE2MnBQWUg3UUlRalN6?=
- =?utf-8?B?VElnU25XV1k5Y3dFTzZmOHIrM0w0VEhiS2hwSG9LMHBXNzJtSVo2QVA5bk1w?=
- =?utf-8?B?ZS8vTXB3cXlzZUViYk9YbmxrQy9RSzQ5dFRrN1g2VGp1QnRyRjk2bGNXczVV?=
- =?utf-8?B?NDBVL2t6WURTdk52ZVpnRFJvUmh0Z3I2SkZKOGlxOUs2R3RpM0xPbmppZzlU?=
- =?utf-8?B?WG9QZUd6SUhGZ3lDMGtmKzBGRkgrak1hWS9hSEhXK2orNmVkcERTY1o1bDJo?=
- =?utf-8?B?amFXeFUrT2tCL2dJZUlqZEZBMktuOHlNNWdOSndnNXQ3R2VmalUwWmtwbHc2?=
- =?utf-8?Q?1JbVT65FsPnkTBWmMhoNiRFYn?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 35f7266b-5bca-482a-a869-08dcffd72793
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 09:24:32.8078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NLIP6CcCSkYfFcwvW/MjcLGYqqv1AbCzR+QVVWlj8I1bAVYbVNYTnwGSAu1rdRvRsStE5MqETWWdXatTRE2zJw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB6790
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: gregory.clement@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_012445_990833_6CAE42D9 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20241108_013440_710598_D9401A0E 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,169 +70,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 11/8/2024 4:38 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Fri 08 Nov 2024 at 15:59, Chuan Liu <chuan.liu@amlogic.com> wrote:
->
->> hi Jerome:
->>
->>      Tranks for your REF. I looked at your patch and there are some parts
->> that I don't quite understand: The original intention of
->> CLK_OPS_PARENT_ENABLE was to solve the issue of "parents need enable
->> _during _gate/ungate, set rate and re-parent" when setting a clock. After
->> setting the clock, it can still be disabled. However, from what I see in
->> your patch, the handling logic seems more like "parents need _always _ gate
->> during clock gate period"?
-> As explained in the description, the problem with CLK_IGNORE_UNUSED and
-> CLK_OPS_PARENT_ENABLE is that you'll get cycle of enable/disable, which
-> will disable any parent clock that may have a been enabled and expected
-> to be ignored.
->
-> IOW, the CCF changes the state of the tree while inspecting it.
-> This change solves that.
+Here is the first pull request for dt for mvebu for v6.13.
 
-Ok, I understand your idea now... I have gotten myself tangled up.
+Gregory
 
->> On 10/4/2024 9:39 PM, Jerome Brunet wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> As it as been pointed out numerous times, flagging a clock with
->>> CLK_IGNORE_UNUSED does _not_ guarantee that clock left enabled will stay
->>> on. The clock will get disabled if any enable/disable cycle happens on it
->>> or its parent clocks.
->>>
->>> Because enable/disable cycles will disable unused clocks,
->>> clk_disable_unused() should not trigger such cycle. Doing so disregard
->>> the flag if set for any parent clocks. This is problematic with
->>> CLK_OPS_PARENT_ENABLE handling.
->>>
->>> To solve this, and a couple other issues, pass the parent status to the
->>> child while walking the subtree, and return whether child ignored disable,
->>> or not.
->>>
->>> * Knowing the parent status allows to safely disable clocks with
->>>     CLK_OPS_PARENT_ENABLE when the parent is enabled. Otherwise it means
->>>     that, while the clock is not gated it is effectively disabled. Turning on
->>>     the parents to sanitize the sitation would bring back our initial
->>>     problem, so just let it sanitize itself when the clock gets used.
->>>
->>> * If a clock is not actively used (enabled_count == 0), does not have
->>>     CLK_IGNORE_UNUSED but the hw enabled all the way to the root clock, and a
->>>     child ignored the disable, it should ignore the disable too. Doing so
->>>     avoids disabling what is feading the children. Let the flag trickle down
->>>     the tree. This has the added benefit to transfer the information to the
->>>     unprepare path, so we don't unprepare the parent of a clock that ignored
->>>     a disable.
->>>
->>> * An enabled clock must be prepared in CCF but we can't rely solely on
->>>     counts at clk_disable_unused() stage. Make sure an enabled clock is
->>>     considered prepared too, even if does not implement the related callback.
->>>     Also make sure only disabled clocks get unprepared.
->>>
->>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->>> ---
->>>
->>>    This is sent as an RFC to continue the discussion started by Chuan.
->>>    It is not meant to be applied as it is.
->>>
->>>
->>>    drivers/clk/clk.c | 92 ++++++++++++++++++++++++++++++-----------------
->>>    1 file changed, 60 insertions(+), 32 deletions(-)
->>>
->>> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
->>> index d02451f951cf..41c4504a41f1 100644
->>> --- a/drivers/clk/clk.c
->>> +++ b/drivers/clk/clk.c
->>> @@ -332,17 +332,6 @@ static bool clk_core_is_enabled(struct clk_core *core)
->>>                   }
->>>           }
->>>
->>> -       /*
->>> -        * This could be called with the enable lock held, or from atomic
->>> -        * context. If the parent isn't enabled already, we can't do
->>> -        * anything here. We can also assume this clock isn't enabled.
->>> -        */
->>> -       if ((core->flags & CLK_OPS_PARENT_ENABLE) && core->parent)
->> This judgment of CLK_OPS_PARENT_ENABLE seems redundant. According to
->> normal logic, if the parent is disabled, its children will also be
->> forced to disable. This seems unrelated to whether CLK_OPS_PARENT_ENABLE
->> is configured.😳
-> It's removed.
+The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
 
-Yes, I just want to express that judging CLK_OPS_PARENT_ENABLE seems unnecessary here.
+  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
 
+are available in the Git repository at:
 
->
->>> -               if (!clk_core_is_enabled(core->parent)) {
->>> -                       ret = false;
->>> -                       goto done;
->>> -               }
->>> -
->>>           ret = core->ops->is_enabled(core->hw);
->>>    done:
->>>           if (core->rpm_enabled)
->>> @@ -1454,22 +1443,39 @@ static void clk_core_disable_unprepare(struct clk_core *core)
->>>           clk_core_unprepare_lock(core);
->>>    }
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-dt-6.13-1
 
-[ . . . ]
+for you to fetch changes up to 68bc6a71f56875a7dbde4f44aa4404c214651e1c:
 
->>> -       if (core->flags & CLK_IGNORE_UNUSED)
->>> +       /*
->>> +        * If the parent is disabled but the gate is open, we should sanitize
->>> +        * the situation. This will avoid an unexpected enable of the clock as
->>> +        * soon as the parent is enabled, without control of CCF.
->>> +        *
->>> +        * Doing so is not possible with a CLK_OPS_PARENT_ENABLE clock without
->>> +        * forcefully enabling a whole part of the subtree.  Just let the
->>> +        * situation resolve it self on the first enable of the clock
->>> +        */
->>> +       if (!parent_enabled && (core->flags & CLK_OPS_PARENT_ENABLE))
+  ARM: dts: turris-omnia: Add global LED brightness change interrupt (2024-=
+11-04 17:00:41 +0100)
 
-At first, I couldn't grasp the logic behind the 'return' here. Now it's
-clear. This approach is equivalent to completely giving up on
-handling clocks with CLK_OPS_PARENT_ENABLE feature in
-clk_disable_unused_subtree().
+----------------------------------------------------------------
+mvebu dt for 6.13 (part 1)
 
->>>                   goto unlock_out;
->>>
->>>           /*
->>> @@ -1516,8 +1545,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
->>>
->>>    unlock_out:
->>>           clk_enable_unlock(flags);
->>> -       if (core->flags & CLK_OPS_PARENT_ENABLE)
->>> -               clk_core_disable_unprepare(core->parent);
->>> +       return (core->flags & CLK_IGNORE_UNUSED) && enabled;
->>>    }
->>>
->>>    static bool clk_ignore_unused __initdata;
->>> @@ -1550,16 +1578,16 @@ static int __init clk_disable_unused(void)
->>>           clk_prepare_lock();
->>>
->>>           hlist_for_each_entry(core, &clk_root_list, child_node)
->>> -               clk_disable_unused_subtree(core);
->>> +               clk_disable_unused_subtree(core, true);
->>>
->>>           hlist_for_each_entry(core, &clk_orphan_list, child_node)
->>> -               clk_disable_unused_subtree(core);
->>> +               clk_disable_unused_subtree(core, true);
->>>
->>>           hlist_for_each_entry(core, &clk_root_list, child_node)
->>> -               clk_unprepare_unused_subtree(core);
->>> +               clk_unprepare_unused_subtree(core, true);
->>>
->>>           hlist_for_each_entry(core, &clk_orphan_list, child_node)
->>> -               clk_unprepare_unused_subtree(core);
->>> +               clk_unprepare_unused_subtree(core, true);
->>>
->>>           clk_prepare_unlock();
->>>
->>> --
->>> 2.45.2
->>>
-> --
-> Jerome
+turris-omnia: prepare device tree for LED brightness change detection
+kirkwood: fix at24 EEPROM node name
+
+----------------------------------------------------------------
+Marek Beh=C3=BAn (1):
+      ARM: dts: turris-omnia: Add global LED brightness change interrupt
+
+Rob Herring (Arm) (1):
+      ARM: dts: marvell: kirkwood: Fix at24 EEPROM node name
+
+ arch/arm/boot/dts/marvell/armada-385-turris-omnia.dts | 1 +
+ arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts  | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
