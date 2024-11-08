@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7398D64085
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD18CD64085
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0PI+/wFb1uRJsEyoJ4ZqTllIF+2MC8LXp3xmdo4p9P4=; b=U+UCooAVwi6oRps+IYur/VubSp
-	CPmnOlBqTaJulm2vDGXWyHL/cisuzbb7gQxhLGxJ/rJtuhgOAnOm4Zr8xW7w0uB72PE0CLBGA2biz
-	W6SDj7HUF0HRVEDBjm5EL0WDT0ZNlImpQHqMUF++rvYBw1p0MstnUZZNb778grLmTDdEJC3E5KVwN
-	MS6C42c/iM7/yAeB18p7+2re83pfnPiULc99NZq1iCwQXQQksSc+MdeUP51OoFeHixbb0nm9XN9jW
-	dsBjterGykexHlUBuml4Ohtj3118vt2WuOuXOefo+sok0Vsh4p1gNStEnVAVTJDaA0Hm9LHiuWU1q
-	rPRCjntg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/dZFJc2z5rUwKei0wy+VFYTSdoDIJrW66Yr1bcGuUw=; b=r5/zo9xD/KzQwIOTSZHa1YQQDP
+	aQqsbAKGrxAtfdJdAuF2MbloqmHhG6Jn/FVfOyuaQkO5N8srpPx8gkDUI1LnUpG4ey+2DxatsP+mQ
+	0/ceX8TuosHd4nSQIFzoYYNuM79Oruzd8P4OknbOa/JyKnjJNrso6lqJxKA2ub6fhbs+iNtjiZaO6
+	vXhyEAGHhJB/nbu1ox5R/xGFRY1bb49T6TxDR1hjjpxxDjgNwRli5K7FXlCiuECpMmbDPgIBlUXtU
+	RzbSnW2G9NMKQFiQ876GnLstUnkTBHT0rZHPjO2rvdspWTLa7VcUVVzgw8ASMjrMwoC03sixXDcHB
+	7tnDDdLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VB7-0000000BoSE-3RJW;
-	Fri, 08 Nov 2024 20:01:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1t9VE4-0000000Bp5A-0lo9;
+	Fri, 08 Nov 2024 20:05:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9U63-0000000BeYi-2NUB;
-	Fri, 08 Nov 2024 18:52:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1731091957;
-	bh=69F+XwHGUM8j8Npu0CVV/bvnKz12bT/JSO/FqsNELcI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gxZ8JrRO6t3KYBAYrnFkHOPCL/5Yxe3jqsw9SPxYt2ta/JHJB6SkhPQBfiqMcr44y
-	 P4+zIAAi2twZ/QxYywjpghDPcuDArxlYYzT9MtPWwL86l9BQ6gorsdxHj8zqUo5ROL
-	 /w1ky90u+sQrBJcWsGKcBjPOj9npFAIAoxvQKAeBgquDfpu8RqBXsou5TaDQFopVcD
-	 ILQvaX8nUA/rLvjrjQn+5Rspwrex5SUdCdt6JHTcVNYiBD/FWFFPBZTjWDLFQaycc0
-	 GdWqS0J2qpDMJyO8l85plGqYlVCcKHuzOmrhpi4dx/FfEXbHTGxyMUgE+CQtF+xuX/
-	 fjYO3xBTMPFug==
-Received: from trenzalore.hitronhub.home (unknown [23.233.251.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4088D17E3770;
-	Fri,  8 Nov 2024 19:52:34 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stubner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Alexey Charkov <alchark@gmail.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 3/3] dt-bindings: display: vop2: Add VP clock resets
-Date: Fri,  8 Nov 2024 13:50:41 -0500
-Message-ID: <20241108185212.198603-4-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241108185212.198603-1-detlev.casanova@collabora.com>
-References: <20241108185212.198603-1-detlev.casanova@collabora.com>
+	id 1t9VCF-0000000Bofl-2RXp;
+	Fri, 08 Nov 2024 20:03:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67FFBA44D13;
+	Fri,  8 Nov 2024 20:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 430B3C4CECD;
+	Fri,  8 Nov 2024 20:03:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731096185;
+	bh=xX7Im2UhKNKgBE416PaOdSNPECSfPWPArQu7YbQODCs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=epU1fQiNqfeFZdEM00F7vtSpMYwYfot9P71+GYdehpaxaLPDaCOqbKUsUO44+7y7Q
+	 o3eR0G3nwWjdXG/LjOV4dfBN0fpiBTfQjkBTXyhZBNO+yusM5c1u7BaRCniZhMJtUc
+	 q0LQVTzSXkt/xN//agdroW9fr4YtNwoqFZiNjQEOxO7G8ZsMBpZAqrwC/td1X3yVI6
+	 ZSmmdmmc6CZDt6uatgD6LkqCfjjGv9p4sNMU/5ZgXRHd74jD11SoWcSVHFWVmpVipt
+	 dxHX0hnw/IAilCJN1DmkNfFpwQXnl86vrupoNsuxdPy9xI7tSKuBpkU6HsTpd7/E8B
+	 18HgSp7ZPgyRw==
+Date: Fri, 8 Nov 2024 12:03:02 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Changbin Du <changbin.du@huawei.com>,
+	Guilherme Amadio <amadio@gentoo.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
+	Aditya Gupta <adityag@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
+	Shenlin Liang <liangshenlin@eswincomputing.com>,
+	Anup Patel <anup@brainfault.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Steinar H. Gunderson" <sesse@google.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Dima Kogan <dima@secretsauce.net>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 10/20] perf dwarf-regs: Move csky dwarf-regs out of
+ arch
+Message-ID: <Zy5udmX6gZAg0wkS@google.com>
+References: <20241017002520.59124-1-irogers@google.com>
+ <20241017002520.59124-11-irogers@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241017002520.59124-11-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_105239_779715_1FD40E40 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_120307_766813_031A2C5A 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,88 +106,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the documentation for VOP2 video ports reset clocks.
-One reset can be set per video port.
+On Wed, Oct 16, 2024 at 05:25:10PM -0700, Ian Rogers wrote:
+> Move arch/csky/util/dwarf-regs.c to util/dwarf-regs-csky.c and compile
+> in unconditionally. To avoid get_arch_regstr being duplicated, rename
+> to get_csky_regstr and add to get_dwarf_regstr switch.
+> 
+> Update #ifdefs to allow ABI V1 and V2 tables at the same
+> time. Determine the table from the ELF flags.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/arch/csky/util/Build               |  1 -
+>  tools/perf/util/Build                         |  1 +
+>  .../dwarf-regs.c => util/dwarf-regs-csky.c}   | 19 ++++++++++---------
+>  tools/perf/util/dwarf-regs.c                  | 11 +++++++----
+>  tools/perf/util/include/dwarf-regs.h          |  2 ++
+>  5 files changed, 20 insertions(+), 14 deletions(-)
+>  rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
+> 
+> diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
+> index 1325310cab6a..5e6ea82c4202 100644
+> --- a/tools/perf/arch/csky/util/Build
+> +++ b/tools/perf/arch/csky/util/Build
+> @@ -1,4 +1,3 @@
+>  perf-util-y += perf_regs.o
+>  
+> -perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+>  perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
+> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+> index 4c615611b9d7..99ae4e2802b8 100644
+> --- a/tools/perf/util/Build
+> +++ b/tools/perf/util/Build
+> @@ -203,6 +203,7 @@ endif
+>  perf-util-$(CONFIG_LIBDW) += probe-finder.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+> +perf-util-$(CONFIG_LIBDW) += dwarf-regs-csky.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-regs-x86.o
+>  perf-util-$(CONFIG_LIBDW) += debuginfo.o
+>  perf-util-$(CONFIG_LIBDW) += annotate-data.o
+> diff --git a/tools/perf/arch/csky/util/dwarf-regs.c b/tools/perf/util/dwarf-regs-csky.c
+> similarity index 74%
+> rename from tools/perf/arch/csky/util/dwarf-regs.c
+> rename to tools/perf/util/dwarf-regs-csky.c
+> index ca86ecaeacbb..d38ef1f07f3e 100644
+> --- a/tools/perf/arch/csky/util/dwarf-regs.c
+> +++ b/tools/perf/util/dwarf-regs-csky.c
+> @@ -5,9 +5,8 @@
+>  #include <stddef.h>
+>  #include <dwarf-regs.h>
+>  
+> -#if defined(__CSKYABIV2__)
+> -#define CSKY_MAX_REGS 73
+> -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
+> +#define CSKY_ABIV2_MAX_REGS 73
+> +const char *csky_dwarf_regs_table_abiv2[CSKY_ABIV2_MAX_REGS] = {
+>  	/* r0 ~ r8 */
+>  	"%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1", "%regs2", "%regs3",
+>  	/* r9 ~ r15 */
+> @@ -26,9 +25,9 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
+>  	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+>  	"%epc",
+>  };
+> -#else
+> -#define CSKY_MAX_REGS 57
+> -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
+> +
+> +#define CSKY_ABIV1_MAX_REGS 57
+> +const char *csky_dwarf_regs_table_abiv1[CSKY_ABIV1_MAX_REGS] = {
+>  	/* r0 ~ r8 */
+>  	"%sp", "%regs9", "%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1",
+>  	/* r9 ~ r15 */
+> @@ -41,9 +40,11 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
+>  	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+>  	"%epc",
+>  };
+> -#endif
+>  
+> -const char *get_arch_regstr(unsigned int n)
+> +const char *get_csky_regstr(unsigned int n, unsigned int flags)
+>  {
+> -	return (n < CSKY_MAX_REGS) ? csky_dwarf_regs_table[n] : NULL;
+> +	if (flags & EF_CSKY_ABIV2)
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- .../display/rockchip/rockchip-vop2.yaml       | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
+Hmm.. you need it here as well.
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 2531726af306..5b59d91de47b 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -65,6 +65,26 @@ properties:
-       - const: dclk_vp3
-       - const: pclk_vop
- 
-+  resets:
-+    minItems: 5
-+    items:
-+      - description: AXI clock reset.
-+      - description: AHB clock reset.
-+      - description: Pixel clock reset for video port 0.
-+      - description: Pixel clock reset for video port 1.
-+      - description: Pixel clock reset for video port 2.
-+      - description: Pixel clock reset for video port 3.
-+
-+  reset-names:
-+    minItems: 5
-+    items:
-+      - const: aclk
-+      - const: hclk
-+      - const: dclk_vp0
-+      - const: dclk_vp1
-+      - const: dclk_vp2
-+      - const: dclk_vp3
-+
-   rockchip,grf:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -128,6 +148,11 @@ allOf:
-         clock-names:
-           minItems: 7
- 
-+        resets:
-+          minItems: 6
-+        reset-names:
-+          minItems: 6
-+
-         ports:
-           required:
-             - port@0
-@@ -152,6 +177,11 @@ allOf:
-         clock-names:
-           maxItems: 5
- 
-+        resets:
-+          maxItems: 5
-+        reset-names:
-+          maxItems: 5
-+
-         ports:
-           required:
-             - port@0
-@@ -183,6 +213,16 @@ examples:
-                               "dclk_vp0",
-                               "dclk_vp1",
-                               "dclk_vp2";
-+                resets = <&cru SRST_A_VOP>,
-+                         <&cru SRST_H_VOP>,
-+                         <&cru SRST_VOP0>,
-+                         <&cru SRST_VOP1>,
-+                         <&cru SRST_VOP2>;
-+                reset-names = "aclk",
-+                              "hclk",
-+                              "dclk_vp0",
-+                              "dclk_vp1",
-+                              "dclk_vp2";
-                 power-domains = <&power RK3568_PD_VO>;
-                 iommus = <&vop_mmu>;
-                 vop_out: ports {
--- 
-2.47.0
 
+> +		return (n < CSKY_ABIV2_MAX_REGS) ? csky_dwarf_regs_table_abiv2[n] : NULL;
+> +
+> +	return (n < CSKY_ABIV1_MAX_REGS) ? csky_dwarf_regs_table_abiv1[n] : NULL;
+>  }
+> diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
+> index fd21f9e90e40..9a76f83af62c 100644
+> --- a/tools/perf/util/dwarf-regs.c
+> +++ b/tools/perf/util/dwarf-regs.c
+> @@ -29,17 +29,18 @@
+>  #define __get_dwarf_regstr(tbl, n) (((n) < ARRAY_SIZE(tbl)) ? (tbl)[(n)] : NULL)
+>  
+>  /* Return architecture dependent register string (for kprobe-tracer) */
+> -const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
+> -			     unsigned int flags __maybe_unused)
+> +const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags)
+>  {
+> -#if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM
+> +#if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
+> +    || EM_HOST == EM_CSKY
+
+And here too.  It seems you also need a rebase.
+
+At this point, I'm giving up.  Can you please refresh the series with
+a fix?
+
+Thanks,
+Namhyung
+
+
+>  	if (machine == EM_NONE) {
+>  		/* Generic arch - use host arch */
+>  		machine = EM_HOST;
+>  	}
+>  #endif
+>  	switch (machine) {
+> -#if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM
+> +#if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
+> +    && EM_HOST != EM_CSKY
+>  	case EM_NONE:	/* Generic arch - use host arch */
+>  		return get_arch_regstr(n);
+>  #endif
+> @@ -51,6 +52,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
+>  		return __get_dwarf_regstr(arm_regstr_tbl, n);
+>  	case EM_AARCH64:
+>  		return __get_dwarf_regstr(aarch64_regstr_tbl, n);
+> +	case EM_CSKY:
+> +		return get_csky_regstr(n, flags);
+>  	case EM_SH:
+>  		return __get_dwarf_regstr(sh_regstr_tbl, n);
+>  	case EM_S390:
+> diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+> index 0b533409d82a..b72d9d308ce4 100644
+> --- a/tools/perf/util/include/dwarf-regs.h
+> +++ b/tools/perf/util/include/dwarf-regs.h
+> @@ -83,6 +83,8 @@
+>  const char *get_arch_regstr(unsigned int n);
+>  #endif
+>  
+> +const char *get_csky_regstr(unsigned int n, unsigned int flags);
+> +
+>  /**
+>   * get_dwarf_regstr() - Returns ftrace register string from DWARF regnum.
+>   * @n: DWARF register number.
+> -- 
+> 2.47.0.105.g07ac214952-goog
+> 
 
