@@ -4,117 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B550D5C0C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1D0D5C0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F03uK41G1srvx8cBZFa9QQCA4gtAsTLoFIro+LvIlIA=; b=ZhQruocJVNN+vKlJ7GrqybnAlQ
-	EBbf2R86bCCExDtlo2QXlTPO9eI23/s9RSooLMm/oe1HztZAcfuhSFsNx/kDqww0aHZeE/YweQOX0
-	d7bRFaDLmM5pXZbKPEVcCVCvdOK0ZA53atIrn3zZoJopXgzm0vwpytZp7ffPp4A3moFv4T0IHAvgX
-	F5CyiCS5U6M7Cih0/AqoD33g01V//6FGQzicqMB7p07k2qILOGV/10XHTsiBqtPOm5XCUFKfzWgpB
-	zIMoidpAIQcICEmXehknD0sPwfnWB/rjtGws9EAgrTahmjkUp1xfOktdGNsNIXYT7d2g+U9xNYs9i
-	In4zDVMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EzdQS4/ZSL660WMfzgBrIZD7Rk0XpNGJIyiuk2R/8zc=; b=gdSR3zRt8y/L4PMc48De6WCOUk
+	tsIDkueSuRjwHjBreBly57SrD/XBGeYaei4+rOqlx1ugnlXPNz1YhMbYiwR2P3HQXRdrcRBdWEGpk
+	cwHyYnAc5qCchFn+urpjeR/IUum/Qu7WJsR+rOsas1qSYL7Nk3rvRicWMEOrczFcQiQEao6+FdGCL
+	TBm5kzRPiLhCzqzCYVYhb/iqg3aSXDPn6xD0AjCsGFRjLJgVsFBzbgqEj4zJEphGX6/0GoOale1oV
+	dsFBbsdZeBkLLu9XtPcJcjXzoFHoBlK/Au+z0bftOGaBECk/euRhlbN6Bl2W96jDIwHondyoMUhyd
+	3Lg+Gt7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9O11-0000000AVAz-0HRt;
-	Fri, 08 Nov 2024 12:23:03 +0000
+	id 1t9O3U-0000000AVxt-1K7W;
+	Fri, 08 Nov 2024 12:25:36 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Nr1-0000000ATHB-16FZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 12:12:44 +0000
+	id 1t9NuH-0000000ATnl-2go4;
+	Fri, 08 Nov 2024 12:16:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F2875C5459;
-	Fri,  8 Nov 2024 12:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A90B2C4CECD;
-	Fri,  8 Nov 2024 12:12:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 66EA15C5470;
+	Fri,  8 Nov 2024 12:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CDD2C4CECE;
+	Fri,  8 Nov 2024 12:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731067961;
-	bh=cK8xFRnGlMnoguSnAHELwh/X2hSfv4FZcBJxGPPrDx4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ex/rNDSQeT20fYIkjQJpsLYv4tjEA9YSllOzlvGS/NCqKc9aJUYQHAhskeTKRLiYO
-	 F6DQT0WXwIShtI/V5UEV7CTbJd9mnHyK+7JbOjpKrRGd3qaTzktbwkGKhCr+DwePF9
-	 MniLuA8wRGKJIh2Ad39g8vR5yYEedE6dd/ciavrtOSM1KI6W0KkJfogh3m2qHXpE1L
-	 CP0L6jQ10gBi4RMJgZtgpEwpusmD0k2BaDWuq7qAvIYLWwex+hEl6KxaiEgGCKN2pQ
-	 thsMvWUANmnvvBucIMnajW99pVOgnJrucKAWeAxhx6acVuF1pDH5ZqSnkBuQN4scmu
-	 9+TJN9a5Kh60A==
-Message-ID: <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org>
-Date: Fri, 8 Nov 2024 13:12:34 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
- spectrum clocking
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
- Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
- <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
- <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
- <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org>
- <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
+	s=k20201202; t=1731068164;
+	bh=zumeqdnWgfVudDgu2Wto+bNBu1U0drSMP3Z251G3Lyg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p6bE0Jvtry2SCdFKfLNO4drwuBYhL1WXlgfOnUqw+fHd8rIHKFinzksgVuS20W7YF
+	 FZaEr/LnpYUoNKzbgfpY/AuL2Dh7xGN4lIno1HYQLmvs/HIXxfF1bd3I6dfHJAJXJy
+	 9TEfvMfy7dZs+sAjDY9aTPhTUX8tbHtVOySriWmU0Z48H+AEj5E5YdEBkAR7Ur110h
+	 bVGBtBpptEfKNZdm5b7qd5/CBm7xoOvHLTjRvw5pI0H6l6G/b/5C1GF6cFnzTxVU+7
+	 D4XvFUGvQQ0j2LXK1RllPn7z489iLi8xaWqA/KFzr7S9zFib3eddNsgFixmO5RoKaY
+	 MXv6vPt45NLSQ==
+Date: Fri, 8 Nov 2024 13:16:01 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] dt-bindings: clock: actions,owl-cmu: convert to YAML
+Message-ID: <a4begcrmbtotl2imd3eaxpdveagvwridy6ev5zmwzvjqt3ovfq@wyj2dj73xe3e>
+References: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_041243_426207_E015DD87 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20241108_041605_745094_CDDCB259 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,58 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/11/2024 15:57, Dario Binacchi wrote:
->     clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
->                   <&clk_ext3>, <&clk_ext4>;
->     clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
->                              "clk_ext3", "clk_ext4";
->     assigned-clocks = <&clk IMX8MN_CLK_A53_SRC>,
->                                   <&clk IMX8MN_CLK_A53_CORE>,
->                                   <&clk IMX8MN_CLK_NOC>,
->                                   <&clk IMX8MN_CLK_AUDIO_AHB>,
->                                   <&clk IMX8MN_CLK_IPG_AUDIO_ROOT>,
->                                   <&clk IMX8MN_SYS_PLL3>,
->                                   <&clk IMX8MN_AUDIO_PLL1>,
->                                   <&clk IMX8MN_AUDIO_PLL2>;
->     assigned-clock-parents = <&clk IMX8MN_SYS_PLL1_800M>,
->                                              <&clk IMX8MN_ARM_PLL_OUT>,
->                                              <&clk IMX8MN_SYS_PLL3_OUT>,
->                                              <&clk IMX8MN_SYS_PLL1_800M>;
->     assigned-clock-rates = <0>, <0>, <0>,
->                                          <400000000>,
->                                          <400000000>,
->                                          <600000000>,
->                                          <393216000>,
->                                          <361267200>;
-> };
+On Thu, Nov 07, 2024 at 04:34:31PM +0200, Ivaylo Ivanov wrote:
+> Convert the Actions Semi Owl CMU bindings to DT schema.
 > 
-> The spread spectrum is not configurable on these clocks or, more
-> generally, may not be
-> configurable (only 4 PLLs have this capability). Therefore, I need the
-> "fsl,ssc-clocks"
-
-No. That's not true. You do not need it.
-
-First, the clock inputs for this device are listed in clocks *only*.
-What is no there, is not an input to the device. Including also Linux
-aspect (missing devlinks etc). Therefore how can you configure spread
-spectrum on clocks which are not connected to this device?
-
-Second, I do no ask you to configure spread spectrum on other clocks,
-only on the ones you intent to. List is fixed and ordered, so no problem
-with that.
-
-> property to list the PLLs on which I want to enable and configure
-> spread spectrum.
+> Changes during conversion:
+>  - Since all Actions Semi Owl SoCs utilize the internal low frequency
+>    oscillator as a parent for some clocks, require it.
 > 
-> Furthermore, spread spectrum cannot be considered a new device but
-> rather a property
-> available only for some of the clocks managed by the clock controller
-> manager (CCM).
-> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 
-My comment stands and that's a disagreement from me. Feel free to get
-second DT maintainer opinion, though.
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation: Please add
+Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
+or above your Signed-off-by tag. Tag is "received", when provided
+in a message replied to you on the mailing list. Tools like b4 can help
+here. However, there's no need to repost patches *only* to add the tags.
+The upstream maintainer will do that for tags received on the version
+they apply.
+
+https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
+
+I cannot add other people's tags - toolsets ignore it.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+...
+
+> +maintainers:
+> +  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> +
+> +description: |
+> +  The Actions Semi Owl Clock Management Unit generates and supplies clock
+> +  to various controllers within the SoC.
+> +
+> +  See also::
+
+Single ':'.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
