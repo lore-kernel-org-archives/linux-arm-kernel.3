@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7A2D6406B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CE8D64070
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYZrDcE7I1HFzbqCHDXhx+d8qBGIhXOz/Pay6a/54ts=; b=mhpGgHOOkieGPDWtqrwihuV0kA
-	6eLGZ2IvnLIdY11wCLnqbUVL44djt2r67KK5R+Z3t0FVGzBhQoGa0ELBgYlGYKwgjXGWWrL/cKrzv
-	f/t98PmW3PZA/O6Sk8jG/tQSepNDJ7FYTJOs50RVkI6laWHmeemfrCU5w9PI/z5KbbthYKb8RbFxq
-	FzzmRgsDeXtO2dDRTG9zKAsU/hIbr1CnlcfLKOXMBwhAFQ4eMAqDgBRuXDohVVQg8DF9xCfCVrT6K
-	DHq447JrnfVSnF6jMwSiiUzmze5n9W1tY/tDaUXwgoj0r+DlST1GHGFkTJOx8wDQ2OB+vwaH1+SDX
-	oL3IPLAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=; b=pKz4/jlm8E+apivW9k+JaZ/TGU
+	CzATbIZIObXlZkePfiX8aywNbCWD4G6Xb5UIQzNvp4akiUzf5TbLU7Mbd0vxPJ4g/o8Lye+9IukWl
+	uCRIaXqkXnfLd217/tcsQHn4s/vnwyMYllya/0ymbNH9nRR5oDiPAagPkSBY6AQL0ESEzBUY/YIwI
+	O4h1Uh+bganzSv+//96IYRqPFrJjVIcS+MPa0hqY0kBWYvvclb80zSMPgika2yKPgicIPGBwZH/F1
+	Z4ThpxQMN1LH+GDImyrmGMTenW8wGx+/PgJ0o9tN8m3zkTwNSJbVZU7V30alN4/sQicO29D/++INm
+	UG+p4m7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Skd-0000000BNyt-0ZyA;
-	Fri, 08 Nov 2024 17:26:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t9Stb-0000000BPLa-1ZGB;
+	Fri, 08 Nov 2024 17:35:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SiB-0000000BNUz-18yQ;
-	Fri, 08 Nov 2024 17:23:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E50695C5B33;
-	Fri,  8 Nov 2024 17:23:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B54ABC4CECD;
-	Fri,  8 Nov 2024 17:23:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731086634;
-	bh=6zKQlRn0Es/TKeDFmAQ35oAz8kwkdvS9qyL+rTAPFhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QBD6MBtKY3GZVRw49enM8QsMZfEiWtuHqSv4AceulD2+HrEJLAnsaI9WMrCl3EB3V
-	 6CR+wE51/iuWuBHlFdhnnyOZDRdI4zbh/CW7FNXbAA50ThB+C/CYb2Oaq3VlnawrTK
-	 xmrSF2ubuhPAGd7Ks6FgMe2cwTE4r+DJu3FKwrPR8k/oNqfIFUnqMCz+z8k1T1cXzn
-	 /IdBdqr6c4JFV+dsm9YywGm64fpJJmb5po6XeRBwYZeRoQhadf9bDuxoEdQm5Bc6CY
-	 lXSLehNuVh5RhS/9E136m6EZZJxzMBBlDL2azR48I/LCxgc7OTY2+TZXsQCy+WkvGZ
-	 GAiFiZ88dKNSQ==
-Date: Fri, 8 Nov 2024 18:23:50 +0100
-From: "lorenzo@kernel.org" <lorenzo@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
- .power_up()
-Message-ID: <Zy5JJuAsxPqEos4I@lore-desk>
-References: <Zy5EjY_oQaRbb5MY@lore-desk>
- <20241108171710.GA1667022@bhelgaas>
+	id 1t9Srm-0000000BOvc-3wDc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 08 Nov 2024 17:33:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=; b=iXnAI938aVANlcl3UDbqozavqI
+	Wy1cKLw2lvw4Tilj+0eo2+heMp7Dj6J5NPpXgEm2scsZCY8cEFOIjEQejcqTFwB0ZPVmuEy4SCOvb
+	iIi/Khvxgj/DbwAqV4BIVkQ1pIZD9ZkBHKbPD2Iex2jOdhuEqHyJhA1G01b0d80G1tr1O7kJulhcM
+	IxpR0D08wI9eqZy4zZmLOJqqe594VOPaUSCZHj0E63ujAuh8BoSgsr+nLmiQl/15688WyjggMu3l9
+	zU56u8+lJBuKxjeNVTOA4QfnQoIuY67PiE3fg7ICFVXfqHy0Sy+oUGuKK6ptD6ZAeiy4ocEyXePFD
+	2Uj8HyCw==;
+Received: from mail.ispras.ru ([83.149.199.84])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9Sri-0000000CLKW-1sNF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 17:33:48 +0000
+Received: from ldvnode.intra.ispras.ru (unknown [10.10.2.153])
+	by mail.ispras.ru (Postfix) with ESMTPSA id E969740B2274;
+	Fri,  8 Nov 2024 17:33:40 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru E969740B2274
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1731087221;
+	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=F5kOF/OaGdZSfFauj5TVSIstfJVU3lTPNTDHweGefjpPXpJ0XtnIpVTv1ULCVKRov
+	 PD1zkrsBF3jPlQfslBxcFO3SizMaSk+ggashI9VbDmg/EmGK1EJbDK9lz0pdeW5tyC
+	 jdFv4KDgaz8GCIsg5WJfS3SLQjxa0Lw0gdMSRuwE=
+From: Vitalii Mordan <mordan@ispras.ru>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Vitalii Mordan <mordan@ispras.ru>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	Fedor Pchelkin <pchelkin@ispras.ru>,
+	Alexey Khoroshilov <khoroshilov@ispras.ru>,
+	Vadim Mutilin <mutilin@ispras.ru>
+Subject: [PATCH net v2]: stmmac: dwmac-intel-plat: fix call balance of tx_clk handling routines
+Date: Fri,  8 Nov 2024 20:33:34 +0300
+Message-Id: <20241108173334.2973603-1-mordan@ispras.ru>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mpRtWSJTYmJLObDx"
-Content-Disposition: inline
-In-Reply-To: <20241108171710.GA1667022@bhelgaas>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_092355_428351_2424A8DB 
-X-CRM114-Status: GOOD (  27.33  )
+X-CRM114-CacheID: sfid-20241108_173346_984562_6F2C73C4 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +93,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+If the clock dwmac->tx_clk was not enabled in intel_eth_plat_probe,
+it should not be disabled in any path.
 
---mpRtWSJTYmJLObDx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Conversely, if it was enabled in intel_eth_plat_probe, it must be disabled
+in all error paths to ensure proper cleanup.
 
-On Nov 08, Bjorn Helgaas wrote:
-> On Fri, Nov 08, 2024 at 06:04:13PM +0100, lorenzo@kernel.org wrote:
-> > > On Fri, Nov 08, 2024 at 09:39:41AM +0100, lorenzo@kernel.org wrote:
-> > > > > On Thu, 2024-11-07 at 17:08 +0100, Lorenzo Bianconi wrote:
-> > > > > > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wr=
-ote:
-> > > > > > > > In order to make the code more readable, move phy and mac
-> > > > > > > > reset lines assert/de-assert configuration in .power_up
-> > > > > > > > callback (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
-> > >=20
-> > > > > > > > +	/*
-> > > > > > > > +	 * The controller may have been left out of reset by the
-> > > > > > > > bootloader
-> > > > > > > > +	 * so make sure that we get a clean start by asserting re=
-sets
-> > > > > > > > here.
-> > > > > > > > +	 */
-> > > > > > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_reset=
-s,
-> > > > > > > > +				  pcie->phy_resets);
-> > > > > > > > +	reset_control_assert(pcie->mac_reset);
-> > > > > > > > +	usleep_range(10, 20);
-> > > > > > >=20
-> > > > > > > Unrelated to this patch, but since you're moving it, do you
-> > > > > > > know what this delay is for?  Can we add a #define and a spec
-> > > > > > > citation for it?
-> > > > > >=20
-> > > > > > I am not sure about it, this was already there.  @Jianjun Wang:
-> > > > > > any input on it?
-> > > > >=20
-> > > > > This delay is used to ensure the reset is effective. A delay of
-> > > > > 10us should be sufficient in this scenario.
-> > > >=20
-> > > > ack, so we can introduce a marco like:
-> > > >=20
-> > > > #define PCIE_RESET_TIME_US	10
-> > > > ...
-> > > >=20
-> > > > usleep_range(PCIE_RESET_TIME_US, 2 * PCIE_RESET_TIME_US);
-> > >=20
-> > > Unless this corresponds to a value specified by the PCIe base spec
-> > > or CEM spec, this macro should be internal to
-> > > pcie-mediatek-gen3.c.
-> >=20
-> > My plan is to add it in pcie-mediatek-gen3.c. Do you think
-> > PCIE_RESET_TIME_US is too generic?
->=20
-> It's generic, but so are most of the other #defines in
-> pcie-mediatek-gen3.c, so I'd follow suit.
->=20
-> Connect it to language in the MediaTek spec if possible, i.e., if the
-> spec names this parameter, try to use the same name.
+Found by Linux Verification Center (linuxtesting.org) with Klever.
 
-unfortunately I do not have any mediatek spec documentation available.
+Fixes: 9efc9b2b04c7 ("net: stmmac: Add dwmac-intel-plat for GBE driver")
+Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
+---
+v2: Unwind using a goto label, as per Simon Horman's request.
 
-@Jianjun Wang: is PCIE_RESET_TIME_US fine for you or according to the avail=
-able
-documentation?
+ .../stmicro/stmmac/dwmac-intel-plat.c         | 25 +++++++++++++------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
-Regards,
-Lorenzo
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
+index d68f0c4e7835..9739bc9867c5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
+@@ -108,7 +108,12 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
+ 			if (IS_ERR(dwmac->tx_clk))
+ 				return PTR_ERR(dwmac->tx_clk);
+ 
+-			clk_prepare_enable(dwmac->tx_clk);
++			ret = clk_prepare_enable(dwmac->tx_clk);
++			if (ret) {
++				dev_err(&pdev->dev,
++					"Failed to enable tx_clk\n");
++				return ret;
++			}
+ 
+ 			/* Check and configure TX clock rate */
+ 			rate = clk_get_rate(dwmac->tx_clk);
+@@ -119,7 +124,7 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
+ 				if (ret) {
+ 					dev_err(&pdev->dev,
+ 						"Failed to set tx_clk\n");
+-					return ret;
++					goto err_tx_clk_disable;
+ 				}
+ 			}
+ 		}
+@@ -133,7 +138,7 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
+ 			if (ret) {
+ 				dev_err(&pdev->dev,
+ 					"Failed to set clk_ptp_ref\n");
+-				return ret;
++				goto err_tx_clk_disable;
+ 			}
+ 		}
+ 	}
+@@ -149,12 +154,15 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+-	if (ret) {
+-		clk_disable_unprepare(dwmac->tx_clk);
+-		return ret;
+-	}
++	if (ret)
++		goto err_tx_clk_disable;
+ 
+ 	return 0;
++
++err_tx_clk_disable:
++	if (dwmac->data->tx_clk_en)
++		clk_disable_unprepare(dwmac->tx_clk);
++	return ret;
+ }
+ 
+ static void intel_eth_plat_remove(struct platform_device *pdev)
+@@ -162,7 +170,8 @@ static void intel_eth_plat_remove(struct platform_device *pdev)
+ 	struct intel_dwmac *dwmac = get_stmmac_bsp_priv(&pdev->dev);
+ 
+ 	stmmac_pltfr_remove(pdev);
+-	clk_disable_unprepare(dwmac->tx_clk);
++	if (dwmac->data->tx_clk_en)
++		clk_disable_unprepare(dwmac->tx_clk);
+ }
+ 
+ static struct platform_driver intel_eth_plat_driver = {
+-- 
+2.25.1
 
---mpRtWSJTYmJLObDx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy5JJgAKCRA6cBh0uS2t
-rJXaAQC/Sv0ltwvrKgZw6OyUcbyAk4/sBfF7IaiTfIisVDVn7gD8DwX7b6kQV/DZ
-fdWM8kWpF/9QWlKmCpHxYbkyemdxqw4=
-=M7P9
------END PGP SIGNATURE-----
-
---mpRtWSJTYmJLObDx--
 
