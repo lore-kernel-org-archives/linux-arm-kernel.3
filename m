@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F3ED64072
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09000D64077
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bln66Cj/4DuFtXWJ9twIGuA0YROIEtlzR+Qxe10xcig=; b=drHpi/axoWGsnIZWr4hxsJ9Gp0
-	mh8Y+zita3mu5kaBJQdqgSfv/mEcCOi9eWx2NhdtkbkI2aNfzHT7jgJAgSMz+NQPaqXY1myqVV1FI
-	H8XMFon3CSjGmEuU4UVkMH1YGOL6d5BZS3cNWe+/y9wo9ixlYxSbfVkLOArz2eeq5PltV1Mj9ENqH
-	RrYmo5l2+xL+jW9xen1lXd/JaJHqniQo1qplQrV/gWsBc43qlcSXybTXpvj3lI6YP5BemFrh2I80j
-	4ZvVnwSI3PRQmL0DcrgClNEW7wLqtPxlt/rlzGh+Omh1agwDAcMlHVWx4rtQJl+/G/6l9aVdbfNg7
-	PbpqFBDQ==;
+	bh=CRM+nCx+NkgrBspLoJyW0b5hEl+tJtJBZ5eRpry7Ysk=; b=JF28yP/Lw4APMRyBIxTVLFr/hl
+	wmPi8c2Ox/EYShr46P3cNxOIvgInAoXhA7bBKQ+voD4LjFaAzdSBm1VhX39sgdBJPTkZde08/ZDfB
+	N+SlWnGhUSwIrkIh9cadCfakejtsX2A0JRf2nXYd9f1mJuwpmBtxDh33DtSXKJQ6l7YToukz9lPAG
+	qnVFdRZFNY/JZlCPFheBDP/q9nG3olRXMaLyb2dYyFXnESegvw8FmQwX+dkNe78G5aO63RP53VyrA
+	uJtBkv6tVkodxeT79gqvAHdxTGmMaTBwqbAY5ATS6GjXVLh1hOVv2EiwvM5669hPWEAJ9mEKEWlQK
+	Z/cBNdVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Tuy-0000000BcZt-3QDv;
-	Fri, 08 Nov 2024 18:41:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t9Twi-0000000Bcvu-2y6f;
+	Fri, 08 Nov 2024 18:43:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Tnl-0000000BblJ-3d56;
-	Fri, 08 Nov 2024 18:33:47 +0000
+	id 1t9TsL-0000000BcIE-1Cw0;
+	Fri, 08 Nov 2024 18:38:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F14CA5C5761;
-	Fri,  8 Nov 2024 18:32:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDAA2C4CECD;
-	Fri,  8 Nov 2024 18:33:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DC6CBA4408D;
+	Fri,  8 Nov 2024 18:36:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B85CDC4CECD;
+	Fri,  8 Nov 2024 18:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731090824;
-	bh=VzEbzDDDCKoTnPd8x/oSFG034TYCChkZgRP7+dq472E=;
+	s=k20201202; t=1731091107;
+	bh=ysbnWIA04niPh4/FnRelxvy/7qgNN9jt3TdDs+ECXHY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mKWdw4dtOsyG2l9hbiWydQ1TnG8L029tR9tk+z7q4b3lIIF4lXesQFKkddDShPeD5
-	 t/Uz+EOE8qGMIyapBmMtyDp8x+24QLsBXddT5coFXx+LKgFKZxlhYcoE8hDvmmIXRf
-	 nHCDyVWctUwu24IB9tLWGSsdQ/93cpgRcOdULI611PVu2fdRobxluKhimvwjy9OYkP
-	 zGoSu4Lw/CuU6foFRozyU245RiqebWSDjqUoCZZQU35630F3ovFt8YRQDs2dNO06yK
-	 V7V1aBXWTE3++VwykuGm7TjQ9cMfZERo5ax7IM5r229srFwfNOeYRRHtlYiQtytK6V
-	 3eknASrwCH0kQ==
-Date: Fri, 8 Nov 2024 10:33:41 -0800
+	b=n5x9U7KDBB10MgdIZ5cjW590p6De536vrCk6OUvDIUUWG2j2zr4RwiRpbjUPAeBfJ
+	 KA+Mj+0+vl1KNhF2gZGB3soVZT6L4Mq/fgt6ZAkMTvHEaZcF6cD/gm+P3ks6j2M8Ce
+	 0aFHCp+CEvssjEwhAJ/3qT904uMtGPDYzowmckVMpkBsiMOPjm/cf5hsu0BkrngexS
+	 +ePBbaF3hoEU86XGCPhGZY/Qr3JR9xpJ+Uz3p2yAEsewaPXhnSpWjXv13FrdBVsClu
+	 lZ4glEdEamcE+LykLNeeXHS25zbgkF9/5tjYvV8cmic/HB/9XlfQfKa6/YwQ2/kqh8
+	 u0Ykcp1J7+p7Q==
+Date: Fri, 8 Nov 2024 10:38:24 -0800
 From: Namhyung Kim <namhyung@kernel.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -59,6 +58,7 @@ Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
 	Changbin Du <changbin.du@huawei.com>,
 	Guilherme Amadio <amadio@gentoo.org>,
 	Yang Jihong <yangjihong@bytedance.com>,
@@ -80,18 +80,21 @@ Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
-Message-ID: <Zy5ZhX-ZWRCQRHVs@google.com>
+Subject: Re: [PATCH v3 04/20] perf disasm: Add e_machine/e_flags to struct
+ arch
+Message-ID: <Zy5aoMnY2nupb7SX@google.com>
 References: <20241017002520.59124-1-irogers@google.com>
- <Zy0VHro3wE-ZTKsq@google.com>
- <20241108090040.463cb3f0820e7ac22d1bb6c2@kernel.org>
+ <20241017002520.59124-5-irogers@google.com>
+ <Zy5Le-xn4gzQ2WLo@google.com>
+ <CAP-5=fXe-gJ6pXwdTgGqScCR+mKS2FBfVDsbih7vL-1kPKAvaA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241108090040.463cb3f0820e7ac22d1bb6c2@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP-5=fXe-gJ6pXwdTgGqScCR+mKS2FBfVDsbih7vL-1kPKAvaA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_103346_041286_DA75DB78 
-X-CRM114-Status: GOOD (  34.70  )
+X-CRM114-CacheID: sfid-20241108_103829_458590_10010D6B 
+X-CRM114-Status: GOOD (  37.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +109,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 09:00:40AM +0900, Masami Hiramatsu wrote:
-> Hi,
+On Fri, Nov 08, 2024 at 10:19:52AM -0800, Ian Rogers wrote:
+> On Fri, Nov 8, 2024 at 9:33 AM Namhyung Kim <namhyung@kernel.org> wrote:
+> >
+> > On Wed, Oct 16, 2024 at 05:25:04PM -0700, Ian Rogers wrote:
+> > > Currently functions like get_dwarf_regnum only work with the host
+> > > architecture. Carry the elf machine and flags in struct arch so that
+> > > in disassembly these can be used to allow cross platform disassembly.
+> > >
+> > > Signed-off-by: Ian Rogers <irogers@google.com>
+> > > ---
+> > >  tools/perf/arch/arc/annotate/instructions.c       | 2 ++
+> > >  tools/perf/arch/arm/annotate/instructions.c       | 2 ++
+> > >  tools/perf/arch/arm64/annotate/instructions.c     | 2 ++
+> > >  tools/perf/arch/csky/annotate/instructions.c      | 7 ++++++-
+> > >  tools/perf/arch/loongarch/annotate/instructions.c | 2 ++
+> > >  tools/perf/arch/mips/annotate/instructions.c      | 2 ++
+> > >  tools/perf/arch/powerpc/annotate/instructions.c   | 2 ++
+> > >  tools/perf/arch/riscv64/annotate/instructions.c   | 2 ++
+> > >  tools/perf/arch/s390/annotate/instructions.c      | 2 ++
+> > >  tools/perf/arch/sparc/annotate/instructions.c     | 2 ++
+> > >  tools/perf/arch/x86/annotate/instructions.c       | 3 ++-
+> > >  tools/perf/util/disasm.h                          | 4 ++++
+> > >  12 files changed, 30 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/tools/perf/arch/arc/annotate/instructions.c b/tools/perf/arch/arc/annotate/instructions.c
+> > > index 2f00e995c7e3..e5619770a1af 100644
+> > > --- a/tools/perf/arch/arc/annotate/instructions.c
+> > > +++ b/tools/perf/arch/arc/annotate/instructions.c
+> > > @@ -5,5 +5,7 @@ static int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+> > >  {
+> > >       arch->initialized = true;
+> > >       arch->objdump.comment_char = ';';
+> > > +     arch->e_machine = EM_ARC;
+> > > +     arch->e_flags = 0;
+> > >       return 0;
+> > >  }
+> > > diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/arch/arm/annotate/instructions.c
+> > > index 2ff6cedeb9c5..cf91a43362b0 100644
+> > > --- a/tools/perf/arch/arm/annotate/instructions.c
+> > > +++ b/tools/perf/arch/arm/annotate/instructions.c
+> > > @@ -53,6 +53,8 @@ static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+> > >       arch->associate_instruction_ops   = arm__associate_instruction_ops;
+> > >       arch->objdump.comment_char        = ';';
+> > >       arch->objdump.skip_functions_char = '+';
+> > > +     arch->e_machine = EM_ARM;
+> > > +     arch->e_flags = 0;
+> > >       return 0;
+> > >
+> > >  out_free_call:
+> > > diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
+> > > index f86d9f4798bd..d465d093e7eb 100644
+> > > --- a/tools/perf/arch/arm64/annotate/instructions.c
+> > > +++ b/tools/perf/arch/arm64/annotate/instructions.c
+> > > @@ -113,6 +113,8 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+> > >       arch->associate_instruction_ops   = arm64__associate_instruction_ops;
+> > >       arch->objdump.comment_char        = '/';
+> > >       arch->objdump.skip_functions_char = '+';
+> > > +     arch->e_machine = EM_AARCH64;
+> > > +     arch->e_flags = 0;
+> > >       return 0;
+> > >
+> > >  out_free_call:
+> > > diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/arch/csky/annotate/instructions.c
+> > > index 5337bfb7d5fc..14270311d215 100644
+> > > --- a/tools/perf/arch/csky/annotate/instructions.c
+> > > +++ b/tools/perf/arch/csky/annotate/instructions.c
+> > > @@ -43,6 +43,11 @@ static int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+> > >       arch->initialized = true;
+> > >       arch->objdump.comment_char = '/';
+> > >       arch->associate_instruction_ops = csky__associate_ins_ops;
+> > > -
+> > > +     arch->e_machine = EM_CSKY;
+> > > +#if defined(__CSKYABIV2__)
+> > > +     arch->e_flags = EF_CSKY_ABIV2;
+> > > +#else
+> > > +     arch->e_flags = EF_CSKY_ABIV1;
+> > > +#endif
+> >
+> > By moving this into the general code, it should take care of old systems
+> > that doesn't have the macro.
+> >
+> >   In file included from util/disasm.c:109:
+> >   /linux/tools/perf/arch/csky/annotate/instructions.c: In function 'csky__annotate_init':
+> >   /linux/tools/perf/arch/csky/annotate/instructions.c:50:25: error: 'EF_CSKY_ABIV1' undeclared (first use in this function)
+> >      50 |         arch->e_flags = EF_CSKY_ABIV1;
+> >         |                         ^~~~~~~~~~~~~
+> >   /linux/tools/perf/arch/csky/annotate/instructions.c:50:25: note: each undeclared identifier is reported only once for each function it appears in
 > 
-> On Thu, 7 Nov 2024 11:29:34 -0800
-> Namhyung Kim <namhyung@kernel.org> wrote:
-> 
-> > Hi all,
-> > 
-> > On Wed, Oct 16, 2024 at 05:25:00PM -0700, Ian Rogers wrote:
-> > > These changes are on top of:
-> > > https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
-> > > 
-> > > Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
-> > > dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
-> > > functions:
-> > > 
-> > > 1) regs_query_register_offset would translate a register name into a
-> > > pt_regs offset and was used by BPF prologues. BPF prologues existed
-> > > for BPF events and support for these was removed many releases ago.
-> > > This code was dead and could be removed.
-> > > 
-> > > 2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
-> > > removed.  The case for csky was a little more complicated as the ABI
-> > > controlled the string. The callers of get_dwarf_regstr were updated to
-> > > also pass the ELF flags so that on csky the ABI appropriate table
-> > > could be used. As the argument is only used on csky this a no-op for
-> > > everything else.
-> > > 
-> > > 3) get_arch_regnum translated a register name back to a dwarf number
-> > > and only existed on x86 where "al", "ax", "eax" and "rax" could all
-> > > mean register 0. This code was moved to util with similar
-> > > machine/flags logic to get_arch_regstr and for consistency with it.
-> > > 
-> > > 4) get_powerpc_regs a PowerPC specific function used by annotate that
-> > > should really be in util.
-> > > 
-> > > 2 and 3 required the wiring through of the ELF machine and flags in
-> > > callers to get_dwarf_regstr and get_dwarf_regnum. When these values
-> > > weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
-> > > to give the host ELF machine and flags. These 2 #defines got rid of
-> > > the existing separate arch files and #ifdefs.
-> > > 
-> > > v3: These files were separated from the rest of the v2 libdw clean up
-> > >     in:
-> > > https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
-> > > 
-> > > Ian Rogers (20):
-> > >   perf bpf-prologue: Remove unused file
-> > >   perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
-> > >   perf dwarf-regs: Add EM_HOST and EF_HOST defines
-> > >   perf disasm: Add e_machine/e_flags to struct arch
-> > >   perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
-> > >   perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
-> > >   perf dwarf-regs: Move x86 dwarf-regs out of arch
-> > >   perf arm64: Remove dwarf-regs.c
-> > >   perf arm: Remove dwarf-regs.c
-> > >   perf dwarf-regs: Move csky dwarf-regs out of arch
-> > >   perf loongarch: Remove dwarf-regs.c
-> > >   perf mips: Remove dwarf-regs.c
-> > >   perf dwarf-regs: Move powerpc dwarf-regs out of arch
-> > >   perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
-> > >   perf s390: Remove dwarf-regs.c
-> > >   perf sh: Remove dwarf-regs.c
-> > >   perf sparc: Remove dwarf-regs.c
-> > >   perf xtensa: Remove dwarf-regs.c
-> > >   perf dwarf-regs: Remove get_arch_regstr code
-> > >   perf build: Remove PERF_HAVE_DWARF_REGS
-> > 
-> > These look all good and I'm about to apply the series.
-> > 
-> > Masami, do you have any remaining concerns?  It'd be nice if you can
-> > give your Reviewed-by.
-> 
-> I think it looks good to me.
-> 
-> Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> EF_CSKY_ABIV1 is defined in elf.h and has been there at least 5 years in libelf:
+> https://sourceware.org/git/?p=elfutils.git;a=commit;f=libelf/elf.h;h=9c82942ae7355a3226c53a92c2c73b33193c5e33
+> I suspected the issue here is missing elf.h include, but the .c file
+> is included in tools/perf/util/disasm.c and that must have a
+> transitive dependency given other things are building. Do you want me
+> to send a patch making this conditional with extra #ifdefs or re-send
+> the series?
 
-Thanks for your review!
+Yeah, it's unfortunate but I think we can have a small incremental diff
+here to define them if it's not there.  Then I'll squash it to the
+patch.
+
+> 
+> > Also, I think __CSKYABIV2__ is defined only when the host is csky.  So
+> > it'll use ABI v1 on cross env.  I'm not sure if it's a problem.  We may
+> > need to save the ABI somewhere in the metadata later.
+> 
+> Agreed. In general we should read e_machine and e_flags from the ELF
+> file, so I'm not sure new metadata is needed. This patch is trying to
+> lay groundwork for that.
+
+I understand that.  Yeah it should come from the binary.
+
+Thanks,
 Namhyung
 
 
