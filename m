@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C1AD5C0E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F311D5C0E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+f+g8yyOKXMQlbG8MpvRrvh4tIxLok0rEAYYuf18pU=; b=3HxcdEYIoNOjnPxVNWn5ROGDfD
-	ZmwZ1EXHBPHrS8zNec/Wn1+MYpBPbmBC8UMwBpqni6SCcdrevBLOpyhSQAuH/one+LlyuyP9v31AP
-	in7XQtWuy+WwbidGZ/mronxWcNCeKop2EBTfoOlRqvpBIOS4FZ3BYTi8dUinynAVwFwVotUdQwKxu
-	xW3XF3G8+QZoZGMJfixO5h2YxA/TZc9bJe281BEVRwCVTxanBvrSa1h78Bt+1K7LihZYSL6rrc/3k
-	39ejYi9MrhgyKLT5lU71MRodhaxeDgrA/KEEOqR0wqSJNGtpnjnABObAuGMsCD0GsRICwCq+PA3Df
-	+4POWxlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+364whBo894sDaHVPzMASpKtlz59oEjI004Zvg/C+50=; b=QRpy0bP2rfsgDRXdILAIxYFAlK
+	yctcZoYqCJ0KJxp3IeiF3w0ATJVHuT698s3raq4o1vL+PHm+BNuXRJQB28miWhbmOOUHxg5esWh07
+	Hy+08iqaUCj2NjdJnItI0oNCTJcw0tLMWfUMXPXzFTLafQMWQ+3nQINboVfxoB6eMmKbJHQaj6w6/
+	lFRKxZloyR6jZnQ4bmaFEe19cCjonOgGPJBmM/XRbCtowsncgNJ6wKvGd4yyK8FX8udVTUzPT2XC6
+	nC3uuCIkw14qduiWaBj99MzKL4XbP8cSi8Pq/0DyqHIKr+4OsddsIe+e230wlhJ3MM/pQkOkMoi6n
+	UfTKZ7YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QhZ-0000000Azne-2A9K;
-	Fri, 08 Nov 2024 15:15:09 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1t9QjI-0000000B02s-2WWU;
+	Fri, 08 Nov 2024 15:16:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PvH-0000000AqBQ-2eVp;
-	Fri, 08 Nov 2024 14:25:19 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1731075911;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v+f+g8yyOKXMQlbG8MpvRrvh4tIxLok0rEAYYuf18pU=;
-	b=TAmLIgJpFi3WYWagfHvvZLAAirgZXLul++2EA0xNzLlguNFCXkuNJTpfHNo69/tyI8iOQg
-	u4vLFaU7ceFS/iJcWPNqKOQUlm2pysPD3aoU/TClqt+39Nz5Y0kWGOGhLQeX2ZKEaluvX7
-	JrFFbixe2hezzdMtdwmRw+Mm/Mg0eoiw8AdWn8T0VHbVO2fBuftlG4I5TkyBjYHjxurTBW
-	WPvm4i8miTfv9X6bPrBoFZRtSiKtjorssIDWzxQ/wC7gTIqCeMwplVMFDMlGu3C6JC0MYz
-	3ECnyr7+hH5tijyg0p6vRJtVJ1V7xWwN+rOmq60anQwvSzqzIVmDRCYZPzF3KQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1731075911;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v+f+g8yyOKXMQlbG8MpvRrvh4tIxLok0rEAYYuf18pU=;
-	b=jj/8EwA6cJ5MUQOonh7MRj4YYMI1ZD0f2sju/5TUx8FC8GyPnd68uaGGplLfknboD/bc7G
-	2i/uKKIRBVnxttBA==
-To: David Wang <00107082@163.com>, richard.henderson@linaro.org,
- linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
- guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
- James.Bottomley@HansenPartnership.com, deller@gmx.de, mpe@ellerman.id.au,
- paul.walmsley@sifive.com, ysato@users.sourceforge.jp, dalias@libc.org,
- glaubitz@physik.fu-berlin.de, davem@davemloft.net, andreas@gaisler.com,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com
-Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- loongarch@lists.linux.dev, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, David Wang
- <00107082@163.com>
-Subject: Re: [PATCH] kernel/irq/proc: performance: replace seq_printf with
- seq_put_decimal_ull_width
-In-Reply-To: <20241103080552.4787-1-00107082@163.com>
-References: <20241103080552.4787-1-00107082@163.com>
-Date: Fri, 08 Nov 2024 15:25:13 +0100
-Message-ID: <87r07lol9y.ffs@tglx>
-MIME-Version: 1.0
-Content-Type: text/plain
+	id 1t9Pvo-0000000AqLB-2YIC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 14:25:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0A9F75C5BEE;
+	Fri,  8 Nov 2024 14:25:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C50A4C4CECD;
+	Fri,  8 Nov 2024 14:25:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731075947;
+	bh=kdDEJrQtUo9c/wbCOUyoETQ4cdcbxfzJWY3L1MDsYT8=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=S95ecE1/5KUJlp1FAkDoMUxLDz1JyeQNjTNmZjJcbuDcL4yCxI0mljk10Ka49jiX/
+	 aUZ6CAK3MjT+VZ57N/1PoD3WuOMKO5DUMUdPyQh0kmKQbrK5s3Y+/ajPDJepFq9mxS
+	 L/ATMvmniafRUJGxviLLfTL2DnzCPa8gmkjxnR3HdemmMr1CdEPsAGP5FERL1TfIfA
+	 k7SW+bNuASnRqooFFvqpzu5zseBbePUBUV9twIHxDRhInxXPblGUGbrw56rmpjGcKz
+	 Va2pBWFCIoRIf2rCsoUM+t3krP08x8FND5HKF58JyW3QXbITRPHVPwkOalRSk6s1uT
+	 SkoAf72GhqXjA==
+Message-ID: <80b6fd96bdfb085271128f5bb3b5f515@kernel.org>
+Date: Fri, 08 Nov 2024 14:25:44 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v2 4/6] drm/display: bridge_connector: use
+ drm_bridge_connector_mode_valid()
+In-Reply-To: <20241101-hdmi-mode-valid-v2-4-a6478fd20fa6@linaro.org>
+References: <20241101-hdmi-mode-valid-v2-4-a6478fd20fa6@linaro.org>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Chen-Yu Tsai" <wens@csie.org>, "Dave
+ Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_062515_841188_789AD691 
-X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-CacheID: sfid-20241108_062548_742191_C2A28041 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,42 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-David!
+On Fri, 1 Nov 2024 02:25:07 +0200, Dmitry Baryshkov wrote:
+> Use new drm_bridge_connector_mode_valid() helper if there is a HDMI
+> bridge in the bridge chain. This removes the need to perform TMDS char
+> rate check manually in the bridge driver.
+> 
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> 
+> [ ... ]
 
-On Sun, Nov 03 2024 at 16:05, David Wang wrote:
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-$Subject: [PATCH] kernel/irq/proc: performance: ...
-
-That's not a valid subsystem prefix.
-
-> seq_printf is costy, when stress reading /proc/interrupts, profiling indicates
-> seq_printf takes about ~47% of show_interrupts samples:
-
-Also please follow the documentation for denoting functions in change
-logs:
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#function-references-in-changelogs
-
->  arch/alpha/kernel/irq.c     |   8 +--
->  arch/arm/kernel/smp.c       |   4 +-
->  arch/arm64/kernel/smp.c     |   3 +-
->  arch/csky/kernel/smp.c      |   4 +-
->  arch/loongarch/kernel/smp.c |   2 +-
->  arch/parisc/kernel/irq.c    |  34 ++++++------
->  arch/powerpc/kernel/irq.c   |  44 ++++++++--------
->  arch/riscv/kernel/smp.c     |   3 +-
->  arch/sh/kernel/irq.c        |   4 +-
->  arch/sparc/kernel/irq_32.c  |  12 ++---
->  arch/sparc/kernel/irq_64.c  |   4 +-
->  arch/x86/kernel/irq.c       | 100 ++++++++++++++++++------------------
->  arch/xtensa/kernel/irq.c    |   2 +-
->  arch/xtensa/kernel/smp.c    |   4 +-
->  kernel/irq/proc.c           |   6 ++-
-
-There is no dependency on these changes. So please split them up into
-seperate patches for core and the individual architectures.
-
-Thanks,
-
-        tglx
+Thanks!
+Maxime
 
