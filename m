@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9939D64077
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F3ED64072
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJ0nRkyEju0f2AiMoSuGzK2+adebI1lBs+Sty2G9dqg=; b=WKyA038NvF0SbLJlas4HCRJAng
-	fRKMKa+ThebJw4R97ln4ZgTaj22ar+4zvCyBFbAkkFFteeKZqW05IYu+b5k2EhHCTvxcT8mfQysrw
-	KkbxI0BBcB76sIwBEBRKHBwRMyUuxhXAqyXctojw2tIZmsPeGHlHOA+vh/1qNfBkkeMfRokTHgzmu
-	x0fI8Mk/ZYYUXbARJFCzd55N7zDCahfeylNDiYi95H/cREYva+uVM57P9l5xCOy3Qesx07git9Mrt
-	ZqcnRUJg//VHfl33Fp+R/UmaxcrezbmPVGJAlhBqc2eli57++oKeKk5NMI69KYBDxCyMnJ4FX/+Oy
-	ERo6Z92g==;
+	bh=Bln66Cj/4DuFtXWJ9twIGuA0YROIEtlzR+Qxe10xcig=; b=drHpi/axoWGsnIZWr4hxsJ9Gp0
+	mh8Y+zita3mu5kaBJQdqgSfv/mEcCOi9eWx2NhdtkbkI2aNfzHT7jgJAgSMz+NQPaqXY1myqVV1FI
+	H8XMFon3CSjGmEuU4UVkMH1YGOL6d5BZS3cNWe+/y9wo9ixlYxSbfVkLOArz2eeq5PltV1Mj9ENqH
+	RrYmo5l2+xL+jW9xen1lXd/JaJHqniQo1qplQrV/gWsBc43qlcSXybTXpvj3lI6YP5BemFrh2I80j
+	4ZvVnwSI3PRQmL0DcrgClNEW7wLqtPxlt/rlzGh+Omh1agwDAcMlHVWx4rtQJl+/G/6l9aVdbfNg7
+	PbpqFBDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9TtF-0000000BcPH-2b87;
-	Fri, 08 Nov 2024 18:39:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9Tuy-0000000BcZt-3QDv;
+	Fri, 08 Nov 2024 18:41:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Tm3-0000000BbUH-1sDc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 18:32:00 +0000
+	id 1t9Tnl-0000000BblJ-3d56;
+	Fri, 08 Nov 2024 18:33:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C2BD5C585B;
-	Fri,  8 Nov 2024 18:31:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80218C4CECD;
-	Fri,  8 Nov 2024 18:31:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F14CA5C5761;
+	Fri,  8 Nov 2024 18:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDAA2C4CECD;
+	Fri,  8 Nov 2024 18:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731090718;
-	bh=OGGv9Ad1QjLyRUu0I2TAYu2k20sOVJkLksSuDtRoGmw=;
+	s=k20201202; t=1731090824;
+	bh=VzEbzDDDCKoTnPd8x/oSFG034TYCChkZgRP7+dq472E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T1xyEJlqGTfBQL2g3ifsQSoNwPeldh0m7nm1tAuub0onRz0BsZgsLp4JlU5do1IxB
-	 ds0meydDzkiROZV5LpYyuHZt3QayowteMTcKPuBEpezlXG6n7qdRpiBjLcyuQjqbvq
-	 VgilTzN0jdR7oRFG9ufPwIFHjj3/jKj5B6iVdFfeHnL2jQPflFjEHe1gB0CRlNXoed
-	 oBFNf4yPhEUDmhzjqfjmgZGhRRopROip02NI1IcynbQqVSsHW407mMTBTQFsiSCM/B
-	 1KOXKtUPy4Pz9247eojn3ZSy+PifxmcHhnfJ9K4lnOUuJHWcEJVvybSPOfZ8pM5ofe
-	 FHXLORT6pZ1mQ==
-Date: Fri, 8 Nov 2024 10:31:56 -0800
+	b=mKWdw4dtOsyG2l9hbiWydQ1TnG8L029tR9tk+z7q4b3lIIF4lXesQFKkddDShPeD5
+	 t/Uz+EOE8qGMIyapBmMtyDp8x+24QLsBXddT5coFXx+LKgFKZxlhYcoE8hDvmmIXRf
+	 nHCDyVWctUwu24IB9tLWGSsdQ/93cpgRcOdULI611PVu2fdRobxluKhimvwjy9OYkP
+	 zGoSu4Lw/CuU6foFRozyU245RiqebWSDjqUoCZZQU35630F3ovFt8YRQDs2dNO06yK
+	 V7V1aBXWTE3++VwykuGm7TjQ9cMfZERo5ax7IM5r229srFwfNOeYRRHtlYiQtytK6V
+	 3eknASrwCH0kQ==
+Date: Fri, 8 Nov 2024 10:33:41 -0800
 From: Namhyung Kim <namhyung@kernel.org>
-To: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Leo Yan <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Thomas Richter <tmricht@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Will Deacon <will@kernel.org>,
+To: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	H Peter Anvin <hpa@zytor.com>,
-	Kan Liang <kan.liang@linux.intel.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH V14 08/11] perf tools: Add missing_features for
- aux_start_paused, aux_pause, aux_resume
-Message-ID: <Zy5ZHHgO69gQwZRo@google.com>
-References: <20241022155920.17511-1-adrian.hunter@intel.com>
- <20241022155920.17511-9-adrian.hunter@intel.com>
- <20241108154152.GA197781@e132581.arm.com>
- <Zy5M1WJ97GprNniq@google.com>
- <b97a8aa8-37b1-4d8f-9de0-f294fcd07adb@intel.com>
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
+	Changbin Du <changbin.du@huawei.com>,
+	Guilherme Amadio <amadio@gentoo.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
+	Aditya Gupta <adityag@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
+	Shenlin Liang <liangshenlin@eswincomputing.com>,
+	Anup Patel <anup@brainfault.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Steinar H. Gunderson" <sesse@google.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Dima Kogan <dima@secretsauce.net>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
+Message-ID: <Zy5ZhX-ZWRCQRHVs@google.com>
+References: <20241017002520.59124-1-irogers@google.com>
+ <Zy0VHro3wE-ZTKsq@google.com>
+ <20241108090040.463cb3f0820e7ac22d1bb6c2@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <b97a8aa8-37b1-4d8f-9de0-f294fcd07adb@intel.com>
+In-Reply-To: <20241108090040.463cb3f0820e7ac22d1bb6c2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_103159_583163_C48FDAA0 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20241108_103346_041286_DA75DB78 
+X-CRM114-Status: GOOD (  34.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,79 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 08:01:02PM +0200, Adrian Hunter wrote:
-> On 8/11/24 19:39, Namhyung Kim wrote:
-> > Hello,
-> > 
-> > On Fri, Nov 08, 2024 at 03:41:52PM +0000, Leo Yan wrote:
-> >> Hi Adrian,
-> >>
-> >> On Tue, Oct 22, 2024 at 06:59:14PM +0300, Adrian Hunter wrote:
-> >>>
-> >>> Display "feature is not supported" error message if aux_start_paused,
-> >>> aux_pause or aux_resume result in a perf_event_open() error.
-> >>>
-> >>> Signed-off-by: Adrian Hunter <adrian.hunter@intel.com>
-> >>> Acked-by: Ian Rogers <irogers@google.com>
-> >>> Reviewed-by: Andi Kleen <ak@linux.intel.com>
-> >>> ---
-> >>>
-> >>>
-> >>> Changes in V13:
-> >>>         Add error message also in EOPNOTSUPP case (Leo)
-> >>>
-> >>>
-> >>>  tools/perf/util/evsel.c | 12 ++++++++++++
-> >>>  tools/perf/util/evsel.h |  1 +
-> >>>  2 files changed, 13 insertions(+)
-> >>>
-> >>> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-> >>> index 95593b55d9a7..88b31a005ac6 100644
-> >>> --- a/tools/perf/util/evsel.c
-> >>> +++ b/tools/perf/util/evsel.c
-> >>> @@ -2102,6 +2102,12 @@ bool evsel__detect_missing_features(struct evsel *evsel)
-> >>>                 perf_missing_features.inherit_sample_read = true;
-> >>>                 pr_debug2("Using PERF_SAMPLE_READ / :S modifier is not compatible with inherit, falling back to no-inherit.\n");
-> >>>                 return true;
-> >>> +       } else if (!perf_missing_features.aux_pause_resume &&
-> >>> +           (evsel->core.attr.aux_pause || evsel->core.attr.aux_resume ||
-> >>> +            evsel->core.attr.aux_start_paused)) {
-> >>> +               perf_missing_features.aux_pause_resume = true;
-> >>> +               pr_debug2_peo("Kernel has no aux_pause/aux_resume support, bailing out\n");
-> >>> +               return false;
-> >>
-> >> This patch fails to apply on the latest perf-tools-next branch due to
-> >> conflict:
-> >>
-> >>   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git
-> >>   branch: perf-tools-next
-> >>
-> >> You might need to rebase it on the latest code base.
-> > 
-> > Yep, please do for the tooling patches.
+On Fri, Nov 08, 2024 at 09:00:40AM +0900, Masami Hiramatsu wrote:
+> Hi,
 > 
-> I'd noticed that, but there is more work to sort it out.
-> The probing simply won't work when there are dependencies
-> on other events, or other attr members.  But there is no
-> point in trying to "fallback" in that case either.  It is
-> just a failure, but what *is* still needed is a sensible
-> error message.
-
-Do you need to probe with two or more events?  I guess we can extend
-evsel__detect_missing_pmu_features to check more complicated setups.
-For now, it only checks exclude_guest attribute.
-
+> On Thu, 7 Nov 2024 11:29:34 -0800
+> Namhyung Kim <namhyung@kernel.org> wrote:
 > 
-> The other patches, including the ones that come after,
-> still apply by the way, or they did the other day, so
-> they could be applied anyway.
+> > Hi all,
+> > 
+> > On Wed, Oct 16, 2024 at 05:25:00PM -0700, Ian Rogers wrote:
+> > > These changes are on top of:
+> > > https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
+> > > 
+> > > Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
+> > > dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
+> > > functions:
+> > > 
+> > > 1) regs_query_register_offset would translate a register name into a
+> > > pt_regs offset and was used by BPF prologues. BPF prologues existed
+> > > for BPF events and support for these was removed many releases ago.
+> > > This code was dead and could be removed.
+> > > 
+> > > 2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
+> > > removed.  The case for csky was a little more complicated as the ABI
+> > > controlled the string. The callers of get_dwarf_regstr were updated to
+> > > also pass the ELF flags so that on csky the ABI appropriate table
+> > > could be used. As the argument is only used on csky this a no-op for
+> > > everything else.
+> > > 
+> > > 3) get_arch_regnum translated a register name back to a dwarf number
+> > > and only existed on x86 where "al", "ax", "eax" and "rax" could all
+> > > mean register 0. This code was moved to util with similar
+> > > machine/flags logic to get_arch_regstr and for consistency with it.
+> > > 
+> > > 4) get_powerpc_regs a PowerPC specific function used by annotate that
+> > > should really be in util.
+> > > 
+> > > 2 and 3 required the wiring through of the ELF machine and flags in
+> > > callers to get_dwarf_regstr and get_dwarf_regnum. When these values
+> > > weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
+> > > to give the host ELF machine and flags. These 2 #defines got rid of
+> > > the existing separate arch files and #ifdefs.
+> > > 
+> > > v3: These files were separated from the rest of the v2 libdw clean up
+> > >     in:
+> > > https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
+> > > 
+> > > Ian Rogers (20):
+> > >   perf bpf-prologue: Remove unused file
+> > >   perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+> > >   perf dwarf-regs: Add EM_HOST and EF_HOST defines
+> > >   perf disasm: Add e_machine/e_flags to struct arch
+> > >   perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
+> > >   perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
+> > >   perf dwarf-regs: Move x86 dwarf-regs out of arch
+> > >   perf arm64: Remove dwarf-regs.c
+> > >   perf arm: Remove dwarf-regs.c
+> > >   perf dwarf-regs: Move csky dwarf-regs out of arch
+> > >   perf loongarch: Remove dwarf-regs.c
+> > >   perf mips: Remove dwarf-regs.c
+> > >   perf dwarf-regs: Move powerpc dwarf-regs out of arch
+> > >   perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
+> > >   perf s390: Remove dwarf-regs.c
+> > >   perf sh: Remove dwarf-regs.c
+> > >   perf sparc: Remove dwarf-regs.c
+> > >   perf xtensa: Remove dwarf-regs.c
+> > >   perf dwarf-regs: Remove get_arch_regstr code
+> > >   perf build: Remove PERF_HAVE_DWARF_REGS
+> > 
+> > These look all good and I'm about to apply the series.
+> > 
+> > Masami, do you have any remaining concerns?  It'd be nice if you can
+> > give your Reviewed-by.
+> 
+> I think it looks good to me.
+> 
+> Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Do you want me to process the series without this patch?  I think
-this is needed to support old kernels and I'd like to have it together.
-Would be hard for you to update this change in the current form and work
-on improving it later?
-
-Thanks,
+Thanks for your review!
 Namhyung
 
 
