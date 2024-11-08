@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EBDD5C0C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9D0D5C0CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vqxt45j89tYWgv2TNwaF1a3uoGEHE8eyqdlcF5Cfjo8=; b=MAG9w33XaiyIvVOOuF9dAefo+/
-	JpcbnLcKIPB0e9XyR2U3c6qi7/vti1o5TZxhUn2QTdKRlVh1DXyECxww6cl6xEFZheOhJ0htSpej7
-	f2ta/ssGJWsMiEzPK3E7p7QugwydmC+6OnoryLzUgH+mrIb0He4Iup+DOB8K4IlrCztVZ3L8W2CNU
-	PB0vi2WOklVBAfkqbc5nUCxaApBoWzRYuQnSAZHKWRZbMB12U8qHPthrfkqqqWUBJcGxphvPXa8E4
-	FvvxrBmKK/0DEpYyzacjgdAS013QuTnWyGnP/97AOg7fKgQa7HTI4OjcR0zmh5EnurWChLj0rtJrK
-	On0FIDIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pw79i7q7e/DZSw3U8kbl0tezb776Kpjc5WLXApNdfFU=; b=nY3bFEri9P14e76WTsQ1cVB+my
+	L5wgPTkaoncVPrGMnxm2SdYv6DwEZqXtN16tz7SYq8soCW9MSGtk0M4pmYbT/FElcvyNfcrWuh3sW
+	e8agO8kkMawWwYIEwXLyWtXkVhk7sFe444nENgIViXnoSjsxxP67/WDH50lAAUlxeMVor06NYNUO+
+	ODmo4kCvQNXkgzaSleBx4oSqMWzdtw7JCx4E1/29z8R1P75wkR1lahAaE0uY9BVdrpny8sqaGrSlu
+	cMqQ17jBJXS5MO3UN5SWEwqftpwPEiBfvH9jQq9DDP602cM+Ur6qpqvc4SdJJd9z5Ah7R9+H6Lk/D
+	WeWW3Z6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PjO-0000000AoLC-2Hr7;
-	Fri, 08 Nov 2024 14:12:58 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1t9Pl7-0000000AobT-0uUA;
+	Fri, 08 Nov 2024 14:14:45 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PNK-0000000Akck-2EJn
+	id 1t9PNO-0000000AkVW-48It
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 13:50:12 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-720cb6ac25aso1897769b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 05:50:09 -0800 (PST)
+	Fri, 08 Nov 2024 13:50:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1731073809; x=1731678609; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=vqxt45j89tYWgv2TNwaF1a3uoGEHE8eyqdlcF5Cfjo8=;
-        b=fxM6XgLyJXtvjkHB9kRuWdU8qawqqSa8BLtZUw3QvOBgNSy6xhGANsegp/Pn6y26ny
-         vncJC0+W6DrH9HkhqgvuKaIINTxqFamnoH0uNScYBF7MxQNKHsoR+OB9GZuGt2Z1mdm1
-         svfnF4jhrIJu+ThZVa4jibh4cuvCXZwRgZektj81Xy6NHAtl9zuCqCcJJqSPG0AEUl7q
-         u0M85htrrGQpGNO47CryH60VcQ+fzqs6DFaO44TVklQ37T3da9EAukYW3baVPAd4br1P
-         6XMUIUbqjl33ID9frOm2nY0tPIpBOylDwEQXWgmGDJIJ3ZEGNXjL9hme9j/65vEVFsqn
-         3aTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731073809; x=1731678609;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vqxt45j89tYWgv2TNwaF1a3uoGEHE8eyqdlcF5Cfjo8=;
-        b=djWtbpIBFqE/IpxbkzYTHQXa6AqPAuLAfi5uoNFSSAsFv+yGeaUSagHWDOJRcEZPVR
-         ztdaEXM7r3lOYQOa002ve4ynv8Q03IlKdBW3J/s63X/xbMAZ9M1PXBu1j3w8KC/pLgIv
-         ay9FZ5ah46baea9u+060kGi9qoZLM9YNcQvJPU5iSeug2aRSgDBMJQawU4sdHGKEVcKO
-         jF3wr0jiGxaDqoW6vqoHxWD4+u+PFnyc109lOu2LPl4dHi3shRfDYEDd19RMYeG7J1+N
-         D8JuEvOHt2TOASX2pVkVDFVX0rXB+6cmS3JaGWT3MFKwR9rO91HQ/oO/T3Q76sUHibPv
-         LsSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFMDagNalIaAbP0RrJvrU7OM0z/4cRD75wYJqgCvpMUAIiR9u53mtWin+LyXw3+YVW5alIqQslA3+Kony/niaa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPhp/d+UXb3nkfvQVjiJidOC8yKAPWXtSoJEgeWETx10ZpdqX0
-	JXWBOkdfxQm4pmk4lNJ7keHRddz3MsnyzafWnfhCwMjEzK7cw9P9vhknSnvivNc=
-X-Google-Smtp-Source: AGHT+IH5WFoIbVfbq6dxU035G7ZvyFqUuvVaBbhTLWR/nS+66OYUfjLkrXegDre6iG+yJ72WBVj9Pg==
-X-Received: by 2002:a05:6a00:180f:b0:71e:7af9:2d0f with SMTP id d2e1a72fcca58-7241334a2f3mr3576438b3a.18.1731073808672;
-        Fri, 08 Nov 2024 05:50:08 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7240785ffb6sm3668448b3a.40.2024.11.08.05.50.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 05:50:08 -0800 (PST)
-Message-ID: <672e1710.a70a0220.290040.f88b@mx.google.com>
-Date: Fri, 08 Nov 2024 05:50:08 -0800 (PST)
-Content-Type: text/plain; charset="utf-8"
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1731073815; x=1762609815;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Pw79i7q7e/DZSw3U8kbl0tezb776Kpjc5WLXApNdfFU=;
+  b=NxjYWO2w6mAJL1R/vz1vXsT+vZeTEkV2l8MHfk4C1ksR23+R7rE95R43
+   rMAMDdBYj6Bfve4jkGIhae7hXmCAaBVbV+hYprE2qPGHXWRwePW4HyJDT
+   FbE2ZKaZPYrCy7TYLdCmXhoP45NiFkvUA4GAq+wMh1hx1tmhGClaUeHX/
+   K/kMxwAw3dUOufVSHWETF3dj2yiHDVoSBgpohp6+seafqY+959TFpqQBz
+   ZFKUNyk9wxXoj3jBVk5wjYMQGLS6t3t8P0aq+hiFkD5yGqrWMdtWpEIZT
+   dLWymhPPer6st4gFCDbxBk5VV+pS69kzVB5C6Gw5qxLHM/Nm//lDY/3x8
+   w==;
+X-CSE-ConnectionGUID: NPvH8mAiR6Cj2k7Yy8qn4A==
+X-CSE-MsgGUID: wnH/NjH5SnqZiNaRa8xYcQ==
+X-IronPort-AV: E=Sophos;i="6.12,138,1728943200"; 
+   d="scan'208";a="39936935"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 08 Nov 2024 14:50:13 +0100
+X-CheckPoint: {672E1715-35-90CD5875-E0265C0B}
+X-MAIL-CPID: 34381C6652A21CF8C6F764790CF3E0DB_3
+X-Control-Analysis: str=0001.0A682F16.672E1716.003E,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E07651655C9;
+	Fri,  8 Nov 2024 14:50:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1731073809; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Pw79i7q7e/DZSw3U8kbl0tezb776Kpjc5WLXApNdfFU=;
+	b=BsvMjynvs4PQUPLEKwTggd0gUADAGNR4v+/8IAAInm2y+ds6SDtnbXajvkDBaukqRQr2Ro
+	IlutHWZ+I1X5fIh8xDUWzxNsSS/kgfvghGQeW2aO4aAxVbE3AoB3qwviDtORVZxGilZdKV
+	+NHouin7qHWKby/cNBYr/hq784fkopXVwOVB7lECyCvq78zbOHEDKO0PWFZ4zR35p5NJpe
+	/BT7+j5tTypujzSUivNyWPm1QzqXGzNW/TtCB+/ntcH5Vogn2CUR9HisHF9lCDW5UKKrJe
+	0EmkLa5cYmdaDLUJ5DF4MhG2zi8TJtpuqLIlybEEQc8Abgt9pOUobwn/XUYoNQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	=?UTF-8?q?Jo=C3=A3o=20Rodrigues?= <jrodrigues@ubimet.com>,
+	Bruno Thomsen <bruno.thomsen@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 7/8] ARM: dts: imx7[d]-mba7: add Ethernet PHY IRQ support
+Date: Fri,  8 Nov 2024 14:49:25 +0100
+Message-Id: <20241108134926.1324626-8-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241108134926.1324626-1-alexander.stein@ew.tq-group.com>
+References: <20241108134926.1324626-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: build
-X-Kernelci-Kernel: v6.12-rc6-196-gca3a5c08a5ef
-X-Kernelci-Branch: for-kernelci
-X-Kernelci-Tree: arm64
-Subject: arm64/for-kernelci build: 1 build: 0 failed,
- 1 passed (v6.12-rc6-196-gca3a5c08a5ef)
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
- kernelci-results@groups.io
-From: "kernelci.org bot" <bot@kernelci.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_055010_857786_86ECB601 
-X-CRM114-Status: UNSURE (   3.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_055015_444036_C3D1CA30 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +103,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64/for-kernelci build: 1 build: 0 failed, 1 passed (v6.12-rc6-196-gca3a5=
-c08a5ef)
+The regulator-fec*-pwdn regulators were used to deassert the PWDN signal
+of ethernet PHY, e.g. not powering. This is not necessary as the line
+has a pull-up already.
+Instead of the combo pad of the PHY for IRQ support.
 
-Full Build Summary: https://kernelci.org/build/arm64/branch/for-kernelci/ke=
-rnel/v6.12-rc6-196-gca3a5c08a5ef/
-
-Tree: arm64
-Branch: for-kernelci
-Git Describe: v6.12-rc6-196-gca3a5c08a5ef
-Git Commit: ca3a5c08a5ef1ee11c65c83b95d47117edf24e77
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-Built: 1 unique architecture
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
-For more info write to <info@kernelci.org>
+ arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi | 23 ++---------------------
+ arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts |  3 ++-
+ 2 files changed, 4 insertions(+), 22 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
+index 304281681abfe..576a7df505d3b 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi
+@@ -87,26 +87,6 @@ iio-hwmon {
+ 			      <&adc2 0>, <&adc2 1>, <&adc2 2>, <&adc2 3>;
+ 	};
+ 
+-	reg_fec1_pwdn: regulator-fec1-pwdn {
+-		compatible = "regulator-fixed";
+-		regulator-name = "PWDN_FEC1";
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		regulator-always-on;
+-		gpio = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+-	reg_fec2_pwdn: regulator-fec2-pwdn {
+-		compatible = "regulator-fixed";
+-		regulator-name = "PWDN_FEC2";
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		regulator-always-on;
+-		gpio = <&gpio2 31 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+ 	reg_usb_otg1_vbus: regulator-usb-otg1-vbus {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VBUS_USBOTG1";
+@@ -231,7 +211,6 @@ &fec1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_enet1>;
+ 	phy-mode = "rgmii-id";
+-	phy-supply = <&reg_fec1_pwdn>;
+ 	phy-handle = <&ethphy1_0>;
+ 	fsl,magic-packet;
+ 	status = "okay";
+@@ -252,6 +231,8 @@ ethphy1_0: ethernet-phy@0 {
+ 			reset-gpios = <&gpio7 15 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <1000>;
+ 			reset-deassert-us = <500>;
++			interrupt-parent = <&gpio1>;
++			interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+ 		};
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts b/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
+index 0443faa3dfae4..e3ee16f1aaa96 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts
+@@ -21,7 +21,6 @@ &fec2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_enet2>;
+ 	phy-mode = "rgmii-id";
+-	phy-supply = <&reg_fec2_pwdn>;
+ 	phy-handle = <&ethphy2_0>;
+ 	fsl,magic-packet;
+ 	status = "okay";
+@@ -42,6 +41,8 @@ ethphy2_0: ethernet-phy@0 {
+ 			reset-gpios = <&gpio2 28 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <1000>;
+ 			reset-deassert-us = <500>;
++			interrupt-parent = <&gpio2>;
++			interrupts = <31 IRQ_TYPE_EDGE_FALLING>;
+ 		};
+ 	};
+ };
+-- 
+2.34.1
+
 
