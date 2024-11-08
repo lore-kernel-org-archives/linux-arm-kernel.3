@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94401D5E15A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DCFD5E12F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ho2R1g6t6+abP7priMth4WROzEDx+gxsMyYEy2a1tfU=; b=qIj0ALdUC2e+NjzbKTn9Y5Vf2S
-	i0Z91ImadEWGumjJjwCXJnwl+gThJjvchaz6tA4C+4/wlP4eet0gwqbA2xUURru8ewPksA/kcS6GK
-	KMfbslScKOBzaRPPNJdKmtL1oia7QiwHxxpCaY8voOag2OTR579HiCFGtY5MDmizkxvoO/mqsNoh6
-	YZ5ZIgdrlxHMbLgJO+xGV2/BjjmmaH0/EJRlX+SIMwNs0sgTPq7yBu3HSZ6G/Gr6VO6iW+tkEVbzs
-	1KDHO5Plrwerp16x27aFlB8nOCtFOmyT+eVzu5DE0wXJ4N6VfcA0FHfGSfnsF3HEJLik7Tupxm5Vb
-	1I3LVhDA==;
+	bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=; b=2/Nv8H/F12yKI1Ugar/5mcp0NG
+	OpWKaS2a/lEhLyKERn7cDEVWDjO49tSYUEdSNgCuq1QTRc9ChjJglW4NqWQ0421epCyvNL1jdfZS8
+	92yXiP3NkFnZwbdKildGymM9kEcCe8MPGLwwarflCAEFDLOrxN3DtFPcqCSrFpT5sZ52B5LfIzYac
+	BeHAH4Mb2od1orEcjnhs6Ft+VhC2E47H7JBvzJW710JMWV7KxsjbOKg7FfcduKVyZN3QC2wtZ3mDc
+	Y+LKlDn0/g+Qlag4vonXlCZaZcldzZBZk2gTXNTu4Rg9LjDTrZ9lSdtO3LNkTJYdNeBtIUlivfdTM
+	OUz88HwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NJc-0000000AN35-0utC;
-	Fri, 08 Nov 2024 11:38:12 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1t9NLL-0000000ANGv-2Cdb;
+	Fri, 08 Nov 2024 11:39:59 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Meu-0000000AEBP-412z
+	id 1t9Mia-0000000AFFX-0Bv9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 10:58:09 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4315dfa3e0bso1584195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 02:56:08 -0800 (PST)
+	Fri, 08 Nov 2024 10:59:57 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d4ddd7ac1so223502f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 02:59:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731063367; x=1731668167; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731063594; x=1731668394; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ho2R1g6t6+abP7priMth4WROzEDx+gxsMyYEy2a1tfU=;
-        b=wXNV7ADAic8+QNnEhifMU1L+fvYPEh25CSBN2nSpLIs2LZcXWQ87/49PdCnCGxFgUq
-         dwBNVpNiG7bn5nHgrxPUsz57GgT/xNCVYeVpzq9GxJDpDrJ+654a4A2Mq+W0t3boAoEg
-         Q8RCrmDY6albatCTQ6SQJ3hOcbOplnY36Sbu0yz+rS9W67nHgcb72Z6VhcHfiQF4vygf
-         0YBI6K09+m2V2Owo5h3lE5o5aWh+blSFJA6H6f/r61eMcDbUm6FSbf1uIZgXAqzV8IlM
-         MQ8zdaIhciv3G626jO+lwQJMhTD+voR32SbeajnePfDkX3s+iPE54ZhJcoV46AwL2jZb
-         DDxg==
+        bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=;
+        b=Z1XQ6NgTldQjxwDjzazqENiWsvuS/crm/DpycH2e9aZUE58rXh4XR4fbpfdShXakeP
+         ofUfa9RDb0D26PldU8DvXlj8P9GCFGaVG97+li86EMPOazMjVbdKBeHlzknAjf1xMl0N
+         kCAb+t/l67Vcgam2ibsC+sH50N0K8Lxt/mN2Gtq+gpJOijPg3HKjFouhjJpATtLF4wxz
+         PJxwTy48n2R8gkM4BQCx7FLZ3uWAPDvdwv7oKKacWSvXZfynnzS0hilG7maB+nds01SO
+         tu1aqsRIRLFptr0qbZwTeQfvN654ek+5lttTYK7YJwriOYdS0iqaCGsWcxwxLmUBwIHI
+         T4zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731063367; x=1731668167;
+        d=1e100.net; s=20230601; t=1731063594; x=1731668394;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Ho2R1g6t6+abP7priMth4WROzEDx+gxsMyYEy2a1tfU=;
-        b=tLEHRVlsdUP+44v9+Qvf9WLK+hv0NWVHpojoY/MKnqw+3Q5sGYSp73eo44C2hVaOBg
-         EeLwMpoiNKOQHH1MICs9ncxN74WtPSa+CuvfnZvi4FqgNe4W9QZhzEjtX7arMDihG/4u
-         EYfz8iiVD7EFNBLYCtIjuenTEbdeiHfQs2tDoPdMyDSALJzxCkkwQNbAUCP6GotfiI/a
-         HDJgqxkGVqnfeuAlIVIHXo9fRCK8k8xXGorUlh5MxBDPkPHpsSEWxCX1MSSSn4JiiMhh
-         xO6ltQCL4Usx7ZNA9+Us+TR4zcmPC+1Z+o/sZFSYaZ0YYxJdMXgCAm/1Y3mKBeKmBtt/
-         VMiw==
-X-Forwarded-Encrypted: i=1; AJvYcCUFKMitjuxauPaSgMZ/oI8h9rmADpj2CwdC7NYfiOxBSfxWFZCQZh3/pBFRW0p/5EQ9TRlPZpBKrZm3ga8B8deq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKS8UBq9rUKlWYtxc84PS3wIJGN9q+P5QSA6X8C0NpeJU8D68K
-	yTYQh2vCM7nM3aFOmgh0atzFz/3YdDbPTiHq1AsYSSFlfY+DO4CXpCaoKvF37QE=
-X-Google-Smtp-Source: AGHT+IF175RcChMaKgxG7DzpAG6Dq0Qo693dlECBFgQjlvN2DFQGIRPF4OG+ZBoQAVda73yTzoOZKw==
-X-Received: by 2002:a05:600c:2248:b0:431:4983:e8fe with SMTP id 5b1f17b1804b1-432ba269242mr3280465e9.9.1731063367070;
-        Fri, 08 Nov 2024 02:56:07 -0800 (PST)
-Received: from [172.16.24.83] ([154.14.63.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05c0d33sm59878035e9.27.2024.11.08.02.56.04
+        bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=;
+        b=O+Kgr1vre91cjQRPu3qwTffetylzunN2Ieh3lrXuV3uF/AcW6VlKk1qgCW8+Pp60Im
+         2khdEvjcMVQOPwTOjgbVzElocKUGZNc4GIOl6QScd/6Mqm0B9qvQMu3EEFwbU1pReRbA
+         vglMrYlzX1gQ2hVEQ+7yfH28R16agKOup/bSV4O4ib9xbURT9CG3J5pRxO8jzLPWbQno
+         //QQv+bxX7J26+Utv59+0RLPE9iWih12m/FMZtIQ90Y/yYohits3wJNzKPeNv1ehgTH7
+         jQBaMr9+ygBmBj0OlUVijxis4WfWlD/R7OyaPXV57IuCitnluxg4pUWFLtPOnpfSNBCu
+         PJmA==
+X-Forwarded-Encrypted: i=1; AJvYcCUexvNGpQH0IYH0FqZgh4NM3IUSHxdF4yE5khS22xwnYXwk8pNarAiyN60Xmyfe5qgJWAAJsZRKfGLz5mWuE3vN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsmFMe/wPf5dppSOs6gXwNJKRc8JrrTCtWIZzc8wEwBLKHmaJr
+	oCnMEAXU3PgQE9iETYV8EB5gKjoCjzGLyjl2Ng17TowuRnaKcy8I5Flgd4MUpas=
+X-Google-Smtp-Source: AGHT+IGgrtxjtNjOrPLN/qb8VJvRRiPkgkcMf9a0A9FAEvNbhVFh12ojBWAIdBWC2bxuNKwBB4qYfA==
+X-Received: by 2002:a05:600c:4f8a:b0:42c:bb35:b6d0 with SMTP id 5b1f17b1804b1-432b74ffa40mr8616615e9.1.1731063594059;
+        Fri, 08 Nov 2024 02:59:54 -0800 (PST)
+Received: from [172.16.24.83] ([89.101.134.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b0562642sm59707405e9.21.2024.11.08.02.59.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 02:56:06 -0800 (PST)
-Message-ID: <b8389b06-4ad8-4ddf-94c3-cc36bacc8466@linaro.org>
-Date: Fri, 8 Nov 2024 11:56:02 +0100
+        Fri, 08 Nov 2024 02:59:53 -0800 (PST)
+Message-ID: <b8dcd283-2fc6-456f-8b7e-ab3792b239e1@linaro.org>
+Date: Fri, 8 Nov 2024 11:59:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/6] dt-bindings: arm: blaize: Add Blaize BLZP1600 SoC
+Subject: Re: [PATCH v4 5/6] arm64: defconfig: Enable ARCH_BLAIZE_BLZP1600
 To: Niko Pasaloukos <nikolaos.pasaloukos@blaize.com>,
  James Cowgill <james.cowgill@blaize.com>,
  Matt Redfearn <matthew.redfearn@blaize.com>,
@@ -94,7 +94,7 @@ Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
 References: <20241108103120.9955-1-nikolaos.pasaloukos@blaize.com>
- <20241108103120.9955-3-nikolaos.pasaloukos@blaize.com>
+ <20241108103120.9955-6-nikolaos.pasaloukos@blaize.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -141,13 +141,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241108103120.9955-3-nikolaos.pasaloukos@blaize.com>
+In-Reply-To: <20241108103120.9955-6-nikolaos.pasaloukos@blaize.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_025609_053484_9A0493AB 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_025956_146382_3526DAC6 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,24 +162,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/11/2024 11:31, Niko Pasaloukos wrote:
-> Add device tree bindings for the Blaize BLZP1600 CB2
-> development board (carrier board), which uses the
-> BLZP1600 SoM.
+> Enable ARCH_BLAIZE_BLZP1600 to get proper build coverage.
 > 
 > Resolves: PESW-2604
-> Checkpatch: ignore
 
-NAK, Solve your "resolve" errors and fix your checkpatch issues. All of
-them.
-
-> Reviewed-by: James Cowgill <james.cowgill@blaize.com>
-> Reviewed-by: Matt Redfearn <matt.redfearn@blaize.com>
-> Reviewed-by: Neil Jones <neil.jones@blaize.com>
-
-Three people reviewed this YAML? And no one told to remove incorrect
-tags? Where is any trail of such review?
+How is this resolving PESW-2604? To clarify: PESW-2604 is a DC motor, so
+I really don't get how DC motor relates to Blaize...
 
 
+> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 2c30d617e180..7d368a8911bf 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -43,6 +43,7 @@ CONFIG_ARCH_BCM_IPROC=y
+>  CONFIG_ARCH_BCMBCA=y
+>  CONFIG_ARCH_BRCMSTB=y
+>  CONFIG_ARCH_BERLIN=y
+> +CONFIG_ARCH_BLAIZE_BLZP1600=y
+
+We enable entire archs, not specific SoCs. This is supposed to be
+ARCH_BLAIZE. Same for earlier patch in Kconfig.
 
 Best regards,
 Krzysztof
