@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7320FD64099
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 23:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD1D64097
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 23:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IiCqEW55XHvVf8qTba07pGSpYKmfdNiKgbJzhLD73iM=; b=YoAAy1+dTUNn0muCPiQ3cP3ftY
-	OEGntCRasuP0wvrY2EVElgffLbxbq7gBVEhYXBRmh6ALKa7Sr+XgIPvCZJEeDWHDmdDF3JrZlLzH+
-	OTLtbVdkP8/40q3kwMN/3EnyaobSJ0CbgBoRNJpjdHGFRXmvZ06kWzs/sIrtLZklRh+xTcU5Cv3/K
-	sIZJidJdihjS/yajKLjEPzMXK9fzfKTMMNK+G9xpWwhfny1nbNrP8IKeAPTM0IRbHoXXaHnGzLelB
-	CjOQ2COBMNp46X/OOAHLkj1/KC3lvPxnUk5qt410jT3KtbVt3FZ26wloCbrfhz5V9cMxTCA2yuTUA
-	MFJ3HP3A==;
+	bh=0oSoie1qIRXgWGFb6cKb7mnY6LaDSDkqhi5T4II1in0=; b=dckmjqVc4SQj5WVYuM2x+1W9Xo
+	IUTyztGcchCVPVsGPZSDLmHw3n6+Q9rfZrN16BtIDg4ImQaRToBenqZjg22+HE2p+78S7UbjpjIvL
+	XHDoKJ1cbEwp4OFDyYkLzpfb+PvbuHL6EblJwci00LyLek0yKt0e15VFazLPnEj3vMUm1K5G9jQYI
+	Tk06d4GzyGguk7cTXzzIhxmMuVuy03QYbABGmawXn6V4sLX6isO4YZZr3B8o53Fy4eTvHRao8lfKr
+	955G8DXGnIvCC/NIFh5VuYHfY1vpU7dTeUa01BQqFQdHZiq++eqCyAdJ0ksdKGyehZ+/JaVVDsPkF
+	AvYg79Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Y7H-0000000CBoG-1pGz;
-	Fri, 08 Nov 2024 23:10:11 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1t9YDm-0000000CCem-2TE4;
+	Fri, 08 Nov 2024 23:16:54 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Y5U-0000000CBaS-3RGL
+	id 1t9YC0-0000000CCOM-0b64
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 23:08:22 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3a3b28ac9a1so17845ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:08:20 -0800 (PST)
+	Fri, 08 Nov 2024 23:15:05 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d70df0b1aso1565400f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:15:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731107299; x=1731712099; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IiCqEW55XHvVf8qTba07pGSpYKmfdNiKgbJzhLD73iM=;
-        b=kIp8XRDGPwA8/edpQZfxwFyQAUIELsObtQ8i8FBzvENWhA8lFucW41a7PQZi36J3S3
-         Hm+hSiSVK/iBkEtoDSqoDpVhxsAwmK19vq2C8YCEYFR6X1Aw7DzZ8okV1gvTS0SSlsR/
-         80gTmaY97huR66UhX/L5b2QZnTLyV0M51b7vmnQqCZEbwx+/0OTk+01dXW8H3eeuHuh5
-         ZKE8H/bYXbX0/+C4NUFEBe5exQcYB+nAJajVK1Ql05bLIdJHlT67qVTPgD2+60SldBXk
-         G4af3S52VI3R3iQppRZd0UEW3RsTAIMdvuW3gD6QPqaeqn2HHiounGg1eeaaTTKm9Pmk
-         NmSQ==
+        d=wirenboard.com; s=google; t=1731107702; x=1731712502; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=0oSoie1qIRXgWGFb6cKb7mnY6LaDSDkqhi5T4II1in0=;
+        b=eqhQgH8gpcEAbp463H0TPwUfqMMHL4fKMFmOkpNn6Q7eWbXENxMwgzyn9a1K30U4CP
+         j+hnvO89vCiFF4H6ORCrugMsvqIRz33TPk2Lndm2iJTYkdYcuYy4bQVOyR0KaA+qW+nL
+         2ylGDhvzRTckHWoqAsRQeTRLwEqtbw4BXDdX6SZwtk3uRKHvo3HmR0Ky2zJ6pEKTNDLH
+         6/t1jqS700sHANLP4xLZftmqc+p0RXrLwrg4bUFjZBYrcHqz5f5FUkotYLjvF9XN/qKO
+         IIZy159xaUdAJUW6KAWIxhN7BzUpX0ig28xAbeng2LZIhkZCZYGkw0BxzFN0UR240biS
+         WlIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731107299; x=1731712099;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IiCqEW55XHvVf8qTba07pGSpYKmfdNiKgbJzhLD73iM=;
-        b=ZPOw1hw3y1AItKvSOccXdJC0KgjWxcTHMqOKGybzojYsQIatadIbEPvmtywvOBU2fZ
-         wEa///Ku4hFZ3Mdx4tQFWppVM7cJRQOediYTq94Kiv6tJIJ4c/jD0jkFjRPYDrF+bl5p
-         l2UHAsNV15zBfMOg3dSvso8I48CrPmNErR2YsU0jsFZ1QSsL3Tc/0RgqyDcXl18nVQlj
-         2x2b2VDKl2LhGTHAav7wmNsnG2KfD/RJdp+2tMQgaHCJnMmqo0a6c+TZ69jcbO+C//B/
-         UfGZshp+m9Eq6Ee+Yf4nITjeWvaeR23UAxboUtgU82bgWKBBV1Wf22qgtJqM62rA7+vD
-         cBtg==
-X-Forwarded-Encrypted: i=1; AJvYcCXOs1sFr2JqtD61LeLa4XVOkSv3ShScf9C6vyq0CIc/TNrwCvA+n23ayXQSYBdq0jbMcxFwj/YcZIfK6xX+d2Zx@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf7A1ORq8I+mnKKWcVSrSHWhPkjeS2pPRJq46SXcfAq9WQLSMi
-	2ONbVueStBhAuDiO9pMrJGIsCy3F8d1w/My7TyJFCzp0rg0xcKPyR4CRhrgdWgiFHPiShDnAxfx
-	QvHy3nojtrRtxrhxpFHNWwjAVUWeLHpv82h9i
-X-Gm-Gg: ASbGncs6w6EJNyKMglrYNKW1NPC9thQmKikQ6320/Mhf6/g8nkZelGLpvZ9C3OsRDOI
-	hrCnxTFcfVNWAz/nX8fn5P2KojH/Q1q/k
-X-Google-Smtp-Source: AGHT+IEukeGFoyo6dh0VbQTAZvTWfrcspZTzt0yr9OYJp6P2e9ETJS0TnoGpuVFVzJTNq6FY+rr4thPlSIkzzSRgbw0=
-X-Received: by 2002:a05:6e02:1946:b0:3a0:a224:eb2c with SMTP id
- e9e14a558f8ab-3a6f9564132mr264765ab.25.1731107299142; Fri, 08 Nov 2024
- 15:08:19 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731107702; x=1731712502;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0oSoie1qIRXgWGFb6cKb7mnY6LaDSDkqhi5T4II1in0=;
+        b=YMoapAQtOb6r6C3BlOISKlr1RpNXGRHV57GbL7fowH6WJDoPMbPVRmBoFaHA651MTi
+         i7mufKm7+5Vd2ed1+mfsR+LFmrbWuYmxo0XuaJesrzhb9Vtdp3rSwx+Um30csp/R/MWm
+         SFoPKFapC6qhtY4xXP8n8fLzFZ72DhP2cgTTlwzfscml5VwMOLa6t3hddHhKt9xJ+nAv
+         6Eh3OM/uzc5FMi0x3GDdZ0BLF+5YELgFr1353gdQsfaN4/PNXOgV2ZzRPWUR/2Xxv5cD
+         dX6VJW+DZdz2tGVL80Lu5Bk3trm3ayexiaHkL/HZNTBq7bikGBH7rRBSLEIxlasqREYz
+         9uQg==
+X-Forwarded-Encrypted: i=1; AJvYcCVXMbsnbz3qNqUkC33k49h01jyIxRk+DJfazMfbf/hXipvRJOxvlWg9BbYuUBprRAfE5VsUVZ89fGxFFl4fJEPS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa+YNubtlenmnjFaHwC6hIEvnrzVvsB5EZW8JF4AQTqdH/Mlwh
+	t0vcosJuM/qYjuohSp+vzVVVfUJtIkg3Jzy5Qq6PbkjqHTMHtevT9upw/weuw1U=
+X-Google-Smtp-Source: AGHT+IEkXE8e6btQk8tjWEgg1I5q8fB3JHMfs8pcIcYIogpdbfL+NQYAjuHnUilwSeLh4eJW9S2S/w==
+X-Received: by 2002:a5d:5f93:0:b0:37d:493c:f7b8 with SMTP id ffacd0b85a97d-381f1867129mr4149308f8f.2.1731107702379;
+        Fri, 08 Nov 2024 15:15:02 -0800 (PST)
+Received: from ?IPV6:2001:4c4e:24e5:bb00:6639:286e:9ea6:bb49? (20014C4E24E5BB006639286E9EA6BB49.dsl.pool.telekom.hu. [2001:4c4e:24e5:bb00:6639:286e:9ea6:bb49])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-381ed970775sm6137066f8f.13.2024.11.08.15.15.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Nov 2024 15:15:01 -0800 (PST)
+Message-ID: <a4fada26-7ef8-4618-9ddd-0962b7dc6efb@wirenboard.com>
+Date: Sat, 9 Nov 2024 02:14:59 +0300
 MIME-Version: 1.0
-References: <20241017002520.59124-1-irogers@google.com> <20241017002520.59124-11-irogers@google.com>
- <Zy5udmX6gZAg0wkS@google.com>
-In-Reply-To: <Zy5udmX6gZAg0wkS@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 8 Nov 2024 15:08:07 -0800
-Message-ID: <CAP-5=fWhiLJ97smNySGk+TmmQ=ELOdztqdb7h3hrxT+18wG_HA@mail.gmail.com>
-Subject: Re: [PATCH v3 10/20] perf dwarf-regs: Move csky dwarf-regs out of arch
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
-	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
-	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
-	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
-	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
-	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] clk: sunxi-ng: h616: Reparent CPU clock during
+ frequency changes
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ mturquette@baylibre.com, samuel@sholland.org, sboyd@kernel.org,
+ simons.philippe@gmail.com, wens@csie.org
+References: <20241025105620.1891596-1-andre.przywara@arm.com>
+ <7b63b316-4cd7-48ee-ae32-3750d25e2307@wirenboard.com>
+ <20241108223400.460982d6@minigeek.lan>
+Content-Language: en-GB
+From: Evgeny Boger <boger@wirenboard.com>
+Organization: Wiren Board
+In-Reply-To: <20241108223400.460982d6@minigeek.lan>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_150820_939466_5F1676D3 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20241108_151504_218271_CF152182 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,142 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 8, 2024 at 12:03=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
-wrote:
+On 11/9/24 01:34, Andre Przywara wrote:
+> On Fri, 8 Nov 2024 23:14:51 +0300
+> Evgeny Boger <boger@wirenboard.com> wrote:
 >
-> On Wed, Oct 16, 2024 at 05:25:10PM -0700, Ian Rogers wrote:
-> > Move arch/csky/util/dwarf-regs.c to util/dwarf-regs-csky.c and compile
-> > in unconditionally. To avoid get_arch_regstr being duplicated, rename
-> > to get_csky_regstr and add to get_dwarf_regstr switch.
-> >
-> > Update #ifdefs to allow ABI V1 and V2 tables at the same
-> > time. Determine the table from the ELF flags.
-> >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  tools/perf/arch/csky/util/Build               |  1 -
-> >  tools/perf/util/Build                         |  1 +
-> >  .../dwarf-regs.c =3D> util/dwarf-regs-csky.c}   | 19 ++++++++++-------=
---
-> >  tools/perf/util/dwarf-regs.c                  | 11 +++++++----
-> >  tools/perf/util/include/dwarf-regs.h          |  2 ++
-> >  5 files changed, 20 insertions(+), 14 deletions(-)
-> >  rename tools/perf/{arch/csky/util/dwarf-regs.c =3D> util/dwarf-regs-cs=
-ky.c} (74%)
-> >
-> > diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/uti=
-l/Build
-> > index 1325310cab6a..5e6ea82c4202 100644
-> > --- a/tools/perf/arch/csky/util/Build
-> > +++ b/tools/perf/arch/csky/util/Build
-> > @@ -1,4 +1,3 @@
-> >  perf-util-y +=3D perf_regs.o
-> >
-> > -perf-util-$(CONFIG_LIBDW) +=3D dwarf-regs.o
-> >  perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) +=3D unwind-libdw.o
-> > diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-> > index 4c615611b9d7..99ae4e2802b8 100644
-> > --- a/tools/perf/util/Build
-> > +++ b/tools/perf/util/Build
-> > @@ -203,6 +203,7 @@ endif
-> >  perf-util-$(CONFIG_LIBDW) +=3D probe-finder.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D dwarf-aux.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D dwarf-regs.o
-> > +perf-util-$(CONFIG_LIBDW) +=3D dwarf-regs-csky.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D dwarf-regs-x86.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D debuginfo.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D annotate-data.o
-> > diff --git a/tools/perf/arch/csky/util/dwarf-regs.c b/tools/perf/util/d=
-warf-regs-csky.c
-> > similarity index 74%
-> > rename from tools/perf/arch/csky/util/dwarf-regs.c
-> > rename to tools/perf/util/dwarf-regs-csky.c
-> > index ca86ecaeacbb..d38ef1f07f3e 100644
-> > --- a/tools/perf/arch/csky/util/dwarf-regs.c
-> > +++ b/tools/perf/util/dwarf-regs-csky.c
-> > @@ -5,9 +5,8 @@
-> >  #include <stddef.h>
-> >  #include <dwarf-regs.h>
-> >
-> > -#if defined(__CSKYABIV2__)
-> > -#define CSKY_MAX_REGS 73
-> > -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] =3D {
-> > +#define CSKY_ABIV2_MAX_REGS 73
-> > +const char *csky_dwarf_regs_table_abiv2[CSKY_ABIV2_MAX_REGS] =3D {
-> >       /* r0 ~ r8 */
-> >       "%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1", "%regs2", "%regs3=
-",
-> >       /* r9 ~ r15 */
-> > @@ -26,9 +25,9 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] =3D =
-{
-> >       NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-> >       "%epc",
-> >  };
-> > -#else
-> > -#define CSKY_MAX_REGS 57
-> > -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] =3D {
-> > +
-> > +#define CSKY_ABIV1_MAX_REGS 57
-
-Definition of CSKY_ABIV1_MAX_REGS.
-
-> > +const char *csky_dwarf_regs_table_abiv1[CSKY_ABIV1_MAX_REGS] =3D {
-> >       /* r0 ~ r8 */
-> >       "%sp", "%regs9", "%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1",
-> >       /* r9 ~ r15 */
-> > @@ -41,9 +40,11 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] =3D=
- {
-> >       NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-> >       "%epc",
-> >  };
-> > -#endif
-> >
-> > -const char *get_arch_regstr(unsigned int n)
-> > +const char *get_csky_regstr(unsigned int n, unsigned int flags)
-> >  {
-> > -     return (n < CSKY_MAX_REGS) ? csky_dwarf_regs_table[n] : NULL;
-> > +     if (flags & EF_CSKY_ABIV2)
+> Hi Evgeny,
 >
-> Hmm.. you need it here as well.
-
-These constants are part of the dwarf-regs-csky.c file and not elf.h.
-
-> > +             return (n < CSKY_ABIV2_MAX_REGS) ? csky_dwarf_regs_table_=
-abiv2[n] : NULL;
-> > +
-> > +     return (n < CSKY_ABIV1_MAX_REGS) ? csky_dwarf_regs_table_abiv1[n]=
- : NULL;
-> >  }
-> > diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.=
-c
-> > index fd21f9e90e40..9a76f83af62c 100644
-> > --- a/tools/perf/util/dwarf-regs.c
-> > +++ b/tools/perf/util/dwarf-regs.c
-> > @@ -29,17 +29,18 @@
-> >  #define __get_dwarf_regstr(tbl, n) (((n) < ARRAY_SIZE(tbl)) ? (tbl)[(n=
-)] : NULL)
-> >
-> >  /* Return architecture dependent register string (for kprobe-tracer) *=
-/
-> > -const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
-> > -                          unsigned int flags __maybe_unused)
-> > +const char *get_dwarf_regstr(unsigned int n, unsigned int machine, uns=
-igned int flags)
-> >  {
-> > -#if EM_HOST =3D=3D EM_X86_64 || EM_HOST =3D=3D EM_386 || EM_HOST =3D=
-=3D EM_AARCH64 || EM_HOST =3D=3D EM_ARM
-> > +#if EM_HOST =3D=3D EM_X86_64 || EM_HOST =3D=3D EM_386 || EM_HOST =3D=
-=3D EM_AARCH64 || EM_HOST =3D=3D EM_ARM \
-> > +    || EM_HOST =3D=3D EM_CSKY
+>> Tested-by: Evgeny Boger <boger@wirenboard.com>
+>>
+>> We had stability issues with some of our T507-based boards. T507 is the
+>> same die as H616, to my knowledge.
+>> They were fixed by essentially the same patch, which we unfortunately
+>> didn't submitted to mainline:
+>> https://github.com/wirenboard/linux/commit/dc06e377108c935b2d1f5ce3d54ca1a1756458af
+>>
+>> It's worth noticing that not only the reparenting is mandated by T5 User
+>> Manual (section 3.3.3.1), it's also is implemented in vendor BSP in the
+>> same way.
+>>
+>> We tested the patch extensively on dozens of custom T507 boards (Wiren
+>> Board 8 PLC). In our test it significantly improved the stability,
+>> especially at low core voltages.
+> many thanks for this reply, I was hoping for such a kind of report!
+> I typically don't test those things in anger, and only have a few
+> boards, so having those reports from the real world is very helpful!
 >
-> And here too.  It seems you also need a rebase.
+> Can you maybe give some hint on how you tested this? Does "at low core
+> voltages" mean you forced transitions between the lower OPPs only, or
+> were the chips undervolted?
+Both, in a way. Some boards (about 1 in 20 or so) would hang after a few 
+days of operation.
+
+During our investigation, we found they would never hang under stress 
+testing, so we started examining cpufreq-related factors.
+
+Disabling lower OPPs also prevented hanging. If we artificially lowered 
+the OPP voltages (undervolting the chip), the boards would hang much 
+faster without the patch, and even the previously stable ones would 
+start to hang.
+
 >
-> At this point, I'm giving up.  Can you please refresh the series with
-> a fix?
+>>   From my understanding, all Allwinner SoCs need to follow this kind of
+>> procedure, however it's only implemented in mainline for a handful of chips.
+> Yes, I saw, I have added this to my A523 code already, and prepared a
+> patch for the H6.
+> Do you have boards with any other Allwinner SoCs you could test on, or
+> even already have experience with?
+Unfortunately, no, not really. We only use the T507 and A40i at the moment.
+We’ve never had these kinds of issues with the A40i, though. By the way, 
+the A40i is among the few Allwinner chips with reparenting implemented 
+in the mainline.
 
-Sure I'll rebase and add ifndef+defines to dwarf-regs.h, I see we have
-these currently for EM_AARCH64 and EM_LOONGARCH there.
+The A523/T527 is really nice; it's a pity it's limited to 4GB RAM.
 
-Thanks,
-Ian
+>
+> Cheers,
+> Andre
+
+-- 
+Kind regards,
+Evgeny Boger
+
 
