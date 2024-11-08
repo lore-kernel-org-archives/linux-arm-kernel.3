@@ -4,97 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DCFD5E12F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00580D5E12F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=; b=2/Nv8H/F12yKI1Ugar/5mcp0NG
-	OpWKaS2a/lEhLyKERn7cDEVWDjO49tSYUEdSNgCuq1QTRc9ChjJglW4NqWQ0421epCyvNL1jdfZS8
-	92yXiP3NkFnZwbdKildGymM9kEcCe8MPGLwwarflCAEFDLOrxN3DtFPcqCSrFpT5sZ52B5LfIzYac
-	BeHAH4Mb2od1orEcjnhs6Ft+VhC2E47H7JBvzJW710JMWV7KxsjbOKg7FfcduKVyZN3QC2wtZ3mDc
-	Y+LKlDn0/g+Qlag4vonXlCZaZcldzZBZk2gTXNTu4Rg9LjDTrZ9lSdtO3LNkTJYdNeBtIUlivfdTM
-	OUz88HwQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/54zAdLUpqx2P/YPWSVGcyzYbnWX/zdZkvlSyN6Bgis=; b=23TZAb/YKN2AW4SC3JRF9Jwasq
+	2h431xpfMNrgMQ0ujAlkL5BVQTOZ3+LThrmIUbhcxDxK1C9zRuf5w8c2jh8gDF9hfC0Pmz1BBWEgw
+	FEDulyKj3uFrgjI2c8g240UdHQbX5OxRRgQJ7dmlfvMRfZgYvHKqhOM39hTHvT2CwOGgylHdsJfEX
+	Sih+9tp8ND1GPx7GI2BtB3DNBCwMvGNqW9hpswXQRYh+Eto9vxioyvCdfPtkz6Y9vyIteVzk9CoQk
+	fSZmss6sIO4zkhSczkpI17EEbMrjgZ8OhKkSTAViK5bP+mNHORLGxiST3cYob2ulxjH7wvBuW1piA
+	zZP0SYSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NLL-0000000ANGv-2Cdb;
-	Fri, 08 Nov 2024 11:39:59 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1t9NN4-0000000ANYG-0wOt;
+	Fri, 08 Nov 2024 11:41:46 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Mia-0000000AFFX-0Bv9
+	id 1t9Mlm-0000000AG9r-3ds4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 10:59:57 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-37d4ddd7ac1so223502f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 02:59:55 -0800 (PST)
+	Fri, 08 Nov 2024 11:03:17 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43155a6c3a6so1583575e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 03:03:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731063594; x=1731668394; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731063793; x=1731668593; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=;
-        b=Z1XQ6NgTldQjxwDjzazqENiWsvuS/crm/DpycH2e9aZUE58rXh4XR4fbpfdShXakeP
-         ofUfa9RDb0D26PldU8DvXlj8P9GCFGaVG97+li86EMPOazMjVbdKBeHlzknAjf1xMl0N
-         kCAb+t/l67Vcgam2ibsC+sH50N0K8Lxt/mN2Gtq+gpJOijPg3HKjFouhjJpATtLF4wxz
-         PJxwTy48n2R8gkM4BQCx7FLZ3uWAPDvdwv7oKKacWSvXZfynnzS0hilG7maB+nds01SO
-         tu1aqsRIRLFptr0qbZwTeQfvN654ek+5lttTYK7YJwriOYdS0iqaCGsWcxwxLmUBwIHI
-         T4zw==
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/54zAdLUpqx2P/YPWSVGcyzYbnWX/zdZkvlSyN6Bgis=;
+        b=GHGysbLcbSi/Ku9PKgKlkdeLpOLzt6ZlYz4aW+IZax16/aPqyXJ6hcPsMq4rmamYrn
+         TDWxA+OcDcc/jJIduIWM95FSCKL/KRLS+m7Km/dXN/FlqWQeXCXek6xZxumwZShtKhlM
+         NugTqod0GpYGZ/4VTbX001ms0m5TUz9pmC7HOYx6ChMS6Vq6EU9lUaeiGCAx4zreeT0E
+         cYd4mTF8eFztkj3CaUcfmR0ctsSd9+qX21BEYri9bFpYh8Smv8uj/kpnxgU+oEmgyahb
+         CV+n9lha8ltQP+MN6sRtWBZT34+SYV+VR8yna6IyGQYjyab6oyCxhUh9pGViXtHYcBvQ
+         qpWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731063594; x=1731668394;
+        d=1e100.net; s=20230601; t=1731063793; x=1731668593;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TJsZ1D0SNXJJ/V2KTKYWT1pHPn+RT1Ru2KyAMGJ4klA=;
-        b=O+Kgr1vre91cjQRPu3qwTffetylzunN2Ieh3lrXuV3uF/AcW6VlKk1qgCW8+Pp60Im
-         2khdEvjcMVQOPwTOjgbVzElocKUGZNc4GIOl6QScd/6Mqm0B9qvQMu3EEFwbU1pReRbA
-         vglMrYlzX1gQ2hVEQ+7yfH28R16agKOup/bSV4O4ib9xbURT9CG3J5pRxO8jzLPWbQno
-         //QQv+bxX7J26+Utv59+0RLPE9iWih12m/FMZtIQ90Y/yYohits3wJNzKPeNv1ehgTH7
-         jQBaMr9+ygBmBj0OlUVijxis4WfWlD/R7OyaPXV57IuCitnluxg4pUWFLtPOnpfSNBCu
-         PJmA==
-X-Forwarded-Encrypted: i=1; AJvYcCUexvNGpQH0IYH0FqZgh4NM3IUSHxdF4yE5khS22xwnYXwk8pNarAiyN60Xmyfe5qgJWAAJsZRKfGLz5mWuE3vN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsmFMe/wPf5dppSOs6gXwNJKRc8JrrTCtWIZzc8wEwBLKHmaJr
-	oCnMEAXU3PgQE9iETYV8EB5gKjoCjzGLyjl2Ng17TowuRnaKcy8I5Flgd4MUpas=
-X-Google-Smtp-Source: AGHT+IGgrtxjtNjOrPLN/qb8VJvRRiPkgkcMf9a0A9FAEvNbhVFh12ojBWAIdBWC2bxuNKwBB4qYfA==
-X-Received: by 2002:a05:600c:4f8a:b0:42c:bb35:b6d0 with SMTP id 5b1f17b1804b1-432b74ffa40mr8616615e9.1.1731063594059;
-        Fri, 08 Nov 2024 02:59:54 -0800 (PST)
-Received: from [172.16.24.83] ([89.101.134.25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b0562642sm59707405e9.21.2024.11.08.02.59.52
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/54zAdLUpqx2P/YPWSVGcyzYbnWX/zdZkvlSyN6Bgis=;
+        b=OVUVlyHs5ZkRDVGgwGGDAPJAhkvhj40amZyMuRlw8Hxhu8uHFPO2R4zuVHnfol8bqE
+         wfUMAKLQ08/qlApUQINOcxpTeWPaDIuDuXM8bM1EankLqAdgB9lFRQgDwL+Umt5n/FPi
+         jqji/43fQEUkzVZKzal8+UPe8CxK1PHSe4IZxxeYXhpNVI427rj5gr19e9UMrtK22GLh
+         ykdzfdfem96+lL3D+FuUgQ7GkHXyfr5zbTRNBiKvmJRuMnC7w2/qg0K1egOl/SKY3SaC
+         7hwmgbUNBf0+6KAo+JabyRv9afsFet9KHscBDnPq2cUBADM/B3o1IsgGTigUQAnvPKw8
+         NsQA==
+X-Forwarded-Encrypted: i=1; AJvYcCUq6bkoF+4W4ufDsmjjY+hmC0n17jYxMBGUcCReFv1guaibNGVA8LKHK0n6iUXUJiWz34A7L6G7pBiKiJ0hbdhi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEOgsqEJMkDKjFt75vm5LBgtw6xS+0FPbhbBZM8veQboBVWaoH
+	CgW8yZFtib1IpzJWjFWKTCGIQPHJ6p8RgxvRQyGpT7Yfdaedjx7F1j7RXIroUnI=
+X-Google-Smtp-Source: AGHT+IFwQlbGlL1zaHJ5RrZlqhoWbAPq8iIbPLfXzSgtj1QRCcZA22akk0iOzL+dn46oy/xi3aRdaQ==
+X-Received: by 2002:a05:600c:4683:b0:42c:b8da:c79b with SMTP id 5b1f17b1804b1-432b751896bmr8791205e9.5.1731063792774;
+        Fri, 08 Nov 2024 03:03:12 -0800 (PST)
+Received: from [172.16.24.83] ([89.101.241.141])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b054a5ccsm60210285e9.11.2024.11.08.03.03.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 02:59:53 -0800 (PST)
-Message-ID: <b8dcd283-2fc6-456f-8b7e-ab3792b239e1@linaro.org>
-Date: Fri, 8 Nov 2024 11:59:51 +0100
+        Fri, 08 Nov 2024 03:03:12 -0800 (PST)
+Message-ID: <f66a649a-60dc-44ba-b8b0-b049c9e357fb@linaro.org>
+Date: Fri, 8 Nov 2024 12:03:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] arm64: defconfig: Enable ARCH_BLAIZE_BLZP1600
-To: Niko Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- James Cowgill <james.cowgill@blaize.com>,
- Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- "olof@lixom.net" <olof@lixom.net>,
- "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "hvilleneuve@dimonoff.com" <hvilleneuve@dimonoff.com>,
- "andre.przywara@arm.com" <andre.przywara@arm.com>,
- "rafal@milecki.pl" <rafal@milecki.pl>,
- "andersson@kernel.org" <andersson@kernel.org>,
- "konrad.dybcio@linaro.org" <konrad.dybcio@linaro.org>,
- "angelogioacchino.delregno@collabora.com"
- <angelogioacchino.delregno@collabora.com>, "nm@ti.com" <nm@ti.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- "johan+linaro@kernel.org" <johan+linaro@kernel.org>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20241108103120.9955-1-nikolaos.pasaloukos@blaize.com>
- <20241108103120.9955-6-nikolaos.pasaloukos@blaize.com>
+Subject: Re: [PATCH 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
+To: Yoshihiro Furudera <fj5100bi@fujitsu.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Bjorn Andersson <quic_bjorande@quicinc.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Peter Zijlstra <peterz@infradead.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241108054006.2550856-1-fj5100bi@fujitsu.com>
+ <20241108054006.2550856-2-fj5100bi@fujitsu.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -141,12 +128,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241108103120.9955-6-nikolaos.pasaloukos@blaize.com>
+In-Reply-To: <20241108054006.2550856-2-fj5100bi@fujitsu.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_025956_146382_3526DAC6 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20241108_030314_983995_6699C11D 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,32 +148,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2024 11:31, Niko Pasaloukos wrote:
-> Enable ARCH_BLAIZE_BLZP1600 to get proper build coverage.
+On 08/11/2024 06:40, Yoshihiro Furudera wrote:
+> This adds a new dynamic PMU to the Perf Events framework to program and
+> control the Uncore MAC PMUs in Fujitsu chips.
 > 
-> Resolves: PESW-2604
-
-How is this resolving PESW-2604? To clarify: PESW-2604 is a DC motor, so
-I really don't get how DC motor relates to Blaize...
-
-
-> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> This driver was created with reference to drivers/perf/qcom_l3_pmu.c.
+> 
+> This driver exports formatting and event information to sysfs so it can
+> be used by the perf user space tools with the syntaxes:
+> 
+> perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+> perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
+> 
+> FUJITSU-MONAKA Specification URL:
+> https://github.com/fujitsu/FUJITSU-MONAKA
+> 
+> Signed-off-by: Yoshihiro Furudera <fj5100bi@fujitsu.com>
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+>  .../admin-guide/perf/fujitsu_mac_pmu.rst      |  20 +
+>  arch/arm64/configs/defconfig                  |   1 +
+
+
+defconfig goes via your SoC maintainer. Split the patch and Cc the SoC
+folks.
+
+Which ARCH is it, BTW?
+
+
+>  drivers/perf/Kconfig                          |   9 +
+>  drivers/perf/Makefile                         |   1 +
+>  drivers/perf/fujitsu_mac_pmu.c                | 633 ++++++++++++++++++
+>  include/linux/cpuhotplug.h                    |   1 +
+>  6 files changed, 665 insertions(+)
+>  create mode 100644 Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+>  create mode 100644 drivers/perf/fujitsu_mac_pmu.c
 > 
+> diff --git a/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+> new file mode 100644
+> index 000000000000..ddb3dcff3c61
+> --- /dev/null
+> +++ b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+> @@ -0,0 +1,20 @@
+> +===========================================================================
+> +Fujitsu Uncore MAC Performance Monitoring Unit (PMU)
+> +===========================================================================
+> +
+> +This driver supports the Uncore MAC PMUs found in Fujitsu chips.
+> +Each MAC PMU on these chips is exposed as a uncore perf PMU with device name
+> +mac_iod<iod>_mac<mac>_ch<ch>.
+> +
+> +The driver provides a description of its available events and configuration
+> +options in sysfs, see /sys/bus/event_sources/devices/mac_iod<iod>_mac<mac>_ch<ch>/.
+> +Given that these are uncore PMUs the driver also exposes a "cpumask" sysfs
+> +attribute which contains a mask consisting of one CPU which will be used to
+> +handle all the PMU events.
+> +
+> +Examples for use with perf::
+> +
+> +  perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+> +
+> +Given that these are uncore PMUs the driver does not support sampling, therefore
+> +"perf record" will not work. Per-task perf sessions are not supported.
 > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 2c30d617e180..7d368a8911bf 100644
+> index 5fdbfea7a5b2..2ef412937228 100644
 > --- a/arch/arm64/configs/defconfig
 > +++ b/arch/arm64/configs/defconfig
-> @@ -43,6 +43,7 @@ CONFIG_ARCH_BCM_IPROC=y
->  CONFIG_ARCH_BCMBCA=y
->  CONFIG_ARCH_BRCMSTB=y
->  CONFIG_ARCH_BERLIN=y
-> +CONFIG_ARCH_BLAIZE_BLZP1600=y
+> @@ -1575,6 +1575,7 @@ CONFIG_ARM_CMN=m
+>  CONFIG_ARM_SMMU_V3_PMU=m
+>  CONFIG_ARM_DSU_PMU=m
+>  CONFIG_FSL_IMX8_DDR_PMU=m
+> +CONFIG_FUJITSU_MAC_PMU=y
+>  CONFIG_QCOM_L2_PMU=y
+>  CONFIG_QCOM_L3_PMU=y
+>  CONFIG_ARM_SPE_PMU=m
+> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> index bab8ba64162f..4705c605e286 100644
+> --- a/drivers/perf/Kconfig
+> +++ b/drivers/perf/Kconfig
+> @@ -178,6 +178,15 @@ config FSL_IMX9_DDR_PMU
+>  	 can give information about memory throughput and other related
+>  	 events.
+>  
+> +config FUJITSU_MAC_PMU
+> +	bool "Fujitsu Uncore MAC PMU"
+> +	depends on (ARM64 && ACPI) || (COMPILE_TEST && 64BIT)
 
-We enable entire archs, not specific SoCs. This is supposed to be
-ARCH_BLAIZE. Same for earlier patch in Kconfig.
+Missing depends on specific ARCH.
+
+Sorry, this looks like work for some out of tree arch support. I don't
+think we have any interest in taking it... unless it is part of bigger
+patchset/work? If so, then provide *lore* link to relevant patchset.
 
 Best regards,
 Krzysztof
