@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0930CD5C0EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D64D64063
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6s2DosjfqDuLSyaiFlqd5KG4tRwfskrDs06O3YBify4=; b=tJi8r72v60OKkUWmaYJ3Hgbkkv
-	YgPlfOD0RLNlWvgUEAMkleN6D6L5elJYYE53Exd864GABgZzqjhhG5THOFwincZ+pXV5zu+SFFqUL
-	69DW1EVGgZKPnUr50H9G+ATySqB+xzHInbhYI8XbxcQ6X49YIKEJn3I6/woqjayGm0KAtnpXWpvGN
-	IABTZIpG6UsMvgHJKWSILwuK+r9HuZQMaAZgRWJjKAPnrEXmTc1tkvowObYuuMKgjYUpd56YXrE3c
-	U3mylo/h0JWaDGZKxSAOp9fM/plZxkb8jVZZE1iSJavx/BvgkEB5YLeXEFrS4eXAlYvhkDNqkyaIT
-	JQU1s62A==;
+	bh=FcsUY1smIddJuukzgDWTdgQyF9eouZiuCT+y+xtjE+s=; b=NO5V1rJ0RY3nd/CO+/W7dtNfRk
+	GvLVIBCXnsc2qG9BarFlTMaCw5f46P4sMyOuqV+hsEA8fFBbU0T9Hz+5gnl6ei8s2XDWWx/allDbd
+	SHxy3jj2mx0/Fiz8F94uJEirQsoBs6yHqhCyKmSzs+yaK1GQtszXCEIb0+N3+YPFeXdwjLWlFQdkC
+	+tRcaTp8jDYYgojz6KL3NUPlx3W7EmKd5IuMYPBtuqq2EDMOMzZA1Mggc+nyudYWAkH1J6R5C3XSU
+	Q6r34SqH5ByesxDp5S4YGQ1wAmAzxjX3uP+lObe54o9leuzPrWSTs98XwIA35l7ghFQIsmnS+ovQL
+	bcv6yo5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RD1-0000000B5la-3WUC;
-	Fri, 08 Nov 2024 15:47:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9Rtk-0000000BDG0-21qp;
+	Fri, 08 Nov 2024 16:31:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QWy-0000000AxBi-1JRB
+	id 1t9Qdc-0000000Ayxl-2Tbr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 15:04:13 +0000
+	Fri, 08 Nov 2024 15:11:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1C45D5C5BFD;
-	Fri,  8 Nov 2024 15:03:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 318A4C4CECD;
-	Fri,  8 Nov 2024 15:04:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 63EE85C5C3D;
+	Fri,  8 Nov 2024 15:10:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F735C4CECD;
+	Fri,  8 Nov 2024 15:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731078251;
-	bh=6s2DosjfqDuLSyaiFlqd5KG4tRwfskrDs06O3YBify4=;
+	s=k20201202; t=1731078663;
+	bh=kRHyiXPlUV0rDJPiJ+QPZIN6o61K+Ssat5hWggNGNbQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dzBg3XVLJlLlqsW9r8hsJws/1aFY98ZXIr/OoF4Y1D05/tciEKo1xX1wMKwAZcp5q
-	 OxmSmO5SBlyAmnTDGDwaO0zb9Ta0ooqfHgC+2Bb+Owh0QjggDBKMyqrjgI/TdwFRln
-	 NFSbNEvRG5qfTXqireg3+geq9cU+NS8xok9e5iGQtQJtOMABm+qox0VHnSw2VO0KpC
-	 Fix38bXZpBrbJ71qCpvS8ZXMO+23HSRDkJ1ueOb+WBXWgwvl5N4eZvRBTMeH1HwLfC
-	 Y4wLPLFNI83TKHQfs3IkCC0QHEIYDNorYFMnyt6m90XYBEr5WZYrt2Sh37hVfk8hkn
-	 IIACVmzcg4fSw==
-Date: Fri, 8 Nov 2024 15:04:07 +0000
+	b=WYyEOHZe5xcTPRc262BdXBn+HMK1sM8gSDJv5f5G5QRLHoT5E5mi6ne/5RzaBg1Vj
+	 30dBuWT67zxVcCvzAJ7MBVIaMH3vjw/iqlTaMgi+3EVeQQQBzDCvWju9Uj6LSrf2SL
+	 SaQJysakf1QU0P8EfyuX3hj29QoY/J5ZuHTIpxMXwVsbCL5EcUEbGtlwVuWIu5EySI
+	 hZMg+S2u3+62HueJcrHycFnaQxwSEKRdovev0nU+iDU/wfcLJjSOEsINkBbpTK9TOE
+	 gnpmi32Rdp3tee2QRl3OyWT6dsDsmLJoEHJQdmz6xI5GYG6c924wRZxidCFK2hxclT
+	 7TPy1cQ/C+G+A==
+Date: Fri, 8 Nov 2024 15:10:59 +0000
 From: Mark Brown <broonie@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 3/4] kselftest/arm64: Fix printf() compiler warnings in
- the arm64 syscall-abi.c tests
-Message-ID: <0935d03a-d29b-4e66-a5f8-367b8274f375@sirena.org.uk>
+Subject: Re: [PATCH 2/4] kselftest/arm64: Fix printf() warning in the arm64
+ MTE prctl() test
+Message-ID: <4bbc179b-73b6-46d7-b414-f3b14079b489@sirena.org.uk>
 References: <20241108134920.1233992-1-catalin.marinas@arm.com>
- <20241108134920.1233992-4-catalin.marinas@arm.com>
+ <20241108134920.1233992-3-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xo69RfIwy0Aa7qeS"
+	protocol="application/pgp-signature"; boundary="pJb4DIpSwzrlDqsz"
 Content-Disposition: inline
-In-Reply-To: <20241108134920.1233992-4-catalin.marinas@arm.com>
-X-Cookie: Fremen add life to spice!
+In-Reply-To: <20241108134920.1233992-3-catalin.marinas@arm.com>
+X-Cookie: Do not overtax your powers.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_070412_419407_0688F58B 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_071104_692741_EEDE9719 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +77,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---xo69RfIwy0Aa7qeS
+--pJb4DIpSwzrlDqsz
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Fri, Nov 08, 2024 at 01:49:19PM +0000, Catalin Marinas wrote:
-> Fix the incorrect length modifiers in arm64/abi/syscall-abi.c.
+On Fri, Nov 08, 2024 at 01:49:18PM +0000, Catalin Marinas wrote:
+> While prctl() returns an 'int', the PR_MTE_TCF_MASK is defined as
+> unsigned long which results in the larger type following a bitwise 'and'
+> operation. Cast the printf() argument to 'int'.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+>  	} else {
+>  		ksft_print_msg("Got %x, expected %x\n",
+> -			       (ret & PR_MTE_TCF_MASK), mask);
+> +			       (int)(ret & PR_MTE_TCF_MASK), mask);
 
---xo69RfIwy0Aa7qeS
+Shouldn't we just use a %lx here?  Casts tend to be suspicious...
+
+--pJb4DIpSwzrlDqsz
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcuKGYACgkQJNaLcl1U
-h9D3fwf9FYkmX3JoIbjpbzljb2FSS8q+dlnkPkTVrCqtHFFu4mUWTeS4Hf2PBGEp
-mug7ManyT3rH4dk/pRmsc+7AmXVjIhuothTUjXCanMn1/sNUMcA3OnY/Bg+7RE/4
-QQfb5G3JLH8KZa2QFiCQtauV6lYmGEHDm6qGL8XnxQTr5WQxykF1IugOqHFEpTft
-XeRZ9Ic6aSdpcTViU1n4gzT5xsICz8ZMIdyoyEfCJwpSDYWmQzUVRx323A6DgNyy
-Jg8FZUC2xBXXPE4TgZyZACY0URKFD6Iy8egeysDecOv9NMFF7mARgEEdIwlJcatw
-bry31dcAmMl2iD78yq25YvHRuh9anw==
-=eTgI
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcuKgIACgkQJNaLcl1U
+h9BeCgf+LP7c17wm3e9XZFV8CJeh3pUUe86mTATYwELGkms9ZoIHXvUwrqhphujX
+iRNj8QOet2g1IOFpITbCfKW0fuZy5gTqDkl4T+VPPZFTKGKgHS+whjTEm/lyWbdr
+/34+n6666fezdZmGI8kdXJ5KOXV16T42uI2e6jtFLakuK+ks6eTJ1DW+91YuX/CA
+jaXBJ/FW0kOG9EMijuWITzemyGf0Hkcq+zsMsT6ahiZA54PttKWx8T5BwpX9s9O+
+t984Z7vC/RiwYp+b0LdVKXQjnt8rC9NvfgCdEIExA7+2y474VEKOwE4sZ1doPLk+
+pG13Zhc3yNSWzvtPhZmv7LbM2PQUdg==
+=OliD
 -----END PGP SIGNATURE-----
 
---xo69RfIwy0Aa7qeS--
+--pJb4DIpSwzrlDqsz--
 
