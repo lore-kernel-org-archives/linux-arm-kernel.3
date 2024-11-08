@@ -4,150 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B43D6407A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3981D6407A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5ZxlDAmWDjjqFnop0njH6zZ91cLq20qaIj9E6Ppz8U=; b=l8NVI3hfWND5mlBcJDgnnymuQM
-	oDzMoKP/xc75HDH4DHdR2OgUNOaxMeSYeDiEiMaRgZWaZ49ICiXct43+zpkPt34YKWh2zN/MWHBld
-	cO9dcbCSXCCnL5n4eIOIbbCtZM/0yJhbFhT7ut85fTyn8DmwASEHnyDDFGOetsLHYyiY8nAai76e+
-	xbHPkE6GrTeJnKmdnuUaksLnSblFTVoYpXd97DGF0DgByXDblPd07P/8rX2TZNmnmeZqnCxeh4sph
-	dSMlSwji6MSES6vSc6Gls43kn6Z5AR3mErxTYVDh/QDCTczTCjVA0BBXeUGtnkTJ4k44Q24n1Ep9B
-	JBzqHC2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YcjDPRp+ch63AiHWbyUonpJU1I1xzWMm60VjxeSPBg=; b=zHsiOOmnqOsvSJXASuxzhQr+jA
+	uMdqMPpoHmG35Yqvj+F/UW9WbEhYAM/+94R5z2k4KfegfSRf8WdmTEqaLnpy1dOWNRHysV8EuC2UA
+	6lg/YDJzvUdlNSnMBlXm53JCzsWRXT3JrXeceIqn6AYslblBHXO+EvyxXTRBGu8E/NFlsPT0B4BH7
+	yiW77ihRGz8IriDB73vehikBbPZ+KHa30wgcoKAQLvfG47oTxh5hv6XkQ1qgaAjM1OK2EWIdEzclR
+	9lhr6G1xBDE5w5YXf/tj1km4C9iPUYWX04Q1U5RwWY7nJr/Pcs4yaGr6y81vRi0LeftiuhtpDUhYd
+	TulVpICw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UTl-0000000BiX7-2U6o;
-	Fri, 08 Nov 2024 19:17:09 +0000
-Received: from mail-mw2nam10on2071f.outbound.protection.outlook.com ([2a01:111:f403:2412::71f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1t9UZ4-0000000Bj3C-1ogx;
+	Fri, 08 Nov 2024 19:22:38 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UOb-0000000Bhs4-2KHa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 19:11:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sdtJX+D1g9KPbUBT0eISsPxoFb1f0ZFElUnQyE7Wh2FSZZtoAOiDtleUJjIMT3HwqKcXFA57dl4J/gS7pwN2KjX2BrA6V5zO28EkW+UEi2ZCuv7dZ1OryGaJyaywmbCex+z4tPfxybVJd5XczbEz2IxDOjVvpNu9wpCLdiTwY30zjZ/r/qL1ltqKbFtyvXSd6eB9Cvt/cNYZ6lniplu5v2IYQ2Vjtm8ksNFFY2EHCW271+3gwcPlCCgH3Lj4mEVIhtxOML78cD4ddchSkgi9rn7+cFQYXxQuN3vZbloAARZMOjH2jNNc82fn4VX/it2iiR8pZmbqxxV7vSv7mb3cIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z5ZxlDAmWDjjqFnop0njH6zZ91cLq20qaIj9E6Ppz8U=;
- b=cTz36mBmgnKywuQquOT/FRWytvy6o61UMZyp2VDfWCMl7uT2m6BqY4x0VNt49IFc8cvofAb7slbxUqEnlT1/68kRp/vtNzrfyleGAAg/Fi7FLDoxTN/H7u77MAwRseVCvgtyG4p1NL3PLLeq4/+NIfDWZp1l2gwLE7KIUPcy+/oNg13WoKBg54baRW/3llEnS+Lq46pNVwKOv8darBZj/S3B0voVikW3PQqI2K67IpEJ+phmQz8VJuwcy3XW9Zw7Ow9B9rttzpYqy47BuG1r4zjv6KV/Fm1Mdo4f7aXs5TORs02a91coR92BXsZkA0i8FvHZw52ThMUw+Tf/43zmnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z5ZxlDAmWDjjqFnop0njH6zZ91cLq20qaIj9E6Ppz8U=;
- b=ep9I7LN0tRMIz21Ra0hhZYY9lH51apzVaDRmqcmF/PUIMipTRAtvwkBVndQL55h3tm/BEynM3GqC0V2s0rvilaUU5vi598gKvI9myH7VMOjjAlDfqR7J1VpkzXvf6GYDypUfbWAR2I0MdB9bfcXfEsXXjAJfAXZhDPalZ4LxF48=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH7PR01MB8146.prod.exchangelabs.com (2603:10b6:510:2bd::18) by
- BY1PR01MB9089.prod.exchangelabs.com (2603:10b6:a03:5b5::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8158.11; Fri, 8 Nov 2024 19:11:38 +0000
-Received: from PH7PR01MB8146.prod.exchangelabs.com
- ([fe80::2972:642:93d1:e9d4]) by PH7PR01MB8146.prod.exchangelabs.com
- ([fe80::2972:642:93d1:e9d4%5]) with mapi id 15.20.8158.007; Fri, 8 Nov 2024
- 19:11:38 +0000
-From: Steve Clevenger <scclevenger@os.amperecomputing.com>
-To: leo.yan@arm.com,
-	namhyung@kernel.org,
-	james.clark@linaro.org,
-	mike.leach@linaro.org
-Cc: suzuki.poulose@arm.com,
-	ilkka@os.amperecomputing.com,
-	coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH V11 0/2] arm-cs-trace-disasm.py/perf must accommodate non-zero DSO text offset
-Date: Fri,  8 Nov 2024 12:11:19 -0700
-Message-Id: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
-References: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CH0P221CA0036.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:610:11d::14) To PH7PR01MB8146.prod.exchangelabs.com
- (2603:10b6:510:2bd::18)
+	id 1t9UXJ-0000000Bipb-3qWT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 08 Nov 2024 19:20:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=8YcjDPRp+ch63AiHWbyUonpJU1I1xzWMm60VjxeSPBg=; b=cZYBwdrpfBq0WkAzRag13fRlS+
+	+srbnreYjdRBxyphguUoNEdRENMc2XQvjvdmcPCG8tSi0IBd8RLKxJ9tVIKKCXbrYhVgAlphm7nFw
+	KaOQ0DI3OZtCLdtVPbfYEJVunJWsU6yxRKMG5SYnngYK6zSyWVyBmQMCBmKL8ASErMzOjFliOr1mf
+	2LGzPOyztA+UnoRF4/9kZWW+fAaVytkEptmIljkMleewymLWOvGhcue0d8GGy16tmNypfEEULMmnL
+	CkTYE7C3ZtK277xJSY/wpLNDvmH4tyWeyO6lWNLkHljqzc1EiAJps/puK56riWhqlGDWL8ndXq/w4
+	lQvZSyMg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9UXE-00000009Dec-12gL;
+	Fri, 08 Nov 2024 19:20:45 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 2150230049D; Fri,  8 Nov 2024 20:20:44 +0100 (CET)
+Date: Fri, 8 Nov 2024 20:20:43 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, oliver.upton@linux.dev, seanjc@google.com,
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, will@kernel.org, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+	christophe.leroy@csgroup.eu, naveen@kernel.org, hca@linux.ibm.com,
+	gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v7 4/5] x86: perf: Refactor misc flag assignments
+Message-ID: <20241108192043.GA22801@noisy.programming.kicks-ass.net>
+References: <20241108153411.GF38786@noisy.programming.kicks-ass.net>
+ <gsntbjypft37.fsf@coltonlewis-kvm.c.googlers.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR01MB8146:EE_|BY1PR01MB9089:EE_
-X-MS-Office365-Filtering-Correlation-Id: b737d769-384f-4bfd-a647-08dd00292b5f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u3ezQ83P9iCLwZFKPyoby3e71/s9ERVhccHfUvwnWxV4olxAJ+KKY/kPOkF0?=
- =?us-ascii?Q?mAAeN9+3m9/I5uh2GZxBss1k9VvyQ1wkyTNeM+nRcaTZrNfUFwlrYdEydsqn?=
- =?us-ascii?Q?3j6uKW6B4LmD4MUXhLMm2IYLF6MPgi7PxEZb8ERTeNnUwKJJw5DgZHxYhIVT?=
- =?us-ascii?Q?F3lm5dNs00FEK5pCOKhz0o/QQm+ft/F8UvN4dr4EOCsMKlPemwTYGqgt4vBf?=
- =?us-ascii?Q?QK7hPe3Gsxgaw7vbB0oCVIOamW2ETYd5lecYkzbuMpCtNCKPSE7Ox7e0wH2m?=
- =?us-ascii?Q?evaqzvXZlflc1ljo2i49nfOv3quprCc3XBz/1LPDZQJmkTzKMhXg1ngbgstP?=
- =?us-ascii?Q?1nCOxZd95ozfCf+fegZ/6GaJWnJ+teCEiBpgVe1w414Nb8yUq2l0PGPQQxvD?=
- =?us-ascii?Q?8Qh4xDXvOBWuKLd575H8whZIjY9B47r5IO5vhAZSZPRsmBuSopWOWlUSKdSI?=
- =?us-ascii?Q?jGmZVvNXWlrbTTDdr7Fd+hbHfABw/WTfUBq7xnYrVTIAOoaAq1VV0hFMFeMJ?=
- =?us-ascii?Q?Xt/5UHXhj8WNAz3mstpqnR4A95VmOqoOCgGF8CbSzYwaHDU4LdISl0vUiWnF?=
- =?us-ascii?Q?GlOKIwJOqI1hOfTomwuKiLQz+N4c7ecNWAKXA0keHM6xgulIbpmRciRwcR/a?=
- =?us-ascii?Q?Pj40895S31X5Hea4wpmifopvjnaDaEWdD2RtDeecxpkIORLy7oRnX2C9iuZo?=
- =?us-ascii?Q?hggg67gKoE7Ro05azm3Ow7cDN2nkwfEZouBPUxp8RsIYf5hxFSnpEkoWxuCa?=
- =?us-ascii?Q?PddAYrRCuaLwJSkxrOxCUZBZ4sYsuYI4lMqlkNndEvOUKpHo3oMtPPvVuhP0?=
- =?us-ascii?Q?an1TYB84+v4WvrWjK6O1sB/d1ZMWxIvNXXZDXrOQHmov7gFSbs1Q4RpvE2gD?=
- =?us-ascii?Q?fJaAqafOPHQHvqjzJzKV92egfTOuSg0WsSGAKDUMQvybtLMxqNEURlrO3HGB?=
- =?us-ascii?Q?/7ekjoSygDpqg0hJL8DbxzhpvTkuBDKcwFM2ipLeg8G6Sg+N1BF/GCF18+oY?=
- =?us-ascii?Q?YEzL7eeEPtxVOlvEf9EIAfGkkvSjBFN15ovQUiSRinNxLAWoqQyzkx3MwUAr?=
- =?us-ascii?Q?y1KvQ0FF1qMIAb0UZLs2fQjVR4aaS3IPeXgM/lqpVxCXdxHbbONEi6SbpWsR?=
- =?us-ascii?Q?rBRbAWMqWp5ITJ8oa49zeMCYrQHPfKE4sYXxBFYLvFMN1pa4LA5WyWrols/X?=
- =?us-ascii?Q?SOxOyqiwrjp0K7PL1mrtjwtvDryMCaySoqRi2p4L9/SJvmY+e1jQ3GHT3fC+?=
- =?us-ascii?Q?Hnr+wKXRK6acZWgbcl9aTgsjWfps9m9RtyJb85eZcIuQc0d+rDnh9Mlhe9hn?=
- =?us-ascii?Q?QPCJoSB2Vk33FTxbZuhJyvdy?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR01MB8146.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B9rNAb65HMxiIhqLu1Tycv2btCHZtKvPT16CdG/J27RrBLw/fHZhJsVLBu7x?=
- =?us-ascii?Q?ES92vEEtgf0LFSHlfOXKOJeJoC1L4vXeQESr8m3sKcjTjaqIH7dTn65dT2RE?=
- =?us-ascii?Q?sw0SChCPA6BvImAZRgi+w6+9dSlgjrmvfgrdp7zie1nVCyEBLPvfAU+u/ohW?=
- =?us-ascii?Q?LPvyBXh7wBujPfu+4KoW/FK1AW+a6YxckCO/XNl/w2Ill4tuT5MiKt7toqDP?=
- =?us-ascii?Q?b2SEhwz75aJdnsmp/K4LaTQ+MhFgwdiFfmewMVhy9cAs4C1KIvO2NxbBXOKA?=
- =?us-ascii?Q?2IdYT+h85aaVz0i3ihlRX3MLqpP8XzlWRxfj+RaBJfNBAcnjpgUBVFlo23bl?=
- =?us-ascii?Q?4XG3nwdP7CKMRpVEFoktDGB2d54IDzhQGGlCRwUdHUTrdo6U10CbzFQ9uKJp?=
- =?us-ascii?Q?NSNLC5n5wZZ5BuQtVDm8v4wGXk7vZTL6DMUldAnYnMgPwCej3VExHUnrl646?=
- =?us-ascii?Q?l/djkUDQhbotwE93AgSShAi95F3PuB4OD+2LlIqZX6+8QLEWKZwcIB8nnbEh?=
- =?us-ascii?Q?gHv1o8cyFxQYBzcvBjXb1Ea4Wt8Fhjx3Qbo9O8ZVTyJqlprAaERwoZk6AyRF?=
- =?us-ascii?Q?mvmNxTCydP1RPVRV2TTzhXHpK2vbLeMcYVDQAm9Qy3RpkLmph7u1Ea7lp+Jl?=
- =?us-ascii?Q?w+B5KEuqM0ieqCbSfg13Z3u9A1L0LxV3pRf2BAnU6asOev7a6zVvcngFONGX?=
- =?us-ascii?Q?Wz5X7kFMTd3ffmjUXPQ94hLVZfwtxAcvUsj5XMoCeztzQER9S0QH2JBkvDtE?=
- =?us-ascii?Q?K9L0ujEfass3epCgqWA76VApA5pDoXsT+hM+I5h1tIrwYc2KMG9YlExiTQ2V?=
- =?us-ascii?Q?4Z1fNKvqWpsBAlOa2wmK6TikETspUQ8x4fhKWu3vWzPL2ZV/1kvxpV48jgG+?=
- =?us-ascii?Q?WUthG94pZRWroIVRD5NdO0j7SV6tkJlNHJ5mQSuL4GGcRAG3lxHYaKzQZF0D?=
- =?us-ascii?Q?EU4nIuN4kj6JV8qlrsy/ck/EVMXPqWaSRT9oCp5nqLgsf2+N8URmwO+3zZ6G?=
- =?us-ascii?Q?8tGxXBZmrKW5s+whN2SwC6Zd4Ni7mn/qQ3ssb2ioxJ5ifhCyQQBX/Glgq8cK?=
- =?us-ascii?Q?EpOnBWlekg3z+FceObNAFk4uNhnpJ3/N37+M4wiQVl/3MLVaUhit6i1SApAg?=
- =?us-ascii?Q?eesEWRrjvu+P2UHrHSbKz9CJihtJXS5ah3ZCP6uNm8m0Ce9N3axKD7p4axFk?=
- =?us-ascii?Q?oJBmdlwi7I9jY0sb/3DK3Na66+sX0cAqmztRWbg+4DyRbBJ8VpWTtgvCjk1P?=
- =?us-ascii?Q?8YPERpZYaFsTlh1MekbgKmhKt0MhqoSZ6NXwrOlDKcQxkr5hgO2tygOAPX4+?=
- =?us-ascii?Q?zMMeUUoM7q4orKLJsF6lv/cr9e/e3MqoddHJnQBJdkiMqR7i8z03kBR+VQcM?=
- =?us-ascii?Q?biW3Usn6tI+kzcGro8ipT9fahRYw5vy470Dd/iH5OxKncEE/SNuOJ8iz2jWi?=
- =?us-ascii?Q?fnOQRlRK1ndMfRp4O1C28gIUmOnExJhkIeRyfOpbnYx5hpZlhB0HWP30vLvs?=
- =?us-ascii?Q?VPy+3nYng2rPX3D8xpVF+fMbDDwSn5ptJRjl2uo+beCzgJu0CXsq8lpfJI9L?=
- =?us-ascii?Q?N9mOz8RtZKNhDkCM0GeUiga933DMf57axs5AMBQGP7MAC75u5vB1Z9YiViRZ?=
- =?us-ascii?Q?npXqsYhyXeJGtR3iQLyvKRus5IXCcYJs2++g/WeRGnPD?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b737d769-384f-4bfd-a647-08dd00292b5f
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR01MB8146.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 19:11:37.9190
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: S4iRTxCT2xM5KKk4o97KMHP/Sxfj4a6yDYS8+s0rAzH9rpsvOrzJv4UAsfqYdwC2xpJVXISrxCgWV+YiF68tUViwA8WR7at6/1o2gcsua6eG53E4AMf086VovQc7GSbR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB9089
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_111149_634319_C2C0D5E8 
-X-CRM114-Status: GOOD (  11.48  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <gsntbjypft37.fsf@coltonlewis-kvm.c.googlers.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,70 +81,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in V11:
-  - Corrected prefix.
-  - Fixed compile-time error for perf debug build by substituting in
-    the map__pgoff macro (trace_event_python.c).
+On Fri, Nov 08, 2024 at 07:01:16PM +0000, Colton Lewis wrote:
+> Peter Zijlstra <peterz@infradead.org> writes:
+> 
+> > On Thu, Nov 07, 2024 at 07:03:35PM +0000, Colton Lewis wrote:
+> > > Break the assignment logic for misc flags into their own respective
+> > > functions to reduce the complexity of the nested logic.
+> 
+> > > Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> > > Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+> > > ---
+> > >   arch/x86/events/core.c            | 32 +++++++++++++++++++++++--------
+> > >   arch/x86/include/asm/perf_event.h |  2 ++
+> > >   2 files changed, 26 insertions(+), 8 deletions(-)
+> 
+> > > diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+> > > index d19e939f3998..9fdc5fa22c66 100644
+> > > --- a/arch/x86/events/core.c
+> > > +++ b/arch/x86/events/core.c
+> > > @@ -3011,16 +3011,35 @@ unsigned long
+> > > perf_arch_instruction_pointer(struct pt_regs *regs)
+> > >   	return regs->ip + code_segment_base(regs);
+> > >   }
+> 
+> > > +static unsigned long common_misc_flags(struct pt_regs *regs)
+> > > +{
+> > > +	if (regs->flags & PERF_EFLAGS_EXACT)
+> > > +		return PERF_RECORD_MISC_EXACT_IP;
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+> > > +{
+> > > +	unsigned long guest_state = perf_guest_state();
+> > > +	unsigned long flags = common_misc_flags(regs);
+> 
+> > This is double common_misc and makes no sense
+> 
+> I'm confused what you mean. Are you referring to starting with
+> common_misc_flags in both perf_arch_misc_flags and
+> perf_arch_guest_misc_flags so possibly the common_msic_flags are set
+> twice?
+> 
+> That seems like a good thing that common flags are set wherever they
+> apply. You can't guarantee where perf_arch_guest_misc_flags may be
+> called in the future.
 
-Changes in V10:
-  - Removed errant space in patch file 0002. Passed 'git apply --check'
-    at perf-tools-next, 6.11.0-rc6.
-  - Added back missing prefixes.
+I got confused by perf_arch_misc_flags() calling common_misc_flags()
+twice. It is in fact worse, because afaict all of
+perf_arch_guest_misc_flags() is 'common'.
 
-Changes in V9:
-  - Removed V8 patch files 1/4 and 2/4.
-  - Modified set_sym_in_dict (trace-event-python.c) to add map_pgoff
-    in dictionary as-is without regard to MAPPING_IDENTITY. This patch
-    file is now patch 2/2.
+Isn't the below more or less what you want?
 
-Changes in V8:
-  - in arm-cs-trace-disasm.py, ensure map_pgoff is not converted to
-    string.
-  - Remove map_pgoff integer conversion in dso not found print
-    message.
+static unsigned long misc_flags(struct pt_regs *regs)
+{
+	unsigned long flags = 0;
 
-Changes in V7:
-  - In arm-cs-trace-disasm.py, fix print message core dump resulting
-    from mixed type arithmetic.
-  - Modify CS_ETM_TRACE_ON filter to filter zero start_addr. The
-    CS_ETM_TRACE_ON message is changed to print only in verbose mode.
-  - Removed verbose mode only notification for start_addr/stop_addr
-    outside of dso address range.
+	if (regs->flags & PERF_EFLAGS_EXACT)
+		flags |= PERF_RECORD_MISC_EXACT_IP;
 
-Changes in V6:
-  - In arm-cs-trace-disasm.py, zero map_pgoff for kernel files. Add
-    map_pgoff to start/end address for dso not found message.
-  - Added "Reviewed-by" trailer for patches 1-3 previously reviewed
-    by Leo Yan in V4 and V5.
+	return flags;
+}
 
-Changes in V5:
-  - In symbol-elf.c, branch to exit_close label if open file.
-  - In trace_event_python.c, correct indentation. set_sym_in_dict
-    call parameter "map_pgoff" renamed as "addr_map_pgoff" to
-    match local naming.
+static unsigned long native_flags(struct pt_regs *regs)
+{
+	unsigned long flags = 0;
 
-Changes in V4:
-  - In trace-event-python.c, fixed perf-tools-next merge problem.
+	if (user_mode(regs))
+		flags |= PERF_RECORD_MISC_USER;
+	else
+		flags |= PERF_RECORD_MISC_KERNEL;
 
-Changes in V3:
-  - Rebased to linux-perf-tools branch.
-  - Squash symbol-elf.c and symbol.h into same commit.
-  - In map.c, merge dso__is_pie() call into existing if statement.
-  - In arm-cs-trace-disasm.py, remove debug artifacts.
+	return flags;
+}
 
-Changes in V2:
-  - In dso__is_pie() (symbol-elf.c), Decrease indentation, add null pointer
-    checks per Leo Yan review.
+static unsigned long guest_flags(struct pt_regs *regs)
+{
+	unsigned long guest_state = perf_guest_state();
+	unsigned long flags = 0;
 
-Steve Clevenger (2):
-  perf script cs_etm: Add map_pgoff to python dictionary
-  perf script python: Adjust objdump start/end per map pgoff parameter
+	if (guest_state & PERF_GUEST_ACTIVE) {
+		if (guest_state & PERF_GUEST_USER)
+			flags |= PERF_RECORD_MISC_GUEST_USER;
+		else
+			flags |= PERF_RECORD_MISC_GUEST_KERNEL;
+	}
 
- tools/perf/scripts/python/arm-cs-trace-disasm.py | 16 +++++++++++-----
- .../util/scripting-engines/trace-event-python.c  |  9 ++++++---
- 2 files changed, 17 insertions(+), 8 deletions(-)
+	return flags;
+}
 
--- 
-2.44.0
+unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+{
+	unsigned long flags;
 
+	flags = misc_flags(regs);
+	flags |= guest_flags(regs);
+
+	return flags;
+}
+
+unsigned long perf_arch_misc_flags(struct pt_regs *regs)
+{
+	unsigned long flags;
+	unsigned long guest;
+
+	flags = misc_flags(regs);
+	guest = guest_flags(regs);
+	if (guest)
+		flags |= guest;
+	else
+		flags |= native_flags(regs);
+
+	return flags;
+}
+
+Note how both perf_arch*() functions end up calling both misc and guest.
 
