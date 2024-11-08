@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34374D5C0DD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D3ED5C0E1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2idxmxF2ycV5NM/2vX1kQumOv0mE/F6Au8vATq9VwBs=; b=Mkb/MGvjR47d1Xh+b7GH0N0XMu
-	KjOcgLsT6bY9wyVJTRE/umy07Tu75xub3nYELNn/3sJ/mwdYiY6FYSUd4O3M5olkYK0ySxXRSp9OJ
-	yrIFJ3gOQhyK90gq4KymHPgYDGIN9jkud8gKhJPrXc/i2JS29GZSFaIklNYJ6l/6IXJyMA45JCm92
-	2Th54AhrbmVifUEJEZYk0pGcJ9DmozIeTh80pNU6Kgj1D1jAcNBBQIPOgfYDXeE5HuRjN/6c+wyh9
-	vyhjbOZeYJ6fD0IOOVOdk4sdkKqFtu2utgXmjj2blCq/z/6A8utEbk63tGtO13KRaUgviJ5idNzSP
-	SSMZqRBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=upYsGgf23umhPBOmb5HT7kjqp65LPpB+QOD8j0l2rE4=; b=0ui/yPqOe3mRKtYzeetxg7055i
+	8955ODm2tl24NrBKIUHnaVeLhksC5M6EjKp9scUHEXK6dra9Kc/+v6sVhVkYKD9KA4X0KnOMjc6Ek
+	glcXBgM4wT8tDc0Yffpp8zmwNRDWY1gvSewQMmdVdI0Dr3iEutUyGjqazxwg/phc7OL3nMEo4rD0c
+	1WEuKhNj13GJqjai1MF8j4+y5H4BwCwPQa9TKOzvdrHWE/QPGKqjJAlY6lZcAsa0wDJJuQ5KU8I0J
+	s2dT8/5ay0wpr0hMvB29ec63OlQe4baKEO6iU/XRg0telE45i6prAmvDAfL7uhGhGiGm1te7f+ZyQ
+	m4hIGutA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QPv-0000000AvYw-2jUi;
-	Fri, 08 Nov 2024 14:56:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t9QRp-0000000Aw8g-2dS4;
+	Fri, 08 Nov 2024 14:58:53 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Pnj-0000000Aozg-0gDU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:17:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8698D5C5561;
-	Fri,  8 Nov 2024 14:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2001DC4CECD;
-	Fri,  8 Nov 2024 14:17:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731075445;
-	bh=npXiV0Zdu+5mwIgUPe5eyEBvN9gxnHjA1tmkq1U38Bo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o3XGPCC2JeGREj1diLd8DjXPL5g7dqqN8cpW9mAyLRe3KxohBcxZgKKpt/KKGz/TO
-	 NEVRPu5LgdvaqMberM3f+zOsGsLwq9r5XW7yFO/Z7cvCpP6DfHLL9YSapFmBS3daFA
-	 Z8rt+4nIVyBhim6feo96bpU3xQjwWqHvEOcv81+edqhjWDW0m2HPu/5JpAbxRUgACO
-	 LMxMSqHToSdTExMCdA3UAF6X0d13zoGVSK3YJ9T00nAF1ucGJSOIgFi469M3+2adc1
-	 YUbLVBKc+1pPa3LoTe2jX/7DyPE2+j0SxX4ypoonurRJEDdS26zvqWY78iakCIA/Rp
-	 Rridz5RCFbe1A==
-Date: Fri, 8 Nov 2024 15:17:22 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 1/6] drm/display: hdmi: add generic mode_valid helper
-Message-ID: <20241108-certain-kickass-goshawk-a3c596@houat>
-References: <20241101-hdmi-mode-valid-v2-0-a6478fd20fa6@linaro.org>
- <20241101-hdmi-mode-valid-v2-1-a6478fd20fa6@linaro.org>
+	id 1t9PpD-0000000ApEf-3Rko;
+	Fri, 08 Nov 2024 14:19:01 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="djhp567d3zkb2vx4"
-Content-Disposition: inline
-In-Reply-To: <20241101-hdmi-mode-valid-v2-1-a6478fd20fa6@linaro.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1731075537;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=upYsGgf23umhPBOmb5HT7kjqp65LPpB+QOD8j0l2rE4=;
+	b=Cu67kjSVWeIMcCC+Jbh62CKfQeBvbLbaeVrOoJTC7E08ONzDAKwTyxCnm3RyphTtwkEVxz
+	7Wau9/7UQPCWK+ySJoG4vlhqVFRzMAEh/VWwMiZF/1PwqTKqkv5r7Xaoa1MCJdJdGKU//+
+	lmsJf12fwprFcVfdBv5pTh5FGelCl/UYDveT2OBScypZ2UfzdmrVq55B5XiAaCuPhnikrr
+	sg5AUSk0Po+kPHUOE88sesoLjlepcOFGoK3+HEIAlYw9DzstYiqNJgSRhhFXYDTI7LI2eg
+	s6zc6+jAtlJisK2L8fbwYDSy2yZy6bsw+7wCAGQAivffatli+E/rkGxXezjTDA==
+Date: Fri, 08 Nov 2024 15:18:57 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ heiko@sntech.de, hjc@rock-chips.com, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Diederik de Haas <didi.debian@cknow.org>
+Subject: Re: [PATCH 2/2] drm/rockchip: dsi: Don't log errors on deferred dphy
+In-Reply-To: <yrm6r4urzf5hvnui53cvepw2loqvuhydalq6haw7qmpktor5y5@zjc34wlcoeg2>
+References: <cover.1731073565.git.dsimic@manjaro.org>
+ <559094275c3e41cae7c89e904341f89a1240a51a.1731073565.git.dsimic@manjaro.org>
+ <yrm6r4urzf5hvnui53cvepw2loqvuhydalq6haw7qmpktor5y5@zjc34wlcoeg2>
+Message-ID: <599471308374b786af4dc8a6b42fea76@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_061727_325757_C1129A8E 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20241108_061900_398431_99040399 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,335 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Sebastian,
 
---djhp567d3zkb2vx4
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/6] drm/display: hdmi: add generic mode_valid helper
-MIME-Version: 1.0
+On 2024-11-08 15:08, Sebastian Reichel wrote:
+> On Fri, Nov 08, 2024 at 02:53:58PM +0100, Dragan Simic wrote:
+>> Deferred driver probing shouldn't result in errors or warnings being 
+>> logged,
+>> because their presence in the kernel log provides no value and may 
+>> actually
+>> cause false impression that some issues exist.  Thus, let's no longer 
+>> produce
+>> error messages when getting the dphy results in deferred probing.
+>> 
+>> This prevents misleading error messages like the following one, which 
+>> was
+>> observed on a Pine64 PineTab2, from appearing in the kernel log.  To 
+>> make
+>> matters worse, the following error message was observed appearing 
+>> multiple
+>> times in the kernel log of a single PineTab2 boot:
+>> 
+>>   dw-mipi-dsi-rockchip fe060000.dsi: [drm:dw_mipi_dsi_rockchip_probe \
+>>   [rockchipdrm]] *ERROR* failed to get mipi dphy: -517
+>> 
+>> At the same time, make the adjusted logged message a bit more 
+>> consistent with
+>> the other logged messages by capitalizing its first word.
+>> 
+>> Reported-by: Diederik de Haas <didi.debian@cknow.org>
+>> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+>> ---
+> 
+> From include/drm/drm_print.h:
+> 
+>  * DRM_DEV_ERROR() - Error output.
+>  *
+>  * NOTE: this is deprecated in favor of drm_err() or dev_err().
+> 
+> The recommended way to do this nowadays looks like this:
+> 
+> return dev_err_probe(dev, PTR_ERR(dsi->phy), "Failed to get mipi 
+> dphy");
+> 
+> That will not print anything for -EPROBE_DEFER, but capture
+> the reason and make it available through
+> /sys/kernel/debug/devices_deferred if the device never probes.
 
-Hi,
+Thanks for your quick response!  As already discussed with Heiko,
+I'll move forward with implementing a complete file-level conversion.
+At first, I thought that a partial bugfix would be beneficial, [1]
+but now I agree that performing a complete file-level coversion is
+the way to go. [2]
 
-On Fri, Nov 01, 2024 at 02:25:04AM +0200, Dmitry Baryshkov wrote:
-> Add drm_hdmi_connector_mode_valid(), generic helper for HDMI connectors.
-> It can be either used directly or as a part of the .mode_valid callback.
->=20
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> ---
->  drivers/gpu/drm/display/drm_hdmi_helper.c          |  45 ++++++
->  drivers/gpu/drm/display/drm_hdmi_helper_internal.h |  11 ++
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  26 +---
->  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 168 +++++++++++++++=
-+++++-
->  include/drm/display/drm_hdmi_helper.h              |   4 +
->  5 files changed, 229 insertions(+), 25 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_helper.c b/drivers/gpu/drm/=
-display/drm_hdmi_helper.c
-> index 74dd4d01dd9bb2c9e69ec1c60b0056bd69417e8a..560c5d4365ca54d3f66939534=
-9cedfd6f75fa033 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_helper.c
-> @@ -9,6 +9,8 @@
->  #include <drm/drm_print.h>
->  #include <drm/drm_property.h>
-> =20
-> +#include "drm_hdmi_helper_internal.h"
-> +
->  static inline bool is_eotf_supported(u8 output_eotf, u8 sink_eotf)
->  {
->  	return sink_eotf & BIT(output_eotf);
-> @@ -256,3 +258,46 @@ drm_hdmi_compute_mode_clock(const struct drm_display=
-_mode *mode,
->  	return DIV_ROUND_CLOSEST_ULL(clock * bpc, 8);
->  }
->  EXPORT_SYMBOL(drm_hdmi_compute_mode_clock);
-> +
-> +enum drm_mode_status
-> +__drm_hdmi_connector_clock_valid(const struct drm_connector *connector,
-> +				 const struct drm_display_mode *mode,
-> +				 unsigned long long clock)
-> +{
-> +	const struct drm_connector_hdmi_funcs *funcs =3D connector->hdmi.funcs;
-> +	const struct drm_display_info *info =3D &connector->display_info;
-> +
-> +	if (info->max_tmds_clock && clock > info->max_tmds_clock * 1000)
-> +		return MODE_CLOCK_HIGH;
-> +
-> +	if (funcs && funcs->tmds_char_rate_valid) {
-> +		enum drm_mode_status status;
-> +
-> +		status =3D funcs->tmds_char_rate_valid(connector, mode, clock);
-> +		if (status !=3D MODE_OK)
-> +			return status;
-> +	}
-> +
-> +	return MODE_OK;
-> +}
-> +
-> +/**
-> + * drm_hdmi_connector_mode_valid() - Check if mode is valid for HDMI con=
-nector
-> + * @connector: DRM connector to validate the mode
-> + * @mode: Display mode to validate
-> + *
-> + * Generic .mode_valid implementation for HDMI connectors.
-> + */
-> +enum drm_mode_status
-> +drm_hdmi_connector_mode_valid(struct drm_connector *connector,
-> +			      struct drm_display_mode *mode)
-> +{
-> +	unsigned long long clock;
-> +
-> +	clock =3D drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
-> +	if (!clock)
-> +		return MODE_ERROR;
-> +
-> +	return __drm_hdmi_connector_clock_valid(connector, mode, clock);
-> +}
-> +EXPORT_SYMBOL(drm_hdmi_connector_mode_valid);
+I've got to admit, I love seeing that DRM_DEV_ERROR() is deprecated,
+because I've never been a big fan of the format of the messages
+it produces.
 
-It's not clear to me why you want to place it in drm_hdmi_helper? It's
-relying quite heavily on the HDMI infrastructure, so it would make more
-sense to me that it would be part of drm_hdmi_state_helper.c.
+[1] 
+https://lore.kernel.org/dri-devel/3734f6a5424e3537d717c587a058fc85@manjaro.org/
+[2] 
+https://lore.kernel.org/dri-devel/047164cc6e88dcbc7701cb0e28d564db@manjaro.org/
 
-> diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers=
-/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> index 34ee95d41f2966ab23a60deb37d689430f6b0985..8640e7280053bd95852f53b92=
-159f493b141f2bf 100644
-> --- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> +++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-> @@ -43,10 +43,12 @@ struct drm_atomic_helper_connector_hdmi_priv {
->  static struct drm_display_mode *find_preferred_mode(struct drm_connector=
- *connector)
->  {
->  	struct drm_device *drm =3D connector->dev;
-> -	struct drm_display_mode *mode, *preferred;
-> +	struct drm_display_mode *mode, *preferred =3D NULL;
-> =20
->  	mutex_lock(&drm->mode_config.mutex);
-> -	preferred =3D list_first_entry(&connector->modes, struct drm_display_mo=
-de, head);
-> +	if (!list_empty(&connector->modes))
-> +		preferred =3D list_first_entry(&connector->modes, struct drm_display_m=
-ode, head);
-> +
-
-What is this fixing?
-
->  	list_for_each_entry(mode, &connector->modes, head)
->  		if (mode->type & DRM_MODE_TYPE_PREFERRED)
->  			preferred =3D mode;
-> @@ -125,6 +127,18 @@ static const struct drm_connector_hdmi_funcs reject_=
-connector_hdmi_funcs =3D {
->  	.tmds_char_rate_valid	=3D reject_connector_tmds_char_rate_valid,
->  };
-> =20
-> +static enum drm_mode_status
-> +reject_100MHz_connector_tmds_char_rate_valid(const struct drm_connector =
-*connector,
-> +					     const struct drm_display_mode *mode,
-> +					     unsigned long long tmds_rate)
-> +{
-> +	return (tmds_rate > 100ULL * 1000 * 1000) ? MODE_BAD : MODE_OK;
-> +}
-> +
-> +static const struct drm_connector_hdmi_funcs reject_100_MHz_connector_hd=
-mi_funcs =3D {
-> +	.tmds_char_rate_valid	=3D reject_100MHz_connector_tmds_char_rate_valid,
-> +};
-> +
->  static int dummy_connector_get_modes(struct drm_connector *connector)
->  {
->  	struct drm_atomic_helper_connector_hdmi_priv *priv =3D
-> @@ -147,6 +161,33 @@ static int dummy_connector_get_modes(struct drm_conn=
-ector *connector)
->  static const struct drm_connector_helper_funcs dummy_connector_helper_fu=
-ncs =3D {
->  	.atomic_check	=3D drm_atomic_helper_connector_hdmi_check,
->  	.get_modes	=3D dummy_connector_get_modes,
-> +	.mode_valid		=3D drm_hdmi_connector_mode_valid,
-> +};
-> +
-> +static int dummy_connector_get_modes_100MHz_max_clock(struct drm_connect=
-or *connector)
-> +{
-> +	struct drm_atomic_helper_connector_hdmi_priv *priv =3D
-> +		connector_to_priv(connector);
-> +	const struct drm_edid *edid;
-> +	unsigned int num_modes;
-> +
-> +	edid =3D drm_edid_alloc(priv->current_edid, priv->current_edid_len);
-> +	if (!edid)
-> +		return -EINVAL;
-> +
-> +	drm_edid_connector_update(connector, edid);
-> +	connector->display_info.max_tmds_clock =3D 100 * 1000;
-> +	num_modes =3D drm_edid_connector_add_modes(connector);
-> +
-> +	drm_edid_free(edid);
-> +
-> +	return num_modes;
-> +}
-> +
-> +static const struct drm_connector_helper_funcs dummy_connector_helper_fu=
-ncs_max_tmds_clock =3D {
-> +	.atomic_check	=3D drm_atomic_helper_connector_hdmi_check,
-> +	.get_modes	=3D dummy_connector_get_modes_100MHz_max_clock,
-> +	.mode_valid		=3D drm_hdmi_connector_mode_valid,
->  };
-> =20
->  static void dummy_hdmi_connector_reset(struct drm_connector *connector)
-> @@ -1734,9 +1775,132 @@ static struct kunit_suite drm_atomic_helper_conne=
-ctor_hdmi_reset_test_suite =3D {
->  	.test_cases	=3D drm_atomic_helper_connector_hdmi_reset_tests,
->  };
-> =20
-> +static void drm_test_check_mode_valid(struct kunit *test)
-> +{
-> +	struct drm_atomic_helper_connector_hdmi_priv *priv;
-> +	struct drm_connector *conn;
-> +	struct drm_display_mode *preferred;
-> +
-> +	priv =3D drm_atomic_helper_connector_hdmi_init(test,
-> +						     BIT(HDMI_COLORSPACE_RGB),
-> +						     8);
-> +	KUNIT_ASSERT_NOT_NULL(test, priv);
-> +
-> +	conn =3D &priv->connector;
-> +	preferred =3D find_preferred_mode(conn);
-> +	KUNIT_ASSERT_NOT_NULL(test, preferred);
-> +
-> +	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 1920);
-> +	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 1080);
-> +	KUNIT_EXPECT_EQ(test, preferred->clock, 148500);
-> +}
-> +
-> +static void drm_test_check_mode_valid_reject(struct kunit *test)
-> +{
-> +	struct drm_atomic_helper_connector_hdmi_priv *priv;
-> +	struct drm_connector *conn;
-> +	struct drm_display_mode *preferred;
-> +	struct drm_device *drm;
-> +	int ret;
-> +
-> +	priv =3D drm_atomic_helper_connector_hdmi_init(test,
-> +						     BIT(HDMI_COLORSPACE_RGB),
-> +						     8);
-> +	KUNIT_ASSERT_NOT_NULL(test, priv);
-> +
-> +	conn =3D &priv->connector;
-> +
-> +	/* You shouldn't be doing that at home. */
-> +	conn->hdmi.funcs =3D &reject_connector_hdmi_funcs;
-> +
-> +	priv->current_edid =3D test_edid_hdmi_1080p_rgb_max_200mhz;
-> +	priv->current_edid_len =3D ARRAY_SIZE(test_edid_hdmi_1080p_rgb_max_200m=
-hz);
-> +
-> +	drm =3D &priv->drm;
-> +
-> +	mutex_lock(&drm->mode_config.mutex);
-> +	ret =3D conn->funcs->fill_modes(conn, 4096, 4096);
-> +	mutex_unlock(&drm->mode_config.mutex);
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +
-> +	preferred =3D find_preferred_mode(conn);
-> +	KUNIT_ASSERT_NULL(test, preferred);
-> +}
-> +
-> +static void drm_test_check_mode_valid_reject_rate(struct kunit *test)
-> +{
-> +	struct drm_atomic_helper_connector_hdmi_priv *priv;
-> +	struct drm_connector *conn;
-> +	struct drm_display_mode *preferred;
-> +	int ret;
-> +
-> +	priv =3D drm_atomic_helper_connector_hdmi_init(test,
-> +						     BIT(HDMI_COLORSPACE_RGB),
-> +						     8);
-> +	KUNIT_ASSERT_NOT_NULL(test, priv);
-> +
-> +	conn =3D &priv->connector;
-> +
-> +	/* You shouldn't be doing that at home. */
-> +	conn->hdmi.funcs =3D &reject_100_MHz_connector_hdmi_funcs;
-> +
-> +	ret =3D set_connector_edid(test, conn,
-> +				 test_edid_hdmi_1080p_rgb_max_200mhz,
-> +				 ARRAY_SIZE(test_edid_hdmi_1080p_rgb_max_200mhz));
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +
-> +	preferred =3D find_preferred_mode(conn);
-> +	KUNIT_ASSERT_NOT_NULL(test, preferred);
-> +	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 640);
-> +	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 480);
-> +	KUNIT_EXPECT_EQ(test, preferred->clock, 25200);
-> +}
-> +
-> +static void drm_test_check_mode_valid_reject_max_clock(struct kunit *tes=
-t)
-> +{
-> +	struct drm_atomic_helper_connector_hdmi_priv *priv;
-> +	struct drm_connector *conn;
-> +	struct drm_display_mode *preferred;
-> +	int ret;
-> +
-> +	priv =3D drm_atomic_helper_connector_hdmi_init(test,
-> +						     BIT(HDMI_COLORSPACE_RGB),
-> +						     8);
-> +	KUNIT_ASSERT_NOT_NULL(test, priv);
-> +
-> +	conn =3D &priv->connector;
-> +
-> +	drm_connector_helper_add(conn, &dummy_connector_helper_funcs_max_tmds_c=
-lock);
-> +
-> +	ret =3D set_connector_edid(test, conn,
-> +				 test_edid_hdmi_1080p_rgb_max_200mhz,
-> +				 ARRAY_SIZE(test_edid_hdmi_1080p_rgb_max_200mhz));
-> +	KUNIT_ASSERT_EQ(test, ret, 0);
-> +
-> +	preferred =3D find_preferred_mode(conn);
-> +	KUNIT_ASSERT_NOT_NULL(test, preferred);
-> +	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 640);
-> +	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 480);
-> +	KUNIT_EXPECT_EQ(test, preferred->clock, 25200);
-> +}
-> +
-> +static struct kunit_case drm_atomic_helper_connector_hdmi_mode_valid_tes=
-ts[] =3D {
-> +	KUNIT_CASE(drm_test_check_mode_valid),
-> +	KUNIT_CASE(drm_test_check_mode_valid_reject),
-> +	KUNIT_CASE(drm_test_check_mode_valid_reject_rate),
-> +	KUNIT_CASE(drm_test_check_mode_valid_reject_max_clock),
-> +	{ }
-> +};
-> +
-> +static struct kunit_suite drm_atomic_helper_connector_hdmi_mode_valid_te=
-st_suite =3D {
-> +	.name		=3D "drm_atomic_helper_connector_hdmi_mode_valid",
-> +	.test_cases	=3D drm_atomic_helper_connector_hdmi_mode_valid_tests,
-> +};
-> +
-
-We need some documentation for these tests too, and what you're trying
-to test exactly with that 100MHz cutout.
-
-Maxime
-
---djhp567d3zkb2vx4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZy4dbQAKCRAnX84Zoj2+
-djiJAX4vy2JId0Es+ece492YhmY1L4zYjTAxwEad3K4thxyZbXbrtmHVnhvXmKDI
-CSsFHNEBf3bkff69Gkk2n7nYVNRtgi7KmEwxvDo9Y1KIL24mAv3ubFgJ51FVaPIl
-8LuFnarhSA==
-=Zhra
------END PGP SIGNATURE-----
-
---djhp567d3zkb2vx4--
+>>  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c 
+>> b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> index f451e70efbdd..ffa7f2bc640d 100644
+>> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>> @@ -1387,7 +1387,8 @@ static int dw_mipi_dsi_rockchip_probe(struct 
+>> platform_device *pdev)
+>>  	dsi->phy = devm_phy_optional_get(dev, "dphy");
+>>  	if (IS_ERR(dsi->phy)) {
+>>  		ret = PTR_ERR(dsi->phy);
+>> -		DRM_DEV_ERROR(dev, "failed to get mipi dphy: %d\n", ret);
+>> +		if (ret != -EPROBE_DEFER)
+>> +			DRM_DEV_ERROR(dev, "Failed to get mipi dphy: %d\n", ret);
+>>  		return ret;
+>>  	}
+>> 
 
