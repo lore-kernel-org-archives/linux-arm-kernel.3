@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A979ED5E124
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 03:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AD8D5E120
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 03:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQ5zwEcgw6qdiVEtIoT8wTzF/dTbwsX8dOlMsiNZqo4=; b=d7ANdU2OFFoVXOzrJl9qcPRZ7Q
-	CGzbPBbcx6ssv2dYgpc280IhfNYAWeV/6S1OvA0UoaaHl/KumnTkJPtKQ72QfcTcrimCny5eYewbF
-	l5hbqOX4y/3wviLpD7ufzPzXWa3GqCh3BkBpGRtVdE1RS2rirdS9V5oFIxrdjb1HwO8Q8DECgzq1s
-	MMQE7WGx2r7HGpwJaeTgTsKxoDttX/Ug3KvDMzJDA5uE6ksoEp4QC2xVhfKL8XtWIGIu0t/GACxvn
-	Lsw9aEsPDbB4W2OWGkGEg0KTpXsuzW0//T2ZuoiP0wYjOtcV0Nk5bZV6nw7GxB0lHdDvbRfASQ61e
-	wJ//pjjA==;
+	bh=P6nhnWHkTe0aK3cteSOkx0hGeeXinyaWKFsIxztRYHY=; b=Q7ohPNCX/bo4fX+BHYXVRV0u3X
+	pD8Fzgdnr7cKfgETdqRBpAJLjmCV/0Nn4rVtMmQYA01mT4n5HtS+sO/iT3MYc1FaLgPi0L1ni4bIb
+	Dt/BrkGO6oCYdf7frbvNaTvnEGptTdQwCsmVQG/3s+9SLY6rjR92XW/oTKhznf6xOen03+zmJPF+F
+	wohn63qn+hpBnmTY8schSEZ6dO7NIFBR54Vbty0d8E2W1tse/4JH8KTnlAH4j+P1aZSNfJaDIevKB
+	1lQgvqmVNFCz5H5/lHawmzS1PdN4ELWc5sDh2GUv76CU1EC4mFtIeK7ux7X1xW2ZWnkUdTcLPn+jq
+	xcC6U7iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ftw-00000009AMr-2WNg;
-	Fri, 08 Nov 2024 03:43:12 +0000
+	id 1t9Fvd-00000009Abq-3g1d;
+	Fri, 08 Nov 2024 03:44:57 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Fjf-000000098nM-0jyc;
-	Fri, 08 Nov 2024 03:32:36 +0000
-X-UUID: 133155469d8211ef9048ed6ed365623b-20241107
+	id 1t9FrK-000000099o0-0LWs;
+	Fri, 08 Nov 2024 03:40:31 +0000
+X-UUID: 305c28f29d8311ef9048ed6ed365623b-20241107
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=FQ5zwEcgw6qdiVEtIoT8wTzF/dTbwsX8dOlMsiNZqo4=;
-	b=Hb8+I+Be+uucOb2bUPrAwWv4soPDFd1tMBBwEoWiTSRLeprLW9dPSFUdWl9g/pvyKSTRJa2PkvmdOdtDfOmGhXmbzlyZbghCMUxvV25iilRe/AtT+frDvo8o6P1NiKe4fAsdC5PnBGugwHULkBoXnEgdORg9WzfVE2X6qLnpFBA=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=P6nhnWHkTe0aK3cteSOkx0hGeeXinyaWKFsIxztRYHY=;
+	b=awzVTA9WLYIEmAluEnZKixEuJMaeNsZuXf3E+vIiRAWxQUZ1vCYpZgyuM9P9v1y/1dJAQ9fBmsi9vZg50qiUpdodNOvc5UbDlUF3UQqLOVIPF96WvyPRG220xj9zOj/j68NGtSss2gcMsSKQALip6Igy0g7MMh2sY5lcrnbIeNU=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.42,REQID:90aed585-921b-4137-aeff-c3cced60f4b9,IP:0,U
+X-CID-O-INFO: VERSION:1.1.42,REQID:6864f845-c473-4d53-9165-456c43131973,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:b0fcdc3,CLOUDID:e0bbd01b-4f51-4e1d-bb6a-1fd98b6b19d2,B
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:437db6ca-91e6-4060-9516-6ba489b4e2dc,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
 	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
 	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 133155469d8211ef9048ed6ed365623b-20241107
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+X-UUID: 305c28f29d8311ef9048ed6ed365623b-20241107
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
 	(envelope-from <yunfei.dong@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2086931287; Thu, 07 Nov 2024 20:32:26 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+	with ESMTP id 1051510970; Thu, 07 Nov 2024 20:40:24 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 7 Nov 2024 19:32:24 -0800
+ 15.2.1118.26; Fri, 8 Nov 2024 11:40:22 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 8 Nov 2024 11:32:23 +0800
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 8 Nov 2024 11:40:21 +0800
 From: Yunfei Dong <yunfei.dong@mediatek.com>
 To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
 	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
@@ -67,19 +67,19 @@ CC: Hsin-Yi Wang <hsinyi@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v6 3/5] media: mediatek: vcodec: Get SRC buffer from bitstream instead of M2M
-Date: Fri, 8 Nov 2024 11:32:12 +0800
-Message-ID: <20241108033219.19804-4-yunfei.dong@mediatek.com>
+Subject: [PATCH v4 1/3] media: mediatek: vcodec: remove vsi operation in common interface
+Date: Fri, 8 Nov 2024 11:40:10 +0800
+Message-ID: <20241108034019.20064-2-yunfei.dong@mediatek.com>
 X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20241108033219.19804-1-yunfei.dong@mediatek.com>
-References: <20241108033219.19804-1-yunfei.dong@mediatek.com>
+In-Reply-To: <20241108034019.20064-1-yunfei.dong@mediatek.com>
+References: <20241108034019.20064-1-yunfei.dong@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_193235_298806_FB300D93 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20241107_194030_143791_E7FE83D9 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +94,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Getting the SRC buffer from M2M will pick a different than the one
-used for current decode operation when the SRC buffer is removed
-from ready list.
+Extend struct video shared information (vsi) to send different
+parameters to scp for mt8188 architecture is changed.
+Remove vsi related operation in common interface to make sure the
+interface can be called by extended and non extended architecture
+at the same time. The new extended interfaces with new vsi will
+be introduced in later patches.
 
 Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- .../vcodec/decoder/vdec/vdec_av1_req_lat_if.c | 25 +++++++------------
- .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 24 ++++++------------
- 2 files changed, 17 insertions(+), 32 deletions(-)
+ .../vcodec/decoder/vdec/vdec_h264_req_multi_if.c    | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-index 90217cc8e242..0e1469effeb5 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-@@ -1060,24 +1060,20 @@ static inline void vdec_av1_slice_vsi_to_remote(struct vdec_av1_slice_vsi *vsi,
- 	memcpy(remote_vsi, vsi, sizeof(*vsi));
- }
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+index 732d78f63e5a..851a8490b828 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
+@@ -171,9 +171,9 @@ struct vdec_h264_slice_inst {
+ };
  
--static int vdec_av1_slice_setup_lat_from_src_buf(struct vdec_av1_slice_instance *instance,
--						 struct vdec_av1_slice_vsi *vsi,
--						 struct vdec_lat_buf *lat_buf)
-+static void vdec_av1_slice_setup_lat_from_src_buf(struct vdec_av1_slice_instance *instance,
-+						  struct vdec_av1_slice_vsi *vsi,
-+						  struct mtk_vcodec_mem *bs,
-+						  struct vdec_lat_buf *lat_buf)
+ static int vdec_h264_slice_fill_decode_parameters(struct vdec_h264_slice_inst *inst,
+-						  struct vdec_h264_slice_share_info *share_info)
++						  struct vdec_h264_slice_share_info *share_info,
++						  struct vdec_h264_slice_lat_dec_param *slice_param)
  {
--	struct vb2_v4l2_buffer *src;
-+	struct mtk_video_dec_buf *src_buf_info;
- 	struct vb2_v4l2_buffer *dst;
+-	struct vdec_h264_slice_lat_dec_param *slice_param = &inst->vsi->h264_slice_params;
+ 	const struct v4l2_ctrl_h264_decode_params *dec_params;
+ 	const struct v4l2_ctrl_h264_scaling_matrix *src_matrix;
+ 	const struct v4l2_ctrl_h264_sps *sps;
+@@ -266,9 +266,6 @@ static int get_vdec_sig_decode_parameters(struct vdec_h264_slice_inst *inst)
+ 	mtk_vdec_h264_get_ref_list(b0_reflist, v4l2_b0_reflist, reflist_builder.num_valid);
+ 	mtk_vdec_h264_get_ref_list(b1_reflist, v4l2_b1_reflist, reflist_builder.num_valid);
  
--	src = v4l2_m2m_next_src_buf(instance->ctx->m2m_ctx);
--	if (!src)
--		return -EINVAL;
+-	memcpy(&inst->vsi_ctx.h264_slice_params, slice_param,
+-	       sizeof(inst->vsi_ctx.h264_slice_params));
 -
--	lat_buf->vb2_v4l2_src = src;
-+	src_buf_info = container_of(bs, struct mtk_video_dec_buf, bs_buffer);
-+	lat_buf->vb2_v4l2_src = &src_buf_info->m2m_buf.vb;
- 
- 	dst = &lat_buf->ts_info;
--	v4l2_m2m_buf_copy_metadata(src, dst, true);
-+	v4l2_m2m_buf_copy_metadata(lat_buf->vb2_v4l2_src, dst, true);
- 	vsi->frame.cur_ts = dst->vb2_buf.timestamp;
--
--	return 0;
- }
- 
- static short vdec_av1_slice_resolve_divisor_32(u32 D, short *shift)
-@@ -1724,10 +1720,7 @@ static int vdec_av1_slice_setup_lat(struct vdec_av1_slice_instance *instance,
- 	struct vdec_av1_slice_vsi *vsi = &pfc->vsi;
- 	int ret;
- 
--	ret = vdec_av1_slice_setup_lat_from_src_buf(instance, vsi, lat_buf);
--	if (ret)
--		return ret;
--
-+	vdec_av1_slice_setup_lat_from_src_buf(instance, vsi, bs, lat_buf);
- 	ret = vdec_av1_slice_setup_pfc(instance, pfc);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-index 3dceb668ba1c..a56f6bb879a6 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-@@ -711,21 +711,16 @@ int vdec_vp9_slice_setup_single_from_src_to_dst(struct vdec_vp9_slice_instance *
  	return 0;
  }
  
--static int vdec_vp9_slice_setup_lat_from_src_buf(struct vdec_vp9_slice_instance *instance,
--						 struct vdec_lat_buf *lat_buf)
-+static void vdec_vp9_slice_setup_lat_from_src_buf(struct vdec_vp9_slice_instance *instance,
-+						  struct mtk_vcodec_mem *bs,
-+						  struct vdec_lat_buf *lat_buf)
- {
--	struct vb2_v4l2_buffer *src;
--	struct vb2_v4l2_buffer *dst;
--
--	src = v4l2_m2m_next_src_buf(instance->ctx->m2m_ctx);
--	if (!src)
--		return -EINVAL;
-+	struct mtk_video_dec_buf *src_buf_info;
+@@ -608,7 +605,8 @@ static int vdec_h264_slice_lat_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
+ 	lat_buf->vb2_v4l2_src = &src_buf_info->m2m_buf.vb;
+ 	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &lat_buf->ts_info, true);
  
--	lat_buf->vb2_v4l2_src = src;
-+	src_buf_info = container_of(bs, struct mtk_video_dec_buf, bs_buffer);
-+	lat_buf->vb2_v4l2_src = &src_buf_info->m2m_buf.vb;
+-	err = vdec_h264_slice_fill_decode_parameters(inst, share_info);
++	err = vdec_h264_slice_fill_decode_parameters(inst, share_info,
++						     &inst->vsi->h264_slice_params);
+ 	if (err)
+ 		goto err_free_fb_out;
  
--	dst = &lat_buf->ts_info;
--	v4l2_m2m_buf_copy_metadata(src, dst, true);
--	return 0;
-+	v4l2_m2m_buf_copy_metadata(lat_buf->vb2_v4l2_src, &lat_buf->ts_info, true);
- }
+@@ -749,6 +747,9 @@ static int vdec_h264_slice_single_decode(void *h_vdec, struct mtk_vcodec_mem *bs
+ 	if (err)
+ 		goto err_free_fb_out;
  
- static void vdec_vp9_slice_setup_hdr(struct vdec_vp9_slice_instance *instance,
-@@ -1154,10 +1149,7 @@ static int vdec_vp9_slice_setup_lat(struct vdec_vp9_slice_instance *instance,
- 	struct vdec_vp9_slice_vsi *vsi = &pfc->vsi;
- 	int ret;
- 
--	ret = vdec_vp9_slice_setup_lat_from_src_buf(instance, lat_buf);
--	if (ret)
--		goto err;
--
-+	vdec_vp9_slice_setup_lat_from_src_buf(instance, bs, lat_buf);
- 	ret = vdec_vp9_slice_setup_pfc(instance, pfc);
- 	if (ret)
- 		goto err;
++	memcpy(&inst->vsi_ctx.h264_slice_params, &inst->h264_slice_param,
++	       sizeof(inst->vsi_ctx.h264_slice_params));
++
+ 	buf = (unsigned char *)bs->va;
+ 	nal_start_idx = mtk_vdec_h264_find_start_code(buf, bs->size);
+ 	if (nal_start_idx < 0) {
 -- 
 2.46.0
 
