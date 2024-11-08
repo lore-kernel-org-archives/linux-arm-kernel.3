@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36026D6406B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C89FD6406B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TS2gLOjQjFV6cYijRKcDLkRYjhtlEXXGFVSSgqynX+0=; b=rTL/lFbgGV34bn3JNBrzuUG4Co
-	e0VKT7b3hdE7n35kPnCQlEHfMx4u8ScaQMVSNVLFeSAAMGzu5I4F6Al2IgrNssVIvuSvTobu8gaqi
-	WBWekrnKHE2m0XqMOT0tFJJHnqcZfaQIzOBBz+ZCI0qx8ecYhjbUQR0NGQCuD9RhF4EOXSnmiZ3d2
-	dB6Ion1FRdqTRwSwjwXJnTXSMQ7dzJo7GxTgf5JbO6vOf/Om7fqy8mWFNLwmEMSC++NACN5Ufl7qE
-	u2n77VBj7o2g3mtP+G8PCmspC8anBUbkGIgsL5QVHEC7ad46j+O/ZI3WjgSsm9CWxRC9cNnKXkO3x
-	WiZlPGFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sjpzigGlEQDJ2CigPAkvVL/9wMtokixn1HfLhNuWprM=; b=q9HZ2aHiJWJmjNJp/mzUxVxURn
+	1SWYXlCpt3IxwjNJk5p9vDT8uEWu9WZE+SlUW4m74Q7wbm9/y9Jl2kpbw+TtatUhKqZsalTCZMiGY
+	1FeGeJiqSmLxJA1YUKcnSL7PWgOXquZWsubD1mxI8LAiNB6/GrN26TTCa39eLT9Hm0cGYwWP7vn6B
+	7zdD96ULTLduscI0ALbdkiF00l81KW3Wu9cupZABu2mTeDldMgUGQROBF5lB+En/8oyzxo4AC6Laj
+	bL/KX9BMz8HVPvzxTVoUYVvRht58ZePFQ0r/oxJAjFCxYDArVEPqmgpms2cfX76aUxaapDvP9VTyb
+	iL/UcaTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Sbd-0000000BMfT-0V00;
-	Fri, 08 Nov 2024 17:17:09 +0000
-Received: from smtp.forwardemail.net ([207.246.76.47])
+	id 1t9SdL-0000000BMv8-4BVx;
+	Fri, 08 Nov 2024 17:18:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SZs-0000000BMRc-03GS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 17:15:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1731086073;
- bh=TS2gLOjQjFV6cYijRKcDLkRYjhtlEXXGFVSSgqynX+0=;
- b=S7/LwjT6RrrOoOPpoX8j7fT6pvrM9FJPPNvCA46Lx5Ehz12dE2LjDgV2BADueA/ceVI7dEYIl
- H5rZu5ruJncXOvjzBY1sP+RuLSlJgRDKmJQHfovbO07j4q8dMQbROtWnoAgvsuuiqRFrpHEl5Bi
- aCklkowmL7CVLxmSQgDMSUjvCdqpQmU8Sv+U6NPMXs/X1bya8SaH6kmCo6e8quSQyL4r4l0cUs5
- 5tfWn51szFGA45bcodTA/5Xo79QZLS3ib1X0LGnLRyF5d5G9mdbxp/eE+VhXf8gWzwNVxluy0aG
- uUNhdS8Kz6WXq3+IVLnF/E4PYdNVC26yG2Rq5WpB0N9w==
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Jonas Karlman <jonas@kwiboo.se>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Enable HDMI0 on FriendlyElec CM3588 NAS
-Date: Fri,  8 Nov 2024 17:14:19 +0000
-Message-ID: <20241108171423.835496-1-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.46.2
+	id 1t9SaY-0000000BMbe-1xcw;
+	Fri, 08 Nov 2024 17:16:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 442275C5BEF;
+	Fri,  8 Nov 2024 17:15:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4152FC4CECF;
+	Fri,  8 Nov 2024 17:16:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731086161;
+	bh=k0xll76MHqvxLaZR25USTSXDgvhxHc72FiFw4Fp/71A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cDKJrTqY9lsU0wTCPUufm/SLE0KgoPrvYKHTcmvQeJesbathuWJAXlH81TBPfK6rt
+	 sRs3q/tFTfK/OjSPDeKcMI4ekfFAmTsZoUtpNwTx+iYOOx4K3VYC/7tTlvILv/s6a5
+	 YtT7IBC/eB/2EBrCtXluhRED/BTPA+LQ3PfIbfehODeAdw5g9jLYVargM2yRYzIS5o
+	 s8ntQ4j+1Vfy16yK27X/iUcxDhm9wmTFb0n7q3smUg030tcJHMk0bZtwyoD+7JN8tn
+	 9uc71RHlIAnM/5SlLo0h3PVCweaXSy8jQY7K3ulH88x0Bky+QmL2zRe3SdKFEJIjZd
+	 wqG2FTiWdEHgg==
+Date: Fri, 8 Nov 2024 18:15:59 +0100
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
+ .power_up()
+Message-ID: <Zy5HT63apyjYWJ-6@lore-desk>
+References: <547216d36f8eaa313690ff8b52407ae46b8e9c40.camel@mediatek.com>
+ <20241108164817.GA1665283@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-ForwardEmail-Version: 0.4.40
-X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 207.246.76.47
-X-ForwardEmail-ID: 672e46f71f83b87ca0e8e60e
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mP5VRDHikAF8nc1W"
+Content-Disposition: inline
+In-Reply-To: <20241108164817.GA1665283@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_091520_209629_0998B085 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_091602_619811_DCEF7DFB 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,92 +83,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable HDMI0 on FriendlyElec CM3588 NAS.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-Tested and working with video=1920x1080@60 cmdline on a CM3588 NAS
----
- .../rk3588-friendlyelec-cm3588-nas.dts        | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+--mP5VRDHikAF8nc1W
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-index 411007cb8118..b3a04ca370bb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
-@@ -11,6 +11,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include <dt-bindings/usb/pd.h>
- #include "rk3588-friendlyelec-cm3588.dtsi"
- 
-@@ -89,6 +90,17 @@ button-user {
- 		};
- 	};
- 
-+	hdmi0-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi0_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
- 	ir-receiver {
- 		compatible = "gpio-ir-receiver";
- 		gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_LOW>;
-@@ -307,6 +319,26 @@ &gpio4 {
- 		"", "", "", "";
- };
- 
-+&hdmi0 {
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi0_con_in>;
-+	};
-+};
-+
-+&hdptxphy_hdmi0 {
-+	status = "okay";
-+};
-+
- /* Connected to MIPI-DSI0 */
- &i2c5 {
- 	pinctrl-names = "default";
-@@ -776,3 +808,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
- &usbdp_phy1 {
- 	status = "okay";
- };
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
--- 
-2.46.2
+On Nov 08, Bjorn Helgaas wrote:
+> On Fri, Nov 08, 2024 at 02:51:15AM +0000, Jianjun Wang (=E7=8E=8B=E5=BB=
+=BA=E5=86=9B) wrote:
+> > On Thu, 2024-11-07 at 10:21 -0600, Bjorn Helgaas wrote:
+> > > On Thu, Nov 07, 2024 at 05:08:55PM +0100, Lorenzo Bianconi wrote:
+> > > > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wrote:
+> > > > > > In order to make the code more readable, move phy and mac
+> > > > > > reset lines assert/de-assert configuration in .power_up
+> > > > > > callback (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
+> > > >=20
+> > > > ...
+> > > > > Is there a requirement that the PHY and MAC reset ordering be
+> > > > > different for EN7581 vs other chips?
+> > > > >=20
+> > > > > EN7581:
+> > > > >=20
+> > > > >   assert PHY reset
+> > > > >   assert MAC reset
+> > > > >   power on PHY
+> > > > >   deassert PHY reset
+> > > > >   deassert MAC reset
+> > > > >=20
+> > > > > others:
+> > > > >=20
+> > > > >   assert PHY reset
+> > > > >   assert MAC reset
+> > > > >   deassert PHY reset
+> > > > >   power on PHY
+> > > > >   deassert MAC reset
+> > > > >=20
+> > > > > Is there one order that would work for both?
+> > > >=20
+> > > > EN7581 requires to run phy_init()/phy_power_on() before deassert
+> > > > PHY reset lines.
+> > >=20
+> > > And the other chips require the PHY power-on to be *after*
+> > > deasserting PHY reset?
+> >=20
+> > For MediaTek's chips, the reset will clear all register values and
+> > reset the hardware state. Therefore, we can only initialize and
+> > power-on the MAC and PHY after deasserting their resets.
+>=20
+> OK, it sounds like you're saying the Airoha EN7581 is not a MediaTek
+> chip and does require a different ordering of PHY reset deassert and
+> PHY power-on:
+>=20
+>   - EN7581 requires PHY power-on before PHY reset deassert,
+>=20
+>   - other chips require PHY reset deassert before PHY power-on.
+>=20
+> That's fine and probably worth a short comment in
+> mtk_pcie_en7581_power_up(), e.g., "Unlike the MediaTek controllers,
+> the Airoha EN7581 requires PHY power-on before PHY reset deassert".
+>=20
+> Bjorn
 
+ack, I will add it.
+
+Regards,
+Lorenzo
+
+--mP5VRDHikAF8nc1W
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy5HTgAKCRA6cBh0uS2t
+rMXUAPwKaa0k+wzeRsFnVFQl6FYhu8AAuAyB7EJEhAKPeWFLRgEAvNRquIoimvKX
+1geNkZm6VWuYNkLa0MCU4Xkk/Y7xfw8=
+=E6vM
+-----END PGP SIGNATURE-----
+
+--mP5VRDHikAF8nc1W--
 
