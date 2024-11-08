@@ -4,50 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE926D5E15E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614C4D5E15A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ht0KwdUu8vhgOCoU/2KtiL4NjDHTBnEZp3rYkkHOdBg=; b=Fm5NjLux9jhkaL+is/Hn/9H195
-	URKeRIJ8UsTkrCoow9DrU6n/kJBj16LFEg5pPEJKQHa48k/juknYCQ3YnvGfrTuI/rv+6Q9iVaun3
-	Pxq5seqmPJEy3ouBXE5ee3Y7jNNMM6ZUumi1Z1RVRDpYBzg/fU3UJrdnoNaiBL0NTlMOxeqhA12bK
-	ejyoZ+rGgk3jskL7U4zkhMvi4eIjeRbpZJ5Egpy7N/Si2RcwCm82OQa0zbngTeE50M1w7cKr59SQy
-	XI6cptC7A9ZHef8OfN3qWSfBXfILJzXMxzuIRgKb7SiLKAYlSV8+esOgbADjuApV9vQKLsgJeZLUh
-	DBNr2ulw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/DXW8bQNRO3gkOocX4PzYycpgsaN/ESTmINgiHlDVd4=; b=lkELyaH4mlOvTo1WxEdSlxuj+P
+	zRo12GviPh4pQ3WejVL/3SzlF2/XY1ZHdG/RPDSRI3DSpj287wjs4qI5WDfJHk1M/N4d1/PgHCuIt
+	RVAuYEvnJWE5LO/ex0d7DfHKAx0BDWZl8C5PS+zSe0j+tyLqfudbDj6fmh3uqEuMz4nNAOcdYQsL0
+	Pgaa2xyknPqcPl8W9cOpFxWmu746gIuIvePqIP2Lu9mK4M0b09JicweTk4pWU62aVD3+njCY6JGDx
+	s7Wp8sQR0k0BJu2l5MtO1CTbagitoKPt+8gwPJPWloSce3DULHlgrruitob76cUSH8soxwCIlcUbp
+	kE+IWMsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NSN-0000000AOpP-1Gbw;
-	Fri, 08 Nov 2024 11:47:15 +0000
+	id 1t9NU6-0000000AP5N-0r95;
+	Fri, 08 Nov 2024 11:49:02 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9MoM-0000000AH0r-0BVD
+	id 1t9MqE-0000000AHa8-2fAH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 11:05:55 +0000
+	Fri, 08 Nov 2024 11:07:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4DC89A41F44;
-	Fri,  8 Nov 2024 11:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F09FC4CECD;
-	Fri,  8 Nov 2024 11:05:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E65CAA41E7F;
+	Fri,  8 Nov 2024 11:05:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCE4AC4CECD;
+	Fri,  8 Nov 2024 11:07:47 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
-	Joey Gouly <joey.gouly@arm.com>,
 	Kevin Brodsky <kevin.brodsky@arm.com>
-Subject: [PATCH] selftests/mm: Fix unused function warning for aarch64_write_signal_pkey()
-Date: Fri,  8 Nov 2024 11:05:49 +0000
-Message-Id: <20241108110549.1185923-1-catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	dave.hansen@linux.intel.com,
+	yury.khrustalev@arm.com,
+	linux-kselftest@vger.kernel.org,
+	Aishwarya TCV <aishwarya.tcv@arm.com>
+Subject: Re: [PATCH] selftests/mm: Define PKEY_UNRESTRICTED for pkey_sighandler_tests
+Date: Fri,  8 Nov 2024 11:07:45 +0000
+Message-Id: <173106404267.1187252.14105809855861854022.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20241107131640.650703-1-kevin.brodsky@arm.com>
+References: <20241107131640.650703-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_030554_183742_63C56877 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20241108_030750_768227_9A899B13 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,44 +67,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 49f59573e9e0 ("selftests/mm: Enable pkey_sighandler_tests
-on arm64"), pkey_sighandler_tests.c (which includes pkey-arm64.h via
-pkey-helpers.h) ends up compiled for arm64. Since it doesn't use
-aarch64_write_signal_pkey(), the compiler warns:
+On Thu, 07 Nov 2024 13:16:40 +0000, Kevin Brodsky wrote:
+> Commit 6e182dc9f268 ("selftests/mm: Use generic pkey register
+> manipulation") makes use of PKEY_UNRESTRICTED in
+> pkey_sighandler_tests. The macro has been proposed for addition to
+> uapi headers [1], but the patch hasn't landed yet.
+> 
+> Define PKEY_UNRESTRICTED in pkey-helpers.h for the time being to fix
+> the build.
+> 
+> [...]
 
-In file included from pkey-helpers.h:106,
-                 from pkey_sighandler_tests.c:31:
-pkey-arm64.h:130:13: warning: ‘aarch64_write_signal_pkey’ defined but not used [-Wunused-function]
-  130 | static void aarch64_write_signal_pkey(ucontext_t *uctxt, u64 pkey)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+Applied to arm64 (for-next/pkey-signal), thanks!
 
-Make the aarch64_write_signal_pkey() a 'static inline void' function to
-avoid the compiler warning.
+I also added a FIXME comment to remove this macro once the generic
+definition lands upstream.
 
-Fixes: f5b5ea51f78f ("selftests: mm: make protection_keys test work on arm64")
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
----
+[1/1] selftests/mm: Define PKEY_UNRESTRICTED for pkey_sighandler_tests
+      https://git.kernel.org/arm64/c/db64dfffcad2
 
-I'll add this on top of the arm64 for-next/pkey-signal branch together with
-Kevin's other patches.
+-- 
+Catalin
 
- tools/testing/selftests/mm/pkey-arm64.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/mm/pkey-arm64.h b/tools/testing/selftests/mm/pkey-arm64.h
-index d57fbeace38f..d9d2100eafc0 100644
---- a/tools/testing/selftests/mm/pkey-arm64.h
-+++ b/tools/testing/selftests/mm/pkey-arm64.h
-@@ -127,7 +127,7 @@ static inline u64 get_pkey_bits(u64 reg, int pkey)
- 	return 0;
- }
- 
--static void aarch64_write_signal_pkey(ucontext_t *uctxt, u64 pkey)
-+static inline void aarch64_write_signal_pkey(ucontext_t *uctxt, u64 pkey)
- {
- 	struct _aarch64_ctx *ctx = GET_UC_RESV_HEAD(uctxt);
- 	struct poe_context *poe_ctx =
 
