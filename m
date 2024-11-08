@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0B8D5C0D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12491D5C0D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5F4wlcwkKM4ZsDp4M7/ym0Q5pX/4cuTWDGPdhRorxqs=; b=H+m9Duna6lNNlt/dK/UB2reB5l
-	2AfAtKv+kcOrlTq59hZAQMLSnvcpDd8OmcXbqALHYZ9E2ZQt5r4frLiyecRvl5gZdOU38e5ReT+/+
-	+bYRer+chJlB+QJFrCmrprCqcvIlngDJl2GI8XLXpyeYdgZ1CN3yk7iCKLtqif/XuSRp0Pd+H+Z95
-	17N+boQdXhvTbcGsTZM59MaCncLkeEL5TwS6Fd1foLMxXavIR3UF4WihXkIJ3s0Zra1eVHEAe481r
-	Subm6YvSNST0M7Jcu3MhsY2QLlDDYYebBgnIS+jx1OWuRfKYzxdySTrkK9OmbhNJveFai/MjXjw0J
-	vRsii3cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LsPCVms6hNNfLUkJTitnYnu1jKozUMg34GhP2YbGR/Y=; b=R+Sipdr1la8xQd5CPRkrnvr7So
+	EBIp9o3m6KqvWnHKl8Qm5HQZV5lkisvj1h7I6EifSzNIe9nxh3oHNfdEB0GkIL14I88ggSddt4OTh
+	rrc40vCqdBatKXpvXe45b758mpkFS7EPULR2amQ6HNt+faeZBXXoivWcsHZ4xyZY0gmJAQDiguB0b
+	OjjQXXFem4JqM4aQCQErinzfMgg+WkMPFeGaBDnDgSRcfmfAXUaMp6wytL1nBl0NwpHyGcnoyzY66
+	Wss+lfj3qIpL2vPMRG2RhvsKDLF6vU0MLelaiZxF8FCQ6FIANblXLMlr++H2eUPLAssfb6jKUr3yi
+	KDntxWTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QFY-0000000AtmZ-0gAl;
-	Fri, 08 Nov 2024 14:46:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9QHH-0000000Au4v-2FKK;
+	Fri, 08 Nov 2024 14:47:59 +0000
+Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Pl2-0000000Aoat-2ZkQ
+	id 1t9PmA-0000000AoiJ-1O1g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:14:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 335D9A43B9E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  8 Nov 2024 14:12:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C7A0C4CECD
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  8 Nov 2024 14:14:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731075278;
-	bh=5F4wlcwkKM4ZsDp4M7/ym0Q5pX/4cuTWDGPdhRorxqs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uzM9D02hTZAQeqJuWTqvam3TSjky+J4Pqwjct3I6ZiHPwSHtrabT4+uWDwHAS3jr9
-	 9+6yli0W2eM/bduLRJHqG6SCYBeFCgfhCTGJ19bXTebXilUZb64Fq1VgQZ+GKR6OrN
-	 CeCyfpB5aQFASZBKZAK2GAQUpB+ssRjq4FXKs+gh+3xR9WgWznfM33mMWeCMkEiIty
-	 7PN0CWJ6BDXYLheqwqfz1IChQ4VjMoCky2/R2x2/SpsYH02yLDAVvIi6oOLjRWlu93
-	 0GEk1TFNcBObtTYXkqQJeabDjAuMsKpIJXHtERvaopTAYbnG8/HGF036cYM3U008+w
-	 vM09D7qySttuw==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-539fe02c386so3003194e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 06:14:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX0JDNKLWL0hpDh2SMGfENlswhA87AfCiJghefIdzK7xbLIHxE2C1Yu2jKHDBcui14zWk8n4pXAZp7KKF+Rkm+u@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJw69xH7QG9Gv6Hb8EVcAmRBj9DkLv5U/dfO4oUZ9knWJGgFjB
-	KrPRZaC9hso1fIeyvwVerpqkAdwTSdOS7RUDue4cTUzfKI/MblpZDtdGMp6zHOrzcoTkUEEoScB
-	xgqnPuWpOJx06SD9yM8Xc0XwpkCA=
-X-Google-Smtp-Source: AGHT+IEGuZhtyF0OVnuF4K3LhNl1VRlq1P5zRIfYj0hx46inp1F7NtSmeNupW27UGVXucQd5C3GNB/guTF1xE4rHAP8=
-X-Received: by 2002:a2e:a9a0:0:b0:2f7:9e1d:f6e7 with SMTP id
- 38308e7fff4ca-2ff1f446f72mr13098871fa.9.1731075276916; Fri, 08 Nov 2024
- 06:14:36 -0800 (PST)
+	Fri, 08 Nov 2024 14:15:53 +0000
+Date: Sat, 9 Nov 2024 01:15:16 +1100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1731075347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LsPCVms6hNNfLUkJTitnYnu1jKozUMg34GhP2YbGR/Y=;
+	b=dyRNsVDTwaKej4kfRQld0HktPA9K31WMR+7RMV7BkZyFHohDGsgh1Ni/SdHK1cF+2R1gR3
+	E44AMjR6bxQC7HScfiopeaR5sHe7tc5H73ez0wWQdpHXWy+DDSSuypMNYDuvBXu91X5OYX
+	/zTcFle6IGlpjTeWpb1qWnbZ4sdt3OTUUJzLFXD85jv/Inx7Ng4nrf7Oa/tgwPYKYOHXfq
+	q6Qyy6x94JDR5O6fGBJaN8B9vzCA5hihKqFw26GUNovZ5TwZAmuEy2myt3SLTCR/6xVmhU
+	05FqmKXjfPLpUsWxlc8ivY1X3kFTZyT6Tj9eDu6viVNU/iM4CR6BdagzgqLxEw==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: John Watts <contact@jookia.org>
+To: Parthiban <parthiban@linumiz.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Samuel Holland <samuel@sholland.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
+ DE1
+Message-ID: <Zy4c9BFcrz2JVU6k@titan>
+References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
+ <20241108115357.691b77b0@donnerap.manchester.arm.com>
+ <Zy4SKCBwce3q0yj5@titan>
+ <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
 MIME-Version: 1.0
-References: <20241106185513.3096442-5-ardb+git@google.com> <20241106185513.3096442-6-ardb+git@google.com>
- <CABCJKudxN=5Op96567rti9fYZXHWVLoWzGA8rJr8Y=t+8X9TNg@mail.gmail.com>
-In-Reply-To: <CABCJKudxN=5Op96567rti9fYZXHWVLoWzGA8rJr8Y=t+8X9TNg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 8 Nov 2024 15:14:25 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGqZC+rYMsEXCkfPWN2gdqkgaXnsvKXa8ganCZfWDkkmA@mail.gmail.com>
-Message-ID: <CAMj1kXGqZC+rYMsEXCkfPWN2gdqkgaXnsvKXa8ganCZfWDkkmA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] arm64/scs: Fix handling of DWARF augmentation data in
- CIE/FDE frames
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
-	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_061440_891707_8605B18F 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20241108_061550_903396_1BB2309E 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 Nov 2024 at 23:13, Sami Tolvanen <samitolvanen@google.com> wrote:
->
-> On Wed, Nov 6, 2024 at 6:55=E2=80=AFPM Ard Biesheuvel <ardb+git@google.co=
-m> wrote:
-> >
-> > Also introduce some error codes to specify why the patching failed, and
-> > log it to the kernel console on failure when this happens when loading =
-a
-> > module. (Doing so for vmlinux is infeasible, as the patching is done
-> > extremely early in the boot.)
->
-> It's a bit unfortunate that we might fail quietly for vmlinux. Could
-> we store scs_patch() return value somewhere and print out a warning in
-> dynamic_scs_init() if something went wrong, for example?
->
+On Fri, Nov 08, 2024 at 07:36:16PM +0530, Parthiban wrote:
+> To add, 0x20 will be DE0 <--> LCD0 and DE1 <--> TV0. Below note (copied from
+> R40) states the priority of the DE selection, which fails to work? Not sure,
+> may be disabling CORE1_SCLK_GATE and CORE1_HCLK_GATE in de2-clk helps.
+> 
+> With A133 following the same as T113 with single mixer without TV, still
+> sets 0x20 in vendor kernel.
+> 
+> copied from R40:
+> Note: The priority of DE0 is higher than DE1.
+> If TCON_LCD0 selects DE0 and DE1 as source at the same time, then
+> DE0 will be used for the source of TCON_LCD0.
 
-Yeah good point.
+Hi there,
+
+Yes that was a pretty bad typo, I meant to say DE1 to TV0
+The prioritization seems broken in the T113 at least, it's racy from
+what I see in testing. I should note this in the patch too.
+
+I looked at the datasheets and kernel code briefly: I can't seem to
+figure out what SCLK/HCLK gating does and I don't think the kernel
+touches these registers which are gated by default.
+
+> Thanks,
+> Parthiban
+
+John Watts
 
