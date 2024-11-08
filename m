@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB3FD5E127
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 03:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDCFD5E127
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 03:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B/wDt2bOqNsA638987AnsCuaRwFSHdyN6e3dd6uRWs=; b=sG4xrARlfnNnJzTo2wqMikjTKY
-	l0jcS+gvMp9LDCEkM1yUQe/d8XO1angQZVln8VBDRP+FGFoHC4zww3kAcqDI6zCQziaFh1ZpVrxNT
-	dq1e3oNc52e3+QWPSDDIgsHYTdY8JtDxOKiTSN4j3zHWI+Ub7SU2tbtZ54ZOTIj0TNOIoVME671rp
-	HNfWGjJ/9AjGyeotyYh6/W+Cr3dU9LT9C+++7dnwAtKlzFrLCIDYYhKiwpA/adTAAV7aEHC8KI2iR
-	7M0JFD113NCijHvogfAh5okw1kvfOPD++xoBBgbU/E1lWsv1oTWKlOXXzl5lz+XXcy+scVWBLma/a
-	G3QYQygg==;
+	bh=mPFUr8UiBLYMQDSvTLu33lC34iUO26uZjwaaeMBWM0E=; b=Q1rTfYmyiP0EZo0HIeCQkH1vAG
+	w5BUf7sUxAX464MRPgycPHqjFGeO0rx4pqBB6TjIMt8kQmwOpUYXdJA4Nd005wjJsPMFArvsqUbfn
+	Ogp3V5OYvZky/0R4rcGaCFfm1T4yWCr343bJkp8zdxOe5Fq3b5v9QCh6SWhVr40FO0DQ7ar1aTbWf
+	66wP0rhhvVONTJZ7gMElhh2hnEmZgL8INEYkRtfr8W73/vIBdWX71CXjd+Mucrb48Jv2LILHi+lR+
+	Yzd+RtHQ3jBT0+tuj/u/FWWbPBQT3Zz88ObXrWJrB3dQSvDq+RxZvdnAkUhbrywDz4sEzHN7lMZKB
+	O80o92lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9G2U-00000009BJx-41xS;
-	Fri, 08 Nov 2024 03:52:03 +0000
-Received: from [129.204.178.38] (helo=classfun.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Fzl-00000009B2e-0JlW;
-	Fri, 08 Nov 2024 03:49:14 +0000
-Received: from [192.168.0.160] (unknown [120.32.101.155])
-	(Authenticated sender: bigfoot)
-	by classfun.cn (Postfix) with ESMTPSA id 2CD777892D;
-	Fri,  8 Nov 2024 11:49:04 +0800 (CST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 classfun.cn 2CD777892D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=classfun.cn;
-	s=default; t=1731037750;
-	bh=3B/wDt2bOqNsA638987AnsCuaRwFSHdyN6e3dd6uRWs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E+ALW2MnvftkIzO17VOsGIQg22QbPsXe9/be2g7Px6bhaYtwj8TYvzBsOxmMG9qxZ
-	 TaZetswj/qwGv/3WW0NWlFX5iLYKHNEgI9fru2ysjzYR5Ehb05WjLXS6Ve1oIADmei
-	 eoZTqSBOtrKCyPPAWju58G0dTUgIIQ8za1/rhogE=
-Message-ID: <6e748aa6-de2c-4a90-b07f-7a9d3e441d19@classfun.cn>
-Date: Fri, 8 Nov 2024 11:48:50 +0800
+	id 1t9G4q-00000009BdU-412U;
+	Fri, 08 Nov 2024 03:54:28 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9G35-00000009BSn-3LkL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 03:52:41 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Xl4lc1hH7z1ynvJ;
+	Fri,  8 Nov 2024 11:52:44 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id C3224140138;
+	Fri,  8 Nov 2024 11:52:33 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 8 Nov 2024 11:52:33 +0800
+Subject: Re: [PATCH] acpi/arm64: Adjust error handling procedure in
+ gtdt_parse_timer_block()
+To: Sudeep Holla <sudeep.holla@arm.com>, Aleksandr Mishin <amishin@t-argos.ru>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, Will
+ Deacon <will@kernel.org>
+References: <20240827101239.22020-1-amishin@t-argos.ru>
+ <ZtCfKEIfJW7X8UWg@bogus> <ZtCgyuQ4IRr9Mx8x@bogus>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <9d53d1f4-1f65-be5e-f68d-18799080a2e5@huawei.com>
+Date: Fri, 8 Nov 2024 11:52:32 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] leds: add Photonicat PMU LED driver
-To: Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-leds@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Jean Delvare <jdelvare@suse.com>,
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Pavel Machek <pavel@ucw.cz>,
- Sebastian Reichel <sre@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Heiko Stuebner <heiko@sntech.de>,
- Chukun Pan <amadeus@jmu.edu.cn>, Junhao Xie <bigfoot@classfun.cn>
-References: <20240906093630.2428329-1-bigfoot@classfun.cn>
- <20240906093630.2428329-8-bigfoot@classfun.cn>
- <20241002153536.GG7504@google.com>
-Content-Language: en-US
-From: Junhao Xie <bigfoot@classfun.cn>
-In-Reply-To: <20241002153536.GG7504@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <ZtCgyuQ4IRr9Mx8x@bogus>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_194913_611218_FDFE7F87 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20241107_195240_008505_7C2DB4D7 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/10/2 23:35, Lee Jones wrote:
-> On Fri, 06 Sep 2024, Junhao Xie wrote:
-> 
->> Photonicat has a network status LED that can be controlled by system.
->> The LED status can be set through command 0x19.
-[...]
->> +config LEDS_PHOTONICAT_PMU
->> +	tristate "LED Support for Photonicat PMU"
->> +	depends on LEDS_CLASS
->> +	depends on MFD_PHOTONICAT_PMU
->> +	help
->> +	  Photonicat has a network status LED that can be controlled by system,
-> 
-> "the system"
-> 
->> +	  this option enables support for LEDs connected to the Photonicat PMU.
-[...]
->> +++ b/drivers/leds/leds-photonicat.c
->> @@ -0,0 +1,75 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (c) 2024 Junhao Xie <bigfoot@classfun.cn>
->> + */
->> +
->> +#include <linux/mfd/photonicat-pmu.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/leds.h>
-> 
-> Alphabetical.
-> 
->> +struct pcat_leds {
->> +	struct device *dev;
-> 
-> Where is this used?
++Cc Catalin and Will
 
-I used it to print logs, but now it doesn't, I will remove it.
+On 2024/8/30 0:24, Sudeep Holla wrote:
+> On Thu, Aug 29, 2024 at 05:17:44PM +0100, Sudeep Holla wrote:
+>> On Tue, Aug 27, 2024 at 01:12:39PM +0300, Aleksandr Mishin wrote:
+>>> In case of error in gtdt_parse_timer_block() invalid 'gtdt_frame'
+>>> will be used in 'do {} while (i-- >= 0 && gtdt_frame--);' statement block
+>>> because do{} block will be executed even if 'i == 0'.
+>>>
+>>> Adjust error handling procedure by replacing 'i-- >= 0' with 'i-- > 0'.
+>>>
+>>> Found by Linux Verification Center (linuxtesting.org) with SVACE.
+>>>
+>>
+>> (For some reason I don't see the original email in my inbox, might have
+>> got blocked 🙁). Anyways LGTM,
+>>
+>> Acked-by: Aleksandr Mishin <amishin@t-argos.ru>
+> 
+> Sorry I messed up, I meant
+> 
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
-> 
->> +	struct pcat_pmu *pmu;
-> 
-> Why do you need to store this?
-> 
-> Can't you get this at the call-site by:
-> 
->   dev_get_drvdata(cdev->dev->parent)
+Catalin, this is a fix, and was acked by Sudeep and me, could you
+merge it for next release cycle?
 
-Yes, I will change it.
-
->> +	struct led_classdev cdev;
->> +};
-[...]
->> +static int pcat_leds_probe(struct platform_device *pdev)
->> +{
->> +	int ret;
-> 
-> Small sized variables at the bottom please.
-> 
->> +	struct device *dev = &pdev->dev;
->> +	struct pcat_leds *leds;
->> +	const char *label;
->> +
->> +	leds = devm_kzalloc(dev, sizeof(*leds), GFP_KERNEL);
->> +	if (!leds)
->> +		return -ENOMEM;
->> +
->> +	leds->dev = dev;
-> 
-> Where is this used?
-> 
->> +	leds->pmu = dev_get_drvdata(dev->parent);
->> +	platform_set_drvdata(pdev, leds);
-> 
-> Where do you platform_get_drvdata()
-> 
->> +	ret = of_property_read_string(dev->of_node, "label", &label);
-[...]
->> +static const struct of_device_id pcat_leds_dt_ids[] = {
->> +	{ .compatible = "ariaboard,photonicat-pmu-leds", },
-> 
-> How many LEDs are there?
-
-Photonicat has three LEDs:
- - system operation status indicator
- - charging status indicator
- - network status indicator
-and currently only one LED (network status indicator) can be controlled.
-
->> +	{ /* sentinel */ }
->> +};
-[...]
->> -- 
->> 2.46.0
-
-Thanks for your review, I will fix all problems in next version!
-
-Best regards,
-Junhao
+Thanks
+Hanjun
 
