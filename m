@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8753DD5E145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4438AD5E147
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJPKigWx81+Bm6PKRO3KqD8RhIP7gO2pTb9qdyrOl1k=; b=xkfzQXxdzwl5EEJMpbJhkI4Fmg
-	p5RlaiVlVCbwE+OilpKg+HXIhqJ48tTVFhyxOcbnhH31QOgxSoWr5i7tpyH200BwjonUQH80Cwv0e
-	VZkOXWa+XrtCtJW4izWBqeCyfkyrIb/0O5nFGUwwx5weQhT0UlnWiE9231XMTjmBkk2xHuMeqLKEh
-	I9rPv0fdHkEfH47XqXltLR6VjvwmAKRKHoG4v8O6DaAg3apiilxmxSYOHkNBkk/m78sT1dv5LuOw0
-	jC0I8LR6MQon+X6p/S3TpC59uPrPQ9rQU/9orm7G6QcScFP6FAmsmvLY7krgbfHWajOhm/JhBzBqP
-	usJOS2yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hu0/FhjKhA/lis5ZBlmGPYb3eKmuShEvoOlYSx3peuI=; b=ycAbxk5WTKjimQIQDPaz8iKDzY
+	iXxxDJ/KXU/arGE6DwkAMDbDYRSVkwrdUt+ExI5Qw1ZlhNCWsKpHEjmPjOnz98cL3l0ZTwou8DOOt
+	XmRNkcVkYaoBXajz5ByhnpK+3gZ3dRoQPGfk9SJnP7IWDp5fEFdrA1h4P23h1WfWMIL0/2XVDQ6Ga
+	plMZWlJySR2iGNdx9uNQl96Pc0C5p+xNxZ3rtHoERszmxXoR+E+4HVUKRR0khFjeoqMoEayRDrfF+
+	VvmNuD+QJL7ZjDHeYmEctmXvpfP6RUWDdoNbcVpskKoyRvAO5d89fy9si7HXSgDeI2rh0J1hHpxbN
+	O07cNQ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KhY-00000009qNK-013l;
-	Fri, 08 Nov 2024 08:50:44 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1t9KjM-00000009qn9-1gGy;
+	Fri, 08 Nov 2024 08:52:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KVr-00000009oEE-0hcE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 08:38:41 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4316cce103dso21867435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:38:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731055117; x=1731659917; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GJPKigWx81+Bm6PKRO3KqD8RhIP7gO2pTb9qdyrOl1k=;
-        b=VbjTFM9Z2hmtJCxp7wNb2BXRbFrvn0Ik9mjwADHEycmcUUqShY2kuBd5P7ORb65xvK
-         p5mSKhfcIa2+SkI9E7X4Kn8pBXUVvO/lTYxbUZRMcpU08DZUHYpeu70K6ZCkayWzgkWl
-         uWrGMnv8XKvyS8hNXB9Kcopi4ok3B2mhrPmgvJnCBEVrNbteOqRcXZ2/uY7wXoe9pvBW
-         N84HEbyN8HtMhhk4JspiLM+GCEJbJa+o6b2km8o/07UGK9ZDt3a3UkL9hTU4q2GU/c0D
-         NOAu3MJSxNkmSAkHMWHtz79R7MJHwfvdAU5aDnRXhkmCxXjd0jb2DPTlFMBvdj5bB7dY
-         VwuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731055117; x=1731659917;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GJPKigWx81+Bm6PKRO3KqD8RhIP7gO2pTb9qdyrOl1k=;
-        b=YRXJEFHQYTclZjAntFF/crmbGUNQkT4FLlSAJgYsF+Qb8VNPRFZEHV+EeanUmWxqyy
-         kC/FvXbdcdUTuqdV+z43WUM+yCtnekwUY5LVVyiKLXw5mHT1fTDLU4i4gz58fRBEmxMX
-         54PiouBDGo2vhe72GiJhQm7B30i5fdSqabLso1+mHJAkSuUGA05iMOWQIDG7GfYR5Blv
-         oaY8vOgZk3DfiE7KnsVlOn834Nlqj8unt6jg5IXsUOYJl7/DqeB98JOCJI4derMbLFwQ
-         FwDV2EuMIAPhQ1udkLjE1yJrtX24wkNRDqeI1yA2vJ/rfSSC+Orbau/Ay7ZFLgKIjCqT
-         hwrw==
-X-Forwarded-Encrypted: i=1; AJvYcCXIryVUMtiESxUYhBoIE11223Gxk0VSVxh9qcBza9oGqxWT8fqGG7j2xYtIV78be0cIzWKtKZOJMuucyZ9dtZiQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkcTZHByB7C4FARIzs5r9Ov4S0ldHUrwmSnrWvTc9xIg/czT1i
-	P4KqjqA7HiBlQz7hDmBUaOyemKYcJLlZIV762VyDzr+AGUcTHsoG87qn2BuRFJA=
-X-Google-Smtp-Source: AGHT+IG+dpyBpBdR+FT66n2a2IW5JPY+pZuJblPHBprC2qQv77X/mv3FdHl7bLc9o7ADckUNC0pp6w==
-X-Received: by 2002:a5d:6f02:0:b0:37d:4319:f8c6 with SMTP id ffacd0b85a97d-381f1866ed9mr2004601f8f.7.1731055116940;
-        Fri, 08 Nov 2024 00:38:36 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:ecfd:9f8d:62a3:6ba8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05c2161sm54749155e9.31.2024.11.08.00.38.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 00:38:36 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [RFC PATCH] clk: core: refine disable unused clocks
-In-Reply-To: <07594a59-c999-4592-84b8-4e163d3edba4@amlogic.com> (Chuan Liu's
-	message of "Fri, 8 Nov 2024 15:59:44 +0800")
-References: <1jcykltj7g.fsf@starbuckisacylon.baylibre.com>
-	<20241004133953.494445-1-jbrunet@baylibre.com>
-	<07594a59-c999-4592-84b8-4e163d3edba4@amlogic.com>
-Date: Fri, 08 Nov 2024 09:38:35 +0100
-Message-ID: <1jttci2k8k.fsf@starbuckisacylon.baylibre.com>
+	id 1t9KWv-00000009oXi-1qwR;
+	Fri, 08 Nov 2024 08:39:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A5B3DA45192;
+	Fri,  8 Nov 2024 08:37:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6248C4CECD;
+	Fri,  8 Nov 2024 08:39:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731055184;
+	bh=UlGOyf95Tqv2jGt1kj9WSLI/Dth3v1V/vK03dzxrLyM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iBfTwJwa3yInD3+o2R/DhrWukhY1pwYWzi5G24em5fKoeeHX5cotFNEQwqiCKBng5
+	 PErfUmjfsILTjzIlSWNVgePHtqw5Ixap4/e7QDI0qvLt9RWRM1vGXUeKWTDpViKtn5
+	 62XlMfmVIaUMqJZEQdogbDqGnSks9+9XjgGFaLJErFl4dAu5urihuS8Po4B4ArTHW0
+	 /2Z2Gak+9mXLnwyq3E0qPOiFgKL/MghovcmFB00Q4EXY2/PucqXH4wO6FEe69aRZBT
+	 sMkyiHFL3MCrsXUVNMKhNTrnqkD5pSbO5hziaold0L9yBEiLMLCH/L+6cW6JzGUuSt
+	 Z5vSnVpQhH1Yg==
+Date: Fri, 8 Nov 2024 09:39:41 +0100
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
+Cc: "helgaas@kernel.org" <helgaas@kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
+ .power_up()
+Message-ID: <Zy3OTQ5CwPqtaeLU@lore-desk>
+References: <20241107-pcie-en7581-fixes-v1-3-af0c872323c7@kernel.org>
+ <20241107152705.GA1614612@bhelgaas>
+ <ZyzmFyRYDHX0W6bB@lore-desk>
+ <5c04ba80ef7a280bf2925282173802a8b2f40f3a.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uae1GSDO0BCp98kB"
+Content-Disposition: inline
+In-Reply-To: <5c04ba80ef7a280bf2925282173802a8b2f40f3a.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_003839_452320_7B9F8448 
-X-CRM114-Status: GOOD (  38.59  )
+X-CRM114-CacheID: sfid-20241108_003945_639190_6076835A 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,262 +85,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 08 Nov 2024 at 15:59, Chuan Liu <chuan.liu@amlogic.com> wrote:
 
-> hi Jerome:
->
-> =C2=A0=C2=A0=C2=A0 Tranks for your REF. I looked at your patch and there =
-are some parts
-> that I don't quite understand: The original intention of
-> CLK_OPS_PARENT_ENABLE was to solve the issue of "parents need enable
-> _during _gate/ungate, set rate and re-parent" when setting a clock. After
-> setting the clock, it can still be disabled. However, from what I see in
-> your patch, the handling logic seems more like "parents need _always _ ga=
-te
-> during clock gate period"?
+--uae1GSDO0BCp98kB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-As explained in the description, the problem with CLK_IGNORE_UNUSED and
-CLK_OPS_PARENT_ENABLE is that you'll get cycle of enable/disable, which
-will disable any parent clock that may have a been enabled and expected
-to be ignored.
+> On Thu, 2024-11-07 at 17:08 +0100, Lorenzo Bianconi wrote:
+> > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wrote:
+> > > > In order to make the code more readable, move phy and mac reset
+> > > > lines
+> > > > assert/de-assert configuration in .power_up callback
+> > > > (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
+> > > >=20
+> > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > > > ---
+> > > >  drivers/pci/controller/pcie-mediatek-gen3.c | 24
+> > > > ++++++++++++++++--------
+> > > >  1 file changed, 16 insertions(+), 8 deletions(-)
+> > > >=20
+> > > > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > index
+> > > > 8c8c733a145634cdbfefd339f4a692f25a6e24de..c0127d0fb4f059b9f9e8163
+> > > > 60130e183e8f0e990 100644
+> > > > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > > @@ -867,6 +867,13 @@ static int mtk_pcie_en7581_power_up(struct
+> > > > mtk_gen3_pcie *pcie)
+> > > >  	int err;
+> > > >  	u32 val;
+> > > > =20
+> > > > +	/*
+> > > > +	 * The controller may have been left out of reset by the
+> > > > bootloader
+> > > > +	 * so make sure that we get a clean start by asserting resets
+> > > > here.
+> > > > +	 */
+> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > +				  pcie->phy_resets);
+> > > > +	reset_control_assert(pcie->mac_reset);
+> > >=20
+> > > Add blank line here.
+> >=20
+> > ack, I will fix it.
+> >=20
+> > >=20
+> > > >  	/*
+> > > >  	 * Wait for the time needed to complete the bulk assert in
+> > > >  	 * mtk_pcie_setup for EN7581 SoC.
+> > > > @@ -941,6 +948,15 @@ static int mtk_pcie_power_up(struct
+> > > > mtk_gen3_pcie *pcie)
+> > > >  	struct device *dev =3D pcie->dev;
+> > > >  	int err;
+> > > > =20
+> > > > +	/*
+> > > > +	 * The controller may have been left out of reset by the
+> > > > bootloader
+> > > > +	 * so make sure that we get a clean start by asserting resets
+> > > > here.
+> > > > +	 */
+> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > +				  pcie->phy_resets);
+> > > > +	reset_control_assert(pcie->mac_reset);
+> > > > +	usleep_range(10, 20);
+> > >=20
+> > > Unrelated to this patch, but since you're moving it, do you know
+> > > what
+> > > this delay is for?  Can we add a #define and a spec citation for
+> > > it?
+> >=20
+> > I am not sure about it, this was already there.
+> > @Jianjun Wang: any input on it?
+>=20
+> This delay is used to ensure the reset is effective. A delay of 10us
+> should be sufficient in this scenario.
 
-IOW, the CCF changes the state of the tree while inspecting it.
-This change solves that.
+ack, so we can introduce a marco like:
 
->
-> On 10/4/2024 9:39 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
->>
->> As it as been pointed out numerous times, flagging a clock with
->> CLK_IGNORE_UNUSED does _not_ guarantee that clock left enabled will stay
->> on. The clock will get disabled if any enable/disable cycle happens on it
->> or its parent clocks.
->>
->> Because enable/disable cycles will disable unused clocks,
->> clk_disable_unused() should not trigger such cycle. Doing so disregard
->> the flag if set for any parent clocks. This is problematic with
->> CLK_OPS_PARENT_ENABLE handling.
->>
->> To solve this, and a couple other issues, pass the parent status to the
->> child while walking the subtree, and return whether child ignored disabl=
-e,
->> or not.
->>
->> * Knowing the parent status allows to safely disable clocks with
->>    CLK_OPS_PARENT_ENABLE when the parent is enabled. Otherwise it means
->>    that, while the clock is not gated it is effectively disabled. Turnin=
-g on
->>    the parents to sanitize the sitation would bring back our initial
->>    problem, so just let it sanitize itself when the clock gets used.
->>
->> * If a clock is not actively used (enabled_count =3D=3D 0), does not have
->>    CLK_IGNORE_UNUSED but the hw enabled all the way to the root clock, a=
-nd a
->>    child ignored the disable, it should ignore the disable too. Doing so
->>    avoids disabling what is feading the children. Let the flag trickle d=
-own
->>    the tree. This has the added benefit to transfer the information to t=
-he
->>    unprepare path, so we don't unprepare the parent of a clock that igno=
-red
->>    a disable.
->>
->> * An enabled clock must be prepared in CCF but we can't rely solely on
->>    counts at clk_disable_unused() stage. Make sure an enabled clock is
->>    considered prepared too, even if does not implement the related callb=
-ack.
->>    Also make sure only disabled clocks get unprepared.
->>
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> ---
->>
->>   This is sent as an RFC to continue the discussion started by Chuan.
->>   It is not meant to be applied as it is.
->>
->>
->>   drivers/clk/clk.c | 92 ++++++++++++++++++++++++++++++-----------------
->>   1 file changed, 60 insertions(+), 32 deletions(-)
->>
->> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
->> index d02451f951cf..41c4504a41f1 100644
->> --- a/drivers/clk/clk.c
->> +++ b/drivers/clk/clk.c
->> @@ -332,17 +332,6 @@ static bool clk_core_is_enabled(struct clk_core *co=
-re)
->>                  }
->>          }
->>
->> -       /*
->> -        * This could be called with the enable lock held, or from atomic
->> -        * context. If the parent isn't enabled already, we can't do
->> -        * anything here. We can also assume this clock isn't enabled.
->> -        */
->> -       if ((core->flags & CLK_OPS_PARENT_ENABLE) && core->parent)
->
-> This judgment of CLK_OPS_PARENT_ENABLE seems redundant. According to
-> normal logic, if the parent is disabled, its children will also be
-> forced to disable. This seems unrelated to whether CLK_OPS_PARENT_ENABLE
-> is configured.=F0=9F=98=B3
+#define PCIE_RESET_TIME_US	10
+=2E..
 
-It's removed.
+usleep_range(PCIE_RESET_TIME_US, 2 * PCIE_RESET_TIME_US);
 
->
->> -               if (!clk_core_is_enabled(core->parent)) {
->> -                       ret =3D false;
->> -                       goto done;
->> -               }
->> -
->>          ret =3D core->ops->is_enabled(core->hw);
->>   done:
->>          if (core->rpm_enabled)
->> @@ -1454,22 +1443,39 @@ static void clk_core_disable_unprepare(struct cl=
-k_core *core)
->>          clk_core_unprepare_lock(core);
->>   }
->>
->> -static void __init clk_unprepare_unused_subtree(struct clk_core *core)
->> +static bool __init clk_unprepare_unused_subtree(struct clk_core *core,
->> +                                               bool parent_prepared)
->>   {
->>          struct clk_core *child;
->> +       bool prepared;
->>
->>          lockdep_assert_held(&prepare_lock);
->>
->> +       /*
->> +        * Relying on count is not possible at this stage, so consider
->> +        * prepared an enabled clock, in case only .is_enabled() is
->> +        * implemented
->> +        */
->> +       if (parent_prepared)
->> +               prepared =3D (clk_core_is_prepared(core) ||
->> +                           clk_core_is_enabled(core));
->> +       else
->> +               prepared =3D false;
->> +
->>          hlist_for_each_entry(child, &core->children, child_node)
->> -               clk_unprepare_unused_subtree(child);
->> +               if (clk_unprepare_unused_subtree(child, prepared) &&
->> +                   prepared && !core->prepare_count)
->> +                       core->flags |=3D CLK_IGNORE_UNUSED;
->>
->> -       if (core->prepare_count)
->> -               return;
->> +       if (core->flags & CLK_IGNORE_UNUSED || core->prepare_count)
->> +               goto out;
->>
->> -       if (core->flags & CLK_IGNORE_UNUSED)
->> -               return;
->> +       if (!parent_prepared && (core->flags & CLK_OPS_PARENT_ENABLE))
->> +               goto out;
->>
->> -       if (clk_core_is_prepared(core)) {
->> +       /* Do not unprepare an enabled clock */
->> +       if (clk_core_is_prepared(core) &&
->> +           !clk_core_is_enabled(core)) {
->>                  trace_clk_unprepare(core);
->>                  if (core->ops->unprepare_unused)
->>                          core->ops->unprepare_unused(core->hw);
->> @@ -1477,27 +1483,50 @@ static void __init clk_unprepare_unused_subtree(=
-struct clk_core *core)
->>                          core->ops->unprepare(core->hw);
->>                  trace_clk_unprepare_complete(core);
->>          }
->> +
->> +out:
->> +       return (core->flags & CLK_IGNORE_UNUSED) && prepared;
->>   }
->>
->> -static void __init clk_disable_unused_subtree(struct clk_core *core)
->> +static bool __init clk_disable_unused_subtree(struct clk_core *core,
->> +                                             bool parent_enabled)
->>   {
->>          struct clk_core *child;
->>          unsigned long flags;
->> +       bool enabled;
->>
->>          lockdep_assert_held(&prepare_lock);
->>
->> -       hlist_for_each_entry(child, &core->children, child_node)
->> -               clk_disable_unused_subtree(child);
->> +       flags =3D clk_enable_lock();
->>
->> -       if (core->flags & CLK_OPS_PARENT_ENABLE)
->> -               clk_core_prepare_enable(core->parent);
->> +       /* Check if the clock is enabled from root to this clock */
->> +       if (parent_enabled)
->> +               enabled =3D clk_core_is_enabled(core);
->> +       else
->> +               enabled =3D false;
->>
->> -       flags =3D clk_enable_lock();
->> +       hlist_for_each_entry(child, &core->children, child_node)
->> +               /*
->> +                * If any child ignored disable, this clock should too,
->> +                * unless there is, valid reason for the clock to be ena=
-bled
->> +                */
->> +               if (clk_disable_unused_subtree(child, enabled) &&
->> +                   enabled && !core->enable_count)
->> +                       core->flags |=3D CLK_IGNORE_UNUSED;
->>
->> -       if (core->enable_count)
->> +       if (core->flags & CLK_IGNORE_UNUSED || core->enable_count)
->>                  goto unlock_out;
->>
->> -       if (core->flags & CLK_IGNORE_UNUSED)
->> +       /*
->> +        * If the parent is disabled but the gate is open, we should san=
-itize
->> +        * the situation. This will avoid an unexpected enable of the cl=
-ock as
->> +        * soon as the parent is enabled, without control of CCF.
->> +        *
->> +        * Doing so is not possible with a CLK_OPS_PARENT_ENABLE clock w=
-ithout
->> +        * forcefully enabling a whole part of the subtree.  Just let the
->> +        * situation resolve it self on the first enable of the clock
->> +        */
->> +       if (!parent_enabled && (core->flags & CLK_OPS_PARENT_ENABLE))
->>                  goto unlock_out;
->>
->>          /*
->> @@ -1516,8 +1545,7 @@ static void __init clk_disable_unused_subtree(stru=
-ct clk_core *core)
->>
->>   unlock_out:
->>          clk_enable_unlock(flags);
->> -       if (core->flags & CLK_OPS_PARENT_ENABLE)
->> -               clk_core_disable_unprepare(core->parent);
->> +       return (core->flags & CLK_IGNORE_UNUSED) && enabled;
->>   }
->>
->>   static bool clk_ignore_unused __initdata;
->> @@ -1550,16 +1578,16 @@ static int __init clk_disable_unused(void)
->>          clk_prepare_lock();
->>
->>          hlist_for_each_entry(core, &clk_root_list, child_node)
->> -               clk_disable_unused_subtree(core);
->> +               clk_disable_unused_subtree(core, true);
->>
->>          hlist_for_each_entry(core, &clk_orphan_list, child_node)
->> -               clk_disable_unused_subtree(core);
->> +               clk_disable_unused_subtree(core, true);
->>
->>          hlist_for_each_entry(core, &clk_root_list, child_node)
->> -               clk_unprepare_unused_subtree(core);
->> +               clk_unprepare_unused_subtree(core, true);
->>
->>          hlist_for_each_entry(core, &clk_orphan_list, child_node)
->> -               clk_unprepare_unused_subtree(core);
->> +               clk_unprepare_unused_subtree(core, true);
->>
->>          clk_prepare_unlock();
->>
->> --
->> 2.45.2
->>
+what do you think?
 
---=20
-Jerome
+Regards,
+Lorenzo
+
+>=20
+> >=20
+> > >=20
+> > > Is there a requirement that the PHY and MAC reset ordering be
+> > > different for EN7581 vs other chips?
+> > >=20
+> > > EN7581:
+> > >=20
+> > >   assert PHY reset
+> > >   assert MAC reset
+> > >   power on PHY
+> > >   deassert PHY reset
+> > >   deassert MAC reset
+> > >=20
+> > > others:
+> > >=20
+> > >   assert PHY reset
+> > >   assert MAC reset
+> > >   deassert PHY reset
+> > >   power on PHY
+> > >   deassert MAC reset
+> > >=20
+> > > Is there one order that would work for both?
+> >=20
+> > EN7581 requires to run phy_init()/phy_power_on() before deassert PHY
+> > reset
+> > lines.
+> >=20
+> > Regards,
+> > Lorenzo
+> >=20
+> > >=20
+> > > >  	/* PHY power on and enable pipe clock */
+> > > >  	err =3D reset_control_bulk_deassert(pcie->soc-
+> > > > >phy_resets.num_resets, pcie->phy_resets);
+> > > >  	if (err) {
+> > > > @@ -1013,14 +1029,6 @@ static int mtk_pcie_setup(struct
+> > > > mtk_gen3_pcie *pcie)
+> > > >  	 * counter since the bulk is shared.
+> > > >  	 */
+> > > >  	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets,
+> > > > pcie->phy_resets);
+> > > > -	/*
+> > > > -	 * The controller may have been left out of reset by the
+> > > > bootloader
+> > > > -	 * so make sure that we get a clean start by asserting resets
+> > > > here.
+> > > > -	 */
+> > > > -	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > pcie->phy_resets);
+> > > > -
+> > > > -	reset_control_assert(pcie->mac_reset);
+> > > > -	usleep_range(10, 20);
+> > > > =20
+> > > >  	/* Don't touch the hardware registers before power up */
+> > > >  	err =3D pcie->soc->power_up(pcie);
+> > > >=20
+> > > > --=20
+> > > > 2.47.0
+> > > >=20
+
+--uae1GSDO0BCp98kB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy3OTQAKCRA6cBh0uS2t
+rJxpAP9ZXmnP7lu21ic9O/cS1HIr4Nc/+7vYc54mxu50fzCzqwEA0VgHyeIHISW/
+ELjp8Qmv2Hot9OAiCuWq98qkpHzsQwE=
+=pefi
+-----END PGP SIGNATURE-----
+
+--uae1GSDO0BCp98kB--
 
