@@ -4,85 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCD9D5E14D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 10:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EF0D5E14E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 10:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTIHfF+UH1Xa7DK8o/xh7XL9H7nZTNldWgZ8nJ8rQE0=; b=g/7MSpB7g+XQg/Ome49mUGV8SI
-	1Sg10VdMPxA4wDvk4dIWDoT/JrTs83DI1oU9vTKUmFGhq0nvdEokZ17XqIQITH2bkQoi+SNuWfx2E
-	70gEPnh8iXWW+XailIIv2KEpt8DlyybixwIUMkWexdEi7SsfnUezPgnB0DYpnh3/5xDSmOGMFARJf
-	1TM1wo7jJ2Rd0Wr6QJZGclermLOUbMLUDGJ8eDIpV7bpz0ZtytW2ZcoUvXhkd2FINYNgARH9QoJFF
-	sEyR1MRQbLax2SQOkwMcyEfw9FTEGdIhWDz9S51fUh5mP/tBuvgRvFofHbPnyYP+JnU0DmajM9Tpj
-	/Rbdsthg==;
+	bh=0X1P1hsYEor2W5Yfd9/7Ar8zCFW7xOI+q7oLtO6ek/I=; b=X9fKauEKZZcpsO6TLasRPtD8kY
+	s77HdnxZ2WK5mm2sySaj3dvsvfsqx4acsrXWiHlCdkr8H7gi3RnCV2AN6MLMMPcl5KfdZN3stvc8C
+	vHdCiO2Cjo9oPBT74Fx61A3d8H1tXm16B+OVQ779XHLBz8aXoGkJDMzGpozFdniQFvXDdETWIDxsR
+	5WmENYYTSN68th2lVlOMpxvWSf4kWyhT8ew6beP7RGF5DtJ1jqkk7hjT4PObAANIgiUDyGmrQsIVe
+	Nt+9HuCHLq337C4/88bojbQ9Yt27cbmvRoMa2TbVGvkiF5tyjxZl7m2bFOmxaD/LPag6MTO88YM0p
+	DaN87/Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Lv1-0000000A44U-3twj;
-	Fri, 08 Nov 2024 10:08:43 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1t9Lwm-0000000A4Lw-0Fvs;
+	Fri, 08 Nov 2024 10:10:32 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Llr-0000000A2LZ-1hAH
+	id 1t9Ltg-0000000A3op-3Lui
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 09:59:17 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43161e7bb25so15901195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 01:59:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731059953; x=1731664753; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=eTIHfF+UH1Xa7DK8o/xh7XL9H7nZTNldWgZ8nJ8rQE0=;
-        b=fBAfOh22nVHn9RFgdF4ibdQUl7TGFA/c3RoVykySeVvWwzS4LOm/vKMn7I48IC/+oN
-         hKnGXGf5EXRIPCrqYXnxmrvOq96aGo4nbg+Irj879eu4ry+FYcaVBES4W1fmI+dnsByJ
-         ON/Bs1oXhT20B8LUp0kVObUZQFhbxIxBt9AsCM6HRrAnVO75+zD18uOHAzkzZYfxpyKi
-         ztj44hqPvCjvOPuwlVVjlqtMRaLzFqHpPwLdTkaU4T7scvWW6xhCeoUq/Hvqto32lNbv
-         vNMycPvW/vGoVXrLqNkV5jCd0qf5OFUY5QLIoxdLnzsD5QYoRcFTLpgKGMwN6lf7tADn
-         cJKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731059953; x=1731664753;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eTIHfF+UH1Xa7DK8o/xh7XL9H7nZTNldWgZ8nJ8rQE0=;
-        b=ICBhQZGEGiRY9Gl7/I4XRXRZqUMIKPNh/BYdTMoC83xqhjJvUlrFi57I/pgQj6mjMa
-         TYPzFLyOD7W01qmWpu+buxkEOKBVxkVPwToTIjKTegWhbEGl11RQn95v49aYNVvzMGgg
-         esGYqEH0gFyq1hUf9XLx5PfsfMZ4mbCm/lfKfmf+cAsRM7ZY4LCz8mL9/mJ3wLo785wZ
-         BeEeYq1KcqSi3+DLVHCqS+OqwXnzlxbuIl1S1jJjgmLs0NNvRjFiwLjOXA/4IF9RxV5V
-         orFGvAdDmvBD8AuTpAD/RAZxNmrYKQbG1tVJyWoXVCzZMHbytGk/gs2k0hBy9R2UKa+A
-         dB/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUUaT/c3Cckn4PU1FXwyOlU1NST6MS56xD6/YMsh26SAHfcugmrsdIdUvy6l9s5OCxUHs28K+ZpYw2r9QCAJdGW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaAsyd+FXdZy5EY467alkYo3HHMf08uuqOq8vxTfLTBC3ZzwXm
-	vpSwoqURU3a1BTTvMjMr6k3agCrFDBq6j47HoAdLKvNEYGvU6nA5lk9i0QB6ing=
-X-Google-Smtp-Source: AGHT+IE52uNEd1M4kmQsGgrrxZ5e+HBgRbQ6hYCN5h70Y/Y7u6ZLc+ouQ9mgPck15oFzZ/AUamay2Q==
-X-Received: by 2002:a05:600c:4f87:b0:431:5ed4:7e7d with SMTP id 5b1f17b1804b1-432b7508053mr18099615e9.18.1731059953350;
-        Fri, 08 Nov 2024 01:59:13 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:ecfd:9f8d:62a3:6ba8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b0530599sm58205685e9.1.2024.11.08.01.59.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 01:59:12 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Stephen Boyd <sboyd@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [RFC PATCH] clk: core: refine disable unused clocks
-In-Reply-To: <85aae140-5c9b-4ff9-a522-549009f62601@amlogic.com> (Chuan Liu's
-	message of "Fri, 8 Nov 2024 17:23:53 +0800")
-References: <1jcykltj7g.fsf@starbuckisacylon.baylibre.com>
-	<20241004133953.494445-1-jbrunet@baylibre.com>
-	<07594a59-c999-4592-84b8-4e163d3edba4@amlogic.com>
-	<1jttci2k8k.fsf@starbuckisacylon.baylibre.com>
-	<85aae140-5c9b-4ff9-a522-549009f62601@amlogic.com>
-Date: Fri, 08 Nov 2024 10:59:12 +0100
-Message-ID: <1jcyj62gi7.fsf@starbuckisacylon.baylibre.com>
+	Fri, 08 Nov 2024 10:07:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z0ziQqeofagHHftFv6kRsu/gPkzynP6fIWOLQ0CUOpiQxFfG7OWdGc/uYieO09+lsRYdeVOrJV9NNijVr6wbw7avvU5WIiL2BCYl51ZXthKohg62lGwzp/ZLdMbgnpxWMsl7pN2NWAhnMHwS03aqMCQVdnroHawGea8kAwiqTDW8vgNnvWsqUff148KmqKn1ptxXOvwY1FWHIgvrrsyPyYOzch/QImRa8ZmnCPTUy8wrAFf7ZcqSs9ZQHX2DoXhk316m32CgKmB/laQAmPA3Fy/sUXkIjpsznWFMoFueA0mPH37ETIoZw5WkUpIOwGg70W+b6OhYdxwQR08TSlaWGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0X1P1hsYEor2W5Yfd9/7Ar8zCFW7xOI+q7oLtO6ek/I=;
+ b=cgURh4YYHkpgOpfzxA9sRR6I/h68hd7sB/nFtFzt+h8AM2jLdxHAgQ8oAptcHfQK0MNDHAz57l+TID9PZjUXvFDBC5g2dlFslJTEqdQ8V2tU3PV0Pw4NL7IyV/kLnOhtJF3oKyVoJ08Vum654mXLg5gvxanBPA/3qk5TP9PiSLPwydstKePyQ8RZELj6IBYgEFF0VfGTZUvH8vvYIFwINskdX0M3lAgbNKQ25vqCtysgQ9JNHlUKz+yZaGwFB2OVIUIRy5kv71FSZblnig8yjybScW4ZpNmKCdVjto9ih9xRnHfCCYYts6bW4xp42PwzFEwu/jaViV01PDWQLa9Heg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0X1P1hsYEor2W5Yfd9/7Ar8zCFW7xOI+q7oLtO6ek/I=;
+ b=OV1A55BpYDbycFu9AwNym8zFcPNt8wLDyb8uAdXiJ8Q97lSfr6P9iaTFC8eyhcjbiuA3Ub6PmUCbnYqdVxMCpwFlgPZ7DfnBRw13XewI2qNXGej2qMy/tHhvCT+InJWB9lVu/gPB5WqBTyKJK/BDMhKzoAcPLOQn+l7h212l/GYIE+FFddR94UNMZLg0TKsMGJc8mkaMg2kLhtXeNxIGcEjJ4m7VxwO7bBSX2L01IAOz3u4SMtSbdXyWwm1QvmxNEg9+rRdo5TPl+qYW4WInYZzXgEZTCPcNwd9KGMoZJiXDKqLOxdgQ425IKnuMIXSeAMGUAYlZ0obhOuwNUPo9GQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com (2603:10a6:10:127::9)
+ by DU4PR04MB11030.eurprd04.prod.outlook.com (2603:10a6:10:593::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.22; Fri, 8 Nov
+ 2024 10:07:17 +0000
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84]) by DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84%3]) with mapi id 15.20.8137.018; Fri, 8 Nov 2024
+ 10:07:17 +0000
+Date: Fri, 8 Nov 2024 18:06:26 +0800
+From: Pengfei Li <pengfei.li_1@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
+	joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
+	marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com,
+	m.othacehe@gmail.com, mwalle@kernel.org,
+	Max.Merchel@ew.tq-group.com, hiago.franco@toradex.com,
+	tharvey@gateworks.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, ping.bai@nxp.com,
+	ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: Add i.MX91 dtsi support
+Message-ID: <Zy3iogT7jOLEvf1S@pengfei-OptiPlex-Tower-Plus-7010>
+References: <20241108022703.1877171-1-pengfei.li_1@nxp.com>
+ <20241108022703.1877171-3-pengfei.li_1@nxp.com>
+ <2350046.ElGaqSPkdT@steina-w>
+ <1907807.tdWV9SEqCh@steina-w>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1907807.tdWV9SEqCh@steina-w>
+X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::8) To DB8PR04MB7065.eurprd04.prod.outlook.com
+ (2603:10a6:10:127::9)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB7065:EE_|DU4PR04MB11030:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77adcd43-f71b-4c35-3b63-08dcffdd2006
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v1FNPaQR9WSbl0bF067PZGh/IBhPZFt8GjH4O2taDxjR6N0BaJ4PZFpfuoFT?=
+ =?us-ascii?Q?SZvm3HAOX3YNHnCBwgsUzEDWDGfYJCPSTngGwoPFFCetMCBJsfjjv0wsr2L4?=
+ =?us-ascii?Q?lhouaUDhSrkCcdDhlVcx0zjFDlSDM7yce8UeqC/yL52W1uWaRG6A2FroiwUC?=
+ =?us-ascii?Q?jQyECcF/B1UIDOTfo4LXHV3Zt/iRAo3dJxl/pAmE2ZE+sTobpbvOe9vq6V/Z?=
+ =?us-ascii?Q?GmFh0AK3Jadyetrr/e08IBDBNilyN9nIaUJZkPg3kW7rN/eF70bMVwOZu7kp?=
+ =?us-ascii?Q?O2KweEWRvWB9Wt7i1DBIudv2DZHOpAy+iQtJ3e160ckTuHgR5W7kkZ31evOp?=
+ =?us-ascii?Q?J2ZqfZ8hp2B89wccQvkJKQWlpVtQTsYmlVLvgIcKDU5ezlbTPKjktVr1jMvs?=
+ =?us-ascii?Q?IX/OfVvG6piLMi5HrbQCYWdw3FQAPVopA5qwXogJnr+Nij7pzAQLTWR3J++V?=
+ =?us-ascii?Q?B5PcyMi5AkRv1DwECEJTWq+j2MnQUhEuGvDSFmGEfKKZog4A+7MDj7NtxSMT?=
+ =?us-ascii?Q?c/pcfMu9QsS9H0UxlmzqCKxfvnaSlv4YlyeZ25cnHXQzzftnVmnPMqWLx594?=
+ =?us-ascii?Q?174jayjorhwQAMNRmk7YH/Y6sUx2pWJFQA6ag4UAqSL35fyl5e7f9h7XblHB?=
+ =?us-ascii?Q?rLUKJ40pQqK3pMcIAs/kiKujd0CIZliKAAPOpLFWyUvE7+YNl895m1LLJszj?=
+ =?us-ascii?Q?WMpxR9s7aCe9fUEYQZ8B5mZrkuzYP1EXGZf37UOjr/rhpbotsMZzF2BSzAwG?=
+ =?us-ascii?Q?cG3WtLMZZ8E9vqP21ODfEPijLdtBx/hoMsMU8iqU94ZywlZUy56FhJqmPmmv?=
+ =?us-ascii?Q?H08R6TJNbEkb4AdrZF3PdjEpuQp95cgcBU2JTU3ZoWljH9PMPIhf810P1hsB?=
+ =?us-ascii?Q?byz+rksnr/lmZ1Hi08Siko+gkz0bX/nLFwdTwb7BzPJj/8yE4x7QzDrcmCEK?=
+ =?us-ascii?Q?atwGB/D94RNzkp7L3mCXNrm4Jj34aVhAqKvnrWJzs3v+YBEUz6Efva1zPROz?=
+ =?us-ascii?Q?TeKsYqISzVKN8ZBqoUuWI4q0xHqwGBWEIx7Umlt6sr80VPBRDTXreG67W1LY?=
+ =?us-ascii?Q?bNc8k/EuHNdQzfMu1v7h809pNKBueJFvAHfpMHAeY6gYQTkQBiid0rV5lM8C?=
+ =?us-ascii?Q?9x+GxFYhMASNoY7m9Vhr0riTv1NnQ+N4DQLjHsdYp2FmdZ1JKGSju7Ne7K14?=
+ =?us-ascii?Q?IvwCHS3IV2b4tUjsP+EmdffbCtdCuvs9CFM0J+/NJz1epQo2HM77Oow06ogd?=
+ =?us-ascii?Q?rb67jsK7XTtOEW50jjqh2Sih5RLrbYpQGpkdBAdnEizlr88oX3LCIZ+dR8NI?=
+ =?us-ascii?Q?Eap9W9OqqCQrB1i6QAZO6VdxqXnqfvoFyv6LY/4bNhPhDXaLtOK0ujOnyLxp?=
+ =?us-ascii?Q?s33SuFk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7065.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5o9Qr2CfJpzebDHtdatfTo037r0vsyRkACS6m8xCmcz652ITyKNkQFS+E+6H?=
+ =?us-ascii?Q?QwIa38qq14YeCPCx+gBYc6NFZqCD8k6bQTr2LUnk7NzQqW7iS84DNOMv7hiA?=
+ =?us-ascii?Q?uEYDlbJGls1Karglap9t9SJYGomfPW2Fm7Wn1CJUlFv4sC42JjUtrjWkSCvn?=
+ =?us-ascii?Q?N22uAZS0QFJEpqZT038qQKS+E64xm2ykDT+3heDZjsict8NGWsmf4Y4rPjvp?=
+ =?us-ascii?Q?3btV0knkIVSmJXpRoldwmOIP7eXATWDDy1b5kM4RH4E3EOL2z+Dd9eqZfIn9?=
+ =?us-ascii?Q?ZFRJPKaWVNhzf+pVrwqQ7etnmp9a3ufmZ/dDIbBkq+74kOxrkO7zFeKm0tHV?=
+ =?us-ascii?Q?Ah6eQzEjOgDapeseG2l2XohmFXjYAyWt6FDK2edQEYuPNfkukaAT2ichnU0z?=
+ =?us-ascii?Q?HWvG3kk8RonKvyse75ngOipPhFoObyOShC7wuOvE1N3V1gIQwyXM2betmWa6?=
+ =?us-ascii?Q?I2seT78WXSG6mRm3io4G6n5IyXb98eXDrt0GYg0pEET3mxY6suKhDfzoEHdB?=
+ =?us-ascii?Q?mhtxsfoba12JdXPCvjNTmS5phnlDWrnp4TmXocdhUncNQ95JGsyULmjxHDbW?=
+ =?us-ascii?Q?1Bd2/VTou38A5cBzF/M/TQH4SNB95BTcMqThTVltWVVJGhxopC+YuYcMxO1x?=
+ =?us-ascii?Q?zplQ5NOqqxFbD607O50c6VUFl7RIxtoy5Njvc5HaFK21/mLL9UNq+6OznPOh?=
+ =?us-ascii?Q?qzudr4AcL78wurFZMF8I8s2crJ9Xb8QNODSqAS3cTkU8Dpq/fgiYoZ13lH0x?=
+ =?us-ascii?Q?QMmZ4d/mO+dmzICju8adciGz1Ge4uMsZRoatTKigdRgpOU6aGJ1NQpSq5ZvM?=
+ =?us-ascii?Q?Y+a29OiAz8NsfawJkXxAxRBtpqffy2ab7l8WUulXpyVfpEG0nvIxKNi6Sfc2?=
+ =?us-ascii?Q?+Ub4olUw49AeU/0FG2svKcXE2EbwR5AHZKLW5Xi8XtnRXNxGq4mAtAdaf9S9?=
+ =?us-ascii?Q?cTTl5XD8QXj8zUbXQN153L9hjqVOsVebRCIAYfI4nEhzeaGCVbd+Vaj/Ar/3?=
+ =?us-ascii?Q?hcj6Q8YRmk4R6VIBQJ+CFSbUlEItEQxErgTzSaLrteJcn9RW6yZu1xAB+4uP?=
+ =?us-ascii?Q?0H08Yx0suHHUQmkH5ebo3oiHzBugm6VR1K7k+bZSfOQnBxsigK/BYtDOFn1p?=
+ =?us-ascii?Q?flCia8/Da1zpLdjtj2NcmQ4CtC/4j1lqJo7l6GBuJH8++HARbaWDgY2tBLog?=
+ =?us-ascii?Q?Gi1Dckw+QCb2NfqYjTR/rqNPUm+PGGPoW6bOTqQkEQtwsBFAaTGLP2vN4VM4?=
+ =?us-ascii?Q?UUycL9AoREJQbDtWirgWbOPvoQrNEVIe0vQ0062uR6/70OwKxh+mTkTHCZxv?=
+ =?us-ascii?Q?V2bIvrc4vgqbx+M5R7rgKI2Dk4bMntaSBvLk8g5gjC1W9kzewknfPt4IpSfY?=
+ =?us-ascii?Q?+CkrwXYnzul/FYL1kWMAChCnsRKtYomClma2HRI+RNE5hcPwbPNkxJc0mn6S?=
+ =?us-ascii?Q?D6FbegF+C5fYSb+dWENQHYYHDfDGz0Lm9brGEOTjSiDqMZGirPsHYPYn+Zso?=
+ =?us-ascii?Q?xdvPuxbVr/Pv08MwwTbwhUoW0Y+JVIGFUOzvTqxZeZrl07yGq+mFSKO7+ska?=
+ =?us-ascii?Q?w0AzWBGcaKmhszFkiPQyv7gERrGRW64MDjuy6u0y?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77adcd43-f71b-4c35-3b63-08dcffdd2006
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7065.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 10:07:17.1621
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aPsLm89b8Zpi3aPxq0J7W9wSStR04sDl7JMr6hpNaW0avWLDlrLYm+V1IVVUzeH6H5I4Jqd88hvhkJeLdrBF6A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_015915_523075_D678634F 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20241108_020720_872987_5D0501DA 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +166,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 08 Nov 2024 at 17:23, Chuan Liu <chuan.liu@amlogic.com> wrote:
+On Thu, Nov 07, 2024 at 02:06:27PM +0100, Alexander Stein wrote:
+> Am Donnerstag, 7. November 2024, 13:49:50 CET schrieb Alexander Stein:
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> > > new file mode 100644
+> > > index 000000000000..a9f4c1fe61cc
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> > > @@ -0,0 +1,66 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > +/*
+> > > + * Copyright 2024 NXP
+> > > + */
+> > > +
+> > > +#include "imx91-pinfunc.h"
+> > > +#include "imx93.dtsi"
+> > > +
+> > > +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
+> > > +	cooling-device =
+> > > +		<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> > > +};
+> > > +
+> > > +&clk {
+> > > +	compatible = "fsl,imx91-ccm";
+> > > +};
+> > > +
+> > > +&eqos {
+> > > +	clocks = <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
+> > > +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> > > +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
+> > > +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> > 
+> > Is it just me or is the alignment of new lines not matching?
+> > 
+> > 
+> > > +};
+> > > +
+> > > +&fec {
+> > > +	clocks = <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > > +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > > +			<&clk IMX91_CLK_ENET2_REGULAR>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> > > +				<&clk IMX91_CLK_ENET2_REGULAR>;
+> > > +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> > 
+> > Here as well: Is it just me or is the alignment of new lines not matching?
+> > 
+> > > +	assigned-clock-rates = <100000000>, <250000000>;
+> > > +};
+> > > +
+> > > +&i3c1 {
+> > > +	clocks = <&clk IMX93_CLK_BUS_AON>,
+> > > +			<&clk IMX93_CLK_I3C1_GATE>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +};
+> > > +
+> > > +&i3c2 {
+> > > +	clocks = <&clk IMX93_CLK_BUS_WAKEUP>,
+> > > +			<&clk IMX93_CLK_I3C2_GATE>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +};
+> > > +
+> > > +&tmu {
+> > > +	status = "disabled";
+> > 
+> > Why does the TMU needs to be disabled instead of deleted?
+> > 
+> > > +};
+> > > +
+> > > +/* i.MX91 only has one A core */
+> > > +/delete-node/ &A55_1;
+> > > +
+> > > +/* i.MX91 not has cm33 */
+> > > +/delete-node/ &cm33;
+> > > +
+> > > +/* i.MX91 not has power-domain@44461800 */
+> > > +/delete-node/ &mlmix;
+> > > 
+> > 
+> > Shouldn't the following node also be removed?
+> > * mipi_csi
+> > * dsi
+> > * lvds_bridge
+> > * lcdif_to_dsi
+> > * lcdif_to_ldb
+> 
+> Add mu1 and mu2 to that list.
 
->>>> -       if (core->flags & CLK_IGNORE_UNUSED)
->>>> +       /*
->>>> +        * If the parent is disabled but the gate is open, we should sanitize
->>>> +        * the situation. This will avoid an unexpected enable of the clock as
->>>> +        * soon as the parent is enabled, without control of CCF.
->>>> +        *
->>>> +        * Doing so is not possible with a CLK_OPS_PARENT_ENABLE clock without
->>>> +        * forcefully enabling a whole part of the subtree.  Just let the
->>>> +        * situation resolve it self on the first enable of the clock
->>>> +        */
->>>> +       if (!parent_enabled && (core->flags & CLK_OPS_PARENT_ENABLE))
->
-> At first, I couldn't grasp the logic behind the 'return' here. Now it's
-> clear. This approach is equivalent to completely giving up on
-> handling clocks with CLK_OPS_PARENT_ENABLE feature in
-> clk_disable_unused_subtree().
->
+Hi, i.MX91 also has mu1 and mu2. so there is no need to remove them here.
 
-No. It's handled correctly as long as the tree is in coherent state.
+BR,
+Pengfei Li
 
-What is not done anymore is fixing up an inconsistent tree, by this I
-mean: A clock with CLK_OPS_PARENT_ENABLE, which report enabled from its
-own registers but has its parent disabled.
-
-In that particular case, clk_disable_unused_subtree() won't be turning on
-everything to properly disable that one clock. That is the root cause of
-the problem you reported initially. The clock is disabled anyway.
-
-Every other case are properly handled (at least I think).
-
->>>>                   goto unlock_out;
->>>>
->>>>           /*
->>>> @@ -1516,8 +1545,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
->>>>
->>>>    unlock_out:
->>>>           clk_enable_unlock(flags);
->>>> -       if (core->flags & CLK_OPS_PARENT_ENABLE)
->>>> -               clk_core_disable_unprepare(core->parent);
->>>> +       return (core->flags & CLK_IGNORE_UNUSED) && enabled;
->>>>    }
->>>>
->>>>    static bool clk_ignore_unused __initdata;
->>>> @@ -1550,16 +1578,16 @@ static int __init clk_disable_unused(void)
->>>>           clk_prepare_lock();
->>>>
->>>>           hlist_for_each_entry(core, &clk_root_list, child_node)
->>>> -               clk_disable_unused_subtree(core);
->>>> +               clk_disable_unused_subtree(core, true);
->>>>
->>>>           hlist_for_each_entry(core, &clk_orphan_list, child_node)
->>>> -               clk_disable_unused_subtree(core);
->>>> +               clk_disable_unused_subtree(core, true);
->>>>
->>>>           hlist_for_each_entry(core, &clk_root_list, child_node)
->>>> -               clk_unprepare_unused_subtree(core);
->>>> +               clk_unprepare_unused_subtree(core, true);
->>>>
->>>>           hlist_for_each_entry(core, &clk_orphan_list, child_node)
->>>> -               clk_unprepare_unused_subtree(core);
->>>> +               clk_unprepare_unused_subtree(core, true);
->>>>
->>>>           clk_prepare_unlock();
->>>>
->>>> --
->>>> 2.45.2
->>>>
->> --
->> Jerome
-
--- 
-Jerome
 
