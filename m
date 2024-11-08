@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AF3D64066
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF60DD64065
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBes01HIGxCY9uAMUwOSqshjVdaMRIIeY82NB1cajGY=; b=SCW/Zj8gvc10iZcjmvVV3kBe3R
-	XWFRIWaBKHmnv2O4fBNV8cgn9oUX27tJGt7UZQD1rTgqJb9BeJXfz6hixwuknos9LRmH9nrDyR6o3
-	Lpm/7rKzg6Ukef7ADx5LKF1pe88ulVZjwx1KSojdBZ5Cl3iWH2a64p+xcjFTDgfuqivUl5dP4QTYv
-	uaupRBRFnYPKqw345wcKQ7SoN23pXRR1ckAs2Rl8wHqRC1NFhpKPuKJ4mGiEMP5jCaikE/4Rahi+J
-	8t60vNJ/lfKqIQbTrzq4bq2SfxmiJicCoD7VEXJCfe5fGT4FArlh5lc1PL94T6bRVFBeJRiTh/mXu
-	LV39DzCQ==;
+	bh=z3nRrHRNzWgiqRAcf2PxLYCbf9f86cIHpwPVgaarow8=; b=ILBHUYZUuQgN4HztbmKHZ7Ceoa
+	i1K4o2JjGt1GDUs7U2hxPP/dh4sxiA2NQph/ZeszwyWLHXrirk4fGlMkDM7qQeeYcQ6E0EF99vtOi
+	XmRmHUGg97sKL7GjFD2KrrccTp+uf1Ly+0+neg8qx0YRqN8XXL5SsJ83+ihWvaPDXCcQBoDPeMaZ/
+	nFaeAOT9AS6X2LuvJVwDvd3FdFQwvxzFR9LTql1Tu6bla1aOk0CuQmsdagyXc6zPOhKMdWW5mWP8X
+	fqXdXvKHJInJD8zdtT8qUwXnolSjzJd9a+OeYnLTuoGmlTTJBJF1ZTYP2GB5KlqnehjeSNj9dMPIb
+	5+dWC9Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Rtr-0000000BDK6-3x5n;
-	Fri, 08 Nov 2024 16:31:55 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Qvj-0000000B1jP-1fqH;
-	Fri, 08 Nov 2024 15:29:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=iQMcJa4BmFPVqKmXobn4cIhRx4UhLAzJDxklpcxlLI8=; b=H
-	aUjtcWHDFt1bKqSXkqJGs1dRc5kfURcXD/snEVL02VfzHVmJDJvgfdNFSH25sFJS
-	e/QmXTeDXcuNeFVAyRIvkZptmIV0qg/a2iU0Q4ogCM+qEHNRN03W89MpCkKtr4sE
-	EYlKvW6V2O6HdedRW0CAf+PWbdmw0x1Jl4G7mFEXQs=
-Received: from 00107082$163.com ( [111.35.191.191] ) by
- ajax-webmail-wmsvr-40-148 (Coremail) ; Fri, 8 Nov 2024 23:28:00 +0800 (CST)
-X-Originating-IP: [111.35.191.191]
-Date: Fri, 8 Nov 2024 23:28:00 +0800 (CST)
-From: "David Wang" <00107082@163.com>
-To: "Thomas Gleixner" <tglx@linutronix.de>
-Cc: richard.henderson@linaro.org, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, 
-	kernel@xen0n.name, James.Bottomley@HansenPartnership.com, 
-	deller@gmx.de, mpe@ellerman.id.au, paul.walmsley@sifive.com, 
-	ysato@users.sourceforge.jp, dalias@libc.org, 
-	glaubitz@physik.fu-berlin.de, davem@davemloft.net, 
-	andreas@gaisler.com, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, chris@zankel.net, 
-	jcmvbkbc@gmail.com, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org
-Subject: Re: [PATCH] kernel/irq/proc: performance: replace seq_printf with
- seq_put_decimal_ull_width
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2024 www.mailtech.cn 163com
-In-Reply-To: <87r07lol9y.ffs@tglx>
-References: <20241103080552.4787-1-00107082@163.com> <87r07lol9y.ffs@tglx>
-X-NTES-SC: AL_Qu2YA/yctk4j5iSfbOkZnEYQheY4XMKyuPkg1YJXOp80uSbP/wc5cnBJEkHY4sOvLTmSvxeqUTR3+8t1RrNYQqbBTxgILkv4stMHL//JBWTB
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	id 1t9Rtp-0000000BDHz-1T2q;
+	Fri, 08 Nov 2024 16:31:53 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9QvC-0000000B1a1-003Z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 15:29:16 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4XlNBs1hWmz6J7gR;
+	Fri,  8 Nov 2024 23:28:53 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id CBC7B140133;
+	Fri,  8 Nov 2024 23:28:58 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 8 Nov
+ 2024 16:28:57 +0100
+Date: Fri, 8 Nov 2024 15:28:56 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Frank Li <Frank.Li@nxp.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-iio@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, Carlos Song <carlos.song@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>, Jean Delvare <jdelvare@suse.com>, Guenter
+ Roeck <linux@roeck-us.net>, <linux-hwmon@vger.kernel.org>
+Subject: Re: [PATCH 0/3] iio: temperature: Add support for P3T1085
+Message-ID: <20241108152856.000042ed@huawei.com>
+In-Reply-To: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
+References: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-ID: <3319cd6e.b980.1930c63b1e5.Coremail.00107082@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: lCgvCgD3fwoBLi5nnLAiAA--.7283W
-X-CM-SenderInfo: qqqrilqqysqiywtou0bp/1tbiqQKRqmcuF0eQdwACss
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_072948_362857_147A8DB8 
-X-CRM114-Status: UNSURE (   6.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_072914_218813_4EE557ED 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksICAKCkF0IDIwMjQtMTEtMDggMjI6MjU6MTMsICJUaG9tYXMgR2xlaXhuZXIiIDx0Z2x4QGxp
-bnV0cm9uaXguZGU+IHdyb3RlOgo+RGF2aWQhCj4KPk9uIFN1biwgTm92IDAzIDIwMjQgYXQgMTY6
-MDUsIERhdmlkIFdhbmcgd3JvdGU6Cj4KPiRTdWJqZWN0OiBbUEFUQ0hdIGtlcm5lbC9pcnEvcHJv
-YzogcGVyZm9ybWFuY2U6IC4uLgo+Cj5UaGF0J3Mgbm90IGEgdmFsaWQgc3Vic3lzdGVtIHByZWZp
-eC4KCmNvcHkgdGhhdH4KCj4KPj4gc2VxX3ByaW50ZiBpcyBjb3N0eSwgd2hlbiBzdHJlc3MgcmVh
-ZGluZyAvcHJvYy9pbnRlcnJ1cHRzLCBwcm9maWxpbmcgaW5kaWNhdGVzCj4+IHNlcV9wcmludGYg
-dGFrZXMgYWJvdXQgfjQ3JSBvZiBzaG93X2ludGVycnVwdHMgc2FtcGxlczoKPgo+QWxzbyBwbGVh
-c2UgZm9sbG93IHRoZSBkb2N1bWVudGF0aW9uIGZvciBkZW5vdGluZyBmdW5jdGlvbnMgaW4gY2hh
-bmdlCj5sb2dzOgo+Cj5odHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9wcm9j
-ZXNzL21haW50YWluZXItdGlwLmh0bWwjZnVuY3Rpb24tcmVmZXJlbmNlcy1pbi1jaGFuZ2Vsb2dz
-Cj4KCmNvcHkgdGhhdH4KCj4+ICBhcmNoL2FscGhhL2tlcm5lbC9pcnEuYyAgICAgfCAgIDggKy0t
-Cj4+ICBhcmNoL2FybS9rZXJuZWwvc21wLmMgICAgICAgfCAgIDQgKy0KPj4gIGFyY2gvYXJtNjQv
-a2VybmVsL3NtcC5jICAgICB8ICAgMyArLQo+PiAgYXJjaC9jc2t5L2tlcm5lbC9zbXAuYyAgICAg
-IHwgICA0ICstCj4+ICBhcmNoL2xvb25nYXJjaC9rZXJuZWwvc21wLmMgfCAgIDIgKy0KPj4gIGFy
-Y2gvcGFyaXNjL2tlcm5lbC9pcnEuYyAgICB8ICAzNCArKysrKystLS0tLS0KPj4gIGFyY2gvcG93
-ZXJwYy9rZXJuZWwvaXJxLmMgICB8ICA0NCArKysrKysrKy0tLS0tLS0tCj4+ICBhcmNoL3Jpc2N2
-L2tlcm5lbC9zbXAuYyAgICAgfCAgIDMgKy0KPj4gIGFyY2gvc2gva2VybmVsL2lycS5jICAgICAg
-ICB8ICAgNCArLQo+PiAgYXJjaC9zcGFyYy9rZXJuZWwvaXJxXzMyLmMgIHwgIDEyICsrLS0tCj4+
-ICBhcmNoL3NwYXJjL2tlcm5lbC9pcnFfNjQuYyAgfCAgIDQgKy0KPj4gIGFyY2gveDg2L2tlcm5l
-bC9pcnEuYyAgICAgICB8IDEwMCArKysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0tLS0tLS0K
-Pj4gIGFyY2gveHRlbnNhL2tlcm5lbC9pcnEuYyAgICB8ICAgMiArLQo+PiAgYXJjaC94dGVuc2Ev
-a2VybmVsL3NtcC5jICAgIHwgICA0ICstCj4+ICBrZXJuZWwvaXJxL3Byb2MuYyAgICAgICAgICAg
-fCAgIDYgKystCj4KPlRoZXJlIGlzIG5vIGRlcGVuZGVuY3kgb24gdGhlc2UgY2hhbmdlcy4gU28g
-cGxlYXNlIHNwbGl0IHRoZW0gdXAgaW50bwo+c2VwZXJhdGUgcGF0Y2hlcyBmb3IgY29yZSBhbmQg
-dGhlIGluZGl2aWR1YWwgYXJjaGl0ZWN0dXJlcy5hbgoKVGhhbmtzIGZvciBhbGwgdGhlIHJldmll
-dywgSSB3aWxsIG1ha2UgYSBwYXRjaHNldCBmb3IgdGhpcy4KPgo+VGhhbmtzLAo+Cj4gICAgICAg
-IHRnbHgKCgpEYXZpZA==
+On Thu, 07 Nov 2024 18:02:26 -0500
+Frank Li <Frank.Li@nxp.com> wrote:
+
+> Add basic function support for P3T1085 temperature sensor.
+> - Add binding doc trivial.yaml
+> - Add basic read temperature driver
+Hi Frank,
+
+For a simple temperature sensor the usual question is why IIO rather
+than hwmon?
+
+Previous reasons have been:
+- Very high performmance / accuracy part (i.e. expensive)
+- Remote temperature so not typically hw monitoring.
+- Same silicon with a more complex sensor (typically humidity or similar).
+
+Any of those apply?  Or some other reason?
+
++CC hwmon maintainers and list.
+
+Jonathan
+
+> - Update imx93-9x9-qsb.dts
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Carlos Song (1):
+>       iio: temperature: Add support for P3T1085
+> 
+> Frank Li (2):
+>       dt-bindings: trivial-devices: Add NXP P3T1085UK I3C/I2C temperature sensor
+>       arm64: dts: imx93-9x9-qsb: add temp-sensor nxp,p3t1085
+> 
+>  .../devicetree/bindings/trivial-devices.yaml       |  2 +
+>  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |  5 ++
+>  drivers/iio/temperature/Kconfig                    |  1 +
+>  drivers/iio/temperature/Makefile                   |  2 +
+>  drivers/iio/temperature/p3t/Kconfig                | 29 ++++++++
+>  drivers/iio/temperature/p3t/Makefile               |  5 ++
+>  drivers/iio/temperature/p3t/p3t1085.h              | 31 +++++++++
+>  drivers/iio/temperature/p3t/p3t1085_core.c         | 79 ++++++++++++++++++++++
+>  drivers/iio/temperature/p3t/p3t1085_i2c.c          | 68 +++++++++++++++++++
+>  drivers/iio/temperature/p3t/p3t1085_i3c.c          | 59 ++++++++++++++++
+>  10 files changed, 281 insertions(+)
+> ---
+> base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
+> change-id: 20241107-p3t1085-fbd8726cbc0e
+> 
+> Best regards,
+> ---
+> Frank Li <Frank.Li@nxp.com>
+> 
+> 
+
 
