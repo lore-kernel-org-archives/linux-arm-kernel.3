@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FD1D5C0D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06659D5C0D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78Y1JoVFkZuBkpLjUlEv4mMs5Q6hmXPT2whCgK1XDTI=; b=aOOP3nbo4TPCOO55s7lERMoW5k
-	S0ULfQKXAbDGgwQWgZ1WOeogNEzV9bLqrM8d0+R03Rc/yD//jncmeX2aC0513HTRW1po2Gmbgkz2a
-	u8Jw3/0bzFtR7f6wdr+YT/W2OTT1hpQITBDdVujEdf5sH9vzKrZdo1F6QR/rxUsuH5f2WZ7shO+RC
-	McP6h7mOW8TL8M1WLxFtSYJutvfvFFmYxwl+Cw6AHaU+Ovodz0Ax7LGW5/dvr4G616bNRQyuYq6qA
-	yzK438T2wJcw0rzbJMsnuN6FpXWbKyaawdRx9EKYI86P0tUiKG4WMMooMJp3WWtfBQJrbg+oIyFcU
-	RHwD7Gng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=19nNoiZMI2JgXeIpnibERXoHDynmYT61X0LDoD+6J9c=; b=cHmpJlzfQ0nVd8NSk4bolD8wBF
+	mQULvgiUUndxj2K9va6cQgZ3MAwWk1jyMlXN+D6XVsut1TDg2tigniVu5q5T1mmZasdp2whiGFLw4
+	KH9w/vjb4at1gF43bJ59pBJv4KimvNKZqkXOVnzbzj2n6/A+zTkYkgMVm79hfbvxx05rJzaYdjuIa
+	WvCXd5IF0tn4Ljgc/nEeAw0kVBUoZ3fgMFeHAcTs7SDrPPFMLfzA/TNMqNR56RilLvdy89/wbP330
+	ZXxtrIJk0jZHKJymRlVfLAso0oZ/CtAiSArvrajRVpX5MWceYvDvdwUqHS9/EbOcaRzIY+m6EhkvR
+	3YM1lcdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QKk-0000000AuiT-02mb;
-	Fri, 08 Nov 2024 14:51:34 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t9QMS-0000000Auyn-3Yz2;
+	Fri, 08 Nov 2024 14:53:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PU0-0000000Am3e-3EyL;
-	Fri, 08 Nov 2024 13:57:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=78Y1JoVFkZuBkpLjUlEv4mMs5Q6hmXPT2whCgK1XDTI=; b=dNH0V0t0Ayw9j/OiJ5WjyYGdWj
-	mgfTW3GzzqcQswfje4C5TAasrSb+TvY2D33GEfMuGWYB1q8scJuDIM+NhmKdS2Yf0lMjnnUee/ciq
-	FPnaC0sBjtxxeIGnt8ZEDCldJVjR0n13xL5clhOpGd7MCnMFjCu0/BQ5DDXcCkwrS5on9J+s/I8lm
-	BgMwWBvkx+3GVj3MA4nl8gzCBm1ulNgT+jz0ShHueQFUF1ntkovIwwCyBsyQe8pLcktDz7WlDchDG
-	8VORumLcPYxc8deZHJY5qK7coYFae+JkFPxXS39Nsp74RSqh/VzuNWkVZYMFnkMJTWQjAbbAei0yK
-	A14m9Eag==;
-Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t9PTb-0006UM-JH; Fri, 08 Nov 2024 14:56:39 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Dragan Simic <dsimic@manjaro.org>
-Cc: hjc@rock-chips.com, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Perform trivial code cleanups
-Date: Fri, 08 Nov 2024 14:56:38 +0100
-Message-ID: <13633881.uLZWGnKmhe@diego>
-In-Reply-To: <35555b58a7284450fb16281514e4e6a3eb9c7b82.1731073565.git.dsimic@manjaro.org>
-References: <cover.1731073565.git.dsimic@manjaro.org>
- <35555b58a7284450fb16281514e4e6a3eb9c7b82.1731073565.git.dsimic@manjaro.org>
+	id 1t9PVs-0000000AmKg-0O6x
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 13:59:01 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d447de11dso1507456f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 05:58:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1731074338; x=1731679138; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=19nNoiZMI2JgXeIpnibERXoHDynmYT61X0LDoD+6J9c=;
+        b=lJei78q86vsM6AJ1SDi8a8EpSfHxr3UXMaOEuSdMtQfp+qcj/nV1UbVDZ8NXvUXleu
+         sB4YJ3jXD5KoGLOY0FfBkUNtLgG3oiECRbY1+ux5H7Ndq5DUDukyU6y8tmfj0N24JL/S
+         TJXyiRmR0QqOAgJeivYPAEKSecstufVWmlRWezj/HqPdhToZ03n8pQSPd90C9JRKLFW7
+         T5SPxxJaCok/KOZRYfmhFZgykCjHzwR97usfLdQI9R2KjCdZbCCydp1zudE58loUV7rE
+         EcxmPjUo4TB52F41iqdCdnR965H83frD0k6BITb5LElCiH6wzjgGwcuTbj5GJ4ZMujnU
+         mQVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731074338; x=1731679138;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=19nNoiZMI2JgXeIpnibERXoHDynmYT61X0LDoD+6J9c=;
+        b=RFC1gQI4zjmTuqXcA8whNXEYHEF+xAWSsk8gANcpo3N7+pQGeseZXfuusc0pjDIjhl
+         qfoD5dh91Z9LyB88bvuxNTDhC+RzJHMGh78pCIm0I50Atblpe5JkezKeO7/K7St0bxKF
+         awrfKds0FAY7FyrIYhEvAh2kBPTn9f6256IKPVdzOlBwL3VLWyWedLgxM+dyKs5xIXDa
+         VaEujMFsWKNTEr8FusBHbG1UgiBvY6/gTILtmkHIqw2cPnWS5ZUnBSBVL1Vv4eGgSneY
+         zNEiIOByrNwywmAUU4sX70puXkeqHGyG7If6SAwi5WpX9Ez11xw9xVY906FrO3CGPqWR
+         6hOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWR7W2DN8EszZUqXZAe3DtSW1Q4FCfdgqORBzN6YnpPpgSuyfkZAF70Hr8KNdoJgIzAPsLCoQGlIGrmB3s2FMw5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbBsw7k/AF2rUFbj8qKGJrdR+oAhChX92hiIpf/6zPi5Y3F6bN
+	EDyEo4LnkNxVfyD6jba4Pl6zzcCt4MDG3LNdw0qcVwVBqiWl4wDaB9VhVfQGkEo=
+X-Google-Smtp-Source: AGHT+IHddZyZHnBvXvpwpiOFOpBw0pB+ps3Rxlk3QlAmQ6sdQYs/NNEYqY/D3vFEUDZaWTay7pUGFA==
+X-Received: by 2002:a05:6000:401f:b0:381:b68f:d14b with SMTP id ffacd0b85a97d-381f182fc02mr2476225f8f.45.1731074338350;
+        Fri, 08 Nov 2024 05:58:58 -0800 (PST)
+Received: from fedora.. (cpe-188-129-46-99.dynamic.amis.hr. [188.129.46.99])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-381ed97cd97sm4924431f8f.27.2024.11.08.05.58.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 05:58:57 -0800 (PST)
+From: Robert Marko <robert.marko@sartura.hr>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	lee@kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-serial@vger.kernel.org
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v2 1/4] arm64: lan969x: Add support for Microchip LAN969x SoC
+Date: Fri,  8 Nov 2024 14:57:31 +0100
+Message-ID: <20241108135855.129116-1-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_055704_822619_61B3A79D 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20241108_055900_170315_D793D124 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,78 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Dragan,
+This adds support for the Microchip LAN969x ARMv8-based SoC switch family.
 
-Am Freitag, 8. November 2024, 14:53:57 CET schrieb Dragan Simic:
-> Perform a few trivial code cleanups, to make one logged message a bit more
-> consistent with the other logged messages by capitalizing its first word, and
-> to avoid line wrapping by using the 100-column width better.
-> 
-> No intended functional changes are introduced by these code cleanups.
-> 
-> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
-> ---
->  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> index 58a44af0e9ad..f451e70efbdd 100644
-> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> @@ -1379,7 +1379,7 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
->  	}
->  
->  	if (!dsi->cdata) {
-> -		DRM_DEV_ERROR(dev, "no dsi-config for %s node\n", np->name);
-> +		DRM_DEV_ERROR(dev, "No dsi-config for %s node\n", np->name);
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+Changes in v2:
+* Add forgotten LAN969x architecture support itself
 
-this is all probe-related, why not convert to dev_err_probe?
+ arch/arm64/Kconfig.platforms | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-As the doc states [0], DRM_DEV_ERROR is deprecated in favor of dev_err.
-So dev_err_probe would be the correct way to go?
-
-
-
-[0] https://elixir.bootlin.com/linux/v6.11.6/source/include/drm/drm_print.h#L431
-
->  		return -EINVAL;
->  	}
->  
-> @@ -1408,19 +1408,16 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
->  			dsi->pllref_clk = NULL;
->  		} else {
->  			ret = PTR_ERR(dsi->pllref_clk);
-> -			DRM_DEV_ERROR(dev,
-> -				      "Unable to get pll reference clock: %d\n",
-> -				      ret);
-> +			DRM_DEV_ERROR(dev, "Unable to get pll reference clock: %d\n", ret);
->  			return ret;
->  		}
->  	}
->  
->  	if (dsi->cdata->flags & DW_MIPI_NEEDS_PHY_CFG_CLK) {
->  		dsi->phy_cfg_clk = devm_clk_get(dev, "phy_cfg");
->  		if (IS_ERR(dsi->phy_cfg_clk)) {
->  			ret = PTR_ERR(dsi->phy_cfg_clk);
-> -			DRM_DEV_ERROR(dev,
-> -				      "Unable to get phy_cfg_clk: %d\n", ret);
-> +			DRM_DEV_ERROR(dev, "Unable to get phy_cfg_clk: %d\n", ret);
->  			return ret;
->  		}
->  	}
-> @@ -1465,8 +1462,7 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
->  	if (IS_ERR(dsi->dmd)) {
->  		ret = PTR_ERR(dsi->dmd);
->  		if (ret != -EPROBE_DEFER)
-> -			DRM_DEV_ERROR(dev,
-> -				      "Failed to probe dw_mipi_dsi: %d\n", ret);
-> +			DRM_DEV_ERROR(dev, "Failed to probe dw_mipi_dsi: %d\n", ret);
->  		return ret;
->  	}
->  
-> 
-
-
-
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 6c6d11536b42..4650ad3674aa 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -128,6 +128,20 @@ config ARCH_SPARX5
+ 	  security through TCAM-based frame processing using versatile
+ 	  content aware processor (VCAP).
+ 
++config ARCH_LAN969X
++	bool "Microchip LAN969X SoC family"
++	select PINCTRL
++	select DW_APB_TIMER_OF
++	help
++	  This enables support for the Microchip LAN969X ARMv8-based
++	  SoC family of TSN-capable gigabit switches.
++
++	  The LAN969X Ethernet switch family provides a rich set of
++	  switching features such as advanced TCAM-based VLAN and QoS
++	  processing enabling delivery of differentiated services, and
++	  security through TCAM-based frame processing using versatile
++	  content aware processor (VCAP).
++
+ config ARCH_K3
+ 	bool "Texas Instruments Inc. K3 multicore SoC architecture"
+ 	select PM_GENERIC_DOMAINS if PM
+-- 
+2.47.0
 
 
