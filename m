@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3478ED64097
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DE7D64076
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=; b=qxWaojwNgPRNu/SECa/pzddeZ/
-	QgIqxs6sDR8jmYDQHIe8bDDd4ozr6asz9C1JhQuG8+sHZtDIaoRZja0Y3Ty6KAtxEq6gzXGO7HZh/
-	cJYKTCgEODz+nMESIYqY81qV8TyHB4VI7qZ8rGovnKveQG7iygUtOIiaoRQKvDRHQFS/8r96pxABe
-	+TjKbljJ9fTjImcx0l1v9fJ75sCS0V2wG21lkzfYo3C+aVv3gNhnlrxPqVH/iR1phBRIxbpUTFRL7
-	WAHi5qtU/LnGR7R0lkAGpEJkUVaBJqzyAdeJ9yGUyHV87r49BqHripqKSBTy3eSItR3PheUCMkprd
-	Aw85CntQ==;
+	bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=; b=TRMrBKFO6zsA48FR9pF6rHft9m
+	JO8cwRjI2jANUpyJCqB7SH+zu8LOhcAmlohEDZg8ZhQMAl8xPk0TFTE9oWF7beGlQwkrTttNuQSBI
+	xuSjYbTgVcBkbc+l7QCDJVrlYO4AGZ0pmLjLzXQkhE2Xi/S0JwCaW27xs8F6c0ms2A/APIgh7JUI2
+	Da6DGZbDz+CISJIweKGEhsQC0qyySJzxFDOGACbqY4IxV/fq8xu5h6clIa6rklgs5gB6WxSu/olHV
+	TLfmCeQCVy/8qFU2gcRuHv/FED4dOMcFWpOeokawopg2AYGXxf6zfW1yYxOSbCcgPeqThdRih09Xw
+	BazI0O1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZIz-0000000CL9K-1m8a;
-	Sat, 09 Nov 2024 00:26:21 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1t9ZKh-0000000CLIp-16HT;
+	Sat, 09 Nov 2024 00:28:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YpN-0000000CHC2-1qkf
+	id 1t9Ypy-0000000CHL3-2Eq4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 08 Nov 2024 23:56:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=; b=TIpT5vkhtyJ1BUgeKNExY1eW+l
+	34mYYjxz21YHeDeP2DjY7S+qkbl01diUfDhyWqGoha2HJJpz+1jMoTvNKrg643xlsuMBRlKoOJrRn
+	m8Uj9rYHi2g1IJirvct8tbbG/cb2xaIBatq51mii7tjWrABEO8gOOQwvKT5KXaqmbaUxkhCinybpn
+	fcojhlCOHUHBdpB3AGOJfCRgZ3asGaC3E4W22NA1+DqZohx5cucOTY6XoXfldb9mYX5cWR7GV4Fq8
+	B7y8cEiT4Ur+1hAqI0Qj3Gx/5d/lmaAZaE84Trd9IAn3krMugYm5mE3KEjpOmTUIOorZ+EN0mS9sM
+	cbBd7BVg==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9Ypu-0000000COor-3exy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 23:55:46 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-720c2db824eso2953850b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:55:44 -0800 (PST)
+	Fri, 08 Nov 2024 23:56:21 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-20ca1b6a80aso31497635ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:56:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731110144; x=1731714944; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731110176; x=1731714976; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=;
-        b=DQtLjwnv5EJQ2IwKi3HeVdSlO+0wf4UOIN+xN6vgSfeYwx619AhNflUyOw9Rd3MZhb
-         06zhooswJFfAIyq4g+GR4yrT2yEpyaPnNodwXI9ioCpTDnfQ1DgAPQxzzFdklv9w46cJ
-         LAuzipJxUypsoewNlAO9ru2E0Y4mWF50qEEXYD2gKLD9GWt50wtxQhKo2OFN23famlAC
-         lHfblt8WdisMZvBwC+m9Yg9xBTIVREOMG7RZjJpPgJs/4Q+KQ0NYiL5Uj8lhJtlGGbG1
-         SPSbV+pDCz3eWbZjD1Gjev3nI/BOfgH7PKuo6h2ujDg7Y4k8fY+4pTOW2EJVAJp8a4HL
-         GGZA==
+        bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=;
+        b=Da3kFo29NIgVZT5Drr7jyZ/VrtUA+fp3DD6wc25KiW+x0fD87FueHcwgYgVhq+Ky6q
+         PJIXTCcA7GUwbLflogBzHyvJk137BAf3L4mapNyc4ICCmctY3Xu7Ksgu7NTgweMqwPnB
+         CZit5BCde3wZiwyteSPtf/eJukEyIb+MKTw5lpee933oqf+2R5RXrJ7PJfx8yUhIjAuv
+         eGCbhBu57L8cSIM3VuqdCYpNFQatqgox0v8cJElaEKeUwooydJVN/WnPjerDVHMJYRlR
+         LaiQT87CK7HEhEaXh/WzKFoKzhox737IW711kTKABKEznlnBHfGiBLLbSVK3Tvp9FlgK
+         8wTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731110144; x=1731714944;
+        d=1e100.net; s=20230601; t=1731110176; x=1731714976;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=;
-        b=Byp4G/O7lmVB/z3It13KmVHy4Uw1uz8nVIZbEE9xxPYReSpfFHI0AnM6HzxpFd2ru2
-         t7USw4b0KiDbWkWgQpu2o3fre/xArMKTdosk39b1l/SO02Pt0mgv84QgoiLAmVriPgnp
-         lFsjKhqKtUjzU0B6QYdreXZr4acnbyrXorDA13JwMVaDCvNqbKG8l8+X8BEO4tWty9Bf
-         POF9heEz+qMsqK11WsRSzRj02BvDOyZe+y5eMbmYzYSFMWgc/ZEvQ7q7kBL686GNvGCu
-         wyYaxnqTWxWbdBAC+ys/9iN+PSaxezctZD7UYj2aediLzrwTryb3Ozj+jXsWPhzjZU17
-         O2yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX6A5Igqkeoqr6bh4niQyuhNXLrP2ld3uLmaytXhkVFW+xW0qWTcSoN01C5cOVthNhUvGzWr+HIDEtJ2QGF92sE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg0B3Eyhh7W/wyeRAJnvQ+dEmaETT3wyS9yPlv/j5oC1M3g8F6
-	gr0MfLDDqd85uM3ECZzxfc0jBuVy7/0G2iY1tqQexkRHIMtOabam
-X-Google-Smtp-Source: AGHT+IEHn7LvKyz4qiE1kjywUOaxbLk9LaMdw4OZkuMYZImvcCX2vvxzceeB2V3jYqAdtqDqMOyhJw==
-X-Received: by 2002:a05:6a00:99b:b0:71e:4c86:659a with SMTP id d2e1a72fcca58-7241328ea12mr5446159b3a.9.1731110143875;
-        Fri, 08 Nov 2024 15:55:43 -0800 (PST)
+        bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=;
+        b=iv0rO/OZVUSExIJ5Bjc3STKy4DmsErOdHO0w235zbqe9rd19w920ls9zbALAszmtNN
+         Glpl7De9+1YvwufINwPR3cesfqpnqf8sDE5lBM6K2Wb0YfqnGzxXSvYWnbkspGTC41eZ
+         IxUXSqLIxBBiRr7IGR5YOJAmc7REM4YXXnVCbPSvMJTg3UHWbHjjAQQCKEQzeciaJtcz
+         2bWeXU+HrvMC3XVnGxUk1yhAGQw9Ruby9FOkwnCMOJZcn56cuZzD0Y3Rhl5aCbsnC/nQ
+         p3ETiebaMiGT/VVx8GOZ8h4jV7eSWPY9o56n0/mQOwc+NlCCUtUyMsRz7NhkrOpVMomU
+         oLvA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+v24t8OJGDy4M5RCwxCoduPw/KjU2IR2n91+nGYL09mbRPmxPLY2PqlBRFBnTUuyEgzXw6NknfTrxtai8s84j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZD/4jrFF/yJZyxnRKHp1xWFf75hweCerxF7fcnu/UV80Ly8as
+	FimLHz8DKdUqsSypAFwoq8qlMeFTvguFKoIC/J6PKKCCETXuln53
+X-Google-Smtp-Source: AGHT+IHEarQoWl4dFgmCs28SBfigzcnSWnoyL4xgpkZl9Jj3lgLAj0yFFM0e/MUEUbjsP+pQ2Qtcog==
+X-Received: by 2002:a17:90b:1f8b:b0:2e5:5ff9:bee1 with SMTP id 98e67ed59e1d1-2e9b177bd4fmr6176123a91.29.1731110175789;
+        Fri, 08 Nov 2024 15:56:15 -0800 (PST)
 Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724078aaa21sm4398854b3a.51.2024.11.08.15.55.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e59f1dsm36081805ad.182.2024.11.08.15.56.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 15:55:43 -0800 (PST)
-Message-ID: <c1b77ef0-f01b-4926-8259-e387166d0750@roeck-us.net>
-Date: Fri, 8 Nov 2024 15:55:40 -0800
+        Fri, 08 Nov 2024 15:56:15 -0800 (PST)
+Message-ID: <94871adf-c2d7-496b-bf05-c3a773f9c919@roeck-us.net>
+Date: Fri, 8 Nov 2024 15:56:13 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] hwmon: tmp108: Add help function
- tmp108_common_probe()
+Subject: Re: [PATCH v2 0/4] iio: temperature: Add support for P3T1085
 To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
@@ -82,7 +96,6 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
  linux-hwmon@vger.kernel.org
 References: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
- <20241108-p3t1085-v2-2-6a8990a59efd@nxp.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -128,12 +141,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241108-p3t1085-v2-2-6a8990a59efd@nxp.com>
+In-Reply-To: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_155545_539087_CADF4E1F 
-X-CRM114-Status: GOOD (  27.98  )
+X-CRM114-CacheID: sfid-20241108_235619_172260_D55BC960 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,126 +162,58 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/8/24 14:26, Frank Li wrote:
-> Add help function tmp108_common_probe() to pave road to support i3c for
-
-help -> helper
-
-> P3T1085(NXP) chip.
-> 
-> Using dev_err_probe() simple code.
-
-Use dev_err_probe() to simplify the code.
-
-> 
-> Add compatible string "nxp,p3t1085".
+> Add basic function support for P3T1085 temperature sensor.
+> - reuse tmp108 driver
+> - Update imx93-9x9-qsb.dts
 > 
 
-This is borderline and problematic. First, it is the one functional change,
-and second, that functional change is not mentioned in the subject. At the very
-least it needs to be mentioned in the subject. I would, however, prefer two
-separate patches, even if that is just a one-liner.
-
-Also, the key change is preparation for i3c support, not that a helper function
-is added. The subject should be something like "Prepare for adding I3C support",
-and the description should then mention the added helper function.
-
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> dev_err_probe() have not involve addition diff change. The difference
-> always list these code block change regardless use dev_err_probe().
-> ---
->   drivers/hwmon/tmp108.c | 40 ++++++++++++++++++++++------------------
->   1 file changed, 22 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/hwmon/tmp108.c b/drivers/hwmon/tmp108.c
-> index a82bbc959eb15..bfbea6349a95f 100644
-> --- a/drivers/hwmon/tmp108.c
-> +++ b/drivers/hwmon/tmp108.c
-> @@ -323,33 +323,19 @@ static const struct regmap_config tmp108_regmap_config = {
->   	.use_single_write = true,
->   };
->   
-> -static int tmp108_probe(struct i2c_client *client)
-> +static int tmp108_common_probe(struct device *dev, struct regmap *regmap, char *name)
->   {
-> -	struct device *dev = &client->dev;
->   	struct device *hwmon_dev;
->   	struct tmp108 *tmp108;
-> -	int err;
->   	u32 config;
-> -
-> -	if (!i2c_check_functionality(client->adapter,
-> -				     I2C_FUNC_SMBUS_WORD_DATA)) {
-> -		dev_err(dev,
-> -			"adapter doesn't support SMBus word transactions\n");
-> -		return -ENODEV;
-> -	}
-> +	int err;
->   
->   	tmp108 = devm_kzalloc(dev, sizeof(*tmp108), GFP_KERNEL);
->   	if (!tmp108)
->   		return -ENOMEM;
->   
->   	dev_set_drvdata(dev, tmp108);
-> -
-> -	tmp108->regmap = devm_regmap_init_i2c(client, &tmp108_regmap_config);
-> -	if (IS_ERR(tmp108->regmap)) {
-> -		err = PTR_ERR(tmp108->regmap);
-> -		dev_err(dev, "regmap init failed: %d", err);
-> -		return err;
-> -	}
-> +	tmp108->regmap = regmap;
->   
->   	err = regmap_read(tmp108->regmap, TMP108_REG_CONF, &config);
->   	if (err < 0) {
-> @@ -383,13 +369,30 @@ static int tmp108_probe(struct i2c_client *client)
->   		return err;
->   	}
->   
-> -	hwmon_dev = devm_hwmon_device_register_with_info(dev, client->name,
-> +	hwmon_dev = devm_hwmon_device_register_with_info(dev, name,
->   							 tmp108,
->   							 &tmp108_chip_info,
->   							 NULL);
->   	return PTR_ERR_OR_ZERO(hwmon_dev);
->   }
->   
-> +static int tmp108_probe(struct i2c_client *client)
-> +{
-> +	struct device *dev = &client->dev;
-> +	struct regmap *regmap;
-> +
-> +	if (!i2c_check_functionality(client->adapter,
-> +				     I2C_FUNC_SMBUS_WORD_DATA))
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "adapter doesn't support SMBus word transactions\n");
-> +
-> +	regmap = devm_regmap_init_i2c(client, &tmp108_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap), "regmap init failed");
-> +
-> +	return tmp108_common_probe(dev, regmap, client->name);
-> +}
-> +
->   static int tmp108_suspend(struct device *dev)
->   {
->   	struct tmp108 *tmp108 = dev_get_drvdata(dev);
-> @@ -420,6 +423,7 @@ MODULE_DEVICE_TABLE(i2c, tmp108_i2c_ids);
->   
->   #ifdef CONFIG_OF
-
-It might also make sense to get rid of this conditional and of the
-of_match_ptr() below to enable instantiation through ACPI.
-That should be a separate patch, though.
+Subject 'iio' is now misleading.
 
 Thanks,
 Guenter
 
->   static const struct of_device_id tmp108_of_ids[] = {
-> +	{ .compatible = "nxp,p3t1085", },
->   	{ .compatible = "ti,tmp108", },
->   	{}
->   };
+> To: Rob Herring <robh@kernel.org>
+> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> To: Conor Dooley <conor+dt@kernel.org>
+> To: Jonathan Cameron <jic23@kernel.org>
+> To: Lars-Peter Clausen <lars@metafoo.de>
+> To: Shawn Guo <shawnguo@kernel.org>
+> To: Sascha Hauer <s.hauer@pengutronix.de>
+> To: Pengutronix Kernel Team <kernel@pengutronix.de>
+> To: Fabio Estevam <festevam@gmail.com>
+> To: Jean Delvare <jdelvare@suse.com>
+> To: Guenter Roeck <linux@roeck-us.net>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-iio@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: linux-hwmon@vger.kernel.org
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> 
+> Changes in v2:
+> - Amost rewrite and reuse existed TMP108 driver
+> - Link to v1: https://lore.kernel.org/r/20241107-p3t1085-v1-0-9a76cb85673f@nxp.com
+> 
+> ---
+> Frank Li (4):
+>        dt-bindings: hwmon: ti,tmp108: Add nxp,p3t1085 compatible string
+>        hwmon: tmp108: Add help function tmp108_common_probe()
+>        hwmon: tmp108: Add support for I3C device
+>        arm64: dts: imx93-9x9-qsb: add temp-sensor nxp,p3t1085
+> 
+>   .../devicetree/bindings/hwmon/ti,tmp108.yaml       |  8 ++-
+>   arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |  5 ++
+>   drivers/hwmon/tmp108.c                             | 71 ++++++++++++++++------
+>   3 files changed, 64 insertions(+), 20 deletions(-)
+> ---
+> base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
+> change-id: 20241107-p3t1085-fbd8726cbc0e
+> 
+> Best regards,
+> ---
+> Frank Li <Frank.Li@nxp.com>
 > 
 
 
