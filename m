@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDE1D5C0C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF65BD5C0C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=12VThzmwGLW7tUqHzq7E0tiSg3ZmQ7Nry9RYTgmq1QQ=; b=d55EP2gQmPthfvU9L2hEjvkule
-	YSV6SVNv40IJY2KKxdGTEHC4wbGi3hjA7sX/DxILbtRx0FrctxN/9QOMv+lbVgpChyPpc8XSU+y7b
-	4O6ks5W2a2FKe5wKzBzQemSWb/W4Kxh8UDa99+ZY8LUZAR9A64F9WnTCVSRFJeA2/6EkiUp8gDfMb
-	js7M3fpD1doKnsXnWv1otxKINjZPwGnPIeU7O3cwsO+PpJJ0IoccS0Ng2epU4yvzQ2SzPHvdmLXY4
-	hxjVxM4qk6PZrVGIMbSAenRupETrglYB2sub+ThflG8d55L3LcgeylTrk++90zQAA4qR5d++e3LqS
-	BHc8UI/Q==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g5rDU6VZuerI6+GmmjiOWykpHLX1KujOwsEgmoRFXlc=; b=KjuoDbbCn9H8DJOp/VdtS6NqSL
+	54u3URwO4aRQekDvCOGMsUZmxK+9dW22n+FlKK3ha/VEYrd2BN2XkXwfxkCiZ8dvRsgBOei160PtY
+	OAnR2oqUItfeqnMs210l3T6MpdWjjvDzOQUmLWmeN1/0+THgSjqtU6IgEkzta10VkT6ACspnJkluR
+	ybXczpJyUEufFt6UYCHcs683ZwNai9ymp3ueE940ytjwCcon7pxU9LbC2TCXLnKqChOz+RmZyxB/w
+	7yK1xGVJbVjD7xPC9b+28Tol+tlWkaRA61rIOav+NSRfnV1ymuBThN0UPLambp4h5BTNkDgCY4di3
+	PKRp/BfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9P1D-0000000Afwf-300o;
-	Fri, 08 Nov 2024 13:27:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1t9P2y-0000000AgGY-2btn;
+	Fri, 08 Nov 2024 13:29:08 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9OzO-0000000AfRH-0J8F
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 13:25:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731072326; x=1762608326;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=5hvLEyTFPQx5H7v3dFuZN0FjYzVD+U3f2NNRdnnKXSw=;
-  b=iaq/vF9DurgBTYVVzVvrP0seZmNDJIzeBXqSlMdwqju45y+/5ncEw4MB
-   tD7j4LgSFL4tEYMusC4CZJW4bdl6ZB5Y/o625FvVFPgZXw0QZ63mDllMW
-   VBVIkcbXeLuxjBa2Tu+j1RXv25Mj64hPbOT8PLqfkNSKgCUY2milXSKHU
-   RC9EH1VCiLjyUnpzfautXzJ7EL6PWMZ1DtmlOnWTiDQ6X4drdFUPHU8Gj
-   8eF9puFwLOLD34I5NlTYrjCAUNbxRyogkj9I2YcdthOZ3QFBEVZtKErpX
-   SwfQVwYXdlG/6sgxzIDTHsbc7VQE5kHjAsf1RFDM64EtRFPuvGGOta1GK
-   Q==;
-X-CSE-ConnectionGUID: iH+GyLWgRPSUWZyqd7expw==
-X-CSE-MsgGUID: a1xqAW10RbmjJ1w3OUmEkg==
-X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
-   d="scan'208";a="34573173"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Nov 2024 06:25:24 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 8 Nov 2024 06:25:23 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Fri, 8 Nov 2024 06:25:21 -0700
-Message-ID: <609ef9c4-18cd-4a80-9821-5df27727772e@microchip.com>
-Date: Fri, 8 Nov 2024 14:25:31 +0100
+	id 1t9Ozg-0000000AfVU-0QIg;
+	Fri, 08 Nov 2024 13:25:45 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4316a44d1bbso17789285e9.3;
+        Fri, 08 Nov 2024 05:25:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731072342; x=1731677142; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g5rDU6VZuerI6+GmmjiOWykpHLX1KujOwsEgmoRFXlc=;
+        b=ED6RMEMvWwi0SsAJKcs9uFevV0nOCMRmCuv0dHju5S6oRRTu5CaRqcJoq9ISUCIrnk
+         vgURzCx4wYXqw0i06PgZpAst+7j18Y7Ctge0xHshEK2B6b9dkLTyDr3y0phFxcme5dEz
+         Q4jsq8dsGMvrIjCUTJOPnQao2LPXQEUmnnbVoNjH6iKFUPm8tFBMcVAcjWM71ym5cjO+
+         JJn5FG/whjfw1SaKaJJ2ko/+WTE5OS53bUxvXhA/2bL0Map+CX5b2SGNYMhaeLGfqJgI
+         RXzhL8JFhtTbyLNh6jvyfl/KZxls1ORJJk1RCa6XprA1mpOCCd4Pgbw51aZ1bcG4IX8/
+         tH7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731072342; x=1731677142;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=g5rDU6VZuerI6+GmmjiOWykpHLX1KujOwsEgmoRFXlc=;
+        b=lTV5oKeP9CL4+CfRn6r2cYFRAaB+Zs/S8+a3WJByYaZ6pNkhrTjSNHlGNluCCbH5M3
+         vNWZ17Dj/ydKOPYcO+2XCbBkYppprd2X9fRqBDXm/cVETte9zcHJJ+Dp+4aUHZl9kJzH
+         MHGox7Bwu3BGtur320R4nnuHAe4/4KHrxiIslKDJNKBeU0GC5hdUbRYcyIuBYGg0R4oT
+         t5/gzIHioKNEab+DWZoCeDgv3Vlp62pnBENSOdZO4VejPjb63LCTpViRZcObEOkVQyYC
+         /XwRzkiURZNZdW2eJw4VrZxz07XIShAttD7CvuCAPgv1HCa02V3q0aw0oqeuAwuXqd8G
+         mQmg==
+X-Forwarded-Encrypted: i=1; AJvYcCUuECMeduQ16ZWo4Oj+AhcW/9qkwT6KKswChJTRN+zc5SUP2tdYgEC3pf8Rt62OPbJxC4hzjY/g0kFyaosxW5U=@lists.infradead.org, AJvYcCXUF1TCH8o+pOXpSZOz26xcxCdX5MeLdPrNvrmKeF1GdnZOhO7CP2DdiayKSudeHa6+fNLN9rlEf/40qqIEuukL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvegTmgnxSypx67KrE6IxiirfNOkciXuGJHIcDfW9VyFHphsN5
+	wV+RxwE4YYxcD3MSD27HzKb8uvOoKFGY0HeV1aBohirRgKZhQplh
+X-Google-Smtp-Source: AGHT+IGKVneiDpqEWsTNmdvn/OrWcqsgiRdsDLQNHy+NjEyqjVUMx/4HlFOvPZs0rVxTDt3Hp0EB4w==
+X-Received: by 2002:a05:600c:138a:b0:431:5c17:d575 with SMTP id 5b1f17b1804b1-432b750274fmr20953615e9.11.1731072341963;
+        Fri, 08 Nov 2024 05:25:41 -0800 (PST)
+Received: from localhost.localdomain (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-432b05c1f61sm69746705e9.35.2024.11.08.05.25.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 05:25:41 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: [net-next PATCH v4 0/3] net: dsa: Add Airoha AN8855 support
+Date: Fri,  8 Nov 2024 14:24:13 +0100
+Message-ID: <20241108132511.18801-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] tty: serial: atmel: make it selectable for
- ARCH_LAN969X
-Content-Language: en-US, fr-FR
-To: Robert Marko <robert.marko@sartura.hr>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <lee@kernel.org>, <gregkh@linuxfoundation.org>,
-	<jirislaby@kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <luka.perkov@sartura.hr>
-References: <20241108112355.20251-1-robert.marko@sartura.hr>
- <20241108112355.20251-3-robert.marko@sartura.hr>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-In-Reply-To: <20241108112355.20251-3-robert.marko@sartura.hr>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_052526_211763_4B3B9BF3 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20241108_052544_168821_5C2A3894 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +105,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2024 at 12:22, Robert Marko wrote:
+This small series add the initial support for the Airoha AN8855 Switch.
 
-A little commit message would be better.
+It's a 5 port Gigabit Switch with SGMII/HSGMII upstream port.
 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
->   drivers/tty/serial/Kconfig | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index 45f0f779fbf9..e6cf20b845f1 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -128,7 +128,7 @@ config SERIAL_SB1250_DUART_CONSOLE
->   config SERIAL_ATMEL
->          bool "AT91 on-chip serial port support"
->          depends on COMMON_CLK
-> -       depends on ARCH_AT91 || COMPILE_TEST
-> +       depends on ARCH_AT91 || ARCH_LAN969X ||COMPILE_TEST
+This is starting to get in the wild and there are already some router
+having this switch chip.
 
-Checkpatch.pl reports some "DOS line endings", you might need to fix this.
+It's conceptually similar to mediatek switch but register and bits
+are different. And there is that massive Hell that is the PCS
+configuration.
+Saddly for that part we have absolutely NO documentation currently.
 
->          select SERIAL_CORE
->          select SERIAL_MCTRL_GPIO if GPIOLIB
->          select MFD_AT91_USART
-> --
-> 2.47.0
+There is this special thing where PHY needs to be calibrated with values
+from the switch efuse. (the thing have a whole cpu timer and MCU)
 
+Changes v4:
+- Set regmap readable_table static (mute compilation warning)
+- Add support for port_bridge flags (LEARNING, FLOOD)
+- Reset fdb struct in fdb_dump
+- Drop support_asym_pause in port_enable
+- Add define for get_phy_flags
+- Fix bug for port not inititially part of a bridge
+  (in an8855_setup the port matrix was always cleared but
+   the CPU port was never initially added)
+- Disable learning and flood for user port by default
+- Set CPU port to flood and learning by default
+- Correctly AND force duplex and flow control in an8855_phylink_mac_link_up
+- Drop RGMII from pcs_config
+- Check ret in "Disable AN if not in autoneg"
+- Use devm_mutex_init
+- Fix typo for AN8855_PORT_CHECK_MODE
+- Better define AN8855_STP_LISTENING = AN8855_STP_BLOCKING
+- Fix typo in AN8855_PHY_EN_DOWN_SHIFT
+- Use paged helper for PHY
+- Skip calibration in config_init if priv not defined
+Changes v3:
+- Out of RFC
+- Switch PHY code to select_page API
+- Better describe masks and bits in PHY driver for ADC register
+- Drop raw values and use define for mii read/write
+- Switch to absolute PHY address
+- Replace raw values with mask and bits for pcs_config
+- Fix typo for ext-surge property name
+- Drop support for relocating Switch base PHY address on the bus
+Changes v2:
+- Drop mutex guard patch
+- Drop guard usage in DSA driver
+- Use __mdiobus_write/read
+- Check return condition and return errors for mii read/write
+- Fix wrong logic for EEE
+- Fix link_down (don't force link down with autoneg)
+- Fix forcing speed on sgmii autoneg
+- Better document link speed for sgmii reg
+- Use standard define for sgmii reg
+- Imlement nvmem support to expose switch EFUSE
+- Rework PHY calibration with the use of NVMEM producer/consumer
+- Update DT with new NVMEM property
+- Move aneg validation for 2500-basex in pcs_config
+- Move r50Ohm table and function to PHY driver
 
-Once fixed, you can add my:
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Christian Marangi (3):
+  dt-bindings: net: dsa: Add Airoha AN8855 Gigabit Switch documentation
+  net: dsa: Add Airoha AN8855 5-Port Gigabit DSA Switch driver
+  net: phy: Add Airoha AN8855 Internal Switch Gigabit PHY
 
-Thanks, best regards,
-   Nicolas
+ .../bindings/net/dsa/airoha,an8855.yaml       |  242 ++
+ MAINTAINERS                                   |   11 +
+ drivers/net/dsa/Kconfig                       |    9 +
+ drivers/net/dsa/Makefile                      |    1 +
+ drivers/net/dsa/an8855.c                      | 2138 +++++++++++++++++
+ drivers/net/dsa/an8855.h                      |  638 +++++
+ drivers/net/phy/Kconfig                       |    5 +
+ drivers/net/phy/Makefile                      |    1 +
+ drivers/net/phy/air_an8855.c                  |  268 +++
+ 9 files changed, 3313 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
+ create mode 100644 drivers/net/dsa/an8855.c
+ create mode 100644 drivers/net/dsa/an8855.h
+ create mode 100644 drivers/net/phy/air_an8855.c
+
+-- 
+2.45.2
+
 
