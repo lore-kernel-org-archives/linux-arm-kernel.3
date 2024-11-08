@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE61BD5E140
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 06:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315C4D5E145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 07:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cn/Nc5RaHVF/e/nAEApB7fYMyWr4MBPCDZJyTNa0js8=; b=TZbwc+/xLoS/sb8j4hg0i6P1Uq
-	9jn4dbDn+mN7pDau9EKuwsOIk0X4lOe+nCJfuNpE6rtSj/rHDQ4t2IFmakVBR5lOXhIvVqNj851fy
-	s/LCNZgWzRVdl3pxflNwhEJpCSUpRyrPq4ob/EyhRYmoMmlhgjxTgaTvkDfURNcf+w8n0vcrViQfM
-	8YtCXQ/3Q9PKKgIL7A3NYl5fNDAx4kcOq1ZuGcnf+KiE1Ux56fyp0yKp/RdLPhJkJn9rvN5mH5vJL
-	SYqZ9zb3RwWntp1myAjGTUUOe/uConCF4A8eLcBbNV5BCSjDKMJ8oMxFms0cWSvtsbH3+xXShT60W
-	CJy6MAvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mv14GPqNWG0UhVJJrxQf9v4mNdX8fYSBirQvH2+YobU=; b=xvLhsXQewaUFY5vYkFyldav2Xp
+	A9JOIVYa71EUlCsl5w6i+DDBenOV3PMEIQt0Ry5aYmjr7wfOtWWvwt0h77AX3P3Vw04F77+ILOHvZ
+	aXLE+Qp8h3QrD7VprZckRN0Y2ZOCf9NgC6qCBGRdXZ9rKPe34d3JySiBjPLTCi6px6+8MymsXU+pq
+	IVh0XCnliQTId/Pm34RN20nA9z/sv34IrjsXhsrZFT4PyGw3nkLwoixXHPXrOb0CUUqaHMTZLVTn5
+	NdJSJJMI+sBvgSa8/yP4d2Lfmwfr9xSUbdmBC83CJjEJ+hKKJGaJLyMsUzkmzkqZFHCM+OTx1o2RH
+	FJT4ge/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ipw-00000009YFF-0Hl4;
-	Fri, 08 Nov 2024 06:51:16 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Iln-00000009XCu-1WDt
+	id 1t9JQY-00000009cWJ-2XIj;
+	Fri, 08 Nov 2024 07:29:06 +0000
+Received: from cmccmta6.chinamobile.com ([111.22.67.139] helo=cmccmta2.chinamobile.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9JOl-00000009cLL-3M3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 06:47:00 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-29066daf9e2so930849fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 22:46:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1731048418; x=1731653218; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cn/Nc5RaHVF/e/nAEApB7fYMyWr4MBPCDZJyTNa0js8=;
-        b=J10uTYX/oeFxzPM8hjjORM0BjNb9KdpRnASpuuKnB4xb+IrthilyTcyPcEY9S5KsOP
-         XVKEgiNIJuVQsaF+Hn+ZY8u9Yk5YK3i5YzJsZHb9IWOz8c1Q+6jwzCP+4vskML5z6fmm
-         AWbzXP59SmnpnluGSRRTQ+3CtufjpCw7cV/Ck=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731048418; x=1731653218;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cn/Nc5RaHVF/e/nAEApB7fYMyWr4MBPCDZJyTNa0js8=;
-        b=q0dwHF2BmYJiXJCR0v+OxprJaIjcED+CeplB4veW9KNjyJ/qTYwPPlGtmLiLmDY9FC
-         AMQsT+ylRuZdRCtqCdqUj3GgFWgMUZlMaszdVytYRPuFZjvQ11y8ZrdpUEfDXCieT0fY
-         +RUr4QV4MvOSW2uMVZ2m2PhfcrKPWnfpbsyo5IxsGEdi8b7/isxUHlrVLkJA5YIeYzgM
-         0/7IAdSVkLJaICS1MsZY0fNnipb3MD4qY6W3OMfIn0HtsmRpehz5yjUFaEAZJT6/WlSR
-         tkzpUnKl3sj60lDXdQYMEuidHkINby14QNZRWEFjL0X/ItZCDkKKtszRUGJj2eMDTfhx
-         nXUA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzTanP63HMr1DIcqo6fDu9O6fxptjYdTEPFpU9iSKb5N26sZwYNNu/zPPexzQ+verx9VNbZh9AjGs51rsQ1jcS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyB+CHkpCmwrwnL/iTJs0jPvnqXjwbZDh1iQpGK1FWydWn1fpPe
-	V4g1YENGRSmuymFWlgsieVwLHQiU8uzQ3wX0881bOfdFX1iz+MpJRHHCEuUDtw==
-X-Google-Smtp-Source: AGHT+IGIj8ppTDiKoQ1Ac0ZjCZ1batJcTJQ8Mib+/ozEVFfkH5rl/YxpGzi3ZzRXz5pAIQ9//uSnvQ==
-X-Received: by 2002:a05:6870:344c:b0:261:211:9d0d with SMTP id 586e51a60fabf-295603b7595mr1814461fac.40.1731048417707;
-        Thu, 07 Nov 2024 22:46:57 -0800 (PST)
-Received: from yuanhsinte.c.googlers.com (176.220.194.35.bc.googleusercontent.com. [35.194.220.176])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724079aa8fasm2863065b3a.97.2024.11.07.22.46.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 22:46:57 -0800 (PST)
-From: Hsin-Te Yuan <yuanhsinte@chromium.org>
-Date: Fri, 08 Nov 2024 06:46:53 +0000
-Subject: [PATCH] thermal/drivers/mediatek/lvts_thermal: Switch to
- IMMEDIATE_MODE
+	Fri, 08 Nov 2024 07:27:18 +0000
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG: 00000000
+Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee5672dbd45c3f-efc51;
+	Fri, 08 Nov 2024 15:27:01 +0800 (CST)
+X-RM-TRANSID: 2ee5672dbd45c3f-efc51
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG: 00000000
+Received: from localhost.localdomain (unknown[223.108.79.101])
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee9672dbd1fbf3-8d45f;
+	Fri, 08 Nov 2024 15:27:01 +0800 (CST)
+X-RM-TRANSID: 2ee9672dbd1fbf3-8d45f
+From: guanjing <guanjing@cmss.chinamobile.com>
+To: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	guanjing <guanjing@cmss.chinamobile.com>
+Subject: [PATCH] fixup for "firewall: introduce stm32_firewall framework"
+Date: Fri,  8 Nov 2024 13:37:08 +0800
+Message-Id: <20241108053708.171916-1-guanjing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241108-lvts-v1-1-eee339c6ca20@chromium.org>
-X-B4-Tracking: v=1; b=H4sIANyzLWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDQwML3ZyykmLdNPOk1CRjs9S0ZFNLJaDSgqLUtMwKsDHRsbW1AICiAJZ
- WAAAA
-X-Change-ID: 20241108-lvts-f7beb36efc59
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Hsin-Te Yuan <yuanhsinte@chromium.org>
-X-Mailer: b4 0.15-dev-7be4f
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_224659_452806_C7C31595 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20241107_232716_457496_DCBBA534 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,49 +70,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, MT8192 cannot suspend with FILTERED_MODE. Switch to
-IMMEDIATE_MODE will fix this.
-
-Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
+Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
+Signed-off-by: guanjing <guanjing@cmss.chinamobile.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 3 ---
- 1 file changed, 3 deletions(-)
+ include/linux/bus/stm32_firewall_device.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 1997e91bb3be94a3059db619238aa5787edc7675..daad52f14fc03d0c4131f2ffdf3eb6b49a4a43d0 100644
---- a/drivers/thermal/mediatek/lvts_thermal.c
-+++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -1541,7 +1541,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_data_ctrl[] = {
- 		},
- 		VALID_SENSOR_MAP(1, 1, 0, 0),
- 		.offset = 0x0,
--		.mode = LVTS_MSR_FILTERED_MODE,
- 	},
- 	{
- 		.lvts_sensor = {
-@@ -1552,7 +1551,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_data_ctrl[] = {
- 		},
- 		VALID_SENSOR_MAP(1, 1, 0, 0),
- 		.offset = 0x100,
--		.mode = LVTS_MSR_FILTERED_MODE,
- 	},
- 	{
- 		.lvts_sensor = {
-@@ -1567,7 +1565,6 @@ static const struct lvts_ctrl_data mt8192_lvts_mcu_data_ctrl[] = {
- 		},
- 		VALID_SENSOR_MAP(1, 1, 1, 1),
- 		.offset = 0x200,
--		.mode = LVTS_MSR_FILTERED_MODE,
- 	}
- };
+diff --git a/include/linux/bus/stm32_firewall_device.h b/include/linux/bus/stm32_firewall_device.h
+index 18e0a2fc3816..5178b72bc920 100644
+--- a/include/linux/bus/stm32_firewall_device.h
++++ b/include/linux/bus/stm32_firewall_device.h
+@@ -115,7 +115,7 @@ void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 su
+ #else /* CONFIG_STM32_FIREWALL */
  
-
----
-base-commit: 906bd684e4b1e517dd424a354744c5b0aebef8af
-change-id: 20241108-lvts-f7beb36efc59
-
-Best regards,
+ int stm32_firewall_get_firewall(struct device_node *np, struct stm32_firewall *firewall,
+-				unsigned int nb_firewall);
++				unsigned int nb_firewall)
+ {
+ 	return -ENODEV;
+ }
 -- 
-Hsin-Te Yuan <yuanhsinte@chromium.org>
+2.33.0
+
+
 
 
