@@ -4,136 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22899D5E15A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48154D5E15A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+Mib9CSQrRNQrH6ffNUaqnBKqKAyWoqmRpZgNfrOoU=; b=1mW2FsF6Xp2ZALMQAVRAKqHBAG
-	NhDti6E7/z9XyRDOfHYNIrN3tuhcnkJ2DY2v43tfCsAkrm57cBXAqLOuVdNhgCRAFjQz6RetAbtt2
-	SG+HaMwlbOxa5wM2vrsoJZwhzJj3Uc7SSWAFAxWyPSHguATB6OFu1OS5Yv0oq91wwukgHSN4Bvk9/
-	8iAgowT3hvdIB6d7DCz1lxud9WpXzvZHIFFaagasgIpHiiDgmNHrhETfYxkxia9rUHtOa/dlvjX/o
-	zXl3fen9h1cR/3Oi6HcoRhDcVtZ+WRGF4G3auOk2f1BnKKr0nt4l/jifK7O967+CDV3VqNssQ1J1K
-	JngY985A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ei04cRd9dd3Ei4oSjI8uDS6cZdRZ1aqwkFMjWl7Z0kk=; b=GZLLjAjfAlJSnKfZkOey60lpfx
+	4ApK3odIGLI7wXMlr2LmHc9wJ1AdrJW/CtPA1rnAjy3OnC40d7XfegWPnm0pgsZDNhYKdqPl0Y45C
+	p6AW5gmn1df+aPRDFaSwMr0dxM7s9iB5N7PCiC4D3ytRd/8tzRWqNhnd3N2OIViaGY1ZMh7hfsxSX
+	Qqq2nqyPiPhgIMz8IlN326treIT3K4Zk/2E8hwG7alm1cBQ8C3DU/aAi1ysG/ozifPelaStNPyUzU
+	3EWwMRgi4WN+LFTPLqu2oj7D6U8mtBZrCEO0DAPbiIDTZiVGOoAIkGFw5CDyxb4agDIbTvBB3m8mV
+	FSP44Mfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NOp-0000000ANuU-1BRv;
-	Fri, 08 Nov 2024 11:43:35 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1t9NQd-0000000AOQt-0eGD;
+	Fri, 08 Nov 2024 11:45:29 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9MmQ-0000000AGQ3-2O7L
+	id 1t9Mo4-0000000AGuF-1gP3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 11:03:57 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43152fa76aaso1795075e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 03:03:54 -0800 (PST)
+	Fri, 08 Nov 2024 11:05:38 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-37d4b0943c7so1122695f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 03:05:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731063833; x=1731668633; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d+Mib9CSQrRNQrH6ffNUaqnBKqKAyWoqmRpZgNfrOoU=;
-        b=wlz5opnkPLUgflFSe2E4reVRXH/aLtUiIu6JMDIIZp9NJBk9dqnjWNYZaZzh4x3++G
-         1PRZQxWkVPqFLyYNsx+ezEGOyki32xgIyaPVaNh9ONcFoKYBBqgrH2rjOlWk1UK9FCLQ
-         kD0UOuW9sadfcCP9PUUq9HfBMy6Ty6f2I4OMVZRso28jJLw1+7RCSXpZudgEXVxYXPx2
-         v3UO7XTxVMOhL4XLbyTaybGgf3qfob5eGOb3YdJLhGLX4S+zIup41o0UvjduToK/oyHx
-         JyAlOGcVghshsIMkJIZIbFM7Ava87I+60MXfxujQCaGM/DvYtJ+VO9VZJX3qophHdAHj
-         BMHQ==
+        d=ventanamicro.com; s=google; t=1731063934; x=1731668734; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ei04cRd9dd3Ei4oSjI8uDS6cZdRZ1aqwkFMjWl7Z0kk=;
+        b=JQIyeZMeW+VY0SmOC3mnLwK7CsooNN97NHiAG1IN1kGfe/7Vxp4vfoD62hQbs5qold
+         MIfgvWiu5tQQ3Vqz3QLOSueNUcVU0tBLXta+roWwUVYpCAiRcMT5Ae7ngkgYKvXmTuWi
+         6I7nWA8qXEhIqaxfg605yrsuFmh0wJsjAYmI/4F7OfCDQCLYtpCHiXw1ZEg362vLrB9N
+         zpVi/OUcB7wHIgUqD7iFWg2UXjX5pmpSbJnWKygaf3eGvaMxrHf0BTZehBPpj1YGanN1
+         Kfm8h8WxBWzkVctbfcZeEsOLsBsxZmeezVlqjNWsJSbuYsCvHWjzpEjYivO2SsZITOSF
+         tF0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731063833; x=1731668633;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d+Mib9CSQrRNQrH6ffNUaqnBKqKAyWoqmRpZgNfrOoU=;
-        b=f4PijREQ9P2XV4Vsd2VRfDJEKUFU16tKyOgCzKNnhdnn5yV3/itmllVVS/DzQHb3pY
-         zU+s/PtYmExI3GALJAFeS9iXe/myofC+2Wu4nx4FP/Jdg2exCoci/h+M298sPykyuPHd
-         nM+IqleAtbh2fsxvurLs1rJIJiobG1N9DT2XJMiR5EyEFkH6Kliaer8ACkiymB1mMt1h
-         uesHHDBgBEFAOfqtfVDT7aECdqXipPmUYhpw/jdX1BmGMt/d4BC5YuNk/zA/ojrxDh71
-         6ZJGAxxNXzB5jztVNTHEkgp0lP3eMrIK3AAeHnPOrkG+7et5HBE2IbR5UCFjchVD4Cem
-         AOhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVy8WDoewx6o26+vFfxIK+aN7due+o4WCoFqjOGiAXSMK6NuTM3LN/WnOtTyMcVrfNuqwtfjoNA1DIpHIenEWdB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD+JjPnQ5C2fy5Zlgt5sMV2wKzTJBYHX/DHWT4jDIqIKCQCBvj
-	DkBRQvT2FVL9BlCj7pOnre2FqjxDGVC/eb3rX5kVJVIjXjTGGK5fTqvSA8hC0Hw=
-X-Google-Smtp-Source: AGHT+IFuHqksscHYCKJL9TXvwIn0/9t2dRL5asA5FUu4BuQuURI1Ofgo7nnNngECV7K4h3RPflkjHA==
-X-Received: by 2002:a05:600c:190e:b0:42c:aeee:80c with SMTP id 5b1f17b1804b1-432b752a8b9mr8941955e9.9.1731063833114;
-        Fri, 08 Nov 2024 03:03:53 -0800 (PST)
-Received: from [172.16.24.83] ([89.101.241.141])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa70a23fsm100508225e9.33.2024.11.08.03.03.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 03:03:52 -0800 (PST)
-Message-ID: <f593f02d-1c55-4db9-bec6-ad46b4b7a98e@linaro.org>
-Date: Fri, 8 Nov 2024 12:03:51 +0100
+        d=1e100.net; s=20230601; t=1731063934; x=1731668734;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ei04cRd9dd3Ei4oSjI8uDS6cZdRZ1aqwkFMjWl7Z0kk=;
+        b=VfgILzyxxNsZ+iIhNdIdGlfFb9UXSmIeu3p8A4afVPOSqCuhf2evgaGT9T/8N/H5A0
+         fOzMlJLLqhBdnoCpbu8+TUYFXlQF9E4pzhtHuTrar7DmX7VxMy1rg8MR7XGPKAWmjjn9
+         3yXT0JRwMuEXZ6b2Gcha5htwBJVfKApIIyPru7q5gC1kYqy07GrLgzCJ1BBeGELGR4jx
+         y6NutziuLvE3cWInkMiJh1vGUIgTyOUsz/LqYhejEzeQpw2BlQ4eZ12FetanmzCZQ51J
+         la0FUfb5uNcKXbvz7BalB7loiaK7BDmxsdQW7Mdjrqi3/YDdfo4d9PNY1vJih+FD8AcC
+         sq9w==
+X-Forwarded-Encrypted: i=1; AJvYcCVg590TPwEZsMcwrQbTZ2luj+sxdN3BgPBBFK1Va0vgG4QRFmPeEG2e4SkL1HF2haMD+rUMkVdNK66mTMRgz5Nl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQmSsRvPNLX6xDbS9tN6IxdUAyiWrlDJLPHENZtxDXZcc51WK/
+	YtE9r+LiU5+DVT0aLoY/P8aPYdU0ZLTSbf1HcCYH6GLopTRmudXEKNAt2wcTl38=
+X-Google-Smtp-Source: AGHT+IF6yxcP+ZA1gmHcAz0qWF6DZiDkNmSWK2EbdhHg+3pJ8fXCTOVqi/qxta+MiHUm18AZebfwig==
+X-Received: by 2002:a5d:5e90:0:b0:37c:c892:a98c with SMTP id ffacd0b85a97d-381f188c972mr1778438f8f.56.1731063933914;
+        Fri, 08 Nov 2024 03:05:33 -0800 (PST)
+Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381edc1104asm4279796f8f.88.2024.11.08.03.05.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 03:05:33 -0800 (PST)
+Date: Fri, 8 Nov 2024 12:05:32 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Vipin Sharma <vipinsh@google.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Paolo Bonzini <pbonzini@redhat.com>, 
+	Anup Patel <anup@brainfault.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/1] KVM selftests runner for running more than just
+ default
+Message-ID: <20241108-eaacad12f1eef31481cf0c6c@orel>
+References: <20240821223012.3757828-1-vipinsh@google.com>
+ <CAHVum0eSxCTAme8=oV9a=cVaJ9Jzu3-W-3vgbubVZ2qAWVjfJA@mail.gmail.com>
+ <CAHVum0fWJW7V5ijtPcXQAtPSdoQSKjzYwMJ-XCRH2_sKs=Kg7g@mail.gmail.com>
+ <ZyuiH_CVQqJUoSB-@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
-To: Yoshihiro Furudera <fj5100bi@fujitsu.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org,
- Bjorn Andersson <quic_bjorande@quicinc.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Thomas Gleixner <tglx@linutronix.de>, Peter Zijlstra <peterz@infradead.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241108054006.2550856-1-fj5100bi@fujitsu.com>
- <20241108054006.2550856-3-fj5100bi@fujitsu.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241108054006.2550856-3-fj5100bi@fujitsu.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ZyuiH_CVQqJUoSB-@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_030354_649403_0690735D 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20241108_030536_482668_57FE718B 
+X-CRM114-Status: GOOD (  57.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,73 +100,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/11/2024 06:40, Yoshihiro Furudera wrote:
-> This adds a new dynamic PMU to the Perf Events framework to program and
-> control the Uncore PCI PMUs in Fujitsu chips.
+On Wed, Nov 06, 2024 at 09:06:39AM -0800, Sean Christopherson wrote:
+> On Fri, Nov 01, 2024, Vipin Sharma wrote:
+> > Had an offline discussion with Sean, providing a summary on what we
+> > discussed (Sean, correct me if something is not aligned from our
+> > discussion):
+> > 
+> > We need to have a roadmap for the runner in terms of features we support.
+> > 
+> > Phase 1: Having a basic selftest runner is useful which can:
+> > 
+> > - Run tests parallely
 > 
-> This driver was created with reference to drivers/perf/qcom_l3_pmu.c.
+> Maybe with a (very conversative) per test timeout?  Selftests generally don't have
+> the same problems as KVM-Unit-Tests (KUT), as selftests are a little better at
+> guarding against waiting indefinitely, i.e. I don't think we need a configurable
+> timeout.  But a 120 second timeout or so would be helpful.
 > 
-> This driver exports formatting and event information to sysfs so it can
-> be used by the perf user space tools with the syntaxes:
+> E.g. I recently was testing a patch (of mine) that had a "minor" bug where it
+> caused KVM to do a remote TLB flush on *every* SPTE update in the shadow MMU,
+> which manifested as hilariously long runtimes for max_guest_memory_test.  I was
+> _this_ close to not catching the bug (which would have been quite embarrasing),
+> because my hack-a-scripts don't use timeouts (I only noticed because a completely
+> unrelated bug was causing failures).
 > 
-> perf stat -e pci_iod0_pci0/ea-pci/ ls
-> perf stat -e pci_iod0_pci0/event=0x80/ ls
+> > - Provide a summary of what passed and failed, or only in case of failure.
 > 
-> FUJITSU-MONAKA Specification URL:
-> https://github.com/fujitsu/FUJITSU-MONAKA
+> I think a summary is always warranted.  And for failures, it would be helpful to
+> spit out _what_ test failed, versus the annoying KUT runner's behavior of stating
+> only the number of passes/failures, which forces the user to go spelunking just
+> to find out what (sub)test failed.
 > 
-> Signed-off-by: Yoshihiro Furudera <fj5100bi@fujitsu.com>
-> ---
->  .../admin-guide/perf/fujitsu_pci_pmu.rst      |  20 +
->  arch/arm64/configs/defconfig                  |   1 +
->  drivers/perf/Kconfig                          |   9 +
->  drivers/perf/Makefile                         |   1 +
->  drivers/perf/fujitsu_pci_pmu.c                | 613 ++++++++++++++++++
->  include/linux/cpuhotplug.h                    |   1 +
->  6 files changed, 645 insertions(+)
->  create mode 100644 Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
->  create mode 100644 drivers/perf/fujitsu_pci_pmu.c
+> I also think the runner should have a "heartbeat" mechanism, i.e. something that
+> communicates to the user that forward progress is being made.  And IMO, that
+> mechanism should also spit out skips and failures (this could be optional though).
+> One of the flaws with the KUT runner is that it's either super noisy and super
+> quiet.
 > 
-> diff --git a/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst b/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
-> new file mode 100644
-> index 000000000000..5fee3a3ccc86
-> --- /dev/null
-> +++ b/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
-> @@ -0,0 +1,20 @@
-> +===========================================================================
-> +Fujitsu Uncore PCI Performance Monitoring Unit (PMU)
-> +===========================================================================
-> +
-> +This driver supports the Uncore PCI PMUs found in Fujitsu chips.
-> +Each PCI PMU on these chips is exposed as a uncore perf PMU with device name
-> +pci_iod<iod>_pci<pci>.
-> +
-> +The driver provides a description of its available events and configuration
-> +options in sysfs, see /sys/bus/event_sources/devices/pci_iod<iod>_pci<pci>/.
-> +Given that these are uncore PMUs the driver also exposes a "cpumask" sysfs
-> +attribute which contains a mask consisting of one CPU which will be used to
-> +handle all the PMU events.
-> +
-> +Examples for use with perf::
-> +
-> +  perf stat -e pci_iod0_pci0/ea-pci/ ls
-> +
-> +Given that these are uncore PMUs the driver does not support sampling, therefore
-> +"perf record" will not work. Per-task perf sessions are not supported.
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 2ef412937228..d7df90205be6 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -1576,6 +1576,7 @@ CONFIG_ARM_SMMU_V3_PMU=m
->  CONFIG_ARM_DSU_PMU=m
->  CONFIG_FSL_IMX8_DDR_PMU=m
->  CONFIG_FUJITSU_MAC_PMU=y
-> +CONFIG_FUJITSU_PCI_PMU=y
+> E.g. my mess of bash outputs this when running selftests in parallel (trimmed for
+> brevity):
+> 
+>         Running selftests with npt_disabled
+>         Waiting for 'access_tracking_perf_test', PID '92317'
+>         Waiting for 'amx_test', PID '92318'
+>         SKIPPED amx_test
+>         Waiting for 'apic_bus_clock_test', PID '92319'
+>         Waiting for 'coalesced_io_test', PID '92321'
+>         Waiting for 'cpuid_test', PID '92324'
+>         
+>         ...
+>         
+>         Waiting for 'hyperv_svm_test', PID '92552'
+>         SKIPPED hyperv_svm_test
+>         Waiting for 'hyperv_tlb_flush', PID '92563'
+>         FAILED hyperv_tlb_flush : ret ='254'
+>         Random seed: 0x6b8b4567
+>         ==== Test Assertion Failure ====
+>           x86_64/hyperv_tlb_flush.c:117: val == expected
+>           pid=92731 tid=93548 errno=4 - Interrupted system call
+>              1	0x0000000000411566: assert_on_unhandled_exception at processor.c:627
+>              2	0x000000000040889a: _vcpu_run at kvm_util.c:1649
+>              3	 (inlined by) vcpu_run at kvm_util.c:1660
+>              4	0x00000000004041a1: vcpu_thread at hyperv_tlb_flush.c:548
+>              5	0x000000000043a305: start_thread at pthread_create.o:?
+>              6	0x000000000045f857: __clone3 at ??:?
+>           val == expected
+>         Waiting for 'kvm_binary_stats_test', PID '92579'
+>         
+>         ...
+>         
+>         SKIPPED vmx_preemption_timer_test
+>         Waiting for 'vmx_set_nested_state_test', PID '93316'
+>         SKIPPED vmx_set_nested_state_test
+>         Waiting for 'vmx_tsc_adjust_test', PID '93329'
+>         SKIPPED vmx_tsc_adjust_test
+>         Waiting for 'xapic_ipi_test', PID '93350'
+>         Waiting for 'xapic_state_test', PID '93360'
+>         Waiting for 'xcr0_cpuid_test', PID '93374'
+>         Waiting for 'xen_shinfo_test', PID '93391'
+>         Waiting for 'xen_vmcall_test', PID '93405'
+>         Waiting for 'xss_msr_test', PID '93420'
+> 
+> It's far from perfect, e.g. just waits in alphabetical order, but it gives me
+> easy to read feedback, and signal that tests are indeed running and completing.
+>         
+> > - Dump output which can be easily accessed and parsed.
+> 
+> And persist the output/logs somewhere, e.g. so that the user can triage failures
+> after the fact.
+> 
+> > - Allow to run with different command line parameters.
+> 
+> Command line parameters for tests?  If so, I would put this in phase 3.  I.e. make
+> the goal of Phase 1 purely about running tests in parallel.
+> 
+> > Current patch does more than this and can be simplified.
+> > 
+> > Phase 2: Environment setup via runner
+> > 
+> > Current patch, allows to write "setup" commands at test suite and test
+> > level in the json config file to setup the environment needed by a
+> > test to run. This might not be ideal as some settings are exposed
+> > differently on different platforms.
+> > 
+> > For example,
+> > To enable TDP:
+> > - Intel needs npt=Y
+> > - AMD needs ept=Y
+> > - ARM always on.
+> > 
+> > To enable APIC virtualization
+> > - Intel needs enable_apicv=Y
+> > - AMD needs avic=Y
+> > 
+> > To enable/disable nested, they both have the same file name "nested"
+> > in their module params directory which should be changed.
+> > 
+> > These kinds of settings become more verbose and unnecessary on other
+> > platforms. Instead, runners should have some programming constructs
+> > (API, command line options, default) to enable these options in a
+> > generic way. For example, enable/disable nested can be exposed as a
+> > command line --enable_nested, then based on the platform, runner can
+> > update corresponding module param or ignore.
+> > 
+> > This will easily extend to providing sane configuration on the
+> > corresponding platforms without lots of hardcoding in JSON. These
+> > individual constructs will provide a generic view/option to run a KVM
+> > feature, and under the hood will do things differently based on the
+> > platform it is running on like arm, x86-intel, x86-amd, s390, etc.
+> 
+> My main input on this front is that the runner needs to configure module params
+> (and other environment settings) _on behalf of the user_, i.e. in response to a
+> command line option (to the runner), not in response to per-test configurations.
+> 
+> One of my complaints with our internal infrastructure is that the testcases
+> themselves can dictate environment settings.  There are certainly benefits to
+> that approach, but it really only makes sense at scale where there are many
+> machines available, i.e. where the runner can achieve parallelism by running
+> tests on multiple machines, and where the complexity of managing the environment
+> on a per-test basis is worth the payout.
+> 
+> For the upstream runner, I want to cater to developers, i.e. to people that are
+> running tests on one or two machines.  And I want the runner to rip through tests
+> as fast as possible, i.e. I don't want tests to get serialized because each one
+> insists on being a special snowflake and doesn't play nice with other children.
+> Organizations that the have a fleet of systems can pony up the resources to develop
+> their own support (on top?).
+> 
+> Selftests can and do check for module params, and should and do use TEST_REQUIRE()
+> to skip when a module param isn't set as needed.  Extending that to arbitrary
+> sysfs knobs should be trivial.  I.e. if we get _failures_ because of an incompatible
+> environment, then it's a test bug.
+> 
+> > Phase 3: Provide collection of interesting configurations
+> > 
+> > Specific individual constructs can be combined in a meaningful way to
+> > provide interesting configurations to run on a platform. For example,
+> > user doesn't need to specify each individual configuration instead,
+> > some prebuilt configurations can be exposed like
+> > --stress_test_shadow_mmu, --test_basic_nested
+> 
+> IMO, this shouldn't be baked into the runner, i.e. should not surface as dedicated
+> command line options.  Users shouldn't need to modify the runner just to bring
+> their own configuration.  I also think configurations should be discoverable,
+> e.g. not hardcoded like KUT's unittest.cfg.  A very real problem with KUT's
+> approach is that testing different combinations is frustratingly difficult,
+> because running a testcase with different configuration requires modifying a file
+> that is tracked by git.
 
-Same concerns. There is no such ARCH and this must be sent via your SoC
-folks.
+We have support in KUT for environment variables (which are stored in an
+initrd). The feature hasn't been used too much, but x86 applies it to
+configuration parameters needed to execute tests from grub, arm uses it
+for an errata framework allowing tests to run on kernels which may not
+include fixes to host-crashing bugs, and riscv is using them quite a bit
+for providing test parameters and test expected results in order to allow
+SBI tests to be run on a variety of SBI implementations. The environment
+variables are provided in a text file which is not tracked by git. kvm
+selftests can obviously also use environment variables by simply sourcing
+them first in wrapper scripts for the tests.
 
-Best regards,
-Krzysztof
+> 
+> There are underlying issues with KUT that essentially necessitate that approach,
+> e.g. x86 has several testcases that fail if run without the exact right config.
+> But that's just another reason to NOT follow KUT's pattern, e.g. to force us to
+> write robust tests.
+> 
+> E.g. instead of per-config command line options, let the user specify a file,
+> and/or a directory (using a well known filename pattern to detect configs).
 
+Could also use an environment variable to specify a file which contains
+a config in a test-specific format if parsing environment variables is
+insufficient or awkward for configuring a test.
+
+Thanks,
+drew
+
+> 
+> > Tests need to handle the environment in which they are running
+> > gracefully, which many tests already do but not exhaustively. If some
+> > setting is not provided or set up properly for their execution then
+> > they should fail/skip accordingly.
+> 
+> This belongs in phase 2.
+> 
+> > Runner will not be responsible to precheck things on tests behalf.
+> > 
+> > 
+> > Next steps:
+> > 1. Consensus on above phases and features.
+> > 2. Start development.
+> > 
+> > Thanks,
+> > Vipin
+> 
+> -- 
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
