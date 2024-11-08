@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FF7D5C0C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E90D5C0C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2oXJkzWtCGaIKJ5cbPKhS+LoIlQBWBf1ApP5urqLDw=; b=KNtgQBrCbxCvN5fBZKZYO3osxj
-	5ETgUT0ibuQWbC31rOMC7B/EiId7+EopiCS4/0tMTpz7x/7aghIiwjYPxApJE6HKaRb24CGTAwNYV
-	JfTrHGiTUkY2gHmejG9NkSeY1v/Fk73RZcplr5EUhPBjSoR1rtmCtdjP4OO26iTXf+GIx9RXWULpK
-	xGZHVQC/2oT/GrnRFni+kOYbbBSA+74yCZsVjyUzmutdsHv9G9NUE5k9dkmTupO0/aTTHX7BkVEzZ
-	FU4ivla1NPieX03Zqzcptyhlzvulm9mb06eFk4g3FVlJCF/NyULAbgDvZoSX5dNgZji8kdPsbvJTs
-	t3lf1p6A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1w6RpVPZFLgX8W7zDDIW9Bt9wUWPJmCNFHj/06iwgR0=; b=PludNHylwUbqBOPyJSsRmdmE50
+	9LLZDBXzOo9aHpDwgB0Fu5rGw9Ak+joIBhx57jUS8/xa4WiDBvbov1e7n++Qu/0R9dYsx1BaMSClK
+	INejVdGmDnhu8BWQE96BIa++TRWXKKs2jAh0AKA/6ozAp/nzPav4sR4E9nZB8e46z2tKT5tJM3lK3
+	Tdcfrn0i1fDn635OAZBM0SxBSAJVk9f037IJ6iahMqzAnAk62D3a5fm16cQS9e+pJc3495+3icBGF
+	Wb6pU/p5+/iKuplmMFTu9JtvNt2nOUGQiV4jqLrgdD+RgF/mLT6EgY6TFxIuc0HG221AppNYtW2Zf
+	g3b1nqbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NiG-0000000ARdC-03s9;
-	Fri, 08 Nov 2024 12:03:40 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1t9Nk3-0000000ASCC-1MFX;
+	Fri, 08 Nov 2024 12:05:31 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9N5t-0000000AKkR-41nm
+	id 1t9N5t-0000000AKkO-3Vot
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 08 Nov 2024 11:24:05 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-431481433bdso17409955e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 03:24:01 -0800 (PST)
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-37d6ff1cbe1so1427779f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 03:24:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1731065040; x=1731669840; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g2oXJkzWtCGaIKJ5cbPKhS+LoIlQBWBf1ApP5urqLDw=;
-        b=LICAdDN0pA66bpVdd0qioXxQJQ3CJfGJY9uaWawf+X1dD6P+GGaJxMVRs6BSQNxy+W
-         ynV0743lAVLZECA4ozCjiIys0ZT+KGYt2RqWeRPMvy521uffxZymMswtM/SXcTicag09
-         qKybaYAWRFT0Ykz07Pde/ETqgt6Hng7BKSwrQXu8eKfYxpzCQ51hSsqOpZ7YcWJkZrYL
-         w/jLfF4eakpOKyUHbPMclm7s0HsjvANA5wUnoVEIv85+mms2eFCGrpMydGGN1fIemFlP
-         WE0tAuJbAjJtVjcmrKsc2pfrAAUoVcQjKWB1uDyYoPlgnnH9LjcaMSMvm37ssPiwO/JY
-         GiqA==
+        d=sartura.hr; s=sartura; t=1731065039; x=1731669839; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1w6RpVPZFLgX8W7zDDIW9Bt9wUWPJmCNFHj/06iwgR0=;
+        b=KabAQbj4xaOKslwV6srknNXwgFpBOldcERsYu0+HahUbHkt9ykheTRW2h4bDF2Riz+
+         pWHtpH9T0Yy1oERDVtSdJBTc/a6Xsl8aXu2MxDk9oe+/l6Vc+EqREta6C1FqB1GAfmjE
+         xwmzgQT480INkKcm/g7iWibtyQK/b8DCKXqC3VW6lqQcvqzkRpSYw8689fmlGwnXmoub
+         SZUBodMgVv4/ba/jH3JSibYDKS+ZjkknbKoEUOLTtlQsKzHEzhN0NbGVcoLg2PWJ3Sm3
+         k0Ub1N4hJH/Tba8qQVIDYh6InGnoLnVKuR3RD381QQGftwme3pXNfq0LNeScbLFFTE4z
+         cE3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731065040; x=1731669840;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g2oXJkzWtCGaIKJ5cbPKhS+LoIlQBWBf1ApP5urqLDw=;
-        b=k8vAWpnTODuCKOYZc5OdcsA1in+RfRrY/IBKsfvzp89e7FhmZe18M3owdWlh3gUs9B
-         ct41NtXxeB3WJ7TIdAxO2Tsi/8vXKr9zg3bvrNJByOOJANnnFogcBmpSN9SzfrTNS6iG
-         ZGx9UsoqUrTinpKIM1mmzeKkKiB7OCVR3gVWJ2IaGs5ZsF7sEwyMG7iDgwaNQRJooqbG
-         9LHtE9eFycnVfypyyN6nmJDk9ChPfo+VoC8dgNprEVDSPmEpyeqXEhWVBN4rTqrWxPYc
-         eD2MInCJs7iaiMpIEn6yX/kCqzdL0SFwqeWqkNpVhu5qvBVyCvZ+3f5yjtfZTfQpg5S/
-         OqPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXL3yJeosLmX0MiJuYfPHUi45rUT4euR61CbZPAAE6YhTQBXui+GNiwJOrORYFKEAlZZe2aOZ5t7kWnDn+bOhbd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuF2sNr6zbp4E6Yh1LIgmX3zKrA5mbDyd1YB6CfLNkVgEh7JwJ
-	OvskIi2R8aYyhcySBZcgwmwFrOJ/wsYb/vWwFrgkdKnNVDVlfyQ6W+tENrQBEsg=
-X-Google-Smtp-Source: AGHT+IG3MD1LtAeRYq2Tgi0EQ1T2xgC9oErR/8Baw/cgSq2n2SS2IbIUneoqxr+Ubgn8WvPWUdOaKQ==
-X-Received: by 2002:a05:600c:4ecc:b0:430:582f:3a9d with SMTP id 5b1f17b1804b1-432b751b68bmr20133435e9.26.1731065040128;
-        Fri, 08 Nov 2024 03:24:00 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731065039; x=1731669839;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1w6RpVPZFLgX8W7zDDIW9Bt9wUWPJmCNFHj/06iwgR0=;
+        b=ay17+ZTr7LwtMnG528y9imhqgqsxV3Zdj/hDazEwWSFuWN6YXqyIxhd/4DA66dLsGA
+         Z2+rPO+fHJXlgkCg7qDu41h/kgKVCOw9UJwmGCARqNOgW+T6yzVvY10Qkjz2VRS1zAId
+         cAQxDNaoo/6tqS6jvqJJXOXOHvG3RuuDN6Z2/1efWy3J4j7KKtMBqrQT/3o9Dg0+uQZi
+         vfHKVkc6ELKO1exsmwqGSGAg30x3IVLaZ2kViD3m2J9m0sa1BWKasArnwvx+vzKjRYxB
+         rqIAvu+6vULKNjfGimpuZUQGGYt1r3ZEwEJf6M3c3Jvi4o8XtDgwO8njQV+XuAuLISw1
+         ro7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUDZ/4FW0n/YXceB9hWHIFJqfRmvhC5hogkPghKDiZ9HtTefbUBDlrKpAEWa2zp4FFjXEBAh/6eOYZ2ilZtnF+R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzf0ck/8elygQ2Xa4pU9iwMPap0N/kXKF/oZP4RA3agahr1tG0b
+	v3XUEvN2af4ZwFT0dlhiZYEhFjnOqCOk9w7k2ATQZ6ensVZVxi7wv+JniOiWvtI=
+X-Google-Smtp-Source: AGHT+IE2dTZAM2eNBdyoJ0vYP2310xH3HRvixP7wsdVyd9U7THrSH3mKlvans7ZEtSce5JJp+KGjDg==
+X-Received: by 2002:a5d:6daf:0:b0:371:8eb3:603a with SMTP id ffacd0b85a97d-381f17253e1mr2103427f8f.27.1731065038785;
+        Fri, 08 Nov 2024 03:23:58 -0800 (PST)
 Received: from fedora.. (cpe-188-129-46-99.dynamic.amis.hr. [188.129.46.99])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-381ed970e18sm4281443f8f.10.2024.11.08.03.23.58
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-381ed970e18sm4281443f8f.10.2024.11.08.03.23.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 03:23:59 -0800 (PST)
+        Fri, 08 Nov 2024 03:23:58 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -75,17 +74,15 @@ To: mturquette@baylibre.com,
 	linux-arm-kernel@lists.infradead.org
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH 2/3] mfd: at91-usart: make it selectable for ARCH_LAN969X
-Date: Fri,  8 Nov 2024 12:22:35 +0100
-Message-ID: <20241108112355.20251-2-robert.marko@sartura.hr>
+Subject: [PATCH 1/3] clk: lan966x: make it selectable for ARCH_LAN969X
+Date: Fri,  8 Nov 2024 12:22:34 +0100
+Message-ID: <20241108112355.20251-1-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241108112355.20251-1-robert.marko@sartura.hr>
-References: <20241108112355.20251-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_032402_020520_9ABCCBDE 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20241108_032401_970672_6F3AD424 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LAN969x uses the AT91 USART IP so make it selectable for ARCH_LAN969X.
+LAN969x uses the same LAN966x clock driver so make it selectable for
+ARCH_LAN969X.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- drivers/mfd/Kconfig | 2 +-
+ drivers/clk/Kconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index ae23b317a64e..f280ba28d618 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -138,7 +138,7 @@ config MFD_AAT2870_CORE
- config MFD_AT91_USART
- 	tristate "AT91 USART Driver"
- 	select MFD_CORE
--	depends on ARCH_AT91 || COMPILE_TEST
-+	depends on ARCH_AT91 || ARCH_LAN969X ||COMPILE_TEST
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index ef709327cba1..713573b6c86c 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -270,7 +270,7 @@ config COMMON_CLK_LAN966X
+ 	tristate "Generic Clock Controller driver for LAN966X SoC"
+ 	depends on HAS_IOMEM
+ 	depends on OF
+-	depends on SOC_LAN966 || COMPILE_TEST
++	depends on SOC_LAN966 || ARCH_LAN969X || COMPILE_TEST
  	help
- 	  Select this to get support for AT91 USART IP. This is a wrapper
- 	  over at91-usart-serial driver and usart-spi-driver. Only one function
+ 	  This driver provides support for Generic Clock Controller(GCK) on
+ 	  LAN966X SoC. GCK generates and supplies clock to various peripherals
 -- 
 2.47.0
 
