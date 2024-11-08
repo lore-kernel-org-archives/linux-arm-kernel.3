@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A13D64071
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B4ED64073
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=o3GmnO+sdxpxkWyzxkZySK1Anbr8T70yB22RZlofMuA=; b=qexwRbQUdOQt8k30J78eJtyQlG
-	btVrMln/pUFFtDLXkwiTYLafogyKzM5fnf2gCnKyAZqFS0Qc1+LreymlbnncSF3iEz3X6xao4jjwD
-	G5hGKm5oB9C0G4Xt/YjDTlrG62L8QV1StIPWw3LKoiTFQYbUtC3JbydzhorSMpVJ8YEcKiHwrFDog
-	sVK6ksAgr5knYazDWcuRKNZXoJogSJeO15SpM98VSADl7c5yGquauoW06yOsBhIOuyCMAF8LLLekk
-	jYAJlhtvkIz0Xx3J0o+QmqLtbzS67c9QxQ4sDwHJI3wVcebsrLbYVG/VmO6kr5/Ea5x/U4uk3QqDy
-	nTarHfFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vo3FLjhHwB8wDfeC70jiXwqljYidehpvAa+ZIClcpgY=; b=gLqnd1UnQYC9fvUBoKa0/c7PYd
+	ILZkh4vV5QpHuHWvEBTvAtNTBV9pDL9ZRewQOEr0m9tMpQIjxsrGaML4SmVlEONbWLP5CHTWwBWOG
+	GNKimNEsaO82v1gglTZbFIVHf2RdnlTvRgmdvgO31mQFDMjp7zXap1UR5WHkCE4FdNNkigYtCjZ67
+	F78w90MngCc/m0tCOo0zVBvH7oEl7z5ils9ltReXraB+y0faGM6f3ONk3p0iEpDA5/Fi2SNezPRHd
+	YGl1RFV8RRjkqMW8lONWphaIK2KA+mKg+YvQGIoFijWbpBE0hcMgw8gmt97au1coypt8OXMVrLMIv
+	nNMUqU8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SVI-0000000BKf1-1eOy;
-	Fri, 08 Nov 2024 17:10:36 +0000
+	id 1t9SVK-0000000BKgb-1WeP;
+	Fri, 08 Nov 2024 17:10:38 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9S9j-0000000BIDl-3TSe;
-	Fri, 08 Nov 2024 16:48:21 +0000
+	id 1t9SBK-0000000BIZQ-2Q1j
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 16:50:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 54FAEA4412B;
-	Fri,  8 Nov 2024 16:46:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A047C4CECD;
-	Fri,  8 Nov 2024 16:48:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731084498;
-	bh=bnVD4rkav0ZeJAD/SxnELzRm/Vojs5RiuAQetQRIYCs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=qk/tmd9mcQG4lWwgAX57d6FU5ML7M9ZoN4zGzHdNSiH9DpKLUdKRJoWcwIewIFViD
-	 zoIOt0nEWdYBLLSrffXGrmVcv8wJkPiRRzawF36VcF08hSeXPVGQfxw4v6STCdJ2hM
-	 ZV/eEG71LZcbRn1Zda2sJEvqo7/h9dR6GSmlAqTyzCvkpIyJ+nRYYTqp5sTTE1FGv0
-	 fVRXvXmSMzYX3RQzm+izX291G1oVTc4pI20yChu3CJj1MlwiJOtDeOPsmfaRo4QX5V
-	 MenF1ypuQgWslaNy2mXmI5zbbN5cidSS3GIYDxIIruqbjaVMFzsVAm8vMid4yA+WlE
-	 O16mBfgm6azwQ==
-Date: Fri, 8 Nov 2024 10:48:17 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
-Cc: "lorenzo@kernel.org" <lorenzo@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
- .power_up()
-Message-ID: <20241108164817.GA1665283@bhelgaas>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 26BE0A43F00;
+	Fri,  8 Nov 2024 16:48:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7E4C4CECF;
+	Fri,  8 Nov 2024 16:49:55 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	Liao Chang <liaochang1@huawei.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: uprobes: Optimize cache flushes for xol slot
+Date: Fri,  8 Nov 2024 16:49:53 +0000
+Message-Id: <173108456812.1559945.17269799494713828811.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20240919121719.2148361-1-liaochang1@huawei.com>
+References: <20240919121719.2148361-1-liaochang1@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <547216d36f8eaa313690ff8b52407ae46b8e9c40.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_084819_968044_9CE1631A 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20241108_084958_703925_8F5030D6 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +68,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 02:51:15AM +0000, Jianjun Wang (王建军) wrote:
-> On Thu, 2024-11-07 at 10:21 -0600, Bjorn Helgaas wrote:
-> > On Thu, Nov 07, 2024 at 05:08:55PM +0100, Lorenzo Bianconi wrote:
-> > > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wrote:
-> > > > > In order to make the code more readable, move phy and mac
-> > > > > reset lines assert/de-assert configuration in .power_up
-> > > > > callback (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
-> > > 
-> > > ...
-> > > > Is there a requirement that the PHY and MAC reset ordering be
-> > > > different for EN7581 vs other chips?
-> > > > 
-> > > > EN7581:
-> > > > 
-> > > >   assert PHY reset
-> > > >   assert MAC reset
-> > > >   power on PHY
-> > > >   deassert PHY reset
-> > > >   deassert MAC reset
-> > > > 
-> > > > others:
-> > > > 
-> > > >   assert PHY reset
-> > > >   assert MAC reset
-> > > >   deassert PHY reset
-> > > >   power on PHY
-> > > >   deassert MAC reset
-> > > > 
-> > > > Is there one order that would work for both?
-> > > 
-> > > EN7581 requires to run phy_init()/phy_power_on() before deassert
-> > > PHY reset lines.
-> > 
-> > And the other chips require the PHY power-on to be *after*
-> > deasserting PHY reset?
+On Thu, 19 Sep 2024 12:17:19 +0000, Liao Chang wrote:
+> The profiling of single-thread selftests bench reveals a bottlenect in
+> caches_clean_inval_pou() on ARM64. On my local testing machine, this
+> function takes approximately 34% of CPU cycles for trig-uprobe-nop and
+> trig-uprobe-push.
 > 
-> For MediaTek's chips, the reset will clear all register values and
-> reset the hardware state. Therefore, we can only initialize and
-> power-on the MAC and PHY after deasserting their resets.
+> This patch add a check to avoid unnecessary cache flush when writing
+> instruction to the xol slot. If the instruction is same with the
+> existing instruction in slot, there is no need to synchronize D/I cache.
+> Since xol slot allocation and updates occur on the hot path of uprobe
+> handling, The upstream kernel running on Kunpeng916 (Hi1616), 4 NUMA
+> nodes, 64 cores@ 2.4GHz reveals this optimization has obvious gain for
+> nop and push testcases.
+> 
+> [...]
 
-OK, it sounds like you're saying the Airoha EN7581 is not a MediaTek
-chip and does require a different ordering of PHY reset deassert and
-PHY power-on:
+Applied to arm64 (for-next/misc), thanks!
 
-  - EN7581 requires PHY power-on before PHY reset deassert,
+[1/1] arm64: uprobes: Optimize cache flushes for xol slot
+      https://git.kernel.org/arm64/c/bdf94836c22a
 
-  - other chips require PHY reset deassert before PHY power-on.
+-- 
+Catalin
 
-That's fine and probably worth a short comment in
-mtk_pcie_en7581_power_up(), e.g., "Unlike the MediaTek controllers,
-the Airoha EN7581 requires PHY power-on before PHY reset deassert".
-
-Bjorn
 
