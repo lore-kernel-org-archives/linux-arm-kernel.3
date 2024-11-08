@@ -4,185 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AAAD5E124
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 04:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CA3D5E127
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 04:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5jG+lTqc52/fXGhn5iaGDPcIaUub4Twl9LJDBXQvYGs=; b=a9TMDWyd4mXx+SSISyU7zsG1Oo
-	TN1ZGSmxdsWuENn+jG3TKQ4ILnSDfsrXpBuExASAu3rj7f4p4myFa2XZjw8iQ22HuD+8UnAZJiksd
-	FRX/5wXSNOmmyArxdHfuq7DXl7p7I2EXBDppa7PS9ysccChxQqSY6kbrfllzvRG4A7mDSyRxPrNYq
-	D5iFLfVu7EYFCHMXrNqsgpvsDuS8l/BGisoqXqjqu3Ebrqr5xgRFGhpWmoqQ8oymprE9oz/ZpsDCJ
-	Qf8uq8SdCmm1eeq1nBnBapD5+7ezqXORrvlWxfB2u8VjN+zC9zSk4WanS3E4k2FSMxz47OyZsBdnv
-	FhrxF9Jw==;
+	bh=oV9fg5QbZH9KY2cVOi3dNLkO7JfK17uh2ZE8AgYK5wU=; b=WJXB81gBTAaNXISEv85te9Vf3J
+	k736m7ZPxPkqjlpMS0dGaKAEkxWBbwGX/P9ok9CdyUvzsTW1RYittzmI5FbYLWRhED6hTRxIOCOj3
+	wlJXX4UKgTTPIHx938iypM0qRmjl7GUV7WLWOh529++8Ppkszj3IlUH7p2n0UDEu4KrjEQ40/9j/6
+	HyrR0an6xGnkcQtuUq40q74Dmq6HQ7xcP+SCow1wJwTFQfcI5uFIxeBGdfxuna+VUAh1g0M9H1s5X
+	n2GHT3U0maCESl0tb/XtDSSlOMLFqL8nfoV0pEXvbh+aqmvNbM4tw1g6TIoBbONiCpplJvHXndOIz
+	z2HyKFqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9GEp-00000009DNu-3Vbz;
-	Fri, 08 Nov 2024 04:04:47 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1t9GJS-00000009Dmj-3QBx;
+	Fri, 08 Nov 2024 04:09:34 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9GCJ-00000009D6o-0R73
+	id 1t9GHh-00000009DaP-2wyP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 04:02:12 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7MbcoU011866;
-	Thu, 7 Nov 2024 20:01:56 -0800
-Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2043.outbound.protection.outlook.com [104.47.70.43])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42s6gq8kgt-1
+	Fri, 08 Nov 2024 04:07:47 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7MbeZC022679;
+	Thu, 7 Nov 2024 20:07:33 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=o
+	V9fg5QbZH9KY2cVOi3dNLkO7JfK17uh2ZE8AgYK5wU=; b=MkczBdxhigXHZbdmF
+	ml+7Iv2VpDReouMbkwSC/dat277pA5pNRgOxdll/0NRVJHizsJCeIOVdBvMXIFWP
+	prMR7quL/gDPBd8TJnhe/qWPW5F8zdtBVNsjeefKDxtu0ZUHr3fxsdcwTMfnJ1TY
+	hd/t5JNifIE2tr6vAAsbfF7qLu6Jf5tpn82fzhwJC0OENNqOIz9DyIgWdxmcnrH0
+	Pv0EQFcYT68nzKryUAySk1I6paQvr5qqqnZVjcVvr1lxzCmvJrhlP/1PWEr3DWuR
+	C6Am7jcczJZv2/bJW262nmgECPvXJTCC3HXzDuLuYmaw1ysgp/COo1QtDxT6LjsN
+	i691w==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42s6gu8m30-3
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 Nov 2024 20:01:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LiIbHw6Qk/P9byYndyWOLJjEPbTR6hQ0i1RszbTwIlFCmmAglLl8dH/FPeBr4tI5vHxhJTsBMNciXO3OdRGLorOOPPI/W1x5XToptfU9iG5n0PSt1Kqkxm9zdqfo38yiJVVmZfDRu/0A6xbCa6BTkPIawoBb7l07JoxG9GGNhAii1LZMmaasILXYGrQAkTm001mjNfla1FlZNdhiJjri1zCBrlNUbwMtslBDLaRE/BMjOPAroMu30SK7RfAs1OTqYO8h9UT6XXwV8k121Vno6JImgh2FqaT4B0ZAr0V9r+dPvwh7waBL9xNRfFDB9nvcRAvM/7zNDbrTHfPSSTDLJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5jG+lTqc52/fXGhn5iaGDPcIaUub4Twl9LJDBXQvYGs=;
- b=oFwbI6UoJtHQUEqtal/IkauYWW8N1AbVjzNzKfFzyPRGUUryceEdQFq1G8VUpFvDZ/ixJhRHtTuWzCbd6ANK+AtCs66xf2tdcomAKNYAIUELrWITVqC7gUxtuP2mAP+74OpZQFVdUYaYvkLnkU/7VTFbt2tuSnX3ATwiLme/OvGulcvCci7fJucMmys9etB9JqxrCGdVo4ZufXBuzxAT84iGMV9JqskHEoeU6QjJUHai8k/M50tcowKjQ88cbl5qLwLlNJ0y8fH01ksQRr5QP/4fBILkAqVLLIxZphiK1WhIcK6A4V8eFrkMKgh2wDtqCWhEdxmw6rU3XluUSJCWbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
- dkim=pass header.d=marvell.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5jG+lTqc52/fXGhn5iaGDPcIaUub4Twl9LJDBXQvYGs=;
- b=Lix1K94f2TvsLBVagP3nCGNrFJxJU9hjpMOSyfDjGpTOqRWAIqzP/Lt4kfVi4UGcajcM2qj2TPgUW/mICO0e2sUTtGt6j9LDMFH61cmfd2SZQXz7tLNGctbKyQ1lYx/7IQqJGI+YB0g4YyInF9RyaUafCGpxkkGLcHsTYbaZFJs=
-Received: from SJ0PR18MB3865.namprd18.prod.outlook.com (2603:10b6:a03:2ea::22)
- by CH0PR18MB5505.namprd18.prod.outlook.com (2603:10b6:610:188::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.21; Fri, 8 Nov
- 2024 04:01:53 +0000
-Received: from SJ0PR18MB3865.namprd18.prod.outlook.com
- ([fe80::697b:186f:f4bb:a5fc]) by SJ0PR18MB3865.namprd18.prod.outlook.com
- ([fe80::697b:186f:f4bb:a5fc%3]) with mapi id 15.20.8137.018; Fri, 8 Nov 2024
- 04:01:53 +0000
+	Thu, 07 Nov 2024 20:07:33 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Thu, 7 Nov 2024 20:06:33 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 7 Nov 2024 20:06:33 -0800
+Received: from IPBU-BLR-SERVER1.marvell.com (IPBU-BLR-SERVER1.marvell.com [10.28.8.41])
+	by maili.marvell.com (Postfix) with ESMTP id D47F85B6926;
+	Thu,  7 Nov 2024 20:06:30 -0800 (PST)
 From: Gowthami Thiagarajan <gthiagarajan@marvell.com>
-To: Will Deacon <will@kernel.org>
-CC: "mark.rutland@arm.com" <mark.rutland@arm.com>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        Bharat Bhushan <bbhushan2@marvell.com>,
-        George Cherian <gcherian@marvell.com>,
-        Sunil Kovvuri Goutham
-	<sgoutham@marvell.com>,
-        "jonathan.cameron@huawei.com"
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v9 1/5] perf/marvell: Refactor to extract platform data -
- no functional change
-Thread-Topic: [PATCH v9 1/5] perf/marvell: Refactor to extract platform data -
- no functional change
-Thread-Index: AQHbMZLyoBggA/nZBUyZSWpj/CKNMw==
-Date: Fri, 8 Nov 2024 04:01:53 +0000
-Message-ID: <SJ0PR18MB3865C0CBD980660D828A3693DB5D2@SJ0PR18MB3865.namprd18.prod.outlook.com>
-References: <20241016080153.3546353-1-gthiagarajan@marvell.com>
- <20241016080153.3546353-2-gthiagarajan@marvell.com>
- <20241024120925.GB30510@willie-the-truck>
-In-Reply-To: <20241024120925.GB30510@willie-the-truck>
-Accept-Language: en-IN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR18MB3865:EE_|CH0PR18MB5505:EE_
-x-ms-office365-filtering-correlation-id: c2cec7c3-c7fe-4abc-f8f5-08dcffaa14a2
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?TVVDQ3cvdXRUMitYMmxWSWNpZ0ZtYkthMzRuOHZiMHdUR3R2V29MOWV0L0U1?=
- =?utf-8?B?a2RINGNHZmoxcHg4VDNWMkJoUmkrcmtweWFLS0dMT29QWnl1NGMvejBIREF3?=
- =?utf-8?B?a1Y0TFYrbTVoNFh6YUg2b2hjd3NERmFpTjN2UnlhcnFHUENyZmFuZWRyV092?=
- =?utf-8?B?cnZZYitjYkg5K1NvRjJIc3F2aUtDV21Fd0hhV3UxL1padkY4NlJsbDFqNmJC?=
- =?utf-8?B?cnh6OGVEcU52eHl1K2YwSzV6Y3hWWk1lTldSOGNtUnJENVhpUTNHNjh1V0hO?=
- =?utf-8?B?UnRBNUZNeFhDbHF3R1dmY050UEtzMVlRQjU1ZzBOWHZoU2NpbmMwcHhVYnJx?=
- =?utf-8?B?NDJZaUZjRDRkWHVHREhoTVJpNGtLakUxNlVXL0J2SkNycG1sY1YzU1ZteC9S?=
- =?utf-8?B?V0dUUlk1WmQvWkp2bVdvd0lDQlloU1FHSWxlQnNheTVyb2RUd2FJaWR3NWY5?=
- =?utf-8?B?ZnVaRWF0eVlYVDdTTytpbWwxaGhjTzFiRUkzczM3b3VzOGUwd1FLL0NIcStz?=
- =?utf-8?B?a2lIRUlRU3ltWG9pb3ZTVWpuMWxGSDM3d1dPK0RMam9HY0lPZzJoWm5vQzAw?=
- =?utf-8?B?QVNpS2NVSzhVamt1cmNkeHNyK0x2ei8zWk15cE1hNDR4cWRVNDZISC9ZUktl?=
- =?utf-8?B?eFM2eXdsc1BURjF4STlPeFlJc0lvT09CNEEzdE9WcGRKcmVRRHh0dVhzZEY4?=
- =?utf-8?B?VTlVWkp4QXQ0NDZBYUJwN1NQQ1VObm9PMEx3eHRIL1loMjdRay9GVG16RWI3?=
- =?utf-8?B?ZVBzRm8zcEQyKzJ6OUxLbzBmT01kR001eVJrREp4cVdJQm5idGxicU1xUDM5?=
- =?utf-8?B?R2lIaVcvRUpZdys3cndmVHJLRitZUjEyTVpmd0R0cXlwSmFzUzBBaVJnUys5?=
- =?utf-8?B?eXZMRHVkdUdlMUlTbWJoall1ZktBelgxWU10OGhjaHBsbzkxdzNPY1ZtM3JT?=
- =?utf-8?B?d1BSdVVraDl6bG5nT0N6N0oyekVUNUpEZlpkaldOL2hqd3dmVHFwSVo0aWxt?=
- =?utf-8?B?MWFaVzBDbVd3eE9EMmRmUFlXRXBCZU50VHBkSHhkUTFZN1AyNmhkU3NDU2N5?=
- =?utf-8?B?eEZ0QlhaZ1k5TUduSys1Szl1SDlLdG1MczJMSmNLaFZJOHN3aTRvSUgvZTJZ?=
- =?utf-8?B?Z2wxRkZveUwvNlNjUzkzNlpaNS9KQXpINmRUeThnVUl3Mk5lMXFQUjM4M2hr?=
- =?utf-8?B?U04zVUJ0K1F3RXB0VUpzZTdPWDM1WFhQOUk2RlZjVVdkMXBjKzdWNzFKcFo3?=
- =?utf-8?B?YWNjTTEvcnptNTU2clBrZi9xQUo3NWVFb1diMWtHZUkxOFBYTzRsTHZQVjZJ?=
- =?utf-8?B?WFFQY2laNmMwcmgvVDRKZXAxekI0S0xrQm1OR2h6UlU4UWtFa1RBcGJLMVF2?=
- =?utf-8?B?b1JvNXNHWWpXRGw2WFhwSDl4eHRKN1lYUldBaGk1OUNGOWp6eFY1R2dlWVJY?=
- =?utf-8?B?WktKUW0rTnNaVXZ3WjZUMXp5QldEQXdoalM2M0ZkVG5xTjgvN1Jad2tjRGcx?=
- =?utf-8?B?ZTF6OW13a1dXM242ZEhTU2RCRGdFYitnQ1ljVWpHdVVYZDdJQU9OalcreWVm?=
- =?utf-8?B?eGhVeXRSUHU2TzQxUTQvaDUwZCtpMjByMnhFRUQ4YnEvbjY3NHUrNHRSckEr?=
- =?utf-8?B?bG5jakpMRCthRnFydEM5MEhtZ3N6STY1akMyeXlka0lMVEEvVHBFZDBCQVJt?=
- =?utf-8?B?Q0l0R2twcGRGTEZkZmY0b2crK01YR2JVcjZsZkxEYmNHUlBYYmpMK1JSODg4?=
- =?utf-8?B?ZnJpTEduRlNiZHFlZGJQcmRKK2NNb2YrWDFQRzdRV0V5NXQxcWVJV1lLSTJC?=
- =?utf-8?Q?jr0r61ZqNy+GhEgckrpvBCT8o7PcfoD9YkPuw=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR18MB3865.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UHhuOTR4OVNKbHNmejBIQkNhNFRKcFk0Nld3dS8zbllXbkgyTHJzQ0FkdDNo?=
- =?utf-8?B?eVptWmUzRENYdnlhOC9wYm5sbHJPSEJ6NG8vcWpFZDVVRUE4aE0weW4zeldD?=
- =?utf-8?B?S2svQ1R1elQySkNDNWV3Y0dPL0tCV3JjbDdxZnNacUVBKzhMY2VxaVpmVmRK?=
- =?utf-8?B?T21KTUcwcUhnVFdIUnNvRGxKejBDeG5JTk94YmlPYUI1a2ROdFRuZjlXaGhS?=
- =?utf-8?B?aHJKOElySTUxUDNOVmlXWnZRTzZtMUtnRUZ4eXlsVWRSbGVRREJOYTF1UTNW?=
- =?utf-8?B?dTRiUlRrMk5odEU4WUNIZmhyeDQxWllEekhpS1NnZ1dqUFpuNVhpU1F4dUdP?=
- =?utf-8?B?V1BlaFRiU01YVW1kVG4xOUpZUUF1Vyt5bzFURlVndjYrT050RmlOSWw4dElP?=
- =?utf-8?B?SFV1ckxwOGl3Y0VUeHNMbXc5NkVDRlNWWTUzUU9VL1hmU2Y0aVJBWnpQZ05x?=
- =?utf-8?B?MVJJNk9nTUd4YlJKcWxvcnRrc2s2QURpSzJIZ2dlRXBCQ0RtU0lqZm9MdzZP?=
- =?utf-8?B?UVd6Z21IbExoYTA4Z0tsWnBvdllTekVRNVFxNzlNdEQxUVpjT1hwTXVaTERn?=
- =?utf-8?B?elROaDhIV3dwZUZFbVE3dUxHeFd0bEtvTUYvS0x6SS9PbmxlU0N4SmtyUG9R?=
- =?utf-8?B?RHpsbzdEOERvSWpnd1YxcFJXWlgrS0pWamlYc2ZHRDFlaWxKdHdRRFlPdk9p?=
- =?utf-8?B?WkFZdGlaUDYxMnp1Vk9XeEwwRGhybThES0RsVlZoeCtwU29wMTU1ak1NWVlt?=
- =?utf-8?B?S3E0SDFFSnh6S1dqT2szS3h6MnJXTGZJbzVsZ0JzMmczQ2lvTGVjQkQ5V3pK?=
- =?utf-8?B?dkF2Tjd3bndLTWVDbmp1cTZYOURwSjhIeU1Hc2JlcUtyL21YVXo2eFY2a3hN?=
- =?utf-8?B?dlBqdHRMUmprZkU3MW1wOGVkbldDTERFRzNZWVVEY3ZOM1dWNTVKOU5pd2cy?=
- =?utf-8?B?S3lRVnl1RFRyN1VCcFQ0VXp3eGhOb1FqU3VzY3NJK2l6L2Nnb0pnZEo4Wlg1?=
- =?utf-8?B?TWJ1NEU5eEdEbVYreHlsM2dYQ3I5M1dibzNrZ1I4T2k3cERwQkVpaDc3USt2?=
- =?utf-8?B?eG1DVnlnRy9QQUxMQ1lGWmg2YUhTOWZZRmYxWS9IOTl5dFkyRFN0T2hBNGNV?=
- =?utf-8?B?ek5GZXRqaUV4QWpjVHM1cHZvMjNpYnlCWFJlZXhEVEJiRkREMVdHbmdseitn?=
- =?utf-8?B?Zzd2UFhzcloybGVvTWlkdkxsaVMwVi9PUGRndXQyOU0zZWJLNUtOcVhYSEJT?=
- =?utf-8?B?ckZ5RDRvV2VKTWtHMEgwRThtRm9lOEM2cWY4emVjTFBIM1FjWnNOZXRQeW10?=
- =?utf-8?B?RjdIdzlyeVBla2hlcnQxeGRWQVNxdHQrYStNQWF1eWxxc3JXM3Vjbkd3bTZn?=
- =?utf-8?B?R0hDRVFsQlduL2o2UVkvaXo3TnBNOHA1RzJKdmpkQ3k2R3d2cEZ2bHhYMzJH?=
- =?utf-8?B?cXZCbk5sWWlnY1poYkUzaW9lbExPaTkvdjRKQ3prNjVmTEgzYktYTFRVMnUw?=
- =?utf-8?B?NjdFY2hsb0xDV1dOTVZObnZaTjRyc0FiVmV0MlhUVFg5Wlp6U0lmR0JEMHJ1?=
- =?utf-8?B?SkdKaHpzUHQvN0ZpTlE2ZXpxbzlqbWFWMS9hWFlZUHpueXBIbDlZQ0V0cU1V?=
- =?utf-8?B?UWZOOStxZnZCYTEzZ1Bxbk5MSE5Fa3I0K05yNGxWMEM5ajFzWVNvSWdpRStD?=
- =?utf-8?B?a2tHdzJkRWl6SisrYXdKM1YyQXpac1o3bUUzWHk2cktJQkJLMmpWTWNkNXkz?=
- =?utf-8?B?QlJZd1V2WHAzbStZL3hTcFhlc3J1d0p2NFdhak5yczNxdGpIaklrOVdaSnM0?=
- =?utf-8?B?Q2ZnMkR1YXd2akwzRW5lOVN6NWEwbHZuTU1sYTZlR1RUS3VhY0FJa290THlt?=
- =?utf-8?B?UzBVaUp4OXJNWnE5QUswNktJU3FFUVBYTmtGUlhLRlVZTjBRdFdLSXBPOGM2?=
- =?utf-8?B?Y0h5TFo0SlM0THBrMFlJTStmdFQ5ZXN0YzlUQVp4cVJEcUI3Y0lUM25EOWty?=
- =?utf-8?B?akdsRmhvWUY0WUxQNWplcmN2eDVhb3pJUEFHQzB1dzVwdUpTRXRpZVJGUGRC?=
- =?utf-8?B?QVp6Mjk2WWlhaE1jRGxOK0ZuVnN3VW5QSHpGOG00RmxVS0NJRmJBQlgzZW1U?=
- =?utf-8?Q?2GydbtZzb+3uZNRYDUg1u0ofK?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <bbhushan2@marvell.com>, <gcherian@marvell.com>, <sgoutham@marvell.com>,
+        <jonathan.cameron@huawei.com>,
+        Gowthami Thiagarajan
+	<gthiagarajan@marvell.com>,
+        Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+Subject: [PATCH v10 2/5] perf/marvell: Refactor to extract PMU operations
+Date: Fri, 8 Nov 2024 09:36:16 +0530
+Message-ID: <20241108040619.753343-3-gthiagarajan@marvell.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241108040619.753343-1-gthiagarajan@marvell.com>
+References: <20241108040619.753343-1-gthiagarajan@marvell.com>
 MIME-Version: 1.0
-X-OriginatorOrg: marvell.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR18MB3865.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2cec7c3-c7fe-4abc-f8f5-08dcffaa14a2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Nov 2024 04:01:53.5454
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4v9X6LQYcyEduMmNM6st+uNZOsTdpbgyGPzWL8mVZMydtD+sqO5AXRfB0FzVs0twAM26hVIMeuCXk9nOch+ao9en8OtSREY8E7hMr3PvePc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR18MB5505
-X-Proofpoint-GUID: B8B5xd7cygSKxGswjZIcZ1TVlWGIttsm
-X-Proofpoint-ORIG-GUID: B8B5xd7cygSKxGswjZIcZ1TVlWGIttsm
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: R-2qhBaiz9FH0SJBfb2QkEE3Xwqvix_V
+X-Proofpoint-GUID: R-2qhBaiz9FH0SJBfb2QkEE3Xwqvix_V
 X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_200211_173414_4A7CF54C 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20241107_200745_785717_DF09BCED 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,37 +93,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgV2lsbCwNCg0KRnJvbTogV2lsbCBEZWFjb24gPHdpbGxAa2VybmVsLm9yZz4gDQpTZW50OiBU
-aHVyc2RheSwgT2N0b2JlciAyNCwgMjAyNCA1OjM5IFBNDQpUbzogR293dGhhbWkgVGhpYWdhcmFq
-YW4gPGd0aGlhZ2FyYWphbkBtYXJ2ZWxsLmNvbT4NCkNjOiBtYXJrLnJ1dGxhbmRAYXJtLmNvbTsg
-bGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBsaW51eC1rZXJuZWxAdmdlci5r
-ZXJuZWwub3JnOyBCaGFyYXQgQmh1c2hhbiA8YmJodXNoYW4yQG1hcnZlbGwuY29tPjsgR2Vvcmdl
-IENoZXJpYW4gPGdjaGVyaWFuQG1hcnZlbGwuY29tPjsgU3VuaWwgS292dnVyaSBHb3V0aGFtIDxz
-Z291dGhhbUBtYXJ2ZWxsLmNvbT47IGpvbmF0aGFuLmNhbWVyb25AaHVhd2VpLmNvbQ0KU3ViamVj
-dDogW0VYVEVSTkFMXSBSZTogW1BBVENIIHY5IDEvNV0gcGVyZi9tYXJ2ZWxsOiBSZWZhY3RvciB0
-byBleHRyYWN0IHBsYXRmb3JtIGRhdGEgLSBubyBmdW5jdGlvbmFsIGNoYW5nZU9uIFdlZCwgT2N0
-IDE2LCAyMDI0IGF0IDAxOuKAijMxOuKAijQ5UE0gKzA1MzAsIEdvd3RoYW1pIFRoaWFnYXJhamFu
-IHdyb3RlOiA+IFRoaXMgY29tbWl0IGludHJvZHVjZXMgYSByZWZhY3RvciB0byB0aGUgTWFydmVs
-bCBERFIgcG11IGRyaXZlciwgPiBzcGVjaWZpY2FsbHkgdGFyZ2V0aW5nIHRoZSBleHRyYWN0aW9u
-IG9mIHBsYXRmb3JtIGRhdGEgPiAocmVmZXJyZWQgdG8gYXMgInBkYXRhIikgZnJvbSB0aGUgZXhp
-c3RpbmcNCg0KT24gV2VkLCBPY3QgMTYsIDIwMjQgYXQgMDE6MzE6NDlQTSArMDUzMCwgR293dGhh
-bWkgVGhpYWdhcmFqYW4gd3JvdGU6DQo+IFRoaXMgY29tbWl0IGludHJvZHVjZXMgYSByZWZhY3Rv
-ciB0byB0aGUgTWFydmVsbCBERFIgcG11IGRyaXZlciwNCj4gc3BlY2lmaWNhbGx5IHRhcmdldGlu
-ZyB0aGUgZXh0cmFjdGlvbiBvZiBwbGF0Zm9ybSBkYXRhDQo+IChyZWZlcnJlZCB0byBhcyAicGRh
-dGEiKSBmcm9tIHRoZSBleGlzdGluZyBkcml2ZXIuIFRoZSBwdXJwb3NlIG9mDQo+IHRoaXMgcmVm
-YWN0b3IgaXMgdG8gcHJlcGFyZSBmb3IgdGhlIHVwY29taW5nIHN1cHBvcnQgb2YgdGhlIG5leHQN
-Cj4gdmVyc2lvbiBvZiB0aGUgUGVyZm9ybWFuY2UgTW9uaXRvcmluZyBVbml0IChQTVUpIGluIHRo
-aXMNCj4gZHJpdmVyLg0KPiANCj4gTm8gZnVuY3Rpb25hbCBjaGFuZ2VzIGFyZSBpbnRyb2R1Y2Vk
-IGluIHRoaXMgcmVmYWN0b3IuIEl0cyBzb2xlDQo+IHB1cnBvc2UgaXMgdG8gaW1wcm92ZSBjb2Rl
-IG9yZ2FuaXphdGlvbiBhbmQgcGF2ZSB0aGUgd2F5IGZvcg0KPiBmdXR1cmUgZW5oYW5jZW1lbnRz
-IHRvIHRoZSBkcml2ZXIuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBHb3d0aGFtaSBUaGlhZ2FyYWph
-biA8bWFpbHRvOmd0aGlhZ2FyYWphbkBtYXJ2ZWxsLmNvbT4NCj4gLS0tDQo+ICBkcml2ZXJzL3Bl
-cmYvbWFydmVsbF9jbjEwa19kZHJfcG11LmMgfCAxNjAgKysrKysrKysrKysrKysrKysrKy0tLS0t
-LS0tDQo+ICAxIGZpbGUgY2hhbmdlZCwgMTEyIGluc2VydGlvbnMoKyksIDQ4IGRlbGV0aW9ucygt
-KQ0KDQpQbGVhc2UgcmVhZCB0aGUgIkRlc2NyaWJlIHlvdXIgY2hhbmdlcyIgc2VjdGlvbiBvZg0K
-RG9jdW1lbnRhdGlvbi9wcm9jZXNzL3N1Ym1pdHRpbmctcGF0Y2hlcy5yc3QuIFNwZWNpZmljYWxs
-eSwgd2UncmUNCnN1cHBvc2VkIHRvIHVzZSB0aGUgaW1wZXJhdGl2ZSBtb29kIGFuZCBhdm9pZCBz
-YXlpbmcgIlRoaXMgcGF0Y2giIChUaGlzDQpjb21taXQpLg0KDQpZb3VyIG90aGVyIGNvbW1pdCBt
-ZXNzYWdlcyBoYXZlIHRoZSBzYW1lIHByb2JsZW1zLg0KDQpXaWxsIHVwZGF0ZSB0aGUgY29tbWl0
-IG1lc3NhZ2VzLg0KVGhhbmtzLA0KR293dGhhbWkNCg0KV2lsbA0K
+Introduce a refactor to the Marvell DDR PMU driver to extract
+PMU operations ("pmu ops") from the existing driver.
+
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+Signed-off-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
+---
+ drivers/perf/marvell_cn10k_ddr_pmu.c | 105 +++++++++++++++++++++------
+ 1 file changed, 83 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
+index efac4cef4050..45da37e702a2 100644
+--- a/drivers/perf/marvell_cn10k_ddr_pmu.c
++++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
+@@ -127,6 +127,7 @@ struct cn10k_ddr_pmu {
+ 	struct pmu pmu;
+ 	void __iomem *base;
+ 	const struct ddr_pmu_platform_data *p_data;
++	const struct ddr_pmu_ops *ops;
+ 	unsigned int cpu;
+ 	struct	device *dev;
+ 	int active_events;
+@@ -135,6 +136,16 @@ struct cn10k_ddr_pmu {
+ 	struct hlist_node node;
+ };
+ 
++struct ddr_pmu_ops {
++	void (*enable_read_freerun_counter)(struct cn10k_ddr_pmu *pmu,
++					    bool enable);
++	void (*enable_write_freerun_counter)(struct cn10k_ddr_pmu *pmu,
++					     bool enable);
++	void (*clear_read_freerun_counter)(struct cn10k_ddr_pmu *pmu);
++	void (*clear_write_freerun_counter)(struct cn10k_ddr_pmu *pmu);
++	void (*pmu_overflow_handler)(struct cn10k_ddr_pmu *pmu, int evt_idx);
++};
++
+ #define to_cn10k_ddr_pmu(p)	container_of(p, struct cn10k_ddr_pmu, pmu)
+ 
+ struct ddr_pmu_platform_data {
+@@ -375,6 +386,7 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
+ 					  int counter, bool enable)
+ {
+ 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	const struct ddr_pmu_ops *ops = pmu->ops;
+ 	u32 reg;
+ 	u64 val;
+ 
+@@ -394,21 +406,10 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
+ 
+ 		writeq_relaxed(val, pmu->base + reg);
+ 	} else {
+-		val = readq_relaxed(pmu->base +
+-				    p_data->cnt_freerun_en);
+-		if (enable) {
+-			if (counter == DDRC_PERF_READ_COUNTER_IDX)
+-				val |= DDRC_PERF_FREERUN_READ_EN;
+-			else
+-				val |= DDRC_PERF_FREERUN_WRITE_EN;
+-		} else {
+-			if (counter == DDRC_PERF_READ_COUNTER_IDX)
+-				val &= ~DDRC_PERF_FREERUN_READ_EN;
+-			else
+-				val &= ~DDRC_PERF_FREERUN_WRITE_EN;
+-		}
+-		writeq_relaxed(val, pmu->base +
+-			       p_data->cnt_freerun_en);
++		if (counter == DDRC_PERF_READ_COUNTER_IDX)
++			ops->enable_read_freerun_counter(pmu, enable);
++		else
++			ops->enable_write_freerun_counter(pmu, enable);
+ 	}
+ }
+ 
+@@ -464,6 +465,7 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
+ {
+ 	struct cn10k_ddr_pmu *pmu = to_cn10k_ddr_pmu(event->pmu);
+ 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	const struct ddr_pmu_ops *ops = pmu->ops;
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	u8 config = event->attr.config;
+ 	int counter, ret;
+@@ -492,11 +494,9 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
+ 	} else {
+ 		/* fixed event counter, clear counter value */
+ 		if (counter == DDRC_PERF_READ_COUNTER_IDX)
+-			val = DDRC_FREERUN_READ_CNT_CLR;
++			ops->clear_read_freerun_counter(pmu);
+ 		else
+-			val = DDRC_FREERUN_WRITE_CNT_CLR;
+-
+-		writeq_relaxed(val, pmu->base + p_data->cnt_freerun_ctrl);
++			ops->clear_write_freerun_counter(pmu);
+ 	}
+ 
+ 	hwc->state |= PERF_HES_STOPPED;
+@@ -578,9 +578,63 @@ static void cn10k_ddr_perf_event_update_all(struct cn10k_ddr_pmu *pmu)
+ 	}
+ }
+ 
++static void ddr_pmu_enable_read_freerun(struct cn10k_ddr_pmu *pmu, bool enable)
++{
++	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	u64 val;
++
++	val = readq_relaxed(pmu->base + p_data->cnt_freerun_en);
++	if (enable)
++		val |= DDRC_PERF_FREERUN_READ_EN;
++	else
++		val &= ~DDRC_PERF_FREERUN_READ_EN;
++
++	writeq_relaxed(val, pmu->base + p_data->cnt_freerun_en);
++}
++
++static void ddr_pmu_enable_write_freerun(struct cn10k_ddr_pmu *pmu, bool enable)
++{
++	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	u64 val;
++
++	val = readq_relaxed(pmu->base + p_data->cnt_freerun_en);
++	if (enable)
++		val |= DDRC_PERF_FREERUN_WRITE_EN;
++	else
++		val &= ~DDRC_PERF_FREERUN_WRITE_EN;
++
++	writeq_relaxed(val, pmu->base + p_data->cnt_freerun_en);
++}
++
++static void ddr_pmu_read_clear_freerun(struct cn10k_ddr_pmu *pmu)
++{
++	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	u64 val;
++
++	val = DDRC_FREERUN_READ_CNT_CLR;
++	writeq_relaxed(val, pmu->base + p_data->cnt_freerun_ctrl);
++}
++
++static void ddr_pmu_write_clear_freerun(struct cn10k_ddr_pmu *pmu)
++{
++	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	u64 val;
++
++	val = DDRC_FREERUN_WRITE_CNT_CLR;
++	writeq_relaxed(val, pmu->base + p_data->cnt_freerun_ctrl);
++}
++
++static void ddr_pmu_overflow_hander(struct cn10k_ddr_pmu *pmu, int evt_idx)
++{
++	cn10k_ddr_perf_event_update_all(pmu);
++	cn10k_ddr_perf_pmu_disable(&pmu->pmu);
++	cn10k_ddr_perf_pmu_enable(&pmu->pmu);
++}
++
+ static irqreturn_t cn10k_ddr_pmu_overflow_handler(struct cn10k_ddr_pmu *pmu)
+ {
+ 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
++	const struct ddr_pmu_ops *ops = pmu->ops;
+ 	struct perf_event *event;
+ 	struct hw_perf_event *hwc;
+ 	u64 prev_count, new_count;
+@@ -620,9 +674,7 @@ static irqreturn_t cn10k_ddr_pmu_overflow_handler(struct cn10k_ddr_pmu *pmu)
+ 		value = cn10k_ddr_perf_read_counter(pmu, i);
+ 		if (value == p_data->counter_max_val) {
+ 			pr_info("Counter-(%d) reached max value\n", i);
+-			cn10k_ddr_perf_event_update_all(pmu);
+-			cn10k_ddr_perf_pmu_disable(&pmu->pmu);
+-			cn10k_ddr_perf_pmu_enable(&pmu->pmu);
++			ops->pmu_overflow_handler(pmu, i);
+ 		}
+ 	}
+ 
+@@ -661,6 +713,14 @@ static int cn10k_ddr_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
+ 	return 0;
+ }
+ 
++static const struct ddr_pmu_ops ddr_pmu_ops = {
++	.enable_read_freerun_counter = ddr_pmu_enable_read_freerun,
++	.enable_write_freerun_counter = ddr_pmu_enable_write_freerun,
++	.clear_read_freerun_counter = ddr_pmu_read_clear_freerun,
++	.clear_write_freerun_counter = ddr_pmu_write_clear_freerun,
++	.pmu_overflow_handler = ddr_pmu_overflow_hander,
++};
++
+ #if defined(CONFIG_ACPI) || defined(CONFIG_OF)
+ static const struct ddr_pmu_platform_data cn10k_ddr_pmu_pdata = {
+ 	.counter_overflow_val =  BIT_ULL(48),
+@@ -713,6 +773,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
+ 	is_cn10k = ddr_pmu->p_data->is_cn10k;
+ 
+ 	if (is_cn10k) {
++		ddr_pmu->ops = &ddr_pmu_ops;
+ 		/* Setup the PMU counter to work in manual mode */
+ 		writeq_relaxed(OP_MODE_CTRL_VAL_MANUAL, ddr_pmu->base +
+ 			       ddr_pmu->p_data->cnt_op_mode_ctrl);
+-- 
+2.25.1
+
 
