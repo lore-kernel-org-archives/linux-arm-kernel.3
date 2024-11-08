@@ -4,185 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C74D5E13F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 06:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC07AD5E140
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 06:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQpv0T2SEpAqkIE4AhF2AVC4LDtXueXYpPFptIoFlh4=; b=ucyNluUtBoBrwcW+fJAZzmOVqy
-	e9rRYsgQABXfflIfKIqefO+Sdc5qLzXIKAzVL4S1z8IkFMt4vfC3JXn2vS7ZgZJvGUg7GlUOC4xHU
-	qftAvWEwzUPOkilc0dT9wAURqA1xGA9qullBtul5DTJYaGoJtLba4/O4ZT2jqIWQaaZ7AaYWH92+B
-	6SOG5zpS/Gxz7HeVPWu9kB7xMz1k+FqPQQITMD98FinSt7lDtsUOWSgHf8sXpCsgGWWePwK3UPSD5
-	X3Gz9X1qiVwIoWcSn/Vl7g5eLfa7Iq3duxaW/8TmVHtZVO4/zGey5/Aq0uZ/40YHD2qGVXaX8WVgK
-	1JFbF5fg==;
+	bh=nhKZViwIojy1jznqH+DVmUP0BD/k7Oy5tX4x7kzV0XQ=; b=SAsVc9vxuetfmlg4UWd4CRJl8M
+	CP3RBBSwMkZOa2U2EBDrIEEWixvInJMAQQh52x9Jy0wPmGbDEKuv0KFQEnuXgXS5mylsIXr6ZEvVe
+	IqpbiRC4qaRzb9V+b3JT1Ej88FTcio0f0wB6ooC21hwajIlhWcXDaNChuT5YEdy3bGgWWRWEtSueg
+	W6q98E+nqQEXbMLsE+BETU07gONy8N0cPI0wwM4bRUP/llMr+ZNH46HR1c6mAdvpbfBxjL73i8Gz6
+	qunqYMx6G+PcUPnWmXcg+oyy9INbu00IViTMeYIrKYjjqT0CYrI84NxbFBSeFiNTMqPzWMsriPMAg
+	AhG0La+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9IMM-00000009TtO-0st2;
-	Fri, 08 Nov 2024 06:20:42 +0000
-Received: from mail-sg2apc01on20730.outbound.protection.outlook.com ([2a01:111:f403:200f::730] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1t9IVz-00000009VGm-30eH;
+	Fri, 08 Nov 2024 06:30:39 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9IKa-00000009TiN-30Z2;
-	Fri, 08 Nov 2024 06:18:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lqp7NefFiV4rTDBhAtuvudCwqCpu09RrpbYObm+UXhnUNOVRBi7SrrOwdUV+B79/rDjxo8LhDd75yGdbN/1fEAWXG7G6q8jxJc8zg7SF3dPi3FpM69/kgKuk1jJOekw2RBH97stIYJ9Dmunp3NvIniqh6eUz7dkbDZHQpNA5PIJmspVkAdgnNAa/EEn1sLp7InCRx1v7c7hYKCueRk5w0CQp5wiiF2M78LmoWuUEWz4G8b5JeYxv5wfUYYY9HMxRjIoasmi+YnaLckHnrxLF34KbcFtsDYCGZBMul+tQ9UxhZBHZD4BcicRflVRJV3a3TNEWEo1dUgASWkIgCi759A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BQpv0T2SEpAqkIE4AhF2AVC4LDtXueXYpPFptIoFlh4=;
- b=tvcpHK+numX7TnjegWz0nviUd3DlIuDbfLqwK5KTnK8w2CF96FA6ZS693YFcZ45/mVZT+NTTqG6cBpCEFpWdov2VXwrbranlYO1kfJTrqRL9L5lwNd7C4EjTRicWwGGZ7Gfz0rzqiomKRPPK2toHYJeu2HcYuiy265WCmNorToiIp57J4oVUZSTZREdClU7kb088CImq6KgxKyWMU4c0RVRv4Ho7D3+ErlT2E9lXe1ubMydDrpU8BtzozllDQ3QpU1VRTt+TkgmDm5Rr4MmzlPnDuZRvezDc2HkuccFdzQTrvTe34UXGBheKqEBZnes2K0nFINMCd9q+qIN1LUvzKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BQpv0T2SEpAqkIE4AhF2AVC4LDtXueXYpPFptIoFlh4=;
- b=XfGB/g5n7t3D2GbHNIX4oIvsroEe2flGpH8DD+iwJkJY6ausvMOfXp4DJRtEvV6+jtJJPEHT+VyyyAtVDhH/P8hJqHIc4wB0yrWr3K/lG02GqZQ7Gd5d+rkW7L6WUSzEmxdf5MfbfkWmqi3nUuB0e4r3Wq0HK3U7PgmtWOm+Oaum3l+jKBuar7pBgRw/dSWRHGXALYOgf+LiYqltjeEwQm8CbANQpGKHyJQ4uNCLmY71rR1nWjKaFGraQ7oEcuw0HZpU79YHPWQjKCknxQ7MK44t5VJaJeRdEhrp+J0ypMEtUyZinP1d54zR54WGij5GF4S6+8lArOS3uQjy+tYk8A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by KL1PR03MB7019.apcprd03.prod.outlook.com (2603:1096:820:b4::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20; Fri, 8 Nov
- 2024 06:18:41 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::ac4e:718:3b03:3123%5]) with mapi id 15.20.8137.018; Fri, 8 Nov 2024
- 06:18:41 +0000
-Message-ID: <820705e4-d8bf-403a-9017-d20a028616ae@amlogic.com>
-Date: Fri, 8 Nov 2024 14:18:38 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add support for Amlogic A4
- SoCs
-Content-Language: en-US
-To: neil.armstrong@linaro.org, Krzysztof Kozlowski <krzk@kernel.org>,
- Jerome Brunet <jbrunet@baylibre.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241018-a4_pinctrl-v3-0-e76fd1cf01d7@amlogic.com>
- <20241018-a4_pinctrl-v3-1-e76fd1cf01d7@amlogic.com>
- <4a79f996-9d82-48b2-8a93-d7917413ed8c@kernel.org>
- <1jttd9rein.fsf@starbuckisacylon.baylibre.com>
- <4127b448-a914-4c69-b938-29512995326f@amlogic.com>
- <1jmsj1rclh.fsf@starbuckisacylon.baylibre.com>
- <d654d2b2-977b-44c0-8b01-b26f5eb0a3fe@kernel.org>
- <5ad8f396-84a5-486d-b90d-98fbf8882d1b@linaro.org>
- <e6cd13b5-2f7a-4ab1-899c-5867bc0ea64f@kernel.org>
- <fdb4d0eb-a5e5-4061-b3cc-14958473baf3@linaro.org>
- <c8a03fa6-9ac5-434f-ba13-78e47ad341b8@kernel.org>
- <f6c4cee8-dd22-4b30-a3b2-aee48e2c3611@linaro.org>
- <91bcc765-2e56-433d-a629-c5255fc8d256@kernel.org>
- <24acd645-4094-48aa-82e3-42d30a340884@amlogic.com>
- <78e6ca30-9fd6-4384-9583-440c485fb8ed@linaro.org>
- <d4ae04da-d841-49e8-be88-b0fe0c7b3de5@amlogic.com>
- <a0c30691-ad28-4217-bf46-924fca5f48de@linaro.org>
- <7c069b82-c31b-45cc-8cf3-a2181a56c2f5@amlogic.com>
- <3b712cc6-3f3d-4786-b2f8-d66e40cf5008@linaro.org>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <3b712cc6-3f3d-4786-b2f8-d66e40cf5008@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TYCP286CA0006.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:26c::14) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	id 1t9IUF-00000009V2n-0H7C
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 06:28:52 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5c9362c26d8so4999911a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 22:28:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731047329; x=1731652129; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nhKZViwIojy1jznqH+DVmUP0BD/k7Oy5tX4x7kzV0XQ=;
+        b=WYeH/G44MfZMp65Yds2E8CJpvYFL7FKqkA9UY5zCoNSBTLwDZ8Ww94GMDFWb4y6Ujl
+         nWCLnIizbbdvhKJ/x8Ry6X3E/k6Qu5h53iGVdVNL04nk/e7jrnnPTdzINvuCngRwjW5p
+         TjK+ILODSwAOwTX6Eghp5WBNUcOF6dYJ+o8yU370XajhaxysLUCbndfmZPQuHFUUGiH2
+         vSisfDjMAsar+U3J1j8bZijBLQORNxu2i5WNqXEMUJxmhXMtsXuODrfd/izUpzL4FD5a
+         LMVPyGSjzuPaVwjskvj+xV/2n2/pCEkDO64x1SE/FPlmZSOMRfufRPWK5lIv/3M3NHH9
+         olGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731047329; x=1731652129;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nhKZViwIojy1jznqH+DVmUP0BD/k7Oy5tX4x7kzV0XQ=;
+        b=Tc1cPQN5VEn/gZ682UKvTk3HBnwCKOa1IMIbOUK8KnVS5cUb2L/diekQDk9Y0biw7Z
+         bFT3bbzT5E4hoso7MH7ZBOz1Pjl8H01MJWHaX4NCrKjrbSUNDsyu9PMCiKLPGD7jIWyY
+         t/7S4LUUXJdlxBsIDz9RsRmzeP8+Hrc5YarPF8g5g2GpHP5w5AShI6iLezmONiglnjgC
+         u+bZhzp0CYqrTgTOQGJaqyHH3d1ZhiY+0laxnC8qZ/FIQfqXK7/ESMedL3ZjtUAIx/qj
+         JLcl0ywOciYquMqlHhqX7fYhJwcCLi9iVl0YuAWDZK/SGnzJRGMWXdzFyQVkXd7VpC6P
+         Fdbg==
+X-Forwarded-Encrypted: i=1; AJvYcCW+EjULPdJ32XNKwsBDTgSupd7QwLTimziew7fDWe+HWpyURxWFrpjny0b09VeheniWchBJWJLHjmsCh9QQVMUD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP2QCU/c4IbY8EdCpOOuuIjy5REy9Y6QX8e0oZ28pom/U4nMmf
+	gHwnkqyyZTCLJ/5pmB1XClpU45a6hfi50TVRJ6J/zjFYp3STUHpVkp1wlsb1DI9ltfqT2KSWtn9
+	BmzuI1MXdiDPNgDkMGedCv187djE/q8qqIOxngg==
+X-Google-Smtp-Source: AGHT+IF4QpvMl47Anct7uB8oNOeB/KNHWgHKnvD8Y/Uan+WAiJAKM17lcJrxkRIlrQw6Wda6VuR3wUPC5X6N3HpZEeQ=
+X-Received: by 2002:a17:907:96a2:b0:a9a:7b3d:705 with SMTP id
+ a640c23a62f3a-a9eecabd4e7mr172472666b.30.1731047328457; Thu, 07 Nov 2024
+ 22:28:48 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|KL1PR03MB7019:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93b557d9-1832-45aa-964a-08dcffbd30ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?enYzeXFmZld0UER4Q3hjaG9VUW5tVFpDbjNtQzg4TkJSYmxIYS9Pd2VHMU1L?=
- =?utf-8?B?MnNFNFhweEJYazdqcEd6MEN2U2EydU5tZkc5YkZpa21Zc1FLQlo1U0Y1NGdo?=
- =?utf-8?B?aDRDU3VxOTByYzE5NWtvbkpjVEY4OGJIS25xeWVwTHZrRnlnSVdkT2s0c3Ft?=
- =?utf-8?B?eFF4ZVVpZGIxeUUyUSt2OHlNMzNRWWJ2V2F3dE9HT1dJR2xNanJReFdVdkdV?=
- =?utf-8?B?TUthdXRMNVpNT3VWaWNsb1NLWTlUYzQzRXdNSlFxY09vZTZIZ1lpY2NCQzEz?=
- =?utf-8?B?SE9wa0k0QmN5RUhLdWJzL1JFZW5qWnlMMWtBUWw3Yys2eWNtWkMzRzREa0NX?=
- =?utf-8?B?d1QreHgvWi92Vnd6UytNUVdNQ1JMQ1ppVFF0ZElka2xmQ1NYdWtCb3preDJW?=
- =?utf-8?B?UWxaMGc4SHFCQTlBWTgrNGx6T0x1Ti9IaS9MSmlmZkI1MU5DYXRxblVTYTVD?=
- =?utf-8?B?YWdJZzIwRXdqQSsrKzUzcGZKcjhZREFvd081TXQxWjlnV3hWNUtnQVNReHl6?=
- =?utf-8?B?b3d3eWwyQ3JqNkVjeE5KY3RqUlExRmVwWkV2QlBGMmIvVkcvVHRTZFRPdXNB?=
- =?utf-8?B?bHJMZXJSellDRFRhMnQrcFdxQ0hrYnBFVjRGZXhxaUhpNEZyMXV2UXlXdkp2?=
- =?utf-8?B?OGxIYmY4Z3BFb0hPUGh1Q0RwVmRDcUQ5YUthbXNxd29KUGozZXo0a3MvVHVo?=
- =?utf-8?B?VUkzc3J5V1B4THpzU251QVlXeW5kNm5XUEl0UERVblgxNExDKzBUWVptTmhz?=
- =?utf-8?B?OWE5WkRVTnBmcVFwdTVCZVN4RWc2SElhYjNSbDFpVEZNSjVmNFNNTEhzU1ZU?=
- =?utf-8?B?ZHNVRHJrYWtzeVZuYXZHZ1I5NHFrdnpydmF2ZFdQS0RyM3Z4ZVcwQ2JEVHlv?=
- =?utf-8?B?VmNRMEpaSHpPNGlwN3NZTk1TdENFZ0lGZ3UwRjYweDJVZnBOdDlCamVVVW95?=
- =?utf-8?B?QnMyUnNWM09RWlViQnZvRWRINHRKM2NHYzdJSjgxWlA3bGZUQkxVVUw0SWs0?=
- =?utf-8?B?d1RLaStDSnp1Qjd2ZlpqbHFabzNTejVTRXZJaFdSTTFZUERHU0NtbDRRRzkz?=
- =?utf-8?B?T1JpR1BFWWZSaXF3MEtkSkw2Wk1JK2NwdlhYZkRxZTVUOHZvclJEN0NvVUwz?=
- =?utf-8?B?NlFaMS83ZzNaa1VxYmRES0FYazRiQmljbVA2OWpua00rT2VybjJxOEs2Y01i?=
- =?utf-8?B?WnBVZ241dFpJTUpaVDFMNXZjZlhJeWRyUzkyMWoyWHM1b2RudEtEbHExQkJP?=
- =?utf-8?B?M09KVzh0ZDQ3U1RGc200Ujg0d0NVZHBxL3gyVVgyZlY4VFNudUlncWsxbTJi?=
- =?utf-8?B?UUt4TWhEbThTQ00yY0twQnVRSGlyOU5zSE9HdmJwMHZmODlsRHVYUW9Bamd2?=
- =?utf-8?B?UkxEZCttck0xK2o3OFMwY1NTV0pjUVhtRnhSdktObWk0WTV4ZzA3UHJWaTJn?=
- =?utf-8?B?Tk9ETWVKTEpMMUY5d3ZObEQ3bnA1dTVQbzIzNUlFN0FaK1VnSjJQcXplSmhl?=
- =?utf-8?B?MUh4bzI3dEdCaXVVY0MySVRVQTVCQndrd3J6dktiendPdEZYK2piQThFaC8y?=
- =?utf-8?B?dkdUeks4UHo4N01WclM0QkxOZXdNSVpFUjV5aC9BcGdNRXBid0JyeDYwZjdt?=
- =?utf-8?B?ZVFPWmZ4ZnFyNWh4SnQxdWNUOWUyQ0lYUHNLQkVadXNIL1h1TXVJYTFubndI?=
- =?utf-8?B?czhBbWx1NzE0cDUzcHRBNWRieFI4RDgwSGd0MHhLSUFNWFdNbm9SdG1uV1lw?=
- =?utf-8?Q?Kiv2dziV3ojAsP764QhhKuFEW85L/yq5ss+rInK?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cFRlV3RUWnNxRm80cnJPa3BzTFY5QkNnSEFZcldTSW5kRWVwVHJqVGV4RTlM?=
- =?utf-8?B?RXljQmtNTDZ6M2o4YWR2T1JjNFNvOGwwZmtweXdJSENOMFk4ZWtMUmVYUHVo?=
- =?utf-8?B?NGNZYllLRnR3dWVXV0t4SVVkZC80S3NwaEdEK1FTcjlGU2RkWmNxRjJ5eCtX?=
- =?utf-8?B?bjRWa2hEeDVYZG1Hb1VwU2Nja21YcnZweFZndGtvS3o3RnpiaXBuLzhIdWpN?=
- =?utf-8?B?alEvZUlQLzZ2ZWtXcmlMbkgwKzZZMk1STnZyZVR6dXQ5aEQvR2JKQlI5U3Rx?=
- =?utf-8?B?cnZQM1NPeDZoK3RrV2h2SFlvUVlSMEQ0MTE3NnpBeVFvTmxVQXMrTG9XU0VL?=
- =?utf-8?B?eGVDNnpRSVM5UVlranhhd2J3bXVqWXRGNjJ6dWYwa1ZWYkFkZmh6akgvdE00?=
- =?utf-8?B?QXBXdlh6RlBLS3M3RGRDY2ZmcVUxTzM3ZzQ2UjF3QkwwT3U5S1BFRStGTnpK?=
- =?utf-8?B?bFZDcGhBVDlmT0ptVWpZOStHbnR4SUxMNUVxVzU2djNHaUYzOUpueWhqdk51?=
- =?utf-8?B?N0RUSTVLeGEwSnkwcGtZVFNza1RKNGNiN0g1U0MydzhTbHAzL3lpQzJOZjdw?=
- =?utf-8?B?U1ltWjR4UnRrc2hiYzJNQi9GSHA4NmRDZzV5S0tsanFxZ25Gc25sdlZHdmVt?=
- =?utf-8?B?bnYvWEpKb3diRHJsYnBpVi9wVWQ1Y1c1NGkxUHlWMzR6Zk9iV3VxdEdBL3VU?=
- =?utf-8?B?ZVJrTGIzL08zZmkraWxTZVlrcUtqTlVFNWh2REoxY1pHcmp1ZjYwYTh0UVVl?=
- =?utf-8?B?RXZ0UDhjdWNKQUFrZDk4WTVTdmY4MG5rYnlLaGMvRFJiN1pld2ZENDdseW5r?=
- =?utf-8?B?ZjJTS3FkYS9WQ0xJUGgzN0wwdit2RzNYRi94WVgwSWhkUXRYaHZWdVlscGY0?=
- =?utf-8?B?MFBpekVGTmFNUTVHTlJQNHJkMzNkVStYc2dtTlBnYS9kVmo2LzhZYWNndlcr?=
- =?utf-8?B?b3JvTmNzWXpwU05mTmFldEJZRkNUeU5ta2lRMmxEVVh0ZS9TS1NhQ1A4RmZr?=
- =?utf-8?B?VWVnaUxlWG10WWVFRDEzVWtDdzF5dk5Nb3NqVFRyUWlIei93ZzRGZFNPNjFQ?=
- =?utf-8?B?cFFNcVM4VnBVcWRPbmlkV2R4OVl0WFpvaWw3VUFhRllaQlJMVlFwR3ZiQTZz?=
- =?utf-8?B?TXZhRzRRNzFCcURzc0xJM2RFWGd3dW43TjRKYnhjWEhheCtxNG1VR3cxb2g3?=
- =?utf-8?B?c0w3S3hJdUZFdm9tcWRId2E5LzVWTmlHYk1JbmRpM29jczhsUGFERkVZTlBD?=
- =?utf-8?B?Q2prME1ad3pIN0tnZjlRRzBzRm1lTlJTQTk0eSs2Q3g4SVYvWVphd0dIY2pP?=
- =?utf-8?B?V2c0di9KOWxlZTN0ZGZ5TWZRZ3JRL3BaWnBMSWJDajJjeEVxbFI5NUVOcTNl?=
- =?utf-8?B?bXc5SlB4QlB1V0JMVmFIenNsUVIxVC9DbXdybWh3a0xoeUczRm5sMmI2N29u?=
- =?utf-8?B?T0lEc20yUzhKaW9NM0UwZ2JpU3AwM2ZHakN5U3E3d0Y4T0daRm91ZE1FVFh6?=
- =?utf-8?B?SnB5RENmU2hpalpKTTl0RjdrWFVpaTFjNTRDdndkWDQ0VWxrakkyTy9hQ3Rm?=
- =?utf-8?B?RjB2ZSt4MCtmc0hVVFJKYlg5djhHblJpRFZMQlpUamYvaHorMytyc21MMlNV?=
- =?utf-8?B?aEV1bXVoa0tIOXREVmh4dXkyTlBNVTM4TmZQTTMrWE9wMnJPTk9OcTE2MDBo?=
- =?utf-8?B?RkgyQkVzK01KeklZZlkxdVA1S1BKb21jdFhjNWp1SXN0dElEM0lVS2sxYklI?=
- =?utf-8?B?blFYNWZ2dGhUV1BaQkVmMGFiRFZramNSbUs0WFlhbW12YlI5THZFMW9hdk1i?=
- =?utf-8?B?eFIyQk1kbjZtV3NCMG1tTzlhMitLVGdhVnVHcGd2TUxkMm9wMUg3SEpLZ05k?=
- =?utf-8?B?L1lOSnJMQWtnbHd2anBmSmY5OWRkUHR6Tm5VNFRzSlF6dkgxYmRhbW1UM3Nk?=
- =?utf-8?B?UG8vcU5DMmZrbmdRVGROL0IzNXlrOVZQaGp1c1Iwc3JYd2F4bjJ0enVlYnhm?=
- =?utf-8?B?MjVPNE1teXhZWkdtT1BpK1JnZGhxNnM2R0Yxa1RpYUlueWV0Unc0UmJFVFNM?=
- =?utf-8?B?aTQ2bEJPeVdvcFJtbmVrNlB0MlNNTWFsd1c0a0cvRGFBbWh6YW1icW9URFVV?=
- =?utf-8?B?dlhIZXRiNVcvNXlVVFY5SGFCQUg5TzJsSnZmRCthekJzTkxPY09RamgyTi9R?=
- =?utf-8?B?QlE9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93b557d9-1832-45aa-964a-08dcffbd30ca
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 06:18:41.3462
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3DyuNqbO+9vob/q+wAlZNciKRgY2hUWHFnqtaJPylfjkZD8Gkn+Y/K7nIm7dhi4yQJ44vlEAQ3xL+lJgXikt7IaAzh4Z/Nf6v2WdkqiBvGQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB7019
+References: <20240913132944.1880703-1-beata.michalska@arm.com>
+ <20240913132944.1880703-2-beata.michalska@arm.com> <20241029070429.m7q5dkumitoyqxq2@vireshk-i7>
+ <Zyh_ACbOkSsjcPX3@arm.com>
+In-Reply-To: <Zyh_ACbOkSsjcPX3@arm.com>
+From: Viresh Kumar <viresh.kumar@linaro.org>
+Date: Fri, 8 Nov 2024 11:58:37 +0530
+Message-ID: <CAKohpokFUpQyHYO017kOn-Jbt0CFZ1GuxoG3N-fenWJ_poW=4Q@mail.gmail.com>
+Subject: Re: [PATCH v7 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com, sudeep.holla@arm.com, 
+	will@kernel.org, catalin.marinas@arm.com, rafael@kernel.org, 
+	sumitg@nvidia.com, yang@os.amperecomputing.com, 
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com, 
+	zhanjie9@hisilicon.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_221852_960493_DDF31C24 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20241107_222851_139704_3CFE3C44 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,194 +95,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Neil,
-    Thanks for your reply.
+On Mon, 4 Nov 2024 at 13:30, Beata Michalska <beata.michalska@arm.com> wrote:
 
-    I've already sent RFC v4 version to discuss the feasibility. 
-https://lore.kernel.org/all/20241101-a4_pinctrl-v4-0-efd98edc3ad4@amlogic.com/
+> We need a way to discover whether the new sysfs attrib is to be enabled or not.
 
-    The driver maintains the original framework, and is compatible with 
-the previous, but adds a hook function(of_xlate), and each SoC driver 
-implements its own of_xlate function.
+Ahh, this is too much trouble to make it optional then :)
 
-    In this way, the binding header file needs to be increased once, and 
-the subsequent chip driver no longer adds the header file, this way has 
-acked by Rob.
+> I guess I could change the signature for arch_freq_get_on_cpu to return an error
+> if that functionality is not supported for given policy ?
 
-    what do you think of the changes to the driver?
+That would be more controversial I guess as we may want an unsigned int return
+type for frequency.
 
-On 2024/10/28 18:44, neil.armstrong@linaro.org wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On 28/10/2024 10:59, Xianwei Zhao wrote:
->>
->>
->> On 2024/10/28 17:46, neil.armstrong@linaro.org wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On 28/10/2024 10:36, Xianwei Zhao wrote:
->>>> Hi Neil,
->>>>     Thanks for your advice.
->>>>
->>>> On 2024/10/28 17:09, neil.armstrong@linaro.org wrote:
->>>>> [ EXTERNAL EMAIL ]
->>>>>
->>>>> On 28/10/2024 10:07, Xianwei Zhao wrote:
->>>>>> Hi Neil,
->>>>>>      Based on the current discussion results, GPIO index macro 
->>>>>> definition does not belong to bindings. If so, the pinctrl driver 
->>>>>> keeps the existing architecture, and use numbers instead in dts 
->>>>>> file. Or the pinctrl driver use bank mode acess, this may not be 
->>>>>> compatible with existing frameworks. This is done by adding 
->>>>>> of_xlate hook functions in pinctrl_chip struct.
->>>>>>
->>>>>> What is your advice that I can implement in the next version. Thanks!
->>>>>
->>>>> Keep the driver as-is, but move the header file into 
->>>>> arch/arm64/boot/dts/amlogic like it was done for the last reset 
->>>>> controller support:
->>>>> arch/arm64/boot/dts/amlogic/amlogic-t7-reset.h
->>>>>
->>>>
->>>> I don't see examples C file applies dts header file.
->>>> C file need to be defined once, and this needs to be defined again 
->>>> in dts header file.
->>>
->>> Sorry could you rephrase, the sentence isn't clear.
->>>
->>
->> I'm sorry I didn't describe it clearly.
->>
->> The pin index definition is used in driver C file and in DTS files.
->> It's not like reset definition only used in DTS files.
->> If the pin definition header file place arch/arm64/boot/dts/amlogic, 
->> so the driver C file needs to be defined again. I don't see examples 
->> of how a C file applies a DTS header file.
-> 
-> Good question, I still don't understand why the model we used so far is 
-> suddenly bad.
-> 
-> Rob simply pointed for AOBUS:
-> ==========><=====================
-> I find defines with the value of the define in the name pretty
-> pointless.
-> ==========><=====================
-> 
-> Right but those are an exception because GPIO_TEST_N is the exception,
-> 
-> And of the periphs:
-> ==========><=====================
-> I'm not really much of a fan of using defines for GPIOs, but if you do,
-> wouldn't be better to split banks and lines up rather than a global
-> number space. See ASPEED_GPIO() or tegra header.
-> ==========><=====================
-> 
-> This is exactly what was provided in v2, and mapped what was in 
-> aspeed-gpio.h
-> 
-> I repeat:
-> The GPIO names are not linear to a number, pointing to the first AOBUS 
-> first is a nonsense since GPIO_TEST_N is the exception.
-> 
-> And the driver needs those numbers since they are bindings.
-> 
-> Neil
-> 
->>
->>> Neil
->>>
->>>>
->>>>> Neil
->>>>>
->>>>>>
->>>>>> On 2024/10/21 23:27, Krzysztof Kozlowski wrote:
->>>>>>> [ EXTERNAL EMAIL ]
->>>>>>>
->>>>>>> On 21/10/2024 12:38, neil.armstrong@linaro.org wrote:
->>>>>>>>>> ====><=================
->>>>>>>>>> +/* Standard port */
->>>>>>>>>> +#define GPIOB_START        0
->>>>>>>>>> +#define GPIOB_NUM  14
->>>>>>>>>> +
->>>>>>>>>> +#define GPIOD_START        (GPIOB_START + GPIOB_NUM)
->>>>>>>>>> +#define GPIOD_NUM  16
->>>>>>>>>> +
->>>>>>>>>> +#define GPIOE_START        (GPIOD_START + GPIOD_NUM)
->>>>>>>>>> +#define GPIOE_NUM  2
->>>>>>>>>> +
->>>>>>>>>> +#define GPIOT_START        (GPIOE_START + GPIOE_NUM)
->>>>>>>>>> +#define GPIOT_NUM  23
->>>>>>>>>> +
->>>>>>>>>> +#define GPIOX_START        (GPIOT_START + GPIOT_NUM)
->>>>>>>>>> +#define GPIOX_NUM  18
->>>>>>>>>> +
->>>>>>>>>> +#define PERIPHS_PIN_NUM    (GPIOX_START + GPIOX_NUM)
->>>>>>>>>> +
->>>>>>>>>> +/* Aobus port */
->>>>>>>>>> +#define GPIOAO_START       0
->>>>>>>>>> +#define GPIOAO_NUM 7
->>>>>>>>>> +
->>>>>>>>>> +/* It's a special definition, put at the end, just 1 num */
->>>>>>>>>> +#define    GPIO_TEST_N     (GPIOAO_START +  GPIOAO_NUM)
->>>>>>>>>> +#define    AOBUS_PIN_NUM   (GPIO_TEST_N + 1)
->>>>>>>>>> +
->>>>>>>>>> +#define AMLOGIC_GPIO(port, offset) (port##_START + (offset))
->>>>>>>>>> ====><=================
->>>>>>>>>>
->>>>>>>>>> is exactly what rob asked for, and you nacked it.
->>>>>>>>>
->>>>>>>>> No, this is not what was asked, at least according to my 
->>>>>>>>> understanding.
->>>>>>>>> Number of GPIOs is not an ABI. Neither is their relationship, 
->>>>>>>>> where one
->>>>>>>>> starts and other ends.
->>>>>>>>
->>>>>>>> I confirm this need some work, but it moved the per-pin define 
->>>>>>>> to start
->>>>>>>> and ranges, so what did rob expect ?
->>>>>>>>
->>>>>>>>>
->>>>>>>>> Maybe I missed something, but I could not find any users of 
->>>>>>>>> these in the
->>>>>>>>> DTS. Look:
->>>>>>>>>
->>>>>>>>> https://lore.kernel.org/all/20241014-a4_pinctrl-v2-3-3e74a65c285e@amlogic.com/
->>>>>>>>
->>>>>>>> So you want consumers before the bindings ? strange argument
->>>>>>>>
->>>>>>>>>
->>>>>>>>> Where is any of above defines?
->>>>>>>>>
->>>>>>>>> Maybe they will be visible in the consumer code, but I did not 
->>>>>>>>> imagine
->>>>>>>>> such use. You expect:
->>>>>>>>> reset-gpios = <&ctrl GPIOAO_START 1>???
->>>>>>>>
->>>>>>>> No I expect:
->>>>>>>> reset-gpios = <&ctrl AMLOGIC_GPIO(B, 0) 1>;
->>>>>>>>
->>>>>>>> but the macro should go along the dts like we did for the reset 
->>>>>>>> defines,
->>>>>>>> so perhaps this is the solution ?
->>>>>>>
->>>>>>> OK, so I said it was not a binding:
->>>>>>> https://lore.kernel.org/all/u4afxqc3ludsic4n3hs3r3drg3ftmsbcwfjltic2mb66foo47x@xe57gltl77hq/
->>>>>>>
->>>>>>> and you here confirm, if I understood you correctly, that it goes 
->>>>>>> with
->>>>>>> the DTS like reset defines (I assume non-ID like defines?), so 
->>>>>>> also not
->>>>>>> a binding?
->>>>>>>
->>>>>>> What are we disagreeing with?
->>>>>>>
->>>>>>> Just to recall, Jerome asked whether you have to now use arbitrary
->>>>>>> numbers in DTS and my answer was: not. It's still the same answer.
->>>>>>>
->>>>>>> Best regards,
->>>>>>> Krzysztof
->>>>>>>
->>>>>
->>>
-> 
+I think we can do two things here:
+- Just enable the sysfs attribute all the time ?
+- Make it optional based on some static cpufreq driver flag ?
+
+I would just enable it for everyone I guess.
+
+--
+Viresh
 
