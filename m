@@ -4,112 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34376D5E15A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6545D5E12F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJXmxMV9Abc1uTINb2xUxHegsV2x5Sbl3192+49JM4w=; b=r1pzW5xWnmYzO02PF/Zm97wHM7
-	fPi3JIeuuRf1SELk7a2XjLRVhtzwCo4rgDIlLo63i1FqHlDlWSb6nN3Exn2sN3ObXrD1AuKrukPIn
-	0B+QJbO4MiP1nOkdOeNuMg70EzeRO7T77TkfY9XVKgi4mkANUbQbDQfhSd3MUGvMtaVFJo4TGNBW1
-	dQB6O6dmjSA97BdSWt/uNBfnwe+RZ977b0ZQjxuvfz+9JBmkNG2zZxIUhnkhJLzwKsbOFaYwWhAZi
-	qMptGRJsaR0ZrzEplKRpDwC8uEmilhr0Q4kLQqKnfJPqR2txA4m9m5D8JBQYXvyI9jfaCPFZrk+nl
-	XqOSbIUQ==;
+	bh=Zzx/IL5RTlRXAUlm7aE1cyPKAoKq+HPrNZMkAfHxSCs=; b=4PPrNW1Uvz9FQetUXZKzagWO2Y
+	rQ2NZiTB5w3DV+XlluCHTgk/TKFQLiUVUMVmNHGoZnjjn8ctl1kOlZUxnUyRuum+ZoJUfBpV85ZCM
+	RPkZfzB18+WohJ21JGmAPgt439a+mxSFYt4+2aiTMGMd/B263LirkZrkZP2ffH8fxNeXr13wa5kWK
+	acax3fPnxCy+kUWvUfqx/NubidAFZLAH86A66PuMGed1znA5ll1t0CjjgSfp7L/lTIjDjqX+R1bAY
+	W3x/Hayrk3C0me9JhmymGwxa0wxs1JDBt4E0AxcjaES/UZkLNWuEq63iLGTA8KqvEx9q33PH07Nqx
+	SJQrVqHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NAu-0000000ALZ1-12e3;
-	Fri, 08 Nov 2024 11:29:12 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1t9NCe-0000000ALrb-0Mw2;
+	Fri, 08 Nov 2024 11:31:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9MOL-0000000A9Or-0vQU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 10:39:03 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a9eb68e0bd1so271437866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 02:39:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1731062339; x=1731667139; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jJXmxMV9Abc1uTINb2xUxHegsV2x5Sbl3192+49JM4w=;
-        b=AKW3sP9kDCY91XEKmiaHCGoo2jzM5W+i+FwIkX/tCD8OTS8rn5bIgbkshCCaKSpRBo
-         uIMHOrXtCUV5z+KsPxu2ELn+iTuorenQ7XcZZ5ntlNeiuzu+ZpcTXrGIzCMV7w/hnNcZ
-         8kqmdsB5NlUjC3wG9UeMJRIV91SmAGwFGngUNZ6R5rVuhMTV1Fg0EEot9GHEiZ1Nadnu
-         7TgY6AazGjGTzzyA3mSy2ekD9ITu8wegnSJdq1dU+JCiRfAvgHP86ig3vBoLD9hQCXlY
-         C83QHALEpZ64E+xds16pdq/Bk2lYSwA/KSyH6ZPptFFK1pXL4J5pddBYkyIzvmi1BPny
-         SXUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731062339; x=1731667139;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jJXmxMV9Abc1uTINb2xUxHegsV2x5Sbl3192+49JM4w=;
-        b=dUOhyPsZYQ2R99HgctMK1sCbEMgBq/yRce7OGkbvt2qcTMoufltyIaR35FMEHgBOJy
-         5BgRePNis8J3P11VCo5s7cl3cFLg2MHAe/cYAY5EwIzABp3o7PiuQdt3YATtOQhOydkY
-         ZuvXIONOqtWsupiUiCLWeIZ5IW9le7lQEzmbEzHT5Ao3Hs+LIwrF6PltAAQKliZoIUaF
-         KnRBmWmhp9joB2QYxlgTymvOFtzdkZHY9A1K+Fockzl4gPeVe6bTD350b+PPLtp+VJIc
-         TVd7z/WuKHCLj+SoEqeOVckHUAp9X/cpSZqnLhcHPIki2xrPv8Ab3DQpISfN6mb2NiKN
-         VFyw==
-X-Forwarded-Encrypted: i=1; AJvYcCWt2CItGZuevwbiTkhQE5Ogd6exutUQYsuLtkqDn89MlIv6nxPI+L12MXvw3df6ReE+u1PuH1FAnbuwulxHlo5y@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkmsjZNoa6Y5XAawfJwjlTiJh8sG+0mJuAnQnBo4DeSlRK7Sso
-	9l/6Se+ufmmyfEPmVIG7bmzRJFznixJ9gS16ce8g8P9uMd5PzC+RR9AFqdAFFAY=
-X-Google-Smtp-Source: AGHT+IHiQxW5gF9yi4X8bacvXjxGkk6fIrYEA4STUTYGNxpcC1/v9Tb+L2h7W5kVMF2aOK5bJYki5Q==
-X-Received: by 2002:a17:906:eecb:b0:a9e:b150:a99d with SMTP id a640c23a62f3a-a9eefeb4d57mr208775166b.5.1731062338980;
-        Fri, 08 Nov 2024 02:38:58 -0800 (PST)
-Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a188besm213593566b.8.2024.11.08.02.38.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 02:38:58 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] of: address: Preserve the flags portion on 1:1 dma-ranges mapping
-Date: Fri,  8 Nov 2024 11:39:21 +0100
-Message-ID: <ae3363eb212b356d526e9cfa7775c6dfea33e372.1731060031.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <cover.1731060031.git.andrea.porta@suse.com>
-References: <cover.1731060031.git.andrea.porta@suse.com>
+	id 1t9MaJ-0000000ACX5-0kCT;
+	Fri, 08 Nov 2024 10:51:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Zzx/IL5RTlRXAUlm7aE1cyPKAoKq+HPrNZMkAfHxSCs=; b=SMfXSqzLYmMvB3rxzas60FjnYr
+	SsDWSyznsasSQB+r2eQSO6MdMgdMtLLfR9Ia/U+ApWZiJfxktejNiawnhVJ6NdBw8dZLV2JVoKkHY
+	iAwiIym8O7Sfk5gkIK+vLxrlbtBcrqMHxw3kR+I/SvbfxK5uJ9+V6kkAo6Mz0cYbfwhh90g3qmhcw
+	S9fdLu9831la0ZnquRoIBn+Y4HiR8w3+VWVfY+inki2Tc0mvdYhlO676MfqaDfihvdd5k//xx/lRy
+	xnlSrVTFvNmpeAl+Wphs9eFTg7++/iWwbIn1LP9oNXLZfWbU5LKoRfw80kvxQtfgc9ASkwUl+xOEH
+	G8ncGW0g==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9Ma7-0000000CHgR-1W4Y;
+	Fri, 08 Nov 2024 10:51:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1D002A41DDE;
+	Fri,  8 Nov 2024 10:49:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1600C4CED2;
+	Fri,  8 Nov 2024 10:50:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731063059;
+	bh=dk1mu5lTqhAoWaUh/fvmV70El26cHpvXmwS6kDk07AQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KtGpet/SFgaXzrIBIP4cB2KDeG3SXOcEEkf6H5HkrK/cyY7Drw51ToCAmBwpUX7Gp
+	 9VY1ztHsK6rUEBUHuZimo26lPWBv+i0XNdOxFCKpXJHacu4dXkNvjYx6zAuisLXKi1
+	 FX/3v9/Z5KLV7vbmkmVM0FISHrinSqZSFRd4w6IPbYKx7s27sPFOvN1zQgHSwzIuCW
+	 Ewlh+lS3Ro7BBPvl42UZiUefkqg5qoIDnJdL4bLXWn/cicLtZOrqkRF/CkfCQ7QUKc
+	 jhRx4K1An3Ws18+qK4umaPSLAZKc54oROYsTCA4EZ5Gt8PRq1foCzMXA8b6+T8x33k
+	 w+hmdDJnFmANw==
+Message-ID: <12ac2212-e176-4d39-85fe-c7afa16dc822@kernel.org>
+Date: Fri, 8 Nov 2024 11:50:50 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] memory: Switch back to struct platform_driver::remove()
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Markus Mayer <mmayer@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>, Paul Cercueil
+ <paul@crapouillou.net>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Konrad Dybcio <konradybcio@kernel.org>, Georgi Djakov <djakov@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-omap@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-tegra@vger.kernel.org
+References: <1a44c5fc95616d64157d2f4a55f460476d382554.1730987047.git.ukleinek@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <1a44c5fc95616d64157d2f4a55f460476d382554.1730987047.git.ukleinek@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_023901_338497_97365B89 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20241108_105115_046939_900F2F4A 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +147,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A missing or empty dma-ranges in a DT node implies a 1:1 mapping for dma
-translations. In this specific case, the current behaviour is to zero out
-the entire specifier so that the translation could be carried on as an
-offset from zero.  This includes address specifier that has flags (e.g.
-PCI ranges).
-Once the flags portion has been zeroed, the translation chain is broken
-since the mapping functions will check the upcoming address specifier
-against mismatching flags, always failing the 1:1 mapping and its entire
-purpose of always succeeding.
-Set to zero only the address portion while passing the flags through.
+On 07/11/2024 15:57, Uwe Kleine-König wrote:
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
+> 
+> Convert all platform drivers below drivers/memory to use .remove(), with
+> the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
+> 
+> A few white space changes are included to make indention consistent.
+> 
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 
-Fixes: dbbdee94734b ("of/address: Merge all of the bus translation code")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Tested-by: Herve Codina <herve.codina@bootlin.com>
----
- drivers/of/address.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Thank you for the patch.
+It is too late in the cycle for me to pick it up. I will take it after
+the merge window.
 
-diff --git a/drivers/of/address.c b/drivers/of/address.c
-index 286f0c161e33..72b6accff21c 100644
---- a/drivers/of/address.c
-+++ b/drivers/of/address.c
-@@ -455,7 +455,8 @@ static int of_translate_one(struct device_node *parent, struct of_bus *bus,
- 	}
- 	if (ranges == NULL || rlen == 0) {
- 		offset = of_read_number(addr, na);
--		memset(addr, 0, pna * 4);
-+		/* copy the address while preserving the flags */
-+		memset(addr + pbus->flag_cells, 0, (pna - pbus->flag_cells) * 4);
- 		pr_debug("empty ranges; 1:1 translation\n");
- 		goto finish;
- 	}
--- 
-2.35.3
+Best regards,
+Krzysztof
 
 
