@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C94ED64063
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24BCD64063
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmLCQiURGgtMHHfPhrNcOhvT0RoBZHSVJbL086OyI1o=; b=jQK9agQt98mRQBuzKmGFVwpzDG
-	lFsJ4zcHKP+8dWvIW/P6mkHaLLSLLvuY4huLOkm6ED0BLNbXT/K9IG3aF+OugyijWfwXNGZ0BknlO
-	VdafOcTminxzwqUuUKuTqs7Lvu1leUF+zpugAidZuuirYzvaV0joAwXJkfGzVRegu+QKMzGzgTHSA
-	R9n+43dh1sqR2kJXEmnGHTD3mCuvmWcVBsuSGvXVRiIVEoO0WXHvZtu4/XVLMwk0vYywrhxCVhYHE
-	UfmqkUFQxERV1ZNPpeXN5IZMriEDtFvFhNIBo2uocAXr5HPEzoCZFANrXTEEQM56k2LpXYnBhTOvl
-	nlrL4oQA==;
+	bh=pAglfK8k8Y0MKv5RAoBuzJI+tWSGH0T0pgwSR8dkA9A=; b=yQHka427TRmE3AJpZEUHHLM3gt
+	7q9FHctjqKiTkQ9l8nicIDzSHlSFl9VhsLqbIS/0+z9SOTMmSN2/MdVpWkLIzwnJwKEngipwPwnqN
+	/KDsPOqxwj1JsshGJQnYO72/QVeYld8EBPTB9cUhP3kKwY2jyq2oZW2J5XL+fsJ0RXuujLFdbufA8
+	XLiu6p0awNs/CoIUOfitP+rbxB//pPcKLoc5Xk9i9YraILtJM+Y5E808ua+3i6JQ5ACaAu3MkRhj5
+	iCpy2l1xLLi6ASZv8gYxWmw53/GkQ7s3ZgMLOdp7Eh9o/JxuzLuPMTI8dV4hG1P3iJ5SWaWgB8v/R
+	ITCc5+Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RuS-0000000BDpk-1tWj;
-	Fri, 08 Nov 2024 16:32:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9RuW-0000000BDsF-1n9b;
+	Fri, 08 Nov 2024 16:32:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9R0W-0000000B2pu-2TZJ
+	id 1t9R1K-0000000B32U-0VWg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 15:34:45 +0000
+	Fri, 08 Nov 2024 15:35:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E136DA41FB2;
-	Fri,  8 Nov 2024 15:32:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CCAC4CECF;
-	Fri,  8 Nov 2024 15:34:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731080083;
-	bh=GCQa4PPGbaD33AeLle0wGhetHoAHZy7KNkJViY9XTLU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Erv8jNC0c1fLICoqsHyGPHbwsa9IwEn8oMEcsl0XQ7leQRdmpWbpbyGIGStphaXhK
-	 WYSJ+Duxm+Ev6mv3WnP+XPPM5N07wBIiprj7k3TBsTOqvvFGz/kVWGv43EASeG9EED
-	 LkK6Amq588c10JA/qepc4IH0cOpE5YosJrIMRF76OQOn//uJMaJ9w21EAm5Qpx6Fz4
-	 IHyM5Bx4KprnoRa8Q6BwG+Jm+wGta+Cal5S309NN6SIIOna7DUio5laZ68xM+u+VxS
-	 aBPITxkeH41OGhJJDMgCWu/XdrFc3aNbTbAgPTtXmcvlfL7/f8ZycpxKNsVk5GIhrK
-	 JZ7+2PD31wAtg==
-Date: Fri, 8 Nov 2024 15:34:38 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Fix build with stricter assemblers
-Message-ID: <fcc92dc9-9a03-4db7-964b-0f7cd1490a7d@sirena.org.uk>
-References: <20241108-arm64-selftest-asm-error-v1-1-7ce27b42a677@kernel.org>
- <Zy4t-tHV18D6BrXJ@arm.com>
- <Zy4uYZVkIR8ntUIV@arm.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 92A80A400AD;
+	Fri,  8 Nov 2024 15:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDFB4C4CECD;
+	Fri,  8 Nov 2024 15:35:31 +0000 (UTC)
+Date: Fri, 8 Nov 2024 15:35:29 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/4] kselftest/arm64: Fix printf() warning in the arm64
+ MTE prctl() test
+Message-ID: <Zy4vwYeaIiQrWfXO@arm.com>
+References: <20241108134920.1233992-1-catalin.marinas@arm.com>
+ <20241108134920.1233992-3-catalin.marinas@arm.com>
+ <4bbc179b-73b6-46d7-b414-f3b14079b489@sirena.org.uk>
+ <Zy4telEzvU1DGih1@arm.com>
+ <6a1669e8-1654-461d-8709-3cbcaff7da67@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Slt0mEnOe0d1jC9h"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Zy4uYZVkIR8ntUIV@arm.com>
-X-Cookie: Do not overtax your powers.
+In-Reply-To: <6a1669e8-1654-461d-8709-3cbcaff7da67@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_073444_715444_F3638019 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20241108_073534_246534_2856C088 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +67,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 08, 2024 at 03:30:11PM +0000, Mark Brown wrote:
+> On Fri, Nov 08, 2024 at 03:25:46PM +0000, Catalin Marinas wrote:
+> > On Fri, Nov 08, 2024 at 03:10:59PM +0000, Mark Brown wrote:
+> 
+> > > > -			       (ret & PR_MTE_TCF_MASK), mask);
+> > > > +			       (int)(ret & PR_MTE_TCF_MASK), mask);
+> 
+> > > Shouldn't we just use a %lx here?  Casts tend to be suspicious...
+> 
+> > It's more like the ret is actually 32-bit and should stay like that when
+> > bits are masked out. But the bitwise op 'upgrades' it to a long (in
+> > hindsight, we should not have used UL for the TCF bits and mask).
+> 
+> Hrm, right.  Possibly put the cast on PR_MTE_TCF_MASK rather than on the
+> expression as a whole then?
 
---Slt0mEnOe0d1jC9h
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Can do.
 
-On Fri, Nov 08, 2024 at 03:29:37PM +0000, Catalin Marinas wrote:
-> On Fri, Nov 08, 2024 at 03:27:58PM +0000, Catalin Marinas wrote:
-
-> > > -	smstart
-> > > +	smstart_za
-
-> > And is smstop ok for assemblers? I think I got the error first on
-> > smstop with my toolchain.
-
-> Ah, we already have a macro for that. Let me check the error I got,
-> maybe I got confused (with the multitude of other warnings ;)).
-
-Yeah, smstop is already used in those programs (in 'barf') so they
-should never have complied if the macro wasn't working.
-
---Slt0mEnOe0d1jC9h
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcuL44ACgkQJNaLcl1U
-h9DwzggAg5fR25wb0nUopVb11f6h02UcUTbvx3YR0dlmet6ISqQRRe/nCU5WonzV
-yr7Dmclrbjf/GUnaoSfW7SxgXCuQWnMQC2n64BxF5/7wM/Q4qA0u8+Sr1/rlaO/s
-E+Geni575s2S/vUcszZQfYptcwBM1/0yeCHXRau1LOssXt2/Ih0FoyQrtca1CRDg
-26SIW5St4If5NY3L5o57j4ZfDeY1Ur8fqg7K1Hv/TgQkpugJuIEKmGfSICeZ5dVo
-azZJ6VT3eR/BI4ucDSYb9wtCO3nKBu6UshsiJJNboPwZTV07mDiQ3MPI554J+Ht5
-r6TyQH+ZwmdPDBxpT2frX/2gc/fRGQ==
-=qoye
------END PGP SIGNATURE-----
-
---Slt0mEnOe0d1jC9h--
+-- 
+Catalin
 
