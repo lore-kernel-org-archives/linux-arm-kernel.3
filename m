@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAE8D64078
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B07D64078
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ZyQm5LHQ7qaqkJe4rbzzejbyBxQj/F4IZoyO1Km+6Y=; b=zoemCa+pbj8rAptJu3shJ1zILW
-	mWbcTjLTBEYI9ZNgwCE0gpsr+ir+BhbhMhiKFsmTRpLbAkQIDkih8OxfRCXdNaGNL6spJXBkAkaqW
-	YahEhNLfmz8FmfjkGOq0iW6LGuGV4XhzeURPPvP3nc5ntz4h9tLwdnP/HdcRiYYtLukKaHUcoVpKl
-	GIDRCw/NgaI81o1l3D1YF/uu7+x9V+oFIlfL4Mueldxw6kyfmu+jT33GFo07LYToHfAhbrc8WSXNP
-	PSpxhL+EU363mXGJgwq2hkVtBiiCHFnPZrhW/uHZp7lxoNiYad1Zu0C4Ok5ECj4LUMNI6fRZ/jOoE
-	6vgS6CdQ==;
+	bh=GFhrTTpiQ0I2IodQiHI+ZaiAC6+TEUbpNWIml06w79Y=; b=DdDhNjihaPG7rVgfpVSvvYVgmS
+	ONSmrUd1SxPdl7b1XO7As40aWmzwqkgGJ0hHXo/S+lL96TryXpVoc4QaHE5Do1nxGegQarqA5t+ap
+	wTnCXP1JDJbgFJJ/lpdO64g6mwjdxiFLpKC2VU8rCUmsQXt2BNDH+ZWjtGSI7SBGe7fssyo1/ld8o
+	EFz18TvG09IJ3L7ee9GehJqlgrFYbVzGvYMjaaH/fjubCpK3JtRVIGWkhB6YagNGedZFKfd/CvH+v
+	MgKiaqGWxgD4bRkH+evQuHypzXe0+Ot6ZmwVTUIJUPPFYwSE2eeEA4TwCBwivKPtP0NeL5aeDJ8UY
+	rDwwhbFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UEb-0000000BgLs-1otq;
-	Fri, 08 Nov 2024 19:01:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1t9UGL-0000000Bgis-3Su0;
+	Fri, 08 Nov 2024 19:03:18 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9U9v-0000000Bfbm-1xce;
-	Fri, 08 Nov 2024 18:56:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5ZyQm5LHQ7qaqkJe4rbzzejbyBxQj/F4IZoyO1Km+6Y=; b=ug4AraFizxch/gjn7NGcYmmfn6
-	DAFUoHbNK05VP75BwTUGGyzf2EMoNndnP8sbJiEPNjDtVavUfiQqUzfn3hMAFNwB9olI9l2KEq7C4
-	vKoLl+a/ICGem4ZG5nnpqkX790t86ndfUiQQ/LPVJvaB+bsqgsCrG40KbLNd4zQqmFhgGzxn4rRN+
-	ksvnQeXygwP2VKxfeDMtr7Y9pxRNCly+PkQvHudTqZvtO8zhnOpCM20gqgUnX3a1dcKDqdu8mBemZ
-	OdCU3CHBbnTrbh1Ie36SzRh78ckJ5zwatlEnsx9XL2vj6mwqpgsvvsB53WdeyROwmNG75AU5bvlEQ
-	VeOxX+gQ==;
-Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1t9U9a-0008D2-Ds; Fri, 08 Nov 2024 19:56:18 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-kernel@vger.kernel.org,
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko.stuebner@cherry.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Dragan Simic <dsimic@manjaro.org>, Alexey Charkov <alchark@gmail.com>,
- Jianfeng Liu <liujianfeng1994@gmail.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, kernel@collabora.com,
- Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH v3 0/3] drm: rockchip: vop2: Add VP clock resets support
-Date: Fri, 08 Nov 2024 19:56:17 +0100
-Message-ID: <1808477.VLH7GnMWUR@diego>
-In-Reply-To: <20241108185212.198603-1-detlev.casanova@collabora.com>
-References: <20241108185212.198603-1-detlev.casanova@collabora.com>
+	id 1t9UAa-0000000Bfka-1CSK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 18:57:21 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-6ea11b32ab4so17983267b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 10:57:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1731092238; x=1731697038; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GFhrTTpiQ0I2IodQiHI+ZaiAC6+TEUbpNWIml06w79Y=;
+        b=NFZvQ3HutgpIZAmSc+X6f9RTM54KurIkpO5Dr+4egX0ZpYKAmis8el+ue4kG5JNr3V
+         uwt2K8m4DGQ8DO50fIFITmSAvDRcPsrdfUt0yY9OaeSSvTrr1YyaosjCpclejgMXhIKL
+         NAB6dsBz0D68Sxx8d2o0IyexnsrPMTP+4XyUg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731092238; x=1731697038;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GFhrTTpiQ0I2IodQiHI+ZaiAC6+TEUbpNWIml06w79Y=;
+        b=k3//bGm1604kGBlp5y28oM4fFAeK5rUh9wOF9Jpyi6YyOg5U0BSf/Svk7vfr6O5w0n
+         omZTzLG4pk7/gaeuVbqrJYYI0uWr28FbnftftCqvaPt/qVpZ3NGpkQqIavKMX7wX2sHo
+         IOtX4dOP9ZfSpuV6+snIOPg/TmBQ77LjgF8hx7ZpI/gT6o81a/BN39bWPveUk9hP21fj
+         mjqUR9JffuG5ApZu84eKAEjEPeCOXlLU4dyQ7IUbkKwQ7N7OUXe/BjaxO9cFtrndeHqY
+         x9X4bHQnZI0RdD974D03poKNx43cIwlY9xGBE5oOFrYNfm/kckpIq7VTRY2/uQFE3k4M
+         X//A==
+X-Forwarded-Encrypted: i=1; AJvYcCWvAZRx2gKLXV0DcAiSwQJPgJwwuBySnuCr+DZx3QmHniPDPoJxt539PbOlRcgHba98jXs4gt8I97b6ReILA/lf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5AgNFwtiLEUUeZPrD627FvUVdok79AfaZZartApD1m/rX6mDx
+	8q2VH3zUKaGxZg59q9puDYX82gvj5P+4S39B140fSDqZ/6QbdNnR8UkhJBObHWOC20hXleXAfma
+	jOnNZtb5rgusBCy/yIyS/qDVaLF1OXKvVsiU3
+X-Google-Smtp-Source: AGHT+IHfC5tJ6whbDS7S3SlhCnoJBwUgDNoRBmtsYN3YKtsv214Yxvv3stXcgF9ZacsGjD0iMrYs07O4YZn2INdER/w=
+X-Received: by 2002:a05:690c:d8f:b0:6e3:ceb:9e5c with SMTP id
+ 00721157ae682-6eade52f876mr34629017b3.17.1731092238352; Fri, 08 Nov 2024
+ 10:57:18 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 8 Nov 2024 10:57:17 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
+References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
+ <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
+From: Stephen Boyd <swboyd@chromium.org>
+User-Agent: alot/0.10
+Date: Fri, 8 Nov 2024 10:57:17 -0800
+Message-ID: <CAE-0n50-h_h=oWt7BZ5ncX8JYfXmEpN7-HrZeC8wHrHZnGsJMA@mail.gmail.com>
+Subject: Re: [PATCH v8 3/6] firmware: psci: Read and use vendor reset types
+To: Andy Yan <andy.yan@rock-chips.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Elliot Berman <quic_eberman@quicinc.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Olof Johansson <olof@lixom.net>, Rob Herring <robh@kernel.org>, 
+	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>, Will Deacon <will@kernel.org>, 
+	cros-qcom-dts-watchers@chromium.org
+Cc: Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, Melody Olvera <quic_molvera@quicinc.com>, 
+	Shivendra Pratap <quic_spratap@quicinc.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-pm@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_105639_515140_7F987931 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20241108_105720_385922_6697A8BD 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +100,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+Quoting Elliot Berman (2024-11-07 15:38:27)
+> SoC vendors have different types of resets and are controlled through
+> various registers. For instance, Qualcomm chipsets can reboot to a
+> "download mode" that allows a RAM dump to be collected. Another example
+> is they also support writing a cookie that can be read by bootloader
+> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
+> vendor reset types to be implemented without requiring drivers for every
+> register/cookie.
+>
+> Add support in PSCI to statically map reboot mode commands from
+> userspace to a vendor reset and cookie value using the device tree.
+>
+> A separate initcall is needed to parse the devicetree, instead of using
+> psci_dt_init because mm isn't sufficiently set up to allocate memory.
+>
+> Reboot mode framework is close but doesn't quite fit with the
+> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
+> be solved but doesn't seem reasonable in sum:
+>  1. reboot mode registers against the reboot_notifier_list, which is too
+>     early to call SYSTEM_RESET2. PSCI would need to remember the reset
+>     type from the reboot-mode framework callback and use it
+>     psci_sys_reset.
+>  2. reboot mode assumes only one cookie/parameter is described in the
+>     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
+>     cookie.
+>  3. psci cpuidle driver already registers a driver against the
+>     arm,psci-1.0 compatible. Refactoring would be needed to have both a
+>     cpuidle and reboot-mode driver.
+>
+> Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+> ---
 
-Am Freitag, 8. November 2024, 19:50:38 CET schrieb Detlev Casanova:
-> Detlev Casanova (3):
->   vop2: Add clock resets support
->   arm64: dts: rockchip: Add VOP clock resets for rk3588s
->   dt-bindings: display: vop2: Add VP clock resets
-
-while it isn't that important for this short series, please try to
-order things like:
-- dt-binding-change
-- driver implementing that binding
-- dts-file change
-
-because generally, dt-binding + driver changes go through one tree
-while the dts-file changes go through another.
-
-
-Heiko
-
-
+Reviewed-by: Stephen Boyd <swboyd@chromium.org>
 
