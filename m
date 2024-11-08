@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9118CD5C0C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B5BD5C0C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIXKP+RHW4XCjdsq76k5coFeMmA2KINbHEm689Ip5fU=; b=GKe9COxondX0SP+fzJ9ea/8jB1
-	WlsC1h8mSUKG38ZwVLmCZQy6P3guKX+ucY1tmEyjOLhzg5jdHlF9FFiEmS3v/3BUL3oCIO7X1KxQ1
-	MaO8SkKlnKSB6a62vVRwZ9SHuyyvfMZuQDuqA4ve6xDd/bnzmUDQ3/5W1SgViu4DF/iWMlCLEsIFx
-	mc02W0L2gSWp760gVIlKmvuARV/lFJd8qe2WQV3H6Mqhk4axJKNtGpDToL2MeRhMl7a5y8Cpe1Q0Y
-	EBZBMEYVK35sEmsLTnnwbYyzvQYvOycv4BTWfXTCt4Cue6K6IyZJKeALELL5OgfUrhe1/qSuIVJbO
-	VdWtISCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L8ZJwvOeV6Ng8VTt9n6SG5cFjyqB7gKUP8OuA6z3DVg=; b=OdZ88jYpowIbovyLUGxlJv8LZZ
+	YKOgSoltHefMclWiKqVIkbdZEw3UI3zGdl8CPTaD2Nk4KGyULAbv9D7OAl0+K+paCVMLwfXwik2hL
+	xogFw1sbjFLKkveAv75ZTUrw44K0/x0mjo2OirfsswqS/o6sd8WA474bInHsqxXTypDuhEfQHG0er
+	6Utq6+JDEIdRST6asXImbRWOd97wANTJyd8Ex2coH0EBCNx9Y31ZU7uSOuci4fBXu/DTorrXhtHO1
+	JG2jmWt2iOmP9uWjDQ/bPw35J/MNt9ijdvkBT3mPkQnSPKo4QI9iIHoPjzzsD5Qk9GwQPDMyoQGcY
+	JsLp1grw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PBi-0000000Ai6F-42z0;
-	Fri, 08 Nov 2024 13:38:10 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1t9PFW-0000000AiVq-1E11;
+	Fri, 08 Nov 2024 13:42:06 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9P4g-0000000Agq0-0rEb
+	id 1t9PDl-0000000AiMd-0eaa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 13:30:57 +0000
-Date: Sat, 9 Nov 2024 00:29:12 +1100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1731072651;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UIXKP+RHW4XCjdsq76k5coFeMmA2KINbHEm689Ip5fU=;
-	b=Tb5YOYZtj1JEeci4IP+D3ftq3ruIwUPUHeJ8qPzlbNcF7xnPlBBSs6hOMFNjZGrcenze6h
-	zHvPkaEqTsl8VjT2uU85t69ZM79EKJH5FkgoFUXwkmMDAp56dgOs8SUlc+Y/bG6NggMUXj
-	FyAU+M+ZmtWY1eXU/07Zu7dyQneaZ/qEfLBhuCuobk3bP14vC80Pdu2sBD8p8rszkjN7WK
-	vZ+pBO81+zvuphinfTKzhtSq4RJy5zD83Pj/c1rnMd91P3C4v7t2jzysDJm+K8zEswXgJk
-	xpdCkiL65jh+aWAcW/02ihU+aIsALl68B0xGSbQryn2QzBjFeamzOa/6MMRO2w==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-Message-ID: <Zy4SKCBwce3q0yj5@titan>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
- <20241108115357.691b77b0@donnerap.manchester.arm.com>
+	Fri, 08 Nov 2024 13:40:18 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7240fa50694so1162966b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 05:40:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1731073216; x=1731678016; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L8ZJwvOeV6Ng8VTt9n6SG5cFjyqB7gKUP8OuA6z3DVg=;
+        b=VZ7T8GKLCDeLjBrb+KP/Z6l8ycE0XLHYg8b5eNnXONFVSNlOKIzGUORpYggqfyBV7Z
+         c8al0V2Dr8R+lXKGpLM4qEQqI+1wvOfdGM2uKV2lriCDYm3qmLKW4K6Mh0bPCaAhR9/h
+         2PGnkcWcEFOdalCteY9s3lKc15iYo5re0XJhONf4n2tQH1a8NZcbke8aatKHZ7ZLJOUm
+         lezh+OAr0ycK6Hkp+ligR4w0oXikFOpdA5N1mhr6zAC7eB4KKmaXkvib2HKHgN/Ssxzq
+         VC/keH8+43SI5xtZFdeK4mAV97QVbnDk8aeQbJI1tg77mhdmGpz5ketnP1e3ciA8xjDN
+         p/uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731073216; x=1731678016;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L8ZJwvOeV6Ng8VTt9n6SG5cFjyqB7gKUP8OuA6z3DVg=;
+        b=RKooKjeIpQw9+fDoESWi23WHqXN+kB1TqMRI1ImBrTYqSmz3qda/39QaAew8ductW9
+         IcK8SFnVxDvit4oWy/FrwquQvNwBS6QTv1RYetzvMEy1YWMv3BuXu8P+5ZvfF4wbXbxm
+         1GDaPqqreelnzxbKJzwFOSnFxGhTblq6lKxhm/oNlD3/Nv25i/61Azufn0UN50rV6man
+         UnzbvyT8cldjNCjZpzEmiSGq6/H+HnfDsLypfdjJOX3hRAkRuW2WB6zQLBgRF9iZi9dF
+         yCmGRWfyhXll2n2TQ2SUiuP1XYkuB2ADv2fEttYqY1GbIBvM7qDUoYc1ZiyL/eXKJa6t
+         Ogqg==
+X-Forwarded-Encrypted: i=1; AJvYcCUYJrPXkSPduGxWByYjfTpdtMfx+E+YdnzE0czE3H0JOLc2rJLLZ2wy2V8677yGJcv1tG/1Dnjr6u9Z7ito59xe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzxx+s6YFbDUu5fs+rBIgCnL179aXJMe4J0vMAXpB7MDQFOWbZq
+	MPZT/IhXVWvHKIvyTiCg9uo1AJcjIeBH9uvVLfnRaM8i24BYh8Z0dSZNmfoKhJeTVPz1E2wYItA
+	ryZU3b4ptA7BV1xgFkE+d/f5hpim/iBay3IAdTA==
+X-Google-Smtp-Source: AGHT+IG6OWkcSu6zPwaHqEtkBnsm7V//38o9bsGqJYwF50bdWilViY347QwXIH+QFKTXlm4Y8ftOczB4h+DcYu9T4dg=
+X-Received: by 2002:a17:90b:1f86:b0:2e2:cba1:67c9 with SMTP id
+ 98e67ed59e1d1-2e9b1754e25mr3320320a91.35.1731073215604; Fri, 08 Nov 2024
+ 05:40:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241108115357.691b77b0@donnerap.manchester.arm.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20241108112355.20251-1-robert.marko@sartura.hr>
+ <20241108112355.20251-3-robert.marko@sartura.hr> <609ef9c4-18cd-4a80-9821-5df27727772e@microchip.com>
+In-Reply-To: <609ef9c4-18cd-4a80-9821-5df27727772e@microchip.com>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Fri, 8 Nov 2024 14:40:04 +0100
+Message-ID: <CA+HBbNFomosu+5_C0+6cqKcc3B9DFiXXPxexFYjY4ud2LmWqmg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] tty: serial: atmel: make it selectable for ARCH_LAN969X
+To: Nicolas Ferre <nicolas.ferre@microchip.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, lee@kernel.org, 
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, luka.perkov@sartura.hr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_053055_167914_C42AB31C 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20241108_054017_225591_5D2436C9 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +93,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 11:53:57AM +0000, Andre Przywara wrote:
-> Hi John,
+On Fri, Nov 8, 2024 at 2:25=E2=80=AFPM Nicolas Ferre
+<nicolas.ferre@microchip.com> wrote:
+>
+> On 08/11/2024 at 12:22, Robert Marko wrote:
+>
+> A little commit message would be better.
 
-Hi Andre!
+Hi Nicolas, I basically reused the same commit description as for MFD
+and else as all of the changes are
+basically the same.
 
-> Can you say *why* this patch is needed? Is there something broken that
-> needs fixing? Where does this show and why wasn't this a problem before?
 
-Oops, that's a good point. There is currently a bug where the LCD output will
-be tinted. I have full context here which I should have probably linked in the
-patch description:
+>
+> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> > ---
+> >   drivers/tty/serial/Kconfig | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+> > index 45f0f779fbf9..e6cf20b845f1 100644
+> > --- a/drivers/tty/serial/Kconfig
+> > +++ b/drivers/tty/serial/Kconfig
+> > @@ -128,7 +128,7 @@ config SERIAL_SB1250_DUART_CONSOLE
+> >   config SERIAL_ATMEL
+> >          bool "AT91 on-chip serial port support"
+> >          depends on COMMON_CLK
+> > -       depends on ARCH_AT91 || COMPILE_TEST
+> > +       depends on ARCH_AT91 || ARCH_LAN969X ||COMPILE_TEST
+>
+> Checkpatch.pl reports some "DOS line endings", you might need to fix this=
+.
 
-https://lore.kernel.org/linux-sunxi/Zn8GVkpwXwhaUFno@titan/T/#u
+Hm, I ran checkpatch before sending in verbose mode and I dont see
+such a warning,
+my Sublime text is also set to Unix endings, I also just checked with
+cat -e and I dont see
+any DOS endings.
 
-> To be honest, given the isolation on this patch, I'd rather wait for this
-> full fledged solution, especially if there is no pressing need (see above).
+Regards,
+Robert
+>
+> >          select SERIAL_CORE
+> >          select SERIAL_MCTRL_GPIO if GPIOLIB
+> >          select MFD_AT91_USART
+> > --
+> > 2.47.0
+>
+>
+> Once fixed, you can add my:
+> Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+>
+> Thanks, best regards,
+>    Nicolas
 
-I'd be interested to hear if that's still the wanted solution given the link
-above. This currently blocks many people from having working LCD output.
 
-Doing it the proper way might be overkill for now unless someone deliberately
-tries to run two DEs to the same output. I haven't seen this use case.
 
-Allwinner kernel fork initially sets them up to values like these then makes
-sure both DEs can't be set to the same TCON.
-
-> > -	writel(0, regs + TCON_TOP_PORT_SEL_REG);
-> > +	writel(0x20, regs + TCON_TOP_PORT_SEL_REG);
-> 
-> Sorry, but that looks weird:
-> First, please explain the 0x20. Is it bit 5? If yes, what does that bit
-> mean? The commit message suggests you know that?
-> 
-> And second: the comment above clearly states that those two writes just
-> *clear* some registers, to have some sane base line. So please adjust this
-> comment, and copy in some of the rationale from the commit message.
-> Explaining things in the commit message is good (so thanks for that!), but
-> having at least some terse technical explanations near the code, in a
-> comment, is better.
-
-Bit 5 is value 3 of TCON_TOP_PORT_DE1_MSK. The R40 datasheet explains the
-values of both masks as follows:
-
-00: TCON_LCD0
-01: TCON_LCD1
-10: TCON_TV0
-11: TCON_TV1
-
-So this sets DE1's input to DE0.
-
-> 
-> Cheers,
-> Andre
-
-Thanks,
-John Watts
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
