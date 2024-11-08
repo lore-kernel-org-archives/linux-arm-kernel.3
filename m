@@ -4,136 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7ACD64063
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFD3D64063
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZ+J0uCnaT+x0yIPYmMnG9zvQPdwpvJwn2l27mxNTv8=; b=JalWlc4Udt6iz9pnVk31YNGQEn
-	ioV2q7NLfmGy5+qHluWw8RZhkaXMkWdyeb3VW4TaNN7Q4S4psj6x6bw5ZoUMC3Z2UStoRTtkwV5z9
-	jvJPXLCFUhL6rYDXg7G4HqnBJ3KFRLoLzWdr00Ea8e5vAbpmuv+vKGGWtuCAh6SO3QTfd3bWqR05/
-	6IqfWql7ZzNBk/tMqScKUAQD/Aa2Mjboh6LcX+aCPMss80TpH+4WG00WPN14tfS5SpPukLCi0jgkR
-	4pQiR0uGcj5JW+zHDYh3omoPVSwml+dK/Ns7Y8nwZ7CRED5+c/9NaE3Pff2BVa0jvXpm9xNrq8/V1
-	25g1nw+w==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kkDL4V3veNmrOFZ36EaLQVd7h8aNi6xyItjOeEoF3Hc=; b=3gls5ZBusF4xCSainL0lUa6f3h
+	T7qZP0mBL64Y6hsAHaD/hcbXKlrA1DoVhKzDTQG4BqZ8Uv+4zbetsgclYDZWLKbEyzmKRIEMgXflP
+	nrSai6Z3d43zVZ8FD7Y/oJo+0Uz3rrbT95/ZtB8HIA4QihzRH9VpfNev7Ev9yJPREHcLnarTbRnuQ
+	KGTHSG2e9CJB4j8pQxrlTiPj4dMRBHtAnqeSt7QgY0Va0mj/GsiXrm2C0H1ktYLIilObIOtNUhry7
+	6UIsdMKiGI7cFWYhiM+TRfxIgnwEyJPQrxQcdQZ9FuoquAv9qbap2Y52YFyWHy4yP0g1dC+nE1vyw
+	TC4TmXSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RvK-0000000BET6-1bEc;
-	Fri, 08 Nov 2024 16:33:26 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1t9Rvt-0000000BErH-28iY;
+	Fri, 08 Nov 2024 16:34:01 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RFN-0000000B6P4-2dgH
+	id 1t9RPF-0000000B89y-2GuC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 15:50:06 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e2bd347124so1826570a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 07:50:04 -0800 (PST)
+	Fri, 08 Nov 2024 16:00:20 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-539e59dadebso2923220e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 08:00:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731081004; x=1731685804; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=tZ+J0uCnaT+x0yIPYmMnG9zvQPdwpvJwn2l27mxNTv8=;
-        b=lkdRHutbxnX/gsAj9OFse9bCDgm15boX4lMEM/m2GKiSAOprzE1MSqVqNC3xsDf9BZ
-         E0OkmR1XDw93u9iAV8GqtLbTRH9pi7p5o696RMoe66HPcCOGS3nbG+zGlaSKtK9tl+yS
-         jesljpzTqo2U6kEdiBhEX+ktanJvLMnfH+FkO44u45YHAI2cltYB9kcHl+qC6fX9v2jb
-         a7HRkeAkixhwNnlXdLp9h0B31aOyupyJj7H8BzSpu7aayXxMMKE5ajQJSMyg06c9Hvjw
-         P8Tzib7454U+36DmUOvROxFu//x2oKRbx5Nq/lwBNTopUMUegFod2FblZPYJYP/HaSvf
-         4IdQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731081614; x=1731686414; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kkDL4V3veNmrOFZ36EaLQVd7h8aNi6xyItjOeEoF3Hc=;
+        b=MqAmiKQZBHD4ZM2TVlY3gEVlS9RY/J8zD/HUltrG3CzXcXKi+qXGXRLYHaLA2i1tK1
+         juz/rTFQ3Lg9+6TBz8XYndXpnR/LUSZAsQfXsM3tehOtTzTXWPPCFGb+A1dBIt47gohv
+         eJk4EuPNeORZzKPpdslrDYVdujuMUS38V/clMXeQdKOg+cX3DQ/3uIwAW6ZNCVBXsafs
+         I6WBzTp+7s6TqMi2FqhjI9uYeJ3CxuzQvDBKiWx3rfmvVSafiCY8QLMjFhLS2QjYgb88
+         DTh784X/6h5Mj/9ea6ROsv53TG1Y6WJ8h09wJbx4k0plX5jekb9Z6zXN4FFhSP16v+Ha
+         C7aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731081004; x=1731685804;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tZ+J0uCnaT+x0yIPYmMnG9zvQPdwpvJwn2l27mxNTv8=;
-        b=uJaYayS7bZW7CT3LOZT4qUezyEgffACJBLXOi71iml68Ud/Y67u+WSZVdpPR3vJPj3
-         PBFF0639/M1x8HDemNLMLwo3T86RsEilt0FLlcq5jHpwsSp9SACwtLwV9JdM1OJ+shTT
-         mmdvdJvnfSr5Kjp/yQ5d+mofzDdInGpe5HgsXOoIT+wGeu0WyF0x1g6pd3FTrlvDp8X6
-         5gWWmcQGNzpiipvAeOPVI5QaIpnR+QJ6d/0w3ZrDA7Jh/rllmInVLdM/oTTNVPmPHN3N
-         /OBPobFNJZaNRP2rOLlYP4n0ArLL12ltEl2GZhiUhBYw3dTn1WnhP7Nl2A1WaeZnX0H/
-         MWRA==
-X-Forwarded-Encrypted: i=1; AJvYcCXaZv6SiyzqQshbIax6oU6pk5oKkxjv03opoZA2PJI4UURvBizQ9tj/sSWk0xw3Nss9ltQdM3Zbe78BAa0hEBAv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaMvngjs5ztUgCTrNolzcNx4tgfO7HjenUu9YnsQkKBRSWvmnv
-	W2sVYKfNw0WI9HjgpZrgToTqVKsKNcnnTvfuphd/WL6OipM7eBQG
-X-Google-Smtp-Source: AGHT+IHRoj1cc4ePvYEsz5DmCSDi2av2jJaP53p6RwfYTf1WJ4aBuGYIc1+XeiJWDJWQDrjRxbKCAA==
-X-Received: by 2002:a17:90b:1e4c:b0:2e2:e545:82c5 with SMTP id 98e67ed59e1d1-2e9b16f0529mr4094709a91.3.1731081004272;
-        Fri, 08 Nov 2024 07:50:04 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e99a62d6acsm5720627a91.53.2024.11.08.07.50.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 07:50:03 -0800 (PST)
-Message-ID: <e566ee56-523c-4cfd-999d-1cd9ca8eb7a6@roeck-us.net>
-Date: Fri, 8 Nov 2024 07:49:54 -0800
+        d=1e100.net; s=20230601; t=1731081614; x=1731686414;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kkDL4V3veNmrOFZ36EaLQVd7h8aNi6xyItjOeEoF3Hc=;
+        b=A3Sn6x4EvEmBxWrVvG3n4zhBdRkezXV+lE7EQ+SyQOsZICcIyK8NDU5tSdggAyBO0J
+         YicqCE9jyhnXDeNz02nnGrRZ4zeDl6hen2kwXOuwRTZSSerU/zVV+aLzL5cUw0vJduF1
+         xC+OD11a2Ng6MaHWntNrocPVKcLwD/omAbGG7ngD5ccKkdPt/6Ng6TmVKjpTlONTmf10
+         4We0G3/hXTgSumxdZXi7GV0GVVlwozcCdKK8A/6o2ve/w8zxUchvlnAYWFTB0kUPZohY
+         KIbyBGHdtpC+sYoKkhMVf5HXRUNaufFbrC0WQc3tw/EG9DmOxyTzlEzbkIpTNPdc/sDd
+         QWbA==
+X-Forwarded-Encrypted: i=1; AJvYcCXV7byLNQ2XUhE4tqOzjd/dOI16XshiSd+4zvnqWIZX4FMslEj48wtUGRK9cV82JlRTz5RRJ11B5kAFldvDXVZq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYHyHDWKQZx51n/LtjxKvF9Z3uBZZyVamAVQWZ36BeSFxAElg9
+	27K9l/A8YiV3v82MXWTpDC2UGbCVkYswd7uU2CmycuTmbr8FPNoyBvnYXBz7SuA=
+X-Google-Smtp-Source: AGHT+IF1GeW+WC7Q16r4NHBxEApntyR/w05a6dDXnUjlFn7jS5K3ZNUVOcfZh/J7IDBzWR2aecdCWg==
+X-Received: by 2002:a05:6512:220c:b0:539:fb56:7790 with SMTP id 2adb3069b0e04-53d862bd3f7mr1968204e87.6.1731081613950;
+        Fri, 08 Nov 2024 08:00:13 -0800 (PST)
+Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed9707bdsm5428190f8f.4.2024.11.08.08.00.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 08:00:13 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Moritz Fischer <mdf@kernel.org>,
+	Wu Hao <hao.wu@intel.com>,
+	Xu Yilun <yilun.xu@intel.com>
+Cc: Tom Rix <trix@redhat.com>,
+	Peter Colberg <peter.colberg@intel.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-fpga@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] fpga: Switch back to struct platform_driver::remove()
+Date: Fri,  8 Nov 2024 17:00:02 +0100
+Message-ID: <20241108160002.252517-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] iio: temperature: Add support for P3T1085
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
- Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Carlos Song <carlos.song@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
- Jean Delvare <jdelvare@suse.com>, linux-hwmon@vger.kernel.org
-References: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
- <20241108152856.000042ed@huawei.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241108152856.000042ed@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9458; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=7NSj1Xnr7F8hZakc4I1cptxHnT4br1O77NIOrZGUPrg=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnLjWCBeU4r1G+IEQo4FqPzhxX2JrbCs447bwK6 etS4pFQD1aJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZy41ggAKCRCPgPtYfRL+ TuFJB/9oOEA8Psx+30w1wER1hN8f80tN1wxqwEd9mBGDjMlOIRwMWmAV3R2MKJ6HaJK6Ups/2my DKg52Zq406dvxGMCpZCo3KVkacXS6wV3lNL0UkyfNVizMx4AveaMmYCgfXQGnR7m0taoVvabdOy vu8KgQb9gvudKTEGQ32l2pWryyHo0997SveUJK2OfpVBdJIYwjoBfQPvOdPlBf5/6DDupVMgJKc 3Df4Bnkxz1iEeY5zIJqaAcsbc3FjN9EkQaHO9tTzdn9+CBiwYSPao6X+z5KYdNbb9ExhkWbmF9w p+6WIRqrA44J444Q5V1h2Y4jt7qjUn0IF+f03iLQU8E/reQY
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_075005_710691_1D6BF09A 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20241108_080017_848870_86491D5C 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,39 +98,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/8/24 07:28, Jonathan Cameron wrote:
-> On Thu, 07 Nov 2024 18:02:26 -0500
-> Frank Li <Frank.Li@nxp.com> wrote:
-> 
->> Add basic function support for P3T1085 temperature sensor.
->> - Add binding doc trivial.yaml
->> - Add basic read temperature driver
-> Hi Frank,
-> 
-> For a simple temperature sensor the usual question is why IIO rather
-> than hwmon?
-> 
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
- From looking into the datasheet, this is a chip which will be typically
-used for hardware monitoring.
+Convert all platform drivers below drivers/fpga to use .remove(), with
+the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
-> Previous reasons have been:
-> - Very high performmance / accuracy part (i.e. expensive)
+A few white space changes are included to make indention consistent.
 
-0.25 Hz ... 16 Hz sampling rate. No.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-> - Remote temperature so not typically hw monitoring.
+I did a single patch for all of drivers/fpga. While I usually prefer
+to do one logical change per patch, this seems to be overengineering
+here as the individual changes are really trivial and shouldn't be much
+in the way for stable backports. But I'll happily split the patch if you
+prefer it split. Also if you object the indentation stuff, I can rework
+that.
 
-Local only.
+This is based on today's next, if conflicts arise when you apply it
+at some later time and don't want to resolve them, feel free to just
+drop the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend. (Having said that, I
+recommend b4 am -3 + git am -3 which should resolve most conflicts just
+fine.)
 
-> - Same silicon with a more complex sensor (typically humidity or similar).
-> 
-No.
+Best regards
+Uwe
 
-It looks like the I2C part of the chip is is compatible to TMP108, so
-another question would be why to implement a new driver in the first place.
+ drivers/fpga/altera-fpga2sdram.c        | 2 +-
+ drivers/fpga/altera-freeze-bridge.c     | 2 +-
+ drivers/fpga/altera-hps2fpga.c          | 2 +-
+ drivers/fpga/dfl-afu-main.c             | 8 ++++----
+ drivers/fpga/dfl-fme-br.c               | 8 ++++----
+ drivers/fpga/dfl-fme-main.c             | 8 ++++----
+ drivers/fpga/dfl-fme-region.c           | 8 ++++----
+ drivers/fpga/intel-m10-bmc-sec-update.c | 2 +-
+ drivers/fpga/of-fpga-region.c           | 2 +-
+ drivers/fpga/socfpga-a10.c              | 2 +-
+ drivers/fpga/stratix10-soc.c            | 2 +-
+ drivers/fpga/xilinx-pr-decoupler.c      | 2 +-
+ drivers/fpga/zynq-fpga.c                | 2 +-
+ 13 files changed, 25 insertions(+), 25 deletions(-)
 
-Guenter
+diff --git a/drivers/fpga/altera-fpga2sdram.c b/drivers/fpga/altera-fpga2sdram.c
+index f4de3fea0b2d..e41492988dd6 100644
+--- a/drivers/fpga/altera-fpga2sdram.c
++++ b/drivers/fpga/altera-fpga2sdram.c
+@@ -152,7 +152,7 @@ MODULE_DEVICE_TABLE(of, altera_fpga_of_match);
+ 
+ static struct platform_driver altera_fpga_driver = {
+ 	.probe = alt_fpga_bridge_probe,
+-	.remove_new = alt_fpga_bridge_remove,
++	.remove = alt_fpga_bridge_remove,
+ 	.driver = {
+ 		.name	= "altera_fpga2sdram_bridge",
+ 		.of_match_table = of_match_ptr(altera_fpga_of_match),
+diff --git a/drivers/fpga/altera-freeze-bridge.c b/drivers/fpga/altera-freeze-bridge.c
+index 44061cb16f87..594693ff786e 100644
+--- a/drivers/fpga/altera-freeze-bridge.c
++++ b/drivers/fpga/altera-freeze-bridge.c
+@@ -262,7 +262,7 @@ static void altera_freeze_br_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver altera_freeze_br_driver = {
+ 	.probe = altera_freeze_br_probe,
+-	.remove_new = altera_freeze_br_remove,
++	.remove = altera_freeze_br_remove,
+ 	.driver = {
+ 		.name	= "altera_freeze_br",
+ 		.of_match_table = altera_freeze_br_of_match,
+diff --git a/drivers/fpga/altera-hps2fpga.c b/drivers/fpga/altera-hps2fpga.c
+index 6f8e24be19c6..f2f1250689cb 100644
+--- a/drivers/fpga/altera-hps2fpga.c
++++ b/drivers/fpga/altera-hps2fpga.c
+@@ -205,7 +205,7 @@ MODULE_DEVICE_TABLE(of, altera_fpga_of_match);
+ 
+ static struct platform_driver alt_fpga_bridge_driver = {
+ 	.probe = alt_fpga_bridge_probe,
+-	.remove_new = alt_fpga_bridge_remove,
++	.remove = alt_fpga_bridge_remove,
+ 	.driver = {
+ 		.name	= "altera_hps2fpga_bridge",
+ 		.of_match_table = of_match_ptr(altera_fpga_of_match),
+diff --git a/drivers/fpga/dfl-afu-main.c b/drivers/fpga/dfl-afu-main.c
+index 6b97c073849e..2fd4f07ed081 100644
+--- a/drivers/fpga/dfl-afu-main.c
++++ b/drivers/fpga/dfl-afu-main.c
+@@ -947,12 +947,12 @@ static const struct attribute_group *afu_dev_groups[] = {
+ };
+ 
+ static struct platform_driver afu_driver = {
+-	.driver	= {
+-		.name	    = DFL_FPGA_FEATURE_DEV_PORT,
++	.driver = {
++		.name = DFL_FPGA_FEATURE_DEV_PORT,
+ 		.dev_groups = afu_dev_groups,
+ 	},
+-	.probe   = afu_probe,
+-	.remove_new = afu_remove,
++	.probe = afu_probe,
++	.remove = afu_remove,
+ };
+ 
+ static int __init afu_init(void)
+diff --git a/drivers/fpga/dfl-fme-br.c b/drivers/fpga/dfl-fme-br.c
+index 0b01b3895277..950c606c59d4 100644
+--- a/drivers/fpga/dfl-fme-br.c
++++ b/drivers/fpga/dfl-fme-br.c
+@@ -92,11 +92,11 @@ static void fme_br_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver fme_br_driver = {
+-	.driver	= {
+-		.name    = DFL_FPGA_FME_BRIDGE,
++	.driver = {
++		.name = DFL_FPGA_FME_BRIDGE,
+ 	},
+-	.probe   = fme_br_probe,
+-	.remove_new = fme_br_remove,
++	.probe = fme_br_probe,
++	.remove = fme_br_remove,
+ };
+ 
+ module_platform_driver(fme_br_driver);
+diff --git a/drivers/fpga/dfl-fme-main.c b/drivers/fpga/dfl-fme-main.c
+index 864924f68f5e..f8d89a4a6ccb 100644
+--- a/drivers/fpga/dfl-fme-main.c
++++ b/drivers/fpga/dfl-fme-main.c
+@@ -742,12 +742,12 @@ static const struct attribute_group *fme_dev_groups[] = {
+ };
+ 
+ static struct platform_driver fme_driver = {
+-	.driver	= {
+-		.name       = DFL_FPGA_FEATURE_DEV_FME,
++	.driver = {
++		.name = DFL_FPGA_FEATURE_DEV_FME,
+ 		.dev_groups = fme_dev_groups,
+ 	},
+-	.probe   = fme_probe,
+-	.remove_new = fme_remove,
++	.probe = fme_probe,
++	.remove = fme_remove,
+ };
+ 
+ module_platform_driver(fme_driver);
+diff --git a/drivers/fpga/dfl-fme-region.c b/drivers/fpga/dfl-fme-region.c
+index 71616f8b4982..c6cd63063c82 100644
+--- a/drivers/fpga/dfl-fme-region.c
++++ b/drivers/fpga/dfl-fme-region.c
+@@ -71,11 +71,11 @@ static void fme_region_remove(struct platform_device *pdev)
+ }
+ 
+ static struct platform_driver fme_region_driver = {
+-	.driver	= {
+-		.name    = DFL_FPGA_FME_REGION,
++	.driver = {
++		.name = DFL_FPGA_FME_REGION,
+ 	},
+-	.probe   = fme_region_probe,
+-	.remove_new = fme_region_remove,
++	.probe = fme_region_probe,
++	.remove = fme_region_remove,
+ };
+ 
+ module_platform_driver(fme_region_driver);
+diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
+index 7ac9f9f5af12..dd515083bbdd 100644
+--- a/drivers/fpga/intel-m10-bmc-sec-update.c
++++ b/drivers/fpga/intel-m10-bmc-sec-update.c
+@@ -759,7 +759,7 @@ MODULE_DEVICE_TABLE(platform, intel_m10bmc_sec_ids);
+ 
+ static struct platform_driver intel_m10bmc_sec_driver = {
+ 	.probe = m10bmc_sec_probe,
+-	.remove_new = m10bmc_sec_remove,
++	.remove = m10bmc_sec_remove,
+ 	.driver = {
+ 		.name = "intel-m10bmc-sec-update",
+ 		.dev_groups = m10bmc_sec_attr_groups,
+diff --git a/drivers/fpga/of-fpga-region.c b/drivers/fpga/of-fpga-region.c
+index 8526a5a86f0c..43db4bb77138 100644
+--- a/drivers/fpga/of-fpga-region.c
++++ b/drivers/fpga/of-fpga-region.c
+@@ -436,7 +436,7 @@ static void of_fpga_region_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver of_fpga_region_driver = {
+ 	.probe = of_fpga_region_probe,
+-	.remove_new = of_fpga_region_remove,
++	.remove = of_fpga_region_remove,
+ 	.driver = {
+ 		.name	= "of-fpga-region",
+ 		.of_match_table = of_match_ptr(fpga_region_of_match),
+diff --git a/drivers/fpga/socfpga-a10.c b/drivers/fpga/socfpga-a10.c
+index 4c03513b8f03..0165a3c86932 100644
+--- a/drivers/fpga/socfpga-a10.c
++++ b/drivers/fpga/socfpga-a10.c
+@@ -535,7 +535,7 @@ MODULE_DEVICE_TABLE(of, socfpga_a10_fpga_of_match);
+ 
+ static struct platform_driver socfpga_a10_fpga_driver = {
+ 	.probe = socfpga_a10_fpga_probe,
+-	.remove_new = socfpga_a10_fpga_remove,
++	.remove = socfpga_a10_fpga_remove,
+ 	.driver = {
+ 		.name	= "socfpga_a10_fpga_manager",
+ 		.of_match_table = socfpga_a10_fpga_of_match,
+diff --git a/drivers/fpga/stratix10-soc.c b/drivers/fpga/stratix10-soc.c
+index 2c0def7d7cbb..0a295ccf1644 100644
+--- a/drivers/fpga/stratix10-soc.c
++++ b/drivers/fpga/stratix10-soc.c
+@@ -455,7 +455,7 @@ MODULE_DEVICE_TABLE(of, s10_of_match);
+ 
+ static struct platform_driver s10_driver = {
+ 	.probe = s10_probe,
+-	.remove_new = s10_remove,
++	.remove = s10_remove,
+ 	.driver = {
+ 		.name	= "Stratix10 SoC FPGA manager",
+ 		.of_match_table = of_match_ptr(s10_of_match),
+diff --git a/drivers/fpga/xilinx-pr-decoupler.c b/drivers/fpga/xilinx-pr-decoupler.c
+index 788dd2f63a65..822751fad18a 100644
+--- a/drivers/fpga/xilinx-pr-decoupler.c
++++ b/drivers/fpga/xilinx-pr-decoupler.c
+@@ -162,7 +162,7 @@ static void xlnx_pr_decoupler_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver xlnx_pr_decoupler_driver = {
+ 	.probe = xlnx_pr_decoupler_probe,
+-	.remove_new = xlnx_pr_decoupler_remove,
++	.remove = xlnx_pr_decoupler_remove,
+ 	.driver = {
+ 		.name = "xlnx_pr_decoupler",
+ 		.of_match_table = xlnx_pr_decoupler_of_match,
+diff --git a/drivers/fpga/zynq-fpga.c b/drivers/fpga/zynq-fpga.c
+index 4db3d80e10b0..f7e08f7ea9ef 100644
+--- a/drivers/fpga/zynq-fpga.c
++++ b/drivers/fpga/zynq-fpga.c
+@@ -642,7 +642,7 @@ MODULE_DEVICE_TABLE(of, zynq_fpga_of_match);
+ 
+ static struct platform_driver zynq_fpga_driver = {
+ 	.probe = zynq_fpga_probe,
+-	.remove_new = zynq_fpga_remove,
++	.remove = zynq_fpga_remove,
+ 	.driver = {
+ 		.name = "zynq_fpga_manager",
+ 		.of_match_table = of_match_ptr(zynq_fpga_of_match),
 
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+-- 
+2.45.2
 
 
