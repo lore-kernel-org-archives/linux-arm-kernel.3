@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9850DD64070
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD7CD6406B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=GxsQs4kxONYICZCGLVXpRmgsHoURPzrRvnfd4DmBGQo=; b=VUcfaXNvgdnggT
-	YI6KSz0BYvzeJCkylPW+i387cD+qfxkcqy0Z8EG5Ry/Qo7MV2xmZc38U/lc81+8HRrDoruK6HADyl
-	bBOYRIvZiqFOPFGiwcCbClIwllDknUjVYzlW2sSJ423rRhGm3kacU5LdFDV7dP0wu8Jg25qirs+rz
-	UoOj1b/1zmRYnLAFamxCpAdTqxgz3x5spa89t/ppLQAgKNQTDu3GDl2SY//X2EeNI0Ya2EHdk7X8E
-	LNemnJDSQ+aiJ2en0kML6IMQvdYKQoqLGg2rnsNnl6M/JUVzzgrMjYRLSSg4L4UxlqJ6//26LP5Vy
-	c31l771s/duktXZik7KA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DU5QuVOyzhAw7hXCixNrZkCODVcCI8Ep+ikiO9EHdGA=; b=PHRFrzxwwsgGiHAiNbTx3QlEHT
+	r4JZuIoa0Fztuf3ageU+W82WEJD+AJdejFZdv2qMyThdX+0k3L6gwbIm10mybjhVolmW4i42igxzL
+	QPzUVSwF/thvcyBOAsb91iGS5QYasdq8U2CzGlG6Ndnlsfq44LHd5oc11dqxTuHexXp9CvQbrFqLR
+	GZg9VoLvvngTIpztaE5g6/cnRnhaW446XGYjTn9NnFjTgbHdwftHrHfAKlOD1s9swAJGpb/X69ytO
+	64OdZN/9gnSoV7Hdlwl7mkf1zBV8fJoNZDndjDZbyZw9FjbvTKk84sdiCpr4W0yhHks1dN2NEqJ5M
+	SCspPSqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SVq-0000000BL94-2dAl;
-	Fri, 08 Nov 2024 17:11:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9SVv-0000000BLEG-1zeG;
+	Fri, 08 Nov 2024 17:11:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SI5-0000000BJK3-0LV0;
-	Fri, 08 Nov 2024 16:56:58 +0000
+	id 1t9SPB-0000000BKC2-2lVB;
+	Fri, 08 Nov 2024 17:04:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90211A440EA;
-	Fri,  8 Nov 2024 16:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B03DBC4CECD;
-	Fri,  8 Nov 2024 16:56:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ADA9F5C5BFD;
+	Fri,  8 Nov 2024 17:03:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA6AC4CECD;
+	Fri,  8 Nov 2024 17:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731085015;
-	bh=hjfkk2bPDC/830gBiHBjzD5EFmbHgFIcXBwd1zE5kGE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=OSDYkbbKRO+AYZUWz7Sdh/5jZPwcxOt6K+qQ3Bi8Tdh8RvaGqMn+BBlP8VKDZbEKj
-	 EZCdJJWpK4DpLf1qJFLIayaGJB3IVYHCc6E1uS/Qk0fNt67ztPzeNQhorC/DU6eSXq
-	 woOQYbuy2hStYkSYEoNT8CAvNYWBnDAGfzOgSRWvUtNkUo+ZHI4SOOCY7hRw26qJEb
-	 2eljXEp+AX/ADkBhMPlBSmj6Gywab+LA1oJMnbnvx/vBwIyruKOJ6iZLPZxbA+Kd2x
-	 TVFKsr3mXTty3CPtV3FBdLmJcgfGatPWDOgYQXJvSnHY8UqMMOLyxkbxH2berrJLve
-	 bgNfVoMNKS3ew==
-Date: Fri, 8 Nov 2024 10:56:54 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] of: address: Preserve the flags portion on 1:1
- dma-ranges mapping
-Message-ID: <20241108165654.GA1665761@bhelgaas>
+	s=k20201202; t=1731085456;
+	bh=3C86MS26GFsBNxBdX5coV7T2cbUFhcZGxK90XHY+fok=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eGrGiSKcZQbMXZTSBSYdn8vJekAayoGdFG430Qm2ducS0aEnOTZYxlpcVJm0fLPw8
+	 fgAXTnS057nIxxw3ZKYg0ZijAGfLdSHZFrFXLY9LJn36/zCUZNaXMTnQrmSNbdFNDi
+	 WaNNHswlmqJG1Qv0dr+BDJw3Fh52QrBgayYKvNE8CaTfEKFPPRZ7oHhFlvQ1KdmnEq
+	 sfLv0A4E+R3VkkPjUfzwk1bxx3DR7KUNZJubkoiPPGuH76X87DXXZan1aLPEoDVxMy
+	 a7azS9OujT0vdtp0R5hNUAC5Qdk8xZ6DlEJQBbK3D7L3PEfVR7nSZdMnbGjvVfTq6d
+	 DN2ZB4TvuVhLA==
+Date: Fri, 8 Nov 2024 18:04:13 +0100
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
+ .power_up()
+Message-ID: <Zy5EjY_oQaRbb5MY@lore-desk>
+References: <Zy3OTQ5CwPqtaeLU@lore-desk>
+ <20241108163716.GA1664097@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aoE1DOBmsT2pIPHJ"
 Content-Disposition: inline
-In-Reply-To: <ae3363eb212b356d526e9cfa7775c6dfea33e372.1731060031.git.andrea.porta@suse.com>
+In-Reply-To: <20241108163716.GA1664097@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_085657_272813_B6A33E8B 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20241108_090417_802810_0BE802A6 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 11:39:21AM +0100, Andrea della Porta wrote:
-> A missing or empty dma-ranges in a DT node implies a 1:1 mapping for dma
-> translations. In this specific case, the current behaviour is to zero out
-> the entire specifier so that the translation could be carried on as an
-> offset from zero.  This includes address specifier that has flags (e.g.
-> PCI ranges).
-> Once the flags portion has been zeroed, the translation chain is broken
-> since the mapping functions will check the upcoming address specifier
-> against mismatching flags, always failing the 1:1 mapping and its entire
-> purpose of always succeeding.
-> Set to zero only the address portion while passing the flags through.
 
-Add blank lines between paragraphs.
+--aoE1DOBmsT2pIPHJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Fixes: dbbdee94734b ("of/address: Merge all of the bus translation code")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
-> ---
->  drivers/of/address.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/of/address.c b/drivers/of/address.c
-> index 286f0c161e33..72b6accff21c 100644
-> --- a/drivers/of/address.c
-> +++ b/drivers/of/address.c
-> @@ -455,7 +455,8 @@ static int of_translate_one(struct device_node *parent, struct of_bus *bus,
->  	}
->  	if (ranges == NULL || rlen == 0) {
->  		offset = of_read_number(addr, na);
-> -		memset(addr, 0, pna * 4);
-> +		/* copy the address while preserving the flags */
+> On Fri, Nov 08, 2024 at 09:39:41AM +0100, lorenzo@kernel.org wrote:
+> > > On Thu, 2024-11-07 at 17:08 +0100, Lorenzo Bianconi wrote:
+> > > > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wrote:
+> > > > > > In order to make the code more readable, move phy and mac
+> > > > > > reset lines assert/de-assert configuration in .power_up
+> > > > > > callback (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
+>=20
+> > > > > > +	/*
+> > > > > > +	 * The controller may have been left out of reset by the
+> > > > > > bootloader
+> > > > > > +	 * so make sure that we get a clean start by asserting resets
+> > > > > > here.
+> > > > > > +	 */
+> > > > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
+> > > > > > +				  pcie->phy_resets);
+> > > > > > +	reset_control_assert(pcie->mac_reset);
+> > > > > > +	usleep_range(10, 20);
+> > > > >=20
+> > > > > Unrelated to this patch, but since you're moving it, do you
+> > > > > know what this delay is for?  Can we add a #define and a spec
+> > > > > citation for it?
+> > > >=20
+> > > > I am not sure about it, this was already there.  @Jianjun Wang:
+> > > > any input on it?
+> > >=20
+> > > This delay is used to ensure the reset is effective. A delay of
+> > > 10us should be sufficient in this scenario.
+> >=20
+> > ack, so we can introduce a marco like:
+> >=20
+> > #define PCIE_RESET_TIME_US	10
+> > ...
+> >=20
+> > usleep_range(PCIE_RESET_TIME_US, 2 * PCIE_RESET_TIME_US);
+>=20
+> Unless this corresponds to a value specified by the PCIe base spec or
+> CEM spec, this macro should be internal to pcie-mediatek-gen3.c.
 
-Not knowing the surrounding code, it seems strange to say "copy the
-address" when the memset() fills with zero and does no copying.
+My plan is to add it in pcie-mediatek-gen3.c. Do you think PCIE_RESET_TIME_=
+US
+is too generic?
 
-The commit log says "set address to zero, pass flags through," and I
-could believe *that* matches the memset().
+Regards,
+Lorenzo
 
-> +		memset(addr + pbus->flag_cells, 0, (pna - pbus->flag_cells) * 4);
->  		pr_debug("empty ranges; 1:1 translation\n");
->  		goto finish;
->  	}
-> -- 
-> 2.35.3
-> 
+--aoE1DOBmsT2pIPHJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy5EjQAKCRA6cBh0uS2t
+rGkcAQCmqi+1zEy2XOSZkUGbzq2pUeWEnbeWTrheUkqUYyh/HgEAsizdeFxs3CU9
+t94Gy0H3snrTSXOo+4M43gZBzfdn+g0=
+=jWRN
+-----END PGP SIGNATURE-----
+
+--aoE1DOBmsT2pIPHJ--
 
