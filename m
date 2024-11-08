@@ -4,79 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C4CD5C0C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6501FD5C0C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+Cyc37Aq2SqEqQNiVMSAKYIXK5UFxn2rcs0yp6pEPU=; b=3KUO/xfthziS3kY2FS2B2ejAUf
-	OQZIX1Uudoo1E+mjROf7blh0kbvc8awEKQyDsXB48+5eJrndt74/Q7uFM8BT5ZF5sGvv1QAZE+GWW
-	8oFQ49s/LLBSEI3L7A1rJ+3TCzB+sUOtxZy+P3cK7qZrzjLSazRRyvSZ0fKjoMwKhL7Qi2Q30S8Yu
-	mMK1q8LHK5PipY4mYbg8S8mjU2XULByamOrj8FA02wtzUq+CfRh4o6I45Dix0qQaNmwQiElzUk4AN
-	pqM6EPOyf7qX6mk5b3rp6UK9kgx0Vm5WKMDojLgChsYGDEPg5XzNghGyR2zck6TYuZgeen1m9/Nla
-	JvLiO/zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MDA/YnPw1q979OydzNA3RQek3PwG3C1LVM/KL/xZqYg=; b=yiM8QNSwgEmnWn3Dz6W4ZHd/pR
+	k3f8TYha6VVl2auJENLPfa3MnNevi9qyEMiIx4Rn78mmkdxkGoD3F/uVEkimH1jXeWD5ZzKPE6jlW
+	sH+2ET4QeCx3yh9p5apohvvv91VLWA3j+lZp4FLVxbg1P1npFd0rA630uoDDqKu3ffeO7zHzsS+Db
+	Wm61pJ0bZpDRFW08NZgApF5cV6FabCUB5CGNR9TRWaEpszT4XGyaG9qnaHTPCECNVWmBRsRrl8mnD
+	69XJI8I0C/ymq4arxytT2Bi5j2OvGIjoOLyscyB8fWot5A6KhPgjr4yfkdaePIzIXywDkvHwoN9tc
+	V34j9qPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Q59-0000000As15-2PYx;
-	Fri, 08 Nov 2024 14:35:27 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1t9Q6u-0000000AsQn-2jYA;
+	Fri, 08 Nov 2024 14:37:16 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PeY-0000000AnU1-1vjo
+	id 1t9Pee-0000000AnUi-0Ggt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:08:00 +0000
+	Fri, 08 Nov 2024 14:08:05 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-20e6981ca77so25648995ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 06:08:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1731074878; x=1762610878;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=s+Cyc37Aq2SqEqQNiVMSAKYIXK5UFxn2rcs0yp6pEPU=;
-  b=ODL1SRimP0kJrBHDDH2L5AGdO5WPjQ2t0GRxUWdJ0k2n+AldbInZes7V
-   98Sc4TV7aRVCfX3bbfWozK99DhedRIFCVYRdVsuNBo3oKikyr/gS1rU9n
-   YwcS8ziUhbHa2VEMqgf74VBxDZwuBQk5IAObOSj3jw2Huz4pvnnq6QMPT
-   REyprcV1EiQwdIlXPgv/D0n2IBRjQ2iNCH9RU5k17ViM3ojSj/u1Zx0mT
-   C8f843KbeQwuLnqi38vGhMizBtHupytyuKcgOjsE5mtC1nDrCDU1gdddb
-   vEXZJBcUetAiVSAiNJCtQAj/C9gkwAtnpXwPMSr0dCWh9E5ITICwqfDtz
-   g==;
-X-CSE-ConnectionGUID: RDdKthBGQN+7Kl3ZuVXfAA==
-X-CSE-MsgGUID: HKOVV5zSTpy6vXPgHcraYA==
-X-IronPort-AV: E=Sophos;i="6.12,138,1728943200"; 
-   d="scan'208";a="39937306"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Nov 2024 15:07:56 +0100
-X-CheckPoint: {672E1B3C-1D-D31EDE1A-D52D6119}
-X-MAIL-CPID: 055CE465A85CD3B3BFEBFFD4B4365DE4_5
-X-Control-Analysis: str=0001.0A682F22.672E1B3C.00AB,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7A66E160F33;
-	Fri,  8 Nov 2024 15:07:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1731074871;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=s+Cyc37Aq2SqEqQNiVMSAKYIXK5UFxn2rcs0yp6pEPU=;
-	b=Ap9IBUM2OYs1Nzp8SCXNQopPY1ICjrAfq0TgeeuSVZXAgavVLvzdd7cguQ5dCRe6GaakbC
-	u0t7Slv2OMHxGfyNU9qDGDmVicgKxICglbFChHZNQw39NmAw3bgVuD5PMDcxnhXIuos9aZ
-	h9fhY9bQbRLYS3fGWeS2JqtWVacTlchFzjyWUl4wX7Va2wTyU4zVuFQdfaKTxuKK/SLUf9
-	N62miwuRchBhkUGii15wUnSPiINg7McU7++RFlOH+BvgG7uXWsb0NMsYUpXKXXN3oJMV5r
-	GfAU0g5ZJVowLSuATTQM6VAqq0LYU8DjmkAGNQwq6iJlL2GdIi4S0na1GwiOaA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Pengfei Li <pengfei.li_1@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, linux-arm-kernel@lists.infradead.org, joao.goncalves@toradex.com, frieder.schrempf@kontron.de, marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com, m.othacehe@gmail.com, mwalle@kernel.org, Max.Merchel@ew.tq-group.com, hiago.franco@toradex.com, tharvey@gateworks.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, ping.bai@nxp.com, ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: Add i.MX91 dtsi support
-Date: Fri, 08 Nov 2024 15:07:50 +0100
-Message-ID: <22489205.EfDdHjke4D@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Zy3iogT7jOLEvf1S@pengfei-OptiPlex-Tower-Plus-7010>
-References: <20241108022703.1877171-1-pengfei.li_1@nxp.com> <1907807.tdWV9SEqCh@steina-w> <Zy3iogT7jOLEvf1S@pengfei-OptiPlex-Tower-Plus-7010>
+        d=gmail.com; s=20230601; t=1731074883; x=1731679683; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=MDA/YnPw1q979OydzNA3RQek3PwG3C1LVM/KL/xZqYg=;
+        b=C6Ib0T+SdgpgVxmQQfxszjA3g0eKgxhqk2JhhhwtXascjAL74BEPVS/RsN2Rq6kbLr
+         6wP6BBm3o3bg8uxCEcou3fK+Z42oyjpfS9U63/xoSorcvEp7Li4AXJdlMuRGoFl6JYZl
+         XlE0rimf/erSPSLAD/M5dZaWqyjVVujcKfBmrjOvbhxcjg5C8C3l/X2geRQyYIx3fgPh
+         b9v0DfPQYLNZaOxbVfuA5vLJdreNCr8yrplV9iziFx6AoKhzmARYS9JsSwXTnG7QMA20
+         gh4gOGU5yFgnNU/x1OiJzOaUVecbOes8OThuSxq5FO1FvgEhO0zzrBuquRKwrrJ7WgS1
+         I+ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731074883; x=1731679683;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MDA/YnPw1q979OydzNA3RQek3PwG3C1LVM/KL/xZqYg=;
+        b=f2d1q0emicMzOfjrALZ+9LBx/XD49plrRVCyKPYAJjDEc49ukGzLDghvuFq3X0hUIS
+         FDBKMKsrtU+dl2gyDxhrSgz2glh+rvL/VMT7snWxgFeNim89aKe4+flCI22FyBbhgQZl
+         ZO6b7yuzPArhQDa6JHESdblZf/oWBGApz7Ca9H3CB5O85NG1eRmEbIkhCNpTyGb3jqQB
+         hkeJtlUTVRCpP+ZQdRBfetGDLTFnBai5HXxlXG1GCW+eKdRGQ51RSxXG20G+AhbQcJTh
+         k9ARPrpCKWP9EjbNKSdty4LFssZngTFX05JubdYd8yNqAof6Tvd0XvVESuvlG+4chBRJ
+         vHrw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0q5RUhu4CkLghwfAKE0AjLxKDt4iDXoyy6MRlwaBwbIkaMEJMoEtu2nX3mW1ZGlGAIAIDaq/Ku0QxGUFkEgQf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWwgIv9K7XOMx6Wq37twogK3BokWJWWIx7urc7MOzlX13a80Ij
+	f/2w778vWz9Lz/3DPw3LIyTUgfRwcIYH+Qa8Bv32eaub7jRtLRjt
+X-Google-Smtp-Source: AGHT+IFgkItELd0W01lweMUWk3BaIPKK/cfRmmwUw4c5FH32ummS1mrI9WYYmto2+9cJdiXsPPWbrw==
+X-Received: by 2002:a17:902:c942:b0:211:a6d:85dd with SMTP id d9443c01a7336-211835d9930mr35684205ad.47.1731074882693;
+        Fri, 08 Nov 2024 06:08:02 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f5cab66sm3454618a12.33.2024.11.08.06.08.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Nov 2024 06:08:01 -0800 (PST)
+Message-ID: <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
+Date: Fri, 8 Nov 2024 06:07:59 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Patrick Williams <patrick@stwcx.xyz>,
+ "wim@linux-watchdog.org" <wim@linux-watchdog.org>
+Cc: "joel@jms.id.au" <joel@jms.id.au>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
+ "Peter.Yin@quantatw.com" <Peter.Yin@quantatw.com>,
+ "Patrick_NC_Lin@wiwynn.com" <Patrick_NC_Lin@wiwynn.com>,
+ "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
+ "DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>,
+ BMC-SW <BMC-SW@aspeedtech.com>,
+ "chnguyen@amperecomputing.com" <chnguyen@amperecomputing.com>
+References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+ <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+ <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+ <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
+ <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+ <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
+ <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_060758_824860_7A3B4580 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20241108_060804_139588_15499196 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,122 +157,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 11/7/24 21:42, Chin-Ting Kuo wrote:
 
-Am Freitag, 8. November 2024, 11:06:26 CET schrieb Pengfei Li:
-> On Thu, Nov 07, 2024 at 02:06:27PM +0100, Alexander Stein wrote:
-> > Am Donnerstag, 7. November 2024, 13:49:50 CET schrieb Alexander Stein:
-> > > > diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/=
-boot/dts/freescale/imx91.dtsi
-> > > > new file mode 100644
-> > > > index 000000000000..a9f4c1fe61cc
-> > > > --- /dev/null
-> > > > +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
-> > > > @@ -0,0 +1,66 @@
-> > > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > > > +/*
-> > > > + * Copyright 2024 NXP
-> > > > + */
-> > > > +
-> > > > +#include "imx91-pinfunc.h"
-> > > > +#include "imx93.dtsi"
-> > > > +
-> > > > +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
-> > > > +	cooling-device =3D
-> > > > +		<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> > > > +};
-> > > > +
-> > > > +&clk {
-> > > > +	compatible =3D "fsl,imx91-ccm";
-> > > > +};
-> > > > +
-> > > > +&eqos {
-> > > > +	clocks =3D <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
-> > > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
-> > > > +			<&clk IMX91_CLK_ENET_TIMER>,
-> > > > +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
-> > > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
-> > > > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
-> > > > +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
-> > > > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> > > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
-> > >=20
-> > > Is it just me or is the alignment of new lines not matching?
-> > >=20
-> > >=20
-> > > > +};
-> > > > +
-> > > > +&fec {
-> > > > +	clocks =3D <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
-> > > > +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
-> > > > +			<&clk IMX91_CLK_ENET_TIMER>,
-> > > > +			<&clk IMX91_CLK_ENET2_REGULAR>,
-> > > > +			<&clk IMX93_CLK_DUMMY>;
-> > > > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
-> > > > +				<&clk IMX91_CLK_ENET2_REGULAR>;
-> > > > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> > > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
-> > >=20
-> > > Here as well: Is it just me or is the alignment of new lines not matc=
-hing?
-> > >=20
-> > > > +	assigned-clock-rates =3D <100000000>, <250000000>;
-> > > > +};
-> > > > +
-> > > > +&i3c1 {
-> > > > +	clocks =3D <&clk IMX93_CLK_BUS_AON>,
-> > > > +			<&clk IMX93_CLK_I3C1_GATE>,
-> > > > +			<&clk IMX93_CLK_DUMMY>;
-> > > > +};
-> > > > +
-> > > > +&i3c2 {
-> > > > +	clocks =3D <&clk IMX93_CLK_BUS_WAKEUP>,
-> > > > +			<&clk IMX93_CLK_I3C2_GATE>,
-> > > > +			<&clk IMX93_CLK_DUMMY>;
-> > > > +};
-> > > > +
-> > > > +&tmu {
-> > > > +	status =3D "disabled";
-> > >=20
-> > > Why does the TMU needs to be disabled instead of deleted?
-> > >=20
-> > > > +};
-> > > > +
-> > > > +/* i.MX91 only has one A core */
-> > > > +/delete-node/ &A55_1;
-> > > > +
-> > > > +/* i.MX91 not has cm33 */
-> > > > +/delete-node/ &cm33;
-> > > > +
-> > > > +/* i.MX91 not has power-domain@44461800 */
-> > > > +/delete-node/ &mlmix;
-> > > >=20
-> > >=20
-> > > Shouldn't the following node also be removed?
-> > > * mipi_csi
-> > > * dsi
-> > > * lvds_bridge
-> > > * lcdif_to_dsi
-> > > * lcdif_to_ldb
-> >=20
-> > Add mu1 and mu2 to that list.
->=20
-> Hi, i.MX91 also has mu1 and mu2. so there is no need to remove them here.
+> But now, I think it will be better to add a patch for creating a new
+> reset reason, e.g., WDIOF_REBOOT or WDIOF_RESTART, in watchdog.h
+> of uapi. Can I include this change, creating a new reset reason, in
+> this patch series? Or, should I create an extra new patch series for
+> this purpose?
+> 
 
-Maybe you have more recent information. The RM available to me doesn't
-say anything about messaging unit, neither in memory map nor as a separate
-section describing the hardware. Memory area is marked as reserved.
+This is a UAPI change. That is a major change. It needs to be discussed
+separately, on its own, and can not be sneaked in like this.
 
-If there are actually mu1 and mu2 available, what is on the B-side? There
-is no Cortex-M33 after all.
-
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+Guenter
 
 
