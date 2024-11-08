@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A86D5C0C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9118CD5C0C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 13:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eEmeNXasINSt+Z4vbTvAXs9qBRw2b2Uq8yfceE7FIkA=; b=pm+088ZmbGjiDm8274JEm1Trig
-	TM6+bjj1aDCf6p/X0ModOY6ow1nV7IPMvJn18RTWHANC6JwVNSRgrsyWXyn7kYbzYVtyqEvXQNb+I
-	QM331z53t5DLGh9gFgLXn1VIv2vGsM2sO0Nd397Lcwr2a2MgVXMP/ulDzfIZ3aRPaUGuZI9rFGAfA
-	TEZiy3SG981tXHbXX14SkWwoHVV/JieHe7AVIr2P7B6/TslPADVitWiC7wC4ib41DbqWGsRH2T410
-	Uzz+Dey8vauajGLDjsqmGKKP2wIOsw1P/JqUk+QHFNKRRmYnCtIAEJvf+flDpGk9n4p13zuxAQN4F
-	VYS+HY1w==;
+	bh=UIXKP+RHW4XCjdsq76k5coFeMmA2KINbHEm689Ip5fU=; b=GKe9COxondX0SP+fzJ9ea/8jB1
+	WlsC1h8mSUKG38ZwVLmCZQy6P3guKX+ucY1tmEyjOLhzg5jdHlF9FFiEmS3v/3BUL3oCIO7X1KxQ1
+	MaO8SkKlnKSB6a62vVRwZ9SHuyyvfMZuQDuqA4ve6xDd/bnzmUDQ3/5W1SgViu4DF/iWMlCLEsIFx
+	mc02W0L2gSWp760gVIlKmvuARV/lFJd8qe2WQV3H6Mqhk4axJKNtGpDToL2MeRhMl7a5y8Cpe1Q0Y
+	EBZBMEYVK35sEmsLTnnwbYyzvQYvOycv4BTWfXTCt4Cue6K6IyZJKeALELL5OgfUrhe1/qSuIVJbO
+	VdWtISCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PA0-0000000Ahwd-1Zoc;
-	Fri, 08 Nov 2024 13:36:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9PBi-0000000Ai6F-42z0;
+	Fri, 08 Nov 2024 13:38:10 +0000
+Received: from out-181.mta0.migadu.com ([91.218.175.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9P4d-0000000AgpZ-1UhW
+	id 1t9P4g-0000000Agq0-0rEb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 13:30:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1BCD45C5B1B;
-	Fri,  8 Nov 2024 13:30:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1832EC4CECD;
-	Fri,  8 Nov 2024 13:30:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731072650;
-	bh=TV7tQY4wboLhy0g0stdHI8twRDkbQn0BDxeQXTe8Ifo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gbdEmcmPdFwfI9Ika8/S38CQc7m8+KAdEPhU+mJyP4bhAEYncCpBsmGi4NO4EH/UG
-	 6TrYJAPWRmsbivDUM2STEyd6hUveECepSwzHHTAsQcEkhCyCIJIO7Ienj5J0n9Wvco
-	 R8wB2QpgBE3C8OCNKAd9Aa1v0UdH+kKmWoxYkItcLCx+k1vszXz40yPkLGVc2FTEmb
-	 hVp3exzKgUcHDnRgXDFNz/jZc3Ss2a48SIfxoGA1i21jX+HGTj86BsApu31jywUYgR
-	 NX3toa4QQGIHjTkeeWLFcKsI1aTWvnbaBIA69W9Je/mx9wIN0T2j2JA5m1UfjBH6QV
-	 gkV6SuE+rstKg==
-Date: Fri, 8 Nov 2024 13:30:44 +0000
-From: Simon Horman <horms@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: vigneshr@ti.com, m-karicheri2@ti.com, jan.kiszka@siemens.com,
-	javier.carrasco.cruz@gmail.com, jacob.e.keller@intel.com,
-	diogo.ivo@siemens.com, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com,
-	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-Message-ID: <20241108133044.GB4507@kernel.org>
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
+	Fri, 08 Nov 2024 13:30:57 +0000
+Date: Sat, 9 Nov 2024 00:29:12 +1100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1731072651;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UIXKP+RHW4XCjdsq76k5coFeMmA2KINbHEm689Ip5fU=;
+	b=Tb5YOYZtj1JEeci4IP+D3ftq3ruIwUPUHeJ8qPzlbNcF7xnPlBBSs6hOMFNjZGrcenze6h
+	zHvPkaEqTsl8VjT2uU85t69ZM79EKJH5FkgoFUXwkmMDAp56dgOs8SUlc+Y/bG6NggMUXj
+	FyAU+M+ZmtWY1eXU/07Zu7dyQneaZ/qEfLBhuCuobk3bP14vC80Pdu2sBD8p8rszkjN7WK
+	vZ+pBO81+zvuphinfTKzhtSq4RJy5zD83Pj/c1rnMd91P3C4v7t2jzysDJm+K8zEswXgJk
+	xpdCkiL65jh+aWAcW/02ihU+aIsALl68B0xGSbQryn2QzBjFeamzOa/6MMRO2w==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: John Watts <contact@jookia.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Samuel Holland <samuel@sholland.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
+ DE1
+Message-ID: <Zy4SKCBwce3q0yj5@titan>
+References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
+ <20241108115357.691b77b0@donnerap.manchester.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241106074040.3361730-2-m-malladi@ti.com>
+In-Reply-To: <20241108115357.691b77b0@donnerap.manchester.arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_053051_503898_0B751F6B 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20241108_053055_167914_C42AB31C 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 01:10:39PM +0530, Meghana Malladi wrote:
-> From: MD Danish Anwar <danishanwar@ti.com>
+On Fri, Nov 08, 2024 at 11:53:57AM +0000, Andre Przywara wrote:
+> Hi John,
+
+Hi Andre!
+
+> Can you say *why* this patch is needed? Is there something broken that
+> needs fixing? Where does this show and why wasn't this a problem before?
+
+Oops, that's a good point. There is currently a bug where the LCD output will
+be tinted. I have full context here which I should have probably linked in the
+patch description:
+
+https://lore.kernel.org/linux-sunxi/Zn8GVkpwXwhaUFno@titan/T/#u
+
+> To be honest, given the isolation on this patch, I'd rather wait for this
+> full fledged solution, especially if there is no pressing need (see above).
+
+I'd be interested to hear if that's still the wanted solution given the link
+above. This currently blocks many people from having working LCD output.
+
+Doing it the proper way might be overkill for now unless someone deliberately
+tries to run two DEs to the same output. I haven't seen this use case.
+
+Allwinner kernel fork initially sets them up to values like these then makes
+sure both DEs can't be set to the same TCON.
+
+> > -	writel(0, regs + TCON_TOP_PORT_SEL_REG);
+> > +	writel(0x20, regs + TCON_TOP_PORT_SEL_REG);
 > 
-> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
-> and SLICE1. Currently whenever any ICSSG interface comes up we load the
-> respective firmwares to PRU cores and whenever interface goes down, we
-> stop the respective cores. Due to this, when SLICE0 goes down while
-> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
-> stopped. This results in clock jump for SLICE1 interface as the timesync
-> related operations are no longer running.
+> Sorry, but that looks weird:
+> First, please explain the 0x20. Is it bit 5? If yes, what does that bit
+> mean? The commit message suggests you know that?
 > 
-> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
-> ICSSG interface is up.
+> And second: the comment above clearly states that those two writes just
+> *clear* some registers, to have some sane base line. So please adjust this
+> comment, and copy in some of the rationale from the commit message.
+> Explaining things in the commit message is good (so thanks for that!), but
+> having at least some terse technical explanations near the code, in a
+> comment, is better.
+
+Bit 5 is value 3 of TCON_TOP_PORT_DE1_MSK. The R40 datasheet explains the
+values of both masks as follows:
+
+00: TCON_LCD0
+01: TCON_LCD1
+10: TCON_TV0
+11: TCON_TV1
+
+So this sets DE1's input to DE0.
+
 > 
-> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
-> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
-> used to let firmware know that the flow_id has been updated and to use the
-> latest rx_flow_id.
-> 
-> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> Cheers,
+> Andre
 
-...
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
-
-...
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 0556910938fa..9df67539285b 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->  {
->  	struct prueth_emac *emac = netdev_priv(ndev);
->  	int ret, i, num_data_chn = emac->tx_ch_num;
-> +	struct icssg_flow_cfg __iomem *flow_cfg;
->  	struct prueth *prueth = emac->prueth;
->  	int slice = prueth_emac_slice(emac);
->  	struct device *dev = prueth->dev;
-> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->  	/* set h/w MAC as user might have re-configured */
->  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->  
-> +	if (!prueth->emacs_initialized) {
-> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
-> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
-> +	}
-> +
->  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
-> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->  
->  	/* Notify the stack of the actual queue counts. */
-> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->  		goto cleanup_napi;
->  	}
->  
-> -	/* reset and start PRU firmware */
-> -	ret = prueth_emac_start(prueth, emac);
-> -	if (ret)
-> -		goto free_rx_irq;
-> +	if (!prueth->emacs_initialized) {
-> +		if (prueth->emac[ICSS_SLICE0]) {
-> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
-
-I wonder if it is worth simplifying this by having prueth_emac_start()
-check if it's 2nd parameter is NULL. Likewise for prueth_emac_stop().
-
-> +			if (ret) {
-> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
-> +				goto free_rx_irq;
-> +			}
-> +		}
-> +		if (prueth->emac[ICSS_SLICE1]) {
-> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
-> +			if (ret) {
-> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
-> +				goto halt_slice0_prus;
-> +			}
-> +		}
-> +	}
-> +
-> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
-> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
-> +	ret = emac_fdb_flow_id_updated(emac);
-> +
-> +	if (ret) {
-> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
-> +		goto stop;
-
-Branching to stop may result in calls to prueth_emac_stop() which does not
-seem symmetrical with the condition on prueth->emacs_initialized for calls
-to prueth_emac_start() above.
-
-If so, is this intended?
-
-> +	}
->  
->  	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->  
-
-...
+Thanks,
+John Watts
 
