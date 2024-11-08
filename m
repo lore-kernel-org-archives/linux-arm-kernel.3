@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C73D5E145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EABCD5E145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVqCqej3UEHzQjSpv0v/eChyYMxhKtzxsLYbfjRtEsA=; b=gPuZP0/wOP4pQHNRrp5UmobBn2
-	TfPtV01E+TwTEOFLo7R0mama3ZNldYoVujaZI0Zuo2iRUBeCPnw3kvz2NANQvFLgbHrZHMlTxgshN
-	2Q2ouFBrM09ARX1cusgdANWXAcA956ziHnBmv6wcvOY7Jk9V5O2JDpuFUt8p7FoqPrY1APIyFQaeq
-	XtH47QnIAloS64i08aCDNSNgx4u49NRzFfzvzQqVuiBREJuaN0Zne/rYBaOheVUXXuHffC4t7CZye
-	SLZjSTbYbAayx1u5h/O8uhIfxZxbF3xOAxwPpKSDY8hQfOdtzd6XdUgUmT/Jgtn9ZN0LBhBIrWoJ2
-	Em0GVddg==;
+	bh=m9K+9SzWuLqo1fVpHFezCjov3Z+u1nFxQFcoG02nQW0=; b=4BHBJwojTa5TlAn+brGba/fbQs
+	cbH3mJoj+D0UrohjK92SjvhBX6qCOjbZYfIwLQaOyUd35Kp5uJPkRQIP3lJsZ9O5XXUGm6KZFNFDr
+	v+egKp0MO5U5d+o0Vd4a1MPQ2hstXr56qXLIkAs+1uhDvokuvUPiL5nCnAY96ElQva7qfDz2my6uF
+	6Je3PDB3+Cff9R/mLTsAH1qbcIzmZuZCJAG28+6uVIP+SGBpWFFbBUjb4WIbCFkkIJdtc0w2oBKM7
+	9waSmSrRjN9YEyBX0T7FTLn6wkO5nRDbFSCP68alYaeoVX3HE0I0w502qbMQNPvA0xVY6h2TFIS6w
+	ZruoXNjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Kab-00000009p5d-3ymo;
-	Fri, 08 Nov 2024 08:43:34 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1t9KcK-00000009pHk-19OM;
+	Fri, 08 Nov 2024 08:45:20 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KRR-00000009n5H-2Sbi
+	id 1t9KRv-00000009nCP-2m4h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 08:34:06 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2fb5111747cso18556191fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:34:05 -0800 (PST)
+	Fri, 08 Nov 2024 08:34:37 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2fb587d0436so20025451fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:34:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731054843; x=1731659643; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731054874; x=1731659674; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vVqCqej3UEHzQjSpv0v/eChyYMxhKtzxsLYbfjRtEsA=;
-        b=swRr9v8yRka4/UqFO67rmOMmz2xIQniJgrc6reDzyhBcyn/3mSTShPZD6EVr+UFhct
-         LkpmXAQiYXdJsTqwhh2hp4XnBth8OMmFDNKBUAD+vx5Ero3OwURqPDdjtdCTffO86tnW
-         5qI0x8pLQhfuxq9Mi+LfAkRISIpjJoaMSIzQTao+D944jzIaVq+n+i0t3alfx3jDqg3Z
-         pLUdVi2AcCFR7APvzD/LcgoD8cfnWQGDzQmcO8QW2ksIxlfyQXb0GYofynvadZoN5GC1
-         orpqXxj7RuJuGu79xE0JdysOOfndLBq6wyR1Pb9u14KeN45CYzxq828nkPMd7jtYwdLj
-         IWFA==
+        bh=m9K+9SzWuLqo1fVpHFezCjov3Z+u1nFxQFcoG02nQW0=;
+        b=BbEoUWoLbqwC6fO9zY6cD27ZwDgdwn1O0KuGfePMoQPpuGnLI/k+jJMVRd0UN8y+xH
+         +qA3Fy4t1XFdSPpD5z/brXWKbwjGV3+j7XU2TxVGdCvCWa4+1LIu7BPl97lHWb6p2/3F
+         +LU/MTHXhIXOArn6LJPXO435Aas/IaorDYClrJzE3Yc9mQilbI/bmh9gebcfz/5R1kpt
+         sEUsnejy+/i27kw+Sndnsu1L//g8I5CtuiYvRc70CHGBhNzW2GA1eeSlR41ZAtDXOhGT
+         WmlD9oaTKkHOqaP7mO0Ok+GP2HS8yT/RyxFeB0RMzu/pncaiTfrpbZNRxQTN8puWfV7m
+         NWCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731054843; x=1731659643;
+        d=1e100.net; s=20230601; t=1731054874; x=1731659674;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vVqCqej3UEHzQjSpv0v/eChyYMxhKtzxsLYbfjRtEsA=;
-        b=fgNC4AkuyFf5Zk61qjvrCnidat4FC2g8lP62dgstFIDO+OWW9/wsDdJ85Wnxvzr2X0
-         gmA9wXonNTZFy0EMx1Zc38UyVeM74cM2xXQ9QlT2v2ekB3FLEI2cwZDZ0YGyi/17gqJq
-         Br+CSp0NQNnq1urevr35Vf3QRqWMpquiez2A9GsCXbWs5eYjLPDm8UYbFChMkD6zYEAT
-         4LmAY9LwhdpcX9r0LXIEs2w0i2LlVkVtEXVP3fKHBmz2z26x1ttwtnvpvWibM2nA75sI
-         rBAE8f24XoujKqPPP6VixSKxPoYQwGTbjs3MAeRndRjkO3Uv22zwmeXHlZnzPNdN8gM7
-         lKuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKGN3dDTsUgms3YDql3/3VD11Oeqbv1tYsWB41PBmZJw0jpDh4ohjyrdjyQIblQqcWs3m1O0lRYjbDzCYpb6cd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6klok2GpuJiQhXpgORFcX1DWc2xmzXQvhSDJv8tTLQ5kaHPnp
-	605rKD5EGeAIGxWjC5vpN57SlZezJYZA9VR0yp0nHunNj+/whiSkQowSdmblXPR3y+JD6/Inogy
-	kp+FxIP8yYDWLi8ROFradNLm6yWyie+voePxsEg==
-X-Google-Smtp-Source: AGHT+IGtlBw8/BzKpYwXBVKDarOJwHXN0bQ5Y2Edkm/hG0GzbaUmoWPVA9ksvjdd8kLv/JY3KG1mkk4/qEjDQJYnfQs=
-X-Received: by 2002:a2e:be86:0:b0:2fb:59dc:735a with SMTP id
- 38308e7fff4ca-2ff2031a659mr7523931fa.41.1731054843501; Fri, 08 Nov 2024
- 00:34:03 -0800 (PST)
+        bh=m9K+9SzWuLqo1fVpHFezCjov3Z+u1nFxQFcoG02nQW0=;
+        b=G4WztA0KrSXxb+NnLcAz0dRjMApvxja2Qi981jb3wAxUZgqX/0TKawcbHqp3Z/ZQOg
+         xKzUM1RBonIsG+eyYcZJbhj25q6Pm/u/9fGxplQtAHxYaw3RGnwKbW2yqQRtQzF8Gjd7
+         /B827vSylaqur4LoteGc+1U3+wn24wN9fA6O2J2TPmqCoWjdzUAkFgrd4vYQujCCGmWs
+         hltHf6gYjNTmBlEAl8ZMvlp/eUmhFgn8XlmcV0rhVX3lDsT5ftL07KZB+w996LAeMuYO
+         tp4hxDC4zz/ETMk+CaBYBTYSS6wENxol/jidcAo69tmPBAygGEnMvqOmuUuCWLwtER8X
+         6eEw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFgupBcteJvviNCWYSTUIRd3QLPBdODox4gJoC1T+bhrXh+ITj80RrEIkfb+BqH5ugW9syaLHT9+3xS4vwLjYc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT178ZvRY3VyK6e8tD3x6/5cuhXY8yDvzCoX56oljfq9LiaEgR
+	Vmc7u50alu4d/6d+l2ce1CaNdCVPXflkpEl+D/j+MW/bmfVSQTvw3LIMO2GzDcI+pq5RTOIPt7j
+	/Nrs6ct1TVFGA9LNlnFnoqW1lMTDGhKZ1mrMXYg==
+X-Google-Smtp-Source: AGHT+IHx7mAPhJnzxE7EYgyRjyP79PfLYtwkdmgWKx0QpJkHxCqAuAqQZIcNr65Vl/TTpb1mgGDc7xzfzo1LsoeLK4Y=
+X-Received: by 2002:a2e:a98c:0:b0:2f7:a759:72a7 with SMTP id
+ 38308e7fff4ca-2ff2016dabfmr8041491fa.22.1731054873529; Fri, 08 Nov 2024
+ 00:34:33 -0800 (PST)
 MIME-Version: 1.0
-References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com> <20241104093609.156059-3-andriy.shevchenko@linux.intel.com>
-In-Reply-To: <20241104093609.156059-3-andriy.shevchenko@linux.intel.com>
+References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com> <20241104093609.156059-6-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20241104093609.156059-6-andriy.shevchenko@linux.intel.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 8 Nov 2024 09:33:51 +0100
-Message-ID: <CACRpkdb2NvL3-+BahUHVWEj+gPKLRmVi3aTrLUSemFoNuj2nmg@mail.gmail.com>
-Subject: Re: [PATCH v1 2/6] Input: gpio_keys_polled - avoid using GPIOF_ACTIVE_LOW
+Date: Fri, 8 Nov 2024 09:34:22 +0100
+Message-ID: <CACRpkdZ6gYfbkjcWMNOOyN9owg8n6ApFVv5XZXUA2CY4-JXOVw@mail.gmail.com>
+Subject: Re: [PATCH v1 5/6] USB: gadget: pxa27x_udc: Avoid using GPIOF_ACTIVE_LOW
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>, 
@@ -81,7 +81,7 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_003405_634874_382C63BE 
+X-CRM114-CacheID: sfid-20241108_003435_707862_D72ABD17 
 X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -104,6 +104,7 @@ On Mon, Nov 4, 2024 at 10:36=E2=80=AFAM Andy Shevchenko
 > Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
 >
 > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
 
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
