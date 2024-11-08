@@ -4,176 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 374CED64097
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 22:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE022D64097
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 22:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6awtrZQU6LkJHPear9BLzG6arSog9kzzlZX/iwhrU9E=; b=HDgYrJtM/HKe9dsbHZarbXlsjs
-	qWPCg74qitjNahmuDom6sfUosXc1wn/aztibFlPu++TWhOALoMAmE/7aQdYmCe/7I6ek7qjI1DrDK
-	OuYq7yfTsfOpEKOYRCPnKYFhH25J6EKsaGRmkI0WyXLv5ycm8tWYRnXnok1The1ZrsA597cCdqkyV
-	iGoAX59vYM6RbBwKXb/qf+dLvUcBlMn0RJ30EU1r59wVcYoD+W97X15yKcP+fIKGOkX76dllD3vW5
-	+R19+Ss+Mq91NJ3humsnl/nagy7Ta/zpFTBLkX7ggMHrsZuIBUJdszSRH9i3TSmXVmwttK5PLfJ6f
-	aS7tRggA==;
+	bh=IQGCwSrHlOxTy693X1OhkXJXtWo5tbVECb80WZ+Q+pg=; b=vT+Tq5/+tnoSdmRoIyPEX/CBjP
+	2P3kBPKwbPKSX67drr1IBm+hpHru5MPSp/hApCtt+H4UYwrsA+NhOlY3YvGNJW3alLTlOK1Ialmva
+	xHjhs1WMZGkMWlM0Sb7mQagxOYNV/9dFSlTl6FbpNdhincb0s+wD+T+oDQGNgxRmv8V0zlP0lqd2c
+	PO/hCmqZCkU+hB60MalwbtuUi1WrxSFW5lF019blNNq6ZyhpVIll9Qs12L04DjeNwl4dKWiE5zZ/Y
+	dFCLEemrNZRfiS3KI1cC1DrKO+eyx70NBPUlHcmqKlyppk1SA1e0UbMWfZeP1eS2F9z1IfkNQ1O+G
+	cZfObF2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9XaP-0000000C9Hm-3wVT;
-	Fri, 08 Nov 2024 22:36:13 +0000
-Received: from mail-db8eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2614::615] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1t9Xc7-0000000C9QE-2M1h;
+	Fri, 08 Nov 2024 22:37:59 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9XRy-0000000C80t-3dER
+	id 1t9XXi-0000000C8wX-0EOh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 22:27:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TD7iOAOVPrdluNYn5n/aqvGEQlXCpGnoCJ9+6h6GBFkTt8FL9kzt2LpMPd5inZAUaWI4lQs9QVdCR8mUNHydE2rZwoSCgnXdA0TWqxxBzIpJ1Lb0vvL8gBjo55NeRGEz/JZDTQy049UrssvjdQ0idC9A/0QgG5GUHhbL5AZOwp38sX9Gcet47u+s5Q8sWWiTlPX3ebrFhX5XOQ/Bj5Z/jBhzCVg4739TKfUdA3hP0nuRik9yszmUE/4qLZQxb6OGO01svgOJpSpb9SyKP0P4fQ/VJOxnEmu6UsVM1SJbtHF3nKTNwCJYHRzd1hOFgggcc11qlqIRv3O8Qd/CeVZ9HQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6awtrZQU6LkJHPear9BLzG6arSog9kzzlZX/iwhrU9E=;
- b=uMAiagOTlLw9GQ6daoLB2aGsRjqFHiytWGsZHzQ5pZ6UBRbg3E2VnBmVFuJirBJor2lsMRp05lY0t9n/pqBAzlLA7eM/ZCMJ9nSdnRLzvtpPvUT/17w/R1pSz4KjNCfDMaPolMJW8zB3CsTBtY1UiFuj9EBHdJvHVUDIXer7aqRSGyfH4iKIvB1jkcQnfkYqIgJ2HAwHH5QQNJkR1kPovrBEJbNotVK6Di0vivyigFGFsWRE0e8Vjyv4QcOWICSiHxx0khI+hiZqJxPq2PiiPBwZ1HcIVXkU52AMkKmne7XH+Gx2J0VxdyKo22cJcqILhkQoZM0a/1NQEuDRSK/omQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6awtrZQU6LkJHPear9BLzG6arSog9kzzlZX/iwhrU9E=;
- b=DGx9f4swQ0gvLNuwp2259jYbYKGahDwoS83huv4FWr5bwVFFvWuIKcMw8trqYW9p9pw81/nsZB73Od6LeMFpdKe09iUb7DMnNu1nlA84XIFlBKOqwW99T0mhM03Pr6Ujww5jfHjuHzO1Hi2K8shnivKvffG30L8cxexGlTWE2wm1BYHJmEtRerYgE2LGAaDAX7EHhMOFgSoagaw1LMFWOxgliMRJZvGLVaQ2VPADlp8Fpnb9QAxu4yrE/z/cnv+LUGSmlwc7RNE+ON7EXbfO7SYqOAo1BR//zCeLvEA61PIrJUxx++Q+/2Gg2mU1cUoIidC9FZrXnXhbF8MBQByUKQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8318.eurprd04.prod.outlook.com (2603:10a6:102:1c0::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.21; Fri, 8 Nov
- 2024 22:27:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.021; Fri, 8 Nov 2024
- 22:27:27 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 08 Nov 2024 17:26:58 -0500
-Subject: [PATCH v2 4/4] arm64: dts: imx93-9x9-qsb: add temp-sensor
- nxp,p3t1085
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241108-p3t1085-v2-4-6a8990a59efd@nxp.com>
-References: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
-In-Reply-To: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
- Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-iio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-hwmon@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731104824; l=721;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=674fGre16wsgmxYfHmqsN6VLMJ4S2VE2ToXL1V2Wrqc=;
- b=Y+MzSe2KSXsAJIxX0HXXU0jym9Aa6G+WVDcAZXVtKepayPEkF5J2m+ptVIxkadHBwS50h5my3
- eg8xwnaVGLtCM2fzYxg31UXY0tODApsqPPf7UFpuqKRgXV+loJdiBrl
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY5PR03CA0028.namprd03.prod.outlook.com
- (2603:10b6:a03:1e0::38) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 08 Nov 2024 22:33:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731105206; x=1762641206;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+LF7CsJ7/io270zqeQKsXvXgBShIfl+NXbOKX6jVzM4=;
+  b=DgqwLv0T9pPicR6S1TQsJkz/8RW9iWhzNzdz3abrEN7af1r7MYjUFKlA
+   LXKwKK0Ox/kbg0EqnMufscSbAPNkaotm9UHqL5Ig62ZawXg82SVHwRWof
+   bXxBip7/udTm11VpO9UQDoYo0eWdOXSLX5VTChA/RSfs/01dsGX4HNOKc
+   hQ/qIBZEHGNHV8Gk5Ajh4cTZpT1t/V4dezcCsFxWvseu86QNRd1EawnJh
+   2W6Q7XhuWKv7G4AUOp8aNvQJclqEufxAzp7GFy5nrXgortBJ4d0p4Z2+D
+   Qb4U34jazjI431m4xuny3XjbpQQYQpk3uhMTwFKIFYkeftQ+9y7UDxGXu
+   g==;
+X-CSE-ConnectionGUID: O1i8g78nRY2FjWFy7FItqg==
+X-CSE-MsgGUID: V6Fg5XKuRXSTWzPl37QCyg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11250"; a="30417937"
+X-IronPort-AV: E=Sophos;i="6.12,139,1728975600"; 
+   d="scan'208";a="30417937"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 14:33:25 -0800
+X-CSE-ConnectionGUID: sJHMUEGrSS6OVqSv/oK2bw==
+X-CSE-MsgGUID: MBjI+FrtT1iEbSuKCrdJWw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,139,1728975600"; 
+   d="scan'208";a="90867165"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 08 Nov 2024 14:33:21 -0800
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t9XXb-000rqk-0O;
+	Fri, 08 Nov 2024 22:33:19 +0000
+Date: Sat, 9 Nov 2024 06:33:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yoshihiro Furudera <fj5100bi@fujitsu.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+Message-ID: <202411090610.oPYJJG00-lkp@intel.com>
+References: <20241108054006.2550856-3-fj5100bi@fujitsu.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8318:EE_
-X-MS-Office365-Filtering-Correlation-Id: 604be78f-1d69-421c-b0ae-08dd004486bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|376014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M2JHWGlkbkJSRTdDLzYxam9jQ0wrUWd2LzB5TmpUamNWSmtGQk1hZU12aVNU?=
- =?utf-8?B?dENodDZ2elFMSkNtWWJ3Q3QyZzZUSGkyUVhYQ0xLdjBOajVqVnFEZDRrVFVt?=
- =?utf-8?B?R1NSM21sMTF5STNBYTFheStsYXcyUzdqWWZPTWxUaG5nK3hzaVZWVFhHTUJl?=
- =?utf-8?B?WlVXVjJvdWFYMFd1OTIrZnBibGJLNmw5VEU4ZDZDcU83cXFNdkUvd2VGVUtT?=
- =?utf-8?B?THNINGFqMzV6REdPVEtPL3FUc0xYelFQWjA4TnIxT1NJZTBSSVVxQ3o5SmFp?=
- =?utf-8?B?azNSVGJTRmYreVlQaStHeExEVjRRMzdQNGpDRG1jZnlhYkYrS1JhZDZkUFNU?=
- =?utf-8?B?Q2pGcFVMRmRPVHErSytwM054MkJEOEtWZlNhajJocnE5bVJrT1FPbyt0clJt?=
- =?utf-8?B?MExqRmdGa2d6bXJtWFo1M0s3RDJDTi9IaTdGSkMxMmY3c1NjQWgyZlk0NmtN?=
- =?utf-8?B?OFNKbVdCN1JFc2NmWUZNaGpLSUZ1c0kvSnNvNDNveE1CV1hRV2ExYnE3ZjJB?=
- =?utf-8?B?TVZPamxHU1lJRVBuc2ZIZVVza2N6WHpOLzB1VU9JeE1yTEFaemRYMmkrY2Ix?=
- =?utf-8?B?eTluVy94aUJOR1d4cldKdkxjZi9NSGwrdGJyYzA0U3RlZ2VjbHExa24rd3hp?=
- =?utf-8?B?V1JKREloMnFkREVOUzBVT3B1bm5XVENRbWRQWkZRN0tKN280ZXoxbjJiSzRz?=
- =?utf-8?B?YVlYWndiKzQ2b0hTb2tyb2tGY0ZsYWZkekJiZkVta1dwRUxaeC95N2ptVjkw?=
- =?utf-8?B?RFdJK2I2MmQwVys5UklqVWlwc1lOeSt6T2J4djJJVmdoMVU1dnVtb3FNVlVt?=
- =?utf-8?B?UVRFRmthMXB3MUtQTGJweDVHaCt3ZE9jVzFEVGVER2YxM3UvNzFnSTE5TGZr?=
- =?utf-8?B?ekRCS051WGVZeUowbU9QVFY5YjhoZm5URE1VZnN3dlNFWUpYMmxEQ2Q0YzlV?=
- =?utf-8?B?ZXk2YVVsMk1ETXErQUJkblJUdzFkUnhoTEwxdEJDOEJRWDdvbEZqZzl4d1V5?=
- =?utf-8?B?ZHpNNm13U2RvRFFMaTZBQjZSeitLL0tqSE9CVi9Ia25VSTV6dFF0eG8yTTIv?=
- =?utf-8?B?dXR5aDZVdlBXZ2U0NEh3SHpwNEJ2WFhXY29jbThKZTdKVmpKcjF3aW9yNmNI?=
- =?utf-8?B?Mit0V1ZQd0pGbVBNdDhqcUpVZmprbkcvUlRkSWhoYUtEd0hzM0MxY2pNVmlw?=
- =?utf-8?B?M0RVNW1iVG84Qng0RkNVR3I5dVo2V29DQmFqSWhYeXZobmVEZmREYm5Mb25T?=
- =?utf-8?B?c2xtRFR5SjdOV0t5S0pzYTNJSjcvTlg1aTVUbWphWDErNXgrQUtaVFkwVWFt?=
- =?utf-8?B?UjZsVTFyWXJFc0s3OUo1TmF3RlhISTUzRWVJUklmWEt1WXNkMmdDMm1Nd2M1?=
- =?utf-8?B?VDk1WUJ6eE0yYlBFaEVhaWdlQ2JtaUNFdTlBd21qOWV3SVNGZlBzVFZoMXgr?=
- =?utf-8?B?TVNIamhSaDBZTFRZZ1o5d1hVRE9wSVN6QjhNb0ttZmNOc0Y5aVZuWTdRVWhP?=
- =?utf-8?B?VzRvNXk5enh0dlZSN2tISHFLMEJ3Y0lyWlF5aVlWN0JUR2F2RXBwT2dvd3k2?=
- =?utf-8?B?NExEaGsxN0V2RU0vQ01YVlIvTE1iWU85UWZGS1ZyZS9DRmNjVzBuTVllZVg3?=
- =?utf-8?B?OEFwR0NadkVMRkgyanQwVDNlNjIrVTVGTHllZHFONW5NZ0NUdnNDeC9zL2Jw?=
- =?utf-8?B?bk9pNEF4QXl1SkNPSEN2T2Rjc3V0eVRncG9TT1R3UEJNelVRMm0rNWFvUGVv?=
- =?utf-8?B?dEJtaDQwWkVmQmMxOE9WZXJtRFdYamR3SitBelNXdUxnMEVVaHZ6V3VPcVFk?=
- =?utf-8?B?MVFDeUhLK2d4NXpueXRZaEI2UGYxVklEb3h0QUpmQUVTSTNTZ1VtbUk1elNL?=
- =?utf-8?Q?7A+Xs/D9Y8Cu5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y01NOVJ6ei8zUjVmRytUbDVDMWRlVDUyNDdnajRVc2FSQWt0WC9LNEdzR1JW?=
- =?utf-8?B?dWRpUkJmcURDSXozZzJOQWdqOVlYelM3MlQycFNyZDR2ZVp3ekRoYVpPR2hy?=
- =?utf-8?B?MVBMbndVWndEM0xyVy9MOVFqaVc1eTc4ejQwc0E2eTJicjZKS3ZtZ3VrRWlS?=
- =?utf-8?B?ZjRvU2JockxXamZ4SnhadHNyRmkrTUNnK29NU05la1hMcHY5UWpsblcyVmVJ?=
- =?utf-8?B?SVdIRk92UDBoeDlOTDFJUTNucVZ0UjBKT0NwNUpFVGI3V3d6UFJ3dklSZTNx?=
- =?utf-8?B?WmNEZklRa2hseEJ6eG1YcEpiejZCQVV5S09pc1IrK2JrZFpMaGhqbXJuMDFj?=
- =?utf-8?B?N0RVSWJmL1NEM1NTOFF2d0lWczJieEx4WmdBamVBM3VNNG1ScHVrSXZGWE4x?=
- =?utf-8?B?cjkwUTBZcXBQS3o1eVZSbm1Td1ZTYzZtamIxdUY0QlZZaklFWE03aWVpYXIz?=
- =?utf-8?B?dCt4TUpMM1V6TWlkbFFhbUNDN2ZNeDhDRk5rWGYzbzRseG92RC9vdzdyYmJE?=
- =?utf-8?B?QlFuNExWR2Y4U1BTTWhSYTVDOXJmY0hTVVJ3TFVlOGtiakJWSUp2dnFwVXZH?=
- =?utf-8?B?NTgyTjhOWnNhV1dBZ2xwQlhkejVMOWZyYXJ5YXBhT3N6ekVTRFY3TTBwUW9K?=
- =?utf-8?B?SU0yS2xTNTU0dmJMdlFZcFlCdWkyeXZueTRCS2Rwa3RhSUdrekdGdnNDcndi?=
- =?utf-8?B?R1JwWVNjaW5Ma1JwdmdzY1V1dkdobkIzK25JU2wvMWRnS0F3VVorN3BLVzVT?=
- =?utf-8?B?L21LRTdTaUk3c0d5NnBLVStLb1ZMelBlb1dKaER1VjJBc0RtUkFSdkFWTFM2?=
- =?utf-8?B?c09JS0hsNElVai9aTkJOa3hzM29KS2J2NmVGYWdaVVBrVGFYeDlRSVZqdUNy?=
- =?utf-8?B?UjdIR1kxWHZVM296TUZjTzV5aUY1Q2pJbkgwMEg4RVNrUEJMWkZtN2Y5VUYw?=
- =?utf-8?B?ZnlqY3g2Mzc5ak1LSXo3RCt1cTRYQktkWGwyUFo3YzFaVU5HYmRyTG1peWFO?=
- =?utf-8?B?QklWY1o1V1FLTW5iVnQyOE1wN1ZxanJ1azZFRUJxcjRnUFk4d2RJQk1JWUFE?=
- =?utf-8?B?S0N4bXlkRnMvalhTTlNxNGhSMUJEQVYxd2VQWXJHL3lLSmw1b1NpSVVjSmtB?=
- =?utf-8?B?U2psNzk0dGxLcUwzVkFxeUNFQ3VNaitJc3FPQzJLdEhienVZY01QbThqK2hn?=
- =?utf-8?B?UDhMaGQ4K1J6dVJuc0xYeFE0TTgxOWJsdTB0a0ZzTk9xOERYaU9TVmxsRTJF?=
- =?utf-8?B?cnk3d0M2eHZISVh4N3dkZ0VLc3BnLzUwUTJjeE1wZ05wM0RDOUV3bmxWTS9h?=
- =?utf-8?B?TXJmZ3JCdzBKYkJHUUhsTkFaaU1oN2NYa2JZNEthS2JldVRCZGJrKzRDWUd5?=
- =?utf-8?B?T2hqVGU3a0hFSkI4Wlp6M1dWdTkvTEh5UHJNWFA5aURPeGcrTmZPOHVBcGpL?=
- =?utf-8?B?SXBOT0lyKzFSdHF4VXJKbEdiNTErMTRILyt0REd1citDUk15bnhucWJWZTVD?=
- =?utf-8?B?ZlpIZFFMdjVCWUVwbGtpQUdxOGFoUi9lUkxYWnpuR0dtdmxhOTFhUTVUTG1o?=
- =?utf-8?B?bXlXNXZ3Q1FBWGNVRW5VcWd0N0xNQ2dreVErVDVob3FEMW5lYlp1dEpxMlBl?=
- =?utf-8?B?TlZaZEMzYlhObGowTi91cEZSamlEZmt1ZWg1RlcxVTRtY0RwVWU2aHY2Z0Vh?=
- =?utf-8?B?MzR0T3BPTWlvMEI5SU9SM2JNS3k1VnRKV2p2NXRTMXhjeEZHZHdWM0hueUkx?=
- =?utf-8?B?R3hHWjFaWFQ0WDVtdk03bUZFS2VTNWdQV1o5M0xZOEF2YVFCMklWL3pnc2N0?=
- =?utf-8?B?M2x3STFsOU9oRzNnZkdoRXArWUFBWHBkOG5QY0Z3OGNpVFFycWxuVlJEODcx?=
- =?utf-8?B?UGU3SmV1YTBKcUNISEZxc2xtYStqRmpTbWZjKzhERkE1YmhlWEQrWng0Tktw?=
- =?utf-8?B?MFRCZFlTeVE4NkRKWUlwTUwwZHZVbStkdmVyUXl0N0daaTNDMTFpQ0V3ZTht?=
- =?utf-8?B?U3NyTzlCdzJaSVgvM3VqQTk3S1Y3UXZuNTRQWmVsM1RYbUF0T0pCVjBFbWlL?=
- =?utf-8?B?aDFBbkdkcHgxV0pPdSswYkk3Wk42WXorckltREhod1RtZlB1UjNwVG9RRFlr?=
- =?utf-8?Q?I596tDk5v7jLvQyhBmwf6hScX?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 604be78f-1d69-421c-b0ae-08dd004486bd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 22:27:27.5625
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ToM9KMlF4JPA4tuFZhqXdjJPZh/Lzfd7jKyfJNONMwMkw2NYPilf/3JxoHm/NwnveOoLEohdUjmkchSe1T+HsQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8318
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241108054006.2550856-3-fj5100bi@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_142730_987373_40EB08C6 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20241108_143326_131114_168BF69E 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,31 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add temp-sensor nxp,p3t1085 for imx93-9x9-qsb boards.
+Hi Yoshihiro,
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-index 20ec5b3c21f42..36f2995acbe29 100644
---- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-@@ -221,6 +221,11 @@ wm8962: audio-codec@1a {
- 		>;
- 	};
- 
-+	p3t1085: temperature-sensor@48 {
-+		compatible = "nxp,p3t1085";
-+		reg = <0x48>;
-+	};
-+
- 	ptn5110: tcpc@50 {
- 		compatible = "nxp,ptn5110", "tcpci";
- 		reg = <0x50>;
+[auto build test WARNING on tip/smp/core]
+[also build test WARNING on linus/master v6.12-rc6]
+[cannot apply to arm64/for-next/core arm-perf/for-next/perf next-20241108]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Yoshihiro-Furudera/perf-Fujitsu-Add-the-Uncore-MAC-PMU-driver/20241108-134245
+base:   tip/smp/core
+patch link:    https://lore.kernel.org/r/20241108054006.2550856-3-fj5100bi%40fujitsu.com
+patch subject: [PATCH 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20241109/202411090610.oPYJJG00-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241109/202411090610.oPYJJG00-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411090610.oPYJJG00-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/perf/fujitsu_pci_pmu.c:584:36: warning: 'fujitsu_pci_pmu_acpi_match' defined but not used [-Wunused-const-variable=]
+     584 | static const struct acpi_device_id fujitsu_pci_pmu_acpi_match[] = {
+         |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/fujitsu_pci_pmu_acpi_match +584 drivers/perf/fujitsu_pci_pmu.c
+
+   583	
+ > 584	static const struct acpi_device_id fujitsu_pci_pmu_acpi_match[] = {
+   585		{ "FUJI200D", },
+   586		{ }
+   587	};
+   588	MODULE_DEVICE_TABLE(acpi, fujitsu_pci_pmu_acpi_match);
+   589	
 
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
