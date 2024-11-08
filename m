@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB539D6406B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96E6D64071
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VOxnlcHKdp8ONH2i1xGFcCJ1AH4MfkVEzGkxGwck+k=; b=ZqrZOur9lLsGuc32DRJTt4BnCf
-	3I8bXmuVjsz+UrKYlnIuKwQieHdwT/sjxq7FwE77ZJBPmyk6l6Lu5TBXdqyqSjwxEoGWZoqYVv3oN
-	VgbLZsUGf64kZiYlxZkbCanD1sg0gu+7LF2CEhctpFbtG+1H8ZtsfgVz8FArYVU+PzrpibhIy7qZt
-	sqGgzdvmVttv8MMlHYCBGGs14aK7wwNAig36FWYswol5t+8WsRajcTncadSIPcq45inUe9u5qfqLX
-	mRiPfBvgRel4BNyolzg2C6kTzmrmfhykxGq5FZdBPspBvOKKAZnaYddZSkLFA5qmb2N+ZIJ7bLQ+G
-	D3z6MsNA==;
+	bh=iL2wUIno5UUFXUrJq5jgt4akrra/cUnOQj2lkDa72hA=; b=HqlnXiv10mAsuHn7HS8K1IBJBz
+	HHuMEt5si3wnn4n0mSsryL/GtY3aZFUhcbrqRWG2xAm9VxYs5ygDNfz5/2J/Yk/Kj4FQI6VdVfRjY
+	mFH4VXVe1vpyTSgVHD+ouVNClpMM4MGqPvjKmhG8yUtUXVreHtjn0pu4+O5bwsxPWU/HMaH2BBj3E
+	fBsdCwU2Kn3EzyS+hggrbTtMTXKz3MbvduSOB/rvDGC+BMAC5khi+SP4c09E89HcOucIiND/RhJrn
+	H62ynUESADDryE5tM+S3+hd6hxknfGnNAZqTv+YAK1zz8ZQGlCy6S0OqWdKRorLtATozYT/EX5jwF
+	FzxykAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SVc-0000000BKwg-28Ii;
-	Fri, 08 Nov 2024 17:10:57 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1t9SVj-0000000BL3m-3qZm;
+	Fri, 08 Nov 2024 17:11:03 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9SGS-0000000BJ5G-2hMg;
-	Fri, 08 Nov 2024 16:55:20 +0000
+	id 1t9SGT-0000000BJ5I-0JYn;
+	Fri, 08 Nov 2024 16:55:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1731084917; x=1762620917;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=yDGibwZd8NUsG9TSW9LVB1DialBc85Qgux+fEkmxHPI=;
-  b=U7Y86gmsRcOT5ay4XAUScXA/LRQPTe+8QXPthxtETMC3bfPFPHWm/BUr
-   3hBDRjZQI4dwUVr5a9LYWidJadi8I4QygcdAd/ESioQ2i5A/qJo/Dhvj5
-   Qnp+bcuukiOpnw7N53Uv4pHzl+j4cXfiGPZFJ+1V4Smg+/brLjqbV2JAG
-   V5mqPS/eTRLk1fM3AeZRdXi3gWYCV9vProgLEV78lkxTXjKL+XbKpf696
-   ceS9KGqSqeAqkdzGIQFvaMsLr3xppEZywsESD1hX+vKBtGua+aciuFsQR
-   2h5TMXyCzyFitSutxlO7+xcgdH2r2WcPyro3YDmk0z1h62DsHJFH4mkg2
-   g==;
-X-CSE-ConnectionGUID: LK3bvCjrTJOu5QzujgiiUw==
-X-CSE-MsgGUID: Pu/oNKvBRDq75iul9OCZNQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11250"; a="31076728"
+  bh=GRbln0yjS3KfimQEJ10yKUKgm3AFUkA3SiodUHiTHLI=;
+  b=EBLAGAxLfd2mmWdz+20zuYFS+eGJpvRvlL4Ah5rRAum6PkVmcOivxGVw
+   CeQfgHmky/lSoFOdmt16KeQSqbVTKUr+1i9opkb/OxcF9dqRkT4QqSPHI
+   jIrLVRLxxMZRiXyONA5vWD+UenqALaVbd38xRPhzghb4pRBoPByYydK2c
+   /LZQyVGZBxOWBkD6U730guI+NPaaR9jCipZwNHFkVCt0LXvMXZSVQ9bfe
+   rUD7AlH+6p2hhXWcFIAlzbYzuPxrI4fALEf6rhhZu4TDDl2s91rExTN3u
+   p2fOSRqGk82IwSlVFqaLSqXLm4csLndvWn77UtsEN6DwnTHN2E95xlv8Y
+   Q==;
+X-CSE-ConnectionGUID: O46I7gSyR3So0RneTLVJ/w==
+X-CSE-MsgGUID: DJz4PUVMRHeG8FrGCjkhPw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11250"; a="34912872"
 X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
-   d="scan'208";a="31076728"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 08:55:16 -0800
-X-CSE-ConnectionGUID: 2s+XMJX6R+i4Eoyc9eeVtw==
-X-CSE-MsgGUID: jJ1US8FUTL2U01oOJy8Jww==
+   d="scan'208";a="34912872"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 08:55:16 -0800
+X-CSE-ConnectionGUID: hJJjxcdOR4inBSjew0a91Q==
+X-CSE-MsgGUID: +6+VVZ+CQ3WT80Zew+oxTw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
-   d="scan'208";a="90256268"
+   d="scan'208";a="116466753"
 Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 08 Nov 2024 08:55:12 -0800
+  by orviesa002.jf.intel.com with ESMTP; 08 Nov 2024 08:55:12 -0800
 Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1t9SGL-000rco-2n;
+	id 1t9SGL-000rcq-2r;
 	Fri, 08 Nov 2024 16:55:09 +0000
-Date: Sat, 9 Nov 2024 00:54:46 +0800
+Date: Sat, 9 Nov 2024 00:54:54 +0800
 From: kernel test robot <lkp@intel.com>
 To: WangYuli <wangyuli@uniontech.com>, marcel@holtmann.org,
 	luiz.dentz@gmail.com, johan.hedberg@gmail.com,
 	matthias.bgg@gmail.com, hello@felixjara.me
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+Cc: oe-kbuild-all@lists.linux.dev, linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, guanwentao@uniontech.com,
 	zhanjun@uniontech.com, aaron.ma@canonical.com
 Subject: Re: [PATCH v3] Bluetooth: btusb: Add MT7925 support for ID
  0x13d3:0x3608
-Message-ID: <202411090003.bXXzsmNP-lkp@intel.com>
+Message-ID: <202411090012.ZFED5Eyp-lkp@intel.com>
 References: <D3E1285F7DBFAB3E+20241108082418.187499-1-wangyuli@uniontech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <D3E1285F7DBFAB3E+20241108082418.187499-1-wangyuli@uniontech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_085516_792549_3F00FD9A 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20241108_085517_398968_1A9D287C 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +105,24 @@ url:    https://github.com/intel-lab-lkp/linux/commits/WangYuli/Bluetooth-btusb-
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git master
 patch link:    https://lore.kernel.org/r/D3E1285F7DBFAB3E%2B20241108082418.187499-1-wangyuli%40uniontech.com
 patch subject: [PATCH v3] Bluetooth: btusb: Add MT7925 support for ID 0x13d3:0x3608
-config: x86_64-buildonly-randconfig-002-20241108 (https://download.01.org/0day-ci/archive/20241109/202411090003.bXXzsmNP-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241109/202411090003.bXXzsmNP-lkp@intel.com/reproduce)
+config: x86_64-buildonly-randconfig-001-20241108 (https://download.01.org/0day-ci/archive/20241109/202411090012.ZFED5Eyp-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241109/202411090012.ZFED5Eyp-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411090003.bXXzsmNP-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411090012.ZFED5Eyp-lkp@intel.com/
 
 All errors (new ones prefixed by >>):
 
-   In file included from drivers/bluetooth/btusb.c:17:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
-   In file included from include/linux/memcontrol.h:21:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/bluetooth/btusb.c:651:12: error: use of undeclared identifier 'BTUSB_VALID_LE_STATES'
+>> drivers/bluetooth/btusb.c:651:54: error: 'BTUSB_VALID_LE_STATES' undeclared here (not in a function); did you mean 'BTUSB_INVALID_LE_STATES'?
      651 |                                                      BTUSB_VALID_LE_STATES },
-         |                                                      ^
-   1 warning and 1 error generated.
+         |                                                      ^~~~~~~~~~~~~~~~~~~~~
+         |                                                      BTUSB_INVALID_LE_STATES
 
 
-vim +/BTUSB_VALID_LE_STATES +651 drivers/bluetooth/btusb.c
+vim +651 drivers/bluetooth/btusb.c
 
    177	
    178	static const struct usb_device_id quirks_table[] = {
