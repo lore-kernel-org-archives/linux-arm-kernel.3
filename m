@@ -4,51 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBC9D64077
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9939D64077
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 18:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T1xFh2AnyCqOFuub1Bu+3PinQnKDjqOQaTMMzOtRqpA=; b=DcodkgIdvdy4oQPKkNngeYoN7p
-	jbHCLyUTCaiw1DvV+fTfeeMFzNqSOOSXyVzNwTX8S9rnr5mMFaNMM/iiM2w1H8OgFu7RuHMhnYYZ6
-	zd6xl1yZmgPugn2rFAUZ7AG4BKopnfgBfaULPeCzjboeT6esWDzf8S+5jLHsBfMY0hFQSAxLlfajo
-	0fKbcubFfdmLDsSg77OLWOjdGYjmCMGbLaTIwb8xBa1Isbg6iIiHDB/H8DhBhR6nr70mPD50KtLTB
-	qd79LeAM9Z5t6Cn9xjI4srKpDSvn9uhrzLgi155EQ2CGiQ4h+/rB26z2+ZsHzcUe106o+P0bm2B3V
-	TZGKCNiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJ0nRkyEju0f2AiMoSuGzK2+adebI1lBs+Sty2G9dqg=; b=WKyA038NvF0SbLJlas4HCRJAng
+	fRKMKa+ThebJw4R97ln4ZgTaj22ar+4zvCyBFbAkkFFteeKZqW05IYu+b5k2EhHCTvxcT8mfQysrw
+	KkbxI0BBcB76sIwBEBRKHBwRMyUuxhXAqyXctojw2tIZmsPeGHlHOA+vh/1qNfBkkeMfRokTHgzmu
+	x0fI8Mk/ZYYUXbARJFCzd55N7zDCahfeylNDiYi95H/cREYva+uVM57P9l5xCOy3Qesx07git9Mrt
+	ZqcnRUJg//VHfl33Fp+R/UmaxcrezbmPVGJAlhBqc2eli57++oKeKk5NMI69KYBDxCyMnJ4FX/+Oy
+	ERo6Z92g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9TrW-0000000BcAO-2bWS;
-	Fri, 08 Nov 2024 18:37:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Tka-0000000BbKe-0Por
+	id 1t9TtF-0000000BcPH-2b87;
+	Fri, 08 Nov 2024 18:39:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9Tm3-0000000BbUH-1sDc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 18:30:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D95091691;
-	Fri,  8 Nov 2024 10:30:56 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 443B93F6A8;
-	Fri,  8 Nov 2024 10:30:26 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	joro@8bytes.org
-Cc: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/3] iommu: Manage driver probe deferral better
-Date: Fri,  8 Nov 2024 18:30:17 +0000
-Message-Id: <2da0ae7f76c7466176e906fa5d7a0ae5210e8650.1731088789.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1731088789.git.robin.murphy@arm.com>
-References: <cover.1731088789.git.robin.murphy@arm.com>
+	Fri, 08 Nov 2024 18:32:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3C2BD5C585B;
+	Fri,  8 Nov 2024 18:31:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80218C4CECD;
+	Fri,  8 Nov 2024 18:31:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731090718;
+	bh=OGGv9Ad1QjLyRUu0I2TAYu2k20sOVJkLksSuDtRoGmw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T1xyEJlqGTfBQL2g3ifsQSoNwPeldh0m7nm1tAuub0onRz0BsZgsLp4JlU5do1IxB
+	 ds0meydDzkiROZV5LpYyuHZt3QayowteMTcKPuBEpezlXG6n7qdRpiBjLcyuQjqbvq
+	 VgilTzN0jdR7oRFG9ufPwIFHjj3/jKj5B6iVdFfeHnL2jQPflFjEHe1gB0CRlNXoed
+	 oBFNf4yPhEUDmhzjqfjmgZGhRRopROip02NI1IcynbQqVSsHW407mMTBTQFsiSCM/B
+	 1KOXKtUPy4Pz9247eojn3ZSy+PifxmcHhnfJ9K4lnOUuJHWcEJVvybSPOfZ8pM5ofe
+	 FHXLORT6pZ1mQ==
+Date: Fri, 8 Nov 2024 10:31:56 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Leo Yan <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	H Peter Anvin <hpa@zytor.com>,
+	Kan Liang <kan.liang@linux.intel.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH V14 08/11] perf tools: Add missing_features for
+ aux_start_paused, aux_pause, aux_resume
+Message-ID: <Zy5ZHHgO69gQwZRo@google.com>
+References: <20241022155920.17511-1-adrian.hunter@intel.com>
+ <20241022155920.17511-9-adrian.hunter@intel.com>
+ <20241108154152.GA197781@e132581.arm.com>
+ <Zy5M1WJ97GprNniq@google.com>
+ <b97a8aa8-37b1-4d8f-9de0-f294fcd07adb@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <b97a8aa8-37b1-4d8f-9de0-f294fcd07adb@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_103028_199701_663F5A16 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20241108_103159_583163_C48FDAA0 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,45 +96,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since iommu_fwspec_init() absorbed the basic driver probe deferral
-check to wait for an IOMMU to register, we may as well handle the probe
-deferral timeout there as well. The current inconsistency of callers
-results in client devices deferring forever on an arm64 ACPI system
-where an SMMU has failed its own driver probe.
+On Fri, Nov 08, 2024 at 08:01:02PM +0200, Adrian Hunter wrote:
+> On 8/11/24 19:39, Namhyung Kim wrote:
+> > Hello,
+> > 
+> > On Fri, Nov 08, 2024 at 03:41:52PM +0000, Leo Yan wrote:
+> >> Hi Adrian,
+> >>
+> >> On Tue, Oct 22, 2024 at 06:59:14PM +0300, Adrian Hunter wrote:
+> >>>
+> >>> Display "feature is not supported" error message if aux_start_paused,
+> >>> aux_pause or aux_resume result in a perf_event_open() error.
+> >>>
+> >>> Signed-off-by: Adrian Hunter <adrian.hunter@intel.com>
+> >>> Acked-by: Ian Rogers <irogers@google.com>
+> >>> Reviewed-by: Andi Kleen <ak@linux.intel.com>
+> >>> ---
+> >>>
+> >>>
+> >>> Changes in V13:
+> >>>         Add error message also in EOPNOTSUPP case (Leo)
+> >>>
+> >>>
+> >>>  tools/perf/util/evsel.c | 12 ++++++++++++
+> >>>  tools/perf/util/evsel.h |  1 +
+> >>>  2 files changed, 13 insertions(+)
+> >>>
+> >>> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+> >>> index 95593b55d9a7..88b31a005ac6 100644
+> >>> --- a/tools/perf/util/evsel.c
+> >>> +++ b/tools/perf/util/evsel.c
+> >>> @@ -2102,6 +2102,12 @@ bool evsel__detect_missing_features(struct evsel *evsel)
+> >>>                 perf_missing_features.inherit_sample_read = true;
+> >>>                 pr_debug2("Using PERF_SAMPLE_READ / :S modifier is not compatible with inherit, falling back to no-inherit.\n");
+> >>>                 return true;
+> >>> +       } else if (!perf_missing_features.aux_pause_resume &&
+> >>> +           (evsel->core.attr.aux_pause || evsel->core.attr.aux_resume ||
+> >>> +            evsel->core.attr.aux_start_paused)) {
+> >>> +               perf_missing_features.aux_pause_resume = true;
+> >>> +               pr_debug2_peo("Kernel has no aux_pause/aux_resume support, bailing out\n");
+> >>> +               return false;
+> >>
+> >> This patch fails to apply on the latest perf-tools-next branch due to
+> >> conflict:
+> >>
+> >>   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git
+> >>   branch: perf-tools-next
+> >>
+> >> You might need to rebase it on the latest code base.
+> > 
+> > Yep, please do for the tooling patches.
+> 
+> I'd noticed that, but there is more work to sort it out.
+> The probing simply won't work when there are dependencies
+> on other events, or other attr members.  But there is no
+> point in trying to "fallback" in that case either.  It is
+> just a failure, but what *is* still needed is a sensible
+> error message.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/iommu/iommu.c    | 2 +-
- drivers/iommu/of_iommu.c | 2 --
- 2 files changed, 1 insertion(+), 3 deletions(-)
+Do you need to probe with two or more events?  I guess we can extend
+evsel__detect_missing_pmu_features to check more complicated setups.
+For now, it only checks exclude_guest attribute.
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 83c8e617a2c5..dc8d11b585cd 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2842,7 +2842,7 @@ int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode)
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
- 
- 	if (!ops)
--		return -EPROBE_DEFER;
-+		return driver_deferred_probe_check_state(dev);
- 
- 	if (fwspec)
- 		return ops == iommu_fwspec_ops(fwspec) ? 0 : -EINVAL;
-diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-index e7a6a1611d19..97987cd78da9 100644
---- a/drivers/iommu/of_iommu.c
-+++ b/drivers/iommu/of_iommu.c
-@@ -29,8 +29,6 @@ static int of_iommu_xlate(struct device *dev,
- 		return -ENODEV;
- 
- 	ret = iommu_fwspec_init(dev, of_fwnode_handle(iommu_spec->np));
--	if (ret == -EPROBE_DEFER)
--		return driver_deferred_probe_check_state(dev);
- 	if (ret)
- 		return ret;
- 
--- 
-2.39.2.101.g768bb238c484.dirty
+> 
+> The other patches, including the ones that come after,
+> still apply by the way, or they did the other day, so
+> they could be applied anyway.
+
+Do you want me to process the series without this patch?  I think
+this is needed to support old kernels and I'd like to have it together.
+Would be hard for you to update this change in the current form and work
+on improving it later?
+
+Thanks,
+Namhyung
 
 
