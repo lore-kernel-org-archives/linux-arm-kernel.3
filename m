@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CEFD5C0C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922E8D5C0C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2nN4JqEDzQF8CCUgP/ziSYmPd1Oo8YRgapLVQ+6WIcU=; b=jobdTtwt9t92XzEwejm2QFmSuB
-	KJw4VZqKYOhdWii5JsGw19aXLXFMkg6M6gAxkJZbpjqlwaNhjbOFGFrIBz/K4nClpbz1wJZbfh/5E
-	XACAAYY7ubnmi7sGwXlSI5INbP2s9Scpc3DN0i5ewvv91Vz9u2ZgZZFln2W2nxrPqz6P7nrFprhiv
-	uUZ3v54OIHQas0d18UKQ+GfAWqyocSAT1sCzP0NjQ1uZ2RfxhHGxuDTZqPtJPHbJOWSVA7lCzMSlW
-	yLR3DxtBEUGDMoWrJ2Z8Aka0o6GAaOV777l5IHYJtef9GVg5SUA2AYVODZVjYQ9+uRkpMSHD0SfGl
-	z/S7yegA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k3Zn2bpSYjx0KdspBHLAyKP2HSBrvqQHEj0Q/hMzoJk=; b=m6N47tE0KSoVc+ByXE0KnHupl4
+	Y2RruOWDrDDldJuXthoKZ42Z9XbSX/lwOh2JhE3mG93xD7L3dM+d8Tdx7qxQYoKFY+5NtwHeNXSiT
+	yE1dp8f79CQMB5J8O/53KHFYwDaSt500j7ht+j+oPZ0JecTh2khwt7bJYvmsuaxK5zZgEfUmGqPdA
+	gQPVk+jFqEh0AHawQzbdBZUwVM3yY6PxcekQCc6xdQ8pYIlEJZcT9RNy/C2u0DHhqmU+xtsrUOXTm
+	FS/uaPubAzeA8gWqqTWzcZqMDBHhuJ+gxi0w1KhLjm5CBHDdNET/wMQxz77mv/U+sDuXQ0VHH4HDR
+	3jTvlyUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PqL-0000000ApVh-3tjA;
-	Fri, 08 Nov 2024 14:20:09 +0000
+	id 1t9Ps8-0000000ApmD-3HUb;
+	Fri, 08 Nov 2024 14:22:00 +0000
 Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PR7-0000000Alcu-2ZQe;
+	id 1t9PR7-0000000AlcT-2bz1;
 	Fri, 08 Nov 2024 13:54:07 +0000
 From: Dragan Simic <dsimic@manjaro.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1731074042;
+	t=1731074041;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2nN4JqEDzQF8CCUgP/ziSYmPd1Oo8YRgapLVQ+6WIcU=;
-	b=o61aKxCdcZBd2XTmhnBPl8aecZCjt/wzStVNMVp/TwEhp49T8em57HVwDE216g+2p498NR
-	cjiRwrOWiUxW8F5n0ju2oFnbFykdcrWmmCA9xAhO2i0Y3byW5NmliccfnEgzF3XSewx+ie
-	uhwX45ih8uZHZbOJkWaeCLeTkfJxAxHcoQJ8sd6/nSEOhdkrERTDbXeu0E2pGJaeBUJL6z
-	QXIIRKarHHyoHNpRGq+lOG8otxJw+xMaAq6wauxLydTRxceNzwhJ34W5vS0SIxLJoSQavV
-	u0um4SRYHG86KeUR9Xv1E7QOlWqWXbTRhHOJlLpqHLYD2rOIJqYk/rWwgbBE+g==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=k3Zn2bpSYjx0KdspBHLAyKP2HSBrvqQHEj0Q/hMzoJk=;
+	b=bujVIQcH927mV5DqCLvbMvlG8Kcc1rhDUr244chfKffchmcgQJebhKtH6f5ajEukZ+1Z1X
+	YpwG/j3iMCdCP5SF+TRY6GnVUVrZZPDG0XknzDLPgcOmF4MJ4xj6Dd4paLXjonnUGZUz3q
+	ikmqsue3HJE8p5RnZSpuunABSwsn+gDnLmaxAeEJS/E131J3Q8eG8zuD3QQJLqecymiDPt
+	iQztHpdQlrTw46doO+npJDfzRCY4zDabzIaxtF2h0rUwfizhBOVWdzeJT1tC/K7yc1VZtn
+	KIGSHnN75JxuVtov0StSPDS18Pj+RW2+XxCaImwuoKNK6egIjMVVH+XljlXI5Q==
 To: linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
 Cc: heiko@sntech.de,
@@ -51,18 +50,16 @@ Cc: heiko@sntech.de,
 	simona@ffwll.ch,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] drm/rockchip: dsi: Perform trivial code cleanups
-Date: Fri,  8 Nov 2024 14:53:57 +0100
-Message-Id: <35555b58a7284450fb16281514e4e6a3eb9c7b82.1731073565.git.dsimic@manjaro.org>
-In-Reply-To: <cover.1731073565.git.dsimic@manjaro.org>
-References: <cover.1731073565.git.dsimic@manjaro.org>
+Subject: [PATCH 0/2] No longer produce error messages when dphy is deferred
+Date: Fri,  8 Nov 2024 14:53:56 +0100
+Message-Id: <cover.1731073565.git.dsimic@manjaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: ORIGINATING;
 	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_055405_835262_B938ED9F 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20241108_055405_835314_64A48F39 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,60 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Perform a few trivial code cleanups, to make one logged message a bit more
-consistent with the other logged messages by capitalizing its first word, and
-to avoid line wrapping by using the 100-column width better.
+This is a small series that makes the deferred dphy no longer emit error
+messages to the kernel log, which may even be repeated multiple times, to
+avoid possible false impression of some issues.
 
-No intended functional changes are introduced by these code cleanups.
+This series also performs a few small, rather trivial code cleanups, to
+make the code a bit easier to read and a bit more consistent.
 
-Signed-off-by: Dragan Simic <dsimic@manjaro.org>
----
- drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+Dragan Simic (2):
+  drm/rockchip: dsi: Perform trivial code cleanups
+  drm/rockchip: dsi: Don't log errors on deferred dphy
 
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 58a44af0e9ad..f451e70efbdd 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -1379,7 +1379,7 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
- 	}
- 
- 	if (!dsi->cdata) {
--		DRM_DEV_ERROR(dev, "no dsi-config for %s node\n", np->name);
-+		DRM_DEV_ERROR(dev, "No dsi-config for %s node\n", np->name);
- 		return -EINVAL;
- 	}
- 
-@@ -1408,19 +1408,16 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
- 			dsi->pllref_clk = NULL;
- 		} else {
- 			ret = PTR_ERR(dsi->pllref_clk);
--			DRM_DEV_ERROR(dev,
--				      "Unable to get pll reference clock: %d\n",
--				      ret);
-+			DRM_DEV_ERROR(dev, "Unable to get pll reference clock: %d\n", ret);
- 			return ret;
- 		}
- 	}
- 
- 	if (dsi->cdata->flags & DW_MIPI_NEEDS_PHY_CFG_CLK) {
- 		dsi->phy_cfg_clk = devm_clk_get(dev, "phy_cfg");
- 		if (IS_ERR(dsi->phy_cfg_clk)) {
- 			ret = PTR_ERR(dsi->phy_cfg_clk);
--			DRM_DEV_ERROR(dev,
--				      "Unable to get phy_cfg_clk: %d\n", ret);
-+			DRM_DEV_ERROR(dev, "Unable to get phy_cfg_clk: %d\n", ret);
- 			return ret;
- 		}
- 	}
-@@ -1465,8 +1462,7 @@ static int dw_mipi_dsi_rockchip_probe(struct platform_device *pdev)
- 	if (IS_ERR(dsi->dmd)) {
- 		ret = PTR_ERR(dsi->dmd);
- 		if (ret != -EPROBE_DEFER)
--			DRM_DEV_ERROR(dev,
--				      "Failed to probe dw_mipi_dsi: %d\n", ret);
-+			DRM_DEV_ERROR(dev, "Failed to probe dw_mipi_dsi: %d\n", ret);
- 		return ret;
- 	}
- 
+ drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
+
 
