@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C0FD5C0C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFD8D5C0C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 14:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8s7i6hTY4ZPYkVZsEa+kaw6R5w8zz4VVGAZwBGp4xjs=; b=Ex22Ia0l9DB3njZUm+k5O3CtqI
-	pu+VEhOy3yztH1xGPfupRS5m5FQNSlg3d/ksfURznUBDIdo4cAJu5e6eXLVZCCixC1EK5Wl6R+Iqi
-	TVQr4VzR8WXhYINr5iLn5cHmWuB+Q8Q184Ts3Vo0whoxfQE/nTSoVvEa4s/8H03IiHaeuikNHZ53V
-	lWhti6eiqSZr/Ma89Lx5l7Gk6sBEhnKA+m7snF/lnyI7SkaL2aRyq6gnkYXsbkh/wF1GLI4CU/7eQ
-	Z5xneRr8qgfbd8YRkQOVmIySZ6ah+ELPoAFAg+3ng+Hlc7Vta1f7pY02sb884iCEXbH0uXNcbYC7W
-	VzXNKbRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ERNHBkanBqKFL3ox9eUbC/F74vANoxKE7ufPEj4aVYk=; b=MxG4y8OhOeeAP/ELdOquXv4Cbw
+	Pf5DxJwUlzS0qIR+WanS7rPPIsbVun+oQt59a6N6LmZb7ij9ytXIfcywqZvjMm0Cn/JFj3fgDIl2f
+	krFQFYEZMfsJMri0YtMjbC7EwSkrcVPuXhzt0ARq4edWOX76yPmaX8lRSdFfosLT5ZYs8EMqeDYSf
+	CvTxz/6aiHaBS96m78irn1hSbBBPbchxzO5O1J2fMsmiPlhLuCpMJtZIMo4a17F68y4xBRrYw8OrO
+	132A6H04ECNqiiDsnOktNcFZ7hV7tB3L9ibozUN+tgmxdlpMXhmkFmv2tVpjbxV2pCRu5yib1VdRF
+	Nh1wOUVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9PyC-0000000AqlT-2G3f;
-	Fri, 08 Nov 2024 14:28:17 +0000
+	id 1t9Pzv-0000000Ar4r-2Oyc;
+	Fri, 08 Nov 2024 14:30:03 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Pa1-0000000AmrA-3l7j
+	id 1t9PbK-0000000An0X-1BJ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:03:19 +0000
+	Fri, 08 Nov 2024 14:04:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1731074597; x=1762610597;
-  h=message-id:subject:from:reply-to:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=8s7i6hTY4ZPYkVZsEa+kaw6R5w8zz4VVGAZwBGp4xjs=;
-  b=mr0/TWYb2LJGNSJQtQsuCVIRzbBzcao/sXOKoZFktio02UhScWYVXfFw
-   OD4i54CwtV+lSEGMb38hB5rMzuOh/AYvhBnQzrv87Gx8pKsd8ZL1TV9uP
-   /gqmsvwlrF8ezs4/LHYajhBE6ZAiIu55vjB8QM/1LKJk64KnsEJdw9Jor
-   M8CBw5pkCbANYvv4774qb2zN1gL5Z8c7UvseZs5CUJLE3pkM8JiAXhr2G
-   VgJ9lKsQRq/sNYNeKKPXbL7BXm0Svnut4ZOC/RoWLtULv/x8LbKdZLAms
-   r/CPTjZiJWVZnPe8aCwUX3271yGId1J/Oqiqnv3kkmuH7x10Ffkwz/z0v
-   Q==;
-X-CSE-ConnectionGUID: k3gsdjO5TCWoFDaYJiNERw==
-X-CSE-MsgGUID: m8ER5V4aSjmP+6cWLiGuTg==
+  t=1731074678; x=1762610678;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ERNHBkanBqKFL3ox9eUbC/F74vANoxKE7ufPEj4aVYk=;
+  b=fiw63X102bV8kgUneYGOUP1SgBeJKlnb9ppylYck/0Snw6f02YwwrAdG
+   kF6RxZmJxuHg2MbChCeJ9SjIpg6CKvChEIqIGPjh2HD6NwcC4xWMYzILl
+   B6Vd3HI6AYsfKFWc4LOb8m0k+O4lQFXYTjhnY2BZtkzTxCO1GKWqlw6wt
+   1p9lrqUHvzfYePlwx9wsK3jseCbLkmsAEWKrjdadTDLXroRzHYn0uKCqC
+   eHOhBpQHpjdBq/38/EwhxuBk5NR43IWr6BaPl6xmcXZ+ATFqjqBM4VNTN
+   xAP19/JEziiATRjwtgw7wKk1sLV/lIda4JFB4EP6OWJDz7vdJLOxmJ3X3
+   g==;
+X-CSE-ConnectionGUID: buIqScCRRSqM1NGVvIff2Q==
+X-CSE-MsgGUID: Cuwk4pU8SquUSdlrlunCag==
 X-IronPort-AV: E=Sophos;i="6.12,138,1728943200"; 
-   d="scan'208";a="39937221"
+   d="scan'208";a="39937249"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 08 Nov 2024 15:03:12 +0100
-X-CheckPoint: {672E1A20-13-86C05612-CA75E1CA}
-X-MAIL-CPID: 502FFC223A986D9CD1878CBB94DDB6D4_1
-X-Control-Analysis: str=0001.0A682F18.672E1A21.0001,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0267C163598;
-	Fri,  8 Nov 2024 15:02:54 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 08 Nov 2024 15:04:36 +0100
+X-CheckPoint: {672E1A74-A-5736D786-D50827BE}
+X-MAIL-CPID: EF367DDD2A39F4625B8CF4B973AAEAE0_2
+X-Control-Analysis: str=0001.0A682F26.672E1A74.0090,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D9F3E160D5C;
+	Fri,  8 Nov 2024 15:04:29 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1731074588;
-	h=from:reply-to:subject:date:message-id:to:cc:mime-version:content-type:
+	s=dkim; t=1731074671;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=8s7i6hTY4ZPYkVZsEa+kaw6R5w8zz4VVGAZwBGp4xjs=;
-	b=ERAhNC2S1xpiZuyO1UqvOQCIZ37b2yPkbjIPTYXEGUAtVGHkgfhR8CpRUMjR23mKPIHpax
-	lc2Vv3hVStSEAZNpRLJAb/CTKfCY5tDOWV/r4EjOs7LYAm/t9Z0oHAEWf21CPR1KW936/7
-	B9EL0oPQCnM5ZYwqaywYvcviu5ZVHJiMY+C0QfSdtkXB18MycR9FVgQ33IULYjryjPO8hZ
-	Asco2jBOnFWbryeKjqDl/FN63ICHE2HgMZf95gJHabr6wAili93UhxA5HcMz1TbbTkki/o
-	5sr64w8UXPqUjP2MOEOQlDAxY0yHBIoYbR1JGYguxTrWDqsLIdDzC3kcdOaJcw==
-Message-ID: <499869db340b2d4c257e12d20e15c200d0f815b1.camel@ew.tq-group.com>
-Subject: Re: [PATCH 0/8] TQMa7x DT cleanup
-From: "Niebel, Markus" <Markus.Niebel@ew.tq-group.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Russell King <linux@armlinux.org.uk>,
- =?ISO-8859-1?Q?Jo=E3o?= Rodrigues <jrodrigues@ubimet.com>, Bruno Thomsen
- <bruno.thomsen@gmail.com>
-Cc: linux@ew.tq-group.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 08 Nov 2024 15:02:54 +0100
-In-Reply-To: <20241108134926.1324626-1-alexander.stein@ew.tq-group.com>
-References: <20241108134926.1324626-1-alexander.stein@ew.tq-group.com>
+	bh=ERNHBkanBqKFL3ox9eUbC/F74vANoxKE7ufPEj4aVYk=;
+	b=sWU5QszwvFP/gLmWvlo/us2SLOtRCvPL4eiaeekEVUxGrKVu0IpTdQlv2Kyq9EFUXM2swr
+	f5b8iqekGnKlwQ7vN7vpKvFxkrsQ0X9XRzWOiT9rYaAVHVyQTDDf9M+3oXin+KmXKmyoZF
+	X7oRD/tpP9ULHbqRMva0p3Ez9I3MApjpkzBWWH5kJQAOGk74mwIi3hc7IJzcvj235U0ha+
+	YO1Gk3e6ol5J8HmH2PDCotoJ38RNSZJWxJTILEuKp4h80aEc4pSeDZYnt6+JiimzE3z2su
+	rz2GF8waLrYJpQY1p2xS9NdqiN1NHDFqyJGEdZ7C2rf1BkmAWdmJMWBtap5OQg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Pengfei Li <pengfei.li_1@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, joao.goncalves@toradex.com, frieder.schrempf@kontron.de, marex@denx.de, hvilleneuve@dimonoff.com, peng.fan@nxp.com, m.othacehe@gmail.com, mwalle@kernel.org, Max.Merchel@ew.tq-group.com, hiago.franco@toradex.com, tharvey@gateworks.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com, ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: Add i.MX91 dtsi support
+Date: Fri, 08 Nov 2024 15:04:29 +0100
+Message-ID: <10563047.nUPlyArG6x@steina-w>
 Organization: TQ-Systems GmbH
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2 
+In-Reply-To: <Zy3gXvuWb76beZKo@pengfei-OptiPlex-Tower-Plus-7010>
+References: <20241108022703.1877171-1-pengfei.li_1@nxp.com> <2350046.ElGaqSPkdT@steina-w> <Zy3gXvuWb76beZKo@pengfei-OptiPlex-Tower-Plus-7010>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_060318_262622_33BEC323 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20241108_060438_645804_23201B27 
+X-CRM114-Status: GOOD (  34.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +88,179 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Markus.Niebel@ew.tq-group.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2024-11-08 at 14:49 +0100, Alexander Stein wrote:
-> Hi all,
->=20
-> this series fixes some DT binding check warnings as well as removing
-> duplicated nodes. Eventually IRQ support for thernet PHYs was added.
-> Additionally add CONFIG_JC42 to imx_v6_v7_defconfig.
->=20
-> Best regards,
-> Alexander
->=20
-> Alexander Stein (8):
->   ARM: dts: imx7-mba7: remove LVDS transmitter regulator
->   ARM: dts: imx7-tqma7: Remove superfluous status=3D"okay" property
->   ARM: dts: imx7-tqma7: add missing vs-supply for LM75A (rev. 01xxx)
->   ARM: dts: imx7-mba7: Add 3.3V and 5.0V regulators
->   ARM: dts: imx7-mba7: Fix SD card vmmc-supply
->   ARM: dts: imx7-mba7: Remove duplicated power supply
->   ARM: dts: imx7[d]-mba7: add Ethernet PHY IRQ support
->   ARM: imx_v6_v7_defconfig: enable JC42 for TQMa7x
->=20
->  arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi  | 61 +++++++----------------
->  arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi |  3 +-
->  arch/arm/boot/dts/nxp/imx/imx7d-mba7.dts  |  3 +-
->  arch/arm/configs/imx_v6_v7_defconfig      |  1 +
->  4 files changed, 21 insertions(+), 47 deletions(-)
->=20
+Hi,
 
-For the whole series:
+Am Freitag, 8. November 2024, 10:56:46 CET schrieb Pengfei Li:
+> On Thu, Nov 07, 2024 at 01:49:50PM +0100, Alexander Stein wrote:
+> > Hi,
+> >=20
+> > thanks for putting me on CC.
+> >=20
+> > Am Freitag, 8. November 2024, 03:27:02 CET schrieb Pengfei Li:
+> > > The i.MX 91 family features an Arm Cortex-A55 running at up to
+> > > 1.4GHz, support for modern LPDDR4 memory to enable platform longevity,
+> > > along with a rich set of peripherals targeting medical, industrial
+> > > and consumer IoT market segments.
+> > >=20
+> > > The design of the i.MX91 platform is very similar to i.MX93.
+> > > The mainly difference between i.MX91 and i.MX93 is as follows:
+> > > - i.MX91 removed some clocks and modified the names of some clocks.
+> > > - i.MX91 only has one A core
+> > >=20
+> > > Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 ++++++++++++++++=
+++
+> > >  arch/arm64/boot/dts/freescale/imx91.dtsi      |  66 ++
+> > >  2 files changed, 836 insertions(+)
+> > >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> > >  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+> > >=20
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx91-pinfunc.h b/arch/arm=
+64/boot/dts/freescale/imx91-pinfunc.h
+> > > new file mode 100644
+> > > index 000000000000..bc58ce2102b2
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> >=20
+> > FWIW this is a 1:1 copy from downstream kernel
+>=20
+> Hi, thanks for the comments.
+>=20
+> Yes, it is same as downstream kernel.
+>=20
+> >=20
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/bo=
+ot/dts/freescale/imx91.dtsi
+> > > new file mode 100644
+> > > index 000000000000..a9f4c1fe61cc
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> > > @@ -0,0 +1,66 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > +/*
+> > > + * Copyright 2024 NXP
+> > > + */
+> > > +
+> > > +#include "imx91-pinfunc.h"
+> > > +#include "imx93.dtsi"
+> > > +
+> > > +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
+> > > +	cooling-device =3D
+> > > +		<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> > > +};
+> > > +
+> > > +&clk {
+> > > +	compatible =3D "fsl,imx91-ccm";
+> > > +};
+> > > +
+> > > +&eqos {
+> > > +	clocks =3D <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
+> > > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
+> > > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
+> > > +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
+> > > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> >=20
+> > Is it just me or is the alignment of new lines not matching?
+>=20
+> Not sure about others, the alignment on my side is correct.
+>=20
+> >=20
+> >=20
+> > > +};
+> > > +
+> > > +&fec {
+> > > +	clocks =3D <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > > +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > > +			<&clk IMX91_CLK_ENET2_REGULAR>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +	assigned-clocks =3D <&clk IMX91_CLK_ENET_TIMER>,
+> > > +				<&clk IMX91_CLK_ENET2_REGULAR>;
+> > > +	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> >=20
+> > Here as well: Is it just me or is the alignment of new lines not matchi=
+ng?
+>=20
+> Same as above.
+>=20
+> >=20
+> > > +	assigned-clock-rates =3D <100000000>, <250000000>;
+> > > +};
+> > > +
+> > > +&i3c1 {
+> > > +	clocks =3D <&clk IMX93_CLK_BUS_AON>,
+> > > +			<&clk IMX93_CLK_I3C1_GATE>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +};
+> > > +
+> > > +&i3c2 {
+> > > +	clocks =3D <&clk IMX93_CLK_BUS_WAKEUP>,
+> > > +			<&clk IMX93_CLK_I3C2_GATE>,
+> > > +			<&clk IMX93_CLK_DUMMY>;
+> > > +};
+> > > +
+> > > +&tmu {
+> > > +	status =3D "disabled";
+> >=20
+> > Why does the TMU needs to be disabled instead of deleted?
+>=20
+> Actually, the i.MX91 also has a TMU, but the i.MX91 uses a different IP t=
+han the i.MX93, so a new driver is required.
+> However, this new driver is not applied yet on upstream kernel, so it is =
+disabled here for now.
 
-Reviewed-by: Markus Niebel <markus.niebel@ew.tq-group.com>
+Then, the compatible should be changed as well.
 
-Thank you
-Markus
+> >=20
+> > > +};
+> > > +
+> > > +/* i.MX91 only has one A core */
+> > > +/delete-node/ &A55_1;
+> > > +
+> > > +/* i.MX91 not has cm33 */
+> > > +/delete-node/ &cm33;
+> > > +
+> > > +/* i.MX91 not has power-domain@44461800 */
+> > > +/delete-node/ &mlmix;
+> > >=20
+> >=20
+> > Shouldn't the following node also be removed?
+> > * mipi_csi
+> > * dsi
+> > * lvds_bridge
+> > * lcdif_to_dsi
+> > * lcdif_to_ldb
+> >=20
+> > Also in downstream kernel IMX91_CLK_MEDIA_AXI, which is IMX93_CLK_MEDIA=
+_AXI
+> > upstream, is set to 200 MHz. Is this applicable here as well?
+> >=20
+>=20
+> For these nodes, it is only in the downstream kernel and not yet applied =
+to the upstream kernel for i.MX93.
+> So they cannot be removed in the upstream kernel yet.
 
---=C2=A0
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
+Ah, sorry. They originated form my local changes. They need to be removed
+later on when they get added to imx93 though.
+
+Best regards,
+Alexander
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
 http://www.tq-group.com/
+
+
 
