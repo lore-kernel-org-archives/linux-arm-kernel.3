@@ -4,83 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4345CD64079
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA54D64079
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 19:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=36eFDsOfiY1+4YLO6rK+nEUslj6oGDxfi+BcWF49SpY=; b=EXllp73a8RXT9NOLeYM+PPi5v7
-	JGqLlSIwJ/awjLN0KTLQwTYtK1PthVBQKt+BxTOgO6ubFv62ix/m+ARF7V9IZTnfFIGPiJzGZP2np
-	VcXjPsMgisAZlzay9QU5AE25wmJjQgk0Ht0BIA/any4NEY1rvjYLKAzZJfpLg0ZW7FitzeTRexjfJ
-	cUiOwjA/QFiCNiRIuZHJ/ccxOAMxkGyzHsf3mSnzc+tdnZmDcpN2SJlmuq1ED1Ejc9ijCQlZ/BXFd
-	VLg/w4GclG1eu8TqC77rGjtuiQqSWvgJTfffMplAHkTt350QyCIRKOc8RjENlkFJnVlYDFcB5lJnb
-	aEQU5hVA==;
+	bh=CU7Y0g0VF+ONxHWmu6ThGdzotKxiOmnMyZ1I0Kb3GRA=; b=fwugMr5XTDFJLIUP7oizVgYvbe
+	owmtu3SN8AmHCV4CLCwE+nlaIp+wMrG2/F6ZJBI8xQkodXhirG6LPWUNTJbkxK2R9cedgVda0Q8zi
+	API/Pf8RLQ54h/XP5rsl21CECUtanE3q3C0D6Ki/aBqh3fbltGpz/R4kp6yPY5E6Yx47Zk55fLYnX
+	tbPyHJIlh/hilzrm6UkDOkcVYDWfRVvQEOdFbZbVKiy0zL01U6lxECcu50tWEeAsdJsOZfBiPgv3m
+	CigRN+bYAVt5fMWZu6mlgxTCfvsx6fwSV/41oDTjy+tzebClD3pwR/6ytt9QKpuH1XNzpZodBB85E
+	0vjBM4XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UNz-0000000Bhi0-016b;
-	Fri, 08 Nov 2024 19:11:11 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1t9US3-0000000BiPD-1mFs;
+	Fri, 08 Nov 2024 19:15:23 +0000
+Received: from mail-mw2nam10on2071f.outbound.protection.outlook.com ([2a01:111:f403:2412::71f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UMD-0000000BhPb-47lo;
-	Fri, 08 Nov 2024 19:09:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731092962; x=1762628962;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=R+CGtLg7J7cZFkaK6iEbxTqVB/sl271eFJkHFX8PQlI=;
-  b=nojhclBeajCu+gWMTqEkl6HCqCDSH8tEOtzgjhtR6u3HHX7rrtnsxPNl
-   qeUAX2fWSFyd+2fW1mD+BMtZ6dYJ+PLEyaPahRDWfhdWBxzrbJq7h0HS1
-   E7IiLZ6Xv27CohFYsXuz9xbK5W6EaydmGQuQkuOwkSiVYpqnPZs4v0j8u
-   MMh9DiusICFbiCoLuY+tDiXJrAgHgAZUzEsJISv7FL0s7TQiQIf9K5GAk
-   szO8JhkAxXMq+39lgZZNJYgcDug0DSzip3jbGgM1x94PPW35RqQBHfXIV
-   y2Vk0rJvjyG+Y7XSjwgRM31MW+GFRC27u4fP+i6Ss5mMoHBKqtBg7Tbos
-   g==;
-X-CSE-ConnectionGUID: vb0mMZm1QCWcewiGmoxAKw==
-X-CSE-MsgGUID: KKnRooZrQkiANBvnhVdvHw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="42086776"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="42086776"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 11:09:20 -0800
-X-CSE-ConnectionGUID: XD1n0tMySAq3Ut+3KlDDLQ==
-X-CSE-MsgGUID: YGwNEXImR2OgQ2epJ63MLA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
-   d="scan'208";a="90231501"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 08 Nov 2024 11:09:15 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t9UM5-000ria-11;
-	Fri, 08 Nov 2024 19:09:13 +0000
-Date: Sat, 9 Nov 2024 03:08:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexey Romanov <avromanov@salutedevices.com>, neil.armstrong@linaro.org,
-	clabbe@baylibre.com, herbert@gondor.apana.org.au,
-	davem@davemloft.net, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, vadim.fedorenko@linux.dev
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-crypto@vger.kernel.org, linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@salutedevices.com,
-	Alexey Romanov <avromanov@salutedevices.com>
-Subject: Re: [PATCH v10 09/22] crypto: amlogic - Process more than MAXDESCS
- descriptors
-Message-ID: <202411090235.a7vEgZQo-lkp@intel.com>
-References: <20241108102907.1788584-10-avromanov@salutedevices.com>
+	id 1t9UOa-0000000Bhs4-03J8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 19:11:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xid2UnOyOXOOcVw3fbrKq0LssndYXeHUPFGe6UhVOCvTjsPuPtVSKthZTvrFzrYk2st/GZjSeWMCViRfxX0pt5VHhmK3n7G7H0azzztceJPLG8+/qiPYxNER19oqxdXmyy5fqTYRf5x7RgArWxVGJbxUoSlAMskM7K1E2CU593OKl/ICM2fMVxy0LdT2ivK1KbJyHWuKO8i/2z58hsqPCJIKoPEiw33BMj6o7DWDG3d6t8G4JGlgS9bWut+qnPvcAEQyzI6LWdqxtBAEiyK09q0UtLkYZs8oeXmzKsoBgEB+JYHX9l6Xd+1SC0W99gZ8+2kepJxms5HW+P5krA66XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CU7Y0g0VF+ONxHWmu6ThGdzotKxiOmnMyZ1I0Kb3GRA=;
+ b=hwvtNWYQ/m0ueD/RW4ing76YuOMwgYzKmb0KYp6iL+Sw1X4ysY+v0hJEq0Gh4dA9tKph8w/RCNhzrrFsI7IWlcqaAF2Y99W85xdjqMmrJ6KSWv6BzY6FwWcGXKsNPwQEcTJWeud1Q04fscY1Qh7f/LLCaGmWtwB++syuP3NPLpKPLOPzI0YfTUs+6zMYyACaw5jZcirwy7F8+O5aY44ZQoa0TsFdhTqcrAYVOdrfJnO/nB4EgKiq3gO28uWpnYw/bzNa3nHy0UrWpnu4yYplyayqrSs2tm2EiUZWASVhmfEHd1EyuA3l9LoKYcSIi3ZsNkqap94Pg10MZBU09Z1eog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CU7Y0g0VF+ONxHWmu6ThGdzotKxiOmnMyZ1I0Kb3GRA=;
+ b=OArtzoVK8M7S5vymseF3B/J/Y4fsaA0y/g/8F9cQDAFKOA1FMxoS19qwUhYda1MWDS9NWix60UTQQba4AgxSHTMtOJ+bQcofrQPwCyKUU+NPGjuQahr1yloPzB6gCecYnoFmQzqHtrVzhmbHeo5Xy+7Np24YTvQ2hbEdr4qwscE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from PH7PR01MB8146.prod.exchangelabs.com (2603:10b6:510:2bd::18) by
+ BY1PR01MB9089.prod.exchangelabs.com (2603:10b6:a03:5b5::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8158.11; Fri, 8 Nov 2024 19:11:35 +0000
+Received: from PH7PR01MB8146.prod.exchangelabs.com
+ ([fe80::2972:642:93d1:e9d4]) by PH7PR01MB8146.prod.exchangelabs.com
+ ([fe80::2972:642:93d1:e9d4%5]) with mapi id 15.20.8158.007; Fri, 8 Nov 2024
+ 19:11:35 +0000
+From: Steve Clevenger <scclevenger@os.amperecomputing.com>
+To: leo.yan@arm.com,
+	namhyung@kernel.org,
+	james.clark@linaro.org,
+	mike.leach@linaro.org
+Cc: suzuki.poulose@arm.com,
+	ilkka@os.amperecomputing.com,
+	coresight@lists.linaro.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH V11 1/2] perf script cs_etm: Add map_pgoff to python dictionary
+Date: Fri,  8 Nov 2024 12:11:18 -0700
+Message-Id: <8d9a1142dc58ffa34a000cb7b7a26055df0a37ec.1731027120.git.scclevenger@os.amperecomputing.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
+References: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CH0P221CA0036.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:610:11d::14) To PH7PR01MB8146.prod.exchangelabs.com
+ (2603:10b6:510:2bd::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241108102907.1788584-10-avromanov@salutedevices.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR01MB8146:EE_|BY1PR01MB9089:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbb4ab84-6e6e-4180-5bff-08dd00292a0c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VkhETmI0MDdVV0tRcHdmL3B2RDQ1eDZmc2VXbThNUm9Fc0NXTTJiaUpSZnBw?=
+ =?utf-8?B?UEhBaVRhU3FEb1pZR3d3WmtGTnMxbnVIWEkxRU1Jd2FOMi84N05ncFQvbzE1?=
+ =?utf-8?B?TnNqbXhVQzB1ZjMvR2hPcHFrNFdOaGNPNUdWWFpzNjVNVUlVOXp4ekMxYzVC?=
+ =?utf-8?B?cUNyMlo5aUNFWktGUkpBS0ZIMHpIWmVJRDkrOUN1d0tvOHlDRUVMb1A1RkFh?=
+ =?utf-8?B?TVN0NFEvakhkcHFjNTdqUFJHR1dvQWpJZ0thcTc4WjNqY1c3Slk2cndGdWZz?=
+ =?utf-8?B?VG9OUkNaaHZtT3lXaVA3TmxrdElEYkhzdjJjKytYNXFhd2hWR3A5amZJL25N?=
+ =?utf-8?B?Wnhkdi9xdTNqd2pCZnpZTklXQ2pKQnRReElWeWtwWXNOdFF0eDMzQnJWK2VI?=
+ =?utf-8?B?WkZpVzlYVEVUTGJXSnlZRUhFTnFBeVYzRktHbFpscm5qck1kWHE1TlZMSkpp?=
+ =?utf-8?B?WFpCMnBVV3ZwQ2MveEVZUnpNOHFaMlRLbUtGQTdQYVhDWDdrbjBjRmw5WHpM?=
+ =?utf-8?B?RFlqQTRJNDcvYnlha1ovUkN2cnFTTkNJYXFGdWlhT0k4aFM2R1VCdUgyYXBN?=
+ =?utf-8?B?YUxHbWNldTVWYzNpZzBxSGx0ZGwweGlWdXJHNHlYUkc2SjgxbU80WmFZNERn?=
+ =?utf-8?B?enh3YVc1NW9WdkR6Z0Q5QmdhUEM2c0MwZVRmOUxGdjhtMHp1T0RNRUg4TzNI?=
+ =?utf-8?B?Z0R2T1VsN0JQUVcyWFlmeXFlRndUM2xyUmF6TXAwVTVrQnEvaDZIQnh3WXVR?=
+ =?utf-8?B?b0hacCtlcklpZmtsRnY5R3JjREVJbS9yT0FzdUZKTVF2Y0RBRW9oZVNMeS9h?=
+ =?utf-8?B?TFZ4emRER3U4YmhyN01WTHduTmgveUZRdDJTL3Y1R0pzVWFFTlM1VW8vUERF?=
+ =?utf-8?B?NmRPaCtTVW5IT0JQU1paYjR0OUlaRUkxaUVQVG5SUC9NQ2NKbExVV3Iza05I?=
+ =?utf-8?B?MUJOR1YzQktURU03MFRaQ0tCaFZTdWdoV2V4d0ZHU3hSaFdRMm0wdW11bHcy?=
+ =?utf-8?B?aFV0aFV2T1RhdW9Sakd4OFJKMmxPRVNDNW9mTlZRVmhseWVMNzJDckVvSE0v?=
+ =?utf-8?B?YlhLUzVzRDVzZXNkVm1VbGxSUUJJNGxXSElmSThESFJwWUxHN09YZUgzQ1V1?=
+ =?utf-8?B?UG4xSWh6d09nQ0drWDhBcFBHUWovZlA1SDZiOG5udDQwakF3c0ovaDFrc09v?=
+ =?utf-8?B?V0p5K3EvS3UvRHQ1WFlHaGdzbVZpeGZFc0p5RVhOOFJtUGpGMXJlbGppdkVG?=
+ =?utf-8?B?Zi93aFpvckY1Q1FOM1VHdmlEcE83MTVwNHJ5R2YyOVFYVUpSenhNR3Z2NWd0?=
+ =?utf-8?B?VmUwOTBBd0dhWUIxMVBIRkRzRTlRcWdjaDRKS1JxNGZwT2FES2N4M1RJQlRJ?=
+ =?utf-8?B?YUtPa0RhZzF3YzZaRkVXSkhaYWQ3anp1eWxUUERMR1VyR0lza1YzbE5HVkdC?=
+ =?utf-8?B?SEthSHlEeGZKNi9kMjZsR01jZytxR2crR1Y2Z1AvZi9vWFUzUXdpMVdhYzNS?=
+ =?utf-8?B?Q2Q2d01DOUdaeFMzanZLdERGUllHUXlUNWp2OCtENTZjakFqNW1GazNuL0RJ?=
+ =?utf-8?B?SUhpT0pJNEg5M3RDOGJzcGxmdlJMZzNIVTRtaVRmcWxzRklVRlllN0dJbXg5?=
+ =?utf-8?B?VS9lbWUxRWRUMFYvNCs1d05nb3NZQm9sa0NGZjZ1d2hkTW1sYlBtRTZ3Nk9l?=
+ =?utf-8?B?ZUdUYzlGS05OaWtmKzNDVXNEYUN5OWUyU0hqbFFkTi93R2JDNE9RWG1rZlQ4?=
+ =?utf-8?B?Sm10UEg4UXdrS05BbjV3aVc1Y3hxbVNMWnFJUklNMWlYY2ZFdDVocjU5K2Ju?=
+ =?utf-8?Q?Ebi0fRLoVJlhgeNPEfi2BtvxWr90Tf71XAJUk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR01MB8146.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dHJSQk9SaC9jcTVXbUl1YStNNTFjWWRpZFI2c1pINHBmMUZFYjljSmF2dVJa?=
+ =?utf-8?B?ODJieHdHWi9zM3BuYWZrTzVWS0MyMVp4STAxSC8xYjU5SlhaZGZIV1RMd1h5?=
+ =?utf-8?B?dmczL25jWVJoeDdYMTZqSzJTQWt4Y2NEWmI1TktPRUJGRmh2ck5iUkZGVUp6?=
+ =?utf-8?B?ZTlhNkhDdHl2NHBNZ1BHYnpFWWpRalpJdEZKZHpxK0psbFRGNy9tYmdWblJp?=
+ =?utf-8?B?dCtwWFJsUHhNUVRWV0hteHlyNWNWanRVZklqL2hnUDRlY2loTm5MdFlhQTNW?=
+ =?utf-8?B?TDdoRUdsWjhDTFI2RUZYSTR1UTRubFY3OU42S1ZsOGo5YTl2NGljc3lscWU3?=
+ =?utf-8?B?Q1FOaUR3WFZDQUNQeXFsRWYwMWdEVTNHb1Y5V2s0VEErWXYyczhSQnNaYkZG?=
+ =?utf-8?B?S3BNQ2xRRUJaUm1wVElheHYvVTBQTGI2djBOSW1LT0N4cktscHYrWGZKZDNj?=
+ =?utf-8?B?SnpDd29hQlQ5YkM4UytXejVNTWcxZE5MQ1dzKy9tbXcyb3NqUFZlZTdLWjRU?=
+ =?utf-8?B?QmVjeXJQai9wSDB3aFNhRm1iWGJQcUh6RW1KYmx6ZUp4bnRFd2gwVlhpaFVN?=
+ =?utf-8?B?eC9uSUdYL2ZEa2I3ZkQyTFd6bXN4STZMcW5TZDY2L0VFQzlUSHF0OGxiNHJa?=
+ =?utf-8?B?SC9JNm44WUI5b2F0Q1BxbldZRmVQcWdYTWZTZGNqQmdJSjJtWlNzQnN2cWFY?=
+ =?utf-8?B?SWVuMUpUVVZrTUVQbW1Hc09PT2VPU3YxSjlUYjJkVm80cyt5eWtDcTUrM05j?=
+ =?utf-8?B?SmpKNWN0Q3pUcUFyU1pkcXlJR0lFeGtQS1lBQmlmOHJKbjMxdDhJYTlNZEFU?=
+ =?utf-8?B?eEZwbi9meXZuYzEzWmZ4MHp1VFBLSUNFVk9WSXd5SmxaVzhPenlMVmVKQ2hH?=
+ =?utf-8?B?Y05HaU02SFVyUDNVUnk2bmRHUGcvWVF3ZzBZclN1amtDRmV4Sk1DQ1hWRWNw?=
+ =?utf-8?B?U3ZpN3dGU2IrVXU5RXFLTU1FTENMNm9aeDFwRTZSM1p0aEY0MnZzbUJqRWtp?=
+ =?utf-8?B?M0hzTEhMeGR5SkJjV0p3aTFYc3FQOFVXQUVOQ0E0Rm9KU3ZCZzlmTU00d3FQ?=
+ =?utf-8?B?Z0RMVHRNMTVFVEk0T3p0cjlLNEpONU5IdGc3eUpCNmpqK2drWlIxdTdLTFAz?=
+ =?utf-8?B?L05oVjdvanNYK3lrYzl1Ymp3YTVPYkhqUll3R0dOa1c2QzJUSUwxVm5GZXR0?=
+ =?utf-8?B?dWtrUmtLUlpNNW83VjhQNHVBV2VYT1VFWENEL0lHbWFHQWMxTkVGcmFVc01a?=
+ =?utf-8?B?dWVkTyt0WHBjMGxNNDFXRXNDUGJyOUVXMUMvaHRSc3MvSFFmR1EyZ0dsK0h1?=
+ =?utf-8?B?VXVyWFRQampTUWNRVUxtTER3alg3OXhTU21aQXZLQURmVVFjcUhOZlllMmo0?=
+ =?utf-8?B?cVdzeTJVbElFTHBzcW85REJOS2ZrZjVlQXY4ZnZPK0dKblpiVlhSRTg0VVRp?=
+ =?utf-8?B?akZWRENBMlJsRVdocVZ0NDJkWGR3WDNqMHUyYk1YYVdtc0ZYTXVHNmpIQ29n?=
+ =?utf-8?B?V2JnQjZrVWtoMnArM2F3NWcvTkVpeXhjQVc2V0FRVjFzWGIydTVMRTVPSndK?=
+ =?utf-8?B?OEluY0Z6VnpQZENFcExRTHRQME1BTVZhNFh0d3ByRnhRaGFOVXozdTR4bWla?=
+ =?utf-8?B?QUF0KzhWaDAwZDFMTEVWbVc5TE81emtiNkluZ0JqSjEwTXlmR1k2MEVkdGdR?=
+ =?utf-8?B?SzdjYVJ3MmRkcWIzcUhmYzN6N09wUVErL2xOb0Vjd0ZzaXZzdDBwOEhxVFhB?=
+ =?utf-8?B?Y09EREFNUExCc2hEVjRJaGEwOHBvVVRLMDU5aWNsUWIzdTVNaG0wZGNEenli?=
+ =?utf-8?B?Qi9KR2hWdzhFUEJONzVyYVlYMVQvcXlDWHBwR09xcFJXWllTN0xaeWkyU1Ax?=
+ =?utf-8?B?TldhdHhCamtvWFdRNS9jYXhyckk4SlpzSmVpenFQWjRNRzRJL3A5SWYwUlox?=
+ =?utf-8?B?OERlR25KL3NsTlo2cUtaOUZiTnRtTWgvaGhRQUZJSERWeGhIMU1icTRjWEdE?=
+ =?utf-8?B?MytyS2dlaTNKV21TZit6VnJwQXlDZEY5MFdhSW95VUtUcTZINjV2QXFucXgv?=
+ =?utf-8?B?T2xOdnRISzN0aXZwNVk3SnBMNVBSaTM5ajZOUlZIMnJHM0FMTU90UXl1bFo0?=
+ =?utf-8?B?V0xka25TNFkyQTBDRG5ETzExemFDTTUzNTFHSXJKWTVUcVpaUXM1Tkk4cEIv?=
+ =?utf-8?Q?ohQoG1P+irXVDg9VNXbMSZ4KWBYs0KGwXs3iFMn1AIwu?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbb4ab84-6e6e-4180-5bff-08dd00292a0c
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR01MB8146.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 19:11:35.6895
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sCLksHzbBIq7QKCWldkxyu8xVfxHc2jl3FKw9UDm+ed1vGFRUggRqCPPjKe5VzdCltIxC7+v9h7YPLe9C9UJLnoeQ5hBvgyFmgcLOv7IuGHnpX1de0JnU5WnrSfSjfpU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB9089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_110922_099849_9ADD2308 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20241108_111148_093656_F03D209B 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,125 +179,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Extract map_pgoff parameter from the dictionary, and adjust start/end
+range passed to objdump based on the value.
 
-kernel test robot noticed the following build warnings:
+A zero start_addr is filtered to prevent output of dso address range
+check failures. This script repeatedly sees a zero value passed
+in for
+      start_addr = cpu_data[str(cpu) + 'addr']
 
-[auto build test WARNING on herbert-cryptodev-2.6/master]
-[also build test WARNING on next-20241108]
-[cannot apply to herbert-crypto-2.6/master robh/for-next linus/master v6.12-rc6]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+These zero values are not a new problem. The start_addr/stop_addr warning
+clutters the instruction trace output, hence this change.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Romanov/crypto-amlogic-Don-t-hardcode-IRQ-count/20241108-183503
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git master
-patch link:    https://lore.kernel.org/r/20241108102907.1788584-10-avromanov%40salutedevices.com
-patch subject: [PATCH v10 09/22] crypto: amlogic - Process more than MAXDESCS descriptors
-config: x86_64-buildonly-randconfig-002-20241109 (https://download.01.org/0day-ci/archive/20241109/202411090235.a7vEgZQo-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241109/202411090235.a7vEgZQo-lkp@intel.com/reproduce)
+Signed-off-by: Steve Clevenger <scclevenger@os.amperecomputing.com>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/perf/util/scripting-engines/trace-event-python.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411090235.a7vEgZQo-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from drivers/crypto/amlogic/amlogic-gxl-cipher.c:14:
-   In file included from include/crypto/scatterwalk.h:16:
-   In file included from include/linux/highmem.h:8:
-   In file included from include/linux/cacheflush.h:5:
-   In file included from arch/x86/include/asm/cacheflush.h:5:
-   In file included from include/linux/mm.h:2213:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
->> drivers/crypto/amlogic/amlogic-gxl-cipher.c:235:13: warning: variable 'new_iv_phys' set but not used [-Wunused-but-set-variable]
-     235 |         dma_addr_t new_iv_phys;
-         |                    ^
-   2 warnings generated.
-
-
-vim +/new_iv_phys +235 drivers/crypto/amlogic/amlogic-gxl-cipher.c
-
-   220	
-   221	static int meson_kick_hardware(struct cipher_ctx *ctx)
-   222	{
-   223		struct meson_cipher_req_ctx *rctx = skcipher_request_ctx(ctx->areq);
-   224		struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(ctx->areq);
-   225		struct meson_cipher_tfm_ctx *op = crypto_skcipher_ctx(tfm);
-   226		struct skcipher_alg *alg = crypto_skcipher_alg(tfm);
-   227		struct meson_alg_template *algt = container_of(alg,
-   228							       struct meson_alg_template,
-   229							       alg.skcipher.base);
-   230		struct meson_dev *mc = op->mc;
-   231		unsigned int ivsize = crypto_skcipher_ivsize(tfm);
-   232		unsigned int blockmode = algt->blockmode;
-   233		enum dma_data_direction new_iv_dir;
-   234		struct scatterlist *sg_head;
- > 235		dma_addr_t new_iv_phys;
-   236		void *new_iv;
-   237		int err;
-   238	
-   239		if (blockmode == DESC_OPMODE_CBC) {
-   240			struct scatterlist *sg_current;
-   241			unsigned int offset;
-   242	
-   243			if (rctx->op_dir == MESON_ENCRYPT) {
-   244				sg_current = ctx->dst_sg;
-   245				sg_head = ctx->areq->dst;
-   246				offset = ctx->dst_offset;
-   247				new_iv_dir = DMA_FROM_DEVICE;
-   248			} else {
-   249				sg_current = ctx->src_sg;
-   250				sg_head = ctx->areq->src;
-   251				offset = ctx->src_offset;
-   252				new_iv_dir = DMA_TO_DEVICE;
-   253			}
-   254	
-   255			if (ctx->areq->src == ctx->areq->dst)
-   256				new_iv_dir = DMA_BIDIRECTIONAL;
-   257	
-   258			offset -= ivsize;
-   259			new_iv = sg_virt(sg_current) + offset;
-   260			new_iv_phys = sg_dma_address(sg_current) + offset;
-   261		}
-   262	
-   263		if (blockmode == DESC_OPMODE_CBC &&
-   264		    rctx->op_dir == MESON_DECRYPT) {
-   265			dma_sync_sg_for_cpu(mc->dev, sg_head,
-   266					    sg_nents(sg_head), new_iv_dir);
-   267			memcpy(ctx->areq->iv, new_iv, ivsize);
-   268		}
-   269	
-   270		reinit_completion(&mc->chanlist[rctx->flow].complete);
-   271		meson_dma_start(mc, rctx->flow);
-   272		err = wait_for_completion_interruptible_timeout(&mc->chanlist[rctx->flow].complete,
-   273								msecs_to_jiffies(500));
-   274		if (err == 0) {
-   275			dev_err(mc->dev, "DMA timeout for flow %d\n", rctx->flow);
-   276			return -EINVAL;
-   277		} else if (err < 0) {
-   278			dev_err(mc->dev, "Waiting for DMA completion is failed (%d)\n", err);
-   279			return err;
-   280		}
-   281	
-   282		if (blockmode == DESC_OPMODE_CBC &&
-   283		    rctx->op_dir == MESON_ENCRYPT) {
-   284			dma_sync_sg_for_cpu(mc->dev, sg_head,
-   285					    sg_nents(sg_head), new_iv_dir);
-   286			memcpy(ctx->areq->iv, new_iv, ivsize);
-   287		}
-   288	
-   289		ctx->tloffset = 0;
-   290	
-   291		return 0;
-   292	}
-   293	
-
+diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
+index d7183134b669..e6d4711a7d69 100644
+--- a/tools/perf/util/scripting-engines/trace-event-python.c
++++ b/tools/perf/util/scripting-engines/trace-event-python.c
+@@ -793,7 +793,8 @@ static int set_regs_in_dict(PyObject *dict,
+ static void set_sym_in_dict(PyObject *dict, struct addr_location *al,
+ 			    const char *dso_field, const char *dso_bid_field,
+ 			    const char *dso_map_start, const char *dso_map_end,
+-			    const char *sym_field, const char *symoff_field)
++			    const char *sym_field, const char *symoff_field,
++			    const char *map_pgoff)
+ {
+ 	char sbuild_id[SBUILD_ID_SIZE];
+ 
+@@ -809,6 +810,8 @@ static void set_sym_in_dict(PyObject *dict, struct addr_location *al,
+ 			PyLong_FromUnsignedLong(map__start(al->map)));
+ 		pydict_set_item_string_decref(dict, dso_map_end,
+ 			PyLong_FromUnsignedLong(map__end(al->map)));
++		pydict_set_item_string_decref(dict, map_pgoff,
++			PyLong_FromUnsignedLongLong(map__pgoff(al->map)));
+ 	}
+ 	if (al->sym) {
+ 		pydict_set_item_string_decref(dict, sym_field,
+@@ -895,7 +898,7 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 	pydict_set_item_string_decref(dict, "comm",
+ 			_PyUnicode_FromString(thread__comm_str(al->thread)));
+ 	set_sym_in_dict(dict, al, "dso", "dso_bid", "dso_map_start", "dso_map_end",
+-			"symbol", "symoff");
++			"symbol", "symoff", "map_pgoff");
+ 
+ 	pydict_set_item_string_decref(dict, "callchain", callchain);
+ 
+@@ -920,7 +923,7 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 			PyBool_FromLong(1));
+ 		set_sym_in_dict(dict_sample, addr_al, "addr_dso", "addr_dso_bid",
+ 				"addr_dso_map_start", "addr_dso_map_end",
+-				"addr_symbol", "addr_symoff");
++				"addr_symbol", "addr_symoff", "addr_map_pgoff");
+ 	}
+ 
+ 	if (sample->flags)
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.44.0
+
 
