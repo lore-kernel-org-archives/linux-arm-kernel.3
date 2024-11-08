@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC42D5C0C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19AED5C0C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVSE01m15S0lW6ejbGYjxqx5xjX2hcGc8bWeo8Y5qhI=; b=Em16khevIUPK3gRhjLRo9TylnP
-	DAHM+nR9uNhfE53MNwpEPalk38TZ/21HwM9Wu2PJuTJOU4vCd06H+cS3Q4UbR/bJ7PqcbrCMXsFeU
-	Jk171+O5vL/mR4Z+QDcLoVlChwgvhfJUlI2h2JEwuEQMh9UXSY1Z6nvXAfPegnfpWfRu6sze1tBaN
-	AoJeUir/sp/iUrFveATr+MMh/vzm1TvuS4xlisk8iHOx1GJJKv724ADWYad9WK2C2nF1/TT6b/CYX
-	FI6ND/QSJUE29L95pt1AOmTF4NgnbNSIa/hbVR7rrkvslrhqsvWdslCbU2H8gZl8sFpDNCmA/G49Q
-	Ri7Izp3A==;
+	bh=SDqsw5Pts81B2efw8ch4KvTOpMw40xfDtYhkRLRWB10=; b=ityptZwXEgXTZIlLAuztAVTbVv
+	aVjX+QM55lb46XlE6T5RRuy1D6+nmDKzRpcRk1m0vAcmNyQbqGIkasHhTGjskcu9iWHk6lPdRr77X
+	n59IjJ6tklJm8M3ZDUNwykaZUbEpGtDCnKgqA+eRhnW0h5UmZxr8V9sZc39uhtNsRzQZo2mdb7cKq
+	XdnzN2G33b2sCk6F5If4Spx95ROgJyQ/665DxwsGNliRew2A6wuj5XpyZzWjxQo6H6lTj+xBa4+qM
+	M3G6STyaXW4n9QFg4SpbwBzswD/E0ccpKBa+H//8lcQ8zqQkJo+Go44clpbwepQI5RUJTF8KdiXBQ
+	mjT46cww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9O79-0000000AWqr-2M8b;
-	Fri, 08 Nov 2024 12:29:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9O8t-0000000AXEe-0BLv;
+	Fri, 08 Nov 2024 12:31:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9O4j-0000000AWH3-0Fjt
+	id 1t9O5I-0000000AWLH-0HMS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 12:26:54 +0000
+	Fri, 08 Nov 2024 12:27:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65B865C541B;
-	Fri,  8 Nov 2024 12:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AE97C4CECD;
-	Fri,  8 Nov 2024 12:26:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 549A2A42794;
+	Fri,  8 Nov 2024 12:25:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF183C4CECD;
+	Fri,  8 Nov 2024 12:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731068811;
-	bh=LE5ViNZC097yakLUhcdt/2Wuhu+SiSGw5zfIBA0XZD4=;
+	s=k20201202; t=1731068846;
+	bh=VJQoN1YcVQJtLA//yK1+saQlRJH8EZXmp3hpluZXlgU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FJVlOg6CB9NqZpkXXZWGGcE3xtciRj+3e9/6HOJDc/uN+fGb14cuq6eovzph8pA/y
-	 OkmjJNmdX3lQk56OKAeVIqGCp1iBiM95I3dV5p6DtCcH2bsB6Ll2o++rdMMvrZNo0o
-	 FCdAD9FaqEJNDpXPW1NoCdTswVTUbOxO5vTzaqC6r6IfrSTvibhQt9tk8SeGc/MhCe
-	 x+2RtXnmW0c47VR3F72rr+M6i+r58uhBu6OIc7SM24V9Z8SKmuoR7CcmeAcQ6blkX0
-	 furKlzwOWdP417FrJgP5ZA3BE2zAudQw/ZGFdCXziNd342imkYHmt+faIv7IBRbjVl
-	 FaPGOE2NK5vLA==
-Date: Fri, 8 Nov 2024 13:26:48 +0100
+	b=nk3+Al7pPQkfntj7+HgIjJPTV3IcHoa4IkW4+p5ob4/Es02j4L7K1otGpZrg3EKuy
+	 ZhOQ7YceE46J0t3lqJeJP2fvGr1rMpweji/ONWrAI4ddWBPjF404lO45gyOOkGYBrs
+	 8WN0I93MN8lmNA7gmuyIFceOwx0b0tUfWexUnPjiD/lvJBwNW+PJaG4U/Toqgt908r
+	 4DmLqjk4rosmdTXXR7Z3l7rIriXt7aqFJ/I4cDVnQUoI9txQyswIZkWS1o2/cocrYN
+	 F/2G44ZV/GgL55RzuUnM7y3QPYMwMm5umSSXpKc6Y8WN8KEPdW0rKanHVMU+2eCRdf
+	 Sb/5xG+karW/g==
+Date: Fri, 8 Nov 2024 13:27:23 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] ASoC: dt-bindings: add stm32mp25 support for i2s
-Message-ID: <vbdhp4q6ymyf6skjqblb3f77l2x6po7djhlu5zmh75tbqigaqg@hjyhyzpfklsf>
-References: <20241107144712.1305638-1-olivier.moysan@foss.st.com>
- <20241107144712.1305638-2-olivier.moysan@foss.st.com>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com, 
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, imx@lists.linux.dev, shengjiu.wang@gmail.com, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: imx93: Add SPDIF IPG clk
+Message-ID: <hlnlunxtfs2a2i6gnw7ysws3hrfncyn7whjf4ws2zmw3p3j5a6@itbzs3bzooqs>
+References: <20241108100759.682260-1-shengjiu.wang@nxp.com>
+ <20241108100759.682260-2-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241107144712.1305638-2-olivier.moysan@foss.st.com>
+In-Reply-To: <20241108100759.682260-2-shengjiu.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_042653_166142_2E57EA02 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20241108_042728_192159_93573C45 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 03:47:11PM +0100, Olivier Moysan wrote:
-> Add STM32MP25 support for STM32 I2S peripheral,
-> through "st,stm32mp25-i2s" compatible.
+On Fri, Nov 08, 2024 at 06:07:57PM +0800, Shengjiu Wang wrote:
+> Add SPDIF IPG clk. The SPDIF IPG clock and root clock
+> share same clock gate.
 > 
-> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/sound/st,stm32-i2s.yaml          | 36 +++++++++++++++++--
->  1 file changed, 33 insertions(+), 3 deletions(-)
+>  include/dt-bindings/clock/imx93-clock.h | 1 +
+>  1 file changed, 1 insertion(+)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
