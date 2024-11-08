@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1456D64064
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4221CD64063
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=5y71AULIWipzOUve2Y05XFsuP7Ru4OVeHPR1RL+xc70=; b=msA6nM6boAyEDkUE27JR58bS2v
-	J3AzRPWmeacA7XQGxgj3t/eKe+bY37Tr+WlPuoQnxX4nQtKaI1rAJStPqbhGWzRm2ZLd6yik8uQ9o
-	J+gOiQkfa/V7v9lyBtLt5dvcumbqoKFQZGyP7LCgUijOsJcF+5Xbl4Yrh8RAj9pqYHyD5PkuijqZS
-	OZ2l0ISLSJ/SrDuv0CyZzwXrH1UEz8uwpAwLvcZ9DXkb4xa/1CDGrN3NZhk6wo9iFQGBqtZtEzdbL
-	bYQPfUDxhR7fXvAgXaulVX0LM+lP7ZpBuF7tDskwQ76R89ZYPs3wAt20QpuV0hcj89Xp2F3b0dIt/
-	MB0D7A/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HJdxrHqrC5kEMbapK+RIRyuzCDjboqt8Pz02wTDuMpE=; b=Exp6GMrkKckIog7m9Tuoa0C9PM
+	xPp40ey3AvjM/4Ekeih/eYk7r3FpptQ9RBl+gyzX0hfYs+p/nLv78TGQZpPJ6Lv2ukxkAoUZMMt1I
+	fZ8fZydp/D3hu21UAr1PbaAZQG5U0owwou6sG0CCZhc8U5/6CmZQhDnjmrCpUbljgxu+2rsjhD2iL
+	N5V20zcN4nGRGeulL+T/6iVfFQlrM60/DloDZgCf/PuSTRcswzxC/sB6LayahNW/ZEF6gR+32hHtw
+	bANK+xBNMeFWo1DQ5iV3SlymVFhIraWXHy0rZpLK4TPoOMEjvqRvw+Pc7SONBWjJZL8/getyEoEAR
+	po+KcPnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ryb-0000000BG2B-42I1;
-	Fri, 08 Nov 2024 16:36:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9S0c-0000000BGUK-0EYC;
+	Fri, 08 Nov 2024 16:38:54 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RvZ-0000000BEcE-0jiI;
-	Fri, 08 Nov 2024 16:33:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C61FA43F7B;
-	Fri,  8 Nov 2024 16:31:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87664C4CED3;
-	Fri,  8 Nov 2024 16:33:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731083619;
-	bh=Xy9SXkJxDKG4wi0f9Sva0OdceC+je7kXOaR1Fvhuk4Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lv9ltHn0wFgSpHXb8kslpVm8PArdkSIuQuJE5snpS1yI2IVOWksdVjn8nUo7aykjq
-	 VF3j8ToVG0p5CUcoMmdui72l9m+UABLLU+2fviSDfOQwzw5La16QIau1UGD1TpY+4m
-	 Wpgfwsi2SUAzEOunb8IhHZWjJIgl9vK6FWbxUZVcMGXhWZOD2FFiNqROABA2M8BsdU
-	 J/bByy2pPBtM+wRvtPfQkEjUNJ9VdOlrD/PdgKJiBhCPEc1AJnHa9yeTVQbni7lfhR
-	 BWx5efRqQx6QPf/CAKmr07g17TCcFAyzUDRXIa7NPlqjO3g5NUbd9/6zcb01tNejWM
-	 nV2w2n4JvRklQ==
-Date: Fri, 8 Nov 2024 10:33:38 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"lorenzo.bianconi83@gmail.com" <lorenzo.bianconi83@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"nbd@nbd.name" <nbd@nbd.name>, "dd@embedd.com" <dd@embedd.com>,
-	upstream <upstream@airoha.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQw==?= =?utf-8?Q?H?= v4 4/4] PCI:
- mediatek-gen3: Add Airoha EN7581 support
-Message-ID: <20241108163338.GA1663274@bhelgaas>
+	id 1t9Rx0-0000000BFZ1-2Ept;
+	Fri, 08 Nov 2024 16:35:12 +0000
+X-UUID: 67c5e7269def11ef82ff63e91e7eb18c-20241108
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=HJdxrHqrC5kEMbapK+RIRyuzCDjboqt8Pz02wTDuMpE=;
+	b=H1tQKaOpvb99NH2gs2KeXotcnS71Gp2C5T3QYofz7qfiJ6nv93JOa+Dfsp4qw4Yi6GJKxrjFQsTIh8DsHYQg7VLYR6YEb6447nxxqhqaCkoqAeB9oHPlNVZmJNGGcxMaGTJSTboWxz9On1GT0TcwXzj1XEny/hbfbPNwUujLsA0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:b10e257a-c69e-4b59-a13f-9be40d3db7e3,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:8f91bfca-91e6-4060-9516-6ba489b4e2dc,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 67c5e7269def11ef82ff63e91e7eb18c-20241108
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1424359068; Fri, 08 Nov 2024 09:35:03 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Fri, 8 Nov 2024 08:35:00 -0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Sat, 9 Nov 2024 00:35:00 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
+	<skylake.huang@mediatek.com>
+Subject: [PATCH net-next v3 0/5] Re-organize MediaTek ethernet phy drivers and propose mtk-phy-lib
+Date: Sat, 9 Nov 2024 00:34:50 +0800
+Message-ID: <20241108163455.885-1-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <KL1PR03MB6350EF22DE289B293D34FD6FFF5D2@KL1PR03MB6350.apcprd03.prod.outlook.com>
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_083341_902197_B9FEBE79 
-X-CRM114-Status: GOOD (  46.57  )
+X-CRM114-CacheID: sfid-20241108_083510_799736_CE3D69B0 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,95 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 01:23:35AM +0000, Hui Ma (马慧) wrote:
-> > On Thu, Nov 07, 2024 at 05:21:45PM +0100, Lorenzo Bianconi wrote:
-> > > On Nov 07, Bjorn Helgaas wrote:
-> > > > On Thu, Nov 07, 2024 at 08:39:43AM +0100, Lorenzo Bianconi wrote:
-> > > > > > On Wed, Nov 06, 2024 at 11:40:28PM +0100, Lorenzo Bianconi wrote:
-> > > > > > > > On Wed, Jul 03, 2024 at 06:12:44PM +0200, Lorenzo Bianconi wrote:
-> > > > > > > > > Introduce support for Airoha EN7581 PCIe controller to 
-> > > > > > > > > mediatek-gen3 PCIe controller driver.
-> > > > > > > > > ...
-> > > > 
-> > > > > > > > Is this where PERST# is asserted?  If so, a comment to 
-> > > > > > > > that effect would be helpful.  Where is PERST# deasserted?  
-> > > > > > > > Where are the required delays before deassert done?
-> > > > > > > 
-> > > > > > > I can add a comment in en7581_pci_enable() describing the 
-> > > > > > > PERST issue for EN7581. Please note we have a 250ms delay in 
-> > > > > > > en7581_pci_enable() after configuring REG_PCI_CONTROL register.
-> > > > > > > 
-> > > > > > > https://github.com/torvalds/linux/blob/master/drivers/clk/cl
-> > > > > > > k-en7523.c#L396
-> > > > > > 
-> > > > > > Does that 250ms delay correspond to a PCIe mandatory delay, 
-> > > > > > e.g., something like PCIE_T_PVPERL_MS?  I think it would be 
-> > > > > > nice to have the required PCI delays in this driver if 
-> > > > > > possible so it's easy to verify that they are all covered.
-> > > > > 
-> > > > > IIRC I just used the delay value used in the vendor sdk. I
-> > > > > do not have a strong opinion about it but I guess if we move
-> > > > > it in the pcie-mediatek-gen3 driver, we will need to add it
-> > > > > in each driver where this clock is used. What do you think?
-> > > > 
-> > > > I don't know what the 250ms delay is for.  If it is for a required 
-> > > > PCI delay, we should use the relevant standard #define for it, and 
-> > > > it should be in the PCI controller driver.  Otherwise it's 
-> > > > impossible to verify that all the drivers are doing the correct delays.
-> > > 
-> > > ack, fine to me. Do you prefer to keep 250ms after 
-> > > clk_bulk_prepare_enable() in mtk_pcie_en7581_power_up() or just use PCIE_T_PVPERL_MS (100)?
-> > > I can check if 100ms works properly.
-> > 
-> > It's not clear to me where the relevant events are for these chips.
-> > 
-> > Do you have access to the PCIe CEM spec?  The diagram in r6.0, sec 
-> > 2.2.1, is helpful.  It shows the required timings for Power Stable, 
-> > REFCLK Stable, PERST# deassert, etc.
-> > 
-> > Per sec 2.11.2, PERST# must be asserted for at least 100us (T_PERST), 
-> > PERST# must be asserted for at least 100ms after Power Stable 
-> > (T_PVPERL), and PERST# must be asserted for at least 100us after 
-> > REFCLK Stable.
-> > 
-> > It would be helpful if we could tell by reading the source where some 
-> > of these critical events happen, and that the relevant delays are 
-> > there.  For example, if PERST# is asserted/deasserted by 
-> > "clk_enable()" or similar, it's not at all obvious from the code, so 
-> > we should have a comment to that effect.
-> 
-> >I reviewed the vendor sdk and it just do something like in clk_enable():
-> >
-> >	...
-> >	val = readl(0x88);
-> >	writel(val | BIT(16) | BIT(29) | BIT(26), 0x88);
-> >	/*wait link up*/
-> >	mdelay(1000);
-> >	...
-> >
-> >@Hui.Ma: is it fine use msleep(100) (so PCIE_T_PVPERL_MS) instead
-> >of msleep(1000) (so PCIE_LINK_RETRAIN_TIMEOUT_MS)?
->
-> 	I think msleep(1000) will be safer, because some device won't
-> 	link up with msleep(100).
+From: Sky Huang <skylake.huang@mediatek.com>
 
-Do you have details about this?  I guess it only hurts mediatek, but
-increasing the minimum time to bring up a PCI hierarchy by almost an
-entire second is a pretty big deal.
+This patchset comes from patch 1/9, 3/9, 4/9, 5/9 and 7/9 of:
+https://lore.kernel.org/netdev/20241004102413.5838-1-SkyLake.Huang@mediatek.com/
 
-If this delay corresponds to the required T_PVPERL delay and 100ms
-isn't enough for some endpoints, those endpoints should fail with many
-host controllers, not just mediatek, so I would suspect the mediatek
-controller or a certain platform, not the endpoint itself.
+This patchset changes MediaTek's ethernet phy's folder structure and
+integrates helper functions, including LED & token ring manipulation,
+into mtk-phy-lib.
 
-If this corresponds to T_PVPERL and mediatek needs longer, I would
-document that by using "PCIE_T_PVPERL_MS * 10" and adding a comment
-about why (affected platform/device, hardware erratum, etc).
+Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
+---
+Change in v2:
+- Add correct Reviewed-by tag in each patch.
 
-Bottom line, I don't really care what the value is, but I *would* like
-to be able to read pcie-mediatek-gen3.c and see the point where PCI
-power is stable, a delay of at least T_PVPERL, and where PERST# is
-deasserted because that's the main timing requirement on software.
+Change in v3:
+[patch 4/5]
+- Fix kernel test robot error by adding missing MTK_NET_PHYLIB.
+---
 
-Bjorn
+SkyLake.Huang (5):
+  net: phy: mediatek: Re-organize MediaTek ethernet phy drivers
+  net: phy: mediatek: Move LED helper functions into mtk phy lib
+  net: phy: mediatek: Improve readability of mtk-phy-lib.c's
+    mtk_phy_led_hw_ctrl_set()
+  net: phy: mediatek: Integrate read/write page helper functions
+  net: phy: mediatek: add MT7530 & MT7531's PHY ID macros
+
+ MAINTAINERS                                   |   6 +-
+ drivers/net/phy/Kconfig                       |  17 +-
+ drivers/net/phy/Makefile                      |   3 +-
+ drivers/net/phy/mediatek/Kconfig              |  27 ++
+ drivers/net/phy/mediatek/Makefile             |   4 +
+ .../mtk-ge-soc.c}                             | 298 ++----------------
+ .../phy/{mediatek-ge.c => mediatek/mtk-ge.c}  |  31 +-
+ drivers/net/phy/mediatek/mtk-phy-lib.c        | 270 ++++++++++++++++
+ drivers/net/phy/mediatek/mtk.h                |  89 ++++++
+ 9 files changed, 438 insertions(+), 307 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/Kconfig
+ create mode 100644 drivers/net/phy/mediatek/Makefile
+ rename drivers/net/phy/{mediatek-ge-soc.c => mediatek/mtk-ge-soc.c} (83%)
+ rename drivers/net/phy/{mediatek-ge.c => mediatek/mtk-ge.c} (82%)
+ create mode 100644 drivers/net/phy/mediatek/mtk-phy-lib.c
+ create mode 100644 drivers/net/phy/mediatek/mtk.h
+
+-- 
+2.45.2
+
 
