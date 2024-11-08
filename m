@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2629D64070
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7A2D6406B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IuMsjEWNzhW+6P3eECc9hh/03bxywxtcZPQ/jBAhyYE=; b=2jgipRmyWViEvI0fNtUWoVrMhI
-	AKvzdmP0qZnM2krWCG9Vp5c234FJJjeIlesYhR76YBM3kNp4VibSlZynztNxA3f3TJRC+rtpaRIQh
-	D5rX+UpQ/MPWBIymI90Zb28ehnGaY7/JXFUQsW6u7V96zH7SqusFxD81HIKIF4BdZb5C+t5cDM8Vd
-	MWPYjyv2tr1A/0z8UisFRKMmEryR4Ioe+zcK63o18CvWDtO3KENVZvgirqg1uCAxx3aRLvahNQKd1
-	+oXz1twitT3ODON3Bg0fRv15k4fgKGMAjCw+1+X9PKY/SZxjkJtuoFnMRX5du5+bq+xHL8EoR8E7r
-	PpchmtTg==;
+	bh=tYZrDcE7I1HFzbqCHDXhx+d8qBGIhXOz/Pay6a/54ts=; b=mhpGgHOOkieGPDWtqrwihuV0kA
+	6eLGZ2IvnLIdY11wCLnqbUVL44djt2r67KK5R+Z3t0FVGzBhQoGa0ELBgYlGYKwgjXGWWrL/cKrzv
+	f/t98PmW3PZA/O6Sk8jG/tQSepNDJ7FYTJOs50RVkI6laWHmeemfrCU5w9PI/z5KbbthYKb8RbFxq
+	FzzmRgsDeXtO2dDRTG9zKAsU/hIbr1CnlcfLKOXMBwhAFQ4eMAqDgBRuXDohVVQg8DF9xCfCVrT6K
+	DHq447JrnfVSnF6jMwSiiUzmze5n9W1tY/tDaUXwgoj0r+DlST1GHGFkTJOx8wDQ2OB+vwaH1+SDX
+	oL3IPLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Siq-0000000BNdF-3Txd;
-	Fri, 08 Nov 2024 17:24:36 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1t9Skd-0000000BNyt-0ZyA;
+	Fri, 08 Nov 2024 17:26:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Sh4-0000000BNHQ-1GPn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 17:22:47 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539f58c68c5so4513895e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 09:22:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731086564; x=1731691364; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IuMsjEWNzhW+6P3eECc9hh/03bxywxtcZPQ/jBAhyYE=;
-        b=WDUm7o3f/pmu7kxGgpkEnvnpiK5MJCDrh+y7x9fCtmQQnzRIDIAiOpuKxq7m8AkG+M
-         6C/znM1FMVRVoa0kLCGcve97uqwpTpj46noL17CoBMVOnG1T0PFKQtRD7mQpHZK1iZwW
-         VkobcnnQnVwAuVF+qg4J5dPfxx8n7t4A0Bc1CN1JvU7m1+8RlPapSff63NmVyv+DCzud
-         aC8WucqZgETuhWdokqTTQZ4+AEmg9/r9U+UCtDUvf7ld45PLAS9S7/Z4sukU0Ahtr9jq
-         fOODxOfmfst5lwuor+vYJmqNFrQKL5QnG6MfgPDnSSUaEN33hdmcmpatmOJ0mmWdmAM+
-         FFqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731086564; x=1731691364;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IuMsjEWNzhW+6P3eECc9hh/03bxywxtcZPQ/jBAhyYE=;
-        b=LDhVD8Ud9Kg9H45IaFUAooj9V/JIKV319ToEL5E5WTLeRcyDuRf2pWof7LscUE24WL
-         YrKE9lSjV0RP3SxeXkRfvgL69dm+E2zLCf8zj7DKFtLRmPVw+2FEUkC7tN/kVTHS2MCu
-         2gsrvXvTUtbnhhr2XPv2HbsSju7Tri3JtsgF84Wt901zzPO2dr/n4JHaIpD3dQp8taa/
-         7RHQONzAnKE6wuW0uSEl3WDzXE+p+YySF/l87V1hERaIShwyZHCaACuLTH8tOpFzGL56
-         YifcBzBHOwgDfYc5dNZImqtJf4k5ubcYT4BkFvgSdxF3ff0G9cNFMwuYTOxuR7lpSZAh
-         EIjw==
-X-Forwarded-Encrypted: i=1; AJvYcCUWxyxmb4qO4cmVtEtzJ88aYO5pMNav2UpVFJrAKP1WVFZXrmoVXRM+11aElzn7T0pw+iqyuqgHxndAksZHwtS7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHrEPt7gGV/HwYhqELKDpA+PJiEN/d191tbBBMITVj/jC5SaeL
-	hP8fxTjvllu97wQX9ckuHiYR17TqYH+0X77eMS25AgLh6Ly0NT/TK2NtOFgQuuI=
-X-Google-Smtp-Source: AGHT+IG/kHT7uoJA9pS6MJzi5G/TAbHC1g+M286p5WIMFKq0cH1FOM6xU7xjhvQPNXqOerM7diDKNA==
-X-Received: by 2002:a05:651c:1551:b0:2fc:9674:60b5 with SMTP id 38308e7fff4ca-2ff2028afd3mr36644341fa.25.1731086563412;
-        Fri, 08 Nov 2024 09:22:43 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff179ff9f7sm7271371fa.119.2024.11.08.09.22.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 09:22:42 -0800 (PST)
-Date: Fri, 8 Nov 2024 19:22:39 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Taniya Das <quic_tdas@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Abhishek Sahu <absahu@codeaurora.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ajit Pandey <quic_ajipan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, 
-	Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 03/11] dt-bindings: clock: Add Qualcomm QCS615 Camera
- clock controller
-Message-ID: <be4blr2wvnc7b4iubexxnzqevjpgnfhdt7azcuwdtqgp6xbdvh@c3txmpuo5lot>
-References: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
- <20241108-qcs615-mm-clockcontroller-v3-3-7d3b2d235fdf@quicinc.com>
+	id 1t9SiB-0000000BNUz-18yQ;
+	Fri, 08 Nov 2024 17:23:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E50695C5B33;
+	Fri,  8 Nov 2024 17:23:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B54ABC4CECD;
+	Fri,  8 Nov 2024 17:23:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731086634;
+	bh=6zKQlRn0Es/TKeDFmAQ35oAz8kwkdvS9qyL+rTAPFhw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QBD6MBtKY3GZVRw49enM8QsMZfEiWtuHqSv4AceulD2+HrEJLAnsaI9WMrCl3EB3V
+	 6CR+wE51/iuWuBHlFdhnnyOZDRdI4zbh/CW7FNXbAA50ThB+C/CYb2Oaq3VlnawrTK
+	 xmrSF2ubuhPAGd7Ks6FgMe2cwTE4r+DJu3FKwrPR8k/oNqfIFUnqMCz+z8k1T1cXzn
+	 /IdBdqr6c4JFV+dsm9YywGm64fpJJmb5po6XeRBwYZeRoQhadf9bDuxoEdQm5Bc6CY
+	 lXSLehNuVh5RhS/9E136m6EZZJxzMBBlDL2azR48I/LCxgc7OTY2+TZXsQCy+WkvGZ
+	 GAiFiZ88dKNSQ==
+Date: Fri, 8 Nov 2024 18:23:50 +0100
+From: "lorenzo@kernel.org" <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
+ .power_up()
+Message-ID: <Zy5JJuAsxPqEos4I@lore-desk>
+References: <Zy5EjY_oQaRbb5MY@lore-desk>
+ <20241108171710.GA1667022@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mpRtWSJTYmJLObDx"
 Content-Disposition: inline
-In-Reply-To: <20241108-qcs615-mm-clockcontroller-v3-3-7d3b2d235fdf@quicinc.com>
+In-Reply-To: <20241108171710.GA1667022@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_092246_369756_3788D798 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20241108_092355_428351_2424A8DB 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,89 +83,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 09:39:20AM +0530, Taniya Das wrote:
-> Add DT bindings for the Camera clock on QCS615 platforms. Add the
-> relevant DT include definitions as well.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
-> ---
->  .../bindings/clock/qcom,qcs615-camcc.yaml          |  60 +++++++++++
->  include/dt-bindings/clock/qcom,qcs615-camcc.h      | 110 +++++++++++++++++++++
->  2 files changed, 170 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-camcc.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..0abd277aa3ddd2e1384d0af59699dc1deda5575b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-camcc.yaml
-> @@ -0,0 +1,60 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/qcom,qcs615-camcc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Qualcomm Camera Clock & Reset Controller on QCS615
-> +
-> +maintainers:
-> +  - Taniya Das <quic_tdas@quicinc.com>
-> +
-> +description: |
-> +  Qualcomm camera clock control module provides the clocks, resets and power
-> +  domains on QCS615
-> +
-> +  See also: include/dt-bindings/clock/qcom,qcs615-camcc.h
-> +
-> +properties:
-> +  compatible:
-> +    const: qcom,qcs615-camcc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Board XO source
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +
-> +  '#power-domain-cells':
-> +    const: 1
 
-Please use qcom,gcc.yaml instead of copying the same set of properties
-over and over.
+--mpRtWSJTYmJLObDx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - '#clock-cells'
-> +  - '#reset-cells'
-> +  - '#power-domain-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/qcom,rpmh.h>
-> +    clock-controller@ad00000 {
-> +      compatible = "qcom,qcs615-camcc";
-> +      reg = <0xad00000 0x10000>;
-> +      clocks = <&rpmhcc RPMH_CXO_CLK>;
-> +
-> +      #clock-cells = <1>;
-> +      #reset-cells = <1>;
-> +      #power-domain-cells = <1>;
-> +    };
-> +...
+On Nov 08, Bjorn Helgaas wrote:
+> On Fri, Nov 08, 2024 at 06:04:13PM +0100, lorenzo@kernel.org wrote:
+> > > On Fri, Nov 08, 2024 at 09:39:41AM +0100, lorenzo@kernel.org wrote:
+> > > > > On Thu, 2024-11-07 at 17:08 +0100, Lorenzo Bianconi wrote:
+> > > > > > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wr=
+ote:
+> > > > > > > > In order to make the code more readable, move phy and mac
+> > > > > > > > reset lines assert/de-assert configuration in .power_up
+> > > > > > > > callback (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
+> > >=20
+> > > > > > > > +	/*
+> > > > > > > > +	 * The controller may have been left out of reset by the
+> > > > > > > > bootloader
+> > > > > > > > +	 * so make sure that we get a clean start by asserting re=
+sets
+> > > > > > > > here.
+> > > > > > > > +	 */
+> > > > > > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_reset=
+s,
+> > > > > > > > +				  pcie->phy_resets);
+> > > > > > > > +	reset_control_assert(pcie->mac_reset);
+> > > > > > > > +	usleep_range(10, 20);
+> > > > > > >=20
+> > > > > > > Unrelated to this patch, but since you're moving it, do you
+> > > > > > > know what this delay is for?  Can we add a #define and a spec
+> > > > > > > citation for it?
+> > > > > >=20
+> > > > > > I am not sure about it, this was already there.  @Jianjun Wang:
+> > > > > > any input on it?
+> > > > >=20
+> > > > > This delay is used to ensure the reset is effective. A delay of
+> > > > > 10us should be sufficient in this scenario.
+> > > >=20
+> > > > ack, so we can introduce a marco like:
+> > > >=20
+> > > > #define PCIE_RESET_TIME_US	10
+> > > > ...
+> > > >=20
+> > > > usleep_range(PCIE_RESET_TIME_US, 2 * PCIE_RESET_TIME_US);
+> > >=20
+> > > Unless this corresponds to a value specified by the PCIe base spec
+> > > or CEM spec, this macro should be internal to
+> > > pcie-mediatek-gen3.c.
+> >=20
+> > My plan is to add it in pcie-mediatek-gen3.c. Do you think
+> > PCIE_RESET_TIME_US is too generic?
+>=20
+> It's generic, but so are most of the other #defines in
+> pcie-mediatek-gen3.c, so I'd follow suit.
+>=20
+> Connect it to language in the MediaTek spec if possible, i.e., if the
+> spec names this parameter, try to use the same name.
 
--- 
-With best wishes
-Dmitry
+unfortunately I do not have any mediatek spec documentation available.
+
+@Jianjun Wang: is PCIE_RESET_TIME_US fine for you or according to the avail=
+able
+documentation?
+
+Regards,
+Lorenzo
+
+--mpRtWSJTYmJLObDx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy5JJgAKCRA6cBh0uS2t
+rJXaAQC/Sv0ltwvrKgZw6OyUcbyAk4/sBfF7IaiTfIisVDVn7gD8DwX7b6kQV/DZ
+fdWM8kWpF/9QWlKmCpHxYbkyemdxqw4=
+=M7P9
+-----END PGP SIGNATURE-----
+
+--mpRtWSJTYmJLObDx--
 
