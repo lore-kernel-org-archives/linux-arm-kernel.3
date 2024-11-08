@@ -4,97 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC898D64076
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3478ED64097
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKslcm2V1UHcqGqqi4FAiYTJwpOr2SEQn/AjeUS4EGg=; b=ClgHO4XM2J4Lhnqjki4kK9tMU9
-	wVGZPRWEw0/JyOsAb3KUk9noWUkWPPwvQ2ld3ntfZwWX8TtnjbfT3ZdJez4tPozEBECE89wZZxf3e
-	KTXmVSd96bgMCh9/04nWVqFXm7tq5VAVPot7n76Ts5ROhZlA5/+J4aqyGqwT2TtOV5jJmfa/ich13
-	TgQjyS72nJkYFApVeA0qsepI15kZGxPn5dVQC3v9f1a0MOuzcBsf0ijAejIPaSIAfGfBeIM8Yrw8v
-	rEOfynGKe7jf4dQSTbkWxTQc0/HYGWJ9gooPQbuOqJk1Rozns3bMd74qn/EHWq4bMZGIBThLafsu+
-	M5ztY3Ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=; b=qxWaojwNgPRNu/SECa/pzddeZ/
+	QgIqxs6sDR8jmYDQHIe8bDDd4ozr6asz9C1JhQuG8+sHZtDIaoRZja0Y3Ty6KAtxEq6gzXGO7HZh/
+	cJYKTCgEODz+nMESIYqY81qV8TyHB4VI7qZ8rGovnKveQG7iygUtOIiaoRQKvDRHQFS/8r96pxABe
+	+TjKbljJ9fTjImcx0l1v9fJ75sCS0V2wG21lkzfYo3C+aVv3gNhnlrxPqVH/iR1phBRIxbpUTFRL7
+	WAHi5qtU/LnGR7R0lkAGpEJkUVaBJqzyAdeJ9yGUyHV87r49BqHripqKSBTy3eSItR3PheUCMkprd
+	Aw85CntQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZFY-0000000CKmL-2dcx;
-	Sat, 09 Nov 2024 00:22:48 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t9ZIz-0000000CL9K-1m8a;
+	Sat, 09 Nov 2024 00:26:21 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ygs-0000000CFMG-38bh
+	id 1t9YpN-0000000CHC2-1qkf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 23:47:01 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e30ba241e7eso4628983276.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:46:57 -0800 (PST)
+	Fri, 08 Nov 2024 23:55:46 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-720c2db824eso2953850b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:55:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731109617; x=1731714417; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OKslcm2V1UHcqGqqi4FAiYTJwpOr2SEQn/AjeUS4EGg=;
-        b=lyGP876ixL622dd51iVDMXFdM2R5KKIIZaDuEAC+vHoQkRQ5xKYKry3+B8afNVtFdz
-         zVOuAB9ec0Yv36Fpxjm3DnKHxwlpUFth1N7J6KDTLtZVp2E95UG1fiKWRzpQQU/jvZmc
-         yqf16O6jL5FR+PYBMeFAdVEaF0f3sc/8HMxvfpMTE9lSZy68uL9WGllqmmVpUNvbpWQ3
-         L+hW/oov0ru5mZsczstZYbHGWLvh5NgtcM6xb4ofmSrVNa5dn/GlP6bohpJaHA9yLL8h
-         DkAQuSj+WtMCxIAkrw/F0E7TYf04hx3rdR2WUrOw3WqCMM0Xk1/Mvd4fjEr7TgFamO/k
-         n9bQ==
+        d=gmail.com; s=20230601; t=1731110144; x=1731714944; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=;
+        b=DQtLjwnv5EJQ2IwKi3HeVdSlO+0wf4UOIN+xN6vgSfeYwx619AhNflUyOw9Rd3MZhb
+         06zhooswJFfAIyq4g+GR4yrT2yEpyaPnNodwXI9ioCpTDnfQ1DgAPQxzzFdklv9w46cJ
+         LAuzipJxUypsoewNlAO9ru2E0Y4mWF50qEEXYD2gKLD9GWt50wtxQhKo2OFN23famlAC
+         lHfblt8WdisMZvBwC+m9Yg9xBTIVREOMG7RZjJpPgJs/4Q+KQ0NYiL5Uj8lhJtlGGbG1
+         SPSbV+pDCz3eWbZjD1Gjev3nI/BOfgH7PKuo6h2ujDg7Y4k8fY+4pTOW2EJVAJp8a4HL
+         GGZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109617; x=1731714417;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OKslcm2V1UHcqGqqi4FAiYTJwpOr2SEQn/AjeUS4EGg=;
-        b=lb2YFkVTZAXv2URVrDv8oD5k5sycWJKhoqj3aHdYSICVbGXJEKvzNF1G5fWRWUKfQ/
-         sHbedSbIBdXtUoyNKBn7xEO/9XC5Wu9z4u6auq4u2osFtxXvRIx8GKHVmygWgf5IkRU8
-         IfjRe+hlcuUICztjR/8rj/U1d8T5MIttJ2TKVCJerD7ZpfS/Iut+Amr+UljSs3x7v7R1
-         IBzBd1AZfd+UIQgRUs7BO4P9fMlVt9IFjTpWNYrPXvtQ2q47AiG4S6P38RSL2dFpE2EL
-         vy29URUdQy2P6+pofJ8T7356GNe2D9gL/k6OwXW7D4zZUosgosj8IjkgPtn6hc90G1jx
-         OrZw==
-X-Forwarded-Encrypted: i=1; AJvYcCWFmrNvlAcdVfStlnG7zDiLoXMv7gIkQ+S8mUZTK+M8ILImruLCJo/3+2L026OUsrmv/K4qHLW81Sm2KZhZORwX@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa1FqbsUCynjVps8fXXaIZts3n2oNSjPkguezfe2ifPuReRHBR
-	JDxC4iSqOTTAf+J0Dy+ugZJ5fv8X0NZWsUgF2BFUEL4tl5PUsShVKxTfGcaELvr+ggmSFGmje18
-	emmclnw==
-X-Google-Smtp-Source: AGHT+IG1zx26qQHAzqiLBUtrRzJXR+kqfJstP7FYSoC2xoOMAWBu+eO7OrTp0s/Fw2wwPvD/OOi7YEUCvyL0
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
- (user=irogers job=sendgmr) by 2002:a25:ae63:0:b0:e11:639b:6428 with SMTP id
- 3f1490d57ef6-e337f77f713mr8790276.0.1731109617162; Fri, 08 Nov 2024 15:46:57
- -0800 (PST)
-Date: Fri,  8 Nov 2024 15:46:05 -0800
-In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-Message-Id: <20241108234606.429459-21-irogers@google.com>
-Mime-Version: 1.0
-References: <20241108234606.429459-1-irogers@google.com>
-X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Subject: [PATCH v4 20/20] perf build: Remove PERF_HAVE_DWARF_REGS
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
-	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
-	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
-	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
-	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
-	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1731110144; x=1731714944;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YDNI3QDwWxgmxejo6jXXE94KMUDPX67xnOmgp5Nl8dg=;
+        b=Byp4G/O7lmVB/z3It13KmVHy4Uw1uz8nVIZbEE9xxPYReSpfFHI0AnM6HzxpFd2ru2
+         t7USw4b0KiDbWkWgQpu2o3fre/xArMKTdosk39b1l/SO02Pt0mgv84QgoiLAmVriPgnp
+         lFsjKhqKtUjzU0B6QYdreXZr4acnbyrXorDA13JwMVaDCvNqbKG8l8+X8BEO4tWty9Bf
+         POF9heEz+qMsqK11WsRSzRj02BvDOyZe+y5eMbmYzYSFMWgc/ZEvQ7q7kBL686GNvGCu
+         wyYaxnqTWxWbdBAC+ys/9iN+PSaxezctZD7UYj2aediLzrwTryb3Ozj+jXsWPhzjZU17
+         O2yQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX6A5Igqkeoqr6bh4niQyuhNXLrP2ld3uLmaytXhkVFW+xW0qWTcSoN01C5cOVthNhUvGzWr+HIDEtJ2QGF92sE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg0B3Eyhh7W/wyeRAJnvQ+dEmaETT3wyS9yPlv/j5oC1M3g8F6
+	gr0MfLDDqd85uM3ECZzxfc0jBuVy7/0G2iY1tqQexkRHIMtOabam
+X-Google-Smtp-Source: AGHT+IEHn7LvKyz4qiE1kjywUOaxbLk9LaMdw4OZkuMYZImvcCX2vvxzceeB2V3jYqAdtqDqMOyhJw==
+X-Received: by 2002:a05:6a00:99b:b0:71e:4c86:659a with SMTP id d2e1a72fcca58-7241328ea12mr5446159b3a.9.1731110143875;
+        Fri, 08 Nov 2024 15:55:43 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724078aaa21sm4398854b3a.51.2024.11.08.15.55.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Nov 2024 15:55:43 -0800 (PST)
+Message-ID: <c1b77ef0-f01b-4926-8259-e387166d0750@roeck-us.net>
+Date: Fri, 8 Nov 2024 15:55:40 -0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] hwmon: tmp108: Add help function
+ tmp108_common_probe()
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-hwmon@vger.kernel.org
+References: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
+ <20241108-p3t1085-v2-2-6a8990a59efd@nxp.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20241108-p3t1085-v2-2-6a8990a59efd@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154658_917083_7AE61D73 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20241108_155545_539087_CADF4E1F 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,197 +148,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PERF_HAVE_DWARF_REGS was true when an architecture had a dwarf-regs.c
-file. There are no more architecture dwarf-regs.c files, selection is
-done using constants from the ELF file rather than conditional
-compilation. When removing PERF_HAVE_DWARF_REGS was the only variable
-in the Makefile, remove the Makefile.
+On 11/8/24 14:26, Frank Li wrote:
+> Add help function tmp108_common_probe() to pave road to support i3c for
 
-Add missing SPDX for RISC-V Makefile.
+help -> helper
 
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/Makefile.config         | 13 ++++---------
- tools/perf/arch/arm/Makefile       |  3 ---
- tools/perf/arch/arm64/Makefile     |  3 ---
- tools/perf/arch/csky/Makefile      |  4 ----
- tools/perf/arch/loongarch/Makefile |  3 ---
- tools/perf/arch/mips/Makefile      |  4 ----
- tools/perf/arch/powerpc/Makefile   |  4 ----
- tools/perf/arch/riscv/Makefile     |  4 +---
- tools/perf/arch/s390/Makefile      |  3 ---
- tools/perf/arch/sh/Makefile        |  4 ----
- tools/perf/arch/sparc/Makefile     |  4 ----
- tools/perf/arch/x86/Makefile       |  3 ---
- tools/perf/arch/xtensa/Makefile    |  4 ----
- 13 files changed, 5 insertions(+), 51 deletions(-)
- delete mode 100644 tools/perf/arch/csky/Makefile
- delete mode 100644 tools/perf/arch/sh/Makefile
- delete mode 100644 tools/perf/arch/xtensa/Makefile
+> P3T1085(NXP) chip.
+> 
+> Using dev_err_probe() simple code.
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 52a216df9e2a..2916d59c88cd 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -559,15 +559,10 @@ ifndef NO_LIBELF
-   endif
- 
-   ifndef NO_LIBDW
--    ifeq ($(origin PERF_HAVE_DWARF_REGS), undefined)
--      $(warning DWARF register mappings have not been defined for architecture $(SRCARCH), DWARF support disabled)
--      NO_LIBDW := 1
--    else
--      CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
--      LDFLAGS += $(LIBDW_LDFLAGS)
--      EXTLIBS += ${DWARFLIBS}
--      $(call detected,CONFIG_LIBDW)
--    endif # PERF_HAVE_DWARF_REGS
-+    CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
-+    LDFLAGS += $(LIBDW_LDFLAGS)
-+    EXTLIBS += ${DWARFLIBS}
-+    $(call detected,CONFIG_LIBDW)
-   endif # NO_LIBDW
- 
-   ifndef NO_LIBBPF
-diff --git a/tools/perf/arch/arm/Makefile b/tools/perf/arch/arm/Makefile
-index 9b164d379548..8b59ce8efb89 100644
---- a/tools/perf/arch/arm/Makefile
-+++ b/tools/perf/arch/arm/Makefile
-@@ -1,5 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index ca2e35961287..91570d5d428e 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/csky/Makefile b/tools/perf/arch/csky/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/csky/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
-index 79b432744296..52544d59245b 100644
---- a/tools/perf/arch/loongarch/Makefile
-+++ b/tools/perf/arch/loongarch/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/mips/Makefile b/tools/perf/arch/mips/Makefile
-index 733f7b76f52d..827168f1077a 100644
---- a/tools/perf/arch/mips/Makefile
-+++ b/tools/perf/arch/mips/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- # Syscall table generation for perf
- out    := $(OUTPUT)arch/mips/include/generated/asm
- header := $(out)/syscalls_n64.c
-diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
-index ae05727835d8..dc8f4fb8e324 100644
---- a/tools/perf/arch/powerpc/Makefile
-+++ b/tools/perf/arch/powerpc/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index d83e0f32f3a8..18ad078000e2 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,6 +1,4 @@
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-+# SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index 58e79f5b67a4..c431c21b11ef 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/sh/Makefile b/tools/perf/arch/sh/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/sh/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/sparc/Makefile b/tools/perf/arch/sparc/Makefile
-index 7741184894c8..8b59ce8efb89 100644
---- a/tools/perf/arch/sparc/Makefile
-+++ b/tools/perf/arch/sparc/Makefile
-@@ -1,6 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index 51cf267f4d85..a6b6e0a9308a 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/xtensa/Makefile b/tools/perf/arch/xtensa/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/xtensa/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--- 
-2.47.0.277.g8800431eea-goog
+Use dev_err_probe() to simplify the code.
+
+> 
+> Add compatible string "nxp,p3t1085".
+> 
+
+This is borderline and problematic. First, it is the one functional change,
+and second, that functional change is not mentioned in the subject. At the very
+least it needs to be mentioned in the subject. I would, however, prefer two
+separate patches, even if that is just a one-liner.
+
+Also, the key change is preparation for i3c support, not that a helper function
+is added. The subject should be something like "Prepare for adding I3C support",
+and the description should then mention the added helper function.
+
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> dev_err_probe() have not involve addition diff change. The difference
+> always list these code block change regardless use dev_err_probe().
+> ---
+>   drivers/hwmon/tmp108.c | 40 ++++++++++++++++++++++------------------
+>   1 file changed, 22 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/hwmon/tmp108.c b/drivers/hwmon/tmp108.c
+> index a82bbc959eb15..bfbea6349a95f 100644
+> --- a/drivers/hwmon/tmp108.c
+> +++ b/drivers/hwmon/tmp108.c
+> @@ -323,33 +323,19 @@ static const struct regmap_config tmp108_regmap_config = {
+>   	.use_single_write = true,
+>   };
+>   
+> -static int tmp108_probe(struct i2c_client *client)
+> +static int tmp108_common_probe(struct device *dev, struct regmap *regmap, char *name)
+>   {
+> -	struct device *dev = &client->dev;
+>   	struct device *hwmon_dev;
+>   	struct tmp108 *tmp108;
+> -	int err;
+>   	u32 config;
+> -
+> -	if (!i2c_check_functionality(client->adapter,
+> -				     I2C_FUNC_SMBUS_WORD_DATA)) {
+> -		dev_err(dev,
+> -			"adapter doesn't support SMBus word transactions\n");
+> -		return -ENODEV;
+> -	}
+> +	int err;
+>   
+>   	tmp108 = devm_kzalloc(dev, sizeof(*tmp108), GFP_KERNEL);
+>   	if (!tmp108)
+>   		return -ENOMEM;
+>   
+>   	dev_set_drvdata(dev, tmp108);
+> -
+> -	tmp108->regmap = devm_regmap_init_i2c(client, &tmp108_regmap_config);
+> -	if (IS_ERR(tmp108->regmap)) {
+> -		err = PTR_ERR(tmp108->regmap);
+> -		dev_err(dev, "regmap init failed: %d", err);
+> -		return err;
+> -	}
+> +	tmp108->regmap = regmap;
+>   
+>   	err = regmap_read(tmp108->regmap, TMP108_REG_CONF, &config);
+>   	if (err < 0) {
+> @@ -383,13 +369,30 @@ static int tmp108_probe(struct i2c_client *client)
+>   		return err;
+>   	}
+>   
+> -	hwmon_dev = devm_hwmon_device_register_with_info(dev, client->name,
+> +	hwmon_dev = devm_hwmon_device_register_with_info(dev, name,
+>   							 tmp108,
+>   							 &tmp108_chip_info,
+>   							 NULL);
+>   	return PTR_ERR_OR_ZERO(hwmon_dev);
+>   }
+>   
+> +static int tmp108_probe(struct i2c_client *client)
+> +{
+> +	struct device *dev = &client->dev;
+> +	struct regmap *regmap;
+> +
+> +	if (!i2c_check_functionality(client->adapter,
+> +				     I2C_FUNC_SMBUS_WORD_DATA))
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "adapter doesn't support SMBus word transactions\n");
+> +
+> +	regmap = devm_regmap_init_i2c(client, &tmp108_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(dev, PTR_ERR(regmap), "regmap init failed");
+> +
+> +	return tmp108_common_probe(dev, regmap, client->name);
+> +}
+> +
+>   static int tmp108_suspend(struct device *dev)
+>   {
+>   	struct tmp108 *tmp108 = dev_get_drvdata(dev);
+> @@ -420,6 +423,7 @@ MODULE_DEVICE_TABLE(i2c, tmp108_i2c_ids);
+>   
+>   #ifdef CONFIG_OF
+
+It might also make sense to get rid of this conditional and of the
+of_match_ptr() below to enable instantiation through ACPI.
+That should be a separate patch, though.
+
+Thanks,
+Guenter
+
+>   static const struct of_device_id tmp108_of_ids[] = {
+> +	{ .compatible = "nxp,p3t1085", },
+>   	{ .compatible = "ti,tmp108", },
+>   	{}
+>   };
+> 
 
 
