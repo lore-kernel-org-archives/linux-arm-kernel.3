@@ -4,167 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC74DD64085
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776F9D64087
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOO1qVYCues0e8+cZFU+gLopZinUMHkaTDINMMJjlRQ=; b=XxeskdDh41s0LZTM8k2JiYBvQv
-	dduiK/qCi1nIzmBMycROoVQYzkD6JHu2YjGBjoikWViCLjE/ZCLDazWApDw0SwqY8eGlyVrzUhN+I
-	eoEqM8jzSDJSBDQ/V39zZoDBppV/+kKY08ndjQ2BRF/a5bF55d8MImn6jVrdGpA+/di3/z/PBrcgH
-	nvJFVjpZawtthcY6Wbn1r03oYFzHvDIGqOL1FmuIlAcKgErdPWSVJcPT1gFJA/bS6BNBtBusgEq5B
-	1HEBs/osZLSXqhqSRFzhuS/qIX8feUiqVxYOiRHGJ92nRZsNKHTeg2fX6ci5Mj6SjjPAX7Kcsmmry
-	8K7UMGWg==;
+	bh=0KYZQ83UWEOjuVWkChA3xhdJvj0EhVxVY7JKWlTgnnA=; b=A4pGsg3zQc0cwbWs8cTrSGo/gT
+	J2K0eJF2Um+JwUEqINbWNf4ZcEnMjLK11uKQSqFltkqfBSGu5UoYVrIY8bBg2RtmltWsVqdYeP6R8
+	JpIFj+yvmXkFyAG/uKLTI7+eg4+hGaS8kbFEaaCbPP2Sq0yoQFrnOn4GD1aG6JktoqhEqGuq9Bzb1
+	4YW2lh/6BHbY1anuhXMw+uR+dW9G0odgzlzDFvx8s/dI/R8IT8tlIoUaDteLBl3DIyG8XxRUsiqWl
+	6irfyUnduYge3eQbVAgnwVo0/HtkUS/zisug0aTTcePcsHdfebIeYN+AvkdXtfmWPkb511RhmOorA
+	Ah6jjBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VPd-0000000BrMT-1xAI;
-	Fri, 08 Nov 2024 20:16:57 +0000
-Received: from mail-mw2nam10on2071f.outbound.protection.outlook.com ([2a01:111:f403:2412::71f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1t9VUh-0000000BsH7-3A8H;
+	Fri, 08 Nov 2024 20:22:11 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9UOY-0000000Bhs4-246v
+	id 1t9VSw-0000000Bs4E-0ihB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 19:11:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Olg1NCjfJJnErTC5Q+0d+bFHUXUrX4ONb9y7GzvS+AqSw/qqVSZJYhMNjVUs0MNxkAP7EXIHrepthhqBuwpzzA9lGuKTUbu9fjgoS7XaPvu6gXEv4QlSlHkojsRp1TKa9wm18ZHthLJG+41keD+3DsWiociIMPtAq7piHwzInVK/5e+vU9917NarVulbctKmH+13jIvSlG/5ZBPHm4b878EWcC6B+JsU/DpR+ULcLWjm278oGOvGw3ftJm/NGfJwCTCXJszZVRQCHG0w8G8C4OJYXPmgN9Tg3y1eqo6t3mzc5xCOHkQqrXf5zt1sJP7hbOKNjl1YUjn77eZ1aXdDMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uOO1qVYCues0e8+cZFU+gLopZinUMHkaTDINMMJjlRQ=;
- b=X6VP1sLu32trx6D7bKzMNe3XvwnQqCJL5Tf1/b0fS3t+LYN70UlL18NOVvHjVKkm5MiVKvpt2VOWoRJ2RzhnPZU+ipBc+DBwuyYnHPObaGCN4JDb9lFJp/xcs05rlYFWHpAyLDk7CayNJuMsB0opBOU4YfWU7q2ccPHs7zXD+5NFK8Prmd/W4206fDVgHJI51BRMISrygqTn/0iAxYOH1wFbQB4f1/bzSfZEuBGafK0CSOm3gVu4vmGhjLoswKVAkXwzAb7uXnEsAaaQevIbTaz/Xwh1/bUiDrXxoYVPx29RS7VOKvRWZjU8wqNaw4r0L0eFcyFABqCYFLJI4uqVMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uOO1qVYCues0e8+cZFU+gLopZinUMHkaTDINMMJjlRQ=;
- b=u9n3T1kcFK2/dcuc4VD7PMHE0CJ4Uf7ar11rHGmOEMmR+JhSgZh3sDFKIynl6ZLdWKAe/8qBz+OA2LalG5HK7uAO1oUhOrNi0QjZf7bdPw5GeDaIktvEEI3sGocyIglMwKjgqX2O/eIuRWbB7e/zyHnDjA8PVIlM4+z+G9D03Dw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from PH7PR01MB8146.prod.exchangelabs.com (2603:10b6:510:2bd::18) by
- BY1PR01MB9089.prod.exchangelabs.com (2603:10b6:a03:5b5::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8158.11; Fri, 8 Nov 2024 19:11:33 +0000
-Received: from PH7PR01MB8146.prod.exchangelabs.com
- ([fe80::2972:642:93d1:e9d4]) by PH7PR01MB8146.prod.exchangelabs.com
- ([fe80::2972:642:93d1:e9d4%5]) with mapi id 15.20.8158.007; Fri, 8 Nov 2024
- 19:11:33 +0000
-From: Steve Clevenger <scclevenger@os.amperecomputing.com>
-To: leo.yan@arm.com,
-	namhyung@kernel.org,
-	james.clark@linaro.org,
-	mike.leach@linaro.org
-Cc: suzuki.poulose@arm.com,
-	ilkka@os.amperecomputing.com,
-	coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH V11 2/2] perf script python: Adjust objdump start/end per map pgoff parameter
-Date: Fri,  8 Nov 2024 12:11:17 -0700
-Message-Id: <21ccdd22e664bdeccb878672d4b2c0518873c1e5.1731027120.git.scclevenger@os.amperecomputing.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
-References: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CH0P221CA0036.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:610:11d::14) To PH7PR01MB8146.prod.exchangelabs.com
- (2603:10b6:510:2bd::18)
+	Fri, 08 Nov 2024 20:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731097222; x=1762633222;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Cex5OFKLdepISNlr/zMsoMKZr4c1wz925xujO/RtmjM=;
+  b=YIfSu7OZlO0S5pIz0+o6DcB5cBXet2ETi1kIEf6ZEaMeHuhHrPG4fZ3u
+   EWicq8pafqNLZZSJCqKuCKKcRVIHQXOwa7mmlkf+yWWkCJWF2q/gij2Hd
+   qP8bzGJ/qEBX+piki0impNfyyp6SHpd3xawE/TgYfOG9q//mnOQ1sUYGn
+   wF3+Jn+qSjyhfVRRqDeZauPPEU71cXKmMjfYQYIy5WjN4RFBIkK3TLNeM
+   uyxd94ayyJO+dQ7UcyTgeVZYw99tIMOY7j7DZaOgma6405KZw38ZHOeAX
+   6Nz7sLq0pa8lzSuXWM/G/wvIzfPVvzBph2iEbfoysXSTlzQRDPO8A67Ac
+   A==;
+X-CSE-ConnectionGUID: b5fRPUfGRRmQESqUH6mqLQ==
+X-CSE-MsgGUID: 9mMFKA2dRO+B6FNY8DWoWw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11250"; a="34780329"
+X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
+   d="scan'208";a="34780329"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 12:20:21 -0800
+X-CSE-ConnectionGUID: z9jpa/nIQaS3xVbzK89FJg==
+X-CSE-MsgGUID: RntjX9eYQR62U2yHDkNiXQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,138,1728975600"; 
+   d="scan'208";a="90835236"
+Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 08 Nov 2024 12:20:17 -0800
+Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1t9VSo-000rlS-2Y;
+	Fri, 08 Nov 2024 20:20:14 +0000
+Date: Sat, 9 Nov 2024 04:19:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yoshihiro Furudera <fj5100bi@fujitsu.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
+Message-ID: <202411090451.quuiocP9-lkp@intel.com>
+References: <20241108054006.2550856-2-fj5100bi@fujitsu.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR01MB8146:EE_|BY1PR01MB9089:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c0edd92-bed4-4ba4-f316-08dd0029289a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eW5EYmhSNXBFTXFPVmphSFJCeW9nM21qY2NMOVdxUW1QZTJwcGRDSGEwM2Rn?=
- =?utf-8?B?bGhWOHlyK21rbU9UWUw4WVBMdEtqMDhjakpTOUlpUWh6QmhadjZ6WENVWHcr?=
- =?utf-8?B?L0NuVTExSkV6cEZoU05qemVUV1NJdjhXUWdHV1RjOVViN0RuZHBtTXprT0NU?=
- =?utf-8?B?REdIc3hQQVJvcGZIMlI1dCtvWFExZ3E3d2s3c3F4cWNJblc5b2huS2Z1Sy9z?=
- =?utf-8?B?V0tFbkpLRGJzZllMd1l5UG5oVWFhNnp5V1lSaU00dGg1cjI1V0NMamdQS010?=
- =?utf-8?B?aFNUYTdHQ0FZK1I3VVpORUx5OWNRSkJxT1BSanBFTEluTHNBRUZ0bGpjZFZT?=
- =?utf-8?B?d2xoeFh4T1FGMWpmb3NwODJRRWk4bU85OG1oV0Z6TU5FK3FnN0lMQnFaRTc0?=
- =?utf-8?B?bDJ6Sk0xVmF6a0NWNXRncStMQ3F4bHN1VnJuS0Y4NFd0amVKK0JValE5Qnc2?=
- =?utf-8?B?UlVCRGZPdjJOY1BNR1RnRE9jU0hyWGQ5Z2hJVVE5d0plMGFwNHdpNy9pZVJm?=
- =?utf-8?B?SnRYVDg0MlFrdWlZdTVaK1ZPclkrK1FLSnZVMmNpaFFGWXlyeWdla29EdUdM?=
- =?utf-8?B?Vm5QQnhhME5LS3FSSVorZHppMjJmMnJ2MDAyc2VjRWZ4NmIrYyswWDh4bXo0?=
- =?utf-8?B?NVp4VE5DVElIZWdsOGxyaUVTclZxaFlkS3J3bzM1MUpVUlZ5bEhxZmdsWkI4?=
- =?utf-8?B?MnVjVmlHWmExdEs2Mlp6bG5Bd2hqTzVURnJIOHpqZHNMSzJNblRWUkk5RWxF?=
- =?utf-8?B?b0V0WVNmeExUK3AyMndYb2pVMGQrNm03RVVqVkJMODVwVXdmaFpXM0hWUVpH?=
- =?utf-8?B?SW9vRmcyakI4TmpVcE1xQnYyZEFQTll0cm9Uakkxbm5mVi8xelhVS1d6cTds?=
- =?utf-8?B?Slg0RnhzSzE0U1R3SXpDdmw3QUQ5cmMxNzh6QVRIZzNzZUI1RitLVXRqZUp3?=
- =?utf-8?B?eEJEZm5JUU4zTXp6STVyQ1lHdjRtWE1CeGxjZmo0cGNlL1JXa2ZGZ1hMTHVI?=
- =?utf-8?B?RkxGd0F4QUJOM05UMDJ3YXhVMjVMb29hWitwdUZaTWEzRStXdXpweGdrdCty?=
- =?utf-8?B?ZS9wWHZpcUI5anhWV1lJaHBrajk2NnVLQ0prQlhNOUJPOVJzLzRhMmp0ZU5s?=
- =?utf-8?B?UjRDbjdNejVOLzZtbitoNlhOelV6YTRNMXZKQ1kyR0VUSHFPdEt6L05wb09q?=
- =?utf-8?B?Z2lZRndMUk0xTTFMd293QVFENXk3TEUzVmI4MGcvOW5CSWJFdVNpVWY1MTlV?=
- =?utf-8?B?M01BalFKbFpPNWYraVRNcGVFOEQ1TEliRzBHblZVR211bFJSWEMyNWI1ZE15?=
- =?utf-8?B?cm1BSnowbWVPdzN1OVpvSEQrckIwWXdCWDc1aHV6MDhWVGVkbFNDWjlmSlJG?=
- =?utf-8?B?MWhyVEFWZEpUb3grSWpSNGxzc1VZVjRWVzVSSFU0UHJwVnFCOTZwaWhQNlc1?=
- =?utf-8?B?T2hxRVhEMnBKWDkwTFFyQUJYbFBlSHU0NDFrS3BCdmtlYWN6M3YvZnZnUHB1?=
- =?utf-8?B?VVJDdmU2Wkpjd2p0TXlkVTFOV1hLK2NwU2MvNDhZTUd3bEMyR2FnNlRYcnQz?=
- =?utf-8?B?eTdxMGpnbmYweExHVGVxNU9FemZPUHRQeERhVHcyMGFjVU9WTDlXaFNlUkRS?=
- =?utf-8?B?UjJmN3BkYytZbkE1RzR5TXJBNjlsSkpKMnpZR0JtVnF6aSt3c0Y3VkNkQVl5?=
- =?utf-8?B?QTg0ODI5eVpyVlBsRWJnWmlRSitlNlZQQlVZUmRjanBualFuN0tITm8rdFJh?=
- =?utf-8?B?MFdUU2h5elV3MjBJREJqZzRXTS8vSXJOQ3RGREtzbUJWYy9LTzgxWi8vMUVB?=
- =?utf-8?Q?VGWjHYtUPzAM/vcjepIhWBvn18pUBiYjYbkVg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR01MB8146.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cE9QTGFGKyt2L0g1K1BLTXNaR2pTZEVQQVhnaWV4R3F3Q3UycWxNNG0xa3o5?=
- =?utf-8?B?RDFRNkNaRGhiUnRIb0ZONHJoeXZ6ZUd5MVpRRkUrV1VMNjlySjlqdGJ4Nm05?=
- =?utf-8?B?blRlSURYYmlMYStzUlJtWm5Cckx2bjc4cUt2Z2V3c3diR2NZa2JHQUUyVzRr?=
- =?utf-8?B?L3VaN05iK1h1NEF4OEdZMDU2NmF2QnM2cDV5Q01hZjRycVR1NGxwRnNPcGFF?=
- =?utf-8?B?djVranE3OE4ycjJaTEhobXJQRzh0QkJORklUck13LzcwSDEva1B1Z21rdjh6?=
- =?utf-8?B?bmk1NEhZdlJVeHZYVE00emc0WkZVNDhmU0l1aEhCNzN1N1Vra3BkVzdEalFG?=
- =?utf-8?B?WlU5NjFxSHFPbzJiaVZzdzFHRk9vUy9JNEN2SzhuOC9MdVRoWjgrcXQ0Vm9L?=
- =?utf-8?B?dWFvTWhoODlId1dxVjR4ajBuOGtEWE12b0RSOTk1Sm5uVklRTlhBR0gvNGN6?=
- =?utf-8?B?YlpFTFNFZDBBQi9nVjlNSjluV0lZeHozUnlRNzUzRTFWNitSQmVoc3lUSEtO?=
- =?utf-8?B?VGplS0JMcW1JbGVWRFZmWXlQZWdKeXBia0JXWFdBZXBDM3lyK2RSazhZajky?=
- =?utf-8?B?UGdTM0plUGQ5NHUwQXRFRlM4OWRTQ2pnUXBwSU5rWDE2N1ZlMTFJbVpDWVJr?=
- =?utf-8?B?ejJxZTBTamtTeXl4b3crTWxpMUxBY0tpVGNmSXVya3JRZ2o1ZDZ1Uzh6Ym5q?=
- =?utf-8?B?UkNHODgyR1dNOU42bTF3OHBqVFcrU0xOaDRYSHU1N0pzdXRydW9pa1h0RlJ0?=
- =?utf-8?B?bGJUZVNTdnBBU1V0NDdQblRiRVVheFRoeThDQUlYTHRkYnBJQUlwTWRQVFlO?=
- =?utf-8?B?c2MzeEg0U2dxSW45V2doNStWZUVTeUJ3YTJMYWIzYTV2cjFqUXVVRHVsRWp2?=
- =?utf-8?B?OWcxSVN2ZDJkNlRvYzFoZXVlN3JZSmRkdHFqODRUd1BzR0p0WWFRUHF6OGdo?=
- =?utf-8?B?RzhmV25HMmFYMEZjaTM1VTZGbGYvTDVxV2xSS203aDB3VTJ6R3lGcnFlWld2?=
- =?utf-8?B?Z3duN1BRcWNPL0NOYzhXWVc2NFlSeWRMWTByR1grcUFjS0E2alVCSUhoOTJ4?=
- =?utf-8?B?RlpEcm13OVNVcXdRazNkSy9KVzdBd3RZSHRwR01SZ0JlQnZoM1hOdCs3YVZC?=
- =?utf-8?B?cC9zWVVBbnZsSjVyNnN1ZTNNR2lnTU44NGExV3UzVnZzUS9DK0dtc2RYenhL?=
- =?utf-8?B?M21xWlE5Nk8rQyt3cW1USW9iUWV2cGZkQW9YTm9ENDlUSXhvMVZtSWdMbmFT?=
- =?utf-8?B?N0VvenhES0dxbUxzSU9qeTlJL0JzOERsdUE5c1hMaDRpTVp4SEYxV0lkcjEz?=
- =?utf-8?B?Umg3ekFxTGU4NHpBQzkyaUJkaFk0M0JuMFdBR05DQXArRlBJcGduajRBK2VJ?=
- =?utf-8?B?NFNIRzRvWkY3RzJwYnJxODlYZmt6RkJSczUzMDlVZzZwdTVsOVdieFY2N1Zn?=
- =?utf-8?B?ZmJRTGZERjQwUGFwYWRlMFVnNzU2U0VRbFVhR01jbzNSc2xaYXpVK2lOZjdY?=
- =?utf-8?B?YlBSUkRiZXRvOWsvOFBnNlVJZEVqQkRZd050andMcllhNUtOKzMyMkV3NFR0?=
- =?utf-8?B?eG9TTm42ZWJYZWdKY09ZcnZ2NjlJSll0Ty8zVTNTZGJ3eldnWFVSNEhmK20r?=
- =?utf-8?B?UG9qbUpBcWliVmxnUERxVjJJWTZnNmF0RHN1TkQ0SkNGN2N0UzhTZnZLWm4w?=
- =?utf-8?B?Z2F2WGJud3p2ZW9NRytTS2RzZ0lTOU1FTzc2cFRkYVZZL1Z5a0NpS0NCRWdo?=
- =?utf-8?B?N1dqNnZ1TENycTI3UGFKMFpZMW9PMElGcTBDc2FOKzMwUVM2VUJHZkVFR1M0?=
- =?utf-8?B?MjFwcmZBSUhCNEFWaW9JaUF6UGJ0aGZkeDRQcjlvN3FmM0dSd1VNSkRaeURz?=
- =?utf-8?B?RVRwc2lvUTRQb3Y1bERyMnpEY01XWmUxOC8xcUh6MFRyeEk4eXg0SUJvMmFE?=
- =?utf-8?B?ejZFOWF1Z3VkdjkrVUJyUXVvRTJNU01COFRwRlNYb2l4R1JGNTU4Z1krM0FJ?=
- =?utf-8?B?TkFCckFQQ2lhQ1VXWlIvVWVpdmd6V2VYUFArcDFvUzdnTXJTQ0VtUDZEOTNz?=
- =?utf-8?B?amU3ajFwQkkxTmdreVlOcmVKTGprZ3RGTExaTUwrVmIwMlU4T3EvcHZ5MXBw?=
- =?utf-8?B?UU5uS055ai80V2NReUdRTEFKNUZJdThUM1YrdmVWVkRqMkhLK2tCRWlzdWJC?=
- =?utf-8?Q?7JHpI3/tb4La/G91Xy2eV1TYj/fT7KY1QM00k17+DiAo?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c0edd92-bed4-4ba4-f316-08dd0029289a
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR01MB8146.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 19:11:33.3631
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RiSAmFGd5IuzuYhCSXMGxBM4VbhuB4lcC0t7AK0PyPphj5doTFmu2zjgCgQEpO9cPUgVJiDLMEGa3LrP8r1YI7T4UWwXVaTrR1VmvdvYJla6Fklet2TFd5fEPS1qni2l
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB9089
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241108054006.2550856-2-fj5100bi@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_111146_706964_33F8A5F5 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20241108_122022_283792_3338809A 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,70 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract map_pgoff parameter from the dictionary, and adjust start/end
-range passed to objdump based on the value.
+Hi Yoshihiro,
 
-A zero start_addr is filtered to prevent output of dso address range
-check failures. This script repeatedly sees a zero value passed
-in for
-      start_addr = cpu_data[str(cpu) + 'addr']
+kernel test robot noticed the following build warnings:
 
-These zero values are not a new problem. The start_addr/stop_addr warning
-clutters the instruction trace output, hence this change.
+[auto build test WARNING on tip/smp/core]
+[also build test WARNING on linus/master v6.12-rc6]
+[cannot apply to arm64/for-next/core arm-perf/for-next/perf next-20241108]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Signed-off-by: Steve Clevenger <scclevenger@os.amperecomputing.com>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/scripts/python/arm-cs-trace-disasm.py | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Yoshihiro-Furudera/perf-Fujitsu-Add-the-Uncore-MAC-PMU-driver/20241108-134245
+base:   tip/smp/core
+patch link:    https://lore.kernel.org/r/20241108054006.2550856-2-fj5100bi%40fujitsu.com
+patch subject: [PATCH 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20241109/202411090451.quuiocP9-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241109/202411090451.quuiocP9-lkp@intel.com/reproduce)
 
-diff --git a/tools/perf/scripts/python/arm-cs-trace-disasm.py b/tools/perf/scripts/python/arm-cs-trace-disasm.py
-index 7aff02d84ffb..e29a4035723c 100755
---- a/tools/perf/scripts/python/arm-cs-trace-disasm.py
-+++ b/tools/perf/scripts/python/arm-cs-trace-disasm.py
-@@ -187,6 +187,10 @@ def process_event(param_dict):
- 	dso_start = get_optional(param_dict, "dso_map_start")
- 	dso_end = get_optional(param_dict, "dso_map_end")
- 	symbol = get_optional(param_dict, "symbol")
-+	map_pgoff = get_optional(param_dict, "map_pgoff")
-+	# check for valid map offset
-+	if (str(map_pgoff) == '[unknown]'):
-+	 	map_pgoff = 0
- 
- 	cpu = sample["cpu"]
- 	ip = sample["ip"]
-@@ -243,9 +247,10 @@ def process_event(param_dict):
- 	# Record for previous sample packet
- 	cpu_data[str(cpu) + 'addr'] = addr
- 
--	# Handle CS_ETM_TRACE_ON packet if start_addr=0 and stop_addr=4
--	if (start_addr == 0 and stop_addr == 4):
--		print("CPU%d: CS_ETM_TRACE_ON packet is inserted" % cpu)
-+	# Filter out zero start_address. Optionally identify CS_ETM_TRACE_ON packet
-+	if (start_addr == 0):
-+		if ((stop_addr == 4) and (options.verbose == True)):
-+			print("CPU%d: CS_ETM_TRACE_ON packet is inserted" % cpu)
- 		return
- 
- 	if (start_addr < int(dso_start) or start_addr > int(dso_end)):
-@@ -262,13 +267,14 @@ def process_event(param_dict):
- 		# vm_start to zero.
- 		if (dso == "[kernel.kallsyms]" or dso_start == 0x400000):
- 			dso_vm_start = 0
-+			map_pgoff = 0
- 		else:
- 			dso_vm_start = int(dso_start)
- 
- 		dso_fname = get_dso_file_path(dso, dso_bid)
- 		if path.exists(dso_fname):
--			print_disam(dso_fname, dso_vm_start, start_addr, stop_addr)
-+			print_disam(dso_fname, dso_vm_start, start_addr + map_pgoff, stop_addr + map_pgoff)
- 		else:
--			print("Failed to find dso %s for address range [ 0x%x .. 0x%x ]" % (dso, start_addr, stop_addr))
-+			print("Failed to find dso %s for address range [ 0x%x .. 0x%x ]" % (dso, start_addr + map_pgoff, stop_addr + map_pgoff))
- 
- 	print_srccode(comm, param_dict, sample, symbol, dso)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411090451.quuiocP9-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/perf/fujitsu_mac_pmu.c:604:36: warning: 'fujitsu_mac_pmu_acpi_match' defined but not used [-Wunused-const-variable=]
+     604 | static const struct acpi_device_id fujitsu_mac_pmu_acpi_match[] = {
+         |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/fujitsu_mac_pmu_acpi_match +604 drivers/perf/fujitsu_mac_pmu.c
+
+   603	
+ > 604	static const struct acpi_device_id fujitsu_mac_pmu_acpi_match[] = {
+   605		{ "FUJI200C", },
+   606		{ }
+   607	};
+   608	MODULE_DEVICE_TABLE(acpi, fujitsu_mac_pmu_acpi_match);
+   609	
+
 -- 
-2.44.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
