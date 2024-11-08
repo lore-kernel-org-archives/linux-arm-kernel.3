@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9310ED5E13F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 06:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66BAD5E13A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 06:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfGAY+SgJN3XN/2DmcBwbwpAyE9Jg5zKh8nkpRpQOEw=; b=reeXdshLpjwkYI8ocANb+QW0K6
-	zV1x0tiXq+pvLjVAePCZR2cg1holbeCOvGFZG/MRUanzfXwieKUi2wmoxgUsD/JNlnUcg5g4Cbzwm
-	W0i7XcLnUrIgzp0OqleCp0ewt6SORtM31Za+L+MZze/qurrVhKkdd6fq8k/BRAv5iRNYGP9My2yuw
-	Qtnh8gHMgB6AqVyIDe+E3txaxUlk/KtjQsIoNG3bROZorPfh8puaVApztTTTZaXTfdgAoisLpm/03
-	fImwMCu5blj43f5CAI1cGNTqvUXz0SaRK6VFnwASTRXgCVFsa+4LrW4OShn4Mq8FKqhtzgrnnasMc
-	7pa1x8Cw==;
+	bh=xkvxW0TELGak9TGChpUjLN8WW2TtIQcHiwQEYFYHFLY=; b=MGRGhA2dlPIyY7+xY8E8FtAqn3
+	cLFz7VWE9B2y7uH72AZYg4rgt/G60iOA/Qs9NZeP0+1dj2jCixUCtDtYH6wSvppgNK1yIesaYJlAT
+	bZCXVyjiTZdxazXUKZDFgECHMNIn6z3d0JBzlx5HvTUas0JXdR/ItMBHUURYm7q8TAsILzeS9em3n
+	DFD3RVvUsnfMowREW9u6qoxFuLVFLUdM+Ci9R5ScekIoLVlyam0DkesPp71yZtRzMFZuROPbbqHVp
+	E4xpPm90n45qdVobisPEHpi5kre5DBipNgRVKJ0GQAPAYRFgTMEJYR8Mf6nK96Un1s2ACZcna+bv+
+	1HfA+XtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9I4P-00000009Rym-0LkK;
-	Fri, 08 Nov 2024 06:02:09 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9I2d-00000009RiC-0S3d
+	id 1t9I6L-00000009SHB-47pU;
+	Fri, 08 Nov 2024 06:04:09 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9I4Z-00000009S0I-3cVM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 06:00:20 +0000
-Received: from [192.168.0.103] (unknown [49.205.249.137])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 47AD6212D516;
-	Thu,  7 Nov 2024 22:00:02 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 47AD6212D516
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1731045617;
-	bh=JfGAY+SgJN3XN/2DmcBwbwpAyE9Jg5zKh8nkpRpQOEw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GaPry9vZBpJ4Csbyy+XjXwBbb5PXQIRZpl+bL8WerrHnqdLQYdxQhcAh9bNdkoiwM
-	 0rtOyqxosSzCXDs5w7d73GHL8PjRX14neKuGkeHWuPXg+GnCsZEBRD6wNTJ4ThdvID
-	 VDRS5dHBu8xaBb7Hc7Vqtd1vOwq2eibskIz/48fs=
-Message-ID: <ef2686dc-ec9e-4efd-9c52-5ba9434b7ce8@linux.microsoft.com>
-Date: Fri, 8 Nov 2024 11:29:58 +0530
+	Fri, 08 Nov 2024 06:02:21 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53c779ef19cso1969921e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Nov 2024 22:02:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1731045738; x=1731650538; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xkvxW0TELGak9TGChpUjLN8WW2TtIQcHiwQEYFYHFLY=;
+        b=RQ+Odt1XRXfCb+1RSc/w3XUpsHVIQRTYM3cTQlmyepFwuD0910fjRErb3/V8Tkm1Ot
+         HFc6Ef5zWdFZxqJB/xnYEyG4oAOSxpp4LPy6tYAnhSWJMpV/24N2BG7wNQes33Fh8RDH
+         sY5khhkSIdcainPSBWhLQH9N+abQ/x3pZOfjg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731045738; x=1731650538;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xkvxW0TELGak9TGChpUjLN8WW2TtIQcHiwQEYFYHFLY=;
+        b=hKKrC5A+CKetsiIkE3uZAGM9dtI8LzeX8Dl5qLY9fLK//QjDJ/FbE6QqbOh0QdIID4
+         hpNVt9JkaZLAPfbfzCB4lLFwtYCGnovkgsz9FT1mtZ3G6ox1KFOScD4j1j+0MuwejJv6
+         VWDmapwXZzI/Ts7tqfn35IgedinAwwSE/Te5FCQ9mS3TYUfIE+O3EpE+LeFlKhMT6Rkq
+         u6AWih5mKAyU+znEFwc1RXdY7F7QWvPqVIZTb5artOSzai1xSB3B2xjoeTstG2Y7YRnY
+         PN9s0OyayrssiAfSDziAomJuETDIqZW3eq9I+8gd4nJSAHv9m8tduBpt+P8+/RRlegYZ
+         XyEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWEbqeAJrhpbi5fKlFRp7ApA2ahWDvgHlcRJtKRN+IYdF0jajQAG5yQFqlDlHFCmJ/kSxDyDMs5pHzg1TcYVuFZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwT0SDVRjhZyHFcclxjU1C9uxOh/FGHaLvAtYemNzkMAnf8FWSP
+	5ta7BjRba/AtJ2IOHwPdx27iQVDfrgnQu3wxsDhDEPdhMklpQ88LrkaJP0zP6OlKa51cqrjA5Ue
+	AOn2HS0MtLoO6ehW3hUpGqHbJP0ZsI5gWX980
+X-Google-Smtp-Source: AGHT+IHrAma7a//3ZnIS1iS1Lm0CwM4nLy0ndtu8X8cJY5OZ/WS7iyuPy8axxsNkbLgivCMUhnj0GhMp35Zvr3+0+ik=
+X-Received: by 2002:a05:6512:3b8d:b0:539:e8b5:f296 with SMTP id
+ 2adb3069b0e04-53d8629d2d5mr722983e87.33.1731045737701; Thu, 07 Nov 2024
+ 22:02:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] hyperv: Add new Hyper-V headers in include/hyperv
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, iommu@lists.linux.dev,
- netdev@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-arch@vger.kernel.org, virtualization@lists.linux.dev
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
- will@kernel.org, luto@kernel.org, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- seanjc@google.com, pbonzini@redhat.com, peterz@infradead.org,
- daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
- bhelgaas@google.com, arnd@arndb.de, sgarzare@redhat.com,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mukeshrathor@microsoft.com,
- vkuznets@redhat.com, ssengar@linux.microsoft.com, apais@linux.microsoft.com
-References: <1731018746-25914-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1731018746-25914-4-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <1731018746-25914-4-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20241108033219.19804-1-yunfei.dong@mediatek.com> <20241108033219.19804-6-yunfei.dong@mediatek.com>
+In-Reply-To: <20241108033219.19804-6-yunfei.dong@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 8 Nov 2024 14:02:06 +0800
+Message-ID: <CAGXv+5EfZUXEh6r0GaMKwTgWo8gQHsXFSF2bQzFuw=J4Gj0OGw@mail.gmail.com>
+Subject: Re: [PATCH v6 5/5] media: mediatek: vcodec: remove media request checking
+To: Yunfei Dong <yunfei.dong@mediatek.com>
+Cc: =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Sebastian Fricke <sebastian.fricke@collabora.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Nathan Hebert <nhebert@chromium.org>, 
+	Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>, 
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_220019_241294_91F7E36B 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20241107_220219_953001_025B8BAB 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +95,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Nov 8, 2024 at 11:32=E2=80=AFAM Yunfei Dong <yunfei.dong@mediatek.c=
+om> wrote:
+>
+> Setting the buffer status to error if the media request of
+> each source buffer is NULL, then schedule the work to process
+> again in case of access NULL pointer.
+>
+> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> ---
+>  .../vcodec/decoder/mtk_vcodec_dec_stateless.c      | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_d=
+ec_stateless.c
+> index 3f94654ebc73..251111678fd8 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+less.c
+> @@ -363,10 +363,14 @@ static void mtk_vdec_worker(struct work_struct *wor=
+k)
+>                           ctx->id, bs_src->va, &bs_src->dma_addr, bs_src-=
+>size, vb2_src);
+>         /* Apply request controls. */
+>         src_buf_req =3D vb2_src->req_obj.req;
+> -       if (src_buf_req)
+> +       if (src_buf_req) {
+>                 v4l2_ctrl_request_setup(src_buf_req, &ctx->ctrl_hdl);
+> -       else
+> +       } else {
+>                 mtk_v4l2_vdec_err(ctx, "vb2 buffer media request is NULL"=
+);
+> +               v4l2_m2m_buf_done(vb2_v4l2_src, VB2_BUF_STATE_ERROR);
+> +               v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> +               return;
+
+Is this something that actually happens? I would assume that having
+the `requires_requests` flag set on the queue would block any QBUF
+call that doesn't have a request attached.
+
+> +       }
+>
+>         ret =3D vdec_if_decode(ctx, bs_src, NULL, &res_chg);
+>         if (ret && ret !=3D -EAGAIN) {
+> @@ -384,8 +388,7 @@ static void mtk_vdec_worker(struct work_struct *work)
+>         state =3D ret ? VB2_BUF_STATE_ERROR : VB2_BUF_STATE_DONE;
+>         if (!IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch) ||
+>             ctx->current_codec =3D=3D V4L2_PIX_FMT_VP8_FRAME) {
+> -               if (src_buf_req)
+> -                       v4l2_ctrl_request_complete(src_buf_req, &ctx->ctr=
+l_hdl);
+> +               v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+
+Unrelated change. Please do the cleanup in a separate patch.
+
+v4l2_ctrl_request_setup() and v4l2_ctrl_request_complete() are both
+no-ops if either argument is NULL, so you can do one patch going over
+the whole driver to clean it up.
+
+>                 vb2_v4l2_dst =3D v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+>                 v4l2_m2m_buf_done(vb2_v4l2_dst, state);
+>                 v4l2_m2m_buf_done(vb2_v4l2_src, state);
+> @@ -403,8 +406,7 @@ static void mtk_vdec_worker(struct work_struct *work)
+>          */
+>         ctx->cur_src_buffer =3D (ret !=3D -EAGAIN) ? NULL : vb2_v4l2_src;
+>         if (ret && ret !=3D -EAGAIN) {
+> -               if (src_buf_req)
+> -                       v4l2_ctrl_request_complete(src_buf_req, &ctx->ctr=
+l_hdl);
+> +               v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+
+Unrelated change. Same as above.
 
 
-On 11/8/2024 4:02 AM, Nuno Das Neves wrote:
-> These headers contain definitions for regular Hyper-V guests (as in
-> hyperv-tlfs.h), as well as interfaces for more privileged guests like
-> Dom0.
-> 
-> These files are derived from headers exported from Hyper-V, rather than
-> being derived from the TLFS document. (Although, to preserve
-> compatibility with existing Linux code, some definitions are copied
-> directly from hyperv-tlfs.h too).
-> 
-> The new files follow a naming convention according to their original
-> use:
-> - hdk "host development kit"
-> - gdk "guest development kit"
-> With postfix "_mini" implying userspace-only headers, and "_ext" for
-> extended hypercalls.
+ChenYu
 
-Naming convention for mini (which may have come from HyperV code) is a 
-bit odd TBH. May be it has more to it than what is mentioned here or 
-what I know. If more information helps, or this can be changed, please see.
-
-> 
-> These names should be considered a rough guide only - since there are
-> many places already where both host and guest code are in the same
-> place, hvhdk.h (which includes everything) can be used most of the time.
-> 
-> The original names are kept intact primarily to keep the provenance of
-> exactly where they came from in Hyper-V code, which is helpful for
-> manual maintenance and extension of these definitions. Microsoft
-> maintainers importing new definitions should take care to put them in
-> the right file.
-> 
-> Note also that the files contain both arm64 and x86_64 code guarded by
-> \#ifdefs, which is how the definitions originally appear in Hyper-V.
-> Keeping this convention from Hyper-V code is another tactic for
-> simplying the process of importing new definitions.
-> 
-> These headers are a step toward importing headers directly from Hyper-V
-> in the future, similar to Xen public files in include/xen/interface/.
-> 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-
-While I understand the motivation behind this series that this is going 
-to ease out the process of updating the header files with respect to 
-HyperV, I think, we will need to pay attention to what we are bringing 
-in with these headers, whether there are any users of it or not, and 
-make sure that TLFS document is updated regularly, to avoid having bunch 
-of code with no information of it.
-The code comments in these files are one step forward towards that.
-And from your cover letter it seems that some changes which actually 
-make use of these additional interfaces are underway, so things will 
-make more sense later. For now, this looks good to me.
-
-
-Regards,
-Naman
-
-<snip>
+>                 v4l2_m2m_buf_done(vb2_v4l2_src, state);
+>         }
+>
+> --
+> 2.46.0
+>
 
