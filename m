@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFCAD64099
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 23:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E145D64099
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 23:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzvCoj1xeTqTB7wBlJpyRYc+Iy1lxysKbVEC5FnZGzs=; b=N1nY61OjZopEskPcvS7co+E0D0
-	pxZ5PgoIiLNrLDN1dj9zuuHARTi0aQ7mUJ1tzfruTZOSDOt1ahOjW0jCIB2Hb38heDc1YcHT1JXZF
-	QHdXd4xyGVYFfnmzGbrVhKbCAaBIuyuu7VgYI386IWSr+FB45qe395knt7n9QULmwlAdCRBYKBE/8
-	pMa8Q86RrmcCOXV7rifn5ErP5Q0E12qKWmsgJKe1DkX7zEJBX7CLzYLUMf9vUwFI/M6F84ShfmSp3
-	ESTB+ElzLMLLY1Fg7WGKzPFZtf/S+KwuyaeDSIUfuB4nEWZNil5c7kNWKgywdifOSWaqLNpYx78MC
-	0OD3wvKA==;
+	bh=g82RToWDBgAxXg56Q2NaJKBXk5A1APOL73D1eJS6XJQ=; b=ZwvTVYkTL1vmrqRF0CFXZmcLif
+	OD2/Yaw31FjqqRtZJd2owDWyTcrX86PmJH9px/XDBhWtTLtttEI0A6Fa3Q6e1bNOj36pKwc1Tvv3h
+	Uy/CW/3clIZFcz4bn69Gjww3tL+e1mqwHyyGmxBlXUKId9IoOMumuFP60/FVW39+2vFwqfXUW05A8
+	RozQzD9MMO6C1brFGVybV4UbwpFbAuKZqAyT4iQahLOuLlYyYCXvuqqP19OTKS07tSSVQr6lkC+0s
+	s6F4Yr78KHie7XUF4LK7DA0qXhRcIfw+INLj4NYwi/Jortw0fBkOSkNWmRDnZ+mlZFAfcfNgOqNRW
+	0LO5vIkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Yjs-0000000CGC9-3qbm;
-	Fri, 08 Nov 2024 23:50:04 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1t9YnT-0000000CGud-0Jlv;
+	Fri, 08 Nov 2024 23:53:47 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YgA-0000000CEws-10bR
+	id 1t9YgE-0000000CEzA-0gud
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 23:46:15 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e376aa4586so54940107b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:46:13 -0800 (PST)
+	Fri, 08 Nov 2024 23:46:19 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea95f530fdso51639067b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:46:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731109572; x=1731714372; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731109577; x=1731714377; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=DzvCoj1xeTqTB7wBlJpyRYc+Iy1lxysKbVEC5FnZGzs=;
-        b=WDWqrFAVE9+c7+0+/T4aMEuqOO1w3uX21qvQNgQJuyepWLLNzHUvReyIcDdsNcdWIx
-         frNsm6s4moOy28D45PKyDDJQWGnYzcg7+rwQzZEqTWBOC5Wr3+KDrWtHdaxjxQXBKwbD
-         vm9fR3AQsnDlRD8/r/XKZbdv8cyytwCYHupOGACqsjoSC2lZ0mrDj+2bWfoGpTV53RZ/
-         UzQKguY8biPRWOOhVrZVo1QeCcQwOcu3PRStjC06djoVm2O4UCsgnAx8wiWbXoqAUynX
-         vA8E0CC8s7bwrkJJ68d7h0mGuA423zWeoVVzn+dGRi+giv9awyk6har+QvI/t/CnIZLw
-         P1+A==
+        bh=g82RToWDBgAxXg56Q2NaJKBXk5A1APOL73D1eJS6XJQ=;
+        b=03x+JYIbeBGXBuNuBo4fCgUBnFXOe0Se5ROEZPU85QlKyNzMGwzfDayTurh3Ic3Wl7
+         g6t5RkUZKp9YTbw2tsbOUMwMqXAe9ElWEU0NqQVaeNm1eHvxqOTMec2wjAk/WXtCrLXs
+         fjk9z9LN+3X4f3JtJocjzvakkBlpJvxPSBrXOaULxczw20DY7+ACzVhhCavzX1edKX5T
+         GTzlbnn8WEqQ1bvGoJGrPVsDlgZGAFfOof5pjGLt3xtx1Wa9wutgnXrPquSv+QEH/G1E
+         RjKaHM0iO92O4bZHBfQPRB8ENm9Bro4oiqV5qP46A+cpoZFom5AxCZkq6cjC8n21YzS2
+         IXbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109572; x=1731714372;
+        d=1e100.net; s=20230601; t=1731109577; x=1731714377;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DzvCoj1xeTqTB7wBlJpyRYc+Iy1lxysKbVEC5FnZGzs=;
-        b=OvZlBPTRWWcHNHizYYQJ6+LfBVbSAXZFEbo4QeDEqKPau1Eq//anAK81oFesVK/u+a
-         UWGDQmKKHr6lLGTvl1nINXSRN8aYmTEHO9d3HFYuaaHQShpYsrg6bw3JbGiLg8Z2Bk+2
-         BEEAuivEL1+VmS+lULKWSmSMta527b4W7TJhDhzBow1VgXJcZ75WZzhJXpBExfnFbp5H
-         WR2x56FfFah4zqL2BkTFVt4dUSF2uMnByms6XNXqIhoN0RLjSibfKY374VYiinDX8Hh4
-         6AmyT1GD1dD4A5cKQUviyjYcNdIDWy4IYxVeX5+9BirLhkBp4S4fg6ydU3mHl3/V9Zmi
-         ZLUA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHgg+v/J+gRMZqQz2PUniiEjpgxGSlt6P7W0b4kAJst+0Qz8NnyaCDKHIKNr1D2pE7jv0ZOH+TO8o858+CMdWy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTuUl5aU18TfHUgbwufdr5JCBdER/DSBjafREILM0peg/C5F+d
-	A/eCs9pBgfXWFZglh5seUcLWaDRitYBKzNz+kcaCTxFHOXc6mJIA3RUeWuhovqyIkRG7zvOxRVg
-	qLkC6EA==
-X-Google-Smtp-Source: AGHT+IGiEURxVyZkRgDVPez0reOEsDnj5mtQIuymDAi91H+shA48+bNTCoiPk5eRO07f4EEtxrSuPDE6Z9oo
+        bh=g82RToWDBgAxXg56Q2NaJKBXk5A1APOL73D1eJS6XJQ=;
+        b=BoBe2hHrDiF80XlEI7nfK4PEGr7JzUiMtHyhy/8R08EcS0Ycu4fy6uRSYjmP9AyhWI
+         hWd54bsVCy9X79lgTOdkQVaBsLv4pUVcFRsXZ/mHDv9xATSAgAEFEd4ucyuQXe0W6FW5
+         2axclqwZgdrYeim/sLf3IaD+NKRTEOnG701/yzoFAyuYCJnoa41XOmyRaxaKWlxMpl4Q
+         ScPIDcecEsM3WTe7b8NHCmvXlCZKIl9AeHoPUEl4pLZnU3r+BAmlaoH2X4ChBLa1fgtz
+         t82zvp/fqwprW/HDELupIhS7Lg6rhNFJb20rQXKnJ5njAPUSy9PxfGmjyaj64lUehJNu
+         w4vA==
+X-Forwarded-Encrypted: i=1; AJvYcCWidcbmXXdDW5SDtbJ+Ip4B0W2sEtu8VR34ml7YUZW46rfC+mdy3UKztU0pk+/+EAkT9pgMRaLWjDwgzFP57aKY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjC7rtEueKnbdkED2CDlzKurQjeIimLhN52fWPvXgDvdwcrK9X
+	oW52GDnuiPFoUX9gVPB2u+NixIgDjhnhXV1ckOQGz8TF1Nvxw3FeynDgNKToUXE1qwd9AMEZESL
+	+yzvQ7g==
+X-Google-Smtp-Source: AGHT+IElDJGck4lM83rJ1PEL9nymEB4MsWS2o56lAC0eXJqXdZF9OIb7Wse2J+4ISIY+n+Ta53vUnbF5wBR0
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
- (user=irogers job=sendgmr) by 2002:a0d:ed43:0:b0:6ea:7c90:41f2 with SMTP id
- 00721157ae682-6eaddfbb341mr180017b3.6.1731109572636; Fri, 08 Nov 2024
- 15:46:12 -0800 (PST)
-Date: Fri,  8 Nov 2024 15:45:46 -0800
+ (user=irogers job=sendgmr) by 2002:a5b:142:0:b0:e29:6df8:ef58 with SMTP id
+ 3f1490d57ef6-e337f861ec6mr5903276.4.1731109576800; Fri, 08 Nov 2024 15:46:16
+ -0800 (PST)
+Date: Fri,  8 Nov 2024 15:45:48 -0800
 In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-Message-Id: <20241108234606.429459-2-irogers@google.com>
+Message-Id: <20241108234606.429459-4-irogers@google.com>
 Mime-Version: 1.0
 References: <20241108234606.429459-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Subject: [PATCH v4 01/20] perf bpf-prologue: Remove unused file
+Subject: [PATCH v4 03/20] perf dwarf-regs: Add EM_HOST and EF_HOST defines
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +93,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154614_289923_7411FF8E 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20241108_154618_284946_0FDB852D 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,62 +109,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 4a73fca22692 ("perf bpf-prologue: Remove unused file") missed
-cleaning up the header file. The code was unnecessary as Commit
-3d6dfae88917 ("perf parse-events: Remove BPF event support") removed
-building bpf-prologue.c.
+Computed from the build architecture defines, EM_HOST and EF_HOST give
+values that can be used in dwarf register lookup. Place in
+dwarf-regs.h so the value can be shared. Move some dwarf-regs.c
+constants used for EM_HOST to dwarf-regs.h. Add CSky constants that
+may be missing.
 
-Fixes: 4a73fca22692 ("perf bpf-prologue: Remove unused file")
+In disasm.c add an include of dwarf-regs.h as the included
+arch/*/annotate/instructions.c files make use of the constants and we
+want the elf.h/dwarf-regs.h dependency to be explicit.
+
 Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/bpf-prologue.h | 37 ----------------------------------
- 1 file changed, 37 deletions(-)
- delete mode 100644 tools/perf/util/bpf-prologue.h
+ tools/perf/util/disasm.c             |  1 +
+ tools/perf/util/dwarf-regs.c         |  8 ---
+ tools/perf/util/include/dwarf-regs.h | 82 ++++++++++++++++++++++++++++
+ 3 files changed, 83 insertions(+), 8 deletions(-)
 
-diff --git a/tools/perf/util/bpf-prologue.h b/tools/perf/util/bpf-prologue.h
-deleted file mode 100644
-index 66dcf751ef65..000000000000
---- a/tools/perf/util/bpf-prologue.h
-+++ /dev/null
-@@ -1,37 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * Copyright (C) 2015, He Kuang <hekuang@huawei.com>
-- * Copyright (C) 2015, Huawei Inc.
-- */
--#ifndef __BPF_PROLOGUE_H
--#define __BPF_PROLOGUE_H
--
--struct probe_trace_arg;
--struct bpf_insn;
--
--#define BPF_PROLOGUE_MAX_ARGS 3
--#define BPF_PROLOGUE_START_ARG_REG BPF_REG_3
--#define BPF_PROLOGUE_FETCH_RESULT_REG BPF_REG_2
--
--#ifdef HAVE_BPF_PROLOGUE
--int bpf__gen_prologue(struct probe_trace_arg *args, int nargs,
--		      struct bpf_insn *new_prog, size_t *new_cnt,
--		      size_t cnt_space);
--#else
--#include <linux/compiler.h>
--#include <errno.h>
--
--static inline int
--bpf__gen_prologue(struct probe_trace_arg *args __maybe_unused,
--		  int nargs __maybe_unused,
--		  struct bpf_insn *new_prog __maybe_unused,
--		  size_t *new_cnt,
--		  size_t cnt_space __maybe_unused)
--{
--	if (!new_cnt)
--		return -EINVAL;
--	*new_cnt = 0;
--	return -ENOTSUP;
--}
+diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
+index bd98fec903f7..a525b80b934f 100644
+--- a/tools/perf/util/disasm.c
++++ b/tools/perf/util/disasm.c
+@@ -18,6 +18,7 @@
+ #include "disasm.h"
+ #include "disasm_bpf.h"
+ #include "dso.h"
++#include "dwarf-regs.h"
+ #include "env.h"
+ #include "evsel.h"
+ #include "map.h"
+diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
+index 5b7f86c0063f..7c01bc4d7e5b 100644
+--- a/tools/perf/util/dwarf-regs.c
++++ b/tools/perf/util/dwarf-regs.c
+@@ -13,14 +13,6 @@
+ #include <errno.h>
+ #include <linux/kernel.h>
+ 
+-#ifndef EM_AARCH64
+-#define EM_AARCH64	183  /* ARM 64 bit */
 -#endif
--#endif /* __BPF_PROLOGUE_H */
+-
+-#ifndef EM_LOONGARCH
+-#define EM_LOONGARCH	258 /* LoongArch */
+-#endif
+-
+ /* Define const char * {arch}_register_tbl[] */
+ #define DEFINE_DWARF_REGSTR_TABLE
+ #include "../arch/x86/include/dwarf-regs-table.h"
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index fbdd7307e0c2..ce9f10b3282d 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -2,6 +2,88 @@
+ #ifndef _PERF_DWARF_REGS_H_
+ #define _PERF_DWARF_REGS_H_
+ #include "annotate.h"
++#include <elf.h>
++
++#ifndef EM_AARCH64
++#define EM_AARCH64	183  /* ARM 64 bit */
++#endif
++
++#ifndef EM_CSKY
++#define EM_CSKY		252  /* C-SKY */
++#endif
++#ifndef EF_CSKY_ABIV1
++#define EF_CSKY_ABIV1	0X10000000
++#endif
++#ifndef EF_CSKY_ABIV2
++#define EF_CSKY_ABIV2	0X20000000
++#endif
++
++#ifndef EM_LOONGARCH
++#define EM_LOONGARCH	258 /* LoongArch */
++#endif
++
++/* EM_HOST gives the ELF machine for host, EF_HOST gives additional flags. */
++#if defined(__x86_64__)
++  #define EM_HOST EM_X86_64
++#elif defined(__i386__)
++  #define EM_HOST EM_386
++#elif defined(__aarch64__)
++  #define EM_HOST EM_AARCH64
++#elif defined(__arm__)
++  #define EM_HOST EM_ARM
++#elif defined(__alpha__)
++  #define EM_HOST EM_ALPHA
++#elif defined(__arc__)
++  #define EM_HOST EM_ARC
++#elif defined(__AVR__)
++  #define EM_HOST EM_AVR
++#elif defined(__AVR32__)
++  #define EM_HOST EM_AVR32
++#elif defined(__bfin__)
++  #define EM_HOST EM_BLACKFIN
++#elif defined(__csky__)
++  #define EM_HOST EM_CSKY
++  #if defined(__CSKYABIV2__)
++    #define EF_HOST EF_CSKY_ABIV2
++  #else
++    #define EF_HOST EF_CSKY_ABIV1
++  #endif
++#elif defined(__cris__)
++  #define EM_HOST EM_CRIS
++#elif defined(__hppa__) // HP PA-RISC
++  #define EM_HOST EM_PARISC
++#elif defined(__loongarch__)
++  #define EM_HOST EM_LOONGARCH
++#elif defined(__mips__)
++  #define EM_HOST EM_MIPS
++#elif defined(__m32r__)
++  #define EM_HOST EM_M32R
++#elif defined(__microblaze__)
++  #define EM_HOST EM_MICROBLAZE
++#elif defined(__MSP430__)
++  #define EM_HOST EM_MSP430
++#elif defined(__powerpc64__)
++  #define EM_HOST EM_PPC64
++#elif defined(__powerpc__)
++  #define EM_HOST EM_PPC
++#elif defined(__riscv)
++  #define EM_HOST EM_RISCV
++#elif defined(__s390x__)
++  #define EM_HOST EM_S390
++#elif defined(__sh__)
++  #define EM_HOST EM_SH
++#elif defined(__sparc64__) || defined(__sparc__)
++  #define EM_HOST EM_SPARC
++#elif defined(__xtensa__)
++  #define EM_HOST EM_XTENSA
++#else
++  /* Unknown host ELF machine type. */
++  #define EM_HOST EM_NONE
++#endif
++
++#if !defined(EF_HOST)
++  #define EF_HOST 0
++#endif
+ 
+ #define DWARF_REG_PC  0xd3af9c /* random number */
+ #define DWARF_REG_FB  0xd3affb /* random number */
 -- 
 2.47.0.277.g8800431eea-goog
 
