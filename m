@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47019D5E127
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 04:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899AAD5E124
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 04:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofkcuWOh8PDxhCG8cbcHxtId4AQt8wG85bsA35KSDpI=; b=drBl14SeMG2sXYvoUbrBmcmPeC
-	HEmd741yL5th278W+5IUh+3h1VNHdNfl0+D6AiyDyLYEY/8eD+VgLDgRfkfvCLPXjoW7EAnYIIOCl
-	i7RnwZQiSBFkaH938GrwtjVcHfGfSdEFanM/lnjIJrp9bc1kvFnlVHJvzIrJn5RtqXENmUuZRHxxk
-	wenYZ3DtWy4hAsI+ZoX51+yfjc57TzaFUwSfMohT5Axq7nrFHWqZxL2UVHFeT1fGJVgS4UT0k9zfP
-	x/d1ZFP4PMkHpXAZz6exUMUODmLUx2kKjzRP+GfU9A6F2SX0p7meBmpRpgs3u02rBRYrUurcB9ktJ
-	v0ZiiXsA==;
+	bh=2vBA9/YIjtC9NXvu1JNHv6kTYHCKQnYXVoCmc4mw7mw=; b=x00PjZ7mg/IsFuq5fwhS02ayTn
+	IIwpZj1esgZOW+jXzXTkxMYfwPLCxTXjJAYEhouq9sl7Jys8Q5IgQpNEWP0nBfRmTpRHdTOMxFf/0
+	wkhJixpVluQGoMjQc4FDINSFN+2q9Em+vHhJbyNriCOeKs++/mqIv++5Brb6MENQ1fJmms7THspXx
+	2IA85QwIr8dmSFGpdbvjD5TdS9b6eQJGcfzBkun5JF3t6uiO5FZqoyf2UA/kC0RnY4RdqExMK5pyp
+	qtxNsndfUu+lWXn2eOPmDX7mhOAOBrbRUCeC/B9WiWQc2422r2fX6BFD4fYIGnpApyiZZsYR/KJpJ
+	paGPvmLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9GOj-00000009FBb-2jwO;
-	Fri, 08 Nov 2024 04:15:01 +0000
+	id 1t9GQS-00000009FK2-0Lv9;
+	Fri, 08 Nov 2024 04:16:48 +0000
 Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9GJc-00000009DaJ-1ZiX
+	id 1t9GJd-00000009DaN-0f3M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 04:09:45 +0000
+	Fri, 08 Nov 2024 04:09:46 +0000
 Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7MbeZ6022679;
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A7MbeZ8022679;
 	Thu, 7 Nov 2024 20:07:32 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=o
-	fkcuWOh8PDxhCG8cbcHxtId4AQt8wG85bsA35KSDpI=; b=XcopX1zj8wy7Rq6Yj
-	DPr95MFLn1tfBSVMWtM6ZKADowAbOX0+2WZdKApE/6LeafzRQUEC/WsRhI/iYmJF
-	3HlHKyvHLA+PsR/D01YhR3ve5/XMqMmgkUCXw2t9staeyP+6glLxUoKT7sirwBYB
-	53Qk+ypa1AxX2yed2ZCrx7kIcnp91wcp1OVWZUJ103AMBb4aXpol9HrwF4WavLdB
-	WwjF2wfg3nv8qvqfWxrPjxGrb9u4lVtkaBxLBO4anhhuhWutXHJbNUEyK0puhFqf
-	Ve0i6TcO4JTkWf8kR2FckhF/LzbGNHjzkSW0xsENxeux6qOhS/ysWtC4Ugen89S3
-	YY67g==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42s6gu8m30-1
+	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=2
+	vBA9/YIjtC9NXvu1JNHv6kTYHCKQnYXVoCmc4mw7mw=; b=N1EKDyUO5i393bkRi
+	8nYFezF17Ifsr9oQ3mahp2e1uZdflglCAz5elBGa1yfiG9q/8BMr4JxMXQZNnSC2
+	UUYvHogG0K8Kv98jnxecj2CKzMHKzf1j+yyIUNLL0X+ITTfBhqCOScoxxqGyxemT
+	hkOPv2yj63masvHiE3DnN2Wr9P2uj6yztPmjoda2NJlgKp4CcE6iwAeeaFBMUBSP
+	+Zr/86Up59zOi7qgRW07rvO6WsukemJR4HWTo8SCjCC0kY3XmIdxQ91d+P+Ml6jo
+	nwq1c9jjA5cy3ZB/HQRXJf7oibJ9is+QWeFBzDt7BAjB2QTQ/c0NjexwvXuq9Fqj
+	l8gvg==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42s6gu8m2q-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 07 Nov 2024 20:07:31 -0800 (PST)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 7 Nov 2024 20:06:29 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Thu, 7 Nov 2024 20:06:29 -0800
+ 15.2.1544.4; Thu, 7 Nov 2024 20:06:46 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 7 Nov 2024 20:06:46 -0800
 Received: from IPBU-BLR-SERVER1.marvell.com (IPBU-BLR-SERVER1.marvell.com [10.28.8.41])
-	by maili.marvell.com (Postfix) with ESMTP id D7B525B6926;
-	Thu,  7 Nov 2024 20:06:26 -0800 (PST)
+	by maili.marvell.com (Postfix) with ESMTP id 958F05B6926;
+	Thu,  7 Nov 2024 20:06:43 -0800 (PST)
 From: Gowthami Thiagarajan <gthiagarajan@marvell.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -61,23 +61,23 @@ CC: <bbhushan2@marvell.com>, <gcherian@marvell.com>, <sgoutham@marvell.com>,
         <jonathan.cameron@huawei.com>,
         Gowthami Thiagarajan
 	<gthiagarajan@marvell.com>
-Subject: [PATCH v10 1/5] perf/marvell: Refactor to extract platform data - no functional change
-Date: Fri, 8 Nov 2024 09:36:15 +0530
-Message-ID: <20241108040619.753343-2-gthiagarajan@marvell.com>
+Subject: [PATCH v10 5/5] perf/marvell : Odyssey LLC-TAD performance monitor support
+Date: Fri, 8 Nov 2024 09:36:19 +0530
+Message-ID: <20241108040619.753343-6-gthiagarajan@marvell.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241108040619.753343-1-gthiagarajan@marvell.com>
 References: <20241108040619.753343-1-gthiagarajan@marvell.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: zJ3fjDKT7iVRG8VWeo3HHqGmaN3cmjFt
-X-Proofpoint-GUID: zJ3fjDKT7iVRG8VWeo3HHqGmaN3cmjFt
+X-Proofpoint-ORIG-GUID: IDRVywGm_Ra8IZHu8LtpM_G_u9d_UC4S
+X-Proofpoint-GUID: IDRVywGm_Ra8IZHu8LtpM_G_u9d_UC4S
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
  definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_200944_456130_6C447986 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20241107_200945_229806_6D9362B4 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,403 +92,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a refactor to the Marvell DDR pmu driver to extract platform
-data ("pdata") from the existing driver. Prepare for the upcoming
-support of the next version of the Performance Monitoring Unit (PMU) in
-this driver.
+Each TAD provides eight 64-bit counters for monitoring
+cache behavior.The driver always configures the same counter for
+all the TADs. The user would end up effectively reserving one of
+eight counters in every TAD to look across all TADs.
+The occurrences of events are aggregated and presented to the user
+at the end of running the workload. The driver does not provide a
+way for the user to partition TADs so that different TADs are used for
+different applications.
 
-Make no functional changes, this refactor solely improves code
-organization and prepares for future enhancements.
+The performance events reflect various internal or interface activities.
+By combining the values from multiple performance counters, cache
+performance can be measured in terms such as: cache miss rate, cache
+allocations, interface retry rate, internal resource occupancy, etc.
 
-While at it, fix a typo.
+Each supported counter's event and formatting information is exposed
+to sysfs at /sys/devices/tad/. Use perf tool stat command to measure
+the pmu events. For instance:
+
+perf stat -e tad_hit_ltg,tad_hit_dtg <workload>
 
 Signed-off-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
 ---
- drivers/perf/marvell_cn10k_ddr_pmu.c | 162 +++++++++++++++++++--------
- 1 file changed, 113 insertions(+), 49 deletions(-)
+ Documentation/admin-guide/perf/index.rst      |  1 +
+ .../admin-guide/perf/mrvl-odyssey-tad-pmu.rst | 37 +++++++++++++++++++
+ drivers/perf/marvell_cn10k_tad_pmu.c          | 35 ++++++++++++++++++
+ 3 files changed, 73 insertions(+)
+ create mode 100644 Documentation/admin-guide/perf/mrvl-odyssey-tad-pmu.rst
 
-diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-index 94f1ebcd2a27..efac4cef4050 100644
---- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-+++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-@@ -1,7 +1,8 @@
- // SPDX-License-Identifier: GPL-2.0
--/* Marvell CN10K DRAM Subsystem (DSS) Performance Monitor Driver
-+/*
-+ * Marvell CN10K DRAM Subsystem (DSS) Performance Monitor Driver
-  *
-- * Copyright (C) 2021 Marvell.
-+ * Copyright (C) 2021-2024 Marvell.
-  */
- 
- #include <linux/init.h>
-@@ -14,24 +15,24 @@
- #include <linux/platform_device.h>
- 
- /* Performance Counters Operating Mode Control Registers */
--#define DDRC_PERF_CNT_OP_MODE_CTRL	0x8020
--#define OP_MODE_CTRL_VAL_MANNUAL	0x1
-+#define CN10K_DDRC_PERF_CNT_OP_MODE_CTRL	0x8020
-+#define OP_MODE_CTRL_VAL_MANUAL	0x1
- 
- /* Performance Counters Start Operation Control Registers */
--#define DDRC_PERF_CNT_START_OP_CTRL	0x8028
-+#define CN10K_DDRC_PERF_CNT_START_OP_CTRL	0x8028
- #define START_OP_CTRL_VAL_START		0x1ULL
- #define START_OP_CTRL_VAL_ACTIVE	0x2
- 
- /* Performance Counters End Operation Control Registers */
--#define DDRC_PERF_CNT_END_OP_CTRL	0x8030
-+#define CN10K_DDRC_PERF_CNT_END_OP_CTRL	0x8030
- #define END_OP_CTRL_VAL_END		0x1ULL
- 
- /* Performance Counters End Status Registers */
--#define DDRC_PERF_CNT_END_STATUS		0x8038
-+#define CN10K_DDRC_PERF_CNT_END_STATUS		0x8038
- #define END_STATUS_VAL_END_TIMER_MODE_END	0x1
- 
- /* Performance Counters Configuration Registers */
--#define DDRC_PERF_CFG_BASE		0x8040
-+#define CN10K_DDRC_PERF_CFG_BASE		0x8040
- 
- /* 8 Generic event counter + 2 fixed event counters */
- #define DDRC_PERF_NUM_GEN_COUNTERS	8
-@@ -42,13 +43,14 @@
- 					 DDRC_PERF_NUM_FIX_COUNTERS)
- 
- /* Generic event counter registers */
--#define DDRC_PERF_CFG(n)		(DDRC_PERF_CFG_BASE + 8 * (n))
-+#define DDRC_PERF_CFG(base, n)		((base) + 8 * (n))
- #define EVENT_ENABLE			BIT_ULL(63)
- 
- /* Two dedicated event counters for DDR reads and writes */
- #define EVENT_DDR_READS			101
- #define EVENT_DDR_WRITES		100
- 
-+#define DDRC_PERF_REG(base, n)		((base) + 8 * (n))
- /*
-  * programmable events IDs in programmable event counters.
-  * DO NOT change these event-id numbers, they are used to
-@@ -102,28 +104,29 @@
- #define EVENT_HIF_RD_OR_WR			1
- 
- /* Event counter value registers */
--#define DDRC_PERF_CNT_VALUE_BASE		0x8080
--#define DDRC_PERF_CNT_VALUE(n)	(DDRC_PERF_CNT_VALUE_BASE + 8 * (n))
-+#define CN10K_DDRC_PERF_CNT_VALUE_BASE	0x8080
- 
- /* Fixed event counter enable/disable register */
--#define DDRC_PERF_CNT_FREERUN_EN	0x80C0
-+#define CN10K_DDRC_PERF_CNT_FREERUN_EN		0x80C0
- #define DDRC_PERF_FREERUN_WRITE_EN	0x1
- #define DDRC_PERF_FREERUN_READ_EN	0x2
- 
- /* Fixed event counter control register */
--#define DDRC_PERF_CNT_FREERUN_CTRL	0x80C8
-+#define CN10K_DDRC_PERF_CNT_FREERUN_CTRL	0x80C8
- #define DDRC_FREERUN_WRITE_CNT_CLR	0x1
- #define DDRC_FREERUN_READ_CNT_CLR	0x2
- 
--/* Fixed event counter value register */
--#define DDRC_PERF_CNT_VALUE_WR_OP	0x80D0
--#define DDRC_PERF_CNT_VALUE_RD_OP	0x80D8
- #define DDRC_PERF_CNT_VALUE_OVERFLOW	BIT_ULL(48)
- #define DDRC_PERF_CNT_MAX_VALUE		GENMASK_ULL(48, 0)
- 
-+/* Fixed event counter value register */
-+#define CN10K_DDRC_PERF_CNT_VALUE_WR_OP		0x80D0
-+#define CN10K_DDRC_PERF_CNT_VALUE_RD_OP		0x80D8
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index f9be610b2e6d..0aecdc3e4efa 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -15,6 +15,7 @@ Performance monitor support
+    qcom_l3_pmu
+    starfive_starlink_pmu
+    mrvl-odyssey-ddr-pmu
++   mrvl-odyssey-tad-pmu
+    arm-ccn
+    arm-cmn
+    arm-ni
+diff --git a/Documentation/admin-guide/perf/mrvl-odyssey-tad-pmu.rst b/Documentation/admin-guide/perf/mrvl-odyssey-tad-pmu.rst
+new file mode 100644
+index 000000000000..ad1975b14087
+--- /dev/null
++++ b/Documentation/admin-guide/perf/mrvl-odyssey-tad-pmu.rst
+@@ -0,0 +1,37 @@
++====================================================================
++Marvell Odyssey LLC-TAD Performance Monitoring Unit (PMU UNCORE)
++====================================================================
 +
- struct cn10k_ddr_pmu {
- 	struct pmu pmu;
- 	void __iomem *base;
-+	const struct ddr_pmu_platform_data *p_data;
- 	unsigned int cpu;
- 	struct	device *dev;
- 	int active_events;
-@@ -134,6 +137,23 @@ struct cn10k_ddr_pmu {
++Each TAD provides eight 64-bit counters for monitoring
++cache behavior.The driver always configures the same counter for
++all the TADs. The user would end up effectively reserving one of
++eight counters in every TAD to look across all TADs.
++The occurrences of events are aggregated and presented to the user
++at the end of running the workload. The driver does not provide a
++way for the user to partition TADs so that different TADs are used for
++different applications.
++
++The performance events reflect various internal or interface activities.
++By combining the values from multiple performance counters, cache
++performance can be measured in terms such as: cache miss rate, cache
++allocations, interface retry rate, internal resource occupancy, etc.
++
++The PMU driver exposes the available events and format options under sysfs::
++
++        /sys/bus/event_source/devices/tad/events/
++        /sys/bus/event_source/devices/tad/format/
++
++Examples::
++
++   $ perf list | grep tad
++        tad/tad_alloc_any/                                 [Kernel PMU event]
++        tad/tad_alloc_dtg/                                 [Kernel PMU event]
++        tad/tad_alloc_ltg/                                 [Kernel PMU event]
++        tad/tad_hit_any/                                   [Kernel PMU event]
++        tad/tad_hit_dtg/                                   [Kernel PMU event]
++        tad/tad_hit_ltg/                                   [Kernel PMU event]
++        tad/tad_req_msh_in_exlmn/                          [Kernel PMU event]
++        tad/tad_tag_rd/                                    [Kernel PMU event]
++        tad/tad_tot_cycle/                                 [Kernel PMU event]
++
++   $ perf stat -e tad_alloc_dtg,tad_alloc_ltg,tad_alloc_any,tad_hit_dtg,tad_hit_ltg,tad_hit_any,tad_tag_rd <workload>
+diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
+index 15f9f67cb3bd..29976b435417 100644
+--- a/drivers/perf/marvell_cn10k_tad_pmu.c
++++ b/drivers/perf/marvell_cn10k_tad_pmu.c
+@@ -39,6 +39,7 @@ struct tad_pmu {
  
- #define to_cn10k_ddr_pmu(p)	container_of(p, struct cn10k_ddr_pmu, pmu)
+ enum mrvl_tad_pmu_version {
+ 	TAD_PMU_V1 = 1,
++	TAD_PMU_V2,
+ };
  
-+struct ddr_pmu_platform_data {
-+	u64 counter_overflow_val;
-+	u64 counter_max_val;
-+	u64 cnt_base;
-+	u64 cfg_base;
-+	u64 cnt_op_mode_ctrl;
-+	u64 cnt_start_op_ctrl;
-+	u64 cnt_end_op_ctrl;
-+	u64 cnt_end_status;
-+	u64 cnt_freerun_en;
-+	u64 cnt_freerun_ctrl;
-+	u64 cnt_freerun_clr;
-+	u64 cnt_value_wr_op;
-+	u64 cnt_value_rd_op;
-+	bool is_cn10k;
+ struct tad_pmu_data {
+@@ -222,6 +223,24 @@ static const struct attribute_group tad_pmu_events_attr_group = {
+ 	.attrs = tad_pmu_event_attrs,
+ };
+ 
++static struct attribute *ody_tad_pmu_event_attrs[] = {
++	TAD_PMU_EVENT_ATTR(tad_req_msh_in_exlmn, 0x3),
++	TAD_PMU_EVENT_ATTR(tad_alloc_dtg, 0x1a),
++	TAD_PMU_EVENT_ATTR(tad_alloc_ltg, 0x1b),
++	TAD_PMU_EVENT_ATTR(tad_alloc_any, 0x1c),
++	TAD_PMU_EVENT_ATTR(tad_hit_dtg, 0x1d),
++	TAD_PMU_EVENT_ATTR(tad_hit_ltg, 0x1e),
++	TAD_PMU_EVENT_ATTR(tad_hit_any, 0x1f),
++	TAD_PMU_EVENT_ATTR(tad_tag_rd, 0x20),
++	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xFF),
++	NULL
 +};
 +
- static ssize_t cn10k_ddr_pmu_event_show(struct device *dev,
- 					struct device_attribute *attr,
- 					char *page)
-@@ -354,6 +374,7 @@ static int cn10k_ddr_perf_event_init(struct perf_event *event)
- static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 					  int counter, bool enable)
++static const struct attribute_group ody_tad_pmu_events_attr_group = {
++	.name = "events",
++	.attrs = ody_tad_pmu_event_attrs,
++};
++
+ PMU_FORMAT_ATTR(event, "config:0-7");
+ 
+ static struct attribute *tad_pmu_format_attrs[] = {
+@@ -260,6 +279,13 @@ static const struct attribute_group *tad_pmu_attr_groups[] = {
+ 	NULL
+ };
+ 
++static const struct attribute_group *ody_tad_pmu_attr_groups[] = {
++	&ody_tad_pmu_events_attr_group,
++	&tad_pmu_format_attr_group,
++	&tad_pmu_cpumask_attr_group,
++	NULL
++};
++
+ static int tad_pmu_probe(struct platform_device *pdev)
  {
-+	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
- 	u32 reg;
- 	u64 val;
+ 	const struct tad_pmu_data *dev_data;
+@@ -350,6 +376,8 @@ static int tad_pmu_probe(struct platform_device *pdev)
  
-@@ -363,7 +384,7 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 	}
+ 	if (version == TAD_PMU_V1)
+ 		tad_pmu->pmu.attr_groups = tad_pmu_attr_groups;
++	else
++		tad_pmu->pmu.attr_groups = ody_tad_pmu_attr_groups;
  
- 	if (counter < DDRC_PERF_NUM_GEN_COUNTERS) {
--		reg = DDRC_PERF_CFG(counter);
-+		reg = DDRC_PERF_CFG(p_data->cfg_base, counter);
- 		val = readq_relaxed(pmu->base + reg);
+ 	tad_pmu->cpu = raw_smp_processor_id();
  
- 		if (enable)
-@@ -373,7 +394,8 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
+@@ -385,6 +413,12 @@ static const struct tad_pmu_data tad_pmu_data = {
+ };
+ #endif
  
- 		writeq_relaxed(val, pmu->base + reg);
- 	} else {
--		val = readq_relaxed(pmu->base + DDRC_PERF_CNT_FREERUN_EN);
-+		val = readq_relaxed(pmu->base +
-+				    p_data->cnt_freerun_en);
- 		if (enable) {
- 			if (counter == DDRC_PERF_READ_COUNTER_IDX)
- 				val |= DDRC_PERF_FREERUN_READ_EN;
-@@ -385,27 +407,33 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 			else
- 				val &= ~DDRC_PERF_FREERUN_WRITE_EN;
- 		}
--		writeq_relaxed(val, pmu->base + DDRC_PERF_CNT_FREERUN_EN);
-+		writeq_relaxed(val, pmu->base +
-+			       p_data->cnt_freerun_en);
- 	}
- }
- 
- static u64 cn10k_ddr_perf_read_counter(struct cn10k_ddr_pmu *pmu, int counter)
- {
-+	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
- 	u64 val;
- 
- 	if (counter == DDRC_PERF_READ_COUNTER_IDX)
--		return readq_relaxed(pmu->base + DDRC_PERF_CNT_VALUE_RD_OP);
-+		return readq_relaxed(pmu->base +
-+				     p_data->cnt_value_rd_op);
- 
- 	if (counter == DDRC_PERF_WRITE_COUNTER_IDX)
--		return readq_relaxed(pmu->base + DDRC_PERF_CNT_VALUE_WR_OP);
-+		return readq_relaxed(pmu->base +
-+				     p_data->cnt_value_wr_op);
- 
--	val = readq_relaxed(pmu->base + DDRC_PERF_CNT_VALUE(counter));
-+	val = readq_relaxed(pmu->base +
-+			    DDRC_PERF_REG(p_data->cnt_base, counter));
- 	return val;
- }
- 
- static void cn10k_ddr_perf_event_update(struct perf_event *event)
- {
- 	struct cn10k_ddr_pmu *pmu = to_cn10k_ddr_pmu(event->pmu);
-+	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u64 prev_count, new_count, mask;
- 
-@@ -414,7 +442,7 @@ static void cn10k_ddr_perf_event_update(struct perf_event *event)
- 		new_count = cn10k_ddr_perf_read_counter(pmu, hwc->idx);
- 	} while (local64_xchg(&hwc->prev_count, new_count) != prev_count);
- 
--	mask = DDRC_PERF_CNT_MAX_VALUE;
-+	mask = p_data->counter_max_val;
- 
- 	local64_add((new_count - prev_count) & mask, &event->count);
- }
-@@ -435,6 +463,7 @@ static void cn10k_ddr_perf_event_start(struct perf_event *event, int flags)
- static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- {
- 	struct cn10k_ddr_pmu *pmu = to_cn10k_ddr_pmu(event->pmu);
-+	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u8 config = event->attr.config;
- 	int counter, ret;
-@@ -454,7 +483,7 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- 
- 	if (counter < DDRC_PERF_NUM_GEN_COUNTERS) {
- 		/* Generic counters, configure event id */
--		reg_offset = DDRC_PERF_CFG(counter);
-+		reg_offset = DDRC_PERF_CFG(p_data->cfg_base, counter);
- 		ret = ddr_perf_get_event_bitmap(config, &val);
- 		if (ret)
- 			return ret;
-@@ -467,7 +496,7 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- 		else
- 			val = DDRC_FREERUN_WRITE_CNT_CLR;
- 
--		writeq_relaxed(val, pmu->base + DDRC_PERF_CNT_FREERUN_CTRL);
-+		writeq_relaxed(val, pmu->base + p_data->cnt_freerun_ctrl);
- 	}
- 
- 	hwc->state |= PERF_HES_STOPPED;
-@@ -512,17 +541,19 @@ static void cn10k_ddr_perf_event_del(struct perf_event *event, int flags)
- static void cn10k_ddr_perf_pmu_enable(struct pmu *pmu)
- {
- 	struct cn10k_ddr_pmu *ddr_pmu = to_cn10k_ddr_pmu(pmu);
-+	const struct ddr_pmu_platform_data *p_data = ddr_pmu->p_data;
- 
- 	writeq_relaxed(START_OP_CTRL_VAL_START, ddr_pmu->base +
--		       DDRC_PERF_CNT_START_OP_CTRL);
-+		       p_data->cnt_start_op_ctrl);
- }
- 
- static void cn10k_ddr_perf_pmu_disable(struct pmu *pmu)
- {
- 	struct cn10k_ddr_pmu *ddr_pmu = to_cn10k_ddr_pmu(pmu);
-+	const struct ddr_pmu_platform_data *p_data = ddr_pmu->p_data;
- 
- 	writeq_relaxed(END_OP_CTRL_VAL_END, ddr_pmu->base +
--		       DDRC_PERF_CNT_END_OP_CTRL);
-+		       p_data->cnt_end_op_ctrl);
- }
- 
- static void cn10k_ddr_perf_event_update_all(struct cn10k_ddr_pmu *pmu)
-@@ -549,6 +580,7 @@ static void cn10k_ddr_perf_event_update_all(struct cn10k_ddr_pmu *pmu)
- 
- static irqreturn_t cn10k_ddr_pmu_overflow_handler(struct cn10k_ddr_pmu *pmu)
- {
-+	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
- 	struct perf_event *event;
- 	struct hw_perf_event *hwc;
- 	u64 prev_count, new_count;
-@@ -586,7 +618,7 @@ static irqreturn_t cn10k_ddr_pmu_overflow_handler(struct cn10k_ddr_pmu *pmu)
- 			continue;
- 
- 		value = cn10k_ddr_perf_read_counter(pmu, i);
--		if (value == DDRC_PERF_CNT_MAX_VALUE) {
-+		if (value == p_data->counter_max_val) {
- 			pr_info("Counter-(%d) reached max value\n", i);
- 			cn10k_ddr_perf_event_update_all(pmu);
- 			cn10k_ddr_perf_pmu_disable(&pmu->pmu);
-@@ -629,11 +661,32 @@ static int cn10k_ddr_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
- 	return 0;
- }
- 
-+#if defined(CONFIG_ACPI) || defined(CONFIG_OF)
-+static const struct ddr_pmu_platform_data cn10k_ddr_pmu_pdata = {
-+	.counter_overflow_val =  BIT_ULL(48),
-+	.counter_max_val = GENMASK_ULL(48, 0),
-+	.cnt_base = CN10K_DDRC_PERF_CNT_VALUE_BASE,
-+	.cfg_base = CN10K_DDRC_PERF_CFG_BASE,
-+	.cnt_op_mode_ctrl = CN10K_DDRC_PERF_CNT_OP_MODE_CTRL,
-+	.cnt_start_op_ctrl = CN10K_DDRC_PERF_CNT_START_OP_CTRL,
-+	.cnt_end_op_ctrl = CN10K_DDRC_PERF_CNT_END_OP_CTRL,
-+	.cnt_end_status = CN10K_DDRC_PERF_CNT_END_STATUS,
-+	.cnt_freerun_en = CN10K_DDRC_PERF_CNT_FREERUN_EN,
-+	.cnt_freerun_ctrl = CN10K_DDRC_PERF_CNT_FREERUN_CTRL,
-+	.cnt_freerun_clr = 0,
-+	.cnt_value_wr_op = CN10K_DDRC_PERF_CNT_VALUE_WR_OP,
-+	.cnt_value_rd_op = CN10K_DDRC_PERF_CNT_VALUE_RD_OP,
-+	.is_cn10k = TRUE,
++#ifdef CONFIG_ACPI
++static const struct tad_pmu_data tad_pmu_v2_data = {
++	.id   = TAD_PMU_V2,
 +};
 +#endif
 +
- static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- {
-+	const struct ddr_pmu_platform_data *dev_data;
- 	struct cn10k_ddr_pmu *ddr_pmu;
- 	struct resource *res;
- 	void __iomem *base;
-+	bool is_cn10k;
- 	char *name;
- 	int ret;
- 
-@@ -644,30 +697,41 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	ddr_pmu->dev = &pdev->dev;
- 	platform_set_drvdata(pdev, ddr_pmu);
- 
-+	dev_data = device_get_match_data(&pdev->dev);
-+	if (!dev_data) {
-+		dev_err(&pdev->dev, "Error: No device match data found\n");
-+		return -ENODEV;
-+	}
-+
- 	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
- 	ddr_pmu->base = base;
- 
--	/* Setup the PMU counter to work in manual mode */
--	writeq_relaxed(OP_MODE_CTRL_VAL_MANNUAL, ddr_pmu->base +
--		       DDRC_PERF_CNT_OP_MODE_CTRL);
--
--	ddr_pmu->pmu = (struct pmu) {
--		.module	      = THIS_MODULE,
--		.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
--		.task_ctx_nr = perf_invalid_context,
--		.attr_groups = cn10k_attr_groups,
--		.event_init  = cn10k_ddr_perf_event_init,
--		.add	     = cn10k_ddr_perf_event_add,
--		.del	     = cn10k_ddr_perf_event_del,
--		.start	     = cn10k_ddr_perf_event_start,
--		.stop	     = cn10k_ddr_perf_event_stop,
--		.read	     = cn10k_ddr_perf_event_update,
--		.pmu_enable  = cn10k_ddr_perf_pmu_enable,
--		.pmu_disable = cn10k_ddr_perf_pmu_disable,
--	};
-+	ddr_pmu->p_data = dev_data;
-+	is_cn10k = ddr_pmu->p_data->is_cn10k;
-+
-+	if (is_cn10k) {
-+		/* Setup the PMU counter to work in manual mode */
-+		writeq_relaxed(OP_MODE_CTRL_VAL_MANUAL, ddr_pmu->base +
-+			       ddr_pmu->p_data->cnt_op_mode_ctrl);
-+
-+		ddr_pmu->pmu = (struct pmu) {
-+			.module	      = THIS_MODULE,
-+			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+			.task_ctx_nr = perf_invalid_context,
-+			.attr_groups = cn10k_attr_groups,
-+			.event_init  = cn10k_ddr_perf_event_init,
-+			.add	     = cn10k_ddr_perf_event_add,
-+			.del	     = cn10k_ddr_perf_event_del,
-+			.start	     = cn10k_ddr_perf_event_start,
-+			.stop	     = cn10k_ddr_perf_event_stop,
-+			.read	     = cn10k_ddr_perf_event_update,
-+			.pmu_enable  = cn10k_ddr_perf_pmu_enable,
-+			.pmu_disable = cn10k_ddr_perf_pmu_disable,
-+		};
-+	}
- 
- 	/* Choose this cpu to collect perf data */
- 	ddr_pmu->cpu = raw_smp_processor_id();
-@@ -688,7 +752,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto error;
- 
--	pr_info("CN10K DDR PMU Driver for ddrc@%llx\n", res->start);
-+	pr_info("DDR PMU Driver for ddrc@%llx\n", res->start);
- 	return 0;
- error:
- 	cpuhp_state_remove_instance_nocalls(
-@@ -710,7 +774,7 @@ static void cn10k_ddr_perf_remove(struct platform_device *pdev)
- 
  #ifdef CONFIG_OF
- static const struct of_device_id cn10k_ddr_pmu_of_match[] = {
--	{ .compatible = "marvell,cn10k-ddr-pmu", },
-+	{ .compatible = "marvell,cn10k-ddr-pmu", .data = &cn10k_ddr_pmu_pdata },
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
-@@ -718,7 +782,7 @@ MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
- 
+ static const struct of_device_id tad_pmu_of_match[] = {
+ 	{ .compatible = "marvell,cn10k-tad-pmu", .data = &tad_pmu_data },
+@@ -395,6 +429,7 @@ static const struct of_device_id tad_pmu_of_match[] = {
  #ifdef CONFIG_ACPI
- static const struct acpi_device_id cn10k_ddr_pmu_acpi_match[] = {
--	{"MRVL000A", 0},
-+	{"MRVL000A", (kernel_ulong_t)&cn10k_ddr_pmu_pdata },
+ static const struct acpi_device_id tad_pmu_acpi_match[] = {
+ 	{"MRVL000B", (kernel_ulong_t)&tad_pmu_data},
++	{"MRVL000D", (kernel_ulong_t)&tad_pmu_v2_data},
  	{},
  };
- MODULE_DEVICE_TABLE(acpi, cn10k_ddr_pmu_acpi_match);
+ MODULE_DEVICE_TABLE(acpi, tad_pmu_acpi_match);
 -- 
 2.25.1
 
