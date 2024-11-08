@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CE8D64070
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73123D64072
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 17:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=; b=pKz4/jlm8E+apivW9k+JaZ/TGU
-	CzATbIZIObXlZkePfiX8aywNbCWD4G6Xb5UIQzNvp4akiUzf5TbLU7Mbd0vxPJ4g/o8Lye+9IukWl
-	uCRIaXqkXnfLd217/tcsQHn4s/vnwyMYllya/0ymbNH9nRR5oDiPAagPkSBY6AQL0ESEzBUY/YIwI
-	O4h1Uh+bganzSv+//96IYRqPFrJjVIcS+MPa0hqY0kBWYvvclb80zSMPgika2yKPgicIPGBwZH/F1
-	Z4ThpxQMN1LH+GDImyrmGMTenW8wGx+/PgJ0o9tN8m3zkTwNSJbVZU7V30alN4/sQicO29D/++INm
-	UG+p4m7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzegSxd2ZRvImWoORDA6XVDBcxblzcRmoz47rMouDvk=; b=fZqy5xImH6fkMz/gjhIOlUJiq1
+	hm6gwS9xASWTErwrHhq+YDIbsAtE9MX1AeyaRrMgmKd2+TFPNYpKQ5vP9ex4h4Kebk9An20CkAcPD
+	ga9mwHxxCQZSIwvu1KdoCLXhqcr1yDpKee8rykHzvolp9484HETCGfHJyN8XDkKO3FaG2CfhtXeiL
+	G16r+CmIQbVSXCLE7JLnIF6lNV0jwIC9MGmheWOCf3OULER8X10mmIDImA8WqCivbj2gYtZnDUQr9
+	JZ4QHSYT+WgyCI9+6bR9r6jOG6VXESdtKtz/RvbMAxJAGnO+UZMe+a3XD+ow7B6bOeSWi1SOf3h5d
+	vPXh4R9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Stb-0000000BPLa-1ZGB;
-	Fri, 08 Nov 2024 17:35:43 +0000
+	id 1t9Svc-0000000BQ6Y-3vga;
+	Fri, 08 Nov 2024 17:37:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Srm-0000000BOvc-3wDc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 Nov 2024 17:33:50 +0000
+	id 1t9Srw-0000000BOxB-0lVl;
+	Fri, 08 Nov 2024 17:34:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=; b=iXnAI938aVANlcl3UDbqozavqI
-	Wy1cKLw2lvw4Tilj+0eo2+heMp7Dj6J5NPpXgEm2scsZCY8cEFOIjEQejcqTFwB0ZPVmuEy4SCOvb
-	iIi/Khvxgj/DbwAqV4BIVkQ1pIZD9ZkBHKbPD2Iex2jOdhuEqHyJhA1G01b0d80G1tr1O7kJulhcM
-	IxpR0D08wI9eqZy4zZmLOJqqe594VOPaUSCZHj0E63ujAuh8BoSgsr+nLmiQl/15688WyjggMu3l9
-	zU56u8+lJBuKxjeNVTOA4QfnQoIuY67PiE3fg7ICFVXfqHy0Sy+oUGuKK6ptD6ZAeiy4ocEyXePFD
-	2Uj8HyCw==;
-Received: from mail.ispras.ru ([83.149.199.84])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DzegSxd2ZRvImWoORDA6XVDBcxblzcRmoz47rMouDvk=; b=RsVuGTo6SltJw/eRTk+dg2g+OO
+	+TjbKQdp7ldbfwptWYGcxeWu6K1vJWq6nFe3+oJs4itba8HVlgVa6Tl9+8yi7Rg7TIend0WX+ZyPl
+	k1x2HGcTUjhDI5Lyueu8QM7JrlcTRBpCtBOrCUsCqSV+FupIxgf7eyXP2vHr7OSbQmteNueqLNbEO
+	xXN3N78E9+v8Ih2UGgTFFcqV3KdsYnoaXIo7NlKxKVO49cpsIGCKh4AWtsvfcMOrdXnM2LxQn0MBO
+	/HHO8PXLGIonefrTTi6dghihvzgTRXNSloIgPcC8WHiCyrSACi7wnR/X4hhli6eFqbg1kcdkIyJFp
+	5OCfe9XA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Sri-0000000CLKW-1sNF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 17:33:48 +0000
-Received: from ldvnode.intra.ispras.ru (unknown [10.10.2.153])
-	by mail.ispras.ru (Postfix) with ESMTPSA id E969740B2274;
-	Fri,  8 Nov 2024 17:33:40 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru E969740B2274
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1731087221;
-	bh=3QYrsrBPYW43jQDvfadZZ/SbvlgS981KQOnirhhBRvU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=F5kOF/OaGdZSfFauj5TVSIstfJVU3lTPNTDHweGefjpPXpJ0XtnIpVTv1ULCVKRov
-	 PD1zkrsBF3jPlQfslBxcFO3SizMaSk+ggashI9VbDmg/EmGK1EJbDK9lz0pdeW5tyC
-	 jdFv4KDgaz8GCIsg5WJfS3SLQjxa0Lw0gdMSRuwE=
-From: Vitalii Mordan <mordan@ispras.ru>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Vitalii Mordan <mordan@ispras.ru>,
-	Jose Abreu <joabreu@synopsys.com>,
+	id 1t9Srs-0000000CLNx-3X4l;
+	Fri, 08 Nov 2024 17:33:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB7ED5C4B55;
+	Fri,  8 Nov 2024 17:33:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C8A1C4CED9;
+	Fri,  8 Nov 2024 17:33:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731087231;
+	bh=U5J1HmfJsWmud23RBXlyYA8mRtwKa7CaZ254KKiPaio=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XYhI/IQiTwP+svRp9j6ppeDtUjiZbL+XIVA8SFmxzZXTL+6Y8I9WcltJCTbN8MBM6
+	 TdJI0vR4tRR2cRB98Hvw2ep5PeJ9YhwQHJS+Aak9JpZRypAWFDR8xeLuZOSbxLVQAx
+	 GZQKtIdJzyJHT7THgFXN1JvGtT/td339FW18Vz8P39l10RXarGv1vy3RYVQWP9r3XM
+	 WgQ8PVfxU6h8SrnVDvHRU9EaUciHhPkQTOzxIMzT7Oo7mrBYnzgLAl0Wrk+UD9eCEI
+	 +OXS79c/n9QJYzfw8aiWs5Nv5tgva46uSpuu/YUgcfAf9zoVZ4a+pcs+A6nXuCHPTp
+	 a4HSaA3Ko9SBg==
+Date: Fri, 8 Nov 2024 09:33:47 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Changbin Du <changbin.du@huawei.com>,
+	Guilherme Amadio <amadio@gentoo.org>,
+	Yang Jihong <yangjihong@bytedance.com>,
+	Aditya Gupta <adityag@linux.ibm.com>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
+	Shenlin Liang <liangshenlin@eswincomputing.com>,
+	Anup Patel <anup@brainfault.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Steinar H. Gunderson" <sesse@google.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Dima Kogan <dima@secretsauce.net>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Fedor Pchelkin <pchelkin@ispras.ru>,
-	Alexey Khoroshilov <khoroshilov@ispras.ru>,
-	Vadim Mutilin <mutilin@ispras.ru>
-Subject: [PATCH net v2]: stmmac: dwmac-intel-plat: fix call balance of tx_clk handling routines
-Date: Fri,  8 Nov 2024 20:33:34 +0300
-Message-Id: <20241108173334.2973603-1-mordan@ispras.ru>
-X-Mailer: git-send-email 2.25.1
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 04/20] perf disasm: Add e_machine/e_flags to struct
+ arch
+Message-ID: <Zy5Le-xn4gzQ2WLo@google.com>
+References: <20241017002520.59124-1-irogers@google.com>
+ <20241017002520.59124-5-irogers@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241017002520.59124-5-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_173346_984562_6F2C73C4 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20241108_173357_348270_E97EA17B 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +120,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the clock dwmac->tx_clk was not enabled in intel_eth_plat_probe,
-it should not be disabled in any path.
+On Wed, Oct 16, 2024 at 05:25:04PM -0700, Ian Rogers wrote:
+> Currently functions like get_dwarf_regnum only work with the host
+> architecture. Carry the elf machine and flags in struct arch so that
+> in disassembly these can be used to allow cross platform disassembly.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/arch/arc/annotate/instructions.c       | 2 ++
+>  tools/perf/arch/arm/annotate/instructions.c       | 2 ++
+>  tools/perf/arch/arm64/annotate/instructions.c     | 2 ++
+>  tools/perf/arch/csky/annotate/instructions.c      | 7 ++++++-
+>  tools/perf/arch/loongarch/annotate/instructions.c | 2 ++
+>  tools/perf/arch/mips/annotate/instructions.c      | 2 ++
+>  tools/perf/arch/powerpc/annotate/instructions.c   | 2 ++
+>  tools/perf/arch/riscv64/annotate/instructions.c   | 2 ++
+>  tools/perf/arch/s390/annotate/instructions.c      | 2 ++
+>  tools/perf/arch/sparc/annotate/instructions.c     | 2 ++
+>  tools/perf/arch/x86/annotate/instructions.c       | 3 ++-
+>  tools/perf/util/disasm.h                          | 4 ++++
+>  12 files changed, 30 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/perf/arch/arc/annotate/instructions.c b/tools/perf/arch/arc/annotate/instructions.c
+> index 2f00e995c7e3..e5619770a1af 100644
+> --- a/tools/perf/arch/arc/annotate/instructions.c
+> +++ b/tools/perf/arch/arc/annotate/instructions.c
+> @@ -5,5 +5,7 @@ static int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  {
+>  	arch->initialized = true;
+>  	arch->objdump.comment_char = ';';
+> +	arch->e_machine = EM_ARC;
+> +	arch->e_flags = 0;
+>  	return 0;
+>  }
+> diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/arch/arm/annotate/instructions.c
+> index 2ff6cedeb9c5..cf91a43362b0 100644
+> --- a/tools/perf/arch/arm/annotate/instructions.c
+> +++ b/tools/perf/arch/arm/annotate/instructions.c
+> @@ -53,6 +53,8 @@ static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  	arch->associate_instruction_ops   = arm__associate_instruction_ops;
+>  	arch->objdump.comment_char	  = ';';
+>  	arch->objdump.skip_functions_char = '+';
+> +	arch->e_machine = EM_ARM;
+> +	arch->e_flags = 0;
+>  	return 0;
+>  
+>  out_free_call:
+> diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
+> index f86d9f4798bd..d465d093e7eb 100644
+> --- a/tools/perf/arch/arm64/annotate/instructions.c
+> +++ b/tools/perf/arch/arm64/annotate/instructions.c
+> @@ -113,6 +113,8 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
+>  	arch->objdump.comment_char	  = '/';
+>  	arch->objdump.skip_functions_char = '+';
+> +	arch->e_machine = EM_AARCH64;
+> +	arch->e_flags = 0;
+>  	return 0;
+>  
+>  out_free_call:
+> diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/arch/csky/annotate/instructions.c
+> index 5337bfb7d5fc..14270311d215 100644
+> --- a/tools/perf/arch/csky/annotate/instructions.c
+> +++ b/tools/perf/arch/csky/annotate/instructions.c
+> @@ -43,6 +43,11 @@ static int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  	arch->initialized = true;
+>  	arch->objdump.comment_char = '/';
+>  	arch->associate_instruction_ops = csky__associate_ins_ops;
+> -
+> +	arch->e_machine = EM_CSKY;
+> +#if defined(__CSKYABIV2__)
+> +	arch->e_flags = EF_CSKY_ABIV2;
+> +#else
+> +	arch->e_flags = EF_CSKY_ABIV1;
+> +#endif
 
-Conversely, if it was enabled in intel_eth_plat_probe, it must be disabled
-in all error paths to ensure proper cleanup.
+By moving this into the general code, it should take care of old systems
+that doesn't have the macro.
 
-Found by Linux Verification Center (linuxtesting.org) with Klever.
+  In file included from util/disasm.c:109:                                        
+  /linux/tools/perf/arch/csky/annotate/instructions.c: In function 'csky__annotate_init':
+  /linux/tools/perf/arch/csky/annotate/instructions.c:50:25: error: 'EF_CSKY_ABIV1' undeclared (first use in this function)
+     50 |         arch->e_flags = EF_CSKY_ABIV1;                                  
+        |                         ^~~~~~~~~~~~~                                   
+  /linux/tools/perf/arch/csky/annotate/instructions.c:50:25: note: each undeclared identifier is reported only once for each function it appears in
 
-Fixes: 9efc9b2b04c7 ("net: stmmac: Add dwmac-intel-plat for GBE driver")
-Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
----
-v2: Unwind using a goto label, as per Simon Horman's request.
+Also, I think __CSKYABIV2__ is defined only when the host is csky.  So
+it'll use ABI v1 on cross env.  I'm not sure if it's a problem.  We may
+need to save the ABI somewhere in the metadata later.
 
- .../stmicro/stmmac/dwmac-intel-plat.c         | 25 +++++++++++++------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+Thanks,
+Namhyung
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-index d68f0c4e7835..9739bc9867c5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-@@ -108,7 +108,12 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 			if (IS_ERR(dwmac->tx_clk))
- 				return PTR_ERR(dwmac->tx_clk);
- 
--			clk_prepare_enable(dwmac->tx_clk);
-+			ret = clk_prepare_enable(dwmac->tx_clk);
-+			if (ret) {
-+				dev_err(&pdev->dev,
-+					"Failed to enable tx_clk\n");
-+				return ret;
-+			}
- 
- 			/* Check and configure TX clock rate */
- 			rate = clk_get_rate(dwmac->tx_clk);
-@@ -119,7 +124,7 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 				if (ret) {
- 					dev_err(&pdev->dev,
- 						"Failed to set tx_clk\n");
--					return ret;
-+					goto err_tx_clk_disable;
- 				}
- 			}
- 		}
-@@ -133,7 +138,7 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 			if (ret) {
- 				dev_err(&pdev->dev,
- 					"Failed to set clk_ptp_ref\n");
--				return ret;
-+				goto err_tx_clk_disable;
- 			}
- 		}
- 	}
-@@ -149,12 +154,15 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 	}
- 
- 	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
--	if (ret) {
--		clk_disable_unprepare(dwmac->tx_clk);
--		return ret;
--	}
-+	if (ret)
-+		goto err_tx_clk_disable;
- 
- 	return 0;
-+
-+err_tx_clk_disable:
-+	if (dwmac->data->tx_clk_en)
-+		clk_disable_unprepare(dwmac->tx_clk);
-+	return ret;
- }
- 
- static void intel_eth_plat_remove(struct platform_device *pdev)
-@@ -162,7 +170,8 @@ static void intel_eth_plat_remove(struct platform_device *pdev)
- 	struct intel_dwmac *dwmac = get_stmmac_bsp_priv(&pdev->dev);
- 
- 	stmmac_pltfr_remove(pdev);
--	clk_disable_unprepare(dwmac->tx_clk);
-+	if (dwmac->data->tx_clk_en)
-+		clk_disable_unprepare(dwmac->tx_clk);
- }
- 
- static struct platform_driver intel_eth_plat_driver = {
--- 
-2.25.1
 
+>  	return 0;
+>  }
+> diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/arch/loongarch/annotate/instructions.c
+> index ab43b1ab51e3..70262d5f1444 100644
+> --- a/tools/perf/arch/loongarch/annotate/instructions.c
+> +++ b/tools/perf/arch/loongarch/annotate/instructions.c
+> @@ -131,6 +131,8 @@ int loongarch__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		arch->associate_instruction_ops = loongarch__associate_ins_ops;
+>  		arch->initialized = true;
+>  		arch->objdump.comment_char = '#';
+> +		arch->e_machine = EM_LOONGARCH;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return 0;
+> diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/arch/mips/annotate/instructions.c
+> index 340993f2a897..b50b46c613d6 100644
+> --- a/tools/perf/arch/mips/annotate/instructions.c
+> +++ b/tools/perf/arch/mips/annotate/instructions.c
+> @@ -40,6 +40,8 @@ int mips__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		arch->associate_instruction_ops = mips__associate_ins_ops;
+>  		arch->initialized = true;
+>  		arch->objdump.comment_char = '#';
+> +		arch->e_machine = EM_MIPS;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return 0;
+> diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/arch/powerpc/annotate/instructions.c
+> index 54478cf5cccc..ca567cfdcbdb 100644
+> --- a/tools/perf/arch/powerpc/annotate/instructions.c
+> +++ b/tools/perf/arch/powerpc/annotate/instructions.c
+> @@ -309,6 +309,8 @@ static int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		arch->associate_instruction_ops = powerpc__associate_instruction_ops;
+>  		arch->objdump.comment_char      = '#';
+>  		annotate_opts.show_asm_raw = true;
+> +		arch->e_machine = EM_PPC;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return 0;
+> diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/arch/riscv64/annotate/instructions.c
+> index 869a0eb28953..55cf911633f8 100644
+> --- a/tools/perf/arch/riscv64/annotate/instructions.c
+> +++ b/tools/perf/arch/riscv64/annotate/instructions.c
+> @@ -28,6 +28,8 @@ int riscv64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		arch->associate_instruction_ops = riscv64__associate_ins_ops;
+>  		arch->initialized = true;
+>  		arch->objdump.comment_char = '#';
+> +		arch->e_machine = EM_RISCV;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return 0;
+> diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/arch/s390/annotate/instructions.c
+> index eeac25cca699..c61193f1e096 100644
+> --- a/tools/perf/arch/s390/annotate/instructions.c
+> +++ b/tools/perf/arch/s390/annotate/instructions.c
+> @@ -166,6 +166,8 @@ static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  			if (s390__cpuid_parse(arch, cpuid))
+>  				err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
+>  		}
+> +		arch->e_machine = EM_S390;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return err;
+> diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/arch/sparc/annotate/instructions.c
+> index 2614c010c235..68c31580ccfc 100644
+> --- a/tools/perf/arch/sparc/annotate/instructions.c
+> +++ b/tools/perf/arch/sparc/annotate/instructions.c
+> @@ -163,6 +163,8 @@ static int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
+>  		arch->initialized = true;
+>  		arch->associate_instruction_ops = sparc__associate_instruction_ops;
+>  		arch->objdump.comment_char = '#';
+> +		arch->e_machine = EM_SPARC;
+> +		arch->e_flags = 0;
+>  	}
+>  
+>  	return 0;
+> diff --git a/tools/perf/arch/x86/annotate/instructions.c b/tools/perf/arch/x86/annotate/instructions.c
+> index c869abe3c31d..ae94b1f0b9cc 100644
+> --- a/tools/perf/arch/x86/annotate/instructions.c
+> +++ b/tools/perf/arch/x86/annotate/instructions.c
+> @@ -202,7 +202,8 @@ static int x86__annotate_init(struct arch *arch, char *cpuid)
+>  		if (x86__cpuid_parse(arch, cpuid))
+>  			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
+>  	}
+> -
+> +	arch->e_machine = EM_X86_64;
+> +	arch->e_flags = 0;
+>  	arch->initialized = true;
+>  	return err;
+>  }
+> diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
+> index 486c269b29ba..c135db2416b5 100644
+> --- a/tools/perf/util/disasm.h
+> +++ b/tools/perf/util/disasm.h
+> @@ -44,6 +44,10 @@ struct arch {
+>  				struct data_loc_info *dloc, Dwarf_Die *cu_die,
+>  				struct disasm_line *dl);
+>  #endif
+> +	/** @e_machine: ELF machine associated with arch. */
+> +	unsigned int e_machine;
+> +	/** @e_flags: Optional ELF flags associated with arch. */
+> +	unsigned int e_flags;
+>  };
+>  
+>  struct ins {
+> -- 
+> 2.47.0.105.g07ac214952-goog
+> 
 
