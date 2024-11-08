@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAED7D5C0EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0ADD5C0ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kKjKdh8uIYu5IDKofoXchUb2lw7bLvsxB0RuFLbP7sQ=; b=adZ0zI2qsDFn0xVc7R/Gwq7w8I
-	rF+sneZ9ge0hwehBJEGzbSBf+fAPeKKuGNI3NRet56HxPt7StcQlHKN7AlA1qyKPyvXP5pmR6REd2
-	SwwuxLPTspzA06p6lDDh5lLhYEI5/q2IemPxo9qtEagsF7CrWkA/yrNtbnLG90YGPpBU+bEaaHIdC
-	FFAevchhRYunP675x2bg7nKTtE6nRYofWIywwwOsaTR6uRMeJVALeWykEHp63oMFPslbZ68emyp9d
-	asJg7EBqbBGsWqMDeaOL91Io3AGgzFtvHIklUbZfst1QfWOQaGmgBGkhTxZKwsJzXwutfbqxWc5zI
-	VJy4Wr9g==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DHwDBRm/kTZNcUg7348BUceEPUJFJgU9zgd2MT5a0zs=; b=K/P9AAp9K08B0Ncln2CRIQDtIS
+	AcQFAmLXMH11uiSeNASwKcTTjUc4tNkQAz8qufF+GtTBLtbjt3/yC0Whd+DYyWlu0mOKMks2UB8Wu
+	kEPeRw4c0G5T0oHDTGzorUyNQBkbOvkejuJ2C1MNs0cdVSnQqHKgrUA/jCBMa1jk4GV5POYjBAK/L
+	jSA6iawFWbw16zWzbZO02lr3fXJ+inP2MDIfcmwe3JdJMd9rVYk2E2ZicFFJl7GDqF6MQLGUhHvyQ
+	/mdUgEeZHNiZGqnfn4wpG7XwIbXWmBnHQkqYghtmSZlLtCeMtJMKedY48l4niXJOrhNKX22O7TTF3
+	agTkno1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Qru-0000000B16w-3Lhg;
-	Fri, 08 Nov 2024 15:25:50 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1t9Qte-0000000B1Ku-1vLx;
+	Fri, 08 Nov 2024 15:27:38 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Pzq-0000000Ar3m-1vsn
+	id 1t9Pzr-0000000Ar3q-1DUv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:29:59 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4A8ETrtn2085974
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 8 Nov 2024 08:29:53 -0600
+	Fri, 08 Nov 2024 14:30:00 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4A8ETnAr046784;
+	Fri, 8 Nov 2024 08:29:49 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1731076193;
-	bh=kKjKdh8uIYu5IDKofoXchUb2lw7bLvsxB0RuFLbP7sQ=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=rkMpewprgc9kC4J9M/BvNFcAlPvrISO7sbKgSr04Bqq1vaGdtIQs+D/kwXczxMyPM
-	 3ylS8MhK2+EEYRJSuVQq8gEMxF2gknzNYBOnZtoQrlX7ss3e82WkK0yb+ZlS3INkFW
-	 wxpswgKbF8Q6Mi5XPMubSaVr5ePOtoFSsZ3+b6i8=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A8ETr7Z072923;
-	Fri, 8 Nov 2024 08:29:53 -0600
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	s=ti-com-17Q1; t=1731076189;
+	bh=DHwDBRm/kTZNcUg7348BUceEPUJFJgU9zgd2MT5a0zs=;
+	h=From:To:CC:Subject:Date;
+	b=bEFdS4w9eb0fOhJIZbzbqvOmvhga7+YeGMOCs6fONFTy1tXQ+10sqFXBlmNowM4Hg
+	 bmFQzm/UbeF+KFRICcunrXZR8ZauDN541PMXd+8T/Gz2AxI0Yzc9FU8fwAaURfAAZ9
+	 r26HzuRv96bS+Rgvx1jq/eJszLqo/xczOcgfqeSo=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4A8ETnA3104235
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 8 Nov 2024 08:29:49 -0600
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 8
- Nov 2024 08:29:53 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Nov 2024 08:29:49 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 8 Nov 2024 08:29:53 -0600
+ Frontend Transport; Fri, 8 Nov 2024 08:29:49 -0600
 Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A8ETrxo023832;
-	Fri, 8 Nov 2024 08:29:53 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4A8ETnhm011246;
+	Fri, 8 Nov 2024 08:29:49 -0600
 Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A8ETqta032072;
-	Fri, 8 Nov 2024 08:29:52 -0600
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4A8ETmve032063;
+	Fri, 8 Nov 2024 08:29:48 -0600
 From: MD Danish Anwar <danishanwar@ti.com>
 To: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
         <ssantosh@kernel.org>, <nm@ti.com>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am64-main: Switch ICSSG clock to core clock
-Date: Fri, 8 Nov 2024 19:59:46 +0530
-Message-ID: <20241108142946.2286098-3-danishanwar@ti.com>
+Subject: [PATCH v2 0/2] This series adds clocks for ICSSG for AM64x.
+Date: Fri, 8 Nov 2024 19:59:44 +0530
+Message-ID: <20241108142946.2286098-1-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241108142946.2286098-1-danishanwar@ti.com>
-References: <20241108142946.2286098-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_062958_597304_17803D8D 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20241108_062959_392895_4BC4853F 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,74 +84,32 @@ Cc: srk@ti.com, devicetree@vger.kernel.org, vigneshr@ti.com, kristo@kernel.org, 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ICSSG currently uses ICSSG_ICLK (clk id 20) which operates at 250MHz.
-Switch ICSSG clock to ICSSG_CORE clock (clk id 0) which operates at
-333MHz.
+PATCH 1/2 Adds the dt binding necessary to add clocks to the device tree.
+It adds the `clocks` in the dt binding of ICSSG node.
 
-ICSSG_CORE clock will help get the most out of ICSSG as more cycles are
-needed to fully support all ICSSG features.
+PATCH 2/2 Adds the required clock to the ICSSG nodes. It also changes the
+clock used from clock 20 (ICSSG_ICLK) to clock 0 (ICSSG_CORE). This patch
+adds the clock-names, assigned-clocks and assigned-clock-parents to icssg
+nodes.
 
-This commit also changes assigned-clock-parents of coreclk-mux to
-ICSSG_CORE clock from ICSSG_ICLK.
+There is no additonal driver changes needed for this binding change.
 
-Performance update in dual mac mode
-  With ICSSG_CORE Clk @ 333MHz
-    Tx throughput - 934 Mbps
-    Rx throuhput - 914 Mbps,
+Changes from v1 to v2:
+*) Droppped assigned-clocks and assigned-clock-parents from DT binding as
+suggested by Krzysztof Kozlowski
 
-  With ICSSG_ICLK clk @ 250MHz,
-    Tx throughput - 920 Mbps
-    Rx throughput - 706 Mbps
+v1 https://lore.kernel.org/all/20241107104557.1442800-1-danishanwar@ti.com/
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am64-main.dtsi | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+MD Danish Anwar (2):
+  dt-bindings: soc: ti: pruss: Add clocks for ICSSG
+  arm64: dts: ti: k3-am64-main: Switch ICSSG clock to core clock
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-index c66289a4362b..ceceee2affd9 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-main.dtsi
-@@ -1227,6 +1227,10 @@ icssg0: icssg@30000000 {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x00 0x30000000 0x80000>;
-+		clocks = <&k3_clks 81 0>,  /* icssg0_core_clk */
-+			 <&k3_clks 81 20>; /* icssg0_iclk */
-+		assigned-clocks = <&k3_clks 81 0>;
-+		assigned-clock-parents = <&k3_clks 81 2>;
- 
- 		icssg0_mem: memories@0 {
- 			reg = <0x0 0x2000>,
-@@ -1252,7 +1256,7 @@ icssg0_coreclk_mux: coreclk-mux@3c {
- 					clocks = <&k3_clks 81 0>,  /* icssg0_core_clk */
- 						 <&k3_clks 81 20>; /* icssg0_iclk */
- 					assigned-clocks = <&icssg0_coreclk_mux>;
--					assigned-clock-parents = <&k3_clks 81 20>;
-+					assigned-clock-parents = <&k3_clks 81 0>;
- 				};
- 
- 				icssg0_iepclk_mux: iepclk-mux@30 {
-@@ -1397,6 +1401,10 @@ icssg1: icssg@30080000 {
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x00 0x30080000 0x80000>;
-+		clocks = <&k3_clks 82 0>,   /* icssg1_core_clk */
-+			 <&k3_clks 82 20>;  /* icssg1_iclk */
-+		assigned-clocks = <&k3_clks 82 0>;
-+		assigned-clock-parents = <&k3_clks 82 2>;
- 
- 		icssg1_mem: memories@0 {
- 			reg = <0x0 0x2000>,
-@@ -1422,7 +1430,7 @@ icssg1_coreclk_mux: coreclk-mux@3c {
- 					clocks = <&k3_clks 82 0>,   /* icssg1_core_clk */
- 						 <&k3_clks 82 20>;  /* icssg1_iclk */
- 					assigned-clocks = <&icssg1_coreclk_mux>;
--					assigned-clock-parents = <&k3_clks 82 20>;
-+					assigned-clock-parents = <&k3_clks 82 0>;
- 				};
- 
- 				icssg1_iepclk_mux: iepclk-mux@30 {
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml         |  5 +++++
+ arch/arm64/boot/dts/ti/k3-am64-main.dtsi             | 12 ++++++++++--
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+
+
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
 -- 
 2.34.1
 
