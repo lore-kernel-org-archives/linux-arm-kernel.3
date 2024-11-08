@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B65BD5C0ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FEFD5C0ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRwwDkSWxLGZ3pR3cJcjA/5Nv9UrG3xS499fBXmFkYM=; b=sAg/FOT1hqYw+kPejm/FyWQFHG
-	/t3N/gsCZGTEiCVu4oN5IUEu8Hae9s4Mmh4HUEUEvJagB0f2o35ghSfCk+SBEeo7oiEn0Qez71YHA
-	6cmFp+lfD6zTZCUnIKTIGgbq90hKeitUisM2oHhCH3OgGk8QNU9cKaM6gzveW1cwrNOy0CJT1qj8c
-	WXU8qFtQRm67E7iHMStGnf9vN9xsIYaXwMCI8SkZ3ClOVMTZl/zFO2nkjDw4ComwV5/MUP1IYheFI
-	lhnHoK0kU0/Q6Nc5YNTbD6lunj9EfAErttk0983FyTj12TKtRD++zbe2xfE083kdMhdMeqLL3Pk0b
-	cFUQj+Hg==;
+	bh=yFzgbkRb3LtjgiePUCs2zLxnEeHaoMumIeCtvURNEDE=; b=H44qcwDhib6gGpVuqSkLvGmnfV
+	VwPkv0XC/ChGEHpD7XxBOCOKDjd66MFDYmWCKFinoC2Svih2nfGJwLDvtDAmCyBCriZrBB9tYriej
+	PrpS3tfK/EDQUAXepjcOsH/JTfN2HF2n+7fpxO35q25T729frZCo0rG3F/eH1GgOrgzsZqoYM4WEH
+	5aWJIDwCD6jlBnY9VWkIs30PVN/1+qiNhJ6cnf1ZNvKuZAUuUX4Mcx+mrdATlcsu0klm7F0fIFWoo
+	zYI/9zSHhlAMe2tzuA8iRh7WXvQ+FLY/q7z0yFK63EzZaSKIPLYa3zieVGbrammZ5IaoUQmHFS8e2
+	WiD2WKcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9R0g-0000000B2sh-30KW;
-	Fri, 08 Nov 2024 15:34:54 +0000
+	id 1t9R2S-0000000B3IE-3MFW;
+	Fri, 08 Nov 2024 15:36:44 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QMe-0000000Av1l-2p6U
+	id 1t9QMg-0000000Av2W-1liQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:53:34 +0000
+	Fri, 08 Nov 2024 14:53:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DC4955C5C25;
-	Fri,  8 Nov 2024 14:52:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F1CCC4CED5;
-	Fri,  8 Nov 2024 14:53:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 585F65C5C31;
+	Fri,  8 Nov 2024 14:52:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67071C4CECF;
+	Fri,  8 Nov 2024 14:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731077611;
-	bh=kZbPfuZ0ikYZXriOFOyM/wtjpbX2/SuwojvsPEaqSLA=;
+	s=k20201202; t=1731077613;
+	bh=7FYaU4FCXmhYjzpZo5YkfLyjPElVMZd2EEcZuyqFuTY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rZh606o7uJMo6Rkf6Lz4RxQEyMr7vA756y0kFoEQhrTmohzr9Rp23gAVJj0gPMiLJ
-	 fiXqcWwVsoZGUl2E1KYIZdbZGgQgoAxcy2j0yAULt+/HhwCWGPl7QQ10YIxm/N7GGE
-	 7HwCs+UTOIW82PdunYNwSqmiCw/688dnKn1I9smPqqH4dK5e4pkg6bUKnLWUeFXz1D
-	 jmlU9f6QgL0uLbtdWuN195GnRy/Q3rTRqlJHzsOyTbQUklcr9SF0nNwXgiyMyMbdaM
-	 uXxVGrW0J8Um2aCgd+5douR6vdS7u6p21BHrCfHKPj2T6ojdtMqDWvKmv2J3OKSwTA
-	 uQV4/Bd+cHtMA==
-Date: Fri, 8 Nov 2024 14:53:22 +0000
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, acpica-devel@lists.linux.dev,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 05/12] iommu/arm-smmu-v3: Support IOMMU_GET_HW_INFO
- via struct arm_smmu_hw_info
-Message-ID: <20241108145320.GA17325@willie-the-truck>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <5-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241104114723.GA11511@willie-the-truck>
- <20241104124102.GX10193@nvidia.com>
- <8a5940b0-08f3-48b1-9498-f09f0527a964@arm.com>
- <20241106180531.GA520535@nvidia.com>
- <2a0e69e3-63ba-475b-a5a9-0863ad0f2bf8@arm.com>
- <20241107023506.GC520535@nvidia.com>
+	b=FlFekRhq6I6wB60c160O1nElWFaN14ychQ07e8bNDVaWQ8VQT+VUzzjKyZiqle3VX
+	 wRgsXtsfIWyHimefzVvDvHTrqT7EjHyZc8yfPbG4CRo8rdqyGKQv4/dE+N10AQzVXJ
+	 hdc+NP9EAqARi8/fL9Ix0OVLQbMbIzjP8L/hrour3EOVwUmlQD5M0vAZna68G7QJm8
+	 Uuyrus8i+WxX21ninQNZpaDTEAi85LwI0N1q1z8Gqq8vrkWg4VECCKyqz0QbJ0CMH8
+	 xP2MPAuoj6y2q+t0GmXWu2DPNgVlVCnOJsPEm33sUdOBR9+tXftVYb5PsjLePU4GqQ
+	 /eN1JojyVg4TA==
+Date: Fri, 8 Nov 2024 14:53:29 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 4/4] kselftest/arm64: Fix compilation of SME instructions
+ in the arm64 fp tests
+Message-ID: <15526a78-b9ad-46d2-b451-013dd3b8356b@sirena.org.uk>
+References: <20241108134920.1233992-1-catalin.marinas@arm.com>
+ <20241108134920.1233992-5-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FPsmg5krTeqmJNjw"
 Content-Disposition: inline
-In-Reply-To: <20241107023506.GC520535@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20241108134920.1233992-5-catalin.marinas@arm.com>
+X-Cookie: Do not overtax your powers.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_065332_869127_DD8670E9 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20241108_065334_531732_5D26DA02 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi guys,
 
-On Wed, Nov 06, 2024 at 10:35:06PM -0400, Jason Gunthorpe wrote:
-> On Wed, Nov 06, 2024 at 09:05:26PM +0000, Robin Murphy wrote:
-> > You should take "We discussed this already"
-> > as more of a clue to yourself than to me - if 4 different people have all
-> > said the exact same thing in so many words, perhaps there's something in
-> > it...
-> 
-> And all seemed to agree it was not a big deal after the discussion.
-> 
-> I think Mostafa was driving in a direction that we break up the IDR
-> into explicit fields and thus be explicit about what information the
-> VMM is able to access. This would effectively document and enforce
-> what the baseline is.
+--FPsmg5krTeqmJNjw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-As one of the four people mentioned above, I figured I'd chime in with
-my rationale for queuing this in case it's of any help or interest.
+On Fri, Nov 08, 2024 at 01:49:20PM +0000, Catalin Marinas wrote:
 
-Initially, I was reasonably sure that we should be sanitising the ID
-registers and being selective about what we advertise to userspace.
-However, after Jason's reply to my comments, mulling it over in my head
-and having lively conversations with Mostafa at lunchtime, I've come
-full circle. Is it a great interface? Not at all. It's 8 register values
-copied from the hardware to userspace. But is it good enough? I think it
-is. It's also extremely simple (i.e. easy to explain what it does and
-trivial to implement), which I think is a huge benefit given that the
-IOMMUFD work around it is still evolving.
+> SMSTOP/SMSTART require the SME arch extension for the assembler. Add
+> '.arch_extension sme' to za-test.S and zt-test.S.
 
-I'm firmly of the opinion that the VMM is going to need a tonne of help
-from other sources to expose a virtual IOMMU successfully. For example,
-anything relating to policy or configuration choices should be driven
-from userspace rather than the kernel. If we start to expose policy in
-the id registers for the cases where it happens to fit nicely, I fear
-that this will backfire and the VMM will end up second-guessing the
-kernel in cases where it decides it knows best. I'm not sold on the
-analogy with CPU ID registers as (a) we don't have big/little idiocy to
-deal with in the SMMU and (b) I don't think SMMU features always need
-support code in the host, which is quite unlike many CPU features that
-cannot be exposed safely without hypervisor context-switching support.
+I've got an alternative, more idiomatic fix for this running through my
+testing - SME is still relatively recent so we can't rely on people's
+toolchains having it and we should use a .inst instead.  The issue was
+that the toolchain I'm using locally appears to default to a full fat
+version of the architecture and happily assembled the SMSTART even
+though we don't have a .inst macro for it like we do with SMSTOP (which
+is why that didn't error).  We only have SMSTART SM and SMSTART ZA.
 
-On top of all that, this interface can be extended if we change our
-minds. If we decide we need to mask out fields, I think we could add
-that after the fact. Hell, if we all decide that it's a disaster in a
-few releases time, we can try something else. Ultimately, Jason is the
-one maintaining IOMMUFD and he gets to deal with the problems if his
-UAPI doesn't work out :)
+--FPsmg5krTeqmJNjw
+Content-Type: application/pgp-signature; name="signature.asc"
 
-So, given where we are in the cycle, I think the pragmatic thing to do
-is to land this change now and enable the ongoing IOMMUFD work to
-continue. We still have over two months to resolve any major problems
-with the interface (and even unplug it entirely from the driver if we
-really get stuck) but for now I think it's "fine".
+-----BEGIN PGP SIGNATURE-----
 
-Will
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcuJegACgkQJNaLcl1U
+h9C4twf/dV0Mfyo15G5UeUI5nLI4lpOQljXMqJb2khJTZHeg0BYqBhOzBdaYXyWn
+/pd2xNbUrI6X86KqkT4ZTkGL9nsftGxpIbA0I0Maf0OskafPQSnJIeIQ6GS7n5Y5
+IE3yPP4dmuHOThUOWxAHLL/ZxTfbMHDwEjLLjGwJzk2PIVP7gZA5MPmvt3yk5zNQ
+QYPxxYjv6ee0zGSULgpChRuvHiqTjtm1aXf3bLtkNGE71Zb0KNecxwLRvBwkwmyK
+rj9QEEM+fZHKJ7wHTI2C/4rLDadSIuvImnyBOfaeFIVUm6LzZZcrsEYn5IOkUp/D
+HhEyl4G1SiazCXYm2I3j8LqT1zmieg==
+=p8wV
+-----END PGP SIGNATURE-----
+
+--FPsmg5krTeqmJNjw--
 
