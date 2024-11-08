@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EE2D64060
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C94ED64063
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 16:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjqYkG8ff4c+T4YdMOMbIeQIrZmZCxBiG8+gykwYd68=; b=07ZnnEsKXktyoExaMl+6AN0MwU
-	oiCSxLjTinNx0ht03xLVqARHIizKcO4oB+8sEhJ2pcW3/0dkrYgh/GX2hpToghMEc80WHxlF5wEvl
-	YFyQAHeSBvLI5feUGWjlQ7z/Ra8tl1WDjKi0Ao1B96ykGIx+Xr/kAW/wqrr+Nqy0bOJOYuqelFYrj
-	1RNYfB1wk0UMOlV+ZIJrs8312rGgeHI/Q9gxSdcBpbjGLi+VELRfMu+XQApTZKUgWv0T+9+48tnZU
-	27I/kF8pEEDQcLzwxne8akZhttTLzk9zkbz4n95UfKlLScYV/Q4Ivz/1iPsQk3041rB8T5+p8sRzv
-	/k5xlwCg==;
+	bh=lmLCQiURGgtMHHfPhrNcOhvT0RoBZHSVJbL086OyI1o=; b=jQK9agQt98mRQBuzKmGFVwpzDG
+	lFsJ4zcHKP+8dWvIW/P6mkHaLLSLLvuY4huLOkm6ED0BLNbXT/K9IG3aF+OugyijWfwXNGZ0BknlO
+	VdafOcTminxzwqUuUKuTqs7Lvu1leUF+zpugAidZuuirYzvaV0joAwXJkfGzVRegu+QKMzGzgTHSA
+	R9n+43dh1sqR2kJXEmnGHTD3mCuvmWcVBsuSGvXVRiIVEoO0WXHvZtu4/XVLMwk0vYywrhxCVhYHE
+	UfmqkUFQxERV1ZNPpeXN5IZMriEDtFvFhNIBo2uocAXr5HPEzoCZFANrXTEEQM56k2LpXYnBhTOvl
+	nlrL4oQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9RuJ-0000000BDif-3ImY;
-	Fri, 08 Nov 2024 16:32:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1t9RuS-0000000BDpk-1tWj;
+	Fri, 08 Nov 2024 16:32:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9R03-0000000B2nW-3erH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 Nov 2024 15:34:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vjqYkG8ff4c+T4YdMOMbIeQIrZmZCxBiG8+gykwYd68=; b=Yrlsi7At3LEJP0uIS6NkE1jR0Z
-	oEDQN829mzVxadI/xT+kHJyj5id3FRDTMankwY09OZVfoGLKoqsmLmgVU1Lu1pazKwCxc0rCgk1MQ
-	xtxACAOrflTnYJ1gsq35M/GrEku0PXrYo1NmUlRg3/xm/yNXfSqjxdFSGnOXTyYmYxf2oekxv9FLP
-	wEOzongRu606SdS0S8qnLTBPFqmALtmejbk/mXmEr2UTL7qA+UAscv+0HOvdCrD1PTIU4PbUBjS+W
-	/Lg0PXKc83CciAUL2IEcvj4nySJ8JJocIaAq2CpM/eee1apM5FIwT9nN1SxiZwdtiiRR7++R4EU95
-	TbKChe7A==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Qzz-000000090KC-0Eqo;
-	Fri, 08 Nov 2024 15:34:11 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2EC8930049D; Fri,  8 Nov 2024 16:34:11 +0100 (CET)
-Date: Fri, 8 Nov 2024 16:34:11 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>,
-	Sean Christopherson <seanjc@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v7 4/5] x86: perf: Refactor misc flag assignments
-Message-ID: <20241108153411.GF38786@noisy.programming.kicks-ass.net>
-References: <20241107190336.2963882-1-coltonlewis@google.com>
- <20241107190336.2963882-5-coltonlewis@google.com>
+	id 1t9R0W-0000000B2pu-2TZJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 15:34:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E136DA41FB2;
+	Fri,  8 Nov 2024 15:32:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CCAC4CECF;
+	Fri,  8 Nov 2024 15:34:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731080083;
+	bh=GCQa4PPGbaD33AeLle0wGhetHoAHZy7KNkJViY9XTLU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Erv8jNC0c1fLICoqsHyGPHbwsa9IwEn8oMEcsl0XQ7leQRdmpWbpbyGIGStphaXhK
+	 WYSJ+Duxm+Ev6mv3WnP+XPPM5N07wBIiprj7k3TBsTOqvvFGz/kVWGv43EASeG9EED
+	 LkK6Amq588c10JA/qepc4IH0cOpE5YosJrIMRF76OQOn//uJMaJ9w21EAm5Qpx6Fz4
+	 IHyM5Bx4KprnoRa8Q6BwG+Jm+wGta+Cal5S309NN6SIIOna7DUio5laZ68xM+u+VxS
+	 aBPITxkeH41OGhJJDMgCWu/XdrFc3aNbTbAgPTtXmcvlfL7/f8ZycpxKNsVk5GIhrK
+	 JZ7+2PD31wAtg==
+Date: Fri, 8 Nov 2024 15:34:38 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Fix build with stricter assemblers
+Message-ID: <fcc92dc9-9a03-4db7-964b-0f7cd1490a7d@sirena.org.uk>
+References: <20241108-arm64-selftest-asm-error-v1-1-7ce27b42a677@kernel.org>
+ <Zy4t-tHV18D6BrXJ@arm.com>
+ <Zy4uYZVkIR8ntUIV@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Slt0mEnOe0d1jC9h"
 Content-Disposition: inline
-In-Reply-To: <20241107190336.2963882-5-coltonlewis@google.com>
+In-Reply-To: <Zy4uYZVkIR8ntUIV@arm.com>
+X-Cookie: Do not overtax your powers.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20241108_073444_715444_F3638019 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,89 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 07:03:35PM +0000, Colton Lewis wrote:
-> Break the assignment logic for misc flags into their own respective
-> functions to reduce the complexity of the nested logic.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  arch/x86/events/core.c            | 32 +++++++++++++++++++++++--------
->  arch/x86/include/asm/perf_event.h |  2 ++
->  2 files changed, 26 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index d19e939f3998..9fdc5fa22c66 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -3011,16 +3011,35 @@ unsigned long perf_arch_instruction_pointer(struct pt_regs *regs)
->  	return regs->ip + code_segment_base(regs);
->  }
->  
-> +static unsigned long common_misc_flags(struct pt_regs *regs)
-> +{
-> +	if (regs->flags & PERF_EFLAGS_EXACT)
-> +		return PERF_RECORD_MISC_EXACT_IP;
-> +
-> +	return 0;
-> +}
-> +
-> +unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
-> +{
-> +	unsigned long guest_state = perf_guest_state();
-> +	unsigned long flags = common_misc_flags(regs);
 
-This is double common_misc and makes no sense
+--Slt0mEnOe0d1jC9h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> +
-> +	if (!(guest_state & PERF_GUEST_ACTIVE))
-> +		return flags;
-> +
-> +	if (guest_state & PERF_GUEST_USER)
-> +		return flags & PERF_RECORD_MISC_GUEST_USER;
-> +	else
-> +		return flags & PERF_RECORD_MISC_GUEST_KERNEL;
+On Fri, Nov 08, 2024 at 03:29:37PM +0000, Catalin Marinas wrote:
+> On Fri, Nov 08, 2024 at 03:27:58PM +0000, Catalin Marinas wrote:
 
-And this is just broken garbage, right?
+> > > -	smstart
+> > > +	smstart_za
 
-> +}
+> > And is smstop ok for assemblers? I think I got the error first on
+> > smstop with my toolchain.
 
-Did you mean to write:
+> Ah, we already have a macro for that. Let me check the error I got,
+> maybe I got confused (with the multitude of other warnings ;)).
 
-unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
-{
-	unsigned long guest_state = perf_guest_state();
-	unsigned long flags = 0;
+Yeah, smstop is already used in those programs (in 'barf') so they
+should never have complied if the macro wasn't working.
 
-	if (guest_state & PERF_GUEST_ACTIVE) {
-		if (guest_state & PERF_GUEST_USER)
-			flags |= PERF_RECORD_MISC_GUEST_USER;
-		else
-			flags |= PERF_RECORD_MISC_GUEST_KERNEL;
-	}
+--Slt0mEnOe0d1jC9h
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	return flags;
-}
+-----BEGIN PGP SIGNATURE-----
 
->  unsigned long perf_arch_misc_flags(struct pt_regs *regs)
->  {
->  	unsigned int guest_state = perf_guest_state();
-> -	int misc = 0;
-> +	unsigned long misc = common_misc_flags(regs);
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmcuL44ACgkQJNaLcl1U
+h9DwzggAg5fR25wb0nUopVb11f6h02UcUTbvx3YR0dlmet6ISqQRRe/nCU5WonzV
+yr7Dmclrbjf/GUnaoSfW7SxgXCuQWnMQC2n64BxF5/7wM/Q4qA0u8+Sr1/rlaO/s
+E+Geni575s2S/vUcszZQfYptcwBM1/0yeCHXRau1LOssXt2/Ih0FoyQrtca1CRDg
+26SIW5St4If5NY3L5o57j4ZfDeY1Ur8fqg7K1Hv/TgQkpugJuIEKmGfSICeZ5dVo
+azZJ6VT3eR/BI4ucDSYb9wtCO3nKBu6UshsiJJNboPwZTV07mDiQ3MPI554J+Ht5
+r6TyQH+ZwmdPDBxpT2frX/2gc/fRGQ==
+=qoye
+-----END PGP SIGNATURE-----
 
-Because here you do the common thing..
-
->  
->  	if (guest_state) {
-> -		if (guest_state & PERF_GUEST_USER)
-> -			misc |= PERF_RECORD_MISC_GUEST_USER;
-> -		else
-> -			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
-> +		misc |= perf_arch_guest_misc_flags(regs);
-
-And here you mix in the guest things.
-
->  	} else {
->  		if (user_mode(regs))
->  			misc |= PERF_RECORD_MISC_USER;
+--Slt0mEnOe0d1jC9h--
 
