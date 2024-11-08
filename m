@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9EDD5E147
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783E8D5E147
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dUTRSMTXrdg5Zyft5yF6+XKivEJnOQQBelPLhQbyq08=; b=kSpTFnWRtbKbCl+5+34ch1mudh
-	3DGxfU5ic1rw80Dz8qxIJNOeM8PFhjeWZvULadaSXXwVtCx8/flVhkSQ7c/4Py168yyzMD7e/VNoD
-	KHeK+tlzGQuxA+elvYOe2BSMvK1DwC1JBo6wTMuU/LjiB1Ig5B5/ISwMH4Bl+bkv7UaXldbzY1siu
-	e/u2Tm462gIp1rTpsIdyJD/qtcNraY0cTCijCtHK4OY/dzEXb/5f6h3823EX1w1AEXJFpcF9w4e50
-	zpmbEwn1XAiZdULKOv4gVy+UnETp0mrlvt1CJ0ydGh9nUkZNWoVKaUdCN2HtGBeYgncX6sQ2JX/hF
-	39Gx8LZA==;
+	bh=syaFfjwerqR8utu0oNjnVZRq4peXobeHGKBHeZI/wa8=; b=XW9+TdQDNc4yiUsBVeBSIre6ef
+	YS3gKj4xGpOOt/dSNTeaZ4k4llGp+mNQTZv0AeZly53Epf6cs1QqG9wTs3dfZ4QPc5uAdeqI5n9I1
+	shDNkVlNSgYrm448z1vGr8GQdL49Xuq2i3/uizXcvzekje1NFFRW4h1h3XxplfAG+6jp4ZHqjYxMV
+	g5YXwbkKApC/D/7EBd5GsQSvUBzWRhcweEDqUuSFrJHY065jGTFd3i8CRV6ri2ylU7lTiA8Mg3Cq3
+	IZM4Css5XDDuToHdmsbVsqLt2vy0En7u404AG4ntXauEGhNLY8QpOWV7V0UljJfIcY080kv74fZGI
+	/wXZvBsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9JzV-00000009iGz-3env;
-	Fri, 08 Nov 2024 08:05:13 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1t9K2x-00000009ilv-27bw;
+	Fri, 08 Nov 2024 08:08:47 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9JxJ-00000009hrd-3EOY
+	id 1t9K1A-00000009iRa-1KSu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 08:02:59 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso29880861fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 00:02:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731052975; x=1731657775; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dUTRSMTXrdg5Zyft5yF6+XKivEJnOQQBelPLhQbyq08=;
-        b=f7bKrIWlM0k3nl1jkkHXaE0qtKVJsdfYWnjT6YVNgJ5Q9Fe7S8Jw4Lhq4hU4AHrWt8
-         6wX96TegcGmpi+AEGKYMeiz1wZ5pXC3pcYsbHT+3AasLXtlMC/Au5IaMrw5BCROxmcTY
-         5kGzX6ViJVvcKQmVs1Nt8I41mQPbVLNJ9SOsSRPDPtTI+gp739DHEFzuMXvLQKWmayr6
-         1qSNCXSQuxgharniQjQJhsgKVA/U7N2+J4KdB+aKPyyDm+DHzq/ia7SXFFuUIZ8TccxZ
-         SaqB/PO9iN8EVmWChMew2VXGHIB2+yVZHtgW9KqqiXYBp1bFnc3lcoQuTs12QXceeWqg
-         WCRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731052975; x=1731657775;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dUTRSMTXrdg5Zyft5yF6+XKivEJnOQQBelPLhQbyq08=;
-        b=Zj3p6mkIUvHBdVOHKnFkp3cTRPk7cUz1na6QevWo1grM60+pIURC9hbORrKkqLVUy7
-         aQ/Cc3a6FvgeIFHaylsFqxFyKb0h2l2U0X4LbJvxHUdxIMjpywQ4+LIV9BHpXHqVhtv3
-         Zrtj7d5uXMRZrAEwv/fPuVtSBYjKCnkPrkHLsc2/0ajaVsCycrFlAKpZi/ogpsZw3SRO
-         by9VXbGSpFr75prUSYmmeH2ESg+dTfMN8+0QPznbevh+Qm7KN1oAnlgK8j8VzxHz3cS0
-         nzcBWVS6tUqwvqgyB7hbhPXWf5vXmLuxe+itiJO6oBUzvvcFXr4mswJsYAD2xct3W719
-         x3Ig==
-X-Forwarded-Encrypted: i=1; AJvYcCVTLrjDiBQ5tv9HwDbSZpcTlMUNEaNeMH18cr2jyFUdXug5NRWesy45qegeASUP04rnJTCO1Y6gu8fNrZ+XqT1R@lists.infradead.org
-X-Gm-Message-State: AOJu0YynSQ3DNaSGiNGGc9ApFvnFIdWn1SWRSNWDNHLy2bXOf45ne/JO
-	rzixOhSOkbvJjryMMTITt9M3ZVVLnSxdTcoDiKKIyx8oiSr4WCvL3HVp840HauaQQT9tApbtu78
-	tiJgA5NawNOgor9LW40N7xaqUL5P2bp41AG4rmw==
-X-Google-Smtp-Source: AGHT+IHU/p5ucmbmja2ZUVCS8fngsFc6zkmCp3xSAKppUYK59btpa33qjaOf6+2FVOvM6vBZDak2yrRRRPxlKbfHz7A=
-X-Received: by 2002:a2e:9b96:0:b0:2fb:3881:35d5 with SMTP id
- 38308e7fff4ca-2ff202ac3ebmr11214621fa.35.1731052975268; Fri, 08 Nov 2024
- 00:02:55 -0800 (PST)
+	Fri, 08 Nov 2024 08:06:58 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4XlBL52N1bz1T9sv;
+	Fri,  8 Nov 2024 16:04:29 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id BB09B1800D9;
+	Fri,  8 Nov 2024 16:06:51 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Fri, 8 Nov 2024 16:06:50 +0800
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <dietmar.eggemann@arm.com>,
+	<yangyicong@hisilicon.com>, <linuxppc-dev@lists.ozlabs.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>
+Subject: Re: [PATCH v7 3/4] arm64: topology: Support SMT control on ACPI based
+ system
+To: Pierre Gondois <pierre.gondois@arm.com>
+References: <20241030125415.18994-1-yangyicong@huawei.com>
+ <20241030125415.18994-4-yangyicong@huawei.com>
+ <63792865-46ad-44a5-a1f2-9a17da5b4bfc@arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <93a8b799-dfd9-5ffa-37ca-e7cd4a82e70e@huawei.com>
+Date: Fri, 8 Nov 2024 16:06:50 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-References: <20241104194437.327430-1-robh@kernel.org>
-In-Reply-To: <20241104194437.327430-1-robh@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 8 Nov 2024 09:02:44 +0100
-Message-ID: <CACRpkdbiAKX-o3GYqVP5bz_o-GhbvgHLkSDM4ZMXgMMteaoKTg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: Use of_property_present() for non-boolean properties
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <63792865-46ad-44a5-a1f2-9a17da5b4bfc@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_000257_854825_7ADC4394 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_000656_725928_F9CE4958 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,18 +81,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 4, 2024 at 8:44=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org> =
-wrote:
+On 2024/11/8 1:20, Pierre Gondois wrote:
+> 
+> 
+> On 10/30/24 13:54, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> For ACPI we'll build the topology from PPTT and we cannot directly
+>> get the SMT number of each core. Instead using a temporary xarray
+>> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+>> and SMT information of the first core in its heterogeneous CPU cluster
+>> when building the topology. Then we can know the largest SMT number
+>> in the system. If a homogeneous system's using ACPI 6.2 or later,
+>> all the CPUs should be under the root node of PPTT. There'll be
+>> only one entry in the xarray and all the CPUs in the system will
+>> be assumed identical.
+>>
+>> The core's SMT control provides two interface to the users [1]:
+>> 1) enable/disable SMT by writing on/off
+>> 2) enable/disable SMT by writing thread number 1/max_thread_number
+>>
+>> If a system have more than one SMT thread number the 2) may
+>> not handle it well, since there're multiple thread numbers in the
+>> system and 2) only accept 1/max_thread_number. So issue a warning
+>> to notify the users if such system detected.
+>>
+>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>   arch/arm64/kernel/topology.c | 57 ++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 57 insertions(+)
+>>
 
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated in favor of of_property_present() when testing for property
-> presence.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+[...]
 
-Makes perfect sense.
-Patch applied!
+>> @@ -67,6 +106,24 @@ int __init parse_acpi_topology(void)
+>>           cpu_topology[cpu].package_id = topology_id;
+>>       }
+>>   +    /*
+>> +     * This should be a short loop depending on the number of heterogeneous
+>> +     * CPU clusters. Typically on a homogeneous system there's only one
+>> +     * entry in the XArray.
+>> +     */
+>> +    xa_for_each(&hetero_cpu, hetero_id, entry) {
+>> +        if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
+>> +            pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+>> +
+>> +        if (entry->thread_num > max_smt_thread_num)
+>> +            max_smt_thread_num = entry->thread_num;
+>> +
+>> +        xa_erase(&hetero_cpu, hetero_id);
+>> +        kfree(entry);
+>> +    }
+> 
+> I think you need to check that max_smt_thread_num !=0,
+> like in the DT path. Otherwise on a platform with no SMT,
+> max_smt_thread_num = 0 and I hit:
+> 
+> kernel/cpu::cpu_smt_set_num_threads()
+> WARN_ON(!num_threads || (num_threads > max_threads));
+> 
+> 
+> ->
+> if (max_smt_thread_num)
+>     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> 
 
-Yours,
-Linus Walleij
+sorry for this silly mistake. yes we should do the same like in the DT path.
+I'll get this fixed. thanks for testing.
+
+>> +
+>> +    cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+>> +    xa_destroy(&hetero_cpu);
+>>       return 0;
+>>   }
+>>   #endif
+> 
+> .
 
