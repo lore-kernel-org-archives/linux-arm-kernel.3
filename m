@@ -4,79 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA02ED5E145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A62DD5E14A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/HZff0dufS4l9tvBTXrxQwJX44CyH2SfQCeuwchqII=; b=i3c9oAj4Ndx/NZShNVmsC2vQBx
-	QTJeK38vQC+SJXaeGL5Est5694Ccl2yOb2mewTAGfq/gwzM0gmATLYfUXX+AcGkXGnb5yi75zsWRY
-	zHkzwxVfQSjH5M5fy/rwfMmv7S2zNmAibhdXdlzqrlX57gO9p7Dy/d/yD3Xr/iF2i9LczuWaOGLXy
-	oDCfDoCI9NlTYSWvZeJIRU4mY+y0G2cIhv/h5HoAQ4GYWj+5tlO5VATPQJOJXqO7E33i2AfkE2cne
-	gAxU+p8xrO37Gx2CxCbCNAOhUbOCZGooJJ16fQBSaj1KUXrZEYamvRqqFodRuMmYseNUB8BsZ2TuW
-	5qcGK7+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K3J7aF3mrdJJ0VktfLKfcseRACubiNr0JpArQqh8d+A=; b=ex4UecgPDF32eGdTNArcstTfwc
+	9Eha4bj8yif/YmkU8B7Y2FBgI3cwibcVKBIOn7tHvzU0n2ugfTxbDUv+WyViJ7zcDkr0LxJepxsLx
+	6A+vbbvTPGZelCkBtuo7s9fUx+dBIx1WDvXOOF4HZ/PeeEbKsiqI5NxoVGaBfqzeblEZAuM9/3IIW
+	th+xjNsvFzfwDnZFCE6VpVRfEIFc65F+0G21y3hiS7fDXA5LWCrqYUm+Biv9w1yco26OE6fuhN5a2
+	8XMpA3kbaDk0mMSDrzFgSm2oQdK1niyce3Qvph2hw67KXcnlWoCrni1+3SB+L037DswncRWS053wd
+	4hl7pzNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KyG-00000009uI6-3fWg;
-	Fri, 08 Nov 2024 09:08:00 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1t9LAh-00000009wGJ-2VlB;
+	Fri, 08 Nov 2024 09:20:51 +0000
+Received: from [58.32.228.46] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Kqm-00000009sRd-3JaQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 09:00:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731056416; x=1762592416;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0RV4BRrDPu9fzqimtYkCGhm8dxWaki2Xe2w2Vb0cDQM=;
-  b=UNnxvySE+dSEzp8niNbW5zasK//WIdY/LnxTERRzVakH/T8hX8mn/C1h
-   8WEOcthRml8ykI2tfdjiUlfbGKxGkXS3gAk+RPK145MOhW8MxezyGUa66
-   OHIOhGuJZ4GR7hOM+x2LNyiU6mVYN3Ol07YeoRj11VNng5yZZ8gJxpawd
-   1UY5zZU8piRXUJORAFBHNNtMUHRVu0pRbibEGmg2hcjdBZBozou4C/shG
-   nFTaJgNxhv67ZkkMMuaamyB5YwlfwmaomuD2dgD1Myw4CyShVxyh33Tfz
-   gS+X3apw53IT/59ew12rsVSoHV10c7tXVdBdCrfEABd5bDqvNWBxakNXt
-   A==;
-X-CSE-ConnectionGUID: HVTPMN6wSQqpa45vmMRqjw==
-X-CSE-MsgGUID: +GH327iKRSSLSExU7iDt1w==
-X-IronPort-AV: E=Sophos;i="6.12,137,1728975600"; 
-   d="scan'208";a="34564944"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Nov 2024 02:00:15 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 8 Nov 2024 01:59:59 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Fri, 8 Nov 2024 01:59:56 -0700
-Date: Fri, 8 Nov 2024 08:59:56 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
- Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
-	<jacob.e.keller@intel.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next 3/7] net: sparx5: use is_port_rgmii() throughout
-Message-ID: <20241108085956.pr23rcnkhleoesnl@DEN-DL-M70577>
-References: <20241106-sparx5-lan969x-switch-driver-4-v1-0-f7f7316436bd@microchip.com>
- <20241106-sparx5-lan969x-switch-driver-4-v1-3-f7f7316436bd@microchip.com>
- <4748d3a9-55e8-48f9-b281-60ec619bf304@lunn.ch>
+	id 1t9L8p-00000009vtg-2NkQ;
+	Fri, 08 Nov 2024 09:18:56 +0000
+Received: from droid10-sz.amlogic.com (10.28.11.69) by mail-sh.amlogic.com
+ (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.39; Fri, 8 Nov 2024
+ 17:18:50 +0800
+From: zelong dong <zelong.dong@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Kevin Hilman <khilman@baylibre.com>, Rob Herring
+	<robh@kernel.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<kelvin.zhang@amlogic.com>, Zelong Dong <zelong.dong@amlogic.com>
+Subject: [PATCH v3 0/3 RESEND] reset: amlogic-a4/a5: add reset driver
+Date: Fri, 8 Nov 2024 17:18:39 +0800
+Message-ID: <20241108091842.36961-1-zelong.dong@amlogic.com>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <4748d3a9-55e8-48f9-b281-60ec619bf304@lunn.ch>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.28.11.69]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_010016_925269_0426F547 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20241108_011855_614255_8A940366 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +64,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+From: Zelong Dong <zelong.dong@amlogic.com>
 
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> > @@ -1087,6 +1087,9 @@ int sparx5_port_init(struct sparx5 *sparx5,
-> >                ANA_CL_FILTER_CTRL_FILTER_SMAC_MC_DIS,
-> >                sparx5, ANA_CL_FILTER_CTRL(port->portno));
-> >
-> > +     if (ops->is_port_rgmii(port->portno))
-> > +             return 0;
-> > +
-> >       /* Configure MAC vlan awareness */
-> >       err = sparx5_port_max_tags_set(sparx5, port);
-> >       if (err)
-> 
-> That looks odd. What has RGMII to do with MAC VLAN awareness?
-> Maybe it just needs a comment?
+This patchset adds Reset controller driver support for
+Amlogic A4/A5 SoC. The RESET registers count and offset
+for A4/A5 Soc are same as S4 Soc.
 
-The sparx5_port_init() function initializes the RGMII port device (and
-the other types of devices too). After the common configuration is done,
-we bail out, as we do not want to configure any 2g5, 5g, 10g or 25g
-stuff.
+Changes since v2:
+- rebase on 'amlogic,t7-reset' patchset
 
-I can add a comment, sure.
+Changes since v1:
+- remove 'amlogic,t7-reset'
+- move 'amlogic,c3-reset' to the other enum list
+- move reset node from amlogic-a4-common.dtsi to
+  amlogic-a4.dtsi/amlogic-a5.dtsi
 
-> 
->         Andrew
+---
+v1:https://lore.kernel.org/all/20240703061610.37217-1-zelong.dong@amlogic.com/
+v2:https://lore.kernel.org/all/20240715051217.5286-1-zelong.dong@amlogic.com/
 
-/Daniel
+Zelong Dong (3):
+  dt-bindings: reset: Add compatible for Amlogic A4/A5 Reset Controller
+  arm64: dts: amlogic: Add Amlogic A4 reset controller
+  arm64: dts: amlogic: Add Amlogic A5 reset controller
+
+ .../bindings/reset/amlogic,meson-reset.yaml   | 23 +++--
+ .../arm64/boot/dts/amlogic/amlogic-a4-reset.h | 93 ++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi   | 10 ++
+ .../arm64/boot/dts/amlogic/amlogic-a5-reset.h | 95 +++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi   | 10 ++
+ 5 files changed, 223 insertions(+), 8 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/amlogic/amlogic-a4-reset.h
+ create mode 100644 arch/arm64/boot/dts/amlogic/amlogic-a5-reset.h
+
+-- 
+2.35.1
+
 
