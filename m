@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9504FD5C0C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE02D5C0C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 12:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kq963xpGzs8PuttsZgEZMCnVIjDE8HFsbsdeCvCZRvU=; b=dMFRO60fjSWIgcSH8VGxHBmSqF
-	zUna0vF8Xup1Br7732XDXfPY3eq1ytJmjx0PNfMwdA6SHQaQeIXQ6aB/ACbIw6XAMZSK5+sDYh7QE
-	oZ5AAnwsYiomxwlkJHVrdVWZ6ParSlu/DBfQi18lAF9OiBmuBBvy+BTfEOqYlv37JeOpROEnihDS6
-	upXzVAqabIt3jHZJljx9PdsJnzqewXpMjlWSuD1mYx8tv4fdaejVdt8MvjXSlEteYFpu/qFIaMni0
-	V7nlCEq7arBChRHgNtxgycILGevie9sI1WH2MLYJE0KyEqiO8i+wIFGSrzSM0TY7vC0rKxX3bFZ0i
-	H3dfQrKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WdLvCh2oZwdgTS/08Y5PZhiM3bTb9+Mp+XcAh/pKWPg=; b=w7PHx/yXTHEsEjP1DNaGQtHPC8
+	Uwfp2/mZiGMtHGuJ0WBTiZ6MtxuHXuqVBKM1qaknIGuG6qLM6op3AIPVEqC99fuN8grgTNai0EBJG
+	5XqJKS6qxvqhTTy//rr5KIrnS1R9xFxKEyQF+rhM6DzitFesiT3g4o8HF/6Gl2rAe/u2Jlumxvd4N
+	s7qE5bAao/jdjh64thXc2AQo0f17JUtkIevAUmjayYW0hvrUqQLw0iKayNr9kU2ZO5/ThHFQ2RbU7
+	aPW2BedlGFuUA51fLfEpPXpy+Dqg2XGp86xV+ek6LICRFxnGerwmCMHWIPl31tIAPLDGO3oLYLnbI
+	dSmSp8HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NqS-0000000ATAo-2fG1;
-	Fri, 08 Nov 2024 12:12:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9NYz-0000000AQEf-3EUg
+	id 1t9NsC-0000000ATRD-0Elr;
+	Fri, 08 Nov 2024 12:13:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1t9Nc4-0000000AQeo-313K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 11:54:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94034339;
-	Fri,  8 Nov 2024 03:54:32 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 678283F528;
-	Fri,  8 Nov 2024 03:54:00 -0800 (PST)
-Date: Fri, 8 Nov 2024 11:53:57 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: John Watts <contact@jookia.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Daniel Vetter
- <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-Message-ID: <20241108115357.691b77b0@donnerap.manchester.arm.com>
-In-Reply-To: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 08 Nov 2024 11:57:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 874775C0F4F;
+	Fri,  8 Nov 2024 11:56:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAFB6C4CECD;
+	Fri,  8 Nov 2024 11:57:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731067035;
+	bh=fTsuTudBfDdFxkn1fwKanJcNb/J6/WmqUXH2vacHmtI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=ODcsFpXcL3NMgWgdY5z6YAb97UoEeL2HpXT3eg8kEtISjP2y8HiVWoRSf4MhKy9dG
+	 d+U27SeRqt42fiJzfZYb5M+chBBZoQ47YzlTb5ZkpRow4h0vhYX2/7DcZ9Beal8/kw
+	 iMS7uFpCKIaAnz0eBv8PemL/LS2e27ZIUMu+G8SIELvngOtYpeAD57XMU6GHeplMBr
+	 aL7vzaEd2lqlx+sRINXpJ5at3H2vGClYzFp6LrZZwK0txb7JuvnVUh15957z5jC+TV
+	 ocQCyB8oHqOWrAfj27pmChlBxyoZq/TvNEckDxIio4WLuLaY5iFhxEY1ptmgDbsl04
+	 MvGDe1klZOIWQ==
+Date: Fri, 8 Nov 2024 11:57:11 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc7
+Message-ID: <20241108115709.GA17107@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_035405_889668_794EE499 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20241108_035716_834477_1F70E5C8 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +70,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 08 Nov 2024 12:40:16 +1100
-John Watts <contact@jookia.org> wrote:
+Hi Linus,
 
-Hi John,
+As promised, here is a (hopefully) final round of arm64 fixes for 6.12
+that address some user-visible floating point register corruption. Both
+of the Marks have been working on this for a couple of weeks and we've
+ended up in a position where SVE is solid but SME still has enough
+pending issues that the most pragmatic solution for the release and
+stable backports is to disable the feature. Yes, it's a shame, but the
+hardware is rare as hen's teeth at the moment and we're better off
+getting back to a known good state before fixing it all properly. We're
+also improving the selftests for 6.13 to help avoid merging broken code
+in the future.
 
-thanks for taking care and sending a patch!
-
-> On the D1 and T113 the TCON TOP cannot handle setting both DEs to a
-> single output, even if the outputs are disabled. As a workaround assign
-> DE1 to TVE0 by default.
-
-Can you say *why* this patch is needed? Is there something broken that
-needs fixing? Where does this show and why wasn't this a problem before?
-
-> A full fix for this would include logic that makes sure both DEs never
-> share the same output.
-
-To be honest, given the isolation on this patch, I'd rather wait for this
-full fledged solution, especially if there is no pressing need (see above).
-
-> Signed-off-by: John Watts <contact@jookia.org>
-> ---
->  drivers/gpu/drm/sun4i/sun8i_tcon_top.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_tcon_top.c b/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-> index a1ca3916f42bcc63b9ac7643e788d962ef360ca8..543311ffb1509face3fbfd069ded10933f254b9d 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-> @@ -179,7 +179,7 @@ static int sun8i_tcon_top_bind(struct device *dev, struct device *master,
->  	 * At least on H6, some registers have some bits set by default
->  	 * which may cause issues. Clear them here.
->  	 */
-> -	writel(0, regs + TCON_TOP_PORT_SEL_REG);
-> +	writel(0x20, regs + TCON_TOP_PORT_SEL_REG);
-
-Sorry, but that looks weird:
-First, please explain the 0x20. Is it bit 5? If yes, what does that bit
-mean? The commit message suggests you know that?
-
-And second: the comment above clearly states that those two writes just
-*clear* some registers, to have some sane base line. So please adjust this
-comment, and copy in some of the rationale from the commit message.
-Explaining things in the commit message is good (so thanks for that!), but
-having at least some terse technical explanations near the code, in a
-comment, is better.
+Anyway, the good news is that we're removing a lot more code than we're
+adding.
 
 Cheers,
-Andre
 
->  	writel(0, regs + TCON_TOP_GATE_SRC_REG);
->  
->  	/*
-> 
-> ---
-> base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
-> change-id: 20241108-tcon_fix-f0585ac9bae0
-> 
-> Best regards,
+Will
 
+--->8
+
+The following changes since commit 2e8a1acea8597ff42189ea94f0a63fa58640223d:
+
+  arm64: signal: Improve POR_EL0 handling to avoid uaccess failures (2024-10-29 17:59:12 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 81235ae0c846e1fb46a2c6fe9283fe2b2b24f7dc:
+
+  arm64: Kconfig: Make SME depend on BROKEN for now (2024-11-07 11:20:35 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc7
+
+- Fix handling of SVE traps from userspace on preemptible kernels when
+  converting the saved floating point state into SVE state.
+
+- Remove broken support for the SMCCCv1.3 "SVE discard hint"
+  optimisation.
+
+- Disable SME support, as the current support code suffers from numerous
+  issues around signal delivery, ptrace access and context-switch which
+  can lead to user-visible corruption of the register state.
+
+----------------------------------------------------------------
+Mark Brown (1):
+      arm64/sve: Discard stale CPU state when handling SVE traps
+
+Mark Rutland (2):
+      arm64: smccc: Remove broken support for SMCCCv1.3 SVE discard hint
+      arm64: Kconfig: Make SME depend on BROKEN for now
+
+ arch/arm64/Kconfig             |  1 +
+ arch/arm64/kernel/fpsimd.c     |  1 +
+ arch/arm64/kernel/smccc-call.S | 35 +++--------------------------------
+ drivers/firmware/smccc/smccc.c |  4 ----
+ include/linux/arm-smccc.h      | 32 +++-----------------------------
+ 5 files changed, 8 insertions(+), 65 deletions(-)
 
