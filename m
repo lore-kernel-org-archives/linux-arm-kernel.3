@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4438AD5E147
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE890D5E145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hu0/FhjKhA/lis5ZBlmGPYb3eKmuShEvoOlYSx3peuI=; b=ycAbxk5WTKjimQIQDPaz8iKDzY
-	iXxxDJ/KXU/arGE6DwkAMDbDYRSVkwrdUt+ExI5Qw1ZlhNCWsKpHEjmPjOnz98cL3l0ZTwou8DOOt
-	XmRNkcVkYaoBXajz5ByhnpK+3gZ3dRoQPGfk9SJnP7IWDp5fEFdrA1h4P23h1WfWMIL0/2XVDQ6Ga
-	plMZWlJySR2iGNdx9uNQl96Pc0C5p+xNxZ3rtHoERszmxXoR+E+4HVUKRR0khFjeoqMoEayRDrfF+
-	VvmNuD+QJL7ZjDHeYmEctmXvpfP6RUWDdoNbcVpskKoyRvAO5d89fy9si7HXSgDeI2rh0J1hHpxbN
-	O07cNQ2g==;
+	bh=PQnIHXes/PIu7xKcKP5gDiivubB8+96uE/39S6p9A+I=; b=XzX4n9WSzFlTM1o2rlQRxDeDPJ
+	v8l4TzHeFt7gfsk8ALoZZq/41m8ENpIVvuj1HbMO2bKDSS0NItK+2fgVmqjtsKZ1QW9Swcz1PwuBZ
+	MgHC2rNxyTFsFCeXQz1ccFxrcCQRsFUNUz1BT2qlxV0RS5flfD2t+Oe2lYXcfIbmKcfafAffnBnqW
+	hhD3ydFUmAp90elVG1eE8oARnRYmbjHugOOtrZeCK94aZ5DUWreQWCuz6SUZQQTZwJ+y1sUUtdUoy
+	uupP9ZEnCBUdBE9ZYvVg4ho1vm4ocRghaM4nnJe67Fr0595FgozQruUoPz37w/zFCEneYY0Uv3/G3
+	4jcviA4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KjM-00000009qn9-1gGy;
-	Fri, 08 Nov 2024 08:52:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t9Kl5-00000009r4t-0toU;
+	Fri, 08 Nov 2024 08:54:23 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9KWv-00000009oXi-1qwR;
-	Fri, 08 Nov 2024 08:39:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A5B3DA45192;
-	Fri,  8 Nov 2024 08:37:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6248C4CECD;
-	Fri,  8 Nov 2024 08:39:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731055184;
-	bh=UlGOyf95Tqv2jGt1kj9WSLI/Dth3v1V/vK03dzxrLyM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iBfTwJwa3yInD3+o2R/DhrWukhY1pwYWzi5G24em5fKoeeHX5cotFNEQwqiCKBng5
-	 PErfUmjfsILTjzIlSWNVgePHtqw5Ixap4/e7QDI0qvLt9RWRM1vGXUeKWTDpViKtn5
-	 62XlMfmVIaUMqJZEQdogbDqGnSks9+9XjgGFaLJErFl4dAu5urihuS8Po4B4ArTHW0
-	 /2Z2Gak+9mXLnwyq3E0qPOiFgKL/MghovcmFB00Q4EXY2/PucqXH4wO6FEe69aRZBT
-	 sMkyiHFL3MCrsXUVNMKhNTrnqkD5pSbO5hziaold0L9yBEiLMLCH/L+6cW6JzGUuSt
-	 Z5vSnVpQhH1Yg==
-Date: Fri, 8 Nov 2024 09:39:41 +0100
-From: "lorenzo@kernel.org" <lorenzo@kernel.org>
-To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
-Cc: "helgaas@kernel.org" <helgaas@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"robh@kernel.org" <robh@kernel.org>, "kw@linux.com" <kw@linux.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH 3/3] PCI: mediatek-gen3: Move reset/assert callbacks in
- .power_up()
-Message-ID: <Zy3OTQ5CwPqtaeLU@lore-desk>
-References: <20241107-pcie-en7581-fixes-v1-3-af0c872323c7@kernel.org>
- <20241107152705.GA1614612@bhelgaas>
- <ZyzmFyRYDHX0W6bB@lore-desk>
- <5c04ba80ef7a280bf2925282173802a8b2f40f3a.camel@mediatek.com>
+	id 1t9KZ5-00000009ov3-2QSv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 08:42:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t9KYc-0001FV-RX; Fri, 08 Nov 2024 09:41:30 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t9KYc-002al1-1U;
+	Fri, 08 Nov 2024 09:41:30 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1t9KYc-0004IE-16;
+	Fri, 08 Nov 2024 09:41:30 +0100
+Date: Fri, 8 Nov 2024 09:41:30 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Carlos Song <carlos.song@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] iio: temperature: Add support for P3T1085
+Message-ID: <20241108084130.5y46ot7ajha2oxrj@pengutronix.de>
+References: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
+ <20241107-p3t1085-v1-2-9a76cb85673f@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uae1GSDO0BCp98kB"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <5c04ba80ef7a280bf2925282173802a8b2f40f3a.camel@mediatek.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241107-p3t1085-v1-2-9a76cb85673f@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_003945_639190_6076835A 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20241108_004159_963050_12FDDC7F 
+X-CRM114-Status: GOOD (  38.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,165 +87,398 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Frank,
 
---uae1GSDO0BCp98kB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+thanks for the patch, please see my comments inline.
 
-> On Thu, 2024-11-07 at 17:08 +0100, Lorenzo Bianconi wrote:
-> > > On Thu, Nov 07, 2024 at 02:50:55PM +0100, Lorenzo Bianconi wrote:
-> > > > In order to make the code more readable, move phy and mac reset
-> > > > lines
-> > > > assert/de-assert configuration in .power_up callback
-> > > > (mtk_pcie_en7581_power_up/mtk_pcie_power_up).
-> > > >=20
-> > > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > > > ---
-> > > >  drivers/pci/controller/pcie-mediatek-gen3.c | 24
-> > > > ++++++++++++++++--------
-> > > >  1 file changed, 16 insertions(+), 8 deletions(-)
-> > > >=20
-> > > > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > index
-> > > > 8c8c733a145634cdbfefd339f4a692f25a6e24de..c0127d0fb4f059b9f9e8163
-> > > > 60130e183e8f0e990 100644
-> > > > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > > > @@ -867,6 +867,13 @@ static int mtk_pcie_en7581_power_up(struct
-> > > > mtk_gen3_pcie *pcie)
-> > > >  	int err;
-> > > >  	u32 val;
-> > > > =20
-> > > > +	/*
-> > > > +	 * The controller may have been left out of reset by the
-> > > > bootloader
-> > > > +	 * so make sure that we get a clean start by asserting resets
-> > > > here.
-> > > > +	 */
-> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-> > > > +				  pcie->phy_resets);
-> > > > +	reset_control_assert(pcie->mac_reset);
-> > >=20
-> > > Add blank line here.
-> >=20
-> > ack, I will fix it.
-> >=20
-> > >=20
-> > > >  	/*
-> > > >  	 * Wait for the time needed to complete the bulk assert in
-> > > >  	 * mtk_pcie_setup for EN7581 SoC.
-> > > > @@ -941,6 +948,15 @@ static int mtk_pcie_power_up(struct
-> > > > mtk_gen3_pcie *pcie)
-> > > >  	struct device *dev =3D pcie->dev;
-> > > >  	int err;
-> > > > =20
-> > > > +	/*
-> > > > +	 * The controller may have been left out of reset by the
-> > > > bootloader
-> > > > +	 * so make sure that we get a clean start by asserting resets
-> > > > here.
-> > > > +	 */
-> > > > +	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-> > > > +				  pcie->phy_resets);
-> > > > +	reset_control_assert(pcie->mac_reset);
-> > > > +	usleep_range(10, 20);
-> > >=20
-> > > Unrelated to this patch, but since you're moving it, do you know
-> > > what
-> > > this delay is for?  Can we add a #define and a spec citation for
-> > > it?
-> >=20
-> > I am not sure about it, this was already there.
-> > @Jianjun Wang: any input on it?
->=20
-> This delay is used to ensure the reset is effective. A delay of 10us
-> should be sufficient in this scenario.
+On 24-11-07, Frank Li wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+> 
+> Add basic function support for P3T1085 temperature sensor.
+> 
+> P3T1085UK is a temperature-to-digital converter with a -40 °C to +125 °C
+> range. The device can be communicated by a controller via the 2-wire serial
+> I3C (up to 12.5 MHz) and I2C (up to 3.4 MHz) interface.
+> 
+> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/iio/temperature/Kconfig            |  1 +
+>  drivers/iio/temperature/Makefile           |  2 +
+>  drivers/iio/temperature/p3t/Kconfig        | 29 +++++++++++
+>  drivers/iio/temperature/p3t/Makefile       |  5 ++
+>  drivers/iio/temperature/p3t/p3t1085.h      | 31 ++++++++++++
+>  drivers/iio/temperature/p3t/p3t1085_core.c | 79 ++++++++++++++++++++++++++++++
+>  drivers/iio/temperature/p3t/p3t1085_i2c.c  | 68 +++++++++++++++++++++++++
+>  drivers/iio/temperature/p3t/p3t1085_i3c.c  | 59 ++++++++++++++++++++++
+>  8 files changed, 274 insertions(+)
+> 
+> diff --git a/drivers/iio/temperature/Kconfig b/drivers/iio/temperature/Kconfig
+> index 1244d8e17d504..7cdd49279aba2 100644
+> --- a/drivers/iio/temperature/Kconfig
+> +++ b/drivers/iio/temperature/Kconfig
+> @@ -182,4 +182,5 @@ config MCP9600
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called mcp9600.
+>  
+> +source "drivers/iio/temperature/p3t/Kconfig"
+>  endmenu
+> diff --git a/drivers/iio/temperature/Makefile b/drivers/iio/temperature/Makefile
+> index 07d6e65709f7f..d5e89c20d58b6 100644
+> --- a/drivers/iio/temperature/Makefile
+> +++ b/drivers/iio/temperature/Makefile
+> @@ -19,3 +19,5 @@ obj-$(CONFIG_TMP007) += tmp007.o
+>  obj-$(CONFIG_TMP117) += tmp117.o
+>  obj-$(CONFIG_TSYS01) += tsys01.o
+>  obj-$(CONFIG_TSYS02D) += tsys02d.o
+> +
+> +obj-y += p3t/
+> diff --git a/drivers/iio/temperature/p3t/Kconfig b/drivers/iio/temperature/p3t/Kconfig
+> new file mode 100644
+> index 0000000000000..09e925024b66f
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/Kconfig
+> @@ -0,0 +1,29 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config IIO_P3T1085
+> +	tristate
+> +	depends on (I2C || I3C)
+> +
+> +config IIO_P3T1085_I2C
+> +	tristate "NXP P3T1085 temperature sensor I2C driver"
+> +	depends on I2C
+> +	select IIO_P3T1085
+> +	select REGMAP_I2C
+> +	help
+> +	  Say yes here to build support for NXP P3T1085 I2C temperature
+> +	  sensor.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called p3t1085_i2c
+> +
+> +config IIO_P3T1085_I3C
+> +	tristate "NXP P3T1085 temperature sensor I3C driver"
+> +	depends on I3C
+> +	select IIO_P3T1085
+> +	select REGMAP_I3C
+> +	help
+> +	  Say yes here to build support for NXP P3T1085 I3C temperature
+> +	  sensor.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called p3t1085_i3c
+> diff --git a/drivers/iio/temperature/p3t/Makefile b/drivers/iio/temperature/p3t/Makefile
+> new file mode 100644
+> index 0000000000000..21aaeb51e044d
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/Makefile
+> @@ -0,0 +1,5 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +obj-$(CONFIG_IIO_P3T1085) += p3t1085_core.o
+> +obj-$(CONFIG_IIO_P3T1085_I2C) += p3t1085_i2c.o
+> +obj-$(CONFIG_IIO_P3T1085_I3C) += p3t1085_i3c.o
+> diff --git a/drivers/iio/temperature/p3t/p3t1085.h b/drivers/iio/temperature/p3t/p3t1085.h
+> new file mode 100644
+> index 0000000000000..b018a04e4aee4
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/p3t1085.h
+> @@ -0,0 +1,31 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * NXP P3T1085 Temperature Sensor Driver
+> + *
+> + * Copyright 2024 NXP
+> + */
+> +#ifndef P3T1085_H
+> +#define P3T1085_H
+> +
+> +#include <linux/device.h>
+> +#include <linux/iio/iio.h>
+> +
+> +#define P3T1085_REG_TEMP		0x0
 
-ack, so we can introduce a marco like:
+This define can be moved into the core since the _i2c nor the _i3c is
+uses it.
 
-#define PCIE_RESET_TIME_US	10
-=2E..
+> +#define P3T1085_REG_CFGR		0x1
+> +#define P3T1085_REG_HIGH_LIM		0x2
+> +#define P3T1085_REG_LOW_LIM		0x3
+> +
+> +#define P3T1085_RESOLUTION_10UC		62500
 
-usleep_range(PCIE_RESET_TIME_US, 2 * PCIE_RESET_TIME_US);
+All three defines are not used, please remove it.
 
-what do you think?
+> +
+> +enum p3t1085_hw_id {
+> +	P3T1085_ID,
+> +};
 
-Regards,
-Lorenzo
+Is this id really required? We should keep the driver simple for now and
+extend it on demand.
 
->=20
-> >=20
-> > >=20
-> > > Is there a requirement that the PHY and MAC reset ordering be
-> > > different for EN7581 vs other chips?
-> > >=20
-> > > EN7581:
-> > >=20
-> > >   assert PHY reset
-> > >   assert MAC reset
-> > >   power on PHY
-> > >   deassert PHY reset
-> > >   deassert MAC reset
-> > >=20
-> > > others:
-> > >=20
-> > >   assert PHY reset
-> > >   assert MAC reset
-> > >   deassert PHY reset
-> > >   power on PHY
-> > >   deassert MAC reset
-> > >=20
-> > > Is there one order that would work for both?
-> >=20
-> > EN7581 requires to run phy_init()/phy_power_on() before deassert PHY
-> > reset
-> > lines.
-> >=20
-> > Regards,
-> > Lorenzo
-> >=20
-> > >=20
-> > > >  	/* PHY power on and enable pipe clock */
-> > > >  	err =3D reset_control_bulk_deassert(pcie->soc-
-> > > > >phy_resets.num_resets, pcie->phy_resets);
-> > > >  	if (err) {
-> > > > @@ -1013,14 +1029,6 @@ static int mtk_pcie_setup(struct
-> > > > mtk_gen3_pcie *pcie)
-> > > >  	 * counter since the bulk is shared.
-> > > >  	 */
-> > > >  	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets,
-> > > > pcie->phy_resets);
-> > > > -	/*
-> > > > -	 * The controller may have been left out of reset by the
-> > > > bootloader
-> > > > -	 * so make sure that we get a clean start by asserting resets
-> > > > here.
-> > > > -	 */
-> > > > -	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-> > > > pcie->phy_resets);
-> > > > -
-> > > > -	reset_control_assert(pcie->mac_reset);
-> > > > -	usleep_range(10, 20);
-> > > > =20
-> > > >  	/* Don't touch the hardware registers before power up */
-> > > >  	err =3D pcie->soc->power_up(pcie);
-> > > >=20
-> > > > --=20
-> > > > 2.47.0
-> > > >=20
+> +struct p3t1085_data {
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +};
 
---uae1GSDO0BCp98kB
-Content-Type: application/pgp-signature; name="signature.asc"
+This belongs to the core.c
 
------BEGIN PGP SIGNATURE-----
+> +int p3t1085_probe(struct device *dev, int irq, int hw_id, struct regmap *regmap);
+					     ^		^
+					    unsused params
+> +
+> +#endif /* P3T1085_H */
+> diff --git a/drivers/iio/temperature/p3t/p3t1085_core.c b/drivers/iio/temperature/p3t/p3t1085_core.c
+> new file mode 100644
+> index 0000000000000..4b00e606a6d04
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/p3t1085_core.c
+> @@ -0,0 +1,79 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * NXP P3T1085 Temperature Sensor Driver
+> + *
+> + * Copyright 2024 NXP
+> + */
+> +#include <linux/bitops.h>
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/iio/sysfs.h>
+> +#include <linux/kernel.h>
+> +#include <linux/limits.h>
+> +#include <linux/module.h>
+> +#include <linux/regmap.h>
+> +#include <linux/types.h>
+> +
+> +#include "p3t1085.h"
+> +
+> +static int p3t1085_read_raw(struct iio_dev *indio_dev,
+> +			    struct iio_chan_spec const *channel, int *val,
+> +			    int *val2, long mask)
+> +{
+> +	struct p3t1085_data *data = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		ret = regmap_read(data->regmap, P3T1085_REG_TEMP, val);
+> +		if (ret < 0) {
+> +			dev_err(data->dev, "failed to read temperature register\n");
+> +			return ret;
+> +		}
+> +		*val = *val >> 4;
+> +		return IIO_VAL_INT;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static const struct iio_chan_spec p3t1085_channels[] = {
+> +	{
+> +		.type = IIO_TEMP,
+> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
+> +	},
+> +};
+> +
+> +static const struct iio_info p3t1085_info = {
+> +	.read_raw = p3t1085_read_raw,
+> +};
+> +
+> +int p3t1085_probe(struct device *dev, int irq, int hw_id, struct regmap *regmap)
+					   ^           ^
+As written abvoe, both params are unused so can you please drop them?
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZy3OTQAKCRA6cBh0uS2t
-rJxpAP9ZXmnP7lu21ic9O/cS1HIr4Nc/+7vYc54mxu50fzCzqwEA0VgHyeIHISW/
-ELjp8Qmv2Hot9OAiCuWq98qkpHzsQwE=
-=pefi
------END PGP SIGNATURE-----
+> +{
+> +	struct p3t1085_data *data;
+> +	struct iio_dev *iio_dev;
+> +
+> +	iio_dev = devm_iio_device_alloc(dev, sizeof(*data));
+> +	if (!iio_dev)
+> +		return -ENOMEM;
+> +
+> +	data = iio_priv(iio_dev);
+> +	data->dev = dev;
+> +	data->regmap = regmap;
+> +
+> +	iio_dev->name = "p3t1085";
+> +	iio_dev->modes = INDIO_DIRECT_MODE;
+> +	iio_dev->info = &p3t1085_info;
+> +
+> +	iio_dev->channels = p3t1085_channels;
+> +	iio_dev->num_channels = ARRAY_SIZE(p3t1085_channels);
+> +
+> +	return devm_iio_device_register(dev, iio_dev);
+> +}
+> +EXPORT_SYMBOL_NS(p3t1085_probe, IIO_P3T1085);
+> +
+> +MODULE_AUTHOR("Xiaoning Wang <xiaoning.wang@nxp.com>");
+> +MODULE_DESCRIPTION("NXP P3T1085 driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/iio/temperature/p3t/p3t1085_i2c.c b/drivers/iio/temperature/p3t/p3t1085_i2c.c
+> new file mode 100644
+> index 0000000000000..20e5f7a68dd9e
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/p3t1085_i2c.c
+> @@ -0,0 +1,68 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * NXP P3T1085 Temperature Sensor Driver
+> + *
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#include <linux/i2c.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/regmap.h>
+> +#include <linux/slab.h>
+> +
+> +#include "p3t1085.h"
+> +
+> +static const struct regmap_config p3t1085_i2c_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 16,
+> +};
+> +
+> +static int p3t1085_i2c_probe(struct i2c_client *client)
+> +{
+> +	const struct i2c_device_id *id;
+> +	struct regmap *regmap;
+> +	int ret;
+> +
+> +	id = i2c_client_get_device_id(client);
+> +	if (!id)
+> +		return -EINVAL;
 
---uae1GSDO0BCp98kB--
+At the moment only one devices is supported therefore I would like drop
+passing the id to the p3t1085_probe function.
+
+> +	regmap = devm_regmap_init_i2c(client, &p3t1085_i2c_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(&client->dev, PTR_ERR(regmap),
+> +				     "Failed to register i2c regmap %ld\n", PTR_ERR(regmap));
+> +
+> +	ret = p3t1085_probe(&client->dev, client->irq, id->driver_data, regmap);
+> +	if (ret)
+> +		return dev_err_probe(&client->dev, ret, "Failed to probe\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id p3t1085_i2c_of_match[] = {
+> +	{ .compatible = "nxp,p3t1085", },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, p3t1085_i2c_of_match);
+> +
+> +static const struct i2c_device_id p3t1085_i2c_id_table[] = {
+> +	{ "p3t1085", P3T1085_ID },
+			^
+		This can be dropped
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(i2c, p3t1085_i2c_id_table);
+> +
+> +static struct i2c_driver p3t1085_driver = {
+> +	.driver = {
+> +		.name = "p3t1085_i2c",
+> +		.of_match_table = p3t1085_i2c_of_match,
+> +	},
+> +	.probe = p3t1085_i2c_probe,
+> +	.id_table = p3t1085_i2c_id_table,
+> +};
+> +module_i2c_driver(p3t1085_driver);
+> +
+> +MODULE_AUTHOR("Xiaoning Wang <xiaoning.wang@nxp.com>");
+> +MODULE_DESCRIPTION("NXP P3T1085 i2c driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_IMPORT_NS(IIO_P3T1085);
+> diff --git a/drivers/iio/temperature/p3t/p3t1085_i3c.c b/drivers/iio/temperature/p3t/p3t1085_i3c.c
+> new file mode 100644
+> index 0000000000000..0007d79aa0a6d
+> --- /dev/null
+> +++ b/drivers/iio/temperature/p3t/p3t1085_i3c.c
+> @@ -0,0 +1,59 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * NXP P3T1085 Temperature Sensor Driver
+> + *
+> + * Copyright 2024 NXP
+> + */
+> +#include <linux/kernel.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/i3c/device.h>
+> +#include <linux/i3c/master.h>
+> +#include <linux/slab.h>
+> +#include <linux/regmap.h>
+> +
+> +#include "p3t1085.h"
+> +
+> +static const struct i3c_device_id p3t1085_i3c_ids[] = {
+> +	I3C_DEVICE(0x011B, 0x1529, (void *)P3T1085_ID),
+						^
+					here as well.
+> +	{ /* sentinel */ },
+
+Nit: Can you please align your "sentinel" style. Either with or without
+the comment. Also the of_device_id is missing for the i3c case.
+
+> +};
+> +MODULE_DEVICE_TABLE(i3c, p3t1085_i3c_ids);
+> +
+> +static int p3t1085_i3c_probe(struct i3c_device *i3cdev)
+> +{
+> +	const struct regmap_config p3t1085_i3c_regmap_config = {
+> +		.reg_bits = 8,
+> +		.val_bits = 16,
+> +	};
+
+Please align the style with the i2c module.
+
+> +	int ret;
+> +
+> +	const struct i3c_device_id *id = i3c_device_match_id(i3cdev,
+> +							    p3t1085_i3c_ids);
+
+Same here, we don't need to consider different ids yet.
+
+> +	struct regmap *regmap;
+> +
+> +	regmap = devm_regmap_init_i3c(i3cdev, &p3t1085_i3c_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(&i3cdev->dev, PTR_ERR(regmap),
+> +				     "Failed to register i3c regmap\n");
+> +
+> +	ret = p3t1085_probe(&i3cdev->dev, 0, (uintptr_t)id->data, regmap);
+> +	if (ret)
+> +		return dev_err_probe(&i3cdev->dev, ret, "Failed to probe\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static struct i3c_driver p3t1085_driver = {
+> +	.driver = {
+> +		.name = "p3t1085_i3c",
+> +	},
+> +	.probe = p3t1085_i3c_probe,
+> +	.id_table = p3t1085_i3c_ids,
+> +};
+> +module_i3c_driver(p3t1085_driver);
+> +
+> +MODULE_AUTHOR("Xiaoning Wang <xiaoning.wang@nxp.com>");
+> +MODULE_DESCRIPTION("NXP p3t1085 i3c driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_IMPORT_NS(IIO_P3T1085);
+> 
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
