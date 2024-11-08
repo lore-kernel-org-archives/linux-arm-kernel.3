@@ -4,109 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646E3D5E149
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DBED5E14C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 09:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=edr4i5ZXuzi2MqMxkWzTe9XDLfbB9N2JCAr3MU/xkAQ=; b=kViRpBjnLDq03cZ7EfdHDKFp97
-	bjd4RiuCR0G3qV+N/CYickPArTj7PaBOt/wu0bRaceru2wJM8ZBLFKMxnPJ+1817+2xEa5kRDm5AG
-	7r9D1I/+S0k4D0V0jxJuNDVvNqa+R4pnzH5GTwc7OL6yfYB5WcOmMO8Ky7YD+yBoQDdcJ5IUcU9AG
-	rTRLTsUBRx6LSxYlGUPmZYj5FHo8/zN1PYNXdoOeUeWx3pbLA+pwVcjYg3gryPOv/WX4dpMZPMB4K
-	dMfmPAmIKbVIuTzz9SdNzAUOqGClxOnxtG+btJpf39BxSa9MS7K14f/+GRyZ3HsP2NAJOknexkCgQ
-	YQ4nRgHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MNOTvxiopQ80GHwBMxWl1vWeR8Fq0jvIhvkd1s4y9ow=; b=3ElIcg/SJo8yiRWVM7RsbE7X1a
+	2hGowa3omnVYL23fXkcDW0do5mbDsoWO/cGc8VkuJtnCSsiZSkllOW0h6fjtHaAyCFu/nKQs1fKkU
+	LFGVY2RSJbnSBFSyh5W0V36LKZWIiY/Q4I7HVVBTrHAS7XZ6OFzKra6TwqyDbdqAjlX///OnEMJ/m
+	hHMSayYcv8JBW6pa2eA4NOezBiiDGTxaNgty3c4aRdP+zMFIxaGYNxeVmy8nmAtqxDOQtnycXHoPs
+	RM16nYGU2tUQZo6rrG5VmDc/PIgF2k0gGyLeYJVmFFd+PfeJVPRRAJN165pJdH7Eodjx8owDPiG/9
+	rMy39p0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9LXc-0000000A082-0ITB;
-	Fri, 08 Nov 2024 09:44:32 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1t9LmI-0000000A2TW-0DQd;
+	Fri, 08 Nov 2024 09:59:42 +0000
+Received: from mail-westeuropeazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c201::] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9LVq-00000009ztU-0IOi
+	id 1t9LkM-0000000A1nQ-102K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 09:42:43 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a99fa009adcso107601266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 01:42:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1731058959; x=1731663759; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=edr4i5ZXuzi2MqMxkWzTe9XDLfbB9N2JCAr3MU/xkAQ=;
-        b=EZ3ruLbVwA/nJehd4rSHo5rDvPPlZqPdfKnRGw490xdfY+UqzfKA4gPCI3N0QkHB6D
-         JtNt/Fu+huKiKllQauwthtePMNbPwR8Ou+BPE+LR9sHR/wslQ/uqvsbXhMy+Mp99uimQ
-         tlPG5X7e9zpdNAupYhhJhxvnD/4ICJyUP6caIjn2Hmg+zThdPLeHkQnkMA8u6zN00A+z
-         zOWLaIAxSbQAdSBrw6aJ7PXzUiDw4LT74yK93Zbq7d4jZ3JyKNF57jV0ir6iypczYT9I
-         9WWZdUH+nkrdueMHTgmzc124sPZU5aqeglzxcp+lGtJIcu/7vpxersntu2mfZgtUIps9
-         5B8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731058959; x=1731663759;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=edr4i5ZXuzi2MqMxkWzTe9XDLfbB9N2JCAr3MU/xkAQ=;
-        b=AgEBx1gcByI6NcBkGcJ6zDJ0iQJjlH6ykLSvFkDV17Yub0gRYy3Dn72pAwepl4zRFJ
-         gowg4BfqugH2Ytw32iHaYS3e7tn6zmG7zND+XR8OSCNw2ESb1ZcHwDQVdh/pcz7rYxxY
-         gbYLUXmaYnmgw9woM17EIyoupRTOllANMYFkMaaoJfDHItp5Uhj7MzMxLP48gQjIrORt
-         /XHEIoC8cQGkbJMkinYev56mPnjPzEimiD3571m9I8Sv9Pn4qW2shIb/VwYYxUt8yyH7
-         n2hnF56o6eciI/ZXnoDsV6oVmXFf8aWleILjNSZa0Yo2LGYbBru4/DR1XTmVn/u3UB1y
-         fydg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6d5L7x1+IWasD6Bc3WtLy8OqFxiKomFO5648hbKt8Nb3/Pa2Vuy9bQmaWj7cmZqAT1iS4i9WjA22DdKc31S3n@lists.infradead.org
-X-Gm-Message-State: AOJu0YyejD0/DmhuQxaA8OfsXLUQagAJEx1bvIX9fMVYMi/3pYdFK/77
-	bpjgweKZwdZKccUnj9++8b2nSFgpyl4H+21Uow3tVBeae7+6StJyWu5cv96502A=
-X-Google-Smtp-Source: AGHT+IGmVFg6dGCdJ94MvP+GtpTJm4h6Vp+aWc3AX4E8KZIkMCx5imWZRQaFghSdUOFYkB1RH36WSQ==
-X-Received: by 2002:a05:6402:3510:b0:5c9:34b4:69a8 with SMTP id 4fb4d7f45d1cf-5cf0a2fb6f9mr2077935a12.6.1731058959540;
-        Fri, 08 Nov 2024 01:42:39 -0800 (PST)
-Received: from localhost (host-79-35-211-193.retail.telecomitalia.it. [79.35.211.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03c4ed68sm1765328a12.63.2024.11.08.01.42.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 01:42:39 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] PCI: of_property: Assign PCI instead of CPU bus address to dynamic PCI nodes
-Date: Fri,  8 Nov 2024 10:42:56 +0100
-Message-ID: <20241108094256.28933-1-andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-MIME-Version: 1.0
+	Fri, 08 Nov 2024 09:57:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P6x8Q6enjAK4YlwoWMazEc+PJUkT2Cb4Wqpuglu3sed1AHb9vpaNLLOyZ9/y5Cuxg3pXbY5rBFZRRW5UYBXSIMmsN7iZG7zSzb35kai8LwlOPmeuJijvz7YSB+XRaAwwk/OIwA1PUnmOk6G/fpjdjH6dwh5f3fvYa5IOEwuvZ6HASDy7Fieo9XcliEnsImUAxnqpfqFtoN0k+/os35SPxVjYdlwXDQoJ9xrqUeSRaUmKLSkB7ydObnGv+w2Iy5Xwu3ZisAtvKmMqQfFwBqGJ7jsIEoX6iWTKwf9IHNplRZRcxct8Z5q4pS+gJmoo4lz/JPmDd/TezsuMZ5w+cHYn0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8KanM/CPFj0gNKIVLVSJAZiIBT3bk/N8tQR1B/ISWfw=;
+ b=ctfC6PTO01HP1J2HY2LKsMmEfbZYRDJqpJCi4WB4+FN/2ix/FAaNnS4VaZYTmVT6p3L65TnDRnhtNRcMpJ0dmmj3OPNjQa2AzY27BuHnJ/fkz/d4F7bkJAuuX+CkLpaavn0P+lhNL7UTwFrR75hBcmxJLu6Khm3hJXJR8b4p/yEUv0jDgCTTKOm5O3WqHzBjbPglcNjxnWCu2utaZoaLmMR1bYOgiWy2SMNxoiOE2uHx7kw9E/a895CIHmsyMaXJCn2CXlhOF5Y+PfHY/2bTIh6225Exn++1Yenei4KH68AEXgbXl8HGgk9Zu9NXRbnLLjqd4QKroa8T2SUyB0Kq2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8KanM/CPFj0gNKIVLVSJAZiIBT3bk/N8tQR1B/ISWfw=;
+ b=oS4c4EHdc4Mz1QqDEcjPw3aiKtRWWlAkyGTq/uLIgecXMnoRIR4v4VET9mkkRUptmn4WNyJ7qKw7UWTU9ipfn9rZQJKbRwI7dxTN0XgK8l5gqLsErI9AGUagbyO1BYKdgtjqvTLpPUA4Yxv5bPG1ZEOxMVNuD8K8PoeOJMUtkI3Dh2kxTn0CaB872ClT0hnZN9sauOIZr6zSzkY60yXiwMFh9Mkgb+rc/9l53qpfXSi+CRc6xRFByr5f9r9ssv1Dz4hL5S8ibfmL+RqhLQkqMbNSZlesktsLY+wqN/0Qo8Lb8Os/AuZnFiH5DFhrjJokLeJCFDdLqGjdR2/6jmKA7w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com (2603:10a6:10:127::9)
+ by PA1PR04MB10577.eurprd04.prod.outlook.com (2603:10a6:102:493::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20; Fri, 8 Nov
+ 2024 09:57:38 +0000
+Received: from DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84]) by DB8PR04MB7065.eurprd04.prod.outlook.com
+ ([fe80::8af7:8659:9d42:bd84%3]) with mapi id 15.20.8137.018; Fri, 8 Nov 2024
+ 09:57:38 +0000
+Date: Fri, 8 Nov 2024 17:56:46 +0800
+From: Pengfei Li <pengfei.li_1@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, joao.goncalves@toradex.com,
+	frieder.schrempf@kontron.de, marex@denx.de,
+	hvilleneuve@dimonoff.com, peng.fan@nxp.com, m.othacehe@gmail.com,
+	mwalle@kernel.org, Max.Merchel@ew.tq-group.com,
+	hiago.franco@toradex.com, tharvey@gateworks.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	ping.bai@nxp.com, ye.li@nxp.com, aisheng.dong@nxp.com,
+	frank.li@nxp.com
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: Add i.MX91 dtsi support
+Message-ID: <Zy3gXvuWb76beZKo@pengfei-OptiPlex-Tower-Plus-7010>
+References: <20241108022703.1877171-1-pengfei.li_1@nxp.com>
+ <20241108022703.1877171-3-pengfei.li_1@nxp.com>
+ <2350046.ElGaqSPkdT@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <2350046.ElGaqSPkdT@steina-w>
+X-ClientProxiedBy: SG2P153CA0021.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::8)
+ To DB8PR04MB7065.eurprd04.prod.outlook.com (2603:10a6:10:127::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8PR04MB7065:EE_|PA1PR04MB10577:EE_
+X-MS-Office365-Filtering-Correlation-Id: a987406f-62fc-420b-efe3-08dcffdbc704
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?hCEPUPSq7Knregwk0vPUDU6lspOPsL7wS1hHiZbb+ZyQs1yFRvXyQXsz4j?=
+ =?iso-8859-1?Q?tR+Qe5cjN3ZbPEOzaBqYwMuuoOYIiee3i0ksqFRqiozAj7YazZ7s0Q3/w/?=
+ =?iso-8859-1?Q?A85ycUfpOCn9I3AahvMcvN5VXwcyljQRtGURtU1kMVwyYTZ6u6oePZffum?=
+ =?iso-8859-1?Q?GNH7ua+cvLpkZAFD9WlwMj20zdAUNkgvuHKzfbyIB+KU10RIyyxuyG3B43?=
+ =?iso-8859-1?Q?GBRWcksRILqQmRIHhuQlOqQIAVBHrRvbKn/tF5vXCEMH0mG8a61qM+FpoP?=
+ =?iso-8859-1?Q?QNtHoG08gnJuZYSJY9X9pEBo4nP3NlGAmgqDX1oCaiEKpZ1qHnBdHELcrG?=
+ =?iso-8859-1?Q?z/Rx6iLV7BroY5wCNHHER0gaYm/bJaQ0zMjBngVIu4SU6cIM5WSxKZkVgx?=
+ =?iso-8859-1?Q?Rqc13T0oYaEEMkS53MMumXaiWYljiq77ll6gyd76grYvtlNtfvgZv9LUUO?=
+ =?iso-8859-1?Q?b0AKLVbQ/NWFY+DJbInrYrqJvgZz1huFgDDefVKFXQjoZN0+SF3kt4FSHf?=
+ =?iso-8859-1?Q?B2LauLYiGJqqGBngbepgubVI3MQrp25qawlq90JvdM21vu3QPr58u1S1nJ?=
+ =?iso-8859-1?Q?LW/ps4ZGVkdiHiJahf1o8Eclk7xzFpZtxddui6EbqlVclDcb39a19MGW9/?=
+ =?iso-8859-1?Q?6HbJGA41MLLtXMJ2LV3gfRBeTKiuxIpJmE22bGMkFmEmzBIu6QAiqxewO8?=
+ =?iso-8859-1?Q?CSpTUuXxNbG4w4NLWsisnfzJ50wbGubH4hfrMGN0vRVVPXJ6tOu9a64spi?=
+ =?iso-8859-1?Q?HJtAcmg6ZKwfIqy+sfnFCHhPrD0OCAvu7Qiu2D3omkAwsra6xxmx9+6NRt?=
+ =?iso-8859-1?Q?at/vODmdWLLtws+h/Yct2kHxe/0n8AfdsbOxWzQb7/gams8bzFG4+Q1Uz3?=
+ =?iso-8859-1?Q?SQKqdzZwJjYtQpYk1UvIm2Crtrk8CKuIvCAHJC8w79neDQFWoDSwaViYQU?=
+ =?iso-8859-1?Q?Ga3BhY6Ks9a79CtsSAE8YUsPyoFp3O4QRFbm9+pnWqdJF/v/kwnG3DzSPf?=
+ =?iso-8859-1?Q?MrhMPysKKPbE6me8AhwU24unYr4WWRZVFmZx61adBOT8Nku+phidtq29q5?=
+ =?iso-8859-1?Q?wOlpePGDR0nHDCR0zh4OQqAExs04+rQUQyTFPw0R+tQwD7cfrm4BvypWkF?=
+ =?iso-8859-1?Q?xdp10O2AdFl/c9P40XhsYZB/ZvMwEW8lUUV/eLzN+AS6zvM2dxs/CDuZMH?=
+ =?iso-8859-1?Q?hIUmulhLRwL2SXcrogX3XwFobb28U+TlqQVj6OUVcRFk70rLIuywywJp5i?=
+ =?iso-8859-1?Q?KEubrRvOB5pZnTv+7cbLajhU+FBk/s71pomXUII0pkb3E9L6YO31e2Z5Je?=
+ =?iso-8859-1?Q?lu+Axh/cHxA8KXXVy+aiu1xNqgRNQ+pn/Ub9kqYQLncuSxygAcO560+kUF?=
+ =?iso-8859-1?Q?KdcOeQAQUZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7065.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?yhMPjkoXs/v1s4KHockI9uRpxn+zhFPaHXPBvEmnqgvy4eOB6Bofa7Ywc+?=
+ =?iso-8859-1?Q?V8q6HArWHACVto4tqc42A7QVgNrgwh17oCXbPO9PcV5cB4WnrVYd2U1SIw?=
+ =?iso-8859-1?Q?/MsS+L/q8TEZn7+RVXt03fjC3dHUEImTiwPyfVk/pFiHvt0CyosVj7CkKQ?=
+ =?iso-8859-1?Q?gkblcoDjutDmdgddHwmir0orvseEP28iwRimxrBhhEMWa9dpE/Lt364uVD?=
+ =?iso-8859-1?Q?p9IrAp7uagfF+upmqwybhxxvgd0IqLcrX3q0g2CYgDT6Bs7wP4cxolJKn2?=
+ =?iso-8859-1?Q?K5FVYV6nTs9slIekNo6Ff9ujpk0lQFecWb53836xcy2Bl+ssQhOrAJAnC7?=
+ =?iso-8859-1?Q?MdoxtbwuogvgyvQTw9D9xTjbWUZq5H4ZBkBJys4ucYPchEaJVrUT2Ptb+h?=
+ =?iso-8859-1?Q?JLXZ1OiypN9q3enZSUYq/8sj7hm0cU/OonP0idnKDJqRcsUbkBqlSEaGje?=
+ =?iso-8859-1?Q?5IR20LEoa2DJsM3GFcqhKPsRhtJPEGoBxdGDG9n8UJwisjIW42xYzPG8PG?=
+ =?iso-8859-1?Q?MeURruPI6Wl2Oj2aQ2Z3henS/W42VmhRnn/blJcSp0bQvRBjjXFGe53+3W?=
+ =?iso-8859-1?Q?nnV9qgKSYIiWZayxr14zUJ6cELEz6HwYvEkD8FPIJyGK/zQnEjwhjo09Bz?=
+ =?iso-8859-1?Q?0R0ryYFKrV5REuBqsTzTxDUe3Yx3052SDGrL7jFoOn0fWbPioLIlkKX5UW?=
+ =?iso-8859-1?Q?6pGy+3OTcVoAMfwtjcaO7w2D9l5G2KtfT7+1HN8lWJTA3Tl4tstA5HooXE?=
+ =?iso-8859-1?Q?Ivkk6nNyag3SBSOCIlXKamV7pJwGHRHcLx82P8B0SdCpMiT55W07zICQ6C?=
+ =?iso-8859-1?Q?hQRYFSb/Wka9WkmDBX+z+o7JS1n+R+f93Dh+lUxEe2NwbtBIwQawnJOgFk?=
+ =?iso-8859-1?Q?LP8gu2AVjY9TgN3a/bf3CQNE/K77fm/gjgPuJ1aI2Ouq16nAmCRd60J87G?=
+ =?iso-8859-1?Q?JA6GjwG0dQ8GpuIIBn1VXIDB13ap4FbkTmrJGbqfZ3uuNphmNxI01lhDgl?=
+ =?iso-8859-1?Q?wA8GBo2WFVMOYorsJALGMXWjEIS2I45Xv3ZA0SxL5pkmAx35vwJzY06FOX?=
+ =?iso-8859-1?Q?HZvoY9pd/3S+qBT2rrGVVAppo951LNVlAgnUvpJFb3Q+avDnMJixEVkUym?=
+ =?iso-8859-1?Q?zOPor5kvPONvuRG9Ntm4t1KHvbC1nL9wMm6RCDmcn5j3KK7u4pffQGulIu?=
+ =?iso-8859-1?Q?TV5oQJN8t1uqKNvKYgQUKga1smCrEEx4ouHK+doyTKcp9cSCWymVYaGMj7?=
+ =?iso-8859-1?Q?C5+l0ZWrHw2tMZcDBDT1XaPTwu0NpJkIOlKy6riuRU2XcM1ud4WhPRJidk?=
+ =?iso-8859-1?Q?84dg50RGsS/NLYoTkqY+as5gWccZO2r9dKG+ShXUMAPpOKVlRYDlnvFQ1c?=
+ =?iso-8859-1?Q?nrtj2Z+h6Xf/ZwS1YPC6n+XuozE2+cbgKt1WItTbAa9Jvyid/UBACQirwQ?=
+ =?iso-8859-1?Q?iGpedpwlApFFun/KhtjRfBYpq61sSQSpjSNzinFmeQe1vsfWQQS0W2BkAX?=
+ =?iso-8859-1?Q?3FUBJ0uMfLZ4nDzs8bjlTdw+O04+FWoTsVkMBrBYQz8+pYydbaZ348qeTx?=
+ =?iso-8859-1?Q?WrJooZtFrPBUoxOAvP5/2NtmfyK7z4FguUo/N0QraCJSwRnYGNbqgkavAg?=
+ =?iso-8859-1?Q?Q0ywujZFm1D4SPjIrMDDohZB8fWkZdQhxx?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a987406f-62fc-420b-efe3-08dcffdbc704
+X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7065.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 09:57:38.6599
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6FvyByOG03z4mkf82xcKOLFe09GXTMNVRR1Ji/c6hrNFexkPSc7UM7oO1JcoPmRuUAr0ljP5Y1pAmeGp1rcb6g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10577
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_014242_142411_FDA9C65D 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20241108_015742_373546_D7BAD50B 
+X-CRM114-Status: GOOD (  35.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,39 +167,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When populating "ranges" property for a PCI bridge or endpoint,
-of_pci_prop_ranges() incorrectly use the CPU bus address of the resource.
-In such PCI nodes, the window should instead be in PCI address space. Call
-pci_bus_address() on the resource in order to obtain the PCI bus
-address.
+On Thu, Nov 07, 2024 at 01:49:50PM +0100, Alexander Stein wrote:
+> Hi,
+> 
+> thanks for putting me on CC.
+> 
+> Am Freitag, 8. November 2024, 03:27:02 CET schrieb Pengfei Li:
+> > The i.MX 91 family features an Arm Cortex-A55 running at up to
+> > 1.4GHz, support for modern LPDDR4 memory to enable platform longevity,
+> > along with a rich set of peripherals targeting medical, industrial
+> > and consumer IoT market segments.
+> > 
+> > The design of the i.MX91 platform is very similar to i.MX93.
+> > The mainly difference between i.MX91 and i.MX93 is as follows:
+> > - i.MX91 removed some clocks and modified the names of some clocks.
+> > - i.MX91 only has one A core
+> > 
+> > Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 ++++++++++++++++++
+> >  arch/arm64/boot/dts/freescale/imx91.dtsi      |  66 ++
+> >  2 files changed, 836 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx91-pinfunc.h b/arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> > new file mode 100644
+> > index 000000000000..bc58ce2102b2
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> 
+> FWIW this is a 1:1 copy from downstream kernel
 
-Fixes: 407d1a51921e ("PCI: Create device tree node for bridge")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-Tested-by: Herve Codina <herve.codina@bootlin.com>
----
-This patch, originally preparatory for a bigger patchset (see [1]), has
-been splitted in a standalone one for better management and because it
-contains a bugfix which is probably of interest to stable branch.
+Hi, thanks for the comments.
 
- drivers/pci/of_property.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yes, it is same as downstream kernel.
 
-diff --git a/drivers/pci/of_property.c b/drivers/pci/of_property.c
-index 5a0b98e69795..886c236e5de6 100644
---- a/drivers/pci/of_property.c
-+++ b/drivers/pci/of_property.c
-@@ -126,7 +126,7 @@ static int of_pci_prop_ranges(struct pci_dev *pdev, struct of_changeset *ocs,
- 		if (of_pci_get_addr_flags(&res[j], &flags))
- 			continue;
- 
--		val64 = res[j].start;
-+		val64 = pci_bus_address(pdev, &res[j] - pdev->resource);
- 		of_pci_set_address(pdev, rp[i].parent_addr, val64, 0, flags,
- 				   false);
- 		if (pci_is_bridge(pdev)) {
--- 
-2.35.3
+> 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> > new file mode 100644
+> > index 000000000000..a9f4c1fe61cc
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> > @@ -0,0 +1,66 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright 2024 NXP
+> > + */
+> > +
+> > +#include "imx91-pinfunc.h"
+> > +#include "imx93.dtsi"
+> > +
+> > +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
+> > +	cooling-device =
+> > +		<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> > +};
+> > +
+> > +&clk {
+> > +	compatible = "fsl,imx91-ccm";
+> > +};
+> > +
+> > +&eqos {
+> > +	clocks = <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
+> > +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
+> > +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> > +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
+> > +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> 
+> Is it just me or is the alignment of new lines not matching?
 
+Not sure about others, the alignment on my side is correct.
+
+> 
+> 
+> > +};
+> > +
+> > +&fec {
+> > +	clocks = <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> > +			<&clk IMX91_CLK_ENET_TIMER>,
+> > +			<&clk IMX91_CLK_ENET2_REGULAR>,
+> > +			<&clk IMX93_CLK_DUMMY>;
+> > +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> > +				<&clk IMX91_CLK_ENET2_REGULAR>;
+> > +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> > +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> 
+> Here as well: Is it just me or is the alignment of new lines not matching?
+
+Same as above.
+
+> 
+> > +	assigned-clock-rates = <100000000>, <250000000>;
+> > +};
+> > +
+> > +&i3c1 {
+> > +	clocks = <&clk IMX93_CLK_BUS_AON>,
+> > +			<&clk IMX93_CLK_I3C1_GATE>,
+> > +			<&clk IMX93_CLK_DUMMY>;
+> > +};
+> > +
+> > +&i3c2 {
+> > +	clocks = <&clk IMX93_CLK_BUS_WAKEUP>,
+> > +			<&clk IMX93_CLK_I3C2_GATE>,
+> > +			<&clk IMX93_CLK_DUMMY>;
+> > +};
+> > +
+> > +&tmu {
+> > +	status = "disabled";
+> 
+> Why does the TMU needs to be disabled instead of deleted?
+
+Actually, the i.MX91 also has a TMU, but the i.MX91 uses a different IP than the i.MX93, so a new driver is required.
+However, this new driver is not applied yet on upstream kernel, so it is disabled here for now.
+
+> 
+> > +};
+> > +
+> > +/* i.MX91 only has one A core */
+> > +/delete-node/ &A55_1;
+> > +
+> > +/* i.MX91 not has cm33 */
+> > +/delete-node/ &cm33;
+> > +
+> > +/* i.MX91 not has power-domain@44461800 */
+> > +/delete-node/ &mlmix;
+> > 
+> 
+> Shouldn't the following node also be removed?
+> * mipi_csi
+> * dsi
+> * lvds_bridge
+> * lcdif_to_dsi
+> * lcdif_to_ldb
+> 
+> Also in downstream kernel IMX91_CLK_MEDIA_AXI, which is IMX93_CLK_MEDIA_AXI
+> upstream, is set to 200 MHz. Is this applicable here as well?
+> 
+
+For these nodes, it is only in the downstream kernel and not yet applied to the upstream kernel for i.MX93.
+So they cannot be removed in the upstream kernel yet.
+
+BR,
+Pengfei Li
+
+> Best regards,
+> Alexander
+> 
+> -- 
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+> 
+> 
+> 
 
