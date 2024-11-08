@@ -4,193 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69355D5E15E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6678D5E15A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 11:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Subject:Cc:To:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O9YIfWXRWHbSItuV7hkensXEQ9Xm6bHySqXZCMJOx7M=; b=yyFG6zQd21YKhUxrDuRsk9mzwi
-	lFIkhWgO7hccY94Q7tiV9didKbvvDoxdXUbY6uBHOzxhfc6RF4m8uePvhcs1gRhXX5yWl563ckB1G
-	Gtk9DpIjjlFXSplU018fn0+rg+l3axhVc/395Wg/b0yKkkVysXI/QUiOoBsysPdz/efXGSSGx3W40
-	8GRwpALNohxxwKd1/rX8JZvx7+misXQxRoIGqA3Lh0GC811xP+zqANc7gCnUq495K8UTsNblT0jtp
-	kTJEsiV+8guS/WL/+VvxGTniGuIdaVWJSoHjmoa1CjVW/19ZvC7fktXTphxeT0rJeGYub9P3LapxE
-	K07CoCfA==;
+	bh=+D8vZegrH9yIdYiz0FSD9MNRGwL9EkUqYzbNsOs/U7A=; b=RL98oiFl92hQokFX2Y9I6qZYiq
+	GCtiX3XPOHT5GJqBc3KDKKCfJ/Gr1d8IXpoXV8Nyhr6nsYB1GekSTQ+4kq0CGjfovTtlm1DBD98Xu
+	AXma3pw7fxVVb2dv2dws/U7OAXeiUVVysI9KvSBcBosfgjgdZCgHXzI6gODUzVAzvsdDcO94JNjhj
+	8f9JYXA2uW4qUp7U/ksJjmkd6Lqac/4/t1wkAXLf9JqbM/za9uCUWdaLvzltHJDFjSVDI5o6k96Zu
+	iCUVN+RGgSNu6t5c101FowVVVF6FVZy1j3uft8fp3cqrhVnG3nlvIk0Lc8Bq9ybb/cwY8sZ7bRcGT
+	7Vdq0v1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9N5A-0000000AKfg-3LEF;
-	Fri, 08 Nov 2024 11:23:16 +0000
-Received: from mx07-0063e101.pphosted.com ([205.220.184.123])
+	id 1t9N6u-0000000AKzf-2OYT;
+	Fri, 08 Nov 2024 11:25:04 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9MHy-0000000A7dl-3OJT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 10:32:31 +0000
-Received: from pps.filterd (m0247495.ppops.net [127.0.0.1])
-	by mx08-0063e101.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A8AGexE021628;
-	Fri, 8 Nov 2024 10:32:05 GMT
-Received: from ma0pr01cu009.outbound.protection.outlook.com (mail-southindiaazlp17010006.outbound.protection.outlook.com [40.93.131.6])
-	by mx08-0063e101.pphosted.com (PPS) with ESMTPS id 42s6f5r8jr-5
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 08 Nov 2024 10:32:04 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nlJ8tuUoX4dcAXPq5+xPA1EIaDHTg6E/eacqlGdjtOqYDWrC4j4Fzb5bEs+7tpmy3O4B9FhvxYyv4CHdGpWT/jhcqldzGALnNPR1erN0llZCIBMGXSnpL27gJzX8KVKc1bIhZIBZs55URdnLTrEw0+9Uh+ryheS476uch9gt+AEzyMy5gr0XwNn69vP+fp1XFhVFD+2n3vhBWv9sajkLw6PXkaEnwsmftByrGw3Zo0IowqTO8e40HNYAWzVadB89xYb2WKOIOfwGdjcpYMZ+OfnMUQD0zkbynY9JQfk2BrpnKxkUz4hDhweltIduJLDY92/X+cyYSgh5yu73r0dS0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O9YIfWXRWHbSItuV7hkensXEQ9Xm6bHySqXZCMJOx7M=;
- b=CBOVoCdlZDEV5/PuT1VnKu31Oxg4bB24Onz4QJ2W7CCcY4TlSHnCw0X2fi7E+jz6+28apOnZ+CSURgGBXumvYvcoeGXuxPG7iRVzIkr8i1zR50ViuR2htPa+uK3EZpL+h/EjIJAlrSHr+3+bWhppzZo/Wkm1bxchJIWkyqJQEO8prGMs2vyl0axMHRUk3/AP7YyLXjaUrqFf0r3pVwaadtcA1M1qDgu7N9ht6wtFsnJA04eGfpDVdrkmXswypcp8U8Tf2igBjT71pRZ3VbKfhll2nmt5JQjB+7gKnOMwfwApIxg31onS8RJnqi8jBUc6bGZ86dxs2Djw/gIQQrTX1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=blaize.com; dmarc=pass action=none header.from=blaize.com;
- dkim=pass header.d=blaize.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=BLAIZE.COM;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O9YIfWXRWHbSItuV7hkensXEQ9Xm6bHySqXZCMJOx7M=;
- b=EQ1h+vx/IpD/tdF/bsU0DUXF7Ec6wxII7PZf3TUB0SU+6ZTFNN9Peuk5+2NC1DhKmb7zTiKdWjplVyrHUOFcFwwBNzyKiyu9xzoRT9rhtVHjB/oJwvtlAeAd4Q7qqttTeHX6TbNGT5rJctd4O03Sbi53/IycIhsjpjq7dn3I6Yw=
-Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:12a::5)
- by PN0PR01MB7813.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:b5::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.21; Fri, 8 Nov
- 2024 10:31:58 +0000
-Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::309a:12cf:74a4:5655]) by MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::309a:12cf:74a4:5655%4]) with mapi id 15.20.8137.019; Fri, 8 Nov 2024
- 10:31:58 +0000
-From: Niko Pasaloukos <nikolaos.pasaloukos@blaize.com>
-To: James Cowgill <james.cowgill@blaize.com>,
-        Matt Redfearn
-	<matthew.redfearn@blaize.com>,
-        Neil Jones <neil.jones@blaize.com>,
-        Niko
- Pasaloukos <nikolaos.pasaloukos@blaize.com>,
-        "robh@kernel.org"
-	<robh@kernel.org>,
-        "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>,
-        "conor+dt@kernel.org"
-	<conor+dt@kernel.org>,
-        "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-        "will@kernel.org" <will@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
-        "olof@lixom.net" <olof@lixom.net>,
-        "hverkuil-cisco@xs4all.nl"
-	<hverkuil-cisco@xs4all.nl>,
-        "shawnguo@kernel.org" <shawnguo@kernel.org>,
-        "hvilleneuve@dimonoff.com" <hvilleneuve@dimonoff.com>,
-        "andre.przywara@arm.com" <andre.przywara@arm.com>,
-        "rafal@milecki.pl"
-	<rafal@milecki.pl>,
-        "andersson@kernel.org" <andersson@kernel.org>,
-        "konrad.dybcio@linaro.org" <konrad.dybcio@linaro.org>,
-        "angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>,
-        "nm@ti.com" <nm@ti.com>,
-        "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
-        "nfraprado@collabora.com" <nfraprado@collabora.com>,
-        "johan+linaro@kernel.org" <johan+linaro@kernel.org>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v4 4/6] arm64: Add initial support for Blaize BLZP1600 CB2
-Thread-Topic: [PATCH v4 4/6] arm64: Add initial support for Blaize BLZP1600
- CB2
-Thread-Index: AQHbMclwfRt3f4mfrUa2QPPbgzG5og==
-Date: Fri, 8 Nov 2024 10:31:57 +0000
-Message-ID: <20241108103120.9955-5-nikolaos.pasaloukos@blaize.com>
-References: <20241108103120.9955-1-nikolaos.pasaloukos@blaize.com>
-In-Reply-To: <20241108103120.9955-1-nikolaos.pasaloukos@blaize.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MA0PR01MB10184:EE_|PN0PR01MB7813:EE_
-x-ms-office365-filtering-correlation-id: d268f0a5-69ee-4ed0-a738-08dcffe092ba
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018|921020;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?j9pNQc/TnFmQ4aQ68wC7m8gkkKS6UZQI9Fz7rFrEISqCFYj+EiBv9n8pJJ?=
- =?iso-8859-1?Q?nQS5eSOS/bzcwd3v86SSdKS/x9ceryoY+3bMT6ILzCGKG1n4XFF7rch0Uz?=
- =?iso-8859-1?Q?1Xcc7/KhIXsjfCVAsni5zyAa83ANNqQ5hK7nNmiyQzSizNw7WDVBCAA49e?=
- =?iso-8859-1?Q?wfcMflh9yu5ri3JbRTk3SxVvoc+ZM8pqhxVYAOUrqs/OPDeJfwCv7SZJUT?=
- =?iso-8859-1?Q?+JvxzGHBg171PHD6DeJnR+IEg4ebMelHP0mx6bYdBcztS3vbb8yKwvIOp/?=
- =?iso-8859-1?Q?G8qkYPI4UvtRxeKFtAMHlkPAgW9cNM6KesbDa1K/QDaegqnPdXbZUSgOGF?=
- =?iso-8859-1?Q?D9RWTeE7V2aN94XounfgWDuM0Jb6ULrvys0KPXqa72kIdE1YgTL3/Hz11g?=
- =?iso-8859-1?Q?0vaMZDSFYhhz9rAo70kYUD/zXZID273XAmkAnBbrxY1Wtt7UiS+rD0vsAw?=
- =?iso-8859-1?Q?SkLbPOmtmCkX6NwHYiC8dnKUtyAQ4wn9PYQbC1iuNg0FyH81tf4yXFGvB0?=
- =?iso-8859-1?Q?bdkatlsaWqk7a5hcR5Ms5+HwgdMtRRYYzY90eUxwU0zPbQJDyrHOA9niOj?=
- =?iso-8859-1?Q?LOlA6R9rN6QIORhVA0S4geHbo96P/3tXYBpczr0e0ZjAA0/bcLGDjhFvwe?=
- =?iso-8859-1?Q?2RbMERZo7/aSyQ34w9769665oLZ7BbMy7oKDQ2B3wXGSzsHqS5oYntvKx/?=
- =?iso-8859-1?Q?quOCYErLJBgwmCzy+K+l7GrsP5UaX5Xx1YEqtASW4yZMlEr7kdenrx//4X?=
- =?iso-8859-1?Q?PFYk9p0r3Ong5/Sal/WlfwDwebN9FEXti/xORNPgC3CwUii55JjL2AbEYw?=
- =?iso-8859-1?Q?2Nqptl69+6neR4WKyCxoCO6fE2SbP55BWROSS8ZPwqTVBhCiZLavaOUENZ?=
- =?iso-8859-1?Q?6S6SS9zJdE4ZoPaWpBReDUnmEWveh+yhhjZ9qIJdMPbxptz0o+wyCkn/op?=
- =?iso-8859-1?Q?VlILsZc00ZypOtquJn9kV2w+HjieCw/Flnr+r/8NBbBJBKcpHnAZiVLxpq?=
- =?iso-8859-1?Q?B3kuIMty79YRTgfbBb3b0ttDaH455CUDBfVBthpHkTLyHhUFjYweiqmRl+?=
- =?iso-8859-1?Q?HZs9i/S1wbOxP8EfnKxA9TfLHNdd2IkRiVbiPW2LcuxGTU4174a604sxHV?=
- =?iso-8859-1?Q?ZLXMKVRQOFgc0ZWDOhmDCp5X9Fl6t/apI4cWVlxo6IrAsBKy0D754vtsEg?=
- =?iso-8859-1?Q?3nvfP7zuwmYk+9GiDhiZa83H4zzE35+YOZB5X0UEtvBYT18lnWoexmwNz2?=
- =?iso-8859-1?Q?pFkKGUzHJkyTlOJWiFS4qIpWR88dSCeF29JrmEaxZtjewsebPLb3CT1rqP?=
- =?iso-8859-1?Q?RoPqwz6n0RWWB8AAidnBn9vdUg9ga1MRZokDlcAWo406b1XmeaR4DHQf7Y?=
- =?iso-8859-1?Q?lbf86zp2av6+q4JxVYGAkVJ6Z0t0Q6QGKy41bvISaqQspAEaMLuK0dYKBK?=
- =?iso-8859-1?Q?z9AK/FElN0vSL8KT?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?xfZi8JKb9fAMfCcbV8SudhYPDyR1YrHwHFDayL3D6IAY7q1SXbwXzIgXHL?=
- =?iso-8859-1?Q?0ZE/VI4gMl6ZSRxU8kSnSVh+jdaa6Qvx069A3jnUNsAm58aGtJnEOfrK8W?=
- =?iso-8859-1?Q?tcy1tH+filIWGcl+HM1owUEHNRrUHw5Ht/UzO91WCG3bQ0Ak6mO7zss5QM?=
- =?iso-8859-1?Q?XYER8qaBBm4GQkH4pfXSScXH7Qo/WgV5croEbhFUMpYmRtQTUR/jwvuz1o?=
- =?iso-8859-1?Q?DGTpFgM4ip11xXiaL/BQa++Dn1s0MZOIRc0FXX53DSGligyALqyfVNk45j?=
- =?iso-8859-1?Q?E/RFjdc1x6fg6iNw2AI7IQO+hQCg1SMAbRAIV5Hct0gWX0WIeh+vhZRBVo?=
- =?iso-8859-1?Q?XFb7jyf7z/ZV8XODJwKhZf08BQnB/sbigDah4x8G2JzlsohMOzWWioTwaC?=
- =?iso-8859-1?Q?xM4lJ5PfoDGhY/vxspaTqMnRBGbBTxloFq8grbO1q3dXErvT1JfV0Owhao?=
- =?iso-8859-1?Q?ceLuNb82Uc0AYzyL015EQOBp4m5TaleJUS61wDTGtH3melNaDC6azl3rII?=
- =?iso-8859-1?Q?k+9E6urb21iPHON7XSXK0DWjkUWonJPz7TtJCwUEhHZAnQzWTfCtMy90Y8?=
- =?iso-8859-1?Q?tKg0m9s9orghCrSXkVp5CKCSN2JUZqaP9A5JmGJlfmNDorigdvWC6vEdBg?=
- =?iso-8859-1?Q?bY8UHgSqx5uk4E39X0GEV70tGAeSC5fbHh1qIstmno61Nd8gZlg3EDPxmt?=
- =?iso-8859-1?Q?OMHskZPmcRVoMTLLNPWzEfLJNpe0g5ShBCQRemnEjLW3smpHvGhLNKs/3H?=
- =?iso-8859-1?Q?4Wd2Qvpbq721vUXDN0X5LA8p/t4IfoSo9EBySwI+To2gBabB/nI58RJQVS?=
- =?iso-8859-1?Q?ykJ9wiURC/rp59ieGaw6NB5jeoHMUSChfIkYR5iISuLBLw7A5ht/eYFSGR?=
- =?iso-8859-1?Q?7+HapMGBzYWx+RkAVwVd8g2uSzsx/n9ZUJ5kL5MCdgtDxJQYo7E39pdb8I?=
- =?iso-8859-1?Q?rrQFbASWPmt8USBxdxX5RW8xbfDVs+olbKEHz1G/4yo80awiXAqVJDmtLh?=
- =?iso-8859-1?Q?3NDO/z8zH+dA86iYTGWJ8xSwdLLIeaO73Uf130FTraliQGyd2zHw0EK+5S?=
- =?iso-8859-1?Q?kYYmkL8hs88pK9oEqIF/fgk+wDo7Pw4PJfD/vVlgVpHvXFi93ZV5mc2cpB?=
- =?iso-8859-1?Q?GOn7I8AN4hhpmiEt8V2ABcoZZfkQLcNZNHoh8NZtHPIOO6kh4w1MoAIPFv?=
- =?iso-8859-1?Q?2rLBjiFsJIwK3S7z4nI5+GiBSMWCwSYpf7dG+iWsdrh9Tsz8OejOKK34wc?=
- =?iso-8859-1?Q?13F9M+eetP1+mQtegMfGWTDOPYCiFhGYuvUd+rrIhsOXJAcCzEHiwI5x7c?=
- =?iso-8859-1?Q?EZlRJLyEXcsUCaz1xubL/mrgnlFcBa/TwcBEE40BvwjQBe7bAGtqk4FjIJ?=
- =?iso-8859-1?Q?ClaY/YObVc4Mr19Y3nib1Bmq5Jqq9wi4qg5f5BfELuh8OtqUU5XwQDHfCx?=
- =?iso-8859-1?Q?4tUDKvI4fTEXVGnHpxSx5iVIQwNaqZhLMy4Dwm72Me4MvknBi2BBoRCNS8?=
- =?iso-8859-1?Q?i5QXUFuaY/4pfz1EhLUNGiybOFb7UrfMWJa07DioswJUdFTPlK5zOrSaOt?=
- =?iso-8859-1?Q?v45+sFnq7XZWyNyWDH4cZUtpgmYY6ndXoCC7qMB3dxseJHL2jh6JFDihP9?=
- =?iso-8859-1?Q?dihFkUmOXlkAPHq4Qr8UsXWOIsB6k6YgRNVF25+PAzPmbrGlSBMy+MCg?=
- =?iso-8859-1?Q?=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1t9MI7-0000000A7it-0jLM;
+	Fri, 08 Nov 2024 10:32:37 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4315839a7c9so18093015e9.3;
+        Fri, 08 Nov 2024 02:32:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731061953; x=1731666753; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:subject:cc:to:from:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+D8vZegrH9yIdYiz0FSD9MNRGwL9EkUqYzbNsOs/U7A=;
+        b=GRsX1o6w47b8dcdZuBppMbTLuVDk9pm/HMLuecXJWTD/TxvGxy0ImVQ32qcqR2VVMf
+         Zl5VDcSva1Z/unwvJq8T95FJdhe0O4b9Xw3hzsNGZorbot1hIkYY/Gi4xZeIwxM/favb
+         jwTbCSDa2AEy6SmUB3toj//SaKY4fIfEj49SzfY23pXFhsON5JYYkN0BWaVA2G4TVKBU
+         o0rv8n3pN6NaRdrDnVCaePgwWuRp5nhADMO4hz1IyriebBFZlZ0XZlDGKuOwlxCv2uSg
+         VNOo/CqMXaiGPiQXYOB7sPsQcDx0GlcoOOPjEmYZGpwgq5+Pd3GwAT0YEHB2U4Bu+Q8D
+         deVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731061953; x=1731666753;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:subject:cc:to:from:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+D8vZegrH9yIdYiz0FSD9MNRGwL9EkUqYzbNsOs/U7A=;
+        b=un9EhMbnYPF5hiGMibicYIdT8+Iah1yX2tHA8W4JarkK0lvaahxPtJtyEPVJ2b+Dhh
+         DMI0i+2TvouwIHNBXdpkPhhU3310olXS2LkvGZPP66AYn8QQHncIZiCwBue+g8vbTAx/
+         fTj1a/GcW5VWdNLD8A/T04UYUGYx9cWbdM4FVMHQmx3NqfEIdEQJ8JuEexTDGC169kWX
+         MU5rCrU8Y/bM30WkoZY8eMmVKaugRYZQMgpL8ffxuTzrsQqZOObcIi6irZZUnyusoVJI
+         jCHJqL862R/J/It/xpHpDAluCy3LenF9BkjDxUNihNwefE6uEFXXa5ffY5t7HsSQxcdL
+         i2vg==
+X-Forwarded-Encrypted: i=1; AJvYcCV9+lvxqjJUlUiPbdNQ3+0t0melwE4hjFHpoxh9wNVXp5D/ExaNrd/y/1o0hGOzoTGnfJSAR3uHtyhdXTDPkuU=@lists.infradead.org, AJvYcCXmv8GvLBe9N7xivlYVuHwhIGUnvHWEE1B1K3vXnOwuIgRGpWB6d+LlWOkOXN5yk1ITUWIhDMjH0hflDgv9H/c/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzX17g3b/l5pkEBgYo4H4Y8RFIL+nSsQbaSlO+MDA7SiVki+5Dj
+	EKm28ESIkh3gJ3390uUuhpZGJXjINzAKHqWUtKrD076kxaSotDMy
+X-Google-Smtp-Source: AGHT+IE3C6MenK86u+gyHcdGWTkHdT9bSmorvzGgc5cR9/kKCrxrVGkOIgWKFRagg6d/LTdxX87eoA==
+X-Received: by 2002:a05:600c:5488:b0:431:9397:9ac9 with SMTP id 5b1f17b1804b1-432b7507c16mr15281755e9.15.1731061952869;
+        Fri, 08 Nov 2024 02:32:32 -0800 (PST)
+Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa6b35c0sm97887395e9.16.2024.11.08.02.32.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 02:32:32 -0800 (PST)
+Message-ID: <672de8c0.050a0220.a7227.c2c7@mx.google.com>
+X-Google-Original-Message-ID: <Zy3ovEx0IELRttrI@Ansuel-XPS.>
+Date: Fri, 8 Nov 2024 11:32:28 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	"AngeloGioacchino Del Regno," <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v3 2/3] net: dsa: Add Airoha AN8855 5-Port
+ Gigabit DSA Switch driver
+References: <20241106122254.13228-1-ansuelsmth@gmail.com>
+ <20241106122254.13228-3-ansuelsmth@gmail.com>
+ <4318897e-0f1a-42c7-8f20-065dc690a112@wanadoo.fr>
 MIME-Version: 1.0
-X-OriginatorOrg: blaize.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: d268f0a5-69ee-4ed0-a738-08dcffe092ba
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Nov 2024 10:31:57.7900
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9d1c3c89-8615-4064-88a7-bb1a8537c779
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: L79JQtTyc0g14hlVY7YoChAdBLj7XYyCwkaEEV276YBZ4ZnwFNnuktnY3DCl8vM+3UFINTDoh7E0B6zQKxpsknVtGFSR/Xom3QHhiJ7KKgU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB7813
-X-Proofpoint-GUID: DdnAAmfqmETuJgR67Lg3i_N07miy2-So
-X-Authority-Analysis: v=2.4 cv=BqvPwpX5 c=1 sm=1 tr=0 ts=672de8a4 cx=c_pps a=TXs1g+7sIME2BPo3OSn30g==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10 a=VlfZXiiP6vEA:10 a=4MthsM0t3ikA:10
- a=-5LYVjoNHPMA:10 a=SrsycIMJAAAA:8 a=pUg8Dph67f-7xG774KMA:9 a=wPNLvfGTeEIA:10 a=RVmHIydaz68A:10 a=zapPnUM7SFj2ezx6rUw-:22
-X-Proofpoint-ORIG-GUID: DdnAAmfqmETuJgR67Lg3i_N07miy2-So
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-11-08_08,2024-11-07_01,2024-09-30_01
-X-Proofpoint-Spam-Reason: orgsafe
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4318897e-0f1a-42c7-8f20-065dc690a112@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_023227_201510_D7796F4B 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20241108_023235_246526_44C5BB69 
+X-CRM114-Status: GOOD (  36.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,390 +110,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds support for the Blaize CB2 development board based on
-BLZP1600 SoC. This consists of a Carrier-Board-2 and a SoM.
+On Thu, Nov 07, 2024 at 06:53:53PM +0100, Christophe JAILLET wrote:
+> Le 06/11/2024 à 13:22, Christian Marangi a écrit :
+> > Add Airoha AN8855 5-Port Gigabit DSA switch.
+> > 
+> > The switch is also a nvmem-provider as it does have EFUSE to calibrate
+> > the internal PHYs.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth-Re5JQEeQqe8AvxtiuMwx3w@public.gmane.org>
+> > ---
+> 
+> Hi,
+> 
+> ...
+> 
+> > +#include <linux/bitfield.h>
+> > +#include <linux/ethtool.h>
+> > +#include <linux/etherdevice.h>
+> > +#include <linux/gpio/consumer.h>
+> > +#include <linux/if_bridge.h>
+> > +#include <linux/iopoll.h>
+> > +#include <linux/mdio.h>
+> > +#include <linux/netdevice.h>
+> > +#include <linux/of_mdio.h>
+> > +#include <linux/of_net.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/nvmem-provider.h>
+> 
+> Could be moved a few lines above to keep order.
+> 
+> > +#include <linux/phylink.h>
+> > +#include <linux/regmap.h>
+> > +#include <net/dsa.h>
+> ...
+> 
+> > +static int an8855_port_fdb_dump(struct dsa_switch *ds, int port,
+> > +				dsa_fdb_dump_cb_t *cb, void *data)
+> > +{
+> > +	struct an8855_priv *priv = ds->priv;
+> > +	struct an8855_fdb _fdb = {  };
+> 
+> Should it but reseted in the do loop below, instead of only once here?
+>
 
-The blaize-blzp1600.dtsi is the common part for the SoC,
-blaize-blzp1600-som.dtsi is the common part for the SoM and
-blaize-blzp1600-cb2.dts is the board specific file.
+Common practice is to fill EVERY value in _fdb to not have to reset, but
+yes just as extra caution, I will move the define in the for loop.
 
-Checkpatch: ignore
-Resolves: PESW-2604
+> > +	int banks, count = 0;
+> > +	u32 rsp;
+> > +	int ret;
+> > +	int i;
+> > +
+> > +	mutex_lock(&priv->reg_mutex);
+> > +
+> > +	/* Load search port */
+> > +	ret = regmap_write(priv->regmap, AN8855_ATWD2,
+> > +			   FIELD_PREP(AN8855_ATWD2_PORT, port));
+> > +	if (ret)
+> > +		goto exit;
+> > +	ret = an8855_fdb_cmd(priv, AN8855_ATC_MAT(AND8855_FDB_MAT_MAC_PORT) |
+> > +			     AN8855_FDB_START, &rsp);
+> > +	if (ret < 0)
+> > +		goto exit;
+> > +
+> > +	do {
+> > +		/* From response get the number of banks to read, exit if 0 */
+> > +		banks = FIELD_GET(AN8855_ATC_HIT, rsp);
+> > +		if (!banks)
+> > +			break;
+> > +
+> > +		/* Each banks have 4 entry */
+> > +		for (i = 0; i < 4; i++) {
+> > +			count++;
+> > +
+> > +			/* Check if bank is present */
+> > +			if (!(banks & BIT(i)))
+> > +				continue;
+> > +
+> > +			/* Select bank entry index */
+> > +			ret = regmap_write(priv->regmap, AN8855_ATRDS,
+> > +					   FIELD_PREP(AN8855_ATRD_SEL, i));
+> > +			if (ret)
+> > +				break;
+> > +			/* wait 1ms for the bank entry to be filled */
+> > +			usleep_range(1000, 1500);
+> > +			an8855_fdb_read(priv, &_fdb);
+> > +
+> > +			if (!_fdb.live)
+> > +				continue;
+> > +			ret = cb(_fdb.mac, _fdb.vid, _fdb.noarp, data);
+> > +			if (ret < 0)
+> > +				break;
+> > +		}
+> > +
+> > +		/* Stop if reached max FDB number */
+> > +		if (count >= AN8855_NUM_FDB_RECORDS)
+> > +			break;
+> > +
+> > +		/* Read next bank */
+> > +		ret = an8855_fdb_cmd(priv, AN8855_ATC_MAT(AND8855_FDB_MAT_MAC_PORT) |
+> > +				     AN8855_FDB_NEXT, &rsp);
+> > +		if (ret < 0)
+> > +			break;
+> > +	} while (true);
+> > +
+> > +exit:
+> > +	mutex_unlock(&priv->reg_mutex);
+> > +	return ret;
+> > +}
+> 
+> ...
+> 
+> > +	ret = regmap_set_bits(priv->regmap, AN8855_RG_RATE_ADAPT_CTRL_0,
+> > +			      AN8855_RG_RATE_ADAPT_RX_BYPASS |
+> > +			      AN8855_RG_RATE_ADAPT_TX_BYPASS |
+> > +			      AN8855_RG_RATE_ADAPT_RX_EN |
+> > +			      AN8855_RG_RATE_ADAPT_TX_EN);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	/* Disable AN if not in autoneg */
+> > +	ret = regmap_update_bits(priv->regmap, AN8855_SGMII_REG_AN0, BMCR_ANENABLE,
+> > +				 neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED ? BMCR_ANENABLE :
+> > +									      0);
+> 
+> Should 'ret' be tested here?
+> 
 
-Co-developed-by: James Cowgill <james.cowgill@blaize.com>
-Signed-off-by: James Cowgill <james.cowgill@blaize.com>
-Co-developed-by: Matt Redfearn <matt.redfearn@blaize.com>
-Signed-off-by: Matt Redfearn <matt.redfearn@blaize.com>
-Co-developed-by: Neil Jones <neil.jones@blaize.com>
-Signed-off-by: Neil Jones <neil.jones@blaize.com>
-Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
----
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/blaize/Makefile           |   2 +
- .../boot/dts/blaize/blaize-blzp1600-cb2.dts   |  84 +++++++
- .../boot/dts/blaize/blaize-blzp1600-som.dtsi  |  23 ++
- .../boot/dts/blaize/blaize-blzp1600.dtsi      | 205 ++++++++++++++++++
- 5 files changed, 315 insertions(+)
- create mode 100644 arch/arm64/boot/dts/blaize/Makefile
- create mode 100644 arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts
- create mode 100644 arch/arm64/boot/dts/blaize/blaize-blzp1600-som.dtsi
- create mode 100644 arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi
+Sorry forgot to add.
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index 30dd6347a929..601b6381ea0c 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -9,6 +9,7 @@ subdir-y +=3D apm
- subdir-y +=3D apple
- subdir-y +=3D arm
- subdir-y +=3D bitmain
-+subdir-y +=3D blaize
- subdir-y +=3D broadcom
- subdir-y +=3D cavium
- subdir-y +=3D exynos
-diff --git a/arch/arm64/boot/dts/blaize/Makefile b/arch/arm64/boot/dts/blai=
-ze/Makefile
-new file mode 100644
-index 000000000000..9118d7fb600f
---- /dev/null
-+++ b/arch/arm64/boot/dts/blaize/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0+
-+dtb-$(CONFIG_ARCH_BLAIZE_BLZP1600) +=3D blaize-blzp1600-cb2.dtb
-diff --git a/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts b/arch/arm6=
-4/boot/dts/blaize/blaize-blzp1600-cb2.dts
-new file mode 100644
-index 000000000000..5416f7e84ac0
---- /dev/null
-+++ b/arch/arm64/boot/dts/blaize/blaize-blzp1600-cb2.dts
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2024 Blaize, Inc. All rights reserved.
-+ */
-+
-+/dts-v1/;
-+
-+#include "blaize-blzp1600-som.dtsi"
-+#include <dt-bindings/net/ti-dp83867.h>
-+
-+/ {
-+	model =3D "Blaize BLZP1600 SoM1600P CB2 Development Board";
-+
-+	compatible =3D "blaize,blzp1600-cb2", "blaize,blzp1600";
-+
-+	aliases {
-+		serial0 =3D &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path =3D "serial0:115200";
-+	};
-+};
-+
-+&i2c0 {
-+	clock-frequency =3D <100000>;
-+	status =3D "okay";
-+};
-+
-+&i2c1 {
-+	clock-frequency =3D <100000>;
-+	status =3D "okay";
-+};
-+
-+&i2c3 {
-+	clock-frequency =3D <100000>;
-+	status =3D "okay";
-+
-+	gpio_expander: gpio@74 {
-+		compatible =3D "ti,tca9539";
-+		reg =3D <0x74>;
-+		gpio-controller;
-+		#gpio-cells =3D <2>;
-+		gpio-line-names =3D "RSP_PIN_7",	/* GPIO_0 */
-+				  "RSP_PIN_11",	/* GPIO_1 */
-+				  "RSP_PIN_13",	/* GPIO_2 */
-+				  "RSP_PIN_15",	/* GPIO_3 */
-+				  "RSP_PIN_27",	/* GPIO_4 */
-+				  "RSP_PIN_29",	/* GPIO_5 */
-+				  "RSP_PIN_31",	/* GPIO_6 */
-+				  "RSP_PIN_33",	/* GPIO_7 */
-+				  "RSP_PIN_37",	/* GPIO_8 */
-+				  "RSP_PIN_16",	/* GPIO_9 */
-+				  "RSP_PIN_18",	/* GPIO_10 */
-+				  "RSP_PIN_22",	/* GPIO_11 */
-+				  "RSP_PIN_28",	/* GPIO_12 */
-+				  "RSP_PIN_32",	/* GPIO_13 */
-+				  "RSP_PIN_36",	/* GPIO_14 */
-+				  "TP31";	/* GPIO_15 */
-+	};
-+
-+	gpio_expander_m2: gpio@75 {
-+		compatible =3D "ti,tca9539";
-+		reg =3D <0x75>;
-+		gpio-controller;
-+		#gpio-cells =3D <2>;
-+		gpio-line-names =3D "M2_W_DIS1_N",	/* GPIO_0 */
-+				  "M2_W_DIS2_N",	/* GPIO_1 */
-+				  "M2_UART_WAKE_N",	/* GPIO_2 */
-+				  "M2_COEX3",		/* GPIO_3 */
-+				  "M2_COEX_RXD",	/* GPIO_4 */
-+				  "M2_COEX_TXD",	/* GPIO_5 */
-+				  "M2_VENDOR_PIN40",	/* GPIO_6 */
-+				  "M2_VENDOR_PIN42",	/* GPIO_7 */
-+				  "M2_VENDOR_PIN38",	/* GPIO_8 */
-+				  "M2_SDIO_RST_N",	/* GPIO_9 */
-+				  "M2_SDIO_WAKE_N",	/* GPIO_10 */
-+				  "M2_PETN1",		/* GPIO_11 */
-+				  "M2_PERP1",		/* GPIO_12 */
-+				  "M2_PERN1",		/* GPIO_13 */
-+				  "UIM_SWP",		/* GPIO_14 */
-+				  "UART1_TO_RSP";	/* GPIO_15 */
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/blaize/blaize-blzp1600-som.dtsi b/arch/arm=
-64/boot/dts/blaize/blaize-blzp1600-som.dtsi
-new file mode 100644
-index 000000000000..d54707c17163
---- /dev/null
-+++ b/arch/arm64/boot/dts/blaize/blaize-blzp1600-som.dtsi
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2024 Blaize, Inc. All rights reserved.
-+ */
-+
-+#include "blaize-blzp1600.dtsi"
-+
-+/ {
-+	memory@0 {
-+		device_type =3D "memory";
-+		reg =3D <0x0 0x00000000 0xffffffff>;
-+	};
-+};
-+
-+/* i2c4 bus is available only on the SoM, not on the board */
-+&i2c4 {
-+	clock-frequency =3D <100000>;
-+	status =3D "okay";
-+};
-+
-+&uart0 {
-+	status =3D "okay";
-+};
-diff --git a/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi b/arch/arm64/b=
-oot/dts/blaize/blaize-blzp1600.dtsi
-new file mode 100644
-index 000000000000..6d524d0dba62
---- /dev/null
-+++ b/arch/arm64/boot/dts/blaize/blaize-blzp1600.dtsi
-@@ -0,0 +1,205 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2024 Blaize, Inc. All rights reserved.
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	interrupt-parent =3D <&gic>;
-+	#address-cells =3D <2>;
-+	#size-cells =3D <1>;
-+
-+	cpus {
-+		#address-cells =3D <2>;
-+		#size-cells =3D <0>;
-+
-+		cpu0: cpu@0 {
-+			compatible =3D "arm,cortex-a53";
-+			reg =3D <0x0 0x0>;
-+			device_type =3D "cpu";
-+			enable-method =3D "psci";
-+			next-level-cache =3D <&l2>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible =3D "arm,cortex-a53";
-+			reg =3D <0x0 0x1>;
-+			device_type =3D "cpu";
-+			enable-method =3D "psci";
-+			next-level-cache =3D <&l2>;
-+		};
-+
-+		l2: l2-cache0 {
-+			compatible =3D "cache";
-+			cache-level =3D <2>;
-+			cache-unified;
-+		};
-+	};
-+
-+	firmware {
-+		scmi {
-+			compatible =3D "arm,scmi-smc";
-+			arm,smc-id =3D <0x82002000>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+
-+			shmem =3D <&scmi0_shm>;
-+
-+			scmi_clk: protocol@14 {
-+				reg =3D <0x14>;
-+				#clock-cells =3D <1>;
-+			};
-+
-+			scmi_rst: protocol@16 {
-+				reg =3D <0x16>;
-+				#reset-cells =3D <1>;
-+			};
-+		};
-+	};
-+
-+	pmu {
-+		compatible =3D "arm,cortex-a53-pmu";
-+		interrupts =3D <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-affinity =3D <&cpu0>, <&cpu1>;
-+	};
-+
-+	psci {
-+		compatible =3D "arm,psci-1.0", "arm,psci-0.2";
-+		method =3D "smc";
-+	};
-+
-+	reserved-memory {
-+		#address-cells =3D <2>;
-+		#size-cells =3D <1>;
-+		ranges;
-+
-+		/* SCMI reserved buffer space on DDR space */
-+		scmi0_shm: scmi-shmem@800 {
-+			compatible =3D "arm,scmi-shmem";
-+			reg =3D <0x0 0x800 0x80>;
-+		};
-+	};
-+
-+	timer {
-+		compatible =3D "arm,armv8-timer";
-+		interrupts =3D /* Physical Secure PPI */
-+			     <GIC_PPI 13 (GIC_CPU_MASK_RAW(0x3) |
-+					  IRQ_TYPE_LEVEL_LOW)>,
-+			     /* Physical Non-Secure PPI */
-+			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0x3) |
-+					  IRQ_TYPE_LEVEL_LOW)>,
-+			     /* Hypervisor PPI */
-+			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0x3) |
-+					  IRQ_TYPE_LEVEL_LOW)>,
-+			     /* Virtual PPI */
-+			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0x3) |
-+					  IRQ_TYPE_LEVEL_LOW)>;
-+	};
-+
-+	soc@200000000 {
-+		compatible =3D "simple-bus";
-+		#address-cells =3D <1>;
-+		#size-cells =3D <1>;
-+		ranges =3D <0x0 0x2 0x0 0x850000>;
-+
-+		gic: interrupt-controller@410000 {
-+			compatible =3D "arm,gic-400";
-+			reg =3D <0x410000 0x20000>,
-+			      <0x420000 0x20000>,
-+			      <0x440000 0x20000>,
-+			      <0x460000 0x20000>;
-+			#interrupt-cells =3D <3>;
-+			#address-cells =3D <0>;
-+			interrupt-controller;
-+			interrupts =3D <GIC_PPI 9 (GIC_CPU_MASK_RAW(0x3) |
-+						 IRQ_TYPE_LEVEL_LOW)>;
-+		};
-+
-+		uart0: serial@4d0000 {
-+			compatible =3D "ns16550a";
-+			reg =3D <0x4d0000 0x1000>;
-+			clocks =3D <&scmi_clk 59>;
-+			resets =3D <&scmi_rst 59>;
-+			reg-shift =3D <2>;
-+			interrupts =3D <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+			status =3D "disabled";
-+		};
-+
-+		uart1: serial@4e0000 {
-+			compatible =3D "ns16550a";
-+			reg =3D <0x4e0000 0x1000>;
-+			clocks =3D <&scmi_clk 60>;
-+			resets =3D <&scmi_rst 60>;
-+			reg-shift =3D <2>;
-+			interrupts =3D <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
-+			status =3D "disabled";
-+		};
-+
-+		i2c0: i2c@4f0000 {
-+			compatible =3D "snps,designware-i2c";
-+			reg =3D <0x4f0000 0x1000>;
-+			interrupts =3D <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 54>;
-+			resets =3D <&scmi_rst 54>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+			status =3D "disabled";
-+		};
-+
-+		i2c1: i2c@500000 {
-+			compatible =3D "snps,designware-i2c";
-+			reg =3D <0x500000 0x1000>;
-+			interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 55>;
-+			resets =3D <&scmi_rst 55>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+			status =3D "disabled";
-+		};
-+
-+		i2c2: i2c@510000 {
-+			compatible =3D "snps,designware-i2c";
-+			reg =3D <0x510000 0x1000>;
-+			interrupts =3D <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 56>;
-+			resets =3D <&scmi_rst 56>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+			status =3D "disabled";
-+		};
-+
-+		i2c3: i2c@520000 {
-+			compatible =3D "snps,designware-i2c";
-+			reg =3D <0x520000 0x1000>;
-+			interrupts =3D <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 57>;
-+			resets =3D <&scmi_rst 57>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+			status =3D "disabled";
-+		};
-+
-+		i2c4: i2c@530000 {
-+			compatible =3D "snps,designware-i2c";
-+			reg =3D <0x530000 0x1000>;
-+			interrupts =3D <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 58>;
-+			resets =3D <&scmi_rst 58>;
-+			#address-cells =3D <1>;
-+			#size-cells =3D <0>;
-+			status =3D "disabled";
-+		};
-+
-+		arm_cc712: crypto@550000 {
-+			compatible =3D "arm,cryptocell-712-ree";
-+			reg =3D <0x550000 0x1000>;
-+			interrupts =3D <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks =3D <&scmi_clk 7>;
-+		};
-+	};
-+};
---=20
-2.43.0
+> > +
+> > +	if (interface == PHY_INTERFACE_MODE_SGMII &&
+> > +	    neg_mode == PHYLINK_PCS_NEG_INBAND_DISABLED) {
+> > +		ret = regmap_set_bits(priv->regmap, AN8855_PHY_RX_FORCE_CTRL_0,
+> > +				      AN8855_RG_FORCE_TXC_SEL);
+> > +		if (ret)
+> > +			return ret;
+> > +	}
+> 
+> ...
+> 
+> > +	priv->ds = devm_kzalloc(&mdiodev->dev, sizeof(*priv->ds), GFP_KERNEL);
+> > +	if (!priv->ds)
+> > +		return -ENOMEM;
+> > +
+> > +	priv->ds->dev = &mdiodev->dev;
+> > +	priv->ds->num_ports = AN8855_NUM_PORTS;
+> > +	priv->ds->priv = priv;
+> > +	priv->ds->ops = &an8855_switch_ops;
+> > +	mutex_init(&priv->reg_mutex);
+> 
+> devm_mutex_init() to slightly simplify the remove function?
+> 
 
+Wonder if there is a variant also for dsa_unregister_switch. That
+would effectively remove the need for a remove function.
+
+> > +	priv->ds->phylink_mac_ops = &an8855_phylink_mac_ops;
+> > +
+> > +	priv->pcs.ops = &an8855_pcs_ops;
+> > +	priv->pcs.neg_mode = true;
+> > +	priv->pcs.poll = true;
+> > +
+> > +	ret = an8855_sw_register_nvmem(priv);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	dev_set_drvdata(&mdiodev->dev, priv);
+> > +
+> > +	return dsa_register_switch(priv->ds);
+> > +}
+> > +
+> > +static void
+> > +an8855_sw_remove(struct mdio_device *mdiodev)
+> > +{
+> > +	struct an8855_priv *priv = dev_get_drvdata(&mdiodev->dev);
+> > +
+> > +	dsa_unregister_switch(priv->ds);
+> > +	mutex_destroy(&priv->reg_mutex);
+> > +}
+> > +
+> > +static const struct of_device_id an8855_of_match[] = {
+> > +	{ .compatible = "airoha,an8855" },
+> > +	{ /* sentinel */ },
+> 
+> Ending comma is usually not needed after a terminator.
+> 
+> > +};
+> > +
+> > +static struct mdio_driver an8855_mdio_driver = {
+> > +	.probe = an8855_sw_probe,
+> > +	.remove = an8855_sw_remove,
+> > +	.mdiodrv.driver = {
+> > +		.name = "an8855",
+> > +		.of_match_table = an8855_of_match,
+> > +	},
+> > +};
+> 
+> ...
+> 
+> > +#define	  AN8855_VA0_VTAG_EN		BIT(10) /* Per VLAN Egress Tag Control */
+> > +#define	  AN8855_VA0_IVL_MAC		BIT(5) /* Independent VLAN Learning */
+> > +#define	  AN8855_VA0_VLAN_VALID		BIT(0) /* VLAN Entry Valid */
+> > +#define AN8855_VAWD1			0x10200608
+> > +#define	  AN8855_VA1_PORT_STAG		BIT(1)
+> > +
+> > +/* Same register map of VAWD0 */
+> 
+> Not sure to follow. AN8855_VAWD0 above is 0x10200604, not 0x10200618
+> 
+
+Confusing comment. The meaning here is not "same register" but same
+register fields aka bits and mask for the register are the same of
+..604.
+
+> > +#define AN8855_VARD0			0x10200618
+> > +
+> > +enum an8855_vlan_egress_attr {
+> > +	AN8855_VLAN_EGRESS_UNTAG = 0,
+> > +	AN8855_VLAN_EGRESS_TAG = 2,
+> > +	AN8855_VLAN_EGRESS_STACK = 3,
+> > +};
+> > +
+> > +/* Register for port STP state control */
+> > +#define AN8855_SSP_P(x)			(0x10208000 + ((x) * 0x200))
+> > +#define	 AN8855_FID_PST			GENMASK(1, 0)
+> > +
+> > +enum an8855_stp_state {
+> > +	AN8855_STP_DISABLED = 0,
+> > +	AN8855_STP_BLOCKING = 1,
+> > +	AN8855_STP_LISTENING = 1,
+> 
+> Just wondering if this 0, 1, *1*, 2, 3 was intentional?
+> 
+
+Yes blocking and listening is the same, I will follow suggestion by
+Andrew and make blocking = listening.
+
+> > +	AN8855_STP_LEARNING = 2,
+> > +	AN8855_STP_FORWARDING = 3
+> > +};
+> > +
+> > +/* Register for port control */
+> > +#define AN8855_PCR_P(x)			(0x10208004 + ((x) * 0x200))
+> > +#define	  AN8855_EG_TAG			GENMASK(29, 28)
+> > +#define	  AN8855_PORT_PRI		GENMASK(26, 24)
+> > +#define	  AN8855_PORT_TX_MIR		BIT(20)
+> > +#define	  AN8855_PORT_RX_MIR		BIT(16)
+> > +#define	  AN8855_PORT_VLAN		GENMASK(1, 0)
+> > +
+> > +enum an8855_port_mode {
+> > +	/* Port Matrix Mode: Frames are forwarded by the PCR_MATRIX members. */
+> > +	AN8855_PORT_MATRIX_MODE = 0,
+> > +
+> > +	/* Fallback Mode: Forward received frames with ingress ports that do
+> > +	 * not belong to the VLAN member. Frames whose VID is not listed on
+> > +	 * the VLAN table are forwarded by the PCR_MATRIX members.
+> > +	 */
+> > +	AN8855_PORT_FALLBACK_MODE = 1,
+> > +
+> > +	/* Check Mode: Forward received frames whose ingress do not
+> > +	 * belong to the VLAN member. Discard frames if VID ismiddes on the
+> > +	 * VLAN table.
+> > +	 */
+> > +	AN8855_PORT_CHECK_MODE = 1,
+> 
+> Just wondering if this 0, 1, *1*, 3 was intentional?
+> 
+
+Nope a typo. Thanks for noticing this.
+
+> > +
+> > +	/* Security Mode: Discard any frame due to ingress membership
+> > +	 * violation or VID missed on the VLAN table.
+> > +	 */
+> > +	AN8855_PORT_SECURITY_MODE = 3,
+> > +};
+> ...
+> 
+> CJ
+
+-- 
+	Ansuel
 
