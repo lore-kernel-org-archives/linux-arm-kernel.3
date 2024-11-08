@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D138D5C0E5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F572D5C0E5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 15:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:To:Subject:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:Date:Message-ID:Reply-To:
-	Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3jRoK44OrWTIrL7ynmK5thmnwI+TO1BOrOKphbS+Fbw=; b=qihNhKW4rfQQPbHOABzTS7yCbU
-	lwCVIvhsVCVbkn8L/WG59dQF74EYCh6ZACx8EzdHPz+nxnGZSVApWE3bqHtR4krAgjaBD+7PJc7Gl
-	b3FTfmEmsAyen1rwqOA+phl1TzwDeISjimg2wEomqLwbKdNAdEBxhAhAfiewlR9CMUxpB5/DM08OA
-	MLf6vRdJ5a5iyjjg+hze/rFsx1oJnOW1lyB5Yiety044+XJSkSXL403g6YYd9L3gBC9es3T0D6zs8
-	YINwOFMQtmw43MDbEseV6cf/kLHC6oIQH+OwmnmuogBfAjbmu+lzh9BNm4DlD/yeD1BxMTadGTyjT
-	7Bd1Vd6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hyP1F57LEd+5mTUT+FTnx82w2gEdUv9YO30BPIaE8VU=; b=H1PwZCyEjwunj575u/YfmaG63d
+	2ZlNKQpyDtmTikilKkRSVew8GQEKtQZGRblkI/G/vV/3UFfBpzJ4IHkylLzE1vCbjMyTI3R6JEHzR
+	o1f9D6yj9BfbRWn5Ke8JLjkt8nFG0DxAHeu/yHQysFspTCuUQEsclVQ6uEg9d+awHYg3npzcaWYQ1
+	vQWjwK2F5Z/Xa3AkN187ujh0Hzc8t5xNVePIIpk1V2bD7mdtitaSPSA9XnzQ8hIcCRf6/OEY4GnaI
+	wYekPhHPbAVvqotZ6bzgsOtFuFxLtYQNtDJUC5vhfylFtBHB5iU9kGENiUCH9PVC/R+ZRA0et8LmU
+	QZtSWw6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9QcK-0000000AyiQ-3GAZ;
-	Fri, 08 Nov 2024 15:09:48 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1t9Qe5-0000000AyzT-0uXH;
+	Fri, 08 Nov 2024 15:11:33 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Q3A-0000000Arc2-0rvE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 14:33:25 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20ce65c8e13so24498525ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 06:33:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1731076403; x=1731681203; darn=lists.infradead.org;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=3jRoK44OrWTIrL7ynmK5thmnwI+TO1BOrOKphbS+Fbw=;
-        b=yFUjaQZQcVaYkiVEXo0yOVIJqPfP8ig4cUAnU/Dd4J2TN8WOgjkfVDm8uB1xoTkpSA
-         P1rxpk2RnM/NyJyZLs5fAb7AEKEPdr/rDN8Olw75mslCtlaR4i4KBldPb+WjSHV5AsQT
-         0J6w37IQKVS1bKZWord5W9KK0oXeMlW2E2BpWQKfHTjfcT4A30SU2QEsXw+ZCgTTMB7a
-         0HSb2bnvhWJmmjtn2N4jKQVgj1+KartryDnQt/Jusl1Q8Xe+G2+wDYh7oFh/4VwnP//m
-         2fwG0lqVIokrajDLYSFqQe2PbS+vaKQUf1Lk2QugAqFLSUwh0xvTIUPhvN+sPAF7f2wE
-         E5jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731076403; x=1731681203;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3jRoK44OrWTIrL7ynmK5thmnwI+TO1BOrOKphbS+Fbw=;
-        b=dsXsw9GnskKRmW/BluoA1Q7aLEMWr5KAPTHa47Lqc30z/CuRxybgsfHCneARNPm03H
-         FXJxyMp4pPXul4Z7MgtWc0wDMlZXBZC5uLeWYz6N9aP8/HfZ/sFi8uG6UldTgIU7H3zn
-         hQaIDqJG073K1o47VIpsrMP0HFMfOb0vBjuOKRgoS3eud7GWeOLJpevfkFd0KmcVyOGP
-         7lqirRDUMBepbm8K9krQ/3BzY7q7m19TPWXmXzQ6MVhf7Oq1mIxhdsOA34arO5XRr92S
-         oiX0+DNwOp/E7tb9IUJ074cNG987v80gFZZrGtF1AKrBbbdlTrZpXqGRl6kHZLTTYdOD
-         TD7w==
-X-Forwarded-Encrypted: i=1; AJvYcCXHnpLUx+eyl/J9r59voSm1vTDvfSVEZOWxnJwe8GKBDFsIBiX5znngkB7n9ztPcrGIQrTjAlPJ6qlRrwMOP88f@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbelsUrJ5nD6KczRYrFC2i9pM+aVsb+/irexoc8OCi+ermdhbN
-	yzfUNoZNzXVnzvUSJmKvJKBBQlMowm1oAJufk15GxBUL1hSLiYiVzwzQAmKqb0w=
-X-Google-Smtp-Source: AGHT+IFLOwtAJTf4i2qdQcqWjZd68adE1DtYZ2vnnwc/mZrye7oG+gYXrz28Spn7kFaRnXh6qA572w==
-X-Received: by 2002:a17:903:2ace:b0:211:31ac:89e0 with SMTP id d9443c01a7336-211834dfd86mr39850105ad.4.1731076402840;
-        Fri, 08 Nov 2024 06:33:22 -0800 (PST)
-Received: from kernelci-production.internal.cloudapp.net ([20.171.243.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177ddd675sm30824455ad.73.2024.11.08.06.33.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 06:33:22 -0800 (PST)
-Message-ID: <672e2132.170a0220.2dee40.f2df@mx.google.com>
-Date: Fri, 08 Nov 2024 06:33:22 -0800 (PST)
-Content-Type: text/plain; charset="utf-8"
+	id 1t9Q6W-0000000AsHn-0ANM;
+	Fri, 08 Nov 2024 14:36:53 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: test
-X-Kernelci-Kernel: v6.12-rc6-196-gca3a5c08a5ef
-X-Kernelci-Branch: for-kernelci
-X-Kernelci-Tree: arm64
-Subject: arm64/for-kernelci baseline: 13 runs,
- 4 regressions (v6.12-rc6-196-gca3a5c08a5ef)
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kernel-build-reports@lists.linaro.org,
- kernelci-results@groups.io
-From: "kernelci.org bot" <bot@kernelci.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1731076609;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hyP1F57LEd+5mTUT+FTnx82w2gEdUv9YO30BPIaE8VU=;
+	b=NrSNHOvH86y7hlWG6DuH+NoSXK7BlZNTXBQzYJWpo9NCd7ZHolaaFE4jUsHCWM+abUqeGZ
+	1u8lpgYqDyWfy9JyH2xIZ5BGOUgTbwjk7AC99yKH/dbXBUh9rqotapfXPZYdXb4NxRw/0x
+	6MoRpuqh29JwbADNCRqrDLU1KymGeqsN19gUhxWrKzO0QpeVmSOO+O9ogbqaa8SvRgqFLU
+	H4J2Daclot9SaBZhSCNfgLvE3YvgwgDUN+1JCv5SJ38DrZ1XmexpXrQaAs/lx+Pa7RV/oj
+	rnvqiQef7N4H0iqzYvURxiyQYpmrnsTGhytRzNgjGRPvGr/AVOwsbCjra2dgnQ==
+Date: Fri, 08 Nov 2024 15:36:49 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Perform trivial code cleanups
+In-Reply-To: <c27ab238825451f1c3a4722f39a19531@manjaro.org>
+References: <cover.1731073565.git.dsimic@manjaro.org>
+ <10558711.nUPlyArG6x@diego> <047164cc6e88dcbc7701cb0e28d564db@manjaro.org>
+ <22484879.EfDdHjke4D@diego> <c27ab238825451f1c3a4722f39a19531@manjaro.org>
+Message-ID: <0d3723ecfe7889aa8e4b68b961cdffc5@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_063324_319528_94E68637 
-X-CRM114-Status: UNSURE (   3.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_063652_399267_ACDDCF51 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,173 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64/for-kernelci baseline: 13 runs, 4 regressions (v6.12-rc6-196-gca3a5c0=
-8a5ef)
+On 2024-11-08 15:30, Dragan Simic wrote:
+> On 2024-11-08 15:22, Heiko Stübner wrote:
+>> Am Freitag, 8. November 2024, 15:13:33 CET schrieb Dragan Simic:
+>>> On 2024-11-08 15:09, Heiko Stübner wrote:
+>>> > Am Freitag, 8. November 2024, 15:05:02 CET schrieb Dragan Simic:
+>>> >> On 2024-11-08 14:56, Heiko Stübner wrote:
+>>> >> > Am Freitag, 8. November 2024, 14:53:57 CET schrieb Dragan Simic:
+>>> >> >> Perform a few trivial code cleanups, to make one logged message a bit
+>>> >> >> more
+>>> >> >> consistent with the other logged messages by capitalizing its first
+>>> >> >> word, and
+>>> >> >> to avoid line wrapping by using the 100-column width better.
+>>> >> >>
+>>> >> >> No intended functional changes are introduced by these code cleanups.
+>>> >> >>
+>>> >> >> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+>>> >> >> ---
+>>> >> >>  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c | 12 ++++--------
+>>> >> >>  1 file changed, 4 insertions(+), 8 deletions(-)
+>>> >> >>
+>>> >> >> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>>> >> >> b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>>> >> >> index 58a44af0e9ad..f451e70efbdd 100644
+>>> >> >> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>>> >> >> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
+>>> >> >> @@ -1379,7 +1379,7 @@ static int dw_mipi_dsi_rockchip_probe(struct
+>>> >> >> platform_device *pdev)
+>>> >> >>  	}
+>>> >> >>
+>>> >> >>  	if (!dsi->cdata) {
+>>> >> >> -		DRM_DEV_ERROR(dev, "no dsi-config for %s node\n", np->name);
+>>> >> >> +		DRM_DEV_ERROR(dev, "No dsi-config for %s node\n", np->name);
+>>> >> >
+>>> >> > this is all probe-related, why not convert to dev_err_probe?
+>>> >> >
+>>> >> > As the doc states [0], DRM_DEV_ERROR is deprecated in favor of dev_err.
+>>> >> > So dev_err_probe would be the correct way to go?
+>>> >>
+>>> >> Thanks for your quick response!  Seeing that DRM_DEV_ERROR() is now
+>>> >> deprecated (which I originally missed, in all honesty) makes me very
+>>> >> happy. :)  I've never been a huge fan of the format of the messages
+>>> >> that DRM_DEV_ERROR() produces.
+>>> >>
+>>> >> However, perhaps it would be better to keep these patches as-is, as
+>>> >> some kind of an intermediate, limited-scope cleanup + bugfix combo,
+>>> >> and leave the complete DRM_DEV_ERROR() --> dev_err()/dev_err_probe()
+>>> >> conversion to separate patches.  I think it would be better to avoid
+>>> >> a partial conversion, and I'll be more than happy to put the complete
+>>> >> conversion on my TODO list. :)
+>>> >
+>>> > But your patch-2 really just open-codes, what dev_err_probe is meant
+>>> > to fix. So with going this way, you're sort of making things worse
+>>> > first,
+>>> > until that second step happens.
+>>> >
+>>> > Similarly, reflowing lines for things that get removed in a week do not
+>>> > serve a purpose - those line-breaks have been that way for years
+>>> > already.
+>>> 
+>>> Hmm, it makes sense when described that way.  I'll see to perform the
+>>> complete conversion in the next few days.
+>> 
+>> just a note, as written on IRC earlier, I am sitting on a 
+>> dev_err_probe
+>> conversion for dw-dsi-rockchip.
+>> 
+>> I was waiting to see if more cleanups turned up, so didn't sent that 
+>> yet.
+>> 
+>> Don't want to steal your spotlight though, so not sure if I should 
+>> send
+>> that or wait for your conversion ;-)
+> 
+> I see no reasons why should we duplicate some effort. :)  If you're
+> already nearing the file-level conversion to its completion, please
+> feel free to send it, and we can drop this series. :)
 
-Regressions Summary
--------------------
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:  https://kernelci.org/test/job/arm64/branch/for-kernelci/kernel/=
-v6.12-rc6-196-gca3a5c08a5ef/plan/baseline/
-
-  Test:     baseline
-  Tree:     arm64
-  Branch:   for-kernelci
-  Describe: v6.12-rc6-196-gca3a5c08a5ef
-  URL:      https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-  SHA:      ca3a5c08a5ef1ee11c65c83b95d47117edf24e77 =
-
-
-
-Test Regressions
----------------- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672e16c8cfc4e85f70c86855
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672e16c8cfc4e85f70c86=
-856
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv2-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672e16c99006f738d4c86855
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv2-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672e16c99006f738d4c86=
-856
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3      | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672e16dc9006f738d4c8685b
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672e16dc9006f738d4c86=
-85c
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =
-
-
-
-platform                   | arch  | lab         | compiler | defconfig | r=
-egressions
----------------------------+-------+-------------+----------+-----------+--=
-----------
-qemu_arm64-virt-gicv3-uefi | arm64 | lab-broonie | gcc-12   | defconfig | 1=
-          =
-
-
-  Details:     https://kernelci.org/test/plan/id/672e16e29006f738d4c86860
-
-  Results:     0 PASS, 1 FAIL, 0 SKIP
-  Full config: defconfig
-  Compiler:    gcc-12 (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0)
-  Plain log:   https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3-uefi.txt
-  HTML log:    https://storage.kernelci.org//arm64/for-kernelci/v6.12-rc6-1=
-96-gca3a5c08a5ef/arm64/defconfig/gcc-12/lab-broonie/baseline-qemu_arm64-vir=
-t-gicv3-uefi.html
-  Rootfs:      http://storage.kernelci.org/images/rootfs/buildroot/buildroo=
-t-baseline/20230703.0/arm64/rootfs.cpio.gz =
-
-
-
-  * baseline.login: https://kernelci.org/test/case/id/672e16e29006f738d4c86=
-861
-        failing since 22 days (last pass: v6.12-rc3-58-g3d363ba041e1, first=
- fail: v6.12-rc3-67-gb9e20acb61ba) =
-
- =20
+Sorry, I wasn't clear enough.  When I wrote "we can drop this series",
+I actually referred to what this series might have turned into, i.e.
+into my file-level conversion. :)
 
