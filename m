@@ -4,122 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 360E5D64089
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E987D64088
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VdJcdmEbuUjsz9W6dsG6F13BKeiSPurxezaypVBjUh4=; b=AV6HJtr7I17TF8FRdWXCKEG7gp
-	UtNt5JEx/ClYKKalQUbwdSQNDuRUHX2NMuGjlnpac2ZfAbxcQMgIbZpDEY8nyJAtysQ22U63SVAEA
-	sju2i9iqq7WcWryUqVaUKE99LfWeIUV5l7ZWciLCduxURRPkyXH/f/ExDAH02lJXkaUWPDtPxlWoy
-	rM8yl4keoKie5qAk11KSzPc6bpsfLUC5+FLXFzmamdE28PDC+RaZIRUNI30e1xCUE+7BS81zX+F5Q
-	678MUGTf/OC0VrPOWDzwkullD1GYGZrz30rwFNvHaeHM0ylla1MNJ/kcADCm2674tPlcpHWZ5Ecjj
-	7sDj9gOQ==;
+	bh=bb8ZBS8BWoviHzpqzsDZQvjLxtZQJVjzzOtimOr+0Ek=; b=QXvnYWnEc+URldEZ7q5xCx8HTG
+	8jKHwi8tiKnuTGZZ2BoQ9azdCPBhTy8vVxbNrZgjFoFNaVo1LyubCjVTa32BTSZkz5fBTGnYSTsMK
+	R5LA6izE8qbM/4PrVm8nV5BIE1IooxPCJ9td44kLIFU/i5bJc2Sn9Ea/EubMMZ4E2efS0E6xlkfbe
+	aXnT1ZXzD8KxyX+NZK33A3svAV7pjjUQvJO8j1L3k/IgiqYs60xm30zTpSntrd4dmZUe8Bud9KGpw
+	1jnpJw7Xmun85nsfnqmHb3VT1JfyxPprKLXA68gp6k6BatUW1//YmC1LN6mwnorxtvm4OyOXJgbpD
+	NlBNrgQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Vs3-0000000Bw7K-1QT3;
-	Fri, 08 Nov 2024 20:46:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1t9W3o-0000000Bxwu-23Fk;
+	Fri, 08 Nov 2024 20:58:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Von-0000000BvHY-2cY2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 20:42:58 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4A8Forme030533
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 8 Nov 2024 20:42:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VdJcdmEbuUjsz9W6dsG6F13BKeiSPurxezaypVBjUh4=; b=oUv6GFYhboRpAupQ
-	o1N+ky3RuUB/q4tQBmntvG7rlQ6rqEY2Eu/Ko74+7HK2GiTBtw0kVLWKBjJ6ebWq
-	YJNQHRJqix2lHQIVGHJGzpufDoF7K/dUKHh/EchecdGktjhKxHR201/WTbKPzLLN
-	rn02LMen3StTASNEaRib647Bb/a+/OGLegr7GLchz3m01Zh3+hrIUj+rlaLAyEvu
-	jCrDzXshGSdb5+5hFqBikgNaxfVVVFuoFgg2KVjxHi8z1CjSyh43hFcJZgvCcpVS
-	yaW3Qn/WANnfHbK12SMzMA9bTQWbRrhhLwqxLQge2gQXwQXV17cIm75u0LVyPtVp
-	rxnKKw==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42s6gdthc2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 20:42:56 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6cbf4770c18so6593426d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 12:42:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731098576; x=1731703376;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VdJcdmEbuUjsz9W6dsG6F13BKeiSPurxezaypVBjUh4=;
-        b=DV1s2RyFyTMyH5Gv1Z7hrPZW5j8ImEYXUR0g2OYSK/cyTK+kNlAckQcDj7Z9riWzds
-         ypLbm9xFfFRsT7p6GtUmUv8yuEULFjPvvrbfDR9f5qRTOxTJ5qcxOchq82z9HF3ECIZX
-         7ercCx5lIepRvj8CAFyfD6OdDNwlzfk0je24zVJNPu5pCHhLc8KE0BM9v8okyeqwyUwT
-         +3D19dLq0Z04K58+oUV5qK6YEcjd9qZ/1hm1urVOJRrgkZkFGr3rDYRC4J4/QjJLjh/v
-         AXgGNVsIXJR3GKdXR6iOIPXy9CtcbJtbLrUOqjv/QN31KLm4XYB+oBA10JI5EEKZ9GY3
-         5rEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMs4baAqw4NKFNmn7Vux8rIZbVjn3Yv03d/gdyDOwaLk0bjOsNVmyQxujbaDhtLzjRrIJ/zNXSKm+4gKJptkDO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs//byC/19vAXwffOvwfDv0UB+HwdRqW1hN4eStRqUo/F5Mh1T
-	0a7fPC1fgCqsLZpSahE6a/tXIir0C47RLMm9B6+Qfo9V0NEKd7EBXH/nijuUgRcpGixpy4QbHCX
-	VtspdLDaXoGsyj4i7yOcUCS5QCjW+KjUVz+rrlC8WY8ZGfinIZvs1KR/LoJP56QzTEOJMxrAyUA
-	==
-X-Received: by 2002:a05:620a:2a07:b0:7b1:4920:8006 with SMTP id af79cd13be357-7b331e4cf7emr229940185a.11.1731098575765;
-        Fri, 08 Nov 2024 12:42:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF2rPJ8TWctxcZMgE4zJgB8rPLFwzZPX76YJC1zO5aP6gngaNdRzDusbilO7NPwDQ+LrWVpzQ==
-X-Received: by 2002:a05:620a:2a07:b0:7b1:4920:8006 with SMTP id af79cd13be357-7b331e4cf7emr229936885a.11.1731098575404;
-        Fri, 08 Nov 2024 12:42:55 -0800 (PST)
-Received: from [192.168.212.120] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03c7ce0asm2314144a12.85.2024.11.08.12.42.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 12:42:54 -0800 (PST)
-Message-ID: <cf054b7e-3ab3-4b33-a165-49287cac6515@oss.qualcomm.com>
-Date: Fri, 8 Nov 2024 21:42:50 +0100
+	id 1t9W22-0000000BxgI-3Hpo;
+	Fri, 08 Nov 2024 20:56:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DFBAD5C5E2B;
+	Fri,  8 Nov 2024 20:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3225FC4CED5;
+	Fri,  8 Nov 2024 20:56:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731099397;
+	bh=Xd+Iv39wDLiv1W/W6pMdvFYFk4KIRUOY6oJ6YP9dP5E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=mzDga9rIZXYrJM30wctgArOOLT5gPx9yU7d7Z0xRanvD7SZ5JW+T5s2/BG9jXr770
+	 rFs3cm731aajOthU2H5euH5ys7fxVIsjbCvAYofafu90gzNVpR7HbGDYbjnRmQ+lqG
+	 TSZ6306R6uj7hahsRihVu/2qO0jR671onJlwTMjRPPQcwJgLD9u7XRL0zL5kmsMKcc
+	 NlCJ/WdXojx3LqvSr16ARccUxsUtqgc+nBxVt7V8Eykgee4O9xs7N2O0HpEFhMnMQx
+	 G3UkYM+k7Y25aw1UJNdMZbRHUpr01Ito+oHBltuhPIed9eE6EhRNEPI0yC9TrH1v0X
+	 0oIeW6243PUQA==
+Received: by mail-yb1-f179.google.com with SMTP id 3f1490d57ef6-e30d0d84d23so2372247276.3;
+        Fri, 08 Nov 2024 12:56:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVdAKpETsTPKIANbLOw/Q3NQSukuw8NRKEsuHwZr92NlBByYT4XX7njtnG3RqxEif8I5xirxM/Da6FtlUJE3p6d+g==@lists.infradead.org, AJvYcCXKsz5R+eIzcrVqA7ZcoMMg3EoG7LdzVVNu+Wu4fhxZ2j1HscrTrmneF0rCSZKXU6vyz1eRg6vwWDGHnSdn@lists.infradead.org
+X-Gm-Message-State: AOJu0YymPLtaH52fPomGUZe1blJy73/XYyo9q+hvAeI5LzI5f30iXNC0
+	SHlqS+fMGYmid8H88vATdIv/Xm4rTMU5ldRWn9C/BTPedm7TL/C88ACsyHAnt5tyFWbbnlzymAD
+	TGKNFBv8v2c+SP45024Pl3VMzvw==
+X-Google-Smtp-Source: AGHT+IGdQ2O/mqrpY+fuNbbmYE2hRSmFJSoBJIRulk6FCq1WPwcawEytFzQE5FWTqqfO81SCd4jqFZOV7jmSgFS088g=
+X-Received: by 2002:a05:6902:1101:b0:e2e:3701:7824 with SMTP id
+ 3f1490d57ef6-e337f8440d2mr5033272276.2.1731099396361; Fri, 08 Nov 2024
+ 12:56:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 6/6] arm64: dts: qcom: sa8775p-ride: Add PSCI
- SYSTEM_RESET2 types
-To: Elliot Berman <quic_eberman@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-        Krzysztof Kozlowski
- <krzk+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-        Melody Olvera <quic_molvera@quicinc.com>,
-        Shivendra Pratap <quic_spratap@quicinc.com>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
- <20241107-arm-psci-system_reset2-vendor-reboots-v8-6-e8715fa65cb5@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-6-e8715fa65cb5@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 5CBJbdEpE2HkuDYCqL3yMDzftwzl2APP
-X-Proofpoint-ORIG-GUID: 5CBJbdEpE2HkuDYCqL3yMDzftwzl2APP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
- mlxscore=0 mlxlogscore=945 lowpriorityscore=0 bulkscore=0 phishscore=0
- adultscore=0 suspectscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411080170
+References: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
+ <a4begcrmbtotl2imd3eaxpdveagvwridy6ev5zmwzvjqt3ovfq@wyj2dj73xe3e> <d5d3f934-4f1c-43d9-aaf9-8de194d1f3b7@gmail.com>
+In-Reply-To: <d5d3f934-4f1c-43d9-aaf9-8de194d1f3b7@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 8 Nov 2024 14:56:24 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLkdXKGve5tB_cdO9bG9ge923Hbmkz+1BghLc+KkkDo+Q@mail.gmail.com>
+Message-ID: <CAL_JsqLkdXKGve5tB_cdO9bG9ge923Hbmkz+1BghLc+KkkDo+Q@mail.gmail.com>
+Subject: Re: [PATCH v3] dt-bindings: clock: actions,owl-cmu: convert to YAML
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_124257_814579_AD135571 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20241108_125638_934776_D2D29B6B 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,19 +86,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8.11.2024 12:38 AM, Elliot Berman wrote:
-> sa8775p-ride firmware supports vendor-defined SYSTEM_RESET2 types.
-> Describe the reset types: "bootloader" will cause device to reboot and
-> stop in the bootloader's fastboot mode. "edl" will cause device to
-> reboot into "emergency download mode", which permits loading images via
-> the Firehose protocol.
-> 
-> Co-developed-by: Shivendra Pratap <quic_spratap@quicinc.com>
-> Signed-off-by: Shivendra Pratap <quic_spratap@quicinc.com>
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> ---
+On Fri, Nov 8, 2024 at 2:31=E2=80=AFPM Ivaylo Ivanov
+<ivo.ivanov.ivanov1@gmail.com> wrote:
+>
+>
+>
+>
+> On 11/8/24 14:16, Krzysztof Kozlowski wrote:
+> > On Thu, Nov 07, 2024 at 04:34:31PM +0200, Ivaylo Ivanov wrote:
+> >> Convert the Actions Semi Owl CMU bindings to DT schema.
+> >>
+> >> Changes during conversion:
+> >>  - Since all Actions Semi Owl SoCs utilize the internal low frequency
+> >>    oscillator as a parent for some clocks, require it.
+> >>
+> >> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> > <form letter>
+> > This is a friendly reminder during the review process.
+> >
+> > It looks like you received a tag and forgot to add it.
+> >
+> > If you do not know the process, here is a short explanation: Please add
+> > Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
+> > or above your Signed-off-by tag. Tag is "received", when provided
+> > in a message replied to you on the mailing list. Tools like b4 can help
+> > here. However, there's no need to repost patches *only* to add the tags=
+.
+> > The upstream maintainer will do that for tags received on the version
+> > they apply.
+> >
+> > https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/=
+submitting-patches.rst#L577
+> >
+> > If a tag was not added on purpose, please state why and what changed.
+> > </form letter>
+> >
+> > I cannot add other people's tags - toolsets ignore it.
+> >
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > ...
+> >
+> >> +maintainers:
+> >> +  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >> +
+> >> +description: |
+> >> +  The Actions Semi Owl Clock Management Unit generates and supplies c=
+lock
+> >> +  to various controllers within the SoC.
+> >> +
+> >> +  See also::
+> > Single ':'.
+>
+> $ rg --files-with-matches "See also:" | wc -l
+> 110
+>
+> $ rg --files-with-matches "See also::" | wc -l
+> 94
+>
+> Having 94 matches of that out of all 110 definitely leads me to
+> think that this has been done on purpose, and is still being done.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+91 are QCom and 82 are QCom clock bindings... They tend to be
+annoyingly consistent sometimes with whatever was their downstream
+coding standards.
 
-Konrad
+The double colon is needed in rSt documents to escape a colon. We
+don't need that in YAML though. There were some thoughts on embedding
+rSt into the bindings for generating documentation from the bindings,
+but that's never been more than some experiments. This just looks like
+the first QCom clock binding did this and all the others just
+copy-n-pasted it.
+
+> Could you elaborate a bit more? If it's wrong, then shouldn't we
+> clean all the other bindings from that mistake?
+
+Patches welcome...
+
+Rob
 
