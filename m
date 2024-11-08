@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2D3D64084
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC2AD64084
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=; b=02ZXi2FJT0+/9BZv7ydpyqTR8+
-	QAfOyGz5njwK9aUJD6QmNB1OOpstRwHU6sK7OvGs019N7gOKf3NoK7okEcPR2iD4qINa+dY13KSr5
-	Z1RuAcmH8WhJpZBZrN8bcD4NWDA/KrQ9T2vQXB2d8IrBDSE5p2iVff0jKT6a6PDR5HUIOnQfr6frq
-	P36jGNDL5l+ZI+fDq4PchpR880Qbz5wGnpRUrmLAMZGTGZnsBtWStddNyCmIgW6WIPVW68eAdYHkr
-	LLcXn9iUrBStnAC6238dNYIvpGEYhxmwjaMI//zF6JW8Nis05pBgRH86LudbZuc/F3Zl0cXMt21jf
-	OTErH0dw==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SnJi290h8vr4C/mD2ddPtqPV3xjVoWTEKK5WxcOCaRU=; b=miXijZLVwpyVOerM3nuq8tVAyB
+	LTBiE8STsADfdRXG/DLSyvcbNNwK8Ecbm2Rc+X1dj4CjdvUfYezfJhuh5WtBEjGYkH9lKNXh8DI0w
+	edIHUAtppIoADZ8h3r+Tmk651grstWbB+Mv09ghj7P7FfE7bLVyuXAn0Nu/6jJlgaIlqXwV6od5aj
+	pAyBf+a8YTcT9oVgogzai93mbF3ba/tTqLTuBQ+P1gcezJ+5L//5p/E4fiLSlW/HiqO5srflMHDrF
+	spwdEgq4Ti99r0efZe1JkINOzelKyCvYY+fXkmsqYVE60DIx2ezDAgxf1zqubaSUFLH2ssgGbiQkh
+	y/ZfMwgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VJn-0000000BqXp-0Ztr;
-	Fri, 08 Nov 2024 20:10:55 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1t9VPS-0000000BrIF-0qM6;
+	Fri, 08 Nov 2024 20:16:46 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VI1-0000000BqKM-2Z7C
+	id 1t9VNf-0000000Br7h-35wS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 20:09:06 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-460963d6233so15435141cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 12:09:04 -0800 (PST)
+	Fri, 08 Nov 2024 20:14:57 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4315df7b43fso21481045e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 12:14:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731096544; x=1731701344; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=;
-        b=J4d33qoajFmHSiMAzvDN+f9WXSr3NLSGHJ7OxLuGfGgFN9dCjnmWA/BHxhVNHpVRyS
-         ApFyCqV3BuuTNnZ0304UNPlImnekRvX9Wjlh4FnIE+5MWlFnnOuzvSRLPTAbw3wZU01P
-         5peJZUvomCEUAPz9kS11sc9v9bD6DiDsQIaPPesbkpMpHqkMlJ+sMHhzaVjEs1CRwWht
-         W4XASy7uxP3L6VQAtkLq6DD5a5qx8iLjFPN/Kh3gmIFcASEdd+EOxl7KtvRCAeiMJMfq
-         XiCwVotQzI7r9w8+sRjSKn5TZpB3KOumJlmgCyaRcNcXTshCadSJhWv+hidY+46Tih80
-         lxaQ==
+        d=wirenboard.com; s=google; t=1731096893; x=1731701693; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:subject:references:cc:to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=SnJi290h8vr4C/mD2ddPtqPV3xjVoWTEKK5WxcOCaRU=;
+        b=NhXmoaDhimLN1QiiBxIZN1cf2J44sCpp4LsKsipDZENhlv/2qvil2Fr5XIr96Gp0Ae
+         tvYB2ZM9vO2bAzMbQl6I2Jjsw/FUKimDxC+WefsZNLvcbZKlcKCqOWfK4/4XZqL4UzFU
+         JiEeEp/BhRhBVY3dvj6beM4xqDbegnkDtk5jcrAZt012bskEPNmjjh8vJVosRq+Z7pIO
+         z+XRDyrnXP29U2ImRGv8Jnbwm0DB+/3CHXiK2ou0lgqR9c4UNvQBMfXrtp6zDo48v1Cl
+         KXlff4YZnN5cxB3IsoKmTNjJo8mvC08jwV4mByFMhmcX1eluF5PpGtE8bBFlMCIkDeO8
+         z6Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731096544; x=1731701344;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=;
-        b=YbjbTFsbwbWMChhFLbx3KueXdCXsWV8/jTgx3SHF92/FNchlizyRPsA5kWvkv6vzlz
-         vN1IGxxxGO5dtjdPpq7I2zVtlUZYxfbwfIxcEIAN26Ah1jehW0tooTLvbooazW2O/6Jx
-         ZdVRyYaaOyTGsJ1Lbw/Hf1AVKt1Kf/d2Vgffm++gSx43ZjfG2C0+Q0cINVwmSLr2vPrn
-         zDKKUcrrgkY0rBNSZEw4V2I3jFOaZoVvxS7hBcVAdPayWoOLaEYMWr0OROLqMzvpaXA/
-         MEBjPkZxp8UqYBSHHsMXOfBAJVAox2whZAsDlIf5dIiusT0tuUBXMmX3unNdKedgdl9j
-         Gt7A==
-X-Forwarded-Encrypted: i=1; AJvYcCV8GhqRig0D5o4U/wTShQywXAqZoJ408dKVluIK/vEbP77QfyMFNeXyRL/odsO+HXh3fugiyBek5AweQ+Dc0/QC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHfpsOjclBkb/5hY3ZhoQ+ykVSpeIqwyiR2wX5ltvGiq0Y+if5
-	6bYZ76pjGuxmbilHipzuF5REBjMmtukI/Jxw1e1n+8nHIBR5+1iB
-X-Google-Smtp-Source: AGHT+IE82TZXwTUiZGRTAp/L5/S3ZlnP1aQ28alBcXNmIEDpLw5fXICy0ok9tKG1jh+N+mTRfrzA/A==
-X-Received: by 2002:ac8:5a91:0:b0:458:23fc:f345 with SMTP id d75a77b69052e-463093ecfdamr48531501cf.38.1731096544010;
-        Fri, 08 Nov 2024 12:09:04 -0800 (PST)
-Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-462ff47c162sm24151271cf.53.2024.11.08.12.09.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 12:09:03 -0800 (PST)
-From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-To: jic23@kernel.org,
-	lars@metafoo.de,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	u.kleine-koenig@baylibre.com,
-	tgamblin@baylibre.com,
-	fabrice.gasnier@st.com,
-	benjamin.gaignard@linaro.org,
-	lee@kernel.org
-Cc: linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v2] iio: trigger: stm32-timer-trigger: Add check for clk_enable()
-Date: Fri,  8 Nov 2024 20:09:00 +0000
-Message-Id: <20241108200900.44727-1-jiashengjiangcool@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        d=1e100.net; s=20230601; t=1731096893; x=1731701693;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:subject:references:cc:to:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SnJi290h8vr4C/mD2ddPtqPV3xjVoWTEKK5WxcOCaRU=;
+        b=Hc2MTOCpsedngD72DYqWaOUh2K7Bb5VBSuPsawwZ3Dtn3+XU2W9H9ML+kCIZYsZUq9
+         jNpUvLjkZ53dPnzkvJHnA9e89S7VpRyChaxwE8cC78T/97qlzY0PVliHgpu6ClGyejH3
+         TqjxSfWtgCWkWOCqZw9O9jQcgwUflAW+aPCha8D4D4HB6oF0IQ7e1pj0hMIzmwFJsUEw
+         sfmzElWr2ozAw1UryTBXiMVRgPlcST4LKB26nqHG2zXv8Chm0j87+s+/+aQi0janCUB1
+         UNWSQwOlMW0Fge8rYfGV0Xzupru08vcvB6T2Y7IQ1ubhnHVTJbnnlp65OxcPYfxbVsFM
+         hdog==
+X-Forwarded-Encrypted: i=1; AJvYcCXdRASiDOhBcCIw3xQ2JIgMOSre0ZqGmQ0q1hnHqGZ7zRlicW0MEEPwN6b6OTOv06wk69hj4b5y57kFxRMg5nA5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7CJQS7xKil4tj0uOUy6x0u4I1i1Pc0j3AQb1NfcqjWInhByRF
+	VHu7rbHIaqKdzVdAKVCT9GkDgueC+g5c/mstx9T5g7vuQsLs0BQ78KLdGmiWYGA=
+X-Google-Smtp-Source: AGHT+IGN5sV2BbFWTnqEaNdU1iKUMM5d5J1yjXajKUVbx428HpwPMeTpAjJj5+kAG/3PF10HUkZuzw==
+X-Received: by 2002:a05:600c:870d:b0:431:4fa0:2e0b with SMTP id 5b1f17b1804b1-432b7519708mr32564385e9.28.1731096893182;
+        Fri, 08 Nov 2024 12:14:53 -0800 (PST)
+Received: from ?IPV6:2001:4c4e:24e5:bb00:6639:286e:9ea6:bb49? (20014C4E24E5BB006639286E9EA6BB49.dsl.pool.telekom.hu. [2001:4c4e:24e5:bb00:6639:286e:9ea6:bb49])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-432aa5b5b7fsm116672495e9.4.2024.11.08.12.14.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Nov 2024 12:14:52 -0800 (PST)
+Message-ID: <7b63b316-4cd7-48ee-ae32-3750d25e2307@wirenboard.com>
+Date: Fri, 8 Nov 2024 23:14:51 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: andre.przywara@arm.com
+Cc: jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ mturquette@baylibre.com, samuel@sholland.org, sboyd@kernel.org,
+ simons.philippe@gmail.com, wens@csie.org
+References: <20241025105620.1891596-1-andre.przywara@arm.com>
+Subject: Re: [RFC PATCH] clk: sunxi-ng: h616: Reparent CPU clock during
+ frequency changes
+Content-Language: en-GB
+From: Evgeny Boger <boger@wirenboard.com>
+Organization: Wiren Board
+In-Reply-To: <20241025105620.1891596-1-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_120905_676604_56608FAC 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20241108_121455_819679_1CA5B6EC 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,113 +100,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return value of clk_enable() in order to catch the
-potential exception.
+Tested-by: Evgeny Boger <boger@wirenboard.com>
 
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
-Changelog:
+We had stability issues with some of our T507-based boards. T507 is the 
+same die as H616, to my knowledge.
+They were fixed by essentially the same patch, which we unfortunately 
+didn't submitted to mainline: 
+https://github.com/wirenboard/linux/commit/dc06e377108c935b2d1f5ce3d54ca1a1756458af
 
-v1 -> v2:
+It's worth noticing that not only the reparenting is mandated by T5 User 
+Manual (section 3.3.3.1), it's also is implemented in vendor BSP in the 
+same way.
 
-1. Remove unsuitable dev_err_probe().
----
- drivers/iio/trigger/stm32-timer-trigger.c | 32 ++++++++++++++++++-----
- 1 file changed, 25 insertions(+), 7 deletions(-)
+We tested the patch extensively on dozens of custom T507 boards (Wiren 
+Board 8 PLC). In our test it significantly improved the stability, 
+especially at low core voltages.
 
-diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
-index 0684329956d9..e1e077122f73 100644
---- a/drivers/iio/trigger/stm32-timer-trigger.c
-+++ b/drivers/iio/trigger/stm32-timer-trigger.c
-@@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
- 			     unsigned int frequency)
- {
- 	unsigned long long prd, div;
--	int prescaler = 0;
-+	int prescaler = 0, ret;
- 	u32 ccer;
- 
- 	/* Period and prescaler values depends of clock rate */
-@@ -153,7 +153,11 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
- 	mutex_lock(&priv->lock);
- 	if (!priv->enabled) {
- 		priv->enabled = true;
--		clk_enable(priv->clk);
-+		ret = clk_enable(priv->clk);
-+		if (ret) {
-+			mutex_unlock(&priv->lock);
-+			return ret;
-+		}
- 	}
- 
- 	regmap_write(priv->regmap, TIM_PSC, prescaler);
-@@ -307,7 +311,7 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
- 	struct stm32_timer_trigger *priv = dev_get_drvdata(dev);
- 	struct iio_trigger *trig = to_iio_trigger(dev);
- 	u32 mask, shift, master_mode_max;
--	int i;
-+	int i, ret;
- 
- 	if (stm32_timer_is_trgo2_name(trig->name)) {
- 		mask = TIM_CR2_MMS2;
-@@ -326,7 +330,11 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
- 			if (!priv->enabled) {
- 				/* Clock should be enabled first */
- 				priv->enabled = true;
--				clk_enable(priv->clk);
-+				ret = clk_enable(priv->clk);
-+				if (ret) {
-+					mutex_unlock(&priv->lock);
-+					return ret;
-+				}
- 			}
- 			regmap_update_bits(priv->regmap, TIM_CR2, mask,
- 					   i << shift);
-@@ -482,6 +490,7 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
- 				   int val, int val2, long mask)
- {
- 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
-+	int ret;
- 
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
-@@ -496,7 +505,11 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
- 		if (val) {
- 			if (!priv->enabled) {
- 				priv->enabled = true;
--				clk_enable(priv->clk);
-+				ret = clk_enable(priv->clk);
-+				if (ret) {
-+					mutex_unlock(&priv->lock);
-+					return ret;
-+				}
- 			}
- 			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
- 		} else {
-@@ -601,7 +614,7 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
- 				 unsigned int mode)
- {
- 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
--	int sms = stm32_enable_mode2sms(mode);
-+	int sms = stm32_enable_mode2sms(mode), ret;
- 
- 	if (sms < 0)
- 		return sms;
-@@ -611,7 +624,12 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
- 	 */
- 	mutex_lock(&priv->lock);
- 	if (sms == 6 && !priv->enabled) {
--		clk_enable(priv->clk);
-+		ret = clk_enable(priv->clk);
-+		if (ret) {
-+			mutex_unlock(&priv->lock);
-+			return ret;
-+		}
-+
- 		priv->enabled = true;
- 	}
- 	mutex_unlock(&priv->lock);
+ From my understanding, all Allwinner SoCs need to follow this kind of 
+procedure, however it's only implemented in mainline for a handful of chips.
+
 -- 
-2.25.1
+Kind regards,
+Evgeny Boger
+CTO @ Wiren Board
+https://wirenboard.com/en
 
 
