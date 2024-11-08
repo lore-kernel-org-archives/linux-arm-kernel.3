@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3966D6408B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 21:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383A1D6408A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 21:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRdQwIjYTXd+4NEuzioQ9bORHEAmWVZm97bkocK9N00=; b=3qW44ME0ZtmlBGdkz0Fq/8ashU
-	vLSHmdaJCzBIXMSyXOvOCtJSnu8ojQPPs1uY1bJ0/FuaNcznUk5y/qcMYTizMwVLka+xFeLc/yu21
-	pd0O7v29PmXYZ/cZrDLT2Kai7Y4kc25jgI6HTeO67Cg7zk2LJN9Cxn9O6GZ61l3CYYSNKSYAZAGRi
-	amGzcUKz8oK8vLsmXQvMx/pLoBls+2XXSqgEkgcvQnLtW15AZEynIaCr+0q5PlxHdoXwo3M6qgH0Y
-	mNa9rt4uSZtWbGDZMC2sS0elRQul0xGlRv8sXqe216L3kEj4n8VXpkPZ/RFf+o6VDZ8GOTsAeE7Yr
-	D6MS7ZFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xj9B9RMnkmM/PP2fh4BdeD15ANP1xy3HAxUiNCCHfSo=; b=MIqElYmH/VGdV/cMdEM79RA8v6
+	0zt4Q+HI5eEg5zmF7y9KzeFJpUpN1+8+4022TOL4wJOD3a2rSNcsujhWImxXRRoUUQGfo7G2ZdnGt
+	ddhU8ri0242iC1TZTNdn219nMn+ZtGAHEi/5O8grFAh2RVfZycUFs7g45ksEHjUVrXwn0HTUddRCC
+	KRuyaq5tT60aOhNReK2b45pczm8uMCsaq8iRVuvPLkCMELBMzSW0ArXXzOolT0T/jkorn/KToRYDp
+	0fuadME9NhsSO7B5l6qgcmNrUxpqzO+iV2EvIZm3d32zLniTwYwT58QkdbxXtIHT3hkdaRHVXrVmn
+	a2tdRtXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9WJh-0000000C0dr-39c1;
-	Fri, 08 Nov 2024 21:14:53 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1t9WMC-0000000C0zf-10bH;
+	Fri, 08 Nov 2024 21:17:28 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9WHM-0000000C0HE-45hz;
-	Fri, 08 Nov 2024 21:12:30 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-a9ec267b879so421685766b.2;
-        Fri, 08 Nov 2024 13:12:28 -0800 (PST)
+	id 1t9WKQ-0000000C0lS-1p2E
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 21:15:40 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea8a238068so47738347b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 13:15:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731100347; x=1731705147; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GRdQwIjYTXd+4NEuzioQ9bORHEAmWVZm97bkocK9N00=;
-        b=OrfbKmohOx1wjiUEIynvqntj6rSZnYpykR4VO6im2W/erLZfdkaNlLuT8EksGyouXB
-         TnQb+9OFVtztEQUs8DdSsjdR1QbzxH4NYuhEjB8D68ddXJFZkySDnOkAcB3sqrPzEstV
-         9DflFiAXfEai5xq9TbdfCQrDZdW9LK4m7nO9Lu+PbZ/WoFR95hLsShgAWo4t9T3U25qQ
-         NRIBrUHLQ1YNXc2bh28BUOKI2wMU3bH1f/P6lWr4ItUAbaABlgHR+cixb04v0+L03OrY
-         houU28CrQRSKLAw97IlPQdZ641KC1chzeolWN6KP1L6zRcjUlEUUGeida9NNyf+U0EFK
-         uSbw==
+        d=google.com; s=20230601; t=1731100536; x=1731705336; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Xj9B9RMnkmM/PP2fh4BdeD15ANP1xy3HAxUiNCCHfSo=;
+        b=lp7WLQGPSzCt1721kj+h31MmIjLU1r/X9DY+iMlI1YouORHIsI+j5wdc3EWs6m4jAJ
+         7f/iL8MPJF6BuKUJpvNeYiWNIF+Be1UAfDcrVv/sH62WiF+X9tgoZAVWeWhcumXxtGHN
+         NQe/66UnOchFh4QMQaErqWZqZpI6emnKAl+dFMp4zmqQHDXggsQI23AHksdY0+vEZkMk
+         ZXuco5w6MNKaLwV4AMa9jZNgW8hQ3yVg8hV8YGMk7QvluZvIIrtvcygjSjBalYiZfEm4
+         uBMt+0ZY/bkOxkkzdA/kQKeMuhw/Zv809yB7EMdJLuxsG+YWf7ON5vswEVYsErAg0MjR
+         PA3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731100347; x=1731705147;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GRdQwIjYTXd+4NEuzioQ9bORHEAmWVZm97bkocK9N00=;
-        b=d+4BWWqLNbZxuaVA3O20iHICUU30sCaqydeM3EYx09a5jOCSU7dDO4pzi8TfJvtYFO
-         iBBijGQnCRS1Td64/HwtW28We36swVSGiU5GExFtUEvBckdIWBSu5/UpxX8PTd7tVA8o
-         dc7MLiDqwRHPSNLSc9gD+6pGRO8xImXzT5ljtQEgxfwL8KgNalfJnxUYcPakTeDRYrXo
-         J9q1sD57D29tjicKFG2zpHC8oPtpdMCA4YrPDbXBZgVMeTQ5tdTVf1cOOMUtg87Kd7DT
-         UajfPrnpKxmK5vCiAl1/xu/ybYWdb33TYQ7deKQYCLTx0iLjgpwhkkBSz3bpZtm8GOQ0
-         E8HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUkOxVFD+jKml7vWtNKSV3tVYNTqZbhZD9PG4r4Vv7qMuDZoG6RkKBkRrzprEeeOKPENZ8qenkuAloMtn/@lists.infradead.org, AJvYcCUrx2aPEfJEWpvufYMz5K6/ojNlSJ0LXRN/40afl9CAQQ/g1av+XQrrCooFPYYThQHykbfkXBmWdZOrRyNWPe6nEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAZ5hKS65WCsSCEn8TYikCsojjlJJK2JztzvOhvXiDGM0sGrmK
-	QwMBwRFyAKhI5E5BP+LaA1Q5H60rI07wMcozdsOcSeajgyT1H8aP8avnVA==
-X-Google-Smtp-Source: AGHT+IHfY3W1P44D/+5X9Mv0Lkn3gsjpDpWQ1OX+M+X9kDBgfznn45mROOfa6ZjrBV4O4N507XYBgA==
-X-Received: by 2002:a17:907:1c20:b0:a9a:558:3929 with SMTP id a640c23a62f3a-a9eefff12d2mr426112266b.48.1731100346738;
-        Fri, 08 Nov 2024 13:12:26 -0800 (PST)
-Received: from [172.20.10.2] ([37.63.10.207])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc4ca5sm279171866b.95.2024.11.08.13.12.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 13:12:26 -0800 (PST)
-Message-ID: <ce5d812c-9d92-4ad5-8111-106968dbdd70@gmail.com>
-Date: Fri, 8 Nov 2024 23:12:24 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: clock: actions,owl-cmu: convert to YAML
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
- <a4begcrmbtotl2imd3eaxpdveagvwridy6ev5zmwzvjqt3ovfq@wyj2dj73xe3e>
- <d5d3f934-4f1c-43d9-aaf9-8de194d1f3b7@gmail.com>
- <CAL_JsqLkdXKGve5tB_cdO9bG9ge923Hbmkz+1BghLc+KkkDo+Q@mail.gmail.com>
-Content-Language: en-US
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <CAL_JsqLkdXKGve5tB_cdO9bG9ge923Hbmkz+1BghLc+KkkDo+Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1731100536; x=1731705336;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Xj9B9RMnkmM/PP2fh4BdeD15ANP1xy3HAxUiNCCHfSo=;
+        b=D6PkH985Hj/eHCH5ZowujVurdmA0b18hugDLE5wmkpe/d74QbMmZFG0bKeUOrimLWl
+         Y6GEXL0xOVzxCjaYGtr0znRw6oX1rf4Rv2dziR6ZlZ1BNtrl1xTtUt35TMbNuHgmkAf9
+         x7STal4Irntmk9YRDNs2pALs5ap1M53lhtvumWgmDsNKHZdfGuASMTWSKfM/oXW7BvGZ
+         0HtsEpAm9nt/h5zRMbKvEBGEOmHB6EOzWbGYwMhHhQbsNfq4mRSwPwTN0veRtDcKHcFi
+         Hfg62GLnmuZ/nsCZyF00MjHo2lQ1rbF9mVMv78cUNTdnt8SFfXN3GP1kYOzvYKJYlhel
+         z1HQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHNvi2jIdK7w8MzoQ3dXgFkTZY7PYlNFrU97H0h252qJLY7HMalEorGXQbtU5gQ6rdTXCnu5PL9+uKzzbUOuHF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+sWLjLmDTU26Jb7NzC5TqhqHyqvMmXbcqMzKNnhJsphonJ+x+
+	TTuDykB1uE2VsRBb9sU9QCoWv2jNz9zVxWssyZEIv4JKA4JUNv9J4LWb9+1rOGO6qF/0eN1GwjZ
+	YgIYtjNdTtlNgwP6gd/vj/w==
+X-Google-Smtp-Source: AGHT+IEsHFWnlCL6mSsTKptJZufFOreEVWGFRJq416Pbau44wC4RVCznab2s8sBpPto1P5Y2xzKAJABWpyJ20H2TbA==
+X-Received: from kalesh.mtv.corp.google.com ([2a00:79e0:2e3f:8:bf60:92db:a254:85c0])
+ (user=kaleshsingh job=sendgmr) by 2002:a05:690c:7307:b0:6ea:3c62:17c1 with
+ SMTP id 00721157ae682-6eaddd75f83mr406757b3.1.1731100536154; Fri, 08 Nov 2024
+ 13:15:36 -0800 (PST)
+Date: Fri,  8 Nov 2024 13:14:00 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Message-ID: <20241108211446.3304809-1-kaleshsingh@google.com>
+Subject: [PATCH] arm64: kvm: Make nvhe stack size configurable
+From: Kalesh Singh <kaleshsingh@google.com>
+To: will@kernel.org, qperret@google.com, maz@kernel.org, broonie@kernel.org, 
+	mark.rutland@arm.com
+Cc: keir@google.com, vdonnefort@google.com, kernel-team@android.com, 
+	android-mm@google.com, Kalesh Singh <kaleshsingh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	D Scott Phillips <scott@os.amperecomputing.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Ankit Agrawal <ankita@nvidia.com>, Wang Jinchao <wangjinchao@xfusion.com>, 
+	"Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, 
+	"=?UTF-8?q?Pierre-Cl=C3=A9ment=20Tosi?=" <ptosi@google.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_131229_037558_37254C29 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20241108_131538_537066_8A17E5D7 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,88 +97,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In order to make the nVHE stack size easily configurable,
+introduce NVHE_STACK_SHIFT which must be >= PAGE_SHIFT.
 
+The default stack size remains 1 page (no functional change)
 
+Downstream vendor features which require a larger stack
+can configure it by setting CONFIG_NVHE_STACK_SHIFT.
 
-On 11/8/24 22:56, Rob Herring wrote:
-> On Fri, Nov 8, 2024 at 2:31 PM Ivaylo Ivanov
-> <ivo.ivanov.ivanov1@gmail.com> wrote:
->>
->>
->>
->> On 11/8/24 14:16, Krzysztof Kozlowski wrote:
->>> On Thu, Nov 07, 2024 at 04:34:31PM +0200, Ivaylo Ivanov wrote:
->>>> Convert the Actions Semi Owl CMU bindings to DT schema.
->>>>
->>>> Changes during conversion:
->>>>  - Since all Actions Semi Owl SoCs utilize the internal low frequency
->>>>    oscillator as a parent for some clocks, require it.
->>>>
->>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>> <form letter>
->>> This is a friendly reminder during the review process.
->>>
->>> It looks like you received a tag and forgot to add it.
->>>
->>> If you do not know the process, here is a short explanation: Please add
->>> Acked-by/Reviewed-by/Tested-by tags when posting new versions, under
->>> or above your Signed-off-by tag. Tag is "received", when provided
->>> in a message replied to you on the mailing list. Tools like b4 can help
->>> here. However, there's no need to repost patches *only* to add the tags.
->>> The upstream maintainer will do that for tags received on the version
->>> they apply.
->>>
->>> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
->>>
->>> If a tag was not added on purpose, please state why and what changed.
->>> </form letter>
->>>
->>> I cannot add other people's tags - toolsets ignore it.
->>>
->>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>>
->>> ...
->>>
->>>> +maintainers:
->>>> +  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->>>> +
->>>> +description: |
->>>> +  The Actions Semi Owl Clock Management Unit generates and supplies clock
->>>> +  to various controllers within the SoC.
->>>> +
->>>> +  See also::
->>> Single ':'.
->> $ rg --files-with-matches "See also:" | wc -l
->> 110
->>
->> $ rg --files-with-matches "See also::" | wc -l
->> 94
->>
->> Having 94 matches of that out of all 110 definitely leads me to
->> think that this has been done on purpose, and is still being done.
-> 91 are QCom and 82 are QCom clock bindings... They tend to be
-> annoyingly consistent sometimes with whatever was their downstream
-> coding standards.
->
-> The double colon is needed in rSt documents to escape a colon. We
-> don't need that in YAML though. There were some thoughts on embedding
-> rSt into the bindings for generating documentation from the bindings,
-> but that's never been more than some experiments. This just looks like
-> the first QCom clock binding did this and all the others just
-> copy-n-pasted it.
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Kalesh Singh <kaleshsingh@google.com>
+---
+ arch/arm64/include/asm/memory.h          |  5 ++++-
+ arch/arm64/include/asm/stacktrace/nvhe.h |  2 +-
+ arch/arm64/kvm/Kconfig                   | 14 ++++++++++++++
+ arch/arm64/kvm/arm.c                     | 18 +++++++++---------
+ arch/arm64/kvm/hyp/nvhe/host.S           |  4 ++--
+ arch/arm64/kvm/hyp/nvhe/mm.c             | 12 ++++++------
+ arch/arm64/kvm/hyp/nvhe/stacktrace.c     |  4 ++--
+ arch/arm64/kvm/mmu.c                     | 12 ++++++------
+ arch/arm64/kvm/stacktrace.c              |  6 +++---
+ 9 files changed, 47 insertions(+), 30 deletions(-)
 
-I see, thanks for the explanation!
-
->> Could you elaborate a bit more? If it's wrong, then shouldn't we
->> clean all the other bindings from that mistake?
-> Patches welcome...
-
-Will look further into it the following weeks. For now I'll send a v4
-of this patch with the issue fixed.
-
-Best regards, Ivo.
-
->
-> Rob
+diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
+index 0480c61dbb4f..55e592351749 100644
+--- a/arch/arm64/include/asm/memory.h
++++ b/arch/arm64/include/asm/memory.h
+@@ -145,13 +145,16 @@
+ 
+ #define OVERFLOW_STACK_SIZE	SZ_4K
+ 
++#define NVHE_STACK_SHIFT       CONFIG_NVHE_STACK_SHIFT
++#define NVHE_STACK_SIZE        (UL(1) << NVHE_STACK_SHIFT)
++
+ /*
+  * With the minimum frame size of [x29, x30], exactly half the combined
+  * sizes of the hyp and overflow stacks is the maximum size needed to
+  * save the unwinded stacktrace; plus an additional entry to delimit the
+  * end.
+  */
+-#define NVHE_STACKTRACE_SIZE	((OVERFLOW_STACK_SIZE + PAGE_SIZE) / 2 + sizeof(long))
++#define NVHE_STACKTRACE_SIZE	((OVERFLOW_STACK_SIZE + NVHE_STACK_SIZE) / 2 + sizeof(long))
+ 
+ /*
+  * Alignment of kernel segments (e.g. .text, .data).
+diff --git a/arch/arm64/include/asm/stacktrace/nvhe.h b/arch/arm64/include/asm/stacktrace/nvhe.h
+index 44759281d0d4..171f9edef49f 100644
+--- a/arch/arm64/include/asm/stacktrace/nvhe.h
++++ b/arch/arm64/include/asm/stacktrace/nvhe.h
+@@ -47,7 +47,7 @@ static inline void kvm_nvhe_unwind_init(struct unwind_state *state,
+ 
+ DECLARE_KVM_NVHE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
+ DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_stacktrace_info, kvm_stacktrace_info);
+-DECLARE_PER_CPU(unsigned long, kvm_arm_hyp_stack_page);
++DECLARE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+ 
+ void kvm_nvhe_dump_backtrace(unsigned long hyp_offset);
+ 
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index ead632ad01b4..7aaf0951086c 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -66,6 +66,20 @@ config PROTECTED_NVHE_STACKTRACE
+ 
+ 	  If unsure, or not using protected nVHE (pKVM), say N.
+ 
++config NVHE_STACK_SHIFT
++	int "Size of the nVHE stack as a power of 2"
++	depends on KVM
++	range 12 13 if ARM64_4K_PAGES
++	default "12" if ARM64_4K_PAGES
++	range 14 15 if ARM64_16K_PAGES
++	default "14" if ARM64_16K_PAGES
++	range 16 17 if ARM64_64K_PAGES
++	default "16" if ARM64_64K_PAGES
++	help
++	  This option specifies the size of the KVM nVHE stack (for both
++	  conventional nVHE and pKVM modes) as a power of 2 -- which must
++	  be at least as large as PAGE_SIZE.
++
+ config PTDUMP_STAGE2_DEBUGFS
+ 	bool "Present the stage-2 pagetables to debugfs"
+ 	depends on KVM
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 48cafb65d6ac..d19bffbfcb9e 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -61,7 +61,7 @@ static enum kvm_wfx_trap_policy kvm_wfe_trap_policy __read_mostly = KVM_WFX_NOTR
+ 
+ DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
+ 
+-DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_page);
++DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+ DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+ 
+ DECLARE_KVM_NVHE_PER_CPU(struct kvm_cpu_context, kvm_hyp_ctxt);
+@@ -2359,7 +2359,7 @@ static void __init teardown_hyp_mode(void)
+ 
+ 	free_hyp_pgds();
+ 	for_each_possible_cpu(cpu) {
+-		free_page(per_cpu(kvm_arm_hyp_stack_page, cpu));
++		free_pages(per_cpu(kvm_arm_hyp_stack_base, cpu), NVHE_STACK_SHIFT - PAGE_SHIFT);
+ 		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
+ 
+ 		if (free_sve) {
+@@ -2547,15 +2547,15 @@ static int __init init_hyp_mode(void)
+ 	 * Allocate stack pages for Hypervisor-mode
+ 	 */
+ 	for_each_possible_cpu(cpu) {
+-		unsigned long stack_page;
++		unsigned long stack_base;
+ 
+-		stack_page = __get_free_page(GFP_KERNEL);
+-		if (!stack_page) {
++		stack_base = __get_free_pages(GFP_KERNEL, NVHE_STACK_SHIFT - PAGE_SHIFT);
++		if (!stack_base) {
+ 			err = -ENOMEM;
+ 			goto out_err;
+ 		}
+ 
+-		per_cpu(kvm_arm_hyp_stack_page, cpu) = stack_page;
++		per_cpu(kvm_arm_hyp_stack_base, cpu) = stack_base;
+ 	}
+ 
+ 	/*
+@@ -2624,9 +2624,9 @@ static int __init init_hyp_mode(void)
+ 	 */
+ 	for_each_possible_cpu(cpu) {
+ 		struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
+-		char *stack_page = (char *)per_cpu(kvm_arm_hyp_stack_page, cpu);
++		char *stack_base = (char *)per_cpu(kvm_arm_hyp_stack_base, cpu);
+ 
+-		err = create_hyp_stack(__pa(stack_page), &params->stack_hyp_va);
++		err = create_hyp_stack(__pa(stack_base), &params->stack_hyp_va);
+ 		if (err) {
+ 			kvm_err("Cannot map hyp stack\n");
+ 			goto out_err;
+@@ -2638,7 +2638,7 @@ static int __init init_hyp_mode(void)
+ 		 * __hyp_pa() won't do the right thing there, since the stack
+ 		 * has been mapped in the flexible private VA space.
+ 		 */
+-		params->stack_pa = __pa(stack_page);
++		params->stack_pa = __pa(stack_base);
+ 	}
+ 
+ 	for_each_possible_cpu(cpu) {
+diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/host.S
+index 3d610fc51f4d..58f0cb2298cc 100644
+--- a/arch/arm64/kvm/hyp/nvhe/host.S
++++ b/arch/arm64/kvm/hyp/nvhe/host.S
+@@ -188,12 +188,12 @@ SYM_FUNC_END(__host_hvc)
+ 
+ 	/*
+ 	 * Test whether the SP has overflowed, without corrupting a GPR.
+-	 * nVHE hypervisor stacks are aligned so that the PAGE_SHIFT bit
++	 * nVHE hypervisor stacks are aligned so that the NVHE_STACK_SHIFT bit
+ 	 * of SP should always be 1.
+ 	 */
+ 	add	sp, sp, x0			// sp' = sp + x0
+ 	sub	x0, sp, x0			// x0' = sp' - x0 = (sp + x0) - x0 = sp
+-	tbz	x0, #PAGE_SHIFT, .L__hyp_sp_overflow\@
++	tbz	x0, #NVHE_STACK_SHIFT, .L__hyp_sp_overflow\@
+ 	sub	x0, sp, x0			// x0'' = sp' - x0' = (sp + x0) - sp = x0
+ 	sub	sp, sp, x0			// sp'' = sp' - x0 = (sp + x0) - x0 = sp
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 8850b591d775..f41c7440b34b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -360,10 +360,10 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
+ 
+ 	prev_base = __io_map_base;
+ 	/*
+-	 * Efficient stack verification using the PAGE_SHIFT bit implies
++	 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
+ 	 * an alignment of our allocation on the order of the size.
+ 	 */
+-	size = PAGE_SIZE * 2;
++	size = NVHE_STACK_SIZE * 2;
+ 	addr = ALIGN(__io_map_base, size);
+ 
+ 	ret = __pkvm_alloc_private_va_range(addr, size);
+@@ -373,12 +373,12 @@ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr)
+ 		 * at the higher address and leave the lower guard page
+ 		 * unbacked.
+ 		 *
+-		 * Any valid stack address now has the PAGE_SHIFT bit as 1
++		 * Any valid stack address now has the NVHE_STACK_SHIFT bit as 1
+ 		 * and addresses corresponding to the guard page have the
+-		 * PAGE_SHIFT bit as 0 - this is used for overflow detection.
++		 * NVHE_STACK_SHIFT bit as 0 - this is used for overflow detection.
+ 		 */
+-		ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr + PAGE_SIZE,
+-					  PAGE_SIZE, phys, PAGE_HYP);
++		ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr + NVHE_STACK_SIZE,
++					  NVHE_STACK_SIZE, phys, PAGE_HYP);
+ 		if (ret)
+ 			__io_map_base = prev_base;
+ 	}
+diff --git a/arch/arm64/kvm/hyp/nvhe/stacktrace.c b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+index ed6b58b19cfa..5b6eeab1a774 100644
+--- a/arch/arm64/kvm/hyp/nvhe/stacktrace.c
++++ b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+@@ -28,7 +28,7 @@ static void hyp_prepare_backtrace(unsigned long fp, unsigned long pc)
+ 	struct kvm_nvhe_stacktrace_info *stacktrace_info = this_cpu_ptr(&kvm_stacktrace_info);
+ 	struct kvm_nvhe_init_params *params = this_cpu_ptr(&kvm_init_params);
+ 
+-	stacktrace_info->stack_base = (unsigned long)(params->stack_hyp_va - PAGE_SIZE);
++	stacktrace_info->stack_base = (unsigned long)(params->stack_hyp_va - NVHE_STACK_SIZE);
+ 	stacktrace_info->overflow_stack_base = (unsigned long)this_cpu_ptr(overflow_stack);
+ 	stacktrace_info->fp = fp;
+ 	stacktrace_info->pc = pc;
+@@ -54,7 +54,7 @@ static struct stack_info stackinfo_get_hyp(void)
+ {
+ 	struct kvm_nvhe_init_params *params = this_cpu_ptr(&kvm_init_params);
+ 	unsigned long high = params->stack_hyp_va;
+-	unsigned long low = high - PAGE_SIZE;
++	unsigned long low = high - NVHE_STACK_SIZE;
+ 
+ 	return (struct stack_info) {
+ 		.low = low,
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 0f7658aefa1a..e366ed8650fe 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -704,10 +704,10 @@ int create_hyp_stack(phys_addr_t phys_addr, unsigned long *haddr)
+ 
+ 	mutex_lock(&kvm_hyp_pgd_mutex);
+ 	/*
+-	 * Efficient stack verification using the PAGE_SHIFT bit implies
++	 * Efficient stack verification using the NVHE_STACK_SHIFT bit implies
+ 	 * an alignment of our allocation on the order of the size.
+ 	 */
+-	size = PAGE_SIZE * 2;
++	size = NVHE_STACK_SIZE * 2;
+ 	base = ALIGN_DOWN(io_map_base - size, size);
+ 
+ 	ret = __hyp_alloc_private_va_range(base);
+@@ -724,12 +724,12 @@ int create_hyp_stack(phys_addr_t phys_addr, unsigned long *haddr)
+ 	 * at the higher address and leave the lower guard page
+ 	 * unbacked.
+ 	 *
+-	 * Any valid stack address now has the PAGE_SHIFT bit as 1
++	 * Any valid stack address now has the NVHE_STACK_SHIFT bit as 1
+ 	 * and addresses corresponding to the guard page have the
+-	 * PAGE_SHIFT bit as 0 - this is used for overflow detection.
++	 * NVHE_STACK_SHIFT bit as 0 - this is used for overflow detection.
+ 	 */
+-	ret = __create_hyp_mappings(base + PAGE_SIZE, PAGE_SIZE, phys_addr,
+-				    PAGE_HYP);
++	ret = __create_hyp_mappings(base + NVHE_STACK_SIZE, NVHE_STACK_SIZE,
++				    phys_addr, PAGE_HYP);
+ 	if (ret)
+ 		kvm_err("Cannot map hyp stack\n");
+ 
+diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
+index 3ace5b75813b..b9744a932920 100644
+--- a/arch/arm64/kvm/stacktrace.c
++++ b/arch/arm64/kvm/stacktrace.c
+@@ -50,7 +50,7 @@ static struct stack_info stackinfo_get_hyp(void)
+ 	struct kvm_nvhe_stacktrace_info *stacktrace_info
+ 				= this_cpu_ptr_nvhe_sym(kvm_stacktrace_info);
+ 	unsigned long low = (unsigned long)stacktrace_info->stack_base;
+-	unsigned long high = low + PAGE_SIZE;
++	unsigned long high = low + NVHE_STACK_SIZE;
+ 
+ 	return (struct stack_info) {
+ 		.low = low,
+@@ -60,8 +60,8 @@ static struct stack_info stackinfo_get_hyp(void)
+ 
+ static struct stack_info stackinfo_get_hyp_kern_va(void)
+ {
+-	unsigned long low = (unsigned long)*this_cpu_ptr(&kvm_arm_hyp_stack_page);
+-	unsigned long high = low + PAGE_SIZE;
++	unsigned long low = (unsigned long)*this_cpu_ptr(&kvm_arm_hyp_stack_base);
++	unsigned long high = low + NVHE_STACK_SIZE;
+ 
+ 	return (struct stack_info) {
+ 		.low = low,
+-- 
+2.47.0.277.g8800431eea-goog
 
 
