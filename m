@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD18CD64085
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2D3D64084
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 20:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/dZFJc2z5rUwKei0wy+VFYTSdoDIJrW66Yr1bcGuUw=; b=r5/zo9xD/KzQwIOTSZHa1YQQDP
-	aQqsbAKGrxAtfdJdAuF2MbloqmHhG6Jn/FVfOyuaQkO5N8srpPx8gkDUI1LnUpG4ey+2DxatsP+mQ
-	0/ceX8TuosHd4nSQIFzoYYNuM79Oruzd8P4OknbOa/JyKnjJNrso6lqJxKA2ub6fhbs+iNtjiZaO6
-	vXhyEAGHhJB/nbu1ox5R/xGFRY1bb49T6TxDR1hjjpxxDjgNwRli5K7FXlCiuECpMmbDPgIBlUXtU
-	RzbSnW2G9NMKQFiQ876GnLstUnkTBHT0rZHPjO2rvdspWTLa7VcUVVzgw8ASMjrMwoC03sixXDcHB
-	7tnDDdLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=; b=02ZXi2FJT0+/9BZv7ydpyqTR8+
+	QAfOyGz5njwK9aUJD6QmNB1OOpstRwHU6sK7OvGs019N7gOKf3NoK7okEcPR2iD4qINa+dY13KSr5
+	Z1RuAcmH8WhJpZBZrN8bcD4NWDA/KrQ9T2vQXB2d8IrBDSE5p2iVff0jKT6a6PDR5HUIOnQfr6frq
+	P36jGNDL5l+ZI+fDq4PchpR880Qbz5wGnpRUrmLAMZGTGZnsBtWStddNyCmIgW6WIPVW68eAdYHkr
+	LLcXn9iUrBStnAC6238dNYIvpGEYhxmwjaMI//zF6JW8Nis05pBgRH86LudbZuc/F3Zl0cXMt21jf
+	OTErH0dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VE4-0000000Bp5A-0lo9;
-	Fri, 08 Nov 2024 20:05:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9VJn-0000000BqXp-0Ztr;
+	Fri, 08 Nov 2024 20:10:55 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9VCF-0000000Bofl-2RXp;
-	Fri, 08 Nov 2024 20:03:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67FFBA44D13;
-	Fri,  8 Nov 2024 20:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 430B3C4CECD;
-	Fri,  8 Nov 2024 20:03:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731096185;
-	bh=xX7Im2UhKNKgBE416PaOdSNPECSfPWPArQu7YbQODCs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=epU1fQiNqfeFZdEM00F7vtSpMYwYfot9P71+GYdehpaxaLPDaCOqbKUsUO44+7y7Q
-	 o3eR0G3nwWjdXG/LjOV4dfBN0fpiBTfQjkBTXyhZBNO+yusM5c1u7BaRCniZhMJtUc
-	 q0LQVTzSXkt/xN//agdroW9fr4YtNwoqFZiNjQEOxO7G8ZsMBpZAqrwC/td1X3yVI6
-	 ZSmmdmmc6CZDt6uatgD6LkqCfjjGv9p4sNMU/5ZgXRHd74jD11SoWcSVHFWVmpVipt
-	 dxHX0hnw/IAilCJN1DmkNfFpwQXnl86vrupoNsuxdPy9xI7tSKuBpkU6HsTpd7/E8B
-	 18HgSp7ZPgyRw==
-Date: Fri, 8 Nov 2024 12:03:02 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Changbin Du <changbin.du@huawei.com>,
-	Guilherme Amadio <amadio@gentoo.org>,
-	Yang Jihong <yangjihong@bytedance.com>,
-	Aditya Gupta <adityag@linux.ibm.com>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
-	Shenlin Liang <liangshenlin@eswincomputing.com>,
-	Anup Patel <anup@brainfault.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	"Steinar H. Gunderson" <sesse@google.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Dima Kogan <dima@secretsauce.net>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 10/20] perf dwarf-regs: Move csky dwarf-regs out of
- arch
-Message-ID: <Zy5udmX6gZAg0wkS@google.com>
-References: <20241017002520.59124-1-irogers@google.com>
- <20241017002520.59124-11-irogers@google.com>
+	id 1t9VI1-0000000BqKM-2Z7C
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Nov 2024 20:09:06 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-460963d6233so15435141cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 12:09:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731096544; x=1731701344; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=;
+        b=J4d33qoajFmHSiMAzvDN+f9WXSr3NLSGHJ7OxLuGfGgFN9dCjnmWA/BHxhVNHpVRyS
+         ApFyCqV3BuuTNnZ0304UNPlImnekRvX9Wjlh4FnIE+5MWlFnnOuzvSRLPTAbw3wZU01P
+         5peJZUvomCEUAPz9kS11sc9v9bD6DiDsQIaPPesbkpMpHqkMlJ+sMHhzaVjEs1CRwWht
+         W4XASy7uxP3L6VQAtkLq6DD5a5qx8iLjFPN/Kh3gmIFcASEdd+EOxl7KtvRCAeiMJMfq
+         XiCwVotQzI7r9w8+sRjSKn5TZpB3KOumJlmgCyaRcNcXTshCadSJhWv+hidY+46Tih80
+         lxaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731096544; x=1731701344;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NI6P3TUYrkoyoEc/tfD3lrh0bzVj5BXDH9t+6MLHSl4=;
+        b=YbjbTFsbwbWMChhFLbx3KueXdCXsWV8/jTgx3SHF92/FNchlizyRPsA5kWvkv6vzlz
+         vN1IGxxxGO5dtjdPpq7I2zVtlUZYxfbwfIxcEIAN26Ah1jehW0tooTLvbooazW2O/6Jx
+         ZdVRyYaaOyTGsJ1Lbw/Hf1AVKt1Kf/d2Vgffm++gSx43ZjfG2C0+Q0cINVwmSLr2vPrn
+         zDKKUcrrgkY0rBNSZEw4V2I3jFOaZoVvxS7hBcVAdPayWoOLaEYMWr0OROLqMzvpaXA/
+         MEBjPkZxp8UqYBSHHsMXOfBAJVAox2whZAsDlIf5dIiusT0tuUBXMmX3unNdKedgdl9j
+         Gt7A==
+X-Forwarded-Encrypted: i=1; AJvYcCV8GhqRig0D5o4U/wTShQywXAqZoJ408dKVluIK/vEbP77QfyMFNeXyRL/odsO+HXh3fugiyBek5AweQ+Dc0/QC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHfpsOjclBkb/5hY3ZhoQ+ykVSpeIqwyiR2wX5ltvGiq0Y+if5
+	6bYZ76pjGuxmbilHipzuF5REBjMmtukI/Jxw1e1n+8nHIBR5+1iB
+X-Google-Smtp-Source: AGHT+IE82TZXwTUiZGRTAp/L5/S3ZlnP1aQ28alBcXNmIEDpLw5fXICy0ok9tKG1jh+N+mTRfrzA/A==
+X-Received: by 2002:ac8:5a91:0:b0:458:23fc:f345 with SMTP id d75a77b69052e-463093ecfdamr48531501cf.38.1731096544010;
+        Fri, 08 Nov 2024 12:09:04 -0800 (PST)
+Received: from newman.cs.purdue.edu ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-462ff47c162sm24151271cf.53.2024.11.08.12.09.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 12:09:03 -0800 (PST)
+From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+To: jic23@kernel.org,
+	lars@metafoo.de,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	u.kleine-koenig@baylibre.com,
+	tgamblin@baylibre.com,
+	fabrice.gasnier@st.com,
+	benjamin.gaignard@linaro.org,
+	lee@kernel.org
+Cc: linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v2] iio: trigger: stm32-timer-trigger: Add check for clk_enable()
+Date: Fri,  8 Nov 2024 20:09:00 +0000
+Message-Id: <20241108200900.44727-1-jiashengjiangcool@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241017002520.59124-11-irogers@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_120307_766813_031A2C5A 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20241108_120905_676604_56608FAC 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,156 +100,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 16, 2024 at 05:25:10PM -0700, Ian Rogers wrote:
-> Move arch/csky/util/dwarf-regs.c to util/dwarf-regs-csky.c and compile
-> in unconditionally. To avoid get_arch_regstr being duplicated, rename
-> to get_csky_regstr and add to get_dwarf_regstr switch.
-> 
-> Update #ifdefs to allow ABI V1 and V2 tables at the same
-> time. Determine the table from the ELF flags.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/arch/csky/util/Build               |  1 -
->  tools/perf/util/Build                         |  1 +
->  .../dwarf-regs.c => util/dwarf-regs-csky.c}   | 19 ++++++++++---------
->  tools/perf/util/dwarf-regs.c                  | 11 +++++++----
->  tools/perf/util/include/dwarf-regs.h          |  2 ++
->  5 files changed, 20 insertions(+), 14 deletions(-)
->  rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
-> 
-> diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
-> index 1325310cab6a..5e6ea82c4202 100644
-> --- a/tools/perf/arch/csky/util/Build
-> +++ b/tools/perf/arch/csky/util/Build
-> @@ -1,4 +1,3 @@
->  perf-util-y += perf_regs.o
->  
-> -perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
->  perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-> index 4c615611b9d7..99ae4e2802b8 100644
-> --- a/tools/perf/util/Build
-> +++ b/tools/perf/util/Build
-> @@ -203,6 +203,7 @@ endif
->  perf-util-$(CONFIG_LIBDW) += probe-finder.o
->  perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
->  perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
-> +perf-util-$(CONFIG_LIBDW) += dwarf-regs-csky.o
->  perf-util-$(CONFIG_LIBDW) += dwarf-regs-x86.o
->  perf-util-$(CONFIG_LIBDW) += debuginfo.o
->  perf-util-$(CONFIG_LIBDW) += annotate-data.o
-> diff --git a/tools/perf/arch/csky/util/dwarf-regs.c b/tools/perf/util/dwarf-regs-csky.c
-> similarity index 74%
-> rename from tools/perf/arch/csky/util/dwarf-regs.c
-> rename to tools/perf/util/dwarf-regs-csky.c
-> index ca86ecaeacbb..d38ef1f07f3e 100644
-> --- a/tools/perf/arch/csky/util/dwarf-regs.c
-> +++ b/tools/perf/util/dwarf-regs-csky.c
-> @@ -5,9 +5,8 @@
->  #include <stddef.h>
->  #include <dwarf-regs.h>
->  
-> -#if defined(__CSKYABIV2__)
-> -#define CSKY_MAX_REGS 73
-> -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
-> +#define CSKY_ABIV2_MAX_REGS 73
-> +const char *csky_dwarf_regs_table_abiv2[CSKY_ABIV2_MAX_REGS] = {
->  	/* r0 ~ r8 */
->  	"%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1", "%regs2", "%regs3",
->  	/* r9 ~ r15 */
-> @@ -26,9 +25,9 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
->  	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
->  	"%epc",
->  };
-> -#else
-> -#define CSKY_MAX_REGS 57
-> -const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
-> +
-> +#define CSKY_ABIV1_MAX_REGS 57
-> +const char *csky_dwarf_regs_table_abiv1[CSKY_ABIV1_MAX_REGS] = {
->  	/* r0 ~ r8 */
->  	"%sp", "%regs9", "%a0", "%a1", "%a2", "%a3", "%regs0", "%regs1",
->  	/* r9 ~ r15 */
-> @@ -41,9 +40,11 @@ const char *csky_dwarf_regs_table[CSKY_MAX_REGS] = {
->  	NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
->  	"%epc",
->  };
-> -#endif
->  
-> -const char *get_arch_regstr(unsigned int n)
-> +const char *get_csky_regstr(unsigned int n, unsigned int flags)
->  {
-> -	return (n < CSKY_MAX_REGS) ? csky_dwarf_regs_table[n] : NULL;
-> +	if (flags & EF_CSKY_ABIV2)
+Add check for the return value of clk_enable() in order to catch the
+potential exception.
 
-Hmm.. you need it here as well.
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+Changelog:
 
+v1 -> v2:
 
-> +		return (n < CSKY_ABIV2_MAX_REGS) ? csky_dwarf_regs_table_abiv2[n] : NULL;
-> +
-> +	return (n < CSKY_ABIV1_MAX_REGS) ? csky_dwarf_regs_table_abiv1[n] : NULL;
->  }
-> diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-> index fd21f9e90e40..9a76f83af62c 100644
-> --- a/tools/perf/util/dwarf-regs.c
-> +++ b/tools/perf/util/dwarf-regs.c
-> @@ -29,17 +29,18 @@
->  #define __get_dwarf_regstr(tbl, n) (((n) < ARRAY_SIZE(tbl)) ? (tbl)[(n)] : NULL)
->  
->  /* Return architecture dependent register string (for kprobe-tracer) */
-> -const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
-> -			     unsigned int flags __maybe_unused)
-> +const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags)
->  {
-> -#if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM
-> +#if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
-> +    || EM_HOST == EM_CSKY
+1. Remove unsuitable dev_err_probe().
+---
+ drivers/iio/trigger/stm32-timer-trigger.c | 32 ++++++++++++++++++-----
+ 1 file changed, 25 insertions(+), 7 deletions(-)
 
-And here too.  It seems you also need a rebase.
+diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
+index 0684329956d9..e1e077122f73 100644
+--- a/drivers/iio/trigger/stm32-timer-trigger.c
++++ b/drivers/iio/trigger/stm32-timer-trigger.c
+@@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
+ 			     unsigned int frequency)
+ {
+ 	unsigned long long prd, div;
+-	int prescaler = 0;
++	int prescaler = 0, ret;
+ 	u32 ccer;
+ 
+ 	/* Period and prescaler values depends of clock rate */
+@@ -153,7 +153,11 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
+ 	mutex_lock(&priv->lock);
+ 	if (!priv->enabled) {
+ 		priv->enabled = true;
+-		clk_enable(priv->clk);
++		ret = clk_enable(priv->clk);
++		if (ret) {
++			mutex_unlock(&priv->lock);
++			return ret;
++		}
+ 	}
+ 
+ 	regmap_write(priv->regmap, TIM_PSC, prescaler);
+@@ -307,7 +311,7 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
+ 	struct stm32_timer_trigger *priv = dev_get_drvdata(dev);
+ 	struct iio_trigger *trig = to_iio_trigger(dev);
+ 	u32 mask, shift, master_mode_max;
+-	int i;
++	int i, ret;
+ 
+ 	if (stm32_timer_is_trgo2_name(trig->name)) {
+ 		mask = TIM_CR2_MMS2;
+@@ -326,7 +330,11 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
+ 			if (!priv->enabled) {
+ 				/* Clock should be enabled first */
+ 				priv->enabled = true;
+-				clk_enable(priv->clk);
++				ret = clk_enable(priv->clk);
++				if (ret) {
++					mutex_unlock(&priv->lock);
++					return ret;
++				}
+ 			}
+ 			regmap_update_bits(priv->regmap, TIM_CR2, mask,
+ 					   i << shift);
+@@ -482,6 +490,7 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+ 				   int val, int val2, long mask)
+ {
+ 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
++	int ret;
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_RAW:
+@@ -496,7 +505,11 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+ 		if (val) {
+ 			if (!priv->enabled) {
+ 				priv->enabled = true;
+-				clk_enable(priv->clk);
++				ret = clk_enable(priv->clk);
++				if (ret) {
++					mutex_unlock(&priv->lock);
++					return ret;
++				}
+ 			}
+ 			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+ 		} else {
+@@ -601,7 +614,7 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
+ 				 unsigned int mode)
+ {
+ 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
+-	int sms = stm32_enable_mode2sms(mode);
++	int sms = stm32_enable_mode2sms(mode), ret;
+ 
+ 	if (sms < 0)
+ 		return sms;
+@@ -611,7 +624,12 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
+ 	 */
+ 	mutex_lock(&priv->lock);
+ 	if (sms == 6 && !priv->enabled) {
+-		clk_enable(priv->clk);
++		ret = clk_enable(priv->clk);
++		if (ret) {
++			mutex_unlock(&priv->lock);
++			return ret;
++		}
++
+ 		priv->enabled = true;
+ 	}
+ 	mutex_unlock(&priv->lock);
+-- 
+2.25.1
 
-At this point, I'm giving up.  Can you please refresh the series with
-a fix?
-
-Thanks,
-Namhyung
-
-
->  	if (machine == EM_NONE) {
->  		/* Generic arch - use host arch */
->  		machine = EM_HOST;
->  	}
->  #endif
->  	switch (machine) {
-> -#if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM
-> +#if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
-> +    && EM_HOST != EM_CSKY
->  	case EM_NONE:	/* Generic arch - use host arch */
->  		return get_arch_regstr(n);
->  #endif
-> @@ -51,6 +52,8 @@ const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
->  		return __get_dwarf_regstr(arm_regstr_tbl, n);
->  	case EM_AARCH64:
->  		return __get_dwarf_regstr(aarch64_regstr_tbl, n);
-> +	case EM_CSKY:
-> +		return get_csky_regstr(n, flags);
->  	case EM_SH:
->  		return __get_dwarf_regstr(sh_regstr_tbl, n);
->  	case EM_S390:
-> diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-> index 0b533409d82a..b72d9d308ce4 100644
-> --- a/tools/perf/util/include/dwarf-regs.h
-> +++ b/tools/perf/util/include/dwarf-regs.h
-> @@ -83,6 +83,8 @@
->  const char *get_arch_regstr(unsigned int n);
->  #endif
->  
-> +const char *get_csky_regstr(unsigned int n, unsigned int flags);
-> +
->  /**
->   * get_dwarf_regstr() - Returns ftrace register string from DWARF regnum.
->   * @n: DWARF register number.
-> -- 
-> 2.47.0.105.g07ac214952-goog
-> 
 
