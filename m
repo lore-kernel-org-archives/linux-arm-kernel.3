@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7839BD5E147
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F17D5E145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Nov 2024 08:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJcpqX+IkDeSbbX5ZUT4/YtUVDj62JSdkHdihRSdL8c=; b=c3sz4X2rg6FRH5Vak2JaOPGw4d
-	IrotgjX+5tp8YCTPU1mKlZKe48vUTbYdbwA/n7qpBpLlMRB3a/SXbgx83AEyQqZrVQxlbgkX00o63
-	Sh2oohwPYRKzc17J+HzgGkj/JdoStnGbn+/DrP3L1sA4EWvyXf9aTW8dk0CJ0eTwAyRKy2ZIHMB5N
-	gKuq19F/8Cl6A5cS5fnzGD6CWEFLpDROBElvEy53Ini88ECN4YzFmtXxfb7QsYAEwZb4hcxCG5RtY
-	FeyBY4JCgd4SCijweRlrbWBgOP1zNf7kjP0bK5oSvW8Zp2X9AKEv/OycVx+K5d19uiBUlzIP6aPIk
-	fR7ZngKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bcoPj7QwH8WOviwVSnuYvUqvL2h4DfxSZ9qhESCUO10=; b=VA/Uh8QKJtRTILwMfOvVxhzyn1
+	3A3T5l46Kv/5+Uq644N+9Ne0DA3Wwf1eN6q2pi6z2qvKV4gGJ+xo82JUXWjDmKLlVom6mDhY74zJz
+	BzmqlbtHJhHd6XDClPXDuI/uVp4+X/kNACEhypbKSWaLczGkqMDDJcY6AALmkyu5qvmbhZiSxiZBq
+	oGH+zlbsLBRIV/qLPVSe9WmqM+GDbTsdjHQWo4NP7qPLumfc/HVZBCr0K1mzxzLZzNOFF/83HT4to
+	YrVseNfWYioM6Kghdnsq/1CMqyrooKZ+axtJ85oaDfyVWwoGtpaWjoHDNkKEbBw8gZd8Cq7bv+Uo1
+	hQbuPHvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Kmq-00000009rT4-0x4t;
-	Fri, 08 Nov 2024 08:56:12 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1t9KoY-00000009rgP-43Om;
+	Fri, 08 Nov 2024 08:57:58 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Kd4-00000009pQV-2v6n
+	id 1t9Kdd-00000009pXg-1Phb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 08:46:08 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t9Kcm-0001lQ-8f; Fri, 08 Nov 2024 09:45:48 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t9Kcl-002alM-2d;
-	Fri, 08 Nov 2024 09:45:47 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1t9Kcl-0004JW-2H;
-	Fri, 08 Nov 2024 09:45:47 +0100
-Date: Fri, 8 Nov 2024 09:45:47 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: trivial-devices: Add NXP P3T1085UK
- I3C/I2C temperature sensor
-Message-ID: <20241108084547.dzmxgdwllwvbiw5n@pengutronix.de>
-References: <20241107-p3t1085-v1-0-9a76cb85673f@nxp.com>
- <20241107-p3t1085-v1-1-9a76cb85673f@nxp.com>
+	Fri, 08 Nov 2024 08:46:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731055601; x=1762591601;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=9yxF5v4ewKOwB1ig1+7/AMlEc1rvebHe5gr3Q238ou0=;
+  b=S7mWQSfdPz45uBjT2soqZDtt7g5lbdJgLmXPBfGsOQ77tTs5JFiz4xDQ
+   TvlVg4q0fXRsuJ2v8sFoFjuJMIzamxuWWh+5LSyNoGGrio/ILSfIom2zA
+   ZlHmWTiVgOx8v42gFDTM3ijoKAxBilgKQls7O3MN6FBDL4Fmd9WQywO78
+   P8Dt4sokowp66uYTwW667jPKwPNN1rlIR61GwBhDJhwaygy3ttUEoCNB5
+   +Hu/+R0ZoDd5Nko/h3bBshn5KPCNxGaO1UrI3L2uGORrZr1CZ/B1AVbgI
+   QVFJRFlhu9vhRRFo3ikk3AXd1pBz3rAXSg4vV8tZvamIy/n80e+Ecx6cs
+   w==;
+X-CSE-ConnectionGUID: nyfk6DN5RGqJpz9FI/PsxA==
+X-CSE-MsgGUID: ND7P7VTyQ7+JlrNxoasvBw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11249"; a="41538917"
+X-IronPort-AV: E=Sophos;i="6.12,137,1728975600"; 
+   d="scan'208";a="41538917"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 00:46:41 -0800
+X-CSE-ConnectionGUID: Mt7p5NSnSEO0XYpMYf0S0A==
+X-CSE-MsgGUID: 9tna//0bSZChN+ImPOd9Xw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,137,1728975600"; 
+   d="scan'208";a="84980240"
+Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.246.16.81])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2024 00:46:36 -0800
+Message-ID: <333a5a4c-06d2-4465-af28-3dac607190b1@intel.com>
+Date: Fri, 8 Nov 2024 10:46:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241107-p3t1085-v1-1-9a76cb85673f@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: Use of_property_present() for non-boolean properties
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Haibo Chen <haibo.chen@nxp.com>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, s32@nxp.com, linux-arm-kernel@lists.infradead.org
+References: <20241104190707.275758-1-robh@kernel.org>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20241104190707.275758-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_004606_755188_734900FE 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20241108_004641_703709_60F855F6 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-11-07, Frank Li wrote:
-> P3T1085UK is a temperature-to-digital converter with a -40 °C to +125 °C
-> range. The device can be communicated by a controller via the 2-wire serial
-> I3C (up to 12.5 MHz) and I2C (up to 3.4 MHz) interface.
+On 4/11/24 21:07, Rob Herring (Arm) wrote:
+> The use of of_property_read_bool() for non-boolean properties is
+> deprecated in favor of of_property_present() when testing for property
+> presence.
 > 
-> Add it to trivial-devices.yaml because only one 'reg' and 'interrupts'
-> needs.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+
+No longer applies cleanly to mmc next, and one minor comment
+below otherwise:
+
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+
 > ---
->  Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  drivers/mmc/host/mxcmmc.c          | 6 +++---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 2 +-
+>  2 files changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-> index 6ecd6432b021b..361943b3d73bc 100644
-> --- a/Documentation/devicetree/bindings/trivial-devices.yaml
-> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-> @@ -301,6 +301,8 @@ properties:
->            - national,lm92
->              # Nuvoton Temperature Sensor
->            - nuvoton,w83773g
-> +            # NXP I2C/I3C Temperature Sensor (-40 °C to +125 °C)
-> +          - nxp,p3t1085
+> diff --git a/drivers/mmc/host/mxcmmc.c b/drivers/mmc/host/mxcmmc.c
+> index 1edf65291354..dcb1a7336029 100644
+> --- a/drivers/mmc/host/mxcmmc.c
+> +++ b/drivers/mmc/host/mxcmmc.c
+> @@ -1048,9 +1048,9 @@ static int mxcmci_probe(struct platform_device *pdev)
+>  
+>  	if (pdata)
+>  		dat3_card_detect = pdata->dat3_card_detect;
+> -	else if (mmc_card_is_removable(mmc)
+> -			&& !of_property_read_bool(pdev->dev.of_node, "cd-gpios"))
+> -		dat3_card_detect = true;
+> +	else
+> +		dat3_card_detect = mmc_card_is_removable(mmc) &&
+> +			!of_property_present(pdev->dev.of_node, "cd-gpios");
 
-The description of this binding says:
+dat3_card_detect no longer needs to be initialized to false
 
-"This is a list of trivial I2C and SPI devices ..."
+>  
+>  	ret = mmc_regulator_get_supply(mmc);
+>  	if (ret)
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index 8f0bc6dca2b0..cda1872769e0 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -1629,7 +1629,7 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
+>  	 * Retrieveing and requesting the actual WP GPIO will happen
+>  	 * in the call to mmc_of_parse().
+>  	 */
+> -	if (of_property_read_bool(np, "wp-gpios"))
+> +	if (of_property_present(np, "wp-gpios"))
+>  		boarddata->wp_type = ESDHC_WP_GPIO;
+>  
+>  	of_property_read_u32(np, "fsl,tuning-step", &boarddata->tuning_step);
 
-but you add a I2C and I3C device.
-
-Also I really like to see that you add a "power-supply" property which
-is most the time missing for such simple devices but always required.
-
-Regards,
-  Marco
-
->              # OKI ML86V7667 video decoder
->            - oki,ml86v7667
->              # ON Semiconductor ADT7462 Temperature, Voltage Monitor and Fan Controller
-> 
-> -- 
-> 2.34.1
-> 
-> 
-> 
 
