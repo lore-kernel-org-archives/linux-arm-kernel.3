@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E8BD5E380
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 20:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C43D5E381
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 22:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5hgD70qCUQr3rY/Gjv2rs9P2mrvhJe4sfaMEWTv73s=; b=RB2jKbn04cKi3qQIBl5DZFAYiu
-	6ETLm7wQDO/m1AEGOpvQJzMwIbXMyEUS6RUCHxaRqf4lgiYtz6gDlMaRBcfMbzuz00KoLTR8V0jwo
-	FnaGSI3n/RaD9+DN8AFyz5Nmi6e/0hbaDH/1Qy1RsbaoOmZgXlRRvsoFUhehSp/fUJR7h1lUoRUnV
-	k+Fp6P3SkZsYj+StWz2naFEQGCsdcDl3SaETYzDQQfUT3Ev4UKM3WReE0yzW/wcUXc+QjJNCiSIHm
-	tgC7B4n3I+S3ke7OUaeiwJhaJecqSmwsoysWZfWA/Q1ZS7I9UBjUHZJpth2I1/SoZ3FGYoLPwS4Iq
-	x2vKXuOw==;
+	bh=YAHRAxJSwzztjtgUr/pm/xjqAckdpHljo3U56gQulB4=; b=hIKWME98wdLHhJbvVZ7eQ9GjLE
+	Vn2A4XR5KggvCU2oPYFad18T99eMTOhi4wv3juQACT/DW/TkrW2pc+Z17dwvYtaGvEnFns1zkiP/q
+	B0yeuxv/z7E1u88S9pKw0VVnIUbsKRBFGC+Oyx128ucV+PFyl7lKkqFcy0klVSLastIN52J2qN7Fe
+	cpEejq5Iexmkn0dqnqYDd1/frE6Cch2tha5JvvYUg0K5t61h78qiGa6GedDKpPqXOw/NA/oJ/Rrxq
+	YT1szV7emGWgSOECzQmA/kKYgtLuyQ+baDNDuf81s1IbG5daJbrUj3Yt8wxz1dKcf5JECmD1aJDeq
+	ydBEfjcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9s8d-0000000DwIN-2Y6P;
-	Sat, 09 Nov 2024 20:32:55 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1t9tjo-0000000E2WZ-23p0;
+	Sat, 09 Nov 2024 22:15:24 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9s6s-0000000DwAb-1sUg
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 20:31:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731184266; x=1762720266;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lwc+6sp3mcJ5Ad0yQLyDMLqBIcNpYLMMzahip6ZIWmI=;
-  b=TmeoMros/AU+v5uLUFNvHtpzx9Urj56oDBHVXh86nbhDY6cNVJoHCW18
-   v2VVq9Jl0N/dinlMDB/qlfD8Qel1MeM8sYN2lIzZ+0dL914qFm4fv3/yg
-   WqfTOgFd4pO5CKrttMcqBD6b1PRzDKtuvARlz3lyM9OERisyAIRqvcTqG
-   On2SFFH87j4owphhDqgTq94WQJG/KdN+4utGL8QbOBinzuLPSpsi5Mmk0
-   PL3ufZBv+ijeaIpQuHyGoTLuUChpxlx3DvIgNqf4eNii5mr04Drh7UCi+
-   Q6gB+urF7rLPSNQtnbrzksQfUnOyCDq2ogKFCj6cXIfdfpEdBhh26ygSb
-   w==;
-X-CSE-ConnectionGUID: Ba51Nlz5ROiUB/yUUseNrA==
-X-CSE-MsgGUID: uBL/fWscQs6brRTBqd9BSA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11251"; a="31146954"
-X-IronPort-AV: E=Sophos;i="6.12,141,1728975600"; 
-   d="scan'208";a="31146954"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2024 12:31:03 -0800
-X-CSE-ConnectionGUID: SqYXoFcpRpS+1UQ6kzFulw==
-X-CSE-MsgGUID: gbPkTUaOTr+b6WNW2HVVlg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="91027501"
-Received: from lkp-server01.sh.intel.com (HELO a48cf1aa22e8) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 09 Nov 2024 12:30:58 -0800
-Received: from kbuild by a48cf1aa22e8 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1t9s6i-000sby-0c;
-	Sat, 09 Nov 2024 20:30:56 +0000
-Date: Sun, 10 Nov 2024 04:29:58 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 3/7] drm/vc4: use drm_hdmi_connector_mode_valid()
-Message-ID: <202411100456.0JcsAx2b-lkp@intel.com>
-References: <20241109-hdmi-mode-valid-v3-3-5348c2368076@linaro.org>
+	id 1t9thp-0000000E2N6-1t07;
+	Sat, 09 Nov 2024 22:13:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YAHRAxJSwzztjtgUr/pm/xjqAckdpHljo3U56gQulB4=; b=b7TmA8P+zt9VVlbT2CbrQ4yO/i
+	iyWxPoOmYtOwbclzs8HBS5o68gZ8o4VPcQpd1EY3ctT/uXvME2u/hwlPfliGg/etMRE9167Y76CNB
+	1JBKRxzjnsSVYSkbfYu1V8+haNISofv4oaacnXdMgnUu90rHTPVR3r+1eNIauR7UF7vtl8hyphT3P
+	4BUH5/mJ/1pp0STTyUbctw8EnOW6jfd1/ixLgOUElr97+XLfBHOaNA6hOsRSLvYUjbzQ4qVWvFjZN
+	5YkTeZVrINI5F0MrtgWyAFqbHnhXlkPBLS9HUwdDf64yTL/P3TffVrRg9Kj+Gq4sW9ISHAek1eR1X
+	9AnBu1Mg==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t9thh-0000Br-5E; Sat, 09 Nov 2024 23:13:13 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Algea Cao <algea.cao@rock-chips.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Subject: Re: [PATCH] phy: rockchip: samsung-hdptx: Set drvdata before enabling runtime
+ PM
+Date: Sat, 09 Nov 2024 23:13:12 +0100
+Message-ID: <1876958.atdPhlSkOF@diego>
+In-Reply-To: <20241023-phy-sam-hdptx-rpm-fix-v1-1-87f4c994e346@collabora.com>
+References: <20241023-phy-sam-hdptx-rpm-fix-v1-1-87f4c994e346@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241109-hdmi-mode-valid-v3-3-5348c2368076@linaro.org>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_123106_520532_9C08D2B1 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20241109_141321_542715_91391203 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,57 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+Am Mittwoch, 23. Oktober 2024, 19:29:54 CET schrieb Cristian Ciocaltea:
+> In some cases, rk_hdptx_phy_runtime_resume() may be invoked before
+> platform_set_drvdata() is executed in ->probe(), leading to a NULL
+> pointer dereference when using the return of dev_get_drvdata().
+> 
+> Ensure platform_set_drvdata() is called before devm_pm_runtime_enable().
+> 
+> Reported-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+> Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY driver")
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on 929beafbe7acce3267c06115e13e03ff6e50548a]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Baryshkov/drm-display-hdmi-add-generic-mode_valid-helper/20241109-203557
-base:   929beafbe7acce3267c06115e13e03ff6e50548a
-patch link:    https://lore.kernel.org/r/20241109-hdmi-mode-valid-v3-3-5348c2368076%40linaro.org
-patch subject: [PATCH v3 3/7] drm/vc4: use drm_hdmi_connector_mode_valid()
-config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20241110/202411100456.0JcsAx2b-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241110/202411100456.0JcsAx2b-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411100456.0JcsAx2b-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/gpu/drm/vc4/vc4_hdmi.c: In function 'vc4_hdmi_encoder_mode_valid':
->> drivers/gpu/drm/vc4/vc4_hdmi.c:1762:68: warning: passing argument 2 of 'drm_hdmi_connector_mode_valid' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-    1762 |         return drm_hdmi_connector_mode_valid(&vc4_hdmi->connector, mode);
-         |                                                                    ^~~~
-   In file included from drivers/gpu/drm/vc4/vc4_hdmi.c:35:
-   include/drm/display/drm_hdmi_state_helper.h:25:56: note: expected 'struct drm_display_mode *' but argument is of type 'const struct drm_display_mode *'
-      25 |                               struct drm_display_mode *mode);
-         |                               ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
 
-vim +1762 drivers/gpu/drm/vc4/vc4_hdmi.c
-
-  1749	
-  1750	static enum drm_mode_status
-  1751	vc4_hdmi_encoder_mode_valid(struct drm_encoder *encoder,
-  1752				    const struct drm_display_mode *mode)
-  1753	{
-  1754		struct vc4_hdmi *vc4_hdmi = encoder_to_vc4_hdmi(encoder);
-  1755	
-  1756		if (vc4_hdmi->variant->unsupported_odd_h_timings &&
-  1757		    !(mode->flags & DRM_MODE_FLAG_DBLCLK) &&
-  1758		    ((mode->hdisplay % 2) || (mode->hsync_start % 2) ||
-  1759		     (mode->hsync_end % 2) || (mode->htotal % 2)))
-  1760			return MODE_H_ILLEGAL;
-  1761	
-> 1762		return drm_hdmi_connector_mode_valid(&vc4_hdmi->connector, mode);
-  1763	}
-  1764	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
