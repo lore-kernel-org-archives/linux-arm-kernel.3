@@ -4,99 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE3ED5E376
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 16:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9FFD5E373
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 16:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUsRfOqzk+CxIITEqQ7Cd8HpiWsMwYdkJCFhMtBclG0=; b=OdcP9PNXOD9walMTY9qTBLLPKh
-	D/Lgjn5Dhkc0pOg9trpi2n8iVWHBQw6WRy9dwGmQrDqztgBs0Qjt7gXkJpbOuDsHf6W4seoCdBud9
-	1uhxUJVP4ZggxLr6UAZuRpIg18T8XHFYR3/xSsV8KXi0qC87ektasWPmoUNPkMaImLIIP3PO80qA+
-	67B+wcVNSqHoZMZg7tDvjfCueKtjB7z987MCBFj2m+q7TW4IXJFpcwvKn7moqKfukIvuzD/4QZInq
-	V/Jc0fYvfblWOTSUuk8dIsXAnl81Ijybm9BozZtGlo7VTUnSdE4/41aBnB1VutEv28zbeYx00BFcA
-	UtKaeXjg==;
+	bh=AY0eebTXEIishDNyiwRb9ex+msXxW2kwSSAsfJd8Nb8=; b=c7mPt2rsVbvJwg6Ep7a+P5vD8E
+	pPHk1UPzm4l3ehHrB0oAVLmCyEepTkmomk8Dra+fEa7MqO8YVr9HrJcmM2qH16RWopqgptgx6vJO/
+	gvKKr0yNmEWCbBpJXTgw2B9zIEWKwx7HfUtBbSHrrQfTpKG4blt41uM1/2H6o3JGfFWZzMdvYCjc8
+	PZwX1VjGTlOrwMRIwXBd9F5MVXaQfkTwXf4qH6Eoas5XdZv5724uh/qVltIAB8iqBGK1Q5YXraPYt
+	GweDtpWDGprFCGZMg6O+GycNyiyl9FWXlzCESSGsg/cY93m1G23McA+6YYNfunHa1AfAX+nAynpmt
+	5W5hm1Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9o4X-0000000DcXd-3Wdy;
-	Sat, 09 Nov 2024 16:12:25 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1t9oBz-0000000Dd5b-2khy;
+	Sat, 09 Nov 2024 16:20:07 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9o2l-0000000DcJP-1Eyv
+	id 1t9oAE-0000000DcuM-09zZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 16:10:38 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-20c87b0332cso136725ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 08:10:34 -0800 (PST)
+	Sat, 09 Nov 2024 16:18:19 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21145812538so29866035ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 08:18:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731168634; x=1731773434; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VUsRfOqzk+CxIITEqQ7Cd8HpiWsMwYdkJCFhMtBclG0=;
-        b=ZJmuIUTdzTznwTRlRc28Jo+5IyMum3LKNMtE1IFhoKp+SXlHe/7tjcnYpIPUgA5Q5r
-         upesRjytRFjUu0xI5KTNvyBR2SSQ9TNUvNK/9pzzQx5BlvHhOa4xVHq8qM9/9QX5U1wm
-         MIudz1kG0FzThz7JS6y9wBGiJOjtkr/bIFFV8GM33untPX7bwI8th0Y8BthTA0DSyTHY
-         Zx6hSO788hTUcz88WixsBqvi1LEo2bmU7vUXI2t9r77FQeLV5oCCfWcHKjTwhUdIpA4s
-         wKpfn8TfOjevtjjN/NuKCKsYUOhC30ptnvmesxAKFHpKZSHdU72iGQaOcCqyKF2rINx0
-         Tsew==
+        d=gmail.com; s=20230601; t=1731169097; x=1731773897; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=AY0eebTXEIishDNyiwRb9ex+msXxW2kwSSAsfJd8Nb8=;
+        b=ZoLeyFXyxTKirDqJNDEABwRAtJCPDNckL4p9I6WIUICxE5ZkAYzkXv3Bo3RtpR3CuH
+         O786cDxvbagEMT7NAOvmNKgMDeRO5mo+Oabbj6rrF9jBuHnNxphhoAqlXkwAwu+fLv80
+         j559HWQZ6Pq67mR5e8Cq+nKU7qDafOYbuy1EJw6N33ew57AtwwCE+SnUj6XXx7gB+ewn
+         T6BjVoseJY2TxeKKmYfnhPujk04r2qiZVTUNNcUHlsZCQjp6cpfNf+OCitjKAPfm+Cqi
+         DA7YLJlmFG2jJ+RqgIN1gmkUJhe5C0aeG4WAGxyFximQu1QNCiandfwwj1b5RRUPtaWM
+         hlUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731168634; x=1731773434;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VUsRfOqzk+CxIITEqQ7Cd8HpiWsMwYdkJCFhMtBclG0=;
-        b=YiFovEPs8MnbmCLN5Sz3QzxUwrxUQxZl9rnGmLGaTox3V0boz2+cfPd9j18c1cs/0q
-         QI6wxlvK7fmWuQjLVb3Y6ql0HWoJuO58fDTIF/I6v6jx6qrpyomeCnb7g5vj3i4tPR8Q
-         IRznpWazJekA62rXW988Ent1fwbyFX++1M62vWEc9A0+08/axUEyzKZ1GZ0V0LsWrUmP
-         4zEQ559Yep5QSns/O5PNI21H7JTGR9n+xDtwwC2LZr7utfwQ9Vkw1PYa/NwW1r9LF1O5
-         kMB8pKFAvFhw+auNZzWaecQmzEE/2Te1p7YjbvLJaKt8yh3d9bCrbBup23qK91fkN01J
-         TzNw==
-X-Forwarded-Encrypted: i=1; AJvYcCW+T6q4QhxKg5T5SQaAnB3spuqeHRdrLBvAZ8K7Xr4nav0POtMg9N2y+a8G14vut+m45jnduvc/bRMH+GDVWK/z@lists.infradead.org
-X-Gm-Message-State: AOJu0YysKjfdhref1pOAwxbPEBOLwMHtZ19DuD00s9tuogFBk/F9J6EN
-	8u2X49+fVDUFq6wBCnRqwUYLmClhPNTOYn6oeOyfSzJnRV7OwUEXCLcJ+JSLlPCYsc4YHApu+iI
-	dWRXetqhNNkMh97pT2xDCcenfV4Qnx8TPOe1C
-X-Gm-Gg: ASbGncvFaEkdT7QkyPn9h2n2BM6oyCsRv30VM/rfvobDKZG6oEg0Vk3rYW5sfCnRwuL
-	O4PhO/9JQttlYP2iXtN1CUPVt60IhCXvg
-X-Google-Smtp-Source: AGHT+IEFahqbyg4ShZb8bLJQRctx82oVDw24lkFpnx3mxhwv7OQOUeemMadNRPSFS+4YbURaLpoe1k0Z9UZo+0sxOk8=
-X-Received: by 2002:a17:902:d4cb:b0:20b:a6f5:2770 with SMTP id
- d9443c01a7336-2118dea0992mr2205275ad.6.1731168634033; Sat, 09 Nov 2024
- 08:10:34 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731169097; x=1731773897;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AY0eebTXEIishDNyiwRb9ex+msXxW2kwSSAsfJd8Nb8=;
+        b=gs7JudKAFuWKUUmxGLX4K5AuzXZc1gP7sk7VQnmG+C3WCaoXj8qO5zrvQ/9zMf21fY
+         u6o+vVuS1YkJGpnd/RPvBcJQzr3NfVTaVnGHuj1BNUqvn6bwwZ4Gf4Sx4o1bnpcWEVzv
+         lzY0FPXUezXVB7w4dfVP+NxZsq8FA1UX2Xh3L9kTMG6oTOsCwD3og8EHzrJ2SIL9s3my
+         Hlp6XqgEK/eg/PZ7BsvUHCgihADVnFZdWNR3PlYeO87DdAQvu7A/lz3eFtRVa8imX5eD
+         JWqDEmVnuQamqAyLN4q9THVnUOZwGIK7RVbcL/DGWKyJAkf+RO0g+bP1roLX+m4YP4Rr
+         XNAg==
+X-Forwarded-Encrypted: i=1; AJvYcCVFXF3Zh1y2zYLQnn6UdXj4XtGzbL/3l4poraDxLMDYUSNI4F5eocf/casaxAsoNxCMaBvvgmpL4Wu0jD+fyZFz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeTgXhOsLIUzZIZekr+BUfXJSVFmGapGm5/wZISswetJ95TwqZ
+	1gfPflNUe58h3zOFrwK8IILyvzZuLkpURWBXAYeafjBGf++5S2fWduamSg==
+X-Google-Smtp-Source: AGHT+IFFEOTc0f7k5Cb6OmO3aw4cDMvRSI8MwQfTSwXzFv9H2IVb799+VMnovE4Cn08Pg7WFgIBy7Q==
+X-Received: by 2002:a17:903:41ca:b0:20c:82ea:41bd with SMTP id d9443c01a7336-21183c92bf3mr94499705ad.18.1731169096895;
+        Sat, 09 Nov 2024 08:18:16 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e6b9besm48319275ad.248.2024.11.09.08.18.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 09 Nov 2024 08:18:16 -0800 (PST)
+Message-ID: <76b6051e-fed5-4566-83da-9cbd198c237c@roeck-us.net>
+Date: Sat, 9 Nov 2024 08:18:13 -0800
 MIME-Version: 1.0
-References: <20241107162035.52206-1-irogers@google.com> <20241107162035.52206-9-irogers@google.com>
- <5a57de7c-924e-ccd6-8981-b9fddc647465@huawei.com>
-In-Reply-To: <5a57de7c-924e-ccd6-8981-b9fddc647465@huawei.com>
-From: Ian Rogers <irogers@google.com>
-Date: Sat, 9 Nov 2024 08:10:22 -0800
-Message-ID: <CAP-5=fWw04Qi+3=y7M4uMrhgrFWpnF7mZ09yb4v0P0qFT1Gfnw@mail.gmail.com>
-Subject: Re: [PATCH v2 8/8] perf pmu: Move pmu_metrics_table__find and remove
- ARM override
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Xu Yang <xu.yang_2@nxp.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, 
-	Bibo Mao <maobibo@loongson.cn>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Ben Zong-You Xie <ben717@andestech.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Junhao He <hejunhao3@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] hwmon: tmp108: Add support for I3C device
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-hwmon@vger.kernel.org
+References: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
+ <20241108-p3t1085-v2-3-6a8990a59efd@nxp.com>
+ <20241109131604.5d8b701a@jic23-huawei>
+ <014410fc-8a4c-440f-a6eb-1fafccc444a6@roeck-us.net>
+ <20241109151531.37ac4226@jic23-huawei>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20241109151531.37ac4226@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_081035_375510_E2763AC3 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20241109_081818_112970_3B029986 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,228 +150,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 9, 2024 at 2:54=E2=80=AFAM Yicong Yang <yangyicong@huawei.com> =
-wrote:
->
-> Hi,
->
-> On 2024/11/8 0:20, Ian Rogers wrote:
-> > Move pmu_metrics_table__find to the jevents.py generated pmu-events.c
-> > and remove indirection override for ARM. The movement removes
-> > perf_pmu__find_metrics_table that exists to enable the ARM
-> > override. The ARM override isn't necessary as just the CPUID, not PMU,
-> > is used in the metric table lookup. On non-ARM the CPU argument is
-> > just ignored for the CPUID, for ARM -1 is passed so that the CPUID for
-> > the first logical CPU is read.
->
-> Since the logic here's already been touching, is it possible to step it f=
-urther to just
-> ignore the CPUID matching when finding the system metrics/events tables? =
-It's may not be
-> that reasonable for finding a system metrics/events from the CPUID, since=
- one system PMU may
-> exists on different platforms with different CPU types.
+On 11/9/24 07:15, Jonathan Cameron wrote:
+> On Sat, 9 Nov 2024 06:53:28 -0800
+> Guenter Roeck <linux@roeck-us.net> wrote:
+> 
+>> On 11/9/24 05:16, Jonathan Cameron wrote:
+>>> On Fri, 08 Nov 2024 17:26:57 -0500
+>>> Frank Li <Frank.Li@nxp.com> wrote:
+>>>    
+>>>> Add support for I3C device in the tmp108 driver to handle the P3T1085
+>>>> sensor. Register the I3C device driver to enable I3C functionality for the
+>>>> sensor.
+>>>>
+>>>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>>>> ---
+>>>>    drivers/hwmon/tmp108.c | 31 +++++++++++++++++++++++++++++++
+>>>>    1 file changed, 31 insertions(+)
+>>>>
+>>>> diff --git a/drivers/hwmon/tmp108.c b/drivers/hwmon/tmp108.c
+>>>> index bfbea6349a95f..83d6847cb542c 100644
+>>>> --- a/drivers/hwmon/tmp108.c
+>>>> +++ b/drivers/hwmon/tmp108.c
+>>>> @@ -13,6 +13,8 @@
+>>>>    #include <linux/mutex.h>
+>>>>    #include <linux/of.h>
+>>>>    #include <linux/i2c.h>
+>>>> +#include <linux/i3c/device.h>
+>>>> +#include <linux/i3c/master.h>
+>>>
+>>> Seems odd you need master.h in a device driver.
+>>> I'll guess that's because you should be using i3cdev_to_device()
+>>
+>> I assume you mean i3cdev_to_dev() ?
+>>
+> Indeed! :(
+> 
+>> Good point, but there are not many examples to draw from. The one
+>> existing iio driver (st_lsm6dsx) doesn't use it either. I'll send
+>> a patch shortly to fix that to prevent others from making the same
+>> mistake.
+> Excellent.
 
-The issue is for conciseness reasons we let metrics and metric
-thresholds refer to other metrics, for example:
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
-ee/tools/perf/pmu-events/arch/x86/icelakex/icx-metrics.json#n78
-```
-    {
-        "BriefDescription": "This category represents fraction of
-slots where no uops are being delivered due to a lack of required
-resources for accepting new uops in the Backend",
-        "MetricExpr": "topdown\\-be\\-bound / (topdown\\-fe\\-bound +
-topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound) + 5
-* cpu@INT_MISC.RECOVERY_CYCLES\\,cmask\\=3D1\\,edge@ / tma_info_slots",
-        "MetricGroup": "TmaL1;TopdownL1;tma_L1_group",
-        "MetricName": "tma_backend_bound",
-        "MetricThreshold": "tma_backend_bound > 0.2",
-        "MetricgroupNoGroup": "TopdownL1",
-        "PublicDescription": "This category represents fraction of
-slots where no uops are being delivered due to a lack of required
-resources for accepting new uops in the Backend. Backend is the
-portion of the processor core where the out-of-order scheduler
-dispatches ready uops into their respective execution units; and once
-completed these uops get retired according to program order. For
-example; stalls due to data-cache misses or stalls due to the divider
-unit being overloaded are both categorized under Backend Bound.
-Backend Bound is further divided into two main categories: Memory
-Bound and Core Bound. Sample with: TOPDOWN.BACKEND_BOUND_SLOTS",
-        "ScaleUnit": "100%"
-    },
-```
-
-The system metrics were added on top of this and we never rethought
-the design. For a metric to refer to another metric there needs to be
-some kind of place we look up from and for that we use the CPUID
-associated table. Perhaps the easiest thing is that if no CPUID table
-is matched we have an empty table.
-
-> FYI, there's a similiar problem when trying to count the system metrics b=
-ut fails [1].
-> I've tested with this series but the problem still exists.
-
-Not sure what you are asking me for here.
+In this context, are you by any chance aware of an USB<->I3C adapter
+wit decent price point ? With more I3C devices becoming available, I'd
+like to be able to test at least some of the code with real hardware.
+For I2C I use the Devantech USB-ISS adapter, but I have not yet found
+anything comparable for I3C, at least nothing that is affordable.
 
 Thanks,
-Ian
+Guenter
 
-> [1] https://lore.kernel.org/linux-perf-users/20241010074430.16685-1-hejun=
-hao3@huawei.com/
->
-> Thanks.
->
-> >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  tools/perf/arch/arm64/util/pmu.c         | 20 --------------------
-> >  tools/perf/pmu-events/empty-pmu-events.c | 10 ++++------
-> >  tools/perf/pmu-events/jevents.py         | 10 ++++------
-> >  tools/perf/pmu-events/pmu-events.h       |  2 +-
-> >  tools/perf/util/pmu.c                    |  5 -----
-> >  tools/perf/util/pmu.h                    |  1 -
-> >  6 files changed, 9 insertions(+), 39 deletions(-)
-> >
-> > diff --git a/tools/perf/arch/arm64/util/pmu.c b/tools/perf/arch/arm64/u=
-til/pmu.c
-> > index a0964b191fcb..895fb0d0610c 100644
-> > --- a/tools/perf/arch/arm64/util/pmu.c
-> > +++ b/tools/perf/arch/arm64/util/pmu.c
-> > @@ -1,29 +1,9 @@
-> >  // SPDX-License-Identifier: GPL-2.0
-> >
-> > -#include <internal/cpumap.h>
-> > -#include "../../../util/cpumap.h"
-> > -#include "../../../util/header.h"
-> >  #include "../../../util/pmu.h"
-> >  #include "../../../util/pmus.h"
-> >  #include "../../../util/tool_pmu.h"
-> >  #include <api/fs/fs.h>
-> > -#include <math.h>
-> > -
-> > -const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> > -{
-> > -     struct perf_pmu *pmu;
-> > -
-> > -     /* Metrics aren't currently supported on heterogeneous Arm system=
-s */
-> > -     if (perf_pmus__num_core_pmus() > 1)
-> > -             return NULL;
-> > -
-> > -     /* Doesn't matter which one here because they'll all be the same =
-*/
-> > -     pmu =3D perf_pmus__find_core_pmu();
-> > -     if (pmu)
-> > -             return perf_pmu__find_metrics_table(pmu);
-> > -
-> > -     return NULL;
-> > -}
-> >
-> >  u64 tool_pmu__cpu_slots_per_cycle(void)
-> >  {
-> > diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-=
-events/empty-pmu-events.c
-> > index 17306e316a3c..1c7a2cfa321f 100644
-> > --- a/tools/perf/pmu-events/empty-pmu-events.c
-> > +++ b/tools/perf/pmu-events/empty-pmu-events.c
-> > @@ -587,14 +587,12 @@ const struct pmu_events_table *perf_pmu__find_eve=
-nts_table(struct perf_pmu *pmu)
-> >          return NULL;
-> >  }
-> >
-> > -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct pe=
-rf_pmu *pmu)
-> > +const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> >  {
-> > -        const struct pmu_events_map *map =3D map_for_pmu(pmu);
-> > -
-> > -        if (!map)
-> > -                return NULL;
-> > +        struct perf_cpu cpu =3D {-1};
-> > +        const struct pmu_events_map *map =3D map_for_cpu(cpu);
-> >
-> > -     return &map->metric_table;
-> > +        return map ? &map->metric_table : NULL;
-> >  }
-> >
-> >  const struct pmu_events_table *find_core_events_table(const char *arch=
-, const char *cpuid)
-> > diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/j=
-events.py
-> > index e44b72e56ac3..d781a377757a 100755
-> > --- a/tools/perf/pmu-events/jevents.py
-> > +++ b/tools/perf/pmu-events/jevents.py
-> > @@ -1103,14 +1103,12 @@ const struct pmu_events_table *perf_pmu__find_e=
-vents_table(struct perf_pmu *pmu)
-> >          return NULL;
-> >  }
-> >
-> > -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct pe=
-rf_pmu *pmu)
-> > +const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> >  {
-> > -        const struct pmu_events_map *map =3D map_for_pmu(pmu);
-> > -
-> > -        if (!map)
-> > -                return NULL;
-> > +        struct perf_cpu cpu =3D {-1};
-> > +        const struct pmu_events_map *map =3D map_for_cpu(cpu);
-> >
-> > -     return &map->metric_table;
-> > +        return map ? &map->metric_table : NULL;
-> >  }
-> >
-> >  const struct pmu_events_table *find_core_events_table(const char *arch=
-, const char *cpuid)
-> > diff --git a/tools/perf/pmu-events/pmu-events.h b/tools/perf/pmu-events=
-/pmu-events.h
-> > index 5435ad92180c..675562e6f770 100644
-> > --- a/tools/perf/pmu-events/pmu-events.h
-> > +++ b/tools/perf/pmu-events/pmu-events.h
-> > @@ -103,7 +103,7 @@ int pmu_metrics_table__for_each_metric(const struct=
- pmu_metrics_table *table, pm
-> >                                    void *data);
-> >
-> >  const struct pmu_events_table *perf_pmu__find_events_table(struct perf=
-_pmu *pmu);
-> > -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct pe=
-rf_pmu *pmu);
-> > +const struct pmu_metrics_table *pmu_metrics_table__find(void);
-> >  const struct pmu_events_table *find_core_events_table(const char *arch=
-, const char *cpuid);
-> >  const struct pmu_metrics_table *find_core_metrics_table(const char *ar=
-ch, const char *cpuid);
-> >  int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data);
-> > diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> > index 514cb865f57b..45838651b361 100644
-> > --- a/tools/perf/util/pmu.c
-> > +++ b/tools/perf/util/pmu.c
-> > @@ -818,11 +818,6 @@ static int is_sysfs_pmu_core(const char *name)
-> >       return file_available(path);
-> >  }
-> >
-> > -__weak const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> > -{
-> > -     return perf_pmu__find_metrics_table(NULL);
-> > -}
-> > -
-> >  /**
-> >   * Return the length of the PMU name not including the suffix for unco=
-re PMUs.
-> >   *
-> > diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-> > index fba3fc608b64..7b3e71194e49 100644
-> > --- a/tools/perf/util/pmu.h
-> > +++ b/tools/perf/util/pmu.h
-> > @@ -260,7 +260,6 @@ void perf_pmu__arch_init(struct perf_pmu *pmu);
-> >  void pmu_add_cpu_aliases_table(struct perf_pmu *pmu,
-> >                              const struct pmu_events_table *table);
-> >
-> > -const struct pmu_metrics_table *pmu_metrics_table__find(void);
-> >  bool pmu_uncore_identifier_match(const char *compat, const char *id);
-> >
-> >  int perf_pmu__convert_scale(const char *scale, char **end, double *sva=
-l);
-> >
 
