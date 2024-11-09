@@ -4,90 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2413D5E362
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 09:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF1FD5E364
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 10:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tRYsZ6ayQwcEYxFCPqmKlN9mSzxWMkZ1FBBiuyaMlc0=; b=m12RbrxNESRQY3Hxb/Q4tMDChi
-	xSpQ0GawJzBzUvEyLTJ6lqh5I/CEDzpwTM645koq0adUUtC4yCBpFhjWX2UfpMKdM/f6Oe2HeaWrd
-	9XigJ8iPvH3ev2QBUS3Gd6eFHm0oKyPBG0eX6LNnspOtw54cRdx5D88z6UQUy95+7H5/rcfYfB7GN
-	XBONIwRoFlg60we8L9MPpxnmVM+FWgy4DsB5RLLO7V6PtfGEwDUhSBgNZnI+6qvqWApHiSvVoGqZB
-	Tfc/CVztmcOY2I7LgGYBcMvVqPZKv0ZqqADbNmxZ758BEjcs3hXZfgUoscocfiWBB9vkEdMqir1ou
-	yHR0qLQQ==;
+	bh=bVB1aZHUvEykrymeyy+kL8vdYwqLTJJRHi8LAJbJ78Q=; b=QR2c8pr7eOYppefOA71diwruM1
+	ZSGECAgjLa1gRdFavQJ4bfA96sGHB3unPtHaPpCtEUhcjKhLwS+0yKg4mQRXWnQZwF3LoOMej6O8p
+	W6B3F2tP9cEPYuvAQkRvRH8YMukAj7hk2Gxol+66epOdABaj1Jl6denLq7FKKp3QVAWUs+Id/a5BT
+	M2D4jKDIhs1CPPPon5hqI/+kTWQcp2fVzLi68ZxlYMbUzIfVZz5h3eyYBsiH+sOoHbIOx4NfmVJzI
+	nNF4GKDWyfn/CTA6UsJ4tpoWGhrM6wUOTfuVq/ekgY+eOZR5uSy5QkCKi0B9ASTVooax5YqtNkRqZ
+	vzssQFIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9iBz-0000000D1lq-3VRf;
-	Sat, 09 Nov 2024 09:55:43 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1t9iNf-0000000D2X8-3ttp;
+	Sat, 09 Nov 2024 10:07:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9i5d-0000000D14F-27Kk
+	id 1t9iLu-0000000D2Q3-0G6Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 09:49:11 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-94-S7JoMMDMMHS9cQ8RB_P-nQ-1; Sat, 09 Nov 2024 09:49:05 +0000
-X-MC-Unique: S7JoMMDMMHS9cQ8RB_P-nQ-1
-X-Mimecast-MFC-AGG-ID: S7JoMMDMMHS9cQ8RB_P-nQ
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 9 Nov
- 2024 09:49:04 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 9 Nov 2024 09:49:04 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Haris Okanovic' <harisokn@amazon.com>, "ankur.a.arora@oracle.com"
-	<ankur.a.arora@oracle.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>
-CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "wanpengli@tencent.com" <wanpengli@tencent.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"peterz@infradead.org" <peterz@infradead.org>, "arnd@arndb.de"
-	<arnd@arndb.de>, "lenb@kernel.org" <lenb@kernel.org>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "mtosatti@redhat.com" <mtosatti@redhat.com>,
-	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "cl@gentwo.org"
-	<cl@gentwo.org>, "misono.tomohiro@fujitsu.com" <misono.tomohiro@fujitsu.com>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "joao.m.martins@oracle.com"
-	<joao.m.martins@oracle.com>, "boris.ostrovsky@oracle.com"
-	<boris.ostrovsky@oracle.com>, "konrad.wilk@oracle.com"
-	<konrad.wilk@oracle.com>
-Subject: RE: [PATCH 2/5] arm64: add __READ_ONCE_EX()
-Thread-Topic: [PATCH 2/5] arm64: add __READ_ONCE_EX()
-Thread-Index: AQHbL7EN8akEXkbcIke1iZkICXXDerKutxnw
-Date: Sat, 9 Nov 2024 09:49:03 +0000
-Message-ID: <c2bee816a4a44d55951ca839fea0a6dd@AcuMS.aculab.com>
-References: <20240925232425.2763385-1-ankur.a.arora@oracle.com>
- <20241105183041.1531976-1-harisokn@amazon.com>
- <20241105183041.1531976-3-harisokn@amazon.com>
-In-Reply-To: <20241105183041.1531976-3-harisokn@amazon.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Sat, 09 Nov 2024 10:06:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3255EA40241;
+	Sat,  9 Nov 2024 10:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D59C4CECE;
+	Sat,  9 Nov 2024 10:05:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731146755;
+	bh=TolV+WLozFPBgo48JlfyXpjKlRgsBp0U7RaYSbklN5o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cxPr6XMRcxcnyd23mOt+Zuv9uVBJNmWQGPVu6POhfgr2FsjvBNwc8rXNACThJ9vYv
+	 P9cipKBIWelNtlLIG703S0EMHaEbe9SN2JGr3MHkqXiByY2GGPManKhak1sxhPSiyP
+	 1z+U7YlDNxBM1DOiLpOuefSAigeEX7aj0v2eTepztC9L7VFEYWKl72qFBtSXawsqxf
+	 BUqqwbiWR2a50YH7IVNCpTMponQxY7Ist+eAac1ixhkLo/OH1HqFQ5dCC1Z35LF+T/
+	 clfAMlugdeQeWLwaa2CMeT8pPxnMpp+SeCi5Leveqp+H1aFYQPvOU8JErSG9k9pa+K
+	 XBLVGHfzx5XkQ==
+Message-ID: <bc02327b-dea8-48c9-b036-4a0eda0c4cb9@kernel.org>
+Date: Sat, 9 Nov 2024 11:05:47 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: a7PP8zGbzz70Ult_MhBmiSKqkDHbc8W_9LoErMJXBSc_1731145744
-X-Mimecast-Originator: aculab.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+To: Peng Fan <peng.fan@nxp.com>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>,
+ Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
+ <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
+ <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
+ <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org>
+ <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
+ <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org>
+ <PAXPR04MB8459BE3474EFD4FCC28E0E82885D2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <8c310eca-d695-418c-82cb-a89351d83887@kernel.org>
+ <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_014909_842478_1653FCF4 
-X-CRM114-Status: UNSURE (   5.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241109_020558_515712_48BA5963 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +137,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haris Okanovic
-> Sent: 05 November 2024 18:31
->=20
-> Perform an exclusive load, which atomically loads a word and arms the
-> exclusive monitor to enable wfet()/wfe() accelerated polling.
->=20
-...
-> +=09atomic ? (typeof(*__x))__u.__val : (*(volatile typeof(__x))__x);\
+On 09/11/2024 01:37, Peng Fan wrote:
+>> Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support
+>> spread spectrum clocking
+>>
+>> On 08/11/2024 13:50, Peng Fan wrote:
+>>>> Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock:
+>> support
+>>>> spread spectrum clocking
+>>>>
+>>>> On 07/11/2024 15:57, Dario Binacchi wrote:
+>>>>>     clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
+>>>>>                   <&clk_ext3>, <&clk_ext4>;
+>>>>>     clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
+>>>>>                              "clk_ext3", "clk_ext4";
+>>>>>     assigned-clocks = <&clk IMX8MN_CLK_A53_SRC>,
+>>>>>                                   <&clk IMX8MN_CLK_A53_CORE>,
+>>>>>                                   <&clk IMX8MN_CLK_NOC>,
+>>>>>                                   <&clk IMX8MN_CLK_AUDIO_AHB>,
+>>>>>                                   <&clk IMX8MN_CLK_IPG_AUDIO_ROOT>,
+>>>>>                                   <&clk IMX8MN_SYS_PLL3>,
+>>>>>                                   <&clk IMX8MN_AUDIO_PLL1>,
+>>>>>                                   <&clk IMX8MN_AUDIO_PLL2>;
+>>>>>     assigned-clock-parents = <&clk IMX8MN_SYS_PLL1_800M>,
+>>>>>                                              <&clk IMX8MN_ARM_PLL_OUT>,
+>>>>>                                              <&clk IMX8MN_SYS_PLL3_OUT>,
+>>>>>                                              <&clk IMX8MN_SYS_PLL1_800M>;
+>>>>>     assigned-clock-rates = <0>, <0>, <0>,
+>>>>>                                          <400000000>,
+>>>>>                                          <400000000>,
+>>>>>                                          <600000000>,
+>>>>>                                          <393216000>,
+>>>>>                                          <361267200>; };
+>>>>>
+>>>>> The spread spectrum is not configurable on these clocks or, more
+>>>>> generally, may not be configurable (only 4 PLLs have this
+>> capability).
+>>>>> Therefore, I need the "fsl,ssc-clocks"
+>>>>
+>>>> No. That's not true. You do not need it.
+>>>>
+>>>
+>>> i.MX8M clock hardware is similar as:
+>>>
+>>> OSC->ANATOP->CCM
+>>>
+>>> ANATOP will produce PLLs.
+>>> CCM use PLLs as input source.
+>>>
+>>> Currently there is no dedicated ANATOP driver in linux.
+>>> The CCM linux driver will parse the ANATOP node and register clk_hw
+>>> for the PLLs.
+>>
+>> I do not know what is CCM and how does it fit here. What's more, I
+>> don't get driver context here. We talk about bindings.
+> 
+> 
+> CCM: Clock Control Module, it accepts PLL from anatop as inputs,
+> and outputs clocks to various modules, I2C, CAN, NET, SAI and ...
+> 
+>>
+>>
+>>>
+>>>
+>>>> First, the clock inputs for this device are listed in clocks *only*.
+>>>> What is no there, is not an input to the device. Including also Linux
+>>>> aspect (missing devlinks etc). Therefore how can you configure
+>> spread
+>>>> spectrum on clocks which are not connected to this device?
+>>>
+>>> I not understand this well, you mean
+>>> add clocks = <xx CLK_IMX8MM_VIDEO_PLL> in the ccm dtb node?
+>>
+>> Yes. Let me re-iterate and please respond to this exactly comment
+>> instead of ignoring it.
+>>
+>> How a device can care about spread spectrum of a clock which is not
+>> supplied to this device?
+> 
+> I hope we are on same page of what spread spectrum means.
+> spread spectrum of a clock is the clock could produce freq in a range,
+> saying [500MHz - 100KHz, 500MHz + 100KHz]. software only need
+> to configure the middle frequency and choose the up/down border
+> range(100KHz here) and enable spread spectrum. 
+> 
+> device: I suppose you mean the Clock Control Module(CCM) here.
 
-That doesn't do what you want it to do.
-(It is wrong in READ_ONCE() as well.)
+I mean the device we discuss here, in this binding. Whatever this device
+is. CCM or CCX
 
-?: is treated like an arithmetic operator and the result will get
-promoted to 'int'.
-Moving the first cast outside the ?: probably works:
-=09(typeof(*__x))(atomic ? __u.__val : (*(volatile typeof(__x))__x));
+> CCM does not care, it just accepts the PLL as input, and output
 
-   David
+Takes PLL as input but you refuse to add it as clocks? Are you really
+responding to my question?
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1=
-PT, UK
-Registration No: 1397386 (Wales)
+I asked how can you set spread spectrum on clock which you do not
+receive. Why you do not receive? Because you refuse to add it to clocks
+even though I speak about this since months.
+
+> divided clock to various IPs(Video here). The video IPs care about
+> the spread spectrum of the clock.
+
+So which device do we talk about? I am not a NXP clock developer and I
+care zero about NXP, so keep it simple. We discuss this one specific
+binding for specific device which is called "imx8m-clock" - see subject
+prefix.
+
+> 
+> The clock hardware path is as below:
+> 
+> OSC(24M) --> Anatop(produce PLL with spread spectrum) ->
+> Clock Control Module(output clock to modules) -> Video IP
+> 
+> From hardware perspective, Clock Control Module does not
+> care spread spectrum. Video IP cares spread spectrum.
+> 
+> 
+>>
+>> Why would you care about spread spectrum of some clock which is not
+>> coming to this device?
+> 
+> device, I suppose you mean clock control module(CCM). 
+> 
+> There is no 'clocks = <&ccm CLK_IMX8M_VIDEO_PLL>' under ccm node.
+> Because in current design, ccm is taken as producer of
+> CLK_IMX8M_VIDEO_PLL, not consumer. 
+
+I don't understand now even more. Or I understand even less now. Why
+binding references its own clocks via phandle? This makes no sense at
+all, except of course assigned clocks, but that's because we have one
+property for multiple cases.
+
+
+Best regards,
+Krzysztof
 
 
