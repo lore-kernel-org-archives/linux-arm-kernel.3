@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB095D5E37A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 17:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36D6D5E37A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 18:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mS9pz7F1aaDN/ZOdRUw2lCD3EzMHHJ9M85Tk+LBqBLI=; b=I8QWYGOQXa7dseKAFZH0/1wX7r
-	lhcKgTW59yozY3xQ6Z/gZIe4S4VwEBG54AQgHWQPxvCZEw9fcvp5eEmHIiGwdFu4d6tM/ZzSuWK+c
-	E6IYaGty2XrIURTjQMTOZJW39FFV7sdlpyolPh/BUMBkI4tnhJksflytTrR+E+UVSKcx5r7T5ctPw
-	T1nUYU6aTY/TsrxG2JGlQBHIRkcK4kpBm/JYzzkV2/N4y/rnKtdUjmLAxmdGaqTkZ2Y8e3QFa5tTN
-	7GT5NvoOItdoS4/i8j4qdOaJ4NfnNqjFEXZuisG/13GTFSR72E3jMZhPqmWjz8jWlzDKxiaElMnQd
-	0JYI1Tkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vvB5H31tgUpM4qG4v/0WcfNheT0JvDREJderLKJjrc4=; b=kDbuHKJbMKIe/NWiflCClVGfeB
+	661Vq6Wjnx1Z8FqbnFB23ZHrZJyAbA2c5YTBSYMrA7dF8NlGvkf1sZnUgP1nwwFpNESYjDOgt8CRj
+	2Q3AGJiuC+WmC79zlP3x4SQa3xHW+F243h7HxX/d9mHRjih37P1UrZZBXhQ57msT/hj7bYUrVG1ew
+	Tf8b9ldzjjR4XHRHKrsGT96DvympmDhiOnMQeJqN7LxGNxqnpNzfHoYvDvEZirUBfSpYelyDnAF5O
+	YvoWCePFkF4bm/Ei3aCZSQPzZyUOoKzy1sNJIlS+RfDJ0DRYeWI45xOBuuzmOYCB+JT7q6c9SdpX2
+	4G67eTgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9paF-0000000Dl12-2aiQ;
-	Sat, 09 Nov 2024 17:49:15 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1t9q9f-0000000DnVo-01gx;
+	Sat, 09 Nov 2024 18:25:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9pYS-0000000DknB-10cV
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 17:47:25 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5c9693dc739so4565380a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 09:47:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731174442; x=1731779242; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mS9pz7F1aaDN/ZOdRUw2lCD3EzMHHJ9M85Tk+LBqBLI=;
-        b=OP5MH1JS7ZUYs/nJnzkp6WJDpUBvhkcH5dKD3r5aJv7KGmzx65focHmJLf27sY73nu
-         8eZ3BbhRgF/sLTEoPQ+9Vzf6DeClENPB43l0JHBmiG8VPW+8rBO8ZI9aJa44iTl7oshS
-         VZ2ArJVWPVKU1P2Iw6P6tNRiPtmF2PkJP49rROklmzW32r9ggMiQDBjP50blMAPJc6g6
-         bq+n0Hrq5lT8uw9ZJ3D65eqHthlCuHizP+nFwQGHA32Q/LRgwL9SnQ3yihTgh/jxcz8O
-         8AJyzkm6Wn7gsoOIDpelsqguTVtW0x2TqaVKZ9UgupAF4Ojdwa8eZshlhW7WPD2EW2re
-         a8Iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731174442; x=1731779242;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mS9pz7F1aaDN/ZOdRUw2lCD3EzMHHJ9M85Tk+LBqBLI=;
-        b=QgP1qUQq65amvUAupqevEtqFAWkbxpJmZE5uDNV58QnqMsCHt3TUYBiInhXhMNDyeC
-         sgr1ht9XTCjggl5RpclPQ48WGTnKjjMiX46MLmbQWt6aA+3YEWpGYAXPYxNxqAE1sRLi
-         APWjRW12xBZMx8HHTFTT1Uv2MiSK8IbQyrzNPjh5+obCvG3qy0PioI4KemDDXVJTM44y
-         H2Sp+3aEYp6O6Pupv8534k7wxYSqzCvd8bMc/7D2YYWPod/w7FrW5GcHdOpkLfgqjvYY
-         OzsGFC7OYWWhDyk8KkUgplckx3+RqpOnRX6BL4W6JaVR720uXadip35w6noV4+Shz62i
-         4VnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWDcV3ypU4AzS0aXSctc4fborRfWckEFte5SBnOA7d6WiI2R8ZQO1sg/n7oSgcxCx82VA7o+eQk/fg/qbDoTwVg@lists.infradead.org
-X-Gm-Message-State: AOJu0YziXHnF7w5eOkYRvvvsfRjLxkpcS39ab5zKs75kiHuMgvMmmucq
-	SfHFeRdgAtZehkwx2EpA3apVPkWYJXC+4VojBWnkgpeunHRFa2Edac/zm8blmfQ=
-X-Google-Smtp-Source: AGHT+IGJCTMOIjftfGiK2wILQrVE69oNLiwz7mzb5YOsUCHt/S1Cp1slGT50grlnlMbHdWGpyNa4Cg==
-X-Received: by 2002:a05:6402:5203:b0:5cb:6ca3:af96 with SMTP id 4fb4d7f45d1cf-5cf0a3245camr5846634a12.19.1731174442127;
-        Sat, 09 Nov 2024 09:47:22 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03bb7530sm3155853a12.43.2024.11.09.09.47.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Nov 2024 09:47:20 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Lee Jones <lee@kernel.org>,
-	Daniel Thompson <daniel.thompson@linaro.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Helge Deller <deller@gmx.de>
-Cc: Michael Hennerich <michael.hennerich@analog.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH] backlight: Switch back to struct platform_driver::remove()
-Date: Sat,  9 Nov 2024 18:47:10 +0100
-Message-ID: <20241109174710.292128-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+	id 1t9q7t-0000000DnDv-2irT;
+	Sat, 09 Nov 2024 18:24:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vvB5H31tgUpM4qG4v/0WcfNheT0JvDREJderLKJjrc4=; b=eN72TLBDCHOtblxBReVKBpU1df
+	LD5vtrb00VQtoi3tv/EemDP0CCvYvqCeTwW9+KGZbyyPJR0sAfNytjKr6o06y07xpPD9+64BgUp9K
+	lEQ3Uc+olS0xmYx0RhxK/T4yMSEdsjF3B2l2qiYexLeb80WUhIm6GOxxXx8/ap1tKHULRoMV9YhZT
+	0KIAF2lkqCDU9u0GVBLy7Fh4RlO6ubKGP5lFj/EOLBgIsrgya0V9ZhFb9SnXq8A+4h8BW27Hsr3pI
+	A0RhC295gEio6HVwed+1fiQo7h29z8Vbm54aLK7mXSmUVkzEDTsAYMuNpYIGf8be3VRgT6IHkT1Jc
+	z18jf8kg==;
+Received: from i53875b28.versanet.de ([83.135.91.40] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1t9q7f-0007Jz-54; Sat, 09 Nov 2024 19:23:47 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ondrej Jirman <megi@xff.cz>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Jimmy Hon <honyuenkwun@gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Orange Pi 5 Max board
+Date: Sat, 09 Nov 2024 19:23:46 +0100
+Message-ID: <23718124.6Emhk5qWAg@diego>
+In-Reply-To: <20241031031528.23428-4-honyuenkwun@gmail.com>
+References: <20241031031528.23428-2-honyuenkwun@gmail.com>
+ <20241031031528.23428-4-honyuenkwun@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8119; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=E2geTdbXiQmLaAty8/2EMgECF6diNU8eKtMXb4ZB/kM=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnL6Afi/iMzSDb+OigQAp+L7XwwVJGKjDySz/NY fOeD6CGpd2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZy+gHwAKCRCPgPtYfRL+ ThzhB/sGt+oJ4HQwFpd3iQmQbVXTZGNqc/ag8Kv0rc6jUt1eEG9M5LKySpZneqakogzueVU12Aa 9N0pkYhmrph8F9iskLUhrowJwEHPzvNF4d+iGb9bPMs9eqPDf03T05qiQNDtdviMl8AA8CViwX9 ksWE4uE5+HNIPq9mW0fMoOhukaYrROQ0dpkv8cEOIp91zyifjxlRL9RVU4qXAQqZ0wLZgDTXeiL ePV5Bn6e4r/pjQsX4kwvMKRoIvRrKEEq5+d1+/uVFQktjYLUDsntM8jr2fYt3llq/zxho1zr8vY MSJV4DO3Jt/OSOYcuWtM3vsFxpQBOF0yE6jwqCrXNEsStJGm
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_094724_296093_093E8FD1 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20241109_102401_744887_8AD7E18F 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,209 +75,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers.
+Hi Jimmy,
 
-Convert all platform drivers below drivers/backlight to use .remove(),
-with the eventual goal to drop struct platform_driver::remove_new(). As
-.remove() and .remove_new() have the same prototypes, conversion is done
-by just changing the structure member name in the driver initializer.
+Am Donnerstag, 31. Oktober 2024, 04:14:51 CET schrieb Jimmy Hon:
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+> new file mode 100644
+> index 000000000000..d31b13f99fdc
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+> @@ -0,0 +1,887 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+> +#include "rk3588.dtsi"
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
-Hello,
+can you check how similar the rk3588-orangepi--5-max is to the
+already existing orangepi-5-plus please?
 
-I did a single patch for all of drivers/video/backlight. While I usually
-prefer to do one logical change per patch, this seems to be
-overengineering here as the individual changes are really trivial and
-shouldn't be much in the way for stable backports. But I'll happily
-split the patch if you prefer it split. Also if you object the
-indentation stuff, I can rework that.
+For rk3588s-orangepi-5 and orangepi-5b we already have this nicely
+shared dtsi for commit things, and somehow I assume this might be
+similar for 5-plus vs 5-max.
 
-This is based on yesterday's next, if conflicts arise when you apply it
-at some later time and don't want to resolve them, feel free to just
-drop the changes to the conflicting files. I'll notice and followup at a
-later time then. Or ask me for a fixed resend. (Having said that, I
-recommend b4 am -3 + git am -3 which should resolve most conflicts just
-fine.)
+> +
+> +/ {
+> +	model = "Xunlong Orange Pi 5 Max";
+> +	compatible = "xunlong,orangepi-5-max", "rockchip,rk3588";
+> +
 
-Best regards
-Uwe
+[...]
 
- drivers/video/backlight/aat2870_bl.c         | 2 +-
- drivers/video/backlight/adp5520_bl.c         | 2 +-
- drivers/video/backlight/da9052_bl.c          | 2 +-
- drivers/video/backlight/hp680_bl.c           | 2 +-
- drivers/video/backlight/led_bl.c             | 2 +-
- drivers/video/backlight/lm3533_bl.c          | 2 +-
- drivers/video/backlight/lp8788_bl.c          | 2 +-
- drivers/video/backlight/mt6370-backlight.c   | 2 +-
- drivers/video/backlight/pwm_bl.c             | 2 +-
- drivers/video/backlight/qcom-wled.c          | 2 +-
- drivers/video/backlight/rt4831-backlight.c   | 2 +-
- drivers/video/backlight/sky81452-backlight.c | 2 +-
- 12 files changed, 12 insertions(+), 12 deletions(-)
+> +	/* PMIC_EXT_EN */
+> +	vcc_1v1_nldo_s3: vcc-1v1-ndlo-s3-regulator {
 
-diff --git a/drivers/video/backlight/aat2870_bl.c b/drivers/video/backlight/aat2870_bl.c
-index 68d327ee4b2e..8b790df1e842 100644
---- a/drivers/video/backlight/aat2870_bl.c
-+++ b/drivers/video/backlight/aat2870_bl.c
-@@ -186,7 +186,7 @@ static struct platform_driver aat2870_bl_driver = {
- 		.name	= "aat2870-backlight",
- 	},
- 	.probe		= aat2870_bl_probe,
--	.remove_new	= aat2870_bl_remove,
-+	.remove		= aat2870_bl_remove,
- };
- 
- static int __init aat2870_bl_init(void)
-diff --git a/drivers/video/backlight/adp5520_bl.c b/drivers/video/backlight/adp5520_bl.c
-index 8e0e9cfe5fe9..aa5c15e8db86 100644
---- a/drivers/video/backlight/adp5520_bl.c
-+++ b/drivers/video/backlight/adp5520_bl.c
-@@ -375,7 +375,7 @@ static struct platform_driver adp5520_bl_driver = {
- 		.pm	= &adp5520_bl_pm_ops,
- 	},
- 	.probe		= adp5520_bl_probe,
--	.remove_new	= adp5520_bl_remove,
-+	.remove		= adp5520_bl_remove,
- };
- 
- module_platform_driver(adp5520_bl_driver);
-diff --git a/drivers/video/backlight/da9052_bl.c b/drivers/video/backlight/da9052_bl.c
-index b8ff7046510e..5e13ef96b717 100644
---- a/drivers/video/backlight/da9052_bl.c
-+++ b/drivers/video/backlight/da9052_bl.c
-@@ -165,7 +165,7 @@ MODULE_DEVICE_TABLE(platform, da9052_wled_ids);
- 
- static struct platform_driver da9052_wled_driver = {
- 	.probe		= da9052_backlight_probe,
--	.remove_new	= da9052_backlight_remove,
-+	.remove		= da9052_backlight_remove,
- 	.id_table	= da9052_wled_ids,
- 	.driver	= {
- 		.name	= "da9052-wled",
-diff --git a/drivers/video/backlight/hp680_bl.c b/drivers/video/backlight/hp680_bl.c
-index ddb7ab4df77e..fa9a983533b2 100644
---- a/drivers/video/backlight/hp680_bl.c
-+++ b/drivers/video/backlight/hp680_bl.c
-@@ -130,7 +130,7 @@ static void hp680bl_remove(struct platform_device *pdev)
- 
- static struct platform_driver hp680bl_driver = {
- 	.probe		= hp680bl_probe,
--	.remove_new	= hp680bl_remove,
-+	.remove		= hp680bl_remove,
- 	.driver		= {
- 		.name	= "hp680-bl",
- 		.pm	= &hp680bl_pm_ops,
-diff --git a/drivers/video/backlight/led_bl.c b/drivers/video/backlight/led_bl.c
-index c7aefcd6e4e3..ae34d1ecbfbe 100644
---- a/drivers/video/backlight/led_bl.c
-+++ b/drivers/video/backlight/led_bl.c
-@@ -246,7 +246,7 @@ static struct platform_driver led_bl_driver = {
- 		.of_match_table	= led_bl_of_match,
- 	},
- 	.probe		= led_bl_probe,
--	.remove_new	= led_bl_remove,
-+	.remove		= led_bl_remove,
- };
- 
- module_platform_driver(led_bl_driver);
-diff --git a/drivers/video/backlight/lm3533_bl.c b/drivers/video/backlight/lm3533_bl.c
-index 5d06f8ca976c..babfd3ceec86 100644
---- a/drivers/video/backlight/lm3533_bl.c
-+++ b/drivers/video/backlight/lm3533_bl.c
-@@ -387,7 +387,7 @@ static struct platform_driver lm3533_bl_driver = {
- 		.pm	= &lm3533_bl_pm_ops,
- 	},
- 	.probe		= lm3533_bl_probe,
--	.remove_new	= lm3533_bl_remove,
-+	.remove		= lm3533_bl_remove,
- 	.shutdown	= lm3533_bl_shutdown,
- };
- module_platform_driver(lm3533_bl_driver);
-diff --git a/drivers/video/backlight/lp8788_bl.c b/drivers/video/backlight/lp8788_bl.c
-index 0b7663519fa5..f61a64905a02 100644
---- a/drivers/video/backlight/lp8788_bl.c
-+++ b/drivers/video/backlight/lp8788_bl.c
-@@ -177,7 +177,7 @@ static void lp8788_backlight_remove(struct platform_device *pdev)
- 
- static struct platform_driver lp8788_bl_driver = {
- 	.probe = lp8788_backlight_probe,
--	.remove_new = lp8788_backlight_remove,
-+	.remove = lp8788_backlight_remove,
- 	.driver = {
- 		.name = LP8788_DEV_BACKLIGHT,
- 	},
-diff --git a/drivers/video/backlight/mt6370-backlight.c b/drivers/video/backlight/mt6370-backlight.c
-index 94422c956453..e55f26888d0f 100644
---- a/drivers/video/backlight/mt6370-backlight.c
-+++ b/drivers/video/backlight/mt6370-backlight.c
-@@ -340,7 +340,7 @@ static struct platform_driver mt6370_bl_driver = {
- 		.of_match_table = mt6370_bl_of_match,
- 	},
- 	.probe = mt6370_bl_probe,
--	.remove_new = mt6370_bl_remove,
-+	.remove = mt6370_bl_remove,
- };
- module_platform_driver(mt6370_bl_driver);
- 
-diff --git a/drivers/video/backlight/pwm_bl.c b/drivers/video/backlight/pwm_bl.c
-index e942908d1275..237d3d3f3bb1 100644
---- a/drivers/video/backlight/pwm_bl.c
-+++ b/drivers/video/backlight/pwm_bl.c
-@@ -697,7 +697,7 @@ static struct platform_driver pwm_backlight_driver = {
- 		.of_match_table	= of_match_ptr(pwm_backlight_of_match),
- 	},
- 	.probe		= pwm_backlight_probe,
--	.remove_new	= pwm_backlight_remove,
-+	.remove		= pwm_backlight_remove,
- 	.shutdown	= pwm_backlight_shutdown,
- };
- 
-diff --git a/drivers/video/backlight/qcom-wled.c b/drivers/video/backlight/qcom-wled.c
-index 10129095a4c1..9afe701b2a1b 100644
---- a/drivers/video/backlight/qcom-wled.c
-+++ b/drivers/video/backlight/qcom-wled.c
-@@ -1741,7 +1741,7 @@ MODULE_DEVICE_TABLE(of, wled_match_table);
- 
- static struct platform_driver wled_driver = {
- 	.probe = wled_probe,
--	.remove_new = wled_remove,
-+	.remove = wled_remove,
- 	.driver	= {
- 		.name = "qcom,wled",
- 		.of_match_table	= wled_match_table,
-diff --git a/drivers/video/backlight/rt4831-backlight.c b/drivers/video/backlight/rt4831-backlight.c
-index c2f6fb29e1d0..7ead75929a43 100644
---- a/drivers/video/backlight/rt4831-backlight.c
-+++ b/drivers/video/backlight/rt4831-backlight.c
-@@ -224,7 +224,7 @@ static struct platform_driver rt4831_bl_driver = {
- 		.of_match_table = rt4831_bl_of_match,
- 	},
- 	.probe = rt4831_bl_probe,
--	.remove_new = rt4831_bl_remove,
-+	.remove = rt4831_bl_remove,
- };
- module_platform_driver(rt4831_bl_driver);
- 
-diff --git a/drivers/video/backlight/sky81452-backlight.c b/drivers/video/backlight/sky81452-backlight.c
-index 935043b67786..2749231f0385 100644
---- a/drivers/video/backlight/sky81452-backlight.c
-+++ b/drivers/video/backlight/sky81452-backlight.c
-@@ -337,7 +337,7 @@ static struct platform_driver sky81452_bl_driver = {
- 		.of_match_table = of_match_ptr(sky81452_bl_of_match),
- 	},
- 	.probe = sky81452_bl_probe,
--	.remove_new = sky81452_bl_remove,
-+	.remove = sky81452_bl_remove,
- };
- 
- module_platform_driver(sky81452_bl_driver);
+vcc_1v1_nldo_s3: regulator-vcc-1v1-ndlo-s3 {
 
-base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
--- 
-2.45.2
+preferred pattern for fixed-regulator nodenames is regulator-......
+
+Same for the othe fixed regulators below.
+
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_1v1_nldo_s3";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1100000>;
+> +		regulator-max-microvolt = <1100000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	/* pcie eth. not a real regulator. 33VAUX */
+> +	vcc_3v3_aux: vcc-3v3-aux-regulator {
+> +		compatible = "regulator-fixed";
+> +		/* Ethernet_power_en */
+> +		gpios = <&gpio0 RK_PD3 GPIO_ACTIVE_LOW>;
+> +		regulator-name = "33vaux";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		startup-delay-us = <50000>;
+> +		vin-supply = <&vcc_3v3_s3>;
+> +	};
+> +
+> +	vcc3v3_pcie30: vcc3v3-pcie30-regulator {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		/* PCIE_PWREN_H */
+> +		gpios = <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +		regulator-name = "vcc3v3_pcie30";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		startup-delay-us = <5000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	/* Regulator is enabled whenever vcc_1v8_s0 is on */
+> +	vcc_3v3_s0: vcc-3v3-s0-regulator {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_3v3_s0";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vcc_3v3_s3>;
+> +
+> +		regulator-state-mem {
+> +			regulator-off-in-suspend;
+> +		};
+> +	};
+> +
+> +	vcc5v0_sys: vcc5v0-sys-regulator {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_sys";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +	};
+> +
+> +	/* Represents the vcc5v0_usb20 in the schematic */
+> +	/* Also represents the vcc5v0_usb30 in the schematic,
+> +	   both regulators share the same enable gpio */
+
+please make that one comment block and use appropriate formatting
+
+/*
+ * Represents the vcc5v0_usb20 and vcc5v0_usb30 in the schematic,
+ * both regulators share the same enable gpio
+ */
+
+
+> +	vcc5v0_host: vcc5v0-host-regulator {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		/* USB_HOST_PWREN */
+> +		gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usb_host_pwren>;
+> +		regulator-name = "vcc5v0_host";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+> +	vcc5v0_usb30_otg: vcc5v0-usb30-otg-regulator {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		/* USB_OTG_PWREN */
+> +		gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usb_otg_pwren>;
+> +		regulator-name = "vcc5v0_usb30_otg";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +};
+
+
+> +	hym8563: rtc@51 {
+> +		compatible = "haoyu,hym8563";
+> +		reg = <0x51>;
+> +		/* RTC_INT_L */
+
+what does this comment try to explain? If that is the name of the pin,
+just name the pinctrl below accordingly (instead of hym8563_int
+if applicable) .
+
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <RK_PC4 IRQ_TYPE_LEVEL_LOW>;
+> +		#clock-cells = <0>;
+> +		clock-output-names = "hym8563";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&hym8563_int>;
+> +		wakeup-source;
+> +	};
+> +};
+> +
+> +&pwm9 {
+> +	pinctrl-names = "active";
+
+this needs to be "default" to actually work
+
+> +	pinctrl-0 = <&pwm9m2_pins>;
+> +	status = "okay";
+> +};
+
+
+Thanks
+Heiko
+
 
 
