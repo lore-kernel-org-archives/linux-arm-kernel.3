@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8EFD5E361
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 09:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C83D5E362
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 09:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E7Dg8IoNbihmEIAJNAgH2thhepdp2Hj5A4p2E3cJ0r8=; b=tig8qdvUi49FqV
-	2Eq94dHlxNd201L0k0aBQyHimwpbeYdxvHn5C/sUuWiYJFni12NoIE2x6RUZoNZnQTGDuJsPdg/Jm
-	HKiNMehrkUmaaJai5Xy5QAE9xQqpapTFPnrkzrYRiKY0bxYuo2uX1a08zeWphfPnyAfw2SzHj1ZRK
-	P/B2NrlO1sHjIAaBzaogJGUTWZ4BDFsHed9KMdJ5TWOSsmzLRmYjBSAZ0/l/MzKlNZiOdWM2xyzZ7
-	IuPMafT9QacKVSlV282hb1Ex45JblBlLzKbNHSNJTPyXDTJtjQlIFcE7t3xg1/lBjrTBiRfFSMEl8
-	k10QgJB4NYr4uVXfVDEA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+6EYtkEOLFXtJD/n4t+mquwNQdkcEQqXZ2EtRPZgwY=; b=c/p0FtYi6fSuGGbAaNsOEGy3wm
+	kL0HAKAmo3cuev7k7AV+hg9MAFG8pWKa8Rt7ktilrM6ij7fNZkz47mriZZicLNHnkFV1IryhTxaTp
+	Ze/XXozbWjAGGkos3ez9C/IwFy5+6UffNe3RCzV1zlbKzgIsMCzv1zAoih/O3fXLAFOFtD/leltfo
+	AGwewweXzdHoI7X3PRxmyLTiARSAqRU3W2ofPsGKcWEYFPQVwnp4jZ2Gwpqy50rlpOUCI1KRRIGEj
+	InKrKkfQ71wS2t78ZFq0sIyzfc+Gndf/P1ey0O3wvAGLOod9YYR0xvCi0CH8FY3U/ui8VbRU32y8b
+	ezynU9sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9hoF-0000000CzBp-3V6E;
-	Sat, 09 Nov 2024 09:31:11 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t9hpz-0000000CzOR-1KmP;
+	Sat, 09 Nov 2024 09:32:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9hmT-0000000Cyv6-1GYT;
-	Sat, 09 Nov 2024 09:29:23 +0000
+	id 1t9hmW-0000000Cyvb-0FX2;
+	Sat, 09 Nov 2024 09:29:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 819AFA400D4;
-	Sat,  9 Nov 2024 09:27:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CF91C4CECE;
-	Sat,  9 Nov 2024 09:29:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4FD6BA40165;
+	Sat,  9 Nov 2024 09:27:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43447C4CECE;
+	Sat,  9 Nov 2024 09:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731144559;
-	bh=dDj9mrjWKbOOETt8VRpVNkCmAIG4TU3oYP0/ohENJWs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=DQLPw9EKEfEtQmtv+k/c+ds8BRCFi29dZxoKL2WohYN1LEcsjY4dhh1LQJosaJhhQ
-	 KxuTaaHAbktGJrDokEv8HS3DY+3tScMkptNXkrNQgIwP7MmZOSmUtza0t/l2TToOoe
-	 IOTn7rHBaN7J3JsPzl59wV0eL0duon5JoHbPzTx6lZhUzfLzX2XAy+4SOpRLOf3MjM
-	 5IQgTaz1UJsqninxOi+stL+IjJRXG/8DWGH1CT20eEPZ6m+6hijVgeKRJkiwo+R3Ii
-	 oYEpybXeo+B7UdTihddN8IoUYmWE2ZK87qQ+kh5cGx/gpj3QifiGET6NNF5NTvfL2x
-	 b5xitrXCBAGMQ==
+	s=k20201202; t=1731144562;
+	bh=VItcQZD2Asoua4RQn/ctc3HUAFeoMyvrerFIagM4G4g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=s3gJ9CfL0f6apB4GPtjwLcAZfuMS9+z1xXiCo9efswRQdLuJNm4XD1idFfgXVP6zt
+	 tqWG+J+3NQTgPJgljj02miXxqgUeN33nLbO7n1cM+vcAFkxNLcswyOtT+WuF3Q0eOj
+	 Dz6keJtB6C8wxVsTsm70T7OSmRNz22pX0xF5q1QCdfPUw9uJFwZ8Kkl2S5iR7/xDh+
+	 xaZbmjk6/IHJR35KzyxO7DN9es5JiycMvQVTm5FvdNVsaqruAVh1UyyA0XQ91BXTRL
+	 LNUQ7U3imOYOePqByUKjuKzRjCmmEC56CvHCjI0KmlHVz4mAH83vPyJ2XyD5A6PmVI
+	 3c8Uf2vpEO60w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH v2 0/4] PCI: mediatek-gen3: mtk_pcie_en7581_power_up() code
- refactoring
-Date: Sat, 09 Nov 2024 10:28:36 +0100
-Message-Id: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
+Date: Sat, 09 Nov 2024 10:28:37 +0100
+Subject: [PATCH v2 1/4] PCI: mediatek-gen3: Add missing
+ reset_control_deassert() for mac_rst in mtk_pcie_en7581_power_up()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEQrL2cC/32NQQrCMBBFr1Jm7UgyMaa68h7SRUkn7aAkJZGil
- N7d2AO4fP/z/l+hcBYucG1WyLxIkRQr0KEBP/VxZJShMpCik9bK4eyFkaOzrcYgby5Il7NVNgx
- krIHqzZn3omr3rvIk5ZXyZ79Y9C/9t7ZoVNgH5VtHhox3twfnyM9jyiN027Z9AekVyfazAAAA
-X-Change-ID: 20241107-pcie-en7581-fixes-296505fd2353
+Message-Id: <20241109-pcie-en7581-fixes-v2-1-0ea3a4af994f@kernel.org>
+References: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
+In-Reply-To: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
 To: Ryder Lee <ryder.lee@mediatek.com>, 
  Jianjun Wang <jianjun.wang@mediatek.com>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -66,8 +64,8 @@ Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_012921_441794_65AFAA5C 
-X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-CacheID: sfid-20241109_012924_200976_EFBB3B92 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,30 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Minor fixes and code refactoring in mtk_pcie_en7581_power_up() routine
+Even if this is not a real issue since Airoha EN7581 SoC does not require
+the mac reset line, add missing reset_control_deassert() for mac reset
+line in mtk_pcie_en7581_power_up() callback.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v2:
-- added trivial patch 4/4
-- improved commit logs and comments
-- introduced PCIE_MTK_RESET_TIME_US macro
-- Link to v1: https://lore.kernel.org/r/20241107-pcie-en7581-fixes-v1-0-af0c872323c7@kernel.org
+ drivers/pci/controller/pcie-mediatek-gen3.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
----
-Lorenzo Bianconi (4):
-      PCI: mediatek-gen3: Add missing reset_control_deassert() for mac_rst in mtk_pcie_en7581_power_up()
-      PCI: mediatek-gen3: rely on clk_bulk_prepare_enable() in mtk_pcie_en7581_power_up()
-      PCI: mediatek-gen3: Move reset/assert callbacks in .power_up()
-      PCI: mediatek-gen3: Add comment about initialization order in mtk_pcie_en7581_power_up()
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index 66ce4b5d309bb6d64618c70ac5e0a529e0910511..0fac0b9fd785e463d26d29d695b923db41eef9cc 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -897,6 +897,9 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+ 	 */
+ 	mdelay(PCIE_EN7581_RESET_TIME_MS);
+ 
++	/* MAC power on and enable transaction layer clocks */
++	reset_control_deassert(pcie->mac_reset);
++
+ 	pm_runtime_enable(dev);
+ 	pm_runtime_get_sync(dev);
+ 
+@@ -931,6 +934,7 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+ err_clk_prepare:
+ 	pm_runtime_put_sync(dev);
+ 	pm_runtime_disable(dev);
++	reset_control_assert(pcie->mac_reset);
+ 	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
+ err_phy_deassert:
+ 	phy_power_off(pcie->phy);
 
- drivers/pci/controller/pcie-mediatek-gen3.c | 50 ++++++++++++++++++-----------
- 1 file changed, 31 insertions(+), 19 deletions(-)
----
-base-commit: 3102ce10f3111e4c3b8fb233dc93f29e220adaf7
-change-id: 20241107-pcie-en7581-fixes-296505fd2353
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.0
 
 
