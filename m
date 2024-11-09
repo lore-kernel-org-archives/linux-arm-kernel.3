@@ -4,65 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E9DD5E36C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F51D5E36D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qe3D6/waK6yGsH/6w6u8B/iFXC3a9D8n7XBymP2hiqs=; b=hkcRlGwia2JlNwxl5+muvZoDjW
-	X6QN0N5RDlar4irxIEqnRAmosszWjmJlK/stfmO0PSFZlnytLa5DqzpgOqYxjqIg8mQm3MUOMhLTB
-	6l9x4qX2mHz1XZPRnU1xN2KeR+xh+gA2p7YKF6jr4aDEVO7qE3ietYiDWV8gPxhQRYuq7wlMTxLxa
-	v6xOfVcmkcWEPimZuSYi2NuuQXXMKySK2cim2/6LFQmpGx5FJvcRQL7L+TfNwV6G1trzc4rzokPJs
-	lOAoBkptrmyqttgxpfvMk7rxk6kldEs6C/mNP8VFux9jiESSu4+OhgzB3sULZZwgGOCqoUXf38MQl
-	l7mptPGA==;
+	bh=EkGZMk3k9ILP8mNmbKIFCfxr5MM61wZQhO1Yk3smLCU=; b=SsEHQti5dvYTm27ybWisN9Hk92
+	8rKAv3awxBFWPzGGra90vCCBRGz6eglQRt+jtTmqO+y64Nj0tfks/Xw8Nn9Mn57P/aSNuAL0MhDHn
+	Iu4IuCd1QrXjCek2d0RRNfjkdrjkJ8uvMmqAzEwNYeHQYdGeU469FbD4vReLXrzupZi267j/LfX1G
+	kVI5TJjhm1XHkKftM4nyZKPTN2VWSdZK4iCE8TNX0B5gbXdlPSG2R8wt/p5gj/OJaFD0vmnsfyNe2
+	8WC00suuv5GHN+ROv6zDwxaYGhbrSZxD0VTuoMWWWCb3a4gNaVYfggC+AtacdchsPgw0QzqlTwOV2
+	JRN5s3RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lhm-0000000DPhh-3QYP;
-	Sat, 09 Nov 2024 13:40:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9lqu-0000000DQXo-12dv;
+	Sat, 09 Nov 2024 13:50:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lg1-0000000DPZl-3bzY
+	id 1t9lp9-0000000DQKh-0bZK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 13:38:59 +0000
+	Sat, 09 Nov 2024 13:48:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C12C5C012F;
-	Sat,  9 Nov 2024 13:38:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A25C4CECE;
-	Sat,  9 Nov 2024 13:38:49 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0F86EA40134;
+	Sat,  9 Nov 2024 13:46:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057A9C4CECF;
+	Sat,  9 Nov 2024 13:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731159534;
-	bh=xK1EstYJfmUBR3r7y6GFUc08EvB9qxw1bqmlRdrQcF4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ADeTmWjwb3WD427+fGGhLNAluQKlEQ2wdBBtW0j+yy9VeySlBj1L9qsNqx/UIA/R1
-	 9eZfcOswmFCsgukKcl4ouBL5YZi49BlXlXygckbhYWV4JxHZ/3FFlJoYRB7Ctu/T1R
-	 DfT2L045tlyctq1Y350RXrTQJHSWLWt6vJPcmWea/e1a9McHAj0aeq6uCiW13rHi6I
-	 DBH4eyucf1I+R53eTWVE6A0KxS78RYW69HiZAWj33wxHUurnjM8y4VIcBdDQulDshI
-	 YB4FdLmSBYIig1+vuu2JHxQok6o8KT/51vGjkli65JI9MyFmCpYRZFU/LvSQPcm2RK
-	 61uieIB7cpVYQ==
-Date: Sat, 9 Nov 2024 13:38:46 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: lars@metafoo.de, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, u.kleine-koenig@baylibre.com,
- tgamblin@baylibre.com, fabrice.gasnier@st.com,
- benjamin.gaignard@linaro.org, lee@kernel.org, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] iio: trigger: stm32-timer-trigger: Add check for
- clk_enable()
-Message-ID: <20241109133846.53d7ef06@jic23-huawei>
-In-Reply-To: <20241108200900.44727-1-jiashengjiangcool@gmail.com>
-References: <20241108200900.44727-1-jiashengjiangcool@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+	s=k20201202; t=1731160099;
+	bh=LkBpTD+8Wzbw3kgYxUyJ8ZmP6HQhjn7b3nLeP9G86CI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hO8mCSe/gkhytc5GPRSPZ0Rwta3AoCOFhnv1AoLMLJc0lYmWdsCyUfNqUiVA803MT
+	 dUB9dU6OyPBjTZBFJz3vQRsVPyp6jxUXYTQpi8jmBE1t2kmJEdtkXx5Vj3tU475yAG
+	 9QujsjvovwANZCsfJXHoxJvedJgy8tp2LxDCgStJ2/wOEUpyasZ5gCaLZ+Rrj92MnB
+	 o0roa0l4Rwl0xlkQtoSaxM91h+pdGFuHHb34S2xOD0kd4fqUyE61HbYg+CHSPrgOk/
+	 hsQAY2G0HMK+3sC8KdyxpPMjPHNRE6x9p9+YXZSsqc50szrj0VkNPz8GfUXY3K9Elq
+	 9fwR4b0dz2YxA==
+Message-ID: <3f40b200-f48a-4cf3-a018-b227517715c8@kernel.org>
+Date: Sat, 9 Nov 2024 14:48:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] power: supply: max17042: use microvolts for voltage
+ comparison
+To: Dzmitry Sankouski <dsankouski@gmail.com>,
+ Hans de Goede <hdegoede@redhat.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
+ Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org
+References: <20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com>
+ <20241109-b4-max17042-v1-3-9e2b07e54e76@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241109-b4-max17042-v1-3-9e2b07e54e76@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_053858_031133_BAFF56AA 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20241109_054823_348912_4A9106F8 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,138 +130,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  8 Nov 2024 20:09:00 +0000
-Jiasheng Jiang <jiashengjiangcool@gmail.com> wrote:
-
-> Add check for the return value of clk_enable() in order to catch the
-> potential exception.
+On 09/11/2024 13:44, Dzmitry Sankouski wrote:
+> Do not convert VCELL register value from uV to mV to compare
+> with vmin/vmax. Rather use uV for vim/vmax, since that's a
+> standard measure unit in power supply drivers.
 > 
-> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Hi,
-
-In principle this is fine, but I'd rather we made use of guard()
-/ scoped_guard() rather than adding the explicit unlocks.
-
-If you do that as a precursor patch in appropriate places
-in the driver then this will be a little cleaner.
-
-Note I'll not be taking this until next cycle now anyway.
-
-Jonathan
-
+> Convert "maxim,dead-volt" and "maxim,over-volt" to uV.
+> 
+> Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 > ---
-> Changelog:
+>  Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 2 +-
+>  arch/arm/boot/dts/samsung/exynos4210-i9100.dts                     | 2 +-
+>  arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi                     | 2 +-
+>  arch/arm/boot/dts/samsung/exynos4412-midas.dtsi                    | 2 +-
+>  arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi                   | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                  | 2 +-
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 4 ++--
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 4 ++--
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 4 ++--
+>  arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi           | 2 +-
+>  drivers/power/supply/max17042_battery.c                            | 4 ----
+>  11 files changed, 13 insertions(+), 17 deletions(-)
 > 
-> v1 -> v2:
-> 
-> 1. Remove unsuitable dev_err_probe().
-> ---
->  drivers/iio/trigger/stm32-timer-trigger.c | 32 ++++++++++++++++++-----
->  1 file changed, 25 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
-> index 0684329956d9..e1e077122f73 100644
-> --- a/drivers/iio/trigger/stm32-timer-trigger.c
-> +++ b/drivers/iio/trigger/stm32-timer-trigger.c
-> @@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
->  			     unsigned int frequency)
->  {
->  	unsigned long long prd, div;
-> -	int prescaler = 0;
-> +	int prescaler = 0, ret;
->  	u32 ccer;
->  
->  	/* Period and prescaler values depends of clock rate */
-> @@ -153,7 +153,11 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
->  	mutex_lock(&priv->lock);
->  	if (!priv->enabled) {
->  		priv->enabled = true;
-> -		clk_enable(priv->clk);
-> +		ret = clk_enable(priv->clk);
-> +		if (ret) {
-> +			mutex_unlock(&priv->lock);
+> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> index e98ffdad1ec3..d1ad597e0837 100644
+> --- a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> @@ -83,7 +83,7 @@ examples:
+>          reg = <0x36>;
+>          maxim,rsns-microohm = <10000>;
+>          maxim,over-heat-temp = <600>;
+> -        maxim,over-volt = <4300>;
+> +        maxim,over-volt = <4300000>;
+>          shared-irq;
 
-as below guard() for when the mutex is locked is cleaner.
+Property says this is mV so 4300 V? That's just wrong.
 
-> +			return ret;
-> +		}
->  	}
->  
->  	regmap_write(priv->regmap, TIM_PSC, prescaler);
-> @@ -307,7 +311,7 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
->  	struct stm32_timer_trigger *priv = dev_get_drvdata(dev);
->  	struct iio_trigger *trig = to_iio_trigger(dev);
->  	u32 mask, shift, master_mode_max;
-> -	int i;
-> +	int i, ret;
->  
->  	if (stm32_timer_is_trgo2_name(trig->name)) {
->  		mask = TIM_CR2_MMS2;
-> @@ -326,7 +330,11 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
->  			if (!priv->enabled) {
->  				/* Clock should be enabled first */
->  				priv->enabled = true;
-> -				clk_enable(priv->clk);
-> +				ret = clk_enable(priv->clk);
-> +				if (ret) {
-> +					mutex_unlock(&priv->lock);
-As below. Prefer use of guard() so we don't have to handle the unlock manually.
-> +					return ret;
-> +				}
->  			}
->  			regmap_update_bits(priv->regmap, TIM_CR2, mask,
->  					   i << shift);
-> @@ -482,6 +490,7 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
->  				   int val, int val2, long mask)
->  {
->  	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
-> +	int ret;
->  
->  	switch (mask) {
->  	case IIO_CHAN_INFO_RAW:
-> @@ -496,7 +505,11 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
->  		if (val) {
->  			if (!priv->enabled) {
->  				priv->enabled = true;
-> -				clk_enable(priv->clk);
-> +				ret = clk_enable(priv->clk);
-> +				if (ret) {
-> +					mutex_unlock(&priv->lock);
-Add include of cleanup.h and swithch the place where the mutex is locked to
-guard(mutex)(&priv->lock);
-then remember to drop the explicit unlocks.
+Entire commit touching bindings, drivers and DTS in one patch is an ABI
+break and just clear NAK.
 
-
-> +					return ret;
-> +				}
->  			}
->  			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
->  		} else {
-> @@ -601,7 +614,7 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
->  				 unsigned int mode)
->  {
->  	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
-> -	int sms = stm32_enable_mode2sms(mode);
-> +	int sms = stm32_enable_mode2sms(mode), ret;
->  
->  	if (sms < 0)
->  		return sms;
-> @@ -611,7 +624,12 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
->  	 */
->  	mutex_lock(&priv->lock);
-
-Perhaps scoped_guard() is  appropriate here.
-
->  	if (sms == 6 && !priv->enabled) {
-> -		clk_enable(priv->clk);
-> +		ret = clk_enable(priv->clk);
-> +		if (ret) {
-> +			mutex_unlock(&priv->lock);
-> +			return ret;
-> +		}
-> +
->  		priv->enabled = true;
->  	}
->  	mutex_unlock(&priv->lock);
+Best regards,
+Krzysztof
 
 
