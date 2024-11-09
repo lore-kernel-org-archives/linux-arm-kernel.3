@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26DED5E376
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 16:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0F0D5E373
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 16:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LiyXTt78v6KIZQ1Ji+ZoKsI5Ur+Se/pukGeJe0h1QHs=; b=f9JKOALwNSkAArGlyexE1wIQzC
-	Yd6iLmiHi/OHR8rQCB33fr+H2nsjlyJz9I69hLtkX9MxsQ45Yn3ZqEwmMKMc9iCBsfcIx3N+4yLum
-	t+JLc068Ah8G6BQVpchg9iPG+mGk4+0AtDM9xE+let/dtEYcwOJTIBezGMkaH0RPSzPEXYmlUVCLt
-	nO8h6CwtV485TlzZjrdhgD8Dxx9H8yhqjttDNzAw+krA4gUrL2jFgwKKlmc7wZvxm0w5abQDUuQDH
-	Wy0ULMTfiJwkhFWD4JiEzW3zrO+irATIOaccdCfkM6h5tVbiSFmjksrRLeNPPJpDAJ5yu1N4SM2pF
-	noYKJVpA==;
+	bh=/yoFQrLRbNDbA+L5VK7Gi35zZ133ZjYtyjYnQzBoB64=; b=EjvfqT+7O1+xSNtHo5o7HEYswf
+	2V/zx8n5R+gXBLYuxFjGNoFUr/RP+6NTCKJrpv4m2UqLjjwinFu75lANlTLjnTf/KVNNz0a8d1KNv
+	7xS8rWybkM+Y5quLTP9yvj5ugB6nDM1oNcVKvxglXtcAU1TMZZ8UUtggQJ/lps0qqx+6sebAQ4VSQ
+	6bSyNCcm4tlUi7kXouL6QYgRabr4qgBen9eeVcwdv/Ghmzwc/dWiOrBGJqixOOna3MVnGeRbyV7xC
+	VDkg0vQlLZDUmQZKlNXUWrda2M5xAl6x/ZkyBWEZO8ObloJg8pIcsxATGJ1zMxWDFa3QGVZ7O+918
+	Yc+Wes5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9oTK-0000000DefL-0ZnG;
-	Sat, 09 Nov 2024 16:38:02 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1t9oV4-0000000DfB8-0ITB;
+	Sat, 09 Nov 2024 16:39:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9oRY-0000000DeTQ-3Zku
+	id 1t9oSb-0000000Dea8-3Sg0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 16:36:14 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7b15467f383so235530185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 08:36:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1731170170; x=1731774970; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LiyXTt78v6KIZQ1Ji+ZoKsI5Ur+Se/pukGeJe0h1QHs=;
-        b=ItjD9O3rKIypZ6wqjatg2q4hLadpqzl3Y0LHjzqGPTykl0grnWgRpYfSZK45FYH5mA
-         /1zMWeyzOLHNiJhumdDlX4/1lK+Fe7zbuwDnwlaz/tWDJKai+B5GLCLjxmUWLwKoffiP
-         iCARzva2wtR9BXO1fVaDJ4fpbs4HP49O+rFto=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731170170; x=1731774970;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LiyXTt78v6KIZQ1Ji+ZoKsI5Ur+Se/pukGeJe0h1QHs=;
-        b=C9XHCeR4PpnnNGjTESrLh8Ge7BiM6zGGOc5W3Dd7ascWUdeuWLgJastIcoHx1bi+DF
-         Qc1ZSaeBGvikR7zgi0dkt2CquXoN6ZFNv+bVkV3kuVP3ZjNLdnYPF6QeOqAWHCMlGlKZ
-         BL7wamTitH3TJREm4K674EAKAsidcRjR6JmVpwOpNHjRs/u846RavqPKBMCEK+oPtZ5O
-         iEfk2jDQMX8Ye5ciS+w/JdYiJrrOmci8XXcpcChMkLo/WUYJ/Yh0NZBx+qrxedj2szbF
-         Iz/yR39OdmMswweTZvnQZIN+4uTTwFYQISk19OLQEDxX2Bf+utTPhbE6/tB8NWHQtHSW
-         mFcA==
-X-Gm-Message-State: AOJu0Yyl6MshSk7XARFh8a/rhcIElPVfTVxvU2xH2P4/0M288qn3wZbW
-	UP0CxWbqmxHlB6wWa43Ar7n6Chnt1M7nAW5R2/lGzze+s4jAN3qbpGzGpIuy5A==
-X-Google-Smtp-Source: AGHT+IHR7LHF6bAJTfqfdMdT6vSoZ1qZIMt2KdNyCPNQiI/13HtKv9OHU9ir/QulbNCGPSOqD5aPSg==
-X-Received: by 2002:a05:620a:24d3:b0:7b1:547d:9ba8 with SMTP id af79cd13be357-7b331d8c12fmr867466785a.21.1731170170256;
-        Sat, 09 Nov 2024 08:36:10 -0800 (PST)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b32ac63da6sm272249685a.58.2024.11.09.08.36.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 09 Nov 2024 08:36:08 -0800 (PST)
-Message-ID: <f89f2fee-35d9-4292-b2eb-b4bceda78030@broadcom.com>
-Date: Sat, 9 Nov 2024 08:36:06 -0800
+	Sat, 09 Nov 2024 16:37:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8D49C5C1498;
+	Sat,  9 Nov 2024 16:36:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF46C4CECE;
+	Sat,  9 Nov 2024 16:37:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731170236;
+	bh=KmrkR7SY2XfMX1n2JutVpNklxzuRHWektyFf7oAOTJk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Zlme5mmFAq2nGaQbpRgioe+nI3wFR14MKsDaqgt+SP9s08LNstW9ZJzu0HMDvxvIh
+	 u3B54+/MZ2KPJPbMW1BwGPNmaoJZOpK3osh7MnJ13ZDI7GmZZlWV0CqGbbmcQAvioM
+	 nMJ5+8AVr7+BnaOft620skl7c/1//7pB9eFyyQHslx+/o9YHYej7zGBdmrEcWT+E7j
+	 jMJgH853zFImwHNy/3bVGg88gGBG9EjNQajVd6Q1hAs0GQdktq5EAe+noByQUk6+Si
+	 r36kcWF8b+90Z6esjjYKI0Ni9ETKkyo63YYikGpHKsQdTBb+L65x3wx4hq6w9V4J8M
+	 6PFUFK96yzdzw==
+From: Namhyung Kim <namhyung@kernel.org>
+To: leo.yan@arm.com, james.clark@linaro.org, mike.leach@linaro.org, 
+ Steve Clevenger <scclevenger@os.amperecomputing.com>
+Cc: suzuki.poulose@arm.com, ilkka@os.amperecomputing.com, 
+ coresight@lists.linaro.org, linux-perf-users@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
+References: <cover.1731027120.git.scclevenger@os.amperecomputing.com>
+ <cover.1731027120.git.scclevenger@os.amperecomputing.com>
+Subject: Re: [PATCH V11 0/2] arm-cs-trace-disasm.py/perf must accommodate
+ non-zero DSO text offset
+Message-Id: <173117023647.3738736.13855747983305853936.b4-ty@kernel.org>
+Date: Sat, 09 Nov 2024 08:37:16 -0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] mmc: pwrseq_simple: Handle !RESET_CONTROLLER properly
-To: Stefan Wahren <wahrenst@gmx.net>, Philipp Zabel <p.zabel@pengutronix.de>,
- Ulf Hansson <ulf.hansson@linaro.org>, Marco Felsch
- <m.felsch@pengutronix.de>,
- Catalin Popescu <catalin.popescu@leica-geosystems.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241108130647.8281-1-wahrenst@gmx.net>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-In-Reply-To: <20241108130647.8281-1-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_083613_013227_6BE4B1B5 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20241109_083717_939093_83A9C96A 
+X-CRM114-Status: UNSURE (   6.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,21 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 08 Nov 2024 12:11:19 -0700, Steve Clevenger wrote:
 
-
-On 11/8/2024 5:06 AM, Stefan Wahren wrote:
-> The recent introduction of reset control in pwrseq_simple introduced
-> a regression for platforms without RESET_CONTROLLER support, because
-> devm_reset_control_get_optional_shared() would return NULL and make all
-> resets no-ops. Instead of enforcing this dependency, rely on this behavior
-> to determine reset support. As a benefit we can get the rid of the
-> use_reset flag.
+> Changes in V11:
+>   - Corrected prefix.
+>   - Fixed compile-time error for perf debug build by substituting in
+>     the map__pgoff macro (trace_event_python.c).
 > 
-> Fixes: 73bf4b7381f7 ("mmc: pwrseq_simple: add support for one reset control")
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> Changes in V10:
+>   - Removed errant space in patch file 0002. Passed 'git apply --check'
+>     at perf-tools-next, 6.11.0-rc6.
+>   - Added back missing prefixes.
+> 
+> [...]
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+Applied to perf-tools-next, thanks!
+
+Best regards,
+Namhyung
 
 
