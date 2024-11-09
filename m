@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D890FD5E36B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 18:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A87FD5E379
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 18:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0VIHC2Ku9UTF968sfdHEdMyRYkhQWzQCl1gtYVzqmTA=; b=F/OZWV1M58FvoqfrcfNdtqbEHH
-	PoQPWEJTGor22FcqxyXBkEBZLkVvwwAMJPcIWhQGeRzhQiXWt+pWD7pH2QpIDBp8+biYs+5pKZ/Hx
-	qrAoUaEa3KlYBa2Gyw7+/bJhlPsiGTitvhhsPDwnEkSpoOj28b0VBvoo6C9jWIMjtlmgaz0Ut8o+o
-	PwKXR6jr9J1iWaM54VUVq1CS9DnnFhBjA6NTTl7MBAmcQ/3e3tSrEf1fVPK+gkux0SXAapGUq7cJ/
-	D+AEa2UaHQ2aeBm87rtC4TqWatbPD+fRV5xy3Gs7ITCgf4xZZ50a0OrIq8v4F5B5kqjhVe42e1hd8
-	9CM8NBKw==;
+	bh=X/XdLrRd9Xd5DGjwhoQSHywlLvR9zYSL5LpMBZ+yZro=; b=gHdNjNGkWJgQbHvNnKq2BIEs86
+	oMoCptndmD9qOer0QyQsSybe55gAJnfCTI4E39qAc4V3FWwxTqIRpplOzx2AIg/4wbm/STuyXUX2g
+	PEENJtXZv9Ev0hoCFc8u7laNRB3LiVPjAs4jP/9qOh+WoCJ2BqCqu44K53vxT2A5OfgZj3/OmOftZ
+	PWypKVte5HgFCSNKKtwrADrMLN4WOwSKglOl3QJRHpijbYquGnr8qp2NowOu0DWHS0qXmPj/i+iSv
+	X4AFlFRPu0TkCYzeBGWgcm5d+ufFf8kM15XSpHo3cyqpUspHvcN1rjrf5iOpGpljrSILBZb/YMdfR
+	MsMvhq1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9qGW-0000000DoXi-4BO9;
-	Sat, 09 Nov 2024 18:32:57 +0000
+	id 1t9qIE-0000000DoiJ-3t8q;
+	Sat, 09 Nov 2024 18:34:42 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9qBK-0000000DneX-0jS2;
-	Sat, 09 Nov 2024 18:27:35 +0000
+	id 1t9qBN-0000000Dnfd-0lPP;
+	Sat, 09 Nov 2024 18:27:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0VIHC2Ku9UTF968sfdHEdMyRYkhQWzQCl1gtYVzqmTA=; b=yZAbTgxPIS4nAqg1yuE0A1Ibt9
-	D5msZmdWwGjNNzL8Q0Zij1iYOx7ZiwOL2yLPUttmiZkPHK/EoPBycqZ+agy6iJeNXDHVDrwzNDEWO
-	rmGHyPraD6ThKAEuI2RJusyt68LI38ZlrMs+MGwmHJ+tuS+rtzeHLqKBkOiEDY1eMhjRMYgrBx6hV
-	SFYqpLlSKrbuiBNn1cRFBf221KF9K9/+L9U4CwnfZmh49YEGHDubiG2vPCV1dZarAkE7sKvUeUZL8
-	luSIej5HbqlpSKkbCZmWsDDo4WJ67y2Y0Bc0NW9QmV3matFoIoLSR22QYfYiXCVv10paHmjOQwbtY
-	yuk4evtQ==;
+	bh=X/XdLrRd9Xd5DGjwhoQSHywlLvR9zYSL5LpMBZ+yZro=; b=1i/N6t2h3fOqaP9hkFbNDoJWMf
+	KJvkZpYgollEVkfKc1GmgqfPTJgDrSSkem3Uj60m9EYYprTRrNXq8x1ROqNYzkF6ouqDkAnuM7Xjv
+	7rDs4g76fsEX+9LrtCDQ79dzDpy7B6r5bJtqBZV+dT+3bjFT0o13kOTK4AIspPG6fdNWqOXlDlKsg
+	fHM1j4XTeYNxjK/LUNTDcxQPhO/ZXbK4Ef/rwptswZ/xAXGH7uODPj9E5lBXML1Wcy5La7NNSLRSU
+	lHLXGckHnJUVmfE+A7/hVIM/s5kPX8KjoF6H08CduldyaqCiUYoeZZOgE4gDFxu0qp19grCz+3jtr
+	1/IOKPTg==;
 Received: from i53875b28.versanet.de ([83.135.91.40] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1t9qBI-0007Km-2f; Sat, 09 Nov 2024 19:27:32 +0100
+	id 1t9qBI-0007Km-H3; Sat, 09 Nov 2024 19:27:32 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: Johan Jonker <jbx6244@gmail.com>
+To: Jonas Karlman <jonas@kwiboo.se>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	krzk+dt@kernel.org,
 	linux-rockchip@lists.infradead.org,
-	robh@kernel.org
-Subject: Re: [PATCH v1 1/2] ARM: dts: rockchip: fix nodename regulators
-Date: Sat,  9 Nov 2024 19:27:13 +0100
-Message-ID: <173117675958.1131306.13278216247515118852.b4-ty@sntech.de>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] arm64: dts: rockchip: Enable GPU and HDMI on NanoPi R6C/R6S
+Date: Sat,  9 Nov 2024 19:27:14 +0100
+Message-ID: <173117675954.1131306.14516383583715120601.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.45.2
-In-Reply-To: <cfc3cfe1-086b-48f1-9b89-f17c9391d3cc@gmail.com>
-References: <cfc3cfe1-086b-48f1-9b89-f17c9391d3cc@gmail.com>
+In-Reply-To: <20241107212913.1322666-1-jonas@kwiboo.se>
+References: <20241107212913.1322666-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_102734_235350_66FAC39D 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20241109_102737_237522_268A7E29 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 5 Oct 2024 22:39:05 +0200, Johan Jonker wrote:
-> The nodename for fixed-regulators has changed to
-> pattern: '^regulator(-[0-9]+v[0-9]+|-[0-9a-z-]+)?$'
+On Thu, 7 Nov 2024 21:29:08 +0000, Jonas Karlman wrote:
+> This series add the necessary DT changes to enable GPU and HDMI on
+> NanoPi R6C/R6S.
 > 
-> Fix all Rockchip DT regulator nodenames.
+> Runtime tested and working with video=1920x1080@60 cmdline on a
+> NanoPi R6C.
 > 
+> Jonas Karlman (2):
+>   arm64: dts: rockchip: Enable GPU on NanoPi R6C/R6S
+>   arm64: dts: rockchip: Enable HDMI on NanoPi R6C/R6S
 > 
+> [...]
 
 Applied, thanks!
 
-[1/2] ARM: dts: rockchip: fix nodename regulators
-      commit: 2c3944d952ec4d3428a8d3163be2263579d1939a
-[2/2] arm64: dts: rockchip: fix nodename regulators
-      commit: 64b3e42fdbc1f4dc780ca39e860c5514d66e1b97
-
-I've adapted the patches to the changes that happened meanwhile.
-
+[1/2] arm64: dts: rockchip: Enable GPU on NanoPi R6C/R6S
+      commit: 573a4faab675cf00851273f29feae02d224d2c21
+[2/2] arm64: dts: rockchip: Enable HDMI on NanoPi R6C/R6S
+      commit: 437fa141ab6509256fca21f0630c5fa57c34dbd1
 
 Best regards,
 -- 
