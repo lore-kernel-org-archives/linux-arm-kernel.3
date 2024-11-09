@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8076BD5E379
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 17:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD97D5E37A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 17:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ID0U4v8IJwDheWM1GMjMt6YDBO95xzj8yHE+CefJD7M=; b=WdNBIJAupQbONDQUEksEbkDit9
-	nUPh2kw8vvsrLeudt/NHHEpJfbo2+TGXRDs5LXIj+UGdDpNU/ju4yUra8JAa9r74aByOBlry9bLST
-	rIXjkhlNGE4zrJR5xikvO/19xZ5GS/tOYZ7tIESzNdfKHPgdhoVU2j0nUrBewGe0Z7JcZ175OTfKy
-	xUWjZBc/4Rs1SjNzS4xYRQiuzCK/dp9GJzqxoFc1lZMKRYtfauWvdd6vYmWxwqGvYRrz4BWfK90rd
-	3PT0D7kytZbYIdeD5u2BxR51qkjunpA/WKTSHICXtxZAUCwOZ9faJO4tWkup0AcnhjQR/21a5cvDg
-	f1L/MLBQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+6rulw/lNtnEo0tBG6bWUBB2/E/vFFZuCKLNN5bGCYY=; b=H0zgeX7vFe2w9dbyDiHhdYpImN
+	8kk8hAvAbVPNNZ7bCv8AghYOh/zwgaHOfm6VHqatQ8EfQFI30O+v0jjFms8PqzqTewHnWHyTNNGfy
+	Hqp3k60PR1bZbBadwk7nE5DliiwDnOZJHhN9J6FZL1JwOmLmyjdDD2uHZJis52ZKQApjk1jRpwO2h
+	3NYvN5J7+o7I/xMMW9J6RF06l+QIpB46fvtZlVpiAScZ6NJusi96hZcUMMleKNDtz46b3NqVwdxA7
+	LkPmEDu6RPbJgvKYbs33s7D1GrBja8rLo6BFrORawiunrcbBLRrootOTYNQNsk5M8folK/slEIB+z
+	c4SHkSdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9pRe-0000000DkHb-1qq6;
-	Sat, 09 Nov 2024 17:40:22 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1t9pTN-0000000DkT1-0zXQ;
+	Sat, 09 Nov 2024 17:42:09 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9pOl-0000000Dk1S-3WJd
+	id 1t9pQ8-0000000Dk77-1UeI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 17:37:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1731173829; x=1731778629; i=wahrenst@gmx.net;
-	bh=ID0U4v8IJwDheWM1GMjMt6YDBO95xzj8yHE+CefJD7M=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=koVjcZPAN3TgN0vh/aNhAnQeeko+NkgKFJ4h1F4VtB8yBykyhdHKYHV+tU/tMiZ9
-	 tlB9xVpOcO1GutBKUxVA1sY96xww15lbA18nMLnD5QUYIzSUJ9CNd+xnaz3SMXTg7
-	 z5DAAWZhHlt4fh+L/OjI98iWmSSOD/cCesYnRhJOwHsA5KdAsMbQ4DKsQ4PBn+oZx
-	 Hzfxfwrvve8xeDUAhY4MzVNml7KLvDmkrnnHDuD8kMmGmHiapmWdkLoXD8SrtydZC
-	 J4ZktRIFIgZhaWTGsGc754NV+yv+yxHXDY+2KcHYK2a2yptXaXi2agTTJLHfGFuzM
-	 JOTecv9qMEEvoqwcbQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MAfUe-1syr2z1s5Y-0097Bl; Sat, 09
- Nov 2024 18:37:09 +0100
-Message-ID: <83a0282c-0263-46ba-8eba-78f6a81e7c98@gmx.net>
-Date: Sat, 9 Nov 2024 18:37:05 +0100
+	Sat, 09 Nov 2024 17:38:50 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-2fb5fa911aaso40013131fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 09:38:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731173926; x=1731778726; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+6rulw/lNtnEo0tBG6bWUBB2/E/vFFZuCKLNN5bGCYY=;
+        b=CBdyiYifbT20rGToJI0s8X+87AQbdqFMA7jXucCL/wavIpBBshJhHwvtANRknLY7fU
+         LK68DmiJK2CQUIIrmMKIqBtyY3ppgs71sjGW2C0chewYqnv6FxvYti2CE3w4FjI6ZBhM
+         kRPHNXoWjhsO63tjqdBW4svJkej4ziWJYltpXcXUgf1ijP6MKgvawyZGPeYr52N85RhI
+         aGapjaRuOXcxBCvxd/TGrjyIfaI8hm0PnyeN91KJtQSEc9Jj8zdFa9tEloNnWPBfl37a
+         IQmOP3506pEua6EgPEYC3Qx+6kvs9RC5FuYe7lCe1DDiqZKrOpLop1XdcfxKj18LP9Ow
+         gE3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731173926; x=1731778726;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+6rulw/lNtnEo0tBG6bWUBB2/E/vFFZuCKLNN5bGCYY=;
+        b=kThsaKIk+fhYIOfl+PsQ+CqqI1jb4QJKM0vDchuT8kTD2kCT/2l+/7Qs3bSIfiwFIB
+         dDxpN7kgqr+hNhl0UpIcWnXvK6tNxhG7GlZ/8a5QMxQ8fY7jMHUPldZJzxbSXYv5SaZW
+         ZNexMztvyKZMJJdNi2PSY7Rdtl6jDRBDuzuE/f54qtF19US6djtLMO0HH8s2GPqhQL0M
+         XOkApsTHHQfQzKZbubhPd/gNtv9KXCQn1UeJZP6nQHpW5Cee8zSmc7lVqW9QYbw3osYq
+         qLcoN3GMPcIoTYcCAF91EAxEQ452n16xG5WrcICfN0MV8nUevjUwF5/ZWWilhSPiRLrv
+         rU/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUm5Dc9FkVA/pbMxpfxp5weKUtydTrUEsSaCaLb8SQUzKb2DtiTUNwikLu12HavlS9B03c/UosIX591U2st/PFc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL/o5PJRIebsHkOGvP3m72O7mDnifVYfVXSZbgSFPcM1XY4HRE
+	76+0WvKNhJWUQ4S3rZS4SQvwLpGiF69jpQrJMzl9vkxz5TtZfSCR/BwmkJjfFRA=
+X-Google-Smtp-Source: AGHT+IGatdJpXrZhMrODleVrBiUrsfVe/fWc6grf12yxYVJRTNJmQO4th+l4Bm+4iX6izejB8/b8WQ==
+X-Received: by 2002:a2e:a995:0:b0:2fb:5206:1675 with SMTP id 38308e7fff4ca-2ff2028a9a5mr51218071fa.27.1731173925582;
+        Sat, 09 Nov 2024 09:38:45 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0dc48f7sm383827966b.118.2024.11.09.09.38.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 09 Nov 2024 09:38:45 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	patches@opensource.cirrus.com
+Subject: [PATCH] irqchip: Switch back to struct platform_driver::remove()
+Date: Sat,  9 Nov 2024 18:38:27 +0100
+Message-ID: <20241109173828.291172-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V5 2/9] dmaengine: bcm2835-dma: add suspend/resume pm
- support
-To: Russell King <linux@armlinux.org.uk>, Lukas Wunner <lukas@wunner.de>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Vinod Koul <vkoul@kernel.org>
-Cc: Peter Robinson <pbrobinson@gmail.com>, "Ivan T . Ivanov"
- <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org,
- Ulf Hansson <ulf.hansson@linaro.org>, kernel-list@raspberrypi.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Minas Harutyunyan <hminas@synopsys.com>,
- bcm-kernel-feedback-list@broadcom.com, dmaengine@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-usb@vger.kernel.org
-References: <20241025103621.4780-1-wahrenst@gmx.net>
- <20241025103621.4780-3-wahrenst@gmx.net>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <20241025103621.4780-3-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:hN71PDERMZiyLGnEBo4kzNeGRlc5kNE3RE8MVnKiOzxG8c1bGzU
- +go8AsrMPQugllh1JPxfyvkavCbZpNtALQi2JaZW1jrV1lYo03gLh0t/tS2SoAI/bDQKmW3
- DdKWANT5sJm8Gyt2TuMUt0QEHrnmeqU1KGb145iQVlIVG9pddn+PPicibpIXDhYA/O8yDiK
- cBnHsrnKR37Xz1+5GPWRg==
-UI-OutboundReport: notjunk:1;M01:P0:LUbR2To7WhQ=;ZEsSZRvxT7/lz0VEiqxCjoC1+0h
- 4KFN2gZhUGHQpVKGN1Ks1Xos/+D2k6uhiF9v01JDs3Ov9unVOR632WPrldf3A9pauhU+nr9eh
- t1OexOzAH+JCIotdNQMlIgiV+FDmuX0e/9yfkUDfGdgIRnuy8WPZoz8bzKdNn6y802PS54gTt
- zcBmmTAmQq9OlkUe9TvwaNNeMighOIhiyHLy8SjkHopw9Vf8r1Hof1kLQDhiwMmqs7MLlpswa
- h1YrV1nSPYepF3MGZ15disZWtKE8PGqN5CyMDBdqJ2yQArP7LzmGRAnGt0Xl3r8mwA2gtlxLl
- E32MnPLxNhkz9tcJJ1lQx07TvdKdDj79ynm6i3UTT0S3xq0bMIlttlaeTupwFSCeeLLr45QcZ
- /LBriAnID8R3VJAQT8Ht7AUvVRpregZLNbsEm548eoYsFdU3x+U9gU/WTduEc1/lH8fU9yTBe
- r+qd1sXRlSfyv7Z4WDeQU/stPDdrb3aP3vJGZQhBvyP/9kaxbhMerh7+IuyeeymwzlyvXQL/A
- fesWLW4tVgsQPRT1/hmUWKKQ37BJUxuQEUGK/RjHMLTRKNpZlj7/3pHYtvU4fNQ+DnvJbhilT
- X8C8HxTA8k4ycQ7Mjfr2luOKquBPkSb51qOMSPjsSV0qMylqklOuV1EELzklXBmvvv084jMG9
- AyBk8NFSm21Ufuf8Tpo6UnkXPGn1Z7blB0/7NlCKUtoODr0QSGQVbejSyCYHtZWO0SyzutvS+
- KEyMeLACCXnnjZi0bbEcD1jiY0EzuDwkjchooLE2Pf9FkRKb4EpHKNN2u2u5ZpTQiyp9lia/1
- TpE8gtz3MKLj90BbMY8wUeX88aFWG1/c3XndRfKf5MtTCB70gQgpcZzolQXygHmDOQNRI4YSN
- KwmuxcrdGUltKdMouqKebAH44mwJsXnokO/1BB2xkJYgre0YAPudawPQl
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7905; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=cG6BiYtnIMuGLSWrNCwmKIdIDqnFLnsIXWDiSYA+qS4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnL54UuShdHMKtznnRY/uU8T9C6uqh4s2Xw6Ogr gE8iTRWzpaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZy+eFAAKCRCPgPtYfRL+ Tq1qB/0TAMdLwf1xsB/y+fBhD7Fmxay3zicEHr4QUThMuVtJBkFu2Yd9l7iuOeA+yWKZ+8hctBe Pli4gRTBXIQpGUiEdKmefOLSGIT89PjCrkg3RNnUuzZphg+qknMMdFtdz4i/zpsT8DCC5NPg32V yKJWrc2hgRFLDSJmpurJLlR9fgO2/qSjzoV8jiosgsMYI3ocvbc9slQIBQB0QU5nqVtOJHgT9Kd wAyFUJA67lfYbAZ2WjHcYdyQR1hzfTXWofXRK2ptWKg78xWeii7ATGa2hDC1Gd7JKzSGKRbtMwF 22U4mh1wtvYVJgdUhdPYh8Rh1EXipN9kvqxx7RAgxw7qr5wD
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_093724_273325_10A2C838 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20241109_093848_691728_C511B260 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +104,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 25.10.24 um 12:36 schrieb Stefan Wahren:
-> bcm2835-dma provides the service to others, so it should
-> suspend late and resume early.
->
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
-Since there wasn't any feedback for this patch, i want to send a gentle
-ping ...
+Convert all platform drivers below drivers/irqchipto use .remove(), with
+the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
-Regards
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-> ---
->   drivers/dma/bcm2835-dma.c | 30 ++++++++++++++++++++++++++++++
->   1 file changed, 30 insertions(+)
->
-> diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-> index e1b92b4d7b05..647dda9f3376 100644
-> --- a/drivers/dma/bcm2835-dma.c
-> +++ b/drivers/dma/bcm2835-dma.c
-> @@ -875,6 +875,35 @@ static struct dma_chan *bcm2835_dma_xlate(struct of=
-_phandle_args *spec,
->   	return chan;
->   }
->
-> +static int bcm2835_dma_suspend_late(struct device *dev)
-> +{
-> +	struct bcm2835_dmadev *od =3D dev_get_drvdata(dev);
-> +	struct bcm2835_chan *c, *next;
-> +
-> +	list_for_each_entry_safe(c, next, &od->ddev.channels,
-> +				 vc.chan.device_node) {
-> +		void __iomem *chan_base =3D c->chan_base;
-> +
-> +		if (readl(chan_base + BCM2835_DMA_ADDR)) {
-> +			dev_warn(dev, "Suspend is prevented by chan %d\n",
-> +				 c->ch);
-> +			return -EBUSY;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int bcm2835_dma_resume_early(struct device *dev)
-> +{
-> +	return 0;
-> +}
-> +
-> +static const struct dev_pm_ops bcm2835_dma_pm_ops =3D {
-> +	SET_LATE_SYSTEM_SLEEP_PM_OPS(bcm2835_dma_suspend_late,
-> +				     bcm2835_dma_resume_early)
-> +};
-> +
->   static int bcm2835_dma_probe(struct platform_device *pdev)
->   {
->   	struct bcm2835_dmadev *od;
-> @@ -1033,6 +1062,7 @@ static struct platform_driver bcm2835_dma_driver =
-=3D {
->   	.driver =3D {
->   		.name =3D "bcm2835-dma",
->   		.of_match_table =3D of_match_ptr(bcm2835_dma_of_match),
-> +		.pm =3D pm_ptr(&bcm2835_dma_pm_ops),
->   	},
->   };
->
-> --
-> 2.34.1
->
+I did a single patch for all of drivers/irqchip. While I usually prefer
+to do one logical change per patch, this seems to be overengineering
+here as the individual changes are really trivial and shouldn't be much
+in the way for stable backports. But I'll happily split the patch if you
+prefer it split. Also if you object the indentation stuff, I can rework
+that.
+
+This is based on yesterday's next, if conflicts arise when you apply it
+at some later time and don't want to resolve them, feel free to just
+drop the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend.
+
+Best regards
+Uwe
+
+ drivers/irqchip/irq-imgpdc.c              | 2 +-
+ drivers/irqchip/irq-imx-intmux.c          | 2 +-
+ drivers/irqchip/irq-imx-irqsteer.c        | 2 +-
+ drivers/irqchip/irq-keystone.c            | 2 +-
+ drivers/irqchip/irq-ls-scfg-msi.c         | 2 +-
+ drivers/irqchip/irq-madera.c              | 2 +-
+ drivers/irqchip/irq-mvebu-pic.c           | 2 +-
+ drivers/irqchip/irq-pruss-intc.c          | 2 +-
+ drivers/irqchip/irq-renesas-intc-irqpin.c | 2 +-
+ drivers/irqchip/irq-renesas-irqc.c        | 2 +-
+ drivers/irqchip/irq-renesas-rza1.c        | 2 +-
+ drivers/irqchip/irq-ts4800.c              | 2 +-
+ 12 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/irqchip/irq-imgpdc.c b/drivers/irqchip/irq-imgpdc.c
+index b42ed68acfa6..85f80bac0961 100644
+--- a/drivers/irqchip/irq-imgpdc.c
++++ b/drivers/irqchip/irq-imgpdc.c
+@@ -479,7 +479,7 @@ static struct platform_driver pdc_intc_driver = {
+ 		.of_match_table	= pdc_intc_match,
+ 	},
+ 	.probe		= pdc_intc_probe,
+-	.remove_new	= pdc_intc_remove,
++	.remove		= pdc_intc_remove,
+ };
+ 
+ static int __init pdc_intc_init(void)
+diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-intmux.c
+index 511adfaeec82..787543d07565 100644
+--- a/drivers/irqchip/irq-imx-intmux.c
++++ b/drivers/irqchip/irq-imx-intmux.c
+@@ -361,6 +361,6 @@ static struct platform_driver imx_intmux_driver = {
+ 		.pm		= &imx_intmux_pm_ops,
+ 	},
+ 	.probe		= imx_intmux_probe,
+-	.remove_new	= imx_intmux_remove,
++	.remove		= imx_intmux_remove,
+ };
+ builtin_platform_driver(imx_intmux_driver);
+diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+index 75a0e980ff35..b0e9788c0045 100644
+--- a/drivers/irqchip/irq-imx-irqsteer.c
++++ b/drivers/irqchip/irq-imx-irqsteer.c
+@@ -328,6 +328,6 @@ static struct platform_driver imx_irqsteer_driver = {
+ 		.pm		= &imx_irqsteer_pm_ops,
+ 	},
+ 	.probe		= imx_irqsteer_probe,
+-	.remove_new	= imx_irqsteer_remove,
++	.remove		= imx_irqsteer_remove,
+ };
+ builtin_platform_driver(imx_irqsteer_driver);
+diff --git a/drivers/irqchip/irq-keystone.c b/drivers/irqchip/irq-keystone.c
+index 30f1979fa124..808c781e2548 100644
+--- a/drivers/irqchip/irq-keystone.c
++++ b/drivers/irqchip/irq-keystone.c
+@@ -211,7 +211,7 @@ MODULE_DEVICE_TABLE(of, keystone_irq_dt_ids);
+ 
+ static struct platform_driver keystone_irq_device_driver = {
+ 	.probe		= keystone_irq_probe,
+-	.remove_new	= keystone_irq_remove,
++	.remove		= keystone_irq_remove,
+ 	.driver		= {
+ 		.name	= "keystone_irq",
+ 		.of_match_table	= of_match_ptr(keystone_irq_dt_ids),
+diff --git a/drivers/irqchip/irq-ls-scfg-msi.c b/drivers/irqchip/irq-ls-scfg-msi.c
+index 1aef5c4d27c6..c0e1aafe468c 100644
+--- a/drivers/irqchip/irq-ls-scfg-msi.c
++++ b/drivers/irqchip/irq-ls-scfg-msi.c
+@@ -418,7 +418,7 @@ static struct platform_driver ls_scfg_msi_driver = {
+ 		.of_match_table	= ls_scfg_msi_id,
+ 	},
+ 	.probe		= ls_scfg_msi_probe,
+-	.remove_new	= ls_scfg_msi_remove,
++	.remove		= ls_scfg_msi_remove,
+ };
+ 
+ module_platform_driver(ls_scfg_msi_driver);
+diff --git a/drivers/irqchip/irq-madera.c b/drivers/irqchip/irq-madera.c
+index acceb6e7fa95..b32982c11515 100644
+--- a/drivers/irqchip/irq-madera.c
++++ b/drivers/irqchip/irq-madera.c
+@@ -236,7 +236,7 @@ static void madera_irq_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver madera_irq_driver = {
+ 	.probe		= madera_irq_probe,
+-	.remove_new	= madera_irq_remove,
++	.remove		= madera_irq_remove,
+ 	.driver = {
+ 		.name	= "madera-irq",
+ 		.pm	= &madera_irq_pm_ops,
+diff --git a/drivers/irqchip/irq-mvebu-pic.c b/drivers/irqchip/irq-mvebu-pic.c
+index 08b0cc862adf..bd1e06e05a39 100644
+--- a/drivers/irqchip/irq-mvebu-pic.c
++++ b/drivers/irqchip/irq-mvebu-pic.c
+@@ -183,7 +183,7 @@ MODULE_DEVICE_TABLE(of, mvebu_pic_of_match);
+ 
+ static struct platform_driver mvebu_pic_driver = {
+ 	.probe		= mvebu_pic_probe,
+-	.remove_new	= mvebu_pic_remove,
++	.remove		= mvebu_pic_remove,
+ 	.driver = {
+ 		.name		= "mvebu-pic",
+ 		.of_match_table	= mvebu_pic_of_match,
+diff --git a/drivers/irqchip/irq-pruss-intc.c b/drivers/irqchip/irq-pruss-intc.c
+index 060eb000e9d3..bee01980b463 100644
+--- a/drivers/irqchip/irq-pruss-intc.c
++++ b/drivers/irqchip/irq-pruss-intc.c
+@@ -648,7 +648,7 @@ static struct platform_driver pruss_intc_driver = {
+ 		.suppress_bind_attrs	= true,
+ 	},
+ 	.probe		= pruss_intc_probe,
+-	.remove_new	= pruss_intc_remove,
++	.remove		= pruss_intc_remove,
+ };
+ module_platform_driver(pruss_intc_driver);
+ 
+diff --git a/drivers/irqchip/irq-renesas-intc-irqpin.c b/drivers/irqchip/irq-renesas-intc-irqpin.c
+index 9ad37237ba95..954419f2460d 100644
+--- a/drivers/irqchip/irq-renesas-intc-irqpin.c
++++ b/drivers/irqchip/irq-renesas-intc-irqpin.c
+@@ -584,7 +584,7 @@ static SIMPLE_DEV_PM_OPS(intc_irqpin_pm_ops, intc_irqpin_suspend, NULL);
+ 
+ static struct platform_driver intc_irqpin_device_driver = {
+ 	.probe		= intc_irqpin_probe,
+-	.remove_new	= intc_irqpin_remove,
++	.remove		= intc_irqpin_remove,
+ 	.driver		= {
+ 		.name		= "renesas_intc_irqpin",
+ 		.of_match_table	= intc_irqpin_dt_ids,
+diff --git a/drivers/irqchip/irq-renesas-irqc.c b/drivers/irqchip/irq-renesas-irqc.c
+index 76026e0b8e20..cbce8ffc7de4 100644
+--- a/drivers/irqchip/irq-renesas-irqc.c
++++ b/drivers/irqchip/irq-renesas-irqc.c
+@@ -247,7 +247,7 @@ MODULE_DEVICE_TABLE(of, irqc_dt_ids);
+ 
+ static struct platform_driver irqc_device_driver = {
+ 	.probe		= irqc_probe,
+-	.remove_new	= irqc_remove,
++	.remove		= irqc_remove,
+ 	.driver		= {
+ 		.name		= "renesas_irqc",
+ 		.of_match_table	= irqc_dt_ids,
+diff --git a/drivers/irqchip/irq-renesas-rza1.c b/drivers/irqchip/irq-renesas-rza1.c
+index f05afe82db4d..d4e6a68889ec 100644
+--- a/drivers/irqchip/irq-renesas-rza1.c
++++ b/drivers/irqchip/irq-renesas-rza1.c
+@@ -259,7 +259,7 @@ MODULE_DEVICE_TABLE(of, rza1_irqc_dt_ids);
+ 
+ static struct platform_driver rza1_irqc_device_driver = {
+ 	.probe		= rza1_irqc_probe,
+-	.remove_new	= rza1_irqc_remove,
++	.remove		= rza1_irqc_remove,
+ 	.driver		= {
+ 		.name		= "renesas_rza1_irqc",
+ 		.of_match_table	= rza1_irqc_dt_ids,
+diff --git a/drivers/irqchip/irq-ts4800.c b/drivers/irqchip/irq-ts4800.c
+index b5dddb3c1568..cc219f28d317 100644
+--- a/drivers/irqchip/irq-ts4800.c
++++ b/drivers/irqchip/irq-ts4800.c
+@@ -154,7 +154,7 @@ MODULE_DEVICE_TABLE(of, ts4800_ic_of_match);
+ 
+ static struct platform_driver ts4800_ic_driver = {
+ 	.probe		= ts4800_ic_probe,
+-	.remove_new	= ts4800_ic_remove,
++	.remove		= ts4800_ic_remove,
+ 	.driver = {
+ 		.name		= "ts4800-irqc",
+ 		.of_match_table	= ts4800_ic_of_match,
+
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+-- 
+2.45.2
+
 
