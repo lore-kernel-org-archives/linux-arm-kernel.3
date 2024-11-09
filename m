@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65469D5E369
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79052D5E368
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdWiUnW6vTgN40+31xk3R74ZtFvE1HPhsssihDLePE8=; b=NJ5wcJ36BE2fQo2ExWpgn4h+hD
-	2nvG+XnfwgMCRB7NqAvFPhGwKVeQHcCX3FQ5lIpazmivAKyb1gFYRwKjCV95TXK4mL6MqDTScEBaa
-	6mItZLyGXtY7sSTajVa51zSmNFRLx61b4xiI2xJJrr3e2MccDKUAbHTMDGSQzfs0Zu7OACObZ3ALT
-	iSxb/8cjeBuhYsCQztsUmqXbN4wXVJhMUCu6sECr+0RqBHtnscSOVw2GbZ0aRcpoITM2HicSQCeCO
-	QYN76Ub6d25QzRCftV7LCNZk9wjotwiT5hQ0aGRP/0FicPCCyPNysbNp0jpHE5rxB6OpS45q55u7b
-	xLCJGk5g==;
+	bh=42exLch29KQ7aLIpxUbDK7QotO8PsN7YchUut2Ri5WY=; b=z5T3wJUXHJt4pY8L7YO5JgAKYT
+	hoL5wqSF5THedDhc/uJfQ/Km/Tx7IbCuCKlmQwUN1D7mqz6hdzlIV/sGcXmOQumXBJLT1D940kYO+
+	a9ZiQVWpBNZ0+7agA6lNGK9JEKoafo4e+Vlg4VW0hgwzeVDDJZcIcCfdYhPqZJRto5gijiuEZCy7r
+	HD0/cvItAGei8mfhm5SOD9tgVDigC3+mXzBeKXVjWedZHPahcVyFZ8hrZ2HerZMyRK19xmB3rQkyr
+	oLdP7hfQZ6wzmxjdVBJNZjq2gXZR9KPXpJEhY2ArYGjbLv6WuLbG+D7OrHGCWyr8umYCtCXKZ/yTn
+	tsH3Q14Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9klh-0000000DK19-2Cah;
-	Sat, 09 Nov 2024 12:40:45 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1t9knR-0000000DKDh-0vQh;
+	Sat, 09 Nov 2024 12:42:33 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9kgT-0000000DJ2r-2L1y
+	id 1t9kgW-0000000DJ3n-08qH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 12:35:22 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-539e6c754bdso3119476e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:35:21 -0800 (PST)
+	Sat, 09 Nov 2024 12:35:25 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-539e4b7409fso3588382e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:35:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731155719; x=1731760519; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731155722; x=1731760522; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YdWiUnW6vTgN40+31xk3R74ZtFvE1HPhsssihDLePE8=;
-        b=CtJnzSXQv5xDjwk8zWAZXBgtjJkFHeh26D06cooAti0qlImNY029ENvqrsnv2KVhjl
-         mwul3uq4mnzZTcB/B7yRbO/YewMrYkccTfd9qbXjYFbfirgNVY0XznJauyEtEpj1tSJZ
-         RObamwVIGQrc6018X3jjZS9xJexyK3joj/dheDyGGT3nW7tHCEwrlQx3Ew+RPQezL6x2
-         Q7ANGt+qL3h7hUTgzsEYvmqdqblGoQWH2ld2hfHtcMJGPjkcsYM6xlPb/Dny2XW/U1Xl
-         NmIE9bPM2TI5KBfKBkWFOvjbjSlMl6l2w3frYtea6bE5o0JfyYmkuXu97JY1LxjUp0Lm
-         eHEQ==
+        bh=42exLch29KQ7aLIpxUbDK7QotO8PsN7YchUut2Ri5WY=;
+        b=x2atpNHaprGaG8Wr3eUa4sKnk+H0fkQSFDHXfuHR0nt69RiMYyIxJQaaYjwLW0a3q5
+         IL4a8HZMIxV1kdR3Y2kDTcw4YuGI10VMcGfqVNst91j1mB3cWUCelY+cojT2tCQb0G6a
+         Hx8ryjocGRcPT2r4nhNVz2aBWaxCK8rU/yhzeJZRtgKGY9vZoSfx51aezcdRB+Zi2cxT
+         VO55fcdHcrcqF5CSs3rsfRW8vxD9vmGqp8tyjbe76TzaUYyFg96Q9OkOAwczZ9mCTxhP
+         TPJ/JqWWSK6GuXBqCxU1qIqF/tgSiJmV+Y4Ee27IVT94uND5K9lr4wqyTPxUgf/hM2eu
+         eXrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731155719; x=1731760519;
+        d=1e100.net; s=20230601; t=1731155722; x=1731760522;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YdWiUnW6vTgN40+31xk3R74ZtFvE1HPhsssihDLePE8=;
-        b=mylGJQE3jfs5OrZiO/pBWvAprXFRZWpD09pONfMfXgPUdTrUFB8BZ/iyNUszVNFN0Y
-         Zd2ZjwXVXxzlv6qVwA6Xj5/keYD/SiyytHgbcSI1cceUInJwQk5t5MHNLMHBeDVpp9uU
-         cD6EW/A1ANStFFehJ2qPrRMZQD49KgZ5pZ5B7IQAkimZh83WcLWB61N5J6wK3A/5mk2C
-         aT2A/byYYd6hzNF/ILgzLdPX6DYTXPr766v31sdANTJOvpyd6QhyeVlhI3Y47yBIX4Hc
-         WS2hvBk4wv9KHo62ozZYrSF8zfSdPv/eZRZ+3EAQQvNddsMExuuOQlhhogH9gK/1d+r2
-         f5zA==
-X-Forwarded-Encrypted: i=1; AJvYcCVqzKhT3kbv6Ei7135K/19FZDcnMSYjmx7I0sNsFJ7ozfTCl4Da6TvK/FvxQq6iW9TjxwA+qPCI7suR3DHMHcRN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7Rg5yLpjCg5A9mfAOvRRLYlNdVqGdTRRBJX/EOhrcLaHvEugp
-	Zxk0vwtwSEdnfILLAq0/+4Lq/zgRdkSAJkZssCjaqOz3K1srNfzjngOqmvbxneo=
-X-Google-Smtp-Source: AGHT+IHHe97HVWISV0xTKEguhhmngXwM9bLbhKLyVT/NAPLE3XO/6gkuiT5st4Y4ibTD6FfB3h0HDw==
-X-Received: by 2002:a05:6512:3e1b:b0:539:f7ab:e161 with SMTP id 2adb3069b0e04-53d8626c957mr3117386e87.45.1731155719467;
-        Sat, 09 Nov 2024 04:35:19 -0800 (PST)
+        bh=42exLch29KQ7aLIpxUbDK7QotO8PsN7YchUut2Ri5WY=;
+        b=YgFWDePsBf5PkwrcM7jx3ZKJl67EcFClllGejBL4pO5AGyIbIlJHCY/diQVbKcMgaT
+         n3HgqqTs2kVrj6hYq1xA95nipR2iIu6PuijD0LegGx6UbIOcQ2YJ6m8SJqWBPXiuwn33
+         fY0nwTA0OY36mUhqVoDlpsxa+p7lEe2HRA5ErRcHofPMje13zsjR3f9eIQUw2Opv7XMh
+         RJgUkeTZnFj0eg87nTwLZ/psL9D0mUi65wpTnjvm+/IYOs4ErPBC1ZQ6vjlI+5r/hIOr
+         hmKH6Q62xMfWByfcze2NZxj4R1u4ElYwx4r/drue477QqfNvtwRAIbALotByiFIaU3wV
+         ouyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHc3IVH3PwH8zdLpVDVLU/82mvzgF1VU/U1c/KRpHG14LurqVjtmJNaLFbb8PHAiMAKi1QTu4wuHIO/pt/qGfS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAEyx+tKv+4NjA+YHfX5f/pVRMPXmZMCTKt5I7FT2vtj/vVMhQ
+	hkcwuy9qIVTnj+oHmfzJCq8EFD8UKFkqu1vX37b5oRINBn4plEIFvu8pW03PdKU=
+X-Google-Smtp-Source: AGHT+IF4/eBJh19k7QgFTqtYdnnffmTFfXf5+J78TQkqLjRVT/odItDWynAUIGAavfq6S1uNQ3S3Rg==
+X-Received: by 2002:a05:6512:3b0f:b0:539:e2cc:d37c with SMTP id 2adb3069b0e04-53d866b20c5mr2162656e87.3.1731155722003;
+        Sat, 09 Nov 2024 04:35:22 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826784dbsm922899e87.15.2024.11.09.04.35.17
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826784dbsm922899e87.15.2024.11.09.04.35.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Nov 2024 04:35:18 -0800 (PST)
+        Sat, 09 Nov 2024 04:35:20 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Sat, 09 Nov 2024 14:35:06 +0200
-Subject: [PATCH v3 2/7] drm/sun4i: use drm_hdmi_connector_mode_valid()
+Date: Sat, 09 Nov 2024 14:35:07 +0200
+Subject: [PATCH v3 3/7] drm/vc4: use drm_hdmi_connector_mode_valid()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241109-hdmi-mode-valid-v3-2-5348c2368076@linaro.org>
+Message-Id: <20241109-hdmi-mode-valid-v3-3-5348c2368076@linaro.org>
 References: <20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org>
 In-Reply-To: <20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -87,21 +87,21 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1574;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1406;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=7WdeDK9PVMnPHS0xN6wrfKPJv4ESCzGwmvZnGPcMZ/4=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnL1b+FmOS76qswUke0aQoU7K0ppHTbndFvzZI6
- MVoqTsyvKOJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZy9W/gAKCRCLPIo+Aiko
- 1aR2B/4roqe2QGJN9o0utoGfn7qwXfuYWUFrCpESIf0EXmVpBVMUfNKMEQ901DyyYMa07vGh9sn
- +syhOWO4HrB8RfdT01cQmwKSSSN/AO7aYYYR4wflgexekMnpd5MYCONI8J8OubpJFAs5BK0Qhic
- rzUP3emr5T3rHYkxTNjg3uIE5RV0OGNR/H4BtdIlMfVvPPEeQQtRRSjV2bl1y4C8SFCTQVUcqg7
- OkAARZXrgEfv4AtOtHjIBY0tsHxg98BaVOY0T74qxX313GFfUSTD8IyJiF0vxudbOq14KYEtHng
- lq+8K2cePPLztOfA876jNFsQpFGyIDb/AVfVxOCSHr6+qdVY
+ bh=HrGaJ3EnGO039JV3w0anWuEujv8ijZYE/SL4efGrI0s=;
+ b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ7p+2D8f9f3f02SmxcyeF2ex7K28O/vzlAxeRaO7cXPNW
+ zsuJYd3MhqzMDByMciKKbL4FLRMjdmUHPZhx9R6mEGsTCBTGLg4BWAi8XvZ/wepedeVGdUY/a45
+ FTO/7Xv1pfz//KulXi+rvn++ruXV9J7NOxLtmRcxvg+wZrRovKntYX/l455LjPp/mY6/slNL/Pl
+ IWeDX/SKHQ1IhgnO3qBnVF8wtvslfkSapYrigQPV1aors4rk70zwbriaaeRQcdeXdbrUik+9iTr
+ 3y4uDFNV95Qi329Ra9ez75iaVqFrfO4Q+ODGlq+7zjND5K1GcfK5y1cIpR3I81f1Sq0lZ9fjpv4
+ h1f7px11wK7Fdc86Finv+NEnaX9fp3ZGteNPzDPa2jUMjdrizhkZfb2yw+FlWWPjxf++GQuHhh1
+ QN72G+PP935pvX3m6Ws0Pt6+XhQ/dbleqv5FzZ6UOZXSAA==
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_043521_633479_2C2F7DD1 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241109_043524_224602_CBF8E7B0 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,41 +120,34 @@ Use new drm_hdmi_connector_mode_valid() helper instead of a
 module-specific copy.
 
 Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+Acked-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-index b3649449de3026784ae2f3466906403a0b6e3b47..54b72fe220afacc208b3fd48d5160031127ea14a 100644
---- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-@@ -205,16 +205,6 @@ static int sun4i_hdmi_connector_atomic_check(struct drm_connector *connector,
- 	return 0;
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 62b82b1eeb3694d1685969c49b2760cbbddc840e..486e513b898d7f761e8615f2afc193ca44b23200 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -1752,7 +1752,6 @@ vc4_hdmi_encoder_mode_valid(struct drm_encoder *encoder,
+ 			    const struct drm_display_mode *mode)
+ {
+ 	struct vc4_hdmi *vc4_hdmi = encoder_to_vc4_hdmi(encoder);
+-	unsigned long long rate;
+ 
+ 	if (vc4_hdmi->variant->unsupported_odd_h_timings &&
+ 	    !(mode->flags & DRM_MODE_FLAG_DBLCLK) &&
+@@ -1760,8 +1759,7 @@ vc4_hdmi_encoder_mode_valid(struct drm_encoder *encoder,
+ 	     (mode->hsync_end % 2) || (mode->htotal % 2)))
+ 		return MODE_H_ILLEGAL;
+ 
+-	rate = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
+-	return vc4_hdmi_connector_clock_valid(&vc4_hdmi->connector, mode, rate);
++	return drm_hdmi_connector_mode_valid(&vc4_hdmi->connector, mode);
  }
  
--static enum drm_mode_status
--sun4i_hdmi_connector_mode_valid(struct drm_connector *connector,
--				struct drm_display_mode *mode)
--{
--	unsigned long long rate = drm_hdmi_compute_mode_clock(mode, 8,
--							      HDMI_COLORSPACE_RGB);
--
--	return sun4i_hdmi_connector_clock_valid(connector, mode, rate);
--}
--
- static int sun4i_hdmi_get_modes(struct drm_connector *connector)
- {
- 	struct sun4i_hdmi *hdmi = drm_connector_to_sun4i_hdmi(connector);
-@@ -269,7 +259,7 @@ static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
- 
- static const struct drm_connector_helper_funcs sun4i_hdmi_connector_helper_funcs = {
- 	.atomic_check	= sun4i_hdmi_connector_atomic_check,
--	.mode_valid	= sun4i_hdmi_connector_mode_valid,
-+	.mode_valid	= drm_hdmi_connector_mode_valid,
- 	.get_modes	= sun4i_hdmi_get_modes,
- };
- 
+ static const struct drm_encoder_helper_funcs vc4_hdmi_encoder_helper_funcs = {
 
 -- 
 2.39.5
