@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A02ED5C0C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 05:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3125FD5C0C7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 05:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HWXk1M1z0TzoKj4lk2QT2XGDekLoNywF5oy+A6MVFww=; b=HRn9PwR0PgTkB7Fk9mDP8d8kiz
-	76aRYhryKG82y+tZf0ISY+6Zua5NDTDewCTMKwjSxSqWVfdmfPdJVPYaHqQmR3XGkMFo3WH/3TV/G
-	q1/Vfwd0DAo7l05LIwt0kjWwiyaapAKg9QZ3SIo8Ya0IsNcSO2O6V9ZPFP9pd5T5e3YEhY1XQubSM
-	rHlOSApmvi7EpjMJTA0mpgk8LzpXga+o1o7LlzM2IN93+DQFK0bIpFRoUh2BMwQeQYvvQkHYYXWVM
-	/arxEfJ9zz97hcZ6dYCps1qfNA6W28BZXFyu9hu231TAUyOx+gUWmLlcRSttPiYf53RvjREUyOUcW
-	hhGknd1A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ubjJGxVvR0IyR7uOemJ+yodiGotqSCH73iEvc6maiKI=; b=cmdnO4MuhEYs7IdoRi3jw3rCff
+	pruNg9ry3tTxR4d49RjCL9sciQY7x3Z9i4Sd4IaVwRiLKeN7xg1c9QFLwymMEb7kV3C+ZXi4gQo3A
+	mGL4eqr9eGUY0cysYWBieZTU7v6bEVxn/I75s+2TNQpnELgW6V+Ho1ZIMmMO66HmERde/CkZu3MLm
+	67mZhCXJs8L0a889vh4K4TLMCbXbFuXCz11Ro4USEuAtsOAmfYyh1ncYZAsow7rTk0U0K8tPe9KHQ
+	9QODhzCxA2CDxVsGlGq9tlz3D/xWlubK5FbcSrlMyqkdKHjooRPhVILjM7nCgLjOCEn3oZ5NNn1wQ
+	mXYSX+nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9eNA-0000000Cjuc-2pPu;
-	Sat, 09 Nov 2024 05:51:00 +0000
-Received: from mail-dm6nam11on20616.outbound.protection.outlook.com ([2a01:111:f403:2415::616] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1t9eOu-0000000CkEJ-1tDF;
+	Sat, 09 Nov 2024 05:52:48 +0000
+Received: from mail-dm6nam11on20603.outbound.protection.outlook.com ([2a01:111:f403:2415::603] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9eLM-0000000CjRJ-3T7o
+	id 1t9eLO-0000000CjRY-0win
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 05:49:10 +0000
+	Sat, 09 Nov 2024 05:49:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AUoqsFhPXf1AcgH9c1rwvncF2Tyr9fM6wRo3YDzncs8/hO74sCGvRa7MN+0JNdb30j5kgXQ0jZIifWMkC9Gcaq0pC1+xveBpu8SboULoP/x+N18X/TLFTibLZHWXk+46l/0pdW1qxehOxLtAzbHI7GIspeqCCStWPCgAdGxL4pHAKX/GIE/hDqRvrKq4/hdParpdVATHNkBa7v0esO61BcKEU07QNILSH/jPQwNKfCXkOouZVcapt1tcM4TydbnDmBF+jrHjJMDQgRuyUEQI759bOXzJpCz5/YauOQPM+RwoSTwwLaWXh77vWtQWxk2vbU/CM5oF+V8AdPPYb4hTSA==
+ b=US4K42SuNqFEK6PQ32VQN7J7Rr6oqUS+X3rXfswDJhNFpMh4OjZdkJZonTiMRnavJs9Sim81FG27sbiZfZwbCDBAfXvKGv5WFJOtij19hsnM1jJlYV13q2pctU4a1z/BB2MCtKISVuyYHwlfbKQN2VHU+gaEwxTl05G6S6H9Ec8zLfwfRh74HNcSTzIaA+T3SRVDcCKg1pw2JlnzlY8f9Pf+LuZ8oH+DGq5CuSwnoBhf9hPluoeDMSnKCT+Y02V04BCn2/dxIDulYtFQ8turbVv5XlmT2KjBiEwPMErW0NwlLgcM1li/aY1YvXbkyxUzxDWnw2ADw8dprGhr0adXpQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HWXk1M1z0TzoKj4lk2QT2XGDekLoNywF5oy+A6MVFww=;
- b=jgOff6D2ziVORVRABMDnPmHcRyJWu8AY0ONPwibO7nDatqLwVztUbnZVcySn181E3QTzxTLhJ0W2BewC+nt7km3fSg/i2/B4dqupDRCf0euQkSkW3rB7AQT7LiyzIFrIzSQUvoPZstfTyxMc7l+Ltzmvn+t+mjC8vufZLt6IZlgR3noxHniGzjXJYBHUI/mMTPoNPW03oNMqkOcXRsOCSiHL0LcIwoead+uCoORANo0gE8a+qxw62ZVko/uIX7yj0dwT+nMhdjtlrJbhLc6VsCKeFLTkBsBQqEcV0j9ftrPYQwnrjJ9C8DogzNVJa3R8d02cjCm7kczemiPIBb5KeQ==
+ bh=ubjJGxVvR0IyR7uOemJ+yodiGotqSCH73iEvc6maiKI=;
+ b=GpYSEN0e5xLjAc3ON3BLzYzYfqjQ3TAfJU4/qI2Qu49gonXIfO8LTRo7gvzvTj4leG9R5+sI77Blc08bRRZjGZxKOOIpxM/4v/2vkPC8MYl+zKBRwQ2ZIIVwoblWFzNuXb6m2eW9CCOP8rjqh0uEQYtVVsy0maQTHw1s+hGe0qhs87sA+ep7Y14XwCE5AaGJqUMPTwXaSboQOtcxVv5h9Z8U1di/g3/rfXQbGMAVKwkOjPX8hcvV4UX8o60BJNDDJQGgq0/l/F4rqmnfg8QEVFzqnOCFZ4lmp8ci0ULV4IWxDjYhAEjPQiiB48Dy2tqbR7coI+OJ6jj/Vzvn/mdhgg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HWXk1M1z0TzoKj4lk2QT2XGDekLoNywF5oy+A6MVFww=;
- b=BKHgyjdrrzfKlt3rcZ2C2GihO20WOmu5sxP8Wyzp00za9J/o24sbIxjRK6ruC+o2Q71qr9jEDIzFe67m07me7HjBUvqo6lembBJaeLil9xVj9/KMbw1RfhOvyOP5aXDr3G6ApOCvKEKD836aXuu4T6TI4kPSDZgsbJCbi9ib+o7T/GRdO/ItyXV4plQVVnuXPypk8ShoOAsTyT/zkDtkvznJ7zoplnazvMGbDD0mDnZTgvTxkgPs59XElpSKc3H8qyYWCljAYyDBWFXbJd0ILmljJr36nCY+QvWInIL88Y/xRKMJXL3rcOJ81fHNxGSk20c5VwPaO1S2997RGOc18A==
-Received: from MN2PR01CA0042.prod.exchangelabs.com (2603:10b6:208:23f::11) by
- CY8PR12MB7266.namprd12.prod.outlook.com (2603:10b6:930:56::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8137.25; Sat, 9 Nov 2024 05:48:57 +0000
-Received: from BL02EPF0001A102.namprd05.prod.outlook.com
- (2603:10b6:208:23f:cafe::9c) by MN2PR01CA0042.outlook.office365.com
- (2603:10b6:208:23f::11) with Microsoft SMTP Server (version=TLS1_2,
+ bh=ubjJGxVvR0IyR7uOemJ+yodiGotqSCH73iEvc6maiKI=;
+ b=c9uet8y9QeJI+pWsC+GHvzY7182QoYe6S/musLxj8mwzSJffnMcPKqhPn2X0Y3/xHVxFdKdV2P+8eKfuJi5YwKtUJ65TsVlbJ4zHJsUvsbEwEGx9lD/kcB97fTzNzzcvV7cFbJXIyOiWqcShRX9xTcdD04pJqGOXU2evLrDwXxjk5UNKMNIgutjjJIwzfm+cC4neueGI3IZmsLJZ6/d/NTVO9AEdeUCUyBjpUhRgtbymozgA7CMjbmPRC2YlAIH05im1mRW9MSsvV4iAErnsMvBxf2J472G9qowOgyYmML6N98S2zgDbYuBx/R3c0yNmJZgwhf3Ibh+xooTX2FidYQ==
+Received: from SJ0PR03CA0350.namprd03.prod.outlook.com (2603:10b6:a03:39c::25)
+ by DM3PR12MB9413.namprd12.prod.outlook.com (2603:10b6:8:1af::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20; Sat, 9 Nov
+ 2024 05:49:06 +0000
+Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c:cafe::2f) by SJ0PR03CA0350.outlook.office365.com
+ (2603:10b6:a03:39c::25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.21 via Frontend
- Transport; Sat, 9 Nov 2024 05:48:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ Transport; Sat, 9 Nov 2024 05:49:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BL02EPF0001A102.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8137.17 via Frontend Transport; Sat, 9 Nov 2024 05:48:56 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.8137.17 via Frontend Transport; Sat, 9 Nov 2024 05:49:05 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 8 Nov 2024
- 21:48:55 -0800
+ 21:49:04 -0800
 Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Fri, 8 Nov 2024 21:48:55 -0800
+ 15.2.1544.4; Fri, 8 Nov 2024 21:49:04 -0800
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
  (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Fri, 8 Nov 2024 21:48:54 -0800
+ Transport; Fri, 8 Nov 2024 21:49:03 -0800
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <maz@kernel.org>, <tglx@linutronix.de>, <bhelgaas@google.com>,
 	<alex.williamson@redhat.com>
@@ -86,59 +87,61 @@ CC: <jgg@nvidia.com>, <leonro@nvidia.com>,
 	<nipun.gupta@amd.com>, <marek.vasut+renesas@mailbox.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>
-Subject: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address for each MSI vector
-Date: Fri, 8 Nov 2024 21:48:45 -0800
-Message-ID: <cover.1731130093.git.nicolinc@nvidia.com>
+Subject: [PATCH RFCv1 6/7] PCI/MSI: Add pci_alloc_irq_vectors_iovas helper
+Date: Fri, 8 Nov 2024 21:48:51 -0800
+Message-ID: <e9399426b08b16efbdf7224c0122f5bf80f6d0ea.1731130093.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1731130093.git.nicolinc@nvidia.com>
+References: <cover.1731130093.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A102:EE_|CY8PR12MB7266:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ba6b15a-ba80-42ea-b40b-08dd008233ab
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|DM3PR12MB9413:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81d2d01d-8d46-48b0-deda-08dd008238d2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?oIN0azHKlwa9RlQAupKIzxjMdWjY9zGt79W24TA2Hbyjxaw62f9VDbgTL34H?=
- =?us-ascii?Q?Yqtb5/1GT5+O/Vz5faHM04ndjcczvozgrMwYCzWsOs6TfPYPY2T6iFPedFk4?=
- =?us-ascii?Q?F52BeWVPvM/37vYruQTNPUgJPdbIeiw3KsEa2jwKllMr97YNadf6lv8UY5rm?=
- =?us-ascii?Q?w+B4wd+Qka0ifwq7TWtUB0bNGIZDeWH+xoJfdQnVibfG5wb6tjToVel8ICz6?=
- =?us-ascii?Q?RwZKRnW02IczKR0KPDxipwS7mCluD+pDqM5Drg/rl7e1iE26hSeNqSTtLXm0?=
- =?us-ascii?Q?qbhpZKE2zYHLs3PbIDMUrqlL35JzAd/h+tzmHf+W3YTeM6PsxDS0+zOBZKFL?=
- =?us-ascii?Q?XzvY4NagpVxxVlxwkPoo5ywY3jE0COiYCT7H5FI2ybk6YFgiAfohYVSMOW6F?=
- =?us-ascii?Q?7A2YPJfR4fy2AxFrrf/csdp4WELjMDyB3zeHQ6f+aEvCX6zvhQJVKe4vFGjB?=
- =?us-ascii?Q?hyCuzLcsJq7tKlMMf+TU/d7PmbyRvsxApoELDnZ27a231NEGGuDEgDmJiI8w?=
- =?us-ascii?Q?gCF1FtYRzXb+Vm+/f+eiJe7pUT8AwlQr4S0b2nQm7Jn5uZPHpjFa+0J6Pe+L?=
- =?us-ascii?Q?fUcxXHnSoyXqhG3PQVDbYAB8bP6yz9EDouk3Lq7MmKnhzEUM/+PjB4ZA/K4Y?=
- =?us-ascii?Q?cyZBJ07XgqNQVjuFaNDUGnATiG+zxx4Dj1iY3xXqJZY3IN8GH04CA3mjLsP4?=
- =?us-ascii?Q?mIJICw8soP8kfVSyRsF4udwIK+AmNvstnVZtvR4Vs00FANrIfBgBcRawd8fa?=
- =?us-ascii?Q?vn5rUe5mrz8VZjoxXR5rAkcCg+7ZbkM3lz+I67J3NRMUzHUQJ1rG1Vy9McwH?=
- =?us-ascii?Q?iUoGsT5SLpzJKBvsViGyYw0zPd6gA4YZnVG36KtuP8wPnkj6QBEb1zlQwki9?=
- =?us-ascii?Q?1pimeqYnP3bcqbI09uUjIqHWr2SWHa/bafTFCmQ2ATyMoC0e6VbJZ1f3WXqE?=
- =?us-ascii?Q?Awsm2B4s73Q4TunABO1Zl6n8ycaUNYnKMaPkaIJfx0ibx487JCKugvB+ktK2?=
- =?us-ascii?Q?5wH+ZBQo9szCHUxg57/xRDXwp+U2OTGeQt9gD6aVzmwhkuBGUudFaxzN/67e?=
- =?us-ascii?Q?xl2QyXfivZRqPl9aiafA5g0a2Q5G5rxWEeBDVYjj6Ca/WX7K5ynwNtgY9Dcz?=
- =?us-ascii?Q?UDAIZnjPwWH9e9a5PDD8bqnrJl+v6nL6qjTZRGAWlh5+LL6dZpKPEZ2EXRow?=
- =?us-ascii?Q?KqkS52g6DT8V+FTJ0CjrFeQ28PZiAcpQl/LFjconWfb+yjYVd+6pMtgHCE5d?=
- =?us-ascii?Q?mzBkXrmFX9mzVht822eoOiDpXa9evqu14L9PAAmCPOig4hm4m8imgNAeIz5J?=
- =?us-ascii?Q?kW1eNgltsho26nLOGKWeUcdNKLdskK0jwjwMXhTByOmA3n3NNe//K3KKvE3B?=
- =?us-ascii?Q?MEcUfyVSAW/JzP64p6E2hOnynzlyIDdyboEbTGGvYUFPQfKCqA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|7416014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0E/YFO/Kzn+RYX+eaPQLSEKCnx1s9jeJBxXoYYNmiyuqg7tRRaQ1SxhzYdqW?=
+ =?us-ascii?Q?RLS0TfFFAOMtJsvBFSOirKWOPIkwJDNNHY23eTD5Xf257Yd+gmMOKrmXa6YD?=
+ =?us-ascii?Q?9eC/bfSNwRBSw7VJ0rnVWA42Nx21fYNicaq4sx3jQoEdB6ikNAcr+kywv7sv?=
+ =?us-ascii?Q?9G1q8uqpe8mMb4+N4v1tnQ+HcJ/iL7iJRPCclAMbX5qwN8qkjT8OqbY7e13f?=
+ =?us-ascii?Q?vpXJT3ayraDXY/aUl7I0dz/Eax8tCLFVu+qV+lpoMSKGUJBT5DtxRk3uKQ+b?=
+ =?us-ascii?Q?K1H6XiVNdeXmrTrTcvLvPJPfqC6X5AJRE181B6n41rsxIxcKmQ6/Ou341VdS?=
+ =?us-ascii?Q?Z7Bah3/nAGJ8pPUaGO8/bbGYkriNCHXSlhr3vDbrt0Sm5oJ8osh4dULKj0O8?=
+ =?us-ascii?Q?ihJLsjjytf7W0wTPMPGQEWM2L2ncKP4L/KhB7O/+JU6+9U5oI5277liOBr8e?=
+ =?us-ascii?Q?1fxW+75zhFpqzNyc89RAMepQirVqxNV2P+LDmy/3N4VUq9NjX7/pYqQt4xGw?=
+ =?us-ascii?Q?KrOYK/TI8QsYkqyl3nJDtWR9laAw77rUTb8qKWCn8foi0lYcrI8hgoUOY9pj?=
+ =?us-ascii?Q?CwWOtOQVLuCbeKfmsxm7SCAk50JzRSFXChz/mlWHTaS2RGLKFprHole98yfG?=
+ =?us-ascii?Q?hZpK62JHPlZU4B0X8Lfbeh/NFNNHorTZojmIpK0HnL6wHYqstOvTgUe+3Rul?=
+ =?us-ascii?Q?4pZeh19a/hFElRtrJgzLZT3oRapDF7TnqDcxmjA+aqbJdIMqrn+HzaamecgZ?=
+ =?us-ascii?Q?4eZ49LBaXRc3vNUDIV9UPTFuCndrDHxs1KOmvIS1xXgn0bNwBCRVGOVQSjPd?=
+ =?us-ascii?Q?gBf20QAOC0Z8RsIrgYqs5M69kmc6XqbbpoahdDOZBbb0lpbt3Oe0RSbNtOIc?=
+ =?us-ascii?Q?j3kOs3q6S/z0FBkBPPVAN1Q13IiwsFeU0SGvS7dsudDnPj/71bXtGpTFizCl?=
+ =?us-ascii?Q?gXnMwChSbB/9d5HYrG6rVBrob0bR5AueuT8DkfttiOBu2FfOf38qFhhnSSkJ?=
+ =?us-ascii?Q?SZuGGxGHp+U1otWv/ON+LxNltQ+GMd1+jn2oKVeIEnifXJ9jB75ny8XYtzfY?=
+ =?us-ascii?Q?PaYuutcNeZX4djWID6IfewETTgjFfvTmtGUhwIn3JrsqilTp3GmZ6DJpHjW+?=
+ =?us-ascii?Q?PuG+KaAcHDSdGoU+Cc3DuJ4+T8fERPwsmomcILBeL+6g0dvWqaxTtMFOW4J6?=
+ =?us-ascii?Q?o7aWJb9ciQDd9jYZWt+g3xKvyWIdZk+1WQ+PMumVZeIjEuU/ZEJ9//z1Jots?=
+ =?us-ascii?Q?MmshwFPL91PnzpKfK5C448I20gEg1uyq/swpe/0Cgi9Zex4c6RzzHaVtR3RO?=
+ =?us-ascii?Q?Mq3boFLRgFd4dRCm1mHVuyCRRzjMECUzDrsdOATl8+OuwTRyEkS2oamjUyhg?=
+ =?us-ascii?Q?hZvi11GLYy6tuZl+rJU7Q8kfBeclx/mr0hDkpR/xfnYaiVsMxw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(7416014)(36860700013);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2024 05:48:56.6930
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2024 05:49:05.5258
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ba6b15a-ba80-42ea-b40b-08dd008233ab
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81d2d01d-8d46-48b0-deda-08dd008238d2
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A102.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7266
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9413
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_214908_915791_0200E9B0 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241108_214910_292395_EC3033D6 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,108 +156,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ARM GIC systems and others, the target address of the MSI is translated
-by the IOMMU. For GIC, the MSI address page is called "ITS" page. When the
-IOMMU is disabled, the MSI address is programmed to the physical location
-of the GIC ITS page (e.g. 0x20200000). When the IOMMU is enabled, the ITS
-page is behind the IOMMU, so the MSI address is programmed to an allocated
-IO virtual address (a.k.a IOVA), e.g. 0xFFFF0000, which must be mapped to
-the physical ITS page: IOVA (0xFFFF0000) ===> PA (0x20200000).
-When a 2-stage translation is enabled, IOVA will be still used to program
-the MSI address, though the mappings will be in two stages:
-  IOVA (0xFFFF0000) ===> IPA (e.g. 0x80900000) ===> 0x20200000
-(IPA stands for Intermediate Physical Address).
+Now, the common __pci_alloc_irq_vectors() accepts an array of msi_iovas,
+which is a list of preset IOVAs for MSI doorbell addresses.
 
-If the device that generates MSI is attached to an IOMMU_DOMAIN_DMA, the
-IOVA is dynamically allocated from the top of the IOVA space. If attached
-to an IOMMU_DOMAIN_UNMANAGED (e.g. a VFIO passthrough device), the IOVA is
-fixed to an MSI window reported by the IOMMU driver via IOMMU_RESV_SW_MSI,
-which is hardwired to MSI_IOVA_BASE (IOVA==0x8000000) for ARM IOMMUs.
+Add a helper that would pass in a list. A following patch will call this
+to forward msi_iovas from user space.
 
-So far, this IOMMU_RESV_SW_MSI works well as kernel is entirely in charge
-of the IOMMU translation (1-stage translation), since the IOVA for the ITS
-page is fixed and known by kernel. However, with virtual machine enabling
-a nested IOMMU translation (2-stage), a guest kernel directly controls the
-stage-1 translation with an IOMMU_DOMAIN_DMA, mapping a vITS page (at an
-IPA 0x80900000) onto its own IOVA space (e.g. 0xEEEE0000). Then, the host
-kernel can't know that guest-level IOVA to program the MSI address.
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ include/linux/pci.h   | 17 +++++++++++++++++
+ drivers/pci/msi/api.c | 21 +++++++++++++++++++++
+ 2 files changed, 38 insertions(+)
 
-To solve this problem the VMM should capture the MSI IOVA allocated by the
-guest kernel and relay it to the GIC driver in the host kernel, to program
-the correct MSI IOVA. And this requires a new ioctl via VFIO.
-
-Extend the VFIO path to allow an MSI target IOVA to be forwarded into the
-kernel and pushed down to the GIC driver.
-
-Add VFIO ioctl VFIO_IRQ_SET_ACTION_PREPARE with VFIO_IRQ_SET_DATA_MSI_IOVA
-to carry the data.
-
-The downstream calltrace is quite long from the VFIO to the ITS driver. So
-in order to carry the MSI IOVA from the top to its_irq_domain_alloc(), add
-patches in a leaf-to-root order:
-
-  vfio_pci_core_ioctl:
-    vfio_pci_set_irqs_ioctl:
-      vfio_pci_set_msi_prepare:                           // PATCH-7
-        pci_alloc_irq_vectors_iovas:                      // PATCH-6
-          __pci_alloc_irq_vectors:                        // PATCH-5
-            __pci_enable_msi/msix_range:                  // PATCH-4
-              msi/msix_capability_init:                   // PATCH-3
-                msi/msix_setup_msi_descs:
-                  msi_insert_msi_desc();                  // PATCH-1
-                pci_msi_setup_msi_irqs:
-                  msi_domain_alloc_irqs_all_locked:
-                    __msi_domain_alloc_locked:
-                      __msi_domain_alloc_irqs:
-                        __irq_domain_alloc_irqs:
-                          irq_domain_alloc_irqs_locked:
-                            irq_domain_alloc_irqs_hierarchy:
-                              msi_domain_alloc:
-                                irq_domain_alloc_irqs_parent:
-                                  its_irq_domain_alloc(); // PATCH-2
-
-Note that this series solves half the problem, since it only allows kernel
-to set the physical PCI MSI/MSI-X on the device with the correct head IOVA
-of a 2-stage translation, where the guest kernel does the stage-1 mapping
-that MSI IOVA (0xEEEE0000) to its own vITS page (0x80900000) while missing
-the stage-2 mapping from that IPA to the physical ITS page:
-  0xEEEE0000 ===> 0x80900000 =x=> 0x20200000
-A followup series should fill that gap, doing the stage-2 mapping from the
-vITS page 0x80900000 to the physical ITS page (0x20200000), likely via new
-IOMMUFD ioctl. Once VMM sets up this stage-2 mapping, VM will act the same
-as bare metal relying on a running kernel to handle the stage-1 mapping:
-  0xEEEE0000 ===> 0x80900000 ===> 0x20200000
-
-This series (prototype) is on Github:
-https://github.com/nicolinc/iommufd/commits/vfio_msi_giova-rfcv1/
-It's tested by hacking the host kernel to hard-code a stage-2 mapping.
-
-Thanks!
-Nicolin
-
-Nicolin Chen (7):
-  genirq/msi: Allow preset IOVA in struct msi_desc for MSI doorbell
-    address
-  irqchip/gic-v3-its: Bypass iommu_cookie if desc->msi_iova is preset
-  PCI/MSI: Pass in msi_iova to msi_domain_insert_msi_desc
-  PCI/MSI: Allow __pci_enable_msi_range to pass in iova
-  PCI/MSI: Extract a common __pci_alloc_irq_vectors function
-  PCI/MSI: Add pci_alloc_irq_vectors_iovas helper
-  vfio/pci: Allow preset MSI IOVAs via VFIO_IRQ_SET_ACTION_PREPARE
-
- drivers/pci/msi/msi.h             |   3 +-
- include/linux/msi.h               |  11 +++
- include/linux/pci.h               |  18 ++++
- include/linux/vfio_pci_core.h     |   1 +
- include/uapi/linux/vfio.h         |   8 +-
- drivers/irqchip/irq-gic-v3-its.c  |  21 ++++-
- drivers/pci/msi/api.c             | 136 ++++++++++++++++++++----------
- drivers/pci/msi/msi.c             |  20 +++--
- drivers/vfio/pci/vfio_pci_intrs.c |  41 ++++++++-
- drivers/vfio/vfio_main.c          |   3 +
- kernel/irq/msi.c                  |   6 ++
- 11 files changed, 212 insertions(+), 56 deletions(-)
-
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index 68ebb9d42f7f..6423bee3b207 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -1678,6 +1678,9 @@ int pci_alloc_irq_vectors(struct pci_dev *dev, unsigned int min_vecs,
+ int pci_alloc_irq_vectors_affinity(struct pci_dev *dev, unsigned int min_vecs,
+ 				   unsigned int max_vecs, unsigned int flags,
+ 				   struct irq_affinity *affd);
++int pci_alloc_irq_vectors_iovas(struct pci_dev *dev, unsigned int min_vecs,
++				unsigned int max_vecs, unsigned int flags,
++				dma_addr_t *msi_iovas);
+ 
+ bool pci_msix_can_alloc_dyn(struct pci_dev *dev);
+ struct msi_map pci_msix_alloc_irq_at(struct pci_dev *dev, unsigned int index,
+@@ -1714,6 +1717,13 @@ pci_alloc_irq_vectors_affinity(struct pci_dev *dev, unsigned int min_vecs,
+ 	return -ENOSPC;
+ }
+ static inline int
++pci_alloc_irq_vectors_iovas(struct pci_dev *dev, unsigned int min_vecs,
++			    unsigned int max_vecs, unsigned int flags,
++			    dma_addr_t *msi_iovas)
++
++	return -ENOSPC; /* No support if !CONFIG_PCI_MSI */
++}
++static inline int
+ pci_alloc_irq_vectors(struct pci_dev *dev, unsigned int min_vecs,
+ 		      unsigned int max_vecs, unsigned int flags)
+ {
+@@ -2068,6 +2078,13 @@ pci_alloc_irq_vectors_affinity(struct pci_dev *dev, unsigned int min_vecs,
+ 	return -ENOSPC;
+ }
+ static inline int
++pci_alloc_irq_vectors_iovas(struct pci_dev *dev, unsigned int min_vecs,
++			    unsigned int max_vecs, unsigned int flags,
++			    dma_addr_t *msi_iovas)
++{
++	return -ENOSPC;
++}
++static inline int
+ pci_alloc_irq_vectors(struct pci_dev *dev, unsigned int min_vecs,
+ 		      unsigned int max_vecs, unsigned int flags)
+ {
+diff --git a/drivers/pci/msi/api.c b/drivers/pci/msi/api.c
+index dff3d7350b38..4e90ef8f571c 100644
+--- a/drivers/pci/msi/api.c
++++ b/drivers/pci/msi/api.c
+@@ -327,6 +327,27 @@ int pci_alloc_irq_vectors_affinity(struct pci_dev *dev, unsigned int min_vecs,
+ }
+ EXPORT_SYMBOL(pci_alloc_irq_vectors_affinity);
+ 
++/**
++ * pci_alloc_irq_vectors_iovas() - Allocate multiple device interrupt
++ *                                 vectors with preset msi_iovas
++ * @dev:       the PCI device to operate on
++ * @min_vecs:  minimum required number of vectors (must be >= 1)
++ * @max_vecs:  maximum desired number of vectors
++ * @flags:     allocation flags, as in pci_alloc_irq_vectors()
++ * @msi_iovas: list of IOVAs for MSI between [min_vecs, max_vecs]
++ *
++ * Same as pci_alloc_irq_vectors(), but with the extra @msi_iovas parameter.
++ * Check that function docs, and &struct irq_affinity, for more details.
++ */
++int pci_alloc_irq_vectors_iovas(struct pci_dev *dev, unsigned int min_vecs,
++				unsigned int max_vecs, unsigned int flags,
++				dma_addr_t *msi_iovas)
++{
++	return __pci_alloc_irq_vectors(dev, min_vecs, max_vecs,
++				       flags, NULL, msi_iovas);
++}
++EXPORT_SYMBOL(pci_alloc_irq_vectors_iovas);
++
+ /**
+  * pci_irq_vector() - Get Linux IRQ number of a device interrupt vector
+  * @dev: the PCI device to operate on
 -- 
 2.43.0
 
