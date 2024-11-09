@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7449CD5E36F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2531CD5E36D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqlL1SKH2BkBQst9djuxxw/FQE9NC4fAeNeZnC8ea6E=; b=Ru9tsXoegKjPHFQl3yorFDsIhs
-	mtz46O4NagCTiMpWVE0aJ1N6x3ywhLn+r0nVlVn6hKw+B0/6i1EEdLxzSVgkMLaBEkfqbAJumePH7
-	EeVJBR2keURrotjdVQ8iy3BwwXKqIWOVJunyICyN48DnJOBNxZQaim36Qk8uujDiSsI2h+wNACbU3
-	a5s6pO3JZO61RC7ClMVu78IN9xXZscNocx/Trl30cCVhWFfNbZGHBxM6NHiZQKVVXiGw1te+tDhgS
-	Z37N4CYewBJLW88hGeX8AH0WOrx7g4/LFKo/tona7zp22OLnKFXdzD6YmHtZj+vzfUkWDUD3IWAoH
-	dmcZcKkQ==;
+	bh=3N/moei1sEnaiXEU18B1LQtB6kpPuVDMwqVzhge/Gxw=; b=UuZXXSjKSNNQSrPkLj46/ksdD7
+	JXgpJhkAUiMi9dOlVi4DZY7PJkRFHpUK10TsO+OXi81hEPZe/AYa8Dsu9mphMeIxV9vSaUqNlCSbe
+	TvDzjF51DtmypFO1uNcogeY3mG9qqkgShZa9zzqSQILhobxN4gIWtUtpriimj2nMbutF9ksQuLCFv
+	gh1n38ObdlPwjQRKZgqJ6DEmeEGvL9wa9LAYEtbm3EPgoO3+lYvZpX83jZ/WbCR4cqPcStG6G6Wil
+	ihkC+uaKmfbE0ZNJ5XOH/7srrg10iaH5TtHLXhNh075JnGnJhh1cCgjunuzIdgKBrdGVqMy+ROJof
+	rzJCJrBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lsc-0000000DQfv-2BuV;
-	Sat, 09 Nov 2024 13:51:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9luL-0000000DQmg-0LX6;
+	Sat, 09 Nov 2024 13:53:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lpL-0000000DQMT-16su
+	id 1t9lqa-0000000DQU3-1KM7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 13:48:36 +0000
+	Sat, 09 Nov 2024 13:49:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 20ACC5C4758;
-	Sat,  9 Nov 2024 13:47:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75F5DC4CECE;
-	Sat,  9 Nov 2024 13:48:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5E414A40294;
+	Sat,  9 Nov 2024 13:47:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD889C4CECE;
+	Sat,  9 Nov 2024 13:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731160114;
-	bh=9obkkloJqbc+4Y+aBb7ek7n+s5IUK7DnMllwBA4Ws80=;
+	s=k20201202; t=1731160190;
+	bh=l2kZzBU+RbJCGfr2ZBjsdIYubJlXs2k+Us4wAMzQFds=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WsTMfNRL8BIHRDsmNu84cqZ2oLPUfWe5lViusAYLGlwUMWjexjrs3pryJynKIb9S/
-	 EvDM1PcX3jZZAUtKL4bbJEBybXqtRClF/hzMvRTJOgzRzbb60+sZAqYw5Iv3HRWyxL
-	 uU4twXXneFxmnac9QKXhfRkQZgNYM6wP3JMuCr8XJXxb2+F5jXgpp2ZhAWxcOzp+Of
-	 hvNibQKjIcxTRb3L1XKeWa+NvmnkIBYgFL0fQaOJ6xwdyTzzec6yvFv0v1o4HOfGjh
-	 8geOV3+372UXQK8+NrQNpvhW4kk0Sb84ruryT8d727+MZirCkcBeTHBMAroD9OxkNq
-	 tMmJEJEMlXnAQ==
-Message-ID: <0c284553-bad4-4341-a963-9199e5317fb9@kernel.org>
-Date: Sat, 9 Nov 2024 14:48:26 +0100
+	b=DMVJR3LgD4463EmBdX4rzOW7zClm1dB8YxOUOvsM9sqRV06ra9roZvqGhbD8eOXKd
+	 tskYnvV5Jbc+CQmBYKGgK87WZC8DIX5TNqtRMkYhq0Hr89dECdLtdHR7LmQEFVXVol
+	 aYxN7CxOEfLOtgt5zWJhSAFYarR36yppH6h1FjZBXJYgD1VTcAHwP9McaCDYhVVxRt
+	 sj7k3u3vn/X1TT7N5+g89Gpl48GIB+Ly3VBorsQKaq6yvcQ3DRIe4QoFMkhHkgOJov
+	 wJxFMBvZtPC896m1p+mSuWNkVTbgUP2ardm7tfVWIJ4r6a1LmX30WDIqmP8GLb/E+T
+	 Egkd0kDXzoJow==
+Message-ID: <2c706292-e4cd-4eeb-be5d-9f9b9f67e025@kernel.org>
+Date: Sat, 9 Nov 2024 14:49:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] power: supply: max17042: rename maxim,rsns-microohm
- property
+Subject: Re: [PATCH 1/4] dt-bindings: power: supply: max17042: add share-irq
+ node
 To: Dzmitry Sankouski <dsankouski@gmail.com>,
  Hans de Goede <hdegoede@redhat.com>,
  Marek Szyprowski <m.szyprowski@samsung.com>,
@@ -64,7 +64,7 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-msm@vger.kernel.org
 References: <20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com>
- <20241109-b4-max17042-v1-4-9e2b07e54e76@gmail.com>
+ <20241109-b4-max17042-v1-1-9e2b07e54e76@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,13 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241109-b4-max17042-v1-4-9e2b07e54e76@gmail.com>
+In-Reply-To: <20241109-b4-max17042-v1-1-9e2b07e54e76@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_054835_438074_EA162EA0 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241109_054952_527349_7722FF93 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,21 +131,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/11/2024 13:44, Dzmitry Sankouski wrote:
-> Rename maxim,rsns-microohm to common shunt-resistor-micro-ohms.
+> If specified, driver should request irq as shared.
 > 
 > Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 > ---
->  Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 5 ++---
->  arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi                   | 2 +-
->  arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts                | 2 +-
->  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                  | 2 +-
->  arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 2 +-
->  arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 2 +-
->  arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 2 +-
->  arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi           | 2 +-
->  drivers/power/supply/max17042_battery.c                            | 2 +-
+>  Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> index 085e2504d0dc..e98ffdad1ec3 100644
+> --- a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
+> @@ -59,6 +59,11 @@ properties:
+>        Voltage threshold to report battery as over voltage (in mV).
+>        Default is not to report over-voltage events.
+>  
+> +  shared-irq:
+> +    description: |
+> +      Request interrupt as shared.
+> +      Set in case of other devices using same interrupt pin.
 
-NAK, ABI break.
+Why you cannot request shared interrupt always? It's not the property of
+this device to know whether its interrupt is shared or not. What if we
+add overlay sharing the interrupt? Nope, that's just describing OS behavior.
 
 Best regards,
 Krzysztof
