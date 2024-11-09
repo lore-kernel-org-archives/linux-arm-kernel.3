@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF20D5E361
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 09:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F55ED5E362
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 09:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/ckHga109Lqcag8VPktYj5Lt8yeWQel7fCQXXz6Ttw=; b=BaVjIddxApkJ6yFljQGhSMHIQS
-	er18kANMeS4I20KL5aVaa57YpT44Dtr2KhoCdCJ7A5oZQP7IB+HFQ5ghEEu3weHYUiT84CsRLQh3u
-	4NRta+/D2H16XwuZk+Z2/uGKsWcklgRWvYH57Jz3DFSUsdCEIl8+C8QQddZ+pZ9twjJVyLJKE3+Cy
-	uieYrF2/HgYAeRxhcrnyI0HpPHzmsbrmthhtMeC6X9fGs7X+IOT8eXQI+hRoQTUPOdgG1jwApHKBS
-	Z83/WhU63M0bYBoE/gz6PQRKjizGmNHhUIodJH5tmWjnbIOSrF02DLK8rgkWyegycbJdvSu/icSHm
-	3bHtApqw==;
+	bh=hj+yKpDG6Oj8U/HfQTfQTrhnazZVOznFiYSZWtlAo1Y=; b=PB1PbIetKfEmyy3dYkS+qFbTyG
+	wRXnSpF501SnfncYfy1wzjrWV4H6nAYgx/zlnoW0lSPDoFpdZ5EHS7DjxcHAx312mhkIUiKOdCoo0
+	vfxTSa6bxX1eb31AJAV2MtD2SM2TE5z5cA0UiI7gl08MofRxWgvdko88N0BQxo4XLac8JYN0MuRqS
+	pef8YPJzb2gvaLIQn9T73jOCUargdjZ17ZLHKrttm1/FTZJ0mWwqVe71DidoL3HcxMjQkRDbK+SIr
+	R7ZhCttjLkElLHcVt1OIfe15BLvEJTYvQYn2AaA2gHGT1+NlgMEzZQySmjuY/MB5X01lOLlaoSs3f
+	PmpSJRFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9htR-0000000Czn8-00YY;
-	Sat, 09 Nov 2024 09:36:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t9hv9-0000000Czyj-1URv;
+	Sat, 09 Nov 2024 09:38:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9hmb-0000000Cyxj-23uy;
-	Sat, 09 Nov 2024 09:29:30 +0000
+	id 1t9hme-0000000Cyyv-0BRM;
+	Sat, 09 Nov 2024 09:29:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C81DB5C4A54;
-	Sat,  9 Nov 2024 09:28:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7A64C4CECE;
-	Sat,  9 Nov 2024 09:29:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A6AF95C4A5E;
+	Sat,  9 Nov 2024 09:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92281C4CECE;
+	Sat,  9 Nov 2024 09:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731144568;
-	bh=L+Tb8zBkZwxLcT8ZO2OWnc/bfPC5zN+Fbgmb8QaRcIE=;
+	s=k20201202; t=1731144570;
+	bh=+BcPyG4I1IF3EXLrEkXmng4dCXSymF4dMJ8XpkxZI4k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gtKbOjIppaEaAgSR4fuMak7Xra9a9/IBd6y7Qja22dc44jViJEdaAufIo3ul4Uqiu
-	 shETEdwZOjYiFNr7sS+NSKkP6H/lqUXB4uX289b6g9T0Vyl9lpNq0XDVeJ7TQ9J1gW
-	 vVdRbExcJRi/nFEYtrWetPEtrwNc9tUgPkpH6P66wdcYsrnoLaDVpu55WOc4+7Ptw5
-	 A2StZs69Ydsqu+v3xlexPuA3TfXQCvHtyo6Pg2jBi6LeNy+mBaAG979n5eq95QdHDw
-	 FlTEpNvB9WnkFjMUCCsPFY9V8odI4uwS7K1qs8RekriNAPJazxeQ2gqfPdJVsQE/n0
-	 HxPfypb2s8aOg==
+	b=offz9ekkgH0jrv3N1QGwBDKkc4x9pVQe86sBYqBv2hSxhC2r+0OlPizA+i5isYMQl
+	 UghLiaYW0E3ge9qfhleygJLv+tqI2VHtQ7Ro+++S4MaIiBt6/YtYLYuqZGJsIo5bls
+	 yk9WZUOb0FRuexfapY9hE2I2U/WaX7S2btTeuHWWMM3nRXA02EbknbKMES2tEk62g1
+	 yyO9fiTSdGve+BJYi/jZmp+tdRJuFdodY+Ef/6qd8dVjfR4j7N5kAYPBtTGkRm2R8u
+	 MWaTeRxLBLZ0iQKntNGaBmuIejvlFtwnshUoITwld2xXe5f9eFROmRvr2buM3jQz82
+	 0jLO9rLs1l6Ow==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 09 Nov 2024 10:28:39 +0100
-Subject: [PATCH v2 3/4] PCI: mediatek-gen3: Move reset/assert callbacks in
- .power_up()
+Date: Sat, 09 Nov 2024 10:28:40 +0100
+Subject: [PATCH v2 4/4] PCI: mediatek-gen3: Add comment about
+ initialization order in mtk_pcie_en7581_power_up()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241109-pcie-en7581-fixes-v2-3-0ea3a4af994f@kernel.org>
+Message-Id: <20241109-pcie-en7581-fixes-v2-4-0ea3a4af994f@kernel.org>
 References: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
 In-Reply-To: <20241109-pcie-en7581-fixes-v2-0-0ea3a4af994f@kernel.org>
 To: Ryder Lee <ryder.lee@mediatek.com>, 
@@ -64,8 +64,9 @@ Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_012929_658715_5B09351A 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20241109_012932_165573_21DFD266 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to make the code more readable, move phy and mac reset lines
-assert/de-assert configuration in .power_up() callback
-(mtk_pcie_en7581_power_up()/mtk_pcie_power_up()).
-
-Introduce PCIE_MTK_RESET_TIME_US macro for the time needed to
-complete PCIe reset on MediaTek controller.
+Add a comment in mtk_pcie_en7581_power_up() to clarify, unlike MediaTek
+PCIe controller, the Airoha EN7581 requires PHY initialization and
+power-on before PHY reset deassert.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/pci/controller/pcie-mediatek-gen3.c | 28 ++++++++++++++++++++--------
- 1 file changed, 20 insertions(+), 8 deletions(-)
+ drivers/pci/controller/pcie-mediatek-gen3.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 8c8c733a145634cdbfefd339f4a692f25a6e24de..1ad93d2407810ba873d9a16da96208b3cc0c3011 100644
+index 1ad93d2407810ba873d9a16da96208b3cc0c3011..c9981013e59d18ccd3294acdcbd536dd95a0e436 100644
 --- a/drivers/pci/controller/pcie-mediatek-gen3.c
 +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -120,6 +120,9 @@
- 
- #define MAX_NUM_PHY_RESETS		3
- 
-+/* Time in us needed to complete PCIe reset on MediaTek controller */
-+#define PCIE_MTK_RESET_TIME_US		10
-+
- /* Time in ms needed to complete PCIe reset on EN7581 SoC */
- #define PCIE_EN7581_RESET_TIME_MS	100
- 
-@@ -867,6 +870,14 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
- 	int err;
- 	u32 val;
- 
-+	/*
-+	 * The controller may have been left out of reset by the bootloader
-+	 * so make sure that we get a clean start by asserting resets here.
-+	 */
-+	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-+				  pcie->phy_resets);
-+	reset_control_assert(pcie->mac_reset);
-+
- 	/*
- 	 * Wait for the time needed to complete the bulk assert in
- 	 * mtk_pcie_setup for EN7581 SoC.
-@@ -941,6 +952,15 @@ static int mtk_pcie_power_up(struct mtk_gen3_pcie *pcie)
- 	struct device *dev = pcie->dev;
- 	int err;
- 
-+	/*
-+	 * The controller may have been left out of reset by the bootloader
-+	 * so make sure that we get a clean start by asserting resets here.
-+	 */
-+	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets,
-+				  pcie->phy_resets);
-+	reset_control_assert(pcie->mac_reset);
-+	usleep_range(PCIE_MTK_RESET_TIME_US, 2 * PCIE_MTK_RESET_TIME_US);
-+
- 	/* PHY power on and enable pipe clock */
- 	err = reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
- 	if (err) {
-@@ -1013,14 +1033,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
- 	 * counter since the bulk is shared.
+@@ -884,6 +884,10 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
  	 */
- 	reset_control_bulk_deassert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
--	/*
--	 * The controller may have been left out of reset by the bootloader
--	 * so make sure that we get a clean start by asserting resets here.
--	 */
--	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie->phy_resets);
--
--	reset_control_assert(pcie->mac_reset);
--	usleep_range(10, 20);
+ 	mdelay(PCIE_EN7581_RESET_TIME_MS);
  
- 	/* Don't touch the hardware registers before power up */
- 	err = pcie->soc->power_up(pcie);
++	/*
++	 * Unlike the MediaTek controllers, the Airoha EN7581 requires PHY
++	 * initialization and power-on before PHY reset deassert.
++	 */
+ 	err = phy_init(pcie->phy);
+ 	if (err) {
+ 		dev_err(dev, "failed to initialize PHY\n");
 
 -- 
 2.47.0
