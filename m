@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9E8D5E362
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 10:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129B7D5E368
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QlmixrcoQf9rpzgan+Qy750S8xUOlkwY7o/5rjNFGrw=; b=Q1ayyKm5pHu9YsvBdxEpxWS50b
-	9rZALoeJ1jgOZc/dNFMUj5PJBBpWndT7xEQwyn2MVQd550ZTXPJDniWc6cAeYEadwA72iIKmyJ2Q7
-	KN0135t2VAqYPQrl1iHNvRMsNxX/LpGCPDJeAec1GIrr5/1V8SKY8NSnkBiseY0Xmb37wtvt/73+v
-	hnFJ8njtDLQB0yB8OLglE8uZU18IWmswscJPpjM+MgBK9OXhTQ1Yfek4cas3EHKmj5VMPsaplyO9p
-	yKSuqdBiXIZAzgQ2+nwcAXE6EQ2kgwQJ7JlI7HnqsrsuRIAjyFjDKvNI0TaK7hfvXOlFrWr2tFpMB
-	I2EDCECw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7v2ALFBdYjyZ6sFyb9Y/ee0T/VtMhjtKVZbW5icBGMM=; b=H23QexAWt2H5bs
+	BBGpioeaDr6/O+bV7ZqUTFGpZccy+xDhYSBNVCDOejiFyE9HDNUvNcXS1K19dhuOteeAATsYOpnca
+	OKo8MWPBlW3g4Nw/kQC6emgj32+AdkWyzRR6zfyswnuZRRkwM7W8mbOq3Cqg2s6kQISi6RVYMwY+r
+	b6Qdy7IpM/D6n0Cj8G4iTjAlbD2+zs0v0jaTf3uHTsEO6/2r7DuFU/64voJs98dOEDcWeXQGJrbiW
+	sR5b4fTTKuIAxQl5gt7ZDozz6xv8OZP7o2lhLzSnqGm0Xs4K0gdxcs03R8f/locPh2XoE/J+rUfQq
+	1cEAhQ8yj0PVqMpn9JWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9j8p-0000000D6it-1nNr;
-	Sat, 09 Nov 2024 10:56:31 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1t9kiF-0000000DJYb-2mDS;
+	Sat, 09 Nov 2024 12:37:11 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9j72-0000000D6cI-3pxo;
-	Sat, 09 Nov 2024 10:54:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xlt1l0RCNz2Fb3N;
-	Sat,  9 Nov 2024 18:52:43 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id EEC931400DA;
-	Sat,  9 Nov 2024 18:54:27 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Sat, 9 Nov 2024 18:54:26 +0800
-Subject: Re: [PATCH v2 8/8] perf pmu: Move pmu_metrics_table__find and remove
- ARM override
-To: Ian Rogers <irogers@google.com>, Xu Yang <xu.yang_2@nxp.com>
-References: <20241107162035.52206-1-irogers@google.com>
- <20241107162035.52206-9-irogers@google.com>
-CC: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, James
- Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan
-	<leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
-	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang
-	<kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen
-	<chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, Athira Rajeev
-	<atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das
-	<sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, Ravi Bangoria
-	<ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=c3=a9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>, Yicong Yang <yangyicong@hisilicon.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan
-	<dima@secretsauce.net>, "Dr. David Alan Gilbert" <linux@treblig.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Junhao He
-	<hejunhao3@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <5a57de7c-924e-ccd6-8981-b9fddc647465@huawei.com>
-Date: Sat, 9 Nov 2024 18:54:26 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1t9kgO-0000000DJ1t-34y5
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 Nov 2024 12:35:18 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-539f72c913aso5337309e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:35:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731155714; x=1731760514; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7v2ALFBdYjyZ6sFyb9Y/ee0T/VtMhjtKVZbW5icBGMM=;
+        b=YgiSaCrMSTZZ2CljyGzpAwCKqTBeKtytVecfYHOmIu5/4Fw64hq0Q81n0LzEcxe76e
+         SDPPM1UHqxncbfG7xElHn0EdD6cuZstvwwbl7w8ZxQCzkBtYK84s3P2bUG27QwLIsEww
+         aiVVZTqxjWtipJsz839nF2g11StXMwOkRvlBXcQEoOwUo/xjQX98M+zkIh5akdga5srp
+         cewe4uF76GAEbmwebiVzALqMbzmKT/Wd35DPuUtsjTIO2EKCDKMHvOgj91mG3H0dl3HE
+         E+iEF+5FfLqLE0Z6wFcD5Ho6TB42AAmGt73p1B9234qo9cB4pQhdyGmylYHamdYisQqh
+         ECCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731155714; x=1731760514;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7v2ALFBdYjyZ6sFyb9Y/ee0T/VtMhjtKVZbW5icBGMM=;
+        b=dlf97fuNcp/vP3jGLPw0Y3jKWJNjgw39H3lxJuVjn8DJHP02s3dRAtgO1gHM2zngTD
+         53bLWG4/sXVgOJloOEohVRhNC9cXX9QA/pjTFto1shGZphpkdY7kZpRTGiiGTUGdevYR
+         hlPTwxBUC8Cm5QFfymUHIP9+j0JbhFXC5GGQTqKQC828HjHseiLZFsKbiI2HbmBYZMc9
+         T49aZwDzJ3+bfvu80pDVTfIsVeKCys6qsVUYhos94ckS+a7zSRb29LO78tA52Rw9rEtl
+         eeTa5hRQz+VdGsb3cHUnDzX7XJROfUGjx6nSbB9reb/iKIIqncRiGe5IsyU1Oq2cQT7Q
+         vTTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWBfBdbabVt5/k4iIqr07GABI128OlPhYxbPQwMqEV+XkESjYZJyaI3ZHVF0/h2F1lLAXgUNd6wAgc1hCdnMD9O@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUEidCpHlUqZbfCYat7ewsq6BRXJsE/46O1uRQGW1TMVnjMxMW
+	l8NVAeOHc/dfQXIlyTY5GcEasqaC9r4AbUHZ5BTaKkLJ3qpPzBFdhrUh2veIm+o=
+X-Google-Smtp-Source: AGHT+IFSDYeqaLjyC9aeiFIrpSqYeLJzWS5ech99oMz9O52R0aPaOJVtYR5urSo+K9hUQ7SDK0W5Xg==
+X-Received: by 2002:a05:6512:3e01:b0:539:eb82:d45b with SMTP id 2adb3069b0e04-53d862f817cmr2360079e87.56.1731155714283;
+        Sat, 09 Nov 2024 04:35:14 -0800 (PST)
+Received: from umbar.lan ([192.130.178.90])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826784dbsm922899e87.15.2024.11.09.04.35.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 09 Nov 2024 04:35:12 -0800 (PST)
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Subject: [PATCH v3 0/7] drm/display: hdmi: add
+ drm_hdmi_connector_mode_valid()
+Date: Sat, 09 Nov 2024 14:35:04 +0200
+Message-Id: <20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <20241107162035.52206-9-irogers@google.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-B4-Tracking: v=1; b=H4sIAPhWL2cC/3XNQQrCMBCF4auUWRtJYmyjK+8hLoZm0g60jSQSl
+ NK7m3YjIi7/B/PNDIkiU4JzNUOkzInDVOKwq6DtcepIsCsNWmqjpLKidyOLMTgSGQd2ApFaY7Q
+ 9StVCubpH8vzcxOutdM/pEeJre5DVuv63shJS1GROSMZK5ZvLwBPGsA+xgxXL+gMU4RfQBcDaN
+ NY7LT3WX8CyLG+YQFG18AAAAA==
+X-Change-ID: 20241018-hdmi-mode-valid-aaec4428501c
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2383;
+ i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
+ bh=2fV2XD25ut5vTGewFjeEo8rNWtU13M/szPG8t2HvEoA=;
+ b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ7p+2L/f+UEK3NVbN5T87r6we4/e+47HjzdUh8R2Rpl41
+ ljN4GDpZDRmYWDkYpAVU2TxKWiZGrMpOezDjqn1MINYmUCmMHBxCsBEdvey/6/rZXqxJ3yT/vWl
+ Sal9CQ/l8xMDBRcJZ5ncmPFSXl466RQ7E+uc5Su+3jC8paB2oMG53dq2ZHosq1ZdfGqNw4Td+k+
+ bNzz1LtvQmHu23k3xn9mEIwcPa7K1c9427l1rm6Cxt6NZTvi8s9eEWhfFtqjtbRYXhTIu8SjpVt
+ X831v+8Wx7hHTM4Q07L7h/Snf4fO7197Y7+mdstb2vq27hCvZV2ePNt+F/2qInFieUeXf1shzp8
+ 0+3ilfZ+ND/Uuk82+PTt4QVaHtJKkrcLDdMWl7AsmhRLutHLpbpJt/ZFx9w+5C8yNs44MwXnomv
+ FDYovd7jWd4Sa7WvkZlnoa99vvoFtgqbn5YKyQ8TQzgB
+X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_025441_318189_E756923E 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20241109_043516_822423_7BAB133A 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,160 +119,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Several HDMI drivers have common code pice in the .mode_valid function
+that validates RGB / 8bpc rate using the TMDS char rate callbacks.
 
-On 2024/11/8 0:20, Ian Rogers wrote:
-> Move pmu_metrics_table__find to the jevents.py generated pmu-events.c
-> and remove indirection override for ARM. The movement removes
-> perf_pmu__find_metrics_table that exists to enable the ARM
-> override. The ARM override isn't necessary as just the CPUID, not PMU,
-> is used in the metric table lookup. On non-ARM the CPU argument is
-> just ignored for the CPUID, for ARM -1 is passed so that the CPUID for
-> the first logical CPU is read.
+Move this code piece to the common helper and remove the need to perform
+this check manually. In case of DRM_BRIDGE_OP_HDMI bridges, they can
+skip the check in favour of performing it in drm_bridge_connector.
 
-Since the logic here's already been touching, is it possible to step it further to just
-ignore the CPUID matching when finding the system metrics/events tables? It's may not be
-that reasonable for finding a system metrics/events from the CPUID, since one system PMU may
-exists on different platforms with different CPU types.
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+---
+Changes in v3:
+- Moved drm_hdmi_connector_mode_valid() to drm_hdmi_state_helper.c
+  (Maxime)
+- Added commnt next to the preferred = list_first_entry() assignment
+  (Maxime)
+- Added comments to new tests, describing what is being tested (Maxime)
+- Replaced sun4i_hdmi_connector_atomic_check() with
+  drm_atomic_helper_connector_hdmi_check() (Maxime)
+- Link to v2: https://lore.kernel.org/r/20241101-hdmi-mode-valid-v2-0-a6478fd20fa6@linaro.org
 
-FYI, there's a similiar problem when trying to count the system metrics but fails [1].
-I've tested with this series but the problem still exists.
+Changes in v2:
+- Switched drm_hdmi_connector_mode_valid() to use common helper
+  (ex-hdmi_clock_valid()) (Maxime)
+- Added simple unit tests for drm_hdmi_connector_mode_valid().
+- Link to v1: https://lore.kernel.org/r/20241018-hdmi-mode-valid-v1-0-6e49ae4801f7@linaro.org
 
-[1] https://lore.kernel.org/linux-perf-users/20241010074430.16685-1-hejunhao3@huawei.com/
+---
+Dmitry Baryshkov (7):
+      drm/display: hdmi: add generic mode_valid helper
+      drm/sun4i: use drm_hdmi_connector_mode_valid()
+      drm/vc4: use drm_hdmi_connector_mode_valid()
+      drm/display: bridge_connector: use drm_bridge_connector_mode_valid()
+      drm/bridge: lontium-lt9611: drop TMDS char rate check in mode_valid
+      drm/bridge: dw-hdmi-qp: replace mode_valid with tmds_char_rate
+      drm/sun4i: use drm_atomic_helper_connector_hdmi_check()
 
-Thanks.
+ drivers/gpu/drm/bridge/lontium-lt9611.c            |   4 +-
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  12 +-
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  16 +-
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  21 +++
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  32 +---
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 181 ++++++++++++++++++++-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |   4 +-
+ include/drm/display/drm_hdmi_state_helper.h        |   4 +
+ 8 files changed, 228 insertions(+), 46 deletions(-)
+---
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+change-id: 20241018-hdmi-mode-valid-aaec4428501c
 
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/arch/arm64/util/pmu.c         | 20 --------------------
->  tools/perf/pmu-events/empty-pmu-events.c | 10 ++++------
->  tools/perf/pmu-events/jevents.py         | 10 ++++------
->  tools/perf/pmu-events/pmu-events.h       |  2 +-
->  tools/perf/util/pmu.c                    |  5 -----
->  tools/perf/util/pmu.h                    |  1 -
->  6 files changed, 9 insertions(+), 39 deletions(-)
-> 
-> diff --git a/tools/perf/arch/arm64/util/pmu.c b/tools/perf/arch/arm64/util/pmu.c
-> index a0964b191fcb..895fb0d0610c 100644
-> --- a/tools/perf/arch/arm64/util/pmu.c
-> +++ b/tools/perf/arch/arm64/util/pmu.c
-> @@ -1,29 +1,9 @@
->  // SPDX-License-Identifier: GPL-2.0
->  
-> -#include <internal/cpumap.h>
-> -#include "../../../util/cpumap.h"
-> -#include "../../../util/header.h"
->  #include "../../../util/pmu.h"
->  #include "../../../util/pmus.h"
->  #include "../../../util/tool_pmu.h"
->  #include <api/fs/fs.h>
-> -#include <math.h>
-> -
-> -const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> -{
-> -	struct perf_pmu *pmu;
-> -
-> -	/* Metrics aren't currently supported on heterogeneous Arm systems */
-> -	if (perf_pmus__num_core_pmus() > 1)
-> -		return NULL;
-> -
-> -	/* Doesn't matter which one here because they'll all be the same */
-> -	pmu = perf_pmus__find_core_pmu();
-> -	if (pmu)
-> -		return perf_pmu__find_metrics_table(pmu);
-> -
-> -	return NULL;
-> -}
->  
->  u64 tool_pmu__cpu_slots_per_cycle(void)
->  {
-> diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
-> index 17306e316a3c..1c7a2cfa321f 100644
-> --- a/tools/perf/pmu-events/empty-pmu-events.c
-> +++ b/tools/perf/pmu-events/empty-pmu-events.c
-> @@ -587,14 +587,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
->          return NULL;
->  }
->  
-> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
-> +const struct pmu_metrics_table *pmu_metrics_table__find(void)
->  {
-> -        const struct pmu_events_map *map = map_for_pmu(pmu);
-> -
-> -        if (!map)
-> -                return NULL;
-> +        struct perf_cpu cpu = {-1};
-> +        const struct pmu_events_map *map = map_for_cpu(cpu);
->  
-> -	return &map->metric_table;
-> +        return map ? &map->metric_table : NULL;
->  }
->  
->  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
-> diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-> index e44b72e56ac3..d781a377757a 100755
-> --- a/tools/perf/pmu-events/jevents.py
-> +++ b/tools/perf/pmu-events/jevents.py
-> @@ -1103,14 +1103,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
->          return NULL;
->  }
->  
-> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
-> +const struct pmu_metrics_table *pmu_metrics_table__find(void)
->  {
-> -        const struct pmu_events_map *map = map_for_pmu(pmu);
-> -
-> -        if (!map)
-> -                return NULL;
-> +        struct perf_cpu cpu = {-1};
-> +        const struct pmu_events_map *map = map_for_cpu(cpu);
->  
-> -	return &map->metric_table;
-> +        return map ? &map->metric_table : NULL;
->  }
->  
->  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
-> diff --git a/tools/perf/pmu-events/pmu-events.h b/tools/perf/pmu-events/pmu-events.h
-> index 5435ad92180c..675562e6f770 100644
-> --- a/tools/perf/pmu-events/pmu-events.h
-> +++ b/tools/perf/pmu-events/pmu-events.h
-> @@ -103,7 +103,7 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table, pm
->  				     void *data);
->  
->  const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu);
-> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu);
-> +const struct pmu_metrics_table *pmu_metrics_table__find(void);
->  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid);
->  const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const char *cpuid);
->  int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data);
-> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> index 514cb865f57b..45838651b361 100644
-> --- a/tools/perf/util/pmu.c
-> +++ b/tools/perf/util/pmu.c
-> @@ -818,11 +818,6 @@ static int is_sysfs_pmu_core(const char *name)
->  	return file_available(path);
->  }
->  
-> -__weak const struct pmu_metrics_table *pmu_metrics_table__find(void)
-> -{
-> -	return perf_pmu__find_metrics_table(NULL);
-> -}
-> -
->  /**
->   * Return the length of the PMU name not including the suffix for uncore PMUs.
->   *
-> diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-> index fba3fc608b64..7b3e71194e49 100644
-> --- a/tools/perf/util/pmu.h
-> +++ b/tools/perf/util/pmu.h
-> @@ -260,7 +260,6 @@ void perf_pmu__arch_init(struct perf_pmu *pmu);
->  void pmu_add_cpu_aliases_table(struct perf_pmu *pmu,
->  			       const struct pmu_events_table *table);
->  
-> -const struct pmu_metrics_table *pmu_metrics_table__find(void);
->  bool pmu_uncore_identifier_match(const char *compat, const char *id);
->  
->  int perf_pmu__convert_scale(const char *scale, char **end, double *sval);
-> 
+Best regards,
+-- 
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
 
