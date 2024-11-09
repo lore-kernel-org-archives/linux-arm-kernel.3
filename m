@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DE7D64076
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3FFD64099
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 00:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=; b=TRMrBKFO6zsA48FR9pF6rHft9m
-	JO8cwRjI2jANUpyJCqB7SH+zu8LOhcAmlohEDZg8ZhQMAl8xPk0TFTE9oWF7beGlQwkrTttNuQSBI
-	xuSjYbTgVcBkbc+l7QCDJVrlYO4AGZ0pmLjLzXQkhE2Xi/S0JwCaW27xs8F6c0ms2A/APIgh7JUI2
-	Da6DGZbDz+CISJIweKGEhsQC0qyySJzxFDOGACbqY4IxV/fq8xu5h6clIa6rklgs5gB6WxSu/olHV
-	TLfmCeQCVy/8qFU2gcRuHv/FED4dOMcFWpOeokawopg2AYGXxf6zfW1yYxOSbCcgPeqThdRih09Xw
-	BazI0O1Q==;
+	bh=qkuxRBhUdrMqZHEYYqrRzS7syIb4x9GA940/XJZey40=; b=PzRf8sMR413PD9EI3I4B1Lzr4C
+	IyCata/zY/IshbczV5nhzxWDZ4wcnVvT32uOxDBJXaiKNYsfViuwwYCfRT+vJrb58yJCSsrV6jly8
+	tgdYFXj/cf99qidLvdVxdTDz70ymqa5gFZDZ0X5FSMA02Plc/o6jAkObsfXRwSvQSdjQfVPsnf2EE
+	2sGWGwjKVewtPl515Q9ry0d2Vh3Hv0pdsjSI1IulKwRhfA/3f/pzVXBQBHSQPH4Og66Fpw9Tw0B2c
+	321SL0PnOVvxxl8X05fZ3cf677P5261Hn1tTdgt7p9uqLahK+7RYs9dWCsWUjN2kS/i8p2C5KsX4w
+	MYDqTX4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZKh-0000000CLIp-16HT;
-	Sat, 09 Nov 2024 00:28:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1t9ZO8-0000000CLer-3QxY;
+	Sat, 09 Nov 2024 00:31:40 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ypy-0000000CHL3-2Eq4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 Nov 2024 23:56:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=; b=TIpT5vkhtyJ1BUgeKNExY1eW+l
-	34mYYjxz21YHeDeP2DjY7S+qkbl01diUfDhyWqGoha2HJJpz+1jMoTvNKrg643xlsuMBRlKoOJrRn
-	m8Uj9rYHi2g1IJirvct8tbbG/cb2xaIBatq51mii7tjWrABEO8gOOQwvKT5KXaqmbaUxkhCinybpn
-	fcojhlCOHUHBdpB3AGOJfCRgZ3asGaC3E4W22NA1+DqZohx5cucOTY6XoXfldb9mYX5cWR7GV4Fq8
-	B7y8cEiT4Ur+1hAqI0Qj3Gx/5d/lmaAZaE84Trd9IAn3krMugYm5mE3KEjpOmTUIOorZ+EN0mS9sM
-	cbBd7BVg==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ypu-0000000COor-3exy
+	id 1t9Z3P-0000000CJAw-2TRJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Nov 2024 23:56:21 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-20ca1b6a80aso31497635ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 15:56:17 -0800 (PST)
+	Sat, 09 Nov 2024 00:10:17 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-7ede6803585so2876397a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Nov 2024 16:10:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731110176; x=1731714976; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731111014; x=1731715814; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=;
-        b=Da3kFo29NIgVZT5Drr7jyZ/VrtUA+fp3DD6wc25KiW+x0fD87FueHcwgYgVhq+Ky6q
-         PJIXTCcA7GUwbLflogBzHyvJk137BAf3L4mapNyc4ICCmctY3Xu7Ksgu7NTgweMqwPnB
-         CZit5BCde3wZiwyteSPtf/eJukEyIb+MKTw5lpee933oqf+2R5RXrJ7PJfx8yUhIjAuv
-         eGCbhBu57L8cSIM3VuqdCYpNFQatqgox0v8cJElaEKeUwooydJVN/WnPjerDVHMJYRlR
-         LaiQT87CK7HEhEaXh/WzKFoKzhox737IW711kTKABKEznlnBHfGiBLLbSVK3Tvp9FlgK
-         8wTQ==
+        bh=qkuxRBhUdrMqZHEYYqrRzS7syIb4x9GA940/XJZey40=;
+        b=hItOUjkxv/gTfzv7Q0KLz5IS4447uZArBpyLPXXhwQ1d3IcxfzBLKkydMKW5Tb1OBy
+         HMFy6R/3vo+v4OZGJWP41SKKPyXtecnM67HgnmonYsvUS9j7Yx+U4+84Tl+ed5sPOaok
+         Kn1tZb46V1sPLTur4J41NtX+dsYtRTYvjHeRxTEoXBiBk2H8SHrDRxD7692WaQJ7uySN
+         IZFXWt3m4FjZUsEM3UEydY22lxA8CT3ifRAElA/1REQ+hfWlIsAADZhOjUhMKzM5iOI5
+         uI3xc/cl2ZtwOI3GqZfKt+Np7Up/dTmbCJwuRhZ+93tEciH14DytSjplfOieGKIMocm8
+         g6EQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731110176; x=1731714976;
+        d=1e100.net; s=20230601; t=1731111014; x=1731715814;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ko5ntTtP2w+Sz2PCh54+SIltSsYjcVHYUqvHuhsGxIM=;
-        b=iv0rO/OZVUSExIJ5Bjc3STKy4DmsErOdHO0w235zbqe9rd19w920ls9zbALAszmtNN
-         Glpl7De9+1YvwufINwPR3cesfqpnqf8sDE5lBM6K2Wb0YfqnGzxXSvYWnbkspGTC41eZ
-         IxUXSqLIxBBiRr7IGR5YOJAmc7REM4YXXnVCbPSvMJTg3UHWbHjjAQQCKEQzeciaJtcz
-         2bWeXU+HrvMC3XVnGxUk1yhAGQw9Ruby9FOkwnCMOJZcn56cuZzD0Y3Rhl5aCbsnC/nQ
-         p3ETiebaMiGT/VVx8GOZ8h4jV7eSWPY9o56n0/mQOwc+NlCCUtUyMsRz7NhkrOpVMomU
-         oLvA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+v24t8OJGDy4M5RCwxCoduPw/KjU2IR2n91+nGYL09mbRPmxPLY2PqlBRFBnTUuyEgzXw6NknfTrxtai8s84j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZD/4jrFF/yJZyxnRKHp1xWFf75hweCerxF7fcnu/UV80Ly8as
-	FimLHz8DKdUqsSypAFwoq8qlMeFTvguFKoIC/J6PKKCCETXuln53
-X-Google-Smtp-Source: AGHT+IHEarQoWl4dFgmCs28SBfigzcnSWnoyL4xgpkZl9Jj3lgLAj0yFFM0e/MUEUbjsP+pQ2Qtcog==
-X-Received: by 2002:a17:90b:1f8b:b0:2e5:5ff9:bee1 with SMTP id 98e67ed59e1d1-2e9b177bd4fmr6176123a91.29.1731110175789;
-        Fri, 08 Nov 2024 15:56:15 -0800 (PST)
+        bh=qkuxRBhUdrMqZHEYYqrRzS7syIb4x9GA940/XJZey40=;
+        b=h4Qink+8sExhVKDKaJayWYZ64iGaQTdw0b+tjn9cLB9F9QoAUtbhp4o1zOudH0Q6iM
+         jJV1tuZ6g7gpm9IWqZHS9qEV8PEp8WPS1syACJ4hMpBX1a8eDdOz7PQwauu6GqUBXNYp
+         WJIrP9SX36Gmm3eqiXvpKio9ssKogsU2hw60SQxN99x8Y0AMllxQDgMSIF7kI6x02uDJ
+         uTzto6NHnrm+HUpsOZGJfeVcMYmZwwr45DYeXT7fMDSJE469p8CTKOA/q38wczLH52ns
+         jchkRsbq99gZO2cScRO1p6d4VcuQs3T185xCHIjrNTz73/eNwInhC072LLTXRkBtDGwG
+         z7zg==
+X-Forwarded-Encrypted: i=1; AJvYcCWBE0Hzdkn5Znbt0J1gjanhDi1bt41UzPG3aZpBm/SIOILlrpmiO+ipFUyNMDv8SUYz0fru2VHVkBzzkCOkrMTa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA4ZeHqh4obFIcKWBDXvl7FmeRjGC3rOBzBX2/LlEITg2tT2QQ
+	GCpLih8kZOmXVpfQwPBq/umiKYmmXmwNUzIpJ3G8YSttUqkXxX4q9dU8vw==
+X-Google-Smtp-Source: AGHT+IHIJjoErnvnQ8M35ks2Kzb8DXfptuyNI+D7IwxYCzr2yibZDe70aA2CeUtxRv8l9Gw9P306pg==
+X-Received: by 2002:a17:90b:4b0f:b0:2e9:20d8:414c with SMTP id 98e67ed59e1d1-2e9b0a30173mr7016077a91.5.1731111014538;
+        Fri, 08 Nov 2024 16:10:14 -0800 (PST)
 Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e59f1dsm36081805ad.182.2024.11.08.15.56.13
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9be866bdasm415822a91.16.2024.11.08.16.10.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Nov 2024 15:56:15 -0800 (PST)
-Message-ID: <94871adf-c2d7-496b-bf05-c3a773f9c919@roeck-us.net>
-Date: Fri, 8 Nov 2024 15:56:13 -0800
+        Fri, 08 Nov 2024 16:10:13 -0800 (PST)
+Message-ID: <805495d8-b1d0-4258-8f86-35c92b2b0e61@roeck-us.net>
+Date: Fri, 8 Nov 2024 16:10:12 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] iio: temperature: Add support for P3T1085
+Subject: Re: [PATCH v2 3/4] hwmon: tmp108: Add support for I3C device
 To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
@@ -96,6 +81,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
  linux-hwmon@vger.kernel.org
 References: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
+ <20241108-p3t1085-v2-3-6a8990a59efd@nxp.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -141,12 +127,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241108-p3t1085-v2-0-6a8990a59efd@nxp.com>
+In-Reply-To: <20241108-p3t1085-v2-3-6a8990a59efd@nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_235619_172260_D55BC960 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20241108_161015_674918_5433861B 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,58 +148,85 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/8/24 14:26, Frank Li wrote:
-> Add basic function support for P3T1085 temperature sensor.
-> - reuse tmp108 driver
-> - Update imx93-9x9-qsb.dts
+> Add support for I3C device in the tmp108 driver to handle the P3T1085
+> sensor. Register the I3C device driver to enable I3C functionality for the
+> sensor.
 > 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>   drivers/hwmon/tmp108.c | 31 +++++++++++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+> 
+> diff --git a/drivers/hwmon/tmp108.c b/drivers/hwmon/tmp108.c
+> index bfbea6349a95f..83d6847cb542c 100644
+> --- a/drivers/hwmon/tmp108.c
+> +++ b/drivers/hwmon/tmp108.c
+> @@ -13,6 +13,8 @@
+>   #include <linux/mutex.h>
+>   #include <linux/of.h>
+>   #include <linux/i2c.h>
+> +#include <linux/i3c/device.h>
+> +#include <linux/i3c/master.h>
+>   #include <linux/init.h>
+>   #include <linux/jiffies.h>
+>   #include <linux/regmap.h>
+> @@ -442,6 +444,35 @@ static struct i2c_driver tmp108_driver = {
+>   
+>   module_i2c_driver(tmp108_driver);
+>   
+> +#ifdef CONFIG_REGMAP_I3C
 
-Subject 'iio' is now misleading.
+REGMAP_I3C needs to be selected in Kconfig. Maybe with "select REGMAP_I3C if I3C" or
+similar, but we'll also need to cover situations where I2C=y and I3C=n. That means
+that an additional "depends on I3C || I3C=n" may be necessary. In summary,
+
+	config SENSORS_TMP108
+         tristate "Texas Instruments TMP108 and P3T1085"   <--
+         depends on I2C
+	select REGMAP_I2C
+	depends on depends on I3C || I3C=n                <--
+	select REGMAP_I3C if I3C                          <--
+         help
+           If you say yes here you get support for Texas Instruments TMP108
+           and compatible sensor chips.                    <--
+
+           This driver can also be built as a module. If so, the module
+           will be called tmp108.
 
 Thanks,
 Guenter
 
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Jonathan Cameron <jic23@kernel.org>
-> To: Lars-Peter Clausen <lars@metafoo.de>
-> To: Shawn Guo <shawnguo@kernel.org>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> To: Pengutronix Kernel Team <kernel@pengutronix.de>
-> To: Fabio Estevam <festevam@gmail.com>
-> To: Jean Delvare <jdelvare@suse.com>
-> To: Guenter Roeck <linux@roeck-us.net>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-iio@vger.kernel.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: linux-hwmon@vger.kernel.org
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> 
-> Changes in v2:
-> - Amost rewrite and reuse existed TMP108 driver
-> - Link to v1: https://lore.kernel.org/r/20241107-p3t1085-v1-0-9a76cb85673f@nxp.com
-> 
-> ---
-> Frank Li (4):
->        dt-bindings: hwmon: ti,tmp108: Add nxp,p3t1085 compatible string
->        hwmon: tmp108: Add help function tmp108_common_probe()
->        hwmon: tmp108: Add support for I3C device
->        arm64: dts: imx93-9x9-qsb: add temp-sensor nxp,p3t1085
-> 
->   .../devicetree/bindings/hwmon/ti,tmp108.yaml       |  8 ++-
->   arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |  5 ++
->   drivers/hwmon/tmp108.c                             | 71 ++++++++++++++++------
->   3 files changed, 64 insertions(+), 20 deletions(-)
-> ---
-> base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
-> change-id: 20241107-p3t1085-fbd8726cbc0e
-> 
-> Best regards,
-> ---
-> Frank Li <Frank.Li@nxp.com>
+> +static const struct i3c_device_id p3t1085_i3c_ids[] = {
+> +	I3C_DEVICE(0x011b, 0x1529, NULL),
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(i3c, p3t1085_i3c_ids);
+> +
+> +static int p3t1085_i3c_probe(struct i3c_device *i3cdev)
+> +{
+> +	struct regmap *regmap;
+> +
+> +	regmap = devm_regmap_init_i3c(i3cdev, &tmp108_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(&i3cdev->dev, PTR_ERR(regmap),
+> +				     "Failed to register i3c regmap\n");
+> +
+> +	return tmp108_common_probe(&i3cdev->dev, regmap, "p3t1085_i3c");
+> +}
+> +
+> +static struct i3c_driver p3t1085_driver = {
+> +	.driver = {
+> +		.name = "p3t1085_i3c",
+> +	},
+> +	.probe = p3t1085_i3c_probe,
+> +	.id_table = p3t1085_i3c_ids,
+> +};
+> +module_i3c_driver(p3t1085_driver);
+> +#endif
+> +
+>   MODULE_AUTHOR("John Muir <john@jmuir.com>");
+>   MODULE_DESCRIPTION("Texas Instruments TMP108 temperature sensor driver");
+>   MODULE_LICENSE("GPL");
 > 
 
 
