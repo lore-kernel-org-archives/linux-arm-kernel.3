@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F51D5E36D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7449CD5E36F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 13:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EkGZMk3k9ILP8mNmbKIFCfxr5MM61wZQhO1Yk3smLCU=; b=SsEHQti5dvYTm27ybWisN9Hk92
-	8rKAv3awxBFWPzGGra90vCCBRGz6eglQRt+jtTmqO+y64Nj0tfks/Xw8Nn9Mn57P/aSNuAL0MhDHn
-	Iu4IuCd1QrXjCek2d0RRNfjkdrjkJ8uvMmqAzEwNYeHQYdGeU469FbD4vReLXrzupZi267j/LfX1G
-	kVI5TJjhm1XHkKftM4nyZKPTN2VWSdZK4iCE8TNX0B5gbXdlPSG2R8wt/p5gj/OJaFD0vmnsfyNe2
-	8WC00suuv5GHN+ROv6zDwxaYGhbrSZxD0VTuoMWWWCb3a4gNaVYfggC+AtacdchsPgw0QzqlTwOV2
-	JRN5s3RQ==;
+	bh=WqlL1SKH2BkBQst9djuxxw/FQE9NC4fAeNeZnC8ea6E=; b=Ru9tsXoegKjPHFQl3yorFDsIhs
+	mtz46O4NagCTiMpWVE0aJ1N6x3ywhLn+r0nVlVn6hKw+B0/6i1EEdLxzSVgkMLaBEkfqbAJumePH7
+	EeVJBR2keURrotjdVQ8iy3BwwXKqIWOVJunyICyN48DnJOBNxZQaim36Qk8uujDiSsI2h+wNACbU3
+	a5s6pO3JZO61RC7ClMVu78IN9xXZscNocx/Trl30cCVhWFfNbZGHBxM6NHiZQKVVXiGw1te+tDhgS
+	Z37N4CYewBJLW88hGeX8AH0WOrx7g4/LFKo/tona7zp22OLnKFXdzD6YmHtZj+vzfUkWDUD3IWAoH
+	dmcZcKkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lqu-0000000DQXo-12dv;
-	Sat, 09 Nov 2024 13:50:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t9lsc-0000000DQfv-2BuV;
+	Sat, 09 Nov 2024 13:51:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9lp9-0000000DQKh-0bZK
+	id 1t9lpL-0000000DQMT-16su
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 13:48:24 +0000
+	Sat, 09 Nov 2024 13:48:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0F86EA40134;
-	Sat,  9 Nov 2024 13:46:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057A9C4CECF;
-	Sat,  9 Nov 2024 13:48:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 20ACC5C4758;
+	Sat,  9 Nov 2024 13:47:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75F5DC4CECE;
+	Sat,  9 Nov 2024 13:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731160099;
-	bh=LkBpTD+8Wzbw3kgYxUyJ8ZmP6HQhjn7b3nLeP9G86CI=;
+	s=k20201202; t=1731160114;
+	bh=9obkkloJqbc+4Y+aBb7ek7n+s5IUK7DnMllwBA4Ws80=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hO8mCSe/gkhytc5GPRSPZ0Rwta3AoCOFhnv1AoLMLJc0lYmWdsCyUfNqUiVA803MT
-	 dUB9dU6OyPBjTZBFJz3vQRsVPyp6jxUXYTQpi8jmBE1t2kmJEdtkXx5Vj3tU475yAG
-	 9QujsjvovwANZCsfJXHoxJvedJgy8tp2LxDCgStJ2/wOEUpyasZ5gCaLZ+Rrj92MnB
-	 o0roa0l4Rwl0xlkQtoSaxM91h+pdGFuHHb34S2xOD0kd4fqUyE61HbYg+CHSPrgOk/
-	 hsQAY2G0HMK+3sC8KdyxpPMjPHNRE6x9p9+YXZSsqc50szrj0VkNPz8GfUXY3K9Elq
-	 9fwR4b0dz2YxA==
-Message-ID: <3f40b200-f48a-4cf3-a018-b227517715c8@kernel.org>
-Date: Sat, 9 Nov 2024 14:48:10 +0100
+	b=WsTMfNRL8BIHRDsmNu84cqZ2oLPUfWe5lViusAYLGlwUMWjexjrs3pryJynKIb9S/
+	 EvDM1PcX3jZZAUtKL4bbJEBybXqtRClF/hzMvRTJOgzRzbb60+sZAqYw5Iv3HRWyxL
+	 uU4twXXneFxmnac9QKXhfRkQZgNYM6wP3JMuCr8XJXxb2+F5jXgpp2ZhAWxcOzp+Of
+	 hvNibQKjIcxTRb3L1XKeWa+NvmnkIBYgFL0fQaOJ6xwdyTzzec6yvFv0v1o4HOfGjh
+	 8geOV3+372UXQK8+NrQNpvhW4kk0Sb84ruryT8d727+MZirCkcBeTHBMAroD9OxkNq
+	 tMmJEJEMlXnAQ==
+Message-ID: <0c284553-bad4-4341-a963-9199e5317fb9@kernel.org>
+Date: Sat, 9 Nov 2024 14:48:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] power: supply: max17042: use microvolts for voltage
- comparison
+Subject: Re: [PATCH 4/4] power: supply: max17042: rename maxim,rsns-microohm
+ property
 To: Dzmitry Sankouski <dsankouski@gmail.com>,
  Hans de Goede <hdegoede@redhat.com>,
  Marek Szyprowski <m.szyprowski@samsung.com>,
@@ -64,7 +64,7 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-msm@vger.kernel.org
 References: <20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com>
- <20241109-b4-max17042-v1-3-9e2b07e54e76@gmail.com>
+ <20241109-b4-max17042-v1-4-9e2b07e54e76@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241109-b4-max17042-v1-3-9e2b07e54e76@gmail.com>
+In-Reply-To: <20241109-b4-max17042-v1-4-9e2b07e54e76@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_054823_348912_4A9106F8 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20241109_054835_438074_EA162EA0 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,43 +132,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/11/2024 13:44, Dzmitry Sankouski wrote:
-> Do not convert VCELL register value from uV to mV to compare
-> with vmin/vmax. Rather use uV for vim/vmax, since that's a
-> standard measure unit in power supply drivers.
-> 
-> Convert "maxim,dead-volt" and "maxim,over-volt" to uV.
+> Rename maxim,rsns-microohm to common shunt-resistor-micro-ohms.
 > 
 > Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 > ---
->  Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 2 +-
->  arch/arm/boot/dts/samsung/exynos4210-i9100.dts                     | 2 +-
->  arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi                     | 2 +-
->  arch/arm/boot/dts/samsung/exynos4412-midas.dtsi                    | 2 +-
+>  Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 5 ++---
 >  arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi                   | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts                | 2 +-
 >  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                  | 2 +-
->  arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 4 ++--
->  arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 4 ++--
->  arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 4 ++--
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 2 +-
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 2 +-
+>  arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 2 +-
 >  arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi           | 2 +-
->  drivers/power/supply/max17042_battery.c                            | 4 ----
->  11 files changed, 13 insertions(+), 17 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
-> index e98ffdad1ec3..d1ad597e0837 100644
-> --- a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
-> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
-> @@ -83,7 +83,7 @@ examples:
->          reg = <0x36>;
->          maxim,rsns-microohm = <10000>;
->          maxim,over-heat-temp = <600>;
-> -        maxim,over-volt = <4300>;
-> +        maxim,over-volt = <4300000>;
->          shared-irq;
+>  drivers/power/supply/max17042_battery.c                            | 2 +-
 
-Property says this is mV so 4300 V? That's just wrong.
-
-Entire commit touching bindings, drivers and DTS in one patch is an ABI
-break and just clear NAK.
+NAK, ABI break.
 
 Best regards,
 Krzysztof
