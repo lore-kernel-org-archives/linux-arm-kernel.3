@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A61D5E369
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A476AD5E369
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9wxCYXwjuFpbEm8J6hnlc7LqgHEUz/bPD6SI90IVR0=; b=hq8auTGaRoM4OHheeeGaUluHY1
-	YZkq7waACm6hoqYYZE8FjH2SnRBiEYb3FmL/PGzUUNnrEaSfdvzKMfcE3KdEGBLmIVTuoWyHmeMy7
-	Dc0w58aBzM0vX2RmzIsXYVEGz5o3nFUqiCf/9riNOQorX0m5M9ntoH+ksSpzjLiRfULDAHT/ZP7PX
-	e8WEnvF47xnSKb8uyBzR3FFRkHvKdTxl9tvne462d+qdyJEWT0Gvc6Jhafy7OoCYBUH9BqGXB3w4I
-	OXTxfHDEuDOhUfCQVjvAivV+N8wEx1zyLb0LX0Ow20luhpv8alxl2CcPe2ijQuYKxAcVC8imTHsQS
-	d01fAW/Q==;
+	bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=; b=oAOsvK7ehykwf25cPLWChWVVMi
+	fmpKMJttka1RDGcE8lEoAKuVs5lmVT+a2LvE2HeEpYci/+gD3rkuDiIFh+0L4b5Y0ulPk2hUIdZra
+	peXtxtancMnabziIrpwM1jj6SVC81UMGrYew61bfVAD+/moScsTTULChDoGnOYTrGyjuGBEIsRwz6
+	t7+natjhl3kJg22HdG3aTePp0R1XW15NSNyYzu7QEazNZhtqzJwGA7XfMW+b41Or5CNbWaXfnbNa5
+	35ISA3xG7mZWtaSuW9ZbSSy6G1wYOzjZt4tLwf110ns2fDW3hhk9hw618TGMGQ7RJaJRL1M1r31KN
+	++klYV9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ksc-0000000DKup-3lr4;
-	Sat, 09 Nov 2024 12:47:54 +0000
+	id 1t9kuY-0000000DLR5-08F0;
+	Sat, 09 Nov 2024 12:49:54 +0000
 Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9kgd-0000000DJ9p-24ZH
+	id 1t9kgg-0000000DJBJ-0pJQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 12:35:32 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539ebb5a20aso3461407e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:35:31 -0800 (PST)
+	Sat, 09 Nov 2024 12:35:36 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-539e13375d3so3656334e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:35:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731155730; x=1731760530; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731155733; x=1731760533; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n9wxCYXwjuFpbEm8J6hnlc7LqgHEUz/bPD6SI90IVR0=;
-        b=H4M7FOm7Fj3M0SvzcOE3R9SJPfc45tF6rp2fXzU5Edb5ICchfB+9z7Let85EIDdRHf
-         EoGaSzZy66qArcsdLz/eJl3qiR6XWNh4GUBw525GXxVpSA1SEKYjp0ZuS+o4EndHV3L3
-         plqe+oRS2WH0afHBuSXAPIJgas9FzZ4T9JUs1ciX0RVMWzFHjW3vMU0dq2/F/Gbm/dht
-         tzsPPWvv+RIjbHiue+EvgrpAZj+9lTpjajhBfQlt1py04QzKaCssMSsSKw9TFmcHS5A/
-         8mCGdIuTiSEU2FlT4SA+43vR5FTUrEMmD4GVHXkOCzXi7BGAyvHGT+IoQ2rdzmETm2z3
-         OCxw==
+        bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=;
+        b=Y0iUcy3IVBUWYbkbCoCD7qYKdA9oLOJqtMCYE+KVlkt1DNu3P0ScbOloLvLOJTLh2R
+         zYP3+JSUNmGx4u7JQ0V2RizrJPf6QZPlvG3XufDndhLV1jBW0aegaZEY5SRcW6FEC7Mo
+         d1pSS3P6vZal+Zgz/ZXk5x6yyqm8G0UFTBNFDFPoLq+uxjwUyu9O/YGDDPMcDL8HmHL3
+         P9kf7Pd5qCrL/7heLdPmNo9P/jxSuHMGl6V7GWBPX9mRPZPBFJMivZBA0PJw7jh3I8OK
+         goFdp6ZhId0wRI91zgvR1mbnWKSeYRihkm86hIEIHyB9LY7V/qIUzgnJGELeTA+5/NtH
+         roVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731155730; x=1731760530;
+        d=1e100.net; s=20230601; t=1731155733; x=1731760533;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n9wxCYXwjuFpbEm8J6hnlc7LqgHEUz/bPD6SI90IVR0=;
-        b=sBqWjQ/yx/xz6HvtKXE7p1NYv7YL5d8aw/76Rp7ry8codnmfH0jrcyGQAk9IgeUFOV
-         XskyabsrmNdc727WrJQIRKj14gy6kYZ8sR70m2UH+/h/C0qRolj2TwYHEsLlZYvdBpWY
-         6uxRudsBtpj35boY0dxZ0M2rFrq9CNE7bQI5aPGDOMNtYINR7lPCHEoogjjdrmz/f/Ta
-         PCqhM/ShfQi5rxOcZI0LfS2iZbt3zFoumGy/3//LveMkAUq9O2Z6FYgF1PTomgZrcuZF
-         iyPOsVwovr9rQ4j0f+7/+7ugPxCwPHge9xWPSSsaPCkOgSQZNlcvuVXpkXqGMjrP09Pa
-         Lw3A==
-X-Forwarded-Encrypted: i=1; AJvYcCWPp2DKXOD8gl4GgS3+E8nYfoCL0MD4N1+qDT26HeJR1yGq2VjF1pG1CT7R13kAP2RHxvlJ5jeon7QWoxNryvXc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrkT/9czE+l/GHo/bbu9ZM93EaJqQ66UBetANavI+pB3PL/xzy
-	VznSdoyT8kK/6aUxCDhfyqPinhUsTN1JN8MwM/o+/mwAyeYdbvwjd3msWG1s+Tg=
-X-Google-Smtp-Source: AGHT+IExWCGWwweJ3/2iRfeNRk4AonxFSRBohmS9iN1pZjqL1Hm83HHjYVjbPTXo/ZRFzwelKC8tdQ==
-X-Received: by 2002:ac2:4c4f:0:b0:539:8a9a:4e63 with SMTP id 2adb3069b0e04-53d862fded1mr3117421e87.42.1731155729899;
-        Sat, 09 Nov 2024 04:35:29 -0800 (PST)
+        bh=L+pN3XKvVFmetq3YJbHAkykp748W6pEN5H4vcdcbZbk=;
+        b=vLgjZ1mw2Gvn7Z+wVYx1eiqlZDfUd1IBEAz+71EsE7z/Gny9M6DZ7VYPM9Z4UrOtsp
+         P83wBq6mbtQZoXPShjJO6xgvyU69ZNOoC5TxKUxCrP7uEAKl8ijA/vDIEcrahv72IWKP
+         txQ18uxTyX2YZhvBPK84dZvvfOJViyi5n3vSVrIdtaJVPV2q5ugy3JD1l3nIiTbBkuXY
+         05F91liOPPd4OFbwHXY+jRSfHZOxd8W3ekiYYnBOjCY1Mx5JBwQdANHHR91lyYJ0hLw/
+         NnaEbuh9QLwRt5oI074lx6hJ0DAgk/iyqPgGSJufudXZFv5lunNq7vXYfQ+ILaK8gqQC
+         lc9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVhmR/VaponaHGFymLLrZtt/bkHGSxN8kgEHM0SMtg0lz/8X9dXu7TNYC7M116TdghIW6/DA02QazEY+OXb8uko@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe3kTKx1nSLFwbSJ79msTHfRN8bq9EOnl6wiJBZePy4Gcj+TRa
+	bKDIIOHctzkpBQC1e0FBY6MG0ZHsqpQUqJYGsDRMzo+GiDbpizSOn2n7jcrRWok=
+X-Google-Smtp-Source: AGHT+IHYy8a0Jl0t4eXfYO7d1FqKeWB0bC8cvUQRPjyNFzEV2jihfF3Am0WWkBzVwoqL1QUMEqIP1A==
+X-Received: by 2002:a05:6512:3f16:b0:539:d9e2:9d15 with SMTP id 2adb3069b0e04-53d8623fffcmr3082722e87.29.1731155732594;
+        Sat, 09 Nov 2024 04:35:32 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826784dbsm922899e87.15.2024.11.09.04.35.27
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826784dbsm922899e87.15.2024.11.09.04.35.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Nov 2024 04:35:28 -0800 (PST)
+        Sat, 09 Nov 2024 04:35:31 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Sat, 09 Nov 2024 14:35:10 +0200
-Subject: [PATCH v3 6/7] drm/bridge: dw-hdmi-qp: replace mode_valid with
- tmds_char_rate
+Date: Sat, 09 Nov 2024 14:35:11 +0200
+Subject: [PATCH v3 7/7] drm/sun4i: use
+ drm_atomic_helper_connector_hdmi_check()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241109-hdmi-mode-valid-v3-6-5348c2368076@linaro.org>
+Message-Id: <20241109-hdmi-mode-valid-v3-7-5348c2368076@linaro.org>
 References: <20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org>
 In-Reply-To: <20241109-hdmi-mode-valid-v3-0-5348c2368076@linaro.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -88,21 +88,21 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2092;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2011;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=UjNMLqX51SwfyB+kbUbjnJt95fAbmRoKvLYOPQ8ek9c=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnL1b/mNQQcFqCkzuMTFi21MgL+ClfX6zdxYmOE
- WDmYH96sASJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZy9W/wAKCRCLPIo+Aiko
- 1b1cB/4saVmbA16c6Z2bnXMNH/2b3oJllF/7OUdQvKCnntWfx23Ah8wjwzFSaoqoFc+jrad4IuM
- GUO4DHOvHv2lRiN/dW3NjaYzf/4Fs6FTemzc2Tetv9JJ6dc6DKLv0dHR+kawu93qS4TSwCbpduz
- bQJDOP0pZK/UbBjbJl2jUUGcMHS8CWn2EgZc0Y+aej2d1R87ogJebwR3Yik2NciCNDbX4INzayI
- AjmNHAq/LOOrLHcgLBbd15aEsGcw8q47AiX1jSh39Q7NHyX78ZfMpSIOQ68OnoI84bRbaz8Mx2S
- zjDUhci0ay3ohdizDU96iTYRPo+tGSq9Sxzlpty6qOenFpKs
+ bh=NRpLumrdDZhSXCJcusWkwzHsBkwvkTsOwVSCIyGYQBU=;
+ b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ7p+2P/UnAP/1lS+cTe5zqq05k8zk9jJ3/kFf9hFefyer
+ PvILuvWyWjMwsDIxSArpsjiU9AyNWZTctiHHVPrYQaxMoFMYeDiFICJ3H/JwTBByj1Gq3qN6AeP
+ o7aBh83EfpQelbE2PxPHwSrQtOXuzpWWAdPL7V20fHnmPSgJPae4eu0jF4EvzSKi1hf6GBqMq/4
+ eeLB96THGoJQfpepc7ku0Iy8Ei4RpMyhoFiceTbF5wJibpHuC37Nlnvn6xLlRhfOuScz40LdLMj
+ vuZ1muq9PZ27M9+CN3C812ttdTdP+R/3jN9uAWG57HW0rPH+E1e3pukty3ZXZbUv4ylJ2/dyD3X
+ MeLJPnAnaIOsusKL33yPnrZioPv9o+bP3ZYrlLsjS+/aRWZ2L1002uP9vgHx24wz2hv6qjrv/ih
+ oTtM/MHPrSUulTmRUXP+1LEGMK7ck3dy07HdEs8aPB04AQ==
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_043531_618817_0E0F5F04 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20241109_043534_332409_8E783E2F 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,51 +117,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace .mode_valid() callback with .hdmi_tmds_char_rate_valid(). It is
-more generic and is used in other mode validation paths. The rate
-validation for .mode_valid() will be performed by the
-drm_bridge_connector code.
+Replace sun4i_hdmi_connector_atomic_check(), which performs just TMDS
+char rate check, with drm_atomic_helper_connector_hdmi_check(), which
+performs additional checks basing on the HDMI Connector's state.
 
-Reviewed-by: Chen-Yu Tsai <wens@csie.org>
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Suggested-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 20 +-------------------
+ 1 file changed, 1 insertion(+), 19 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 181c5164b23192f0b557624d73c6223032b90ec6..c686671e4850a1af75b82995185ffc3cbb22a447 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -442,16 +442,14 @@ dw_hdmi_qp_bridge_edid_read(struct drm_bridge *bridge,
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index 54b72fe220afacc208b3fd48d5160031127ea14a..b05fd77870b00aac97d003f3fb9c2b98cb73abc0 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -187,24 +187,6 @@ sun4i_hdmi_connector_clock_valid(const struct drm_connector *connector,
+ 	return MODE_NOCLOCK;
  }
  
- static enum drm_mode_status
--dw_hdmi_qp_bridge_mode_valid(struct drm_bridge *bridge,
--			     const struct drm_display_info *info,
--			     const struct drm_display_mode *mode)
-+dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
-+				       const struct drm_display_mode *mode,
-+				       unsigned long long rate)
+-static int sun4i_hdmi_connector_atomic_check(struct drm_connector *connector,
+-					     struct drm_atomic_state *state)
+-{
+-	struct drm_connector_state *conn_state =
+-		drm_atomic_get_new_connector_state(state, connector);
+-	struct drm_crtc *crtc = conn_state->crtc;
+-	struct drm_crtc_state *crtc_state = crtc->state;
+-	struct drm_display_mode *mode = &crtc_state->adjusted_mode;
+-	enum drm_mode_status status;
+-
+-	status = sun4i_hdmi_connector_clock_valid(connector, mode,
+-						  conn_state->hdmi.tmds_char_rate);
+-	if (status != MODE_OK)
+-		return -EINVAL;
+-
+-	return 0;
+-}
+-
+ static int sun4i_hdmi_get_modes(struct drm_connector *connector)
  {
- 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
--	unsigned long long rate;
+ 	struct sun4i_hdmi *hdmi = drm_connector_to_sun4i_hdmi(connector);
+@@ -258,7 +240,7 @@ static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
+ };
  
--	rate = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
- 	if (rate > HDMI14_MAX_TMDSCLK) {
--		dev_dbg(hdmi->dev, "Unsupported mode clock: %d\n", mode->clock);
-+		dev_dbg(hdmi->dev, "Unsupported TMDS char rate: %lld\n", rate);
- 		return MODE_CLOCK_HIGH;
- 	}
- 
-@@ -510,7 +508,7 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
- 	.atomic_disable = dw_hdmi_qp_bridge_atomic_disable,
- 	.detect = dw_hdmi_qp_bridge_detect,
- 	.edid_read = dw_hdmi_qp_bridge_edid_read,
--	.mode_valid = dw_hdmi_qp_bridge_mode_valid,
-+	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
- 	.hdmi_clear_infoframe = dw_hdmi_qp_bridge_clear_infoframe,
- 	.hdmi_write_infoframe = dw_hdmi_qp_bridge_write_infoframe,
+ static const struct drm_connector_helper_funcs sun4i_hdmi_connector_helper_funcs = {
+-	.atomic_check	= sun4i_hdmi_connector_atomic_check,
++	.atomic_check	= drm_atomic_helper_connector_hdmi_check,
+ 	.mode_valid	= drm_hdmi_connector_mode_valid,
+ 	.get_modes	= sun4i_hdmi_get_modes,
  };
 
 -- 
