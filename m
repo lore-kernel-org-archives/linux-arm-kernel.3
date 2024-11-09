@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4276FD5E369
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED635D5E369
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Nov 2024 12:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQ9NSVxNmU2bLIFXUwQFB7anXf5+cHYcjGaMIkMwGmQ=; b=wD5idtIMpyKpz/lcb40I8R7kCU
-	83aS/huY/4DdCGouk8T65QblA0J+dFqpeOD/woRmKwR1Rh4Dq/SAJwXOKA84qFlR6RmYwx+fKDHl9
-	9GJdFyYQ3kZiYYrf7CFtvNm+311AKLt2clr/Ydow9maGHb8LjEVS/64BuNf9I5uGlqeNa5cXLYR7L
-	xQquLyuzD/p20RBVYcfElFTeyRJtKRgfU+Id1yh6WVrL8Ne7Hl/+IpBETnPyLdGCCKL4jUAj8xxXH
-	gLou9djWV57VqFj/zFmN/YsDhCchBbz3eW6IN8ENW1LU7jdxxRQrzi8otJiXYohx5j5HAAhjUsUSv
-	N2D3ebnA==;
+	bh=59tEYZAbxZv4QLtXinFrkb5WBvn6BEbQem6S6TXlOJw=; b=2xiugcm/qJSVrNoLPOD7TgxnAs
+	b5s9jGlOXoGrQ1/I0p2eaX5C5uUd7oSRG3Yf4f5OKbKknfG6RpitAmqcSueTI7XBeKprRIJUmZo6q
+	i/i+ZfGOvk94w9ZbTAQj+7jplRMMZ+ZqUiEssnsf90jJBh1tqpcBzFCc+yZ1BsNqAPRld7nmTXD74
+	nN3AX6ZzQMcaJ6buk69ozSNbHFgwRZaTwCa6iEtWFK5qYDrqGd0NYD1uhzakH7wMV1H/xwp3Hwlr1
+	nqeCWumrrqhAAtPEl7opH1JGdkuvJVlH3KSx0TYHPb4xXkJN0QIkHJBoVV9p/YtYve72ZnuTlmb/K
+	LCZMEL5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9l1R-0000000DM7G-3Cv0;
-	Sat, 09 Nov 2024 12:57:01 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1t9l3A-0000000DMF3-1cKx;
+	Sat, 09 Nov 2024 12:58:48 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9kpe-0000000DKUl-2nQC
+	id 1t9kph-0000000DKVi-3BRG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Nov 2024 12:44:51 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5cb6ca2a776so4442256a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:44:50 -0800 (PST)
+	Sat, 09 Nov 2024 12:44:55 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5cedea84d77so4139344a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Nov 2024 04:44:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731156289; x=1731761089; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731156292; x=1731761092; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CQ9NSVxNmU2bLIFXUwQFB7anXf5+cHYcjGaMIkMwGmQ=;
-        b=LQMX9Io9PKbARiY2dezEJqkWhgDQSkgBcG7DD58irUG1eU44N5emKGzxkh6Aw83OO6
-         5lio4pEBr9timD70+Hn2M2rPJT3XtLM0aW1x5QhNV2xxfrd54AnWsYEmfzyM9CNsu3VN
-         QEED1qUbAXxWmVuILlSQSOajH1HechazAO5lRXVw+33eQWexBGRXwryyMX9v7sM59QaI
-         wSmf3Wh6na5M5mMeMBqp340rR6s6Pf6JwrG+EmYzD21lZZ14kY8m/SDzcksb32xsSFnF
-         Hy6NloKAdafen9ENc6T2woSYeQQH10L0Oy29y6MhPeXTySSYdgNAejsA3vMoGcHNt0R8
-         NDNg==
+        bh=59tEYZAbxZv4QLtXinFrkb5WBvn6BEbQem6S6TXlOJw=;
+        b=CwmgLbf0GjwUCT9k6G7lg7Eg7w0UkjoAN63DGXE5KQWgbscEVqstvJcW6dGeE7pVaJ
+         B1oO6A5anRgWHiI80C90xh/POV7GqkiUKaJQDrjQTeMqzcvPQEIbdoydxpH/s0VECNjO
+         YYM6iwTy0MCKRNFNm59ITiEu848M9mTq1jwucQKFVzkB1Ir7KPqwA1nojMEjANqRJ6/L
+         uEe3M99hzj39uC6EZHoDV1bK1Lp5XPkjWMe4wRSoE9ugOZ3S1vjutULMGJtPjMktgPgJ
+         7R/y/Q0i+hOIsgL0Er2f3axAywgOjW0doBHgZTM3oAipuPDxXFF47NIG9UAiAmOAX0Rj
+         LGKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731156289; x=1731761089;
+        d=1e100.net; s=20230601; t=1731156292; x=1731761092;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CQ9NSVxNmU2bLIFXUwQFB7anXf5+cHYcjGaMIkMwGmQ=;
-        b=pFg8NeLQOLvdhWF6CeD8uprw1vCfwFiHWrGMK9thDHlt1hg+KKUzUSktos1YDt9mEF
-         CdvUPvG4idQNpvxuCW0xLdHbJfWyEGPFgQMAvQUIkK+8e56CBP1MxL+3cFrhaTu4Sb9O
-         yAD8vR2UH+oSxjTdP32E2aLOZL8y8Ozbo4RNr9fWYYqV83Ab+HNwT66xt65oWtzyBbwF
-         6UsbdOQIDtztyAfWT7RPHkrZ01jYpAtNN0CxQziGuowMT/02HmCZpW7FuNrNsEnUqFTG
-         wXkqWe7OtysH2ri5JUeXDpjylTghPtGeBMb4UiQ0SgegiRTE6ek6IvHsDLz0e/WPwHYX
-         pTJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW6Ngzbc2AVYR8Nlp+K7/2mEN9yjrOCZZl8X4Raynp1eOU0pp3f+AfmGOmfkkD2FbEJeZppl+Qa3TdgezBZDyOC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyymaWX1TphWJa7+Rc9MUQ95CrLRK4A0bX03uk2SQRhEMik65ga
-	BKPRFkdCnCr1BGcnLMy7NMUSX4ZNnDW6stigyLfELScIjLNu2lkr
-X-Google-Smtp-Source: AGHT+IEava32G9LkepDqhNF98BHoT2kEpMj/WzLFM5B1x5SUXXliyjsQMEGMpaCuJJcC1rJTYXaoqA==
-X-Received: by 2002:a05:6402:d0d:b0:5c2:439d:90d4 with SMTP id 4fb4d7f45d1cf-5cf0a45f22bmr4810410a12.30.1731156288669;
-        Sat, 09 Nov 2024 04:44:48 -0800 (PST)
+        bh=59tEYZAbxZv4QLtXinFrkb5WBvn6BEbQem6S6TXlOJw=;
+        b=IiXdTxftkskYnG/XRSLc8t4pMLYE9gUjr3uFCxAUMChM4TyGHmt/+YdK+1d1jB8P+g
+         E0Lhrqw0WF0kOFJthX/oJRgy9UVBFluSnsYPHJeM0TwtRhN1G7ItuDRNP0fFHd5GZPVx
+         cH/g3sd2yuDs32eWJLQLI4X32Gq73T1qLS6JYMGuayTstIIip5iYBKgxG4uQtxwRN9OX
+         aXnMjcalZflEShkqa15ANaGmjonVmVBSttuFD1I27W3crsLT5CdqABu30QzpKie+1p7C
+         Nbmh8R13s6Zl55D66XSnkaxtCTA4zPbg7lk3dELWZ3Y06BL+b0mn96COL5uBqPQZn2Q0
+         HSuw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXcVrD7Y+LFJiNx25oQJJJsL3hDIFzyt5bOuDIFItA/D7ZibdR340TgMPve7JPBDUXLkZsnAqShwObpxFT61uf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdNB91jk+5WMnyaNv3f8OcQfp6Vg2JrA0TJwMekciG8SMHK4YQ
+	4U733deWBmbeLFtLzLsRI50zkW5PNAghXleK+FXLUGJ1dXkHJ5Ar
+X-Google-Smtp-Source: AGHT+IHsmH3XqpW0E30HnDtDXqrPkaKiznFfyNU3gMMTiByURLm3AmURnfa20tdQ+1DxMfZF6+oL9w==
+X-Received: by 2002:a05:6402:3507:b0:5ce:d6b0:85c0 with SMTP id 4fb4d7f45d1cf-5cf0a444283mr4838208a12.22.1731156291637;
+        Sat, 09 Nov 2024 04:44:51 -0800 (PST)
 Received: from [127.0.1.1] (leased-line-46-53-189-50.telecom.by. [46.53.189.50])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03b5d793sm2940166a12.17.2024.11.09.04.44.46
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03b5d793sm2940166a12.17.2024.11.09.04.44.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Nov 2024 04:44:47 -0800 (PST)
+        Sat, 09 Nov 2024 04:44:50 -0800 (PST)
 From: Dzmitry Sankouski <dsankouski@gmail.com>
-Date: Sat, 09 Nov 2024 15:44:35 +0300
-Subject: [PATCH 3/4] power: supply: max17042: use microvolts for voltage
- comparison
+Date: Sat, 09 Nov 2024 15:44:36 +0300
+Subject: [PATCH 4/4] power: supply: max17042: rename maxim,rsns-microohm
+ property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241109-b4-max17042-v1-3-9e2b07e54e76@gmail.com>
+Message-Id: <20241109-b4-max17042-v1-4-9e2b07e54e76@gmail.com>
 References: <20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com>
 In-Reply-To: <20241109-b4-max17042-v1-0-9e2b07e54e76@gmail.com>
 To: Hans de Goede <hdegoede@redhat.com>, 
@@ -89,16 +89,16 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-msm@vger.kernel.org, Dzmitry Sankouski <dsankouski@gmail.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731156277; l=7169;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731156277; l=6311;
  i=dsankouski@gmail.com; s=20240619; h=from:subject:message-id;
- bh=oX98cqsu9ezhoyh3zMCsqzngVH4022JCLrceQnb5H7w=;
- b=fSAus6hdbJoEivY1qvsqsA9L4OfkV3c0pEcQviAyQ4PUq6GytjxonoqhMMGpCSqQMVG158a0S
- DYpghObEXyZBGANGKXeOJNanilreWXaqeQaSScPgTm2cV2w089dJsIP
+ bh=Ll3+VdQ0C3YJ+cNuw/9xWFDuApiijksTxgD0D7LqbW4=;
+ b=CgxjsX+bAIDHBkOI0SqP8ZHxW2061yieieg6R6BPSGwA0wkM6muqq3JM+UwOpuN8nMBZE8qH+
+ JYXQoELs5oIAJUPqdLaPEzqqmnhBaJeJjCaLjK07S7pPTZRU6D1PucY
 X-Developer-Key: i=dsankouski@gmail.com; a=ed25519;
  pk=YJcXFcN1EWrzBYuiE2yi5Mn6WLn6L1H71J+f7X8fMag=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241109_044450_746298_0D87016D 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20241109_044453_839154_4E90F58A 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,185 +113,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not convert VCELL register value from uV to mV to compare
-with vmin/vmax. Rather use uV for vim/vmax, since that's a
-standard measure unit in power supply drivers.
-
-Convert "maxim,dead-volt" and "maxim,over-volt" to uV.
+Rename maxim,rsns-microohm to common shunt-resistor-micro-ohms.
 
 Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
 ---
- Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 2 +-
- arch/arm/boot/dts/samsung/exynos4210-i9100.dts                     | 2 +-
- arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi                     | 2 +-
- arch/arm/boot/dts/samsung/exynos4412-midas.dtsi                    | 2 +-
+ Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml | 5 ++---
  arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi                   | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts                | 2 +-
  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                  | 2 +-
- arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 4 ++--
- arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 4 ++--
- arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 4 ++--
+ arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts               | 2 +-
+ arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts               | 2 +-
+ arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts               | 2 +-
  arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi           | 2 +-
- drivers/power/supply/max17042_battery.c                            | 4 ----
- 11 files changed, 13 insertions(+), 17 deletions(-)
+ drivers/power/supply/max17042_battery.c                            | 2 +-
+ 9 files changed, 10 insertions(+), 11 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
-index e98ffdad1ec3..d1ad597e0837 100644
+index d1ad597e0837..754d9ad3d94b 100644
 --- a/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
 +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17042.yaml
-@@ -83,7 +83,7 @@ examples:
+@@ -29,8 +29,7 @@ properties:
+     description: |
+       The ALRT pin, an open-drain interrupt.
+ 
+-  maxim,rsns-microohm:
+-    $ref: /schemas/types.yaml#/definitions/uint32
++  shunt-resistor-micro-ohms:
+     description: |
+       Resistance of rsns resistor in micro Ohms (datasheet-recommended value is 10000).
+       Defining this property enables current-sense functionality.
+@@ -81,7 +80,7 @@ examples:
+       battery@36 {
+         compatible = "maxim,max17042";
          reg = <0x36>;
-         maxim,rsns-microohm = <10000>;
+-        maxim,rsns-microohm = <10000>;
++        shunt-resistor-micro-ohms = <10000>;
          maxim,over-heat-temp = <600>;
--        maxim,over-volt = <4300>;
-+        maxim,over-volt = <4300000>;
+         maxim,over-volt = <4300000>;
          shared-irq;
-       };
-     };
-diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-index 0d8495792a70..0ca755160bef 100644
---- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-+++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-@@ -150,7 +150,7 @@ battery@36 {
- 
- 			reg = <0x36>;
- 			maxim,over-heat-temp = <700>;
--			maxim,over-volt = <4500>;
-+			maxim,over-volt = <4500000>;
- 		};
- 	};
- 
-diff --git a/arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi b/arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi
-index 9bc05961577d..758bfc10826f 100644
---- a/arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi
-@@ -186,7 +186,7 @@ fuel-gauge@36 {
- 			pinctrl-0 = <&max77693_fuel_irq>;
- 
- 			maxim,over-heat-temp = <500>;
--			maxim,over-volt = <4500>;
-+			maxim,over-volt = <450000>;
- 		};
- 	};
- 
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi b/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-index 3d5aace668dc..c744907b7c42 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-@@ -263,7 +263,7 @@ fuel-gauge@36 {
- 			reg = <0x36>;
- 
- 			maxim,over-heat-temp = <700>;
--			maxim,over-volt = <4500>;
-+			maxim,over-volt = <4500000>;
- 		};
- 	};
- 
 diff --git a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
-index 28a605802733..3d52aa25c83c 100644
+index 3d52aa25c83c..0b08d23366d6 100644
 --- a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
 +++ b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
-@@ -175,7 +175,7 @@ fuel-gauge@36 {
+@@ -173,7 +173,7 @@ fuel-gauge@36 {
+ 			pinctrl-names = "default";
+ 			interrupt-parent = <&gpx2>;
  			interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
- 			maxim,rsns-microohm = <10000>;
+-			maxim,rsns-microohm = <10000>;
++			shunt-resistor-micro-ohms = <10000>;
  			maxim,over-heat-temp = <600>;
--			maxim,over-volt = <4300>;
-+			maxim,over-volt = <4300000>;
+ 			maxim,over-volt = <4300000>;
  		};
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts b/arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts
+index 33f398b48119..99023f302a05 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5-r4.dts
+@@ -11,7 +11,7 @@ / {
+ };
  
+ &bat {
+-	maxim,rsns-microohm = <1667>;
++	shunt-resistor-micro-ohms = <1667>;
+ };
+ 
+ &led_backlight {
 diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-index 1b39514d5c12..90beefaa644f 100644
+index 90beefaa644f..6f6ce14afbdc 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-@@ -1141,7 +1141,7 @@ bat: fuel-gauge@36 {
- 		pinctrl-0 = <&pinctrl_gauge>;
+@@ -1142,7 +1142,7 @@ bat: fuel-gauge@36 {
  		power-supplies = <&bq25895>;
  		maxim,over-heat-temp = <700>;
--		maxim,over-volt = <4500>;
-+		maxim,over-volt = <4500000>;
- 		maxim,rsns-microohm = <5000>;
+ 		maxim,over-volt = <4500000>;
+-		maxim,rsns-microohm = <5000>;
++		shunt-resistor-micro-ohms = <5000>;
  	};
  
+ 	bq25895: charger@6a {
 diff --git a/arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts b/arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts
-index 8380451ebbf6..a02ece82ff5b 100644
+index a02ece82ff5b..f5d636db33c8 100644
 --- a/arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts
 +++ b/arch/arm64/boot/dts/qcom/msm8916-motorola-harpia.dts
-@@ -25,8 +25,8 @@ battery@36 {
- 		maxim,rsns-microohm = <10000>;
+@@ -22,7 +22,7 @@ battery@36 {
+ 		pinctrl-0 = <&battery_alert_default>;
+ 		pinctrl-names = "default";
+ 
+-		maxim,rsns-microohm = <10000>;
++		shunt-resistor-micro-ohms = <10000>;
  		maxim,over-heat-temp = <600>;
  		maxim,cold-temp = <(-200)>;
--		maxim,dead-volt = <3200>;
--		maxim,over-volt = <4500>;
-+		maxim,dead-volt = <3200000>;
-+		maxim,over-volt = <4500000>;
- 	};
- 
- 	/* charger@6b */
+ 		maxim,dead-volt = <3200000>;
 diff --git a/arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts b/arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts
-index ec5589fc69bd..f567b7ffb613 100644
+index f567b7ffb613..35343b1fd737 100644
 --- a/arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts
 +++ b/arch/arm64/boot/dts/qcom/msm8916-motorola-osprey.dts
-@@ -36,8 +36,8 @@ battery@36 {
- 		maxim,rsns-microohm = <10000>;
+@@ -33,7 +33,7 @@ battery@36 {
+ 		pinctrl-0 = <&battery_alert_default>;
+ 		pinctrl-names = "default";
+ 
+-		maxim,rsns-microohm = <10000>;
++		shunt-resistor-micro-ohms = <10000>;
  		maxim,over-heat-temp = <600>;
  		maxim,cold-temp = <(-200)>;
--		maxim,dead-volt = <3200>;
--		maxim,over-volt = <4500>;
-+		maxim,dead-volt = <3200000>;
-+		maxim,over-volt = <4500000>;
- 
- 	};
- };
+ 		maxim,dead-volt = <3200000>;
 diff --git a/arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts b/arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts
-index eecf78ba45bb..45ddd17243e7 100644
+index 45ddd17243e7..855f8a554a9b 100644
 --- a/arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts
 +++ b/arch/arm64/boot/dts/qcom/msm8916-motorola-surnia.dts
-@@ -25,8 +25,8 @@ battery@36 {
- 		maxim,rsns-microohm = <10000>;
+@@ -22,7 +22,7 @@ battery@36 {
+ 		pinctrl-0 = <&battery_alert_default>;
+ 		pinctrl-names = "default";
+ 
+-		maxim,rsns-microohm = <10000>;
++		shunt-resistor-micro-ohms = <10000>;
  		maxim,over-heat-temp = <600>;
  		maxim,cold-temp = <(-200)>;
--		maxim,dead-volt = <3200>;
--		maxim,over-volt = <4500>;
-+		maxim,dead-volt = <3200000>;
-+		maxim,over-volt = <4500000>;
- 
- 	};
- };
+ 		maxim,dead-volt = <3200000>;
 diff --git a/arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi b/arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi
-index fbd2caf405d5..2c387c8b6344 100644
+index 2c387c8b6344..0ab64154dc77 100644
 --- a/arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi
 +++ b/arch/arm64/boot/dts/qcom/msm8916-samsung-gt5-common.dtsi
-@@ -105,7 +105,7 @@ fuelgauge@36 {
+@@ -103,7 +103,7 @@ fuelgauge@36 {
+ 		compatible = "maxim,max77849-battery";
+ 		reg = <0x36>;
  
- 		maxim,rsns-microohm = <10000>;
+-		maxim,rsns-microohm = <10000>;
++		shunt-resistor-micro-ohms = <10000>;
  		maxim,over-heat-temp = <600>;
--		maxim,over-volt = <4400>;
-+		maxim,over-volt = <4400000>;
+ 		maxim,over-volt = <4400000>;
  
- 		interrupt-parent = <&tlmm>;
- 		interrupts = <121 IRQ_TYPE_EDGE_FALLING>;
 diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
-index f3d89d4d5c42..ea212cb10360 100644
+index ea212cb10360..497cb6f14bd9 100644
 --- a/drivers/power/supply/max17042_battery.c
 +++ b/drivers/power/supply/max17042_battery.c
-@@ -182,8 +182,6 @@ static int max17042_get_battery_health(struct max17042_chip *chip, int *health)
- 
- 	/* bits [0-3] unused */
- 	vavg = val * 625 / 8;
--	/* Convert to millivolts */
--	vavg /= 1000;
- 
- 	ret = regmap_read(chip->regmap, MAX17042_VCELL, &val);
- 	if (ret < 0)
-@@ -191,8 +189,6 @@ static int max17042_get_battery_health(struct max17042_chip *chip, int *health)
- 
- 	/* bits [0-3] unused */
- 	vbatt = val * 625 / 8;
--	/* Convert to millivolts */
--	vbatt /= 1000;
- 
- 	if (vavg < chip->pdata->vmin) {
- 		*health = POWER_SUPPLY_HEALTH_DEAD;
+@@ -916,7 +916,7 @@ max17042_get_of_pdata(struct max17042_chip *chip)
+ 	 * Require current sense resistor value to be specified for
+ 	 * current-sense functionality to be enabled at all.
+ 	 */
+-	if (of_property_read_u32(np, "maxim,rsns-microohm", &prop) == 0) {
++	if (of_property_read_u32(np, "shunt-resistor-micro-ohms", &prop) == 0) {
+ 		pdata->r_sns = prop;
+ 		pdata->enable_current_sense = true;
+ 	}
 
 -- 
 2.39.2
