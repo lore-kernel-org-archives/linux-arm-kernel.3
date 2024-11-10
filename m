@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DD0D12D49
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 16:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AB7D12D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 16:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+y2QMykRjhaG+PDz43DPVOX9kNsX0ZYGqEKpJPmxSA=; b=U4ckl8I5yo9QvzCLD0Dnej0rfl
-	1jPpfyWUXgRBmZZhn7Dojf6RPaPBv3L8v8jS+iXfWkAQQ9uBv3GjVabGqd4S2hDa2j4FRTNWkj/7X
-	2pY3QumN4E4t5+0FCBtvglqd4cMD9n0Rg9KiG0U0oKhxppj1mIhmzcJS7mcwaH3qMgyu2e+eszeP+
-	OD6proHgD36vB/LOxjwruFBeF0QoKPCGnW7xnbwzKgO3e61RZvgJhm1uKbuHkFaUzF7Hn3GboYvzh
-	DHliwvZJl4ZFSNCyaLfy+hzaZWIRIPXw5vPN3Ger1Lfao6J5690bE0+dgx0isqojpsPhqpsei+tYC
-	GxjW4Y0Q==;
+	bh=7C5Ar38WMq/RbelGlWDfzZSm/6sfWPH6vqSE9R5cSns=; b=zVedVu+mByX2Ce1XRDYgcbdV1y
+	qv/yLEM0gquJP4sZGDvih0HZhJhNPOkDBekWDRsm9SjedKbtC/OfwG8pWdROMBFhQaNUOCetQEsSZ
+	vAoXmG1zWwTGIXOxjb8/dsdswbyjM6Yj2d64SkRzT6qOiG+ddAAysb8d0EJ26vWjuAFdaY6Z/LhLD
+	YtCoMtHsr92HF7TZI5pvCzwzEQACdjoSyNQn4Hcz+/yREbY4Jg0nj+xRpLPj/tkMzn4dMveE0UVD+
+	7SiGQwXMMhoZhlI/RYwpNUp468/0ukni3nS6utbgM8nxcmVE6+MDcpysZ9lIqvNbRZCR5LLOgbJwC
+	R3fATakQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAB0D-0000000FFIn-1NbD;
-	Sun, 10 Nov 2024 16:41:29 +0000
-Received: from violet.fr.zoreil.com ([2001:4b98:dc0:41:216:3eff:fe56:8398])
+	id 1tAB7d-0000000FFzO-1rxO;
+	Sun, 10 Nov 2024 16:49:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAAyO-0000000FF7n-0FWR
+	id 1tAB5p-0000000FFm5-3cXz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 16:39:40 +0000
-Received: from violet.fr.zoreil.com ([127.0.0.1])
-	by violet.fr.zoreil.com (8.17.1/8.17.1) with ESMTP id 4AAGbouY3930604;
-	Sun, 10 Nov 2024 17:37:50 +0100
-DKIM-Filter: OpenDKIM Filter v2.11.0 violet.fr.zoreil.com 4AAGbouY3930604
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fr.zoreil.com;
-	s=v20220413; t=1731256670;
-	bh=5+y2QMykRjhaG+PDz43DPVOX9kNsX0ZYGqEKpJPmxSA=;
+	Sun, 10 Nov 2024 16:47:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 738A05C5842;
+	Sun, 10 Nov 2024 16:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3878C4CECD;
+	Sun, 10 Nov 2024 16:47:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731257236;
+	bh=VGC2pIhZ+IDQ2o0aJN8sRl69nsKEozNmQTG3IEvbxKU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FFkxxDRaq1CSSsHRAAocoXu+u98Fyc5BN4GR4nHWXkWF9G4P4eEIgMKVy9d4t4ZBx
-	 67hd1nY0BOtuujJ85otrSRji5KektIdUuvhwvsToPqe4Q8utQnGKfPgxcaEBz42GxQ
-	 aqLq3/kra2W7ijiY9fEnrh/5yk7KY5bQZ8QjDUt0=
-Received: (from romieu@localhost)
-	by violet.fr.zoreil.com (8.17.1/8.17.1/Submit) id 4AAGblIR3930603;
-	Sun, 10 Nov 2024 17:37:47 +0100
-Date: Sun, 10 Nov 2024 17:37:47 +0100
-From: Francois Romieu <romieu@fr.zoreil.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Marc Kleine-Budde <mkl@pengutronix.de>,
-        Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Pantelis Antoniou <pantelis.antoniou@gmail.com>,
-        Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-        Byungho An <bh74.an@samsung.com>,
-        Kevin Brace <kevinbrace@bracecomputerlab.com>,
-        Michal Simek <michal.simek@amd.com>,
-        Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>, Zhao Qiang <qiang.zhao@nxp.com>,
-        "open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>,
-        open list <linux-kernel@vger.kernel.org>,
-        "moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-        "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-        "open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCH net-next] net: use pdev instead of OF funcs
-Message-ID: <20241110163747.GA3930570@electric-eye.fr.zoreil.com>
-References: <20241109233821.8619-1-rosenp@gmail.com>
+	b=OrR+nUkJ3bVOgtiK8F1MkijjiLACCSt+qLcmc6zPGxUQtm1LEJUun/AWRwTNsF8rW
+	 A5uzZkGA3DKEANdXaWyq1dDgh3xgTXY5f5KjOsER55oVzsawGw0GgYQIjFsALsrAxP
+	 HNTmUchhgJvz64QjzxxgKqW6xHOzE3EwOvzQthgLDWr1mBNsprio1NrrgkzL6hc8ZZ
+	 3934oyHXrgar6FUUbFWCzHLuyR+tosfhLaCIBl5cw8AZMQv7hmZbi3EfifiggpsqbR
+	 Zr57jui04VqejufQbkRuCRGC3+53hYViEtgQt7lvL7xtCHC7lgYdOWdIX/P9eTI392
+	 bJF+yjnRIkY1w==
+Date: Sun, 10 Nov 2024 10:47:13 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Bjorn Andersson <quic_bjorande@quicinc.com>
+Subject: Re: [PATCH v2] arm64: Allow packing uncompressed images into distro
+ packages
+Message-ID: <el65ezf4w2rj67afgvspn3ehyatvbc7jllkcpfc23mfeo6fsni@4t5vytmetz2p>
+References: <20240910-uncompressed-distro-packages-v2-1-51538434787f@quicinc.com>
+ <86wmi83sl5.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241109233821.8619-1-rosenp@gmail.com>
-X-Organisation: Land of Sunshine Inc.
+In-Reply-To: <86wmi83sl5.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_083939_098773_0D2953B3 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20241110_084717_970477_3F460872 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +75,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rosen Penev <rosenp@gmail.com> :
-> np here is ofdev->dev.of_node. Better to use the proper functions as
-> there's no use of children or anything else.
+On Wed, Oct 16, 2024 at 05:44:54PM +0100, Marc Zyngier wrote:
+> Hi Bjorn,
 > 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
-[...]
-> diff --git a/drivers/net/ethernet/via/via-rhine.c b/drivers/net/ethernet/via/via-rhine.c
-> index 894911f3d560..f079242c33e2 100644
-> --- a/drivers/net/ethernet/via/via-rhine.c
-> +++ b/drivers/net/ethernet/via/via-rhine.c
-> @@ -1127,7 +1127,7 @@ static int rhine_init_one_platform(struct platform_device *pdev)
->  	if (IS_ERR(ioaddr))
->  		return PTR_ERR(ioaddr);
->  
-> -	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
-> +	irq = platform_get_irq(pdev, 0);
->  	if (!irq)
->  		return -EINVAL;
->  
-> diff --git a/drivers/net/ethernet/via/via-velocity.c b/drivers/net/ethernet/via/via-velocity.c
-> index dd4a07c97eee..4aac9599c14d 100644
-> --- a/drivers/net/ethernet/via/via-velocity.c
-> +++ b/drivers/net/ethernet/via/via-velocity.c
-> @@ -2950,7 +2950,7 @@ static int velocity_platform_probe(struct platform_device *pdev)
->  	if (!info)
->  		return -EINVAL;
->  
-> -	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
-> +	irq = platform_get_irq(pdev, 0);
->  	if (!irq)
->  		return -EINVAL;
->  
+> On Wed, 11 Sep 2024 03:53:16 +0100,
+> Bjorn Andersson <andersson@kernel.org> wrote:
+> > 
+> > From: Bjorn Andersson <quic_bjorande@quicinc.com>
+> > 
+> > The distro packages (deb-pkg, pacman-pkg, rpm-pkg) are generated using
+> > the compressed kernel image, which means that the kernel once installed
+> > can not be booted with systemd-boot.
+> 
+> Are you sure? I just installed a guest with systemd-boot
+> (252.30-1~deb12u, as shipped in Debian), and it is perfectly able to
+> boot a compressed kernel.
+> 
 
-The change makes sense. However neither the description nor the commit message
-really match here.
+Sorry for the late response, to verify I did "make defconfig bindeb-pkg"
+and crafted a disk image using mkosi. It contains:
 
--- 
-Ueimor
+# apt info systemd-boot
+Package: systemd-boot
+Version: 257~rc1-4
+
+It fails to load my the compressed image:
+../src/boot/efi/boot.c:2557@image_start: Error loading \debian\6.12.0-rc6-next-20241108-00003-ga216563e3174-dirty\vmlinuz: Unsupported
+
+Which is expected per per this discussion:
+https://github.com/systemd/systemd/issues/23788
+
+> > 
+> > This differs from the packages generated by the distros themselves,
+> > which uses the uncompressed image.
+> > 
+> > Use the newly introduced CONFIG_COMPRESSED_INSTALL option to allow
+> > selection of which version of the kernel image should be packaged into
+> > the distro packages.
+> 
+> I'm normally building kernels as Debian packages, without any of
+> CONFIG_EFI_ZBOOT or CONFIG_COMPRESSED_INSTALL.
+> 
+
+My goal is to make "make defconfig bindeb-pkg" (and the other -pkg
+targets) boot out of the box in a "standard system".
+
+> As a result, the installed kernel image of a Debian package shoots up
+> from ~8M to an impressive 25M, since we're not picking the compressed
+> image anymore. Storage may be cheap, but still.
+> 
+
+No argument about this.
+
+> I really don't think CONFIG_COMPRESSED_INSTALL should change the
+> existing behaviours, and a new option would be better suited to enable
+> this new setup if deemed necessary.
+> 
+
+My main concern is that the "make *-pkg" targets create packages with
+the compressed image, while at least Arch Linux Arm, Debian, and Fedora
+are packaging uncompressed images in their official packages.
+
+Regards,
+Bjorn
+
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
