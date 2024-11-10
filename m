@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8B8D5E38F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 09:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A04BD5E380
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 09:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0wtpfkEmN9TnpSt9kWyIfHjD/NJzBYrneyOwbFIleHc=; b=R727f4ok5vIjG/
-	9gnWLRl2lrSqbmfmTT2Mvo/EzRq/hsyA7TsitubzM7cBHEXHSN3t47mGM228UrCIcV3/1qtnnnyML
-	smFYnrKxPqLwjaDqKviuOui/+t6zpSTR7tMbKEuJO5kl0Z+vVl9fIYQWognKh7hqt7Qv+KWB2lbfk
-	u9R1DGNBfvoGE+4jJMu+rrFFtC63ZTcIu6+0i/T+6Vjf7wcUMv15q51gTUOHxLs8Y15bWCZTvYnbf
-	BNxHyJlzkOqC2cMe4RqPdCyIxrTKJE0TTQbHS6MeMe8MTiRtSw74EfRXliiuSCWmENRcGb8KKrYXm
-	L7me35zUyxJbEoZ7CpFQ==;
+	List-Owner; bh=ODiLHG2Ffc5cmNLj+uQw6bBYYjn+EFVvea+2eMhlgco=; b=xOxjhksqUknHTP
+	06MX5X3JsVUthf1P4xoQPn7pRLJVLVHcbKixHVbE/8TahDSksY4NP85UmXmeylcUbtZUR55prFewC
+	uNMmUpAIY1JHrl4TOcxtzNyaAp3WYboChrxkP+iKZVBooO2T2vWZzDt7BPYJlUkU1nFB1RUgZnRDg
+	X0X4uaSgSwCXfC7E0MGgwdv0laHiQ1ovhvhHTG2DbS0tJobwE5XPUqYRTXvSmBNHxXzonB4r444MG
+	nB0aEHPzFjkQa/o15L+gw+yGCUMvYYMzeF7L87bp+1Yl2Yj186rzWdTPQPEUrdttSyEvI0lhRY1Uo
+	j/H5blJIhXMK/1zgc9Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA3th-0000000Eatz-2Zdu;
-	Sun, 10 Nov 2024 09:06:17 +0000
-Received: from mail-lf1-f47.google.com ([209.85.167.47])
+	id 1tA4E3-0000000EcVQ-1kzw;
+	Sun, 10 Nov 2024 09:27:19 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA3rv-0000000EaTU-0wxi
+	id 1tA4CG-0000000EcJW-1jAE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 09:04:29 +0000
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-53c779ef19cso4262577e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 01:04:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731229463; x=1731834263;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0wtpfkEmN9TnpSt9kWyIfHjD/NJzBYrneyOwbFIleHc=;
-        b=XfgMZiqHXeKPOISbmtTrT9uuladoS4PlWjc8FsYaYRlj/bPCIUrw4sYXv4G451RbVg
-         LK5705KVryGI/eCDmnlm6t737DhXVdE6sikI0gYi/xkoBiT7pILMq9UjBTJz7Bp6oGCk
-         s6ZyvNYbJPgeyDfruzRMxQW0OeQ5lHwzWx212XwoqOKC+G3wu5sCvH+jqZwEeR6Xvc0P
-         rR8r3esMS56JaoZNSQ1FHWxnFpDrOoyRocm6E6/X6DhrJ+m3GfjnZPVaDhnn3DcRGLTB
-         iwKwDWmBhZ82Qbqd/0hn4fEp4/MJEtnOvYElh82azuntlum8qF3/y/oVCM9lw9cs8D5V
-         XwgA==
-X-Forwarded-Encrypted: i=1; AJvYcCUb3PsNR1gYX8F1nH0txbdoFigC9y6WSz+NHN9cy5JGee6z11FF7JMzoOGnMeob8chNGoTEtZS5eNJeDkV1jmzQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSEMonO5DXYj0H518LDBP42nX9ub2DsnnECLX4WxCSBPOnSNXN
-	ugu9m5nFfSivSeJowyaQVrrT+xUQ4OiAJ5c7c7SnO5zXxIVaFj7nOmA6f1pZ
-X-Google-Smtp-Source: AGHT+IHASzXabTMdKPTV2B16gZnN7/xXmmtXhQmBAkcltRO2NRblttnLNa0Hwo4GoJeBhdugzVPwuA==
-X-Received: by 2002:a05:651c:881:b0:2fb:628c:2580 with SMTP id 38308e7fff4ca-2ff201e6d03mr44713701fa.2.1731229462542;
-        Sun, 10 Nov 2024 01:04:22 -0800 (PST)
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com. [209.85.208.171])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff17902152sm12522281fa.57.2024.11.10.01.04.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 10 Nov 2024 01:04:21 -0800 (PST)
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-2fb5111747cso29510751fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 01:04:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWuFtasVsmoiI4+4vqpgxRAdrIwrH6h4m8sIfvNix6CUOvKFiTYP2GLNGKqMHfxDVtZ5uCMCkKHfqF0Tvg6rNDN@lists.infradead.org
-X-Received: by 2002:a2e:a552:0:b0:2f7:58bc:f497 with SMTP id
- 38308e7fff4ca-2ff202e1810mr39484121fa.28.1731229460191; Sun, 10 Nov 2024
- 01:04:20 -0800 (PST)
+	Sun, 10 Nov 2024 09:25:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1731230715; x=1731835515; i=frank-w@public-files.de;
+	bh=ODiLHG2Ffc5cmNLj+uQw6bBYYjn+EFVvea+2eMhlgco=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=jSoSj08aH6c/G2nMMCpmA4VNk9L6/tGDjjuv1K/+evYySUMrcK95HHIMifrgsdDl
+	 7oLbJx7klxRd0wj8sCe/WLg90rOPI1p89/By69OmMP8RceklGb/eGTxDcD1Oqhba8
+	 WZwF7eYxn2EIIEZhRChmlnCCYT/ztsI/yNnKsKDwXhTBrZJ6CvWmVFMammSpjJePk
+	 pS+1DFS/LwLyPdJDtJ6mhYCFO3tuK5uj4f/qs+fimR9Thea6ovxsEIE/uiHk92f4/
+	 8Sg3oTh3uheil5EcUu6uqEUDgANFaJVAIWTR7cOylm42+5GjjdiEswpyjk7L2sGCa
+	 5RtrBlS3RRpAeYNTzA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([217.61.152.71]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M1Hdq-1tCo0v2Sdu-00GIb9; Sun, 10
+ Nov 2024 10:25:15 +0100
+Date: Sun, 10 Nov 2024 10:25:13 +0100
+From: Frank Wunderlich <frank-w@public-files.de>
+To: Andrew Lunn <andrew@lunn.ch>, Frank Wunderlich <linux@fw-web.de>
+CC: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
+ Jens Axboe <axboe@kernel.dk>, linux-ide@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional failed
+User-Agent: K-9 Mail for Android
+In-Reply-To: <e534c723-6d65-433f-8ab5-1c0d424d7367@lunn.ch>
+References: <20241109094623.37518-1-linux@fw-web.de> <20241109094623.37518-2-linux@fw-web.de> <e534c723-6d65-433f-8ab5-1c0d424d7367@lunn.ch>
+Message-ID: <9B1A5D20-3DE5-40C1-8B2D-B1C4F53FA5F4@public-files.de>
 MIME-Version: 1.0
-References: <20241107014240.24669-1-andre.przywara@arm.com>
-In-Reply-To: <20241107014240.24669-1-andre.przywara@arm.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Sun, 10 Nov 2024 17:04:08 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64HUp4Xwgc3fw1fMVTBQFV2kHSVbs7=XBufzJpQ9hkuzg@mail.gmail.com>
-Message-ID: <CAGb2v64HUp4Xwgc3fw1fMVTBQFV2kHSVbs7=XBufzJpQ9hkuzg@mail.gmail.com>
-Subject: Re: [PATCH] mmc: sunxi-mmc: Fix A100 compatible description
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	Yangtao Li <tiny.windzz@gmail.com>, Cody Eksal <masterr3c0rd@epochal.quest>, 
-	Parthiban <parthiban@linumiz.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:maTSukvmMra9qVKvHkk79WQlRTYa0IZQRVTxBhre9SYrZ/pYGoA
+ r16LNgxS3BAgLczXLgdXcJZ5CueuvVkMLMUl3RrTNuT9G3Pq9APO5LNt/oiW31lCHPgyqvf
+ vX1FO7mYRP6ILBNbwSNKRYMnxVSNBpV4mjcD+SqyWDmocMGWPFnZ3do4wgVus8xHCF3878t
+ L2w1h8sFZeTMzaWwkVRcQ==
+UI-OutboundReport: notjunk:1;M01:P0:iV2Z3Z0ITEs=;c7adgpma3OaHJNJrenNxn9fHEun
+ EmVbBaVYsLHkLqwLL/mhit20Vy0Fego5GuDZmMXuY1980qL5C1+aTBC5pHPXCzHvkNDfiqLxi
+ UQCUkVlGpfbLxFhBLnO2ii8+OCacYRrIMyB4rB085cZiLnnUrc/WE8Y+IZXL+RFbMlr8c57rE
+ gObYmEBtKIbnf/3gDUQb3hAExsDN0asnZ8qZUs/4UD+oNtpFlTKPs4SjCUQhnPeRTMo35wYrn
+ cqy/k89qcGAMbeb/JsU76T+lNKQUYgI3HlEjWChbmHYPyWHmovmQ4qXyNQineqGy3WLbRazAl
+ kzKvktjRhhFrGx+R+3olIC8k8OrK9sKIv4iQCFZfmWlWz/6Oig+hMW+/TAYxpcTAkxwnSu3xE
+ NFr+G+xYNiMVyacURCCttgXogQblKigQ/DDz24Im6lCPmxYBNN40oSxDUCJL/lbNMUCOSQVhF
+ n+AJ1xhdVQ+2j3EATfmULHPryDQeyVXCxTrSo1DqXBbtE+fRWPqkaiaVnj0DP77tZegpHijJw
+ 7040z/5tYHMsGUcbV8+cib1P9y2k3Z+WxVG0KubuMdZWV8cCitDT+mxQ2Ss99TTbixlufYyyc
+ v9AWtO2lUn358IaZJHRlkUXan0xiWDOnhIJIpUg5lTg2hJE9goIxZnPavd4CX+8L+kgJ1egZZ
+ bZnG1GF9xgdjtxitfaPeoD8WhLHCJ5fhjZ2aIhMMAonfRM1nDBeFEHG/+WLsuTbS4IjYTMjYC
+ Cp1RgKTwLe7oNmpHIEoDvgGpP+3pjMBebwSZigU48enkeRETf/oQChhCjDOHhern3AexjqLmQ
+ 0qGJ7/UAeSoWDxII3E1T/IXg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_010427_290356_A7F2E3EC 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20241110_012528_852985_B36C7932 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,74 +97,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 7, 2024 at 9:43=E2=80=AFAM Andre Przywara <andre.przywara@arm.c=
-om> wrote:
+Am 9=2E November 2024 18:29:44 MEZ schrieb Andrew Lunn <andrew@lunn=2Ech>:
+>On Sat, Nov 09, 2024 at 10:46:19AM +0100, Frank Wunderlich wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> after converting the ahci-platform binding to yaml the following files
+>> reporting "'anyOf' conditional failed" on
+>>=20
+>> sata@540000: sata-port@0
+>> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-db=2Edts b/arch/ar=
+m64/boot/dts/marvell/armada-7040-db=2Edts
+>> index 1e0ab35cc686=2E=2E2b5e45d2c5a6 100644
+>> --- a/arch/arm64/boot/dts/marvell/armada-7040-db=2Edts
+>> +++ b/arch/arm64/boot/dts/marvell/armada-7040-db=2Edts
+>> @@ -214,6 +214,7 @@ &cp0_sata0 {
+>> =20
+>>  	sata-port@1 {
+>>  		phys =3D <&cp0_comphy3 1>;
+>> +		status =3D "okay";
+>>  	};
+>>  };
 >
-> It turns out that the Allwinner A100/A133 SoC only supports 8K DMA
-> blocks (13 bits wide), for both the SD/SDIO and eMMC instances.
-> And while this alone would make a trivial fix, the H616 falls back to
-> the A100 compatible string, so we have to now match the H616 compatible
-> string explicitly against the description advertising 64K DMA blocks.
+>> =20
+>> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin=2Edts b/a=
+rch/arm64/boot/dts/marvell/armada-7040-mochabin=2Edts
+>> index 7af949092b91=2E=2E6bdc4f1e6939 100644
+>> --- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin=2Edts
+>> +++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin=2Edts
+>> @@ -433,11 +433,13 @@ &cp0_sata0 {
+>>  	/* 7 + 12 SATA connector (J24) */
+>>  	sata-port@0 {
+>>  		phys =3D <&cp0_comphy2 0>;
+>> +		status =3D "okay";
+>>  	};
+>> =20
+>>  	/* M=2E2-2250 B-key (J39) */
+>>  	sata-port@1 {
+>>  		phys =3D <&cp0_comphy3 1>;
+>> +		status =3D "okay";
+>>  	};
+>>  };
+>> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x=2Edtsi b/arch/arm=
+64/boot/dts/marvell/armada-cp11x=2Edtsi
+>> index 7e595ac80043=2E=2E161beec0b6b0 100644
+>> --- a/arch/arm64/boot/dts/marvell/armada-cp11x=2Edtsi
+>> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x=2Edtsi
+>> @@ -347,10 +347,12 @@ CP11X_LABEL(sata0): sata@540000 {
+>> =20
+>>  			sata-port@0 {
+>>  				reg =3D <0>;
+>> +				status =3D "disabled";
+>>  			};
+>
+>I don't know the yaml too well, but it is not obvious how adding a few=20
+>status =3D "disabled"; status =3D "okay"; fixes a "'anyOf' conditional fa=
+iled"=2E
+>
+>Maybe you can expand the explanation a bit?
+>
+>	Andrew
 
-Would be nice to know how this was discovered, and how the correct size
-was determined. As far as I could find, the A133 user manual says its
-64K.
+Hi angelo,
 
-ChenYu
+I guess the dtbs_check only checks required properties from yaml if the no=
+de is enabled=2E
 
-> As the A100 is now compatible with the D1 description, let the A100
-> compatible string point to that block instead, and introduce an explicit
-> match against the H616 string, pointing to the old description.
-> Also remove the redundant setting of clk_delays to NULL on the way.
->
-> Fixes: 3536b82e5853 ("mmc: sunxi: add support for A100 mmc controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/mmc/host/sunxi-mmc.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
-> index d3bd0ac99ec46..e0ab5fd635e6c 100644
-> --- a/drivers/mmc/host/sunxi-mmc.c
-> +++ b/drivers/mmc/host/sunxi-mmc.c
-> @@ -1191,10 +1191,9 @@ static const struct sunxi_mmc_cfg sun50i_a64_emmc_=
-cfg =3D {
->         .needs_new_timings =3D true,
->  };
->
-> -static const struct sunxi_mmc_cfg sun50i_a100_cfg =3D {
-> +static const struct sunxi_mmc_cfg sun50i_h616_cfg =3D {
->         .idma_des_size_bits =3D 16,
->         .idma_des_shift =3D 2,
-> -       .clk_delays =3D NULL,
->         .can_calibrate =3D true,
->         .mask_data0 =3D true,
->         .needs_new_timings =3D true,
-> @@ -1217,8 +1216,9 @@ static const struct of_device_id sunxi_mmc_of_match=
-[] =3D {
->         { .compatible =3D "allwinner,sun20i-d1-mmc", .data =3D &sun20i_d1=
-_cfg },
->         { .compatible =3D "allwinner,sun50i-a64-mmc", .data =3D &sun50i_a=
-64_cfg },
->         { .compatible =3D "allwinner,sun50i-a64-emmc", .data =3D &sun50i_=
-a64_emmc_cfg },
-> -       { .compatible =3D "allwinner,sun50i-a100-mmc", .data =3D &sun50i_=
-a100_cfg },
-> +       { .compatible =3D "allwinner,sun50i-a100-mmc", .data =3D &sun20i_=
-d1_cfg },
->         { .compatible =3D "allwinner,sun50i-a100-emmc", .data =3D &sun50i=
-_a100_emmc_cfg },
-> +       { .compatible =3D "allwinner,sun50i-h616-mmc", .data =3D &sun50i_=
-h616_cfg },
->         { /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, sunxi_mmc_of_match);
-> --
-> 2.46.2
->
+As you know, phys that can supply different types (sata,usb,pcie,*gmii,=2E=
+=2E=2E),but only one mode can be used per phy=2E So only one controller can=
+ be used with it,the other(s) can not=2E I do not know marvell,but there ar=
+e similar in mediatek (xsphy) and rockchip (combphy)=2E
+
+From=20my PoV it makes sense to check only enabled nodes for required proper=
+ties,but i do not know internals of dtbs_check=2E This patch is 2 years old=
+ and i only rebased it and run dtbs check with the others to have a clean r=
+esult=2E=2E=2Ei can test again without this one to check if anyOf is shown =
+again=2E
+
+regards Frank
 
