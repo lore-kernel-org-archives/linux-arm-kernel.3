@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784FED12D48
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 16:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DD0D12D49
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 16:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1+noFxxILdhA4F27UwKO+s1L0xupNVYRgTXkH4alXM=; b=LsVU51EKl/x1umlaZZSZ/Zu88u
-	B76Se0e/UM8RL47ev3bzPptEv4LLWVNUXNJAhH/isuqLgcluf3DgZO0xqL+1jL+tM4UVUhssSNtaw
-	De+MmRKxq6hVL86JWP0KyM7WZ5L75IdAFidIlYqg/kNZI3XajD3mBkWjshc5Ax0qr2Da6HnJ52WUk
-	cKeNYweNxUZCpgJGM1PxpmTo63xOS7gW+/uRWVjDYQdq3kTaH8bWdhN8M17sG/qgWtvlRzTmqXsB3
-	wWsZNW0/Bk0FPjhOooR0Wy5jjQeQWH0McMsEUb+Req0yR7AdaeCcsxBlBeH/EK7f4jPLViW2VnhN5
-	tCAWmJ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5+y2QMykRjhaG+PDz43DPVOX9kNsX0ZYGqEKpJPmxSA=; b=U4ckl8I5yo9QvzCLD0Dnej0rfl
+	1jPpfyWUXgRBmZZhn7Dojf6RPaPBv3L8v8jS+iXfWkAQQ9uBv3GjVabGqd4S2hDa2j4FRTNWkj/7X
+	2pY3QumN4E4t5+0FCBtvglqd4cMD9n0Rg9KiG0U0oKhxppj1mIhmzcJS7mcwaH3qMgyu2e+eszeP+
+	OD6proHgD36vB/LOxjwruFBeF0QoKPCGnW7xnbwzKgO3e61RZvgJhm1uKbuHkFaUzF7Hn3GboYvzh
+	DHliwvZJl4ZFSNCyaLfy+hzaZWIRIPXw5vPN3Ger1Lfao6J5690bE0+dgx0isqojpsPhqpsei+tYC
+	GxjW4Y0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAAVw-0000000FCoi-3XRQ;
-	Sun, 10 Nov 2024 16:10:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tAB0D-0000000FFIn-1NbD;
+	Sun, 10 Nov 2024 16:41:29 +0000
+Received: from violet.fr.zoreil.com ([2001:4b98:dc0:41:216:3eff:fe56:8398])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAAUA-0000000FCeJ-1dR3;
-	Sun, 10 Nov 2024 16:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65B5B5C57AC;
-	Sun, 10 Nov 2024 16:07:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538ADC4CECD;
-	Sun, 10 Nov 2024 16:08:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731254900;
-	bh=JBXIFanmQXeLs3qZ6yNho/Yd2mSxSWulQTXSJ8lku+M=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=OYgrwdeiIbXgYq4lpWU8ck843JRk9VLM45YTC7B+syAZuDHLWzeSXy8jy54D0SXY1
-	 2aoJMvK+L+f5iVh4sLEOi/bRCiVORQoDSM6NNekqjJBEvfHI1of6mQNEn3EgNn8L85
-	 AfRb3ISkyebM37b/j7yo8ZRhkfbedxURnqeUrBKP6D/Vup9fGQ+A8jHwvx44NRBxtS
-	 S0n0DuUj8R9FDw3hURr7PPOKFctKxhTFKHPToz8KuH2tQmek/1WYWFl60NFULDOV3h
-	 o59uDdwi/v47HNFGKV2O7MpNY07k/w7XupIoS1OJrg3QHE94bd7+10rD4Iy1j5egAh
-	 4sV5WlXAgbO2A==
-From: Namhyung Kim <namhyung@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Nick Terrell <terrelln@fb.com>, 
- "Masami Hiramatsu (Google)" <mhiramat@kernel.org>, 
- Changbin Du <changbin.du@huawei.com>, Guilherme Amadio <amadio@gentoo.org>, 
- Yang Jihong <yangjihong@bytedance.com>, 
- Aditya Gupta <adityag@linux.ibm.com>, 
- Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
- Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
- Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
- Atish Patra <atishp@rivosinc.com>, 
- Shenlin Liang <liangshenlin@eswincomputing.com>, 
- Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
- "Steinar H. Gunderson" <sesse@google.com>, 
- "Dr. David Alan Gilbert" <linux@treblig.org>, 
- Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
- Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Alexander Lobakin <aleksander.lobakin@intel.com>, 
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Ian Rogers <irogers@google.com>
-In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-References: <20241108234606.429459-1-irogers@google.com>
-Subject: Re: [PATCH v4 00/20] Remove PERF_HAVE_DWARF_REGS
-Message-Id: <173125489927.241089.8450722244768775739.b4-ty@kernel.org>
-Date: Sun, 10 Nov 2024 08:08:19 -0800
+	id 1tAAyO-0000000FF7n-0FWR
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 Nov 2024 16:39:40 +0000
+Received: from violet.fr.zoreil.com ([127.0.0.1])
+	by violet.fr.zoreil.com (8.17.1/8.17.1) with ESMTP id 4AAGbouY3930604;
+	Sun, 10 Nov 2024 17:37:50 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 violet.fr.zoreil.com 4AAGbouY3930604
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fr.zoreil.com;
+	s=v20220413; t=1731256670;
+	bh=5+y2QMykRjhaG+PDz43DPVOX9kNsX0ZYGqEKpJPmxSA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FFkxxDRaq1CSSsHRAAocoXu+u98Fyc5BN4GR4nHWXkWF9G4P4eEIgMKVy9d4t4ZBx
+	 67hd1nY0BOtuujJ85otrSRji5KektIdUuvhwvsToPqe4Q8utQnGKfPgxcaEBz42GxQ
+	 aqLq3/kra2W7ijiY9fEnrh/5yk7KY5bQZ8QjDUt0=
+Received: (from romieu@localhost)
+	by violet.fr.zoreil.com (8.17.1/8.17.1/Submit) id 4AAGblIR3930603;
+	Sun, 10 Nov 2024 17:37:47 +0100
+Date: Sun, 10 Nov 2024 17:37:47 +0100
+From: Francois Romieu <romieu@fr.zoreil.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: netdev@vger.kernel.org, Marc Kleine-Budde <mkl@pengutronix.de>,
+        Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>,
+        Pantelis Antoniou <pantelis.antoniou@gmail.com>,
+        Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+        Byungho An <bh74.an@samsung.com>,
+        Kevin Brace <kevinbrace@bracecomputerlab.com>,
+        Michal Simek <michal.simek@amd.com>,
+        Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>, Zhao Qiang <qiang.zhao@nxp.com>,
+        "open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>,
+        open list <linux-kernel@vger.kernel.org>,
+        "moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
+        "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+        "open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCH net-next] net: use pdev instead of OF funcs
+Message-ID: <20241110163747.GA3930570@electric-eye.fr.zoreil.com>
+References: <20241109233821.8619-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241109233821.8619-1-rosenp@gmail.com>
+X-Organisation: Land of Sunshine Inc.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_080822_509598_32319F0E 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241110_083939_098773_0D2953B3 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,20 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 08 Nov 2024 15:45:45 -0800, Ian Rogers wrote:
-
-> These changes were originally on top of:
-> https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
+Rosen Penev <rosenp@gmail.com> :
+> np here is ofdev->dev.of_node. Better to use the proper functions as
+> there's no use of children or anything else.
 > 
-> Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
-> dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
-> functions:
-> 
-> [...]
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+[...]
+> diff --git a/drivers/net/ethernet/via/via-rhine.c b/drivers/net/ethernet/via/via-rhine.c
+> index 894911f3d560..f079242c33e2 100644
+> --- a/drivers/net/ethernet/via/via-rhine.c
+> +++ b/drivers/net/ethernet/via/via-rhine.c
+> @@ -1127,7 +1127,7 @@ static int rhine_init_one_platform(struct platform_device *pdev)
+>  	if (IS_ERR(ioaddr))
+>  		return PTR_ERR(ioaddr);
+>  
+> -	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
+> +	irq = platform_get_irq(pdev, 0);
+>  	if (!irq)
+>  		return -EINVAL;
+>  
+> diff --git a/drivers/net/ethernet/via/via-velocity.c b/drivers/net/ethernet/via/via-velocity.c
+> index dd4a07c97eee..4aac9599c14d 100644
+> --- a/drivers/net/ethernet/via/via-velocity.c
+> +++ b/drivers/net/ethernet/via/via-velocity.c
+> @@ -2950,7 +2950,7 @@ static int velocity_platform_probe(struct platform_device *pdev)
+>  	if (!info)
+>  		return -EINVAL;
+>  
+> -	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
+> +	irq = platform_get_irq(pdev, 0);
+>  	if (!irq)
+>  		return -EINVAL;
+>  
 
-Applied to perf-tools-next, thanks!
+The change makes sense. However neither the description nor the commit message
+really match here.
 
-Best regards,
-Namhyung
-
+-- 
+Ueimor
 
