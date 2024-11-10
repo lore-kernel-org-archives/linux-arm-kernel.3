@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE96DD5E38D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 13:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EDFD6409B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 13:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TIpKfwdT1+V2/DYFro5omO/AHjLEeNsZo5nVmsz40p0=; b=pDX8IDLQ3c46gR9VxaLF9Kp6f8
-	DcpnTpSd0weu6hnsJYjUsatq7Fhw55OWzrz4i/TGPIGGIHihsktKZsNMTRWG0GjiFuL132P7Nb1to
-	QlK6KoVyX3/r9ldIcktnq5IxkxzQ8sKHJ+X1Ybc8AvTZhXYMqdG69w/ilJRJZ+ZzNyeoTFqOGzD+G
-	qwpIhCPmwjn/xD2Ytj9oLyI8cxmr03mSEbzfLWzeZ6l4Lb5U7KWqgMdLJGReGLdIXsLqcmqZ09yaU
-	khyEfvRXfDi0EWPpWOXzBI6R3L/WfG3SOdPB6vSufN7obugx2oVN4aJ1HXzStbzhOVcd2oVtxLl+4
-	o7LazJKQ==;
+	bh=bnUN6jzOQoxEtEDJxrICw8KMmAOqEgr/Lq82Mf0pU60=; b=flnBXsPcZ0+hrT3TOyuCXhJlkv
+	5b8SG+YcuZSQpNWBugTMH5+OtWV/5WRYF52WLUYM0n0L1K9OJ/sSM3ZUDyfdASnzVZr3h2qiBb+N3
+	gLMB2Iz/RcNeBg1A0V9qM3HAb2WFQ8wC8fIc3empl9cUsn63ZXDL2DbtcVgQeSV4cGRwanWoJgy1W
+	byg3/RoZn7i+BpqYMD6iaz3ql/+0nOEgJfx8MSNvWDhXyirUEpJq7GGgRh0uRp8/yNLwp9/1+SWRf
+	kJN+JUs9hyvZTtYsYt08SUC5+DtbxTr2fkyb66Uvz4LnXWB6Q9Ll34Dx87vLokD2dXZF69mu6+EQE
+	6DaiZIVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA885-0000000EvJl-3jRS;
-	Sun, 10 Nov 2024 13:37:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tA89p-0000000EvVL-0pUK;
+	Sun, 10 Nov 2024 13:39:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA86K-0000000Ev5U-1JBw
+	id 1tA86V-0000000Ev85-2elV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 13:35:37 +0000
+	Sun, 10 Nov 2024 13:35:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C033BA40BA8;
-	Sun, 10 Nov 2024 13:33:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B76D3C4CECD;
-	Sun, 10 Nov 2024 13:35:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5E179A407F1;
+	Sun, 10 Nov 2024 13:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E7FBC4CECD;
+	Sun, 10 Nov 2024 13:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731245731;
-	bh=wAosZbIeN6i75DZ5IsgZbec7MRK0ROPy5XUoDy34nVI=;
+	s=k20201202; t=1731245746;
+	bh=/Jzva/lnUCOfdvqz4t7Og5xoYDHm+1gt3wfXfs0Sr7Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eIO3FtlPwBtQzNX8Fv2NF3KEdJX2RtwjTu39d03m+uljJkRn7OH+k8RZPnmgcFxMq
-	 M1hfjVXujTHfJMX6lffuBSc8ENpI9wWnC8D1P+N2fAl6cIfO5oFJWQf2nFUwflwlmL
-	 /VvhI0PQt2tZFZSh8kZSsoBd5wg4ztRHl8IYNgyS6BeVTkAjQHaVPQaucIJzGtoSP/
-	 mWbEIo81hX6927L4OIw99CG6RUamy+stIDIhQLrIwM1tAM0bN2srXhHy9M6ReiR5m8
-	 wQl6pdNj/YHmNLRs5mWa3Upps1A/nSV1Ib5q4B22FH1jDr7DxiLz6gPRdDumu8JDoI
-	 AO8UytdIltBRA==
-Date: Sun, 10 Nov 2024 13:35:24 +0000
+	b=BgCRP6kreVpFhy+lQT4TBD1fmiDazlrZiRMTe+UBlJ3EpIaiWGjLkSZ+0CjF+1GJF
+	 urnTqcnW3LPRAtnx40v/JVw8DANTMJ8blZO3Empp+4HEheBplcGchYdn0DCTyaWCIw
+	 4BvKwazdIG7KXCtknQ1fmNKAny+pX9mb2Bz/DjA6njntGc5aaNSojuud7aJUTGfugQ
+	 DKcW5YVyWp0H/QJacUBCFnUAoO0ngUoeyeKO/1NIEk0iFzAiGViApAMB9ft2764eyS
+	 NO5+ZiQaYWcB/GF/RIgWT26HJc4xvcZbHWe2cXwzdiR3oGSRmK8MigWkUC9PhtiUu1
+	 E7nR0Rw1OrQgQ==
+Date: Sun, 10 Nov 2024 13:35:40 +0000
 From: Simon Horman <horms@kernel.org>
 To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -55,18 +55,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	lftan.linux@gmail.com
-Subject: Re: [PATCH net-next v3 1/3] net: stmmac: dwmac4: Fix MTL_OP_MODE_RTC
- mask and shift macros
-Message-ID: <20241110133524.GO4507@kernel.org>
+Subject: Re: [PATCH net-next v3 2/3] net: stmmac: dwmac4: Fix the
+ MTL_OP_MODE_*_MASK operation
+Message-ID: <20241110133540.GP4507@kernel.org>
 References: <20241107063637.2122726-1-leyfoon.tan@starfivetech.com>
- <20241107063637.2122726-2-leyfoon.tan@starfivetech.com>
+ <20241107063637.2122726-3-leyfoon.tan@starfivetech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241107063637.2122726-2-leyfoon.tan@starfivetech.com>
+In-Reply-To: <20241107063637.2122726-3-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_053536_437117_C07E434B 
-X-CRM114-Status: UNSURE (   6.82  )
+X-CRM114-CacheID: sfid-20241110_053547_756343_F3E93877 
+X-CRM114-Status: UNSURE (   7.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,9 +82,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 02:36:34PM +0800, Ley Foon Tan wrote:
-> RTC fields are located in bits [1:0]. Correct the _MASK and _SHIFT
-> macros to use the appropriate mask and shift.
+On Thu, Nov 07, 2024 at 02:36:35PM +0800, Ley Foon Tan wrote:
+> In order to mask off the bits, we need to use the '~' operator to invert
+> all the bits of _MASK and clear them.
 > 
 > Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 
