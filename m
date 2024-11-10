@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA6ED12D4F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 19:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F552D12D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 19:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DL2Fl3LKukV+Qyotv88zHkcHQGogxHcynlsAbu1jEk=; b=4wRY2NUDGE6VPzOVT6AbU8IK0Q
-	xIvYsMl58GJilOPhTdwvzy+7YhBObwIy77hfDHPbbmc+rH36AJwdQlT1jtitSjyxvUEMNOLA2VjB7
-	TH9U7pBewJ2kIxiTfpztt31YfTQHdrbXQZiYOZuJAXrBlMsbl0kIgELXSoB+PWmuVNSo2mu2zIR2w
-	JXf01SRnUZ75jLxoECGywEWlfrrPipN9n/78O3s4m2nzNxe7Wn22woo3ZKeiy9bmD7iT5k3ExjgqN
-	RaaDe7xTl5IZYAvFYO1Dwd4RUF7kGHU3I98gL4ZG6XmQErIk6RXy/QdKTc3LhkWHP3XR0O4f1EDPG
-	OdqTH0nA==;
+	bh=ZrTvkqnOkcGxZG1OOP+6H9s6OhWdKw5aw1bGNnugLi8=; b=vQaLJO1dtF+/03ZY9y9sypKZUl
+	ORkRt1JgqVgLW1i+4FC0Zpz7y7wZFEatWT+fQDfEGagDDuUkjkxx7ctt4nkxo7xK+NcVX6i8bIUkG
+	dcfxdHHKlxOSdvFTZOcBG1t0LVYCUChmcZCwHycMt5Vk4fHyuQEmEaiAt/JmnOFPZStk1KH695F8O
+	Y7JaQ1l8G4f2KkFOlixIGu9Nxrxum4lYa73SeKepZDYHvymJ0NpLJAiwThpNctdN3kJzTZo8qJBgg
+	Ys8VgwDiLvqd/M0k3OJRptlOTsghrmc4O4TLhdBBz69IKbl+Ioa+YapNrL6lNZKBkEqxK0N9bKoNY
+	Di/VvSHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tADza-0000000FUQp-2dpM;
-	Sun, 10 Nov 2024 19:53:02 +0000
-Received: from fgw22-7.mail.saunalahti.fi ([62.142.5.83])
+	id 1tAE1J-0000000FUch-1QbS;
+	Sun, 10 Nov 2024 19:54:49 +0000
+Received: from fgw23-7.mail.saunalahti.fi ([62.142.5.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tADxo-0000000FUAC-3IsE
+	id 1tADzC-0000000FUKS-1LGq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 19:51:14 +0000
+	Sun, 10 Nov 2024 19:52:39 +0000
 Received: from localhost (88-113-24-75.elisa-laajakaista.fi [88.113.24.75])
-	by fgw20.mail.saunalahti.fi (Halon) with ESMTP
-	id 1eef05fe-9f9d-11ef-9aff-005056bd6ce9;
-	Sun, 10 Nov 2024 21:51:07 +0200 (EET)
+	by fgw21.mail.saunalahti.fi (Halon) with ESMTP
+	id 5376b6f1-9f9d-11ef-8874-005056bdd08f;
+	Sun, 10 Nov 2024 21:52:33 +0200 (EET)
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sun, 10 Nov 2024 21:51:04 +0200
+Date: Sun, 10 Nov 2024 21:52:32 +0200
 To: Aren <aren@peacevolution.org>
 Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Jonathan Cameron <jic23@kernel.org>,
@@ -49,20 +49,20 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
 	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 2/6] iio: light: stk3310: handle all remove logic with
- devm callbacks
-Message-ID: <ZzEOqC9dAHCRX5a9@surfacebook.localdomain>
+Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
+ possible
+Message-ID: <ZzEPACoblmcQD9yu@surfacebook.localdomain>
 References: <20241102195037.3013934-3-aren@peacevolution.org>
- <20241102195037.3013934-7-aren@peacevolution.org>
- <ZyiGiK6bSd_d0VQ6@smile.fi.intel.com>
- <mlvzaskgxqjfu6yiib2u7m3pczsifsluc4mqnzy6w3xzxblvm6@xrxvvruzftn2>
+ <20241102195037.3013934-11-aren@peacevolution.org>
+ <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
+ <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mlvzaskgxqjfu6yiib2u7m3pczsifsluc4mqnzy6w3xzxblvm6@xrxvvruzftn2>
+In-Reply-To: <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_115113_005394_FB4F9B59 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20241110_115238_534507_27DA8ED8 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sun, Nov 10, 2024 at 01:38:39PM -0500, Aren kirjoitti:
-> On Mon, Nov 04, 2024 at 10:32:08AM +0200, Andy Shevchenko wrote:
-> > On Sat, Nov 02, 2024 at 03:50:37PM -0400, Aren Moynihan wrote:
+Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
+> On Mon, Nov 04, 2024 at 10:40:16AM +0200, Andy Shevchenko wrote:
+> > On Sat, Nov 02, 2024 at 03:50:41PM -0400, Aren Moynihan wrote:
 
 ...
 
-> > > +	ret = devm_add_action_or_reset(&client->dev, stk3310_set_state_disable, data);
+> > >  #define STK3310_REGFIELD(name)						    \
+> > >  	do {								    \
+> > >  		data->reg_##name =					    \
+> > > -			devm_regmap_field_alloc(&client->dev, regmap,	    \
+> > > +			devm_regmap_field_alloc(dev, regmap,		    \
+> > >  				stk3310_reg_field_##name);		    \
+> > > -		if (IS_ERR(data->reg_##name)) {				    \
+> > > -			dev_err(&client->dev, "reg field alloc failed.\n"); \
+> > > -			return PTR_ERR(data->reg_##name);		    \
+> > > -		}							    \
+> > > +		if (IS_ERR(data->reg_##name))				    \
 > > 
-> > Why not simply 'dev' as in below call?
+> > > +			return dev_err_probe(dev,			    \
+> > > +				PTR_ERR(data->reg_##name),		    \
+> > 
+> > AFAICS these two can be put on one.
 > 
-> I was trying to avoid refactoring the entire function to replace
-> &client->dev with dev, I'll add a patch for that to the next revision.
+> This doesn't leave room for whitespace between the end of line and "\",
 
-I'm not talking about refactoring, I'm talking only about the lines that you
-have touched / added.
+Is it a problem?
 
-> > > +	if (ret)
-> > > +		return dev_err_probe(dev, ret, "failed to register cleanup function\n");
+> replacing "do { } while (0)" with "({ })" and deindenting could make
+> enough room to clean this up the formatting of this macro though.
+
+do {} while (0) is C standard, ({}) is not.
+
+> > > +				"reg field alloc failed.\n");		    \
+> > >  	} while (0)
 
 -- 
 With Best Regards,
