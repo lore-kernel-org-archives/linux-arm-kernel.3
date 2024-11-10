@@ -4,67 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E077DD5E38F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 09:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF834D5E38F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 09:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Gj9WZnfoUC1xf791fu9rJttF+QbPFZNT8kgZuR69eU=; b=Wd/1xtzKNTBArBVSpe1a8GOMn4
-	witUspZsWGCr5gsfT89EHjIDDvcsJ0QUCdwjoQTyv8KFslKWxB8SfMQYRpPn4k96XfZnQ8vsCnz60
-	7cZ6jyglztia2bzBf6UvKmBvLs9mVmbpHLb3w8bv/qco0qo5+iTTg/ibCYnYiWpTMJjyJpIraLiwZ
-	msS/yI55Od5xDLBdQwRebtEKFslKBfJmoeUpJguzcnsFffSNG6rTDnRUtzKfCYuMKf49YHxwIRLX9
-	XqLchxOFwDp8wWp/yTXV0R+bE76ztqwYEBe0sXsqRvm3gWPjuVs5zMIf7jdddFSesfzG0qZDcm7yL
-	2cERdjJQ==;
+	bh=iVJB3Qkd5+VbKsHz2eRls6oNz9FZXUF6a+d/UpC1v0A=; b=Ah2JjW0sEQvzYUuvhtjfQCAvLQ
+	Hf7xXVOeuZ7C3Yb+fGCrSkmjezM2kOL2fTzarRu94LJ88Li8DNDJeOXQrHqejtkaPTSKBHeH2R9lp
+	UleHh3vekwI8wT4/S4qcGsQTOkPJ+xOB/LvIEW6B1QeCJEUbUfJ2+AgsNIt1+h+Bikjy7gA4yydQm
+	5gfmAFECy/UYo6tybytGevl+B9gj8W+e96vCDhaTaP8wERll2wpyw0bIt6Z8sk1xTF2/G/f9KGf0w
+	W/PZc8vlZdakrsrmAvVnp4kcel2BChiUIp/e3Uw/2/VPGV16FoloZc7CZlp2gYC4wcGgC7sptiBio
+	ZtAYVBuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA4Fk-0000000EcdE-2S2u;
-	Sun, 10 Nov 2024 09:29:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tA4TZ-0000000Edou-29RJ;
+	Sun, 10 Nov 2024 09:43:21 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA4Ck-0000000EcOy-2F2a;
-	Sun, 10 Nov 2024 09:25:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EC892A408AA;
-	Sun, 10 Nov 2024 09:24:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED6E9C4CECD;
-	Sun, 10 Nov 2024 09:25:56 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 66C5F5F836;
-	Sun, 10 Nov 2024 17:25:54 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- Cody Eksal <masterr3c0rd@epochal.quest>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Maxime Ripard <mripard@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Nishanth Menon <nm@ti.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>, 
- Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Yangtao Li <tiny.windzz@gmail.com>, 
- Parthiban <parthiban@linumiz.com>, Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
-References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
-Subject: Re: (subset) [PATCH v2 00/13] sunxi: A100/A133 second stage
- support
-Message-Id: <173123075439.3498315.14594380373540297845.b4-ty@csie.org>
-Date: Sun, 10 Nov 2024 17:25:54 +0800
+	id 1tA4Rk-0000000EdbJ-0yZ6;
+	Sun, 10 Nov 2024 09:41:31 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id CC68921A73;
+	Sun, 10 Nov 2024 09:41:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1731231685; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iVJB3Qkd5+VbKsHz2eRls6oNz9FZXUF6a+d/UpC1v0A=;
+	b=vc85F1+qXSlODxZaLhmNcZrstutruYw4x2I0CBroDXHmysmrEDftTJABxh9ZovWyDp/kYa
+	hAHrpOfIzZAtsoPFkLxL3ASV/DSv8R4HvP9asGScEqI8e/BrEGrJViIXTG1tb/UyouURWZ
+	bDj0mPuAuPA/5oSpeGuMfbZ3fQcrcAc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1731231685;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iVJB3Qkd5+VbKsHz2eRls6oNz9FZXUF6a+d/UpC1v0A=;
+	b=xbtDXHoBGiX6KQaqAz0fV/teTf19uPjPeWisqeq4Va4sKwKMIR6cGCxbfB9wsnF8t4DaQM
+	u+HESoWYH0ETEeAQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=SIg2cies;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=e7ZZrLlE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1731231684; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iVJB3Qkd5+VbKsHz2eRls6oNz9FZXUF6a+d/UpC1v0A=;
+	b=SIg2ciesrB2kCBhM4fo5FIaTlEodFUvLoaQrC3cx2yA8YwIfKP1VFZEYoYGkcyk5vMqESM
+	DGacZ+DeJgSQ3BY3HXyqBK3lAaAfkNriiQSEeCKYmXNh95ebcx4h0DoKuuFUFJnKQ867i7
+	fAfPURE0kigQaZPnz1TgoJlnNmz03/Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1731231684;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iVJB3Qkd5+VbKsHz2eRls6oNz9FZXUF6a+d/UpC1v0A=;
+	b=e7ZZrLlEkEfpRFMd1jnS8waLpaAogHYsT9Klum1apOlrYGFGliQr3gykKwWvKnC6lG2+aa
+	QAFl9wRDGAd41XDw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D018C13980;
+	Sun, 10 Nov 2024 09:41:23 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 7erzL8N/MGfcFQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Sun, 10 Nov 2024 09:41:23 +0000
+Message-ID: <3724f8ff-4b89-465c-ac9d-1dec7c86fb62@suse.de>
+Date: Sun, 10 Nov 2024 11:41:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/10] PCI: brcmstb: Enable external MSI-X if available
+To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
+References: <20241025124515.14066-1-svarbanov@suse.de>
+ <20241025124515.14066-7-svarbanov@suse.de>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <20241025124515.14066-7-svarbanov@suse.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-Rspamd-Queue-Id: CC68921A73
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_012558_669868_2AB195B1 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20241110_014128_464980_1D956C28 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +153,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 31 Oct 2024 04:02:13 -0300, Cody Eksal wrote:
-> This is V2 of this series [5], with some changes that were requested and
-> others that were made after testing on more devices. Thank you for all of
-> your feedback! A changelog is available below.
+Hi,
+
+Jim, Florian there is no review comments on this patch. Could you please
+take a look.
+
+regards,
+~Stan
+
+On 10/25/24 15:45, Stanimir Varbanov wrote:
+> On RPi5 there is an external MIP MSI-X interrupt controller
+> which can handle up to 64 interrupts.
 > 
-> ==================
-> Back in 2020, two Allwinner employees, Yangtao Li and Shuosheng Huang, each
-> submitted a patch series for the A100 series of SoCs; [1] intended to add
-> support for the watchdog, ARM PMU, DMA, USB, and (e)MMC controller, and [2]
-> implemented DVFS support. Some patches from the first series landed, but
-> the rest were seemingly abandoned.
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> ---
+> v3 -> v4:
+>  - no changes.
 > 
-> [...]
+>  drivers/pci/controller/pcie-brcmstb.c | 63 +++++++++++++++++++++++++--
+>  1 file changed, 59 insertions(+), 4 deletions(-)
+> 
 
-Applied to dt-for-6.13 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
-
-[10/13] arm64: dts: allwinner: a100: perf1: Add eMMC and MMC node
-        commit: af1ad5675a2b5feebb49df0e0ac7dab1aeabfaa8
-
-Best regards,
--- 
-Chen-Yu Tsai <wens@csie.org>
-
+<cut>
 
