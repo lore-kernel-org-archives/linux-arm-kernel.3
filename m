@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E14D5E38D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 13:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4D0D6409B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 14:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1yjcfDB8RD8pTvTFx0v0Scf0T6VPUgPY4TspJJvJns=; b=C0TysB6OWSZvmkT/yS0D3Cc37/
-	zhpE2JthDlr4Iujs2SwGpIAe5gVQ6EdGaR4urN9DEQuYAO36ID3PFBk+V4mx6+yOIIuHbCbF4Q4I2
-	D7t5qxMyI8k2SwcD2zhkAGHb25LvaikFRfuNOFwSqr+9pPiLOue1zxEOQBOWQSyWuYmVUTQ7DgaYS
-	mmsZSkeom0Rd4K+fiHs0leYgwYiUM3AHIWJawO7kTLqg1Xab4fOqMnAKZENtth9HaqjMnK0EY2I00
-	bQt0S+6dM6pQGbzRKJMC1d/S6o0oZGV5/0f9+DEKst2tBCSUzwWAQkznRLEyzyg5ndCXRg/UiBnuU
-	IlyDajUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3VFT/Tmnh+ydsvimc4Q99VJ7C1N6bexwioQBthKj+Ag=; b=aQqZ2t5ef+gdWha2Ml9wLyfHpF
+	iTdDDpE20CrK2bAVCJet5lVc6F6XVjGaKGbh/G2fXfeWnsjHAt/i6U7cEZmD9G0lpkk1GUd/oYATq
+	VMNiVtUBxycDAiv8ZAvf7cn+rU5T0oJ7hV6azXWC31ZWYymIAUXN4lKmqlV3a8HP16S8KR5aIaWCm
+	qsdcSsFZa1zYrfnNKlc42NVQKXKLZQ/+4zx3/dmEhHJ9an27i+jT0V5RGRWvsdTkutSCSHJJjRRV3
+	74j/e12AZV/I4x2xSY7bWwm+E8Gc5beCY1fH2QrBZbcCnRFvN4GAFrCdBGasJqBNn2nLhaLkQL9Ug
+	Bj+PNbHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA8BY-0000000Evdv-1Pa3;
-	Sun, 10 Nov 2024 13:41:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tA8dN-0000000F0jI-1rDo;
+	Sun, 10 Nov 2024 14:09:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tA86j-0000000EvAH-1zO1
+	id 1tA8bb-0000000F0dD-3ZGq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 13:36:02 +0000
+	Sun, 10 Nov 2024 14:07:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4C7C1A4033D;
-	Sun, 10 Nov 2024 13:34:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204EDC4CECD;
-	Sun, 10 Nov 2024 13:35:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BEDC55C559E;
+	Sun, 10 Nov 2024 14:07:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE957C4CECD;
+	Sun, 10 Nov 2024 14:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731245760;
-	bh=/lKfQUd/rjWnE2W48MI2heX3riS1KAnteGBZEmZPoQU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UC94Dyjg+IUAL3oeqr88LpjjvFA+XqMTD9MlOqinxd9xDIRQAd/FEYOXDjWylPI9N
-	 FTjEyPu5Xhk9m2oQqaukG/9OyD/zxyQbq89FPyXmWeUBdeUkfQEBncVtC1naDrwFZ2
-	 Ksbrf1MqVNUwLNLeO76zKcofTmeJ4uJ1KJbHkT3Kve5/4nI0KIRFsF2spcAJQ10UsS
-	 VG8TYVyM3GgdiB7QJ4hIltVa05dLpSkZ2z3f4GbwtYr+tJIAHv5w4zP5c33hCNVb9v
-	 kCB3mIN/idQAgjB6BZJjrPkl9b5oSTOkgzvdHt2d2eJGv9HFy2gW/l4GmlHImLcaHL
-	 2yfK9c0/XQ38A==
-Date: Sun, 10 Nov 2024 13:35:54 +0000
-From: Simon Horman <horms@kernel.org>
-To: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	lftan.linux@gmail.com
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: dwmac4: Receive Watchdog
- Timeout is not in abnormal interrupt summary
-Message-ID: <20241110133554.GQ4507@kernel.org>
-References: <20241107063637.2122726-1-leyfoon.tan@starfivetech.com>
- <20241107063637.2122726-4-leyfoon.tan@starfivetech.com>
+	s=k20201202; t=1731247674;
+	bh=gdPhLJ8j4Uzlo5GhXPaBgpdIH/HGDs5q15PpmoTKRSk=;
+	h=Date:From:To:Cc:Subject:From;
+	b=XdKhFAdZUT2Z8hgcW0iCDppxHfGuv/N92KWc991rgLnxUk2dqHrJOJG7WMhzmWDc9
+	 gN8seHc4lUQWxP6Zq+HTmuL4hEvPW0gpJoW2ytb4ru5mdQezZLfGwD0y+pmDY29Nc3
+	 90XD4E0LJ2Cx5948xELOMEl3Qmlxfsf/NIbdbYD+Mebm+1ZCMYUyeoHRiMqIV8niiy
+	 jg9App8qbpyOgFo9E+FGCYQqejA6Nt8YOHl2mArDFrXUpP4iIS7RBH5BA7taT/tXTb
+	 i4sodyMMw8IHxfpRtzgwPiz2jUFhSkYRcyLLFpDMM6CSsP9tyd90TjdpfziPlSaU1I
+	 rVz9eMMe+CKfA==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 6C8AB5FC00; Sun, 10 Nov 2024 22:07:52 +0800 (CST)
+Date: Sun, 10 Nov 2024 22:07:52 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: soc@kernel.org
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Allwinner device tree changes for 6.13 part 2
+Message-ID: <ZzC-OF57MT_yCeWH@wens.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nGAeohEqVKDFKVoE"
 Content-Disposition: inline
-In-Reply-To: <20241107063637.2122726-4-leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_053601_609533_4E808638 
-X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-CacheID: sfid-20241110_060756_002316_35790406 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,22 +74,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 02:36:36PM +0800, Ley Foon Tan wrote:
-> The Receive Watchdog Timeout (RWT, bit[9]) is not part of Abnormal
-> Interrupt Summary (AIS). Move the RWT handling out of the AIS
-> condition statement.
-> 
-> >From databook, the AIS is the logical OR of the following interrupt bits:
-> 
-> - Bit 1: Transmit Process Stopped
-> - Bit 7: Receive Buffer Unavailable
-> - Bit 8: Receive Process Stopped
-> - Bit 10: Early Transmit Interrupt
-> - Bit 12: Fatal Bus Error
-> - Bit 13: Context Descriptor Error
-> 
-> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+--nGAeohEqVKDFKVoE
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+The following changes since commit fcfbb8d9ec584c256c0a6e1ae3174a21b007f399:
+
+  arm64: allwinner: a100: Add MMC related nodes (2024-11-02 19:32:40 +0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunx=
+i-dt-for-6.13-2
+
+for you to fetch changes up to af1ad5675a2b5feebb49df0e0ac7dab1aeabfaa8:
+
+  arm64: dts: allwinner: a100: perf1: Add eMMC and MMC node (2024-11-10 17:=
+23:57 +0800)
+
+----------------------------------------------------------------
+Allwinner Device Tree changes for 6.13 part 2
+
+- Remove accidental suniv duplicates in Makefile
+- Add second source magnetometer for Pine Phone
+- Add orientation (mount matrix) for Pine Phone's accelerometer and
+  magnetometer
+- Enable eMMC and MMC on A100 Perf1
+
+----------------------------------------------------------------
+Cs=F3k=E1s, Bence (1):
+      ARM: dts: allwinner: Remove accidental suniv duplicates
+
+Dragan Simic (1):
+      arm64: dts: allwinner: pinephone: Add mount matrix to accelerometer
+
+Icenowy Zheng (1):
+      arm64: dts: sun50i-a64-pinephone: Add AF8133J to PinePhone
+
+Shoji Keita (1):
+      arm64: dts: sun50i-a64-pinephone: Add mount-matrix for PinePhone magn=
+etometers
+
+Yangtao Li (1):
+      arm64: dts: allwinner: a100: perf1: Add eMMC and MMC node
+
+ arch/arm/boot/dts/allwinner/Makefile                |  4 ----
+ .../dts/allwinner/sun50i-a100-allwinner-perf1.dts   | 18 ++++++++++++++++++
+ .../boot/dts/allwinner/sun50i-a64-pinephone.dtsi    | 21 +++++++++++++++++=
+++++
+ 3 files changed, 39 insertions(+), 4 deletions(-)
+
+--nGAeohEqVKDFKVoE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmcwvjYACgkQOJpUIZwP
+JDDi1BAAvWCPCPCoOiaXBftkYbmH1m42odG48rUHxVc0lhXnMaWgDfHhCgc0dQ9m
+slfAIQV4iQu94dQDr71X1qMCrFh0uJX71frCPB4fqZs0LpxhrYJqkaYJ1IKbx5Td
+OX3UHDL8TzKjF3SfARorgPShvyVr4JoE3UgykiQBE63mMzJZO/ZpGQGJuy4/ns7o
+GIw5xn2k1QeLy7sjfFF5Vvj1WnQp8erCAm2SiDQWelQ7n0ZNcbQArHQO+NkFoeYz
+KCFiiXi9nNTd4bel9yenYAOz9m6jfQbfLQFrA5NP1gJWgS9zeBX3a6nPf6hcA7fp
+Cli1IH7HC7foTA4Jn1Gn578ZEMtRSC+5N6uG5jf6SAUNMdQSRhLRrQ4yuHVFEnBG
+R3U42jFY9uvGjJfgGzZ+YZKN0inHovXc9uj0lrvcI6Nh8keD1iYl7dWzkA8Bceq7
+U+K6tkYim3DWIuN+7xwbGsL2c6dVWM1Sx7phtybjrbzVqwYROtyp+7e4NqbyZxjm
+5fo72/oXAaX8afAPaYxzl0jsnZH1Kc2/cpS9fpY4EljsSM4OS73CTS1Pm2GH9l+s
+J6jO306jx0r4IM2TspC91dCeIv6WU/wJjvcMPr5NSmeB5xt2sVeLs5J0s663z/Cb
+ooXcAh7RJ9pJC7ktmYj/O1BvTKWdxzMBVJv9H0jxMAPVUzejvnI=
+=zFs5
+-----END PGP SIGNATURE-----
+
+--nGAeohEqVKDFKVoE--
 
