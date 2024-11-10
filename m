@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9C6D12D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 18:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE90D12D4F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 19:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzu+fFQ9R2PNTPL2rGE7HX35eqiZ6et7aOyn84A4GMI=; b=yMwh5lSICiufoLLRv854uF+07+
-	Jlp+3I4Z6ecAozZreECAjKEdU9CCol6C8kMAOJ5zB+vWArqMcJ/9IpagC4iFbM7Zs/oSkvdzr9UPv
-	eg0dy+szt4mRYlUq3mBN8daR0rNkL69Ya40VU+TkbgSdCSlkXh6kiBteUYv4lRAnRsORdhVAr3QaW
-	oSS0v/1OSz5ab4K3jjTRs/ijW8Fm6icCTIdipwDcFEtCCs+ckz6YntEwTcuTiTmfoo6Fb3T7/XCyG
-	dq6gOx7qwJgfAwF/RrtgKAfjoiLu5+gPgtJkqce1namc4ockghfTB6wiBzWj3qt52DNPHa+vH37zU
-	J7j1cFgQ==;
+	bh=51rqIAyIcgVeblNDeIP0tTw9wHbZ9mHgSey++a7S7Rs=; b=UwlucLRrjETA1IH7S+95NbztzG
+	EDwQNv/ukrxqzcwuUicjXbFmIyPiSYZek2J32Viegt/Cbf1RigjuQSRCHI4Gq0UmVyId5Wy4rAsAJ
+	TZi2FdrCFpVuZ93TLgS3ZSlBkmehv78hcffgN7gJb7ihHsJVS4G2j5y6TQgjVFfNRJnq1INGzv4Ft
+	yukVA3G+1UaZ1Ob/joGJx8WqDUzaayIR7DFhD3M+5Nj3hdC0iBBkGeeksYYldthtdYPaMWHapsn1x
+	CN4mz9k6HLA/vy0f/3IXZQLkeWOKghpR0ruFxc+i6507RWvnrBRm4qQxxtPOwjvo9MDpDq57ceJ9W
+	lEk6q2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAD6w-0000000FPPL-192h;
-	Sun, 10 Nov 2024 18:56:34 +0000
+	id 1tADQ3-0000000FRLb-33ts;
+	Sun, 10 Nov 2024 19:16:19 +0000
 Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAD59-0000000FPFm-2J5S
+	id 1tADOH-0000000FR7k-0uHB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 18:54:45 +0000
+	Sun, 10 Nov 2024 19:14:30 +0000
 Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
-	by a.peacevolution.org (Postfix) with ESMTPA id 60E3A4C82C;
-	Sun, 10 Nov 2024 18:54:41 +0000 (UTC)
-Date: Sun, 10 Nov 2024 13:54:39 -0500
+	by a.peacevolution.org (Postfix) with ESMTPA id D1C6F4C8F6;
+	Sun, 10 Nov 2024 19:14:26 +0000 (UTC)
+Date: Sun, 10 Nov 2024 14:14:24 -0500
 From: Aren <aren@peacevolution.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Jonathan Cameron <jic23@kernel.org>, 
@@ -42,28 +42,28 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 3/6] iio: light: stk3310: Implement vdd and leda
- supplies
-Message-ID: <5t7wdgzq37oiu4knc7o7kkx26k35ueu73r5m7aky747em5faqw@e5scnj6ng5pq>
+Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
+ possible
+Message-ID: <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
 References: <20241102195037.3013934-3-aren@peacevolution.org>
- <20241102195037.3013934-9-aren@peacevolution.org>
- <ZyiHXl0mRIvM4Qa0@smile.fi.intel.com>
+ <20241102195037.3013934-11-aren@peacevolution.org>
+ <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZyiHXl0mRIvM4Qa0@smile.fi.intel.com>
+In-Reply-To: <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
 X-Spamd-Bar: /
 Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
-	s=dkim; t=1731264882;
+	s=dkim; t=1731266068;
 	h=from:subject:date:message-id:to:cc:mime-version:content-type:in-reply-to:references;
-	bh=nzu+fFQ9R2PNTPL2rGE7HX35eqiZ6et7aOyn84A4GMI=;
-	b=Eo8NXdmwWsEbOWsTdYpDI6QhJyazSLcdZWHHMOYyDmM6zdPoBbWR23Uk2K1d24I6iIhpU4
-	j3LIbq8fC9P8c6D6EO7oOwLADrxCSjgNQCgomPhZCoc3QbeckTar8AbRHjcyghOKyy7iKV
-	xH0MbmEgsn8QbhU95YITmrqi19tfVL8=
+	bh=51rqIAyIcgVeblNDeIP0tTw9wHbZ9mHgSey++a7S7Rs=;
+	b=ZdmkzEBetq5p08NJ3nLHjD9gFK6PpH/wA0tEND6xZ6NolUi11FiaYC0d1G4nFmrVYifsGi
+	4vc8pLErZjr1TFqPJH0x0TjG1/0xThg/2L8TNHf1VXUPhUkchzwS+BWWbXOd23hSHTynaR
+	/yqRwQQzRjl2SBGhmZi8H+0SJCFjA5Y=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_105443_685053_212E6EDA 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20241110_111429_465279_901D58AC 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 10:35:42AM +0200, Andy Shevchenko wrote:
-> On Sat, Nov 02, 2024 at 03:50:39PM -0400, Aren Moynihan wrote:
-> > The vdd and leda supplies must be powered on for the chip to function
-> > and can be powered off during system suspend.
-> > 
-> > This was originally based on a patch by Ondrej Jirman[1], but has been
-> > rewritten since.
-> > 
-> > 1: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82
-> 
-> Make it a Link tag...
-> 
-> > 
-> 
-> ...here
-> 
-> Link: https://codeberg.org/megi/linux/commit/a933aff8b7a0e6e3c9cf1d832dcba07022bbfa82 [1]
-
-Makes sense
-
-> > Signed-off-by: Aren Moynihan <aren@peacevolution.org>
+On Mon, Nov 04, 2024 at 10:40:16AM +0200, Andy Shevchenko wrote:
+> On Sat, Nov 02, 2024 at 03:50:41PM -0400, Aren Moynihan wrote:
+> > Using dev_err_probe instead of dev_err and return makes the errors
+> > easier to understand by including the error name, and saves a little
+> > code.
 > 
 > ...
 > 
-> > +	ret = devm_regulator_bulk_get(&client->dev, ARRAY_SIZE(data->supplies),
-> > +				      data->supplies);
-> > +	if (ret)
-> > +		return dev_err_probe(&client->dev, ret, "get regulators failed\n");
+> >  #define STK3310_REGFIELD(name)						    \
+> >  	do {								    \
+> >  		data->reg_##name =					    \
+> > -			devm_regmap_field_alloc(&client->dev, regmap,	    \
+> > +			devm_regmap_field_alloc(dev, regmap,		    \
+> >  				stk3310_reg_field_##name);		    \
+> > -		if (IS_ERR(data->reg_##name)) {				    \
+> > -			dev_err(&client->dev, "reg field alloc failed.\n"); \
+> > -			return PTR_ERR(data->reg_##name);		    \
+> > -		}							    \
+> > +		if (IS_ERR(data->reg_##name))				    \
 > 
-> With previously introduced temporary 'dev' variable these become:
+> > +			return dev_err_probe(dev,			    \
+> > +				PTR_ERR(data->reg_##name),		    \
 > 
-> 	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(data->supplies), data->supplies);
-> 	if (ret)
-> 		return dev_err_probe(dev, ret, "get regulators failed\n");
+> AFAICS these two can be put on one.
+
+This doesn't leave room for whitespace between the end of line and "\",
+replacing "do { } while (0)" with "({ })" and deindenting could make
+enough room to clean this up the formatting of this macro though.
+
+> > +				"reg field alloc failed.\n");		    \
+> >  	} while (0)
+> 
 > 
 > ...
 > 
-> > +	ret = stk3310_regulators_enable(data);
-> > +	if (ret)
-> > +		return dev_err_probe(&client->dev, ret,
-> > +				     "regulator enable failed\n");
-> > +
-> > +	ret = devm_add_action_or_reset(&client->dev, stk3310_regulators_disable, data);
-> > +	if (ret)
-> > +		return dev_err_probe(&client->dev, ret,
-> > +				     "failed to register regulator cleanup\n");
+> > @@ -654,12 +652,11 @@ static int stk3310_probe(struct i2c_client *client)
+> >  	int ret;
+> >  	struct iio_dev *indio_dev;
+> >  	struct stk3310_data *data;
+> > +	struct device *dev = &client->dev;
 > 
-> So do these...
-> 
+> This should has been done a few patches earlier...
 
-Cleaning all of these up
+Moving it there now
 
-> > +	ret = regulator_bulk_disable(ARRAY_SIZE(data->supplies), data->supplies);
-> 
-> Is array_size.h included?
-
-It's not, it looks like it came one of the headers that's already
-included. I'll add it explicitly.
-
-Thanks
  - Aren
 
