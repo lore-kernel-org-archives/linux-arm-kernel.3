@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D07D3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 22:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9C9D3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 23:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qeQLVqGYO4ALLLE6OpBa6NKUVcn6gN8ZfFj0qfpOGg=; b=GjgWB+RdJkxG5hYOO5ZqTYxw5/
-	8bn3YxrXaaPkkIxeEWcrM5eX7hIU/+Dnsjn1PuJjteKdOpvaaOpzMRvWXw0dhuArrdMAzd1K4XVgr
-	pSh6vGuF/DEqpG+EUhTRe4zodio5yE7gS4/GHExLMe9HFCRVqZD3frslO9v84iXWTb6bS+kGabut3
-	I733w5ItjpQGR/E9TTPeah+EeVrD+sT/wcNqqSiyxqBFwykeud4IUPz6+eRAKwPP8zdf4afkOz+0E
-	ym/dwR9TxsP8Yy75stDf3+Dp/0MSW1XdOWgTvnAVAX+8i2BliBD70xEbRGB4iU7aioiCZfOnzFozR
-	FkSlN2Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h1tJIqCgWeq9KnSLGyhg/d7DuKyd1LAar9bWTYe6j9Y=; b=A3wAlyzvrlccl0cpkCq9gixUjv
+	EY/h21N0SMqU9UPLlUPBuHB5Hmb+p79AvTC18a+9pgooIwU0ZaPkcy6aoK6Rm56HKqf2h3CSFGGDZ
+	rm5ZAXDJUjfwfggXflc1cJF/NtNsE2bIIKPA77+a7GIBE6DZkZrTCEenjCAqCOF9CV9eHgTL1hPFx
+	10vukILapDHvO8YQBAC1MWFZXMlZAALnWMQ+1ZHA85T1Z+i6f+3AQ21g0+TQxump89Pzgp7GrmKPG
+	lU6wgae9/meVWNyRlJLebYXWtjbmO9QDTpXoM2+ghtlTsdYQtkFYu+udQ2nBBadP/8QHl541tlr3b
+	50Y9/rog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAdK4-00000001Ze1-1yDn;
-	Mon, 11 Nov 2024 22:55:52 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1tAdOv-00000001ZvL-18cG;
+	Mon, 11 Nov 2024 23:00:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAdIG-00000001ZRa-45iY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 22:54:02 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-3e6105886dfso3165309b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 14:54:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731365639; x=1731970439; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3qeQLVqGYO4ALLLE6OpBa6NKUVcn6gN8ZfFj0qfpOGg=;
-        b=MESw8BHDSVXaBEcovLOyc4Z2arWKZjXQBKyo6kvuF4CnnrtCOHbshBZYTcuXLeiUai
-         kePdFbL1sWkr9O2c5WAW/PEjnoW8ZVZN171JsD8wZbl8/eLeeXdZX4UYrOfqRx/4ccFK
-         ztrQ48KrKywC0Y6piBHr/myQHepMWVrRwq34K0nxjGjXIPeX0vbqHsfIKIAcv7VqndJW
-         wyE2b7CBJIYX+dPvZPLc2a7s8U1iCgRHysz8wmYes/Vx6CqV24jBbxBbUCOSV3xdjmCs
-         kehgZUIJ2YkenCWSK40DnhufdB8xEnQLbQRPKQYEm168vzK8T6EnZt1C8lF/vlTZYrZn
-         4A9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731365639; x=1731970439;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3qeQLVqGYO4ALLLE6OpBa6NKUVcn6gN8ZfFj0qfpOGg=;
-        b=O/YHTSCrqK67PugOz5RVicpOxPPg9ty7bZHcYmvNtWeBKzsy35tSIfb9Yf4sCypGF4
-         +QVZkDZXfvtcqoIisDDBi1zf5OApm3wnT1MAtIcRS6+wdhSfu4LCxcFE6Y1P1LJrJy8a
-         Ccsu0shSkbvIpTjNcP4/GL5BL7ElPZ9KiI8EU85pdgykoR/4rmS9BsXzOrLOQuR9BAYV
-         S26xTLJ0E6r27RdV/x/HvWAU5uY5RVN28XhHHvDetJLBx+VZ+zpMrA/6oCwzl0fgNpno
-         qvhFQjjEZwvyrgFLa/cCOn9VOJCZKf3w+FyVsM3eUzqitWKBTmHej4LQNzY00wV5zjAr
-         SkHw==
-X-Forwarded-Encrypted: i=1; AJvYcCUp6Y9Gy93SmjRz9+KYfdGRfFaXWyhqjX0UAz/w7hZCF8Lihe+X3eTmG5Rlavr/LS9idtT3d4kMmvytc0t6gwKE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYIjxgnO4u7F0Dao70w0tKlKyFkMsDDUBs4J91XRYKRUppgJOM
-	Fp4S8gZ4s5kPJ3vzjm/UvJ9j9lh0kxapg3zMlB9pQ+zKsZ+RZousgIrVwWhjxy4=
-X-Google-Smtp-Source: AGHT+IFI70O9qWZLYbfZv+s3z1ZWen9vEBjFIao6aaE9nVOytwkkB4ogTBF3q06vdafFfqOS5zD5bg==
-X-Received: by 2002:a05:6808:23d2:b0:3e6:4f60:407a with SMTP id 5614622812f47-3e793ebe322mr7790726b6e.4.1731365639507;
-        Mon, 11 Nov 2024 14:53:59 -0800 (PST)
-Received: from [192.168.0.142] (ip98-183-112-25.ok.ok.cox.net. [98.183.112.25])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3e78cc803a2sm2249913b6e.15.2024.11.11.14.53.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2024 14:53:58 -0800 (PST)
-Message-ID: <f02fc95c-a2ef-494a-afbd-5af78ad1f489@baylibre.com>
-Date: Mon, 11 Nov 2024 16:53:57 -0600
+	id 1tAcNl-00000001QT7-2PFm;
+	Mon, 11 Nov 2024 21:55:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50D4CA40A22;
+	Mon, 11 Nov 2024 21:53:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB0FFC4CECF;
+	Mon, 11 Nov 2024 21:55:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731362136;
+	bh=Ulbt4wtJrj0rI8CCkCKH2MYB/lSP1izaiuAWB+R5AAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PG1YbClYCgPJFMl42r3GRpF8dyrEDfjWHxsCTW4uWM/fk5P9+Erj8yhmYkZxHu/QG
+	 9HFsD4yg9KkRPSsnkdUY01psgxfcB/RV3snn15Pw0dmj+5T3vAVeafD/AhctT9lmLS
+	 MVXBWEF3Kyuj3jGQhPr3+Q7G59OuZYnrebBvIW8cIQjgz0C1PetFpqBk5Hch/xYSDY
+	 /5288fShDBpc1vTup8g8MIrz1T1Yo522ixrq4oHD4QKLOjPWHheNEp/6hZvfrAOgIV
+	 FNTKjvSsp4hLiA4Nk2AFF3cl6kLcAflBn59RCkOMiyXw6kOEflubamwnhf5TjDb3EI
+	 6jz6o8uTGAVjg==
+Date: Mon, 11 Nov 2024 15:55:33 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Andy Teng <andy.teng@mediatek.com>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Yassine Oudjana <yassine.oudjana@gmail.com>,
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v7 6/7] dt-bindings: pinctrl: mediatek,mt6779-pinctrl:
+ Add bindings for MT6735 pin controller
+Message-ID: <173136213324.2011108.6481544003216572759.robh@kernel.org>
+References: <20241106100741.173825-1-y.oudjana@protonmail.com>
+ <20241106100741.173825-7-y.oudjana@protonmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] iio: trigger: stm32-timer-trigger: Add check for
- clk_enable()
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: jic23@kernel.org, lars@metafoo.de, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, u.kleine-koenig@baylibre.com,
- tgamblin@baylibre.com, fabrice.gasnier@st.com, lee@kernel.org,
- linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241111222310.12339-1-jiashengjiangcool@gmail.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20241111222310.12339-1-jiashengjiangcool@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241106100741.173825-7-y.oudjana@protonmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_145401_056512_6DDBA54B 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20241111_135537_698093_5AFEB032 
+X-CRM114-Status: UNSURE (   9.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,12 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/24 4:23 PM, Jiasheng Jiang wrote:
-> Add check for the return value of clk_enable() in order to catch the
-> potential exception.
+
+On Wed, 06 Nov 2024 10:09:20 +0000, Yassine Oudjana wrote:
+> Add DT bindings for the MT6735 pin controller.
 > 
-> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
 > ---
-Reviewed-by: David Lechner <dlechner@baylibre.com>
+>  .../pinctrl/mediatek,mt6779-pinctrl.yaml      |   39 +
+>  MAINTAINERS                                   |    6 +
+>  .../pinctrl/mediatek,mt6735-pinfunc.h         | 1148 +++++++++++++++++
+>  3 files changed, 1193 insertions(+)
+>  create mode 100644 include/dt-bindings/pinctrl/mediatek,mt6735-pinfunc.h
+> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
