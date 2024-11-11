@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1355D2E9D8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09944D2E9DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=; b=p5sqkAbeeJ9CDsBWXlMWv7WPy6
-	C8AJ6+7mVnxI8qef1T8M76oUhY/m9Ct5+8G9eCg5n66Fj3o5QY5TO/0PqjJ0DEWcvSoI3dkwgBgaT
-	Ed9d4wXBxl6ajOfUWmM9paDkUkOa5BOkI+xTOtvrLTA3ZGqTSWYcu3/sVjqlrJIw6LhQnC6/0xhl0
-	bGZscDzakOaLWXCI8KT6py/8vrdpICcBdwBLbpk5QQiLyg+kU+hgDtMacNNMuzsIL9Iw+L8ftjjVq
-	uo9rK5+xgsxgiuCNdT7DIyq1VfIoWDBW7pqBLDEUb4Hjt5W58teoDkJ7J3/h3M+nxgOSJjVM0p05p
-	YHarRVGw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r15fp6TOLoxxUhTToaZ5PCMMfFRPaQfw/v7oNpDzym4=; b=TJnCw/mDHh2icm7pQNyInqX0kU
+	3IPqp2aD8ShQ3rPqlkj2sVZF4xKu/9ilL2j4T6UZUidowL/GMvQVykm8m0NIiK6aBIiYZ95bdUohP
+	viUUxtr0k0Zsqr2JbuYmAJYmnOL/Tw07FYZjsnsLKsKnW25L3h/q1Xu+pa1FYIxp0zCnAzRRVlWYR
+	18IvMopAHaxUrDrKlvAKSUxJJbVoiJVmGDhQLNWx6+uip8DBL1Yh0LZ5AhGEYwEPcHLqRSjYk2jEf
+	q+dFun8U1wLxmGWFK2jiX2nNRQAMM8EB6yEQexvSi20hQp2v3LENrYa8pycHgrcrRmuypu5o9jsya
+	Q4k/7S3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASXz-0000000HRmD-22gi;
-	Mon, 11 Nov 2024 11:25:31 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1tASZr-0000000HSGa-0lBw;
+	Mon, 11 Nov 2024 11:27:27 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASSb-0000000HQFJ-0MUS
+	id 1tASVJ-0000000HQw1-2XTP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 11:20:00 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9a0c7abaa6so574480766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:19:56 -0800 (PST)
+	Mon, 11 Nov 2024 11:22:47 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-37d462c91a9so2726076f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:22:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731323996; x=1731928796; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=;
-        b=em5OAZlpo1CbxNuxijs50Jmc3TpGKQTMFzOtTsGZ4j2XTNZNJ897iDC9WPfi/Oy2TJ
-         qjwPbrh3Wb6ERzK5ETtbOPVykYLYkqbgmYngtQTw0nMAk0kfVmeqMu0u9qkMUGCtkCAr
-         C0ewrldnSFEXZdmtxP/vX9YJCsCk/5ZggTZeR4l5dIoP/Y+3qmFc9QFalZKrV9spQd2k
-         OfCJox+YA15GMn1HIvYSjmux58Uiw+aHruH5y106McNwlr7YWNzMeIFEPpzOonLWJ1FZ
-         fpJF/c8ZwwMTw72JqqJUZYpgIKjnRT4GFwGSJePLhSYsIBn7PUONHwAef+ltGNPoLS+3
-         WFyA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731324163; x=1731928963; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=r15fp6TOLoxxUhTToaZ5PCMMfFRPaQfw/v7oNpDzym4=;
+        b=ngUfKEob5LUPok3wiXwtytDdXSIQFfYSWxzZrCHjsN5xcFaABIFCOtUV2nz7KNC/Pr
+         BF+rxJ+C6lKwY6P3p0xtF2od3t2Ku1nJmLPc7pEtHpEQcefqB7rhVYL9oYH9+bwr9kC+
+         IsCCBbqUX0+aHhewZX+/26ADST2z+1F4ZpGglOXeczOr/DW0siZzs2nI8pKhcf766J0d
+         QVwzoG3f/kx4XyZ6S0T+5U9XRPkNIEDYnFTqA9Re8WzlmaEn9zOtExCt8mydhc8uSRbo
+         5HzvWfUve65ONnfxfPKWjINNwjpUv1EWcyGGXgaXwFyEWbEYoFF3zKq7fSlLPcyPmmlr
+         0wnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731323996; x=1731928796;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=;
-        b=lZZzkOk4aHw5Nkf6gVQo5WugCcLJ2f22XAhv9/QKQnuIh/c0oDeg1lzbvzI3CA5THB
-         8HpqlnZ3ML58n6/MpKOgdrfXUW+Rtsg/OGWEKzei3TA+w+IyxR3++otZOCRmzLGQCiR/
-         SsICOPu8+ti5uHjuGYVY8scIymZjM0DCKzRU9qVHd0oaXaJ+WCDuhAv5338DM8+4ClY1
-         RrZ2/MinIQwykAS1f0W+F6tcjz6ViCxlELJIWX2Og66LeovekZdqC6RCZ+680JTamtXS
-         +kF93twyYoazXjsQFmceGWp9cE21ScKe2233tZjMnI2w5GnaJHD0VMQ+nnFSxOIPq8Gl
-         T5+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV0HW4YEvG6IS0YrE2bWBZ1YvVJ1hO+Ml4oiPGuFO4ssZA0rv3ErCw9PJoujFaSy1Zpf2I2MSTbJCTzQxe93QgN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSc55ONz9MzxWjcuv6CpogrtHKE4FSYwWBQ9gDjTNLLO7TCEI3
-	eZhkwuvffgyBLVZ9h7zhEkpYT4889I4zY2v9oOrOi7nUNItInpjU7hETDCxA2qA=
-X-Google-Smtp-Source: AGHT+IETD0TTRXcK0fhtRcdkx1FK3e/NgS7iCgkGzVtCtOmSV30aF2EybWWflcXrw2+dh5CJKbTS3Q==
-X-Received: by 2002:a17:907:1c0f:b0:a8a:8d81:97ac with SMTP id a640c23a62f3a-a9eefeaf352mr1148302166b.4.1731323995661;
-        Mon, 11 Nov 2024 03:19:55 -0800 (PST)
-Received: from 1.. ([79.115.63.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0e2e922sm582530866b.193.2024.11.11.03.19.53
+        d=1e100.net; s=20230601; t=1731324163; x=1731928963;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r15fp6TOLoxxUhTToaZ5PCMMfFRPaQfw/v7oNpDzym4=;
+        b=HdM+5SaJPmaUa+m6aO13o0a6zCD2a6mJ+6s9ZXtmOXHtE++n9wG2OATAvAq0cbiHHP
+         229ufkGQgi0lVZxpU8Ob30ZaeEUlAGuJgHmkAZN5qqxK4d8sjdCiMjq0HKew41I8wbP4
+         6g0wd+6t42cHBWYvC/0x7oFBZ7bxbrOkUMugBRo11UgLzze4SoaxsuaGOdMYKAS2E2B8
+         lS19XdVDz3Z19aWu4mV7oAQ3x4Q6DIN4s28qPRiVsB7iTtTZ56UM78IvEFxgwJLJHA9s
+         4K8gV7qJyrMHZ6ZsG4dUaFreq1woyb2lg8n9FjZ+LD0M+4/MvjkXYMbtiILK5rzztmZA
+         MDrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVl65hDADHjMdf+JOnL2fL6txGQfn+kdKFaLIQHAylrA1S17GxaIG6SPSX4RKFpCN4kHBex56cxo8ZOnarTLuAw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLleGavAhrB9Q6283ABMdA3WewEoCZc3ctbRJYoaCZtlArkxi4
+	uFgR3giywz7sZww+seqG2MvufrlJAxu4ne/7YmbzjzMmYpVc3wYH8YLzEkEyTOmOIhFjHcp9aww
+	6
+X-Google-Smtp-Source: AGHT+IGflZEXP/JVJEfxJwMnj4NDWxpO4U33EWb9Gjbu/Uy04kSnSbAmH7N8NQ7ot39D/FsHYvNz2Q==
+X-Received: by 2002:a05:6000:1543:b0:374:baeb:2ec with SMTP id ffacd0b85a97d-381f182e8damr10825440f8f.19.1731324163396;
+        Mon, 11 Nov 2024 03:22:43 -0800 (PST)
+Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed970e18sm12550504f8f.10.2024.11.11.03.22.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 03:19:55 -0800 (PST)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-To: peng.fan@oss.nxp.com,
-	m.felsch@pengutronix.de
-Cc: pratyush@kernel.org,
-	mwalle@kernel.org,
-	miquel.raynal@bootlin.com,
-	richard@nod.at,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
+        Mon, 11 Nov 2024 03:22:43 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v5 3/3] mtd: spi-nor: support vcc-supply regulator
-Date: Mon, 11 Nov 2024 13:19:46 +0200
-Message-Id: <20241111111946.9048-3-tudor.ambarus@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241111111946.9048-1-tudor.ambarus@linaro.org>
-References: <20241111111946.9048-1-tudor.ambarus@linaro.org>
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH] PM / devfreq: sun8i-a33-mbus: Simplify by using more devm functions
+Date: Mon, 11 Nov 2024 12:22:36 +0100
+Message-ID: <20241111112237.336310-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1447; i=tudor.ambarus@linaro.org; h=from:subject; bh=/f04QIpiuRXQZGFnfAnaIXlKFecFw5Gb/Nj7YVsESQI=; b=owEBbQGS/pANAwAKAUtVT0eljRTpAcsmYgBnMehSiUznsRKk7icK+iHmW5tJsygFpLEVcVVqy gWwSLj6VbSJATMEAAEKAB0WIQQdQirKzw7IbV4d/t9LVU9HpY0U6QUCZzHoUgAKCRBLVU9HpY0U 6ZCHB/9VoXfZlG0zTmKUX6uOfKEiomBJ3tfQ08Fz7JZbY9HNkY8ASnC7D3i/ne0kDCkVXmDdN/t truMWEiWIE1aEqbqieiySwIsqcizG8Ng8aLiNPni4zPgm6lAMLGq9pGPkvgQ+cFq+o3sEqK6ju1 teBSW2iQF+1ZFN/yIjDe8egf9CAcfouomGbsT3ezLCWmfzGyknfgU+SZm2MuI020jVlawX/8u3/ SdG44Hz6HjnrJkYXQyvKOVYGgxNXcow+G5b/UAbgcUNo9rVXbPNFG6etyN+bN2C9AgYC5BJaPb8 ApAAcl8bVmIqGIMm7hll4kkRejUfWBnUCOp+r6Vxabk66hCF
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=openpgp; fpr=280B06FD4CAAD2980C46DDDF4DB1B079AD29CF3D
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3290; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=FK4ixumk7uIFu4HoD9RKoP3Fky2rGGbSMcVJmfmJaxE=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnMej9tGYutcJk0Z66Gb2L70DkS0eDqx3OEWRcV HW1ZB/UODuJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZzHo/QAKCRCPgPtYfRL+ Tli1B/43Y9j/Yb34j2TVEDZ32am9t3NigQmtFIu52ikB0nMkeZGexX1amtgjCdHOhrmUOqy6dO7 yICIA3vjmKXSlgKyHuXraCV4bQ78s4RxlWvwOmxg69l827la7WkkThrNLv7gQ25P2XJdZbIoJke rRNrk7iV4kSZKkj+rmRS7bBh+R+1T+Plf6Cp8OFcZPmkcTfyEytVexghYJT9g0Sgt7RKKO7NMIs Y55HxP/TJfYWR/+qek0gwIMzubeFkkiOjqTh8+kmT+gadN7nmFRIwf7JcddYwxebyXi88fl6e17 Q7gz0pLMcUY70QLr+yppkWNuwj++V7kdY/T9qVB4HVGyIzpY
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_031957_157684_C47809EC 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20241111_032245_675437_689BB62B 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +99,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Use devm allocators for enabling the bus clock and
+clk_rate_exclusive_get(). This simplifies error handling and the remove
+callback.
 
-SPI NOR flashes needs power supply to work properly. The power supply
-maybe software controllable per board design. So add the support
-for an vcc-supply regulator.
-
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-[ta: move devm_regulator_get_enable() to spi_nor_probe().]
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
-v5: introduce the local dev variable to its own patch
-v4: move the devm_regulator_get_enable() call from spi_nor_scan to
-spi_nor_probe(). We no longer add support for the drivers under
-drivers/mtd/spi-nor/controllers/. Those drivers shall be moved under
-drivers/spi.
+ drivers/devfreq/sun8i-a33-mbus.c | 38 ++++++++------------------------
+ 1 file changed, 9 insertions(+), 29 deletions(-)
 
- drivers/mtd/spi-nor/core.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index 2a329084505c..19eb98bd6821 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -17,6 +17,7 @@
- #include <linux/mtd/spi-nor.h>
- #include <linux/mutex.h>
- #include <linux/of_platform.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/sched/task_stack.h>
- #include <linux/sizes.h>
- #include <linux/slab.h>
-@@ -3587,6 +3588,10 @@ static int spi_nor_probe(struct spi_mem *spimem)
- 	char *flash_name;
- 	int ret;
+diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33-mbus.c
+index bcf654f4ff96..5b630c6e602e 100644
+--- a/drivers/devfreq/sun8i-a33-mbus.c
++++ b/drivers/devfreq/sun8i-a33-mbus.c
+@@ -360,7 +360,7 @@ static int sun8i_a33_mbus_probe(struct platform_device *pdev)
+ 	if (IS_ERR(priv->reg_mbus))
+ 		return PTR_ERR(priv->reg_mbus);
  
-+	ret = devm_regulator_get_enable(dev, "vcc");
+-	priv->clk_bus = devm_clk_get(dev, "bus");
++	priv->clk_bus = devm_clk_get_enabled(dev, "bus");
+ 	if (IS_ERR(priv->clk_bus))
+ 		return dev_err_probe(dev, PTR_ERR(priv->clk_bus),
+ 				     "failed to get bus clock\n");
+@@ -375,24 +375,15 @@ static int sun8i_a33_mbus_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(priv->clk_mbus),
+ 				     "failed to get mbus clock\n");
+ 
+-	ret = clk_prepare_enable(priv->clk_bus);
+-	if (ret)
+-		return dev_err_probe(dev, ret,
+-				     "failed to enable bus clock\n");
+-
+ 	/* Lock the DRAM clock rate to keep priv->nominal_bw in sync. */
+-	ret = clk_rate_exclusive_get(priv->clk_dram);
+-	if (ret) {
+-		err = "failed to lock dram clock rate\n";
+-		goto err_disable_bus;
+-	}
++	ret = devm_clk_rate_exclusive_get(dev, priv->clk_dram);
 +	if (ret)
-+		return ret;
-+
- 	nor = devm_kzalloc(dev, sizeof(*nor), GFP_KERNEL);
- 	if (!nor)
- 		return -ENOMEM;
++		return dev_err_probe(dev, ret, "failed to lock dram clock rate\n");
+ 
+ 	/* Lock the MBUS clock rate to keep MBUS_TMR_PERIOD in sync. */
+-	ret = clk_rate_exclusive_get(priv->clk_mbus);
+-	if (ret) {
+-		err = "failed to lock mbus clock rate\n";
+-		goto err_unlock_dram;
+-	}
++	ret = devm_clk_rate_exclusive_get(priv->clk_mbus);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to lock mbus clock rate\n");
+ 
+ 	priv->gov_data.upthreshold	= 10;
+ 	priv->gov_data.downdifferential	=  5;
+@@ -405,10 +396,8 @@ static int sun8i_a33_mbus_probe(struct platform_device *pdev)
+ 	priv->profile.max_state		= max_state;
+ 
+ 	ret = devm_pm_opp_set_clkname(dev, "dram");
+-	if (ret) {
+-		err = "failed to add OPP table\n";
+-		goto err_unlock_mbus;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add OPP table\n");
+ 
+ 	base_freq = clk_get_rate(clk_get_parent(priv->clk_dram));
+ 	for (i = 0; i < max_state; ++i) {
+@@ -448,12 +437,6 @@ static int sun8i_a33_mbus_probe(struct platform_device *pdev)
+ 
+ err_remove_opps:
+ 	dev_pm_opp_remove_all_dynamic(dev);
+-err_unlock_mbus:
+-	clk_rate_exclusive_put(priv->clk_mbus);
+-err_unlock_dram:
+-	clk_rate_exclusive_put(priv->clk_dram);
+-err_disable_bus:
+-	clk_disable_unprepare(priv->clk_bus);
+ 
+ 	return dev_err_probe(dev, ret, err);
+ }
+@@ -472,9 +455,6 @@ static void sun8i_a33_mbus_remove(struct platform_device *pdev)
+ 		dev_warn(dev, "failed to restore DRAM frequency: %d\n", ret);
+ 
+ 	dev_pm_opp_remove_all_dynamic(dev);
+-	clk_rate_exclusive_put(priv->clk_mbus);
+-	clk_rate_exclusive_put(priv->clk_dram);
+-	clk_disable_unprepare(priv->clk_bus);
+ }
+ 
+ static const struct sun8i_a33_mbus_variant sun50i_a64_mbus = {
+
+base-commit: 6d59cab07b8d74d0f0422b750038123334f6ecc2
 -- 
-2.34.1
+2.45.2
 
 
