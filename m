@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6523CD2E9C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE25AD2E9C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+4O6vPXncAdT+5klHHB6JLQEFGlmp/qVLkbHu/JVbLo=; b=I0u16n0k7cv8125RBx73gtaJXV
-	ek24wa4zZfZnTHK2wylqBu47iizFPFHVU0yjiNnZ16nWiC2IQzvO9BbEwYzYypY9qZs5bipdpVawz
-	rRFvDsKBXxMgHEo6RzLl99TrSIBGoeA6NEthM251uV6qz4zsoWnaYP5mCHtPAnJIgVa6Oopx8kPE8
-	lBg5HafP7fNWAeBNPca1SBhhaeGwK4FmWTv3lJ3RHb6KAXmnmyDErTkS/DM7nSvIVwpklkqcHpQVj
-	awuyIosu+C96GTGdCfV8Wjt4rZmYMt4x6CSTeofXdE07pgG47UcqL3DjeSnf5le1i7HQEUwhFoDIP
-	tA3B7wsw==;
+	bh=0N4/8trK7fv9irXSAqJ3zFfA8vt6Qj0oJ/C7156uK8I=; b=36B5i3SR03f0zUYjDbLh0XzShs
+	FtQ0LTkQhvm8iX54yErN3U4ZEfQ6KwTQMxuyYZibIyL43J5YK2YYGkyyQPCMNT5mJ2dZQrwDvWDzJ
+	yh+7US4QUck+lafopeemJtT34K+i8ac3W4kce7tQ0TkkVTr6VzYqJVrnpoBa6VkUjMqMWT2im+qET
+	rQsCDcYo849UB1Fevox3ASm5Z78CCjBicctpkiqPnUrn7vcoumEOQnN5legN4juqNFAJnD2xvu0Uw
+	Xm7bXFrQS+L3T5Cv9Obh5XZ/gTCdbAqhFY7DVOb5M5TiAHevmWVyBm2n5PcbKCnU2hlb6Bo/7VTyj
+	nZvFlmBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAPzL-0000000GqJu-1PjT;
-	Mon, 11 Nov 2024 08:41:35 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tAQ15-0000000GqhB-4A9w;
+	Mon, 11 Nov 2024 08:43:23 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAPtx-0000000GpNL-3UVu
+	id 1tAPu0-0000000GpO6-1yV1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 08:36:03 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e38fabff35so23652247b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 00:36:00 -0800 (PST)
+	Mon, 11 Nov 2024 08:36:05 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea7cfb6e0fso81492617b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 00:36:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731314159; x=1731918959; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731314162; x=1731918962; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+4O6vPXncAdT+5klHHB6JLQEFGlmp/qVLkbHu/JVbLo=;
-        b=3zgyhNikS2IpDzSoRmKhov8TW7oLN2nyXvGNqO3sq9FHdQsiTMW2TaH6kPwmZ8bgXh
-         CFYtbBicAsQOA6ht7y2/nRkQIY6pDM7hXYfvbkYytVe1nabQEjQzRasAv0WfsAeDUphi
-         ZhuKGx8EuoPmhv67veY2cIPWtZ6YaQjHh9OuWrIm5nDRVm1L+24tmtMf6r1p4ZqgEf9i
-         HzXyp0vBStm6OUZY7bT3rnV2Limbkn2wE99MGxOvIcXQeM4i9k26TG7ouGkw0oSbnTj0
-         OmWaYB4K1Pvh+ICzteqLaPcTueFQ6easwZd13O9MBZwS1diVC8kNOvcE9ihUZ/sy5hET
-         4WMw==
+        bh=0N4/8trK7fv9irXSAqJ3zFfA8vt6Qj0oJ/C7156uK8I=;
+        b=VCu6zN16luP+TryJfj82zwG3h6egyjyfe6TOu8VIftFrMaO+VquvywMJnt3nmzZXar
+         /CWAxNzbwgQWfuEhzgyYOzTZMt3vohKqBldG9Px2S8AIFacFiCZhrQcpcBhSRWU9Cqhx
+         y02NrtHzfw58DX1BPYSxC06xSO8lSpsPO05c2SkcG7IEkEXYCFxDX/nI+3GxaInQJB3k
+         7NQpUfmdIRi4oEOy6zEE5kdPm/PVw9DYY2xMYNxh79cpJK0/frekrOlH/tqQxKQ89EAy
+         Yhrtj3bxGAzIIhVruoscXszzPuiuZoma7yfw318b4VA1W0o2IBxBVj12yNoSoKm1ZW9M
+         IvVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731314159; x=1731918959;
+        d=1e100.net; s=20230601; t=1731314162; x=1731918962;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+4O6vPXncAdT+5klHHB6JLQEFGlmp/qVLkbHu/JVbLo=;
-        b=jltmh/VFSLOuOoyqUi8JQ7Om/2CSdzOdWLfoGbJt1tdVgnSrxbEa7SCDD4AwcSFvRV
-         KHLcdp1l67Lw0t2NYxyCUoFT1RcpBQlE/+xibgyf8oP8HpGd+n2REsIw2SX28SscObMZ
-         0d/XT/gYrSdaFV6G3X70d/rh0cgmbZWrbEDIEDhsBZ6zfnzhIyd1QPFQzvN4jAJlov2Q
-         nRJHfRl6Ow45jfdnRlxc5YItqbz/FP1+E/xF/zPJKXFFlfcfwo+wFclm4AnWFS4xFkYY
-         qBuIz1CWZe+zQDdTgY3Cm8Jz0eNlwVaivLxL5uPkFANgHhfNaUelji7vcxBbgoEekSzB
-         oQBQ==
-X-Gm-Message-State: AOJu0YwlxUTjYjps6Sirf9uqN3WfW4aTxCUGynskCPjC9FmpIDsYRSGT
-	8405VKscHIUT6kxjxTXwQ8Daz6I2jFqOrzE9HLmqi3YgiB9RvgcQ9pC1Dwo6S6E1w8YvHg7ZFTa
-	LVKnCanJyxYvEICiwBbx60+NINNz/t5kofpQ0GvQAUbiEtoJKlvhiYt0DPHEGbOJEihD/2NgJQl
-	VD7M606Vaysutm29pcBqbIqlQ+oQPHH95UybwmpZzM
-X-Google-Smtp-Source: AGHT+IFHExbV/UaCmb9SO/GvwiePUkfieauhVEdjQbeeo7rkNuDf0FnYJMGSUhAwD4yKRoCmYO6xtYGR
+        bh=0N4/8trK7fv9irXSAqJ3zFfA8vt6Qj0oJ/C7156uK8I=;
+        b=SOSgQOQ03e7GOh5EMOrlip98Q1cbX/VO51Agqyk84TZh9/rRwuUb0NfZlM2voR/SSB
+         2S8u/Svqc5ETkdngbWcp4MVuDIrb1u7OAUMVkbk5K+PYm3qbNcg10i8n6++qY5xLpCNB
+         diSa38DeyMJBN6ibZZ10neEzlJuhPjKcP3fuGPk8kbd8Y80aVamRYoc0iZKHnA63BkTQ
+         GIc5dHxQD/9HbM7tvfcLBdN+K40pw4PfqKbQ2meJOVL07a2MN01Q3Nnie3BWwq2y9n+B
+         /dGsFdcwjTHnxpTspT0JpNCjtzlmcUvMH6y7enmD2+r/lcO/8Mv8jpB7uubug+mgEP36
+         tbjQ==
+X-Gm-Message-State: AOJu0YzruDlqy7BORBXASwYep9iT7ZVCqPeveagzLF+wOfmestpWpS+N
+	4ITQ2k02AqVahIsqNfxv10AJK5a7Xj8EGeKCLcKnQrhWoPES+WYkdVIMW/q7CSvsYt9W/J7IZAf
+	Y9B130WWI1leunLvR7h8PrW1t7Kl5WdhFRox7KqhyouXMeUpuR40qQXCXr7MwLs/hBNx0jWKOe0
+	lcVIxcV2nUW0Tvh5SJlfB5AwR6qb3/Qq+Yy1NzjgK9
+X-Google-Smtp-Source: AGHT+IEaVcyWaEFOsAGEmUmx521XJZzIe6O0nRTJpeaLf4pyHpMVyj2xe5eAr/hgU4liSlwSx1Soq/gO
 X-Received: from palermo.c.googlers.com ([fda3:e722:ac3:cc00:7b:198d:ac11:8138])
- (user=ardb job=sendgmr) by 2002:a0d:fd01:0:b0:6e3:6414:80c5 with SMTP id
- 00721157ae682-6eadda22e76mr762687b3.0.1731314159320; Mon, 11 Nov 2024
- 00:35:59 -0800 (PST)
-Date: Mon, 11 Nov 2024 09:35:46 +0100
+ (user=ardb job=sendgmr) by 2002:a81:be05:0:b0:6e2:6f2:efc with SMTP id
+ 00721157ae682-6eb028d6c59mr467177b3.5.1731314161525; Mon, 11 Nov 2024
+ 00:36:01 -0800 (PST)
+Date: Mon, 11 Nov 2024 09:35:47 +0100
 In-Reply-To: <20241111083544.1845845-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20241111083544.1845845-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4298; i=ardb@kernel.org;
- h=from:subject; bh=v82eHrgTptnYI3SkH3DFWlg65i0BvRLyLZmKr5z7P/o=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JId3w4CP/at7Cu+4F321Y7dhUrNetClomFBRmzcf5YvKOq
- fIXZq/uKGVhEONgkBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABMRCGNk+PMnf9quWKN9P7eX
- p4kJl9w36Dxn7+fDWl1QO1X+6IQbBxkZni2erlXhv50vlmOeGceUp3Zhxf1vdmnusX8sH+e0oaK QCwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2178; i=ardb@kernel.org;
+ h=from:subject; bh=Rsge2hKhZ3IgLduep4Ol+NMdQ1OnlqaAQBu4vFWrM8I=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JId3w4OOI3t6JM3he6wj/fvl1/iRNb5+KfI0rxVsSN3fVB
+ d7tbdrbUcrCIMbBICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACbiE8jwTzsjSViaR1mnNmoX
+ 60UTV7//fRcMNrQk7GviOF0zeSnDXob/DosF7weG9whVPg2PLs25au19KFFvwdm4D6GXDs7quXC dFQA=
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Message-ID: <20241111083544.1845845-10-ardb+git@google.com>
-Subject: [PATCH 2/6] arm64/mm: Override PARange for !LPA2 and use it consistently
+Message-ID: <20241111083544.1845845-11-ardb+git@google.com>
+Subject: [PATCH 3/6] arm64/kvm: Configure HYP TCR.PS/DS based on host stage1
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
@@ -81,8 +81,8 @@ Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
 	Kees Cook <keescook@chromium.org>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_003601_903763_9CFB1FEA 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20241111_003604_542671_37D16C99 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +99,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-When FEAT_LPA{,2} are not implemented, the ID_AA64MMFR0_EL1.PARange and
-TCR.IPS values corresponding with 52-bit physical addressing are
-reserved.
+When the host stage1 is configured for LPA2, the value currently being
+programmed into TCR_EL2.T0SZ may be invalid unless LPA2 is configured
+at HYP as well.  This means kvm_lpa2_is_enabled() is not the right
+condition to test when setting TCR_EL2.DS, as it will return false if
+LPA2 is only available for stage 1 but not for stage 2.
 
-Setting the TCR.IPS field to 0b110 (52-bit physical addressing) has side
-effects, such as how the TTBRn_ELx.BADDR fields are interpreted, and so
-it is important that disabling FEAT_LPA2 (by overriding the
-ID_AA64MMFR0.TGran fields) also presents a PARange field consistent with
-that.
+Similary, programming TCR_EL2.PS based on a limited IPA range due to
+lack of stage2 LPA2 support could potentially result in problems.
 
-So limit the field to 48 bits unless LPA2 is enabled, and update
-existing references to use the override consistently.
+So use lpa2_is_enabled() instead, and set the PS field according to the
+host's IPS, which is capped at 48 bits if LPA2 support is absent or
+disabled. Whether or not we can make meaningful use of such a
+configuration is a different question.
 
-Fixes: 352b0395b505 ("arm64: Enable 52-bit virtual addressing for 4k and 16k granule configs")
 Cc: <stable@vger.kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/assembler.h    | 5 +++++
- arch/arm64/kernel/cpufeature.c        | 2 +-
- arch/arm64/kernel/pi/idreg-override.c | 9 +++++++++
- arch/arm64/kernel/pi/map_kernel.c     | 6 ++++++
- arch/arm64/mm/init.c                  | 2 +-
- 5 files changed, 22 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/arm.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 3d8d534a7a77..ad63457a05c5 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -343,6 +343,11 @@ alternative_cb_end
- 	// Narrow PARange to fit the PS field in TCR_ELx
- 	ubfx	\tmp0, \tmp0, #ID_AA64MMFR0_EL1_PARANGE_SHIFT, #3
- 	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_MAX
-+#ifdef CONFIG_ARM64_LPA2
-+alternative_if_not ARM64_HAS_VA52
-+	mov	\tmp1, #ID_AA64MMFR0_EL1_PARANGE_48
-+alternative_else_nop_endif
-+#endif
- 	cmp	\tmp0, \tmp1
- 	csel	\tmp0, \tmp1, \tmp0, hi
- 	bfi	\tcr, \tmp0, \pos, #3
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 37e4c02e0272..6f5137040ff6 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3399,7 +3399,7 @@ static void verify_hyp_capabilities(void)
- 		return;
- 
- 	safe_mmfr1 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
--	mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
-+	mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
- 	mmfr1 = read_cpuid(ID_AA64MMFR1_EL1);
- 
- 	/* Verify VMID bits */
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index 22159251eb3a..c6b185b885f7 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -83,6 +83,15 @@ static bool __init mmfr2_varange_filter(u64 val)
- 		id_aa64mmfr0_override.val |=
- 			(ID_AA64MMFR0_EL1_TGRAN_LPA2 - 1) << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
- 		id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_TGRAN_SHIFT;
-+
-+		/*
-+		 * Override PARange to 48 bits - the override will just be
-+		 * ignored if the actual PARange is smaller, but this is
-+		 * unlikely to be the case for LPA2 capable silicon.
-+		 */
-+		id_aa64mmfr0_override.val |=
-+			ID_AA64MMFR0_EL1_PARANGE_48 << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
-+		id_aa64mmfr0_override.mask |= 0xfU << ID_AA64MMFR0_EL1_PARANGE_SHIFT;
- 	}
- #endif
- 	return true;
-diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-index f374a3e5a5fe..e57b043f324b 100644
---- a/arch/arm64/kernel/pi/map_kernel.c
-+++ b/arch/arm64/kernel/pi/map_kernel.c
-@@ -136,6 +136,12 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index a0d01c46e408..1d20d86bb9f5 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2005,8 +2005,7 @@ static int kvm_init_vector_slots(void)
+ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
  {
- 	u64 sctlr = read_sysreg(sctlr_el1);
- 	u64 tcr = read_sysreg(tcr_el1) | TCR_DS;
-+	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
-+	u64 parange = cpuid_feature_extract_unsigned_field(mmfr0,
-+							   ID_AA64MMFR0_EL1_PARANGE_SHIFT);
-+
-+	tcr &= ~TCR_IPS_MASK;
-+	tcr |= parange << TCR_IPS_SHIFT;
+ 	struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
+-	u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+-	unsigned long tcr;
++	unsigned long tcr, ips;
  
- 	asm("	msr	sctlr_el1, %0		;"
- 	    "	isb				;"
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index d21f67d67cf5..4db9887b2aef 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -280,7 +280,7 @@ void __init arm64_memblock_init(void)
+ 	/*
+ 	 * Calculate the raw per-cpu offset without a translation from the
+@@ -2020,6 +2019,7 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+ 	params->mair_el2 = read_sysreg(mair_el1);
  
- 	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
- 		extern u16 memstart_offset_seed;
--		u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
-+		u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
- 		int parange = cpuid_feature_extract_unsigned_field(
- 					mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
- 		s64 range = linear_region_size -
+ 	tcr = read_sysreg(tcr_el1);
++	ips = FIELD_GET(TCR_IPS_MASK, tcr);
+ 	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
+ 		tcr |= TCR_EPD1_MASK;
+ 	} else {
+@@ -2029,8 +2029,8 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+ 	tcr &= ~TCR_T0SZ_MASK;
+ 	tcr |= TCR_T0SZ(hyp_va_bits);
+ 	tcr &= ~TCR_EL2_PS_MASK;
+-	tcr |= FIELD_PREP(TCR_EL2_PS_MASK, kvm_get_parange(mmfr0));
+-	if (kvm_lpa2_is_enabled())
++	tcr |= FIELD_PREP(TCR_EL2_PS_MASK, ips);
++	if (lpa2_is_enabled())
+ 		tcr |= TCR_EL2_DS;
+ 	params->tcr_el2 = tcr;
+ 
 -- 
 2.47.0.277.g8800431eea-goog
 
