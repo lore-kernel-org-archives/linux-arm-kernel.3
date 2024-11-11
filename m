@@ -4,81 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B331BD2E9CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 09:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2FBD2E9CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 09:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5S8BeF0nrq18mdCPjfEkKwRZjU4HVR6Gm86rMtGyyBk=; b=Zc9J3m0SeClJCB1jFyLWUkTwRD
-	UKmV+2dRUAlOqXEoEy3jCDXohqG5LnSEbiRFaU2BEnni4dBh4sRzT0jdcAUm+EZUDnLlHFpnHpWXd
-	0uoowMIEokpSz6ZbLS2DLjihBwTk98pSAZI8Z0zuMpeDq9wNP9YI6DX4Rx88DZ2vE5mxDvkrnidAr
-	ZDm5hRp0QAzcCxdMXcbIn1fByA8ajlwivefWYmIywU3Bv3wU+4R4zO3anhG3gaQ5UAuDVdeUM8Og3
-	wisd23K8xWVoGOC7aOF2ayDKUt5/8HzbGtUJ5vSAYtq6hJMHpJOB0eq+2fkUoJRSYbF8+fYgNgDwH
-	1O+TJRdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NG3w6IoKtjFw3GDAzprXMtFGp5ZzUMYeN9BzuAyCT4k=; b=f/FokKzFmvWIp1PUxxJKwrbGdF
+	VPXX86Dz9KDzycn5CfUIf1mXyMviZ3vmp0+NH5UjMbjJdMgO5vP8Mv4LP6H7aN7yWIvLB/qAtdNZO
+	7ekFvE1fGEaY/ohFzIFm/pOqylkxylaJYjOCfYn4aR0pYiDWol65kFTbeQQNGv4n5bxJ3IufqgG98
+	oDsVH4ZvWELaqY8elH4ip8PKTFknD7cWkjyj6xI1RSg0lMZbUtAmIxVx3KSuRJbeUNUrn0ZHK8djo
+	vy0d2A89IVYFUorvqJx4jvQz0zP9KVoCqq+NmP9THu7WOZZs2JsOy40WAJc/7n6wYz0h4a4ZysK6M
+	8BjGhBpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAR0a-0000000HAKd-02Sj;
-	Mon, 11 Nov 2024 09:46:56 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tAR2K-0000000HAm5-3yQI;
+	Mon, 11 Nov 2024 09:48:44 +0000
+Received: from mail-yb1-f178.google.com ([209.85.219.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAQyi-0000000H9ov-43dU
+	id 1tAQzE-0000000H9yV-0Q1d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 09:45:03 +0000
-X-CSE-ConnectionGUID: F9rdtuwbRMiTrYhw6p8ZaA==
-X-CSE-MsgGUID: jFKoCMtBS86foIg3Cz7acA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="30972330"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="30972330"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2024 01:45:00 -0800
-X-CSE-ConnectionGUID: /eX76d9LRjOk6/8VeX37PA==
-X-CSE-MsgGUID: UvJCofyfTlmID8eXgH3kkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,144,1728975600"; 
-   d="scan'208";a="91926457"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2024 01:44:55 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andy.shevchenko@gmail.com>)
-	id 1tAQya-0000000DXxa-0N1Q;
-	Mon, 11 Nov 2024 11:44:52 +0200
-Date: Mon, 11 Nov 2024 11:44:51 +0200
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-To: Aren <aren@peacevolution.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Kaustabh Chakraborty <kauschluss@disroot.org>,
-	=?iso-8859-1?B?QmFybmFi4XMgQ3rpbeFu?= <trabarni@gmail.com>,
-	Ondrej Jirman <megi@xff.cz>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
- possible
-Message-ID: <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
-References: <20241102195037.3013934-3-aren@peacevolution.org>
- <20241102195037.3013934-11-aren@peacevolution.org>
- <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
- <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
- <ZzEPACoblmcQD9yu@surfacebook.localdomain>
- <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
+	Mon, 11 Nov 2024 09:45:34 +0000
+Received: by mail-yb1-f178.google.com with SMTP id 3f1490d57ef6-e29327636f3so3988726276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 01:45:31 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731318329; x=1731923129;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NG3w6IoKtjFw3GDAzprXMtFGp5ZzUMYeN9BzuAyCT4k=;
+        b=L1oAgxMkT21GicOj8xB5ig0FrCPudq8bzWOsXBg6j5shpd9AsglDEWDeMFTXjHZCwj
+         ufXvpxVoFeVzl+CM//XOqHDwZRZnGyD672S9Cu9cbiop5BsYBB9zUyOEA+v1n7mcms3w
+         hK0rAK/PvmY9PB0IfHsnwfKbA9PpkG4TL3Atfqg5fIqClgdJOCkgYIpsXLhbI1Cm35KF
+         yPtwFqDUpwwrQsTseqSbmDD7cVBUD5Jj3RXCDv2pdH0zpEtTADqGPBwj9z8r6rEm/hJE
+         mrvEU5Ida0BxeQuc+xRDqvjbUYNhHax4HIbGAUQ9qPE95hQIh8J5mFENkxUYw5rCQT8d
+         DXug==
+X-Forwarded-Encrypted: i=1; AJvYcCUI380UWRFWL/H3nBz3GRjVAcQROss/03tDrKlbhrue24238to9cdpYqMo0jiwFeJf6Egn6WsVUrK+LN2KSMQKc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBvTLcupdSngl60f3UUz5iwa6snoKBK/nNmNamQROcYMpmGPk6
+	+TniLk+Z/sLrAV7zO/2hFCy/PPeTE+JY8Jc6wJ8XYRA/crMSYZ2LWb6qu0rc
+X-Google-Smtp-Source: AGHT+IGtNs1uAZUA6U3mM0+Vk5oRBTspg2MRUlJd75d1lrnS94xG3h9m2ks0wBHEITDCzBKbCjp8Mw==
+X-Received: by 2002:a05:6902:188a:b0:e28:6b10:51b4 with SMTP id 3f1490d57ef6-e337f8eb50emr12412465276.46.1731318328693;
+        Mon, 11 Nov 2024 01:45:28 -0800 (PST)
+Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
+        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e336ef4a9e9sm2167833276.34.2024.11.11.01.45.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 01:45:26 -0800 (PST)
+Received: by mail-yb1-f172.google.com with SMTP id 3f1490d57ef6-e30eca40dedso4118892276.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 01:45:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU5aGGjbO/v/dh5X0HFv2Y5ig3Xi8dY6xNKsjpTOKpWnE+/fEZpCz3kadQCuT6xICH8u3I3Wuoig9f1vOLajDBF@lists.infradead.org
+X-Received: by 2002:a05:690c:6f83:b0:6ea:c928:771 with SMTP id
+ 00721157ae682-6eaddf7ffabmr110486467b3.28.1731318326288; Mon, 11 Nov 2024
+ 01:45:26 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com> <20241104093609.156059-4-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20241104093609.156059-4-andriy.shevchenko@linux.intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 11 Nov 2024 10:45:13 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXx6hYsdKo-5sw+-vH7GOJYWn_de=wSvhj1QVVpbwCN7Q@mail.gmail.com>
+Message-ID: <CAMuHMdXx6hYsdKo-5sw+-vH7GOJYWn_de=wSvhj1QVVpbwCN7Q@mail.gmail.com>
+Subject: Re: [PATCH v1 3/6] leds: gpio: Avoid using GPIOF_ACTIVE_LOW
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Pavel Machek <pavel@ucw.cz>, 
+	Dominik Brodowski <linux@dominikbrodowski.net>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_014501_068590_88552C34 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20241111_014532_159836_367F9E48 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,100 +95,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote:
-> On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote:
-> > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
-> > > On Mon, Nov 04, 2024 at 10:40:16AM +0200, Andy Shevchenko wrote:
-> > > > On Sat, Nov 02, 2024 at 03:50:41PM -0400, Aren Moynihan wrote:
+Hi Andy,
 
-...
+On Mon, Nov 4, 2024 at 10:37=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+> Avoid using GPIOF_ACTIVE_LOW as it's deprecated and subject to remove.
+>
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-> > > > >  #define STK3310_REGFIELD(name)						    \
-> > > > >  	do {								    \
-> > > > >  		data->reg_##name =					    \
-> > > > > -			devm_regmap_field_alloc(&client->dev, regmap,	    \
-> > > > > +			devm_regmap_field_alloc(dev, regmap,		    \
-> > > > >  				stk3310_reg_field_##name);		    \
-> > > > > -		if (IS_ERR(data->reg_##name)) {				    \
-> > > > > -			dev_err(&client->dev, "reg field alloc failed.\n"); \
-> > > > > -			return PTR_ERR(data->reg_##name);		    \
-> > > > > -		}							    \
-> > > > > +		if (IS_ERR(data->reg_##name))				    \
-> > > > 
-> > > > > +			return dev_err_probe(dev,			    \
-> > > > > +				PTR_ERR(data->reg_##name),		    \
-> > > > 
-> > > > AFAICS these two can be put on one.
-> > > 
-> > > This doesn't leave room for whitespace between the end of line and "\",
-> > 
-> > Is it a problem?
-> 
-> It feels a bit camped and not as readable to me:
-> 
-> #define STK3310_REGFIELD(name)						    \
-> 	do {								    \
-> 		data->reg_##name =					    \
-> 			devm_regmap_field_alloc(dev, regmap,		    \
-> 				stk3310_reg_field_##name);		    \
-> 		if (IS_ERR(data->reg_##name))				    \
-> 			return dev_err_probe(dev, PTR_ERR(data->reg_##name),\
-> 					     "reg field alloc failed.\n");  \
-> 	} while (0)
+Thanks for your patch, which is now commit e6a2f0ea519fd247
+("leds: gpio: Avoid using GPIOF_ACTIVE_LOW") in gpio/gpio/for-next.
 
-Rather this way (besides the fact of having spaces instead of TABs for
-the last formatting, in such case you even can simply add yet another
-column with spaces):
+> --- a/drivers/leds/leds-gpio.c
+> +++ b/drivers/leds/leds-gpio.c
+> @@ -212,7 +212,6 @@ static struct gpio_desc *gpio_led_get_gpiod(struct de=
+vice *dev, int idx,
+>                                             const struct gpio_led *templa=
+te)
+>  {
+>         struct gpio_desc *gpiod;
+> -       unsigned long flags =3D GPIOF_OUT_INIT_LOW;
+>         int ret;
+>
+>         /*
+> @@ -239,10 +238,7 @@ static struct gpio_desc *gpio_led_get_gpiod(struct d=
+evice *dev, int idx,
+>         if (!gpio_is_valid(template->gpio))
+>                 return ERR_PTR(-ENOENT);
+>
+> -       if (template->active_low)
+> -               flags |=3D GPIOF_ACTIVE_LOW;
+> -
+> -       ret =3D devm_gpio_request_one(dev, template->gpio, flags,
+> +       ret =3D devm_gpio_request_one(dev, template->gpio, GPIOF_OUT_INIT=
+_LOW,
+>                                     template->name);
 
-#define STK3310_REGFIELD(name)								\
-	do {										\
-		data->reg_##name =							\
-			devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
-		if (IS_ERR(data->reg_##name))						\
-			return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-					     "reg field alloc failed.\n");		\
-	} while (0)
+Just wondering, as I am not 100% sure: can this change change the
+initial state of the GPIO?
 
-> Removing a level of indentation makes it much better
+>         if (ret < 0)
+>                 return ERR_PTR(ret);
+> @@ -251,6 +247,9 @@ static struct gpio_desc *gpio_led_get_gpiod(struct de=
+vice *dev, int idx,
+>         if (!gpiod)
+>                 return ERR_PTR(-EINVAL);
+>
+> +       if (template->active_low ^ gpiod_is_active_low(gpiod))
+> +               gpiod_toggle_active_low(gpiod);
+> +
+>         return gpiod;
+>  }
 
-You can do it differently
+Gr{oetje,eeting}s,
 
-#define STK3310_REGFIELD(name)							\
-do {										\
-	data->reg_##name =							\
-		devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
-	if (IS_ERR(data->reg_##name))						\
-		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-				     "reg field alloc failed.\n");		\
-} while (0)
+                        Geert
 
-> #define STK3310_REGFIELD(name) ({						\
-> 	data->reg_##name = devm_regmap_field_alloc(dev, regmap,			\
-> 						   stk3310_reg_field_##name);   \
-> 	if (IS_ERR(data->reg_##name))						\
-> 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-> 				     "reg field alloc failed\n");		\
-> })
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
-I am against unneeded use of GNU extensions.
-
-> > > replacing "do { } while (0)" with "({ })" and deindenting could make
-> > > enough room to clean this up the formatting of this macro though.
-> > 
-> > do {} while (0) is C standard, ({}) is not.
-> 
-> ({ }) is used throughout the kernel, and is documented as such[1]. I
-> don't see a reason to avoid it, if it helps readability.
-
-I don't see how it makes things better here, and not everybody is familiar with
-the concept even if it's used in the kernel here and there. Also if a tool is
-being used in one case it doesn't mean it's suitable for another.
-
-> 1: the "GNU Extensions" section of Documentation/kernel-hacking/hacking.rst
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
