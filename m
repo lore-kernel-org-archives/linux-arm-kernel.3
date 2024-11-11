@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1E4D2E9DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4C9D2E9DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GlzTFJ3IMZj9tO6/VpaH4/1od6HePRgJ3wA01MIwe5k=; b=4aZ0ULIGW7SmzInn1Psn2FbqkY
-	d3QEirtbkFQX7KCB/cCR6CQjCLhbytoan315OkZwYbpkwatFeewbhVSLTUFK3ye+5ax1Je3GQS2rG
-	ocwJqVRXMHJ2nj6/sgu7jabd8Hm/QERFsE0ncETaWx0pZ+ml3pb44MQvQQe62uXLhQ2/L2h2NWVIb
-	q0VDADkmfGHUJq6U2rehs1pCiYFD5T2EQnwaE4YevtIaBxCBMAttxJfTnp86gQkFponl/s4oAkE3S
-	u/grQvi0KMi44m//4N94SfaEVyBj5mBa/Fc3EilUTIEsBNgtOpfI3E8VBP/WWZlkmg9UWq/tqrCDb
-	K1uqlyHg==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZgYilRS3+fXEklYEgYiYwwxkuzYogqpLeaAN+pnNcuE=; b=thcA6tM+UsolIVdTkjWzyCD/VO
+	yAVF4P/dxwBrL6ER4ndaZP8LmnzqO27hr4MLHEoaGqmFETn0kMsjpUt25OiDWbRMZnK64GUes/YfY
+	h/YWHeHU/kRy70LSnumOAI6okzxd8P+GK+bQnOsGi+e8ZkGfXXQfbmBIZdnYChgcXDuAI1TF/kh4Q
+	bJvxBL85ORhmdbvMaXdII8qoGPLSm9uZlQiIzzpwUgHTprTJky8pdtJ6uuAY7+D6tuUsfN3J/wklG
+	Y4El/FQj6aXz8DUGUQix7IrfI6VB5VyIliHs/nfgvCOk+3iHyfiUCqiAOK7MeyI2oCMZUCjisRZS9
+	PvMcpg+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASje-0000000HUEU-1dH8;
-	Mon, 11 Nov 2024 11:37:34 +0000
-Received: from phobos.denx.de ([85.214.62.61])
+	id 1tAT1J-0000000HVwN-3hpo;
+	Mon, 11 Nov 2024 11:55:50 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAShq-0000000HTvY-3cAL
+	id 1tASzW-0000000HVlO-3wBO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 11:35:44 +0000
-Received: from tr.lan (ip-86-49-120-218.bb.vodafone.cz [86.49.120.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 1B97888FC4;
-	Mon, 11 Nov 2024 12:35:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1731324939;
-	bh=GlzTFJ3IMZj9tO6/VpaH4/1od6HePRgJ3wA01MIwe5k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Z/6WPIui5FHu6d4dlpqRxa1mXFsPdY0WE5eWCtnfUHLbd4vimQYyGLWuSH0utzmVR
-	 4gXcCrWMVrL243NELmUX26yr8OZOFNU+c20b4g2CfQJhy+L0YdfJ/3YElt/ShqkLoA
-	 73jUOoNsvGfYon7cA1VApQx9hsOm56xZDDV1mhLnvy5V/Ii6NU9sznvqR0ZfU4ahWo
-	 ipVjZpjQjXMTHd2QLV0fNT0fZYD3Jip9SM+eEqifVWJQErXy4cuO14sbT3ICKwMTpS
-	 opYkegPhANgeS9BjNrgzNsRzPAPHsWOpEVyq5fH3LYevdmOBan66hviM4YyGcmLWlu
-	 cAEUmVguBDkKA==
-From: Marek Vasut <marex@denx.de>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@denx.de>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	kernel@dh-electronics.com,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] MAINTAINERS: Update entry for DH electronics DHSOM SoMs and boards
-Date: Mon, 11 Nov 2024 12:34:21 +0100
-Message-ID: <20241111113524.10727-1-marex@denx.de>
-X-Mailer: git-send-email 2.45.2
+	Mon, 11 Nov 2024 11:54:00 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABBrosx2498289
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 11 Nov 2024 05:53:50 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1731326030;
+	bh=ZgYilRS3+fXEklYEgYiYwwxkuzYogqpLeaAN+pnNcuE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=waGp0b5+pByg3V3Pb9thQH/Dyzi7sNqiXvjgYR2bILZGyNGrE25cDlFP6+Fb5oFaj
+	 goxxOtQJo18IAQFpTY48ER22ivhUWki2fzcjFZxK6BBdB/VdwwX3FNc05nlknxNvVD
+	 BY4CdJBgo21Im8SkP2q0GwItF1s4KL2CHMNTTVQI=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABBroTb010807
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 11 Nov 2024 05:53:50 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 11
+ Nov 2024 05:53:50 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 11 Nov 2024 05:53:50 -0600
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ABBrin4029503;
+	Mon, 11 Nov 2024 05:53:45 -0600
+Message-ID: <cb39d07b-ad4b-4e87-bba4-daf77b583659@ti.com>
+Date: Mon, 11 Nov 2024 17:23:43 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
+ sequence.
+To: Simon Horman <horms@kernel.org>
+CC: <vigneshr@ti.com>, <m-karicheri2@ti.com>, <jan.kiszka@siemens.com>,
+        <javier.carrasco.cruz@gmail.com>, <jacob.e.keller@intel.com>,
+        <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20241106074040.3361730-1-m-malladi@ti.com>
+ <20241106074040.3361730-2-m-malladi@ti.com>
+ <20241108133044.GB4507@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <20241108133044.GB4507@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_033543_080149_2CFD6CF1 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20241111_035359_149843_7A1FAEC4 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,64 +94,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the MAINTAINERS entry to cover all DH electronics DHSOM
-SoMs and boards. The DHSOM is the name which covers all modules,
-DHCOM is the SODIMM seated SoM, DHCOR is the solder on module.
-Use glob pattern to match on every DT file which contains either
-of those three module substrings in lowercase.
 
-Signed-off-by: Marek Vasut <marex@denx.de>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: NXP Linux Team <linux-imx@nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
- MAINTAINERS | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1cf1ac44398ae..40b23e71f72dd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6633,19 +6633,14 @@ L:	linux-rtc@vger.kernel.org
- S:	Maintained
- F:	drivers/rtc/rtc-sd2405al.c
- 
--DH ELECTRONICS IMX6 DHCOM/DHCOR BOARD SUPPORT
-+DH ELECTRONICS DHSOM SOM AND BOARD SUPPORT
- M:	Christoph Niedermaier <cniedermaier@dh-electronics.com>
--L:	kernel@dh-electronics.com
--S:	Maintained
--F:	arch/arm/boot/dts/nxp/imx/imx6*-dhcom-*
--F:	arch/arm/boot/dts/nxp/imx/imx6*-dhcor-*
--
--DH ELECTRONICS STM32MP1 DHCOM/DHCOR BOARD SUPPORT
- M:	Marek Vasut <marex@denx.de>
- L:	kernel@dh-electronics.com
- S:	Maintained
--F:	arch/arm/boot/dts/st/stm32mp1*-dhcom-*
--F:	arch/arm/boot/dts/st/stm32mp1*-dhcor-*
-+N:	dhcom
-+N:	dhcor
-+N:	dhsom
- 
- DIALOG SEMICONDUCTOR DRIVERS
- M:	Support Opensource <support.opensource@diasemi.com>
--- 
-2.45.2
-
+On 08/11/24 19:00, Simon Horman wrote:
+> On Wed, Nov 06, 2024 at 01:10:39PM +0530, Meghana Malladi wrote:
+>> From: MD Danish Anwar <danishanwar@ti.com>
+>>
+>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
+>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
+>> respective firmwares to PRU cores and whenever interface goes down, we
+>> stop the respective cores. Due to this, when SLICE0 goes down while
+>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
+>> stopped. This results in clock jump for SLICE1 interface as the timesync
+>> related operations are no longer running.
+>>
+>> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
+>> ICSSG interface is up.
+>>
+>> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
+>> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
+>> used to let firmware know that the flow_id has been updated and to use the
+>> latest rx_flow_id.
+>>
+>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> 
+> ...
+> 
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> 
+> ...
+> 
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> index 0556910938fa..9df67539285b 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   {
+>>   	struct prueth_emac *emac = netdev_priv(ndev);
+>>   	int ret, i, num_data_chn = emac->tx_ch_num;
+>> +	struct icssg_flow_cfg __iomem *flow_cfg;
+>>   	struct prueth *prueth = emac->prueth;
+>>   	int slice = prueth_emac_slice(emac);
+>>   	struct device *dev = prueth->dev;
+>> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   	/* set h/w MAC as user might have re-configured */
+>>   	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
+>>   
+>> +	if (!prueth->emacs_initialized) {
+>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
+>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
+>> +	}
+>> +
+>>   	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+>> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
+>>   	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
+>>   
+>>   	/* Notify the stack of the actual queue counts. */
+>> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
+>>   		goto cleanup_napi;
+>>   	}
+>>   
+>> -	/* reset and start PRU firmware */
+>> -	ret = prueth_emac_start(prueth, emac);
+>> -	if (ret)
+>> -		goto free_rx_irq;
+>> +	if (!prueth->emacs_initialized) {
+>> +		if (prueth->emac[ICSS_SLICE0]) {
+>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
+> 
+> I wonder if it is worth simplifying this by having prueth_emac_start()
+> check if it's 2nd parameter is NULL. Likewise for prueth_emac_stop().
+> 
+Yes right, I will update this.
+>> +			if (ret) {
+>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
+>> +				goto free_rx_irq;
+>> +			}
+>> +		}
+>> +		if (prueth->emac[ICSS_SLICE1]) {
+>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
+>> +			if (ret) {
+>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
+>> +				goto halt_slice0_prus;
+>> +			}
+>> +		}
+>> +	}
+>> +
+>> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
+>> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
+>> +	ret = emac_fdb_flow_id_updated(emac);
+>> +
+>> +	if (ret) {
+>> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
+>> +		goto stop;
+> 
+> Branching to stop may result in calls to prueth_emac_stop() which does not
+> seem symmetrical with the condition on prueth->emacs_initialized for calls
+> to prueth_emac_start() above.
+> 
+> If so, is this intended?
+> 
+Yes this is intended. This change is made to run all the cores during 
+init and in case of any failure, stop all the cores. And even if one 
+interface is up, all the cores should run.
+>> +	}
+>>   
+>>   	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
+>>   
+> 
+> ...
 
