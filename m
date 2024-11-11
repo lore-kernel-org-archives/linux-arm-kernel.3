@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E03D3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9BAD3ABF6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftDw5gj4OX0ZX2AWggS6ZGbu3W01ORpuvQpfE7Hwv6I=; b=z4JDhegrjMyUcXPeWTNvgD6mKd
-	DpDAQ1uD5mtrTEmBebBgau+HMIZjMnkqNaoLa+5k8LpHxRXlnL14ySsBP20EXUKsPOrWSTf3nmVdD
-	XzczcPfgf1xxYvXLmsL1L0gQoEwR87B39rps3mR6E1PgVTAVKZQsJci7YM0MDNBJDovevT2CasCRC
-	rKuHpBz/nQIFoKDoYCbEAsFskT3XpZTmH+mtGRcwF/CGSy46jS3cYepmkstiGnjcnvLS3KrP+ZzQV
-	0n4sRWHDetyaECix21x2qc6JOB6S4exC76unY6hDzcE/Hjd84hROADbJcEJhtq0zASwyTS2Q21yi5
-	NKjYDtVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b9CAj9JaGMN0ybNM1og6EH7btRUNarOLzlzuHTkv93s=; b=uXQmU7mFAl1rxplYufAtj2QlA5
+	4Ov9+PPb2hDITpf1p6xsWca5uIciCNBRKNZf6V8mXKBtmZTHo7PCW1/Di5UdFacapd1LMekQioATL
+	2T7M9NAXrqK3Yx15ZC0dx7ZJdSNQldPky9zvgNSu78g9/KqgHE0rzLBTHnZG9PRHxJIPm3HVdl1ov
+	R3ceIyZDOQUgk1Ek07kO+nuSRg0XbYo+K4ANpR+itlm2413JmFTYe/v4SCOBP6eLvvvqOn9qYAeyd
+	Kg7J6m+f5QgCXOzd4dVAby8X2L1F4+O2LkMCEN+jUhQ0xZTQaWoTDeFNoiEOGnXNiu06fu3nOBHas
+	0HdIIdFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbWP-00000001Hdf-0RFY;
-	Mon, 11 Nov 2024 21:00:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAbYC-00000001I4o-3P4j;
+	Mon, 11 Nov 2024 21:02:20 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbCQ-00000001Dr2-1F3A
+	id 1tAbD6-00000001Dyl-3LnB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 20:39:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E2B5A402AF;
-	Mon, 11 Nov 2024 20:37:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9668C4CECF;
-	Mon, 11 Nov 2024 20:39:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731357589;
-	bh=ftDw5gj4OX0ZX2AWggS6ZGbu3W01ORpuvQpfE7Hwv6I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QN881zKSy8AnevXU94HIdRkWlYDZ1ubm2eedwnzzcUzinFFF/CFsd7RiA5RUeVnjV
-	 FGYB/eAc1wY8LIXwsO4h84ITzTbJS8dfAa+3ksQgjWZyTtgUMlw0EEHx9ofUqU8ruv
-	 PK9kBZGae5+ufWhNGEPcSLJ28sVurdhz8nTw9F/FsGJrp2JFEEAeoRja0eRBH29KHV
-	 pect20WQttAh0pJ9yE7clknWmGIIvSz7oB2m7QLf0uk7ODSNcudxD4htyWbIOnCb8U
-	 J+/8wY1+NZXEuC62Agn6VtoDH9E75a24OPrAk4htmZfRQGsD79Xx9gNEoHUaDSvAYv
-	 bnpRqKAJxq/Ww==
-Date: Mon, 11 Nov 2024 20:39:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 13/14] dt-bindings: arm: sunxi: Add Avaota A1 board
-Message-ID: <20241111-unflawed-nativity-f5c25cb3889b@spud>
-References: <20241111013033.22793-1-andre.przywara@arm.com>
- <20241111013033.22793-14-andre.przywara@arm.com>
+	Mon, 11 Nov 2024 20:40:34 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1731357629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=b9CAj9JaGMN0ybNM1og6EH7btRUNarOLzlzuHTkv93s=;
+	b=NSky0qXt3FYZ1uz0lOO9GCgsPfAGi+hlH9gH52cProQINk5600PTWNOFHccqjfU+OaRCfF
+	t6d6uVZ5IEdvMi7EPmtGKg214jQbT/V7GI2CRh3Vur2lw6eVacBlV+8dEWOU6KKMJDnZkQ
+	qVkuJ46lmP6hM9u5vD/+H6Q6xWS0LZE=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	KVMARM <kvmarm@lists.linux.dev>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	KVM <kvm@vger.kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>
+Cc: Colton Lewis <coltonlewis@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Eric Auger <eauger@redhat.com>
+Subject: Re: [PATCH v4 0/5] Some fixes about vgic-its
+Date: Mon, 11 Nov 2024 20:40:03 +0000
+Message-ID: <173135744708.2975582.6187985686343920631.b4-ty@linux.dev>
+In-Reply-To: <20241107214137.428439-1-jingzhangos@google.com>
+References: <20241107214137.428439-1-jingzhangos@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FQrGi8tboct4VcBk"
-Content-Disposition: inline
-In-Reply-To: <20241111013033.22793-14-andre.przywara@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_123950_414686_3ECB6A6F 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20241111_124033_066912_D46CF6CD 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +82,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 7 Nov 2024 13:41:32 -0800, Jing Zhang wrote:
+> This patch series addresses a critical issue in the VGIC ITS tables'
+> save/restore mechanism, accompanied by a comprehensive selftest for bug
+> reproduction and verification.
+> 
+> The fix is originally from Kunkun Jiang at [1].
+> 
+> The identified bug manifests as a failure in VM suspend/resume operations.
+> The root cause lies in the repeated suspend attempts often required for
+> successful VM suspension, coupled with concurrent device interrupt registration
+> and freeing. This concurrency leads to inconsistencies in ITS mappings before
+> the save operation, potentially leaving orphaned Device Translation Entries
+> (DTEs) and Interrupt Translation Entries (ITEs) in the respective tables.
+> 
+> [...]
 
---FQrGi8tboct4VcBk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Taking the immediate fixes for now, selftest might need a bit more work
+(will review soon). Note that I squashed patch 2 + 3 together as well.
 
-On Mon, Nov 11, 2024 at 01:30:32AM +0000, Andre Przywara wrote:
-> The Avaota A1 is an Open Source hardware router board using the
-> Allwinner T527 SoC.
->=20
-> Add its compatible name to the list.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Applied to kvmarm/next, thanks!
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+[3/5] KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
+      https://git.kernel.org/kvmarm/kvmarm/c/7fe28d7e68f9
+[4/5] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
+      https://git.kernel.org/kvmarm/kvmarm/c/e9649129d33d
+[5/5] KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
+      https://git.kernel.org/kvmarm/kvmarm/c/7602ffd1d5e8
 
---FQrGi8tboct4VcBk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZzJrkAAKCRB4tDGHoIJi
-0gs0AQDcHH0lqvHvvyzDj2HN8e60RgpmVUImioduTNl3J/oMNwD9GfcJxYVrSAz0
-k05tYZzb0T1k0tRsTAVWuIroTF3IbgU=
-=DZjw
------END PGP SIGNATURE-----
-
---FQrGi8tboct4VcBk--
+--
+Best,
+Oliver
 
