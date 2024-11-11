@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1451D12D69
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 03:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01367D12D6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 03:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uq1Q+PLQaBHbK6SEc97ZCUtsuNONkI5JD7fRSGzJ5KQ=; b=KwyudEzodVSIuqPGaPUlzCV8sf
-	jWauU+7I9fynL6Q3pJBrvMfE3ny2L/Gwgfgg5Xmj0vw8BURk93QuYV/Ke81YKOvugb2kXWH0nXCwi
-	vxlayseKksg1gA5tAXkTnmDNxmtimHxCce/weuwU4lv69bcrxysXXgPO0W3zxp9e3k56rOX0giqvw
-	h9FdsB4Vw5+dTcbIAY/h0WwuAss2vuoF5F6rV5BC14Umz3RTBEBhLnJldKQbcUPHAlU0d1rhBsB5T
-	qMpa8EdZ1zHgzOJxa91RCCg2hNDJ2Oy1hqYUMFIb40xl8Cj7cLONtVIt4pf2ETQaRn26SSX7XRHXS
-	xgcIKJOA==;
+	bh=cyBoacIe/beqOmXqqDNGWcJXEOI0SPSE7QTB0nEVwZQ=; b=wuaGYdsdvI/L9UAQA2oOZvRDaE
+	OeNwxDMIIwwpZoCceCWCIM2+Cz39bm3GETcCFMhO9hC5VQmO1Ffl/HYFCT0mR3WYRIXOhoKCe/KDV
+	DdLBpwA7lbBEM8HgHwViRBXkMYjoT0OwPmxv6BBiBvRqvYYAzQ2PvHAWoubKhkI4kC/tbuq8vpZTf
+	7tRxrNW4bpJjFrrahvppC0OiYQzVUBrd+y/71tdUCERpvlRTYM1TpkBef4jPuGNGHAekb0V6Xo1N3
+	yfKmTpvt98AtF+qLcrMXt823SDGKb9p6e9nqZNX2SJRfdpsir4kxZDHbkhnAJ2oJusywdTAEOEK7b
+	ipvVv3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALQq-0000000GFsX-2rlK;
-	Mon, 11 Nov 2024 03:49:40 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1tALSY-0000000GFzn-3uvu;
+	Mon, 11 Nov 2024 03:51:26 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALP3-0000000GFaX-2d7j
+	id 1tALQ5-0000000GFjh-0nmt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 03:47:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731296870; x=1762832870;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=alkdc62O/qq+P1005nwlDTA80rR8H65BGJRqrWQj13c=;
-  b=oJLrrR/3oDZmzAnM3sTMnwwb7va4RqEyRfpw9N21Mm+I/rcUq/Kdrsc7
-   UrubJwJUHMuI7m8SgZGojHI5GAWcabIIR/6lqFyTVSaxOqa1e85tu5QNJ
-   Hcil+AlYqq8zPyr7MZXbGmA0VuNkogRu3IEbRtSKhJgRBDshsr1x6T5xJ
-   gsHf75otdkWzPH5K9RYUeAevbOBlDk/y/1f/dixgIayIUH7VxSwndVfuc
-   qoy/oGRsCbAzKSFvvGvBS/dXCbTskx0mu6u65olGtgv56uB0ux+zIZBDA
-   Q+dahh0aK5TMOGXkzCEaluVRr3545Dqi9Cu8fmLL45frdz0Q9yKrvG+Sy
-   g==;
-X-CSE-ConnectionGUID: AHliLhPgT6+0rm+oZ/bYCA==
-X-CSE-MsgGUID: ofNPpIYASzyX++At4v4Uuw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11252"; a="33956634"
-X-IronPort-AV: E=Sophos;i="6.12,144,1728975600"; 
-   d="scan'208";a="33956634"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2024 19:47:44 -0800
-X-CSE-ConnectionGUID: vnCxt3TrR9SBrEVL53/voQ==
-X-CSE-MsgGUID: EVu8N+ZfSQC2gB2Ppe6InA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,144,1728975600"; 
-   d="scan'208";a="87164397"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmviesa010.fm.intel.com with ESMTP; 10 Nov 2024 19:47:42 -0800
-Date: Mon, 11 Nov 2024 11:43:55 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>, Tom Rix <trix@redhat.com>,
-	Peter Colberg <peter.colberg@intel.com>,
-	Michal Simek <michal.simek@amd.com>, linux-fpga@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] fpga: Switch back to struct platform_driver::remove()
-Message-ID: <ZzF9e1yS9GnUiyD8@yilunxu-OptiPlex-7050>
-References: <20241108160002.252517-2-u.kleine-koenig@baylibre.com>
+	Mon, 11 Nov 2024 03:48:55 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2e2e2d09decso3807174a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 19:48:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731296931; x=1731901731; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cyBoacIe/beqOmXqqDNGWcJXEOI0SPSE7QTB0nEVwZQ=;
+        b=LdCHfxI8w3aEIdnP2+2FJBgjEhr9p/2SjjfCcWJXMROorDuPgiVu170BrDr4A6SEFI
+         llzGMapLg4knFcOSikm1ccKaw98w3qgFgVyFzSuR67bnRu/w/kvXRocd5Nn/cw0ceW2Y
+         fng5u/OkLAf7YJM2Zdm5fsItDRk6MB01IGJNl1RNF0POosBmjUUmNrhNrqB2d9aRDN8N
+         VbjjycgP2e5E1hD1mSpuXWhXVD2SWoX1EAcaoIWqyJt7lTEKofHu94a5xSbARsY/Z9rK
+         x6F8r0L4yuzmBBm0/AXo9HJJl7UTKxxfk6+KKqGWPzdRzGd0b+gcc/WS/o9GqjEe4zMl
+         TUHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731296931; x=1731901731;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cyBoacIe/beqOmXqqDNGWcJXEOI0SPSE7QTB0nEVwZQ=;
+        b=CLqq022cneZoUPLrqUSA6PAMx67bZ36I2iLUdD/1UfFnXeB5lywP510FGnqqhfowEQ
+         w2BC/1qPbKzrarpLs6xMM6wWcrsCY5WXbdXWbH4BEHxSDXaVsbUEeELEQk0C6ssenSJT
+         V/dwAwqdIoH6/qhniV0rcsBdKNPc4skERr1mWPnhF6ZnUXgzmhBDTDvLAp8TlH5n4ieT
+         Bos17NbaFD16ClidJ/08F/odc7lBazSrVL0IZPWw9Ytc69qqkv5PLzet+zUU0zavCbTs
+         X6wifMsHM2iwgwsCEEk+tyf5T1fxs1LIIv7M+a6TQfYZG+R5TgNOzsQ4LVNxtlYBpexx
+         7gbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUfrhw66gjungU0BTA/59+NjJZu9OTM4XP8tEyh1HgoVSUCLYnmRp2O4OAvtQ/qJhF9Rd+Tn7JDEl3OkAtEJbEA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRffkC76logpTfbT1r2Tm4U4oveDuDOeX4rLhpm2TrwfoaojHu
+	dS02NSgBuSzlcdjJGBeIDhtQ9I7VVqjbmoe86M2fRrb2DsF7otWudqlGJYG3CvI=
+X-Google-Smtp-Source: AGHT+IGYrXj9oPlPSmY8T67CTPIqdUFk8LRkxz3VZqL+QyxxAM/tx5DxSPFaPEc+Y36IKUhOf2R9rw==
+X-Received: by 2002:a17:90b:39c5:b0:2d8:b043:9414 with SMTP id 98e67ed59e1d1-2e9b1f8e54emr14638700a91.18.1731296931268;
+        Sun, 10 Nov 2024 19:48:51 -0800 (PST)
+Received: from localhost ([122.172.86.146])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9a5fd180fsm7451733a91.33.2024.11.10.19.48.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Nov 2024 19:48:50 -0800 (PST)
+Date: Mon, 11 Nov 2024 09:18:48 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org,
+	morten.rasmussen@arm.com, dietmar.eggemann@arm.com,
+	lukasz.luba@arm.com, pierre.gondois@arm.com,
+	vincent.guittot@linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	quic_mdtipton@quicinc.com, linux-arm-msm@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH V7 1/2] cpufreq: scmi: Fix cleanup path when boost
+ enablement fails
+Message-ID: <20241111034848.wyryvgeqvu33jilm@vireshk-i7>
+References: <20241031132745.3765612-1-quic_sibis@quicinc.com>
+ <20241031132745.3765612-2-quic_sibis@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241108160002.252517-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20241031132745.3765612-2-quic_sibis@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_194749_728168_6F59DB86 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20241110_194853_274667_4CBCE873 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +98,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 08, 2024 at 05:00:02PM +0100, Uwe Kleine-König wrote:
-> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-> return void") .remove() is (again) the right callback to implement for
-> platform drivers.
+On 31-10-24, 18:57, Sibi Sankar wrote:
+> Include free_cpufreq_table in the cleanup path when boost enablement fails.
 > 
-> Convert all platform drivers below drivers/fpga to use .remove(), with
-> the eventual goal to drop struct platform_driver::remove_new(). As
-> .remove() and .remove_new() have the same prototypes, conversion is done
-> by just changing the structure member name in the driver initializer.
-> 
-> A few white space changes are included to make indention consistent.
-> 
-> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> cc: stable@vger.kernel.org
+> Fixes: a8e949d41c72 ("cpufreq: scmi: Enable boost support")
+> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+> ---
+>  drivers/cpufreq/scmi-cpufreq.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 
-Acked-by: Xu Yilun <yilun.xu@intel.com>
+Applied. Thanks.
 
-Applied to for-next and submitted to v6.13-rc1
-
-Thanks,
-Yilun
+-- 
+viresh
 
