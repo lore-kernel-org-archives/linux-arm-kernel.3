@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F1ED2E9C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 09:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E8ED2E9C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 09:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=16u+npe4MbHHsmpZ08MOYgrA6j2B46LPWEmoqUuH2IU=; b=VeTcZkR1O1GyyYeKvJvNf/GtZ6
-	uGUzc8cfdFQ8xrYWmVMvmFoENq8cfY8W7Rzx9QzEzxaf9D5IH4wZTC/mOftp5a+6Pu8iIx0KyqMoD
-	Zgi/SJvKWZF8jTzQtq3yBwSBc/bOCDk6yDiMT8i1pHnnc5YvQMzBH74NQPsv5WBJ7eRFQC0CQdgyY
-	qUAcCO5U89NQ0vm19ittQFYihKofPAWP6cSriJ5j+r0/+xY4vGpPncHzYyleFRwk9qo1r+Bc/AQXq
-	cjAo4sX4At+4Yvkf2u+vp0weUHLXJPG8KNJrn1SFn5oFEwzp9aByMvt6v1To6k3XKYTQP0idt9eUa
-	yrinS9Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NG1Nd7+HVlTq1ri/nmsg9JlZwgJXIHRSTROQznjNZMY=; b=li0lrUjJfACdHWc6Xdz6DGDQRO
+	q7/oz4CESVhULDp7nJjmM3apv4VwlfapGUqcn6KB58yPkzaiC4pvgOBZxC1727j6NqwuxSfire+Fk
+	r8iovH+Ir5jVQ8G3UJ31AKM2wEqA8OAUMu9SXhgH8ecyrMZv+e2FwXjviZU2nr4k/2hnN3O6m0ljD
+	8EY5d9WXjcuPmdZb4IQ2BFZvixsJ/xDYnTn2qRyAwpn7E9c+Wq53+OzlRh3tfIjiyxy6TOV+ukoi9
+	8aQvxTwRUnHTnZhZteRzeMYRCGaipnELFKXfbF37Io5VunSgztYU+iIby2Ft3EQA2OGlBdEaw/qZ5
+	B5jv2aeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAQiA-0000000H5qN-3Zsp;
-	Mon, 11 Nov 2024 09:27:54 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1tAQmq-0000000H6za-06uu;
+	Mon, 11 Nov 2024 09:32:44 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAQgN-0000000H5W4-0xw7
+	id 1tAQkY-0000000H65a-3XS8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 09:26:04 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-71807863f0aso78879a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 01:26:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731317161; x=1731921961; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=16u+npe4MbHHsmpZ08MOYgrA6j2B46LPWEmoqUuH2IU=;
-        b=gOjyytuy1WZKjHHIpYKlJquNeqhvuoBWZXL9Q5hF7Ohcl5KKxD/cNdksDzNRjOo59O
-         CoSFPXf+3NpyzR9uFkAmoVcDS/wASPU4kcFudAsaKyQLFSmVUa2+ucVL+4R/GgGA3R17
-         WvQgJIDyZkZ6/G6l3F1aT0M7qp5z7W/UvyeJAbZKg2NpJvGVWaJw9E94M2Ho9e9Hs1+Y
-         EF5ou4KypVKiPFt2iUXA79P9Bvjatbr3VsiOgdsOsHcjdx2/i6JjyFyz0Z6iUCOATTFO
-         6jCT0e//OeqOwgy0lQJwpHMQMSLrmSqIG+6EciTqKjBifLm/AHQH65AwIoyT3gSsf7up
-         28cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731317161; x=1731921961;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=16u+npe4MbHHsmpZ08MOYgrA6j2B46LPWEmoqUuH2IU=;
-        b=PSBvVgSAjGMpKuoaWDdnNqCRCytOLM9Z9SneelWvt4HLtjdspzc4c2d3V0Cu3HYQLg
-         cvtt8jh/Pf6j9xkUwuVKTjlpdEQqluzxGPEr7L5qhKHbglxKGFOBKW+JWhNvaS6vZ5Oc
-         ANaIrgH/Q8ZNv8+bCw0/aIpo6MCFczVtoDoi1OZZUnnKOlny4GHGR/wsm0gRlL0S22wu
-         MzZ00zre1LhgyJl9AjvNnBafEWPCI7et14UOFVj2YxwrcXN5alnoY9CrI+HQ6vQaQyAf
-         +os5HEXC1Cfl936yOZS/lmD9fPeTzTGdy+T9gVlzbvFsL2r1TKnsmA/vlHTtOnNQaSfA
-         NrOw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8iROlyOyDWhyxtq5fEe+OLOYXJDmEdcy+HWF17as+HvwlgwKncfyBBwpQZ/6nLug8dW1r8NVCNWtxfZatGk01@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLFlamQ+SKAWHwyACeXTYVZnbMEe8M1iPbD3qZet62KMvBJF/E
-	3ALrj1hqCyOVZp9wB+F58b84ukzRfREWF4KtyWIUVbFw7QuXLhPpLiax3yB+Fs4mNVRdbKnB1YG
-	lnNGNxSiQmpJwnOUyv7XydDHqFBtlpH+0DLe1rKKWpVJpiuHe3MoRSw==
-X-Google-Smtp-Source: AGHT+IEbddWaWnCjkmvVli+HftqZUgfuRo1RHD4WnRBKP26ug1MHqgXnTsC6sGlZxqlzp2/8eme4zlIKL3HJtTUpKNM=
-X-Received: by 2002:a05:6830:d87:b0:718:ffc:9445 with SMTP id
- 46e09a7af769-71a1c1f11b8mr2581183a34.2.1731317160303; Mon, 11 Nov 2024
- 01:26:00 -0800 (PST)
+	Mon, 11 Nov 2024 09:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731317422; x=1762853422;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=BUnaed9fBm7H7/JjfD4vCaL7tVZY6KSJ+UsnJ84Dnps=;
+  b=NgdHjbijAiwkUz1k+RGEs7KeUXXg2yr8WAjEzkhJFdydC0eu/UTBFFlk
+   9KasfM48r2gVw48kSl/Xaa39cJGse17mBXxpTufKUlmxt0B4yaduDC9/H
+   /WHfHU1xUoZbxzU5jCd+vGs+J9IjcryRpOx+oF9lKdD9h9uZrNRFoeHy8
+   0YBQgng3uSUsbRcyXcKy+NVJLS+FMRKVJp2bh7rrXdSaaS4ZR1oYq3hb0
+   ACLpSBHUSZY/R5i39juXBC1YQS4uVqWNVliSYzC7r3t4Z3kDNcyp3WFN0
+   mv+Yz1PddSDHtKoP+R92t/ATdKIGCjT58zSR6NRS9Z53GxjGZzEscjCPs
+   w==;
+X-CSE-ConnectionGUID: QA6aZ3oISzCpnKZN4uOuMQ==
+X-CSE-MsgGUID: 0OypxdVrSmq3yuixnmMYRg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11252"; a="30998443"
+X-IronPort-AV: E=Sophos;i="6.12,144,1728975600"; 
+   d="scan'208";a="30998443"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2024 01:30:21 -0800
+X-CSE-ConnectionGUID: 8X7KpXjaRMWd5iBaSklJwQ==
+X-CSE-MsgGUID: t+bmDv6FTumsoJ+kjdXA+Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="91748569"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Nov 2024 01:30:16 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tAQkO-0000000DXig-2diE;
+	Mon, 11 Nov 2024 11:30:12 +0200
+Date: Mon, 11 Nov 2024 11:30:12 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: maz@kernel.org, tglx@linutronix.de, bhelgaas@google.com,
+	alex.williamson@redhat.com, jgg@nvidia.com, leonro@nvidia.com,
+	shameerali.kolothum.thodi@huawei.com, robin.murphy@arm.com,
+	dlemoal@kernel.org, kevin.tian@intel.com, smostafa@google.com,
+	reinette.chatre@intel.com, eric.auger@redhat.com,
+	ddutile@redhat.com, yebin10@huawei.com, brauner@kernel.org,
+	apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de,
+	anna-maria@linutronix.de, nipun.gupta@amd.com,
+	marek.vasut+renesas@mailbox.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, kvm@vger.kernel.org
+Subject: Re: [PATCH RFCv1 4/7] PCI/MSI: Allow __pci_enable_msi_range to pass
+ in iova
+Message-ID: <ZzHOpJ8tNs5CD9m1@smile.fi.intel.com>
+References: <cover.1731130093.git.nicolinc@nvidia.com>
+ <7406707cbcf225fe8f6ec3ce497bdcfc51f27afb.1731130093.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <20241021072626.15102-1-xiazhengqiao@huaqin.corp-partner.google.com>
-In-Reply-To: <20241021072626.15102-1-xiazhengqiao@huaqin.corp-partner.google.com>
-From: Zhengqiao Xia <xiazhengqiao@huaqin.corp-partner.google.com>
-Date: Mon, 11 Nov 2024 17:25:49 +0800
-Message-ID: <CADYyEwQjDUALxi482d=KTY4Jt1zpbByPQXjF9YR4hu-3Qd-u0w@mail.gmail.com>
-Subject: Re: [PATCH v3 RESEND 0/4] arm64: dts: mediatek: Add MT8186 Chinchou
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	wenst@chromium.org, hsinyi@chromium.org, sean.wang@mediatek.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7406707cbcf225fe8f6ec3ce497bdcfc51f27afb.1731130093.git.nicolinc@nvidia.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_012603_291781_24CA0609 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20241111_013022_915379_47A25DDD 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +100,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Fri, Nov 08, 2024 at 09:48:49PM -0800, Nicolin Chen wrote:
+> The previous patch passes in the msi_iova to msi_capability_init, so this
 
-These patches have not been reviewed for more than two weeks. Please
-review them.
+msi_capability_init()
 
-thanks
+> allows its caller to do the same.
 
-Zhengqiao Xia <xiazhengqiao@huaqin.corp-partner.google.com>
-=E4=BA=8E2024=E5=B9=B410=E6=9C=8821=E6=97=A5=E5=91=A8=E4=B8=80 15:27=E5=86=
-=99=E9=81=93=EF=BC=9A
->
-> This is v3 of the MT8186 Chromebook device tree series to support
-> MT8186 chinchou platform. It is based on the "corsola" design.
-> It includes chinchou and chinchou360, including LTE, stylus,
-> touchscreen combinations.
->
-> Changes in v3:
-> - Add a patch to change codec in pmic (in mt8186-corsola.dtsi) to audio-c=
-odec
-> - Link to v2: https://lore.kernel.org/all/20241018091135.17075-1-xiazheng=
-qiao@huaqin.corp-partner.google.com/
->
-> Changes in v2:
-> - Modify location of "const: google,chinchou-sku17" in mediatek.yaml
-> - rename "pin-report" to "pin-report-pins"
-> - add "vcc33-supply" and "vcc33-supply"
-> - rename "cbj-sleeve-gpio" to "cbj-sleeve-gpios"
-> - modify subnode of sound
-> - Link to v1: https://lore.kernel.org/all/172900161180.733089.89635437453=
-85219831.robh@kernel.org/
->
-> Zhengqiao Xia (4):
->   dt-bindings: arm: mediatek: Add MT8186 Chinchou Chromebook
->   arm64: dts: mediatek: Add MT8186 Chinchou Chromebooks
->   arm64: dts: mediatek: Add exton node for DP bridge
->   arm64: dts: mediatek: Modify audio codec name for pmic
->
->  .../devicetree/bindings/arm/mediatek.yaml     |  28 ++
->  arch/arm64/boot/dts/mediatek/Makefile         |   3 +
->  .../mediatek/mt8186-corsola-chinchou-sku0.dts |  18 +
->  .../mediatek/mt8186-corsola-chinchou-sku1.dts |  35 ++
->  .../mt8186-corsola-chinchou-sku16.dts         |  29 ++
->  .../dts/mediatek/mt8186-corsola-chinchou.dtsi | 321 ++++++++++++++++++
->  .../boot/dts/mediatek/mt8186-corsola.dtsi     |   8 +-
->  7 files changed, 441 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-=
-sku0.dts
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-=
-sku1.dts
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou-=
-sku16.dts
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-chinchou.=
-dtsi
->
-> --
-> 2.17.1
->
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
