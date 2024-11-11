@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3215BD2E9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E3AD2E9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARv813cKslKKQWZ93C2TzKgoNMtNoqLJ0mQWOTjUbFw=; b=jAdxB8nbPtrmE3Cwtt+bG2lCKd
-	3WJRq+ZISiJ6GSs2XEVrhwrXCbH81fX9s/T9l4lli6YgyMHAaOwP4gtD6Aoo+vHK785az2sqjaktU
-	JFIp8kZtycUdv3aqRjfOqa56SyiLP8qRWRESlqUTRe1DGm3dArM1WJOFUZrPU0q+3UzPehzMtMoQq
-	mMvI5Zo7YKoVEbcSMj5qmaStjQ4nBu9Va/+3hBxOaXQBtIPopyMpd7gNQrlPAC3+f3X0udwEtvJdc
-	vNjYjVZNTc1H6GJJCgKKMTzZ5gA8X4GVTcPNYRVnxCtSUQ6rJOSshl0knGZgdV4TATYG5z8JS1omN
-	Zc0Pexww==;
+	bh=rTy3Hpkj2C18RFsz0bNBove7wWP5Cz1GxCc2Fv3MYF0=; b=Scwv7tuEjLFGkdQvtiB5ZUL9at
+	HeHY2OFWBWrXRE5HE6NryGNlJB6IGVXmOOLmkmngTNcsBK/uSSexsYfu6STnDrZEV0X7Imxn3Qx2f
+	axxIb1zccyg57mHq4Zh1x+sB/dm5jTwpr07ZdWOntLyH/Jd5jN4vQeT0aogWgC85W4AS7FC5pItC1
+	7HI1oAZtwX3D2nqcDPPQicJFTHPhDL7cAoroNkAcHF2QJ+GNpF0bDn0rrVwuJUv820T41y6avKM5q
+	09xqjN8nEhJJ0iqhPZTDPM2aLKEVrZwkJfhHML2b4fPabc8GSOVT1qU1KrKptmhNQ6HRQYjFusrS2
+	H9TewlgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAUbh-00000000C5k-2uzG;
-	Mon, 11 Nov 2024 13:37:29 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tAUfG-00000000CTd-42Qb;
+	Mon, 11 Nov 2024 13:41:10 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAUZt-00000000Bru-2a6P
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 13:35:39 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4ABDZOsE106565;
-	Mon, 11 Nov 2024 07:35:24 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1731332124;
-	bh=ARv813cKslKKQWZ93C2TzKgoNMtNoqLJ0mQWOTjUbFw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=ph8uvYk3dFZ+XpemF4590usys80QFtDewHFgwDB6fNks3YzG/ioBz4cKYoeXgBzfS
-	 RqaqY5ov1VA/AVM0R5nP3aYe19eJVdMR7FOmpZR4ODbAybrM9vfUHAlMS7EdgDEgrL
-	 tSY4tawkW+bMpL4QzO4OMFZIekgi1/1MJcvoVULM=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABDZOkT065508
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 11 Nov 2024 07:35:24 -0600
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 11
- Nov 2024 07:35:23 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 11 Nov 2024 07:35:23 -0600
-Received: from [10.249.129.69] ([10.249.129.69])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ABDZGX2022347;
-	Mon, 11 Nov 2024 07:35:16 -0600
-Message-ID: <0c6a3091-3b3d-4f41-83df-2183171200c8@ti.com>
-Date: Mon, 11 Nov 2024 19:05:15 +0530
+	id 1tAUdU-00000000CMW-16j3;
+	Mon, 11 Nov 2024 13:39:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1731332357;
+	bh=ZHl9kaQvP87pfaer5ugsO1tp61Mnu5JhljLuzu4Tf/Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eO2lA6xLxjaEd1crnztASfRpL09mogrvcvdzvH11lMQ0O7sS4Jr2QAIrZHgrRLnvS
+	 pLY+u2d2lfexmWyO2NGvqwSfeORSJuiraC/RhT9CtuxOZ4vRJ+qEaupO5gr9FUDpYG
+	 1DGNqiWBcRB50pL+bFHM4KuTvTYhDMffHIeezJ+RloRUbITa59aSMOSjRLVNUbfVXd
+	 ft45Bj4Z7IOxsnoRgnvTFzP6ansQX4jsfKN8+VoJnUvauwxROCnHvGhoGC8DqWrWm4
+	 uIcLCqRFMpwFAIK++Ki7q6TTeP7GPjrt9Q9VXXxjIFqZf6ae2erNzQvsIcm2aNLcwa
+	 CwlTKxYzPQofg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AEEE117E363A;
+	Mon, 11 Nov 2024 14:39:16 +0100 (CET)
+Message-ID: <73756cb5-6bd4-4c4e-9d91-1b9c1ca96a37@collabora.com>
+Date: Mon, 11 Nov 2024 14:39:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Roger Quadros <rogerq@kernel.org>, Meghana Malladi <m-malladi@ti.com>,
-        <vigneshr@ti.com>, <m-karicheri2@ti.com>, <jan.kiszka@siemens.com>,
-        <javier.carrasco.cruz@gmail.com>, <jacob.e.keller@intel.com>,
-        <horms@kernel.org>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <danishanwar@ti.com>
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
- <ad2afaa3-7e76-47e8-943b-7bea0c02c9c0@kernel.org>
+Subject: Re: [PATCH] pinctrl: mediatek: Add pinctrl driver
+To: ot907280 <ot_cathy.xu@mediatek.com>, matthias.bgg@gmail.com,
+ sean.wang@kernel.org, linus.walleij@linaro.org
+Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>,
+ Guodong Liu <guodong.liu@mediatek.com>
+References: <20241111074030.25673-1-ot_cathy.xu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: "Anwar, Md Danish" <a0501179@ti.com>
-In-Reply-To: <ad2afaa3-7e76-47e8-943b-7bea0c02c9c0@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20241111074030.25673-1-ot_cathy.xu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_053537_837594_FBB955C3 
-X-CRM114-Status: GOOD (  37.61  )
+X-CRM114-CacheID: sfid-20241111_053920_538581_37A28B4C 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,261 +77,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/11/2024 6:33 PM, Roger Quadros wrote:
-> Hi,
+Il 11/11/24 08:40, ot907280 ha scritto:
+> From: Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>
 > 
-> On 06/11/2024 09:40, Meghana Malladi wrote:
->> From: MD Danish Anwar <danishanwar@ti.com>
->>
->> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
->> and SLICE1. Currently whenever any ICSSG interface comes up we load the
->> respective firmwares to PRU cores and whenever interface goes down, we
->> stop the respective cores. Due to this, when SLICE0 goes down while
->> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
->> stopped. This results in clock jump for SLICE1 interface as the timesync
->> related operations are no longer running.
->>
->> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
->> ICSSG interface is up.
->>
->> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
->> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
->> used to let firmware know that the flow_id has been updated and to use the
->> latest rx_flow_id.
-> 
-> is rx_flow_id releated to timesync releated issue that this patch is fixing?
-> If not please split it into separate patch and mention what functionality
-> it is fixing.
+> Add pinctrl driver for mt8196
 > 
 
-Roger, rx_flow_id is not related to timesync. However loading both
-SLICE0 and SLICE1 firmware together results in wrong rx_flow_id used by
-firmware for the interface that is brought later.
+Please fix the commit title, add a meaningful description ... and also please fix
+your name, as your email is sent by "ot907280" and not from "Cathy Xu".
 
-When eth0 (SLICE0) is brought up, it's flow_id is obtained from dma and
-written to SMEM. Slice0 and Slice1 both firmwares are loaded. Firmware
-reads the flow_id from SMEM and uses it for RX.
+> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
+> Cathy Xu <ot_cathy.xu@mediatek.com>
 
-Second interface eth1 (SLICE1) comes up, it's flow id is obtained from
-dma and written to SMEM. However firmware doesn't read the flow ID
-again. It only reads it once when loaded and uses that through out. The
-flow id for this interface remains 0 and that results in RX being broken.
+You're missing the "Signed-off-by: " part before your name.
 
-To fix this, emac_fdb_flow_id_updated() is added which will let firmware
-know that we have updated the flow_id and use the latest one.
-
-This not related to timesync instead related to the fix of timesync
-issue. Breaking this into separate patch will result in RX (ICSSG) being
-broken at the former patch.
-
-In order to avoid feature breakage at the former patch, the change
-related to flow_id update is kept in the same patch.
-
-If you think having the feature broken is OK, the patch can be splitted.
-However IMO, these chanegs should be together in one patch.
-
->>
->> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->> ---
->>  drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
->>  drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
->>  4 files changed, 77 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
->> index 5d2491c2943a..f1f0c8659e2d 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
->> @@ -786,3 +786,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
->>  		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
->>  }
->>  EXPORT_SYMBOL_GPL(icssg_set_pvid);
->> +
->> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
->> +{
->> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
->> +	int slice = prueth_emac_slice(emac);
->> +	struct mgmt_cmd fdb_cmd = { 0 };
->> +	int ret = 0;
->> +
->> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
->> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
->> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
->> +	fdb_cmd.param  = 0;
->> +
->> +	fdb_cmd.param |= (slice << 4);
->> +	fdb_cmd.cmd_args[0] = 0;
->> +
->> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
->> +
->> +	if (ret)
->> +		return ret;
->> +
->> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
->> +	if (fdb_cmd_rsp.status == 1)
->> +		return 0;
->> +
->> +	return -EINVAL;
->> +}
->> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
->> index 92c2deaa3068..c884e9fa099e 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
->> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
->>  #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
->>  #define ICSSG_FW_MGMT_CMD_TYPE		0x04
->>  #define ICSSG_FW_MGMT_PKT		0x80000000
->> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
->>  
->>  struct icssg_r30_cmd {
->>  	u32 cmd[4];
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index 0556910938fa..9df67539285b 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->>  {
->>  	struct prueth_emac *emac = netdev_priv(ndev);
->>  	int ret, i, num_data_chn = emac->tx_ch_num;
->> +	struct icssg_flow_cfg __iomem *flow_cfg;
->>  	struct prueth *prueth = emac->prueth;
->>  	int slice = prueth_emac_slice(emac);
->>  	struct device *dev = prueth->dev;
->> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->>  	/* set h/w MAC as user might have re-configured */
->>  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->>  
->> +	if (!prueth->emacs_initialized) {
->> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
->> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
->> +	}
->> +
->>  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->>  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>  
->>  	/* Notify the stack of the actual queue counts. */
->> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->>  		goto cleanup_napi;
->>  	}
->>  
->> -	/* reset and start PRU firmware */
->> -	ret = prueth_emac_start(prueth, emac);
->> -	if (ret)
->> -		goto free_rx_irq;
->> +	if (!prueth->emacs_initialized) {
->> +		if (prueth->emac[ICSS_SLICE0]) {
->> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
->> +			if (ret) {
->> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
->> +				goto free_rx_irq;
->> +			}
->> +		}
->> +		if (prueth->emac[ICSS_SLICE1]) {
->> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
->> +			if (ret) {
->> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
->> +				goto halt_slice0_prus;
->> +			}
+> ---
+>   drivers/pinctrl/mediatek/Kconfig              |   12 +
+>   drivers/pinctrl/mediatek/Makefile             |    1 +
+>   drivers/pinctrl/mediatek/pinctrl-mt8196.c     | 1757 +++++++++++
+>   drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h | 2791 +++++++++++++++++
+>   4 files changed, 4561 insertions(+)
+>   create mode 100644 drivers/pinctrl/mediatek/pinctrl-mt8196.c
+>   create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt8196.h
 > 
-> Did I understand right: SLICE0 needs to be always running if any of the
-> interface is up but SLICE0 doesn't need to be running if only SLICE0
+> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
+> index a417a031659c..149a78e4216e 100644
+> --- a/drivers/pinctrl/mediatek/Kconfig
+> +++ b/drivers/pinctrl/mediatek/Kconfig
+> @@ -256,6 +256,18 @@ config PINCTRL_MT8195
+>   	default ARM64 && ARCH_MEDIATEK
+>   	select PINCTRL_MTK_PARIS
+>   
+> +config PINCTRL_MT8196
+> +	bool "MediaTek MT8196 pin control"
+> +	depends on OF
+> +	depends on ARM64 || COMPILE_TEST
+> +	default ARM64 && ARCH_MEDIATEK
+> +	select PINCTRL_MTK_PARIS
+> +	help
+> +	  Say yes here to support pin controller and gpio driver
+> +	  on MediaTek MT8196 SoC.
+> +	  In MTK platform, we support virtual gpio and use it to
+> +	  map specific eint which doesn't have real gpio pin.
+> +
+>   config PINCTRL_MT8365
+>   	bool "MediaTek MT8365 pin control"
+>   	depends on OF
+> diff --git a/drivers/pinctrl/mediatek/Makefile b/drivers/pinctrl/mediatek/Makefile
+> index 1405d434218e..b4a39c1bafb7 100644
+> --- a/drivers/pinctrl/mediatek/Makefile
+> +++ b/drivers/pinctrl/mediatek/Makefile
+> @@ -35,6 +35,7 @@ obj-$(CONFIG_PINCTRL_MT8186)		+= pinctrl-mt8186.o
+>   obj-$(CONFIG_PINCTRL_MT8188)		+= pinctrl-mt8188.o
+>   obj-$(CONFIG_PINCTRL_MT8192)		+= pinctrl-mt8192.o
+>   obj-$(CONFIG_PINCTRL_MT8195)		+= pinctrl-mt8195.o
+> +obj-$(CONFIG_PINCTRL_MT8196)		+= pinctrl-mt8196.o
+>   obj-$(CONFIG_PINCTRL_MT8365)		+= pinctrl-mt8365.o
+>   obj-$(CONFIG_PINCTRL_MT8516)		+= pinctrl-mt8516.o
+>   obj-$(CONFIG_PINCTRL_MT6397)		+= pinctrl-mt6397.o
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8196.c b/drivers/pinctrl/mediatek/pinctrl-mt8196.c
+> new file mode 100644
+> index 000000000000..6d2bee706718
+> --- /dev/null
+> +++ b/drivers/pinctrl/mediatek/pinctrl-mt8196.c
+> @@ -0,0 +1,1757 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2024 Mediatek Inc.
+> + * Author: Guodong Liu <Guodong.Liu@mediatek.com>
+> + *
+> + */
+> +
+> +#include <linux/module.h>
+> +#include "pinctrl-mtk-mt8196.h"
+> +#include "pinctrl-paris.h"
+> +
+> +#define PIN_FIELD_BASE(s_pin, e_pin, i_base, s_addr, x_addrs, s_bit, x_bits)  \
 
-I think you meant `but SLICE1 doesn't need to be running if only SLICE0`
+It doesn't look like there's any s_pin with a different number from e_pin - unless
+I am misreading something, you can change `s_pin` to be named `se_pin`, so that we
+stop declaring the number twice; makes it a little more readable.
 
-> interface is running.
-> 
-> If yes then you need to update the patch so SLICE1 is not always running.
-> 
+> +	PIN_FIELD_CALC(s_pin, e_pin, i_base, s_addr, x_addrs, s_bit, x_bits, \
+> +		32, 0)
+> +
+> +#define PINS_FIELD_BASE(s_pin, e_pin, i_base, s_addr, x_addrs, s_bit, x_bits) \
 
-For Timesync - YES. Only slice0 is needed to be always running. However
-these both firmwares have some more inter dependencies, timesync is just
-one of them. As a result, firmware team has recommended to keep both
-Slice0 and Slice1 firmware running as long as at least one ICSSG
-interface is up. Stop both firmware only if no ICSSG interface is up.
+Same here.
 
-I think the commit message can be modified to state that the dependecy
-is not only SLICE0 but on SLICE1 as well and they both need to be running.
+> +	PIN_FIELD_CALC(s_pin, e_pin, i_base, s_addr, x_addrs, s_bit, x_bits, \
+> +		32, 1)
+> +
+> +static const struct mtk_pin_field_calc mt8196_pin_mode_range[] = {
+> +	PIN_FIELD(0, 270, 0x0300, 0x10, 0, 4),
+> +};
+> +
+> +static const struct mtk_pin_field_calc mt8196_pin_dir_range[] = {
+> +	PIN_FIELD(0, 270, 0x0000, 0x10, 0, 1),
+> +};
+> +
+> +static const struct mtk_pin_field_calc mt8196_pin_di_range[] = {
+> +	PIN_FIELD(0, 270, 0x0200, 0x10, 0, 1),
+> +};
+> +
+> +static const struct mtk_pin_field_calc mt8196_pin_do_range[] = {
+> +	PIN_FIELD(0, 270, 0x0100, 0x10, 0, 1),
+> +};
+> +
+..snip..
 
->> +		}
->> +	}
->> +
->> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
->> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
->> +	ret = emac_fdb_flow_id_updated(emac);
->> +
->> +	if (ret) {
->> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
->> +		goto stop;
->> +	}
->>  
->>  	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>  
->> @@ -644,7 +670,11 @@ static int emac_ndo_open(struct net_device *ndev)
->>  free_tx_ts_irq:
->>  	free_irq(emac->tx_ts_irq, emac);
->>  stop:
->> -	prueth_emac_stop(emac);
->> +	if (prueth->emac[ICSS_SLICE1])
->> +		prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->> +halt_slice0_prus:
->> +	if (prueth->emac[ICSS_SLICE0])
->> +		prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->>  free_rx_irq:
->>  	free_irq(emac->rx_chns.irq[rx_flow], emac);
->>  cleanup_napi:
->> @@ -680,7 +710,10 @@ static int emac_ndo_stop(struct net_device *ndev)
->>  	if (ndev->phydev)
->>  		phy_stop(ndev->phydev);
->>  
->> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
->> +	if (prueth->emacs_initialized == 1) {
->> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
->> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
->> +	}
->>  
->>  	if (emac->prueth->is_hsr_offload_mode)
->>  		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
->> @@ -719,11 +752,14 @@ static int emac_ndo_stop(struct net_device *ndev)
->>  	/* Destroying the queued work in ndo_stop() */
->>  	cancel_delayed_work_sync(&emac->stats_work);
->>  
->> -	if (prueth->emacs_initialized == 1)
->> +	if (prueth->emacs_initialized == 1) {
->>  		icss_iep_exit(emac->iep);
->> -
->> -	/* stop PRUs */
->> -	prueth_emac_stop(emac);
->> +		/* stop PRUs */
->> +		if (prueth->emac[ICSS_SLICE0])
->> +			prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->> +		if (prueth->emac[ICSS_SLICE1])
->> +			prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->> +	}
->>  
->>  	free_irq(emac->tx_ts_irq, emac);
->>  
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> index 8722bb4a268a..c4f5f0349ae7 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -365,6 +365,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->>  		       u8 untag_mask, bool add);
->>  u16 icssg_get_pvid(struct prueth_emac *emac);
->>  void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
->> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->>  #define prueth_napi_to_tx_chn(pnapi) \
->>  	container_of(pnapi, struct prueth_tx_chn, napi_tx)
->>  
-> 
+> +static const unsigned int mt8196_pull_type[] = {
+> +	MTK_PULL_PU_PD_TYPE,/*0*/		MTK_PULL_PU_PD_TYPE,/*1*/
+> +	MTK_PULL_PU_PD_TYPE,/*2*/		MTK_PULL_PU_PD_TYPE,/*3*/
+> +	MTK_PULL_PU_PD_TYPE,/*4*/		MTK_PULL_PU_PD_TYPE,/*5*/
+> +	MTK_PULL_PU_PD_TYPE,/*6*/		MTK_PULL_PU_PD_TYPE,/*7*/
+> +	MTK_PULL_PU_PD_TYPE,/*8*/		MTK_PULL_PU_PD_TYPE,/*9*/
+> +	MTK_PULL_PU_PD_TYPE,/*10*/		MTK_PULL_PU_PD_TYPE,/*11*/
+> +	MTK_PULL_PU_PD_TYPE,/*12*/		MTK_PULL_PU_PD_TYPE,/*13*/
+> +	MTK_PULL_PU_PD_TYPE,/*14*/		MTK_PULL_PU_PD_TYPE,/*15*/
+> +	MTK_PULL_PU_PD_TYPE,/*16*/		MTK_PULL_PU_PD_TYPE,/*17*/
+> +	MTK_PULL_PU_PD_TYPE,/*18*/		MTK_PULL_PU_PD_TYPE,/*19*/
+> +	MTK_PULL_PU_PD_TYPE,/*20*/		MTK_PULL_PU_PD_TYPE,/*21*/
+> +	MTK_PULL_PU_PD_TYPE,/*22*/		MTK_PULL_PU_PD_TYPE,/*23*/
+> +	MTK_PULL_PU_PD_TYPE,/*24*/		MTK_PULL_PU_PD_TYPE,/*25*/
+> +	MTK_PULL_PU_PD_TYPE,/*26*/		MTK_PULL_PU_PD_TYPE,/*27*/
+> +	MTK_PULL_PU_PD_TYPE,/*28*/		MTK_PULL_PU_PD_TYPE,/*29*/
+> +	MTK_PULL_PU_PD_TYPE,/*30*/		MTK_PULL_PU_PD_TYPE,/*31*/
+> +	MTK_PULL_PU_PD_TYPE,/*32*/		MTK_PULL_PU_PD_TYPE,/*33*/
+> +	MTK_PULL_PU_PD_TYPE,/*34*/		MTK_PULL_PU_PD_TYPE,/*35*/
+> +	MTK_PULL_PU_PD_TYPE,/*36*/		MTK_PULL_PU_PD_TYPE,/*37*/
+> +	MTK_PULL_PU_PD_TYPE,/*38*/		MTK_PULL_PU_PD_TYPE,/*39*/
+> +	MTK_PULL_PU_PD_TYPE,/*40*/		MTK_PULL_PU_PD_TYPE,/*41*/
+> +	MTK_PULL_PU_PD_TYPE,/*42*/		MTK_PULL_PU_PD_TYPE,/*43*/
+> +	MTK_PULL_PU_PD_TYPE,/*44*/		MTK_PULL_PU_PD_TYPE,/*45*/
+> +	MTK_PULL_PU_PD_RSEL_TYPE,/*46*/	MTK_PULL_PU_PD_RSEL_TYPE,/*47*/
+> +	MTK_PULL_PU_PD_RSEL_TYPE,/*48*/	MTK_PULL_PU_PD_RSEL_TYPE,/*49*/
+> +	MTK_PULL_PU_PD_RSEL_TYPE,/*50*/	MTK_PULL_PU_PD_RSEL_TYPE,/*51*/
 
--- 
-Thanks and Regards,
-Md Danish Anwar
+Please fix the indentation to be consistent.
+
+> +	MTK_PULL_PU_PD_RSEL_TYPE,/*52*/	MTK_PULL_PU_PD_RSEL_TYPE,/*53*/
+
+..snip..
+
+> +
+> +static const struct mtk_pin_soc mt8196_data = {
+> +	.reg_cal	= mt8196_reg_cals,
+> +	.pins	= mtk_pins_mt8196,
+> +	.npins	= ARRAY_SIZE(mtk_pins_mt8196),
+> +	.ngrps	= ARRAY_SIZE(mtk_pins_mt8196),
+
+Where is eint?!
+
+> +	.nfuncs	= 8,
+> +	.gpio_m	= 0,
+> +	.base_names	= mt8196_pinctrl_register_base_names,
+> +	.nbase_names	= ARRAY_SIZE(mt8196_pinctrl_register_base_names),
+> +	.pull_type = mt8196_pull_type,
+> +	.bias_set_combo	= mtk_pinconf_bias_set_combo,
+> +	.bias_get_combo	= mtk_pinconf_bias_get_combo,
+> +	.drive_set	= mtk_pinconf_drive_set_rev1,
+> +	.drive_get	= mtk_pinconf_drive_get_rev1,
+> +	.adv_drive_get	= mtk_pinconf_adv_drive_get_raw,
+> +	.adv_drive_set	= mtk_pinconf_adv_drive_set_raw,
+> +};
+> +
+> +static const struct of_device_id mt8196_pinctrl_of_match[] = {
+> +	{ .compatible = "mediatek,mt8196-pinctrl", .data = &mt8196_data },
+> +	{ }
+
+	{ /* sentinel */ }
+
+> +};
+
+Regards,
+Angelo
+
 
