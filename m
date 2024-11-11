@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEFED2E9DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E90D2E9D8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TcEL/g7UU6A5oURZwwzACF+il7qsicK7CTj+asC7v20=; b=xJWXXvoUie2RCHygJKM0EKPzAi
-	00SfLRopm4d3+2U6t2dJ2cyY6XE7Depgrp9mXTzYPfNSXEiVQJhHyNxCrHwqftf41XoCZo9seH5uz
-	n7WrsKTYXCas4fPHKa6ddIFeinuwebup3hCa6/nanRWBm1/mmEzK/iGzjvOH18p7P1a8us1NQFFz1
-	zDwfe4SIt36IA6DHIisZGLDeOrrqUB/k7XPwNVCyTjDxbS64hJ17aW/kzNc/RDCMsOGHeb/3CLSGG
-	30KNk/zCQ58fst43bh4uMm9T2hy5G8G2IX8+NtCfu+D94xX+Ferm5HYX5cmy5EKb/nLGyDaIvNDpR
-	YQuMS/jg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JeDyppQr/52qjjY/sVCNOM57E5CoacIekvSQbtIZVSg=; b=ARJjxs6Dr5ypM+qW9E0qZfN06d
+	J25FKmT7B7EDFT1phzV9wykrZaZntPSYVkK9YP7chFN0PVNVFlgs2TYZ7h52BvVAkK+S49nCdh5iQ
+	1ZuVp+Rg7PA8/qBZ/HPXTmLKwKyK98P4Yh2W3Y7J8Ty9sD4KzTG8kwnIzuevd94stxcxV5FMz4HNL
+	IY0XqH8btdH+5cjQBVAn6qcA2V3ggkinFkLj9Ewq99xNu/4W0r/GDiJH59gOvfaNYbfrKPJJW0Mtb
+	uKT4xuSc4AGq5w8HsyvoPkSugrtlkmnNPQKYpHGM32bVRF8cIb4MsSuuV2hzh2TkI+AsXPTvUO4wW
+	tA6L++Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASDF-0000000HO6Y-1EZN;
-	Mon, 11 Nov 2024 11:04:05 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tASKM-0000000HOtI-48sJ;
+	Mon, 11 Nov 2024 11:11:27 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASB0-0000000HNlE-2h0I
+	id 1tASIa-0000000HOdh-0qw0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 11:01:48 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2e2e6a1042dso3513722a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:01:45 -0800 (PST)
+	Mon, 11 Nov 2024 11:09:38 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4315eeb2601so55519735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:09:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731322905; x=1731927705; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TcEL/g7UU6A5oURZwwzACF+il7qsicK7CTj+asC7v20=;
-        b=aP65G7sL/AlKHO/QRM+TX6vb1mgIkW/gGnNKmDHRt27NsERJGjwL+oarJ0AwhYNqOI
-         0XVlF/n9cTRaZ7H+B2czUu9r7IaHFI/WFCzQnYa9j2quEP+Oa9Sig4Lrlqp2Z/mBBGlP
-         rXRAb90v/JWzTTrOGxUUUCn4d+1/MmVZjy7wJJK1obqB3Q6jDFODWRB4ao4sjC2EgR1G
-         TH3K2SjQnwppvjcWnBIiFs1BZ9oPc7XPZgQasJygoqr7Q5N0/Fs5bquZwVfROZDguREy
-         hAkwiod8P80O2g/HJSdy2K0VWyLOzx+TAVh+/WnM9PsUbv00DqauCkCqkqVJL4a1RldU
-         o/6Q==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731323373; x=1731928173; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JeDyppQr/52qjjY/sVCNOM57E5CoacIekvSQbtIZVSg=;
+        b=nqhLIWy8prMDjmFzWXCk1trGjCkOMUKDZPupzMIT+uzTM5wKuCDC1LandCxC55aGsm
+         0148lSXyrALxE2lJDMYJ8MsBOv/yyLBz3NOy3/UZjMPw6fleeSY55uuMbt3EMuB5wg13
+         zqITA6aeJCLksBli9AHWO5UsZeBuJb/zzqjc5ax7zB/+faoU/DrAG39z93XG4NU90vQZ
+         lChPSH/8HqsSF9a6z29cwBWN9a3bhT3oKeQbSOKWTHxtbozeQTJZH1vplkXmlXW+y8kU
+         myvBi4O98ywRN4qtuuN4/j/lyf84nUjolg0J+GIYdu/CeiKSW3/lkK2jO4oMhbyGHalR
+         0Khw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731322905; x=1731927705;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TcEL/g7UU6A5oURZwwzACF+il7qsicK7CTj+asC7v20=;
-        b=HVLCOz292NmmBSCBFxNQaeBcQ9cVa5f3lSVmwVr97r45EExTU92qV3b0G743VL3JgV
-         OZiRSYXKrY6Z1Ndp5dnIoUZldzhl9Mhg95ozD0NY73Cr76elW8gKHPejoSsIC+IPQEib
-         Nnd0Hl5gK8xDeYTab12vqwYVEpAZ8HS/fmMuYGl+kM6e8XUfEqSaSEbVdYDQPyx4E1OV
-         E7tFgtqAgANgLo5BMjdSE4q+wLiNiTwTLtdSqmPldXZrng5qEhTMT8/W7BYMcGeCdxeP
-         xSBG5Mn6GbZR3upzXJVa9IacGepRuklIujkXazvoLgFLYrt9CkYjYb88/t7dTzcC6t7Y
-         l0kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUDi6nAAmOPt245goHt1BIyPVPKeHi/8w5YX6lpX7o8143DftQ3FQ+mjnb750fGeIVu1nD/XOn/O3lMCPE11YyK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHyDalpRVpEBM5SBcMl8R8MHsu5DhfRAaFuH/7ykRcmrfLW+nT
-	DZNKgVRbhP49MeHHt2D35dOlR9al1Kc9c/nyeKuG3sv/VYCNipe31Dj5YtNmPUw6UcQ46YMOEiP
-	29u2sxJYvCxShp9NpwYnSC/+7XQEXHaRi1D4Urw==
-X-Google-Smtp-Source: AGHT+IFyYA9Cvs63Fdp2H3AkCI6uaGHNNzXquZF1X9Q8r2XE4XoIOEjQkozWfVHHkSoY/Fhxx4kebpwP792jnJ0kkgQ=
-X-Received: by 2002:a17:90b:3d91:b0:2e2:a029:3b4b with SMTP id
- 98e67ed59e1d1-2e9b177632bmr16563493a91.28.1731322904951; Mon, 11 Nov 2024
- 03:01:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731323373; x=1731928173;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JeDyppQr/52qjjY/sVCNOM57E5CoacIekvSQbtIZVSg=;
+        b=UpxKeDkgiUxSCtfIy0+ixYIWqEM7XUyqys3v77Dl2dd/qk7gleN6kykel3IC3tA9l4
+         jJSrl5yehvbKG7BSwKXOLXi7vwnEZPgU2Cf+fcROW/OEFHHkJOP3vQ/LYMEd4ixQrlq5
+         BSo25vGCosj3XV9dctint2SNkXdp36NaLKmiJaq//QA/IpMqqj7nHpT0PA8oUlRV02kV
+         ZUeQ04b0SsA7PSKrxTemhqpB8wNHP6/lKY/f8v1Dj2ihkjeYC43fJ2Ba4sWZULl0PSaR
+         fYaoNI+WUQ6opntkZyHh1aXgmTlCYsszXSec2mWVb5lECzL8nrH/TRiZtyuzvqtaTcGN
+         69wg==
+X-Forwarded-Encrypted: i=1; AJvYcCUhMOvPreyt2eLWBfKVpivCXp17WmaTsQk/wfQgkehLM3W47ru2k/q/wUjvTth9lAXEWxSRD2YIBgcE6fWjF89w@lists.infradead.org
+X-Gm-Message-State: AOJu0YyE5RMclDVlfafTBbIsABJ66HyZyt2dQUvSm1TNcAQZorbwtlUp
+	xJ/sQ03ovTyTnsC8UQXWTlYmMrCj2+M4XDnnaUZkvWGNf7NL1+dxhONVqFXHvoM=
+X-Google-Smtp-Source: AGHT+IGNNcgbDl4Gjze/hD2NJqFaWQ3onyE4s6CpeGAHpgde3gbIZHMy/7KJHU0Z+5MjV8yVvVXtrw==
+X-Received: by 2002:a05:600c:190e:b0:431:5465:8072 with SMTP id 5b1f17b1804b1-432b751f555mr131405445e9.31.1731323373228;
+        Mon, 11 Nov 2024 03:09:33 -0800 (PST)
+Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa5b5e56sm213656485e9.2.2024.11.11.03.09.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Nov 2024 03:09:32 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] hwtracing: Switch back to struct platform_driver::remove()
+Date: Mon, 11 Nov 2024 12:09:21 +0100
+Message-ID: <20241111110922.334610-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <CALE0LRvJ-n77oU=O9__NdSLw2v33zMK+WYkn2LcwWMwHCbohQw@mail.gmail.com>
- <CAC_iWjJEXU+dodjvWQYM9ohPa3P2p0bFG=exGoi-iYFrLLbCTA@mail.gmail.com>
- <CALE0LRtUz8hd4pdR9sX2Sb6tOn=K4wkRnGG9B7f72qU8JFQSYQ@mail.gmail.com>
- <CAC_iWjJLSSTO0Ca7rgOWAHfWzbkBkKHkQedRUbcwsoU0dtrsGA@mail.gmail.com> <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com>
-In-Reply-To: <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com>
-From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Date: Mon, 11 Nov 2024 13:01:08 +0200
-Message-ID: <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com>
-Subject: Re: optee-based efi runtime variable service on TI j784s4 platforms
-To: Enric Balletbo i Serra <eballetb@redhat.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Sumit Garg <sumit.garg@linaro.org>, linux-efi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	op-tee@lists.trustedfirmware.org, Manorit Chawdhry <m-chawdhry@ti.com>, 
-	Udit Kumar <u-kumar1@ti.com>, "Menon, Nishanth" <nm@ti.com>, 
-	Masahisa Kojima <kojima.masahisa@socionext.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9497; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=RnJDEX+e8M1SKac+t/KfkBTvvWb4921UTTN3vtqwVQI=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnMeXicyreSYH3tGtlKi+QoIjeO7ZecvhVykXhv 5iZNPi4+9WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZzHl4gAKCRCPgPtYfRL+ TlZvB/4ongM8ev2nzjBonTl6LHFPWH/dW4XaKq06lslOITmSCMFUOjyvunGbOsvH/We2gE0AReI rEgypT1beQyxxZtkHnX9B/KL0aMbsQ/z5z8K3wvwjs49X7vCfMg39GRSreQVaE6D2pAupua3NO5 gqAdIlK/B1ulQCbckqk/CoKbOOHzVNiKUXlKgycwXSL8Jexb6yfMFHGSdmT3siTzoFr7vHLQloJ NpOvGGa+h14rW1BOFTxpb229KI1mWdcmW/LXYeMn8ngNm0AmPELvuydGuMXhR3jENb4CvFYltg+ BevQ8rf5/OL4qFNtbN5ajj2T0fQi4T/95/gj6K36xXgaGD84
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_030146_715823_338108C1 
-X-CRM114-Status: GOOD (  47.19  )
+X-CRM114-CacheID: sfid-20241111_030936_272357_BDA4D132 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,248 +99,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Nov 2024 at 10:21, Enric Balletbo i Serra
-<eballetb@redhat.com> wrote:
->
-> Hi Ilias,
->
-> On Sat, Nov 9, 2024 at 1:31=E2=80=AFAM Ilias Apalodimas
-> <ilias.apalodimas@linaro.org> wrote:
-> >
-> > On Fri, 8 Nov 2024 at 23:11, Enric Balletbo i Serra <eballetb@redhat.co=
-m> wrote:
-> > >
-> > > Hi Ilias,
-> > >
-> > > Thanks for your quick answer.
-> > >
-> > > On Fri, Nov 8, 2024 at 4:48=E2=80=AFPM Ilias Apalodimas
-> > > <ilias.apalodimas@linaro.org> wrote:
-> > > >
-> > > > Hi Enric,
-> > > >
-> > > > On Fri, 8 Nov 2024 at 12:26, Enric Balletbo i Serra <eballetb@redha=
-t.com> wrote:
-> > > > >
-> > > > > Hi all,
-> > > > >
-> > > > > I'm looking for any advice/clue to help me to progress on enablin=
-g
-> > > > > TEE-base EFI Runtime Variable Service on TI a j784s4 platforms.
-> > > > >
-> > > > > I basically followed the steps described in u-boot documentation =
-[1],
-> > > > > I enabled some debugging messages but I think I'm at the point th=
-at
-> > > > > the problem might be in the StandaloneMM application, and I'm not=
- sure
-> > > > > how to debug it.
-> > > > >
-> > > > > What I see is that when I run the tee-supplicant daemon, it looks=
- like
-> > > > > the tee_client_open_session() call loops forever and the tee_stmm=
-_efi
-> > > > > driver never ends to probe.
-> > > > >
-> > > > > With debug enabled I got the following messages.
-> > > >
-> > > > I assume reading and storing variables already works in U-Boot righ=
-t?
-> > > >
-> > >
-> > > Reading and storing variables to the RPMB partition in U-Boot works,
-> > > that's using the mmc rpmb command from u-boot,
-> >
-> > Are you talking about env variables? Perhaps you store them in the mmc
-> > and not the RPMB partition?
-> > There's some information here [0]
-> >
-> > > But setting
-> > > CONFIG_EFI_MM_COMM_TEE=3Dy in u-boot I end with a similar behaviour
-> > > (although I'm not able to debug at u-boot level) What I see is that
-> > > u-boot gets stuck
-> > > when bootefi bootmgr is invoqued. I can also reproduce the issue with
-> > > bootefi hello.
-> > >
-> > > =3D> run bootcmd
-> > >   Scanning for bootflows in all bootdevs
-> > >   Seq  Method       State   Uclass    Part  Name                     =
- Filename
-> > >   ---  -----------  ------  --------  ----  ------------------------
-> > > ----------------
-> > >   Scanning global bootmeth 'efi_mgr':
-> > > ( gets stuck here)
-> > >
-> > > or
-> > >
-> > > =3D> bootefi hello
-> > > (gets stuck)
-> > >
-> > > To debug I disabled CONFIG_EFI_MM_COMM_TEE to not get stuck and bypas=
-s
-> > > the error and go to Linux. My understanding is that
-> > > CONFIG_EFI_MM_COMM_TEE is only required to read/write efi variables a=
-t
-> > > u-boot level but OPTEE is running the StandaloneMM service. Am I
-> > > right?
-> >
-> > U-Boot has two ways of storing EFI variables [0] . You can either
-> > store them in a file or the RPMB partition. The correct thing to do,
-> > since you want to use the RPMB, is enable CONFIG_EFI_MM_COMM_TEE. I am
-> > not sure why the hand happens, but one thing we can improve is figure
-> > out why it hangs and print a useful message.
-> > There are a number of reasons that might lead to a failure. Is the
-> > RPMB key programmed on your board? Have a look at this [1] in case it
-> > helps
-> >
-> > >
-> > > > >
-> > > > > # tee-supplicant
-> > > > > D/TC:? 0 tee_ta_init_session_with_context:557 Re-open trusted ser=
-vice
-> > > > > 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
-> > > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> >
-> > If I had to guess, OP-TEE doesn't store the variables in the RPMB, can
-> > you compile it with a bit more debugging enabled?
-> >
->
-> Here is a log with CFG_TEE_CORE_LOG_LEVEL=3D4, CFG_TEE_CORE_DEBUG=3Dy and
-> CFG_TEE_TA_LOG_LEVEL=3D4
->
-> https://paste.centos.org/view/eed83a5b
->
-> At the beginning of the log I see
->
-> D/TC:0 0 check_ta_store:449 TA store: "REE"
->
-> Which looks wrong to me as I built optee with:
->   CFG_REE_FS=3Dn
->   CFG_RPMB_FS_DEV_ID=3D0
->   CFG_RPMB_FS=3Dy
+After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+return void") .remove() is (again) the right callback to implement for
+platform drivers.
 
-Yes it does look wrong. Our compilation flags are
-CFG_RPMB_FS=3Dy CFG_RPMB_FS_DEV_ID=3D0 CFG_RPMB_WRITE_KEY=3Dy
-CFG_RPMB_TESTKEY=3Dy CFG_REE_FS=3Dn CFG_CORE_ARM64_PA_BITS=3D48
-CFG_SCTLR_ALIGNMENT_CHECK=3Dn
+Convert all platform drivers below drivers/hwtracing to use .remove(),
+with the eventual goal to drop struct platform_driver::remove_new(). As
+.remove() and .remove_new() have the same prototypes, conversion is done
+by just changing the structure member name in the driver initializer.
 
-The testkey etc aren't required if your board has a way of reading the
-RPMB key from a secure location -- in fact, using the testkey is not
-secure. Is the RPMB programmed on your board? Also can you make sure
-CFG_RPMB_FS_DEV_ID needs to be 0? How many sd interfaces your board
-has?
-IOW in U-Boot does 'mmc dev 0 && mmc info' print information for the
-RPMB partition?
+Also adapt some whitespace to make indention consistent.
 
-Thanks
-/Ilias
->
-> I'll try to add some more prints to verify if REE is used as a store
-> system, I assume this should say something about RPMB. Am I right with
-> this?
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
+I did a single patch for all of drivers/hwtracing. While I usually
+prefer to do one logical change per patch, this seems to be
+overengineering here as the individual changes are really trivial and
+shouldn't be much in the way for stable backports. But I'll happily
+split the patch if you prefer it split. Maybe split for coresight vs.
+intel_th? Also if you object the indentation stuff, I can rework that.
 
->
-> > > > >
-> > > > > And tracing the function calls gives me that:
-> > > > >
-> > > > >       tee_stmm_efi_probe() {
-> > > > >              tee_client_open_context() {
-> > > > >                optee_get_version() {
-> > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                } (ret=3D0xd)
-> > > > >                tee_ctx_match(); (ret=3D0x1)
-> > > > >                optee_smc_open() {
-> > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                  optee_open() {
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                  } (ret=3D0x0)
-> > > > >                } (ret=3D0x0)
-> > > > >              } (ret=3D0xffff000004e71c80)
-> > > > >              tee_client_open_session() {
-> > > > >                optee_open_session() {
-> > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                  optee_get_msg_arg() {
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909000)
-> > > > >                  } (ret=3D0xffff000002909000)
-> > > > >                  tee_session_calc_client_uuid(); (ret=3D0x0)
-> > > > >                  optee_to_msg_param(); (ret=3D0x0)
-> > > > >                  optee_smc_do_call_with_arg() {
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909000)
-> > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909060)
-> > > > >                    optee_cq_wait_init(); (ret=3D0xffff000002e5591=
-0)
-> > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > >      ... continues sending this forever ...
-> > > > >      ... Hit ^C to stop recording ...
-> > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > >                    optee_smccc_smc() {
-> > > > >
-> > > > > [1] https://docs.u-boot.org/en/latest/develop/uefi/uefi.html#usin=
-g-op-tee-for-efi-variables
-> > > > >
-> > > > > Thanks in advance,
-> > > >
-> > > > The most common problem with this is miscompiling the tee_supplican=
-t
-> > > > application.
-> > > > Since we don't know if the system has an RPMB, we emulate it in the
-> > > > tee_supplicant. How did you get the supplicant and can you check if=
- it
-> > > > was compiled with RPMB_EMU=3D0 or 1?
-> > > >
-> > >
-> > > I'm using the tee-supplicant provided by the fedora package which is
-> > > built with ` -DRPMB_EMU=3D0`, I think that's correct, right?
-> > >
-> >
-> > Yes, this is correct. We fixed the Fedora package to compile the
-> > supplicant correctly a while back.
-> >
-> > [0] https://www.linaro.org/blog/uefi-secureboot-in-u-boot/
-> > [1] https://apalos.github.io/Protected%20UEFI%20variables%20with%20U-Bo=
-ot.html#Protected%20UEFI%20variables%20with%20U-Boot
-> >
-> >
-> > Regards
-> > /Ilias
-> > > Thanks,
-> > >    Enric
-> > >
-> > > > Thanks
-> > > > /Ilias
-> > > >
-> > > > >    Enric
-> > > > >
-> > > >
-> > >
-> >
->
+This is based on today's next, if conflicts arise when you apply it at
+some later time and don't want to resolve them, feel free to just drop
+the changes to the conflicting files. I'll notice and followup at a
+later time then. Or ask me for a fixed resend. (Having said that, I
+recommend b4 am -3 + git am -3 which should resolve most conflicts just
+fine.)
+
+Best regards
+Uwe
+
+ drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
+ drivers/hwtracing/coresight/coresight-cpu-debug.c  | 2 +-
+ drivers/hwtracing/coresight/coresight-dummy.c      | 2 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     | 2 +-
+ drivers/hwtracing/coresight/coresight-replicator.c | 2 +-
+ drivers/hwtracing/coresight/coresight-stm.c        | 2 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 2 +-
+ drivers/hwtracing/coresight/coresight-tpiu.c       | 4 ++--
+ drivers/hwtracing/coresight/coresight-trbe.c       | 6 +++---
+ drivers/hwtracing/coresight/ultrasoc-smb.c         | 2 +-
+ drivers/hwtracing/intel_th/acpi.c                  | 2 +-
+ 12 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+index bfea880d6dfb..fe2412f83452 100644
+--- a/drivers/hwtracing/coresight/coresight-catu.c
++++ b/drivers/hwtracing/coresight/coresight-catu.c
+@@ -689,7 +689,7 @@ MODULE_DEVICE_TABLE(acpi, catu_acpi_ids);
+ 
+ static struct platform_driver catu_platform_driver = {
+ 	.probe	= catu_platform_probe,
+-	.remove_new = catu_platform_remove,
++	.remove	= catu_platform_remove,
+ 	.driver	= {
+ 		.name			= "coresight-catu-platform",
+ 		.acpi_match_table	= ACPI_PTR(catu_acpi_ids),
+diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+index 75962dae9aa1..3ac2b4a81694 100644
+--- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
++++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+@@ -763,7 +763,7 @@ static const struct dev_pm_ops debug_dev_pm_ops = {
+ 
+ static struct platform_driver debug_platform_driver = {
+ 	.probe	= debug_platform_probe,
+-	.remove_new = debug_platform_remove,
++	.remove	= debug_platform_remove,
+ 	.driver	= {
+ 		.name			= "coresight-debug-platform",
+ 		.acpi_match_table	= ACPI_PTR(debug_platform_ids),
+diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
+index bb85fa663ffc..fca219c0bba1 100644
+--- a/drivers/hwtracing/coresight/coresight-dummy.c
++++ b/drivers/hwtracing/coresight/coresight-dummy.c
+@@ -144,7 +144,7 @@ static const struct of_device_id dummy_match[] = {
+ 
+ static struct platform_driver dummy_driver = {
+ 	.probe	= dummy_probe,
+-	.remove_new = dummy_remove,
++	.remove	= dummy_remove,
+ 	.driver	= {
+ 		.name   = "coresight-dummy",
+ 		.of_match_table = dummy_match,
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 66d44a404ad0..dd8c74f893db 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -2399,7 +2399,7 @@ MODULE_DEVICE_TABLE(acpi, etm4x_acpi_ids);
+ 
+ static struct platform_driver etm4_platform_driver = {
+ 	.probe		= etm4_probe_platform_dev,
+-	.remove_new	= etm4_remove_platform_dev,
++	.remove		= etm4_remove_platform_dev,
+ 	.driver			= {
+ 		.name			= "coresight-etm4x",
+ 		.of_match_table		= etm4_sysreg_match,
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index 5a819c8970fb..33efe1acbef7 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -377,7 +377,7 @@ MODULE_DEVICE_TABLE(acpi, funnel_acpi_ids);
+ 
+ static struct platform_driver funnel_driver = {
+ 	.probe		= funnel_platform_probe,
+-	.remove_new	= funnel_platform_remove,
++	.remove		= funnel_platform_remove,
+ 	.driver		= {
+ 		.name   = "coresight-funnel",
+ 		/* THIS_MODULE is taken care of by platform_driver_register() */
+diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+index 3e55be9c8418..0fba87de6d1a 100644
+--- a/drivers/hwtracing/coresight/coresight-replicator.c
++++ b/drivers/hwtracing/coresight/coresight-replicator.c
+@@ -389,7 +389,7 @@ MODULE_DEVICE_TABLE(acpi, replicator_acpi_ids);
+ 
+ static struct platform_driver replicator_driver = {
+ 	.probe          = replicator_platform_probe,
+-	.remove_new     = replicator_platform_remove,
++	.remove         = replicator_platform_remove,
+ 	.driver         = {
+ 		.name   = "coresight-replicator",
+ 		/* THIS_MODULE is taken care of by platform_driver_register() */
+diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+index cb3e04755c99..93080849a1dc 100644
+--- a/drivers/hwtracing/coresight/coresight-stm.c
++++ b/drivers/hwtracing/coresight/coresight-stm.c
+@@ -1036,7 +1036,7 @@ MODULE_DEVICE_TABLE(acpi, stm_acpi_ids);
+ 
+ static struct platform_driver stm_platform_driver = {
+ 	.probe	= stm_platform_probe,
+-	.remove_new = stm_platform_remove,
++	.remove	= stm_platform_remove,
+ 	.driver	= {
+ 		.name			= "coresight-stm-platform",
+ 		.acpi_match_table	= ACPI_PTR(stm_acpi_ids),
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index 3a482fd2cb22..45a94d5d995f 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -730,7 +730,7 @@ MODULE_DEVICE_TABLE(acpi, tmc_acpi_ids);
+ 
+ static struct platform_driver tmc_platform_driver = {
+ 	.probe	= tmc_platform_probe,
+-	.remove_new = tmc_platform_remove,
++	.remove	= tmc_platform_remove,
+ 	.driver	= {
+ 		.name			= "coresight-tmc-platform",
+ 		.acpi_match_table	= ACPI_PTR(tmc_acpi_ids),
+diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+index b048e146fbb1..a7510122c6dd 100644
+--- a/drivers/hwtracing/coresight/coresight-tpiu.c
++++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+@@ -307,8 +307,8 @@ MODULE_DEVICE_TABLE(acpi, tpiu_acpi_ids);
+ 
+ static struct platform_driver tpiu_platform_driver = {
+ 	.probe	= tpiu_platform_probe,
+-	.remove_new = tpiu_platform_remove,
+-	.driver = {
++	.remove	= tpiu_platform_remove,
++	.driver	= {
+ 		.name			= "coresight-tpiu-platform",
+ 		.acpi_match_table	= ACPI_PTR(tpiu_acpi_ids),
+ 		.suppress_bind_attrs	= true,
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 96a32b213669..eca0801206ec 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1556,13 +1556,13 @@ MODULE_DEVICE_TABLE(platform, arm_trbe_acpi_match);
+ 
+ static struct platform_driver arm_trbe_driver = {
+ 	.id_table = ACPI_PTR(arm_trbe_acpi_match),
+-	.driver	= {
++	.driver = {
+ 		.name = DRVNAME,
+ 		.of_match_table = of_match_ptr(arm_trbe_of_match),
+ 		.suppress_bind_attrs = true,
+ 	},
+-	.probe	= arm_trbe_device_probe,
+-	.remove_new = arm_trbe_device_remove,
++	.probe = arm_trbe_device_probe,
++	.remove = arm_trbe_device_remove,
+ };
+ 
+ static int __init arm_trbe_init(void)
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+index ef7f560f0ffa..dc3c9504dd7c 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.c
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+@@ -600,7 +600,7 @@ static struct platform_driver smb_driver = {
+ 		.suppress_bind_attrs = true,
+ 	},
+ 	.probe = smb_probe,
+-	.remove_new = smb_remove,
++	.remove = smb_remove,
+ };
+ module_platform_driver(smb_driver);
+ 
+diff --git a/drivers/hwtracing/intel_th/acpi.c b/drivers/hwtracing/intel_th/acpi.c
+index 503620e9fd10..d229324978bd 100644
+--- a/drivers/hwtracing/intel_th/acpi.c
++++ b/drivers/hwtracing/intel_th/acpi.c
+@@ -69,7 +69,7 @@ static void intel_th_acpi_remove(struct platform_device *pdev)
+ 
+ static struct platform_driver intel_th_acpi_driver = {
+ 	.probe		= intel_th_acpi_probe,
+-	.remove_new	= intel_th_acpi_remove,
++	.remove		= intel_th_acpi_remove,
+ 	.driver		= {
+ 		.name			= DRIVER_NAME,
+ 		.acpi_match_table	= intel_th_acpi_ids,
+
+base-commit: 6d59cab07b8d74d0f0422b750038123334f6ecc2
+-- 
+2.45.2
+
 
