@@ -4,96 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5593AD3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF04D3ABDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ZtSE/zbiO29bga7So1mH/XX9EiAiKPJFgpQdc0RuDA=; b=cYpWUPyddTJK4W9gowt+1nB81z
-	QAaJrNJYTnUwzArMkT4bMT8rbJrg/NTDpKrBRR11vD/m6v+wxXk3+6XEpCAUHVMRGnRuo8GJbOQUI
-	Sk3skm+1UkvDdbRpaaBNpqHSg5zFI+q67dMDa5DI7H6/MCB1AviwKN1yFyejIDo8j/DxB+azw2fNu
-	bxdZ++lj0h/tpk9bQOawo0wcjPmJfPvm2HA38EYGfZ/JzcGwxMWR7upKYQ2ZePzCUVDjiF0xBHkoM
-	6gBglLriUedoFXZSanMEmupdZJk3x4P+6eFWAL0Ilp9kLZajephrYdzHgYDdCHj+TAgA4b53Ro2rz
-	3TYn6hJA==;
+	bh=PKmxg9GGHmNCX++vTNZsc4EelTdMMRYckJbYtzhirFw=; b=jPYivi1R91ZNL6J1L0RJJHg7JH
+	SLM99MaURqwP2BBgyD8QzEQtU2pPY0i0SYLlsGv4mlkcSGDfIP23MWYUUxtaaHZK5jBoIs6xagb5g
+	6mC9NHUUiqB2Rwu5zvb+7QmoSQThLlMZiY8WjflIB/32c0iiGioLaH5INKZnZXeMXohoFMe9smyEl
+	eEKP74cBEAYOs2NyVAeJP55O2kqolAEEkeM525fpUVP8p9Rdzo/qZqIHC0/8xccC0rq1QbXan/jDN
+	fumUqj4gWL8+dcoxq9Tg2T1InzuFBvybaLG+8zv8Ahon9Byw2Pb47PtG3fps3CFFXX7NY3EBEzsJ4
+	An3afCZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYoW-00000000pm2-47c4;
-	Mon, 11 Nov 2024 18:07:00 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYhb-00000000oHA-1N7P
+	id 1tAYrE-00000000qry-3dah;
+	Mon, 11 Nov 2024 18:09:48 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAYlu-00000000pFf-2gkh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 17:59:52 +0000
-Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 87E182171FA8;
-	Mon, 11 Nov 2024 09:59:49 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 87E182171FA8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1731347990;
-	bh=6ZtSE/zbiO29bga7So1mH/XX9EiAiKPJFgpQdc0RuDA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U3qtqAJFUvj3LJ7K80wastcf4faahRCEaDAvU1OUqLJOFFXiQxRXtoEbkc+o8UiRW
-	 muUgkxrJ+AhjB2NPxjjqj69Wen8GJPOLz+pk1e8fdEEhrAs1xmhsbaaMGp4k0wkyl8
-	 qTTxXXfKsEU7bfZh+sh8pnHWTh3MamDzBvSX5eXM=
-Message-ID: <8f0433ed-4d5a-4ec1-9552-86870419c79c@linux.microsoft.com>
-Date: Mon, 11 Nov 2024 09:59:34 -0800
+	Mon, 11 Nov 2024 18:04:20 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e953f4e7cso3647371b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 10:04:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731348257; x=1731953057; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=PKmxg9GGHmNCX++vTNZsc4EelTdMMRYckJbYtzhirFw=;
+        b=PIBT4CiAIlK58gL3apWhjEDDq1ltbLUzLIPBY8+jI8ApMwDkzokXkTcZ986DU4bfSi
+         OxbX8bqYplwUJqwGpg0AE07UMGvOvlYQo6hPh+wODX3XKozvSPECaaFelLNF5luavEZu
+         PsPU/r0eodt2LGkYBtaPygMrxt/Ib6mrKtNKJRMpbEV+sgkf9iIWehRtM8vNvvXOnHej
+         1QEaEpCxWaXxCxlQqfBJqxW+3YDydln0Dhfx4zq0bBuMrRhAxyxHg2/yV29G8CWDtEal
+         XZGNIol1qZIkrf55B/pLGAFhJinao09/7ByFlEAEfWfKCx6mr03XMdQ//zUkcG1xe3lz
+         VfQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731348257; x=1731953057;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PKmxg9GGHmNCX++vTNZsc4EelTdMMRYckJbYtzhirFw=;
+        b=IlfiA/6FAsoo4/Ymba5/ntEVQBdjc93FfD+LsrB+d9c2EcN2z8gAREY9xUMShx4pbi
+         hqzQm790vpIamPh6s9NjfBYNrkfyn/1XZCym23+oHizvro/HU5n53N/SDOCTkFalktq+
+         L66ZHGgta+EKb2NmqfbiQ81dpRYSTTBOtATzHDQIv1dSMT//nX14iVcBrDrWjGorZDJI
+         HU8cHcpffVIOmBBdRQAXz+ir8K/e+YHlCSxECnZGGlTD6YIt9nYVe+6/J2DO60XWDjFs
+         NNPtEYNED+oHZ2+6ZmrN2d5BdseET4z5xNtM2CNtgqdTYubfftAaFJLGVqM1mXT0HuKs
+         QT8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXNWCKrGDNzW6ribczjzLjywrBDTJVcxpgWYl6egVFX9d7hetKH5M0y0Ich5OegILN8sruiGwiuTWp7N3zqa8ry@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrZu/uQfd1z17ixDqvRcBLw9rkRsEXe0n+JAoyMMWAlUoi4MQG
+	lQJyUr6kj3t21tGafuw+Xev5dPIUcSnt66vdWo8kyGD0rBSBcwx6IdAbiQ==
+X-Google-Smtp-Source: AGHT+IHm6HOvOrc1BUjUnjkjMNhGEE2/6o5R182iW37iCcmgBZIxz3bXmpi/ntFA/fVZ/0ndenLwkQ==
+X-Received: by 2002:a05:6a21:6da7:b0:1d9:21a0:14e0 with SMTP id adf61e73a8af0-1dc229266a9mr19535036637.12.1731348257036;
+        Mon, 11 Nov 2024 10:04:17 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f644a23sm8798446a12.53.2024.11.11.10.04.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 10:04:15 -0800 (PST)
+Message-ID: <41995c8a-8b05-4c56-b4a3-5f275a88b899@roeck-us.net>
+Date: Mon, 11 Nov 2024 10:04:13 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] Add new headers for Hyper-V Dom0
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
- <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>
-References: <1731018746-25914-1-git-send-email-nunodasneves@linux.microsoft.com>
- <BN7PR02MB41485DAD2E066D417FE12020D4582@BN7PR02MB4148.namprd02.prod.outlook.com>
+Subject: Re: [PATCH v3 4/5] hwmon: tmp108: Add support for I3C device
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-hwmon@vger.kernel.org
+References: <20241111-p3t1085-v3-0-bff511550aad@nxp.com>
+ <20241111-p3t1085-v3-4-bff511550aad@nxp.com>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <BN7PR02MB41485DAD2E066D417FE12020D4582@BN7PR02MB4148.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20241111-p3t1085-v3-4-bff511550aad@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_095951_443560_57ADC889 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20241111_100418_724652_9BEE0272 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,120 +147,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/10/2024 8:12 PM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, November 7, 2024 2:32 PM
->>
->> To support Hyper-V Dom0 (aka Linux as root partition), many new
->> definitions are required.
+On 11/11/24 09:32, Frank Li wrote:
+> Add support for I3C device in the tmp108 driver to handle the P3T1085
+> sensor. Register the I3C device driver to enable I3C functionality for the
+> sensor.
 > 
-> Using "dom0" terminology here and in the Subject: line is likely to
-> be confusing to folks who aren't intimately involved in Hyper-V work.
-> Previous Linux kernel commit messages and code for running in the
-> Hyper-V root partition use "root partition" terminology, and I couldn't
-> find "dom0" having been used before. "root partition" would be more
-> consistent, and it also matches the public documentation for Hyper-V.
-> "dom0" is Xen specific terminology, and having it show up in Hyper-V
-> patches would be confusing for the casual reader. I know "dom0" has
-> been used internally at Microsoft as shorthand for "Hyper-V root
-> partition", but it's probably best to completely avoid such shorthand
-> in public Linux kernel patches and code.
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v2 to v3
+> - change kconfig to select REGMAP_I3C if enable i3c
+> - remove i3c/master.h
+> - remove , after {}
+> - use #ifdef CONFIG_I3C about i3c register code
 > 
-> Just my $.02 ....
+> I2C    I3C
+> Y       Y       support both
+> Y       N       i3c part code will not be compiled
+> N       Y       whole TPM108 will not be compiled
+> N       N       whole TPM108 will not be compiled
+> ---
+>   drivers/hwmon/Kconfig  |  1 +
+>   drivers/hwmon/tmp108.c | 31 +++++++++++++++++++++++++++++++
+>   2 files changed, 32 insertions(+)
 > 
+> diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+> index d43ca7aa4a548..9579db7849e1f 100644
+> --- a/drivers/hwmon/Kconfig
+> +++ b/drivers/hwmon/Kconfig
+> @@ -2298,6 +2298,7 @@ config SENSORS_TMP108
+>   	tristate "Texas Instruments TMP108"
+>   	depends on I2C
+>   	select REGMAP_I2C
+> +	select REGMAP_I3C if I3C
+>   	help
+>   	  If you say yes here you get support for Texas Instruments TMP108
+>   	  sensor chips and NXP P3T1085.
+> diff --git a/drivers/hwmon/tmp108.c b/drivers/hwmon/tmp108.c
+> index bfbea6349a95f..deb1505321335 100644
+> --- a/drivers/hwmon/tmp108.c
+> +++ b/drivers/hwmon/tmp108.c
+> @@ -13,6 +13,7 @@
+>   #include <linux/mutex.h>
+>   #include <linux/of.h>
+>   #include <linux/i2c.h>
+> +#include <linux/i3c/device.h>
+>   #include <linux/init.h>
+>   #include <linux/jiffies.h>
+>   #include <linux/regmap.h>
+> @@ -442,6 +443,36 @@ static struct i2c_driver tmp108_driver = {
+>   
+>   module_i2c_driver(tmp108_driver);
+>   
+> +#ifdef CONFIG_I3C
+> +static const struct i3c_device_id p3t1085_i3c_ids[] = {
+> +	I3C_DEVICE(0x011b, 0x1529, NULL),
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(i3c, p3t1085_i3c_ids);
+> +
+> +static int p3t1085_i3c_probe(struct i3c_device *i3cdev)
+> +{
+> +	struct device *dev = i3cdev_to_dev(i3cdev);
+> +	struct regmap *regmap;
+> +
+> +	regmap = devm_regmap_init_i3c(i3cdev, &tmp108_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(dev, PTR_ERR(regmap),
+> +				     "Failed to register i3c regmap\n");
+> +
+> +	return tmp108_common_probe(dev, regmap, "p3t1085_i3c");
+> +}
+> +
+> +static struct i3c_driver p3t1085_driver = {
+> +	.driver = {
+> +		.name = "p3t1085_i3c",
+> +	},
+> +	.probe = p3t1085_i3c_probe,
+> +	.id_table = p3t1085_i3c_ids,
+> +};
+> +module_i3c_driver(p3t1085_driver);
+> +#endif
 
-Noted - I will update the terminology in v3 and generally avoid "Dom0",
-except possibly by way of explanation (i.e. to compare it to Xen Dom0).
+While looking at i3c code, I found module_i3c_i2c_driver(). Can we use
+that function to register both i2c and i3c in one call ?
 
-Thanks
-Nuno
-
->>
->> The plan going forward is to directly import definitions from
->> Hyper-V code without waiting for them to land in the TLFS document.
->> This is a quicker and more maintainable way to import definitions,
->> and is a step toward the eventual goal of exporting headers directly
->> from Hyper-V for use in Linux.
->>
->> This patch series introduces new headers (hvhdk.h, hvgdk.h, etc,
->> see patch #3) derived directly from Hyper-V code. hyperv-tlfs.h is
->> replaced with hvhdk.h (which includes the other new headers)
->> everywhere.
->>
->> No functional change is expected.
->>
->> Summary:
->> Patch 1-2: Minor cleanup patches
->> Patch 3: Add the new headers (hvhdk.h, etc..) in include/hyperv/
->> Patch 4: Switch to the new headers
->>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> ---
->> Changelog:
->> v2:
->> - Rework the series to simply use the new headers everywhere
->>   instead of fiddling around to keep hyperv-tlfs.h used in some
->>   places, suggested by Michael Kelley and Easwar Hariharan
-> 
-> Thanks! That should be simpler all around.
-> 
-> Michael
-> 
->> - Fix compilation errors with some configs by adding missing
->>   definitions and changing some names, thanks to Simon Horman for
->>   catching those
->> - Add additional definitions to the new headers to support them now
->>   replacing hyperv-tlfs.h everywhere
->> - Add additional context in the commit messages for patches #3 and #4
->> - In patch #2, don't remove indirect includes. Only remove includes
->>   which truly aren't used, suggested by Michael Kelley
->>
->> ---
->> Nuno Das Neves (4):
->>   hyperv: Move hv_connection_id to hyperv-tlfs.h
->>   hyperv: Clean up unnecessary #includes
->>   hyperv: Add new Hyper-V headers in include/hyperv
->>   hyperv: Switch from hyperv-tlfs.h to hyperv/hvhdk.h
->>
->>  arch/arm64/hyperv/hv_core.c        |    3 +-
->>  arch/arm64/hyperv/mshyperv.c       |    4 +-
->>  arch/arm64/include/asm/mshyperv.h  |    2 +-
->>  arch/x86/hyperv/hv_apic.c          |    1 -
->>  arch/x86/hyperv/hv_init.c          |   21 +-
->>  arch/x86/hyperv/hv_proc.c          |    3 +-
->>  arch/x86/hyperv/ivm.c              |    1 -
->>  arch/x86/hyperv/mmu.c              |    1 -
->>  arch/x86/hyperv/nested.c           |    2 +-
->>  arch/x86/include/asm/kvm_host.h    |    3 +-
->>  arch/x86/include/asm/mshyperv.h    |    3 +-
->>  arch/x86/include/asm/svm.h         |    2 +-
->>  arch/x86/kernel/cpu/mshyperv.c     |    2 +-
->>  arch/x86/kvm/vmx/hyperv_evmcs.h    |    2 +-
->>  arch/x86/kvm/vmx/vmx_onhyperv.h    |    2 +-
->>  arch/x86/mm/pat/set_memory.c       |    2 -
->>  drivers/clocksource/hyperv_timer.c |    2 +-
->>  drivers/hv/hv_balloon.c            |    4 +-
->>  drivers/hv/hv_common.c             |    2 +-
->>  drivers/hv/hv_kvp.c                |    2 +-
->>  drivers/hv/hv_snapshot.c           |    2 +-
->>  drivers/hv/hyperv_vmbus.h          |    2 +-
->>  include/asm-generic/hyperv-tlfs.h  |    9 +
->>  include/asm-generic/mshyperv.h     |    2 +-
->>  include/clocksource/hyperv_timer.h |    2 +-
->>  include/hyperv/hvgdk.h             |  303 +++++++
->>  include/hyperv/hvgdk_ext.h         |   46 +
->>  include/hyperv/hvgdk_mini.h        | 1295 ++++++++++++++++++++++++++++
->>  include/hyperv/hvhdk.h             |  733 ++++++++++++++++
->>  include/hyperv/hvhdk_mini.h        |  310 +++++++
->>  include/linux/hyperv.h             |   11 +-
->>  net/vmw_vsock/hyperv_transport.c   |    2 +-
->>  32 files changed, 2729 insertions(+), 52 deletions(-)
->>  create mode 100644 include/hyperv/hvgdk.h
->>  create mode 100644 include/hyperv/hvgdk_ext.h
->>  create mode 100644 include/hyperv/hvgdk_mini.h
->>  create mode 100644 include/hyperv/hvhdk.h
->>  create mode 100644 include/hyperv/hvhdk_mini.h
->>
->> --
->> 2.34.1
+Thanks,
+Guenter
 
 
