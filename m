@@ -4,158 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740E3D3ABFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 23:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559A1D3ABFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 23:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoX8DCFcZGAgTifJZL33ju3qm4KOxX5kB5teZrUzELs=; b=05KBMVeKuRuXqugf6g4M4j1e9q
-	78F6cCA+Yi99PjMlPzz5rm08XT1VlEmQByivvhmIHbq4cFaLXk9I/3DCxpqnzBgutlEQrtD2Wd4Xp
-	WT/sUzWvhBO6eLY4WtOeHDmJKBF+u0ViVw2nPVk6L4XXhi2XSpkAix/ZaX/RJsOIsEg/qLGdEtRyH
-	/Xfpk39poaajxS5k8ejOUfvFM26hghagX3wUhjLUSa3bTEL3xAfWpbxuxyLSrVr7dpKY95jFCUNGx
-	aXCkUWBTCZIx8Rkt2OcVpYUMxtiRjZvAWu63qQuLPHvSrwmeSbgJ+Jzv7UR799mfIX0i7r25Og3pC
-	dw9k4xMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=; b=szPIBvkRjP0iX088o7KT6uAZH/
+	OcQA1/cNsU56NnGVA4XQyyVGNfZtg1IGsXYtBMczoCbV/AmjQoT2NegjH3iect6njTx9txleIco+V
+	blJAu/p5YYdsPCx+bU0l7Abnk5Wx4GZg1C8ISe19NdRYfrGqiL0TguB/atr1Tx8p/IeZrf/DAjXYb
+	O9nR8PplLV2wSH5/XV7hq6CD6ARIuuFKQOkOrczI5u2EVM9jm3+wsEG0vwmUVSVVzAMoBrSJPCwls
+	H5SBI4BcEuCs0qktoOWSzuRorfYRN4QQhdS/8fXYknd/k4zwqXJdu/sOWxIpFEuXhfhkNSLBqDejn
+	G299ULjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAdk0-00000001c3k-12az;
-	Mon, 11 Nov 2024 23:22:40 +0000
-Received: from mail-db8eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2614::609] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tAdrx-00000001cja-0OdH;
+	Mon, 11 Nov 2024 23:30:53 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAdiD-00000001bvs-0bzj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 23:20:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=icj4HU38sAdGiXn+7pC4Gfz+HOuOKfq2kvO6aCTvmjHL7rfwwK7YjhR6fi0F3nrH2LVPSmqMVlgNud1rTzV/QKHph4zen7RLOl4e4BU3vPpNkFeHLBfDYbymvtVZ1qKab6nNvzmfWuiEeiFJwsSWfnrfeRMZNPCXUH7iZODuE6CAdZ9BtFvM2RT9ol7JK3+PdhB9wF7ihRmLIfC3jFE98Y51cO2OxWFloLYyXh/Vf9yVERHcroOfrgy84UeZFfYG4er9rxgDu4cnNFWU6W89ZV/BbNAWst+Noy23UnWHR5FqkN7XBIAFSjaHDDer8TbEUn40HSxrU1A5D8SH+LABQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CdNOXsJ5WfUqKJ4zGFjcloh1UT4Dld+hPnaVq7K+fu8=;
- b=t3cHKIN1+EkT7ZgWzfn8NAG2T8VOYYldieD0aE8euGaUvI5amyA+bZT8Lh/5M1sxB8pY5hMoJpaUdxz8n29RU2lHkfskkWgcMFmXG1Fufoa8WXmOoyu0YR6Gb87K/LEqdBvaKe/0tsPhfWymLLpAGp9mWgTGMHBwarfOOmlNuSn8owlNVO7XmQ7KdjCZ3ZpCsnX7diVsZYpm0/OJKV3zp/90oXQGa3zYmJ2D1nhNLiTqDoDJgMsPURNvGojGpNhcUrLyAQgKQyJBP7AKtQ0ypMLtmdRV0gR82y5bL9+6whGl1x3TXJZkxhekfGTG92vfM/NYyepNdA/hm3nA1uxa3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CdNOXsJ5WfUqKJ4zGFjcloh1UT4Dld+hPnaVq7K+fu8=;
- b=To+CR+OBOuSBZEgS9dUDg4YnYrPCMcFJ8i2msJVZbbJ/4vsl+jgpsZ1PWrKK9vtdDsrtJqaJpl0I4SQwSIR6bc/9M4HGOwh2kmSMyR9FY8KwJajdFypTb2XZR+Kpbcplf2AFlJKj2mJhy8IlsildIysN2nEcIoCAqMUZWMa75cUe2zjqyEPSsibbBFmskgfrQffZsbfLYdAhoQVHzHdRsArYFc9NEGZy+wiYWyOdPEAKNxphQiqSO6O6j99NykfkS6vVviyftb1zkWXS/ss5NHsptyP5lc4yD4gtKjkELPlJILklGfvTYtSdly1ctpX5f9PpWX1fI3NA9MW/5XIfpg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA2PR04MB10124.eurprd04.prod.outlook.com (2603:10a6:102:407::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.27; Mon, 11 Nov
- 2024 23:20:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.027; Mon, 11 Nov 2024
- 23:20:44 +0000
-Date: Mon, 11 Nov 2024 18:20:37 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jean Delvare <jdelvare@suse.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] hwmon: tmp108: Add support for I3C device
-Message-ID: <ZzKRRdXpeHVyUDOM@lizhi-Precision-Tower-5810>
-References: <20241111-p3t1085-v3-0-bff511550aad@nxp.com>
- <20241111-p3t1085-v3-4-bff511550aad@nxp.com>
- <41995c8a-8b05-4c56-b4a3-5f275a88b899@roeck-us.net>
- <e8921251-02bb-409e-88d0-d635e7d08929@roeck-us.net>
- <f2690f72-9b50-438d-8301-9e93b03de3e4@roeck-us.net>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f2690f72-9b50-438d-8301-9e93b03de3e4@roeck-us.net>
-X-ClientProxiedBy: SA9P223CA0011.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:806:26::16) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1tAcsf-00000001VWQ-2I6G;
+	Mon, 11 Nov 2024 22:27:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1731364048; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XYcI1ZMq4lyB+M6pCxKTx49dLj1eGACHkSjwVWYdi9Lchib3oXrQbEUrmbtWOYsra+Bcr4ocZt4bzBiCDkoqeUc2b7rwIE4b7ec/KWfieMf+KonPeE6n8KVYLoJQCxXol6eKDzopiQQiVgO4W05yAcS2KjrBB5ZFRTSOu78tiYI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1731364048; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=; 
+	b=KfjpskdgGcLaVSrY1XLVvOHz/vdQe9tciSUdvT33iH4qULPCl3V+MGgchLChVYWZWdzBsvLhC1uDs8Xl42DNSIT51ZxodWh7JasQHl5UEwtg60Uh1frDeUWvvXehMGBwm1wbIDRk2bBY3eOWVBTD7lpjDYKP1sOvZkNTVPS1lwQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1731364048;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=;
+	b=hPhRr9EmL76Xd8PdVGuIvNLBPlvJTLGPVUZxURD9enBCMo/nPm13xoqvljwfB9i1
+	afw83CCoVz7PSiNri3q1NI6WhRHQlUaaaBEsy1u5zVK+kYeo461iyhu+Vh+rQQlpCE9
+	/CG9glMB/R3Ka/sX2AxG/9SbYFz0xH9vD+Ukx1rg=
+Received: by mx.zohomail.com with SMTPS id 1731364046934984.4728785857724;
+	Mon, 11 Nov 2024 14:27:26 -0800 (PST)
+Received: by mercury (Postfix, from userid 1000)
+	id 1EC311060457; Mon, 11 Nov 2024 23:27:22 +0100 (CET)
+Date: Mon, 11 Nov 2024 23:27:22 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, heiko@sntech.de, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, mika.westerberg@linux.intel.com, 
+	andriy.shevchenko@linux.intel.com, tao.huang@rock-chips.com, finley.xiao@rock-chips.com, 
+	tim.chen@rock-chips.com, elaine.zhang@rock-chips.com
+Subject: Re: [PATCH v4 3/4] gpio: rockchip: support new version GPIO
+Message-ID: <ufc7neof2dxlfsb3cfssk3aa6vrorgue4htmgpjbhqkkcs2zpn@mejkcq6puntn>
+References: <20241111023412.3466161-1-ye.zhang@rock-chips.com>
+ <20241111023412.3466161-4-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA2PR04MB10124:EE_
-X-MS-Office365-Filtering-Correlation-Id: cfd29f44-8443-427f-f68a-08dd02a7775f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?aI3dJiKGB+VxPKusjVUozUUPv31hXGVkTpSbAAxRj1bRln8jvJ69ZSpO4u?=
- =?iso-8859-1?Q?scrF7bWws5DBrxNSWx6B8/VkXYOvOSJFwmT89whW8UvQxUSht43MchbZR1?=
- =?iso-8859-1?Q?Gh8FcpBtSMNUG/jSBOrkvz8SrTWvMCfXAV3K9XzUsCemRjgNAdaext+nKx?=
- =?iso-8859-1?Q?lr12ZpwoPBY+2/f3RiaPnJyKLNwNsjg3pUTnZa0Tlxf98eB4cfCdVBjBbq?=
- =?iso-8859-1?Q?R/yiJlWi/sEwpXlxlMmTpC45QKuX+4ZGxsQ5lGsyB7+jSWG9H4QS2AKvbw?=
- =?iso-8859-1?Q?qHmYjxWg9eDpjvVHY2MoyY13b0PKhJqLkpbOBnOMTd/nadMV3AbkOmP7ic?=
- =?iso-8859-1?Q?H3XKAhY9TMkYjjBX7XTSkFDmw8a/In3slvDM/2jSjzaTFJfiI/V0qh5PVj?=
- =?iso-8859-1?Q?4slCTS0pd+VzV1CX6vg5sotx/3PVy5NnC+S65Q/4rV6+JkHfC1SdkhPkIG?=
- =?iso-8859-1?Q?GrOqKbXv9UPgUTlHTXFs0VLcFhlaD/iDUF2qvULPTpRedvzUjgZ/GdxpYQ?=
- =?iso-8859-1?Q?PuneROTwaIRHt3rAhfpVJTYn0Ec610zW0nQ8JRo4n2EFFk27WVpj2zNT2D?=
- =?iso-8859-1?Q?LXG8fcUqakxVAMl4+odumHKvhdNEValu0LgSWaMHhJR2KO7FmhHWoO4gYK?=
- =?iso-8859-1?Q?fWNkS+6eGz14WywsKRdJOay3u66EeyrSP7EKEqjYLqTVy0ct0XU/8Jl/ex?=
- =?iso-8859-1?Q?aZv/1J+Or5IT0qlYX8GtQ2xffCa3qgzRWKtxccLReCihEuEE58buibEiyb?=
- =?iso-8859-1?Q?Fe3q6efCpLj1mEH8JHtsVfV2ly046veswKjXgMa8j5ioTsDmhb13lbtsMw?=
- =?iso-8859-1?Q?q5gqFyNzQs3+ZlYKMNtjOKhcmBWIuDYyuhVhcbvdhnqQSlnAmP95n4eNAB?=
- =?iso-8859-1?Q?aZ2YN0BefvhhtxYo1hODbEBoLQgNNJYT6UxsxlN8A3djC+Db95xNElBIVK?=
- =?iso-8859-1?Q?MEB3j4I2YT+/ectbtxaRqYJXqmI5UMQu0gM7gSJscF+JQGppICxQyLI+Ay?=
- =?iso-8859-1?Q?eZblYaTLf/pst+2HDuV31RD4fS6a7xWuxrqq6Xh4n2BlDyqyVNyqkVdwzO?=
- =?iso-8859-1?Q?Lz1ipdw9y5ZCsH6U2oUTKhMrVTv7VD/lJy5XYnaOY+6inYNRCqOh/Yjpb8?=
- =?iso-8859-1?Q?MTyCUVHqV3bvlVT0me1XDZ6Xxf64XbwNVvqJZnyisnjak+nVmVeqVy6ssE?=
- =?iso-8859-1?Q?eU3VCydCULUGVC4aO3LoQfCvmI8KXI7IJVRhxMGtXFs14bB0LezZiTMyzX?=
- =?iso-8859-1?Q?AjKgO95dtlIJx9CMCV+WiX+D1fEB9kw6+4tRjwMTrTYDFuJcZzl+NFyE/l?=
- =?iso-8859-1?Q?PfpJI3oWNKj22HrpgzYgFQnCcNVVSYqk6Mo85zEshMt2WRWe1dYBl4ZTtQ?=
- =?iso-8859-1?Q?qvF6965QbJEaCacuzGW6rLQK3BqjTWD/PPiARHKCrQYch3vmMz7cY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?WJXUIJhHuhJhPftUvXh7DQ1T0b0zUC0MhIgji1WJxXgifp89DsRDz/OaJ2?=
- =?iso-8859-1?Q?BGKr+Q7XwDISV24XoI0JAPHY6nkF/pBNioHAHV0poGiAf3ELYi3PQJKLxe?=
- =?iso-8859-1?Q?jCmfyn2+u+YmPrHk9IlQI2KZyQIhWd3tXPA6qFQPabai22QIAMDhic45Qi?=
- =?iso-8859-1?Q?C/k5gPmU3sNb0ednfkG+xutDp7k+EGrj1VwTSSuLU7s1ZzZFXmhDeBjCxa?=
- =?iso-8859-1?Q?TTQW08yUOyVDIQHoRY4purxorqezHYnvGTQCuj/6Mhzhl4Eca0F9lFclTD?=
- =?iso-8859-1?Q?6BO5iW27ujr3wVhdklea6lTH0QSQovBgCggCBIH4yVgMNoRIJPbgsuF/nZ?=
- =?iso-8859-1?Q?7tMmPyHda5sIm1M2n2WLNzSC2SJAAEzzS8TaCAuUfGjcCjKRVsyYkWOgw5?=
- =?iso-8859-1?Q?g+mvIND7I5uPs1UxVN+gUVAWPcraOdnsOJYHH+3oHT0fluZZfJWPoiZtKs?=
- =?iso-8859-1?Q?prNdJBFXQ9aOVCf1rlEACgWHkFwCZf6n8/1lCj5MYuDs7w8HH2nYzGrf1I?=
- =?iso-8859-1?Q?s2NACeqteNfQHo/Vm9TRBwOTwQvswoBDMQ45e+MSMED1yXG3o9VpP8vn1O?=
- =?iso-8859-1?Q?VShLXyEWmT0uuxFtU45K6bOfK2Qpl5GII+Oz4RBovGIl5uleejFpcGDtsk?=
- =?iso-8859-1?Q?iQL/PtGq4wwMsY1/tTcxyFDjs+lOmDJ9PTota7cRKCw8As10GC+s4ABqrq?=
- =?iso-8859-1?Q?zet9Ev+OIP8yUWhh/zkrj2/Pm9uNInC/7ZpTNJHAErehSUa48/1/4o/yui?=
- =?iso-8859-1?Q?osCGQXxunGwo72czEc8Xy3bgBddz3vN0XwELTbo38rEI6q4qUnj6br0Q1j?=
- =?iso-8859-1?Q?xN94drEMhYil8hqgGnolWxU+DaBiMBN/DDaRbbxmpqquK/gRBjLgPTADqL?=
- =?iso-8859-1?Q?kJfNZ1OZ4Jj8R1zpWmjt86KWlZeVGu6TgrNW0wuvgx0YgSylpA6R0dUh9n?=
- =?iso-8859-1?Q?I2sF7j9SU0/SAr4Iq9otgz2YAvjSDplTAXH0rmwHZY3VG+IAH23oO01s/7?=
- =?iso-8859-1?Q?rfyl6Mhni/dvmvQYADQWiQI/4ivKkJgBpdqDcctRx65FEnZL9ELystZzsD?=
- =?iso-8859-1?Q?Mans4/5BxLCztJqHKs8ngcOimyzk15Mfbayj4BCuhsmcW85jJ2olhHlmcp?=
- =?iso-8859-1?Q?rYGA7fBsuYBbg51+RuHIAwiCoSFdNBoW67cnBXvzXpIHi+XfXvxcxhI+Rs?=
- =?iso-8859-1?Q?BY+RIBvgOwwN+R02BzzvZFvm+cOpwDv1qNWmqrC/+nhX9KmLx3BmM112Hk?=
- =?iso-8859-1?Q?gGGfdV6h95ENIGNQ4DDIMjsR/gNBwvwDF9D80lzObh/CvnOzaw73ysY1uM?=
- =?iso-8859-1?Q?3H+GBiaW1AGiTfkIeAS6b0Km0tBFF5skpI2Wmt0mkdP3O2TvCe4RQwUVSX?=
- =?iso-8859-1?Q?oFGGlQaLQ/fM/3Xevvg2Ai7jwJoCuqrJR0EhBUFbMwr8KjCfothYZGGg5D?=
- =?iso-8859-1?Q?iun/AWvdxvWHrefjgXOixkxfImjUaAQnGOUUzNk2CH1nzORBMiOH6+KbRY?=
- =?iso-8859-1?Q?yflO0hBMV/l0kn7n/k0FnCxdQH9qb2OTgtffVgTTI+/xFiWCrNUgTsz10p?=
- =?iso-8859-1?Q?R/PDm14fQ3cHyhBlrHELdTX52v+oG2SHzLnfjEzZnY/3m11Ehe1y2QGXzP?=
- =?iso-8859-1?Q?1R/ktGA0AEkZg=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfd29f44-8443-427f-f68a-08dd02a7775f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Nov 2024 23:20:44.4769
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Cb26fKPzWuO/Q1HjWLMdrFe3Z+uq9z6nHYzORRe4QIK9KIyacEC1KaLxWc0yQas7ySk65g4gjCMgwRPczvreEA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10124
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7u42vpw7xhebrsqx"
+Content-Disposition: inline
+In-Reply-To: <20241111023412.3466161-4-ye.zhang@rock-chips.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.3.1/231.261.35
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_152049_481997_20FF480F 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20241111_142733_661854_A37BD6AB 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,76 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 10:37:04AM -0800, Guenter Roeck wrote:
-> On 11/11/24 10:10, Guenter Roeck wrote:
-> > On 11/11/24 10:04, Guenter Roeck wrote:
-> > [ ... ]
-> > > > +static int p3t1085_i3c_probe(struct i3c_device *i3cdev)
-> > > > +{
-> > > > +    struct device *dev = i3cdev_to_dev(i3cdev);
-> > > > +    struct regmap *regmap;
-> > > > +
-> > > > +    regmap = devm_regmap_init_i3c(i3cdev, &tmp108_regmap_config);
-> > > > +    if (IS_ERR(regmap))
-> > > > +        return dev_err_probe(dev, PTR_ERR(regmap),
-> > > > +                     "Failed to register i3c regmap\n");
-> > > > +
-> > > > +    return tmp108_common_probe(dev, regmap, "p3t1085_i3c");
-> > > > +}
-> > > > +
-> > > > +static struct i3c_driver p3t1085_driver = {
-> > > > +    .driver = {
-> > > > +        .name = "p3t1085_i3c",
-> > > > +    },
-> > > > +    .probe = p3t1085_i3c_probe,
-> > > > +    .id_table = p3t1085_i3c_ids,
-> > > > +};
-> > > > +module_i3c_driver(p3t1085_driver);
-> > > > +#endif
-> > >
-> > > While looking at i3c code, I found module_i3c_i2c_driver(). Can we use
-> > > that function to register both i2c and i3c in one call ?
-> > >
-> > Answering my own question: No, because devm_regmap_init_i3c()
-> > does not provide a dummy function if i3C is not enabled.
-> >
->
-> I do have another concern, though: What happens if the i2c part of the driver
-> registers and the i3c part fails to register ? module_i3c_i2c_driver() handles
-> that situation by unregistering the i2c driver, but I don't really know
-> what happens if a single module registers two drivers and one of them fails.
 
-After use module_i3c_i2c_driver(), and remove #ifdef I3C, and disable I3C
-in config, build passed.
+--7u42vpw7xhebrsqx
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 3/4] gpio: rockchip: support new version GPIO
+MIME-Version: 1.0
 
-It possible cause by
+Hi,
 
-static inline int i3c_i2c_driver_register(struct i3c_driver *i3cdrv,
-					  struct i2c_driver *i2cdrv)
-{
-	int ret;
+On Mon, Nov 11, 2024 at 10:34:11AM +0800, Ye Zhang wrote:
+> Support the next version GPIO controller on SoCs like rk3576.
+>=20
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> ---
 
-	ret = i2c_add_driver(i2cdrv);
-	if (ret || !IS_ENABLED(CONFIG_I3C))
-		return ret;
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-^^^ !IS_ENABLED(CONFIG_I3C) is true, so linker skip below part. So no
-ref to i3cdrv, so linker remove all related codes.
+This is needed for 6.13, which introduces RK3576 support and
+currently (linux-next) tries to use the GPIO controller in V1
+mode.
 
-I use aarch64-linux-gnu-gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0.
+-- Sebastian
 
-Did you met error if use module_i3c_i2c_driver()?
+>  drivers/gpio/gpio-rockchip.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+> index f05b92e0e977..b7a43e492965 100644
+> --- a/drivers/gpio/gpio-rockchip.c
+> +++ b/drivers/gpio/gpio-rockchip.c
+> @@ -35,6 +35,7 @@
+>  #define GPIO_TYPE_V1		(0)           /* GPIO Version ID reserved */
+>  #define GPIO_TYPE_V2		(0x01000C2B)
+>  #define GPIO_TYPE_V2_1		(0x0101157C)
+> +#define GPIO_TYPE_V2_2		(0x010219C8)
+> =20
+>  static const struct rockchip_gpio_regs gpio_regs_v1 =3D {
+>  	.port_dr =3D 0x00,
+> @@ -674,6 +675,7 @@ static int rockchip_get_bank_data(struct rockchip_pin=
+_bank *bank)
+>  		break;
+>  	case GPIO_TYPE_V2:
+>  	case GPIO_TYPE_V2_1:
+> +	case GPIO_TYPE_V2_2:
+>  		bank->gpio_regs =3D &gpio_regs_v2;
+>  		bank->gpio_type =3D GPIO_TYPE_V2;
+>  		bank->db_clk =3D of_clk_get(bank->of_node, 1);
+> --=20
+> 2.34.1
+>=20
+>=20
 
+--7u42vpw7xhebrsqx
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	ret = i3c_driver_register(i3cdrv);
-	if (ret)
-		i2c_del_driver(i2cdrv);
+-----BEGIN PGP SIGNATURE-----
 
-	return ret;
-}
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmcyhMkACgkQ2O7X88g7
++pr8Gw/8C6issbH3YOd0OP/TIl2LHTPwlZjgXew5kIc7ctl6AKper5SRZBZTzs4U
+QpEjm3DHKinsATe24Um295qZZtP8CIUADLPGNirMNo7oNSY4D63jRiTOteYNHqm0
+9qRhLLSDcOIqhGUQS/JoxGhH6acSf+DUz9/EiNJEX2DG3PB4ePwfTUNyMiaiE+yA
+ffk87vL6sQdiEVzEiY8oLmvI1+vJ9R6CdsRltq55exxI1pVDPcSpWK0XHXeKbGBe
+jlFn35G+bKhkhuzqV9WRlE3pBJEQvn6p8ju0P+doNA7KWhWoPNFhh4x5GGQWrh34
+ERdg/cRtLj5A3lie8Ozlf6RwzC77c+GtQrH8HIrdZ3L6uTueh2fwQ6e/Tu1PeAei
+2xB+F8QzJmduS7rL/zWEvU5i7tT/8bfCoDLlasbXA9zVdkryiqKDezjURt8k3bHW
+pOjnO5C/YrFHF2YFl6ckfJ8C5AJ23Lgd3eSqkenh1RY22BV5iTr1OqlG/DxFt+ge
+8jRQBvl7wSU+0Z7cVgHH9BxSkisDYWWCnrDkTL6mGe5AsLWWnz2LUi/1ltaaWY63
+E6Dj7hrjORSvWnr5ZxubYDPtJ1gUAQn2mio7zPhGOcbOSfKkTWarMaKxDNXDbTi0
+R2c9JHxKYmqFyYbnoFa0zjL/fiEmI8rO0CRWUwNZYHKtig8hxHw=
+=hXQn
+-----END PGP SIGNATURE-----
 
->
-> Thanks,
-> Guenter
->
+--7u42vpw7xhebrsqx--
 
