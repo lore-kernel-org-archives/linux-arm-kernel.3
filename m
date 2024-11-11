@@ -4,78 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB90D3ABEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AD1D3ABEC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cHYYm5p2gi666U61qSt3+Okz8u2r1M0B9lAqT+9zUwE=; b=d6aVH7JZ2QkoSaoyHXt46pzFyC
-	YnsX+O1AhTN6wBnIDxlIsxgyr4pvczaoy/HC6X3M/KhPRG+5jwSGksiaaiCU45HacqQvtEMS08MEg
-	lE2AAnerKZesHfHJFACWTEMUnktwTIBAOzqW0I3+rf8ywevEx6Zm+pZCc2bMQhc+RJGUn8Sd1J2yU
-	2L0VhRjtkyPlLDqlH8JIdy9qeNE7epr+zYaiABbh8ZR+lBp3SoxHQOhprdico7gPHdpGP2SVfvlms
-	G+jrdILwN53bqW8SLF9GYf6opVnksgaaaaufl64xZO07BI7F7z1/x92LH5lFOUzVawe5o4/gWctKU
-	fM8THTQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GCiEccyKF8GZ8vErZhkNfUE8aukCUXiC4bcALe0PXfI=; b=02yO47KueO4PUtmF7mlzoN0XUh
+	6HQwabmFOjg7AjVyR6Sivs9q9e6wu8k6lOw7M+x9DA4PFCPeYMRoSyApKYANKzwx5mqEC14hjg/tq
+	+d2GVN+GXTkhqMXZMFGhCzNLWXKpF9sT6zrkUtQOsxln4ne0ReKwKOjdGdFKCtmTBwbNoXPT0bBln
+	2/mRO1lc8t/rnV8NrNQFSk1ZA1lae/0xK6NlAa/ag9ZoG2ZKNBPiB9tQ7Xg2WJqjmXRGTFlj7qobT
+	8D1lvg8uRQUvJz86v/lEzrVZQVUQuTIUIXHueOiBHC5K57ELMwoUMPQt4YAJ1NTpeqPsfeRPxAg2E
+	lyCI21Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZFd-00000000vNd-3yl2;
-	Mon, 11 Nov 2024 18:35:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tAZJR-00000000w2j-2tcB;
+	Mon, 11 Nov 2024 18:38:57 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZDr-00000000v9Q-0xwe
+	id 1tAZHf-00000000vnC-3Xx5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 18:33:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D1A7AA4180C;
-	Mon, 11 Nov 2024 18:31:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C2FFC4CECF;
-	Mon, 11 Nov 2024 18:33:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731349989;
-	bh=3B/5kUYL8W4cwhJZ8ncK+YOGBwMwcZd5A7SQVXdUjpo=;
-	h=From:Date:Subject:To:Cc:From;
-	b=eB7PRkM0tXHORqfiHIBcRDu5y+IkUJbJfzKwEJ51BPQxCfXaLr7PUbHsy/n+6kYcP
-	 5sVWVtULEnSeAcTbFuxHYZ1BFlZ1sN3In6ADELGEEwFModnm/K58IXO6Jeqlldk9f2
-	 Stj7iOodNoR2rhClQEOVXy1AaZXUqM5HlvcfnD23mIACZPvlJXYxi6zlxo6b7u5EeP
-	 6oWok625A3KZ9fOmrSMEcAELv3GfTCGHPDjdfnH7dKfHKFnVkuqp4HoHQmQys3XYvP
-	 fe3EYWXp/9bkK5vHxlBugJhtEojgvodqfdF+QzvSDG2rYmt5WCpC8/VDYAI63tavnb
-	 ZXnveMeQwOy0w==
-From: Mark Brown <broonie@kernel.org>
-Date: Mon, 11 Nov 2024 18:32:58 +0000
-Subject: [PATCH] kselftest/arm64: Enable build of PAC tests with LLVM=1
+	Mon, 11 Nov 2024 18:37:09 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-20cb47387ceso49485385ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 10:37:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731350227; x=1731955027; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=GCiEccyKF8GZ8vErZhkNfUE8aukCUXiC4bcALe0PXfI=;
+        b=U/ODGDsw7//zHkBvPtn6/BMa/SU88H0RnoFvrG0T+1XGzGcKU3YVDftBiXD1CgaivU
+         AkzsfOPqk35/Q2JLTALi9iywwJg0PSuxTy/OHy3k76uY2RY4SkKyMQniiw1hR9uwLaId
+         QUfaTP4BpVYOeEd38jWP6w3d4+hTJphNUFhniIg4TWUUfR4mzWbVyapN/ctNZFG4FsOw
+         KRKJ1D7+OqMzJqvJOkabgBd2tcNt1SLHQsHZkNdyHw/EL9LeaF9A3CPYU25osptM1T4e
+         r7O7LckGHvvax/jkK6eodcoYykwm3MSd1+qvZZDHGRDOgWVTYPaIlPEPglVYE7rmvZck
+         eEWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731350227; x=1731955027;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GCiEccyKF8GZ8vErZhkNfUE8aukCUXiC4bcALe0PXfI=;
+        b=d5Wh6+qSiuzKKm2KkfABffFN+NCEkm6p9gYmbco1x/DMuvGoCSzgd8PiDlRZchN/6a
+         3OxCc8Dds+gljXxGNXQrAIyQvRmH4GdJCM741/Q/faxmOf9MuqCfT/2IrkNyiMw2cqsn
+         1ZvNP7b9ZJjsCHMfAjYI/zdP6Mz20haacfe4rYZY3MMhGGknIuFRzhdjoU03dYIVYOYJ
+         CC5Ne5mJMYyFkNMo40DvEPJdwTev2ioaVJ1zi0q1prPedbJk+3wBL5lk9CLwOUoVEtB6
+         ZZdb+eNcD8jKY/LbP5NK7zeIt+zBTWQ2YqDzcrJfCqSM8BOoT4huY0kAIwjcF5j1ZrP/
+         LkuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0V2o1rO1R6JI7PBH5BbWczKV43GUFof552JKt9WuGUHPwv8rDmGq1qVwUK3SgJTtycVQCAmx63aGIKETR5Kvv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPtfbRotvsoA/yMi9FwaAC9ymk/C8Jjw1Zx1togF52e7dGc4hY
+	oLhWLxKW36s5gEqI7nwsvGiEkTFL2oV+FdFcfv2pAO0lf8FMzOPb
+X-Google-Smtp-Source: AGHT+IGr8e9DiV3V2QHHPadF3ED2eVTLHuUNPmsGNSWjihoWy0A1RwKBOBxWjUKHuwFj8UAk48IIJA==
+X-Received: by 2002:a17:902:d50a:b0:20b:cae5:dec4 with SMTP id d9443c01a7336-21183529badmr191550575ad.24.1731350226814;
+        Mon, 11 Nov 2024 10:37:06 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dc9f23sm79351145ad.29.2024.11.11.10.37.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 10:37:06 -0800 (PST)
+Message-ID: <f2690f72-9b50-438d-8301-9e93b03de3e4@roeck-us.net>
+Date: Mon, 11 Nov 2024 10:37:04 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241111-arm64-selftest-pac-clang-v1-1-08599ceee418@kernel.org>
-X-B4-Tracking: v=1; b=H4sIANlNMmcC/x2MSwqAMAwFryJZG2hF/F1FXNSaasAfjYhQvLvB2
- Q3MewmEIpNAlyWIdLPwsavYPAO/uH0m5EkdClOUVkEXt6pEoTVcJBeezqNfNUQ/NmYiU7e2akH
- nZ6TAz3/dD+/7AYmktUhqAAAA
-X-Change-ID: 20241111-arm64-selftest-pac-clang-cb80de079169
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-355e8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1515; i=broonie@kernel.org;
- h=from:subject:message-id; bh=3B/5kUYL8W4cwhJZ8ncK+YOGBwMwcZd5A7SQVXdUjpo=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnMk3iGC0+I1ctBJ6Drd9vqX4HeZ5w93WHhdwde
- gKKAdXgreOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZzJN4gAKCRAk1otyXVSH
- 0N9zB/sGxMPQGy1POFWcAZb/Bw9nz1cJKiFiWxfYnMrZeE4DTxzQXvwgAD0ZdwJKBL+WdWubUrq
- HxP9lpgZywM/WlPVh8UvOkn8aOwYfeLwzqGtw6GmDwT3ZLywgSZXYgB+/LHewyuLLxwheKgOQhK
- 29iy0o4kd9SiKG2mdU2IUD2o/ODaA5aqPzE29iICx6prBe2HerBZcCk5wERHaKPlZwgq/juprJE
- zkBWNyF116RLWExxgAviOGGQuE9owohxbgteEyxkwpN6d4G+nvT7qCjvirFxsKyOTfVem0AJ2fG
- Pmr064U/ore/bqcfF0pQ4DqzlJE2jBqaKHqsHShaYsuGXdva
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] hwmon: tmp108: Add support for I3C device
+From: Guenter Roeck <linux@roeck-us.net>
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-hwmon@vger.kernel.org
+References: <20241111-p3t1085-v3-0-bff511550aad@nxp.com>
+ <20241111-p3t1085-v3-4-bff511550aad@nxp.com>
+ <41995c8a-8b05-4c56-b4a3-5f275a88b899@roeck-us.net>
+ <e8921251-02bb-409e-88d0-d635e7d08929@roeck-us.net>
+Content-Language: en-US
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <e8921251-02bb-409e-88d0-d635e7d08929@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_103311_436339_998256A0 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20241111_103707_906662_509999EF 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +149,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently we don't build the PAC selftests when building with LLVM=1 since
-we attempt to test for PAC support in the toolchain before we've set up the
-build system to point at LLVM in lib.mk, which has to be one of the last
-things in the Makefile.
+On 11/11/24 10:10, Guenter Roeck wrote:
+> On 11/11/24 10:04, Guenter Roeck wrote:
+> [ ... ]
+>>> +static int p3t1085_i3c_probe(struct i3c_device *i3cdev)
+>>> +{
+>>> +    struct device *dev = i3cdev_to_dev(i3cdev);
+>>> +    struct regmap *regmap;
+>>> +
+>>> +    regmap = devm_regmap_init_i3c(i3cdev, &tmp108_regmap_config);
+>>> +    if (IS_ERR(regmap))
+>>> +        return dev_err_probe(dev, PTR_ERR(regmap),
+>>> +                     "Failed to register i3c regmap\n");
+>>> +
+>>> +    return tmp108_common_probe(dev, regmap, "p3t1085_i3c");
+>>> +}
+>>> +
+>>> +static struct i3c_driver p3t1085_driver = {
+>>> +    .driver = {
+>>> +        .name = "p3t1085_i3c",
+>>> +    },
+>>> +    .probe = p3t1085_i3c_probe,
+>>> +    .id_table = p3t1085_i3c_ids,
+>>> +};
+>>> +module_i3c_driver(p3t1085_driver);
+>>> +#endif
+>>
+>> While looking at i3c code, I found module_i3c_i2c_driver(). Can we use
+>> that function to register both i2c and i3c in one call ?
+>>
+> Answering my own question: No, because devm_regmap_init_i3c()
+> does not provide a dummy function if i3C is not enabled.
+> 
 
-Since all versions of LLVM supported for use with the kernel have PAC
-support we can just sidestep the issue by just assuming PAC is there when
-doing a LLVM=1 build.
+I do have another concern, though: What happens if the i2c part of the driver
+registers and the i3c part fails to register ? module_i3c_i2c_driver() handles
+that situation by unregistering the i2c driver, but I don't really know
+what happens if a single module registers two drivers and one of them fails.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/pauth/Makefile | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/tools/testing/selftests/arm64/pauth/Makefile b/tools/testing/selftests/arm64/pauth/Makefile
-index 72e290b0b10c1ea5bf1b84232f70844a601b8129..b5a1c80e0ead6932d2441a192b9758a049e3b3f8 100644
---- a/tools/testing/selftests/arm64/pauth/Makefile
-+++ b/tools/testing/selftests/arm64/pauth/Makefile
-@@ -7,8 +7,14 @@ CC := $(CROSS_COMPILE)gcc
- endif
- 
- CFLAGS += -mbranch-protection=pac-ret
-+
-+# All supported LLVMs have PAC, test for GCC
-+ifeq ($(LLVM),1)
-+pauth_cc_support := 1
-+else
- # check if the compiler supports ARMv8.3 and branch protection with PAuth
- pauth_cc_support := $(shell if ($(CC) $(CFLAGS) -march=armv8.3-a -E -x c /dev/null -o /dev/null 2>&1) then echo "1"; fi)
-+endif
- 
- ifeq ($(pauth_cc_support),1)
- TEST_GEN_PROGS := pac
-
----
-base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
-change-id: 20241111-arm64-selftest-pac-clang-cb80de079169
-
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
+Thanks,
+Guenter
 
 
