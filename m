@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37914D2E9C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C240D2E9C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hQU6KnGzF3CcDjw3gTR/1Ls1/iYTm36QhtQ1MFcGZU=; b=LJfGgEi7SCb6tEha1es/cs3ftM
-	2xrLuwuQlRFZwuEZ3UnVgjbe07BaPS4i179TDMRJY3fgQzFiVY0LtrtyVy/Ffg8CJ1cAQpEkC6wBT
-	2NLZ2tRWP/DWfAy4jn3Q8LU3AGim/SWoEYoLyAaQH/ASZmesxUCjQXS3t4rthOLC1jbNYHYgkVay1
-	9HcelQGLYrSH6H/Oxwt16O+hoTsv97XkmKgfv0XNpBoBE619qq5XzEAuhEh5MX/fcPWEdEzUrmESY
-	Wzju7YYI7izlwhwXPyTtz5Q9ZgXelK8RfnRxo/snc1oLaDPE2OkFzOtroKHQwvDSPjqU7VQUtFTlh
-	9VPHEM4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DOG5n9kGdjYFBRXKXmGtUPZNkUvOHIHlcteRBUDegYU=; b=LA9YaHDiGmGMdqVsHP01lIrRFD
+	lEJxR6801rfYV/ZdKqc4sHNffx2uuUj7Z99KQAqnPmhNf7zZFlm9raywPOcN55MprXlTWgRRCTA7N
+	ItGhVNgHMU7//0XhgWwrGo29mXrqPJt1GE4oBpuNnXWgp3VLFTa/KTGY65Rhq53MPFm2NFwQyzWhR
+	v7HBdktARhZQBAqTsW+ge1UCq8iacNU/ZpJvqDaFiOJCfaK3QIWj/9M9ZuA1m2fABo/FbBg4mWdte
+	kQg3ATUV0oSiN49QAWGV8X2jJkdJZS42wuttnuudRUNc363ekY/TdmKdostCtfYKEn3g8Qo5bRqo7
+	v8yPfBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAQBU-0000000GugX-1jVR;
-	Mon, 11 Nov 2024 08:54:08 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1tAQDF-0000000Guvw-0JaK;
+	Mon, 11 Nov 2024 08:55:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAPx7-0000000Gpsy-0kRp;
-	Mon, 11 Nov 2024 08:39:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Xn2wb1nvlz10VB1;
-	Mon, 11 Nov 2024 16:37:19 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3DA53140257;
-	Mon, 11 Nov 2024 16:39:11 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Mon, 11 Nov 2024 16:39:09 +0800
-CC: <yangyicong@hisilicon.com>, Xu Yang <xu.yang_2@nxp.com>, John Garry
-	<john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, James Clark
-	<james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan
-	<leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
-	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang
-	<kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen
-	<chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, Athira Rajeev
-	<atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das
-	<sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, Ravi Bangoria
-	<ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=c3=a9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>, "Masami Hiramatsu (Google)"
-	<mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, "Dr. David Alan
- Gilbert" <linux@treblig.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Junhao He <hejunhao3@huawei.com>
-Subject: Re: [PATCH v2 8/8] perf pmu: Move pmu_metrics_table__find and remove
- ARM override
-To: Ian Rogers <irogers@google.com>
-References: <20241107162035.52206-1-irogers@google.com>
- <20241107162035.52206-9-irogers@google.com>
- <5a57de7c-924e-ccd6-8981-b9fddc647465@huawei.com>
- <CAP-5=fWw04Qi+3=y7M4uMrhgrFWpnF7mZ09yb4v0P0qFT1Gfnw@mail.gmail.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <e8603b0c-86db-c258-179a-f228c43ebf0b@huawei.com>
-Date: Mon, 11 Nov 2024 16:39:09 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1tAPxS-0000000GpyB-3nUH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 08:39:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4511FA4136A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 08:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE13C4CED9
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 08:39:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731314377;
+	bh=Svcvh/rY1jnSmpFXCdN9hBXlZzrHqGl8vS6RUmUrtUY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LnRdirz3OBYS6/wXxHHqZelRYNKtYDTrcyBAtKNggcGunHCwK/uQ3/NsFpSXTpmJe
+	 BH+fSVf94FN0VQA/CMaLYxKQTvW5s/JlMHT66sTVEMZ8Pd//8WhzjeAmCHIUORklXj
+	 NQUWMw2W0D7QgZt7aWjI7XjswIXcGKoFDnvwv4h3yL1Wi9ZnhpfvCLUsLjj8U2XaxE
+	 R/iBRhIdrlM/HicPWIZsNjERd3av9DhSktSn8oQzYUv5mfTrh+OJxba14bP/zCKpZz
+	 D5rZk7xjRbErt4k3bY6QyA3R0VmNX8hhcNXpEJcfqQA+KBJ8F6THJeD0Hk2I1dAh59
+	 yU5dp06CBUW5w==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2fb5743074bso33113951fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 00:39:37 -0800 (PST)
+X-Gm-Message-State: AOJu0Yyoh7D2573MAuyeEhGj1IpVTnkqbz4pPNJ7oVXSyqGgd/Mrs9u2
+	J/LSf/pZSbi6y9cFr6R0ppAgCOMtjtalXeSRu/re3eLzzOwRz7QD3Zo6k0LC2QsZ46A+PgHgiL/
+	MK/0togTFo2Ykpg2allYGN1fogVc=
+X-Google-Smtp-Source: AGHT+IGRhfK3pJn2s08zCYFj6u05JLociAF4JE17jNCN68YqR66YSIPASgrhJW0KopL85g6zjd9e1MDED9Ex42RLeM4=
+X-Received: by 2002:a2e:b88f:0:b0:2ef:28ed:1ff5 with SMTP id
+ 38308e7fff4ca-2ff1f4a936cmr40599821fa.15.1731314375525; Mon, 11 Nov 2024
+ 00:39:35 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAP-5=fWw04Qi+3=y7M4uMrhgrFWpnF7mZ09yb4v0P0qFT1Gfnw@mail.gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+References: <20241111083544.1845845-8-ardb+git@google.com>
+In-Reply-To: <20241111083544.1845845-8-ardb+git@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 11 Nov 2024 09:39:24 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHunVLcREwCJ0cZD7Xu0YjDoL2vGPMtVA96XUVbzqzMAQ@mail.gmail.com>
+Message-ID: <CAMj1kXHunVLcREwCJ0cZD7Xu0YjDoL2vGPMtVA96XUVbzqzMAQ@mail.gmail.com>
+Subject: Re: [PATCH 0/6] arm64: Clean up and simplify PA space size handling
+To: Ard Biesheuvel <ardb+git@google.com>, Quentin Perret <qperret@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <keescook@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_003917_594872_DD178083 
+X-CRM114-CacheID: sfid-20241111_003939_100636_106542EB 
 X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,63 +82,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/11/10 0:10, Ian Rogers wrote:
-> On Sat, Nov 9, 2024 at 2:54 AM Yicong Yang <yangyicong@huawei.com> wrote:
->>
->> Hi,
->>
->> On 2024/11/8 0:20, Ian Rogers wrote:
->>> Move pmu_metrics_table__find to the jevents.py generated pmu-events.c
->>> and remove indirection override for ARM. The movement removes
->>> perf_pmu__find_metrics_table that exists to enable the ARM
->>> override. The ARM override isn't necessary as just the CPUID, not PMU,
->>> is used in the metric table lookup. On non-ARM the CPU argument is
->>> just ignored for the CPUID, for ARM -1 is passed so that the CPUID for
->>> the first logical CPU is read.
->>
->> Since the logic here's already been touching, is it possible to step it further to just
->> ignore the CPUID matching when finding the system metrics/events tables? It's may not be
->> that reasonable for finding a system metrics/events from the CPUID, since one system PMU may
->> exists on different platforms with different CPU types.
-> 
-> The issue is for conciseness reasons we let metrics and metric
-> thresholds refer to other metrics, for example:
-> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/pmu-events/arch/x86/icelakex/icx-metrics.json#n78
-> ```
->     {
->         "BriefDescription": "This category represents fraction of
-> slots where no uops are being delivered due to a lack of required
-> resources for accepting new uops in the Backend",
->         "MetricExpr": "topdown\\-be\\-bound / (topdown\\-fe\\-bound +
-> topdown\\-bad\\-spec + topdown\\-retiring + topdown\\-be\\-bound) + 5
-> * cpu@INT_MISC.RECOVERY_CYCLES\\,cmask\\=1\\,edge@ / tma_info_slots",
->         "MetricGroup": "TmaL1;TopdownL1;tma_L1_group",
->         "MetricName": "tma_backend_bound",
->         "MetricThreshold": "tma_backend_bound > 0.2",
->         "MetricgroupNoGroup": "TopdownL1",
->         "PublicDescription": "This category represents fraction of
-> slots where no uops are being delivered due to a lack of required
-> resources for accepting new uops in the Backend. Backend is the
-> portion of the processor core where the out-of-order scheduler
-> dispatches ready uops into their respective execution units; and once
-> completed these uops get retired according to program order. For
-> example; stalls due to data-cache misses or stalls due to the divider
-> unit being overloaded are both categorized under Backend Bound.
-> Backend Bound is further divided into two main categories: Memory
-> Bound and Core Bound. Sample with: TOPDOWN.BACKEND_BOUND_SLOTS",
->         "ScaleUnit": "100%"
->     },
-> ```
-> 
-> The system metrics were added on top of this and we never rethought
-> the design. For a metric to refer to another metric there needs to be
-> some kind of place we look up from and for that we use the CPUID
-> associated table. Perhaps the easiest thing is that if no CPUID table
-> is matched we have an empty table.
-> 
+(cc Quentin)
 
-thanks for the clarificaiton. ok then it's different from my problem and I
-shouldn't have mixed them up.
-
-Thanks.
+On Mon, 11 Nov 2024 at 09:35, Ard Biesheuvel <ardb+git@google.com> wrote:
+>
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> This series addresses a number of buglets related to how we handle the
+> size of the physical address space when building LPA2 capable kernels:
+>
+> - reject 52-bit physical addressess in the mapping routines when LPA2 is
+>   configured but not available at runtime
+> - ensure that TCR.IPS is not set to 52-bits if LPA2 is not supported
+> - ensure that TCR_EL2.PS and DS match the host, regardless of whether
+>   LPA2 is available at stage 2
+> - don't rely on kvm_get_parange() and invalid physical addresses as
+>   control flags in the pKVM page donation APIs
+>
+> Finally, the configurable 48-bit physical address space limit is dropped
+> entirely, as it doesn't buy us a lot now that all the PARange and {I}PS
+> handling is done at runtime.
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Kees Cook <keescook@chromium.org>
+>
+> Ard Biesheuvel (6):
+>   arm64/mm: Reduce PA space to 48 bits when LPA2 is not enabled
+>   arm64/mm: Override PARange for !LPA2 and use it consistently
+>   arm64/kvm: Configure HYP TCR.PS/DS based on host stage1
+>   arm64/kvm: Avoid invalid physical addresses to signal owner updates
+>   arm64: Kconfig: force ARM64_PAN=y when enabling TTBR0 sw PAN
+>   arm64/mm: Drop configurable 48-bit physical address space limit
+>
+>  arch/arm64/Kconfig                     | 37 ++------------------
+>  arch/arm64/include/asm/assembler.h     | 14 +++-----
+>  arch/arm64/include/asm/cpufeature.h    |  3 +-
+>  arch/arm64/include/asm/kvm_pgtable.h   |  3 +-
+>  arch/arm64/include/asm/pgtable-hwdef.h | 12 +------
+>  arch/arm64/include/asm/pgtable-prot.h  |  7 ++++
+>  arch/arm64/include/asm/pgtable.h       | 11 +-----
+>  arch/arm64/include/asm/sparsemem.h     |  4 ++-
+>  arch/arm64/include/asm/sysreg.h        |  6 ----
+>  arch/arm64/kernel/cpufeature.c         |  2 +-
+>  arch/arm64/kernel/pi/idreg-override.c  |  9 +++++
+>  arch/arm64/kernel/pi/map_kernel.c      |  6 ++++
+>  arch/arm64/kvm/arm.c                   |  8 ++---
+>  arch/arm64/kvm/hyp/pgtable.c           | 37 ++++++++------------
+>  arch/arm64/mm/init.c                   |  2 +-
+>  arch/arm64/mm/pgd.c                    |  9 ++---
+>  arch/arm64/mm/proc.S                   |  2 --
+>  scripts/gdb/linux/constants.py.in      |  1 -
+>  tools/arch/arm64/include/asm/sysreg.h  |  6 ----
+>  19 files changed, 62 insertions(+), 117 deletions(-)
+>
+> --
+> 2.47.0.277.g8800431eea-goog
+>
 
