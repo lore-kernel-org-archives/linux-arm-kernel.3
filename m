@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01813D12D59
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158E2D12D5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fau7G6sjEi0y036rsC9jXaCUd8fRYQLfiS++NIMzDpM=; b=BmKHxkInA1we4DP4QNdlXPCun2
-	zp3C0Hyqfyrh/dFaS5cek/L0bOcxJoZ1VHjf6SmT20Y8efHRmx1GCtTPeE1TEA42CpHJ5IorapBQw
-	s2rSEUR/lmZwgvzUd7JEOkDQPkerMqfAjch9DdkYRRvHC0uQxdM8E/3c7Sia8hSVMSFeIim2yfT1I
-	avz0+qoU728ER8xEhYjpKnFOhOOte/MJNvKaQvScbadXc5efpUgGS9MFxoD75ezzfSLCrMW27DAeN
-	3KbIfYHX39HP2Buu6vj0ehH5g0MtMTFvqLMKcR1N5uLj68SNktHGCdqFQyta/gxuegF0tpDucWmJE
-	LkMc4sjA==;
+	bh=JSxjwG6onMgErgSEDcNFeXF11zUMnfmNgkeok6smJlw=; b=zGF0ByBYlU3shUbb4L025ogl4l
+	SUied6UqKa5aVT4W7mlKzYlk7UZXyiwEh084KiZHIrJV+mCWQABIQ+6oaMVj723Jwq/QkRJ9hN1y+
+	vvRzqwj7XIWEMMVHKimonHj6qGcoQHPmZpFJXuBeEyoy5KPpJYyoBBwZtHG2CBQ8qhK1Hma9OxqBi
+	U9iU6coRQDuneUkyW/9yFGXFnGU1M3kK2eAu2iq+OOtSNof1amDTpNdvJbjrNUdW1SrcW1SlGo+fP
+	+5D/zivoqdDeQQeXBa36W8ql0qeLLsEX/bw8lDatVKCVaSwcgFO6CuwBNLdrpPVzH2pLYYsTgjV6L
+	fDP8cdYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAHy5-0000000FuxX-1B6s;
-	Mon, 11 Nov 2024 00:07:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAHwI-0000000Fuog-2IlY
+	id 1tAIcV-0000000FxJ4-143H;
+	Mon, 11 Nov 2024 00:49:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAIaf-0000000FwtT-0Jew
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 00:05:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 23293A41347;
-	Mon, 11 Nov 2024 00:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7F58C4CECD;
-	Mon, 11 Nov 2024 00:05:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731283552;
-	bh=LEbk0UwzMReWGMLM1N0ZN67ounf8WzkA5leISWNctcg=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=Rgls9w2RaznQ+91jdI4cssdxWso5jSndTFs3MQMRGCKOkHWtccDPVuLuHTwnQ2Pks
-	 JqsIyuk86QeOE11KmSrxX1aL4mDG76MH53uKpS/PZEf1wcuimcXG199AXJFnuwyAmH
-	 A1gnW0fWpI4xsemcmd1qCW6lVUHh65W7Hdu9epTCTq2Ex/7BeLN+THiwlEUxVRR5oP
-	 lUdHVjGmItx2L0W73fc3JOlqbQu6G9mMcS/snX1L/ype6AQdFNBBO9+AXtERM7ol8d
-	 cH9y+tu2NyAtO5Nm4Gq59+bK/HGnv3H9rEbO0KSkxGOuV65CawlGZsQgi9S7oHjcBo
-	 TXIdRvJZ307+g==
-Message-ID: <c6dade2e-fd8a-4a7b-89a1-b1276d8e9106@kernel.org>
-Date: Mon, 11 Nov 2024 09:05:48 +0900
+	Mon, 11 Nov 2024 00:47:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0A621480;
+	Sun, 10 Nov 2024 16:48:04 -0800 (PST)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B79663F66E;
+	Sun, 10 Nov 2024 16:47:32 -0800 (PST)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/7] clk: sunxi-ng: mp: Add SUNXI_CCU_P_DATA_WITH_MUX_GATE wrapper
+Date: Mon, 11 Nov 2024 00:47:16 +0000
+Message-ID: <20241111004722.10130-2-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.2
+In-Reply-To: <20241111004722.10130-1-andre.przywara@arm.com>
+References: <20241111004722.10130-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v1 2/3] arm64: dts: marvell: drop additional phy-names for
- sata
-To: Frank Wunderlich <linux@fw-web.de>, Niklas Cassel <cassel@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
- Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
- linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20241109094623.37518-1-linux@fw-web.de>
- <20241109094623.37518-3-linux@fw-web.de>
-Content-Language: en-US
-Organization: Western Digital Research
-In-Reply-To: <20241109094623.37518-3-linux@fw-web.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_160554_708736_93CE1E59 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20241110_164737_347077_BA6476BF 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/9/24 18:46, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Commit facbe7092f8a ("arm64: dts: marvell: Drop undocumented SATA phy names")
+The PRCM CCU in the A523 SoC contains some clocks that only feature a
+P (shift) factor, but no M divider.
+Treat this as a special case of an MP clock: by forcing the M mask to be
+0 bits wide, this always result in the M divider value to be 1.
 
-Isn't a Fixes tag for the above commit desired here ?
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ drivers/clk/sunxi-ng/ccu_mp.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-> drops some phy-names from devicetrees but misses some. Drop them too.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->  arch/arm64/boot/dts/marvell/armada-8040-db.dts     | 2 --
->  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi | 2 --
->  2 files changed, 4 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-db.dts b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
-> index fe5d6cb9d692..9d45e881a97d 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-8040-db.dts
-> +++ b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
-> @@ -307,11 +307,9 @@ &cp1_sata0 {
->  
->  	sata-port@0 {
->  		phys = <&cp1_comphy1 0>;
-> -		phy-names = "cp1-sata0-0-phy";
->  	};
->  	sata-port@1 {
->  		phys = <&cp1_comphy3 1>;
-> -		phy-names = "cp1-sata0-1-phy";
->  	};
->  };
->  
-> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
-> index 5043cf2eb33e..0d4a5fd9503f 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
-> @@ -345,13 +345,11 @@ &cp1_sata0 {
->  	/* CPS Lane 1 - U32 */
->  	sata-port@0 {
->  		phys = <&cp1_comphy1 0>;
-> -		phy-names = "cp1-sata0-0-phy";
->  	};
->  
->  	/* CPS Lane 3 - U31 */
->  	sata-port@1 {
->  		phys = <&cp1_comphy3 1>;
-> -		phy-names = "cp1-sata0-1-phy";
->  	};
->  };
->  
-
-
+diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
+index 6e50f3728fb5f..e235fdfde2d36 100644
+--- a/drivers/clk/sunxi-ng/ccu_mp.h
++++ b/drivers/clk/sunxi-ng/ccu_mp.h
+@@ -71,6 +71,24 @@ struct ccu_mp {
+ 		}							\
+ 	}
+ 
++#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
++				       _pshift, _pwidth,		\
++				       _muxshift, _muxwidth,		\
++				       _gate, _flags)			\
++	struct ccu_mp _struct = {					\
++		.enable	= _gate,					\
++		.m	= _SUNXI_CCU_DIV(0, 0),				\
++		.p	= _SUNXI_CCU_DIV(_pshift, _pwidth),		\
++		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
++		.common	= {						\
++			.reg		= _reg,				\
++			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name,    \
++								   _parents, \
++								   &ccu_mp_ops,\
++								   _flags),  \
++		}							\
++	}
++
+ #define SUNXI_CCU_MP_WITH_MUX(_struct, _name, _parents, _reg,		\
+ 			      _mshift, _mwidth,				\
+ 			      _pshift, _pwidth,				\
 -- 
-Damien Le Moal
-Western Digital Research
+2.46.2
+
 
