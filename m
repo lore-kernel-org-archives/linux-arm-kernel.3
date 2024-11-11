@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C240D2E9C0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A7CD2E9C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 08:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DOG5n9kGdjYFBRXKXmGtUPZNkUvOHIHlcteRBUDegYU=; b=LA9YaHDiGmGMdqVsHP01lIrRFD
-	lEJxR6801rfYV/ZdKqc4sHNffx2uuUj7Z99KQAqnPmhNf7zZFlm9raywPOcN55MprXlTWgRRCTA7N
-	ItGhVNgHMU7//0XhgWwrGo29mXrqPJt1GE4oBpuNnXWgp3VLFTa/KTGY65Rhq53MPFm2NFwQyzWhR
-	v7HBdktARhZQBAqTsW+ge1UCq8iacNU/ZpJvqDaFiOJCfaK3QIWj/9M9ZuA1m2fABo/FbBg4mWdte
-	kQg3ATUV0oSiN49QAWGV8X2jJkdJZS42wuttnuudRUNc363ekY/TdmKdostCtfYKEn3g8Qo5bRqo7
-	v8yPfBqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5F4rAbapCjtRK+5E3cd9kMWPwT8eNM90FXJAZ2gUrmc=; b=Ie76j6cmoisz8TClKjJifOkQqB
+	XCujw1zWDkZ6qAEEboiAghr8T7Lwcc1MIdAxVmrgELWwosQ81moZSDLCZ65lyUws3+lYyoL9Tdr+O
+	Ys4LaG+iDebXgeok+xa7mSiA8wJLWrYCayG18XTgN+mh3tod+RiYARAWwzkHVL4s741g5mNlRQB1M
+	YCJrjFs9aNlcf2robx2zZyHzWvs3RFDkRsz2J2SgPZcfH2WC/I9nY/hMaPWeU/Pw5qICJRtNSFWqP
+	xPwtBwzSz3Bqk9OMmoDfFuNBTVbtYhEZhGD6x5uM1i2MESHZj4lNvj1I068F0VSEvO708QUu4F5ya
+	OBiJDkNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAQDF-0000000Guvw-0JaK;
-	Mon, 11 Nov 2024 08:55:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tAQEz-0000000GvEq-2vhH;
+	Mon, 11 Nov 2024 08:57:45 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAPxS-0000000GpyB-3nUH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 08:39:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4511FA4136A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 08:37:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE13C4CED9
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 08:39:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731314377;
-	bh=Svcvh/rY1jnSmpFXCdN9hBXlZzrHqGl8vS6RUmUrtUY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LnRdirz3OBYS6/wXxHHqZelRYNKtYDTrcyBAtKNggcGunHCwK/uQ3/NsFpSXTpmJe
-	 BH+fSVf94FN0VQA/CMaLYxKQTvW5s/JlMHT66sTVEMZ8Pd//8WhzjeAmCHIUORklXj
-	 NQUWMw2W0D7QgZt7aWjI7XjswIXcGKoFDnvwv4h3yL1Wi9ZnhpfvCLUsLjj8U2XaxE
-	 R/iBRhIdrlM/HicPWIZsNjERd3av9DhSktSn8oQzYUv5mfTrh+OJxba14bP/zCKpZz
-	 D5rZk7xjRbErt4k3bY6QyA3R0VmNX8hhcNXpEJcfqQA+KBJ8F6THJeD0Hk2I1dAh59
-	 yU5dp06CBUW5w==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2fb5743074bso33113951fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 00:39:37 -0800 (PST)
-X-Gm-Message-State: AOJu0Yyoh7D2573MAuyeEhGj1IpVTnkqbz4pPNJ7oVXSyqGgd/Mrs9u2
-	J/LSf/pZSbi6y9cFr6R0ppAgCOMtjtalXeSRu/re3eLzzOwRz7QD3Zo6k0LC2QsZ46A+PgHgiL/
-	MK/0togTFo2Ykpg2allYGN1fogVc=
-X-Google-Smtp-Source: AGHT+IGRhfK3pJn2s08zCYFj6u05JLociAF4JE17jNCN68YqR66YSIPASgrhJW0KopL85g6zjd9e1MDED9Ex42RLeM4=
-X-Received: by 2002:a2e:b88f:0:b0:2ef:28ed:1ff5 with SMTP id
- 38308e7fff4ca-2ff1f4a936cmr40599821fa.15.1731314375525; Mon, 11 Nov 2024
- 00:39:35 -0800 (PST)
+	id 1tAQ8J-0000000GtJI-2SsP;
+	Mon, 11 Nov 2024 08:51:00 +0000
+X-UUID: 09c79594a00a11ef82ff63e91e7eb18c-20241111
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=5F4rAbapCjtRK+5E3cd9kMWPwT8eNM90FXJAZ2gUrmc=;
+	b=QAmYd0nCfOuPJZe7seXjTcC0geKFkwYljm2hIcafUFXFoBnHsAAx6H7sW+8mLfd0BsHRP0Vkf8+FLH+G9kHpq3jRI5dXzoRwa+OLkPEYyAObDs3HQqvgC6UgHW5ibbdkblsUlukcRj7yy7To4P0k5UrThwZ0DoAsVhMc3DlAvh8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:98a7e783-683b-4f82-ac40-67fe49182872,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:1610f51b-4f51-4e1d-bb6a-1fd98b6b19d2,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:5,IP:nil,UR
+	L:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
+	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 09c79594a00a11ef82ff63e91e7eb18c-20241111
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <andy-ld.lu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1476798627; Mon, 11 Nov 2024 01:50:44 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Mon, 11 Nov 2024 16:50:41 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Mon, 11 Nov 2024 16:50:41 +0800
+From: Andy-ld Lu <andy-ld.lu@mediatek.com>
+To: <angelogioacchino.delregno@collabora.com>, <matthias.bgg@gmail.com>,
+	<ulf.hansson@linaro.org>, <wenbin.mei@mediatek.com>,
+	<mengqi.zhang@mediatek.com>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Andy-ld Lu <andy-ld.lu@mediatek.com>
+Subject: [PATCH] mmc: mtk-sd: Fix MMC_CAP2_CRYPTO flag setting
+Date: Mon, 11 Nov 2024 16:49:31 +0800
+Message-ID: <20241111085039.26527-1-andy-ld.lu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <20241111083544.1845845-8-ardb+git@google.com>
-In-Reply-To: <20241111083544.1845845-8-ardb+git@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 11 Nov 2024 09:39:24 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHunVLcREwCJ0cZD7Xu0YjDoL2vGPMtVA96XUVbzqzMAQ@mail.gmail.com>
-Message-ID: <CAMj1kXHunVLcREwCJ0cZD7Xu0YjDoL2vGPMtVA96XUVbzqzMAQ@mail.gmail.com>
-Subject: Re: [PATCH 0/6] arm64: Clean up and simplify PA space size handling
-To: Ard Biesheuvel <ardb+git@google.com>, Quentin Perret <qperret@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Kees Cook <keescook@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_003939_100636_106542EB 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20241111_005052_226611_4F23D3FA 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(cc Quentin)
+Currently, the MMC_CAP2_CRYPTO flag is set by default for eMMC hosts.
+However, this flag should not be set for hosts that do not support inline
+encryption.
 
-On Mon, 11 Nov 2024 at 09:35, Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> This series addresses a number of buglets related to how we handle the
-> size of the physical address space when building LPA2 capable kernels:
->
-> - reject 52-bit physical addressess in the mapping routines when LPA2 is
->   configured but not available at runtime
-> - ensure that TCR.IPS is not set to 52-bits if LPA2 is not supported
-> - ensure that TCR_EL2.PS and DS match the host, regardless of whether
->   LPA2 is available at stage 2
-> - don't rely on kvm_get_parange() and invalid physical addresses as
->   control flags in the pKVM page donation APIs
->
-> Finally, the configurable 48-bit physical address space limit is dropped
-> entirely, as it doesn't buy us a lot now that all the PARange and {I}PS
-> handling is done at runtime.
->
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Kees Cook <keescook@chromium.org>
->
-> Ard Biesheuvel (6):
->   arm64/mm: Reduce PA space to 48 bits when LPA2 is not enabled
->   arm64/mm: Override PARange for !LPA2 and use it consistently
->   arm64/kvm: Configure HYP TCR.PS/DS based on host stage1
->   arm64/kvm: Avoid invalid physical addresses to signal owner updates
->   arm64: Kconfig: force ARM64_PAN=y when enabling TTBR0 sw PAN
->   arm64/mm: Drop configurable 48-bit physical address space limit
->
->  arch/arm64/Kconfig                     | 37 ++------------------
->  arch/arm64/include/asm/assembler.h     | 14 +++-----
->  arch/arm64/include/asm/cpufeature.h    |  3 +-
->  arch/arm64/include/asm/kvm_pgtable.h   |  3 +-
->  arch/arm64/include/asm/pgtable-hwdef.h | 12 +------
->  arch/arm64/include/asm/pgtable-prot.h  |  7 ++++
->  arch/arm64/include/asm/pgtable.h       | 11 +-----
->  arch/arm64/include/asm/sparsemem.h     |  4 ++-
->  arch/arm64/include/asm/sysreg.h        |  6 ----
->  arch/arm64/kernel/cpufeature.c         |  2 +-
->  arch/arm64/kernel/pi/idreg-override.c  |  9 +++++
->  arch/arm64/kernel/pi/map_kernel.c      |  6 ++++
->  arch/arm64/kvm/arm.c                   |  8 ++---
->  arch/arm64/kvm/hyp/pgtable.c           | 37 ++++++++------------
->  arch/arm64/mm/init.c                   |  2 +-
->  arch/arm64/mm/pgd.c                    |  9 ++---
->  arch/arm64/mm/proc.S                   |  2 --
->  scripts/gdb/linux/constants.py.in      |  1 -
->  tools/arch/arm64/include/asm/sysreg.h  |  6 ----
->  19 files changed, 62 insertions(+), 117 deletions(-)
->
-> --
-> 2.47.0.277.g8800431eea-goog
->
+The 'crypto' clock, as described in the documentation, is used for data
+encryption and decryption. Therefore, only hosts that are configured with
+this 'crypto' clock should have the MMC_CAP2_CRYPTO flag set.
+
+Fixes: 7b438d0377fb ("mmc: mtk-sd: add Inline Crypto Engine clock control")
+Fixes: ed299eda8fbb ("mmc: mtk-sd: fix devm_clk_get_optional usage")
+Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+---
+ drivers/mmc/host/mtk-sd.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index 022526a1f754..efb0d2d5716b 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -2907,7 +2907,8 @@ static int msdc_drv_probe(struct platform_device *pdev)
+ 		host->crypto_clk = devm_clk_get_optional(&pdev->dev, "crypto");
+ 		if (IS_ERR(host->crypto_clk))
+ 			return PTR_ERR(host->crypto_clk);
+-		mmc->caps2 |= MMC_CAP2_CRYPTO;
++		else if (host->crypto_clk)
++			mmc->caps2 |= MMC_CAP2_CRYPTO;
+ 	}
+ 
+ 	host->irq = platform_get_irq(pdev, 0);
+-- 
+2.46.0
+
 
