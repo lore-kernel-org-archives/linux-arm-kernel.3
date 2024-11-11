@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D15DD2E9D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 10:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD9DD2E9D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 10:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZOTFPbMSW8MnyRvOa2vC4H8I90RWySx7PLSazkbNPgw=; b=YVU+sZkNZioIKlFTqwj4ZXuyq8
-	bPNYv39nDGLSp7ABdlWe9Cwwll1gv0oBklRSyTwxkh+Jvhzbdsl8g/VIRR+YWVpTgkuBBVAsyZ13N
-	TXpyQspGK4vEQrQzRGKoq3pkNs5R/z4ez9Xr4lvBOdG0quxodE9LFWeE/kuCzc3DMaii6KPAs1OWW
-	M+8Y2Z0Bl9zx4pr07qRHK8Q7aJOrnZM/1xetQvZ3b2EqMhlhRYEffUGOLhOWb+EB+rQBzSSRBnmUX
-	5oIfsHN+lo3LTSv0l5bofz5DxBqHG0o0e0TTXUln5hi6zWkXRN1W0ciohH619BJXp3gyUgMR3OL9N
-	XNvQNKhA==;
+	bh=pzWR0nHPZgzau1jAACgTjvlIxFgfU4Rcx0RnFygIbRA=; b=A04cFGduX62QB0fvE11k8NwBxU
+	tAqDWg56RoobfBptMSfl+8SSPBmAE0PTl1sDq1KnzvcQoMug1IszM0YpbdAShlP6zqPcdFheB8z/m
+	BcDPQocEFrAuV1Krg/GQwBnxNs31pbtVZ98L7wnuXgAVxHdrhHRlWrVZexFRa2TBUOvkm5jVJR3+o
+	ZeVHCoPJJe+QS6mhTubQDg9TPBo6xBz+AGd5rGIKuL0eyCJRbWm77I/v+qg+myirzHEUniMJXrZOS
+	YGsiVWDAw5wbYzvKRBTA+ZriWRnNgjFpac3hHyKTT7xfXvzIne7tNK4L4aTmbgbyM98w+wuvGrmkO
+	fGkAQlUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tARho-0000000HHlP-2dCY;
-	Mon, 11 Nov 2024 10:31:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tARp8-0000000HJaQ-0jlm;
+	Mon, 11 Nov 2024 10:39:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tARfw-0000000HHB0-1C3v;
-	Mon, 11 Nov 2024 10:29:41 +0000
+	id 1tARnL-0000000HJG8-31pI;
+	Mon, 11 Nov 2024 10:37:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8D5CEA413A5;
-	Mon, 11 Nov 2024 10:27:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C47B6C4CECF;
-	Mon, 11 Nov 2024 10:29:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75965A41462;
+	Mon, 11 Nov 2024 10:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86C0C4CED5;
+	Mon, 11 Nov 2024 10:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731320978;
-	bh=uIZqmnuRJS8ekHv7lZsq7+XDiS0vhUubfUCwr80FMvs=;
+	s=k20201202; t=1731321438;
+	bh=jNP3EEmQCRYGu8RVX1ba7R/suetM+TihlMSotd59zHY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Cr+3CDdQv65miQSVhu73OzxU7prbdWiB+XY946y6RQnMjnOJ1OLbUHIaruK/paf3+
-	 q98U5nppe0SlsmjqxQkSki0TzfPSMh2UNKl3wl4uBNY27XyeqIPsS7t0yzMxPcPIMp
-	 ikWcV5f06UsXxinaJRfgyFmKjpwJt2TZ5mQ4msOR/EUfkQUoLisXvXfgcFEnHXdTdn
-	 GPF9Oc3K/Ao+FYHBCXIbN4ptWMaW4+qXS1diuhVKM9HeNh2h5h1qjqMGMJj4iFb7Ky
-	 Z+aS3MQKDbCIAgfDi+zjsi+rToZ4OGJf/TzTmO9RllH4mmkGCMg8lnQynn++RFsSMk
-	 9yzOG8HxwMUdw==
+	b=jKHBPUQefIWzQGovAC+9QQCjuqX7+leHBXJqOsNjgQVSuF6OiCpOvaHlnDumrDreH
+	 l2Sk+t9JTwk7SoJJPguosMtJAkKG6CDeAekLy7lKKSH2wryDDqNbimLwO//CQB4Idx
+	 a77AcUqMxzLlJSEA78CqGMWrwmOnNSo2qQXNOpky4nQnB1cKdvGWtidhTnv/2C8ocF
+	 f8Rh98ltcCqJBU8Xgvj74dIudRl4SRHRVdVGkf0eW34ixl/xgPLdeqpFll9FUIxJwK
+	 dZICPzDmfB4A46avMMOYb0Li9M5siGskf591O0h/7RUw/2jPKHmj9YjdUcjhENPNE1
+	 C5GEMWT8gvBKw==
 From: Arnd Bergmann <arnd@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>
+To: Christian Bruel <christian.bruel@foss.st.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Chuan Liu <chuan.liu@amlogic.com>,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
+	Yang Li <yang.lee@linux.alibaba.com>,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: amlogic: axg-audio: fix Kconfig dependency on RESET_MESON_AUX
-Date: Mon, 11 Nov 2024 11:29:21 +0100
-Message-Id: <20241111102932.3209861-1-arnd@kernel.org>
+Subject: [PATCH] phy: stm32: work around constant-value overflow assertion
+Date: Mon, 11 Nov 2024 11:37:02 +0100
+Message-Id: <20241111103712.3520611-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_022940_408707_BE232CD4 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241111_023719_917285_82FF27BF 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +78,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-As in most cases, using 'imply' is wrong here and does not prevent
-build failures since that code may not be visible to a built-in
-clk driver:
+FIELD_PREP() checks that a constant fits into the available bitfield,
+but if one of the two lookup tables in stm32_impedance_tune() does
+not find a matching entry, the index is out of range, which gcc
+correctly complains about:
 
-axg-audio.c:(.text+0x15c): undefined reference to `devm_meson_rst_aux_register'
+In file included from <command-line>:
+In function 'stm32_impedance_tune',
+    inlined from 'stm32_combophy_pll_init' at drivers/phy/st/phy-stm32-combophy.c:247:9:
+include/linux/compiler_types.h:517:38: error: call to '__compiletime_assert_447' declared with attribute error: FIELD_PREP: value too large for the field
+  517 |  _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+      |                                      ^
+include/linux/bitfield.h:68:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
+   68 |   BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
+  115 |   __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: "); \
+      |   ^~~~~~~~~~~~~~~~
+drivers/phy/st/phy-stm32-combophy.c:162:8: note: in expansion of macro 'FIELD_PREP'
+  162 |        FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of));
+      |        ^~~~~~~~~~
 
-Replace the incorrt 'imply' with the necessary 'depends on'.
+Rework this so the field value gets set inside of the loop and otherwise
+set to zero.
 
-Fixes: 664988eb47dd ("clk: amlogic: axg-audio: use the auxiliary reset driver")
+Fixes: 47e1bb6b4ba0 ("phy: stm32: Add support for STM32MP25 COMBOPHY.")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/clk/meson/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/phy/st/phy-stm32-combophy.c | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
-index 7cb21fc223b0..febb5d7348ff 100644
---- a/drivers/clk/meson/Kconfig
-+++ b/drivers/clk/meson/Kconfig
-@@ -106,7 +106,7 @@ config COMMON_CLK_AXG_AUDIO
- 	select COMMON_CLK_MESON_SCLK_DIV
- 	select COMMON_CLK_MESON_CLKC_UTILS
- 	select REGMAP_MMIO
--	imply RESET_MESON_AUX
-+	depends on RESET_MESON_AUX
- 	help
- 	  Support for the audio clock controller on AmLogic A113D devices,
- 	  aka axg, Say Y if you want audio subsystem to work.
+diff --git a/drivers/phy/st/phy-stm32-combophy.c b/drivers/phy/st/phy-stm32-combophy.c
+index 765bb34fe358..49e9fa90a681 100644
+--- a/drivers/phy/st/phy-stm32-combophy.c
++++ b/drivers/phy/st/phy-stm32-combophy.c
+@@ -122,6 +122,7 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 	u32 max_vswing = imp_lookup[imp_size - 1].vswing[vswing_size - 1];
+ 	u32 min_vswing = imp_lookup[0].vswing[0];
+ 	u32 val;
++	u32 regval;
+ 
+ 	if (!of_property_read_u32(combophy->dev->of_node, "st,output-micro-ohms", &val)) {
+ 		if (val < min_imp || val > max_imp) {
+@@ -129,16 +130,20 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 			return -EINVAL;
+ 		}
+ 
+-		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++)
+-			if (imp_lookup[imp_of].microohm <= val)
++		regval = 0;
++		for (imp_of = 0; imp_of < ARRAY_SIZE(imp_lookup); imp_of++) {
++			if (imp_lookup[imp_of].microohm <= val) {
++				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of);
+ 				break;
++			}
++		}
+ 
+ 		dev_dbg(combophy->dev, "Set %u micro-ohms output impedance\n",
+ 			imp_lookup[imp_of].microohm);
+ 
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_OHM,
+-				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_OHM, imp_of));
++				   regval);
+ 	} else {
+ 		regmap_read(combophy->regmap, SYSCFG_PCIEPRGCR, &val);
+ 		imp_of = FIELD_GET(STM32MP25_PCIEPRG_IMPCTRL_OHM, val);
+@@ -150,16 +155,20 @@ static int stm32_impedance_tune(struct stm32_combophy *combophy)
+ 			return -EINVAL;
+ 		}
+ 
+-		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++)
+-			if (imp_lookup[imp_of].vswing[vswing_of] >= val)
++		regval = 0;
++		for (vswing_of = 0; vswing_of < ARRAY_SIZE(imp_lookup[imp_of].vswing); vswing_of++) {
++			if (imp_lookup[imp_of].vswing[vswing_of] >= val) {
++				regval = FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of);
+ 				break;
++			}
++		}
+ 
+ 		dev_dbg(combophy->dev, "Set %u microvolt swing\n",
+ 			 imp_lookup[imp_of].vswing[vswing_of]);
+ 
+ 		regmap_update_bits(combophy->regmap, SYSCFG_PCIEPRGCR,
+ 				   STM32MP25_PCIEPRG_IMPCTRL_VSWING,
+-				   FIELD_PREP(STM32MP25_PCIEPRG_IMPCTRL_VSWING, vswing_of));
++				   regval);
+ 	}
+ 
+ 	return 0;
 -- 
 2.39.5
 
