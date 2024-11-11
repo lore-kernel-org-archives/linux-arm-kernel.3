@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF9E6D3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFACED3ABDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtcD4vDBdIEc6kqx9Lu6ty03JmOyslcZDRLkcEX0aQA=; b=xVVEqagRv6RKKBypLOWmfg6MN/
-	LffSBLhWrhWE0meTsOeu/zxnvlWIwdz6sN5kvbkpw/uBJt5FCUyxoMRZxZh4pSFseQ6Wg7TwSsuW7
-	AXtgopvY5ykdpfHSnKmHF4cDgyKZKsnZi2Btk2q82BmGmy7nA/JgozPLKJvZfsK3s+WgNkd7gAAaB
-	4u7+w+O+Ii3NRfSGiBIpQHywinKME1m+MEiud/DgLxz45xNgsmhcVmUnAc5yIdx16+DcA7G010UXb
-	Bl6yxdKHRHeJiDHNvGU0VBaQgWt+Bha4ry35Qol0ziyvcW1I58pE73r0QQN7CWkvysPbQRWaOQvrr
-	XlT1RUew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YhV/Yol7StJG1AF+TLTRShn2De6bB62umB992/KxH7c=; b=OgarpWpGbd2x9wYMV8pozN3n3z
+	UTc0zs+8h9Q4Z7qnxhZGRjdsieZD2PYsLIeREy69MTzrGhGsO7xILhNSiBruTfAUAn/XIj9IigpQ8
+	xs7ZsuZcdnmJwutHYtsNibu+8JUhjknTBP6TeDNFxlTBfApasVgGpG4U50zun+ABC90605oXbCtG6
+	g0XssqGKOC6Gb+J/PnIhBoYQQWlGVI1sWOjmNv4v1Sot7ea1hPQVTXl5kf0k10xNLu5Vf2yghfY4E
+	pvvgnbwz0QELWpyxtfhqRX8rYsPAYauyXvHy08pOpq4P+vx+lkskY/i95pNh8ji+rUnEaE7lPgEXD
+	27+CW4Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYj5-00000000oUQ-0FvY;
-	Mon, 11 Nov 2024 18:01:23 +0000
+	id 1tAYkp-00000000onN-19qo;
+	Mon, 11 Nov 2024 18:03:11 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYWp-00000000mGd-0OoI;
-	Mon, 11 Nov 2024 17:48:47 +0000
+	id 1tAYaM-00000000my6-1Ey3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 17:52:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 583485C5BE8;
-	Mon, 11 Nov 2024 17:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 643CFC4CEDB;
-	Mon, 11 Nov 2024 17:48:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 016A15C59C0;
+	Mon, 11 Nov 2024 17:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14378C4CECF;
+	Mon, 11 Nov 2024 17:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731347318;
-	bh=oDE7Z60Sda7MtMa9I9XNVVTr3fEGh1yrGGrVYaCcTKc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RhG6k+OwUJC1t04TSz4zO7clZcsLk+DpR5jn7nvioxg06YPsK4iWc7sahrq8Nojv7
-	 9ntUEWatyace+HXfuyaax4YvyNZ7h26d07FlcWa+DuJBYdBMV5fOjmcMFzUIcfFkN4
-	 u25OJptbScTaVk0T7nIhXlm30rgVGG0UA1Oud0msyhRqH5oGHO3HsRJROFL/QCMFMo
-	 TJfRzl5Q8PtablDqvQiRMYA+L2C76O3PejEgJ1wn/1E/5ReqM23pkiLSolPd/IVopK
-	 nUcSl2xQMwNDRmcuIwOKAln0H2gkXy5k2Oa090ie7n7n1n0v5Fkv/CYL3IkMujzT2E
-	 cv1i0UIsWz9og==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56F31D3ABD8;
-	Mon, 11 Nov 2024 17:48:38 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.linaro.org@kernel.org>
-Date: Mon, 11 Nov 2024 23:18:33 +0530
-Subject: [PATCH 4/5] scsi: ufs: pltfrm: Drop PM runtime reference count
- after ufshcd_remove()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241111-ufs_bug_fix-v1-4-45ad8b62f02e@linaro.org>
-References: <20241111-ufs_bug_fix-v1-0-45ad8b62f02e@linaro.org>
-In-Reply-To: <20241111-ufs_bug_fix-v1-0-45ad8b62f02e@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Mike Bi <mikebi@micron.com>, Bean Huo <beanhuo@micron.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
- Luca Porzio <lporzio@micron.com>, Asutosh Das <quic_asutoshd@quicinc.com>, 
- Can Guo <quic_cang@quicinc.com>, Pedro Sousa <pedrom.sousa@synopsys.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Peter Wang <peter.wang@mediatek.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
- Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Santosh Y <santoshsy@gmail.com>, Namjae Jeon <linkinjeon@gmail.com>
-Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3829;
- i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=A6udAVAOGCzcxAfO6FoxgGhhFbo2oCHyG4WxttE28E8=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBnMkNzOShxk1jlTg40JZj4jvQfsj5GfK53lnNIi
- ZOY7wXm8qWJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCZzJDcwAKCRBVnxHm/pHO
- 9T/OB/4sbcr9eWAA6RiaVVP/+LULxj5QJg3KHy4v2BNhRXeZOONM48cElO2R0XYZjzS27ZonXgh
- kgHDoLaBxehlHMSnxjlYr62Qlmu2LuKcjRD+O23Eo6yxjhvXyggQK6ed9XJkMPNabDFJwbQ69Kq
- OW+2NT539Mc6iR4H8uKZx1oTvEdgHjMxeDwWLOl17vpqLu1Ox88OILTTHeEl4KGqDLnUmddrV79
- Zzya0F92nny+pVesqZD3ro8KyzXMco+GIc+k2YTwQmPgn9CvLInsQzVKjGW94stZ8bRWcOYUmUu
- uZUBJLAza5JxTRgweA1wVS23jdCS6EdWIApaMfCASCOl+LTJ
-X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@linaro.org/default with auth_id=185
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+	s=k20201202; t=1731347541;
+	bh=VQ3nNusYHzEI8YTJVKStGSz7nddYAaf2rVedbG7mlus=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j35eEDs5zoylRnjM/ihp7nFgSW4WyPyh65metA8KW2BXFuyEDCebHbFQtlV897cPw
+	 jl30nNdI0+j0VUex17zGw2ScrIOLx1oZu12bXVXuV1a6z40xLRcqydkTFjMK18UVVt
+	 0Oj9h+OSPOj6bR1AwqzXOLl7TKobv2AwSd3YjbyFe+sFi5HuzhOETIIyVaTzl9Pjv0
+	 h8rO4h/scMckLlRt6Q2cTbHYFYALaVGM74IE2wuvBG49F+G7/+fb3cfoYaguehoDAP
+	 hvS9HxztQZaN3YoFJbtiD/Iov1PDXXmtDib/w8ac4LAl78Qz35LBBCaBWZU2eI88EE
+	 fbbbqysrHl+eQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAYaI-00Bw8B-AD;
+	Mon, 11 Nov 2024 17:52:18 +0000
+Date: Mon, 11 Nov 2024 17:52:17 +0000
+Message-ID: <86o72lzmi6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: will@kernel.org,	qperret@google.com,	broonie@kernel.org,
+	mark.rutland@arm.com,	keir@google.com,	vdonnefort@google.com,
+	kernel-team@android.com,	android-mm@google.com,	Catalin Marinas
+ <catalin.marinas@arm.com>,	Oliver Upton <oliver.upton@linux.dev>,	Joey
+ Gouly <joey.gouly@arm.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,	Ard Biesheuvel <ardb@kernel.org>,	D
+ Scott Phillips <scott@os.amperecomputing.com>,	Andrey Konovalov
+ <andreyknvl@gmail.com>,	Ankit Agrawal <ankita@nvidia.com>,	Wang Jinchao
+ <wangjinchao@xfusion.com>,	"Madhavan T. Venkataraman"
+ <madvenka@linux.microsoft.com>,	=?UTF-8?B?UGllcnJlLUNsw6ltZW50?= Tosi
+ <ptosi@google.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Ryan Roberts
+ <ryan.roberts@arm.com>,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	kvmarm@lists.linux.dev
+Subject: Re: [PATCH] arm64: kvm: Make nvhe stack size configurable
+In-Reply-To: <CAC_TJvd=fNRx2VOcEEgjdkY53MwpR0Xa4dX1KTy=nNew7dg9Mw@mail.gmail.com>
+References: <20241108211446.3304809-1-kaleshsingh@google.com>
+	<86r07jz6uh.wl-maz@kernel.org>
+	<CAC_TJvd=fNRx2VOcEEgjdkY53MwpR0Xa4dX1KTy=nNew7dg9Mw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kaleshsingh@google.com, will@kernel.org, qperret@google.com, broonie@kernel.org, mark.rutland@arm.com, keir@google.com, vdonnefort@google.com, kernel-team@android.com, android-mm@google.com, catalin.marinas@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, ardb@kernel.org, scott@os.amperecomputing.com, andreyknvl@gmail.com, ankita@nvidia.com, wangjinchao@xfusion.com, madvenka@linux.microsoft.com, ptosi@google.com, bhelgaas@google.com, ryan.roberts@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_094843_312958_6A85842B 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20241111_095222_444442_2FE51C02 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,111 +94,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Hi Kalesh,
 
-During the remove stage of glue drivers, some of them are incrementing the
-reference count using pm_runtime_get_sync(), before removing the ufshcd
-using ufshcd_remove(). But they are not dropping that reference count after
-ufshcd_remove() to balance the refcount.
+On Mon, 11 Nov 2024 17:10:18 +0000,
+Kalesh Singh <kaleshsingh@google.com> wrote:
+>=20
+> I tried to be conservative with the configuration only allowing only
+> up to 2 pages. Your points are fair concerns, I can see how this still
+> may not be ideal for upstream. However, I think introducing
+> NVHE_STACK_SIZE as a refactor still has value, similar to how
+> OVERFLOW_STACK_SIZE is handled. If there are no objections, I=E2=80=99ll
+> resend a v2 of the patch, dropping the configuration parts and
+> focusing on the refactor to introduce NVHE_STACK_SIZE.
 
-So drop the reference count by calling pm_runtime_put_noidle() after
-ufshcd_remove(). Since the behavior is applicable to all glue drivers, move
-the PM handling to ufshcd_pltfrm_remove().
+I'd be OK with the refactoring on its own, which is a nice enough
+cleanup.
 
-Cc: stable@vger.kernel.org # 3.12
-Fixes: 62694735ca95 ("[SCSI] ufs: Add runtime PM support for UFS host controller driver")
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/ufs/host/tc-dwc-g210-pltfrm.c | 1 -
- drivers/ufs/host/ufs-exynos.c         | 1 -
- drivers/ufs/host/ufs-mediatek.c       | 1 -
- drivers/ufs/host/ufs-qcom.c           | 1 -
- drivers/ufs/host/ufs-sprd.c           | 1 -
- drivers/ufs/host/ufshcd-pltfrm.c      | 2 ++
- 6 files changed, 2 insertions(+), 5 deletions(-)
+Thanks,
 
-diff --git a/drivers/ufs/host/tc-dwc-g210-pltfrm.c b/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-index 113e0ef7b2cf..c6f8565ede21 100644
---- a/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-+++ b/drivers/ufs/host/tc-dwc-g210-pltfrm.c
-@@ -76,7 +76,6 @@ static int tc_dwc_g210_pltfm_probe(struct platform_device *pdev)
-  */
- static void tc_dwc_g210_pltfm_remove(struct platform_device *pdev)
- {
--	pm_runtime_get_sync(&(pdev)->dev);
- 	ufshcd_pltfrm_remove(pdev);
- }
- 
-diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 953103b69e2c..6dedcc8b22b4 100644
---- a/drivers/ufs/host/ufs-exynos.c
-+++ b/drivers/ufs/host/ufs-exynos.c
-@@ -1960,7 +1960,6 @@ static void exynos_ufs_remove(struct platform_device *pdev)
- 	struct ufs_hba *hba =  platform_get_drvdata(pdev);
- 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
- 
--	pm_runtime_get_sync(&(pdev)->dev);
- 	ufshcd_pltfrm_remove(pdev);
- 
- 	phy_power_off(ufs->phy);
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 512b4e43787c..c834d38921b6 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1869,7 +1869,6 @@ static int ufs_mtk_probe(struct platform_device *pdev)
-  */
- static void ufs_mtk_remove(struct platform_device *pdev)
- {
--	pm_runtime_get_sync(&(pdev)->dev);
- 	ufshcd_pltfrm_remove(pdev);
- }
- 
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 38732dd48331..91127fb17186 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -1845,7 +1845,6 @@ static void ufs_qcom_remove(struct platform_device *pdev)
- 	struct ufs_hba *hba =  platform_get_drvdata(pdev);
- 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
- 
--	pm_runtime_get_sync(&(pdev)->dev);
- 	ufshcd_pltfrm_remove(pdev);
- 	if (host->esi_enabled)
- 		platform_device_msi_free_irqs_all(hba->dev);
-diff --git a/drivers/ufs/host/ufs-sprd.c b/drivers/ufs/host/ufs-sprd.c
-index e455890cf7d4..d220978c2d8c 100644
---- a/drivers/ufs/host/ufs-sprd.c
-+++ b/drivers/ufs/host/ufs-sprd.c
-@@ -427,7 +427,6 @@ static int ufs_sprd_probe(struct platform_device *pdev)
- 
- static void ufs_sprd_remove(struct platform_device *pdev)
- {
--	pm_runtime_get_sync(&(pdev)->dev);
- 	ufshcd_pltfrm_remove(pdev);
- }
- 
-diff --git a/drivers/ufs/host/ufshcd-pltfrm.c b/drivers/ufs/host/ufshcd-pltfrm.c
-index bad5b1303eb6..b8dadd0a2f4c 100644
---- a/drivers/ufs/host/ufshcd-pltfrm.c
-+++ b/drivers/ufs/host/ufshcd-pltfrm.c
-@@ -532,8 +532,10 @@ void ufshcd_pltfrm_remove(struct platform_device *pdev)
- {
- 	struct ufs_hba *hba =  platform_get_drvdata(pdev);
- 
-+	pm_runtime_get_sync(&pdev->dev);
- 	ufshcd_remove(hba);
- 	pm_runtime_disable(&pdev->dev);
-+	pm_runtime_put_noidle(&pdev->dev);
- }
- EXPORT_SYMBOL_GPL(ufshcd_pltfrm_remove);
- 
+	M.
 
--- 
-2.25.1
-
-
+--=20
+Without deviation from the norm, progress is not possible.
 
