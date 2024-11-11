@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158E2D12D5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E4FD12D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSxjwG6onMgErgSEDcNFeXF11zUMnfmNgkeok6smJlw=; b=zGF0ByBYlU3shUbb4L025ogl4l
-	SUied6UqKa5aVT4W7mlKzYlk7UZXyiwEh084KiZHIrJV+mCWQABIQ+6oaMVj723Jwq/QkRJ9hN1y+
-	vvRzqwj7XIWEMMVHKimonHj6qGcoQHPmZpFJXuBeEyoy5KPpJYyoBBwZtHG2CBQ8qhK1Hma9OxqBi
-	U9iU6coRQDuneUkyW/9yFGXFnGU1M3kK2eAu2iq+OOtSNof1amDTpNdvJbjrNUdW1SrcW1SlGo+fP
-	+5D/zivoqdDeQQeXBa36W8ql0qeLLsEX/bw8lDatVKCVaSwcgFO6CuwBNLdrpPVzH2pLYYsTgjV6L
-	fDP8cdYQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=38NnZ2EarcDv6FFhhXaHRg7picMMQozPz05s5IjUNV0=; b=RykLQjK13ufJy+08J42ojkMRSh
+	a+gojqgxDPRziboNGW++ebrZBLMe2vVsQ+V9KHC0oODV7gf33XG3GLlBdb2iCZegexwS0UNNK56ei
+	CemeNb5YF3Vox/jiEMDWFHqE0tidL9zkoZZYsL0efEaRgVzyj320Euvw0OQ9ffpxbH8F1g+W4kWLP
+	iMWuGfpkTybVPCpua7Hu3nCaperzzz4Wr3+56t1YJlj6KXgxfkM28JKtge4DDTmFz3Y1dOVaEb9zt
+	Re/RtV9swdQ6/78hi641Luq80LqlNwbBWziXLU32mUlIOn+bpNiTWBCKW6WQLCq2cep6dNUXezOWE
+	f65t0cqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAIcV-0000000FxJ4-143H;
-	Mon, 11 Nov 2024 00:49:31 +0000
+	id 1tAIeF-0000000FxRL-2UTd;
+	Mon, 11 Nov 2024 00:51:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAIaf-0000000FwtT-0Jew
+	id 1tAIaf-0000000FwtS-0Jk4
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 11 Nov 2024 00:47:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0A621480;
-	Sun, 10 Nov 2024 16:48:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66DB113D5;
+	Sun, 10 Nov 2024 16:48:02 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B79663F66E;
-	Sun, 10 Nov 2024 16:47:32 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 796333F66E;
+	Sun, 10 Nov 2024 16:47:30 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -49,17 +49,15 @@ Cc: Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/7] clk: sunxi-ng: mp: Add SUNXI_CCU_P_DATA_WITH_MUX_GATE wrapper
-Date: Mon, 11 Nov 2024 00:47:16 +0000
-Message-ID: <20241111004722.10130-2-andre.przywara@arm.com>
+Subject: [PATCH 0/7] clk: sunxi-ng: add A523 clock support
+Date: Mon, 11 Nov 2024 00:47:15 +0000
+Message-ID: <20241111004722.10130-1-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.2
-In-Reply-To: <20241111004722.10130-1-andre.przywara@arm.com>
-References: <20241111004722.10130-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_164737_347077_BA6476BF 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20241110_164737_346757_911C3AA3 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +72,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PRCM CCU in the A523 SoC contains some clocks that only feature a
-P (shift) factor, but no M divider.
-Treat this as a special case of an MP clock: by forcing the M mask to be
-0 bits wide, this always result in the M divider value to be 1.
+Hi,
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/clk/sunxi-ng/ccu_mp.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+this series introduces basic clock support for the Allwinner A523 family
+of SoCs (comprising A523, A527, T527). [1]
+The SoC contains *four* CCU components, aside from the usual main clock
+device and the PRCM clock (in the always-on-domain), there is an MCU
+clock and a DSP clock. This series just adds support for the first two,
+the other two don't seem to be required for the basic functionality.
 
-diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
-index 6e50f3728fb5f..e235fdfde2d36 100644
---- a/drivers/clk/sunxi-ng/ccu_mp.h
-+++ b/drivers/clk/sunxi-ng/ccu_mp.h
-@@ -71,6 +71,24 @@ struct ccu_mp {
- 		}							\
- 	}
- 
-+#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
-+				       _pshift, _pwidth,		\
-+				       _muxshift, _muxwidth,		\
-+				       _gate, _flags)			\
-+	struct ccu_mp _struct = {					\
-+		.enable	= _gate,					\
-+		.m	= _SUNXI_CCU_DIV(0, 0),				\
-+		.p	= _SUNXI_CCU_DIV(_pshift, _pwidth),		\
-+		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
-+		.common	= {						\
-+			.reg		= _reg,				\
-+			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name,    \
-+								   _parents, \
-+								   &ccu_mp_ops,\
-+								   _flags),  \
-+		}							\
-+	}
-+
- #define SUNXI_CCU_MP_WITH_MUX(_struct, _name, _parents, _reg,		\
- 			      _mshift, _mwidth,				\
- 			      _pshift, _pwidth,				\
+The clock tree of each SoC has always been individual, even though the
+main clock *types* mostly remain the same. This time we see two slight
+variations: There is an MP clock without the P (shift) part, and there
+is one with two dividers instead of one divider and one shift field.
+The first three patches add support for these new clock types.
+
+The remaining four patches then add the DT bindings documentation and
+describe all the clocks and their relationship in gory detail.
+I split the binding patches up, since they contain the header files
+naming the clocks, let me know if they should be in one patch instead.
+
+Interestingly the Allwinner BSP has switched to using the existing sunxi
+CCU framework for modelling the clocks (they had their own way before), so
+we could theoretically use their code. However when I started working on
+this about a year ago, their files had a GPL-3.0-only license header,
+which, according to my research, makes them incompatible for mainline
+inclusion. I thus started from "scratch" (adjusting the D1 driver, really).
+Meanwhile they seem to have changed the license, and a quick comparison
+turned up some differences, some of which seem to be bugs on their, some
+on my side, probably. I hope having such a "reference" helps the mainline
+code quality, as people can help the review by comparing code.
+
+Also we only have a user manual for the A523, but its siblings introduce
+more clocks (HDMI, NPU, etc.). I tried to close the gaps by looking at
+some BSP code, and also by probing registers on actual hardware, to see
+which clocks implement which bits.
+
+Given the level of detail required in CCU drivers, I am certain there are
+many bugs in there, also many things that can be improved. But after
+starring and editing this for weeks, I feel like it's time for the
+community to have a look, so please help with the review, and also test.
+
+Based on v6.12-rc1.
+
+Cheers,
+Andre
+
+[1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+
+Andre Przywara (7):
+  clk: sunxi-ng: mp: Add SUNXI_CCU_P_DATA_WITH_MUX_GATE wrapper
+  clk: sunxi-ng: mp: introduce dual-divider clock
+  clk: sunxi-ng: mp: provide wrapper for setting feature flags
+  dt-bindings: clk: sunxi-ng: add compatible for the A523 CCU
+  dt-bindings: clk: sunxi-ng: add compatible for the A523 PRCM-CCU
+  clk: sunxi-ng: Add support for the A523/T527 CCU
+  clk: sunxi-ng: add support for the A523/T527 PRCM CCU
+
+ .../clock/allwinner,sun4i-a10-ccu.yaml        |   76 +-
+ drivers/clk/sunxi-ng/Kconfig                  |   10 +
+ drivers/clk/sunxi-ng/Makefile                 |    4 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c      |  245 +++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h      |   14 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        | 1628 +++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.h        |   14 +
+ drivers/clk/sunxi-ng/ccu_common.h             |    1 +
+ drivers/clk/sunxi-ng/ccu_mp.c                 |   51 +-
+ drivers/clk/sunxi-ng/ccu_mp.h                 |   39 +-
+ include/dt-bindings/clock/sun55i-a523-ccu.h   |  187 ++
+ include/dt-bindings/clock/sun55i-a523-r-ccu.h |   36 +
+ include/dt-bindings/reset/sun55i-a523-ccu.h   |   87 +
+ include/dt-bindings/reset/sun55i-a523-r-ccu.h |   25 +
+ 14 files changed, 2377 insertions(+), 40 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-r-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun55i-a523-r-ccu.h
+
 -- 
 2.46.2
 
