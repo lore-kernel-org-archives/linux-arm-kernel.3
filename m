@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7F2D3ABD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619E4D3ABD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=; b=wkD8v26BVcjTn6426n9mB8Gcvw
-	HIdxJvlJZcu6cgoC8RnCZNQ1oKFos3XTSpuKoUwROGB6a7u1w1bizpdZe3Z+KikhS+Q9Yrwyp6DGb
-	omSxfgMt7iBPN8xq5Sojjyxq/L/39+GiYWm8F5i6Qr/sRlOmZY2C4JdLYHZEPDJmKKwc+XHnpUkSg
-	nrIOfKKCqd0p/Cg9uqUnrX//ngD/jF+7vhjD1ZhTYQLG5FulzsCaX30ABy2oBlfTUWHmE/GVHKpdV
-	Ii3myxfIIRFAovyJa4MJAlX9pQlvIzXoL3YqxP919JF3ZcDygnT5mk4F5o/rXoIlem5/W01W8gNEl
-	N2IQwKEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hitbiip927ZlE1N1pRkjC+rwZzAGGedEv6fqaAmsc8U=; b=zNuClMZg99sqqjQLumVkTe8rcH
+	FJbC5oCIUx7TnKjz+Mb38RtlA2jbWLfBRsB9VZythPp2B/7tRpDsQrGYF3N0sA1ihdTCslrMFTafa
+	22fbPITU/al/x7+6JvezKTvPY0tJIY/CdshNuyM5+SclNViS3Jges7/dJMw/33k5YpQpaILeafQZZ
+	YjVGPa3vRFb0eM6CMatlnsUKLgk32Es+7wcV6ytOO8dFNFC8lk57vxpFSd0AVr2WMRglhUmLOz/zw
+	ep8xAGFSBlqGzVGk/NDQXwx93alCzuqgMbSHYWztg3hEO1aIe1G5YpJf2sHGMZHNx337QslaPvmtp
+	o8tBKBBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYCA-00000000ib2-1oPC;
-	Mon, 11 Nov 2024 17:27:22 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1tAYE6-00000000iuB-0JCO;
+	Mon, 11 Nov 2024 17:29:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYAN-00000000iK3-1EII
+	id 1tAYCJ-00000000ido-33YT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 17:25:32 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7181a8af549so2980702a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 09:25:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731345930; x=1731950730; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=;
-        b=IBzRXcmUjg0uOc2OaSQ3O1Tcm3RUMj9ffunS6yYptbF2vRY0YY75XpzV3ANs3u/1PU
-         rzIqApctqOh4c4GEGR0aGq8/79QzULrQChhxSucdhihiRINB6ldA5KdFsD4rmA9PHNhb
-         4A2s3o2TKi9UW7SjkLncssReFY+0A5Ozt0jL8fyzcG95F62JBugE2lCc/pRTiQEh9Ygx
-         RDtIMBRBJyw2jmW69AKFSJaJiKufFgbAWLyDQNgWrselb+02bpd7wAR/luWmjbg53VU9
-         LvfLRmp/8UNZr6CLw2Urib9Z1QDWwy6Jq54ekCyHina/eCqdURvfvt2KE63e8HLGsDW9
-         Sy9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731345930; x=1731950730;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=;
-        b=iDJNp9ezhSEzVuCevqDYSwikvRwxbKYIzFw288Kj3rZpASuNyVYYQ9zIqJ1dkSGj/l
-         t2i1O69YdQEPHNgaIPEeiulIIyonJkXFIMvYlhO9sQtxeIjijES/v+5/DK2kfTNdh9FI
-         hiWXYrBxnY7CQ9Y1BGAa5ZAcMfAii5PpkRfT/s49Zhk5yT/PMDivYdV46WUh2LTL9RRj
-         2YJVrg4gRij3fX9fOToDOkmN33RcLaP972AIvq2OMJk7d6URQLYh4s2bE5e8wwPvpQBO
-         8oOW5TemPIDDCVWObvwP0oTW9hziU7L8z1yD0DEhyJC0jgKhtNuwfpji+rokBZnRC/bs
-         jt1w==
-X-Forwarded-Encrypted: i=1; AJvYcCUtPxKvbpiVRhS2IsEO98H1iQ5UXeWFP7RXDWrNOqc90s7CGXK2PVtwRCViHBOND7OPg7f+FrzoxtF2WfvP0qrn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzS3plD8I8K6/xwhCzdn1g8vOdIE0GLXfd1E3kfnHiwji3/4lCM
-	j+m7Bp/dw8Ric3elZ/NiOWnASW0aE5Nlf2qWkOXIMxSFqc19ibsVXOIqnCfx
-X-Google-Smtp-Source: AGHT+IGSE8Tlbmi62yQY1NUtFU32C22MR6/icQoBaoeQ7KQoKvlXZzIHByJ3L7g7dUjxzUY+Qrxb5A==
-X-Received: by 2002:a05:6830:2116:b0:718:e44:6da9 with SMTP id 46e09a7af769-71a1c1d2fa3mr12073671a34.11.1731345929640;
-        Mon, 11 Nov 2024 09:25:29 -0800 (PST)
-Received: from ?IPV6:2605:a601:aa57:7500:c5da:8ec9:bee9:a72c? ([2605:a601:aa57:7500:c5da:8ec9:bee9:a72c])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5ee49527467sm2018955eaf.20.2024.11.11.09.25.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2024 09:25:29 -0800 (PST)
-Message-ID: <c96c7e05-31ca-4145-a8ed-d74a32770011@gmail.com>
-Date: Mon, 11 Nov 2024 11:25:29 -0600
+	Mon, 11 Nov 2024 17:27:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A09595C5B98;
+	Mon, 11 Nov 2024 17:26:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17564C4CED4;
+	Mon, 11 Nov 2024 17:27:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731346050;
+	bh=yPHiLObYI0GzgVmZx9V+BDXuqHJOKGxIwZ+zr2HX6/U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kVN2h6VpNWM0AL02RbIg+71VTiLluRhqUEJ1eJf91KNAB+zyRt+qD//VjALzkACGh
+	 DB674Tlwe22MmS3iYBIHShc8TS/jZfJqEt/wWFHidvkzkqVudoShq52ExK4eA5ijoG
+	 aDOH08410gLq1DsLVjDoywPUwSn3Hf8zuKkumkkuSmD4Lf2pV4GmlmWXgxSzn1yjzh
+	 j5Tb9ynIjBkQv44WVsRaTtnP4r8+hzQ1dY+1h3KGf4AaqUb94ipEMGGcnJDFUSMa7p
+	 XkcVFA36MZ/RNlSsmvr130ZVkAMW6DYqMEbx+E2HPCJZ+f5s+v6m4BeajXvPl+hd8t
+	 +yClzXB/DdmYw==
+Date: Mon, 11 Nov 2024 17:27:25 +0000
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH 4/6] arm64/kvm: Avoid invalid physical addresses to
+ signal owner updates
+Message-ID: <20241111172725.GA20336@willie-the-truck>
+References: <20241111083544.1845845-8-ardb+git@google.com>
+ <20241111083544.1845845-12-ardb+git@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Pruning obsolete BMC devicetrees
-To: Andrew Jeffery <andrew@codeconstruct.com.au>,
- openbmc <openbmc@lists.ozlabs.org>, Joel Stanley <joel@jms.id.au>
-Cc: linux-aspeed <linux-aspeed@lists.ozlabs.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <b386a9e98412b06b6186ee5dea81ac6a69bc4f8b.camel@codeconstruct.com.au>
-Content-Language: en-US
-From: Andrew Geissler <geissonator@gmail.com>
-In-Reply-To: <b386a9e98412b06b6186ee5dea81ac6a69bc4f8b.camel@codeconstruct.com.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241111083544.1845845-12-ardb+git@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_092531_365873_06E01DB7 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20241111_092731_876985_1D5F6DCC 
+X-CRM114-Status: GOOD (  31.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +78,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 11, 2024 at 09:35:48AM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The pKVM stage2 mapping code relies on an invalid physical address to
+> signal to the internal API that only the owner_id fields of descriptors
+> should be updated, which are stored in the high bits of invalid
+> descriptors covering memory that has been donated to protected guests,
+> and is therefore unmapped from the host stage-2 page tables.
+> 
+> Given that these invalid PAs are never stored into the descriptors, it
+> is better to rely on an explicit flag, to clarify the API and to avoid
+> confusion regarding whether or not the output address of a descriptor
+> can ever be invalid to begin with (which is not the case with LPA2).
+> 
+> That removes a dependency on the logic that reasons about the maximum PA
+> range, which differs on LPA2 capable CPUs based on whether LPA2 is
+> enabled or not, and will be further clarified in subsequent patches.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/pgtable.c | 37 ++++++++------------
+>  1 file changed, 14 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index b11bcebac908..4bf618b2cba7 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -35,14 +35,6 @@ static bool kvm_pgtable_walk_skip_cmo(const struct kvm_pgtable_visit_ctx *ctx)
+>  	return unlikely(ctx->flags & KVM_PGTABLE_WALK_SKIP_CMO);
+>  }
+>  
+> -static bool kvm_phys_is_valid(u64 phys)
+> -{
+> -	u64 parange_max = kvm_get_parange_max();
+> -	u8 shift = id_aa64mmfr0_parange_to_phys_shift(parange_max);
+> -
+> -	return phys < BIT(shift);
+> -}
+> -
+>  static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx, u64 phys)
+>  {
+>  	u64 granule = kvm_granule_size(ctx->level);
+> @@ -53,7 +45,7 @@ static bool kvm_block_mapping_supported(const struct kvm_pgtable_visit_ctx *ctx,
+>  	if (granule > (ctx->end - ctx->addr))
+>  		return false;
+>  
+> -	if (kvm_phys_is_valid(phys) && !IS_ALIGNED(phys, granule))
+> +	if (!IS_ALIGNED(phys, granule))
+>  		return false;
+>  
+>  	return IS_ALIGNED(ctx->addr, granule);
+> @@ -587,6 +579,9 @@ struct stage2_map_data {
+>  
+>  	/* Force mappings to page granularity */
+>  	bool				force_pte;
+> +
+> +	/* Walk should update owner_id only */
+> +	bool				owner_update;
+>  };
+>  
+>  u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+> @@ -885,18 +880,7 @@ static u64 stage2_map_walker_phys_addr(const struct kvm_pgtable_visit_ctx *ctx,
+>  {
+>  	u64 phys = data->phys;
+>  
+> -	/*
+> -	 * Stage-2 walks to update ownership data are communicated to the map
+> -	 * walker using an invalid PA. Avoid offsetting an already invalid PA,
+> -	 * which could overflow and make the address valid again.
+> -	 */
+> -	if (!kvm_phys_is_valid(phys))
+> -		return phys;
+> -
+> -	/*
+> -	 * Otherwise, work out the correct PA based on how far the walk has
+> -	 * gotten.
+> -	 */
+> +	/* Work out the correct PA based on how far the walk has gotten */
+>  	return phys + (ctx->addr - ctx->start);
+>  }
+>  
+> @@ -908,6 +892,13 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
+>  	if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
+>  		return false;
+>  
+> +	/*
+> +	 * Pass a value that is aligned to any block size when updating
+> +	 * only the owner_id on invalid mappings.
+> +	 */
+> +	if (data->owner_update)
+> +		phys = 0;
+> +
 
-On 11/10/2024 10:49 PM, Andrew Jeffery wrote:
-> Hi all, We now have quite a collection of BMC-related devicetrees 
-> upstream. There's interest in whether we can prune some of them out.
-Thanks for doing this AndrewJ, it's always good to keep things cleaned up.
+Hmm, isn't this a change in behaviour? Previously we would always store
+the owner annotations at the leaf, but now this will take place at a
+higher-level. I think that probably goes horribly wrong if we later
+try to change the owner for a sub-range; the block will be replaced with
+a table and the old ownership information will be lost rather than
+propagated to the leaves.
 
-> 2018-06-22 876c5d891c9d7442d2734871317bc6480cd9f80e: 
-> aspeed-bmc-opp-palmetto.dts 
-I think we're ready to call it good on Palmetto and remove it. I'd like 
-to also remove it from our CI job.
+In other words, I think we should return false here.
 
-> 2019-12-03 53820e00aaa173db268e0288d0407806539b4c3e: 
-> aspeed-bmc-opp-swift.dts
-Swift can also be removed.
-> 2020-03-06 fa09a28ca3e966582d6d92ef1536de360c8b194b: 
-> aspeed-bmc-opp-zaius.dts
-Unless someone from google disagrees, I would like to also remove Zaius 
-from CI.
-
-> 2024-08-02 1c8b6faf882de15fd62094e08b2ca5bf7870b767: 
-> aspeed-bmc-opp-tacoma.dts
-Tacoma can also be removed.
-
-
-Andrew (G)
-
+Will
 
