@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559A1D3ABFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 23:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93A0D3ABFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 23:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=; b=szPIBvkRjP0iX088o7KT6uAZH/
-	OcQA1/cNsU56NnGVA4XQyyVGNfZtg1IGsXYtBMczoCbV/AmjQoT2NegjH3iect6njTx9txleIco+V
-	blJAu/p5YYdsPCx+bU0l7Abnk5Wx4GZg1C8ISe19NdRYfrGqiL0TguB/atr1Tx8p/IeZrf/DAjXYb
-	O9nR8PplLV2wSH5/XV7hq6CD6ARIuuFKQOkOrczI5u2EVM9jm3+wsEG0vwmUVSVVzAMoBrSJPCwls
-	H5SBI4BcEuCs0qktoOWSzuRorfYRN4QQhdS/8fXYknd/k4zwqXJdu/sOWxIpFEuXhfhkNSLBqDejn
-	G299ULjw==;
+	bh=9eTJgef65FJqEqrDDdD4z33gUAbRA/4vY9wtlAAEJd8=; b=Hq3hD/EwUv4PnG9b/cDehSGgtS
+	VEOF8lbhzkWA28f5KH7pmGtzc31w970JJ0klJUUojwnYShynU+VkCJ5qPIR+n6N5r4CGLyGSu8sw5
+	CUYTmbksURoPi/cLbnrO6hvmGaiAfJtky0PlNEgDetxKdGsth/jirPW9emUxlce8rhIZox2obnajr
+	TqETVtAcAM8BPjqgiYLFjYc40vev3s/2sqvNvrTxD7Kb3GuuY4FivaP7qffOISIeqWd3PMezMXrVu
+	HFpM9dduZYzbzub6fEJdKsYCPCoN7uxTeaOkFDVU8XSt4TiB075sMunJfuzj8KudPc5Wxf68rKWwK
+	eMj6pUKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAdrx-00000001cja-0OdH;
-	Mon, 11 Nov 2024 23:30:53 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tAdwy-00000001dDn-29MD;
+	Mon, 11 Nov 2024 23:36:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAcsf-00000001VWQ-2I6G;
-	Mon, 11 Nov 2024 22:27:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1731364048; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XYcI1ZMq4lyB+M6pCxKTx49dLj1eGACHkSjwVWYdi9Lchib3oXrQbEUrmbtWOYsra+Bcr4ocZt4bzBiCDkoqeUc2b7rwIE4b7ec/KWfieMf+KonPeE6n8KVYLoJQCxXol6eKDzopiQQiVgO4W05yAcS2KjrBB5ZFRTSOu78tiYI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1731364048; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=; 
-	b=KfjpskdgGcLaVSrY1XLVvOHz/vdQe9tciSUdvT33iH4qULPCl3V+MGgchLChVYWZWdzBsvLhC1uDs8Xl42DNSIT51ZxodWh7JasQHl5UEwtg60Uh1frDeUWvvXehMGBwm1wbIDRk2bBY3eOWVBTD7lpjDYKP1sOvZkNTVPS1lwQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1731364048;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=CCUoKkey3DUp6iL88Vt9EotitG4C5/eAMN0v9USxUDI=;
-	b=hPhRr9EmL76Xd8PdVGuIvNLBPlvJTLGPVUZxURD9enBCMo/nPm13xoqvljwfB9i1
-	afw83CCoVz7PSiNri3q1NI6WhRHQlUaaaBEsy1u5zVK+kYeo461iyhu+Vh+rQQlpCE9
-	/CG9glMB/R3Ka/sX2AxG/9SbYFz0xH9vD+Ukx1rg=
-Received: by mx.zohomail.com with SMTPS id 1731364046934984.4728785857724;
-	Mon, 11 Nov 2024 14:27:26 -0800 (PST)
-Received: by mercury (Postfix, from userid 1000)
-	id 1EC311060457; Mon, 11 Nov 2024 23:27:22 +0100 (CET)
-Date: Mon, 11 Nov 2024 23:27:22 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Ye Zhang <ye.zhang@rock-chips.com>
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, heiko@sntech.de, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, mika.westerberg@linux.intel.com, 
-	andriy.shevchenko@linux.intel.com, tao.huang@rock-chips.com, finley.xiao@rock-chips.com, 
-	tim.chen@rock-chips.com, elaine.zhang@rock-chips.com
-Subject: Re: [PATCH v4 3/4] gpio: rockchip: support new version GPIO
-Message-ID: <ufc7neof2dxlfsb3cfssk3aa6vrorgue4htmgpjbhqkkcs2zpn@mejkcq6puntn>
-References: <20241111023412.3466161-1-ye.zhang@rock-chips.com>
- <20241111023412.3466161-4-ye.zhang@rock-chips.com>
+	id 1tAdvD-00000001d6d-2UQv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 Nov 2024 23:34:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9eTJgef65FJqEqrDDdD4z33gUAbRA/4vY9wtlAAEJd8=; b=oxA0xX9qHypO6XMKTVBo5l58mg
+	vcTCASxyXYz1jDjuwBL8zNozUaYJiP/BdyDohJNcKPgi/y52Agu2aZHSQwI9WJwYUkYF4Dcv2Y6v8
+	8MPYGZqP5kEsgItjaNEL4acDOzMKRRZCMSyiwFvD9vz5i1+6teghMiXXRTfqYGcrjtHEYCWfi3wXQ
+	R4mrCz11zjfDwiV4tlBaukifquYhW74FctncL5nQeZXT63lRVaHo6fwgBlN//UFIT2VrgpaQB29R6
+	vDl8AszNqVQ9+OYeBhy0rZH6zv2Kn4Rg+torPPmy2Md+oSboKUDLfWBxgk2UhqOzL8UQkT+26bLDb
+	rGGSUPxg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAdvA-0000000CxQ1-101H
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 23:34:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2ECA1480;
+	Mon, 11 Nov 2024 15:34:35 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A9563F6A8;
+	Mon, 11 Nov 2024 15:34:05 -0800 (PST)
+Date: Mon, 11 Nov 2024 23:34:02 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/4] kselftest/arm64: Use a define for SVCR
+Message-ID: <ZzKUaqv_K-MRTti4@arm.com>
+References: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
+ <20241107-arm64-fp-ptrace-fpmr-v1-2-3e5e0b6e3be9@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7u42vpw7xhebrsqx"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241111023412.3466161-4-ye.zhang@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.3.1/231.261.35
-X-ZohoMailClient: External
+In-Reply-To: <20241107-arm64-fp-ptrace-fpmr-v1-2-3e5e0b6e3be9@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_142733_661854_A37BD6AB 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20241111_233412_512313_C29618B4 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,78 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 07, 2024 at 01:38:05AM +0000, Mark Brown wrote:
+> For some reason when we're accessing SVCR in the FP tests we use the raw
+> numerical version of the register name rather than hiding that behind a
+> preprocessor macro for readability. Since we already use the generated
+> defines for sysreg bitfields in other the KVM selftests let's do the same
+> thing here, also replacing the defines for the SVCR bitfields which we
+> have.
+> 
+> The build setup for fp-ptrace is a little fun so we have to manually define
+> __ASSEMBLY__ in the source code for that.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
---7u42vpw7xhebrsqx
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 3/4] gpio: rockchip: support new version GPIO
-MIME-Version: 1.0
+I get an error when trying to build this out of tree:
 
-Hi,
+/home/cmarinas/work/linux/tools/testing/selftests/../../../tools/arch/arm64/include/asm/sysreg.h:132:10: fatal error: asm/sysreg-defs.h: No such file or directory
+  132 | #include "asm/sysreg-defs.h"
+      |          ^~~~~~~~~~~~~~~~~~~
 
-On Mon, Nov 11, 2024 at 10:34:11AM +0800, Ye Zhang wrote:
-> Support the next version GPIO controller on SoCs like rk3576.
->=20
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> ---
+Probably sysreg-defs.h has not been generated yet. Too late to figure it
+out now.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
-This is needed for 6.13, which introduces RK3576 support and
-currently (linux-next) tries to use the GPIO controller in V1
-mode.
-
--- Sebastian
-
->  drivers/gpio/gpio-rockchip.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-> index f05b92e0e977..b7a43e492965 100644
-> --- a/drivers/gpio/gpio-rockchip.c
-> +++ b/drivers/gpio/gpio-rockchip.c
-> @@ -35,6 +35,7 @@
->  #define GPIO_TYPE_V1		(0)           /* GPIO Version ID reserved */
->  #define GPIO_TYPE_V2		(0x01000C2B)
->  #define GPIO_TYPE_V2_1		(0x0101157C)
-> +#define GPIO_TYPE_V2_2		(0x010219C8)
-> =20
->  static const struct rockchip_gpio_regs gpio_regs_v1 =3D {
->  	.port_dr =3D 0x00,
-> @@ -674,6 +675,7 @@ static int rockchip_get_bank_data(struct rockchip_pin=
-_bank *bank)
->  		break;
->  	case GPIO_TYPE_V2:
->  	case GPIO_TYPE_V2_1:
-> +	case GPIO_TYPE_V2_2:
->  		bank->gpio_regs =3D &gpio_regs_v2;
->  		bank->gpio_type =3D GPIO_TYPE_V2;
->  		bank->db_clk =3D of_clk_get(bank->of_node, 1);
-> --=20
-> 2.34.1
->=20
->=20
-
---7u42vpw7xhebrsqx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmcyhMkACgkQ2O7X88g7
-+pr8Gw/8C6issbH3YOd0OP/TIl2LHTPwlZjgXew5kIc7ctl6AKper5SRZBZTzs4U
-QpEjm3DHKinsATe24Um295qZZtP8CIUADLPGNirMNo7oNSY4D63jRiTOteYNHqm0
-9qRhLLSDcOIqhGUQS/JoxGhH6acSf+DUz9/EiNJEX2DG3PB4ePwfTUNyMiaiE+yA
-ffk87vL6sQdiEVzEiY8oLmvI1+vJ9R6CdsRltq55exxI1pVDPcSpWK0XHXeKbGBe
-jlFn35G+bKhkhuzqV9WRlE3pBJEQvn6p8ju0P+doNA7KWhWoPNFhh4x5GGQWrh34
-ERdg/cRtLj5A3lie8Ozlf6RwzC77c+GtQrH8HIrdZ3L6uTueh2fwQ6e/Tu1PeAei
-2xB+F8QzJmduS7rL/zWEvU5i7tT/8bfCoDLlasbXA9zVdkryiqKDezjURt8k3bHW
-pOjnO5C/YrFHF2YFl6ckfJ8C5AJ23Lgd3eSqkenh1RY22BV5iTr1OqlG/DxFt+ge
-8jRQBvl7wSU+0Z7cVgHH9BxSkisDYWWCnrDkTL6mGe5AsLWWnz2LUi/1ltaaWY63
-E6Dj7hrjORSvWnr5ZxubYDPtJ1gUAQn2mio7zPhGOcbOSfKkTWarMaKxDNXDbTi0
-R2c9JHxKYmqFyYbnoFa0zjL/fiEmI8rO0CRWUwNZYHKtig8hxHw=
-=hXQn
------END PGP SIGNATURE-----
-
---7u42vpw7xhebrsqx--
+-- 
+Catalin
 
