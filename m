@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFEDD12D61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 15:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB84FD12D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 15:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ITKN9KZa1CRjZuEzbCX1tyeuQszXtXbK7hA14G4sVI=; b=mXCaQR5SN96blUimSDjfXC8/PH
-	OfoCRPCOFX8rugDTJnDFgIebCx2eIU+JEGNxGft/LIqgWVEbZQkMmgCuekf0JOP4bBo7uagwVvZzY
-	OIZJ8AAg3aJp2Tn8tu7y4BBZdE3f446ZfAX4dWgA4r8wia9MyKXVgmo1Tgzq+2wowHR7kH4lW8aDk
-	NSvkB9xw3V82ewKwFg66sKdK3FeAweditwwhfw3fJx9dfZiBIGTSV21u68qDFQkHDsGSGtsF3qbJj
-	0b2Grfnu2U4/qsgyKDM1crswPsA9Bn8NTcW7WUZANi8aNZ7Pg5pEYG7922u8/ro8EgQaQPzoRVVJq
-	o3WeDh9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:Cc:To:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NCbZx7O3tZD/3E2j++V4l9iia2T/kRfi5M5uCjd1c+k=; b=F8YVANgMr6RNQZTwedTTdVWb2G
+	8NFAyKHMjokHhLii4HofM9xVo83CCq71ecoQIxbtDfeW8KENDBysvIKrzyeU3xy9wMVZI1jIL3jh1
+	nswj9/ClMFseEBGIWErKob5cOSpUgXDVcO3pgsyMIMI3fyiSTfRm2zFkLmVY+PnV9znssh4ym5yLe
+	Eyd9xHZQSa5GFdZwsToFsKQPJMdOw5plszzSttWDHKJLxDfVJp6onZvEOc50N8g93LTb0oceFdfUT
+	KNwhAc+DS2CMPb9/19X5ac0AvcUVJfc+IEP80MCAieYkezzn5onZ5QsuYOk/XNmiNx3gGYbJb3nHY
+	kO4ktdug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAWOx-00000000T7d-4AwC;
-	Mon, 11 Nov 2024 15:32:28 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1tAWRD-00000000TUt-2Szr;
+	Mon, 11 Nov 2024 15:34:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAWMV-00000000Spv-0Kk7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 15:29:56 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4ABFTjXS125982;
-	Mon, 11 Nov 2024 09:29:45 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1731338985;
-	bh=6ITKN9KZa1CRjZuEzbCX1tyeuQszXtXbK7hA14G4sVI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=I8MhnEBoPInKvzelqCKxXnR1cLinG5cpQMnsirlxU0ZV66A6ehapLsZhWvg53Zc29
-	 q2RPJc78CucvCN4aQn/VprBon3cP7IoZ2P8Rs4QsvHfha6Q913xF7TdUI9mV+bHA6y
-	 Z7VZK5qPjQ0NeLpxmJI1dcAXB41iv6stAwkLhPrk=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABFTjpb082152
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 11 Nov 2024 09:29:45 -0600
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 11
- Nov 2024 09:29:44 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 11 Nov 2024 09:29:44 -0600
-Received: from [10.249.129.69] ([10.249.129.69])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ABFTblN018163;
-	Mon, 11 Nov 2024 09:29:38 -0600
-Message-ID: <de5b3499-7694-4f94-a1b9-2e926d2c2490@ti.com>
-Date: Mon, 11 Nov 2024 20:59:36 +0530
+	id 1tAWPQ-00000000TBA-3O7G;
+	Mon, 11 Nov 2024 15:32:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E174FA41782;
+	Mon, 11 Nov 2024 15:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86B5C4CED6;
+	Mon, 11 Nov 2024 15:32:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731339175;
+	bh=r8avJOgeVnHmCQ1tIPDEAoD6KMM+18rldtBBgroTd4s=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=Dq4ZRtgXjHZZ63uC5JzTAgqwfrl+cT85RYM80IhD1SuvaTaZaAeWymI4w9P6DAtyb
+	 TK1RZx6nYV1FxYpZ2aCtjgxxUCP/FbEZXXYrDW+kY48Ze7jqHHx9MnFr6+Vo9D/DYT
+	 xC8VqlmWRzcf330Zg8HtIFjZHdSJEa8lDToAg/uItkY36sJhJmX+HMKE8twd/OQCpP
+	 HqFCFnUYebC4+kGGiTc6mdU0mSguLM5NBK1yRokiZLRHEDxX+g4zLO+PUnJnObDVND
+	 1XeHxRM2JIENzbyjH6qgry5qx3hmAOZntzliUZw957ALIbxfB776IHt7LZEiIiSJps
+	 yk14S8C0s4gCw==
+Date: Mon, 11 Nov 2024 09:32:53 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Roger Quadros <rogerq@kernel.org>, Meghana Malladi <m-malladi@ti.com>,
-        <vigneshr@ti.com>, <m-karicheri2@ti.com>, <jan.kiszka@siemens.com>,
-        <javier.carrasco.cruz@gmail.com>, <jacob.e.keller@intel.com>,
-        <horms@kernel.org>, <diogo.ivo@siemens.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <danishanwar@ti.com>
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
- <ad2afaa3-7e76-47e8-943b-7bea0c02c9c0@kernel.org>
- <0c6a3091-3b3d-4f41-83df-2183171200c8@ti.com>
- <17390fbf-7505-4e0a-8496-a6a4b22a261b@kernel.org>
-Content-Language: en-US
-From: "Anwar, Md Danish" <a0501179@ti.com>
-In-Reply-To: <17390fbf-7505-4e0a-8496-a6a4b22a261b@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org, 
+ linux-mmc@vger.kernel.org, Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-i2c@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>, 
+ Vinod Koul <vkoul@kernel.org>, linux-watchdog@vger.kernel.org, 
+ Thomas Gleixner <tglx@linutronix.de>, Chen-Yu Tsai <wens@csie.org>, 
+ Samuel Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ linux-usb@vger.kernel.org, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Conor Dooley <conor+dt@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>
+In-Reply-To: <20241111013033.22793-1-andre.przywara@arm.com>
+References: <20241111013033.22793-1-andre.przywara@arm.com>
+Message-Id: <173133346581.1281779.16221268010355943435.robh@kernel.org>
+Subject: Re: [PATCH 00/14] arm64: dts: allwinner: Add basic Allwinner A523
+ support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_072955_310253_1569ECFE 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20241111_073257_008151_BB32E792 
+X-CRM114-Status: GOOD (  38.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,315 +84,138 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 11/11/2024 7:55 PM, Roger Quadros wrote:
+On Mon, 11 Nov 2024 01:30:19 +0000, Andre Przywara wrote:
+> Hi,
+> 
+> this series adds basic DT support for the Allwinner A523 SoC, plus the
+> Avaota-A1 router board using the T527 package variant of that SoC.[1]
+> Functionality-wise it relies on the pinctrl[2] and clock[3] support
+> series, though there is no direct code dependency series to this series
+> (apart from the respective binding patches in the two series').
+> 
+> Most of the patches add DT binding documentation for the most basic
+> peripherals, the vast majority of them actually being already supported,
+> courtesy of identical IP being used. This includes MMC and USB 2.0, so
+> with the above mentioned clock and pinctrl support this gives an already
+> somewhat usable mainline support for this new SoC family.
+> The watchdog is not completely compatible, but is an easy addition, so
+> this bit is included in here as well.
+> 
+> The A523 features 8 Arm Cortex-A55 cores, organised in two clusters,
+> clocked separately, with different OPP limits, in some kind of
+> little/LITTLE configuration. The GPU is a Arm Mali G57 MC01, and the chip
+> also features a single PCIe 2.1 lane, sharing a PHY with some USB 3.1
+> controller - which means only one of the two can be used.
+> The rest of the SoC is the usual soup of multimedia SoC IP, with eDP
+> support and two Gigabit Ethernet MACs among the highlights.
+> 
+> The main feature is patch 11/14, which adds the SoC .dtsi. This for now
+> is limited to the parts that are supported and could be tested. At the
+> moment there is no PSCI firmware, even the TF-A port from the BSP does
+> not seem to work for me. That's why the secondary cores have been omitted
+> for now, among other instances of some IP that I couldn't test yet.
+> I plan to add them in one of the next revisions.
+> 
+> The last patch adds basic support for the Avaota-A1 router board,
+> designed by YuzukiHD, with some boards now built by Pine64.
+> 
+> The mainline firmware side in general is somewhat lacking still: I have
+> basic U-Boot support working (including MMC and USB), although still
+> without DRAM support. This is for now covered by some binary blob found
+> in the (otherwise Open Source) Syterkit firmware, which also provides
+> the BSP versions of TF-A and the required (RISC-V) management core
+> firmware. Fortunately we have indications that DRAM support is not that
+> tricky, as the IP blocks are very similar to already supported, and dev
+> boards are on their way to the right people.
+> 
+> Meanwhile I would like people to have a look at those DT bits here. Please
+> compare them to the available user manual, and test them if you have access
+> to hardware.
+> 
+> Based on v6.12-rc1.
+> I pushed a branch with all the three series combined here:
+> https://github.com/apritzel/linux/commits/a523-v1/
+> 
+> Cheers,
+> Andre
+> 
+> [1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+> [2] https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/#t
+> [3] https://lore.kernel.org/linux-sunxi/20241111004722.10130-1-andre.przywara@arm.com/T/#t
+> 
+> Andre Przywara (14):
+>   dt-bindings: mmc: sunxi: Simplify compatible string listing
+>   dt-bindings: mmc: sunxi: add compatible strings for Allwinner A523
+>   dt-bindings: watchdog: sunxi: add Allwinner A523 compatible string
+>   watchdog: sunxi_wdt: Add support for Allwinner A523
+>   dt-bindings: i2c: mv64xxx: Add Allwinner A523 compatible string
+>   dt-bindings: irq: sun7i-nmi: document the Allwinner A523 NMI
+>     controller
+>   dt-bindings: phy: document Allwinner A523 USB-2.0 PHY
+>   dt-bindings: usb: sunxi-musb: add Allwinner A523 compatible string
+>   dt-bindings: usb: add A523 compatible string for EHCI and OCHI
+>   dt-bindings: rtc: sun6i: Add Allwinner A523 support
+>   arm64: dts: allwinner: Add Allwinner A523 .dtsi file
+>   dt-bindings: vendor-prefixes: Add YuzukiHD name
+>   dt-bindings: arm: sunxi: Add Avaota A1 board
+>   arm64: dts: allwinner: a523: add Avaota-A1 router support
+> 
+>  .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+>  .../bindings/i2c/marvell,mv64xxx-i2c.yaml     |   1 +
+>  .../allwinner,sun7i-a20-sc-nmi.yaml           |   1 +
+>  .../bindings/mmc/allwinner,sun4i-a10-mmc.yaml |  40 +-
+>  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |  10 +-
+>  .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml |   4 +-
+>  .../usb/allwinner,sun4i-a10-musb.yaml         |   1 +
+>  .../devicetree/bindings/usb/generic-ehci.yaml |   1 +
+>  .../devicetree/bindings/usb/generic-ohci.yaml |   1 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  .../watchdog/allwinner,sun4i-a10-wdt.yaml     |   2 +
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 386 ++++++++++++++++++
+>  .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 311 ++++++++++++++
+>  drivers/watchdog/sunxi_wdt.c                  |  11 +
+>  15 files changed, 751 insertions(+), 26 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+> 
+> --
+> 2.46.2
 > 
 > 
-> On 11/11/2024 15:35, Anwar, Md Danish wrote:
->>
->>
->> On 11/11/2024 6:33 PM, Roger Quadros wrote:
->>> Hi,
->>>
->>> On 06/11/2024 09:40, Meghana Malladi wrote:
->>>> From: MD Danish Anwar <danishanwar@ti.com>
->>>>
->>>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
->>>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
->>>> respective firmwares to PRU cores and whenever interface goes down, we
->>>> stop the respective cores. Due to this, when SLICE0 goes down while
->>>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
->>>> stopped. This results in clock jump for SLICE1 interface as the timesync
->>>> related operations are no longer running.
->>>>
->>>> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
->>>> ICSSG interface is up.
->>>>
->>>> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
->>>> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
->>>> used to let firmware know that the flow_id has been updated and to use the
->>>> latest rx_flow_id.
->>>
->>> is rx_flow_id releated to timesync releated issue that this patch is fixing?
->>> If not please split it into separate patch and mention what functionality
->>> it is fixing.
->>>
->>
->> Roger, rx_flow_id is not related to timesync. However loading both
->> SLICE0 and SLICE1 firmware together results in wrong rx_flow_id used by
->> firmware for the interface that is brought later.
->>
->> When eth0 (SLICE0) is brought up, it's flow_id is obtained from dma and
->> written to SMEM. Slice0 and Slice1 both firmwares are loaded. Firmware
->> reads the flow_id from SMEM and uses it for RX.
->>
->> Second interface eth1 (SLICE1) comes up, it's flow id is obtained from
->> dma and written to SMEM. However firmware doesn't read the flow ID
->> again. It only reads it once when loaded and uses that through out. The
->> flow id for this interface remains 0 and that results in RX being broken.
->>
->> To fix this, emac_fdb_flow_id_updated() is added which will let firmware
->> know that we have updated the flow_id and use the latest one.
->>
->> This not related to timesync instead related to the fix of timesync
->> issue. Breaking this into separate patch will result in RX (ICSSG) being
->> broken at the former patch.
->>
->> In order to avoid feature breakage at the former patch, the change
->> related to flow_id update is kept in the same patch.
-> 
-> But setting the Flow ID should be taken care by icssg_config() which is
-> done in prueth_emac_start()?
 > 
 
-Correct. But prueth_emac_start() is called once for both the slices.
-When eth0 comes up prueth_emac_start() will be called for both slice0
-and slice1. When eth1 comes up prueth_emac_start() will not get called.
 
-In icssg_config() we write
-`writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);`
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-By default emac->rx_flow_id_base = 0, it is populated during
-prueth_init_rx_chns() which is called per port / slice. So the second
-port's actual flow_id will be discarded without the
-emac_fdb_flow_id_updated() API.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-> is it really OK to provide wrong flow id to the Firmware or even start
-> the second PRU core without DMA/IRQ resources allocated to it?
-> 
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-It is ok as firmware doesn't transmit any packets until driver issues
-ICSSG_EMAC_PORT_FORWARD command which is done during link up / down in
-emac_adjust_link() so it would be okay for firmware to have wrong flow
-id as we only issue ICSSG_EMAC_PORT_FORWARD after link is detected and
-flow id is updated.
+  pip3 install dtschema --upgrade
 
-> I will suggest to introduce emac_ndo_common_open() and emac_ndo_common_stop()
-> and move the common code there i.e. allocating/freeing resources for both
-> cores and starting/stopping both cores.
-> 
 
-I don't think that will help much. There are certain things that need to
-be done only once for both ports where as certain things needs to be
-done on a per port basis. In order for driver to work it has to follow a
-proper sequence in which first few common APIs are called then
-individual APIs and then again common APIs. I think trying to
-consolidate all common within a function will result in this sequence
-getting not followed properly.
+New warnings running 'make CHECK_DTBS=y allwinner/sun55i-t527-avaota-a1.dtb' for 20241111013033.22793-1-andre.przywara@arm.com:
 
-The fairly simple way is to put all common code inside `if
-(!prueth->emacs_initialized)` where as keep all the individual port code
-without any condition.
+In file included from arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts:6:
+arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi:6:10: fatal error: dt-bindings/clock/sun55i-a523-ccu.h: No such file or directory
+    6 | #include <dt-bindings/clock/sun55i-a523-ccu.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[3]: *** [scripts/Makefile.dtbs:129: arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:478: arch/arm64/boot/dts/allwinner] Error 2
+make[2]: Target 'arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1399: allwinner/sun55i-t527-avaota-a1.dtb] Error 2
+make: *** [Makefile:224: __sub-make] Error 2
+make: Target 'allwinner/sun55i-t527-avaota-a1.dtb' not remade because of errors.
 
->>
->> If you think having the feature broken is OK, the patch can be splitted.
->> However IMO, these chanegs should be together in one patch.
->>
->>>>
->>>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
->>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->>>> ---
->>>>  drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
->>>>  drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
->>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
->>>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
->>>>  4 files changed, 77 insertions(+), 11 deletions(-)
->>>>
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> index 5d2491c2943a..f1f0c8659e2d 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>>> @@ -786,3 +786,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
->>>>  		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
->>>>  }
->>>>  EXPORT_SYMBOL_GPL(icssg_set_pvid);
->>>> +
->>>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
->>>> +{
->>>> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
->>>> +	int slice = prueth_emac_slice(emac);
->>>> +	struct mgmt_cmd fdb_cmd = { 0 };
->>>> +	int ret = 0;
->>>> +
->>>> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
->>>> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
->>>> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
->>>> +	fdb_cmd.param  = 0;
->>>> +
->>>> +	fdb_cmd.param |= (slice << 4);
->>>> +	fdb_cmd.cmd_args[0] = 0;
->>>> +
->>>> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
->>>> +
->>>> +	if (ret)
->>>> +		return ret;
->>>> +
->>>> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
->>>> +	if (fdb_cmd_rsp.status == 1)
->>>> +		return 0;
->>>> +
->>>> +	return -EINVAL;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
->>>> index 92c2deaa3068..c884e9fa099e 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
->>>> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
->>>>  #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
->>>>  #define ICSSG_FW_MGMT_CMD_TYPE		0x04
->>>>  #define ICSSG_FW_MGMT_PKT		0x80000000
->>>> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
->>>>  
->>>>  struct icssg_r30_cmd {
->>>>  	u32 cmd[4];
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> index 0556910938fa..9df67539285b 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>>> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>  {
->>>>  	struct prueth_emac *emac = netdev_priv(ndev);
->>>>  	int ret, i, num_data_chn = emac->tx_ch_num;
->>>> +	struct icssg_flow_cfg __iomem *flow_cfg;
->>>>  	struct prueth *prueth = emac->prueth;
->>>>  	int slice = prueth_emac_slice(emac);
->>>>  	struct device *dev = prueth->dev;
->>>> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>  	/* set h/w MAC as user might have re-configured */
->>>>  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->>>>  
->>>> +	if (!prueth->emacs_initialized) {
->>>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
->>>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
->>>> +	}
->>>> +
->>>>  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>>> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->>>>  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>>>  
->>>>  	/* Notify the stack of the actual queue counts. */
->>>> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>  		goto cleanup_napi;
->>>>  	}
->>>>  
->>>> -	/* reset and start PRU firmware */
->>>> -	ret = prueth_emac_start(prueth, emac);
->>>> -	if (ret)
->>>> -		goto free_rx_irq;
->>>> +	if (!prueth->emacs_initialized) {
->>>> +		if (prueth->emac[ICSS_SLICE0]) {
->>>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
->>>> +			if (ret) {
->>>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
->>>> +				goto free_rx_irq;
->>>> +			}
->>>> +		}
->>>> +		if (prueth->emac[ICSS_SLICE1]) {
->>>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
->>>> +			if (ret) {
->>>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
->>>> +				goto halt_slice0_prus;
->>>> +			}
->>>
->>> Did I understand right: SLICE0 needs to be always running if any of the
->>> interface is up but SLICE0 doesn't need to be running if only SLICE0
->>
->> I think you meant `but SLICE1 doesn't need to be running if only SLICE0`
->>
->>> interface is running.
->>>
->>> If yes then you need to update the patch so SLICE1 is not always running.
->>>
->>
->> For Timesync - YES. Only slice0 is needed to be always running. However
->> these both firmwares have some more inter dependencies, timesync is just
->> one of them. As a result, firmware team has recommended to keep both
->> Slice0 and Slice1 firmware running as long as at least one ICSSG
->> interface is up. Stop both firmware only if no ICSSG interface is up.
->>
->> I think the commit message can be modified to state that the dependecy
->> is not only SLICE0 but on SLICE1 as well and they both need to be running.
->>
-> 
-> OK Please mention this in commit log.
-> 
->>>> +		}
->>>> +	}
->>>> +
->>>> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
->>>> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
->>>> +	ret = emac_fdb_flow_id_updated(emac);
->>>> +
->>>> +	if (ret) {
->>>> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
->>>> +		goto stop;
->>>> +	}
->>>>  
->>>>  	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>>>  
->>>> @@ -644,7 +670,11 @@ static int emac_ndo_open(struct net_device *ndev)
->>>>  free_tx_ts_irq:
->>>>  	free_irq(emac->tx_ts_irq, emac);
->>>>  stop:
->>>> -	prueth_emac_stop(emac);
->>>> +	if (prueth->emac[ICSS_SLICE1])
->>>> +		prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->>>> +halt_slice0_prus:
->>>> +	if (prueth->emac[ICSS_SLICE0])
->>>> +		prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->>>>  free_rx_irq:
->>>>  	free_irq(emac->rx_chns.irq[rx_flow], emac);
->>>>  cleanup_napi:
->>>> @@ -680,7 +710,10 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>>  	if (ndev->phydev)
->>>>  		phy_stop(ndev->phydev);
->>>>  
->>>> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
->>>> +	if (prueth->emacs_initialized == 1) {
->>>> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
->>>> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
->>>> +	}
->>>>  
->>>>  	if (emac->prueth->is_hsr_offload_mode)
->>>>  		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
->>>> @@ -719,11 +752,14 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>>  	/* Destroying the queued work in ndo_stop() */
->>>>  	cancel_delayed_work_sync(&emac->stats_work);
->>>>  
->>>> -	if (prueth->emacs_initialized == 1)
->>>> +	if (prueth->emacs_initialized == 1) {
->>>>  		icss_iep_exit(emac->iep);
->>>> -
->>>> -	/* stop PRUs */
->>>> -	prueth_emac_stop(emac);
->>>> +		/* stop PRUs */
->>>> +		if (prueth->emac[ICSS_SLICE0])
->>>> +			prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->>>> +		if (prueth->emac[ICSS_SLICE1])
->>>> +			prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->>>> +	}
->>>>  
->>>>  	free_irq(emac->tx_ts_irq, emac);
->>>>  
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> index 8722bb4a268a..c4f5f0349ae7 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>>> @@ -365,6 +365,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->>>>  		       u8 untag_mask, bool add);
->>>>  u16 icssg_get_pvid(struct prueth_emac *emac);
->>>>  void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
->>>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->>>>  #define prueth_napi_to_tx_chn(pnapi) \
->>>>  	container_of(pnapi, struct prueth_tx_chn, napi_tx)
->>>>  
->>>
->>
-> 
 
--- 
-Thanks and Regards,
-Md Danish Anwar
+
+
+
 
