@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9BAD3ABF6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CAED3ABF6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9CAj9JaGMN0ybNM1og6EH7btRUNarOLzlzuHTkv93s=; b=uXQmU7mFAl1rxplYufAtj2QlA5
-	4Ov9+PPb2hDITpf1p6xsWca5uIciCNBRKNZf6V8mXKBtmZTHo7PCW1/Di5UdFacapd1LMekQioATL
-	2T7M9NAXrqK3Yx15ZC0dx7ZJdSNQldPky9zvgNSu78g9/KqgHE0rzLBTHnZG9PRHxJIPm3HVdl1ov
-	R3ceIyZDOQUgk1Ek07kO+nuSRg0XbYo+K4ANpR+itlm2413JmFTYe/v4SCOBP6eLvvvqOn9qYAeyd
-	Kg7J6m+f5QgCXOzd4dVAby8X2L1F4+O2LkMCEN+jUhQ0xZTQaWoTDeFNoiEOGnXNiu06fu3nOBHas
-	0HdIIdFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8FJxCy9nRJVtXfCTsU3KXy5JjuHCmavURmafpMWip8Y=; b=rV7U5pDW3TJPN1HXJcHZpLoz1D
+	BV0u6h+OZWHX//413GKD+LeouZ2Gg2cfkjdT824NuhKSKzbrJkZGwgrJ/0fhi0zZgdUzY9s4sBPpw
+	wWmgfldjR4xL1lRJHrEIVGuiw/jbRZudQ2nZKscxQ//xdtKNqXgTQcCwVGkCF3EPcOTmXZx6OKmGs
+	298fHQ6tLtSIl0JzN6okDDx62TP8nOfEe8A2VnwhHRdskk3oPiVQJdlZvUBMWKZyIFLMVNj6+ys/2
+	WhSnXXlKQJvq8dWu7xIzyGjCiTiHrNc0CI4+MsjXm7ncFIDXGptX0NBjsLxM/1+RcU29HgVEcAPG2
+	h0XIm+9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbYC-00000001I4o-3P4j;
-	Mon, 11 Nov 2024 21:02:20 +0000
-Received: from out-172.mta1.migadu.com ([95.215.58.172])
+	id 1tAbZz-00000001ITm-41A0;
+	Mon, 11 Nov 2024 21:04:11 +0000
+Received: from mail-wm1-f41.google.com ([209.85.128.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbD6-00000001Dyl-3LnB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 20:40:34 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1731357629;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b9CAj9JaGMN0ybNM1og6EH7btRUNarOLzlzuHTkv93s=;
-	b=NSky0qXt3FYZ1uz0lOO9GCgsPfAGi+hlH9gH52cProQINk5600PTWNOFHccqjfU+OaRCfF
-	t6d6uVZ5IEdvMi7EPmtGKg214jQbT/V7GI2CRh3Vur2lw6eVacBlV+8dEWOU6KKMJDnZkQ
-	qVkuJ46lmP6hM9u5vD/+H6Q6xWS0LZE=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: ARMLinux <linux-arm-kernel@lists.infradead.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	KVMARM <kvmarm@lists.linux.dev>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	KVM <kvm@vger.kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Joey Gouly <joey.gouly@arm.com>
-Cc: Colton Lewis <coltonlewis@google.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Eric Auger <eauger@redhat.com>
-Subject: Re: [PATCH v4 0/5] Some fixes about vgic-its
-Date: Mon, 11 Nov 2024 20:40:03 +0000
-Message-ID: <173135744708.2975582.6187985686343920631.b4-ty@linux.dev>
-In-Reply-To: <20241107214137.428439-1-jingzhangos@google.com>
-References: <20241107214137.428439-1-jingzhangos@google.com>
+	id 1tAbJu-00000001Er3-002I;
+	Mon, 11 Nov 2024 20:47:35 +0000
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4315eeb2601so62350235e9.2;
+        Mon, 11 Nov 2024 12:47:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731358051; x=1731962851;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8FJxCy9nRJVtXfCTsU3KXy5JjuHCmavURmafpMWip8Y=;
+        b=h4sTlXFeX1847MPqU0Q2LatRi4ZyDnso5SVPsakHtdqa3gV7ZcBo+baZYnsavPF4FC
+         1bl2AO669MjcI9+zgLWNzXs+qxACeSsh4xtv0t887seI5nqWJj1eFTFEs0zviHd70KmT
+         pEE98ELUUvV5b+NGtPLvy4Qno9/XohKsok1S/+FKwMpg0CQgKxMBbK3B/f3C7xgLVM00
+         uP4gbekc/CjXtcXhsT1azYCnrRViIp54I5C6NOhc8uUi2PA9g9ouMd0CAD26kFBuw77N
+         BkcSUpHvd85JmPCJXqZsqzicmpKG7Ar91v/Jzq72lcnKz+VqQq5/OPjIU6sUHh5ws1Xv
+         Lu0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVYZReK26O2BDWllUeXwqTTee0kIvtr0IoZ9uNFnVehMB6nnVk0nkL++rwikjOpt2owDXqyDLpK+kZDRAzAgYJm@lists.infradead.org, AJvYcCWI1tb2SzT0bsMMV9nVUsgwTvEQaWNQ+RBzqMCB0wPaoPL3Yz74nMyTXCCbmo4DTfM3aDFCTEqm2HdCmYLaJ74=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHNujCn1KS6Ff6P7b0TNeazhS3RctQbFnxeOfaO/vqOwCIXAv8
+	ZC++3EQBAF9GPqajvSvHvS9TJ6++z2BLOA8CfsKRbsxdeMlX9Lj3
+X-Google-Smtp-Source: AGHT+IFI2E55Rc3mQG84xqyhIN5Toyfc2naC+drFE80OuMZoOLBtHsrsaeYFSq9y+fXhLMa9XRR2xg==
+X-Received: by 2002:a5d:6c6b:0:b0:382:5af:e996 with SMTP id ffacd0b85a97d-38205afeae9mr2197479f8f.46.1731358051094;
+        Mon, 11 Nov 2024 12:47:31 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed987d33sm13946207f8f.43.2024.11.11.12.47.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Nov 2024 12:47:30 -0800 (PST)
+Date: Tue, 12 Nov 2024 05:47:26 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"kernel@collabora.com" <kernel@collabora.com>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	"fshao@chromium.org" <fshao@chromium.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>
+Subject: Re: [PATCH v4 1/2] PCI: mediatek-gen3: Add support for setting
+ max-link-speed limit
+Message-ID: <20241111204726.GA2193665@rocinante>
+References: <20241104114935.172908-1-angelogioacchino.delregno@collabora.com>
+ <20241104114935.172908-2-angelogioacchino.delregno@collabora.com>
+ <D5DF0QIO2UZQ.29U999LYCC05M@rocinante>
+ <f8ca0f82-2851-40d9-983b-2a143b44263a@collabora.com>
+ <20241104132512.GC2504924@rocinante>
+ <c5385db34878763ba7df3711a514e4332418cbbd.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c5385db34878763ba7df3711a514e4332418cbbd.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_124033_066912_D46CF6CD 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_124734_063101_35CCDF67 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +96,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 7 Nov 2024 13:41:32 -0800, Jing Zhang wrote:
-> This patch series addresses a critical issue in the VGIC ITS tables'
-> save/restore mechanism, accompanied by a comprehensive selftest for bug
-> reproduction and verification.
+Hello,
+
+[...]
+> This patch may need more discussion. I have replied in the previous
+> version:
 > 
-> The fix is originally from Kunkun Jiang at [1].
+> https://lore.kernel.org/linux-pci/7e220693f076c84cc1bc3d91e797580b320b4598.camel@mediatek.com/T/#m1b9f2d26a228712b6b9d02eba11d8063862772c1
 > 
-> The identified bug manifests as a failure in VM suspend/resume operations.
-> The root cause lies in the repeated suspend attempts often required for
-> successful VM suspension, coupled with concurrent device interrupt registration
-> and freeing. This concurrency leads to inconsistencies in ITS mappings before
-> the save operation, potentially leaving orphaned Device Translation Entries
-> (DTEs) and Interrupt Translation Entries (ITEs) in the respective tables.
-> 
-> [...]
+> Should we wait longer before applying this patch?
 
-Taking the immediate fixes for now, selftest might need a bit more work
-(will review soon). Note that I squashed patch 2 + 3 together as well.
+We can drop the series, and it's not yet too lat to do so, if you believe
+this would break devices like the one you tested the changes on.
 
-Applied to kvmarm/next, thanks!
+> Do you have any suggestions? I can provide more logs or test results if
+> needed. Sorry for the inconvenience.
 
-[3/5] KVM: arm64: vgic-its: Add a data length check in vgic_its_save_*
-      https://git.kernel.org/kvmarm/kvmarm/c/7fe28d7e68f9
-[4/5] KVM: arm64: vgic-its: Clear DTE when MAPD unmaps a device
-      https://git.kernel.org/kvmarm/kvmarm/c/e9649129d33d
-[5/5] KVM: arm64: vgic-its: Clear ITE when DISCARD frees an ITE
-      https://git.kernel.org/kvmarm/kvmarm/c/7602ffd1d5e8
+AngeloGioacchino, have you seen the reply (see the link above) from Jianjun?
 
---
-Best,
-Oliver
+	Krzysztof
 
