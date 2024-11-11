@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD03D2E9FF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 14:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6329FD2E9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 14:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mj2DNZ1KVT5OMTBp9DuFZAenW0xgDUzq6xmlXFq+iFA=; b=p6tCHM3X1JeLUrxDuAbp740U7Z
-	xn8J0CGfJeoxyPnnjhR2iS7WrMQRe9zXjWYHdX5H1ouReK1+uCgVV67haXx98FtSZS9LIRkecjiHz
-	ZSs/Pd06RlvhHKScPDa+LXalIQuYzhBc79oIwBkYwR9hVbcL/mV/CJRDmDvSsRxhgb+2ToRYO3sTU
-	zWP0zFPbSN6CjRp/3UR9ZXfKGVYmvP1yGEqqAh9z7CHnhbFja+ntxu+jbnQIvuDx8nZ0td+/+7sxR
-	HmzEyASFD05QmyNgeySexl/kTre4lbntnbFbt+yW+5EhgbpsJ0NbzIJfbgbxEQHlXecxQPXK0xA4j
-	7W9A5ttw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tuqia7OQULS7sK2kzJuLS7KdCl0A7kyfaxBKB/3K/qA=; b=vmPTLGFjz86wsgIXAWoxbrWCjs
+	MdXs0HgdpAiuLKCwbnN8iR5l9zm229Yd8ZO293e1XE8WDte047K5HDeiZ3mCWII9+zDpKtfTLKYvg
+	MdRht9tq7lta6Y9Gt8MFTUeDqMsGJE6/F4skAf9sc+ZDdvW6nvT3hBM37jRweBMjQ4zKZ8yOyYlJv
+	djP6rtsSxDuDhxAY6LwUcP94eVfO8WhOd+Pd9i5a/QEMNi1aYQxJQG5nbLLBIuGRCrXp9RcKtnZHE
+	5TH7zV++/BRazn+H6nE6rBormhmg8CHdqBfyqTzb6at63UdgGbuAsMUudwzo82nGpaW7odrSuT8Bp
+	/F8mZo4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAVDV-00000000I8t-2Eu0;
-	Mon, 11 Nov 2024 14:16:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tAVFF-00000000IMp-2eSv;
+	Mon, 11 Nov 2024 14:18:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAVAN-00000000HV6-1HNf
+	id 1tAVBM-00000000Hiq-39x8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 14:13:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731334398;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Mj2DNZ1KVT5OMTBp9DuFZAenW0xgDUzq6xmlXFq+iFA=;
-	b=WR0rOHufg9NlQQIZUjsym4d+IZkAtdkfDizH1nkx90+pg/pXwKrlfBSJRZRH0Z+Gi2xMy7
-	5ItTTPlSTt5NFvTTx3Zc+6nNu9Ee9EfYY0DaNw3554bOY0nQ2RWH/hlkoep5XnFUFqGlHO
-	bU8YdAFnoGXLWIj2AIYteHtvDDq2luY=
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
- [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-76-_0bAHEx7NameC-CNSFBa5g-1; Mon, 11 Nov 2024 09:13:16 -0500
-X-MC-Unique: _0bAHEx7NameC-CNSFBa5g-1
-X-Mimecast-MFC-AGG-ID: _0bAHEx7NameC-CNSFBa5g
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-717fac47d50so1582982a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 06:13:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731334396; x=1731939196;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Mj2DNZ1KVT5OMTBp9DuFZAenW0xgDUzq6xmlXFq+iFA=;
-        b=Jzhq7IzD4K6Q6xIBf6ZhYIqsBlicnM3uU3Q3oEXTly/HrRqkguz5CGbA9OFtzHFlf9
-         rLe4C2f8bU44LWffC46FsRL7dpVD4c8g2QRQ9Ds0VdEntTsogSIBzFlKZYNOlkt6akIY
-         AwoM8i+eX4nIZ/vIXYXNCjam5cec779jaeCFX0XZAHCQFnNn2fan6NVI4GVowsu9i/QY
-         b2iwptCqBEyjEy8bI3k55bPYU2sUxynbE8UMfHzW78cED30+1LsGIyAAjn7mnrVepduj
-         TrGbzJmxem8XbYcU/ZXurglRkgMexR3Lu+xqy/7TOoQ/uQiMBfHr3h8tvOqyHKwIuPU3
-         YRkg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwrQBq/SOeAAZNICEjTbZNZ5YfIW2AGQsYZaX/FLzviaHshTFZ1leTMV7zElQ5AfzWJ9IpMpiaYcRJplaGc6tk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY6ob0B/oTocI+y1wZRHGkPj1NT7OpY6KCFsRxZhG5eaYZmBPf
-	K1x4KoyHkOaWvn2jxi/g5TCZ4kTB9/X5xU0RNoJghMgnXx9Mw17QTf2Y7T2Tx3byetExDohZrIG
-	q6MdRK1Ex4b+0JdsDi/w7iQ2+Vc9qrd1qKCdeY5YXJlR+PiIx4Ty1rhvz7OkUEbU9b+UB0eSGTx
-	8CBDHoszHDr4RUqHKa3vlxxFlLAErAv/RarUDTFytPjfGV5EI=
-X-Received: by 2002:a05:6830:3983:b0:703:7777:244b with SMTP id 46e09a7af769-71a1c1de353mr2811824a34.1.1731334395769;
-        Mon, 11 Nov 2024 06:13:15 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGo6HGRnVfI0fIsFktnZWZHQNrBxxLllEj9rzg2nwPC9BnHMmVQLaszslpdE13aC0lzeqP2KIYWY8A9A1AJpG4=
-X-Received: by 2002:a05:6830:3983:b0:703:7777:244b with SMTP id
- 46e09a7af769-71a1c1de353mr2811813a34.1.1731334395414; Mon, 11 Nov 2024
- 06:13:15 -0800 (PST)
-MIME-Version: 1.0
-References: <CALE0LRvJ-n77oU=O9__NdSLw2v33zMK+WYkn2LcwWMwHCbohQw@mail.gmail.com>
- <CAC_iWjJEXU+dodjvWQYM9ohPa3P2p0bFG=exGoi-iYFrLLbCTA@mail.gmail.com>
- <CALE0LRtUz8hd4pdR9sX2Sb6tOn=K4wkRnGG9B7f72qU8JFQSYQ@mail.gmail.com>
- <CAC_iWjJLSSTO0Ca7rgOWAHfWzbkBkKHkQedRUbcwsoU0dtrsGA@mail.gmail.com>
- <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com> <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com>
-In-Reply-To: <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Mon, 11 Nov 2024 15:13:04 +0100
-Message-ID: <CALE0LRsYXXaao2uCUMFkd8Y6f5Mxgoc-Qpft_y8wWW3ZiekbbA@mail.gmail.com>
-Subject: Re: optee-based efi runtime variable service on TI j784s4 platforms
-To: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Sumit Garg <sumit.garg@linaro.org>, linux-efi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	op-tee@lists.trustedfirmware.org, Manorit Chawdhry <m-chawdhry@ti.com>, 
-	Udit Kumar <u-kumar1@ti.com>, "Menon, Nishanth" <nm@ti.com>, 
-	Masahisa Kojima <kojima.masahisa@socionext.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: snqgXUcbf06EC6UFhdUbBZSelwW5fgSCFw3TTrmCGs4_1731334396
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 11 Nov 2024 14:14:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 37408A41687;
+	Mon, 11 Nov 2024 14:12:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 301A0C4CECF;
+	Mon, 11 Nov 2024 14:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731334459;
+	bh=PoPdwj1OQ3NAGnnRRgFR/1m9IjlmuXmKSCrXN0KMYnI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=k27hNG3zdyrQjrjJlks+mEgxDtHxY3SQ+EK/+jcSreLIOQf8WQaUjYn23dS+3Dj9f
+	 wEYpMNPSMoNzvlRj3Pfa6lVCfha1+8/uYZ9UgPKtxgQ73Cljb3g6hJwqGWvqID4neW
+	 cAcRvAcEc6vvNLZF1lFqzASOtf5FId14eIkXpQOfZFx6rpyoT9kjpxdSVt3qNmoLqP
+	 +O6ZaLqD2ih3BDLt1wy8YDCJm6cYqp/EtuhSipP/Y7JOk8ExpSUk6abaTCXUZjxRC2
+	 rvGBRz+GWbeniUhP8nOlxGmUHSeZf7Db3CGqxooLeSNZr2seCGIZvlG8ABxfCwl3yl
+	 4M2Kz8Gkq6kCQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAVBI-00Bsig-MM;
+	Mon, 11 Nov 2024 14:14:16 +0000
+Date: Mon, 11 Nov 2024 14:14:15 +0000
+Message-ID: <86pln1zwlk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>,
+	tglx@linutronix.de,
+	bhelgaas@google.com,
+	alex.williamson@redhat.com,
+	jgg@nvidia.com,
+	leonro@nvidia.com,
+	shameerali.kolothum.thodi@huawei.com,
+	dlemoal@kernel.org,
+	kevin.tian@intel.com,
+	smostafa@google.com,
+	andriy.shevchenko@linux.intel.com,
+	reinette.chatre@intel.com,
+	eric.auger@redhat.com,
+	ddutile@redhat.com,
+	yebin10@huawei.com,
+	brauner@kernel.org,
+	apatel@ventanamicro.com,
+	shivamurthy.shastri@linutronix.de,
+	anna-maria@linutronix.de,
+	nipun.gupta@amd.com,
+	marek.vasut+renesas@mailbox.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address for each MSI vector
+In-Reply-To: <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
+References: <cover.1731130093.git.nicolinc@nvidia.com>
+	<a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robin.murphy@arm.com, nicolinc@nvidia.com, tglx@linutronix.de, bhelgaas@google.com, alex.williamson@redhat.com, jgg@nvidia.com, leonro@nvidia.com, shameerali.kolothum.thodi@huawei.com, dlemoal@kernel.org, kevin.tian@intel.com, smostafa@google.com, andriy.shevchenko@linux.intel.com, reinette.chatre@intel.com, eric.auger@redhat.com, ddutile@redhat.com, yebin10@huawei.com, brauner@kernel.org, apatel@ventanamicro.com, shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de, nipun.gupta@amd.com, marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_061319_528970_7DE11FD3 
-X-CRM114-Status: GOOD (  47.04  )
+X-CRM114-CacheID: sfid-20241111_061420_939936_E37028BA 
+X-CRM114-Status: GOOD (  27.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,361 +107,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 11 Nov 2024 13:09:20 +0000,
+Robin Murphy <robin.murphy@arm.com> wrote:
+> 
+> On 2024-11-09 5:48 am, Nicolin Chen wrote:
+> > On ARM GIC systems and others, the target address of the MSI is translated
+> > by the IOMMU. For GIC, the MSI address page is called "ITS" page. When the
+> > IOMMU is disabled, the MSI address is programmed to the physical location
+> > of the GIC ITS page (e.g. 0x20200000). When the IOMMU is enabled, the ITS
+> > page is behind the IOMMU, so the MSI address is programmed to an allocated
+> > IO virtual address (a.k.a IOVA), e.g. 0xFFFF0000, which must be mapped to
+> > the physical ITS page: IOVA (0xFFFF0000) ===> PA (0x20200000).
+> > When a 2-stage translation is enabled, IOVA will be still used to program
+> > the MSI address, though the mappings will be in two stages:
+> >    IOVA (0xFFFF0000) ===> IPA (e.g. 0x80900000) ===> 0x20200000
+> > (IPA stands for Intermediate Physical Address).
+> > 
+> > If the device that generates MSI is attached to an IOMMU_DOMAIN_DMA, the
+> > IOVA is dynamically allocated from the top of the IOVA space. If attached
+> > to an IOMMU_DOMAIN_UNMANAGED (e.g. a VFIO passthrough device), the IOVA is
+> > fixed to an MSI window reported by the IOMMU driver via IOMMU_RESV_SW_MSI,
+> > which is hardwired to MSI_IOVA_BASE (IOVA==0x8000000) for ARM IOMMUs.
+> > 
+> > So far, this IOMMU_RESV_SW_MSI works well as kernel is entirely in charge
+> > of the IOMMU translation (1-stage translation), since the IOVA for the ITS
+> > page is fixed and known by kernel. However, with virtual machine enabling
+> > a nested IOMMU translation (2-stage), a guest kernel directly controls the
+> > stage-1 translation with an IOMMU_DOMAIN_DMA, mapping a vITS page (at an
+> > IPA 0x80900000) onto its own IOVA space (e.g. 0xEEEE0000). Then, the host
+> > kernel can't know that guest-level IOVA to program the MSI address.
+> > 
+> > To solve this problem the VMM should capture the MSI IOVA allocated by the
+> > guest kernel and relay it to the GIC driver in the host kernel, to program
+> > the correct MSI IOVA. And this requires a new ioctl via VFIO.
+> 
+> Once VFIO has that information from userspace, though, do we really
+> need the whole complicated dance to push it right down into the
+> irqchip layer just so it can be passed back up again? AFAICS
+> vfio_msi_set_vector_signal() via VFIO_DEVICE_SET_IRQS already
+> explicitly rewrites MSI-X vectors, so it seems like it should be
+> pretty straightforward to override the message address in general at
+> that level, without the lower layers having to be aware at all, no?
 
-Thanks a lot for your support.
++1.
 
-On Mon, Nov 11, 2024 at 12:01=E2=80=AFPM Ilias Apalodimas
-<ilias.apalodimas@linaro.org> wrote:
->
-> On Mon, 11 Nov 2024 at 10:21, Enric Balletbo i Serra
-> <eballetb@redhat.com> wrote:
-> >
-> > Hi Ilias,
-> >
-> > On Sat, Nov 9, 2024 at 1:31=E2=80=AFAM Ilias Apalodimas
-> > <ilias.apalodimas@linaro.org> wrote:
-> > >
-> > > On Fri, 8 Nov 2024 at 23:11, Enric Balletbo i Serra <eballetb@redhat.=
-com> wrote:
-> > > >
-> > > > Hi Ilias,
-> > > >
-> > > > Thanks for your quick answer.
-> > > >
-> > > > On Fri, Nov 8, 2024 at 4:48=E2=80=AFPM Ilias Apalodimas
-> > > > <ilias.apalodimas@linaro.org> wrote:
-> > > > >
-> > > > > Hi Enric,
-> > > > >
-> > > > > On Fri, 8 Nov 2024 at 12:26, Enric Balletbo i Serra <eballetb@red=
-hat.com> wrote:
-> > > > > >
-> > > > > > Hi all,
-> > > > > >
-> > > > > > I'm looking for any advice/clue to help me to progress on enabl=
-ing
-> > > > > > TEE-base EFI Runtime Variable Service on TI a j784s4 platforms.
-> > > > > >
-> > > > > > I basically followed the steps described in u-boot documentatio=
-n [1],
-> > > > > > I enabled some debugging messages but I think I'm at the point =
-that
-> > > > > > the problem might be in the StandaloneMM application, and I'm n=
-ot sure
-> > > > > > how to debug it.
-> > > > > >
-> > > > > > What I see is that when I run the tee-supplicant daemon, it loo=
-ks like
-> > > > > > the tee_client_open_session() call loops forever and the tee_st=
-mm_efi
-> > > > > > driver never ends to probe.
-> > > > > >
-> > > > > > With debug enabled I got the following messages.
-> > > > >
-> > > > > I assume reading and storing variables already works in U-Boot ri=
-ght?
-> > > > >
-> > > >
-> > > > Reading and storing variables to the RPMB partition in U-Boot works=
-,
-> > > > that's using the mmc rpmb command from u-boot,
-> > >
-> > > Are you talking about env variables? Perhaps you store them in the mm=
-c
-> > > and not the RPMB partition?
-> > > There's some information here [0]
-> > >
-> > > > But setting
-> > > > CONFIG_EFI_MM_COMM_TEE=3Dy in u-boot I end with a similar behaviour
-> > > > (although I'm not able to debug at u-boot level) What I see is that
-> > > > u-boot gets stuck
-> > > > when bootefi bootmgr is invoqued. I can also reproduce the issue wi=
-th
-> > > > bootefi hello.
-> > > >
-> > > > =3D> run bootcmd
-> > > >   Scanning for bootflows in all bootdevs
-> > > >   Seq  Method       State   Uclass    Part  Name                   =
-   Filename
-> > > >   ---  -----------  ------  --------  ----  -----------------------=
--
-> > > > ----------------
-> > > >   Scanning global bootmeth 'efi_mgr':
-> > > > ( gets stuck here)
-> > > >
-> > > > or
-> > > >
-> > > > =3D> bootefi hello
-> > > > (gets stuck)
-> > > >
-> > > > To debug I disabled CONFIG_EFI_MM_COMM_TEE to not get stuck and byp=
-ass
-> > > > the error and go to Linux. My understanding is that
-> > > > CONFIG_EFI_MM_COMM_TEE is only required to read/write efi variables=
- at
-> > > > u-boot level but OPTEE is running the StandaloneMM service. Am I
-> > > > right?
-> > >
-> > > U-Boot has two ways of storing EFI variables [0] . You can either
-> > > store them in a file or the RPMB partition. The correct thing to do,
-> > > since you want to use the RPMB, is enable CONFIG_EFI_MM_COMM_TEE. I a=
-m
-> > > not sure why the hand happens, but one thing we can improve is figure
-> > > out why it hangs and print a useful message.
-> > > There are a number of reasons that might lead to a failure. Is the
-> > > RPMB key programmed on your board? Have a look at this [1] in case it
-> > > helps
-> > >
-> > > >
-> > > > > >
-> > > > > > # tee-supplicant
-> > > > > > D/TC:? 0 tee_ta_init_session_with_context:557 Re-open trusted s=
-ervice
-> > > > > > 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
-> > > > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > >
-> > > If I had to guess, OP-TEE doesn't store the variables in the RPMB, ca=
-n
-> > > you compile it with a bit more debugging enabled?
-> > >
-> >
-> > Here is a log with CFG_TEE_CORE_LOG_LEVEL=3D4, CFG_TEE_CORE_DEBUG=3Dy a=
-nd
-> > CFG_TEE_TA_LOG_LEVEL=3D4
-> >
-> > https://paste.centos.org/view/eed83a5b
-> >
-> > At the beginning of the log I see
-> >
-> > D/TC:0 0 check_ta_store:449 TA store: "REE"
-> >
-> > Which looks wrong to me as I built optee with:
-> >   CFG_REE_FS=3Dn
-> >   CFG_RPMB_FS_DEV_ID=3D0
-> >   CFG_RPMB_FS=3Dy
->
-> Yes it does look wrong. Our compilation flags are
-> CFG_RPMB_FS=3Dy CFG_RPMB_FS_DEV_ID=3D0 CFG_RPMB_WRITE_KEY=3Dy
-> CFG_RPMB_TESTKEY=3Dy CFG_REE_FS=3Dn CFG_CORE_ARM64_PA_BITS=3D48
-> CFG_SCTLR_ALIGNMENT_CHECK=3Dn
->
+I would like to avoid polluting each and every interrupt controller
+with usage-specific knowledge (they usually are brain-damaged enough).
+We already have an indirection into the IOMMU subsystem and it
+shouldn't be a big deal to intercept the message for all
+implementations at this level.
 
-Mine are very similar
-
-make CROSS_COMPILE=3D"$CC32" CROSS_COMPILE64=3D"$CC64" \
-    PLATFORM=3Dk3-j784s4 CFG_ARM64_core=3Dy CFG_CONSOLE_UART=3D0x8 \
-    CFG_RPMB_FS_DEV_ID=3D0 CFG_REE_FS=3Dn CFG_RPMB_FS=3Dy \
-    CFG_RPMB_WRITE_KEY=3Dy CFG_RPMB_TESTKEY=3Dy \
-    CFG_STMM_PATH=3DBL32_AP_MM.fd \
-    CFG_CORE_HEAP_SIZE=3D524288 CFG_CORE_DYN_SHM=3Dy CFG_SCTLR_ALIGNMENT_CH=
-ECK=3Dn \
-    CFG_TEE_CORE_LOG_LEVEL=3D4 CFG_TEE_CORE_DEBUG=3Dy CFG_TEE_TA_LOG_LEVEL=
-=3D4
-
-There is a difference with CFG_CORE_ARM64_PA_BITS=3D48 , my platform define=
-s it to
-
-   core/arch/arm/plat-k3/conf.mk:$(call force,CFG_CORE_ARM64_PA_BITS,36)
-
-But I don't think this is the problem.
-
-> The testkey etc aren't required if your board has a way of reading the
-> RPMB key from a secure location -- in fact, using the testkey is not
-> secure. Is the RPMB programmed on your board? Also can you make sure
-> CFG_RPMB_FS_DEV_ID needs to be 0? How many sd interfaces your board
-> has?
-
-My board has two interfaces, an eMMC and a SD-card, 0 is indeed the
-eMMC and I'm using the testkey which I assume was programmed the first
-time I booted with all this. Unfortunately I lost the traces. But,
-optee_rpmb works. I.e:
-
-     =3D> optee_rpmb write test 1234
-     =3D> optee_rpmb read test 4
-     Read 4 bytes, value =3D 1234
-
-
-> IOW in U-Boot does 'mmc dev 0 && mmc info' print information for the
-> RPMB partition?
->
-
-    =3D> mmc dev 0
-    switch to partitions #0, OK
-    mmc0(part 0) is current device
-    =3D> mmc info
-    Device: mmc@4f80000
-    Manufacturer ID: 13
-    OEM: 4e
-    Name: G1M15L
-    Bus Speed: 200000000
-    Mode: HS400 (200MHz)
-    Rd Block Len: 512
-    MMC version 5.1
-    High Capacity: Yes
-    Capacity: 29.6 GiB
-    Bus Width: 8-bit DDR
-    Erase Group Size: 512 KiB
-    HC WP Group Size: 8 MiB
-    User Capacity: 29.6 GiB WRREL
-    Boot Capacity: 31.5 MiB ENH
-    RPMB Capacity: 4 MiB ENH
-    Boot area 0 is not write protected
-    Boot area 1 is not write protected
-    =3D> mmc list
-    mmc@4f80000: 0 (eMMC)
-    mmc@4fb0000: 1
-
-Any interaction with efi gives me the same result (printenv -e,
-efidebug, bootefi ...)
-
-=3D> efidebug query -bs -rt -nv
-D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-D/TC:? 0 spm_handle_scall:859 Received FFA version
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-... stuck here ... I need to reset the board
-
-Will continue to see if I can get more useful messages
+I also wonder how to handle the case of braindead^Wwonderful platforms
+where ITS transactions are not translated by the SMMU. Somehow, VFIO
+should be made aware of this situation.
 
 Thanks,
-  Enric
 
-> Thanks
-> /Ilias
-> >
-> > I'll try to add some more prints to verify if REE is used as a store
-> > system, I assume this should say something about RPMB. Am I right with
-> > this?
->
->
-> >
-> > > > > >
-> > > > > > And tracing the function calls gives me that:
-> > > > > >
-> > > > > >       tee_stmm_efi_probe() {
-> > > > > >              tee_client_open_context() {
-> > > > > >                optee_get_version() {
-> > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > > >                } (ret=3D0xd)
-> > > > > >                tee_ctx_match(); (ret=3D0x1)
-> > > > > >                optee_smc_open() {
-> > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > > >                  optee_open() {
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                  } (ret=3D0x0)
-> > > > > >                } (ret=3D0x0)
-> > > > > >              } (ret=3D0xffff000004e71c80)
-> > > > > >              tee_client_open_session() {
-> > > > > >                optee_open_session() {
-> > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800)
-> > > > > >                  optee_get_msg_arg() {
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909000)
-> > > > > >                  } (ret=3D0xffff000002909000)
-> > > > > >                  tee_session_calc_client_uuid(); (ret=3D0x0)
-> > > > > >                  optee_to_msg_param(); (ret=3D0x0)
-> > > > > >                  optee_smc_do_call_with_arg() {
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909000)
-> > > > > >                    tee_shm_get_va(); (ret=3D0xffff000002909060)
-> > > > > >                    optee_cq_wait_init(); (ret=3D0xffff000002e55=
-910)
-> > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
-> > > > > >      ... continues sending this forever ...
-> > > > > >      ... Hit ^C to stop recording ...
-> > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e55800=
-)
-> > > > > >                    optee_smccc_smc() {
-> > > > > >
-> > > > > > [1] https://docs.u-boot.org/en/latest/develop/uefi/uefi.html#us=
-ing-op-tee-for-efi-variables
-> > > > > >
-> > > > > > Thanks in advance,
-> > > > >
-> > > > > The most common problem with this is miscompiling the tee_supplic=
-ant
-> > > > > application.
-> > > > > Since we don't know if the system has an RPMB, we emulate it in t=
-he
-> > > > > tee_supplicant. How did you get the supplicant and can you check =
-if it
-> > > > > was compiled with RPMB_EMU=3D0 or 1?
-> > > > >
-> > > >
-> > > > I'm using the tee-supplicant provided by the fedora package which i=
-s
-> > > > built with ` -DRPMB_EMU=3D0`, I think that's correct, right?
-> > > >
-> > >
-> > > Yes, this is correct. We fixed the Fedora package to compile the
-> > > supplicant correctly a while back.
-> > >
-> > > [0] https://www.linaro.org/blog/uefi-secureboot-in-u-boot/
-> > > [1] https://apalos.github.io/Protected%20UEFI%20variables%20with%20U-=
-Boot.html#Protected%20UEFI%20variables%20with%20U-Boot
-> > >
-> > >
-> > > Regards
-> > > /Ilias
-> > > > Thanks,
-> > > >    Enric
-> > > >
-> > > > > Thanks
-> > > > > /Ilias
-> > > > >
-> > > > > >    Enric
-> > > > > >
-> > > > >
-> > > >
-> > >
-> >
->
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
