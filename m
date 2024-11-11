@@ -4,171 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A582D2E9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE70CD2E9EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=; b=eXzrOeofkkxLOPUdWITucxtP6w
-	9QEOaOhJo+puGmXULFN8UEm8VBThJYo1a3c0aS4EQNYkJwSLvQLgFSgMINyfPDAoChgqZX1bEHVum
-	F2UZ/8EQLE2i7GjOBbLjDtlEAtiyLXVrE8Po7Jmqunr+/LliaL9oMHnQtw1fcDVQo7aMgbklT6BE7
-	jZP7Wd/M8dRlfSA7SAOO2sdJZ4nQgZw+XjaDi7G0xi5/3LNtv9DrAsXx5ygjEZ4RhsRyePh4r5ggn
-	yyKhoiKTteedvG9uNi1E0zWX53hLIljvefVfJ4A+Fe4hTQ+HvN1ryhglo+VupoAcu4gcM7rLGNznV
-	OrFQayWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aHQIRqlD5UHz4mCtBj10mCMftiJf0gJGTEjDwwUXwj0=; b=XJxKzcS3C3uw2OyfuTJjVc2hg/
+	2txPPG9kuefyw52AWFgAd4WadSjgs7f4NB/I/zAkV7RkM2SprGXd6SZwsGEzVk2xX10lru+LDPg87
+	DWDZyA3HnmA2XgvPAmtx3OYt2cBnujx3tUWDW/fnHXQULLJK+N8wfOePnPwGVGHSogEhjtLRa9uep
+	YziX6I+YwCM/7CfHWFbDz90F2tAERsbQsZqhOoSMBib4CgdldF99JGsyEK21WhssHi9n2/eNuLKrO
+	S8a7ejIAjZZ6ejsea/xhVOpEeh1X8tRU/FlcBzc5txD6ldPT8UZNfFy+wM0mMTm/YgeSNh1Kyhw4U
+	90KwWu/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAUFq-000000009pj-3Yf5;
-	Mon, 11 Nov 2024 13:14:54 +0000
-Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAU6D-000000007ML-3Ldx
+	id 1tAUHa-00000000A4E-4Biq;
+	Mon, 11 Nov 2024 13:16:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAUAZ-000000008o1-3fXl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 13:05:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DGLQc/yhypQaUjBRns7xdH6rjZ2xcVcoyw4C0U3PtdAVQAt54Jqs1ukXK4quzS1EKdb4H6V6xO3xQ4btNgZJaZiVcmmFR5PruZEKcCAJmFoqdk1PC7eqynSg3lo70y2ZuPyP4Ob8nRrguGvx+j5XRtgR8RhFIyOFqfg9mGCUqMjYHWGAZpPUq1fd8V4vD2txYvDezzJ5tA1dh8FeMo2QBFrT0r03VPiWnxh/Oy10JL5mfRgEKXSU3IdkS5RzENM3mZ0G3Njq4JaYc8eY4WMG03l67j9ZCI9bnxwOPWpEtK6bn6UDiAXuitnJF9JEuYoKPdqYX9MInpxknnJKSUuDIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=;
- b=uEhbaGDhBH02lGuKGqM0fBquPiOYnoVEO3Nh9r9/ffXWN/9gY2uqMA1Kq/Bmtv1YiUKTYZNjj6gzPyxSqAB4n/DjJbjw4TqY9rh40SQ3d/i5xvZ3ud3h8iT9J3fKr+WsaPOc58rT4pI3O+N2Bvr1WfQaQ2RZmJ3HcnVEvdUc+AK865ZHBe2xJNrcWrFmnuKbZ1wp548c1r34PLDggB0mlRKWkqxN9l/kytxbyV2hQEK72kp77kZf/xs/esl4rWXXrGEWIr6wnHckt3ZMeFTsFDG9SyliRE8QRD3Yihj8kdUIn4n9+R3zpV0kPTENHSXYKIwLgEWlXBWIXrFNGpLc8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=;
- b=XI9lTrXdVtiKGjIa/ow1FqLNcSTD1wWoDGeSMOPxhwPU76L/cRnJm5Ffg0YAqvHOqWVgzmdQMQalMXB1Fbz8IpYed7DVgsstMiNsVDQ8p223cN+O4ywc9FKrNT9avcu0wzhPYms57c4j7Hg+GfFgFq4OYaHndTvMaFFUYWboULw=
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
- by CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Mon, 11 Nov
- 2024 13:04:48 +0000
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c%4]) with mapi id 15.20.8137.027; Mon, 11 Nov 2024
- 13:04:48 +0000
-From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-To: Marek Vasut <marex@denx.de>, "dmaengine@vger.kernel.org"
-	<dmaengine@vger.kernel.org>
-CC: =?utf-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <u.kleine-koenig@baylibre.com>,
-	"Simek, Michal" <michal.simek@amd.com>, Peter Korsgaard
-	<peter@korsgaard.com>, Vinod Koul <vkoul@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Katakam, Harini"
-	<harini.katakam@amd.com>, "Joseph, Abin" <Abin.Joseph@amd.com>
-Subject: RE: [PATCH] dmaengine: xilinx_dma: Fix freeup active list based on
- descriptor completion bit
-Thread-Topic: [PATCH] dmaengine: xilinx_dma: Fix freeup active list based on
- descriptor completion bit
-Thread-Index: AQHbK7YsIMHqB+OYBEGVEmCGVyTwsbKqCNFAgAAhawCAB/D1MA==
-Date: Mon, 11 Nov 2024 13:04:48 +0000
-Message-ID: <MN0PR12MB5953FAD7CEBB1C774271BE53B7582@MN0PR12MB5953.namprd12.prod.outlook.com>
-References: <20241031165835.55065-1-marex@denx.de>
- <MN0PR12MB595370521C2E3D61145D15BCB7532@MN0PR12MB5953.namprd12.prod.outlook.com>
- <f168e5bd-cdab-4405-98ef-20f7ee534e0c@denx.de>
-In-Reply-To: <f168e5bd-cdab-4405-98ef-20f7ee534e0c@denx.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|CH3PR12MB9194:EE_
-x-ms-office365-filtering-correlation-id: d8f82785-84dd-4ca8-bb65-08dd02516bce
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?cnRWa0hVeGVvNUJaVFdJOWpMajZ0eG44aGo1dWFKcmhvRzIwTDBTUk1NY0Ro?=
- =?utf-8?B?QVlGcFl1WXFjN3pLT2VTSXNrQ1NYaSsrUnlFeS96K1ZTcVFCU3JYZlBrZyt2?=
- =?utf-8?B?WmZTVzNoNGEzdnU0bmMvZ1A0djVHaTBLeU43Nm00TGhWWVF5bFBTYTZINTFQ?=
- =?utf-8?B?VHB6WGdlVElaUWdKRlhCTVNRNWFkeWxXdGJqbVArNDVHNkVIbXc1TWNCb1lv?=
- =?utf-8?B?L091OVd3V3dWdmFjV01KNDFiNDI3VnNDLzVTS2ptNkNwK2RjVWh4MklqbjdY?=
- =?utf-8?B?T290a2RLQ1huSG1aSklrQy9ZL3hqREcrQjI5cHVvN2JweTVDSW5OSTE1TmpP?=
- =?utf-8?B?TDVMV2E5ZmE4SGVkMFkvSGpWdEhOTWlwc0x0TzJQbVYycUMvNnRsT1dFSUd0?=
- =?utf-8?B?SDBHY1JSVWZkNjAxL0g0NmRWamhPUkE1NkpkekxTSU5YVnVpdGRXMDV2NVE0?=
- =?utf-8?B?NnpYTGRmM2wrVWhGblJCZzF2bkFoTml4SHVicjBXV0t0U090NWlmMWlQY1pP?=
- =?utf-8?B?WEdXcGE5NVBUWkk4Qk4vRjZIc212TmRDMXpMN0tRV0gyeEw3RHFkY3JkUjc3?=
- =?utf-8?B?czI2cmhObzBSWjRtNmkrbnRGK1dkUU9hSmdOcHU0MUE5NzdRb1hDYksvbGtk?=
- =?utf-8?B?YUdqbnFZdHF2ekNHQnlLK1ExRmkyT2oxWDVxcG5CRXZWOU5DTW9NTUh6dFBu?=
- =?utf-8?B?bFNrVlp5TktpU1RrVGdMWll1RnlGSlVybllkVnlCbmtSSE5LcTNNUjZpTGZS?=
- =?utf-8?B?ZGFGQlpGTUNsQkYvRVNHTUVMZHFxYzFYOXVSRk1qNDFuWDIrMkg4NnEzZGYw?=
- =?utf-8?B?ZFdPM04vWERiWXE1aUU5cWNBMHBZSU4xWTBUVW8yZ3dUODlNVXR4OUJQL3Nh?=
- =?utf-8?B?TVZyWEh3UFVmSlZLaE5CRk1jQVZBSVdJV3d1UytnbW96N2N5ZWhKU3c3d1V0?=
- =?utf-8?B?ZnBXbkxNQzV3b0t6OE4wRWhqSG5tYmkybSszUnVkN1hEc3hXUlY4VDNnWkxB?=
- =?utf-8?B?dmU4NEozS1VaQzdsNjJqUUd5U0p5MmJPbXI4YWF0UFFxT2FpY1l5RFl3aXV2?=
- =?utf-8?B?OVhva1pSWlorZG9PVTE4SmlwU0hDTDVTRkJkOHowRzdTY0ZRMlRuaFNMR1NG?=
- =?utf-8?B?VXVLMnlwSXoyRHdTaXJtVjlJa1NmdnNsT3g2d21KVVVtUy9MU2lhTmpESHpu?=
- =?utf-8?B?SWJ4UGYwcDEySFExc3JRckVubWd4cnA4K2FaSnVoRzJuZUtVWkhlTkt2YnJG?=
- =?utf-8?B?MXZpNGYvc2ZnaDc4YlJXOUhhSnZJNEV1dk5RYkYzUTZ6RmxXMzBTeDdtV1g0?=
- =?utf-8?B?S1EwUUxxU09JM0JHVEd2QU9QZ1JuWGtQKy9ZYkhvUEVabnFkUEFoNkowMDBU?=
- =?utf-8?B?TmxRYm1kNGNPVUVMQURJV2Q2eS9ncEJWMGpmSEV5eitnaTNQdHBiM2tlZmJk?=
- =?utf-8?B?ajh6ZFhKdmx6NVYxdzRCTDJXN3hTWGFSUWViVVBhOEZPR29GK1Z4NTRXTHdU?=
- =?utf-8?B?Qi9haW5DU0ovQkxjS1F2NXJWOWwvd1loRDZtb0pKK2EzamtCc2dLUUhSeTlN?=
- =?utf-8?B?NXhVNUg4M0hhK2EvamJLVEx4T0JjZ29KZXZML205enY5U08vV3pZcXFPSTRw?=
- =?utf-8?B?cHZuTHgweFMvMVQ1ckpYMEhxd2xSL3VqZWcrd1A5SG1IOXUvTVZNRVB3ZTNM?=
- =?utf-8?B?LzhVVTZzVzE0Z3hnQlkxcU52MnQxMC9mNE1lMzRhTFdCUURtT010bjc1bDFG?=
- =?utf-8?B?Sko2WVVscUFJNDRsUGRQOXVtSkxJOGs2Mmo1M2pCZUlwcHJhUXBoK2JNM3g1?=
- =?utf-8?B?dUQxb2Y0SCtMTHpLREtIbnpmT0ZjbjQxNlY3STl5cUNjTDR1cWVrSXE4WkFo?=
- =?utf-8?Q?/VA/7uVZa6qvj?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QWovZ2IrTVF0VXhkemxIZTZHVUtvWG0vdmxCMWNtTCtaSEFCOGNqSDVVdlAw?=
- =?utf-8?B?R2ZPM3ZMSkplekE4Q2pOQUp4T0JFSnpBNXZZUlFhVzdTb0o2dDN4bW8ycktp?=
- =?utf-8?B?dzVmZlovaHVSZ3paTFF5KzllY25aSkpCbythRkNJMFN4bE03UGNZc2h2NlNo?=
- =?utf-8?B?R0N4YXJQU3BHbUE3b3lTUWhFbmJPT09LbmlDNlZyU3d2ZXZlVm5WZjBMdkpC?=
- =?utf-8?B?UFo0bW5taFhKWm5IUDhiQlhIN05IZURxVm14dU9aaG9uUHZveG56SUhCUFRP?=
- =?utf-8?B?dXVVUXIyUFR1bHVGc3pQcWEyaDFVOTFqWldxZVBQNG9TMXNIOE5LYjdlTjVT?=
- =?utf-8?B?Y01VVFRXcWUwTVE1UG00UHk4ZVlFQmtGUzJmVFhXSHYyTnhJUnZ5RHpIZ3U5?=
- =?utf-8?B?QmE3QThic0FVS1lBb1hVUGdIbkVNQklaaThEdGo1QVQxVU9QaDZmV2FHQndz?=
- =?utf-8?B?ZE85QlNpT2t1cTRHYkI2SlJBSEkxQUdtV0N4UWllNVZzSUVLT1MzditocnZp?=
- =?utf-8?B?M1N3TkVONzl2NDg4NkQzOG05UFdIbVFtTk5iOEpMOU0wQkoxbTNZVXNJMjNN?=
- =?utf-8?B?d3hUTHNHWVBNSnhEbk93SjZobjI3NS84cHVISWltZ0Y3N3VUUElWcGRPc1B2?=
- =?utf-8?B?RGQrNE5NODUwbXNRRkw0bHN5bVBBQXRGWUFTUnR2ekc1SG1wa2NBZVAzV0dT?=
- =?utf-8?B?UWFvMWVWWXJ2b0d5Q1pBZXhCUFlIaUNmS1JxU05Cc3VYMWVDb0VRSnRXdzlw?=
- =?utf-8?B?N0NwODg3dXFwMnNOQUtRVVAxMHM1WlFhNk01M2V1Q0IxSXJxdzkycFc0eUgv?=
- =?utf-8?B?V0tlNlRodWV0UkMrc01oTndUVlNMRkVZQXdOcTlVU0hTbFdqOXNEWGZESWVI?=
- =?utf-8?B?NUl2RzkyRGlOM2d3ZXk1ZFdML0dRWk1PaTViUVN4NEE0OXR5emc0ZURuK29w?=
- =?utf-8?B?U3c1REJLbGZ2N0JlREw0K3NaR3h6eUJuNlVSYmVkOUVjaC9qMjNBK3d5c2wy?=
- =?utf-8?B?RE5RQmVEZjFDNEIxUzJjNS9QNGVCam9FWm1YZk9Ebm5ZbWlIeUlWZWV6NGhp?=
- =?utf-8?B?OWNIS1dOcnV0MlNWcjEycVlpQjhYUWtDbmI5VmJaR2RlZzVORTFoNFIrMjNy?=
- =?utf-8?B?TGxHelNsVGtxYnI0UFdLd013bUFRdUlYSm5LYWlkdEdtcWY4bDVZUkoxRnBY?=
- =?utf-8?B?YmU1UmxBT0xTenZiaUYzU1hNTmJVcDhIWDFMRE9taWFhdDFCTEttT3FiQWNC?=
- =?utf-8?B?Rm0vSFRlWjYzVnoyVjZjQTNFSXgrWUFCTEJ2dmhGdGNWMGJSQUxTeC8zM2pv?=
- =?utf-8?B?QmEvYkhSem5vbHUwamZjTFNpUWV3cnF2Q3pPZGY5OW1wRGVRM1dPWE5hNC9y?=
- =?utf-8?B?a09NRWtaQVJTK0NOVWdqbndTNnlXaXpGOXFKYWxTUUV5QmZ6UnJRQ2NValQ4?=
- =?utf-8?B?dUlnckk1eGNRV3lvQUVVWVJiUldlTlVld25RUWlkQ0FCVUtRY3NWaFlaZ3Nr?=
- =?utf-8?B?d3JsNTkzOU1FUG5PVlVtUUlEbU9qTk9JLzI1eUhXSmRZdWNnMkRBLytXWmJW?=
- =?utf-8?B?Rm8vVzlMV1NyZEhwRFdiT1RJdG4yaUZjVy9PZE9YeUJ0V0hnbnp5Y2RWS1Ev?=
- =?utf-8?B?SUwwRGdiL1FDclFGZzhYMXdsalVRMUgrazBQelBSSUhScVIxc1J4b2tNVnhY?=
- =?utf-8?B?aTJBWm1KcVpkTm9NMndUc1NoSjFlZElIa2dJTVpwZy9UN1MyMzkvQitqL1hH?=
- =?utf-8?B?UmQvTG5wVkFCTVlYeHhCNlhGcXF0eTF1M2YwNXlzOGNHZkVaQ3VxTWJsSlhr?=
- =?utf-8?B?RW90RzJEek45VHhEeFpucEsyUDZuN2F1SUkxR2YwV3c5ZXJLVjZkWGF6cjQz?=
- =?utf-8?B?SW1JdnlwbkVXVS9RbngwenNPVnY4SzAvendoVGhudWpOaVpwUEs3RjZyMFNO?=
- =?utf-8?B?Y3U3YWdPcG1LQThxWHNwTVZldjRRY1FoRERMTk8zMmsrUlk4MVdUMy9BMUds?=
- =?utf-8?B?OG5nQkJzRGladFB3UHM0eml3OVJHUWlPOUJLcWRlL3B6K1J2MHlWblNjdGZq?=
- =?utf-8?B?eGh0QlpaTUJLSktvc1Z4OVJKN1Y5ZHN5ZEZNcHNRL2RSZnFndjI5Vjc1YWNn?=
- =?utf-8?Q?o7zA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 11 Nov 2024 13:09:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 695071CE0;
+	Mon, 11 Nov 2024 05:09:55 -0800 (PST)
+Received: from [10.57.91.162] (unknown [10.57.91.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69E743F66E;
+	Mon, 11 Nov 2024 05:09:20 -0800 (PST)
+Message-ID: <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
+Date: Mon, 11 Nov 2024 13:09:20 +0000
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8f82785-84dd-4ca8-bb65-08dd02516bce
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2024 13:04:48.0681
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9IQG9tRTKB5N4jpjVYhrk5EH0LV3OxviKTeehvbWKWK6XGUMARgEnx3CHaEY9TKw
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9194
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address
+ for each MSI vector
+To: Nicolin Chen <nicolinc@nvidia.com>, maz@kernel.org, tglx@linutronix.de,
+ bhelgaas@google.com, alex.williamson@redhat.com
+Cc: jgg@nvidia.com, leonro@nvidia.com, shameerali.kolothum.thodi@huawei.com,
+ dlemoal@kernel.org, kevin.tian@intel.com, smostafa@google.com,
+ andriy.shevchenko@linux.intel.com, reinette.chatre@intel.com,
+ eric.auger@redhat.com, ddutile@redhat.com, yebin10@huawei.com,
+ brauner@kernel.org, apatel@ventanamicro.com,
+ shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de,
+ nipun.gupta@amd.com, marek.vasut+renesas@mailbox.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, kvm@vger.kernel.org
+References: <cover.1731130093.git.nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <cover.1731130093.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_050457_938221_0888A514 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20241111_050928_031837_CBEB4E0A 
+X-CRM114-Status: GOOD (  29.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,51 +73,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYXJlayBWYXN1dCA8bWFyZXhA
-ZGVueC5kZT4NCj4gU2VudDogV2VkbmVzZGF5LCBOb3ZlbWJlciA2LCAyMDI0IDU6MTIgUE0NCj4g
-VG86IFBhbmRleSwgUmFkaGV5IFNoeWFtIDxyYWRoZXkuc2h5YW0ucGFuZGV5QGFtZC5jb20+Ow0K
-PiBkbWFlbmdpbmVAdmdlci5rZXJuZWwub3JnDQo+IENjOiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5r
-bGVpbmUta29lbmlnQGJheWxpYnJlLmNvbT47IFNpbWVrLCBNaWNoYWwNCj4gPG1pY2hhbC5zaW1l
-a0BhbWQuY29tPjsgUGV0ZXIgS29yc2dhYXJkIDxwZXRlckBrb3JzZ2FhcmQuY29tPjsgVmlub2Qg
-S291bA0KPiA8dmtvdWxAa2VybmVsLm9yZz47IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFk
-ZWFkLm9yZzsgS2F0YWthbSwgSGFyaW5pDQo+IDxoYXJpbmkua2F0YWthbUBhbWQuY29tPg0KPiBT
-dWJqZWN0OiBSZTogW1BBVENIXSBkbWFlbmdpbmU6IHhpbGlueF9kbWE6IEZpeCBmcmVldXAgYWN0
-aXZlIGxpc3QgYmFzZWQgb24NCj4gZGVzY3JpcHRvciBjb21wbGV0aW9uIGJpdA0KPiANCj4gT24g
-MTEvNi8yNCAxMDo0OCBBTSwgUGFuZGV5LCBSYWRoZXkgU2h5YW0gd3JvdGU6DQo+ID4+IC0tLS0t
-T3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+ID4+IEZyb206IE1hcmVrIFZhc3V0IDxtYXJleEBkZW54
-LmRlPg0KPiA+PiBTZW50OiBUaHVyc2RheSwgT2N0b2JlciAzMSwgMjAyNCAxMDoyOCBQTQ0KPiA+
-PiBUbzogZG1hZW5naW5lQHZnZXIua2VybmVsLm9yZw0KPiA+PiBDYzogTWFyZWsgVmFzdXQgPG1h
-cmV4QGRlbnguZGU+OyBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUtDQo+ID4+IGtvZW5pZ0Bi
-YXlsaWJyZS5jb20+OyBTaW1laywgTWljaGFsIDxtaWNoYWwuc2ltZWtAYW1kLmNvbT47IFBldGVy
-DQo+ID4+IEtvcnNnYWFyZCA8cGV0ZXJAa29yc2dhYXJkLmNvbT47IFBhbmRleSwgUmFkaGV5IFNo
-eWFtDQo+ID4+IDxyYWRoZXkuc2h5YW0ucGFuZGV5QGFtZC5jb20+OyBWaW5vZCBLb3VsIDx2a291
-bEBrZXJuZWwub3JnPjsNCj4gPj4gbGludXgtYXJtLSBrZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
-Zw0KPiA+PiBTdWJqZWN0OiBbUEFUQ0hdIGRtYWVuZ2luZTogeGlsaW54X2RtYTogRml4IGZyZWV1
-cCBhY3RpdmUgbGlzdCBiYXNlZA0KPiA+PiBvbiBkZXNjcmlwdG9yIGNvbXBsZXRpb24gYml0DQo+
-ID4+DQo+ID4+IFRoZSB4aWxpbnhfZG1hIGlzIGNvbXBsZXRlbHkgYnJva2VuIHNpbmNlIHRoZSBy
-ZWZlcmVuY2VkIGNvbW1pdCwNCj4gPj4gYmVjYXVzZSBpZiB0aGUgKHNlZy0+aHcuc3RhdHVzICYg
-WElMSU5YX0RNQV9CRF9DT01QX01BU0spIGlzIG5vdCBzZXQNCj4gPj4gZm9yIHdoYXRldmVyIHJl
-YXNvbiwgdGhlIGN1cnJlbnQgZGVzY3JpcHRvciBpcyBuZXZlciBtb3ZlZCB0bw0KPiA+DQo+ID4g
-SSB3YW50IHRvIHVuZGVyc3RhbmQgbW9yZSBvbiB0aGlzIGZhaWx1cmUgc2NlbmFyaW8uICBIb3cg
-dG8gcmVwbGljYXRlIGl0Pw0KPiANCj4gVGhlIHZlcnkgYmFzaWMgdGVzdCBpcyB0byB1c2UgQVhJ
-IERNQSBmb3IgRE1BIHRyYW5zZmVyLCB3aGljaCBmYWlscyB0byBjb21wbGV0ZQ0KPiBiZWNhdXNl
-IG9mIHRoaXMgbmV3IGNodW5rIG9mIGNvZGUuIEJ5IHJlYWRpbmcgdGhlIGNvbW1pdCBoaXN0b3J5
-LCBJIGNhbiBvbmx5DQo+IGNvbmNsdWRlIHRoaXMgd2FzIHNvbWV0aGluZyB0aGF0IGdvdCBhZGRl
-ZCBkdWUgdG8gdGhlIGlycV9kZWxheSwgYnV0IHdhcyBuZXZlcg0KPiB0ZXN0ZWQgb24gY29yZSB3
-aXRob3V0IGlycV9kZWxheSBzdXBwb3J0ID8NCg0KVGhpcyBjb21taXQgaXMgYWxzbyBwcmVzZW50
-IGluIGRvd25zdHJlYW0geGlsaW54IGtlcm5lbCBhbmQgYWxsIGxlZ2FjeSByZWdyZXNzaW9uDQph
-cmUgd29ya2luZyBmaW5lIHdpdGhvdXQgeGxueCxpcnEtZGVsYXkuICBBZGRlZCBBYmluIHRvIHRo
-aXMgdGhyZWFkIHdobyBjb25maXJtZWQNCnRoYXQgYXhpZG1hdGVzdCBjbGllbnRbMV0gd29ya3Mg
-d2l0aG91dCBJUlEgZGVsYXkuDQoNClsxXTogaHR0cHM6Ly9naXRodWIuY29tL1hpbGlueC9saW51
-eC14bG54L2Jsb2IvbWFzdGVyL2RyaXZlcnMvZG1hL3hpbGlueC9heGlkbWF0ZXN0LmMNCg0KU28g
-SSB3YW50IHRvIHVuZGVyc3RhbmQgd2hhdCBpcyB0aGUgdGVzdCBjbGllbnQgeW91IGFyZSB1c2lu
-Zz8NCg0KPiANCj4gPiBXaHkgaXMgY29tcGxldGlvbiBiaXQgbm90IHNldCA/IEJhc2VkIG9uIHRo
-ZSBkb2N1bWVudGF0aW9uIGNvbXBsZXRlZA0KPiA+IGJpdCBpbmRpY2F0ZXMgdG8gdGhlIHNvZnR3
-YXJlIHRoYXQgdGhlIERNQSBFbmdpbmUgaGFzIGNvbXBsZXRlZCB0aGUNCj4gPiB0cmFuc2ZlciBh
-cyBkZXNjcmliZWQgYnkgdGhlIGFzc29jaWF0ZWQgZGVzY3JpcHRvci4gVGhlIERNQSBFbmdpbmUN
-Cj4gPiBzZXRzIHRoaXMgYml0IHRvIDEgd2hlbiB0aGUgdHJhbnNmZXIgaXMgY29tcGxldGVkLg0K
-PiBJIGRvbid0IGtub3csIHRoZSBiaXQgd2FzIG5vdCB1c2VkIGJlZm9yZSB5b3UgYWRkZWQgdGhl
-IGJpdCBhbmQgY2hlY2sgb2YgdGhlIGJpdCBpbiB0aGUNCj4gcHJvYmxlbWF0aWMgY29tbWl0IDdi
-Y2RhYTY1ODEwMiAoImRtYWVuZ2luZTogeGlsaW54X2RtYToNCj4gRnJlZXVwIGFjdGl2ZSBsaXN0
-IGJhc2VkIG9uIGRlc2NyaXB0b3IgY29tcGxldGlvbiBiaXQiKQ0K
+On 2024-11-09 5:48 am, Nicolin Chen wrote:
+> On ARM GIC systems and others, the target address of the MSI is translated
+> by the IOMMU. For GIC, the MSI address page is called "ITS" page. When the
+> IOMMU is disabled, the MSI address is programmed to the physical location
+> of the GIC ITS page (e.g. 0x20200000). When the IOMMU is enabled, the ITS
+> page is behind the IOMMU, so the MSI address is programmed to an allocated
+> IO virtual address (a.k.a IOVA), e.g. 0xFFFF0000, which must be mapped to
+> the physical ITS page: IOVA (0xFFFF0000) ===> PA (0x20200000).
+> When a 2-stage translation is enabled, IOVA will be still used to program
+> the MSI address, though the mappings will be in two stages:
+>    IOVA (0xFFFF0000) ===> IPA (e.g. 0x80900000) ===> 0x20200000
+> (IPA stands for Intermediate Physical Address).
+> 
+> If the device that generates MSI is attached to an IOMMU_DOMAIN_DMA, the
+> IOVA is dynamically allocated from the top of the IOVA space. If attached
+> to an IOMMU_DOMAIN_UNMANAGED (e.g. a VFIO passthrough device), the IOVA is
+> fixed to an MSI window reported by the IOMMU driver via IOMMU_RESV_SW_MSI,
+> which is hardwired to MSI_IOVA_BASE (IOVA==0x8000000) for ARM IOMMUs.
+> 
+> So far, this IOMMU_RESV_SW_MSI works well as kernel is entirely in charge
+> of the IOMMU translation (1-stage translation), since the IOVA for the ITS
+> page is fixed and known by kernel. However, with virtual machine enabling
+> a nested IOMMU translation (2-stage), a guest kernel directly controls the
+> stage-1 translation with an IOMMU_DOMAIN_DMA, mapping a vITS page (at an
+> IPA 0x80900000) onto its own IOVA space (e.g. 0xEEEE0000). Then, the host
+> kernel can't know that guest-level IOVA to program the MSI address.
+> 
+> To solve this problem the VMM should capture the MSI IOVA allocated by the
+> guest kernel and relay it to the GIC driver in the host kernel, to program
+> the correct MSI IOVA. And this requires a new ioctl via VFIO.
+
+Once VFIO has that information from userspace, though, do we really need 
+the whole complicated dance to push it right down into the irqchip layer 
+just so it can be passed back up again? AFAICS 
+vfio_msi_set_vector_signal() via VFIO_DEVICE_SET_IRQS already explicitly 
+rewrites MSI-X vectors, so it seems like it should be pretty 
+straightforward to override the message address in general at that 
+level, without the lower layers having to be aware at all, no?
+
+Thanks,
+Robin.
+
+> Extend the VFIO path to allow an MSI target IOVA to be forwarded into the
+> kernel and pushed down to the GIC driver.
+> 
+> Add VFIO ioctl VFIO_IRQ_SET_ACTION_PREPARE with VFIO_IRQ_SET_DATA_MSI_IOVA
+> to carry the data.
+> 
+> The downstream calltrace is quite long from the VFIO to the ITS driver. So
+> in order to carry the MSI IOVA from the top to its_irq_domain_alloc(), add
+> patches in a leaf-to-root order:
+> 
+>    vfio_pci_core_ioctl:
+>      vfio_pci_set_irqs_ioctl:
+>        vfio_pci_set_msi_prepare:                           // PATCH-7
+>          pci_alloc_irq_vectors_iovas:                      // PATCH-6
+>            __pci_alloc_irq_vectors:                        // PATCH-5
+>              __pci_enable_msi/msix_range:                  // PATCH-4
+>                msi/msix_capability_init:                   // PATCH-3
+>                  msi/msix_setup_msi_descs:
+>                    msi_insert_msi_desc();                  // PATCH-1
+>                  pci_msi_setup_msi_irqs:
+>                    msi_domain_alloc_irqs_all_locked:
+>                      __msi_domain_alloc_locked:
+>                        __msi_domain_alloc_irqs:
+>                          __irq_domain_alloc_irqs:
+>                            irq_domain_alloc_irqs_locked:
+>                              irq_domain_alloc_irqs_hierarchy:
+>                                msi_domain_alloc:
+>                                  irq_domain_alloc_irqs_parent:
+>                                    its_irq_domain_alloc(); // PATCH-2
+> 
+> Note that this series solves half the problem, since it only allows kernel
+> to set the physical PCI MSI/MSI-X on the device with the correct head IOVA
+> of a 2-stage translation, where the guest kernel does the stage-1 mapping
+> that MSI IOVA (0xEEEE0000) to its own vITS page (0x80900000) while missing
+> the stage-2 mapping from that IPA to the physical ITS page:
+>    0xEEEE0000 ===> 0x80900000 =x=> 0x20200000
+> A followup series should fill that gap, doing the stage-2 mapping from the
+> vITS page 0x80900000 to the physical ITS page (0x20200000), likely via new
+> IOMMUFD ioctl. Once VMM sets up this stage-2 mapping, VM will act the same
+> as bare metal relying on a running kernel to handle the stage-1 mapping:
+>    0xEEEE0000 ===> 0x80900000 ===> 0x20200000
+> 
+> This series (prototype) is on Github:
+> https://github.com/nicolinc/iommufd/commits/vfio_msi_giova-rfcv1/
+> It's tested by hacking the host kernel to hard-code a stage-2 mapping.
+> 
+> Thanks!
+> Nicolin
+> 
+> Nicolin Chen (7):
+>    genirq/msi: Allow preset IOVA in struct msi_desc for MSI doorbell
+>      address
+>    irqchip/gic-v3-its: Bypass iommu_cookie if desc->msi_iova is preset
+>    PCI/MSI: Pass in msi_iova to msi_domain_insert_msi_desc
+>    PCI/MSI: Allow __pci_enable_msi_range to pass in iova
+>    PCI/MSI: Extract a common __pci_alloc_irq_vectors function
+>    PCI/MSI: Add pci_alloc_irq_vectors_iovas helper
+>    vfio/pci: Allow preset MSI IOVAs via VFIO_IRQ_SET_ACTION_PREPARE
+> 
+>   drivers/pci/msi/msi.h             |   3 +-
+>   include/linux/msi.h               |  11 +++
+>   include/linux/pci.h               |  18 ++++
+>   include/linux/vfio_pci_core.h     |   1 +
+>   include/uapi/linux/vfio.h         |   8 +-
+>   drivers/irqchip/irq-gic-v3-its.c  |  21 ++++-
+>   drivers/pci/msi/api.c             | 136 ++++++++++++++++++++----------
+>   drivers/pci/msi/msi.c             |  20 +++--
+>   drivers/vfio/pci/vfio_pci_intrs.c |  41 ++++++++-
+>   drivers/vfio/vfio_main.c          |   3 +
+>   kernel/irq/msi.c                  |   6 ++
+>   11 files changed, 212 insertions(+), 56 deletions(-)
+> 
+
 
