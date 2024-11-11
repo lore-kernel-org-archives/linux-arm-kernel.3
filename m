@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCB9D3ABFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 22:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22F0D3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 22:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gUTNs8Dh8KbUYmm7/7ZTpr23lbHf0Ptz/iifQK4G1M=; b=d5BDMM/wp6azDk3MmyxruHG/dm
-	tv5S2jkGa8ZPKupi/5+YGtCLn4hm5mPHNJuQsxdeHhQRmKxnNlY2C4mM9wlTYwtp0NYqsCNOCQiIY
-	zLiYcDAtvihyoA17ZJzkI8Q1eMolnbJfPtUuaSuZK7pdmHFm2pH9iBQydBwKpqfnllkj0AJq2XNV8
-	vZ4lgeNFHhQbHFSitiVlW2K/slpuTpHCbFWbRNnR8F5ytT0ikoQ3CkyE8QpjoJUefJlc1ndS1Y9yc
-	QSTz4A0jtNV4ql+Xqb2oNGCb9xaKBdxkS+itcVZfKcqbcNDMqCRryRBUVDap6hBLarY9U4mwfRdre
-	E3wWioFQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xKJrUNekn+fLC6kP93590FUWGJ6YXqoOuHlp1oOaerI=; b=I5FDesGMMic/rb5wDMLbLO+dWZ
+	uOvzW3yWqib1gXTESf2CumVJDW0bVHreUDws2Gszm8uqSqFTODdLU3IMMVLwQIFjdKgYDDBL/TRrg
+	zJRbff3IFe6MpXyG8RdCrAs/Gv7TOLUk06oWMYZETldUnIg30c/kl5M7IwpzIO3Pqqq9sXoPLDqNo
+	ASd2vCRsdaKvwMXfJ+50+UG6kEJ61g+EpZ7+2qo7ih/6M5bHg6Y/v1taTqJzvwdoFQaT6Sv+vBmaM
+	keyedF044+07veIMo3PWH1YALMiGbwHLw26pr1F15N4y/qBtOsJltLhqjO9PIWmIYb+fgWhVlVJ/N
+	+URoUvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAclQ-00000001UWs-0yzg;
-	Mon, 11 Nov 2024 22:20:04 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1tAcqI-00000001VBh-2JKF;
+	Mon, 11 Nov 2024 22:25:06 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAcjd-00000001UEq-07f3
+	id 1tAcoU-00000001V0O-2RJ7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 22:18:14 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-460963d6233so32905711cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 14:18:12 -0800 (PST)
+	Mon, 11 Nov 2024 22:23:15 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7b148919e82so341531885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 14:23:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731363491; x=1731968291; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4gUTNs8Dh8KbUYmm7/7ZTpr23lbHf0Ptz/iifQK4G1M=;
-        b=ORuxCYDbk9Vt0hJyEgj4WB63XjjsOZR2JnC2z6VE1+0+weVV83+ml1+uVHOYs5oR1L
-         TaN/2ou57hs1B5aEckLHb6XibIHtFAyMsKSE8Ufi4VJbh7yxtnTvQ6VfsYYO11i/oSjR
-         HhScZcE7BCiPfY5r3cUBZlJBPvqldzr1w1S/SKUF9eEu6Lr+l/ZZwqPhTS1Dr8yI7jVz
-         zP0gMrc7VyRXH8Q0a8o41cULje6JVbtrcwG3tiUA1t3pNYq2MSiOW1FgVf7m89EjQ1OA
-         MweribXutjHa5lKy2b5SJCYsgDIvC0E8jDYtZSDmkIZQKtLD6iFk3ecrj0J4T2abuGtP
-         Hb9g==
+        d=gmail.com; s=20230601; t=1731363793; x=1731968593; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xKJrUNekn+fLC6kP93590FUWGJ6YXqoOuHlp1oOaerI=;
+        b=Yq2lL+RIhDXrrap7173dZGzM5h/1dy5JAY1JAhdWRPvHvn0qOw+ruEbbR+pUTHYudm
+         t+HuhF/WWEv+Q8N7mVe+KKlozfg2pDf+Zf/UBxoRxIsKG9+ZMU33LBsb+xPDoXGxiNsR
+         mQppzlj162sqIfzcln7gqNzSNTPcEFhXT0MmkJKx631pRRfcJ9uHTq3L4iVSnj6Kstux
+         KtnLgKpi2fYC22eZ/xTirb2yxNWR4xfnrjdIJt+gAufjx+lUXX8DU/vW453g7g2Nf6bd
+         pUV3ik/eG4lfL2JG1xaFFSS9BzKa3dWlyPxATW5udHQHPigdNYZ0IyugN2UJHqHAzcjH
+         uYMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731363491; x=1731968291;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4gUTNs8Dh8KbUYmm7/7ZTpr23lbHf0Ptz/iifQK4G1M=;
-        b=tJk55EUDl3adVPpNTJLjURAF4tSNmodTcgnIJgNpH3Wd1m4F+69j9bYsynv+Zi0jgI
-         sQewARojOzeZUyWyN/GcFukmsDWJyv9/UpPUonNpdgZOXh4vYoKZigTqNIuJxjBhxXmU
-         81cbv26AwXpG+dWycjs/LZjZDRLwlEFBnIFDDbJkX2a11vGPcNoGHBZ9ofsOkXZRASCG
-         Eo+g/5CwWbWuPvRI5x+HIwnENng0rqML9Sc3shuJLYu0pF/QNAI+aadGYdKiK3oodgHv
-         P24JqdZG7XyyJ/gqkh9dehs872w8r3G8sT375CzrDe1RWFEsk/p3O/f8YQZFCdu5QPB5
-         Txhg==
-X-Forwarded-Encrypted: i=1; AJvYcCWl6FjPrY2z7ajMiiR+f+5Ouy4V1+usP1jPHLz5Nf2vU6hMBuB/WcW2JMEidmO/iz99UJyY8rHKWgCDLQk9RNot@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZu+cAH6WwLdf832qL/UOrlxnZBORGEyraNMuU7/54Gs7auYQs
-	GMQGAILv4wEfI5WiRpny2MKYqqiEPkN1DtdeLzHMcMCf/GuLdU5vo5IRUQ6MzgkZhGtD3rKxV4s
-	vzMBHBtCrHd0O9p4ipY89zjarGbM=
-X-Google-Smtp-Source: AGHT+IFBSFXwho3XyINI2DcEU/Xepv/720ecvGA0qvDaPusA/yXsvod0iClvHMK0JEz9Jm2Fdz03yfn9c4Ds8BzAZio=
-X-Received: by 2002:a05:622a:1b1e:b0:461:1475:6135 with SMTP id
- d75a77b69052e-463093003c5mr217546251cf.1.1731363491551; Mon, 11 Nov 2024
- 14:18:11 -0800 (PST)
-MIME-Version: 1.0
-References: <20241111191934.17231-1-jiashengjiangcool@gmail.com>
- <8505aa28-5f88-4fcd-b3bc-cb5db89d2a08@baylibre.com> <CANeGvZVE6fX5hV-p1xXsGR=Z=pABzDtvV9wY_XBbLwJUWNVtyQ@mail.gmail.com>
- <b2f6db15-51a8-498d-ab5b-52f0f6a2e098@baylibre.com>
-In-Reply-To: <b2f6db15-51a8-498d-ab5b-52f0f6a2e098@baylibre.com>
+        d=1e100.net; s=20230601; t=1731363793; x=1731968593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xKJrUNekn+fLC6kP93590FUWGJ6YXqoOuHlp1oOaerI=;
+        b=SawhAleAGypjbTvL9zbgbvZVZcvb0E5x0ovbyWY6rAb1cnYI2jAB2/l10c+neo5Vo8
+         7g1uZeAmVx3vbmAMgc9ebC+aJX35DIz+aWqwWpXS+JfvN3hMvYAD6SuZR7YQX1OBU/7N
+         oxNisGhDfeBJjRuYKhIJ6uybKb1NK5/+JWpYjh4DKuRP0dm9Y37Hmq/7pg+HoxCaouPN
+         cCAcbU0W4IQuJVK+1BBB25tDJA6AS3F3xSBpWRY5loEEtqTUdkyl2mwcPZehRzT1ab04
+         vgNyJE26E9/OFit1NK+ZVlh3xxVJCdKUEsSCxyl+MxM70nI+vvlwqFzQCshoaj5T9Y/n
+         YqfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUi3ybhYG6bHmRjUfpWt8SA2WSaRB4oaomJcPnyLL2/PmQeTDK2G0I/GQK/r0mVi62lUdQSvUFXszVOgRD2qbSk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSLIhubqNgN5SPiTuKBEB+Q4AZ38KzDfVoTjyQIHZfq7VXejzw
+	Sn6wKhynUq0LXV2nKtDM7Ly1i0X3vu8GYlypoEr8wAyQykscXWq6
+X-Google-Smtp-Source: AGHT+IGFThbZRbYxwToYYeuVu+7TuIAwrVPuAA2eieBL7N+tsgVpKFWjBEQC2tvJmKh1er5auG0BMA==
+X-Received: by 2002:a05:620a:1aaa:b0:7ac:b118:a732 with SMTP id af79cd13be357-7b331dd2fb1mr2162857285a.32.1731363793253;
+        Mon, 11 Nov 2024 14:23:13 -0800 (PST)
+Received: from newman.cs.purdue.edu ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b32ac2dc06sm535599885a.12.2024.11.11.14.23.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Nov 2024 14:23:13 -0800 (PST)
 From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Date: Mon, 11 Nov 2024 17:18:00 -0500
-Message-ID: <CANeGvZW0Ja=pwLuYqZh1KWn3Y7Oany4JvALHWcHoM-jALedSbw@mail.gmail.com>
-Subject: Re: [PATCH v3] iio: trigger: stm32-timer-trigger: Add check for clk_enable()
-To: David Lechner <dlechner@baylibre.com>
-Cc: jic23@kernel.org, lars@metafoo.de, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, u.kleine-koenig@baylibre.com, 
-	tgamblin@baylibre.com, fabrice.gasnier@st.com, benjamin.gaignard@linaro.org, 
-	lee@kernel.org, linux-iio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: dlechner@baylibre.com
+Cc: jic23@kernel.org,
+	lars@metafoo.de,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	u.kleine-koenig@baylibre.com,
+	tgamblin@baylibre.com,
+	fabrice.gasnier@st.com,
+	benjamin.gaignard@linaro.org,
+	lee@kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v4] iio: trigger: stm32-timer-trigger: Add check for clk_enable()
+Date: Mon, 11 Nov 2024 22:23:10 +0000
+Message-Id: <20241111222310.12339-1-jiashengjiangcool@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_141813_101430_54C965ED 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20241111_142314_648264_99DD9F42 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,169 +101,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 4:15=E2=80=AFPM David Lechner <dlechner@baylibre.co=
-m> wrote:
->
-> On 11/11/24 2:36 PM, Jiasheng Jiang wrote:
-> > On Mon, Nov 11, 2024 at 2:45=E2=80=AFPM David Lechner <dlechner@baylibr=
-e.com> wrote:
-> >>
-> >> On 11/11/24 1:19 PM, Jiasheng Jiang wrote:
-> >>> Add check for the return value of clk_enable() in order to catch the
-> >>> potential exception.
-> >>>
-> >>> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-> >>> ---
-> >>> Changelog:
-> >>>
-> >>> v2 -> v3:
-> >>>
-> >>> 1. Simplify code with cleanup helpers.
-> >>>
-> >>> v1 -> v2:
-> >>>
-> >>> 1. Remove unsuitable dev_err_probe().
-> >>> ---
-> >>
-> >> ...
-> >>
-> >>> @@ -492,21 +495,25 @@ static int stm32_counter_write_raw(struct iio_d=
-ev *indio_dev,
-> >>>               return -EINVAL;
-> >>>
-> >>>       case IIO_CHAN_INFO_ENABLE:
-> >>> -             mutex_lock(&priv->lock);
-> >>> -             if (val) {
-> >>> -                     if (!priv->enabled) {
-> >>> -                             priv->enabled =3D true;
-> >>> -                             clk_enable(priv->clk);
-> >>> -                     }
-> >>> -                     regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_=
-CEN);
-> >>> -             } else {
-> >>> -                     regmap_clear_bits(priv->regmap, TIM_CR1, TIM_CR=
-1_CEN);
-> >>> -                     if (priv->enabled) {
-> >>> -                             priv->enabled =3D false;
-> >>> -                             clk_disable(priv->clk);
-> >>> +
-> >>> +             scoped_guard(mutex, &priv->lock) {
-> >>> +                     if (val) {
-> >>> +                             if (!priv->enabled) {
-> >>> +                                     priv->enabled =3D true;
-> >>> +                                     ret =3D clk_enable(priv->clk);
-> >>> +                                     if (ret)
-> >>> +                                             return ret;
-> >>> +                             }
-> >>> +                             regmap_set_bits(priv->regmap, TIM_CR1, =
-TIM_CR1_CEN);
-> >>> +                     } else {
-> >>> +                             regmap_clear_bits(priv->regmap, TIM_CR1=
-, TIM_CR1_CEN);
-> >>> +                             if (priv->enabled) {
-> >>> +                                     priv->enabled =3D false;
-> >>> +                                     clk_disable(priv->clk);
-> >>> +                             }
-> >>>                       }
-> >>>               }
-> >>> -             mutex_unlock(&priv->lock);
-> >>> +
-> >>>               return 0;
-> >>>       }
-> >>
-> >>
-> >> Another way to do this that avoids changing the indent
-> >> so much is placing braces around the case body like this.
-> >> This also avoids the compile error from using guard after
-> >> case directly.
-> >>
-> >>
-> >>         case IIO_CHAN_INFO_ENABLE: {
-> >>                 guard(mutex)(&priv->lock);
-> >>
-> >>                 if (val) {
-> >>                         if (!priv->enabled) {
-> >>                                 priv->enabled =3D true;
-> >>                                 ret =3D clk_enable(priv->clk);
-> >>                                 if (ret)
-> >>                                         return ret;
-> >>                         }
-> >>                         regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1=
-_CEN);
-> >>                 } else {
-> >>                         regmap_clear_bits(priv->regmap, TIM_CR1, TIM_C=
-R1_CEN);
-> >>                         if (priv->enabled) {
-> >>                                 priv->enabled =3D false;
-> >>                                 clk_disable(priv->clk);
-> >>                         }
-> >>                 }
-> >>
-> >>                 return 0;
-> >>         }
-> >>
-> >
-> > Looks great.
-> > But there is no indentation between "switch" and "case".
-> > As a result, the closing braces of "switch" and "case" will
-> > be placed in the same column.
-> >
-> > Like this:
-> >
-> > switch(mask) {
-> > case IIO_CHAN_INFO_ENABLE: {
-> >
-> > }
-> > }
-> >
-> > -Jiasheng
->
->
-> Usually, there is a default: case as well, so we could move the
-> final return and make it look like this:
->
->         switch (mask) {
->         case IIO_CHAN_INFO_RAW:
->                 return regmap_write(priv->regmap, TIM_CNT, val);
->
->         case IIO_CHAN_INFO_SCALE:
->                 /* fixed scale */
->                 return -EINVAL;
->
->         case IIO_CHAN_INFO_ENABLE: {
->                 guard(mutex)(&priv->lock);
->                 if (val) {
->                         if (!priv->enabled) {
->                                 priv->enabled =3D true;
->                                 clk_enable(priv->clk);
->                         }
->                         regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CE=
-N);
->                 } else {
->                         regmap_clear_bits(priv->regmap, TIM_CR1, TIM_CR1_=
-CEN);
->                         if (priv->enabled) {
->                                 priv->enabled =3D false;
->                                 clk_disable(priv->clk);
->                         }
->                 }
->                 return 0;
->         }
->                 default:
->                         return -EINVAL;
->         }
->
->
-> And it is unusual, but I found kvm_arm_pmu_v3_get_attr() that
-> also has this double inline brace at the end of a switch statement.
->
->         }
->         }
->
-> So even if it doesn't look so nice, it does seem to be the
-> "correct" style.
+Add check for the return value of clk_enable() in order to catch the
+potential exception.
 
-Thanks, I will submit a v4 patch.
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+---
+Changelog:
 
--Jiasheng
+v3 -> v4:
+
+1. Place braces around the case body.
+
+v2 -> v3:
+
+1. Simplify code with cleanup helpers.
+
+v1 -> v2:
+
+1. Remove unsuitable dev_err_probe().
+---
+ drivers/iio/trigger/stm32-timer-trigger.c | 45 ++++++++++++++---------
+ 1 file changed, 27 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
+index 0684329956d9..d599d50fbb3b 100644
+--- a/drivers/iio/trigger/stm32-timer-trigger.c
++++ b/drivers/iio/trigger/stm32-timer-trigger.c
+@@ -119,7 +119,7 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
+ 			     unsigned int frequency)
+ {
+ 	unsigned long long prd, div;
+-	int prescaler = 0;
++	int prescaler = 0, ret;
+ 	u32 ccer;
+ 
+ 	/* Period and prescaler values depends of clock rate */
+@@ -150,10 +150,12 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
+ 	if (ccer & TIM_CCER_CCXE)
+ 		return -EBUSY;
+ 
+-	mutex_lock(&priv->lock);
++	guard(mutex)(&priv->lock);
+ 	if (!priv->enabled) {
+ 		priv->enabled = true;
+-		clk_enable(priv->clk);
++		ret = clk_enable(priv->clk);
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	regmap_write(priv->regmap, TIM_PSC, prescaler);
+@@ -173,7 +175,6 @@ static int stm32_timer_start(struct stm32_timer_trigger *priv,
+ 
+ 	/* Enable controller */
+ 	regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+-	mutex_unlock(&priv->lock);
+ 
+ 	return 0;
+ }
+@@ -307,7 +308,7 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
+ 	struct stm32_timer_trigger *priv = dev_get_drvdata(dev);
+ 	struct iio_trigger *trig = to_iio_trigger(dev);
+ 	u32 mask, shift, master_mode_max;
+-	int i;
++	int i, ret;
+ 
+ 	if (stm32_timer_is_trgo2_name(trig->name)) {
+ 		mask = TIM_CR2_MMS2;
+@@ -322,15 +323,16 @@ static ssize_t stm32_tt_store_master_mode(struct device *dev,
+ 	for (i = 0; i <= master_mode_max; i++) {
+ 		if (!strncmp(master_mode_table[i], buf,
+ 			     strlen(master_mode_table[i]))) {
+-			mutex_lock(&priv->lock);
++			guard(mutex)(&priv->lock);
+ 			if (!priv->enabled) {
+ 				/* Clock should be enabled first */
+ 				priv->enabled = true;
+-				clk_enable(priv->clk);
++				ret = clk_enable(priv->clk);
++				if (ret)
++					return ret;
+ 			}
+ 			regmap_update_bits(priv->regmap, TIM_CR2, mask,
+ 					   i << shift);
+-			mutex_unlock(&priv->lock);
+ 			return len;
+ 		}
+ 	}
+@@ -482,6 +484,7 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+ 				   int val, int val2, long mask)
+ {
+ 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
++	int ret;
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_RAW:
+@@ -491,12 +494,14 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+ 		/* fixed scale */
+ 		return -EINVAL;
+ 
+-	case IIO_CHAN_INFO_ENABLE:
+-		mutex_lock(&priv->lock);
++	case IIO_CHAN_INFO_ENABLE: {
++		guard(mutex)(&priv->lock);
+ 		if (val) {
+ 			if (!priv->enabled) {
+ 				priv->enabled = true;
+-				clk_enable(priv->clk);
++				ret = clk_enable(priv->clk);
++				if (ret)
++					return ret;
+ 			}
+ 			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+ 		} else {
+@@ -506,9 +511,10 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+ 				clk_disable(priv->clk);
+ 			}
+ 		}
+-		mutex_unlock(&priv->lock);
++
+ 		return 0;
+ 	}
++	}
+ 
+ 	return -EINVAL;
+ }
+@@ -601,7 +607,7 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
+ 				 unsigned int mode)
+ {
+ 	struct stm32_timer_trigger *priv = iio_priv(indio_dev);
+-	int sms = stm32_enable_mode2sms(mode);
++	int sms = stm32_enable_mode2sms(mode), ret;
+ 
+ 	if (sms < 0)
+ 		return sms;
+@@ -609,12 +615,15 @@ static int stm32_set_enable_mode(struct iio_dev *indio_dev,
+ 	 * Triggered mode sets CEN bit automatically by hardware. So, first
+ 	 * enable counter clock, so it can use it. Keeps it in sync with CEN.
+ 	 */
+-	mutex_lock(&priv->lock);
+-	if (sms == 6 && !priv->enabled) {
+-		clk_enable(priv->clk);
+-		priv->enabled = true;
++	scoped_guard(mutex, &priv->lock) {
++		if (sms == 6 && !priv->enabled) {
++			ret = clk_enable(priv->clk);
++			if (ret)
++				return ret;
++
++			priv->enabled = true;
++		}
+ 	}
+-	mutex_unlock(&priv->lock);
+ 
+ 	regmap_update_bits(priv->regmap, TIM_SMCR, TIM_SMCR_SMS, sms);
+ 
+-- 
+2.25.1
+
 
