@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02BFD12D5E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 01:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78599D12D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 01:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QbMy0MkSESX4PQjdE/j1NW6OIoNUNFGcz7CyKPirSDg=; b=NqLqhfqtu9ksyv3sGE0HW+5mpV
-	xY5U5+vk7h0I2NKqIgczMWlEKI41XSv/MQplW9x2Eu8i1eNmV9phP1XEkyoPR+z42mbqNHyXTA17e
-	o5MWCVLcKXqR395Xt4X6OhzgUEhv90AAQzifS31V8kYAMc1Db4Vlc79CfWsejQ1Ac/HvdK6rsA/uP
-	SQoWAO8N2BPAdYY8tonsnJNDvs2rfCjtA6YTITN2y15z+ukwufQhzpU+RbJloonN9knHpgAUfc2t9
-	FsC4EkKkR1qdGKkJCCMPyLA5DxEJ/xEeXTtgvfSIGBnKmRjye1+8UDpKmsqsCRDJJTBRpcRZSy/zi
-	PUHh1pDQ==;
+	bh=160EcdKb4zdEvoYGIGuRUDe/8wcMZ7jXvAKiQuJGmc0=; b=PGiGhiMAxXjtA/qYxjdn6t3PLG
+	rAvsFKwkLmvp10Qgxl5J+fwcy4RwQVUTLdoZzSnZaHTIe21f4kECQ1ZMJ1ZhpYhy4qyubjBrDteHY
+	FWC9aRQiPgBEAGcsJYwGmO0+V45+AlsUb2HJq2YKVxkBjdS5mV7yM7V4EiEoI09gYKzwutyHvWTEs
+	lGX+EgsQabZoFQLNUyWlRwrqdv6oez2lt6ubf9NwyQDhKRxqD6LEtMhsI1QCwNPHSVS/SrJRsu3U5
+	/9rpDwSLBodS7mEwSsMHR1HUWkkYSFfT6Rb+FjNl/YzUeY1Ro7tac9Xt4BG3AYHINCnRvoT3ebYbH
+	25Rq1ESw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAJWB-0000000G48M-0JJ6;
-	Mon, 11 Nov 2024 01:47:03 +0000
+	id 1tAJXu-0000000G4Jm-2brn;
+	Mon, 11 Nov 2024 01:48:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAJGg-0000000G1tJ-0vVT
+	id 1tAJGh-0000000G1sQ-3UYu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 01:31:04 +0000
+	Mon, 11 Nov 2024 01:31:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A48FB1CE0;
-	Sun, 10 Nov 2024 17:31:31 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E2D913D5;
+	Sun, 10 Nov 2024 17:31:33 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A63D3F66E;
-	Sun, 10 Nov 2024 17:30:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 04A193F66E;
+	Sun, 10 Nov 2024 17:31:01 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -46,17 +46,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-usb@vger.kernel.org
-Subject: [PATCH 08/14] dt-bindings: usb: sunxi-musb: add Allwinner A523 compatible string
-Date: Mon, 11 Nov 2024 01:30:27 +0000
-Message-ID: <20241111013033.22793-9-andre.przywara@arm.com>
+Subject: [PATCH 09/14] dt-bindings: usb: add A523 compatible string for EHCI and OCHI
+Date: Mon, 11 Nov 2024 01:30:28 +0000
+Message-ID: <20241111013033.22793-10-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.2
 In-Reply-To: <20241111013033.22793-1-andre.przywara@arm.com>
 References: <20241111013033.22793-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_173102_451559_BBE7BB2B 
-X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-CacheID: sfid-20241110_173103_933424_2C1C621E 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,28 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner A523/T527 SoCs have a MUSB controller fully compatible to
-the D1 (and ultimately the A33), with five endpoints.
+The Allwinner A523/T527 feature generic EHCI and OHCI compatible USB-2.0
+host controllers (in addition to an MUSB and an XHCI controller).
 
-Add the new name to the list of compatible strings.
+Add the new name to the list of supported compatible strings.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- .../devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml        | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/usb/generic-ehci.yaml | 1 +
+ Documentation/devicetree/bindings/usb/generic-ohci.yaml | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
-index f972ce976e860..57c17d5a62d63 100644
---- a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
-+++ b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
-@@ -24,6 +24,7 @@ properties:
-               - allwinner,sun8i-a83t-musb
-               - allwinner,sun20i-d1-musb
-               - allwinner,sun50i-h6-musb
-+              - allwinner,sun55i-a523-musb
-           - const: allwinner,sun8i-a33-musb
-       - items:
-           - const: allwinner,sun50i-h616-musb
+diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+index 2ed178f16a782..9c5884c1e7c53 100644
+--- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
++++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+@@ -31,6 +31,7 @@ properties:
+               - allwinner,sun50i-a64-ehci
+               - allwinner,sun50i-h6-ehci
+               - allwinner,sun50i-h616-ehci
++              - allwinner,sun55i-a523-ehci
+               - allwinner,sun5i-a13-ehci
+               - allwinner,sun6i-a31-ehci
+               - allwinner,sun7i-a20-ehci
+diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+index b9576015736bf..f1ae45aa4c86c 100644
+--- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
++++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+@@ -18,6 +18,7 @@ properties:
+               - allwinner,sun50i-a64-ohci
+               - allwinner,sun50i-h6-ohci
+               - allwinner,sun50i-h616-ohci
++              - allwinner,sun55i-a523-ohci
+               - allwinner,sun5i-a13-ohci
+               - allwinner,sun6i-a31-ohci
+               - allwinner,sun7i-a20-ohci
 -- 
 2.46.2
 
