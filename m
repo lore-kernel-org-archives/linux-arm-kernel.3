@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4C9D2E9DF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7920DD2E9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgYilRS3+fXEklYEgYiYwwxkuzYogqpLeaAN+pnNcuE=; b=thcA6tM+UsolIVdTkjWzyCD/VO
-	yAVF4P/dxwBrL6ER4ndaZP8LmnzqO27hr4MLHEoaGqmFETn0kMsjpUt25OiDWbRMZnK64GUes/YfY
-	h/YWHeHU/kRy70LSnumOAI6okzxd8P+GK+bQnOsGi+e8ZkGfXXQfbmBIZdnYChgcXDuAI1TF/kh4Q
-	bJvxBL85ORhmdbvMaXdII8qoGPLSm9uZlQiIzzpwUgHTprTJky8pdtJ6uuAY7+D6tuUsfN3J/wklG
-	Y4El/FQj6aXz8DUGUQix7IrfI6VB5VyIliHs/nfgvCOk+3iHyfiUCqiAOK7MeyI2oCMZUCjisRZS9
-	PvMcpg+Q==;
+	bh=cDXFt6+3pT1LoXCT6Uf9TrulLsuEcGJYLtZ0v/jsv6Q=; b=hdwbtLPLJ7MDozCqJ34SsyjJfc
+	Uq56MotM2g3acUphvJhAuYzd8I4zKeqZPgjr9/+zSxZS8+Q9qrdHThhU7MfT03HE78MOocM6AxjSd
+	emRNOXqO4htSiTREc76PwoMlKqvAMZD9z599wLAKAT5psohSbhxnWFmuAwsqVv0mzLamWp7GBZbLO
+	03I1lN2culTaJtfzewvxSt+CAk4vrjMLyxhFuSuAuLIOPvhDvA8HvZMJ02aFPM5rJxXtu68xS2LHE
+	2lnq0JdyrmioWwzTcM7lhtkcfuBxSYze798eUOttYYlx63NyXJTR9XVKpzE60rVjlQV4+VOLHS1KL
+	cLF3kTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAT1J-0000000HVwN-3hpo;
-	Mon, 11 Nov 2024 11:55:50 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tAT58-0000000HWOd-2vvu;
+	Mon, 11 Nov 2024 11:59:46 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASzW-0000000HVlO-3wBO
+	id 1tAT3M-0000000HWBD-0mvB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 11:54:00 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABBrosx2498289
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 11 Nov 2024 05:53:50 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1731326030;
-	bh=ZgYilRS3+fXEklYEgYiYwwxkuzYogqpLeaAN+pnNcuE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=waGp0b5+pByg3V3Pb9thQH/Dyzi7sNqiXvjgYR2bILZGyNGrE25cDlFP6+Fb5oFaj
-	 goxxOtQJo18IAQFpTY48ER22ivhUWki2fzcjFZxK6BBdB/VdwwX3FNc05nlknxNvVD
-	 BY4CdJBgo21Im8SkP2q0GwItF1s4KL2CHMNTTVQI=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ABBroTb010807
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 11 Nov 2024 05:53:50 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 11
- Nov 2024 05:53:50 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 11 Nov 2024 05:53:50 -0600
-Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ABBrin4029503;
-	Mon, 11 Nov 2024 05:53:45 -0600
-Message-ID: <cb39d07b-ad4b-4e87-bba4-daf77b583659@ti.com>
-Date: Mon, 11 Nov 2024 17:23:43 +0530
+	Mon, 11 Nov 2024 11:57:57 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e29687f4cc6so4007025276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:57:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1731326275; x=1731931075; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cDXFt6+3pT1LoXCT6Uf9TrulLsuEcGJYLtZ0v/jsv6Q=;
+        b=oHE3qcbRKv5nocTMHRrXFz+Y6Ey4PK/OgGTtKGOYaQBZyiLgaUFIe2HDD1BT6YfLda
+         DN83lPnRxNzmnx1MzPT6sUpY3l9/JrDn7oyHF07+67wkA7skkWkAP7ch5Rgwzg71CA9b
+         uVyMmz9eIRz/AHXZSgJCaE4hmTzh/JMdEeLEY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731326275; x=1731931075;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cDXFt6+3pT1LoXCT6Uf9TrulLsuEcGJYLtZ0v/jsv6Q=;
+        b=Ttchm9oJ7aDbUkgms8+wkSKms0EGrJsGhcYNwP1amp9p6/dmqWQxuBfiLabXKHEMy4
+         ilITpiePvXxNFz1BYbHMzB7iJwyHJ8SWl7h53fVUhZ0bAzoIxcLNyopKy7YnuDca2J8i
+         DUX/Th7gx/AF9bgiu+4wjLRlBGNYCRF8KKdcNxQgJqExrI5UHIHyJbpna+AZAgesOulo
+         Qb28VaEjZoaMnIL8WuCBmWGP/QbqY7SxoWJ9IyQhdcN7NgeWlwSkBwDiIkTIOqz5xEZl
+         tiNPK5PNxoG1xHfnSS/FIIQSjpoCj0d0Bh9Dpw/NjJyFcKEBI/v4sA5sE+xdeO4UFhuM
+         Eufw==
+X-Forwarded-Encrypted: i=1; AJvYcCW+2p3fEoZKX7HMYKUJpktZ2BjkZZZhfvd4GHwZmsHx9aa3k45wYufzPyI/cfD/fxk99AMxTersmnXQQfnKCJI5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6wzVDO3WLfO32Y7jN3u1bOrVxoUIhqcAfwTJHJ3gm7c1NVRM/
+	+J9v5Ywavm99UvtCddxmNln2rRtvVL0PDPFOfZwBCEQtCOZSL+R7SbXpzsYgnnJLtC30QCafGWo
+	BZMAnBemWkmASlfc6JnCbEU9k+xDNl/eCkWsjjQ==
+X-Google-Smtp-Source: AGHT+IH0XRs54douFhFAMI+U4FYV3YRFqfF2VxIRRPeLdDpeHANeVi+RP+H+Q6KVJE8tCAWSQ8gdlm+Qjw7q8excdVw=
+X-Received: by 2002:a05:690c:3684:b0:6de:1e2:d63b with SMTP id
+ 00721157ae682-6eaddd86d07mr111420577b3.1.1731326274881; Mon, 11 Nov 2024
+ 03:57:54 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Simon Horman <horms@kernel.org>
-CC: <vigneshr@ti.com>, <m-karicheri2@ti.com>, <jan.kiszka@siemens.com>,
-        <javier.carrasco.cruz@gmail.com>, <jacob.e.keller@intel.com>,
-        <diogo.ivo@siemens.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
- <20241108133044.GB4507@kernel.org>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <20241108133044.GB4507@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20241106090549.3684963-1-dario.binacchi@amarulasolutions.com>
+ <20241106090549.3684963-2-dario.binacchi@amarulasolutions.com>
+ <4bix7me5vaoyhcuffyp4btajmhy7no6ltczoesopaz2fqupyaw@fensx4nn472u>
+ <b7c1499b-8337-421c-9734-6e518d678ff8@kernel.org> <CABGWkvrYJL9=zrPSFuEAgKO+9gDHD6RmCJM6Br6Le_eh578ETQ@mail.gmail.com>
+ <54dd6ae6-b992-451e-b1c6-8a1968955f4a@kernel.org> <PAXPR04MB8459BE3474EFD4FCC28E0E82885D2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <8c310eca-d695-418c-82cb-a89351d83887@kernel.org> <PAXPR04MB8459B6F8D5C623D19CCF6B39885E2@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <bc02327b-dea8-48c9-b036-4a0eda0c4cb9@kernel.org> <9f6b243b-0642-41db-85ed-d020bfa3e6e2@kernel.org>
+ <PAXPR04MB845978F4D3C6E887E0DE8D5488582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB845978F4D3C6E887E0DE8D5488582@PAXPR04MB8459.eurprd04.prod.outlook.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Mon, 11 Nov 2024 12:57:43 +0100
+Message-ID: <CABGWkvqXOg=Y7K+oc6Q-3UWGC-WLEK_tmQzyRBW6x0fvQTsqvw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+To: Peng Fan <peng.fan@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>, Abel Vesa <abelvesa@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_035359_149843_7A1FAEC4 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20241111_035756_274831_B4C31D49 
+X-CRM114-Status: GOOD (  59.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +103,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 11, 2024 at 2:49=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> > Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock: support
+> > spread spectrum clocking
+> >
+> > On 09/11/2024 11:05, Krzysztof Kozlowski wrote:
+> > > On 09/11/2024 01:37, Peng Fan wrote:
+> > >>> Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock:
+> > support
+> > >>> spread spectrum clocking
+> > >>>
+> > >>> On 08/11/2024 13:50, Peng Fan wrote:
+> > >>>>> Subject: Re: [PATCH v3 1/8] dt-bindings: clock: imx8m-clock:
+> > >>> support
+> > >>>>> spread spectrum clocking
+> > >>>>>
+> > >>>>> On 07/11/2024 15:57, Dario Binacchi wrote:
+> > >>>>>>     clocks =3D <&osc_32k>, <&osc_24m>, <&clk_ext1>,
+> > <&clk_ext2>,
+> > >>>>>>                   <&clk_ext3>, <&clk_ext4>;
+> > >>>>>>     clock-names =3D "osc_32k", "osc_24m", "clk_ext1", "clk_ext2"=
+,
+> > >>>>>>                              "clk_ext3", "clk_ext4";
+> > >>>>>>     assigned-clocks =3D <&clk IMX8MN_CLK_A53_SRC>,
+> > >>>>>>                                   <&clk IMX8MN_CLK_A53_CORE>,
+> > >>>>>>                                   <&clk IMX8MN_CLK_NOC>,
+> > >>>>>>                                   <&clk IMX8MN_CLK_AUDIO_AHB>,
+> > >>>>>>                                   <&clk IMX8MN_CLK_IPG_AUDIO_ROO=
+T>,
+> > >>>>>>                                   <&clk IMX8MN_SYS_PLL3>,
+> > >>>>>>                                   <&clk IMX8MN_AUDIO_PLL1>,
+> > >>>>>>                                   <&clk IMX8MN_AUDIO_PLL2>;
+> > >>>>>>     assigned-clock-parents =3D <&clk IMX8MN_SYS_PLL1_800M>,
+> > >>>>>>                                              <&clk IMX8MN_ARM_PL=
+L_OUT>,
+> > >>>>>>                                              <&clk IMX8MN_SYS_PL=
+L3_OUT>,
+> > >>>>>>                                              <&clk IMX8MN_SYS_PL=
+L1_800M>;
+> > >>>>>>     assigned-clock-rates =3D <0>, <0>, <0>,
+> > >>>>>>                                          <400000000>,
+> > >>>>>>                                          <400000000>,
+> > >>>>>>                                          <600000000>,
+> > >>>>>>                                          <393216000>,
+> > >>>>>>                                          <361267200>; };
+> > >>>>>>
+> > >>>>>> The spread spectrum is not configurable on these clocks or,
+> > more
+> > >>>>>> generally, may not be configurable (only 4 PLLs have this
+> > >>> capability).
+> > >>>>>> Therefore, I need the "fsl,ssc-clocks"
+> > >>>>>
+> > >>>>> No. That's not true. You do not need it.
+> > >>>>>
+> > >>>>
+> > >>>> i.MX8M clock hardware is similar as:
+> > >>>>
+> > >>>> OSC->ANATOP->CCM
+> > >>>>
+> > >>>> ANATOP will produce PLLs.
+> > >>>> CCM use PLLs as input source.
+> > >>>>
+> > >>>> Currently there is no dedicated ANATOP driver in linux.
+> > >>>> The CCM linux driver will parse the ANATOP node and register
+> > clk_hw
+> > >>>> for the PLLs.
+> > >>>
+> > >>> I do not know what is CCM and how does it fit here. What's more, I
+> > >>> don't get driver context here. We talk about bindings.
+> > >>
+> > >>
+> > >> CCM: Clock Control Module, it accepts PLL from anatop as inputs,
+> > and
+> > >> outputs clocks to various modules, I2C, CAN, NET, SAI and ...
+> > >>
+> > >>>
+> > >>>
+> > >>>>
+> > >>>>
+> > >>>>> First, the clock inputs for this device are listed in clocks *onl=
+y*.
+> > >>>>> What is no there, is not an input to the device. Including also
+> > >>>>> Linux aspect (missing devlinks etc). Therefore how can you
+> > >>>>> configure
+> > >>> spread
+> > >>>>> spectrum on clocks which are not connected to this device?
+> > >>>>
+> > >>>> I not understand this well, you mean add clocks =3D <xx
+> > >>>> CLK_IMX8MM_VIDEO_PLL> in the ccm dtb node?
+> > >>>
+> > >>> Yes. Let me re-iterate and please respond to this exactly comment
+> > >>> instead of ignoring it.
+> > >>>
+> > >>> How a device can care about spread spectrum of a clock which is
+> > not
+> > >>> supplied to this device?
+> > >>
+> > >> I hope we are on same page of what spread spectrum means.
+> > >> spread spectrum of a clock is the clock could produce freq in a
+> > >> range, saying [500MHz - 100KHz, 500MHz + 100KHz]. software only
+> > need
+> > >> to configure the middle frequency and choose the up/down border
+> > >> range(100KHz here) and enable spread spectrum.
+> > >>
+> > >> device: I suppose you mean the Clock Control Module(CCM) here.
+> > >
+> > > I mean the device we discuss here, in this binding. Whatever this
+> > > device is. CCM or CCX
+> > >
+> > >> CCM does not care, it just accepts the PLL as input, and output
+> > >
+> > > Takes PLL as input but you refuse to add it as clocks? Are you really
+> > > responding to my question?
+> > >
+> > > I asked how can you set spread spectrum on clock which you do not
+> > > receive. Why you do not receive? Because you refuse to add it to
+> > > clocks even though I speak about this since months.
+> > >
+> > >> divided clock to various IPs(Video here). The video IPs care about
+> > >> the spread spectrum of the clock.
+> > >
+> > > So which device do we talk about? I am not a NXP clock developer
+> > and I
+> > > care zero about NXP, so keep it simple. We discuss this one specific
+> > > binding for specific device which is called "imx8m-clock" - see
+> > > subject prefix.
+> > >
+> > >>
+> > >> The clock hardware path is as below:
+> > >>
+> > >> OSC(24M) --> Anatop(produce PLL with spread spectrum) -> Clock
+> > >> Control Module(output clock to modules) -> Video IP
+> > >>
+> > >> From hardware perspective, Clock Control Module does not care
+> > spread
+> > >> spectrum. Video IP cares spread spectrum.
+> > >>
+> > >>
+> > >>>
+> > >>> Why would you care about spread spectrum of some clock which is
+> > not
+> > >>> coming to this device?
+> > >>
+> > >> device, I suppose you mean clock control module(CCM).
+> > >>
+> > >> There is no 'clocks =3D <&ccm CLK_IMX8M_VIDEO_PLL>' under ccm
+> > node.
+> > >> Because in current design, ccm is taken as producer of
+> > >> CLK_IMX8M_VIDEO_PLL, not consumer.
+> > >
+> > > I don't understand now even more. Or I understand even less now.
+> > Why
+> > > binding references its own clocks via phandle? This makes no sense
+> > at
+> > > all, except of course assigned clocks, but that's because we have one
+> > > property for multiple cases.
+> >
+> > And BTW if that was the point then the example is confusing because
+> > the &clk phandle is not the device node in the example but it should.
+> > Neither description says which device's clocks are these.
+> >
+> > This is expressed very poorly in the binding, look:
+> > "Phandles of the PLL" - it clearly suggests some other clocks, not its
+> > own, that's so obvious I did not even think of asking. Patchset goes
+> > slow also because of poor explanation, lack of diagrams and expecting
+> > me to remember your clock hierarchy.
+>
+>
+> Dario may improve the patchset in new version. But let me just try
+> to explain a bit more about the hardware logic, I hope this could
+> give you some knowledge on i.MX clock and we could get some
+> suggestions on next:
+>
+>
+> OSC will generate 24MHz clock to Anatop module.
+> Anatop module takes 24MHz as input and produces various PLLs.
+> Clock Control Module(CCM) takes PLLs as input, and outputs the final
+> clocks to various IPs, saying video IPs.
+>
+> The Anatop module could produce PLLs with spread spectrum enabled.
+> The Clock Control module just divides the freq and output the end IPs.
+> The end IPs cares about spread spectrum for high quality clock, the
+> Clock Control modules does not care. Now back to binding,
+>
+> There is a imx8m-anatop binding fsl,imx8m-anatop.yaml for anatop
+> and a imx8m-clock.yaml binding for clock control module.
+>
+> I think the patchset is to enable spread spectrum of a PLL globally,
+> not for a specific device saying video IP here. So the patchset put
+> the properties under the clock control module.
+>
+> For example, there are VPU_JPEG, VPU_DECODE, both will use
+> video PLL with high quality. So the clock producer just produce
+> PLLs with Spread Spectrum(SS) enabled, and put the SS properties
+> under CCM or anatop node, not video IP nodes.
+
+Thank you Peng, for the information.
+
+Do you think it would make sense to add the PLL nodes with SSCG to the
+anatop node?
+
+anatop: clock-controller@30360000 {
+    compatible =3D "fsl,imx8mn-anatop", "fsl,imx8mm-anatop";
+    reg =3D <0x30360000 0x10000>;
+    #clock-cells =3D <1>;
+
+    clk_video_pll1_ref_sel: clock-video-pll1-ref-sel@28 {
+        compatible =3D "fsl,imx8mn-mux-clock";
+        #clock-cells =3D <0>;
+        clocks =3D <&osc_24m>, <&clk_dummy>, <&clk_dummy>, <&clk_dummy>;
+        fsl,anatop =3D <&anatop 0x28>;
+        fsl,bit-shift =3D <0>;
+        clock-output-names =3D "video_pll1_ref_sel";
+    };
+
+    clk_video_pll1: clock-video-pll1@28 {
+        compatible =3D "fsl,pll14xx-clock";
+        #clock-cells =3D <0>;
+        clocks =3D <&clk_video_pll1_ref_sel>;
+        ...
+        fsl,ssc-modfreq-hz =3D <6000>;
+        fsl,ssc-modrate-percent =3D <3>;
+        fsl,ssc-modmethod =3D "down-spread";
+    };
+};
+
+This example only considers the video PLL, so to be complete, it
+should also add the clk_audio_pll1,
+clk_audio_pll2 and clk_dram_pll nodes. It is based on an RFC series
+that I sent about a year ago,
+which was not accepted. In this way, the SSCG properties (i.e.,
+"fsl,ssc-modfreq-hz", "fsl,ssc-modrate-percent"
+and "fsl,ssc-modmethod") would be added to the relevant nodes, and I
+would take only the essential parts
+from that series. This would still mean implementing the PLL driver
+("fsl,pll14xx-clock") and its mux ("fsl,imx8mn-mux-clock").
+
+These clocks can then be added to the "clocks" list of the "ccm" node:
+
+clk: clock-controller@30380000 {
+    compatible =3D "fsl,imx8mn-ccm";
+    ...
+    clocks =3D <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
+                  <&clk_ext3>, <&clk_ext4>, <&clk_video_pll1>,
+                  <&clk_audio_pll1>, <&clk_audio_pll2>, <&clk_dram_pll>;
+    ...
+}
+
+>
+>
+> We could have a talk on IRC if Dario, Abel and you are available to
+> discuss on this topic.
+
+Yes, I am available.
+
+Thanks and regards,
+Dario
+
+>
+> Thanks,
+> Peng.
+>
+> >
+> > Best regards,
+> > Krzysztof
+>
 
 
-On 08/11/24 19:00, Simon Horman wrote:
-> On Wed, Nov 06, 2024 at 01:10:39PM +0530, Meghana Malladi wrote:
->> From: MD Danish Anwar <danishanwar@ti.com>
->>
->> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
->> and SLICE1. Currently whenever any ICSSG interface comes up we load the
->> respective firmwares to PRU cores and whenever interface goes down, we
->> stop the respective cores. Due to this, when SLICE0 goes down while
->> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
->> stopped. This results in clock jump for SLICE1 interface as the timesync
->> related operations are no longer running.
->>
->> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
->> ICSSG interface is up.
->>
->> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
->> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
->> used to let firmware know that the flow_id has been updated and to use the
->> latest rx_flow_id.
->>
->> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> 
-> ...
-> 
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
-> 
-> ...
-> 
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index 0556910938fa..9df67539285b 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->>   {
->>   	struct prueth_emac *emac = netdev_priv(ndev);
->>   	int ret, i, num_data_chn = emac->tx_ch_num;
->> +	struct icssg_flow_cfg __iomem *flow_cfg;
->>   	struct prueth *prueth = emac->prueth;
->>   	int slice = prueth_emac_slice(emac);
->>   	struct device *dev = prueth->dev;
->> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->>   	/* set h/w MAC as user might have re-configured */
->>   	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->>   
->> +	if (!prueth->emacs_initialized) {
->> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
->> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
->> +	}
->> +
->>   	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->>   	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>   
->>   	/* Notify the stack of the actual queue counts. */
->> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->>   		goto cleanup_napi;
->>   	}
->>   
->> -	/* reset and start PRU firmware */
->> -	ret = prueth_emac_start(prueth, emac);
->> -	if (ret)
->> -		goto free_rx_irq;
->> +	if (!prueth->emacs_initialized) {
->> +		if (prueth->emac[ICSS_SLICE0]) {
->> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
-> 
-> I wonder if it is worth simplifying this by having prueth_emac_start()
-> check if it's 2nd parameter is NULL. Likewise for prueth_emac_stop().
-> 
-Yes right, I will update this.
->> +			if (ret) {
->> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
->> +				goto free_rx_irq;
->> +			}
->> +		}
->> +		if (prueth->emac[ICSS_SLICE1]) {
->> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
->> +			if (ret) {
->> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
->> +				goto halt_slice0_prus;
->> +			}
->> +		}
->> +	}
->> +
->> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
->> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
->> +	ret = emac_fdb_flow_id_updated(emac);
->> +
->> +	if (ret) {
->> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
->> +		goto stop;
-> 
-> Branching to stop may result in calls to prueth_emac_stop() which does not
-> seem symmetrical with the condition on prueth->emacs_initialized for calls
-> to prueth_emac_start() above.
-> 
-> If so, is this intended?
-> 
-Yes this is intended. This change is made to run all the cores during 
-init and in case of any failure, stop all the cores. And even if one 
-interface is up, all the cores should run.
->> +	}
->>   
->>   	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>   
-> 
-> ...
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
