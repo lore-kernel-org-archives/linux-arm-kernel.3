@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CE0D3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 22:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3876ED3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 22:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s5CiGS4mKlcl06VvHbZ/vjjH+12oHVtPbgaGeVWC8WQ=; b=yu7L0BDPxTE6Ee45Rv4VfJMRH/
-	jJCQ1C7W14ooB9I62RTZSSDO3rBfo1lUxNyoSYZ0hagC4cny66yvZo37PwYgcPavF/XZkpid8rQgZ
-	F73jujHfBYqOXEtrenvwIpPULNXojYL98mXrt6ieQIF+5RLQOV2mZpFMleh9sjJ1lXEbeVF5EUlVF
-	T2Qx0fYyOk5KZTo3+Z04nmmAUc3zuxNFczHO8jHBSLJZr0Ia7cGvMS8nLvWEkWwEP1/QuURkJQ50C
-	xxpsdeUZFpHwjwpQva/fcWFyeR4wpsG8zkInoG7W858KxICjbCL6yq8Ckkbw9hGNYd8yhVeWEKGl1
-	LLlIgFGQ==;
+	bh=xoC5MetU5++U8xywEJHsiiPAUOeuA7DRDg6f6+8w3m0=; b=ZSGH74PYz0fn5G23V9B5jJguqy
+	xZ15ukTZafsgDehvKGYF19D4/sAKJJX3AvO3i4iKnKwBvpMVXnIpfwijGIf/fNfrgBwJz/eidQ/TY
+	CSeU9Yo0QGRQtT8+3ejSUQKaGs/KI9/vB76CGSPs0ULIeiyhncbi3YFDwApR1NTQulZvqbNNn9TiZ
+	+Fmu6SJqY9Xb/vCfxNwC5wj53QfeTT/uNbnWOkFsaHgLf+F9k/H/7OHuI90uojWAzijwKsATRc20P
+	/72ZxqkHFhsLHNCfoT8V/98ywQdvbs5MF0Bg7V4ToZ5wPt5G9PTom6rfjb18p6JY5T3V4i/vIk13V
+	/MJ68XLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAcgw-00000001TNp-3vYT;
-	Mon, 11 Nov 2024 22:15:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tAchQ-00000001TZH-2cqH;
+	Mon, 11 Nov 2024 22:15:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAcf6-00000001T0I-12tB;
-	Mon, 11 Nov 2024 22:13:33 +0000
+	id 1tAbTq-00000001H6y-1vEJ;
+	Mon, 11 Nov 2024 20:57:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CF1F95C3A46;
-	Mon, 11 Nov 2024 22:12:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD0EC4CECF;
-	Mon, 11 Nov 2024 22:13:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6DAFEA40A8D;
+	Mon, 11 Nov 2024 20:55:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CE0AC4CECF;
+	Mon, 11 Nov 2024 20:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731363211;
-	bh=EzOqKCAezFm7x87BPNt/zzxHJFID7yktvqQaAuxYHNk=;
+	s=k20201202; t=1731358669;
+	bh=Vsculgs7Z2DtlbXQPus53rVTFwNMcZTM30kdcyNrxZc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HFqhzx5PQDJ8XTbqjKmtAw93yoOw8x7o/ZUMlJBX+8O04Mr/GRzq+M1/6R39B45zY
-	 CEF098rtQHm7qtp5m7M/1uTI9rREirdMB2PusnrS8s6pRCochsLOpz2QnRL/FZjN1Z
-	 NRHQ8URAAfWaLgAJ3Yrplk30QyGHmim3xUQBWWaMATzoEGBgMGlMmGIDaxPdWNPbUt
-	 GEGDY1eh6Jx5f00TQKh8b8cf3pswctkUFSOHhrmAa5qUZdagddMg20xYjzrbsf1gUu
-	 R6X4mDmSW0nfnFLOwPPZqnl+cjIfRBoWDEx/IKX/10fWcECLdSJ2f2VrudGmCjCKSx
-	 CztEQHgDVNw6A==
-Date: Mon, 11 Nov 2024 16:13:28 -0600
+	b=XKcGOJqAZTiVuiHiGlhpO0305iuMJGMklWGz1UntIF80Sy23zZLSotBn/7Jq24R2a
+	 XSitOtv9kdeFlM4pu/pG2lgbzWSQOqOwkPW3Ki30N9qD6lYEAf2xUCLapN2ZAuE3N7
+	 Cg9BsrNPfuBrEtIBdXrkB730q1LS0F4LJ8xUuR7g9knGz2cScH5KCTQztfUVbjGSpO
+	 CitmJOed7+G0idfPhzFfq9yWe4+j2CuQRU1Epb8ICZQhDZz3HzTk5PW3ia8nyJx54z
+	 IqyXqMFkh+1QhtSKOOjFGBKirSHgBMvHski49uZLghi8HawtlRSAbhHGOQNie/Fhih
+	 9cZFg/dnRnchw==
+Date: Mon, 11 Nov 2024 14:57:46 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alexey Romanov <avromanov@salutedevices.com>
-Cc: linux-crypto@vger.kernel.org, davem@davemloft.net, conor+dt@kernel.org,
-	jbrunet@baylibre.com, herbert@gondor.apana.org.au,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	khilman@baylibre.com, neil.armstrong@linaro.org,
-	linux-arm-kernel@lists.infradead.org, kernel@salutedevices.com,
-	martin.blumenstingl@googlemail.com, clabbe@baylibre.com,
-	vadim.fedorenko@linux.dev, krzysztof.kozlowski+dt@linaro.org,
-	krzk+dt@kernel.org, linux-amlogic@lists.infradead.org,
-	robh+dt@kernel.org
-Subject: Re: [PATCH v10 17/22] dt-bindings: crypto: amlogic,gxl-crypto:
- support new SoC's
-Message-ID: <173136320834.2047628.12512361262712701273.robh@kernel.org>
-References: <20241108102907.1788584-1-avromanov@salutedevices.com>
- <20241108102907.1788584-18-avromanov@salutedevices.com>
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ondrej Jirman <megi@xff.cz>, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3 v3] dt-bindings: arm: rockchip: Add Xunlong Orange Pi
+ 5 Max
+Message-ID: <173135828350.1935626.3279818343954125790.robh@kernel.org>
+References: <20241111045408.1922-1-honyuenkwun@gmail.com>
+ <20241111045408.1922-5-honyuenkwun@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241108102907.1788584-18-avromanov@salutedevices.com>
+In-Reply-To: <20241111045408.1922-5-honyuenkwun@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_141332_484104_785381F8 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20241111_125750_595532_141E2A7D 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +76,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 08 Nov 2024 13:29:02 +0300, Alexey Romanov wrote:
-> Now crypto module available at G12A/G12B/S4/A1/SM1/AXG.
+On Sun, 10 Nov 2024 22:53:25 -0600, Jimmy Hon wrote:
+> Add devicetree binding for the Xunlong Orange Pi 5 Max board.
 > 
-> 1. Add new compatibles:
->   - amlogic,g12a-crypto
->   - amlogic,axg-crypto
->   - amlogic,a1-crypto
->   - amlogic,s4-crypto (uses a1-crypto as fallback)
+> The Orange Pi 5 Max is a single board computer powered by the Rockchip
+> RK3588 similar to the Orange Pi 5 Plus.
 > 
-> Difference between this compatibles:
->  * Different registers offset and the number of setup descriptors.
->  * GXL doesn't support hashing like the others.
->  * G12A/B and A1/S4 crypto HW don't support 192 AES key.
->  * GXL, G12A/B and AXG require a reverse IV key before processing.
-> 
-> 2. Add power-domains in schema, which is required only for A1.
-> This is specific vendor design: in old SoC's power domain for
-> crypto HW was not configurable, but in A1-series it is configurable.
-> 
-> Signed-off-by: Alexey Romanov <avromanov@salutedevices.com>
+> Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
 > ---
->  .../bindings/crypto/amlogic,gxl-crypto.yaml   | 24 +++++++++++++++++--
->  1 file changed, 22 insertions(+), 2 deletions(-)
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+Please add Acked-by/Reviewed-by tags when posting new versions. However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for acks received on the version they apply.
+
+If a tag was not added on purpose, please state why and what changed.
+
+Missing tags:
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+
 
 
