@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D264D3ABCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 16:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE4AD3ABCC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 16:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l479EozP/2hXAjyq80KiYR6AzKDyOfAws4SkWfI45gY=; b=v5DaKDkUYvDRR/QPipalLd44fv
-	y0kpcF8M455ToBnKfqEBZ5q6tQQaEYPyPtxQc+rvjylBz6DxLhalT1zg/ty3hoBxMYC+ldAQZY0FM
-	dr8pBivoYsZaRuy4ghi2K7mfRmPBfRKk4/PSGBrYPAYgj3v142ZwEi+LEgmVvcPgRuxyBu0E8F+gA
-	rdVDgBxR62VyTM8HLUJ4am01qN52ioLPm3rKwFYcr3uAmuB2jFW985S99oe+q/TWGuGFENQKT25Dz
-	DYtWi0ptTb6LTGFSs8Z7UTk2+SWoxu6SEYE75cLZzSsBqjCY/fqNUgaaOumDU3vIhCeAE78dTSW5j
-	5+ubSkvw==;
+	bh=nGc1pft4Ar71ZhgAuzepMl15BMs3pYY/Nia2QXPyTMY=; b=KU1alkeoWd9AZRHee8MAY4u07e
+	E3SBKfW0iHHObQNPeWtQcZoe10ubH1UrZz3I4uY1a/hb7zEaSIGhWVGchMRWxNQzP1IGeF2XGUo8J
+	cTvQrUup1urQX3Ipf9+Yxvj81yi5G7l5KB2Z6+zpI2A55ErkhtAsLrIewu0H8F06i8VReY3R9iM0S
+	QNTu+MZ0maiw+AQs38erTjMuRsKaj9eTKTiHkyhS8s5MmVxYO9rJNU/XSapZtGo2Aj6ijNuYYlWQd
+	Ff1c//Q6ZwNmQw8WvlpADcJiN8Ttk+tgkzTdHOhH/yyAgh7QUYhtpJpyFeQHB92UdlZmlHzna95Hh
+	ukt/PEPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXD5-00000000ZCp-0rME;
-	Mon, 11 Nov 2024 16:24:15 +0000
+	id 1tAXEp-00000000ZSp-3Dks;
+	Mon, 11 Nov 2024 16:26:03 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAX8D-00000000YbZ-3N2s
+	id 1tAX8F-00000000YcP-3zAC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 16:19:15 +0000
+	Mon, 11 Nov 2024 16:19:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AAD66A41799;
-	Mon, 11 Nov 2024 16:17:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 388D7C4CED5;
-	Mon, 11 Nov 2024 16:19:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E048EA417AB;
+	Mon, 11 Nov 2024 16:17:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447E2C4CECF;
+	Mon, 11 Nov 2024 16:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731341952;
-	bh=g4YRupDmS6rsFE+fXj4fCiJaZnhgWz5kCy7tqLUbGPc=;
+	s=k20201202; t=1731341954;
+	bh=9cyh4O1U5G+quhH4mm627kHtyNUEPP2A3/N1m265/l0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=m+BwE4NnKbLT5R3oGmmZtiRrc+XhPt8Nmq3mDWP7k7VgCQRhSg5Ufoj/wAKAjHhPd
-	 vPhpkrU3GdEQJkRY7vwaKXuz5jO+OBD7ClUtV90r37ccrrB5itCWDLynhxDp0GeNI6
-	 yFktqayQrOsOKjJbd9/M0t/u6IEwRtrgCwg71pE/Xtopf6mK0dlvrZUH2VudV5qUFk
-	 /TQFR+WXSL0r8f9IN2yPgHZAPNocGahZ0KGufVvj9fcFuejnOJA96IvyqIcebYVAHA
-	 Cl3ubG/YEWueRf1YOj97/Z5IJc8nKmfq/wjGrl6M4o8Pi6ffIpNDQB0P7lwe/1c+7U
-	 xbtyRPoK8SYwQ==
+	b=tpSfi6szIGQ1/P2NbGmmPURdONHXrmQaS9FJkjZMRxZ7vbHzW9P9Hh92+qyymxFRU
+	 1Zlq6opK8+hZXuSV6JjAtF3CHplmd0/unNlCDiMJxl5+tkDIEu2RI0gnBNzJ1N0Goz
+	 Hw6kjk+Es6SBhrqjTbt8vPCpXMA/AWxPzOZLXi86rQK/ZsZiba9Hlr+dteUU4kJ06V
+	 q7CqD6O1l/tTWzxA9HWWsas65z9EXcsJbEJI4lYrew0+276563iAO6JA43dH8yIEmx
+	 mf347ya6V6+XeJYu9wuBJeVaXDCN/FhaFNbi5Cv7q6VCpijvRBC5204OkVHLZZWiGJ
+	 UWh4W7syExE1w==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 11 Nov 2024 16:18:55 +0000
-Subject: [PATCH 1/2] kselftest/arm64: Don't leak pipe fds in
- pac.exec_sign_all()
+Date: Mon, 11 Nov 2024 16:18:56 +0000
+Subject: [PATCH 2/2] kselftest/arm64: Try harder to generate different keys
+ during PAC tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241111-arm64-pac-test-collisions-v1-1-171875f37e44@kernel.org>
+Message-Id: <20241111-arm64-pac-test-collisions-v1-2-171875f37e44@kernel.org>
 References: <20241111-arm64-pac-test-collisions-v1-0-171875f37e44@kernel.org>
 In-Reply-To: <20241111-arm64-pac-test-collisions-v1-0-171875f37e44@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -57,21 +57,20 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-355e8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=923; i=broonie@kernel.org;
- h=from:subject:message-id; bh=g4YRupDmS6rsFE+fXj4fCiJaZnhgWz5kCy7tqLUbGPc=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnMi57hYbOZoCypxxS5DdntS9d1pQSZA5sNIhza
- 3ZAtKIvlWGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZzIuewAKCRAk1otyXVSH
- 0Ct6B/9GaplZ+Wh3jbdMs+/axyR5eFAUQoGrgCp4yDH16vLv6X6MxioUbodUygXW9QAlaFfCISv
- uTKM2qH7KJvur5hsY4sGV1cmmZWNAB8jhWNVpzZ2nbjIiidg6GXYPm09Ck9KAO8mkFDSuc+eDfH
- p4Nynex1KCFehgEI/AYG6y0Nc6XNx83LpPqiTxHEeEe1nxS1OCdRtAzVUP2/BmFMBUxdS8RnBrx
- rDC+bMGrY5NrBKOfm+dbPSnnORUcDNrBHGVxYOgudxew/CKp16yVECIo1+HX7S0gskv96hAc7qH
- AI8O3nEP2dnlcKzTZeBTx80K4LNKdRDIH1QXvhqAsg3DG8p4
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1708; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=9cyh4O1U5G+quhH4mm627kHtyNUEPP2A3/N1m265/l0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnMi58jgwmS4v3ef00rmDIKXGflINOqMihqygBt
+ HmqWBC0ANOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZzIufAAKCRAk1otyXVSH
+ 0MxSB/9AzHa5kOicOsY4cAV412rEHAWT2qZEK1xKi3h/eENhxz0LC++OwfzN3D+SFWY8xxbmRdP
+ FNiPlPn/9sD7F2XmUNIlczNn48rMwO5c/JIpIY48bPUklBJl/3rwFR8B33Pnsg5mkUQK1v5pljM
+ D7tMSYDtUIPq49oH6kzc6lcqEFCHdfP9hR4prgpansGchCYkGcP43WBAz4DY71UcwFn5tX0/x6C
+ ll3N5dAgB/OZaiuuSdB1PUnGCy9szdE1N0cg5fDSXq5m8ReqyHAxlPdMFtChsnMJMY/rr3Tw7Do
+ 91GDxAt+g9NgTmRnXykAjANxDYmOTTHxBzVVuuoZGnT+zdrM
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_081913_949272_1A3C6B5E 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_081916_163187_B8899C05 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PAC exec_sign_all() test spawns some child processes, creating pipes
-to be stdin and stdout for the child. It cleans up most of the file
-descriptors that are created as part of this but neglects to clean up the
-parent end of the child stdin and stdout. Add the missing close() calls.
+We very intermittently see failures in the single_thread_different_keys
+PAC test. As noted in the comment in the test the PAC field can be quite
+narrow so there is a chance of collisions even with different keys with a
+chance of 5% for 7 bit keys, and the potential for narrower keys. The test
+tries to avoid this by running repeatedly, but only tries 10 times which
+even with a 5% chance of collisions isn't enough.
+
+Increase the number of times we attempt to look for collisions by a factor
+of 100, this also affects other tests which are following a similar pattern
+with running the test repeatedly and either don't care like with
+pac_instruction_not_nop or potentially have the same issue like
+exec_sign_all.
+
+The PAC tests are very fast, running in a second or two even in emulation,
+so the 100x increased cost is mildly irritating but not a huge issue. The
+bulk of the overhead is in the exec_sign_all test which does a fork() and
+exec() per iteration.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/pauth/pac.c | 3 +++
- 1 file changed, 3 insertions(+)
+ tools/testing/selftests/arm64/pauth/pac.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/arm64/pauth/pac.c b/tools/testing/selftests/arm64/pauth/pac.c
-index b743daa772f55f570a3c0a912ac0c2c403c4256a..5a07b3958fbf292b09c9d6b11b8f9db2880beeed 100644
+index 5a07b3958fbf292b09c9d6b11b8f9db2880beeed..6d21b2fc758d80d0cd7d0db2859de3b308522cb4 100644
 --- a/tools/testing/selftests/arm64/pauth/pac.c
 +++ b/tools/testing/selftests/arm64/pauth/pac.c
-@@ -182,6 +182,9 @@ int exec_sign_all(struct signatures *signed_vals, size_t val)
- 		return -1;
- 	}
+@@ -13,7 +13,7 @@
+ #include "../../kselftest_harness.h"
+ #include "helper.h"
  
-+	close(new_stdin[1]);
-+	close(new_stdout[0]);
-+
- 	return 0;
- }
- 
+-#define PAC_COLLISION_ATTEMPTS 10
++#define PAC_COLLISION_ATTEMPTS 1000
+ /*
+  * The kernel sets TBID by default. So bits 55 and above should remain
+  * untouched no matter what.
 
 -- 
 2.39.5
