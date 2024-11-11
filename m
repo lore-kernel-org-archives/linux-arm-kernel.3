@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3EA4D3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43175D3ABF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4MgOboHDGtArnfKiEq9gLM88LKKae7ra0P3dbQQh+o=; b=WNY8UoJQGv/ezfTR4DzZm7wirX
-	WgVJZOnGoQWKp0PRKqn6rGSDeANBJI4FB/mmzJXS1v/xmDsLMaYPR5GpH/qu1eptzlwhP0mAG5da7
-	1W7lxz6pgOAR/B5diRYUC1cQKhJTU1s+GtyqPqfV/TQ08Q+pSbiPFuSjsMZPa7OWwV+tUjiMDN4s+
-	Wq7pebggswlYqBPTIJTEyGq1E4mVVDvpIew7SASzqUMzrlTqJ66f++p1T5+2U7X5DeN/ZeAsETWk4
-	NfG1t0Co6gY+hNMW6tEpLXoiU/eGLD9oRNgmNhFSgBaGQOlzfjgiMS9RZL1Fth0SI7TpiYyJsWziH
-	+ZbyNhFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M+UNXPvFiJYKdozi2bLmtL/MfRUPw96dDHh4Di4Qg/E=; b=ySk34P5g7/RZ3aPbpG+FoSWuqK
+	PXZU/W7E8rfr3Xi7bv1rt++zaj0Zk6UaT8H28souosA5oLEl3oeBfmfKTcRcvjluH9akCgGEkfIa+
+	U6mJJjN3IafFIY9kb7fLbkfBtE/N5oc9uipy6Cg10XtI1lhMu37Oqu1J1t/eRVBWxGdA62zZnTxWr
+	czBP4Qrgp23CcWuHsLIhMa+jxBh5/eOTFFU4H7m+TvYIoi2KuvE3BqV8q08cDCI2Beo42bzzBveNr
+	oi5CRepKIbFPr6JIdO689AfXkpzy4QNOLSElwqYPAw8EcSe7d2C2menKQdVIyOUB40bwoZdpELN78
+	WT5fKd6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAaOt-000000016Ki-3p4r;
-	Mon, 11 Nov 2024 19:48:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAaQd-000000016X4-49aJ;
+	Mon, 11 Nov 2024 19:50:27 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAaLz-000000015nv-0Nxo;
-	Mon, 11 Nov 2024 19:45:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8A27A404E0;
-	Mon, 11 Nov 2024 19:43:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2182CC4CECF;
-	Mon, 11 Nov 2024 19:45:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731354337;
-	bh=d4MgOboHDGtArnfKiEq9gLM88LKKae7ra0P3dbQQh+o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nr0d2xAfMpq6SNZ2t+tAWHRm/SOmakiGQ9MWVnJfK+KhLB/SeyZ8RFVtTDTx9CYcM
-	 GzzCHp3/npKlx6jVZ97g01NSgbyUVMhbtHMmmSFu323D36vo5XVFNUdipdozTJCxHd
-	 ZyfmA8KBfNMRUjHCV+KqOm38DLJG/V+2lEEUNKgf2LkYMiQ8Y1DknmdSoNa1P9pTBU
-	 BCyZNXIlX+svZbS9VKhjg0zNgHYrTHYubQ8OzDNgXPpsOrrHDlen7axLHaq7jIoZeb
-	 pZ3SjyxYz7EjQBQBZ+TRuvnxyNpX0ScEIvjfYJ1WxoHz+J6x7TmIqLeDCogfmWt12m
-	 JqtJvQDScsWfQ==
-Date: Mon, 11 Nov 2024 19:45:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Leilk Liu <leilk.liu@mediatek.com>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: spi: add compatibles for mt7988
-Message-ID: <20241111-progress-prowling-218c6deeb80d@spud>
-References: <20241109105029.52748-1-linux@fw-web.de>
+	id 1tAaMK-000000015sg-0kor
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 19:46:01 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-288a90e4394so2134728fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 11:45:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731354358; x=1731959158; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M+UNXPvFiJYKdozi2bLmtL/MfRUPw96dDHh4Di4Qg/E=;
+        b=cpRmxDNDmhT91DCW3SPpQWeRZYa2Mc7dmlo+G1lkJJBf33sqrIv2g/nAz40OANZnER
+         mepuzh7GpmlQzWr7ZbtrHRxtTV7tGGqHVZV+f303pdMRp5sI5gcgqeoF4eOAa9Oyv9iY
+         TFC42VNZqrfSDPUakEgqzBrlC6mj8x+IV3PgxlUONji2QPWO+aEwsXEHpK4W+TaU3T0y
+         sPdsG+DpKhNQMeNozE2daYquRomhbouyXYVGu74Qfc01VH341DvAZZbfqIwvrRCpMWB7
+         VTgYHd9j5nzYHFa76PsJS4C5ryU92gTkovxJU5dYtCcBNlbM+cKIuSVqNcfOcQ9GvaNd
+         813A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731354358; x=1731959158;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=M+UNXPvFiJYKdozi2bLmtL/MfRUPw96dDHh4Di4Qg/E=;
+        b=mOTBAp/EefdWpOznfN9accKtWxCscDZXpJcW2Rg+UTeII9oysiav1qY2sy2mo2Hh3h
+         jzyKK13E7qJnARSsMqvvkiQo2xqZKarYxHDAdnGRjs0rFJElON4Av1As5N66pkljruvS
+         f2R2vC3WQ6asc3lDOhfGuPe+/RvpLcs+JMLW27vnMIao+KsqyAask8FR1KzbgzHQt6Vl
+         26Cw1hjmONWL3gg2ouzKfiohAkB/Rv/ZpS3i1hSQ6tNnaBqQun6mxBjO7bevXEViQcCS
+         SplJA8UFbLY9jky9iY2Ug1iroqzFwEO56VFuMgBxMkiIi7atd4yQOz+BmH9NbC7ywXId
+         VLPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU6nPdI7z0j9wQ6dp8AT2WjkHDbHRitDtOhDRra4kne1UUFi+79Isagg5BurOG/HHO0gX7lx/sAQl5EFjjm75CM@lists.infradead.org
+X-Gm-Message-State: AOJu0YypVNu7mQtLIIjYFE807FtJO8XDwW0wwAgFUX25yU9utvyRmvGl
+	EH5weSZ+lSJT8dnA0sbK6oKlKaZdBh6GwK0atCe2GoJw/BbYrgChZNhy+VQSi68=
+X-Google-Smtp-Source: AGHT+IHzI2fm85aOJIz0hLFIb1FeDMozEBMTSyyRvlCuXW4txD+zMA10To4egPzgrYsuvVd5NCladQ==
+X-Received: by 2002:a05:6870:7010:b0:287:b9:349 with SMTP id 586e51a60fabf-295cd38c966mr165947fac.36.1731354358195;
+        Mon, 11 Nov 2024 11:45:58 -0800 (PST)
+Received: from [192.168.0.142] (ip98-183-112-25.ok.ok.cox.net. [98.183.112.25])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-29546c8eb0fsm2940001fac.14.2024.11.11.11.45.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 11:45:56 -0800 (PST)
+Message-ID: <8505aa28-5f88-4fcd-b3bc-cb5db89d2a08@baylibre.com>
+Date: Mon, 11 Nov 2024 13:45:55 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9tiAjd6YQ+IiB3Gu"
-Content-Disposition: inline
-In-Reply-To: <20241109105029.52748-1-linux@fw-web.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] iio: trigger: stm32-timer-trigger: Add check for
+ clk_enable()
+To: Jiasheng Jiang <jiashengjiangcool@gmail.com>, jic23@kernel.org
+Cc: lars@metafoo.de, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ u.kleine-koenig@baylibre.com, tgamblin@baylibre.com, fabrice.gasnier@st.com,
+ benjamin.gaignard@linaro.org, lee@kernel.org, linux-iio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241111191934.17231-1-jiashengjiangcool@gmail.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20241111191934.17231-1-jiashengjiangcool@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_114539_328114_F84CF324 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_114600_255524_1D77649B 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/11/24 1:19 PM, Jiasheng Jiang wrote:
+> Add check for the return value of clk_enable() in order to catch the
+> potential exception.
+> 
+> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+> ---
+> Changelog:
+> 
+> v2 -> v3:
+> 
+> 1. Simplify code with cleanup helpers.
+> 
+> v1 -> v2:
+> 
+> 1. Remove unsuitable dev_err_probe().
+> ---
 
---9tiAjd6YQ+IiB3Gu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+...
 
-On Sat, Nov 09, 2024 at 11:50:28AM +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
->=20
-> MT7988 has 2 different spi controllers. Add their compatibles.
->=20
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> @@ -492,21 +495,25 @@ static int stm32_counter_write_raw(struct iio_dev *indio_dev,
+>  		return -EINVAL;
+>  
+>  	case IIO_CHAN_INFO_ENABLE:
+> -		mutex_lock(&priv->lock);
+> -		if (val) {
+> -			if (!priv->enabled) {
+> -				priv->enabled = true;
+> -				clk_enable(priv->clk);
+> -			}
+> -			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+> -		} else {
+> -			regmap_clear_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+> -			if (priv->enabled) {
+> -				priv->enabled = false;
+> -				clk_disable(priv->clk);
+> +
+> +		scoped_guard(mutex, &priv->lock) {
+> +			if (val) {
+> +				if (!priv->enabled) {
+> +					priv->enabled = true;
+> +					ret = clk_enable(priv->clk);
+> +					if (ret)
+> +						return ret;
+> +				}
+> +				regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+> +			} else {
+> +				regmap_clear_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+> +				if (priv->enabled) {
+> +					priv->enabled = false;
+> +					clk_disable(priv->clk);
+> +				}
+>  			}
+>  		}
+> -		mutex_unlock(&priv->lock);
+> +		
+>  		return 0;
+>  	}
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---9tiAjd6YQ+IiB3Gu
-Content-Type: application/pgp-signature; name="signature.asc"
+Another way to do this that avoids changing the indent
+so much is placing braces around the case body like this.
+This also avoids the compile error from using guard after
+case directly.
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZzJe3AAKCRB4tDGHoIJi
-0mw1AQCb5apX26pqvjtNd0u/x/gAxpqpZjI5yV2+/RYZnNyFvQEA9vWKqaUMxxMG
-5FhEkO64XoDuZC7W0YM+ELEVVtXM0g8=
-=X0+9
------END PGP SIGNATURE-----
+ 	case IIO_CHAN_INFO_ENABLE: {
+		guard(mutex)(&priv->lock);
 
---9tiAjd6YQ+IiB3Gu--
+		if (val) {
+			if (!priv->enabled) {
+				priv->enabled = true;
+				ret = clk_enable(priv->clk);
+				if (ret)
+					return ret;
+			}
+			regmap_set_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+		} else {
+			regmap_clear_bits(priv->regmap, TIM_CR1, TIM_CR1_CEN);
+			if (priv->enabled) {
+				priv->enabled = false;
+				clk_disable(priv->clk);
+			}
+		}
+		
+ 		return 0;
+ 	}
+
 
