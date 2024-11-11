@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785EED3ABCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 16:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A41D3ABD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 16:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfIh7QFf8oEaQfYkdv6ZpaO6sL/ncFNHIot8BWk/VIc=; b=sPxOiD/eZgL2IjJWKBXIhZ8faC
-	ul/W/19vojILKfy4E1JG1m9RL49CpvuCVDWbr8u3FL2JDXiheLAGcWyMP2Qkq/9qvk3UFDxziPBUI
-	+/W7TPLV5Z5tpoxD2n2+HrpLKlmBAzOcbQ5IPCkPuLMrO/jMAXTLVzXHAjB+lnMSOV3i2Yk/mZNBO
-	SJfMz50PqbYc70GCGYUaciecAsk/bqcaYVPexbbwASKSj5xv0j5wtmz656WeIhZUr9BiT84AhosIh
-	TdlPX3sZzGUmeF+58zMKByGkBtHxz5XMjRw8H29p0G6MjfScpnOogbpmxflhRLAdIu3fCt4g5A1Gp
-	oH3GUasw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ujrPAFzGlh6R3Y9ea5i0yU3srRobyUointe1vIGDfEM=; b=r5juEgXUosaDCnVqv1H7aeBEwS
+	sql8qtMzOH/QU1Au8HBN8Blvs9ra4+U3IV0fMzxB3ga9ZQkn9npE2T+8hF2wu3vcEAeGfmDwuzBlD
+	XjictnpbEnMgBYr65OKKti741RVe/03tDmaDPIymIp4q0D6HSqnFIdrdJZxj38kMOfolKFVbhGRyv
+	nNPSQHyuX2I8I/n5/sZnf+HuDeLJmQR+XkELSofPqiNQHlHj/3tmpfua0Efh+BKkyPvDDeJQC+er8
+	VSkU/wsj+qQ6rxG+CsnUfnsIKiJj9ho3t7FWjMiJhTYQJlAZnst+3SgVi1lQwdI5Ac6CQSe6EmdHm
+	tzVo/Cow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXi1-00000000dwz-0Vnr;
-	Mon, 11 Nov 2024 16:56:13 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1tAXjl-00000000eEz-1jTh;
+	Mon, 11 Nov 2024 16:58:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXct-00000000dCQ-10bC;
-	Mon, 11 Nov 2024 16:50:56 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e67102283so98698b3a.1;
-        Mon, 11 Nov 2024 08:50:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731343849; x=1731948649; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gfIh7QFf8oEaQfYkdv6ZpaO6sL/ncFNHIot8BWk/VIc=;
-        b=cuGaDI8bpIB/jz5nasDFaG+06Z1XTYIDCz84CFqIol52HxgDtC4Cn4k1Qo2dCjG7Pl
-         DNg4aVhl28bmuipEs8Twly/jWAwvAJR6IDyqrhArjA5uqM5B7V+oHc9fHoPdbIuOT/jr
-         R+FYHWBC/uiuQh4lrhYPmy3XjJ3kuuD/EvoUzHn+ZE+bCqRXp6Em3aF07s0FsQWFc0vq
-         SZnlbKrV49wsKtwlZiBJJW9H4UjS68zWVRGRWDt4i4eD+ItxinIOii4Y6zlFPqD7ya+H
-         iJZx1chNIyY3walh4djeafq2AokUPAcVcu1kjq1MVjYdGrIdxbeU8HH9K6TtBL+zmTRb
-         2xzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731343849; x=1731948649;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gfIh7QFf8oEaQfYkdv6ZpaO6sL/ncFNHIot8BWk/VIc=;
-        b=t9b9uQZRm1q8uwPWKzFWI5BOZDGoqj0M2xYpi8bG18Nu3l82deZ36G2hHnGtEFMuc4
-         2Z+G77NfpSoNy2zEA2Ze4DDci9dUE4TaDt/UxYSP+g+B57wzS+LZ83beJ7Uht8cRaGX4
-         ja0NvNa5wsGABCj52nq8MZVfxvmYOIE23GAjsvqirD4KXWtzqNdHxT/XdWgqtdy8FTvf
-         BbIHXpx0/zWmSbrQIVPuL6zx+t2p9sAJW9OzABZQPssrlimgamfkbmWhaEiI5Z8cipok
-         vIs66xiflj4+L3z7V9X84ZfEs30FKfzj5W07K0ggATnJAhlHguWAx8/cth4F/Gt9zJ9+
-         8JvA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAsdRaIAZ4uxnZhD7KyWvobtpAc6po+MVBRFlolmkla6hBsL6OpGaQhQ2CEZ+jYaBwNfcoWgxe6szkiWlsi7So@lists.infradead.org
-X-Gm-Message-State: AOJu0YxInzoYDqiVZSczTsknrkUCZrThJbXzmsKXofKq6QDIbb8eKcgy
-	Efs3O05nYuhas7fpiNh48wM6lTeZpfDN1a1ZKpv0mgDwOVxQWcCwsFk09zO2
-X-Google-Smtp-Source: AGHT+IHfynhJtyo2TYb9cgYePvmyNGNyO/FFedYkfCOY6PP3kqTXtwUZx7toT125k2vM6Ak06pC67g==
-X-Received: by 2002:a05:6a00:4614:b0:71e:5e9a:2db with SMTP id d2e1a72fcca58-7241338307amr7053453b3a.6.1731343849040;
-        Mon, 11 Nov 2024 08:50:49 -0800 (PST)
-Received: from rock-5b.. ([221.220.134.31])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a19dd8sm9401955b3a.157.2024.11.11.08.50.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 08:50:48 -0800 (PST)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+	id 1tAXdQ-00000000dHo-3cbd;
+	Mon, 11 Nov 2024 16:51:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 664FA5C06C0;
+	Mon, 11 Nov 2024 16:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49836C4CECF;
+	Mon, 11 Nov 2024 16:51:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731343887;
+	bh=xsTBACz35DuVfvJ2nfBri71Zv06IBtqdNgFneESDmWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kUHL+oSzBDGxagLpoqTwLI49QBEK+/rlOA5HYofVHGmHvdxe96FyjWp8Vj+mYIiv1
+	 J3FxAaxhrO06O+SudaXeTCb1GPXm2HcHQvzNfgb+dNQirCDKcfIdndnn1UtPhKVJkL
+	 SATk2EnO1+6EicQpiqVzuoFjTk+Q9JoISNQXd1vJQ6mfOepGw81rsR526c0L4jnlE3
+	 8bEE03TxIBws8MRZUpGlcirTOAQSU9zCzWyP0ocJz9TxfiAbGp/rSsxo12RyN503cn
+	 VQOsFFBg94gbm19rUaEYL5x/yAPfrKul+DlAFFTkkSxXRFwDvuddVZnjTzjTKMHwcN
+	 QPF9ZqwKu3I2g==
+Date: Mon, 11 Nov 2024 16:51:20 +0000
+From: Lee Jones <lee@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: rockchip: Enable HDMI0 on armsom-w3
-Date: Tue, 12 Nov 2024 00:50:04 +0800
-Message-ID: <20241111165026.60805-3-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241111165026.60805-1-liujianfeng1994@gmail.com>
-References: <20241111165026.60805-1-liujianfeng1994@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	upstream@airoha.com, benjamin.larsson@genexis.eu,
+	ansuelsmth@gmail.com, linux-pwm@vger.kernel.org
+Subject: Re: (subset) [PATCH v9 4/6] dt-bindings: mfd: Add support for Airoha
+ EN7581 GPIO System Controller
+Message-ID: <20241111165120.GD8552@google.com>
+References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
+ <20241023-en7581-pinctrl-v9-4-afb0cbcab0ec@kernel.org>
+ <173088099542.3237297.18018729158887853624.b4-ty@kernel.org>
+ <ZyssJpR7xwbMzUsm@lore-desk>
+ <20241106110046.GR1807686@google.com>
+ <CACRpkdbf4Pb+n-F-K-JaUvytwCGUHHh8d2rYP4A9KgVTzqSnGw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACRpkdbf4Pb+n-F-K-JaUvytwCGUHHh8d2rYP4A9KgVTzqSnGw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_085055_306616_EE61B72E 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20241111_085129_006894_42FEC0C9 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,92 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable HDMI0 on ArmSoM W3.
+On Wed, 06 Nov 2024, Linus Walleij wrote:
 
-Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+> On Wed, Nov 6, 2024 at 12:00 PM Lee Jones <lee@kernel.org> wrote:
+> > On Wed, 06 Nov 2024, Lorenzo Bianconi wrote:
+> >
+> > > On Nov 06, Lee Jones wrote:
+> > > > On Wed, 23 Oct 2024 01:20:04 +0200, Lorenzo Bianconi wrote:
+> > > > > Add support for Airoha EN7581 GPIO System Controller which provide a
+> > > > > register map for controlling the GPIO, pinctrl and PWM of the SoC via
+> > > > > dedicated pinctrl and pwm child nodes.
+> > > > >
+> > > > >
+> > > >
+> > > > Applied, thanks!
+> > > >
+> > > > [4/6] dt-bindings: mfd: Add support for Airoha EN7581 GPIO System Controller
+> > > >       commit: f49f37f3cfe1482d4dc77d26f3e8c38eab630d52
+> > > >
+> > > > --
+> > > > Lee Jones [李琼斯]
+> > > >
+> > >
+> > > Hi Lee,
+> > >
+> > > according to my understanding this patch has been already applied by Linus
+> > > here:
+> > >
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/commit/?h=devel&id=50dedb1eb1e6755ccab55f6140916c2d192be765
+> >
+> > An interesting choice.  Linus?
+> 
+> Yes I suggested that I merge patches 1-5 on oct 29 and applied the
+> day after:
+> https://lore.kernel.org/linux-gpio/CACRpkdYshPusdA7bDW2y8H_wp-Fm3N-YCsY1_Qn=dZqRiFy12w@mail.gmail.com/
+> 
+> It's because the bindings are dependent on each other, this one patch has:
+> 
+> +  pinctrl:
+> +    type: object
+> +    $ref: /schemas/pinctrl/airoha,en7581-pinctrl.yaml
+> +    description:
+> +      Child node definition for EN7581 Pin controller
+> +
+> +  pwm:
+> +    type: object
+> +    $ref: /schemas/pwm/airoha,en7581-pwm.yaml
+> +    description:
+> +      Child node definition for EN7581 PWM controller
+> 
+> Those refs will explode unless the two others are merged at the same
+> time.
+> 
+> Usually we merge the whole shebang through MFD but this one felt
+> different because there is no actual MFD driver, just using simple-mfd.
+> 
+> In hindsight I should probs not have been so trigger happy and give
+> some more time for this to settle... Merge window stress I guess. :/
+> 
+> It's fine to apply textually identical patches to two trees though as
+> git will sort
+> that out so technically it's no big deal, you can keep it applied if you
+> want.
 
----
+It's okay.  Life will be easier for everyone if I remove it.
 
- .../boot/dts/rockchip/rk3588-armsom-w3.dts    | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts
-index 779cd1b1798..5b5a18c8edf 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dts
-@@ -4,6 +4,7 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include "rk3588-armsom-lm7.dtsi"
- 
- / {
-@@ -32,6 +33,17 @@ analog-sound {
- 		pinctrl-0 = <&hp_detect>;
- 	};
- 
-+	hdmi0-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi0_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -138,6 +150,26 @@ &combphy2_psu {
- 	status = "okay";
- };
- 
-+&hdmi0 {
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi0_con_in>;
-+	};
-+};
-+
-+&hdptxphy_hdmi0 {
-+	status = "okay";
-+};
-+
- &i2c6 {
- 	status = "okay";
- 
-@@ -406,3 +438,18 @@ &usb_host1_xhci {
- &usb_host2_xhci {
- 	status = "okay";
- };
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
 -- 
-2.43.0
-
+Lee Jones [李琼斯]
 
