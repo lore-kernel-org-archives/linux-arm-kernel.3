@@ -4,96 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE40AD12D71
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 05:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76F2D12D71
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 05:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0qJC1SezqBQynGrNDWaqH2I8fe34n0nk3C9hPlNSJA=; b=qVQ3VLx8zNiZVXUW6FZ8l4UTaS
-	j0irgEgeiarcWYIUWJxi8nvThZoVQndsbTh6GdNjoPRVA1OGQLEqvzSp5zFLU7YmcOZmr/XVFC3sD
-	ApbclvokC8jnB8hy01ZhR0YHhw8YNmd9kCjTif+IMvzfze5w91YkTo8BcYBejPuBTQ6cpTWTxYpvP
-	jEjlOVG9m4pgMdCWqC1DjPIOwRYJxDVTHJXpLgGIFnpSpXB09fEVoUgNbgWDFE1XyO0h1gg2D0QEH
-	W3asn+xT/hGKsZpmF1uDe+lLfofrunIAz1AT/Ld2zIjRmHggxSWcxX+YvH0QhIYq3knNpitZIyDj1
-	UtP3CQUQ==;
+	bh=nAWcQ5veHhNVgjM+Swr4gUazUOqqofF4VZks+AvSvMY=; b=IFjbfSzP7ptboSF7StRFhFLpcJ
+	ggnmWPnK6A1nT+EFaTjZRdjU+zK/qCrRcISsl82lCSSOQ2R/UzD6wQIKgygq8r/S9dFo8Z9ZruWWR
+	8ipBsY0rPoiRzQSwkmpDxo4rJJsSkZ0WPmcdSx7G48CxVzxq72CsCPrN3QpTgjWjyDw4DBdtBkUQY
+	5eHMo5QFWvGDJukyZ/FX9DzpkcmeAu0QDdR7SSrmsMAat03uPzrcYgVhKNJSM0ueY2AzRzeBDUDNn
+	/slJdRQj+LgDQSbwyWEA+qKaVmMUVF/fEiAjFCBFVHIrLE94UKdN5Dh7pE1uxFy6hNy8rnS+/eAni
+	prQi0SWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAN4q-0000000GPBf-0BUM;
-	Mon, 11 Nov 2024 05:35:04 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1tANQ2-0000000GQdz-04YG;
+	Mon, 11 Nov 2024 05:56:58 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAN30-0000000GOyO-18wN;
-	Mon, 11 Nov 2024 05:33:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1731303140;
-	bh=r0qJC1SezqBQynGrNDWaqH2I8fe34n0nk3C9hPlNSJA=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=edBauzF4+psN00yGCWd2hhRKKGZjoCLM+XP/4Vk/wT24xfIM2jXvn069w9epgAQUt
-	 85bfX/4dTuk0HkQwTOQDvkw+xDeaDVSschC8OeCFR0Up3YtvxOz09Y8aN8WA0Z+WdU
-	 2FKvun9iHGLJvDrBVjFe6CfJKjDLq3VIVs4RZ/eg=
-X-QQ-mid: bizesmtpsz15t1731303113tpcbqo
-X-QQ-Originating-IP: LqKdR6A/9tP/7Zdlo1TgGaooe3XoVAUEqK6adang8j8=
-Received: from [10.20.53.22] ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 11 Nov 2024 13:31:51 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16417097256222115542
-Message-ID: <0356012E12D9C4F2+d5bf77f1-6baa-4e02-b9d4-52fc49997f32@uniontech.com>
-Date: Mon, 11 Nov 2024 13:31:50 +0800
+	id 1tANOG-0000000GQUP-2KBi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 05:55:09 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-72061bfec2dso3812791b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 21:55:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731304507; x=1731909307; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=nAWcQ5veHhNVgjM+Swr4gUazUOqqofF4VZks+AvSvMY=;
+        b=IugAyuGIIYqG6TzPCzRTvvtxYUWgAX6IC1x5rrM8HELjL28tZQ7pAaVXy/1/it6iZq
+         dJw2yyu60VTptt2u+KnoumYErdunPeg8ItGkttjylYyVirTs9/noy2CTS8+LbsqjqwXp
+         DHJaVQk9FeWFmWHghYtMyZ6Quo6/q6hYJchnLbT+FTM6Lpcr/JTkXogLrFTTNxV2I0hk
+         Q8PxIXgx9qY856YV1ldbSeplsX5V94OIitlN1c0QPWFT9s3LOKEkB2+N5uEAvzXg/J+k
+         DTXhM42ddmIpA1o1+z3cUbnVIzBloaZXUOpbFfg1SXk4gKdwTj0bAWvJEEzPj3vqhWg8
+         fzTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731304507; x=1731909307;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nAWcQ5veHhNVgjM+Swr4gUazUOqqofF4VZks+AvSvMY=;
+        b=L1z+z+k13liiHComyq3esVbj8jueVOi1muAAigIhh1yUkbQ1H2wdT3GpLzhouA/yg6
+         1Hz9aKaDBoefxZIlxXuFajD/tTvvkV3m+M3G+fbvYkw2Ibz+xDuhLaxi63u8amobn9+k
+         4OeVqMXUfTXNMhCNNW18W5jw5RXOeojGqggrn7gTA8lCYGPsDEG0sRnC2dsEttTBg300
+         9ZS+7w436EkCG5SbCY3OHMzqalDqjYCj7bcFVni5TwOiGaTU7dh75eeTAgySK/Uzfww/
+         rcEmAIDkEEYAjd60hh9U0LVBv8rto0FXqC0+VtxFsFuM6ovF1xZ6yEVUuqjeONtACQeW
+         gV6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVLAs8o4FG68xBeyRJWzjns6Tq5aqRbNgZHBP+/mMenFBRQlnOtLZizYh7FUa0uZDqmtHENWbxI+EwvVKAy4wax@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfLxKkbfoTLxOQ4hHINLqz6b9EFTU/Ej1wCX2820DnM074Av5h
+	NwZgpoootDgeVcV5chnUjIC0u9TDCaowY1GZEiNCFnch8aV61U0/XOFGIt7bv6I=
+X-Google-Smtp-Source: AGHT+IHtqVtA35vMC4e1EnNTvwTwqSJFlJzhlZOFgx3RSPLljVG5nE5Fqy9JY0g2bqUZOQmsSp1QUQ==
+X-Received: by 2002:a05:6a00:198a:b0:71e:415:c4c6 with SMTP id d2e1a72fcca58-724133d215amr13597006b3a.26.1731304507363;
+        Sun, 10 Nov 2024 21:55:07 -0800 (PST)
+Received: from localhost ([122.172.86.146])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724079a3d5bsm8443325b3a.106.2024.11.10.21.55.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Nov 2024 21:55:06 -0800 (PST)
+Date: Mon, 11 Nov 2024 11:25:04 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Cody Eksal <masterr3c0rd@epochal.quest>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Parthiban <parthiban@linumiz.com>,
+	Andre Przywara <andre.przywara@arm.com>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 12/13] cpufreq: sun50i: add a100 cpufreq support
+Message-ID: <20241111055504.2f3szrd5ahudvtqm@vireshk-i7>
+References: <20241031070232.1793078-1-masterr3c0rd@epochal.quest>
+ <20241031070232.1793078-13-masterr3c0rd@epochal.quest>
+ <20241111041311.hleaz5fgipsyxigm@vireshk-i7>
+ <CAGb2v646NHFAni=P+iC8OZsWMpg0PJc=kYbuWaY=C0-W-q6qAw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] Bluetooth: btusb: Add MT7925 support for ID
- 0x13d3:0x3608
-To: Paul Menzel <pmenzel@molgen.mpg.de>, hello@felixjara.me
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, johan.hedberg@gmail.com,
- matthias.bgg@gmail.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, guanwentao@uniontech.com,
- zhanjun@uniontech.com, aaron.ma@canonical.com
-References: <D3E1285F7DBFAB3E+20241108082418.187499-1-wangyuli@uniontech.com>
- <9954d66f-7e1c-4df3-a600-f82139ea9e5b@molgen.mpg.de>
-Content-Language: en-US
-From: WangYuli <wangyuli@uniontech.com>
-Autocrypt: addr=wangyuli@uniontech.com; keydata=
- xjMEZoEsiBYJKwYBBAHaRw8BAQdAyDPzcbPnchbIhweThfNK1tg1imM+5kgDBJSKP+nX39DN
- IVdhbmdZdWxpIDx3YW5neXVsaUB1bmlvbnRlY2guY29tPsKJBBMWCAAxFiEEa1GMzYeuKPkg
- qDuvxdofMEb0C+4FAmaBLIgCGwMECwkIBwUVCAkKCwUWAgMBAAAKCRDF2h8wRvQL7g0UAQCH
- 3mrGM0HzOaARhBeA/Q3AIVfhS010a0MZmPTRGVfPbwD/SrncJwwPAL4GiLPEC4XssV6FPUAY
- 0rA68eNNI9cJLArOOARmgSyJEgorBgEEAZdVAQUBAQdA88W4CTLDD9fKwW9PB5yurCNdWNS7
- VTL0dvPDofBTjFYDAQgHwngEGBYIACAWIQRrUYzNh64o+SCoO6/F2h8wRvQL7gUCZoEsiQIb
- DAAKCRDF2h8wRvQL7sKvAP4mBvm7Zn1OUjFViwkma8IGRGosXAvMUFyOHVcl1RTgFQEAuJkU
- o9ERi7qS/hbUdUgtitI89efbY0TVetgDsyeQiwU=
-In-Reply-To: <9954d66f-7e1c-4df3-a600-f82139ea9e5b@molgen.mpg.de>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------prXwvg4jx33S8hv2mv5kSAoR"
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: OeS8HGsJZnO5WQ/8ZQ6BffBFbGR9UrRzTYv+R+oNPOkwgdfqFMgDdSHX
-	Wy44DZAinLznguz1eM/svs+91IHgk2ocBVP4edgAKN9n3sjftJ7tXT3SoGSiWtODeBL0EuY
-	h6n8z9f/WAOwhhBUBw0Xkc1rHpekXnyUA2nLykOIY/50BJd/Fv3WhYntwO621a7jXwJ6feU
-	2eqdh8i1Lt4+Vqg9Qmb79fUWiYdccjP6MvtxG2Q5/H7+IVl4P0+raXgxSiY50dMKhSWblun
-	iu/iwkgUShjjnwUjOuFpckKVgNfC2NYX637ZW68WuLqL+S82IamEA2eaDhsuiN8PmhC7rZ+
-	JVaIqsiCEhZDR1aFKqUDBtI8lnZTjTcB0Pefv7Rz9ls3a2d5RqfoDmnHsQEpGo1M8t/ozz/
-	+rX6xhdYr65yOMXM5K3uCIK+Hfl8E28AMrSozBvVA0ELoLOwSgDwkKLrdnsMZxPr3KsGTV8
-	vDlQIkLznlOZm6vPPXNsoaBZpL0RsbOgtR47nohl48VnRaqgqeiKvOb1sKHpvXRHMT3krJZ
-	lszzyEBeehKq3KtSRVnVxcYD+3H9ZVvVWvniA74bJjYMOH/2JKD2bfbuspKXvhJx81Cvubo
-	huwLOsTaxxuXVGgvr+xbpuGgxYqmtehEEQEZsG3lrwLw16vx+mXvsGxV58PNgXQYcVL4gaA
-	CnX2LGbDZwr5sTpcG9hYFMRpxcRuLbCqdT3G/8n9dQNS28i5GgsaLsDt5G7m3uO4IGOSMZB
-	r/MWneSbPbBfWJ+ICcVqkp2jR4rZjtcxYNVgSUzMPHGo103r1FdCd/sroUnm/iMdp62ZP0n
-	X+j25k76mv7CPMHcjVK7YIWx5dvIWkx8su17duxLxYdB7c25dMm20oMERQMfBaGxzAn0NF+
-	mvRHQoJ8FLhHaMLySq3njzY8vONHeBtqSM89z9k7++MwNCQpGw7622KS+z5iIDGsQemvXmj
-	7obgyivlYYNDEmZmJlK7hBc1tLmdsuTGPuKi8g0pLF0NvEF4M33gC/5HN1CUY+NOU6/mrnv
-	jDJlfsfOYVl2zuzpP85ozdB37O2yGxJHBPB8PYj992l61tC91GvTi9pP8DLue7cfw0C6sri
-	fVmZKLAcx57Ax6iWRJfxvH32ThKSrfi8FS1K8IwCGJZ
-X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGb2v646NHFAni=P+iC8OZsWMpg0PJc=kYbuWaY=C0-W-q6qAw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_213310_776596_FFA43D92 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20241110_215508_635420_9E520C03 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,81 +112,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------prXwvg4jx33S8hv2mv5kSAoR
-Content-Type: multipart/mixed; boundary="------------dFU7eN00AXop4PhYtPWk9804";
- protected-headers="v1"
-From: WangYuli <wangyuli@uniontech.com>
-To: Paul Menzel <pmenzel@molgen.mpg.de>, hello@felixjara.me
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, johan.hedberg@gmail.com,
- matthias.bgg@gmail.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, guanwentao@uniontech.com,
- zhanjun@uniontech.com, aaron.ma@canonical.com
-Message-ID: <d5bf77f1-6baa-4e02-b9d4-52fc49997f32@uniontech.com>
-Subject: Re: [PATCH v3] Bluetooth: btusb: Add MT7925 support for ID
- 0x13d3:0x3608
-References: <D3E1285F7DBFAB3E+20241108082418.187499-1-wangyuli@uniontech.com>
- <9954d66f-7e1c-4df3-a600-f82139ea9e5b@molgen.mpg.de>
-In-Reply-To: <9954d66f-7e1c-4df3-a600-f82139ea9e5b@molgen.mpg.de>
+On 11-11-24, 13:30, Chen-Yu Tsai wrote:
+> On Mon, Nov 11, 2024 at 12:13 PM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+> >
+> > On 31-10-24, 04:02, Cody Eksal wrote:
+> > > From: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+> > >
+> > > Let's add cpufreq nvmem based for allwinner a100 soc. It's similar to h6,
+> > > let us use efuse_xlate to extract the differentiated part.
+> > >
+> > > Signed-off-by: Shuosheng Huang <huangshuosheng@allwinnertech.com>
+> > > [masterr3c0rd@epochal.quest: add A100 to opp_match_list]
+> > > Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+> > > ---
+> > > Changes in V2:
+> > >  - Add the A100 to the cpufreq-dt-platdev blacklist.
+> >
+> > Can this be applied to the cpufreq tree separately ?
+> 
+> Yes.
+> 
+> Acked-by: Chen-Yu Tsai <wens@csie.org>
 
---------------dFU7eN00AXop4PhYtPWk9804
-Content-Type: multipart/mixed; boundary="------------lc09SF6AgsylcJLktEewo2W5"
+Applied. Thanks.
 
---------------lc09SF6AgsylcJLktEewo2W5
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
-
-T24gMjAyNC8xMS84IDE2OjQ4LCBQYXVsIE1lbnplbCB3cm90ZToNCg0KPg0KPiBTaG91bGQg
-dGhlcmUgYmUgYSBzcGFjZSBpbiB5b3VyIG5hbWU6IFdhbmcgWXVsaT8NCj4NCk5vIG5lZWQg
-Oi0pDQoNCj4NCj4gVGhlcmUgaXMgYWxyZWFkeSBhbiBlbnRyeSBmb3IgMTNkMzozNjA4LiAN
-Cg0KU29ycnkuIEkndmUgYmVlbiB3b3JraW5nIG9uIHRoaXMgcGF0Y2ggaW4gdGhlIGJsdWV0
-b290aC1uZXh0IGJyYW5jaCBvZiANCnRoZSBibHVldG9vdGgtbmV4dCByZXBvc2l0b3J5LiBb
-MV0NCg0KU28gSSBkaWQgbm90IG5vdGljZSB0aGUgbmV3IGNoYW5nZXMgdG8gdGhpcyBmaWxl
-Lg0KDQoNClsxXSANCmdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
-L2dpdC9ibHVldG9vdGgvYmx1ZXRvb3RoLW5leHQuZ2l0DQoNCg0KPiBTaG91bGQgb25seSBC
-VFVTQl9WQUxJRF9MRV9TVEFURVMgYmUgYWRkZWQ/UGxlYXNlIHVwZGF0ZSB0aGUgY29tbWl0
-IA0KPiBtZXNzYWdlIChzdW1tYXJ5IGFuZCBib2R5KSBhY2NvcmRpbmdseS4NCg0KDQpObyBu
-ZWVkIG5vdy4NCg0KQmVjYXVzZSBvZiBjb21taXQgMGZlYzY1NmQwOGFhICgiQmx1ZXRvb3Ro
-OiBidHVzYjogSW52ZXJ0IExFIFN0YXRlIGZsYWcgDQp0byBzZXQgaW52YWxpZCByYXRoZXIg
-dGhlbiB2YWxpZCIpDQoNCj4NCj4NCj4gS2luZCByZWdhcmRzLA0KPg0KPiBQYXVsDQo+DQot
-LSANCldhbmdZdWxpDQo=
---------------lc09SF6AgsylcJLktEewo2W5
-Content-Type: application/pgp-keys; name="OpenPGP_0xC5DA1F3046F40BEE.asc"
-Content-Disposition: attachment; filename="OpenPGP_0xC5DA1F3046F40BEE.asc"
-Content-Description: OpenPGP public key
-Content-Transfer-Encoding: quoted-printable
-
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-xjMEZoEsiBYJKwYBBAHaRw8BAQdAyDPzcbPnchbIhweThfNK1tg1imM+5kgDBJSK
-P+nX39DNIVdhbmdZdWxpIDx3YW5neXVsaUB1bmlvbnRlY2guY29tPsKJBBMWCAAx
-FiEEa1GMzYeuKPkgqDuvxdofMEb0C+4FAmaBLIgCGwMECwkIBwUVCAkKCwUWAgMB
-AAAKCRDF2h8wRvQL7g0UAQCH3mrGM0HzOaARhBeA/Q3AIVfhS010a0MZmPTRGVfP
-bwD/SrncJwwPAL4GiLPEC4XssV6FPUAY0rA68eNNI9cJLArOOARmgSyJEgorBgEE
-AZdVAQUBAQdA88W4CTLDD9fKwW9PB5yurCNdWNS7VTL0dvPDofBTjFYDAQgHwngE
-GBYIACAWIQRrUYzNh64o+SCoO6/F2h8wRvQL7gUCZoEsiQIbDAAKCRDF2h8wRvQL
-7sKvAP4mBvm7Zn1OUjFViwkma8IGRGosXAvMUFyOHVcl1RTgFQEAuJkUo9ERi7qS
-/hbUdUgtitI89efbY0TVetgDsyeQiwU=3D
-=3DBlkq
------END PGP PUBLIC KEY BLOCK-----
-
---------------lc09SF6AgsylcJLktEewo2W5--
-
---------------dFU7eN00AXop4PhYtPWk9804--
-
---------------prXwvg4jx33S8hv2mv5kSAoR
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wnsEABYIACMWIQRrUYzNh64o+SCoO6/F2h8wRvQL7gUCZzGWxgUDAAAAAAAKCRDF2h8wRvQL7jrY
-AP44VowUFBFTdi66/4qb7/KoyXwbptsn0Z/hGY/znCZe9QD/VSCt3lW4A+uVQRZokLhP9L9NwtxA
-dBpfl8jCbQSqeg8=
-=ey4H
------END PGP SIGNATURE-----
-
---------------prXwvg4jx33S8hv2mv5kSAoR--
+-- 
+viresh
 
