@@ -4,83 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01732D12D6E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 04:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43541D12D70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 04:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knhfiz6v1X/Y5Phw5qTTBL8KQ/Mw5RIdq1X0vCWMUt0=; b=SezsxQiifoV/wbczDAliavHc88
-	pVtjEqgfVL6s9Aa0w406cqFFmMDqBpkxjLr6pM03rBjq5/xyTbt9y/eRK5EKhjzA2Yz+CuU7qncks
-	JuNoaDKsgkqdYM5jHc8eZ4Ox9kfbdx/DW8XhW5xfio1kbmX3mKmqaRnjUf1iCnEOGUzJmY8fDADKh
-	5doa9uncD11YUroAxsJhS7uEmm2h3oK+Q0MHlwyrGs8mmk0I/iyYws0FYgeGstGufTSL2NELAhMc2
-	LPTYklPqYracWipqfMPMNIs2jc/J2dZC4QsMWYGj04ji1aGkem0z+/eDRCMJ0f7qxt5fL173uFVLX
-	OszzFuSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=usVtKTwHCFOrZTgz0XXZa10e04cdDcZS1OBiQazzMXQ=; b=xIiut9AoVGaVnyddzkyDzGIrRe
+	ky4BHflMYNW1m1T5V/5DVkxxK3GIPY4YWDpb6OXrP0PCZArsKh8+YZFUoU/3hLkfKCEBT7xMytLek
+	o3RRMcfjjy1XJ3I/4lQiVl/7MY1uCA117Z5kPJZhF3ChbyhE69FdLE4Eh3RrB/GCuFTRVIeYDT+zM
+	Am7tabb9aXgzdJRt4V+369nDy+fvzxQHHv92R1srH7gnn6BptfzPcfvVlbZsvBHW3J5cExft22i/9
+	g5Lgkv1TTUA3iWUPGhd6mDNZ1loRALE0HJ3rtq0n1R8RYggLCt4407bv5Eg3QzIWWzWvuUhbpJk4X
+	AFg4CfYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALzo-0000000GJdw-46Oz;
-	Mon, 11 Nov 2024 04:25:48 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tAMON-0000000GLq4-1YCm;
+	Mon, 11 Nov 2024 04:51:11 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALq5-0000000GIeG-2tff
+	id 1tAMMa-0000000GLiH-3MgM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 04:15:47 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20c7edf2872so40789885ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 20:15:44 -0800 (PST)
+	Mon, 11 Nov 2024 04:49:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731298544; x=1731903344; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=knhfiz6v1X/Y5Phw5qTTBL8KQ/Mw5RIdq1X0vCWMUt0=;
-        b=Qh3h3k2Q2SZheWR/HAiz/YXNFc1ru7VHSZh4UmMLhdosh1asbtI5buNv3YwNMu4GVp
-         jOwzU6XQsM0iJkL9OM6jvFgNewJSQz9E8uliYoi5paFpXywXTpZ2y8PHdzuaGpgPBycw
-         /KhJ/2QCPH8k0dK+NdTTbRsVzQb3nfp2ZKVOk/B2ohgqcLq80zZtsVBpsmLl2rCKmIp4
-         qA8IPhZU+1OZS4EhkFUbzFzFUql2NAla7gWPzkmjwuNDvL7+IRMNhGlv9A9YIKUP5/nT
-         fpuqrJTv8kbFGr0j5y6QwpJ4Eun83G5NKFLoa9M3/zHAz7yF/BtPVXz0HU4dU51vDW0g
-         DBRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731298544; x=1731903344;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=knhfiz6v1X/Y5Phw5qTTBL8KQ/Mw5RIdq1X0vCWMUt0=;
-        b=hOrLyvIfuivWCsYjPvPhSeSSgv+CFwBKFBL72mk4pPe+os21Nz0dPjOvpGQw7KrDwz
-         /jbo620iRmdipHcf255nrxoUIfD9B/E/jJSsvtICG9WwU135hsJ+y3WILNaFOergRkCh
-         ZK281UBFxazk50mbIKJCthICCr/hmLqrMBW+YnsQw01PqKXzMvKQ65UNJ4/MoGJIBxlp
-         MwZTN2rcmvVHsg98WiF1xEg74rpY1vAgsJr2BOASR+Hw3Xo1TvZKBisJCXU/PtJAhLET
-         a6+B1kPaK5HqGlVa156mVKTTw1AtAk+KyA6uBIIuZRS07GTa+UWzckum8MzCGXy58bKr
-         3YVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXz+DaqqbF1kT4oY3rrvaRtzm/h9c7G9PJ580ZxP1AkBE0HooVODdYTpxxhV7TaWaNcu0zxIxAni1jpfxWeEeKy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/zZ0Bo4szOaOVUudnP0waVIMWURCQTXjp17kLxB+LEi+if1cM
-	GcEkzBtGhJIkidObwfBpxEP6pYccDHbR28AHLqZLFCZ5W1ruzWZNKetsURLynKw=
-X-Google-Smtp-Source: AGHT+IHxCb9wscTjmGmnrU/ke01iamppePTNlMCSebsPTr/XCYGY/bNBzPupEwPaf2R5gdgxQNJBBw==
-X-Received: by 2002:a17:902:d486:b0:211:74be:c09b with SMTP id d9443c01a7336-211821ae0e7mr198879005ad.12.1731298544156;
-        Sun, 10 Nov 2024 20:15:44 -0800 (PST)
-Received: from localhost ([122.172.86.146])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9a5fd1a9fsm7577101a91.37.2024.11.10.20.15.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Nov 2024 20:15:42 -0800 (PST)
-Date: Mon, 11 Nov 2024 09:45:40 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: rafael@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, hector.yuan@mediatek.com,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 RESEND] cpufreq: mediatek-hw: Fix wrong return value
- in mtk_cpufreq_get_cpu_power()
-Message-ID: <20241111041540.7pfksjopw7qfupsx@vireshk-i7>
-References: <20241107113841.989475-1-ruanjinjie@huawei.com>
+	d=codeconstruct.com.au; s=2022a; t=1731300551;
+	bh=usVtKTwHCFOrZTgz0XXZa10e04cdDcZS1OBiQazzMXQ=;
+	h=Subject:From:To:Cc:Date;
+	b=l/zHwD8nV2XhoeT5F5ZRgx77E/Q/2t/muD8r2BV4z4S32BYxddYl6TVIao8AQHwYF
+	 dwB8n7lyKChboB/Z1GuIrlP0wb4Za2p5OEGd6uM6Vvi7tBasVRyNdvA3CI5P7Rz4Xx
+	 CCGE/QWR1q6CZgKLbnuGXiYSCe8Fxbyzy+QBdMTMBPBab7wx0kqwE7BvG4RHlgfoZs
+	 ZeG6Jaaf0KvaSvvUiZYaHBcx06MBpBuhYRPNJar32zw7FqFB/PlKDiRMxpdkGHFmUo
+	 3aD51hgasLuF86xB0rpZSXQaECTJNd0Drixc5ivkWfxAofG0RnrCasIlUi9zvF/ly/
+	 jqJxz9IBPKAfA==
+Received: from [192.168.91.88] (ppp118-210-71-122.adl-adc-lon-bras32.tpg.internode.on.net [118.210.71.122])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id AFD1865FD5;
+	Mon, 11 Nov 2024 12:49:06 +0800 (AWST)
+Message-ID: <b386a9e98412b06b6186ee5dea81ac6a69bc4f8b.camel@codeconstruct.com.au>
+Subject: Pruning obsolete BMC devicetrees
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: openbmc <openbmc@lists.ozlabs.org>, Joel Stanley <joel@jms.id.au>
+Cc: linux-aspeed <linux-aspeed@lists.ozlabs.org>, linux-arm-kernel
+	 <linux-arm-kernel@lists.infradead.org>
+Date: Mon, 11 Nov 2024 15:19:04 +1030
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107113841.989475-1-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_201545_785767_AC4CFE5C 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20241110_204921_093819_8C1124D2 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,31 +69,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-11-24, 19:38, Jinjie Ruan wrote:
-> mtk_cpufreq_get_cpu_power() return 0 if the policy is NULL. Then in
-> em_create_perf_table(), the later zero check for power is not invalid
-> as power is uninitialized. As Lukasz suggested, it must return -EINVAL when
-> the 'policy' is not found. So return -EINVAL to fix it.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 4855e26bcf4d ("cpufreq: mediatek-hw: Add support for CPUFREQ HW")
-> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-> Suggested-by: Lukasz Luba <lukasz.luba@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
-> v2 -> v2 RESEND:
-> - Update the commit subject and Cc Viresh.
-> - Add Reviewed-by.
-> v2:
-> - Fix the driver instead of em_create_perf_table() as suggested.
-> - Update the commit message.
-> - Add Suggested-by.
-> ---
->  drivers/cpufreq/mediatek-cpufreq-hw.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+Hi all,
 
-Applied. Thanks.
+We now have quite a collection of BMC-related devicetrees upstream.
+There's interest in whether we can prune some of them out.
 
--- 
-viresh
+If you've added a board you no-longer require, or know of one added for
+a project you were working on that will not revisit upstream kernel
+support, please let us know if you're happy to queue it up for removal
+after the next LTS release.
+
+For interest's sake, I did some analysis on when the Aspeed devicetrees
+were last touched by commits that weren't obviously broad fixups:
+
+   2018-06-22 876c5d891c9d7442d2734871317bc6480cd9f80e: aspeed-bmc-opp-palm=
+etto.dts
+   2019-01-10 869d1375a495e6217fdfda6a59b13812d2f3a569: aspeed-bmc-arm-star=
+dragon4800-rep2.dts
+   2019-01-17 43d78e726a2b5fef0c0e0f07e2bed0faa4918d1b: aspeed-bmc-inspur-o=
+n5263m5.dts
+   2019-04-04 8bc7d3ed7cf4a1d44e63301c44bcbd41e6f50f65: aspeed-bmc-opp-lany=
+ang.dts
+   2019-04-25 29b871f344f43ef428aa55ee9ed2a76b5bee0f87: aspeed-bmc-quanta-q=
+71l.dts
+   2019-05-05 9831ae33750db5341bcfcb3a54758e016dfc0c81: aspeed-bmc-lenovo-h=
+r630.dts
+   2019-05-21 130413736376e299e77328760209fd3307d02201: aspeed-bmc-microsof=
+t-olympus.dts
+   2019-06-25 dc4bea0b989cfa3e3dfd8fe79a18abcfaca19767: aspeed-bmc-lenovo-h=
+r855xg2.dts
+   2019-11-18 e4aab38ed5d1b8316f25786e6ec6adb34449b294: aspeed-bmc-opp-vesn=
+in.dts
+   2019-12-03 53820e00aaa173db268e0288d0407806539b4c3e: aspeed-bmc-opp-swif=
+t.dts
+   2020-03-06 1f2c9d31e4806177aa97819d4ddc83dacd437ba2: aspeed-bmc-opp-romu=
+lus.dts
+   2020-03-06 fa09a28ca3e966582d6d92ef1536de360c8b194b: aspeed-bmc-opp-zaiu=
+s.dts
+   2020-04-29 697538bd65ad22a92598b5efded3666d3c59d1cc: aspeed-bmc-opp-nico=
+le.dts
+   2020-08-24 11c4124d5343b86e828c7c120cb8d1ece720dd0c: aspeed-bmc-facebook=
+-yamp.dts
+   2020-08-24 f883a606097d0017079b0e40125aac47ab221616: aspeed-bmc-facebook=
+-cmm.dts
+   2020-09-22 9e1cc9679776f5b9e42481d392b1550753ebd084: aspeed-bmc-intel-s2=
+600wf.dts
+   2020-12-21 13177f6ed3ea380011cea8a2f798c918e1ffc436: aspeed-bmc-supermic=
+ro-x11spi.dts
+   2021-01-21 286a596da2937d292828927a2b2ade4e03188f6c: aspeed-bmc-opp-mowg=
+li.dts
+   2021-04-13 45171b7dd2b81dbd38dc4027686774f8b02f2390: aspeed-bmc-ibm-rain=
+ier-1s4u.dts
+   2021-04-15 f0145db24e65f6cf13347a90ffb86e5ef2ff2ca2: aspeed-bmc-facebook=
+-tiogapass.dts
+   2021-04-30 189e847a0f0bcf99df5aea85e634abada5fbfbf4: aspeed-bmc-ibm-rain=
+ier-4u.dts
+   2021-05-26 419cc0b8c127193f6f447b905b1240765d2087c7: aspeed-bmc-inspur-n=
+f5280m6.dts
+   2021-07-18 00e9e776fa197592addc1f3002c63585f884a5dd: aspeed-bmc-facebook=
+-wedge100.dts
+   2021-07-18 5501ab03b9f1412a44e993e469f9375276de5399: aspeed-bmc-facebook=
+-galaxy100.dts
+   2021-07-18 c8a66b42d689e2b90878416e4b83a7ed3f58b708: aspeed-bmc-facebook=
+-wedge40.dts
+   2021-07-19 813e3f1d51fda49c7c9ce8552177968cd63a2af6: aspeed-bmc-facebook=
+-minipack.dts
+   2021-10-14 4eb7fe3333a021c8d0f35bcb5cd7c4e42800df62: aspeed-bmc-inspur-f=
+p5280g2.dts
+   2021-10-19 2561b4f6ecc741cb96e67c5fe250915548a83bb2: aspeed-bmc-inventec=
+-transformers.dts
+   2021-11-19 67ac01d03862b274d4ca3fa76092e96b00f478af: aspeed-bmc-vegman-n=
+110.dts
+   2021-11-19 67ac01d03862b274d4ca3fa76092e96b00f478af: aspeed-bmc-vegman-s=
+x20.dts
+   2021-11-30 4fcbe1f5b6ba71e0c464a303e3769bf1ce1fe54c: aspeed-bmc-tyan-s71=
+06.dts
+   2021-12-10 b26965e99788ea163fc217bdca1c2b17a5d70c90: aspeed-bmc-bytedanc=
+e-g220a.dts
+   2022-03-25 7b46aa7c008d2becd5df46c174d8cb4239e24659: aspeed-bmc-nuvia-dc=
+-scm.dts
+   2022-05-26 94d0a03297615cad2d40b0f02ceab902a7339062: aspeed-bmc-portwell=
+-neptune.dts
+   2022-06-23 390ffde2b97c8d50f87bf450208b3a4ed70cc2db: aspeed-bmc-arm-cent=
+riq2400-rep.dts
+   2022-06-24 7f058112873e86ca760f2d2b0e1ccc2ab111f418: aspeed-bmc-qcom-dc-=
+scm-v1.dts
+   2022-08-30 50c7e281f44726249b5ab7f148c02bbba751fea1: aspeed-bmc-facebook=
+-elbert.dts
+   2022-08-30 50c7e281f44726249b5ab7f148c02bbba751fea1: aspeed-bmc-facebook=
+-fuji.dts
+   2022-09-22 3293fca4a689dae1090b997145a46c816ff03a4a: aspeed-bmc-amd-dayt=
+onax.dts
+   2022-10-21 fe87f88eaf696b064231143536a33a618d5e0cd2: aspeed-bmc-opp-miha=
+wk.dts
+   2023-01-11 03d24e12749281f51545c9011fc953ac844df413: aspeed-bmc-amd-etha=
+nolx.dts
+   2023-01-18 8803d9438ef65c96b03ae95472e19b3ac072c930: aspeed-bmc-tyan-s80=
+36.dts
+   2023-01-19 28cfb03afcb20a841e96e821ba20870a7c437034: aspeed-bmc-ufispace=
+-ncplite.dts
+   2023-07-03 3f2879e4040cd8145d4b2f66ee8f9738e438e055: aspeed-bmc-inventec=
+-starscream.dts
+   2023-09-14 fe93af86526b93de6f11ca3c201525dbd961fb8f: aspeed-bmc-facebook=
+-minerva-cmc.dts
+   2024-01-13 8412c47d68436b9f9a260039a4a773daa6824925: aspeed-bmc-facebook=
+-bletchley.dts
+   2024-01-13 8412c47d68436b9f9a260039a4a773daa6824925: aspeed-bmc-facebook=
+-wedge400.dts
+   2024-01-31 247997184b0eb70f7af29fbe3e32f7a4eff2651e: aspeed-bmc-asrock-e=
+3c246d4i.dts
+   2024-02-24 dc260f505bd57f57b23bb343285e29533a6264f3: aspeed-bmc-asrock-r=
+omed8hm3.dts
+   2024-02-26 4ed43e8a1b9080a3ba393606b0523cf8bb311083: aspeed-bmc-delta-ah=
+e50dc.dts
+   2024-04-03 c61838aa458b5f96d5824733bef164da2d7ee860: aspeed-bmc-asrock-x=
+570d4u.dts
+   2024-04-05 f956245e4b74312cb238ce6a21fe02f60ef592f4: aspeed-bmc-facebook=
+-yosemitev2.dts
+   2024-04-10 1bd612936b558f6868ea1c5734e72fcea3bc49f2: aspeed-bmc-facebook=
+-cloudripper.dts
+   2024-04-30 d8bdd1e8acd54631a59c56f637b18816c5381f61: aspeed-bmc-asus-x4t=
+f.dts
+   2024-05-01 c44211af1aa9c6b93178a3993e18a7ebffab7488: aspeed-bmc-asrock-e=
+3c256d4i.dts
+   2024-05-20 76c5533925434b0383f95a56a4da2e81e3e8a3d3: aspeed-bmc-asrock-s=
+pc621d8hm3.dts
+   2024-05-22 787d4cbff0dc2fb5c4a344fb5f5f14ca5d7d0a9c: aspeed-bmc-ibm-blue=
+ridge-4u.dts
+   2024-08-02 1c8b6faf882de15fd62094e08b2ca5bf7870b767: aspeed-bmc-ibm-bonn=
+ell.dts
+   2024-08-02 1c8b6faf882de15fd62094e08b2ca5bf7870b767: aspeed-bmc-opp-taco=
+ma.dts
+   2024-08-02 1c8b6faf882de15fd62094e08b2ca5bf7870b767: aspeed-bmc-opp-with=
+erspoon.dts
+   2024-08-06 326bed426c43645cdce46197c420f929969a18c4: aspeed-bmc-ampere-m=
+tjade.dts
+   2024-08-16 ef1e32cb6314898da9188e2371a398c217db238a: aspeed-bmc-facebook=
+-greatlakes.dts
+   2024-09-05 a16edad0afa57424b85ae512a574b21ad02ee9a5: aspeed-bmc-ampere-m=
+tmitchell.dts
+   2024-09-09 8da6f02e0cbd2a54a1c322f12a104ae6d0aaac26: aspeed-bmc-facebook=
+-harma.dts
+   2024-09-10 e87ee9893c576b2d3916b017bb672f2f3c0e231a: aspeed-bmc-quanta-s=
+6q.dts
+   2024-09-10 e87ee9893c576b2d3916b017bb672f2f3c0e231a: aspeed-bmc-vegman-r=
+x20.dts
+   2024-09-24 ef73fe22bdd97bd829246299f69cd701f29ffb07: aspeed-bmc-facebook=
+-minerva.dts
+   2024-09-26 e9414665bb9f80c6072b8ecd3f43f395a0c5b916: aspeed-bmc-facebook=
+-catalina.dts
+   2024-10-01 5270aac729e2f2ad5ed0529bcb2618c92735e9f1: aspeed-bmc-ibm-syst=
+em1.dts
+   2024-10-03 faabe02697d7348f5c7cb7be4d93f9c9041021f7: aspeed-bmc-facebook=
+-yosemite4.dts
+   2024-10-21 8e2e003ccafe87795a9940ffed456600f71a0fd7: aspeed-bmc-ampere-m=
+tjefferson.dts
+   2024-11-04 275017f75a4fefd004962024c3b4a1587a95bdfe: aspeed-bmc-ibm-sbp1=
+.dts
+   2024-11-06 c63cd57bb09abfb15b6907e85d2df7be152d9f25: aspeed-bmc-ibm-ever=
+est.dts
+   2024-11-07 2eff056a229e21d9e287a74f1305f947ff6b141b: aspeed-bmc-ibm-fuji=
+.dts
+   2024-11-08 ed280dbf0e488347c33bef359f8b101f0835f89b: aspeed-bmc-ibm-blue=
+ridge.dts
+   2024-11-08 ed280dbf0e488347c33bef359f8b101f0835f89b: aspeed-bmc-ibm-rain=
+ier.dts
+  =20
+Out of further curiosity, I also filtered the list by machines that
+aren't mentioned in upstream OpenBMC (not that that's where they must
+be used, but it might be an indication of stalled efforts to upstream
+support):
+
+   2019-01-10 869d1375a495e6217fdfda6a59b13812d2f3a569: aspeed-bmc-arm-star=
+dragon4800-rep2.dts
+   2019-01-17 43d78e726a2b5fef0c0e0f07e2bed0faa4918d1b: aspeed-bmc-inspur-o=
+n5263m5.dts
+   2019-04-04 8bc7d3ed7cf4a1d44e63301c44bcbd41e6f50f65: aspeed-bmc-opp-lany=
+ang.dts
+   2019-05-05 9831ae33750db5341bcfcb3a54758e016dfc0c81: aspeed-bmc-lenovo-h=
+r630.dts
+   2019-06-25 dc4bea0b989cfa3e3dfd8fe79a18abcfaca19767: aspeed-bmc-lenovo-h=
+r855xg2.dts
+   2020-08-24 11c4124d5343b86e828c7c120cb8d1ece720dd0c: aspeed-bmc-facebook=
+-yamp.dts
+   2021-01-21 286a596da2937d292828927a2b2ade4e03188f6c: aspeed-bmc-opp-mowg=
+li.dts
+   2021-05-26 419cc0b8c127193f6f447b905b1240765d2087c7: aspeed-bmc-inspur-n=
+f5280m6.dts
+   2021-07-18 00e9e776fa197592addc1f3002c63585f884a5dd: aspeed-bmc-facebook=
+-wedge100.dts
+   2021-07-18 5501ab03b9f1412a44e993e469f9375276de5399: aspeed-bmc-facebook=
+-galaxy100.dts
+   2021-07-18 c8a66b42d689e2b90878416e4b83a7ed3f58b708: aspeed-bmc-facebook=
+-wedge40.dts
+   2021-07-19 813e3f1d51fda49c7c9ce8552177968cd63a2af6: aspeed-bmc-facebook=
+-minipack.dts
+   2021-10-14 4eb7fe3333a021c8d0f35bcb5cd7c4e42800df62: aspeed-bmc-inspur-f=
+p5280g2.dts
+   2022-05-26 94d0a03297615cad2d40b0f02ceab902a7339062: aspeed-bmc-portwell=
+-neptune.dts
+   2022-06-23 390ffde2b97c8d50f87bf450208b3a4ed70cc2db: aspeed-bmc-arm-cent=
+riq2400-rep.dts
+   2022-08-30 50c7e281f44726249b5ab7f148c02bbba751fea1: aspeed-bmc-facebook=
+-elbert.dts
+   2022-10-21 fe87f88eaf696b064231143536a33a618d5e0cd2: aspeed-bmc-opp-miha=
+wk.dts
+   2024-01-13 8412c47d68436b9f9a260039a4a773daa6824925: aspeed-bmc-facebook=
+-wedge400.dts
+   2024-01-13 8412c47d68436b9f9a260039a4a773daa6824925: aspeed-bmc-facebook=
+-wedge400.dts
+   2024-04-10 1bd612936b558f6868ea1c5734e72fcea3bc49f2: aspeed-bmc-facebook=
+-cloudripper.dts
+   2024-04-30 d8bdd1e8acd54631a59c56f637b18816c5381f61: aspeed-bmc-asus-x4t=
+f.dts
+
+Some of the earlier devicetrees might be candidates for consideration.
+
+Andrew
+
+(data produced and post-processed with awful invocations of git log,
+awk and one-liner shell scripts. Happy to pass them on by request)
 
