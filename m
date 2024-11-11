@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 275A6D3ABD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8215FD3ABD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=; b=s9asigJKyx6JkoJP7GOQxmbuVF
-	oU6DF0Ew82Len5jh3DixaG5RDKBREgcLK74JAbR8DvVEvCLJ0SLLWERT3Xe8ABj79C2IdW8pCb6B9
-	m8qoTGSkTh+O528mtGnnkU90yIa2vU84prsTXVzFdFwDqBf+r8QFZ3olrBtQjetwLlq76fbOTwQr6
-	/4Ot5rWu8pMVtgmlO5egOTMvg2ZnfvvyoprKhWAqlrFh0OLBePEe+0LJMSIA/a7wDPdNTZynjDXY3
-	7iueCtgrGhNJL89Nh36k/8B+MKwF5BF0UYPnqoRpwezfO0GOKapp4K4ArJxoBy7SINUuVZqP5JuUY
-	Owq1dm8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W8thwsB+ljS0lWZ4b7dnqxQ/N/kDhQQW1Jd7+/GQSOs=; b=SqBkCASVFMCpuMq+YEKmNR/XzD
+	yWofSKDq0umovhbuWy3q7MiX7tw3Gx3rBXvrbjqongINITWKIBB/3a4KOVW0sTE4XxZRWutMChhvW
+	qKntzaY91oK0mvRHGCsRe7DgFWi+6XmgS4vq1e86f02KyMJx/giPFo4j1NN/+cU8pp/uzELBfaKZB
+	3yxM5RPrAHg3TJYxEkaPes4uySN9ChpQViMLvwmTolb7K/drLBU/6Nukntu098TVpnKHl2mySNzQk
+	KIfMfP12nM2rGA/4NaM1g+ynqOvPbiKpus82vA7HmUfUP6ZX4g6ZtHDKCQjNieflU7LKwQ+VS9t8q
+	UioEsUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXxi-00000000gH6-1mcb;
-	Mon, 11 Nov 2024 17:12:26 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1tAY2U-00000000h15-0Fk3;
+	Mon, 11 Nov 2024 17:17:22 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXvt-00000000ful-0yox
+	id 1tAY0g-00000000go3-3Uti
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 17:10:35 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c932b47552so20504a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 09:10:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731345030; x=1731949830; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=;
-        b=YGt+Bz+ihpXUC1VfV31+KC3tEDzzHC+BPmX4tlD2OoUrHs7gJfwnoflnw0yv69oGqt
-         zc8fB5/i4Whd2BsVb7T0bNUot+A/wX3q3a76zux+65+pL5xiOYmfD+Yx7Cqo4yOUEzXf
-         0UZzGcCmMi1KAFWp/essGP2FJiDBMExmLS31I2c1cSTyDnDq2kBAaOW4plR/GOHnCuyj
-         Zf92HwYToA26gGEYohLamzCHQ3JALHBlmf9+1p/cUFUP5sA+YQyJsoiOorkwbUD2pKww
-         JS9ljHkqZGmiKsPi88RjiUV3up3Z2D1MC636n0lgeYiY8XFlGY7xQfwtx5l2sQQSzoJn
-         1Sig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731345030; x=1731949830;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=;
-        b=Ihc5yQAsLoQnPGlJmHwpPs8yJAP8NB0h/Va+PIaKux2goV9nm/Bt4eFgZNeog0pT9e
-         Dr1ZJlDdF0r2NQROBcdEf0TMEEjsvYc9pMXcjONINYXCDOPvz7sr35+QHX3Sq482xd2O
-         4Xf/r5rbrLOaatHVzTCJr2W+T+c6LH9oWi1FSNq52m+u/Hg5z6n+jIohkHu82WaIqAjH
-         LbP+QujsN6R4LlJJ0P7MDFbQe3BlU3g6HCgxrpyJBRJaiV/U5FV+W3dGU9pYSoRZrt01
-         Hb6qbKYNF/pVrV2myEiO+v7p/KuEDFIkfFZoe6HeUYD7P+BR58yQJewv81oLnceuVi8S
-         z8AQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUo0ykHs+73tKwlq0MUu32USherzohJcAZ1ZAlpht8aYcxca1L8G9hT5hwgsU0aWYWpgwBO4/nNhEpdowamP0vM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5VMrNRGxv6LvU+J2XN+VfPKyHlZpfJ7te/cegUvrDrao/Wh8x
-	yXPHS8k3TWz41sJUgyfBeepRoz0wyrOJ0cNkAsfOLReAgyQP2Y0/WA+5fR5id+UFYsgydP94kUl
-	455IXlzgs026Tbn9+ey7Us6LYT8TUj9ibAIyh
-X-Gm-Gg: ASbGncvjs2LBIEm54+WmIa/3Lm/IL7Mhv8Ck1udZeVcyv0RvxjonkmOR592XAG6VBCl
-	OWiFYSWbgtMKyj5rJ4mWd6QvRRQHMsIeD7jJmURZihJUePnRqII1wDut57rby2g==
-X-Google-Smtp-Source: AGHT+IHgerBC9h2YwDfKDijAh6osZ2kMh3HmOgZnIMcMCgU4EDXSlgxbGcjXjle/6Rd24wYQJ071PNSrdzccO67zBYI=
-X-Received: by 2002:a05:6402:7c2:b0:5c8:84b5:7e78 with SMTP id
- 4fb4d7f45d1cf-5cf1c83cea9mr353370a12.4.1731345030142; Mon, 11 Nov 2024
- 09:10:30 -0800 (PST)
+	Mon, 11 Nov 2024 17:15:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=W8thwsB+ljS0lWZ4b7dnqxQ/N/kDhQQW1Jd7+/GQSOs=; b=fh
+	6FlBFBQS/bFlsT6PMKK5U9LH02C+3Qm02iYV3yichYa6m0FTJQpA2gLUXF+/BtZxhn02GWnJJyU6P
+	9KmOiQDg7WTWYu4AAjLHWd2nSFd+vtLRHcioSOTzvGFv38olkVrLzVA36NBm7nPqEWDyOM0yvyR9u
+	Maz6pNxDnCtMFm4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tAY0S-00Cunp-No; Mon, 11 Nov 2024 18:15:16 +0100
+Date: Mon, 11 Nov 2024 18:15:16 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Rob Herring <robh@kernel.org>
+Cc: frank-w@public-files.de, Frank Wunderlich <linux@fw-web.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
+	linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional failed
+Message-ID: <e7a8e087-fb92-4911-b7fb-34521635e8da@lunn.ch>
+References: <20241109094623.37518-1-linux@fw-web.de>
+ <20241109094623.37518-2-linux@fw-web.de>
+ <e534c723-6d65-433f-8ab5-1c0d424d7367@lunn.ch>
+ <9B1A5D20-3DE5-40C1-8B2D-B1C4F53FA5F4@public-files.de>
+ <CAL_JsqJnOa_9Poz86vOWBCQigvv-Ab4Tt1hrwTxSa5zNraVxXQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20241108211446.3304809-1-kaleshsingh@google.com> <86r07jz6uh.wl-maz@kernel.org>
-In-Reply-To: <86r07jz6uh.wl-maz@kernel.org>
-From: Kalesh Singh <kaleshsingh@google.com>
-Date: Mon, 11 Nov 2024 09:10:18 -0800
-Message-ID: <CAC_TJvd=fNRx2VOcEEgjdkY53MwpR0Xa4dX1KTy=nNew7dg9Mw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: kvm: Make nvhe stack size configurable
-To: Marc Zyngier <maz@kernel.org>
-Cc: will@kernel.org, qperret@google.com, broonie@kernel.org, 
-	mark.rutland@arm.com, keir@google.com, vdonnefort@google.com, 
-	kernel-team@android.com, android-mm@google.com, 
-	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	D Scott Phillips <scott@os.amperecomputing.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Ankit Agrawal <ankita@nvidia.com>, Wang Jinchao <wangjinchao@xfusion.com>, 
-	"Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, =?UTF-8?Q?Pierre=2DCl=C3=A9ment_Tosi?= <ptosi@google.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqJnOa_9Poz86vOWBCQigvv-Ab4Tt1hrwTxSa5zNraVxXQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_091033_296505_CEBC38FD 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20241111_091530_896122_11C5F5B5 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +82,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 10, 2024 at 3:06=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> [that's an impressive Cc list...]
->
-> On Fri, 08 Nov 2024 21:14:00 +0000,
-> Kalesh Singh <kaleshsingh@google.com> wrote:
+On Mon, Nov 11, 2024 at 10:25:12AM -0600, Rob Herring wrote:
+> On Sun, Nov 10, 2024 at 3:25 AM Frank Wunderlich
+> <frank-w@public-files.de> wrote:
 > >
-> > In order to make the nVHE stack size easily configurable,
-> > introduce NVHE_STACK_SHIFT which must be >=3D PAGE_SHIFT.
+> > Am 9. November 2024 18:29:44 MEZ schrieb Andrew Lunn <andrew@lunn.ch>:
+> > >On Sat, Nov 09, 2024 at 10:46:19AM +0100, Frank Wunderlich wrote:
+> > >> From: Frank Wunderlich <frank-w@public-files.de>
+> > >>
+> > >> after converting the ahci-platform binding to yaml the following files
+> > >> reporting "'anyOf' conditional failed" on
+> > >>
+> > >> sata@540000: sata-port@0
+> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-db.dts b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+> > >> index 1e0ab35cc686..2b5e45d2c5a6 100644
+> > >> --- a/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+> > >> +++ b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
+> > >> @@ -214,6 +214,7 @@ &cp0_sata0 {
+> > >>
+> > >>      sata-port@1 {
+> > >>              phys = <&cp0_comphy3 1>;
+> > >> +            status = "okay";
+> > >>      };
+> > >>  };
+> > >
+> > >>
+> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> > >> index 7af949092b91..6bdc4f1e6939 100644
+> > >> --- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> > >> +++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
+> > >> @@ -433,11 +433,13 @@ &cp0_sata0 {
+> > >>      /* 7 + 12 SATA connector (J24) */
+> > >>      sata-port@0 {
+> > >>              phys = <&cp0_comphy2 0>;
+> > >> +            status = "okay";
+> > >>      };
+> > >>
+> > >>      /* M.2-2250 B-key (J39) */
+> > >>      sata-port@1 {
+> > >>              phys = <&cp0_comphy3 1>;
+> > >> +            status = "okay";
+> > >>      };
+> > >>  };
+> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> > >> index 7e595ac80043..161beec0b6b0 100644
+> > >> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> > >> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> > >> @@ -347,10 +347,12 @@ CP11X_LABEL(sata0): sata@540000 {
+> > >>
+> > >>                      sata-port@0 {
+> > >>                              reg = <0>;
+> > >> +                            status = "disabled";
+> > >>                      };
+> > >
+> > >I don't know the yaml too well, but it is not obvious how adding a few
+> > >status = "disabled"; status = "okay"; fixes a "'anyOf' conditional failed".
+> > >
+> > >Maybe you can expand the explanation a bit?
+> > >
+> > >       Andrew
 > >
-> > The default stack size remains 1 page (no functional change)
+> > Hi angelo,
 > >
-> > Downstream vendor features which require a larger stack
-> > can configure it by setting CONFIG_NVHE_STACK_SHIFT.
->
-> We don't let make the stack size configurable for the rest of the
-> kernel, do we? Why should a tiny portion be treated differently?
->
-> Making this configurable means that testing is harder, and bugs harder
-> to reproduce. It also seems specially designed to allow badly written
-> code to run in hypervisor context. And once you allow two pages to be
-> used (up to 128kB), what prevents the "downstream vendor" to push this
-> to 4 or 8?
->
-> If anything, I would prefer to see this (obviously out of tree) code
-> isolated with its own stack instead of growing EL2's private stack. At
-> least this would make the problems attributable to the guilty party.
+> > I guess the dtbs_check only checks required properties from yaml if the node is enabled.
+> 
+> Yes, that is exactly how it works.
 
-Hi Marc,
+So from this, can i imply that phys is a required property?
 
-Thanks for the comments.
+Looking at the above patch, it appears that for armada-*.dts,
+sata-port@0 always uses phys = <&cp0_comphy2 0> and sata-port@1 uses
+phys = <&cp0_comphy3 1>. Is this an actual SoC property? Could it be
+moved up into the .dtsi file? Or is it really a board property?
 
-I tried to be conservative with the configuration only allowing only
-up to 2 pages. Your points are fair concerns, I can see how this still
-may not be ideal for upstream. However, I think introducing
-NVHE_STACK_SIZE as a refactor still has value, similar to how
-OVERFLOW_STACK_SIZE is handled. If there are no objections, I=E2=80=99ll
-resend a v2 of the patch, dropping the configuration parts and
-focusing on the refactor to introduce NVHE_STACK_SIZE.
-
---Kalesh
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+	Andrew
 
