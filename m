@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853F7D12D5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441E7D12D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vo0JEcqvPxNuVPB/09CxeSjT5kvaMhjo5cwSgLbHGrk=; b=Kt+x6yelYAh7J64UfjKlLk/0IZ
-	Bnog1Gn3ZQCmgc5D1YC/pSFYCtSYmd12Bti3iSxKeeoKvTLTmeYY0B4rTzakE+X9Lf/kuUqYmM+mM
-	ek388dw/Jvfa4i/BjUsa617aQUX4g7SKJHk7WvTJ77SpVetcJ7qO+mH9ILUysPMwOaaQtPhk6Ms4H
-	U06WXmmnciPQD7vsBkxJlIT4ds7DtSZ3JjZloOSpx1AAXQMDQOpOeV0IOXjFjlO4l630Inizu4dfZ
-	26AOBi1CC7Rjji5snfe/OddvZ0uW/8JC/U3yN0hgmnnRzGrkXIHKkUnn8kSVcZcIRrSLLgre0tqDO
-	2cEumhUg==;
+	bh=5Nov8iRRHXTBj9RFwS8LwMVJeBTVMQmVwZaSZKXQO2U=; b=OlYAY/I7zxct6P36pVVogLptDQ
+	xAM++axgaqPvQcLmydBkPrcqar1pSwHzF/Q01wPTMjWarLcYH9wrPPrmuHZfDigaUhnNE9EgRgX4P
+	I1HcjAny0HxvNur+7RHuWh7gvpKCwnqYJaBlZCAKlTRq8lKWTCT82GwjVL7dR7ckjMHzYDgZkCr4C
+	hNeE83Qybt/YGmoqYrhdCtoVMbveVeJlnT1gEC4BcDga7xsmhl7mc7YxfrU8+6hLcUiNX13VuDf2S
+	u1+PCF6/yfu5s+3aMhUljQrdmwe2buMoZlFZJlmdlvsXAVbenh3DWo+7YgP+R6Ujr4TYryWzh6Wsb
+	gvpAKRng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAIhq-0000000FyD1-0IvU;
-	Mon, 11 Nov 2024 00:55:02 +0000
+	id 1tAIjZ-0000000FyMq-2GJ3;
+	Mon, 11 Nov 2024 00:56:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAIaj-0000000FwuM-1E4J
+	id 1tAIak-0000000Fwud-01G4
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 11 Nov 2024 00:47:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE1321CDD;
-	Sun, 10 Nov 2024 16:48:06 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FFDE13D5;
+	Sun, 10 Nov 2024 16:48:11 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00ECF3F66E;
-	Sun, 10 Nov 2024 16:47:34 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BC0F3F66E;
+	Sun, 10 Nov 2024 16:47:39 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -49,17 +49,17 @@ Cc: Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/7] clk: sunxi-ng: mp: introduce dual-divider clock
-Date: Mon, 11 Nov 2024 00:47:17 +0000
-Message-ID: <20241111004722.10130-3-andre.przywara@arm.com>
+Subject: [PATCH 4/7] dt-bindings: clk: sunxi-ng: add compatible for the A523 CCU
+Date: Mon, 11 Nov 2024 00:47:19 +0000
+Message-ID: <20241111004722.10130-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.2
 In-Reply-To: <20241111004722.10130-1-andre.przywara@arm.com>
 References: <20241111004722.10130-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_164741_442924_09885CD8 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20241110_164742_154684_AF8EEA22 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,167 +74,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner A523 SoC introduces some new MP-style mod clock, where the
-second "P" divider is an actual numerical divider value, and not the
-numbers of bits to shift (1..32 instead of 1,2,4,8).
-The rest of the clock is the same as the existing MP clock, so enhance the
-existing code to accommodate for this.
+The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
+the main CCU.
 
-Introduce the new CCU feature bit CCU_FEATURE_DUAL_DIV to mark an MP
-clock as having two dividers, and change the dividing and encoding code
-to differentiate the two cases.
+Add the new compatible string, along with the required input clock
+lists.
+Also add the DT binding headers, listing all the clocks with their ID
+numbers.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/clk/sunxi-ng/ccu_common.h |  1 +
- drivers/clk/sunxi-ng/ccu_mp.c     | 51 +++++++++++++++++++++++++------
- 2 files changed, 42 insertions(+), 10 deletions(-)
+ .../clock/allwinner,sun4i-a10-ccu.yaml        |   2 +
+ include/dt-bindings/clock/sun55i-a523-ccu.h   | 187 ++++++++++++++++++
+ include/dt-bindings/reset/sun55i-a523-ccu.h   |  87 ++++++++
+ 3 files changed, 276 insertions(+)
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
+ create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
 
-diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
-index 329734f8cf42b..4bb05207bb5df 100644
---- a/drivers/clk/sunxi-ng/ccu_common.h
-+++ b/drivers/clk/sunxi-ng/ccu_common.h
-@@ -19,6 +19,7 @@
- #define CCU_FEATURE_SIGMA_DELTA_MOD	BIT(7)
- #define CCU_FEATURE_KEY_FIELD		BIT(8)
- #define CCU_FEATURE_CLOSEST_RATE	BIT(9)
-+#define CCU_FEATURE_DUAL_DIV		BIT(10)
+diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
+index 1690b9d99c3d4..451a18de1b6c1 100644
+--- a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
++++ b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
+@@ -45,6 +45,7 @@ properties:
+       - allwinner,sun50i-h6-r-ccu
+       - allwinner,sun50i-h616-ccu
+       - allwinner,sun50i-h616-r-ccu
++      - allwinner,sun55i-a523-ccu
+       - allwinner,suniv-f1c100s-ccu
+       - nextthing,gr8-ccu
  
- /* MMC timing mode switch bit */
- #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
-diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_mp.c
-index cc94a694cb676..1be4668abef7c 100644
---- a/drivers/clk/sunxi-ng/ccu_mp.c
-+++ b/drivers/clk/sunxi-ng/ccu_mp.c
-@@ -10,15 +10,23 @@
- #include "ccu_gate.h"
- #include "ccu_mp.h"
+@@ -106,6 +107,7 @@ else:
+           - allwinner,sun50i-a100-ccu
+           - allwinner,sun50i-h6-ccu
+           - allwinner,sun50i-h616-ccu
++          - allwinner,sun55i-a523-ccu
  
-+static unsigned int next_div(unsigned int div, bool shift)
-+{
-+	if (shift)
-+		return div << 1;
-+	return div + 1;
-+}
+   then:
+     properties:
+diff --git a/include/dt-bindings/clock/sun55i-a523-ccu.h b/include/dt-bindings/clock/sun55i-a523-ccu.h
+new file mode 100644
+index 0000000000000..c94669156ffce
+--- /dev/null
++++ b/include/dt-bindings/clock/sun55i-a523-ccu.h
+@@ -0,0 +1,187 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (C) 2024 Arm Ltd.
++ */
 +
- static unsigned long ccu_mp_find_best(unsigned long parent, unsigned long rate,
- 				      unsigned int max_m, unsigned int max_p,
-+				      bool shift,
- 				      unsigned int *m, unsigned int *p)
- {
- 	unsigned long best_rate = 0;
- 	unsigned int best_m = 0, best_p = 0;
- 	unsigned int _m, _p;
- 
--	for (_p = 1; _p <= max_p; _p <<= 1) {
-+	for (_p = 1; _p <= max_p; _p = next_div(_p, shift)) {
- 		for (_m = 1; _m <= max_m; _m++) {
- 			unsigned long tmp_rate = parent / _p / _m;
- 
-@@ -43,7 +51,8 @@ static unsigned long ccu_mp_find_best_with_parent_adj(struct clk_hw *hw,
- 						      unsigned long *parent,
- 						      unsigned long rate,
- 						      unsigned int max_m,
--						      unsigned int max_p)
-+						      unsigned int max_p,
-+						      bool shift)
- {
- 	unsigned long parent_rate_saved;
- 	unsigned long parent_rate, now;
-@@ -60,7 +69,7 @@ static unsigned long ccu_mp_find_best_with_parent_adj(struct clk_hw *hw,
- 	maxdiv = max_m * max_p;
- 	maxdiv = min(ULONG_MAX / rate, maxdiv);
- 
--	for (_p = 1; _p <= max_p; _p <<= 1) {
-+	for (_p = 1; _p <= max_p; _p = next_div(_p, shift)) {
- 		for (_m = 1; _m <= max_m; _m++) {
- 			div = _m * _p;
- 
-@@ -103,18 +112,26 @@ static unsigned long ccu_mp_round_rate(struct ccu_mux_internal *mux,
- 	struct ccu_mp *cmp = data;
- 	unsigned int max_m, max_p;
- 	unsigned int m, p;
-+	bool shift = true;
- 
- 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
- 		rate *= cmp->fixed_post_div;
- 
-+	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
-+		shift = false;
++#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CCU_H_
++#define _DT_BINDINGS_CLK_SUN55I_A523_CCU_H_
 +
- 	max_m = cmp->m.max ?: 1 << cmp->m.width;
--	max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
-+	if (shift)
-+		max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
-+	else
-+		max_p = cmp->p.max ?: 1 << cmp->p.width;
- 
- 	if (!clk_hw_can_set_rate_parent(&cmp->common.hw)) {
--		rate = ccu_mp_find_best(*parent_rate, rate, max_m, max_p, &m, &p);
-+		rate = ccu_mp_find_best(*parent_rate, rate, max_m, max_p, shift,
-+					&m, &p);
- 	} else {
- 		rate = ccu_mp_find_best_with_parent_adj(hw, parent_rate, rate,
--							max_m, max_p);
-+							max_m, max_p, shift);
- 	}
- 
- 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
-@@ -167,7 +184,11 @@ static unsigned long ccu_mp_recalc_rate(struct clk_hw *hw,
- 	p = reg >> cmp->p.shift;
- 	p &= (1 << cmp->p.width) - 1;
- 
--	rate = (parent_rate >> p) / m;
-+	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
-+		rate = (parent_rate / p) / m;
-+	else
-+		rate = (parent_rate >> p) / m;
++#define CLK_PLL_DDR0		0
++#define CLK_PLL_PERIPH0_4X	1
++#define CLK_PLL_PERIPH0_2X	2
++#define CLK_PLL_PERIPH0_800M	3
++#define CLK_PLL_PERIPH0_480M	4
++#define CLK_PLL_PERIPH0_600M	5
++#define CLK_PLL_PERIPH0_400M	6
++#define CLK_PLL_PERIPH0_300M	7
++#define CLK_PLL_PERIPH0_200M	8
++#define CLK_PLL_PERIPH0_160M	9
++#define CLK_PLL_PERIPH0_150M	10
++#define CLK_PLL_PERIPH1_4X	11
++#define CLK_PLL_PERIPH1_2X	12
++#define CLK_PLL_PERIPH1_800M	13
++#define CLK_PLL_PERIPH1_480M	14
++#define CLK_PLL_PERIPH1_600M	15
++#define CLK_PLL_PERIPH1_400M	16
++#define CLK_PLL_PERIPH1_300M	17
++#define CLK_PLL_PERIPH1_200M	18
++#define CLK_PLL_PERIPH1_160M	19
++#define CLK_PLL_PERIPH1_150M	20
++#define CLK_PLL_GPU		21
++#define CLK_PLL_VIDEO0_8X	22
++#define CLK_PLL_VIDEO0_4X	23
++#define CLK_PLL_VIDEO0_3X	24
++#define CLK_PLL_VIDEO1_8X	25
++#define CLK_PLL_VIDEO1_4X	26
++#define CLK_PLL_VIDEO1_3X	27
++#define CLK_PLL_VIDEO2_8X	28
++#define CLK_PLL_VIDEO2_4X	29
++#define CLK_PLL_VIDEO2_3X	30
++#define CLK_PLL_VE		31
++#define CLK_PLL_AUDIO0_4X	32
++#define CLK_PLL_AUDIO0_2X	33
++#define CLK_PLL_AUDIO0		34
++#define CLK_PLL_AUDIO1		35
++#define CLK_PLL_AUDIO1_DIV2	36
++#define CLK_PLL_AUDIO1_DIV5	37
++#define CLK_PLL_NPU_4X		38
++#define CLK_PLL_NPU_2X		39
++#define CLK_PLL_NPU		40
++#define CLK_AHB			41
++#define CLK_APB0		42
++#define CLK_APB1		43
++#define CLK_MBUS		44
++#define CLK_DE			45
++#define CLK_BUS_DE		46
++#define CLK_DI			47
++#define CLK_BUS_DI		48
++#define CLK_G2D			49
++#define CLK_BUS_G2D		50
++#define CLK_GPU			51
++#define CLK_BUS_GPU		52
++#define CLK_CE			53
++#define CLK_BUS_CE		54
++#define CLK_BUS_CE_SYS		55
++#define CLK_VE			56
++#define CLK_BUS_VE		57
++#define CLK_BUS_DMA		58
++#define CLK_BUS_MSGBOX		59
++#define CLK_BUS_SPINLOCK	60
++#define CLK_HSTIMER0		61
++#define CLK_HSTIMER1		62
++#define CLK_HSTIMER2		63
++#define CLK_HSTIMER3		64
++#define CLK_HSTIMER4		65
++#define CLK_HSTIMER5		66
++#define CLK_BUS_HSTIMER		67
++#define CLK_BUS_DBG		68
++#define CLK_BUS_PWM0		69
++#define CLK_BUS_PWM1		70
++#define CLK_IOMMU		71
++#define CLK_BUS_IOMMU		72
++#define CLK_DRAM		73
++#define CLK_MBUS_DMA		74
++#define CLK_MBUS_VE		75
++#define CLK_MBUS_CE		76
++#define CLK_MBUS_TVIN		77
++#define CLK_MBUS_CSI		78
++#define CLK_BUS_DRAM		79
++#define CLK_NAND0		80
++#define CLK_NAND1		81
++#define CLK_BUS_NAND		82
++#define CLK_MMC0		83
++#define CLK_MMC1		84
++#define CLK_MMC2		85
++#define CLK_BUS_SYSDAP		86
++#define CLK_BUS_MMC0		87
++#define CLK_BUS_MMC1		88
++#define CLK_BUS_MMC2		89
++#define CLK_BUS_UART0		90
++#define CLK_BUS_UART1		91
++#define CLK_BUS_UART2		92
++#define CLK_BUS_UART3		93
++#define CLK_BUS_UART4		94
++#define CLK_BUS_UART5		95
++#define CLK_BUS_UART6		96
++#define CLK_BUS_UART7		97
++#define CLK_BUS_I2C0		98
++#define CLK_BUS_I2C1		99
++#define CLK_BUS_I2C2		100
++#define CLK_BUS_I2C3		101
++#define CLK_BUS_I2C4		102
++#define CLK_BUS_I2C5		103
++#define CLK_BUS_CAN		104
++#define CLK_SPI0		105
++#define CLK_SPI1		106
++#define CLK_SPI2		107
++#define CLK_SPIFC		108
++#define CLK_BUS_SPI0		109
++#define CLK_BUS_SPI1		110
++#define CLK_BUS_SPI2		111
++#define CLK_BUS_SPIFC		112
++#define CLK_EMAC0_25M		113
++#define CLK_EMAC1_25M		114
++#define CLK_BUS_EMAC0		115
++#define CLK_BUS_EMAC1		116
++#define CLK_IR_RX		117
++#define CLK_BUS_IR_RX		118
++#define CLK_IR_TX		119
++#define CLK_BUS_IR_TX		120
++#define CLK_GPADC0		121
++#define CLK_GPADC1		122
++#define CLK_BUS_GPADC0		123
++#define CLK_BUS_GPADC1		124
++#define CLK_BUS_THS		125
++#define CLK_USB_OHCI0		126
++#define CLK_USB_OHCI1		127
++#define CLK_BUS_OHCI0		128
++#define CLK_BUS_OHCI1		129
++#define CLK_BUS_EHCI0		130
++#define CLK_BUS_EHCI1		131
++#define CLK_BUS_OTG		132
++#define CLK_BUS_LRADC		133
++#define CLK_PCIE_AUX		134
++#define CLK_BUS_DPSS_TOP	135
++#define CLK_HDMI_24M		136
++#define CLK_HDMI_CEC_32K	137
++#define CLK_HDMI_CEC		138
++#define CLK_BUS_HDMI		139
++#define CLK_MIPI_DSI0		140
++#define CLK_MIPI_DSI1		141
++#define CLK_BUS_MIPI_DSI0	142
++#define CLK_BUS_MIPI_DSI1	143
++#define CLK_TCON_LCD0		144
++#define CLK_TCON_LCD1		145
++#define CLK_COMBOPHY_DSI0	146
++#define CLK_COMBOPHY_DSI1	147
++#define CLK_BUS_TCON_LCD0	148
++#define CLK_BUS_TCON_LCD1	149
++#define CLK_TCON_TV0		150
++#define CLK_TCON_TV1		151
++#define CLK_BUS_TCON_TV0	152
++#define CLK_BUS_TCON_TV1	153
++#define CLK_EDP			154
++#define CLK_BUS_EDP		155
++#define CLK_LEDC		156
++#define CLK_BUS_LEDC		157
++#define CLK_CSI_TOP		158
++#define CLK_CSI_MCLK0		159
++#define CLK_CSI_MCLK1		160
++#define CLK_CSI_MCLK2		161
++#define CLK_CSI_MCLK3		162
++#define CLK_BUS_CSI		163
++#define CLK_ISP			164
++#define CLK_DSP			165
++#define CLK_BUS_DSP_CFG		166
++#define CLK_FANOUT_24M		167
++#define CLK_FANOUT_12M		168
++#define CLK_FANOUT_16M		169
++#define CLK_FANOUT_25M		170
++#define CLK_FANOUT_32K		171
++#define CLK_FANOUT_27M		172
++#define CLK_FANOUT_PCLK		173
++#define CLK_FANOUT0		174
++#define CLK_FANOUT1		175
++#define CLK_FANOUT2		176
 +
- 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
- 		rate /= cmp->fixed_post_div;
- 
-@@ -190,20 +211,27 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsigned long rate,
- 	unsigned long flags;
- 	unsigned int max_m, max_p;
- 	unsigned int m, p;
-+	bool shift = true;
- 	u32 reg;
- 
-+	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
-+		shift = false;
++#endif /* _DT_BINDINGS_CLK_SUN55I_A523_CCU_H_ */
+diff --git a/include/dt-bindings/reset/sun55i-a523-ccu.h b/include/dt-bindings/reset/sun55i-a523-ccu.h
+new file mode 100644
+index 0000000000000..221d045bf8656
+--- /dev/null
++++ b/include/dt-bindings/reset/sun55i-a523-ccu.h
+@@ -0,0 +1,87 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2024 Arm Ltd.
++ */
 +
- 	/* Adjust parent_rate according to pre-dividers */
- 	parent_rate = ccu_mux_helper_apply_prediv(&cmp->common, &cmp->mux, -1,
- 						  parent_rate);
- 
- 	max_m = cmp->m.max ?: 1 << cmp->m.width;
--	max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
-+	if (shift)
-+		max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
-+	else
-+		max_p = cmp->p.max ?: 1 << cmp->p.width;
- 
- 	/* Adjust target rate according to post-dividers */
- 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
- 		rate = rate * cmp->fixed_post_div;
- 
--	ccu_mp_find_best(parent_rate, rate, max_m, max_p, &m, &p);
-+	ccu_mp_find_best(parent_rate, rate, max_m, max_p, shift, &m, &p);
- 
- 	spin_lock_irqsave(cmp->common.lock, flags);
- 
-@@ -211,7 +239,10 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsigned long rate,
- 	reg &= ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift);
- 	reg &= ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift);
- 	reg |= (m - cmp->m.offset) << cmp->m.shift;
--	reg |= ilog2(p) << cmp->p.shift;
-+	if (shift)
-+		reg |= ilog2(p) << cmp->p.shift;
-+	else
-+		reg |= (p - cmp->p.offset) << cmp->p.shift;
- 
- 	writel(reg, cmp->common.base + cmp->common.reg);
- 
++#ifndef _DT_BINDINGS_RST_SUN55I_A523_CCU_H_
++#define _DT_BINDINGS_RST_SUN55I_A523_CCU_H_
++
++#define RST_MBUS		0
++#define RST_BUS_NSI		1
++#define RST_BUS_DE		2
++#define RST_BUS_DI		3
++#define RST_BUS_G2D		4
++#define RST_BUS_SYS		5
++#define RST_BUS_GPU		6
++#define RST_BUS_CE		7
++#define RST_BUS_SYS_CE		8
++#define RST_BUS_VE		9
++#define RST_BUS_DMA		10
++#define RST_BUS_MSGBOX		11
++#define RST_BUS_SPINLOCK	12
++#define RST_BUS_CPUXTIMER	13
++#define RST_BUS_DBG		14
++#define RST_BUS_PWM0		15
++#define RST_BUS_PWM1		16
++#define RST_BUS_DRAM		17
++#define RST_BUS_NAND		18
++#define RST_BUS_MMC0		19
++#define RST_BUS_MMC1		20
++#define RST_BUS_MMC2		21
++#define RST_BUS_SYSDAP		22
++#define RST_BUS_UART0		23
++#define RST_BUS_UART1		24
++#define RST_BUS_UART2		25
++#define RST_BUS_UART3		26
++#define RST_BUS_UART4		27
++#define RST_BUS_UART5		28
++#define RST_BUS_UART6		29
++#define RST_BUS_UART7		30
++#define RST_BUS_I2C0		31
++#define RST_BUS_I2C1		32
++#define RST_BUS_I2C2		33
++#define RST_BUS_I2C3		34
++#define RST_BUS_I2C4		35
++#define RST_BUS_I2C5		36
++#define RST_BUS_CAN		37
++#define RST_BUS_SPI0		38
++#define RST_BUS_SPI1		39
++#define RST_BUS_SPI2		40
++#define RST_BUS_SPIFC		41
++#define RST_BUS_EMAC0		42
++#define RST_BUS_EMAC1		43
++#define RST_BUS_IR_RX		44
++#define RST_BUS_IR_TX		45
++#define RST_BUS_GPADC0		46
++#define RST_BUS_GPADC1		47
++#define RST_BUS_THS		48
++#define RST_USB_PHY0		49
++#define RST_USB_PHY1		50
++#define RST_BUS_OHCI0		51
++#define RST_BUS_OHCI1		52
++#define RST_BUS_EHCI0		53
++#define RST_BUS_EHCI1		54
++#define RST_BUS_OTG		55
++#define RST_BUS_3		56
++#define RST_BUS_LRADC		57
++#define RST_BUS_PCIE_USB3	58
++#define RST_BUS_DPSS_TOP	59
++#define RST_BUS_HDMI_MAIN	60
++#define RST_BUS_HDMI_SUB	61
++#define RST_BUS_MIPI_DSI0	62
++#define RST_BUS_MIPI_DSI1	63
++#define RST_BUS_TCON_LCD0	64
++#define RST_BUS_TCON_LCD1	65
++#define RST_BUS_VO1_TCONLCD0	66
++#define RST_BUS_TCON_TV0	67
++#define RST_BUS_TCON_TV1	68
++#define RST_BUS_LVDS0		69
++#define RST_BUS_LVDS1		70
++#define RST_BUS_EDP		71
++#define RST_BUS_VIDEO_OUT0	72
++#define RST_BUS_VIDEO_OUT1	73
++#define RST_BUS_LEDC		74
++#define RST_BUS_CSI		75
++#define RST_BUS_ISP		76
++
++#endif /* _DT_BINDINGS_RST_SUN55I_A523_CCU_H_ */
 -- 
 2.46.2
 
