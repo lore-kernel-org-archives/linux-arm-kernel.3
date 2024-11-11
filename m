@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A41D3ABD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 16:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 275A6D3ABD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujrPAFzGlh6R3Y9ea5i0yU3srRobyUointe1vIGDfEM=; b=r5juEgXUosaDCnVqv1H7aeBEwS
-	sql8qtMzOH/QU1Au8HBN8Blvs9ra4+U3IV0fMzxB3ga9ZQkn9npE2T+8hF2wu3vcEAeGfmDwuzBlD
-	XjictnpbEnMgBYr65OKKti741RVe/03tDmaDPIymIp4q0D6HSqnFIdrdJZxj38kMOfolKFVbhGRyv
-	nNPSQHyuX2I8I/n5/sZnf+HuDeLJmQR+XkELSofPqiNQHlHj/3tmpfua0Efh+BKkyPvDDeJQC+er8
-	VSkU/wsj+qQ6rxG+CsnUfnsIKiJj9ho3t7FWjMiJhTYQJlAZnst+3SgVi1lQwdI5Ac6CQSe6EmdHm
-	tzVo/Cow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=; b=s9asigJKyx6JkoJP7GOQxmbuVF
+	oU6DF0Ew82Len5jh3DixaG5RDKBREgcLK74JAbR8DvVEvCLJ0SLLWERT3Xe8ABj79C2IdW8pCb6B9
+	m8qoTGSkTh+O528mtGnnkU90yIa2vU84prsTXVzFdFwDqBf+r8QFZ3olrBtQjetwLlq76fbOTwQr6
+	/4Ot5rWu8pMVtgmlO5egOTMvg2ZnfvvyoprKhWAqlrFh0OLBePEe+0LJMSIA/a7wDPdNTZynjDXY3
+	7iueCtgrGhNJL89Nh36k/8B+MKwF5BF0UYPnqoRpwezfO0GOKapp4K4ArJxoBy7SINUuVZqP5JuUY
+	Owq1dm8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXjl-00000000eEz-1jTh;
-	Mon, 11 Nov 2024 16:58:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tAXxi-00000000gH6-1mcb;
+	Mon, 11 Nov 2024 17:12:26 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAXdQ-00000000dHo-3cbd;
-	Mon, 11 Nov 2024 16:51:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 664FA5C06C0;
-	Mon, 11 Nov 2024 16:50:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49836C4CECF;
-	Mon, 11 Nov 2024 16:51:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731343887;
-	bh=xsTBACz35DuVfvJ2nfBri71Zv06IBtqdNgFneESDmWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kUHL+oSzBDGxagLpoqTwLI49QBEK+/rlOA5HYofVHGmHvdxe96FyjWp8Vj+mYIiv1
-	 J3FxAaxhrO06O+SudaXeTCb1GPXm2HcHQvzNfgb+dNQirCDKcfIdndnn1UtPhKVJkL
-	 SATk2EnO1+6EicQpiqVzuoFjTk+Q9JoISNQXd1vJQ6mfOepGw81rsR526c0L4jnlE3
-	 8bEE03TxIBws8MRZUpGlcirTOAQSU9zCzWyP0ocJz9TxfiAbGp/rSsxo12RyN503cn
-	 VQOsFFBg94gbm19rUaEYL5x/yAPfrKul+DlAFFTkkSxXRFwDvuddVZnjTzjTKMHwcN
-	 QPF9ZqwKu3I2g==
-Date: Mon, 11 Nov 2024 16:51:20 +0000
-From: Lee Jones <lee@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	upstream@airoha.com, benjamin.larsson@genexis.eu,
-	ansuelsmth@gmail.com, linux-pwm@vger.kernel.org
-Subject: Re: (subset) [PATCH v9 4/6] dt-bindings: mfd: Add support for Airoha
- EN7581 GPIO System Controller
-Message-ID: <20241111165120.GD8552@google.com>
-References: <20241023-en7581-pinctrl-v9-0-afb0cbcab0ec@kernel.org>
- <20241023-en7581-pinctrl-v9-4-afb0cbcab0ec@kernel.org>
- <173088099542.3237297.18018729158887853624.b4-ty@kernel.org>
- <ZyssJpR7xwbMzUsm@lore-desk>
- <20241106110046.GR1807686@google.com>
- <CACRpkdbf4Pb+n-F-K-JaUvytwCGUHHh8d2rYP4A9KgVTzqSnGw@mail.gmail.com>
+	id 1tAXvt-00000000ful-0yox
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 17:10:35 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5c932b47552so20504a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 09:10:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731345030; x=1731949830; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=;
+        b=YGt+Bz+ihpXUC1VfV31+KC3tEDzzHC+BPmX4tlD2OoUrHs7gJfwnoflnw0yv69oGqt
+         zc8fB5/i4Whd2BsVb7T0bNUot+A/wX3q3a76zux+65+pL5xiOYmfD+Yx7Cqo4yOUEzXf
+         0UZzGcCmMi1KAFWp/essGP2FJiDBMExmLS31I2c1cSTyDnDq2kBAaOW4plR/GOHnCuyj
+         Zf92HwYToA26gGEYohLamzCHQ3JALHBlmf9+1p/cUFUP5sA+YQyJsoiOorkwbUD2pKww
+         JS9ljHkqZGmiKsPi88RjiUV3up3Z2D1MC636n0lgeYiY8XFlGY7xQfwtx5l2sQQSzoJn
+         1Sig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731345030; x=1731949830;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lZbeLLseB5b8+ehFZfsw37ALHDLGBMJMLyk1xIdLiNI=;
+        b=Ihc5yQAsLoQnPGlJmHwpPs8yJAP8NB0h/Va+PIaKux2goV9nm/Bt4eFgZNeog0pT9e
+         Dr1ZJlDdF0r2NQROBcdEf0TMEEjsvYc9pMXcjONINYXCDOPvz7sr35+QHX3Sq482xd2O
+         4Xf/r5rbrLOaatHVzTCJr2W+T+c6LH9oWi1FSNq52m+u/Hg5z6n+jIohkHu82WaIqAjH
+         LbP+QujsN6R4LlJJ0P7MDFbQe3BlU3g6HCgxrpyJBRJaiV/U5FV+W3dGU9pYSoRZrt01
+         Hb6qbKYNF/pVrV2myEiO+v7p/KuEDFIkfFZoe6HeUYD7P+BR58yQJewv81oLnceuVi8S
+         z8AQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUo0ykHs+73tKwlq0MUu32USherzohJcAZ1ZAlpht8aYcxca1L8G9hT5hwgsU0aWYWpgwBO4/nNhEpdowamP0vM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5VMrNRGxv6LvU+J2XN+VfPKyHlZpfJ7te/cegUvrDrao/Wh8x
+	yXPHS8k3TWz41sJUgyfBeepRoz0wyrOJ0cNkAsfOLReAgyQP2Y0/WA+5fR5id+UFYsgydP94kUl
+	455IXlzgs026Tbn9+ey7Us6LYT8TUj9ibAIyh
+X-Gm-Gg: ASbGncvjs2LBIEm54+WmIa/3Lm/IL7Mhv8Ck1udZeVcyv0RvxjonkmOR592XAG6VBCl
+	OWiFYSWbgtMKyj5rJ4mWd6QvRRQHMsIeD7jJmURZihJUePnRqII1wDut57rby2g==
+X-Google-Smtp-Source: AGHT+IHgerBC9h2YwDfKDijAh6osZ2kMh3HmOgZnIMcMCgU4EDXSlgxbGcjXjle/6Rd24wYQJ071PNSrdzccO67zBYI=
+X-Received: by 2002:a05:6402:7c2:b0:5c8:84b5:7e78 with SMTP id
+ 4fb4d7f45d1cf-5cf1c83cea9mr353370a12.4.1731345030142; Mon, 11 Nov 2024
+ 09:10:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACRpkdbf4Pb+n-F-K-JaUvytwCGUHHh8d2rYP4A9KgVTzqSnGw@mail.gmail.com>
+References: <20241108211446.3304809-1-kaleshsingh@google.com> <86r07jz6uh.wl-maz@kernel.org>
+In-Reply-To: <86r07jz6uh.wl-maz@kernel.org>
+From: Kalesh Singh <kaleshsingh@google.com>
+Date: Mon, 11 Nov 2024 09:10:18 -0800
+Message-ID: <CAC_TJvd=fNRx2VOcEEgjdkY53MwpR0Xa4dX1KTy=nNew7dg9Mw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: kvm: Make nvhe stack size configurable
+To: Marc Zyngier <maz@kernel.org>
+Cc: will@kernel.org, qperret@google.com, broonie@kernel.org, 
+	mark.rutland@arm.com, keir@google.com, vdonnefort@google.com, 
+	kernel-team@android.com, android-mm@google.com, 
+	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	D Scott Phillips <scott@os.amperecomputing.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Ankit Agrawal <ankita@nvidia.com>, Wang Jinchao <wangjinchao@xfusion.com>, 
+	"Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, =?UTF-8?Q?Pierre=2DCl=C3=A9ment_Tosi?= <ptosi@google.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_085129_006894_42FEC0C9 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20241111_091033_296505_CEBC38FD 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Nov 2024, Linus Walleij wrote:
-
-> On Wed, Nov 6, 2024 at 12:00 PM Lee Jones <lee@kernel.org> wrote:
-> > On Wed, 06 Nov 2024, Lorenzo Bianconi wrote:
+On Sun, Nov 10, 2024 at 3:06=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
+:
+>
+> [that's an impressive Cc list...]
+>
+> On Fri, 08 Nov 2024 21:14:00 +0000,
+> Kalesh Singh <kaleshsingh@google.com> wrote:
 > >
-> > > On Nov 06, Lee Jones wrote:
-> > > > On Wed, 23 Oct 2024 01:20:04 +0200, Lorenzo Bianconi wrote:
-> > > > > Add support for Airoha EN7581 GPIO System Controller which provide a
-> > > > > register map for controlling the GPIO, pinctrl and PWM of the SoC via
-> > > > > dedicated pinctrl and pwm child nodes.
-> > > > >
-> > > > >
-> > > >
-> > > > Applied, thanks!
-> > > >
-> > > > [4/6] dt-bindings: mfd: Add support for Airoha EN7581 GPIO System Controller
-> > > >       commit: f49f37f3cfe1482d4dc77d26f3e8c38eab630d52
-> > > >
-> > > > --
-> > > > Lee Jones [李琼斯]
-> > > >
-> > >
-> > > Hi Lee,
-> > >
-> > > according to my understanding this patch has been already applied by Linus
-> > > here:
-> > >
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/commit/?h=devel&id=50dedb1eb1e6755ccab55f6140916c2d192be765
+> > In order to make the nVHE stack size easily configurable,
+> > introduce NVHE_STACK_SHIFT which must be >=3D PAGE_SHIFT.
 > >
-> > An interesting choice.  Linus?
-> 
-> Yes I suggested that I merge patches 1-5 on oct 29 and applied the
-> day after:
-> https://lore.kernel.org/linux-gpio/CACRpkdYshPusdA7bDW2y8H_wp-Fm3N-YCsY1_Qn=dZqRiFy12w@mail.gmail.com/
-> 
-> It's because the bindings are dependent on each other, this one patch has:
-> 
-> +  pinctrl:
-> +    type: object
-> +    $ref: /schemas/pinctrl/airoha,en7581-pinctrl.yaml
-> +    description:
-> +      Child node definition for EN7581 Pin controller
-> +
-> +  pwm:
-> +    type: object
-> +    $ref: /schemas/pwm/airoha,en7581-pwm.yaml
-> +    description:
-> +      Child node definition for EN7581 PWM controller
-> 
-> Those refs will explode unless the two others are merged at the same
-> time.
-> 
-> Usually we merge the whole shebang through MFD but this one felt
-> different because there is no actual MFD driver, just using simple-mfd.
-> 
-> In hindsight I should probs not have been so trigger happy and give
-> some more time for this to settle... Merge window stress I guess. :/
-> 
-> It's fine to apply textually identical patches to two trees though as
-> git will sort
-> that out so technically it's no big deal, you can keep it applied if you
-> want.
+> > The default stack size remains 1 page (no functional change)
+> >
+> > Downstream vendor features which require a larger stack
+> > can configure it by setting CONFIG_NVHE_STACK_SHIFT.
+>
+> We don't let make the stack size configurable for the rest of the
+> kernel, do we? Why should a tiny portion be treated differently?
+>
+> Making this configurable means that testing is harder, and bugs harder
+> to reproduce. It also seems specially designed to allow badly written
+> code to run in hypervisor context. And once you allow two pages to be
+> used (up to 128kB), what prevents the "downstream vendor" to push this
+> to 4 or 8?
+>
+> If anything, I would prefer to see this (obviously out of tree) code
+> isolated with its own stack instead of growing EL2's private stack. At
+> least this would make the problems attributable to the guilty party.
 
-It's okay.  Life will be easier for everyone if I remove it.
+Hi Marc,
 
--- 
-Lee Jones [李琼斯]
+Thanks for the comments.
+
+I tried to be conservative with the configuration only allowing only
+up to 2 pages. Your points are fair concerns, I can see how this still
+may not be ideal for upstream. However, I think introducing
+NVHE_STACK_SIZE as a refactor still has value, similar to how
+OVERFLOW_STACK_SIZE is handled. If there are no objections, I=E2=80=99ll
+resend a v2 of the patch, dropping the configuration parts and
+focusing on the refactor to introduce NVHE_STACK_SIZE.
+
+--Kalesh
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
