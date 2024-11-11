@@ -4,67 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BBDD2E9E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A582D2E9E9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 13:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B8hVHF5Min/uxYqbsz73Bp9B/X4S1x9/N/cTHoJiVEA=; b=lr41tUSKQWwj6ntGKNAF5q6wKM
-	4CF1qAIY5Q5EdRP34yI3M0j2vXY2EJg0kMsAZqH51vLI0WXUe3lS4rYimEtcgzzRQ0VFrba38ByPL
-	8+wDNV6XVkBL5L+/uLADc9KVAqUM2Igsob3h+55Lmd1ddcnru7moWDCT6VhhZeCeeAgdKVIibH0mP
-	esNq9KYcYG4ZcWiaztP57so8LH410t9GBbsq36/QARlZmrTUmzoQCMQvCPlV2IkIGM6TmpWwx+gE+
-	zsQf7bqOjrqR8ofUZ6FBdRTz8ED9ixlQpleeVZ9wHkNZO6Nz/Aex3T43fl51Ri2maZKFyN1B90FPD
-	4H7RdJaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=; b=eXzrOeofkkxLOPUdWITucxtP6w
+	9QEOaOhJo+puGmXULFN8UEm8VBThJYo1a3c0aS4EQNYkJwSLvQLgFSgMINyfPDAoChgqZX1bEHVum
+	F2UZ/8EQLE2i7GjOBbLjDtlEAtiyLXVrE8Po7Jmqunr+/LliaL9oMHnQtw1fcDVQo7aMgbklT6BE7
+	jZP7Wd/M8dRlfSA7SAOO2sdJZ4nQgZw+XjaDi7G0xi5/3LNtv9DrAsXx5ygjEZ4RhsRyePh4r5ggn
+	yyKhoiKTteedvG9uNi1E0zWX53hLIljvefVfJ4A+Fe4hTQ+HvN1ryhglo+VupoAcu4gcM7rLGNznV
+	OrFQayWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAUE5-000000009cm-3Rzi;
-	Mon, 11 Nov 2024 13:13:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAUFq-000000009pj-3Yf5;
+	Mon, 11 Nov 2024 13:14:54 +0000
+Received: from mail-bn7nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2009::600] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAU57-00000000759-0bff
+	id 1tAU6D-000000007ML-3Ldx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 13:03:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC03EA41630;
-	Mon, 11 Nov 2024 13:01:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BF54C4CECF;
-	Mon, 11 Nov 2024 13:03:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731330227;
-	bh=ltb3dN1SlfkH/Jekn9HDa9bnkF2hP9Bl86Mpcip/m/o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nIauOlevQm8kAbNtRzAOHPfZocSXefJAqJZrJ+ySZIt2ywJPFwb321tfXhtZ1iP5K
-	 4vx6ckU1YSGlaLaluHWZ9HsJXw6lQTEM+Lx3APHQkM+Yftm0dJPA8kXiAkqy4Kxxhn
-	 BZ84pRmRIb+e6EaLhUcrhxAmMem0FNhB21Y1GXqB2Ki5+f4GGfyrQxKde6kh+IyyRL
-	 hoIbbwUuPZDAFQZ1dRJOFH3njYPwWDyOa0Z/FCkdYHTFNhYKN9u18TJ7/2FoLymx0k
-	 IpVt/5fYDOZnWyEkTnJZIDsojp65mTu36Lo/wUDe+JKveURyLYim73E7/qe84XZ1tr
-	 Cp7naHLG4NgWQ==
-Message-ID: <ad2afaa3-7e76-47e8-943b-7bea0c02c9c0@kernel.org>
-Date: Mon, 11 Nov 2024 15:03:40 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: Meghana Malladi <m-malladi@ti.com>, vigneshr@ti.com, m-karicheri2@ti.com,
- jan.kiszka@siemens.com, javier.carrasco.cruz@gmail.com,
- jacob.e.keller@intel.com, horms@kernel.org, diogo.ivo@siemens.com,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, danishanwar@ti.com
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
+	Mon, 11 Nov 2024 13:05:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DGLQc/yhypQaUjBRns7xdH6rjZ2xcVcoyw4C0U3PtdAVQAt54Jqs1ukXK4quzS1EKdb4H6V6xO3xQ4btNgZJaZiVcmmFR5PruZEKcCAJmFoqdk1PC7eqynSg3lo70y2ZuPyP4Ob8nRrguGvx+j5XRtgR8RhFIyOFqfg9mGCUqMjYHWGAZpPUq1fd8V4vD2txYvDezzJ5tA1dh8FeMo2QBFrT0r03VPiWnxh/Oy10JL5mfRgEKXSU3IdkS5RzENM3mZ0G3Njq4JaYc8eY4WMG03l67j9ZCI9bnxwOPWpEtK6bn6UDiAXuitnJF9JEuYoKPdqYX9MInpxknnJKSUuDIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=;
+ b=uEhbaGDhBH02lGuKGqM0fBquPiOYnoVEO3Nh9r9/ffXWN/9gY2uqMA1Kq/Bmtv1YiUKTYZNjj6gzPyxSqAB4n/DjJbjw4TqY9rh40SQ3d/i5xvZ3ud3h8iT9J3fKr+WsaPOc58rT4pI3O+N2Bvr1WfQaQ2RZmJ3HcnVEvdUc+AK865ZHBe2xJNrcWrFmnuKbZ1wp548c1r34PLDggB0mlRKWkqxN9l/kytxbyV2hQEK72kp77kZf/xs/esl4rWXXrGEWIr6wnHckt3ZMeFTsFDG9SyliRE8QRD3Yihj8kdUIn4n9+R3zpV0kPTENHSXYKIwLgEWlXBWIXrFNGpLc8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l5/LobYdGHGVbwv9vInfMeSadD+wJWxPqXdq057tcZc=;
+ b=XI9lTrXdVtiKGjIa/ow1FqLNcSTD1wWoDGeSMOPxhwPU76L/cRnJm5Ffg0YAqvHOqWVgzmdQMQalMXB1Fbz8IpYed7DVgsstMiNsVDQ8p223cN+O4ywc9FKrNT9avcu0wzhPYms57c4j7Hg+GfFgFq4OYaHndTvMaFFUYWboULw=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Mon, 11 Nov
+ 2024 13:04:48 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%4]) with mapi id 15.20.8137.027; Mon, 11 Nov 2024
+ 13:04:48 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: Marek Vasut <marex@denx.de>, "dmaengine@vger.kernel.org"
+	<dmaengine@vger.kernel.org>
+CC: =?utf-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <u.kleine-koenig@baylibre.com>,
+	"Simek, Michal" <michal.simek@amd.com>, Peter Korsgaard
+	<peter@korsgaard.com>, Vinod Koul <vkoul@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Katakam, Harini"
+	<harini.katakam@amd.com>, "Joseph, Abin" <Abin.Joseph@amd.com>
+Subject: RE: [PATCH] dmaengine: xilinx_dma: Fix freeup active list based on
+ descriptor completion bit
+Thread-Topic: [PATCH] dmaengine: xilinx_dma: Fix freeup active list based on
+ descriptor completion bit
+Thread-Index: AQHbK7YsIMHqB+OYBEGVEmCGVyTwsbKqCNFAgAAhawCAB/D1MA==
+Date: Mon, 11 Nov 2024 13:04:48 +0000
+Message-ID: <MN0PR12MB5953FAD7CEBB1C774271BE53B7582@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20241031165835.55065-1-marex@denx.de>
+ <MN0PR12MB595370521C2E3D61145D15BCB7532@MN0PR12MB5953.namprd12.prod.outlook.com>
+ <f168e5bd-cdab-4405-98ef-20f7ee534e0c@denx.de>
+In-Reply-To: <f168e5bd-cdab-4405-98ef-20f7ee534e0c@denx.de>
+Accept-Language: en-US
 Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20241106074040.3361730-2-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|CH3PR12MB9194:EE_
+x-ms-office365-filtering-correlation-id: d8f82785-84dd-4ca8-bb65-08dd02516bce
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?cnRWa0hVeGVvNUJaVFdJOWpMajZ0eG44aGo1dWFKcmhvRzIwTDBTUk1NY0Ro?=
+ =?utf-8?B?QVlGcFl1WXFjN3pLT2VTSXNrQ1NYaSsrUnlFeS96K1ZTcVFCU3JYZlBrZyt2?=
+ =?utf-8?B?WmZTVzNoNGEzdnU0bmMvZ1A0djVHaTBLeU43Nm00TGhWWVF5bFBTYTZINTFQ?=
+ =?utf-8?B?VHB6WGdlVElaUWdKRlhCTVNRNWFkeWxXdGJqbVArNDVHNkVIbXc1TWNCb1lv?=
+ =?utf-8?B?L091OVd3V3dWdmFjV01KNDFiNDI3VnNDLzVTS2ptNkNwK2RjVWh4MklqbjdY?=
+ =?utf-8?B?T290a2RLQ1huSG1aSklrQy9ZL3hqREcrQjI5cHVvN2JweTVDSW5OSTE1TmpP?=
+ =?utf-8?B?TDVMV2E5ZmE4SGVkMFkvSGpWdEhOTWlwc0x0TzJQbVYycUMvNnRsT1dFSUd0?=
+ =?utf-8?B?SDBHY1JSVWZkNjAxL0g0NmRWamhPUkE1NkpkekxTSU5YVnVpdGRXMDV2NVE0?=
+ =?utf-8?B?NnpYTGRmM2wrVWhGblJCZzF2bkFoTml4SHVicjBXV0t0U090NWlmMWlQY1pP?=
+ =?utf-8?B?WEdXcGE5NVBUWkk4Qk4vRjZIc212TmRDMXpMN0tRV0gyeEw3RHFkY3JkUjc3?=
+ =?utf-8?B?czI2cmhObzBSWjRtNmkrbnRGK1dkUU9hSmdOcHU0MUE5NzdRb1hDYksvbGtk?=
+ =?utf-8?B?YUdqbnFZdHF2ekNHQnlLK1ExRmkyT2oxWDVxcG5CRXZWOU5DTW9NTUh6dFBu?=
+ =?utf-8?B?bFNrVlp5TktpU1RrVGdMWll1RnlGSlVybllkVnlCbmtSSE5LcTNNUjZpTGZS?=
+ =?utf-8?B?ZGFGQlpGTUNsQkYvRVNHTUVMZHFxYzFYOXVSRk1qNDFuWDIrMkg4NnEzZGYw?=
+ =?utf-8?B?ZFdPM04vWERiWXE1aUU5cWNBMHBZSU4xWTBUVW8yZ3dUODlNVXR4OUJQL3Nh?=
+ =?utf-8?B?TVZyWEh3UFVmSlZLaE5CRk1jQVZBSVdJV3d1UytnbW96N2N5ZWhKU3c3d1V0?=
+ =?utf-8?B?ZnBXbkxNQzV3b0t6OE4wRWhqSG5tYmkybSszUnVkN1hEc3hXUlY4VDNnWkxB?=
+ =?utf-8?B?dmU4NEozS1VaQzdsNjJqUUd5U0p5MmJPbXI4YWF0UFFxT2FpY1l5RFl3aXV2?=
+ =?utf-8?B?OVhva1pSWlorZG9PVTE4SmlwU0hDTDVTRkJkOHowRzdTY0ZRMlRuaFNMR1NG?=
+ =?utf-8?B?VXVLMnlwSXoyRHdTaXJtVjlJa1NmdnNsT3g2d21KVVVtUy9MU2lhTmpESHpu?=
+ =?utf-8?B?SWJ4UGYwcDEySFExc3JRckVubWd4cnA4K2FaSnVoRzJuZUtVWkhlTkt2YnJG?=
+ =?utf-8?B?MXZpNGYvc2ZnaDc4YlJXOUhhSnZJNEV1dk5RYkYzUTZ6RmxXMzBTeDdtV1g0?=
+ =?utf-8?B?S1EwUUxxU09JM0JHVEd2QU9QZ1JuWGtQKy9ZYkhvUEVabnFkUEFoNkowMDBU?=
+ =?utf-8?B?TmxRYm1kNGNPVUVMQURJV2Q2eS9ncEJWMGpmSEV5eitnaTNQdHBiM2tlZmJk?=
+ =?utf-8?B?ajh6ZFhKdmx6NVYxdzRCTDJXN3hTWGFSUWViVVBhOEZPR29GK1Z4NTRXTHdU?=
+ =?utf-8?B?Qi9haW5DU0ovQkxjS1F2NXJWOWwvd1loRDZtb0pKK2EzamtCc2dLUUhSeTlN?=
+ =?utf-8?B?NXhVNUg4M0hhK2EvamJLVEx4T0JjZ29KZXZML205enY5U08vV3pZcXFPSTRw?=
+ =?utf-8?B?cHZuTHgweFMvMVQ1ckpYMEhxd2xSL3VqZWcrd1A5SG1IOXUvTVZNRVB3ZTNM?=
+ =?utf-8?B?LzhVVTZzVzE0Z3hnQlkxcU52MnQxMC9mNE1lMzRhTFdCUURtT010bjc1bDFG?=
+ =?utf-8?B?Sko2WVVscUFJNDRsUGRQOXVtSkxJOGs2Mmo1M2pCZUlwcHJhUXBoK2JNM3g1?=
+ =?utf-8?B?dUQxb2Y0SCtMTHpLREtIbnpmT0ZjbjQxNlY3STl5cUNjTDR1cWVrSXE4WkFo?=
+ =?utf-8?Q?/VA/7uVZa6qvj?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QWovZ2IrTVF0VXhkemxIZTZHVUtvWG0vdmxCMWNtTCtaSEFCOGNqSDVVdlAw?=
+ =?utf-8?B?R2ZPM3ZMSkplekE4Q2pOQUp4T0JFSnpBNXZZUlFhVzdTb0o2dDN4bW8ycktp?=
+ =?utf-8?B?dzVmZlovaHVSZ3paTFF5KzllY25aSkpCbythRkNJMFN4bE03UGNZc2h2NlNo?=
+ =?utf-8?B?R0N4YXJQU3BHbUE3b3lTUWhFbmJPT09LbmlDNlZyU3d2ZXZlVm5WZjBMdkpC?=
+ =?utf-8?B?UFo0bW5taFhKWm5IUDhiQlhIN05IZURxVm14dU9aaG9uUHZveG56SUhCUFRP?=
+ =?utf-8?B?dXVVUXIyUFR1bHVGc3pQcWEyaDFVOTFqWldxZVBQNG9TMXNIOE5LYjdlTjVT?=
+ =?utf-8?B?Y01VVFRXcWUwTVE1UG00UHk4ZVlFQmtGUzJmVFhXSHYyTnhJUnZ5RHpIZ3U5?=
+ =?utf-8?B?QmE3QThic0FVS1lBb1hVUGdIbkVNQklaaThEdGo1QVQxVU9QaDZmV2FHQndz?=
+ =?utf-8?B?ZE85QlNpT2t1cTRHYkI2SlJBSEkxQUdtV0N4UWllNVZzSUVLT1MzditocnZp?=
+ =?utf-8?B?M1N3TkVONzl2NDg4NkQzOG05UFdIbVFtTk5iOEpMOU0wQkoxbTNZVXNJMjNN?=
+ =?utf-8?B?d3hUTHNHWVBNSnhEbk93SjZobjI3NS84cHVISWltZ0Y3N3VUUElWcGRPc1B2?=
+ =?utf-8?B?RGQrNE5NODUwbXNRRkw0bHN5bVBBQXRGWUFTUnR2ekc1SG1wa2NBZVAzV0dT?=
+ =?utf-8?B?UWFvMWVWWXJ2b0d5Q1pBZXhCUFlIaUNmS1JxU05Cc3VYMWVDb0VRSnRXdzlw?=
+ =?utf-8?B?N0NwODg3dXFwMnNOQUtRVVAxMHM1WlFhNk01M2V1Q0IxSXJxdzkycFc0eUgv?=
+ =?utf-8?B?V0tlNlRodWV0UkMrc01oTndUVlNMRkVZQXdOcTlVU0hTbFdqOXNEWGZESWVI?=
+ =?utf-8?B?NUl2RzkyRGlOM2d3ZXk1ZFdML0dRWk1PaTViUVN4NEE0OXR5emc0ZURuK29w?=
+ =?utf-8?B?U3c1REJLbGZ2N0JlREw0K3NaR3h6eUJuNlVSYmVkOUVjaC9qMjNBK3d5c2wy?=
+ =?utf-8?B?RE5RQmVEZjFDNEIxUzJjNS9QNGVCam9FWm1YZk9Ebm5ZbWlIeUlWZWV6NGhp?=
+ =?utf-8?B?OWNIS1dOcnV0MlNWcjEycVlpQjhYUWtDbmI5VmJaR2RlZzVORTFoNFIrMjNy?=
+ =?utf-8?B?TGxHelNsVGtxYnI0UFdLd013bUFRdUlYSm5LYWlkdEdtcWY4bDVZUkoxRnBY?=
+ =?utf-8?B?YmU1UmxBT0xTenZiaUYzU1hNTmJVcDhIWDFMRE9taWFhdDFCTEttT3FiQWNC?=
+ =?utf-8?B?Rm0vSFRlWjYzVnoyVjZjQTNFSXgrWUFCTEJ2dmhGdGNWMGJSQUxTeC8zM2pv?=
+ =?utf-8?B?QmEvYkhSem5vbHUwamZjTFNpUWV3cnF2Q3pPZGY5OW1wRGVRM1dPWE5hNC9y?=
+ =?utf-8?B?a09NRWtaQVJTK0NOVWdqbndTNnlXaXpGOXFKYWxTUUV5QmZ6UnJRQ2NValQ4?=
+ =?utf-8?B?dUlnckk1eGNRV3lvQUVVWVJiUldlTlVld25RUWlkQ0FCVUtRY3NWaFlaZ3Nr?=
+ =?utf-8?B?d3JsNTkzOU1FUG5PVlVtUUlEbU9qTk9JLzI1eUhXSmRZdWNnMkRBLytXWmJW?=
+ =?utf-8?B?Rm8vVzlMV1NyZEhwRFdiT1RJdG4yaUZjVy9PZE9YeUJ0V0hnbnp5Y2RWS1Ev?=
+ =?utf-8?B?SUwwRGdiL1FDclFGZzhYMXdsalVRMUgrazBQelBSSUhScVIxc1J4b2tNVnhY?=
+ =?utf-8?B?aTJBWm1KcVpkTm9NMndUc1NoSjFlZElIa2dJTVpwZy9UN1MyMzkvQitqL1hH?=
+ =?utf-8?B?UmQvTG5wVkFCTVlYeHhCNlhGcXF0eTF1M2YwNXlzOGNHZkVaQ3VxTWJsSlhr?=
+ =?utf-8?B?RW90RzJEek45VHhEeFpucEsyUDZuN2F1SUkxR2YwV3c5ZXJLVjZkWGF6cjQz?=
+ =?utf-8?B?SW1JdnlwbkVXVS9RbngwenNPVnY4SzAvendoVGhudWpOaVpwUEs3RjZyMFNO?=
+ =?utf-8?B?Y3U3YWdPcG1LQThxWHNwTVZldjRRY1FoRERMTk8zMmsrUlk4MVdUMy9BMUds?=
+ =?utf-8?B?OG5nQkJzRGladFB3UHM0eml3OVJHUWlPOUJLcWRlL3B6K1J2MHlWblNjdGZq?=
+ =?utf-8?B?eGh0QlpaTUJLSktvc1Z4OVJKN1Y5ZHN5ZEZNcHNRL2RSZnFndjI5Vjc1YWNn?=
+ =?utf-8?Q?o7zA=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8f82785-84dd-4ca8-bb65-08dd02516bce
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2024 13:04:48.0681
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9IQG9tRTKB5N4jpjVYhrk5EH0LV3OxviKTeehvbWKWK6XGUMARgEnx3CHaEY9TKw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_050349_570076_9452E6D0 
-X-CRM114-Status: GOOD (  32.65  )
+X-CRM114-CacheID: sfid-20241111_050457_938221_0888A514 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,217 +183,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 06/11/2024 09:40, Meghana Malladi wrote:
-> From: MD Danish Anwar <danishanwar@ti.com>
-> 
-> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
-> and SLICE1. Currently whenever any ICSSG interface comes up we load the
-> respective firmwares to PRU cores and whenever interface goes down, we
-> stop the respective cores. Due to this, when SLICE0 goes down while
-> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
-> stopped. This results in clock jump for SLICE1 interface as the timesync
-> related operations are no longer running.
-> 
-> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
-> ICSSG interface is up.
-> 
-> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
-> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
-> used to let firmware know that the flow_id has been updated and to use the
-> latest rx_flow_id.
-
-is rx_flow_id releated to timesync releated issue that this patch is fixing?
-If not please split it into separate patch and mention what functionality
-it is fixing.
-
-> 
-> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
->  drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
->  drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
->  4 files changed, 77 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> index 5d2491c2943a..f1f0c8659e2d 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> @@ -786,3 +786,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
->  		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
->  }
->  EXPORT_SYMBOL_GPL(icssg_set_pvid);
-> +
-> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
-> +{
-> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
-> +	int slice = prueth_emac_slice(emac);
-> +	struct mgmt_cmd fdb_cmd = { 0 };
-> +	int ret = 0;
-> +
-> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
-> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
-> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
-> +	fdb_cmd.param  = 0;
-> +
-> +	fdb_cmd.param |= (slice << 4);
-> +	fdb_cmd.cmd_args[0] = 0;
-> +
-> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
-> +
-> +	if (ret)
-> +		return ret;
-> +
-> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
-> +	if (fdb_cmd_rsp.status == 1)
-> +		return 0;
-> +
-> +	return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
-> index 92c2deaa3068..c884e9fa099e 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
-> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
->  #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
->  #define ICSSG_FW_MGMT_CMD_TYPE		0x04
->  #define ICSSG_FW_MGMT_PKT		0x80000000
-> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
->  
->  struct icssg_r30_cmd {
->  	u32 cmd[4];
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index 0556910938fa..9df67539285b 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->  {
->  	struct prueth_emac *emac = netdev_priv(ndev);
->  	int ret, i, num_data_chn = emac->tx_ch_num;
-> +	struct icssg_flow_cfg __iomem *flow_cfg;
->  	struct prueth *prueth = emac->prueth;
->  	int slice = prueth_emac_slice(emac);
->  	struct device *dev = prueth->dev;
-> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->  	/* set h/w MAC as user might have re-configured */
->  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->  
-> +	if (!prueth->emacs_initialized) {
-> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
-> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
-> +	}
-> +
->  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
-> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->  
->  	/* Notify the stack of the actual queue counts. */
-> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->  		goto cleanup_napi;
->  	}
->  
-> -	/* reset and start PRU firmware */
-> -	ret = prueth_emac_start(prueth, emac);
-> -	if (ret)
-> -		goto free_rx_irq;
-> +	if (!prueth->emacs_initialized) {
-> +		if (prueth->emac[ICSS_SLICE0]) {
-> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
-> +			if (ret) {
-> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
-> +				goto free_rx_irq;
-> +			}
-> +		}
-> +		if (prueth->emac[ICSS_SLICE1]) {
-> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
-> +			if (ret) {
-> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
-> +				goto halt_slice0_prus;
-> +			}
-
-Did I understand right: SLICE0 needs to be always running if any of the
-interface is up but SLICE0 doesn't need to be running if only SLICE0
-interface is running.
-
-If yes then you need to update the patch so SLICE1 is not always running.
-
-> +		}
-> +	}
-> +
-> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
-> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
-> +	ret = emac_fdb_flow_id_updated(emac);
-> +
-> +	if (ret) {
-> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
-> +		goto stop;
-> +	}
->  
->  	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->  
-> @@ -644,7 +670,11 @@ static int emac_ndo_open(struct net_device *ndev)
->  free_tx_ts_irq:
->  	free_irq(emac->tx_ts_irq, emac);
->  stop:
-> -	prueth_emac_stop(emac);
-> +	if (prueth->emac[ICSS_SLICE1])
-> +		prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
-> +halt_slice0_prus:
-> +	if (prueth->emac[ICSS_SLICE0])
-> +		prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->  free_rx_irq:
->  	free_irq(emac->rx_chns.irq[rx_flow], emac);
->  cleanup_napi:
-> @@ -680,7 +710,10 @@ static int emac_ndo_stop(struct net_device *ndev)
->  	if (ndev->phydev)
->  		phy_stop(ndev->phydev);
->  
-> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
-> +	if (prueth->emacs_initialized == 1) {
-> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
-> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
-> +	}
->  
->  	if (emac->prueth->is_hsr_offload_mode)
->  		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
-> @@ -719,11 +752,14 @@ static int emac_ndo_stop(struct net_device *ndev)
->  	/* Destroying the queued work in ndo_stop() */
->  	cancel_delayed_work_sync(&emac->stats_work);
->  
-> -	if (prueth->emacs_initialized == 1)
-> +	if (prueth->emacs_initialized == 1) {
->  		icss_iep_exit(emac->iep);
-> -
-> -	/* stop PRUs */
-> -	prueth_emac_stop(emac);
-> +		/* stop PRUs */
-> +		if (prueth->emac[ICSS_SLICE0])
-> +			prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
-> +		if (prueth->emac[ICSS_SLICE1])
-> +			prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
-> +	}
->  
->  	free_irq(emac->tx_ts_irq, emac);
->  
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 8722bb4a268a..c4f5f0349ae7 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -365,6 +365,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->  		       u8 untag_mask, bool add);
->  u16 icssg_get_pvid(struct prueth_emac *emac);
->  void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
-> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->  #define prueth_napi_to_tx_chn(pnapi) \
->  	container_of(pnapi, struct prueth_tx_chn, napi_tx)
->  
-
--- 
-cheers,
--roger
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYXJlayBWYXN1dCA8bWFyZXhA
+ZGVueC5kZT4NCj4gU2VudDogV2VkbmVzZGF5LCBOb3ZlbWJlciA2LCAyMDI0IDU6MTIgUE0NCj4g
+VG86IFBhbmRleSwgUmFkaGV5IFNoeWFtIDxyYWRoZXkuc2h5YW0ucGFuZGV5QGFtZC5jb20+Ow0K
+PiBkbWFlbmdpbmVAdmdlci5rZXJuZWwub3JnDQo+IENjOiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5r
+bGVpbmUta29lbmlnQGJheWxpYnJlLmNvbT47IFNpbWVrLCBNaWNoYWwNCj4gPG1pY2hhbC5zaW1l
+a0BhbWQuY29tPjsgUGV0ZXIgS29yc2dhYXJkIDxwZXRlckBrb3JzZ2FhcmQuY29tPjsgVmlub2Qg
+S291bA0KPiA8dmtvdWxAa2VybmVsLm9yZz47IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFk
+ZWFkLm9yZzsgS2F0YWthbSwgSGFyaW5pDQo+IDxoYXJpbmkua2F0YWthbUBhbWQuY29tPg0KPiBT
+dWJqZWN0OiBSZTogW1BBVENIXSBkbWFlbmdpbmU6IHhpbGlueF9kbWE6IEZpeCBmcmVldXAgYWN0
+aXZlIGxpc3QgYmFzZWQgb24NCj4gZGVzY3JpcHRvciBjb21wbGV0aW9uIGJpdA0KPiANCj4gT24g
+MTEvNi8yNCAxMDo0OCBBTSwgUGFuZGV5LCBSYWRoZXkgU2h5YW0gd3JvdGU6DQo+ID4+IC0tLS0t
+T3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+ID4+IEZyb206IE1hcmVrIFZhc3V0IDxtYXJleEBkZW54
+LmRlPg0KPiA+PiBTZW50OiBUaHVyc2RheSwgT2N0b2JlciAzMSwgMjAyNCAxMDoyOCBQTQ0KPiA+
+PiBUbzogZG1hZW5naW5lQHZnZXIua2VybmVsLm9yZw0KPiA+PiBDYzogTWFyZWsgVmFzdXQgPG1h
+cmV4QGRlbnguZGU+OyBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUtDQo+ID4+IGtvZW5pZ0Bi
+YXlsaWJyZS5jb20+OyBTaW1laywgTWljaGFsIDxtaWNoYWwuc2ltZWtAYW1kLmNvbT47IFBldGVy
+DQo+ID4+IEtvcnNnYWFyZCA8cGV0ZXJAa29yc2dhYXJkLmNvbT47IFBhbmRleSwgUmFkaGV5IFNo
+eWFtDQo+ID4+IDxyYWRoZXkuc2h5YW0ucGFuZGV5QGFtZC5jb20+OyBWaW5vZCBLb3VsIDx2a291
+bEBrZXJuZWwub3JnPjsNCj4gPj4gbGludXgtYXJtLSBrZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
+Zw0KPiA+PiBTdWJqZWN0OiBbUEFUQ0hdIGRtYWVuZ2luZTogeGlsaW54X2RtYTogRml4IGZyZWV1
+cCBhY3RpdmUgbGlzdCBiYXNlZA0KPiA+PiBvbiBkZXNjcmlwdG9yIGNvbXBsZXRpb24gYml0DQo+
+ID4+DQo+ID4+IFRoZSB4aWxpbnhfZG1hIGlzIGNvbXBsZXRlbHkgYnJva2VuIHNpbmNlIHRoZSBy
+ZWZlcmVuY2VkIGNvbW1pdCwNCj4gPj4gYmVjYXVzZSBpZiB0aGUgKHNlZy0+aHcuc3RhdHVzICYg
+WElMSU5YX0RNQV9CRF9DT01QX01BU0spIGlzIG5vdCBzZXQNCj4gPj4gZm9yIHdoYXRldmVyIHJl
+YXNvbiwgdGhlIGN1cnJlbnQgZGVzY3JpcHRvciBpcyBuZXZlciBtb3ZlZCB0bw0KPiA+DQo+ID4g
+SSB3YW50IHRvIHVuZGVyc3RhbmQgbW9yZSBvbiB0aGlzIGZhaWx1cmUgc2NlbmFyaW8uICBIb3cg
+dG8gcmVwbGljYXRlIGl0Pw0KPiANCj4gVGhlIHZlcnkgYmFzaWMgdGVzdCBpcyB0byB1c2UgQVhJ
+IERNQSBmb3IgRE1BIHRyYW5zZmVyLCB3aGljaCBmYWlscyB0byBjb21wbGV0ZQ0KPiBiZWNhdXNl
+IG9mIHRoaXMgbmV3IGNodW5rIG9mIGNvZGUuIEJ5IHJlYWRpbmcgdGhlIGNvbW1pdCBoaXN0b3J5
+LCBJIGNhbiBvbmx5DQo+IGNvbmNsdWRlIHRoaXMgd2FzIHNvbWV0aGluZyB0aGF0IGdvdCBhZGRl
+ZCBkdWUgdG8gdGhlIGlycV9kZWxheSwgYnV0IHdhcyBuZXZlcg0KPiB0ZXN0ZWQgb24gY29yZSB3
+aXRob3V0IGlycV9kZWxheSBzdXBwb3J0ID8NCg0KVGhpcyBjb21taXQgaXMgYWxzbyBwcmVzZW50
+IGluIGRvd25zdHJlYW0geGlsaW54IGtlcm5lbCBhbmQgYWxsIGxlZ2FjeSByZWdyZXNzaW9uDQph
+cmUgd29ya2luZyBmaW5lIHdpdGhvdXQgeGxueCxpcnEtZGVsYXkuICBBZGRlZCBBYmluIHRvIHRo
+aXMgdGhyZWFkIHdobyBjb25maXJtZWQNCnRoYXQgYXhpZG1hdGVzdCBjbGllbnRbMV0gd29ya3Mg
+d2l0aG91dCBJUlEgZGVsYXkuDQoNClsxXTogaHR0cHM6Ly9naXRodWIuY29tL1hpbGlueC9saW51
+eC14bG54L2Jsb2IvbWFzdGVyL2RyaXZlcnMvZG1hL3hpbGlueC9heGlkbWF0ZXN0LmMNCg0KU28g
+SSB3YW50IHRvIHVuZGVyc3RhbmQgd2hhdCBpcyB0aGUgdGVzdCBjbGllbnQgeW91IGFyZSB1c2lu
+Zz8NCg0KPiANCj4gPiBXaHkgaXMgY29tcGxldGlvbiBiaXQgbm90IHNldCA/IEJhc2VkIG9uIHRo
+ZSBkb2N1bWVudGF0aW9uIGNvbXBsZXRlZA0KPiA+IGJpdCBpbmRpY2F0ZXMgdG8gdGhlIHNvZnR3
+YXJlIHRoYXQgdGhlIERNQSBFbmdpbmUgaGFzIGNvbXBsZXRlZCB0aGUNCj4gPiB0cmFuc2ZlciBh
+cyBkZXNjcmliZWQgYnkgdGhlIGFzc29jaWF0ZWQgZGVzY3JpcHRvci4gVGhlIERNQSBFbmdpbmUN
+Cj4gPiBzZXRzIHRoaXMgYml0IHRvIDEgd2hlbiB0aGUgdHJhbnNmZXIgaXMgY29tcGxldGVkLg0K
+PiBJIGRvbid0IGtub3csIHRoZSBiaXQgd2FzIG5vdCB1c2VkIGJlZm9yZSB5b3UgYWRkZWQgdGhl
+IGJpdCBhbmQgY2hlY2sgb2YgdGhlIGJpdCBpbiB0aGUNCj4gcHJvYmxlbWF0aWMgY29tbWl0IDdi
+Y2RhYTY1ODEwMiAoImRtYWVuZ2luZTogeGlsaW54X2RtYToNCj4gRnJlZXVwIGFjdGl2ZSBsaXN0
+IGJhc2VkIG9uIGRlc2NyaXB0b3IgY29tcGxldGlvbiBiaXQiKQ0K
 
