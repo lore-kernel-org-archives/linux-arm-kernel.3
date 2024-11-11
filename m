@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8215FD3ABD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7F2D3ABD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W8thwsB+ljS0lWZ4b7dnqxQ/N/kDhQQW1Jd7+/GQSOs=; b=SqBkCASVFMCpuMq+YEKmNR/XzD
-	yWofSKDq0umovhbuWy3q7MiX7tw3Gx3rBXvrbjqongINITWKIBB/3a4KOVW0sTE4XxZRWutMChhvW
-	qKntzaY91oK0mvRHGCsRe7DgFWi+6XmgS4vq1e86f02KyMJx/giPFo4j1NN/+cU8pp/uzELBfaKZB
-	3yxM5RPrAHg3TJYxEkaPes4uySN9ChpQViMLvwmTolb7K/drLBU/6Nukntu098TVpnKHl2mySNzQk
-	KIfMfP12nM2rGA/4NaM1g+ynqOvPbiKpus82vA7HmUfUP6ZX4g6ZtHDKCQjNieflU7LKwQ+VS9t8q
-	UioEsUtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=; b=wkD8v26BVcjTn6426n9mB8Gcvw
+	HIdxJvlJZcu6cgoC8RnCZNQ1oKFos3XTSpuKoUwROGB6a7u1w1bizpdZe3Z+KikhS+Q9Yrwyp6DGb
+	omSxfgMt7iBPN8xq5Sojjyxq/L/39+GiYWm8F5i6Qr/sRlOmZY2C4JdLYHZEPDJmKKwc+XHnpUkSg
+	nrIOfKKCqd0p/Cg9uqUnrX//ngD/jF+7vhjD1ZhTYQLG5FulzsCaX30ABy2oBlfTUWHmE/GVHKpdV
+	Ii3myxfIIRFAovyJa4MJAlX9pQlvIzXoL3YqxP919JF3ZcDygnT5mk4F5o/rXoIlem5/W01W8gNEl
+	N2IQwKEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAY2U-00000000h15-0Fk3;
-	Mon, 11 Nov 2024 17:17:22 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tAYCA-00000000ib2-1oPC;
+	Mon, 11 Nov 2024 17:27:22 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAY0g-00000000go3-3Uti
+	id 1tAYAN-00000000iK3-1EII
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 17:15:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=W8thwsB+ljS0lWZ4b7dnqxQ/N/kDhQQW1Jd7+/GQSOs=; b=fh
-	6FlBFBQS/bFlsT6PMKK5U9LH02C+3Qm02iYV3yichYa6m0FTJQpA2gLUXF+/BtZxhn02GWnJJyU6P
-	9KmOiQDg7WTWYu4AAjLHWd2nSFd+vtLRHcioSOTzvGFv38olkVrLzVA36NBm7nPqEWDyOM0yvyR9u
-	Maz6pNxDnCtMFm4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tAY0S-00Cunp-No; Mon, 11 Nov 2024 18:15:16 +0100
-Date: Mon, 11 Nov 2024 18:15:16 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rob Herring <robh@kernel.org>
-Cc: frank-w@public-files.de, Frank Wunderlich <linux@fw-web.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
-	linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional failed
-Message-ID: <e7a8e087-fb92-4911-b7fb-34521635e8da@lunn.ch>
-References: <20241109094623.37518-1-linux@fw-web.de>
- <20241109094623.37518-2-linux@fw-web.de>
- <e534c723-6d65-433f-8ab5-1c0d424d7367@lunn.ch>
- <9B1A5D20-3DE5-40C1-8B2D-B1C4F53FA5F4@public-files.de>
- <CAL_JsqJnOa_9Poz86vOWBCQigvv-Ab4Tt1hrwTxSa5zNraVxXQ@mail.gmail.com>
+	Mon, 11 Nov 2024 17:25:32 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7181a8af549so2980702a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 09:25:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731345930; x=1731950730; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=;
+        b=IBzRXcmUjg0uOc2OaSQ3O1Tcm3RUMj9ffunS6yYptbF2vRY0YY75XpzV3ANs3u/1PU
+         rzIqApctqOh4c4GEGR0aGq8/79QzULrQChhxSucdhihiRINB6ldA5KdFsD4rmA9PHNhb
+         4A2s3o2TKi9UW7SjkLncssReFY+0A5Ozt0jL8fyzcG95F62JBugE2lCc/pRTiQEh9Ygx
+         RDtIMBRBJyw2jmW69AKFSJaJiKufFgbAWLyDQNgWrselb+02bpd7wAR/luWmjbg53VU9
+         LvfLRmp/8UNZr6CLw2Urib9Z1QDWwy6Jq54ekCyHina/eCqdURvfvt2KE63e8HLGsDW9
+         Sy9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731345930; x=1731950730;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TGkctB5w2DgVNd65llyIf6DBsV2rcrcXeYWXerAzjMs=;
+        b=iDJNp9ezhSEzVuCevqDYSwikvRwxbKYIzFw288Kj3rZpASuNyVYYQ9zIqJ1dkSGj/l
+         t2i1O69YdQEPHNgaIPEeiulIIyonJkXFIMvYlhO9sQtxeIjijES/v+5/DK2kfTNdh9FI
+         hiWXYrBxnY7CQ9Y1BGAa5ZAcMfAii5PpkRfT/s49Zhk5yT/PMDivYdV46WUh2LTL9RRj
+         2YJVrg4gRij3fX9fOToDOkmN33RcLaP972AIvq2OMJk7d6URQLYh4s2bE5e8wwPvpQBO
+         8oOW5TemPIDDCVWObvwP0oTW9hziU7L8z1yD0DEhyJC0jgKhtNuwfpji+rokBZnRC/bs
+         jt1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUtPxKvbpiVRhS2IsEO98H1iQ5UXeWFP7RXDWrNOqc90s7CGXK2PVtwRCViHBOND7OPg7f+FrzoxtF2WfvP0qrn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS3plD8I8K6/xwhCzdn1g8vOdIE0GLXfd1E3kfnHiwji3/4lCM
+	j+m7Bp/dw8Ric3elZ/NiOWnASW0aE5Nlf2qWkOXIMxSFqc19ibsVXOIqnCfx
+X-Google-Smtp-Source: AGHT+IGSE8Tlbmi62yQY1NUtFU32C22MR6/icQoBaoeQ7KQoKvlXZzIHByJ3L7g7dUjxzUY+Qrxb5A==
+X-Received: by 2002:a05:6830:2116:b0:718:e44:6da9 with SMTP id 46e09a7af769-71a1c1d2fa3mr12073671a34.11.1731345929640;
+        Mon, 11 Nov 2024 09:25:29 -0800 (PST)
+Received: from ?IPV6:2605:a601:aa57:7500:c5da:8ec9:bee9:a72c? ([2605:a601:aa57:7500:c5da:8ec9:bee9:a72c])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5ee49527467sm2018955eaf.20.2024.11.11.09.25.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 09:25:29 -0800 (PST)
+Message-ID: <c96c7e05-31ca-4145-a8ed-d74a32770011@gmail.com>
+Date: Mon, 11 Nov 2024 11:25:29 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqJnOa_9Poz86vOWBCQigvv-Ab4Tt1hrwTxSa5zNraVxXQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: Pruning obsolete BMC devicetrees
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+ openbmc <openbmc@lists.ozlabs.org>, Joel Stanley <joel@jms.id.au>
+Cc: linux-aspeed <linux-aspeed@lists.ozlabs.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <b386a9e98412b06b6186ee5dea81ac6a69bc4f8b.camel@codeconstruct.com.au>
+Content-Language: en-US
+From: Andrew Geissler <geissonator@gmail.com>
+In-Reply-To: <b386a9e98412b06b6186ee5dea81ac6a69bc4f8b.camel@codeconstruct.com.au>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_091530_896122_11C5F5B5 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20241111_092531_365873_06E01DB7 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,78 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 10:25:12AM -0600, Rob Herring wrote:
-> On Sun, Nov 10, 2024 at 3:25 AM Frank Wunderlich
-> <frank-w@public-files.de> wrote:
-> >
-> > Am 9. November 2024 18:29:44 MEZ schrieb Andrew Lunn <andrew@lunn.ch>:
-> > >On Sat, Nov 09, 2024 at 10:46:19AM +0100, Frank Wunderlich wrote:
-> > >> From: Frank Wunderlich <frank-w@public-files.de>
-> > >>
-> > >> after converting the ahci-platform binding to yaml the following files
-> > >> reporting "'anyOf' conditional failed" on
-> > >>
-> > >> sata@540000: sata-port@0
-> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-db.dts b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
-> > >> index 1e0ab35cc686..2b5e45d2c5a6 100644
-> > >> --- a/arch/arm64/boot/dts/marvell/armada-7040-db.dts
-> > >> +++ b/arch/arm64/boot/dts/marvell/armada-7040-db.dts
-> > >> @@ -214,6 +214,7 @@ &cp0_sata0 {
-> > >>
-> > >>      sata-port@1 {
-> > >>              phys = <&cp0_comphy3 1>;
-> > >> +            status = "okay";
-> > >>      };
-> > >>  };
-> > >
-> > >>
-> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-> > >> index 7af949092b91..6bdc4f1e6939 100644
-> > >> --- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-> > >> +++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-> > >> @@ -433,11 +433,13 @@ &cp0_sata0 {
-> > >>      /* 7 + 12 SATA connector (J24) */
-> > >>      sata-port@0 {
-> > >>              phys = <&cp0_comphy2 0>;
-> > >> +            status = "okay";
-> > >>      };
-> > >>
-> > >>      /* M.2-2250 B-key (J39) */
-> > >>      sata-port@1 {
-> > >>              phys = <&cp0_comphy3 1>;
-> > >> +            status = "okay";
-> > >>      };
-> > >>  };
-> > >> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-> > >> index 7e595ac80043..161beec0b6b0 100644
-> > >> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-> > >> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-> > >> @@ -347,10 +347,12 @@ CP11X_LABEL(sata0): sata@540000 {
-> > >>
-> > >>                      sata-port@0 {
-> > >>                              reg = <0>;
-> > >> +                            status = "disabled";
-> > >>                      };
-> > >
-> > >I don't know the yaml too well, but it is not obvious how adding a few
-> > >status = "disabled"; status = "okay"; fixes a "'anyOf' conditional failed".
-> > >
-> > >Maybe you can expand the explanation a bit?
-> > >
-> > >       Andrew
-> >
-> > Hi angelo,
-> >
-> > I guess the dtbs_check only checks required properties from yaml if the node is enabled.
-> 
-> Yes, that is exactly how it works.
 
-So from this, can i imply that phys is a required property?
+On 11/10/2024 10:49 PM, Andrew Jeffery wrote:
+> Hi all, We now have quite a collection of BMC-related devicetrees 
+> upstream. There's interest in whether we can prune some of them out.
+Thanks for doing this AndrewJ, it's always good to keep things cleaned up.
 
-Looking at the above patch, it appears that for armada-*.dts,
-sata-port@0 always uses phys = <&cp0_comphy2 0> and sata-port@1 uses
-phys = <&cp0_comphy3 1>. Is this an actual SoC property? Could it be
-moved up into the .dtsi file? Or is it really a board property?
+> 2018-06-22 876c5d891c9d7442d2734871317bc6480cd9f80e: 
+> aspeed-bmc-opp-palmetto.dts 
+I think we're ready to call it good on Palmetto and remove it. I'd like 
+to also remove it from our CI job.
 
-	Andrew
+> 2019-12-03 53820e00aaa173db268e0288d0407806539b4c3e: 
+> aspeed-bmc-opp-swift.dts
+Swift can also be removed.
+> 2020-03-06 fa09a28ca3e966582d6d92ef1536de360c8b194b: 
+> aspeed-bmc-opp-zaius.dts
+Unless someone from google disagrees, I would like to also remove Zaius 
+from CI.
+
+> 2024-08-02 1c8b6faf882de15fd62094e08b2ca5bf7870b767: 
+> aspeed-bmc-opp-tacoma.dts
+Tacoma can also be removed.
+
+
+Andrew (G)
+
 
