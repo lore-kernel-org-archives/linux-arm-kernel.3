@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F77D12D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 06:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2F5D12D79
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 06:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r00k13bJOtFaWOaYvtCwbROOQSCXB6VqNkV5/x6pz8I=; b=qwosoadKjbwIq5
-	D+tQ6SInT+bwzBFZi+oeVFwD6pStJX0iqmILaOztJ0Tg3407l8MC9GPES6/Lf6bwjl+RPKB6pC5Zq
-	VX08aRGcgw7qlEpdkUhUyS2lgktTAWEQ+ctGWSj5coi0/yC9cfpoYyolJJ88HKX9rSDd5L9cJRsE1
-	kPWSVR6VC3/ZkTpwLeUhhYiRMpq1UWnU9AnLeYB7rONaTXdFAeEqFz1JMOBaTEV28HwIqsqGzKXZc
-	LNWGil9qbux/O/FPQaf+mlUnWIvLhtuq7dflqHnCmPHdmCdZ4tc8+a2Y58QvJE9eAqgOgKPRfUweC
-	yeH4QPJMQ5zkA4zkaupw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jJzrYf474J6pqDB/vbC9cIfwTVdXVMEX8r86j/X7rMo=; b=BTxKm5JQqTczhwrstRRqTHem0n
+	DsevdsOCoh0N13gYH0zNTlGCZJkaW/IsEr+eZKupNqBtPL2zsyWzLyqvbT5heS0731O/p8UeyMMq7
+	RPmnHKDDQcU5XnuZQ1+hRFi1z6GmHg9NygJ4JRCdesJB0oExXg82ppYYVUGpuiMm3NFxio3rR80dF
+	Ow4JpXneWo7f2sWNCjxZta3wCSC8y4TmFwgkuot30jk3WbkNJlRxTtZTtCxQmf6jib8xeR+aHneqK
+	qfYpwbJsnVbquhtMtVnHUxSRcxgLyb64jpYUjjSKkOPeQ3ruTntioZ88CZvKHjPkCG8QzQzQF9ySc
+	6jKhjzxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tANij-0000000GTAI-43Xp;
-	Mon, 11 Nov 2024 06:16:18 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1tAOMa-0000000GXuJ-1t7J;
+	Mon, 11 Nov 2024 06:57:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tANgx-0000000GSvJ-3THh
+	id 1tAOKl-0000000GXYS-41q4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 06:14:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1731305657; x=1731910457; i=frank-w@public-files.de;
-	bh=r00k13bJOtFaWOaYvtCwbROOQSCXB6VqNkV5/x6pz8I=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=hfg7tzu7K0UMRwCqkjh6HUY82atbVacbqfe0PkrxTuj2yRI3J8ED8IRAuvN9tzbv
-	 /9LZ+DyTF0g9lq/UBsYnq8SkTU61zvrWqCp2BMKdukqHvJCdCGyhc/+dFGTYJHdK2
-	 GFvzKRe1j7xbkfbIlI8cx+bLSaq2TiHpMhSmoSZhmvTYUqrZUS6SIwTpZL1Arlper
-	 jOdF//6tb8oJ0r4/2BfaT4CBhi70hSVliTnKHadIKs6OjlJXbR6I7knZr/F100aPH
-	 jjuP79bxXldXvISmek9hZrbuatoo0nIVjTVITqNh9AHALFFQEkK5Wz0z56tkU7Ev+
-	 Bj/eD+kudPLEIVkN1A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([217.61.144.196]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MFKGP-1sz6Cf3dJR-002K9U; Mon, 11
- Nov 2024 07:14:17 +0100
-Date: Mon, 11 Nov 2024 07:14:16 +0100
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Damien Le Moal <dlemoal@kernel.org>, Frank Wunderlich <linux@fw-web.de>,
- Niklas Cassel <cassel@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Russell King <linux@armlinux.org.uk>
-CC: Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
- linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_2/3=5D_arm64=3A_dts=3A_marvel?=
- =?US-ASCII?Q?l=3A_drop_additional_phy-names_for_sata?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <c6dade2e-fd8a-4a7b-89a1-b1276d8e9106@kernel.org>
-References: <20241109094623.37518-1-linux@fw-web.de> <20241109094623.37518-3-linux@fw-web.de> <c6dade2e-fd8a-4a7b-89a1-b1276d8e9106@kernel.org>
-Message-ID: <C415B917-DE36-42DE-96A8-E1A90A049375@public-files.de>
+	Mon, 11 Nov 2024 06:55:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1731308136; x=1762844136;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ZJZ/DGAiZ8EFB89FUOY0RrQq5fJ8wgWrZftdSh9uqkc=;
+  b=VsGJOakQOofntHz4dWSSOij0chwjymSkWQWgGoec3FT0chkllyRuSdPi
+   yIZ+FuWCGx3dAByL2+E+DFtwOnr1lTzRMbHVGDUTZXYrsfyLew959DS5j
+   cBKn0W979lVEB6S/U9Eg1KvWUfMlo8pv+FOghb9HJj8KKmvZFneQ320ZU
+   +7BhjUyWLX9uYqDgxzkR1kKiOHBdVB3vqHVZyKIHJz6fpmlFYzWHixzDk
+   WA1gSQdRIuLChq1EfEGDR+MktgZUiwXuLkOooUKm20vgVgnSA3GeiQmbh
+   g9RaSRenAFgxlANT31NkVMgUUlDf+8TlkcOzU4x6zEbrq88b6ryX2iKf6
+   Q==;
+X-CSE-ConnectionGUID: DAK6k29NRRWKSUSjI8wF4Q==
+X-CSE-MsgGUID: JTJ3m9kNTVODDOpux5hWbQ==
+X-IronPort-AV: E=Sophos;i="6.12,144,1728975600"; 
+   d="scan'208";a="265270109"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Nov 2024 23:55:34 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Sun, 10 Nov 2024 23:55:25 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Sun, 10 Nov 2024 23:55:16 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>,
+	<rfoss@kernel.org>, <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+	<jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
+	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux@armlinux.org.uk>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <dharma.b@microchip.com>,
+	<hari.prasathge@microchip.com>, <varshini.rajendran@microchip.com>,
+	<arnd@arndb.de>, <dri-devel@lists.freedesktop.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <manikandan.m@microchip.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v6 1/4] dt-bindings: display: bridge: add sam9x75-mipi-dsi binding
+Date: Mon, 11 Nov 2024 12:24:59 +0530
+Message-ID: <20241111065502.411710-2-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241111065502.411710-1-manikandan.m@microchip.com>
+References: <20241111065502.411710-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:BKOFQ1Mi9FnHIK8Ipfu90R0zSkYFQC5djJf+f2dKjZ+vdGbr2/0
- O9nRetLYm6jx/ouWj9NqiQoZo1SYKtJukrGPlVSoeqhDpASqWXBB+3V/QZuGzcaWNZV1svd
- Sb69X2rjnCjoheHZJ9hj8cKBMPs5IXq9f319YzgnWRjycWmVcUwbiXCTZeHvvFh55DcRogM
- BMPs9oUhvNKkBI+39kmzA==
-UI-OutboundReport: notjunk:1;M01:P0:tD1zr+Lt7VM=;Rb6j5Bsy/H8+ktsYyjKppjnEP6S
- iwfCAZskY7YuYdTIhzwCOL/+d9ea7hSGaRF9OutD3sRG7G2iIZK5NALMRuPRuaZjdt1PgGBOv
- 4AIWIUN32VJYSz4ODf++vGe5dqRdTTeG/kFKwkRtrXHpyqrqTXmgo0Wx0CVC49hvND5gg3v2Z
- aPIiDbXw4K/4zYQZi/iPJvktkwfcst8TEbW/42pLP2cqDSL96VHhww29vc+BnXvYa2740zC36
- q62b7KU+iIcTAIflflVfJSMx2xNiS9JVvw2ZFSSoVi5YvqRbjpx/cTyGp2OTgnIDwwPabfMtG
- Un8+hD2dAOyDusPIEZOg+COJ3JHZS16Cagj/2SyVm5qz3fIfjuUp58H6lRQL/IeFMK799pm3R
- Jnfnj9K1/CZ7Qqz1ucpSOcKbHIS9vs3IVorS2YDBS3D0nED474+H1ZTTs92sOAev12h8FDafM
- 2aYlk5hJD0icP9+mTCgozNXrbqnKDODTE39aPME9LCdqkWChhPzONOw3cqsKynMqML+ZsIXuo
- Plw0b6c5kUQGoUBex6NdS8DfB1BqerYTh2DmKHFoojoltHNCZLitZq0/446WAUTDtzpmTkw07
- do33YEn9FnzNBG1Q8Ap1riBKhjjFXQ84vw+NBm2YPseZWLEWMsY2UaBxjhHgkXX2NPgRZq+h1
- AV/9NAU0U+r3g8DMRCS24UTS1yChT/RXBpCQgkJJ6IgAet5+YT736WiNdYlPPKBvfNb5nknaL
- ixX/jQ+MRw+oEkBCJOR/IxqKsjZOlNKQGH83ZiYn6sEzST3+0yVz5p781jytl8XrKdckLqp2G
- KXWuFRqBJpa89tvWWRI7Bk2Q==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_221428_183887_1976F6BA 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241110_225536_262806_34B9CB43 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,32 +91,153 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Add the 'sam9x75-mipi-dsi' compatible binding, which describes the
+Microchip's specific wrapper for the Synopsys DesignWare MIPI DSI HOST
+Controller for the sam9x75 series System-on-Chip (SoC) devices.
 
-Am 11=2E November 2024 01:05:48 MEZ schrieb Damien Le Moal <dlemoal@kernel=
-=2Eorg>:
->On 11/9/24 18:46, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files=2Ede>
->>=20
->> Commit facbe7092f8a ("arm64: dts: marvell: Drop undocumented SATA phy n=
-ames")
->
->Isn't a Fixes tag for the above commit desired here ?
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+changes in v5:
+- Add reviewed-by tag
 
-I have not added one and deopped from first part because of this:
+changes in v4:
+- Removed 'microchip,sfr' phandle property since
+regmap to SFR node can be obtained using its compatible
+string
 
-<https://lore=2Ekernel=2Eorg/linux-arm-kernel/20220315024952=2E3we7hiwrksk=
-b4tsy@vireshk-i7/>
+changes in v3:
+- Describe the clocks used
 
->> drops some phy-names from devicetrees but misses some=2E Drop them too=
-=2E
->>=20
->> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
+changes in v2:
+- List the clocks with description
+- remove describing 'remove-endpoint' properties
+- remove unused label, node and fix example DT indentation
+- cosmetic fixes
+---
+ .../bridge/microchip,sam9x75-mipi-dsi.yaml    | 109 ++++++++++++++++++
+ 1 file changed, 109 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-mipi-dsi.yaml
 
+diff --git a/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-mipi-dsi.yaml
+new file mode 100644
+index 000000000000..d2ae6250e1f1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/bridge/microchip,sam9x75-mipi-dsi.yaml
+@@ -0,0 +1,109 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/microchip,sam9x75-mipi-dsi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Microchip SAM9X75 MIPI DSI Controller
++
++maintainers:
++  - Manikandan Muralidharan <manikandan.m@microchip.com>
++
++description:
++  Microchip specific extensions or wrapper to the Synopsys Designware MIPI DSI.
++  The MIPI Display Serial Interface (DSI) Host Controller implements all
++  protocol functions defined in the MIPI DSI Specification.The DSI Host
++  provides an interface between the LCD Controller (LCDC) and the MIPI D-PHY,
++  allowing communication with a DSI-compliant display.
++
++allOf:
++  - $ref: /schemas/display/dsi-controller.yaml#
++
++properties:
++  compatible:
++    const: microchip,sam9x75-mipi-dsi
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description:
++          Peripheral Bus Clock between LCDC and MIPI DPHY
++      - description:
++          MIPI DPHY Interface reference clock for PLL block
++
++  clock-names:
++    items:
++      - const: pclk
++      - const: refclk
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          DSI Input port node, connected to the LCDC RGB output port.
++
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml#
++            unevaluatedProperties: false
++
++      port@1:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description:
++          DSI Output port node, connected to a panel or a bridge input port.
++
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml#
++            unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - ports
++
++unevaluatedProperties: false
++
++examples:
++  - |
++     #include <dt-bindings/clock/at91.h>
++     #include <dt-bindings/gpio/gpio.h>
++
++     dsi@f8054000 {
++       compatible = "microchip,sam9x75-mipi-dsi";
++       reg = <0xf8054000 0x200>;
++       clocks = <&pmc PMC_TYPE_PERIPHERAL 54>, <&pmc PMC_TYPE_GCK 55>;
++       clock-names = "pclk", "refclk";
++
++       #address-cells = <1>;
++       #size-cells = <0>;
++
++       ports {
++         #address-cells = <1>;
++         #size-cells = <0>;
++
++         port@0 {
++           reg = <0>;
++           dsi_in: endpoint {
++             remote-endpoint = <&hlcdc_panel_output>;
++           };
++         };
++
++         port@1 {
++           reg = <1>;
++           dsi_out: endpoint {
++             remote-endpoint = <&mipi_in_panel>;
++           };
++         };
++       };
++     };
++...
+-- 
+2.25.1
 
-regards Frank
 
