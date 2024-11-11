@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E422CD3ABEA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CF7D3ABEA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIW7DyS2WH6Cyrvm/ebpRPiFw91e/Lrg2SI8ILkhrNY=; b=iOfVKgb8/UdBSAtjl1aGl5D0IW
-	Wh3CMowtVdDW7yzpVCNyYQs7ON1+GLiVNI7Vlv5qckKd7c1V+g950hA1px/4fvcXbbYJTw0/MpauR
-	x7scUIYeogKDn5tO3WPeYKvrLTw1Ky3IyNkVdxpL492M62a2tJ+uLjYZKxjDS+LOypHZ3Xj5q5RiK
-	9BcQ+wrqXwQJlXI7oD8WPKaXTbAmAZXLDMosns9Cnc+Bpd0MuDKFTZ+yy64QOmD6wdYbi5lnA94kr
-	hgY1ILSdRz5GDgLyuD4luGmcpzY0DHAn4QMyQt9vxijGf0J5Oh9vw01gaLrlq5uai6Den6ffkYLqM
-	7t0F3neg==;
+	bh=m5qBMJyupmVmP3WenwgqG6fxdPxLJkkXl5JQ5DHXwD0=; b=OQ7yd4n8P1BLDtXfTAszJtrOWW
+	quxBgZWmQIAoxrJ/5S6dLMx28Lj6cqCN6qmXtvi/mHiV+K00bcBpcaODv39aHn6fKABlmIv2QOy5W
+	oq8X1ofCX1o/LHCwM3N9fyQSgnG3gugHq15cvw0lBxyhBvcgnuGRHv2HmlkVN4hi/ZxaZWGPgDPSh
+	57F3HzYsYAo2Mjeo8ksUo2iagxMxIf0AJRWZBCisQskXUKUtngK6RKCR7j+AV2aG9lrRahiDc4CFE
+	esrvHXQ8FubV6Y8IDQZKMAScRfEY13imYkHio7UXI+43ypN8+lGPvBOpxfQQJFJQzo1NaZWqN0dos
+	+uXFp9Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZ6y-00000000u8E-2kON;
-	Mon, 11 Nov 2024 18:26:04 +0000
-Received: from mail-ej1-f54.google.com ([209.85.218.54])
+	id 1tAZ8k-00000000uUY-2gdU;
+	Mon, 11 Nov 2024 18:27:54 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYzP-00000000sqG-3Ho9;
-	Mon, 11 Nov 2024 18:18:17 +0000
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-a9ec86a67feso837620066b.1;
-        Mon, 11 Nov 2024 10:18:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731349094; x=1731953894;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DIW7DyS2WH6Cyrvm/ebpRPiFw91e/Lrg2SI8ILkhrNY=;
-        b=Eoh8qcRb7flhFpK2ZZESNnib9MWsaboP3iMv2eys3E9pYh+D4H84ShXThLkhp19XaR
-         tE6SY8Zz2cM1vdG1HZymWGtuAD9HTKt8vydbbf1V87IQT11pqYGkjholDaIxvElRRa27
-         ihTD+Nlx7zzCixDH9qoFo9eT9C6NUExbw/bRVG4qD7YiX5ClVIqBYiNpkxjbrcHsbh0y
-         X0TxEEVShl3F40UExnhNbnmEQqQ9hh0rghkA1gB/yfA5YT0Pt3cEl+LY0gWPR0JxpkjF
-         s+UcUxP8AK/rqB4fY0+Mqhve0xOMqNdm/VUPS7IzZnZ7c5/5Y/iAgrkHzoeqa+ER9T49
-         1tOg==
-X-Forwarded-Encrypted: i=1; AJvYcCUacUo8C1IanJ2iukV4suT+JfSqqM+nak/g1CaRmUL62XS1JGxmlVKbjvdJB2EWLCTFdY8dHF2PqBvbhT8OsuI4@lists.infradead.org, AJvYcCXO9ZAd7SGR0b348UmcNKkj8HM3JHkoArrK02oHWvQSwlDVaIzRbH3sF1ZC+wEf2peLWDm4EFWMhN0Psa45NV0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5fEqLgrn1WbKefEYZU7VJs63dy/uWPydhHm2FwXDDjPmOrNoK
-	IerAvnjGLmruKeVVuiLrvPfPPCNyJjv3fxavk9WsOxbJihgdlG+P
-X-Google-Smtp-Source: AGHT+IErIzWT0CMgys4ztmmaJblBGh0zeoh24ympSdB4fT+d0iex40LKQpmMSIi+f5EOJn7E8Pss8w==
-X-Received: by 2002:a17:907:a4b:b0:a99:fc3d:7c76 with SMTP id a640c23a62f3a-a9ef001915amr1385377366b.37.1731349093673;
-        Mon, 11 Nov 2024 10:18:13 -0800 (PST)
-Received: from localhost.localdomain ([193.142.191.186])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a17b64sm617868466b.39.2024.11.11.10.18.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 10:18:13 -0800 (PST)
-From: =?UTF-8?q?Tam=C3=A1s=20Sz=C5=B1cs?= <tszucs@linux.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?UTF-8?q?Tam=C3=A1s=20Sz=C5=B1cs?= <tszucs@linux.com>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
-Date: Mon, 11 Nov 2024 19:17:27 +0100
-Message-ID: <20241111181807.13211-4-tszucs@linux.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241111181807.13211-1-tszucs@linux.com>
-References: <20241111181807.13211-1-tszucs@linux.com>
+	id 1tAZ3B-00000000tX4-0MGd;
+	Mon, 11 Nov 2024 18:22:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 49EFE1C0005;
+	Mon, 11 Nov 2024 18:22:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1731349324;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m5qBMJyupmVmP3WenwgqG6fxdPxLJkkXl5JQ5DHXwD0=;
+	b=P+dWOpS4lvwV7ml2Qfzzvid2JahTF5umrRz6pPlZxfoDSVN7P7RBPC5/L1AoCYDmEGs0z6
+	GdDwxm/e9vaPg8V5YM6NfeSx4yMOUgh42kO+kgWriWfrwiFd8aP0fwgcKoIOcEyJxICjcT
+	cZdji2E5SwsT6f8SzmW7zJzfOPv0P2496z5WA7e+5h4ZOpCkf1LCJdaCVT24l8Wngjqc2Y
+	mYK/iiOEOP4qlB4TdWuml/EGZm+obhm5ZNr5y9qhERlkvscEShimeq1nJc5xtuWmMyZEUI
+	BoLHmgJDkaqq/JTSpjMR3HbpocvPW8UvZmSp4xJEkexDK7lIJ+dgKPl/tg/hnw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Hui-Ping Chen <hpchen0nvt@gmail.com>
+Cc: richard@nod.at,  vigneshr@ti.com,  robh@kernel.org,  krzk+dt@kernel.org,
+  conor+dt@kernel.org,  nikita.shubin@maquefel.me,  arnd@arndb.de,
+  vkoul@kernel.org,  esben@geanix.com,
+  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 2/2] mtd: rawnand: nuvoton: add new driver for the
+ Nuvoton MA35 SoC
+In-Reply-To: <20241023092617.108021-3-hpchen0nvt@gmail.com> (Hui-Ping Chen's
+	message of "Wed, 23 Oct 2024 09:26:17 +0000")
+References: <20241023092617.108021-1-hpchen0nvt@gmail.com>
+	<20241023092617.108021-3-hpchen0nvt@gmail.com>
+User-Agent: mu4e 1.12.1; emacs 29.4
+Date: Mon, 11 Nov 2024 19:22:02 +0100
+Message-ID: <87y11p1vhx.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_101815_916509_CB6D71CB 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20241111_102209_474850_01FF2AEF 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +77,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable UART lines on Radxa ROCK 3 Model B M.2 Key E.
+Hello,
 
-Signed-off-by: Tamás Szűcs <tszucs@linux.com>
----
- arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> +static int ma35_nand_attach_chip(struct nand_chip *chip)
+> +{
+> +	struct ma35_nand_info *nand =3D nand_get_controller_data(chip);
+> +	struct ma35_nand_chip *nvtnand =3D to_ma35_nand(chip);
+> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
+> +	struct device *dev =3D mtd->dev.parent;
+> +	u32 reg;
+> +
+> +	if (chip->options & NAND_BUSWIDTH_16) {
+> +		dev_err(dev, "16 bits bus width not supported");
+> +		return -EINVAL;
+> +	}
+> +
+> +	nvtnand->nchunks =3D mtd->writesize / chip->ecc.steps;
+> +	nvtnand->nchunks =3D (nvtnand->nchunks < 4) ? 1 : nvtnand->nchunks / 4;
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index b7527ba418f7..61d4ba2d312a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -732,7 +732,7 @@ &uart8 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
- 	uart-has-rtscts;
--	status = "disabled";
-+	status = "okay";
- };
- 
- &usb_host0_ehci {
--- 
-2.45.2
+This second division looks broken. Also, you probably don't want to do
+that outside of the ON_HOST situation. Finally, you should probably
+update chip->ecc.steps and chip->ecc.size to your final choice.
 
+> +
+> +	reg =3D readl(nand->regs + MA35_NFI_REG_NANDCTL) & (~PSIZE_MASK);
+> +	if (mtd->writesize =3D=3D 2048)
+> +		writel(reg | PSIZE_2K, nand->regs + MA35_NFI_REG_NANDCTL);
+> +	else if (mtd->writesize =3D=3D 4096)
+> +		writel(reg | PSIZE_4K, nand->regs + MA35_NFI_REG_NANDCTL);
+> +	else if (mtd->writesize =3D=3D 8192)
+> +		writel(reg | PSIZE_8K, nand->regs + MA35_NFI_REG_NANDCTL);
+> +
+> +	switch (chip->ecc.engine_type) {
+> +	case NAND_ECC_ENGINE_TYPE_ON_HOST:
+> +		chip->options |=3D NAND_NO_SUBPAGE_WRITE | NAND_USES_DMA;
+
+What is the reason for refusing subpage writes? This is not something
+you can do later, so unless there is a good reason, please do not set
+this flag.
+
+> +		chip->ecc.write_page =3D ma35_nand_write_page_hwecc;
+> +		chip->ecc.read_page  =3D ma35_nand_read_page_hwecc;
+> +		chip->ecc.read_oob   =3D ma35_nand_read_oob_hwecc;
+> +		return ma35_nand_hwecc_init(chip, nand);
+> +	case NAND_ECC_ENGINE_TYPE_NONE:
+> +	case NAND_ECC_ENGINE_TYPE_SOFT:
+> +	case NAND_ECC_ENGINE_TYPE_ON_DIE:
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+
+...
+
+> +static int ma35_nand_chip_init(struct device *dev, struct ma35_nand_info=
+ *nand,
+> +				 struct device_node *np)
+> +{
+> +	struct ma35_nand_chip *nvtnand;
+> +	struct nand_chip *chip;
+> +	struct mtd_info *mtd;
+> +	int nsels;
+> +	u32 tmp;
+> +	int ret;
+> +	int i;
+> +
+> +	if (!of_get_property(np, "reg", &nsels))
+
+Please convert to device_property_ helpers. And remove the of include
+once you no longer need it.
+
+> +		return -ENODEV;
+> +
+> +	nsels /=3D sizeof(u32);
+> +	if (!nsels || nsels > MA35_MAX_NSELS) {
+> +		dev_err(dev, "invalid reg property size %d\n", nsels);
+> +		return -EINVAL;
+> +	}
+> +
+> +	nvtnand =3D devm_kzalloc(dev, struct_size(nvtnand, sels, nsels),
+> +			      GFP_KERNEL);
+> +	if (!nvtnand)
+> +		return -ENOMEM;
+> +
+> +	nvtnand->nsels =3D nsels;
+> +	for (i =3D 0; i < nsels; i++) {
+> +		ret =3D of_property_read_u32_index(np, "reg", i, &tmp);
+> +		if (ret) {
+> +			dev_err(dev, "reg property failure : %d\n", ret);
+> +			return ret;
+> +		}
+> +
+> +		if (tmp >=3D MA35_MAX_NSELS) {
+> +			dev_err(dev, "invalid CS: %u\n", tmp);
+> +			return -EINVAL;
+> +		}
+> +
+> +		if (test_and_set_bit(tmp, &nand->assigned_cs)) {
+> +			dev_err(dev, "CS %u already assigned\n", tmp);
+> +			return -EINVAL;
+> +		}
+> +
+> +		nvtnand->sels[i] =3D tmp;
+> +	}
+> +
+
+...
+
+> +
+> +	ret =3D mtd_device_register(mtd, NULL, 0);
+> +	if (ret) {
+> +		dev_err(dev, "MTD parse partition error\n");
+
+probably useless error message?
+
+> +		nand_cleanup(chip);
+> +		return ret;
+> +	}
+> +
+> +	list_add_tail(&nvtnand->node, &nand->chips);
+> +
+> +	return 0;
+> +}
+
+I believe next iteration should be the one, I'm rather happy with the
+overall look.
+
+Thanks,
+Miqu=C3=A8l
 
