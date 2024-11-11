@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CC2D3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 20:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A13D3ABF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 20:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82twavGuLWTJE8grzKhhtXUFG4Q4BS+QMs6hPipSk/c=; b=xk98slu4gBYgZzdZ6DhjpJ90KE
-	I86E7Oqj01BqKe+vO68iLXlw7VuNsvTtKxqh5qLDsdWeg6dT+kmfbDUSTYG5zvJ65GaeJUcAVj9UV
-	6dARLIgYos81Ax4Qn3wR3uyBwIfwIUEoHoAetBABHb+J6QMlkGXLuFdBYTNAZt8e6bFuBmMnplr9j
-	m+3dfoucZbOhLtZ8OVOCsO9MzH2x96UI6I01mrdpV0scThzTkQx213wBA5AJTU9H4Po8AIp0zI1RC
-	zNidjV+Ir8JtY9Q7NrPGCZGoz7XC5mqnAvwhLNui55rpHs0eSlK+dVeLGKBQDJ+IADNolNPeDN0aW
-	8CZiO6hg==;
+	bh=sowLwZu699PwyfGqXSwrO59uwPduv6eDK5d+b6fSKH4=; b=vjoru3EW17MoEeNO7UZKIL4vVe
+	MTyVhFIEeObkSor9hpGF8/hrrCu3ciyUmYKZhpUEYlHEt+gADHy/P9VBcdu3e5RzlBIotldPBCDXP
+	NV7PzpmjAY+Vo9u7dwUSydN8L4xrnhC7cAJexdZiCYajtmBbFmmkhPw0NXicbV4Ew69cKbYkG4WTH
+	ChCJhkH605o0u7IpPcFnRbh8hPwM9/FiLJ8VTB/c8b/tc0yitx5g9f8+KLjIuZQo7Z/o4DUjEKmzx
+	5BQ3s0HCeWGiA+dVyLH3vl2WlFu/hbTadW6sUbMx3uiUU/8aSEqgN7q7bs9pxDGp7HA6fvOhdzYJ8
+	JilsMuDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbGG-00000001EP3-1Bsn;
-	Mon, 11 Nov 2024 20:43:48 +0000
+	id 1tAbHz-00000001EbS-2pD7;
+	Mon, 11 Nov 2024 20:45:35 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAb8w-00000001DF3-3szN
+	id 1tAb8z-00000001DFa-31Ex
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 20:36:16 +0000
+	Mon, 11 Nov 2024 20:36:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CE0A2A40851;
-	Mon, 11 Nov 2024 20:34:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79185C4CECF;
+	by nyc.source.kernel.org (Postfix) with ESMTP id AD4FCA4087B;
+	Mon, 11 Nov 2024 20:34:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E484C4CED7;
 	Mon, 11 Nov 2024 20:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731357373;
-	bh=Kr4rn7O6C9i3ftwAxRuTUF7vUGPIBqmjEbRAesXeZA4=;
+	s=k20201202; t=1731357376;
+	bh=sowLwZu699PwyfGqXSwrO59uwPduv6eDK5d+b6fSKH4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ltodrAhTZo3aVvGPd8qqNAmbPPeqsf5Z5hwMHgWfqAvLxDN9asXFbBBuhgrTXy2mD
-	 UTlG0QMEP/Dk4ZvI0GM4pOU7e12ZHsRqg+o5ZwZSwDYa3PXLIbHFGstsRts1mAxLaS
-	 L88Q02gLedHV+OGFXmp2ZHoHTj2FrFjI7P4T7JVUK6z+px33enOmMLlSr1hVdvjX5+
-	 I4ThDBdH4fXvhC2Wtk4jm0BXEYimtVVLe9fyag02Ncq+SK/mjKhf16dSr2l9hd4Sne
-	 1wZYpRYHi5ADQbVojOY1+3Q6GO9Rwrk/PRDWbjTolKDGzHMyoxTuWE2BJJURMmEpvU
-	 1ED5ci85HG+CQ==
-Date: Mon, 11 Nov 2024 14:36:11 -0600
-From: Rob Herring <robh@kernel.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
-	linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional failed
-Message-ID: <20241111203611.GB1887580-robh@kernel.org>
-References: <20241109094623.37518-1-linux@fw-web.de>
- <20241109094623.37518-2-linux@fw-web.de>
+	b=t9YXFbsgp6NcANX/elk3FSTRwcO8Fvpileari4s9tVapV7npfw54WspALkK/FOB1j
+	 AVN1dRXjV9OXonqa/iHVklbsIDNm5WopfEAHA84dyK9UD5+06b0Ny6uNsourJoGSuK
+	 fFgzyzHnd89To/F3FyF1D0F/LL4qGj6ksErK4h51fqaKPsXpQhZtSCQrNIGmqRecay
+	 5psoMITvoWeAd2oYdxX5fZd4sYtTjSs0z9FlwRAeEHGiS1NAGttRCVxp/Nrx987tdm
+	 Wy0OvgebxLuibe3TlE5UonBit+MxkiQtiIKq3NBCpMf4vMKP+kjZn+wpdlgNiMgbhb
+	 CRha8wNyWaxdA==
+Date: Mon, 11 Nov 2024 20:36:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Andi Shyti <andi.shyti@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH 05/14] dt-bindings: i2c: mv64xxx: Add Allwinner A523
+ compatible string
+Message-ID: <20241111-yogurt-slacks-ae8993881216@spud>
+References: <20241111013033.22793-1-andre.przywara@arm.com>
+ <20241111013033.22793-6-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pTTvxdvgtpuRqDjB"
 Content-Disposition: inline
-In-Reply-To: <20241109094623.37518-2-linux@fw-web.de>
+In-Reply-To: <20241111013033.22793-6-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_123615_051783_227EFBBF 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_123617_844334_88A1628C 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 09, 2024 at 10:46:19AM +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
 
-Thanks for reviving these.
+--pTTvxdvgtpuRqDjB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> after converting the ahci-platform binding to yaml the following files
-> reporting "'anyOf' conditional failed" on
+On Mon, Nov 11, 2024 at 01:30:24AM +0000, Andre Przywara wrote:
+> The I2C controller IP used in the Allwinner A523/T527 SoCs is
+> compatible with the ones used in the other recent Allwinner SoCs.
+>=20
+> Add the A523 specific compatible string to the list of existing names
+> falling back to the allwinner,sun8i-v536-i2c string.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-Here and the subject, "fixing anyOf" isn't very specific and is just an 
-implementation detail of the schema. "Add missing required 'phys' 
-property" would be more exact.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Rob
+--pTTvxdvgtpuRqDjB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZzJquwAKCRB4tDGHoIJi
+0sVCAP9FkjAH3fFo2Hcf+ZlfmmpDqgcCj8g44kJp6QWk/3cgIwD9Es+QU04KS2Yf
+VkVqm2TK30nhRTNCt9eLkYyTwtRGGwI=
+=NaZD
+-----END PGP SIGNATURE-----
+
+--pTTvxdvgtpuRqDjB--
 
