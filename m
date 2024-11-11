@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96529D2E9D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 10:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F22D2E9D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 10:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IaEOyMbaVWJTZKa+Sq5zT53vxz01/13ANVZcLosS5Ms=; b=30rIIh8VH+nbsRWQgeSzT4e4s8
-	mTOJ+Jt0VrbK6FhEQ1VP7M4uSzTwtYqof8Jg+lbZ72si5h928O3O6JBF2rlyagsM0148aGTPQMNsg
-	QMmbnYV2wb33Yq+X5SHLgskXy1NpsEFkr/jioblrYsdlVGPlaTKDraPime6e0HQuMrFzBoLePp4Gk
-	PW4Pz2bFlr6JhYjiXMHsQnREM6XSgOc4gLhYTSFN7drhIRp9hAtWSrOSoxa4ovQDtzumRplpj1u68
-	I6pJ9k/IX3YEE98/VHezI6aJ+mUAgsSGlAGl0n+xlOye9DYjZ7a73B6oPkt8oc/g20+Mu7lZEejil
-	tBYFAY2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hfjqn7SDOIyQITK6gpOpUjN15fT1QwZHztZC4zX812A=; b=tOG9XES/P919qQmBeA6l67FtiW
+	X2mVkMf8UZcrcwQezOjjX/ILDei8DjHgX0hDG3v9cYeH9cL6ee/VkGaRGml5ms9wfgVQbt8OBjA2s
+	TbDVsqqeg0WW4Vo9+bTY/sKgSACDP6XhJ8swu6UXz3coqOotNYJUvVPYb4V39V09bghN10dqibO2s
+	9tGtdcpqzvYY6Np5CpHTEqsvN+7w7YDUG1StJwf7FSi1/vj57ZuyILTksgnqZRsknm5MPeb3LA4CX
+	n7Vc/DhN+wRu6YUxjJJ/VSrrO+JofsEWow9nucftEwTU3mTXp+K8Bmdst0ww6tYHjyY5lnpraPwt3
+	LG8jsTBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tARZr-0000000HGI0-0UQc;
-	Mon, 11 Nov 2024 10:23:23 +0000
-Received: from mail-yb1-f171.google.com ([209.85.219.171])
+	id 1tARe5-0000000HGeg-1mqF;
+	Mon, 11 Nov 2024 10:27:45 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tARY5-0000000HG7g-0QTA
+	id 1tARcH-0000000HGSD-2XuR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 10:21:34 +0000
-Received: by mail-yb1-f171.google.com with SMTP id 3f1490d57ef6-e333af0f528so3916019276.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 02:21:32 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731320489; x=1731925289;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IaEOyMbaVWJTZKa+Sq5zT53vxz01/13ANVZcLosS5Ms=;
-        b=h9VKKOxa/3S2HB7NbHs9aCPaApP8URB/Dg4nn3r835m8VVlKboSuD1/LlNbsQRmkSk
-         EQlCcKuHoIcRQEunW/WVRYY1eKEkNk5bbork4jeBysjLvWCQ409TI8FPxx3LVZOv09My
-         xfNciIwCz+iJ/n92PL7o2/dlPzDWxeaCD1EXKzDVgkjuszPuPS83oKgV+o9yaYAkxdgF
-         ToT603jxjG8RIVRNiUSkETi6pQ+iYRMqwgZTrQeJ/GyV4qUECTYOHi1C6Ud9p1Yw0SQe
-         Th5gTzBQlM5HM+3b1TI+Xy8n1kqTgMPyYiir9hY7ouP2+XkCGQP/iwdNGxuGaXO+BMiy
-         cf5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXP9a2iu8JuTL+IK8f2PlYEubFBKuwoXk/CPwFA8kbuPik2YEWvopvimKEv3xE7iCk+P6v0k9K8ZFfq5+8BTXjK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlX6pHl5Vj1wZIlX8RyAuM/h5By2YKtsfXkQwpKcquhBxZywAY
-	1Zq4poIMd5aseywljTZ0+i9h+JYuIzcxSN+zLRd6EYO8PP8fXLvxfCJJkmg3
-X-Google-Smtp-Source: AGHT+IH5YlOKH9xqp/XhKru7hL/xZG0Q6+2qja9V6Zv6It4F6qgs5JbEGHUTYrwV9BtCMs9S9kyLFQ==
-X-Received: by 2002:a05:6902:1693:b0:e25:70c:ecde with SMTP id 3f1490d57ef6-e337f8f48ddmr7958972276.52.1731320489578;
-        Mon, 11 Nov 2024 02:21:29 -0800 (PST)
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e336ee196d5sm2118955276.10.2024.11.11.02.21.27
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2024 02:21:28 -0800 (PST)
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-6ea07d119b7so33826497b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 02:21:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWmihBlL8Yuptk9XNi3pWoorswNCJGkUjBmifRy9xNre6GTICbimrQAfkSu+S49QVbt5ML+u9ziYtZj1OdKD0KR@lists.infradead.org
-X-Received: by 2002:a05:690c:6288:b0:6e5:9cb7:853c with SMTP id
- 00721157ae682-6eaddf6f2cemr115795827b3.31.1731320487426; Mon, 11 Nov 2024
- 02:21:27 -0800 (PST)
+	Mon, 11 Nov 2024 10:25:56 +0000
+Received: from fedor-21d0 (unknown [10.10.165.9])
+	by mail.ispras.ru (Postfix) with ESMTPSA id 1670440B2295;
+	Mon, 11 Nov 2024 10:25:46 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 1670440B2295
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1731320746;
+	bh=Hfjqn7SDOIyQITK6gpOpUjN15fT1QwZHztZC4zX812A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rIuqH2vAytZns3wNa36rXMzC4BLTmXefN/cD3DYvYqdxnQr0BkkQ8PSw5RUy2qpVM
+	 fveb3CnNu3Gtzxko9BHvXbDd+BhzGR2K1ZoHJdKRTeOGfC/SXCeqmxQW/YTWM4CEgG
+	 WxzkJ7N8eNqCrcdopvi/jDySjA0HuDoQQE5L90ec=
+Date: Mon, 11 Nov 2024 13:25:42 +0300
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: oe-kbuild@lists.linux.dev, Vitalii Mordan <mordan@ispras.ru>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, lkp@intel.com, oe-kbuild-all@lists.linux.dev, 
+	Jose Abreu <joabreu@synopsys.com>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org, 
+	Alexey Khoroshilov <khoroshilov@ispras.ru>, Vadim Mutilin <mutilin@ispras.ru>
+Subject: Re: [PATCH net v2]: stmmac: dwmac-intel-plat: fix call balance of
+ tx_clk handling routines
+Message-ID: <20241111-def1390bf54ce26f76be250c-pchelkin@ispras.ru>
+References: <20241108173334.2973603-1-mordan@ispras.ru>
+ <e1b263d8-adc0-455b-adf1-9247fae1b320@stanley.mountain>
 MIME-Version: 1.0
-References: <20241104093609.156059-1-andriy.shevchenko@linux.intel.com>
- <20241104093609.156059-4-andriy.shevchenko@linux.intel.com>
- <CAMuHMdXx6hYsdKo-5sw+-vH7GOJYWn_de=wSvhj1QVVpbwCN7Q@mail.gmail.com> <ZzHU4absCxcA1FBG@smile.fi.intel.com>
-In-Reply-To: <ZzHU4absCxcA1FBG@smile.fi.intel.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 11 Nov 2024 11:21:15 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVsjfSCcdVQee6tFgvs6PDB+iKWd964XhHKmF9WRDHWkA@mail.gmail.com>
-Message-ID: <CAMuHMdVsjfSCcdVQee6tFgvs6PDB+iKWd964XhHKmF9WRDHWkA@mail.gmail.com>
-Subject: Re: [PATCH v1 3/6] leds: gpio: Avoid using GPIOF_ACTIVE_LOW
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Tony Lindgren <tony@atomide.com>, Lee Jones <lee@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Pavel Machek <pavel@ucw.cz>, 
-	Dominik Brodowski <linux@dominikbrodowski.net>, Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <e1b263d8-adc0-455b-adf1-9247fae1b320@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_022133_164542_3036EDFF 
-X-CRM114-Status: GOOD (  27.59  )
+X-CRM114-CacheID: sfid-20241111_022554_203104_2CD5AD86 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,56 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi,
 
-On Mon, Nov 11, 2024 at 10:57=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
-> On Mon, Nov 11, 2024 at 10:45:13AM +0100, Geert Uytterhoeven wrote:
-> > On Mon, Nov 4, 2024 at 10:37=E2=80=AFAM Andy Shevchenko
-> > <andriy.shevchenko@linux.intel.com> wrote:
->
-> ...
->
-> > > -       if (template->active_low)
-> > > -               flags |=3D GPIOF_ACTIVE_LOW;
-> > > -
-> > > -       ret =3D devm_gpio_request_one(dev, template->gpio, flags,
-> > > +       ret =3D devm_gpio_request_one(dev, template->gpio, GPIOF_OUT_=
-INIT_LOW,
-> > >                                     template->name);
-> >
-> > Just wondering, as I am not 100% sure: can this change change the
-> > initial state of the GPIO?
->
-> You probably wonder how ACTIVE_LOW affects the OUT_INIT_LOW given above.
-> I have an answer to you, however I might be mistaken as well, but I spent=
- some
-> time to investigate.
->
-> The above mentioned call ends up in the gpiod_direction_output_raw_commit=
-() which
-> uses the value (low in this case) as an absolute value. It does not inclu=
-de the
-> ACTIVE_LOW in the value calculations. Hence, setting ACTIVE_LOW before or=
- afterwards
-> has no effect on the existing flow.
->
-> If you notice a mistake, please elaborate this, so I can fix the approach=
-!
+On Mon, 11. Nov 12:39, Dan Carpenter wrote:
+> smatch warnings:
+> drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c:163 intel_eth_plat_probe() error: we previously assumed 'dwmac->data' could be null (see line 101)
 
-Thanks, I had discovered the same, but wanted to double-check!
+There is a patch [1] targeted at net-next tree which removes the check. I
+think there should be v2 posted soon.
 
-Gr{oetje,eeting}s,
+As it's not the first time Smatch is pointing at this issue [2], is there
+something to improve? I mean, posting the patches in form of a series or
+explaining in commit message that the check is redundant and is a subject
+for removal? Adding new redundant checks for the fix-patch would not be
+good..
 
-                        Geert
+What would be the most appropriate way?
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+[1]: https://lore.kernel.org/netdev/20240930183926.2112546-1-mordan@ispras.ru/
+[2]: https://lore.kernel.org/netdev/20241003111811.GJ1310185@kernel.org/
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+--
+Thanks,
+Fedor
 
