@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E14D2E9F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 14:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86EB0D2E9F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 14:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qxFaKqNl3LETCsm0bBKlkfMKRY1vXTLA0l4BFUu+S4=; b=14Y2kbMVG3XMtOqF/JXO9aiq4I
-	N6KcnRIvSU+v1hYuB9b2K8IZITpMPLIOUTWjeba9job4SH+qLWl4bv5swUdk5daRSLrFD8GfI3w+H
-	pFC6t+bzythcOWb4tdjPu1y0OJKKWERaA0mAp1HRPGqE1pGbPU6nwyv/eqesVK9yxEvtqLABSsjHi
-	IHuNPVXXrL59UAee7ofqdweik8EJuhdltiNKgn/R2z/9wYf9CXj3UCrV/dq/sEO6spzl/peEKv4wE
-	nY5BjXcTjlVNUNfPkXjre2jruN2lB2kQoH+YSnroF0QLzpmzmlWPLy3FSgCws9vcbzO9KhSerbR07
-	FqqA8V3Q==;
+	bh=DgBryo6D6AeOGrl6Q4Qjz8yhigKvuJYkArqCERg4vPs=; b=gV1rwcGMzjLe1tz+2N8aHYWBK4
+	w5dYfSsnxOG3CYF+K7VbX0SkG2ppmgOkyCfo7UMG0yMpIBziN3H9d/Qgf1vfVBH5UGJSEzo7PxzSh
+	P9NJNQwPTTXvXl0/ruwpW/X7J48wlaG35/aieNrnutRvvodLtuIoPIu66//JN0MECS07f36xU1OZA
+	mHmfGzxzOFBu04pHDmYc0EgN5DPfSZzlgDsFRz93Mr3pJci7CS5bR97XSIDPlZwC1Tyhx0ph83HPz
+	uhM55YHiV0IQUOvhUEJwMbbP/E1IhXAEk8/JMGAVfUqw8mEeEWaV8Gb0kxeoPGAwgfs0metDoVEry
+	0GYAdsug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAVOB-00000000Jvo-0Lxl;
-	Mon, 11 Nov 2024 14:27:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tAVPv-00000000KBg-2MvI;
+	Mon, 11 Nov 2024 14:29:23 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAVMO-00000000Jdj-2AAe
+	id 1tAVN8-00000000Jma-2JE8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 14:25:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 501C45C5A7E;
-	Mon, 11 Nov 2024 14:24:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F58CC4CECF;
-	Mon, 11 Nov 2024 14:25:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731335143;
-	bh=B5mvklzayk4b+hck6sULwSMWLCrackunp+m5MmTi7so=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kgTsHOKfdZpcV2/HYVIcDBjB7YGGMBCi1y8Ul5VMBPyZsYiCmNtTj6y0SHp/k2yKc
-	 ACaBiqE8RgvRDxi1RLE7XnyKQq33y6DE4NCxqr1fAzJlDfBUT3Q4faaqson4YMQ9qe
-	 YoKCSIgYhkfHkrFna6a/D8mWXkfjP/KmR5spTJ5PnAzoVVWkrkaVA6IuWE7NMG3vpX
-	 uB+vB8XQoibxZgw9rJrSEA3mfxSsKyM0sDnwbPqDIYo9oJ4qcL2SbMRmZebeVp2xWJ
-	 7/FzHNGs+cEtAfKzr82uJxteomiv3Tf+CpR5f0nUIydTLXrpcJtUQZJqtQW3OLtRbH
-	 +dFACBWioW7EQ==
-Message-ID: <17390fbf-7505-4e0a-8496-a6a4b22a261b@kernel.org>
-Date: Mon, 11 Nov 2024 16:25:36 +0200
+	Mon, 11 Nov 2024 14:26:32 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71e61b47c6cso4171059b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 06:26:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731335189; x=1731939989; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DgBryo6D6AeOGrl6Q4Qjz8yhigKvuJYkArqCERg4vPs=;
+        b=uqZ4OiSSPSh4NyPXyTX8RaeTPJAFYcGJQeddSXl0f14CDzdxI3quM5e945hdSgViup
+         +1/nRI0aKaKnYKNC6lwg1p/Jf7RBEASngF7fZkcd7Q+gg4bm/5Tc7QZJC6EJW7womJ4j
+         PtRsWA6MUrVCn7Be1vgaQncO9rj0Zr8KY501ll1sjX+ShZBxRvi6V+BFfLi/s04M1BCF
+         SSV6UnOL6mzWxydODO/af5ycksoaDJj37NjR4QpqaAOHKFNJtJmfiV/KEMEWq+esQPv4
+         lpoGW3xVJ9v9W8797YDQ7+DIGY14KVQu1n+iFGQVbny6cqix0fc4CMWJdrvqPFNFfHyf
+         jriQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731335189; x=1731939989;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DgBryo6D6AeOGrl6Q4Qjz8yhigKvuJYkArqCERg4vPs=;
+        b=A1BE8Qe3HnVWQQGr+LOuAAzO2uGxwgXNEMjyZJrjCpvVLYoHKKCVXjGFUpUnlWBbQb
+         4togCcFFeRTdljexz08HXp45VbVxMFwr0/37bYLiaK67I5jTLPbxeUeBZT0GgAliqEOM
+         jx1ye79V6f2HViKIMCulJAhTocyPBF/3Vn0ss4ERYLzDJntL9Y7pRrHNsvnjyUXnA2RH
+         qlTEhQsdBezGM+0/aJKyCtopWA48iQxpekNC/7dRRXPdrNdLjKIQ1LEO+iLQIogaj0Nd
+         9hJWnQ7YRl+9m26+7XuI5+6LQipNvJ0vFPhUdBvzv3wN93fGO4+LQM4UuRFVyKKlBVT0
+         e5Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCUqKZuOfJU00Qz42dhoL29XCPd8Y1XvxjoDxV5oPxTZhWnWABjwpKk7oZqMfmW+R0AMWnm33M+H+oW7pdz9GoNW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTlxk8bVSTv1Zmw+wl5aKiqsssVL6o1gj34/HC25Kps9pLGqrF
+	NNuzYI2PLJmFV1Y5W3tyrfadvVH0c3qq3jpdj7PLYRJp6XJVbWGM5Gghr+V+cgKZ8rqm7VvpzAX
+	pcQiBDO5zF5iSOwvSPTEzcLKKURhR+ESqa43UXQ==
+X-Google-Smtp-Source: AGHT+IH+F79egA8Bxj7oFCQ2mGPYIF3HWzTVjCkTkXEAfMCFeecfPwV4tiWWvWBHaHZBbmkNXNSTWThUB/WyVptmKXE=
+X-Received: by 2002:a17:90b:4b91:b0:2e2:b46f:d92c with SMTP id
+ 98e67ed59e1d1-2e9b172023bmr16285328a91.14.1731335189253; Mon, 11 Nov 2024
+ 06:26:29 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icssg-prueth: Fix firmware load
- sequence.
-To: "Anwar, Md Danish" <a0501179@ti.com>, Meghana Malladi <m-malladi@ti.com>,
- vigneshr@ti.com, m-karicheri2@ti.com, jan.kiszka@siemens.com,
- javier.carrasco.cruz@gmail.com, jacob.e.keller@intel.com, horms@kernel.org,
- diogo.ivo@siemens.com, pabeni@redhat.com, kuba@kernel.org,
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, danishanwar@ti.com
-References: <20241106074040.3361730-1-m-malladi@ti.com>
- <20241106074040.3361730-2-m-malladi@ti.com>
- <ad2afaa3-7e76-47e8-943b-7bea0c02c9c0@kernel.org>
- <0c6a3091-3b3d-4f41-83df-2183171200c8@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <0c6a3091-3b3d-4f41-83df-2183171200c8@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <CALE0LRvJ-n77oU=O9__NdSLw2v33zMK+WYkn2LcwWMwHCbohQw@mail.gmail.com>
+ <CAC_iWjJEXU+dodjvWQYM9ohPa3P2p0bFG=exGoi-iYFrLLbCTA@mail.gmail.com>
+ <CALE0LRtUz8hd4pdR9sX2Sb6tOn=K4wkRnGG9B7f72qU8JFQSYQ@mail.gmail.com>
+ <CAC_iWjJLSSTO0Ca7rgOWAHfWzbkBkKHkQedRUbcwsoU0dtrsGA@mail.gmail.com>
+ <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com>
+ <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com> <CALE0LRsYXXaao2uCUMFkd8Y6f5Mxgoc-Qpft_y8wWW3ZiekbbA@mail.gmail.com>
+In-Reply-To: <CALE0LRsYXXaao2uCUMFkd8Y6f5Mxgoc-Qpft_y8wWW3ZiekbbA@mail.gmail.com>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Mon, 11 Nov 2024 16:25:53 +0200
+Message-ID: <CAC_iWjL+J9tNxEdh0AoYD19h013N4nk=KmaT=RACo4-oVwuRCA@mail.gmail.com>
+Subject: Re: optee-based efi runtime variable service on TI j784s4 platforms
+To: Enric Balletbo i Serra <eballetb@redhat.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Sumit Garg <sumit.garg@linaro.org>, linux-efi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	op-tee@lists.trustedfirmware.org, Manorit Chawdhry <m-chawdhry@ti.com>, 
+	Udit Kumar <u-kumar1@ti.com>, "Menon, Nishanth" <nm@ti.com>, 
+	Masahisa Kojima <kojima.masahisa@socionext.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_062544_683441_FE5FE042 
-X-CRM114-Status: GOOD (  42.49  )
+X-CRM114-CacheID: sfid-20241111_062630_639008_1200D893 
+X-CRM114-Status: GOOD (  52.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,279 +98,388 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 11 Nov 2024 at 16:13, Enric Balletbo i Serra
+<eballetb@redhat.com> wrote:
+>
+> Hi,
+>
+> Thanks a lot for your support.
 
+You're welcome. FWIW I did test this in the past with an AM62x SoC.
 
-On 11/11/2024 15:35, Anwar, Md Danish wrote:
-> 
-> 
-> On 11/11/2024 6:33 PM, Roger Quadros wrote:
->> Hi,
->>
->> On 06/11/2024 09:40, Meghana Malladi wrote:
->>> From: MD Danish Anwar <danishanwar@ti.com>
->>>
->>> Timesync related operations are ran in PRU0 cores for both ICSSG SLICE0
->>> and SLICE1. Currently whenever any ICSSG interface comes up we load the
->>> respective firmwares to PRU cores and whenever interface goes down, we
->>> stop the respective cores. Due to this, when SLICE0 goes down while
->>> SLICE1 is still active, PRU0 firmwares are unloaded and PRU0 core is
->>> stopped. This results in clock jump for SLICE1 interface as the timesync
->>> related operations are no longer running.
->>>
->>> Fix this by running both PRU0 and PRU1 firmwares as long as at least 1
->>> ICSSG interface is up.
->>>
->>> rx_flow_id is updated before firmware is loaded. Once firmware is loaded,
->>> it reads the flow_id and uses it for rx. emac_fdb_flow_id_updated() is
->>> used to let firmware know that the flow_id has been updated and to use the
->>> latest rx_flow_id.
->>
->> is rx_flow_id releated to timesync releated issue that this patch is fixing?
->> If not please split it into separate patch and mention what functionality
->> it is fixing.
->>
-> 
-> Roger, rx_flow_id is not related to timesync. However loading both
-> SLICE0 and SLICE1 firmware together results in wrong rx_flow_id used by
-> firmware for the interface that is brought later.
-> 
-> When eth0 (SLICE0) is brought up, it's flow_id is obtained from dma and
-> written to SMEM. Slice0 and Slice1 both firmwares are loaded. Firmware
-> reads the flow_id from SMEM and uses it for RX.
-> 
-> Second interface eth1 (SLICE1) comes up, it's flow id is obtained from
-> dma and written to SMEM. However firmware doesn't read the flow ID
-> again. It only reads it once when loaded and uses that through out. The
-> flow id for this interface remains 0 and that results in RX being broken.
-> 
-> To fix this, emac_fdb_flow_id_updated() is added which will let firmware
-> know that we have updated the flow_id and use the latest one.
-> 
-> This not related to timesync instead related to the fix of timesync
-> issue. Breaking this into separate patch will result in RX (ICSSG) being
-> broken at the former patch.
-> 
-> In order to avoid feature breakage at the former patch, the change
-> related to flow_id update is kept in the same patch.
+>
+> On Mon, Nov 11, 2024 at 12:01=E2=80=AFPM Ilias Apalodimas
+> <ilias.apalodimas@linaro.org> wrote:
+> >
+> > On Mon, 11 Nov 2024 at 10:21, Enric Balletbo i Serra
+> > <eballetb@redhat.com> wrote:
+> > >
+> > > Hi Ilias,
+> > >
+> > > On Sat, Nov 9, 2024 at 1:31=E2=80=AFAM Ilias Apalodimas
+> > > <ilias.apalodimas@linaro.org> wrote:
+> > > >
+> > > > On Fri, 8 Nov 2024 at 23:11, Enric Balletbo i Serra <eballetb@redha=
+t.com> wrote:
+> > > > >
+> > > > > Hi Ilias,
+> > > > >
+> > > > > Thanks for your quick answer.
+> > > > >
+> > > > > On Fri, Nov 8, 2024 at 4:48=E2=80=AFPM Ilias Apalodimas
+> > > > > <ilias.apalodimas@linaro.org> wrote:
+> > > > > >
+> > > > > > Hi Enric,
+> > > > > >
+> > > > > > On Fri, 8 Nov 2024 at 12:26, Enric Balletbo i Serra <eballetb@r=
+edhat.com> wrote:
+> > > > > > >
+> > > > > > > Hi all,
+> > > > > > >
+> > > > > > > I'm looking for any advice/clue to help me to progress on ena=
+bling
+> > > > > > > TEE-base EFI Runtime Variable Service on TI a j784s4 platform=
+s.
+> > > > > > >
+> > > > > > > I basically followed the steps described in u-boot documentat=
+ion [1],
+> > > > > > > I enabled some debugging messages but I think I'm at the poin=
+t that
+> > > > > > > the problem might be in the StandaloneMM application, and I'm=
+ not sure
+> > > > > > > how to debug it.
+> > > > > > >
+> > > > > > > What I see is that when I run the tee-supplicant daemon, it l=
+ooks like
+> > > > > > > the tee_client_open_session() call loops forever and the tee_=
+stmm_efi
+> > > > > > > driver never ends to probe.
+> > > > > > >
+> > > > > > > With debug enabled I got the following messages.
+> > > > > >
+> > > > > > I assume reading and storing variables already works in U-Boot =
+right?
+> > > > > >
+> > > > >
+> > > > > Reading and storing variables to the RPMB partition in U-Boot wor=
+ks,
+> > > > > that's using the mmc rpmb command from u-boot,
+> > > >
+> > > > Are you talking about env variables? Perhaps you store them in the =
+mmc
+> > > > and not the RPMB partition?
+> > > > There's some information here [0]
+> > > >
+> > > > > But setting
+> > > > > CONFIG_EFI_MM_COMM_TEE=3Dy in u-boot I end with a similar behavio=
+ur
+> > > > > (although I'm not able to debug at u-boot level) What I see is th=
+at
+> > > > > u-boot gets stuck
+> > > > > when bootefi bootmgr is invoqued. I can also reproduce the issue =
+with
+> > > > > bootefi hello.
+> > > > >
+> > > > > =3D> run bootcmd
+> > > > >   Scanning for bootflows in all bootdevs
+> > > > >   Seq  Method       State   Uclass    Part  Name                 =
+     Filename
+> > > > >   ---  -----------  ------  --------  ----  ---------------------=
+---
+> > > > > ----------------
+> > > > >   Scanning global bootmeth 'efi_mgr':
+> > > > > ( gets stuck here)
+> > > > >
+> > > > > or
+> > > > >
+> > > > > =3D> bootefi hello
+> > > > > (gets stuck)
+> > > > >
+> > > > > To debug I disabled CONFIG_EFI_MM_COMM_TEE to not get stuck and b=
+ypass
+> > > > > the error and go to Linux. My understanding is that
+> > > > > CONFIG_EFI_MM_COMM_TEE is only required to read/write efi variabl=
+es at
+> > > > > u-boot level but OPTEE is running the StandaloneMM service. Am I
+> > > > > right?
+> > > >
+> > > > U-Boot has two ways of storing EFI variables [0] . You can either
+> > > > store them in a file or the RPMB partition. The correct thing to do=
+,
+> > > > since you want to use the RPMB, is enable CONFIG_EFI_MM_COMM_TEE. I=
+ am
+> > > > not sure why the hand happens, but one thing we can improve is figu=
+re
+> > > > out why it hangs and print a useful message.
+> > > > There are a number of reasons that might lead to a failure. Is the
+> > > > RPMB key programmed on your board? Have a look at this [1] in case =
+it
+> > > > helps
+> > > >
+> > > > >
+> > > > > > >
+> > > > > > > # tee-supplicant
+> > > > > > > D/TC:? 0 tee_ta_init_session_with_context:557 Re-open trusted=
+ service
+> > > > > > > 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
+> > > > > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
+> > > > > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> > > >
+> > > > If I had to guess, OP-TEE doesn't store the variables in the RPMB, =
+can
+> > > > you compile it with a bit more debugging enabled?
+> > > >
+> > >
+> > > Here is a log with CFG_TEE_CORE_LOG_LEVEL=3D4, CFG_TEE_CORE_DEBUG=3Dy=
+ and
+> > > CFG_TEE_TA_LOG_LEVEL=3D4
+> > >
+> > > https://paste.centos.org/view/eed83a5b
+> > >
+> > > At the beginning of the log I see
+> > >
+> > > D/TC:0 0 check_ta_store:449 TA store: "REE"
+> > >
+> > > Which looks wrong to me as I built optee with:
+> > >   CFG_REE_FS=3Dn
+> > >   CFG_RPMB_FS_DEV_ID=3D0
+> > >   CFG_RPMB_FS=3Dy
+> >
+> > Yes it does look wrong. Our compilation flags are
+> > CFG_RPMB_FS=3Dy CFG_RPMB_FS_DEV_ID=3D0 CFG_RPMB_WRITE_KEY=3Dy
+> > CFG_RPMB_TESTKEY=3Dy CFG_REE_FS=3Dn CFG_CORE_ARM64_PA_BITS=3D48
+> > CFG_SCTLR_ALIGNMENT_CHECK=3Dn
+> >
+>
+> Mine are very similar
+>
+> make CROSS_COMPILE=3D"$CC32" CROSS_COMPILE64=3D"$CC64" \
+>     PLATFORM=3Dk3-j784s4 CFG_ARM64_core=3Dy CFG_CONSOLE_UART=3D0x8 \
+>     CFG_RPMB_FS_DEV_ID=3D0 CFG_REE_FS=3Dn CFG_RPMB_FS=3Dy \
+>     CFG_RPMB_WRITE_KEY=3Dy CFG_RPMB_TESTKEY=3Dy \
+>     CFG_STMM_PATH=3DBL32_AP_MM.fd \
+>     CFG_CORE_HEAP_SIZE=3D524288 CFG_CORE_DYN_SHM=3Dy CFG_SCTLR_ALIGNMENT_=
+CHECK=3Dn \
+>     CFG_TEE_CORE_LOG_LEVEL=3D4 CFG_TEE_CORE_DEBUG=3Dy CFG_TEE_TA_LOG_LEVE=
+L=3D4
+>
+> There is a difference with CFG_CORE_ARM64_PA_BITS=3D48 , my platform defi=
+nes it to
+>
+>    core/arch/arm/plat-k3/conf.mk:$(call force,CFG_CORE_ARM64_PA_BITS,36)
+>
+> But I don't think this is the problem.
+>
+> > The testkey etc aren't required if your board has a way of reading the
+> > RPMB key from a secure location -- in fact, using the testkey is not
+> > secure. Is the RPMB programmed on your board? Also can you make sure
+> > CFG_RPMB_FS_DEV_ID needs to be 0? How many sd interfaces your board
+> > has?
+>
+> My board has two interfaces, an eMMC and a SD-card, 0 is indeed the
+> eMMC and I'm using the testkey which I assume was programmed the first
+> time I booted with all this. Unfortunately I lost the traces. But,
+> optee_rpmb works. I.e:
+>
+>      =3D> optee_rpmb write test 1234
+>      =3D> optee_rpmb read test 4
+>      Read 4 bytes, value =3D 1234
+>
+>
+> > IOW in U-Boot does 'mmc dev 0 && mmc info' print information for the
+> > RPMB partition?
+> >
+>
+>     =3D> mmc dev 0
+>     switch to partitions #0, OK
+>     mmc0(part 0) is current device
+>     =3D> mmc info
+>     Device: mmc@4f80000
+>     Manufacturer ID: 13
+>     OEM: 4e
+>     Name: G1M15L
+>     Bus Speed: 200000000
+>     Mode: HS400 (200MHz)
+>     Rd Block Len: 512
+>     MMC version 5.1
+>     High Capacity: Yes
+>     Capacity: 29.6 GiB
+>     Bus Width: 8-bit DDR
+>     Erase Group Size: 512 KiB
+>     HC WP Group Size: 8 MiB
+>     User Capacity: 29.6 GiB WRREL
+>     Boot Capacity: 31.5 MiB ENH
+>     RPMB Capacity: 4 MiB ENH
+>     Boot area 0 is not write protected
+>     Boot area 1 is not write protected
+>     =3D> mmc list
+>     mmc@4f80000: 0 (eMMC)
+>     mmc@4fb0000: 1
+>
+> Any interaction with efi gives me the same result (printenv -e,
+> efidebug, bootefi ...)
 
-But setting the Flow ID should be taken care by icssg_config() which is
-done in prueth_emac_start()?
+Yes, that makes sense, because variables fail to initialize -- which
+is a core part of bringing up the EFI subsystem.
 
-is it really OK to provide wrong flow id to the Firmware or even start
-the second PRU core without DMA/IRQ resources allocated to it?
+Can you recompile op-tee with CFG_RPMB_RESET_FAT and try again?
 
-I will suggest to introduce emac_ndo_common_open() and emac_ndo_common_stop()
-and move the common code there i.e. allocating/freeing resources for both
-cores and starting/stopping both cores.
-
-> 
-> If you think having the feature broken is OK, the patch can be splitted.
-> However IMO, these chanegs should be together in one patch.
-> 
->>>
->>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
->>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->>> ---
->>>  drivers/net/ethernet/ti/icssg/icssg_config.c | 28 ++++++++++
->>>  drivers/net/ethernet/ti/icssg/icssg_config.h |  1 +
->>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 58 ++++++++++++++++----
->>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
->>>  4 files changed, 77 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> index 5d2491c2943a..f1f0c8659e2d 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
->>> @@ -786,3 +786,31 @@ void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port)
->>>  		writel(pvid, prueth->shram.va + EMAC_ICSSG_SWITCH_PORT0_DEFAULT_VLAN_OFFSET);
->>>  }
->>>  EXPORT_SYMBOL_GPL(icssg_set_pvid);
->>> +
->>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac)
->>> +{
->>> +	struct mgmt_cmd_rsp fdb_cmd_rsp = { 0 };
->>> +	int slice = prueth_emac_slice(emac);
->>> +	struct mgmt_cmd fdb_cmd = { 0 };
->>> +	int ret = 0;
->>> +
->>> +	fdb_cmd.header = ICSSG_FW_MGMT_CMD_HEADER;
->>> +	fdb_cmd.type   = ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW;
->>> +	fdb_cmd.seqnum = ++(emac->prueth->icssg_hwcmdseq);
->>> +	fdb_cmd.param  = 0;
->>> +
->>> +	fdb_cmd.param |= (slice << 4);
->>> +	fdb_cmd.cmd_args[0] = 0;
->>> +
->>> +	ret = icssg_send_fdb_msg(emac, &fdb_cmd, &fdb_cmd_rsp);
->>> +
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	WARN_ON(fdb_cmd.seqnum != fdb_cmd_rsp.seqnum);
->>> +	if (fdb_cmd_rsp.status == 1)
->>> +		return 0;
->>> +
->>> +	return -EINVAL;
->>> +}
->>> +EXPORT_SYMBOL_GPL(emac_fdb_flow_id_updated);
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
->>> index 92c2deaa3068..c884e9fa099e 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
->>> @@ -55,6 +55,7 @@ struct icssg_rxq_ctx {
->>>  #define ICSSG_FW_MGMT_FDB_CMD_TYPE	0x03
->>>  #define ICSSG_FW_MGMT_CMD_TYPE		0x04
->>>  #define ICSSG_FW_MGMT_PKT		0x80000000
->>> +#define ICSSG_FW_MGMT_FDB_CMD_TYPE_RX_FLOW	0x05
->>>  
->>>  struct icssg_r30_cmd {
->>>  	u32 cmd[4];
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>> index 0556910938fa..9df67539285b 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->>> @@ -534,6 +534,7 @@ static int emac_ndo_open(struct net_device *ndev)
->>>  {
->>>  	struct prueth_emac *emac = netdev_priv(ndev);
->>>  	int ret, i, num_data_chn = emac->tx_ch_num;
->>> +	struct icssg_flow_cfg __iomem *flow_cfg;
->>>  	struct prueth *prueth = emac->prueth;
->>>  	int slice = prueth_emac_slice(emac);
->>>  	struct device *dev = prueth->dev;
->>> @@ -549,8 +550,12 @@ static int emac_ndo_open(struct net_device *ndev)
->>>  	/* set h/w MAC as user might have re-configured */
->>>  	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
->>>  
->>> +	if (!prueth->emacs_initialized) {
->>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE0, 0, false);
->>> +		icssg_class_default(prueth->miig_rt, ICSS_SLICE1, 0, false);
->>> +	}
->>> +
->>>  	icssg_class_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>> -	icssg_class_default(prueth->miig_rt, slice, 0, false);
->>>  	icssg_ft1_set_mac_addr(prueth->miig_rt, slice, emac->mac_addr);
->>>  
->>>  	/* Notify the stack of the actual queue counts. */
->>> @@ -588,10 +593,31 @@ static int emac_ndo_open(struct net_device *ndev)
->>>  		goto cleanup_napi;
->>>  	}
->>>  
->>> -	/* reset and start PRU firmware */
->>> -	ret = prueth_emac_start(prueth, emac);
->>> -	if (ret)
->>> -		goto free_rx_irq;
->>> +	if (!prueth->emacs_initialized) {
->>> +		if (prueth->emac[ICSS_SLICE0]) {
->>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE0]);
->>> +			if (ret) {
->>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE0);
->>> +				goto free_rx_irq;
->>> +			}
->>> +		}
->>> +		if (prueth->emac[ICSS_SLICE1]) {
->>> +			ret = prueth_emac_start(prueth, prueth->emac[ICSS_SLICE1]);
->>> +			if (ret) {
->>> +				netdev_err(ndev, "unable to start fw for slice %d", ICSS_SLICE1);
->>> +				goto halt_slice0_prus;
->>> +			}
->>
->> Did I understand right: SLICE0 needs to be always running if any of the
->> interface is up but SLICE0 doesn't need to be running if only SLICE0
-> 
-> I think you meant `but SLICE1 doesn't need to be running if only SLICE0`
-> 
->> interface is running.
->>
->> If yes then you need to update the patch so SLICE1 is not always running.
->>
-> 
-> For Timesync - YES. Only slice0 is needed to be always running. However
-> these both firmwares have some more inter dependencies, timesync is just
-> one of them. As a result, firmware team has recommended to keep both
-> Slice0 and Slice1 firmware running as long as at least one ICSSG
-> interface is up. Stop both firmware only if no ICSSG interface is up.
-> 
-> I think the commit message can be modified to state that the dependecy
-> is not only SLICE0 but on SLICE1 as well and they both need to be running.
-> 
-
-OK Please mention this in commit log.
-
->>> +		}
->>> +	}
->>> +
->>> +	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
->>> +	writew(emac->rx_flow_id_base, &flow_cfg->rx_base_flow);
->>> +	ret = emac_fdb_flow_id_updated(emac);
->>> +
->>> +	if (ret) {
->>> +		netdev_err(ndev, "Failed to update Rx Flow ID %d", ret);
->>> +		goto stop;
->>> +	}
->>>  
->>>  	icssg_mii_update_mtu(prueth->mii_rt, slice, ndev->max_mtu);
->>>  
->>> @@ -644,7 +670,11 @@ static int emac_ndo_open(struct net_device *ndev)
->>>  free_tx_ts_irq:
->>>  	free_irq(emac->tx_ts_irq, emac);
->>>  stop:
->>> -	prueth_emac_stop(emac);
->>> +	if (prueth->emac[ICSS_SLICE1])
->>> +		prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->>> +halt_slice0_prus:
->>> +	if (prueth->emac[ICSS_SLICE0])
->>> +		prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->>>  free_rx_irq:
->>>  	free_irq(emac->rx_chns.irq[rx_flow], emac);
->>>  cleanup_napi:
->>> @@ -680,7 +710,10 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>  	if (ndev->phydev)
->>>  		phy_stop(ndev->phydev);
->>>  
->>> -	icssg_class_disable(prueth->miig_rt, prueth_emac_slice(emac));
->>> +	if (prueth->emacs_initialized == 1) {
->>> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE0);
->>> +		icssg_class_disable(prueth->miig_rt, ICSS_SLICE1);
->>> +	}
->>>  
->>>  	if (emac->prueth->is_hsr_offload_mode)
->>>  		__dev_mc_unsync(ndev, icssg_prueth_hsr_del_mcast);
->>> @@ -719,11 +752,14 @@ static int emac_ndo_stop(struct net_device *ndev)
->>>  	/* Destroying the queued work in ndo_stop() */
->>>  	cancel_delayed_work_sync(&emac->stats_work);
->>>  
->>> -	if (prueth->emacs_initialized == 1)
->>> +	if (prueth->emacs_initialized == 1) {
->>>  		icss_iep_exit(emac->iep);
->>> -
->>> -	/* stop PRUs */
->>> -	prueth_emac_stop(emac);
->>> +		/* stop PRUs */
->>> +		if (prueth->emac[ICSS_SLICE0])
->>> +			prueth_emac_stop(prueth->emac[ICSS_SLICE0]);
->>> +		if (prueth->emac[ICSS_SLICE1])
->>> +			prueth_emac_stop(prueth->emac[ICSS_SLICE1]);
->>> +	}
->>>  
->>>  	free_irq(emac->tx_ts_irq, emac);
->>>  
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>> index 8722bb4a268a..c4f5f0349ae7 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->>> @@ -365,6 +365,7 @@ void icssg_vtbl_modify(struct prueth_emac *emac, u8 vid, u8 port_mask,
->>>  		       u8 untag_mask, bool add);
->>>  u16 icssg_get_pvid(struct prueth_emac *emac);
->>>  void icssg_set_pvid(struct prueth *prueth, u8 vid, u8 port);
->>> +int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->>>  #define prueth_napi_to_tx_chn(pnapi) \
->>>  	container_of(pnapi, struct prueth_tx_chn, napi_tx)
->>>  
->>
-> 
-
--- 
-cheers,
--roger
+Thanks
+/Ilias
+>
+> =3D> efidebug query -bs -rt -nv
+> D/TC:? 0 load_stmm:297 stmm load address 0x40004000
+> D/TC:? 0 spm_handle_scall:859 Received FFA version
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
+> ... stuck here ... I need to reset the board
+>
+> Will continue to see if I can get more useful messages
+>
+> Thanks,
+>   Enric
+>
+> > Thanks
+> > /Ilias
+> > >
+> > > I'll try to add some more prints to verify if REE is used as a store
+> > > system, I assume this should say something about RPMB. Am I right wit=
+h
+> > > this?
+> >
+> >
+> > >
+> > > > > > >
+> > > > > > > And tracing the function calls gives me that:
+> > > > > > >
+> > > > > > >       tee_stmm_efi_probe() {
+> > > > > > >              tee_client_open_context() {
+> > > > > > >                optee_get_version() {
+> > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800=
+)
+> > > > > > >                } (ret=3D0xd)
+> > > > > > >                tee_ctx_match(); (ret=3D0x1)
+> > > > > > >                optee_smc_open() {
+> > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800=
+)
+> > > > > > >                  optee_open() {
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                  } (ret=3D0x0)
+> > > > > > >                } (ret=3D0x0)
+> > > > > > >              } (ret=3D0xffff000004e71c80)
+> > > > > > >              tee_client_open_session() {
+> > > > > > >                optee_open_session() {
+> > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002e55800=
+)
+> > > > > > >                  optee_get_msg_arg() {
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000290900=
+0)
+> > > > > > >                  } (ret=3D0xffff000002909000)
+> > > > > > >                  tee_session_calc_client_uuid(); (ret=3D0x0)
+> > > > > > >                  optee_to_msg_param(); (ret=3D0x0)
+> > > > > > >                  optee_smc_do_call_with_arg() {
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000290900=
+0)
+> > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000290906=
+0)
+> > > > > > >                    optee_cq_wait_init(); (ret=3D0xffff000002e=
+55910)
+> > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004)
+> > > > > > >      ... continues sending this forever ...
+> > > > > > >      ... Hit ^C to stop recording ...
+> > > > > > >                    tee_get_drvdata(); (ret=3D0xffff000002e558=
+00)
+> > > > > > >                    optee_smccc_smc() {
+> > > > > > >
+> > > > > > > [1] https://docs.u-boot.org/en/latest/develop/uefi/uefi.html#=
+using-op-tee-for-efi-variables
+> > > > > > >
+> > > > > > > Thanks in advance,
+> > > > > >
+> > > > > > The most common problem with this is miscompiling the tee_suppl=
+icant
+> > > > > > application.
+> > > > > > Since we don't know if the system has an RPMB, we emulate it in=
+ the
+> > > > > > tee_supplicant. How did you get the supplicant and can you chec=
+k if it
+> > > > > > was compiled with RPMB_EMU=3D0 or 1?
+> > > > > >
+> > > > >
+> > > > > I'm using the tee-supplicant provided by the fedora package which=
+ is
+> > > > > built with ` -DRPMB_EMU=3D0`, I think that's correct, right?
+> > > > >
+> > > >
+> > > > Yes, this is correct. We fixed the Fedora package to compile the
+> > > > supplicant correctly a while back.
+> > > >
+> > > > [0] https://www.linaro.org/blog/uefi-secureboot-in-u-boot/
+> > > > [1] https://apalos.github.io/Protected%20UEFI%20variables%20with%20=
+U-Boot.html#Protected%20UEFI%20variables%20with%20U-Boot
+> > > >
+> > > >
+> > > > Regards
+> > > > /Ilias
+> > > > > Thanks,
+> > > > >    Enric
+> > > > >
+> > > > > > Thanks
+> > > > > > /Ilias
+> > > > > >
+> > > > > > >    Enric
+> > > > > > >
+> > > > > >
+> > > > >
+> > > >
+> > >
+> >
+>
 
