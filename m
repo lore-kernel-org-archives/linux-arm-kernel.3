@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF564D3ABEA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E422CD3ABEA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eckdRA2Gz50Pl0iUsR156tV+5lFkIuN6FgaOkhY4G4M=; b=knh6J2GUjs7eXEan9SfzWg37kQ
-	VueVOuSWVSPnmSkJQBIFJxeiu7yQ/uwyFAgvJnzZtsoVQl3lA9KxUhpHKkHQg1RngC7oHdjtoLiDb
-	/J960RqJHxiaX2DD7o+qdkykzh9A0ouqFAxEUbewHOF6XzMSgFpbYYDkGsOJGEPU+M8qDpOKKmxik
-	GqtOnu3NZp6LrSDi2MG8hRFsg1tgWgJVN/NsUX+sVODJ9jVUTkqhsnm7gBlC8O0XFDiSXm8GUoVVt
-	0INAsJ+aeAIFMSYiCG3ZAHdzlPOjMr0olQDZ/mhi+Ff0/9R121Ng8qZSG0P5zPOYxmO2eGTaO8pdZ
-	WwQW8b/Q==;
+	bh=DIW7DyS2WH6Cyrvm/ebpRPiFw91e/Lrg2SI8ILkhrNY=; b=iOfVKgb8/UdBSAtjl1aGl5D0IW
+	Wh3CMowtVdDW7yzpVCNyYQs7ON1+GLiVNI7Vlv5qckKd7c1V+g950hA1px/4fvcXbbYJTw0/MpauR
+	x7scUIYeogKDn5tO3WPeYKvrLTw1Ky3IyNkVdxpL492M62a2tJ+uLjYZKxjDS+LOypHZ3Xj5q5RiK
+	9BcQ+wrqXwQJlXI7oD8WPKaXTbAmAZXLDMosns9Cnc+Bpd0MuDKFTZ+yy64QOmD6wdYbi5lnA94kr
+	hgY1ILSdRz5GDgLyuD4luGmcpzY0DHAn4QMyQt9vxijGf0J5Oh9vw01gaLrlq5uai6Den6ffkYLqM
+	7t0F3neg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZ5F-00000000trK-2RyP;
-	Mon, 11 Nov 2024 18:24:17 +0000
-Received: from mail-ej1-f53.google.com ([209.85.218.53])
+	id 1tAZ6y-00000000u8E-2kON;
+	Mon, 11 Nov 2024 18:26:04 +0000
+Received: from mail-ej1-f54.google.com ([209.85.218.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYzO-00000000spb-1Mel;
-	Mon, 11 Nov 2024 18:18:16 +0000
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-a9a850270e2so889695066b.0;
-        Mon, 11 Nov 2024 10:18:13 -0800 (PST)
+	id 1tAYzP-00000000sqG-3Ho9;
+	Mon, 11 Nov 2024 18:18:17 +0000
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-a9ec86a67feso837620066b.1;
+        Mon, 11 Nov 2024 10:18:15 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731349092; x=1731953892;
+        d=1e100.net; s=20230601; t=1731349094; x=1731953894;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eckdRA2Gz50Pl0iUsR156tV+5lFkIuN6FgaOkhY4G4M=;
-        b=SNFnki+U09yKPPo5cuVTpdDJbk14WCALYeCGYK8iXvKLvaY0d7TXf56VKjyvFylpZe
-         2RBDn9WNr5vjalBLbPViRXSOKUJZf7pZeAeYfR428TXvSAE74pkaQTxsevKdRankFQwD
-         ktBfRTZfZ7CqJsE1lp8/nybHI1s4huO49CRp5T6pDYRTBPyhRKbIsCelbxRNMFZMyVYb
-         KH5rxODf0rMQ0ZADEcoTKmV4yPvHLG1PwElPf/WL68tsRqQ012M5QqJxyxVg2CMfWVRo
-         dMyfZvPWeOlPeMBzfq3ir/EnqVk9g3nWTb5vicshcmYAAQSaYvYWU4jGwiaaU27mYx4y
-         8e9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVlG1eHELtkNgxVahHlCvveBY/ju5afCYJEPFxeAxHid0T5ffQUgHXjPH3RRsO1f8BkxxrPzGHLfL8BdEcJkww=@lists.infradead.org, AJvYcCVpI16jVHivpbus0dJXskbGqOWUPShRD6UycrpaWYzZRqdlijW4i1qLQQyezmgKN9ZXFHldPNgWKugSurAws+1L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxtg4pxmDY4O6lMv0Jt62/bN87YUaaOqOADL2q3bCrfIpO8qOF3
-	kw+w0R1HfbHSKheA0ktP1YCPKwymIwOHm912YHrM+3mbdpYt2oiu
-X-Google-Smtp-Source: AGHT+IHD9WSUDwH4PlIGM00maH6QB8VOUn1a7QCnR3fLMSi0p8bYg2PXCsAsVliSK0qebYRlecvEmA==
-X-Received: by 2002:a17:907:84a:b0:a99:e1a1:473f with SMTP id a640c23a62f3a-a9ef001914fmr1369234166b.57.1731349091955;
-        Mon, 11 Nov 2024 10:18:11 -0800 (PST)
+        bh=DIW7DyS2WH6Cyrvm/ebpRPiFw91e/Lrg2SI8ILkhrNY=;
+        b=Eoh8qcRb7flhFpK2ZZESNnib9MWsaboP3iMv2eys3E9pYh+D4H84ShXThLkhp19XaR
+         tE6SY8Zz2cM1vdG1HZymWGtuAD9HTKt8vydbbf1V87IQT11pqYGkjholDaIxvElRRa27
+         ihTD+Nlx7zzCixDH9qoFo9eT9C6NUExbw/bRVG4qD7YiX5ClVIqBYiNpkxjbrcHsbh0y
+         X0TxEEVShl3F40UExnhNbnmEQqQ9hh0rghkA1gB/yfA5YT0Pt3cEl+LY0gWPR0JxpkjF
+         s+UcUxP8AK/rqB4fY0+Mqhve0xOMqNdm/VUPS7IzZnZ7c5/5Y/iAgrkHzoeqa+ER9T49
+         1tOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUacUo8C1IanJ2iukV4suT+JfSqqM+nak/g1CaRmUL62XS1JGxmlVKbjvdJB2EWLCTFdY8dHF2PqBvbhT8OsuI4@lists.infradead.org, AJvYcCXO9ZAd7SGR0b348UmcNKkj8HM3JHkoArrK02oHWvQSwlDVaIzRbH3sF1ZC+wEf2peLWDm4EFWMhN0Psa45NV0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5fEqLgrn1WbKefEYZU7VJs63dy/uWPydhHm2FwXDDjPmOrNoK
+	IerAvnjGLmruKeVVuiLrvPfPPCNyJjv3fxavk9WsOxbJihgdlG+P
+X-Google-Smtp-Source: AGHT+IErIzWT0CMgys4ztmmaJblBGh0zeoh24ympSdB4fT+d0iex40LKQpmMSIi+f5EOJn7E8Pss8w==
+X-Received: by 2002:a17:907:a4b:b0:a99:fc3d:7c76 with SMTP id a640c23a62f3a-a9ef001915amr1385377366b.37.1731349093673;
+        Mon, 11 Nov 2024 10:18:13 -0800 (PST)
 Received: from localhost.localdomain ([193.142.191.186])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a17b64sm617868466b.39.2024.11.11.10.18.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a17b64sm617868466b.39.2024.11.11.10.18.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 10:18:11 -0800 (PST)
+        Mon, 11 Nov 2024 10:18:13 -0800 (PST)
 From: =?UTF-8?q?Tam=C3=A1s=20Sz=C5=B1cs?= <tszucs@linux.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -64,9 +64,9 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] arm64: dts: rockchip: Add supported UHS-I rates to sdmmc0 on rock-3b
-Date: Mon, 11 Nov 2024 19:17:25 +0100
-Message-ID: <20241111181807.13211-2-tszucs@linux.com>
+Subject: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
+Date: Mon, 11 Nov 2024 19:17:27 +0100
+Message-ID: <20241111181807.13211-4-tszucs@linux.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20241111181807.13211-1-tszucs@linux.com>
 References: <20241111181807.13211-1-tszucs@linux.com>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_101814_400763_4982E34D 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20241111_101815_916509_CB6D71CB 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +90,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all supported UHS-I rates to sdmmc0 and allow 200 MHz maximum clock to
-benefit modern SD cards.
+Enable UART lines on Radxa ROCK 3 Model B M.2 Key E.
 
 Signed-off-by: Tamás Szűcs <tszucs@linux.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index 3d0c1ccfaa79..242af5337cdf 100644
+index b7527ba418f7..61d4ba2d312a 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -670,8 +670,14 @@ &sdmmc0 {
- 	bus-width = <4>;
- 	cap-sd-highspeed;
- 	disable-wp;
-+	max-frequency = <200000000>;
+@@ -732,7 +732,7 @@ &uart8 {
  	pinctrl-names = "default";
- 	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	sd-uhs-ddr50;
- 	vmmc-supply = <&vcc3v3_sd>;
- 	vqmmc-supply = <&vccio_sd>;
- 	status = "okay";
+ 	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
+ 	uart-has-rtscts;
+-	status = "disabled";
++	status = "okay";
+ };
+ 
+ &usb_host0_ehci {
 -- 
 2.45.2
 
