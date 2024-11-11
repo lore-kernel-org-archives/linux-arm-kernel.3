@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1F5D12D59
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Nov 2024 23:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01813D12D59
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 00:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUFXILVcRL5dH5y0Ihu2hvUs7pMYlPM0BSJjf7eAZJk=; b=TftuC1Jd0sUXub13OBQYrO4hEo
-	P0NSqgbmtFMvM9LE3yit+V4tdJBs2JdfBRtmfyImpqUuvYCxtKDKpwKK0pwd/4WlzHcaAKt9HOjlm
-	u1DAlW7ZTLKcShscUGvsOabHlx++iWFcoyXYDJTTPanvYqMNpqNwqS4m4f5eyUbdU82h+rYCVl6GJ
-	cONQMOZNJ+Gxeyp3+fdgr3q+VV2Dbm5e62TImHd1bKg9YY0F08mNj64DJrldIuYMDtbyrR8r5+nzQ
-	T1KGfpagOkgEm/ObiFx1cnYD6lNLyJ+bdo73AQ+GOfuNcvDDXagczayqiPmJXkenCgX9rIXok24yh
-	aqQzDiYw==;
+	bh=Fau7G6sjEi0y036rsC9jXaCUd8fRYQLfiS++NIMzDpM=; b=BmKHxkInA1we4DP4QNdlXPCun2
+	zp3C0Hyqfyrh/dFaS5cek/L0bOcxJoZ1VHjf6SmT20Y8efHRmx1GCtTPeE1TEA42CpHJ5IorapBQw
+	s2rSEUR/lmZwgvzUd7JEOkDQPkerMqfAjch9DdkYRRvHC0uQxdM8E/3c7Sia8hSVMSFeIim2yfT1I
+	avz0+qoU728ER8xEhYjpKnFOhOOte/MJNvKaQvScbadXc5efpUgGS9MFxoD75ezzfSLCrMW27DAeN
+	3KbIfYHX39HP2Buu6vj0ehH5g0MtMTFvqLMKcR1N5uLj68SNktHGCdqFQyta/gxuegF0tpDucWmJE
+	LkMc4sjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAHDN-0000000Fsvs-0woL;
-	Sun, 10 Nov 2024 23:19:29 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tAHy5-0000000FuxX-1B6s;
+	Mon, 11 Nov 2024 00:07:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAHBb-0000000Fscn-1a8R
+	id 1tAHwI-0000000Fuog-2IlY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Nov 2024 23:17:40 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb559b0b00so30967301fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Nov 2024 15:17:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731280657; x=1731885457; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RUFXILVcRL5dH5y0Ihu2hvUs7pMYlPM0BSJjf7eAZJk=;
-        b=VriC0ZEBPFInhbJ8rCc+RMlimf0U5G+L/rmxc0H9+JGvF2/ni5CqZxR+ogz7PxpPdc
-         tA3Q4UVrEnAuyHWyS1DkXei8Wxo12Z10bJZ+BEVz9+MulzYdIQsgpFahfpq0iRbJP6S5
-         k7R6zjEszxnisoCvs63OcqZDr5YLKySA3KuW5Xocwu35BvrRVWItr1wE+ra6AoKq87Kq
-         NeQcG2cl5b8HzIDnvPTt4pYs/bG9Aod+Owx/CVzhr3IbQDdH6NnSZ2Y2GIgDwO/mhyi/
-         6d3rRIl1/X14+ZhFDgAxJVfC6QpjDxbSPZAJ2lqgy0Ld9Y2wlP7To+3Gn4KLKO+mVWp0
-         F+FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731280657; x=1731885457;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RUFXILVcRL5dH5y0Ihu2hvUs7pMYlPM0BSJjf7eAZJk=;
-        b=VXhqhMCGn8XcGF0ovrdrSvB42qlo5UTerW0yU5fI6lYxcuLkbr5ZbaxzJPmMAOQaum
-         z+qYQf9jnafjrgceZnmPr+ughbne7pNQ/pt4MIpzOQXwcsFM6Johw4d9buxC4JM6X7W/
-         DWGj0mBGDLxUPhTWhsWWjcw0Nir7+BI82YUdXDG3SroCCL3F0nMMdidRDdI84l0f+OkS
-         8Pe0YXKVqfH4JvUxKFNJzhZA/sFzvUHvf02YbWSjvlsb3XLmAjk1dVOHC0FgVzCgKl3H
-         CTEBg4i0Ap4Rv3bJCeeAxD+qf0cy9KhUfyuAxBJ5dc09Vvg2MoLkVIRuxAxKfVuDYw71
-         FAhA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZF0nRe1TDjfkfWHpBie8Sngn/ep7EcAw7T8T1VwfkuRhxzYZ+07SL9OWKBfx6CQkGubRqhod8tTNDpe6a2CS5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpYIYB0sKoKN2pvc/KN6IquBneAisjozICPAvBvzq46cbFfR5w
-	colg5Ozo2nW95y0FvExMtslsKWyV6Xdy2pEy4zgBqWTDn9kbj5L+ugiVEGcLeZjgKnA4kepql8u
-	BZNOjzdl3AAFpemm3IY7I+NXSnH4CXpM+wKmXcA==
-X-Google-Smtp-Source: AGHT+IF91VKcTlaDZ/IlEkHiUobN6Q91eUFpAI0Oz/DTPRczlHHFK0uOIyphMgpgrxVRx+pP8vFbImKcEfUD64jrngE=
-X-Received: by 2002:a2e:a98c:0:b0:2f7:a759:72a7 with SMTP id
- 38308e7fff4ca-2ff2016dabfmr39330571fa.22.1731280656618; Sun, 10 Nov 2024
- 15:17:36 -0800 (PST)
+	Mon, 11 Nov 2024 00:05:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23293A41347;
+	Mon, 11 Nov 2024 00:03:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7F58C4CECD;
+	Mon, 11 Nov 2024 00:05:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731283552;
+	bh=LEbk0UwzMReWGMLM1N0ZN67ounf8WzkA5leISWNctcg=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=Rgls9w2RaznQ+91jdI4cssdxWso5jSndTFs3MQMRGCKOkHWtccDPVuLuHTwnQ2Pks
+	 JqsIyuk86QeOE11KmSrxX1aL4mDG76MH53uKpS/PZEf1wcuimcXG199AXJFnuwyAmH
+	 A1gnW0fWpI4xsemcmd1qCW6lVUHh65W7Hdu9epTCTq2Ex/7BeLN+THiwlEUxVRR5oP
+	 lUdHVjGmItx2L0W73fc3JOlqbQu6G9mMcS/snX1L/ype6AQdFNBBO9+AXtERM7ol8d
+	 cH9y+tu2NyAtO5Nm4Gq59+bK/HGnv3H9rEbO0KSkxGOuV65CawlGZsQgi9S7oHjcBo
+	 TXIdRvJZ307+g==
+Message-ID: <c6dade2e-fd8a-4a7b-89a1-b1276d8e9106@kernel.org>
+Date: Mon, 11 Nov 2024 09:05:48 +0900
 MIME-Version: 1.0
-References: <20241108-fix-kcfi-bug-v1-1-f8497c4bccae@linaro.org> <20241109043138.GA1649953@thelio-3990X>
-In-Reply-To: <20241109043138.GA1649953@thelio-3990X>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 11 Nov 2024 00:17:25 +0100
-Message-ID: <CACRpkdbBJsRQB3mhN4hqjFpa1S2YP6Eou+jS-BCfzL0OvQPsPg@mail.gmail.com>
-Subject: Re: [PATCH] ARM: cfi: Fix compilation corner case
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Damien Le Moal <dlemoal@kernel.org>
+Subject: Re: [PATCH v1 2/3] arm64: dts: marvell: drop additional phy-names for
+ sata
+To: Frank Wunderlich <linux@fw-web.de>, Niklas Cassel <cassel@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
+ linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241109094623.37518-1-linux@fw-web.de>
+ <20241109094623.37518-3-linux@fw-web.de>
+Content-Language: en-US
+Organization: Western Digital Research
+In-Reply-To: <20241109094623.37518-3-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_151739_461399_BE1DBE09 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241110_160554_708736_93CE1E59 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,19 +83,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 9, 2024 at 5:31=E2=80=AFAM Nathan Chancellor <nathan@kernel.org=
-> wrote:
+On 11/9/24 18:46, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> Commit facbe7092f8a ("arm64: dts: marvell: Drop undocumented SATA phy names")
 
-> Regardless of the commit message nits, this seems like the right thing
-> to do.
->
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Isn't a Fixes tag for the above commit desired here ?
 
-Thanks Nathan, I dropped all the annoying complaints about
-pickiness in the commit message (after all, compilers should be picky,
-it's a defining trait...) and put the patch into Russell's arfmlpatch track=
-er.
+> drops some phy-names from devicetrees but misses some. Drop them too.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+>  arch/arm64/boot/dts/marvell/armada-8040-db.dts     | 2 --
+>  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi | 2 --
+>  2 files changed, 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-db.dts b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+> index fe5d6cb9d692..9d45e881a97d 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+> @@ -307,11 +307,9 @@ &cp1_sata0 {
+>  
+>  	sata-port@0 {
+>  		phys = <&cp1_comphy1 0>;
+> -		phy-names = "cp1-sata0-0-phy";
+>  	};
+>  	sata-port@1 {
+>  		phys = <&cp1_comphy3 1>;
+> -		phy-names = "cp1-sata0-1-phy";
+>  	};
+>  };
+>  
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> index 5043cf2eb33e..0d4a5fd9503f 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> @@ -345,13 +345,11 @@ &cp1_sata0 {
+>  	/* CPS Lane 1 - U32 */
+>  	sata-port@0 {
+>  		phys = <&cp1_comphy1 0>;
+> -		phy-names = "cp1-sata0-0-phy";
+>  	};
+>  
+>  	/* CPS Lane 3 - U31 */
+>  	sata-port@1 {
+>  		phys = <&cp1_comphy3 1>;
+> -		phy-names = "cp1-sata0-1-phy";
+>  	};
+>  };
+>  
 
-Yours,
-Linus Walleij
+
+-- 
+Damien Le Moal
+Western Digital Research
 
