@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BB9D3ABD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E6DFD3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 17:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6OSw8xUt3COc/0od6QRSNQ+KToWY8URRRE3wwtW0ph0=; b=PtSoP2khGtsnNPcvmnqvSkBSeh
-	a8lvZuWGm6dK7yFYDx1vyI1a4W5OHCocMvsmOk/srCzzzv9YdPcUbQL0pgO6bGsDUvZyZ7Jxtg7xr
-	6Nt2qEsDnUZzzYSIWlbPDLAbKnvjRnndD5ptrfOwnpELFtZCOKMbBLu0CFQxXHIiEFF3Meps5bWg3
-	O4iGdiH+KyEx/jeCH1aN+F7J1S6mNEJbcUKMdeeuQ2MQ47qNXc2uvI4uc4IC2SDzZ2t8EXzHV+AiR
-	d/KnQUUS4ODv+Nd9jz9vQ47ELjophHDgfVGkH0bGUHE/UI0DtA+JwtHG7MYr4K6Ll3GxbEPehtKoq
-	4jNU8TAQ==;
+	bh=deBHoNojmTiozmdh9Ir1qRcSesUj32SW5/UppJ4xT0Q=; b=XjSavJc5rl8uO8Gcf0ZCZDHr5H
+	3XWpKmi7jgAbrJDxYFRUnhJ7OpbYlZ+wMRkSZ7cWGQBT4um/DbIw7BQosKJtAgHupoztFA1Vy6Td4
+	jty7kyMwCaZBmTh3ktT6NxW6D88P75CiVZIZhoK06y3zckuLsFDMMdbX8ma1hnZv0cTQRROIJfs8v
+	Pq7pGJ1GAaYpDanUOdYVzSluh2sxTzQBnFbV9tCg1gWRPzfqPpBlxrQATdITsh/ZkPlfe/R8ItT83
+	a4ELKPo71xEYGYFm2z2ZpbJgu9R+gLQAo2Lb6A8wsbT6zh1zGuZe1j7fuCmB+Z1y53NuUdXZH7vpE
+	zlghojhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYV2-00000000lzM-2PEr;
-	Mon, 11 Nov 2024 17:46:52 +0000
-Received: from mout.gmx.net ([212.227.17.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAYMj-00000000kLS-2h20
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 17:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1731346689; x=1731951489; i=wahrenst@gmx.net;
-	bh=6OSw8xUt3COc/0od6QRSNQ+KToWY8URRRE3wwtW0ph0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=CYJ2oACdo/j4zgm110Rm9RRALPBYpjL9AU8iQldZplnBAdNAWaEFRBEXrxB4fKB8
-	 NNKOPnYjXSz/DJvfihJ245N/PZE10rbB9T1DqgMafxmoGaIBCSMgiIJTvkL6KAUlg
-	 WEkVCROQ6/OmEqnxrePBJOySPCSF5ZqZyVdkCRBN3QGGVBhD0tu/vxHUUokrpIca4
-	 kk9WbKB7EGysubNRir4bPbzDjigy/qst6CfpYRIecnbX8ACuZ3hqKwx14WGTAjNFN
-	 gsqD2tj+PLI0kJ22fHb9Izv+NB62rB5kGKdAwFheApuRLvwMpnvNBLDsHtrHFkGxj
-	 f6ouG7psmwA7hCVXXw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([37.4.248.43]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MtOGU-1u4BUV0p02-00svqL; Mon, 11
- Nov 2024 18:38:09 +0100
-Message-ID: <eed25785-7972-43ce-9903-d8350e51ff7e@gmx.net>
-Date: Mon, 11 Nov 2024 18:38:08 +0100
+	id 1tAYWn-00000000mGj-15p1;
+	Mon, 11 Nov 2024 17:48:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAYQv-00000000l9k-0nT1;
+	Mon, 11 Nov 2024 17:42:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22A6B1480;
+	Mon, 11 Nov 2024 09:43:03 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC2493F59E;
+	Mon, 11 Nov 2024 09:42:28 -0800 (PST)
+Date: Mon, 11 Nov 2024 17:42:25 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org,
+ linux-mmc@vger.kernel.org, Gregory CLEMENT <gregory.clement@bootlin.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Wim Van Sebroeck
+ <wim@linux-watchdog.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ devicetree@vger.kernel.org, linux-rtc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, Andi Shyti
+ <andi.shyti@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ linux-watchdog@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Ulf
+ Hansson <ulf.hansson@linaro.org>, linux-usb@vger.kernel.org, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Guenter Roeck <linux@roeck-us.net>, Conor
+ Dooley <conor+dt@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>
+Subject: Re: [PATCH 00/14] arm64: dts: allwinner: Add basic Allwinner A523
+ support
+Message-ID: <20241111174225.7360c6e4@donnerap.manchester.arm.com>
+In-Reply-To: <173133346581.1281779.16221268010355943435.robh@kernel.org>
+References: <20241111013033.22793-1-andre.przywara@arm.com>
+	<173133346581.1281779.16221268010355943435.robh@kernel.org>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] soc: imx: Add SoC device register for i.MX9
-To: alice.guo@oss.nxp.com
-Cc: imx@lists.linux.dev, s.hauer@pengutronix.de, festevam@gmail.com,
- shawnguo@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "alice.guo" <alice.guo@nxp.com>,
- alexander.stein@ew.tq-group.com, kernel@pengutronix.de
-References: <20241111032307.144733-1-alice.guo@oss.nxp.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-In-Reply-To: <20241111032307.144733-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:dDNJzKU6qVuVwcuDn4e8a77d+91AdGDxjZ4AID7/NRDufgd9egR
- /B+Bg8xSjkSE62HryDFEqI3N7NjN0j1i4Czvw75+6HHzlNcsuvSoOxrCBo0sxUA1Mla/7rj
- RwYpx+suhsQfsNsf+Cwbck56IQdN3iaaw6w8fsSKgArEe8kxJJNXxt4SSnlhdmDEM/z2mcT
- h/UbA1kCYa7zv0jgB8BhQ==
-UI-OutboundReport: notjunk:1;M01:P0:QtLGtceA+KQ=;4SM/hF+VxEnePS0VaBqjz2ONwmi
- LX7/TaksXGo7IUXWEhjmsr42Ah8300Wjs5w5KCbPRynad8jYgDOQjX8JbwVVnmZxHyTncY3bp
- EPUr7rMZVfSfKzvD/hvta5R8RmrYyGpl+irCNiJF1rfUP3mmb11RcqeqTiJ+FA5m4ksO88Joq
- 6EWKzeTD4MXVgdXBnZ6eM1Kk536vMQacqmW2rtcyS6Ryt+uorgOH5lQjDyy06km9dNqDAHSRf
- 1zDUSjSXwpuz6SD3gjrJqRInBF+1QJTOy6ZT1qGsdV1dCU+tMVLBwlEFzKvuq0mcnSysjeHMP
- QPW67+aw6WcWsQN45WV92guF180spiQwnXfKFPrMONX7I1g5V6Q8IazfYV1sSkvrP6dAptpBk
- HGWp3ZM/I9PZmTMfNhZL79UsNTx1r6BWRbSrn4DkzMl0a2GrFx3JyzZprZWFU+sFweWqyGyaI
- lXncnhcLkcDqcHCbfQ/w5D1CcDzDU3Q9S5AJZjuGvtJxiN81O25NsLCUgybuRHVsTgvKu5Nut
- bgjtFm6o1qNhs6q4yMJEOgjakl3rHcYzb8vudyveBgLdOYJCvmIQsfRoPCbNzd+rV3+fwCetx
- SRkdhe93OXqI177np2T0BoCEINxAFIOvhFwT7uEV6XWIowOqFbN4coTe8yMIgiLdOgMGM2/Dg
- pTNUFLUb1SfvUQMVUYlofmSpjXKqOPl97sOIpcYJWGRC5nd9DwnACfebwK7Fjur6VbgLDpfjx
- J7c64IKRDKPGxp6tzmr44toFwf55DLc3n6aNuiel3Froc7/JK6OaLX+0QPiix1UIWDq1njTdZ
- l4GAUcE/iev/8UuV+VpIvx1aQbm/NHHFlAEb6aXmk8rpTK/y0iYGT5p1xaziyj7llxM8A0V37
- qZszukPk9+9rbnLQUiLIQ0KghIucWQnzCVpuovK02GOBrg96mirh01M8f
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_093818_086095_72A5E46A 
-X-CRM114-Status: GOOD (  32.71  )
+X-CRM114-CacheID: sfid-20241111_094237_357944_C0A6CD66 
+X-CRM114-Status: GOOD (  49.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,194 +76,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alice,
+On Mon, 11 Nov 2024 09:32:53 -0600
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
 
-Am 11.11.24 um 04:23 schrieb alice.guo@oss.nxp.com:
-> From: "alice.guo" <alice.guo@nxp.com>
->
-> i.MX9 SoCs have SoC ID, SoC revision number and chip unique identifier
-> which are provided by the corresponding ARM trusted firmware API. This
-> patch intends to use SMC call to obtain these information and then
-> register i.MX9 SoC as a device.
->
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->
-> Changes for v2:
->   - refine error log print
-> Changes for v3:
->   - return -EINVAL when arm_smccc_smc failed
->   - fix the build warning caused by pr_err("%s: SMC failed: %d\n", __fun=
-c__, res.a0);
->   - drop the pr_err in imx9_soc_init
->   - free the memory in the reverse order of allocation
->   - use of_match_node instead of of_machine_is_compatible
-> Changes for v4:
->   - fix the build warning: 'imx9_soc_match' defined but not used [-Wunus=
-ed-const-variable=3D]
->   - add Tested-by and Reviewed-by
-> Changes for v5:
->   - probe imx9 soc driver as a platform driver
->
->   drivers/soc/imx/Makefile   |   2 +-
->   drivers/soc/imx/soc-imx9.c | 124 +++++++++++++++++++++++++++++++++++++
->   2 files changed, 125 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/soc/imx/soc-imx9.c
->
-> diff --git a/drivers/soc/imx/Makefile b/drivers/soc/imx/Makefile
-> index 3ad321ca608a..ca6a5fa1618f 100644
-> --- a/drivers/soc/imx/Makefile
-> +++ b/drivers/soc/imx/Makefile
-> @@ -3,4 +3,4 @@ ifeq ($(CONFIG_ARM),y)
->   obj-$(CONFIG_ARCH_MXC) +=3D soc-imx.o
->   endif
->   obj-$(CONFIG_SOC_IMX8M) +=3D soc-imx8m.o
-> -obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o
-> +obj-$(CONFIG_SOC_IMX9) +=3D imx93-src.o soc-imx9.o
-> diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
-> new file mode 100644
-> index 000000000000..4ef92260e8f9
-> --- /dev/null
-> +++ b/drivers/soc/imx/soc-imx9.c
-> @@ -0,0 +1,124 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright 2024 NXP
-> + */
-> +
-> +#include <linux/arm-smccc.h>
-> +#include <linux/init.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +#include <linux/sys_soc.h>
-> +
-> +#define IMX_SIP_GET_SOC_INFO	0xc2000006
-> +#define SOC_ID(x)		(((x) & 0xFFFF) >> 8)
-> +#define SOC_REV_MAJOR(x)	((((x) >> 28) & 0xF) - 0x9)
-> +#define SOC_REV_MINOR(x)	(((x) >> 24) & 0xF)
-> +
-> +static int imx9_soc_probe(struct platform_device *pdev)
-> +{
-> +	struct soc_device_attribute *attr;
-> +	struct arm_smccc_res res;
-> +	struct soc_device *sdev;
-> +	u32 soc_id, rev_major, rev_minor;
-> +	u64 uid127_64, uid63_0;
-> +	int err;
-> +
-> +	attr =3D kzalloc(sizeof(*attr), GFP_KERNEL);
-> +	if (!attr)
-> +		return -ENOMEM;
-> +
-> +	err =3D of_property_read_string(of_root, "model", &attr->machine);
-> +	if (err) {
-> +		pr_err("%s: missing model property: %d\n", __func__, err);
-> +		goto attr;
-> +	}
-> +
-> +	attr->family =3D kasprintf(GFP_KERNEL, "Freescale i.MX");
-> +
-> +	/*
-> +	 * Retrieve the soc id, rev & uid info:
-> +	 * res.a1[31:16]: soc revision;
-> +	 * res.a1[15:0]: soc id;
-> +	 * res.a2: uid[127:64];
-> +	 * res.a3: uid[63:0];
-> +	 */
-> +	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
-> +	if (res.a0 !=3D SMCCC_RET_SUCCESS) {
-> +		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
-> +		err =3D -EINVAL;
-> +		goto family;
-> +	}
-> +
-> +	soc_id =3D SOC_ID(res.a1);
-> +	rev_major =3D SOC_REV_MAJOR(res.a1);
-> +	rev_minor =3D SOC_REV_MINOR(res.a1);
-> +
-> +	attr->soc_id =3D kasprintf(GFP_KERNEL, "i.MX%2x", soc_id);
-> +	attr->revision =3D kasprintf(GFP_KERNEL, "%d.%d", rev_major, rev_minor=
-);
-> +
-> +	uid127_64 =3D res.a2;
-> +	uid63_0 =3D res.a3;
-> +	attr->serial_number =3D kasprintf(GFP_KERNEL, "%016llx%016llx", uid127=
-_64, uid63_0);
-> +
-> +	sdev =3D soc_device_register(attr);
-> +	if (IS_ERR(sdev)) {
-> +		err =3D PTR_ERR(sdev);
-> +		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
-> +		goto serial_number;
-> +	}
-> +
-> +	return 0;
-> +
-> +serial_number:
-> +	kfree(attr->serial_number);
-> +	kfree(attr->revision);
-> +	kfree(attr->soc_id);
-> +family:
-> +	kfree(attr->family);
-> +attr:
-> +	kfree(attr);
-> +	return err;
-> +}
-> +
-> +static __maybe_unused const struct of_device_id imx9_soc_match[] =3D {
-In case everything is correct, "__maybe_unused" can be dropped
-> +	{ .compatible =3D "fsl,imx93", },
-> +	{ .compatible =3D "fsl,imx95", },
-> +	{ }
-> +};
-MODULE_DEVICE_TABLE is missing
-> +
-> +static struct platform_driver imx9_soc_driver =3D {
-> +	.probe =3D imx9_soc_probe,
-> +	.driver.name =3D "imx9-soc",
-.of_match_table is missing
-> +};
-> +
-> +static int __init imx9_soc_init(void)
-> +{
-> +	int ret;
-> +	struct platform_device *pdev;
-> +
-> +	/* No match means it is not an i.MX 9 series SoC, do nothing. */
-> +	if (!of_match_node(imx9_soc_match, of_root))
-> +		return 0;
-> +
-> +	ret =3D platform_driver_register(&imx9_soc_driver);
-> +	if (ret) {
-> +		pr_err("failed to register imx9_soc platform driver: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	pdev =3D platform_device_register_simple("imx9-soc", -1, NULL, 0);
-> +	if (IS_ERR(pdev)) {
-> +		pr_err("failed to register imx9_soc platform device: %ld\n", PTR_ERR(=
-pdev));
-> +		platform_driver_unregister(&imx9_soc_driver);
-> +		return PTR_ERR(pdev);
-> +	}
-> +
-> +	return 0;
-> +}
- From my understand all these stuff belongs in the probe function now,
-so maybe the existing one should be renamed.
-> +device_initcall(imx9_soc_init);
-I think this should be replace by
+Hi Rob,
 
-module_platform_driver(imx9_soc_driver);
+> On Mon, 11 Nov 2024 01:30:19 +0000, Andre Przywara wrote:
+> > Hi,
+> > 
+> > this series adds basic DT support for the Allwinner A523 SoC, plus the
+> > Avaota-A1 router board using the T527 package variant of that SoC.[1]
+> > Functionality-wise it relies on the pinctrl[2] and clock[3] support
+> > series, though there is no direct code dependency series to this series
+> > (apart from the respective binding patches in the two series').
+> > 
+> > Most of the patches add DT binding documentation for the most basic
+> > peripherals, the vast majority of them actually being already supported,
+> > courtesy of identical IP being used. This includes MMC and USB 2.0, so
+> > with the above mentioned clock and pinctrl support this gives an already
+> > somewhat usable mainline support for this new SoC family.
+> > The watchdog is not completely compatible, but is an easy addition, so
+> > this bit is included in here as well.
+> > 
+> > The A523 features 8 Arm Cortex-A55 cores, organised in two clusters,
+> > clocked separately, with different OPP limits, in some kind of
+> > little/LITTLE configuration. The GPU is a Arm Mali G57 MC01, and the chip
+> > also features a single PCIe 2.1 lane, sharing a PHY with some USB 3.1
+> > controller - which means only one of the two can be used.
+> > The rest of the SoC is the usual soup of multimedia SoC IP, with eDP
+> > support and two Gigabit Ethernet MACs among the highlights.
+> > 
+> > The main feature is patch 11/14, which adds the SoC .dtsi. This for now
+> > is limited to the parts that are supported and could be tested. At the
+> > moment there is no PSCI firmware, even the TF-A port from the BSP does
+> > not seem to work for me. That's why the secondary cores have been omitted
+> > for now, among other instances of some IP that I couldn't test yet.
+> > I plan to add them in one of the next revisions.
+> > 
+> > The last patch adds basic support for the Avaota-A1 router board,
+> > designed by YuzukiHD, with some boards now built by Pine64.
+> > 
+> > The mainline firmware side in general is somewhat lacking still: I have
+> > basic U-Boot support working (including MMC and USB), although still
+> > without DRAM support. This is for now covered by some binary blob found
+> > in the (otherwise Open Source) Syterkit firmware, which also provides
+> > the BSP versions of TF-A and the required (RISC-V) management core
+> > firmware. Fortunately we have indications that DRAM support is not that
+> > tricky, as the IP blocks are very similar to already supported, and dev
+> > boards are on their way to the right people.
+> > 
+> > Meanwhile I would like people to have a look at those DT bits here. Please
+> > compare them to the available user manual, and test them if you have access
+> > to hardware.
+> > 
+> > Based on v6.12-rc1.
+> > I pushed a branch with all the three series combined here:
+> > https://github.com/apritzel/linux/commits/a523-v1/
+> > 
+> > Cheers,
+> > Andre
+> > 
+> > [1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+> > [2] https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/#t
+> > [3] https://lore.kernel.org/linux-sunxi/20241111004722.10130-1-andre.przywara@arm.com/T/#t
+> > 
+> > Andre Przywara (14):
+> >   dt-bindings: mmc: sunxi: Simplify compatible string listing
+> >   dt-bindings: mmc: sunxi: add compatible strings for Allwinner A523
+> >   dt-bindings: watchdog: sunxi: add Allwinner A523 compatible string
+> >   watchdog: sunxi_wdt: Add support for Allwinner A523
+> >   dt-bindings: i2c: mv64xxx: Add Allwinner A523 compatible string
+> >   dt-bindings: irq: sun7i-nmi: document the Allwinner A523 NMI
+> >     controller
+> >   dt-bindings: phy: document Allwinner A523 USB-2.0 PHY
+> >   dt-bindings: usb: sunxi-musb: add Allwinner A523 compatible string
+> >   dt-bindings: usb: add A523 compatible string for EHCI and OCHI
+> >   dt-bindings: rtc: sun6i: Add Allwinner A523 support
+> >   arm64: dts: allwinner: Add Allwinner A523 .dtsi file
+> >   dt-bindings: vendor-prefixes: Add YuzukiHD name
+> >   dt-bindings: arm: sunxi: Add Avaota A1 board
+> >   arm64: dts: allwinner: a523: add Avaota-A1 router support
+> > 
+> >  .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+> >  .../bindings/i2c/marvell,mv64xxx-i2c.yaml     |   1 +
+> >  .../allwinner,sun7i-a20-sc-nmi.yaml           |   1 +
+> >  .../bindings/mmc/allwinner,sun4i-a10-mmc.yaml |  40 +-
+> >  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |  10 +-
+> >  .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml |   4 +-
+> >  .../usb/allwinner,sun4i-a10-musb.yaml         |   1 +
+> >  .../devicetree/bindings/usb/generic-ehci.yaml |   1 +
+> >  .../devicetree/bindings/usb/generic-ohci.yaml |   1 +
+> >  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+> >  .../watchdog/allwinner,sun4i-a10-wdt.yaml     |   2 +
+> >  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+> >  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 386 ++++++++++++++++++
+> >  .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 311 ++++++++++++++
+> >  drivers/watchdog/sunxi_wdt.c                  |  11 +
+> >  15 files changed, 751 insertions(+), 26 deletions(-)
+> >  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+> > 
+> > --
+> > 2.46.2
+> > 
+> > 
+> >   
+> 
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> New warnings running 'make CHECK_DTBS=y allwinner/sun55i-t527-avaota-a1.dtb' for 20241111013033.22793-1-andre.przywara@arm.com:
+> 
+> In file included from arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts:6:
+> arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi:6:10: fatal error: dt-bindings/clock/sun55i-a523-ccu.h: No such file or directory
+>     6 | #include <dt-bindings/clock/sun55i-a523-ccu.h>
 
-Regards
-> +
-> +MODULE_AUTHOR("NXP");
-> +MODULE_DESCRIPTION("NXP i.MX9 SoC");
-> +MODULE_LICENSE("GPL");
+Argh, the headers, forgot about them! I was hoping there would only be a
+complaint about the undocumented compatible strings, and I didn't want to
+tie the three series together unnecessarily, to avoid a harder to handle
+28-patch series.
+
+I hope this doesn't prevent actual review by people, my github has
+the combined story, in case people want to avoid the issue:
+https://github.com/apritzel/linux/commits/a523-v1/
+
+Cheers,
+Andre
+
+>       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> compilation terminated.
+> make[3]: *** [scripts/Makefile.dtbs:129: arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb] Error 1
+> make[2]: *** [scripts/Makefile.build:478: arch/arm64/boot/dts/allwinner] Error 2
+> make[2]: Target 'arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb' not remade because of errors.
+> make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1399: allwinner/sun55i-t527-avaota-a1.dtb] Error 2
+> make: *** [Makefile:224: __sub-make] Error 2
+> make: Target 'allwinner/sun55i-t527-avaota-a1.dtb' not remade because of errors.
+> 
+> 
+> 
+> 
+> 
 
 
