@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77052D3ABF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB67FD3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYHKDYyg+2ly+dMUeJ/cLWI4XcdPgA25RQIFqXCblz0=; b=aRCn7LM4/ZdpVsJRDpXbWndVwI
-	nsfm+MOVKcc0akVNkR2LCX/tHWG4k1opRyEnVDLgL6HchA2eEy8RPTYMDHWj8X19OOga4rIDmnr+b
-	mVkYX3rscCQh+NLOZO/EZfyouhXn6M4ENkPmpCRNtvwrm9yNs2fKsRwJo5FJoZpkxLnRxeGs8N5tb
-	Bs+B2UcRlpFjA/+TnEM6pGMMUkZQs5OpOeFR0E1SUNSINBHm48mJxxSGL4jykF6COZQauXmg+wnn+
-	NdCzocmghmAqAgM/LSTQ0cfil/WCbgcbA/lg0YVM0x3uxs/sJxpwrdeeVCyHoSXuJerbOTe6QqBd6
-	FUzl/Ppw==;
+	bh=VoOvd60Z5sJEGwTfTCFOEcWAXUKH/B7ofE6eDnjYJDw=; b=Zrg6Fy0QVpGskUZ1b4q+Pp3lhi
+	ZE8dGyH/4o/fFp27yJCufOEIHHr+eHpf/uPeLCP8QIUQ+LYquFdKzX4iQEElJwYR9amhztEJlgrGm
+	HQCWr4RHeXpBn1GtrVu3n/TCBazIG8k5SrZVoSP8JTyhNiR1/s8uhUfKuWCvPu9+jsPF7XBG15IrI
+	EZlgIF6bnUa1JHBrJ285zdqTFT0Xc3i1Arm24qNB0bBaHZ9OTTeLOLN2i4noiq4JVWerotApe/KVX
+	+MUgQvW16rSMSSV7ziJEtIVzoKHQYBYRp0vH+SD9zAfPZYD/HdduZaKyPV/3u22HzNgS8JqlDuh6K
+	fMaAxiZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZlu-000000010Ro-2TId;
-	Mon, 11 Nov 2024 19:08:22 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1tAZs8-000000011Pm-3wjP;
+	Mon, 11 Nov 2024 19:14:48 +0000
+Received: from smtp.forwardemail.net ([207.246.76.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZk8-000000010F8-3DJd
+	id 1tAZqL-000000011BQ-0oNB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 19:06:34 +0000
+	Mon, 11 Nov 2024 19:12:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: Cc:
  References: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1731351974;
- bh=kYHKDYyg+2ly+dMUeJ/cLWI4XcdPgA25RQIFqXCblz0=;
- b=CqUOv845dWIcsXI8fXS+1a9kBYL/23xyPaBVw0yqXKuaCw5smETxbxnPf14OyGqTAG4e1VQUA
- M8WJ/1kJuqfHH6LaINYZQntJz8qmDnkznw3GaN6k2BTdIzE93M1YX0sAdr4xzMUIkjGJEMHmImV
- XEzFSyJ6ydEGDCfFUzB9VTg8c9OfK9VfO/HQl2sZjvQuSyQFZ0dlmVupvNNs4KoRw04IcJolx4I
- TGersC4jVJSEAYtdXJ/7fk5BwZCwyNje+pmOk3yOLkhEodnZccgEAofMQNh5glhDK7HoTNM0czi
- 4bcPsfhEIeIq2OcXwoO/48iDFayR+dI3fSe/tRjjdDbA==
-Message-ID: <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
-Date: Mon, 11 Nov 2024 20:06:08 +0100
+ s=fe-e1b5cab7be; t=1731352364;
+ bh=VoOvd60Z5sJEGwTfTCFOEcWAXUKH/B7ofE6eDnjYJDw=;
+ b=ES5D7iaJBf3vI/JUt0lYxAsqV+V9Ppes5SXnaMMg76LS3frlUD+nJG5OQNLbT768lEwZoYDNl
+ SFwkFnNX4TnGCBDIl5i7QVEJBrdbBTtsjGRAvpVhPDq5MnYD2RbsJTl7ZAlPrIMEIq7uiYYSqed
+ CAYHUkDtRlTTj55mbTa0CWPjdCjKta+jVTjFZ8Omlef04wvPu8Mcg4PTcGUEwmk2VqFyXo7fkCH
+ 6OHfNsirVg1jYHgmbpnwuLFDagyYGgs5vDodOJZhGYhOyoKaTi5cRWnx7B+9IcWvOnpsMvvNJil
+ PrMcTb8NVNMswWj5XRHuGZroubsRys+ILm9g9ATaorsQ==
+Message-ID: <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se>
+Date: Mon, 11 Nov 2024 20:12:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
- set it up for SDIO devices
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
 To: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
 References: <20241111181807.13211-1-tszucs@linux.com>
- <20241111181807.13211-3-tszucs@linux.com>
+ <20241111181807.13211-4-tszucs@linux.com>
 Content-Language: en-US
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -54,7 +53,7 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org
 From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20241111181807.13211-3-tszucs@linux.com>
+In-Reply-To: <20241111181807.13211-4-tszucs@linux.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Report-Abuse-To: abuse@forwardemail.net
@@ -62,11 +61,11 @@ X-Report-Abuse: abuse@forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
 X-ForwardEmail-Version: 0.4.40
 X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-ForwardEmail-ID: 673255a41b4710f318d5f267
+ 207.246.76.47
+X-ForwardEmail-ID: 673257291b4710f318d5f54d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_110632_865146_E2C1CD17 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20241111_111257_391891_6E6D39A9 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +83,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Tamás,
 
 On 2024-11-11 19:17, Tamás Szűcs wrote:
-> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UHS-I rates and
-> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
+> Enable UART lines on Radxa ROCK 3 Model B M.2 Key E.
 > 
 > Signed-off-by: Tamás Szűcs <tszucs@linux.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
+>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> index 242af5337cdf..b7527ba418f7 100644
+> index b7527ba418f7..61d4ba2d312a 100644
 > --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
 > +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> @@ -688,14 +688,20 @@ &sdmmc2 {
->  	cap-sd-highspeed;
->  	cap-sdio-irq;
->  	keep-power-in-suspend;
-> +	max-frequency = <200000000>;
->  	mmc-pwrseq = <&sdio_pwrseq>;
->  	non-removable;
+> @@ -732,7 +732,7 @@ &uart8 {
 >  	pinctrl-names = "default";
->  	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
-> +	sd-uhs-sdr12;
-> +	sd-uhs-sdr25;
-> +	sd-uhs-sdr50;
-
-I thought that lower speeds was implied by uhs-sdr104?
-
->  	sd-uhs-sdr104;
-> +	sd-uhs-ddr50;
->  	vmmc-supply = <&vcc3v3_sys2>;
->  	vqmmc-supply = <&vcc_1v8>;
+>  	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
+>  	uart-has-rtscts;
 > -	status = "disabled";
-> +	wakeup-source;
 > +	status = "okay";
 
-This should probably be enabled using an dt-overlay, there is no SDIO
+This should probably be enabled using an dt-overlay, there is no UART
 device embedded on the board and the reason I left it disabled in
 original board DT submission.
+
+On second thought maybe they should be enabled, think PCIe and USB lines
+on the M.2 Key E is already enabled by default. I probably only tested
+with a pcie/usb wifi/bt card and not a sido/uart wifi/bt card.
 
 Regards,
 Jonas
 
 >  };
 >  
->  &sfc {
+>  &usb_host0_ehci {
 
 
