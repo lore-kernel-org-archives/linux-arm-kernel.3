@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B447ED3ABFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2044D3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 21:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYiVjrcxZpTi/c06BPQHiFC8F+p+6wh7EIqPd/zEwtM=; b=WhNM4F0SbL1cQOhngQBuzsPVc+
-	HlCo3qPks4SUlMkjYrxzR5Ia4ND3w+DFvsu2aVhnwNYs7G0wpO9ieeWgCw1NGYJxy++qcPYor8+3W
-	xQqNLtJXcJNwF+QZjXIUI0Yh5KB4IkISctwPQ64Dnshe6TmM8Q6pcaIm5GmmwpmlUmJmDB7Zk/Rhu
-	WyM+AmVFS+hlX8/35Ef4/Dzn5CTxY2PdubKtp9tTtkZEF0WgctBq0wvgF6G3txXxHALXpf3xrifrE
-	7yhd49AX3plwV51vqIx63MIf32WDOg8Fo2hStpY0gotBaxQmjPGSZJqFjuGETALuz6k9ANwN7nycp
-	vFV8VkjQ==;
+	bh=LObrxn3R4XtlprnERAFFhmw2ApkNAoiNEB3fkoJZITE=; b=PDed0KV9tuIRfpsyBRYLND9QpC
+	sh3v7RF9i1MMcR1uPR2vd/X/YoUNpqzb41nePsGqnQTLa4KG0w186wyl49VqDLQDMa4R/cO6NCOef
+	DQ7lD8Xadn4ec2FWjikug7jsorEkR9Wo+2tQnhFLtNMFnj1rVr5b8euFigFCZ0vxwPCX+3w2V14yC
+	xyHIDBxlRTWoBRsAU7D7bhCrgUEAmhsXgdAvjwUl/dHI/CigjvBZNRq9DOalrgB7G8CsdwldGkPU3
+	7aMbtZnX0GjRWdWE1c33kPaZbtDs968pr56MApbtTZidPW1BtNHmKshUOCgWxTMFTySp325FqOGh8
+	tCsZWK2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbbl-00000001Ir5-2oQP;
-	Mon, 11 Nov 2024 21:06:01 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tAbjf-00000001Ll3-2bQ2;
+	Mon, 11 Nov 2024 21:14:11 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAbLz-00000001F97-02IU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 20:49:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EACAA40003;
-	Mon, 11 Nov 2024 20:49:38 +0000 (UTC)
+	id 1tAbac-00000001IbV-3ekY;
+	Mon, 11 Nov 2024 21:04:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8DBEDFF807;
+	Mon, 11 Nov 2024 21:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731358179;
+	t=1731359088;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nYiVjrcxZpTi/c06BPQHiFC8F+p+6wh7EIqPd/zEwtM=;
-	b=fR8BdtbLRORymTS3lN4WPxSA0gFafroYaf0+NPUNSYqFRz9s9YIJKoWcRxSyPUJK+T+GOK
-	PDAT9kd0OL/+BSkML1RRiHrg4SNAbPz8qapqjynItAHTMXd3TVYuoruuiWfGssEMX05iML
-	cRnrz7vx8nSCAK4Moe5i12X8Htm/mFPzVJFflXGFXkk/TumQfEf+mV8hV+RdrV4Dq2OwwF
-	WWCdn/CrHb312hihColuJ1DRDDS91iiVj8aUbSV3TnVQgnSg0xxXmEDMwYHYepMgyUkMrL
-	Oo8eGycEX9fW4rQCCC6+Sw01fq4NeyMHjov8vfmn3zbwxPiBBQVHeWcbFq8HgQ==
-Date: Mon, 11 Nov 2024 21:49:36 +0100
+	bh=LObrxn3R4XtlprnERAFFhmw2ApkNAoiNEB3fkoJZITE=;
+	b=MAVkRchXggZBxDxPHd6AZX2qiAifA7ijtIEZo1438VSGrVZamdo414JKLILgKBS/E/GudL
+	K7eJdXQd1BSX/kXpLhu1oVKxXHBbkvOgEoz/kbVdeotMDe4m8cF5zmI6vGXN0p6bgGZJLq
+	bd4f8CJKP9ALVDp7JfHogGIhiVdXK7sTK58s0XJMRqgUnRkAcxaGzoLe3EF4rj8dCSmHu3
+	JF/WmZq+GxWgyj08XEoGRTnZHBaGYeZmv4qvAkYslCF4qKufG5VBQC6HFSUhFjf4t3cylk
+	xRsBYTHFsNO17OAdY17sdmGz6dpSn66m3NsZTyNJV9/BR6Lmzr/pBPLTm5jHyQ==
+Date: Mon, 11 Nov 2024 22:04:44 +0100
 From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org
-Subject: Re: (subset) [PATCH 10/14] dt-bindings: rtc: sun6i: Add Allwinner
- A523 support
-Message-ID: <173135816498.3301625.12210632932642052880.b4-ty@bootlin.com>
-References: <20241111013033.22793-1-andre.przywara@arm.com>
- <20241111013033.22793-11-andre.przywara@arm.com>
+To: lee@kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	matthias.bgg@gmail.com, eddie.huang@mediatek.com,
+	sean.wang@mediatek.com, sen.chu@mediatek.com,
+	macpaul.lin@mediatek.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: (subset) [PATCH v1 0/3] rtc: mt6359: Cleanup and support
+ start-year property
+Message-ID: <173135898216.3303301.4242491728556386052.b4-ty@bootlin.com>
+References: <20240923100010.97470-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241111013033.22793-11-andre.przywara@arm.com>
+In-Reply-To: <20240923100010.97470-1-angelogioacchino.delregno@collabora.com>
 X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_124943_363380_183C0BAA 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_130451_070930_53CB40EE 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Nov 2024 01:30:29 +0000, Andre Przywara wrote:
-> The RTC in the Allwinner A523 SoC is compatible to the D1 and R329, so
-> just add its name and use the R329 as a fallback.
+On Mon, 23 Sep 2024 12:00:07 +0200, AngeloGioacchino Del Regno wrote:
+> This series adds support for the start-year property and removes the
+> custom handling of the RTC_MIN_YEAR_OFFSET (which is, effectively, doing
+> the exact same).
 > 
+> The start_secs timestamp was set to match the previous one from the
+> custom behavior so that there is no time drift on any device after
+> applying this.
 > 
+> [...]
 
 Applied, thanks!
 
-[10/14] dt-bindings: rtc: sun6i: Add Allwinner A523 support
-        https://git.kernel.org/abelloni/c/9beeecbd63d5
+[2/3] rtc: mt6359: Add RTC hardware range and add support for start-year
+      https://git.kernel.org/abelloni/c/34bbdc12d04e
+[3/3] rtc: mt6359: Use RTC_TC_DOW hardware register for wday
+      https://git.kernel.org/abelloni/c/d6f471a74790
 
 Best regards,
 
