@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD46D3ABF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28A7D3ABF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P+f3u/Hy7ggU6TYper9ScR7UkjM6HPFZfTcg01Knz8Q=; b=456Kd6LdZrH/JLGj7wIztdFu1d
-	SN6ZZGm8u/CF9pc+ux2Wt7mDx8Bi2OFKpxQCEUrngZXLBFkZHLfTCtHfWoZ5cuYVQ1vMu0aIvO5NH
-	h3ECYYmcedDoTi+B/IYYU6esZWH3cPESWq9BUuBPXp4Sdw+LxhE9+5wMaDV7j4J0vsvi3fJUAN9GS
-	mhhffXtVZCn8zUoBG+33y1yyzWHFQ5+Uf/8viruClF3BuXqKDlMwZcdlL8HNmFhOnck6ndE86JUoT
-	1b7C7oNGQXkjY9fxtDkRSKETTFLJC7LWP0aMVh4bUPfCjUU8AamADTzyX0NC5+FyFkJFBx9GH23OW
-	FuSBEvyA==;
+	bh=OG1vbKR+3pDFc8nEwm1ZvVOlqvzLfcT/ZGyivy84CdU=; b=lTxk+I9lLVQ7ZG5Iooi2pfzmzq
+	EEoQtLAMAaoN+i6Mxub/2CcXP894IgJvIupmEjSCDccMI3FYM45yKbsgzFCpTHAqWPVlVlCgNBhKH
+	7CUyM699xOIixF/z1qdZRLTLVFikg0sQ1mSsLU9+S2Trp5/HIoxIMnPNEFJM+jOTUkeVVlEfIM7D0
+	10hJIlr6F24im6k7SGnfpArPbGLPsB6w16NOXvWLH4RTLu/Gcf1EQkp1jfkWaNGvVEKsc24Ao8NIZ
+	UzTr28Qp6WXY4moQLroQ4UA2g1YXFs8RDLminpCeJQGt6AtnpvMmd2gOmEfFNS8JtH4lFELawGHKh
+	MLiAMsvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAa1l-000000012tE-2SLv;
-	Mon, 11 Nov 2024 19:24:45 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1tAa3V-0000000139G-0mdl;
+	Mon, 11 Nov 2024 19:26:33 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZzx-000000012e0-3kxL
+	id 1tAa0Z-000000012iE-0KYE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 19:22:55 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2689e7a941fso2859352fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 11:22:53 -0800 (PST)
+	Mon, 11 Nov 2024 19:23:32 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e49ad46b1so4135508b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 11:23:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731352972; x=1731957772; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731353010; x=1731957810; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=P+f3u/Hy7ggU6TYper9ScR7UkjM6HPFZfTcg01Knz8Q=;
-        b=Evp6AKMJeMcTe8Jv9ukYj5g9Nvx3vAtfR+0MBh6j/q7zrOg0pNR1FhJ9fkWH3AoCgD
-         cXg8FyzHGT9xxrOg+9qJIPJwidJ8vNYHW7f+xKuCeQqsjqq6TPLK4Icm6rieNhnknXmG
-         dHyt3+jlxVZLNWh0Rk8x3uVv98c4iIvXWv8mkR5YqcxzFy9X2YI9+3Yel0QPUsZsIwir
-         7L+hBkdJdV16mxrN8oeZQHHxR+lQEzxVrst+YD7Bsr69FgaEd3to7MlRpxRBJxgdyFU2
-         LtdeXFMLhVcwHThOHiwgBhuRXZqipdK+h+JuFCl2ridkzejbSyn+qx7d0oVm2npTiUNf
-         roUQ==
+        bh=OG1vbKR+3pDFc8nEwm1ZvVOlqvzLfcT/ZGyivy84CdU=;
+        b=K2vtQJfQOuhR+MXt2U41Vlqr+hAE6wM9QMT2XuZO+uDV4XrB5Th7H/pkbemSirG/TL
+         pAMh1rmggGpycKcQPTa+wlRoxkS0S/rmw69x5UXo/Mr7ObcPr6YUWCoApUqI3WtaDLS/
+         WSLwP86SRsMIWRmaYo8hNA8x58e9u6U6BUh8pvg72aFR15rdfAFnMoN00JD9NFetHRTY
+         kLTggD4byKapVERs5tqzN6BMzx1DHCIJOLaxwBdu8GMCBS2gSjN5BpnuZLYTiyVN/Jtc
+         zHGCRY+w0FErr7tcfkQN0LC/QoQQ5sVBy/ShcA+ZOw4H+6O9mSzsNc78kbn+1c9veCRe
+         xFmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731352972; x=1731957772;
+        d=1e100.net; s=20230601; t=1731353010; x=1731957810;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=P+f3u/Hy7ggU6TYper9ScR7UkjM6HPFZfTcg01Knz8Q=;
-        b=f9VSbFqnCvcmmR+pqzfIQo/HF/UoY81JgmGHlnxz4YNPxAnwjn41/Ii1uRzm0dQWit
-         uENCfmMFicsnUPyVoxByIljZ/qW9cojkxu1XOKO5qxiVnTBdbJJlDVoxR3L407U0udxF
-         O6+4QmhuO3AtHaeQVNZlX7BqeAnrLjYopC4pteRGtffU2t1SvuEEYBdhETsxZy25imqy
-         nIZGqtodSlZgdlwoGSvvu6h128wnFQN73JtNUbTz6NMyTB/03fmD4KtPdhlNmXGfssLG
-         6FXyqFeHS+QSjEFNpkTuJ+6EEgtx+bEIIX/XYQV4TRFf53zYNgWeYYHfpz8XMaq8b9VZ
-         kcWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWU6fvkRywArD/7H6BzOC7rpRcPZ2u+4VtGm7MDb8Y+6JDPalfSBuiTTbdjmRuCRIlrsBaJ36P3f7diobdIx/Gb@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywljv5RSSAMevfCqo/Ha9tge8+qQzt9s0qPOcJvJLjb7xHIJVGL
-	EAtNi41KGuXx4nF+RrqXi6REcO0EdTOqB4/FxEg+dZJ6a876TYo1
-X-Google-Smtp-Source: AGHT+IG2nHO+Bg1rkJrf7qfukU+vp9KRWNaZefDaFklMRxL7gpN5i3aVFdozoWQvKm9ndIshve7DYA==
-X-Received: by 2002:a05:6870:d110:b0:287:3cf8:4abe with SMTP id 586e51a60fabf-29560099278mr11079889fac.18.1731352972553;
-        Mon, 11 Nov 2024 11:22:52 -0800 (PST)
+        bh=OG1vbKR+3pDFc8nEwm1ZvVOlqvzLfcT/ZGyivy84CdU=;
+        b=En/f3Ot8eKW0j3rznpJOhAkG0glZtTP7OjwbSongg5Y3GM1kxo4LJWyKUOgL2ZET12
+         xErZp9/jfPv05kzyy5LjeKlqNhf9behj7Xiu899yI8tc5YhEWqKmKaMnEqDjjmsjiUPG
+         iBv1oW5XFTs82+okH4l+tLOP+XrybpFudV8/hp/+M8tE2kWLLLtBIveGvS3be4tImLhE
+         B6bfTmRHjZyl6XfiSLKu2lG/A2N41m+jerlMhIfn1h6y7pSkGpVwd/2pr0KlsCBYaIl9
+         fSBnN1094wz1XGXId0td3VygH3WLjmPmKkQVa299B0VoQ/LlY/dHyvSdUKxgLwTPLcJT
+         J1fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUagXIzs4MJ/IvOtbIe6vKd8H+CUz81XSjP0F2tQPWVb78vFm0qKBjqEYCdYhQXbJXSriOz0C2RjiLv43eqJOH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPJLpBX+ZfXPcJ/gNChEdvKDPa6H6a13oHZumdlyd9AHuXQ1M5
+	mX69NOZIDmDL0VOE2zCPS/nQnlI7LrBrbmsJScFa0/dXIcbjz8aN
+X-Google-Smtp-Source: AGHT+IEOXb9dMYWoaOSDkxeJwpcmRG5zOxNUAn9W/2lBSOlh8h6XPV9j5KFH5WXswgBqfSkR4E6eqA==
+X-Received: by 2002:a05:6a20:9150:b0:1db:f89a:c6fe with SMTP id adf61e73a8af0-1dc22b00e61mr19740459637.32.1731353010371;
+        Mon, 11 Nov 2024 11:23:30 -0800 (PST)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f644036sm8879120a12.66.2024.11.11.11.22.51
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f643cddsm7591486a12.54.2024.11.11.11.23.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 11:22:51 -0800 (PST)
-Date: Mon, 11 Nov 2024 11:22:51 -0800
+        Mon, 11 Nov 2024 11:23:29 -0800 (PST)
+Date: Mon, 11 Nov 2024 11:23:28 -0800
 From: Guenter Roeck <linux@roeck-us.net>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -77,20 +77,18 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Jean Delvare <jdelvare@suse.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 1/5] dt-bindings: hwmon: ti,tmp108: Add nxp,p3t1085
- compatible string
-Message-ID: <afbd8490-f5bb-4ca3-8da0-aa1f01de5efa@roeck-us.net>
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] hwmon: tmp108: Add NXP p3t1085 support
+Message-ID: <576b3e70-9c09-4d8e-8b3f-f98a801b20dd@roeck-us.net>
 References: <20241111-p3t1085-v3-0-bff511550aad@nxp.com>
- <20241111-p3t1085-v3-1-bff511550aad@nxp.com>
+ <20241111-p3t1085-v3-2-bff511550aad@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241111-p3t1085-v3-1-bff511550aad@nxp.com>
+In-Reply-To: <20241111-p3t1085-v3-2-bff511550aad@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_112253_955699_DCE88FB3 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20241111_112331_144316_B80D3500 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,11 +104,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 12:31:58PM -0500, Frank Li wrote:
-> The register layout of P3T1085 is the same as ti,tmp108. Add compatible
-> string nxp,p3t1085 for it. The difference of P3T1085 is support I3C.
+On Mon, Nov 11, 2024 at 12:31:59PM -0500, Frank Li wrote:
+> Add compatible string 'nxp,p3t1085' since p3t1085's register layout is the
+> same as tmp108.
 > 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> The p3t1085 supports I3C interface.
+> 
+> Update document tmp108.rst and Kconfig's help context.
+> 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
 Applied.
