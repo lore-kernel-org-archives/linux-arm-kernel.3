@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB67FD3ABF4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C38D3ABF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 19:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VoOvd60Z5sJEGwTfTCFOEcWAXUKH/B7ofE6eDnjYJDw=; b=Zrg6Fy0QVpGskUZ1b4q+Pp3lhi
-	ZE8dGyH/4o/fFp27yJCufOEIHHr+eHpf/uPeLCP8QIUQ+LYquFdKzX4iQEElJwYR9amhztEJlgrGm
-	HQCWr4RHeXpBn1GtrVu3n/TCBazIG8k5SrZVoSP8JTyhNiR1/s8uhUfKuWCvPu9+jsPF7XBG15IrI
-	EZlgIF6bnUa1JHBrJ285zdqTFT0Xc3i1Arm24qNB0bBaHZ9OTTeLOLN2i4noiq4JVWerotApe/KVX
-	+MUgQvW16rSMSSV7ziJEtIVzoKHQYBYRp0vH+SD9zAfPZYD/HdduZaKyPV/3u22HzNgS8JqlDuh6K
-	fMaAxiZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JZu3vr+t7Wlk+zjKonvKnaaJtON7Z7w5PlSUnxj5kYs=; b=JRgz/bRYYJVp864XCofpRKUJ2G
+	s2p4C/B0MTo5sXWIjKn+NN4VvsS8rqbr9i4dF7bV9K51R/S0uwo2AJyH3d1txCcGi8Pde0Q8Na/Ez
+	HVSYj5It+mxnzTUtIFO0Iuo32X/Z3edANfzl5hfXY3uJZz2H8BUPbEFL5vJcdau3wq74X3G9L3gKl
+	xM/53KjE04flp9fP3ftt6uRS2Ko04KH07FEG2r9joXQkUaenBBZ4qhvZOYYOoNRLkbTtJEiuAuO9s
+	l6tD9EfbjJylz3/zGiMpyxYV25eF/RaUqSITfhu4U5++fqIgh9SeyieYg5MCCP5bKH/v2qA42RVLx
+	l+HSsA9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZs8-000000011Pm-3wjP;
-	Mon, 11 Nov 2024 19:14:48 +0000
-Received: from smtp.forwardemail.net ([207.246.76.47])
+	id 1tAZtt-000000011eQ-0eRg;
+	Mon, 11 Nov 2024 19:16:37 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZqL-000000011BQ-0oNB
+	id 1tAZrE-000000011Ix-1z1A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 19:12:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: Cc:
- References: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1731352364;
- bh=VoOvd60Z5sJEGwTfTCFOEcWAXUKH/B7ofE6eDnjYJDw=;
- b=ES5D7iaJBf3vI/JUt0lYxAsqV+V9Ppes5SXnaMMg76LS3frlUD+nJG5OQNLbT768lEwZoYDNl
- SFwkFnNX4TnGCBDIl5i7QVEJBrdbBTtsjGRAvpVhPDq5MnYD2RbsJTl7ZAlPrIMEIq7uiYYSqed
- CAYHUkDtRlTTj55mbTa0CWPjdCjKta+jVTjFZ8Omlef04wvPu8Mcg4PTcGUEwmk2VqFyXo7fkCH
- 6OHfNsirVg1jYHgmbpnwuLFDagyYGgs5vDodOJZhGYhOyoKaTi5cRWnx7B+9IcWvOnpsMvvNJil
- PrMcTb8NVNMswWj5XRHuGZroubsRys+ILm9g9ATaorsQ==
-Message-ID: <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se>
-Date: Mon, 11 Nov 2024 20:12:37 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
-To: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
-References: <20241111181807.13211-1-tszucs@linux.com>
- <20241111181807.13211-4-tszucs@linux.com>
-Content-Language: en-US
+	Mon, 11 Nov 2024 19:13:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tAZqa-0002SF-2g; Mon, 11 Nov 2024 20:13:12 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tAZqZ-000IHO-10;
+	Mon, 11 Nov 2024 20:13:11 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tAZqZ-0060xb-0c;
+	Mon, 11 Nov 2024 20:13:11 +0100
+Date: Mon, 11 Nov 2024 20:13:11 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- FUKAUMI Naoki <naoki@radxa.com>, Dragan Simic <dsimic@manjaro.org>,
- Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20241111181807.13211-4-tszucs@linux.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-ForwardEmail-Version: 0.4.40
-X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 207.246.76.47
-X-ForwardEmail-ID: 673257291b4710f318d5f54d
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 5/5] arm64: dts: imx93-9x9-qsb: add temp-sensor
+ nxp,p3t1085
+Message-ID: <20241111191311.qallf3xrz2vlylak@pengutronix.de>
+References: <20241111-p3t1085-v3-0-bff511550aad@nxp.com>
+ <20241111-p3t1085-v3-5-bff511550aad@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241111-p3t1085-v3-5-bff511550aad@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_111257_391891_6E6D39A9 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20241111_111352_531101_C798DB17 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tamás,
+Hi,
 
-On 2024-11-11 19:17, Tamás Szűcs wrote:
-> Enable UART lines on Radxa ROCK 3 Model B M.2 Key E.
+On 24-11-11, Frank Li wrote:
+> Add temp-sensor nxp,p3t1085 for imx93-9x9-qsb boards.
 > 
-> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> change from v1 to v3
+> - none
+> ---
+>  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> index b7527ba418f7..61d4ba2d312a 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> @@ -732,7 +732,7 @@ &uart8 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
->  	uart-has-rtscts;
-> -	status = "disabled";
-> +	status = "okay";
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> index 20ec5b3c21f42..36f2995acbe29 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+> @@ -221,6 +221,11 @@ wm8962: audio-codec@1a {
+>  		>;
+>  	};
+>  
+> +	p3t1085: temperature-sensor@48 {
+> +		compatible = "nxp,p3t1085";
+> +		reg = <0x48>;
+> +	};
 
-This should probably be enabled using an dt-overlay, there is no UART
-device embedded on the board and the reason I left it disabled in
-original board DT submission.
-
-On second thought maybe they should be enabled, think PCIe and USB lines
-on the M.2 Key E is already enabled by default. I probably only tested
-with a pcie/usb wifi/bt card and not a sido/uart wifi/bt card.
+Out of curiosity, did you tested that the I3C is working on a real
+device, since you added the node here as I2C device? If not, please skip
+adding the I3C part and keep it as TODO for later.
 
 Regards,
-Jonas
+  Marco
 
->  };
->  
->  &usb_host0_ehci {
-
+>  	ptn5110: tcpc@50 {
+>  		compatible = "nxp,ptn5110", "tcpci";
+>  		reg = <0x50>;
+> 
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
