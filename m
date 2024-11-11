@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CF7D3ABEA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB90D3ABEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 18:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m5qBMJyupmVmP3WenwgqG6fxdPxLJkkXl5JQ5DHXwD0=; b=OQ7yd4n8P1BLDtXfTAszJtrOWW
-	quxBgZWmQIAoxrJ/5S6dLMx28Lj6cqCN6qmXtvi/mHiV+K00bcBpcaODv39aHn6fKABlmIv2QOy5W
-	oq8X1ofCX1o/LHCwM3N9fyQSgnG3gugHq15cvw0lBxyhBvcgnuGRHv2HmlkVN4hi/ZxaZWGPgDPSh
-	57F3HzYsYAo2Mjeo8ksUo2iagxMxIf0AJRWZBCisQskXUKUtngK6RKCR7j+AV2aG9lrRahiDc4CFE
-	esrvHXQ8FubV6Y8IDQZKMAScRfEY13imYkHio7UXI+43ypN8+lGPvBOpxfQQJFJQzo1NaZWqN0dos
-	+uXFp9Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cHYYm5p2gi666U61qSt3+Okz8u2r1M0B9lAqT+9zUwE=; b=d6aVH7JZ2QkoSaoyHXt46pzFyC
+	YnsX+O1AhTN6wBnIDxlIsxgyr4pvczaoy/HC6X3M/KhPRG+5jwSGksiaaiCU45HacqQvtEMS08MEg
+	lE2AAnerKZesHfHJFACWTEMUnktwTIBAOzqW0I3+rf8ywevEx6Zm+pZCc2bMQhc+RJGUn8Sd1J2yU
+	2L0VhRjtkyPlLDqlH8JIdy9qeNE7epr+zYaiABbh8ZR+lBp3SoxHQOhprdico7gPHdpGP2SVfvlms
+	G+jrdILwN53bqW8SLF9GYf6opVnksgaaaaufl64xZO07BI7F7z1/x92LH5lFOUzVawe5o4/gWctKU
+	fM8THTQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZ8k-00000000uUY-2gdU;
-	Mon, 11 Nov 2024 18:27:54 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1tAZFd-00000000vNd-3yl2;
+	Mon, 11 Nov 2024 18:35:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAZ3B-00000000tX4-0MGd;
-	Mon, 11 Nov 2024 18:22:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 49EFE1C0005;
-	Mon, 11 Nov 2024 18:22:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731349324;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=m5qBMJyupmVmP3WenwgqG6fxdPxLJkkXl5JQ5DHXwD0=;
-	b=P+dWOpS4lvwV7ml2Qfzzvid2JahTF5umrRz6pPlZxfoDSVN7P7RBPC5/L1AoCYDmEGs0z6
-	GdDwxm/e9vaPg8V5YM6NfeSx4yMOUgh42kO+kgWriWfrwiFd8aP0fwgcKoIOcEyJxICjcT
-	cZdji2E5SwsT6f8SzmW7zJzfOPv0P2496z5WA7e+5h4ZOpCkf1LCJdaCVT24l8Wngjqc2Y
-	mYK/iiOEOP4qlB4TdWuml/EGZm+obhm5ZNr5y9qhERlkvscEShimeq1nJc5xtuWmMyZEUI
-	BoLHmgJDkaqq/JTSpjMR3HbpocvPW8UvZmSp4xJEkexDK7lIJ+dgKPl/tg/hnw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Hui-Ping Chen <hpchen0nvt@gmail.com>
-Cc: richard@nod.at,  vigneshr@ti.com,  robh@kernel.org,  krzk+dt@kernel.org,
-  conor+dt@kernel.org,  nikita.shubin@maquefel.me,  arnd@arndb.de,
-  vkoul@kernel.org,  esben@geanix.com,
-  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 2/2] mtd: rawnand: nuvoton: add new driver for the
- Nuvoton MA35 SoC
-In-Reply-To: <20241023092617.108021-3-hpchen0nvt@gmail.com> (Hui-Ping Chen's
-	message of "Wed, 23 Oct 2024 09:26:17 +0000")
-References: <20241023092617.108021-1-hpchen0nvt@gmail.com>
-	<20241023092617.108021-3-hpchen0nvt@gmail.com>
-User-Agent: mu4e 1.12.1; emacs 29.4
-Date: Mon, 11 Nov 2024 19:22:02 +0100
-Message-ID: <87y11p1vhx.fsf@bootlin.com>
+	id 1tAZDr-00000000v9Q-0xwe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Nov 2024 18:33:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D1A7AA4180C;
+	Mon, 11 Nov 2024 18:31:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C2FFC4CECF;
+	Mon, 11 Nov 2024 18:33:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731349989;
+	bh=3B/5kUYL8W4cwhJZ8ncK+YOGBwMwcZd5A7SQVXdUjpo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=eB7PRkM0tXHORqfiHIBcRDu5y+IkUJbJfzKwEJ51BPQxCfXaLr7PUbHsy/n+6kYcP
+	 5sVWVtULEnSeAcTbFuxHYZ1BFlZ1sN3In6ADELGEEwFModnm/K58IXO6Jeqlldk9f2
+	 Stj7iOodNoR2rhClQEOVXy1AaZXUqM5HlvcfnD23mIACZPvlJXYxi6zlxo6b7u5EeP
+	 6oWok625A3KZ9fOmrSMEcAELv3GfTCGHPDjdfnH7dKfHKFnVkuqp4HoHQmQys3XYvP
+	 fe3EYWXp/9bkK5vHxlBugJhtEojgvodqfdF+QzvSDG2rYmt5WCpC8/VDYAI63tavnb
+	 ZXnveMeQwOy0w==
+From: Mark Brown <broonie@kernel.org>
+Date: Mon, 11 Nov 2024 18:32:58 +0000
+Subject: [PATCH] kselftest/arm64: Enable build of PAC tests with LLVM=1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241111-arm64-selftest-pac-clang-v1-1-08599ceee418@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANlNMmcC/x2MSwqAMAwFryJZG2hF/F1FXNSaasAfjYhQvLvB2
+ Q3MewmEIpNAlyWIdLPwsavYPAO/uH0m5EkdClOUVkEXt6pEoTVcJBeezqNfNUQ/NmYiU7e2akH
+ nZ6TAz3/dD+/7AYmktUhqAAAA
+X-Change-ID: 20241111-arm64-selftest-pac-clang-cb80de079169
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-355e8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1515; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3B/5kUYL8W4cwhJZ8ncK+YOGBwMwcZd5A7SQVXdUjpo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnMk3iGC0+I1ctBJ6Drd9vqX4HeZ5w93WHhdwde
+ gKKAdXgreOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZzJN4gAKCRAk1otyXVSH
+ 0N9zB/sGxMPQGy1POFWcAZb/Bw9nz1cJKiFiWxfYnMrZeE4DTxzQXvwgAD0ZdwJKBL+WdWubUrq
+ HxP9lpgZywM/WlPVh8UvOkn8aOwYfeLwzqGtw6GmDwT3ZLywgSZXYgB+/LHewyuLLxwheKgOQhK
+ 29iy0o4kd9SiKG2mdU2IUD2o/ODaA5aqPzE29iICx6prBe2HerBZcCk5wERHaKPlZwgq/juprJE
+ zkBWNyF116RLWExxgAviOGGQuE9owohxbgteEyxkwpN6d4G+nvT7qCjvirFxsKyOTfVem0AJ2fG
+ Pmr064U/ore/bqcfF0pQ4DqzlJE2jBqaKHqsHShaYsuGXdva
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_102209_474850_01FF2AEF 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20241111_103311_436339_998256A0 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,136 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Currently we don't build the PAC selftests when building with LLVM=1 since
+we attempt to test for PAC support in the toolchain before we've set up the
+build system to point at LLVM in lib.mk, which has to be one of the last
+things in the Makefile.
 
-> +static int ma35_nand_attach_chip(struct nand_chip *chip)
-> +{
-> +	struct ma35_nand_info *nand =3D nand_get_controller_data(chip);
-> +	struct ma35_nand_chip *nvtnand =3D to_ma35_nand(chip);
-> +	struct mtd_info *mtd =3D nand_to_mtd(chip);
-> +	struct device *dev =3D mtd->dev.parent;
-> +	u32 reg;
-> +
-> +	if (chip->options & NAND_BUSWIDTH_16) {
-> +		dev_err(dev, "16 bits bus width not supported");
-> +		return -EINVAL;
-> +	}
-> +
-> +	nvtnand->nchunks =3D mtd->writesize / chip->ecc.steps;
-> +	nvtnand->nchunks =3D (nvtnand->nchunks < 4) ? 1 : nvtnand->nchunks / 4;
+Since all versions of LLVM supported for use with the kernel have PAC
+support we can just sidestep the issue by just assuming PAC is there when
+doing a LLVM=1 build.
 
-This second division looks broken. Also, you probably don't want to do
-that outside of the ON_HOST situation. Finally, you should probably
-update chip->ecc.steps and chip->ecc.size to your final choice.
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/pauth/Makefile | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> +
-> +	reg =3D readl(nand->regs + MA35_NFI_REG_NANDCTL) & (~PSIZE_MASK);
-> +	if (mtd->writesize =3D=3D 2048)
-> +		writel(reg | PSIZE_2K, nand->regs + MA35_NFI_REG_NANDCTL);
-> +	else if (mtd->writesize =3D=3D 4096)
-> +		writel(reg | PSIZE_4K, nand->regs + MA35_NFI_REG_NANDCTL);
-> +	else if (mtd->writesize =3D=3D 8192)
-> +		writel(reg | PSIZE_8K, nand->regs + MA35_NFI_REG_NANDCTL);
-> +
-> +	switch (chip->ecc.engine_type) {
-> +	case NAND_ECC_ENGINE_TYPE_ON_HOST:
-> +		chip->options |=3D NAND_NO_SUBPAGE_WRITE | NAND_USES_DMA;
+diff --git a/tools/testing/selftests/arm64/pauth/Makefile b/tools/testing/selftests/arm64/pauth/Makefile
+index 72e290b0b10c1ea5bf1b84232f70844a601b8129..b5a1c80e0ead6932d2441a192b9758a049e3b3f8 100644
+--- a/tools/testing/selftests/arm64/pauth/Makefile
++++ b/tools/testing/selftests/arm64/pauth/Makefile
+@@ -7,8 +7,14 @@ CC := $(CROSS_COMPILE)gcc
+ endif
+ 
+ CFLAGS += -mbranch-protection=pac-ret
++
++# All supported LLVMs have PAC, test for GCC
++ifeq ($(LLVM),1)
++pauth_cc_support := 1
++else
+ # check if the compiler supports ARMv8.3 and branch protection with PAuth
+ pauth_cc_support := $(shell if ($(CC) $(CFLAGS) -march=armv8.3-a -E -x c /dev/null -o /dev/null 2>&1) then echo "1"; fi)
++endif
+ 
+ ifeq ($(pauth_cc_support),1)
+ TEST_GEN_PROGS := pac
 
-What is the reason for refusing subpage writes? This is not something
-you can do later, so unless there is a good reason, please do not set
-this flag.
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241111-arm64-selftest-pac-clang-cb80de079169
 
-> +		chip->ecc.write_page =3D ma35_nand_write_page_hwecc;
-> +		chip->ecc.read_page  =3D ma35_nand_read_page_hwecc;
-> +		chip->ecc.read_oob   =3D ma35_nand_read_oob_hwecc;
-> +		return ma35_nand_hwecc_init(chip, nand);
-> +	case NAND_ECC_ENGINE_TYPE_NONE:
-> +	case NAND_ECC_ENGINE_TYPE_SOFT:
-> +	case NAND_ECC_ENGINE_TYPE_ON_DIE:
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
 
-...
-
-> +static int ma35_nand_chip_init(struct device *dev, struct ma35_nand_info=
- *nand,
-> +				 struct device_node *np)
-> +{
-> +	struct ma35_nand_chip *nvtnand;
-> +	struct nand_chip *chip;
-> +	struct mtd_info *mtd;
-> +	int nsels;
-> +	u32 tmp;
-> +	int ret;
-> +	int i;
-> +
-> +	if (!of_get_property(np, "reg", &nsels))
-
-Please convert to device_property_ helpers. And remove the of include
-once you no longer need it.
-
-> +		return -ENODEV;
-> +
-> +	nsels /=3D sizeof(u32);
-> +	if (!nsels || nsels > MA35_MAX_NSELS) {
-> +		dev_err(dev, "invalid reg property size %d\n", nsels);
-> +		return -EINVAL;
-> +	}
-> +
-> +	nvtnand =3D devm_kzalloc(dev, struct_size(nvtnand, sels, nsels),
-> +			      GFP_KERNEL);
-> +	if (!nvtnand)
-> +		return -ENOMEM;
-> +
-> +	nvtnand->nsels =3D nsels;
-> +	for (i =3D 0; i < nsels; i++) {
-> +		ret =3D of_property_read_u32_index(np, "reg", i, &tmp);
-> +		if (ret) {
-> +			dev_err(dev, "reg property failure : %d\n", ret);
-> +			return ret;
-> +		}
-> +
-> +		if (tmp >=3D MA35_MAX_NSELS) {
-> +			dev_err(dev, "invalid CS: %u\n", tmp);
-> +			return -EINVAL;
-> +		}
-> +
-> +		if (test_and_set_bit(tmp, &nand->assigned_cs)) {
-> +			dev_err(dev, "CS %u already assigned\n", tmp);
-> +			return -EINVAL;
-> +		}
-> +
-> +		nvtnand->sels[i] =3D tmp;
-> +	}
-> +
-
-...
-
-> +
-> +	ret =3D mtd_device_register(mtd, NULL, 0);
-> +	if (ret) {
-> +		dev_err(dev, "MTD parse partition error\n");
-
-probably useless error message?
-
-> +		nand_cleanup(chip);
-> +		return ret;
-> +	}
-> +
-> +	list_add_tail(&nvtnand->node, &nand->chips);
-> +
-> +	return 0;
-> +}
-
-I believe next iteration should be the one, I'm rather happy with the
-overall look.
-
-Thanks,
-Miqu=C3=A8l
 
