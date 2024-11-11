@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4F6D2E9D8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1355D2E9D8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Nov 2024 11:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yq4v/gyj/fLO48IP0NaLXgCS56M3wS/277l+hJaYFIg=; b=qO6s0bUcK2ZEiFWXRW7QKdTGZj
-	7hFNBSmiDlCAYIEZhIqt/Ar5x2zewGp+AimGopAILpuXzCSdRDtVm4NdIPx/1MDvEyxssceQEuiD8
-	kOf43m+UxJINcac7DtKfCi5nIoWhA7S1orRwf5RTXiC7WisvwhaI+U5tpWBOoDKVw1/RminkqMGlU
-	WYkcBma1fGHUMACktrXdru1+l9YQtw9guSrZc4E7hzuRnd9FwMdsLIcCmQ86lEYFDPwBk8GAf1FD/
-	p0LU5pmmavbdXW98L7emBCDmdY9XQB/gtw54o4wkaEKASh2dpgLqQnaIAmLvP+Xm8ht9Q2fET/Fd7
-	8oviaQvw==;
+	bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=; b=p5sqkAbeeJ9CDsBWXlMWv7WPy6
+	C8AJ6+7mVnxI8qef1T8M76oUhY/m9Ct5+8G9eCg5n66Fj3o5QY5TO/0PqjJ0DEWcvSoI3dkwgBgaT
+	Ed9d4wXBxl6ajOfUWmM9paDkUkOa5BOkI+xTOtvrLTA3ZGqTSWYcu3/sVjqlrJIw6LhQnC6/0xhl0
+	bGZscDzakOaLWXCI8KT6py/8vrdpICcBdwBLbpk5QQiLyg+kU+hgDtMacNNMuzsIL9Iw+L8ftjjVq
+	uo9rK5+xgsxgiuCNdT7DIyq1VfIoWDBW7pqBLDEUb4Hjt5W58teoDkJ7J3/h3M+nxgOSJjVM0p05p
+	YHarRVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASWD-0000000HRCt-3JCG;
-	Mon, 11 Nov 2024 11:23:41 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1tASXz-0000000HRmD-22gi;
+	Mon, 11 Nov 2024 11:25:31 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tASSa-0000000HQDO-0f6v
+	id 1tASSb-0000000HQFJ-0MUS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Nov 2024 11:19:59 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-a99ebb390a5so1005311366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:19:54 -0800 (PST)
+	Mon, 11 Nov 2024 11:20:00 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a9a0c7abaa6so574480766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 03:19:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731323993; x=1731928793; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731323996; x=1731928796; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yq4v/gyj/fLO48IP0NaLXgCS56M3wS/277l+hJaYFIg=;
-        b=dgt8+RRYADxPTW0uQV2pTwQUHG42vPi31ug2j0OKWRXQVOwo9L49pBECsDvPYYWMes
-         iFfeaZBkqkdMq6EyTwE2Uknr0rhtKQTJJ9zwBHdt8fnVPUYaf0JEv8bIcwEEosA5vXwf
-         WGFs7kKSjYg0DCOaaPxmZytrFnj2VbIPNx90+SICAEc40YrdLSTJrie8RTYeU744tcTx
-         6kjducdCJtNo7XK/LBwCprfIsurgmz0BvxtuxbTxbEZ9bb8ALjzCmUyxh3OF7k4B+vkX
-         gS6662UWsJa5gcq08VEOOi9vgNNeFIHiAJVQDUlqRuqHM7R6pn+xXMLl94qb2AWm1uZ5
-         creA==
+        bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=;
+        b=em5OAZlpo1CbxNuxijs50Jmc3TpGKQTMFzOtTsGZ4j2XTNZNJ897iDC9WPfi/Oy2TJ
+         qjwPbrh3Wb6ERzK5ETtbOPVykYLYkqbgmYngtQTw0nMAk0kfVmeqMu0u9qkMUGCtkCAr
+         C0ewrldnSFEXZdmtxP/vX9YJCsCk/5ZggTZeR4l5dIoP/Y+3qmFc9QFalZKrV9spQd2k
+         OfCJox+YA15GMn1HIvYSjmux58Uiw+aHruH5y106McNwlr7YWNzMeIFEPpzOonLWJ1FZ
+         fpJF/c8ZwwMTw72JqqJUZYpgIKjnRT4GFwGSJePLhSYsIBn7PUONHwAef+ltGNPoLS+3
+         WFyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731323993; x=1731928793;
+        d=1e100.net; s=20230601; t=1731323996; x=1731928796;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yq4v/gyj/fLO48IP0NaLXgCS56M3wS/277l+hJaYFIg=;
-        b=sNqf+ql0Xsek/dBbOHYYU9+2po0APuuDeP5o1tPdbjsYNxaR/hf7U8w2+faafM7QHO
-         oNJda5fOHfAICzqyHiE3EnzI14OfeDwP4CQ8msXRY+oI/aYpLJa3fv8s3Nh0rme0wrNF
-         chI1ZcfBX6ozPAzU0swGOVyWihUVvdBp5fT+Et8PRVfKwPlOONEoIqNvSVe6y5qjcP9W
-         aQB4q9tBr/Msnll9U59Hs8ZRg4iZwS9SKQLR6pL+L8xMT7YiRupgsdoHivgaquBjt0z8
-         l6u2fHYLQ3r7291avlkHu5b3YJb5n5EkISEzp5fOoN7h314XNB4LfbXD4YaRaFBQiaQA
-         O2GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUWEx2V4DYBwRMdU/X6Jk06v7SbUAs3ptQY+Ykc06B+TXKKlVCfV7R4cF/ShfKrwBK88jYNevxe4O+2QXZp1SvV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZuGyitaa6YN0N9VKA0ymsMMhTtss+we+i87lcQPAiRjWdysuj
-	izA/3oyiB3pNnxoZtInoLjDJStP1jx+lOfyW8y6i+h/cttZr2fD1RzKx3uyTsfM=
-X-Google-Smtp-Source: AGHT+IGuK2Mqhh/4a1qh5q0NmwjtNgZX29PbWEQEw3KvEot2jIrlM7uXsL6sEyoljZjEBiZjnawbgg==
-X-Received: by 2002:a17:907:96aa:b0:a9e:b5d0:4714 with SMTP id a640c23a62f3a-a9eeff934b8mr1161128666b.21.1731323993471;
-        Mon, 11 Nov 2024 03:19:53 -0800 (PST)
+        bh=Fu/BrO8IXX6alWkTb0GYjGoZx8cl1iROqgITASLHOag=;
+        b=lZZzkOk4aHw5Nkf6gVQo5WugCcLJ2f22XAhv9/QKQnuIh/c0oDeg1lzbvzI3CA5THB
+         8HpqlnZ3ML58n6/MpKOgdrfXUW+Rtsg/OGWEKzei3TA+w+IyxR3++otZOCRmzLGQCiR/
+         SsICOPu8+ti5uHjuGYVY8scIymZjM0DCKzRU9qVHd0oaXaJ+WCDuhAv5338DM8+4ClY1
+         RrZ2/MinIQwykAS1f0W+F6tcjz6ViCxlELJIWX2Og66LeovekZdqC6RCZ+680JTamtXS
+         +kF93twyYoazXjsQFmceGWp9cE21ScKe2233tZjMnI2w5GnaJHD0VMQ+nnFSxOIPq8Gl
+         T5+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV0HW4YEvG6IS0YrE2bWBZ1YvVJ1hO+Ml4oiPGuFO4ssZA0rv3ErCw9PJoujFaSy1Zpf2I2MSTbJCTzQxe93QgN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSc55ONz9MzxWjcuv6CpogrtHKE4FSYwWBQ9gDjTNLLO7TCEI3
+	eZhkwuvffgyBLVZ9h7zhEkpYT4889I4zY2v9oOrOi7nUNItInpjU7hETDCxA2qA=
+X-Google-Smtp-Source: AGHT+IETD0TTRXcK0fhtRcdkx1FK3e/NgS7iCgkGzVtCtOmSV30aF2EybWWflcXrw2+dh5CJKbTS3Q==
+X-Received: by 2002:a17:907:1c0f:b0:a8a:8d81:97ac with SMTP id a640c23a62f3a-a9eefeaf352mr1148302166b.4.1731323995661;
+        Mon, 11 Nov 2024 03:19:55 -0800 (PST)
 Received: from 1.. ([79.115.63.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0e2e922sm582530866b.193.2024.11.11.03.19.51
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0e2e922sm582530866b.193.2024.11.11.03.19.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 03:19:52 -0800 (PST)
+        Mon, 11 Nov 2024 03:19:55 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
 To: peng.fan@oss.nxp.com,
 	m.felsch@pengutronix.de
@@ -82,20 +82,21 @@ Cc: pratyush@kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>,
 	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v5 2/3] mtd: spi-nor: use local variable for struct device
-Date: Mon, 11 Nov 2024 13:19:45 +0200
-Message-Id: <20241111111946.9048-2-tudor.ambarus@linaro.org>
+Subject: [PATCH v5 3/3] mtd: spi-nor: support vcc-supply regulator
+Date: Mon, 11 Nov 2024 13:19:46 +0200
+Message-Id: <20241111111946.9048-3-tudor.ambarus@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241111111946.9048-1-tudor.ambarus@linaro.org>
 References: <20241111111946.9048-1-tudor.ambarus@linaro.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1819; i=tudor.ambarus@linaro.org; h=from:subject; bh=xXAvRj8AmLSKWPBTJCUUr8yNr91DS97PKpc1oBmJELU=; b=owEBbQGS/pANAwAKAUtVT0eljRTpAcsmYgBnMehS9ebdJFKcsy5atBuVMxdS3C7109r1J/woe qFiYPTIviuJATMEAAEKAB0WIQQdQirKzw7IbV4d/t9LVU9HpY0U6QUCZzHoUgAKCRBLVU9HpY0U 6ZjVB/0WO+cX4vsaTdpLFXuKZKYDOuInLaBWEUgEPPZ/8cU4SDjiZKvr8yqh0UtViU1djsAGxrU lbbkvJAMmNKkIx66H4M55b1h6KMzypC7Gh2btvdMNc0kajfHClQULdOw/bmIgmUvlEGyMUaesei wMP4FzWZrVtgS990dISZi7Pb49XLFqGXQ+Ljbjhjh52HD0NDBRYPAY0GoVz2WfswymhIVH58lLn qM4IX/9b2evCs9iyAkAnuO6ihfSpfUSuoisuuY3nW3tEB9ewWucFstc9YWOmEQD/QN9wZiBRnk3 kFup7CWm/XBWyReXdRdjHbbjrhiBuF8zQinlnQoUIb61MhR1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1447; i=tudor.ambarus@linaro.org; h=from:subject; bh=/f04QIpiuRXQZGFnfAnaIXlKFecFw5Gb/Nj7YVsESQI=; b=owEBbQGS/pANAwAKAUtVT0eljRTpAcsmYgBnMehSiUznsRKk7icK+iHmW5tJsygFpLEVcVVqy gWwSLj6VbSJATMEAAEKAB0WIQQdQirKzw7IbV4d/t9LVU9HpY0U6QUCZzHoUgAKCRBLVU9HpY0U 6ZCHB/9VoXfZlG0zTmKUX6uOfKEiomBJ3tfQ08Fz7JZbY9HNkY8ASnC7D3i/ne0kDCkVXmDdN/t truMWEiWIE1aEqbqieiySwIsqcizG8Ng8aLiNPni4zPgm6lAMLGq9pGPkvgQ+cFq+o3sEqK6ju1 teBSW2iQF+1ZFN/yIjDe8egf9CAcfouomGbsT3ezLCWmfzGyknfgU+SZm2MuI020jVlawX/8u3/ SdG44Hz6HjnrJkYXQyvKOVYGgxNXcow+G5b/UAbgcUNo9rVXbPNFG6etyN+bN2C9AgYC5BJaPb8 ApAAcl8bVmIqGIMm7hll4kkRejUfWBnUCOp+r6Vxabk66hCF
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=openpgp; fpr=280B06FD4CAAD2980C46DDDF4DB1B079AD29CF3D
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_031956_330330_31F89A7F 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20241111_031957_157684_C47809EC 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +111,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a local variable for the struct device pointers to avoid
-dereferencing.
+From: Peng Fan <peng.fan@nxp.com>
 
+SPI NOR flashes needs power supply to work properly. The power supply
+maybe software controllable per board design. So add the support
+for an vcc-supply regulator.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+[ta: move devm_regulator_get_enable() to spi_nor_probe().]
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-v5: new patch
+v5: introduce the local dev variable to its own patch
+v4: move the devm_regulator_get_enable() call from spi_nor_scan to
+spi_nor_probe(). We no longer add support for the drivers under
+drivers/mtd/spi-nor/controllers/. Those drivers shall be moved under
+drivers/spi.
 
- drivers/mtd/spi-nor/core.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/mtd/spi-nor/core.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index b6f374ded390..2a329084505c 100644
+index 2a329084505c..19eb98bd6821 100644
 --- a/drivers/mtd/spi-nor/core.c
 +++ b/drivers/mtd/spi-nor/core.c
-@@ -3576,7 +3576,8 @@ static int spi_nor_create_write_dirmap(struct spi_nor *nor)
- static int spi_nor_probe(struct spi_mem *spimem)
- {
- 	struct spi_device *spi = spimem->spi;
--	struct flash_platform_data *data = dev_get_platdata(&spi->dev);
-+	struct device *dev = &spi->dev;
-+	struct flash_platform_data *data = dev_get_platdata(dev);
- 	struct spi_nor *nor;
- 	/*
- 	 * Enable all caps by default. The core will mask them after
-@@ -3586,13 +3587,13 @@ static int spi_nor_probe(struct spi_mem *spimem)
+@@ -17,6 +17,7 @@
+ #include <linux/mtd/spi-nor.h>
+ #include <linux/mutex.h>
+ #include <linux/of_platform.h>
++#include <linux/regulator/consumer.h>
+ #include <linux/sched/task_stack.h>
+ #include <linux/sizes.h>
+ #include <linux/slab.h>
+@@ -3587,6 +3588,10 @@ static int spi_nor_probe(struct spi_mem *spimem)
  	char *flash_name;
  	int ret;
  
--	nor = devm_kzalloc(&spi->dev, sizeof(*nor), GFP_KERNEL);
-+	nor = devm_kzalloc(dev, sizeof(*nor), GFP_KERNEL);
++	ret = devm_regulator_get_enable(dev, "vcc");
++	if (ret)
++		return ret;
++
+ 	nor = devm_kzalloc(dev, sizeof(*nor), GFP_KERNEL);
  	if (!nor)
  		return -ENOMEM;
- 
- 	nor->spimem = spimem;
--	nor->dev = &spi->dev;
--	spi_nor_set_flash_node(nor, spi->dev.of_node);
-+	nor->dev = dev;
-+	spi_nor_set_flash_node(nor, dev->of_node);
- 
- 	spi_mem_set_drvdata(spimem, nor);
- 
-@@ -3628,9 +3629,8 @@ static int spi_nor_probe(struct spi_mem *spimem)
- 	 */
- 	if (nor->params->page_size > PAGE_SIZE) {
- 		nor->bouncebuf_size = nor->params->page_size;
--		devm_kfree(nor->dev, nor->bouncebuf);
--		nor->bouncebuf = devm_kmalloc(nor->dev,
--					      nor->bouncebuf_size,
-+		devm_kfree(dev, nor->bouncebuf);
-+		nor->bouncebuf = devm_kmalloc(dev, nor->bouncebuf_size,
- 					      GFP_KERNEL);
- 		if (!nor->bouncebuf)
- 			return -ENOMEM;
 -- 
 2.34.1
 
