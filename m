@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64980D42B80
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D31D42B80
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7Kq2dU/HQi5PC2gsnrhfUKy8NejriTh91qF4oKvHoY=; b=DUTkwuQaoXemplbmlkHN5dX2qF
-	OXjhP7sE2cJOEVlJXGAWeJ9O1c98sARmn0MVvZdkI2NHNCwC/WEvVscfNkmeC+wq2h6gH+FQCsgAN
-	beZPFYEctfNY+rV5w9XvbQm+qLWhkoQ+zlAJjz6pZOGiUotB0Lq34mjBSlWVFjW2o9dyJfehiTDIY
-	M3x3snhzb1auE69g2mQzaGnAtel1cE6EllPzJyi6vLPJI5vk2+wv0EFrhPeGmL1annP2n6zOJvTGO
-	G8doMDSB5s9R2hhQ+IEGDaY5fk/qR71X5CoI76lxDpoUKfw+FB2Smbyjjj1TP+ZRMV6cLQnIxZOmQ
-	aKXMwTAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k6W+HKSuc4CzrIJX0IoN770edZbxi3Ko9sF7Bizv6jw=; b=jXD+eyb+wl+rg/uJDOomYlem6W
+	Z7CSNLmKOOJPSKDBfsU2H7GzXmK/I3orBcjyDwK7M7PZmEyahjAjRbhBPhVzx3nkwkyHak1Z7ARms
+	C09RlncGjPH1C+z0fG7N5KWKl9bePiNMqAE3WCF6ThacthVASPtOVLUWnOM0CbQwWZ0ZZFV6nsbZA
+	Z4d9h7YiYS/2ejOZUPYQkSuKc8tq1kbSPiB8gjsgagHPIMRq+fPmm7QfrE3e9s7LuW0Awc3QPKe5l
+	p/dtJ35Izke9Ie/L9SRxa57AOeEIV1bIRvoovIwxStc4laBcdWmDewb4UH92Kd5xs1jNQ8P/8s0M+
+	Dp3P+2XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tArEH-00000003dmm-0OOx;
-	Tue, 12 Nov 2024 13:46:49 +0000
+	id 1tArG2-00000003e96-2cAy;
+	Tue, 12 Nov 2024 13:48:38 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAr5o-00000003bsg-2ne4
+	id 1tArDr-00000003dg9-1oy5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 13:38:06 +0000
+	Tue, 12 Nov 2024 13:46:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ACD2D5C4B8B;
-	Tue, 12 Nov 2024 13:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542CBC4CECD;
-	Tue, 12 Nov 2024 13:38:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 281AE5C57AF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 13:45:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9C0C4CEDC
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 13:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731418683;
-	bh=pAVnpThhWdYJeNyxXAkFL3AIKR99WrRrYPiq8nNjjd8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T7skn3KboyWXib0zh2vjY77DelF5J0MYbRjN/MXavNECa9pjUt6HHvv4jkcoTpJMH
-	 j5G6PNm1K5kersBkmjwFfx4G07hhVmWcRpO+80MlHnrrZHgQCuuDdA76J8pGrNuJ8u
-	 sYBF0Mdi2VdzNLk5WKYBWPT0BUMmyRGueZexG4FbI2QlQm7RPVIac2h7GJHd/G4oPu
-	 mHjCcETvIaZWf78XArHChMzeRdl8nDZowzaQ1vaSVzxBdtyIfjezHoru3ZJOWHHhD6
-	 4kG/uBPedRMl+VZ+WJuci8S/25tj9usoIpC/l2zetr7BDyuIVCpNAKxb7fnb6vza64
-	 zmyGiI5rRVKhg==
-Date: Tue, 12 Nov 2024 13:38:01 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] kselftest/arm64: Add FPMR coverage to fp-ptrace
-Message-ID: <ZzNaOSjRrO5bAJ46@finisterre.sirena.org.uk>
-References: <20241112-arm64-fp-ptrace-fpmr-v2-0-250b57c61254@kernel.org>
- <20241112-arm64-fp-ptrace-fpmr-v2-3-250b57c61254@kernel.org>
- <ZzNXnJ3Jc45CctCs@arm.com>
+	s=k20201202; t=1731419182;
+	bh=k6W+HKSuc4CzrIJX0IoN770edZbxi3Ko9sF7Bizv6jw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VNoZer1X/koJEZkkYAW1p0Z0nOFRO0+PMkNpldz6DxOUXGN+OlMI7iisT8AJDWnrK
+	 OkMROkHg2++QDnze9P3GkePn3jfLgM7Ks9HLn7N20/LQO+v1rZs7QFOZB2mn5B5Lyx
+	 8q1+qafWxSs+PZCR6PtnK8NDwfH872dw4mL6JALKeW8iK3MXvY90Igb2zUHVuKyOn0
+	 fITIpv4TlPNBsdPgoFXgHxYW5umzTuzvDzbvCCtpyCssd9LSy3ptPKfpJ5jPvNEwPA
+	 ox12mW2Fth/lucCe6rjtEEgha/+i8ZzYRLVTufz7IcuRDM8WpvBa+0Z3jN+RLwZvOt
+	 TyRuE76r+7zcw==
+Received: by mail-yb1-f181.google.com with SMTP id 3f1490d57ef6-e2918664a3fso4855146276.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 05:46:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWn2tb6K0ySYzGl8GKyvX8GqcwyxDm2tRVse3ohDGK0O9f2gSKBw3MshjQR6ntVrRJ2uHBWNdLrnLADvIt/WEdn@lists.infradead.org
+X-Gm-Message-State: AOJu0YySOCQdFPDVoNQZhf8gqYG9Xlt2ER2Dl7oFbJSbo8WHzfB3p6RN
+	Se0HwJcF+ISL973xRG09nDcfM+XgyF4uE9nFRZs9Sk/qNKo3qiauFAF8lvHU8ZGOAG0Vsngpak4
+	A9miRjuVxUn61BkWUtyTRBM86bQ==
+X-Google-Smtp-Source: AGHT+IEn0C0WfCG7tbpSyf5xX7DxWFdOpXhSBoAZ5hwE4Pr7xdWiEcgqvO/UcDsq9RdhhFj/OdlcAN30PYOvXPkThlA=
+X-Received: by 2002:a05:6902:1507:b0:e28:e700:2821 with SMTP id
+ 3f1490d57ef6-e3380067b96mr12346210276.25.1731419181152; Tue, 12 Nov 2024
+ 05:46:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xLlvf2gTixCAyurB"
-Content-Disposition: inline
-In-Reply-To: <ZzNXnJ3Jc45CctCs@arm.com>
-X-Cookie: Editing is a rewording activity.
+References: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+In-Reply-To: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 12 Nov 2024 07:46:09 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com>
+Message-ID: <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com>
+Subject: Re: [PATCH 0/2] of: add support for value "false" to of_property_read_bool
+To: Josua Mayer <josua@solid-run.com>
+Cc: Saravana Kannan <saravanak@google.com>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Jon Nettleton <jon@solid-run.com>, 
+	Yazan Shhady <yazan.shhady@solid-run.com>, rabeeh@solid-run.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_053804_769119_13150F32 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20241112_054623_539833_3BA73C71 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +86,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Nov 12, 2024 at 12:41=E2=80=AFAM Josua Mayer <josua@solid-run.com> =
+wrote:
+>
+> Boolean type properties are usually considered true if present and false
+> when they do not exist. This works well for many in-tree board dts and
+> existing drivers.
+>
+> When users need to overrride boolean values from included dts,
+> /delete-property/ is recommend. This however does not work in overlays
+> (addons).
 
---xLlvf2gTixCAyurB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+As soon as someone needs to delete a non-boolean property, we're back
+to the same problem. If you want to fix it, you need to fix it for any
+property.
 
-On Tue, Nov 12, 2024 at 01:26:52PM +0000, Catalin Marinas wrote:
-> On Tue, Nov 12, 2024 at 01:08:16PM +0000, Mark Brown wrote:
-> > +	// This has to come after we set PSTATE.SM
-> > +check_fpmr_in:
-> > +	tbz	x0, #HAVE_FPMR_SHIFT, wait_for_writes
-> > +	adrp	x7, fpmr_in
-> > +	ldr	x7, [x7, :lo12:fpmr_in]
-> > +	msr	FPMR, x7
 
-> Did this build for you? I may not have a new enough assembler.
+> Geert pointed out [1] that there are several invitations for using
+> strings "true" and "false" on boolean properties: [1], [2], [3].
 
-Yes, it even ran through tests.  I suspect it's picking up some
-(possibly stale generated?) header file which has the FPMR define in it.
+There's always bad examples...
 
-> fp-ptrace-asm.S:149:6: error: expected writable system register or pstate
->  msr FPMR, x7
+> Add support for a string value "false" to be considered false on boolean
+> properties by changing of_property_read_bool implementation.
 
-> I changed it to REG_FPMR locally.
+Any existing s/w will treat 'foo =3D "false"' as true. It's an ABI.
 
-Thanks.
-
---xLlvf2gTixCAyurB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmczWjYACgkQJNaLcl1U
-h9AK0wf/aSgAZAm9PsjG6AMul8uMPl9LX5dIhjhyUsdde7iFjz8U4B7TvxrqBZiR
-rr+rca1ee3yjWRcrQ1UsXuIbDkYhI/Ecg+sRVj/dwnVLRwS9/bbqqinOiqnZ/c91
-b+NXock5wFZqFH29iHs/mKXqWoc8uvYliS52YBTpYX1wyyQPPvYvxsftEEgMiS2r
-mSsqdwrmIbINgAXcXY1SnhJmfyhm4P1pkMpb1VP6z8hGO5dJclyJM8unkWCpPfvE
-JAHyzFbGC8HvKO2ULXiRHJa4H4SlCfg3Y3zvOF70aF8X1x/tw9KHFLDlGUh5eJAL
-APX15s2e7Jv2beg5d7DxA1wKcU6rng==
-=D64q
------END PGP SIGNATURE-----
-
---xLlvf2gTixCAyurB--
+Rob
 
