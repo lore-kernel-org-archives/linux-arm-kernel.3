@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF354D32D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C963FD32D9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAcE5oUgAJrkvApezWgjVL4hFwcbHu3FlJoU3lH0Xa8=; b=Afg+LtXl4dTk4n5H9g+U1geuTS
-	XvYx29Uqsmc0/gcSUrSdu2z+5ME/vMMa/1D/UcN1OTK7hImc2PoZWO5Cr4xHQHgpJj3tQDAA2W6rZ
-	G5yWIVWn3Os0fDHy4d6Ao1huwj+pjHQDBunURDm9egZLJkUq31LyCuzaO6vlo9GovDvUwIgeOJtD3
-	G8TNzPN3U41Ayr1kmhLeP7YH0agHAkqFGVMvTjE/Rpz5SCcKn1BGIT+XPzD6XxxYoNnUCnPiQvVmE
-	TO3rpqTe+S69Gd1tmV8Z0wFDcT56kT6bh15yicvezDX2sl6wF1+ETQpiiycg7zSB7egSN9npbm//p
-	4BIVab0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GeBVO2GdRfYXq00Svo2kHoFq/10dwtalChSI8IIjQwk=; b=yP3YRwgZbESsZlV/A3t4Xn0t3w
+	eXSl8RQPugTZmZCWkoQSeyrCu2YyqTx/Ikcw8zQIwxDroVbMdAbcolPMW0muToIDgbZAKmBvBKOaV
+	Ey7F8ZEP6bbGInVuBaC9mRZLZ6XeJh35d8xZ60PNxnYSXDMHEcjd31+Zt67aEV4owEHjKDIVMNLHH
+	pbmSVSSDHU1k3bH7NrtAhMOQV4ro2nbrIbU+axCvRLczBpJG/sncceMKjL3CU2gbDAxnpCEfxlJ60
+	0XukBMwFVPEamL+jSBAYV3XeamMcA0mhBFJZLgqbM3pgwkRk3QPz6gtz0wKbIdDmspzJBHUi0sCBx
+	OdCLWc+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqKN-00000003Rn8-0wOm;
-	Tue, 12 Nov 2024 12:49:03 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAqNk-00000003SUo-3Wnp;
+	Tue, 12 Nov 2024 12:52:33 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqHf-00000003RFN-1cOJ
+	id 1tAqLv-00000003SBS-3s4R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 12:46:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C07E6A41B4B;
-	Tue, 12 Nov 2024 12:44:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FFECC4CECD;
-	Tue, 12 Nov 2024 12:46:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731415573;
-	bh=nMAsToNIcVM8JoD6fxjSGbyscGJjSG2b6I49R2ndqy8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ck8YQQJVavF0HxwsvFfVoCb4+GhgMju3ccWHOYSso34WQ689bu3iMeMOcfxa1pHWR
-	 /MubC0TWmb/xSzcfnl61EjLghyo+YXana+m0D/HM8cd3bvXXb2vu/BDrd+oVsC+KHa
-	 jiXYA9H7yIXtvJsUesu760tX3deoUxoLGsEVR+L2g7n50CElVCjuuccxO9WLFmFJSs
-	 xrOY7e003xZ+gVeOOTEm1QChAmTa5jbz1UWaquiScIYYbTCtfnQh3owMTmhkOHgpAz
-	 Z6CYgzkEPXJfGTi9iFXsIFmraH5JKb4Sw71hkvr+gZ4EOCPgCiMln6Et0HsoaICOCP
-	 +uJj/KsZ/5FYQ==
-Date: Tue, 12 Nov 2024 13:46:07 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: frank-w@public-files.de, Andrew Lunn <andrew@lunn.ch>,
-	Frank Wunderlich <linux@fw-web.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>,
-	linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf conditional failed
-Message-ID: <ZzNOD_dpK0e4WFLL@ryzen>
-References: <20241109094623.37518-1-linux@fw-web.de>
- <20241109094623.37518-2-linux@fw-web.de>
- <e534c723-6d65-433f-8ab5-1c0d424d7367@lunn.ch>
- <9B1A5D20-3DE5-40C1-8B2D-B1C4F53FA5F4@public-files.de>
- <CAL_JsqJnOa_9Poz86vOWBCQigvv-Ab4Tt1hrwTxSa5zNraVxXQ@mail.gmail.com>
- <ZzNL4_dFxHfMmMcR@ryzen>
+	Tue, 12 Nov 2024 12:50:42 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2fb4fa17044so57429171fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 04:50:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1731415838; x=1732020638; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GeBVO2GdRfYXq00Svo2kHoFq/10dwtalChSI8IIjQwk=;
+        b=a9999fQGLbAYA1nKNWCHD0/lNwMgFZ0V6qzHHR97Y548drGGccMaCUL9+UQjs4fGpE
+         mES9sC5QPpwQ57Cg5/dR58+fgPgQhpIkTCRTiApaYMTJBF/48SBcsJhHDpDf+Pbl1GJy
+         JN/MbeZOqGSUExnrB8PAUyKh24JYmVjLwMyoO8dw99eLF3OA0JrgLx10/EMq0X2obTRz
+         014lG/PEBcAI/6WW0vzEu2AvCbwE8UsFg1bbWAoR1vO2bqKUFtTzWu8ImYR5m/CSUEDk
+         c9XglEzUS0OrxtxcUZOSms3Yr9y05hRXBHoaEMOJ3LUrvi+q3lRTdMPNoJoFuhRygENT
+         28CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731415838; x=1732020638;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GeBVO2GdRfYXq00Svo2kHoFq/10dwtalChSI8IIjQwk=;
+        b=AlRTFxFZKt4/A6+kovFXqPrBYguBw/URG3O453AG59DE6uv2DFVevdgdJ3rrCTh+Fv
+         pUnt2o1f5JZtj6Gu8/zxikVwaXx0WLIGYF6YYT2GY4HrY90gDGKZ/Op9oVn7rreEPEQb
+         YuURTntxKxvFsZbchgZVTmqUrSh5sALzKbgNpVGiRzfnNmH6dnBarpH9LpvZ2CeSQZIa
+         NJcJEZwhrar7tsZ5zGU0q+1tGOsXABGvevHRZKHY6Wh0UcpMzAsnfmnvNqcoUU/Pl0wb
+         yx5khQ8l5QlBDZ8jMDCSmBSR8A9Sfx/bZMCYoP1zUQYsY20EMOl9990JL3scHBawyOsc
+         YGfg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDq4K1JAIcdQA9i3lpo7D/TsxeYMV9s7vFVPXC8ygCMi7hz1VWjrsVfsjIf8kcjHVIojwWuZ0I4m7y4WCn3pv1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDvPqsmGx4Lbu4ugNgPIiLsAkgKwbB8002Mh5H6VIfKKtopxB6
+	8zWpi8VYqXDjyyBZso2jvfolENZvIKfHp45v3WBJjgnfi/DnqPKs2FZgeowPQOXR+gSJS5+765y
+	djnOH2u/I26IvzS4o/ErdXAHtPOCwUUPY7PoL5Q==
+X-Google-Smtp-Source: AGHT+IHO77pCoCjWkW3UGcaVkG+6FA9QyXrg8cZvhES5N7tCaKkkDgEAed2uIgWOEd1zU7CLBorSuTYdULgmPsy61b0=
+X-Received: by 2002:a05:651c:2109:b0:2fb:6110:c5cb with SMTP id
+ 38308e7fff4ca-2ff202ac51cmr71186881fa.34.1731415837857; Tue, 12 Nov 2024
+ 04:50:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ZzNL4_dFxHfMmMcR@ryzen>
+References: <20241112015408.3139996-1-ye.zhang@rock-chips.com>
+ <20241112015408.3139996-5-ye.zhang@rock-chips.com> <CAMRc=MfTmpLSEUVTXSu8jf9tyTfQc=iG9NpovFem-qSDOCnagQ@mail.gmail.com>
+ <ZzMwh2GMP-bE7aLO@smile.fi.intel.com>
+In-Reply-To: <ZzMwh2GMP-bE7aLO@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 12 Nov 2024 13:50:26 +0100
+Message-ID: <CAMRc=MePqsQatxNy7p5c3sE4z8RepjjLeFgpppKgEctCU3jAUw@mail.gmail.com>
+Subject: Re: [PATCH v5 4/4] gpio: rockchip: Set input direction when request irq
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Ye Zhang <ye.zhang@rock-chips.com>, linus.walleij@linaro.org, heiko@sntech.de, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	mika.westerberg@linux.intel.com, tao.huang@rock-chips.com, 
+	finley.xiao@rock-chips.com, tim.chen@rock-chips.com, 
+	elaine.zhang@rock-chips.com, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_044615_590759_870B3783 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20241112_045040_192420_A95759E4 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +97,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 01:36:51PM +0100, Niklas Cassel wrote:
-> On Mon, Nov 11, 2024 at 10:25:12AM -0600, Rob Herring wrote:
-> > > >
-> > > >I don't know the yaml too well, but it is not obvious how adding a few
-> > > >status = "disabled"; status = "okay"; fixes a "'anyOf' conditional failed".
-> > > >
-> > > >Maybe you can expand the explanation a bit?
-> > > >
-> > > >       Andrew
+On Tue, Nov 12, 2024 at 11:40=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Tue, Nov 12, 2024 at 09:48:06AM +0100, Bartosz Golaszewski wrote:
+> > On Tue, Nov 12, 2024 at 2:54=E2=80=AFAM Ye Zhang <ye.zhang@rock-chips.c=
+om> wrote:
 > > >
-> > > Hi angelo,
-> > >
-> > > I guess the dtbs_check only checks required properties from yaml if the node is enabled.
-> > 
-> > Yes, that is exactly how it works.
-> > 
-> > Rob
-> 
-> Hello Rob,
-> 
-> If we look at e.g. this binding:
-> Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
-> 
-> We can see that it does not define iommu-map in the binding,
-> likewise the binding does have:
-> unevaluatedProperties: false
-> 
-> 
-> If I apply my patch that adds iommu-map for e.g. the pcie2x1l0 node:
-> (the patch does not add anything to the binding above):
-> https://lore.kernel.org/linux-rockchip/20241107123732.1160063-2-cassel@kernel.org/
-> 
-> 
-> If look at the pcie2x1l0 node, it is marked as status = "disabled"
-> in arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> 
-> but is marked as status = "enabled"
-> in arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-> 
-> If I run CHECK_DTBS for this dts/dtb:
-> $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make CHECK_DTBS=y rockchip/rk3588-rock-5b.dtb
->   DTC [C] arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb
-> $ 
-> 
-> No warnings.
-> 
-> What am I missing?
-> 
-> Considering the warning in this series where the binding also
-> had unevaluatedProperties: false
-> I would have expected the same error for the pcie2x1l0 node.
-> 
-> (And if I look at most PCI controler bindings, they actually do define
-> iommu-map, so it seems a requirement for it to be defined if used.)
-> 
+> > > Since the GPIO can only generate interrupts when its direction is set=
+ to
+> > > input, it is set to input before requesting the interrupt resources.
+>
+> ...
+>
+> > This looks like a fix to me, do you want it sent for stable? If so,
+> > please add the Fixes tag and put it first in the series.
+>
+> Independently on the resolution on this, can the first three be applied t=
+o
+> for-next? I think they are valuable from the documentation perspective as
+> it adds the explanation of the version register bit fields.
+>
+> The last one seems to me independent (code wise, meaning no potential
+> conflicts) to the rest and may be applied to for-current later on.
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
-Or perhaps the question should have been, if iommu-map is an exception,
-why isn't iommus also an exception?
+There's another issue I see with this patch. It effectively changes
+the pin's direction behind the back of the GPIOLIB. If a GPIO is
+requested, its direction set to output and another orthogonal user
+requests the same pin as input, we'll never update the FLAG_IS_OUT
+value and I don't think any subsequent behavior can be considered
+defined.
 
+I applied the first 3 patches as they look alright.
 
-Kind regards,
-Niklas
+Bart
 
