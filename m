@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE9BD32D8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2AFD32D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=; b=keQ9hho+XYVgDI6VD56z2jipYj
-	YII4GCJyXcMbE8kXF9Xg1IvFKRN6nTR2sDWrYjdVjS4ebcjokWz7hpbnyP/DJS4IPRaYPGrENNrJ4
-	1797opdI/j9hRPyqQdMWAOSSh9TBB3b2xOZ3czBo2FKJdd4kzrI5NpRjyxbNAj6gaOIRc9hqsSg3R
-	6gTpv2OeVwYayaGA8qtZiilYniALzAQJrJKgOK7GdgBNksyea1ohig5oDlJIlQlqYcERASgo2dHuX
-	3aUzRtZ2SAoSx2OWjOtP/CDictQ5oEisXl1/gOEhKkwT4C0GdWlV2EbNNwICtvayHG8kMNgn0ZtKG
-	DAGYdgJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U1NpDWCmtCJKjjDe9qtdXdh1o50OglVlJ0jdBgteH/g=; b=OkR7RBtc4C2oFe+OV3F8rtr2ka
+	E20WuOtyzjz3IpMJAKp7Vm8c795b7NTHOO6UHaOByv9r+AN9OmL69Po94MY0IhEDeiVb3dXlKxSRq
+	IIlTmAGNloalNmFswJ20xHHW/pXkhJd5UZWZtvErWa/AIxImRMNVK8138eurIiGIWAmdWzJ7gXonu
+	xT7QAjIiyzzaeyPnZGdg2aHPF2fIiTjTV0Y6AvezRiShIO7Ha9FHmjMIlkG1RRAIEoYiATwpE84+F
+	ybc6frpn8DVf022kNRv1YjN8C+jdCvYP9O0zX+ogj57CDh8gMqFYakTSlrNvUXh3k4qScyRIXokAB
+	vVg0EdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAo62-000000032Qf-2xuy;
-	Tue, 12 Nov 2024 10:26:06 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tAo7p-000000032oC-1QYa;
+	Tue, 12 Nov 2024 10:27:57 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnwD-0000000304V-3Cmf
+	id 1tAnwr-000000030EJ-1eos
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:15:59 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-431695fa98bso42982345e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 02:15:57 -0800 (PST)
+	Tue, 12 Nov 2024 10:16:38 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539eb97f26aso5290355e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 02:16:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731406556; x=1732011356; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=;
-        b=faIDi+yidCJRq/z21+Sp58bTj7UPba/+MgC5gQDubdfCTzRer8DHdZ7x8s4Ux6KX6u
-         etAf8YHzQpEdlzmUVbouM7PZXaAp30Ozcu6xk4gF58G+1IUjHCh5ygbHMXGwg75nekBg
-         mGq2QnNnnABb48KW2bO3VcmYXgN1aGlY0xF2U7EqdkToHhRo4DiaOHIiNlBMT7mrwYjF
-         0TXPd+R/GDaLhltm90ZPakO2c9Zter4iFl2OnZ6pUeJZt5H0mLRLIWatNPNK+JlrRjRt
-         RKA7eiBujL8CpS/lPhJyO9tQDvzMVWNa/d12IyCrxqkGfB6+HWcb/7Hm83UK/jEo1WD+
-         Uuug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731406556; x=1732011356;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1731406595; x=1732011395; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=;
-        b=t6pRps1OxEQC49tpYEVfRqbTGjlfVJ6s42PlkyGzDRTRbG4IqOUSk8j3XzpNBhdOER
-         xWMKaNX8bSW28HzI8NV1rbZe2uwZ6Uw47XJ31a8N1pEDj3AwiGe5XMBq9WqHQKH0wedd
-         JU2srj2KbbzGUS5FDGmC1Ftm8u9Z7i+Ws+yWz5AkIORsKVw+Rjh+KoX0VQ5Vu3iJ9TFH
-         PmTZM1kyHh+B8Z/bDQ0yktd5aZyf6DDavdgYBjQtkj7sk7W0A69YlJBjix1863QffO2r
-         Kw3/uebxUpEVxLdiiXtZHq73LibR8opMqWAXWXLuNr22DXx2Pfcoz+f4MMLPLcP+hiz8
-         kAiw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqks2NP3t1k3mpCL4pUeqxo6Hgv/VEwQD5O0P1mkz2+k0UgMepLbWlk3Ky02aV6HEvZAJOohCj/FtLll59c+gB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxClR3/wyl9V25yXq80CGwPwYUPciKQeZuC8nH+z23WqK6IFUDv
-	Gdx4GthEHW+A7CS61N9dWMw3W98iyR5X991qLnVFpR3DRkspsGxLsLUDvrKi9ZM=
-X-Google-Smtp-Source: AGHT+IFUtKcOxI9iGKzatyRYf8XbPC5gcQcujb8cjUFmjs/ViAYZu4pW7ViB0cQLuE4H16EQLauy0w==
-X-Received: by 2002:a05:600c:3c8f:b0:431:4e25:fe42 with SMTP id 5b1f17b1804b1-432b751e28fmr122955855e9.32.1731406555816;
-        Tue, 12 Nov 2024 02:15:55 -0800 (PST)
-Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05305a4sm205703715e9.5.2024.11.12.02.15.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 02:15:55 -0800 (PST)
-Date: Tue, 12 Nov 2024 11:15:54 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Aren <aren@peacevolution.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Kaustabh Chakraborty <kauschluss@disroot.org>, =?utf-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, 
-	Ondrej Jirman <megi@xff.cz>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
-Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
- possible
-Message-ID: <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
-References: <20241102195037.3013934-3-aren@peacevolution.org>
- <20241102195037.3013934-11-aren@peacevolution.org>
- <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
- <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
- <ZzEPACoblmcQD9yu@surfacebook.localdomain>
- <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
- <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
+        bh=U1NpDWCmtCJKjjDe9qtdXdh1o50OglVlJ0jdBgteH/g=;
+        b=HyZvqKOPVS9TdADkaJtVpUkMLN1a61JAsaZwxdq3M+0/88ZL6WevwropA4/cJKXF19
+         wCHiGiOcmnreCYQU78KTI+8tkW/2SOG5CwHpmj6+P2zgyxpxQPn15uiHHDDg6eeK/zkd
+         H7Jc3hHAkUTxmlBefybJJsxZ0Cmb8Z5iSbC2w7xyRn26b8ftNGkb4eHjZhziRopHYk0Q
+         ElhIYJQc0TMUNbrkKvRJRkLMhXK1kma6KQa0t6B70MZU5xwy/wHG4s3u2doIZBneCje3
+         n66mQatrsplWzqUsBN1DqeE+gif9omcn99Fv6Lduq7oVgaaTbGr/tdqLZ9I5TsqLw9B/
+         U6mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731406595; x=1732011395;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U1NpDWCmtCJKjjDe9qtdXdh1o50OglVlJ0jdBgteH/g=;
+        b=BjS868qORVmg1CmmcaCu/9iwAZZ4QfTBmhOS3bJniM0RVKznSVW6j+SiPDoLGypAo9
+         3+UryrKTgInAd8wsWlrD+tTGA6I6z4RfgQkDDzdUcfHRmRJ2nvInsFQCbNaV5SG6k+jw
+         fxzMVNI8w52N6X6weFXUi0GmnvVVT7juicyC3nB400KOWizqj558HQULGCEE95Hxosoi
+         bUa81YmSrmYxxmWrXAvW0YY9weag5xIt6qsGEdd3mSyrZX1Vmf+o3ck/x3VoDrEwhwX3
+         2ZPrK6UJXpSpHkdlzhmVUjkZ7LnV3lpIYH8IqpQ3nIG2mKZhPvo529aHmNql6Do+x/h9
+         1xug==
+X-Gm-Message-State: AOJu0YwEffmNOCEqoxtO0o+XtcUb9sMinasuKUQYeYc12DUxC3NteF6B
+	jsuxquplsr52lbCImZVkXb5IynshqiwA1RB6yBFZY3pvGebfl9PrLOym1w==
+X-Google-Smtp-Source: AGHT+IFCRJw0z+cYNAZlQo0jd5oeC+GiBzCBWTfW2oMPVVvpXsQQqy70GxhwP1K9tFJQ5hPnnK6b6A==
+X-Received: by 2002:a05:6512:1195:b0:531:4c6d:b8ef with SMTP id 2adb3069b0e04-53d9a406fcbmr1101865e87.6.1731406594938;
+        Tue, 12 Nov 2024 02:16:34 -0800 (PST)
+Received: from foxbook (bff246.neoplus.adsl.tpnet.pl. [83.28.43.246])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826a9da8sm1808565e87.206.2024.11.12.02.16.32
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Tue, 12 Nov 2024 02:16:34 -0800 (PST)
+Date: Tue, 12 Nov 2024 11:16:29 +0100
+From: =?UTF-8?B?TWljaGHFgg==?= Pecio <michal.pecio@gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Linux kernel regressions list
+ <regressions@lists.linux.dev>, Kees Cook <kees@kernel.org>
+Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
+Message-ID: <20241112111629.18a6e464@foxbook>
+In-Reply-To: <20241112103229.566b1ff3@foxbook>
+References: <20241111233817.2f824c19@foxbook>
+	<CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
+	<20241112103229.566b1ff3@foxbook>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mx2qhhffnejmsbkn"
-Content-Disposition: inline
-In-Reply-To: <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_021557_845190_4187D616 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20241112_021637_468462_4575F3B3 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,89 +95,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Regarding test programs, I also wrote and tried this one yesterday.
+It's based on a similar demo released by ARM, but much simplified.
 
---mx2qhhffnejmsbkn
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
- possible
-MIME-Version: 1.0
+It both triggers the bug and confirms the necessity of cacheflush in
+JIT compilers on my CPU when it works normally (prints: 1, 1, 2).
 
-Hello Andy, hello Aren,
+On the buggy kernel, it usually segfaults on the first attempt to call
+*code, but sometimes both __clear_cache() appear to take effect despite
+the syscall returning EFAULT (according to strace), not sure why.
 
-On Mon, Nov 11, 2024 at 11:44:51AM +0200, Andy Shevchenko wrote:
-> On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote:
-> > On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote:
-> > > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
->=20
-> You can do it differently
->=20
-> #define STK3310_REGFIELD(name)							\
-> do {										\
-> 	data->reg_##name =3D							\
-> 		devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
-> 	if (IS_ERR(data->reg_##name))						\
-> 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-> 				     "reg field alloc failed.\n");		\
-> } while (0)
->=20
-> > #define STK3310_REGFIELD(name) ({						\
-> > 	data->reg_##name =3D devm_regmap_field_alloc(dev, regmap,			\
-> > 						   stk3310_reg_field_##name);   \
-> > 	if (IS_ERR(data->reg_##name))						\
-> > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
-> > 				     "reg field alloc failed\n");		\
-> > })
->=20
-> I am against unneeded use of GNU extensions.
->=20
-> > > > replacing "do { } while (0)" with "({ })" and deindenting could make
-> > > > enough room to clean this up the formatting of this macro though.
-> > >=20
-> > > do {} while (0) is C standard, ({}) is not.
-> >=20
-> > ({ }) is used throughout the kernel, and is documented as such[1]. I
-> > don't see a reason to avoid it, if it helps readability.
->=20
-> I don't see how it makes things better here, and not everybody is familia=
-r with
-> the concept even if it's used in the kernel here and there. Also if a too=
-l is
-> being used in one case it doesn't mean it's suitable for another.
 
-Just to throw in my subjective view here: I don't expect anyone with
-some base level knowledge of C will have doubts about the semantics of
-({ ... }) and compared to that I find do { ... } while (0) less optimal,
-because it's more verbose and when spotting the "do {" part, the
-semantic only gets clear when you also see the "while (0)". Having said
-that I also dislike the "do" starting on column 0, IMHO the RHS of the
-#define should be intended.
+#include <stdio.h>
+#include <string.h>
+#include <sys/mman.h>
 
-So if you ask me, this is not an unneeded use of an extension. The
-extension is used to improve readabilty and I blame the C standard to
-not support this syntax.
+int f1() {
+	return 1;
+}
 
-While I'm in critics mode: I consider hiding a return in a macro bad
-style.
+int f2() {
+	return 2;
+}
 
-Best regards
-Uwe
+int main() {
+	puts("start");
+	char *code = mmap(NULL, 0x1000, PROT_READ | PROT_WRITE | PROT_EXEC,
+			MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+	int x;
 
---mx2qhhffnejmsbkn
-Content-Type: application/pgp-signature; name="signature.asc"
+	memcpy(code, f1, 0x100);
+	__builtin___clear_cache(code, code + 0x100);
+	x = ((int(*)())code)();
+	printf("%x\n", x);
 
------BEGIN PGP SIGNATURE-----
+	memcpy(code, f2, 0x100);
+	x = ((int(*)())code)();
+	printf("%x\n", x);
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmczKtcACgkQj4D7WH0S
-/k5IrAf9Egz14wVYaV3DKBPJo8fgsKBghLX7gexCzWL4+0rkjfgtP8gSFaK8OnVY
-8howbIeCxwbCUSEZEtWJU36A5oaLI370Mb24KajDPQZyayedIXqF1UubYE3ZXcrA
-gwbGyho7TkbsUnrXbMhkp5lr7aU6O8JdIedrSqv7FnMxfkVUVkU6Hrai52+r3b3t
-k6uAvR1Yl+OD1XIq5FEeCW5tcoYEQ5rK6apeMXvdkPdg0o6ZKVjAt9vK9NVxPPpW
-2CdM15ron07ikOYiBDin1ZaD3x7FdzVh8z9RiizG5q5a6fPjh5SELLbBMHeGtnaZ
-5cCYi84a0NHhmndqIy6gZYPX4hhDXg==
-=b8YO
------END PGP SIGNATURE-----
-
---mx2qhhffnejmsbkn--
+	__builtin___clear_cache(code, code + 0x100);
+	x = ((int(*)())code)();
+	printf("%x\n", x);
+}
 
