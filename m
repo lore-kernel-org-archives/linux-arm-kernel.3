@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8F1D32D75
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC2DD32D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JQNvIKvzwZQGEHrsZ3sSnuvOwvNsdWPbA2dI8+nQ2E=; b=AyFKn5W4TI3NETUfKDyfRdZrv8
-	l/cF5JwdP5YcBXKYdZ3ADWH0GHOIAC4jj8QJ6auW7g1TPNRsKxmsqVLI9M+e2VodBNuNU6frl0h1v
-	zU+dSC1aHAu24ygzQM/he3AKIbT1EiJQwjkVHd7RBX4UhnUFLL5JNx7ZhCfK3dhTN66ydV7GjHlsq
-	5dHgMbpM550QhTDsvrbYQbpuT8WD2ewydpVaqFJNlaaCUirU6BqGwGZ0cXszXNDpIvV1OCft+1gRd
-	yzkIGSfujyojTXEUUxY1wybieP2DnsJytk16mi/akDgRtliG2WlTWzyQcNnmWdkE1m+dE4SVop4pY
-	xYg/fOUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6n5VLsmzOI24b1EomeQm8lyJvyRT1EcvMNhEebs92VU=; b=3zvRvXKi/QfBswmZf5HP5OYeHS
+	LDsJa748mjmG7JrCiGKU+mid3swRLEQVDzuKeiSu5Jy06qOatWYRBV+F5D0HU2TJLJuZTj9dYj6sg
+	AG0Rv3bORr04FVZXnTNqj4XwqDxTJl3UdujriqYT4xSfBpxdeR8Od9sKHTGFdzp311nVAMedUH1p2
+	5FHHXYcMfyVctM8VaOlDIgVfRaV8oEV7fKXQEnXDNN70vRnI25jDmAfLoWkBrJIDoYoV9kqzuHttg
+	M5JAIf8kJzZtBHAbgRHRtNxrlum5EmIzd156OqX/G3hPhkMWVsz+9Z1d5CWb4YNJZY1oBixzLOBW6
+	2D1Im95Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAoBM-000000033S6-06cq;
-	Tue, 12 Nov 2024 10:31:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnzn-0000000313c-2rd3
+	id 1tAoD6-000000033eE-2eVT;
+	Tue, 12 Nov 2024 10:33:24 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAo1k-000000031ZR-3SNz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:19:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B44C25E4;
-	Tue, 12 Nov 2024 02:20:08 -0800 (PST)
-Received: from [10.57.89.175] (unknown [10.57.89.175])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA9683F66E;
-	Tue, 12 Nov 2024 02:19:35 -0800 (PST)
-Message-ID: <5a041e51-a43b-4878-ab68-4757d3141889@arm.com>
-Date: Tue, 12 Nov 2024 10:19:34 +0000
+	Tue, 12 Nov 2024 10:21:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6n5VLsmzOI24b1EomeQm8lyJvyRT1EcvMNhEebs92VU=; b=ZAafexqzja2IjZ9GSPdA2i2FTf
+	nUrDGLcJ9FV/kI2tGwi7thm1sLcwju0czMRW5DxxTPwhHnl8X3QrvaOvVk6bmVz7nBDzUBiMUVwjA
+	8YF74hq0z+GSe1fylsQ8wo0wMCRDiAj+aipLXMcWBx1m3HhtSyp8CjXRitDLtGBg/laZOUuAtaCH4
+	gR6nG/dvsHxqu7SIqMI8SSyaUDM6T9AIqkuzSmxEgq2k52eJVk6XBADXn0190wdIeER5yaNk3lxrf
+	/Eyx66NhWNiLv6zDScfPSa44km6dMixVXA1iTdKUMDXvEW8ciYfsvTpCA2CbyswCEVdGCg9xpWFzF
+	9uRnBV5A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47234)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tAo1h-0003vR-2X;
+	Tue, 12 Nov 2024 10:21:38 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tAo1g-0007OW-2P;
+	Tue, 12 Nov 2024 10:21:36 +0000
+Date: Tue, 12 Nov 2024 10:21:36 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: =?utf-8?Q?Micha=C5=82?= Pecio <michal.pecio@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
+Message-ID: <ZzMsMFNSHLOKEeEW@shell.armlinux.org.uk>
+References: <20241111233817.2f824c19@foxbook>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
-Content-Language: en-GB
-To: Petr Tesarik <ptesarik@suse.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- David Hildenbrand <david@redhat.com>, Greg Marsden
- <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
- Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
- Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20241014105514.3206191-1-ryan.roberts@arm.com>
- <20241017142752.17f2c816@mordecai.tesarici.cz>
- <aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
- <20241111131442.51738a30@mordecai.tesarici.cz>
- <046ce0ae-b4d5-4dbd-ad9d-eb8de1bba1b8@arm.com>
- <20241112104544.574dd733@mordecai.tesarici.cz>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20241112104544.574dd733@mordecai.tesarici.cz>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241111233817.2f824c19@foxbook>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_021939_810313_51780396 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20241112_022140_883513_E692FFAA 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,56 +79,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2024 09:45, Petr Tesarik wrote:
-> On Mon, 11 Nov 2024 12:25:35 +0000
-> Ryan Roberts <ryan.roberts@arm.com> wrote:
-> 
->> Hi Petr,
->>
->> On 11/11/2024 12:14, Petr Tesarik wrote:
->>> Hi Ryan,
->>>
->>> On Thu, 17 Oct 2024 13:32:43 +0100
->>> Ryan Roberts <ryan.roberts@arm.com> wrote:
->> [...]
->>> Third, a few micro-benchmarks saw a significant regression.
->>>
->>> Most notably, getenv and getenvT2 tests from libMicro were 18% and 20%
->>> slower with variable page size. I don't know why, but I'm looking into
->>> it. The system() library call was also about 18% slower, but that might
->>> be related.  
->>
->> OK, ouch. I think there are some things we can try to optimize the
->> implementation further. But I'll wait for your analysis before digging myself.
-> 
-> This turned out to be a false positive. The way this microbenchmark was
-> invoked did not get enough samples, so it was mostly dependent on
-> whether caches were hot or cold, and the timing on this specific system
-> with the specific sequence of bencnmarks in the suite happens to favour
-> my baseline kernel.
-> 
-> After increasing the batch count, I'm getting pretty much the same
-> performance for 6.11 vanilla and patched kernels:
-> 
->                         prc thr   usecs/call      samples   errors cnt/samp 
-> getenv (baseline)         1   1      0.14975           99        0   100000 
-> getenv (patched)          1   1      0.14981           92        0   100000 
+On Mon, Nov 11, 2024 at 11:38:17PM +0100, Michał Pecio wrote:
+> Hi,
+> So I guess it looks like there is a problem with this feature, perhaps
+> a missing "permit user accesss" somewhere?
 
-Oh that's good news! Does this account for all 3 of the above tests (getenv,
-getenvT2 and system())?
+That's exactly the reason - user access needs to be enabled before
+calling flush_icache_user_range() so that the cache operation
+instructions don't fault. The patch below should fix this.
 
-> 
->> You probably also saw the conversation with Catalin about the cost vs benefit of
->> this series. Performance regressions will all need to be considered in the cost
->> column, of course. So understanding the root cause and trying to reduce the
->> regression as much as possible will increase chances of getting it accepted
->> upstream.
-> 
-> Yes. Now that the biggest number is off the table, I'm going to:
-> 
->  - look into the dup() slowdown
->  - verify whether VMA split/merge operations are indeed slower
-> 
-> Petr T
+Please ensure that you copy me with ARM related bugs in future.
 
+Thanks for finding the issue.
+
+8<===
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH] ARM: fix cacheflush with PAN
+
+It seems that the cacheflush syscall got broken when PAN was
+implemented. User access was not enabled around the cache maintenance
+instructions, causing them to fault.
+
+Fixes: a5e090acbf54 ("ARM: software-based priviledged-no-access support")
+Reported-by: From: Michał Pecio <michal.pecio@gmail.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ arch/arm/kernel/traps.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index 54dcdcde3f77..6518771c1496 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -574,6 +574,7 @@ static int bad_syscall(int n, struct pt_regs *regs)
+ static inline int
+ __do_cache_op(unsigned long start, unsigned long end)
+ {
++	unsigned int ua_flags;
+ 	int ret;
+ 
+ 	do {
+@@ -582,7 +583,9 @@ __do_cache_op(unsigned long start, unsigned long end)
+ 		if (fatal_signal_pending(current))
+ 			return 0;
+ 
++		ua_flags = uaccess_save_and_enable();
+ 		ret = flush_icache_user_range(start, start + chunk);
++		uaccess_restore(ua_flags);
+ 		if (ret)
+ 			return ret;
+ 
+-- 
+2.30.2
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
