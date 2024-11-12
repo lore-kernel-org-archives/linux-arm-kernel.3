@@ -4,151 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45958D41D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A301D41D6E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmPf68cjZwRL0FwE7sBU6MGkxvvpZe6rpRvpvLpGa+U=; b=XldYnMsawOhO+qUpEM9WxsiPIh
-	zL2S3JEoe8EIKiCPCBy47Cb8CBBjOltaJH1Cfvl6Niu/fTdq9evWb8j1ZtiOgxc4/tJ0DR1MiUlGt
-	B8HcEOFvmMJdTC5ZsAU09JCsMyVMglZND1cyOZVUQMvfQnkVeRtgtZgCLoXQHTJIWul5Ly1PzH4qS
-	JnZcIXbQP0RdWba6/I3jVAPbdpnUzsnmRMR0T8p1sbnA7G9yEu5EXct8n753taLJI2MgIhttM6eMu
-	ok8QsNqi76Rd6wpBgzxTWu/gY3UGvU9L5+0QufbvukxxNgNRPVTUjIUacSqFCjOf/whWpgdAeouTZ
-	Wkexiq7w==;
+	bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=; b=NnwOchPwLN3QzPfLldXjVJNyUW
+	AzU8xyjnCAu7A+Uj4R/xF1adFT5ZrmDRwCVkb6B1fIz3fEsCZtaH2SxBcvKbVXY5VUXFfQ3BWMDzC
+	2MHLOwxfH9pT6GFP9Td7/uUU0fFY3Rctih5XADbpnShWBFFjowRwI3VvGgzdCOGeYZLusx/xKPL/b
+	Bnruyks71LPEYjyJ+O+pBtbQlV6Xowa3DdmEmjIw3/fv5N/WlbhmJSFTTQp3Gkw2WJ7FogF/hSo2m
+	9NTSburydqw0rA7xRhGH4jnoZh0C77cSV6uHNclgutDFNLIpSDp1kAXQLlntEehRxM4zxZRUqe2e/
+	lBUMEF2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmZt-00000002hQa-1rMQ;
-	Tue, 12 Nov 2024 08:48:49 +0000
-Received: from mail-dbaeur03on20606.outbound.protection.outlook.com ([2a01:111:f403:260d::606] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tAmbe-00000002hlJ-2g5A;
+	Tue, 12 Nov 2024 08:50:38 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmQq-00000002fLP-20x2
+	id 1tAmSk-00000002fkc-1HIU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 08:39:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yagHUCMW/01ykmfpY1/w1IizJWlUwbcu48SCbtm7PQS4aU1XeUuAYIk2vNDR8ZWhPUo1dAvhUCoSKi9CRLLfPnCw1Ga1NfzfN9Wd6Cgw7s01/Odm9taZtuQbKZ3fsSXJHmZJsglcT5XCu3e19rXGWf+tw2bSNB7EChlN9UZ1LKyIm3f/JUuHwkSdpL85SPAU8ga1cm+H+Xj3iNxbxjUmBNVydq35yUkegsuw37rdTyH6JCYevkOO1/YFWJdDIWfE5NW1mwFMv0xGZ9iMhUksY8S6L3YcdLv01uqipK5lmTIczIZZR30HhdcYf1qUx9oWsu5U6eae5NIZHGHxNh2wrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZmPf68cjZwRL0FwE7sBU6MGkxvvpZe6rpRvpvLpGa+U=;
- b=gneZ3fgPaLdSOCCxVVWreKu342SvHH/0haajNLUjzphs/zm0c4lCLA82faajZ1peREgvyW0B4wYmvQQIVskOOYl7Nng14anih/YbpVGjZo5gLAty2M/2leCyOQs0BrGuSUpAyf20OJ0qtNQZlSELvEQ84qn1OklCSEk13ZHzS1rAUQHIzdczT18yXuqdoQMnGt80xCeYGnNpXeg3ZtwBCUlmPRxhh5uq+L3GaSZMuzlWb3KKG4QGAZxh8+cIso70WknPZiHAcIDkSsTxKnFdOKet4FgFBGErel7dy2a05Y9a2EENPDVQpaaZmxR1geAvtBaNGv+Yqa/ooNEbCGMJiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZmPf68cjZwRL0FwE7sBU6MGkxvvpZe6rpRvpvLpGa+U=;
- b=TdIFLg8rrnNvqgYKExHQHdKuq70p/Ica5QHyzYZTMvFdbufl51M4aTPOKpsfRE2+pCrDqL0HW2SN6C6xRR3//g7EVXPzZ6wbuOILP/gNNdC9HlP1CFhosjURSmSDYBdJIJ8AJ5ALqbxur/MDTU2V6pp+N0GfEXnk6qhczMLDRXPYggMzSZyP+3i/2/ioRdfTpD9p5SGiv12Bs7KOV5u+6HC67mwRUJwIRF/ucrfOODy89FiCXXb8obHuRcT8i18kSrBgZcM+EedBH4dnG0tUagSYmeVdmIeemA12rSEocC5PaIq5mq4Tz56NWtw2n2E+bG8sOnJx0ieOO8RRpFadjQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB6916.eurprd04.prod.outlook.com (2603:10a6:208:185::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Tue, 12 Nov
- 2024 08:39:22 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
- 08:39:22 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Marek Vasut <marex@denx.de>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>
-CC: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo
-	<shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH] clk: imx8mp: Fix clkout1/2 support
-Thread-Topic: [PATCH] clk: imx8mp: Fix clkout1/2 support
-Thread-Index: AQHbNKNxtuk+MPPDh0WQ86RisZplrrKzU15g
-Date: Tue, 12 Nov 2024 08:39:22 +0000
-Message-ID: <PAXPR04MB8459329A30FC92B7C03BED6888592@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20241112013718.333771-1-marex@denx.de>
-In-Reply-To: <20241112013718.333771-1-marex@denx.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM0PR04MB6916:EE_
-x-ms-office365-filtering-correlation-id: e1bec1a8-70ea-4bf0-4068-08dd02f581fc
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?+3C5HBBLHD6KhsBCUe4YmCfij2CsYtQGdjlfg3XDtGdVQazwiX9RbW835gvZ?=
- =?us-ascii?Q?8r/HEM5O7Lbs6YN5sDZCMuPEbVNSEswGQH/rT/CbT4YgH6fjgtMOHw3o5xC2?=
- =?us-ascii?Q?ShwwuWGoxw3MlSmcajF6ZiZBmMLXrblclDlqW329SSOS8BvKshsrwfgPhGXG?=
- =?us-ascii?Q?mOkNrOK/w2AhsaJQBTRmtHVLJq7+d01Ya53Z53kDBH8TKvsl3fxOMt/lsoEO?=
- =?us-ascii?Q?p4oy4geTL9dYrbwGBMZrcUi+QrCgqm3CoS/xeGsY4/7ny7RGUoU8SJAJygTf?=
- =?us-ascii?Q?iU0RJTsgXR47C+uk6OTp9r6x8er1v3K0TK3TwtevwoxQrN5ic+EE/6CkCBJE?=
- =?us-ascii?Q?mMHNPwvxcavAGtsRu162MhATco0PHnhFZYEliIn47z5B+76TCVzTUCOsqWn1?=
- =?us-ascii?Q?z5pNcdctSp7UyCQmD+DvuYGmDJE81V0lvWi20YEh2ZPVSl8gVwQlvWP4kRVI?=
- =?us-ascii?Q?Pte6s50ywYgO6YOe/EsqeLWw4QRW7hG5yodpMgapMyO/7FYRFwYFP2eCclQQ?=
- =?us-ascii?Q?s7Pl5xv0V2+YSQLjFkKVd8eH/U1eXljPRXxd5ihYlbv63vJWWUPWX4BN1Osa?=
- =?us-ascii?Q?sSObx0GUtC1NWY9//hfo6QKg4IBfmOJOI+PLHvO5GHvDe3SO1gRpD0U6ybay?=
- =?us-ascii?Q?VpTcylIqf5WP9wT6G6xbRUjyNtzHokQW7NdgAd/3KUFT4zAYhh/PQtEmq6Dp?=
- =?us-ascii?Q?gBX/SL23eIZuKMQrCsLPWmLVnOIF4vxhBIxKOd1G7N9vYYy1uE/oLpYmx031?=
- =?us-ascii?Q?++RBSRjn7FRXmQf5FR1QxuHHmy7KQ8/Y0T/9HjLM6L4+/KOTs2xZQhZvnyPJ?=
- =?us-ascii?Q?H0BGyIIblHfDEWTV3Xv/yYHWFa9asTeaorKv5uBKyvLVP4NW0/jdep758SKd?=
- =?us-ascii?Q?7fdNvZ/z344Q0iWxvE+Uf2p8/q2bCs2LSN8CEBCOtZuwEIxvxqxJNvMdY549?=
- =?us-ascii?Q?SKGvMV0mgvwrUSxIVVA5pbUtkYyv/MjpJbVwc7+byOrW4DVIfHEnLdOJKodM?=
- =?us-ascii?Q?ld+JFLbmOin3FbBs6+hsZ+tOotZ1bsxpXDX2g41lhuExZMLgxVRZDBWjgkuU?=
- =?us-ascii?Q?cUB3ZRRYFFDQBEaDM9uwT5P2LOlWLJYKcf1GEyNlP8hiQBIFZwPmItL3Qs6Q?=
- =?us-ascii?Q?iCnfKxE7WsbGvaxi+PzFYZL/SY3oO0ckPRq1eVHcE4UgYc1TayM9QVhc66oe?=
- =?us-ascii?Q?v5n7JJNopXeWNCNurcBYaa/MJefJeeAcZWU47Z0Ms8qO80YPD2N+YEY4akla?=
- =?us-ascii?Q?9lxnzc/DhVGtWxjGekp64GVzUa69AnYs0SYbT1IFwCX/ib0h6uMeLlr+vKf9?=
- =?us-ascii?Q?accED1ExVgZmGJuGTTUB8+dIdyH4Kf5YoPgY/47tz5p1krHBMYlUy3SNTar3?=
- =?us-ascii?Q?lQfw/tU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QW4kY6LjFCgsJfZqO9szs5fB6VLVjEAXYuqV/P2Yuw/GIDU6ZJXj3uYKUgwz?=
- =?us-ascii?Q?DFk1jndz5hpLNW+sfpQAlYlEf4KcNWcfo5SdrzpnR9r9QqoXMa3VFcC87qQX?=
- =?us-ascii?Q?+yGyckra/C0sILCbV1y5Iexr3AE4Oyj3kaGPBLYaVl9IoGUXtmNv8Twwl8mn?=
- =?us-ascii?Q?OMq5ItJTDYQiZcKsESJnQtp2925sFpNTtycsABZ/eaoTqlJrPItKVV9Qpudu?=
- =?us-ascii?Q?98lGxLLfTsrc4VgudJ7Jr/I6Acr972Xy0Pafb6utsUVSBbWlqBqLN0jKA77z?=
- =?us-ascii?Q?dsnUhvRNpWwU4RHCFL70JV2FXwUXyNU9XYp7BrhBCcw4HHNj+hAY1kJ8kQTK?=
- =?us-ascii?Q?iIU4lnp0AiOSY5ZtrSif1BLgtLmYSMhttQGFK6dkbeEkEW5g9tSTjF2Rt/F/?=
- =?us-ascii?Q?auJXCABiBCD0g6P3FfqWfGm9Of773Q1ndJk56QFvXLMY88HwUZoL7gnwSSwi?=
- =?us-ascii?Q?5hOlV8Fvkaa/H9qlcC3VxkZ9PYO6e9vje1wMtjl+kaZaFp138Mm5Q7xSA/FT?=
- =?us-ascii?Q?L4070iIAWIhFjnbHgIEwtOAbKMsyB1wkJbp6m2NfxkaSdn/TL8+dKt1D4oTT?=
- =?us-ascii?Q?CgPQAPGDFmgQvCEhUvR0HCaTgYrJWo1/iiKFoze6yAzLVh6zvWwjHvHgHcz4?=
- =?us-ascii?Q?WZADnOHZU6tbXDOXtDrCNT/Rk5LdAksJEhcfLBGLe9m6vtqqqVjsvyENygLV?=
- =?us-ascii?Q?etN2CpUsh3JCVwBPF8CTUGF1uXVvDyKo3nHvmi3O/c0XilM0+Oklq0nneQ9g?=
- =?us-ascii?Q?JJQNsFeA8FrzqsAW/tFAziwVxq3+o/7XHSza2jQc9J7dftretCtvqF7xLubT?=
- =?us-ascii?Q?2uTQPbngj5GSxyyiETS2IgIbPwWwzy+fCuZqeafTEsXPj/9JT3B5TL/klg5R?=
- =?us-ascii?Q?bmvet69OZcroM8TEpgp0pbZ4e8QJOQ8Rt9knMQHT+Ci667/TWp2BVUf5ZVGc?=
- =?us-ascii?Q?GgLVrvJU5AwyCwnJ0RiMvWFmfRwzdKj7pFiwi/etT13is045tBEp9yRjPc5P?=
- =?us-ascii?Q?8mdo7SfFI60qEOPwU2mZ4XUeTKMnLWgoQLOeV8KpdRgrV8zih3JIMeCuTxQ3?=
- =?us-ascii?Q?FG/jrTcJLGoG/mnktOhmbl5nc9g+BgAFzuSWxqSK6JRPFrJ6U0RGFYCFgnPL?=
- =?us-ascii?Q?iFm3jl8gy4p3QDs79JIcjdz+I2wC+knyxnnO6mXpmtHgg9IUCUi5Wn6fX19Q?=
- =?us-ascii?Q?KcXwP/Jh6lxb6FrbAaKaO6ijpDSaJIyF2BF/9AWciAe3CvF6hchZqehbudfA?=
- =?us-ascii?Q?LutnHpyRS5ZQwLxU/mcsZ7QEeJl/TqpvBF3qlKtN42KuLANk6rwIc/E/FnI3?=
- =?us-ascii?Q?QCyzeJcoQhbXIT6uQ/M03jCm1axDtObtuS3vw0z7cK6oKSIfZzl3Iyz5cgs2?=
- =?us-ascii?Q?RUavL1HFO2D76QhXiCC6LmlnNREQk+2lkJk4BpljzuGLRYCz2yQEeWJCp8O7?=
- =?us-ascii?Q?dpzU3GQzszWadRHflqhk1SaHkvAl5x9CAffwHcDUWIXdRJHAEdS/JaguF5LW?=
- =?us-ascii?Q?8xCN1TX8wnC+x0+R74wkBdSb0n2qlacOaTj4bwMhl+iZXFA8bjOLGhyJeSt3?=
- =?us-ascii?Q?J+vBE1pSoLQDYPkzyBI=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 12 Nov 2024 08:41:29 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-381ee2e10dfso3104804f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:41:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731400884; x=1732005684; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=;
+        b=ZBWJzbdGDF/gHGRf/fMNZqc8sG+FzkNGZxmc09kMuCCR67EAt1MZ+Mucxt8oAvoAT8
+         FoUXcyzhP2NUH+ORIgCbx5p9SKZwUn4cCmnABjrszBrChZFo/J6OsMN6QWgy2N9kJEMR
+         nmo9zMRIFbf/qkWLSh014qA54rr+Se44kgvkJOEwhTbXsXJnGL/3QcEgZUQNYEXJYUua
+         xNsHZ2dSmY5GfMJ5XnTt4PBW2mMBlGeH9du9Dw4IJHtrp6AaMNCTSWNvnmxewtEoIBTz
+         jebrgrl/dFEnNVBu/Is4dN2G7fnCNuvGCqsXxzHayGkn+RkV0FkKdTVStvtxlkWBFCbT
+         +LTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731400884; x=1732005684;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=;
+        b=w2UD6WbJZM4m8uKfUyT5c/8sWSgmxuwOY31wziVc8ZMENAssyZAhTzI6Mee9uZ4E8N
+         yuqi005bucwwQyba23gOpHcmSHd/wPWnRg9XXusf8MdSkyvGR3nnT6ALYzySAUPBFN++
+         vXlaM0oIaromVm5YN5HvjL3hEmBaoays6OJJYdkXlnMHrfyVLs45efwplO2LaYLlbEW+
+         MRhiZyEtPxlki69jGrqh7qz9bxNh+C4M66xpG/NWfXoKyRpAgjT2srOoqO0WqXzw6sgR
+         CHbgSdWtSpSwnejAaIEu9yfCi21imr5X+FhcAgdHWJvYmw/GxU3KJC6kY1bdw1xvcknN
+         mAUg==
+X-Forwarded-Encrypted: i=1; AJvYcCXU4gsuY+lC67jUYHYMdPjCJeuqoaIbCeMLv06szc+s/Ju4cT3iHjN1JNDuPQopSeAz3hGnMadPOvfSaMfqX9vd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0No2qGJzrR7OzbJ0wu37+/2cAjBU3o4NA2me4RCjAyVFr4MG4
+	1xmkUmtA4tQNCBTrr9p6YlGoEPrno5fmsKRHzrfTfLhyKRco4dKre4IF1MM0fXU=
+X-Google-Smtp-Source: AGHT+IGUE8SBMbLKPxMonN/2CkAeXqXMHELhWYBo6IiWeJEKGp9mNtG5Y4mRS+LvxuwyDgdxXSaWxQ==
+X-Received: by 2002:a05:6000:2aa:b0:381:eba9:fa75 with SMTP id ffacd0b85a97d-381f1866fc7mr12542783f8f.20.1731400884519;
+        Tue, 12 Nov 2024 00:41:24 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:50f9:1df6:c2b9:a468])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed9f8827sm15169457f8f.72.2024.11.12.00.41.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 00:41:24 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
+ Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] clk: Fix the CLK_IGNORE_UNUSED failure issue
+In-Reply-To: <20241111-fix_glitch_free-v2-1-0099fd9ad3e5@amlogic.com> (Chuan
+	Liu via's message of "Mon, 11 Nov 2024 11:37:01 +0800")
+References: <20241111-fix_glitch_free-v2-0-0099fd9ad3e5@amlogic.com>
+	<20241111-fix_glitch_free-v2-1-0099fd9ad3e5@amlogic.com>
+Date: Tue, 12 Nov 2024 09:41:23 +0100
+Message-ID: <1jv7ws26a4.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1bec1a8-70ea-4bf0-4068-08dd02f581fc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2024 08:39:22.7321
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Q5zEwnr5IAwjJA15TzFp5OZRWBaMX+Oocoq6wznVrmST6XYtArAJiwfCyztS2L+14/13SNqk8sa4sMkM8SML2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6916
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_003928_598894_5424893D 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20241112_004126_466532_325CE0F0 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,19 +95,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH] clk: imx8mp: Fix clkout1/2 support
->=20
-> The CLKOUTn may be fed from PLL1/2/3, but the PLL1/2/3 has to be
-> enabled first by setting PLL_CLKE bit 11 in
-> CCM_ANALOG_SYS_PLLn_GEN_CTRL register.
-> The CCM_ANALOG_SYS_PLLn_GEN_CTRL bit 11 is modeled by plln_out
-> clock. Fix the clock tree and place the clkout1/2 under plln_sel instead
-> of plain plln to let the clock subsystem correctly control the bit 11 and
-> enable the PLL in case the CLKOUTn is supplied by PLL1/2/3.
->=20
-> Fixes: 43896f56b59e ("clk: imx8mp: add clkout1/2 support")
-> Signed-off-by: Marek Vasut <marex@denx.de>
-> ---
+On Mon 11 Nov 2024 at 11:37, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> From: Chuan Liu <chuan.liu@amlogic.com>
+>
+> When the clk_disable_unused_subtree() function disables an unused clock,
+> if CLK_OPS_PARENT_ENABLE is configured on the clock,
+> clk_core_prepare_enable() and clk_core_disable_unprepare() are called
+> directly, and these two functions do not determine CLK_IGNORE_UNUSED,
+> This causes the clock to be disabled even if CLK_IGNORE_UNUSED is
+> configured when clk_core_disable_unprepare() is called.
+>
+> Two new functions clk_disable_unprepare_unused() and
+> clk_prepare_enable_unused() are added to resolve the preceding
+> situation. The CLK_IGNORE_UNUSED judgment logic is added to these two
+> functions. To prevent clock configuration CLK_IGNORE_UNUSED from
+> possible failure.
+>
+> Fixes: a4b3518d146f ("clk: core: support clocks which requires parents
+> enable (part 1)")
+
+Still don't think a storing the ignored state is necessary, same as v1.
+
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> ---
+>  drivers/clk/clk.c | 67 +++++++++++++++++++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 65 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index d02451f951cf..6def76c30ce6 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -94,6 +94,7 @@ struct clk_core {
+>  	struct hlist_node	debug_node;
+>  #endif
+>  	struct kref		ref;
+> +	bool			ignore_enabled;
+>  };
+>  
+>  #define CREATE_TRACE_POINTS
+> @@ -1479,6 +1480,68 @@ static void __init clk_unprepare_unused_subtree(struct clk_core *core)
+>  	}
+>  }
+>  
+> +static void __init clk_disable_unprepare_unused(struct clk_core *core)
+> +{
+> +	unsigned long flags;
+> +
+> +	lockdep_assert_held(&prepare_lock);
+> +
+> +	if (!core)
+> +		return;
+> +
+> +	if ((core->enable_count == 0) && core->ops->disable &&
+> +	    !core->ignore_enabled) {
+> +		flags = clk_enable_lock();
+> +		core->ops->disable(core->hw);
+> +		clk_enable_unlock(flags);
+> +	}
+> +
+> +	if ((core->prepare_count == 0) && core->ops->unprepare &&
+> +	    !core->ignore_enabled)
+> +		core->ops->unprepare(core->hw);
+> +
+> +	core->ignore_enabled = false;
+> +
+> +	clk_disable_unprepare_unused(core->parent);
+> +}
+> +
+> +static int __init clk_prepare_enable_unused(struct clk_core *core)
+> +{
+> +	int ret = 0;
+> +	unsigned long flags;
+> +
+> +	lockdep_assert_held(&prepare_lock);
+> +
+> +	if (!core)
+> +		return 0;
+> +
+> +	ret = clk_prepare_enable_unused(core->parent);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if ((core->flags & CLK_IGNORE_UNUSED) && clk_core_is_enabled(core))
+> +		core->ignore_enabled = true;
+> +
+> +	if ((core->prepare_count == 0) && core->ops->prepare) {
+> +		ret = core->ops->prepare(core->hw);
+> +		if (ret)
+> +			goto disable_unprepare;
+> +	}
+> +
+> +	if ((core->enable_count == 0) && core->ops->enable) {
+> +		flags = clk_enable_lock();
+> +		ret = core->ops->enable(core->hw);
+> +		clk_enable_unlock(flags);
+> +		if (ret)
+> +			goto disable_unprepare;
+> +	}
+> +
+> +	return 0;
+> +disable_unprepare:
+> +	clk_disable_unprepare_unused(core->parent);
+> +	return ret;
+> +}
+> +
+>  static void __init clk_disable_unused_subtree(struct clk_core *core)
+>  {
+>  	struct clk_core *child;
+> @@ -1490,7 +1553,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
+>  		clk_disable_unused_subtree(child);
+>  
+>  	if (core->flags & CLK_OPS_PARENT_ENABLE)
+> -		clk_core_prepare_enable(core->parent);
+> +		clk_prepare_enable_unused(core->parent);
+>  
+>  	flags = clk_enable_lock();
+>  
+> @@ -1517,7 +1580,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
+>  unlock_out:
+>  	clk_enable_unlock(flags);
+>  	if (core->flags & CLK_OPS_PARENT_ENABLE)
+> -		clk_core_disable_unprepare(core->parent);
+> +		clk_disable_unprepare_unused(core->parent);
+>  }
+>  
+>  static bool clk_ignore_unused __initdata;
+
+-- 
+Jerome
 
