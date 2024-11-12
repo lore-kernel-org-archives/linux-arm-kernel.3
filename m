@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CEED597B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 23:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AC4D597B7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 23:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4I0/umEkHMESvC3qIgXCsO3xJ243mX0eXN3WO9pKnZc=; b=pnWFTZtOo3zDEkENErUObY7iDX
-	v1KiyuegZe8xUp7IcKG0APHh23Li6fCdZrBSXntm3FqZOcpAPESjX4MbnGn/1v7EtuwUgeiKERp08
-	nRD1rwjpJJ1inw/KZdUS8ErPMxngG5pOqfxPwdb2lFn4kcX9DXPN/XhUBQZ9Q5WbglgzXep1gDfQH
-	E7xb3bEk5AVLThbPq1XQyhMljMNdgbjPgBeDFD2wbyk46ux1+cnsaYurmi1+CHb/6L20EsQJIfU80
-	8fC0UbZuZutncn6DZjpARtz48GF6oB3JsG1PAJ1Nod0Quj8qZZN+ZWImngnoe53XJ85KomNCu2Trk
-	v+f6B60A==;
+	bh=GM+Qq0NLS8qp404vTsp4172kiQG6SvHt3ggmFCSEXkA=; b=00WpxqwnvusRgImH2Xs7y6F9Aw
+	kSSnOVPclpZm3VppNOPZF6Gmfa2nKQ+j/CXOn7g2Kh1WV7D2khTRKfgAPkb6+BVoiQqf17C9YbS7c
+	mVF0IjKkHJKs0vrmhBc0bT/ttecW7gs+DMKRBEKvdjje1xYSnmvBayXz4v46qzFEtYuAFrz9Flumf
+	J7bROF3PNVNEMJj09/fvuBpivFyKIclxBgtVQ+CpKtZjexgtTSeaQVE4+kF0Y48zJQFRQSqJ8z5hp
+	7El8D6Z/0oYUDsRb3XYD4zn+1CzM1hDkbEjCD9Musyc3k5Dma9HVgvuMpdIciulivPO9UormPpCQl
+	XgcYEMAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB099-00000005GFv-2lMM;
-	Tue, 12 Nov 2024 23:18:07 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tB0Au-00000005GUx-3Tel;
+	Tue, 12 Nov 2024 23:19:56 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB03U-00000005FLP-2rYl;
-	Tue, 12 Nov 2024 23:12:18 +0000
+	id 1tB05S-00000005FkJ-0JkZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 23:14:19 +0000
+Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id B6B3588DDA;
+	Wed, 13 Nov 2024 00:14:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1731453256;
+	bh=GM+Qq0NLS8qp404vTsp4172kiQG6SvHt3ggmFCSEXkA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QZMvF45l8rxPgQgwVrybJsI6dbNYgMVLtClcyFvNBdTrOeaA2fPIsWvvRaQukexlX
+	 swQP+gOI8yTJqxtYyusJXo1YKHl1VBwuOs3sirl1CXbKrf6rZ12StuTyiIeFUi94xw
+	 Owa4o7RGI+HmjN2wIUMrMFIskf2D3eGEQwR0Pe7EQiZSkTeIE+P0yxuyZ70Z2nEjCf
+	 GN6sd3TTGsX7fCnYVR0if4mRRvCG0OpBdAzJg2x/z66OpOZeUifqJZxputmunzuevy
+	 4iUPtEPhW7Ln1UX8a8q7zeKJYDvMZ49P3D/f+vuAhVPudAfa3KpLVSxZARfx31CQmO
+	 cvFfb26zNvfew==
+Message-ID: <79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
+Date: Wed, 13 Nov 2024 00:14:15 +0100
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1731453133;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4I0/umEkHMESvC3qIgXCsO3xJ243mX0eXN3WO9pKnZc=;
-	b=xnSYJeBmZn9GNFWJYuF0tjise9MfXrpkwsPLs3TvfQ+DjC2NUcrnHmAtRassDigPEKc8Ff
-	p6ZGBtEAevz/3s2Hr8xzgFKODfT6Zhs1ya4NtpwjWffpqQmZeHeUS3n4pe3UbdqIm/E/Hu
-	UWuY+KdW0Z7ANcddxsnWQRzHA8ByEYwmb9grAkkJO4Z6W+3OQCF4ypt7/cjRd1q6N4FjV2
-	0Kl3NinqNQI7eHwEyMMCffZPgYi0ELRHwfs31s3Py5ArrKQxTEm82vEd9jr5YCPxV3wjvU
-	34UuIlxNGIYuEYsHPXn2wvtsaVK0gmo+aN4FK+n4ACfXMchLM911P3F4fX/qlg==
-Date: Wed, 13 Nov 2024 00:12:12 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdd_gpu voltage constraints on
- PinePhone Pro
-In-Reply-To: <33f8430e-0adc-4060-afb5-2cc5c79c8dec@arm.com>
-References: <0718feb8e95344a0b615f61e6d909f6e105e3bf9.1731264205.git.dsimic@manjaro.org>
- <607a731c-41e9-497a-a08c-f718339610ae@arm.com>
- <fdf58f3e9fcb4c672a4bb114fbdab60d@manjaro.org>
- <33f8430e-0adc-4060-afb5-2cc5c79c8dec@arm.com>
-Message-ID: <4ba2d58cf1da5b90930b630ba0978e2c@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
+ reconfigure parent rate
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-clk@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+ "Lukas F . Hartmann" <lukas@mntmn.com>,
+ Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20240531202648.277078-1-marex@denx.de>
+ <20241112234206.558d5d5e@booty>
+Content-Language: en-US
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <20241112234206.558d5d5e@booty>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_151217_052471_7EDAF7AD 
-X-CRM114-Status: GOOD (  35.37  )
+X-CRM114-CacheID: sfid-20241112_151418_290302_D65C5099 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,161 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Robin,
+On 11/12/24 11:42 PM, Luca Ceresoli wrote:
+> Hello Marek, Abel,
 
-On 2024-11-12 19:51, Robin Murphy wrote:
-> On 12/11/2024 2:36 pm, Dragan Simic wrote:
->> On 2024-11-12 15:19, Robin Murphy wrote:
->>> On 10/11/2024 6:44 pm, Dragan Simic wrote:
->>>> The regulator-{min,max}-microvolt values for the vdd_gpu regulator 
->>>> in the
->>>> PinePhone Pro device dts file are too restrictive, which prevents 
->>>> the highest
->>>> GPU OPP from being used, slowing the GPU down unnecessarily.  Let's 
->>>> fix that
->>>> by making the regulator-{min,max}-microvolt values less strict, 
->>>> using the
->>>> voltage range that the Silergy SYR838 chip used for the vdd_gpu 
->>>> regulator is
->>>> actually capable of producing. [1][2]
->>> 
->>> Specifying the absolute limits which the regulator driver necessarily
->>> already knows doesn't seem particularly useful... Moreover, the 
->>> RK3399
->>> datasheet specifies the operating range for GPU_VDD as 0.80-1.20V, so
->>> at the very least, allowing the regulator to go outside that range
->>> seems inadvisable.
->> 
->> Indeed, which is why I already mentioned in the patch description
->> that I do plan to update the constraints of all regulators to match
->> the summary of the constraints of their consumers.  Though, I plan
->> to do that later, as a separate directory-wide cleanup, for which
->> I must find and allocate a substantial amount of time, to make sure
->> there will be no mistakes.
+Hi,
+
+> +Cc: Miquèl
 > 
-> Sure, but even if every other DT needs fixing, that still doesn't make
-> it a good idea to deliberately introduce the same mistake to *this* DT
-> and thus create even more work to fix it again. There's no value in
-> being consistently wrong over inconsistently wrong - if there's
-> justification for changing this DT at all, change it to be right.
-
-After thinking a bit more about it, I agree.  At least, setting the
-voltage regulator constraints according to the constraints of its
-consumer(s) in one place sets an example for what's to be done in
-the future for the other voltage regulators.
-
->>> However there's a separate datasheet for the
->>> RK3399-T variant, which does specify this 875-975mV range and a
->>> maximum GPU clock of 600MHz, along with the same 1.5GHz max.
->>> Cortex-A72 clock as advertised for RK3399S, so it seems quite 
->>> possible
->>> that these GPU constraints here are in fact intentional as well.
->>> Obviously users are free to overclock and overvolt if they wish - I 
->>> do
->>> for my actively-cooled RK3399 board :) - but it's a different matter
->>> for mainline to force it upon them.
->> 
->> Well, maybe the RK3399S is the same in that regard as the RK3399-T,
->> but maybe it actually isn't -- unfortunately, we don't have some
->> official RK3399S datasheet that would provide us with the required
->> information.  As another, somewhat unrelated example, we don't have
->> some official documentation to tell us is the RK3399S supposed not
->> to have working PCI Express interface, which officially isn't present
->> in the RK3399-T variant.
+> On Fri, 31 May 2024 22:26:26 +0200
+> Marek Vasut <marex@denx.de> wrote:
 > 
-> Looking back at the original submission, v2 *was* proposing the
-> RK3399-T OPPs, with the GPU capped at 600MHz, and it was said that
-> those are what PPP *should* be using[*]. It seems there was a semantic
-> objection to having a separate rk3399-t-opp.dtsi at the time, and when
-> the main DTS was reworked for v3 the 800MHz GPU OPP seems to have been
-> overlooked. However, since rk3399-t.dtsi does now exist anyway, it
-> would seem more logical to just use that instead of including
-> rk3399.dtsi and then overriding it to be pretty much equivalent to the
-> T variant anyway.
+>> The media_disp[12]_pix clock supply LCDIFv3 pixel clock output. These
+>> clocks are usually the only downstream clock from Video PLL on i.MX8MP.
+>> Allow these clocks to reconfigure the Video PLL, as that results in
+>> accurate pixel clock. If the Video PLL is not reconfigured, the pixel
+>> clock accuracy is low.
+>>
+>> Signed-off-by: Marek Vasut <marex@denx.de>
+> 
+> I'm afraid I just found this patch broke my previously working setup
+> with a panel connected on the LDB.
+Do you need a fix similar to this one?
 
-Ah, I see, thanks for pointing this out.  With this in mind, I think
-that the RK3399S is actually just the RK3399-T binned specifically
-for lower leakage values and, as a result, lower power consumption.
-I've already assumed so, but this reaffirms it.
-
-Actually, there's now also the rk3399-s.dtsi, [**] in which I just
-spotted a rather small, non-critical mistake that I made, for which
-I'll send a separate patch later.
-
-Anyway, the rk3399-t.dtsi, originally known as rk3399-t-opp.dtsi and
-added in the commit 9176ba910ba0 (arm64: dts: rockchip: Add RK3399-T
-OPP table, 2022-09-02) specifies a bit higher voltages for the OPPs
-than those found in the rk3399-s.dtsi, which fits well together with
-the above-described assumption that the RK3399S is actually just the
-RK3399-T specifically binned for lower leakage values...
-
-... which also means that the RK3399S's GPU is supposed to run at
-the GPU OPPs _below_ 800 MHz, just like the RK3399-T, but at slightly
-lower voltages specified in the rk3399-s.dtsi.
-
-Let me dig out that Rockchip Android dtb for the PinePhone Pro that
-I mentioned already, to provide the last piece of evidence, and I'll
-come back with the v2 of this patch.
-
-[*] 
-https://lore.kernel.org/linux-rockchip/CAN1fySWVVTeGHAD=_hFH+ZdcR_AEiBc0wqes9Y4VRzB=zcdvSw@mail.gmail.com/
-[**] 
-https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?h=for-next&id=f7f8ec7d8cef4cf62ee13b526d59438c23bbb34f
-
->> However, I fully agree that forcing any kind of an overclock is not
->> what we want to do.  Thus, I'll do my best, as I already noted in this
->> thread, to extract the dtb from the "reference" Android build that
->> Rockchip itself provided for the RK3399S-based PinePhone Pro.  That's
->> closest to the official documentation for the RK3399S variant that we
->> can get our hands on.
->> 
->>>> This also eliminates the following error messages from the kernel 
->>>> log:
->>>> 
->>>>    core: _opp_supported_by_regulators: OPP minuV: 1100000 maxuV: 
->>>> 1150000, not supported by regulator
->>>>    panfrost ff9a0000.gpu: _opp_add: OPP not supported by regulators 
->>>> (800000000)
->>>> 
->>>> These changes to the regulator-{min,max}-microvolt values make the 
->>>> PinePhone
->>>> Pro device dts consistent with the dts files for other Rockchip 
->>>> RK3399-based
->>>> boards and devices.  It's possible to be more strict here, by 
->>>> specifying the
->>>> regulator-{min,max}-microvolt values that don't go outside of what 
->>>> the GPU
->>>> actually may use, as the consumer of the vdd_gpu regulator, but 
->>>> those changes
->>>> are left for a later directory-wide regulator cleanup.
->>>> 
->>>> [1] 
->>>> https://files.pine64.org/doc/PinePhonePro/PinephonePro-Schematic-V1.0-20211127.pdf
->>>> [2] 
->>>> https://www.t-firefly.com/download/Firefly-RK3399/docs/Chip%20Specifications/DC-DC_SYR837_838.pdf
->>>> 
->>>> Fixes: 78a21c7d5952 ("arm64: dts: rockchip: Add initial support for 
->>>> Pine64 PinePhone Pro")
->>>> Cc: stable@vger.kernel.org
->>>> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
->>>> ---
->>>>   arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 4 ++--
->>>>   1 file changed, 2 insertions(+), 2 deletions(-)
->>>> 
->>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts 
->>>> b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>>> index 1a44582a49fb..956d64f5b271 100644
->>>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>>> @@ -410,8 +410,8 @@ vdd_gpu: regulator@41 {
->>>>           pinctrl-names = "default";
->>>>           pinctrl-0 = <&vsel2_pin>;
->>>>           regulator-name = "vdd_gpu";
->>>> -        regulator-min-microvolt = <875000>;
->>>> -        regulator-max-microvolt = <975000>;
->>>> +        regulator-min-microvolt = <712500>;
->>>> +        regulator-max-microvolt = <1500000>;
->>>>           regulator-ramp-delay = <1000>;
->>>>           regulator-always-on;
->>>>           regulator-boot-on;
+4fbb73416b10 ("arm64: dts: imx8mp-phyboard-pollux: Set Video PLL1 
+frequency to 506.8 MHz")
 
