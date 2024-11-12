@@ -4,55 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFFAD42BBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16231D42BBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSX5kVx/kK64TFAmRzo+QJMjvf56Eh3nCHsVd7SrkVU=; b=v8fIrPu0NefluQNF1+5fifGCL8
-	8RPO+XuoVSbJm6hK3hVsmoSvT7hOdBa6Jn8gtX7VW7oJ2Ld3v85KJk48fPrZz8rYopSyL3UwuZ6Wh
-	CoOvlZgSmmHOBHBMLvjpSy2OqcDkQM6HPOMDWDGCygQLNBorh61RavsPVvFvwtnqYCfu40M2Z1Rar
-	+ClifR+K6C9CgiossV7AaPW6iEnDTRzKP1/cw+cpNYooAWtT4I5gHUcBStTiF66BPX2Ef8xaTS9hT
-	aa1Z3V08ERl1/mzR6U+Pqgfvce7RRurD3lv9RKa1xbCXIS7/M2ZOoyuOf6Ut7nuD8YPNUi8uUWzeF
-	c4XpX5HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3TzAZ2wI/SsBv8e6rWIulIn9M+uufamHvYe7/o5Pmqo=; b=khHlrwndJeEonfVIiFPyjibBzN
+	WEGEok75pYhwsmkyt+ifDTPGWg4Yb1IKKDjuKjCOHigVCDOzf7m2K/jlMmmioo6n6I9eGuNd7TY7Y
+	YaPv8LPJHYKuC7rrqjQHSiszn3Ym6474XDoOHpzBSAyxSrWcP9EQOVGTvcwbQGVenMseFx5hDfecL
+	gOmtF1u5uvyE366ZL5bkaLeOo5eCds/GlZAywECnXAg0du4HPPQ8hGGLzMK60fTOo8hXXs6PB7gHc
+	k68ris4H21xJuFeXFTiKecEThPn0uHlaTqmdLaYf0tfPwvX/I8LFISO+BdhWCSQXPLuysQvhZn7N2
+	ceLahqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvDM-00000004TfR-2tT7;
-	Tue, 12 Nov 2024 18:02:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuJ0-00000004HLS-40YS
+	id 1tAvF9-00000004U1d-3shM;
+	Tue, 12 Nov 2024 18:04:00 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAuJO-00000004HQi-0JgN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:03:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B1D025E0;
-	Tue, 12 Nov 2024 09:04:23 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2C2A3F6A8;
-	Tue, 12 Nov 2024 09:03:52 -0800 (PST)
-Message-ID: <8cb6b8e2-3a01-49a1-b34a-67b4671356fe@arm.com>
-Date: Tue, 12 Nov 2024 17:03:51 +0000
+	Tue, 12 Nov 2024 17:04:19 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20c767a9c50so58280275ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 09:04:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731431057; x=1732035857; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3TzAZ2wI/SsBv8e6rWIulIn9M+uufamHvYe7/o5Pmqo=;
+        b=XuZpSrivYIf9nyjdVFuRmS5gsWhCa59/XCJvhVb0F4/hdHpAJI9Xokgz8zyYRfAU7J
+         mUhnPrmVVJ+kLogh9xq4akz2mubImrwEoaquoIgJMCFssOVQeMHKeXm0jyoUH+u9dxKC
+         w2nxTNu0uMv5IZ7NZnggcTr1p/8iu0k1NNtamBcHchc5X2iukQbcuOJRibX28MNTZlfg
+         gKjSOHLG+c92YdnldB+JJEfRaUdpPdfu3NLDChnmdDYJ3Nc8EyuzxT3dY17UfeXpRoR2
+         p8g3YJratL3CSLAQHApKgldpXjLFzaklcZvqHuAngRl0N3cWtrPl09xMB6Ey/+e2EL8c
+         6Exg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731431057; x=1732035857;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3TzAZ2wI/SsBv8e6rWIulIn9M+uufamHvYe7/o5Pmqo=;
+        b=EoWBfp2SuDVy2VeYQb7PDjtWelTvF/lCOB2enc8DGL+JU+Ys5p1BmtTwa5rbaE7Vw9
+         vcR7E47Uenscni5Hef8QWOkkyrHN6hLifUrgtnQ04ffPKtsYEwjsDgBwh8i9gN2bBPFG
+         VBEXnsrUxEB+00BdUD4xrrtcFyoAP0dKNKfVWajM+iwzeVVnyVy5pR+lCdIDe38bj8vX
+         uLhJ8Zpm/UBrmUTe5gtm9PqmDLOSM4RsClM8an+OPQ+ubHBoRRexGhlCzLRKufqlMQSY
+         2EQMT4uGw/CGiim1JJ+eeN4xNKXWcXtmE17+qyZYX3xTl9Acl4aDNqakW57yFFsnXvC8
+         L9kQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0U0WgfqjdSsN8TKLd5tMuEfAZc93q+UuMZMGgCgTeG8BotX2ohEXc/8JSI5cpuMZzxf4Q/5/VCn3T43VgJJQD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOJ5B8wN2PnVxQj08GH/MB9Ckksc13c2r9Wnk6W0z0JmdIZeCd
+	trOViB4+OgwmiBQ7TvGa/VL4AFlp1/HRLLsrR7yITNZeWBK1CuMN
+X-Google-Smtp-Source: AGHT+IHRVCkPv69Giv9Ck6e8LALo+6Vd8jA6G0f2rPbTFybc2LxVw7NcogCrIEnD2UMIGigrnmpwQg==
+X-Received: by 2002:a17:902:c405:b0:205:4721:19c with SMTP id d9443c01a7336-21183d55b03mr238707535ad.37.1731431056592;
+        Tue, 12 Nov 2024 09:04:16 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e45839sm95869765ad.143.2024.11.12.09.04.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 09:04:15 -0800 (PST)
+Date: Tue, 12 Nov 2024 09:04:14 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jean Delvare <jdelvare@suse.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] hwmon: tmp108: Add helper function
+ tmp108_common_probe() to prepare I3C support
+Message-ID: <ec1a3a2c-e1b3-481a-aac6-e0826c570ce6@roeck-us.net>
+References: <20241112-p3t1085-v4-0-a1334314b1e6@nxp.com>
+ <20241112-p3t1085-v4-1-a1334314b1e6@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] iommu/arm-smmu-v3: Clean up iopf queue on probe
- failure
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <cover.1731088789.git.robin.murphy@arm.com>
- <161cf3bfde2993cc29e82589df947ff23fb82845.1731088789.git.robin.murphy@arm.com>
- <20241112155525.GB21479@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241112155525.GB21479@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112-p3t1085-v4-1-a1334314b1e6@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_090355_076404_A26B714B 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20241112_090418_152191_4165FE51 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,77 +104,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2024 3:55 pm, Will Deacon wrote:
-> On Fri, Nov 08, 2024 at 06:30:16PM +0000, Robin Murphy wrote:
->> kmemleak noticed that the iopf queue allocated deep down within
->> arm_smmu_init_structures() can be leaked by a subsequent error return
->> from arm_smmu_device_probe(). Hardly a big deal when probe failure
->> represents something much more seriously wrong in the first place,
->> but on principle, adopt a dedicated cleanup path for those.
->>
->> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->> ---
->>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 15 ++++++++++-----
->>   1 file changed, 10 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> index b7dcb1494aa4..7908fca962fe 100644
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->> @@ -4609,7 +4609,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
->>   	/* Initialise in-memory data structures */
->>   	ret = arm_smmu_init_structures(smmu);
->>   	if (ret)
->> -		return ret;
->> +		goto free_iopf;
->>   
->>   	/* Record our private device structure */
->>   	platform_set_drvdata(pdev, smmu);
->> @@ -4620,22 +4620,27 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
->>   	/* Reset the device */
->>   	ret = arm_smmu_device_reset(smmu);
->>   	if (ret)
->> -		return ret;
->> +		goto free_iopf;
->>   
->>   	/* And we're up. Go go go! */
->>   	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
->>   				     "smmu3.%pa", &ioaddr);
->>   	if (ret)
->> -		return ret;
->> +		goto free_iopf;
->>   
->>   	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
->>   	if (ret) {
->>   		dev_err(dev, "Failed to register iommu\n");
->> -		iommu_device_sysfs_remove(&smmu->iommu);
->> -		return ret;
->> +		goto free_sysfs;
->>   	}
->>   
->>   	return 0;
->> +
->> +free_sysfs:
->> +	iommu_device_sysfs_remove(&smmu->iommu);
->> +free_iopf:
->> +	iopf_queue_free(smmu->evtq.iopf);
->> +	return ret;
->>   }
+On Tue, Nov 12, 2024 at 11:51:59AM -0500, Frank Li wrote:
+> Add help function tmp108_common_probe() to pave road to support i3c for
+> P3T1085(NXP) chip.
 > 
-> Thanks. I think this is correct (and iopf_queue_free() checks for NULL,
-> so we're good there) but I just wonder whether it would be more
-> consistent to use devm_add_action_or_reset(), like we do for the MSIs.
+> Use dev_err_probe() to simple code.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Yeah, I did consider it, but in the end I had a hunch that we were 
-liable to end up with more cleanup steps on this path anyway. Which then 
-conveniently came true this morning when I realised why the box still 
-wasn't seeing its disk even with the SATA probe un-deferred by patch #3.
+Applied.
 
-(For reference I'm provoking an error from arm_smmu_probe_device() 
-intentionally, by virtue of having a PCIe-to-PCI bridge aliasing two 
-devices to the same StreamID - adding group support to make that 
-actually work is still on the "maybe one day" list...)
-
-Cheers,
-Robin.
+Thanks,
+Guenter
 
