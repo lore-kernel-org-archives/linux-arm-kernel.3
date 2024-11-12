@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBA4D42B97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F70D42B9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TNocvk92r41vpsiP2FgizA6VuQpLe/eC6GyP/Vldde8=; b=y4s3vvY4eSAY8rpClGGX6NYuHw
-	qY23RvKD6rWs1JLYsspuqUYldZH1qEHCR1TV7n6A8NiN7Te2XTAzT6oL47Cf5sHg5pI5rX7Gpm9z9
-	IZP/xN3TmkY/eeOiY1rN+0/0TFCgr2I5R76Ntarhm5mrOqXOkfXTNfAdPdnORAqKgoepDHIgJpb3r
-	MSZXJQGi0yk8Q1nZd8S2gfaR1DN/r3xNXtI9p0ZxgZtHFCVsz2ahr2boZVRVg8jOW61XshYtfZ4p2
-	88Cw8cJCxefxx1TReHH2KxmRYcC7YO+/kbkhNWFM3YZft8kXVX7AKsVsOW67rq7smRmTZobnC368o
-	TU8aFLJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=THtNZ1iT2eHs0x23XStWyZmoQtWVQH2mbta++tV+ws0=; b=lswDutD5/V5xUM/YA88SuqoBB0
+	Ntup1uSfaSf+et8odbf5qeZ4Pz+r0r2WBK8e2objVleV3rGHDED/u4SgsoISq9gDU3OUUUA5sxSU7
+	OV4pc7JjSoi7hBUxz+Db6ufPvwmizvchSd4NtbFev0Y7VeMS25Ki3tC4367KKvQqFi+brJH6jz8+r
+	caRf2XZ+OLcPpPPosAnUD9qB7p9KifFZdlv080QVEdPA6Q3J072SEpkzqaG9DJv2iXWTmsIb+L0h+
+	1EsVztGVWHW4n2+G+1ymd2Kd1SluaTqv6BFLguFojI6B6YnDX1mks1xquDnSdaYLc5HeemArC+TY7
+	5qQmRLxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsnJ-00000003x7K-3Gex;
-	Tue, 12 Nov 2024 15:27:06 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1tAsrE-00000003xjV-0PIm;
+	Tue, 12 Nov 2024 15:31:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAske-00000003whX-274h
+	id 1tAspQ-00000003xVD-1XH7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:24:22 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:78de:3cf6:79c5:d375])
-	by albert.telenet-ops.be with cmsmtp
-	id brQ92D00l4mJWgD06rQ9ME; Tue, 12 Nov 2024 16:24:11 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tAsk8-006q6m-9e;
-	Tue, 12 Nov 2024 16:24:09 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tAskT-001eqb-Pu;
-	Tue, 12 Nov 2024 16:24:09 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: arm-soc <arm@kernel.org>,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL] Renesas fixes for v6.12
-Date: Tue, 12 Nov 2024 16:24:05 +0100
-Message-Id: <cover.1731424916.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 12 Nov 2024 15:29:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 49B4AA41D99;
+	Tue, 12 Nov 2024 15:27:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31D90C4CECD;
+	Tue, 12 Nov 2024 15:29:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731425355;
+	bh=xwgEyeereLU4eiO1WkIlcVdeRvYjV3004d2zQyIr3OQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Miuy4Ur8bq6SMpilsrXijAo0zoGQlC1vL70M9+h4qq4ZIGomHyvH2ZinCi4UW71N+
+	 kmCU8/+0iSQNVyFl61inpirRPq0eS3RrH88gAQshzUVERFcRk5tdI5g+Idc3GZnLh0
+	 p2NSObNzWJ5rUuLeodCSdwCg+MGZelPQ1Iv15dn9zyN5mvzLAC7ZPBuCJYtxizjHdz
+	 0ajxtNmwx59i5gKRxyX+IIUii3rfKIgfqdEMFd3/0UNrUt18oZEOfgOKLsmGUqqPIB
+	 bNrLc+oWNiEIJcN5tFPT1Wz3AzZ15vZDsDQvOKsZQvwC6Odq973AHn+k2/Mb+nXN1N
+	 A5MtnTcznVDnQ==
+Received: from [104.132.45.109] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAspN-00CEd7-2v;
+	Tue, 12 Nov 2024 15:29:13 +0000
+Date: Tue, 12 Nov 2024 15:29:12 +0000
+Message-ID: <874j4ctqrb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>,
+	<wangwudi@hisilicon.com>,
+	Nianyao Tang
+	<tangnianyao@huawei.com>
+Subject: Re: [PATCH v2] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+In-Reply-To: <20241112090426.1876148-1-wangzhou1@hisilicon.com>
+References: <20241112090426.1876148-1-wangzhou1@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 104.132.45.109
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, wangwudi@hisilicon.com, tangnianyao@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_072420_700251_A98D4199 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20241112_072916_688722_44342D42 
+X-CRM114-Status: GOOD (  30.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,42 +87,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+On Tue, 12 Nov 2024 09:04:26 +0000,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+> during unmapping operation, which will cause some vSGIs lost.
+> 
+> To fix the issue, it needs to send VINVALL command after VMOVP.
+> 
+> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 10 +++++++
+>  drivers/irqchip/irq-gic-v3-its.c            | 29 +++++++++++++++++++++
+>  3 files changed, 41 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index 65bfab1b1861..77db10e944f0 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -258,6 +258,8 @@ stable kernels.
+>  | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+>  |                | ,11} SMMU PMCG  |                 |                             |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 70d7f4f20225..d41cf6bf1458 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1232,6 +1232,16 @@ config HISILICON_ERRATUM_161600802
+>  
+>  	  If unsure, say Y.
+>  
+> +config HISILICON_ERRATUM_162100801
+> +	bool "Hip09 162100801 erratum support"
+> +	default y
+> +	help
+> +	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+> +	  during unmapping operation, which will cause some vSGIs lost.
+> +	  So fix it by sending VINVALL command after VMOVP.
+> +
+> +	  If unsure, say Y.
+> +
+>  config QCOM_FALKOR_ERRATUM_1003
+>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+>  	default y
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 52f625e07658..e98d13d0adf9 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -44,6 +44,7 @@
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+>  
+>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+> @@ -3804,6 +3805,7 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>  	struct its_vpe *vpe = irq_data_get_irq_chip_data(d);
+>  	unsigned int from, cpu = nr_cpu_ids;
+>  	struct cpumask *table_mask;
+> +	struct its_node *its;
+>  	unsigned long flags;
+>  
+>  	/*
+> @@ -3866,6 +3868,17 @@ static int its_vpe_set_affinity(struct irq_data *d,
+>  	vpe->col_idx = cpu;
+>  
+>  	its_send_vmovp(vpe);
+> +
+> +	/*
+> +	 * Version of ITS is same in one system. As there is no cache in ITS,
+> +	 * and only cache in related GICR should be clean, so one VINVALL is
+> +	 * enough here.
+> +	 */
+> +	its = list_first_entry(&its_nodes, struct its_node, entry);
+> +	if ((its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801) &&
+> +	    is_v4_1(its))
+> +		its_send_vinvall(its, vpe);
 
-The following changes since commit 42f7652d3eb527d03665b09edac47f85fb600924:
+Can this be done using the GICR_INVALLR register instead? I would
+expect it to be a bit better performance wise, as it doesn't require
+to take a global lock. Something like the hack below (untested).
 
-  Linux 6.12-rc4 (2024-10-20 15:19:38 -0700)
+Thanks,
 
-are available in the Git repository at:
+	M.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-fixes-for-v6.12-tag1
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index fdec478ba5e7..d30d6ee727c1 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -62,6 +62,8 @@ static u32 lpi_id_bits;
+ 
+ static u8 __ro_after_init lpi_prop_prio;
+ 
++static struct its_node *find_4_1_its(void);
++
+ /*
+  * Collection structure - just an ID, and a redistributor address to
+  * ping. We use one per CPU as a bag of interrupts assigned to this
+@@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+ 	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+ }
+ 
++static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
++{
++	void __iomem *rdbase;
++	u64 val;
++
++	val  = GICR_INVALLR_V;
++	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
++
++	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
++	gic_write_lpir(val, rdbase + GICR_INVALLR);
++
++	wait_for_syncr(rdbase);
++	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++}
++
+ static int its_vpe_set_affinity(struct irq_data *d,
+ 				const struct cpumask *mask_val,
+ 				bool force)
+@@ -3849,6 +3867,10 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	vpe->col_idx = cpu;
+ 
+ 	its_send_vmovp(vpe);
++
++	if (find_4_1_its()->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
++		its_vpe_4_1_invall_locked(cpu, vpe);
++
+ 	its_vpe_db_proxy_move(vpe, from, cpu);
+ 
+ out:
+@@ -4156,22 +4178,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
+ 
+ static void its_vpe_4_1_invall(struct its_vpe *vpe)
+ {
+-	void __iomem *rdbase;
+ 	unsigned long flags;
+-	u64 val;
+ 	int cpu;
+ 
+-	val  = GICR_INVALLR_V;
+-	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+-
+ 	/* Target the redistributor this vPE is currently known on */
+ 	cpu = vpe_to_cpuid_lock(vpe, &flags);
+-	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+-	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+-	gic_write_lpir(val, rdbase + GICR_INVALLR);
+-
+-	wait_for_syncr(rdbase);
+-	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	its_vpe_4_1_invall_locked(cpu, vpe);
+ 	vpe_to_cpuid_unlock(vpe, flags);
+ }
+ 
 
-for you to fetch changes up to 124f4f1a18696c4198f9f903fd74034ea8b7d352:
-
-  MAINTAINERS: Re-add cancelled Renesas driver sections (2024-11-11 11:11:17 +0100)
-
-----------------------------------------------------------------
-Renesas fixes for v6.12
-
-  - Re-add cancelled Renesas driver sections to the MAINTAINERS file.
-
-Thanks for pulling!
-
-----------------------------------------------------------------
-Geert Uytterhoeven (1):
-      MAINTAINERS: Re-add cancelled Renesas driver sections
-
- MAINTAINERS | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
-
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+-- 
+Without deviation from the norm, progress is not possible.
 
