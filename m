@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8027FD42B97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53E0D42B9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+T4tSwskXOccnMHjrQgT921+1/jkcnTnTZ1NbAhny8=; b=gTbqCPhODNS2pfIAudYKeyZjUi
-	cPcVsBtp5DGtC/gpT6rTNsj0h4ZQViTQPydQ2CyyMitEN4NvlFdtoI8HJ0SuPgKpQVxVTsXLJaOhd
-	EFCpnEGrHCPdGngobt5UEKu/x2BgTOZykj0f45PRaR38Hv4N2xhFLt+FyHVYR06TzRyXOrkiY3Ve8
-	cqkeAPFpKkSdkJ0N05aWhmhMsacNUvxGTQ2gJ9ADF2hVXddrA9Cm28qzHZWz44HyV9NKrbc9JI2HK
-	9Sw5t4YkZ58ZBUbv+U1O+L0bz2SqB9VNa6/vrQF355PqfD6BuiTmSTkuQ3QoowLo6HfISnw7Nvklk
-	72WAhJKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6GoP7mpmir7zoRe4GvAX4upnckdMmn2VdiAfqd2UHP4=; b=JXJ3MUplIPlZr4d2rSMcFBNFzz
+	yY4CIcR0MwHqj2f8EOlzeUhZFuBIUpnQNTNJ4TdV70TonOnXmoSB+5/ywYH3sv32LiDGDt5uAmi65
+	PHFK3hJHc6b1kM5XgPHrCP0BY3W4eDBTK93I7RDP7XhS9xcpRAUAZlhoXJWABjVen7zilxXxj1NBp
+	yXNiJIDPyBeS/fPOrYzmizYv18pdwwk37IdE47JDLcwzF8g0YxRMYzPZZYhxKMx6XIEL4tUWJ0bRL
+	e5RvzRQUCZHrpdO1VNOHX8jevjaTyTaal7g0FFWBIpyfYMsyeXslfwmF1KS4SFo6Vntn0pRENTjRi
+	iN3bantA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsej-00000003vlS-2F1Q;
-	Tue, 12 Nov 2024 15:18:13 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tAslZ-00000003wsk-2RMO;
+	Tue, 12 Nov 2024 15:25:17 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsc2-00000003uuZ-0UAr;
-	Tue, 12 Nov 2024 15:15:28 +0000
+	id 1tAsjl-00000003wag-18Fw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 15:23:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731425005; x=1762961005;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZmGj6kivjIzqiKqxOJZckDsly2u9MG2i7lK+kggaPuk=;
+  b=OEZkoJIoFl3aRkjyZwt3K6H9PBsCTl57+oqySU/3jECFrYmFlU20BYhK
+   OR8TC31YWWp6+RgkcIwqlCY9fo5QlXJjWzktprpF4N8qCuJEsL6JV7hFc
+   qreBUp+Xno7gk398Hp9bNTUG9rQI20WkIA6eV4ImPBeiyKOeRYZbZ5LHb
+   heR8oEjS9WLmCEBWkCKbTKAbRV5ymBKi56jwiNbsNyoS1WZcUH7VyFFof
+   U7bV4DF4zX2XnPHpOUXInPBXrcg251wD3d86bXK2uHATkwPLlxdfZ3gN9
+   /fzair6wfwvVfOxXzEawb7xiea5DdMCCywe7PqC6x9etUtvI8sXesomve
+   Q==;
+X-CSE-ConnectionGUID: HvjFpITxSoWj/NziE9avYA==
+X-CSE-MsgGUID: HUe/vK4eRg+hYl5uPpChKA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11254"; a="18875201"
+X-IronPort-AV: E=Sophos;i="6.12,148,1728975600"; 
+   d="scan'208";a="18875201"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2024 07:23:25 -0800
+X-CSE-ConnectionGUID: 2TDWEbCQS8Wpe20GYEZoBw==
+X-CSE-MsgGUID: L5YTJwh1R5W+IzvL53fAUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,148,1728975600"; 
+   d="scan'208";a="87477543"
+Received: from lkp-server01.sh.intel.com (HELO bcfed0da017c) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 12 Nov 2024 07:23:21 -0800
+Received: from kbuild by bcfed0da017c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tAsje-0001Sv-2P;
+	Tue, 12 Nov 2024 15:23:18 +0000
+Date: Tue, 12 Nov 2024 23:22:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: mjchen <mjchen0829@gmail.com>, dmitry.torokhov@gmail.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	sudeep.holla@arm.com, peng.fan@nxp.com, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mjchen@nuvoton.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v2 2/2] input: keypad: add new keypad driver for MA35D1
+Message-ID: <202411122236.79vmA2JS-lkp@intel.com>
+References: <20241112053059.3361-3-mjchen0829@gmail.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1731424523;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I+T4tSwskXOccnMHjrQgT921+1/jkcnTnTZ1NbAhny8=;
-	b=As8GlpHyj4QIfc0wiqwTGXTfMj1WhRthprGtIRGhtbFpPJgGHGutu0qGzKOPHPyJ2vqvnx
-	BrUrIgTd0z/MWaPePRTUFoBdHJex4vZXbl2E0H0YMvPwmJRZcNpjD/hafUsz1rE22v8aKU
-	W9pZz9NHd8ZueTSVpGPGs2WUMKVlyhVZT8WuTF3PXSqQYCCNXMDcIXq0ipy20Ko9/HrZsS
-	NwLf61tktTX/blwvOCLEpg3OuYafMoTsinJ47BinZatfMEcbsKkzgi2yVW62wqnYlD+WhY
-	5x6FhvpOrGNUb6W0UBEYWuTw08t4mB/oMXph8wUKBRZI4nSLxVDgulf5maU0OQ==
-Date: Tue, 12 Nov 2024 16:15:23 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: =?UTF-8?Q?Tam=C3=A1s_Sz=C5=B1cs?= <tszucs@linux.com>
-Cc: Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki
- <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
- set it up for SDIO devices
-In-Reply-To: <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
-References: <20241111181807.13211-1-tszucs@linux.com>
- <20241111181807.13211-3-tszucs@linux.com>
- <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
- <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
- <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
-Message-ID: <303ad3910668e852d6670d1c79dc22e0@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112053059.3361-3-mjchen0829@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_071526_473839_22B7170A 
-X-CRM114-Status: GOOD (  29.21  )
+X-CRM114-CacheID: sfid-20241112_072325_351227_30667410 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,103 +91,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tamas,
+Hi mjchen,
 
-On 2024-11-12 15:35, Tamás Szűcs wrote:
-> I think it was totally fine to disable sdmmc2 at first, especially if
-> it couldn’t be tested or wasn’t needed right away. From what I’ve
-> seen, this board works great even at higher clock speeds than what
-> rk356x-base.dtsi suggests. I don’t have access to the RK3568 errata,
-> and there don’t seem to be any limits mentioned in the TRM either.
-> Overall, this board is doing just fine as it is.
+kernel test robot noticed the following build warnings:
 
-Sorry, I'm missing the point of mentioning some clock speeds?  Any
-chances, please, to clarify that a bit?
+[auto build test WARNING on dtor-input/next]
+[also build test WARNING on dtor-input/for-linus robh/for-next soc/for-next linus/master v6.12-rc7 next-20241112]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> Regarding device tree overlays, they would be ideal for implementing
-> secondary functions, such as PCIe endpoint mode for users with
-> specific requirements. However, the primary functions for PCIe on the
-> M2E will be root complex mode, along with SDIO host, etc. In my view,
-> the hardware is well-designed and interconnected. Users have a
-> reasonable expectation that these primary functions should work
-> seamlessly without additional configuration, right out of the box.
+url:    https://github.com/intel-lab-lkp/linux/commits/mjchen/dt-bindings-input-Add-Nuvoton-MA35D1-keypad/20241112-133327
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git next
+patch link:    https://lore.kernel.org/r/20241112053059.3361-3-mjchen0829%40gmail.com
+patch subject: [PATCH v2 2/2] input: keypad: add new keypad driver for MA35D1
+config: hexagon-allyesconfig (https://download.01.org/0day-ci/archive/20241112/202411122236.79vmA2JS-lkp@intel.com/config)
+compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241112/202411122236.79vmA2JS-lkp@intel.com/reproduce)
 
-That's basically what I referred to in my earlier response, and in my
-previous response regarding the UART.  Users would expect the Bluetooth
-part to work as well, but the error messages I mentioned look nasty, so
-perhaps something should be done about that first.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411122236.79vmA2JS-lkp@intel.com/
 
-> Dragan, what did you mean by SDIO related power timing requirements?
+All warnings (new ones prefixed by >>):
 
-Whenever there's an SDIO module, there's usually some required timing
-of the power rails.  Though, I don't know what's that like with the
-non-standard M.2 SDIO modules that Radxa sells, which are intended to
-be used on Radxa boards with "hybrid" M.2 slots.
+   In file included from drivers/input/keyboard/ma35d1_keypad.c:7:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/hexagon/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:14:
+   In file included from arch/hexagon/include/asm/io.h:328:
+   include/asm-generic/io.h:548:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     548 |         val = __raw_readb(PCI_IOBASE + addr);
+         |                           ~~~~~~~~~~ ^
+   include/asm-generic/io.h:561:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     561 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+         |                                                         ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/little_endian.h:37:51: note: expanded from macro '__le16_to_cpu'
+      37 | #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+         |                                                   ^
+   In file included from drivers/input/keyboard/ma35d1_keypad.c:7:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/hexagon/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:14:
+   In file included from arch/hexagon/include/asm/io.h:328:
+   include/asm-generic/io.h:574:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     574 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+         |                                                         ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
+      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+         |                                                   ^
+   In file included from drivers/input/keyboard/ma35d1_keypad.c:7:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from ./arch/hexagon/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:14:
+   In file included from arch/hexagon/include/asm/io.h:328:
+   include/asm-generic/io.h:585:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     585 |         __raw_writeb(value, PCI_IOBASE + addr);
+         |                             ~~~~~~~~~~ ^
+   include/asm-generic/io.h:595:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     595 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+         |                                                       ~~~~~~~~~~ ^
+   include/asm-generic/io.h:605:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+     605 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+         |                                                       ~~~~~~~~~~ ^
+>> drivers/input/keyboard/ma35d1_keypad.c:83:46: warning: shift count >= width of type [-Wshift-count-overflow]
+      83 |         pressed_keys  = key_event[0] | key_event[1] << 32;
+         |                                                     ^  ~~
+   drivers/input/keyboard/ma35d1_keypad.c:84:46: warning: shift count >= width of type [-Wshift-count-overflow]
+      84 |         released_keys = key_event[2] | key_event[3] << 32;
+         |                                                     ^  ~~
+   drivers/input/keyboard/ma35d1_keypad.c:130:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     130 |         val |= FIELD_PREP(KCOL, (keypad->kpi_col - 1)) | FIELD_PREP(KROW, (keypad->kpi_row - 1));
+         |                ^
+   8 warnings and 1 error generated.
 
-Once again, please use inline replying. [*]
 
-[*] https://en.wikipedia.org/wiki/Posting_style
+vim +83 drivers/input/keyboard/ma35d1_keypad.c
 
-> On Tue, Nov 12, 2024 at 5:41 AM Dragan Simic <dsimic@manjaro.org> 
-> wrote:
->> 
->> Hello Jonas and Tamas,
->> 
->> On 2024-11-11 20:06, Jonas Karlman wrote:
->> > On 2024-11-11 19:17, Tamás Szűcs wrote:
->> >> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UHS-I
->> >> rates and
->> >> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
->> >>
->> >> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
->> >> ---
->> >>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
->> >>  1 file changed, 7 insertions(+), 1 deletion(-)
->> >>
->> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> index 242af5337cdf..b7527ba418f7 100644
->> >> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->> >> @@ -688,14 +688,20 @@ &sdmmc2 {
->> >>      cap-sd-highspeed;
->> >>      cap-sdio-irq;
->> >>      keep-power-in-suspend;
->> >> +    max-frequency = <200000000>;
->> >>      mmc-pwrseq = <&sdio_pwrseq>;
->> >>      non-removable;
->> >>      pinctrl-names = "default";
->> >>      pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
->> >> +    sd-uhs-sdr12;
->> >> +    sd-uhs-sdr25;
->> >> +    sd-uhs-sdr50;
->> >
->> > I thought that lower speeds was implied by uhs-sdr104?
->> 
->> Last time I went through the MMC drivers, they were implied.  IIRC,
->> such backward mode compatibility is actually a requirement made by
->> the MMC specification.
->> 
->> >>      sd-uhs-sdr104;
->> >> +    sd-uhs-ddr50;
->> >>      vmmc-supply = <&vcc3v3_sys2>;
->> >>      vqmmc-supply = <&vcc_1v8>;
->> >> -    status = "disabled";
->> >> +    wakeup-source;
->> >> +    status = "okay";
->> >
->> > This should probably be enabled using an dt-overlay, there is no
->> > SDIO device embedded on the board and the reason I left it disabled
->> > in original board DT submission.
->> 
->> Just went through the ROCK 3B schematic, version 1.51, and I think
->> there should be no need for a separate overlay, because sdmmc2 goes
->> to the M.2 slot on the board, which any user can plug an M.2 module
->> into, and the SDIO interface is kind-of self-discoverable.
->> 
->> Of course, all that unless there are some horribly looking :) error
->> messages emitted to the kernel log when nothing is actually found,
->> in which case the SDIO/MMC driers should be fixed first.  Also, I'm
->> not sure what do we do with the possible SDIO-related power timing
->> requirements?
+    59	
+    60	static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
+    61	{
+    62		struct input_dev *input_dev = keypad->input_dev;
+    63		unsigned int code;
+    64		unsigned int key;
+    65		unsigned long pressed_keys = 0, released_keys = 0;
+    66		unsigned int row_shift = get_count_order(keypad->kpi_col);
+    67		unsigned short *keymap = input_dev->keycode;
+    68		unsigned long key_event[4];
+    69		unsigned int index;
+    70	
+    71		/* Read key event status */
+    72		key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
+    73		key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
+    74		key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
+    75		key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
+    76	
+    77		/* Clear key event status */
+    78		writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
+    79		writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
+    80		writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
+    81		writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
+    82	
+  > 83		pressed_keys  = key_event[0] | key_event[1] << 32;
+    84		released_keys = key_event[2] | key_event[3] << 32;
+    85	
+    86		/* Process pressed keys */
+    87		for_each_set_bit(index, &pressed_keys, KEY_EVENT_BITS) {
+    88			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+    89			key = keymap[code];
+    90	
+    91			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+    92			input_report_key(input_dev, key, 1);
+    93		}
+    94	
+    95		/* Process released keys */
+    96		for_each_set_bit(index, &released_keys, KEY_EVENT_BITS) {
+    97			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
+    98			key = keymap[code];
+    99	
+   100			input_event(input_dev, EV_MSC, MSC_SCAN, code);
+   101			input_report_key(input_dev, key, 0);
+   102		}
+   103	
+   104		input_sync(input_dev);
+   105	}
+   106	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
