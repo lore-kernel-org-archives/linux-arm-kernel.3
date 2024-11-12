@@ -4,103 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DABD41D5F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 06:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88340D41D5D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 06:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/LH71Z4G81qeY7e3yM9xTU/um63mCG2PmsvtyyG8Fv8=; b=gRV+++xtHHsuExe7caYnZ2SQMv
-	FPoJjdE8uJCbYb7tgXbKOGEVO5Hz/zn21f6COilA3Aaf+HBPXZjDCG3FnGjErjpp7Pb6R9UCi/R3L
-	G9pUCZUc1VZm9oL/RfOe6brGTH26HwYVjbxWyqxF2TAfeDA+nFK5LldBas8lx2owgsodTNYoqKez+
-	0b4jWOqi7eMiV5MM6Gw6KBOWBZ75Sbr6fi1ui/2Y2yjsvWa+TLZSSgVD34sEikJsrJZCJJgBFquKa
-	wvdzPQ7KZZq7C5iZaW8Sz8ITlLNXtQW2K4JLfr5icqUsSJR6zhnIYpbLteEbc0FgxeNw4vQKId/dX
-	eLhJAXWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0wwx46hUc+JITaPM/J9cxfHmkLSgKxq4hLxxMn5dJUo=; b=sZ6iMFfWyqrV5g2cBgLwrjBM2Z
+	boVLv83yMqq87kAahZbmQiJNTpiwrzt4eZVIQkP+HvvKUpEAvL/CzEV8jstxz7FtCYWDI+GoIyJWh
+	kDHZs8HpMMm6ykKiBAd5+1IlMOktdViU8Vyp9AgMpXC8LjjQM+bjkkPt6QG5/pggy8S22e6Z42oV1
+	fREn1RotNqrbryUN054vpEcvwBGzTHRwAvMJogy9zJHpfmPPUF3beRGDJqwtdR0SXfwpDdv5dtCRa
+	cc+/vyhbxB+xCVTp6tMoQZTztgCXSrEF4O74xePBYFgZZfFc3XRm9YzKc8gEqdk9gJJ9Y5rIqU7An
+	qqfSqxfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAkcm-00000002MGo-2RHz;
-	Tue, 12 Nov 2024 06:43:40 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1tAkeW-00000002MYv-1HkB;
+	Tue, 12 Nov 2024 06:45:28 +0000
+Received: from mail-vi1eur05on2071d.outbound.protection.outlook.com ([2a01:111:f403:2613::71d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAkay-00000002M0h-30WL
+	id 1tAkbC-00000002M29-2vUX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 06:41:50 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 2DB7A1140074;
-	Tue, 12 Nov 2024 01:41:44 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Tue, 12 Nov 2024 01:41:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1731393704;
-	 x=1731480104; bh=/LH71Z4G81qeY7e3yM9xTU/um63mCG2PmsvtyyG8Fv8=; b=
-	MK/02P4xdiycp/e/thJGUWj3FujbbIlH2flqJafEUzwJl/CAM2txKZeVV8nLzL6g
-	F285clC4Jt/u5R9rTQoNGOr6HVGKeh79ZRsJIYxi7juFAatFbbMGF9CTV5zh3SZH
-	AZ9unIsDv0oxL4Dj9nDLoSVZwt4zn5UZx50EBrwY6CK9xbEq404XK/CLut7SdqXW
-	aQhZV2xuGNzpRLg/De/yN/aRa7EfyT7gm10qIHsltSITEQO1bHu0qIg9T9dKCr65
-	GrS15S/0wun7l/8tkI2n1MWYNKGF8KKymflJfSXsrH+aX8yjc5+CgzwMoryYGhG3
-	26JGaeO8E/CrmB2ByM7B6w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1731393704; x=
-	1731480104; bh=/LH71Z4G81qeY7e3yM9xTU/um63mCG2PmsvtyyG8Fv8=; b=k
-	uDaKZQlPfEYtYNecyQZJgZR6Bid42elQVpm2xkDLrN5xQax/ZGRMDcRPVapca+sS
-	Z012wMBSj0bRd6byxn+SLcVGYt28I2MFbn9+DzfQLe1sdyNk4UyvBQEH2HU5OrpJ
-	mLfk2ctv/lHReMj9UKYm53taEC0IM1rp6JX6iT1lvUju5hGiLjuGbsCDQhqrq1Mb
-	TxdenoD49F09pN+Z+XyTt3zCzZanLiQBEfPd8yANEPxqFldr/xdBE1p6c782gMiM
-	1AApgnO1fYbcAsoc0ep5zOVuLlEqOTw2S4ZUCvTmYOpoCSKzi4TOYjwNJniZP31U
-	zP0r3dj2zxHMg2SuVx67A==
-X-ME-Sender: <xms:p_gyZwiiiHTUktXxxoraVmY6yjey6SGBBn8XlbkzXoAaZRKnO9f-6w>
-    <xme:p_gyZ5BJFvdHyWTh5tsmsPBV2wYkJZvfaThdsmFIRDkMuObHfMyyDAk8b0YSfnI9Z
-    hktVXzPKBoDu--076c>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudefgdelkecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeen
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeej
-    vdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghsse
-    grrhhmrdgtohhmpdhrtghpthhtohepmhhitghhrghlrdhpvggtihhosehgmhgrihhlrdgt
-    ohhmpdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlih
-    hnuhhsrdifrghllhgvihhjsehlihhnrghrohdrohhrghdprhgtphhtthhopehlihhnuhig
-    qdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtph
-    htthhopehrvghgrhgvshhsihhonhhssehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:p_gyZ4EKteK-_Juguh-381HHtYcfVqnqJhPCLhoOeeTYPgXnNcbBAw>
-    <xmx:p_gyZxTLVAC_nJY_pvzsRdzTx6aPgFjsrrjPQl_bmrkxRJ2bzoLJmg>
-    <xmx:p_gyZ9wzQh1kdxD3FHSV6ry_OPDczP2HP9mUXcnJfOGys5p8N9x67Q>
-    <xmx:p_gyZ_5Yfgd5WGBG0g9frMKugDgvb5uSUt3AdR-8s0LhjqO7m-H3Hw>
-    <xmx:qPgyZwqQMrun3yE2El5hnpisMo3eQero0ykaGGHCtcctNmJMZhPrdfoI>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 357A32220073; Tue, 12 Nov 2024 01:41:43 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 12 Nov 2024 06:42:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YB9qkRso6H5e0bZBrFPtpZiFeSeuWmAVUM0qBxzY0ldGeh6gBOTbeUVjQ4MJ9aT6QkFU46RzkvJ6UVRexTnXPDLSmpK03S/JxTnXgKfIF+ObPEpbsaY2/eFigHqpHgANdODtwveHwf1QCpiW4VuuMT8tU5GPNQmGFy8EHA/ig+5FE996eaDwe6btGDOvLrSn06CUx3ElfLPQzOXn3WB1jO1xdgZygA+3ZpSduEa9/NTucmRjc6tp1kfapO9zYlwBep2KXVrIQH5dFNFmRzkbRVtxa3QacYMiBgSA68HIiGOgeWz6YhYRH0EaB9R/TXw6jSB9om2KrXYkFYh3jlIj8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0wwx46hUc+JITaPM/J9cxfHmkLSgKxq4hLxxMn5dJUo=;
+ b=eEQUTjDxrAMfvaFiNctK336n0XclwS5wqCNco9dbcnm4mucPWjKu6zEXxLIUCy/XNmgzU/+WWfqUVFXSHWkqbkt8dfeQ1HIl1U0TAy6bozvhUv4sENvqWaxI75ebHEMLND0D6QFcE7whQGwWeEU6X04tmiaIcW+riZvcxvoxdaAxtt72MHXFQEhr5Kf7/7zzbORO3Ylrf/UregmzUR+6QoTsHSJIWPnCHoAiVNP4LbivPtNrP2MBLj8n9oTJ0CSCwUZAZnFRhKtoAIkk7NMQPZ3qurRGjJQbPfl2Elx5TLZ/mZUYpXnUbo3f8ulFUZnEjddMyzCqrRlEHOV/Ra21VQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0wwx46hUc+JITaPM/J9cxfHmkLSgKxq4hLxxMn5dJUo=;
+ b=FDzoeasRNSl0qy6xaS7f+wXcSjY0Ly05m3T8dtKGgiYKciBgX6b95JLmEpLuiOLBSnDBms5X9sEpdY2X8AG+WnobDavQlfebjum8BWWC7I3i0k7AZHQABvExVTyyNVNG6nTT9RbHCTMpeMUKWdjzdmuUZ2cDfFBg2Bp3y7eY9D4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by DU4PR04MB10959.eurprd04.prod.outlook.com (2603:10a6:10:586::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Tue, 12 Nov
+ 2024 06:41:53 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
+ 06:41:53 +0000
+From: Josua Mayer <josua@solid-run.com>
+Subject: [PATCH 0/2] of: add support for value "false" to
+ of_property_read_bool
+Date: Tue, 12 Nov 2024 08:41:31 +0200
+Message-Id: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJv4MmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDQ0Mj3cRcMxPd/LLUopzESt2k/PwcXTODRGPTlERLY+M0cyWgvoKi1LT
+ MCrCZ0bG1tQDqUwsdYwAAAA==
+X-Change-ID: 20241112-am64-overlay-bool-60a35da933f7
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Josua Mayer <josua@solid-run.com>, Jon Nettleton <jon@solid-run.com>, 
+ Yazan Shhady <yazan.shhady@solid-run.com>, rabeeh@solid-run.com
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: PA7P264CA0446.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:398::29) To AM9PR04MB7586.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2d5::17)
 MIME-Version: 1.0
-Date: Tue, 12 Nov 2024 07:41:12 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Walleij" <linus.walleij@linaro.org>,
- =?UTF-8?Q?Micha=C5=82_Pecio?= <michal.pecio@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Linux kernel regressions list" <regressions@lists.linux.dev>,
- "Kees Cook" <kees@kernel.org>
-Message-Id: <014edf04-a5ac-4a02-af76-ca2616c3c4ab@app.fastmail.com>
-In-Reply-To: <CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
-References: <20241111233817.2f824c19@foxbook>
- <CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
-Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB7586:EE_|DU4PR04MB10959:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11d41947-929c-4966-b521-08dd02e5182f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Yk9DZzIzM01rNU9ieHVGUWdYNE1mOTZaajlDb2lXVHc1OVRjbTJSeU9TZnBs?=
+ =?utf-8?B?OTFqZ2NUTjZEL2cyMXlBbU5Yc3grQ3k0RUNqdmY4b0VVQXR2RU12eTN1SWo0?=
+ =?utf-8?B?VFg3ZWJQMlJqZ0ZBMDg2enU3eVI1L3RpeTlDL29uUXYrVHFvZzRVblN4T3B4?=
+ =?utf-8?B?ZFdFZlRURUJ3aXRFelMvK2FTMDZrcVhpMllwNDlRc1ViT2FCLzhKR1NocTJ6?=
+ =?utf-8?B?dU5KZ1JUVE00Nm9RNlQ5ZFN2ZTh5K1ZhclVSOUU2Y1NoVlJQQTB2UDFGTHp0?=
+ =?utf-8?B?Ni9WNG1qZ1hFbDhFdXZYams1WHhLZm00Wmt5VS84Nm1qeGRpMWkxekFpbHk4?=
+ =?utf-8?B?ZVpBK3I5d2VJeVVOdmphVEhEUTl3dmFEWUVzRXBQT0ZIMVV3MVJqZlllWHU2?=
+ =?utf-8?B?UUdydzhLVzc2SzI4cHFzZkZ0UzdVRzVYWnordEJPU1VMcVcybG5IVWo3SDRQ?=
+ =?utf-8?B?UFhHM3kwek9QWC81cW5aYWR5WVRRZnNTWi9jZys0TGVHeWZac3B6WmtWcjho?=
+ =?utf-8?B?RG5panpCZnJoSEQ4OUhDLzE0TTdzQy8xU1YrYUxoNE12Y0xySDZPWkVGR2JX?=
+ =?utf-8?B?ei9EVVRPaDI0WERpb21FNGRwNmEvNGtiTkN4d1VkYXczTGlVajg5dzZrZ2x6?=
+ =?utf-8?B?R1E3N0Nrbzh5TUs0cGNDNnpmZlBjWTRjZmJzSkx1VmlVcm8venkxbkJvWnQ5?=
+ =?utf-8?B?L1dYOGVMVkhzbXZLVUFVUEJuOFg3Qkl6cTFndHRFSk5seTgwSEcvK3crdzJ4?=
+ =?utf-8?B?dGZ6b25WeGRRdUJPb3M2TnpBcHFWMHRIZXpOWm9IbXZ5RFhsb2VXOE40cFhS?=
+ =?utf-8?B?WS9lWjdqQ3JveWZaU3QxeitmblBpRm16OTNXajVyanNIb2IxalNRdVN5MW5Q?=
+ =?utf-8?B?bVZUcjNVeWFkNU04djNrbVpPUkU1L2FiRXlmMDBWVkdHcUZyeDBNVXFNd3R5?=
+ =?utf-8?B?U0hFaHhrN1NJOCtyNHBtOFZCa1NVYmFQNURIbHMrRFJlcm5KeDB2REZMaXVn?=
+ =?utf-8?B?dm8zN1VqUjkyeFZCUzBQaHJmTDg4U2c0TDNNZUVIOXFpa2NDVWRvWVVKRnUz?=
+ =?utf-8?B?eDBtdU1OU0dYZno1TTdqa3VXc0xKT1k5eEVLMWVEU05mank2eGhKZ3Jha0h2?=
+ =?utf-8?B?eTlOckQ2QytHcm5GUVo0K1RTbTdEdWpUNkQ2bVp2V0ovenlkNUp5dHU5MkNH?=
+ =?utf-8?B?SWVFbXgweUlzU1g2aXZRY1Q2TTlIbm9aWDlxb2I2dENDVFR6Z2JMQXhzY2VG?=
+ =?utf-8?B?VTl5QUlMbnY2U2JobnNJdlR4TDJ2a2hFUmRhUEZ3bExiOEZhKzBodGxXbndS?=
+ =?utf-8?B?cjVzcDRYdzJYQm9MQU9BcFQvRVYzcUJZZ2MxQ1pqMEkxYkRIcmlsbHA4NFFY?=
+ =?utf-8?B?VmQ4TllkQXFWMW1SREtZZm01YlhuMGNyOGx6YUwxbVUrUG1QL0tLVkpDMHNp?=
+ =?utf-8?B?eUtnUHZpUkRRTEdWL3J0Y3RMSXVFYm5pbkhBUTRyKzc2b0ROV1JYOGdBcXBY?=
+ =?utf-8?B?NGUxdjM2Z04yTG1TZmprMThZZGxyNnBya1hqRkNQckNvS0xrdlJPQ0N1TW5N?=
+ =?utf-8?B?VEJHNGRTUFhuK0UrR1FXbVI5VUoyMGtpelMyMVpLOTRGNC9HZnFwb0lmMVU2?=
+ =?utf-8?B?b2gyeXUwcTZGY1ltMFJ0QUsyUUk1cTNkaHdxWGFrYXJZV3lrUUJhU0I0TWdR?=
+ =?utf-8?B?TkhUdy8zMVh5VTVydTRoVU9CYWJmRHBIZzhkc2J4UTY3SWFqZ3R1KzR1cExh?=
+ =?utf-8?B?UUYrQ3JKUXBlMG1oWVdXdzVDamZqVWt3a1BQS2l6TVpHNFQ2Mnd1OWdlU2ZW?=
+ =?utf-8?B?N29zc040Skl0MERGV0JoaC9zL2lzWEw4UXM4RmNKSDBsblExNmFtWTZXemlV?=
+ =?utf-8?Q?OVA+WGvL+2oup?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T29rVytVd0M3d3ZGaE9hTUlEWGUwZGtxMnNIOExDUXdoMEQvZXJXa2tlV2NU?=
+ =?utf-8?B?UEZDNGd1NGp6Q0ViMzRaWFpoSUQ1ZHZKL3hwSFg3MkgxZEJ3anlhUmtDd0dx?=
+ =?utf-8?B?eHBVcUdiVjJHNllieUF0MHdwdXVwcFNFOGhiRkg0eEpBa2tDVG15c2FhRE8z?=
+ =?utf-8?B?SlBaYjQ2cTRyaFQzWUd2azYxa0dtcDVVYzIvaFlPblVUS3l5MmlrQ0lndlpu?=
+ =?utf-8?B?YlRzM2U4WGtzR1ZpbVZ4ZnNJUE1KS1JYM2JRYTdYelBnSWI3RXJtQXlnbFZa?=
+ =?utf-8?B?SHJLaC9nSE5WblRoeTlqNXN3SThMKy9tYmkyNzFvYU5vVzZwaTJwd3E2aDE1?=
+ =?utf-8?B?aHdDUmw0L0wzSVJjM0tCT2ljSXRaRlM0dTI4SnBYdjdVdnc1TVhJWTBaRnJV?=
+ =?utf-8?B?MThHZXRVQkhjOFZacldveUlqT2FTVUNJcEhQRE5LT2dkRjN0YXBQMVI3SW5r?=
+ =?utf-8?B?R0tUZzZJQjBBdTVxZlF2bzk3OGZkU05JRkZtblRDU0F1b2d5ZW80N0NkRlov?=
+ =?utf-8?B?T09JRnJJYjVEWFVvd0FZL2ZHNXhTK0dKbnlqSEgwK1VDUW85Y3NxRlNZb2tW?=
+ =?utf-8?B?UkNndXByek1KU2VDelBTaEJvM0lyR3VLUURpWjVoMHNhWXRxNmk5ZDhWQVRj?=
+ =?utf-8?B?VExXQnpnN0Y0OEVJSEdYa3E4b0hIYWtxWkZGRnBtcmRMUUpSNnpCM09pdk83?=
+ =?utf-8?B?VW5mV3N5OXhXN2lpeEZ6N2hXLzc4bVVFdE16c2xGVWYyS0RmblVMVjJUTDVl?=
+ =?utf-8?B?dDhYTFRYM1RKMER6Mmpoa1VXUUFkQWV1SUNxaE1LOURCbFhuWnFXVkdQVjNk?=
+ =?utf-8?B?aWxaYlo2SHFPMy9VN1h5WHBicWR5a05RMW0wclNWS2xlSjRXRkRzZitTamQx?=
+ =?utf-8?B?UnJqMXZ1ZEZGM2szVXozYWxSK1dlZVA3QmQ2d3VNd3d1STF6T2hvMzdKVWxP?=
+ =?utf-8?B?enFpbldsQS8rQVZqWjdITjB2bU9vWXRMUWpGVm4rcjZVM1ZscDU4ZkwzWlUx?=
+ =?utf-8?B?S2hpRWtCZ2xkME1GTnAyN2lRb0hCakJkZmZiQ21VNnpOSk9ublFheFh2ZUNr?=
+ =?utf-8?B?enlONkN3cVA3RHpIRHBOenlQVHdPVEtrZm93SE93NzEvV3p1M3JKbUUwd3BY?=
+ =?utf-8?B?RzQwdXJWVHVkMlkxVDZHaS96SmRoSlIyM2xuanMxall3RHJERUtyWW1PRkR5?=
+ =?utf-8?B?QkNubEhtWTBlRjZ4aGtneTJmRDNGWkxLdWRqRmkyZUJrMWNRbmNaUjh1V1RD?=
+ =?utf-8?B?OHNCUUxMNjVmUjV0WWRRVXYwNmRnSTRVM3pJZUFaWlVpb3pGeGxyOGVtLzF1?=
+ =?utf-8?B?WmxZY0E2OUJ4SGdMLzRHM3Y1MTRYZmQ2cUZYcVVTT20yS1ljK1lmUUFaWkVm?=
+ =?utf-8?B?WVRXM3E2VzhDZVlCQ3NMSHE5aDZ1T0o1YmdIaTNMaWpDRkcrM3k4cWdJcmF6?=
+ =?utf-8?B?NGtTTitGNm5hUDRkZXNRdCtZN0tXY3N1MVZUYXQzMVVzcVZMOXRGdEh6bG90?=
+ =?utf-8?B?UzJuYXZsVDFLZ0tla2w3R0VzZG9NSVorcVRGazJnbnk3ZlpOclMzaXdwdWR1?=
+ =?utf-8?B?c3E3Rjh1ZzlOMjZjR21tejg4d2ZQdWtpM1ZhRGg4MHZCZWZ6L0F3cDFjTjNU?=
+ =?utf-8?B?Vzh3RGw4M2FzeHkvMWR4MHdiZmlDVlZIOGpvTjlSUlBLME1LRXBNYmZtTjRW?=
+ =?utf-8?B?ZGQ2UXZuZGsvQTBiL3JRd2RiOXB1dExOODBEaW5MMGs5THNiNmVJSW5QaXY5?=
+ =?utf-8?B?OXUwcll5QTMrK3JTelRzZVBzYlVVYjFzNDdTQW9YYWxyV0FGRHJaQ2ZjNXNu?=
+ =?utf-8?B?c1kzZnBVU3VUZVFiWW5SeXB2clc4ZjhwazlpdmNwWjE3SDcweGVJR3lSb3V1?=
+ =?utf-8?B?Zk9QVEZXNGJieUt4OGI3bk1pRjRNM2pKU05CSXcvR0J1RGlSdEI0ZHV6ZW1o?=
+ =?utf-8?B?VTl5eWJXREVic0lNQTlRNlk3Qjh3QWM2WDJLTXY2Q3czQVIvbmVYZU52dDVr?=
+ =?utf-8?B?MVNXbVA2a01Qb2xCVHhoNnZ5U25LL2c2NE9rcng1aVF6U2V4V2puOS9RVlZC?=
+ =?utf-8?B?NzJzUFRtUlJ3dmZJdWdvaDNIWEZMZjZvSG1hRGRacUpqelI1S0c3eWMzUWdn?=
+ =?utf-8?Q?aXIoweVvy0O1BWwQ51111ibpZ?=
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11d41947-929c-4966-b521-08dd02e5182f
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 06:41:53.4511
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WQyLbP71e1xPwPfuVtWhUzEoV8HK9Q72U5Y6/Iu6uI3RJXPTc1k5kJuUvZTU+8JW1wiigW/RTQDD5qkHlgUmtg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_224149_364167_CA4E2D98 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20241111_224202_788529_D1B0020A 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,69 +182,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024, at 02:15, Linus Walleij wrote:
-> On Mon, Nov 11, 2024 at 11:38=E2=80=AFPM Micha=C5=82 Pecio <michal.pec=
-io@gmail.com> wrote:
+Boolean type properties are usually considered true if present and false
+when they do not exist. This works well for many in-tree board dts and
+existing drivers.
+    
+When users need to overrride boolean values from included dts,
+/delete-property/ is recommend. This however does not work in overlays
+(addons).
 
->> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
-...
->> So I guess it looks like there is a problem with this feature, perhaps
->> a missing "permit user accesss" somewhere?
+Geert pointed out [1] that there are several invitations for using
+strings "true" and "false" on boolean properties: [1], [2], [3].
 
->
-> static inline int
-> do_cache_op(unsigned long start, unsigned long end, int flags)
-> {
->         if (end < start || flags)
->                 return -EINVAL;
->
->         if (!access_ok((void __user *)start, end - start))
->                 return -EFAULT;
->
->         return __do_cache_op(start, end);
-> }
+Add support for a string value "false" to be considered false on boolean
+properties by changing of_property_read_bool implementation.
 
-I would guess that the problem is not the access_ok() but
-the actual access in v7_coherent_user_range() that does
-not appear to call uaccess_save_and_enable() or its assembler
-equivalent around the lines
+Affected by this issue is AM642 HummingBoard-T overlay to enable usb-3.1
+function. This is an alternative solution to dropping
+it's disfynctional overlay [1].
 
-      USER(  mcr     p15, 0, r12, c7, c11, 1 )
-...
-      USER(  mcr     p15, 0, r12, c7, c5, 1  )
+[1] https://lore.kernel.org/linux-devicetree/CAMuHMdWY0J7uooeRbUGwjkeCLd2UVyN9dtDWUkg5pJ3sAULdsQ@mail.gmail.com/
+[2] Documentation/devicetree/bindings/sound/rt5651.txt
+[3] Documentation/devicetree/bindings/sound/pcm3060.txt
+[4] arch/arm/boot/dts/ti/omap/am335x-baltos.dtsi
+[5] https://lore.kernel.org/linux-devicetree/20241101-am64-hb-fix-overlay-v1-1-080b98b057b6@solid-run.com/
 
-> diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-> index 480e307501bb..400650519bd1 100644
-> --- a/arch/arm/kernel/traps.c
-> +++ b/arch/arm/kernel/traps.c
-> @@ -592,11 +592,14 @@ __do_cache_op(unsigned long start, unsigned long=
- end)
->  static inline int
->  do_cache_op(unsigned long start, unsigned long end, int flags)
->  {
-> +       pr_info("%s(%08lx-%08lx)\n", __func__, start, end);
->         if (end < start || flags)
->                 return -EINVAL;
->
-> -       if (!access_ok((void __user *)start, end - start))
-> +       if (!access_ok((void __user *)start, end - start)) {
-> +               pr_err("ACCESS NOT OK\n");
->                 return -EFAULT;
-> +       }
->
->         return __do_cache_op(start, end);
->  }
+Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Closes: https://lore.kernel.org/linux-devicetree/CAMuHMdXTgpTnJ9U7egC2XjFXXNZ5uiY1O+WxNd6LPJW5Rs5KTw@mail.gmail.com
+Fixes: bbef42084cc1 ("arm64: dts: ti: hummingboard-t: add overlays for m.2 pci-e and usb-3")
+Signed-off-by: Josua Mayer <josua@solid-run.com>
 
-This does not catch -EFAULT being returned from the USER()
-trap in __do_cache_op(), so I would expect it to trigger but
-also not to flush the caches.
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Jon Nettleton <jon@solid-run.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>
+Cc: rabeeh@solid-run.com
 
-It's unclear to me if this problem is specific to the TTBR0
-PAN variant, or if it can also happen on any variant of the
-CPU_SW_DOMAIN_PAN. It seems unlikely that CPU_SW_DOMAIN_PAN
-has been broken for this long without anyone noticing, but
-I also don't see why it doesn't trap in the cache flush
-when the TTBR0 version does.
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+Josua Mayer (2):
+      of: add support for value "false" to of_property_read_bool
+      arm64: dts: ti: k3-am642-hummingboard-t-usb3: fix overlay boolean value
 
-       Arnd
+ arch/arm64/boot/dts/ti/k3-am642-hummingboard-t-usb3.dtso |  2 +-
+ drivers/of/property.c                                    |  2 +-
+ include/linux/of.h                                       | 13 ++++++++-----
+ 3 files changed, 10 insertions(+), 7 deletions(-)
+---
+base-commit: 9852d85ec9d492ebef56dc5f229416c925758edc
+change-id: 20241112-am64-overlay-bool-60a35da933f7
+
+Best regards,
+-- 
+Josua Mayer <josua@solid-run.com>
+
 
