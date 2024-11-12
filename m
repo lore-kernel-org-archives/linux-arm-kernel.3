@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F546D42B88
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305D7D42B88
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5r3VXIp0XmMBXAlxSwILes2Jqbowq2uwAxf2gqQQs9w=; b=tR6KLMUqQmjuU1nbUTjQgkzksM
-	7zIa60JPk7oPI/pOvVe0gKu3h7LW3j+d6N5pmI0izhMtF4IomqhJuE8uvsswznmBxnvdEhguX21np
-	zPVQ+thLa172nHckwLck5HgwGJqGiq1B3rXRC51XPd0V6AbNiK6AWYiw+x/owyBzjvvnirgw4ZEGI
-	p6THXpwaWvo3KzahNe13hb7IWtDO8JfGYp5vFePgXCeojqtDJ36ZfZuJmusZ4U5pCOfmJi5tFljwd
-	JFonezG2fj4M4H253N9Vqhbmh7pj9Ijv+pAi5uXt10qUegMHHqgn1skjbYLQZJG+sPCIIK0CD6dDx
-	3iBYriBg==;
+	bh=FjqR5aJyROI69ZMY1V5C2U91VvCHO3ATbnTBGghe8Ws=; b=NztgoVZw+T/5GDQxl37edoGY12
+	OKEp4dN/fMMm7Txt1zL+9Z6DpFluX9rKT3BFc/CyarVxshXUGPqQ0uMkKxuSRO9pwv2++WvA2Pc5V
+	PjlMoGLPlbygUdR5KhgJW4BclzdaE1itLWAB83TotWbNiSSZMIwB/4DffN2u0GRW5ho8UzpigHazi
+	3aYd3v8cGrm4jjZk1p0xRTmtNEuyMkVJAcH9my4WpRrvIWh/2Scb9LHLe2NhFgVExBtmLBch6ksfa
+	aaJ8G4hEKx8RWrlWJuq0i/IDSOF31462JRt9utPK2MEZnYUO4sZ+OBAf4br0CXBj9d2CEm35NuhtM
+	z4XV5gMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tArqr-00000003kPI-3ZNa;
-	Tue, 12 Nov 2024 14:26:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tArv4-00000003lH4-1zMZ;
+	Tue, 12 Nov 2024 14:31:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tArnV-00000003jcC-2Be3
+	id 1tAqlf-00000003WyY-2yna
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 14:23:15 +0000
+	Tue, 12 Nov 2024 13:17:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D6785C55D1;
-	Tue, 12 Nov 2024 14:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C81C4CED0;
-	Tue, 12 Nov 2024 14:23:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 55D765C55DF;
+	Tue, 12 Nov 2024 13:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A836C4CECD;
+	Tue, 12 Nov 2024 13:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731421392;
-	bh=bRL09e91cC7LQEEs/ysPp5d5gcrpXYKGy36AOC6GrXg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FGhTRjlXzf9QiP2GqFP1n90Yp6Gy7ImytAGPN2sgtkGb2yFXEkeux54f8ZtKbY6o6
-	 a4wcjzEOo9cwkepshRkUQYk1BfaFTtOX2XW+4syhItoE8tbJzybrx32h8m9Ut/0r3f
-	 R+Xd12RHGsFv7Y3QLffEjH4uGVjnG1+FKoSbc32spUwStbwoEDLSRhpmXHKhkl0r9p
-	 eVnGHCcHmhCT8KUCs3qGDTShB3Bzjjn6j0Fgo5iPCXZibgHfeKeFiNV2mBrdxo/78Z
-	 9gUkf3mruDYOIZBZQIe/RbPw8wpI5jt2y9RFLkg0FLYZHP4jApEqyLTwn/d4JNZ1n7
-	 oLrZxre4KRLug==
-From: Frederic Weisbecker <frederic@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH 07/21] soc/qman: test: Use kthread_run_on_cpu()
-Date: Tue, 12 Nov 2024 15:22:31 +0100
-Message-ID: <20241112142248.20503-8-frederic@kernel.org>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20241112142248.20503-1-frederic@kernel.org>
-References: <20241112142248.20503-1-frederic@kernel.org>
+	s=k20201202; t=1731417434;
+	bh=bQbs1NAEcYo8+Js/A0LgSfHJ0MSgGorRyKV7H81F7xs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XlsyByGWX50FnVkBEZVH5pbvxsXfoiib0TlOyLKQoVmNEFH6lzZSgdArY4kPOXz6/
+	 qiaNs7nV/x+i8Je3ea/uxNbmRNIs4LDpmz4DKeOxnm3ZWzrPO57kr7wAr/+WIu845+
+	 FNAkpTTkAkn8a9rL1ovQaESmFEKo3A12xcqoVtswH39cBqNoI7B0PTMpdaBuTw5swi
+	 sFFZguwV7XtkRnBgcMB9kYXz7tVKun/8rQg9NSFwhHpqJY+DUKOYxlBQXSH4aMt7hR
+	 8OhV8iN6geYzCm7TWCehsLCiyAtq9DwN9Q5QecnstY+2vSrvHFx0ZdTkQ4p7AdZJQm
+	 RGbFHeJmrC5hw==
+Message-ID: <ee3aeadb-9897-428c-83e2-3e208f095d1d@kernel.org>
+Date: Tue, 12 Nov 2024 15:17:07 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 2/2] net: ti: icssg-prueth: Fix clearing of
+ IEP_CMP_CFG registers during iep_init
+To: Meghana Malladi <m-malladi@ti.com>, vigneshr@ti.com, m-karicheri2@ti.com,
+ jan.kiszka@siemens.com, javier.carrasco.cruz@gmail.com,
+ jacob.e.keller@intel.com, horms@kernel.org, diogo.ivo@siemens.com,
+ pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com, danishanwar@ti.com
+References: <20241106074040.3361730-1-m-malladi@ti.com>
+ <20241106074040.3361730-3-m-malladi@ti.com>
+ <f28bf97c-783d-489c-9549-0dd0f576497e@kernel.org>
+ <db77a358-a4d3-444e-971e-aa348ad8c8b7@ti.com>
+Content-Language: en-US
+From: Roger Quadros <rogerq@kernel.org>
+In-Reply-To: <db77a358-a4d3-444e-971e-aa348ad8c8b7@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_062313_622515_CD150D3E 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20241112_051715_941918_9FB9805B 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +81,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the proper API instead of open coding it.
 
-However it looks like kthreads here could be replaced by the use of a
-per-cpu workqueue instead.
 
-Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
----
- drivers/soc/fsl/qbman/qman_test_stash.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+On 12/11/2024 11:04, Meghana Malladi wrote:
+> 
+> On 11/11/24 19:23, Roger Quadros wrote:
+>> Hi,
+>>
+>> On 06/11/2024 09:40, Meghana Malladi wrote:
+>>> When ICSSG interfaces are brought down and brought up again, the
+>>> pru cores are shut down and booted again, flushing out all the memories
+>>> and start again in a clean state. Hence it is expected that the
+>>> IEP_CMP_CFG register needs to be flushed during iep_init() to ensure
+>>> that the existing residual configuration doesn't cause any unusual
+>>> behavior. If the register is not cleared, existing IEP_CMP_CFG set for
+>>> CMP1 will result in SYNC0_OUT signal based on the SYNC_OUT register values.
+>>>
+>>> After bringing the interface up, calling PPS enable doesn't work as
+>>> the driver believes PPS is already enabled, (iep->pps_enabled is not
+>>> cleared during interface bring down) and driver  will just return true
+>>> even though there is no signal. Fix this by setting the iep->pps_enable
+>>> and iep->perout_enable flags to false during the link down.
+>>>
+>>> Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+>>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>>> ---
+>>>   drivers/net/ethernet/ti/icssg/icss_iep.c | 10 ++++++++++
+>>>   1 file changed, 10 insertions(+)
+>>>
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> index 5d6d1cf78e93..03abc25ced12 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+>>> @@ -195,6 +195,12 @@ static void icss_iep_enable_shadow_mode(struct icss_iep *iep)
+>>>         icss_iep_disable(iep);
+>>>   +    /* clear compare config */
+>>> +    for (cmp = IEP_MIN_CMP; cmp < IEP_MAX_CMP; cmp++) {
+>>> +        regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
+>>> +                   IEP_CMP_CFG_CMP_EN(cmp), 0);
+>>> +    }
+>>> +
+>>
+>> A bit later we are clearing compare status. Can clearing CMP be done in same for loop?
+>>
+> 
+> Yes it can be done in the same loop, I will update that.
+> 
+>>>       /* disable shadow mode */
+>>>       regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
+>>>                  IEP_CMP_CFG_SHADOW_EN, 0);
+>>> @@ -778,6 +784,10 @@ int icss_iep_exit(struct icss_iep *iep)
+>>>           ptp_clock_unregister(iep->ptp_clock);
+>>>           iep->ptp_clock = NULL;
+>>>       }
+>>> +
+>>> +    iep->pps_enabled = false;
+>>> +    iep->perout_enabled = false;
+>>> +
+>>
+>> But how do you keep things in sync with user space?
+>> User might have enabled PPS or PEROUT and then put SLICE0 interface down.
+>> Then if SLICE0 is brought up should PPS/PEROUT keep working like before?
+> 
+> No, why? Because either both SLICE0 and SLICE1 run when atleast one interface is up and both SLICE0 and SLICE1 are stopped when both the interfaces are brought down. So when SLICE0 is brought down, SLICE1 is also brought down. Next time you bring an interface up, it is a fresh boot for both SLICE1 and SLICE0. In this case, just like how we register for ptp clock (this is handled by the driver in icss_iep_init(),
+> pps also needs to be enabled (this has to be done by the user).
 
-diff --git a/drivers/soc/fsl/qbman/qman_test_stash.c b/drivers/soc/fsl/qbman/qman_test_stash.c
-index b7e8e5ec884c..f4d3c2146f4f 100644
---- a/drivers/soc/fsl/qbman/qman_test_stash.c
-+++ b/drivers/soc/fsl/qbman/qman_test_stash.c
-@@ -108,14 +108,12 @@ static int on_all_cpus(int (*fn)(void))
- 			.fn = fn,
- 			.started = ATOMIC_INIT(0)
- 		};
--		struct task_struct *k = kthread_create(bstrap_fn, &bstrap,
--			"hotpotato%d", cpu);
-+		struct task_struct *k = kthread_run_on_cpu(bstrap_fn, &bstrap,
-+							   cpu, "hotpotato%d");
- 		int ret;
- 
- 		if (IS_ERR(k))
- 			return -ENOMEM;
--		kthread_bind(k, cpu);
--		wake_up_process(k);
- 		/*
- 		 * If we call kthread_stop() before the "wake up" has had an
- 		 * effect, then the thread may exit with -EINTR without ever
+I just checked that PPS/PEROUT sysfs don't implement the show hook. So there
+is nothing to be in sync with user space.
+
+> 
+>> We did call ptp_clock_unregister() so it should unregister the PPS as well.
+>> What I'm not sure is if it calls the ptp->enable() hook to disable the PPS/PEROUT.
+>>
+>> If yes then that should take care of the flags as well.
+>>
+> 
+> No, ptp_clock_unregister() doesn't unregister PPS.
+> 
+>> If not then you need to call the relevant hooks explicitly but just after
+>> ptp_clock_unregister().
+>> e.g.
+>>     if (iep->pps_enabled)
+>>         icss_iep_pps_enable(iep, false);
+>>     else if (iep->perout_enabled)
+>>         icss_iep_perout_enable(iep, NULL, false);
+>>
+> 
+> This doesn't work because if pps_enabled is already true, it goes to icss_iep_pps_enable(), but inside it checks if pps_enabled is true, if so it returns 0, without acutally enabling pps. Which is why we need to set pps_enable and perout_enable to false.
+
+Note that we are passing false in the last argument. i.e. we want to disable PPS/PEROUT.
+I don't see why it won't work.
+
+> 
+>> But this means that user has to again setup PPS/PEROUT.   
+>>
+> 
+> So yes, this is the expected behavior for user to setup PPS/PEROUT after bringing up an interface. To clarify when user needs to again setup PPS:
+> 
+> 1. eth1 and eth2 are up, and one interface is brought down -> PPS/PEROUT will be working the same
+> 2. No interface is up, and one interface is brought up -> PPS/PEROUT needs to be enabled
+
+OK.
+
+> 
+>>>       icss_iep_disable(iep);
+>>>         return 0;
+>>
+
 -- 
-2.46.0
-
+cheers,
+-roger
 
