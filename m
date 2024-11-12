@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50266D32D81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F66D32D81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oxgsDspc5q1Jni5adG0LIm1mb6Zw1UKHydszhDw5eao=; b=dTrCOQxiGOG8Ek+ggeVfPwP1v8
-	+IsDC4EMWmBp+I/t4w4ikU5KfDrDIYAamytTOnLAWW9f2f58CkTkeCW3v/RA19xZKcqbcT66KGaD7
-	O13zEVF8ztLebz47bz48XW8/I77EUFL4ORBQzldSnwMPOedLiwB7aaYT9vjP2FER2XhTPf3cVAk3V
-	pTag9uTH1ozrVOX3eISjDi38kTTV7XdvL0jww2WZhPv2UB18ttpr9CojzK5K+qxBu/Uj6hz9/ci4L
-	oucbHPs4yET/JX/ZVE8UkjExZjHW236tXYzqdeUcCpFcfohh9WpquTm+3C3jgLCwcbRceip7gDykF
-	4VVMBb3Q==;
+	bh=tr6REDhXVt1opvineUair86Kv+hNXCwWuTG4wc24Uvg=; b=OTulHOV+MLPVDb/egfJRvdIRgC
+	Pi5f+IJoI30S31xP7odZkhSPZtSLThQm0iMb3tr3s+IYIgyomtcwt0KCqACkHLYD76OW4wA4q43U9
+	ZedKeOxKF/5qa4eWbyVg7OWSQ9e8enUQZlavlqUP9Y57nW0fP59kJS+KpnqmxXRzH+BTlgfkUgPH+
+	vnkvjhsWk4tkuhRZwb+sFDEmmS+8Botve7ttRbzlu+5QYUAdp7nJvcF8TZBgOvcAAn0478E68xKiK
+	RTk2mVRWe8nNjqyq0V1r17Vo2D+tylHENTTOfgWXgRN4onOh/3ejU8U+gzENgX3EDZv0+47Ieryam
+	1EYeiqcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvzv-00000004cWq-2r2I;
-	Tue, 12 Nov 2024 18:52:19 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1tAw1h-00000004crX-1Mbd;
+	Tue, 12 Nov 2024 18:54:09 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvsK-00000004b8O-452J
+	id 1tAvsO-00000004b9M-2rTs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 18:44:30 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6ea7c26e195so62075357b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 10:44:28 -0800 (PST)
+	Tue, 12 Nov 2024 18:44:33 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-6e5e5c43497so47084237b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 10:44:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731437067; x=1732041867; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1731437071; x=1732041871; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=oxgsDspc5q1Jni5adG0LIm1mb6Zw1UKHydszhDw5eao=;
-        b=M8TRGJ5sxnbJTCaCYcASKMsJ/pU7u0E+q/Thr3c41tJU+cx6Xuu0EPpXuTF4INCp4v
-         aVzfQdpP1ACqhJ9NbVSZ2AFcZxBEtsuPGm+wA89J8nN1PHY/a/ScTKpczKPYWyZMf23c
-         AnCXPG0DkLPBf3cROi4u3UBY19yeAiXaBaNeZl2ZDwM+GqqpMGJOxsC8kEdYpLn60jjA
-         2QpSafh34vw63dIelN0yvxZubVcov6OeC/XtkXiHW7wS9qQ0vfIl4DRPAbDgMhLp+NM6
-         SIAhP/7+zC6ilSpn3Af9uKPTdbu5M8h1ccvXzFAtfx2k0trVneJ6Kba0OBAlnfBkd9qF
-         FWRA==
+        bh=tr6REDhXVt1opvineUair86Kv+hNXCwWuTG4wc24Uvg=;
+        b=QJZlyjm8PhrjsKdXucK/+hM8gFfTvG3Xi2lV++dymXNbdbbzAZcNPTdEp95Xkc+JRF
+         pibfD4IObsspF099uZCmAtoWrrpLRAB3fYqbH31/Nm3KJWlUN7nhUBChdFbzCLMptzrF
+         VssSCsdN9T7x+rpjSuGe/dO+pZAWaqQlGxkReLACaOJc5ThOlPuacYrhDzYUkFuyk98S
+         m2xszBgxnIGcWi94ZXNnHQ9oBYwcEzaGyOI1wDHiRpkwQzY3m0oWl6Q5Qhb67/f5kO/Y
+         Zdl63zeLneztujj+6bsgEFMD9ba2U6d1uNYhOFEMKj42MBm9FcPfpl9uWYy1uOMwvSGE
+         GyAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731437067; x=1732041867;
+        d=1e100.net; s=20230601; t=1731437071; x=1732041871;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oxgsDspc5q1Jni5adG0LIm1mb6Zw1UKHydszhDw5eao=;
-        b=ubtu6CpT3WKZq5pPIFR1Y/BRuYP1AF63Qo7O17aNg0Bhq9ZqTDYQhQEw57oKSoMAhG
-         2pLKtawnZDDtRVlWrALDxU3hYQmNlOw6WhN40p+/u7LUsod+zdI8HoVj52ck10dnwaKp
-         uXDya6glYd7eR7pXUeB6jwL/MY5cNP6iJrr3V/fobvm1S24yfZlLSvhPdATXcvdqWkQ1
-         UmtOkl5yzvf8nlmCPcqLlVwF4A1A/MBBy1pJ8fMqYdjUuTHH5Vk+rSCbbgra3rVRhp3G
-         OoaCojhuBr0kioyrEAxnhaAqqIqpy700Na6ekWMgvXxahJF58FoNc99EsnBpzUNipUy6
-         nbQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUnkna3qX/i9K9pvWPk4dJ7uEB9Aeq4KetcRCTpuUtSf8QFwFruzqN3CrYkQiTNaUAeGa06QptaAADjyn0Jh/6p@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPec/7PxVNyTZFv5IlNxzr+5lsThxy0LFPWuzVLFir7SnMqYyM
-	seaL3FyU1OMSXXuJ2IvWQLJKNCVvUBrRq4U/GBZQSMSEikDbxpHWXYbZDLxkMSugFK/aElkU40P
-	tprG5krNej/iKbW4Xeo4iGSRnQptEWEki3YUHFg==
-X-Google-Smtp-Source: AGHT+IFMWgRdxZRJtK+Lo3CBpB+VX1bBIjkAiyKqAQn28lKpDNF2wtZFNkKRtCi41qnWunWXbKSXnRp5CfqY5x5v/NA=
-X-Received: by 2002:a05:690c:887:b0:6ea:7e37:8cc3 with SMTP id
- 00721157ae682-6ecb31b89b0mr847947b3.2.1731437067438; Tue, 12 Nov 2024
- 10:44:27 -0800 (PST)
+        bh=tr6REDhXVt1opvineUair86Kv+hNXCwWuTG4wc24Uvg=;
+        b=XMDq7PU/huuE4T/26HSBrXtBH5XM4LR5w7pB9UwCprECP4YHHWtJiTgUoPpHODfi+l
+         7XzXJydseBzfFhsR/RBGRLhKWgmUUWFoJsLktuo8sw6FsEYjhnJuNqrJljpKvCQPqY2s
+         WsIOHhqudG5VRnB2t4MgDctYUqAfdyTmHDXOfePhXxSLWs90PS69Zq1cJ4X3oCgehhEa
+         DyHLiVV+26MomQMQI+sD9Ux0TnhCr7BebQikiF6u+dyA9gMWhUCNg1/tzcwS93s0n14Y
+         ULX32lreRCansAjF0ZvKo2eBsTZba9oNOY2L+LN86i5nwIOuZfktF8YEUTg1f3hq0t2b
+         fZpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU31uCdeFlZy1rQko90QfeED1hiv9Dkkuu4rjeLzsD8DA+dd4gMJtxp132pxBWN23JTcuO18nRkC16iZre+OdxY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWjdcVjN2kcKiI0RNclqym3SkLM1Sys1CnsET+jHwC5wyWHGgw
+	i6xObBayNm7qwMw6Cd42ksOqs4HMCu8pIHq5h44q+y6CDHJZjJdTzVs0sJ1EGsN7GFPYIgMx4ln
+	6tqMWK9m6v5xBCxkMtjROU3/ksOJRfIDgbhi0txrQh2LwXDfs
+X-Google-Smtp-Source: AGHT+IH44Q8MD0K4pqUKXUCjf2JqplnFw2dHro4nArL34sMNY7ms7UeoYKZIVy0yhJb2ir9HCSb3HgO2REJ9e9FblRM=
+X-Received: by 2002:a05:690c:7090:b0:6ea:5da9:2f7c with SMTP id
+ 00721157ae682-6ecb32cb110mr719877b3.12.1731437071000; Tue, 12 Nov 2024
+ 10:44:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20241111085039.26527-1-andy-ld.lu@mediatek.com>
-In-Reply-To: <20241111085039.26527-1-andy-ld.lu@mediatek.com>
+References: <20241108130647.8281-1-wahrenst@gmx.net>
+In-Reply-To: <20241108130647.8281-1-wahrenst@gmx.net>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 12 Nov 2024 19:43:51 +0100
-Message-ID: <CAPDyKFopLrZ2Pn66m-CtjDGOEZyiZ+_i8TnnD4KSHpFqCTN7eg@mail.gmail.com>
-Subject: Re: [PATCH] mmc: mtk-sd: Fix MMC_CAP2_CRYPTO flag setting
-To: Andy-ld Lu <andy-ld.lu@mediatek.com>
-Cc: angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, 
-	wenbin.mei@mediatek.com, mengqi.zhang@mediatek.com, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
+Date: Tue, 12 Nov 2024 19:43:54 +0100
+Message-ID: <CAPDyKFrKTw16mfmMcnaz08vPJsAsC6KJj_j8j6UcbQif9VK1cA@mail.gmail.com>
+Subject: Re: [PATCH V2] mmc: pwrseq_simple: Handle !RESET_CONTROLLER properly
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Marco Felsch <m.felsch@pengutronix.de>, 
+	Catalin Popescu <catalin.popescu@leica-geosystems.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_104429_038728_A19C0E99 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20241112_104432_745896_87EEC5A8 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Nov 2024 at 09:50, Andy-ld Lu <andy-ld.lu@mediatek.com> wrote:
+On Fri, 8 Nov 2024 at 14:06, Stefan Wahren <wahrenst@gmx.net> wrote:
 >
-> Currently, the MMC_CAP2_CRYPTO flag is set by default for eMMC hosts.
-> However, this flag should not be set for hosts that do not support inline
-> encryption.
+> The recent introduction of reset control in pwrseq_simple introduced
+> a regression for platforms without RESET_CONTROLLER support, because
+> devm_reset_control_get_optional_shared() would return NULL and make all
+> resets no-ops. Instead of enforcing this dependency, rely on this behavior
+> to determine reset support. As a benefit we can get the rid of the
+> use_reset flag.
 >
-> The 'crypto' clock, as described in the documentation, is used for data
-> encryption and decryption. Therefore, only hosts that are configured with
-> this 'crypto' clock should have the MMC_CAP2_CRYPTO flag set.
->
-> Fixes: 7b438d0377fb ("mmc: mtk-sd: add Inline Crypto Engine clock control")
-> Fixes: ed299eda8fbb ("mmc: mtk-sd: fix devm_clk_get_optional usage")
-> Signed-off-by: Andy-ld Lu <andy-ld.lu@mediatek.com>
+> Fixes: 73bf4b7381f7 ("mmc: pwrseq_simple: add support for one reset control")
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 
-This didn't apply on fixes the branch, but only on next. That said, I
-have queued this up for next and added a stable tag.
+Applied for next, thanks!
 
-Note that, this means that the fix needs to be backported manually,
-but I leave that to you or someone else to take care of.
-
-Thanks and kind regards
+Kind regards
 Uffe
 
 
 > ---
->  drivers/mmc/host/mtk-sd.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  drivers/mmc/core/pwrseq_simple.c | 20 +++++++++++---------
+>  1 file changed, 11 insertions(+), 9 deletions(-)
 >
-> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-> index 022526a1f754..efb0d2d5716b 100644
-> --- a/drivers/mmc/host/mtk-sd.c
-> +++ b/drivers/mmc/host/mtk-sd.c
-> @@ -2907,7 +2907,8 @@ static int msdc_drv_probe(struct platform_device *pdev)
->                 host->crypto_clk = devm_clk_get_optional(&pdev->dev, "crypto");
->                 if (IS_ERR(host->crypto_clk))
->                         return PTR_ERR(host->crypto_clk);
-> -               mmc->caps2 |= MMC_CAP2_CRYPTO;
-> +               else if (host->crypto_clk)
-> +                       mmc->caps2 |= MMC_CAP2_CRYPTO;
+> Changes in V2:
+> - add explaining comment as suggested by Marco Felsch
+>
+> diff --git a/drivers/mmc/core/pwrseq_simple.c b/drivers/mmc/core/pwrseq_simple.c
+> index 24e4e63a5dc8..37cd858df0f4 100644
+> --- a/drivers/mmc/core/pwrseq_simple.c
+> +++ b/drivers/mmc/core/pwrseq_simple.c
+> @@ -32,7 +32,6 @@ struct mmc_pwrseq_simple {
+>         struct clk *ext_clk;
+>         struct gpio_descs *reset_gpios;
+>         struct reset_control *reset_ctrl;
+> -       bool use_reset;
+>  };
+>
+>  #define to_pwrseq_simple(p) container_of(p, struct mmc_pwrseq_simple, pwrseq)
+> @@ -71,7 +70,7 @@ static void mmc_pwrseq_simple_pre_power_on(struct mmc_host *host)
+>                 pwrseq->clk_enabled = true;
 >         }
 >
->         host->irq = platform_get_irq(pdev, 0);
+> -       if (pwrseq->use_reset) {
+> +       if (pwrseq->reset_ctrl) {
+>                 reset_control_deassert(pwrseq->reset_ctrl);
+>                 reset_control_assert(pwrseq->reset_ctrl);
+>         } else
+> @@ -82,7 +81,7 @@ static void mmc_pwrseq_simple_post_power_on(struct mmc_host *host)
+>  {
+>         struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
+>
+> -       if (pwrseq->use_reset)
+> +       if (pwrseq->reset_ctrl)
+>                 reset_control_deassert(pwrseq->reset_ctrl);
+>         else
+>                 mmc_pwrseq_simple_set_gpios_value(pwrseq, 0);
+> @@ -95,7 +94,7 @@ static void mmc_pwrseq_simple_power_off(struct mmc_host *host)
+>  {
+>         struct mmc_pwrseq_simple *pwrseq = to_pwrseq_simple(host->pwrseq);
+>
+> -       if (pwrseq->use_reset)
+> +       if (pwrseq->reset_ctrl)
+>                 reset_control_assert(pwrseq->reset_ctrl);
+>         else
+>                 mmc_pwrseq_simple_set_gpios_value(pwrseq, 1);
+> @@ -137,15 +136,18 @@ static int mmc_pwrseq_simple_probe(struct platform_device *pdev)
+>                 return dev_err_probe(dev, PTR_ERR(pwrseq->ext_clk), "external clock not ready\n");
+>
+>         ngpio = of_count_phandle_with_args(dev->of_node, "reset-gpios", "#gpio-cells");
+> -       if (ngpio == 1)
+> -               pwrseq->use_reset = true;
+> -
+> -       if (pwrseq->use_reset) {
+> +       if (ngpio == 1) {
+>                 pwrseq->reset_ctrl = devm_reset_control_get_optional_shared(dev, NULL);
+>                 if (IS_ERR(pwrseq->reset_ctrl))
+>                         return dev_err_probe(dev, PTR_ERR(pwrseq->reset_ctrl),
+>                                              "reset control not ready\n");
+> -       } else {
+> +       }
+> +
+> +       /*
+> +        * Fallback to GPIO based reset control in case of multiple reset lines
+> +        * are specified or the platform doesn't have support for RESET at all.
+> +        */
+> +       if (!pwrseq->reset_ctrl) {
+>                 pwrseq->reset_gpios = devm_gpiod_get_array(dev, "reset", GPIOD_OUT_HIGH);
+>                 if (IS_ERR(pwrseq->reset_gpios) &&
+>                     PTR_ERR(pwrseq->reset_gpios) != -ENOENT &&
 > --
-> 2.46.0
+> 2.34.1
 >
 
