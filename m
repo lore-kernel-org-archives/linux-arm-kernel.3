@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F909D42BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A56D42BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCVnf/TyUHhxgeZ7ScMhiy4Pc0EXuCRI9iHUN3SXrRg=; b=nNmXYVEiFgqrEJpHAbvWnEXMmD
-	IsVNWFwyL6zpWXurht1W5APHbq85WkAM01A21QSjWnc+zdsCkvzW03fZyo6XPyP9ftFKcF29CLJV9
-	47ViFp3+dhvDpR3to5VjFDX//E9VkD06WedB6tFQ+Bn/+/VAiHCOGleNeybtkbe5hRKEi48rRpeHD
-	k89fO3GSCs0dkdML5hZEMPZP23/vgeb709pThi3E46kfQZDRM582RgO22LcHFhnM4PAia4AooygHR
-	rJ/YIPNmu1asWf2nNkWatcHaDtx8yXVb4yrJ+QYfP82w+f6fqSqm3iryAAAEdbrJVe9n2CVZ1hdQO
-	a/Y38zpw==;
+	bh=2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=hP/6BTtfVrlzPASrrwZJXcpBCS
+	57trrrJMEXl0VvdbX/j3DfNSCyL7RPoNA04zELW35zkA5FzSgQslFjYSgAEO5lsPiqbwaYSLDb/rs
+	sUYuidx/vzB4AQFACI9Rl4Ppr9cc07mM+xBWTy3jzaALIUAGoR6uq2k/DF2MZdNwmaRKjT/qbBofX
+	+ipX8q8aS1R8RosmsAGq/Gt32zyFghPNKuVS2godbvHDlrTpfPf8/Hl7P2uVBW7iZg41HENfOytOM
+	XLHJNZbhcPNoz/rBnD6KyCq+ahS1XbOmEvRi0u2Fh0/kNZiPoSxCS2p3D11gw1GZ48O2b78kp0dzC
+	FZ2DIvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuON-00000004IWk-2Fmd;
-	Tue, 12 Nov 2024 17:09:27 +0000
+	id 1tAuQA-00000004Ish-1Rl4;
+	Tue, 12 Nov 2024 17:11:18 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuBM-00000004F5l-15hx
+	id 1tAuBP-00000004F6P-12ug
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 16:56:01 +0000
+	Tue, 12 Nov 2024 16:56:04 +0000
 Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ACFmmxp011894;
-	Tue, 12 Nov 2024 16:55:50 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ACFml05011732;
+	Tue, 12 Nov 2024 16:55:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wCVnf/TyUHhxgeZ7ScMhiy4Pc0EXuCRI9iHUN3SXrRg=; b=WuuDlFPmGZqbszvp
-	eEpDsEpeQk0KRVM2AtWfX3YoVWNAOaP35xu59VLY7sb/nmV+pE0wOhcIEHDE2Qh/
-	tIwBk2NbcU+Ep3KxRZG1TEAIvgtT3c0WRbC7eXEn+DCm+qNLpr3RJx2Htjz9TdZ+
-	YMBd3ZZ6+CJrZq//iFyVsBuLpgu7l/iyGvRS1NDSBZY3ysxUrMNcq85qfgjX8lEs
-	kvgNVeeYNOgaIa+JhBQCUjprhSTAv9S3C2YUCFVzwPkcV1hapPEVD0yL4VYK5qMd
-	FjTY9NMTUoXxy0bwMcaGouZcV7st49HH/gMHipshhBi+BqjtqsIrrVjXpbVngX3G
-	UQnk9w==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42va0789sh-1
+	2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=VUpaFs5U7h8SG9qn
+	rHoXa72mUQJYgagW/qzC0ckZ3EQ91fTvHy2LKz1iHNBXYlCECk21H+OoOm3URLAs
+	+FuGD+udsmqnmrwMjP5Nx0EL+BQKOOhd2M82BYjPnfPrZjIGUNdOF//QZo7u0OUQ
+	bNaGLvR8tnNMU1Qp436CA4IHYucht7RiEw0S6hpZkKEvE3ZKrV2UGBZbsBcn3g+I
+	KGYY+WlOhwK2SAST4QaGhsfusetin9L+LU6rGq3eap9KvYp7CZ00tPkkmPkofMK6
+	mZWav70H5pvd7rPRnIIK5XP1PmSILrEqd/66kjzXEf2+zyBvOdqJW9cfZMB+lTHq
+	0plCPA==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42va0789sp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 16:55:50 +0000 (GMT)
+	Tue, 12 Nov 2024 16:55:55 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ACGtn1l015911
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ACGtsof021462
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 16:55:49 GMT
+	Tue, 12 Nov 2024 16:55:54 GMT
 Received: from hu-bibekkum-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 12 Nov 2024 08:55:44 -0800
+ 15.2.1544.9; Tue, 12 Nov 2024 08:55:49 -0800
 From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
 To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
         <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
@@ -60,9 +60,9 @@ To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
 CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <quic_bibekkum@quicinc.com>
-Subject: [PATCH v17 4/5] iommu/arm-smmu: introduction of ACTLR for custom prefetcher settings
-Date: Tue, 12 Nov 2024 22:24:53 +0530
-Message-ID: <20241112165454.2698269-5-quic_bibekkum@quicinc.com>
+Subject: [PATCH v17 5/5] iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
+Date: Tue, 12 Nov 2024 22:24:54 +0530
+Message-ID: <20241112165454.2698269-6-quic_bibekkum@quicinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241112165454.2698269-1-quic_bibekkum@quicinc.com>
 References: <20241112165454.2698269-1-quic_bibekkum@quicinc.com>
@@ -74,8 +74,8 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: QJmFDdnJ-bYgct7fEjqwPn_a68CdBceh
-X-Proofpoint-ORIG-GUID: QJmFDdnJ-bYgct7fEjqwPn_a68CdBceh
+X-Proofpoint-GUID: g_z-qUezpbYOLDlUIzcf8arn2WQoYb3n
+X-Proofpoint-ORIG-GUID: g_z-qUezpbYOLDlUIzcf8arn2WQoYb3n
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
@@ -85,8 +85,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishsc
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
  definitions=main-2411120135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_085600_451622_67644BC2 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20241112_085603_430023_33496C12 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,95 +101,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently in Qualcomm  SoCs the default prefetch is set to 1 which allows
-the TLB to fetch just the next page table. MMU-500 features ACTLR
-register which is implementation defined and is used for Qualcomm SoCs
-to have a custom prefetch setting enabling TLB to prefetch the next set
-of page tables accordingly allowing for faster translations.
-
-ACTLR value is unique for each SMR (Stream matching register) and stored
-in a pre-populated table. This value is set to the register during
-context bank initialisation.
+Add ACTLR data table for qcom_smmu_500 including
+corresponding data entry and set prefetch value by
+way of a list of compatible strings.
 
 Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
 ---
  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 33 ++++++++++++++++++++++
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h |  1 +
- 2 files changed, 34 insertions(+)
+ 1 file changed, 33 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 0e4f3fbda961..b595fee23836 100644
+index b595fee23836..5106103574ab 100644
 --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
 +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -235,14 +235,37 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_smmu_device *smmu)
- 	return true;
- }
+@@ -16,8 +16,40 @@
 
-+static void qcom_smmu_set_actlr_dev(struct device *dev, struct arm_smmu_device *smmu, int cbndx,
-+		const struct of_device_id *client_match)
-+{
-+	const struct of_device_id *match =
-+			of_match_device(client_match, dev);
+ #define QCOM_DUMMY_VAL	-1
+
++/*
++ * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
++ * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
++ * buffer). The remaining bits are implementation defined and vary across
++ * SoCs.
++ */
 +
-+	if (!match) {
-+		dev_dbg(dev, "no ACTLR settings present\n");
-+		return;
-+	}
++#define CPRE			(1 << 1)
++#define CMTLB			(1 << 0)
++#define PREFETCH_SHIFT		8
++#define PREFETCH_DEFAULT	0
++#define PREFETCH_SHALLOW	(1 << PREFETCH_SHIFT)
++#define PREFETCH_MODERATE	(2 << PREFETCH_SHIFT)
++#define PREFETCH_DEEP		(3 << PREFETCH_SHIFT)
+ #define GFX_ACTLR_PRR          (1 << 5)
+
++static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
++	{ .compatible = "qcom,adreno",
++			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
++	{ .compatible = "qcom,adreno-gmu",
++			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
++	{ .compatible = "qcom,adreno-smmu",
++			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
++	{ .compatible = "qcom,fastrpc",
++			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
++	{ .compatible = "qcom,sc7280-mdss",
++			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
++	{ .compatible = "qcom,sc7280-venus",
++			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
++	{ .compatible = "qcom,sm8550-mdss",
++			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
++	{ }
++};
 +
-+	arm_smmu_cb_write(smmu, cbndx, ARM_SMMU_CB_ACTLR, (unsigned long)match->data);
-+}
-+
- static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 		struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
+ static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
  {
- 	const struct device_node *np = smmu_domain->smmu->dev->of_node;
-+	struct arm_smmu_device *smmu = smmu_domain->smmu;
-+	struct qcom_smmu *qsmmu = to_qcom_smmu(smmu);
-+	const struct of_device_id *client_match;
-+	int cbndx = smmu_domain->cfg.cbndx;
- 	struct adreno_smmu_priv *priv;
-
- 	smmu_domain->cfg.flush_walk_prefer_tlbiasid = true;
-
-+	client_match = qsmmu->data->client_match;
-+
-+	if (client_match)
-+		qcom_smmu_set_actlr_dev(dev, smmu, cbndx, client_match);
-+
- 	/* Only enable split pagetables for the GPU device (SID 0) */
- 	if (!qcom_adreno_smmu_is_gpu_device(dev))
- 		return 0;
-@@ -306,8 +329,18 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- static int qcom_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 		struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
- {
-+	struct arm_smmu_device *smmu = smmu_domain->smmu;
-+	struct qcom_smmu *qsmmu = to_qcom_smmu(smmu);
-+	const struct of_device_id *client_match;
-+	int cbndx = smmu_domain->cfg.cbndx;
-+
- 	smmu_domain->cfg.flush_walk_prefer_tlbiasid = true;
-
-+	client_match = qsmmu->data->client_match;
-+
-+	if (client_match)
-+		qcom_smmu_set_actlr_dev(dev, smmu, cbndx, client_match);
-+
- 	return 0;
- }
-
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
-index b55cd3e3ae48..8addd453f5f1 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.h
-@@ -28,6 +28,7 @@ struct qcom_smmu_match_data {
- 	const struct qcom_smmu_config *cfg;
- 	const struct arm_smmu_impl *impl;
- 	const struct arm_smmu_impl *adreno_impl;
-+	const struct of_device_id * const client_match;
+ 	return container_of(smmu, struct qcom_smmu, smmu);
+@@ -620,6 +652,7 @@ static const struct qcom_smmu_match_data qcom_smmu_500_impl0_data = {
+ 	.impl = &qcom_smmu_500_impl,
+ 	.adreno_impl = &qcom_adreno_smmu_500_impl,
+ 	.cfg = &qcom_smmu_impl0_cfg,
++	.client_match = qcom_smmu_actlr_client_of_match,
  };
 
- irqreturn_t qcom_smmu_context_fault(int irq, void *dev);
+ /*
 --
 2.34.1
 
