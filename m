@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0259ED42BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 16:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE89D42BA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 16:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKCG4kPuqmPzvoicL3hs8a+m3uMzwc2QiEhg+gjjy1Q=; b=vMy1FOSd7C9W3fKWrlsC/unJbZ
-	AyANTplHEJJ0kGjtQmDMs1apU5g0i+raN0OBoruglBfeI3nqoobxXq28xHxFH+v5JcD8DUs4ztxek
-	nktxllZ3KZFNJUkEq95EfFHb8TJm/AkYXhOfwLhf9m6V4CGfBMkkvnC0+U6+2TikaYOqdMFuAZ1hg
-	brt03Xb8zr2Grb9gDyMnQ//KzyYXvLihET/lDAy+9ypTEGgbIIaTDqO731O+tXL8r2DRccRMIVYRn
-	eVkG+dvUz6F4c+1+0QGg304V7HS0fFm9ZTzybP30FSRkpcanw3bM0cY9F+wwBxui4oQs/KR2lwYLF
-	gjHt/VpA==;
+	bh=VSlBYicvsQMGcBMeeXPawWxzKDHnC5589rrIdXTXOTk=; b=pkDntBkW2AvycI/eJ1443QZCXK
+	BLhixKlCArST+wptftQPMaCB+xsKJjmRPgG85qp8LrTvpA8goEKFDXmMU0O44jh65CAVLUSYHz/fS
+	MrRVbrmcibpOGKAblIKYzXl8q3EQ0aFCNrXP9VJZUcgA8b9d9V8dofcobz1viXmgIIMeL8BcmbxvG
+	b0+kDfD3kC+xc3jX2t6GX/34zeRAa5l9kJBkszuN95kwlEDf4zgC2Asd0vync+8vGhE6Qww7QfgiB
+	SvZxDQDs8q2d5F/EOdg3RzUl+u0tXMhW6g0ikjj8S8lcaE14pwqShe767gxt2pyg5UZFC66TF2p8O
+	cu/h7TWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAtcU-000000047Hv-1d3y;
-	Tue, 12 Nov 2024 16:19:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAteF-000000047bD-0tEp;
+	Tue, 12 Nov 2024 16:21:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAtQs-0000000450E-2LUZ
+	id 1tAtQu-0000000451d-4AOy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 16:07:59 +0000
+	Tue, 12 Nov 2024 16:08:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8A57CA41E45;
-	Tue, 12 Nov 2024 16:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE60C4CECD;
-	Tue, 12 Nov 2024 16:07:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 92AD55C5816;
+	Tue, 12 Nov 2024 16:07:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2262C4CED0;
+	Tue, 12 Nov 2024 16:07:57 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Will Deacon <will@kernel.org>,
 	Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: (subset) [PATCH v2 0/6] kselftest/arm64: Test floating point signal context restore in fp-stress
-Date: Tue, 12 Nov 2024 16:07:35 +0000
-Message-Id: <173142698242.893467.13323137433955232156.b4-ty@arm.com>
+	Shuah Khan <skhan@linuxfoundation.org>
+Subject: Re: (subset) [PATCH 0/4] kselftest/arm64: Fix compilation warnings/errors in the arm64 tests
+Date: Tue, 12 Nov 2024 16:07:36 +0000
+Message-Id: <173142698241.893467.3612331724915508204.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
-References: <20241107-arm64-fp-stress-irritator-v2-0-c4b9622e36ee@kernel.org>
+In-Reply-To: <20241108134920.1233992-1-catalin.marinas@arm.com>
+References: <20241108134920.1233992-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_080758_684064_637D8582 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20241112_080801_158846_E521C8B3 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,22 +68,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Nov 2024 01:39:19 +0000, Mark Brown wrote:
-> Currently we test signal delivery to the programs run by fp-stress but
-> our signal handlers simply count the number of signals seen and don't do
-> anything with the floating point state.  The original fpsimd-test and
-> sve-test programs had signal handlers called irritators which modify the
-> live register state, verifying that we restore the signal context on
-> return, but a combination of misleading comments and code resulted in
-> them never being used and the equivalent handlers in the other tests
-> being stubbed or omitted.
+On Fri, 08 Nov 2024 13:49:16 +0000, Catalin Marinas wrote:
+> It looks like people started ignoring the compiler warnings (or even
+> errors) when building the arm64-specific kselftests. The first three
+> patches are printf() arguments adjustment. The last one adds
+> ".arch_extension sme", otherwise they fail to build (with my toolchain
+> versions at least).
+> 
+> Note for future kselftest contributors - try to keep them warning-free.
 > 
 > [...]
 
 Applied to arm64 (for-next/kselftest), thanks!
 
-[3/6] kselftest/arm64: Corrupt P0 in the irritator when testing SSVE
-      https://git.kernel.org/arm64/c/3e360ef0c0a1
+[1/4] kselftest/arm64: Fix printf() compiler warnings in the arm64 fp tests
+      https://git.kernel.org/arm64/c/b6bd50dd3b56
+[2/4] kselftest/arm64: Fix printf() warning in the arm64 MTE prctl() test
+      https://git.kernel.org/arm64/c/0cc6b94a445c
+[3/4] kselftest/arm64: Fix printf() compiler warnings in the arm64 syscall-abi.c tests
+      https://git.kernel.org/arm64/c/694e2803fece
 
 -- 
 Catalin
