@@ -4,72 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74367D41D45
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 02:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A89FD41D45
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 02:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mNEmQIXIeVppZTHWDm1sWax6s+N6SW3qLZo4jlaSVhk=; b=GVzJ/p628c3bjK7OnxQjXXpyzF
-	e2ktlwq2s/70tTKyV7vFpf+mtvRblY2EKBbXh7F99r6EiaXQ53GRAZ9Pg1lxDdCe38t1qAZE3f8wg
-	oSMEsmtFfHhJGzU7mwTXh+Pyd3oPDvSTpMHsJpIQt0vO7+vl/4FkQ0q6hNi9cJwmmb/y3DkRvnF6/
-	1VNzRJbWtRo2atG7JvRJKhy9VOe4QsZWT5p1az28TkIQa+uBZUwVYVwMeeLLvr73Apj6nm7EBhl0c
-	XOAkzg48yiXtSgFgJ1XLqDqwTsXKOn6R85QksFC7SN6JNIPspvP9fH26orBxT3D+olaWIJ77mBnz5
-	8gd4iyeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5qaLcLQeV1PB7ymPPGtVOm0bVLvm/RinEOKBQ/M+eNA=; b=JeQKIoo4X6Zx2NnjFqsUyf54zY
+	/4kve4YZ6qXQbhiEJjA347bYrya2VcAFGqI6AtLxzO6U9nPp0J3QwFQAJrsgIsi7b7+hY7KjVhTwf
+	tfySV7cYQyGQvjMToUb3SUca9g1hk3OywTBnih9iZtfP33ZO2ZLwOXiosonRSn6OslbvEdtXR8fOt
+	I1iew5djjusUOYVvIrOzmUCAd882W8OwbOjl/kvq2eZLJNippXCqwzrULJFNj9M5ngPEIh+bQ7tnP
+	+fBqmqVuJz2cP6hBb57AllQhos1PDCwOzUwequ2DrHLRgcOLQTUqCiqt31erXhrXlTtIhTdq0IHfo
+	6qshe4KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAgFX-00000001ved-0hyw;
-	Tue, 12 Nov 2024 02:03:23 +0000
-Received: from mail-m60108.netease.com ([210.79.60.108])
+	id 1tAgK8-00000001w6a-3FmW;
+	Tue, 12 Nov 2024 02:08:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAg6n-00000001ubf-3LG4;
-	Tue, 12 Nov 2024 01:54:23 +0000
-Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 275d3f37;
-	Tue, 12 Nov 2024 09:54:17 +0800 (GMT+08:00)
-From: Ye Zhang <ye.zhang@rock-chips.com>
-To: Ye Zhang <ye.zhang@rock-chips.com>,
-	linus.walleij@linaro.org,
-	brgl@bgdev.pl,
-	heiko@sntech.de,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mika.westerberg@linux.intel.com,
-	andriy.shevchenko@linux.intel.com,
-	tao.huang@rock-chips.com,
-	finley.xiao@rock-chips.com,
-	tim.chen@rock-chips.com,
-	elaine.zhang@rock-chips.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v5 4/4] gpio: rockchip: Set input direction when request irq
-Date: Tue, 12 Nov 2024 09:54:08 +0800
-Message-Id: <20241112015408.3139996-5-ye.zhang@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112015408.3139996-1-ye.zhang@rock-chips.com>
-References: <20241112015408.3139996-1-ye.zhang@rock-chips.com>
+	id 1tAgIL-00000001vwU-2rjH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 02:06:19 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ABCqp6X018012;
+	Tue, 12 Nov 2024 02:05:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=5qaLcLQeV1PB7ymPPGtVOm0b
+	VLvm/RinEOKBQ/M+eNA=; b=bZtLlYKISIvK1G4XdFhDYMb22nBFQHqoQe/aWTNJ
+	qmNEokJJqJr16VKxDDJP/7SwTaW2E5wt4iSlLhl362bYJxbA83Y9tnVjQrUfz+fF
+	hpHYttmb7WeleAfDMlFkAxcImXYzYl+mJ9AqIuJ1oGx1eg2YSpfxYgo/cCxOMiet
+	JPquyCNX3EtEetfOFU9mGpIuyuFv8vv5uqnlVEQCj/IYBdh60+ff35DMKrj5MrJE
+	8ymOkQcaQtA4OXViWLfU1F3DmybV9UdGfm3J/5qE6sDlSS3HaQIq6TwKFx26v1MR
+	LlgZm/dsNmwei/jS3MtG8qOtfhBIf+Wa7p/jiRuKQPwvPg==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42syax5ugu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 Nov 2024 02:05:51 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4AC25oQ2019406
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 Nov 2024 02:05:50 GMT
+Received: from hu-eberman-lv.qualcomm.com (10.49.16.6) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 11 Nov 2024 18:05:49 -0800
+Date: Mon, 11 Nov 2024 18:05:49 -0800
+From: Elliot Berman <quic_eberman@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel
+	<sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andy Yan
+	<andy.yan@rock-chips.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Mark
+ Rutland" <mark.rutland@arm.com>,
+        Bartosz Golaszewski
+	<bartosz.golaszewski@linaro.org>,
+        Arnd Bergmann <arnd@arndb.de>, "Olof
+ Johansson" <olof@lixom.net>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        <cros-qcom-dts-watchers@chromium.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+        Melody Olvera
+	<quic_molvera@quicinc.com>,
+        Shivendra Pratap <quic_spratap@quicinc.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        Stephen Boyd <swboyd@chromium.org>, <linux-pm@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+Subject: Re: [PATCH v8 0/6] Implement vendor resets for PSCI SYSTEM_RESET2
+Message-ID: <20241111151958898-0800.eberman@hu-eberman-lv.qualcomm.com>
+References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU1PTFZIT0kZTRpCHUtJT09WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a931e1428e409d8kunm275d3f37
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBQ6ISo5KTIqMBoQPzUSSSwj
-	OUIKCjVVSlVKTEhKSExNT05CT0hCVTMWGhIXVQIeVQETGhUcOwkUGBBWGBMSCwhVGBQWRVlXWRIL
-	WUFZTkNVSUlVTFVKSk9ZV1kIAVlBSktIQzcG
-DKIM-Signature: a=rsa-sha256;
-	b=B4BuOlL5tsBqQdef+Wlc71JSyi354lSEC1mheLS2w85oIb4J0/jXCKWuyGD4Z1mjCVP08Eq7YemWzBZu+Xtoz6Rvb6c2rLe8I7osMBL6piJ7gjxf1r8+xGfHJ2JlnHlkF1k1QJkDv/i092IN/48D9N+WoOL67icrt/bPch0PtzM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=mNEmQIXIeVppZTHWDm1sWax6s+N6SW3qLZo4jlaSVhk=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: QeGcJ48pikCpZg6Q21XjJza7qu7Q5-Np
+X-Proofpoint-GUID: QeGcJ48pikCpZg6Q21XjJza7qu7Q5-Np
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 suspectscore=0 mlxlogscore=999
+ lowpriorityscore=0 priorityscore=1501 clxscore=1015 phishscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411120015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_175422_081711_925CF239 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241111_180617_943296_D8C84E49 
+X-CRM114-Status: GOOD (  30.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +123,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the GPIO can only generate interrupts when its direction is set to
-input, it is set to input before requesting the interrupt resources.
+Hi Lorenzo,
 
-Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpio/gpio-rockchip.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+I haven't seen response on our question about how reboot_mode enum and
+reboot command string are supposed to interact. Let's make a call
+ourselves and merge?
 
-diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-index c090cac694bf..cdfdd5501a1e 100644
---- a/drivers/gpio/gpio-rockchip.c
-+++ b/drivers/gpio/gpio-rockchip.c
-@@ -476,8 +476,11 @@ static int rockchip_irq_reqres(struct irq_data *d)
- {
- 	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
- 	struct rockchip_pin_bank *bank = gc->private;
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
- 
--	return gpiochip_reqres_irq(&bank->gpio_chip, d->hwirq);
-+	rockchip_gpio_direction_input(&bank->gpio_chip, hwirq);
-+
-+	return gpiochip_reqres_irq(&bank->gpio_chip, hwirq);
- }
- 
- static void rockchip_irq_relres(struct irq_data *d)
--- 
-2.34.1
+Thanks,
+Elliot
 
+On Thu, Nov 07, 2024 at 03:38:24PM -0800, Elliot Berman wrote:
+> The PSCI SYSTEM_RESET2 call allows vendor firmware to define additional
+> reset types which could be mapped to the reboot argument.
+> 
+> Setting up reboot on Qualcomm devices can be inconsistent from chipset
+> to chipset. Generally, there is a PMIC register that gets written to
+> decide the reboot type. There is also sometimes a cookie that can be
+> written to indicate that the bootloader should behave differently than a
+> regular boot. These knobs evolve over product generations and require 
+> more drivers. Qualcomm firmwares are beginning to expose vendor
+> SYSTEM_RESET2 types to simplify driver requirements from Linux.
+> 
+> Add support in PSCI to statically wire reboot mode commands from
+> userspace to a vendor reset and cookie value using the device tree. The
+> DT bindings are similar to reboot mode framework except that 2
+> integers are accepted (the type and cookie). Also, reboot mode framework
+> is intended to program the cookies, but not actually reboot the host.
+> PSCI SYSTEM_RESET2 does both. I've not added support for reading ACPI
+> tables since I don't have any device which provides them + firmware that
+> supports vendor SYSTEM_RESET2 types.
+> 
+> Lorenzo and I are also looking for some feedback on whether it is safe
+> to perform a vendor SYSTEM_RESET2 irrespective of the enum reboot_mode:
+> 
+> https://lore.kernel.org/all/Zw5ffeYW5uRpsaG3@lpieralisi/
+> 
+> Previous discussions around SYSTEM_RESET2:
+> - https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
+> - https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
+> 
+> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+> 
+> Changes in v8:
+> - Code style nits from Stephen
+> - Add rb3gen2
+> - Link to v7: https://lore.kernel.org/r/20241028-arm-psci-system_reset2-vendor-reboots-v7-0-a4c40b0ebc54@quicinc.com
+> 
+> Changes in v7:
+> - Code style nits from Stephen
+> - Dropped unnecessary hunk from the sa8775p-ride patch
+> - Link to v6: https://lore.kernel.org/r/20241018-arm-psci-system_reset2-vendor-reboots-v6-0-50cbe88b0a24@quicinc.com
+> 
+> Changes in v6:
+> - Rebase to v6.11 and fix trivial conflicts in qcm6490-idp
+> - Add sa8775p-ride support (same as qcm6490-idp)
+> - Link to v5: https://lore.kernel.org/r/20240617-arm-psci-system_reset2-vendor-reboots-v5-0-086950f650c8@quicinc.com
+> 
+> Changes in v5:
+> - Drop the nested "items" in prep for future dtschema tools
+> - Link to v4: https://lore.kernel.org/r/20240611-arm-psci-system_reset2-vendor-reboots-v4-0-98f55aa74ae8@quicinc.com
+> 
+> Changes in v4:
+> - Change mode- properties from uint32-matrix to uint32-array
+> - Restructure the reset-types node so only the restriction is in the
+>   if/then schemas and not the entire definition
+> - Link to v3: https://lore.kernel.org/r/20240515-arm-psci-system_reset2-vendor-reboots-v3-0-16dd4f9c0ab4@quicinc.com
+> 
+> Changes in v3:
+> - Limit outer number of items to 1 for mode-* properties
+> - Move the reboot-mode for psci under a subnode "reset-types"
+> - Fix the DT node in qcm6490-idp so it doesn't overwrite the one from
+>   sc7820.dtsi
+> - Link to v2: https://lore.kernel.org/r/20240414-arm-psci-system_reset2-vendor-reboots-v2-0-da9a055a648f@quicinc.com
+> 
+> Changes in v2:
+> - Fixes to schema as suggested by Rob and Krzysztof
+> - Add qcm6490 idp as first Qualcomm device to support
+> - Link to v1: https://lore.kernel.org/r/20231117-arm-psci-system_reset2-vendor-reboots-v1-0-03c4612153e2@quicinc.com
+> 
+> Changes in v1:
+> - Reference reboot-mode bindings as suggeted by Rob.
+> - Link to RFC: https://lore.kernel.org/r/20231030-arm-psci-system_reset2-vendor-reboots-v1-0-dcdd63352ad1@quicinc.com
+> 
+> ---
+> Elliot Berman (6):
+>       dt-bindings: power: reset: Convert mode-.* properties to array
+>       dt-bindings: arm: Document reboot mode magic
+>       firmware: psci: Read and use vendor reset types
+>       arm64: dts: qcom: qcm6490-idp: Add PSCI SYSTEM_RESET2 types
+>       arm64: dts: qcom: qcs6490-rb3gen2: Add PSCI SYSTEM_RESET2 types
+>       arm64: dts: qcom: sa8775p-ride: Add PSCI SYSTEM_RESET2 types
+> 
+>  Documentation/devicetree/bindings/arm/psci.yaml    |  43 +++++++++
+>  .../bindings/power/reset/nvmem-reboot-mode.yaml    |   4 +
+>  .../devicetree/bindings/power/reset/qcom,pon.yaml  |   7 ++
+>  .../bindings/power/reset/reboot-mode.yaml          |   4 +-
+>  .../bindings/power/reset/syscon-reboot-mode.yaml   |   4 +
+>  arch/arm64/boot/dts/qcom/qcm6490-idp.dts           |   7 ++
+>  arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts       |   7 ++
+>  arch/arm64/boot/dts/qcom/sa8775p-ride.dtsi         |   7 ++
+>  arch/arm64/boot/dts/qcom/sa8775p.dtsi              |   2 +-
+>  arch/arm64/boot/dts/qcom/sc7280.dtsi               |   2 +-
+>  drivers/firmware/psci/psci.c                       | 104 +++++++++++++++++++++
+>  11 files changed, 187 insertions(+), 4 deletions(-)
+> ---
+> base-commit: 98f7e32f20d28ec452afb208f9cffc08448a2652
+> change-id: 20231016-arm-psci-system_reset2-vendor-reboots-cc3ad456c070
+> 
+> Best regards,
+> -- 
+> Elliot Berman <quic_eberman@quicinc.com>
+> 
 
