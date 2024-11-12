@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F4ED3ABFF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C335D41D54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=op9TisDjuU6SXMVv/j5ec//p11wAht9zab/vpdAa0jE=; b=gCHcavKFN1E+a2A9kuiD80FBX2
-	kXnVeVp2OrZ8IylwAj36dRFcR0rjkO/yceXayplUmntAGEuQKvaw9Lv7VBvl59hD3UjP2DEx9z7cF
-	ijmuPAUl1M9X/p8ttqAWCVXbbt7Xd2VMVUX1BY6V2XDPXwuUWXykGT4vDzRRE1iuxDu4/VPR3wd6q
-	/LQu9+jAwmgC7kVtvoz0r1nDV1oyE246i8j2NgTE0TZwITD0QB84MvTAB/RK7CC+ksUd/EMDgg/Sh
-	uOW/B+ahKEZnYUcYjWD+JxXru3Qd4LJtvgk82wiscM6UA4PDG2CJHM5bPp4W3jtvvyfdgK56jiTra
-	WwZMY5gQ==;
+	bh=IKEgGHQSu3SXCxGE/6L/k7TU16u15vr97h0i3Rk8N4Q=; b=oyer2evpkVPDr+6hoqFJdUaHPg
+	AgZu9zFjHjgLWqlpn1vJs7bmQJUDYwn+ZgFhlMcLlC9aW3RMXZgyQjpAwxr+a7Ja8nXrjeJNcWor7
+	Zxt0BXaq/clxwWzJypk4M38RKANnoSjV0JqVGl409YQZaeMfJYYjBkFl9dZ+1+n/gE8vFqHAu7c+x
+	fs/2XrxeP466l4Zf5ZJOr9BiT86iPHk5quwbF01MiJ3BR4x+cWSOQeV5kbvvI82EMgtiqPT/w6I+P
+	vUMnqpbAnvNPx5QSYNXuKw/aB8pbskTsmP1Y+qq0tvZLdkVEOyM81UxIK50C0dKiCtGiMsYaPx+LK
+	UqSbG2lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqyP-00000003ZXj-45No;
-	Tue, 12 Nov 2024 13:30:25 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tAr0C-00000003Zuk-40DY;
+	Tue, 12 Nov 2024 13:32:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqsj-00000003Y5O-1zxs
+	id 1tAqta-00000003YHv-3jTv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 13:24:39 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d55f0cf85so3779886f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 05:24:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731417872; x=1732022672; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=op9TisDjuU6SXMVv/j5ec//p11wAht9zab/vpdAa0jE=;
-        b=j15hQcMV0NYShAnHaUWxXWl2Nls61DXLv8JuxOtzrrrAANTCuA87R6lCERNe9XWrfJ
-         x2JZpjIrN5Ke6WVr6BqvwJjZXuxpqmsIk9IW2/WBbPiDAeFp/JFsbY3wgaW61fY845VP
-         gzrhDZ53/6RIXa8dI/hBlVi0ngy9sOD4PhtHnL26bMmU99SkwvQGmV0bRF6q4gQnA/Ot
-         mN6UpMpOW5cJJPzTlVyrz5li1Uco84/CAXSBSE30yoF8D0FaartaoHFTiozM79M3QWKu
-         SgyT9LmYasA4Fv322ufPKFGIur7nz+e1PFll2DVxHLTHNCdSCoMPtt9DasfFGQ7xNusz
-         Q+IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731417872; x=1732022672;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=op9TisDjuU6SXMVv/j5ec//p11wAht9zab/vpdAa0jE=;
-        b=NpP9eYMICJ94O4QWkHlhcjJ39q+n3UQv4m97FbBVNDbfNhdC9uA9kqFCv/GnXeuovG
-         0OhHiT7ZZSF99w0MoE8k0UysKGWT3zJEOZnOsRsSwd4ZH3Vs9AsCNr57cdXSmjLuuIwb
-         USvEWZnQ0y3oKokBAod3M0EPPmvesQ7tJGHm8LFtRhXHTADwG9cDrBuiAfm2Js0Tt6Bf
-         HQVzCVFfGuzlJ6TQoMqGYGRVEG5O1AF6o0fNWk3V60rh7PfzVaSh1sBTI7yOkAjpk63Z
-         1fN/Zq5lovT9XOG8AwF0SIAIXHIIFrN5AkMx/v8Gz35jyh5No8Z0O+6UXPWAz0L8fAAH
-         Re/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXzkf/ULYgggKhxtfX1C4PNSS/D3+tksEuTCiJPWI+KY/VACLWWP7rLGIwVdHIecVzyXVu2rNdyPEq+ZaByvrSM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwktjWdJ8kaqqdKhVL+4mhceqo+GYUGYP9EwfElmmrKVuRObmYj
-	dBimV593r2t7nChkeDk+nYS8xb96LZT2rFrUpG9XuejnRvSf+yn4xxXadFgimuQ=
-X-Google-Smtp-Source: AGHT+IFUbvqpp7hxTTTbUnzJmnji9CfW4r3V54ckUUimyAfT0DIrLZ5j+wf8asngwceIIwDWhCpAYw==
-X-Received: by 2002:a05:6000:4913:b0:381:ed41:da7a with SMTP id ffacd0b85a97d-381f1848940mr12877952f8f.54.1731417871732;
-        Tue, 12 Nov 2024 05:24:31 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8? ([2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381eda05dfcsm15353314f8f.91.2024.11.12.05.24.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 05:24:31 -0800 (PST)
-Message-ID: <35307d7a-a110-430d-9ba5-808a05450adb@linaro.org>
-Date: Tue, 12 Nov 2024 14:24:30 +0100
+	Tue, 12 Nov 2024 13:25:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C0CF05C5780;
+	Tue, 12 Nov 2024 13:24:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AEEEC4CECD;
+	Tue, 12 Nov 2024 13:25:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731417925;
+	bh=fhzf1jcZSTAtYRSI99xDL2bTyDAMziFUtoPEDRFBo7s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WledquTpOzLCn8K1NSvc85m+6IeY7VJhhVTy/4QavsGdoUpzWXffMrNOyd7G6SUfv
+	 9/SXctGeD+w+dGadzhJjYM3Dx4g2DeAiR22gAAKrDHKuMKh/OuXXm8xgxILV32PeSS
+	 v/2h0/icCFAULxX0nwa9PhD+WgIed4gjgyfoKuHYiTuYC22ZIH3jMldHVNNtz2PCTb
+	 qffJQpbIwEoVu3HstbEdOrKqVAiVs1v3PCB8wfT/CKU76RQMJ15xOVe4E/dxBpQ+J5
+	 +nh+XS4A+fD2HdiByuYeQK7efVov589w+Y4CMl8H3YmHw+ezsgyhLPptYQEshJOUpI
+	 osulbbKHU6LcQ==
+Date: Tue, 12 Nov 2024 13:25:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Check that SVCR is 0 in signal handlers
+Message-ID: <ZzNXQtbk1NWN6F7f@finisterre.sirena.org.uk>
+References: <20241106-arm64-fpmr-signal-test-v1-1-31fa34ce58fe@kernel.org>
+ <ZzM8RrD248eSW5bG@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2] clk: meson: Fix the determine rate error in
- clk_regmap_divider_ro_ops
-To: chuan.liu@amlogic.com, Jerome Brunet <jbrunet@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jian Hu <jian.hu@amlogic.com>, Dmitry Rokosov <ddrokosov@sberdevices.ru>,
- Yu Tu <yu.tu@amlogic.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241112-fix_childclk_of_roclk_has_been_tampered_with-v2-1-64f8009cdf2a@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20241112-fix_childclk_of_roclk_has_been_tampered_with-v2-1-64f8009cdf2a@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="l9TdSVVGcv9oOszk"
+Content-Disposition: inline
+In-Reply-To: <ZzM8RrD248eSW5bG@arm.com>
+X-Cookie: Editing is a rewording activity.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_052433_663153_54AC9DBA 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20241112_052527_075427_29290CAC 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,104 +72,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/2024 13:57, Chuan Liu via B4 Relay wrote:
-> From: Chuan Liu <chuan.liu@amlogic.com>
-> 
-> The rate determined by calling clk_regmap_divider_ro_ops with
-> clk_regmap_div_determine_rate is not RO, which will result in the
-> unexpected modification of the frequency of its children when setting
-> the rate of a clock that references clk_regmap_divider_ro_ops.
-> 
-> Fiexs: ea11dda9e091 ("clk: meson: add regmap clocks")
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
-> Background: During the execution of clk_set_rate(), the function
-> clk_core_round_rate_nolock() is called to calculate the matching rate
-> and save it to 'core->new_rate'. At the same time, it recalculates and
-> updates its 'child->newrate'. Finally, clk_change_rate() is called to
-> set all 'new_rates'.
-> ---
-> Changes in v2:
-> - Remove the CLK_DIVIDER_READ_ONLY judgment logic in
-> clk_regmap_div_determine_rate().
-> - Add clk_regmap_div_ro_determine_rate().
-> - Link to v1: https://lore.kernel.org/r/20241111-fix_childclk_of_roclk_has_been_tampered_with-v1-1-f8c1b6ffdcb0@amlogic.com
-> ---
->   drivers/clk/meson/clk-regmap.c | 36 ++++++++++++++++++++----------------
->   1 file changed, 20 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/clk/meson/clk-regmap.c b/drivers/clk/meson/clk-regmap.c
-> index 07f7e441b916..edf65ca92c7a 100644
-> --- a/drivers/clk/meson/clk-regmap.c
-> +++ b/drivers/clk/meson/clk-regmap.c
-> @@ -80,21 +80,6 @@ static int clk_regmap_div_determine_rate(struct clk_hw *hw,
->   {
->   	struct clk_regmap *clk = to_clk_regmap(hw);
->   	struct clk_regmap_div_data *div = clk_get_regmap_div_data(clk);
-> -	unsigned int val;
-> -	int ret;
-> -
-> -	/* if read only, just return current value */
-> -	if (div->flags & CLK_DIVIDER_READ_ONLY) {
 
-You're breaking current code by no more checking this flag,
-the new clk_regmap_div_ro_determine_rate() is fine, but you should call
-it from here if CLK_DIVIDER_READ_ONLY is set.
+--l9TdSVVGcv9oOszk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Neil
+On Tue, Nov 12, 2024 at 11:30:14AM +0000, Catalin Marinas wrote:
+> On Wed, Nov 06, 2024 at 05:07:51PM +0000, Mark Brown wrote:
 
-> -		ret = regmap_read(clk->map, div->offset, &val);
-> -		if (ret)
-> -			return ret;
-> -
-> -		val >>= div->shift;
-> -		val &= clk_div_mask(div->width);
-> -
-> -		return divider_ro_determine_rate(hw, req, div->table,
-> -						 div->width, div->flags, val);
-> -	}
->   
->   	return divider_determine_rate(hw, req, div->table, div->width,
->   				      div->flags);
-> @@ -127,9 +112,28 @@ const struct clk_ops clk_regmap_divider_ops = {
->   };
->   EXPORT_SYMBOL_NS_GPL(clk_regmap_divider_ops, CLK_MESON);
->   
-> +static int clk_regmap_div_ro_determine_rate(struct clk_hw *hw,
-> +					    struct clk_rate_request *req)
-> +{
-> +	struct clk_regmap *clk = to_clk_regmap(hw);
-> +	struct clk_regmap_div_data *div = clk_get_regmap_div_data(clk);
-> +	unsigned int val;
-> +	int ret;
-> +
-> +	ret = regmap_read(clk->map, div->offset, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	val >>= div->shift;
-> +	val &= clk_div_mask(div->width);
-> +
-> +	return divider_ro_determine_rate(hw, req, div->table, div->width,
-> +					 div->flags, val);
-> +}
-> +
->   const struct clk_ops clk_regmap_divider_ro_ops = {
->   	.recalc_rate = clk_regmap_div_recalc_rate,
-> -	.determine_rate = clk_regmap_div_determine_rate,
-> +	.determine_rate = clk_regmap_div_ro_determine_rate,
->   };
->   EXPORT_SYMBOL_NS_GPL(clk_regmap_divider_ro_ops, CLK_MESON);
->   
-> 
-> ---
-> base-commit: 664988eb47dd2d6ae1d9e4188ec91832562f8f26
-> change-id: 20241111-fix_childclk_of_roclk_has_been_tampered_with-61dbcc623746
-> 
-> Best regards,
+> > +		fprintf(stderr, "Unexpected SVCR %llx\n", get_svcr());
+> > +		return 1;
+> > +	}
 
+> I think I'll change both printf specifiers to %lx here since in the libc
+> I have installed, uin64_t is an unsigned long (the kernel defines it as
+> unsigned long long). Both gcc and clang complain but the compiler
+> shouldn't matter since the headers come with glibc.
+
+Makes sense.  I do wish the compilers were more consistent with
+including these warnings :(
+
+--l9TdSVVGcv9oOszk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmczVzYACgkQJNaLcl1U
+h9ARyAf/ccxPjV6NvV0HX+NR8V0IrCkIUFYkF+JnPeCHw79ymsk9scQ+8HkDFvXA
+OUzbd+d42XjQN4bMm6FK8NF0Be4syfkOUmP5EUx2x4aWMjghJZIpH53hORjDYH8m
+ej9HimaSZlhkVUFEFsYeTgLH/NC0WbGKyW1KlnLpZ3oAZNzXNsRTM+vfKvkijvYn
+nH4NcBHjA/p9duc9XDitUZISNE6sKMAZT0h8dOp6an2S4gSHLx2wLH5//Mbvinja
+NpOzppfqHNEXN2DpGjvgLzEs6fQjRaRXnfno6QOBg6DTO+Qg40ExFexA2YwW43nY
+d0PnQEXkJ4bwC6IVbirTiegjMLaLzA==
+=q9Xo
+-----END PGP SIGNATURE-----
+
+--l9TdSVVGcv9oOszk--
 
