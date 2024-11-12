@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2039BD42BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA960D42BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvAxizT0+2LKEZU/zIXU+c9h1QMoetzSlOQ8t234HzM=; b=dg+x79FxzXzh/5kRxKYy1bSQ9y
-	7yZGS5BjS8KLGkF67TZD4qZNI/eUqQrrvmpXcyZNFsAa0Ny6coUF4OP4oy9+8CEDp/+m8/1X6XLLs
-	WZ2OwhzfZ0ARnYzMD/CpUEOFR7t7U53b+5jiGymmEbWcasAGZ2326V0FiuBkLNtJtG+vsh1DvGsJJ
-	y7UJd8qScUDrjASrDa6T36SLrw9fqYV0bE6da+rcOG0QXFvwmbBaZMfhvQI3JspaCWA6UM+SQCPio
-	N0qrqi/WDKPf2lP14HR4tE31YwzAYFu0ahw8G0O4BYyBUvQ8OhV6jju/LJzy957epFff5o+P0xHdr
-	h+pJnfrA==;
+	bh=tmlE3ocaQwI744iyoEKb0Mlm8+PfDOrWjfONTieFefw=; b=0z7DMq59yc6hwuvihdMsq3DExM
+	MS04OwytCRi3WLhGsePoI7mhn6CplFkVOmPZHVI1lvrst5XBnPlJLV61g1BarfJna2fra3zurQW15
+	8zi7SxYciSB6YBFBVIRdvJeuzH3F+JTyrLGtePih7VjTnJRlHydNkNQqIuprTuy7tdkzH+/UM0ed/
+	vzvd43s1eaWIQuNWno2DRXXxql2nSc0CmW0A369unvj+s/44r2z5nly7QHp0myIhO2D1xxU7Z3nT2
+	ipeq3xh0hU1i0c16UlNoEyo3xPdtAzAEDmmXOTg4GqEL2ilX7XegWiHSLpPJaKudISCcAHi29Jedl
+	w+WJ67+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvst-00000004bHf-0QAT;
-	Tue, 12 Nov 2024 18:45:03 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tAvue-00000004bdT-2IR9;
+	Tue, 12 Nov 2024 18:46:52 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvr5-00000004axJ-0Ip3
+	id 1tAvs0-00000004b4w-3rm3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 18:43:12 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-20e576dbc42so64320145ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 10:43:10 -0800 (PST)
+	Tue, 12 Nov 2024 18:44:10 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-6e377e4aea3so48044107b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 10:44:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731436990; x=1732041790; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bvAxizT0+2LKEZU/zIXU+c9h1QMoetzSlOQ8t234HzM=;
-        b=wsNt7BVh51Pf/0BjfnBkHE4EN9fmhZjym0Zm1YRDL3ANnKkVPhELDFGWw9fHE/pdMM
-         dJjatwR6s6hLf1hO5GIAttVY25KnU5or7w6iVK6e9h1kObTX8GE6skOzg1p7wQQvJxfa
-         87uiZzLY6o0aEblZUwn2mLhP7zzjCPYmZNKZLk12G5qP2fbKWR4yGFB9eZ2WOYT3P8P3
-         F1IndgYQfj/mHBnPUWrYjkM8Qndyt6Bc8AbRpvT52X8PwjL1cMvM1R4GK8K6fWJHTONh
-         U9V5DLtc4Y2KfhrfOPpyBZZ7+GH3IOrd637hI6GhptjoJHcReWQj8pD4orY0qlN4/fQv
-         RpAQ==
+        d=linaro.org; s=google; t=1731437047; x=1732041847; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tmlE3ocaQwI744iyoEKb0Mlm8+PfDOrWjfONTieFefw=;
+        b=OrQQXbobbfe4MJY6VdeXtRoT/jPRZRMp0h8vQKsQ+cawV9OqvgMDfrVXzin35TZemz
+         dK+qKqVMjpBIxC91zX4Uf81EuX/k2+OiEueOOsI75qVSJbAbuFdsZTieU1M+cHD44MNu
+         ZG32gB3z1XQ8w66f/eYEG3Vsqgh8iWnYHSVT1F3cniPwxO/IQIQJzyGAFzrBPX81fJ1X
+         h8fAHdk0etnisaarYyuf9CJ/4KL4aGgUQDt65KVeMSFs/3O6C80I5N935A61NfoEutV8
+         ntvhmSw139C5fmBiocHJZixneJIPzQn9n3gMz2WiSjXC2l48U3dMMszQwdKrbE9p7LgJ
+         dmDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731436990; x=1732041790;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bvAxizT0+2LKEZU/zIXU+c9h1QMoetzSlOQ8t234HzM=;
-        b=i7BPBTf7ECyOkvu1yDis8xKFVolpQz7V/bfk2jXLBJHNRwXq5pMPtnTVur2W9JsN+P
-         b05YdRuJVvplNWRCgNXIwIJxlBqndMuNG56WDrTLJeSD+FhNBXw2K/cH+eOf0aEkRCXN
-         rjmFB8HQxkf6yVwRSM1qGbx9w2bcVi6/wHJVCIJNAguH4uO9FDXG32iWzRPnprVm0YMt
-         0wFE8N8fS74pJmEWP1U+ThYtk1/7iISGYCvyqshBldLfrn+kjHmy97M3h1Wg84KivTvJ
-         vHyAzfKnIlQe6DNhp9NGYoQuvLaVkQvfL1mGEzuN4P/YcRjw9jPGz8eZj3V9iXavuAxe
-         TxEg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbTsZV2H4cjyU71vIhrguaJHwohpYNB+dxiiE3lfYAX8XtmFMWNJakQ3jLdo5X5cmTxO6+kdspHJgt0MSB5YpU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyAdfU+J+HfWJh6aLtAnMKt6d43PyjymXQoPpwXLFV5v5uKDUG
-	WfpGJDtcT7o4HY1zoy+G70/DkZJtCnqK+ewCa+FwZVTZpGx+nMR/GOujSi+X8w==
-X-Google-Smtp-Source: AGHT+IHW7hcorvi/Z4pW7Liu6vMe0qflJ4S1oTRxHJ48MkfOjV9pPI2tf+xCe4vxHYzdvw7/e7DzaA==
-X-Received: by 2002:a17:902:f651:b0:20c:aed1:813a with SMTP id d9443c01a7336-211834fcd5bmr269519355ad.14.1731436989357;
-        Tue, 12 Nov 2024 10:43:09 -0800 (PST)
-Received: from thinkpad ([117.213.103.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e86e30sm94690045ad.281.2024.11.12.10.43.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 10:43:08 -0800 (PST)
-Date: Wed, 13 Nov 2024 00:13:01 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Konrad Dybcio <konradybcio@gmail.com>
-Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>
-Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on
- pre-SYSTEM_SUSPEND PSCI impls
-Message-ID: <20241112184301.6mlwpfzzowut36pn@thinkpad>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241112180118.pcn7sf6r3mswwwxf@thinkpad>
- <ce1d2196-cf09-4d27-8b41-372948a59e89@gmail.com>
+        d=1e100.net; s=20230601; t=1731437047; x=1732041847;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tmlE3ocaQwI744iyoEKb0Mlm8+PfDOrWjfONTieFefw=;
+        b=Dgk+PkTy3Py7sKs/gM4+H1cnUfzciHcVOd0lZMbuIjWn2otbTXimM2EygEP1YFc0c0
+         sItmUR+3lHObyyLBMC73WgjG3U30eUpX5P4KzsFakloE8FgmtOzedgQnwQTXDKYSbdfh
+         oUxzg5YhgMQLkT5QuQLpNuTCK4ET/kMEqqvSs0V63qA3LtK/bxJbzFs23fQwKcepBVQU
+         IgAxdrC6ONMEfpUzHVdjZH/6jJe3v405T5/G3xAdxRHvaarS7sXczWni6QTiVMQdzwkf
+         PR8ne88wSRoNsyyafM8cnrqk50Tbao7OguW7sROJkbQg74F+NbDMmbI2iWe13+MGqRdH
+         W1Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMiLiFTrc7Y35QbdXRfju5mzvAQPCNj0fFEt1K01WADMaDetX6OSVJ7/33luHBE+aI6f08Ts913mtssjO4SPVp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDx8TpaM4Xx7Pqo4jtSVh73aX6GXUP/0OwGSzPCakzVrsuXoqR
+	EsTVTOIy3pwBKwt6pYrCXn6buvOjpB+k8Ovyh6aP0VhME7UW3TZk5CXryL1SVDpBFg9TGF8dnse
+	qWEd/uY4rhzq1GBug6vL2HrAAKrQCjChbNVa0fg==
+X-Google-Smtp-Source: AGHT+IFh1YSNqJrUyWFeYrySj4puHrtEywEG7OT7qiq8/ABi/USrmbl/pgQBx5lmlFIuZUP2a34Q11eyh0jgarstWi0=
+X-Received: by 2002:a05:690c:998b:b0:6e3:3508:e32e with SMTP id
+ 00721157ae682-6eaddfb97a5mr155863057b3.41.1731437047401; Tue, 12 Nov 2024
+ 10:44:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ce1d2196-cf09-4d27-8b41-372948a59e89@gmail.com>
+References: <20241101-imx-emmc-reset-v3-0-184965eed476@solid-run.com>
+In-Reply-To: <20241101-imx-emmc-reset-v3-0-184965eed476@solid-run.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 12 Nov 2024 19:43:31 +0100
+Message-ID: <CAPDyKFq9uQcDsMpYXKe=8f7AGybZaUsvMVU9RDxv2SZpYwbdgA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] mmc: host: sdhci-esdhc-imx: implement emmc
+ hardware reset
+To: Josua Mayer <josua@solid-run.com>
+Cc: Adrian Hunter <adrian.hunter@intel.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Mikhail Anikin <mikhail.anikin@solid-run.com>, Jon Nettleton <jon@solid-run.com>, 
+	Yazan Shhady <yazan.shhady@solid-run.com>, Rabeeh Khoury <rabeeh@solid-run.com>, imx@lists.linux.dev, 
+	linux-mmc@vger.kernel.org, s32@nxp.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_104311_148787_8F229467 
-X-CRM114-Status: GOOD (  39.06  )
+X-CRM114-CacheID: sfid-20241112_104408_984527_63E55EC7 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,90 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 07:32:36PM +0100, Konrad Dybcio wrote:
-> 
-> 
-> On 11/12/24 19:01, Manivannan Sadhasivam wrote:
-> > On Mon, Oct 28, 2024 at 03:22:56PM +0100, Konrad Dybcio wrote:
-> > > Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
-> > > CPU_SUSPEND instead. Inform Linux about that.
-> > > Please see the commit messages for a more detailed explanation.
-> > > 
-> > 
-> > It is still not PSCI_SYSTEM_SUSPEND though...
-> 
-> It *literally* does the same thing on devices where it's exposed.
-> 
+On Fri, 1 Nov 2024 at 12:42, Josua Mayer <josua@solid-run.com> wrote:
+>
+> Signed-off-by: Josua Mayer <josua@solid-run.com>
+> ---
+> Changes in v3:
+> - reused existing control register definition from sdhci-esdhc.h
+>   (Reported-by: Bough Chen <haibo.chen@nxp.com>)
+> - placed both control register mask definitions next to each other
+> - fixed timeout write register name
+> - Link to v2: https://lore.kernel.org/r/20241030-imx-emmc-reset-v2-0-b3a823393974@solid-run.com
+>
+> Changes in v2:
+> - replaced udelay with usleep_range
+>   (Reported-by: Adrian Hunter <adrian.hunter@intel.com>)
+> - added comments for delay values
+>   (Reported-by: Peng Fan <peng.fan@nxp.com>)
+> - delay values based on JEDEC Standard No. 84-B51, 6.15.10 H/W Reset Operation,
+>   on page 159
+>   (Thanks to Bough Chen <haibo.chen@nxp.com>)
+> - added a second patch demonstrating a cosmetic issue revealed by first
+>   patch - it bothered me during development but is not important
+> - Link to v1: https://lore.kernel.org/r/20241027-imx-emmc-reset-v1-1-d5d0c672864a@solid-run.com
+>
+> ---
+> Josua Mayer (2):
+>       mmc: host: sdhci-esdhc-imx: implement emmc hardware reset
+>       mmc: host: sdhci-esdhc-imx: update esdhc sysctl dtocv bitmask
+>
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
 
-But still...
 
-> > 
-> > > This is effectively a more educated follow-up to [1].
-> > > 
-> > > The ultimate goal is to stop making Linux think that certain states
-> > > only concern cores/clusters, and consequently setting
-> > > pm_set_suspend/resume_via_firmware(), so that client drivers (such as
-> > > NVMe, see related discussion over at [2]) can make informed decisions
-> > > about assuming the power state of the device they govern.
-> > > 
-> > > If this series gets green light, I'll push a follow-up one that wires
-> > > up said sleep state on Qualcomm SoCs across the board.
-> > > 
-> > 
-> > Sorry. I don't think PSCI is the right place for this. Qcom SoCs have a common
-> > firmware across all segments (mostly),
-> 
-> This ^
-> 
-> > so there is no S2R involved and only S2Idle.
-> 
-> is not at all related to this ^, the "so" makes no sense.
-> 
-> (also you're wrong, this *is* S2RAM)
-> 
+The series applied for next, thanks!
 
-What? Qcom SoCs supporting S2R? I'm unheard of.
-
-> > If you use PSCI to implement suspend_via_firmware(), then all the SoCs
-> > making use of the PSCI implementation will have the same behavior. I don't think
-> > we would want that.
-> 
-> This is an issue with the NVMe framework that is totally unrelated to this
-> change, see below. Also, the code only sets that on targets where such state
-> exists and is described.
-> 
-
-Well, you are doing it just because you want the NVMe device to learn about the
-platform requirement.
-
-> > For instance, if a Qcom SoC is used in an android tablet with the same firmware,
-> > then this would allow the NVMe device to be turned off during system suspend all
-> > the time when user presses the lock button. And this will cause NVMe device to
-> > wear out faster. The said approach will work fine for non-android usecases
-> > though.
-> 
-> The NVMe framework doesn't make a distinction between "phone screen off" and
-> "laptop lid closed & thrown in a bag" on *any* platform. The usecase you're
-> describing is not supported as of today since nobody *actually* has NVMe on a
-> phone that also happens to run upstream Linux.
-> I'm not going to solve imaginary problems.
-> 
-
-Not just phone, NVMe device could be running on an android tablet. I'm not
-talking about an imaginary problem, but a real problem that is in a forseeable
-future (that is also the reason why NVMe developers doesn't want to put the
-device into power down mode always during system suspend).
-
-And with this change, you are just going to make the NVMe lifetime miserable on
-those platforms.
-
-- Mani
-
-> Besides, userspace already has sysfs to tune device power state knobs. Which
-> Android uses very extensively on market devices.
-> 
-> Konrad
-
--- 
-மணிவண்ணன் சதாசிவம்
+Kind regards
+Uffe
 
