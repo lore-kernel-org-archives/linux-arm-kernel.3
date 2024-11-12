@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D90D597B3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA178D597B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qr1E10NHWK23nMA2ivVLEsm+o2F/x5CKrKT5ga72x0I=; b=gkdpOOYJ5jzYiX/JApfCAq1/3z
-	pyc10ngXMiV33ZhKznTl1Ylkbrn5+iFkPhjaRiWRyK7e7dk7ZKg1MH8KKQGNpl359RQ96ZsYxV2z5
-	hHUmUXFh54IOnhPcgEkvNjG1o8NpOdvtMpO23iLqYLuiR8HSim3eSZ16PyDHxhejsgYNjTt0eK28R
-	Pms86ZRRnFAxPPYIkRKdlDSZQVhoRNTpJh++iujP28l9cIR0y9QosJ2ler31WIFXWsV8rtSoUU3jI
-	w53rC2vp2LmUBi76KP29b1kk0W9nC7Fifdt4mIOBr/aC0O7GoDjLZhYHE1UK9CrIw3dCLkskfeNeq
-	ydPx5cSA==;
+	bh=wmaF3NlubL54V5+IH9CvKXoD4K1OzTYmIrjW7EvYFc4=; b=QrIpu/JOVfDtq038YWl8ulxjkk
+	/hPod8dhACKXhKMLSks0Z7HzX6QeAWquX4jx+wEpgazYiHdJDpqKHmsnGbRqoRR1MtvxzObtw5wn9
+	bPjWorKaz4BEnnCSAKUWmlYoJNui5ZyhKZkmRZo1HgFRsdlGeNMJyj+6l8d+Ky5xe2zCH1bZRNn6h
+	cK52LHljefb6Jt/KxMQWVWuuJFc8XzodTCyjVcL823WYRzAR+x8JA++JNHyTpxdVaG8mxs7yDGPS6
+	YWq55CLrnz8TP00HqN5jhW3nL75Gvk5lzlvcLzSwYE7Dby12dmYhaIzrP4l6ixUITa7lbbL4VZDNU
+	dYZriPaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzXe-00000005ASE-1BWC;
-	Tue, 12 Nov 2024 22:39:22 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1tAzcG-00000005B2l-1vPu;
+	Tue, 12 Nov 2024 22:44:08 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzVs-00000005AG4-0crD
+	id 1tAzaS-00000005AmH-2v1v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 22:37:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1731451040;
- bh=qr1E10NHWK23nMA2ivVLEsm+o2F/x5CKrKT5ga72x0I=;
- b=SjLdnDGx51puzyqQxY55STmDjYKEtmejc/azXDWAyXbU+obv6ECmBz3GG1aWwqhzHZ/XsotDe
- FEKSVvTgnKtC71okD+EhRpGbJuxjjHtBqz/LC3biXoffPrjVIRKvcyOLFaWH0Vi/WuaEZVEzvus
- CyE6gGtiaBju27kydY/BN1SjCCSNdHF4xJLmzeNYCocH7qIuAX/IBb6/WM6Oszmk1yDqxq1p/zX
- t+wmN2FTJcTIFzxBA0FM8nsPdD9stPibg8XIEwtxes3WsTi5BNlJDgIJ1WRqsuZYq9qxKPSxQz3
- 9+56pr+4aX2dhpH1OLWTQ5Ca0jptMo94qKBnc9B4IJwg==
-Message-ID: <e9ff5387-b3c1-41a7-b251-a12789d25a70@kwiboo.se>
-Date: Tue, 12 Nov 2024 23:37:14 +0100
+	Tue, 12 Nov 2024 22:42:18 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 74B4D1BF203;
+	Tue, 12 Nov 2024 22:42:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1731451329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wmaF3NlubL54V5+IH9CvKXoD4K1OzTYmIrjW7EvYFc4=;
+	b=g1Yf5QN7KzgUfBDkeE+lIR43of5g55rveEuBu5jG3b72qHRRuUgy56D7vqigFMz3WYgoSg
+	DTA9HvjfHzSFlqGF+5LF8LIOSX4F0pWK/bZU/nBLBX1KEKo71mo7mQNkVdsopehW4K3BeV
+	WkBpBVTAXTWKXT1ZUyKStlFoDhanRWNXSkaYbVD5S8GOnxOJktSpcODI0almPAz22CSpam
+	uAyiydzOB5ZWokmaUFkclZ5OUAdMdl7kNeaPeREh84Xa3Do3XJa31gu3ehX6gILtBkt+tN
+	WiIgeLW8E0xuMEIJzl4PtEPSOQ0VKITwBKo+sp/yUO0z7jocdyLx3jjZfYblJg==
+Date: Tue, 12 Nov 2024 23:42:06 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Marek Vasut <marex@denx.de>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-clk@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, "Lukas F
+ . Hartmann" <lukas@mntmn.com>, Michael Turquette <mturquette@baylibre.com>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo
+ <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ imx@lists.linux.dev, kernel@dh-electronics.com,
+ linux-arm-kernel@lists.infradead.org, Miquel Raynal
+ <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
+ reconfigure parent rate
+Message-ID: <20241112234206.558d5d5e@booty>
+In-Reply-To: <20240531202648.277078-1-marex@denx.de>
+References: <20240531202648.277078-1-marex@denx.de>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Add supported UHS-I rates to
- sdmmc0 on rock-3b
-To: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- FUKAUMI Naoki <naoki@radxa.com>, Dragan Simic <dsimic@manjaro.org>,
- Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241111181807.13211-1-tszucs@linux.com>
- <20241111181807.13211-2-tszucs@linux.com>
- <c89c2f16-ffb0-4b61-a962-9705f9f1e0e2@kwiboo.se>
- <CA+GksrJzkxffSQbuseGFL0=2PDxV+TRevX0-NOkc6FNYLmNgYA@mail.gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <CA+GksrJzkxffSQbuseGFL0=2PDxV+TRevX0-NOkc6FNYLmNgYA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-ForwardEmail-Version: 0.4.40
-X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-ForwardEmail-ID: 6733d89e9402f7538d197676
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_143732_238375_E490BDBC 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20241112_144217_167457_C49D0354 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tamás,
+Hello Marek, Abel,
 
-On 2024-11-12 15:36, Tamás Szűcs wrote:
-> Hi Jonas,
-> 
-> Thank you for pointing this out! I haven't noticed this before. I've
-> done some testing and I believe I am able to reproduce the issue you
-> described, although I cannot confirm the reason.
-> The only occasion I encounter any problems is when a UHS SD card or
-> SDIO device is connected to sdmmc0 during bootup. Sometimes the device
-> is recognized as HS only. Obviously no tuning value reported. Also,
-> sdmmc2 cuts out completely. I'm booting from eMMC and when the SD card
-> is removed in this state I lose my rootfs. Certainly, this needs more
-> attention but it seems to be unrelated to the changes here.
-> 
-> I need more time to check but are you sure this SD card during bootup
-> issue is gone with UHS-I disabled?
++Cc: Miqu=C3=A8l
 
-Yes, the issue is that the io voltage domain must be configured to match
-the io signal voltage used, and to use uhs the voltage changes from 3v3
-to 1v8. Causing a miss-match between io voltage domain config and the
-regulator voltage used during initial probe, unless io-domain driver
-happens to be fully loaded before mmc devices are probed.
+On Fri, 31 May 2024 22:26:26 +0200
+Marek Vasut <marex@denx.de> wrote:
 
-> 
-> Also, in every other case, when you connect any device to sdmmc0 after
-> bootup, performance and stability is perfect.
-> Interestingly I also don't experience this behavior with an eMMC
-> device and / or an SDIO device connected to sdmmc2 during bootup. Only
-> sdmmc0 is problematic and only during bootup.
+> The media_disp[12]_pix clock supply LCDIFv3 pixel clock output. These
+> clocks are usually the only downstream clock from Video PLL on i.MX8MP.
+> Allow these clocks to reconfigure the Video PLL, as that results in
+> accurate pixel clock. If the Video PLL is not reconfigured, the pixel
+> clock accuracy is low.
+>=20
+> Signed-off-by: Marek Vasut <marex@denx.de>
 
-Yes, as you have discovered, inserting the sd-card after system has
-booted and io-domain driver has been loaded, everything can work as
-expected with uhs speeds.
+I'm afraid I just found this patch broke my previously working setup
+with a panel connected on the LDB. As we are at 6.12-rc7, and this
+patch got merged at 6.12-rc1, I'm reporting it immediately after a
+quick preliminary analysis in order to hopefully find an appropriate
+solution before 6.12.
 
-Until this probe race condition has been solved booting with a sd-card
-inserted may or may not result in wrong tuning or other related issues.
+Problem: with this patch, my LDB picture is horizontally shrunk by a
+factor of about 7, measured empirically.
 
-Because of this I advice not to enable uhs mode for sdmmc0 at this time.
+Configuration:
+ - lcdif1 and lcdif3 disabled
+ - a single-channel LVDS panel on lcdif2/ldb channel 2
 
-Regards,
-Jonas
+So this problem looks like different from the one reported by Adam as
+there a single panel and still it stops working.
 
-> 
-> Any more thoughts on this are very welcome.
-> 
-> Kind regards,
-> Tamas
-> 
-> 
-> 
-> Tamás Szűcs
-> tszucs@linux.com
-> 
-> On Mon, Nov 11, 2024 at 8:00 PM Jonas Karlman <jonas@kwiboo.se> wrote:
->>
->> Hi Tamás,
->>
->> On 2024-11-11 19:17, Tamás Szűcs wrote:
->>> Add all supported UHS-I rates to sdmmc0 and allow 200 MHz maximum clock to
->>> benefit modern SD cards.
->>>
->>> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
->>> ---
->>>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 6 ++++++
->>>  1 file changed, 6 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->>> index 3d0c1ccfaa79..242af5337cdf 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
->>> @@ -670,8 +670,14 @@ &sdmmc0 {
->>>       bus-width = <4>;
->>>       cap-sd-highspeed;
->>>       disable-wp;
->>> +     max-frequency = <200000000>;
->>>       pinctrl-names = "default";
->>>       pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
->>> +     sd-uhs-sdr12;
->>> +     sd-uhs-sdr25;
->>> +     sd-uhs-sdr50;
->>> +     sd-uhs-sdr104;
->>> +     sd-uhs-ddr50;
->>
->> There is an issue with io-domain driver not always being probed before
->> mmc driver, this typically result in io-domain being configured wrong,
->> and mmc tuning happen before io-domain is correctly configured.
->>
->> You can usually observe this by looking at the tuning value during boot
->> and comparing it to the tuning value after removing and re-insering a
->> sd-card.
->>
->> Because of this uhs modes was left out from initial DT submission, some
->> cards will work others wont, sd-uhs-sdr50 is known to be working with
->> most cards even with the probe order issue.
->>
->> Also I thought that lower speeds where implied?
->>
->> Regards,
->> Jonas
->>
->>>       vmmc-supply = <&vcc3v3_sd>;
->>>       vqmmc-supply = <&vccio_sd>;
->>>       status = "okay";
->>
+The relevant rates in my case are as follows:
 
+                            video_pll1   media_disp2_pix    media_ldb
+                          ~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~
+at boot, panel still off: 1.039.500.000    1.039.500.000  1.039.500.000
+requested LDB clock:                                        503.300.000
+before this patch:        1.039.500.000       74.250.000    519.750.000
+after this patch:            71.900.000       71.900.000     71.900.000
+
+Previously, the resulting media_ldb clock was not precise, but close
+enough. Now the value is clearly too wrong to work. Also (but my memory
+might be wrong here) there must be a ratio of 7 between media_ldb and
+media_disp2_pix, which has become 1 after this patch, and this perhaps
+explains the shrink factor of about 7.
+
+I double checked the rate that fsl_ldb_atomic_enable() is requesting at
+[0] and it is 503.3 MHz with and without the patch. This is proved by
+the logged line, before and after the patch:
+
+fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock (519750000 Hz) do=
+es not match requested LVDS clock: 503300000 Hz
+fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock (71900000 Hz) doe=
+s not match requested LVDS clock: 503300000 Hz
+
+My preliminary conclusions:
+
+ * it looks like a bug leading to an incorrect computation of the
+   video_pll1 rate when media_ldb is requesting its rate
+ * the bug does not look like due to this patch, but exposed by it
+
+I still have no idea how the video_pll1 gets configured to such a low
+value when its child needs a 500+ MHz clock.
+
+Any clues or ideas would be welcome.
+
+Best regards,
+Luca
+
+[0] https://elixir.bootlin.com/linux/v6.12-rc7/source/drivers/gpu/drm/bridg=
+e/fsl-ldb.c#L180
+
+--=20
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
