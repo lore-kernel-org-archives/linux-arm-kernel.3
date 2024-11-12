@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042A9D42BA3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 16:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE525D42BA2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 16:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wBk1KBzwEOHZKuHnC3LcVYLaBvifyeSlS2dX2zuDsKo=; b=hxPEVeZtotEZ5xIiLcTN/50X8i
-	HhqQvfctG4qIKkDExXg6T6BJ9gPEsaFh7pf4aDZNDfm2eaf6b+eNNCpACwVoofn/hNleW7KVzzegw
-	XVjqHuCF/+54MxPvxVQ6Gike6xOwGgH4WPQOWNTaGFtnCLYgGPjwUdNPYejltc3fgjEBjABoANKM/
-	egzi6pJN4sf2RrOpOWRxmGPUcP/td2OXbkqdYF5EJVo3gO14PEUZaxfB0xLuNXmoGNUtdkNI1R0z1
-	EW7IRNKeLnpRlN0Y9pnvH0/VBdLUuoCJWkrbbH8uMzwHd9oK6fKHuuEeYu/kJ+v53R1Ge42Hfg30Z
-	ncq5mSLg==;
+	bh=ePhJTRSWpIB4qZQQxI6gKAtILe/DrFCFslH9XH90ljg=; b=Zj+3+LD2zr9j4coFvHj6unvdjs
+	0hqq4R5IXjaDmYf0Ah9fsjUevYhr3bZF2/sjyzs5JzImIM3SMgqA0z3hv5yBYji6UO1Ymuf5gy2LE
+	bzMsmIX05J00XGniSpPBrtPDTPiqZxqt+KKvVBXy0E57krSMgvjXHRhkM5UQCnQCx0CyzsVyZ1GeS
+	q9mT6aJLn7tc9t0+MmciTZjxl87SwibOmqv2/kyuYHsNTnmr/36/SVOcqEBHn6m/2I5t5ZhTSYbcK
+	gNMfd22JqhTokjfFYOgjJ3DBmkjUVj5Zm5lTONTLvgBossoWZ8Cv3niXykNSIlY2w3Qy9DIWU504Y
+	6qQNg3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAtKK-000000043LZ-3QO5;
-	Tue, 12 Nov 2024 16:01:12 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1tAtM6-000000043js-3gSZ;
+	Tue, 12 Nov 2024 16:03:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAtGP-000000041zT-428m
+	id 1tAtHH-000000042R1-2t6d
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 Nov 2024 15:58:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ePhJTRSWpIB4qZQQxI6gKAtILe/DrFCFslH9XH90ljg=; b=MakporpnEoSqv4aXdfByghEk0E
+	9mWEdp63nM28NfDc1uOEtRCYzh6UqSmc8oM3jGWYW1tP46wQkjhok/zQ5UetpaT3tt4RMQcaLJ/sc
+	fqZxuvKZh3IHSoHLhfUD4+cKe6RvfxUH3Gc8Xg1vl+1ihbiTS3oM9Ox0M1hOigzB0aFNI2q15+O3n
+	EQSR3Ri1imTpFKCNeByecM2ErH3kzbIRvNPzX0qLymxvcbEGSq9rjbx7jpisyTU5MHUqouP29lF6m
+	V5tpgYTBkYeuP2F9YzBs3GM8flDecrgcdYVD4hznD/MrIrWTOANH7W7dklSzu6GaYeQmfx9WJoGjE
+	HfZdCKeQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAtHD-0000000D6QP-3zyK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:57:12 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-6e2e41bd08bso59109327b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 07:57:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731427028; x=1732031828; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wBk1KBzwEOHZKuHnC3LcVYLaBvifyeSlS2dX2zuDsKo=;
-        b=dfbkxsUz0IkiMBvna/HWCVcQ2AErkUdLkdNhKzmFzMZ22H54N+x6T7HbJxaE8cCgE7
-         J8qwBSw+cZGr6tgLoHMDaurCmlkT8TIB7RUGokizZAon6PppuLJuLtOi6jli7Duu4/nN
-         Q7hUCnHYBoFEsOdi+mcpHHA1jTYr44wLXn/hWmUimWDqChEGCd7MunlnpJfby6pTDi7I
-         H+UrMUjnG7B18AE5PfgtWOuZc4RfsKrJ802X0aa38OUmj77z7ziF2Clqo3c2WhfLaecS
-         TbhlDUmOL+zw+iqoeZ4yWUJvSKqaUO4q8L4EZWSqDfcQaFg78CtSCnXYogwvzq9ihp3g
-         Gb8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731427028; x=1732031828;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wBk1KBzwEOHZKuHnC3LcVYLaBvifyeSlS2dX2zuDsKo=;
-        b=cflLyl7auIboz2WsQPuhA7x4fP8gssAiEJi6+kWuuWQ4qr27KnT+lgi16bYHW7TO8P
-         OMqMlrgxJUrcNUdM6O8tdjxLvNVO/GrNhSP9ESbjMakFwaACtQRq+0fR8FWJIFyYayDM
-         y8O3aIVYkUS/9Ao7ZY6LzmJMUDWKdUbdzTyxTGZ7pSH35QluRZ7sECg1e/vD0z/0RGmA
-         JZKoGUxTtVTqapF96Qziu8rQjOqdzlGK53t3shKUGX/cWgXf0X4qtJyBjxofE6cOuHUc
-         QzB1pberhiuWTbvPuszjLzcN4nhR9pf9s5g1gZ81wg8aiR1Ml70uoB4v8vNy35LOeUtR
-         rK5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVv0K4SJVDzjeWwGxMdRd8GpFZ1kwFwEehhzgPy2VIaFb5xsdbo+cHGTJI+/1D+kvRHH3WQzOMd3LxE+3LUjZ+C@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrAdH/TCYYjSpCQuQaZFvxCRYkJQgI27EeHbw6VAAx9jEXy896
-	xEmVpMwEh5GUQBr9cwtzV0rEh8JigS6v4a5bQlB1pFsVGEe+HQQHxNjUEWJ3xK7ND50dfethOLY
-	hj9P1EWH8evwETRvVc1Gml4ErkHZXTgr8ebPyEw==
-X-Google-Smtp-Source: AGHT+IEbIXuO/FqYjARrZep3wROIZJT+00STOjU9kzztmEI5hpPneiVqw/DMdVTNmBDXF4I7LbrGsgy3l8sZTRamFzM=
-X-Received: by 2002:a05:690c:700e:b0:6d4:4a0c:fcf0 with SMTP id
- 00721157ae682-6eadddbcfd8mr154933787b3.20.1731427028254; Tue, 12 Nov 2024
- 07:57:08 -0800 (PST)
+	Tue, 12 Nov 2024 15:58:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C2CE5C57E8;
+	Tue, 12 Nov 2024 15:57:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57781C4CECD;
+	Tue, 12 Nov 2024 15:57:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731427076;
+	bh=xcV5aO8dDT6Bs99PMcY0mZnf3cBIhNXhkkKn6XfKDc0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PJ3RTisRVF+zCRCxLTEWfl/lJB2uMheSYI7+nmqZvoAlREmIJwdEnm1P6wdwd0piC
+	 rMYmBDQSHPcES2A16wTw2fdWOcKwgJM+HHCfWuycyd0ufFKOlp17R3x9ZizXTd+LZe
+	 p7V7JJQkqnmSGfW/BXXsvEq5GFDoCDPLot0MdRHz/8R5sskqLvyE+RufH8C25asPq+
+	 Xk5hAqQ2BxHtESKXrVmh5Hy+k+R7XgzHTzn3G7I7nKyL3Nw0A+Afo0r3qLZ+BmJCMx
+	 PXVFFqjou7rKrPhC8I1iGqRQ1fnWqjbRHxM9xgItrW/JVENqrRAFa8vvLT71I9m2/9
+	 4BBAjNIYw+WMA==
+Date: Tue, 12 Nov 2024 15:57:52 +0000
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2.5/3] iommu/arm-smmu-v3: Undo SMMU enable on probe
+ failure
+Message-ID: <20241112155750.GC21479@willie-the-truck>
+References: <cover.1731088789.git.robin.murphy@arm.com>
+ <0812e9f61234cbcdc5cab7de307e1c9a8e3c9498.1731422868.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-References: <20241104190742.276710-1-robh@kernel.org>
-In-Reply-To: <20241104190742.276710-1-robh@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 12 Nov 2024 16:56:31 +0100
-Message-ID: <CAPDyKFreU6wVnsOwz9nstiQ=0sSKN=xtGOaqotwES5UByxQeKw@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: imx: Use of_property_present() for non-boolean properties
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0812e9f61234cbcdc5cab7de307e1c9a8e3c9498.1731422868.git.robin.murphy@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_075710_034880_73ECE934 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20241112_155800_538744_A1D480DC 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 Nov 2024 at 20:07, Rob Herring (Arm) <robh@kernel.org> wrote:
->
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated in favor of of_property_present() when testing for property
-> presence.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-
-Applied for next, thanks!
-
-Kind regards
-Uffe
-
-
+On Tue, Nov 12, 2024 at 02:49:59PM +0000, Robin Murphy wrote:
+> If SMMU probe fails afer arm_smmu_device_reset(), we leave the SMMU
+> enabled with an empty Stream Table, silently blocking all DMA. This
+> proves rather annoying for debugging said probe failure, so let's handle
+> it a bit better by putting the SMMU back into (more or less) the same
+> state as if it hadn't probed at all.
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > ---
->  drivers/pmdomain/imx/gpc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-> index 80a4dcc77199..fbb4c90b72c4 100644
-> --- a/drivers/pmdomain/imx/gpc.c
-> +++ b/drivers/pmdomain/imx/gpc.c
-> @@ -411,7 +411,7 @@ static int imx_gpc_probe(struct platform_device *pdev)
->         pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
->
->         /* bail out if DT too old and doesn't provide the necessary info */
-> -       if (!of_property_read_bool(pdev->dev.of_node, "#power-domain-cells") &&
-> +       if (!of_property_present(pdev->dev.of_node, "#power-domain-cells") &&
->             !pgc_node)
->                 return 0;
->
-> @@ -511,7 +511,7 @@ static void imx_gpc_remove(struct platform_device *pdev)
->         pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
->
->         /* bail out if DT too old and doesn't provide the necessary info */
-> -       if (!of_property_read_bool(pdev->dev.of_node, "#power-domain-cells") &&
-> +       if (!of_property_present(pdev->dev.of_node, "#power-domain-cells") &&
->             !pgc_node)
->                 return;
->
-> --
-> 2.45.2
->
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 7908fca962fe..566d66e9c91e 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4640,6 +4640,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	iommu_device_sysfs_remove(&smmu->iommu);
+>  free_iopf:
+>  	iopf_queue_free(smmu->evtq.iopf);
+> +	arm_smmu_device_disable(smmu);
+>  	return ret;
+>  }
+
+Heh, this is starting to look an awful lot like arm_smmu_device_remove()...
+
+Will
 
