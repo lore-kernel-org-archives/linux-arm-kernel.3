@@ -4,79 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53165D32D82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD1BD32D83
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Q3RGllgxxy/FNlxLuEgjDrcTwpSkX4/oyXR1Yk+Hc4=; b=bSDlqb+YIMkcinbeDg64LqZ6Xr
-	dqz7Ob2wbJZXKnmWt9HDMyMNw/DTkhFXSjYBtBREApndoXEhW8+4esvdIQxH+UGh7vANjMURI/0kE
-	EfhIjLz59Qm2JWttgeZOm0Va6dk15wQ2PSO7EjwhezkPj4kqQL5UlrueYPkT/YR91p3nC2B8ciqWc
-	Gt/WMwWn5m/5IzYmS/s45GZTqdXyTjx7ko1LenQHbBQuPr7NAA5JizCxlYaZyP1HmZszFpsW7cLf4
-	r4L6BQuAfU+w5CmRQRsrZlskc8pT1HxsJkFu5o1tGo9xgg1H3L3v2ROAdmvzhVrcyr8JVDomOw0Hx
-	DHiVDYzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ea+q8vRGx6EaSlkwZ/WcGs86As277ASmEopUEt7SXmo=; b=p+u9QMUcaRwqtXvV9u1d44955M
+	XyI4pj9V6NAL6K4LQoOwgHjorbAcVwnAjysFBQMbLWKsI61nEQKAYWlN7ufTf7JDSEuq9edUhdUAR
+	gGRATr+naJdRGSSeqwZlXYggiqXYMi4S+yPCLC0pWF6F69Edob7uAxN1iQGCHePJhAXdD8GVkgzIn
+	L0+3Ypx7y2LVsiUolBQO60LJRtcnMrCrDxXwbq9zOYW3VZhdwTT/Q0YbsWDb+U4FSCQWiJWVwh9J/
+	SDwGPIhEwfGy98v27mF/0POhvgIY71IM1jSchXsMimCzbfojdK287rB1TtGfMy6rczauMZdKvZKz4
+	pbQLKNig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAngx-00000002xPM-2jrt;
-	Tue, 12 Nov 2024 10:00:11 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tAnoE-00000002yUV-1eUv;
+	Tue, 12 Nov 2024 10:07:42 +0000
+Received: from mail-dbaeur03on20615.outbound.protection.outlook.com ([2a01:111:f403:260d::615] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnf9-00000002x3u-0zSC
+	id 1tAnmP-00000002y4o-1jB1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 09:58:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731405499; x=1762941499;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=T1svJdA2RSCktG62BP7iuMSDRBK2CKeXOkbU+hwo0uU=;
-  b=MQ0tGBtXrccr0jWt2BJT667AIZvGEA+PMKuuLaKA+tmuGVbPBxsEEy8l
-   esJKbX+I63g7F26ubAXJZ6kXh10TeaTuWt1g58DGn/nljfTUy05GGO6hF
-   q3hAFGhBEAM/DXuxNBV4gbja+nv3gFcu1USgDigGzquVwoRGT+OGoSZn5
-   t4gerUod/KximClTR4m4+ufMmNdmIsIuDmCBeDGGyoVDnjhaK1xevsGS0
-   O0ZPBe1uvLTM4cAPKYuAaQusJqaDlVOG9tmN/TiCN0g2jLZS9cOSM+BRm
-   TDvgYIcwXJ6T5aMesJhzUspAKHZ42p5sRiUuye3Cg0y3P2pPS3q9E9Xg1
-   A==;
-X-CSE-ConnectionGUID: 4F3E1avmQZS/w96tyBr3yQ==
-X-CSE-MsgGUID: YxgsxCbWTyaQ4qAZHY4pmw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="31086984"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="31086984"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2024 01:58:17 -0800
-X-CSE-ConnectionGUID: FaS6+EqdRNe8kc0FYh0DbA==
-X-CSE-MsgGUID: iVSSNiulTDuEulpxbAozzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,147,1728975600"; 
-   d="scan'208";a="87788734"
-Received: from lkp-server01.sh.intel.com (HELO bcfed0da017c) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 12 Nov 2024 01:58:12 -0800
-Received: from kbuild by bcfed0da017c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tAnf0-0000gv-02;
-	Tue, 12 Nov 2024 09:58:10 +0000
-Date: Tue, 12 Nov 2024 17:57:25 +0800
-From: kernel test robot <lkp@intel.com>
-To: mjchen <mjchen0829@gmail.com>, dmitry.torokhov@gmail.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	sudeep.holla@arm.com, peng.fan@nxp.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mjchen@nuvoton.com
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v2 2/2] input: keypad: add new keypad driver for MA35D1
-Message-ID: <202411121749.9xapQvza-lkp@intel.com>
-References: <20241112053059.3361-3-mjchen0829@gmail.com>
+	Tue, 12 Nov 2024 10:05:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y6AAgoKDKSnguLZ3l/DEfvNwBGsHOuE//6mwIH4ZCFgRa+6QnUe7yxaLugJP6skxsMLYfL4+FAuZGCCEBz8ntrBCZxwKmJMyh0xzh7BAzcH6nquoPf+du86TDSc82r5rEjE1t8CQVubn//Z9kPKxdio5PBwLMHdV3zhrfED3HnGu2Q20VbXuNy+ZMYym9ehJSxsdTWx6txeXD7gXRfIPVQLIZ21+c9CEeImETNX0OpsijISMLNrH+AhzS7I5pKU1PPlQj88XAkJUcGl8tPRTmAhWp56kqZEF+7oU4fBCn2FDaOxhpHtlRJRZBD8l2gO8Vhez+P5Omxq7xzCCWJDzqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ea+q8vRGx6EaSlkwZ/WcGs86As277ASmEopUEt7SXmo=;
+ b=cuc1j1OI3c4DM83HFpol+ytAvVJGyAwZjyyqxF567DppYua37wHJQOh1F7QkV25TAfKhgGv9vUQXK/9rPQBbRwUMzPOiTF8DYlms1ec9CqBao4RXT67dBt6Mb1VM3EoaezN69rrp1bXLaHw6hevSacCMPUdLb2I4Nb2fEX220Sm0CuQKygwP2xjjSPDcj+qrMv+Z0uiVVyfvEJwRSnV45AyyN/euzxJ9+2HrLMju0bbLGjSjCDpXO43o1/eHDODYtjBquIiME/h02YkwThKce/dRQ0tCPI9/OK+SYqw4fsSCLo+vJx+Dtbv0Tk2AmR8QdtoPl7IPQ3ZNDmcrtH2CEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ea+q8vRGx6EaSlkwZ/WcGs86As277ASmEopUEt7SXmo=;
+ b=gLvpStHHCgwpZ8dhzj7aLbzWJ6dMcggPROU8lbo8tT28n3X1tBEfZnyWZem1rTd13DIfbXI3yp8Jx+/vmI/maxX6XcUIlGot5KSRZXBSf9PPQ0ELD2NwDIwAZ1jKlEW6aJ5h7ShLqetxfzodEZFAdeiMGIkArCUwaPJX7d7+46xR0nNnqhbKecJnGrIChViMq7sfy2NGjrjc3QRkDB9jKo8opcakcyvs1quMDieT90vhqVdv8LnF/jLFEmFA0NcH2ut+8VCgom3MQsANfjPAhiSrFuKmQvLJCxsvFqwheAQrufQmn+5KAQR2F3pIJx+myB/SoXvWWls1kmdu44+o0Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by PAXPR04MB8256.eurprd04.prod.outlook.com (2603:10a6:102:1c6::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Tue, 12 Nov
+ 2024 10:05:44 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
+ 10:05:44 +0000
+From: Liu Ying <victor.liu@nxp.com>
+To: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	quic_bjorande@quicinc.com,
+	geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org,
+	arnd@arndb.de,
+	nfraprado@collabora.com,
+	marex@denx.de
+Subject: [PATCH v6 0/7] Add ITE IT6263 LVDS to HDMI converter support
+Date: Tue, 12 Nov 2024 18:05:40 +0800
+Message-Id: <20241112100547.2908497-1-victor.liu@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0025.apcprd02.prod.outlook.com
+ (2603:1096:3:18::13) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112053059.3361-3-mjchen0829@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PAXPR04MB8256:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cd76fc0-cd46-42e5-3dd1-08dd0301927f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+zpbm8cTF6ZropPWjxBCZsSFQFouwRaOko9OVynj2nb3c0aQ3yzt0s4vLNSv?=
+ =?us-ascii?Q?/RAicayWY6wsc7FBVfmvYjniSmao4hvzYgP6gKZowbS9SJdrZqoW2ebTEP3I?=
+ =?us-ascii?Q?a5meLjw024QpUCL4uh81hb/jKW2l6cdl1xlkBbnPWbi/qvPy++Hl/Cu//HhE?=
+ =?us-ascii?Q?N+ccyayDNPZEGqfHYEZiqc3cRMO4osJyQE4AIjAdxzZR/n4i6FJvVMxkauBB?=
+ =?us-ascii?Q?hSPZRb/df1QXc1RWqEOrTlys9Tbhw647G0Rx5gWu1qate569BSun0J17ENmG?=
+ =?us-ascii?Q?aaF9M078Gzi4gzBU/czxAVnE0s9lRcki8K3AM32QWEImznbcZzoPKwKj7+Ok?=
+ =?us-ascii?Q?y+Ykr82dBBkteTTs6yonKds/5lddXhqoAgKJh8cg3r77fT2o77gOiT0VrTPR?=
+ =?us-ascii?Q?q2d0pjIIGRXWvo3tfFs6EI+IL39YFLq6GqctFN2tLnDpfBEq5s9iP7GTIdMw?=
+ =?us-ascii?Q?a3YuoFKFz3dYZPjjeCd5ovyvOJbj4kehPl2UFHMXQMWf/tyZ+7S2Q+NXF894?=
+ =?us-ascii?Q?myoahvMJjMquR5Fdcj6Ij+W4iXiDHMUcbHn8mOStl8txVrdECgAsyPAaUjGo?=
+ =?us-ascii?Q?mh2pMA1HsGWf+teg/A1pB3aPcMvsI0EahmvJAT1p1gq3P08etC3Jg+OI/2Et?=
+ =?us-ascii?Q?SxxApX0uDWgiD3fnbJ4Aa9f2vImRZHf5knMbj7Lq2gtAKMawt4tEmnlsWW2j?=
+ =?us-ascii?Q?tsriDhuE79S8PopzgXTygHYbDK1oX716jX+J3wmP+/PnZcmi5mDS2xDpzSJt?=
+ =?us-ascii?Q?AnlRJqGmfzRYdH4uoeAc5jz/cCCRdvLXctwWNkSFckj9ox8eAybYNdoFzutt?=
+ =?us-ascii?Q?wiWoM3rQKEjBOyaVabFHx0G3xcSR2SsGZOQXdzvbJyOWcd32aVadaMxj5xOG?=
+ =?us-ascii?Q?NGvDTxc3YiTsmrJ3nwaUHfKOeqtzujM8RBmYiRpZ1WMoX8FGuSsawKyZ6idN?=
+ =?us-ascii?Q?Obw42Us6FRailleZhLy2YQALVqI4/uK5xLMiG2/iGKhtMxh5QVx02MvJk4rF?=
+ =?us-ascii?Q?XbSE4Gpafq4R0Gu+Ka8uG/KRDirEJQwNb3QFKKW0BMGz4wU75Wo8q4aiqVcW?=
+ =?us-ascii?Q?oT108vBjUnpiO+TwxSqCf5NAhs0CbscMYKoSFaA4LC3cOTbLvOoGm0ht6l9z?=
+ =?us-ascii?Q?rSZJop9DGUCg1ZLeDIpltvEAHOQT9+wUaxxwBuiqTyTduW6OnLZkEH1BDqJQ?=
+ =?us-ascii?Q?vjSWbij/7X1ULTVHAiJXFw+NZFx2IY7sKdt/+hNq/v2ItFMGJ3wSbpsuiDtq?=
+ =?us-ascii?Q?kpIi6TIoUEv1wclpgbFaVRvhRurEotAU/XQqihq6hZItkwlDd5SU2drqLTcz?=
+ =?us-ascii?Q?Y1Ofl1O5HVUUXLUh827LPmRm2Qe9eHMagjzHTGVw/zN38g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kOaJYMDJbvqK69EV4SnV+kIawrJ6SwN9qkae8Rwi3ORe2a+noQH9jl09QhxG?=
+ =?us-ascii?Q?XVjLeEs/W3vDwyBcGBpjXpEoj5K9v1xKjlDaYk5/y1Zuks2YOxm4VS3XX8mt?=
+ =?us-ascii?Q?HQJ+vgh3e10+uTJXRcjtdN/ohGRQdDfLu/uUwQTlsdlx3xCFtg469Vuqx0MS?=
+ =?us-ascii?Q?U4O2v0p5GEmSHLDkYkBqNMdMUoBMIzDtVzp+3TSsW2XterRaefm+DOwVJXu/?=
+ =?us-ascii?Q?Yt95DTmGao+OjXgQPmBPmT6vXedjkZLxu1gsjFmBRNOggsn1NwIgyDbLaekZ?=
+ =?us-ascii?Q?voCgdZP/DErO6g2lsmzeS0aJHW4g0psErdKpzf9lLyS8o1eNmd/0EkxnJOE2?=
+ =?us-ascii?Q?a9lbj+85gmYagyQkjrqkTwcTgCiUDxBfNgpan4Ko3q/kdxuFzmgYFT1MxClq?=
+ =?us-ascii?Q?6weNEHxsly9CWTC3ov6WCgIhCBMqk76KpmoXn0jhT6mLcewJYpsIS9BAq9SA?=
+ =?us-ascii?Q?s+CBrqN/gS8gmq6Sq1NesEEjg+NqcU4VLKDijcsljnO++P4st0VUkcWzktjp?=
+ =?us-ascii?Q?BiuW0KuUzv+MjlII2E/CEFbQOO7CTrLvFG5CmDmsEoT6JyX3YVdQBFVvOpmG?=
+ =?us-ascii?Q?AZeusfhZnftRNU/vmEu1nlFv0Xi8S0MP7uxbFPnHUx/3A1drBzI2jSMmrsNg?=
+ =?us-ascii?Q?6XvP3UbCTbo5rEJGijm4i8SuVxQmKdrF4vl9ObDuEIgXUEV4Dgdt3fvlrobi?=
+ =?us-ascii?Q?eFvPFfRsd3L9qpMhK2K8YUAdHJeQ5Sos7wmucuwkaq+z9Q2U5AFhg93ed4uC?=
+ =?us-ascii?Q?I2xpQ6RrySHZxbIKl/DUzHnqi/I7yvq45XPETGY8csWuCtjygLcPD9LblP1b?=
+ =?us-ascii?Q?L1JVkBW0KBipu4fT7mdNFAWPr0VaOGXBuevBg4lHGXjXIFwI+JwQ4BAzu6lQ?=
+ =?us-ascii?Q?/49opjBGMoRo8Vh+KWesNiDip7z9isGggRR1301kFEMikqY5OtUuoOBbiYki?=
+ =?us-ascii?Q?e4lBmKXGUL5snW68Q9tJO0HDtTP38viWaCRtLg31I+kT8LDTWTizifNUF93g?=
+ =?us-ascii?Q?w0Few0vkrO8Iwuf+A1+fxJs5gmPZR3CbCWFRG4iij593xCygKKTbACFTVdeL?=
+ =?us-ascii?Q?yd4GovPLKIBiqyQhf7iMuc6E56BB7+PhyLwsmOKhAbKZzbfB5x8oKjM5Takh?=
+ =?us-ascii?Q?JPGaeED6HMHQy3TJfOGuYo2lGZXz6ZMXr5XTvwckMZl8xWlV+FdWdmZrv3uW?=
+ =?us-ascii?Q?ttlUaJF3t9gXColBtbJtDTExSf79xGxSG7Z3qhhoWwBi5C31QRrqNv6GVniV?=
+ =?us-ascii?Q?EFHd2nEe2H5Rh4eGSqkkhizlUIRPR88MAywxc58two4BCaAiXIF8+wqEgBtM?=
+ =?us-ascii?Q?Wp51cPfpqhHL1yHNX3xXVdpsgVYRePIbbJHsmJwNdj1Gpf0sTLsSpLNnjEBZ?=
+ =?us-ascii?Q?/PwRvwdVRm03eiHPG8mMc98lnU3RhI0+WlJA9Qa8t4z6yXoy9eDTTaMTQbbx?=
+ =?us-ascii?Q?gLtSLOsPAPWkg6wP9YQdSQdldbUbHFzf9nGGECQkCxBOdWNIPr56RRtcNjry?=
+ =?us-ascii?Q?BZT92DaxdnPCE+eCEh6I8Qf+aF5vzGU3ER7fgeQan3yfkS0Sh/wZV41A8Ysd?=
+ =?us-ascii?Q?E5A+6hGK2N363RbPqElEDbG1UWzGvtH5493GvfkV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cd76fc0-cd46-42e5-3dd1-08dd0301927f
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 10:05:44.6417
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qaNFUb4eVdfWoOzpEN1sAM4+Ar3os+r11o+wdBCEgxxdS7+Mgb726VEoxA6YMsyWsTc8W9eMJUAsWhJTM0IVyA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_015819_347700_B2A3283E 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20241112_020549_638879_AF31BA20 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +186,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi mjchen,
+This patch series aims to add ITE IT6263 LVDS to HDMI converter on
+i.MX8MP EVK.
 
-kernel test robot noticed the following build errors:
+Since IT6263 DT binding and driver were picked up from v5 and landed
+in drm-misc, this patch series contains patches almost all i.MX8MP
+SoC/platform specific.
 
-[auto build test ERROR on dtor-input/next]
-[also build test ERROR on dtor-input/for-linus robh/for-next soc/for-next linus/master v6.12-rc7 next-20241112]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Patch 1 is a preparation patch to allow display mode of an existing
+panel to pass the added mode validation logic in patch 3.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/mjchen/dt-bindings-input-Add-Nuvoton-MA35D1-keypad/20241112-133327
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/dtor/input.git next
-patch link:    https://lore.kernel.org/r/20241112053059.3361-3-mjchen0829%40gmail.com
-patch subject: [PATCH v2 2/2] input: keypad: add new keypad driver for MA35D1
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20241112/202411121749.9xapQvza-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241112/202411121749.9xapQvza-lkp@intel.com/reproduce)
+Patch 2 is a preparation patch to drop CLK_SET_RATE_PARENT flag for
+media_disp{1,2}_pix clocks.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411121749.9xapQvza-lkp@intel.com/
+Patch 3 allows i.MX8MP LVDS Display Bridge(LDB) bridge driver to find
+the next non-panel bridge, that is the IT6263 in this case.
 
-All error/warnings (new ones prefixed by >>):
+Patch 4 adds mode validation logic to i.MX8MP LDB bridge driver against
+"ldb" clock so that it can filter out unsupported display modes read
+from EDID.
 
-   drivers/input/keyboard/ma35d1_keypad.c: In function 'ma35d1_keypad_scan_matrix':
->> drivers/input/keyboard/ma35d1_keypad.c:83:53: warning: left shift count >= width of type [-Wshift-count-overflow]
-      83 |         pressed_keys  = key_event[0] | key_event[1] << 32;
-         |                                                     ^~
-   drivers/input/keyboard/ma35d1_keypad.c:84:53: warning: left shift count >= width of type [-Wshift-count-overflow]
-      84 |         released_keys = key_event[2] | key_event[3] << 32;
-         |                                                     ^~
-   drivers/input/keyboard/ma35d1_keypad.c: In function 'ma35d1_keypad_open':
->> drivers/input/keyboard/ma35d1_keypad.c:130:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     130 |         val |= FIELD_PREP(KCOL, (keypad->kpi_col - 1)) | FIELD_PREP(KROW, (keypad->kpi_row - 1));
-         |                ^~~~~~~~~~
+Patch 5 adds mode validation logic to i.MX8MP LDB bridge driver against
+"pix" clock so that it can filter out display modes which are not
+supported by pixel clock tree.
 
+Patch 6 adds DT overlays to support NXP adapter cards[1][2] with IT6263
+populated.
 
-vim +/FIELD_PREP +130 drivers/input/keyboard/ma35d1_keypad.c
+Patch 7 enables the IT6263 bridge driver in defconfig.
 
-    59	
-    60	static void ma35d1_keypad_scan_matrix(struct ma35d1_keypad *keypad, unsigned int status)
-    61	{
-    62		struct input_dev *input_dev = keypad->input_dev;
-    63		unsigned int code;
-    64		unsigned int key;
-    65		unsigned long pressed_keys = 0, released_keys = 0;
-    66		unsigned int row_shift = get_count_order(keypad->kpi_col);
-    67		unsigned short *keymap = input_dev->keycode;
-    68		unsigned long key_event[4];
-    69		unsigned int index;
-    70	
-    71		/* Read key event status */
-    72		key_event[0] = readl(keypad->mmio_base + KPI_KPE0);
-    73		key_event[1] = readl(keypad->mmio_base + KPI_KPE1);
-    74		key_event[2] = readl(keypad->mmio_base + KPI_KRE0);
-    75		key_event[3] = readl(keypad->mmio_base + KPI_KRE1);
-    76	
-    77		/* Clear key event status */
-    78		writel(key_event[0], (keypad->mmio_base + KPI_KPE0));
-    79		writel(key_event[1], (keypad->mmio_base + KPI_KPE1));
-    80		writel(key_event[2], (keypad->mmio_base + KPI_KRE0));
-    81		writel(key_event[3], (keypad->mmio_base + KPI_KRE1));
-    82	
-  > 83		pressed_keys  = key_event[0] | key_event[1] << 32;
-    84		released_keys = key_event[2] | key_event[3] << 32;
-    85	
-    86		/* Process pressed keys */
-    87		for_each_set_bit(index, &pressed_keys, KEY_EVENT_BITS) {
-    88			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
-    89			key = keymap[code];
-    90	
-    91			input_event(input_dev, EV_MSC, MSC_SCAN, code);
-    92			input_report_key(input_dev, key, 1);
-    93		}
-    94	
-    95		/* Process released keys */
-    96		for_each_set_bit(index, &released_keys, KEY_EVENT_BITS) {
-    97			code = MATRIX_SCAN_CODE(index / 8, (index % 8), row_shift);
-    98			key = keymap[code];
-    99	
-   100			input_event(input_dev, EV_MSC, MSC_SCAN, code);
-   101			input_report_key(input_dev, key, 0);
-   102		}
-   103	
-   104		input_sync(input_dev);
-   105	}
-   106	
-   107	static irqreturn_t ma35d1_keypad_interrupt(int irq, void *dev_id)
-   108	{
-   109		struct ma35d1_keypad *keypad = dev_id;
-   110		unsigned int  kstatus;
-   111	
-   112		kstatus = readl(keypad->mmio_base + KPI_STATUS);
-   113	
-   114		if (kstatus & (PKEY_INT | RKEY_INT)) {
-   115			ma35d1_keypad_scan_matrix(keypad, kstatus);
-   116		} else {
-   117			if (kstatus & PDWAKE)
-   118				writel(PDWAKE, (keypad->mmio_base + KPI_STATUS));
-   119		}
-   120	
-   121		return IRQ_HANDLED;
-   122	}
-   123	
-   124	static int ma35d1_keypad_open(struct input_dev *dev)
-   125	{
-   126		struct ma35d1_keypad *keypad = input_get_drvdata(dev);
-   127		unsigned int val, config;
-   128	
-   129		val = RKINTEN | PKINTEN | INTEN | ENKP;
- > 130		val |= FIELD_PREP(KCOL, (keypad->kpi_col - 1)) | FIELD_PREP(KROW, (keypad->kpi_row - 1));
-   131	
-   132		if (keypad->debounce_val > 0)
-   133			config = FIELD_PREP(PRESCALE, (keypad->pre_scale - 1)) |
-   134				 FIELD_PREP(DB_CLKSEL, keypad->debounce_val);
-   135		else
-   136			config = FIELD_PREP(PRESCALE, (keypad->pre_scale - 1));
-   137	
-   138		val |= config;
-   139	
-   140		writel(val, keypad->mmio_base + KPI_CONF);
-   141		writel((keypad->pre_scale_divider - 1),	keypad->mmio_base + KPI_PRESCALDIV);
-   142	
-   143		return 0;
-   144	}
-   145	
+Note that patch 3 and 4 depend on patch[3] in shawnguo/imx/fixes.
+
+Since this patch series is related to another one[4] authored by Marek,
+Maxime asked for a proper description[5] about the exact problem.
+
+Admittedly, it's a bit complicated.  Here, I'm trying to do so and explain
+a bit more.
+
+[ Description ]
+It's a clock problem about shared i.MX8MP video PLL between MIPI DSI and
+LVDS display pipelines.  The pipelines are driven by separate DRM driver
+instances, hence there is no way to negotiate a dynamically changeable
+PLL rate to satisfy both of them.  The only solution is to assign a
+sensible/unchangeable clock rate for the PLL in DT.
+
+Admittedly, sys_pll3_out can be another clock source to derive pixel clock
+for i.MX8MP MIPI DSI display pipeline if a particalur i.MX8MP platform
+doesn't use audio(sys_pll3_out is supposed to derive audio AXI clock running
+at nominal 600MHz).  However, for i.MX8MP platforms with audio features,
+the shared video PLL case has to be handled and it determines that the above
+solution(unchangeable PLL rate assigned in DT) has to be used no matter
+sys_pll3_out is for display or audio, because the separate DRM driver
+instances really don't know if they are sharing the video PLL or not.
+
+[[ i.MX8MP Display Hardware ]]
+i.MX8MP SoC supports three display pipelines:
+
+ -----------------------------           ------------------------
+| imx8mp_media_disp_pix_sels  |         | imx8mp_media_ldb_sels  |
+ -----------------------------           ------------------------
+|  osc_24m (fixed 24MHz)      |         |  osc_24m (fixed 24MHz) |
+|*-video_pll1_out (video)     |         |  sys_pll2_333m (sys)   |
+|  audio_pll2_out (audio)     |         |  sys_pll2_100m (sys)   |
+|  audio_pll1_out (audio)     |         | -sys_pll1_800m (sys)   |
+| -sys_pll1_800m (sys)        |         | -sys_pll2_1000m (sys)  |
+| -sys_pll2_1000m (sys)       |         |  clk_ext2 (external)   |
+|  sys_pll3_out (audio ?)     |         |  audio_pll2_out (audio)|
+|  clk_ext4 (external)        |         |*-video_pll1_out (video)|
+ -----------------------------           ------------------------
+             ||                                     |
+ -----------------------------           ------------------------
+|   media_disp{1,2}_pix       |         |        media_ldb       |
+ ----------------------------- mux+div   ------------------------ mux+div
+             ||                                     |
+ -----------------------------           ------------------------
+| media_disp{1,2}_pix_root_clk|         |   media_ldb_root_clk   |
+ ----------------------------- gate      ------------------------ gate
+             ||                                     | (LVDS serial clock)
+             ||                                     V
+	     || (Disp2 Pclk)  --------      ------------------
+	     | ------------> | LCDIF2 | -> |       LDB        | -> panel/bridge
+	     |                --------      ------------------
+	     |  (Disp1 Pclk)  --------      ------------------
+	      -------------> | LCDIF1 | -> | Samsung MIPI DSI | -> panel/bridge
+	                      --------      ------------------
+                              --------      ------------------      ----------
+                             | LCDIF3 | -> | Synopsys HDMI TX | -> | HDMI PHY |
+                              --------      ------------------     |     +    |
+                                 ^                                 |    PLL   |
+                                 |                                  ----------
+                                 | (Disp3 pclk)                         | |
+                                  --------------------------------------  |
+                                                                          V
+                                                                    panel/bridge
+
+* video_pll1_out is supposed to be used by video outputs.
+
+- LCDIF2 + LDB can only use the *same* video_pll1_out, sys_pll1_800m or
+  sys_pll2_1000m.
+
+[[ i.MX8MP Display Drivers ]]
+LCDIF: drivers/gpu/drm/mxsfb/lcdif_*.c
+Three LCDIFv3 display controllers are driven by three imx-lcdif DRM instances
+separately.
+
+LDB: drivers/gpu/drm/bridge/fsl-ldb.c
+
+Samsung MIPI DSI: drivers/gpu/drm/bridge/samsung-dsim.c
+
+Synopsys HDMI TX: drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
+
+[[ Problem - Shared Video PLL Between Samsung MIPI DSI and LDB ]]
+osc_24m, audio_pll*, sys_pll* and clk_ext* are not for video outputs,
+because:
+a. Aparently, osc_24m runs at fixed 24MHz which is too low for most displays.
+b. Audio subsystem may consume all audio_pll*.
+c. sys_pll* are system clocks which are supposed to run at fixed typical
+   rates, e.g., sys_pll2_1000m runs at 1000MHz.
+d. sys_pll3_out is supposed to derive audio AXI clock running at nominal
+   600MHz(i.MX8MP data sheet specifies the rate), see NXP downstream kernel:
+   https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx8mp-evk-ndm.dts#L19
+   https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx8mp-ddr4-evk.dts#L25
+e. clk_ext* are external clocks without known capabilities.
+
+So, the only eligible video_pll1_out is supposed to be shared between LDB
+and Samsung MIPI DSI in the two separate display pipelines if sys_pll3_out
+is already used to derive the audio AXI clock.
+
+With the shared video_pll1_out, drivers for the two display pipelines cannot
+change the PLL clock rate in runtime, since the pipelines are driven by two
+DRM driver instances.
+
+[[ Solution ]]
+Assign the PLL clock source(s) and the PLL clock rate(s) in DT.  Disallow
+display drivers to change the PLL clock source(s) or rate(s) in runtime
+including LCDIF driver and bridge drivers.  With sensible PLL clock rate(s),
+typical display modes like 1920x1080@60 can be supported if external HDMI
+bridges are connected, and panel display modes can be too.  Also the unneeded
+CLK_SET_RATE_PARENT flag can be dropped for media_disp{1,2}_pix clocks.
+If needed, bridge drivers just call clk_round_rate() to validate clocks so
+that unsupported display modes can be filtered out.  Although the
+unchangeable PLL clock rate disallows more potential display modes, the
+solution works for single/dual/triple display pipelines(OFC, hardware designers
+should pick panel/bridge display devices carefully first by considering clock
+resources).
+
+[1] https://www.nxp.com/part/IMX-LVDS-HDMI
+[2] https://www.nxp.com/part/IMX-DLVDS-HDMI
+[3] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241017031146.157996-1-marex@denx.de/
+[4] https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=896900&state=%2A&archive=both
+[5] https://lore.kernel.org/linux-arm-kernel/3341a6a7-ac0e-4594-a670-b3a6d583b344@nxp.com/T/#m587e6a25bdab542d5d99abbf01caaca89495b1d5
+
+v6:
+* Drop CLK_SET_RATE_PARENT flag for media_disp{1,2}_pix clocks in patch 2.
+* Get pixel clock from display controller's OF node and validate it's
+  clock rate in patch 5 instead of taking the sibling "ldb "clock as
+  pixel clock in patch 4.
+
+Liu Ying (7):
+  arm64: dts: imx8mp-skov-revb-mi1010ait-1cp1: Set "media_disp2_pix"
+    clock rate to 70MHz
+  Revert "clk: imx: clk-imx8mp: Allow media_disp pixel clock reconfigure
+    parent rate"
+  drm/bridge: fsl-ldb: Get the next non-panel bridge
+  drm/bridge: fsl-ldb: Use clk_round_rate() to validate "ldb" clock rate
+  drm/bridge: fsl-ldb: Use clk_round_rate() to validate "pix" clock rate
+  arm64: dts: imx8mp-evk: Add NXP LVDS to HDMI adapter cards
+  arm64: defconfig: Enable ITE IT6263 driver
+
+ arch/arm64/boot/dts/freescale/Makefile        |  8 +++
+ .../imx8mp-evk-imx-lvds-hdmi-common.dtsi      | 29 ++++++++
+ ...8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso | 44 ++++++++++++
+ ...imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi | 43 +++++++++++
+ .../imx8mp-evk-lvds0-imx-lvds-hdmi.dtso       | 28 ++++++++
+ ...8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso | 44 ++++++++++++
+ ...imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi | 43 +++++++++++
+ .../imx8mp-evk-lvds1-imx-lvds-hdmi.dtso       | 28 ++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  6 ++
+ .../imx8mp-skov-revb-mi1010ait-1cp1.dts       |  8 +--
+ arch/arm64/configs/defconfig                  |  1 +
+ drivers/clk/imx/clk-imx8mp.c                  |  4 +-
+ drivers/clk/imx/clk.h                         |  4 --
+ drivers/gpu/drm/bridge/fsl-ldb.c              | 71 +++++++++++--------
+ 14 files changed, 322 insertions(+), 39 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-imx-lvds-hdmi-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds0-imx-lvds-hdmi.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-lvds1-imx-lvds-hdmi.dtso
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
