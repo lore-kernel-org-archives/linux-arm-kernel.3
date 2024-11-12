@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02728D41D41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 01:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E729D41D44
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 01:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QkvTHC2KpJrcCZbIvyqy7SzLhuMnK/9gOx1HH4MQmIg=; b=x3lC+7H1Cu11LKYNIiEYbBkjaw
-	qWvotzYLWghdvI8M2zpgX1SDLHr2nQzDTrwT9Rim7JQ7VC8LQjH/7IpNgeD/xnPzaq/zCbitgYVzT
-	aDJ7EF5eRg/VqvpSSR6WycBFBZDYEbszZXShjyKPGizOy3EeXAKlIx4U5QiSS71Ck1CP/jPERuVOr
-	ueKH9dn9wxbfuaps4xsBp8V9zuQpYq5zsWmiEoGHfLSGTCtoZ6TJvc6wRaMSr9pHAsuNyrDoqmz7j
-	SZq7kDaXY5h1B+/GNZYI/yVvZOrLpD53QxrXOslIi8qVWieRtY3it81A76GzevSE60HeFbrgL3pmx
-	s0TOwENQ==;
+	bh=spUKRV7OxoGH84s6UjjK27+hvVkNjTU0eC0jz2ca18g=; b=QrxZ1HziC52ft4be+bIgCiHgXI
+	IyC720XVysQBcSeR1I2DJZg4D1IL8B/ddjChG1dDHy74tYcvGXlpeXYqsqB12ZnIAlMqhqSzTqfGb
+	li8vqBVj24hzIyiXNeIHr3zKKat7FyHyM3y+R2qG5HIsIrqELbH3AmYByJprU0GmhCYlOal+4uR/u
+	dEcU4CAGcYOoCG9tXzPm2cyXL933Dc0p7rDA7TN2Knu6or9WKZ1AuDIQcebMaUPT6CQoqQxrInz0n
+	FAJsuN2I3+xy5RVkg5a79ggJgEapuAPPF8Naklb+z1sAkuS3IJD3mYn0yV4ST6B8Px5FCQSZlzAp0
+	3IrLnUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAfOv-00000001ptd-2PHn;
-	Tue, 12 Nov 2024 01:09:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAfX1-00000001qTL-3Yyv;
+	Tue, 12 Nov 2024 01:17:23 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAfGb-00000001oI4-0p6I
+	id 1tAfVF-00000001qOn-245D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 01:00:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1942FA40FDF;
-	Tue, 12 Nov 2024 00:58:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2983BC4CECF;
-	Tue, 12 Nov 2024 01:00:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731373224;
-	bh=f6WJXrTRDikhQIj250Wnzzvx7X2r/wsegb+H7jPT+kI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=h6/rJx871zpDPJ/Ca+zhF31lB5gWaSHsaGBByy/qf9lBzMVz/FA54LKkzkyQaJzAA
-	 /WVvk2D3IVfWM3SxynRcoJE76y/cmj05JlJOKdSb4g6aJVKJTyF6kx7jUFrSXmJ6Xj
-	 f2Sn7mBMusNAIx5bkndiAOcbe0ppwU2FA+NN/AHisv+0FcTeM3XdFSPcY7TCwb/QWD
-	 6SrlUl/zhqqW8lrliuzaaDNeW/9s95UQHj2CeB7oakRaDVUx5kh42Zpaql3QWJ0GO0
-	 C9LaOGiNlkgzDumvtaaNjrPy6rUTojDbeUGuCGzG2Xq8+n3bDL+VNpM6HAIsmLEAvK
-	 sLKRGur/fWJgw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 713313809A80;
-	Tue, 12 Nov 2024 01:00:35 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 12 Nov 2024 01:15:34 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2fb58980711so42666081fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 17:15:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731374130; x=1731978930; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=spUKRV7OxoGH84s6UjjK27+hvVkNjTU0eC0jz2ca18g=;
+        b=V6Ap0Q26+j060X6WB0l+avRa1gPUiHBZGUrLrDw6X5I3p1FaiZIgPzGbXviykP/kiY
+         JH/q5Z7Gb/vpIYcSSPXWcuYixTFl1eIR73ujbVEmWrVKC/uLVMdO6bb9qP4h31sT/zua
+         WshJuWAZyWB5Mqknl0SPRt5Mm7vvce6w8V1/6oEB1qCN1THzEB4/SxnIaij5NNvpgy0L
+         0ptAZnr/Yq/QdPPAemDSiIxfHTIkSp8Ow1WmopAHh3ghz6tp2trmOfTiRnk1yG/uDeOk
+         3nALoK65Pn55e6Cy+XPIo3inUknz1yCc0M/bDw58CX689CtYd08q+0D/+2OFK2qAAKVE
+         VYEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731374130; x=1731978930;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=spUKRV7OxoGH84s6UjjK27+hvVkNjTU0eC0jz2ca18g=;
+        b=UaTdzs05p3jZauTsEfrUdPAM6A2aaxQxCfemMDL8qkOm6QaHw4/TJ3zBnmLvUIGAd6
+         rUhtA8cty+5cTIK5jTrtUyzRg6xwdKjlb1DKjN0cmEVTXarZ0rBSRS+dMH8Oy1bC2cIQ
+         ++oBrkacKd3Xizycz9w3r2XPKY+oriX32eJBztHUEoeHA1hjtDIrQIMmTMltFd3MWQnx
+         h3hmosKb2Qoz352LWzHWUHhwRAF8uH9U+PWkXNJPEDs8EJALdMg3s01JT0d1epk2RO20
+         OxM5GyNZuCVhk7Awbo6iS/MyXpfYUjPGYgVDgUxd/EekV1kLdzmAs93biQehq1M/mi3b
+         +p1w==
+X-Gm-Message-State: AOJu0Yz0AW10hCvpBqeQ7/SlnJ/SYRqmJBQSqKs8mbi8Tfpr6NanHLMi
+	uF72WikKdTfwp9WybIZvhgCNCkX68BcTKd5TsWBV30cwbQLMAIkIMcY9Ov7sXxwB92u7GWs3tsL
+	i8OrW6z3dkNErkIBywngIhtAVpFzTrBzHRuGWAQ==
+X-Google-Smtp-Source: AGHT+IFhKWTwwBPu5jX7u89u+dUKj0C5//5o/QMl+RXh0GIkjzOyjBHHfqpvI+xl/jvzNzXbfa5GdbcAObQdme0kFAs=
+X-Received: by 2002:a2e:a813:0:b0:2fe:fec7:8adf with SMTP id
+ 38308e7fff4ca-2ff2029fed5mr65047841fa.38.1731374130317; Mon, 11 Nov 2024
+ 17:15:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 0/4] Introduce VLAN support in HSR
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173137323399.33228.10298561607881644376.git-patchwork-notify@kernel.org>
-Date: Tue, 12 Nov 2024 01:00:33 +0000
-References: <20241106091710.3308519-1-danishanwar@ti.com>
-In-Reply-To: <20241106091710.3308519-1-danishanwar@ti.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: geliang@kernel.org, liuhangbin@gmail.com, jiri@resnulli.us,
- w-kwok2@ti.com, aleksander.lobakin@intel.com, lukma@denx.de,
- jan.kiszka@siemens.com, diogo.ivo@siemens.com, shuah@kernel.org,
- horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
- rogerq@kernel.org
+References: <20241111233817.2f824c19@foxbook>
+In-Reply-To: <20241111233817.2f824c19@foxbook>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 12 Nov 2024 02:15:19 +0100
+Message-ID: <CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
+Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
+To: =?UTF-8?Q?Micha=C5=82_Pecio?= <michal.pecio@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, 
+	Linux kernel regressions list <regressions@lists.linux.dev>, Kees Cook <kees@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_170025_317134_138B4BE4 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20241111_171533_577404_B3CBD261 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +90,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Michal,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+On Mon, Nov 11, 2024 at 11:38=E2=80=AFPM Micha=C5=82 Pecio <michal.pecio@gm=
+ail.com> wrote:
 
-On Wed, 6 Nov 2024 14:47:06 +0530 you wrote:
-> This series adds VLAN support to HSR framework.
-> This series also adds VLAN support to HSR mode of ICSSG Ethernet driver.
-> 
-> Changes from v2 to v3:
-> *) Modified hsr_ndo_vlan_rx_add_vid() to handle arbitrary HSR_PT_SLAVE_A,
-> HSR_PT_SLAVE_B order and skip INTERLINK port in patch 2/4 as suggested by
-> Paolo Abeni <pabeni@redhat.com>
-> *) Removed handling of HSR_PT_MASTER in hsr_ndo_vlan_rx_kill_vid() as MASTER
-> and INTERLINK port will be ignored anyway in the default switch case as
-> suggested by Paolo Abeni <pabeni@redhat.com>
-> *) Modified the selftest in patch 4/4 to use vlan by default. The test will
-> check the exposed feature `vlan-challenged` and if vlan is not supported, skip
-> the vlan test as suggested by Paolo Abeni <pabeni@redhat.com>. Test logs can be
-> found at [1]
-> 
-> [...]
+> I installed v6.11.5 on Tegra K1 (Cortex-A15) with tegra_defconfing +
+> CONFIG_ARM_LPAE + a few drivers + minor patches for driver issues.
+>
+> gdb segfaults on startup, strace shows this:
+>
+> openat(AT_FDCWD, "/usr/lib/guile/3.0/ccache/ice-9/psyntax-pp.go", O_RDONL=
+Y|O_LARGEFILE|O_CLOEXEC) =3D 11
+> _llseek(11, 0, [477309], SEEK_END)      =3D 0
+> mmap2(NULL, 477309, PROT_READ, MAP_PRIVATE, 11, 0) =3D 0xb378a000
+> close(11)                               =3D 0
+> mprotect(0xb37da000, 43512, PROT_READ|PROT_WRITE) =3D 0
+> mmap2(NULL, 262144, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONY=
+MOUS, -1, 0) =3D 0xb374a000
+> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
+> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
+> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
+> futex(0xb6f0bb14, FUTEX_WAKE_PRIVATE, 2147483647) =3D 0
+> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
+> cacheflush(0xb374a000, 0xb374b000, 0)   =3D -1 EFAULT (Bad address)
+> --- SIGSEGV {si_signo=3DSIGSEGV, si_code=3DSEGV_MAPERR, si_addr=3D0x4} --=
+-
+>
+> guile is apparently a scripting language with JIT compiler, disabling
+> JIT resolves the crash, so cacheflush is a big suspect at this point.
+>
+> No apparent valid reason for those failures and no recent changes to
+> cacheflush handling that I see, so I searched for commits touching LPAE
+> (perhaps the most uncommon part of my system) and I quickly found the
+> ARM_PAN feature, which claims to monkey with page tables. Hmm...
+>
+> Disabled ARM_PAN, cacheflush returns 0 now and gdb crashes no more.
+>
+> So I guess it looks like there is a problem with this feature, perhaps
+> a missing "permit user accesss" somewhere?
 
-Here is the summary with links:
-  - [net-next,v3,1/4] net: hsr: Add VLAN support
-    https://git.kernel.org/netdev/net-next/c/d977d7eb09fe
-  - [net-next,v3,2/4] net: hsr: Add VLAN CTAG filter support
-    https://git.kernel.org/netdev/net-next/c/1a8a63a5305e
-  - [net-next,v3,3/4] net: ti: icssg-prueth: Add VLAN support for HSR mode
-    https://git.kernel.org/netdev/net-next/c/e6bf1f7aea4d
-  - [net-next,v3,4/4] selftests: hsr: Add test for VLAN
-    https://git.kernel.org/netdev/net-next/c/75e3f12fa51b
+We are trying to locate the issue, which I think is the same as this
+but not sure:
+https://bugzilla.kernel.org/show_bug.cgi?id=3D219247
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+I have been trying to replicate it on a Chromebook but didn't get so far
+yet because the installation is pretty idiomatic :/ also there is only appe=
+ars
+in a single Qt program and not as predictable as here.
 
+But. It appears the code is issuing cacheflush() which I guess ends
+up in arm_syscall() here:
 
+        case NR(cacheflush):
+                return do_cache_op(regs->ARM_r0, regs->ARM_r1, regs->ARM_r2=
+);
+
+To here:
+
+static inline int
+do_cache_op(unsigned long start, unsigned long end, int flags)
+{
+        if (end < start || flags)
+                return -EINVAL;
+
+        if (!access_ok((void __user *)start, end - start))
+                return -EFAULT;
+
+        return __do_cache_op(start, end);
+}
+
+Here userspace access should be fine because we have entered a
+syscall from userspace. I tried to emulate the situation with this
+program:
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+
+#define NR_cacheflush 0xf0002
+
+/* libgcc */
+extern void __clear_cache(void *, void *);
+
+int main (int argc, char **argv) {
+  void *addr;
+  int ret;
+
+  printf("Test()\n");
+  addr =3D mmap(NULL, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC,
+              MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+  if (addr =3D=3D MAP_FAILED) {
+    printf("mmap() failed\n");
+    exit(1);
+  }
+
+The libgcc version is what guile uses.
+But it all just works fine for me.
+
+I added prints in the cacheflush trap:
+
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index 480e307501bb..400650519bd1 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -592,11 +592,14 @@ __do_cache_op(unsigned long start, unsigned long end)
+ static inline int
+ do_cache_op(unsigned long start, unsigned long end, int flags)
+ {
++       pr_info("%s(%08lx-%08lx)\n", __func__, start, end);
+        if (end < start || flags)
+                return -EINVAL;
+
+-       if (!access_ok((void __user *)start, end - start))
++       if (!access_ok((void __user *)start, end - start)) {
++               pr_err("ACCESS NOT OK\n");
+                return -EFAULT;
++       }
+
+        return __do_cache_op(start, end);
+ }
+
+And they all work fine with the test program.
+This is on v6.12-rc1.
+
+Does this test program work also on your set-up?
+
+Yours,
+Linus Walleij
 
