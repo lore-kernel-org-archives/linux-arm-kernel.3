@@ -4,83 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F49D42BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B27DD32D81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vLfb7kUGJLjR3dpRxNjHUX8zNIZ2DpFKhaioXvi+P10=; b=t75IoqZ9HeDFpC+q0HHbyzwCC/
-	TQ5fDwztipOQAT2iHf9qlYW5a+0+EC3HSQ9M9Z5fgSRHzlN2Yw9dqbNB92CeIL/GOhCItZinoaZwJ
-	hx5kdDsNILkK3V58KyupkFtsyDc+AMWFUOnnnGqC4cI+86lV2MKEsmrMX4DmFcyF3H6MBBxLo27MM
-	6JTXCT5Ffzvt+p0F1TWudGH+tG0XxizUKngPKr4+e0abRL4rjHMBkaXfShE+iHGmJGnMFNFIcN84J
-	OTRLLtqjnk+zomeW5+JMc86WyML7Oag/dofvMiVMw3AMIi4Vd8vadCspt9DfnGG2RUHh5mV6mj20P
-	INee7mXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mkh3fs1WipagezQQaGIpMpt4VCgBrWJ8fSU8gqV0BP4=; b=f/pt2Dnz/PIVfHYC+0My68xgu3
+	ohiDReMnYGkMMNPl28n0Wf9asN6ry5KADZ0zDEp8lMLFuFa+Ha17R2Dk0gTZCmQus7OcWbyMWxgvH
+	zVjzEX0q07N8KxqC7HgwOAYQ6deyfvIRMBfpWqPTaczQtcpF60NJr0JEW6WPzIpRyNXQayaqGAgfj
+	ksO/a4KseWRfF9xzIpb9ndt59CH8dDuJ+IEYMwVv9Zb4qfMUfFiM/26qaTI8OB3yQdx3EW5WFrJPp
+	RHd7aINkwOr4dyVCp5eky3NwmC4wHnpI7YZbtiZMAQkll0d2IkrPRumLKX9YNFlktHCg/dEhdm7QB
+	39OQiZ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAw3S-00000004d5D-2qoI;
-	Tue, 12 Nov 2024 18:55:58 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvwL-00000004bxT-0fSh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 18:48:39 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6e5cec98cceso47332157b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 10:48:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731437316; x=1732042116; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vLfb7kUGJLjR3dpRxNjHUX8zNIZ2DpFKhaioXvi+P10=;
-        b=HRGOCvig5ZIASkP6qg/B/w8ZJbCOHh3QbyR0lwf8/Zz0EqT+1u2jS8jm8DpYMRPjMO
-         f9njzNuKc4wwHKiqcqcXxOyWos7q4UvbpdrLJ+lLL5JKfoOj2AKuTq86YUTVisDfHiwO
-         W7FhvxEwP7w8XL672pCTPCr8OIoC3TicC6XWEVPdo18xSaTgfMS/LyrOPPC3keqtUsCN
-         R07ZZQ/0MYmOfT3zwztkGPFj+gNDRVpATxrR6dEiSuSPtM7BfyHiX+/0bp3xpkYyawye
-         cy6Lo8qqYD1s3AOCpXl9u8WqNupfZNGK0Woero55e6QJu4PHVaUGZWi8ic57wf1Ay3gm
-         WmVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731437316; x=1732042116;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vLfb7kUGJLjR3dpRxNjHUX8zNIZ2DpFKhaioXvi+P10=;
-        b=WDklY31KwyYo8Z3VHFRQFxbRWP1wfV2lJv8u406MCMzlG5I016u0WDQiVSX/TlNEAb
-         U+b2ZSWpPI9O+q9IFPIkT1PdLUFgk9BVHWlxEVPF2OGb5NRNKv54Ietl0ZFV2teHn4KP
-         zNrVI8sMsVbsbqisszlsD8b4LbNWCmVhcCq2VEuKrqqsMijVC8N8N/EugqaxGT6qBFpR
-         LYIDlFxU77krfhDcsT6S5apAovtSNpT/QVJqTUIVeo7jViOsWwsRmTcBY0ufDmIHXxxX
-         Yo9d93DbzdQZjM/zQXXQsIC3iWEVIDsFrDvVTJYE32ThPeNqCmuUvmciSZdIutLweYa3
-         ouew==
-X-Forwarded-Encrypted: i=1; AJvYcCV5RQeAQYQcMGZMl58rT9R1I2zldnGIT4ZLwGoPo1a6eOe5TqG2P/SMplRxa5ccCmAXR4BTydCAtSm8RaXqFji5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ+wEeISaz3BYMjw9vrk5E4UFn00Y24Nobb5/Vdhu7bQ0lFLW1
-	AIaRK8LRYaFEeAoIZ4dOXOBpRRGkQOLvD5tpeprsU55XWdomR5X2ShyFJN/zdUjCMRCkK0Cl4l4
-	e9jKCQD07zmt+PvDbx9uxYOyv2YCWgFfIm8TTfw==
-X-Google-Smtp-Source: AGHT+IHU1F4In8hSy3BHO7PzehPnwak0Jka/B7VCySs0mHPl9uCBdzOrrdhGUm0wtjc2hrnl2RWBoqNBIdeikfPQLfY=
-X-Received: by 2002:a05:690c:6d10:b0:6be:54e1:f1f3 with SMTP id
- 00721157ae682-6ecb30a5145mr1527607b3.0.1731437315975; Tue, 12 Nov 2024
- 10:48:35 -0800 (PST)
+	id 1tAw5D-00000004dJi-0JNw;
+	Tue, 12 Nov 2024 18:57:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAvzT-00000004cSZ-3FA9;
+	Tue, 12 Nov 2024 18:51:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC1801516;
+	Tue, 12 Nov 2024 10:52:20 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EF473F66E;
+	Tue, 12 Nov 2024 10:51:49 -0800 (PST)
+Message-ID: <33f8430e-0adc-4060-afb5-2cc5c79c8dec@arm.com>
+Date: Tue, 12 Nov 2024 18:51:48 +0000
 MIME-Version: 1.0
-References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
- <CAPDyKFoY8CnxF7JXzkT9_WXyM-TJhW4kmTw=H8NEzch32N1_7Q@mail.gmail.com>
- <ZyJeuVIbWkohymW5@pluto> <20241106071215.jhnzcn4vkdfr3peg@bogus>
- <CAPDyKFr-pmXEhgUgCapzQX3Hn_UAM632TaG8SdkQXaCn5-y42g@mail.gmail.com> <ZzOOPJ_gI9TGadzV@hovoldconsulting.com>
-In-Reply-To: <ZzOOPJ_gI9TGadzV@hovoldconsulting.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 12 Nov 2024 19:48:00 +0100
-Message-ID: <CAPDyKFqnnw1A+R_wohpV7orKV4oGJNyxD+QL667iWq9d_odmfw@mail.gmail.com>
-Subject: Re: [PATCH V5 0/6] firmware: arm_scmi: Misc Fixes
-To: Johan Hovold <johan@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Sibi Sankar <quic_sibis@quicinc.com>, 
-	Cristian Marussi <cristian.marussi@arm.com>, jassisinghbrar@gmail.com, 
-	dmitry.baryshkov@linaro.org, linux-kernel@vger.kernel.org, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org, 
-	linux-pm@vger.kernel.org, tstrudel@google.com, rafael@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix vdd_gpu voltage constraints on
+ PinePhone Pro
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, stable@vger.kernel.org
+References: <0718feb8e95344a0b615f61e6d909f6e105e3bf9.1731264205.git.dsimic@manjaro.org>
+ <607a731c-41e9-497a-a08c-f718339610ae@arm.com>
+ <fdf58f3e9fcb4c672a4bb114fbdab60d@manjaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <fdf58f3e9fcb4c672a4bb114fbdab60d@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_104837_229476_747DCB80 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20241112_105151_924068_32169349 
+X-CRM114-Status: GOOD (  33.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +68,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 at 18:20, Johan Hovold <johan@kernel.org> wrote:
->
-> On Tue, Nov 12, 2024 at 04:56:26PM +0100, Ulf Hansson wrote:
-> > On Wed, 6 Nov 2024 at 08:12, Sudeep Holla <sudeep.holla@arm.com> wrote:
-> > > On Wed, Oct 30, 2024 at 04:28:41PM +0000, Cristian Marussi wrote:
-> > > > On Wed, Oct 30, 2024 at 05:19:39PM +0100, Ulf Hansson wrote:
-> > > > > On Wed, 30 Oct 2024 at 13:55, Sibi Sankar <quic_sibis@quicinc.com> wrote:
-> > > > > >
-> > > > > > The series addresses the kernel warnings reported by Johan at [1] and are
-> > > > > > are required to X1E cpufreq device tree changes to land.
-> > > > > >
-> > > > > > [1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
-> > > > > >
-> > > > > > Duplicate levels:
-> > > > > > arm-scmi arm-scmi.0.auto: Level 2976000 Power 218062 Latency 30us Ifreq 2976000 Index 10
-> > > > > > arm-scmi arm-scmi.0.auto: Level 3206400 Power 264356 Latency 30us Ifreq 3206400 Index 11
-> > > > > > arm-scmi arm-scmi.0.auto: Level 3417600 Power 314966 Latency 30us Ifreq 3417600 Index 12
-> > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-> > > > > > arm-scmi arm-scmi.0.auto: Level 4012800 Power 528848 Latency 30us Ifreq 4012800 Index 15
-> > > > > >
-> > > > > > ^^ exist because SCP reports duplicate values for the highest sustainable
-> > > > > > freq for perf domains 1 and 2. These are the only freqs that appear as
-> > > > > > duplicates and will be fixed with a firmware update. FWIW the warnings
-> > > > > > that we are addressing in this series will also get fixed by a firmware
-> > > > > > update but they still have to land for devices already out in the wild.
-> > > > > >
-> > > > > > V4:
-> > > > > > * Rework debugfs node creation patch [Ulf/Dmitry]
-> > > > > > * Reduce report level to dev_info and tag it with FW_BUG [Johan/Dmitry]
-> > > > > > * Add cc stable and err logs to patch 1 commit message [Johan]
->
-> > Sorry for the delay. I have picked up the remaining patches from this
-> > series. All applied for fixes and by adding stable tags to them,
-> > thanks!
->
-> As I reported here:
->
->         https://lore.kernel.org/lkml/ZyTQ9QD1tEkhQ9eu@hovoldconsulting.com/
->
-> I'm seeing a hard reset on the x1e80100 CRD and Lenovo ThinkPad T14s
-> when accessing the cpufreq sysfs attributes.
->
-> Sibi tracked it down to the first patch in this series ("firmware:
-> arm_scmi: Ensure that the message-id supports fastchannel") and
-> reverting that one indeed fixes the reset.
->
-> Unfortunately this was only discussed on IRC and was never reported in
-> this thread.
->
-> Ulf, could you please drop the first patch again until we've figured out
-> how best to handle this?
+On 12/11/2024 2:36 pm, Dragan Simic wrote:
+> Hello Robin,
+> 
+> On 2024-11-12 15:19, Robin Murphy wrote:
+>> On 10/11/2024 6:44 pm, Dragan Simic wrote:
+>>> The regulator-{min,max}-microvolt values for the vdd_gpu regulator in 
+>>> the
+>>> PinePhone Pro device dts file are too restrictive, which prevents the 
+>>> highest
+>>> GPU OPP from being used, slowing the GPU down unnecessarily.  Let's 
+>>> fix that
+>>> by making the regulator-{min,max}-microvolt values less strict, using 
+>>> the
+>>> voltage range that the Silergy SYR838 chip used for the vdd_gpu 
+>>> regulator is
+>>> actually capable of producing. [1][2]
+>>
+>> Specifying the absolute limits which the regulator driver necessarily
+>> already knows doesn't seem particularly useful... Moreover, the RK3399
+>> datasheet specifies the operating range for GPU_VDD as 0.80-1.20V, so
+>> at the very least, allowing the regulator to go outside that range
+>> seems inadvisable.
+> 
+> Indeed, which is why I already mentioned in the patch description
+> that I do plan to update the constraints of all regulators to match
+> the summary of the constraints of their consumers.  Though, I plan
+> to do that later, as a separate directory-wide cleanup, for which
+> I must find and allocate a substantial amount of time, to make sure
+> there will be no mistakes.
 
-Done, thanks!
+Sure, but even if every other DT needs fixing, that still doesn't make 
+it a good idea to deliberately introduce the same mistake to *this* DT 
+and thus create even more work to fix it again. There's no value in 
+being consistently wrong over inconsistently wrong - if there's 
+justification for changing this DT at all, change it to be right.
 
-Kind regards
-Uffe
+>> However there's a separate datasheet for the
+>> RK3399-T variant, which does specify this 875-975mV range and a
+>> maximum GPU clock of 600MHz, along with the same 1.5GHz max.
+>> Cortex-A72 clock as advertised for RK3399S, so it seems quite possible
+>> that these GPU constraints here are in fact intentional as well.
+>> Obviously users are free to overclock and overvolt if they wish - I do
+>> for my actively-cooled RK3399 board :) - but it's a different matter
+>> for mainline to force it upon them.
+> 
+> Well, maybe the RK3399S is the same in that regard as the RK3399-T,
+> but maybe it actually isn't -- unfortunately, we don't have some
+> official RK3399S datasheet that would provide us with the required
+> information.  As another, somewhat unrelated example, we don't have
+> some official documentation to tell us is the RK3399S supposed not
+> to have working PCI Express interface, which officially isn't present
+> in the RK3399-T variant.
+
+Looking back at the original submission, v2 *was* proposing the RK3399-T 
+OPPs, with the GPU capped at 600MHz, and it was said that those are what 
+PPP *should* be using[1]. It seems there was a semantic objection to 
+having a separate rk3399-t-opp.dtsi at the time, and when the main DTS 
+was reworked for v3 the 800MHz GPU OPP seems to have been overlooked. 
+However, since rk3399-t.dtsi does now exist anyway, it would seem more 
+logical to just use that instead of including rk3399.dtsi and then 
+overriding it to be pretty much equivalent to the T variant anyway.
+
+Thanks,
+Robin.
+
+[1] 
+https://lore.kernel.org/linux-rockchip/CAN1fySWVVTeGHAD=_hFH+ZdcR_AEiBc0wqes9Y4VRzB=zcdvSw@mail.gmail.com/
+
+> However, I fully agree that forcing any kind of an overclock is not
+> what we want to do.  Thus, I'll do my best, as I already noted in this
+> thread, to extract the dtb from the "reference" Android build that
+> Rockchip itself provided for the RK3399S-based PinePhone Pro.  That's
+> closest to the official documentation for the RK3399S variant that we
+> can get our hands on.
+> 
+>>> This also eliminates the following error messages from the kernel log:
+>>>
+>>>    core: _opp_supported_by_regulators: OPP minuV: 1100000 maxuV: 
+>>> 1150000, not supported by regulator
+>>>    panfrost ff9a0000.gpu: _opp_add: OPP not supported by regulators 
+>>> (800000000)
+>>>
+>>> These changes to the regulator-{min,max}-microvolt values make the 
+>>> PinePhone
+>>> Pro device dts consistent with the dts files for other Rockchip 
+>>> RK3399-based
+>>> boards and devices.  It's possible to be more strict here, by 
+>>> specifying the
+>>> regulator-{min,max}-microvolt values that don't go outside of what 
+>>> the GPU
+>>> actually may use, as the consumer of the vdd_gpu regulator, but those 
+>>> changes
+>>> are left for a later directory-wide regulator cleanup.
+>>>
+>>> [1] 
+>>> https://files.pine64.org/doc/PinePhonePro/PinephonePro-Schematic-V1.0-20211127.pdf
+>>> [2] 
+>>> https://www.t-firefly.com/download/Firefly-RK3399/docs/Chip%20Specifications/DC-DC_SYR837_838.pdf
+>>>
+>>> Fixes: 78a21c7d5952 ("arm64: dts: rockchip: Add initial support for 
+>>> Pine64 PinePhone Pro")
+>>> Cc: stable@vger.kernel.org
+>>> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
+>>> ---
+>>>   arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 4 ++--
+>>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts 
+>>> b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>>> index 1a44582a49fb..956d64f5b271 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>>> @@ -410,8 +410,8 @@ vdd_gpu: regulator@41 {
+>>>           pinctrl-names = "default";
+>>>           pinctrl-0 = <&vsel2_pin>;
+>>>           regulator-name = "vdd_gpu";
+>>> -        regulator-min-microvolt = <875000>;
+>>> -        regulator-max-microvolt = <975000>;
+>>> +        regulator-min-microvolt = <712500>;
+>>> +        regulator-max-microvolt = <1500000>;
+>>>           regulator-ramp-delay = <1000>;
+>>>           regulator-always-on;
+>>>           regulator-boot-on;
 
