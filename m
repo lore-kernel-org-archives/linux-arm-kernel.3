@@ -4,81 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A520D32D7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CB1D32D7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=; b=Mh8lNXgQmdHnj1V+0Dgv5ICBQ3
-	T+iQLxoCVUxKC8yMljXpDleerV+I0ttZlAEVTZv4bQ70VAqcL9rLc853VxA4vH6Uas1MwgCUVD7mZ
-	dM3gRVlguRHH8DLeO2gYlm7eTHGEecozEr0dYatFLDvHQQycHs4PerDWJqq04bUtNac6hzdv1MbS/
-	KbT2UOe5QPhDMloosrhld+y1n0NfLDkwPvha4w08KK9aMs2L0Sd8bLvIsZRJqlD+0XWQNG1WqQQ4A
-	6LCA/AtjUTi+xIIQNtlYO88EdySHCYQQH55cLr/KVrHs5WyCPuQuErT05Orsgp7ap6yDTeGprWvu2
-	wV4RInuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v0z6ARR/+RgWXT59JOrdamH3bBkGw9XqUSfHew3fQck=; b=tsQDLmE7lTMfBXJbdVdvj/elfW
+	IoGDqk58vvT4GOnHznh6kI5hn9hh9f5TNScjqHQ5rS3PrynYQH9+/p5/6mFmJ1d9WfX1yc/stYq0i
+	1PaBld3ig3cFs+qBFnx6ebQ1Qtw1IneAojx2ER49LFssoDUBs6TSYPDy2dA8vA0DNN0K+Xu9LtZQV
+	THIb4REdlPA8Q8kHdIOvRMXlUL8S9OIw7RQ7pzMj2SqFljCY7HPmbCRw6BHDIXHpQ0nOLsCE5TrHi
+	PAU3jYueGz5fRQGBFbgtYSNSWwH+KhXgEEP4BIIBrAvMtA9RQS2cnI1yVk1mWzHV5Bl8827gTaZTY
+	YKdOV5pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnKe-00000002thn-24Mg;
-	Tue, 12 Nov 2024 09:37:08 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tAnMT-00000002u9V-2rvL;
+	Tue, 12 Nov 2024 09:39:01 +0000
+Received: from mail-db8eur05on20601.outbound.protection.outlook.com ([2a01:111:f403:2614::601] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnGN-00000002pfo-3NST
+	id 1tAnHG-00000002qlL-07Rg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 09:32:51 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539e6c754bdso5397278e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 01:32:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731403958; x=1732008758; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=;
-        b=JaRV71xsZBG/lMbm78hmb5BcrNYiynQlWfjIy4eBKIB1mXBxNLKSZiBuA6eD37dnI5
-         snXO0htGS2k0Fxj3yKE0aXIY0rebkdD7/g4/oyPR6tzndfd0GA72Gisz4UZtt9DdnVyA
-         pm8BfJlPvkDlwN5D+KAkNsJNLsgm5LC3jpg7x1GLv1JU6krH0sJVlCT9oc4BkuDs7Aoq
-         VuJBfMT3XUEqPMStLd/Jg2ASOLzF2hkj5VrOv2ksDVzxnE9A1UhBbcf7oXsFJl0EyH2n
-         wKYI3GWEi4WVBraa4Sb/v4BloapfbTpXFGfPyGVtf88v6+MWmp3rtAuqYVuB5HIa0P7z
-         zenw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731403958; x=1732008758;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=;
-        b=Ga/BcsVsfoQYsN9/RL3fYUimLEPALYqWeR3M/XHLrCdF3Q22fjsFfxw0TujxkYl79c
-         PgkL7igy92E3Ffb0gczVzRSHe5LWNPBaBgMaYRX0Z7uG3lL2P8flHge7N6XPPLVq4JXX
-         aUx+SjKXg7w75MYFf5ENKRysD9vMQK9xZkfWU14XfKNobiAWmhqlF4EsHC5OufW6tMEA
-         PCmZl5o4R5dmqbzTgHh9QW1oWY4Hi8Q1zdQUbM4HXZJ5OIxIvabeYDbwLELXXGclBcQ2
-         XK++AxJufNP5hRPltXC5J8n8LIxPO7Xk4lrtmjXB48dCDcaRaH2HKpOShr3/oW8X/pRk
-         7Bzg==
-X-Gm-Message-State: AOJu0YwzYb7KwdDLU1GCFXcXMI555r+cgeCHJiHajLYMelUS1ONrD6Wi
-	/XzbVPqhcxnb15ynTjnziwqzmVg2Ax1mn00jgpQHHs5hW8Z+RQ7+
-X-Google-Smtp-Source: AGHT+IEGzMD4CQHrVZz7i2b8hgEFwUsv2cHjAkR8UPEY/r2EfFd9HA1jM+513+OHfjzmbNs4ECZmuA==
-X-Received: by 2002:a05:6512:1255:b0:539:fcba:cc6d with SMTP id 2adb3069b0e04-53d8626c818mr6835328e87.42.1731403957725;
-        Tue, 12 Nov 2024 01:32:37 -0800 (PST)
-Received: from foxbook (bff246.neoplus.adsl.tpnet.pl. [83.28.43.246])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826a721csm1833134e87.160.2024.11.12.01.32.34
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Tue, 12 Nov 2024 01:32:36 -0800 (PST)
-Date: Tue, 12 Nov 2024 10:32:29 +0100
-From: =?UTF-8?B?TWljaGHFgg==?= Pecio <michal.pecio@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Linux kernel regressions list
- <regressions@lists.linux.dev>, Kees Cook <kees@kernel.org>
-Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
-Message-ID: <20241112103229.566b1ff3@foxbook>
-In-Reply-To: <CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
-References: <20241111233817.2f824c19@foxbook>
-	<CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
+	Tue, 12 Nov 2024 09:33:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nP5T56o2t+/Uk21J/PyTTCQ7fYMxd3XAlqBfNPeX1I6Cfphm8OmfLsNl9kgcIhPmc1/My5N3fL58qA7PYQCyI6WZKWSy6PK4oTSf3uoYmEjowy79v0r/CI9lVwWJ1KahITFPe3uImZARHiLZSB72T9dIUaIGMgoJCxsTIDkh8/o32lim/A4X/ilrfh4Jdcf8rppB2DH2uYYDIjdjKXtfNnKpyBTORTcxGWeEx50Mxjhhno+nJJgqo1Q3ibc/UtUwmtmQbrtZmw3cBOrXukyNYwPjiEtNBIRZ3IXlELBPqanFoTHmN/xssPwSYiLdJwEwVacNHpkz/AZToqfDSO1RYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v0z6ARR/+RgWXT59JOrdamH3bBkGw9XqUSfHew3fQck=;
+ b=jsrqPpIqjK1xNtFkdxJq3Xt2DbD/dFuDcYXG/TZpnagcfGvTcKcRxSB+Ct3X8O6Hi7PDmDBr7dMcdoXcDLgmhD20w2Fl4qjGSpayfG1Be6L6iFtnJGwIfIlTbYC8vDdXAO72ZokXsr0JK1qLfsPanFjyg9DAyZ8SPxmwZ1bwQZntYSbnlz574ddLz4CLkILGEH/q8Mc1gVqsOqJRGlD2vkkCVecJUfyui8RP0Qndr0WHLPcwGoFNBxy82lBeWYmiBABt51WtaQA3JNSdndUthH1ej5+Ukl/uZNoAQdrphj7Zi1Zlqt9cGs+lK+WYLiWHdR9S35ceL5Miofq1p/mqRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v0z6ARR/+RgWXT59JOrdamH3bBkGw9XqUSfHew3fQck=;
+ b=NbpZL9Xdt5KICCJF0HfYnMf9oiUhKBq1oMvgERPbdulveWe3hCS4xaYMuqJDwvJdw29xNuTuxNw9G8GwGXNlrr12exDlDW0slhyTH58E3N8Q3CcDBsNAt0zegw7b2EgNCkqgQ/ywqgaxR6DVqzJorfhhp/3ZafCoVP8im7RPm/uYGjy6qryxs6X3uhMJshrjKJuSDsuVxAJ06AlVekO9duPfIFMmU2Q7JT4QzlQHr6dyGXeUj5kjay1uOBSqLdQsQkLYeQZQmDkQZVMLdm05iP14YoWSMtrci0kV1hL1lvXoPiakJR8mkxCZq3QrXDFIRcRRCmZI/TMQJKz3jfMSrg==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA2PR04MB10447.eurprd04.prod.outlook.com (2603:10a6:102:413::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.28; Tue, 12 Nov
+ 2024 09:33:34 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%6]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
+ 09:33:34 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Marek Vasut <marex@denx.de>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+CC: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo
+	<shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for
+ PLL1416x
+Thread-Topic: [PATCH] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for
+ PLL1416x
+Thread-Index: AQHbNKOP39wnhu10BEC3eHBnnadZzrKzYoAw
+Date: Tue, 12 Nov 2024 09:33:34 +0000
+Message-ID: <PAXPR04MB845972109A37C12DE7FF347488592@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20241112013805.333798-1-marex@denx.de>
+In-Reply-To: <20241112013805.333798-1-marex@denx.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PA2PR04MB10447:EE_
+x-ms-office365-filtering-correlation-id: 286ee810-4fcc-49f4-d98e-08dd02fd13fc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?/l3oG0FDVsJTCkyLx4wB33ZYfQTfgzUOrYY5CgxePX23Wjk/OJmXw0xq7PkK?=
+ =?us-ascii?Q?jhfbQtckdqEysExhgiIW+nEB5vHcfxNwwnZbYu/jZmjHtxuEbvV2J9B8oltl?=
+ =?us-ascii?Q?VU/1QlXHcA+u2FieA0I/vLf005de2e9Rah0dsKb4v+CnP5UxYGOOOxYhhElA?=
+ =?us-ascii?Q?R7oi8hDgNWzHJy+JOD/fOK4ZDq4OMPIFUC/mYXswG6PAqr4zzSvNOM8ko4gg?=
+ =?us-ascii?Q?WP+uuvq1NaVu5GnMuWjWPCOYkXN1+zYpdnzxDFTJ6cWpt0SAmbrtZF54awqq?=
+ =?us-ascii?Q?BhrDzvGXoxUIj5guS5oKuJjXRZyEp9DwTnnYLGVXyfZOYpGxvMKseQwTzQci?=
+ =?us-ascii?Q?YVhkcTozufjP4gPwM/RqyW0/I4a+gvOJzXbDcTECvDEflG26wHBooqgxUxHb?=
+ =?us-ascii?Q?P3564eLCtJbmWM6tXC8x4sFLzDOvxOTKBgYtBb/jHom5jrg2vHIwWTHS75gS?=
+ =?us-ascii?Q?tEJqM9cXtutkf3+2h3H9mVmAPbWaYxRjXfSC2XNt3+FT/57kt/hmP6MVe6Cv?=
+ =?us-ascii?Q?Yks/4W0ba/tKyMANmkJWr6BU0RsrEg9rbCVGC7Ddb84+c/3N76EiLybFMRfF?=
+ =?us-ascii?Q?i9Kvpn7LEGprA6Hu2y7Fw2iE2SvEpp76IdTmpTRVII57WhLVg2K9K9Y5l+bF?=
+ =?us-ascii?Q?GGNmnc5BEI34SHXHGY55hpFhKRv6eRSkHb3bJglgV5cAu0JBTcEWniE8eiXH?=
+ =?us-ascii?Q?ZWwmzN1ysySA/rD1MyOp/6CLU9GgjkqapjlkOcx8oQQQxatAHJRvUfmwfVFV?=
+ =?us-ascii?Q?aDE8MNdRSSJDjGPcpYAlxeShKltC4OBTNqXi7w4eUrayb8WQDmSwZn8w3Dcb?=
+ =?us-ascii?Q?YtAFw45VJMM/MdOX3NMSJsc4vClcXemU7AT5KuQkyNkKHtsNMkTimJ6xkpD+?=
+ =?us-ascii?Q?x890UoMqCwrJeLmxLoMYZTLoSkw5mUZqnTfH2QcKnDFr7pKgfOUdsOWHQcpd?=
+ =?us-ascii?Q?k1uE9Q7l3m/Vj8gBTzBLe+4WPSiwthDR/oemzXblOD/aeekrLCvXGxwxgcgT?=
+ =?us-ascii?Q?/HnrMmbWRLjm8450DzWJo1G3DBhZZabaLdC//NBGPEWZoG5MvFBzpUVipEUU?=
+ =?us-ascii?Q?d0IaA8MkmIRmHwD8OhM3YLDSWzdsvdq7zbCTXhN7WpZ5wpEV+Wnnedu3ihIW?=
+ =?us-ascii?Q?SkAwgGe2LhejERnHL7s0MhJdF/fZ5Ay/1XGc3CWvx55CHogb6DxUR+cTJ33/?=
+ =?us-ascii?Q?jdu4vvzD2Ey09vAqCxXYoFpZhuaAcRe4f7TtKvDHNMp37II/B6lEpkoDgAqP?=
+ =?us-ascii?Q?ICuwhBQXnv1KEiKMLUSl6xxwYXB5PjTU3kELVF0NajKlDpR/Q31MaSAXPlJV?=
+ =?us-ascii?Q?gg+7zf8SCl38vtrPpOAZbkNryRb1qsQRTaRhOrR/RiF1qE9bUSLctHMwI7sg?=
+ =?us-ascii?Q?WS4cXvg=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ud8+oVhsHHuR5XFZ6rXyUCwKPyeuKDR7KW4oFeSlwOeTXSFn7eN1lcTCiPZp?=
+ =?us-ascii?Q?Pb3KLTPGp5KwIqy6uxBraZQ3HLGqajDimaMzDD8DOiXVYYHaEiD9spPSH17r?=
+ =?us-ascii?Q?AtUMszG+LEGJ7UOQb68tPRXe8iq6SBqVVv5IH3GvNKi3ah6GFYfr9F8SkdlN?=
+ =?us-ascii?Q?v9ohZqQ6w1tExC8InZ0CjCoQp37ARpJj2x//4eNNVj2db1cTGyHiVgkE6T2L?=
+ =?us-ascii?Q?p2+kOT4Bzo4f4UfHQ/pQ2ZW0c0SM3tOE4lMsie+3Qx08fhbCyLC7FFlU36dC?=
+ =?us-ascii?Q?NS88QsYn4vwQz+qH85mtLL+BC3rlt8xEWHFiMIGR7p4ofe2LNGfWtiW8sW7b?=
+ =?us-ascii?Q?GXArnYSSQcuQNTqzuv4YJCcXEt50bkjQPlctlpI7RCz+q/3m7U1KEvhNxEX2?=
+ =?us-ascii?Q?FT1gbqh+Wh5n1oMzEgkKzxFoqCqK/FFUUdRFjDYZfS6hT/1KwZLxTU/TdM0D?=
+ =?us-ascii?Q?6Uo6RoBNndqPhr+OqsO6Xwa9BB7ndhymSfYPMbacIXwG2aXFuTSiPznBWMHs?=
+ =?us-ascii?Q?kl30rUBKbogXc79tttisHOHqySw0VFcPEJuwtHnqzS0owF2x9U0ebAV30Uz0?=
+ =?us-ascii?Q?s/etz3Qnw9O9ALhfMBoSOD4J12IsGO6ESX3RNT4bTD3upNXyeQrBr6xcz46N?=
+ =?us-ascii?Q?0TpCT+EoXG1ux/U5RkdkEjEYSxNLfZKP7ALZnw36tzWkOjR1Yy9JR4wUkfu+?=
+ =?us-ascii?Q?WvjIEd5LoiBe383ZoZUHW88XJ+xSbK9XeBzar/fl+R4vYO/Sl+e01ePQU4R9?=
+ =?us-ascii?Q?yPLh3mcJ810x6ZATETcQo4ASPiOUsPxPSZfMZkaQilCJY1PJZQDx1H3+UwQ7?=
+ =?us-ascii?Q?lzie7Vj6L2qvkx0srt0wfT+S+zKPqV2SLIRgSIim89X50Ab0KMxQ15MuWKEw?=
+ =?us-ascii?Q?Qrpeod6oe+zOLKEjvw9523jrEVjiuZvvNPEO0mA6IdjCZcvBlDt3DFSZvMtT?=
+ =?us-ascii?Q?dbgv5AaVXpXF1Yw6Re85hqC8pP2OU5rg7WTBTKY+i9j6fO6f0nzgKQHrQ5N9?=
+ =?us-ascii?Q?9T3xdRO9zvJ6810eo+l8WoDjqZPmkCWtS7GsB1VkaGJvmLD6yFd1GCqKLMVB?=
+ =?us-ascii?Q?N2Nde2CJegUAHgmx7N0DMzHeJxN+1bQk+y/KkRYCj3EeXo5aopQ6i8Y+OaRC?=
+ =?us-ascii?Q?rjRSPNBerYvwDpWX8FQLL51vRH13ukuKIKfVAiv65HT05k01+mJY003r7rFi?=
+ =?us-ascii?Q?EDczAEj/I6ww55MU8NTlU+D8UkFszfa88umXnJX0rYTZ0OrkC565DtBVJQsB?=
+ =?us-ascii?Q?7fs7S+xKxvEuvEpRkdZ472GGkvkrF6ethSwUoNFv+nGLkIc6QCHMxeAyGahS?=
+ =?us-ascii?Q?N1FkAB97/27Npb/j1HyQ3+SzK1ReLTfsKIzduwmnQfnlriFfHEZLuRaQrzPu?=
+ =?us-ascii?Q?DBVr3YnQJtH09T6FhTMC+BEV0gvcc7/7NQVn/tkKOUwA+aQ2pq07oCfMh795?=
+ =?us-ascii?Q?BJLR/b0PaqQX3zQO303D1jPtHdINreP72kB4PBOjlHjxv+wFNpjYvjma52Im?=
+ =?us-ascii?Q?yQezzHmwXqE89s3dn+Drpo2RemT5Pn/UaiqsW14YOc0PAnXnuwC0MSuT2dKq?=
+ =?us-ascii?Q?F6TWP0SByiqIADbtxcE=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 286ee810-4fcc-49f4-d98e-08dd02fd13fc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2024 09:33:34.1242
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8QGAIAEH3fafsbwSef7e1l89W+o6kEhcvbiksLOXPBrD9KllXStOc8BnNoWfTV4BeuDacYYYSHxr7kJaJ6PRNg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10447
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_013244_264619_DCCE22DF 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20241112_013338_120485_D45BC29B 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,110 +165,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+> Subject: [PATCH] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries
+> for PLL1416x
+>=20
+> The PLL1416x is used to implement SYS_PLL3 on i.MX8MP and can be
+> used to drive CLKOUTn clock. Add 208 MHz and 416 MHz entries to the
+> PLL so they can be generated by the PLL and used to produce e.g. 13
+> MHz or
+> 26 MHz on CLKOUTn output.
+>=20
+> Signed-off-by: Marek Vasut <marex@denx.de>
 
-On Tue, 12 Nov 2024 02:15:19 +0100, Linus Walleij wrote:
-> We are trying to locate the issue, which I think is the same as this
-> but not sure:
-> https://bugzilla.kernel.org/show_bug.cgi?id=219247
-
-You can verify by asking the reporter to run the crashing program under
-strace. If SIGSEGV follows a failed cacheflush, it's my bug most likely.
-
-A straightforward repro of this bug:
-gdb
-GUILE_JIT_THRESHOLD=0 gdb
-GUILE_JIT_THRESHOLD=-1 gdb
-
-Expected outcome: segfault, segfault, shows command prompt.
-
-> I have been trying to replicate it on a Chromebook but didn't get so
-> far yet because the installation is pretty idiomatic :/ also there is
-> only appears in a single Qt program and not as predictable as here.
-
-My bug also appears in a single program ;) This system works fine, but
-any JIT is broken by this kind of bug. The failure may be random if the
-caches resynchronize by a fluke, but with gdb it was every time so far.
-
-> But. It appears the code is issuing cacheflush() which I guess ends
-> up in arm_syscall() here:
-> 
->         case NR(cacheflush):
->                 return do_cache_op(regs->ARM_r0, regs->ARM_r1, regs->ARM_r2);
-> 
-> To here:
-> 
-> static inline int
-> do_cache_op(unsigned long start, unsigned long end, int flags)
-> {
->         if (end < start || flags)
->                 return -EINVAL;
-> 
->         if (!access_ok((void __user *)start, end - start))
->                 return -EFAULT;
-> 
->         return __do_cache_op(start, end);
-> }
-
-Yep. I added printks here and it is particularly the call to
-flush_icache_range() from __do_cache_op() which returns -EFAULT.
-
-> Here userspace access should be fine because we have entered a
-> syscall from userspace. I tried to emulate the situation with this
-> program:
-> 
-> #include <stdlib.h>
-> #include <stdio.h>
-> #include <errno.h>
-> #include <unistd.h>
-> #include <fcntl.h>
-> #include <sys/mman.h>
-> 
-> #define NR_cacheflush 0xf0002
-> 
-> /* libgcc */
-> extern void __clear_cache(void *, void *);
-> 
-> int main (int argc, char **argv) {
->   void *addr;
->   int ret;
-> 
->   printf("Test()\n");
->   addr = mmap(NULL, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC,
->               MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
->   if (addr == MAP_FAILED) {
->     printf("mmap() failed\n");
->     exit(1);
->   }
-
-This seems incomplete, there is no __clear_cache(). But if you add it
-at the end then yes, it should fail. Confirm it with strace.
-
-> I added prints in the cacheflush trap:
-> 
-> diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-> index 480e307501bb..400650519bd1 100644
-> --- a/arch/arm/kernel/traps.c
-> +++ b/arch/arm/kernel/traps.c
-> @@ -592,11 +592,14 @@ __do_cache_op(unsigned long start, unsigned
-> long end) static inline int
->  do_cache_op(unsigned long start, unsigned long end, int flags)
->  {
-> +       pr_info("%s(%08lx-%08lx)\n", __func__, start, end);
->         if (end < start || flags)
->                 return -EINVAL;
-> 
-> -       if (!access_ok((void __user *)start, end - start))
-> +       if (!access_ok((void __user *)start, end - start)) {
-> +               pr_err("ACCESS NOT OK\n");
->                 return -EFAULT;
-> +       }
-> 
->         return __do_cache_op(start, end);
->  }
-
-You also need to check what __do_cache_op() returns.
-
-Regards,
-Michal
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
