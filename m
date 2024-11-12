@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4567D42B9B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F8FD42B9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Bkz4D5He1ik82rovNVrZJHqtdJ10GhOrTnuFpxxy/k=; b=mms+SApySYL0VquQVwRWotwDOK
-	00n5yhllWddDleF3KwPPlUJ2WSDPykM2ZejMYmp/5gwz5xaBdLasATOcG4L5CZdycTC31A+BxwvOp
-	/1SvQ1Z4C7VqeL7LhGwAzBvUox7bso+V2ZI5qkjBStlQ9NonjnshDHKZw6J9BO1jso90INxy3D7gs
-	5yKEpHfaz2dcjlSrZ6BDGRqpByVxedxtEWq7o3vRxx/Bf3aUBYKf3tmrmkL/EuVI2gttJyDdoqu2d
-	pVC6HJ9cN+vHhBFPUTmRxh4yJagK0AZKnWcik6Rq2FlMEaBqQDJ9Q62X7NeJZab3h5XVeq3LMdH5X
-	tn2cvqHQ==;
+	bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=; b=ipdZrTRy1gQj/1rx0hYyRpY40k
+	dB1X63rT2EbePnQup6TUYInQbLtdWnLk/2HFCcgV3GYTrKbTiUQbRfpHo+Qwwg378ueBtiMY6ae/s
+	Co2uDeJzsT+0rb0c1jlvr2iJrpAemVOkgaF1jVcaROs4t+4nZlFLuqT+uU6dIg1TQi/CkSf+ZIqjn
+	Cs1odyEaOtv9glReHfkP3rI62A0Lbt4s/XSoalKQq5pEhtHUN3t4vE/Gl6Lnryk8rN3CehgYA0I7d
+	9oENo694DK9+Zrv9dluA2T487ad1UQBmLNh5OtWdfW16JwmJXTJRMZymFQHC+UqmB6uhwC5Trmi1N
+	ikvydiBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAt24-00000003zXg-41ce;
-	Tue, 12 Nov 2024 15:42:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tAt3p-00000003zsR-2HZA;
+	Tue, 12 Nov 2024 15:44:09 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAt0G-00000003zFR-17OC
+	id 1tAt1X-00000003zSP-12Im
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:40:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 39F20A41DA5;
-	Tue, 12 Nov 2024 15:38:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15877C4CECD;
-	Tue, 12 Nov 2024 15:40:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731426027;
-	bh=ZNh/ROovS0LCjiQGg6i/XgRVyI61N/6UaT5SEySFiaA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JhGnhSucDGJERcF9iq1XIepc+Df+9yL0VSxUws0X2Yi2DqmX4BpVtVSACWPTNkMuq
-	 aVyvMvZf9BWwNhBGS4n4gYndMCggrLJ1nNR2L4C/H+D3for7ZsEe3WpXEIhiF9kYzl
-	 aIuHwH2YV9f8HJPHtNQsQmpXUjFajdhmKMsz18cL6IQEAoIdV5P3Lxxv939UbG2s31
-	 5crKVVEnShi+c8D2iACHmI1OFoL2AiRbvg6caGlAdMIQaMeZddn9j8dXLa4AFn84jv
-	 4MlnSZFUl76Xl0zAp5IjZ3JYBx+GsfttzWayrzfnbrBC14wia10eLs/ELn3sWTBWS3
-	 wYiU5D8LOHH4g==
-Received: from [104.132.45.109] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tAt0C-00CEpN-M6;
-	Tue, 12 Nov 2024 15:40:24 +0000
-Date: Tue, 12 Nov 2024 15:40:24 +0000
-Message-ID: <8734jwtq8n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: tabba@google.com,	kvmarm@lists.linux.dev,	oliver.upton@linux.dev,	Joey
- Gouly <joey.gouly@arm.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,	Catalin Marinas
- <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,	=?UTF-8?B?UGll?=
- =?UTF-8?B?cnJlLUNsw6ltZW50?= Tosi <ptosi@google.com>,
-	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Pass on SVE mapping failures
-In-Reply-To: <20241112105604.795809-1-james.clark@linaro.org>
+	Tue, 12 Nov 2024 15:41:57 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5c934b2c991so13511a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 07:41:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731426105; x=1732030905; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=;
+        b=LxLycsDHsSg3yJpK/RvLqJpEAVNP2KeTgcRq3Jb3oDF5JAG6/yEz/ln2yriajTtwIl
+         5e/qo4dJQ1eRmPa31eWN4Od14djNko7QOmsMCnYWYD36N8vgl2apX+tuZMrSoRfWZGG0
+         BCvaexx7TcwmPj3t11xu34PVZ9LjatapTjlvX7CgAth0a6WMSp2oJXU6m+4mGa9QCYIm
+         2gCupnzgwEG5a8OfUf+nQnGCJEcIniW46t7TPvtYQKAa02m6pbmG7njqq1mKHhbyuRku
+         +Z5ZM6vaSlEB+Dko+IP3QI9JorB8mbv0nW4VXuop5imTqTXLkj1rLojC/TmgRvnv01w0
+         ZkJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731426105; x=1732030905;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=;
+        b=gsQ8HuLcBO8G+OKylae5MOeevljC3d8jp2Ss8RW2QIGhdvOvVTiALfIiNZYRaFC9sm
+         EOCWQ+1Hgdc4fssvMsLnIg/93DEVfeaC40Lv7MpU2rddZC0+dlM+x4dTv1AgIfRCMwU1
+         5Xl5kB7ICr9i2hsM5+qcJJ3nMitQI5J+1E5/1wQwlyBYKwyaAhRTIU3ixZtqUIwrPY81
+         yx+SLRlo7x8X2mk2K7FtK8I9opafinhaq+IgO1BaeJ1AgET6HZrOSAYEnh6K0znwV8Re
+         fEqVnrJESHcIt0yZkC8qnnDLOBqYkpayT4BwFmCFGip/wXoe2qCYOXlMJrzs0q2jhAiS
+         z77w==
+X-Forwarded-Encrypted: i=1; AJvYcCVq8CfCQNLqzR4VEuD3t1P5MkoLk93i2SX+ObdkXEHwjPpXCZYz/pXCLROkAbpbO8cuKCb3vhtINiWFpkgII9zs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJiD8QP5GoU/1nWaBZ4XulupMEPo3+3/p/Z34kj4J2n5Y1DIAg
+	8kzcCX30VfUQoRO/BCGQHvP2SgpuQ+MPIDqlc/MZWWAXFzoZl7jj8Qbp3M4IBekIZagufOVgbta
+	zL/ABq8G6za9Ur44rdHTxa9LpmXP5e8B0CJPM
+X-Gm-Gg: ASbGncsip0Os5TDe17QOi/Hbc+x6zlONtPXmWjpFieLKQ54uaAoO2ql2EYXTpxKGV6R
+	TvCq8ZGx34iUm00HpOkYKBd3B0t/4cKaryMmmz/5A8Zd7wYX/PspRN8+MUlXu
+X-Google-Smtp-Source: AGHT+IGKGj3m0K6cw27EtgaGcbRERBtnwAgADHveQ1xpIh6tli+bg/P/um8bA7UFcXQB7YKvR9KUq5R8xprHojQBtMg=
+X-Received: by 2002:a05:6402:234b:b0:5cf:4994:501d with SMTP id
+ 4fb4d7f45d1cf-5cf5234185emr287895a12.3.1731426105003; Tue, 12 Nov 2024
+ 07:41:45 -0800 (PST)
+MIME-Version: 1.0
 References: <20241112105604.795809-1-james.clark@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 104.132.45.109
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, tabba@google.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ptosi@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+In-Reply-To: <20241112105604.795809-1-james.clark@linaro.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 12 Nov 2024 15:41:08 +0000
+Message-ID: <CA+EHjTyPc5o3T1jQY8VY+W5qtneiKw5wVMVhuSif2ZVs3S=ChA@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Pass on SVE mapping failures
+To: James Clark <james.clark@linaro.org>
+Cc: maz@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, =?UTF-8?Q?Pierre=2DCl=C3=A9ment_Tosi?= <ptosi@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_074028_766370_EC20FC70 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20241112_074147_308194_CEA0B588 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,19 +93,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 10:56:03 +0000,
-James Clark <james.clark@linaro.org> wrote:
-> 
+On Tue, 12 Nov 2024 at 10:56, James Clark <james.clark@linaro.org> wrote:
+>
 > This function can fail but its return value isn't passed onto the
 > caller. Presumably this could result in a broken state.
-> 
+>
 > Fixes: 66d5b53e20a6 ("KVM: arm64: Allocate memory mapped at hyp for host sve state in pKVM")
 > Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/setup.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> index 8fec099c2775..cbdd18cd3f98 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -146,8 +146,7 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
+>                         return ret;
+>         }
+>
+> -       pkvm_create_host_sve_mappings();
+> -       return 0;
+> +       return pkvm_create_host_sve_mappings();
+>  }
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-	M.
+Thanks,
+/fuad
 
--- 
-Without deviation from the norm, progress is not possible.
+>
+>  static void update_nvhe_init_params(void)
+> --
+> 2.34.1
+>
 
