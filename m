@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA178D597B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A323D597B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmaF3NlubL54V5+IH9CvKXoD4K1OzTYmIrjW7EvYFc4=; b=QrIpu/JOVfDtq038YWl8ulxjkk
-	/hPod8dhACKXhKMLSks0Z7HzX6QeAWquX4jx+wEpgazYiHdJDpqKHmsnGbRqoRR1MtvxzObtw5wn9
-	bPjWorKaz4BEnnCSAKUWmlYoJNui5ZyhKZkmRZo1HgFRsdlGeNMJyj+6l8d+Ky5xe2zCH1bZRNn6h
-	cK52LHljefb6Jt/KxMQWVWuuJFc8XzodTCyjVcL823WYRzAR+x8JA++JNHyTpxdVaG8mxs7yDGPS6
-	YWq55CLrnz8TP00HqN5jhW3nL75Gvk5lzlvcLzSwYE7Dby12dmYhaIzrP4l6ixUITa7lbbL4VZDNU
-	dYZriPaQ==;
+	bh=XE3qHbQ/6Rh3/Pc7HQvwkwEyGTvaxNXx85ePqo9ghJg=; b=RG4TGSEx0L+pBvSV6OdLQyhOZI
+	wzagOvO8YALJlxKbEJwim7cSaF7Ni8qHlGMwUFcwORe77ThEj6gkiMuJn8mvnW6y7zZ/R+a75wdUh
+	ccpgM5YxkaDUoBP5U6WzXeyjvg0u4ob7K3MCsCTodvVgGXLiFWL8BuPswYNAec4ssFxChWqmMk1jt
+	kSMO+a+QGN3QnDX//vLEZ89GjARLx6+Ywe6Ctx4u5uH5U5wa3Z81Mhwnu+mRp1iRFuScRqjaJBeO9
+	hBd2rq9fuxxZ8ON42vqA5SJ8oTDZwXBDm9xbD5V1HatmPn9T7DC+16lfpqbEBXYwD54NyUg6426xw
+	ygf9FTiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzcG-00000005B2l-1vPu;
-	Tue, 12 Nov 2024 22:44:08 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tAzmf-00000005COE-2XHG;
+	Tue, 12 Nov 2024 22:54:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzaS-00000005AmH-2v1v
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 22:42:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 74B4D1BF203;
-	Tue, 12 Nov 2024 22:42:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731451329;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wmaF3NlubL54V5+IH9CvKXoD4K1OzTYmIrjW7EvYFc4=;
-	b=g1Yf5QN7KzgUfBDkeE+lIR43of5g55rveEuBu5jG3b72qHRRuUgy56D7vqigFMz3WYgoSg
-	DTA9HvjfHzSFlqGF+5LF8LIOSX4F0pWK/bZU/nBLBX1KEKo71mo7mQNkVdsopehW4K3BeV
-	WkBpBVTAXTWKXT1ZUyKStlFoDhanRWNXSkaYbVD5S8GOnxOJktSpcODI0almPAz22CSpam
-	uAyiydzOB5ZWokmaUFkclZ5OUAdMdl7kNeaPeREh84Xa3Do3XJa31gu3ehX6gILtBkt+tN
-	WiIgeLW8E0xuMEIJzl4PtEPSOQ0VKITwBKo+sp/yUO0z7jocdyLx3jjZfYblJg==
-Date: Tue, 12 Nov 2024 23:42:06 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Marek Vasut <marex@denx.de>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-clk@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, "Lukas F
- . Hartmann" <lukas@mntmn.com>, Michael Turquette <mturquette@baylibre.com>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo
- <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- imx@lists.linux.dev, kernel@dh-electronics.com,
- linux-arm-kernel@lists.infradead.org, Miquel Raynal
- <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
- reconfigure parent rate
-Message-ID: <20241112234206.558d5d5e@booty>
-In-Reply-To: <20240531202648.277078-1-marex@denx.de>
-References: <20240531202648.277078-1-marex@denx.de>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	id 1tAzkq-00000005C6C-3dhv;
+	Tue, 12 Nov 2024 22:53:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 73804A4180A;
+	Tue, 12 Nov 2024 22:51:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD5BC4CECD;
+	Tue, 12 Nov 2024 22:52:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731451979;
+	bh=sYaUEV3H1VTX7CowzyJ4T2l9DFFG2LL8+sAb7eAQO/w=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=qs2uub72yqFPNWjy5n3myGlvtouRTlXqnBl/a/WEGH1HUgjIqViDXTVkezWkDXZ4z
+	 zLKkZxzq4rSER3qmT+NhX3wc+ECWK7esjBR2SmF0MIOgebXauGfrcktPhHS9xFMF4g
+	 MzdYdg5WeUURgIf/blV8rJOtmHY8Sh/ggQ11ftCVHhuPrwJjFZ6BZOw0gSMOc+YQCi
+	 tBMmZDlU/lp+Xl7upsI0GBy0lTuBZHB8/CGBx6bihhluTN0lPOFpyLJ0vy3eeHGCNQ
+	 cdUHkDMoRBCGB4+dORhZ8nvfWyLyAfObI/oWOOnIkNPTex54x5mD9+YRRAl1w4qHeL
+	 i07OSYdlUQtAQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE153809A80;
+	Tue, 12 Nov 2024 22:53:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH -fixes] drivers: perf: Fix wrong put_cpu() placement
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <173145198951.701548.549721495064478963.git-patchwork-notify@kernel.org>
+Date: Tue, 12 Nov 2024 22:53:09 +0000
+References: <20241112113422.617954-1-alexghiti@rivosinc.com>
+In-Reply-To: <20241112113422.617954-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
+ anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ atishp@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_144217_167457_C49D0354 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20241112_145301_010932_97709ED3 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marek, Abel,
+Hello:
 
-+Cc: Miqu=C3=A8l
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri, 31 May 2024 22:26:26 +0200
-Marek Vasut <marex@denx.de> wrote:
+On Tue, 12 Nov 2024 12:34:22 +0100 you wrote:
+> Unfortunately, the wrong patch version was merged which places the
+> put_cpu() after enabling a static key, which is not safe as pointed by
+> Will [1], so move put_cpu() before to avoid this.
+> 
+> Fixes: 2840dadf0dde ("drivers: perf: Fix smp_processor_id() use in preemptible code")
+> Reported-by: Atish Patra <atishp@rivosinc.com>
+> Link: https://lore.kernel.org/all/20240827125335.GD4772@willie-the-truck/ [1]
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> 
+> [...]
 
-> The media_disp[12]_pix clock supply LCDIFv3 pixel clock output. These
-> clocks are usually the only downstream clock from Video PLL on i.MX8MP.
-> Allow these clocks to reconfigure the Video PLL, as that results in
-> accurate pixel clock. If the Video PLL is not reconfigured, the pixel
-> clock accuracy is low.
->=20
-> Signed-off-by: Marek Vasut <marex@denx.de>
+Here is the summary with links:
+  - [-fixes] drivers: perf: Fix wrong put_cpu() placement
+    https://git.kernel.org/riscv/c/57f7c7dc78cd
 
-I'm afraid I just found this patch broke my previously working setup
-with a panel connected on the LDB. As we are at 6.12-rc7, and this
-patch got merged at 6.12-rc1, I'm reporting it immediately after a
-quick preliminary analysis in order to hopefully find an appropriate
-solution before 6.12.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Problem: with this patch, my LDB picture is horizontally shrunk by a
-factor of about 7, measured empirically.
 
-Configuration:
- - lcdif1 and lcdif3 disabled
- - a single-channel LVDS panel on lcdif2/ldb channel 2
-
-So this problem looks like different from the one reported by Adam as
-there a single panel and still it stops working.
-
-The relevant rates in my case are as follows:
-
-                            video_pll1   media_disp2_pix    media_ldb
-                          ~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~
-at boot, panel still off: 1.039.500.000    1.039.500.000  1.039.500.000
-requested LDB clock:                                        503.300.000
-before this patch:        1.039.500.000       74.250.000    519.750.000
-after this patch:            71.900.000       71.900.000     71.900.000
-
-Previously, the resulting media_ldb clock was not precise, but close
-enough. Now the value is clearly too wrong to work. Also (but my memory
-might be wrong here) there must be a ratio of 7 between media_ldb and
-media_disp2_pix, which has become 1 after this patch, and this perhaps
-explains the shrink factor of about 7.
-
-I double checked the rate that fsl_ldb_atomic_enable() is requesting at
-[0] and it is 503.3 MHz with and without the patch. This is proved by
-the logged line, before and after the patch:
-
-fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock (519750000 Hz) do=
-es not match requested LVDS clock: 503300000 Hz
-fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock (71900000 Hz) doe=
-s not match requested LVDS clock: 503300000 Hz
-
-My preliminary conclusions:
-
- * it looks like a bug leading to an incorrect computation of the
-   video_pll1 rate when media_ldb is requesting its rate
- * the bug does not look like due to this patch, but exposed by it
-
-I still have no idea how the video_pll1 gets configured to such a low
-value when its child needs a 500+ MHz clock.
-
-Any clues or ideas would be welcome.
-
-Best regards,
-Luca
-
-[0] https://elixir.bootlin.com/linux/v6.12-rc7/source/drivers/gpu/drm/bridg=
-e/fsl-ldb.c#L180
-
---=20
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
