@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE482D42B8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A015D42B85
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNvpMEMMp18FGS7c8sEnzH5td6+/VgqxhrBTXx1KJ80=; b=yHViFhsa3EJE4878T555Sf29oz
-	lNTfKQNj4fVkKl2+uPPOYIAhov45iq0PktE4V3PGDdBiQo8Ji9QdwXkTXiI2xq1QeHe/o5UItkzIE
-	vkSvNXLA+UgRU01Gem1QxVRicd04QuOG2G9jXB1rXtCeFzd6lfOyxWsaa2SIakGuOALGTRJIY+Jll
-	ZbtmwbeHQ51DSKUZCPI9cEeiq7hgRfDGTEil7zkpnaajNdb9D2y/FksUTeTJAbLkm2RaIX0+HdXOG
-	u1nRi1hOYSSpGYIc3zw8UnChFsEbq3Wo03VWVGQYXgsHw5BJnl/M8j4k6TQGqxo7rBhfvCKyAg3UD
-	dPwvLHPQ==;
+	bh=H/b6whg1Fuu9dsUqH1kstDqi5ac2SXC82I/0cqQa6CQ=; b=TCahfI/5vMOQdILKqrsCYejyyV
+	Eui6oXXZDJjgxfHy+CuDeP5HcrttuAjQE4Lx5p09vuC7RPT7iGu2oTdTqxgDn4lIxIOua8Q2nehQd
+	IkM/9r84Tgs1ayTccFxBNWYy7Tgb1088VVBLqCvOepe+/OsL0U+m/t6ZgUQdLgx5X6DXCP0FVT/+T
+	22G5J0alT+u8Czujv5wiRetM8AKy0XiF/QXueZfb50BW44J5Y36452t3bytjY0cugPzvGswMV2sV6
+	EO3vNa+U/zpl+mhX9Qnc7vuOFND9oFQSMp7aPcJVReuDq9CpA4SN0jle0jvXZWzTmdcd4mnJFr/Dc
+	FczVkNEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAs3O-00000003mrI-2bR0;
-	Tue, 12 Nov 2024 14:39:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tAs5B-00000003nGb-1HWz;
+	Tue, 12 Nov 2024 14:41:29 +0000
+Received: from mail-pf1-f180.google.com ([209.85.210.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tArzt-00000003m68-0F26
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 14:36:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6BFA0A41C62
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 14:34:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10E1BC4CEDC
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 14:35:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731422159;
-	bh=Z2NJKOZ80m23Hs6ZpODlXPTw2PK6JAxwWTKiu7L1XNw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PThhpsVRXNp9m1870inWzUgadxqlcDbDb2l5xeQ/CvLQJec9dbfmnqbuUa7RLoVC3
-	 bouFA1eMND7HmoShFhH/6BuNj2ZSQ6D5+SFeqDZ6qZ1U63ZtEpJ4gmQmSXvKSzehhR
-	 puAVV+GUuFwbp4fgUSZveLUT6kmXtR+JQHg6edVtwqYp1RwtR9uGgzKeObYoSgskDm
-	 wbqECTvloNFv6vKxXaJ1vJdNFjRpHc7fbiUgTexSCcbh+W5vlAlwEKgBocsUEyyA/P
-	 9pzD2D90SiXvqbDUdfi+7X19gx+6cIr3AjaulUJjmO0lk5fraCM9Cuz6ZoFlF+CD3Y
-	 aSb7mTvr/JJnQ==
-Received: by mail-yb1-f177.google.com with SMTP id 3f1490d57ef6-e28fe3b02ffso5310179276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 06:35:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUROPMx3Mty4N6ccawiIJDjLGvvnsw4pK3qJo1oGzo1nGXd4V6LXZmfDw8ZZBIST4ro72JcKjJbSBf7g+O9xnMY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFFpG6Y9f7PPJWnz03ZIrvVrN8X+bASMMtOlzYQeDwdREYxRTy
-	1GTAdC6LvdEUlFqMLEMxwyO59UVR+83oTNv1pUXyEmXpFjvhPj/OTWCg4C4sLmh5wpeYXXEVQ/C
-	8Pco6t7DHKrRu5J2KkTwg25Fe4w==
-X-Google-Smtp-Source: AGHT+IFI5tDoN6E7Kqk7Gw+xDL7rKQexAuiQ6Yq/THb9/Zw6ePjvaoIFxIHVn5lbaA5+r4C6IEYEi87Hkak2D5U5HD8=
-X-Received: by 2002:a05:6902:3401:b0:e30:b345:9a09 with SMTP id
- 3f1490d57ef6-e337f9054f4mr12761822276.50.1731422158152; Tue, 12 Nov 2024
- 06:35:58 -0800 (PST)
+	id 1tArzu-00000003m6X-1hBP;
+	Tue, 12 Nov 2024 14:36:03 +0000
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-71e953f4e7cso4379991b3a.3;
+        Tue, 12 Nov 2024 06:36:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731422161; x=1732026961;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H/b6whg1Fuu9dsUqH1kstDqi5ac2SXC82I/0cqQa6CQ=;
+        b=HLpTGKt9fVoto+9whvljYwn5ezasAVH7RMivMKkQOd/W1qqvz6KWbb30t3/IE5eNBe
+         Bc9od440gQQ3/v5soQRrOkudX5bLVsLxkNmbexTzGwQlJ29TSySm3W3GphaZ2qD/9O39
+         I6K3pBkFSwe2CYAplo8TeDM4DLWufDp5IAkWPjKpb1hk0cdG1DEzxaruwhPVhrT78wcP
+         4Y3W49UDZ/f0pn6xRk5D6U6EG0s7D/XtB81Trb6QvzMkwPqa8pBsXOW6xcHB+RZs80d+
+         Qgewrhvt6EtsTKU8TAt5q5AtrU+Wz4dtJ3xWTeDKPtJAogWaWXu7dJ9AQGLTSxRcBwIg
+         Sqqw==
+X-Forwarded-Encrypted: i=1; AJvYcCVtO02GHo9MFaGvlUI8j6boamuAT85yH4R/L5MUXrM5HNA8mDrgPLFTIqXztX6xSR7r3Ngit37X6/bXlltD+MAY@lists.infradead.org, AJvYcCW0/g2OQA1UCoeD2vvhWHlavrmZkD2GKWQM01lCGmGWIc6k3yu1vXq0vDFXI8Onv6QukRiBTq8vwZxGqazFf28=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb6KecJbD71q2w9awlIk3bxln4H572zs9cdMfuzFa/Wssz2tco
+	UFUX/clPmrdx5rrXoETMec4h2aYHlho5QvSo6brj6c7rNZckeRIl67DybVoC8XtjEw==
+X-Google-Smtp-Source: AGHT+IFk3Es/5pU7djjsXy8BnvP/1IJe9Bt7hIiMgVVA052I2EzvhuJJx6hY/VTv9eXnyI7SevO6Lg==
+X-Received: by 2002:a05:6a21:880a:b0:1db:e8dc:4ae1 with SMTP id adf61e73a8af0-1dc2292f715mr17110712637.17.1731422161360;
+        Tue, 12 Nov 2024 06:36:01 -0800 (PST)
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com. [209.85.216.53])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7240786281asm11234305b3a.12.2024.11.12.06.36.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Nov 2024 06:36:00 -0800 (PST)
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-2e2c6bc4840so4554378a91.2;
+        Tue, 12 Nov 2024 06:36:00 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXiOzXQAIhThbYfWaB+4HndezZ9lwA+TrLoroJyO0JxW8Ifbhub6N+iTHqe/j+tzKsvu2Vbvr1AEJOMsLRKl0I=@lists.infradead.org, AJvYcCXpUlXMgejV4NvnQIT+SV2z4xVC338z62Vc2f324+M4WIt2EuMHmCQWLz3SgBuDk5WUngA+cWs91XW0dfJzTQZI@lists.infradead.org
+X-Received: by 2002:a17:90b:4b84:b0:2cf:c9ab:e747 with SMTP id
+ 98e67ed59e1d1-2e9b16e26b2mr24419741a91.1.1731422160606; Tue, 12 Nov 2024
+ 06:36:00 -0800 (PST)
 MIME-Version: 1.0
-References: <20241112072704.767569-1-jpatel2@marvell.com>
-In-Reply-To: <20241112072704.767569-1-jpatel2@marvell.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 12 Nov 2024 08:35:47 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqL8JVhWNC4qefysLm+4uHYmR2Arwq3wTumS3XV=ncgU3g@mail.gmail.com>
-Message-ID: <CAL_JsqL8JVhWNC4qefysLm+4uHYmR2Arwq3wTumS3XV=ncgU3g@mail.gmail.com>
-Subject: Re: [PATCH 1/1] dt-bindings: pci: change reset to reset controller phandle
-To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-Cc: thomas.petazzoni@bootlin.com, lpieralisi@kernel.org, kw@linux.com, 
-	manivannan.sadhasivam@linaro.org, bhelgaas@google.com, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, salee@marvell.com, dingwei@marvell.com
+References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-4-tszucs@linux.com>
+ <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se>
+In-Reply-To: <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se>
+From: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
+Date: Tue, 12 Nov 2024 15:35:49 +0100
+X-Gmail-Original-Message-ID: <CA+GksrJLpeU8x-kjR1Ng3ySf+giiufCsJuBssng9qoX1PjAunA@mail.gmail.com>
+Message-ID: <CA+GksrJLpeU8x-kjR1Ng3ySf+giiufCsJuBssng9qoX1PjAunA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Dragan Simic <dsimic@manjaro.org>, 
+	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_063601_249007_6614CEBC 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20241112_063602_517054_F59A2303 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,56 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 1:27=E2=80=AFAM Jenishkumar Maheshbhai Patel
-<jpatel2@marvell.com> wrote:
->
-> replace reset bit mask and system controller
-> with reset controller and reset bit phandle
+Hi Jonas,
 
-The diff tells us "what" already. The commit msg needs to answer "why".
+I agree; it's not possible to tell if the user will use a PCIe/USB,
+PCIe/UART, SDIO/UART, perhaps USB/UART device, or any other HIF
+combination. The way I see it is UART8 is hardwired to the M2E, so
+there is a reasonable expectation that it should work too if need be.
 
-The DT is an ABI. You can't just replace property(ies) with a new
-property. There's exceptions if there are no platforms in use or
-similar.
+Kind regards,
+Tamas
 
-This binding needs to be converted to dtschema before adding to it.
 
+
+Tam=C3=A1s Sz=C5=B1cs
+tszucs@linux.com
+
+On Mon, Nov 11, 2024 at 8:12=E2=80=AFPM Jonas Karlman <jonas@kwiboo.se> wro=
+te:
 >
-> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-> ---
->  Documentation/devicetree/bindings/pci/pci-armada8k.txt | 10 ++++------
->  1 file changed, 4 insertions(+), 6 deletions(-)
+> Hi Tam=C3=A1s,
 >
-> diff --git a/Documentation/devicetree/bindings/pci/pci-armada8k.txt b/Doc=
-umentation/devicetree/bindings/pci/pci-armada8k.txt
-> index a177b971a9a0..a9a71d77b261 100644
-> --- a/Documentation/devicetree/bindings/pci/pci-armada8k.txt
-> +++ b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
-> @@ -24,10 +24,9 @@ Optional properties:
->  - phy-names: names of the PHYs corresponding to the number of lanes.
->         Must be "cp0-pcie0-x4-lane0-phy", "cp0-pcie0-x4-lane1-phy" for
->         2 PHYs.
-> -- marvell,system-controller: address of system controller needed
-> -       in order to reset MAC used by link-down handle
-> -- marvell,mac-reset-bit-mask: MAC reset bit of system controller
-> -       needed in order to reset MAC used by link-down handle
-> +- resets: phandle reset controller with int reset controller bit.
-> +         needed in order to reset MAC used by link-down handle.
-> +
+> On 2024-11-11 19:17, Tam=C3=A1s Sz=C5=B1cs wrote:
+> > Enable UART lines on Radxa ROCK 3 Model B M.2 Key E.
+> >
+> > Signed-off-by: Tam=C3=A1s Sz=C5=B1cs <tszucs@linux.com>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm=
+64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > index b7527ba418f7..61d4ba2d312a 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > @@ -732,7 +732,7 @@ &uart8 {
+> >       pinctrl-names =3D "default";
+> >       pinctrl-0 =3D <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
+> >       uart-has-rtscts;
+> > -     status =3D "disabled";
+> > +     status =3D "okay";
 >
->  Example:
+> This should probably be enabled using an dt-overlay, there is no UART
+> device embedded on the board and the reason I left it disabled in
+> original board DT submission.
 >
-> @@ -49,6 +48,5 @@ Example:
->                 interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
->                 num-lanes =3D <1>;
->                 clocks =3D <&cpm_syscon0 1 13>;
-> -               marvell,system-controller =3D <&CP11X_LABEL(syscon0)>;
-> -               marvell,mac-reset-bit-mask =3D <CP11X_PCIEx_MAC_RESET_BIT=
-_MASK(1)>;
-> +               resets =3D <&CP11X_LABEL(pcie_mac_reset) CP11X_PCIEx_MAC_=
-RESET_BIT(0)>;
->         };
-> --
-> 2.25.1
+> On second thought maybe they should be enabled, think PCIe and USB lines
+> on the M.2 Key E is already enabled by default. I probably only tested
+> with a pcie/usb wifi/bt card and not a sido/uart wifi/bt card.
+>
+> Regards,
+> Jonas
+>
+> >  };
+> >
+> >  &usb_host0_ehci {
 >
 
