@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C092D32D9E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC2CD32D9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRZuof606OOT943vPxL8priucDpX6fZjafbCTv30/uE=; b=K7bS95O+02H7I2hOZvmhJcSgzX
-	LmKc/MYMWvFqrvzaaBXqRHkQVnH/stmQBRdJO5GqVOA22UcFRuwE7OOGo7u+NPIijHeCleWBE9/wJ
-	g0rlLKSrsHkYyljCtv8kPcskEAlpmrXsBnNr1hzovZYpyrlnU2G5+6eN8ED0toWHDM9bFnfx/yCMS
-	qjdcvpoLXUCUeb2xrMCY2mE4wlgSNqJPu7OncuzQKVBSftNaslIFONnn5JxulsRiREjib22RPNWW4
-	NA3EbaVwcfqXzLMxiqLBVhF3JEC6MQNBhdCCxs6bB/F8spaWRNirqW7fp50U/ZR7GzsY8oPCUWG1S
-	SFcfXU+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R9IjlRZhlGnpHn809ATMDLYbc053TvkwYYItqnDzLec=; b=3EJCFFJA/UfHVTfmicgbZX0dNr
+	ltrkTGmrMG60L2Hp7oxgj7L8fOZBzjUtzD4mpwgtVa0WOeGps19x04ESXczJMpUJvQXv4G2F+y8OS
+	j5ynRdmuip3O19u6DifP9A8BdbRwyxxn9k8DR70eI7D/oB0/hbbn009r4hGg8Mfv+JDkNJghgL86d
+	iF2Nh7uFNH5sF+ykUIk2mjQOj6J6fXakpzh7A/Zp+YmYsNVWeONxjc30JEK0NDnniRsaPveaUMJhG
+	8fH11Gl//Dyo0Hohu+NCprYC/yQoMI4YuoxIm4z+z++JjxBsXEXK0IjwdA1S94iCsY03fn8N3xYaO
+	rS4+JRCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAprO-00000003N6N-0An8;
-	Tue, 12 Nov 2024 12:19:06 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tApt8-00000003NK9-3ZtG;
+	Tue, 12 Nov 2024 12:20:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApQ0-00000003I8u-0IUF
+	id 1tApQz-00000003ITy-4BHf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 11:50:50 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2e56750bb0dso4033119a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 03:50:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731412247; x=1732017047; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iRZuof606OOT943vPxL8priucDpX6fZjafbCTv30/uE=;
-        b=xzWELutkKeQpM07sZgYq0u3bT2gWqNND/uoAjjT+KnVErOr9C8RW71XRstipZjuBcw
-         Lb7rHj9utkKdyoG0tmHT3DQmTsQXL0AhQkmbxc14/l9pV1wm5Xz2LPbvGKQs8sVqmLpM
-         undJ4GyMNUAdWsl6gCRVaXRio9AcHq411RfwBQYkAQCOkUjxICfiLZnBNi64QSBKCC5E
-         0oLMXHr7YXfVdwl/uIlmZ4gPzIhf2qIvjiKHYv1LkMd2pY9N3zE+eJ9ta13ZcMmcbMSu
-         H5TWMSCTk+U5PGCiJ3wByxusX8f/DBnBVGljeTVLffMvgffFzGvCoIwrhYh2R3MWFiIm
-         oFLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731412247; x=1732017047;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iRZuof606OOT943vPxL8priucDpX6fZjafbCTv30/uE=;
-        b=oty+xxVmamOgOUP5fCVQ7crinQZ/WisHXk5AdgK+qkERqV0ubXPqWk2DH3vGHH6g3E
-         HJrhTY5C5jp/6XYxjeC93Z9XZ9vHTe8oenhyJIMo7X8LCUTLGKEkSSbbONLSNw9GOnqs
-         tgxe38Y+PvzD/JFUplOw4/XfEcqEYq3ogKUu+Ky+xTuubujyrX2Xq8EwZw0nyca8if+1
-         gazswBEv0QA3hJu2u9noTckv0mP1RuPvLVeaAUKZlLY61PdzOOxYdNvehhWZLKJZiMTF
-         QIHZzJ3yaiRLY9PhSYmXaYgaXeUdsr3UvxVV83PpZRctQUVfZ/WnY6dVB2sB8MBU8xj3
-         3wMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVCt5QPt0HPynhoS4a9rtxXEL705iHf0qtP+vXSB/PzjLGyaQJixnyNPmwEei370hFlNHaSn6CFDj/SeykVsOeU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUxOzNbsR7xLzdvdAxOU4LSKgAhDTRh1Db1MUanqgaZSg5jWXu
-	E20xe10fmw4O/VIPCrWU/fsW0a6zxYga2g4tXnnY+qXpn9h1QctJ19pTG2TCtJWRTb6Z+jZlUVa
-	bhFeGfoAoJGXhEH4KdZs2J+Bg7lgmDsBeIG9fW3+7XUJjO3Nn
-X-Google-Smtp-Source: AGHT+IGkaMb/i80SMs/x4CRnfYWLkD+E9nhXz1u00nrM28hnR2oggdxJbCVO8DtM0v4ULU57vZom5G0WvzQi0gc7Mrk=
-X-Received: by 2002:a17:90b:2dcc:b0:2e2:cd22:b083 with SMTP id
- 98e67ed59e1d1-2e9b14d83f1mr20816157a91.0.1731412246616; Tue, 12 Nov 2024
- 03:50:46 -0800 (PST)
-MIME-Version: 1.0
-References: <CALE0LRvJ-n77oU=O9__NdSLw2v33zMK+WYkn2LcwWMwHCbohQw@mail.gmail.com>
- <CAC_iWjJEXU+dodjvWQYM9ohPa3P2p0bFG=exGoi-iYFrLLbCTA@mail.gmail.com>
- <CALE0LRtUz8hd4pdR9sX2Sb6tOn=K4wkRnGG9B7f72qU8JFQSYQ@mail.gmail.com>
- <CAC_iWjJLSSTO0Ca7rgOWAHfWzbkBkKHkQedRUbcwsoU0dtrsGA@mail.gmail.com>
- <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com>
- <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com>
- <CALE0LRsYXXaao2uCUMFkd8Y6f5Mxgoc-Qpft_y8wWW3ZiekbbA@mail.gmail.com>
- <CAC_iWjL+J9tNxEdh0AoYD19h013N4nk=KmaT=RACo4-oVwuRCA@mail.gmail.com>
- <CALE0LRu2oDSo6KOhO2fTDMiqX7iqjqNjNGD_67MJFS7BJWqT_w@mail.gmail.com> <CALE0LRvFT3fDdoBLXHK2e47cibD02pxXAuZ83rTqEfrzU3HnKA@mail.gmail.com>
-In-Reply-To: <CALE0LRvFT3fDdoBLXHK2e47cibD02pxXAuZ83rTqEfrzU3HnKA@mail.gmail.com>
-From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Date: Tue, 12 Nov 2024 13:50:09 +0200
-Message-ID: <CAC_iWj+STZib+VOZrQtZk95skWzyLqe7_HpNM60G6axNa3Lnnw@mail.gmail.com>
-Subject: Re: optee-based efi runtime variable service on TI j784s4 platforms
-To: Enric Balletbo i Serra <eballetb@redhat.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Sumit Garg <sumit.garg@linaro.org>, linux-efi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	op-tee@lists.trustedfirmware.org, Manorit Chawdhry <m-chawdhry@ti.com>, 
-	Udit Kumar <u-kumar1@ti.com>, "Menon, Nishanth" <nm@ti.com>, 
-	Masahisa Kojima <kojima.masahisa@socionext.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 12 Nov 2024 11:51:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D94B45C55D5;
+	Tue, 12 Nov 2024 11:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E41F4C4CED0;
+	Tue, 12 Nov 2024 11:51:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731412309;
+	bh=rVaA3ev3+az5uRSNO7YC0hpQX2tlQujZzf1EwZa+A5U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CaPvhcgg8qQ2pwZd+FKZUgqJNy3w6BQHkOtKD9SlsYVF0SHDdAvmaH5UuE65w/5tL
+	 XZXCLpdiMsewU95JX/OKQDZjU3NEbaEZ6emnBGYEhS+vGJpoBd8xlIIv+xDCiJJrZA
+	 8lx7yO1NkdDYDl5dMAb5jzRZ0Xk6ynaycC6SJG4DDOHDFGollG5NI687TWc9wnI1pw
+	 AFUNeNbWO0fbLJxraE4YaVnGdRkZ4txtXiER9YzE9ABvZJGFFCdNv/A+C20hrPzKhM
+	 j/CqOYBJWZYyqYtz92E9r+tgctzk3nUkPbwFmyWnMjdooNOKpPi56X2AXjF2Yt4BFX
+	 wkKVZgU+I4B2w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tApQw-00CAjE-KU;
+	Tue, 12 Nov 2024 11:51:46 +0000
+Date: Tue, 12 Nov 2024 11:51:45 +0000
+Message-ID: <86ldxozn3i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Steven Price <steven.price@arm.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 4/4] arm64: mte: Use stage-2 NoTagAccess memory attribute if supported
+In-Reply-To: <yq5a34k2rw9o.fsf@kernel.org>
+References: <20241028094014.2596619-1-aneesh.kumar@kernel.org>	<20241028094014.2596619-5-aneesh.kumar@kernel.org>	<87o734ts4m.wl-maz@kernel.org>	<yq5ar080cq5x.fsf@kernel.org>	<87jzdst6os.wl-maz@kernel.org>	<yq5a34k2rw9o.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+X-TUID: du/ay7YVY91i
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, Suzuki.Poulose@arm.com, steven.price@arm.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_035048_228115_36D89FBE 
-X-CRM114-Status: GOOD (  56.99  )
+X-CRM114-CacheID: sfid-20241112_035150_362393_E165C715 
+X-CRM114-Status: GOOD (  79.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,515 +88,356 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Enric
-
-On Tue, 12 Nov 2024 at 13:40, Enric Balletbo i Serra
-<eballetb@redhat.com> wrote:
->
-> Hi again,
->
-> On Tue, Nov 12, 2024 at 9:17=E2=80=AFAM Enric Balletbo i Serra
-> <eballetb@redhat.com> wrote:
+On Fri, 08 Nov 2024 07:59:31 +0000,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> 
+> 
+> Hi Marc,
+> 
+> Sorry for the delay in response, I was looking at nested virt and
+> migration changes so that I can get your feedback on those.
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > On Mon, 28 Oct 2024 13:28:42 +0000,
+> > Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> >>
+> >> Marc Zyngier <maz@kernel.org> writes:
+> >>
+> >> > On Mon, 28 Oct 2024 09:40:14 +0000,
+> >> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> >> >>
+> >> >> Currently, the kernel won't start a guest if the MTE feature is enabled
+> >> >> and the guest RAM is backed by memory which doesn't support access tags.
+> >> >> Update this such that the kernel uses the NoTagAccess memory attribute
+> >> >> while mapping pages from VMAs for which MTE is not allowed. The fault
+> >> >> from accessing the access tags with such pages is forwarded to VMM so
+> >> >> that VMM can decide to kill the guest or remap the pages so that
+> >> >> access tag storage is allowed.
+> >> >
+> >> > I only have questions here:
+> >> >
+> >> > - what is the benefit of such approach? why shouldn't that be the
+> >> >   kernel's job to fix it?
+> >>
+> >>
+> >> IMHO leaving that policy decision to VMM makes the kernel changes
+> >> simpler. In most cases, VMM will kill the guest, because these
+> >> restrictions of MTE_ALLOWED are applied at the memslot/vma.
 > >
-> > Hi,
+> > Where is that captured? The whole idea behind FEAT_MTE_PERM was that
+> > it would be the hypervisor's task to lazily allocate MTE-capable
+> > memory as tagged-access would occur.
 > >
-> > On Mon, Nov 11, 2024 at 3:26=E2=80=AFPM Ilias Apalodimas
-> > <ilias.apalodimas@linaro.org> wrote:
-> > >
-> > > On Mon, 11 Nov 2024 at 16:13, Enric Balletbo i Serra
-> > > <eballetb@redhat.com> wrote:
-> > > >
-> > > > Hi,
-> > > >
-> > > > Thanks a lot for your support.
-> > >
-> > > You're welcome. FWIW I did test this in the past with an AM62x SoC.
-> > >
+> 
+> Lazily allocating MTE-capable memory requires changes to different
+> kernel subsystems and previous attempts got dropped [1] because it
+> was not clear whether the benefit of saving 3% memory overhead was worth
+> the complexity we add to the kernel.
+
+That's not the point. Tagged memory doesn't have to cover the whole of
+physical memory, and it can be statically allocated. The architecture
+doesn't mandate that all of the memory is MTE-capable.
+
+> This patchset is not looking at that feature. Instead, it can be used to
+> enable MTE in configurations that currently won't allow MTE. One such
+> example is libkrun which includes linux kernel as firmware in a
+> dynamically linked library (libkrunfw). libkrun can insert the kernel
+> region which got mmaped as part of the library load, directly into the
+> guest memory map instead of copying the kernel. Such a guest config
+> can't enable MTE currently even though we will never use the newly
+> inserted memory regions as tag access memory.
+> 
+> Similarly, virtiofs dax support can use a page cache region as
+> virtio-shm region. We can use MTE_PERM to enable MTE in this config.
+
+And this use case doesn't contradict what I am stating above. But it
+definitely contradicts what you wrote: "In most cases, VMM will kill
+the guest".
+
+So which one is it?
+
+> 
+> [1] https://lore.kernel.org/all/20240125164256.4147-1-alexandru.elisei@arm.com/
+> 
+> >>
+> >> >
+> >> > - where is the documentation for this new userspace ABI?
+> >> >
+> >>
+> >> I will add the details if we agree that this should be a separate EXIT
+> >> as outlined in this patch.
 > >
-> > Thanks for the info, maybe I can give it a try with my BeaglePlay then.=
-..
+> > Woooot??? This isn't a *DETAIL*. This is the very first thing you
+> > should write. Everything *else* is an implementation detail.
 > >
-> > > >
-> > > > On Mon, Nov 11, 2024 at 12:01=E2=80=AFPM Ilias Apalodimas
-> > > > <ilias.apalodimas@linaro.org> wrote:
-> > > > >
-> > > > > On Mon, 11 Nov 2024 at 10:21, Enric Balletbo i Serra
-> > > > > <eballetb@redhat.com> wrote:
-> > > > > >
-> > > > > > Hi Ilias,
-> > > > > >
-> > > > > > On Sat, Nov 9, 2024 at 1:31=E2=80=AFAM Ilias Apalodimas
-> > > > > > <ilias.apalodimas@linaro.org> wrote:
-> > > > > > >
-> > > > > > > On Fri, 8 Nov 2024 at 23:11, Enric Balletbo i Serra <eballetb=
-@redhat.com> wrote:
-> > > > > > > >
-> > > > > > > > Hi Ilias,
-> > > > > > > >
-> > > > > > > > Thanks for your quick answer.
-> > > > > > > >
-> > > > > > > > On Fri, Nov 8, 2024 at 4:48=E2=80=AFPM Ilias Apalodimas
-> > > > > > > > <ilias.apalodimas@linaro.org> wrote:
-> > > > > > > > >
-> > > > > > > > > Hi Enric,
-> > > > > > > > >
-> > > > > > > > > On Fri, 8 Nov 2024 at 12:26, Enric Balletbo i Serra <ebal=
-letb@redhat.com> wrote:
-> > > > > > > > > >
-> > > > > > > > > > Hi all,
-> > > > > > > > > >
-> > > > > > > > > > I'm looking for any advice/clue to help me to progress =
-on enabling
-> > > > > > > > > > TEE-base EFI Runtime Variable Service on TI a j784s4 pl=
-atforms.
-> > > > > > > > > >
-> > > > > > > > > > I basically followed the steps described in u-boot docu=
-mentation [1],
-> > > > > > > > > > I enabled some debugging messages but I think I'm at th=
-e point that
-> > > > > > > > > > the problem might be in the StandaloneMM application, a=
-nd I'm not sure
-> > > > > > > > > > how to debug it.
-> > > > > > > > > >
-> > > > > > > > > > What I see is that when I run the tee-supplicant daemon=
-, it looks like
-> > > > > > > > > > the tee_client_open_session() call loops forever and th=
-e tee_stmm_efi
-> > > > > > > > > > driver never ends to probe.
-> > > > > > > > > >
-> > > > > > > > > > With debug enabled I got the following messages.
-> > > > > > > > >
-> > > > > > > > > I assume reading and storing variables already works in U=
--Boot right?
-> > > > > > > > >
-> > > > > > > >
-> > > > > > > > Reading and storing variables to the RPMB partition in U-Bo=
-ot works,
-> > > > > > > > that's using the mmc rpmb command from u-boot,
-> > > > > > >
-> > > > > > > Are you talking about env variables? Perhaps you store them i=
-n the mmc
-> > > > > > > and not the RPMB partition?
-> > > > > > > There's some information here [0]
-> > > > > > >
-> > > > > > > > But setting
-> > > > > > > > CONFIG_EFI_MM_COMM_TEE=3Dy in u-boot I end with a similar b=
-ehaviour
-> > > > > > > > (although I'm not able to debug at u-boot level) What I see=
- is that
-> > > > > > > > u-boot gets stuck
-> > > > > > > > when bootefi bootmgr is invoqued. I can also reproduce the =
-issue with
-> > > > > > > > bootefi hello.
-> > > > > > > >
-> > > > > > > > =3D> run bootcmd
-> > > > > > > >   Scanning for bootflows in all bootdevs
-> > > > > > > >   Seq  Method       State   Uclass    Part  Name           =
-           Filename
-> > > > > > > >   ---  -----------  ------  --------  ----  ---------------=
----------
-> > > > > > > > ----------------
-> > > > > > > >   Scanning global bootmeth 'efi_mgr':
-> > > > > > > > ( gets stuck here)
-> > > > > > > >
-> > > > > > > > or
-> > > > > > > >
-> > > > > > > > =3D> bootefi hello
-> > > > > > > > (gets stuck)
-> > > > > > > >
-> > > > > > > > To debug I disabled CONFIG_EFI_MM_COMM_TEE to not get stuck=
- and bypass
-> > > > > > > > the error and go to Linux. My understanding is that
-> > > > > > > > CONFIG_EFI_MM_COMM_TEE is only required to read/write efi v=
-ariables at
-> > > > > > > > u-boot level but OPTEE is running the StandaloneMM service.=
- Am I
-> > > > > > > > right?
-> > > > > > >
-> > > > > > > U-Boot has two ways of storing EFI variables [0] . You can ei=
-ther
-> > > > > > > store them in a file or the RPMB partition. The correct thing=
- to do,
-> > > > > > > since you want to use the RPMB, is enable CONFIG_EFI_MM_COMM_=
-TEE. I am
-> > > > > > > not sure why the hand happens, but one thing we can improve i=
-s figure
-> > > > > > > out why it hangs and print a useful message.
-> > > > > > > There are a number of reasons that might lead to a failure. I=
-s the
-> > > > > > > RPMB key programmed on your board? Have a look at this [1] in=
- case it
-> > > > > > > helps
-> > > > > > >
-> > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > # tee-supplicant
-> > > > > > > > > > D/TC:? 0 tee_ta_init_session_with_context:557 Re-open t=
-rusted service
-> > > > > > > > > > 7011a688-ddde-4053-a5a9-7b3c4ddf13b8
-> > > > > > > > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct reque=
-st
-> > > > > > >
-> > > > > > > If I had to guess, OP-TEE doesn't store the variables in the =
-RPMB, can
-> > > > > > > you compile it with a bit more debugging enabled?
-> > > > > > >
-> > > > > >
-> > > > > > Here is a log with CFG_TEE_CORE_LOG_LEVEL=3D4, CFG_TEE_CORE_DEB=
-UG=3Dy and
-> > > > > > CFG_TEE_TA_LOG_LEVEL=3D4
-> > > > > >
-> > > > > > https://paste.centos.org/view/eed83a5b
-> > > > > >
-> > > > > > At the beginning of the log I see
-> > > > > >
-> > > > > > D/TC:0 0 check_ta_store:449 TA store: "REE"
-> > > > > >
-> > > > > > Which looks wrong to me as I built optee with:
-> > > > > >   CFG_REE_FS=3Dn
-> > > > > >   CFG_RPMB_FS_DEV_ID=3D0
-> > > > > >   CFG_RPMB_FS=3Dy
-> > > > >
-> > > > > Yes it does look wrong. Our compilation flags are
-> > > > > CFG_RPMB_FS=3Dy CFG_RPMB_FS_DEV_ID=3D0 CFG_RPMB_WRITE_KEY=3Dy
-> > > > > CFG_RPMB_TESTKEY=3Dy CFG_REE_FS=3Dn CFG_CORE_ARM64_PA_BITS=3D48
-> > > > > CFG_SCTLR_ALIGNMENT_CHECK=3Dn
-> > > > >
-> > > >
-> > > > Mine are very similar
-> > > >
-> > > > make CROSS_COMPILE=3D"$CC32" CROSS_COMPILE64=3D"$CC64" \
-> > > >     PLATFORM=3Dk3-j784s4 CFG_ARM64_core=3Dy CFG_CONSOLE_UART=3D0x8 =
-\
-> > > >     CFG_RPMB_FS_DEV_ID=3D0 CFG_REE_FS=3Dn CFG_RPMB_FS=3Dy \
-> > > >     CFG_RPMB_WRITE_KEY=3Dy CFG_RPMB_TESTKEY=3Dy \
-> > > >     CFG_STMM_PATH=3DBL32_AP_MM.fd \
-> > > >     CFG_CORE_HEAP_SIZE=3D524288 CFG_CORE_DYN_SHM=3Dy CFG_SCTLR_ALIG=
-NMENT_CHECK=3Dn \
-> > > >     CFG_TEE_CORE_LOG_LEVEL=3D4 CFG_TEE_CORE_DEBUG=3Dy CFG_TEE_TA_LO=
-G_LEVEL=3D4
-> > > >
-> > > > There is a difference with CFG_CORE_ARM64_PA_BITS=3D48 , my platfor=
-m defines it to
-> > > >
-> > > >    core/arch/arm/plat-k3/conf.mk:$(call force,CFG_CORE_ARM64_PA_BIT=
-S,36)
-> > > >
-> > > > But I don't think this is the problem.
-> > > >
-> > > > > The testkey etc aren't required if your board has a way of readin=
-g the
-> > > > > RPMB key from a secure location -- in fact, using the testkey is =
-not
-> > > > > secure. Is the RPMB programmed on your board? Also can you make s=
-ure
-> > > > > CFG_RPMB_FS_DEV_ID needs to be 0? How many sd interfaces your boa=
-rd
-> > > > > has?
-> > > >
-> > > > My board has two interfaces, an eMMC and a SD-card, 0 is indeed the
-> > > > eMMC and I'm using the testkey which I assume was programmed the fi=
-rst
-> > > > time I booted with all this. Unfortunately I lost the traces. But,
-> > > > optee_rpmb works. I.e:
-> > > >
-> > > >      =3D> optee_rpmb write test 1234
-> > > >      =3D> optee_rpmb read test 4
-> > > >      Read 4 bytes, value =3D 1234
-> > > >
-> > > >
-> > > > > IOW in U-Boot does 'mmc dev 0 && mmc info' print information for =
-the
-> > > > > RPMB partition?
-> > > > >
-> > > >
-> > > >     =3D> mmc dev 0
-> > > >     switch to partitions #0, OK
-> > > >     mmc0(part 0) is current device
-> > > >     =3D> mmc info
-> > > >     Device: mmc@4f80000
-> > > >     Manufacturer ID: 13
-> > > >     OEM: 4e
-> > > >     Name: G1M15L
-> > > >     Bus Speed: 200000000
-> > > >     Mode: HS400 (200MHz)
-> > > >     Rd Block Len: 512
-> > > >     MMC version 5.1
-> > > >     High Capacity: Yes
-> > > >     Capacity: 29.6 GiB
-> > > >     Bus Width: 8-bit DDR
-> > > >     Erase Group Size: 512 KiB
-> > > >     HC WP Group Size: 8 MiB
-> > > >     User Capacity: 29.6 GiB WRREL
-> > > >     Boot Capacity: 31.5 MiB ENH
-> > > >     RPMB Capacity: 4 MiB ENH
-> > > >     Boot area 0 is not write protected
-> > > >     Boot area 1 is not write protected
-> > > >     =3D> mmc list
-> > > >     mmc@4f80000: 0 (eMMC)
-> > > >     mmc@4fb0000: 1
-> > > >
-> > > > Any interaction with efi gives me the same result (printenv -e,
-> > > > efidebug, bootefi ...)
-> > >
-> > > Yes, that makes sense, because variables fail to initialize -- which
-> > > is a core part of bringing up the EFI subsystem.
-> > >
-> > > Can you recompile op-tee with CFG_RPMB_RESET_FAT and try again?
-> > >
+> >>
+> >> >
+> >> > - are you expecting the VMM to create a new memslot for this?
+> >> >
+> >>
+> >> I guess there are examples of configs where some memory regions are
+> >> backed by page cache where we don't directly use those memory regions as
+> >> allocatable memory in the guest. This change allows us to enable MTE in such
+> >> configs.
 > >
-> > Unfortunately that didn't help, but I don't see this code being run.
-
-That's weird, look below.
-
-> > Who sets for the first place the uefi variables, is this u-boot
-> > writing them to the rpmb? or is optee itself?
-
-U-Boot sets the variables, but it does so via StandAloneMM.
-
+> > This doesn't answer my question. What is expected sequence a VMM
+> > should apply to provide tagged memory to the guest?
 > >
->
-> I tried to compare the behaviour between optee_rpmb (works) and
-> efidebug (doesn't worrk). I see that the first thing optee_rpmb
-> command does is open a session against the TA application, something
-> that efidebug doesn't do, shouldn't efidebug do the same to access to
-> the rpmb device and read or write the efi variables?
->
-
-That's a bit more complicated and explained to one of the blog posts I
-pasted above.
-We do open an OP-TEE session, but not for talking to a TA. We send the
-messages to StandAloneMM, which then usese OPTEE RPMB APIs to write
-the flash.
-
-The weird thing is why OP-TEE does not format your RPMB when compiling
-with that flag.
-If done correctly, OP-TEE will wipe the RPMB contents the first time
-it tries to access it.
-
-Cheers
-/Ilias
-
-> =3D> optee_rpmb read test 4
-> D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA
-> 023f8f1a-292a-432b-8fc4-de8471358067
-> D/TC:? 0 ldelf_load_ldelf:110 ldelf load address 0x40007000
-> D/LD:  ldelf:142 Loading TS 023f8f1a-292a-432b-8fc4-de8471358067
-> F/TC:? 0 trace_syscall:147 syscall #3 (syscall_get_property)
-> F/TC:? 0 trace_syscall:147 syscall #5 (syscall_open_ta_session)
-> D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF
-> 023f8f1a-292a-432b-8fc4-de8471358067 (early TA)
-> D/TC:? 0 ldelf_syscall_open_bin:167 res=3D0
-> F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
-> F/TC:? 0 read_compressed:178 1024 bytes
-> F/TC:? 0 read_compressed:178 1024 bytes
-> F/TC:? 0 read_compressed:178 1024 bytes
-> F/TC:? 0 read_compressed:178 1024 bytes
-> F/TC:? 0 trace_syscall:147 syscall #11 (syscall_mask_cancellation)
-> F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
->
-> =3D> efidebug query -bs -rt -nv
-> MMC: no card present
-> mmc_init: -123, time 2002
-> D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> D/TC:? 0 spm_handle_scall:859 Received FFA version
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> D/TC:? 0 spm_handle_scall:867 Received FFA direct request
->
->
->
+> >>
+> >> > - where is the example of a VMM using this?
+> >> >
+> >>
+> >> I do have changes to kvmtool which won't do any fixup on receiving that
+> >> VM exit. I expect other VMM to do the same by default when they get a
+> >> VM exit with an unknown exit_reason. So unless VMM wants to do any
+> >> special handling, we don't need any change in the VMM.
 > >
-> > > Thanks
-> > > /Ilias
-> > > >
-> > > > =3D> efidebug query -bs -rt -nv
-> > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > ... stuck here ... I need to reset the board
-> > > >
-> > > > Will continue to see if I can get more useful messages
-> > > >
-> > > > Thanks,
-> > > >   Enric
-> > > >
-> > > > > Thanks
-> > > > > /Ilias
-> > > > > >
-> > > > > > I'll try to add some more prints to verify if REE is used as a =
-store
-> > > > > > system, I assume this should say something about RPMB. Am I rig=
-ht with
-> > > > > > this?
-> > > > >
-> > > > >
-> > > > > >
-> > > > > > > > > >
-> > > > > > > > > > And tracing the function calls gives me that:
-> > > > > > > > > >
-> > > > > > > > > >       tee_stmm_efi_probe() {
-> > > > > > > > > >              tee_client_open_context() {
-> > > > > > > > > >                optee_get_version() {
-> > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002=
-e55800)
-> > > > > > > > > >                } (ret=3D0xd)
-> > > > > > > > > >                tee_ctx_match(); (ret=3D0x1)
-> > > > > > > > > >                optee_smc_open() {
-> > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002=
-e55800)
-> > > > > > > > > >                  optee_open() {
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                  } (ret=3D0x0)
-> > > > > > > > > >                } (ret=3D0x0)
-> > > > > > > > > >              } (ret=3D0xffff000004e71c80)
-> > > > > > > > > >              tee_client_open_session() {
-> > > > > > > > > >                optee_open_session() {
-> > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff000002=
-e55800)
-> > > > > > > > > >                  optee_get_msg_arg() {
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000=
-2909000)
-> > > > > > > > > >                  } (ret=3D0xffff000002909000)
-> > > > > > > > > >                  tee_session_calc_client_uuid(); (ret=
-=3D0x0)
-> > > > > > > > > >                  optee_to_msg_param(); (ret=3D0x0)
-> > > > > > > > > >                  optee_smc_do_call_with_arg() {
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000=
-2909000)
-> > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xffff00000=
-2909060)
-> > > > > > > > > >                    optee_cq_wait_init(); (ret=3D0xffff0=
-00002e55910)
-> > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004=
-)
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004=
-)
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004=
-)
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004=
-)
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xffff0004=
-)
-> > > > > > > > > >      ... continues sending this forever ...
-> > > > > > > > > >      ... Hit ^C to stop recording ...
-> > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xffff0000=
-02e55800)
-> > > > > > > > > >                    optee_smccc_smc() {
-> > > > > > > > > >
-> > > > > > > > > > [1] https://docs.u-boot.org/en/latest/develop/uefi/uefi=
-.html#using-op-tee-for-efi-variables
-> > > > > > > > > >
-> > > > > > > > > > Thanks in advance,
-> > > > > > > > >
-> > > > > > > > > The most common problem with this is miscompiling the tee=
-_supplicant
-> > > > > > > > > application.
-> > > > > > > > > Since we don't know if the system has an RPMB, we emulate=
- it in the
-> > > > > > > > > tee_supplicant. How did you get the supplicant and can yo=
-u check if it
-> > > > > > > > > was compiled with RPMB_EMU=3D0 or 1?
-> > > > > > > > >
-> > > > > > > >
-> > > > > > > > I'm using the tee-supplicant provided by the fedora package=
- which is
-> > > > > > > > built with ` -DRPMB_EMU=3D0`, I think that's correct, right=
-?
-> > > > > > > >
-> > > > > > >
-> > > > > > > Yes, this is correct. We fixed the Fedora package to compile =
-the
-> > > > > > > supplicant correctly a while back.
-> > > > > > >
-> > > > > > > [0] https://www.linaro.org/blog/uefi-secureboot-in-u-boot/
-> > > > > > > [1] https://apalos.github.io/Protected%20UEFI%20variables%20w=
-ith%20U-Boot.html#Protected%20UEFI%20variables%20with%20U-Boot
-> > > > > > >
-> > > > > > >
-> > > > > > > Regards
-> > > > > > > /Ilias
-> > > > > > > > Thanks,
-> > > > > > > >    Enric
-> > > > > > > >
-> > > > > > > > > Thanks
-> > > > > > > > > /Ilias
-> > > > > > > > >
-> > > > > > > > > >    Enric
-> > > > > > > > > >
-> > > > > > > > >
-> > > > > > > >
-> > > > > > >
-> > > > > >
-> > > > >
-> > > >
-> > >
->
+> > OK, so this has never been tested. I'm sorry, but for something of
+> > this magnitude, with expected userspace interactions, and requiring
+> > VMM handling, I want to see the full end-to-end thing.
+> >
+> >>
+> >>
+> >> diff --git a/arm/kvm-cpu.c b/arm/kvm-cpu.c
+> >> index 3b95750ecec7..4760bad07476 100644
+> >> --- a/arm/kvm-cpu.c
+> >> +++ b/arm/kvm-cpu.c
+> >> @@ -239,6 +239,17 @@ static bool handle_memoryfault(struct kvm_cpu *vcpu)
+> >>  	return true;
+> >>  }
+> >>
+> >> +static bool handle_notag_access(struct kvm_cpu *vcpu)
+> >> +{
+> >> +	u64 gpa = vcpu->kvm_run->memory_fault.gpa;
+> >> +	u64 size = vcpu->kvm_run->memory_fault.size;
+> >> +
+> >> +	/* For now VMM just panic */
+> >> +	pr_err("Tag Access to a wrong memory region 0x%lx size 0x%lx\n",
+> >> +	       (unsigned long)gpa, (unsigned long)size);
+> >> +	return false;
+> >> +}
+> >> +
+> >>  bool kvm_cpu__handle_exit(struct kvm_cpu *vcpu)
+> >>  {
+> >>  	switch (vcpu->kvm_run->exit_reason) {
+> >> @@ -246,6 +257,8 @@ bool kvm_cpu__handle_exit(struct kvm_cpu *vcpu)
+> >>  		return handle_hypercall(vcpu);
+> >>  	case KVM_EXIT_MEMORY_FAULT:
+> >>  		return handle_memoryfault(vcpu);
+> >> +	case KVM_EXIT_ARM_NOTAG_ACCESS:
+> >> +		return handle_notag_access(vcpu);
+> >>  	}
+> >>
+> >>  	return false;
+> >> diff --git a/include/linux/kvm.h b/include/linux/kvm.h
+> >> index 32cff22f0e4d..deef6614f577 100644
+> >> --- a/include/linux/kvm.h
+> >> +++ b/include/linux/kvm.h
+> >> @@ -178,6 +178,7 @@ struct kvm_xen_exit {
+> >>  #define KVM_EXIT_NOTIFY           37
+> >>  #define KVM_EXIT_LOONGARCH_IOCSR  38
+> >>  #define KVM_EXIT_MEMORY_FAULT     39
+> >> +#define KVM_EXIT_ARM_NOTAG_ACCESS 40
+> >>
+> >>  /* For KVM_EXIT_INTERNAL_ERROR */
+> >>  /* Emulate instruction failed. */
+> >> @@ -429,10 +430,17 @@ struct kvm_run {
+> >>  		/* KVM_EXIT_MEMORY_FAULT */
+> >>  		struct {
+> >>  #define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
+> >> +#define KVM_MEMORY_EXIT_FLAG_NOTAGACCESS (1ULL << 4)
+> >>  			__u64 flags;
+> >>  			__u64 gpa;
+> >>  			__u64 size;
+> >>  		} memory_fault;
+> >> +  		/* KVM_EXIT_ARM_NOTAG_ACCESS */
+> >> +		struct {
+> >> +			__u64 flags;
+> >> +			__u64 gpa;
+> >> +			__u64 size;
+> >> +		} notag_access;
+> >>  		/* Fix the size of the union. */
+> >>  		char padding[256];
+> >>  	};
+> >>
+> >> >>
+> >> >> NOTE: We could also use KVM_EXIT_MEMORY_FAULT for this. I chose to
+> >> >> add a new EXIT type because this is arm64 specific exit type.
+> >> >>
+> >> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> >> >> ---
+> >> >>  arch/arm64/include/asm/kvm_emulate.h |  5 +++++
+> >> >>  arch/arm64/include/asm/kvm_pgtable.h |  1 +
+> >> >>  arch/arm64/kvm/hyp/pgtable.c         | 16 +++++++++++++---
+> >> >>  arch/arm64/kvm/mmu.c                 | 28 ++++++++++++++++++++++------
+> >> >>  include/uapi/linux/kvm.h             |  7 +++++++
+> >> >>  5 files changed, 48 insertions(+), 9 deletions(-)
+> >> >>
+> >> >> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> >> >> index a601a9305b10..fa0149a0606a 100644
+> >> >> --- a/arch/arm64/include/asm/kvm_emulate.h
+> >> >> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> >> >> @@ -373,6 +373,11 @@ static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
+> >> >>  	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
+> >> >>  }
+> >> >>
+> >> >> +static inline bool kvm_vcpu_trap_is_tagaccess(const struct kvm_vcpu *vcpu)
+> >> >> +{
+> >> >> +	return !!(ESR_ELx_ISS2(kvm_vcpu_get_esr(vcpu)) & ESR_ELx_TagAccess);
+> >> >> +}
+> >> >> +
+> >> >>  static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+> >> >>  {
+> >> >>  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
+> >> >> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> >> >> index 03f4c3d7839c..5657ac1998ad 100644
+> >> >> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> >> >> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> >> >> @@ -252,6 +252,7 @@ enum kvm_pgtable_prot {
+> >> >>
+> >> >>  	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
+> >> >>  	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
+> >> >> +	KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS	= BIT(5),
+> >> >
+> >> > This seems wrong. NOTAGACCESS is a *permission*, not a memory type.
+> >> >
+> >>
+> >> Are you suggesting the name is wrong? The memory attribute value I
+> >> wanted to use is
+> >>
+> >> MemAttr[3:0] = 0b0100 which is Normal, NoTagAccess, writeback cacheable.
+> >>
+> >> I am following the changes similar to KVM_PGTABLE_PROT_NORMAL_NC.
+> >
+> > But that's entirely different. This really isn't a memory type. Quite
+> > the opposite, actually. This is a stage-2 permission setting, which
+> > you are conflating with the actual memory type.
+> >
+> > Also, I don't see why that should be incompatible with something other
+> > than Normal memory.
+> >
+> 
+> I am sorry that i am not able to follow you here. I am confused whether
+> your feedback is related to the use of MemAttr[3:0] values or w.r.t
+> the usage of KVM_PGTABLE_PROT_NORMAL_NOTAG_ACCESS. If you can explain
+> more on how you would like to see the changes I can incorporate them in
+> the next update.
+
+There is a clear difference between permission and memory types. What
+if I want to have non-cacheable memory being tagged?
+
+> 
+> >>
+> >> >
+> >> >>
+> >> >>  	KVM_PGTABLE_PROT_SW0			= BIT(55),
+> >> >>  	KVM_PGTABLE_PROT_SW1			= BIT(56),
+> >> >> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> >> >> index b11bcebac908..bc0d9f08c49a 100644
+> >> >> --- a/arch/arm64/kvm/hyp/pgtable.c
+> >> >> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> >> >> @@ -677,9 +677,11 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+> >> >>  {
+> >> >>  	kvm_pte_t attr;
+> >> >>  	u32 sh = KVM_PTE_LEAF_ATTR_LO_S2_SH_IS;
+> >> >> +	unsigned long prot_mask = KVM_PGTABLE_PROT_DEVICE |
+> >> >> +				  KVM_PGTABLE_PROT_NORMAL_NC |
+> >> >> +				  KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS;
+> >> >>
+> >> >> -	switch (prot & (KVM_PGTABLE_PROT_DEVICE |
+> >> >> -			KVM_PGTABLE_PROT_NORMAL_NC)) {
+> >> >> +	switch (prot & prot_mask) {
+> >> >>  	case KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC:
+> >> >>  		return -EINVAL;
+> >> >>  	case KVM_PGTABLE_PROT_DEVICE:
+> >> >> @@ -692,6 +694,12 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+> >> >>  			return -EINVAL;
+> >> >>  		attr = KVM_S2_MEMATTR(pgt, NORMAL_NC);
+> >> >>  		break;
+> >> >> +	case KVM_PGTABLE_PROT_NORMAL_NOTAGACCESS:
+> >> >> +		if (system_supports_notagaccess())
+> >> >> +			attr = KVM_S2_MEMATTR(pgt, NORMAL_NOTAGACCESS);
+> >> >> +		else
+> >> >> +			return -EINVAL;
+> >> >> +		break;
+> >> >
+> >> > How do you see this working when migrating a VM from one host to
+> >> > another, one that supports FEAT_MTE_PERM and one that doesn't? The
+> >> > current assumptions are that the VMM will replay the *exact same*
+> >> > setup on the target host, and this obviously doesn't work.
+> >> >
+> >>
+> >> I missed looking at kvm migration. I guess I will have to expose this as
+> >> a capability and only allow migration if the target also supports the
+> >> same capability?
+> >
+> > I don't think so. This doesn't affect the guest at all, as the guest
+> > doesn't know anything about S2, unless you decide to expose
+> > FEAT_MTE_PERM to NV.
+> >
+> > It affects the VMM though, and that's because you are making a
+> > difference in handling between having FEAT_MTE_PERM or not. Given that
+> > this is invisible to userspace, that's not a great design.
+> >
+> 
+> With migration, I guess i can prevent migration to a target that doesn't
+> support FEAT_MTE_PERM by updating set_one_reg to check for the feature
+> support. Something like this 
+> 
+> modified   arch/arm64/kvm/sys_regs.c
+> @@ -1514,7 +1514,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  				       const struct sys_reg_desc *r)
+>  {
+>  	u32 id = reg_to_encoding(r);
+> -	u64 val;
+> +	u64 val, mask;
+> 
+>  	if (sysreg_visible_as_raz(vcpu, r))
+>  		return 0;
+> @@ -1529,8 +1529,10 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
+>  		break;
+>  	case SYS_ID_AA64PFR2_EL1:
+> -		/* We only expose FPMR */
+> -		val &= ID_AA64PFR2_EL1_FPMR;
+> +		mask = ID_AA64PFR2_EL1_FPMR;
+> +		if (system_supports_notagaccess())
+> +			mask |= ID_AA64PFR2_EL1_MTEPERM;
+
+But this doesn't matter for an EL1 guest. Only for an EL2 guest.For an
+EL1 guest you need to validate the support at the API level.
+
+> +		val &= mask;
+>  		break;
+>  	case SYS_ID_AA64ISAR1_EL1:
+>  		if (!vcpu_has_ptrauth(vcpu))
+> @@ -2382,7 +2384,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  		   ID_AA64PFR0_EL1_AdvSIMD |
+>  		   ID_AA64PFR0_EL1_FP), },
+>  	ID_SANITISED(ID_AA64PFR1_EL1),
+> -	ID_WRITABLE(ID_AA64PFR2_EL1, ID_AA64PFR2_EL1_FPMR),
+> +	ID_WRITABLE(ID_AA64PFR2_EL1, ID_AA64PFR2_EL1_FPMR |
+> +					ID_AA64PFR2_EL1_MTEPERM),
+>  	ID_UNALLOCATED(4,3),
+>  	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+>  	ID_HIDDEN(ID_AA64SMFR0_EL1),
+> 
+> 
+> For nested virtualization, I guess it is useful to support this for
+> nested guest. This implies L2 stage2 in L1 will have to support
+> Normal,NoTagAccess attribute. ie,
+> 
+> in L0 kvm, if the guest abort is on a nested smmu, then we walk the L2
+> stage2 in L1 and see if the memory attribute is NoTagAccess. If yes
+> we inject a s2 fault to L1. Do you agree this is a good design?
+
+Yes. But you need to add that support.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
