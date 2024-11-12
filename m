@@ -4,137 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1328BD42BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBD0D42BB5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9BKriUmIJ19IUhsAxrHMPhV/cGhyyzKc2XCySdvtSo8=; b=HA+yrZdDZHVNUD4vEx9qVdWZst
-	+bTBQEUR+TpxKVeJbwPqvCcPFc7pP9O9VlEPQ6tjqfI8o0Dd1maKmpaXh7ZOiImd+R/O5C+ZFJeiT
-	ZoXMcqtmaZFoVS7gAFYbB5JayZuGvLR84bIErUiAAAnAz6VsqlLhpILT3pauUIQH83/qD1hEfisUj
-	MGi8j2EBlFBcYFSZXbXZJZB6LuSg5P9o2mxZMBNpdzeEGMAyZ1lDYmjovvgfRkF1IIl7x+nWuAf/E
-	zOu/j5cWT5gdKpC7YOM6M5MVvWmRx7E3x/OURCnrjUoIwT++f4MY2Q6gpsARQldMVwPbNNhnZb6gu
-	bwDUrQpQ==;
+	bh=Q5euAD6mvMtoI8FBmagdROpF4KMX7Rxgrb+7EFp/no4=; b=xjwVPkj+y7/DvPsXHwWf1+lQ+w
+	T5Vzz7FDXk9JfY69SUH12b0Bzails3aeImnV872IXLr6nBKOxzd9zvhV42RKNd/nxW1dH9rri6oxC
+	0Yph0BV03jjxWq1lAzgzq5oxIQRa6+ue4bBpSQYAwwDia8Qhvbeo9Gj/6lJnQrr7XPyAInlQpyiR6
+	jEI44HbqKKT5xSOE3GzccYwrOl3VqictH7IDcMF4OwoXimHoZGyUqVFHJt5AB4iVCHCsnCTt+NEJY
+	4GySE5DilV1ild6qgWMI8a6SgwGVnUcGqrlwK4k0s7TMDT78sixMpTdJWgxE/nmJ+PV7n+bvWHRa3
+	sx4/61pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuVV-00000004KMt-1aju;
-	Tue, 12 Nov 2024 17:16:49 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1tAuY6-00000004Kvj-2JE9;
+	Tue, 12 Nov 2024 17:19:30 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuIW-00000004HEz-2sal
+	id 1tAuM5-00000004I7v-1weN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:03:25 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-7f3f1849849so4080163a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 09:03:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731431003; x=1732035803; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=9BKriUmIJ19IUhsAxrHMPhV/cGhyyzKc2XCySdvtSo8=;
-        b=FYrajPonxNI9kzjTcPFCJ77QCyULlH1GlL0wP4YnwN9KcfWYoVkuxxMdd1WquTLr8u
-         U3c5VY3diGzI3K82RL7TaSFXLo3y6T1bF58yOuxXiUFq3Z6MTXXtWIIxRj+MppJwMezh
-         al0F1tJCMDmuH3SQeVsZEEXbZiBpofpGWzP+xaLELjYYDGLPthmd3Qm7zQRVeXOshhPN
-         Rzj244VKdk4AF9f2VyTbfNj06NDvv2ksweRO+7IN6fzOQEmaAStabR+ZLIfKXBLTY3Pt
-         WYqz1bp53oHikwMlO2huo1/B4WtfRCWAiImufQvpp4c/vuIu5V4zmIDt9ikSSHPMS9bS
-         hExg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731431003; x=1732035803;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9BKriUmIJ19IUhsAxrHMPhV/cGhyyzKc2XCySdvtSo8=;
-        b=YNhXrbuA4R88AHD9BthXZaR1wR9+8Sg9u/V9TbFjBrf7lKI+mius8oWZMDvo0WTDFk
-         ZyuwozNnqQvzPJDLEtgHTvsLzP5DnBlpqHV/7HV+imNEUwcN8DOJc5VW6npZgcrWaXUw
-         vOKlG9kd625JDZPg8PEpsEBJBkOlj1CVKT3d8z3+YXx23FrfpOTIBYfFiU0TnFa7dP8v
-         c7bBzHrh7OEkJwb6o5A6hVsaZ5A5Tkb2ch9zvmXHM71CVc6xyPOZrpeyCeBZUKyZ9CX+
-         YeUGVGkxV/Ciop/txGhRtE8P2ksGZxjMebPifODei1Lt0q0EAJ2cG28BO6evDCr5pqpk
-         sG4g==
-X-Forwarded-Encrypted: i=1; AJvYcCVUHDZp1+E9FOfhMjYTHTQBqXMq+74OpPbAwfu5UR/lISU3E6rRnYkxivjTqj7AankCt4WaP8fFqhvQlOxkRjrS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHeRhjTvKV+8FYB+FIbIfvefp3F3C62wn+Mc6V1b/nNyUGTj/g
-	G0ugUJC73B6Nw3+Ie2l0Pno1uhUnXrhS5lOZ06q2Gc5SrrZyk2dC
-X-Google-Smtp-Source: AGHT+IGsV+SVq1SZE7E9NIEiOQsy/0L/BCIYNgE/mk/cfMOPzl1p6AMdToKVI6Ob4UHwuo+FvPgQTw==
-X-Received: by 2002:a17:90b:1d50:b0:2e9:449e:d57f with SMTP id 98e67ed59e1d1-2e9e4ca235dmr4070965a91.34.1731431003217;
-        Tue, 12 Nov 2024 09:03:23 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e99a62bd4fsm12878827a91.50.2024.11.12.09.03.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 09:03:22 -0800 (PST)
-Message-ID: <6d2abf6d-682f-461d-9147-cffc80825b18@roeck-us.net>
-Date: Tue, 12 Nov 2024 09:03:21 -0800
+	Tue, 12 Nov 2024 17:07:07 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 341ADE0005;
+	Tue, 12 Nov 2024 17:07:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1731431224;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Q5euAD6mvMtoI8FBmagdROpF4KMX7Rxgrb+7EFp/no4=;
+	b=fcSBz1GrzADukN6xLwU6Gqk8+OPPUxrk7kfxs0YK3n4Ea7Co4G3bTtTz6Ua5Q2RjnIVdIJ
+	3IeYRuYwwlrGYSaJTzJe9+gwBaBtfF4vbpAHxgeR8zka4jduvrIGErnOSvxaPQuPN0mo/o
+	H3nlthG5bwg+MR8ZCj1oMwjfpGeCK9Kwhk9GfUrVCo7jCaSQj8FSxfu2bwRRQsXqziX1CZ
+	4kqEEy2hO2bU3+OoUH6C4BpCN18/s5nfq62Kdpz4tOItR7gOkGvhJPfDsU0Mx5E/O2vUDs
+	Hvm9PpHFB2l1vtlfFSyqRCdOIbPsXrGjA/2LTRVIrwSoEf9WnU/pkQAOsk0L9A==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Machon <daniel.machon@microchip.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 2/9] net: stmmac: Use per-hw ptp clock ops
+Date: Tue, 12 Nov 2024 18:06:50 +0100
+Message-ID: <20241112170658.2388529-3-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241112170658.2388529-1-maxime.chevallier@bootlin.com>
+References: <20241112170658.2388529-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] arm64: dts: imx93-9x9-qsb: add temp-sensor
- nxp,p3t1085
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
- Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>,
- linux-hwmon@vger.kernel.org
-References: <20241112-p3t1085-v4-0-a1334314b1e6@nxp.com>
- <20241112-p3t1085-v4-3-a1334314b1e6@nxp.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241112-p3t1085-v4-3-a1334314b1e6@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_090324_774445_131631F0 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_090705_863559_1F0F5099 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,11 +85,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/24 08:52, Frank Li wrote:
-> Add temp-sensor nxp,p3t1085 for imx93-9x9-qsb boards.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+The auxiliary snapshot configuration was found to differ depending on
+the dwmac version. To prepare supporting this, allow specifying the
+ptp_clock_info ops in the hwif array
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/common.h     |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c       | 11 +++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c |  4 +---
+ 3 files changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 684489156dce..4a0a1708c391 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -551,6 +551,8 @@ struct mac_device_info;
+ extern const struct stmmac_hwtimestamp stmmac_ptp;
+ extern const struct stmmac_mode_ops dwmac4_ring_mode_ops;
+ 
++extern const struct ptp_clock_info stmmac_ptp_clock_ops;
++
+ struct mac_link {
+ 	u32 caps;
+ 	u32 speed_mask;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index cfc50289aed6..47458cbcbc94 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -113,6 +113,7 @@ static const struct stmmac_hwif_entry {
+ 	const void *dma;
+ 	const void *mac;
+ 	const void *hwtimestamp;
++	const void *ptp;
+ 	const void *mode;
+ 	const void *tc;
+ 	const void *mmc;
+@@ -134,6 +135,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac100_dma_ops,
+ 		.mac = &dwmac100_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = NULL,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -152,6 +154,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac1000_dma_ops,
+ 		.mac = &dwmac1000_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = NULL,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -171,6 +174,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac4_dma_ops,
+ 		.mac = &dwmac4_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = &dwmac4_tc_ops,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -192,6 +196,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac4_dma_ops,
+ 		.mac = &dwmac410_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = &dwmac4_ring_mode_ops,
+ 		.tc = &dwmac510_tc_ops,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -213,6 +218,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac410_dma_ops,
+ 		.mac = &dwmac410_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = &dwmac4_ring_mode_ops,
+ 		.tc = &dwmac510_tc_ops,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -234,6 +240,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwmac410_dma_ops,
+ 		.mac = &dwmac510_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = &dwmac4_ring_mode_ops,
+ 		.tc = &dwmac510_tc_ops,
+ 		.mmc = &dwmac_mmc_ops,
+@@ -256,6 +263,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwxgmac210_dma_ops,
+ 		.mac = &dwxgmac210_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = &dwxgmac_tc_ops,
+ 		.mmc = &dwxgmac_mmc_ops,
+@@ -278,6 +286,7 @@ static const struct stmmac_hwif_entry {
+ 		.dma = &dwxgmac210_dma_ops,
+ 		.mac = &dwxlgmac2_ops,
+ 		.hwtimestamp = &stmmac_ptp,
++		.ptp = &stmmac_ptp_clock_ops,
+ 		.mode = NULL,
+ 		.tc = &dwxgmac_tc_ops,
+ 		.mmc = &dwxgmac_mmc_ops,
+@@ -362,6 +371,8 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 		priv->fpe_cfg.reg = entry->regs.fpe_reg;
+ 		priv->ptpaddr = priv->ioaddr + entry->regs.ptp_off;
+ 		priv->mmcaddr = priv->ioaddr + entry->regs.mmc_off;
++		memcpy(&priv->ptp_clock_ops, entry->ptp,
++		       sizeof(struct ptp_clock_info));
+ 		if (entry->est)
+ 			priv->estaddr = priv->ioaddr + entry->regs.est_off;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 11ab1d6b916a..41581f516ea9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -265,7 +265,7 @@ static int stmmac_getcrosststamp(struct ptp_clock_info *ptp,
+ }
+ 
+ /* structure describing a PTP hardware clock */
+-static struct ptp_clock_info stmmac_ptp_clock_ops = {
++const struct ptp_clock_info stmmac_ptp_clock_ops = {
+ 	.owner = THIS_MODULE,
+ 	.name = "stmmac ptp",
+ 	.max_adj = 62500000,
+@@ -303,8 +303,6 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+ 		priv->plat->cdc_error_adj = (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_rate;
+ 
+-	priv->ptp_clock_ops = stmmac_ptp_clock_ops;
+-
+ 	priv->ptp_clock_ops.n_per_out = priv->dma_cap.pps_out_num;
+ 	priv->ptp_clock_ops.n_ext_ts = priv->dma_cap.aux_snapshot_n;
+ 
+-- 
+2.47.0
 
 
