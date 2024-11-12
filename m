@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7BBD42B97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8027FD42B97
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/ZZ+GzA9JnknmCSiZ4KAoFAxIWZALm0qPy9dvBIJSk=; b=4LluOiOtsvuNC3eMGdMNVQTRVi
-	eS2K9aYL062yvSNQNoa2pV84TlBfBHGx8dlKmvXLYZPRmuFLaynDXyRXhLw1yBs6TWORhVzqmOb6f
-	Pn5IHZFeHWqFkfnnvAXw3EOfl5VbvPo+3HBi9njQ59bofMHteWmbcsaJrtioxtPXpcCjt4/fJ6Cyw
-	+9Bm+W8yyzTr0yGJls8pGKT1ihMom1ukwFAzq+DkCHxClvSgbHDMzzJKhmczjQRkaM9ygNLDODu3f
-	wKIcMA5aKzhgGsoFoqfYeImVwrOZ60aSNdNyz4XwTupWjRVP6aL6d9EquwF9yHn4yRsYiFevyRZ16
-	qiuVUulQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I+T4tSwskXOccnMHjrQgT921+1/jkcnTnTZ1NbAhny8=; b=gTbqCPhODNS2pfIAudYKeyZjUi
+	cPcVsBtp5DGtC/gpT6rTNsj0h4ZQViTQPydQ2CyyMitEN4NvlFdtoI8HJ0SuPgKpQVxVTsXLJaOhd
+	EFCpnEGrHCPdGngobt5UEKu/x2BgTOZykj0f45PRaR38Hv4N2xhFLt+FyHVYR06TzRyXOrkiY3Ve8
+	cqkeAPFpKkSdkJ0N05aWhmhMsacNUvxGTQ2gJ9ADF2hVXddrA9Cm28qzHZWz44HyV9NKrbc9JI2HK
+	9Sw5t4YkZ58ZBUbv+U1O+L0bz2SqB9VNa6/vrQF355PqfD6BuiTmSTkuQ3QoowLo6HfISnw7Nvklk
+	72WAhJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAscf-00000003v9S-09cm;
-	Tue, 12 Nov 2024 15:16:05 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1tAsej-00000003vlS-2F1Q;
+	Tue, 12 Nov 2024 15:18:13 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsZ6-00000003uEJ-28rH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:12:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5AAF7240006;
-	Tue, 12 Nov 2024 15:12:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731424339;
+	id 1tAsc2-00000003uuZ-0UAr;
+	Tue, 12 Nov 2024 15:15:28 +0000
+MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1731424523;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7/ZZ+GzA9JnknmCSiZ4KAoFAxIWZALm0qPy9dvBIJSk=;
-	b=gN8R0y5rBADWu+wo+lGHeMRwjS1282FydlI9vD3kgvpHQWTYsItwv0ODr3pyxeUUL9/IZL
-	szxsyvU9qROe3EZH29OPtqpzNY1CGgw47LbshgwpkgUVX6VO2bWsajgC4TmMcGHH7r9LlY
-	G33EvbRmjGx8br4vfR0EeyZkdPYjWhhRewSY/WUDxk+ZEvI08pmAojF8qfmADEABnJxIG+
-	qoyc+4hqVEjd2XnEyLTv/JnKdPv8cfU++ryF0rzS0cTh8FTuDEnlZfczRSAd+U2jb3EZf+
-	mfFl/EYf15RQtHk91p5j5TX+qAfHgPZIWoTiawRO5TblLOHnhgPxrTSLqjvRdg==
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: cathycai0714@gmail.com, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Avi Fishman <avifishman70@gmail.com>
-Cc: cathy.cai@unisoc.com, cixi.geng1@unisoc.com,
- David Miller <davem@davemloft.net>, edumazet@google.com, kuba@kernel.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- Network Development <netdev@vger.kernel.org>, pabeni@redhat.com,
- wade.shu@unisoc.com, xuewen.yan94@gmail.com, zhiguo.niu@unisoc.com,
- Alexandre Torgue <alexandre.torgue@st.com>,
- Murali <murali.somarouthu@dell.com>, Tomer Maimon <tmaimon77@gmail.com>,
- "Silva, L Antonio" <Luis.A.Silva@dell.com>,
- Arias Pablo <Pablo_Arias@dell.com>,
- Somarouthu Murali <Murali_Somarouthu@dell.com>, uri.trichter@nuvoton.com
-Subject: Re: [RFC PATCH] net: stmmac: Fix the problem about interrupt storm
-Date: Tue, 12 Nov 2024 16:12:17 +0100
-Message-ID: <7732873.EvYhyI6sBW@fw-rgant>
-In-Reply-To: <CAKKbWA6zRee9Rzee-ebLnEAvwLqnmsPswGaUo_ineyzw-b=EgQ@mail.gmail.com>
-References: <CAKKbWA7e0TmU4z4O8tHfwE=dvqPFaZbSPjxR-==fQSsNq6ELCQ@mail.gmail.com>
- <CAKKbWA6zRee9Rzee-ebLnEAvwLqnmsPswGaUo_ineyzw-b=EgQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-GND-Sasl: romain.gantois@bootlin.com
+	bh=I+T4tSwskXOccnMHjrQgT921+1/jkcnTnTZ1NbAhny8=;
+	b=As8GlpHyj4QIfc0wiqwTGXTfMj1WhRthprGtIRGhtbFpPJgGHGutu0qGzKOPHPyJ2vqvnx
+	BrUrIgTd0z/MWaPePRTUFoBdHJex4vZXbl2E0H0YMvPwmJRZcNpjD/hafUsz1rE22v8aKU
+	W9pZz9NHd8ZueTSVpGPGs2WUMKVlyhVZT8WuTF3PXSqQYCCNXMDcIXq0ipy20Ko9/HrZsS
+	NwLf61tktTX/blwvOCLEpg3OuYafMoTsinJ47BinZatfMEcbsKkzgi2yVW62wqnYlD+WhY
+	5x6FhvpOrGNUb6W0UBEYWuTw08t4mB/oMXph8wUKBRZI4nSLxVDgulf5maU0OQ==
+Date: Tue, 12 Nov 2024 16:15:23 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: =?UTF-8?Q?Tam=C3=A1s_Sz=C5=B1cs?= <tszucs@linux.com>
+Cc: Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki
+ <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
+ set it up for SDIO devices
+In-Reply-To: <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
+References: <20241111181807.13211-1-tszucs@linux.com>
+ <20241111181807.13211-3-tszucs@linux.com>
+ <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
+ <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
+ <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
+Message-ID: <303ad3910668e852d6670d1c79dc22e0@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_071224_846629_E424BB81 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20241112_071526_473839_22B7170A 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +80,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hello Tamas,
 
-On dimanche 3 novembre 2024 20:00:54 heure normale d=E2=80=99Europe central=
-e Avi=20
-=46ishman wrote:
-> Hi all,
->=20
-=2E..
-> >  Yes. It could also happen between the dev_open() and
-> >=20
-> > clear_bit(STMMAC_DOWN) calls.
-> > Although we did not reproduce this scenario, it should have happened
-> > if we had increased
-> > the number of test samples. In addition, I found that other people had
-> > similar problems before.
-> > The link is:
-> > https://lore.kernel.org/all/20210208140820.10410-11-Sergey.Semin@baikal=
-ele
-> > ctronics.ru/>=20
-> > > Moreover, it seems strange to me that stmmac_interrupt()
-> > > unconditionnally
-> > > ignores interrupts when the driver is in STMMAC_DOWN state. This seems
-> > > like
-> > > dangerous behaviour, since it could cause IRQ storm issues whenever
-> > > something in the driver sets this state. I'm not too familiar with the
-> > > interrupt handling in this driver, but maybe stmmac_interrupt() could
-> > > clear interrupts unconditionnally in the STMMAC_DOWN state?
-> >=20
-> > Clear interrupts unconditionally in the STMMAC_DOWN state directly
-> > certainly won't cause this problem.
-> > This may be too rough, maybe this design has other considerations.
->=20
-> But then after the dev_open() you might miss interrupt, no?
+On 2024-11-12 15:35, Tamás Szűcs wrote:
+> I think it was totally fine to disable sdmmc2 at first, especially if
+> it couldn’t be tested or wasn’t needed right away. From what I’ve
+> seen, this board works great even at higher clock speeds than what
+> rk356x-base.dtsi suggests. I don’t have access to the RK3568 errata,
+> and there don’t seem to be any limits mentioned in the TRM either.
+> Overall, this board is doing just fine as it is.
 
-Indeed, but in any case, unconditionally returning from an IRQ handler with=
-out=20
-clearing any interrupt flags seems like very strange behavior to me.
+Sorry, I'm missing the point of mentioning some clock speeds?  Any
+chances, please, to clarify that a bit?
 
-Disabling and reenabling interrupts as you suggested does seem like a
-good solution for this particular scenario, but it doesn't solve the more
-general issue of the dangerous way stmmac_interrupt handles this.
+> Regarding device tree overlays, they would be ideal for implementing
+> secondary functions, such as PCIe endpoint mode for users with
+> specific requirements. However, the primary functions for PCIe on the
+> M2E will be root complex mode, along with SDIO host, etc. In my view,
+> the hardware is well-designed and interconnected. Users have a
+> reasonable expectation that these primary functions should work
+> seamlessly without additional configuration, right out of the box.
 
-Maybe the setting and clearing of this STMMAC_DOWN bit should
-be wrapped in some kind of handler which also disables all interrupts?
+That's basically what I referred to in my earlier response, and in my
+previous response regarding the UART.  Users would expect the Bluetooth
+part to work as well, but the error messages I mentioned look nasty, so
+perhaps something should be done about that first.
 
-Best Regards
+> Dragan, what did you mean by SDIO related power timing requirements?
 
-=2D-=20
-Romain Gantois, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Whenever there's an SDIO module, there's usually some required timing
+of the power rails.  Though, I don't know what's that like with the
+non-standard M.2 SDIO modules that Radxa sells, which are intended to
+be used on Radxa boards with "hybrid" M.2 slots.
 
+Once again, please use inline replying. [*]
 
+[*] https://en.wikipedia.org/wiki/Posting_style
+
+> On Tue, Nov 12, 2024 at 5:41 AM Dragan Simic <dsimic@manjaro.org> 
+> wrote:
+>> 
+>> Hello Jonas and Tamas,
+>> 
+>> On 2024-11-11 20:06, Jonas Karlman wrote:
+>> > On 2024-11-11 19:17, Tamás Szűcs wrote:
+>> >> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UHS-I
+>> >> rates and
+>> >> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
+>> >>
+>> >> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
+>> >> ---
+>> >>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
+>> >>  1 file changed, 7 insertions(+), 1 deletion(-)
+>> >>
+>> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> >> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> >> index 242af5337cdf..b7527ba418f7 100644
+>> >> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> >> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> >> @@ -688,14 +688,20 @@ &sdmmc2 {
+>> >>      cap-sd-highspeed;
+>> >>      cap-sdio-irq;
+>> >>      keep-power-in-suspend;
+>> >> +    max-frequency = <200000000>;
+>> >>      mmc-pwrseq = <&sdio_pwrseq>;
+>> >>      non-removable;
+>> >>      pinctrl-names = "default";
+>> >>      pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
+>> >> +    sd-uhs-sdr12;
+>> >> +    sd-uhs-sdr25;
+>> >> +    sd-uhs-sdr50;
+>> >
+>> > I thought that lower speeds was implied by uhs-sdr104?
+>> 
+>> Last time I went through the MMC drivers, they were implied.  IIRC,
+>> such backward mode compatibility is actually a requirement made by
+>> the MMC specification.
+>> 
+>> >>      sd-uhs-sdr104;
+>> >> +    sd-uhs-ddr50;
+>> >>      vmmc-supply = <&vcc3v3_sys2>;
+>> >>      vqmmc-supply = <&vcc_1v8>;
+>> >> -    status = "disabled";
+>> >> +    wakeup-source;
+>> >> +    status = "okay";
+>> >
+>> > This should probably be enabled using an dt-overlay, there is no
+>> > SDIO device embedded on the board and the reason I left it disabled
+>> > in original board DT submission.
+>> 
+>> Just went through the ROCK 3B schematic, version 1.51, and I think
+>> there should be no need for a separate overlay, because sdmmc2 goes
+>> to the M.2 slot on the board, which any user can plug an M.2 module
+>> into, and the SDIO interface is kind-of self-discoverable.
+>> 
+>> Of course, all that unless there are some horribly looking :) error
+>> messages emitted to the kernel log when nothing is actually found,
+>> in which case the SDIO/MMC driers should be fixed first.  Also, I'm
+>> not sure what do we do with the possible SDIO-related power timing
+>> requirements?
 
