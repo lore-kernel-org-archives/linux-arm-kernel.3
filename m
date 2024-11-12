@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FB4D42BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D0BD42BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KnGx3ACBnnMv2BmaDE1d3Gtw8+1dg1ljAPNkRzxM8c=; b=UhLTyjZvq8V7rSYyJkKBZ6+Yy2
-	kpjPiGhbzYk9x1/ZrBSvZBOfAbc3AcAQ6hx3+GcvH849M5KkO8FcW9PglAm9Wxnzq+0FK67d56udz
-	uXS5ooLUZoUf3leGTHRcnEzqns8+GzS8z+sejGJlZ5Z9agUzU06ATJEkgVjYRn2AtUt1hpA4gt7vE
-	iGwCVZv2O2RVbL1KvqOLGIn9QWCHHW7UM4L46VZlrlgQI++3cuAW5jpyiR9dyzmUkkCn1qnp9ZxHe
-	+2i9/Rk/28rwaLOZkMUJhvke0E2r+PTjyuSEvCny6Zzn+LPIo5W+GYu+O7vTmq91+cKFR3hRgXtu/
-	PiBQ1mMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lCkmsvS3OoMegI5NcO45YtTnBJVOa6IiQ6KT6R3YkDg=; b=wdVWv5JrA6ZH1/m6PwkgL2KyAo
+	GJ9fuKrBi2y2O5VVfU3UgNFEkBmb1QNMpW34r4KcJXm11EmsQ63IcimyUSgA4VcgaE0zZfZSN/GXQ
+	vDoeayt2vHKcvj6V7UBrvOapfvv+sMBj0vzXZc9hseGb7lR1SbeS7nrkyk3MqBewgwF90rvJfjCSk
+	v+vUZu8U/6QbT2WUXu12wzNH4JwSvjY4Si6M5dPJhl4GUaExFYzGbiX/DVkYC806Gya32KY4EKrxg
+	LlsK6NoH/bnJ3VlKO5ECNR8CKo7e7P7T1LgbUi8Ui4BK40aZe6IHQNua86ziUVmWULd1XfrvFfrnI
+	GsP2N49Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuvX-00000004Pj9-3IE8;
-	Tue, 12 Nov 2024 17:43:43 +0000
-Received: from omta034.useast.a.cloudfilter.net ([44.202.169.33])
+	id 1tAuxM-00000004QCa-3WAJ;
+	Tue, 12 Nov 2024 17:45:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuSi-00000004JdC-11rI
+	id 1tAuYc-00000004L4L-28VW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:13:57 +0000
-Received: from eig-obgw-5010a.ext.cloudfilter.net ([10.0.29.199])
-	by cmsmtp with ESMTPS
-	id AthFtRlojrKrbAuSgtShis; Tue, 12 Nov 2024 17:13:54 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id AuSdtLSYYaWWwAuSetY9wr; Tue, 12 Nov 2024 17:13:53 +0000
-X-Authority-Analysis: v=2.4 cv=D/FBKORj c=1 sm=1 tr=0 ts=67338cd1
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10
- a=oM_t_NHKBYUYTEO7nXEA:9 a=QEXdDO2ut3YA:10 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+KnGx3ACBnnMv2BmaDE1d3Gtw8+1dg1ljAPNkRzxM8c=; b=AozN/N0l9750TXxMIZV9dyrYzr
-	pGPwMXEErQkZbfhuE2qJSjqeSI2GOs9LzqRhJEH5WTyajpDDai0UnZ+8/gsiQTPcKEv6hQRRLg/0s
-	+7xHFVam1tSusiES8SgHsXFvRuI3b0orNqK4EI8x96i9NrCOiE0wckzlUPE/Dj0CVXyXdWMvJf6g3
-	uBde9UXDm6TfRxDipncRac4MNAhLLPpl3QQ4sCps0Bd3XvDWMudY974mZj5fy8CUKOt8AaTxI0t7S
-	OrMFf6kEML+ZhRAg4M/+KfEyr0iSPIO0yQCcgN9DsX5S4ejK5HFDkMrk2JqSUt7/KfMPRAf+1dAiO
-	8e7zUG+Q==;
-Received: from [122.165.245.213] (port=53470 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1tAuSY-000Tbs-1d;
-	Tue, 12 Nov 2024 22:43:46 +0530
-Message-ID: <f0d5b314-cfcc-4856-8d6e-09e437c075ec@linumiz.com>
-Date: Tue, 12 Nov 2024 22:43:44 +0530
+	Tue, 12 Nov 2024 17:20:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2BABB5C54CC;
+	Tue, 12 Nov 2024 17:19:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D933C4CECD;
+	Tue, 12 Nov 2024 17:20:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731432001;
+	bh=WLVOfxqes1xc6tPBqvZff21GY8qOJvM0DeYgwViWALM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CyZrv9MGookTYoVLPGHnA9463Vw96aWB1Y5hzIo/d7BXLAL8IxQOZ/Bkq/B4bwZm+
+	 RYgaIlDvET8ZTAzJjVsqboZOsB4kXJq8srd3YccdvW6zhYsqjKrZN5i04r33LkVDS1
+	 Dz/nODORvkdfTCm+dY+8q2xAFGcoW8yuL0IDB8GeyvqKZDbGJLfIvfJwAXBptKerhF
+	 LuLo0WFS9xRsMXKGProcWh7O2e9rqQCNoLmFy2f5GwR7RemNx4E6AM3UbVcjGIXIBX
+	 4ro9tWq6HRkLq5ktF8Uktj/liMiiLuOa10+2pnnsA6/zRXc40mgQOdK+W1/RRyDXXP
+	 QbRQsdiXLGWPw==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1tAuYW-000000007i6-1ILX;
+	Tue, 12 Nov 2024 18:19:56 +0100
+Date: Tue, 12 Nov 2024 18:19:56 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Sibi Sankar <quic_sibis@quicinc.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	jassisinghbrar@gmail.com, dmitry.baryshkov@linaro.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	konradybcio@kernel.org, linux-pm@vger.kernel.org,
+	tstrudel@google.com, rafael@kernel.org
+Subject: Re: [PATCH V5 0/6] firmware: arm_scmi: Misc Fixes
+Message-ID: <ZzOOPJ_gI9TGadzV@hovoldconsulting.com>
+References: <20241030125512.2884761-1-quic_sibis@quicinc.com>
+ <CAPDyKFoY8CnxF7JXzkT9_WXyM-TJhW4kmTw=H8NEzch32N1_7Q@mail.gmail.com>
+ <ZyJeuVIbWkohymW5@pluto>
+ <20241106071215.jhnzcn4vkdfr3peg@bogus>
+ <CAPDyKFr-pmXEhgUgCapzQX3Hn_UAM632TaG8SdkQXaCn5-y42g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Andre Przywara <andre.przywara@arm.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-To: John Watts <contact@jookia.org>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
- <20241108115357.691b77b0@donnerap.manchester.arm.com>
- <Zy4SKCBwce3q0yj5@titan> <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
- <Zy4c9BFcrz2JVU6k@titan> <ZzNCsFiAiACFrQhE@titan>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <ZzNCsFiAiACFrQhE@titan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1tAuSY-000Tbs-1d
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:53470
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 3
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfM1ENCwCdcjhHyvkAzaE6A7m1UKTJmAXTpC7cuHjgi/thLPl7NYD6PJBpVugFuYrkZNRFcO1mEAb82AyFoK96bgQ8pjmYk9AUnynS2K+CGCdZuRMbex6
- DFZDXYdq6OLB3KLOaZS4B16Pte3JRcntzsGBFFKS7DBQBPb+A4wJECLUyBFpvMEAleSszObeEOIpI/YJ6rxQC04VPc/MlIoeCIAPtHtnCfO2VN4WClajb56j
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFr-pmXEhgUgCapzQX3Hn_UAM632TaG8SdkQXaCn5-y42g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_091356_412659_EDC9F1F5 
-X-CRM114-Status: GOOD (  30.27  )
+X-CRM114-CacheID: sfid-20241112_092002_667702_AD7C7AC5 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,85 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/24 5:27 PM, John Watts wrote:
-> Hey everyone,
-> 
-> I'm not sure exactly where to add this but I discussed some of this with
-> Parthiban on #linux-sunxi a few days ago, so I want to write it down
-> before I work on the next version of the patch.
-> 
-> I had assumed for some reason in my mind that DE0 and DE1 here referred
-> to mixers, but they actually refer to chips that have multiple DEs. It
-> looks like at least with the A133 it has two DEs instead of two mixers.
-> 
-> This can be found by looking at the Allwinner BSP: SUN50IW10 requires
-> CONFIG_INDEPENDENT_DE and has a device tree with an extra reg and clock:
-> 
-> <0x0 0x06800000 0x0 0x3fffff>,/*de1*/
-> <&clk_dpss_top1>
+On Tue, Nov 12, 2024 at 04:56:26PM +0100, Ulf Hansson wrote:
+> On Wed, 6 Nov 2024 at 08:12, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > On Wed, Oct 30, 2024 at 04:28:41PM +0000, Cristian Marussi wrote:
+> > > On Wed, Oct 30, 2024 at 05:19:39PM +0100, Ulf Hansson wrote:
+> > > > On Wed, 30 Oct 2024 at 13:55, Sibi Sankar <quic_sibis@quicinc.com> wrote:
+> > > > >
+> > > > > The series addresses the kernel warnings reported by Johan at [1] and are
+> > > > > are required to X1E cpufreq device tree changes to land.
+> > > > >
+> > > > > [1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+> > > > >
+> > > > > Duplicate levels:
+> > > > > arm-scmi arm-scmi.0.auto: Level 2976000 Power 218062 Latency 30us Ifreq 2976000 Index 10
+> > > > > arm-scmi arm-scmi.0.auto: Level 3206400 Power 264356 Latency 30us Ifreq 3206400 Index 11
+> > > > > arm-scmi arm-scmi.0.auto: Level 3417600 Power 314966 Latency 30us Ifreq 3417600 Index 12
+> > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > > arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
+> > > > > arm-scmi arm-scmi.0.auto: Level 4012800 Power 528848 Latency 30us Ifreq 4012800 Index 15
+> > > > >
+> > > > > ^^ exist because SCP reports duplicate values for the highest sustainable
+> > > > > freq for perf domains 1 and 2. These are the only freqs that appear as
+> > > > > duplicates and will be fixed with a firmware update. FWIW the warnings
+> > > > > that we are addressing in this series will also get fixed by a firmware
+> > > > > update but they still have to land for devices already out in the wild.
+> > > > >
+> > > > > V4:
+> > > > > * Rework debugfs node creation patch [Ulf/Dmitry]
+> > > > > * Reduce report level to dev_info and tag it with FW_BUG [Johan/Dmitry]
+> > > > > * Add cc stable and err logs to patch 1 commit message [Johan]
 
-Independent DE is unique to A133/A100 AFAIK.
+> Sorry for the delay. I have picked up the remaining patches from this
+> series. All applied for fixes and by adding stable tags to them,
+> thanks!
 
-> 
-> However the tcon-top code seems to conflate mixers and DE in the
-> mainline code and the Allwinner code. So ... It seems like 'DE0' and
-> 'DE1' really do mean mixers in this case. It's probably best to note
+As I reported here:
 
-#define TCON_TOP_PORT_DE0_MSK                   GENMASK(1, 0)
-#define TCON_TOP_PORT_DE1_MSK                   GENMASK(5, 4)
+	https://lore.kernel.org/lkml/ZyTQ9QD1tEkhQ9eu@hovoldconsulting.com/
 
-references towards DE0 and DE1 is for DE itself, not the mixers in the
-current implementation.
+I'm seeing a hard reset on the x1e80100 CRD and Lenovo ThinkPad T14s
+when accessing the cpufreq sysfs attributes.
 
-Handling for mixer0 <-> lcd1 and mixer1 <-> lcd0 also needs to set
-DE2TCON_MUX in de clock, which is missing now.
+Sibi tracked it down to the first patch in this series ("firmware:
+arm_scmi: Ensure that the message-id supports fastchannel") and
+reverting that one indeed fixes the reset.
 
-> that down.
-> 
-> I thought a bit more about how to solve this properly- setting two
-> mixers to the same output is something people probably won't do in
-> practice, so the only way you could really arrive at this bugged state
-> is by setting it as the default state. This patch may be the correct
-> solution after all.
+Unfortunately this was only discussed on IRC and was never reported in
+this thread.
 
-sun8i_tcon_top_set_hdmi_src for R40 already sets these values via quirks.
-i.e controlling the port muxing. Also D1 quirks is same as R40. So the
-original changes to make the DE1 point to TVx can also done in this quirk
-without hardcoded value?
+Ulf, could you please drop the first patch again until we've figured out
+how best to handle this?
 
-Thanks,
-Parthiban
-
-> 
-> John Watts
-> 
-> On Sat, Nov 09, 2024 at 01:15:16AM +1100, John Watts wrote:
->> On Fri, Nov 08, 2024 at 07:36:16PM +0530, Parthiban wrote:
->>> To add, 0x20 will be DE0 <--> LCD0 and DE1 <--> TV0. Below note (copied from
->>> R40) states the priority of the DE selection, which fails to work? Not sure,
->>> may be disabling CORE1_SCLK_GATE and CORE1_HCLK_GATE in de2-clk helps.
->>>
->>> With A133 following the same as T113 with single mixer without TV, still
->>> sets 0x20 in vendor kernel.
->>>
->>> copied from R40:
->>> Note: The priority of DE0 is higher than DE1.
->>> If TCON_LCD0 selects DE0 and DE1 as source at the same time, then
->>> DE0 will be used for the source of TCON_LCD0.
->>
->> Hi there,
->>
->> Yes that was a pretty bad typo, I meant to say DE1 to TV0
->> The prioritization seems broken in the T113 at least, it's racy from
->> what I see in testing. I should note this in the patch too.
->>
->> I looked at the datasheets and kernel code briefly: I can't seem to
->> figure out what SCLK/HCLK gating does and I don't think the kernel
->> touches these registers which are gated by default.
->>
->>> Thanks,
->>> Parthiban
->>
->> John Watts
-
+Johan
 
