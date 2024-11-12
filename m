@@ -4,178 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF7ED32D8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE9BD32D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0ooql6tJx9QvI6HzImFAbKMebLcspbeKsCrIWpXV3Q=; b=TNlmPa+XxFW2V9F8jVxCLjvvlY
-	nJSjm1/kh6EfG7Dxzgy9R+/4x/4LxuQAqbAdwBzgbksigtr32bqeD/TlGrRmxE62ad1210UTCn7XY
-	VwUEA6YR5XjcEG+RgwhJaXE6P9jNaxkiM9xPwjghmphreKH6VaQimG9MqusrNty7IOCx9OFFj3IYb
-	X4w+9BC31vK1w3yGjnNA5tF07lbFMnV7gGZZsH0LsoqaOrxXM21uFwXnIU0OaSWSRcFqhN5RO8Yol
-	n8mYMiT0YJ4kkDrR9M+pR2Tn7kJMmjKWNFsHSNi1+ZhYnEwbLlSx+tBh8m1K6hYAsD2MeDS1fkNaZ
-	CUJwB72A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=; b=keQ9hho+XYVgDI6VD56z2jipYj
+	YII4GCJyXcMbE8kXF9Xg1IvFKRN6nTR2sDWrYjdVjS4ebcjokWz7hpbnyP/DJS4IPRaYPGrENNrJ4
+	1797opdI/j9hRPyqQdMWAOSSh9TBB3b2xOZ3czBo2FKJdd4kzrI5NpRjyxbNAj6gaOIRc9hqsSg3R
+	6gTpv2OeVwYayaGA8qtZiilYniALzAQJrJKgOK7GdgBNksyea1ohig5oDlJIlQlqYcERASgo2dHuX
+	3aUzRtZ2SAoSx2OWjOtP/CDictQ5oEisXl1/gOEhKkwT4C0GdWlV2EbNNwICtvayHG8kMNgn0ZtKG
+	DAGYdgJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAo4E-000000031zT-1Bkf;
-	Tue, 12 Nov 2024 10:24:14 +0000
-Received: from mail-am6eur05on20629.outbound.protection.outlook.com ([2a01:111:f403:2612::629] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tAo62-000000032Qf-2xuy;
+	Tue, 12 Nov 2024 10:26:06 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnnR-00000002yKZ-2nqK
+	id 1tAnwD-0000000304V-3Cmf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:06:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DCrZF6tuJ2RCMteS7iGcDLv9QYBsr5yLa7LlACnYs6dAWHWjyJeb2w+nm8Pwocbi5KsFvd6fG2UGrfoejeEtSMa32Pp4jIlCWAbX+/N9MINTvQLgFBaAoRCvTKriMmBVbBjlGydCrvG2PTcks79EYPVpoPO8peKNmk4NSLDWwbmHpq+R4nQVkd6T5pYbnD96kew4oEsotoB+suHVO5RqwevVQyYAvd/+BXafeWiayKjblGSV/HEImYAXtpm8OKVibDYS2CVOwgGl/+YxLAxJ9nNM8r/Bis+rpzVlNWzQA8K0LcS4IaIx+simKUt1V85yGuQKUga/0Ka5WUqVipBK3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S0ooql6tJx9QvI6HzImFAbKMebLcspbeKsCrIWpXV3Q=;
- b=c1hQ+MrxgHqePlSVBRTLS6c0oSXXf19wMGklh6B+E1yy+r7qFCyQG1WJ8fe/KsjR458r+Ct3oWV+Wns5UVKXjMGOq/TEZzR9Yl3X3T/ZcymlblJJD5a6OB4SwKirsAzB8pXUz5LrUNhOOT/X6opPDt3aIJ8o8Wdd47SUZTxmgYQLLJUkwT9yIPQjVj8c3sxYHUn7ZxCn/iF54ADbkxXTtBhopTnrn5FLRw3aLLpBV5NH0qpmurtzh1T/aTVyxImJARZ8CauZjV2EBZGjDOtbaYNpqVITVnzKvx+oTDa0RJZXpikGKMSVgoaNJvSlt0072NDV8yQ4cKm8CE/PB3dK2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S0ooql6tJx9QvI6HzImFAbKMebLcspbeKsCrIWpXV3Q=;
- b=QwMF1O4rVot27CWfjhgLcGPSps2jQ6tjpiuQW1k60oqYsnPhbCJ7h+ND5KJm59K+jSd8LACo+aAojq2KrVNrntQw8+Kswfmr16tCLVjmjJ6Ylo5/uikk8LS1zVuRxwDz68yQUJCSaTTRaknMNgIYtrUQ5Kotpvu2PA0TUcyw1PUBNQ4tB/0tWBOaY1yPUS4glY3JqQnJ1LMsDfTHAID6l9lux3Rb0v3KADRvMdf9BlGtSCJoMewATqQ8o1VG6oPSaXnRq2G5pS4yN5+xPgWJtsTfv+NB/AjzGzyhDsM4E5z5OVJe7pcE/vyopZMwcd7RGuc4aIsb6tO9xmIekwTaxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS8PR04MB7879.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Tue, 12 Nov
- 2024 10:06:50 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
- 10:06:50 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	abelvesa@kernel.org,
-	peng.fan@nxp.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	quic_bjorande@quicinc.com,
-	geert+renesas@glider.be,
-	dmitry.baryshkov@linaro.org,
-	arnd@arndb.de,
-	nfraprado@collabora.com,
-	marex@denx.de
-Subject: [PATCH v6 7/7] arm64: defconfig: Enable ITE IT6263 driver
-Date: Tue, 12 Nov 2024 18:05:47 +0800
-Message-Id: <20241112100547.2908497-8-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112100547.2908497-1-victor.liu@nxp.com>
-References: <20241112100547.2908497-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0025.apcprd02.prod.outlook.com
- (2603:1096:3:18::13) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 12 Nov 2024 10:15:59 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-431695fa98bso42982345e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 02:15:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731406556; x=1732011356; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=;
+        b=faIDi+yidCJRq/z21+Sp58bTj7UPba/+MgC5gQDubdfCTzRer8DHdZ7x8s4Ux6KX6u
+         etAf8YHzQpEdlzmUVbouM7PZXaAp30Ozcu6xk4gF58G+1IUjHCh5ygbHMXGwg75nekBg
+         mGq2QnNnnABb48KW2bO3VcmYXgN1aGlY0xF2U7EqdkToHhRo4DiaOHIiNlBMT7mrwYjF
+         0TXPd+R/GDaLhltm90ZPakO2c9Zter4iFl2OnZ6pUeJZt5H0mLRLIWatNPNK+JlrRjRt
+         RKA7eiBujL8CpS/lPhJyO9tQDvzMVWNa/d12IyCrxqkGfB6+HWcb/7Hm83UK/jEo1WD+
+         Uuug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731406556; x=1732011356;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=obp8yGIldYDVzI0XN70dXZCO2SHc5IgrE0mc+D/CPjg=;
+        b=t6pRps1OxEQC49tpYEVfRqbTGjlfVJ6s42PlkyGzDRTRbG4IqOUSk8j3XzpNBhdOER
+         xWMKaNX8bSW28HzI8NV1rbZe2uwZ6Uw47XJ31a8N1pEDj3AwiGe5XMBq9WqHQKH0wedd
+         JU2srj2KbbzGUS5FDGmC1Ftm8u9Z7i+Ws+yWz5AkIORsKVw+Rjh+KoX0VQ5Vu3iJ9TFH
+         PmTZM1kyHh+B8Z/bDQ0yktd5aZyf6DDavdgYBjQtkj7sk7W0A69YlJBjix1863QffO2r
+         Kw3/uebxUpEVxLdiiXtZHq73LibR8opMqWAXWXLuNr22DXx2Pfcoz+f4MMLPLcP+hiz8
+         kAiw==
+X-Forwarded-Encrypted: i=1; AJvYcCUqks2NP3t1k3mpCL4pUeqxo6Hgv/VEwQD5O0P1mkz2+k0UgMepLbWlk3Ky02aV6HEvZAJOohCj/FtLll59c+gB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxClR3/wyl9V25yXq80CGwPwYUPciKQeZuC8nH+z23WqK6IFUDv
+	Gdx4GthEHW+A7CS61N9dWMw3W98iyR5X991qLnVFpR3DRkspsGxLsLUDvrKi9ZM=
+X-Google-Smtp-Source: AGHT+IFUtKcOxI9iGKzatyRYf8XbPC5gcQcujb8cjUFmjs/ViAYZu4pW7ViB0cQLuE4H16EQLauy0w==
+X-Received: by 2002:a05:600c:3c8f:b0:431:4e25:fe42 with SMTP id 5b1f17b1804b1-432b751e28fmr122955855e9.32.1731406555816;
+        Tue, 12 Nov 2024 02:15:55 -0800 (PST)
+Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05305a4sm205703715e9.5.2024.11.12.02.15.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 02:15:55 -0800 (PST)
+Date: Tue, 12 Nov 2024 11:15:54 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>, 
+	Aren <aren@peacevolution.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Kaustabh Chakraborty <kauschluss@disroot.org>, =?utf-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, 
+	Ondrej Jirman <megi@xff.cz>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
+ possible
+Message-ID: <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
+References: <20241102195037.3013934-3-aren@peacevolution.org>
+ <20241102195037.3013934-11-aren@peacevolution.org>
+ <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
+ <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
+ <ZzEPACoblmcQD9yu@surfacebook.localdomain>
+ <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
+ <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7879:EE_
-X-MS-Office365-Filtering-Correlation-Id: cc538929-e9de-4940-dfe7-08dd0301b977
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z7tFFzDALkKSSMLqXkbVuHRpwTIBDtrFg9AnU1tpXznhl0zI+SpBbRZSFlSz?=
- =?us-ascii?Q?e4Blrul6Ji2+KOgTWiJSOJNB/BBbDvmQI/3I67p1f+x6cds8iC+dTa7mYhVC?=
- =?us-ascii?Q?6ufGu0aIuruPU61r78lLtFBSLyft1w3PGrgMcRZI4zW/eiQZex8YWXVRm5sa?=
- =?us-ascii?Q?3Dzj6nPqmUbRVLuYtECdpZWgS642JJYHDKZBzYUAiFR+gDZ1td/KjkU2/MuB?=
- =?us-ascii?Q?0D9GDj1J3SVI/UStWfEaSvc7I60ZqER0M8Rvsc92tI9vNwY5Vu+BTtZFKNcU?=
- =?us-ascii?Q?1pYQ/G8/lhYDkG1MImcd1QhqT2mVQ+l/PcJO6HMxQsIZ+nsNvcC2N+DzXbzz?=
- =?us-ascii?Q?1vB/Uu3a1r4lgflEwONt/rfFaU0xPWE4Eh/u8ZGNakGYsFS9n9gU+AcxRkNc?=
- =?us-ascii?Q?FDwxLobDW4uCn1LR99a+1xguWMw9DYWIDH7O9sgjaQxMwkogZz8qWDcn4T5o?=
- =?us-ascii?Q?KLCtD2c3FLxJGcFFsYzMAJ9y24+TEZ3oBnbEpcIhx2B0CNNquCQ5d7DEtX7Q?=
- =?us-ascii?Q?wxtryvnQqnSrJY1ElVdeUIvUJsmwLOA3MyDS5bw2aj9rQZftLQhdsAzpykeN?=
- =?us-ascii?Q?K9QAW8rrkRVCwMmaO1NimZtUDsSZwDtL1S//PwSsvqzJ8Lhy27DDkNF0ppa8?=
- =?us-ascii?Q?ZCAOEVHFX6YbuyAUTzvYvAWU63+o2JXxJFKVgtXJwL3NEfJilWAaeDr1FLCR?=
- =?us-ascii?Q?M7NBnbVnEBbUk0OSzmYpTYULzN4hQI53GiUEbuHA0DECiB9AOIv3wOGCxbDe?=
- =?us-ascii?Q?BLn7mvKCuz5i05zQl4y5M0VK9jZifxTJUqPGXG9g0XMowbEhgA/EkLxtd6Uy?=
- =?us-ascii?Q?CY4rqGwSN5RhTq+yu9hgsySpwFTfWZgoSFuwH3O0Y6XW0fFB9SdPKneWn/uI?=
- =?us-ascii?Q?unutb6zFTwERcsEKJCLw7H9ZES6j53ELGKpBwdKrX/QyUkBTL44qWSlqsOdg?=
- =?us-ascii?Q?w/QFWdswbVeldC+b5g0WpuLI1SWf3gTnN9HCNSn0ktMt0zK+YV2Ls8SDiZgo?=
- =?us-ascii?Q?p++1pMAPYYKbN/b9XcBME+7rE/DA9w3JGSAAk/wtSSMSQ8PHpSfsWt+34Ne/?=
- =?us-ascii?Q?vFB3v0HF6g6IUv9Aptwo583nnhizj2jkbmw+Tmy/UuPe1zxeGe3NlxUvLrJm?=
- =?us-ascii?Q?R4WYevwLtGTXRYvylbPyoUfp2sAcQcrilU0/gq6bw6MumvHA28FRPphBdDMQ?=
- =?us-ascii?Q?GGBGMZkmJAvge2S/to1AVRx3IIz/hQcgRS5YTVUbePa/BsoRcBVymscN8Cvn?=
- =?us-ascii?Q?nOlnEWY2Q3MeH8AP8ZcitKz011E/cnlWlMX1nvHSLgIzxt68wdZ59H2xpipy?=
- =?us-ascii?Q?De7HUEfxL9WvHWfJMs695Aa/nYWwrscXn20AYLNqfGYbSotVfEXk9MxMEliP?=
- =?us-ascii?Q?yt5V9OU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CWgn6G3XPj9RGYp11WWp63P7J4ABdj/ycsummiNJG+pi9TNK3w/IC08xOQAg?=
- =?us-ascii?Q?aVQItK9VdaiiDGM78dlCoebUdluhTvJZzo0eIu1EauZ+0lA1fn0OEkH9lPNa?=
- =?us-ascii?Q?5qnxbnlK91Yn2kKNaQF8jO2ziUnyXDtCuKmii5uluE9SqxY/Kj7v0AaDCIJV?=
- =?us-ascii?Q?Z9PvJsTJLwQWWVe9uO9HrwC4uRFrz8RTZOTit0SMi3NvSieFL8dONqCq2+GS?=
- =?us-ascii?Q?9ydmudHmzDVcAmDiCpLcFej9vrV01dniab9SM6ipjcvz+GX1OKOukdrmJ5tb?=
- =?us-ascii?Q?GxkjneUKfJx1Q4l1vQY2PPENV2W9YB5asWuWwnM3HEQrkpGGFhzFNBtCjmck?=
- =?us-ascii?Q?8Rw64pzo/EC3kqcvHyLY6CYgfgrgMv/cSfDga1tkTvJc+uuicOu5RxHXNnpD?=
- =?us-ascii?Q?yY4rAzaolwS7d3XDhMp1Oc30rwLgBUsoFwsL9ruyALy8bxHGgF6Bflr5ZyW2?=
- =?us-ascii?Q?NXfj65TNMQci7IQxjiMKb/0gJf8qIq2SYI7xwP/L46z9eqEFdOqH/Vinv67g?=
- =?us-ascii?Q?b9eDdRAsvAco6CyWgyqV7svxdbZblMCfTSAor2g+9yh4JseMJPbzsdxt5G2y?=
- =?us-ascii?Q?Fp+mPCwCS8Zu721oCuPhY9UkCTnY/72qGilVc8yNtiBRtOVyQzone36y6ZFL?=
- =?us-ascii?Q?wt8woSbM9UZGkNUyBkdIF3r0nveNxjJLvKC/mkaLNi80wo5B58YkbFiB55Fg?=
- =?us-ascii?Q?0zV74zUHbCOgHBjDSTGssqcayHDQ/pB3uQT+fmVkqF1iuHng3urBkaKAkBXj?=
- =?us-ascii?Q?KOE8O0V+j9m4DWI9X9/A8ig+UpWI9eKHwLjbEV3ZWEFgAK9G8+h4AKmYesNZ?=
- =?us-ascii?Q?1Ab7eFqRhfFj8fPlos0dfuLL5+5/+1XFjG/6c6pWjw300MF71xTp6X6iX7A/?=
- =?us-ascii?Q?SMKu10DqVw/rw9/4oCXU0r/MPikAb5lvdEqxDl6E0WoE3pogfAcmFBty7xTy?=
- =?us-ascii?Q?wtUFgdSVWuW6IqoK3AvNOMWS9eRpzETBVEcLdgZw1bE7IcV272AaG2Iy+YXV?=
- =?us-ascii?Q?zf5W1Ah9hl4Lw7UdJLjpqdylD7+TwQ5XFEPYMVviyyNKOTEg47sfDK1PEMLV?=
- =?us-ascii?Q?OT2dxWUbnOyc7I6im8n5wFiiDIBFfW1zsfQqNL69hPKg/CiIyvI9ZzxUSfNX?=
- =?us-ascii?Q?F38KaLQ+PrZmNQYmM5rgKkXNlH9/zvTj6XF2hK2nCtnkpMusWyW9FI81pko7?=
- =?us-ascii?Q?2bhjUdS40eKyVPK7sF2RCwL+k4qqIOMjuzTbbduLPUaWXue/U9+jKlcKOGP9?=
- =?us-ascii?Q?2XLFCibYWBMNlFaHe7bMBweFKzLK7e4hhLlJ0ywRTv/rbOmVmmei3l6A6NhZ?=
- =?us-ascii?Q?8DO5ZPa5l9c4favpC/mMZ8kieIe7w1nxP7xpXZoMH8Qn8xSElAnGP74tbdc3?=
- =?us-ascii?Q?/UW/8H2JMvhNa1o3M7Xg1JyM76cGoHAkvz8Ys5VvEtOQM5Mntd+ikvE3uBs1?=
- =?us-ascii?Q?2fk+SBh3fhgXk5qR5j13SbCdyNXJgr5QhlPM4Dve6JqL20V9TJUpX4AIQ+a7?=
- =?us-ascii?Q?V8MMim86jmK4rGZEgYpYKIvVhqfftRrIriIsz2F5FNJGahcQDkO1WFO/gYKK?=
- =?us-ascii?Q?EopdBfxssoFn9A6ohCfV3zyrevlHIiFd1uycLwOO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc538929-e9de-4940-dfe7-08dd0301b977
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 10:06:50.1679
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Sv5X1GG2QYaSRVMXUmTGPnboqgg37DC7T7gUfIjTQhsfqfeIewQC/+/mUmrQCpUSE+hBwC1fp0bqdVczT5dswg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7879
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mx2qhhffnejmsbkn"
+Content-Disposition: inline
+In-Reply-To: <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_020653_732584_365F98E3 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_021557_845190_4187D616 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,44 +106,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ITE IT6263 LVDS to HDMI converter is populated on NXP IMX-LVDS-HDMI
-and IMX-DLVDS-HDMI adapter cards.  The adapter cards can connect to
-i.MX8MP EVK base board to support video output through HDMI connectors.
-Build the ITE IT6263 driver as a module.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-v6:
-* No change.
+--mx2qhhffnejmsbkn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
+ possible
+MIME-Version: 1.0
 
-v5:
-* No change.
+Hello Andy, hello Aren,
 
-v4:
-* No change.
+On Mon, Nov 11, 2024 at 11:44:51AM +0200, Andy Shevchenko wrote:
+> On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote:
+> > On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote:
+> > > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
+>=20
+> You can do it differently
+>=20
+> #define STK3310_REGFIELD(name)							\
+> do {										\
+> 	data->reg_##name =3D							\
+> 		devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
+> 	if (IS_ERR(data->reg_##name))						\
+> 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
+> 				     "reg field alloc failed.\n");		\
+> } while (0)
+>=20
+> > #define STK3310_REGFIELD(name) ({						\
+> > 	data->reg_##name =3D devm_regmap_field_alloc(dev, regmap,			\
+> > 						   stk3310_reg_field_##name);   \
+> > 	if (IS_ERR(data->reg_##name))						\
+> > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
+> > 				     "reg field alloc failed\n");		\
+> > })
+>=20
+> I am against unneeded use of GNU extensions.
+>=20
+> > > > replacing "do { } while (0)" with "({ })" and deindenting could make
+> > > > enough room to clean this up the formatting of this macro though.
+> > >=20
+> > > do {} while (0) is C standard, ({}) is not.
+> >=20
+> > ({ }) is used throughout the kernel, and is documented as such[1]. I
+> > don't see a reason to avoid it, if it helps readability.
+>=20
+> I don't see how it makes things better here, and not everybody is familia=
+r with
+> the concept even if it's used in the kernel here and there. Also if a too=
+l is
+> being used in one case it doesn't mean it's suitable for another.
 
-v3:
-* No change.
+Just to throw in my subjective view here: I don't expect anyone with
+some base level knowledge of C will have doubts about the semantics of
+({ ... }) and compared to that I find do { ... } while (0) less optimal,
+because it's more verbose and when spotting the "do {" part, the
+semantic only gets clear when you also see the "while (0)". Having said
+that I also dislike the "do" starting on column 0, IMHO the RHS of the
+#define should be intended.
 
-v2:
-* No change.
+So if you ask me, this is not an unneeded use of an extension. The
+extension is used to improve readabilty and I blame the C standard to
+not support this syntax.
 
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+While I'm in critics mode: I consider hiding a return in a macro bad
+style.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index d13218d0c30f..9b20b75f82e2 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -901,6 +901,7 @@ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
- CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
- CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
- CONFIG_DRM_FSL_LDB=m
-+CONFIG_DRM_ITE_IT6263=m
- CONFIG_DRM_LONTIUM_LT8912B=m
- CONFIG_DRM_LONTIUM_LT9611=m
- CONFIG_DRM_LONTIUM_LT9611UXC=m
--- 
-2.34.1
+Best regards
+Uwe
 
+--mx2qhhffnejmsbkn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmczKtcACgkQj4D7WH0S
+/k5IrAf9Egz14wVYaV3DKBPJo8fgsKBghLX7gexCzWL4+0rkjfgtP8gSFaK8OnVY
+8howbIeCxwbCUSEZEtWJU36A5oaLI370Mb24KajDPQZyayedIXqF1UubYE3ZXcrA
+gwbGyho7TkbsUnrXbMhkp5lr7aU6O8JdIedrSqv7FnMxfkVUVkU6Hrai52+r3b3t
+k6uAvR1Yl+OD1XIq5FEeCW5tcoYEQ5rK6apeMXvdkPdg0o6ZKVjAt9vK9NVxPPpW
+2CdM15ron07ikOYiBDin1ZaD3x7FdzVh8z9RiizG5q5a6fPjh5SELLbBMHeGtnaZ
+5cCYi84a0NHhmndqIy6gZYPX4hhDXg==
+=b8YO
+-----END PGP SIGNATURE-----
+
+--mx2qhhffnejmsbkn--
 
