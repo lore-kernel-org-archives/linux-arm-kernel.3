@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9EED41D70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649F9D41D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywm/uxIM3+M2kyqiz12QWJll5x98iovl2C1HJCAOlCU=; b=M5uuT311HgYjAVJHPO+OqR9zMQ
-	5P0TP2T/NHVKKkp3cdvJsrafzhzRfOxDf7wczijZAHDbfIedto+ZkEDU0NVpZC8pKPqjv75G/YSgi
-	UqNvrZrmKauYHK61w+l8cm5zjbPFT0rUCYg0avIuY8xa7uxQAcH6gsAemWBXmyjzihZQH5O4AIOP8
-	xKGds4v9H4UpBANG+y1LkgLc0GNbL0ciBpG35XW6LDtUD2+nYzmh9k+UjJ2cPQCltHF1wsZwdnQK+
-	7O6oSuN9ry2YuimnPTbvZyhIV7MW1PVGb2Os33WevGVZc+cN9cv8i6TI3YriCmlQgfJWHpOuECI40
-	qp4XuCdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YpT4ce3zIhItYCH93EKcNdBFMZYaDHEMZu0eagpexE8=; b=I/olJbPvZ8vk9Ng0S7Q+N8hyUe
+	srPk1e0jd90UwkCLKmCo5zS8+Hn4t+2vhoJvoOsgAZPs4fywuSBsnb4nEWazaveJJ8FZMau/moETP
+	LK+jeY67/iLg5kFIRZ0/qMQZrFOFsV6HXdSBUkuDdf+EMhf0kFRH7gz2w3YugDdL8kqx1QFunhEHh
+	MzGfJUm4op/R7bW0sX0YVnz5Sa5NB07Dx9UY+jNVFWmyEHbeinMzkt9SxStGnTeRUgGYSCmjn4Xfw
+	IuLY5JHHxs2/naqsX9qV4kwLnypHBYuPtiOXT5gjaqU0jLsu6LClmGLJ9SSO9Fjfho7+X8TfIBk4y
+	5u9DLQaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmiW-00000002jNI-1NG6;
-	Tue, 12 Nov 2024 08:57:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAmkJ-00000002jdz-1ryJ;
+	Tue, 12 Nov 2024 08:59:35 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmgi-00000002j6c-397a
+	id 1tAmgj-00000002j6a-3AMF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 08:55:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B515DA415D3;
-	Tue, 12 Nov 2024 08:53:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF33C4CED4;
-	Tue, 12 Nov 2024 08:55:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731401751;
-	bh=9KPjbGFgKVffy1NdZyWY6hn+AJ5QYKBppGaPpt7/5Js=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KVt4jXhYzwWoAmlLgCOxjuxiZq3oWsqyWjMnROJ2HPYwJhJJzlpyLYMC/DmYNY/ki
-	 cad1OzJ96MBYbzAOrGL/zJnXudP+iFjQwOlBiMbPS+VUEXdE64iK4nK4Ut13585PvP
-	 WHc8nrBwKIHFZoqsUn+tTQmkBCeQ1YYh1YpUB1F8zvwpxoCrq+xgYPr37xFSPpiIMi
-	 mpMDnSDj7iNYUy2uvg+wrqHIm9ZOBbpv/AJl7pTqjDQqWT9B1e96d8WhHAFbXs3hqt
-	 pjWv4e7HCYOnY1Gul840q+HDgnRo/fqx5Kx68PH2Nc+IQy34K0NdLIRFo518nNfJhj
-	 8nhMP5aQY8vgA==
-Received: from [82.132.184.86] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tAmge-00C7Nt-WA;
-	Tue, 12 Nov 2024 08:55:49 +0000
-Date: Tue, 12 Nov 2024 08:55:21 +0000
-Message-ID: <877c98u8zq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	pbonzini@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	duenwen@google.com,
-	rananta@google.com,
-	James Houghton <jthoughton@google.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH v1] KVM: arm64: Introduce KVM_CAP_ARM_SIGBUS_ON_SEA
-In-Reply-To: <CACw3F51B-RKE0OHGZwoQo1LPxygYc77VAbCHNfU25VVrpHc4-g@mail.gmail.com>
-References: <20241031212104.1429609-1-jiaqiyan@google.com>
-	<86r07v1g2z.wl-maz@kernel.org>
-	<CACw3F51FbzkkX_DcCVCieZ=408oP_Fy3sXYk5AjWRX3RJO2Fzg@mail.gmail.com>
-	<CACw3F51B-RKE0OHGZwoQo1LPxygYc77VAbCHNfU25VVrpHc4-g@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.184.86
-X-SA-Exim-Rcpt-To: jiaqiyan@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, duenwen@google.com, rananta@google.com, jthoughton@google.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 12 Nov 2024 08:55:55 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4XngFL1Mlyz2DgtV;
+	Tue, 12 Nov 2024 16:53:58 +0800 (CST)
+Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
+	by mail.maildlp.com (Postfix) with ESMTPS id CA1D2180042;
+	Tue, 12 Nov 2024 16:55:46 +0800 (CST)
+Received: from huawei.com (10.145.6.51) by kwepemd200012.china.huawei.com
+ (7.221.188.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Tue, 12 Nov
+ 2024 16:55:45 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: <maz@kernel.org>, <tglx@linutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<wangwudi@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>, Nianyao Tang
+	<tangnianyao@huawei.com>
+Subject: [PATCH v2] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+Date: Tue, 12 Nov 2024 17:04:26 +0800
+Message-ID: <20241112090426.1876148-1-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.145.6.51]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemd200012.china.huawei.com (7.221.188.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_005552_872700_FAF8E262 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20241112_005554_242469_85537915 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +69,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 08 Nov 2024 21:18:50 +0000,
-Jiaqi Yan <jiaqiyan@google.com> wrote:
-> 
-> There is also a kernel config called ARM64_RAS_EXTN but I believe it
-> is for the host CPU, not about VM's RAS.
-> 
-> But taking Oliver's opinion into account, I think we want to remove
-> KVM_CAP_ARM_SIGBUS_ON_SEA. Wonder what your thoughts are.
+When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+during unmapping operation, which will cause some vSGIs lost.
 
-If we stick to a signal-based signalling (which I still dislike with a
-burning passion), then I agree it can be removed, as this is no
-different from a signal being delivered from the rest of the kernel.
+To fix the issue, it needs to send VINVALL command after VMOVP.
 
-	M.
+Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 10 +++++++
+ drivers/irqchip/irq-gic-v3-its.c            | 29 +++++++++++++++++++++
+ 3 files changed, 41 insertions(+)
 
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 65bfab1b1861..77db10e944f0 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -258,6 +258,8 @@ stable kernels.
+ | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+ |                | ,11} SMMU PMCG  |                 |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 70d7f4f20225..d41cf6bf1458 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1232,6 +1232,16 @@ config HISILICON_ERRATUM_161600802
+ 
+ 	  If unsure, say Y.
+ 
++config HISILICON_ERRATUM_162100801
++	bool "Hip09 162100801 erratum support"
++	default y
++	help
++	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
++	  during unmapping operation, which will cause some vSGIs lost.
++	  So fix it by sending VINVALL command after VMOVP.
++
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 52f625e07658..e98d13d0adf9 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -44,6 +44,7 @@
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+ #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
++#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+ 
+ #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+ #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+@@ -3804,6 +3805,7 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	struct its_vpe *vpe = irq_data_get_irq_chip_data(d);
+ 	unsigned int from, cpu = nr_cpu_ids;
+ 	struct cpumask *table_mask;
++	struct its_node *its;
+ 	unsigned long flags;
+ 
+ 	/*
+@@ -3866,6 +3868,17 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	vpe->col_idx = cpu;
+ 
+ 	its_send_vmovp(vpe);
++
++	/*
++	 * Version of ITS is same in one system. As there is no cache in ITS,
++	 * and only cache in related GICR should be clean, so one VINVALL is
++	 * enough here.
++	 */
++	its = list_first_entry(&its_nodes, struct its_node, entry);
++	if ((its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801) &&
++	    is_v4_1(its))
++		its_send_vinvall(its, vpe);
++
+ 	its_vpe_db_proxy_move(vpe, from, cpu);
+ 
+ out:
+@@ -4781,6 +4794,14 @@ static bool its_set_non_coherent(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
++{
++	struct its_node *its = data;
++
++	its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100801;
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4827,6 +4848,14 @@ static const struct gic_quirk its_quirks[] = {
+ 		.init	= its_enable_quirk_hip07_161600802,
+ 	},
+ #endif
++#ifdef CONFIG_HISILICON_ERRATUM_162100801
++	{
++		.desc	= "ITS: Hip09 erratum 162100801",
++		.iidr	= 0x00051736,
++		.mask	= 0xffffffff,
++		.init	= its_enable_quirk_hip09_162100801,
++	},
++#endif
+ #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+ 	{
+ 		.desc   = "ITS: Rockchip erratum RK3588001",
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
