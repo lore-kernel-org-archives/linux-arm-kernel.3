@@ -4,176 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB41ED42BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C280D42BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pC9IS6hnaMg8q2h5PuNaWDtU19rB1dExXzbSlG/8fkI=; b=k/fsHQGQQ19ZehYtN5JUzaodSu
-	1vfAvOExFoIKX02Z8P4mnqmDeT5wU3QkcY8j6XR7Vb3k9N/MPz0XASdwlceiGY2C7UK2h0QbVgCQb
-	4QnVWn2UMfR3xMYSDOMoO1mVNyBItDiRWQ6WsGO19fsg10vnOVJIuv2Pw1aucZFfd1F00+ASo+lT6
-	2YCOvYmDEGUYQSFJtmCfKTeLc3NtMB7PeHxbLSYxVHgT8PFSo1BI/bBp1AtBeLEMJZnFYRCKuXIL7
-	Z0CBeeRxQC1YkJGFBns5h64zPyKEt919u/cZNHohjfYWxi+0uR63uWgaUEaCnflo6D+WNiUlSKQb2
-	oCPNKcYw==;
+	bh=fxjfSbbMPAMCjY8CycHtCSja0X64h4LReUAqSuKGhmE=; b=smfRekD32nYh26TCuXrFG6APON
+	+ulXt9QJ7kTUw5joazLRZoWeSJVP5XTKtkvuvvTxjnRb1EcU2wP0mbXS0mJsOlb3J5eKHOxxOWC9o
+	bV+qrUnlB7voTOjF9n7Ir8Vh6cVwf0N0HbwaCJYBivKAXT8y1QjG0A0xTJbtfalLTpf0y3ITHuKFK
+	Qs/S6dDQkeKpUM3amxBlSFb06gx088EjxScPF2BMRbc/+l4HNVqYbZLKc8RSLsXxZiiHfvz7Id7xP
+	w9m/9idJkGnrdVylgRwja+FWrF/ByTLAZ32P+qenN0rGnZV12hf5Oro/X1dK3G92ncfoqfZSagtuF
+	pUUUNmcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuF3-00000004Fzt-1ucp;
-	Tue, 12 Nov 2024 16:59:49 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tAuGJ-00000004Gct-2gwj;
+	Tue, 12 Nov 2024 17:01:07 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAu87-00000004EPs-0raD
+	id 1tAt3k-00000003zrE-3kzj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 16:52:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WYb5BLRoGrcJlkvr8nJRd1BjitlKwZ+/xNRtTIxeevxKfJwG2Fr2wPFQYlIARDJjiwFyvO6XB9vh0fwWqNFUFPuiFhm4wcckuLNl/zTZr41LbzYNVZmQZMNvRQZljsS8UrtewSU7PJWS+SL0jvz8AueQAUg4deJwL8sLT7BW8P5dwNaHb89sAuSKcC+MBLJw/J4RHhankRRPQRNXH8KnsZPj7pNwGakmHa97ul2gnXF4Q7PTWr1CzbdM13KZ++sI/P14SL8hZqFiom2AYmCniBJOoEjHMeBTBbZGt3DN8+ZryruWJ9obxbzoHQw/703ydRhT5bhpIpuLA+PFyEZ40w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pC9IS6hnaMg8q2h5PuNaWDtU19rB1dExXzbSlG/8fkI=;
- b=HjWlxOSi229v9c+pw8ocC6XFuZ/JojYgHM/ynpofEBXj5TSyD2Co6LFbUjve2NKvA7+6BpecE7S1NcJRygrSLrSNFY0CotQ6+fu7OEtBuBcaw1Zc54xA3q492vdxx2GaOoLlSEZTn+05Ec/DeTstjPM0li09G0EodrGDnRXKNNDGegp1O221uGF0MHu7PqrNOVzfLxNHDa0pWQTMcI+L7zb9BIctXdYI8bjufp/OHJTQ83tr/fS91jpcCDyU+DC78LDXfhLczoDN6SckwjQvR5XfoVV+QWmTIJ9pIET1DWtelOqS5vQ2cWrF7S5BfAmuaYq+oBeZyRd2Wrvvz1VEUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pC9IS6hnaMg8q2h5PuNaWDtU19rB1dExXzbSlG/8fkI=;
- b=XZknItbCZSCi9EpY2tPjmnSfIC3OZp5Hj72riMRp0n/9f/T6lFJsCkgbGANzdCJLXyZ++Fy1ixh7PXqhmn3gW6Nv3bGQI53sile/TjfGsbXzX14j17xLVZrBpnfwv9cguGgffsLBw4ewXKbsk8lPK/3QZt2W1WQmG+niSXsgdb9QJ1GXkHAroluP9JyvZtZF6wK3nJvSsV3lSjoku49rNNtPqjpnZJzoFytsOWktC86orw13wOwuCyxaeVlTm8h3fYE688Jm6rcnoSXXd5QX3RMtrOlLJyFzO+IAB/nAHhiQFtZk3mhzfPl2zub4n9mL6K5NDw4yRJudnUfvNliLpw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7897.eurprd04.prod.outlook.com (2603:10a6:10:1e7::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Tue, 12 Nov
- 2024 16:52:32 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
- 16:52:32 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Tue, 12 Nov 2024 11:52:01 -0500
-Subject: [PATCH v4 3/3] arm64: dts: imx93-9x9-qsb: add temp-sensor
- nxp,p3t1085
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241112-p3t1085-v4-3-a1334314b1e6@nxp.com>
-References: <20241112-p3t1085-v4-0-a1334314b1e6@nxp.com>
-In-Reply-To: <20241112-p3t1085-v4-0-a1334314b1e6@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
- Lars-Peter Clausen <lars@metafoo.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Jean Delvare <jdelvare@suse.com>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-iio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-hwmon@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731430334; l=756;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=kFxt9dtkDU0Y3RY9oVvdu1BMstpufdDdNMTqBmUK6g8=;
- b=pIiZiLd0SarijBCnVJARYnej6K5kNxNDMSGQqnFXss4iws/Crn5cMGaAtaWAaMF0PJnHeb9Ay
- WI6XGdv1tKwAJ/7wrEzW5x2JO7tiL57GVtBe/czl7Lp7irLw7EOLG5a
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BYAPR07CA0066.namprd07.prod.outlook.com
- (2603:10b6:a03:60::43) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 12 Nov 2024 15:44:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CE7DAA41DAE;
+	Tue, 12 Nov 2024 15:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1C96C4CECD;
+	Tue, 12 Nov 2024 15:44:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731426243;
+	bh=RWbFSkRwUfOAIWE/dWO3OuIoKs6Ba942vCIh+QcEl9s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W133iUhAXaQgeRjeCR+PpubsmgTOlhZSgfHnmjnT8hpu9zNSB81u2y1ykfLFaySrg
+	 y9EPBAt2b8wUHecg30ttVHBr1B6ofqAOpPNMVtDSXUIekKGpV5AOUKE+DzyIHoM22r
+	 gNSZIvDodxT05KkgceFEgjw9LwT1SZ02J2nlRWmVtK5BKtZMhigLYvK79NfLMFclnp
+	 4kp3SvfBtsa/c7RXQI+8PAa6m+L3odgZHfEai5GcrBWpMWDGLw5ekSuJVINmMXMLOC
+	 Q6xuSgIkzzoMddlLNBqvntq+xC9oSIhImRk3ShAgL++O2yDz1MMR5eMq6E7pqpBsws
+	 VZ4uoJjBbC4Og==
+Date: Tue, 12 Nov 2024 15:43:59 +0000
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] iommu/arm-smmu: Make instance lookup robust
+Message-ID: <20241112154358.GA21479@willie-the-truck>
+References: <cover.1731088789.git.robin.murphy@arm.com>
+ <9d2ec624a640c421e97334deff537a2e899356c7.1731088789.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7897:EE_
-X-MS-Office365-Filtering-Correlation-Id: 396d72bb-7e20-4437-62d7-08dd033a66b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q3VmU0JFd0dCRG9uNkxzSkkxWmRZNEx0OWtaVEJFcGV2N1MyNHdJK251M2Y4?=
- =?utf-8?B?bjN2ZjkyaHYxNVFTbmtmbTh2dWRaSzYvR1Y3M2pvZ2l1OFZSSDJxOEc3cWpZ?=
- =?utf-8?B?czUzSHNJdGhLemdTempwK29oRHFmWGhOOEIyd0dTRUMwMDQxYlR3dFpNZ3ds?=
- =?utf-8?B?V3pYNkRDdWRXL2NLMHhLSUN6YlROVnE4OXBFZjJKUWRYMmJBbFg1VGtSY1Fj?=
- =?utf-8?B?S2xIOVQzMGdpZ0JRMlkvS2NFa09RVm4veHlyRU1KbUFQbmZwYXI4Sk54SGE2?=
- =?utf-8?B?Y0o5MnFyVkMrMVhQMy9ZR1h6NE12dXR3Y1NrVEVlWHdHQmdqREtVS2V4MGxv?=
- =?utf-8?B?VndEVjdaUFgwZVMwamVZT3Y3ZE9SUFJpRldXVitnbVNYaG03MDFXdTIzRjFF?=
- =?utf-8?B?akR4SGRxaVBUbDlWRUxMT3k3cm43Nkhmc3pCNXcvV29VUlF6THhhbWxaWXZG?=
- =?utf-8?B?enZlanhNZGZNSUo3dFZEaHh1MmgreGx4clQvai9rZ2tuZ2ZwZUlSbklnRE1v?=
- =?utf-8?B?dlVQUkVXc2FVMW1hV21HWE9HRVVaSXNWaVlJQ2RVeUExejMzMGRDL2VYaFdZ?=
- =?utf-8?B?UjhmZXdNdnJZRFRVVTlEaU8vUVV0WkZYZVFDQmhNZGV0Sk5WdW9Dd0lLS29Z?=
- =?utf-8?B?cTAyYzNvVnZIQnVDUDl0aVc3YjlNUnZUWUVaVWpPVjZwcm5NSC9CbDU1TDR1?=
- =?utf-8?B?MFVCU1BUSHpETmhLRGZTTlhWTitHdDVrOFpFb0U2R3NoaGlhVUZZT09yOEYy?=
- =?utf-8?B?ZVg4TWxIaFNrZ3pUK1EwMVV0TlBkbHFNc0Q4czNLYjJmL3lFSFVwU0lwYVpr?=
- =?utf-8?B?dkkyNUkrWkl3QmM3RURpWHlldkRPeVFUL3JHYkdidkpEZGxnQ0xVWjVsUFB6?=
- =?utf-8?B?RzhzeHJPYXI4cTBqZFM4UmRHNGV5RFNuUy9wSTdUbDlkcWdqWVRGQXZsbVNl?=
- =?utf-8?B?QjhjRGJRb2o2Z1VTVitlVCtYa1RqTUpDL3AzcUtoTFZJZlFYQ2ltcmVwRUZ3?=
- =?utf-8?B?c1A3ZGhBVHpmdVRZL3kxbVB3NXVGNmpVek53VTNNVkUrLzFLNXZEUFNMSGE3?=
- =?utf-8?B?bHE0WlQrQ3lzMXlpL3EvWDZNTkJNbVhmdEVTV3JlTVl5U0FhVnpXR01oWGlE?=
- =?utf-8?B?WmdFdDQzUkdGcVNEZ0I3a1o4VjdNaTU4eHliNkM0Z0lNN3diVGUzZmZJVXd6?=
- =?utf-8?B?aWpGb2FEUjNRVjFIY0tyMnB2ck1RVGY2YmlhWHJFWWFVTmRva25YcEsrb3Rt?=
- =?utf-8?B?STVWYkJxRHlZU24wNmNIQXlvczYxOHVCNUdVRVBJRDRFeFZ1WVNVZThHRFRP?=
- =?utf-8?B?RmNQMGpSeUtuRXliUGc1eE8xYnAzTkhXenVtb2hFRXRhaU5JOWthb3BKcVF6?=
- =?utf-8?B?VmhST1FRL1JTRlhhQ3MrcXBqTzluNzdxRkZ3M1JkcjNpeTFHOGJSVm12RDdM?=
- =?utf-8?B?OHpPcFIrN1hlUTNtSytzZ2NBQVFzcndQdWVZOWg4S0hIR3JTblZDNFI4WG1u?=
- =?utf-8?B?QVBwS1RuZE9Vdml4S1IycjhQeXNNRmxzcERwenZUejlIZTNTSXdISHhlZ1pB?=
- =?utf-8?B?dnRkV3Q0cFBqTUlUaEF0MUtEcldxejNOejY0bG5Wbm1TUXNOaWI2VTlpZmNX?=
- =?utf-8?B?S1Fyek4rV0d5Vmw4V25FY05GUnZjRlROOGVxWVI3WlBCdzcrSmFjOHBCYnM2?=
- =?utf-8?B?eUVMMDgydlFPS05pOHF0ZExzcFdwZ2FqN0xrSmZyWldLM1orL0pvOWM0UnlG?=
- =?utf-8?B?MWlFK1RNY25YaWRGcmRrejc0UUMycXpSRkhRWHZlMm9uNFdJMUs1aTJ3T2FC?=
- =?utf-8?B?ZTk2dkRDSnRtY21qTGo3QTdvdmMyWVcvckMrNnBCclQzZ1ZHWU5EUHJkTzR1?=
- =?utf-8?Q?E2SucIt91bq6s?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDlZa29FRjBwWUZWQXZjMVI0UUNxREdhYm5JemVHZ1J4clh2RHZDK04zeGcz?=
- =?utf-8?B?UFFGcWlLaFVnc3ZkSDdGVGJrcTZIbXc4NjdhZC9WYloxNUJmREEvTVBFQ3cy?=
- =?utf-8?B?WmVoSDQyK0RMRzhNRWdacUh6U1Y2c05VM2ptV3ZlLzBIaTZhU2xFMC9oRFpl?=
- =?utf-8?B?dkhOdmJvWGpYOEJnVEcwL0dTUnZCdnNpM0VsT1BMZzUyV3F0MXBwK0d4Z0JW?=
- =?utf-8?B?UlZjdWh5WWtOZmkvVGdRNStETUhLUDB5L2JyakpOOE1TT1Naak1CTWJEb2Fx?=
- =?utf-8?B?bW1vK1VScFljZHR6TDgwS2daUSt6aVo5Nk9hMllKWWdPZEJxQnRBSFRsRWN0?=
- =?utf-8?B?M01LQ2dQMVB1STFmWUdzQ1c4WVhVZE1RNnFGRko0Nnp2Z0ZSend5c0NIMDZD?=
- =?utf-8?B?bERONXYrekx5Y1A2Y3h1YzVDb2lZaEVaMVlkU2ovaFM4aUY5ZlpQL1lsWDRk?=
- =?utf-8?B?dFFyZ0t3K3lTcTg3dkhzaGE3Y0tHUzI2U3ZTVEl5VkNSaURpQnBQbS85SUQv?=
- =?utf-8?B?WEtYMHAyKzkzWVNYVkNIQTdPWHVzbW80STRIRkxlRzBOUlM2RjVpUjN5Y2t4?=
- =?utf-8?B?UGNCTkdNcWRockdNZ3ZnMHZkcG1Ia2pQYWpmcDI2UEs3cTlHRnYxVHZHUWxw?=
- =?utf-8?B?MkYrY0tTYzRLUndQWW1xUFZoelpMZGhrQVdEcVQvRkh1RzhNQVlHeTBydzA4?=
- =?utf-8?B?NVpZZjhSY2ZzMUVGKzQvWjhidmhTOHdwOEZvZjZCVVdMTTU0VEg3a2JCREtQ?=
- =?utf-8?B?YVJXbWlhcTVqT2c4ZndDY0FhL015b1hxYXluTC9mNXVzZjhGUmdCT2QyS0ZV?=
- =?utf-8?B?eW94WlFDWVZWWUhVWThKdEx4aWNDR2xKb2Y5clRmRWgvMUdoY2hQWWZlMjRq?=
- =?utf-8?B?YUJpK2dVWE1iVTcySVZBdklaaytoVzFMbWFGUkIydWNhcmgwMnkzK3g4NWJM?=
- =?utf-8?B?WHpjc0RyVmpyTXdoa1pzanljM1dxbkxadmdtL09aeXIyTWRKSTFnTXRmWWEw?=
- =?utf-8?B?dGovNjczSlZ4TDV3Y0hlekt2UHNaYWRIa1JDY1RTV3NDVDI5ZDJiQnZ2dlBh?=
- =?utf-8?B?bWp6TkFHQzlZWHNZQXlpVHdFSmFIQThkelkxbllNK0NmSUVEa1ZYU0JEVUw4?=
- =?utf-8?B?bGloYnRSSHQ0blpxZk9pRytTZzlqUlhXL2JIalZEb2cvOG1ZWEhFVnFJS0Jo?=
- =?utf-8?B?Y3VaODkwSkc1bUJkMnZqODVEbGF6emZyMDBQb3FGSEpiMi9OK1J0RU94dW4v?=
- =?utf-8?B?aEttRGhwOCtEY3NJQ3R4dmJMSGJVdnpvNk1YeFRieFljWkR3d1NXYmZwNVI3?=
- =?utf-8?B?UERtMEI5aUoyNzd0UTYvUVFPYTU3Z0h5QWdJTzh4clp4NEduUS9MbDJpN3JW?=
- =?utf-8?B?SDdTYkw4cXhWSUxlNzZXM3NHTk5MNys0Sk5raTBJVXM3NjByWlVhMGJNRkxY?=
- =?utf-8?B?czRYRDh1Qm9zd2tTMnMrOGU3aWZWanFzamdGQ0g0RVQ1OUVnWUYvcU0veGVZ?=
- =?utf-8?B?UlVqNE5WNFVPL2VCTWdaNnlqdXhWQUJmaTBPSGFOQjRoNEVNdTdGeUwzSXhl?=
- =?utf-8?B?NWVNSkx6LzBvQjUzNUtCb3ZXYWhUaHIxNE1CVVVwZ1JYa1NkZE5vc0RFOWZV?=
- =?utf-8?B?c1c2R3BwbHFITzVKSkhwUUFGWnY2OWJIZXNDR0w1S3kzZkJtcGFuVVpaVDF6?=
- =?utf-8?B?TmJlWWkzSnpNM2ZGSmxHQUwwU3JoNzNSNE1uSGdWZXg1UVlYbzdBRy9BZWFq?=
- =?utf-8?B?d0gzVlJZWVVmQllQOGZtdFpTd2kzSFZvd05vNk1qT3FuSW9icjlpb0w5c1J4?=
- =?utf-8?B?aisrY0h1N3o3WUgwNFJRZzZsQ29rVXRKdzlkd3VFNnpIN0NyQ3NUZ3NTNGFi?=
- =?utf-8?B?cWRNaGpEVXBzZE1HMEpSZXhMOUZKeVlaeHhIN2tNc2hSWjcvcUNta3MxVWlp?=
- =?utf-8?B?OUJmdENqTkZMTXhaZGt3THNTNDZ4a1JaN1dnaUNxd3pnbCt0bDBqbkM5Q0hk?=
- =?utf-8?B?c3pnYmZhVXFlK0p3ODA0aXdiY2NpY3pMaENMRVdVbFhPTDE1U3BYRHRXNDBI?=
- =?utf-8?B?TFhHL3Q0RStSMzliSHFTRUxFWUEzK2Q2TU9WbVIrSzRXZUVsa1lHR3NEMCtY?=
- =?utf-8?Q?ipT7PH4IwAso06jw7+wZEiMy1?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 396d72bb-7e20-4437-62d7-08dd033a66b1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 16:52:32.3381
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sSKQDXwhZhw41+feJrTRVRxqQ6BltWBXTOwUfLXiwxurcZvixmInyhbAtgFzsBVwkqeQ+4MOdQdZ3zeibPeTtQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7897
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9d2ec624a640c421e97334deff537a2e899356c7.1731088789.git.robin.murphy@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_085241_211208_409B2F94 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20241112_074405_025787_53E28E04 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,34 +73,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add temp-sensor nxp,p3t1085 for imx93-9x9-qsb boards.
+On Fri, Nov 08, 2024 at 06:30:15PM +0000, Robin Murphy wrote:
+> Relying on the driver list was a cute idea for minimising the scope of
+> our SMMU device lookups, however it turns out to have a subtle flaw. The
+> SMMU device only gets added to that list after arm_smmu_device_probe()
+> returns success, so there's actually no way the iommu_device_register()
+> call from there could ever work as intended, even if it wasn't already
+> hampered by the fwspec setup not happening early enough.
+> 
+> Switch both arm_smmu_get_by_fwnode() implementations to use a platform
+> bus lookup instead, which *will* reliably work. Also make sure that we
+> don't register SMMUv2 instances until we've fully initialised them, to
+> avoid similar consequences of the lookup now finding a device with no
+> drvdata. Moving that code is also a perfect excuse to give it a little
+> dev_err_probe() tidyup as well.
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+> 
+> This should in theory replace 229e6ee43d2a ("iommu/arm-smmu: Defer
+> probe of clients after smmu device bound"), or at least allow it to be
+> reverted going forward.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change from v1 to v4
-- none
----
- arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+Let's revert that as part of this series, then?
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-index 20ec5b3c21f42..36f2995acbe29 100644
---- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
-@@ -221,6 +221,11 @@ wm8962: audio-codec@1a {
- 		>;
- 	};
- 
-+	p3t1085: temperature-sensor@48 {
-+		compatible = "nxp,p3t1085";
-+		reg = <0x48>;
-+	};
-+
- 	ptn5110: tcpc@50 {
- 		compatible = "nxp,ptn5110", "tcpci";
- 		reg = <0x50>;
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  4 +--
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c       | 31 ++++++++++-----------
+>  2 files changed, 16 insertions(+), 19 deletions(-)
 
--- 
-2.34.1
+[...]
 
+> @@ -2255,6 +2240,18 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	arm_smmu_device_reset(smmu);
+>  	arm_smmu_test_smr_masks(smmu);
+>  
+> +	err = iommu_device_sysfs_add(&smmu->iommu, smmu->dev, NULL,
+> +				     "smmu.%pa", &smmu->ioaddr);
+> +	if (err)
+> +		return dev_err_probe(dev, err, "Failed to register iommu in sysfs\n");
+> +
+> +	err = iommu_device_register(&smmu->iommu, &arm_smmu_ops,
+> +				    using_legacy_binding ? NULL : dev);
+> +	if (err) {
+> +		iommu_device_sysfs_remove(&smmu->iommu);
+> +		return dev_err_probe(dev, err, "Failed to register iommu\n");
+
+Why is dev_err_probe() better here? I've not seen it before, so I was
+trying to figure out what it does. It mainly looks to be handling
+the EPROBE_DEFER case, but after your other changes to use
+bus_find_device_by_fwnode() I'm wondering whether we actually hit that
+(particularly in iommu_device_sysfs_add())?
+
+I'm not saying there's a problem, just that I'm not sure why
+dev_err_probe() is tidier than dev_err().
+
+Will
 
