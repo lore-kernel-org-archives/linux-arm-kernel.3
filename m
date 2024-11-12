@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D69FD41D5F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 07:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784B8D41D61
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 07:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6L0rlNbqaOU8uamcn+aeH4kgFTUj+lf0ZzyEFVtxGLA=; b=K1hYI+TQW5yQ3ZCYOU3df/8Pgt
-	ObrOTeh8KoCh5hoZqBF/V5z5LWil4AcqCaK+anm8Xr0s6QWHeAwMsB+Rw/FY0jpLunfIGKjDDLYPT
-	PR8jeZamSR8u5FiTWYiPpX8fI9zPdcNOP1Bt1mwLE7ve2U5mVV7L8eXsaFxa4wcdmtsjdZX2sniZC
-	Q40Smq44i99EYO8b3AQHl2maEaT3mZzoz2I9ekwI8y4QwTuiMHw+Txs6ImbUcVc0dop19w4Y84PSL
-	/aqvC5Bpne9ww8gcF/1rdUAz4X8sqMXLxblDvvtvMJ4OKptQb9u6H/fvaFZxuR3ESk8dohXiIFeZT
-	2zjIFZCw==;
+	bh=3hHOU+xmmNy0cjln+gRm3o5Z09CstCUYxpA5W75tJb4=; b=aSNBBtgzlVW+4VTkF/nlpBiCG4
+	RFgA0U/P+4LKOb4dWi4I+TF4oWDf1ekIx2LB7FstbLpHdGxuqXRCNCaDrDleD6Ct6MQUal8uTG0pG
+	/AgNvmxXN8U8bkB2UAnWjQ4rXKheic+IKfl/OwuTq/vDi7D7OmNAVNJJJqb6JEIgkagKT7y8RELWu
+	mkEUk7Am9y779poLMnK1lnePfNbgY0Cua4h55Q/m9bzZQy66ivJXIdrPnvFdhtQNThR1QLo5cVpuV
+	5RHJLh3XHbyPw6HpiximZnPMg2NlSIgFgxCwtYXlDUOgz7CHxkUFiOpRmCoikpvtYFHjax6Tuhcjc
+	a0cf6JrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAku3-00000002Okd-2OVk;
-	Tue, 12 Nov 2024 07:01:31 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1tAkvo-00000002Oyu-1GgI;
+	Tue, 12 Nov 2024 07:03:20 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAksA-00000002OK2-3e5w
+	id 1tAksN-00000002OMy-2sRR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 06:59:36 +0000
-Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AC4LeWo031428;
-	Mon, 11 Nov 2024 22:59:30 -0800
+	Tue, 12 Nov 2024 06:59:48 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AC2V0tI026802;
+	Mon, 11 Nov 2024 22:52:34 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
 	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=6L0rlNbqaOU8uamcn+aeH4k
-	gFTUj+lf0ZzyEFVtxGLA=; b=ehEdCGtmMG5S7Ro6OvDe9F7udHFCMoOd1MulmF4
-	T3d4n4ULUSWX5GcqN+FiE0jHgYdnHxtb1Ii81UvPrNwULlwMNfrQ7B3gnfB9U0Ib
-	n0sSK/UWwOKyfWGntBUA+erqzq/AOvurmC9AFg3lOEK+/bKuPoqOUzVNIWTlf2uf
-	x+tOV70l8DMWAG8t/Y0Ave7ql5TblvA/VzIZ2MWkE28McMowLgN0akJi04pXjNvx
-	znpu1F56J2ROHwPilFc2gAPvPuaKmKVXcIDjc4TQ90zVv4qj87SMgmvw8sHY6Qvv
-	aAYXnMNWDPaceX9PDQIrIkiAlisgKPyneooNA1jclUqROtQ==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 42un9d1c33-1
+	:mime-version:subject:to; s=pfpt0220; bh=3hHOU+xmmNy0cjln+gRm3o5
+	Z09CstCUYxpA5W75tJb4=; b=AvHBHolHeIZXBXzAZYxQxuqUy/Efbzo45j8zway
+	3uL9bZnDXcjwoS37i3V8AV5CYgZu5kG/Lb9sqqQ29E/58P8JygY55kIR+IVqJSiH
+	v9An1g2tgAtml+DgKF4L+Rn2oqiC6CFsFL5L7dzyfwsz2qszAlD8v1mBru91eoic
+	hDHQpvl1sXzhjLxyqCVu8xYnGcYs8fBPHY420xbXRihOtUPWjYnyukVRgf6X9IZm
+	urjTNfYzulOrioRwijeyiLoemmIL1nMZ8zFipx2ZTAChTUk/vGvN092iJbJ+Tp/8
+	+UcuuHVeU8DeEkV9HNZlwMtgxnX/gSpSVGnUIHGJRxq5DYg==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 42uxa40bnk-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 11 Nov 2024 22:59:29 -0800 (PST)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+	Mon, 11 Nov 2024 22:52:34 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Mon, 11 Nov 2024 22:59:29 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Mon, 11 Nov 2024 22:59:29 -0800
+ 15.2.1544.4; Mon, 11 Nov 2024 22:52:32 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Mon, 11 Nov 2024 22:52:32 -0800
 Received: from localhost.localdomain (unknown [10.111.135.16])
-	by maili.marvell.com (Postfix) with ESMTP id C10F73F707E;
-	Mon, 11 Nov 2024 22:59:28 -0800 (PST)
+	by maili.marvell.com (Postfix) with ESMTP id C385A3F707E;
+	Mon, 11 Nov 2024 22:52:31 -0800 (PST)
 From: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-To: <andrew@lunn.ch>, <gregory.clement@bootlin.com>,
-        <sebastian.hesselbarth@gmail.com>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
+To: <lpieralisi@kernel.org>, <thomas.petazzoni@bootlin.com>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <linux-pci@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <salee@marvell.com>, <dingwei@marvell.com>,
         Jenishkumar Maheshbhai Patel
 	<jpatel2@marvell.com>
-Subject: [PATCH 1/1] arm64: dts: marvell: add pcie mac reset to pcie
-Date: Mon, 11 Nov 2024 22:59:26 -0800
-Message-ID: <20241112065926.756315-1-jpatel2@marvell.com>
+Subject: [PATCH 1/1] dt-bindings: pci: armada: add system controller and MAC reset bit
+Date: Mon, 11 Nov 2024 22:52:29 -0800
+Message-ID: <20241112065229.753466-1-jpatel2@marvell.com>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-GUID: 8Rs00MHIRqTVmuWdGVCsUnxvy8T3NJIz
-X-Proofpoint-ORIG-GUID: 8Rs00MHIRqTVmuWdGVCsUnxvy8T3NJIz
+X-Proofpoint-GUID: j28e8jnXFbR5Ng1p4bFkYk-VW7Y62nLd
+X-Proofpoint-ORIG-GUID: j28e8jnXFbR5Ng1p4bFkYk-VW7Y62nLd
 X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
- definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_225935_049753_5CA866F2 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20241111_225947_754279_24C8925E 
+X-CRM114-Status: UNSURE (   9.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,52 +91,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add system controller and reset bit to each pcie to enable pcie mac reset
+Adding Armada 7K/8K controller bindings optional system-controller
+and mac-reset-bit-mask needed for linkdown procedure.
 
 Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
 ---
- arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ Documentation/devicetree/bindings/pci/pci-armada8k.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-index 7e595ac80043..f5aef6a23f65 100644
---- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-+++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
-@@ -6,6 +6,7 @@
-  */
+diff --git a/Documentation/devicetree/bindings/pci/pci-armada8k.txt b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
+index ff25a134befa..a177b971a9a0 100644
+--- a/Documentation/devicetree/bindings/pci/pci-armada8k.txt
++++ b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
+@@ -24,6 +24,10 @@ Optional properties:
+ - phy-names: names of the PHYs corresponding to the number of lanes.
+ 	Must be "cp0-pcie0-x4-lane0-phy", "cp0-pcie0-x4-lane1-phy" for
+ 	2 PHYs.
++- marvell,system-controller: address of system controller needed
++	in order to reset MAC used by link-down handle
++- marvell,mac-reset-bit-mask: MAC reset bit of system controller
++	needed in order to reset MAC used by link-down handle
  
- #include <dt-bindings/interrupt-controller/mvebu-icu.h>
-+#define CP11X_PCIEx_MAC_RESET_BIT_MASK(n)	(0x1 << 11 + ((n + 2) % 3))
- #include <dt-bindings/thermal/thermal.h>
+ Example:
  
- #include "armada-common.dtsi"
-@@ -547,6 +548,8 @@ CP11X_LABEL(pcie0): pcie@CP11X_PCIE0_BASE {
+@@ -45,4 +49,6 @@ Example:
+ 		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
  		num-lanes = <1>;
- 		clock-names = "core", "reg";
- 		clocks = <&CP11X_LABEL(clk) 1 13>, <&CP11X_LABEL(clk) 1 14>;
-+		marvell,system-controller = <&CP11X_LABEL(syscon0)>;
-+		marvell,mac-reset-bit-mask = <CP11X_PCIEx_MAC_RESET_BIT_MASK(0)>;
- 		status = "disabled";
- 	};
- 
-@@ -572,6 +575,8 @@ CP11X_LABEL(pcie1): pcie@CP11X_PCIE1_BASE {
- 		num-lanes = <1>;
- 		clock-names = "core", "reg";
- 		clocks = <&CP11X_LABEL(clk) 1 11>, <&CP11X_LABEL(clk) 1 14>;
+ 		clocks = <&cpm_syscon0 1 13>;
 +		marvell,system-controller = <&CP11X_LABEL(syscon0)>;
 +		marvell,mac-reset-bit-mask = <CP11X_PCIEx_MAC_RESET_BIT_MASK(1)>;
- 		status = "disabled";
  	};
- 
-@@ -597,6 +602,8 @@ CP11X_LABEL(pcie2): pcie@CP11X_PCIE2_BASE {
- 		num-lanes = <1>;
- 		clock-names = "core", "reg";
- 		clocks = <&CP11X_LABEL(clk) 1 12>, <&CP11X_LABEL(clk) 1 14>;
-+		marvell,system-controller = <&CP11X_LABEL(syscon0)>;
-+		marvell,mac-reset-bit-mask = <CP11X_PCIEx_MAC_RESET_BIT_MASK(2)>;
- 		status = "disabled";
- 	};
- };
 -- 
 2.25.1
 
