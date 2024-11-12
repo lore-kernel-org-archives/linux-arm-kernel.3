@@ -4,81 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51984D597A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73521D597A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvfLiy46zAAc4YpHFE3RBOLl5fq2FOHK1NiPPVPoB5Q=; b=Ttu+YoUpPDSyrtzSmcLFFmW/7W
-	sWJC0ZRt/RSjbfL4v8gQgtLRMOiTKqxyLAvUJiO97QT4suPJd+QKN9sUN1SXsNGzx+fobNNfsyYmm
-	TvwIWONhXx3792BPGAbQmk4imX7m3p3YUyqqBpmeyebcOuKGkF3PVsbZHfsiWyiNdcnYNYlKg01vP
-	icYlcVi6jwLyM5OKZvubN8XCRkreJsofYLeKUuFpmcFZlhqP2fu+6S+cFWK19zlme0icGO9dpzL2y
-	zIOQL+MRroerSV/UNGjCy/g46RHmlSf69OmNXXulrzY99Kja2PMadGF224d8YUDzJUbDpWGDFEqgK
-	+foXz0hw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/E9JaS6GNPOhFzH/hTsYBjh3LFrXVv5Wnd8IVRw0MwA=; b=tmS8UDJlq1HUekEXzpwCyYh6pG
+	eIk735YkbSBvzkM6JuyYytQW5xGc3X7cF4eoC0XWFR8bvOJfFQee3m4K/KCXBdv14ioo67EMcx4Fk
+	ATHV+Gp1zThwuBhZeKyrucjeQqZqSSOs/ij1YX5p1EeSfLbMw5yZ+Ux1G+GfyTEQp+ml9VRQEdyRU
+	tCGHQf9TQGkVH43cECfij5a5W2qHKwuYxzXfcFnJhogMXvzzBSfMR68MlT/csAaxuAsomD0JVB0VX
+	cRaOFsm4OeZpvwF8CFnQNSDVpvSkSCDvFsDFsOXoYonDckoETRpVnX19iomHATI55qy5wKrRJu+gf
+	jUXHmFfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAy7q-00000004xc5-2hCL;
-	Tue, 12 Nov 2024 21:08:38 +0000
-Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	id 1tAyFc-00000004z7a-2DWr;
+	Tue, 12 Nov 2024 21:16:40 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAy4Y-00000004xDc-3vC9;
-	Tue, 12 Nov 2024 21:05:16 +0000
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-20c7edf2872so574675ad.1;
-        Tue, 12 Nov 2024 13:05:14 -0800 (PST)
+	id 1tAyDn-00000004ypA-3iiy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 21:14:49 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-723f37dd76cso6413268b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 13:14:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731446086; x=1732050886; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/E9JaS6GNPOhFzH/hTsYBjh3LFrXVv5Wnd8IVRw0MwA=;
+        b=beP7GqS10UkHM1RLmT3+bvo0oQOqshWa509CSSCvDPhyhkBEcfbEn6TD06gHg3/6DM
+         ypDc9w3MYt/U4J8B/i7MQVmJGsDMP1sZZ2DB8ebDzAl9EkSGyQyS4+1YsJpW3U1vZgHJ
+         bjsO3bfNdCQpXUKRF2WNFmu0Y2b0xxxMb9oU0pJFgFPbdaL5oXnoxyPrZYEHKPfHjAw9
+         pprYYVwqSG0Cn+a+0z37gnZE2Adgbx76LQfxsCjvXVX8Kilee/ZJWxt1n01oftPJgonk
+         pPJ2eyqUwURR2OsXvfPn2QUZ4vK+D9Rkn1OwGm+EJlrudtWpeItIibU0fnXinJ1XIH0Z
+         LChA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731445514; x=1732050314;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qvfLiy46zAAc4YpHFE3RBOLl5fq2FOHK1NiPPVPoB5Q=;
-        b=nLvJqcM5q2Sogvb6RgB94eekCqiqusGl6HNARD1KmEW/XkN6/ozLDhKxNImmqu4u9g
-         jCoPcce+XK+rqmCZ8DQSq8/9DXzIQePYzIX/UX8hoG2nDdRd4wvdNEEyIKBsUpABp1Tg
-         ZhT1HsKO+L22gieUj7taXSQtiqeAu+yr1pimYH+keGPds3/ILVzW+8mt+XK+8WgqViPE
-         B3FEAQgXwSTr9razQJYTiswqm8o2SPasy10+OuhTor8fqNAriv2ubt6dnKU80XSENYUB
-         Gk/dn+yKCRMiFJ9cvlP/TYq5l0Aqc1pNBbsqFSKPIeFw8u2HOmFq/M9prOdCRg7keWec
-         GMPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcTwBvAL7jSg0tuLykwO8czRd7HBwxvnCeNNaT/LfxmZfzL1YfeEwjDv0Dg4fhj/jCInxq7sLQsH3/q9B7EH8=@lists.infradead.org, AJvYcCWlcNxnwC96CMwmk7zidFdhl7JcZ32FzzYGte0TnA/nCFd6ijbmwxgGMbHanVr4yy7gIL/T6rCi5dPyuQIwO6w4@lists.infradead.org
-X-Gm-Message-State: AOJu0YytZSb8kogN/Q0gKgzkj5y1iSAKCehp9RSLBQ5jZJ9mN7ILnc7q
-	A8s/DxPJnn/bzycDt+LQgEvD6cylLOgCPB4ae6qlmlL8v89ws3JLcXhRfXMw
-X-Google-Smtp-Source: AGHT+IGqdsB/KQZuLyb7XZJP0hqL+7wojjEHAqrXmV0hxO4W/7841LVSQcAeJC0PECmrSthPwlBKpQ==
-X-Received: by 2002:a17:90b:4d01:b0:2e2:8ee3:b936 with SMTP id 98e67ed59e1d1-2e9b0a2fda4mr26848704a91.6.1731445513456;
-        Tue, 12 Nov 2024 13:05:13 -0800 (PST)
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com. [209.85.215.178])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9f396f501sm30190a91.40.2024.11.12.13.05.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 13:05:13 -0800 (PST)
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-7e6d04f74faso42173a12.1;
-        Tue, 12 Nov 2024 13:05:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVk1Hv4NclAfyohmlEYDEQ5c5Jedx8yqFyBIrZjLDJ+T+Pg0T7mu9t25mbvJD2AalomWxn94JNfyXi2NH675gM=@lists.infradead.org, AJvYcCWTMoTDg3EKGHHyvoZRyn56cEfqu1wsS5BLJhGOVtQ6cCDY0d1mW28phQh5z6Rv3VRwT8rnyxXy3ECkO2zAgzeP@lists.infradead.org
-X-Received: by 2002:a17:90b:1e45:b0:2c9:6abd:ca64 with SMTP id
- 98e67ed59e1d1-2e9b1f074b1mr28605933a91.9.1731445512591; Tue, 12 Nov 2024
- 13:05:12 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731446086; x=1732050886;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/E9JaS6GNPOhFzH/hTsYBjh3LFrXVv5Wnd8IVRw0MwA=;
+        b=obCmCUmKteLcBnE1WWQgldHYcqH/IkB3450PdqtHLWycypSCEtPXJo91qz1Fd5cnUQ
+         xYegIzXilktPExWUheiEuZIOnWvuYf6rilAj96FhsNJa14SBQgy8h4WeE/m1XjkMPxrV
+         RcsXa8K9wsiWBp1Iv2hflV1uR022hNkGlbBRNd8RTWt8iGAFaYn/vhHPp7iCOnB/GI4Q
+         vesikVccrrDPpoDdZA6N1vjoSRDVhFsVKXX6SE/XCeUiKZgfuCeT48aRvgpUtFDxVjrv
+         a11IW31aTNw7e2WRF37+n9HUZ2xjZC7X/5Bz2GFaGN/hLiqi2CF0dZWNtA/ed48FdKve
+         IWeA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6Y7VpFDFEZ9+HMWevRtpG8H8VJMH2YSkJfz4uE5G7oXLCVHhoWZ2LRCycBCvpNFKH4xjAxmQYM1d0HTHVm8oM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvmtM3fOOHtVXeng+L510pd90R4Yydb3+vvCdXloudp2TzBcmH
+	cUDroGUARi3rhfc/W4VN1L/QN/zTQVBdMjiOU4sv1oDxNYZI2diC
+X-Google-Smtp-Source: AGHT+IEYLl+iSufvvHMXoUuiJUyTbTMzcH9dmY86uH3TzWouUTAb7GMiGaFKlPZZaY+yfk420KCG5g==
+X-Received: by 2002:a05:6a00:4605:b0:71e:75c0:2552 with SMTP id d2e1a72fcca58-7245782938bmr753499b3a.0.1731446086149;
+        Tue, 12 Nov 2024 13:14:46 -0800 (PST)
+Received: from ryzen.lan ([2601:644:8200:dab8::a86])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724079a4126sm12062338b3a.102.2024.11.12.13.14.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 13:14:45 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Pantelis Antoniou <pantelis.antoniou@gmail.com>,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Byungho An <bh74.an@samsung.com>,
+	Kevin Brace <kevinbrace@bracecomputerlab.com>,
+	Francois Romieu <romieu@fr.zoreil.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Zhao Qiang <qiang.zhao@nxp.com>,
+	linux-can@vger.kernel.org (open list:CAN NETWORK DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
+	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC FS_ENET DRIVER)
+Subject: [PATCHv3 net-next] net: modernize IRQ resource acquisition
+Date: Tue, 12 Nov 2024 13:14:42 -0800
+Message-ID: <20241112211442.7205-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-3-tszucs@linux.com>
- <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se> <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
- <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com> <303ad3910668e852d6670d1c79dc22e0@manjaro.org>
-In-Reply-To: <303ad3910668e852d6670d1c79dc22e0@manjaro.org>
-From: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
-Date: Tue, 12 Nov 2024 22:05:00 +0100
-X-Gmail-Original-Message-ID: <CA+GksrLLbfyHdvu1VYB4S+W78C0T1DEWu5W6pP2-g3KdBeT-LQ@mail.gmail.com>
-Message-ID: <CA+GksrLLbfyHdvu1VYB4S+W78C0T1DEWu5W6pP2-g3KdBeT-LQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
- set it up for SDIO devices
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_130515_004139_E49C2D0A 
-X-CRM114-Status: GOOD (  43.81  )
+X-CRM114-CacheID: sfid-20241112_131447_959865_47CB6727 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,138 +113,405 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan,
+In probe, np == pdev->dev.of_node. It's easier to pass pdev directly.
 
-On Tue, Nov 12, 2024 at 4:16=E2=80=AFPM Dragan Simic <dsimic@manjaro.org> w=
-rote:
->
-> Hello Tamas,
->
-> On 2024-11-12 15:35, Tam=C3=A1s Sz=C5=B1cs wrote:
-> > I think it was totally fine to disable sdmmc2 at first, especially if
-> > it couldn=E2=80=99t be tested or wasn=E2=80=99t needed right away. From=
- what I=E2=80=99ve
-> > seen, this board works great even at higher clock speeds than what
-> > rk356x-base.dtsi suggests. I don=E2=80=99t have access to the RK3568 er=
-rata,
-> > and there don=E2=80=99t seem to be any limits mentioned in the TRM eith=
-er.
-> > Overall, this board is doing just fine as it is.
->
-> Sorry, I'm missing the point of mentioning some clock speeds?  Any
-> chances, please, to clarify that a bit?
+Replace irq_of_parse_and_map() by platform_get_irq() to do so. Requires
+removing the error message as well as fixing the return type.
 
-It's all about stress scenarios, right. Sustained transfer at maximum
-clock, multiple SD/MMC blocks used concurrently. That kind of thing.
-Different data rates forced. I hope that answers your question.
+Replace of_address_to_resource() with platform_get_resource() for the
+same reason.
 
->
-> > Regarding device tree overlays, they would be ideal for implementing
-> > secondary functions, such as PCIe endpoint mode for users with
-> > specific requirements. However, the primary functions for PCIe on the
-> > M2E will be root complex mode, along with SDIO host, etc. In my view,
-> > the hardware is well-designed and interconnected. Users have a
-> > reasonable expectation that these primary functions should work
-> > seamlessly without additional configuration, right out of the box.
->
-> That's basically what I referred to in my earlier response, and in my
-> previous response regarding the UART.  Users would expect the Bluetooth
-> part to work as well, but the error messages I mentioned look nasty, so
-> perhaps something should be done about that first.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+(for CAN)
+Reviewed-by: Marc Kleine-Budde <mkl@pengutronix.de>
+---
+ v3: fix coccinelle bad return and error message checks. Also reword
+ commit title and message
+ v2: fixed compilation errors. Also removed non devm transformations.
+ drivers/net/can/grcan.c                       |  5 ++--
+ drivers/net/can/mscan/mpc5xxx_can.c           |  5 ++--
+ drivers/net/dsa/bcm_sf2.c                     |  4 ++--
+ drivers/net/ethernet/allwinner/sun4i-emac.c   |  5 ++--
+ drivers/net/ethernet/freescale/fec_mpc52xx.c  |  4 ++--
+ .../net/ethernet/freescale/fs_enet/mac-fcc.c  |  4 ++--
+ .../net/ethernet/freescale/fs_enet/mac-fec.c  |  4 ++--
+ .../net/ethernet/freescale/fs_enet/mac-scc.c  |  4 ++--
+ drivers/net/ethernet/freescale/ucc_geth.c     | 12 +++++-----
+ drivers/net/ethernet/marvell/mvneta.c         |  4 ++--
+ drivers/net/ethernet/moxa/moxart_ether.c      |  6 ++---
+ .../ethernet/samsung/sxgbe/sxgbe_platform.c   | 24 +++++++------------
+ drivers/net/ethernet/via/via-rhine.c          |  4 ++--
+ drivers/net/ethernet/via/via-velocity.c       |  4 ++--
+ drivers/net/ethernet/xilinx/ll_temac_mdio.c   |  6 ++---
+ drivers/net/mdio/mdio-mux-mmioreg.c           | 16 +++++++------
+ drivers/net/wan/fsl_ucc_hdlc.c                | 10 ++++----
+ 17 files changed, 55 insertions(+), 66 deletions(-)
 
-I'm not aware of any nasty error messages especially related to UART.
-Well, MMC core will acknowledge when the platform part fails to
-enumerate a device on sdmmc2, but there's nothing wrong with this.
-It's not even an error -- certainly not a nasty one.
+diff --git a/drivers/net/can/grcan.c b/drivers/net/can/grcan.c
+index cdf0ec9fa7f3..48e93c3445e7 100644
+--- a/drivers/net/can/grcan.c
++++ b/drivers/net/can/grcan.c
+@@ -1673,9 +1673,8 @@ static int grcan_probe(struct platform_device *ofdev)
+ 		goto exit_error;
+ 	}
+ 
+-	irq = irq_of_parse_and_map(np, GRCAN_IRQIX_IRQ);
+-	if (!irq) {
+-		dev_err(&ofdev->dev, "no irq found\n");
++	irq = platform_get_irq(ofdev, GRCAN_IRQIX_IRQ);
++	if (irq < 0) {
+ 		err = -ENODEV;
+ 		goto exit_error;
+ 	}
+diff --git a/drivers/net/can/mscan/mpc5xxx_can.c b/drivers/net/can/mscan/mpc5xxx_can.c
+index 0080c39ee182..c916c9ab912a 100644
+--- a/drivers/net/can/mscan/mpc5xxx_can.c
++++ b/drivers/net/can/mscan/mpc5xxx_can.c
+@@ -300,9 +300,8 @@ static int mpc5xxx_can_probe(struct platform_device *ofdev)
+ 	if (!base)
+ 		return dev_err_probe(&ofdev->dev, err, "couldn't ioremap\n");
+ 
+-	irq = irq_of_parse_and_map(np, 0);
+-	if (!irq) {
+-		dev_err(&ofdev->dev, "no irq found\n");
++	irq = platform_get_irq(ofdev, 0);
++	if (irq < 0) {
+ 		err = -ENODEV;
+ 		goto exit_unmap_mem;
+ 	}
+diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
+index 43bde1f583ff..9229582efd05 100644
+--- a/drivers/net/dsa/bcm_sf2.c
++++ b/drivers/net/dsa/bcm_sf2.c
+@@ -1443,8 +1443,8 @@ static int bcm_sf2_sw_probe(struct platform_device *pdev)
+ 		of_node_put(ports);
+ 	}
+ 
+-	priv->irq0 = irq_of_parse_and_map(dn, 0);
+-	priv->irq1 = irq_of_parse_and_map(dn, 1);
++	priv->irq0 = platform_get_irq(pdev, 0);
++	priv->irq1 = platform_get_irq(pdev, 1);
+ 
+ 	base = &priv->core;
+ 	for (i = 0; i < BCM_SF2_REGS_NUM; i++) {
+diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
+index 2f516b950f4e..353ebec76c92 100644
+--- a/drivers/net/ethernet/allwinner/sun4i-emac.c
++++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
+@@ -995,9 +995,8 @@ static int emac_probe(struct platform_device *pdev)
+ 
+ 	/* fill in parameters for net-dev structure */
+ 	ndev->base_addr = (unsigned long)db->membase;
+-	ndev->irq = irq_of_parse_and_map(np, 0);
+-	if (ndev->irq == -ENXIO) {
+-		netdev_err(ndev, "No irq resource\n");
++	ndev->irq = platform_get_irq(pdev, 0);
++	if (ndev->irq < 0) {
+ 		ret = ndev->irq;
+ 		goto out_iounmap;
+ 	}
+diff --git a/drivers/net/ethernet/freescale/fec_mpc52xx.c b/drivers/net/ethernet/freescale/fec_mpc52xx.c
+index 5d7769b38ae4..b0849a448c6d 100644
+--- a/drivers/net/ethernet/freescale/fec_mpc52xx.c
++++ b/drivers/net/ethernet/freescale/fec_mpc52xx.c
+@@ -859,9 +859,9 @@ static int mpc52xx_fec_probe(struct platform_device *op)
+ 
+ 	/* Get the IRQ we need one by one */
+ 		/* Control */
+-	ndev->irq = irq_of_parse_and_map(np, 0);
++	ndev->irq = platform_get_irq(op, 0);
+ 
+-		/* RX */
++	/* RX */
+ 	priv->r_irq = bcom_get_task_irq(priv->rx_dmatsk);
+ 
+ 		/* TX */
+diff --git a/drivers/net/ethernet/freescale/fs_enet/mac-fcc.c b/drivers/net/ethernet/freescale/fs_enet/mac-fcc.c
+index be63293511d9..9006137e3a55 100644
+--- a/drivers/net/ethernet/freescale/fs_enet/mac-fcc.c
++++ b/drivers/net/ethernet/freescale/fs_enet/mac-fcc.c
+@@ -83,8 +83,8 @@ static int do_pd_setup(struct fs_enet_private *fep)
+ 	struct fs_platform_info *fpi = fep->fpi;
+ 	int ret = -EINVAL;
+ 
+-	fep->interrupt = irq_of_parse_and_map(ofdev->dev.of_node, 0);
+-	if (!fep->interrupt)
++	fep->interrupt = platform_get_irq(ofdev, 0);
++	if (fep->interrupt < 0)
+ 		goto out;
+ 
+ 	fep->fcc.fccp = of_iomap(ofdev->dev.of_node, 0);
+diff --git a/drivers/net/ethernet/freescale/fs_enet/mac-fec.c b/drivers/net/ethernet/freescale/fs_enet/mac-fec.c
+index f2ecd20027cf..f8ae38e37feb 100644
+--- a/drivers/net/ethernet/freescale/fs_enet/mac-fec.c
++++ b/drivers/net/ethernet/freescale/fs_enet/mac-fec.c
+@@ -88,8 +88,8 @@ static int do_pd_setup(struct fs_enet_private *fep)
+ {
+ 	struct platform_device *ofdev = to_platform_device(fep->dev);
+ 
+-	fep->interrupt = irq_of_parse_and_map(ofdev->dev.of_node, 0);
+-	if (!fep->interrupt)
++	fep->interrupt = platform_get_irq(ofdev, 0);
++	if (fep->interrupt < 0)
+ 		return -EINVAL;
+ 
+ 	fep->fec.fecp = of_iomap(ofdev->dev.of_node, 0);
+diff --git a/drivers/net/ethernet/freescale/fs_enet/mac-scc.c b/drivers/net/ethernet/freescale/fs_enet/mac-scc.c
+index 6c97191649de..2e817bc5c512 100644
+--- a/drivers/net/ethernet/freescale/fs_enet/mac-scc.c
++++ b/drivers/net/ethernet/freescale/fs_enet/mac-scc.c
+@@ -87,8 +87,8 @@ static int do_pd_setup(struct fs_enet_private *fep)
+ {
+ 	struct platform_device *ofdev = to_platform_device(fep->dev);
+ 
+-	fep->interrupt = irq_of_parse_and_map(ofdev->dev.of_node, 0);
+-	if (!fep->interrupt)
++	fep->interrupt = platform_get_irq(ofdev, 0);
++	if (fep->interrupt < 0)
+ 		return -EINVAL;
+ 
+ 	fep->scc.sccp = of_iomap(ofdev->dev.of_node, 0);
+diff --git a/drivers/net/ethernet/freescale/ucc_geth.c b/drivers/net/ethernet/freescale/ucc_geth.c
+index 6663c1768089..dbc00f759212 100644
+--- a/drivers/net/ethernet/freescale/ucc_geth.c
++++ b/drivers/net/ethernet/freescale/ucc_geth.c
+@@ -3560,7 +3560,7 @@ static int ucc_geth_probe(struct platform_device* ofdev)
+ 	struct net_device *dev = NULL;
+ 	struct ucc_geth_private *ugeth = NULL;
+ 	struct ucc_geth_info *ug_info;
+-	struct resource res;
++	struct resource *res;
+ 	int err, ucc_num, max_speed = 0;
+ 	const unsigned int *prop;
+ 	phy_interface_t phy_interface;
+@@ -3605,12 +3605,12 @@ static int ucc_geth_probe(struct platform_device* ofdev)
+ 	if (err)
+ 		return err;
+ 
+-	err = of_address_to_resource(np, 0, &res);
+-	if (err)
+-		return err;
++	res = platform_get_resource(ofdev, 0, IORESOURCE_MEM);
++	if (!res)
++		return -ENODEV;
+ 
+-	ug_info->uf_info.regs = res.start;
+-	ug_info->uf_info.irq = irq_of_parse_and_map(np, 0);
++	ug_info->uf_info.regs = res->start;
++	ug_info->uf_info.irq = platform_get_irq(ofdev, 0);
+ 
+ 	ug_info->phy_node = of_parse_phandle(np, "phy-handle", 0);
+ 	if (!ug_info->phy_node && of_phy_is_fixed_link(np)) {
+diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
+index 7bb781fb93b5..8ef9c73735c2 100644
+--- a/drivers/net/ethernet/marvell/mvneta.c
++++ b/drivers/net/ethernet/marvell/mvneta.c
+@@ -5511,8 +5511,8 @@ static int mvneta_probe(struct platform_device *pdev)
+ 		pp->neta_ac5 = true;
+ 	}
+ 
+-	dev->irq = irq_of_parse_and_map(dn, 0);
+-	if (dev->irq == 0)
++	dev->irq = platform_get_irq(pdev, 0);
++	if (dev->irq < 0)
+ 		return -EINVAL;
+ 
+ 	pp->clk = devm_clk_get(&pdev->dev, "core");
+diff --git a/drivers/net/ethernet/moxa/moxart_ether.c b/drivers/net/ethernet/moxa/moxart_ether.c
+index 8bd60168624a..7fca8a05f755 100644
+--- a/drivers/net/ethernet/moxa/moxart_ether.c
++++ b/drivers/net/ethernet/moxa/moxart_ether.c
+@@ -454,7 +454,6 @@ static const struct net_device_ops moxart_netdev_ops = {
+ static int moxart_mac_probe(struct platform_device *pdev)
+ {
+ 	struct device *p_dev = &pdev->dev;
+-	struct device_node *node = p_dev->of_node;
+ 	struct net_device *ndev;
+ 	struct moxart_mac_priv_t *priv;
+ 	struct resource *res;
+@@ -465,9 +464,8 @@ static int moxart_mac_probe(struct platform_device *pdev)
+ 	if (!ndev)
+ 		return -ENOMEM;
+ 
+-	irq = irq_of_parse_and_map(node, 0);
+-	if (irq <= 0) {
+-		netdev_err(ndev, "irq_of_parse_and_map failed\n");
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0) {
+ 		ret = -EINVAL;
+ 		goto irq_map_fail;
+ 	}
+diff --git a/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c b/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c
+index 2eccc7617507..54faa01f4e31 100644
+--- a/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c
++++ b/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c
+@@ -111,37 +111,29 @@ static int sxgbe_platform_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Get the SXGBE common INT information */
+-	priv->irq  = irq_of_parse_and_map(node, 0);
+-	if (priv->irq <= 0) {
+-		dev_err(dev, "sxgbe common irq parsing failed\n");
++	priv->irq = platform_get_irq(pdev, 0);
++	if (priv->irq < 0)
+ 		goto err_drv_remove;
+-	}
+ 
+ 	/* Get MAC address if available (DT) */
+ 	of_get_ethdev_address(node, priv->dev);
+ 
+ 	/* Get the TX/RX IRQ numbers */
+ 	for (i = 0, chan = 1; i < SXGBE_TX_QUEUES; i++) {
+-		priv->txq[i]->irq_no = irq_of_parse_and_map(node, chan++);
+-		if (priv->txq[i]->irq_no <= 0) {
+-			dev_err(dev, "sxgbe tx irq parsing failed\n");
++		priv->txq[i]->irq_no = platform_get_irq(pdev, chan++);
++		if (priv->txq[i]->irq_no < 0)
+ 			goto err_tx_irq_unmap;
+-		}
+ 	}
+ 
+ 	for (i = 0; i < SXGBE_RX_QUEUES; i++) {
+-		priv->rxq[i]->irq_no = irq_of_parse_and_map(node, chan++);
+-		if (priv->rxq[i]->irq_no <= 0) {
+-			dev_err(dev, "sxgbe rx irq parsing failed\n");
++		priv->rxq[i]->irq_no = platform_get_irq(pdev, chan++);
++		if (priv->rxq[i]->irq_no < 0)
+ 			goto err_rx_irq_unmap;
+-		}
+ 	}
+ 
+-	priv->lpi_irq = irq_of_parse_and_map(node, chan);
+-	if (priv->lpi_irq <= 0) {
+-		dev_err(dev, "sxgbe lpi irq parsing failed\n");
++	priv->lpi_irq = platform_get_irq(pdev, chan);
++	if (priv->lpi_irq < 0)
+ 		goto err_rx_irq_unmap;
+-	}
+ 
+ 	platform_set_drvdata(pdev, priv->dev);
+ 
+diff --git a/drivers/net/ethernet/via/via-rhine.c b/drivers/net/ethernet/via/via-rhine.c
+index 894911f3d560..95e5437b16b4 100644
+--- a/drivers/net/ethernet/via/via-rhine.c
++++ b/drivers/net/ethernet/via/via-rhine.c
+@@ -1127,8 +1127,8 @@ static int rhine_init_one_platform(struct platform_device *pdev)
+ 	if (IS_ERR(ioaddr))
+ 		return PTR_ERR(ioaddr);
+ 
+-	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
+-	if (!irq)
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
+ 		return -EINVAL;
+ 
+ 	return rhine_init_one_common(&pdev->dev, *quirks,
+diff --git a/drivers/net/ethernet/via/via-velocity.c b/drivers/net/ethernet/via/via-velocity.c
+index 72271a51d0e7..16cf7db41c54 100644
+--- a/drivers/net/ethernet/via/via-velocity.c
++++ b/drivers/net/ethernet/via/via-velocity.c
+@@ -2950,8 +2950,8 @@ static int velocity_platform_probe(struct platform_device *pdev)
+ 	if (!info)
+ 		return -EINVAL;
+ 
+-	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
+-	if (!irq)
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
+ 		return -EINVAL;
+ 
+ 	return velocity_probe(&pdev->dev, irq, info, BUS_PLATFORM);
+diff --git a/drivers/net/ethernet/xilinx/ll_temac_mdio.c b/drivers/net/ethernet/xilinx/ll_temac_mdio.c
+index 07a9fb49eda1..4bc5d47ecb7e 100644
+--- a/drivers/net/ethernet/xilinx/ll_temac_mdio.c
++++ b/drivers/net/ethernet/xilinx/ll_temac_mdio.c
+@@ -69,7 +69,7 @@ int temac_mdio_setup(struct temac_local *lp, struct platform_device *pdev)
+ 	u32 bus_hz;
+ 	int clk_div;
+ 	int rc;
+-	struct resource res;
++	struct resource *res;
+ 
+ 	/* Get MDIO bus frequency (if specified) */
+ 	bus_hz = 0;
+@@ -98,9 +98,9 @@ int temac_mdio_setup(struct temac_local *lp, struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	if (np) {
+-		of_address_to_resource(np, 0, &res);
++		res = platform_get_resource(pdev, 0, IORESOURCE_MEM);
+ 		snprintf(bus->id, MII_BUS_ID_SIZE, "%.8llx",
+-			 (unsigned long long)res.start);
++			 (unsigned long long)res->start);
+ 	} else if (pdata) {
+ 		snprintf(bus->id, MII_BUS_ID_SIZE, "%.8llx",
+ 			 pdata->mdio_bus_id);
+diff --git a/drivers/net/mdio/mdio-mux-mmioreg.c b/drivers/net/mdio/mdio-mux-mmioreg.c
+index 9c4b1efd0d53..b5a65a1ab406 100644
+--- a/drivers/net/mdio/mdio-mux-mmioreg.c
++++ b/drivers/net/mdio/mdio-mux-mmioreg.c
+@@ -98,7 +98,7 @@ static int mdio_mux_mmioreg_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct mdio_mux_mmioreg_state *s;
+-	struct resource res;
++	struct resource *res;
+ 	const __be32 *iprop;
+ 	int len, ret;
+ 
+@@ -108,13 +108,15 @@ static int mdio_mux_mmioreg_probe(struct platform_device *pdev)
+ 	if (!s)
+ 		return -ENOMEM;
+ 
+-	ret = of_address_to_resource(np, 0, &res);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret,
+-				     "could not obtain memory map for node %pOF\n", np);
+-	s->phys = res.start;
++	res = platform_get_resource(pdev, 0, IORESOURCE_MEM);
++	if (!res) {
++		dev_err(&pdev->dev,
++			"could not obtain memory map for node %pOF\n", np);
++		return -ENODEV;
++	}
++	s->phys = res->start;
+ 
+-	s->iosize = resource_size(&res);
++	s->iosize = resource_size(res);
+ 	if (s->iosize != sizeof(uint8_t) &&
+ 	    s->iosize != sizeof(uint16_t) &&
+ 	    s->iosize != sizeof(uint32_t))
+diff --git a/drivers/net/wan/fsl_ucc_hdlc.c b/drivers/net/wan/fsl_ucc_hdlc.c
+index f999798a5612..414a9d22da5e 100644
+--- a/drivers/net/wan/fsl_ucc_hdlc.c
++++ b/drivers/net/wan/fsl_ucc_hdlc.c
+@@ -1118,7 +1118,7 @@ static int ucc_hdlc_probe(struct platform_device *pdev)
+ 	struct ucc_hdlc_private *uhdlc_priv = NULL;
+ 	struct ucc_tdm_info *ut_info;
+ 	struct ucc_tdm *utdm = NULL;
+-	struct resource res;
++	struct resource *res;
+ 	struct net_device *dev;
+ 	hdlc_device *hdlc;
+ 	int ucc_num;
+@@ -1170,12 +1170,12 @@ static int ucc_hdlc_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
+ 
+-	ret = of_address_to_resource(np, 0, &res);
+-	if (ret)
++	res = platform_get_resource(pdev, 0, IORESOURCE_MEM);
++	if (!res)
+ 		return -EINVAL;
+ 
+-	ut_info->uf_info.regs = res.start;
+-	ut_info->uf_info.irq = irq_of_parse_and_map(np, 0);
++	ut_info->uf_info.regs = res->start;
++	ut_info->uf_info.irq = platform_get_irq(pdev, 0);
+ 
+ 	uhdlc_priv = kzalloc(sizeof(*uhdlc_priv), GFP_KERNEL);
+ 	if (!uhdlc_priv)
+-- 
+2.47.0
 
-[    1.799703] mmc_host mmc2: card is non-removable.
-[    1.935011] mmc_host mmc2: Bus speed (slot 0) =3D 375000Hz (slot req
-400000Hz, actual 375000HZ div =3D 0)
-[    7.195009] mmc_host mmc2: Bus speed (slot 0) =3D 375000Hz (slot req
-375000Hz, actual 375000HZ div =3D 0)
-[   13.029540] mmc2: Failed to initialize a non-removable card
-
->
-> > Dragan, what did you mean by SDIO related power timing requirements?
->
-> Whenever there's an SDIO module, there's usually some required timing
-> of the power rails.  Though, I don't know what's that like with the
-> non-standard M.2 SDIO modules that Radxa sells, which are intended to
-> be used on Radxa boards with "hybrid" M.2 slots.
-
-Ok, I see. Not always. I can't comment on Radxa's SDIO module but I'm
-sure it's reasonably standard. And so is the M.2 Key E on this board.
-Actually, part of the appeal is that all standard buses are very
-nicely wired up. I want everybody to be able to use them.
-
-
->
-> Once again, please use inline replying. [*]
->
-> [*] https://en.wikipedia.org/wiki/Posting_style
->
-> > On Tue, Nov 12, 2024 at 5:41=E2=80=AFAM Dragan Simic <dsimic@manjaro.or=
-g>
-> > wrote:
-> >>
-> >> Hello Jonas and Tamas,
-> >>
-> >> On 2024-11-11 20:06, Jonas Karlman wrote:
-> >> > On 2024-11-11 19:17, Tam=C3=A1s Sz=C5=B1cs wrote:
-> >> >> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UH=
-S-I
-> >> >> rates and
-> >> >> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
-> >> >>
-> >> >> Signed-off-by: Tam=C3=A1s Sz=C5=B1cs <tszucs@linux.com>
-> >> >> ---
-> >> >>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
-> >> >>  1 file changed, 7 insertions(+), 1 deletion(-)
-> >> >>
-> >> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >> >> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >> >> index 242af5337cdf..b7527ba418f7 100644
-> >> >> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >> >> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >> >> @@ -688,14 +688,20 @@ &sdmmc2 {
-> >> >>      cap-sd-highspeed;
-> >> >>      cap-sdio-irq;
-> >> >>      keep-power-in-suspend;
-> >> >> +    max-frequency =3D <200000000>;
-> >> >>      mmc-pwrseq =3D <&sdio_pwrseq>;
-> >> >>      non-removable;
-> >> >>      pinctrl-names =3D "default";
-> >> >>      pinctrl-0 =3D <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
-> >> >> +    sd-uhs-sdr12;
-> >> >> +    sd-uhs-sdr25;
-> >> >> +    sd-uhs-sdr50;
-> >> >
-> >> > I thought that lower speeds was implied by uhs-sdr104?
-> >>
-> >> Last time I went through the MMC drivers, they were implied.  IIRC,
-> >> such backward mode compatibility is actually a requirement made by
-> >> the MMC specification.
-> >>
-> >> >>      sd-uhs-sdr104;
-> >> >> +    sd-uhs-ddr50;
-> >> >>      vmmc-supply =3D <&vcc3v3_sys2>;
-> >> >>      vqmmc-supply =3D <&vcc_1v8>;
-> >> >> -    status =3D "disabled";
-> >> >> +    wakeup-source;
-> >> >> +    status =3D "okay";
-> >> >
-> >> > This should probably be enabled using an dt-overlay, there is no
-> >> > SDIO device embedded on the board and the reason I left it disabled
-> >> > in original board DT submission.
-> >>
-> >> Just went through the ROCK 3B schematic, version 1.51, and I think
-> >> there should be no need for a separate overlay, because sdmmc2 goes
-> >> to the M.2 slot on the board, which any user can plug an M.2 module
-> >> into, and the SDIO interface is kind-of self-discoverable.
-> >>
-> >> Of course, all that unless there are some horribly looking :) error
-> >> messages emitted to the kernel log when nothing is actually found,
-> >> in which case the SDIO/MMC driers should be fixed first.  Also, I'm
-> >> not sure what do we do with the possible SDIO-related power timing
-> >> requirements?
 
