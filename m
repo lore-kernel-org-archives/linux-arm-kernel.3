@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2D5D42B9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4567D42B9B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WajROjexQbb+MQN1qDe7dBD5puv5r/Mp7RMIHPFX3k=; b=do3Ct385ouDtZtdfHv3KxIkLWt
-	v9pcSBJ9WBBhVUTJ6bi24SKePOnwyDpoyZa8aqPqrH1QEG64iziv9Uln7zhtOK65osS30jBbI1Car
-	0Co4Doi1GrYXaMdi2KhM2t0gLXAbI7UKA51eyvZBN6wxl8EvhtILSJu7SiwawO+BqdDRgvqU8EyvE
-	A61PXQQm3EWMivGLLOYEm9tM2ffj4Bn0PaNjyjwyfMU4bOwgG4n27EY9HsNzM7U9lMK8rXcHBuO1c
-	qOwj8f8yUbi3mtnOeBSUT3DyIV/BPbAdFtoFkkZcZRMxUUjKM69Dm1i2glY8fdkYlPkSIpwT0ReMB
-	sR/FePqA==;
+	bh=8Bkz4D5He1ik82rovNVrZJHqtdJ10GhOrTnuFpxxy/k=; b=mms+SApySYL0VquQVwRWotwDOK
+	00n5yhllWddDleF3KwPPlUJ2WSDPykM2ZejMYmp/5gwz5xaBdLasATOcG4L5CZdycTC31A+BxwvOp
+	/1SvQ1Z4C7VqeL7LhGwAzBvUox7bso+V2ZI5qkjBStlQ9NonjnshDHKZw6J9BO1jso90INxy3D7gs
+	5yKEpHfaz2dcjlSrZ6BDGRqpByVxedxtEWq7o3vRxx/Bf3aUBYKf3tmrmkL/EuVI2gttJyDdoqu2d
+	pVC6HJ9cN+vHhBFPUTmRxh4yJagK0AZKnWcik6Rq2FlMEaBqQDJ9Q62X7NeJZab3h5XVeq3LMdH5X
+	tn2cvqHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAszo-00000003z8u-3PmN;
-	Tue, 12 Nov 2024 15:40:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tAt24-00000003zXg-41ce;
+	Tue, 12 Nov 2024 15:42:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsy1-00000003yse-0VUd
+	id 1tAt0G-00000003zFR-17OC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:38:10 +0000
+	Tue, 12 Nov 2024 15:40:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D54C75C5606;
-	Tue, 12 Nov 2024 15:37:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9CF6C4CECD;
-	Tue, 12 Nov 2024 15:38:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39F20A41DA5;
+	Tue, 12 Nov 2024 15:38:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15877C4CECD;
+	Tue, 12 Nov 2024 15:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731425887;
-	bh=LderstpxSgPN9AQQ54sK0KMm1/rECKfSC1bhnvoipzk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pyL1R2OC1CdLh5fRnZtEhAqE73rSUIgeErdt0pem3+OmQ4sP3kOT/j8t+zFD7IMua
-	 8LOBDP1nvwEm/jr5R8b/QlNtj+Cwi956Ji9wlBEW9dVK+EzFli7zNKSKEr2sttprt8
-	 YdEH8MYvgChVfaZJ+MQX9wCxKufrklILzBDu5YA8C5vpS8R27Td4vdOWcWOI7G48vO
-	 xeO3dF/oyqLtNRljmTR3vyKoYam6IepSKCQeFHCf89+FN1r+t37hQIAXs9UqAKYhWA
-	 1cSx/LSHIEtFy+rK7DvFWIp31DCc57XBto3VyZYXt4vGsMsUWIGgw7Zg6y0x5D65br
-	 Gcls+pD7pj40g==
-Date: Tue, 12 Nov 2024 09:38:05 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] dt-bindings: pinctrl: add compatible for Allwinner
- A523/T527
-Message-ID: <20241112153805.GA951271-robh@kernel.org>
-References: <20241111005750.13071-1-andre.przywara@arm.com>
- <20241111005750.13071-6-andre.przywara@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241111005750.13071-6-andre.przywara@arm.com>
+	s=k20201202; t=1731426027;
+	bh=ZNh/ROovS0LCjiQGg6i/XgRVyI61N/6UaT5SEySFiaA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JhGnhSucDGJERcF9iq1XIepc+Df+9yL0VSxUws0X2Yi2DqmX4BpVtVSACWPTNkMuq
+	 aVyvMvZf9BWwNhBGS4n4gYndMCggrLJ1nNR2L4C/H+D3for7ZsEe3WpXEIhiF9kYzl
+	 aIuHwH2YV9f8HJPHtNQsQmpXUjFajdhmKMsz18cL6IQEAoIdV5P3Lxxv939UbG2s31
+	 5crKVVEnShi+c8D2iACHmI1OFoL2AiRbvg6caGlAdMIQaMeZddn9j8dXLa4AFn84jv
+	 4MlnSZFUl76Xl0zAp5IjZ3JYBx+GsfttzWayrzfnbrBC14wia10eLs/ELn3sWTBWS3
+	 wYiU5D8LOHH4g==
+Received: from [104.132.45.109] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAt0C-00CEpN-M6;
+	Tue, 12 Nov 2024 15:40:24 +0000
+Date: Tue, 12 Nov 2024 15:40:24 +0000
+Message-ID: <8734jwtq8n.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: tabba@google.com,	kvmarm@lists.linux.dev,	oliver.upton@linux.dev,	Joey
+ Gouly <joey.gouly@arm.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,	Catalin Marinas
+ <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,	=?UTF-8?B?UGll?=
+ =?UTF-8?B?cnJlLUNsw6ltZW50?= Tosi <ptosi@google.com>,
+	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Pass on SVE mapping failures
+In-Reply-To: <20241112105604.795809-1-james.clark@linaro.org>
+References: <20241112105604.795809-1-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 104.132.45.109
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, tabba@google.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ptosi@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_073809_265377_83A74F26 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20241112_074028_766370_EC20FC70 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +87,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 12:57:48AM +0000, Andre Przywara wrote:
-> The A523 contains a pin controller similar to previous SoCs, although
-> using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-> This introduces a new style of binding, where the pinmux values for each
-> pin group is stored in the new "allwinner,pinmux" property in the DT
-> node, instead of requiring every driver to store a mapping between the
-> function names and the required pinmux.
+On Tue, 12 Nov 2024 10:56:03 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> Add the new name to the list of compatible strings, and required it to
-> have 10 interrupts described. Also add the new pinmux property.
+> This function can fail but its return value isn't passed onto the
+> caller. Presumably this could result in a broken state.
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 23 +++++++++++++++++--
->  1 file changed, 21 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-> index 4502405703145..6fc18e92e1e94 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-> @@ -56,6 +56,8 @@ properties:
->        - allwinner,sun50i-h6-r-pinctrl
->        - allwinner,sun50i-h616-pinctrl
->        - allwinner,sun50i-h616-r-pinctrl
-> +      - allwinner,sun55i-a523-pinctrl
-> +      - allwinner,sun55i-a523-r-pinctrl
->        - allwinner,suniv-f1c100s-pinctrl
->        - nextthing,gr8-pinctrl
->  
-> @@ -64,7 +66,7 @@ properties:
->  
->    interrupts:
->      minItems: 1
-> -    maxItems: 8
-> +    maxItems: 10
->      description:
->        One interrupt per external interrupt bank supported on the
->        controller, sorted by bank number ascending order.
-> @@ -119,13 +121,17 @@ patternProperties:
->          $ref: /schemas/types.yaml#/definitions/uint32
->          enum: [10, 20, 30, 40]
->  
-> +      allwinner,pinmux:
-> +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> +        description: pinmux selector for each pin
+> Fixes: 66d5b53e20a6 ("KVM: arm64: Allocate memory mapped at hyp for host sve state in pKVM")
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Please add some constraints and/or description about what goes in the 
-array.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-> +
->      required:
->        - pins
->        - function
->  
->      additionalProperties: false
->  
-> -  "^vcc-p[a-ilm]-supply$":
-> +  "^vcc-p[a-klm]-supply$":
->      description:
->        Power supplies for pin banks.
->  
-> @@ -156,6 +162,17 @@ allOf:
->          - interrupts
->          - interrupt-controller
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun55i-a523-pinctrl
-> +
-> +    then:
-> +      properties:
-> +        interrupts:
-> +          minItems: 10
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -166,6 +183,7 @@ allOf:
->        properties:
->          interrupts:
->            minItems: 8
-> +          maxItems: 8
->  
->    - if:
->        properties:
-> @@ -244,6 +262,7 @@ allOf:
->              - allwinner,sun8i-v3s-pinctrl
->              - allwinner,sun9i-a80-r-pinctrl
->              - allwinner,sun50i-h6-r-pinctrl
-> +            - allwinner,sun55i-a523-r-pinctrl
->  
->      then:
->        properties:
-> -- 
-> 2.46.2
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
