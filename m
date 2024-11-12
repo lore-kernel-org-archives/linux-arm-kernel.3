@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC899D41D52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 05:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C180D41D52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 05:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0R6RFITEAfd0sEPRCenCrgwW5P/A6psdLfL1diuTzag=; b=ftOJxtq21Wun1DEd/S9ciJ8+nn
-	jvUjY6pn01AU50gpbYcuS+auFTPQXZeb9wNpeEDckXdqv3LkYfEm5NB9nRiigT0A+whBXe/iHI2Ba
-	o6L3j9TmW2sZ3Z9+LbyNOtWgllthXJN5My+AHY9L6IsO+xbsVYgzXj9s1sFTzUZMgboRGg5UWkooN
-	EXjjVwnDaMTBHVpvRhCfA0IwZ7x68o7dzaA4G0jCONfEBrdcyVb/vIhR/teJ7kmskDMTKGS3zuiUs
-	BFNZ45NN4JQToV7SCAfhjrGDljLYU0U/BzJzfTGlANvhffNMicmoJZst7RZf6XcfL45QvkUBO0sfo
-	i2ORfDIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MaIHE/alJNdCEm+B0Rt5E8wgvLMuusJFryUQsYRdIFo=; b=wegOp5Jg87b6dY4Bq8K2+Sq3Ky
+	MLNZNgwlr7az9qBw+yL8pe5ib834RNq/myzRVRPF2zvHxzxVewULnURD9iSGTa9UU+q6P9LIx/u1O
+	rgBHAGZ1fQb+OySf4CqZ67UneQ+bSe+QvmI3dS20plD5FZIsWfwXvossWzzFWqjyqvLw/P12QGiGO
+	LQczJcVY78pIk3uI9j94YbUKkUhVGMOLaCZpvGCsQ/cFA9OJDUHso7/Zxg/9pbzm5eNklu/dFv3JA
+	cdrN6ru/PkQ0kCrmBCXOdk0d57nzsxSLkZTiMYq5lHdYD1TWsFsoc4fEG6tnGZ2bQCDYtumJuda6B
+	PjWZYtjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAjTS-00000002Fv1-48hO;
-	Tue, 12 Nov 2024 05:29:58 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tAjWi-00000002GJM-2PfY;
+	Tue, 12 Nov 2024 05:33:20 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAjRg-00000002FlU-1kBM
+	id 1tAjUv-00000002G2E-3QMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 05:28:09 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E50EC512;
-	Tue, 12 Nov 2024 06:27:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1731389271;
-	bh=CB5Mstp2qxKyukg8FzhUAeWs09g1Ok4GO9m7FzDj240=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M4UPWU9WZ9q+u5oGMGpQuri/yg8akGIPgpNvz6U3Eb7KkeSnEv4REAk+0wYl23lWR
-	 D8bHCCLH+ttHxcfEHWMkMuIMGZEaxlNjVBgqeGO5tl2avZy/NVGSFvW5nYZYzpYReP
-	 xq2l8/yixOXh8xtVTM703gzH1n1/RAtR+2BUZWIo=
-Date: Tue, 12 Nov 2024 07:27:54 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Sean Anderson <sean.anderson@linux.dev>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH next] drm: zynqmp_dp: Unlock on error in
- zynqmp_dp_bridge_atomic_enable()
-Message-ID: <20241112052754.GB21062@pendragon.ideasonboard.com>
-References: <b4042bd9-c943-4738-a2e1-8647259137c6@stanley.mountain>
+	Tue, 12 Nov 2024 05:31:31 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2118dfe6042so20300725ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 21:31:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731389488; x=1731994288; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MaIHE/alJNdCEm+B0Rt5E8wgvLMuusJFryUQsYRdIFo=;
+        b=ebXmhtfI5AHHlr7HJBTscS0O5IU44OawbnfZNme34/UfCjxfpP7ZW+ET8XhEmJ4480
+         sbt2Nv2WVAwaktICXMEByJKG1ig5kjKYQ+fGkwQEFChJd7B6SbE9n97iAp/PisXiseWm
+         Mzhbktq2NrRa7xZGPcDL4FyvxaMcDflGJX91xY9IqCnAqyl2SjSqfOHkOSBq7+KZTSaR
+         +3/m2OIE+6XR843QhvAjdC5Illy/FmktoH7Iz7IEo9KJXt/CWUEtu+XWz5OWoUFUdidB
+         6cFRiGwmvUz5nyEOZsuJoOeoyb9Pa91IIaBK/tvPPJIfmrPCanUr4M8jdoiE1IrdSvui
+         Cc3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731389488; x=1731994288;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MaIHE/alJNdCEm+B0Rt5E8wgvLMuusJFryUQsYRdIFo=;
+        b=CJYpKU0Xts8rCgbzs4lghTt9mgE2ura3Fn373nNzCn0Le5mciR+Xgt+UZj/v8Xabnk
+         TxKap0DCOQTYWqpp6RuUJS4rY/i2fRAxRD/40+6jRUXlRHIzMGPxizYZ2mzecZjFt5E9
+         fE41xoZialRtch/FhwJKrnT3H0uqpj4Nj2B/B8w0aJHcg44efnD0YVnOMUtKprQtRiE7
+         5FiKUb7KcIxRsxY5dDCJbdS1jwJWMB/VI3Q540wErVFdEsObPrGb/VEsvelOnmMaSOdc
+         j+7/QqChoWU2pPJBiAxJcds0JhQyt52J2QYHo80DbaYnHCftjFZRsq8hjc1fTnjTpBLe
+         lezw==
+X-Forwarded-Encrypted: i=1; AJvYcCVt3LAYlcBa+tpGrs/VIhRBdlNtuzKetU+8mZxlHxnEqZEjjW5uqGJuEvZnNuUfBOeSogAR1lW2ix3Z6xNj1iji@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNBEqRzd/aXTHQ/cdW+9YpjBKcxuTR7AQaeaDh6r8RcQYVHb/P
+	Zhu/2IoZo256BsunQ/TmTCYjMLwH6H+V2R6U1RtEHDXpoOCZYeie
+X-Google-Smtp-Source: AGHT+IFYV/HkU5vKmvN9DeHIWDv9WwtrlICSMfN6c3n88t9hMHe86wslFyujjptm9OyAiEzxvztnBA==
+X-Received: by 2002:a17:902:ea05:b0:20c:d5d9:95dc with SMTP id d9443c01a7336-211ab9c4a9amr16506285ad.40.1731389488377;
+        Mon, 11 Nov 2024 21:31:28 -0800 (PST)
+Received: from localhost.localdomain (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177ddf19esm85815505ad.92.2024.11.11.21.31.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Nov 2024 21:31:27 -0800 (PST)
+From: mjchen <mjchen0829@gmail.com>
+To: dmitry.torokhov@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	sudeep.holla@arm.com,
+	peng.fan@nxp.com,
+	arnd@arndb.de,
+	mjchen0829@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mjchen@nuvoton.com
+Subject: [PATCH v2 0/2] Add support for nuvoton ma35d1 keypad controller
+Date: Tue, 12 Nov 2024 05:30:57 +0000
+Message-Id: <20241112053059.3361-1-mjchen0829@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <b4042bd9-c943-4738-a2e1-8647259137c6@stanley.mountain>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_212808_606553_46905399 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20241111_213129_880388_C3AC5675 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +98,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+This patch series adds keypad driver for the nuvoton ma35 ARMv8 SoC.
+It includes DT binding documentation and the ma35d1 keypad driver.
 
-Thank you for the patch.
+v2:
+  - Update nuvoton,ma35d1-keypad.yaml
+    - Fixed warnings and errors generated by running checkpatch.pl
+    - Removed the previous version's properties and rewrote the
+      properties in the Device Tree schema.
+    - Renamed the Device Tree binding file to nuvoton,ma35d1-keypad.yaml
+  - Update Kconfig
+    - Added COMPILE_TEST to the depends on line in the Kconfig
+  - Update ma35d1_keypad.c
+    - Refactored error handling within the probe function.
+    - Fixed the mixed use of devm and non-devm resource management.
+    - Corrected alignment issues in the code.
+    - Updated suspend and resume handling methods.
+    - Fixed variable naming to remove camel casing.
+    - Used for_each_set_bit() to check key states.
+    - Modified the code to align with updates in the device tree binding
 
-On Mon, Nov 11, 2024 at 12:06:10PM +0300, Dan Carpenter wrote:
-> We added some locking to this function, but accidentally forgot to unlock
-> if zynqmp_dp_mode_configure() failed.  Use a guard lock to fix it.
-> 
-> Fixes: a7d5eeaa57d7 ("drm: zynqmp_dp: Add locking")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+mjchen (2):
+  dt-bindings: input: Add Nuvoton MA35D1 keypad
+  input: keypad: add new keypad driver for MA35D1
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-Sean, how about replacing all the mutex_lock()/mutex_unlock() calls
-you've added in a7d5eeaa57d7 with guards ?
-
-> ---
->  drivers/gpu/drm/xlnx/zynqmp_dp.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> index 25c5dc61ee88..0bea908b281e 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> @@ -1537,7 +1537,7 @@ static void zynqmp_dp_bridge_atomic_enable(struct drm_bridge *bridge,
->  
->  	pm_runtime_get_sync(dp->dev);
->  
-> -	mutex_lock(&dp->lock);
-> +	guard(mutex)(&dp->lock);
->  	zynqmp_dp_disp_enable(dp, old_bridge_state);
->  
->  	/*
-> @@ -1598,7 +1598,6 @@ static void zynqmp_dp_bridge_atomic_enable(struct drm_bridge *bridge,
->  	zynqmp_dp_write(dp, ZYNQMP_DP_SOFTWARE_RESET,
->  			ZYNQMP_DP_SOFTWARE_RESET_ALL);
->  	zynqmp_dp_write(dp, ZYNQMP_DP_MAIN_STREAM_ENABLE, 1);
-> -	mutex_unlock(&dp->lock);
->  }
->  
->  static void zynqmp_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ .../bindings/input/nuvoton,ma35d1-keypad.yaml |  89 +++++
+ drivers/input/keyboard/Kconfig                |  10 +
+ drivers/input/keyboard/Makefile               |   1 +
+ drivers/input/keyboard/ma35d1_keypad.c        | 308 ++++++++++++++++++
+ 4 files changed, 408 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+ create mode 100644 drivers/input/keyboard/ma35d1_keypad.c
 
 -- 
-Regards,
+2.25.1
 
-Laurent Pinchart
 
