@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354ADD32D96
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 11:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDD1D32D96
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 11:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bizc0V0N2h71e5pJ8CYQEZpt/ecQWCz15rmQxuZ7VmM=; b=ttdMZRqvUsqKz8si+a5pZBvbHT
-	onn+B/43kxgosDJsVGHHchiV8Cwz54sUaqxEAkWPVGd8wiHdksZtNe7hnaQdzHfheFQiLbo9lyo9T
-	B2lgOKkyEER1CeuqUnRqM4vKexW7gKabtCV891GeRKiTEZCkDHDriRmBsaFNtqWOEg2Ux3UAoeh/L
-	nzWw982iXIyAHfQn7y4s9vFAuo48KzYAknpKIvNaQf2yA/lrRFEQGAG4T96SR/rHz2gMxPyVpdjNl
-	Da8pvcpPtKgIMCx1YDL3sp18gm+7maiif9xrZRgsTG+FRE4ibdfY/SBVvUggNI5+51yB3CLH2AAWJ
-	FuTSlY+A==;
+	bh=lme5eYTtUW84Siz+ZqqhgGAv/24RobGhJ7m0EXFif4A=; b=d8gDuexmxVNH8jnlD6pU5Wbm0D
+	l9kkzfjSn7QMZvjloEuM4KgpwZhYWWJr3xIw5f01hSUcE6oTH8IYnJ2DY6ncOab9eZ1LUNiedKNnz
+	mvjLFBTgfsoFfavUeE2R00JPHnAnSYXm3OMjr0CODbPEzeh+GJwhjQPpALEPTSZV4QOBlgBASixn2
+	1ScI6RCXDbB4txQSzyvMRMdC+v0ku0mGVe8f367DzY1cU4h0AAxhLZWDnWD2Lre6kEWkbyV2lKBOd
+	znaevBc4pvJzJm4Ms8+YsA/qcTcHpKT78CrPLCb5S3Zs4UfeKwTsHIsJUkEgeKw2YjQpxuxr/fXA2
+	+jp1YTBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAp4F-00000003Dvx-0Wio;
-	Tue, 12 Nov 2024 11:28:19 +0000
+	id 1tAp5z-00000003EEg-2GIO;
+	Tue, 12 Nov 2024 11:30:07 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAoHv-000000034ma-3xfv
+	id 1tAoHy-000000034mx-0RNK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:38:25 +0000
+	Tue, 12 Nov 2024 10:38:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 080E8A4196E;
-	Tue, 12 Nov 2024 10:36:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4428EC4CED7;
-	Tue, 12 Nov 2024 10:38:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2FF12A41966;
+	Tue, 12 Nov 2024 10:36:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6583FC4CED9;
+	Tue, 12 Nov 2024 10:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731407903;
-	bh=UTB7rna8C2SmXb+CbI0L9/7fDGZHifqbzEw4rtLnFu0=;
+	s=k20201202; t=1731407905;
+	bh=rTKtriyNWvffiRqVIHWkpQOhccNRe75UQLh/YYwhxKY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZU+52KJQQgkrYNI5B61TS9q6rdaiMEtzK6rre/DUOajJoqzkdzViES6v+9ZAFoG9x
-	 OJUWBnLO+0V3xsxLjmTeSJ3fsFarvyOVzUc7jBsdgNTAz0fuoDn0p4cfZ5YlysB4R3
-	 Nxx/Xmu85BQuEO/pKp0zwDw6IHXisWdm26KAP53O37/7zm0eRmWdBQCnYoAQUEhdI4
-	 KH5reP0zX7ftooBREJJzyQ9mEWbTB3AZLqEBU6JSiGfqlh1bhmQQDYKNnogEhOs8Ed
-	 WLpaZ9M0t552MBi7sTMIfjxIWlOd5epNP6hRZyQ66Da0BSYZgQL0NkJxnZ0xdoewwd
-	 RRJD1CuqqCH5Q==
+	b=TjruMj4GDJ7KqW8F0tfF7WBYBaCf4LrlFb8JyYB5g1ZgyzyfwmflkMLRn40BPd8Gn
+	 YO1zNlpSnyS4ApCjc9C3g0JczexZesTr6sQb/16fgMk961uDad+3enEVp52DhA/HHq
+	 MZpBRAwXURD73dJUQzmHz2qJWMDhG0w5qTFRgpRrfIF1dn7gepUVYt7TDG6Bp+vPEB
+	 unHFFZNsikrkGoC1xKog9lm/Avxpzex/SUsx85+n7aMLC8CZ/eZ/Qj7tUIR1t+tuOC
+	 hFEOuAOli3fItmDbZlDetNrrC9GJJnhUM8dJTKrH7QLN4ruiEAsDIX65LdF434A0uz
+	 dE+jwMq8CeQXQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Luo Yifan <luoyifan@cmss.chinamobile.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
 	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	olivier.moysan@foss.st.com,
 	arnaud.pouliquen@foss.st.com,
 	lgirdwood@gmail.com,
 	perex@perex.cz,
@@ -59,9 +59,9 @@ Cc: Luo Yifan <luoyifan@cmss.chinamobile.com>,
 	linux-sound@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.4 3/5] ASoC: stm: Prevent potential division by zero in stm32_sai_mclk_round_rate()
-Date: Tue, 12 Nov 2024 05:38:13 -0500
-Message-ID: <20241112103817.1654333-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 4/5] ASoC: stm: Prevent potential division by zero in stm32_sai_get_clk_div()
+Date: Tue, 12 Nov 2024 05:38:14 -0500
+Message-ID: <20241112103817.1654333-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241112103817.1654333-1-sashal@kernel.org>
 References: <20241112103817.1654333-1-sashal@kernel.org>
@@ -71,8 +71,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 5.4.285
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_023824_069718_92798170 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20241112_023826_229668_BF8FE0DD 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,35 +89,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Luo Yifan <luoyifan@cmss.chinamobile.com>
 
-[ Upstream commit 63c1c87993e0e5bb11bced3d8224446a2bc62338 ]
+[ Upstream commit 23569c8b314925bdb70dd1a7b63cfe6100868315 ]
 
 This patch checks if div is less than or equal to zero (div <= 0). If
 div is zero or negative, the function returns -EINVAL, ensuring the
-division operation (*prate / div) is safe to perform.
+division operation is safe to perform.
 
 Signed-off-by: Luo Yifan <luoyifan@cmss.chinamobile.com>
-Link: https://patch.msgid.link/20241106014654.206860-1-luoyifan@cmss.chinamobile.com
+Reviewed-by: Olivier Moysan <olivier.moysan@foss.st.com>
+Link: https://patch.msgid.link/20241107015936.211902-1-luoyifan@cmss.chinamobile.com
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- sound/soc/stm/stm32_sai_sub.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ sound/soc/stm/stm32_sai_sub.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 7e965848796c3..b7dc9d3192597 100644
+index b7dc9d3192597..e8cd58c0838ee 100644
 --- a/sound/soc/stm/stm32_sai_sub.c
 +++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -379,8 +379,8 @@ static long stm32_sai_mclk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -318,7 +318,7 @@ static int stm32_sai_get_clk_div(struct stm32_sai_sub_data *sai,
  	int div;
  
- 	div = stm32_sai_get_clk_div(sai, *prate, rate);
--	if (div < 0)
--		return div;
-+	if (div <= 0)
-+		return -EINVAL;
- 
- 	mclk->freq = *prate / div;
- 
+ 	div = DIV_ROUND_CLOSEST(input_rate, output_rate);
+-	if (div > SAI_XCR1_MCKDIV_MAX(version)) {
++	if (div > SAI_XCR1_MCKDIV_MAX(version) || div <= 0) {
+ 		dev_err(&sai->pdev->dev, "Divider %d out of range\n", div);
+ 		return -EINVAL;
+ 	}
 -- 
 2.43.0
 
