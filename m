@@ -4,118 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3CCD41D68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16457D41D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BHG/302xW3aLkt5O2SfZxjbGRcjYz+4y3Ps37Vgg7Y4=; b=LfWCVzDC3gZ0cPJaBvVSf5LzBw
-	6GS5MCqv9ag0gk3ER/vuHqeNOy+KJwFlS4M13luzyaz/0Qqwq+jWW5nchjsVfxVBYopD55O9l3XsC
-	UjZSRoDquNt0b6Gl5UQUwQUbHBGttemdg4IKiFAhsqnauiiHKIi8PMyCcRunuyz05xH40tflNk3A7
-	YfZXB3S1svDFefDEFjTpjziGhGZsSUAAacbIXXOHviDPqHNVbmOkA2a6iztmjscTeb5MMytgBLhcL
-	WpgCLYvbOGqonOagZFG7P5kzVn4/extmMb7I1yQDKOXcSVrj8WPuNDg60x24xriQRt1Q+TmlbXwDK
-	2FUl+Mpg==;
+	bh=sBtBJRRUd1NeWAH7unPzNJ3tmJahZN7E0Zh4f4LzZNA=; b=ZQosemIoPG8CrIQzgWC99CYExR
+	fmAW0B48NhpJcJzjHMOO+jxnBMxoHD4CeIOMzLau2O2M7vhyZeWkqx81SHLcvxOHrFqJx75kVKcu9
+	sBhKCNclzRTljsf95oYet9fqNjyljSMEe1Zq/xg4JTJ1s3J/ixIUqWsPoZ79WY3aCBsfHiZSxzN6A
+	zNRi86RwReI+QW/bcS8FoU29Ln63RPsugsB9pjYFbehgxi8AqQFBLBdIYlfdwg5Y59AbdIanDk82A
+	sfNF8rGVJFJ//OGpvvPFZ58iqC2BV6WpaBzeHTMEog1QCq5UnyChYIYpDpogPEi7HEtV8RDKNU+sZ
+	c134wS+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmEF-00000002csn-0m70;
-	Tue, 12 Nov 2024 08:26:27 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tAmG1-00000002dFN-18kn;
+	Tue, 12 Nov 2024 08:28:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmCR-00000002cgN-2eMU
+	id 1tAmD6-00000002cmi-1USK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 08:24:37 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43169902057so43632765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:24:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731399873; x=1732004673; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BHG/302xW3aLkt5O2SfZxjbGRcjYz+4y3Ps37Vgg7Y4=;
-        b=GraHwQXG5M1RsB9HXYQnLlUMrNU003otPuW93RU248o+Y7seCFXDO6mGgA00A9pVCe
-         WCuXrT8oWBY6O5u36tFHJ52F71JoafIA1aG1+DWael3rgAsJ4lhAy2e14ad2cv9UaIBL
-         Ph9mvRRP3COP0uWmDo8yhngk+8mOYoxicJ2yS5h5chkO4XMy0vJoDkqHPYzv4U5b0tW5
-         hTC/QnbOIOLDsKkMFFbuYslkA53u0pKKqcWEClFUMZsv/azwPGwyDMorAhmw1bIvJuTJ
-         /DuJvWwUD9NRwSAmBwUF7IcuL7ZnMBrAxhvnlEKq/7RcgJop4gx53rhuIcsE9Q5NXFND
-         RBAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731399873; x=1732004673;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BHG/302xW3aLkt5O2SfZxjbGRcjYz+4y3Ps37Vgg7Y4=;
-        b=L7dg0mL5HilZbPtuQBlIpqvKgmmsIrGHbAVjTe048KUc0mtvVRqcOn1GBek+oXXHFG
-         nYhtdw0h764XPFE5s8Yg3XIaJYRYDvDVSbu3Mt4a0Srzv7+MjG6RoLS3dYFs3PLqU4lE
-         fDgBr1MyXsLKWn9eQyl3vCn2+/CQUkdQTwL8z/99PoVlwaAWYzn9xtEM1UgAO6TKyqn6
-         I4xYjOTMErJzySXW4BIA3yJkIdVetvqLDoVxUOePubYRnSOnj1M3EtsysJxNGdB9ElHa
-         WCYr/lsbEglV7mM97DgzQosaKbjYaTel/0JmU0MrSUzKg2Co7szr4AB7EJckZCZhiN5Q
-         DA+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUpf4PxAkmOchCl8Fb6dk6uqusAhM8otGQyKZxG7x0AOl9E6PMIQySkYvjyrkUPgur3xEXUrfASUYFS4DgSGuZv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY5IBrvvgw72UcbNieAfgabDuO/FAJJC+68Ts6/XrkHRY7nr9x
-	6Thg8gOwtFeGYtQyPNnjQzdJwOQZKGXfsQjkXG48TkD+MqOtca/Wg/WicykJvIo=
-X-Google-Smtp-Source: AGHT+IGZ0+JGsE9MkHXAcU6IkVnXDchLT2F09ZqRiYJ04+9+dW1daenHhuh5nEca5lNjPLx9FocpcA==
-X-Received: by 2002:a05:600c:b91:b0:431:5e53:2dc4 with SMTP id 5b1f17b1804b1-432cce680efmr13102955e9.6.1731399872977;
-        Tue, 12 Nov 2024 00:24:32 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8? ([2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b0566544sm196515055e9.24.2024.11.12.00.24.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 00:24:32 -0800 (PST)
-Message-ID: <97e2b1e4-1763-42c4-a3f0-986492ecfd97@linaro.org>
-Date: Tue, 12 Nov 2024 09:24:31 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH RFC v4 0/4] Pinctrl: A4: Add pinctrl driver
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241101-a4_pinctrl-v4-0-efd98edc3ad4@amlogic.com>
- <27aa3716-1d28-4da8-80e6-212d7f94d193@linaro.org>
- <84bbb8b3-d638-47e5-a0e9-371e9e56c89f@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <84bbb8b3-d638-47e5-a0e9-371e9e56c89f@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Tue, 12 Nov 2024 08:25:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 265F2A40EB5;
+	Tue, 12 Nov 2024 08:23:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14EF0C4CECD;
+	Tue, 12 Nov 2024 08:25:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731399915;
+	bh=UQHIGIVA0u7P7NQ/xWz8yr+S0vW04Pvq9teQHjkqPLE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cgwhsehYLQvL5cAnckoU4Zfc9JYnOYn4Xul3QiWT6nt0NWSIRHqIJuBVhrZ0LC/7X
+	 NNyOObVxaDsROGf2ZsJGLIHZOr9yAnPW7w1NRyerGDqnn8+0r/waFIeGy8c+CdWvnD
+	 SmiNfBaYnLfaNF1FKg7r5+ieARxuS8awCxVcVsd2yW+PP2Cqwh/hskaG4E+TkJ6Y2x
+	 S++Sm8E5xl1KzaxlHBP4r/LwWAr4diGnpHijCrdReJ8GTWSaiHuNgyWAsvIw4g3H63
+	 mP4ZukQpxzuInd9clDb3ICLX+6AoVvTcwhZKxFmFM6QfpIpeFXjX5jd+dqnppQo0th
+	 Rh+7mU1Og7RNA==
+Received: from 82-132-232-70.dab.02.net ([82.132.232.70] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAmD2-00C6tU-IB;
+	Tue, 12 Nov 2024 08:25:12 +0000
+Date: Tue, 12 Nov 2024 08:25:09 +0000
+Message-ID: <87a5e4uae2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jing Zhang <jingzhangos@google.com>
+Cc: KVM <kvm@vger.kernel.org>,
+	KVMARM <kvmarm@lists.linux.dev>,
+	ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Oliver Upton <oupton@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Eric Auger <eauger@redhat.com>
+Subject: Re: [PATCH v4 2/5] KVM: arm64: vgic-its: Add read/write helpers on ITS table entries.
+In-Reply-To: <20241107214137.428439-3-jingzhangos@google.com>
+References: <20241107214137.428439-1-jingzhangos@google.com>
+	<20241107214137.428439-3-jingzhangos@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.232.70
+X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, jiangkunkun@huawei.com, pbonzini@redhat.com, andre.przywara@arm.com, coltonlewis@google.com, rananta@google.com, lishusen2@huawei.com, eauger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_002435_700135_21089FC5 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20241112_002517_046242_AF2B2984 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,100 +93,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2024 04:26, Xianwei Zhao wrote:
-> Hi Neil,
->     Thanks for your reply.
+On Thu, 07 Nov 2024 21:41:34 +0000,
+Jing Zhang <jingzhangos@google.com> wrote:
 > 
-> On 2024/11/10 20:24, Neil Armstrong wrote:
->> [ EXTERNAL EMAIL ]
->>
->> Hi,
->>
->> Le 01/11/2024 à 09:27, Xianwei Zhao via B4 Relay a écrit :
->>> Add pinctrl driver support for Amloigc A4 SoC
->>>
->>> I want to find out what kind of solution is feasible to
->>> meet the needs of all parties. This RFC verion is one of them.
->>>
->>> All of Amogic SoCs GPIO device requirement is met here by
->>> adding GPIO bank definition instead of the pin definition.
->>> Binding header files will no longer be added to future
->>> SoCs's pin devices.
->>>
->>> The pinctrl software only adds insterface of of_xlate to support
->>> for transformation without affecting the overall framework and
->>> is compatible with previous drivers.
->>>
->>> The code in DTS file is also readable when using GPIO, as below:
->>>
->>> reset-gpios = <&gpio AMLOGIC_GPIO(AMLOGIC_GPIO_X, 6) GPIO_ACTIVE_LOW>;
->>
->> Fine, but why not use 3 cells instead of this macro ? Since you introduced the
->> custom xlate, parsing the 3 cells would be easier that using a macro:
->>
->> reset-gpios = <&gpio AMLOGIC_GPIO_X 6 GPIO_ACTIVE_LOW>;
->>
->> Neil
+> To simplify read/write operations on ITS table entries, two helper
+> functions have been implemented. These functions incorporate the
+> necessary entry size validation.
 > 
-> I was prepared to do this before, mainly later considering incompatible binding, using the original two parameter passing
+> Signed-off-by: Jing Zhang <jingzhangos@google.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic.h | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
 > 
-> If use three parameters, I  need to modify the corresponding binding property. in file:
-> Documentation/devicetree/bindings/pinctrl/amlogic,meson-pinctrl-common.yaml
-> 
->        "#gpio-cells":
->          const: 2
-> It must be compatible with the current number of parameters(3)
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index f2486b4d9f95..309295f5e1b0 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -146,6 +146,29 @@ static inline int vgic_write_guest_lock(struct kvm *kvm, gpa_t gpa,
+>  	return ret;
+>  }
+>  
+> +static inline int vgic_its_read_entry_lock(struct vgic_its *its, gpa_t eaddr,
+> +					   u64 *eval, unsigned long esize)
+> +{
+> +	struct kvm *kvm = its->dev->kvm;
+> +
+> +	if (KVM_BUG_ON(esize != sizeof(*eval), kvm))
+> +		return -EINVAL;
+> +
+> +	return kvm_read_guest_lock(kvm, eaddr, eval, esize);
+> +
+> +}
+> +
+> +static inline int vgic_its_write_entry_lock(struct vgic_its *its, gpa_t eaddr,
+> +					    u64 eval, unsigned long esize)
+> +{
+> +	struct kvm *kvm = its->dev->kvm;
+> +
+> +	if (KVM_BUG_ON(esize != sizeof(eval), kvm))
+> +		return -EINVAL;
+> +
+> +	return vgic_write_guest_lock(kvm, eaddr, &eval, esize);
+> +}
+> +
 
-Yes, you may move the #gpio-cells definition out of the common yaml
-and define them in the soc spefic yaml and set it to 3 for a4.
+I don't think this is right. Or at least not what I had in mind.
 
-Neil
+What I wanted was to abstract both the element size and the ABI, and
+check for the type of 'eval'.
 
-> 
->>
->>>
->>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
->>> ---
->>> Changes in v4:
->>> - Add interface of of_xlate support.
->>> - Add const for some variable.
->>> - Link to v3: https://lore.kernel.org/r/20241018-a4_pinctrl-v3-0-e76fd1cf01d7@amlogic.com
->>>
->>> Changes in v3:
->>> - Remove head file from binding.
->>> - Move GPIO define to file *.c.
->>> - Link to v2: https://lore.kernel.org/r/20241014-a4_pinctrl-v2-0-3e74a65c285e@amlogic.com
->>>
->>> Changes in v2:
->>> - Use one marco instead of all pin define.
->>> - Add unit name for dts node.
->>> - Link to v1: https://lore.kernel.org/all/20240611-a4_pinctrl-v1-0-dc487b1977b3@amlogic.com/
->>>
->>> ---
->>> Xianwei Zhao (4):
->>>        dt-bindings: pinctrl: Add support for Amlogic A4 SoCs
->>>        pinctrl: meson: add interface of of_xlate
->>>        pinctrl: meson: Add driver support for Amlogic A4 SoCs
->>>        arm64: dts: amlogic: a4: add pinctrl node
->>>
->>>   .../bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml |    2 +
->>>   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |   36 +
->>>   drivers/pinctrl/meson/Kconfig                      |    6 +
->>>   drivers/pinctrl/meson/Makefile                     |    1 +
->>>   drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 1321 ++++++++++++++++++++
->>>   drivers/pinctrl/meson/pinctrl-meson.c              |    4 +
->>>   drivers/pinctrl/meson/pinctrl-meson.h              |    4 +
->>>   include/dt-bindings/gpio/amlogic-gpio.h            |   50 +
->>>   8 files changed, 1424 insertions(+)
->>> ---
->>> base-commit: 58e2d28ed28e5bc8836f8c14df1f94c27c1f9e2f
->>> change-id: 20241012-a4_pinctrl-09d1b2a17e47
->>>
->>> Best regards,
->>
+Here, you implicitly case the caller's data on a u64, which C will
+happily do without warnings. So this KVM_BUG_ON() checks very little
+on writes.
 
+Also, you force the caller to explicitly extract the element-size from
+the ABI. Yes, it is available most of the time. But this is about
+checking consistency, and you are missing this opportunity.
+
+So while this code isn't wrong, it really doesn't make anything more
+robust. It's just another indirection.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
