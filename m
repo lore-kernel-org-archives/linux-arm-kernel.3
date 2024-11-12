@@ -4,69 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3AED32D83
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAA7D32D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEqElcS5St5CaM+svgsscnrIfVD/nab9lkfJvbTL8nk=; b=HzkyXjCLzrR1Cauy2qoxodS9mo
-	FmCimAd9b4UXBFS0YVQITDXXEaUYUb8ZP+PVq2fG4eSJIJ7Wm8ppNtBq6Z16BeupZYOlm0EsvRrov
-	XusK2C1fc7sx6nGBFaDjyWuJ7VIttgcP0+F+wjhewwXHNUn+KptOJ7KhvXklbVWGogEdm5fZpl+7M
-	4XvdFUwZcc5KCpu+FGQVVtXysq95jBIg3zSI9cL4b0VBrPEd+v6BlFBXbCqAxGv+1Tamk4/eKCrY0
-	q7Kpl4FgDK1F041jx4TY8cHPVfQNbySmNZyJsZy3WeEBWPg9SWtOeCGVGcwYjXJixhy3NHbXsaYfN
-	7LKZsDkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XGfk6W2JCj4wpC6o+Qwd+LjQx3NGxQw6YEQqOKv1cTs=; b=WVOE1faukAsFZiPAgtL9No5kMZ
+	vVrLxGMAO+R3OIQhavKPU6aiWOmSMti9cFYAb9raC72kmibo4IpwyC1JmymPmQuk3XqxAKqcVyP1M
+	hAILnP9tJRokegRecgStX/ijplvHmB8EOBP+d9Si6PkGcRZ6qCw0sHGur2kmSwVaVBjgdX56oOIHE
+	OLlSflvq1NoUwfvTrldGjnNm7hgqUf7k0cE1isrwm2UfkVbfme4OzDsnBThqz7WDBNJkfGdtViryf
+	NtTRAy4RionRdp6T8p6+xXpwnLSYJ4fcGyhJ4uJifc0dSQTzKJZ91ixsr5Fv+vDDaI2ajZ6PbplBO
+	jfNauL5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnvI-00000002zn4-1gmU;
-	Tue, 12 Nov 2024 10:15:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tAnx6-000000030H1-0RLL;
+	Tue, 12 Nov 2024 10:16:52 +0000
+Received: from mail-db8eur05on20613.outbound.protection.outlook.com ([2a01:111:f403:2614::613] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnmx-00000002yC5-0kuc
+	id 1tAnn1-00000002yDx-1yFI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:06:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qEqElcS5St5CaM+svgsscnrIfVD/nab9lkfJvbTL8nk=; b=QwBa+r+qb0XaTDVdiMDrGefwj7
-	HUS93wehrhz0EGkwpNhgYywnJpOi3YvldcYW9FOmgWEHoX3NE/upVkS2IzViaPwCE5u/6zQIHaD4b
-	Nw7VNVzwfcul5Chyb91FNpM3YvhzHW/8tCdn7aA1/F58l+G3EzfooWYzD8M8P/7zKzJ3Zl/ITXJhR
-	iP1KUmkMT1WuX928BXG3bsPfpHUMFXZNHOkSPtVzJUhTdkxJnod5gBd4E2wxDYQNaZNbHZqrh8KoC
-	LF1ftT7/1JwT51409ochdXi7RGjEc5R5OnBAG1gCBrXgLjFKY9WtdKR2txk6wu2f/f3km5LO5K6/e
-	GqGyKwfw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44242)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tAnml-0003tT-0t;
-	Tue, 12 Nov 2024 10:06:13 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tAnmj-0007Mx-14;
-	Tue, 12 Nov 2024 10:06:09 +0000
-Date: Tue, 12 Nov 2024 10:06:09 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-Cc: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	salee@marvell.com, dingwei@marvell.com
-Subject: Re: [PATCH 1/1] PCI: armada8k: Add link-down handle
-Message-ID: <ZzMokT-2pop1Y5hh@shell.armlinux.org.uk>
-References: <20241112064813.751736-1-jpatel2@marvell.com>
+	Tue, 12 Nov 2024 10:06:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N8k+ymnDbeffNSmHu/6me1G1rTLN1ca5zpGMKBo6Kv/8vYz53UpAUbiG1erjTF4tTnuTYnZE9IhrINaZ5R73E69PUX/wXyy6Ek63yFX5uoQv1zpLc0L0ZdqS3s/CVKtbdJ9sI9nLwvCRioLjdyzPR38owjF7JdCtWI6fE/lmnjK/POGVkmMWHOWipXX04FGVhtJgkRLSfVIHo48PpLFWyOHKwUrcfh2dOcnNMn6z/0fx8wf3At0hjqD3hAtz+du+zpPC/U/rQcRbeXrDgr2Ym1Xi+/aeJHcUNeKAEXl0tLKrTet6NzazCZA8Oxjl6rk5A4On4fIuD7DLjNhdo45ZKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XGfk6W2JCj4wpC6o+Qwd+LjQx3NGxQw6YEQqOKv1cTs=;
+ b=KfYtEsaaGPCIBulLzTcqBbP6ispyPib+ywM7oM9Ye5pdCqRPKAND6pkjV9qykeVb1NyNizDK9p7iGOTLqlP56vYKFCN0KLgAHxP/okSG569D4odswdbejed2Q0sgrUhQnGccLEjByPEpNxhA9oJ6ARJ3kpXhAN5fnsCH+nfX09mqtDj1ZR/X4QaKLQwkN/QZlbKCd/G68vvWuGGE8i2P6Aw7Cly6gLrv9PStU1k643ltiixXwl/f4r2K9sTSzkbBVJbDgDaHLz3mfOOZNKfUmPC4hvVgQK0L3GYcCFELzIQhKmQnIWSGW2589bWKQW0vju3eXYeQ0UZKjAVxhCNxvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XGfk6W2JCj4wpC6o+Qwd+LjQx3NGxQw6YEQqOKv1cTs=;
+ b=hRYRVW0Cbnqxt2HqAxhYlu7tr+LK+tE2qeGM7LsRWt0fVPUOa7P8PvX7Or1JteqXBZwyxtIUTCP0soxv5vNORbjeieVq9VFa928y4axvE1K8Wa/Qko/jhAr/wvdm7vf0Jgx87/jJyoZyyiemlfvhnw6pmAcxSyIvsc/lC+bXVbzwfgw2vSTRtjbuDz2RyL9d4Nzn60nBbGrUZ3FutT9HQHxVpjhuXac62Jk1jzaWXBvSlomOBWR6rJHPVMKqGaceCGnDJ6LekD/UonXpYSPMUeOpTBWKGIjUnWkM9K0b9Yu5c/YjYY7q65Sk3WCE90qrff6upAzIMVM74jZkhwMwsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AS8PR04MB7879.eurprd04.prod.outlook.com (2603:10a6:20b:2a4::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Tue, 12 Nov
+ 2024 10:06:22 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
+ 10:06:22 +0000
+From: Liu Ying <victor.liu@nxp.com>
+To: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	quic_bjorande@quicinc.com,
+	geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org,
+	arnd@arndb.de,
+	nfraprado@collabora.com,
+	marex@denx.de
+Subject: [PATCH v6 4/7] drm/bridge: fsl-ldb: Use clk_round_rate() to validate "ldb" clock rate
+Date: Tue, 12 Nov 2024 18:05:44 +0800
+Message-Id: <20241112100547.2908497-5-victor.liu@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241112100547.2908497-1-victor.liu@nxp.com>
+References: <20241112100547.2908497-1-victor.liu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0025.apcprd02.prod.outlook.com
+ (2603:1096:3:18::13) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112064813.751736-1-jpatel2@marvell.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7879:EE_
+X-MS-Office365-Filtering-Correlation-Id: a27ea734-9a13-4754-cc32-08dd0301a8bd
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MkNLkFBMlWRWcJa6ix3+a7zUIaWdhQjPTPAz/3U2aCV1RAkNvbg62eo90h4H?=
+ =?us-ascii?Q?PRnmIQjNTAxB6onVV7TMgMvR7/IIluzaTISBv+B7EoczHvTIl6Q6Blr1abh9?=
+ =?us-ascii?Q?l6N79lFE83Mkm6y6KzY2vVpL/Ucpai/vDxw3PCdrc5zsfv2mSDUjwu6vleel?=
+ =?us-ascii?Q?EN8nZodcg0QNj34Wy8wQK6wPGP5ZBtHkwC5Tm4X8ARNFtw6+s2giOC1S6UE2?=
+ =?us-ascii?Q?EzS+XUczSgfmZjwXvsF5J/NMcttIsAIlWi1iRkTNXtOFnRjfxeBxGlbvtqYr?=
+ =?us-ascii?Q?kWEumoSh7nAu/fopfot8HkW36csMypPFyZJCzo1KBUrAlZQu4cyJ+jymgoul?=
+ =?us-ascii?Q?vTMP6dNR49+l6JVemnBy3sZDkijbDUUjcgAHc9jCnt75PFKJso4kegmXD8g/?=
+ =?us-ascii?Q?WxJev3p9iGUOCBFD8ygAHmILOeXX/wY1jHAnfkQSiz1FTZtWcXi7M0R15Hzx?=
+ =?us-ascii?Q?x795DD/lzPsQfFlkcRwhRyqNkXp4yXS0bdB2UU5yB5jZ8GKScQcUV0P4vF30?=
+ =?us-ascii?Q?fF5FKO7VgcdrmFAT2Ud0PDFE5badsXHnh7MnQuud75jAP+uOi4KHtgqHNcpm?=
+ =?us-ascii?Q?iW0yWyH2h3xwbe7CTqtH5MAthi5509OZE8WnmTKLztTtUw8HL9MFdI6WYVmQ?=
+ =?us-ascii?Q?fmeYhbw2IS4P5hJbbBirlCuerSgjrmrBu2nv47xUYfGhgMlVAUB2mXOF3ooI?=
+ =?us-ascii?Q?aU0XM2kMHZ54f3oTEj8BU4xeJG4kaGkTGAo0Y9ia/J31u95KXaqMmCHjG8mZ?=
+ =?us-ascii?Q?FFyphrV4/BA/sOnDp/mtvBYKXALI2ry2Y4FHm2fuQcBrgZOZJfq0qfdf7xyT?=
+ =?us-ascii?Q?GsF2hGESJ+0MsxYzlR8cNz8qG8MGdoyfmAUZmmLWkUodTyUiWm9dLNPz09ci?=
+ =?us-ascii?Q?onvF/jO7vYH4qAykK5+crJ8qBgU0AdELCX6YIHoE3kRqrQ5TMXHlGCQA84jz?=
+ =?us-ascii?Q?DCrWTFPADwKiHcAbIxOhECl604msdb3pt2sxSic27NsIQIU81LJ+e0o3kAAZ?=
+ =?us-ascii?Q?WNgpyryyjcs8wM7ugyD/8xFt8WmP/C+pfcssB1urtVnfSr9nSy128rOHlFpm?=
+ =?us-ascii?Q?fOjAoHBQFLFTMUltf4tZCQqgnB32u6C1BjTyrlbKofONjndxPBPVhH13Oaxo?=
+ =?us-ascii?Q?PPeCkoiuOm29YsoFzX7053TXO6D78iZwLMG792LGdcGWq8WEI6SduJJwig9F?=
+ =?us-ascii?Q?Wl/sWYYDDsj9wbJ2r05jjkiURe2kX+Z3HIYUS65c57S3X8gCTtySJWCqkUHr?=
+ =?us-ascii?Q?dggwt2BvjCWwNKIndJU3c6iWdmQC1gNwSLeY0l8bzNdxdsnR6Mk5+Z4nMgKS?=
+ =?us-ascii?Q?E1GLdXCgdNKpRiYCdLhY9Jb50WKmoSiccTLmD5oqRXLAi9cbVWCM+Pk9+0Md?=
+ =?us-ascii?Q?V+tP3P22yOd1qOnPcHhGVjmG1mOG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?e0S/fUUCrL8FOH2q4e4hfdNI4PfKj3ra+iRha9RhkeWMAUBPdB4xzOzSKaBX?=
+ =?us-ascii?Q?MOOngQ1JJKewvQ6hZwGLxUkLhjgn8Qeg6OUARccm9knViboOWBSGLhl0pikZ?=
+ =?us-ascii?Q?Uki281XvwY+2Hu+R4jnUzSBqibO3eAK4n9f2nscq4+9/NrKmzy7BSSOFpaam?=
+ =?us-ascii?Q?MqtYjkVsbW0jStGj++wS7dt4pra03yBTj7GxjEUwAYwUxeCbEqiELl7rJyfu?=
+ =?us-ascii?Q?dCYasMreJvMapzwEr8sp52hrmgkA7RPwmMBpsvSP1FKQeApvPaJYNdG6Nr0G?=
+ =?us-ascii?Q?5q2GTdED4cKjwZMNAKFiv7NsGmDXNkuuQ1Rh30XsjzFzV9BUiWFzCA1jhfZr?=
+ =?us-ascii?Q?n5FXcFdMIvM+OoioBdqCpPxqDdNpOoa+Kaq2mH6uUFzUlLLuuMpB0YRyGDcq?=
+ =?us-ascii?Q?b/7B0Y6DD56aKnCFtLIclhlCVPT03BSLVYCHl3exkW3x67cgP1z3oUiam9z/?=
+ =?us-ascii?Q?84WYQMYNs+OTpChIG0f4ryClcKBmmYhvgN1BAP3yM4qJ+FIDCvgeppotiVjt?=
+ =?us-ascii?Q?hRTnZLPUzKtd3ZECn31u6mVgzFHbWpNaXWwyaaT6lCHGYXHdii+AN7dOxlZr?=
+ =?us-ascii?Q?aknpOPhrc9PFjuIJsU55NswENXY9s0euZ5osXOv4L6fwlknuoqERzzd0uEN/?=
+ =?us-ascii?Q?pT7ecQDSMGqOb8swENKatCQlu7gBIB8g0vSuG5Qyc75GKMDs7CA52biEbgm2?=
+ =?us-ascii?Q?mBwmNK1Ilj0zs4DBJlMFLFgUdsQVAqcWoGYsMcRgWpRKRPh1yAvXljknU63g?=
+ =?us-ascii?Q?05QzzVy1Pe5wyxCOZIXaFmIwR+j3cN82TBV9wZtzQVl9F/mrfiqgwi9ECP8S?=
+ =?us-ascii?Q?Y134rco10cd1KMIwy2ysWDAGKgtFHE+SMj6uGEPBt7t7SgakdDWBAmngkisZ?=
+ =?us-ascii?Q?ydfxjvpRMOFXfq0SIyC560kEMHbqHzbrggyVs7WEVFFtHVxLPKJt1YO3myS0?=
+ =?us-ascii?Q?SpnBKiy5jmbSuaB1Z1AAgjs8vfoUo0siCe0PnWYk5ZQp56kKAMOba5dcXom+?=
+ =?us-ascii?Q?w7JzzYSgDTt6Kya/l+AiPVV+Sd/pq/cetZApFlU6dwfbeg1R6bhfCc3oGqHF?=
+ =?us-ascii?Q?5kbIWFiHgbAsvXrFUwQ44Mj0FsVD5+0JQpSQo69Xp//s3SjIlTeNZsHcBxrV?=
+ =?us-ascii?Q?hDNxf7csk1eoQ7wGkEO8/+MHnBo9IJjY2jERhw6qLM7cCZZXDsNdrcEpqPib?=
+ =?us-ascii?Q?JwhyIwgQ6sBPO3NakQKtoJm5Cttv9g9mS1mVgeXX6jd+8zGMelwHq9wh4GV9?=
+ =?us-ascii?Q?RTVX6yz/f/CJsj5I/4cQzP6ZN3dUCqPM6rbRrLpp4wfF1QCNVGM3flbnM/cE?=
+ =?us-ascii?Q?ZDJqRq4kTCb/3kK89Zhkj53y6UHahcEwzM71dyK/+5vbws1jXM2pOdeSzrzE?=
+ =?us-ascii?Q?Ta8V0bE7/S4dsyhMRTu0KcxWPkwWK2r7UAZUw17Ah/q7T4QbwBm3CGIH93kY?=
+ =?us-ascii?Q?9QmgtO8csfhxu1bn7ZQjsEZ3paeGZMUuti1ajR+GUijg+ALSlHFsYobrKqrg?=
+ =?us-ascii?Q?/j0Lre/MbKcD3hWMCq3EvfqWbS1F6+S2f7Wb1a/RqYAQ+Mjsirg7BIJmJLK9?=
+ =?us-ascii?Q?edqk2zch5l0+tvRvCzvuRbh8xpUTcrG1/7E+vEK4?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a27ea734-9a13-4754-cc32-08dd0301a8bd
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 10:06:21.9383
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GEjV3ou7ljY2gkzMRaTPBzu8MiLqXA6cybk0HlSHNHNETq0nq67nFTCvXmahoDehRtU7XvYh5IRapVpI2U7ghw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7879
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_020623_382652_A3B7A996 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20241112_020627_539037_440AE0F1 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,169 +189,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Overall, your recent patches look like they're part of a series - they
-are dependent on each other, but you haven't sent them as a series. They
-need to be sent as a series so people know what order these patches
-should be applied in, and that they're all related.
+Multiple display modes could be read from a display device's EDID.
+Use clk_round_rate() to validate the "ldb" clock rate for each mode
+in drm_bridge_funcs::mode_valid() to filter unsupported modes out.
 
-On Mon, Nov 11, 2024 at 10:48:13PM -0800, Jenishkumar Maheshbhai Patel wrote:
-> In PCIE ISR routine caused by RST_LINK_DOWN
-> we schedule work to handle the link-down procedure.
-> Link-down procedure will:
-> 1. Remove PCIe bus
-> 2. Reset the MAC
-> 3. Reconfigure link back up
-> 4. Rescan PCIe bus
-> 
-> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-> ---
->  drivers/pci/controller/dwc/pcie-armada8k.c | 84 ++++++++++++++++++++++
->  1 file changed, 84 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c b/drivers/pci/controller/dwc/pcie-armada8k.c
-> index 07775539b321..b1b48c2016f7 100644
-> --- a/drivers/pci/controller/dwc/pcie-armada8k.c
-> +++ b/drivers/pci/controller/dwc/pcie-armada8k.c
-> @@ -21,6 +21,8 @@
->  #include <linux/platform_device.h>
->  #include <linux/resource.h>
->  #include <linux/of_pci.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/regmap.h>
->  
->  #include "pcie-designware.h"
->  
-> @@ -32,6 +34,9 @@ struct armada8k_pcie {
->  	struct clk *clk_reg;
->  	struct phy *phy[ARMADA8K_PCIE_MAX_LANES];
->  	unsigned int phy_count;
-> +	struct regmap *sysctrl_base;
-> +	u32 mac_rest_bitmask;
-> +	struct work_struct recover_link_work;
->  };
->  
->  #define PCIE_VENDOR_REGS_OFFSET		0x8000
-> @@ -72,6 +77,8 @@ struct armada8k_pcie {
->  #define AX_USER_DOMAIN_MASK		0x3
->  #define AX_USER_DOMAIN_SHIFT		4
->  
-> +#define UNIT_SOFT_RESET_CONFIG_REG	0x268
-> +
->  #define to_armada8k_pcie(x)	dev_get_drvdata((x)->dev)
->  
->  static void armada8k_pcie_disable_phys(struct armada8k_pcie *pcie)
-> @@ -216,6 +223,65 @@ static int armada8k_pcie_host_init(struct dw_pcie_rp *pp)
->  	return 0;
->  }
->  
-> +static void armada8k_pcie_recover_link(struct work_struct *ws)
-> +{
-> +	struct armada8k_pcie *pcie = container_of(ws, struct armada8k_pcie, recover_link_work);
-> +	struct dw_pcie_rp *pp = &pcie->pci->pp;
-> +	struct pci_bus *bus = pp->bridge->bus;
-> +	struct pci_dev *root_port;
-> +	int ret;
-> +
-> +	root_port = pci_get_slot(bus, 0);
-> +	if (!root_port) {
-> +		dev_err(pcie->pci->dev, "failed to get root port\n");
-> +		return;
-> +	}
-> +	pci_lock_rescan_remove();
-> +	pci_stop_and_remove_bus_device(root_port);
-> +	/*
-> +	 * Sleep needed to make sure all pcie transactions and access
-> +	 * are flushed before resetting the mac
-> +	 */
-> +	msleep(100);
-> +
-> +	/* Reset mac */
-> +	regmap_update_bits_base(pcie->sysctrl_base, UNIT_SOFT_RESET_CONFIG_REG,
-> +				pcie->mac_rest_bitmask, 0, NULL, false, true);
-> +	udelay(1);
-> +	regmap_update_bits_base(pcie->sysctrl_base, UNIT_SOFT_RESET_CONFIG_REG,
-> +				pcie->mac_rest_bitmask, pcie->mac_rest_bitmask,
-> +				NULL, false, true);
-> +	udelay(1);
-> +
-> +	ret = dw_pcie_setup_rc(pp);
-> +	if (ret)
-> +		goto fail;
-> +
-> +	ret = armada8k_pcie_host_init(pp);
-> +	if (ret) {
-> +		dev_err(pcie->pci->dev, "failed to initialize host: %d\n", ret);
-> +		goto fail;
-> +	}
-> +
-> +	if (!dw_pcie_link_up(pcie->pci)) {
-> +		ret = dw_pcie_start_link(pcie->pci);
-> +		if (ret)
-> +			goto fail;
-> +	}
-> +
-> +	/* Wait until the link becomes active again */
-> +	if (dw_pcie_wait_for_link(pcie->pci))
-> +		dev_err(pcie->pci->dev, "Link not up after reconfiguration\n");
-> +
-> +	bus = NULL;
-> +	while ((bus = pci_find_next_bus(bus)) != NULL)
-> +		pci_rescan_bus(bus);
-> +
-> +fail:
-> +	pci_unlock_rescan_remove();
-> +	pci_dev_put(root_port);
-> +}
-> +
->  static irqreturn_t armada8k_pcie_irq_handler(int irq, void *arg)
->  {
->  	struct armada8k_pcie *pcie = arg;
-> @@ -253,6 +319,9 @@ static irqreturn_t armada8k_pcie_irq_handler(int irq, void *arg)
->  		 * initiate a link retrain. If link retrains were
->  		 * possible, that is.
->  		 */
-> +		if (pcie->sysctrl_base && pcie->mac_rest_bitmask)
-> +			schedule_work(&pcie->recover_link_work);
-> +
->  		dev_dbg(pci->dev, "%s: link went down\n", __func__);
->  	}
->  
-> @@ -322,6 +391,8 @@ static int armada8k_pcie_probe(struct platform_device *pdev)
->  
->  	pcie->pci = pci;
->  
-> +	INIT_WORK(&pcie->recover_link_work, armada8k_pcie_recover_link);
-> +
->  	pcie->clk = devm_clk_get(dev, NULL);
->  	if (IS_ERR(pcie->clk))
->  		return PTR_ERR(pcie->clk);
-> @@ -349,6 +420,19 @@ static int armada8k_pcie_probe(struct platform_device *pdev)
->  		goto fail_clkreg;
->  	}
->  
-> +	pcie->sysctrl_base = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> +						       "marvell,system-controller");
-> +	if (IS_ERR(pcie->sysctrl_base)) {
-> +		dev_warn(dev, "failed to find marvell,system-controller\n");
-> +		pcie->sysctrl_base = 0x0;
-> +	}
-> +
-> +	ret = of_property_read_u32(pdev->dev.of_node, "marvell,mac-reset-bit-mask",
-> +				   &pcie->mac_rest_bitmask);
-> +	if (ret < 0) {
-> +		dev_warn(dev, "couldn't find mac reset bit mask: %d\n", ret);
-> +		pcie->mac_rest_bitmask = 0x0;
-> +	}
->  	ret = armada8k_pcie_setup_phys(pcie);
->  	if (ret)
->  		goto fail_clkreg;
-> -- 
-> 2.25.1
-> 
-> 
-> 
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+---
+Note that this patch depends on a patch in shawnguo/imx/fixes:
+https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241017031146.157996-1-marex@denx.de/
 
+v6:
+* Drop pixel clock rate validation.
+
+v5:
+* No change.
+
+v4:
+* No change.
+
+v3:
+* No change.
+
+v2:
+* Add more comments in fsl-ldb.c and commit message about pixel clock
+  rate validation.  (Maxime)
+
+ drivers/gpu/drm/bridge/fsl-ldb.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+index b559f3e0bef6..d9436ff9ccc3 100644
+--- a/drivers/gpu/drm/bridge/fsl-ldb.c
++++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+@@ -270,10 +270,16 @@ fsl_ldb_mode_valid(struct drm_bridge *bridge,
+ 		   const struct drm_display_mode *mode)
+ {
+ 	struct fsl_ldb *fsl_ldb = to_fsl_ldb(bridge);
++	unsigned long link_freq;
+ 
+ 	if (mode->clock > (fsl_ldb_is_dual(fsl_ldb) ? 160000 : 80000))
+ 		return MODE_CLOCK_HIGH;
+ 
++	/* Validate "ldb" clock rate. */
++	link_freq = fsl_ldb_link_frequency(fsl_ldb, mode->clock);
++	if (link_freq != clk_round_rate(fsl_ldb->clk, link_freq))
++		return MODE_NOCLOCK;
++
+ 	return MODE_OK;
+ }
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.34.1
+
 
