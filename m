@@ -4,70 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102D4D597AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642AED597AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNcgNPQUS5w0e2xKLQNX2Q32FCLJRV3b3KQ0eTd0R5k=; b=U7OM8/os34RCEvTwaBmkFIuyOo
-	pFq9FrXkHsZJtnfHCuRHRR2mb0IcnY6mK0DwsN4XheaLJRvtfhocWtg+cpWczqr2CQdFkfcrwIoDT
-	CuMytLAV6d7d8hCRFkE1MBEO7p2gDCaej9Csbw3vA/Hkpfqnzlll68KqY581Q2Z5MqxlhvtFC6/2J
-	+1Mx0KkLh/R+X9xIR/bocmCnMyA8w5BK5Um2GP3zmQZF7bfxQ/lD7XcSCeE9vpdkdFY34AUd3fV7s
-	Q/ClhGtra+a7p2RvEAs69jWs9r2gjpmkiQfT+VyjYGVP9MLdKbhpLxcHC7WrPud52pddgwkegSiio
-	5L0I5h4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BN9DpUb1p/C8Taze62acJebdHZiIr1mHnH7MHwbR3EA=; b=F1nIZp5IjkY79VoVdh+k0ivs6Y
+	klOTAjVvbYbHT2R0gIKtUPFLMWGyER2T07Y11iQMuweKjjPqNGgkAeUIQ6vH/U9iFLI0TIQzHoLYU
+	CE1UrGSLmLgRkZTojruIVrpT91INbn+5Pe5fZrLZH72X+tJiOVXBE7ubVW0gYaR8/0VQ4aV9Y20yk
+	bicrEsXE2WZGZ2zY87StVkKBgVJLFoWTl1aodOG3G8GLxCO3C1XCK5FOTi5pja3jOZKc1InpyQt/M
+	b8gnDMKwAw5Cxw+kBo+n6D50VtOqW795vAA/YyuXTMRefFMnq6uzeN+O7mSgbjCx/W1n0SfDT3tiK
+	kAT/ICYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyt8-000000054us-2PcZ;
-	Tue, 12 Nov 2024 21:57:30 +0000
-Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
+	id 1tAyut-0000000557i-3cf6;
+	Tue, 12 Nov 2024 21:59:19 +0000
+Received: from mail-bn7nam10on2060c.outbound.protection.outlook.com ([2a01:111:f403:2009::60c] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAypa-000000054T4-2Vgr
+	id 1tAyr0-000000054aj-3dQm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 21:53:52 +0000
-Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: marex@denx.de)
-	by phobos.denx.de (Postfix) with ESMTPSA id 248EB894B2;
-	Tue, 12 Nov 2024 22:53:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
-	s=phobos-20191101; t=1731448427;
-	bh=pNcgNPQUS5w0e2xKLQNX2Q32FCLJRV3b3KQ0eTd0R5k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=quIs6HjEPhWbHZZO5Fd0JVWw1y6YB8bAEzDt8tGe+NJuQNCS6lFXVGmzSTlGie/dD
-	 Aw7u6x7DNAO2JMpLJU3hMsYz3SGP5KJUW5QTjPTKScP4e6WSpw7pgopn1rtihPiR2a
-	 sqSCcVNR+REIoEsFApgikIteur/9Phrc7SwC2p5Tiv8kIS8a3cdla6WFlkC14TP9LX
-	 EcaupzPEX71WNKHgHBILE/4leawvI+jYM8gOb1b6vd7+MZiAGlEsvEYwZz9Npv+sL7
-	 Q5T2t5tksanbPr6RCIEaUoqewzJu79OtjKRoBA/hX+L1WR+YH8Ohvm5VBf7f0g4Lr0
-	 m028EPCXj75eA==
-Message-ID: <0a62d3b7-b435-40cf-9795-2fb4ea80a693@denx.de>
-Date: Tue, 12 Nov 2024 22:27:09 +0100
+	Tue, 12 Nov 2024 21:55:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k0C0ly4PaU6yRrAfDdWn5kgKpMrSe5ruArhmKcnFjzu33AcanOAobvq/EOriMZocDVCY8EGfoc4CwgnjYmcmoY5lOpcCycG1Sb5Qj6B6xSqiJi2U0nwK5zBKS9lp+tjyGPw0IH+opXtS3e7EOVGWXT8o59nVDTcYKm9PEELMIzwbb9i1lYLtXtbzkmb/rzmg6RoNARE23sd9D9XSjkPqIbyaS+jqmJv0Pckehck1tJR7t+mKaB3XlzfaB3zIz+R+FJk0c5PT00hsx9wsMGPcL2uIg6LFozGTXTsW3uQnjssQSVTGBme03yl2qLNgpu2ZONHMHa9n8Le9wnLmChhmDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BN9DpUb1p/C8Taze62acJebdHZiIr1mHnH7MHwbR3EA=;
+ b=RjqkHEGlNbgrad/W4v95UgLpu3SXo7DK65ZtgVOb2zQZk2PQh0lmXS5F+z8eMgCnGkvCk29cwxM00D9WBvZyCkQUtGVFfH3XVixKBszFGqmKhDlkkZRHZgHdwzMFwcM/dLV7mSGEZOFSiktNW1zWdXfuKjPfWz1D6eVBL+MZ/ppu+r2UIum51YC4Qr7nPxwnpryWZt4GV95Z2s4BwU3HGHzj5YtvNQ1ccQKdVKc19ifrYV6Numi3B0WeVUB5dfPZVEZgft4E9xk+N19A0/bgSdx8kBoigevBtlay0VoRch937sM9uRSlFi2/S5BUWiZaRHYnr5wSZDqJ318wW00HZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BN9DpUb1p/C8Taze62acJebdHZiIr1mHnH7MHwbR3EA=;
+ b=Ff1vJKgVzYy9bhnVRWYsWcEMchWECx03LZj/bAYVmBa0EHJKgd5u6+ENvFHJHxLYC91tiPQ0hKGHUl7b7DQrt0Rx+D7sCBdHgmtNaQpxhHTroeS2ZiSvidQnl5ogeNSNNcdUo4DcH7fhpTGO6fPVFmyu5/0HehjPUAEUDg5qzox0Dq848Vwnku5SKjVSOzr8JskGdASPH+77eQPLTwyvEgVv9cQEXmSWQnHJL7xPn+zs7kjdGmmddI6wIaQOes0qXsf7wCbOYhMuHWZiVdAqNUd6UZc61eL6lPCUKNqL16eyQHFcFToY/1FbW/PKzS7SkxejgUn1MNd+ljKbtYL4zg==
+Received: from SJ0PR03CA0163.namprd03.prod.outlook.com (2603:10b6:a03:338::18)
+ by CY5PR12MB6429.namprd12.prod.outlook.com (2603:10b6:930:3b::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20; Tue, 12 Nov
+ 2024 21:55:09 +0000
+Received: from SJ1PEPF00002319.namprd03.prod.outlook.com
+ (2603:10b6:a03:338:cafe::27) by SJ0PR03CA0163.outlook.office365.com
+ (2603:10b6:a03:338::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.16 via Frontend
+ Transport; Tue, 12 Nov 2024 21:55:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00002319.mail.protection.outlook.com (10.167.242.229) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8158.14 via Frontend Transport; Tue, 12 Nov 2024 21:55:09 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 12 Nov
+ 2024 13:55:02 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 12 Nov
+ 2024 13:55:01 -0800
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
+ Transport; Tue, 12 Nov 2024 13:55:00 -0800
+Date: Tue, 12 Nov 2024 13:54:58 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+CC: <maz@kernel.org>, <tglx@linutronix.de>, <bhelgaas@google.com>,
+	<alex.williamson@redhat.com>, <jgg@nvidia.com>, <leonro@nvidia.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <dlemoal@kernel.org>,
+	<kevin.tian@intel.com>, <smostafa@google.com>,
+	<andriy.shevchenko@linux.intel.com>, <reinette.chatre@intel.com>,
+	<eric.auger@redhat.com>, <ddutile@redhat.com>, <yebin10@huawei.com>,
+	<brauner@kernel.org>, <apatel@ventanamicro.com>,
+	<shivamurthy.shastri@linutronix.de>, <anna-maria@linutronix.de>,
+	<nipun.gupta@amd.com>, <marek.vasut+renesas@mailbox.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address
+ for each MSI vector
+Message-ID: <ZzPOsrbkmztWZ4U/@Asurada-Nvidia>
+References: <cover.1731130093.git.nicolinc@nvidia.com>
+ <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: imx: pll14xx: Extend dynamic rates support to
- PLL1416x
-To: Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org
-Cc: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20241111214516.208820-1-marex@denx.de>
- <e58af9fa-f1b2-4d1b-8ca3-d256a7dee4ec@nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <e58af9fa-f1b2-4d1b-8ca3-d256a7dee4ec@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
-X-Virus-Status: Clean
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002319:EE_|CY5PR12MB6429:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab79cad2-5814-4857-3739-08dd0364ad53
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6kOEMKY4KwO7xqVRobHnuZ+C0KtYNYid76AGXR+wqEn/o557vpz2RAuCjzjL?=
+ =?us-ascii?Q?PHQxF5bRXRh0jn8vshrid5A7wx3wGsvN5E2+FAKGtv/zuu/Wtuu6Hw4PCVCs?=
+ =?us-ascii?Q?BsnJ2Yd7yw4eNZuBwK9op51sYzzWvmadx4GP1qnXL/fmLPD36e00Ret3ZU4D?=
+ =?us-ascii?Q?UL+tmPZEqdsVZUbRMV9IgWmphHhAVm1isbnLjUMyFSSf8B0X1r4s6LEM5rMU?=
+ =?us-ascii?Q?sZz4geaw3GH2RnZH0QF9GT46i9rfwdzEXwu9HHy0G9CPEqnstdl1IbwRgcDR?=
+ =?us-ascii?Q?Cd2dO2A2QuPvhm6K1xnn/TO0fcMvPGgi5r38fvocM1HQZncVXRx36sC/lcft?=
+ =?us-ascii?Q?npJikIYyc6xR/s0e6VPYmBd/eNBmb/jNQy3JbEiuubAyqZmWOgXDl2flbloL?=
+ =?us-ascii?Q?X+gxP/Ln66skLafiPLEUokL+d5FT9JBp4G8omtPTuefWPsdsfpBhXHUP5sjn?=
+ =?us-ascii?Q?aPKCzYvtjMh6n5hLgAQD5s2mkL89KJFncc7B/nHgqPUsgItglZFNbnhS4h/u?=
+ =?us-ascii?Q?ouB+WeE/UMQcaLAFbexaoSt1fLMehvZcSpv1ZZ/ko0EnmrQBnbI8NCtwyfHX?=
+ =?us-ascii?Q?3APrc4hLEnUEncRujH9WuuSrcn8TZfWJlbTACzZiQnRfTyFjm/u+yQ+X0wyX?=
+ =?us-ascii?Q?fhLsrwKKb7gtrZ3ci/j2SHoPKbfo5mAumWaqJDkvE4spJhitl0Rdp4LBArna?=
+ =?us-ascii?Q?IhLXR7ojSvHxo1lIvoi34qQqjmHQvyeUfTw52mHk7hAzo4G1GdGS8CzWe50X?=
+ =?us-ascii?Q?i7LTB6UR37XIkp9uyf4swKY7Yx4ykeqjSBhjhdmFOb+4JAkZFKF5q+72Oefm?=
+ =?us-ascii?Q?smEKBz32VQE34WrSXGBttzgpc1d32nRS9vHfNDRyirayKYb7bTlo0+4eK+pr?=
+ =?us-ascii?Q?P7JzNa4rvt83RoRTHyr72XIV3/4Spn7zcNzLXwqwAs6r3JQD+OzwzuHy9aFf?=
+ =?us-ascii?Q?E2HO9fN0UeXCUESWkF7foKOT38ySWvgs4JXEo553ZbYRAd7958fulXgzvilV?=
+ =?us-ascii?Q?jF4HTf9a4vD8WYl+kyo0H6Fusihx4Z6Jbj2/0mRWlAzeb1PD3OEkzGkhIMhk?=
+ =?us-ascii?Q?da4d3aVAGKfsuYgNsdOzXQ/fobj/0sxTDHR6q1Lhgq5zy8xG9hYGLEWDq5EU?=
+ =?us-ascii?Q?4kvZX1b04YaxIvqsmBhGoCuMKvUzdK48yH35JUOfBGCqd+MXV5vSbQjid4Yx?=
+ =?us-ascii?Q?mHOD+ItkX/7qJ0wKHzPTnnjeYSqxDrc5gWPdfhIiThJO6oWZhN10X/Cuzklh?=
+ =?us-ascii?Q?Ps/PWajNgcE48TsmCHoxmvAttkm7UkDNbAM/Rx/mAGdbe2hQ6gIhJxhbfsio?=
+ =?us-ascii?Q?HgGZzAngtBrByHoHc1oGVjilbCTta9qLspuYWaWckT4kPXhUmT0Yz78XJod/?=
+ =?us-ascii?Q?BTcauasfWckLBiXSXUUhtqEzzGKuBDiObM/5DhqFsfhAxBHtQg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 21:55:09.5690
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab79cad2-5814-4857-3739-08dd0364ad53
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002319.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_135350_838323_F5BA2C5D 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20241112_135518_936902_523B496B 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +158,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/24 4:26 AM, Liu Ying wrote:
-> On 11/12/2024, Marek Vasut wrote:
->> The pll1416x PLL so far only supports rates from a rate table passed
->> during initialization. Calculating PLL settings dynamically helps in
->> case e.g. multiple video outputs are used and they each need their own
->> separate source of accurate pixel clock on i.MX8MP. In that case, e.g.
->> PLL1416x PLL3 can be used as another Video PLL for another output.
+On Mon, Nov 11, 2024 at 01:09:20PM +0000, Robin Murphy wrote:
+> On 2024-11-09 5:48 am, Nicolin Chen wrote:
+> > To solve this problem the VMM should capture the MSI IOVA allocated by the
+> > guest kernel and relay it to the GIC driver in the host kernel, to program
+> > the correct MSI IOVA. And this requires a new ioctl via VFIO.
 > 
-> Just want to point out that i.MX8MP audio AXI clock is supposed to be
-> derived from PLL3 to run at 600MHz in nominal mode(i.MX8MP data sheet
-> specifies that rate).  So, if a particular i.MX8MP system doesn't use
-> audio, PLL3 can be a free clock source to be used by an i.MX8MP display
-> pipeline, otherwise, video_pll1_out is supposed to be shared by i.MX8MP
-> MIPI DSI and LVDS display pipelines.
+> Once VFIO has that information from userspace, though, do we really need
+> the whole complicated dance to push it right down into the irqchip layer
+> just so it can be passed back up again? AFAICS
+> vfio_msi_set_vector_signal() via VFIO_DEVICE_SET_IRQS already explicitly
+> rewrites MSI-X vectors, so it seems like it should be pretty
+> straightforward to override the message address in general at that
+> level, without the lower layers having to be aware at all, no?
 
-In the end, I started using Audio PLL and Video PLL PLL1443x for 
-accurate pixel clock generation and PLL3 to feed CLKOUTn where the less 
-accurate PLL3 PLL1416x is just fine.
+Didn't see that clearly!! It works with a simple following override:
+--------------------------------------------------------------------
+@@ -497,6 +497,10 @@ static int vfio_msi_set_vector_signal(struct vfio_pci_core_device *vdev,
+                struct msi_msg msg;
 
-With the disparate display requirements, sharing one Video PLL for 
-multiple outputs like DSI and LVDS is unrealistic. (maybe the next SoC 
-should have some nice PLL per display output)
+                get_cached_msi_msg(irq, &msg);
++               if (vdev->msi_iovas) {
++                       msg.address_lo = lower_32_bits(vdev->msi_iovas[vector]);
++                       msg.address_hi = upper_32_bits(vdev->msi_iovas[vector]);
++               }
+                pci_write_msi_msg(irq, &msg);
+        }
+ 
+--------------------------------------------------------------------
 
-> Currently, IMX8MP_CLK_AUDIO_AXI_SRC's parent is assigned to
-> IMX8MP_SYS_PLL1_800M in imx8mp.dtsi.  Although it's rate is assigned
-> to 600MHz, the actual rate is 400MHz according to clk_summary because
-> the divider cannot find a ratio to reach 600MHz from the clock source
-> running at 800MHz.  Looking at imx8mp_audio_axi_sels[], sys_pll3_out
-> is the only free/appropriate clock source that can derive 600MHz audio
-> AXI clock from.  Maybe, someone will change IMX8MP_CLK_AUDIO_AXI_SRC's
-> parent to IMX8MP_SYS_PLL3_OUT ?
-Is the 400 MHz sufficient for audio-axi or does it have some negative 
-performance impact ? If the later, better send a patch to use PLL3 for 
-audio-axi .
+With that, I think we only need one VFIO change for this part :)
 
-Thanks !
+Thanks!
+Nicolin
 
