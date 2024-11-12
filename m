@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED5CD597B6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 23:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A563D597B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 23:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPV/BnBSZwkzP1CAXcGTb/b489Qh5Q8Y01cLz+m8DDY=; b=tc8q7oiW7YD1/ov6aWeovueuUv
-	H6R6Og+EX0g0gg6JTzJ18Jq2lejdwqMrLgGRku+Vhf6SsxoxRpokFJqP7yStZMtluQFUttofAqTAa
-	mgHo21qAElFMTPloTvNl5ZrAtODZwuZz+9PEdDzn2hlO5HjnzgsOmrLElpDoZHTEGyOj+GAq5Okf1
-	cTlv7vYJ3/0SdQ7cOxJfdf9114GLRIza1dYuTVfctXmiPAMGl5Hu075cdrxuFtvYQh2oPnlxHCU3I
-	MDJryA7K4c2camQLY3i6B7yRzRcSSYvyyLs1MR8Uke8RXYTDDvx3YTgfcK6mT7Ef0p9k7p8YnRpEn
-	5MLEJTng==;
+	bh=/XvnojsbDU2iklE9xJFwgVgRWENV+XinNVMN6pOt4es=; b=NONKMVOxDwZYiTsKHyRxmiQRav
+	QZCDnn6wMC5Br71vCp7WRK1QkL91yp8bY65Ibyg7Y/tJdXPYJ6rIH+stlBfecjvjdb1/SjUDMu1x2
+	7BnhpTS/1WH2Bs+98gDsIW3fJHSW9vEJFT03PH1xQN1TIKBvB0V/x3ADs4o1hjLkuMBQ/HBQ9dKog
+	gal1qWb3e7OGLTl6jHNItsMuMZHX6z+3waGs2aEQ2gGcdTNxHOzoX53g0ME3cAhQrREfzQvjlyRPp
+	WtpO9F0/56UZ89MDOYOkoUKUzUqMymVHBeYmtTMiIrP6H9LUXyxz+y5UWpuF0nL/HmvDCQO4MJ5c2
+	IKlf6kiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB05d-00000005Flg-29LQ;
-	Tue, 12 Nov 2024 23:14:29 +0000
-Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	id 1tB07P-00000005G2e-0Y8t;
+	Tue, 12 Nov 2024 23:16:19 +0000
+Received: from a.peacevolution.org ([206.189.193.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB01m-00000005ErW-2S31;
-	Tue, 12 Nov 2024 23:10:32 +0000
-Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 04BCD12000C;
-	Wed, 13 Nov 2024 02:04:50 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 04BCD12000C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1731452690;
-	bh=kPV/BnBSZwkzP1CAXcGTb/b489Qh5Q8Y01cLz+m8DDY=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=MRfpB8XdXJK8bRXK4NnkJk2RYcKoM9dPPJBoov+fpnyY6rc+EFcqgCctpjHo68Iar
-	 RbMH6LPaEZP9FDCMwzfTY2/ga9uYRM1tlVmN+9MwfT64Kgfy1/BcAa6E7jdcmwGeBX
-	 PuH/+dtT/xxTYlzuYggnhAx2DR/HVpMq7i2gsFwReV8acpWjQ8SgBNXl7qGbOzMWqk
-	 OVKL9PmlK2esYxGIiuM1Z4g4LOPp/kDxtQgzLP+wm74P1Vgubil3xuWt48TrBwVQis
-	 QxLW8m360fA87APCWW17icXme/suwXcdKHVrFSZw65hQ3qGxgKeNmF4oQ8BO5fzX5N
-	 slmJwuhM2+xSw==
-Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Wed, 13 Nov 2024 02:04:49 +0300 (MSK)
-From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>, Jerome Brunet
-	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, Michael Turquette
-	<mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, "Rob
- Herring" <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Subject: [PATCH v5 2/3] dt-bindings: clock: axg-audio: document A1 SoC audio clock controller driver
-Date: Wed, 13 Nov 2024 02:04:42 +0300
-Message-ID: <20241112230443.1406460-3-jan.dakinevich@salutedevices.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112230443.1406460-1-jan.dakinevich@salutedevices.com>
-References: <20241112230443.1406460-1-jan.dakinevich@salutedevices.com>
+	id 1tB02z-00000005FDM-0Ytp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 23:11:46 +0000
+Received: from authenticated-user (PRIMARY_HOSTNAME [PUBLIC_IP])
+	by a.peacevolution.org (Postfix) with ESMTPA id D08794C739;
+	Tue, 12 Nov 2024 23:11:39 +0000 (UTC)
+Date: Tue, 12 Nov 2024 18:11:37 -0500
+From: Aren <aren@peacevolution.org>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, 
+	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Kaustabh Chakraborty <kauschluss@disroot.org>, =?utf-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <trabarni@gmail.com>, 
+	Ondrej Jirman <megi@xff.cz>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>, phone-devel@vger.kernel.org
+Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
+ possible
+Message-ID: <6jwurbs27slfpsredvpxfgwjkurkqvfmzccaxnfgtuh4aks3c6@ciapprv3wsex>
+References: <20241102195037.3013934-3-aren@peacevolution.org>
+ <20241102195037.3013934-11-aren@peacevolution.org>
+ <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
+ <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
+ <ZzEPACoblmcQD9yu@surfacebook.localdomain>
+ <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
+ <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
+ <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.28.128.42]
-X-ClientProxiedBy: p-i-exch-a-m2.sberdevices.ru (172.24.196.120) To
- p-i-exch-a-m1.sberdevices.ru (172.24.196.116)
-X-KSMG-Rule-ID: 10
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 189131 [Nov 12 2024]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: YVDakinevich@sberdevices.ru
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, salutedevices.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:7.1.1,5.0.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;sberdevices.ru:7.1.1,5.0.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/12 21:10:00 #26864167
-X-KSMG-AntiVirus-Status: Clean, skipped
+In-Reply-To: <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
+X-Spamd-Bar: /
+Authentication-Results: auth=pass smtp.auth=aren@peacevolution.org smtp.mailfrom=aren@peacevolution.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=peacevolution.org;
+	s=dkim; t=1731453101;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:content-transfer-encoding:in-reply-to:references;
+	bh=/XvnojsbDU2iklE9xJFwgVgRWENV+XinNVMN6pOt4es=;
+	b=QSjWisTh28m3ad1tuS8ksPEWHblcKQJX1GVqDMfbdGFRlCO9UKjCCII5U0UztBmrE6NUW1
+	ajTb4KKLxsSIaHAKj3gbmwqW91BnTF6mZ0TQDRXEPGHJTR0fJFipdfoO1DNQLMvoEaffwy
+	Uz5hZTjJ+fCuSFtKzzlpepmg9SJyEi0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_151031_066239_96332099 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241112_151145_337679_C9468398 
+X-CRM114-Status: GOOD (  31.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,183 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for A1 SoC audio clock and reset controllers.
+On Tue, Nov 12, 2024 at 11:15:54AM +0100, Uwe Kleine-König wrote:
+> Hello Andy, hello Aren,
+> 
+> On Mon, Nov 11, 2024 at 11:44:51AM +0200, Andy Shevchenko wrote:
+> > On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote:
+> > > On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote:
+> > > > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
+> > 
+> > You can do it differently
+> > 
+> > #define STK3310_REGFIELD(name)							\
+> > do {										\
+> > 	data->reg_##name =							\
+> > 		devm_regmap_field_alloc(dev, regmap, stk3310_reg_field_##name);	\
+> > 	if (IS_ERR(data->reg_##name))						\
+> > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
+> > 				     "reg field alloc failed.\n");		\
+> > } while (0)
+> > 
+> > > #define STK3310_REGFIELD(name) ({						\
+> > > 	data->reg_##name = devm_regmap_field_alloc(dev, regmap,			\
+> > > 						   stk3310_reg_field_##name);   \
+> > > 	if (IS_ERR(data->reg_##name))						\
+> > > 		return dev_err_probe(dev, PTR_ERR(data->reg_##name),		\
+> > > 				     "reg field alloc failed\n");		\
+> > > })
+> > 
+> > I am against unneeded use of GNU extensions.
+> > 
+> > > > > replacing "do { } while (0)" with "({ })" and deindenting could make
+> > > > > enough room to clean this up the formatting of this macro though.
+> > > > 
+> > > > do {} while (0) is C standard, ({}) is not.
+> > > 
+> > > ({ }) is used throughout the kernel, and is documented as such[1]. I
+> > > don't see a reason to avoid it, if it helps readability.
+> > 
+> > I don't see how it makes things better here, and not everybody is familiar with
+> > the concept even if it's used in the kernel here and there. Also if a tool is
+> > being used in one case it doesn't mean it's suitable for another.
+> 
+> Just to throw in my subjective view here: I don't expect anyone with
+> some base level knowledge of C will have doubts about the semantics of
+> ({ ... }) and compared to that I find do { ... } while (0) less optimal,
+> because it's more verbose and when spotting the "do {" part, the
+> semantic only gets clear when you also see the "while (0)". Having said
+> that I also dislike the "do" starting on column 0, IMHO the RHS of the
+> #define should be intended.
 
-Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
----
- .../clock/amlogic,axg-audio-clkc.yaml         |   4 +
- .../dt-bindings/clock/amlogic,a1-audio-clkc.h | 139 ++++++++++++++++++
- 2 files changed, 143 insertions(+)
- create mode 100644 include/dt-bindings/clock/amlogic,a1-audio-clkc.h
+Thank you, this sums up my opinion on this better than I could have (and
+some bits I hadn't considered).
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-index fd7982dd4cea..10202b749001 100644
---- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-+++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-@@ -18,6 +18,8 @@ description:
- properties:
-   compatible:
-     enum:
-+      - amlogic,a1-audio-clkc
-+      - amlogic,a1-audio-vad-clkc
-       - amlogic,axg-audio-clkc
-       - amlogic,g12a-audio-clkc
-       - amlogic,sm1-audio-clkc
-@@ -114,6 +116,8 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - amlogic,a1-audio-clkc
-+              - amlogic,a1-audio-vad-clkc
-               - amlogic,g12a-audio-clkc
-               - amlogic,sm1-audio-clkc
-     then:
-diff --git a/include/dt-bindings/clock/amlogic,a1-audio-clkc.h b/include/dt-bindings/clock/amlogic,a1-audio-clkc.h
-new file mode 100644
-index 000000000000..78e7a432d439
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,a1-audio-clkc.h
-@@ -0,0 +1,139 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2024, SaluteDevices. All Rights Reserved.
-+ *
-+ * Author: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-+ */
-+
-+#ifndef __A1_AUDIO_CLKC_BINDINGS_H
-+#define __A1_AUDIO_CLKC_BINDINGS_H
-+
-+#define AUD_CLKID_DDR_ARB			1
-+#define AUD_CLKID_TDMIN_A			2
-+#define AUD_CLKID_TDMIN_B			3
-+#define AUD_CLKID_TDMIN_LB			4
-+#define AUD_CLKID_LOOPBACK			5
-+#define AUD_CLKID_TDMOUT_A			6
-+#define AUD_CLKID_TDMOUT_B			7
-+#define AUD_CLKID_FRDDR_A			8
-+#define AUD_CLKID_FRDDR_B			9
-+#define AUD_CLKID_TODDR_A			10
-+#define AUD_CLKID_TODDR_B			11
-+#define AUD_CLKID_SPDIFIN			12
-+#define AUD_CLKID_RESAMPLE			13
-+#define AUD_CLKID_EQDRC				14
-+#define AUD_CLKID_LOCKER			15
-+#define AUD_CLKID_MST_A_MCLK_SEL		16
-+#define AUD_CLKID_MST_A_MCLK_DIV		17
-+#define AUD_CLKID_MST_A_MCLK			18
-+#define AUD_CLKID_MST_B_MCLK_SEL		19
-+#define AUD_CLKID_MST_B_MCLK_DIV		20
-+#define AUD_CLKID_MST_B_MCLK			21
-+#define AUD_CLKID_MST_C_MCLK_SEL		22
-+#define AUD_CLKID_MST_C_MCLK_DIV		23
-+#define AUD_CLKID_MST_C_MCLK			24
-+#define AUD_CLKID_MST_D_MCLK_SEL		25
-+#define AUD_CLKID_MST_D_MCLK_DIV		26
-+#define AUD_CLKID_MST_D_MCLK			27
-+#define AUD_CLKID_MST_A_SCLK_PRE_EN		28
-+#define AUD_CLKID_MST_A_SCLK_DIV		29
-+#define AUD_CLKID_MST_A_SCLK_POST_EN		30
-+#define AUD_CLKID_MST_A_SCLK			31
-+#define AUD_CLKID_MST_B_SCLK_PRE_EN		32
-+#define AUD_CLKID_MST_B_SCLK_DIV		33
-+#define AUD_CLKID_MST_B_SCLK_POST_EN		34
-+#define AUD_CLKID_MST_B_SCLK			35
-+#define AUD_CLKID_MST_C_SCLK_PRE_EN		36
-+#define AUD_CLKID_MST_C_SCLK_DIV		37
-+#define AUD_CLKID_MST_C_SCLK_POST_EN		38
-+#define AUD_CLKID_MST_C_SCLK			39
-+#define AUD_CLKID_MST_D_SCLK_PRE_EN		40
-+#define AUD_CLKID_MST_D_SCLK_DIV		41
-+#define AUD_CLKID_MST_D_SCLK_POST_EN		42
-+#define AUD_CLKID_MST_D_SCLK			43
-+#define AUD_CLKID_MST_A_LRCLK_DIV		44
-+#define AUD_CLKID_MST_A_LRCLK			45
-+#define AUD_CLKID_MST_B_LRCLK_DIV		46
-+#define AUD_CLKID_MST_B_LRCLK			47
-+#define AUD_CLKID_MST_C_LRCLK_DIV		48
-+#define AUD_CLKID_MST_C_LRCLK			49
-+#define AUD_CLKID_MST_D_LRCLK_DIV		50
-+#define AUD_CLKID_MST_D_LRCLK			51
-+#define AUD_CLKID_TDMIN_A_SCLK_SEL		52
-+#define AUD_CLKID_TDMIN_A_SCLK_PRE_EN		53
-+#define AUD_CLKID_TDMIN_A_SCLK_POST_EN		54
-+#define AUD_CLKID_TDMIN_A_SCLK			55
-+#define AUD_CLKID_TDMIN_A_LRCLK			56
-+#define AUD_CLKID_TDMIN_B_SCLK_SEL		57
-+#define AUD_CLKID_TDMIN_B_SCLK_PRE_EN		58
-+#define AUD_CLKID_TDMIN_B_SCLK_POST_EN		59
-+#define AUD_CLKID_TDMIN_B_SCLK			60
-+#define AUD_CLKID_TDMIN_B_LRCLK			61
-+#define AUD_CLKID_TDMIN_LB_SCLK_SEL		62
-+#define AUD_CLKID_TDMIN_LB_SCLK_PRE_EN		63
-+#define AUD_CLKID_TDMIN_LB_SCLK_POST_EN		64
-+#define AUD_CLKID_TDMIN_LB_SCLK			65
-+#define AUD_CLKID_TDMIN_LB_LRCLK		66
-+#define AUD_CLKID_TDMOUT_A_SCLK_SEL		67
-+#define AUD_CLKID_TDMOUT_A_SCLK_PRE_EN		68
-+#define AUD_CLKID_TDMOUT_A_SCLK_POST_EN		69
-+#define AUD_CLKID_TDMOUT_A_SCLK			70
-+#define AUD_CLKID_TDMOUT_A_LRCLK		71
-+#define AUD_CLKID_TDMOUT_B_SCLK_SEL		72
-+#define AUD_CLKID_TDMOUT_B_SCLK_PRE_EN		73
-+#define AUD_CLKID_TDMOUT_B_SCLK_POST_EN		74
-+#define AUD_CLKID_TDMOUT_B_SCLK			75
-+#define AUD_CLKID_TDMOUT_B_LRCLK		76
-+#define AUD_CLKID_SPDIFIN_CLK_SEL		77
-+#define AUD_CLKID_SPDIFIN_CLK_DIV		78
-+#define AUD_CLKID_SPDIFIN_CLK			79
-+#define AUD_CLKID_RESAMPLE_CLK_SEL		80
-+#define AUD_CLKID_RESAMPLE_CLK_DIV		81
-+#define AUD_CLKID_RESAMPLE_CLK			82
-+#define AUD_CLKID_EQDRC_CLK_SEL			83
-+#define AUD_CLKID_EQDRC_CLK_DIV			84
-+#define AUD_CLKID_EQDRC_CLK			85
-+#define AUD_CLKID_LOCKER_IN_CLK_SEL		86
-+#define AUD_CLKID_LOCKER_IN_CLK_DIV		87
-+#define AUD_CLKID_LOCKER_IN_CLK			88
-+#define AUD_CLKID_LOCKER_OUT_CLK_SEL		89
-+#define AUD_CLKID_LOCKER_OUT_CLK_DIV		90
-+#define AUD_CLKID_LOCKER_OUT_CLK		91
-+
-+#define AUD_VAD_CLKID_CLK81			1
-+#define AUD_VAD_CLKID_SYSCLK_A_DIV		2
-+#define AUD_VAD_CLKID_SYSCLK_A			3
-+#define AUD_VAD_CLKID_SYSCLK_B_DIV		4
-+#define AUD_VAD_CLKID_SYSCLK_B			5
-+#define AUD_VAD_CLKID_SYSCLK			6
-+#define AUD_VAD_CLKID_DDR_ARB			7
-+#define AUD_VAD_CLKID_PDM			8
-+#define AUD_VAD_CLKID_TDMIN_VAD			9
-+#define AUD_VAD_CLKID_TODDR_VAD			10
-+#define AUD_VAD_CLKID_TOVAD			11
-+#define AUD_VAD_CLKID_TOAUDIOTOP		12
-+#define AUD_VAD_CLKID_MST_VAD_MCLK_SEL		13
-+#define AUD_VAD_CLKID_MST_VAD_MCLK_DIV		14
-+#define AUD_VAD_CLKID_MST_VAD_MCLK		15
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_PRE_EN	16
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_DIV		17
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_POST_EN	18
-+#define AUD_VAD_CLKID_MST_VAD_SCLK		19
-+#define AUD_VAD_CLKID_MST_VAD_LRCLK_DIV		20
-+#define AUD_VAD_CLKID_MST_VAD_LRCLK		21
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_SEL	22
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_PRE_EN	23
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_POST_EN	24
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK		25
-+#define AUD_VAD_CLKID_TDMIN_VAD_LRCLK		26
-+#define AUD_VAD_CLKID_PDM_DCLK_SEL		27
-+#define AUD_VAD_CLKID_PDM_DCLK_DIV		28
-+#define AUD_VAD_CLKID_PDM_DCLK			29
-+#define AUD_VAD_CLKID_PDM_SYSCLK_SEL		30
-+#define AUD_VAD_CLKID_PDM_SYSCLK_DIV		31
-+#define AUD_VAD_CLKID_PDM_SYSCLK		32
-+#define AUD_VAD_CLKID_VAD_CLK_SEL		33
-+#define AUD_VAD_CLKID_VAD_CLK_DIV		34
-+#define AUD_VAD_CLKID_VAD_CLK			35
-+
-+#endif /* __A1_AUDIO_CLKC_BINDINGS_H */
--- 
-2.34.1
+> So if you ask me, this is not an unneeded use of an extension. The
+> extension is used to improve readabilty and I blame the C standard to
+> not support this syntax.
+> 
+> While I'm in critics mode: I consider hiding a return in a macro bad
+> style.
 
+Yeah... probably worse than any of the formatting options here. I guess
+the proper way would be to use devm_regmap_field_bulk_alloc, but that's
+well outside the scope of this series. Perhaps it would make sense to
+move the macro definition to just before the function it's used in so
+it's at least a little easier to spot?
+
+ - Aren
 
