@@ -4,98 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58181D41D51
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D06D41D79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Mdlml7mvRhIQJi3P6mBQ2xYrATvlG8Nv7RbYSprPig=; b=dV+XQBSUkUJ08ZTRztQv3ayeC2
-	UtwtVBM7jRyxPuJJI6yZaD0fyIoqv+BVBibxn3LFDapGpzHZvU91tX+fubfgGdsoInc2Pvc9NvBWz
-	VHW2aQ0yoHUg0m+n5wHgrfgiXpQdoqbTtml7OPrLDuEtKd5Bxve+S0wbm+tBqdwvgyXU9B3D/EaNE
-	EkYt5wSmyxHY4vieVfrfYJpWnSkSGDCc5n9mjkaC5aUyRTnLlb39yu+HKz4S1S1Z+5okpi5YbUY6Z
-	p6x/RMauuJHAdU4Fdl2ZcOcsXoiSL0VkoTwY6kl5vNu4FFDWffUqP1yX3BF4bMKVJkSeDccDVxmNJ
-	/YOuQ3NA==;
+	bh=YsaZoX49/UTmnCYipmJYozRv1F9KJT6zGJ2FPgwHPM0=; b=kVBg4Pz1BFuY1a6n7G2/23yk5z
+	HqIHNXZZTcMM4Zffs3g99m+0Sx8cX0f1uBDc2jSzAy2G7NPPMOr0VJPEah+tWGq3GMO89hpqKqSpS
+	YgB9hgRY/jbQdXBAQyMvmW+lECXEGHJ4U785AfeRY/XKcyXOn0+hvfPxEk0dqLPEK9JsR1yD1s0T2
+	AQ5g+PVX5TRFbSoK7HT0kzq0ozYubnkzfhVpdXDBLUILcRs2Q0V2ZdXItVXU/gf8TPwANumBAv6B6
+	1d5xCej5dHAh7ShDMTCgmUCB7eVo1hfcNtWL45TEFCbued7thsG/5OX4MYssTjPPEhFB6pN3uj37Q
+	/uogzM8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAr5G-00000003bkz-3wYU;
-	Tue, 12 Nov 2024 13:37:30 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tAr72-00000003c6n-1lNh;
+	Tue, 12 Nov 2024 13:39:20 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqwD-00000003Yub-3ZFS
+	id 1tAqwg-00000003Z0g-07y9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 13:28:11 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4315c1c7392so50119665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 05:28:08 -0800 (PST)
+	Tue, 12 Nov 2024 13:28:39 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-37d47eff9acso3443172f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 05:28:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731418087; x=1732022887; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6Mdlml7mvRhIQJi3P6mBQ2xYrATvlG8Nv7RbYSprPig=;
-        b=g9lS0rwYD+F4+hqYVBHq6PJSax+PSSQCD0SL1VF+dZVAr2g3v9VB3vv3y+0077lQhQ
-         R9ghl4G2qLhV97Aqi5x65a5kjyohyD5PQn7hASMkAJUjEX/Ozxyi1FWqQe7DiBVZ70mK
-         dap8A0oNEYBDXsSZnPb8dsSUTKMIQAHdJayUGkig+zJ0soU3ltfUm2SwmJYpgBg0ULTz
-         mh9MZxEah7CbjKe/LkJ6rV7K00m1JoJI07drQ5x18Xaz0xAzxLYITFFI2ni2Zxeqs2Pq
-         Q+CCAQ12DQuE+vnwgYP5bsi501oPQ6k/ZJDUGWOrAsMJuT91phsXG+BTn8idNqtNn6Vu
-         FpDg==
+        d=linaro.org; s=google; t=1731418116; x=1732022916; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YsaZoX49/UTmnCYipmJYozRv1F9KJT6zGJ2FPgwHPM0=;
+        b=PI9d/JlrFZbqqSYlUH/RfFAkrbgtL40FNYV3MFBSENTDmAgU42SMMnDx/7YWYHpoi6
+         YoUduQGg7d6OVHmgUJFwq6uQs7uF7E0VkzhkipXSI3x5zrWmmgWTyiqdB9CKqg8SnWtU
+         xvCVMPsaPpCTFER3v+v5B23yAxcxykq55MOyNFECj6kbitjD2NiQS/h679sDz3qLOaEw
+         ZSXIr4jx/iizlseazybTatfkvEM9NkJkQZrh6p0ei8G2YBSWOV0yOhAPzBuVhSruvrIb
+         gpyP9sOTJJ8IkqoHXPMFgsNPhlEcAAsf9P3+UewqUiEI0AJw3TwgEKoFKuMr2ZVxwub0
+         PTzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731418087; x=1732022887;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6Mdlml7mvRhIQJi3P6mBQ2xYrATvlG8Nv7RbYSprPig=;
-        b=Uz70XtXVJoAyPQm/Beurt2R0GggfyCNy7jko7GozcpKEU6L4maqQz2pYEwWn/vXQOt
-         fnYTdxji8Gx/9PlH6FUL8hktN5Q8R/174Cmy2QMuGPgGgthZeHbpFvli7LicCBwKaQ71
-         Z9lN3jdrYXWn+SiLTh+mulMVYdJ7MHSalsoAQuDCwkgUFPFbcGpAUKnEfY3NAfPPxo9r
-         khnYw5QI59fDFF0Zdk9V3XpNXTXA8p4agVSTXfPrNbQRtj6naBfzaCztGn2Z96xWbTNC
-         3hpiGRxaW+4xgS9nUvYHI+ckn6SKJuKjGTvNXFX6C02gKCdbRnbESPmjug/IiubnxRyT
-         2V2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXjqkbrsgfr/eyLI/gJcBBtWG7XeZJKLpQnHH2DXNZ5kXignQPyREYGYzIxeX2TDiUA12hcpxJBXnDIdDjkZK/l@lists.infradead.org
-X-Gm-Message-State: AOJu0YweH+LvmC/IXfr2tIB0zU55pbxxbzx79mGXnWWmNfAbqcz7obtO
-	zlGncIeI1WbDTYX8xj6xoqac31zwcRT0rlk5Pt/iys3OVDkekJIx
-X-Google-Smtp-Source: AGHT+IHuvmoh+csNe9X8YH1ZqOMhN/s/he+IW0zhFR4Gzg9kg6wzwqnVueAlLrzOkJEZhu46mUzUQA==
-X-Received: by 2002:a05:600c:4141:b0:42b:af5a:109 with SMTP id 5b1f17b1804b1-432cc533103mr25180105e9.24.1731418087081;
-        Tue, 12 Nov 2024 05:28:07 -0800 (PST)
-Received: from ?IPv6:2001:a61:34c9:ea01:14b4:7ed9:5135:9381? ([2001:a61:34c9:ea01:14b4:7ed9:5135:9381])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed987d95sm15591027f8f.44.2024.11.12.05.28.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 05:28:06 -0800 (PST)
-Message-ID: <2a4e69f3ac4fb6cb131735d3cb598223b71bc90b.camel@gmail.com>
-Subject: Re: [PATCH v4 4/6] iio: light: stk3310: use dev_err_probe where
- possible
-From: Nuno =?ISO-8859-1?Q?S=E1?= <noname.nuno@gmail.com>
-To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>, Aren <aren@peacevolution.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Kaustabh Chakraborty <kauschluss@disroot.org>, 
- =?ISO-8859-1?Q?Barnab=E1s_Cz=E9m=E1n?= <trabarni@gmail.com>, Ondrej Jirman
- <megi@xff.cz>, linux-iio@vger.kernel.org,  devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
- phone-devel@vger.kernel.org
-Date: Tue, 12 Nov 2024 14:28:05 +0100
-In-Reply-To: <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
-References: <20241102195037.3013934-3-aren@peacevolution.org>
-	 <20241102195037.3013934-11-aren@peacevolution.org>
-	 <ZyiIcDaANjxwtCz-@smile.fi.intel.com>
-	 <m7x526sv5krgt4t2whn5ykyktoz5u7ihsxv3qa5yue3ucbk6lb@37spwsmlcylm>
-	 <ZzEPACoblmcQD9yu@surfacebook.localdomain>
-	 <xubjmxig4luag27ifnmqmv3x3bvzhwczwvw34kw6tssaa2d24t@ysnqh5e3g7sz>
-	 <ZzHSE9Nrf4YySJrq@smile.fi.intel.com>
-	 <4ibd5tgpt3uzbmouqdiiv5pvfxebo5qsmgn3xh6rlb73qevatv@cajznxqnlca3>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+        d=1e100.net; s=20230601; t=1731418116; x=1732022916;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=YsaZoX49/UTmnCYipmJYozRv1F9KJT6zGJ2FPgwHPM0=;
+        b=b7Dxf2zrv527kIH81yCsN/rPIqKjVw2wChf+3Yiwqp3nLUcwB0AP4tQNhhaxRQUedb
+         9uTwNoFDN89iGj5JyE/MnfHoEiQrYiApLl+MlxE0IqdCxhaeMhdxigAbSB/gKum1rNvT
+         A+a/thaRmV0W5LrioOYszDpETMUHiyLq8sy+uJwd3ys4f1wyV01R55CnhDbc63E883at
+         xIp9q2DmYfcf8t0cEVsJIh3xuzAFohDZs1uf0KtEC28UfLet3w/uz4lasrtyPk0gepA0
+         YH39cmcG2qV7S6lIEqJ7jg8OQg/eYU8j19iuL1RxKHfiTrILj74uXar4tCvkMtxfler+
+         jX5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUvO0WMC3Giwule13RjfU9affIaqN4SdaA6e6Q8CLMhJphm9IL8539CIzu7FtSucBirDGCPHZ7pimExPX6bu9EC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv3vw5Gx+uPUdr8as50hhQNIS2h0t6VEks51nrPqrBUv3/k9tQ
+	pHESVxL/iBbHy5230sEkzL5kJ8xpywfsE863K3Zp+d0189t/1OMhcSeGMYK4DKA=
+X-Google-Smtp-Source: AGHT+IGcxUmMqHN8a/cQuWmNKDKEmC6I6tUTcWYjNJv51eGA/I3ZpzDc+lB74YRdvxBPxcRvqG1PMg==
+X-Received: by 2002:a05:6000:186e:b0:382:b57:f0b5 with SMTP id ffacd0b85a97d-3820b57f16amr747635f8f.12.1731418115692;
+        Tue, 12 Nov 2024 05:28:35 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8? ([2a01:e0a:982:cbb0:860c:aff4:d0e9:9db8])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381eda04111sm15330046f8f.92.2024.11.12.05.28.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Nov 2024 05:28:35 -0800 (PST)
+Message-ID: <69918f77-c0d6-4151-b725-e5051f0f6680@linaro.org>
+Date: Tue, 12 Nov 2024 14:28:34 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v5 3/5] pinctrl: meson: add interface of of_xlate
+To: xianwei.zhao@amlogic.com, Linus Walleij <linus.walleij@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241112-a4_pinctrl-v5-0-3460ce10c480@amlogic.com>
+ <20241112-a4_pinctrl-v5-3-3460ce10c480@amlogic.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20241112-a4_pinctrl-v5-3-3460ce10c480@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_052809_915260_FFEE7742 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20241112_052838_101709_85027F08 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,87 +125,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2024-11-12 at 11:15 +0100, Uwe Kleine-K=C3=B6nig wrote:
-> Hello Andy, hello Aren,
->=20
-> On Mon, Nov 11, 2024 at 11:44:51AM +0200, Andy Shevchenko wrote:
-> > On Sun, Nov 10, 2024 at 04:34:30PM -0500, Aren wrote:
-> > > On Sun, Nov 10, 2024 at 09:52:32PM +0200, Andy Shevchenko wrote:
-> > > > Sun, Nov 10, 2024 at 02:14:24PM -0500, Aren kirjoitti:
-> >=20
-> > You can do it differently
-> >=20
-> > #define
-> > STK3310_REGFIELD(name)							\
-> > do
-> > {										\
-> > 	data->reg_##name
-> > =3D							\
-> > 		devm_regmap_field_alloc(dev, regmap,
-> > stk3310_reg_field_##name);	\
-> > 	if (IS_ERR(data-
-> > >reg_##name))						\
-> > 		return dev_err_probe(dev, PTR_ERR(data-
-> > >reg_##name),		\
-> > 				=C2=A0=C2=A0=C2=A0=C2=A0 "reg field alloc
-> > failed.\n");		\
-> > } while (0)
-> >=20
-> > > #define STK3310_REGFIELD(name)
-> > > ({						\
-> > > 	data->reg_##name =3D devm_regmap_field_alloc(dev,
-> > > regmap,			\
-> > > 						=C2=A0=C2=A0
-> > > stk3310_reg_field_##name);=C2=A0=C2=A0 \
-> > > 	if (IS_ERR(data-
-> > > >reg_##name))						\
-> > > 		return dev_err_probe(dev, PTR_ERR(data-
-> > > >reg_##name),		\
-> > > 				=C2=A0=C2=A0=C2=A0=C2=A0 "reg field alloc
-> > > failed\n");		\
-> > > })
-> >=20
-> > I am against unneeded use of GNU extensions.
-> >=20
-> > > > > replacing "do { } while (0)" with "({ })" and deindenting could m=
-ake
-> > > > > enough room to clean this up the formatting of this macro though.
-> > > >=20
-> > > > do {} while (0) is C standard, ({}) is not.
-> > >=20
-> > > ({ }) is used throughout the kernel, and is documented as such[1]. I
-> > > don't see a reason to avoid it, if it helps readability.
-> >=20
-> > I don't see how it makes things better here, and not everybody is famil=
-iar with
-> > the concept even if it's used in the kernel here and there. Also if a t=
-ool is
-> > being used in one case it doesn't mean it's suitable for another.
->=20
-> Just to throw in my subjective view here: I don't expect anyone with
-> some base level knowledge of C will have doubts about the semantics of
-> ({ ... }) and compared to that I find do { ... } while (0) less optimal,
-> because it's more verbose and when spotting the "do {" part, the
-> semantic only gets clear when you also see the "while (0)". Having said
-> that I also dislike the "do" starting on column 0, IMHO the RHS of the
-> #define should be intended.
->=20
-> So if you ask me, this is not an unneeded use of an extension. The
-> extension is used to improve readabilty and I blame the C standard to
-> not support this syntax.
->=20
-> While I'm in critics mode: I consider hiding a return in a macro bad
-> style.
->=20
+On 12/11/2024 11:26, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> 
+> Amlogic pinctrl software framework use system API of_gpio_simple_xlate
+> which only support linear one-to-one correspondence to translate gpiospec
+> to the GPIO number and flags before. It can not meet the non-linear needs.
+> Add the interface satisfies the underlying driver to implement the
+> transformation to meet the needs of various scenarios.
+> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>   drivers/pinctrl/meson/pinctrl-meson.c | 4 ++++
+>   drivers/pinctrl/meson/pinctrl-meson.h | 4 ++++
+>   2 files changed, 8 insertions(+)
+> 
+> diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
+> index 253a0cc57e39..fc0c0bef38c0 100644
+> --- a/drivers/pinctrl/meson/pinctrl-meson.c
+> +++ b/drivers/pinctrl/meson/pinctrl-meson.c
+> @@ -620,6 +620,10 @@ static int meson_gpiolib_register(struct meson_pinctrl *pc)
+>   	pc->chip.base = -1;
+>   	pc->chip.ngpio = pc->data->num_pins;
+>   	pc->chip.can_sleep = false;
+> +	if (pc->data->of_xlate) {
+> +		pc->chip.of_gpio_n_cells = pc->data->of_gpio_n_cells;
+> +		pc->chip.of_xlate = pc->data->of_xlate;
+> +	}
+>   
+>   	ret = gpiochip_add_data(&pc->chip, pc);
+>   	if (ret) {
+> diff --git a/drivers/pinctrl/meson/pinctrl-meson.h b/drivers/pinctrl/meson/pinctrl-meson.h
+> index 7883ea31a001..cbb3f22552b9 100644
+> --- a/drivers/pinctrl/meson/pinctrl-meson.h
+> +++ b/drivers/pinctrl/meson/pinctrl-meson.h
+> @@ -120,6 +120,10 @@ struct meson_pinctrl_data {
+>   	const struct pinmux_ops *pmx_ops;
+>   	const void *pmx_data;
+>   	int (*parse_dt)(struct meson_pinctrl *pc);
+> +	int (*of_xlate)(struct gpio_chip *gc,
+> +			const struct of_phandle_args *gpiospec,
+> +			u32 *flags);
+> +	int of_gpio_n_cells;
+>   };
+>   
+>   struct meson_pinctrl {
+> 
 
-Not commenting on the debate between using the extension or not but I total=
-ly agree
-with Uwe about hiding the return in the macro.
-
-- Nuno S=C3=A1
->=20
-
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
