@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4C5D32D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051D0D32D9E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x39qJZiDk7Rcvu2YVAqB/TtapZ8KFsFMLViv0bVAnOw=; b=MMzmVYPpazN49sNcf3ZFe/v3YU
-	pKNjNs2GsjbU9iOycD5zgcljSran8+Zep1EKwnN2MW/NNF4jw5kqjw+cyx2LY759VP1rg7Z48EYgA
-	2U5Yg++UJTQBuvEQMjQzP/pKy7XEJRlQXbvP7COYqIQq7dPfwGkxBr5BE/Z8JD2e01RI9GlFxewKK
-	g+LHOco3MkVKMWL+IQxKnkDk9mqTBjSXKycWOOIwjOj+OU3rC7IoIuTACeIkY0l4m78piJLvZp0R3
-	WnMsu2z1Rdf9qwWx5KjZ79KPL1Ew9y6j3KjB8wHZ5sPQWs2Gj/RfPa55dqtHqJaWtQGzAcoG2ej7/
-	eMYioI4w==;
+	bh=ZLPANBLamjGfC5r6egRWAEDIhWpqsCbbZn+Iq+TVaHs=; b=TFT/pIYcRuJ8vGrZ8dEaXvmLJf
+	2ouU2Ws9sZjczkV7okBeenICAtCvwsvt5mX4nfky8DeqYjgPnuSexAjUcy0URcTHOOZgXgY8/9dR9
+	n6tWH0l+BoHpZW3szG71MP9BBE0iSBXw80tWD3EFtAi2fa4d4tOZzkZuTA+Ck/ubKPXAyxirJrlzc
+	YYis8iGiFuod07UHT9o51nm1Y4p3mbCIlEFbyvTi42lvrSIwkW9j2IGvdEspAqv9TJCKQ6PskollG
+	A+5YntkWi/FEoAhTiYLCzMgO4udTkd6eXDpTLN+qS8Yxv/Vezg6NYwXwcuxx8byoeUeUBIkhyhQ4H
+	bUSAqfag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApxm-00000003OAH-09t0;
-	Tue, 12 Nov 2024 12:25:42 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tApzW-00000003OQS-2JBy;
+	Tue, 12 Nov 2024 12:27:30 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApWH-00000003JR8-0XMm
+	id 1tApX2-00000003JdF-0Mvl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 11:57:18 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ACBv1rU2669700
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 12 Nov 2024 05:57:02 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1731412622;
-	bh=x39qJZiDk7Rcvu2YVAqB/TtapZ8KFsFMLViv0bVAnOw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Ok+9MoXSU13GDmvZ+s6KaOJbgaFcU/MRMz63VkU6/NuQFoNi/ugOx9xI9YunGzQsZ
-	 PHuERkgBs1L1LWwvzsad8uTbVUo5HjOAMjYqFODIedPmLyitV3JU1gC+LP6ui6SGrS
-	 /PqK34NBUXCL1z5GGF6LoXCmNDcegzf8sDl9132E=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ACBv1G2016256
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 12 Nov 2024 05:57:01 -0600
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 12
- Nov 2024 05:57:01 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 12 Nov 2024 05:57:01 -0600
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.81])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ACBuo5U116685;
-	Tue, 12 Nov 2024 05:56:58 -0600
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am62x-sk-common: Support SoC wakeup using USB1 wakeup
-Date: Tue, 12 Nov 2024 17:26:50 +0530
-Message-ID: <20241112115650.988943-3-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241112115650.988943-1-s-vadapalli@ti.com>
-References: <20241112115650.988943-1-s-vadapalli@ti.com>
+	Tue, 12 Nov 2024 11:58:06 +0000
+Date: Tue, 12 Nov 2024 22:57:36 +1100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1731412678;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZLPANBLamjGfC5r6egRWAEDIhWpqsCbbZn+Iq+TVaHs=;
+	b=a2/tyhe7fNibfAbbCny3Aikp3SsQnw6XH7Ov42dzBegj2EiTgNMN3Xtj9HxXtxU8+uGVBm
+	nI9QJwwmQq3bac1SiNPQ53yBhbBEyJpPAlZrm8CZ4rAOzxF6iZ1FJVCbk2xF0Y9mw3Q3N8
+	0PWbOjQIDg3RwbSIyV7Ve+qisx+cnXeNfaZRvcKs1sKx2WLVjquVBuWwRjFd96OsiKw4a5
+	zJGLpuo/iZ/i7LfAsFL1Zmb+8W2cMl1QovdUVyShoYPgpXyfcsMFIFqpfd0XdqkFtzY2kO
+	0SEGYCrQNR+RkH+svIeIYbE1elx45wTijw4bX2EApjeDRad+MCIup1tiKLtEPQ==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: John Watts <contact@jookia.org>
+To: Parthiban <parthiban@linumiz.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Samuel Holland <samuel@sholland.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
+ DE1
+Message-ID: <ZzNCsFiAiACFrQhE@titan>
+References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
+ <20241108115357.691b77b0@donnerap.manchester.arm.com>
+ <Zy4SKCBwce3q0yj5@titan>
+ <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
+ <Zy4c9BFcrz2JVU6k@titan>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Zy4c9BFcrz2JVU6k@titan>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_035717_374692_44020A11 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20241112_035804_360845_1E34BD19 
+X-CRM114-Status: GOOD (  28.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After the SoC has entered the Deep Sleep mode, USB1 can be used to wakeup
-the SoC based on USB events triggered by USB devices. This requires that
-the pin corresponding to the Type-A connector remains pulled up even after
-the SoC has entered the Deep Sleep mode. Hence, enable Deep Sleep pullup /
-pulldown selection for the USB1_DRVVBUS pin and set its Deep Sleep state to
-PULL_UP.
+Hey everyone,
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I'm not sure exactly where to add this but I discussed some of this with
+Parthiban on #linux-sunxi a few days ago, so I want to write it down
+before I work on the next version of the patch.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index 6957b3e44c82..8b6316454639 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -256,7 +256,7 @@ AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19/V15) RGMII1_TX_CTL */
- 
- 	main_usb1_pins_default: main-usb1-default-pins {
- 		pinctrl-single,pins = <
--			AM62X_IOPAD(0x0258, PIN_OUTPUT, 0) /* (F18/E16) USB1_DRVVBUS */
-+			AM62X_IOPAD(0x0258, PIN_OUTPUT | PIN_DS_PULLUD_ENABLE | PIN_DS_PULL_UP, 0) /* (F18/E16) USB1_DRVVBUS */
- 		>;
- 	};
- 
--- 
-2.40.1
+I had assumed for some reason in my mind that DE0 and DE1 here referred
+to mixers, but they actually refer to chips that have multiple DEs. It
+looks like at least with the A133 it has two DEs instead of two mixers.
 
+This can be found by looking at the Allwinner BSP: SUN50IW10 requires
+CONFIG_INDEPENDENT_DE and has a device tree with an extra reg and clock:
+
+<0x0 0x06800000 0x0 0x3fffff>,/*de1*/
+<&clk_dpss_top1>
+
+However the tcon-top code seems to conflate mixers and DE in the
+mainline code and the Allwinner code. So ... It seems like 'DE0' and
+'DE1' really do mean mixers in this case. It's probably best to note
+that down.
+
+I thought a bit more about how to solve this properly- setting two
+mixers to the same output is something people probably won't do in
+practice, so the only way you could really arrive at this bugged state
+is by setting it as the default state. This patch may be the correct
+solution after all.
+
+John Watts
+
+On Sat, Nov 09, 2024 at 01:15:16AM +1100, John Watts wrote:
+> On Fri, Nov 08, 2024 at 07:36:16PM +0530, Parthiban wrote:
+> > To add, 0x20 will be DE0 <--> LCD0 and DE1 <--> TV0. Below note (copied from
+> > R40) states the priority of the DE selection, which fails to work? Not sure,
+> > may be disabling CORE1_SCLK_GATE and CORE1_HCLK_GATE in de2-clk helps.
+> > 
+> > With A133 following the same as T113 with single mixer without TV, still
+> > sets 0x20 in vendor kernel.
+> > 
+> > copied from R40:
+> > Note: The priority of DE0 is higher than DE1.
+> > If TCON_LCD0 selects DE0 and DE1 as source at the same time, then
+> > DE0 will be used for the source of TCON_LCD0.
+> 
+> Hi there,
+> 
+> Yes that was a pretty bad typo, I meant to say DE1 to TV0
+> The prioritization seems broken in the T113 at least, it's racy from
+> what I see in testing. I should note this in the patch too.
+> 
+> I looked at the datasheets and kernel code briefly: I can't seem to
+> figure out what SCLK/HCLK gating does and I don't think the kernel
+> touches these registers which are gated by default.
+> 
+> > Thanks,
+> > Parthiban
+> 
+> John Watts
 
