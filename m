@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFEDD41D66
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28066D41D66
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:04:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbCEbJtigEzrfzyGdDfeYhf12Y+BqR/lK0AjwtgVJuM=; b=VsB0E5CI5bzexE64MGA4M09DV8
-	rw0anSccwZBYAdbWI+IwJ2Oh59Gx8H1EPCCD9LKd6BU8Sh2jmoWhxhPUlLLQQJE0sjNpER4Nwpf7G
-	lLFcimzl7nA+D9rf91qfOAiT61SiM7uS9qvMOdFiu123cEGeKrYam4zOpvVYvFjkbD7O6mKP+DMDg
-	SvCOZgy4jEZhl1mJjuDqg2//2aBYPnUo78wGEQ2rBaorfbY0l7egAiUZ/KTt/i5ZKIOEI2WGaVs0X
-	AaKfFnsX5gHV5xUZ8cnljNZ6RPJeHWYUahzo2qgaHvopIi1E5Z5uJyTSGpL1maDuyTVNM7cseZp/n
-	LUeKPghw==;
+	bh=I5BvAkAKztYW6xCj+mZI8U7st+LWYK/vV8FsPRMq38w=; b=fXYh8/FISFxoVheS4+8lw3N+3H
+	5CFNV0LDAbXkKttH3H3FoTnuyjmk9gwwVNJjGaYeXAV/l/ive/EkCS6aZ+Lsa9lgds6CLru1x0KFx
+	KKg7yeGUO11p+/cztB5ceqmI8P5SCTOypFpx9fGL/VWrNqEkXirr4ueojzz4cZh178F1KDGXBWV7K
+	X2yazyyH8OeekeVyPmXlc9+/ywe4s3Rxq2C3dOxHnbDE0BlQie2KhgtqhSMoNyizpntKS41q8A61B
+	8VC9ARb17d0wH1/QFAbvc1dBh76Gp1v97/nPskwM0a3vwOhNFyltbhDbb8KPzQZ+wOWQ7oqfVaa5a
+	gqBHQwag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAlnY-00000002Yjg-0SxW;
-	Tue, 12 Nov 2024 07:58:52 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tAlsJ-00000002Zha-1Rid;
+	Tue, 12 Nov 2024 08:03:47 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAlk8-00000002Y3S-0QVV
+	id 1tAlom-00000002Z0p-1OXe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 07:55:22 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tAljt-000840-0J; Tue, 12 Nov 2024 08:55:05 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tAljp-000NFm-0Y;
-	Tue, 12 Nov 2024 08:55:01 +0100
-Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id A90A23712AA;
-	Tue, 12 Nov 2024 07:55:00 +0000 (UTC)
-Date: Tue, 12 Nov 2024 08:55:00 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Pantelis Antoniou <pantelis.antoniou@gmail.com>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
-	Byungho An <bh74.an@samsung.com>, Kevin Brace <kevinbrace@bracecomputerlab.com>, 
-	Francois Romieu <romieu@fr.zoreil.com>, Michal Simek <michal.simek@amd.com>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Zhao Qiang <qiang.zhao@nxp.com>, "open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, 
-	"open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCHv2 net-next] net: use pdev instead of OF funcs
-Message-ID: <20241112-lush-beneficial-chicken-9a31f5-mkl@pengutronix.de>
-References: <20241111210316.15357-1-rosenp@gmail.com>
+	Tue, 12 Nov 2024 08:00:09 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2e2eb9dde40so4333517a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:00:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731398407; x=1732003207; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=I5BvAkAKztYW6xCj+mZI8U7st+LWYK/vV8FsPRMq38w=;
+        b=NNHLVN11ygaqag5/uBCU/ylUE604v5Usjs3oL7005kJQp4MWnVWqE6iSMDQAb8OhVY
+         YbqTbxRLJZgtj5vdEhSeUCAINZ898+KlsTlfi32c8dfHjQ8p+91GcTEgb1eT44WgfC8Y
+         blvVzxKJHMh/fofw3LiDyZxp9ak3EunX9Dw8yuC49G57e1FZybgOwxQ9axbD2gUDOWsO
+         T/0rYdS6MX7EeJ4t9I6cNIsbiiEL/5yJIrPStE5XIl9wYOyIedkNcGZRBtBGH7V+hB7w
+         FU+gdZ/K1NEMfmX0Ua1uVWlsO26P9jmDErJxJJVGrfffMEOShPhmvM/sS2InHMwe1SRW
+         Ntgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731398407; x=1732003207;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=I5BvAkAKztYW6xCj+mZI8U7st+LWYK/vV8FsPRMq38w=;
+        b=CgG6Cr+m/2jRElWcCf1W9musYLh6NlxlrjNsgBtuAdZjDZI2O2iI7dUAJuxeeoRDNi
+         1fPoPWhkGwvt/TCU9GFqfRz5oHBFlvp9yJCUC/fYlEAXFF+2z4s1o5JYwbzN0zRHulYn
+         wpLPSu87Y7Npxfnieo7fhEG/iom8bVkJWyJ8/kCzN5xE1N5IpyFL9rafjtJ/p5tRIL+o
+         l2bc17sFpw4ECtjNO07WwAjKN9LwEmB6Z1/LRfWl2sMaHHnA/WZiJ1sP12BQMfOIfBRv
+         uVOOlYhrZ4Yr6BdJNfbYEmp9JpgD70evPDrQK83d9eHurrczJoyaNh5ywI5RmZXUl7So
+         SdJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWq4MzgVitfzyzvw8KgR1aEqS605zDm5EkB2EN0ubhKmLlMPtt2mqmikA+Ex1W+KiQAgHyQqn1WobydOCGJDoN4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZJFJsxWZAllSvLFfoV4GaaZQ74UBFTEBPvviXF0x1YhQ3e1SV
+	F34ILPg+JLBZQBP2B36fj5WeHZXgaEQMScE23oq/zObQv4RnE2Ma46DEiYam4A==
+X-Google-Smtp-Source: AGHT+IEl2XL5FCKVfnW5u6LivJkD4NnNJy29pjQKJz1cJx2jS0MCN9K5ShRz8rqcump7HIgEqbQkbA==
+X-Received: by 2002:a17:90b:3808:b0:2e2:b2ce:e41e with SMTP id 98e67ed59e1d1-2e9b16824admr20274247a91.13.1731398407154;
+        Tue, 12 Nov 2024 00:00:07 -0800 (PST)
+Received: from thinkpad ([117.213.103.248])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dde1b8sm87828335ad.60.2024.11.12.00.00.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 00:00:06 -0800 (PST)
+Date: Tue, 12 Nov 2024 13:29:59 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
+Cc: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
+	robh@kernel.org, bhelgaas@google.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	salee@marvell.com, dingwei@marvell.com
+Subject: Re: [PATCH 1/1] dt-bindings: pci: armada: add system controller and
+ MAC reset bit
+Message-ID: <20241112075959.jatez7wwiukymj2t@thinkpad>
+References: <20241112065229.753466-1-jpatel2@marvell.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wiafd67i2wzywtxu"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241111210316.15357-1-rosenp@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241112065229.753466-1-jpatel2@marvell.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_235520_165683_28D898E8 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20241112_000008_413289_DBFE092D 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 11, 2024 at 10:52:29PM -0800, Jenishkumar Maheshbhai Patel wrote:
+> Adding Armada 7K/8K controller bindings optional system-controller
+> and mac-reset-bit-mask needed for linkdown procedure.
+> 
+> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
 
---wiafd67i2wzywtxu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCHv2 net-next] net: use pdev instead of OF funcs
-MIME-Version: 1.0
+Please send the patches as a series if they are all related.
 
-On 11.11.2024 13:03:16, Rosen Penev wrote:
-> np here is the node coming from platform_device. No children are used.
->=20
-> I changed irq_of_parse_and_map to platform_get_irq to pass it directly.
->=20
-> I changed of_address_to_resource to platform_get_resource for the same
-> reason.
->=20
-> It ends up being the same.
+- Mani
 
-You should describe in an imperative way your changes. Something like:
-
-Modernize IRQ resource acquisition.
-
-Replace irq_of_parse_and_map() by platform_get_irq()
-
-=2E..and list the other changes, too.
-
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
->  v2: fixed compilation errors. Also removed non devm transformations.
->  Those will be handled separately. Also reworded description.
->  drivers/net/can/grcan.c                          |  2 +-
->  drivers/net/can/mscan/mpc5xxx_can.c              |  2 +-
+>  Documentation/devicetree/bindings/pci/pci-armada8k.txt | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/pci-armada8k.txt b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
+> index ff25a134befa..a177b971a9a0 100644
+> --- a/Documentation/devicetree/bindings/pci/pci-armada8k.txt
+> +++ b/Documentation/devicetree/bindings/pci/pci-armada8k.txt
+> @@ -24,6 +24,10 @@ Optional properties:
+>  - phy-names: names of the PHYs corresponding to the number of lanes.
+>  	Must be "cp0-pcie0-x4-lane0-phy", "cp0-pcie0-x4-lane1-phy" for
+>  	2 PHYs.
+> +- marvell,system-controller: address of system controller needed
+> +	in order to reset MAC used by link-down handle
+> +- marvell,mac-reset-bit-mask: MAC reset bit of system controller
+> +	needed in order to reset MAC used by link-down handle
+>  
+>  Example:
+>  
+> @@ -45,4 +49,6 @@ Example:
+>  		interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+>  		num-lanes = <1>;
+>  		clocks = <&cpm_syscon0 1 13>;
+> +		marvell,system-controller = <&CP11X_LABEL(syscon0)>;
+> +		marvell,mac-reset-bit-mask = <CP11X_PCIEx_MAC_RESET_BIT_MASK(1)>;
+>  	};
+> -- 
+> 2.25.1
+> 
 
-Reviewed by: Marc Kleine-Budde <mkl@pengutronix.de> # for CAN
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---wiafd67i2wzywtxu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmczCdEACgkQKDiiPnot
-vG9P5Qf9GHBDogv141w23Ql4QYhPyQNOFBbAjfAmSaXZJQjwjI2/PT9uMOtwx1N3
-xkyyFSufM0a+sr9Mn7vC+liJrlzO9Xmqq+53eTAvq2e2RPKAdVT/aPa21s05sWUI
-u1r/6bgaTgg9stZMDtivo6HAYr69FexPGYKdk9bAcm4gANpW/Ih+NpLB4IwzqKv6
-EHXEtt4AfiBCLNkq4BUwBO4D1CHsDbICmSZbC2RRZ5Jc85R9u+YYqwj7RN3EbDfL
-fWarhFuRuoGubmHPg8gaauKa5/Cxjo9fsjn93QTzRbgEgLJEsii3Y85oI0LaN0U8
-e9/zBSWu8p/gXjqOGAwOOYQ1WVxswA==
-=3yO+
------END PGP SIGNATURE-----
-
---wiafd67i2wzywtxu--
+-- 
+மணிவண்ணன் சதாசிவம்
 
