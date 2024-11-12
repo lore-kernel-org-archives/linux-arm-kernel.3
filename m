@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891FBD32D7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A520D32D7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBX0wkPtCAIZ/zoNdwhmrm7wwaHeAwtcOpxkNtXwcK4=; b=tBV2kqHGVHYD6v4eyGbcKbmA78
-	49Ivx5haQrtp/ziuwfMwwev2s9HmkOVIRJgqURWeHfoFX5nMUJDcD2hZH66bKtk9CBlDqodni/Asb
-	+zJQ0AFsA55eiWyOSZ4A0cS9pIlouvKehjnf/+QIKISF/TjVibIILF87eXJaebGG+prRy9coDgzl2
-	AIQ1k77kfAjIvLVieOpgDMJ0oBHlBuST9fjikqMn6e7cHDlTEDigMAYJILnafP4m5VZCHfNHu0TiR
-	f0qs7/BOHdCOdb3xSHuGYighVaTu2yBuGGHRb/gI5GpPSNIyJBA8xiU4zZOGh3UnYlIzD5iZPv5Cl
-	edrVTqPQ==;
+	bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=; b=Mh8lNXgQmdHnj1V+0Dgv5ICBQ3
+	T+iQLxoCVUxKC8yMljXpDleerV+I0ttZlAEVTZv4bQ70VAqcL9rLc853VxA4vH6Uas1MwgCUVD7mZ
+	dM3gRVlguRHH8DLeO2gYlm7eTHGEecozEr0dYatFLDvHQQycHs4PerDWJqq04bUtNac6hzdv1MbS/
+	KbT2UOe5QPhDMloosrhld+y1n0NfLDkwPvha4w08KK9aMs2L0Sd8bLvIsZRJqlD+0XWQNG1WqQQ4A
+	6LCA/AtjUTi+xIIQNtlYO88EdySHCYQQH55cLr/KVrHs5WyCPuQuErT05Orsgp7ap6yDTeGprWvu2
+	wV4RInuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnJL-00000002tPK-1wJi;
-	Tue, 12 Nov 2024 09:35:47 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tAnKe-00000002thn-24Mg;
+	Tue, 12 Nov 2024 09:37:08 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnCO-00000002opO-36Wo
+	id 1tAnGN-00000002pfo-3NST
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 09:28:39 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AC8wnH3026281;
-	Tue, 12 Nov 2024 10:28:24 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	RBX0wkPtCAIZ/zoNdwhmrm7wwaHeAwtcOpxkNtXwcK4=; b=nCiw8iZU9w34ZRT/
-	fZzJR6AMPkuSzJaxHBZyMBF4gJ3S3XG0euXWX6TRPtXsvsLljIFjLsH5f95eDods
-	t7VXYiU6rrnxq1vD61xWK+RBcHJfCv0qtZKUuX94yXTSuFVrlwwe0Jfb058De5Ms
-	HCD9Ok6BEzVLdyzTcCS5KDeGnH3Z1t/20fhMQdGM6C+QK/XfCKknDXH1tW3j3BDL
-	MMonKdPLvUFVDx5OqwAZdE6BoxCzB7U1vPcFDQ845kfRYTyqDCvMzyhKWZv+2aJj
-	6ZX/VEaOMuTrKoAJlZXTTkIppYUoqucaf8Cg+ereCIlyqVmOwydCKVJzJv5nAqOS
-	PJa+sg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42swr8u40v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 10:28:24 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A916E40056;
-	Tue, 12 Nov 2024 10:27:22 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E1D9028E842;
-	Tue, 12 Nov 2024 10:25:54 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 12 Nov
- 2024 10:25:54 +0100
-Message-ID: <cfb1caed-9402-4148-831d-57c50bdf6a27@foss.st.com>
-Date: Tue, 12 Nov 2024 10:25:53 +0100
+	Tue, 12 Nov 2024 09:32:51 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-539e6c754bdso5397278e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 01:32:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731403958; x=1732008758; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=;
+        b=JaRV71xsZBG/lMbm78hmb5BcrNYiynQlWfjIy4eBKIB1mXBxNLKSZiBuA6eD37dnI5
+         snXO0htGS2k0Fxj3yKE0aXIY0rebkdD7/g4/oyPR6tzndfd0GA72Gisz4UZtt9DdnVyA
+         pm8BfJlPvkDlwN5D+KAkNsJNLsgm5LC3jpg7x1GLv1JU6krH0sJVlCT9oc4BkuDs7Aoq
+         VuJBfMT3XUEqPMStLd/Jg2ASOLzF2hkj5VrOv2ksDVzxnE9A1UhBbcf7oXsFJl0EyH2n
+         wKYI3GWEi4WVBraa4Sb/v4BloapfbTpXFGfPyGVtf88v6+MWmp3rtAuqYVuB5HIa0P7z
+         zenw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731403958; x=1732008758;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nmEMMtf/H6NHxiwIDkXtkXjM/8+TQ4BBA2hjpYSmZBc=;
+        b=Ga/BcsVsfoQYsN9/RL3fYUimLEPALYqWeR3M/XHLrCdF3Q22fjsFfxw0TujxkYl79c
+         PgkL7igy92E3Ffb0gczVzRSHe5LWNPBaBgMaYRX0Z7uG3lL2P8flHge7N6XPPLVq4JXX
+         aUx+SjKXg7w75MYFf5ENKRysD9vMQK9xZkfWU14XfKNobiAWmhqlF4EsHC5OufW6tMEA
+         PCmZl5o4R5dmqbzTgHh9QW1oWY4Hi8Q1zdQUbM4HXZJ5OIxIvabeYDbwLELXXGclBcQ2
+         XK++AxJufNP5hRPltXC5J8n8LIxPO7Xk4lrtmjXB48dCDcaRaH2HKpOShr3/oW8X/pRk
+         7Bzg==
+X-Gm-Message-State: AOJu0YwzYb7KwdDLU1GCFXcXMI555r+cgeCHJiHajLYMelUS1ONrD6Wi
+	/XzbVPqhcxnb15ynTjnziwqzmVg2Ax1mn00jgpQHHs5hW8Z+RQ7+
+X-Google-Smtp-Source: AGHT+IEGzMD4CQHrVZz7i2b8hgEFwUsv2cHjAkR8UPEY/r2EfFd9HA1jM+513+OHfjzmbNs4ECZmuA==
+X-Received: by 2002:a05:6512:1255:b0:539:fcba:cc6d with SMTP id 2adb3069b0e04-53d8626c818mr6835328e87.42.1731403957725;
+        Tue, 12 Nov 2024 01:32:37 -0800 (PST)
+Received: from foxbook (bff246.neoplus.adsl.tpnet.pl. [83.28.43.246])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826a721csm1833134e87.160.2024.11.12.01.32.34
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Tue, 12 Nov 2024 01:32:36 -0800 (PST)
+Date: Tue, 12 Nov 2024 10:32:29 +0100
+From: =?UTF-8?B?TWljaGHFgg==?= Pecio <michal.pecio@gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Linux kernel regressions list
+ <regressions@lists.linux.dev>, Kees Cook <kees@kernel.org>
+Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
+Message-ID: <20241112103229.566b1ff3@foxbook>
+In-Reply-To: <CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
+References: <20241111233817.2f824c19@foxbook>
+	<CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firewall: remove misplaced semicolon from
- stm32_firewall_get_firewall
-To: guanjing <guanjing@cmss.chinamobile.com>, <mcoquelin.stm32@gmail.com>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-References: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20241109055049.269163-1-guanjing@cmss.chinamobile.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_012837_486634_1D4B9675 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20241112_013244_264619_DCCE22DF 
+X-CRM114-Status: GOOD (  27.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +93,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi Linus,
 
-On 11/9/24 06:50, guanjing wrote:
-> Remove misplaced colon in stm32_firewall_get_firewall()
-> which results in a syntax error when the code is compiled
-> without CONFIG_STM32_FIREWALL.
+On Tue, 12 Nov 2024 02:15:19 +0100, Linus Walleij wrote:
+> We are trying to locate the issue, which I think is the same as this
+> but not sure:
+> https://bugzilla.kernel.org/show_bug.cgi?id=219247
+
+You can verify by asking the reporter to run the crashing program under
+strace. If SIGSEGV follows a failed cacheflush, it's my bug most likely.
+
+A straightforward repro of this bug:
+gdb
+GUILE_JIT_THRESHOLD=0 gdb
+GUILE_JIT_THRESHOLD=-1 gdb
+
+Expected outcome: segfault, segfault, shows command prompt.
+
+> I have been trying to replicate it on a Chromebook but didn't get so
+> far yet because the installation is pretty idiomatic :/ also there is
+> only appears in a single Qt program and not as predictable as here.
+
+My bug also appears in a single program ;) This system works fine, but
+any JIT is broken by this kind of bug. The failure may be random if the
+caches resynchronize by a fluke, but with gdb it was every time so far.
+
+> But. It appears the code is issuing cacheflush() which I guess ends
+> up in arm_syscall() here:
 > 
-> Fixes: 5c9668cfc6d7 ("firewall: introduce stm32_firewall framework")
-> Signed-off-by: guanjing <guanjing@cmss.chinamobile.com>
-> ---
->   include/linux/bus/stm32_firewall_device.h | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>         case NR(cacheflush):
+>                 return do_cache_op(regs->ARM_r0, regs->ARM_r1, regs->ARM_r2);
 > 
-> diff --git a/include/linux/bus/stm32_firewall_device.h b/include/linux/bus/stm32_firewall_device.h
-> index 18e0a2fc3816..5178b72bc920 100644
-> --- a/include/linux/bus/stm32_firewall_device.h
-> +++ b/include/linux/bus/stm32_firewall_device.h
-> @@ -115,7 +115,7 @@ void stm32_firewall_release_access_by_id(struct stm32_firewall *firewall, u32 su
->   #else /* CONFIG_STM32_FIREWALL */
->   
->   int stm32_firewall_get_firewall(struct device_node *np, struct stm32_firewall *firewall,
-> -				unsigned int nb_firewall);
-> +				unsigned int nb_firewall)
->   {
->   	return -ENODEV;
+> To here:
+> 
+> static inline int
+> do_cache_op(unsigned long start, unsigned long end, int flags)
+> {
+>         if (end < start || flags)
+>                 return -EINVAL;
+> 
+>         if (!access_ok((void __user *)start, end - start))
+>                 return -EFAULT;
+> 
+>         return __do_cache_op(start, end);
+> }
+
+Yep. I added printks here and it is particularly the call to
+flush_icache_range() from __do_cache_op() which returns -EFAULT.
+
+> Here userspace access should be fine because we have entered a
+> syscall from userspace. I tried to emulate the situation with this
+> program:
+> 
+> #include <stdlib.h>
+> #include <stdio.h>
+> #include <errno.h>
+> #include <unistd.h>
+> #include <fcntl.h>
+> #include <sys/mman.h>
+> 
+> #define NR_cacheflush 0xf0002
+> 
+> /* libgcc */
+> extern void __clear_cache(void *, void *);
+> 
+> int main (int argc, char **argv) {
+>   void *addr;
+>   int ret;
+> 
+>   printf("Test()\n");
+>   addr = mmap(NULL, 0x1000, PROT_READ|PROT_WRITE|PROT_EXEC,
+>               MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+>   if (addr == MAP_FAILED) {
+>     printf("mmap() failed\n");
+>     exit(1);
 >   }
 
-Acked-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+This seems incomplete, there is no __clear_cache(). But if you add it
+at the end then yes, it should fail. Confirm it with strace.
 
-Thanks
-Alex
+> I added prints in the cacheflush trap:
+> 
+> diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+> index 480e307501bb..400650519bd1 100644
+> --- a/arch/arm/kernel/traps.c
+> +++ b/arch/arm/kernel/traps.c
+> @@ -592,11 +592,14 @@ __do_cache_op(unsigned long start, unsigned
+> long end) static inline int
+>  do_cache_op(unsigned long start, unsigned long end, int flags)
+>  {
+> +       pr_info("%s(%08lx-%08lx)\n", __func__, start, end);
+>         if (end < start || flags)
+>                 return -EINVAL;
+> 
+> -       if (!access_ok((void __user *)start, end - start))
+> +       if (!access_ok((void __user *)start, end - start)) {
+> +               pr_err("ACCESS NOT OK\n");
+>                 return -EFAULT;
+> +       }
+> 
+>         return __do_cache_op(start, end);
+>  }
+
+You also need to check what __do_cache_op() returns.
+
+Regards,
+Michal
 
