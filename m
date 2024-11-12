@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A323D597B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021A0D597B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 23:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XE3qHbQ/6Rh3/Pc7HQvwkwEyGTvaxNXx85ePqo9ghJg=; b=RG4TGSEx0L+pBvSV6OdLQyhOZI
-	wzagOvO8YALJlxKbEJwim7cSaF7Ni8qHlGMwUFcwORe77ThEj6gkiMuJn8mvnW6y7zZ/R+a75wdUh
-	ccpgM5YxkaDUoBP5U6WzXeyjvg0u4ob7K3MCsCTodvVgGXLiFWL8BuPswYNAec4ssFxChWqmMk1jt
-	kSMO+a+QGN3QnDX//vLEZ89GjARLx6+Ywe6Ctx4u5uH5U5wa3Z81Mhwnu+mRp1iRFuScRqjaJBeO9
-	hBd2rq9fuxxZ8ON42vqA5SJ8oTDZwXBDm9xbD5V1HatmPn9T7DC+16lfpqbEBXYwD54NyUg6426xw
-	ygf9FTiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cXjF/08/uHuNwfsNL3HSBdbEnOMXo3XKzT0FEL1U4H0=; b=eFrrzNQng+QhXcUnHh+HSGpoSn
+	5W9U1ZHhD3jiiU3YWwFXhM7bTX1bxq9aCOF28K9wXo/RV1X1nIS/j08297k0u0r6JfIPLkXjUAb4m
+	esBoXye3m+TnmwQcGvJogR/S53NB0Sv2Xi7ojLNS98hDYspqF3i7fdy5cpaZTnHpwAlP5a1oSPJwa
+	zcbrxAWLVnhzgQGDUl3W9c0ijDLos+ejKRO1fDAYKc+NrqA4C73o2Gfs7b6WFIy3AOWIfZ9qGgcAF
+	DtEfTWgdhVRSeeEsRRAczZyIcZ1QSSKlKNe1JHytYJBupGP1YUlQAffRH8b1eN+umh1nq4kN7Pzc2
+	bZIH0KsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzmf-00000005COE-2XHG;
-	Tue, 12 Nov 2024 22:54:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAzug-00000005Ddy-2fhL;
+	Tue, 12 Nov 2024 23:03:10 +0000
+Received: from mx1.sberdevices.ru ([37.18.73.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzkq-00000005C6C-3dhv;
-	Tue, 12 Nov 2024 22:53:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73804A4180A;
-	Tue, 12 Nov 2024 22:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD5BC4CECD;
-	Tue, 12 Nov 2024 22:52:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731451979;
-	bh=sYaUEV3H1VTX7CowzyJ4T2l9DFFG2LL8+sAb7eAQO/w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qs2uub72yqFPNWjy5n3myGlvtouRTlXqnBl/a/WEGH1HUgjIqViDXTVkezWkDXZ4z
-	 zLKkZxzq4rSER3qmT+NhX3wc+ECWK7esjBR2SmF0MIOgebXauGfrcktPhHS9xFMF4g
-	 MzdYdg5WeUURgIf/blV8rJOtmHY8Sh/ggQ11ftCVHhuPrwJjFZ6BZOw0gSMOc+YQCi
-	 tBMmZDlU/lp+Xl7upsI0GBy0lTuBZHB8/CGBx6bihhluTN0lPOFpyLJ0vy3eeHGCNQ
-	 cdUHkDMoRBCGB4+dORhZ8nvfWyLyAfObI/oWOOnIkNPTex54x5mD9+YRRAl1w4qHeL
-	 i07OSYdlUQtAQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE153809A80;
-	Tue, 12 Nov 2024 22:53:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1tAzsr-00000005DGN-2HrR;
+	Tue, 12 Nov 2024 23:01:19 +0000
+Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 9C924100005;
+	Wed, 13 Nov 2024 02:01:03 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 9C924100005
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1731452463;
+	bh=cXjF/08/uHuNwfsNL3HSBdbEnOMXo3XKzT0FEL1U4H0=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=HcG30ugSU6t64rj37M6G2AX3xe2/J1fBvwQT5XW2Oyr2gJ6CjWYK0m10IIkNGlTSb
+	 oCc9e4Se7xBpdHqsbH+S7v7jORY/Zy+YBR7ILOg114zXhgDX9QAiJDJpL88iHYFzCK
+	 1DpHobygxLxhLPDfMKU6CbwQpU0sKXRsGuON7NQMHaylma792OaQMOUVkyVVh91zGO
+	 0l2CQw6ZitCSKoPbhMjdiSJZ8vRKrg1GQb/PJm7NEW3vDY6hh/esPPIsaPDiEaKSyf
+	 GJlwErA5Eqh/8FCxjvXZP6E5c9TlHpjPw8vpSDIW7TcN8ya3gQtE/Jey153S1Ckx3e
+	 94FBbCbVBcMew==
+Received: from smtp.sberdevices.ru (p-i-exch-sc-m02.sberdevices.ru [172.16.192.103])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Wed, 13 Nov 2024 02:01:03 +0300 (MSK)
+From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
+	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>, Jerome Brunet
+	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>
+Subject: [PATCH 2/2] reset: amlogic: add support for A1 SoC in auxiliary reset driver
+Date: Wed, 13 Nov 2024 02:00:56 +0300
+Message-ID: <20241112230056.1406222-3-jan.dakinevich@salutedevices.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241112230056.1406222-1-jan.dakinevich@salutedevices.com>
+References: <20241112230056.1406222-1-jan.dakinevich@salutedevices.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH -fixes] drivers: perf: Fix wrong put_cpu() placement
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173145198951.701548.549721495064478963.git-patchwork-notify@kernel.org>
-Date: Tue, 12 Nov 2024 22:53:09 +0000
-References: <20241112113422.617954-1-alexghiti@rivosinc.com>
-In-Reply-To: <20241112113422.617954-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- atishp@rivosinc.com
+Content-Type: text/plain
+X-Originating-IP: [172.28.128.42]
+X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
+ p-i-exch-a-m1.sberdevices.ru (172.24.196.116)
+X-KSMG-Rule-ID: 10
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 189131 [Nov 12 2024]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: YVDakinevich@sberdevices.ru
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 41 0.3.41 623e98d5198769c015c72f45fabbb9f77bdb702b, {Tracking_smtp_not_equal_from}, salutedevices.com:7.1.1;127.0.0.199:7.1.2;sberdevices.ru:7.1.1,5.0.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;smtp.sberdevices.ru:7.1.1,5.0.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/11/12 21:10:00 #26864167
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_145301_010932_97709ED3 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_150118_269699_6B033661 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add support for the reset controller present in the audio clock
+controller of A1 SoC families, using the auxiliary bus.
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+---
+ drivers/reset/amlogic/reset-meson-aux.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-On Tue, 12 Nov 2024 12:34:22 +0100 you wrote:
-> Unfortunately, the wrong patch version was merged which places the
-> put_cpu() after enabling a static key, which is not safe as pointed by
-> Will [1], so move put_cpu() before to avoid this.
-> 
-> Fixes: 2840dadf0dde ("drivers: perf: Fix smp_processor_id() use in preemptible code")
-> Reported-by: Atish Patra <atishp@rivosinc.com>
-> Link: https://lore.kernel.org/all/20240827125335.GD4772@willie-the-truck/ [1]
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
-> [...]
-
-Here is the summary with links:
-  - [-fixes] drivers: perf: Fix wrong put_cpu() placement
-    https://git.kernel.org/riscv/c/57f7c7dc78cd
-
-You are awesome, thank you!
+diff --git a/drivers/reset/amlogic/reset-meson-aux.c b/drivers/reset/amlogic/reset-meson-aux.c
+index dd8453001db9..4b422ae5fcd2 100644
+--- a/drivers/reset/amlogic/reset-meson-aux.c
++++ b/drivers/reset/amlogic/reset-meson-aux.c
+@@ -26,6 +26,18 @@ struct meson_reset_adev {
+ #define to_meson_reset_adev(_adev) \
+ 	container_of((_adev), struct meson_reset_adev, adev)
+ 
++static const struct meson_reset_param meson_a1_audio_param = {
++	.reset_ops	= &meson_reset_toggle_ops,
++	.reset_num	= 32,
++	.level_offset	= 0x28,
++};
++
++static const struct meson_reset_param meson_a1_audio_vad_param = {
++	.reset_ops	= &meson_reset_toggle_ops,
++	.reset_num	= 6,
++	.level_offset	= 0x8,
++};
++
+ static const struct meson_reset_param meson_g12a_audio_param = {
+ 	.reset_ops	= &meson_reset_toggle_ops,
+ 	.reset_num	= 26,
+@@ -40,6 +52,12 @@ static const struct meson_reset_param meson_sm1_audio_param = {
+ 
+ static const struct auxiliary_device_id meson_reset_aux_ids[] = {
+ 	{
++		.name = "a1-audio-clkc.rst-a1",
++		.driver_data = (kernel_ulong_t)&meson_a1_audio_param,
++	}, {
++		.name = "a1-audio-clkc.rst-a1-vad",
++		.driver_data = (kernel_ulong_t)&meson_a1_audio_vad_param,
++	}, {
+ 		.name = "axg-audio-clkc.rst-g12a",
+ 		.driver_data = (kernel_ulong_t)&meson_g12a_audio_param,
+ 	}, {
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.34.1
 
 
