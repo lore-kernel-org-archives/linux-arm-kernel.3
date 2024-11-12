@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2034D42BBA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3028ED42BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSouGHEW19DomnyQlOFZy8WnihmOj5qulEWHDVgY7J0=; b=oRMYGn844XuG1Y7/33ilB9rVzj
-	aBuhRUijDUfEQnxFBNFgDxEOnFGv0X89AvT7ObdejCT17lTEXS/1so3HDbNF5rq2eXhUpyM2F3LQO
-	sN1WGHmq1YT84f5aNqpx+DR1/DCXwTlFaZHR7yUcc2TNEThyDtF7twzei7dmCNfjMtwAQk/Q0u8QM
-	v/uxSxkmiDmERY+TDN34msKrRRQDxS5vlrKU6j8KKMVVlkh7SBF674VH/gj/yXWaamVYccASzxW+H
-	02O/d8Ywwz9jU0/NntU8ijb3pIbsZ+FYBu2QRdWinIawYEkwVPR9EXoTFsNhjSdde8M65E5FV6PdX
-	9QnJXzlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rfw+wN9AUH3h9IWdAAjZRROFX4GdxCR15t9sueSJP5E=; b=sqLXd7psPByzZ3LKuLzc8wDm7J
+	GFZ8XkUAQbZ20KkqBIWGZlL4GkPfXxqjrI+t//cNBVhlSGo/MribSbGPHlajfy0E5l94X+eUcVFw1
+	cY0iYthH6DZigWs9U6oF0QUAYnI9zUC69ySN63fvVe4IK/Wh9nhpsoMQvIF3a9Ib1YWKUgtIDbDqX
+	NiJeejXxewrZkrxkksX6Y8Fe14KcZaIxvpRdrLe5xYU4ANyvaF1i4T36b+TfvfB1enrYu/TnQFxyC
+	kirgpq5Lgb3df8HPHwfmQA62/WHlJZOtJkpyoJnWv1j2kX0JIsQ9VpM4SMvoEvWhvU/cK/6fQOTxJ
+	wZ8uOv9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuz8-00000004QW3-3vxd;
-	Tue, 12 Nov 2024 17:47:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tAv0t-00000004Qnx-2pmn;
+	Tue, 12 Nov 2024 17:49:15 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuYj-00000004L6g-0FoA
+	id 1tAual-00000004LaV-039l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:20:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3E72C5C5532;
-	Tue, 12 Nov 2024 17:19:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E38C4CECD;
-	Tue, 12 Nov 2024 17:20:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731432008;
-	bh=kxq+Qvpdqa/9pRVF0zI8u+S3KYrRUl+SKH9LeS3DpkQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CRyKbtQtD8NAKajudiu2KWgR4VZpUlT/8Qgfzw+XVK01L/f+kGeImeLxFwlIsHI3s
-	 d4803isCaNZahYJDHsGYnOOJN2hChGvnts1cFG0goR5b0tsMZEt27iqk9vC66LdbK5
-	 U5RYMSL7snOeoqILBRtX4j82EEFTFYhEaYJRd/cAQmnP6lsZjlF5llzrH0ZMGY9xDk
-	 OtMGqvQGe2twSC/7UK+ix7lJFLbYXF5F7C4iF9SF2ZknY6gVp+YJS95C/FYx2StVll
-	 0K7CDt+q+5oOo5/8Ov71mepdTxLAQnuMmGCuUpws/Ne6DoYEsEej49gLqFSEuDUWBa
-	 tVtdQEbZf0/iw==
-Date: Tue, 12 Nov 2024 11:20:06 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-	devicetree@vger.kernel.org, Joerg Roedel <joro@8bytes.org>,
-	Trilok Soni <quic_tsoni@quicinc.com>, Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: Document sm8750 SMMU
-Message-ID: <173143200549.1352576.7660253310575127437.robh@kernel.org>
-References: <20241112003217.2806556-1-quic_molvera@quicinc.com>
+	Tue, 12 Nov 2024 17:22:16 +0000
+Message-ID: <5c2c6883-d81a-4869-9f32-48d23c0728ea@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1731432130;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rfw+wN9AUH3h9IWdAAjZRROFX4GdxCR15t9sueSJP5E=;
+	b=QLDH6lZUK7ldFBFFY60D1IJpEJpv6E6CdX/D0wMreRUW5s13VDtpQ6iWetQwB2fRloelJT
+	P3wvGndCwU3q+yyxxJhHZCgficVY9HnxmwVTsxE+/TdfnUFdIvMPCJ16mn43n+W3FxNnEw
+	dh1Svbb5dK9UzKQS5LfKFQmN8wlWqLY=
+Date: Tue, 12 Nov 2024 12:22:05 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112003217.2806556-1-quic_molvera@quicinc.com>
+Subject: Re: [PATCH next] drm: zynqmp_dp: Unlock on error in
+ zynqmp_dp_bridge_atomic_enable()
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
+References: <b4042bd9-c943-4738-a2e1-8647259137c6@stanley.mountain>
+ <20241112052754.GB21062@pendragon.ideasonboard.com>
+ <37be000a-3ef8-4df4-aefa-b4d73487ad27@linux.dev>
+ <20241112164305.GA24067@pendragon.ideasonboard.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20241112164305.GA24067@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_092009_170413_D7EC2093 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_092215_234599_6D8D4653 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 11 Nov 2024 16:32:17 -0800, Melody Olvera wrote:
-> Document the sm8750 SMMU block.
+On 11/12/24 11:43, Laurent Pinchart wrote:
+> On Tue, Nov 12, 2024 at 09:41:58AM -0500, Sean Anderson wrote:
+>> On 11/12/24 00:27, Laurent Pinchart wrote:
+>> > Hi Dan,
+>> > 
+>> > Thank you for the patch.
+>> > 
+>> > On Mon, Nov 11, 2024 at 12:06:10PM +0300, Dan Carpenter wrote:
+>> >> We added some locking to this function, but accidentally forgot to unlock
+>> >> if zynqmp_dp_mode_configure() failed.  Use a guard lock to fix it.
+>> >> 
+>> >> Fixes: a7d5eeaa57d7 ("drm: zynqmp_dp: Add locking")
+>> >> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+>> > 
+>> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>> > 
+>> > Sean, how about replacing all the mutex_lock()/mutex_unlock() calls
+>> > you've added in a7d5eeaa57d7 with guards ?
+>> 
+>> I have no objection to that.
 > 
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
-> Changes in V3:
-> - added additional documentation for gpu and clocks
-> ---
->  .../devicetree/bindings/iommu/arm,smmu.yaml   | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
+> Would you send a patch ? Otherwise I can do it.
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+I can send a patch, but it will not be for a week or two.
 
+--Sean
 
