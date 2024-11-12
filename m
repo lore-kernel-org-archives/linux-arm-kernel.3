@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A301D41D6E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53263D41D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=; b=NnwOchPwLN3QzPfLldXjVJNyUW
-	AzU8xyjnCAu7A+Uj4R/xF1adFT5ZrmDRwCVkb6B1fIz3fEsCZtaH2SxBcvKbVXY5VUXFfQ3BWMDzC
-	2MHLOwxfH9pT6GFP9Td7/uUU0fFY3Rctih5XADbpnShWBFFjowRwI3VvGgzdCOGeYZLusx/xKPL/b
-	Bnruyks71LPEYjyJ+O+pBtbQlV6Xowa3DdmEmjIw3/fv5N/WlbhmJSFTTQp3Gkw2WJ7FogF/hSo2m
-	9NTSburydqw0rA7xRhGH4jnoZh0C77cSV6uHNclgutDFNLIpSDp1kAXQLlntEehRxM4zxZRUqe2e/
-	lBUMEF2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BS4Z+JVLC+cIyIjSTxJTy/XnT+AgYmNkxO0eQSRVvDQ=; b=cSv7ubdxC7ZlctliCXeR1zVo7l
+	6gkt83vrTgWGVyP44e/P6tzVB94h1Zz3UVoLtMqQXha8hT+yIhkV9bneRONyeQOMLzXw0gb5QN9tj
+	4xUFqkUyIcRZAa4VfLR6SLdgPr6mOm77UXO2f2OkpfFT272/b/tlHPeWJWpphM54Fhli8vsAjTYHU
+	LQDy34dNyxTKPqVwpu50EkUOFa4+68qjkQagWu9a8xfkhpzkqsVCUwnGMf7fM7jsp91V6xDZEn9If
+	Pt/fvrq5hMVOfvTFKCIWOJ6Ywcel/O7Zoc+jdZxewg7+QTiq1KHnusWNMWjhK1O1+7K5LhytSNeF4
+	qnlchnjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmbe-00000002hlJ-2g5A;
-	Tue, 12 Nov 2024 08:50:38 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tAmdb-00000002iSo-3Iyr;
+	Tue, 12 Nov 2024 08:52:39 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmSk-00000002fkc-1HIU
+	id 1tAmZP-00000002hKd-3fMP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 08:41:29 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-381ee2e10dfso3104804f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:41:25 -0800 (PST)
+	Tue, 12 Nov 2024 08:48:21 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2fb5be4381dso44696771fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:48:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731400884; x=1732005684; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=;
-        b=ZBWJzbdGDF/gHGRf/fMNZqc8sG+FzkNGZxmc09kMuCCR67EAt1MZ+Mucxt8oAvoAT8
-         FoUXcyzhP2NUH+ORIgCbx5p9SKZwUn4cCmnABjrszBrChZFo/J6OsMN6QWgy2N9kJEMR
-         nmo9zMRIFbf/qkWLSh014qA54rr+Se44kgvkJOEwhTbXsXJnGL/3QcEgZUQNYEXJYUua
-         xNsHZ2dSmY5GfMJ5XnTt4PBW2mMBlGeH9du9Dw4IJHtrp6AaMNCTSWNvnmxewtEoIBTz
-         jebrgrl/dFEnNVBu/Is4dN2G7fnCNuvGCqsXxzHayGkn+RkV0FkKdTVStvtxlkWBFCbT
-         +LTQ==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1731401297; x=1732006097; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BS4Z+JVLC+cIyIjSTxJTy/XnT+AgYmNkxO0eQSRVvDQ=;
+        b=vEt1a18PyuPDhonc/Sv6FP9Oi8/4VAi2BkpRAj3yJr3HYPGMb+qi8vSS/iFwTw8MIF
+         YhBisDRiAxJXrQjpRNNodMl/ZNlIl7s8HTw5BRz5u0844jnyhqr7lrDRSyjp2RRvnTaG
+         4LNcWdZVtJe3ODWf4RpSmAU2iqXED7/QWK2TemXG9EdjtCnSi55PyJLXtgo+xudd42NL
+         GPI6RqR9W2rRubnqhSK4CM52VlLqA8Ovk65QS7Xoa+GKVsTi9skVTEwe8FtJNLSgASar
+         iknmuQBJeFF8+atFVk81Wixe05O7XvEjOW/u7LbMV/tP5aXZvSYzGf/1MyesM8i8238T
+         T/DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731400884; x=1732005684;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eG2XhW9x/O5qAHARRVzbECFvOW6UZdHty+Mkfwr+2ps=;
-        b=w2UD6WbJZM4m8uKfUyT5c/8sWSgmxuwOY31wziVc8ZMENAssyZAhTzI6Mee9uZ4E8N
-         yuqi005bucwwQyba23gOpHcmSHd/wPWnRg9XXusf8MdSkyvGR3nnT6ALYzySAUPBFN++
-         vXlaM0oIaromVm5YN5HvjL3hEmBaoays6OJJYdkXlnMHrfyVLs45efwplO2LaYLlbEW+
-         MRhiZyEtPxlki69jGrqh7qz9bxNh+C4M66xpG/NWfXoKyRpAgjT2srOoqO0WqXzw6sgR
-         CHbgSdWtSpSwnejAaIEu9yfCi21imr5X+FhcAgdHWJvYmw/GxU3KJC6kY1bdw1xvcknN
-         mAUg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU4gsuY+lC67jUYHYMdPjCJeuqoaIbCeMLv06szc+s/Ju4cT3iHjN1JNDuPQopSeAz3hGnMadPOvfSaMfqX9vd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0No2qGJzrR7OzbJ0wu37+/2cAjBU3o4NA2me4RCjAyVFr4MG4
-	1xmkUmtA4tQNCBTrr9p6YlGoEPrno5fmsKRHzrfTfLhyKRco4dKre4IF1MM0fXU=
-X-Google-Smtp-Source: AGHT+IGUE8SBMbLKPxMonN/2CkAeXqXMHELhWYBo6IiWeJEKGp9mNtG5Y4mRS+LvxuwyDgdxXSaWxQ==
-X-Received: by 2002:a05:6000:2aa:b0:381:eba9:fa75 with SMTP id ffacd0b85a97d-381f1866fc7mr12542783f8f.20.1731400884519;
-        Tue, 12 Nov 2024 00:41:24 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:50f9:1df6:c2b9:a468])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed9f8827sm15169457f8f.72.2024.11.12.00.41.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 00:41:24 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
- Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] clk: Fix the CLK_IGNORE_UNUSED failure issue
-In-Reply-To: <20241111-fix_glitch_free-v2-1-0099fd9ad3e5@amlogic.com> (Chuan
-	Liu via's message of "Mon, 11 Nov 2024 11:37:01 +0800")
-References: <20241111-fix_glitch_free-v2-0-0099fd9ad3e5@amlogic.com>
-	<20241111-fix_glitch_free-v2-1-0099fd9ad3e5@amlogic.com>
-Date: Tue, 12 Nov 2024 09:41:23 +0100
-Message-ID: <1jv7ws26a4.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1731401297; x=1732006097;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BS4Z+JVLC+cIyIjSTxJTy/XnT+AgYmNkxO0eQSRVvDQ=;
+        b=poEUPZ1e0bzLjdno4cIs977EuJoUA9MfqqoNbO2rE/kpIRrpB3v3cFKz0i3FZS9LZh
+         hoURD03gz7CPQFzCSPC1OV8uGI4GCoc9oQJyMAURFoVU2438cSkoGbA0Zpgz5pWHzUWS
+         2FJYsB3M13t8N6w49/as+wO3rhg2kU80Qf8LRLZQSUBXP/N44AQKfG+T8WsF7jYAveib
+         aZCdacXDny3G/03XMMu361qvxmoy0RigiEyVB01TBLgRI+3n6Wd0JgjsgZWwgQThvgNW
+         dW1WoZ5jsK49mhfEq/VuLaxfTa1fIDYjrx53B2KvdN42ToxOpUTpmraIC3GVSlA+VS6T
+         wjGg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqlgMHPQRjKr8laMnSleJpP7eoLgK7/2DMQdJM5+X1NiBK7HFQlSpno7jpcpg0RcmhezrBT6k6UngLni8Cd5jm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNTX/sWXerjmHXawZaoO5UsR8l8HojqVxtLGJKBxRQVCMApPQ7
+	wtj4/lxAZsyQEp8DYppL7wvcfJwcgNvxCrqlin66L2QcA+b6FFtr8ZpQhujisgX1ar+p8JskHJ+
+	0y+17JCg0yIPTaIZaxo2JSsYOjQ5WEOOs1bROkA==
+X-Google-Smtp-Source: AGHT+IFwq/t+KDsbuV2QhWwuNI5bupx1wsWOMyqz9EMw/Cb8GOHaigP3+bypOiWYwPdWO9Dvex17+Yq5iUawyDu5Osg=
+X-Received: by 2002:a2e:9a0a:0:b0:2fb:3e27:cbef with SMTP id
+ 38308e7fff4ca-2ff201bc2c9mr64900231fa.23.1731401297361; Tue, 12 Nov 2024
+ 00:48:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20241112015408.3139996-1-ye.zhang@rock-chips.com> <20241112015408.3139996-5-ye.zhang@rock-chips.com>
+In-Reply-To: <20241112015408.3139996-5-ye.zhang@rock-chips.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 12 Nov 2024 09:48:06 +0100
+Message-ID: <CAMRc=MfTmpLSEUVTXSu8jf9tyTfQc=iG9NpovFem-qSDOCnagQ@mail.gmail.com>
+Subject: Re: [PATCH v5 4/4] gpio: rockchip: Set input direction when request irq
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: linus.walleij@linaro.org, heiko@sntech.de, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mika.westerberg@linux.intel.com, 
+	andriy.shevchenko@linux.intel.com, tao.huang@rock-chips.com, 
+	finley.xiao@rock-chips.com, tim.chen@rock-chips.com, 
+	elaine.zhang@rock-chips.com, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_004126_466532_325CE0F0 
-X-CRM114-Status: GOOD (  27.79  )
+X-CRM114-CacheID: sfid-20241112_004819_934434_78FE34DC 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,133 +95,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 11 Nov 2024 at 11:37, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
-
-> From: Chuan Liu <chuan.liu@amlogic.com>
+On Tue, Nov 12, 2024 at 2:54=E2=80=AFAM Ye Zhang <ye.zhang@rock-chips.com> =
+wrote:
 >
-> When the clk_disable_unused_subtree() function disables an unused clock,
-> if CLK_OPS_PARENT_ENABLE is configured on the clock,
-> clk_core_prepare_enable() and clk_core_disable_unprepare() are called
-> directly, and these two functions do not determine CLK_IGNORE_UNUSED,
-> This causes the clock to be disabled even if CLK_IGNORE_UNUSED is
-> configured when clk_core_disable_unprepare() is called.
+> Since the GPIO can only generate interrupts when its direction is set to
+> input, it is set to input before requesting the interrupt resources.
 >
-> Two new functions clk_disable_unprepare_unused() and
-> clk_prepare_enable_unused() are added to resolve the preceding
-> situation. The CLK_IGNORE_UNUSED judgment logic is added to these two
-> functions. To prevent clock configuration CLK_IGNORE_UNUSED from
-> possible failure.
->
-> Fixes: a4b3518d146f ("clk: core: support clocks which requires parents
-> enable (part 1)")
-
-Still don't think a storing the ignored state is necessary, same as v1.
-
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->  drivers/clk/clk.c | 67 +++++++++++++++++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 65 insertions(+), 2 deletions(-)
+>  drivers/gpio/gpio-rockchip.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> index d02451f951cf..6def76c30ce6 100644
-> --- a/drivers/clk/clk.c
-> +++ b/drivers/clk/clk.c
-> @@ -94,6 +94,7 @@ struct clk_core {
->  	struct hlist_node	debug_node;
->  #endif
->  	struct kref		ref;
-> +	bool			ignore_enabled;
->  };
->  
->  #define CREATE_TRACE_POINTS
-> @@ -1479,6 +1480,68 @@ static void __init clk_unprepare_unused_subtree(struct clk_core *core)
->  	}
->  }
->  
-> +static void __init clk_disable_unprepare_unused(struct clk_core *core)
-> +{
-> +	unsigned long flags;
-> +
-> +	lockdep_assert_held(&prepare_lock);
-> +
-> +	if (!core)
-> +		return;
-> +
-> +	if ((core->enable_count == 0) && core->ops->disable &&
-> +	    !core->ignore_enabled) {
-> +		flags = clk_enable_lock();
-> +		core->ops->disable(core->hw);
-> +		clk_enable_unlock(flags);
-> +	}
-> +
-> +	if ((core->prepare_count == 0) && core->ops->unprepare &&
-> +	    !core->ignore_enabled)
-> +		core->ops->unprepare(core->hw);
-> +
-> +	core->ignore_enabled = false;
-> +
-> +	clk_disable_unprepare_unused(core->parent);
-> +}
-> +
-> +static int __init clk_prepare_enable_unused(struct clk_core *core)
-> +{
-> +	int ret = 0;
-> +	unsigned long flags;
-> +
-> +	lockdep_assert_held(&prepare_lock);
-> +
-> +	if (!core)
-> +		return 0;
-> +
-> +	ret = clk_prepare_enable_unused(core->parent);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if ((core->flags & CLK_IGNORE_UNUSED) && clk_core_is_enabled(core))
-> +		core->ignore_enabled = true;
-> +
-> +	if ((core->prepare_count == 0) && core->ops->prepare) {
-> +		ret = core->ops->prepare(core->hw);
-> +		if (ret)
-> +			goto disable_unprepare;
-> +	}
-> +
-> +	if ((core->enable_count == 0) && core->ops->enable) {
-> +		flags = clk_enable_lock();
-> +		ret = core->ops->enable(core->hw);
-> +		clk_enable_unlock(flags);
-> +		if (ret)
-> +			goto disable_unprepare;
-> +	}
-> +
-> +	return 0;
-> +disable_unprepare:
-> +	clk_disable_unprepare_unused(core->parent);
-> +	return ret;
-> +}
-> +
->  static void __init clk_disable_unused_subtree(struct clk_core *core)
+> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+> index c090cac694bf..cdfdd5501a1e 100644
+> --- a/drivers/gpio/gpio-rockchip.c
+> +++ b/drivers/gpio/gpio-rockchip.c
+> @@ -476,8 +476,11 @@ static int rockchip_irq_reqres(struct irq_data *d)
 >  {
->  	struct clk_core *child;
-> @@ -1490,7 +1553,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
->  		clk_disable_unused_subtree(child);
->  
->  	if (core->flags & CLK_OPS_PARENT_ENABLE)
-> -		clk_core_prepare_enable(core->parent);
-> +		clk_prepare_enable_unused(core->parent);
->  
->  	flags = clk_enable_lock();
->  
-> @@ -1517,7 +1580,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
->  unlock_out:
->  	clk_enable_unlock(flags);
->  	if (core->flags & CLK_OPS_PARENT_ENABLE)
-> -		clk_core_disable_unprepare(core->parent);
-> +		clk_disable_unprepare_unused(core->parent);
+>         struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
+>         struct rockchip_pin_bank *bank =3D gc->private;
+> +       irq_hw_number_t hwirq =3D irqd_to_hwirq(d);
+>
+> -       return gpiochip_reqres_irq(&bank->gpio_chip, d->hwirq);
+> +       rockchip_gpio_direction_input(&bank->gpio_chip, hwirq);
+> +
+> +       return gpiochip_reqres_irq(&bank->gpio_chip, hwirq);
 >  }
->  
->  static bool clk_ignore_unused __initdata;
+>
+>  static void rockchip_irq_relres(struct irq_data *d)
+> --
+> 2.34.1
+>
 
--- 
-Jerome
+This looks like a fix to me, do you want it sent for stable? If so,
+please add the Fixes tag and put it first in the series.
+
+Bart
 
