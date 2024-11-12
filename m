@@ -4,92 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20B2D42BBA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFFAD42BBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 18:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0HzRmOKuxsDsObnHNtYOmXokfAPxgB5azaw2lQocr0=; b=Oy98O6PO+I3TAIDhmkhagIdtiX
-	wJRXRYYwO/P29FcLHuwbWuXBkvQATwI/51n9ghD7s5cJyUiyX5OtpB0C8d52GAO5rj7RAFIf7GVob
-	QCKp7AzFNRZg56liUB4hJYiCCOzol5oFeDHIUT3EKDWRxTheWf4NC4GBo+Tl9p+zpJH2wNV5hEOIC
-	ySLMGM2RiNr+vubWosCwzE+rfTaBWMml7TfgAcwna/C3wIIu4TgVLb2epKfKbWkD+8ISX/uudW4fk
-	KkBQ/LSZqLiiMQzElo+/OZFAMUeHkXZs63cc0/hBmjzj0fZiilAA4XjLQCRL3NvoDhWFlfbi5AnDx
-	1qo7m4VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QSX5kVx/kK64TFAmRzo+QJMjvf56Eh3nCHsVd7SrkVU=; b=v8fIrPu0NefluQNF1+5fifGCL8
+	8RPO+XuoVSbJm6hK3hVsmoSvT7hOdBa6Jn8gtX7VW7oJ2Ld3v85KJk48fPrZz8rYopSyL3UwuZ6Wh
+	CoOvlZgSmmHOBHBMLvjpSy2OqcDkQM6HPOMDWDGCygQLNBorh61RavsPVvFvwtnqYCfu40M2Z1Rar
+	+ClifR+K6C9CgiossV7AaPW6iEnDTRzKP1/cw+cpNYooAWtT4I5gHUcBStTiF66BPX2Ef8xaTS9hT
+	aa1Z3V08ERl1/mzR6U+Pqgfvce7RRurD3lv9RKa1xbCXIS7/M2ZOoyuOf6Ut7nuD8YPNUi8uUWzeF
+	c4XpX5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvBb-00000004TD2-2713;
-	Tue, 12 Nov 2024 18:00:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuk2-00000004NRE-2Ehi
+	id 1tAvDM-00000004TfR-2tT7;
+	Tue, 12 Nov 2024 18:02:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAuJ0-00000004HLS-40YS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:31:52 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ACCnwCZ010994;
-	Tue, 12 Nov 2024 17:31:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	H0HzRmOKuxsDsObnHNtYOmXokfAPxgB5azaw2lQocr0=; b=LdcL0bKBBoJ/Kukp
-	1chQZ7+5MMWdSefbs09p60TLGBQ8lSvm11fv/1o50w7x+7QswVMC3Ii74crUtAKy
-	TObHdHAoAeS1MutG9fC3UcHMsCgSWos28vVRTjnCJjkWNbnNr5Z6JOSaI0O05hMO
-	LMxwm+G2jDDLHmapY6qfsGtLRBRz+tHLX99e3OvOCLBL0GsvDs3Vv//PXprzhfXY
-	lYfVXC2RznsMVWWaQ5nIqgvXpW+8iiMRFKYItpE80OO7BOGQ35tlLMDl+iRq4yMj
-	PyszRwLokXQZ2fnvbZ5i2OTKvyl0f6MsMR2Ns2sPV3a+sp5QEUpMYIPKn1m00pN8
-	nKEnDQ==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42t11884ux-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 17:31:42 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ACHVfgg008117
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 17:31:41 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 12 Nov 2024 09:31:32 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>
-Subject: [PATCH v5 5/5] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Date: Tue, 12 Nov 2024 23:00:32 +0530
-Message-ID: <20241112173032.2740119-6-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241112173032.2740119-1-quic_vikramsa@quicinc.com>
-References: <20241112173032.2740119-1-quic_vikramsa@quicinc.com>
+	Tue, 12 Nov 2024 17:03:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B1D025E0;
+	Tue, 12 Nov 2024 09:04:23 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2C2A3F6A8;
+	Tue, 12 Nov 2024 09:03:52 -0800 (PST)
+Message-ID: <8cb6b8e2-3a01-49a1-b34a-67b4671356fe@arm.com>
+Date: Tue, 12 Nov 2024 17:03:51 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: LHU8qh1ONCMzHg5jb-IXRcNzSJ0RJvL_
-X-Proofpoint-GUID: LHU8qh1ONCMzHg5jb-IXRcNzSJ0RJvL_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxscore=0
- bulkscore=0 mlxlogscore=999 lowpriorityscore=0 malwarescore=0
- clxscore=1015 priorityscore=1501 adultscore=0 suspectscore=0 spamscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2409260000 definitions=main-2411120141
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] iommu/arm-smmu-v3: Clean up iopf queue on probe
+ failure
+To: Will Deacon <will@kernel.org>
+Cc: joro@8bytes.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <cover.1731088789.git.robin.murphy@arm.com>
+ <161cf3bfde2993cc29e82589df947ff23fb82845.1731088789.git.robin.murphy@arm.com>
+ <20241112155525.GB21479@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241112155525.GB21479@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_093150_609428_3A90898E 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20241112_090355_076404_A26B714B 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,160 +67,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-Enable the IMX577 on the vision mezzanine.
+On 12/11/2024 3:55 pm, Will Deacon wrote:
+> On Fri, Nov 08, 2024 at 06:30:16PM +0000, Robin Murphy wrote:
+>> kmemleak noticed that the iopf queue allocated deep down within
+>> arm_smmu_init_structures() can be leaked by a subsequent error return
+>> from arm_smmu_device_probe(). Hardly a big deal when probe failure
+>> represents something much more seriously wrong in the first place,
+>> but on principle, adopt a dedicated cleanup path for those.
+>>
+>> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>> ---
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 15 ++++++++++-----
+>>   1 file changed, 10 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> index b7dcb1494aa4..7908fca962fe 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> @@ -4609,7 +4609,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>>   	/* Initialise in-memory data structures */
+>>   	ret = arm_smmu_init_structures(smmu);
+>>   	if (ret)
+>> -		return ret;
+>> +		goto free_iopf;
+>>   
+>>   	/* Record our private device structure */
+>>   	platform_set_drvdata(pdev, smmu);
+>> @@ -4620,22 +4620,27 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>>   	/* Reset the device */
+>>   	ret = arm_smmu_device_reset(smmu);
+>>   	if (ret)
+>> -		return ret;
+>> +		goto free_iopf;
+>>   
+>>   	/* And we're up. Go go go! */
+>>   	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
+>>   				     "smmu3.%pa", &ioaddr);
+>>   	if (ret)
+>> -		return ret;
+>> +		goto free_iopf;
+>>   
+>>   	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
+>>   	if (ret) {
+>>   		dev_err(dev, "Failed to register iommu\n");
+>> -		iommu_device_sysfs_remove(&smmu->iommu);
+>> -		return ret;
+>> +		goto free_sysfs;
+>>   	}
+>>   
+>>   	return 0;
+>> +
+>> +free_sysfs:
+>> +	iommu_device_sysfs_remove(&smmu->iommu);
+>> +free_iopf:
+>> +	iopf_queue_free(smmu->evtq.iopf);
+>> +	return ret;
+>>   }
+> 
+> Thanks. I think this is correct (and iopf_queue_free() checks for NULL,
+> so we're good there) but I just wonder whether it would be more
+> consistent to use devm_add_action_or_reset(), like we do for the MSIs.
 
-An example media-ctl pipeline for the imx577 is:
+Yeah, I did consider it, but in the end I had a hunch that we were 
+liable to end up with more cleanup steps on this path anyway. Which then 
+conveniently came true this morning when I realised why the box still 
+wasn't seeing its disk even with the SATA probe un-deferred by patch #3.
 
-media-ctl --reset
-media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+(For reference I'm provoking an error from arm_smmu_probe_device() 
+intentionally, by virtue of having a PCIe-to-PCI bridge aliasing two 
+devices to the same StreamID - adding group support to make that 
+actually work is still on the "maybe one day" list...)
 
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-
-Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
----
- arch/arm64/boot/dts/qcom/Makefile             |   4 +
- .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 108 ++++++++++++++++++
- 2 files changed, 112 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 9bb8b191aeb5..4ee57b3871dd 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -114,6 +114,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcm6490-shift-otter.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-+
-+qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-+
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride-r3.dtb
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-new file mode 100644
-index 000000000000..6e2fccca8f11
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-@@ -0,0 +1,108 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+/*
-+ * Camera Sensor overlay on top of rb3gen2 core kit.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&camcc {
-+	status = "okay";
-+};
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l10c_0p88>;
-+	vdda-pll-supply = <&vreg_l6b_1p2>;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* The port index denotes CSIPHY id i.e. csiphy3 */
-+		port@3 {
-+			reg = <3>;
-+			csiphy3_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-1 = <&cam2_suspend>;
-+
-+		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		dovdd-supply  = <&vreg_l18b_1p8>;
-+
-+		port {
-+			imx577_ep: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy3_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam2_default: cam2-default-state {
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+
-+	cam2_suspend: cam2-suspend-state {
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+			output-low;
-+		};
-+
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+	};
-+};
--- 
-2.25.1
-
+Cheers,
+Robin.
 
