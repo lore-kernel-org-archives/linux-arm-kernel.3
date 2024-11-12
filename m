@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B880AD41D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9595ED41D6E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vzBUP4IjhpgilYzc3QP5HxQ10f2Yq/2yZCvHZ4g8xvA=; b=J30QdkKpkc/xsWJUgG6i0IHd9x
-	Ro5OdQUMVa1+Q/ERxovcvIqUmmQDy8NW/L1UAkCUl9vS4h3vj2v3YuKZYmr6l0e0A8h+bnOesyCq9
-	2i+krqISCkgN8hCHgYF6Y05Wz7ejhv7HdbPFIuVZNNIUlieKhi9Qi9MOsT/c2QUJryZj4/DCn2ApG
-	NKO7zokPm8LWL2Jh0tfvIax7Z8i2qZGP5TkZeaip+l6QN9H71dWIXx/ymHIEiTs70NClfp8ZBXjSA
-	axYjtuOcLRyRh82xuXd8ZBb3ooJpxzMgCdLkv4RlDjTZ0wMWApYoJi/skqZ8SvQWNuXWMyJSLP0JV
-	Wlpat7fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/MXKM1Sqb74I8ZQpKiaye137tCtqvkpww9vx9BtZ+wc=; b=S6tVTdqzxfcsa68zyoM9071JjF
+	OEgcotbPc/KBKF3509uGti5nd6lYXbsmK+/CNtUp80mLcQRoBS2r34bEAGKWlB3ns44+NwKxffB7Y
+	LwFPHJP86YRHSC9c5+UO9beUpggsiAI3oMveo/p+4PmKfkhksDTtj1tKmXjgkvB7Gtq9yWgkIh1fY
+	7sApKcn1deHLz62MF81Azfq8wYxTdSMCSHIFn8bVDDoVpy/bbXGc9dEpd5AyKKXeDEK2q0yGPvCqz
+	BC1dWOZaxBHIV/2o978RgKOiakBMrUh2zz10zGRktpilMntB6evwjczCSwYQ3VUyq+wAr/u3IJNf7
+	bug7stOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmUY-00000002gEl-31V8;
-	Tue, 12 Nov 2024 08:43:18 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tAmWK-00000002gcD-1bbR;
+	Tue, 12 Nov 2024 08:45:08 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAmNT-00000002efm-1BlW
+	id 1tAmO3-00000002ene-2f7p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 08:36:01 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-431ac30d379so46528205e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:35:58 -0800 (PST)
+	Tue, 12 Nov 2024 08:36:37 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-37d495d217bso4929053f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 00:36:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731400557; x=1732005357; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vzBUP4IjhpgilYzc3QP5HxQ10f2Yq/2yZCvHZ4g8xvA=;
-        b=rgYrvXXgtQdYSvXieu5609krS71UryMv4OGtA586qQoQDYFqZDiqo/oWPvK8hF5tn1
-         UFktxTvfbY9sNetLKk3yZE4sN5miyNA6AVVDgGQKha6VsGt1/5hsydNrTmP6S4SSRAhB
-         p66Ib8fS7XhcC8p9LUZTuYtlH1WSgKFS4DTUoUqzZ6rwpuq+mDhsYYtIfdjj/Sml+w1W
-         iegDrsb7PLLBH35olycNY4tNZnTo6/AXf8EUIyo4CwRJEKLrAtkCIs4dvir11bCuxsxh
-         6kCKTB7/aYNd2ZDvp4LFbsjIi3rZB5vv3Z15lcojK0v6xvdE4ckyovIWObB2E23Pe1ol
-         jwZQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731400594; x=1732005394; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/MXKM1Sqb74I8ZQpKiaye137tCtqvkpww9vx9BtZ+wc=;
+        b=d6x3ezWhB6Agexri1a20I/DMBo/iZApEkGryS4ia2+TW55LV9Ax+6OeWlDSzIKYTuf
+         8m3y730Ph5jBVM/zJEUkCMoxexcZJcThDCBaPmmNjsOeUb6cqYiA82Cmzlb/AJ3ha1Gs
+         Uzgbs/wDLraR3Ei/P/3SIeY+LxFF7CmJGqgmW/JL+bhEIUm+GfIqpg66Xl+uloKrTRcy
+         4KaSzuDZ91AJGtgF5fO9rF3N3LQhxz6oAc9sS1TlbO3AhN6c1sCHlSu5JfStGgoluCu1
+         S//nct/h2YdAlEQNdvXWzrkM4QWGbMSGL9Xqcp5km7Fl6oloeK6+PUyxM6ci7Zec1vGT
+         d8PQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731400557; x=1732005357;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vzBUP4IjhpgilYzc3QP5HxQ10f2Yq/2yZCvHZ4g8xvA=;
-        b=Z15KtFDsu2fQZxuXAqpmTkJjxSdFG5n+YRnBdfB6vL+bJX3/KpfkZdbQajdvK4Vydq
-         zwIDNe0kJ6M599h47PU23wDb0tK6w1Dq1kZqiVZdjSGQWBqa6hf9+KMntJftJT1E4hnJ
-         Yy5jqNMawI643Mk7HT/kCGdUpgPX5sHnJQ0l5wDRZG0aJptfrM76HKpwD7MJOeq5I5IM
-         Clq9qIC8oHi4pinCcVKiLliSQWVScIZ2e1efyowPoaN9FSXkjS990/3QeWcZ/+MfbMBx
-         AisnvLXVMlrGOsqyQU77X4y1EYPNYafMGnS1Sl1qB6YHmOK3lBEp51Z8ofKG/5bFkMSx
-         sSTA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqVdPvfSA+kSNsCvet7pk5nvzelRCJfF+IdlrkpiqIfTd8g07Gydi1/jVVRvdBHpRs6GW4+O0yNsv4qUiSvh1r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzolRUVd9uTRJtZh448Hu7HusEKRU7jCzFRVqBUT7hIdOyeeJ1a
-	sTsxDZd/s+jCz9HhzHkZiwD4m3AoAAswilvEZz4ir811iKyDm4250HzaxnPyXgs=
-X-Google-Smtp-Source: AGHT+IHJ9ujCbbhIsj7TrIvtnmafDAChYmP23T6s6gb+JxDcqoE9J2hSsnZv1j2TrI4f4DKJmqsWhA==
-X-Received: by 2002:a05:600c:19c8:b0:42f:7ed4:4c26 with SMTP id 5b1f17b1804b1-432b75002b7mr138902825e9.12.1731400557221;
-        Tue, 12 Nov 2024 00:35:57 -0800 (PST)
-Received: from localhost (p509159f1.dip0.t-ipconnect.de. [80.145.89.241])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa709ec7sm242209895e9.35.2024.11.12.00.35.56
+        d=1e100.net; s=20230601; t=1731400594; x=1732005394;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/MXKM1Sqb74I8ZQpKiaye137tCtqvkpww9vx9BtZ+wc=;
+        b=ttuvh3YzWwIZg7ILoQcjdG0CeghxM7jdl887MXoM5y6fJR9pN2AkwVoE5cVkY6vAdd
+         5MX50gP7pWTruP/u79CKbD5mee4ciqpz/MaM/hOBOh98P8Xic2yPrWrgUBvs59kdSJkB
+         SPifqJlBdumQHuaskK6UrkYZPf+bHewOpF9h87mG4MdniHruUaiYKRN5cusR/ZKCj89X
+         MQw6WAVX6lhPH2f3dVmZORFEMT6dwJLe3Ai+UxqZ+sSB0G9HJV7g7A81On/UFD6zxVRn
+         OPC05P8pf1sKAZgWYfIXBwB0H5Jk7ZC/La2q91bnV10lDZE+rDZ6CkzbUy8HOhkTq0ZV
+         3Vyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVt1k6lpbTh3zujAvPBXPwjKszX3WTgHQD2FLew88oLrr6ZkRkwHmg4nkaImcOtHsVDmU467DfTiK6ffU4fZhyT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzuEdL7Iap3CQ4jrzzFgAHUgoTLuvCW+7SN10VMyJcEikucSRB
+	AG+/WxsIl08X1yHvBPc9zJnGJ2OI6Mc5JvDmSnhH/nRcSMKPMXBUideOWWsBB1w=
+X-Google-Smtp-Source: AGHT+IH8yunZYqyZqpSqETzBCKEoRJ1QIodl+MOpYN4uXnicVv8QU+PV+QjD7NHinPY4E5kCPs85PQ==
+X-Received: by 2002:a05:6000:1fa1:b0:37d:3e6d:6a00 with SMTP id ffacd0b85a97d-381f1884805mr15336017f8f.47.1731400593801;
+        Tue, 12 Nov 2024 00:36:33 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:50f9:1df6:c2b9:a468])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed997320sm14968695f8f.47.2024.11.12.00.36.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 00:35:56 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	patches@opensource.cirrus.com,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] regulator: Switch back to struct platform_driver::remove()
-Date: Tue, 12 Nov 2024 09:35:21 +0100
-Message-ID: <ab85510f83fa901e44d5d563fe6e768054229bfe.1731398433.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.45.2
+        Tue, 12 Nov 2024 00:36:33 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-amlogic@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH] clk: core: refine disable unused clocks
+In-Reply-To: <5eb12197-330c-4f55-82f7-d13ea458ba43@amlogic.com> (Chuan Liu's
+	message of "Fri, 8 Nov 2024 19:49:59 +0800")
+References: <1jcykltj7g.fsf@starbuckisacylon.baylibre.com>
+	<20241004133953.494445-1-jbrunet@baylibre.com>
+	<07594a59-c999-4592-84b8-4e163d3edba4@amlogic.com>
+	<1jttci2k8k.fsf@starbuckisacylon.baylibre.com>
+	<85aae140-5c9b-4ff9-a522-549009f62601@amlogic.com>
+	<1jcyj62gi7.fsf@starbuckisacylon.baylibre.com>
+	<5eb12197-330c-4f55-82f7-d13ea458ba43@amlogic.com>
+Date: Tue, 12 Nov 2024 09:36:32 +0100
+Message-ID: <1j4j4c3l2n.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6809; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=Ogd04ibt1boR9D5geKyDS0rBfBdR3YmD0RQ58WcqbMs=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnMxNbdHLjDOnU3k+1ISOuzbFCoPl7yMqU5CS7W aALrvuQhoSJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZzMTWwAKCRCPgPtYfRL+ TsWYCACaD+qvsw1AJCAzT6ixsV4Mxdp3Z0Vy/Ye08kXC/NvejBKyAgZBh98uiHT1XNztZrRFSX6 1B3710YaALWB7SDDlHxXhY6E0HIVGrMAu3PkdmaxX0N6bUeGyn9qQVp9w6YD2oruut0akzt+V0W gssa5Pa9C3jwsgkHkKR82GkbeTVxK9Zk213tc9cvE5VQYu+tcxArPAHFZVgo2VZe8yLgPa/klLz /mbHEuK6R4IWJdHy+vMBAFPrOtPGDrR0UjkCiVqKQiHH/5CpHP6IiGunLTrHaXNtQfKMnQGm+CJ rMJj77T1fadlyr5CUG1HN7ZIaOnSPd0ErA1wUiZT18D1wohr
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_003559_369541_6E025CE5 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20241112_003635_706168_22D81EF8 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,176 +99,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
-return void") .remove() is (again) the right callback to implement for
-platform drivers.
+On Fri 08 Nov 2024 at 19:49, Chuan Liu <chuan.liu@amlogic.com> wrote:
 
-Convert all platform drivers below drivers/regulator to use .remove(),
-with the eventual goal to drop struct platform_driver::remove_new(). As
-.remove() and .remove_new() have the same prototypes, conversion is done
-by just changing the structure member name in the driver initializer.
+> On 11/8/2024 5:59 PM, Jerome Brunet wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Fri 08 Nov 2024 at 17:23, Chuan Liu <chuan.liu@amlogic.com> wrote:
+>>
+>>>>>> -       if (core->flags & CLK_IGNORE_UNUSED)
+>>>>>> +       /*
+>>>>>> +        * If the parent is disabled but the gate is open, we should sanitize
+>>>>>> +        * the situation. This will avoid an unexpected enable of the clock as
+>>>>>> +        * soon as the parent is enabled, without control of CCF.
+>>>>>> +        *
+>>>>>> +        * Doing so is not possible with a CLK_OPS_PARENT_ENABLE clock without
+>>>>>> +        * forcefully enabling a whole part of the subtree.  Just let the
+>>>>>> +        * situation resolve it self on the first enable of the clock
+>>>>>> +        */
+>>>>>> +       if (!parent_enabled && (core->flags & CLK_OPS_PARENT_ENABLE))
+>>> At first, I couldn't grasp the logic behind the 'return' here. Now it's
+>>> clear. This approach is equivalent to completely giving up on
+>>> handling clocks with CLK_OPS_PARENT_ENABLE feature in
+>>> clk_disable_unused_subtree().
+>>>
+>> No. It's handled correctly as long as the tree is in coherent state.
+>>
+>> What is not done anymore is fixing up an inconsistent tree, by this I
+>> mean: A clock with CLK_OPS_PARENT_ENABLE, which report enabled from its
+>> own registers but has its parent disabled.
+>>
+>> In that particular case, clk_disable_unused_subtree() won't be turning on
+>> everything to properly disable that one clock. That is the root cause of
+>> the problem you reported initially. The clock is disabled anyway.
+>>
+>> Every other case are properly handled (at least I think).
+>
+> name              en_sts            flags
+> clk_a                1          CLK_IGNORE_UNUSED
+>     clk_b            0                0
+>         clk_c        1         CLK_OPS_PARENT_ENABLE
+>
+> Based on the above case:
+> 1. When 'clk_c' is configured with CLK_OPS_PARENT_ENABLE, disabling
+> 'clk_c' requires enabling 'clk_b' first (disabling 'clk_c' before
+> disabling 'clk_b'). How can to ensure that during the period of
+> disabling 'clk_c', 'clk_b' remains enabled?
 
-A few whitespace changes are done en passant to make indention
-consistent.
+That's perfect example of incoherent state.
+How can 'clk_c' be enabled if its parent is disable. That makes no
+sense, so there is no point enabling a whole subtree for this IMO.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
-Hello,
+>
+> 2. 'clk_c' is not configured with CLK_IGNORE_UNUSED, it should be
+> disabled later. However, here it goes to a 'goto' statement and then
+> return 'false', ultimately resulting in 'clk_c' not being disabled?
 
-I did a single patch for all of drivers/regulator. While I usually
-prefer to do one logical change per patch, this seems to be
-overengineering here as the individual changes are really trivial and
-shouldn't be much in the way for stable backports. But I'll happily
-split the patch if you prefer it split. Also if you object the
-indentation stuff, I can rework that.
+We've discussed that 2 times already. This discussion is going in
+circles now.
 
-This is based on yesterday's next, if conflicts arise when you apply it
-at some later time and don't want to resolve them, feel free to just
-drop the changes to the conflicting files. I'll notice and followup at a
-later time then. Or ask me for a fixed resend. (Having said that, I
-recommend b4 am -3 + git am -3 which should resolve most conflicts just
-fine.)
+>
+>>>>>>                    goto unlock_out;
+>>>>>>
+>>>>>>            /*
+>>>>>> @@ -1516,8 +1545,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
+>>>>>>
+>>>>>>     unlock_out:
+>>>>>>            clk_enable_unlock(flags);
+>>>>>> -       if (core->flags & CLK_OPS_PARENT_ENABLE)
+>>>>>> -               clk_core_disable_unprepare(core->parent);
+>>>>>> +       return (core->flags & CLK_IGNORE_UNUSED) && enabled;
+>>>>>>     }
+>>>>>>
+>>>>>>     static bool clk_ignore_unused __initdata;
+>>>>>> @@ -1550,16 +1578,16 @@ static int __init clk_disable_unused(void)
+>>>>>>            clk_prepare_lock();
+>>>>>>
+>>>>>>            hlist_for_each_entry(core, &clk_root_list, child_node)
+>>>>>> -               clk_disable_unused_subtree(core);
+>>>>>> +               clk_disable_unused_subtree(core, true);
+>>>>>>
+>>>>>>            hlist_for_each_entry(core, &clk_orphan_list, child_node)
+>>>>>> -               clk_disable_unused_subtree(core);
+>>>>>> +               clk_disable_unused_subtree(core, true);
+>>>>>>
+>>>>>>            hlist_for_each_entry(core, &clk_root_list, child_node)
+>>>>>> -               clk_unprepare_unused_subtree(core);
+>>>>>> +               clk_unprepare_unused_subtree(core, true);
+>>>>>>
+>>>>>>            hlist_for_each_entry(core, &clk_orphan_list, child_node)
+>>>>>> -               clk_unprepare_unused_subtree(core);
+>>>>>> +               clk_unprepare_unused_subtree(core, true);
+>>>>>>
+>>>>>>            clk_prepare_unlock();
+>>>>>>
+>>>>>> --
+>>>>>> 2.45.2
+>>>>>>
+>>>> --
+>>>> Jerome
+>> --
+>> Jerome
 
-Best regards
-Uwe
-
- drivers/regulator/arizona-ldo1.c        | 12 ++++++------
- drivers/regulator/bd9571mwv-regulator.c |  2 +-
- drivers/regulator/db8500-prcmu.c        |  2 +-
- drivers/regulator/stm32-vrefbuf.c       |  2 +-
- drivers/regulator/uniphier-regulator.c  |  2 +-
- drivers/regulator/userspace-consumer.c  |  2 +-
- drivers/regulator/virtual.c             |  2 +-
- drivers/regulator/wm8350-regulator.c    |  6 +++---
- 8 files changed, 15 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/regulator/arizona-ldo1.c b/drivers/regulator/arizona-ldo1.c
-index 4b54068d4f59..501843996faa 100644
---- a/drivers/regulator/arizona-ldo1.c
-+++ b/drivers/regulator/arizona-ldo1.c
-@@ -375,18 +375,18 @@ static int madera_ldo1_probe(struct platform_device *pdev)
- 
- static struct platform_driver arizona_ldo1_driver = {
- 	.probe = arizona_ldo1_probe,
--	.remove_new = arizona_ldo1_remove,
--	.driver		= {
--		.name	= "arizona-ldo1",
-+	.remove = arizona_ldo1_remove,
-+	.driver = {
-+		.name = "arizona-ldo1",
- 		.probe_type = PROBE_FORCE_SYNCHRONOUS,
- 	},
- };
- 
- static struct platform_driver madera_ldo1_driver = {
- 	.probe = madera_ldo1_probe,
--	.remove_new = arizona_ldo1_remove,
--	.driver		= {
--		.name	= "madera-ldo1",
-+	.remove = arizona_ldo1_remove,
-+	.driver = {
-+		.name = "madera-ldo1",
- 		.probe_type = PROBE_FORCE_SYNCHRONOUS,
- 	},
- };
-diff --git a/drivers/regulator/bd9571mwv-regulator.c b/drivers/regulator/bd9571mwv-regulator.c
-index c7ceba56e7dc..209beabb5c37 100644
---- a/drivers/regulator/bd9571mwv-regulator.c
-+++ b/drivers/regulator/bd9571mwv-regulator.c
-@@ -356,7 +356,7 @@ static struct platform_driver bd9571mwv_regulator_driver = {
- 		.pm = DEV_PM_OPS,
- 	},
- 	.probe = bd9571mwv_regulator_probe,
--	.remove_new = bd9571mwv_regulator_remove,
-+	.remove = bd9571mwv_regulator_remove,
- 	.id_table = bd9571mwv_regulator_id_table,
- };
- module_platform_driver(bd9571mwv_regulator_driver);
-diff --git a/drivers/regulator/db8500-prcmu.c b/drivers/regulator/db8500-prcmu.c
-index 1e2d54da1b9a..1ec2e1348891 100644
---- a/drivers/regulator/db8500-prcmu.c
-+++ b/drivers/regulator/db8500-prcmu.c
-@@ -480,7 +480,7 @@ static struct platform_driver db8500_regulator_driver = {
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 	},
- 	.probe = db8500_regulator_probe,
--	.remove_new = db8500_regulator_remove,
-+	.remove = db8500_regulator_remove,
- };
- 
- static int __init db8500_regulator_init(void)
-diff --git a/drivers/regulator/stm32-vrefbuf.c b/drivers/regulator/stm32-vrefbuf.c
-index 40855105dd33..a85ea94f0673 100644
---- a/drivers/regulator/stm32-vrefbuf.c
-+++ b/drivers/regulator/stm32-vrefbuf.c
-@@ -280,7 +280,7 @@ MODULE_DEVICE_TABLE(of, stm32_vrefbuf_of_match);
- 
- static struct platform_driver stm32_vrefbuf_driver = {
- 	.probe = stm32_vrefbuf_probe,
--	.remove_new = stm32_vrefbuf_remove,
-+	.remove = stm32_vrefbuf_remove,
- 	.driver = {
- 		.name  = "stm32-vrefbuf",
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-diff --git a/drivers/regulator/uniphier-regulator.c b/drivers/regulator/uniphier-regulator.c
-index 5f868042392f..74939b7fcd81 100644
---- a/drivers/regulator/uniphier-regulator.c
-+++ b/drivers/regulator/uniphier-regulator.c
-@@ -207,7 +207,7 @@ MODULE_DEVICE_TABLE(of, uniphier_regulator_match);
- 
- static struct platform_driver uniphier_regulator_driver = {
- 	.probe = uniphier_regulator_probe,
--	.remove_new = uniphier_regulator_remove,
-+	.remove = uniphier_regulator_remove,
- 	.driver = {
- 		.name  = "uniphier-regulator",
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-diff --git a/drivers/regulator/userspace-consumer.c b/drivers/regulator/userspace-consumer.c
-index 6153d0295b6d..72bb5ffb49a8 100644
---- a/drivers/regulator/userspace-consumer.c
-+++ b/drivers/regulator/userspace-consumer.c
-@@ -210,7 +210,7 @@ MODULE_DEVICE_TABLE(of, regulator_userspace_consumer_of_match);
- 
- static struct platform_driver regulator_userspace_consumer_driver = {
- 	.probe		= regulator_userspace_consumer_probe,
--	.remove_new	= regulator_userspace_consumer_remove,
-+	.remove		= regulator_userspace_consumer_remove,
- 	.driver		= {
- 		.name		= "reg-userspace-consumer",
- 		.probe_type	= PROBE_PREFER_ASYNCHRONOUS,
-diff --git a/drivers/regulator/virtual.c b/drivers/regulator/virtual.c
-index 0a0ee186c6af..218a0d66a152 100644
---- a/drivers/regulator/virtual.c
-+++ b/drivers/regulator/virtual.c
-@@ -357,7 +357,7 @@ static void regulator_virtual_remove(struct platform_device *pdev)
- 
- static struct platform_driver regulator_virtual_consumer_driver = {
- 	.probe		= regulator_virtual_probe,
--	.remove_new	= regulator_virtual_remove,
-+	.remove		= regulator_virtual_remove,
- 	.driver		= {
- 		.name		= "reg-virt-consumer",
- 		.probe_type	= PROBE_PREFER_ASYNCHRONOUS,
-diff --git a/drivers/regulator/wm8350-regulator.c b/drivers/regulator/wm8350-regulator.c
-index 9939a5d2cbec..d09864bae5ef 100644
---- a/drivers/regulator/wm8350-regulator.c
-+++ b/drivers/regulator/wm8350-regulator.c
-@@ -1304,9 +1304,9 @@ EXPORT_SYMBOL_GPL(wm8350_register_led);
- 
- static struct platform_driver wm8350_regulator_driver = {
- 	.probe = wm8350_regulator_probe,
--	.remove_new = wm8350_regulator_remove,
--	.driver		= {
--		.name	= "wm8350-regulator",
-+	.remove = wm8350_regulator_remove,
-+	.driver = {
-+		.name = "wm8350-regulator",
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 	},
- };
-
-base-commit: 6d59cab07b8d74d0f0422b750038123334f6ecc2
 -- 
-2.45.2
-
+Jerome
 
