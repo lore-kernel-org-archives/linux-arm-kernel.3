@@ -4,87 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFC3D41D60
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 06:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D2ED41D5F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 06:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joM3NYmnrdckWAtqAAeMbz3+XvM8HAXjuHhuPldrIhQ=; b=Y5xj+HaefIQRLV9Q981V1xbj29
-	cPJgFiT22rltGbSYmO4Zc4H19zdqlGcWUvJu/rhSJWHGNpd4RdQgbgWW0v6JrTbLLAcLMofx2SHp3
-	AqKzSK+Km4hDQpi08B44q6MsrNs8StagQYrF2qpLolZaozDPsOhSVaPcA9OLC0fGIbNeR1SH5fLBa
-	XEaHMleuuIsg/Cpcs7LMP/FAmz8cqXIZ5W7SSxCT6EMUAhfmfCSPxZm3p1ifSauw/PqLwPW8pRG3w
-	0iuv8OUVooDqn1UfBUqcV7j3p374QyMnVUPiK42bsUyewzNxB0ijK7zIs2nlwQxmUm7y01/8A9if3
-	A3nrwxag==;
+	bh=FgpEPCHtoxOU//DTDxtoXSDKXPdjdESsDfmNgRYCxdk=; b=oQpkCpgJVVi+KOMx+vtOvYtYnX
+	VLghlATd2MMe270ybom0ljphoXIqR928cJGSc32KUcm3MYXmGVG3xcugZPc/YNKtkd5FTMajhmZ5E
+	WQbfi4deCgGEM91BPXsXNKuSitqbKDaK6i85Zgp62SDttXFDD3bUPcit6BPHq+L6Iuq5Sv4I1GMtA
+	/SF9COtxIHwdvaCO0z0U6aQKUzIG4a1TyG9ZOINDbFQOMIHVZ5seU6+19veEdrj6fTRjUOmsOQukr
+	5U5RaLdoPAZngMzeNhE4Y3vFOExrMdOhCukdHtx6GNF/O2/O3Nnt0YtoIodGfylf20rCHI2z6GuGY
+	2jEQ6bBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAklU-00000002NQe-3D5q;
-	Tue, 12 Nov 2024 06:52:40 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1tAknZ-00000002Nfa-45Ez;
+	Tue, 12 Nov 2024 06:54:50 +0000
+Received: from mail-db8eur05on20707.outbound.protection.outlook.com ([2a01:111:f403:2614::707] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAkgq-00000002MuO-0giO
+	id 1tAkl9-00000002NMI-3xof
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 06:47:54 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7f12ba78072so4007949a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 22:47:51 -0800 (PST)
+	Tue, 12 Nov 2024 06:52:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ehG2r4Stw7UMQk2lrNM7GP1+rsL9UAUjWkltCKZdLLHL0I6aE+3GtFuLi9SAmU3d6q97u4QzUJcyiNg3HNjKlJyTHEZzvW4m00A7xFzTClOuBEdN8eHdX4flhS80ewZAtqMSKyb/5xySwi6mQvSj536TclsF35TOTYtUIqoQx0YOIMnloIpWLd7c4gRduljiQKp0OBBCQ1JIlsJwzH+Zfzi3GemI3VPSWDXFGJ0QzYfMbmNPyRcDAiJTuMmmNo/OMlYfpLhVNZ/54vNiVj0xZVat6Fuc4hx4KCQ929/KQ/IrVWmogL7TPGRXX6bBXrLaPM/5in7aRpBpFncaOCOj3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FgpEPCHtoxOU//DTDxtoXSDKXPdjdESsDfmNgRYCxdk=;
+ b=MZxzzz4R5w4DCnTRUvOcX88kZcSkNAxUZKsS6QvuCAoy3EACgUH2vsXQykwRBzZ1xCY//br5XBztQYFxFkhDD1AYVC0sIaa+FGs4kbrLAeCEqckv1toqHDi2CKYcdNDa+vyIpSim+jKa9AnPtTkmj9s8n0ATKtJOB1GOxUiglHyiUjp3ezM2wGW1fY5vsMeMPP1bNcEs7Y91nsyY0veCuThZE4B/sGiG3RZzb98rlQBzSANPOE5DIfvrvl17WZEHjr29LB3yPcKkf74hHHQdS4DwdQUnt0yUAQZL39pY9kHlWNDwVNrQeHVh3aRAAeOHSAwcUmR0zI9IcaqbkvFomw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731394071; x=1731998871; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=joM3NYmnrdckWAtqAAeMbz3+XvM8HAXjuHhuPldrIhQ=;
-        b=iVdc+Hu+qyX7/6OOXENQTVgkYOvzWKlc/zVwaQt5qKjtkB4R0vwitT3vpSJZ8rWown
-         0Z1ENK2yZTeO81HqWqyJ/FI5kNWS1ySEzYJ/SMIPr0mOCl65A1LfQlo9xhpRIRRq/pTL
-         hd4LMNwrzvjsTbhbyn6uRAigdvL6OG2QSk/tYegX4TWZq6X5/qDa6mT0QhufBZORFtDL
-         Mxl7p8VEGt2+Jy2l3U4FIGqFpu5oHNzMOtgHENYvHtwopV2cRSYQm0T9Zi1SRUACP9Qm
-         32qeBXdGJn83HpQHkLv+g6tsn0hXNYUK6goLwrGolh3FYuQA5lPNozFuzmMbsv0E6aou
-         FgPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731394071; x=1731998871;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=joM3NYmnrdckWAtqAAeMbz3+XvM8HAXjuHhuPldrIhQ=;
-        b=jU7O+LmjNXdnxJn5bQvz4Yl+bZ8nCBhETWPU26aTcYwEkcLYVpA5fir3kw4K7xad3I
-         ugUn2BeM3QpG2xWAvHc5XSEkHwlZE+4nPpcKViHRFMVoAlh7NMj/G/BAb9SXiE9cOB/N
-         2GPHbxpSjHgtXGHObrUfxgZw8fRsBX/QEKW36ze6InoiWGsrd/s5FTJpUhk+ktgGWU2N
-         49SczjIsj1TH1o7FBwtsm52PRZIoXeORtPGSNWh6P4/ytGWazAJVFwm5w4jUVkNIpru6
-         qGKUA0rq8uvPElqvNuRBTgwnCaAwXy6pa4lKYEMhikwEKthszB2yU0qQhmedwPNoZwlf
-         we6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWRYFYf3vl2QH+6pT4w6xwbBwWx9Zep1oxwGDcoOsR/EnQ7KpFPpn0zPkl6Xk7Lq58aVpCi7Qob0k4WrLYDeKpe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5Ddcnsh+yG3wy+mpBpXj8GsYmhgUrv9clM+OlHOO/RhOLgJ01
-	2lSeb+n7CBlDHvsdQ5FhkpBDvf48h6y7L6lW0id9deY006MhsjoydN8/4h6y1g==
-X-Google-Smtp-Source: AGHT+IGmt6jecpj8o1YtItnfhiloe15JbFW/GZxGthEiDM/nykWYtzusHMMBkQlC4Te2n8f4030aRA==
-X-Received: by 2002:a05:6a20:3d88:b0:1d4:e68c:2eb9 with SMTP id adf61e73a8af0-1dc229afb71mr23328487637.20.1731394071234;
-        Mon, 11 Nov 2024 22:47:51 -0800 (PST)
-Received: from thinkpad ([117.213.103.248])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-724078cd28asm10382819b3a.85.2024.11.11.22.47.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 22:47:50 -0800 (PST)
-Date: Tue, 12 Nov 2024 12:17:43 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] dt-bindings: clock: actions,owl-cmu: convert to YAML
-Message-ID: <20241112064743.7qriuo2f26yq4jev@thinkpad>
-References: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FgpEPCHtoxOU//DTDxtoXSDKXPdjdESsDfmNgRYCxdk=;
+ b=KHMf9btXFvqFU1BxgPXStpiZ2+XlHzi3SlyUvVVzbCnZBvbZlOK+6VrhqCTcYHXga03q4xkXc7DA+7VDprFnIUv2jy14nHG1DieUbeb2z+Y5YOGQ7Yh99A7RUEk7ZkhP4JE7gQOsaVWFnRVOOjmzWVgi4tKcsbMelOvvQdsn0Pk=
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com (2603:10a6:20b:2d5::17)
+ by GV1PR04MB10654.eurprd04.prod.outlook.com (2603:10a6:150:209::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Tue, 12 Nov
+ 2024 06:52:14 +0000
+Received: from AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529]) by AM9PR04MB7586.eurprd04.prod.outlook.com
+ ([fe80::c04e:8a97:516c:5529%4]) with mapi id 15.20.8137.027; Tue, 12 Nov 2024
+ 06:52:13 +0000
+From: Josua Mayer <josua@solid-run.com>
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, Jon Nettleton <jon@solid-run.com>, Yazan Shhady
+	<yazan.shhady@solid-run.com>, Rabeeh Khoury <rabeeh@solid-run.com>
+Subject: Re: [PATCH 1/2] of: add support for value "false" to
+ of_property_read_bool
+Thread-Topic: [PATCH 1/2] of: add support for value "false" to
+ of_property_read_bool
+Thread-Index: AQHbNM32GnV3W6Mt9UCo8BZSzCrDrbKzNTKA
+Date: Tue, 12 Nov 2024 06:52:13 +0000
+Message-ID: <0f81c87f-478e-4f03-b7bb-ac33915340ed@solid-run.com>
+References: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+ <20241112-am64-overlay-bool-v1-1-b9d1faff444e@solid-run.com>
+In-Reply-To: <20241112-am64-overlay-bool-v1-1-b9d1faff444e@solid-run.com>
+Accept-Language: de-DE, en-US
+Content-Language: de-DE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB7586:EE_|GV1PR04MB10654:EE_
+x-ms-office365-filtering-correlation-id: 28f24e53-193b-4f43-1f53-08dd02e68a1d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?THIwODErSXJjeGgyaWVhS1NIWWxRdjQwa3Y2RWJUVElYL2ZYZmQ5ZHpYUUdh?=
+ =?utf-8?B?aiszK0dXaEh3cnUyYVlDM3dRd0k1V245bmt1R1AvaWNyR0RFTmlKNkNHaEpo?=
+ =?utf-8?B?Z2UzUlRCT1NhOGkzLzkxLzU1dVNja242cERkdHZJOW01dzJ5QlVIcVQ5TUpK?=
+ =?utf-8?B?MWdMREZnY3drUUl3bGFuU1kvSGZ6UGoxbHZPRXk3M1NnMW1WM2d3dUVvUjAw?=
+ =?utf-8?B?TlpoenU2OEZwaGthRlFicXNYWE81OUJVU1dTa01YT0FyVW1JNkMxbVFRUUFN?=
+ =?utf-8?B?Y2lhYmtLU0FSZ3B0S2huQ0tqcUowRTBKY015NmttaE9ZMGRHRk1GdkFGbndm?=
+ =?utf-8?B?bmIwcmlJOU8zOFVHQnVQRzZkYmc4b3VvZDUzRGdaeGNqVDVxOFVBZ3NJR01n?=
+ =?utf-8?B?c0I2dmNMU2cvdG5sQWpzNWJjVlFvZGErRTZOT0hQSDllUW5UaklWRVR1ZXFO?=
+ =?utf-8?B?V0N6ZVlzdFR5NVl6NlhFa29UdGtMSFRMOXZtc1hsc2pibjhYb2VVM0xzOUZN?=
+ =?utf-8?B?MVVMcFRWNVpDbFQ2YlJMYmRxQ3czZjFIUU4vVUlhUDEwN3FFVVhCc1NacHNl?=
+ =?utf-8?B?b080STFkUUNqZ1hKSW55QlY0a2VySkttTW5rdHdiaXhJNWVIeGxLSUs1MGlD?=
+ =?utf-8?B?eEJIblk4ODVCUTBuTWNjYVUzbE5mYVBUcnBzVFBXelBaOW4xVkIzdm5LL2Jm?=
+ =?utf-8?B?OVpZUTQ1bkxTU1FBb0RlY2JhUGlQTUIrMElEeHVMNWZMaEJ3bGtIWDRGU1ZC?=
+ =?utf-8?B?YklyWVhxUndUK3ZjUk03ZnZlcWZiYXRYNVBYajJoQlpEclo0VEhPalZUM1ky?=
+ =?utf-8?B?aERJbmJVb2lsUGVCRVdEM3IyTlQvcXFRQS85ejFNdzdFSGZCVERWSTdlNklT?=
+ =?utf-8?B?NXdDS1NEb0dtS3U1b1Jtd0FGdU1mbi9OU2RONDJvN0ZXdndMTjhURXBJUzJC?=
+ =?utf-8?B?eW9wbGwyY0VoOFBzL0FDYWxqaXdrWTZ0eHZocGVFL1h0ZzIveWNNZ29KRXdt?=
+ =?utf-8?B?N1pkNEhtRDNFMW9jQ3ZnWkpVbnowZjY4QU5DTGY1VVpLMzV2Z1VjNEJxTDZi?=
+ =?utf-8?B?MU45dUxrMXh5U2NWU0tOaGNObHNIZ2tRdFNublFvbWtNUFdIZUROeDF4THBF?=
+ =?utf-8?B?emxNTDlzdzhEd2hCZjNyeC8xZ1graXF4RmF4MUVqVklqR1A0UlJXZDJXc1pJ?=
+ =?utf-8?B?aTZEdTM4bXFKbWVBZkpmTEtZbFlxYjZjK3M2VzFxTlR6RFF1anFBVHVjczZI?=
+ =?utf-8?B?TzhaeWNiRHNrUmVPZnVvUkxrTEFCUzRObnM3UytQNzluYnJPNGVPWTNnc3dN?=
+ =?utf-8?B?ZkF5TGRwNGdhVGsvMDU1U2VydmxKNU1jOVdUYTBQdm9VYjlsM3FNaTl0a0lD?=
+ =?utf-8?B?d1pxT1VhOFNVVk1LZUxGUG03THR6OGd4TkIvV1U3WkRtdjRjMmZxcWNXV1Zs?=
+ =?utf-8?B?MXM0bnFvckIvbHQ2SVpGOXJXU1NBYXg5bmY1d3VZYnpmSzZSMm9QbEQ3aTBn?=
+ =?utf-8?B?cjRrRnlpTjNqQUNFZHRVek0zd0w3NHIxY2phRmZCMXNTQWg2L0xZb2k0L2NY?=
+ =?utf-8?B?ZmtDMXhEY3ZRUWhtVnZLYWZUbDR6TFBOYWxucWgzZ0V4TnRVVXlFU200U29m?=
+ =?utf-8?B?WVBsTWV4KzFHeXdQcTJodGVDT1dqcjVBeGJFaGs1TzNjbjAwMWpZSVJDTkoy?=
+ =?utf-8?B?NXQ5NU81eFEvYlpEZEprTmh4Rng2M0N1SlhLVGh6RHZ5elp5TTcwQ2lpZDU1?=
+ =?utf-8?B?T0xVd3lKOVNQR1ZWRk1XQitFMUlGOXMwMzNHbCtDTmsxNmVMUGVweCttd1d4?=
+ =?utf-8?Q?5I5qG2NCgIeRRkDqwL8sySUnBJ9pBow94XFGQ=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7586.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UXZLM2FRWmVSZmx6RXljREJUTVRHM2ZUNXBKNXVZSHlidHFMM2UvWlRMNHM0?=
+ =?utf-8?B?WFQwWm1ZM0VFV3dEbDMxRzZrMVBNRE8vMVowa2RkNjV0bDJqdWJvcEloaW5Z?=
+ =?utf-8?B?TExIeUFEM28vSnVmT0s3M1dEdy8vSTJMNXpjWjBkNjlHTXNWWTJ1dnp4MFgr?=
+ =?utf-8?B?MHlPaFlZZndoQkdmMTZjWFdVNXNjeC9NZkwzUERFSHBVRGJzdXpIVGQxZllv?=
+ =?utf-8?B?TEg0bTJGQ0FVQ1NqZVFrb3VSRmU2M055ZlF5Z0VJZVJGS1VzM2FNbXNXOW53?=
+ =?utf-8?B?QmVLWUxWOXdVMm1VL3JQWjNDK0puWkxIWUlaUjBsZk9Ea2NJZFV3ZjQzUUxx?=
+ =?utf-8?B?QW1kVnZwaW03YlFTSW9xbFI2TnNUVXo5d2dudkMzOXRHSERIaDFuUWs3VFVI?=
+ =?utf-8?B?bVl4eWYzTDR2RzIwQVZpdEh2SEMreFdPeTE3RW9Rd25VWk0yRzE0U0hoREhG?=
+ =?utf-8?B?ZkRUcmttNzM1MjRTVldkRXFucjYrUEoxd0owZmJOd3JsS3FVRXhTOVF2U0hU?=
+ =?utf-8?B?VXRlUHFmVmVhbkVDc2RaeU5YdTNnSTZxQWl2UjdLRjJJWFY0aHBjU2ZKdm9t?=
+ =?utf-8?B?a1k2eE9LQWxYVUczQ0FTVEN3R2xWNXJHR0FHRjJ0TW9xZS9hYzFWVWF6QTJy?=
+ =?utf-8?B?L2F0VDR6UjBYQk9vaitxMGJVYUtHN002cUVlY3RSelk5THVjR0NBSHp2NVVT?=
+ =?utf-8?B?aTRsK3VuL0RyMDFYZFBBTHJINzhqaXY1b0R4d2JMeTdKSERnM2Q1SnluUFh4?=
+ =?utf-8?B?Z1pXN0pNeUV0U1lLb0ZERVJHckxyZ0sxdUxiY1g4NXp2UXhkME1ldStOUWxo?=
+ =?utf-8?B?cWwzemJMMEZ0YnRkalFER0dGOTU2SnpMODZ5K2Rqem11NDR4TEw0ZHNINllo?=
+ =?utf-8?B?UmFHajNCTW5XSVhIR1ovVlp0bkFUYXMyQTFJRTRZZmFpMFRta3BqcUtYZktO?=
+ =?utf-8?B?N1ByN1ZSd3dmZFdTaVdGK1phNTh6ZlpuNkliMnVucHhWSnlQeEtobHBRT1pO?=
+ =?utf-8?B?NHU2cmVTbG5DeGRCWVk2UmxDSU9MSkd6U2h4RlJpWXk1aEtDRG4vYkJUUGRs?=
+ =?utf-8?B?ZWNtYlJaMDU2ZTJtR2hTYUlBWjhHZjAwZUF3Zy8wclBVbUVTbU9iWG90QXhD?=
+ =?utf-8?B?NTNTSGJpV0M5cElEVnZUYjh6bzdORXVaL280L25ZVnRpQU5WaHFKV1Y3NW10?=
+ =?utf-8?B?RGd2WktPQ0VncDlrZEVnanlKYnFOTlJOYm1hRXEvZXd5RHNSQjlnVm43eWNt?=
+ =?utf-8?B?RFE4N1AzdkxkcjdWWUdOTm0vemRseWFTNjhlZXc4djJ2Ulorb1NRMS9JZHdE?=
+ =?utf-8?B?TVpMbzljMDBlWWpXWm1MT1pFNnJrUlZncFlaK3FJWkl5OFhiL2ppMmNlWGQ2?=
+ =?utf-8?B?bjhZcVBiM1NnUVRZQ1hpWTdXRnlzNDY4MG5iUnN2T2VVOWxKZHhiaGZ3U3Ju?=
+ =?utf-8?B?Y2s2Z1dEdFFqa2tzVlpneGJOdDEvZ1pwMlhLZnpBbHJkQmVmNHpGQXlkQm8x?=
+ =?utf-8?B?dC9jSEo1eFpiMWE4bGJ4MUpiWEk2OVNrcmk4cElNZW5vWkZUUFZDTTFyVzh0?=
+ =?utf-8?B?bTdBZTJ6WmVvOHVIRVY1RGFqOVFNMEZaSzlRSkNMRkRaK1pYdlBnOG9PdW5i?=
+ =?utf-8?B?NVdnekE2VlhyaEtxVjhrZGJMOEpVMVVCbEUrd2U4bUUxbks4amhpSm5XZ0E1?=
+ =?utf-8?B?LzJBdHRtd3dNNnFyM1hOWU5NUWZ3RUFIOWxMYkpWN1BJWThIT3lZWCs3K1A4?=
+ =?utf-8?B?QUJDbmhXcXZEWXoyRERSTmlFTmpIclJKTk9jclc3VUdZT1BSd01nenB3T3pI?=
+ =?utf-8?B?bC9iV1N3QUdFNnVPbTlid1BFVFcwcVdBT1BrYUFIWlhpN0tKNGhlUStxTDgy?=
+ =?utf-8?B?Sm8rOWU3RE5EWDB1OXo5eVBWRmFzdzNvMmRWbFNTd0NSbk9uRVRJYUFJVjJJ?=
+ =?utf-8?B?Wk5Gblh0Qll4M0dyYnAzVmx1VzFOWDE2NjdvVlVBM1NBOEhDczRodUpDWVo2?=
+ =?utf-8?B?V1F1TXltWXErb09kamsxMjVpc09ZeUptQ05FMmEycGJ2TW1vajR2Q1JiNVRE?=
+ =?utf-8?B?Z3d2a3JkWlpKdE81MTdrTUxJaXlrMTQzSVFrR2drUHoySmxNYmJEbis3VWlz?=
+ =?utf-8?Q?Jd2c=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <943F26BA9723D84888887DB2FC8CCD21@eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241107143431.728669-1-ivo.ivanov.ivanov1@gmail.com>
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7586.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28f24e53-193b-4f43-1f53-08dd02e68a1d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2024 06:52:13.9286
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1clSwmGng+HdeYn+4t8WzXIh9Xm06BvbVLznWlMBxs/+CSw/tiKyCy7NWRvO2mAQeHo5QSpK9nMg36CYQCDi4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_224752_239398_4BD840E6 
-X-CRM114-Status: GOOD (  29.51  )
+X-CRM114-CacheID: sfid-20241111_225220_011467_03D42FC8 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,178 +185,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 04:34:31PM +0200, Ivaylo Ivanov wrote:
-> Convert the Actions Semi Owl CMU bindings to DT schema.
-> 
-> Changes during conversion:
->  - Since all Actions Semi Owl SoCs utilize the internal low frequency
->    oscillator as a parent for some clocks, require it.
-> 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-
-Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-Thanks!
-
-- Mani
-
-> ---
-> v3: list the headers in the description
-> v3: match properties: order with required:
-> v3: add clocks as a required property
-> v3: drop unused example node label
-> v3: use the preferred four-space indentation for dts example
-> 
-> v2: drop address and size cells from example
-> ---
->  .../bindings/clock/actions,owl-cmu.txt        | 52 ----------------
->  .../bindings/clock/actions,owl-cmu.yaml       | 60 +++++++++++++++++++
->  MAINTAINERS                                   |  2 +-
->  3 files changed, 61 insertions(+), 53 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
->  create mode 100644 Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt b/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-> deleted file mode 100644
-> index d19885b7c..000000000
-> --- a/Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-> +++ /dev/null
-> @@ -1,52 +0,0 @@
-> -* Actions Semi Owl Clock Management Unit (CMU)
-> -
-> -The Actions Semi Owl Clock Management Unit generates and supplies clock
-> -to various controllers within the SoC. The clock binding described here is
-> -applicable to S900, S700 and S500 SoC's.
-> -
-> -Required Properties:
-> -
-> -- compatible: should be one of the following,
-> -	"actions,s900-cmu"
-> -	"actions,s700-cmu"
-> -	"actions,s500-cmu"
-> -- reg: physical base address of the controller and length of memory mapped
-> -  region.
-> -- clocks: Reference to the parent clocks ("hosc", "losc")
-> -- #clock-cells: should be 1.
-> -- #reset-cells: should be 1.
-> -
-> -Each clock is assigned an identifier, and client nodes can use this identifier
-> -to specify the clock which they consume.
-> -
-> -All available clocks are defined as preprocessor macros in corresponding
-> -dt-bindings/clock/actions,s900-cmu.h or actions,s700-cmu.h or
-> -actions,s500-cmu.h header and can be used in device tree sources.
-> -
-> -External clocks:
-> -
-> -The hosc clock used as input for the plls is generated outside the SoC. It is
-> -expected that it is defined using standard clock bindings as "hosc".
-> -
-> -Actions Semi S900 CMU also requires one more clock:
-> - - "losc" - internal low frequency oscillator
-> -
-> -Example: Clock Management Unit node:
-> -
-> -        cmu: clock-controller@e0160000 {
-> -                compatible = "actions,s900-cmu";
-> -                reg = <0x0 0xe0160000 0x0 0x1000>;
-> -                clocks = <&hosc>, <&losc>;
-> -                #clock-cells = <1>;
-> -                #reset-cells = <1>;
-> -        };
-> -
-> -Example: UART controller node that consumes clock generated by the clock
-> -management unit:
-> -
-> -        uart: serial@e012a000 {
-> -                compatible = "actions,s900-uart", "actions,owl-uart";
-> -                reg = <0x0 0xe012a000 0x0 0x2000>;
-> -                interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-> -                clocks = <&cmu CLK_UART5>;
-> -        };
-> diff --git a/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-> new file mode 100644
-> index 000000000..1717099b7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
-> @@ -0,0 +1,60 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/actions,owl-cmu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Actions Semi Owl Clock Management Unit (CMU)
-> +
-> +maintainers:
-> +  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> +
-> +description: |
-> +  The Actions Semi Owl Clock Management Unit generates and supplies clock
-> +  to various controllers within the SoC.
-> +
-> +  See also::
-> +    include/dt-bindings/clock/actions,s500-cmu.h
-> +    include/dt-bindings/clock/actions,s700-cmu.h
-> +    include/dt-bindings/clock/actions,s900-cmu.h
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - actions,s500-cmu
-> +      - actions,s700-cmu
-> +      - actions,s900-cmu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Host oscillator source
-> +      - description: Internal low frequency oscillator source
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@e0160000 {
-> +        compatible = "actions,s900-cmu";
-> +        reg = <0xe0160000 0x1000>;
-> +        clocks = <&hosc>, <&losc>;
-> +        #clock-cells = <1>;
-> +        #reset-cells = <1>;
-> +    };
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 420d06d37..652c9822a 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2016,7 +2016,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  L:	linux-actions@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/arm/actions.yaml
-> -F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.txt
-> +F:	Documentation/devicetree/bindings/clock/actions,owl-cmu.yaml
->  F:	Documentation/devicetree/bindings/dma/owl-dma.yaml
->  F:	Documentation/devicetree/bindings/i2c/i2c-owl.yaml
->  F:	Documentation/devicetree/bindings/interrupt-controller/actions,owl-sirq.yaml
-> -- 
-> 2.43.0
-> 
-
--- 
-மணிவண்ணன் சதாசிவம்
+QW0gMTIuMTEuMjQgdW0gMDg6NDEgc2NocmllYiBKb3N1YSBNYXllcjoNCj4gQm9vbGVhbiB0eXBl
+IHByb3BlcnRpZXMgYXJlIHVzdWFsbHkgY29uc2lkZXJlZCB0cnVlIGlmIHByZXNlbnQgYW5kIGZh
+bHNlDQo+IHdoZW4gdGhleSBkbyBub3QgZXhpc3QuIFRoaXMgd29ya3Mgd2VsbCBmb3IgbWFueSBp
+bi10cmVlIGJvYXJkIGR0cyBhbmQNCj4gZXhpc3RpbmcgZHJpdmVycy4NCj4NCj4gV2hlbiB1c2Vy
+cyBuZWVkIHRvIG92ZXJycmlkZSBib29sZWFuIHZhbHVlcyBmcm9tIGluY2x1ZGVkIGR0cyBpbmNs
+dWRlcywNCj4gL2RlbGV0ZS1wcm9wZXJ0eS8gaXMgcmVjb21tZW5kLiBUaGlzIGhvd2V2ZXIgZG9l
+cyBub3Qgd29yayBpbiBvdmVybGF5cw0KPiAoYWRkb25zKS4NCj4NCj4gU2V2ZXJhbCBwbGFjZXMg
+dXNlIHN0cmluZyAidHJ1ZSIgKFsxXSwgWzJdLCBbM10pIGFuZCBvbmUgdXNlcyBzdHJpbmcNCj4g
+ImZhbHNlIiAoWzFdKS4gVGhpcyBzdWdnZXN0cyB0aGF0IGF0IHNvbWUgcG9pbnQgdGhlIHZhbHVl
+IG9mIGEgdHlwZQ0KPiBzdHJpbmcgcHJvcGVydHkgd2FzIHRvIGJlIHRha2VuIGludG8gYWNjb3Vu
+dCBkdXJpbmcgZXZhbHVhdGlvbi4NCj4NCj4gQ2hhbmdlIG9mX3Byb3BlcnR5X3JlYWRfYm9vbCB0
+byBvbmx5IHJldHVybiB0cnVlIGlmIGEgcHJvcGVydHkgaXMgYm90aA0KPiBwcmVzZW50LCBhbmQg
+bm90IGVxdWFsICJmYWxzZSIuDQo+DQo+IEV4aXN0aW5nIHVzYWdlIGluIGRyaXZlcnMvb2YgYW5k
+IGluY2x1ZGUvbGludXgvb2YuaCBhcmUgdXBkYXRlZA0KPiBhY2NvcmRpbmdseS4NCj4gT3RoZXIg
+cGxhY2VzIHNob3VsZCBiZSByZXZpZXdlZCBhcyBuZWVkZWQgd3J0LiBjaGFuZ2VkIHNlbWFudGlj
+cy4NCj4NCj4gWzFdIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9zb3VuZC9ydDU2
+NTEudHh0DQo+IFsyXSBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc291bmQvcGNt
+MzA2MC50eHQNCj4gWzNdIGFyY2gvYXJtL2Jvb3QvZHRzL3RpL29tYXAvYW0zMzV4LWJhbHRvcy5k
+dHNpDQo+DQo+IFNpZ25lZC1vZmYtYnk6IEpvc3VhIE1heWVyIDxqb3N1YUBzb2xpZC1ydW4uY29t
+Pg0KPiAtLS0NClBsZWFzZSBub3RlIHRoaXMgcGF0Y2gtc2V0IGhhcyBvbmx5IGJlZW4gdGVzdGVk
+IHRvIGNvbXBpbGUsDQpJIGRvIG5vdCBjb25zaWRlciBpdCByZWFkeSBmb3IgY3VycmVudCBtZXJn
+ZSB3aW5kb3cuDQoNCkkgd291bGQgaG93ZXZlciBhcHByZWNpYXRlIGNvbW1lbnRzLg0KDQo=
 
