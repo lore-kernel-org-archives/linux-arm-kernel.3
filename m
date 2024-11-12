@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA7CD41D41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C5AD41D42
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbP5DCM03nPHhB2PUDdN9HKFsz/JxPmvAuGZNQQ1Sto=; b=hZHqZMQ9dgy2tQMhSIVO2nE0OJ
-	7pEgyhw7ITpfSsdwugs9dq7QeacPG40acKtmf1H9gRGpq7FQNtQgZSHqfZ4IEQ4nAA4lGE6hd/O/r
-	xxOQwNp5z+odjIvV5NH5A3jG/NY3avvt+Lz15wAQahSBNEVzQWvk5MU/glgB/Sj6SFwrY6GkfEwkD
-	3+PV97gFZcO+2zQGel+mxdCI/9E4jQrAo2jI8wtLHquhT6N1lOQJo18CED5lksKwrOk65GfQtPm8N
-	MLJAnwA0bnjoWlF/Pci9LVrLGf+IQROV9LyPaXNfcml3xweEfS9xVrxwueiAwtTrkO63u4STFb20I
-	DnVBmcPw==;
+	bh=sSy2edxmtXKc+543Ncg0L7eL3GjF7Af4fPBOTmvVjUk=; b=CpSxpu+4k2s/YvneshGV8U9rT8
+	dDgJXWfV+LIfIqRIk+mnpKe4ghKJFhzQw4xThaVQ7SY24oDo1wHcNZpOBJTNhDZYRioxgom+7J6CQ
+	Zfb+aBDHAxiJfeBLX2pRjIa3g/YjzH0hPEr30E+kIJdZwRGbvqnOfP1ptkwayDMUidF09wRoga4cA
+	zRKCWmy4xqyH7oud3LtoT9F+fDOFzuVBGBU2lETJbcxnjr+S7/kK73yZQ74GD8auGqpOATjar28MK
+	/A347lYJw2YIWDfGxGo8UZ4a0I8Pd6qBiUm6wsAYb1h3hksf5kd2/VNmhB2FaKL3jkmytUxwmiWrp
+	Q7E4J4EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAehK-00000001jPe-2tWn;
-	Tue, 12 Nov 2024 00:23:58 +0000
+	id 1tAej5-00000001jds-1GYY;
+	Tue, 12 Nov 2024 00:25:47 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAeTg-00000001hcg-0raR
+	id 1tAeVs-00000001i0g-2d3o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 00:09:53 +0000
+	Tue, 12 Nov 2024 00:12:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4DC3A5C5D32;
-	Tue, 12 Nov 2024 00:09:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E312C4CECF;
-	Tue, 12 Nov 2024 00:09:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 367615C578F;
+	Tue, 12 Nov 2024 00:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB5FC4CECF;
+	Tue, 12 Nov 2024 00:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731370191;
-	bh=jlZDDRZ80YrCEZP6PYAXZ69UYnlvobdXU8ley54UQpI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qVaPw2fvkRToBcVxLLIsxMuauCg2zome8OYWw76HP/s20Dl8eZGruInFOXZD5TNoP
-	 K9b15iy41vRBcb02RgKm7Xl4g7g0vMX1p/eF7bmImn9zsfGaHOhO6NzPFrsSYPNts0
-	 JukCIB6rzrxeRKuxeyFmZSV23Q5fV/Z9M9O2AOQds67dhNaVwwo33plhY9t6sftz14
-	 S0I9x0LPQwXdJf4Qst+hr9HgyjCt+F+xMf5/xA7hV6CHdXNS+xg7NN+EFRA8xwpJJS
-	 uCCYY1pnvQiPANxgqCmvOl/jIE98LfhRJlCw245OCrLlHunjLl9c8G7D+exYmQy1zk
-	 3ug2L1UVuqHYQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 12 Nov 2024 01:08:54 +0100
-Subject: [PATCH RESEND v2 7/7] clk: en7523: map io region in a single block
+	s=k20201202; t=1731370327;
+	bh=F6KtVDx7kefgsDbbvSvre0SI4ek2HJre6EpkN5nZLpw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FYtWjqgoyYor2KQxuCduFyVPGGug7Lae6Zmq//DBd3J775HaM3IaD89LNwlzGfzg8
+	 OTbdTKXJNxQ7RyTm/Uf3WjPXmMeT5O+324PbmckBkAIr+vu3Hisv/RQ+px6riH/ew9
+	 EvzwcyclN8+IzKBkfEDqUbK5gE4mrRnEDF5MObJoeQoQxwuk1cOoO6ls0My5yu96wx
+	 AslbCPGQqKPkw4swgS1D4SPmEY0D2GeJvPbvqytMxbsfghFSySvHDlc7/qImqc3ZgG
+	 frjtrVU+2NYAa3e1d2JYggboGUkn5HZd4Q36XxubIDtQnn2ie3QdpX7feyV1rmruUu
+	 dFA/HxKRYepAQ==
+Date: Mon, 11 Nov 2024 16:12:05 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
+ Cochran <richardcochran@gmail.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 4/9] net: stmmac: Introduce dwmac1000
+ ptp_clock_info and operations
+Message-ID: <20241111161205.25c53c62@kernel.org>
+In-Reply-To: <20241106090331.56519-5-maxime.chevallier@bootlin.com>
+References: <20241106090331.56519-1-maxime.chevallier@bootlin.com>
+	<20241106090331.56519-5-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241112-clk-en7581-syscon-v2-7-8ada5e394ae4@kernel.org>
-References: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
-In-Reply-To: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- upstream@airoha.com, angelogioacchino.delregno@collabora.com, 
- linux-arm-kernel@lists.infradead.org, lorenzo.bianconi83@gmail.com, 
- ansuelsmth@gmail.com, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_160952_363762_8E006F48 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20241111_161208_738738_3F8F6531 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map all clock-controller memory region in a single block.
-This patch does not introduce any backward incompatibility since the dts
-for EN7581 SoC is not upstream yet.
+On Wed,  6 Nov 2024 10:03:25 +0100 Maxime Chevallier wrote:
+> +		mutex_unlock(&priv->aux_ts_lock);
+> +
+> +		/* wait for auxts fifo clear to finish */
+> +		ret = readl_poll_timeout(ptpaddr + PTP_TCR, tcr_val,
+> +					 !(tcr_val & GMAC_PTP_TCR_ATSFC),
+> +					 10, 10000);
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/clk/clk-en7523.c | 32 +++++++++++++-------------------
- 1 file changed, 13 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-index 60dc938144d75b5fa21c9109ff05ed1083a16678..e52c5460e927f54c6df152c60560f438f89ec928 100644
---- a/drivers/clk/clk-en7523.c
-+++ b/drivers/clk/clk-en7523.c
-@@ -39,8 +39,8 @@
- #define REG_PCIE_XSI1_SEL_MASK		GENMASK(12, 11)
- #define REG_CRYPTO_CLKSRC2		0x20c
- 
--#define REG_RST_CTRL2			0x00
--#define REG_RST_CTRL1			0x04
-+#define REG_RST_CTRL2			0x830
-+#define REG_RST_CTRL1			0x834
- 
- struct en_clk_desc {
- 	int id;
-@@ -645,15 +645,9 @@ static const struct reset_control_ops en7581_reset_ops = {
- 	.status = en7523_reset_status,
- };
- 
--static int en7581_reset_register(struct platform_device *pdev)
-+static int en7581_reset_register(struct device *dev, void __iomem *base)
- {
--	struct device *dev = &pdev->dev;
- 	struct en_rst_data *rst_data;
--	void __iomem *base;
--
--	base = devm_platform_ioremap_resource(pdev, 1);
--	if (IS_ERR(base))
--		return PTR_ERR(base);
- 
- 	rst_data = devm_kzalloc(dev, sizeof(*rst_data), GFP_KERNEL);
- 	if (!rst_data)
-@@ -677,27 +671,27 @@ static int en7581_reset_register(struct platform_device *pdev)
- static int en7581_clk_hw_init(struct platform_device *pdev,
- 			      struct clk_hw_onecell_data *clk_data)
- {
--	void __iomem *np_base;
- 	struct regmap *map;
-+	void __iomem *base;
- 	u32 val;
- 
- 	map = syscon_regmap_lookup_by_compatible("airoha,en7581-chip-scu");
- 	if (IS_ERR(map))
- 		return PTR_ERR(map);
- 
--	np_base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(np_base))
--		return PTR_ERR(np_base);
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
- 
--	en7581_register_clocks(&pdev->dev, clk_data, map, np_base);
-+	en7581_register_clocks(&pdev->dev, clk_data, map, base);
- 
--	val = readl(np_base + REG_NP_SCU_SSTR);
-+	val = readl(base + REG_NP_SCU_SSTR);
- 	val &= ~(REG_PCIE_XSI0_SEL_MASK | REG_PCIE_XSI1_SEL_MASK);
--	writel(val, np_base + REG_NP_SCU_SSTR);
--	val = readl(np_base + REG_NP_SCU_PCIC);
--	writel(val | 3, np_base + REG_NP_SCU_PCIC);
-+	writel(val, base + REG_NP_SCU_SSTR);
-+	val = readl(base + REG_NP_SCU_PCIC);
-+	writel(val | 3, base + REG_NP_SCU_PCIC);
- 
--	return en7581_reset_register(pdev);
-+	return en7581_reset_register(&pdev->dev, base);
- }
- 
- static int en7523_clk_probe(struct platform_device *pdev)
-
--- 
-2.47.0
-
+Is there a good reason to wait for the flush to complete outside of 
+the mutex? 
 
