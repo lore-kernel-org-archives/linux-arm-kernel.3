@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A56D42BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9428D42BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=hP/6BTtfVrlzPASrrwZJXcpBCS
-	57trrrJMEXl0VvdbX/j3DfNSCyL7RPoNA04zELW35zkA5FzSgQslFjYSgAEO5lsPiqbwaYSLDb/rs
-	sUYuidx/vzB4AQFACI9Rl4Ppr9cc07mM+xBWTy3jzaALIUAGoR6uq2k/DF2MZdNwmaRKjT/qbBofX
-	+ipX8q8aS1R8RosmsAGq/Gt32zyFghPNKuVS2godbvHDlrTpfPf8/Hl7P2uVBW7iZg41HENfOytOM
-	XLHJNZbhcPNoz/rBnD6KyCq+ahS1XbOmEvRi0u2Fh0/kNZiPoSxCS2p3D11gw1GZ48O2b78kp0dzC
-	FZ2DIvFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m0S+ziWpAwUJSREUA/B7jG4iDwiU6qMbGdTb6OjfvPI=; b=iLEJauAWOdGWnJ8AVli7KxgmiX
+	ae+wMa1ry9GL6v7wsMl8vcGMCCc3B7Eusd8my13j0wyka+kQ5TMmBHhXURhpGey6shjnev0fHgZ2L
+	ALvr6/pFrX8BDrdIsPRzBkQ6zoVxyKOOpjw+CRaGCC8wmsvW27qj441Uzqa30t2f01bmoy2izeh9T
+	kuKCuq06JQR8pa4seJKu8t+ZGEIu9FBSivrS2WR8geFF0w3kTeLt0tJIA1S6+QxOd/ziHAuspaU++
+	L5WB0a+VQvT4xF5KZjrS+EZ5gNoERMsq06kGA9OJ9IpNsydpJoc0ooiDZID6ypYOmiGy5DOlbPOTa
+	eIY384sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuQA-00000004Ish-1Rl4;
-	Tue, 12 Nov 2024 17:11:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tAuRx-00000004JO9-1mB8;
+	Tue, 12 Nov 2024 17:13:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuBP-00000004F6P-12ug
+	id 1tAuCI-00000004FKg-2HuU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 16:56:04 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ACFml05011732;
-	Tue, 12 Nov 2024 16:55:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2d8lH+LvVClXz36Mw/guiwdLgrwKANSS/DsNzWrGd9Q=; b=VUpaFs5U7h8SG9qn
-	rHoXa72mUQJYgagW/qzC0ckZ3EQ91fTvHy2LKz1iHNBXYlCECk21H+OoOm3URLAs
-	+FuGD+udsmqnmrwMjP5Nx0EL+BQKOOhd2M82BYjPnfPrZjIGUNdOF//QZo7u0OUQ
-	bNaGLvR8tnNMU1Qp436CA4IHYucht7RiEw0S6hpZkKEvE3ZKrV2UGBZbsBcn3g+I
-	KGYY+WlOhwK2SAST4QaGhsfusetin9L+LU6rGq3eap9KvYp7CZ00tPkkmPkofMK6
-	mZWav70H5pvd7rPRnIIK5XP1PmSILrEqd/66kjzXEf2+zyBvOdqJW9cfZMB+lTHq
-	0plCPA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42va0789sp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 16:55:55 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ACGtsof021462
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Nov 2024 16:55:54 GMT
-Received: from hu-bibekkum-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 12 Nov 2024 08:55:49 -0800
-From: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-To: <robdclark@gmail.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-        <joro@8bytes.org>, <jgg@ziepe.ca>, <jsnitsel@redhat.com>,
-        <robh@kernel.org>, <krzysztof.kozlowski@linaro.org>,
-        <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@linaro.org>
-CC: <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <quic_bibekkum@quicinc.com>
-Subject: [PATCH v17 5/5] iommu/arm-smmu: add ACTLR data and support for qcom_smmu_500
-Date: Tue, 12 Nov 2024 22:24:54 +0530
-Message-ID: <20241112165454.2698269-6-quic_bibekkum@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112165454.2698269-1-quic_bibekkum@quicinc.com>
-References: <20241112165454.2698269-1-quic_bibekkum@quicinc.com>
+	Tue, 12 Nov 2024 16:57:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A2BB4A41F21;
+	Tue, 12 Nov 2024 16:55:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09C3AC4CECD;
+	Tue, 12 Nov 2024 16:56:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731430616;
+	bh=EQvwaUi2w45hQ0nesz6tI/0jRlGB8KnI5X1+VY1Emb4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gyDGHS8VsFO8YiUHKzzdrGVONkbwC6XBKloCM7ImIfjtBGzSzNAUgp2U1WQRNik81
+	 Fsef0rzOtkP2gxPHhseqbSGQUo+F007cVaRRm44WCe98vAwzUKEsIImwT1EVlLXEEz
+	 0LPJez1/xObpd4tI+PXrrXb1OOwTry4zKTP8DK80gDMaU+/6dzq1hkBA8kBgDGuAIh
+	 InhNdo6bpFLAoS8m7e+5Nejf1cDjQeqc0stHuDrWH0xdL7jzaX5A21tmfk1g5qFhJ1
+	 EUacgxVFtwvt6r+/zqkKBBkvW0fRLCFGYz0b3KVM4AcH0I70MqjMdfXNiVT4hNrF9p
+	 aXeJjSEvP0IdQ==
+From: Will Deacon <will@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	thierry.reding@gmail.com,
+	vdumpa@nvidia.com,
+	jonathanh@nvidia.com,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH rc] iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift
+Date: Tue, 12 Nov 2024 16:56:50 +0000
+Message-Id: <173142418330.1973910.1191259071038387348.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20241111030226.1940737-1-nicolinc@nvidia.com>
+References: <20241111030226.1940737-1-nicolinc@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: g_z-qUezpbYOLDlUIzcf8arn2WQoYb3n
-X-Proofpoint-ORIG-GUID: g_z-qUezpbYOLDlUIzcf8arn2WQoYb3n
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 malwarescore=0
- mlxlogscore=999 clxscore=1015 adultscore=0 lowpriorityscore=0 spamscore=0
- impostorscore=0 mlxscore=0 suspectscore=0 priorityscore=1501 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
- definitions=main-2411120135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_085603_430023_33496C12 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20241112_085658_671131_E9BCA0E2 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,69 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACTLR data table for qcom_smmu_500 including
-corresponding data entry and set prefetch value by
-way of a list of compatible strings.
+On Sun, 10 Nov 2024 19:02:26 -0800, Nicolin Chen wrote:
+> When configuring a kernel with PAGE_SIZE=4KB, depending on its setting of
+> CONFIG_CMA_ALIGNMENT, VCMDQ_LOG2SIZE_MAX=19 could fail the alignment test
+> and trigger a WARN_ON:
+>     WARNING: at drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:3646
+>     Call trace:
+>      arm_smmu_init_one_queue+0x15c/0x210
+>      tegra241_cmdqv_init_structures+0x114/0x338
+>      arm_smmu_device_probe+0xb48/0x1d90
+> 
+> [...]
 
-Signed-off-by: Bibek Kumar Patro <quic_bibekkum@quicinc.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Applied to iommu (arm/smmu), thanks!
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index b595fee23836..5106103574ab 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -16,8 +16,40 @@
+[1/1] iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift
+      https://git.kernel.org/iommu/c/a3799717b881
 
- #define QCOM_DUMMY_VAL	-1
+Cheers,
+-- 
+Will
 
-+/*
-+ * SMMU-500 TRM defines BIT(0) as CMTLB (Enable context caching in the
-+ * macro TLB) and BIT(1) as CPRE (Enable context caching in the prefetch
-+ * buffer). The remaining bits are implementation defined and vary across
-+ * SoCs.
-+ */
-+
-+#define CPRE			(1 << 1)
-+#define CMTLB			(1 << 0)
-+#define PREFETCH_SHIFT		8
-+#define PREFETCH_DEFAULT	0
-+#define PREFETCH_SHALLOW	(1 << PREFETCH_SHIFT)
-+#define PREFETCH_MODERATE	(2 << PREFETCH_SHIFT)
-+#define PREFETCH_DEEP		(3 << PREFETCH_SHIFT)
- #define GFX_ACTLR_PRR          (1 << 5)
-
-+static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
-+	{ .compatible = "qcom,adreno",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-gmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,adreno-smmu",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,fastrpc",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc7280-venus",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8550-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ }
-+};
-+
- static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
- {
- 	return container_of(smmu, struct qcom_smmu, smmu);
-@@ -620,6 +652,7 @@ static const struct qcom_smmu_match_data qcom_smmu_500_impl0_data = {
- 	.impl = &qcom_smmu_500_impl,
- 	.adreno_impl = &qcom_adreno_smmu_500_impl,
- 	.cfg = &qcom_smmu_impl0_cfg,
-+	.client_match = qcom_smmu_actlr_client_of_match,
- };
-
- /*
---
-2.34.1
-
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
