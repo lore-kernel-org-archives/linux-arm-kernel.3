@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F50D42B8E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D261AD42B8E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5U7EE1N72jYpLIg8Fj0M/UmGtlM1TOXxGedfthEm/LU=; b=R0JkKWp2d2utprb6AdTWWv0Mvy
-	+KUE/7/nAiZj3uKgWUwA6/4fvkTjpXHo+OpowFnJeRFeDI7uHLGUSoT+XFW9imAdY8SLOQmqVhH0W
-	8/+OhAAVx4F9Tm78y4GAYBBOQ3i3oWZzHtvHNxOaadHlnYNTAI7+wGPJHULoC36aUGb4cutPmewsp
-	XdZ7+rqPHu9ieJ1K1kkRBcgczRVO9g2edht6J6JVvIj7m0K58Fe7vt4Ki4c9BK2KRN+Pv5jzLqBWV
-	LoAlKAiASbWLVe+DM8Q1xMRnFY0Kk38eh7SaV9DPCwQEnR8rm+ypAsUJSyQMFL/UVXUT6BqhtWLBN
-	YRJZB+ww==;
+	bh=CG97sZh70iY+cnptGxipuAKxkR7xfSv9HweSflom4f8=; b=vxla+LgpSZdme0yr7QUtDv71TR
+	r2UIkYCV5NUYMoKpGCdE79HvOgGbMUhd08pM196l+hC3C2N81QuAKgZ7FpO7noHcAav+Vpzp3m5X3
+	0WI89Vrxhozxp++xfdnSGptjfN2UWCG/VgXEX5yc26Q/9hHwkuIXO8dHD5yo+PTCt6s2z2NAKvlge
+	Xd3hT72ZJBY6DUNY4FUZ2RaOSe5nWpmVZECzouPtWK7k6Rc5kbD8OZkFOI2t50weGT1eHzTBATKVM
+	RcDTL4zXH98L9juxFFBJy2LqpXXi2xcu5UhR+3NG/mEGndkF6eQ/ODb08VRyPwBXptRFvlf9Dfi18
+	LZIaTaaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsO5-00000003ri0-1rRq;
-	Tue, 12 Nov 2024 15:01:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tAsQ7-00000003sGi-1yPg;
+	Tue, 12 Nov 2024 15:03:07 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsJI-00000003qOg-3szJ;
-	Tue, 12 Nov 2024 14:56:06 +0000
+	id 1tAsOG-00000003rlv-03AX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Nov 2024 15:01:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B913FA41CEA;
-	Tue, 12 Nov 2024 14:54:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C12EC4CED0;
-	Tue, 12 Nov 2024 14:56:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 96449A41D3E;
+	Tue, 12 Nov 2024 14:59:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AD8DC4CECD;
+	Tue, 12 Nov 2024 15:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731423363;
-	bh=sjtOX4U8btZ+pX6YU8B2jICTN2PT+V0pityV9K3OEgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KG/3GkRi+PzBfH0bPRDfobz/mT6+gCk2ZgvEyfYWyaNYDoNZb+9U60lRz9cdNT+e6
-	 nHGX3+wQnkZ+H8qTc+YFS+CzEHgCK/Ls29Bxb4S+iXjJ5ssiJ2XixMHOqrZGSuzbFe
-	 Ksy8hqJ0fytWVXguZLHlZemeCQbrhv7ePNflyzZrpBk3+waNIp9vWKDHeB3jp1P0c9
-	 Yyz3tVLv5kDfVS8jksqk5yiJq3atGT/9huj2YjQf/vvqbshjBQCYyRH4TPOIqQ2Rdn
-	 BKicNTOAMNcj0XpM6nr1j7nDm5T1LJKWb+A5/nEHUysh9o5K6NjtbkonT1Ps8dFfGc
-	 GSUBBhWMM8Jrg==
-Date: Tue, 12 Nov 2024 08:56:01 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew@lunn.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-mediatek@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	Florian Fainelli <f.fainelli@gmail.com>,
+	s=k20201202; t=1731423670;
+	bh=Gf8uszhCfusiw1ItUnt3wAwlqc3863Gu5tZDl/Tw5bI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=qm28EQd0YllKNaLq16hQuq31v2NXg7WusBq6E/6dmSioCEnypeGf6UuzsnH+CICET
+	 3hcV3l5LVKY8c8t21QKZ6glWV2X1LSrJVqc/DLDVx8+5B+N483LxlGIPSA3/xXwWXx
+	 LyYmfRzsCSBFocUJrKcEaTHBqT9kmeKUFfyD++nNfCI0zb8IY5LLd1AUiJqla2VF2c
+	 5kM2mCQz3OxgXl/X+1wDnH07Y5zwPbODQFnTDhgL2YFyv3mZef4xZYTUkyejS+qG2B
+	 0QRQ2n8WHbZnRDUTCjxXbWoM6OpaFANFOLCNeiwUkxpjRqafDSPtq+Ehad4Qugu0sG
+	 k5snDbVzisKxg==
+Received: from [104.132.45.109] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tAsOC-00CE6n-9o;
+	Tue, 12 Nov 2024 15:01:08 +0000
+Date: Tue, 12 Nov 2024 15:01:07 +0000
+Message-ID: <875xosts24.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>, Fuad Tabba <tabba@google.com>
+Cc: broonie@kernel.org,
+	kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, upstream@airoha.com,
-	"David S. Miller" <davem@davemloft.net>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jakub Kicinski <kuba@kernel.org>, linux-kernel@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>, devicetree@vger.kernel.org,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Subject: Re: [net-next PATCH v4 1/3] dt-bindings: net: dsa: Add Airoha AN8855
- Gigabit Switch documentation
-Message-ID: <173142336068.894176.10211231485154959915.robh@kernel.org>
-References: <20241108132511.18801-1-ansuelsmth@gmail.com>
- <20241108132511.18801-2-ansuelsmth@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241108132511.18801-2-ansuelsmth@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Don't save FP traps in default cptr_el2 value
+In-Reply-To: <20241112105032.793274-1-james.clark@linaro.org>
+References: <20241112105032.793274-1-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 104.132.45.109
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, tabba@google.com, broonie@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_065605_052500_03A3ECC5 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20241112_070112_201871_084A1CA2 
+X-CRM114-Status: GOOD (  35.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +91,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 08 Nov 2024 14:24:14 +0100, Christian Marangi wrote:
-> Add Airoha AN8855 5 port Gigabit Switch documentation.
+On Tue, 12 Nov 2024 10:50:31 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> The switch node requires an additional mdio node to describe each internal
-> PHY absolute address on the bus.
+> kvm_get_reset_cptr_el2() is called at vcpu init before the vcpu is
+> loaded. Since the linked commit, the fp state was moved from the vcpu to
+> host data but it shouldn't be accessed at this point.
 > 
-> Calibration values might be stored in switch EFUSE and internal PHY
-> might need to be calibrated, in such case, airoha,ext-surge needs to be
-> enabled and relative NVMEM cells needs to be defined in nvmem-layout
-> node.
+> Move the bits that require guest_owns_fp_regs() out of the default value
+> and into just before they're used in activate and deactivate traps. This
+> fixes the following bug when nvhe && vcpu_has_sve() == true:
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+>  BUG: using smp_processor_id() in preemptible [00000000] code: lkvm/118
+>  caller is debug_smp_processor_id+0x20/0x30
+>  CPU: 0 UID: 0 PID: 118 Comm: lkvm Not tainted 6.12.0-rc1+ #35
+>  Hardware name: FVP Base RevC (DT)
+>  Call trace:
+>   dump_backtrace+0xfc/0x120
+>   show_stack+0x24/0x38
+>   dump_stack_lvl+0x3c/0x98
+>   dump_stack+0x18/0x28
+>   check_preemption_disabled+0xe0/0xe8
+>   debug_smp_processor_id+0x20/0x30
+>   guest_owns_fp_regs+0x1c/0xb0
+>   kvm_arch_vcpu_ioctl+0xcfc/0xe10
+>   kvm_vcpu_ioctl+0x6c4/0x8a0
+>   __arm64_sys_ioctl+0x9c/0xe0
+>   invoke_syscall+0x4c/0x110
+>   el0_svc_common+0xb8/0xf0
+>   do_el0_svc+0x28/0x40
+>   el0_svc+0x4c/0xc0
+>   el0t_64_sync_handler+0x84/0x100
+>   el0t_64_sync+0x190/0x198
+> 
+> Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+> Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  .../bindings/net/dsa/airoha,an8855.yaml       | 242 ++++++++++++++++++
->  1 file changed, 242 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855.yaml
 > 
+> I'm only mildly confident that the logic here is equivalent to before.
+> Someone with a bit more context about the FP stuff can say, or if there
+> is a neater way to fix this issue altogether.
+> 
+>  arch/arm64/include/asm/kvm_emulate.h | 15 +++++++++------
+>  arch/arm64/kvm/hyp/nvhe/switch.c     |  3 ++-
+>  2 files changed, 11 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index cf811009a33c..0eefb9fb08a0 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -629,16 +629,12 @@ static __always_inline u64 kvm_get_reset_cptr_el2(struct kvm_vcpu *vcpu)
+>  			val |= CPACR_EL1_SMEN_EL1EN;
+>  	} else if (has_hvhe()) {
+>  		val = CPACR_ELx_FPEN;
+> -
+> -		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
+> +		if (!vcpu_has_sve(vcpu))
+>  			val |= CPACR_ELx_ZEN;
+>  		if (cpus_have_final_cap(ARM64_SME))
+>  			val |= CPACR_ELx_SMEN;
+>  	} else {
+>  		val = CPTR_NVHE_EL2_RES1;
+> -
+> -		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
+> -			val |= CPTR_EL2_TZ;
+>  		if (cpus_have_final_cap(ARM64_SME))
+>  			val &= ~CPTR_EL2_TSM;
+>  	}
+> @@ -648,8 +644,15 @@ static __always_inline u64 kvm_get_reset_cptr_el2(struct kvm_vcpu *vcpu)
+>  
+>  static __always_inline void kvm_reset_cptr_el2(struct kvm_vcpu *vcpu)
+>  {
+> -	u64 val = kvm_get_reset_cptr_el2(vcpu);
+> +	u64 val = vcpu->arch.cptr_el2;
+>  
+> +	if (has_hvhe()) {
+> +		if (!guest_owns_fp_regs())
+> +			val |= CPACR_ELx_ZEN;
+> +	} else if (!has_vhe()) {
+> +		if (vcpu_has_sve(vcpu) && guest_owns_fp_regs())
+> +			val |= CPTR_EL2_TZ;
+> +	}
+>  	kvm_write_cptr_el2(val);
+>  }
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> index cc69106734ca..296c4155e1fc 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+> @@ -60,7 +60,8 @@ static void __activate_traps(struct kvm_vcpu *vcpu)
+>  			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
+>  
+>  		__activate_traps_fpsimd32(vcpu);
+> -	}
+> +	} else if (!has_hvhe() && vcpu_has_sve(vcpu))
+> +		val |= CPTR_EL2_TZ;
+>  
+>  	kvm_write_cptr_el2(val);
+>  	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+I think this is papering over the real issue, which is that we
+conflate reset value for the host and what is required for the guest
+to run.
 
+CPTR_EL2 is state-dependent, as you found out. And that really only
+means one single thing: it cannot be initialised outside of the vcpu
+being either loaded or run, both of which require being in a
+non-preemptible section.
+
+There is also another thing: VHE rebuilds the guest's CPTR_EL2 view
+from scratch, while the nVHE takes the saved state, mutates it in
+funny ways before applying it, and pKVM does all sorts of interesting
+manipulations before hitting the nVHE code.
+
+What I would really like to see is:
+
+- when entering the guest, we recompute the run-time value of CPTR_EL2
+  from scratch, just like VHE does.
+
+- when exiting the guest, we reset the value using the current helper,
+  which takes the guest state into account.
+
+- pKVM should be converted to using the plain nVHE code.
+
+- vcpu->arch.cptr_el2 should be killed.
+
+I think Fuad has already started on some of that. Fuad, do you mind
+adding that to your current rework and post something shortly?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
