@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8557BD32D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E72D32D9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gDXLlEBTBdfCW0pRLwkL7WPQJCPHrwLUbjWuA8Ci2KM=; b=eoSQBeeEFTx9jiLc3PUT9sU8LX
-	vSvgOxwlsLp9QBugIPoLS8VyXufhPqZVNjINWmwHkeh73TlTPthaNoniDKUZTGv+cR0IxsSAnIJ6C
-	1XWk01FWZIv5SdDz5NqueUMvwIgYVaFu3DxY6q4+j6Z4TZ1igTyRLdgS61LhvQfV0xoofCkfINuFV
-	btaAKPeYW0LOgvRDFEgcTHQ3+DhM/MP6IKHYD682fryjo8yAsWZZRl36Wzh0zZeNpVr3xag5CTRR8
-	BHXd4yL5t984RSgFJiLg2FumHXNftwGeKVUWII42DNExopi4KJiXPIJT5puzVsZ6rVGc9Qqr8deuF
-	4GrXC0qA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XUe71YecPH7XQ8UJJ5yU95TDCXx24YG8e7+/RrAak7Y=; b=y2Pn9lvMgUHu0+SFn3UN3HWSq5
+	tMu4QdVNTkTY/EeTh3wADJRHDtd0HDhI61LSN2d7pGLWsHn4f3/kRcOVGpyv6GAuToVwl4BD9Z6Iu
+	2M30ly7CZxdQZK2NkXZgpTQeSMW8uqka35w702/2xCIN5iD3PWxEw9sKDSKBBY5fvjHFPQqJaZ6JK
+	cJJHSs323FtNbhcM/WyBEyr4USjXz72Z9lpNxNIIWBdoeeO7aTucuWTqM8xeYIdyobO2pW1J7Ofcf
+	L6KUNsfBu4TUS23VhOnw1cDQVsl5bK37N23n+nkYS0KuptWG05jyY8weeGXVdn+uwcK1knqCIauU6
+	MrDAVPDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApm7-00000003MIV-0ccf;
-	Tue, 12 Nov 2024 12:13:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAp8k-00000003EqT-2dyg
+	id 1tApnr-00000003MYe-2zx5;
+	Tue, 12 Nov 2024 12:15:27 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tApAA-00000003F8N-3PwB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 11:33:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D60C25E4;
-	Tue, 12 Nov 2024 03:33:27 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 017123F762;
-	Tue, 12 Nov 2024 03:32:54 -0800 (PST)
-Date: Tue, 12 Nov 2024 11:32:51 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Code Kipper <codekipper@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-sunxi@googlegroups.com,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, wens@csie.org,
- macromorgan@hotmail.com, jszhang@kernel.org, uwu@icenowy.me,
- ryan@testtoast.com, dsimic@manjaro.org, mripard@kernel.org,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 2/2] arm64: dts: allwinner: Add initial support for the
- X96Q-Pro STB
-Message-ID: <20241112113251.305295db@donnerap.manchester.arm.com>
-In-Reply-To: <CAEKpxB=EE8WC6EETxJz-Qp42TchDSRTp1T+KiGMfQ4Kv9dvG1g@mail.gmail.com>
-References: <20241111162524.46812-1-codekipper@gmail.com>
-	<20241111162524.46812-3-codekipper@gmail.com>
-	<20241111172731.54154a3e@donnerap.manchester.arm.com>
-	<CAEKpxB=EE8WC6EETxJz-Qp42TchDSRTp1T+KiGMfQ4Kv9dvG1g@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Tue, 12 Nov 2024 11:34:28 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-37d5aedd177so3247221f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 03:34:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731411265; x=1732016065; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XUe71YecPH7XQ8UJJ5yU95TDCXx24YG8e7+/RrAak7Y=;
+        b=RrcZKdnWprdn5pHqx6LEDNjUvwCDOZG53m5NZy8WdImV9n684eeGAS81/t4O5JR8nR
+         nrJsZ7IQqueeCbF7pIF2FwZ7HZg8hyM5kHK234AEv4XbxmY+a4RXaTREwhzyxuwR4Eo9
+         wtkOoT866LGZ5O1E3NC0A+Mkl/qyfCmjBw2tLwp5uZmT6xz2JwzjCQsOZik0Vw1r0L2a
+         wM2mU/lfT18bLujJnCZJS6qqLrIE+fJsxuo/DWLU2gbpN7GKqWK0h5GyoNOm/28yXmOk
+         leiaq8luVs+POXQJuOrxl6/P4gPY6lezGobS977uRss08QPpmHvJayuCx+6sbFd4WMXi
+         1Ccw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731411265; x=1732016065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XUe71YecPH7XQ8UJJ5yU95TDCXx24YG8e7+/RrAak7Y=;
+        b=eFgdSOLAwUbUwhDsY3WerK/8sy0PiO2hat8MAKSzVuWsjiVn6mOwgflOWkD5I7f3bG
+         Zg4rVegDYw58l6whelxATyQOmtfzfCDcI4tCerU8LqC9ISBeuFW/YbD2dK/zbhdk0Vtu
+         LxwsCM30MuP6ojdJmwU1HlC1gvUGfO56GsGH0eiN8f9AqI4upW9Yc5vT1JxRjB4jvd80
+         xHcWQ+GaIN6RSOdsAFp4rZdb0TkgCYb2M3Ju2gCweAl7zXsLys4JMFJ8g2IOj/Aiwwpr
+         Q6iDtkEpame/9rdXLgY2wmeaF9BgKfi+wIC7xNJl5mlDcyiCbWSNksvbjn/rXD73+dYi
+         RR9g==
+X-Forwarded-Encrypted: i=1; AJvYcCXNro1IKhFBCx+iXtfB/lE4OTtZX7/cZbi0REsBAC0MIQEBTOk2F716IKnftPUVwwgD+gxGvR5Sktay308m+z9H@lists.infradead.org
+X-Gm-Message-State: AOJu0YymaJ/bnOkb31AbB6GL4p4rJ7pVPC2muIJRqjpZh6o30b5DeuLO
+	70oWLsl0CxruFWmSM07ixXcRXKuOlcsokbE58tyc+gCtw/H3CKO5N8jnCSV6X+0=
+X-Google-Smtp-Source: AGHT+IH7M/UX7fkmVreC1luerEEXE6GOHNSoZB9sCqED65rS6AXsEUNqfA2l6fwGjpmBaETaxjbK2Q==
+X-Received: by 2002:a5d:6c69:0:b0:37d:94d6:5e20 with SMTP id ffacd0b85a97d-381f17261d6mr14681736f8f.4.1731411264652;
+        Tue, 12 Nov 2024 03:34:24 -0800 (PST)
+Received: from alex-rivos.home (lfbn-lyo-1-472-36.w2-7.abo.wanadoo.fr. [2.7.62.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed97fe9bsm15071138f8f.35.2024.11.12.03.34.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 03:34:24 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH -fixes] drivers: perf: Fix wrong put_cpu() placement
+Date: Tue, 12 Nov 2024 12:34:22 +0100
+Message-Id: <20241112113422.617954-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_033258_815722_F496527A 
-X-CRM114-Status: GOOD (  43.75  )
+X-CRM114-CacheID: sfid-20241112_033427_085907_1A949A4E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,297 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 11:42:17 +0100
-Code Kipper <codekipper@gmail.com> wrote:
+Unfortunately, the wrong patch version was merged which places the
+put_cpu() after enabling a static key, which is not safe as pointed by
+Will [1], so move put_cpu() before to avoid this.
 
-Hi,
+Fixes: 2840dadf0dde ("drivers: perf: Fix smp_processor_id() use in preemptible code")
+Reported-by: Atish Patra <atishp@rivosinc.com>
+Link: https://lore.kernel.org/all/20240827125335.GD4772@willie-the-truck/ [1]
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> On Mon, 11 Nov 2024 at 18:27, Andre Przywara <andre.przywara@arm.com> wrote:
-> >
-> > On Mon, 11 Nov 2024 17:25:06 +0100
-> > codekipper@gmail.com wrote:
-> >
-> > Hi Marcus,
-> >
-> > many thanks for sending this!
-> >  
-> > > From: Marcus Cooper <codekipper@gmail.com>
-> > >
-> > > The X96Q-Pro is an STB based on the Allwinner H313 SoC with a SD
-> > > slot, 2 USB-2 ports, a 10/100M ethernet port using the SoC's
-> > > integrated PHY, Wifi via an sdio wifi chip, HDMI, an IR receiver,
-> > > a blue LED display, an audio video connector and an digital S/PDIF
-> > > connector.
-> > >
-> > > Add the devicetree file describing the currently supported features,
-> > > namely IR, LEDs, SD card, PMIC, audio codec, SPDIF and USB.  
-> >
-> > This looks good on a first glance, but seems to miss the DVFS bits? So you
-> > would need to #include "sun50i-h616-cpu-opp.dtsi" and specify the cpu0
-> > power supply rail, otherwise you will be stuck at 1GHz.  
-> Hi Andre,
-> thanks for the speedy review. I'll add the cpu0 rail but I can't get
-> the device to clock more than 1GHz. Isn't that the case with the H313
-> chipset?,
-> your Tanix TX1 device doesn't reference the opp.dtsi,
-> although I do see from the wiki that it's clocked at 1.3GHz
-
-It's "do as I say, not do as I do" :-D
-Just kidding, actually many thanks for the heads up: you are right, it's
-missing there! I think it was just the case of both being merged at the
-same time, and the -cpu-opp.dtsi not being in the branch where I based the
-.dts on. Will test and fix it!
-
-Regarding the OPPs: If you look at the table in
-sun50i_h616_efuse_xlate()[1], and then compare this to those SID numbers collected
-in our wiki[2], you will see that the "bins" are actually the packages:
-All H616s we have seen use 0x5000 (that's the low 16 bits of the first SID
-register value), the H618s uses 0x2000, and presumably all H313s use
-0x5c00, and so on. I think BSP code confirms that.
-So the H313 uses a separate set of OPPs already (set 4), which is indeed
-the worst of them all: is requires higher voltages, and only provides up
-to 1.3GHz. So I *think* we should be covered. But please test this and
-report back if you have any issues.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/cpufreq/sun50i-cpufreq-nvmem.c#n67
-[2] https://linux-sunxi.org/SID_Register_Guide#Currently_known_SID.27s
-
-> > Or is there any issue preventing you doing this?
-> >
-> > Two more things below:
-> >  
-> > > Signed-off-by: Marcus Cooper <codekipper@gmail.com>
-> > > ---
-> > >  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
-> > >  .../dts/allwinner/sun50i-h313-x96q-pro.dts    | 176 ++++++++++++++++++
-> > >  2 files changed, 177 insertions(+)
-> > >  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h313-x96q-pro.dts
-> > >
-> > > diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-> > > index 00bed412ee31c..e0bcea1840c1f 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/Makefile
-> > > +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> > > @@ -18,6 +18,7 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-sopine-baseboard.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-teres-i.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h64-remix-mini-pc.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a100-allwinner-perf1.dtb
-> > > +dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h313-x96q-pro.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-bananapi-m2-plus.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-bananapi-m2-plus-v1.2.dtb
-> > >  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-emlid-neutis-n5-devboard.dtb
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h313-x96q-pro.dts b/arch/arm64/boot/dts/allwinner/sun50i-h313-x96q-pro.dts
-> > > new file mode 100644
-> > > index 0000000000000..4427545ea143c
-> > > --- /dev/null
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h313-x96q-pro.dts
-> > > @@ -0,0 +1,176 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
-> > > +/*
-> > > + */  
-> >
-> > Is this missing some copyright notice here?  
-> Ack
-> >  
-> > > +
-> > > +/dts-v1/;
-> > > +
-> > > +#include "sun50i-h616.dtsi"
-> > > +
-> > > +#include <dt-bindings/gpio/gpio.h>
-> > > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > +
-> > > +/ {
-> > > +     model = "X96Q Pro";
-> > > +     compatible = "amediatech,x96q-pro", "allwinner,sun50i-h616";
-> > > +
-> > > +     aliases {
-> > > +             serial0 = &uart0;
-> > > +     };
-> > > +
-> > > +     chosen {
-> > > +             stdout-path = "serial0:115200n8";
-> > > +     };
-> > > +
-> > > +     reg_vcc5v: vcc5v {
-> > > +             /* board wide 5V supply directly from the DC input */
-> > > +             compatible = "regulator-fixed";
-> > > +             regulator-name = "vcc-5v";
-> > > +             regulator-min-microvolt = <5000000>;
-> > > +             regulator-max-microvolt = <5000000>;
-> > > +             regulator-always-on;
-> > > +     };
-> > > +
-> > > +     sound-spdif {
-> > > +             compatible = "simple-audio-card";
-> > > +             simple-audio-card,name = "sun50i-h616-spdif";
-> > > +
-> > > +             simple-audio-card,cpu {
-> > > +                     sound-dai = <&spdif>;
-> > > +             };
-> > > +
-> > > +             simple-audio-card,codec {
-> > > +                     sound-dai = <&spdif_out>;
-> > > +             };
-> > > +     };
-> > > +
-> > > +     spdif_out: spdif-out {
-> > > +             #sound-dai-cells = <0>;
-> > > +             compatible = "linux,spdif-dit";
-> > > +     };
-> > > +};
-> > > +
-> > > +&codec {
-> > > +     allwinner,audio-routing = "Line Out", "LINEOUT";
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&ehci0 {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&ehci3 {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&ir {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&mmc0 {
-> > > +     vmmc-supply = <&reg_dldo1>;
-> > > +     cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;  /* PF6 */
-> > > +     bus-width = <4>;
-> > > +     status = "okay";
-> > > +};  
-> >
-> > Would it make sense to add the mmc1 node here, even if there is no driver
-> > in Linux atm for the WiFi chip? Thanks to SDIO we wouldn't need a
-> > compatible string, I think. This would also then allow us to describe the
-> > connected GPIOs.  
-> Ack
-> >
-> > And does the box have Bluetooth?  
-> No it doesn't just the XR819 for wifi.
-
-Ah, right, bummer, same with the TX1, which is a bit annoying, because
-having BT would make this a bit more useful.
-
-> I'll spin a V2 after a few days,
-
-Thanks!
-
-Cheers,
-Andre
-
-> BR,
-> CK
-> >
-> > Cheers,
-> > Andre
-> >  
-> > > +
-> > > +&mmc2 {
-> > > +     vmmc-supply = <&reg_dldo1>;
-> > > +     vqmmc-supply = <&reg_aldo1>;
-> > > +     bus-width = <8>;
-> > > +     non-removable;
-> > > +     cap-mmc-hw-reset;
-> > > +     mmc-ddr-1_8v;
-> > > +     mmc-hs200-1_8v;
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&ohci0 {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&ohci3 {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&pio {
-> > > +     vcc-pc-supply = <&reg_dldo1>;
-> > > +     vcc-pf-supply = <&reg_dldo1>;
-> > > +     vcc-pg-supply = <&reg_aldo1>;
-> > > +     vcc-ph-supply = <&reg_dldo1>;
-> > > +     vcc-pi-supply = <&reg_dldo1>;
-> > > +};
-> > > +
-> > > +&r_i2c {
-> > > +     status = "okay";
-> > > +
-> > > +     axp313: pmic@36 {
-> > > +             compatible = "x-powers,axp313a";
-> > > +             reg = <0x36>;
-> > > +             #interrupt-cells = <1>;
-> > > +             interrupt-controller;
-> > > +             interrupt-parent = <&pio>;
-> > > +             interrupts = <2 9 IRQ_TYPE_LEVEL_LOW>;  /* PC9 */
-> > > +
-> > > +             vin1-supply = <&reg_vcc5v>;
-> > > +             vin2-supply = <&reg_vcc5v>;
-> > > +             vin3-supply = <&reg_vcc5v>;
-> > > +
-> > > +             regulators {
-> > > +                     /* Supplies VCC-PLL, so needs to be always on. */
-> > > +                     reg_aldo1: aldo1 {
-> > > +                             regulator-always-on;
-> > > +                             regulator-min-microvolt = <1800000>;
-> > > +                             regulator-max-microvolt = <1800000>;
-> > > +                             regulator-name = "vcc1v8";
-> > > +                     };
-> > > +
-> > > +                     /* Supplies VCC-IO, so needs to be always on. */
-> > > +                     reg_dldo1: dldo1 {
-> > > +                             regulator-always-on;
-> > > +                             regulator-min-microvolt = <3300000>;
-> > > +                             regulator-max-microvolt = <3300000>;
-> > > +                             regulator-name = "vcc3v3";
-> > > +                     };
-> > > +
-> > > +                     reg_dcdc1: dcdc1 {
-> > > +                             regulator-always-on;
-> > > +                             regulator-min-microvolt = <810000>;
-> > > +                             regulator-max-microvolt = <990000>;
-> > > +                             regulator-name = "vdd-gpu-sys";
-> > > +                     };
-> > > +
-> > > +                     reg_dcdc2: dcdc2 {
-> > > +                             regulator-always-on;
-> > > +                             regulator-min-microvolt = <810000>;
-> > > +                             regulator-max-microvolt = <1100000>;
-> > > +                             regulator-name = "vdd-cpu";
-> > > +                     };
-> > > +
-> > > +                     reg_dcdc3: dcdc3 {
-> > > +                             regulator-always-on;
-> > > +                             regulator-min-microvolt = <1100000>;
-> > > +                             regulator-max-microvolt = <1100000>;
-> > > +                             regulator-name = "vdd-dram";
-> > > +                     };
-> > > +             };
-> > > +     };
-> > > +};
-> > > +
-> > > +&spdif {
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&uart0 {
-> > > +     pinctrl-names = "default";
-> > > +     pinctrl-0 = <&uart0_ph_pins>;
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&usbotg {
-> > > +     dr_mode = "host";       /* USB A type receptable */
-> > > +     status = "okay";
-> > > +};
-> > > +
-> > > +&usbphy {
-> > > +     status = "okay";
-> > > +};  
-> >
-> > d  
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 391ca1422cae..1aa303f76cc7 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1393,8 +1393,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 			goto out_unregister;
+ 
+ 		cpu = get_cpu();
+-
+ 		ret = pmu_sbi_snapshot_setup(pmu, cpu);
++		put_cpu();
++
+ 		if (ret) {
+ 			/* Snapshot is an optional feature. Continue if not available */
+ 			pmu_sbi_snapshot_free(pmu);
+@@ -1408,7 +1409,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 			 */
+ 			static_branch_enable(&sbi_pmu_snapshot_available);
+ 		}
+-		put_cpu();
+ 	}
+ 
+ 	register_sysctl("kernel", sbi_pmu_sysctl_table);
+-- 
+2.39.2
 
 
