@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A09D32D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FA3D32D9D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ad9oE+xya/MpsUvlYaHSj/pWSZ2u59IeSaNdikPKrc=; b=U6yFH7gFey56l7zgJlim8YBkXo
-	EOz0OQYnx5Fowdi2rMfV7KFSjC6ApWmZ8AC5uJaQWdIwxXq2wEkAOGoiMnoHC1w2Au2Lt+63v+X5B
-	zAbVsNG0LjKs71z6Vez98D4zdJ4RjP8yLBP5n8rEN5NeZqnk6Tkbogfjwbx+q+ADFxGGlHVacwm8e
-	uaZFzzukc8zrnF0s97O0scxGCU+WD9JuYk2/KznyHMO5y6oU+Y9XPWwmvC5jBb634PfhbMF89zBmn
-	2wqLS453mRN4XPHjKBrVpAwyP5eVUg3DAXzHmKzH/Ftb06pff9cU+bVvaZPbYcDyoYmhVd78nOMIb
-	MoZv1gCQ==;
+	bh=Dve47PPywbzmC71DwIokR5Livc7p7GDoL0DU0ts/bK8=; b=4ThqtcVRjC4ikRxLxNO37A3y/y
+	h3JqNitmGKoxdt62jIdfhhlYOWiR5gatdgAnPvf8FswKyNMsHi6k+ewcZL4AG60pYilam4yM0NSEv
+	KnHqqszsoO9Eba3iM0s+FR03fQgjMmVgn/giHuQzz2jIQQsCu4+0rnpV9WtkK9IWCX385XE3M6zic
+	st9Z0IX80BcNWw7wDDJnZzmxVzMKugUpmKbG0hZBTvUQmLcACcehsoo4hUwMYPyp4gmsar7Jr2Fqj
+	g+H7QaQzydTI2E4R2NQbqYtfUg2qc+22RRAJ9iRVtBHWKArOo5+pf3sS2XOQsJ4HvntJtYUuC+JZ4
+	iX55i1AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApgr-00000003LMz-3xi7;
-	Tue, 12 Nov 2024 12:08:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tApib-00000003Lap-3xrm;
+	Tue, 12 Nov 2024 12:10:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAp3n-00000003DrV-28Ek
+	id 1tAp6B-00000003EGb-2S84
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 11:27:52 +0000
+	Tue, 12 Nov 2024 11:30:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2E448A419F6;
-	Tue, 12 Nov 2024 11:25:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88B73C4CECD;
-	Tue, 12 Nov 2024 11:27:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731410870;
-	bh=f0VPYp2OO3whp5YDsd40TwogfCDX5tumV8g575tkc+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r9nO8jOwGdE2eJmRA3VqYyeS0I/abCFyhLXCKxSVUtBqc5I9rp6fKuIQeWWgKUlQF
-	 Yu9hfER2m48nJ7yoKInSMkfmDi4ozET6F4JiZ/caS/zH32FBGXCArEpWncOMj+Ae4R
-	 iuP73/ZkYIVkIDGFKdw748sTjNVGbwLGUgH+DJSZWhsxNwgJM69dUgzgGtAbU+mBLS
-	 ChDQAQnxu0R0jLxg2pCaUfYNzhYaZcjlcycaUcqUnzgkm+FaXMBSgozj+g+6apA74c
-	 DW1ZL3dXrVuwbslORr9fG+ES/JukXbcg/bUjzmAu8YvcwkqHWUyu46kwtV0FTT4Jxc
-	 J0gYYPn0sf7qA==
-Date: Tue, 12 Nov 2024 11:27:46 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4D72E5C2C81
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 11:29:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A035C4CECD;
+	Tue, 12 Nov 2024 11:30:17 +0000 (UTC)
+Date: Tue, 12 Nov 2024 11:30:14 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 2/4] kselftest/arm64: Use a define for SVCR
-Message-ID: <ZzM7shsAlpOks5pp@finisterre.sirena.org.uk>
-References: <20241107-arm64-fp-ptrace-fpmr-v1-0-3e5e0b6e3be9@kernel.org>
- <20241107-arm64-fp-ptrace-fpmr-v1-2-3e5e0b6e3be9@kernel.org>
- <ZzKUaqv_K-MRTti4@arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kselftest/arm64: Check that SVCR is 0 in signal handlers
+Message-ID: <ZzM8RrD248eSW5bG@arm.com>
+References: <20241106-arm64-fpmr-signal-test-v1-1-31fa34ce58fe@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gcR+M1ygfRDpV8Bq"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZzKUaqv_K-MRTti4@arm.com>
-X-Cookie: Editing is a rewording activity.
+In-Reply-To: <20241106-arm64-fpmr-signal-test-v1-1-31fa34ce58fe@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_032751_632643_184EEBA0 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20241112_033019_685687_11FAF786 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +62,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 06, 2024 at 05:07:51PM +0000, Mark Brown wrote:
+> diff --git a/tools/testing/selftests/arm64/signal/testcases/ssve_regs.c b/tools/testing/selftests/arm64/signal/testcases/ssve_regs.c
+> index 6dbe48cf8b09ed8b7a5ab47690bd87e39e18e1e6..3dee68fa36d1cf2716f54d5f328b3f4077493c3b 100644
+> --- a/tools/testing/selftests/arm64/signal/testcases/ssve_regs.c
+> +++ b/tools/testing/selftests/arm64/signal/testcases/ssve_regs.c
+> @@ -85,6 +85,11 @@ static int do_one_sme_vl(struct tdescr *td, siginfo_t *si, ucontext_t *uc,
+>  	fprintf(stderr, "Got expected size %u and VL %d\n",
+>  		head->size, ssve->vl);
+>  
+> +	if (get_svcr() != 0) {
+> +		fprintf(stderr, "Unexpected SVCR %llx\n", get_svcr());
+> +		return 1;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/tools/testing/selftests/arm64/signal/testcases/za_regs.c b/tools/testing/selftests/arm64/signal/testcases/za_regs.c
+> index b9e13f27f1f9aaf55db2a5e391f360993561d0b7..9fff4c50030414d06157e0da0c29fd794f707309 100644
+> --- a/tools/testing/selftests/arm64/signal/testcases/za_regs.c
+> +++ b/tools/testing/selftests/arm64/signal/testcases/za_regs.c
+> @@ -91,6 +91,11 @@ static int do_one_sme_vl(struct tdescr *td, siginfo_t *si, ucontext_t *uc,
+>  		return 1;
+>  	}
+>  
+> +	if (get_svcr() != 0) {
+> +		fprintf(stderr, "Unexpected SVCR %llx\n", get_svcr());
+> +		return 1;
+> +	}
 
---gcR+M1ygfRDpV8Bq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I think I'll change both printf specifiers to %lx here since in the libc
+I have installed, uin64_t is an unsigned long (the kernel defines it as
+unsigned long long). Both gcc and clang complain but the compiler
+shouldn't matter since the headers come with glibc.
 
-On Mon, Nov 11, 2024 at 11:34:02PM +0000, Catalin Marinas wrote:
-
-> I get an error when trying to build this out of tree:
-
-> /home/cmarinas/work/linux/tools/testing/selftests/../../../tools/arch/arm64/include/asm/sysreg.h:132:10: fatal error: asm/sysreg-defs.h: No such file or directory
->   132 | #include "asm/sysreg-defs.h"
->       |          ^~~~~~~~~~~~~~~~~~~
-
-> Probably sysreg-defs.h has not been generated yet. Too late to figure it
-> out now.
-
-We can just drop this from the series and replace it with dropping the
-FPMR define that we did this for into the patch that uses it, it's just
-mildly annoying.
-
---gcR+M1ygfRDpV8Bq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmczO7AACgkQJNaLcl1U
-h9CHBAf+PPh7lLLzU6GxFh5DqMg1ZlACdjTyDjhV8GK64oD/SfS1snUL7DX4F4VN
-7QOFaexuWZdXC0zQn3Ln72r9Of59gxIbRyK8X5mljc991QGuGZln3VyiBXcnPSYJ
-HvLAX8eqp9q9s50l+Awsl7kC1WxpfLTpDtmsiXcyU2o3Ap5sCZeWDxrQgx08khRD
-cTdiO0n29BH9BJtlhuQCSflcl2A5HhrmcC2F8p474Ms81OtGpEuw6Rc4A3z3juX7
-8jsDaMGM+kz2y/S9oUbPj4ss50vbfkmM5C9GUmEuZdq67RrTSikz6nr9xejxzpXB
-gaRlRgv5pzWJEnCH8AN4+A0qphOINg==
-=igwC
------END PGP SIGNATURE-----
-
---gcR+M1ygfRDpV8Bq--
+-- 
+Catalin
 
