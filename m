@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB6FD597AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9254D597AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=F+8DSvnMtK/+kFPyqK6ZYIj5qETWKP7+DJeOfOGzDV4=; b=rN4fwDMC8pBwH+
-	Ft7IedJy6vF0HRp6uJKaGG8c4wigmy85aWT7u/GSXYA1F+eP24CTOt4Rm+/kMfzZPJfIFWAs7ze1o
-	coKt/O713s5YIi7L3C1I5ekvUCXILlkfRI6VikMbS7JlD7QelsSd57Q0BwboPrHxyeHCpC8iIV4R6
-	cuyGi7wYyRRz2UXnP45c7RXHTJMrNcObKzAVmOUf2ddmvB2yc6xCJJsS4FFm5lZLZLpxzOtyJ7R5b
-	1exLzOGMntIhTTQOMNK/52roNrk0tRs82SNtgQMqWTZX/OOFptGjXN4DgQifihkST1afutjjdhJGK
-	swA+I3WoS4e8+Xb3rSkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vSWFFVrhqf/uEWA5kxeVnqIffQKLBFsrKHLm4H10upk=; b=YBwyuID/RGWrwPmSEKcbLSePQI
+	iMtLuqorNHcCxIM51wBzpvtn2drh9nnLrhnh6H1mMMtNnLs4VUhP+izZ39b2CSzch7b+lpexGuua0
+	ils5WYvMYjk0K4rFW9BVsxb+mNxpOSLReWlrYW5gV4RbJ6rJ9XdJaZ9Zjf/AXD4E2bc0Z/lwJ9aGA
+	+pWLBMYJ0XXnIz+gpugh1L7uC0LDDUeQc26f6Sba+BLzHsDmJQTflaKS4mJf+cy3A7SYb1UVnkyX5
+	6KD4sH2KfP4jrhGxhBPLh6esW/snZJ0sjoCa/uvKxEWgv2iqVctp6gHp+jalNpvRJDJ2e1dYE0oCA
+	5wgBW2Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyj7-000000053ha-3ZPQ;
-	Tue, 12 Nov 2024 21:47:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAyrO-000000054i7-1O0k;
+	Tue, 12 Nov 2024 21:55:42 +0000
+Received: from phobos.denx.de ([2a01:238:438b:c500:173d:9f52:ddab:ee01])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyfk-000000053Ct-0VbG
+	id 1tAypa-000000054Sx-1cOk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 21:43:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2869DA42720;
-	Tue, 12 Nov 2024 21:41:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE84EC4CECD;
-	Tue, 12 Nov 2024 21:43:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731447819;
-	bh=TSBvSL3F8utvdtRSv0V0b72Rr2Qwe8DnowxnXL+/4GU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Zwgf7eGDinLJJQzHU5fzK0CcK8hMSQrpqCuhZlg5fCb9cZyYhPFFEaf5s1Jioe20y
-	 dtIgb9DZHNR3rivnptyX2Q3U9V6ySlrzPyuu2V9GbpfouD2cLKom+s8ZjMocS4Y5/7
-	 hlUW9sEc92udhXpwDVyMGoIdLA3/WShXbAxKRuUhIKuf9Y1shUh9VCV61EWCLjHLlD
-	 OUyFCvw7gNvZPdYLVoXY5BT84gPmgGkKoepMdRiKP+POu45iD+rN1eexkEVSX2M0A6
-	 XxfB/BW2DZZFZds0G7xrv/TpVMQd5k8AKjidTo5cOZHuWn6l8u8X0C8fbo9jFin1pq
-	 JNOvJD0KBeA7g==
-Date: Tue, 12 Nov 2024 15:43:37 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-Cc: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	salee@marvell.com, dingwei@marvell.com
-Subject: Re: [PATCH 1/1] PCI: armada8k: Disable LTSSM on link down interrupts
-Message-ID: <20241112214337.GA1861873@bhelgaas>
+	Tue, 12 Nov 2024 21:53:51 +0000
+Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id 5C666894AF;
+	Tue, 12 Nov 2024 22:53:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1731448426;
+	bh=vSWFFVrhqf/uEWA5kxeVnqIffQKLBFsrKHLm4H10upk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DYhbbW9bP3SG0q5TSaVFXxoc66aesxy6lKisoicD889CMEzntYV2HAJwBtkqIxBu5
+	 GdrsmlQQTI8X2SlErW6lR4Ne3nfl/fsSWSgNVP2lZiXS19pEKSGTC823RD6Eqvd7SP
+	 tHnDpEBr6+2H1UTQygKxVTPUUszq+DY+xpUfO++9iHX0Ltsht8CAqwIZ/gCw82unXv
+	 l6E/+am0zNZrPct3vBEUtHiG1U2KjGOnlxubjt1rL0/3dcREOpiljBmBz0AKRjF8qe
+	 lWfmJLdYCiFSeXHUHN3XrR9wpA/R+ulZ+d9YoViewlWeM3/8ZVKdfk6qy9V/yU/6wB
+	 HxzxIK40mq8RQ==
+Message-ID: <638cdca0-05ba-4b2b-8a92-3041247c2c7f@denx.de>
+Date: Tue, 12 Nov 2024 21:00:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241112064241.749493-1-jpatel2@marvell.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: zynqmp: Work around broken DT GPU node
+To: "Gajjar, Parth" <parth.gajjar@amd.com>,
+ "Sagar, Vishal" <vishal.sagar@amd.com>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ "Simek, Michal" <michal.simek@amd.com>, Stephen Boyd <sboyd@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "Allagadapa, Varunkumar" <varunkumar.allagadapa@amd.com>
+References: <20241031170015.55243-1-marex@denx.de>
+ <dd4cb501-5fc7-4430-9ffc-9c8c910df425@amd.com>
+ <4ee8d8a5-ec00-4b11-a7bc-4137e1982218@denx.de>
+ <SJ0PR12MB69656066F70FC40E4A5A93B499592@SJ0PR12MB6965.namprd12.prod.outlook.com>
+Content-Language: en-US
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <SJ0PR12MB69656066F70FC40E4A5A93B499592@SJ0PR12MB6965.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_134340_314238_2D8B714E 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20241112_135350_597214_ED53B581 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,93 +85,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 10:42:41PM -0800, Jenishkumar Maheshbhai Patel wrote:
-> When a PCI link down condition is detected, the link training state
-> machine must be disabled immediately.
+On 11/12/24 2:17 PM, Gajjar, Parth wrote:
+> Hi Marek,
 
-Why?
+Hello everyone,
 
-"Immediately" has no meaning here.  Arbitrary delays are possible and
-must not break anything.
-
-> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-> ---
->  drivers/pci/controller/dwc/pcie-armada8k.c | 38 ++++++++++++++++++++++
->  1 file changed, 38 insertions(+)
+> We tried running glmark2-es2-wayland application with mali and lima driver and didn’t observed any hang. We will also check with kmscube application.
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c b/drivers/pci/controller/dwc/pcie-armada8k.c
-> index b5c599ccaacf..07775539b321 100644
-> --- a/drivers/pci/controller/dwc/pcie-armada8k.c
-> +++ b/drivers/pci/controller/dwc/pcie-armada8k.c
-> @@ -53,6 +53,10 @@ struct armada8k_pcie {
->  #define PCIE_INT_C_ASSERT_MASK		BIT(11)
->  #define PCIE_INT_D_ASSERT_MASK		BIT(12)
->  
-> +#define PCIE_GLOBAL_INT_CAUSE2_REG	(PCIE_VENDOR_REGS_OFFSET + 0x24)
-> +#define PCIE_GLOBAL_INT_MASK2_REG	(PCIE_VENDOR_REGS_OFFSET + 0x28)
-> +#define PCIE_INT2_PHY_RST_LINK_DOWN	BIT(1)
-> +
->  #define PCIE_ARCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET + 0x50)
->  #define PCIE_AWCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET + 0x54)
->  #define PCIE_ARUSER_REG			(PCIE_VENDOR_REGS_OFFSET + 0x5C)
-> @@ -204,6 +208,11 @@ static int armada8k_pcie_host_init(struct dw_pcie_rp *pp)
->  	       PCIE_INT_C_ASSERT_MASK | PCIE_INT_D_ASSERT_MASK;
->  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK1_REG, reg);
->  
-> +	/* Also enable link down interrupts */
-> +	reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG);
-> +	reg |= PCIE_INT2_PHY_RST_LINK_DOWN;
-> +	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG, reg);
-> +
->  	return 0;
->  }
->  
-> @@ -221,6 +230,35 @@ static irqreturn_t armada8k_pcie_irq_handler(int irq, void *arg)
->  	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG);
->  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG, val);
->  
-> +	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE2_REG);
-> +
-> +	if (PCIE_INT2_PHY_RST_LINK_DOWN & val) {
-> +		u32 ctrl_reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_CONTROL_REG);
-
-Add blank line.
-
-> +		/*
-> +		 * The link went down. Disable LTSSM immediately. This
-> +		 * unlocks the root complex config registers. Downstream
-> +		 * device accesses will return all-Fs
-> +		 */
-> +		ctrl_reg &= ~(PCIE_APP_LTSSM_EN);
-> +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_CONTROL_REG, ctrl_reg);
-
-And here.
-
-> +		/*
-> +		 * Mask link down interrupts. They can be re-enabled once
-> +		 * the link is retrained.
-> +		 */
-> +		ctrl_reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG);
-> +		ctrl_reg &= ~PCIE_INT2_PHY_RST_LINK_DOWN;
-> +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG, ctrl_reg);
-
-And here.  Follow existing coding style in this file.
-
-> +		/*
-> +		 * At this point a worker thread can be triggered to
-> +		 * initiate a link retrain. If link retrains were
-> +		 * possible, that is.
-> +		 */
-> +		dev_dbg(pci->dev, "%s: link went down\n", __func__);
-> +	}
-> +
-> +	/* Now clear the second interrupt cause. */
-> +	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_CAUSE2_REG, val);
-> +
->  	return IRQ_HANDLED;
->  }
->  
-> -- 
-> 2.25.1
+> Attaching logs for clock summary.
 > 
+> Did you try with mali or lima driver?
+
+I only use lima driver.
+
+Can you share full boot log of this machine , including the firmware 
+blob versions ? Is it maybe possible some newer blob(s) enable both PP0 
+and PP1 internally to work around this clocking issue in Linux ?
+
+-- 
+Best regards,
+Marek Vasut
 
