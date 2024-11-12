@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C335D41D54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC3ED41D51
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 13:35:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKEgGHQSu3SXCxGE/6L/k7TU16u15vr97h0i3Rk8N4Q=; b=oyer2evpkVPDr+6hoqFJdUaHPg
-	AgZu9zFjHjgLWqlpn1vJs7bmQJUDYwn+ZgFhlMcLlC9aW3RMXZgyQjpAwxr+a7Ja8nXrjeJNcWor7
-	Zxt0BXaq/clxwWzJypk4M38RKANnoSjV0JqVGl409YQZaeMfJYYjBkFl9dZ+1+n/gE8vFqHAu7c+x
-	fs/2XrxeP466l4Zf5ZJOr9BiT86iPHk5quwbF01MiJ3BR4x+cWSOQeV5kbvvI82EMgtiqPT/w6I+P
-	vUMnqpbAnvNPx5QSYNXuKw/aB8pbskTsmP1Y+qq0tvZLdkVEOyM81UxIK50C0dKiCtGiMsYaPx+LK
-	UqSbG2lw==;
+	bh=UjdBwpEZCDaoTD/gAb2aAQf0i9Iw5k1DkhI9gffkOko=; b=f8ig/18qTdHsOXC44+D4rdJA7T
+	H89x2/db6qUeMqsKg2ANdkTvabTXxvmbcWxRk0vkurSQLAYuukMJjJMFcF1cCTapXCqZ9lw3dVsOZ
+	fIqnXba9/Os4abh0vrCfs/N+7IiFMRTjyp0V2IuLKAGnbLnvWzgggTTKmiyw7EoMwnizPbkHWr2zQ
+	JJVdNY3iEMMotymFZBweC4UKmbBA9/Wt6a9RMIQ7CeCS/hCBrWabb+mTnSi/UyK9VhAgDXb+QM0ST
+	GeYfopWjKyQIDX+cpM47H5XMaabFbBDjIYEWeEL5zsysyO/r+10QEJa/IMo6tLinpV/PqFl0OqZdP
+	YDkhV/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAr0C-00000003Zuk-40DY;
-	Tue, 12 Nov 2024 13:32:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAqta-00000003YHv-3jTv
+	id 1tAr3V-00000003bPN-1VWD;
+	Tue, 12 Nov 2024 13:35:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tAqv6-00000003Yer-1jGs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 13:25:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C0CF05C5780;
-	Tue, 12 Nov 2024 13:24:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AEEEC4CECD;
-	Tue, 12 Nov 2024 13:25:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731417925;
-	bh=fhzf1jcZSTAtYRSI99xDL2bTyDAMziFUtoPEDRFBo7s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WledquTpOzLCn8K1NSvc85m+6IeY7VJhhVTy/4QavsGdoUpzWXffMrNOyd7G6SUfv
-	 9/SXctGeD+w+dGadzhJjYM3Dx4g2DeAiR22gAAKrDHKuMKh/OuXXm8xgxILV32PeSS
-	 v/2h0/icCFAULxX0nwa9PhD+WgIed4gjgyfoKuHYiTuYC22ZIH3jMldHVNNtz2PCTb
-	 qffJQpbIwEoVu3HstbEdOrKqVAiVs1v3PCB8wfT/CKU76RQMJ15xOVe4E/dxBpQ+J5
-	 +nh+XS4A+fD2HdiByuYeQK7efVov589w+Y4CMl8H3YmHw+ezsgyhLPptYQEshJOUpI
-	 osulbbKHU6LcQ==
-Date: Tue, 12 Nov 2024 13:25:22 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
+	Tue, 12 Nov 2024 13:27:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADA9625E3;
+	Tue, 12 Nov 2024 05:27:26 -0800 (PST)
+Received: from arm.com (RQ4T19M611.cambridge.arm.com [10.1.30.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F62A3F66E;
+	Tue, 12 Nov 2024 05:26:55 -0800 (PST)
+Date: Tue, 12 Nov 2024 13:26:52 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Check that SVCR is 0 in signal handlers
-Message-ID: <ZzNXQtbk1NWN6F7f@finisterre.sirena.org.uk>
-References: <20241106-arm64-fpmr-signal-test-v1-1-31fa34ce58fe@kernel.org>
- <ZzM8RrD248eSW5bG@arm.com>
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] kselftest/arm64: Add FPMR coverage to fp-ptrace
+Message-ID: <ZzNXnJ3Jc45CctCs@arm.com>
+References: <20241112-arm64-fp-ptrace-fpmr-v2-0-250b57c61254@kernel.org>
+ <20241112-arm64-fp-ptrace-fpmr-v2-3-250b57c61254@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l9TdSVVGcv9oOszk"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ZzM8RrD248eSW5bG@arm.com>
-X-Cookie: Editing is a rewording activity.
+In-Reply-To: <20241112-arm64-fp-ptrace-fpmr-v2-3-250b57c61254@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_052527_075427_29290CAC 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20241112_052700_999737_E1652212 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +66,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Nov 12, 2024 at 01:08:16PM +0000, Mark Brown wrote:
+> +	// This has to come after we set PSTATE.SM
+> +check_fpmr_in:
+> +	tbz	x0, #HAVE_FPMR_SHIFT, wait_for_writes
+> +	adrp	x7, fpmr_in
+> +	ldr	x7, [x7, :lo12:fpmr_in]
+> +	msr	FPMR, x7
 
---l9TdSVVGcv9oOszk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Did this build for you? I may not have a new enough assembler.
 
-On Tue, Nov 12, 2024 at 11:30:14AM +0000, Catalin Marinas wrote:
-> On Wed, Nov 06, 2024 at 05:07:51PM +0000, Mark Brown wrote:
+fp-ptrace-asm.S:149:6: error: expected writable system register or pstate
+ msr FPMR, x7
 
-> > +		fprintf(stderr, "Unexpected SVCR %llx\n", get_svcr());
-> > +		return 1;
-> > +	}
+I changed it to REG_FPMR locally.
 
-> I think I'll change both printf specifiers to %lx here since in the libc
-> I have installed, uin64_t is an unsigned long (the kernel defines it as
-> unsigned long long). Both gcc and clang complain but the compiler
-> shouldn't matter since the headers come with glibc.
-
-Makes sense.  I do wish the compilers were more consistent with
-including these warnings :(
-
---l9TdSVVGcv9oOszk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmczVzYACgkQJNaLcl1U
-h9ARyAf/ccxPjV6NvV0HX+NR8V0IrCkIUFYkF+JnPeCHw79ymsk9scQ+8HkDFvXA
-OUzbd+d42XjQN4bMm6FK8NF0Be4syfkOUmP5EUx2x4aWMjghJZIpH53hORjDYH8m
-ej9HimaSZlhkVUFEFsYeTgLH/NC0WbGKyW1KlnLpZ3oAZNzXNsRTM+vfKvkijvYn
-nH4NcBHjA/p9duc9XDitUZISNE6sKMAZT0h8dOp6an2S4gSHLx2wLH5//Mbvinja
-NpOzppfqHNEXN2DpGjvgLzEs6fQjRaRXnfno6QOBg6DTO+Qg40ExFexA2YwW43nY
-d0PnQEXkJ4bwC6IVbirTiegjMLaLzA==
-=q9Xo
------END PGP SIGNATURE-----
-
---l9TdSVVGcv9oOszk--
+-- 
+Catalin
 
