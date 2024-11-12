@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFB0D41D4E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 04:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA42FD41D4E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 04:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DsmubN01hyDUEhQ6tv783ePv53ofcUVY2RqcZdf3yEo=; b=FSfvE92TQonsnyMS1khR5fsgcv
-	Pkj6bvrunwQ9EdfzOJ0YkDOMickFNPNpzJe+4Fm4Fo34qs1CHJL/98FQluyVfo5X+eR7T+e1sa/IC
-	saXv40M6eCf/j8hMJ8Pp7YrR1zPmbpKanwwjz0rcxVBkAG7bt/kWMQxU2T/s3kTmEIwaBuZboMQXj
-	PFN49d0ZsQ8r9aah6vJhIkz1EAGJfNUiduvXhhL7TK9+yiMR/bRMUdQK+sgDNPqnjtHQycpgKOIFP
-	u4Rmu0wmHNv8qdYcSf+4J0ibAZ8J5EMsCvhhDT2k125il2bA4+FfzaKzlW41jKcO4KoeuycC//rcG
-	42ujDtqQ==;
+	bh=GmMLruJlFWW1LhBjQNO6wKWcTB7EUYEqGpqOf2cF01E=; b=UXOz0fHEmpsPvGXDYCjAkPcaWz
+	HiU7BwUlnHJ6iznzhtLEEeQc4MHJZ5E6u8hThcXWjeHilRPFZmlG51TyguLFCzq6bHpXTjHj1HWPE
+	tGH9iywjVxZRiUXR6ijtcuaZWdAgp76A9V2or9N5sArPNQ02ypgbgDvtnWoH7nx2ioxt3dub/nKE+
+	XVXPNrWIIofSd2bgtEfIT3z7H+oMR+iDnkxBWMJ/LZShx557UZvj1apPrUYlU325xqyZUaKrL6mmm
+	M4wUW9W/rWvXVJBOPNkiHdPWa4yLFNA5SpPmpcQ26unnlyXpq26HJMgnDv9gqsQryxHsQiwNEWpOC
+	z3keWfnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAiG7-000000028Av-1MlT;
-	Tue, 12 Nov 2024 04:12:07 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1tAikn-00000002B5q-3FVV;
+	Tue, 12 Nov 2024 04:43:49 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAiEK-000000027vz-2JWE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 04:10:18 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e2903a48ef7so4813681276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 20:10:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731384615; x=1731989415; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DsmubN01hyDUEhQ6tv783ePv53ofcUVY2RqcZdf3yEo=;
-        b=M9Hrq5jegFZDcgpTFBaRCZSNNEDpdtMDksw/3zjPJ0HGajT8V7pNxGRTT2wcgLFTre
-         dTjOxkFGh975YE6Dg6V12HG2Sy8jxDJZfD/1QeNssU+jPTmXGfw+WE/wNDmMJeotSCqS
-         UvgexAK+zz4gT0QWqbR7nYvpzFSwQvUw98MrToPirlxxrOYmvxQwzrNy0nfOwTh0vBcL
-         y2rCjjZjngwVw6AgH60KZ793MYN4RnWLQN0YdpLvKy0DdNe9nSRhNcfJ7G2JgWJia0Oi
-         vB2UN2GPEkfQvJD+SlRpVtd3SgAJY8TfZJ+dK9TnxLucJPkt5CAe88/fukQJrV9j+EM3
-         FneA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731384615; x=1731989415;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DsmubN01hyDUEhQ6tv783ePv53ofcUVY2RqcZdf3yEo=;
-        b=pwsgI/B42DvzUtq69eWN0BU7YpfKOaDiDR1UN7yI8mv9Kh1uIVyGH8y7z5tEU8Ha9r
-         pIpvDJLngGzC0Iqo50wC/FjDHKBlslORLBsqHEA8F3Y26PCDSnKlpFp/geBcehBvpmtD
-         G30Mba9HySgshL8R5EfMTeKn9R9q42E3KQUN8K6vOJlQK7g4Uird06gxqwMp7/xpZznR
-         DOSAW2IKwyQXd/ZrrVZrdzcu8V105Mt26z+zpKkVoS38J2a1eCVnpnGoSGsu1rpMebe3
-         qELqu8KL47o9o9LpTZVUulPEn3qrqt1IYtx4biHWBsoe43mtarPMIGfH2VEKNNmbJIpZ
-         Z8vw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIk9YzFMA3RCmhY0uyJf21eeIoEb173y1daijnnkjpcbxuMS6e49+TUCF2jQ7CdX1IJQJ53DmUjiuwsQZTcnPP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPCSRjbZs4yNkBspFOChqUzYv83v3k7Ldjhr4rhU60r++/5+o5
-	v+uPsRRzxBMt90P+x9hAjsagmcSCTiXQA6/9krH7hhxIY5CwzJ2QX8yQElODutNLc5cv+/kZYpd
-	4KRRvZsTOnV/uD1WmiHTywZ+SJSY=
-X-Google-Smtp-Source: AGHT+IEEd9e7KYmg9hOChPdcooKIfQet+Ec2imFxx6bP82VRvCibSsbb8ecrhexu0TZ29275WhqN4tjEisNPdXIjqY0=
-X-Received: by 2002:a05:690c:6b11:b0:6e2:ab93:8c68 with SMTP id
- 00721157ae682-6eadddaf35cmr135388027b3.25.1731384615059; Mon, 11 Nov 2024
- 20:10:15 -0800 (PST)
+	id 1tAij1-00000002Ava-0Fhk;
+	Tue, 12 Nov 2024 04:42:00 +0000
 MIME-Version: 1.0
-References: <20241111210316.15357-1-rosenp@gmail.com> <20241111193222.00ae2f3e@kernel.org>
-In-Reply-To: <20241111193222.00ae2f3e@kernel.org>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 11 Nov 2024 20:10:04 -0800
-Message-ID: <CAKxU2N-VHmVerombZ77uOHApi0aGBFi46oC1eoGTm5sakCVc4w@mail.gmail.com>
-Subject: Re: [PATCHv2 net-next] net: use pdev instead of OF funcs
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Marc Kleine-Budde <mkl@pengutronix.de>, 
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Pantelis Antoniou <pantelis.antoniou@gmail.com>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
-	Byungho An <bh74.an@samsung.com>, Kevin Brace <kevinbrace@bracecomputerlab.com>, 
-	Francois Romieu <romieu@fr.zoreil.com>, Michal Simek <michal.simek@amd.com>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Zhao Qiang <qiang.zhao@nxp.com>, 
-	"open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, 
-	"open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1731386514;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GmMLruJlFWW1LhBjQNO6wKWcTB7EUYEqGpqOf2cF01E=;
+	b=d/9s8ota76JB/qXgmB068WFHiMOhUh9wAhv1nxyPVHrj97xZafR8vomFmhD1/bP0XYhxf3
+	FkKJS6I4dvXI76TVmR9DlmoT4v+5CkajA28AVNjVFikNef/LvO8OM78sV4PxzdO3vaT6s9
+	+u0B2XRClK96AHuJUNgfkkzCpcSL7kAAnG/yqYQC8P2QVyylUgdFGN8N0r+wh6vZugEPoh
+	uOnENSsxfip+1xh/cdXm6U7baYCp20yiMcpwdXSbU3yQnNaje698yT9AwHdIYJWrksZwu5
+	wJUJI/frx56dVgagLJ6bdPpJjAa5P/zngcZeNqaguau7u4t8ISayf3trcN/t/g==
+Date: Tue, 12 Nov 2024 05:41:53 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: =?UTF-8?Q?Tam=C3=A1s_Sz=C5=B1cs?= <tszucs@linux.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki
+ <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
+ set it up for SDIO devices
+In-Reply-To: <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
+References: <20241111181807.13211-1-tszucs@linux.com>
+ <20241111181807.13211-3-tszucs@linux.com>
+ <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se>
+Message-ID: <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_201016_617710_5C8606EC 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20241111_204159_408233_C6BC3520 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 7:32=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
->
-> On Mon, 11 Nov 2024 13:03:16 -0800 Rosen Penev wrote:
-> > --- a/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c
-> > +++ b/drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c
-> > @@ -111,7 +111,7 @@ static int sxgbe_platform_probe(struct platform_dev=
-ice *pdev)
-> >       }
-> >
-> >       /* Get the SXGBE common INT information */
-> > -     priv->irq  =3D irq_of_parse_and_map(node, 0);
-> > +     priv->irq =3D platform_get_irq(pdev, 0);
-> >       if (priv->irq <=3D 0) {
-> >               dev_err(dev, "sxgbe common irq parsing failed\n");
-> >               goto err_drv_remove;
-> > @@ -122,7 +122,7 @@ static int sxgbe_platform_probe(struct platform_dev=
-ice *pdev)
-> >
-> >       /* Get the TX/RX IRQ numbers */
-> >       for (i =3D 0, chan =3D 1; i < SXGBE_TX_QUEUES; i++) {
-> > -             priv->txq[i]->irq_no =3D irq_of_parse_and_map(node, chan+=
-+);
-> > +             priv->txq[i]->irq_no =3D platform_get_irq(pdev, chan++);
-> >               if (priv->txq[i]->irq_no <=3D 0) {
-> >                       dev_err(dev, "sxgbe tx irq parsing failed\n");
-> >                       goto err_tx_irq_unmap;
-> > @@ -130,14 +130,14 @@ static int sxgbe_platform_probe(struct platform_d=
-evice *pdev)
-> >       }
-> >
-> >       for (i =3D 0; i < SXGBE_RX_QUEUES; i++) {
-> > -             priv->rxq[i]->irq_no =3D irq_of_parse_and_map(node, chan+=
-+);
-> > +             priv->rxq[i]->irq_no =3D platform_get_irq(pdev, chan++);
-> >               if (priv->rxq[i]->irq_no <=3D 0) {
-> >                       dev_err(dev, "sxgbe rx irq parsing failed\n");
-> >                       goto err_rx_irq_unmap;
-> >               }
-> >       }
-> >
-> > -     priv->lpi_irq =3D irq_of_parse_and_map(node, chan);
-> > +     priv->lpi_irq =3D platform_get_irq(pdev, chan);
-> >       if (priv->lpi_irq <=3D 0) {
-> >               dev_err(dev, "sxgbe lpi irq parsing failed\n");
-> >               goto err_rx_irq_unmap;
->
-> Coccicheck wants you to drop the errors:
->
-> drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c:116:2-9: line 116 is =
-redundant because platform_get_irq() already prints an error
-> drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c:127:3-10: line 127 is=
- redundant because platform_get_irq() already prints an error
-> drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c:135:3-10: line 135 is=
- redundant because platform_get_irq() already prints an error
-> drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.c:142:2-9: line 142 is =
-redundant because platform_get_irq() already prints an error
+Hello Jonas and Tamas,
 
-I looked at the output. The error checks need changing too.
+On 2024-11-11 20:06, Jonas Karlman wrote:
+> On 2024-11-11 19:17, Tamás Szűcs wrote:
+>> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported UHS-I 
+>> rates and
+>> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO IRQ.
+>> 
+>> Signed-off-by: Tamás Szűcs <tszucs@linux.com>
+>> ---
+>>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
+>>  1 file changed, 7 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts 
+>> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> index 242af5337cdf..b7527ba418f7 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+>> @@ -688,14 +688,20 @@ &sdmmc2 {
+>>  	cap-sd-highspeed;
+>>  	cap-sdio-irq;
+>>  	keep-power-in-suspend;
+>> +	max-frequency = <200000000>;
+>>  	mmc-pwrseq = <&sdio_pwrseq>;
+>>  	non-removable;
+>>  	pinctrl-names = "default";
+>>  	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
+>> +	sd-uhs-sdr12;
+>> +	sd-uhs-sdr25;
+>> +	sd-uhs-sdr50;
+> 
+> I thought that lower speeds was implied by uhs-sdr104?
 
->
-> You can make it a separate patch in a series, for clarity.
-I don't think it's enough to warrant its own commit.
-> --
-> pw-bot: cr
+Last time I went through the MMC drivers, they were implied.  IIRC,
+such backward mode compatibility is actually a requirement made by
+the MMC specification.
+
+>>  	sd-uhs-sdr104;
+>> +	sd-uhs-ddr50;
+>>  	vmmc-supply = <&vcc3v3_sys2>;
+>>  	vqmmc-supply = <&vcc_1v8>;
+>> -	status = "disabled";
+>> +	wakeup-source;
+>> +	status = "okay";
+> 
+> This should probably be enabled using an dt-overlay, there is no
+> SDIO device embedded on the board and the reason I left it disabled
+> in original board DT submission.
+
+Just went through the ROCK 3B schematic, version 1.51, and I think
+there should be no need for a separate overlay, because sdmmc2 goes
+to the M.2 slot on the board, which any user can plug an M.2 module
+into, and the SDIO interface is kind-of self-discoverable.
+
+Of course, all that unless there are some horribly looking :) error
+messages emitted to the kernel log when nothing is actually found,
+in which case the SDIO/MMC driers should be fixed first.  Also, I'm
+not sure what do we do with the possible SDIO-related power timing
+requirements?
 
