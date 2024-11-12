@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F8FD42B9B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A970D42BA2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 15:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=; b=ipdZrTRy1gQj/1rx0hYyRpY40k
-	dB1X63rT2EbePnQup6TUYInQbLtdWnLk/2HFCcgV3GYTrKbTiUQbRfpHo+Qwwg378ueBtiMY6ae/s
-	Co2uDeJzsT+0rb0c1jlvr2iJrpAemVOkgaF1jVcaROs4t+4nZlFLuqT+uU6dIg1TQi/CkSf+ZIqjn
-	Cs1odyEaOtv9glReHfkP3rI62A0Lbt4s/XSoalKQq5pEhtHUN3t4vE/Gl6Lnryk8rN3CehgYA0I7d
-	9oENo694DK9+Zrv9dluA2T487ad1UQBmLNh5OtWdfW16JwmJXTJRMZymFQHC+UqmB6uhwC5Trmi1N
-	ikvydiBQ==;
+	bh=2Ua92oaFR9BRPF4/PV2PVTFwSA21WaO64eI6cKbfFbc=; b=iQCuvI80DT2E6jaMAnDibNOQ1x
+	qNLL8ThLRNAaimaQvkRz3AlGCfeVmw+DbPQexorMhiMTtpulNWrr+FQiIgvuWk8HAJoJzZq7Y7UWI
+	h2cwuawD9ta9OOLFh9IlMTtXe+R+JXHIdJoS0LtirI0rhhKzepq3C5j1O4PmQKMeSjFaux8XNlqCD
+	rKiFnupl52QTZV2Iuuc8/TJk9vGyR1Pl1OIea68TAfNq9+DkjzJwlI2/tkvzkNUvHSswIDn0jSziV
+	Tt1T+5OTyieoDj9XRnoPo6ZQ0ayPUgfVdR1zxkdAusZhrMD4j8C9bVKLx08MoY31SeITTeOgfXZBe
+	3VaWlDLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAt3p-00000003zsR-2HZA;
-	Tue, 12 Nov 2024 15:44:09 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tAtGd-0000000422Y-3dMw;
+	Tue, 12 Nov 2024 15:57:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAt1X-00000003zSP-12Im
+	id 1tAtEp-000000041gn-2FJA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 15:41:57 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5c934b2c991so13511a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 07:41:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731426105; x=1732030905; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=;
-        b=LxLycsDHsSg3yJpK/RvLqJpEAVNP2KeTgcRq3Jb3oDF5JAG6/yEz/ln2yriajTtwIl
-         5e/qo4dJQ1eRmPa31eWN4Od14djNko7QOmsMCnYWYD36N8vgl2apX+tuZMrSoRfWZGG0
-         BCvaexx7TcwmPj3t11xu34PVZ9LjatapTjlvX7CgAth0a6WMSp2oJXU6m+4mGa9QCYIm
-         2gCupnzgwEG5a8OfUf+nQnGCJEcIniW46t7TPvtYQKAa02m6pbmG7njqq1mKHhbyuRku
-         +Z5ZM6vaSlEB+Dko+IP3QI9JorB8mbv0nW4VXuop5imTqTXLkj1rLojC/TmgRvnv01w0
-         ZkJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731426105; x=1732030905;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bkZf0dAyKpaV6oeL97qMQayHnuJCrWyOMGk6lUpa8dI=;
-        b=gsQ8HuLcBO8G+OKylae5MOeevljC3d8jp2Ss8RW2QIGhdvOvVTiALfIiNZYRaFC9sm
-         EOCWQ+1Hgdc4fssvMsLnIg/93DEVfeaC40Lv7MpU2rddZC0+dlM+x4dTv1AgIfRCMwU1
-         5Xl5kB7ICr9i2hsM5+qcJJ3nMitQI5J+1E5/1wQwlyBYKwyaAhRTIU3ixZtqUIwrPY81
-         yx+SLRlo7x8X2mk2K7FtK8I9opafinhaq+IgO1BaeJ1AgET6HZrOSAYEnh6K0znwV8Re
-         fEqVnrJESHcIt0yZkC8qnnDLOBqYkpayT4BwFmCFGip/wXoe2qCYOXlMJrzs0q2jhAiS
-         z77w==
-X-Forwarded-Encrypted: i=1; AJvYcCVq8CfCQNLqzR4VEuD3t1P5MkoLk93i2SX+ObdkXEHwjPpXCZYz/pXCLROkAbpbO8cuKCb3vhtINiWFpkgII9zs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJiD8QP5GoU/1nWaBZ4XulupMEPo3+3/p/Z34kj4J2n5Y1DIAg
-	8kzcCX30VfUQoRO/BCGQHvP2SgpuQ+MPIDqlc/MZWWAXFzoZl7jj8Qbp3M4IBekIZagufOVgbta
-	zL/ABq8G6za9Ur44rdHTxa9LpmXP5e8B0CJPM
-X-Gm-Gg: ASbGncsip0Os5TDe17QOi/Hbc+x6zlONtPXmWjpFieLKQ54uaAoO2ql2EYXTpxKGV6R
-	TvCq8ZGx34iUm00HpOkYKBd3B0t/4cKaryMmmz/5A8Zd7wYX/PspRN8+MUlXu
-X-Google-Smtp-Source: AGHT+IGKGj3m0K6cw27EtgaGcbRERBtnwAgADHveQ1xpIh6tli+bg/P/um8bA7UFcXQB7YKvR9KUq5R8xprHojQBtMg=
-X-Received: by 2002:a05:6402:234b:b0:5cf:4994:501d with SMTP id
- 4fb4d7f45d1cf-5cf5234185emr287895a12.3.1731426105003; Tue, 12 Nov 2024
- 07:41:45 -0800 (PST)
+	Tue, 12 Nov 2024 15:55:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D6B15C54AD;
+	Tue, 12 Nov 2024 15:54:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D80C4CECD;
+	Tue, 12 Nov 2024 15:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731426930;
+	bh=A5OSnOKgQ1/NZdqMpuahVt5qjI55hR/PC1GnAzNRwg0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PAWIhXjDNSI58YrPLUOJqJGfoI4EDqMT4XT65E18FXvAr962bVO4vWDzbyYtHGWfi
+	 wfCWkBb0cDr9RzS8MPmPzfU/qLcquwJtUTZwVE/7AJBlwtwRfRWrwgKQlvoi3wMiBX
+	 MeSp2eFyOGh447VdPPkuynbyGym2wQwTLg5jYGJ7h6y5SUbZ31oIoNZkYSH/NCNuWW
+	 mqYWCTqeNOQxZMgvMGEmcdabTG3eU6Yb1Wlmvl8ADfF0996Nb4UaBWAP/TjOpYKqtX
+	 xz4F1ZvBJZG7llT3drrSHHQ74MZNORV/B1uU9heXqxVkwEqJ3+/XM6thEhVhVM66I8
+	 PBwdakLTcrEPQ==
+Date: Tue, 12 Nov 2024 15:55:26 +0000
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] iommu/arm-smmu-v3: Clean up iopf queue on probe
+ failure
+Message-ID: <20241112155525.GB21479@willie-the-truck>
+References: <cover.1731088789.git.robin.murphy@arm.com>
+ <161cf3bfde2993cc29e82589df947ff23fb82845.1731088789.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-References: <20241112105604.795809-1-james.clark@linaro.org>
-In-Reply-To: <20241112105604.795809-1-james.clark@linaro.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 12 Nov 2024 15:41:08 +0000
-Message-ID: <CA+EHjTyPc5o3T1jQY8VY+W5qtneiKw5wVMVhuSif2ZVs3S=ChA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Pass on SVE mapping failures
-To: James Clark <james.clark@linaro.org>
-Cc: maz@kernel.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, =?UTF-8?Q?Pierre=2DCl=C3=A9ment_Tosi?= <ptosi@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <161cf3bfde2993cc29e82589df947ff23fb82845.1731088789.git.robin.murphy@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_074147_308194_CEA0B588 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20241112_075531_708531_41A6DEE6 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,38 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 at 10:56, James Clark <james.clark@linaro.org> wrote:
->
-> This function can fail but its return value isn't passed onto the
-> caller. Presumably this could result in a broken state.
->
-> Fixes: 66d5b53e20a6 ("KVM: arm64: Allocate memory mapped at hyp for host sve state in pKVM")
-> Signed-off-by: James Clark <james.clark@linaro.org>
+On Fri, Nov 08, 2024 at 06:30:16PM +0000, Robin Murphy wrote:
+> kmemleak noticed that the iopf queue allocated deep down within
+> arm_smmu_init_structures() can be leaked by a subsequent error return
+> from arm_smmu_device_probe(). Hardly a big deal when probe failure
+> represents something much more seriously wrong in the first place,
+> but on principle, adopt a dedicated cleanup path for those.
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > ---
->  arch/arm64/kvm/hyp/nvhe/setup.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-> index 8fec099c2775..cbdd18cd3f98 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-> @@ -146,8 +146,7 @@ static int recreate_hyp_mappings(phys_addr_t phys, unsigned long size,
->                         return ret;
->         }
->
-> -       pkvm_create_host_sve_mappings();
-> -       return 0;
-> +       return pkvm_create_host_sve_mappings();
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index b7dcb1494aa4..7908fca962fe 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4609,7 +4609,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	/* Initialise in-memory data structures */
+>  	ret = arm_smmu_init_structures(smmu);
+>  	if (ret)
+> -		return ret;
+> +		goto free_iopf;
+>  
+>  	/* Record our private device structure */
+>  	platform_set_drvdata(pdev, smmu);
+> @@ -4620,22 +4620,27 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	/* Reset the device */
+>  	ret = arm_smmu_device_reset(smmu);
+>  	if (ret)
+> -		return ret;
+> +		goto free_iopf;
+>  
+>  	/* And we're up. Go go go! */
+>  	ret = iommu_device_sysfs_add(&smmu->iommu, dev, NULL,
+>  				     "smmu3.%pa", &ioaddr);
+>  	if (ret)
+> -		return ret;
+> +		goto free_iopf;
+>  
+>  	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
+>  	if (ret) {
+>  		dev_err(dev, "Failed to register iommu\n");
+> -		iommu_device_sysfs_remove(&smmu->iommu);
+> -		return ret;
+> +		goto free_sysfs;
+>  	}
+>  
+>  	return 0;
+> +
+> +free_sysfs:
+> +	iommu_device_sysfs_remove(&smmu->iommu);
+> +free_iopf:
+> +	iopf_queue_free(smmu->evtq.iopf);
+> +	return ret;
 >  }
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+Thanks. I think this is correct (and iopf_queue_free() checks for NULL,
+so we're good there) but I just wonder whether it would be more
+consistent to use devm_add_action_or_reset(), like we do for the MSIs.
 
-Thanks,
-/fuad
-
->
->  static void update_nvhe_init_params(void)
-> --
-> 2.34.1
->
+Will
 
