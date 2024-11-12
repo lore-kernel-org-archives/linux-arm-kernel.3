@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF09D41D68
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 07:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AFEDD41D66
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 08:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUgoxxvXrdhSJUKoJyf/O9v+5uKNcqCPwgTAuJ4BG7s=; b=GQK7ayg5LqtyAe30At58X81hFk
-	V22KFbkTZxqSqPn4JZmd0K6E24w4ojiHpq/Z9sczuz+JWkXR+nPAxKVqintbBAc8In6/lXfAWXOub
-	Nb60G8Ggguaa161KDEyD+x0I1rdUGGEyBlfLvnYdDU2XCdkU5S85uk9VYphQ7eJMylMIm4HWaMuub
-	rXCer93Eg8AMAECY91uDbRfSJBc3p+97nS7a3tI1N8+ob+FACTsu5Zm2sgwZcHrmVZBUUvRAKLKZL
-	GA9oR/4E+r/Bx8khbifoiIHXAQue6b1EGyMRnvD5AV6q4NCbaDXmq5WlM9B76zI6T1dkaP37oqrMl
-	hqhuzUQw==;
+	bh=jbCEbJtigEzrfzyGdDfeYhf12Y+BqR/lK0AjwtgVJuM=; b=VsB0E5CI5bzexE64MGA4M09DV8
+	rw0anSccwZBYAdbWI+IwJ2Oh59Gx8H1EPCCD9LKd6BU8Sh2jmoWhxhPUlLLQQJE0sjNpER4Nwpf7G
+	lLFcimzl7nA+D9rf91qfOAiT61SiM7uS9qvMOdFiu123cEGeKrYam4zOpvVYvFjkbD7O6mKP+DMDg
+	SvCOZgy4jEZhl1mJjuDqg2//2aBYPnUo78wGEQ2rBaorfbY0l7egAiUZ/KTt/i5ZKIOEI2WGaVs0X
+	AaKfFnsX5gHV5xUZ8cnljNZ6RPJeHWYUahzo2qgaHvopIi1E5Z5uJyTSGpL1maDuyTVNM7cseZp/n
+	LUeKPghw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAllm-00000002YPH-2Afl;
-	Tue, 12 Nov 2024 07:57:02 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1tAlnY-00000002Yjg-0SxW;
+	Tue, 12 Nov 2024 07:58:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAliY-00000002XnU-0hqk
+	id 1tAlk8-00000002Y3S-0QVV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 07:53:43 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-720c2db824eso5795314b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Nov 2024 23:53:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731398020; x=1732002820; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bUgoxxvXrdhSJUKoJyf/O9v+5uKNcqCPwgTAuJ4BG7s=;
-        b=Hr9WfS/yxSn8A2/6YAqTbdC/KUUkAnczTaXFXyo+bRrXJdbDMbaGCu+H9OP5YbLZxJ
-         Ng5qwQ39gtyU7PgWent99adUbZd6vc50lNRkuS50vzZOPTLQl5qBAylwiR9fiJ6Fyy0H
-         7bsu0/KJf6Zc/sZBJuPoxLyDUZY+WaR+WAU8qAPT4lk0u1BsLAw4LrlLGAZc+GlrDlN2
-         n3aUCIfczp1C467JCCBd+l1e076Ldbdn/s4dQaKhGhBEDrI2MhnbA0jUFauS8wjLhqvA
-         rcXWM68eCk0GvVk4doGN617iaq95tLlC9R8DZsjNikLf25zAQ579Qk72+zaA/uzgVqXz
-         /igw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731398020; x=1732002820;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bUgoxxvXrdhSJUKoJyf/O9v+5uKNcqCPwgTAuJ4BG7s=;
-        b=WTZSP5xIPxL+2H3AJLwKuDzJGhqWpGH2K8XkXDc12wSnSOFlc6f4/TaqMTIBiat4iF
-         3G1Z9D1zNouYE60EZVEvKqG1XICE4t1syFKb2pAUz/hUTWN5NpwmbJMDuNnmZn63gNn0
-         SzPfJ2rCQc8k6QhMHaziAHpk7shy2OpWHiRVKq3R1dF2xSxqHBkzE7tczeb4vzy7KuWp
-         bsxth2R84mkfeRdcyvKLaDokgLGlHQRq0WaJmlXBKLYzBKcXeSGn2t2jRG7EAZBXwmyq
-         JElj4QUZAsk+7fHz3utI5i2UlzgvnS0AVIdHXL+og773zSYUcrDwneppA22mIZ2dzNNE
-         Q4KA==
-X-Forwarded-Encrypted: i=1; AJvYcCXjpTwQJZl9ONnau1UtVUoOc1avS8gvBLhwPgS0qA3dllUjAvaBw8xI2oLLuby389bQfuXHXBvTXWYHLuvTl1qM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC8KWYi4UgCyJW8k+tY+iaSImQ7RZMA88Tmy+gBCNu/4T7usR0
-	4eUX1PDa8HetL70k6Eq24FWUaXXH4qa2jSwhQerURxTVpTBkVyqa
-X-Google-Smtp-Source: AGHT+IH4s7RgAlk5NeJXz45kGRRPxv9SbFPlQhFQl+z6UduWSSD31KYzEVYWdy1FjRFjXJxIydK7jg==
-X-Received: by 2002:a05:6a00:b56:b0:71e:5a1d:ecdc with SMTP id d2e1a72fcca58-7241334a09dmr21966921b3a.17.1731398020189;
-        Mon, 11 Nov 2024 23:53:40 -0800 (PST)
-Received: from thinkpad ([117.213.103.248])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7240799bb78sm10424749b3a.95.2024.11.11.23.53.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2024 23:53:39 -0800 (PST)
-Date: Tue, 12 Nov 2024 13:23:32 +0530
-From: Manivannan Sadhasivam <manisadhasivam.linux@gmail.com>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: alim.akhtar@samsung.com, James.Bottomley@HansenPartnership.com,
-	martin.petersen@oracle.com, krzk@kernel.org,
-	linux-scsi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	andre.draszik@linaro.org, kernel-team@android.com,
-	willmcvicker@google.com
-Subject: Re: [PATCH 2/2] scsi: ufs: exynos: remove superfluous function
- parameter
-Message-ID: <20241112075332.lhssmh44a77uyvit@thinkpad>
-References: <20241030102715.3312308-1-tudor.ambarus@linaro.org>
- <20241030102715.3312308-2-tudor.ambarus@linaro.org>
+	Tue, 12 Nov 2024 07:55:22 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tAljt-000840-0J; Tue, 12 Nov 2024 08:55:05 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tAljp-000NFm-0Y;
+	Tue, 12 Nov 2024 08:55:01 +0100
+Received: from pengutronix.de (pd9e59fec.dip0.t-ipconnect.de [217.229.159.236])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id A90A23712AA;
+	Tue, 12 Nov 2024 07:55:00 +0000 (UTC)
+Date: Tue, 12 Nov 2024 08:55:00 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: netdev@vger.kernel.org, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Pantelis Antoniou <pantelis.antoniou@gmail.com>, Marcin Wojtas <marcin.s.wojtas@gmail.com>, 
+	Byungho An <bh74.an@samsung.com>, Kevin Brace <kevinbrace@bracecomputerlab.com>, 
+	Francois Romieu <romieu@fr.zoreil.com>, Michal Simek <michal.simek@amd.com>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Zhao Qiang <qiang.zhao@nxp.com>, "open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, 
+	"open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCHv2 net-next] net: use pdev instead of OF funcs
+Message-ID: <20241112-lush-beneficial-chicken-9a31f5-mkl@pengutronix.de>
+References: <20241111210316.15357-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wiafd67i2wzywtxu"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241030102715.3312308-2-tudor.ambarus@linaro.org>
+In-Reply-To: <20241111210316.15357-1-rosenp@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_235342_228445_3E81B98D 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20241111_235520_165683_28D898E8 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 30, 2024 at 10:27:15AM +0000, Tudor Ambarus wrote:
-> The pointer to device can be obtained from ufs->hba->dev,
-> remove superfluous function parameter.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+--wiafd67i2wzywtxu
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCHv2 net-next] net: use pdev instead of OF funcs
+MIME-Version: 1.0
 
-- Mani
+On 11.11.2024 13:03:16, Rosen Penev wrote:
+> np here is the node coming from platform_device. No children are used.
+>=20
+> I changed irq_of_parse_and_map to platform_get_irq to pass it directly.
+>=20
+> I changed of_address_to_resource to platform_get_resource for the same
+> reason.
+>=20
+> It ends up being the same.
 
+You should describe in an imperative way your changes. Something like:
+
+Modernize IRQ resource acquisition.
+
+Replace irq_of_parse_and_map() by platform_get_irq()
+
+=2E..and list the other changes, too.
+
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
->  drivers/ufs/host/ufs-exynos.c | 4 ++--
->  drivers/ufs/host/ufs-exynos.h | 2 +-
->  2 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-> index db89ebe48bcd..7e381ab1011d 100644
-> --- a/drivers/ufs/host/ufs-exynos.c
-> +++ b/drivers/ufs/host/ufs-exynos.c
-> @@ -198,7 +198,7 @@ static inline void exynos_ufs_ungate_clks(struct exynos_ufs *ufs)
->  	exynos_ufs_ctrl_clkstop(ufs, false);
->  }
->  
-> -static int exynosauto_ufs_drv_init(struct device *dev, struct exynos_ufs *ufs)
-> +static int exynosauto_ufs_drv_init(struct exynos_ufs *ufs)
->  {
->  	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
->  
-> @@ -1424,7 +1424,7 @@ static int exynos_ufs_init(struct ufs_hba *hba)
->  	exynos_ufs_fmp_init(hba, ufs);
->  
->  	if (ufs->drv_data->drv_init) {
-> -		ret = ufs->drv_data->drv_init(dev, ufs);
-> +		ret = ufs->drv_data->drv_init(ufs);
->  		if (ret) {
->  			dev_err(dev, "failed to init drv-data\n");
->  			goto out;
-> diff --git a/drivers/ufs/host/ufs-exynos.h b/drivers/ufs/host/ufs-exynos.h
-> index 1646c4a9bb08..9670dc138d1e 100644
-> --- a/drivers/ufs/host/ufs-exynos.h
-> +++ b/drivers/ufs/host/ufs-exynos.h
-> @@ -182,7 +182,7 @@ struct exynos_ufs_drv_data {
->  	unsigned int quirks;
->  	unsigned int opts;
->  	/* SoC's specific operations */
-> -	int (*drv_init)(struct device *dev, struct exynos_ufs *ufs);
-> +	int (*drv_init)(struct exynos_ufs *ufs);
->  	int (*pre_link)(struct exynos_ufs *ufs);
->  	int (*post_link)(struct exynos_ufs *ufs);
->  	int (*pre_pwr_change)(struct exynos_ufs *ufs,
-> -- 
-> 2.47.0.199.ga7371fff76-goog
-> 
-> 
+>  v2: fixed compilation errors. Also removed non devm transformations.
+>  Those will be handled separately. Also reworded description.
+>  drivers/net/can/grcan.c                          |  2 +-
+>  drivers/net/can/mscan/mpc5xxx_can.c              |  2 +-
 
--- 
-மணிவண்ணன் சதாசிவம்
+Reviewed by: Marc Kleine-Budde <mkl@pengutronix.de> # for CAN
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--wiafd67i2wzywtxu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmczCdEACgkQKDiiPnot
+vG9P5Qf9GHBDogv141w23Ql4QYhPyQNOFBbAjfAmSaXZJQjwjI2/PT9uMOtwx1N3
+xkyyFSufM0a+sr9Mn7vC+liJrlzO9Xmqq+53eTAvq2e2RPKAdVT/aPa21s05sWUI
+u1r/6bgaTgg9stZMDtivo6HAYr69FexPGYKdk9bAcm4gANpW/Ih+NpLB4IwzqKv6
+EHXEtt4AfiBCLNkq4BUwBO4D1CHsDbICmSZbC2RRZ5Jc85R9u+YYqwj7RN3EbDfL
+fWarhFuRuoGubmHPg8gaauKa5/Cxjo9fsjn93QTzRbgEgLJEsii3Y85oI0LaN0U8
+e9/zBSWu8p/gXjqOGAwOOYQ1WVxswA==
+=3yO+
+-----END PGP SIGNATURE-----
+
+--wiafd67i2wzywtxu--
 
