@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AA7D32D7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B722CD32D7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kn+8aJWTkqwQ5EGfRTZpllEjlS0gFyQTELc12l06XLU=; b=gO8MLBiEFIEoj6VAuEyyKcjCY2
-	VbxZlLGFG48HmQ6pCHz+TYR+4tewjdOFSvjKEHXWaZCu1UmRR1yQPKw1Iq7KGxSuWjop45Akjo40I
-	JdpE3qfEhDBcXc6Nl6p/kvxlRoiYu/xlhTcXsUI+/w8SnpVQhD4sKFflLfcdOp/YmqHxTG/LSQpi9
-	6P3h8romsnfyVLtkyu1J3tXb3H2DRzNlfNF/b8u19Uv0ZfWPuvJD0h6tXCCbOUFghdgi2fkKn/WX4
-	X7XbQQA/q4YvEWoT7xknORVGM4g95ytC8WZPuE26KTtzHiXjyXZGPc9veyXOSoUMlmxsORD8H5R4N
-	4oCvNWqw==;
+	bh=cxrUQLUGDquIvwNL+3vOZkd1Knzam6KbtGh2rdlC0zA=; b=k5UJhbr0HUnLesYF96f/GxOEh0
+	oqjU8qTBX6zO+6eTiDQG1lMLrRsycOImUHGQGIyERXq5zr9Znm8QZ/53RiH6relO+kx3jT0+w5zXi
+	mXQfeTJrN5qxDzh74afk9lLFtXnLpkb5XgycBSKs3oeW1TKe5eoejx+xgrbijk9UgghXEU3vm0a06
+	aW/xw6OiyhH0h9jFSFnOzJe7vXBp7CrzOUAW2O2fFF8tOqKZYlQl17Jvljj2pkEJtbFaXc0HbSRNL
+	omFCMwfJdiM+SXFW8GXxGnp0iw9T8IZ6nj8jdnq2FUgoEe2RuwKS56NFrs9p7msNoYZ25ctbL3SMv
+	wkl3a/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnWd-00000002vrX-1dYh;
-	Tue, 12 Nov 2024 09:49:31 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tAnYP-00000002wCG-1ZW5;
+	Tue, 12 Nov 2024 09:51:21 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnTH-00000002vAC-10a8
+	id 1tAnUD-00000002vQg-3TpP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 09:46:04 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-37d538fe5f2so3972079f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 01:46:01 -0800 (PST)
+	Tue, 12 Nov 2024 09:47:03 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb56cb61baso39734701fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 01:47:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731404761; x=1732009561; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1731404819; x=1732009619; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Kn+8aJWTkqwQ5EGfRTZpllEjlS0gFyQTELc12l06XLU=;
-        b=OYqdRqkeS5JTEsCfp6PRRjgsSAESloq9dUXGNYHd9KHSJ24wAnk3vJqsNvSbKE7jIe
-         T6b/Wv5iU/KmyyZ1Np8VCNV3wq41G79sg/Z09ngyrELbR4FXRKXZ9Kuo6uM2kn3JzxXW
-         pRBshYt6xDNm+LDR5QsA0VoRqLr8wu8O8z8vw4chTeIrTvI23/14CX22JwOEkvUkvoYg
-         9oLNiQRL9H9Pko216voEpkNI4u6y3zGW+fCbPjrRQQwaHpEChEaDIYVQi3KzKwqaFPwP
-         ZAOJRpAkQHiSjSXvpMhnu5+YBL64D9rc7I13NL2Qbh1aW0+6LsTxvXwzj1xTp5SEdmfD
-         LZsQ==
+        bh=cxrUQLUGDquIvwNL+3vOZkd1Knzam6KbtGh2rdlC0zA=;
+        b=FzvwCyYe+00axY1oHKDMmu3RwLqGRc3EsNZaoQRjzVYjR/SOJ8BblRfo0e2MJvEMbP
+         SPZQjZf440B/wwtV5LQ24BRZt3p3/hWRRmg9UmmmpvFGmDMPbI5Xa0K5/EKUOgvzedbu
+         fNjY4oMovOd+whxUebiz4Mp+rSH+GbvDS7xzmzR26+Z1pVgA+MwUawsgum3N2bSbOV+z
+         1uQ9M9xz1czbyXj/1zlG9w7ouO6HVh/8g4VnVVeSJw6kLiob4qcGi+TxuPdA3k74BbcP
+         /HtIi1VmdazJC2cpcOqWgdinVy+pb6tVem0IFS1fnDGPDacQ9ySABoRhZlhOafesI+Hu
+         qhJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731404761; x=1732009561;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1731404819; x=1732009619;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Kn+8aJWTkqwQ5EGfRTZpllEjlS0gFyQTELc12l06XLU=;
-        b=OiXGslLb3vOa6wtBg//koxWhJiDUN7LELCrxd+rPkNqOEg0c3XheivndI0UQfJ1X82
-         is5YzSpaa8coR3+E9zHZ8zKtRBdkO9xLSPBPbrwx50wLpmbjuKlrjDOqCUHjbEWpYb7y
-         gs7iwLrOY8U578qZG2LTReWefvvzooZM8IPSjqCUlcwPH6newgaFbEig+ngu+SkNl7Za
-         M5FFW8pGd7xHD6PReHoJYyQHoBLgGX/pS423m9Tdv3lEmRFkrd5WHWSQdds4MC/wE7cH
-         a3opBBQsHrzqvvdRV3SQaoxxWy4Rp4VqY3FG4bKgwqg/R0vlNyhYyCdrVASATc2cRwXk
-         RrbA==
-X-Forwarded-Encrypted: i=1; AJvYcCVN7DUttLSLM1akcBE7s1Cv6rPjTFYs5Xjh/c9rqs30SfCI8JTuqfCe0L76JYK8X3mJQkI65Pegv1lYla+2MXD/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyduZrspiKNKRxiLhI7mQ/sZpjE7Cb2U0eVRN4iCNzVs+pTew4M
-	88XwSLoeFk1OZr9cv9JMAXw7Y0ttUvTGcLDduWLMTv1+7SK/SZvRyAs5nu398zQz8GIfaAibJWt
-	vnUjaLHXX5GK3FuiFN1pevU69loq+9DCN
-X-Google-Smtp-Source: AGHT+IFPzNA/ykyop8Pr9VmfZCzUea/dWGp/PCJjjDw1YLiQF+EUnfcDBl+zIVNWxL+YF7MTzG6Ojpszf6h87p4+fzg=
-X-Received: by 2002:a5d:5f48:0:b0:37d:498a:a237 with SMTP id
- ffacd0b85a97d-381f171ccc1mr13389793f8f.8.1731404760474; Tue, 12 Nov 2024
- 01:46:00 -0800 (PST)
+        bh=cxrUQLUGDquIvwNL+3vOZkd1Knzam6KbtGh2rdlC0zA=;
+        b=t/qwUw7cNAJmlsiClMmiALkrj0Mj4YPeF4r8mXfYnHZuSHGVH7Aa3qxzv9qmWhZRSs
+         ATbV7r7GXnMdeAa1e5PS+BCAW2bI6Fbqn+p7m6RCB5J+G8Gz25Miww3sRFaNtXhtzPmH
+         yvwTBl/KJUtzeHn96WhUl2QPn5qsfz2TPnx+t4sv5kqz5EQtEgPT/u0lvRf8yQ6s6EIP
+         psAlQ9pyYGJmVuLdwSByhskmYIQVlyOzbragFMQ0mj0xhifSGRIbNoA5xibxoKrIUIBY
+         AjD9NsZwG/a8WIciKI4XkObizmpbMbz+nfkVRW8yfv7IEtdWXg1KzyvPjn59uXGNSd1q
+         T2hA==
+X-Forwarded-Encrypted: i=1; AJvYcCUsdsboMJYOzanfQrrl5SEmBz31ot16iqtwtw0ywTQsgCfBkJK5Px20giPRB54yPElTZzVY+VTrdz9yNC7VANZh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbFUlFfEQskDlXAsRC8MZ7atTlt4Sqh11NtvBJjUuQXLULEkwf
+	ZcXeowsOA3/L+ECt2NuFLIpe3AOebbPqzyRNEAtQYYdKQjG1TvNb
+X-Google-Smtp-Source: AGHT+IE3pBqKFb6Yk8oEomko/aK/XSjtZ84xqvYa+rvcJru0YumfUY5+WY9OLJopre3IfMt0ghRnSQ==
+X-Received: by 2002:a05:651c:248:b0:2fb:57b7:5cd with SMTP id 38308e7fff4ca-2ff201e6cc1mr71712251fa.7.1731404819101;
+        Tue, 12 Nov 2024 01:46:59 -0800 (PST)
+Received: from foxbook (bff246.neoplus.adsl.tpnet.pl. [83.28.43.246])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff179d85e3sm19798631fa.116.2024.11.12.01.46.58
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Tue, 12 Nov 2024 01:46:58 -0800 (PST)
+Date: Tue, 12 Nov 2024 10:46:55 +0100
+From: =?UTF-8?B?TWljaGHFgg==?= Pecio <michal.pecio@gmail.com>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Linus Walleij" <linus.walleij@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Linux kernel regressions list"
+ <regressions@lists.linux.dev>, "Kees Cook" <kees@kernel.org>
+Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
+Message-ID: <20241112104655.777b0578@foxbook>
+In-Reply-To: <014edf04-a5ac-4a02-af76-ca2616c3c4ab@app.fastmail.com>
+References: <20241111233817.2f824c19@foxbook>
+	<CACRpkdYsgnBFsyF9upr=xoLdMJ25DCXMEJ-co7rJTnRanJncug@mail.gmail.com>
+	<014edf04-a5ac-4a02-af76-ca2616c3c4ab@app.fastmail.com>
 MIME-Version: 1.0
-References: <20241111094349.2894060-1-peteryin.openbmc@gmail.com>
- <20241111094349.2894060-4-peteryin.openbmc@gmail.com> <434b2dab17050643badc60c50b361153631b7cdd.camel@codeconstruct.com.au>
-In-Reply-To: <434b2dab17050643badc60c50b361153631b7cdd.camel@codeconstruct.com.au>
-From: Peter Yin <peteryin.openbmc@gmail.com>
-Date: Tue, 12 Nov 2024 17:45:49 +0800
-Message-ID: <CAPSyxFRC-VBVs4xBFnkoBNx1jNjr+cJ_CztmgCpMzqtjYDCVbg@mail.gmail.com>
-Subject: Re: [PATCH v1 3/5] ARM: dts: aspeed: Harma: Revise GPIO line name
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_014603_414731_BF1E4895 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241112_014701_912896_8F0DE96D 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,65 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 7:53=E2=80=AFAM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> Hi Peter,
->
-> On Mon, 2024-11-11 at 17:43 +0800, Peter Yin wrote:
-> >   Add:
-> >     "ac-power-button",
-> >     "asic0-card-type-detection0-n"
-> >     "asic0-card-type-detection1-n"
-> >     "asic0-card-type-detection2-n"
-> >
-> >     "cpu0-prochot-alert",
-> >     "cpu0-thermtrip-alert",
-> >
-> >     "irq-uv-detect-alert",
-> >     "irq-hsc-alert",
-> >
-> >     "uart-switch-button"
-> >     "uart-switch-lsb"
-> >     "uart-switch-msb"
-> >
-> >     "leakage-detect-alert",
-> >
-> >     "power-card-enable",
-> >     "power-fault-n",
-> >     "power-hsc-good",
-> >     "power-chassis-good"
-> >     "presence-post-card",
-> >     "presence-cmm"
-> >     "pvdd11-ocp-alert"
-> >
-> >     "reset-control-cmos-clear"
-> >     "reset-cause-pcie",
-> >     "reset-cause-platrst",
-> >
-> >     "P0_I3C_APML_ALERT_L",
->
-> Rather than list the identifiers that are already contained in the
-> patch, can you please discuss what functionality these identifiers
-> enable, how different functions are related, and why this must all be
-> done in one patch?
->
-> >
-> >   Rename:
-> >     "power-cpu-good" to "host0-ready",
-> >     "host-ready-n" to "post-end-n
->
-> On the other-hand, explicitly calling out these changes is helpful, but
-> please also discuss the motivation and impact.
->
-> Andrew
+Hi,
 
-Hi Andrew,
-    Understood, I'll include comments in the next version. Harma will
-be moving into the DVT2 stage,
-and many of the new GPIO lines weren't defined in the POC stage, so
-I'll add this to the one page.
+On Tue, 12 Nov 2024 07:41:12 +0100, Arnd Bergmann wrote:
+> I would guess that the problem is not the access_ok() but
+> the actual access in v7_coherent_user_range() that does
+> not appear to call uaccess_save_and_enable() or its assembler
+> equivalent around the lines
+> 
+>       USER(  mcr     p15, 0, r12, c7, c11, 1 )
+> ...
+>       USER(  mcr     p15, 0, r12, c7, c5, 1  )
+>
 
-Thanks,
-Peter.
+Yes, this is what fails and where I got stuck tracing this code because
+I'm not exactly an ARM MMU wizard.
+
+What I could tell is that this code hasn't changed much since the 3.10
+vendor kernel which works fine with LPAE on the same CPU and userspace,
+so I started looking for recent changes in arch/arm and found PAN.
+
+According to comments, this routine is meant to return an error when it
+catches a pagefault, so that's what I suppose happens here and that's
+why PAN immediately caught my attention.
+
+Disabling PAN fixes cacheflush for me.
+
+> It's unclear to me if this problem is specific to the TTBR0
+> PAN variant, or if it can also happen on any variant of the
+> CPU_SW_DOMAIN_PAN. It seems unlikely that CPU_SW_DOMAIN_PAN
+> has been broken for this long without anyone noticing, but
+> I also don't see why it doesn't trap in the cache flush
+> when the TTBR0 version does.
+
+I don't know, but I booted the first kernel image I made for this
+machine, which lacks LPAE and a few other things and barely works,
+but it runs gdb without issues (and cacheflush returns 0).
+
+--- config.good 2024-11-11 20:22:16.604586266 +0100
++++ config.bad  2024-11-11 20:22:10.641511948 +0100
++CONFIG_ARCH_DMA_ADDR_T_64BIT=y
++CONFIG_ARCH_HAS_PTE_SPECIAL=y
++CONFIG_ARCH_SUPPORTS_HUGETLBFS=y
++CONFIG_ARM_LPAE=y
++CONFIG_CFG80211_WEXT=y
+-CONFIG_CPU_SW_DOMAIN_PAN=y
++CONFIG_CPU_TTBR0_PAN=y
++CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE=y
++CONFIG_HAVE_GUP_FAST=y
++CONFIG_MMU_GATHER_RCU_TABLE_FREE=y
++CONFIG_MMU_GATHER_TABLE_FREE=y
+-CONFIG_PGTABLE_LEVELS=2
++CONFIG_PGTABLE_LEVELS=3
++CONFIG_PHYS_ADDR_T_64BIT=y
++CONFIG_SWIOTLB=y
++CONFIG_WEXT_CORE=y
++CONFIG_WEXT_PROC=y
++CONFIG_ZONE_DMA=y
+
+Regards,
+Michal
 
