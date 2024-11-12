@@ -4,131 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D312D597AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB6FD597AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 21:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JyuzlEmjIKs0OEzFDs2Ei5r4rj+a+WGwyUfTtd/WDY=; b=T+3lRLvtSpawZLjwLjYnjnIrrI
-	evCFIZPZOZe1IuYxCcmfIrkTJyRvkG8KP0AI5GBchxVQobl3Wt245avg1qa9Gl8DRzA9Y2BAqu69z
-	dt5m6B+fN4e3P9w60xqhHZ5/yS9/Xu3PQGURSNtO8sf+QpY/YuZealoALV8n2xqtJEU/H3kqDURlZ
-	L1c6N4mFsKo4mO5A5cnChnQgUGI8ElBS7XhhIqhVxUcPV2U4xFBBAm0n0XCfB7meGNVeNXOwuIoh7
-	YLwK4QN16dqimRC4ybuVIQcD/KDBp/kiRTDNId5zudP2v+8uCgrBla0OfIp8OVVZjpIygtijglhh4
-	3jiq/Tng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=F+8DSvnMtK/+kFPyqK6ZYIj5qETWKP7+DJeOfOGzDV4=; b=rN4fwDMC8pBwH+
+	Ft7IedJy6vF0HRp6uJKaGG8c4wigmy85aWT7u/GSXYA1F+eP24CTOt4Rm+/kMfzZPJfIFWAs7ze1o
+	coKt/O713s5YIi7L3C1I5ekvUCXILlkfRI6VikMbS7JlD7QelsSd57Q0BwboPrHxyeHCpC8iIV4R6
+	cuyGi7wYyRRz2UXnP45c7RXHTJMrNcObKzAVmOUf2ddmvB2yc6xCJJsS4FFm5lZLZLpxzOtyJ7R5b
+	1exLzOGMntIhTTQOMNK/52roNrk0tRs82SNtgQMqWTZX/OOFptGjXN4DgQifihkST1afutjjdhJGK
+	swA+I3WoS4e8+Xb3rSkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyhM-000000053TG-1Sl6;
-	Tue, 12 Nov 2024 21:45:20 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1tAyj7-000000053ha-3ZPQ;
+	Tue, 12 Nov 2024 21:47:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyeG-000000052wr-3Axc
+	id 1tAyfk-000000053Ct-0VbG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 21:42:10 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-71e52582cf8so4945678b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 13:42:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1731447728; x=1732052528; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=1JyuzlEmjIKs0OEzFDs2Ei5r4rj+a+WGwyUfTtd/WDY=;
-        b=N133AJT8W6v/5ZHr7uPidv6ZLs7Ve2PDcRaS2ulTYF2HDmNc9vahXagBVBcBFIymIW
-         NH/Fye+nXih+FSAOkWwv8Gal1PRHMBAk21YHPhQXPn/rAyABt8oXEU6oJNZCfJHRAcar
-         vz1PgDPiHaQc+45W/m5MqL6uhiLtji2jerqpc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731447728; x=1732052528;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1JyuzlEmjIKs0OEzFDs2Ei5r4rj+a+WGwyUfTtd/WDY=;
-        b=Xdqo8LLjZEwG4U+J/HzWQjqoPnmPDF45falroVAytYing23r5z/Y1YdEPVAuMZ0oBV
-         44Qv4prVBrWA61NhJ1H3QZuWM4qNwWFX55ub6HQ5C26W0H8GUktP7r4oIMGr0s1dqfVW
-         +frq7ZqRQtK1uVzzp4v8xITQFnjaCcYUriHQZQ5dy5pa7EYGbq9qWrjunb04CRyfvK8o
-         Eup1ux7OqxlW6WUY4Zk2idfb6ZPqu1S6c6x78zU0BRb1sYACWvYQRyaTTO5y8vKggiI3
-         fl0yt45g4+kIJjq4EOM+qSKvgAgsPLmH95ZnmwpKGTo60Ul61SWt9XE20tfWvIm/2V7p
-         IrSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX2CSQ4pP0KdYWQxZuWq5NUgssvxH/t3WL5qPdA+rh2KMFEZKW8c6wmFbClI+8G8wbgJ3mXcq/JT1j0jpDoZpvl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgnsKS0v2qx7ucsyhcnhSHc21I2LN7lwZ6g7aJtKMC0H5+ChiV
-	+jaWnOvNm3ubWgLjebW5sk7baYQaL7Vo6Jai9xjht8LE9lBDuHH5UPTgJ+1/bw==
-X-Google-Smtp-Source: AGHT+IFDh6oyLu1szZNtbuwF2rTREJskobicbVjVT9besKSihoc9sQcmwBwA22LNfYSTp8e423c8ow==
-X-Received: by 2002:a17:90a:e7cb:b0:2e2:a8dd:9bb5 with SMTP id 98e67ed59e1d1-2e9b170d9f4mr23022270a91.12.1731447727580;
-        Tue, 12 Nov 2024 13:42:07 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9f3f4fe0bsm9897a91.53.2024.11.12.13.42.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 13:42:06 -0800 (PST)
-Message-ID: <4b50e109-da52-4616-8f68-75174ffac8a5@broadcom.com>
-Date: Tue, 12 Nov 2024 13:42:02 -0800
+	Tue, 12 Nov 2024 21:43:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2869DA42720;
+	Tue, 12 Nov 2024 21:41:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE84EC4CECD;
+	Tue, 12 Nov 2024 21:43:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731447819;
+	bh=TSBvSL3F8utvdtRSv0V0b72Rr2Qwe8DnowxnXL+/4GU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Zwgf7eGDinLJJQzHU5fzK0CcK8hMSQrpqCuhZlg5fCb9cZyYhPFFEaf5s1Jioe20y
+	 dtIgb9DZHNR3rivnptyX2Q3U9V6ySlrzPyuu2V9GbpfouD2cLKom+s8ZjMocS4Y5/7
+	 hlUW9sEc92udhXpwDVyMGoIdLA3/WShXbAxKRuUhIKuf9Y1shUh9VCV61EWCLjHLlD
+	 OUyFCvw7gNvZPdYLVoXY5BT84gPmgGkKoepMdRiKP+POu45iD+rN1eexkEVSX2M0A6
+	 XxfB/BW2DZZFZds0G7xrv/TpVMQd5k8AKjidTo5cOZHuWn6l8u8X0C8fbo9jFin1pq
+	 JNOvJD0KBeA7g==
+Date: Tue, 12 Nov 2024 15:43:37 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
+Cc: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	salee@marvell.com, dingwei@marvell.com
+Subject: Re: [PATCH 1/1] PCI: armada8k: Disable LTSSM on link down interrupts
+Message-ID: <20241112214337.GA1861873@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3 net-next] net: modernize IRQ resource acquisition
-To: Rosen Penev <rosenp@gmail.com>, netdev@vger.kernel.org
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Vladimir Oltean <olteanv@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Pantelis Antoniou <pantelis.antoniou@gmail.com>,
- Marcin Wojtas <marcin.s.wojtas@gmail.com>, Byungho An <bh74.an@samsung.com>,
- Kevin Brace <kevinbrace@bracecomputerlab.com>,
- Francois Romieu <romieu@fr.zoreil.com>, Michal Simek <michal.simek@amd.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Zhao Qiang <qiang.zhao@nxp.com>,
- "open list:CAN NETWORK DRIVERS" <linux-can@vger.kernel.org>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/Allwinner sunXi SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
- "open list:FREESCALE SOC FS_ENET DRIVER" <linuxppc-dev@lists.ozlabs.org>
-References: <20241112211442.7205-1-rosenp@gmail.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20241112211442.7205-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112064241.749493-1-jpatel2@marvell.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_134208_845692_DF9BA4E5 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_134340_314238_2D8B714E 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,23 +73,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/12/24 13:14, Rosen Penev wrote:
-> In probe, np == pdev->dev.of_node. It's easier to pass pdev directly.
-> 
-> Replace irq_of_parse_and_map() by platform_get_irq() to do so. Requires
-> removing the error message as well as fixing the return type.
-> 
-> Replace of_address_to_resource() with platform_get_resource() for the
-> same reason.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> (for CAN)
-> Reviewed-by: Marc Kleine-Budde <mkl@pengutronix.de>
+On Mon, Nov 11, 2024 at 10:42:41PM -0800, Jenishkumar Maheshbhai Patel wrote:
+> When a PCI link down condition is detected, the link training state
+> machine must be disabled immediately.
 
-For bcm_sf2.c:
+Why?
 
-Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
+"Immediately" has no meaning here.  Arbitrary delays are possible and
+must not break anything.
 
--- 
-Florian
+> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-armada8k.c | 38 ++++++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c b/drivers/pci/controller/dwc/pcie-armada8k.c
+> index b5c599ccaacf..07775539b321 100644
+> --- a/drivers/pci/controller/dwc/pcie-armada8k.c
+> +++ b/drivers/pci/controller/dwc/pcie-armada8k.c
+> @@ -53,6 +53,10 @@ struct armada8k_pcie {
+>  #define PCIE_INT_C_ASSERT_MASK		BIT(11)
+>  #define PCIE_INT_D_ASSERT_MASK		BIT(12)
+>  
+> +#define PCIE_GLOBAL_INT_CAUSE2_REG	(PCIE_VENDOR_REGS_OFFSET + 0x24)
+> +#define PCIE_GLOBAL_INT_MASK2_REG	(PCIE_VENDOR_REGS_OFFSET + 0x28)
+> +#define PCIE_INT2_PHY_RST_LINK_DOWN	BIT(1)
+> +
+>  #define PCIE_ARCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET + 0x50)
+>  #define PCIE_AWCACHE_TRC_REG		(PCIE_VENDOR_REGS_OFFSET + 0x54)
+>  #define PCIE_ARUSER_REG			(PCIE_VENDOR_REGS_OFFSET + 0x5C)
+> @@ -204,6 +208,11 @@ static int armada8k_pcie_host_init(struct dw_pcie_rp *pp)
+>  	       PCIE_INT_C_ASSERT_MASK | PCIE_INT_D_ASSERT_MASK;
+>  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK1_REG, reg);
+>  
+> +	/* Also enable link down interrupts */
+> +	reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG);
+> +	reg |= PCIE_INT2_PHY_RST_LINK_DOWN;
+> +	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG, reg);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -221,6 +230,35 @@ static irqreturn_t armada8k_pcie_irq_handler(int irq, void *arg)
+>  	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG);
+>  	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_CAUSE1_REG, val);
+>  
+> +	val = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_CAUSE2_REG);
+> +
+> +	if (PCIE_INT2_PHY_RST_LINK_DOWN & val) {
+> +		u32 ctrl_reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_CONTROL_REG);
+
+Add blank line.
+
+> +		/*
+> +		 * The link went down. Disable LTSSM immediately. This
+> +		 * unlocks the root complex config registers. Downstream
+> +		 * device accesses will return all-Fs
+> +		 */
+> +		ctrl_reg &= ~(PCIE_APP_LTSSM_EN);
+> +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_CONTROL_REG, ctrl_reg);
+
+And here.
+
+> +		/*
+> +		 * Mask link down interrupts. They can be re-enabled once
+> +		 * the link is retrained.
+> +		 */
+> +		ctrl_reg = dw_pcie_readl_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG);
+> +		ctrl_reg &= ~PCIE_INT2_PHY_RST_LINK_DOWN;
+> +		dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_MASK2_REG, ctrl_reg);
+
+And here.  Follow existing coding style in this file.
+
+> +		/*
+> +		 * At this point a worker thread can be triggered to
+> +		 * initiate a link retrain. If link retrains were
+> +		 * possible, that is.
+> +		 */
+> +		dev_dbg(pci->dev, "%s: link went down\n", __func__);
+> +	}
+> +
+> +	/* Now clear the second interrupt cause. */
+> +	dw_pcie_writel_dbi(pci, PCIE_GLOBAL_INT_CAUSE2_REG, val);
+> +
+>  	return IRQ_HANDLED;
+>  }
+>  
+> -- 
+> 2.25.1
+> 
 
