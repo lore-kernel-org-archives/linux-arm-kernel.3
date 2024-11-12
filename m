@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA96DD41D41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02076D41D41
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FxZwK/+in1zWGVe+BhCIW9P39OCNmwZUeCTRsHuxe20=; b=nCDMA4sT7kS/+r
-	YODtlyDvJN0SsBr6MXbW/g11fubZh8OuxH/d+RHwBVb4Z16tz/uCAZZC4+2YnGP7+UZfpDVPWYPaJ
-	wfiZlRsm+UDnxmEsvSSKay45keI2ke9cygMmaApTWZoSL+XoJprDXC7du+YMonFHhk71PJGFhCg++
-	EQxpLYXJcyfFo+i3nWPLbJNyHtYyF9wHU2P8Ki/YItZ4TNV9gZlBx6Y2LV4kjDs+wsmaYqEN9mhh5
-	CrpYYBwdRGf/4P8je1/ydR5AG/AS9HcBv+XfpvBQgOTT+4hJrpIcRd/9/eG6c+/GNa/S4O98XbYu/
-	HI0n419iAu1xohuExuvA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lrF4LFmOOeDNHhqyFo6bU0DTscUGWVbCo1mKKqWDM0Q=; b=wyQkCzZl54MMJphbZ3SVIhQvDs
+	lCip+HqTE7v53ev0bNwC0hRuVSNOaHTZoHVciFqH1wopwqiDffAuvMXDvw+NwcpwQ/t6x4fh4bhws
+	Y5SPs/sMCOSObIiMrRrVUvWcsVLc851XW6eiDPbDsqPW+kLTiB36OL9fHni+8hEevJvFM1mY8fEyY
+	+qN8EPENpDrhgcXF1HPOLvWF8E6ZuKeGVC27Ogtdx8pfoXzYKHEltRgDtrrvAR8OGkcD8NyT1BsqM
+	DEtzG+bq257Ng527gzMJsg4VftT4MZVuzrFxqgOnWWbHoR5WMvcW4h/GaQWQX5Ppwuz16wfkAl3Uu
+	kjzvpySQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAeVA-00000001hti-23ml;
-	Tue, 12 Nov 2024 00:11:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tAeWv-00000001iA3-0IRa;
+	Tue, 12 Nov 2024 00:13:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAeTN-00000001hZU-3631
+	id 1tAeTQ-00000001hZo-1H5C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 00:09:35 +0000
+	Tue, 12 Nov 2024 00:09:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 46D035C5D32;
-	Tue, 12 Nov 2024 00:08:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC76C4CECF;
-	Tue, 12 Nov 2024 00:09:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 290EAA40E9C;
+	Tue, 12 Nov 2024 00:07:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 986EBC4CECF;
+	Tue, 12 Nov 2024 00:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731370172;
-	bh=0BN/FwFINfIweSPyRYGiqivvH0muTynHLak6B4C/5vY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=gA2rjWSIv32F0Rwy9fJ2opnTSWrlewyiuq/0/8JnZNHe/EJxkbjjSrNj5QDNB0gMU
-	 fQlshSh+/CxIeiTy2yHaOuTUu2O022BMuNk8wU0S3aZxGDDXHAkJ92D732fej6aEHu
-	 BnvreV26OsQCb9QYb+caYOoeDjuZoMqBeP1gxZXxPagAdc8xsa0V9Cut+ibjL8ZTKL
-	 IlIvhMYikGTNeT/+nGoOs4TMGMqYrbe4qfPj8Qu4n2wCWbvu2AdzrhS0tnyakfPTl6
-	 DS3x2x4iAnzDVKVP9ZxOejmkM8OYVgmxpTBsSl3ExQomsTXy9df7guIOOxefZ2iqQZ
-	 wniY3TBljhNCQ==
+	s=k20201202; t=1731370175;
+	bh=O4BlBK5ortkbTpACDTtrxOHXjUi4e/RFV4T0bXUuIpY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=MoZjLJJun/eGaE9oEyAkvEzm/5Cj4D0DMOFPE1W/2UdludZBq6GD6QwIvM1qEmD2b
+	 LQWejKXq2dZ6HtreltGQlFltxfgh2CsOnTlV4VDG2hUmzoqFEkcrL+jcGHN/9tf9U0
+	 xYd/SVG3zPwQZSwvplb93S0VGrCXBcos90dju/kll+xm+0w9hQ+7rocaiVhDRxn0CP
+	 O+8yLmIdjAp38MsAGd/woBUBnKG7WimDsSX0/xN8RR8QAfRbCEzfcYIkohMrQJ+Lye
+	 /x296qf0gtjXVwPmrSpoNWSV5UTx6EH8y0q9udA7HyWurSg94o3eLOdzu8zy8Q07ZV
+	 /NXmvvWWxWLxg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH RESEND v2 0/7] clk: en7523: Update register mapping for
- EN7581
-Date: Tue, 12 Nov 2024 01:08:47 +0100
-Message-Id: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
+Date: Tue, 12 Nov 2024 01:08:48 +0100
+Subject: [PATCH RESEND v2 1/7] dt-bindings: clock: airoha: Update reg
+ mapping for EN7581 SoC.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20241112-clk-en7581-syscon-v2-1-8ada5e394ae4@kernel.org>
+References: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
+In-Reply-To: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,8 +63,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  ansuelsmth@gmail.com, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_160933_856656_2460EAB3 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20241111_160936_614086_7D84D8B7 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,43 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map all clock-controller memory region in a single block for EN7581 SoC.
-Introduce chip_scu regmap pointer since EN7581 SoC will access chip-scu
-memory area through a syscon node.
-REG_PCIE*_MEM and REG_PCIE*_MEM_MASK registers (PBUS_CSR) are not
-part of the scu block on the EN7581 SoC and they are used to select the
-PCIE ports on the PBUS, so configure them via in the PCIE host driver.
-This series does not introduce any backward incompatibility since the
-dts for EN7581 SoC is not upstream yet.
+clk-en7523 driver for EN7581 SoC is mapping all the scu memory region
+while it is configuring the chip-scu one via a syscon. Update the reg
+mapping definition for this device. This patch does not introduce any
+backward incompatibility since the dts for EN7581 SoC is not upstream
+yet.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v2:
-- fix smatch warnings in en7581_register_clocks()
-- fix dt-bindings for EN7581 clock
-- move REG_PCIE*_MEM and REG_PCIE*_MEM_MASK register configuration in
-  the PCIE host driver
-- Link to v1: https://lore.kernel.org/r/20240831-clk-en7581-syscon-v1-0-5c2683541068@kernel.org
+ .../bindings/clock/airoha,en7523-scu.yaml          | 23 ++++++++--------------
+ 1 file changed, 8 insertions(+), 15 deletions(-)
 
----
-Lorenzo Bianconi (7):
-      dt-bindings: clock: airoha: Update reg mapping for EN7581 SoC.
-      clk: en7523: remove REG_PCIE*_{MEM,MEM_MASK} configuration
-      clk: en7523: move clock_register in hw_init callback
-      clk: en7523: introduce chip_scu regmap
-      clk: en7523: fix estimation of fixed rate for EN7581
-      clk: en7523: move en7581_reset_register() in en7581_clk_hw_init()
-      clk: en7523: map io region in a single block
+diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+index 84353fd09428f4c9af6a1e39c04b5abdee602a55..fe2c5c1baf4332984369fdf0271a95fce7ee5f85 100644
+--- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
++++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+@@ -34,8 +34,10 @@ properties:
+           - airoha,en7581-scu
+ 
+   reg:
+-    minItems: 2
+-    maxItems: 4
++    items:
++      - description: scu base address
++      - description: misc scu base address
++    minItems: 1
+ 
+   "#clock-cells":
+     description:
+@@ -60,9 +62,7 @@ allOf:
+     then:
+       properties:
+         reg:
+-          items:
+-            - description: scu base address
+-            - description: misc scu base address
++          minItems: 2
+ 
+         '#reset-cells': false
+ 
+@@ -73,11 +73,7 @@ allOf:
+     then:
+       properties:
+         reg:
+-          items:
+-            - description: scu base address
+-            - description: misc scu base address
+-            - description: reset base address
+-            - description: pb scu base address
++          maxItems: 1
+ 
+ additionalProperties: false
+ 
+@@ -96,12 +92,9 @@ examples:
+       #address-cells = <2>;
+       #size-cells = <2>;
+ 
+-      scuclk: clock-controller@1fa20000 {
++      scuclk: clock-controller@1fb00000 {
+         compatible = "airoha,en7581-scu";
+-        reg = <0x0 0x1fa20000 0x0 0x400>,
+-              <0x0 0x1fb00000 0x0 0x90>,
+-              <0x0 0x1fb00830 0x0 0x8>,
+-              <0x0 0x1fbe3400 0x0 0xfc>;
++        reg = <0x0 0x1fb00000 0x0 0x970>;
+               #clock-cells = <1>;
+               #reset-cells = <1>;
+       };
 
- .../bindings/clock/airoha,en7523-scu.yaml          |  23 +-
- drivers/clk/clk-en7523.c                           | 309 ++++++++++++++-------
- 2 files changed, 217 insertions(+), 115 deletions(-)
----
-base-commit: f0e992956eb617c8f16119944bfe101dea074147
-change-id: 20240823-clk-en7581-syscon-100c6ea60c50
-prerequisite-change-id: 20240705-for-6-11-bpf-a349efc08df8:v2
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.0
 
 
