@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458E7D32D8F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC01D32D8F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 10:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YKWIe9MnX22iPbV9XTdcAuMqsg4dFZZTfBp9xq4V2A=; b=RI3Rg2f39SYF8YAsns8ZFOiqFu
-	IsMWTewyQnSaWEa8q/6S5qMnXsHC6GKMchYlEgdPDgrE6xtsnRoaLl3gRKbxwyfGq2TPvNmsYB+Z5
-	PH2aNIRIpMwRodg3/ft9QA0dvMRfwc3dz2HhpWZt1gRDvl+91Cg3+JFkvQ83u9D4+ipb6a14taEzC
-	gDCaL5mMGt214HxWiOuA/YezcF/QM++Kc2QNkRcpfKVibYbdwwlSkg5JNXXsNXSyh+TNbp+GPqcO3
-	jrMxs5PMbZXJibVu3JYrcionmvIwGfO0d1s0W3ochhornMcWJyFoEpvmYbKQsP0eWVcWRtg1Yh6fe
-	UZeja+fQ==;
+	bh=snVCWTzdf8B/icILGn20Tk1vRCb7LMZTYVJ+Lyd3JJE=; b=rOHVU4aUEzXEF81e2IeSkzryPp
+	ki1cf5dkYVTMXUONprCogu5qY2hdhfQPqvqMebuxqOm+A1Qv18s2nIfMqAF/zTTRlP7vzGhqXSQGc
+	Hfbb9fMgjbL1GqDzsRkbrtVvNbahqePJytBuAUwxuiSSgxmHMA8wVH8VQkmM7wRtEoQWQPWDt3Ni+
+	0NoFBrA+YP1HTIjs1QlIHBsKvVIukGORV5USC6y8y+33C5ActQKB81YCXQM7xxc3H4rP4jeVRlgis
+	1YKPPPUNpSfYEW2i/b/ogY7ann2H6SUiIeat8zbau8VlvjvKlvUOPKGJyjX8Dc8OwWinjKTtBBQWM
+	IRmbE8dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAoaH-000000038SW-3SqG;
-	Tue, 12 Nov 2024 10:57:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAoc2-000000038mx-2Hic;
+	Tue, 12 Nov 2024 10:59:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAoGO-000000034IU-1m0O
+	id 1tAoGi-000000034O4-49Jx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 10:36:50 +0000
+	Tue, 12 Nov 2024 10:37:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5D783A4192F;
-	Tue, 12 Nov 2024 10:34:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE54EC4CED4;
-	Tue, 12 Nov 2024 10:36:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 056B1A41950;
+	Tue, 12 Nov 2024 10:35:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1245AC4CED7;
+	Tue, 12 Nov 2024 10:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731407807;
-	bh=hUbS/ZJ6YPF2GQ/J2PZx9O/TNmMSuETAVHSQTSDP0Ac=;
+	s=k20201202; t=1731407827;
+	bh=gcv43duiZlx3LiKyePNQ3QLqwqId7kWDW/PegWv9o20=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dEgtbRK+PdcO7US83LifW/8L57tLy1LeXxuKxhxvcMpNgRg5yKldqdons/4FNh3Nu
-	 afgzj5slCXwleXKnYl+4EzYyNbvOk0e2zp5In/XuaqdoGi7YsxTGGqWKKyPzQ1Q5tO
-	 JUgj5tcZwA10j8PlSvc5KKH1QVzAkwer6UVV0fIp2K829bROUCHaBI1f83ZcJcEN7e
-	 0tvi8bq//+0D0t5qdoSlkN76WZaO9tb33bvHfKt+cZjoSO6yuskUN0g+7my4fwIZM5
-	 43yaFmzzif/opmw7RBBd5WNoKthNLNqhM1PqhNOZT0EiJH4m8nFxGU9nW+xk2PF+ww
-	 EU6K/fxjF9KgA==
+	b=BcuzQBaDCvka7cJavNwqvkZQkLkwdocA4aFbdSevA0WHGWlIpbVCawiOT8vlny9Ip
+	 0HIdSVmpnOg9lZ67hv8eTmcWn7PxKWGIBLXtJX4xnxRygCmo4MzrH3Deb19iNTfXhY
+	 DPxKQr7kka2AKiOc28zClQc78eX+aJuOtnMsWE1Tx5gwrTvNlieMMNe4MiJCECmBgc
+	 jZQCN20Ow5wv27rV6EzFYRQcD7PqarofcyzHuJh282ok9wIEmyJJo2E/jOqEpPtYkY
+	 cVUCQdVCxF22FTTbn1/YwQvVVapqwCVB+INzGqOxVXqFSh3iYpUpRQyRpDIvLyj7PN
+	 GAThcyuMpL1Jg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
+Cc: Luo Yifan <luoyifan@cmss.chinamobile.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	arm-scmi@vger.kernel.org,
+	olivier.moysan@foss.st.com,
+	arnaud.pouliquen@foss.st.com,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	alsa-devel@alsa-project.org,
+	linux-sound@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 02/15] firmware: arm_scmi: Reject clear channel request on A2P
-Date: Tue, 12 Nov 2024 05:36:23 -0500
-Message-ID: <20241112103643.1653381-2-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 12/15] ASoC: stm: Prevent potential division by zero in stm32_sai_mclk_round_rate()
+Date: Tue, 12 Nov 2024 05:36:33 -0500
+Message-ID: <20241112103643.1653381-12-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241112103643.1653381-1-sashal@kernel.org>
 References: <20241112103643.1653381-1-sashal@kernel.org>
@@ -63,8 +71,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.60
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_023648_718214_01931602 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20241112_023709_115023_A38467BD 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +87,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+From: Luo Yifan <luoyifan@cmss.chinamobile.com>
 
-[ Upstream commit a0a18e91eb3a6ef75a6de69dc00f206b913e3848 ]
+[ Upstream commit 63c1c87993e0e5bb11bced3d8224446a2bc62338 ]
 
-The clear channel transport operation is supposed to be called exclusively
-on the P2A channel from the agent, since it relinquishes the ownership of
-the channel to the platform, after this latter has initiated some sort of
-P2A communication.
+This patch checks if div is less than or equal to zero (div <= 0). If
+div is zero or negative, the function returns -EINVAL, ensuring the
+division operation (*prate / div) is safe to perform.
 
-Make sure that, if it is ever called on a A2P, is logged and ignored.
-
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Message-Id: <20241021171544.2579551-1-cristian.marussi@arm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Luo Yifan <luoyifan@cmss.chinamobile.com>
+Link: https://patch.msgid.link/20241106014654.206860-1-luoyifan@cmss.chinamobile.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/firmware/arm_scmi/common.h | 2 ++
- drivers/firmware/arm_scmi/driver.c | 6 ++++++
- 2 files changed, 8 insertions(+)
+ sound/soc/stm/stm32_sai_sub.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 00b165d1f502d..039f686f4580d 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -163,6 +163,7 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id);
-  *      used to initialize this channel
-  * @dev: Reference to device in the SCMI hierarchy corresponding to this
-  *	 channel
-+ * @is_p2a: A flag to identify a channel as P2A (RX)
-  * @rx_timeout_ms: The configured RX timeout in milliseconds.
-  * @handle: Pointer to SCMI entity handle
-  * @no_completion_irq: Flag to indicate that this channel has no completion
-@@ -174,6 +175,7 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id);
- struct scmi_chan_info {
- 	int id;
- 	struct device *dev;
-+	bool is_p2a;
- 	unsigned int rx_timeout_ms;
- 	struct scmi_handle *handle;
- 	bool no_completion_irq;
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 3962683e2af9d..efa9698c876a0 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -855,6 +855,11 @@ static inline void scmi_xfer_command_release(struct scmi_info *info,
- static inline void scmi_clear_channel(struct scmi_info *info,
- 				      struct scmi_chan_info *cinfo)
- {
-+	if (!cinfo->is_p2a) {
-+		dev_warn(cinfo->dev, "Invalid clear on A2P channel !\n");
-+		return;
-+	}
-+
- 	if (info->desc->ops->clear_channel)
- 		info->desc->ops->clear_channel(cinfo);
- }
-@@ -2319,6 +2324,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	if (!cinfo)
- 		return -ENOMEM;
+diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
+index 0acc848c1f004..1b61110cb9174 100644
+--- a/sound/soc/stm/stm32_sai_sub.c
++++ b/sound/soc/stm/stm32_sai_sub.c
+@@ -378,8 +378,8 @@ static long stm32_sai_mclk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	int div;
  
-+	cinfo->is_p2a = !tx;
- 	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
+ 	div = stm32_sai_get_clk_div(sai, *prate, rate);
+-	if (div < 0)
+-		return div;
++	if (div <= 0)
++		return -EINVAL;
  
- 	/* Create a unique name for this transport device */
+ 	mclk->freq = *prate / div;
+ 
 -- 
 2.43.0
 
