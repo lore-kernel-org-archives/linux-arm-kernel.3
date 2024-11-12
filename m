@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1495DD32D7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AE5D32D7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 09:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aIvy7sHDIF/P0xKV5ZB06CXppqkV1x6iHD+MoKg51ak=; b=ZB3muI/rwAngq/XULrI5NWphWC
-	aaqOoRyc2vnWqbxxCQ3TXuLuzOU1u575/5H0UhAt68Fyb1orfkK0tNof/MZtCyZQ901bVTlxfr/rQ
-	qmYPELzPIIlvSAR/jC71oIKD/KZa3JO8Wni+5sPkUw8+0XqA+KlX4reA7QoYW15kNW4GDA83iPlRS
-	sPLKl8JRdXChOgG+QdksWAgTZus7aiH0D3uamsboWgx+bsXpw1EeTCKcjx/5N9vFK06GGryVK/YRI
-	XL0minTee+Rr5f/4bS405Jgvv9hgpPSyX4xCUn7arqUOYauH7V4xezp6/QBFPwmQ3ktFj2nOMYQN5
-	ZWucEQsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zRK4dwC2pj8x4oVLThLt6Q7pXDWIdqXmbFkswTXuyXQ=; b=S6KOpgh0CV/Yh2+fcfnGrO+RTx
+	uuM0EuDQl+voV7BYRXBo7GnPeVBRQLmyIwYcY75QdVKPyjds1u+1/E/UMgpvG3OtvoLs09C32yvYs
+	1+mV0bzhr6zPBlCRG731m+y9hkv3wZ5EcCq+/ouHeIlj1efxmMf56mbDeNc7khKa952HAkpBgO8Hd
+	84hBhlsPDTQW37KtDhD8kyrqIQ1ufF82wbC8WdAUdoOTVUkjrkn9sAcDKULxPTFIQsWi5qBRhPCQt
+	xSZDXeArxmhUTCkkzbkRHRsz3YZurfyJ0S/alf0ORa/z6m0Y+qJhJ94V7sTaySQrxpfVl7gVtZPxP
+	k11Kd6Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnOD-00000002uN1-2S2D;
-	Tue, 12 Nov 2024 09:40:49 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tAnQb-00000002uld-2ru0;
+	Tue, 12 Nov 2024 09:43:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAnI1-00000002t4r-2WpP
+	id 1tAnOJ-00000002uOm-0s9j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 09:34:27 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53b13ea6b78so8368353e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 01:34:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731404063; x=1732008863; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aIvy7sHDIF/P0xKV5ZB06CXppqkV1x6iHD+MoKg51ak=;
-        b=RvIEM8d+GEg5QxinYwmj6Nov0nNavfJLLFk82WjyksGZPYOXm1+xIXa2uaItFJsRkp
-         YF0zjtDuE8MCbe9hGCVlM4v+fSsdTX9WQW/XBuRUzA20Mk4ne6Hcoy054CDuRAAe20p2
-         WiUWCB2dppx0f38HTZadAxYC98eJf3EswzeGgUnDmyTtWYUDgPPlh3nMUqJZZOU6fEGo
-         qb5tXvjHID4YDlmbwtoyADO+3zI3YIwSqfKbraPI86nVYSIWkgAxUZI6npbQ1YJDS3G/
-         6ObI3VTeCQfs2+I41dCsTl44crMs5wXt0cLCq5xwkVBg1q7Z7Z70f+3bTNbs7x8XBMAH
-         EuRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731404063; x=1732008863;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aIvy7sHDIF/P0xKV5ZB06CXppqkV1x6iHD+MoKg51ak=;
-        b=nF/nsuIZSrIw9hcKNqaUKSFn5NjLldUDXzigKUR/+syhULeK/HAIaIRBwA5AOz3aPt
-         SX4mwsDwt9RGVUehNMDenocrDixgAK0sAe/k89uiJVl3TvIZoqyzXdzS2KbiUB9Ari6s
-         Eplei4sN6o3bNy43H+Mpojc3zzQ8O84eVuf9WdUantVhH2e8A7I9XM6bynoIqFN7OhM+
-         5yzimE1eDqYpoISY7nj5kKSV53ZLwC3mKC0L+N2IZ11qSIb7sApuzFQupIgHU87w2T2Z
-         wFckpsZl3IpYfVNYTghzrr/0nzmTQBeszU3ze9isc4s54suxqH2UAiG9tU2ko9PTQ3yO
-         dqQA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcQ8zcYfidSbLn5ePB/C3ZGslV5lKW35vKghWWfuQhvGN7EbizxM30HXe7N0w0QnbcoFZ5YWq9bQMy+3PKogtP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5astCD9omY2Ar5fVp5E4kdP92XH1AAEvBX69PWpSAOmlmmU7l
-	MFM4vOilrNI8fxnpq+slED1IRVjg/FVzuW2USnQndjcyNJ3GSMjE
-X-Google-Smtp-Source: AGHT+IEpW0kWN4jGRG2H2u9atBg0cacZuFn9Qtzcnuig3NeGX17ybEcw+CsSoFEVQbnsHKCmTB+GnA==
-X-Received: by 2002:a05:6512:2809:b0:533:4785:82ab with SMTP id 2adb3069b0e04-53d862bec24mr11091711e87.1.1731404062919;
-        Tue, 12 Nov 2024 01:34:22 -0800 (PST)
-Received: from prasmi.Home ([2a06:5906:61b:2d00:4221:c5a8:8273:369b])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a18521sm704085866b.20.2024.11.12.01.34.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 01:34:22 -0800 (PST)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH] arm64: defconfig: Enable Renesas RZ/V2H(P) Watchdog driver
-Date: Tue, 12 Nov 2024 09:34:12 +0000
-Message-ID: <20241112093412.20093-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 12 Nov 2024 09:40:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=zRK4dwC2pj8x4oVLThLt6Q7pXDWIdqXmbFkswTXuyXQ=; b=kPHXM9GXG96w7IN0GlLAObo5lV
+	1QxeaPf++7UefKmxBpPnEpLAqQRuJinzjST0By27abht9f83scNlYMNROnKbSrvn7L2hE7FvXXP2e
+	z/ex5HCrEDmHwEthspY5FYW5+bKz9C4RcYy61cdClki+DJPerd9SELs1xNW5EkI+gR5JsB6CN8EK4
+	AJaWYdBe4GRLaSyrlZJdbRKaU9kGRkQkd5bHVQeL4Ar2hFSQBbNQ4KjgzVUVce7rjIpEHaCif5R7j
+	0VwDIWC00Y+V8qfPZP9C+b9cMFuk9W+XtepOdXtmDJXokvAhRp71FJQa+dXEUnD2TiOGgkCI6lH51
+	uKTrvLAA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38390)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tAnO9-0003qe-2d;
+	Tue, 12 Nov 2024 09:40:46 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tAnO6-0007MY-39;
+	Tue, 12 Nov 2024 09:40:42 +0000
+Date: Tue, 12 Nov 2024 09:40:42 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
+Cc: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	salee@marvell.com, dingwei@marvell.com
+Subject: Re: [PATCH 1/1] PCI: armada8k: add device reset to link-down handle
+Message-ID: <ZzMimiRUAV6ecx1s@shell.armlinux.org.uk>
+References: <20241112070310.757856-1-jpatel2@marvell.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112070310.757856-1-jpatel2@marvell.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_013425_782167_8D40E67D 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_014055_286564_068F385E 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Mon, Nov 11, 2024 at 11:03:10PM -0800, Jenishkumar Maheshbhai Patel wrote:
+> diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c b/drivers/pci/controller/dwc/pcie-armada8k.c
+> index b1b48c2016f7..9a48ef60be51 100644
+> --- a/drivers/pci/controller/dwc/pcie-armada8k.c
+> +++ b/drivers/pci/controller/dwc/pcie-armada8k.c
+> @@ -23,6 +23,7 @@
+>  #include <linux/of_pci.h>
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/regmap.h>
+> +#include <linux/of_gpio.h>
+>  
+>  #include "pcie-designware.h"
+>  
+> @@ -37,6 +38,8 @@ struct armada8k_pcie {
+>  	struct regmap *sysctrl_base;
+>  	u32 mac_rest_bitmask;
+>  	struct work_struct recover_link_work;
+> +	enum of_gpio_flags flags;
+> +	struct gpio_desc *reset_gpio;
+>  };
+>  
+>  #define PCIE_VENDOR_REGS_OFFSET		0x8000
+> @@ -238,9 +241,18 @@ static void armada8k_pcie_recover_link(struct work_struct *ws)
+>  	}
+>  	pci_lock_rescan_remove();
+>  	pci_stop_and_remove_bus_device(root_port);
+> +	/* Reset device if reset gpio is set */
+> +	if (pcie->reset_gpio) {
+> +		/* assert and then deassert the reset signal */
+> +		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+> +		msleep(100);
+> +		gpiod_set_value_cansleep(pcie->reset_gpio,
+> +					 (pcie->flags & OF_GPIO_ACTIVE_LOW) ? 0 : 1);
 
-Enable the watchdog driver for the Renesas RZ/V2H(P) SoC.
+This looks wrong. resets are normally active-low.
+gpiod_set_value_cansleep() should be called with '1' to indicate active
+state, and '0' to indicate de-active state. DT should specify whether
+the signal is active high or active low.
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> +	/* Config reset gpio for pcie if the reset connected to gpio */
+> +	reset_gpio = of_get_named_gpio_flags(pdev->dev.of_node,
+> +					     "reset-gpios", 0,
+> +					     &pcie->flags);
+> +	if (gpio_is_valid(reset_gpio))
+> +		pcie->reset_gpio = gpio_to_desc(reset_gpio);
+> +
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index dd82ef9d7adc..cb04c7c98a7e 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -736,6 +736,7 @@ CONFIG_MESON_WATCHDOG=m
- CONFIG_ARM_SMC_WATCHDOG=y
- CONFIG_RENESAS_WDT=y
- CONFIG_RENESAS_RZG2LWDT=y
-+CONFIG_RENESAS_RZV2HWDT=y
- CONFIG_UNIPHIER_WATCHDOG=y
- CONFIG_PM8916_WATCHDOG=m
- CONFIG_BCM2835_WDT=y
+Just use devm_fwnode_gpiod_get() here, which will also handle the
+cleanup.
+
+To see how this should be done, look at
+drivers/pci/controller/pci-mvebu.c which gets the polarity settings
+correct too, as mentioned above.
+
+Lastly, as this patch is related to the breaking DT change, it
+_should_ have been sent as a patch series (which means the same
+Cc list on each patch) so that reviewers can see the full story
+and comments on the other patches.
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
