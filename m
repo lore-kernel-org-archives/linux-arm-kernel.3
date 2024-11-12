@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2751BD41D41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642DBD41D40
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 00:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRXzqmgvT+RDAritng6JB0goXJ+Bsw0d1Ws0M+tu0xA=; b=fKM/RBStLRRRD/8gmRkM0bvEbm
-	Ra+pCOxS7xvkd/YlEuheIL0sTWQlbL2LO82ox7YvqbXexsnP2hCJs5rz2Vv468TkT+0Tu8XJ/4kfC
-	icBYtostQs3UmEAOERMLr5JJcwAm/iWfN1n/IDc5T5PPGy84B3faWv3XirruAPsiZEPCFB1ZTzsEb
-	dorbRUSwn2sJtFjLqlO33XjutyTAGHGWH9EB8tmbenTeTpedIQUwKPvgBpYXe9w2tjyxeh3wT55UW
-	9IZAp4oDXHH+Qk1U4XsfnC9GAbeWyC4Fm8JgbPXcrQ8y+6Z09e/mbfN+W0Vms0yReNp7eXqiIFqs4
-	Xv+n05/g==;
+	bh=X6fc3EGXfegM5Gl9ET7OjeUwedmwB+zaVDFPfCkGZso=; b=fB7E+xCUjamZXo27eCCqvE9wuj
+	/5US2rxNf7wbCLc6upDSGdXTl/MWvBH8sCWpOY8XhoHGtCkj48e3kjtnwcWpgzlYu/bio3wAy8Nds
+	hocir2Fu8K1WtwhAHrb/2i9brbBysZwGgRNFdx6flHkxn87ZTWH1IySnpGWMpqhBcANEa71y9dp4E
+	ces7GcqLIHnwuCBQxHU/GVNOhhbIkYqfUPyN4vRAxylADEG4U45gv2J+J/KKV5Dz9+bkIys2MzB/h
+	AQvurJ9f/XQamusxJZzgxvEyyyHUVXBiAizOQ4FADtu7EpZvAtRI3vpDCNDwPLOtvqpDNo+LFLyFU
+	siXwv61g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAeaO-00000001iec-23TI;
-	Tue, 12 Nov 2024 00:16:48 +0000
+	id 1tAec7-00000001iuQ-3Bqm;
+	Tue, 12 Nov 2024 00:18:35 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAeTV-00000001haa-2bBV
+	id 1tAeTY-00000001haw-16nj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 00:09:42 +0000
+	Tue, 12 Nov 2024 00:09:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AAC4E5C5DD5;
-	Tue, 12 Nov 2024 00:08:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45EEDC4CECF;
-	Tue, 12 Nov 2024 00:09:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 554815C5E15;
+	Tue, 12 Nov 2024 00:08:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17BC4C4CECF;
+	Tue, 12 Nov 2024 00:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731370180;
-	bh=BRj4TFuAIsBPXFqeCEeJxEejtdO/oVR1pEVWRHwQ8W4=;
+	s=k20201202; t=1731370183;
+	bh=+wNaAMYromdcohDAezTNDP7dAaqSxh5Qc6S+kfA9zok=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uQ1QhQ2FV3rBfvsGw90nGHUz1Yz8LrX6jqwnaQw4zBDhPQ1UM1JnhcFyCvlzlH1IC
-	 XyXV/6vMhTdEWgxoGzQ0wWC0cvYpy0OF8LjKKEp5+L2YYnNjxPiEAkmeWwN2bXSMWz
-	 oRcDy2WMoQZFFIVArfbpLEY7G9BHEVNzO9UzxObg0BO1ZBI1keMMDwAwiwbsHj1Xtq
-	 tN/5zBQR/56IABq1kdnRAbP3Jc0BqQ9BoGJ+iwn1B0WnoVPpaMdBRa2L44PY2LtD0C
-	 +mSwGPj60J3CGjQH1vnlv8omw0cRYGpZjAdZicL2d8dnl26NkBqS0LqfmeLlJ0rzJW
-	 t6De8EmHMLhcg==
+	b=aD4mRna3ugPKQWM4cOYBiWxmDjX8BBgEW3HwVF0euRUOzCg+b1GAAbaHZE3Y0o+k9
+	 JnNOHrLfmGtIEMYwwqTtlZnEJLgaT4yftDzmVSZx24luoTKag42NJvoqcJd78byrAa
+	 8jHx/cqfb15RX8atqTbCVGK3poX1q6W4aG55VvSOYBt4tV9L3BAEe+LRcnezeRbXAy
+	 zYzD/rBRFFX+NhJINS4s5kcA24/R3RF0lWGweVNt0XPN6ZSmLKhB+wmUJOesYox+kH
+	 JFB/AfciI47J5VSOewVU657plCOvGYMWscYd2TwmyE1J7u/M0Zqbngv5SfixE94Bns
+	 1UJ79QHI3ZuwQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 12 Nov 2024 01:08:50 +0100
-Subject: [PATCH RESEND v2 3/7] clk: en7523: move clock_register in hw_init
- callback
+Date: Tue, 12 Nov 2024 01:08:51 +0100
+Subject: [PATCH RESEND v2 4/7] clk: en7523: introduce chip_scu regmap
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241112-clk-en7581-syscon-v2-3-8ada5e394ae4@kernel.org>
+Message-Id: <20241112-clk-en7581-syscon-v2-4-8ada5e394ae4@kernel.org>
 References: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
 In-Reply-To: <20241112-clk-en7581-syscon-v2-0-8ada5e394ae4@kernel.org>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -63,8 +62,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  ansuelsmth@gmail.com, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_160941_783341_BBB2C9E2 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20241111_160944_427391_1A8ACB8E 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,147 +78,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move en7523_register_clocks routine in hw_init callback.
-Introduce en7523_clk_hw_init callback for EN7523 SoC.
-This is a preliminary patch to differentiate IO mapped region between
-EN7523 and EN7581 SoCs in order to access chip-scu IO region
-<0x1fa20000 0x384> on EN7581 SoC as syscon device since it contains
-miscellaneous registers needed by multiple devices (clock, pinctrl ..).
+Introduce chip_scu regmap pointer since EN7581 SoC will access chip-scu
+memory area via a syscon node. Remove first memory region mapping
+for EN7581 SoC. This patch does not introduce any backward incompatibility
+since the dts for EN7581 SoC is not upstream yet.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/clk/clk-en7523.c | 82 +++++++++++++++++++++++++++++-------------------
- 1 file changed, 50 insertions(+), 32 deletions(-)
+ drivers/clk/clk-en7523.c | 81 ++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 61 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-index ec6716844fdcf7fc25482c6e587d062279360675..da112c9fe8ef94e830449a64f54e77885b7dda83 100644
+index da112c9fe8ef94e830449a64f54e77885b7dda83..7f83cbce01eeb852597d3f0bea11255aa78572c1 100644
 --- a/drivers/clk/clk-en7523.c
 +++ b/drivers/clk/clk-en7523.c
-@@ -78,7 +78,8 @@ struct en_clk_soc_data {
- 		const u16 *idx_map;
- 		u16 idx_map_nr;
- 	} reset;
--	int (*hw_init)(struct platform_device *pdev, void __iomem *np_base);
-+	int (*hw_init)(struct platform_device *pdev,
-+		       struct clk_hw_onecell_data *clk_data);
+@@ -3,8 +3,10 @@
+ #include <linux/delay.h>
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
++#include <linux/regmap.h>
+ #include <linux/reset-controller.h>
+ #include <dt-bindings/clock/en7523-clk.h>
+ #include <dt-bindings/reset/airoha,en7581-reset.h>
+@@ -247,15 +249,11 @@ static const u16 en7581_rst_map[] = {
+ 	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
  };
  
- static const u32 gsw_base[] = { 400000000, 500000000 };
-@@ -406,20 +407,6 @@ static void en7581_pci_disable(struct clk_hw *hw)
- 	usleep_range(1000, 2000);
- }
- 
--static int en7581_clk_hw_init(struct platform_device *pdev,
--			      void __iomem *np_base)
--{
+-static unsigned int en7523_get_base_rate(void __iomem *base, unsigned int i)
++static u32 en7523_get_base_rate(const struct en_clk_desc *desc, u32 val)
+ {
+-	const struct en_clk_desc *desc = &en7523_base_clks[i];
 -	u32 val;
 -
--	val = readl(np_base + REG_NP_SCU_SSTR);
--	val &= ~(REG_PCIE_XSI0_SEL_MASK | REG_PCIE_XSI1_SEL_MASK);
--	writel(val, np_base + REG_NP_SCU_SSTR);
--	val = readl(np_base + REG_NP_SCU_PCIC);
--	writel(val | 3, np_base + REG_NP_SCU_PCIC);
--
--	return 0;
--}
--
- static void en7523_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
- 				   void __iomem *base, void __iomem *np_base)
- {
-@@ -449,6 +436,49 @@ static void en7523_register_clocks(struct device *dev, struct clk_hw_onecell_dat
- 	clk_data->num = EN7523_NUM_CLOCKS;
+ 	if (!desc->base_bits)
+ 		return desc->base_value;
+ 
+-	val = readl(base + desc->base_reg);
+ 	val >>= desc->base_shift;
+ 	val &= (1 << desc->base_bits) - 1;
+ 
+@@ -265,16 +263,11 @@ static unsigned int en7523_get_base_rate(void __iomem *base, unsigned int i)
+ 	return desc->base_values[val];
  }
  
-+static int en7523_clk_hw_init(struct platform_device *pdev,
-+			      struct clk_hw_onecell_data *clk_data)
-+{
-+	void __iomem *base, *np_base;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	np_base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(np_base))
-+		return PTR_ERR(np_base);
-+
-+	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
-+
-+	return 0;
-+}
-+
-+static int en7581_clk_hw_init(struct platform_device *pdev,
-+			      struct clk_hw_onecell_data *clk_data)
-+{
-+	void __iomem *base, *np_base;
-+	u32 val;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	np_base = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(np_base))
-+		return PTR_ERR(np_base);
-+
-+	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
-+
-+	val = readl(np_base + REG_NP_SCU_SSTR);
-+	val &= ~(REG_PCIE_XSI0_SEL_MASK | REG_PCIE_XSI1_SEL_MASK);
-+	writel(val, np_base + REG_NP_SCU_SSTR);
-+	val = readl(np_base + REG_NP_SCU_PCIC);
-+	writel(val | 3, np_base + REG_NP_SCU_PCIC);
-+
-+	return 0;
-+}
-+
- static int en7523_reset_update(struct reset_controller_dev *rcdev,
- 			       unsigned long id, bool assert)
+-static u32 en7523_get_div(void __iomem *base, int i)
++static u32 en7523_get_div(const struct en_clk_desc *desc, u32 val)
  {
-@@ -543,31 +573,18 @@ static int en7523_clk_probe(struct platform_device *pdev)
- 	struct device_node *node = pdev->dev.of_node;
- 	const struct en_clk_soc_data *soc_data;
- 	struct clk_hw_onecell_data *clk_data;
+-	const struct en_clk_desc *desc = &en7523_base_clks[i];
+-	u32 reg, val;
+-
+ 	if (!desc->div_bits)
+ 		return 1;
+ 
+-	reg = desc->div_reg ? desc->div_reg : desc->base_reg;
+-	val = readl(base + reg);
+ 	val >>= desc->div_shift;
+ 	val &= (1 << desc->div_bits) - 1;
+ 
+@@ -416,9 +409,12 @@ static void en7523_register_clocks(struct device *dev, struct clk_hw_onecell_dat
+ 
+ 	for (i = 0; i < ARRAY_SIZE(en7523_base_clks); i++) {
+ 		const struct en_clk_desc *desc = &en7523_base_clks[i];
++		u32 reg = desc->div_reg ? desc->div_reg : desc->base_reg;
++		u32 val = readl(base + desc->base_reg);
+ 
+-		rate = en7523_get_base_rate(base, i);
+-		rate /= en7523_get_div(base, i);
++		rate = en7523_get_base_rate(desc, val);
++		val = readl(base + reg);
++		rate /= en7523_get_div(desc, val);
+ 
+ 		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
+ 		if (IS_ERR(hw)) {
+@@ -454,21 +450,66 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
+ 	return 0;
+ }
+ 
++static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
++				   struct regmap *map, void __iomem *base)
++{
++	struct clk_hw *hw;
++	u32 rate;
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(en7523_base_clks); i++) {
++		const struct en_clk_desc *desc = &en7523_base_clks[i];
++		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
++		int err;
++
++		err = regmap_read(map, desc->base_reg, &val);
++		if (err) {
++			pr_err("Failed reading fixed clk rate %s: %d\n",
++			       desc->name, err);
++			continue;
++		}
++		rate = en7523_get_base_rate(desc, val);
++
++		err = regmap_read(map, reg, &val);
++		if (err) {
++			pr_err("Failed reading fixed clk div %s: %d\n",
++			       desc->name, err);
++			continue;
++		}
++		rate /= en7523_get_div(desc, val);
++
++		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
++		if (IS_ERR(hw)) {
++			pr_err("Failed to register clk %s: %ld\n",
++			       desc->name, PTR_ERR(hw));
++			continue;
++		}
++
++		clk_data->hws[desc->id] = hw;
++	}
++
++	hw = en7523_register_pcie_clk(dev, base);
++	clk_data->hws[EN7523_CLK_PCIE] = hw;
++
++	clk_data->num = EN7523_NUM_CLOCKS;
++}
++
+ static int en7581_clk_hw_init(struct platform_device *pdev,
+ 			      struct clk_hw_onecell_data *clk_data)
+ {
 -	void __iomem *base, *np_base;
- 	int r;
++	void __iomem *np_base;
++	struct regmap *map;
+ 	u32 val;
  
 -	base = devm_platform_ioremap_resource(pdev, 0);
 -	if (IS_ERR(base))
 -		return PTR_ERR(base);
--
++	map = syscon_regmap_lookup_by_compatible("airoha,en7581-chip-scu");
++	if (IS_ERR(map))
++		return PTR_ERR(map);
+ 
 -	np_base = devm_platform_ioremap_resource(pdev, 1);
--	if (IS_ERR(np_base))
--		return PTR_ERR(np_base);
--
--	soc_data = device_get_match_data(&pdev->dev);
--	if (soc_data->hw_init) {
--		r = soc_data->hw_init(pdev, np_base);
--		if (r)
--			return r;
--	}
--
- 	clk_data = devm_kzalloc(&pdev->dev,
- 				struct_size(clk_data, hws, EN7523_NUM_CLOCKS),
- 				GFP_KERNEL);
- 	if (!clk_data)
- 		return -ENOMEM;
++	np_base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(np_base))
+ 		return PTR_ERR(np_base);
  
 -	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
-+	soc_data = device_get_match_data(&pdev->dev);
-+	r = soc_data->hw_init(pdev, clk_data);
-+	if (r)
-+		return r;
++	en7581_register_clocks(&pdev->dev, clk_data, map, np_base);
  
- 	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
- 	if (r)
-@@ -590,6 +607,7 @@ static const struct en_clk_soc_data en7523_data = {
- 		.prepare = en7523_pci_prepare,
- 		.unprepare = en7523_pci_unprepare,
- 	},
-+	.hw_init = en7523_clk_hw_init,
- };
+ 	val = readl(np_base + REG_NP_SCU_SSTR);
+ 	val &= ~(REG_PCIE_XSI0_SEL_MASK | REG_PCIE_XSI1_SEL_MASK);
+@@ -545,7 +586,7 @@ static int en7523_reset_register(struct platform_device *pdev,
+ 	if (!soc_data->reset.idx_map_nr)
+ 		return 0;
  
- static const struct en_clk_soc_data en7581_data = {
+-	base = devm_platform_ioremap_resource(pdev, 2);
++	base = devm_platform_ioremap_resource(pdev, 1);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
 
 -- 
 2.47.0
