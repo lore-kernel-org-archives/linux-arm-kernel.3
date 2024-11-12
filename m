@@ -4,102 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F48D42B85
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B0CD42B8E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 14:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSSlvHy+PRe0AUiNIfBpWSSGZD4OK25PqVk+T4Gp6Ak=; b=RlUxdWLA/eNSVbagyQTKFGgX+w
-	XOmdTaQy5sStaAefXmg/nN9jS2MgCRZtCNq88muk1YZGhYclnWLieyiz7PV7IS6uyEDi5QTrtQrkI
-	1eg9Tm0bqfXGUsqPKzMlXEN15o9TDREDNup9j35VCZSGR/qme9I3juEmsIKYUdzxNVqfU9UAUcDqz
-	i/OmjOljxSCdcan61Mkz6zcaLNTQZGkz1CVisSeh8eZ7aZMKXKyI6qkbuVdNk8U6kTMIfJuX8vSN0
-	KKsh+hNEU2u+ragS/RLBSy2XwOxCkk0US1uLz2rQPxfpXGAtIcS/4GrpV2T1pRmSFkiaBtv2QYo7f
-	5a3/RcRg==;
+	bh=TjtCuBHtQgDpU3KQOdG6+r1FPPieI5NsRRxpX2bOTVg=; b=gHcxCgOcvpCRqLU1A6xyGXCGK+
+	/zVuDKNUuSaL6acEu1aA+Ub2Ub0cX2sN4R7Cs6oWSpJIkEMm7ngtJKPWV6ML+PeA48LSQKKRveeUT
+	GpYmbVF0/f5c9bFpbaQvG80CHe81hm99LS7BYkHo6Fxakp7efWVu3oXR+y3ELlNrLaRFCW0D9Tial
+	YCkMlaawU2DZlgx1xB30kPSXRCWWhmKFOGPmpj56dI54R9mzHmFU4rWVf6qnW/Ogyg7Bc1mEiN+fR
+	ljqukTh9vp8jz7TpX3PSJhUHSKXgtJrCsVsVKWQEB9L9eRbUPiiW/AZa3VP8+LiMHt+ZnMSRKhI+i
+	xRUKoPQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsG4-00000003paW-06G7;
-	Tue, 12 Nov 2024 14:52:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tAsHv-00000003q6w-3Hqx;
+	Tue, 12 Nov 2024 14:54:39 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAs33-00000003mm4-3W4H
+	id 1tAs5p-00000003nQ3-0vLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 14:39:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731422356;
+	Tue, 12 Nov 2024 14:42:11 +0000
+Message-ID: <37be000a-3ef8-4df4-aefa-b4d73487ad27@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1731422522;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vSSlvHy+PRe0AUiNIfBpWSSGZD4OK25PqVk+T4Gp6Ak=;
-	b=GZoCd1Ed/YUt++1Wis7TMT++Jowl7MsySdtKVmyNuiqnI00a3WZEzRwlVylLAEjCZmfatA
-	2BgSZOSNiQSFUOkLeyjVY73kcdDpDarSzOOZmS0+ekQdNrP6Wcuox8mCHb5YquTFy0EMG5
-	86O96GiZ272u5spcDQVR/nSKn2g5CyQ=
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com
- [209.85.167.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-400-fMs_Nx-JMuuqpaHfC4pSGg-1; Tue, 12 Nov 2024 09:39:15 -0500
-X-MC-Unique: fMs_Nx-JMuuqpaHfC4pSGg-1
-X-Mimecast-MFC-AGG-ID: fMs_Nx-JMuuqpaHfC4pSGg
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-3e5fa38eaeeso13293b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 06:39:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731422354; x=1732027154;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vSSlvHy+PRe0AUiNIfBpWSSGZD4OK25PqVk+T4Gp6Ak=;
-        b=q0go9TfpXlGgyd65Xxjj7S+MNJ1L5FAnrlSnvTWp4sGXUyVyEAmdWzANh3Q8WYo3Fz
-         TBimXJxAaaVqKIr5dMfQiLY2J62p8yFeDu9Bt6gZmwkY99jkNPJS048sCtdGq5L4NfBq
-         OrxKdHAdnxMmgm/1R7KZVkUbFFF4MR5KpZ22p81nW55do06tjkMHb0oRfbcfIoei39J6
-         O+sC7al3UZoHkq8Ige0D7hBjuw0Xd44DOUmBcrw1xFwHNUR594J123wql5AsAOl0/y7z
-         BkjiPTtKGRCsB63KCXacsarvOE4vyPc0Q40ar9HB7sXgLpvDXGQKpEKOwXSsQtMIz14M
-         nj/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWfME49Fyrqhw9e5Wg7srWP64jNbMCUbXnkyYBdHytfjxeO51n8VKYifxanU4lu8sL3djxEMq9761RAzohmocFZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8rtMb20bIDDS51WuWHKAFpfmibqP4VUz3aNxQTS1qx1VZqNtZ
-	CvqVete9rjJIj01utmhpXYNXGlRoaOZcWUUE9vVHzqblyPyj7y3bXLK5l9pgapapBxdstaKRYdo
-	jsmMMk2fMEeSMkaX45z1sBnEm0hnIN+qJ1c2Jw2Rk89QgoPPYt3QnRoe30IQf4sNBpakyXOIv6R
-	0WJFT5+J/ulnCmLPP7dZRdqxT/gMMMwF5ihFTwOPyHmRx4bvY=
-X-Received: by 2002:a05:6808:1811:b0:3e2:8bdc:6256 with SMTP id 5614622812f47-3e7946c80cbmr3529690b6e.9.1731422354295;
-        Tue, 12 Nov 2024 06:39:14 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFtvYgmRMXywDHjTJWoefHk93cKnQhkNPvcdoQZhySlvIn3HrNMp7fkO9AfbZ/SBjN1peRe408gVtCl6VyuHtQ=
-X-Received: by 2002:a05:6808:1811:b0:3e2:8bdc:6256 with SMTP id
- 5614622812f47-3e7946c80cbmr3529682b6e.9.1731422353932; Tue, 12 Nov 2024
- 06:39:13 -0800 (PST)
+	bh=TjtCuBHtQgDpU3KQOdG6+r1FPPieI5NsRRxpX2bOTVg=;
+	b=nCt+95HRT/HZ9j+8Iud0gJu10W5OMu+C9+GoNpLHisBXJCDIyhTT6aebp5aN5fV/EiM+1R
+	n7hYjSLiCSfA3qiuOxDHyPUgLsVe4H+CKrNEH3UuzayqLotGsBxOgsHLaPb6hkJoWaUBmc
+	CnfZaHKi7D6ckeK8Dc5H4SR/IGcev4g=
+Date: Tue, 12 Nov 2024 09:41:58 -0500
 MIME-Version: 1.0
-References: <CALE0LRvJ-n77oU=O9__NdSLw2v33zMK+WYkn2LcwWMwHCbohQw@mail.gmail.com>
- <CAC_iWjJEXU+dodjvWQYM9ohPa3P2p0bFG=exGoi-iYFrLLbCTA@mail.gmail.com>
- <CALE0LRtUz8hd4pdR9sX2Sb6tOn=K4wkRnGG9B7f72qU8JFQSYQ@mail.gmail.com>
- <CAC_iWjJLSSTO0Ca7rgOWAHfWzbkBkKHkQedRUbcwsoU0dtrsGA@mail.gmail.com>
- <CALE0LRvN3tYgWig1XnCiAZvdzE8x=cdLanGxbUvpPr5nfexSPQ@mail.gmail.com>
- <CAC_iWjL4mp-sTsp5a+yFkUauXuMvZ1yoTAk_60nm-CCKUgwayw@mail.gmail.com>
- <CALE0LRsYXXaao2uCUMFkd8Y6f5Mxgoc-Qpft_y8wWW3ZiekbbA@mail.gmail.com>
- <CAC_iWjL+J9tNxEdh0AoYD19h013N4nk=KmaT=RACo4-oVwuRCA@mail.gmail.com>
- <CALE0LRu2oDSo6KOhO2fTDMiqX7iqjqNjNGD_67MJFS7BJWqT_w@mail.gmail.com>
- <CALE0LRvFT3fDdoBLXHK2e47cibD02pxXAuZ83rTqEfrzU3HnKA@mail.gmail.com>
- <CAC_iWj+STZib+VOZrQtZk95skWzyLqe7_HpNM60G6axNa3Lnnw@mail.gmail.com>
- <CALE0LRsqc6L9EunhOyvyOR_KgG28zb10YBR1qN2qgZ9iJvaHEw@mail.gmail.com> <CAC_iWjKLqDFb1wSUQ1uMqOfbeRtzGNX9gyTHtQy5-71WvBiiLA@mail.gmail.com>
-In-Reply-To: <CAC_iWjKLqDFb1wSUQ1uMqOfbeRtzGNX9gyTHtQy5-71WvBiiLA@mail.gmail.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Tue, 12 Nov 2024 15:39:03 +0100
-Message-ID: <CALE0LRt7cwwwQ0Rh+0qJsUzTsNULEQSYgAoviQp5F5SXeJk8LQ@mail.gmail.com>
-Subject: Re: optee-based efi runtime variable service on TI j784s4 platforms
-To: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Sumit Garg <sumit.garg@linaro.org>, linux-efi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	op-tee@lists.trustedfirmware.org, Manorit Chawdhry <m-chawdhry@ti.com>, 
-	Udit Kumar <u-kumar1@ti.com>, "Menon, Nishanth" <nm@ti.com>, 
-	Masahisa Kojima <kojima.masahisa@socionext.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: D2KDUB42Qom_hBzHUWLuOZJgfn2Q82BA2a_sSD_WokQ_1731422354
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH next] drm: zynqmp_dp: Unlock on error in
+ zynqmp_dp_bridge_atomic_enable()
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
+References: <b4042bd9-c943-4738-a2e1-8647259137c6@stanley.mountain>
+ <20241112052754.GB21062@pendragon.ideasonboard.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20241112052754.GB21062@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_063918_287298_F41F3CC7 
-X-CRM114-Status: GOOD (  31.01  )
+X-CRM114-CacheID: sfid-20241112_064209_732688_6A94604A 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,439 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 12, 2024 at 2:23=E2=80=AFPM Ilias Apalodimas
-<ilias.apalodimas@linaro.org> wrote:
->
-> [...]
->
-> > > > > >
-> > > > >
-> > > > > Unfortunately that didn't help, but I don't see this code being r=
-un.
-> > >
-> > > That's weird, look below.
-> > >
-> > > > > Who sets for the first place the uefi variables, is this u-boot
-> > > > > writing them to the rpmb? or is optee itself?
-> > >
-> > > U-Boot sets the variables, but it does so via StandAloneMM.
-> > >
-> > > > >
-> > > >
-> > > > I tried to compare the behaviour between optee_rpmb (works) and
-> > > > efidebug (doesn't worrk). I see that the first thing optee_rpmb
-> > > > command does is open a session against the TA application, somethin=
-g
-> > > > that efidebug doesn't do, shouldn't efidebug do the same to access =
-to
-> > > > the rpmb device and read or write the efi variables?
-> > > >
-> > >
-> > > That's a bit more complicated and explained to one of the blog posts =
-I
-> > > pasted above.
-> > > We do open an OP-TEE session, but not for talking to a TA. We send th=
-e
-> > > messages to StandAloneMM, which then usese OPTEE RPMB APIs to write
-> > > the flash.
-> > >
-> > > The weird thing is why OP-TEE does not format your RPMB when compilin=
-g
-> > > with that flag.
-> > > If done correctly, OP-TEE will wipe the RPMB contents the first time
-> > > it tries to access it.
-> > >
-> >
-> > It does if I call optee_rpmb command
-> >
-> > E/TC:? 0 rpmb_fs_setup:2143 **** Clearing Storage ****
-> >
-> > But I don't see any attempt to write efi variables to the rpmb
-> > partition if I use the normal boot workflow or calling any efi command
-> > from the prompt.
-> >
-> > I think I need to read a bit more about all the pieces because I might
-> > miss something.
->
-> You don't need the command above to store variables. You need this in
-> case you need to use the RPMB from the command line.
-> Do a 'printenv -e && setenv -e -bs -rt -nv test test1 && printenv -e'.
-> Does that work ?
->
+On 11/12/24 00:27, Laurent Pinchart wrote:
+> Hi Dan,
+> 
+> Thank you for the patch.
+> 
+> On Mon, Nov 11, 2024 at 12:06:10PM +0300, Dan Carpenter wrote:
+>> We added some locking to this function, but accidentally forgot to unlock
+>> if zynqmp_dp_mode_configure() failed.  Use a guard lock to fix it.
+>> 
+>> Fixes: a7d5eeaa57d7 ("drm: zynqmp_dp: Add locking")
+>> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> Sean, how about replacing all the mutex_lock()/mutex_unlock() calls
+> you've added in a7d5eeaa57d7 with guards ?
 
-No, `printenv -e` gets stuck. This is the log with some debug messages I ad=
-ded.
+I have no objection to that.
 
-=3D> printenv -e
-> lib/efi_loader/efi_setup.c:227 Initialize once only
-  > lib/efi_loader/efi_setup.c:234 Set up console modes
-  > lib/efi_loader/efi_setup.c:242 Proble block devices to find the ESP
-MMC: no card present
-mmc_init: -123, time 2002
-  > lib/efi_loader/efi_setup.c:249 Initialize variable services
-     > lib/efi_loader/efi_var_mem.c:223 efi_allocate_pages
-     > lib/efi_loader/efi_var_mem.c:236 efi_create_event
-  < lib/efi_loader/efi_var_mem.c:244 - ret=3D0
-D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-D/TC:? 0 spm_handle_scall:859 Received FFA version
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-... stuck here ... traces indicates never outs from the efi_setup, so
-looks like hungs
-
-Let me try with BeaglePlay and read a bit more, as I feel I'm a bit
-lost right now.
-
-> >
-> > =3D> optee_rpmb read test 4
-> > D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA
-> > 023f8f1a-292a-432b-8fc4-de8471358067
-> > D/TC:? 0 ldelf_load_ldelf:110 ldelf load address 0x40007000
-> > D/LD:  ldelf:142 Loading TS 023f8f1a-292a-432b-8fc4-de8471358067
-> > F/TC:? 0 trace_syscall:147 syscall #3 (syscall_get_property)
-> > F/TC:? 0 trace_syscall:147 syscall #5 (syscall_open_ta_session)
-> > D/TC:? 0 ldelf_syscall_open_bin:135 > ldelf_syscall_open_bin
-> > D/TC:? 0 ldelf_syscall_open_bin:164 Lookup user TA ELF
-> > 023f8f1a-292a-432b-8fc4-de8471358067 (early TA)
-> > D/TC:? 0 ldelf_syscall_open_bin:168 res=3D0
-> > F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 trace_syscall:147 syscall #11 (syscall_mask_cancellation)
-> > F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 492 bytes
-> > F/TC:? 0 trace_syscall:147 syscall #3 (syscall_get_property)
-> > F/TC:? 0 trace_syscall:147 syscall #8 (syscall_check_access_rights)
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 1024 bytes
-> > F/TC:? 0 read_compressed:178 532 bytes
-> > F/TC:? 0 read_compressed:178 924 bytes
-> > F/TC:? 0 trace_syscall:147 syscall #8 (syscall_check_access_rights)
-> > F/TC:? 0 read_compressed:178 248 bytes
-> > F/TC:? 0 read_compressed:178 760 bytes
-> > F/TC:? 0 trace_syscall:147 syscall #6 (syscall_close_ta_session)
-> > F/TC:? 0 trace_syscall:147 syscall #3 (syscall_get_property)
-> > D/LD:  ldelf:176 ELF (023f8f1a-292a-432b-8fc4-de8471358067) at 0x400480=
-00
-> > F/TC:? 0 trace_syscall:147 syscall #33 (syscall_cryp_random_number_gene=
-rate)
-> > F/TC:? 0 trace_syscall:147 syscall #8 (syscall_check_access_rights)
-> > F/TC:? 0 trace_syscall:147 syscall #8 (syscall_check_access_rights)
-> > F/TC:? 0 trace_syscall:147 syscall #4 (syscall_get_property_name_to_ind=
-ex)
-> > F/TC:? 0 trace_syscall:147 syscall #8 (syscall_check_access_rights)
-> > F/TC:? 0 trace_syscall:147 syscall #41 (syscall_storage_obj_open)
-> > D/TC:? 0 rpmb_fs_open_internal:2356 >>> rpmb_fs_open_internal
-> > D/TC:? 0 tee_rpmb_init:1205 >>> core/tee/tee_rpmb_fs.c:1205
-> > D/TC:? 0 tee_rpmb_init:1214 >>> core/tee/tee_rpmb_fs.c:1214
-> > D/TC:? 0 tee_rpmb_init:1253 >>> core/tee/tee_rpmb_fs.c:1253
-> > D/TC:? 0 legacy_rpmb_init:1142 Trying legacy RPMB init
-> > D/TC:? 0 rpmb_set_dev_info:1111 RPMB: Syncing device information
-> > D/TC:? 0 rpmb_set_dev_info:1113 RPMB: RPMB size is 32*128 KB
-> > D/TC:? 0 rpmb_set_dev_info:1114 RPMB: Reliable Write Sector Count is 1
-> > D/TC:? 0 rpmb_set_dev_info:1116 RPMB: CID
-> > D/TC:? 0 rpmb_set_dev_info:1117 000000009e93ab30  13 01 4e 47 31 4d 31
-> > 35  4c 10 27 91 28 07 a9 00
-> > D/TC:? 0 legacy_rpmb_init:1162 RPMB INIT: Deriving key
-> > D/TC:? 0 tee_rpmb_key_gen:308 RPMB: Using test key
-> > D/TC:? 0 legacy_rpmb_init:1176 RPMB INIT: Verifying Key
-> > F/TC:? 0 plat_prng_add_jitter_entropy:68 0x61
-> > D/TC:? 0 legacy_rpmb_init:1180 Found working RPMB device
-> > D/TC:? 0 tee_rpmb_init:1205 >>> core/tee/tee_rpmb_fs.c:1205
-> > D/TC:? 0 tee_rpmb_init:1214 >>> core/tee/tee_rpmb_fs.c:1214
-> > D/TC:? 0 tee_rpmb_read:1362 Read 1 block at index 0
-> > D/TC:? 0 tee_rpmb_write_blk:1494 Write 1 block at index 0
-> > D/TC:? 0 tee_rpmb_init:1205 >>> core/tee/tee_rpmb_fs.c:1205
-> > D/TC:? 0 tee_rpmb_init:1214 >>> core/tee/tee_rpmb_fs.c:1214
-> > D/TC:? 0 tee_rpmb_init:1205 >>> core/tee/tee_rpmb_fs.c:1205
-> > D/TC:? 0 tee_rpmb_init:1214 >>> core/tee/tee_rpmb_fs.c:1214
-> > D/TC:? 0 tee_rpmb_read:1362 Read 1 block at index 0
-> > E/TC:? 0 rpmb_fs_setup:2143 **** Clearing Storage ****
-> > D/TC:? 0 tee_rpmb_write_blk:1494 Write 1 block at index 2
-> > F/TC:? 0 plat_prng_add_jitter_entropy:68 0xD3
-> > D/TC:? 0 tee_rpmb_read:1362 Read 1 block at index 0
-> > D/TC:? 0 tee_rpmb_write_blk:1494 Write 1 block at index 0
-> > D/TC:? 0 tee_rpmb_read:1362 Read 8 blocks at index 2
-> > F/TC:? 0 dump_fat:1951 flags 0x2, size 0, address 0, filename ''
-> > D/TC:? 0 read_fat:2221 fat_address 0
-> > D/TC:? 0 tee_rpmb_read:1362 Read 8 blocks at index 2
-> > F/TC:? 0 plat_prng_add_jitter_entropy:68 0x18
-> > E/TA:  read_persist_value:338 Can't open named object value, res =3D 0x=
-ffff0008
-> > D/TC:? 0 tee_ta_invoke_command:798 Error: ffff0008 of 4
-> > D/TC:? 0 tee_ta_close_session:460 csess 0x9e925a50 id 1
-> > D/TC:? 0 tee_ta_close_session:479 Destroy session
-> > D/TC:? 0 destroy_context:318 Destroy TA ctx (0x9e9259f0)
-> > Failed to read persistent value
-> >
-> >
-> >
-> >
-> >
-> >
-> >
-> > > Cheers
-> > > /Ilias
-> > >
-> > > > =3D> optee_rpmb read test 4
-> > > > D/TC:? 0 tee_ta_init_pseudo_ta_session:303 Lookup pseudo TA
-> > > > 023f8f1a-292a-432b-8fc4-de8471358067
-> > > > D/TC:? 0 ldelf_load_ldelf:110 ldelf load address 0x40007000
-> > > > D/LD:  ldelf:142 Loading TS 023f8f1a-292a-432b-8fc4-de8471358067
-> > > > F/TC:? 0 trace_syscall:147 syscall #3 (syscall_get_property)
-> > > > F/TC:? 0 trace_syscall:147 syscall #5 (syscall_open_ta_session)
-> > > > D/TC:? 0 ldelf_syscall_open_bin:163 Lookup user TA ELF
-> > > > 023f8f1a-292a-432b-8fc4-de8471358067 (early TA)
-> > > > D/TC:? 0 ldelf_syscall_open_bin:167 res=3D0
-> > > > F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
-> > > > F/TC:? 0 read_compressed:178 1024 bytes
-> > > > F/TC:? 0 read_compressed:178 1024 bytes
-> > > > F/TC:? 0 read_compressed:178 1024 bytes
-> > > > F/TC:? 0 read_compressed:178 1024 bytes
-> > > > F/TC:? 0 trace_syscall:147 syscall #11 (syscall_mask_cancellation)
-> > > > F/TC:? 0 trace_syscall:147 syscall #7 (syscall_invoke_ta_command)
-> > > >
-> > > > =3D> efidebug query -bs -rt -nv
-> > > > MMC: no card present
-> > > > mmc_init: -123, time 2002
-> > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > >
-> > > >
-> > > >
-> > > > >
-> > > > > > Thanks
-> > > > > > /Ilias
-> > > > > > >
-> > > > > > > =3D> efidebug query -bs -rt -nv
-> > > > > > > D/TC:? 0 load_stmm:297 stmm load address 0x40004000
-> > > > > > > D/TC:? 0 spm_handle_scall:859 Received FFA version
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > D/TC:? 0 spm_handle_scall:867 Received FFA direct request
-> > > > > > > ... stuck here ... I need to reset the board
-> > > > > > >
-> > > > > > > Will continue to see if I can get more useful messages
-> > > > > > >
-> > > > > > > Thanks,
-> > > > > > >   Enric
-> > > > > > >
-> > > > > > > > Thanks
-> > > > > > > > /Ilias
-> > > > > > > > >
-> > > > > > > > > I'll try to add some more prints to verify if REE is used=
- as a store
-> > > > > > > > > system, I assume this should say something about RPMB. Am=
- I right with
-> > > > > > > > > this?
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > >
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > And tracing the function calls gives me that:
-> > > > > > > > > > > > >
-> > > > > > > > > > > > >       tee_stmm_efi_probe() {
-> > > > > > > > > > > > >              tee_client_open_context() {
-> > > > > > > > > > > > >                optee_get_version() {
-> > > > > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff=
-000002e55800)
-> > > > > > > > > > > > >                } (ret=3D0xd)
-> > > > > > > > > > > > >                tee_ctx_match(); (ret=3D0x1)
-> > > > > > > > > > > > >                optee_smc_open() {
-> > > > > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff=
-000002e55800)
-> > > > > > > > > > > > >                  optee_open() {
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                  } (ret=3D0x0)
-> > > > > > > > > > > > >                } (ret=3D0x0)
-> > > > > > > > > > > > >              } (ret=3D0xffff000004e71c80)
-> > > > > > > > > > > > >              tee_client_open_session() {
-> > > > > > > > > > > > >                optee_open_session() {
-> > > > > > > > > > > > >                  tee_get_drvdata(); (ret=3D0xffff=
-000002e55800)
-> > > > > > > > > > > > >                  optee_get_msg_arg() {
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xfff=
-f000002909000)
-> > > > > > > > > > > > >                  } (ret=3D0xffff000002909000)
-> > > > > > > > > > > > >                  tee_session_calc_client_uuid(); =
-(ret=3D0x0)
-> > > > > > > > > > > > >                  optee_to_msg_param(); (ret=3D0x0=
-)
-> > > > > > > > > > > > >                  optee_smc_do_call_with_arg() {
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xfff=
-f000002909000)
-> > > > > > > > > > > > >                    tee_shm_get_va(); (ret=3D0xfff=
-f000002909060)
-> > > > > > > > > > > > >                    optee_cq_wait_init(); (ret=3D0=
-xffff000002e55910)
-> > > > > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xff=
-ff0004)
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xff=
-ff0004)
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xff=
-ff0004)
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xff=
-ff0004)
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    optee_smccc_smc(); (ret=3D0xff=
-ff0004)
-> > > > > > > > > > > > >      ... continues sending this forever ...
-> > > > > > > > > > > > >      ... Hit ^C to stop recording ...
-> > > > > > > > > > > > >                    tee_get_drvdata(); (ret=3D0xff=
-ff000002e55800)
-> > > > > > > > > > > > >                    optee_smccc_smc() {
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > [1] https://docs.u-boot.org/en/latest/develop/uef=
-i/uefi.html#using-op-tee-for-efi-variables
-> > > > > > > > > > > > >
-> > > > > > > > > > > > > Thanks in advance,
-> > > > > > > > > > > >
-> > > > > > > > > > > > The most common problem with this is miscompiling t=
-he tee_supplicant
-> > > > > > > > > > > > application.
-> > > > > > > > > > > > Since we don't know if the system has an RPMB, we e=
-mulate it in the
-> > > > > > > > > > > > tee_supplicant. How did you get the supplicant and =
-can you check if it
-> > > > > > > > > > > > was compiled with RPMB_EMU=3D0 or 1?
-> > > > > > > > > > > >
-> > > > > > > > > > >
-> > > > > > > > > > > I'm using the tee-supplicant provided by the fedora p=
-ackage which is
-> > > > > > > > > > > built with ` -DRPMB_EMU=3D0`, I think that's correct,=
- right?
-> > > > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > Yes, this is correct. We fixed the Fedora package to co=
-mpile the
-> > > > > > > > > > supplicant correctly a while back.
-> > > > > > > > > >
-> > > > > > > > > > [0] https://www.linaro.org/blog/uefi-secureboot-in-u-bo=
-ot/
-> > > > > > > > > > [1] https://apalos.github.io/Protected%20UEFI%20variabl=
-es%20with%20U-Boot.html#Protected%20UEFI%20variables%20with%20U-Boot
-> > > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > > > Regards
-> > > > > > > > > > /Ilias
-> > > > > > > > > > > Thanks,
-> > > > > > > > > > >    Enric
-> > > > > > > > > > >
-> > > > > > > > > > > > Thanks
-> > > > > > > > > > > > /Ilias
-> > > > > > > > > > > >
-> > > > > > > > > > > > >    Enric
-> > > > > > > > > > > > >
-> > > > > > > > > > > >
-> > > > > > > > > > >
-> > > > > > > > > >
-> > > > > > > > >
-> > > > > > > >
-> > > > > > >
-> > > > > >
-> > > >
-> > >
-> >
->
+--Sean
 
 
