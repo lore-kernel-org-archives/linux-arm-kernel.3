@@ -4,136 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D36AD32D9D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26525D32D9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 12:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPcFHCJG8NGsuskBY+kZ5XWMDYsQmMFc2+wJS3PWRtM=; b=A84vPqrn3QPcG+GVGiC3EedPDh
-	rKLh/p2181aoNzXdMhUgpc3vJo0PRsQhrC4D4nQatq9uAx0ECf7ZoqXZS4170Y+6lAAh5u11UTpO1
-	bXRGazkxP/dMsWKQiRh5CYbpmQzjIwl64AkD5qBCKBwV42nsmty+4rrkkZdfL/Mf0qw9FFhUxDkfK
-	sR8fcfgzVEeRACPxVdCIOK73WRbZkrTfZ+qQ5l0tghmI8Ff/WrGmUDCzLkL4VLG5iu08pTqjNs0Ls
-	0MAna9oJpIHbk+W82f5xv6vyMW/yExeWR99Gavhb6wKvFxjkZk18sDmygZosijRX85CMSGy1ge0Di
-	UeDlgUiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YLL0CXWtIsqIF65EdxQpHUFOBAjPtfjPtszmjqI/qoY=; b=uVjSPvV60Omx2fThyDjeLMb3Ej
+	PxfBRS7nepTqSKwh7NQP/RZyHxlBWVvwgQ0ZbOfYOmXqUzTmWIjDGGMLlpsZpFDlyQSPFltvu1EzU
+	0Mssuz5w1Y3H5rZeqBeFZOAtfOUTxIahrRDfbdPKKFWyWV4mFFemNzCpGlhVKJeAYj9QIjoDvIJGK
+	08X2gJNruA8w56vhPey5WzPXKl6QzYU0w/qVLUpX68MmQZAh5PdfOqpFfLt8UqPoX7tMKV9Dq0Be+
+	mbF4E7HeSQINq13fyK+8jJTRzijR0kiEehxzBcZzlWsq70ZXUbIlgHHpAXnBhHYJdg+UXhIjRIzwD
+	76z8PdNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApbY-00000003KQp-3BSP;
-	Tue, 12 Nov 2024 12:02:44 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tApdM-00000003Knn-2Z1k;
+	Tue, 12 Nov 2024 12:04:36 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAog3-000000039ZW-3qFk
+	id 1tAosJ-00000003Bb4-1OgX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 11:03:21 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5c96b2a10e1so8390285a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 03:03:18 -0800 (PST)
+	Tue, 12 Nov 2024 11:16:02 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539e5c15fd3so5466566e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 03:15:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731409397; x=1732014197; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=iPcFHCJG8NGsuskBY+kZ5XWMDYsQmMFc2+wJS3PWRtM=;
-        b=LGCL42cUJIEBg0bO8vqElKRNGkpzpIiWifRrTTRItG7UskhlFHiAYxu+Yp7+YNghZi
-         aQGSZuCwmE4ymodVP9YVGO3MoxdQGndTjxRbl7gEwO/wGIrSvJcc0xObrbeoD2e3uw40
-         bvxxphelWBvK73eRFVUkHglmaCnG2ubkrj0ja38qkxnuBExPFqiA4X0nQgG/2UXtFFsS
-         Z8CwM5r4o5SU/mkIpu2Ti/m2Z0EGd5a6p1jTcEHvsUYcSrUBW6qG89x+GEUYFimTO76H
-         srMYWG9eM/88gCcnHnkAKAimNvrEMZ2dBJFm1VvulkQNizoKwWrsTmqJI0ClxjyI6RpV
-         BcfA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1731410157; x=1732014957; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YLL0CXWtIsqIF65EdxQpHUFOBAjPtfjPtszmjqI/qoY=;
+        b=0vVFEa807i8IWU0JdZURIvohCUg7Ho54uC4mOFbXCGo2KMJ4ubWGbGDHzq+U31At0a
+         cFqFTyqvaG2CQ3vFpsqGUaTHb/D3+u4wZM1dCw6ztPBb4M2oFq3FCwvDOycY1FOLBQEe
+         fViVl7qJ66+oMqG59L/3sNYOP1luW1o1/FPPEgEBFbrgvLC6SJiTZjB1ybcDzHUorDI9
+         H9RIlJmKTTb8kMKNZg/PrpTG3ZBdf1MwJchd5DSXKOfqinYVn5zLd502ecfWLiW1MAAY
+         rclG4GyBJ9OD8mrVfYvr99f0n8XbKquYW6OCndD46azvN0l1HufNZBVvBk6bHO9zCt3s
+         u1bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731409397; x=1732014197;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iPcFHCJG8NGsuskBY+kZ5XWMDYsQmMFc2+wJS3PWRtM=;
-        b=plvV6gk3dN2A5r/Ra09Zl4GdycezOGh2TPCkBwHrEDgH+o6BhXi6EOZaP4rT8l+hmW
-         9+QelszA8aCwO9lNcvFhR523SbfUIkpkkULdAGRaPi+R31y5/i8dfWYP5FoJgT2D7OLB
-         YMtNbf7UxOI9XCFU1hEJ+6uoJYCTQRiZgbmxY7yTmzlyzrdoohPYRYQSF9Mgd6Wzc4ru
-         EI0jeHo2jbJtu8s0q7ZB8hNuDFL822h9CYE5tjAtNIAUat5i0tkicnAdrRMkdGv9ielm
-         chcpfdRBIN91Pwfl+y5nLdvSftQWsxyOmkHK4NIPWaBorJCVdFInyyGUjMMvDpkC4GWy
-         3QiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHcMmVVMCf7Wp+MStAGGV5DL2Hv0eUSrIqZqq/00OfFx6CqbFIhr5vutzGHjb5cUf3gvRyMCP6o+5KAvu9lKDo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhgKqlgMHIKU5yK1dQxRfHPKFIhrFi4uPT8vy67rqQw+cz5Fv7
-	cSjPV4iXYUKzdEpEGCYRUTQVkJDvweFPv1jO2/6RnIkGmjCBfG6o
-X-Google-Smtp-Source: AGHT+IHX4cUH9pyL7LKsapletYqx2kvV8JoES6EsVn/ceuKd30jkLRNMQcJatb/QouJT6jLYgTQnMA==
-X-Received: by 2002:a05:6402:254b:b0:5cf:45c2:981a with SMTP id 4fb4d7f45d1cf-5cf45c29904mr4046359a12.34.1731409397257;
-        Tue, 12 Nov 2024 03:03:17 -0800 (PST)
-Received: from ?IPV6:2a02:3100:a46e:ea00:90f0:9049:6891:55f? (dynamic-2a02-3100-a46e-ea00-90f0-9049-6891-055f.310.pool.telefonica.de. [2a02:3100:a46e:ea00:90f0:9049:6891:55f])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5cf03c4ecaesm5872673a12.70.2024.11.12.03.03.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 03:03:16 -0800 (PST)
-Message-ID: <f8ec2c77-33fa-45a8-9b6b-4be15e5f3658@gmail.com>
-Date: Tue, 12 Nov 2024 12:03:15 +0100
+        d=1e100.net; s=20230601; t=1731410157; x=1732014957;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YLL0CXWtIsqIF65EdxQpHUFOBAjPtfjPtszmjqI/qoY=;
+        b=PVCzDpLjj9WxqLxXbzEThMwVv7eah8qYWClDUaXHppMSCre/VvicO5VLhBc2XWFILx
+         3ktaXzbetSyBd4eASijPHw0AcBXNlGZ2m3vyOvvg+hyJ7mxiw0lcg391hC2971hNX0HW
+         Dicj9OVT94mw1gA5qe9DzvBBlWvOFlK1d4sKrQOMV22CrQLioVIGodr2tXWigrLUOKti
+         vf+BV3RcllAHtpaJScJaucKGhK6uNekJrvkClT56UfBHImyvvYVW2/Ws0z/sIsaVa2js
+         NDU59DMoYK3c1/SHKeODvVICsN4tjoOWRXj3La8Nv3kADbgqoEirzDFt9NXbVd5A+OtY
+         cCvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV1ppbdBoIKrCDEVsj70Phmm3RdfoyUzriya3Rs70RltCWfkyJiNnlcg7LKWZ9QlyUDZPPeGsa7S9y+uniqe324@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbUTcXSTBV8Ne4FZRZef/jhIxr8cYhCbpDV4MKNJofoWYNtb+G
+	FPRO/Shqy7Ap58L5ICRo2x2ronUYzBkAJxB2G6OpZEwnnfFdSjY5zPt5BCKmU5Y=
+X-Google-Smtp-Source: AGHT+IHEnq216Q7LNkZLWrIemOsyxij0OgTuGcQwQihenpTOIVLKF1wFfG65zMsIE16TFRIJKtz4ww==
+X-Received: by 2002:a05:6512:124b:b0:539:e454:942e with SMTP id 2adb3069b0e04-53d862c6d31mr7835933e87.16.1731410157372;
+        Tue, 12 Nov 2024 03:15:57 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:50f9:1df6:c2b9:a468])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b0562642sm208909975e9.21.2024.11.12.03.15.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 03:15:56 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,  Neil
+ Armstrong <neil.armstrong@linaro.org>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
+ <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  Jian Hu <jian.hu@amlogic.com>,
+  Dmitry Rokosov <ddrokosov@sberdevices.ru>,  Yu Tu <yu.tu@amlogic.com>,
+  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: meson: Fix children of ro_clk may be tampered with
+In-Reply-To: <e13bc132-fc90-4378-852b-1ff45a6872b9@amlogic.com> (Chuan Liu's
+	message of "Tue, 12 Nov 2024 18:16:40 +0800")
+References: <20241111-fix_childclk_of_roclk_has_been_tampered_with-v1-1-f8c1b6ffdcb0@amlogic.com>
+	<1jr07g25da.fsf@starbuckisacylon.baylibre.com>
+	<e13bc132-fc90-4378-852b-1ff45a6872b9@amlogic.com>
+Date: Tue, 12 Nov 2024 12:15:56 +0100
+Message-ID: <1jikss1z4j.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1 1/2] net: phy: Introduce phy_update_eee() to update
- eee_cfg values
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Andrew Lunn <andrew@lunn.ch>, Russell King <linux@armlinux.org.uk>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20241112072447.3238892-1-yong.liang.choong@linux.intel.com>
- <20241112072447.3238892-2-yong.liang.choong@linux.intel.com>
-Content-Language: en-US
-From: Heiner Kallweit <hkallweit1@gmail.com>
-Autocrypt: addr=hkallweit1@gmail.com; keydata=
- xsFNBF/0ZFUBEAC0eZyktSE7ZNO1SFXL6cQ4i4g6Ah3mOUIXSB4pCY5kQ6OLKHh0FlOD5/5/
- sY7IoIouzOjyFdFPnz4Bl3927ClT567hUJJ+SNaFEiJ9vadI6vZm2gcY4ExdIevYHWe1msJF
- MVE4yNwdS+UsPeCF/6CQQTzHc+n7DomE7fjJD5J1hOJjqz2XWe71fTvYXzxCFLwXXbBiqDC9
- dNqOe5odPsa4TsWZ09T33g5n2nzTJs4Zw8fCy8rLqix/raVsqr8fw5qM66MVtdmEljFaJ9N8
- /W56qGCp+H8Igk/F7CjlbWXiOlKHA25mPTmbVp7VlFsvsmMokr/imQr+0nXtmvYVaKEUwY2g
- 86IU6RAOuA8E0J5bD/BeyZdMyVEtX1kT404UJZekFytJZrDZetwxM/cAH+1fMx4z751WJmxQ
- J7mIXSPuDfeJhRDt9sGM6aRVfXbZt+wBogxyXepmnlv9K4A13z9DVLdKLrYUiu9/5QEl6fgI
- kPaXlAZmJsQfoKbmPqCHVRYj1lpQtDM/2/BO6gHASflWUHzwmBVZbS/XRs64uJO8CB3+V3fa
- cIivllReueGCMsHh6/8wgPAyopXOWOxbLsZ291fmZqIR0L5Y6b2HvdFN1Xhc+YrQ8TKK+Z4R
- mJRDh0wNQ8Gm89g92/YkHji4jIWlp2fwzCcx5+lZCQ1XdqAiHQARAQABzSZIZWluZXIgS2Fs
- bHdlaXQgPGhrYWxsd2VpdDFAZ21haWwuY29tPsLBjgQTAQgAOBYhBGxfqY/yOyXjyjJehXLe
- ig9U8DoMBQJf9GRVAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHLeig9U8DoMSycQ
- AJbfg8HZEK0ljV4M8nvdaiNixWAufrcZ+SD8zhbxl8GispK4F3Yo+20Y3UoZ7FcIidJWUUJL
- axAOkpI/70YNhlqAPMsuudlAieeYZKjIv1WV5ucNZ3VJ7dC+dlVqQdAr1iD869FZXvy91KhJ
- wYulyCf+s4T9YgmLC6jLMBZghKIf1uhSd0NzjyCqYWbk2ZxByZHgunEShOhHPHswu3Am0ftt
- ePaYIHgZs+Vzwfjs8I7EuW/5/f5G9w1vibXxtGY/GXwgGGHRDjFM7RSprGOv4F5eMGh+NFUJ
- TU9N96PQYMwXVxnQfRXl8O6ffSVmFx4H9rovxWPKobLmqQL0WKLLVvA/aOHCcMKgfyKRcLah
- 57vGC50Ga8oT2K1g0AhKGkyJo7lGXkMu5yEs0m9O+btqAB261/E3DRxfI1P/tvDZpLJKtq35
- dXsj6sjvhgX7VxXhY1wE54uqLLHY3UZQlmH3QF5t80MS7/KhxB1pO1Cpcmkt9hgyzH8+5org
- +9wWxGUtJWNP7CppY+qvv3SZtKJMKsxqk5coBGwNkMms56z4qfJm2PUtJQGjA65XWdzQACib
- 2iaDQoBqGZfXRdPT0tC1H5kUJuOX4ll1hI/HBMEFCcO8++Bl2wcrUsAxLzGvhINVJX2DAQaF
- aNetToazkCnzubKfBOyiTqFJ0b63c5dqziAgzsFNBF/0ZFUBEADF8UEZmKDl1w/UxvjeyAeX
- kghYkY3bkK6gcIYXdLRfJw12GbvMioSguvVzASVHG8h7NbNjk1yur6AONfbUpXKSNZ0skV8V
- fG+ppbaY+zQofsSMoj5gP0amwbwvPzVqZCYJai81VobefTX2MZM2Mg/ThBVtGyzV3NeCpnBa
- 8AX3s9rrX2XUoCibYotbbxx9afZYUFyflOc7kEpc9uJXIdaxS2Z6MnYLHsyVjiU6tzKCiVOU
- KJevqvzPXJmy0xaOVf7mhFSNQyJTrZpLa+tvB1DQRS08CqYtIMxRrVtC0t0LFeQGly6bOngr
- ircurWJiJKbSXVstLHgWYiq3/GmCSx/82ObeLO3PftklpRj8d+kFbrvrqBgjWtMH4WtK5uN5
- 1WJ71hWJfNchKRlaJ3GWy8KolCAoGsQMovn/ZEXxrGs1ndafu47yXOpuDAozoHTBGvuSXSZo
- ythk/0EAuz5IkwkhYBT1MGIAvNSn9ivE5aRnBazugy0rTRkVggHvt3/7flFHlGVGpBHxFUwb
- /a4UjJBPtIwa4tWR8B1Ma36S8Jk456k2n1id7M0LQ+eqstmp6Y+UB+pt9NX6t0Slw1NCdYTW
- gJezWTVKF7pmTdXszXGxlc9kTrVUz04PqPjnYbv5UWuDd2eyzGjrrFOsJEi8OK2d2j4FfF++
- AzOMdW09JVqejQARAQABwsF2BBgBCAAgFiEEbF+pj/I7JePKMl6Fct6KD1TwOgwFAl/0ZFUC
- GwwACgkQct6KD1TwOgxUfg//eAoYc0Vm4NrxymfcY30UjHVD0LgSvU8kUmXxil3qhFPS7KA+
- y7tgcKLHOkZkXMX5MLFcS9+SmrAjSBBV8omKoHNo+kfFx/dUAtz0lot8wNGmWb+NcHeKM1eb
- nwUMOEa1uDdfZeKef/U/2uHBceY7Gc6zPZPWgXghEyQMTH2UhLgeam8yglyO+A6RXCh+s6ak
- Wje7Vo1wGK4eYxp6pwMPJXLMsI0ii/2k3YPEJPv+yJf90MbYyQSbkTwZhrsokjQEaIfjrIk3
- rQRjTve/J62WIO28IbY/mENuGgWehRlTAbhC4BLTZ5uYS0YMQCR7v9UGMWdNWXFyrOB6PjSu
- Trn9MsPoUc8qI72mVpxEXQDLlrd2ijEWm7Nrf52YMD7hL6rXXuis7R6zY8WnnBhW0uCfhajx
- q+KuARXC0sDLztcjaS3ayXonpoCPZep2Bd5xqE4Ln8/COCslP7E92W1uf1EcdXXIrx1acg21
- H/0Z53okMykVs3a8tECPHIxnre2UxKdTbCEkjkR4V6JyplTS47oWMw3zyI7zkaadfzVFBxk2
- lo/Tny+FX1Azea3Ce7oOnRUEZtWSsUidtIjmL8YUQFZYm+JUIgfRmSpMFq8JP4VH43GXpB/S
- OCrl+/xujzvoUBFV/cHKjEQYBxo+MaiQa1U54ykM2W4DnHb1UiEf5xDkFd4=
-In-Reply-To: <20241112072447.3238892-2-yong.liang.choong@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_030319_999942_A124ADEE 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20241112_031559_689056_06905B39 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,89 +98,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12.11.2024 08:24, Choong Yong Liang wrote:
-> The commit fe0d4fd9285e ("net: phy: Keep track of EEE configuration")
-> introduced eee_cfg, which is used to check the existing settings against
-> the requested changes. When the 'ethtool --show-eee' command is issued,
-> it reads the values from eee_cfg. However, the 'show-eee' command does
-> not show the correct result after system boot-up, link up, and link down.
-> 
+On Tue 12 Nov 2024 at 18:16, Chuan Liu <chuan.liu@amlogic.com> wrote:
 
-In stmmac_ethtool_op_get_eee() you have the following:
+> On 11/12/2024 5:01 PM, Jerome Brunet wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Mon 11 Nov 2024 at 17:37, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+>>
+>>> From: Chuan Liu <chuan.liu@amlogic.com>
+>>>
+>>> When setting the rate of a clock using clk_regmap_divider_ro_ops, the
+>>> rate of its children may be tampered with.
+>>>
+>>> Fixes: 84af914404db ("clk: meson: a1: add Amlogic A1 Peripherals clock controller driver")
+>>> Fixes: 87173557d2f6 ("clk: meson: clk-pll: remove od parameters")
+>>> Fixes: 085a4ea93d54 ("clk: meson: g12a: add peripheral clock controller")
+>>> Fixes: 64aa7008e957 ("clk: meson: add a driver for the Meson8/8b/8m2 DDR clock controller")
+>>> Fixes: 57b55c76aaf1 ("clk: meson: S4: add support for Amlogic S4 SoC peripheral clock controller")
+>>> Fixes: e787c9c55eda ("clk: meson: S4: add support for Amlogic S4 SoC PLL clock driver")
+>> Think about stable trying to pick up this ...
+>>
+>>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+>>> ---
+>>> Background: During the execution of clk_set_rate(), the function
+>>> clk_core_round_rate_nolock() is called to calculate the matching rate
+>>> and save it to 'core->new_rate'. At the same time, it recalculates and
+>>> updates its 'child->newrate'. Finally, clk_change_rate() is called to
+>>> set all 'new_rates'.
+>>>
+>>> In clk_regmap_divider_ro_ops, there is an implementation of
+>>> 'determine_rate'. If a clock (name as 'ro_divider') that references
+>>> clk_regmap_divider_ro_ops is not configured with CLK_DIVIDER_READ_ONLY,
+>>> it will result in the calculation of an incorrect core->new_rate and
+>>> potentially tamper with child->newrate, ultimately leading to the
+>>> corruption of the rate for 'ro_divider's' children.
+>> A slitghtly more simple way to put it, is that ro_ops have the regular
+>> determine_rate function, so it can actually alter the rate.
+>>
+>> That should be in the commit description, not where it will be dropped.
+>>
+>> Requiring the flag in addition to ro_ops in redundant.
+>> Plus, it is not the platform that should be fixed but the divider
+>> driver.
+>>
+>> Just put the content of the CLK_DIVIDER_READ_ONLY if clause into a
+>> function, clk_regmap_div_ro_determine_rate(), and use it
+>> - directly for ro_ops
+>> - under if clause for regular ops.
+>
+> The approach of adding clk_regmap_div_ro_determine_rate() will be
+> inconsistent with the style in clk-divider.c in CCF, and
+> CLK_DIVIDER_READ_ONLY will also become meaningless for our driver.
+> Do we need to maintain the style of clk-divider.c in CCF?
 
-edata->tx_lpi_timer = priv->tx_lpi_timer;
-edata->tx_lpi_enabled = priv->tx_lpi_enabled;
-return phylink_ethtool_get_eee(priv->phylink, edata);
+There is no point in having ro_ops that are not actually RO.
+Please fix the ops.
 
-You have to call phylink_ethtool_get_eee() first, otherwise the manually
-set values will be overridden. However setting tx_lpi_enabled shouldn't
-be needed if you respect phydev->enable_tx_lpi.
+>
+>>
+>>> ---
+>>>   drivers/clk/meson/a1-peripherals.c |  2 ++
+>>>   drivers/clk/meson/axg.c            |  5 +++--
+>>>   drivers/clk/meson/g12a.c           | 23 ++++++++++++++---------
+>>>   drivers/clk/meson/gxbb.c           | 18 ++++++++++--------
+>>>   drivers/clk/meson/meson8-ddr.c     |  2 +-
+>>>   drivers/clk/meson/meson8b.c        |  4 +++-
+>>>   drivers/clk/meson/s4-peripherals.c |  2 ++
+>>>   drivers/clk/meson/s4-pll.c         |  2 +-
+>>>   8 files changed, 36 insertions(+), 22 deletions(-)
+>>>
+>>> diff --git a/drivers/clk/meson/a1-peripherals.c b/drivers/clk/meson/a1-peripherals.c
+>>> index 7aa6abb2eb1f..eedf7c2bf970 100644
+>>> --- a/drivers/clk/meson/a1-peripherals.c
+>>> +++ b/drivers/clk/meson/a1-peripherals.c
+>>> @@ -266,6 +266,7 @@ static struct clk_regmap sys_b_div = {
+>>>                .offset = SYS_CLK_CTRL0,
+>>>                .shift = 16,
+>>>                .width = 10,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sys_b_div",
+>>> @@ -314,6 +315,7 @@ static struct clk_regmap sys_a_div = {
+>>>                .offset = SYS_CLK_CTRL0,
+>>>                .shift = 0,
+>>>                .width = 10,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sys_a_div",
+>>> diff --git a/drivers/clk/meson/axg.c b/drivers/clk/meson/axg.c
+>>> index 1b08daf579b2..eb86c4d10046 100644
+>>> --- a/drivers/clk/meson/axg.c
+>>> +++ b/drivers/clk/meson/axg.c
+>>> @@ -71,7 +71,7 @@ static struct clk_regmap axg_fixed_pll = {
+>>>                .offset = HHI_MPLL_CNTL,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "fixed_pll",
+>>> @@ -130,7 +130,7 @@ static struct clk_regmap axg_sys_pll = {
+>>>                .offset = HHI_SYS_PLL_CNTL,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sys_pll",
+>>> @@ -471,6 +471,7 @@ static struct clk_regmap axg_mpll_prediv = {
+>>>                .offset = HHI_MPLL_CNTL5,
+>>>                .shift = 12,
+>>>                .width = 1,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "mpll_prediv",
+>>> diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+>>> index d3539fe9f7af..c7c9fdfd021f 100644
+>>> --- a/drivers/clk/meson/g12a.c
+>>> +++ b/drivers/clk/meson/g12a.c
+>>> @@ -76,7 +76,7 @@ static struct clk_regmap g12a_fixed_pll = {
+>>>                .offset = HHI_FIX_PLL_CNTL0,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "fixed_pll",
+>>> @@ -443,6 +443,7 @@ static struct clk_regmap g12a_cpu_clk_mux1_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL0,
+>>>                .shift = 20,
+>>>                .width = 6,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpu_clk_dyn1_div",
+>>> @@ -627,6 +628,7 @@ static struct clk_regmap g12b_cpub_clk_mux1_div = {
+>>>                .offset = HHI_SYS_CPUB_CLK_CNTL,
+>>>                .shift = 20,
+>>>                .width = 6,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpub_clk_dyn1_div",
+>>> @@ -746,6 +748,7 @@ static struct clk_regmap sm1_dsu_clk_mux0_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL5,
+>>>                .shift = 4,
+>>>                .width = 6,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "dsu_clk_dyn0_div",
+>>> @@ -781,6 +784,7 @@ static struct clk_regmap sm1_dsu_clk_mux1_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL5,
+>>>                .shift = 20,
+>>>                .width = 6,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "dsu_clk_dyn1_div",
+>>> @@ -1198,7 +1202,7 @@ static struct clk_regmap g12a_cpu_clk_apb_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL1,
+>>>                .shift = 3,
+>>>                .width = 3,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpu_clk_apb_div",
+>>> @@ -1232,7 +1236,7 @@ static struct clk_regmap g12a_cpu_clk_atb_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL1,
+>>>                .shift = 6,
+>>>                .width = 3,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpu_clk_atb_div",
+>>> @@ -1266,7 +1270,7 @@ static struct clk_regmap g12a_cpu_clk_axi_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL1,
+>>>                .shift = 9,
+>>>                .width = 3,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpu_clk_axi_div",
+>>> @@ -1300,7 +1304,7 @@ static struct clk_regmap g12a_cpu_clk_trace_div = {
+>>>                .offset = HHI_SYS_CPU_CLK_CNTL1,
+>>>                .shift = 20,
+>>>                .width = 3,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "cpu_clk_trace_div",
+>>> @@ -1736,7 +1740,7 @@ static struct clk_regmap sm1_gp1_pll = {
+>>>                .shift = 16,
+>>>                .width = 3,
+>>>                .flags = (CLK_DIVIDER_POWER_OF_TWO |
+>>> -                       CLK_DIVIDER_ROUND_CLOSEST),
+>>> +                       CLK_DIVIDER_ROUND_CLOSEST | CLK_DIVIDER_READ_ONLY),
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "gp1_pll",
+>>> @@ -1999,7 +2003,7 @@ static struct clk_regmap g12a_hdmi_pll_od = {
+>>>                .offset = HHI_HDMI_PLL_CNTL0,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od",
+>>> @@ -2017,7 +2021,7 @@ static struct clk_regmap g12a_hdmi_pll_od2 = {
+>>>                .offset = HHI_HDMI_PLL_CNTL0,
+>>>                .shift = 18,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od2",
+>>> @@ -2035,7 +2039,7 @@ static struct clk_regmap g12a_hdmi_pll = {
+>>>                .offset = HHI_HDMI_PLL_CNTL0,
+>>>                .shift = 20,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll",
+>>> @@ -4048,6 +4052,7 @@ static struct clk_regmap g12a_ts_div = {
+>>>                .offset = HHI_TS_CLK_CNTL,
+>>>                .shift = 0,
+>>>                .width = 8,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "ts_div",
+>>> diff --git a/drivers/clk/meson/gxbb.c b/drivers/clk/meson/gxbb.c
+>>> index 262c318edbd5..e2b419100e0c 100644
+>>> --- a/drivers/clk/meson/gxbb.c
+>>> +++ b/drivers/clk/meson/gxbb.c
+>>> @@ -131,7 +131,7 @@ static struct clk_regmap gxbb_fixed_pll = {
+>>>                .offset = HHI_MPLL_CNTL,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "fixed_pll",
+>>> @@ -267,7 +267,7 @@ static struct clk_regmap gxbb_hdmi_pll_od = {
+>>>                .offset = HHI_HDMI_PLL_CNTL2,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od",
+>>> @@ -285,7 +285,7 @@ static struct clk_regmap gxbb_hdmi_pll_od2 = {
+>>>                .offset = HHI_HDMI_PLL_CNTL2,
+>>>                .shift = 22,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od2",
+>>> @@ -303,7 +303,7 @@ static struct clk_regmap gxbb_hdmi_pll = {
+>>>                .offset = HHI_HDMI_PLL_CNTL2,
+>>>                .shift = 18,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll",
+>>> @@ -321,7 +321,7 @@ static struct clk_regmap gxl_hdmi_pll_od = {
+>>>                .offset = HHI_HDMI_PLL_CNTL + 8,
+>>>                .shift = 21,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od",
+>>> @@ -339,7 +339,7 @@ static struct clk_regmap gxl_hdmi_pll_od2 = {
+>>>                .offset = HHI_HDMI_PLL_CNTL + 8,
+>>>                .shift = 23,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll_od2",
+>>> @@ -357,7 +357,7 @@ static struct clk_regmap gxl_hdmi_pll = {
+>>>                .offset = HHI_HDMI_PLL_CNTL + 8,
+>>>                .shift = 19,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "hdmi_pll",
+>>> @@ -413,7 +413,7 @@ static struct clk_regmap gxbb_sys_pll = {
+>>>                .offset = HHI_SYS_PLL_CNTL,
+>>>                .shift = 10,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sys_pll",
+>>> @@ -703,6 +703,7 @@ static struct clk_regmap gxbb_mpll_prediv = {
+>>>                .offset = HHI_MPLL_CNTL5,
+>>>                .shift = 12,
+>>>                .width = 1,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "mpll_prediv",
+>>> @@ -911,6 +912,7 @@ static struct clk_regmap gxbb_mpeg_clk_div = {
+>>>                .offset = HHI_MPEG_CLK_CNTL,
+>>>                .shift = 0,
+>>>                .width = 7,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "mpeg_clk_div",
+>>> diff --git a/drivers/clk/meson/meson8-ddr.c b/drivers/clk/meson/meson8-ddr.c
+>>> index 4b73ea244b63..950f323072fb 100644
+>>> --- a/drivers/clk/meson/meson8-ddr.c
+>>> +++ b/drivers/clk/meson/meson8-ddr.c
+>>> @@ -65,7 +65,7 @@ static struct clk_regmap meson8_ddr_pll = {
+>>>                .offset = AM_DDR_PLL_CNTL,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "ddr_pll",
+>>> diff --git a/drivers/clk/meson/meson8b.c b/drivers/clk/meson/meson8b.c
+>>> index e4b474c5f86c..4dba11c0ab7e 100644
+>>> --- a/drivers/clk/meson/meson8b.c
+>>> +++ b/drivers/clk/meson/meson8b.c
+>>> @@ -104,7 +104,7 @@ static struct clk_regmap meson8b_fixed_pll = {
+>>>                .offset = HHI_MPLL_CNTL,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "fixed_pll",
+>>> @@ -457,6 +457,7 @@ static struct clk_regmap meson8b_mpll_prediv = {
+>>>                .offset = HHI_MPLL_CNTL5,
+>>>                .shift = 12,
+>>>                .width = 1,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "mpll_prediv",
+>>> @@ -635,6 +636,7 @@ static struct clk_regmap meson8b_mpeg_clk_div = {
+>>>                .offset = HHI_MPEG_CLK_CNTL,
+>>>                .shift = 0,
+>>>                .width = 7,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "mpeg_clk_div",
+>>> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
+>>> index c930cf0614a0..470431355e25 100644
+>>> --- a/drivers/clk/meson/s4-peripherals.c
+>>> +++ b/drivers/clk/meson/s4-peripherals.c
+>>> @@ -175,6 +175,7 @@ static struct clk_regmap s4_sysclk_b_div = {
+>>>                .offset = CLKCTRL_SYS_CLK_CTRL0,
+>>>                .shift = 16,
+>>>                .width = 10,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sysclk_b_div",
+>>> @@ -221,6 +222,7 @@ static struct clk_regmap s4_sysclk_a_div = {
+>>>                .offset = CLKCTRL_SYS_CLK_CTRL0,
+>>>                .shift = 0,
+>>>                .width = 10,
+>>> +             .flags = CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "sysclk_a_div",
+>>> diff --git a/drivers/clk/meson/s4-pll.c b/drivers/clk/meson/s4-pll.c
+>>> index d8e621e79428..5dc051afc06a 100644
+>>> --- a/drivers/clk/meson/s4-pll.c
+>>> +++ b/drivers/clk/meson/s4-pll.c
+>>> @@ -72,7 +72,7 @@ static struct clk_regmap s4_fixed_pll = {
+>>>                .offset = ANACTRL_FIXPLL_CTRL0,
+>>>                .shift = 16,
+>>>                .width = 2,
+>>> -             .flags = CLK_DIVIDER_POWER_OF_TWO,
+>>> +             .flags = CLK_DIVIDER_POWER_OF_TWO | CLK_DIVIDER_READ_ONLY,
+>>>        },
+>>>        .hw.init = &(struct clk_init_data){
+>>>                .name = "fixed_pll",
+>>>
+>>> ---
+>>> base-commit: 664988eb47dd2d6ae1d9e4188ec91832562f8f26
+>>> change-id: 20241111-fix_childclk_of_roclk_has_been_tampered_with-61dbcc623746
+>>>
+>>> Best regards,
+>> --
+>> Jerome
 
-> For system boot-up, the commit 49168d1980e2
-> ("net: phy: Add phy_support_eee() indicating MAC support EEE") introduced
-> phy_support_eee to set eee_cfg as the default value. However, the values
-> set were not always correct, as after autonegotiation or speed changes,
-> the selected speed might not be supported by EEE.
-> 
-> phy_update_eee() was introduced to update the correct values for eee_cfg
-> during link up and down, ensuring that 'ethtool --show-eee' shows
-> the correct status.
-> 
-> Fixes: fe0d4fd9285e ("net: phy: Keep track of EEE configuration")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-> ---
->  drivers/net/phy/phy_device.c | 24 ++++++++++++++++++++++++
->  include/linux/phy.h          |  2 ++
->  2 files changed, 26 insertions(+)
-> 
-> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-> index 499797646580..94dadf011ca6 100644
-> --- a/drivers/net/phy/phy_device.c
-> +++ b/drivers/net/phy/phy_device.c
-> @@ -3016,6 +3016,30 @@ void phy_support_eee(struct phy_device *phydev)
->  }
->  EXPORT_SYMBOL(phy_support_eee);
->  
-> +/**
-> + * phy_update_eee - Update the Energy Efficient Ethernet (EEE) settings
-> + * @phydev: target phy_device struct
-> + * @tx_lpi_enabled: boolean indicating if Low Power Idle (LPI) for
-> + * transmission is enabled.
-> + * @eee_enabled: boolean indicating if Energy Efficient Ethernet (EEE) is
-> + * enabled.
-> + * @tx_lpi_timer: the Low Power Idle (LPI) timer value (in microseconds) for
-> + * transmission.
-> + *
-> + * Description:
-> + * This function updates the Energy Efficient Ethernet (EEE) settings for the
-> + * specified PHY device. It is typically called during link up and down events
-> + * to configure the EEE parameters according to the current link state.
-> + */
-> +void phy_update_eee(struct phy_device *phydev, bool tx_lpi_enabled,
-> +		    bool eee_enabled, u32 tx_lpi_timer)
-> +{
-> +	phydev->eee_cfg.tx_lpi_enabled = tx_lpi_enabled;
-> +	phydev->eee_cfg.eee_enabled = eee_enabled;
-> +	phydev->eee_cfg.tx_lpi_timer = tx_lpi_timer;
-> +}
-> +EXPORT_SYMBOL(phy_update_eee);
-> +
->  /**
->   * phy_support_sym_pause - Enable support of symmetrical pause
->   * @phydev: target phy_device struct
-> diff --git a/include/linux/phy.h b/include/linux/phy.h
-> index a98bc91a0cde..6c300ba47a2d 100644
-> --- a/include/linux/phy.h
-> +++ b/include/linux/phy.h
-> @@ -2004,6 +2004,8 @@ void phy_advertise_eee_all(struct phy_device *phydev);
->  void phy_support_sym_pause(struct phy_device *phydev);
->  void phy_support_asym_pause(struct phy_device *phydev);
->  void phy_support_eee(struct phy_device *phydev);
-> +void phy_update_eee(struct phy_device *phydev, bool tx_lpi_enabled,
-> +		    bool eee_enabled, u32 tx_lpi_timer);
->  void phy_set_sym_pause(struct phy_device *phydev, bool rx, bool tx,
->  		       bool autoneg);
->  void phy_set_asym_pause(struct phy_device *phydev, bool rx, bool tx);
-
+-- 
+Jerome
 
