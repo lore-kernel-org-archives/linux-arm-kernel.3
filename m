@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9000FD42BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41D2D42BB5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 17:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8kF92FLc9q8F7ms+jA4kEhMAFhcMT/yEg1qkYnhBWc=; b=PYlxVVXe0LT8HKA/ZUcnuQVkRl
-	Rei9GQYOk/rNdTYE3ic6ETkT2eCzjSoeZPZ+lRjlcDyXy9tVBKE+TN6yok7fZ/3o4yepqK52ncecc
-	R9qP0bPtzGlD/QS+HxC7sHr5SSni2nL8RUJHyeaO89gnKmMiAlKXo9dx48jW7BFejQWLrmZYw5S/q
-	/AUb7HyIxHMEvSU3StS+gVVpJNzjF8/x8UzuUNBtHC0N9P6cWQdUn/NBxN/qn3LoBdIx5r5WxHCdC
-	wQTOnqiPx+5utpKnUepN8MiDgvcSvnP5HfsEl404P9NVnV3u469UxyvZzsY538Ejs2bqAUvPStPuH
-	yYZwh3iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5c6OWgQF/ejcqVQp7h08DgprnfycsFPIP9B8O7D4XkA=; b=Sp+8guFyewmQZEeFp1cfF+OJYv
+	h4CzBx1AeTowS5j7p9NsqZqyXE5x9aTcB7zsDGlyaSh3FDHBaMSYWnQoihPqvT3nTDeM31FwYgT+I
+	7+xIDAPjvyvCOB8VvHk+W7WrCQqlAD6KTLH3NGHqLZaRt0q/TgCYcM9linXWRhTnZHj3J8MUkmYZS
+	IH7bw43BquyVfO4eo5ooPqp/sNSxsrChnNG8kvucBOXQbRN5X+q2Tj1d4hYfAY01TWaiblH8ZtvY8
+	nnNXQN4+LrYu/B05ecVraeQVVpDJ5HsTs2ic+9l5uOojJjQ6odq1b3AXOPhZvk7evIXsYMe+10sO3
+	4YQws39g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuo4-00000004OM1-2okJ;
-	Tue, 12 Nov 2024 17:36:00 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tAupq-00000004Ogg-3fKp;
+	Tue, 12 Nov 2024 17:37:50 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAuPJ-00000004Ihq-1DOE
+	id 1tAuQG-00000004Iub-0Tl0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 17:10:26 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb5be4381dso50876971fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 09:10:24 -0800 (PST)
+	Tue, 12 Nov 2024 17:11:25 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-720e94d36c8so5887878b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 09:11:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731431423; x=1732036223; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s8kF92FLc9q8F7ms+jA4kEhMAFhcMT/yEg1qkYnhBWc=;
-        b=YeiJD28DPVw530rF66GUUWNz5ekWXwTwQbTKTT1noRF6wioKBsicE9asdbOh4i2kg3
-         wXMz27kUxAVsaXvknoan2V53GVfIaGQSt02B9yfDS77bJLmUTCWtTy0mFyKMX6qjDAib
-         kWiJ3rBct1YmndVDLlklirKvtnnX9UkfISrWZ19YDbF/O3jJ7gDATvPt3SIOrqOhv22r
-         qIYCOrmNnkQO+50e2v4hOMRg/l9p1HTTMQ1Uk9KoacGaS5N/e1oasqgLbx/KFrozkXsc
-         fD8roQMgWCXwmvn8Naejx+lpsLU6yML04Tz8y1jpUbOyAGBCZFjLt8ggOwDNKPz36dEr
-         t+ag==
+        d=gmail.com; s=20230601; t=1731431482; x=1732036282; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5c6OWgQF/ejcqVQp7h08DgprnfycsFPIP9B8O7D4XkA=;
+        b=JbhY7AnqM0qeOGQ8+haVdCHchXusfSi7c1cO+ehLucl8CvGDDXBQKKGoWqqnFYNFmI
+         olvGxiqTrPVGxQpwj56OkMQ/MVFr3HPr3rKoWNFtgf4lomCmht7TkVCbGpnybtahMdwa
+         QOrMSrw4I7jUK6/tqwi9q6rZVAqJWiDSCIvOhI6/Vr6MqkbQQedxN4vHUIUNglDtkU8w
+         eXZOney5TQ9O0qo9FD0WHWTFP7v9xTCutrMhk+NKpPKoo3uMqSb44t+mcsixAIuAMUkD
+         hMzrlQ/5dbwJzxLB8IiCUTUnPgH4Jdp02yz8vrgZ1dR9xeVBPgECfWpU7KRJlHthgBnW
+         t2eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731431423; x=1732036223;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1731431482; x=1732036282;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=s8kF92FLc9q8F7ms+jA4kEhMAFhcMT/yEg1qkYnhBWc=;
-        b=IDvPqZPtdojlUWS4jLPqR+vdo5wpDsICrc7E7hxi1m80UcLaiMBn8T5Jgxq7EO7+jn
-         DZKppS5IeEbJkvnXyqpdVsZeZOyhVIowtX/OqvRYcqe+fpfaAdx0TAqiKe/uIT4x9wQW
-         LHNV417NmadTTkJM0zMsgaEWP5mi6cEwoOAFBWQ4/vyBY3NNO2aO4b5/WmKMYP/Dh/kD
-         qdWgZcxwlVcwMKiZp6pybI107sZcYJ5ZQyQ14VX6mCbEH6A8lFDQRtRaQe9s/ZeawcXL
-         amSyheyXTcg5DGNNeCSyebNSBcdkZAwA5oRZSqL++eb4tDAe53dM1cTa9BCMAhjXIxl9
-         EEFQ==
-X-Gm-Message-State: AOJu0YymzA99EcVGtU7dDdhARwPUei2HdCmAcqSAfctbx2G5PdFbHnXG
-	By0l5CuVlT46P2jvXJuiu9I3hTcyt0Zm/8JvkXhJkBpeNl2IsJxr
-X-Google-Smtp-Source: AGHT+IGLRwzqrZD/rzM4KpYM2LYHJGEeH0ijuh3q6+s7nyrFo8hI+5aekxdh33AEdqeTJUKxuPJMww==
-X-Received: by 2002:a2e:a5c5:0:b0:2fa:c014:4b6b with SMTP id 38308e7fff4ca-2ff202abbbemr77254001fa.41.1731431422563;
-        Tue, 12 Nov 2024 09:10:22 -0800 (PST)
-Received: from foxbook (bff246.neoplus.adsl.tpnet.pl. [83.28.43.246])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-2ff178dfb6dsm21451531fa.20.2024.11.12.09.10.20
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Tue, 12 Nov 2024 09:10:20 -0800 (PST)
-Date: Tue, 12 Nov 2024 18:10:17 +0100
-From: =?UTF-8?B?TWljaGHFgg==?= Pecio <michal.pecio@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij
- <linus.walleij@linaro.org>
-Subject: Re: cacheflush completely broken, suspecting PAN+LPAE
-Message-ID: <20241112181017.03992d1f@foxbook>
-In-Reply-To: <ZzMsMFNSHLOKEeEW@shell.armlinux.org.uk>
-References: <20241111233817.2f824c19@foxbook>
-	<ZzMsMFNSHLOKEeEW@shell.armlinux.org.uk>
+        bh=5c6OWgQF/ejcqVQp7h08DgprnfycsFPIP9B8O7D4XkA=;
+        b=sRAPJFZscELwElU+GjDADTNwL1rXm2tI22su1gNFDV1Yc9JB6X1qdiEaThgRm5qp1D
+         HFxZpWPUur9mtE1/uqJ0PLKVFxUQLm0SQfvTdcqktjXe2rmqH9eyevcUzTMbkUYCUYI+
+         a+HvKugKXzCkfqOWpyeh+tCFHTbcrS/jsCOHibtd4d9Ge+bci46EaFQ6vTMYUjfHW3ER
+         g/NtL6qoJGg4dsxor5lXdQQEHjFeUbGnt0o914eQHgTgYUSG4w03im4jcHNFnE4W3/K7
+         LPCkK6p+0rekD7KQdAQc1821SXYe0SKeZC203erSYRTYVSjIKUiI9XfL80HrTAgmSfJz
+         NXMg==
+X-Forwarded-Encrypted: i=1; AJvYcCXB285ckiMWnYM3a/jdIU/uOsh1nnfEvISOg3sF7bonk1mwnB6QmPGjjpWYSZMvrJRARbvjwDDIOxO9WRvWVz6R@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfShEw9ZoteKthMBsZ70M6+ebUZHhm7HO8bZBAE1R6VYlqzJQ3
+	pJZX1zIAZgI2LpQ4sD8O3zHMaynaZZdms+FaCFsBmOzcysAoblTQ
+X-Google-Smtp-Source: AGHT+IEB0XmDsy3B10i2uTRC8VzGGRmiDyjY6Ju3LHYSB2QDsh3LoZZxlsq6FBHih7bSCohEPX+QNw==
+X-Received: by 2002:a05:6a20:3944:b0:1d9:19bc:9085 with SMTP id adf61e73a8af0-1dc234afb33mr26913887637.14.1731431482453;
+        Tue, 12 Nov 2024 09:11:22 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a189e3sm11424545b3a.136.2024.11.12.09.11.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Nov 2024 09:11:21 -0800 (PST)
+Date: Tue, 12 Nov 2024 09:11:20 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jean Delvare <jdelvare@suse.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] hwmon: tmp108: Add support for I3C device
+Message-ID: <860c243a-f6db-44dd-bbba-d4c01dc7f9ac@roeck-us.net>
+References: <20241112-p3t1085-v4-0-a1334314b1e6@nxp.com>
+ <20241112-p3t1085-v4-2-a1334314b1e6@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241112-p3t1085-v4-2-a1334314b1e6@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_091025_352447_27F8F485 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20241112_091124_336857_AF7AC4B1 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +103,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 10:21:36 +0000, Russell King (Oracle) wrote:
-> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-> Subject: [PATCH] ARM: fix cacheflush with PAN
->=20
-> It seems that the cacheflush syscall got broken when PAN was
-> implemented. User access was not enabled around the cache maintenance
-> instructions, causing them to fault.
->=20
-> Fixes: a5e090acbf54 ("ARM: software-based priviledged-no-access support")
+On Tue, Nov 12, 2024 at 11:52:00AM -0500, Frank Li wrote:
+> Add support for I3C device in the tmp108 driver to handle the P3T1085
+> sensor. Register the I3C device driver to enable I3C functionality for the
+> sensor.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-For the record, non-LPAE seems to be OK, so for me it was 7af5b901e847.
+Applied.
 
-> Reported-by: From: Micha=C5=82 Pecio <michal.pecio@gmail.com>
-
-"From:" perhaps not strictly necessary ;)
-
-Tested-by: Micha=C5=82 Pecio <michal.pecio@gmail.com>
-
-That was it. With this patch gdb starts normally, does 295 cacheflush
-calls and all of them succeed, with ARM_LPAE and ARM_PAN enabled.
-
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  arch/arm/kernel/traps.c | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-> index 54dcdcde3f77..6518771c1496 100644
-> --- a/arch/arm/kernel/traps.c
-> +++ b/arch/arm/kernel/traps.c
-> @@ -574,6 +574,7 @@ static int bad_syscall(int n, struct pt_regs *regs)
->  static inline int
->  __do_cache_op(unsigned long start, unsigned long end)
->  {
-> +	unsigned int ua_flags;
->  	int ret;
-> =20
->  	do {
-> @@ -582,7 +583,9 @@ __do_cache_op(unsigned long start, unsigned long end)
->  		if (fatal_signal_pending(current))
->  			return 0;
-> =20
-> +		ua_flags =3D uaccess_save_and_enable();
->  		ret =3D flush_icache_user_range(start, start + chunk);
-> +		uaccess_restore(ua_flags);
->  		if (ret)
->  			return ret;
-> =20
-> --=20
-> 2.30.2
+Thanks,
+Guenter
 
