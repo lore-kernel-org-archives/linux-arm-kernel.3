@@ -4,145 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5B8D597B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488EAD597B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Nov 2024 22:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UB4xeYuA6q8m3dBRiRSVt+xNLC+ixRrYX0jR5oxj2ys=; b=ud/rHzQ0eNUEH70Bzl3/W/QFpU
-	eeHA7xWwmKYR59Y8kfECMtGnID9fmXp3hlZmVyer8bRfX6LhIXMre2OoyzKDvwPW67C4Vi6etwdsZ
-	8zedSiFp8M5veo96QCToaHpU6C/R4Ff4D39yxxpIRpYUxcvKKPC2uR7eKOc8bqAWZ2slQxzzBLdmE
-	IndauHRd1YP2/LmYV8x85kd8YLwlGMZ5gwtedDLLuOiU933KKuqgt9tPJEJNvvf6P2guchny2+aaQ
-	oQjQcUoEiY1QPqK8BKvw0mUg1cRXGZ/ZEhYLax/gxsnUqJhsfDkxml7wGu0gQllxEGzuo9EPFtfEh
-	9FQIWjRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuUhsWmnwS3Wq04jwBtV8xlb7rkCU2Qg5LzNdH/FNA4=; b=PmK/V+xbHvHw+F7V6DnwDH18Hb
+	4/n/ggqLELXnhyxz4v8j1Rv7ZyDEpLy5V8al0DSNcG2et+R8fWiooRyBXs1TMiW4YKrWyJ2uEKrU4
+	Hb4s17ZwdbOzF1aHJmVIP3JnCNAdkOYB2gTcd+Xj2We5BZDOkZa4qQjCCqmbRiallPU9vCjb0Ha/r
+	4SD6SUZNX3FUERo4KKfkT0Z7y8xMfH55PcHtpHxqWa5oZgsmZMR0A7PsZFXVXC6GG1wHkGDWxJ8Dn
+	2FfKn6Tk4MVKt6vh9kvZaYX0b3f0xVr82dGHR/sHcphA7NnRc7qONtFQLNbbcQT84fKtsVPPou+CD
+	4iMe8qzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAzCx-000000057sX-2dEl;
-	Tue, 12 Nov 2024 22:17:59 +0000
-Received: from mail-dm6nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:2417::627] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1tAzJ0-000000058Y2-0wia;
+	Tue, 12 Nov 2024 22:24:14 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAz9q-000000057Gl-28TE
+	id 1tAzHC-000000058Mp-1NjS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Nov 2024 22:14:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cpHQdh7cMMbE6+Vtwvg1SNtjfTqB9kkh5lx/sJC2+rxdLvDFVQJsAxiNshWgQ1MLDvPeYJ635wHmRvDaitr0QrwVyRpmng7SGrdEobAuDJ58++kIk9b6L5QKSgf04wpllFck20IIyfHoRJ3hdEE92SyUYV9TmwmhKp2wExjJZUPfD2RbyKAoRGnV5GCyph85Z5yVrZGfFNtZ+m16vvYOidq2Nwcmd1UDFf2tJ3svF+HtgJijajtLYZc9PoX7Q7pqGfUPYP277oEcklZM/PcHxPU2WYItFJf32pLKH/DcH4XrSs0kESraG9nAPVckHQ/4+PJi/a2/J5cdruR/a7bL8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UB4xeYuA6q8m3dBRiRSVt+xNLC+ixRrYX0jR5oxj2ys=;
- b=tHFJEUPvtESxEvE12pDBnIcDk1j9kEjSk5oyylRb3e39BO55r6mELayKjvjqQP8w/ILqasisckh2N97nCKy/aeVNvxm/svdhqj3dIiGqg6EcpySjnOds7fE1++PQMUTK4R2oJYgIKizLZ1493sZmZmdgKd7TNDPtU1d8TP7PCCG+OFw9odGPauC/Vq1jo1d4/t/CAqvFiorJ7XuU0WwTdh3Nmmcbtaoh5CWnDNMo5jwTeX29GYsSHMfoDzjJy8MbpIvH4pliXbjSX1YutanCzYb8rKJr2GqWRbvMMgNEWcWiFpo4LR6O5My8XQMBTIcYBp8k8fIMa0Gg3YsGO27kRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UB4xeYuA6q8m3dBRiRSVt+xNLC+ixRrYX0jR5oxj2ys=;
- b=jXej/ZmU37LIfIIoHSGD7et9UHjZUJu7zjBPhKrkzcUsOtWKCrLYN4oXaxzxZIHrwunzqqdXasAK73eBC84AO/6YCKgG4Di3kbY/Zw2QCUZ0k9BMo4rtbEId7xS/3ReraPsEIpArFLjzElJFbVrCynlgvZSKc49elyhpyZc6ZtChXhuQFb+pj79+CIRvoq7Pi8r8MQlKdxCxbQQ9mmb9i62GLW3u1YCt/kdYcjExNxOT3/t0JOLq6T06iExV+8gSG+tc/Op3y+HbC+jbiGQU6sd0qN0z/zUI4Z5RRTdZ1f3AjlFc3CIgQVlbwCfAHnglb89gDI2zbP4nPrcXEvQT3g==
-Received: from BN9PR03CA0296.namprd03.prod.outlook.com (2603:10b6:408:f5::31)
- by CH2PR12MB4085.namprd12.prod.outlook.com (2603:10b6:610:79::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.20; Tue, 12 Nov
- 2024 22:14:41 +0000
-Received: from BL02EPF0001A0FE.namprd03.prod.outlook.com
- (2603:10b6:408:f5:cafe::a7) by BN9PR03CA0296.outlook.office365.com
- (2603:10b6:408:f5::31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29 via Frontend
- Transport; Tue, 12 Nov 2024 22:14:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL02EPF0001A0FE.mail.protection.outlook.com (10.167.242.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8158.14 via Frontend Transport; Tue, 12 Nov 2024 22:14:40 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 12 Nov
- 2024 14:14:24 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 12 Nov
- 2024 14:14:24 -0800
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Tue, 12 Nov 2024 14:14:22 -0800
-Date: Tue, 12 Nov 2024 14:14:21 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-CC: <maz@kernel.org>, <tglx@linutronix.de>, <bhelgaas@google.com>,
-	<alex.williamson@redhat.com>, <jgg@nvidia.com>, <leonro@nvidia.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <robin.murphy@arm.com>,
-	<dlemoal@kernel.org>, <kevin.tian@intel.com>, <smostafa@google.com>,
-	<reinette.chatre@intel.com>, <eric.auger@redhat.com>, <ddutile@redhat.com>,
-	<yebin10@huawei.com>, <brauner@kernel.org>, <apatel@ventanamicro.com>,
-	<shivamurthy.shastri@linutronix.de>, <anna-maria@linutronix.de>,
-	<nipun.gupta@amd.com>, <marek.vasut+renesas@mailbox.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 6/7] PCI/MSI: Add pci_alloc_irq_vectors_iovas helper
-Message-ID: <ZzPTPQNxWDmh97cr@Asurada-Nvidia>
-References: <cover.1731130093.git.nicolinc@nvidia.com>
- <e9399426b08b16efbdf7224c0122f5bf80f6d0ea.1731130093.git.nicolinc@nvidia.com>
- <ZzHPtwPdCehYyXWE@smile.fi.intel.com>
+	Tue, 12 Nov 2024 22:22:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1731450113;
+ bh=AuUhsWmnwS3Wq04jwBtV8xlb7rkCU2Qg5LzNdH/FNA4=;
+ b=V31rFO1Cs7EX8K1z/q0Z0B+MvegdFxr9jea0Z53oW3CjvNvvaf0N84dNRTFF/ecESeUL4ecU2
+ TgUtD12239FwfIO3uJWdKyAwZM3Qzt8x/ix7XlAkK2OPQ/9kOTJvnFRFtEmszlYhV7BBeKW59Du
+ tmOIcssHgcwBtTTX7im0mnMmCUO760w0q6/W5YlZhH8si3SyvDURRhIm8WYigKUbYSc3fT/P0aI
+ dw0SphJ9zNJ516rAPeYLWy+HBa12R2bdQMdAqyml/7IiiyF/E2HW77KbRS5KGvfo9cRg8Ktc0Oc
+ kbB+GXkCv1Pq/zdci3ssnHeVZEWTIhMfOHiohVX9+ECg==
+Message-ID: <79f13cef-1630-491f-8525-b2b44c0d42fb@kwiboo.se>
+Date: Tue, 12 Nov 2024 23:21:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ZzHPtwPdCehYyXWE@smile.fi.intel.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FE:EE_|CH2PR12MB4085:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25991c69-3410-4997-8e63-08dd03676730
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R/+c08bgVh7HUigQFcmeoK/PGRxeiH3UOE4nvwkwEdRxKbOkXUWKxq6LImB9?=
- =?us-ascii?Q?wXqi9rOjJCunvA0UmyJlFcNbe00RLhntPAPa23uEMP9+8NNVsLSjT5rBLhRD?=
- =?us-ascii?Q?+TJJcv3RUM8Le1Xpc0fHyYDnht98B6nZ5YZrbt2ArgAipYHBjz4XrAZb0whB?=
- =?us-ascii?Q?nydXWSzOHIPsysxbo+nVbA7B3yB0iAC+JWjeLi3c4t4rSFSnRS0m7Ios/n2D?=
- =?us-ascii?Q?kI8mkloPsck8djTvh/NyY3nrVmmaIx7j3leG9rNvT8h3DszmHRqO0TXw1S5t?=
- =?us-ascii?Q?KweAa/yFvwVdtc9euj7Kb5buXYT4PdLyBaSdtjbZOOKo6RlokuX1ec3pGY/N?=
- =?us-ascii?Q?Ju1y4VpqisxA8JfybyzlwaHex+RJVI3tZY7d7Dm68rK8g2BIbRKmCBJ53pay?=
- =?us-ascii?Q?x3ghivlRc/cLJqiaAEaR8F2fOPw86hMm2B51CLQCoqHlEC5EuS2CZC6ARihg?=
- =?us-ascii?Q?jH9IqZum983I1EzKC6ZENSGAbwe0K8DqfxJy9yNtnftkp2JudxSoQrBC30ks?=
- =?us-ascii?Q?34SpqRdGRHawo5GS4/KsFCGIWXfw/TlpUmHBD7YkvE5WVp35Q4gjl/yPRCKJ?=
- =?us-ascii?Q?Wqow7RAxA+/mihnBBdUm/+6rfci9QyI/S6UAqwSKBLsKfMZYPoq8kU9Fl/H0?=
- =?us-ascii?Q?w3bk+B5liEfqR8ivRuM/W9/4Ekzuv3KazLbWdOgCzHVWKIP5xJ1TejFtQbvh?=
- =?us-ascii?Q?brL4TNl+VZjweMuKKM0C/+1zvcXcr7dAjUjYqJjCChGOW6ZUc2q9UzxYHF+C?=
- =?us-ascii?Q?SQ4V3rECTbZsdXB5BIhIpomTgP+KaBPOOlWFQ7dgYZQM1PDt0HJ9C6wkFt5j?=
- =?us-ascii?Q?yYKbVc03G23uz1RSv2RV20Ke7x7U1ISrpi4XMfVyfjNVOHFcF5mWi/LujdAW?=
- =?us-ascii?Q?nqfvFmGtrsjpc83MYoFAoG+1rsFplXhlRuj93PJA4m4557OetFo6gTogub0L?=
- =?us-ascii?Q?6TRrwGHrXKszLdEKnD2doYctLx1dpkVix0PKx+YFgyhwUpSJS5Sq4uBlimND?=
- =?us-ascii?Q?QZhWoJNcZ9VC3Fqq7rSmGagNgDa5wCEbZo59xkQe3ZXIJI2IA8PblGbZVpY8?=
- =?us-ascii?Q?xLppkQ0vSwXeVs3GNj6E2Hed9GGE/hL6UMdQcK3HfY36EqBowxZSmrf6CKAB?=
- =?us-ascii?Q?bEUZfSzVHOvBR+zdQm48jtYQNyrIfXiNsQ5mT6kY8Vu4gP4XO2hMrzz00H3g?=
- =?us-ascii?Q?nkGXVLiaxxDWxGF7UDJ73a756FwR7YvyrEfAuY6+YLIGW7W+cUSfkIj0tOgH?=
- =?us-ascii?Q?G5wac9SH2r2qSoFiVntmrlRsKNEQFX2O1ubE50dORy5/5PE3ooMfR1ud5921?=
- =?us-ascii?Q?h7yX0vcfiBT+Ki/LxLTOkdOw1pIu95CHUKCLgwToh6xlINyBMuJAMRQckWGI?=
- =?us-ascii?Q?8O6VeXoiRhL+JdMW87jYTFNCUj6qDfqE1amzk6jXw2totRphog=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2024 22:14:40.2509
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25991c69-3410-4997-8e63-08dd03676730
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4085
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
+To: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>,
+ Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ FUKAUMI Naoki <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241111181807.13211-1-tszucs@linux.com>
+ <20241111181807.13211-4-tszucs@linux.com>
+ <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se>
+ <CA+GksrJLpeU8x-kjR1Ng3ySf+giiufCsJuBssng9qoX1PjAunA@mail.gmail.com>
+ <9330ebb370780c001fd2aaee49aec9e8@manjaro.org>
+ <CA+GksrJjDPve29Vh7ZFhM+JFp058xmXZAPeuLuFth7v=JeiH2w@mail.gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <CA+GksrJjDPve29Vh7ZFhM+JFp058xmXZAPeuLuFth7v=JeiH2w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Report-Abuse-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-ForwardEmail-Version: 0.4.40
+X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-ForwardEmail-ID: 6733d4fe9402f7538d196cc3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_141446_572221_825D1709 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20241112_142222_736865_BA22AFDB 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,37 +84,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 11:34:47AM +0200, Andy Shevchenko wrote:
-> On Fri, Nov 08, 2024 at 09:48:51PM -0800, Nicolin Chen wrote:
-> > Now, the common __pci_alloc_irq_vectors() accepts an array of msi_iovas,
-> > which is a list of preset IOVAs for MSI doorbell addresses.
-> >
-> > Add a helper that would pass in a list. A following patch will call this
-> > to forward msi_iovas from user space.
-> 
-> ...
-> 
-> > +/**
-> > + * pci_alloc_irq_vectors_iovas() - Allocate multiple device interrupt
-> > + *                                 vectors with preset msi_iovas
-> > + * @dev:       the PCI device to operate on
-> > + * @min_vecs:  minimum required number of vectors (must be >= 1)
-> > + * @max_vecs:  maximum desired number of vectors
-> > + * @flags:     allocation flags, as in pci_alloc_irq_vectors()
-> > + * @msi_iovas: list of IOVAs for MSI between [min_vecs, max_vecs]
-> > + *
-> > + * Same as pci_alloc_irq_vectors(), but with the extra @msi_iovas parameter.
-> > + * Check that function docs, and &struct irq_affinity, for more details.
-> > + */
-> 
-> Always validate your kernel-doc descriptions
-> 
->         scripts/kernel-doc -Wall -none -v ...
-> 
-> will give you a warning here.
+Hi Tamás,
 
-Will do in next round.
+On 2024-11-12 22:04, Tamás Szűcs wrote:
+> Hi Dragan,
+> 
+> On Tue, Nov 12, 2024 at 4:07 PM Dragan Simic <dsimic@manjaro.org> wrote:
+>> Please correct me if I'm wrong, but isn't this UART supposed to be
+>> used for the Bluetooth part of an SDIO WiFi + Bluetooth module, in
+>> form of a non-standard M.2 module that Radxa sells?
+> 
+> UART8 is supposed to be used for any radio module connected to the M2E
+> connector.
+> It will typically be responsible for Bluetooth or BLE but it could be
+> 802.15.4 or whatever. In any case, all wanting to use it will need the
+> uart8 node enabled.
 
-Thanks!
-Nicolin
+Do you have any specific sdio+uart module you are testing these changes
+with? The pinout for sdio+uart on Radxa's M.2 Key E slot is their own,
+pinout for pcie and usb should be closer to a common standard.
+
+https://dl.radxa.com/accessories/wireless-module/ROCKPi_M2_Wireless_Module_Pinout_v10.xlsx
+
+> 
+>>
+>> With that in mind, I see very little sense in just enabling the UART,
+>> without defining the entire Bluetooth interface, which AFAIK produces
+> 
+> Defining a bluetooth node would hardwire idiosyncrasies of a given
+> radio module's Bluetooth core. Sure you could add a sleep clock, all
+> kind of sideband signals for wakeups, reset, power down, etc. But hey,
+> some will use them, some won't. I think it's undesirable and
+> unnecessary. You can hciattach from here and most will work just like
+> that. Tighter integration or anything special, module specific on top
+> should be handled individially, on a case-by-case basis. This is a dev
+> board after all. I say trick of all trades.
+
+Changing to status=okay for sdmmc2 and uart8 should be fine, it does not
+cause any issue for my pcie wifi module testing with a Radxa A8 module.
+
+Testing with a Radxa A2 module (sdio+uart), the sdio/wifi part is
+automatically discovered, however bluetooth require a DT overlay for
+automatic probe. Something like this seem to work:
+
+diff --git a/rk3568-rock-3b-radxa-a2.dtso b/rk3568-rock-3b-radxa-a2.dtso
+new file mode 100644
+index 000000000000..746b04e601af
+--- /dev/null
++++ b/dts/rk3568-rock-3b-radxa-a2.dtso
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * DT-overlay for Radxa ROCK Pi Wireless Module A2.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pinctrl/rockchip.h>
++
++&sdmmc2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	wifi@1 {
++		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PD6 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wake";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_wake_host_h>;
++	};
++};
++
++&uart8 {
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		clocks = <&rk809 1>;
++		clock-names = "lpo";
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PB5 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wakeup";
++		device-wakeup-gpios = <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>;
++		shutdown-gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&bt_reg_on_h &bt_wake_host_h &host_wake_bt_h>;
++		vbat-supply = <&vcc3v3_sys2>;
++		vddio-supply = <&vcc_1v8>;
++	};
++};
+
+With that applied wifi and bt module is detected and firmware loaded
+during startup:
+
+[    4.684687] mmc_host mmc2: Bus speed (slot 0) = 150000000Hz (slot req 150000000Hz, actual 150000000HZ div = 0)
+[    4.699412] dwmmc_rockchip fe000000.mmc: Successfully tuned phase to 360
+[    4.707429] mmc2: new ultra high speed SDR104 SDIO card at address 0001
+[    4.717034] brcmfmac: brcmf_fw_alloc_request: using brcm/brcmfmac43456-sdio for chip BCM4345/9
+[    4.760907] Bluetooth: hci0: BCM: chip id 130
+[    4.763736] Bluetooth: hci0: BCM: features 0x0f
+[    4.787714] Bluetooth: hci0: BCM4345C5
+[    4.788482] Bluetooth: hci0: BCM4345C5 (003.006.006) build 0000
+[   11.417553] Bluetooth: hci0: BCM: features 0x0f
+[   11.441621] Bluetooth: hci0: BCM4345C5 Ampak_CL1 UART 37.4 MHz BT 5.2 [Version: 1039.1086]
+[   11.442423] Bluetooth: hci0: BCM4345C5 (003.006.006) build 1086
+
+Regards,
+Jonas
+
+> 
+>> nasty looking error messages in the kernel log when there's actually
+>> nothing connected to the UART.
+> 
+> My dmesg is clean as a whistle
+> root@rock-3b:~# dmesg | grep -E 'fe6c0000|ttyS0'
+> [    0.344818] fe6c0000.serial: ttyS0 at MMIO 0xfe6c0000 (irq = 26,
+> base_baud = 1500000) is a 16550A
+> What kind of nasty errors do you recall?
+> 
+> Kind regards,
+> Tamas
+
 
