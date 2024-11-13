@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFD3D41C03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F540D41C07
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbJyGIYF+t0s5RGNOpKjoIQnVKjH/xfjQJ02Hcx//wY=; b=O2KFAWb7E6L2DXqlOyUO3iJvbz
-	xHLcDmm7SbGoavwJ0pW/Uy2qtdCI5MIXgPlX66h5RBq7+SjEaJZAKXkAsnbWh/HoGQpLC0kqjv/E6
-	F8oBX7yWdT6YOaN7nRoyX9W0vg9L7fH4Xd3aA8BimZMnFQDPtEJISLITdK231pk+QD1MJlIT58Tls
-	jSx950Bjlhd4oddKyNj86VxsIHi1p8lNB7QLpRfIP6Q9bahkUWCG2vCon7gjCjBZV5hz+VxpUkMrN
-	FaBG+ZYTRsUiPDHnQJD3o2dpp8jwm2lkELdW2aT2YuP5TQD6kMSz2AwrEtfh8HuIVFPWKgw1AeZFW
-	LX0uXtwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z5YdMUXgGOAF8goB3vv69jUrB8QTyxx1LopfUs1gOnU=; b=W9RZ+9qQYVk+PFA+JaalbFnmiC
+	07dfcWZZEPd33eqRK8tp0UFOFe/Lpqdebsep4xan5TgXWLuoDSwbLAjmuuG5E4gWx1mqhSYbUP+yC
+	KJT9SIZPqkRu29d/vN6XXOpWqUrebFqt/l6eWxV80kmbTBxGz4xf2lKrOmkhAwpX2R+tL9wUiEUhZ
+	dt3r3LD9jZoiXXu7hDSzh+hWN1kwcZR66HT58pM9FNkrQt2slb5I5AZK4NS0mIpJld5he8lBjnPm+
+	2hUGbd74OQMAmIs6gjSFw6ruAz8SV2KBjXjoG3ciMBgUAanhC+LUpVKY7kub6HrWzFxF6fnFRlF6B
+	iqtsdXWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6c4-00000005s8s-0AhF;
-	Wed, 13 Nov 2024 06:12:24 +0000
-Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
+	id 1tB6h6-00000005sm2-44xB;
+	Wed, 13 Nov 2024 06:17:36 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6aE-00000005rcb-2YXe
+	id 1tB6fI-00000005sYX-3x4D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 06:10:32 +0000
-Received: from eig-obgw-6008a.ext.cloudfilter.net ([10.0.30.227])
-	by cmsmtp with ESMTPS
-	id B5JbtKT8miA19B6aCtLYxO; Wed, 13 Nov 2024 06:10:28 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id B6a8tEn8nGbbaB6a9tnIVp; Wed, 13 Nov 2024 06:10:26 +0000
-X-Authority-Analysis: v=2.4 cv=QNxuRBLL c=1 sm=1 tr=0 ts=673442d2
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=VlfZXiiP6vEA:10 a=-pn6D5nKLtMA:10
- a=adFrNvAlZa_jBKZnjswA:9 a=QEXdDO2ut3YA:10 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IbJyGIYF+t0s5RGNOpKjoIQnVKjH/xfjQJ02Hcx//wY=; b=pvpYVg9n8DntXmS+V4Vhy7o/zg
-	aVTxKkjoOoFC5l4vT2DaRXchYrg5e+NgcELmsYXFwZ/8tvXorckG02G3m/ZMQo7LSwr5aadnTKA2Z
-	HhJgIF2WqWVig7Qml5Wdv8l2mVxyCciqQlCUXWYEE9x/eUXwBO4enSC/Uz+pJd4eLFSDBQL5WGUF/
-	6O5KssYI37VXId88b/kKWzFa79gJLfA/N6biu5xFvGCJGLxky/BmVFf8dequ5Oghw++QvszrnRahU
-	mLviAFI/XoH4IWSqklEPl1mT4Gzp2oJY57v+tCbvJR4UkQcjNGNgRRaULfFIMeimydocA1KXGEdJM
-	UT+x9MiQ==;
-Received: from [122.165.245.213] (port=35314 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1tB6a2-003Pv5-1e;
-	Wed, 13 Nov 2024 11:40:18 +0530
-Message-ID: <2ef6afa0-2756-493b-83a4-62e73a8e2af9@linumiz.com>
-Date: Wed, 13 Nov 2024 11:40:14 +0530
+	Wed, 13 Nov 2024 06:15:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D43C7A4029C;
+	Wed, 13 Nov 2024 06:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79179C4CECD;
+	Wed, 13 Nov 2024 06:15:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731478543;
+	bh=GjHWsGBW2+fujolM2tMANHwifuU0meTtmmBJ4b3ZT90=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=qmCQpJzd2ahwxFIOLRTrnGuJ+kFeMPsYIBS0aPzc4h3BS7MXPwxBhDuBL8P5XaAVZ
+	 ABagjtywQEbi2AV19TGV+hMZuv1BAQm/m7PQ3X0xMx8RZoKhIjSZgsZR2Y2kxJlviP
+	 awiL8oQ4Ow5oejzqmbTw1b1ZSiSncj/UAPO9/8WPAYy/NS0oPsBGMY3Vlgud8GBW1z
+	 crzmwWXyqMqr4FtgIhDnkpiNeBkVZiK2OgEqFbei6V0tj6sgIZOAKw4NGehTYpWXZi
+	 JFe8U+7qEtRnPbGFGznPKuQ12JJwPgCrsG4BE+fCaNz518ZMDIZ7pnY2xSV9Ri/qxX
+	 QumlFfgbrpnSw==
+Date: Wed, 13 Nov 2024 00:15:41 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Andre Przywara <andre.przywara@arm.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-To: John Watts <contact@jookia.org>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
- <20241108115357.691b77b0@donnerap.manchester.arm.com>
- <Zy4SKCBwce3q0yj5@titan> <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
- <Zy4c9BFcrz2JVU6k@titan> <ZzNCsFiAiACFrQhE@titan>
- <f0d5b314-cfcc-4856-8d6e-09e437c075ec@linumiz.com> <ZzPluoI7xSTwhNcm@titan>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <ZzPluoI7xSTwhNcm@titan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1tB6a2-003Pv5-1e
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:35314
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 3
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfFidC8uWsycDTn5a1BkYUbq0THsXgwxu3EwrT2OVkIXN05Fmbu/aDgmXCFITuqTK+q1unOUSjIqKH9n2cpdtRtVzChV0kSr9uQq2qntTyP05K5i7UCV2
- HQa2I6u0ssncRQAYsV0oJAennTEdYR2BzAHV6pp/O+uDr0IeLieRI/KEVPPyxowR64BGe+s01Zv0UG5UnpQiFz4knEV+xq7H3R6kvJZK3bIP5FMfQzwh/ObZ
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, mcoquelin.stm32@gmail.com, davem@davemloft.net, 
+ conor+dt@kernel.org, pabeni@redhat.com, richardcochran@gmail.com, 
+ devicetree@vger.kernel.org, joabreu@synopsys.com, edumazet@google.com, 
+ linux-kernel@vger.kernel.org, kuba@kernel.org, schung@nuvoton.com, 
+ yclu4@nuvoton.com, ychuang3@nuvoton.com, 
+ linux-stm32@st-md-mailman.stormreply.com, openbmc@lists.ozlabs.org, 
+ linux-arm-kernel@lists.infradead.org, alexandre.torgue@foss.st.com, 
+ netdev@vger.kernel.org, andrew+netdev@lunn.ch
+To: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20241113051857.12732-2-a0987203069@gmail.com>
+References: <20241113051857.12732-1-a0987203069@gmail.com>
+ <20241113051857.12732-2-a0987203069@gmail.com>
+Message-Id: <173147854152.3007386.10475661912425454611.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: nuvoton: Add schema for MA35
+ family GMAC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_221031_236111_76116A63 
-X-CRM114-Status: GOOD (  38.77  )
+X-CRM114-CacheID: sfid-20241112_221545_132071_EB54C436 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,103 +79,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/24 5:03 AM, John Watts wrote:
-> Hi there,
-> 
-> On Tue, Nov 12, 2024 at 10:43:44PM +0530, Parthiban wrote:
->> #define TCON_TOP_PORT_DE0_MSK                   GENMASK(1, 0)
->> #define TCON_TOP_PORT_DE1_MSK                   GENMASK(5, 4)
->>
->> references towards DE0 and DE1 is for DE itself, not the mixers in the
->> current implementation.
-> 
-> So the datasheet says it's for DE0/DE1 but the Allwinner driver and mainline
-> driver assume it's for mixers. There's a conflation between mixer and DE in
 
-No, Mixers in upstream refers to RT-Mixers inside the DE. It's only the
-quirk for R40/D1 setting the DE ports using mixer numbering.
+On Wed, 13 Nov 2024 13:18:55 +0800, Joey Lu wrote:
+> Create initial schema for Nuvoton MA35 family Gigabit MAC.
+> 
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+>  .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 170 ++++++++++++++++++
+>  1 file changed, 170 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+> 
 
-> this case, especially because everywhere mixer1 is used on the A133 it is
-> switched to DE1. I'm also unaware of the R40 having two DEs which kind of
-> confirms this might be a typo. If anyone has actually tested the second output
-> of this it would help find out if it actually means DE1 or mixer1.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Gave a quick try, but display went blue. My current assumption is that it's
-called INDEPENDENT DE, so DE1 <-> LCD1 is the only possibility. Yet to try
-that pipeline.
+yamllint warnings/errors:
 
-> 
->> Handling for mixer0 <-> lcd1 and mixer1 <-> lcd0 also needs to set
->> DE2TCON_MUX in de clock, which is missing now.
-> 
-> Hmm. Are you sure? Looking at the Allwinner drivers it has the method
-> de_top_set_de2tcon_mux in
-> drivers/video/fbdev/sunxi/disp2/disp/de/lowlevel_v33x/de330/de_top.c
-> which I think means it's for DE3? But I don't see it called anywhere?
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: ignoring, error in schema: properties: compatible
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:compatible: [{'items': [{'enum': ['nuvoton,ma35d1-dwmac']}, {'const': 'snps,dwmac-3.70a'}]}] is not of type 'object', 'boolean'
+	from schema $id: http://json-schema.org/draft-07/schema#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:compatible: [{'items': [{'enum': ['nuvoton,ma35d1-dwmac']}, {'const': 'snps,dwmac-3.70a'}]}] is not of type 'object', 'boolean'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:clock-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'stmmaceth'}, {'const': 'ptp_ref'}] is too long
+	[{'const': 'stmmaceth'}, {'const': 'ptp_ref'}] is too short
+	False schema does not allow 2
+	1 was expected
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: properties:clocks: 'oneOf' conditional failed, one must be fixed:
+	[{'description': 'MAC clock'}, {'description': 'PTP clock'}] is too long
+	[{'description': 'MAC clock'}, {'description': 'PTP clock'}] is too short
+	False schema does not allow 2
+	1 was expected
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml: 'oneOf' conditional failed, one must be fixed:
+	'unevaluatedProperties' is a required property
+	'additionalProperties' is a required property
+	hint: Either unevaluatedProperties or additionalProperties must be present
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.example.dtb: /example-0/ethernet@40120000: failed to match any schema with compatible: ['nuvoton,ma35d1-dwmac']
+Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.example.dtb: /example-1/ethernet@40130000: failed to match any schema with compatible: ['nuvoton,ma35d1-dwmac']
 
-Missing in the upstream. 
+doc reference errors (make refcheckdocs):
 
-> 
-> This might be worth discussing in the DE3 patchset.
-> 
->> sun8i_tcon_top_set_hdmi_src for R40 already sets these values via quirks.
->> i.e controlling the port muxing. Also D1 quirks is same as R40. So the
->> original changes to make the DE1 point to TVx can also done in this quirk
->> without hardcoded value?
-> 
-> In this case I'm using an LCD which isn't HDMI, so I'm not too sure how much
-> this would help. Having it as a quirk also seems a bit overkill if this is a
-> general preventative fix, especially since Allwinner doesn't seem to test their
-> functionality. Relying on it seems like a mistake in this case.
-> 
-> My other thought is that when sun8i_tcon_top_de_config is called it could do
-> something. But I'm not sure what that something would actually be, given it may
-> be called twice in an (I assume) unknown order.
-> 
-> Say, if mixer1 is set as TV0 and and mixer0 is set as TV1 we would try to set mixer1
-> first, see that mixer0 is already set to TV0 then ... error? Even though the
-> final configuration doesn't have any conflicts.
-> 
-> I was thinking something like this for my next patch:
-> 
-> 	/*
-> 	 * Make sure that by default DE0 and DE1 are set to different outputs,
-> 	 * otherwise we get a strange tinting or unusable display on the T113.
-> 	*/
-> 	reg = readl(regs + TCON_TOP_PORT_SEL_REG);
-> 	reg &= ~TCON_TOP_PORT_DE0_MSK;
-> 	reg |= FIELD_PREP(TCON_TOP_PORT_DE0_MSK, 0);
-> 	reg &= ~TCON_TOP_PORT_DE1_MSK;
-> 	reg |= FIELD_PREP(TCON_TOP_PORT_DE1_MSK, 1);
-> 	writel(reg, regs + TCON_TOP_PORT_SEL_REG);
-> 
-> Perhaps this could be hidden behind a quirk? I would have to check to see which
-> chips have this behaviour, I'm not sure if it's a bug specific to the T113 or
-> D1/T113 or R40 too.
-> 
-> Also noting at the top of the file that DE0 and DE1 mean mixer0 and mixer1
-> might be good to reduce confusion.
-> 
-> What do you think? :)
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241113051857.12732-2-a0987203069@gmail.com
 
-So far there is no real user for DE1 in upstream. DE_PORT_SELECT_REG value for
-DE1 can be negate of DE0, so that they won't conflict or cause timing issues.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Also DE_PORT_SELECT_REG mentions only about TV and LCD muxing, but missing HDMI,
-DSI and so.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Otherwise, if I get DE1 working in A133, I will try to add quirk to set DE0 and
-DE1 port mapping in that case to respective connector.
+pip3 install dtschema --upgrade
 
-Thanks,
-Parthiban
-
-> 
->> Thanks,
->> Parthiban
-> 
-> Thanks for your input!
-> 
-> John Watts
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
