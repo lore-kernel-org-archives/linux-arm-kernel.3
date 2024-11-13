@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5839FD41C04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12965D41C04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UGtyXwzMBHOXtnkZD1IDl7RIyBTD4iUeJ455sdaUv4M=; b=TZzslamUYQk0UDziPHfw1Ls3Am
-	hQPqeE2f+K8cxGR2p4vmWJ7uzMOhBU5YyTmLkrlzndVBOGILAEM4cGn9PQcyLokSoViE6ztffAkc6
-	BaZrvcY8U9V3qdhyfGl+7Kp6Xewq0XspV8h1L0o+U1wWfRIglNODadT9Ft0D2BdToGSP2kVYCvWH6
-	tgnMtv+0pepDOh3WlIzazkwCHivzfBEJMEj6A6Vf7P/MxI3aKWKY7Jrv2e9wMciWXkr4vsF+0ihyb
-	ucuHSGB2eQjI3IqEL3Pd5PcVUjUrc9yBLUdtfw6fW/uK13GRf7Ju+YfwCA3mdn4gBDAw7hUYIQE9J
-	PEKj807Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F2u4fz0t80c7jmge2lYEu5zwMVfq+HYQLaYSrsSa9xA=; b=rj/T6AHXe2eG8PvV6im/ANYez4
+	Jf4YCOXfHeyRAkhNUT2eTgvvX3CSeS0qAl/62mZwGQWID4vRm8wdKvb1endDndFjv/8VEVQB4mOz6
+	p3ZiGAVRYcVZMBMASUwEKgOHFF+Kh20sP4jFtexkfm9E7M6LwPNS6Xor+ExHnBjpv4/6m3+ebcPdO
+	ZODQ/cRZaoym4KeTgL3ADULvr/2G5dW2arBWbYx6hzf85ApOaZA1p54/l0LgKOGtBearx+yHEgSIx
+	tzWzkULZchxUDj8RcjUnDv8NcGMcixP5HwVtEyEEuZ9cbilnWDBC+ZcGpeoikSrLcuids90QWEBr2
+	UbTChh3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCJC-00000006jcJ-2VCt;
-	Wed, 13 Nov 2024 12:17:18 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1tBCMl-00000006kCp-0ThN;
+	Wed, 13 Nov 2024 12:20:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCAI-00000006hoK-19RL
+	id 1tBCKj-00000006jop-3P2U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 12:08:07 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6e3cdbc25a0so68445077b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 04:08:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731499685; x=1732104485; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UGtyXwzMBHOXtnkZD1IDl7RIyBTD4iUeJ455sdaUv4M=;
-        b=RCCW1rI5no6kHsskECbRr0HlmbIEJCrnKVbO5dr+BNh0Pvg6p6Gyz/CEG/gsiobRaK
-         SnA7iHoQ1sHIK9ELDtKHZ+Ite5vvbUm9RJNAPh9Z3zDHX1y4PeZEtZGbvNTDXkA/Pd2E
-         UjpE5gLzbSwFsl2OtiSP7Kebb+NuByXNWZLkAm3NMuKSDRXLbiP1FSsyt7vDnka/WRit
-         QjudlrlYPVr47r3KVAPLJg3Us2/QQ253Wm3HGJ2WPRrSBx+Ire7qCAbI/TSKAud77Hk0
-         Ndv8xVRDpgS0TYTTyRDj6CJniJ5Bk91/YI/1DJXHryKJe3pEUoUWrhpgBC5Exq2yRDD6
-         SeJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731499685; x=1732104485;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UGtyXwzMBHOXtnkZD1IDl7RIyBTD4iUeJ455sdaUv4M=;
-        b=l54qLCdQCnvH4lDPINI/9huSZhUGBDUzUJOoRJVO5E2oNpmRJTrUNLzCzc+LS0U8zf
-         1nSwBrPKuMgCQQ6KqMXc/bQF7VaN+Zicj/lxrU7a3Zs8htfaiVQD78iJECmALQlHOhOr
-         Q4phAwfX9dB8ginCvka/+uFrpASY8jnRaxq9yVXjpXapnuawxUIk0NlptO7dFZWgsTUJ
-         eu9fR8ABJzvIW6LBdw5BVI4kjktF447bOC3zLTXbx3JhRTPEYbRYlo4Rrl5yb4IvJJS+
-         NfeUn8NAtrRlQhbOxG9X7fn1lqkNgSLQmuv9MFcjYAwc+SxLLbQjiGYH2fnsfm3AnU2C
-         t3jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3r4+FBzohyewXAzP7xIqAddRkZfvCbJMHaYodZsoeI3jdfPoAkZBgpyYVXV9fJwTzhDZeL70q9jK4lNxtb7Bn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFLZAl5I35tLXhkYjda66iyzAGR4cIgPbv8GtuFV7VUntSQBFv
-	P6Cv9UM+yLIstYgBQnswTvQgtjzJwaK+PzQ9w+CsdBo1Px9+tecT/1TEY3b9fu2OWig/gfg9275
-	CBOt7w5o4EKdumzucGfhzwZVp6fztd5T/Cou3yw==
-X-Google-Smtp-Source: AGHT+IGfdj17ZRR0vuBfO1QBwX6EXMq129/94BCmEcrTpxI9KLT5gLVvRTesocXnNuXdBrs2dgVgRPYFjcVuJRn6J6s=
-X-Received: by 2002:a05:690c:7485:b0:6e2:2c72:3aaf with SMTP id
- 00721157ae682-6eaddf81805mr207193107b3.31.1731499684980; Wed, 13 Nov 2024
- 04:08:04 -0800 (PST)
+	Wed, 13 Nov 2024 12:18:54 +0000
+Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <jre@pengutronix.de>)
+	id 1tBCKh-0004eO-1X; Wed, 13 Nov 2024 13:18:51 +0100
+From: Jonas Rebmann <jre@pengutronix.de>
+Date: Wed, 13 Nov 2024 13:18:31 +0100
+Subject: [PATCH v2 1/2] spi: imx: pass struct spi_transfer to
+ prepare_transfer()
 MIME-Version: 1.0
-References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
- <20241113-add-display-support-for-qcs615-platform-v2-1-2873eb6fb869@quicinc.com>
-In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-1-2873eb6fb869@quicinc.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Wed, 13 Nov 2024 14:07:53 +0200
-Message-ID: <CAA8EJpqQA3zDBRpm9FY5X-vS0aDgoGNFfDoTh9p1A2MqVa7KNQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] dt-bindings: display/msm: Add QCS615 DSI phy
-To: Fange Zhang <quic_fangez@quicinc.com>
-Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
-	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241113-imx-spi-word-delay-v2-1-2b65b737bf29@pengutronix.de>
+References: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
+In-Reply-To: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
+To: Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+Cc: kernel@pengutronix.de, linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jonas Rebmann <jre@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2903; i=jre@pengutronix.de;
+ h=from:subject:message-id; bh=CnC2sd8Oao1J21P/qBvL/HWz3WS+2cdCs0teDxRpgrQ=;
+ b=owGbwMvMwCF2ZcYT3onnbjcwnlZLYkg3mak1i1f7ytH7a0ti4uuOuejpZicumPfx8m0ll3tKk
+ Xfm2XSEd5SyMIhxMMiKKbLEqskpCBn7XzertIuFmcPKBDKEgYtTACaiocXIcEfhyL9uMTHn+rx3
+ R0penPX/x5S+fp/K42uPDqpsKj/zYyHDH661AYLfInpPiV9lLGcJllM7lfCEuU/n2tW+2Sc6zJm
+ +cQMA
+X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
+ fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
+X-SA-Exim-Mail-From: jre@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_040806_344687_2C1D75D6 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20241113_041853_887663_0863B8F3 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +76,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Nov 2024 at 13:53, Fange Zhang <quic_fangez@quicinc.com> wrote:
->
-> From: Li Liu <quic_lliu6@quicinc.com>
->
-> QCS615 platform uses the 14nm DSI PHY driver.
->
-> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
-> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
-> ---
->  Documentation/devicetree/bindings/display/msm/dsi-phy-14nm.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/msm/dsi-phy-14nm.yaml b/Documentation/devicetree/bindings/display/msm/dsi-phy-14nm.yaml
-> index 52bbe132e6dae57246200757767edcd1c8ec2d77..babd73cdc44f6d12fdc59c6bef27c544d91f1afa 100644
-> --- a/Documentation/devicetree/bindings/display/msm/dsi-phy-14nm.yaml
-> +++ b/Documentation/devicetree/bindings/display/msm/dsi-phy-14nm.yaml
-> @@ -17,6 +17,7 @@ properties:
->      enum:
->        - qcom,dsi-phy-14nm
->        - qcom,dsi-phy-14nm-2290
-> +      - qcom,dsi-phy-14nm-615
+In an upcoming patch, mx51_ecspi_prepare_transfer() needs access to the
+word_delay parameter. To enable controller-specific handling of such
+per-transfer parameters, extend the prepare_transfer() function of the
+spi_imx_devtype_data interface to take a struct spi_transfer argument,
+update all controller-specific implementations accordingly.
 
-As stated in the comment to v1, no, this is not acceptable.
+Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
+---
+ drivers/spi/spi-imx.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+index 85bd1a82a34eb4bc76a4b4528e087fc2ebfa8b85..65a8303b80b1191cd2c19d61f88836e7fd3c7ae9 100644
+--- a/drivers/spi/spi-imx.c
++++ b/drivers/spi/spi-imx.c
+@@ -71,7 +71,8 @@ struct spi_imx_data;
+ struct spi_imx_devtype_data {
+ 	void (*intctrl)(struct spi_imx_data *spi_imx, int enable);
+ 	int (*prepare_message)(struct spi_imx_data *spi_imx, struct spi_message *msg);
+-	int (*prepare_transfer)(struct spi_imx_data *spi_imx, struct spi_device *spi);
++	int (*prepare_transfer)(struct spi_imx_data *spi_imx, struct spi_device *spi,
++				struct spi_transfer *t);
+ 	void (*trigger)(struct spi_imx_data *spi_imx);
+ 	int (*rx_available)(struct spi_imx_data *spi_imx);
+ 	void (*reset)(struct spi_imx_data *spi_imx);
+@@ -649,7 +650,7 @@ static void mx51_configure_cpha(struct spi_imx_data *spi_imx,
+ }
+ 
+ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
+-				       struct spi_device *spi)
++				       struct spi_device *spi, struct spi_transfer *t)
+ {
+ 	u32 ctrl = readl(spi_imx->base + MX51_ECSPI_CTRL);
+ 	u32 clk;
+@@ -774,7 +775,7 @@ static int mx31_prepare_message(struct spi_imx_data *spi_imx,
+ }
+ 
+ static int mx31_prepare_transfer(struct spi_imx_data *spi_imx,
+-				 struct spi_device *spi)
++				 struct spi_device *spi, struct spi_transfer *t)
+ {
+ 	unsigned int reg = MX31_CSPICTRL_ENABLE | MX31_CSPICTRL_HOST;
+ 	unsigned int clk;
+@@ -878,7 +879,7 @@ static int mx21_prepare_message(struct spi_imx_data *spi_imx,
+ }
+ 
+ static int mx21_prepare_transfer(struct spi_imx_data *spi_imx,
+-				 struct spi_device *spi)
++				 struct spi_device *spi, struct spi_transfer *t)
+ {
+ 	unsigned int reg = MX21_CSPICTRL_ENABLE | MX21_CSPICTRL_HOST;
+ 	unsigned int max = is_imx27_cspi(spi_imx) ? 16 : 18;
+@@ -953,7 +954,7 @@ static int mx1_prepare_message(struct spi_imx_data *spi_imx,
+ }
+ 
+ static int mx1_prepare_transfer(struct spi_imx_data *spi_imx,
+-				struct spi_device *spi)
++				struct spi_device *spi, struct spi_transfer *t)
+ {
+ 	unsigned int reg = MX1_CSPICTRL_ENABLE | MX1_CSPICTRL_HOST;
+ 	unsigned int clk;
+@@ -1304,7 +1305,7 @@ static int spi_imx_setupxfer(struct spi_device *spi,
+ 		spi_imx->target_burst = t->len;
+ 	}
+ 
+-	spi_imx->devtype_data->prepare_transfer(spi_imx, spi);
++	spi_imx->devtype_data->prepare_transfer(spi_imx, spi, t);
+ 
+ 	return 0;
+ }
 
->        - qcom,dsi-phy-14nm-660
->        - qcom,dsi-phy-14nm-8953
->        - qcom,sm6125-dsi-phy-14nm
->
-> --
-> 2.34.1
->
+-- 
+2.39.5
 
-
---
-With best wishes
-Dmitry
 
