@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C96BD462A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC6BAD462A3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8EhfYVRnnDaaDgm96KhczVA/W2i6QYF4ETYO5Uyxvg=; b=rvrD6L8S5+uJgWhC50nQdUcaYZ
-	FVjUu3Ocn9yMXbCsDMiU3K6ndN4gBy13tFKgpb9lrDOWGX1FJ3Fy+dsOKM2AFVeYbvu8HopyTq2t/
-	IepmXlcSMrVZ+2oiX5lUwWcsXiPejfP8xoUkxfoyN/dxk7UIXfKjohU/gmkdmbLa2Rh4G5e4TZth8
-	gyAgaWkGTQWCahZxmD/6QrnpG7DyRtLqZQcSrnO6zMAU9zqcgwLTAOuxMrxRbf4yGTgz3oIjg7qK4
-	YGYnn8Zw3QBaMUjmRQRQo58xDVu5Qm8Utu92jj1tAYBi9XZ2Qc5m0spdAXePMks2okq2RqLPmNHx2
-	upplW69g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g1cZIurGHSFm5igQJ3WS0qdAcXWekFSNUvBBVdDMcRc=; b=fyDHbD7FJVnuu5dsGiIPH2v0FU
+	rh+VvtZUwzC7N3XGMI3phSTkCWn6PkIPlPTJnClvKZ6EBpJJJMIQD5veXiM0jDN3epwkP+gOk5K8Z
+	smy/8uRI/wU3p1bIb81PFHWxaGxDBHfSf4xIH5IqDKtbvnoMRnZPyJLLku02Q5RNWNyHAz6pRCmig
+	kOWNGNrsUgE6utyNAgqMDxBOc1abQ6VI3YB4i3Eznd40gj1en5J8VKRUHv+ZYbVxK9utjaafCBMbQ
+	sLkpXXMeIstlIGfTxIFcc2TyeTNVJ1X3YX1oA3g8935daOhJ5XMKOxQRXBZ61/df+PlP2FFg+G7LS
+	mM3JZvuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDhr-00000006yj9-0xpA;
-	Wed, 13 Nov 2024 13:46:51 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tBDtD-0000000719h-38Od;
+	Wed, 13 Nov 2024 13:58:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDfy-00000006yIw-0v3N
+	id 1tBDrH-000000070iC-2DgN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 13:44:56 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2fb5be4381dso61183361fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 05:44:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731505492; x=1732110292; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n8EhfYVRnnDaaDgm96KhczVA/W2i6QYF4ETYO5Uyxvg=;
-        b=jLFz6cMESXpYB7Z1kK0+Gikeml0VzPRvxNLl25WJcfDYgv1G6H4nMlQWcUN9SNqQIS
-         mwMdrR4jdMI1Z5E+3CVf2l4PmkFfmsJCdXsY0h6vUm2UpEomWvCNu9cEu/e8Rn7AjZl6
-         H4yEIUkqTmLaYlRyADOS8TpqEvW1dJBFMkDD84N05A1EOVgcVN1Et/blfEfckC8hMqC8
-         Ay8fByfZuSjD5zxwu/Nt4SjVyIJJitpdYXEt6wby8Sdfy2lNyomtlbowRNmwaFNrBwpH
-         nPLYusnyGljLSloWFlq8vzPHLy40bscwH+YlNAC1mEtFUojAFlAtC5d0aFtBGtO/xwyD
-         UKvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731505492; x=1732110292;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n8EhfYVRnnDaaDgm96KhczVA/W2i6QYF4ETYO5Uyxvg=;
-        b=Urct0xASjzDUgdzyGfmIzzpi9uUwBmr8JTvHDLihWZtwXXE2ifYCyPwytaSq2AP70s
-         kGrev1GtOEvWNI9oxMnLYWsoGMUB6LHedwhkM7DGDxbmp8b45u2kEvQvXlP1xuuCvqoS
-         zEYuPGn7nD8YyQGQgjVzyCGwcj1HanBz6OMsGfGvlryNfDv4xTxtp3f2HETsG9ZkPftc
-         D02QNVp54L7SqTUoeVT9jErMibslcvMbK/zlBDAHWXZufKyl6jbkjB3v+P/UrhSR9ZJt
-         2MjqE+4GeRr4grgYglkNpjeKiBDfsLpf94NCOuhA7izdX8pPIGZ4o8G+26S3p5vRXoRl
-         NeqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxSFmokYLq8szjJmvookbWn+Mrnd2eBWfP8LLKIYyKVSUA/jawTaMiJyC/LXsoZSVaUvrpCG0UTFIcm/kUJZcO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm3u+9aexulnU5vBxWkzeBehYPSrldMmMUTv+rCVkgWLc2MPub
-	E0OZKnJyOIBx7LPtNiILG4HUsmY9DwBDtuXH3CM7tFAulgAtP5vNar/i0nZTW2OWSPtw8LDy17s
-	nf0RZKlTKm9xPJ9rbp7scHfs8EWasMUKebU6UUw==
-X-Google-Smtp-Source: AGHT+IG+b5aWSuZA3i2xX9eloxv3604GVUnlQQDb4BSsgZiEIKgWWJy1Jg5YtPgwVqZ9JZiAd6sMw7fi49j+Y5nheN4=
-X-Received: by 2002:a05:651c:1542:b0:2fb:5038:3eb4 with SMTP id
- 38308e7fff4ca-2ff202686a4mr114192251fa.29.1731505492020; Wed, 13 Nov 2024
- 05:44:52 -0800 (PST)
+	Wed, 13 Nov 2024 13:56:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A42E6A40873;
+	Wed, 13 Nov 2024 13:54:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00C0BC4CEC3;
+	Wed, 13 Nov 2024 13:56:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731506194;
+	bh=gsUS5NkYc+BSuN+B87UnPKIrPHzMI5FqQyudN3+W+4s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C5IVoU1pGhtU2vmp91T6VWlU4stkV0YbBXR90D0DCX9lStjm6BZRycxlkUrkvu2Ut
+	 nSb/xhJ7Y+1kAyW+0PEEGLvgZ6fQQuYz7F2F7ggdLtO9X+fz0nY6gk0MWQ1enrG51d
+	 +f3jsI+D7+gznMbQdKRa/I8T1DrEHdZierzi9L7S2hYoTK2fQn48fw8lEl76GC46MB
+	 89zKKUpx7RYBoMU2tugTqzdvn0zOAiEQv1yrBSv+rfwO4qdVfXIu1BmHZtRbsaUasi
+	 Z/Hl2nO0EorddK5pwCRXlPcVeWmSb+gLrPU2GN6CGr/gZs94UjJeqMKSetvgfzzeXC
+	 3O89wj+TIlxvQ==
+Date: Wed, 13 Nov 2024 08:56:32 -0500
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	herbert@gondor.apana.org.au, keescook@chromium.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v2 0/6] Clean up and improve ARM/arm64 CRC-T10DIF code
+Message-ID: <20241113135632.GB794@quark.localdomain>
+References: <20241105160859.1459261-8-ardb+git@google.com>
 MIME-Version: 1.0
-References: <20241106100741.173825-1-y.oudjana@protonmail.com> <20241106100741.173825-8-y.oudjana@protonmail.com>
-In-Reply-To: <20241106100741.173825-8-y.oudjana@protonmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 13 Nov 2024 14:44:40 +0100
-Message-ID: <CACRpkdZBwSBD2ueM=5zZX3wBxxd-ZJoEKS-zTq5fuqiKOSu3mg@mail.gmail.com>
-Subject: Re: [PATCH v7 7/7] pinctrl: mediatek: Add MT6735 pinctrl driver
-To: Yassine Oudjana <y.oudjana@protonmail.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Andy Teng <andy.teng@mediatek.com>, Yassine Oudjana <yassine.oudjana@gmail.com>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241105160859.1459261-8-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_054454_301876_63ECC01A 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20241113_055635_664437_EA21E93D 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +72,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 6, 2024 at 11:09=E2=80=AFAM Yassine Oudjana
-<y.oudjana@protonmail.com> wrote:
+On Tue, Nov 05, 2024 at 05:09:00PM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> I realized that the generic sequence implementing 64x64 polynomial
+> multiply using 8x8 PMULL instructions, which is used in the CRC-T10DIF
+> code to implement a fallback version for cores that lack the 64x64 PMULL
+> instruction, is not very efficient.
+> 
+> The folding coefficients that are used when processing the bulk of the
+> data are only 16 bits wide, and so 3/4 of the partial results of all those
+> 8x8->16 bit multiplications do not contribute anything to the end result.
+> 
+> This means we can use a much faster implementation, producing a speedup
+> of 3.3x on Cortex-A72 without Crypto Extensions (Raspberry Pi 4).
+> 
+> The same logic can be ported to 32-bit ARM too, where it produces a
+> speedup of 6.6x compared with the generic C implementation on the same
+> platform.
+> 
+> Changes since v1:
+> - fix bug introduced in refactoring
+> - add asm comments to explain the fallback algorithm
+> - type 'u8 *out' parameter as 'u8 out[16]'
+> - avoid asm code for 16 byte inputs (a higher threshold might be more
+>   appropriate but 16 is nonsensical given that the folding routine
+>   returns a 16 byte output)
+> 
+> Ard Biesheuvel (6):
+>   crypto: arm64/crct10dif - Remove obsolete chunking logic
+>   crypto: arm64/crct10dif - Use faster 16x64 bit polynomial multiply
+>   crypto: arm64/crct10dif - Remove remaining 64x64 PMULL fallback code
+>   crypto: arm/crct10dif - Use existing mov_l macro instead of __adrl
+>   crypto: arm/crct10dif - Macroify PMULL asm code
+>   crypto: arm/crct10dif - Implement plain NEON variant
+> 
+>  arch/arm/crypto/crct10dif-ce-core.S   | 249 ++++++++++-----
+>  arch/arm/crypto/crct10dif-ce-glue.c   |  55 +++-
+>  arch/arm64/crypto/crct10dif-ce-core.S | 335 +++++++++-----------
+>  arch/arm64/crypto/crct10dif-ce-glue.c |  48 ++-
+>  4 files changed, 376 insertions(+), 311 deletions(-)
 
+Reviewed-by: Eric Biggers <ebiggers@google.com>
 
-> Add a driver for the MediaTek MT6735 SoC pin controller. This driver
-> also supports the pin controller on MT6735M, which lacks 6 physical
-> pins (198-203) used for MSDC2 on MT6735.
->
-> Signed-off-by: Yassine Oudjana <y.oudjana@protonmail.com>
-(...)
-> +static struct platform_driver mt6735_pinctrl_driver =3D {
-> +       .probe =3D mtk_paris_pinctrl_probe,
-> +       .driver =3D {
-> +               .name =3D "mt6735-pinctrl",
-> +               .of_match_table =3D mt6735_pinctrl_match,
-> +               .pm =3D &mtk_paris_pinctrl_pm_ops,
-
-.pm =3D pm_sleep_ptr(&mtk_paris_pinctrl_pm_ops),
-
-this is why you get build errors.
-
-Yours,
-Linus Walleij
+- Eric
 
