@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292ABD41C06
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37192D41C06
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxIKeVOKKznOiEAzo4EieHm79MDFj0Uu1MUXw8ICZPM=; b=ByC0Nx8i/n1TcsbQFcawQDS5uV
-	4QwkWrOOzzfmayNR7PVRk1nIDxtEwlJF7SjrsysIAAJCu3xia4Emb2GXhALi5H8H7KKH3Wnt3xAGo
-	vkRP6uiCeXxt30C2f45ZlyZMXTMUldN4d0xwBYSEH7zqGlnnydkD8frBWuAQ36dzGK72UZUXbqHOE
-	WLoRjKF6ZLeVMH/lYv4F8MjFffG6u29Z6EPcnx+66cl5NFVD6BKY8hHtzssi1HiTXbWjT/CSZAQld
-	gDjE/obVCTeaiflqYqU/dehWSwnpTUl/+aKAZZRtGJnwE9T9YIiIOM4LXQACe+tr3TfRYYqAsTcH4
-	MCy6T3Lw==;
+	bh=k596TkgrTDI/utTSIuBX3I56IpPI7g6dbjiEOxEyzaM=; b=SAeb6EM0jLeEoIigQpbtWeVQf4
+	0yz0Ovf6tpbH93JZGbBkhqUCSmqZN6KU6cpsv90H+EO1H9QSpLrtOkaRWdMqCXxjeghoML2LsrWmF
+	GyrCyJ88Wwtgy3DSri7kKZCnpl8Cs2Ri82SVZmg2EKxk7OGqiR4Qa6LcHsJCnLg9ezQEq5D7EvCzC
+	Y9p6N2fx+Ujs3gxqlYisnHBWVDXXbjbKLEdLngIQmY3/G+wdvlhl/4i6RWiT2QlQhKLr/v305qjHj
+	xKYixWhfEEEAEt0QMRA1gXTw5D2MlzKUX0rMJg93mP5aSrMz8g8lab/cvkCo4/FT3KVp6ph86+cgB
+	kOdvNkmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCFf-00000006j2q-0NuH;
-	Wed, 13 Nov 2024 12:13:39 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tBCHQ-00000006jKQ-1WXD;
+	Wed, 13 Nov 2024 12:15:28 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBC1g-00000006g6W-3D2W
+	id 1tBC2X-00000006gIZ-3U1f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 11:59:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731499153; x=1763035153;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=S2yXI+RpE/4Z6IIWIoXWreQT7e9SUd1QZeV3E85aBM8=;
-  b=MKymMy5EVEqpYpC+dCT4KWJ5GQM2SwaobrVXdbKUFjWBCz5BzSIjJOlu
-   szQUsPdf4w4aCPRxTLNudNainTIo+ZYuMdzNOU37mw6ACOccah4cXP2wI
-   TqvIeWwECCtBbcgEvLWzBGF7l93f8b4sOAKLZ+2WJrDAnxqT5heaAjhly
-   syERIulG6w52UYkCpezgtoqs63OUeYfrvyUEtSBWvkUAtwKPyLotntx3X
-   XiiXUbxnbWhTBMD4YnqDg+vel9Ra4RilRAFcBJRGWIFc1R848YbfDOXp6
-   hjc019SE1NOlHhLx4ovM5QfZO32E12c0VyM4G0HrXG5RlZ+pthoqT8Nuj
-   Q==;
-X-CSE-ConnectionGUID: wkfhCCsIQumkhEoH26EWpA==
-X-CSE-MsgGUID: iNe5EruUTpmloBxwGz2A+Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11254"; a="35314459"
-X-IronPort-AV: E=Sophos;i="6.12,150,1728975600"; 
-   d="scan'208";a="35314459"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 03:59:11 -0800
-X-CSE-ConnectionGUID: mbuIIPKWTsC2Zo2OOWA+8Q==
-X-CSE-MsgGUID: Drm0ljxqRt6tHanbqPmqGA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,150,1728975600"; 
-   d="scan'208";a="87842391"
-Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 13 Nov 2024 03:59:05 -0800
-Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tBC1X-0000Kv-0X;
-	Wed, 13 Nov 2024 11:59:03 +0000
-Date: Wed, 13 Nov 2024 19:58:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com
-Cc: oe-kbuild-all@lists.linux.dev, alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Joey Lu <a0987203069@gmail.com>
-Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-nuvoton: Add dwmac support for
- MA35 family
-Message-ID: <202411131946.ozq1D0f2-lkp@intel.com>
-References: <20241113051857.12732-4-a0987203069@gmail.com>
+	Wed, 13 Nov 2024 12:00:08 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e30d517c82fso6590101276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 04:00:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731499204; x=1732104004; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=k596TkgrTDI/utTSIuBX3I56IpPI7g6dbjiEOxEyzaM=;
+        b=lUCjwynU/cFf53dgWsd671UeXW9m8Q89cnfLFxVJKXM5wbplP090Zpd9S3czZ5eZRS
+         F/6f9ZvEcDKl0O2CFF/4yJ7RHfa+umRo8Pk4f3GnyWWMvPlYU8VKhJtSB1lk3SGouaak
+         nQwHzvNBNV8shOjAJI+A9m71uk9W4wyBsyrR/oQ1bHfM9kkCHgfwuAZEQmZo+DzcJfVT
+         JVafwvmHIyMkVaS8UGdZvN98mzPRmTIuXjndiPz7ZjarMCFhg0f8N8hThNQyImQcsHLN
+         RdR9a8zXxQj9raarwtkk24GnI2BtEF73Bm1rtF6z6Ie28T1erttoWz2UudGLISnwqXj9
+         XT5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731499204; x=1732104004;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k596TkgrTDI/utTSIuBX3I56IpPI7g6dbjiEOxEyzaM=;
+        b=Jarychv4xGVYrOWF0xXFrVb/ihxo4BzrMYSSjGvIdzrb4p2iTJOQ+xFLdMnocwGFlm
+         V3HmGQnrxR2CjAqhyCNe+dMWzxtU4+ksClXlu1mzBX8RKs8TwXw4Cv+JVFvIW+SbnKaU
+         jPE7yqNzAAazDmUtEqOHKV+NASF38i/d4Y/QeZZ14Vyu0+we+sfbUR4PXFJIeXd/frIv
+         uX8mHFs2DlgIHhfuqTLE4F0bAyrZyPKQl0AXZs+i/mough3hiWilKpARvioJZJ3oLpOS
+         Jcwe60rGCTE0VDtD8gM97Wl4fGEIJUIEmVAZogM+Xcesctp4eRn0QrTrjxTFgNx9Sm35
+         0owQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUCJZLl0MgpLbX9zwFT0m//bgz0XSAZtP27FtCTso3v8JXkQe4I/9uaWNc3c9JAnAfrcvS2268BNX7aDBfDjDKI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzrp52Z+wzdKtwsWDhOQd9MftE/VxrHGTyUPv2z7/otuTQ7W5dG
+	rFdm4VEfsBQ1/bjbwe/g08Nbqs1u/gkUC+KquvsoSJTeDf0PYklscfVb4qlQjm16sT46ARlp3+Q
+	n8jnJySt+5AVpTVba0NKBP+kVkGL483gJnjUQ1A==
+X-Google-Smtp-Source: AGHT+IGsfhJyx7HitisMHHA/fWs2Ill2LxOo1g7wiX41CtypK1CZq6dLU052J92fnNbQTwcKpCJRGkLjMZxLGn27mTk=
+X-Received: by 2002:a05:6902:1083:b0:e30:dc66:5877 with SMTP id
+ 3f1490d57ef6-e35dc54772dmr5688914276.17.1731499204256; Wed, 13 Nov 2024
+ 04:00:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241113051857.12732-4-a0987203069@gmail.com>
+References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Wed, 13 Nov 2024 13:59:52 +0200
+Message-ID: <CAA8EJppomD1MTFOjb3hTiYgkNhNbmDyh19DuznMy1Pyg95kJuQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/9] Add display support for QCS615 platform
+To: Fange Zhang <quic_fangez@quicinc.com>
+Cc: Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Li Liu <quic_lliu6@quicinc.com>, 
+	Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-arm-msm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_035912_845297_40F7FF18 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20241113_040005_913570_6EDD711E 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +98,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joey,
+On Wed, 13 Nov 2024 at 13:52, Fange Zhang <quic_fangez@quicinc.com> wrote:
+>
+> This series aims to enable display on the QCS615 platform
+>
+> 1.Add MDSS & DPU support for QCS615
+> 2.Add DSI support for QCS615
 
-kernel test robot noticed the following build warnings:
+Please don't send next iterations until the discussion on the previous
+one has finished.
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on net-next/main net/main linus/master v6.12-rc7 next-20241113]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>
+> Note:
+> items still being confirmed
+> - missing reg_bus_bw
+> - missing refgen supply
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Joey-Lu/dt-bindings-net-nuvoton-Add-schema-for-MA35-family-GMAC/20241113-132300
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20241113051857.12732-4-a0987203069%40gmail.com
-patch subject: [PATCH v2 3/3] net: stmmac: dwmac-nuvoton: Add dwmac support for MA35 family
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20241113/202411131946.ozq1D0f2-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241113/202411131946.ozq1D0f2-lkp@intel.com/reproduce)
+So, NAK, I'll wait for v3 after concluding discussion on v1.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411131946.ozq1D0f2-lkp@intel.com/
+>
+> This patch series depends on below patch series:
+> - rpmhcc
+> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com/
+> - gcc
+> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com/
+> - base
+> https://lore.kernel.org/all/20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com/
+> - Apps SMMU
+> https://lore.kernel.org/all/20241105032107.9552-4-quic_qqzhou@quicinc.com/
+> - I2C
+> https://lore.kernel.org/all/20241111084331.2564643-1-quic_vdadhani@quicinc.com/
+> - dispcc
+> https://lore.kernel.org/all/20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com/
+> - dispcc dts
+> https://lore.kernel.org/lkml/20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com/
+>
+> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+> ---
+> Changes in v2:
+> - Added b4 check and check passed
 
-All warnings (new ones prefixed by >>):
+Added where?
 
->> drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c:20: warning: expecting prototype for dwmac(). Prototype was for PATHDLY_DEC() instead
+> - Added necessary blank line
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for GET_FREE_REGION
-   Depends on [n]: SPARSEMEM [=n]
-   Selected by [m]:
-   - RESOURCE_KUNIT_TEST [=m] && RUNTIME_TESTING_MENU [=y] && KUNIT [=m]
+where?
 
+> - Added correct S-o-B
+> - Added correct maintainer
+> - Added correct To&Cc
 
-vim +20 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+where? Is it a change to the patch?
 
-    19	
-  > 20	#define PATHDLY_DEC         134
-    21	#define TXDLY_OFST          16
-    22	#define TXDLY_MSK           GENMASK(19, 16)
-    23	#define RXDLY_OFST          20
-    24	#define RXDLY_MSK           GENMASK(23, 20)
-    25	
+> - Added QCS615 DP controller comment in commit message
+> - Added comments for dsi_dp_hpd_cfg_pins and dsi_dp_cdet_cfg_pins
+> - Added missing port@1 for connector
+> - Changed patch order
+> - Changed 0 to QCOM_ICC_TAG_ALWAYS for mdss interconnects
+> - Changed 0 to GPIO_ACTIVE_HIGH for GPIO flags
+> - Fix indent issue
+> - Fix sorted issue
+
+This is not descibing the changes at all. Please take a look how other
+changelogs are formatted and what is actually being described.
+
+> - Moved anx_7625 to same node
+> - Moved status to last
+> - Renamed dsi0_hpd_cfg_pins to dsi_dp_hpd_cfg_pins
+> - Renamed dsi0_cdet_cfg_pins to dsi_dp_cdet_cfg_pins
+> - Renamed anx_7625_1 to dsi_anx_7625
+> - Removed extra blank line
+> - Removed absent block
+> - Removed merge_3d value
+> - Removed redundant annotation
+> - Removed unsupported dsi clk in dsi0_opp_table
+> - Removed dp_hpd_cfg_pins node
+> - Splited patch according to requirements
+> - Link to v2: https://lore.kernel.org/r/20241014-add_display_support_for_qcs615-v1-0-4efa191dbdd4@quicinc.com
+>
+> ---
+> Li Liu (9):
+>       dt-bindings: display/msm: Add QCS615 DSI phy
+>       dt-bindings: display/msm: dsi-controller-main: Document QCS615
+>       dt-bindings: display/msm: Add QCS615 MDSS & DPU
+>       drm/msm/dpu: Add QCS615 support
+>       drm/msm: mdss: Add QCS615 support
+>       drm/msm/dsi: Add support for QCS615
+>       arm64: dts: qcom: Add display support for QCS615
+>       arm64: dts: qcom: Add display support for QCS615 RIDE board
+>       arm64: defconfig: Enable SX150X for QCS615 ride board
+>
+>  .../bindings/display/msm/dsi-controller-main.yaml  |   1 +
+>  .../bindings/display/msm/dsi-phy-14nm.yaml         |   1 +
+>  .../bindings/display/msm/qcom,qcs615-dpu.yaml      | 118 +++++++++
+>  .../bindings/display/msm/qcom,qcs615-mdss.yaml     | 252 ++++++++++++++++++++
+>  arch/arm64/boot/dts/qcom/qcs615-ride.dts           | 109 +++++++++
+>  arch/arm64/boot/dts/qcom/qcs615.dtsi               | 186 ++++++++++++++-
+>  arch/arm64/configs/defconfig                       |   1 +
+>  .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_qcs615.h | 263 +++++++++++++++++++++
+>  drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
+>  drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
+>  drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
+>  drivers/gpu/drm/msm/dsi/dsi_cfg.c                  |  17 ++
+>  drivers/gpu/drm/msm/dsi/dsi_cfg.h                  |   1 +
+>  drivers/gpu/drm/msm/dsi/phy/dsi_phy.c              |   2 +
+>  drivers/gpu/drm/msm/dsi/phy/dsi_phy.h              |   1 +
+>  drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c         |  21 ++
+>  drivers/gpu/drm/msm/msm_mdss.c                     |   7 +
+>  17 files changed, 982 insertions(+), 1 deletion(-)
+> ---
+> base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+> change-id: 20241112-add-display-support-for-qcs615-platform-674ed6c8e150
+> prerequisite-message-id: <20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com>
+> prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+> prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+> prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+> prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+> prerequisite-message-id: <20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com>
+> prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+> prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+> prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+> prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+> prerequisite-message-id: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+> prerequisite-patch-id: 09782474af7eecf1013425fd34f9d2f082fb3616
+> prerequisite-patch-id: 04ca722967256efddc402b7bab94136a5174b0b9
+> prerequisite-patch-id: 82481c82a20345548e2cb292d3098ed51843b809
+> prerequisite-patch-id: 3bd8edd83297815fcb1b81fcd891d3c14908442f
+> prerequisite-patch-id: fc1cfec4ecd56e669c161c4d2c3797fc0abff0ae
+> prerequisite-message-id: <20241105032107.9552-4-quic_qqzhou@quicinc.com>
+> prerequisite-patch-id: aaa7214fe86fade46ae5c245e0a44625fae1bad3
+> prerequisite-patch-id: 4db9f55207af45c6b64fff4f8929648a7fb44669
+> prerequisite-patch-id: 89ce719a863bf5e909989877f15f82b51552e449
+> prerequisite-message-id: <20241111084331.2564643-1-quic_vdadhani@quicinc.com>
+> prerequisite-patch-id: 3f9489c89f3e632abfc5c3ca2e8eca2ce23093b0
+> prerequisite-message-id: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
+> prerequisite-patch-id: 748a4e51bbedae9c6ebdbd642b2fd1badf958788
+> prerequisite-patch-id: 72a894a3b19fdbd431e1cec9397365bc5b27abfe
+> prerequisite-patch-id: da2b7a74f1afd58833c6a9a4544a0e271720641f
+> prerequisite-patch-id: 40b79fe0b9101f5db3bddad23551c1123572aee5
+> prerequisite-patch-id: cb93e5798f6bfe8cc3044c4ce973e3ae5f20dc6b
+> prerequisite-patch-id: 13b0dbf97ac1865d241791afb4b46a28ca499523
+> prerequisite-patch-id: 807019bedabd47c04f7ac78e9461d0b5a6e9131b
+> prerequisite-patch-id: 8e2e841401fefbd96d78dd4a7c47514058c83bf2
+> prerequisite-patch-id: 125bb8cb367109ba22cededf6e78754579e1ed03
+> prerequisite-patch-id: b3cc42570d5826a4704f7702e7b26af9a0fe57b0
+> prerequisite-patch-id: df8e2fdd997cbf6c0a107f1871ed9e2caaa97582
+> prerequisite-message-id: <20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com>
+> prerequisite-patch-id: bcb1328b70868bb9c87c0e4c48e5c9d38853bc60
+> prerequisite-patch-id: 8844a4661902eb44406639a3b7344416a0c88ed9
+>
+> Best regards,
+> --
+> fangez <quic_fangez@quicinc.com>
+>
+
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+With best wishes
+Dmitry
 
