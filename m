@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6412D462AF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 14:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28096D462B2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 14:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6f78zBOCU25W87b+6s8ZySBXuEwRe1lUOk27bdbyOU8=; b=dOgJjo3ferd+zqYqVRiY85NCqT
-	vDAN6PmpIEijbHqTDQG6NugNv5BuGer1Sfps8pUG4elunTQ2cDm67muocbgLs6GqKGIAlA49Q1rap
-	9nN2VyIux3S4VXbci9Z7Jqof2ahvxmTPh6YjwP/v30Rp+ESMFySAiueQdfz48V8CkqC8ozRL25R+G
-	dKRM3a/Aqc8Nkz10HjV6Nm7w2slXUoUj8PONnCWcozjLrHUTRj/KdvhfghcDDrctPdjhh59L1MEAW
-	B2WU911g6EyEBRfT/w+YH9tLPNaAA5uzp+U1MEOE0kJ779/A1K5vvtBULKAb00kEzN1CwBOkV6Vnr
-	09wPvclg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HP6tVsky3zJIvsL7oYgyDURJe5EMD4GkQL6/Z3l+0yE=; b=Sxk34g8nz0hlYp9ktSZSDRaWqD
+	cyNyZ2luVIkRuSKr81w3Cf9dzLQaZ4XW49Vg0mm1ZHLlnWm+uORItxf3LwJsoL5/V3D+BMgLMlGVM
+	o1pJ07zxRDGAj8/VUfr+eY99n57Byylaevel+v8Y7DlYWJC5D0naKsk4db7+hhW2uwTmiAdrK2E9R
+	WTy22nQAY2vyNt6zE7Egqk3QqyZ4pi9s7aj9nVbbviTHjLVXpCDxC+R3YxVffbZl5di7OBz0fevKV
+	FdC+fqYefS6xy7X76ronE9HNeiezArV3iNxmgFsDzs4Ybx3t9zmLM1RSsEaBzu4ef4asfXi4vFN7y
+	J9QT+Syw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBERb-00000007AX9-3Ed4;
-	Wed, 13 Nov 2024 14:34:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tBEU3-00000007B5M-3Ewn;
+	Wed, 13 Nov 2024 14:36:39 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBEPj-00000007A2K-1xAL
+	id 1tBESE-00000007Ajh-2FwW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 14:32:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731508330;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6f78zBOCU25W87b+6s8ZySBXuEwRe1lUOk27bdbyOU8=;
-	b=JD7oipzzgb0NMKHB5kHx9CoO8PrzTkuwArbsA9/eOtGhOr2XSxbWC1Bc6XnE9rcB4VUAks
-	rDIXzaW+lD50RWkSGkavlD22hvjimeGx4hZvhQvYfwnyI8XtacdiczGF9qU4XBNPQQHwoP
-	oU6fkDuhtFt+4Faw4UV4G1S2Wsq96Iw=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-218-Nea568x0PJG6QtgswtHnyQ-1; Wed,
- 13 Nov 2024 09:32:09 -0500
-X-MC-Unique: Nea568x0PJG6QtgswtHnyQ-1
-X-Mimecast-MFC-AGG-ID: Nea568x0PJG6QtgswtHnyQ
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D33101955F08;
-	Wed, 13 Nov 2024 14:32:07 +0000 (UTC)
-Received: from [172.64.11.46] (unknown [10.30.34.132])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2CB011956086;
-	Wed, 13 Nov 2024 14:32:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 10 of 69): Test report for for-kernelci
- (6.12.0-rc7, upstream-arm-next, 8e9a54d7)
-Date: Wed, 13 Nov 2024 14:32:06 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Wed, 13 Nov 2024 14:34:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731508486; x=1763044486;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dM5isGoT8gvEzdUI7m24PY0e10UMd7maYxFQPVEb2S8=;
+  b=gZzN44L7zIYrx7ClEs5xnnBbMJbhlFnnEac41s5WzlUiLqQ61c3lXSak
+   K3Xzr35ZSD/i5wXCEfOZyi7i/wY5j5bwMCHeAm3cDeCJK7CXDd48oqxk2
+   fuYCIBPHljkK65sEgLJfLnhfHjHTQA9dfdzzAhHY/9blOf+vSq5EUC8fc
+   rsIJZ19ZVo/hk1DXPJ8SHQEhdce04666v/TllpGYTAzjRYLie5BrbGSwC
+   Co8OgovfxuwM0ClyxQlubl3RAlPMZzlHrSunJVSIvHtSFpRoucWUVqW+I
+   tqV4IVMSA/IW8vEnZ8HVEuqQ3hwdukK2lhdha0VCPEg3i1L5P8pKzxZru
+   g==;
+X-CSE-ConnectionGUID: fmSJCqWRTVuXGfqI4npa+Q==
+X-CSE-MsgGUID: n6GOFfa8Tq+btKwPvPB50Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11254"; a="19010674"
+X-IronPort-AV: E=Sophos;i="6.12,151,1728975600"; 
+   d="scan'208";a="19010674"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 06:34:45 -0800
+X-CSE-ConnectionGUID: Mp0B/uQKTpulc6xwndRd1g==
+X-CSE-MsgGUID: dPCbY9paSP+5GgUIMsiBpg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,151,1728975600"; 
+   d="scan'208";a="88050341"
+Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 13 Nov 2024 06:34:39 -0800
+Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tBES4-0000Sj-2J;
+	Wed, 13 Nov 2024 14:34:36 +0000
+Date: Wed, 13 Nov 2024 22:34:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, Lee Jones <lee@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev,
+	Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Subject: Re: [PATCH v6 7/7] MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD
+ driver
+Message-ID: <202411132227.SO6y3U3E-lkp@intel.com>
+References: <20241113101124.1279648-8-andrei.stefanescu@oss.nxp.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <07006.124111309320900707@us-mta-218.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5obXPe1eba5Kdmvo4On6OioyN43GRQObndhEnOXwOc4_1731508328
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241113101124.1279648-8-andrei.stefanescu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_063211_600245_BD23E2A7 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_063446_613525_FC03015C 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +110,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi Andrei,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+kernel test robot noticed the following build warnings:
 
-Tested-by: CKI Project <cki-project@redhat.com>
+[auto build test WARNING on linusw-pinctrl/devel]
+[also build test WARNING on linusw-pinctrl/for-next lee-mfd/for-mfd-next shawnguo/for-next linus/master v6.12-rc7 next-20241113]
+[cannot apply to lee-mfd/for-mfd-fixes]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'iommu/arm/smmu' into for-=
-kernelci
+url:    https://github.com/intel-lab-lkp/linux/commits/Andrei-Stefanescu/dt-bindings-mfd-add-support-for-the-NXP-SIUL2-module/20241113-181639
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git devel
+patch link:    https://lore.kernel.org/r/20241113101124.1279648-8-andrei.stefanescu%40oss.nxp.com
+patch subject: [PATCH v6 7/7] MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
+reproduce: (https://download.01.org/0day-ci/archive/20241113/202411132227.SO6y3U3E-lkp@intel.com/reproduce)
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1540019672
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411132227.SO6y3U3E-lkp@intel.com/
 
-Tests that were not ran because of internal issues:=20
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    machineinfo [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    Storage - swraid scsi_raid [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
+All warnings (new ones prefixed by >>):
 
+   Documentation/userspace-api/netlink/netlink-raw.rst: :doc:`tc<../../networking/netlink_spec/tc>`
+   Warning: Documentation/devicetree/bindings/regulator/siliconmitus,sm5703-regulator.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/siliconmitus,sm5703.yaml
+   Warning: Documentation/hwmon/g762.rst references a file that doesn't exist: Documentation/devicetree/bindings/hwmon/g762.txt
+   Warning: Documentation/userspace-api/netlink/index.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
+   Warning: Documentation/userspace-api/netlink/specs.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
+>> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/reserved-memory/qcom
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+   Using alabaster theme
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
