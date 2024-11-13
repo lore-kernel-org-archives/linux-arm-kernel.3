@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5DDD637D2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 23:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00422D637A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Nov 2024 00:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=18HJxeyRm3uSI4Swy2JMMEvrdkL3oWWV9AKPCAM4Vjo=; b=bwOq8ZWXY+gvI4AwgtSCaYp+X1
-	V+Qmnyp9LdRy+ogDrDKgYPDoGLGjxdQGJmfO3J1ZD5iF+COx2fTT1TihOx9rcEiYnMWhgtMefJZV+
-	tPgZ21//DYaFieJf4hKDmDNGpPTeESQhHFv/PzmSXl4d+o4XedrpG9cYkYyjlCl/QIyTOG+w4ZzME
-	x5h1MwEKoFIog6GYPuzhlwqGw1HzVbswvP8vDLNICFV3+NVJRhzp3Kxr1WtLwVAl/uvNGm41RrsPI
-	YoMXxw2qhN4TEf0KcB5BIcNe0V12vI9oTS8gBFoy+pp2sZw+r+FTgjjCUKcEnHIavkOyp5I0RFTCe
-	9fnorL/w==;
+	bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=; b=jDTdED0uxDxoVTFF0F9ZbxD9Nd
+	mqRvbJzP5wuqRJlzNw9rnIihX0b6h2qDXzqD20wIUqMCOhN9wIDFcD1G1UOUSO0fofXcFcLPhkan6
+	zWOqahvozNShU+xqWisxTk0lzkzsiUHYyuFsLKoi74S8NR71MMEOu1sfPaeF9JrHz1uvIrMTyk2Fg
+	ULuYhZaXBnCSFuyvH1yeLoEmvR4cUPte/AE1FDKb4mMqSZ015uY/SfNJWOzY29R+NAVnqHE2C/WkM
+	A0gGPLWjQUpDrMRD4EYxzCUwIY9ocpjnoe6bc2eixw3KHbn8UJ8C1FODdD+255+1i1PodAI1gBnKA
+	Q9Jq1ooA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMsb-00000008GP4-0BkM;
-	Wed, 13 Nov 2024 23:34:33 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMql-00000008G7r-1a7l
+	id 1tBNHm-00000008IlQ-3i8I;
+	Thu, 14 Nov 2024 00:00:35 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBNFv-00000008IQ6-3Dus
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 23:32:40 +0000
-Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 67C2C20BEBE8;
-	Wed, 13 Nov 2024 15:32:36 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 67C2C20BEBE8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1731540757;
-	bh=18HJxeyRm3uSI4Swy2JMMEvrdkL3oWWV9AKPCAM4Vjo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k8PVw4nbkREJts0W0LLdSZ42CRybu1r1Xhyg6//i5lh5h22jmKQC5Lcd8aMOB/jYM
-	 HLQu6/qNMJUeGZmWA1itysWr/etRtR5KK0CiaR/7bY7XLVFMzfApOBiyev/vQ/vj4+
-	 bnJU3aZtjNHiFSBT13DVIlauDGkjJGEyGoyLGSkQ=
-Message-ID: <6d2a6bd4-a7cf-4672-9fb0-975acdc8ed31@linux.microsoft.com>
-Date: Wed, 13 Nov 2024 15:32:32 -0800
+	Wed, 13 Nov 2024 23:58:42 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20c8b557f91so79420155ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 15:58:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731542318; x=1732147118; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=;
+        b=hFRctcm0kpOuHAs+5SSlKQLJ6INgNz5tp8BpOoz3rx/Os85FSREpCkKX+YYBY5po8C
+         fX84NJ9mT/xjzlTwG0t6ZkPbscGAx6uzidkMxP/w4Iqna3khe/pqU1FGe1j3hykFIAz1
+         e3Mwz3dulP5KO4yTlxgkxzH0Ct84XUDlv4JvuJaqH0oW62oWVFAuBH11PRUxIL7gjWF4
+         EWnGNmpO8vUmuxKsB43SnyQkayJx6v4R8ShwgWA36caZbD/JC+BRbSsbmX8zuwww6mr2
+         +fIYiERvvBg28SmV6VBPVUGvMEAG4g06rJ0bEJTOVcBBp22haCp7BD6HbScI0+ZHao3M
+         5pPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731542318; x=1732147118;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nPUlb3VBMTlmosq70yahB7ivXqgjw6fLoL5yh5SfhFE=;
+        b=LZtdi4oXzGGh6FVF/RCoxWg8CUZukdv1kPAsRadQ+esDjWUytJUKKjjsrvuIAfyQwM
+         JbUE5qz/XcaaV9bRKeAQptz/IZ4Maj9uhaqvDdWgTa+/2XSXpuOOWtx7EOxNqI+vC2+W
+         DyRLJgabvYDG5Vgn2PmphoiKOb0HeM6iTRZEVltomtTN3yORzmwalM5nDQPh4LVM0bkk
+         yrtk6DXTPMvsmW+MYDVGWNUbBwzHqFxH/+v4weqMDZ0mx6AY4oga8Mx4cYRS1krFt2Qo
+         l585Bvms5flGp5VNkTxJ0EvZNc4yT3H2LVIgcFNkmmnCem0Z6pE3Cw9iQzS4CcGkk0Sj
+         5SGw==
+X-Forwarded-Encrypted: i=1; AJvYcCUtr61rK7ADE07QeaWFPEgSmNU8m0GVIKoJzPgYNF3GrEIWf859lLF+I+CAZi6gGS+V/mYTijE2FCnDNNZOMvK9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaWIvKs7nubC7PXaUdTpwUPGliODq2aovvPn01yPoZBNEL9K3m
+	ebnPvn1m6PD6wOsLCqNDT+bJ6XZD+DARFQatp0OdFL4r2/5RmDkiSy+aXBpO
+X-Google-Smtp-Source: AGHT+IHOyod3VXmk40tVpnrNG9DlVhMryxGrcLmpbXsiCrrp/ME48mm5tCfyOy0LYdi695U39z6Qug==
+X-Received: by 2002:a17:902:e84e:b0:20c:7661:dce8 with SMTP id d9443c01a7336-21183d668d4mr312024285ad.36.1731542318242;
+        Wed, 13 Nov 2024 15:58:38 -0800 (PST)
+Received: from [172.19.1.43] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dde1b8sm115569335ad.60.2024.11.13.15.58.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Nov 2024 15:58:37 -0800 (PST)
+Message-ID: <6f20fb7c-ef70-400a-b359-55f101d8821a@gmail.com>
+Date: Thu, 14 Nov 2024 07:58:33 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] hyperv: Add new Hyper-V headers in include/hyperv
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
- <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>
-References: <1731018746-25914-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1731018746-25914-4-git-send-email-nunodasneves@linux.microsoft.com>
- <BN7PR02MB4148025D8757B917013297E0D4582@BN7PR02MB4148.namprd02.prod.outlook.com>
- <b8ef1f71-9f13-48c3-adab-aa52b68d2e33@linux.microsoft.com>
- <SN6PR02MB4157AA30A9F27ECCAE202BC2D4582@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: input: Add Nuvoton MA35D1 keypad
+To: Rob Herring <robh@kernel.org>
+Cc: dmitry.torokhov@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+ sudeep.holla@arm.com, peng.fan@nxp.com, arnd@arndb.de,
+ linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mjchen@nuvoton.com
+References: <20241112053059.3361-1-mjchen0829@gmail.com>
+ <20241112053059.3361-2-mjchen0829@gmail.com>
+ <20241112182551.GA1394330-robh@kernel.org>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157AA30A9F27ECCAE202BC2D4582@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Ming-Jen Chen <mjchen0829@gmail.com>
+In-Reply-To: <20241112182551.GA1394330-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_153239_514046_833BF23D 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20241113_155839_847442_2A54D6F6 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,148 +98,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2024 11:31 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, November 11, 2024 10:45 AM
->>
->> On 11/10/2024 8:13 PM, Michael Kelley wrote:
->>> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday,
->> November 7, 2024 2:32 PM
->>>>
->>>> These headers contain definitions for regular Hyper-V guests (as in
->>>> hyperv-tlfs.h), as well as interfaces for more privileged guests like
->>>> Dom0.
->>>
->>> See my comment on Patch 0/4 about use of "dom0" terminology.
->>>
->>
->> Thanks, noted.
->>
->>>>
->>>> These files are derived from headers exported from Hyper-V, rather than
->>>> being derived from the TLFS document. (Although, to preserve
->>>> compatibility with existing Linux code, some definitions are copied
->>>> directly from hyperv-tlfs.h too).
->>>>
->>>> The new files follow a naming convention according to their original
->>>> use:
->>>> - hdk "host development kit"
->>>> - gdk "guest development kit"
->>>> With postfix "_mini" implying userspace-only headers, and "_ext" for
->>>> extended hypercalls.
->>>>
->>>> These names should be considered a rough guide only - since there are
->>>> many places already where both host and guest code are in the same
->>>> place, hvhdk.h (which includes everything) can be used most of the time.
->>>
->>> Just curious -- are there really cases where hvhdk.h can't be used?
->>> If so, could you summarize why?
->>>
->>
->> No, there aren't cases where it "can't" be used. I suppose if someone
->> doesn't want to include everything, perhaps they could just include
->> hvgdk.h, for example. It doesn't really matter though.
->>
->>> I ask because it would be nice to expand slightly on your paragraph
->>> below, as follows:  (if indeed what I've added is correct)
->>>
->>> The use of multiple files and their original names is primarily to
->>> keep the provenance of exactly where they came from in Hyper-V
->>> code, which is helpful for manual maintenance and extension
->>> of these definitions. Microsoft maintainers importing new definitions
->>> should take care to put them in the right file. However, Linux kernel code
->>> that uses any of the definitions need not be aware of the multiple files
->>> or assign any meaning to the new names. Linux kernel uses should
->>> always just include hvhdk.h
->>>
->>
->> Thanks, I think that additional sentence helps clarify things. I'll
->> include it in the next version, and I think I can probably omit the prior
->> paragraph: "These names should be considered a rough guide only...".
->>
-> 
-> Omitting that prior paragraph is OK with me.  The key thoughts from my
-> standpoint are:
-> * The separation into multiple files and the file names come from
->    the Windows Hyper-V world and are maintained to ease bringing
->    the definitions over from that world
->    
-> * Linux code can ignore the multiple files and their names. Just
->    #include hvhdk.h.
-> 
 
-Agreed, thanks for helping clarify the points.
+On 2024/11/13 上午 02:25, Rob Herring wrote:
+> On Tue, Nov 12, 2024 at 05:30:58AM +0000, mjchen wrote:
+>> Add YAML bindings for MA35D1 SoC keypad.
+>>
+>> Signed-off-by: mjchen <mjchen0829@gmail.com>
+>> ---
+>>   .../bindings/input/nuvoton,ma35d1-keypad.yaml | 89 +++++++++++++++++++
+>>   1 file changed, 89 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>> new file mode 100644
+>> index 000000000000..71debafc3890
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/input/nuvoton,ma35d1-keypad.yaml
+>> @@ -0,0 +1,89 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/input/nuvoton,ma35d1-keypad.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Nuvoton MA35D1 Keypad
+>> +
+>> +maintainers:
+>> +  - Ming-jen Chen <mjchen0829@gmail.com>
+>> +
+>> +allOf:
+>> +  - $ref: /schemas/input/matrix-keymap.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: nuvoton,ma35d1-kpi
+>> +
+>> +  debounce-period:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    enum: [0, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+>> +    description: |
+>> +      Key debounce period select, specified in terms of keypad IP clock cycles.
+>> +      Valid values include 0 (no debounce) and specific clock cycle values:
+>> +      8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, and 8192.
+> No need to list the values twice.
+>
+> We already have a bunch of debounce time properties. Don't add more. If
+> you have the clock frequency, then you can use the existing
+> "debounce-delay-ms" and convert to register values.
+>
+>> +
+>> +  nuvoton,key-scan-time:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    description: |
+>> +      Set the time it takes to scan each key in the keypad, in clock cycles of the IP.
+>> +      This parameter controls how frequently the keypad is scanned, adjusting the response time.
+>> +      The valid range is from 1 to 256 clock cycles.
+>> +    minimum: 1
+>> +    maximum: 256
+>> +
+>> +  nuvoton,key-scan-time-div:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +    description: |
+>> +      Set a divider that adjusts the scan time for each key.
+>> +      This value scales the time it takes to scan each key
+>> +      by multiplying the key-scan-time by the specified factor.
+>> +      For example, if you set key-scan-time to 64 cycles and configure key-scan-time-div to 2,
+>> +      the scan time for each key will be increased to 128 cycles (64 cycles * 2). time.
+>> +    minimum: 1
+>> +    maximum: 256
+> Again, we have existing properties such as scan-interval,
+> scan-interval-ms, and scan-delay. How is this different?
+>
+> With a single property in time units, you can solve for how many clock
+> cycles.
+>
+I will remove the custom properties.
 
->>>>
->>>> The original names are kept intact primarily to keep the provenance of
->>>> exactly where they came from in Hyper-V code, which is helpful for
->>>> manual maintenance and extension of these definitions. Microsoft
->>>> maintainers importing new definitions should take care to put them in
->>>> the right file.
->>>>
->>>> Note also that the files contain both arm64 and x86_64 code guarded by
->>>> \#ifdefs, which is how the definitions originally appear in Hyper-V.
->>>
->>> Spurious backslash?
->>>
->>
->> Indeed, thanks.
->>
->>> I would suggest some additional clarification:  The #ifdef guards are
->>> employed minimally where necessary to prevent conflicts due to
->>> different definitions for the same thing on x86_64 and arm64. Where
->>> there are no conflicts, the union of x86_64 definitions and arm64
->>> definitions is visible when building for either architecture. In other
->>> words, not all definitions specific to x86_64 are protected by #ifdef
->>> x86_64. Such unprotected definitions may be visible when building
->>> for arm64. And vice versa.
->>>
->>
->> Is there a reason you specifically want to point out that "Such
->> unprotected definitions may be visible when building for arm64. And vice
->> versa."? I think, in all the cases where #ifdefs are not used, an
->> arch-specific prefix is used - hv_x64_ or hv_arm64_.
->>
->> The main thing I wanted to call out here was the reasoning for not
->> splitting arch-specific definitions into separate files in arch/x86/
->> and arch/arm64/ as is typical in Linux.
->>
->> Maybe this is a bit clearer:
->> "
->> Note the new headers contain both arm64 and x86_64 definitions. Some are
->> guarded by #ifdefs, and some are instead prefixed with the architecture,
->> e.g. hv_x64_*. These conventions are kept from Hyper-V code as another
->> tactic to simplify the process of importing and maintaining the
->> definitions, rather than splitting them up into their own files in
->> arch/x86/ and arch/arm64/.
->> "
-> 
-> Yes, your new paragraph works for me. Your original statement was
-> "the files contain both arm64 and x86_64 code guarded by #ifdefs",
-> which sounds like the more typical Linux approach of using #ifdefs
-> to segregate into x86-specific, arm64-specific, and common. I was
-> just trying to be explicit that full segregation isn't done, and isn't a
-> goal, because of wanting to maintain alignment with the original
-> Hyper-V definitions.
-> 
-> It's "Hey, we know we're not handling this in the typical Linux way,
-> and here's why". Your revised paragraph covers that in a less
-> heavyweight way than what I wrote. :-)
-> 
+I introduced and replaced them with the existing properties, such as
 
-Ok, great. I'll use that for the next version then.
+sacn-interval-ms, and debounce-delay-ms as you suggested.
 
-Thanks again!
-Nuno
 
-> Michael
-> 
->>
->> I hope it's reasonably clear that it's a good tradeoff to go against
->> Linux convention in this case, to make it easy to import and maintain
->> Hyper-V definitions.
->>
->> Thanks
->> Nuno
->>
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - clocks
+>> +  - linux,keymap
+>> +  - debounce-period
+>> +  - nuvoton,key-scan-time
+>> +  - nuvoton,key-scan-time-div
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/input/input.h>
+>> +    keypad@404A0000 {
+>> +      compatible = "nuvoton,ma35d1-kpi";
+>> +      reg = <0x404A0000 0x10000>;
+>> +      interrupts = <79>;
+>> +      clocks = <&clk>;
+>> +      keypad,num-rows = <2>;
+>> +      keypad,num-columns = <2>;
+> Surely these should be required?
 
+I will add "keypad,num-rows" and "keypad,num-columes" to the required 
+properties in the next verision.
+
+
+Thank you for the feedback.
+
+As both Conor Dooly and Rob Herring point out, I'll make the changes as 
+suggested.
+
+>> +
+>> +      linux,keymap = <
+>> +         MATRIX_KEY(0, 0, KEY_ENTER)
+>> +         MATRIX_KEY(0, 1, KEY_ENTER)
+>> +         MATRIX_KEY(1, 0, KEY_SPACE)
+>> +         MATRIX_KEY(1, 1, KEY_Z)
+>> +      >;
+>> +
+>> +      debounce-period = <8>;
+>> +      nuvoton,key-scan-time = <1>;
+>> +      nuvoton,key-scan-time-div = <24>;
+>> +    };
+>> -- 
+>> 2.25.1
+>>
 
