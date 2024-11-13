@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D0CD41C30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60FFD41C31
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJ3bR7NP6yUdrnlMpAZ95ydSaHbPQlqJpHBl9pVaNIQ=; b=H7fENXcrd77k7rWv57UEpka1lX
-	f7NglGwaKN7oAF5xiaIJggwFufvHT6x1UNM4FcxDMj8SqUEOY2Zw5S8IZ4ail0wOmeW9MecaoVu+4
-	YZzcsLn+FCuBK5OQKahld6yzb5O1Hl7ioiOuVKeZZDz5As+5+tqiTjDAP7oX07A+ShHaYP/TvkP/7
-	VJWT/8L7NJjB8yJl9ZIoEOqMIANj480stqqk1tEGs5Pqoe5LYXjoKWFF4HN/OsSgg+hscIItLkOFW
-	HtkwO/xjrp6GQo6vQG70F9p0aQIdH5KuBSOT0iyHgz0CgIYyRTve7mH5kLx+nkzIrAebhfonUf9RA
-	+HVF9jIA==;
+	bh=5VFf/Xc2nlS+yNT+I41QxsowbM1i+EaeG4ziE6m3Pdg=; b=yaN1riqYF3BqrVpL7WXqkOGLmB
+	CnyFs8+BljmcnVvKO/GJmt3l7jAyONIQM5tdjpLKp+AMYDTb5DBQ0kAdionNwIhk3pZYYvGSit+Z9
+	WSdc4saG2nI13d9c/jAYpsFR6KFZt0YcQ2NomuI+AsNwD97paYk1VkBhdOET2tcchyINy5wggI8C/
+	YlZXxnZmdzyPLgvvF9DA6WqoYih8CtX9kBbpXWKkf0YAyu8hRgbjOwhQAmDylawEKjMH3BlU5mw2h
+	aGvK6ihGZkNkCLnhffyqbdJzI9F5xyrKrtEF/EGGTKJPmrLg5Sz/PGjsQet+UhHwj2CovZaXAAaPp
+	Kahm9jkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAgz-00000006Slg-2dwZ;
-	Wed, 13 Nov 2024 10:33:45 +0000
-Received: from mail-oi1-f181.google.com ([209.85.167.181])
+	id 1tBAin-00000006T1j-3iYK;
+	Wed, 13 Nov 2024 10:35:37 +0000
+Received: from mail-pl1-f174.google.com ([209.85.214.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAY3-00000006QtV-49V7;
-	Wed, 13 Nov 2024 10:24:33 +0000
-Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-3e5f835c024so4067369b6e.2;
-        Wed, 13 Nov 2024 02:24:31 -0800 (PST)
+	id 1tBAYD-00000006QvI-1Cnw;
+	Wed, 13 Nov 2024 10:24:42 +0000
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-211a4682fcaso21867145ad.2;
+        Wed, 13 Nov 2024 02:24:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731493471; x=1732098271;
+        d=1e100.net; s=20230601; t=1731493480; x=1732098280;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RJ3bR7NP6yUdrnlMpAZ95ydSaHbPQlqJpHBl9pVaNIQ=;
-        b=UWwsiRAZJu5swjJj5FxTV5nC4DqFnZNhmzyE+Rl0KyAVZp1+RN5XfRsSNKZKYJ0ub9
-         P5ZddramX70wIaCtYHBiSuw/QztYtNpDF5D211unrlE7f8CsMX7H5Sa2tQBSNd14wI60
-         9d4NVSzBDSm37iQFh8d1fxyCLIqB682AB1i46/kR3vYTCDBPmD5nvj8hg70qqBLb7JP8
-         IXHL9cBO46CSmashglTQT6RHCbliNlmBVWzGL2jKA11qxJgyn9ZbY1+GLFU3BmBrIjt7
-         zESs6y3o2u/Id3gGmT3gDNTZQZAfjYR2i6mn8/CjP5nwpk0IG2bdjSHMJJYNwcjT7Pig
-         NuaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYXO96QcfAy/ZUsU9/A7vqjNo7pgpmP8gro7aXGMhRe1G4JvO5/TjSLVrHvH9J2fz7ptJ1srGfL9FfVryBD30=@lists.infradead.org, AJvYcCVB9FkxVdq0GZ355hWaeT889hbdlIumKq2m/kDKuqEEV0+t2cVeFlPjb3cZw46XzR7cf+wBEw0YNOiC5JkB4WqQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfa+P27KKTE8H6IiN1puYDmpH2Araqh2auK6lNSiXeajdpNswP
-	DxrT5xGGK7LqHOwGfutnxC9OVDY+/jMJ+T3YmjlICy2bnbTbcrbdq9pvgGy0
-X-Google-Smtp-Source: AGHT+IGCDc1HEyve8xuOtWI4FgIE6STXWM+8RhPSvKJp5n2XLQd15MkxzkpBxK31kJkEjc82kYu9Pg==
-X-Received: by 2002:a05:6808:4393:b0:3e6:10d1:ecb6 with SMTP id 5614622812f47-3e794737fd8mr15203906b6e.28.1731493470685;
-        Wed, 13 Nov 2024 02:24:30 -0800 (PST)
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com. [209.85.216.48])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f2e98d1sm12146125a12.0.2024.11.13.02.24.30
+        bh=5VFf/Xc2nlS+yNT+I41QxsowbM1i+EaeG4ziE6m3Pdg=;
+        b=WmPWaXs5YJGIq+m6A2AHspFoY3Qoci80nXeBdJ96HOmkXVDo9a9tagQdqWNL1BCj6Q
+         AAR+gaGWSU+Ir77A87lXl0U73kVSsuEvn1NS9Kb2EaVTLimGFj4e9ACtchqcD93Q4h4/
+         wrETgNpPu7Ss/Ulk/z1Z9+DGcCx6IRWf7k/8VP8alg+aNxZ+zNvWu41poI9UH88w8J5F
+         HAAdtRvaY1Z4TPtjur6K5Xm3JpGouEGnF7nUNMGixm5eP1C+bGwdfb6XgJywH+tTJ5Xt
+         mNHnyqqxxQvr45TVeL7Skl0KXvGXUN/F6bM/ObOyZhpTZeoiQKuOyhd0wublQpXGzZgf
+         dCkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ9Cof4kmNhe/FihBO8xq/iP8VV1gjrdY3d/Vu+xUXs8s8sV4UnLcLvVaJcic6VPRJs/9td+awZQ9FvD+h9TNf@lists.infradead.org, AJvYcCVor9Uz5bAhH+NSSSexn+Frxy1LlgvJYdRxAiMoxGj5XhNtM/OD5ZJ3TWutsSFPZ9jCApo6n0HIJYjiVgR8hqU=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYioRLycAIl/0QcTznBOHcsHT6oY4KQJvKJOpzBOjjw+55UvZ9
+	EDkaxhAFubJRXeujJpsnHBlL2O3f4K3LitHd99ok6nW2XQ5tdCATcXIGYPNl
+X-Google-Smtp-Source: AGHT+IGSECJ2rMpEiePoumLaiy6PEO05W+J2+Ji5a24UEPvreyuQK40KdAa2LZiLyRcgNv8DDtTNng==
+X-Received: by 2002:a17:903:6cd:b0:211:898:7cf0 with SMTP id d9443c01a7336-211834e6c07mr180355875ad.12.1731493480199;
+        Wed, 13 Nov 2024 02:24:40 -0800 (PST)
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com. [209.85.210.182])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e49bcbsm107587125ad.161.2024.11.13.02.24.39
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 02:24:30 -0800 (PST)
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-2e2bd347124so5296020a91.1;
-        Wed, 13 Nov 2024 02:24:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVJjH4bXEmv6uc3Kc9Lxs/E350aD5r0SheMy8/6D0EwzgN1uEJZ0w3YDVp/Kx5XMBJYEPranJ1Uo4FuJeNymcKz@lists.infradead.org, AJvYcCWquGAnwxnBAZwhbmJVMCBEwqJB+Vh+UhbMhKWNf8BMi8R3goPj0O4YL4SKwi+ijyCMovVVqkWkHLknHCnJ04E=@lists.infradead.org
-X-Received: by 2002:a17:90b:540b:b0:2e1:682b:361a with SMTP id
- 98e67ed59e1d1-2e9b177fce7mr25968056a91.28.1731493470115; Wed, 13 Nov 2024
- 02:24:30 -0800 (PST)
+        Wed, 13 Nov 2024 02:24:39 -0800 (PST)
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-720c286bcd6so6044842b3a.3;
+        Wed, 13 Nov 2024 02:24:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVqYc/qNJIgt3HQ7B7utOKyGShg2kKM8oT8XxPRmkm85zOLAkW5pxEbZ+GgjZoYXSA683r6V7+2mxrupxTw6wZ3@lists.infradead.org, AJvYcCXhn0V1v6ZDf7AQ2xI2qasE2AWtYN1uE34fuZ/6rIxYsEn4Ix3qSSRNnALRwXEd2XtAsSLrtyOMJ1lWYis51ME=@lists.infradead.org
+X-Received: by 2002:a05:6a00:14d3:b0:71e:659:f2e7 with SMTP id
+ d2e1a72fcca58-724132a1a87mr26548820b3a.8.1731493479293; Wed, 13 Nov 2024
+ 02:24:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-2-tszucs@linux.com>
- <c89c2f16-ffb0-4b61-a962-9705f9f1e0e2@kwiboo.se> <CA+GksrJzkxffSQbuseGFL0=2PDxV+TRevX0-NOkc6FNYLmNgYA@mail.gmail.com>
- <e9ff5387-b3c1-41a7-b251-a12789d25a70@kwiboo.se>
-In-Reply-To: <e9ff5387-b3c1-41a7-b251-a12789d25a70@kwiboo.se>
+References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-4-tszucs@linux.com>
+ <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se> <CA+GksrJLpeU8x-kjR1Ng3ySf+giiufCsJuBssng9qoX1PjAunA@mail.gmail.com>
+ <9330ebb370780c001fd2aaee49aec9e8@manjaro.org> <CA+GksrJjDPve29Vh7ZFhM+JFp058xmXZAPeuLuFth7v=JeiH2w@mail.gmail.com>
+ <0eb19e4daf2cdf3d4a04935876c3d3b0@manjaro.org>
+In-Reply-To: <0eb19e4daf2cdf3d4a04935876c3d3b0@manjaro.org>
 From: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
-Date: Wed, 13 Nov 2024 11:24:18 +0100
-X-Gmail-Original-Message-ID: <CA+Gksr+E6_cf46iKEufWLvQwAbsuC15nq6O6N6gP=x2-BVTnSA@mail.gmail.com>
-Message-ID: <CA+Gksr+E6_cf46iKEufWLvQwAbsuC15nq6O6N6gP=x2-BVTnSA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Add supported UHS-I rates to
- sdmmc0 on rock-3b
-To: Jonas Karlman <jonas@kwiboo.se>
+Date: Wed, 13 Nov 2024 11:24:28 +0100
+X-Gmail-Original-Message-ID: <CA+Gksr+E-tZe4sKVNa8zpATwdTW_DiOQxOf_Jujf5SURzhSPSg@mail.gmail.com>
+Message-ID: <CA+Gksr+E-tZe4sKVNa8zpATwdTW_DiOQxOf_Jujf5SURzhSPSg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
+To: Dragan Simic <dsimic@manjaro.org>
 Cc: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Dragan Simic <dsimic@manjaro.org>, 
-	Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Chukun Pan <amadeus@jmu.edu.cn>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_022432_054410_6220DCAC 
-X-CRM114-Status: GOOD (  38.92  )
+X-CRM114-CacheID: sfid-20241113_022441_348760_7683B199 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,125 +93,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+Hi Dragan,
 
-On Tue, Nov 12, 2024 at 11:37=E2=80=AFPM Jonas Karlman <jonas@kwiboo.se> wr=
-ote:
+On Wed, Nov 13, 2024 at 12:25=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> =
+wrote:
 >
-> Hi Tam=C3=A1s,
+> Hello Tamas,
 >
-> On 2024-11-12 15:36, Tam=C3=A1s Sz=C5=B1cs wrote:
-> > Hi Jonas,
+> On 2024-11-12 22:04, Tam=C3=A1s Sz=C5=B1cs wrote:
+> > On Tue, Nov 12, 2024 at 4:07=E2=80=AFPM Dragan Simic <dsimic@manjaro.or=
+g>
+> > wrote:
+> >> Please correct me if I'm wrong, but isn't this UART supposed to be
+> >> used for the Bluetooth part of an SDIO WiFi + Bluetooth module, in
+> >> form of a non-standard M.2 module that Radxa sells?
 > >
-> > Thank you for pointing this out! I haven't noticed this before. I've
-> > done some testing and I believe I am able to reproduce the issue you
-> > described, although I cannot confirm the reason.
-> > The only occasion I encounter any problems is when a UHS SD card or
-> > SDIO device is connected to sdmmc0 during bootup. Sometimes the device
-> > is recognized as HS only. Obviously no tuning value reported. Also,
-> > sdmmc2 cuts out completely. I'm booting from eMMC and when the SD card
-> > is removed in this state I lose my rootfs. Certainly, this needs more
-> > attention but it seems to be unrelated to the changes here.
-> >
-> > I need more time to check but are you sure this SD card during bootup
-> > issue is gone with UHS-I disabled?
+> > UART8 is supposed to be used for any radio module connected to the M2E
+> > connector.
+> > It will typically be responsible for Bluetooth or BLE but it could be
+> > 802.15.4 or whatever. In any case, all wanting to use it will need the
+> > uart8 node enabled.
 >
-> Yes, the issue is that the io voltage domain must be configured to match
-> the io signal voltage used, and to use uhs the voltage changes from 3v3
-> to 1v8. Causing a miss-match between io voltage domain config and the
-> regulator voltage used during initial probe, unless io-domain driver
-> happens to be fully loaded before mmc devices are probed.
->
-> >
-> > Also, in every other case, when you connect any device to sdmmc0 after
-> > bootup, performance and stability is perfect.
-> > Interestingly I also don't experience this behavior with an eMMC
-> > device and / or an SDIO device connected to sdmmc2 during bootup. Only
-> > sdmmc0 is problematic and only during bootup.
->
-> Yes, as you have discovered, inserting the sd-card after system has
-> booted and io-domain driver has been loaded, everything can work as
-> expected with uhs speeds.
->
-> Until this probe race condition has been solved booting with a sd-card
-> inserted may or may not result in wrong tuning or other related issues.
->
-> Because of this I advice not to enable uhs mode for sdmmc0 at this time.
+> I see, but I'm still guessing what's the actual use of enabling the
+> UART8 when it will remain pretty much useless without the additional
+> DT configuration, such as in the WiFi+Bluetooth DT overlay that Jonas
+> sent a bit earlier?
 
-All right, and thank you for the explanation. My hands are full at the
-moment but let me think about this.
+The actual use is device enablement.
 
 >
-> Regards,
-> Jonas
+> I think that the UART8 should be enabled together with something that
+> actually makes use of it, which in this case unfortunately cannot be
+> automatically detected and configured, so it belongs to a DT overlay.
+> I'll get back to this in my next response.
+
+I agree, bluetooth blocks dedicated to specific modules should belong
+to DT overlays.
+
 >
+> >> With that in mind, I see very little sense in just enabling the UART,
+> >> without defining the entire Bluetooth interface, which AFAIK produces
 > >
-> > Any more thoughts on this are very welcome.
+> > Defining a bluetooth node would hardwire idiosyncrasies of a given
+> > radio module's Bluetooth core. Sure you could add a sleep clock, all
+> > kind of sideband signals for wakeups, reset, power down, etc. But hey,
+> > some will use them, some won't. I think it's undesirable and
+> > unnecessary. You can hciattach from here and most will work just like
+> > that. Tighter integration or anything special, module specific on top
+> > should be handled individially, on a case-by-case basis. This is a dev
+> > board after all. I say trick of all trades.
 > >
-> > Kind regards,
-> > Tamas
+> >> nasty looking error messages in the kernel log when there's actually
+> >> nothing connected to the UART.
 > >
-> >
-> >
-> > Tam=C3=A1s Sz=C5=B1cs
-> > tszucs@linux.com
-> >
-> > On Mon, Nov 11, 2024 at 8:00=E2=80=AFPM Jonas Karlman <jonas@kwiboo.se>=
- wrote:
-> >>
-> >> Hi Tam=C3=A1s,
-> >>
-> >> On 2024-11-11 19:17, Tam=C3=A1s Sz=C5=B1cs wrote:
-> >>> Add all supported UHS-I rates to sdmmc0 and allow 200 MHz maximum clo=
-ck to
-> >>> benefit modern SD cards.
-> >>>
-> >>> Signed-off-by: Tam=C3=A1s Sz=C5=B1cs <tszucs@linux.com>
-> >>> ---
-> >>>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 6 ++++++
-> >>>  1 file changed, 6 insertions(+)
-> >>>
-> >>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/a=
-rm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >>> index 3d0c1ccfaa79..242af5337cdf 100644
-> >>> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> >>> @@ -670,8 +670,14 @@ &sdmmc0 {
-> >>>       bus-width =3D <4>;
-> >>>       cap-sd-highspeed;
-> >>>       disable-wp;
-> >>> +     max-frequency =3D <200000000>;
-> >>>       pinctrl-names =3D "default";
-> >>>       pinctrl-0 =3D <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det=
->;
-> >>> +     sd-uhs-sdr12;
-> >>> +     sd-uhs-sdr25;
-> >>> +     sd-uhs-sdr50;
-> >>> +     sd-uhs-sdr104;
-> >>> +     sd-uhs-ddr50;
-> >>
-> >> There is an issue with io-domain driver not always being probed before
-> >> mmc driver, this typically result in io-domain being configured wrong,
-> >> and mmc tuning happen before io-domain is correctly configured.
-> >>
-> >> You can usually observe this by looking at the tuning value during boo=
-t
-> >> and comparing it to the tuning value after removing and re-insering a
-> >> sd-card.
-> >>
-> >> Because of this uhs modes was left out from initial DT submission, som=
-e
-> >> cards will work others wont, sd-uhs-sdr50 is known to be working with
-> >> most cards even with the probe order issue.
-> >>
-> >> Also I thought that lower speeds where implied?
-> >>
-> >> Regards,
-> >> Jonas
-> >>
-> >>>       vmmc-supply =3D <&vcc3v3_sd>;
-> >>>       vqmmc-supply =3D <&vccio_sd>;
-> >>>       status =3D "okay";
-> >>
+> > My dmesg is clean as a whistle
+> > root@rock-3b:~# dmesg | grep -E 'fe6c0000|ttyS0'
+> > [    0.344818] fe6c0000.serial: ttyS0 at MMIO 0xfe6c0000 (irq =3D 26,
+> > base_baud =3D 1500000) is a 16550A
+> > What kind of nasty errors do you recall?
 >
+> Those would be the kernel error messages produced with the Bluetooth
+> DT configuration in place, but with no SDIO module installed.
+
+These are the kernel messages related to UART8 with the uart8 DT node
+enabled and an SDIO module installed.
 
