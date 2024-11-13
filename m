@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34DED42BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 449C5D41D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhmDXVwemijjOGfMq6sgcWNT97G/9xGLMWo+ChoGNWA=; b=kLsJm+wszEVNQuKLBd8/lpjAYo
-	v/APB2yfiwoGonO+ZQn4SucweIkfJoNKm1kY4Pdft9h13SCoXRircdzKPLwFh2P+S7+mN36X5kODV
-	8wle9b5o40b9eqfKk+uqf5EklwBCJ+3vhHaHLLMZCf1OsLAGoAb4rS66QxyKYSEkmwvhTlRKuKs7a
-	qC6rmsTUwHo9pOpFY7Lbo1j/7Dlj73ndlvfwJK/FfTPfNvOJQkQaKHjWuPuBxIPVbFFM6Sr6b0Rmn
-	3Tyf1SoGJrG8pOhSws7bUtAab23QZR3kMV/H0tif9vDVe1yE7oRt4ul20cJD/n+VbS8EKXJXwKqii
-	mu29OlFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ewcghCPRbL1QDa51lwOE5puy7P+MpEnKu4WitVC7Zmc=; b=qTX4bO+xXcvTw+kv9Znd51FUeX
+	27BvzDJ9LdfwClR2kl8zJPb9zx+RaN4w6gHSDMJizPuZxw3124aKWhtQIf+npLZxu5bqpO3yCRrx3
+	MA9ZpeXZfnn/UApVy+l4kTrz0Hm27Q67tC9TbMexb8nYndTt5dsYUACcW+AKPBOGZqwKeN9H6cy4i
+	DgQpyCgIG/vYOkgaaaVACUVF7D21rP8vOl7rezY7mtAl0vrJkkOXqRMgyLQidV8C8G4oVnS0O1C5x
+	GsUUF1OBGE4xrgLn1IvHPLzURqTD/6r0+7tugBFkUL5vshNG084g+GMfrYEyqAlJj+mvxDH3tQbmc
+	axz5NSJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDWP-00000006w6j-1AN9;
-	Wed, 13 Nov 2024 13:35:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDQR-00000006ufD-2iHM
+	id 1tBDYC-00000006wej-3T7b;
+	Wed, 13 Nov 2024 13:36:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBDTz-00000006vSE-28ZT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 13:29:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60D7A1655;
-	Wed, 13 Nov 2024 05:29:18 -0800 (PST)
-Received: from [10.1.29.78] (Suzukis-MBP.cambridge.arm.com [10.1.29.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7E5D43F66E;
-	Wed, 13 Nov 2024 05:28:46 -0800 (PST)
-Message-ID: <c002b839-310e-4c68-acc3-c3433c16e1fe@arm.com>
-Date: Wed, 13 Nov 2024 13:28:45 +0000
+	Wed, 13 Nov 2024 13:32:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 93691A40873;
+	Wed, 13 Nov 2024 13:30:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FCE1C4CECD;
+	Wed, 13 Nov 2024 13:32:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731504750;
+	bh=gfCmgl3jagwHGldFjUB4K2gH4J6eJxXe8/I/qAemYJk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ZJqt32ThN/8+imW4Kgw6RaW3o7K6lP9reDKy572Iu31gEfEj6vKcOiUy7grZrUrLV
+	 4oBs8fS3SxU1SQ+2fzOLAygB+gwDSMU5s+kNXqO+5Dyi4GE0ZH+7Dd65HlNCwkHUMS
+	 UJUml5PZhst1zmCxBZigJFzCJVlLCXEnqukzdPvRpR0hcrrIU78SWJIPeIFwsSt8hu
+	 XyGPX7fYzyWSIL3eJ4brqSOtqTpPtGMC7+PZPxV3vdCK+WDTgwRigx0RartzZVT9fZ
+	 t2XT8pFt1mMkHRHxP6fqE28qR4UvBY82U4ZazE/zOIT4jWBOP/GDRE00uSRJ80/ZxB
+	 5MV5X6EP7fI3w==
+Date: Wed, 13 Nov 2024 07:32:28 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] Coresight: Narrow down the matching range of tpdm
-Content-Language: en-GB
-To: Songwei Chai <quic_songchai@quicinc.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20241009091728.1638-1-quic_songchai@quicinc.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20241009091728.1638-1-quic_songchai@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-msm@vger.kernel.org, 
+ Xiangxu Yin <quic_xiangxuy@quicinc.com>, linux-kernel@vger.kernel.org, 
+ Simona Vetter <simona@ffwll.ch>, Sean Paul <sean@poorly.run>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ freedreno@lists.freedesktop.org, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ dri-devel@lists.freedesktop.org, Rob Clark <robdclark@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Li Liu <quic_lliu6@quicinc.com>, 
+ Krishna Manikandan <quic_mkrishn@quicinc.com>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>, 
+ devicetree@vger.kernel.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Fange Zhang <quic_fangez@quicinc.com>
+In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-3-2873eb6fb869@quicinc.com>
+References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+ <20241113-add-display-support-for-qcs615-platform-v2-3-2873eb6fb869@quicinc.com>
+Message-Id: <173150474841.4106927.5975815443901282337.robh@kernel.org>
+Subject: Re: [PATCH v2 3/9] dt-bindings: display/msm: Add QCS615 MDSS & DPU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_052851_772726_14F7811A 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20241113_053231_694210_83667C37 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,39 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2024 10:17, Songwei Chai wrote:
-> The format of tpdm's peripheral id is 1f0exx. To avoid potential
-> conflicts in the future, update the .id_table's id to 0x001f0e00.
-> This update will narrow down the matching range and prevent incorrect
-> matches. For example, another component's peripheral id might be
-> f0e00, which would incorrectly match the old id.
+
+On Wed, 13 Nov 2024 19:51:45 +0800, Fange Zhang wrote:
+> From: Li Liu <quic_lliu6@quicinc.com>
 > 
-> Fixes: b3c71626a9333b0b29f9921a39ce ("Coresight: Add coresight TPDM source driver")
-> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+> Document the MDSS and DPU hardware found on the Qualcomm QCS615 platform.
+> 
+> Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+> Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
 > ---
->   drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index b7d99e91ab84..3230d76aed90 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -1308,8 +1308,8 @@ static void tpdm_remove(struct amba_device *adev)
->    */
->   static struct amba_id tpdm_ids[] = {
->   	{
-> -		.id = 0x000f0e00,
-> -		.mask = 0x000fff00,
-> +		.id	= 0x001f0e00,
-> +		.mask	= 0x00ffff00,
->   	},
->   	{ 0, 0, NULL },
->   };
+>  .../bindings/display/msm/qcom,qcs615-dpu.yaml      | 118 ++++++++++
+>  .../bindings/display/msm/qcom,qcs615-mdss.yaml     | 252 +++++++++++++++++++++
+>  2 files changed, 370 insertions(+)
 > 
 
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Looks good to me, will queue this for v6.14. Apologies for missing the 
-v6.13 cycle
+yamllint warnings/errors:
 
-Suzuki
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/display/msm/qcom,qcs615-mdss.example.dts:24:18: fatal error: dt-bindings/clock/qcom,qcs615-dispcc.h: No such file or directory
+   24 |         #include <dt-bindings/clock/qcom,qcs615-dispcc.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:129: Documentation/devicetree/bindings/display/msm/qcom,qcs615-mdss.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1442: dt_binding_check] Error 2
+make: *** [Makefile:224: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241113-add-display-support-for-qcs615-platform-v2-3-2873eb6fb869@quicinc.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
