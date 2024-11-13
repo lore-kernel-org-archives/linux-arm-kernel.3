@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495C6D41C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12933D41C30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=km5VKNF+KUEDoH6tmM2tqgAPxy8fVSjcu9J5PorMtVg=; b=Q/vM4mAtltCntVPO4AdIW4x7ON
-	Tgc/HcS9+lpvzCQROoIGtVjniBYPOcIkyLH7HX+DADT6X6Bjtlm4aSrCaKXkIdfCQGDPLv1NgZf7O
-	W4vVgc4mqBGeAKMGfwXDqTb9G9J30lZ0n/NiGpHT3KFzJ/UuH1Y+Geq3NJavSzzYI8Zi0OiMkekjR
-	Kpk8Zfe+Xg5NVH18vgLrox4pj+B44xDUvqyAY1f91Vr4rXFU5ubp3YAA85SLHSiwkmx5QYrPXlZK7
-	JoHMKgaG4iWt5yJzAf4G4kS39X5cPtNuceh6XGCsBPqKB/xV+ndmtA3LpnxZ0pmCxDvcOapo5kc6b
-	weWDjXkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jzqkNChPlqhBoU3sQctYXfkUASlkp/JRIqbHtyENv7I=; b=UqmKJ4OxYsrqW4Cygv0fesBYTN
+	35a8RHwT2mpeRH1g/H+KQr+Q1QSGUZmyhOHyjWZANnufNWwnezpeeols4q5E6oM+tXoNNxgGmjbus
+	7FKOBwFW+fo62zrCEKPWR8/uFM9dGNTAO5H3xXMA51S/pMAYUj+SlIGAHmJzzO+iyW98q1q1YV/9B
+	gV7jsnSmn2r4vGYxB1BhJqrKf3QWuJn6EJfuepavJ5PFUZAU7mh2W2yud2Gt472BnAAKAWJGZXFVS
+	EQ/2EZGt9syhTjtYJ3S1W3jdeLrLLrF6hq/QIeWA4iwEQ4YDNt2CM86Rr5bKbFNX+fVr7hzxbPVNP
+	25sMV6YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAdF-00000006Rm4-0ZBn;
-	Wed, 13 Nov 2024 10:29:53 +0000
-Received: from mail-yw1-f169.google.com ([209.85.128.169])
+	id 1tBAf0-00000006S34-2KfW;
+	Wed, 13 Nov 2024 10:31:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAPn-00000006PHx-0qPB
+	id 1tBAPs-00000006PJA-1xIZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 Nov 2024 10:16:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=jzqkNChPlqhBoU3sQctYXfkUASlkp/JRIqbHtyENv7I=; b=Ue5dmMyUSfutBmtZtFz5oVO/Tw
+	gajwsOow3TFtZx4iOnok4NJCE7jpHZoWcPs2xEF1xuH1YeFyOoeANLyKfWFwHhIjeMC+UtYWKmBmG
+	3P2lXNP/6jPyucpuELsVQmfrBRR0j7LStnbfCQ083i3NKJLWnNP3D6tqH+GbSV8RmO0A1y7txhWAr
+	EOSa/g4Y98G3La3MSok2MrB8BP9P8hSDxkAtH0xZshwAT6RYBtCLRoTMx+2a4Int0Q2wnpwX6TP+M
+	itYQLlYzGMrYG8JZZIzbVoPsWCfH/BFmqsB/ew8THpActVQvdGXiSOjlFXwvDc1sB0YnkRGHLRrKw
+	MRqwnaWg==;
+Received: from mgamail.intel.com ([198.175.65.20])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBAPn-0000000DFAl-1K5R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 10:16:00 +0000
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-6ea07d119b7so54212727b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 02:15:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731492957; x=1732097757;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=km5VKNF+KUEDoH6tmM2tqgAPxy8fVSjcu9J5PorMtVg=;
-        b=khQMAYHyf8/RJAFoSQ5Zku8Vcib0fGEvAIg4wqSQC8dyfhgWyNTn8dviuIzb/pOf9R
-         tvRkB0MzrJz7Tuohf/3NkHY4Qoe/nF0Zkls2muXtGkPSC4cu6fFmO8v/DnyxHLYQqXkH
-         IIi+PlLRHx5r9u616B2j1Idr7wHjeBmzlmLuxMzoTLmHlTgkbyYGrUcmuW0WHiLslZyV
-         zEkHMKMY6rhOrOjWCTkg/QF0kt7B7VSZt31Q9fkDASrUKp6xY8urY0xPAFBct2yKWOxA
-         3YoQU4pz09DeBSk4PINwJSWnkol2Rl9xm86zYVGPaIe25Cp0ufgmkebjNU7TydwcZEvX
-         INcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVNcHdIA90j2/y8h1ZpgHxSP/pdMjOgEPdfcJXxxnUQzML9K2eCm3HX+LwvTsmszyYdwyqw6u141sjLSxLPfsF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRxRp1Ys9SWk0rFKVCmKDFjcqc3r5mJAkf34X6lAMgEvC5mjuh
-	Ra25kyyw9vPYod0jw2lbOBHMgF0zMWxYb8yACNhACS32Dw0qCABN63f/52lN
-X-Google-Smtp-Source: AGHT+IGYC86BBTRBEmcRQ3EmMv6M8BOGoOLL/YExhSJHJYxIL1ukzA0kphKDTFyars127c5nnh/EMA==
-X-Received: by 2002:a05:690c:6011:b0:6db:db51:c02d with SMTP id 00721157ae682-6eca468f55amr66483347b3.25.1731492957343;
-        Wed, 13 Nov 2024 02:15:57 -0800 (PST)
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6eaceb65742sm30377247b3.75.2024.11.13.02.15.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 02:15:55 -0800 (PST)
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-6e9ba45d67fso62999497b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 02:15:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVtpuyjWQ8rJG1mPfNHq0fqs8ORihSyUWr25gLGiHQQmYBxukS04gEMhL8xj2FNLCiAlicjFYnZJOhpc9ulA73M@lists.infradead.org
-X-Received: by 2002:a05:690c:445:b0:6e3:8760:29ba with SMTP id
- 00721157ae682-6eca4c04f0bmr65699147b3.36.1731492955605; Wed, 13 Nov 2024
- 02:15:55 -0800 (PST)
-MIME-Version: 1.0
-References: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
- <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com> <288deac4-5387-4492-9e9c-cabf77b9c0ba@solid-run.com>
-In-Reply-To: <288deac4-5387-4492-9e9c-cabf77b9c0ba@solid-run.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 13 Nov 2024 11:15:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWUJ-nQkD-tm07uWX_TTy5Fy5JLsvedcoJ50Hi7=WnEpg@mail.gmail.com>
-Message-ID: <CAMuHMdWUJ-nQkD-tm07uWX_TTy5Fy5JLsvedcoJ50Hi7=WnEpg@mail.gmail.com>
-Subject: Re: [PATCH 0/2] of: add support for value "false" to of_property_read_bool
-To: Josua Mayer <josua@solid-run.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Jon Nettleton <jon@solid-run.com>, 
-	Yazan Shhady <yazan.shhady@solid-run.com>, Rabeeh Khoury <rabeeh@solid-run.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 13 Nov 2024 10:16:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731492961; x=1763028961;
+  h=date:from:to:cc:subject:message-id;
+  bh=OH8TsJYfpqjP6gsv9Pb0RD7jtreiBy69ZyzlBcJJe/M=;
+  b=l7OwHilwReBTlkJyGKy+yjO2KpyDL4/4+D3VQc0ErOQ0OfrMWGDSr8+y
+   0H2xpCQQzdSlX4mRqwORe4FRomzk964LQZgz5+rQl85ngS3D8SthmNmaH
+   wrdren2lKJJyc55rHgbx9l65IJZoDmyHZHGEUMpgM5sdiYa+cTeDGan2f
+   hNsdl29unk1np/JmWk1mPhmVJQkeglVMpW2DVRc+GsBQHcOOqiMtAn621
+   w5tPGhL7waPcrKF1mVS1MUwZopgSdlQU56bljCGuvoyZG52E7l6Qg/glw
+   +lGRzNXPYaxT8bzctkadx9JEmPgWU3anV5JPuQQkJNCyni1tnAP/XueYQ
+   w==;
+X-CSE-ConnectionGUID: uH/eockiSNSQDO81jiF3gA==
+X-CSE-MsgGUID: LdBkeLX8Q6uV0xAr8ARfbQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="31147288"
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="31147288"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 02:15:54 -0800
+X-CSE-ConnectionGUID: eUqcZWftRGe8Q2NZ0VAvdQ==
+X-CSE-MsgGUID: cgDGo4y6TQqSZgwkuUmGMQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,150,1728975600"; 
+   d="scan'208";a="92905642"
+Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 13 Nov 2024 02:15:53 -0800
+Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tBAPe-0000Dr-1D;
+	Wed, 13 Nov 2024 10:15:50 +0000
+Date: Wed, 13 Nov 2024 18:14:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:omap/dt] BUILD SUCCESS
+ 13be2307b577726bf2e4a9029738912c03d53aa9
+Message-ID: <202411131848.nusLuSAb-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_021559_264174_C8657D9D 
-X-CRM114-Status: GOOD (  36.21  )
+X-CRM114-CacheID: sfid-20241113_101601_159960_8BBB6F3A 
+X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,82 +98,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Josua,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git omap/dt
+branch HEAD: 13be2307b577726bf2e4a9029738912c03d53aa9  ARM: dts: omap4-kc1: fix twl6030 power node
 
-On Wed, Nov 13, 2024 at 10:41=E2=80=AFAM Josua Mayer <josua@solid-run.com> =
-wrote:
-> Am 12.11.24 um 14:46 schrieb Rob Herring:
-> > On Tue, Nov 12, 2024 at 12:41=E2=80=AFAM Josua Mayer <josua@solid-run.c=
-om> wrote:
-> >> Boolean type properties are usually considered true if present and fal=
-se
-> >> when they do not exist. This works well for many in-tree board dts and
-> >> existing drivers.
-> >>
-> >> When users need to overrride boolean values from included dts,
-> >> /delete-property/ is recommend. This however does not work in overlays
-> >> (addons).
-> > As soon as someone needs to delete a non-boolean property, we're back
-> > to the same problem.
->
-> Properties can be reassigned any value, e.g. a driver default if needed.
-> It should never be necessary to delete a property,
-> since a suitable value may be specified instead.
->
-> Booleans have two valid values, true and false,
-> but somehow we cannot assign false, we can just delete the property.
->
-> > If you want to fix it, you need to fix it for any
-> > property.
-> /delete-property/ is a language keyword used during compilation.
-> When inspecting a .dtbo no trace of /delete-property/ is left.
+elapsed time: 736m
 
-That is the current behavior. But dtc could be modified to emit new
-special __deleted_properties__ and __deleted_nodes__ nodes, just like
-it already creates special __symbols__, __fixups__, and __local_fixups__
-nodes.
+configs tested: 121
+configs skipped: 97
 
-> Hence we can't "fix" deleting properties through overlays.
-> We can only "fix" (re-)assigning false to a boolean property.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-So nothing prevents adding a way for a .dtbo to contain a list of
-properties and/or nodes to delete...
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+alpha                            allyesconfig    clang-20
+alpha                               defconfig    gcc-14.2.0
+arc                              allmodconfig    clang-20
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    clang-20
+arc                                 defconfig    gcc-14.2.0
+arc                         haps_hs_defconfig    gcc-14.2.0
+arm                              allmodconfig    clang-20
+arm                              allmodconfig    gcc-14.2.0
+arm                               allnoconfig    gcc-14.2.0
+arm                              allyesconfig    clang-20
+arm                              allyesconfig    gcc-14.2.0
+arm                         at91_dt_defconfig    gcc-14.2.0
+arm                          collie_defconfig    gcc-14.2.0
+arm                                 defconfig    gcc-14.2.0
+arm                          exynos_defconfig    gcc-14.2.0
+arm                        mvebu_v5_defconfig    gcc-14.2.0
+arm                         s3c6400_defconfig    gcc-14.2.0
+arm                         s5pv210_defconfig    gcc-14.2.0
+arm                          sp7021_defconfig    gcc-14.2.0
+arm                        spear6xx_defconfig    gcc-14.2.0
+arm                           stm32_defconfig    gcc-14.2.0
+arm                         wpcm450_defconfig    gcc-14.2.0
+arm64                            allmodconfig    clang-20
+arm64                             allnoconfig    gcc-14.2.0
+arm64                               defconfig    gcc-14.2.0
+csky                              allnoconfig    gcc-14.2.0
+csky                                defconfig    gcc-14.2.0
+hexagon                          allmodconfig    clang-20
+hexagon                           allnoconfig    gcc-14.2.0
+hexagon                          allyesconfig    clang-20
+hexagon                             defconfig    gcc-14.2.0
+i386                             allmodconfig    clang-19
+i386                              allnoconfig    clang-19
+i386                             allyesconfig    clang-19
+i386        buildonly-randconfig-001-20241113    clang-19
+i386        buildonly-randconfig-002-20241113    clang-19
+i386        buildonly-randconfig-003-20241113    clang-19
+i386        buildonly-randconfig-004-20241113    clang-19
+i386        buildonly-randconfig-005-20241113    clang-19
+i386        buildonly-randconfig-006-20241113    clang-19
+i386                                defconfig    clang-19
+i386                  randconfig-001-20241113    clang-19
+i386                  randconfig-002-20241113    clang-19
+i386                  randconfig-003-20241113    clang-19
+i386                  randconfig-004-20241113    clang-19
+i386                  randconfig-005-20241113    clang-19
+i386                  randconfig-006-20241113    clang-19
+i386                  randconfig-011-20241113    clang-19
+i386                  randconfig-012-20241113    clang-19
+i386                  randconfig-013-20241113    clang-19
+i386                  randconfig-014-20241113    clang-19
+i386                  randconfig-015-20241113    clang-19
+i386                  randconfig-016-20241113    clang-19
+loongarch                        allmodconfig    gcc-14.2.0
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch                           defconfig    gcc-14.2.0
+m68k                             alldefconfig    gcc-14.2.0
+m68k                             allmodconfig    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                             allyesconfig    gcc-14.2.0
+m68k                                defconfig    gcc-14.2.0
+microblaze                       allmodconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                       allyesconfig    gcc-14.2.0
+microblaze                          defconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+mips                          ath79_defconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                               defconfig    gcc-14.2.0
+openrisc                          allnoconfig    clang-20
+openrisc                            defconfig    gcc-12
+openrisc                       virt_defconfig    gcc-14.2.0
+parisc                            allnoconfig    clang-20
+parisc                              defconfig    gcc-12
+parisc64                            defconfig    gcc-14.2.0
+powerpc                           allnoconfig    clang-20
+powerpc                  iss476-smp_defconfig    gcc-14.2.0
+powerpc                       maple_defconfig    gcc-14.2.0
+powerpc                  mpc885_ads_defconfig    gcc-14.2.0
+powerpc                     ppa8548_defconfig    gcc-14.2.0
+powerpc                     tqm5200_defconfig    gcc-14.2.0
+riscv                             allnoconfig    clang-20
+riscv                               defconfig    gcc-12
+riscv             nommu_k210_sdcard_defconfig    gcc-14.2.0
+s390                             allmodconfig    gcc-14.2.0
+s390                              allnoconfig    clang-20
+s390                             allyesconfig    gcc-14.2.0
+s390                                defconfig    gcc-12
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                                  defconfig    gcc-12
+sh                        dreamcast_defconfig    gcc-14.2.0
+sh                        edosk7705_defconfig    gcc-14.2.0
+sh                        edosk7760_defconfig    gcc-14.2.0
+sh                            hp6xx_defconfig    gcc-14.2.0
+sh                      rts7751r2d1_defconfig    gcc-14.2.0
+sh                           se7705_defconfig    gcc-14.2.0
+sh                           se7721_defconfig    gcc-14.2.0
+sh                           se7724_defconfig    gcc-14.2.0
+sh                           se7750_defconfig    gcc-14.2.0
+sh                             sh03_defconfig    gcc-14.2.0
+sh                        sh7757lcr_defconfig    gcc-14.2.0
+sh                   sh7770_generic_defconfig    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc64                             defconfig    gcc-12
+um                               allmodconfig    clang-20
+um                                allnoconfig    clang-20
+um                               allyesconfig    clang-20
+um                                  defconfig    gcc-12
+um                             i386_defconfig    gcc-12
+um                           x86_64_defconfig    gcc-12
+x86_64                            allnoconfig    clang-19
+x86_64                           allyesconfig    clang-19
+x86_64                              defconfig    clang-19
+x86_64                                  kexec    gcc-12
+x86_64                               rhel-8.3    gcc-12
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                         virt_defconfig    gcc-14.2.0
 
-> >> Geert pointed out [1] that there are several invitations for using
-> >> strings "true" and "false" on boolean properties: [1], [2], [3].
->
-> > There's always bad examples...
-> >
-> >> Add support for a string value "false" to be considered false on boole=
-an
-> >> properties by changing of_property_read_bool implementation.
->
-> > Any existing s/w will treat 'foo =3D "false"' as true. It's an ABI.
->
-> I was reading through the device-tree specification, it makes absolutely
-> no mention of a boolean type.
->
-> I believe of_property_read_bool should be capable of deriving false
-> from a present property.
->
-> What is up to now called bool in the kernel / device-tree,
-> is actually of_property_present, or conversationally of_node_has_flag.
-
-Indeed, so of_property_read_bool() is a misnomer, as it does
-not read the actual value from the property, unlike all other
-of_property_read_*() methods.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
