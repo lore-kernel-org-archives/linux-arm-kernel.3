@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1486AD637D1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 22:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8064D637D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 23:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xvTxlL4AVd1adTLjJKCTQxmhveAf7ghrK9pGb+92sCQ=; b=LhRhnlR68JrQaeq05Zw7vMewd0
-	B/i1NbFTj3ZxlD3lYhjW583ZKZiP2y1k4Z21it1oiAt5O3YITZmDkYD0GbIGzuSbeuiLgrXXXDqUE
-	f3lEBDdSUlvWANj53HZF3YJQWggQtEQ7x3kiNh4ZBNPxgM7GUBITzMYeY7eZ2cF2mDguVD1+RYrF9
-	kT6tuxegzhNg8CgbYHoyxv7PBLAZDH6wJf0EojB3LP0RytScr5u0VjILTPHLR+4ByGme/0i6Mt2ic
-	a8OJAP+0zcHMeDZa0RZGgkMht644dS6awN4UWmk9xc2qmlldi6t/qz5/dgnm0DLhKL4TwaRj2y8NE
-	Aji0s+mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GB4QZ+mM5xOGHoULP0fYX3jiIBGiTo1R3yaoqBjOj5Y=; b=qgmFeDKFbYZy4uAhh7gCFT88zQ
+	AMmXzDwVZnla8nl0Q41I/c0nWTwahgUz+DPlE9sirEo4tn/jx5I6ZVWXv74cJAL5g/N59T0w4PPIk
+	X4tAdu1CCg15hX+umMRT38mGjF7BeGuQ7ssTO/pndizinSLkHz7QY0WQCnPk5bOaP6iPk9IGzyVG/
+	Z4Os3Vxbd7vcxiBpC3TCBBI4gUsV7PKGS3dayFNthpaNxX29HvXAagOg/EmDDNhAPTzR8kKBathCE
+	JmhRkh2vZ/xYjsK7XdT/oJuhBlNdGihSjYexAe4KBGH++MVFvGhrAxuWkELz7vy5oWgrX4J7lYMqK
+	vEBPZOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMJa-00000008DOE-0jZ5;
-	Wed, 13 Nov 2024 22:58:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tBMSX-00000008EOb-3PS4;
+	Wed, 13 Nov 2024 23:07:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMHk-00000008D2i-41gO
+	id 1tBMQi-00000008EA6-0MSv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 22:56:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0319A5C5B02;
-	Wed, 13 Nov 2024 22:55:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDD47C4CEC3;
-	Wed, 13 Nov 2024 22:56:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731538588;
-	bh=ppARoxV/BKuqM26l7GbAb1n0J5UopQIlgnjP2VYDPIc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=nyNmEpTj99rigb0YjXknMOHR8svcWnsRjs1FchKtnDLUt6QDByAdr85hMX6/0npKq
-	 HdVtlOxC211m6YH3DbKs888Vqt2bd39uSqkG8Kai1NdMMYbDXGSHzcrPOEKM3bs3eE
-	 3n7UPexzl3tFD6lJBH2EK9Z7UyqSt0Qc7504Jd3aUWsCJsSILSOVHEeChrUp7WV4pv
-	 +jO45a0vJ2q2pDXynL0BaJhaHrMoiDcAvmRhZt7NefwnZi+hqDBBWt+n8en4Yxi2eu
-	 TyoCmNo3EdFVy7g7mz1nmZU762ku2DsIF69s3uHm6dJyRYkmYptg4U+NFSRpHoJDKL
-	 +3cKBbPlJc2mw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: =?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Gaurav Jain <gaurav.jain@nxp.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Wed, 13 Nov 2024 23:05:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=GB4QZ+mM5xOGHoULP0fYX3jiIBGiTo1R3yaoqBjOj5Y=; b=5N1dky3izdPIxJ3m4NqFAWVQJ4
+	mRJmi3jX4gbqJ78GHW1iDJAJht9Hd+iAm0FYWf2J1ibs2X03qyTBFFKLFMNITN6IavGcZ/PfwMivz
+	yNS3bSdKVz2MCcAB+BRrWnvU71onxne2Qp+ZAHWRYJMPc2z1zUM8BO1gz4nBFNlz4BPg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tBMQJ-00DDd7-1P; Thu, 14 Nov 2024 00:05:19 +0100
+Date: Thu, 14 Nov 2024 00:05:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: Unify "fsl,liodn" type definitions
-Date: Wed, 13 Nov 2024 16:56:13 -0600
-Message-ID: <20241113225614.1782862-1-robh@kernel.org>
-X-Mailer: git-send-email 2.45.2
+Subject: Re: [PATCH net v1 1/2] net: phy: Introduce phy_update_eee() to
+ update eee_cfg values
+Message-ID: <b61a9c36-dfd5-4b90-88a6-90e43cfae000@lunn.ch>
+References: <20241112072447.3238892-1-yong.liang.choong@linux.intel.com>
+ <20241112072447.3238892-2-yong.liang.choong@linux.intel.com>
+ <f8ec2c77-33fa-45a8-9b6b-4be15e5f3658@gmail.com>
+ <71b6be0e-426f-4fb4-9d28-27c55d5afa51@lunn.ch>
+ <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_145629_107654_DF81F233 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_150544_157193_26DC3B91 
+X-CRM114-Status: GOOD (  29.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +81,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The type definition of "fsl,liodn" is defined as uint32 in
-crypto/fsl,sec-v4.0.yaml and uint32-array in soc/fsl/fsl,bman.yaml,
-soc/fsl/fsl,qman-portal.yaml, and soc/fsl/fsl,qman.yaml. Unify the type to
-be uint32-array and constraint the single entry cases.
+On Wed, Nov 13, 2024 at 06:10:55PM +0800, Choong Yong Liang wrote:
+> 
+> 
+> On 12/11/2024 9:04 pm, Andrew Lunn wrote:
+> > On Tue, Nov 12, 2024 at 12:03:15PM +0100, Heiner Kallweit wrote:
+> > > In stmmac_ethtool_op_get_eee() you have the following:
+> > > 
+> > > edata->tx_lpi_timer = priv->tx_lpi_timer;
+> > > edata->tx_lpi_enabled = priv->tx_lpi_enabled;
+> > > return phylink_ethtool_get_eee(priv->phylink, edata);
+> > > 
+> > > You have to call phylink_ethtool_get_eee() first, otherwise the manually
+> > > set values will be overridden. However setting tx_lpi_enabled shouldn't
+> > > be needed if you respect phydev->enable_tx_lpi.
+> > 
+> > I agree with Heiner here, this sounds like a bug somewhere, not
+> > something which needs new code in phylib. Lets understand why it gives
+> > the wrong results.
+> > 
+> > 	Andrew
+> Hi Russell, Andrew, and Heiner, thanks a lot for your valuable feedback.
+> 
+> The current implementation of the 'ethtool --show-eee' command heavily
+> relies on the phy_ethtool_get_eee() in phy.c. The eeecfg values are set by
+> the 'ethtool --set-eee' command and the phy_support_eee() during the initial
+> state. The phy_ethtool_get_eee() calls eeecfg_to_eee(), which returns the
+> eeecfg containing tx_lpi_timer, tx_lpi_enabled, and eee_enable for the
+> 'ethtool --show-eee' command.
+> 
+> The tx_lpi_timer and tx_lpi_enabled values stored in the MAC or PHY driver
+> are not retrieved by the 'ethtool --show-eee' command.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/crypto/fsl,sec-v4.0.yaml       | 10 ++++++----
- .../devicetree/bindings/soc/fsl/fsl,qman-portal.yaml   |  2 ++
- 2 files changed, 8 insertions(+), 4 deletions(-)
+tx_lpi_timer is a MAC property, but phylib does track it across
+--set-eee calls and will fill it in for get-eee. What however is
+missing it setting its default value. There is currently no API the
+MAC driver can call to let phylib know what default value it is using.
+Either such an API could be added, e.g. as part of phy_support_eee(),
+or we could hard code a value, probably again in phy_support_eee().
 
-diff --git a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-index 9c8c9991f29a..f0c4a7c83568 100644
---- a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-+++ b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-@@ -114,8 +114,9 @@ patternProperties:
-           table that specifies the PPID to LIODN mapping. Needed if the PAMU is
-           used.  Value is a 12 bit value where value is a LIODN ID for this JR.
-           This property is normally set by boot firmware.
--        $ref: /schemas/types.yaml#/definitions/uint32
--        maximum: 0xfff
-+        $ref: /schemas/types.yaml#/definitions/uint32-array
-+        items:
-+          - maximum: 0xfff
- 
-   '^rtic@[0-9a-f]+$':
-     type: object
-@@ -186,8 +187,9 @@ patternProperties:
-               Needed if the PAMU is used.  Value is a 12 bit value where value
-               is a LIODN ID for this JR. This property is normally set by boot
-               firmware.
--            $ref: /schemas/types.yaml#/definitions/uint32
--            maximum: 0xfff
-+            $ref: /schemas/types.yaml#/definitions/uint32-array
-+            items:
-+              - maximum: 0xfff
- 
-           fsl,rtic-region:
-             description:
-diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
-index 17016184143f..e459fec02ba8 100644
---- a/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
-+++ b/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
-@@ -35,6 +35,7 @@ properties:
- 
-   fsl,liodn:
-     $ref: /schemas/types.yaml#/definitions/uint32-array
-+    maxItems: 2
-     description: See pamu.txt. Two LIODN(s). DQRR LIODN (DLIODN) and Frame LIODN
-       (FLIODN)
- 
-@@ -69,6 +70,7 @@ patternProperties:
-     type: object
-     properties:
-       fsl,liodn:
-+        $ref: /schemas/types.yaml#/definitions/uint32-array
-         description: See pamu.txt, PAMU property used for static LIODN assignment
- 
-       fsl,iommu-parent:
--- 
-2.45.2
+tx_lpi_enabled is filled in by phy_ethtool_get_eee(), and its default
+value is set by phy_support_eee(). So i don't see what is wrong here.
 
+> Currently, we are facing 3 issues:
+> 1. When we boot up our system and do not issue the 'ethtool --set-eee'
+> command, and then directly issue the 'ethtool --show-eee' command, it always
+> shows that EEE is disabled due to the eeecfg values not being set. However,
+> in the Maxliner GPY PHY, the driver EEE is enabled. If we try to disable
+> EEE, nothing happens because the eeecfg matches the setting required to
+> disable EEE in ethnl_set_eee(). The phy_support_eee() was introduced to set
+> the initial values to enable eee_enabled and tx_lpi_enabled. This would
+> allow 'ethtool --show-eee' to show that EEE is enabled during the initial
+> state. However, the Marvell PHY is designed to have hardware disabled EEE
+> during the initial state. Users are required to use Ethtool to enable the
+> EEE. phy_support_eee() does not show the correct for Marvell PHY.
+
+We discussed what to set the initial state to when we reworked the EEE
+support. It is a hard problem, because changing anything could cause
+regressions. Some users don't want EEE enabled, because it can add
+latency and jitter, e.g. to PTP packets. Some users want it enabled
+for the power savings.
+
+We decided to leave the PHY untouched, and will read out its
+configuration. If this is going wrong, that is a bug which should be
+found and fixed.
+
+We want the core to be fixed, not workaround added to MAC
+drivers. Please think about this when proposing future patches.
+
+	Andrew
 
