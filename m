@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6192D41C38
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0025CD41C33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OC1bi2XoAH5EywDCYgPByr/b6rxHCJ/Vp7FpKZ/CuI0=; b=tDp3ZJUM44NBNof5DLAW9aKp24
-	COwMzB1riHDaeXdUt/Ud9U5GabN1gZYD81pXD+uO/En89KMxsOtKWPNGAWYOIHYF9lNJBpstLlU2J
-	tEVHLhoJM5bkGr/1DqkGNTjF1XHEB6fmaPBBP2DP9/Bdo/bL/XagvT4fyHPbg+zKaolpi8hejfFHJ
-	AjpFuIvfiBUlrAmw0Vw/Xtuw9mpArBi68jCn1F/ickFkY9K+KDJnmhqg1QEf3YuF8O/GRCjZkD5PX
-	dM8gtoR/yYofgdYbxsMsHSW6QqSHTRgN4mvpGvROh10S/d9+YUZDDPtHtJqSBLxVlDPKq7cgXRLc0
-	+Add0FAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BpKNnFSJuu8mX4fv2nmuYeZ5VRhQuVqxMggvr0piqwA=; b=a2hkoK06B+jxcHVUQR5l3Y/ONI
+	5Y+GdIyIwX+7Ro8syG+WskO9As8hpNpHwM81lX+9HLce7pALFdAgzNx5XAkAODLyoG1K+NKZLIpFN
+	W66ahkD9FWuMbSACsj0IZI/5uO0CFog02EvTBNovDtJFC7fTBhfQkC5nqVG9xvo3OhqaOw6Vj8Ku0
+	ttFrvXCABilSIQQpPg+yyCvQKbtB+p8Gh94VHECUN+8yvNasMhrnP2273opPnMvLeLQEIsqcxJiYW
+	iUQbKWa5qineoUjYuL6CsBkXcikIxVCxYLqGL5L1OKb01U1OOBH897R7f9TTCOko22jJDI0/vcZkf
+	edO9I+5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBoj-00000006d8F-0dok;
-	Wed, 13 Nov 2024 11:45:49 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tBBpH-00000006dEE-48W9;
+	Wed, 13 Nov 2024 11:46:23 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBm7-00000006cjc-1tzS
+	id 1tBAp7-00000006Txk-00vX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 11:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731498187; x=1763034187;
-  h=date:from:to:cc:subject:message-id;
-  bh=yBwvTOhxCU+Lk/aFUFDtqLvRyj1yHd7a5+kknL25GdM=;
-  b=CAnIUs/akES8FxUyVhZ+iYiuOjTfpl+IFDKUH1w53sz7x6lvhzIIhut4
-   Hrz0K4vZYg0Cw9481ueIzDE/YBRmjqF90ZLzOqMvi97p8dugOl0QJeSH4
-   daekJKbcJ8ir27H/0VgJxY6J49Ebnu3Wopym6Ni4niTAvLhJHn6jyV8mz
-   moxDP76M2/QsSlDXgdGDMQodBm17kq2C4iGPPlEvokuL/hjrqEeCSHM75
-   9FVmtADmLT2fhwsM94sxKpFWtdC7xW4Q0oRWHexueDaSj8BtGENC8o6mU
-   FUA+aiqYn9F65lXqMMnCT9aroMOV8pKWSe3s9+3yglptfxtb9PNXP2foq
-   A==;
-X-CSE-ConnectionGUID: soH5ZwbbQYWcBZEgKHMfZg==
-X-CSE-MsgGUID: A1zQO8uuSGyRnJPvaIQMYQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11222"; a="53933325"
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="53933325"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2024 03:43:05 -0800
-X-CSE-ConnectionGUID: qX2r3UMnS7WLsYsjV0hdyg==
-X-CSE-MsgGUID: a9wVwFxKQOKHlGu7+C1NrQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,150,1728975600"; 
-   d="scan'208";a="87749394"
-Received: from lkp-server01.sh.intel.com (HELO 80bd855f15b3) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 13 Nov 2024 03:43:04 -0800
-Received: from kbuild by 80bd855f15b3 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tBBm1-0000KF-2Q;
-	Wed, 13 Nov 2024 11:43:01 +0000
-Date: Wed, 13 Nov 2024 19:42:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:k3/dt] BUILD SUCCESS
- 767b6a0d0900c951e8b42306bd636268481a97ae
-Message-ID: <202411131915.4YKjPLag-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Wed, 13 Nov 2024 10:42:10 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-a9e44654ae3so930221266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 02:42:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731494527; x=1732099327; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BpKNnFSJuu8mX4fv2nmuYeZ5VRhQuVqxMggvr0piqwA=;
+        b=jZ6v8JdQIri9ErDpH+XRnbvKIdsHKp/IvxoORPEPNbryi/JYIQlhJN52I9ixV8LgK0
+         XRo6psduf+LegDbGACLwt5oJzIpcG84wcUg6yJY1n6In6wFEK/Vh2SCZa/oZMo0WOvws
+         BFKviF0bjksPaNxCCQAuz/7llXRNYmXcvAmQaF3w4ABpj1YP8Al3C3v8+QqCNfBKDwgl
+         zFjxpantFGRy3gtvUkSa5anDL9SK2hn/1J1xNmXXs+B71vwHsVVX/3DvRlRh+zG558uQ
+         cuxnL3ZLXkgH1xnbLC7XnLwFtbGzC4gANqxVfJ8TyZEPdOq4jFrBj6eckLPlDhwvOcTD
+         OC6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731494527; x=1732099327;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BpKNnFSJuu8mX4fv2nmuYeZ5VRhQuVqxMggvr0piqwA=;
+        b=lYVnhxREEByLqcI/h7o3A54xBPcbMCiFciugUdxGT9uKoFvZzqa2M0ciePc49jAbcq
+         78ZIQu74AQmxr++YBWOyhdDxmHGchEOiUjk5551j+zRE4sLZchFgNbRedG68VBfVQknx
+         21+MYUoJed0KooM2wXdKi8QJXmdgsZZmQ+s72nwEIhO3TQE1BEKvSsr0CAWuwj5XKGeS
+         +GEY2Thh5hl+9n4PJcbpvgqfLJq4ScAICUQGpM4QG0B0DzHizp1qsTfdDCzI1JDPjYNC
+         TR8OEwZHSVhXnEtdyWw6VqAyjCONosxemf1SVDXLxSgwADQICyD3FyGtLITWq24HfkZ2
+         j/Wg==
+X-Gm-Message-State: AOJu0YyrePPX0x8preNlrfAX7P47YqrN14R6oZ4y1TktSGyUk0R/sae9
+	IaA9JbUCb9B/y2ehZqPt9pgN8NetWkqQTu5nVPX94hheofP/hjMxL+0OFfkHMUwf0hL2v3hQB3T
+	/Du0=
+X-Google-Smtp-Source: AGHT+IGkvSzEORJMBip4kLqyw4g2XZQP9hZKEvJR8NJ1wbFa9hcYRPzrgSUKiBVjVht7VAmBjdnAUQ==
+X-Received: by 2002:a17:907:5ca:b0:a99:ee1c:f62f with SMTP id a640c23a62f3a-aa1f8075b6amr218093766b.34.1731494525232;
+        Wed, 13 Nov 2024 02:42:05 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.214])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-a9ee0a4a452sm845869366b.51.2024.11.13.02.42.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Nov 2024 02:42:04 -0800 (PST)
+Message-ID: <e81bcabd-11fc-45f7-abfd-05b569b1c18f@linaro.org>
+Date: Wed, 13 Nov 2024 10:42:03 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/2] [PATCH v4 0/2] perf arm-spe: Add support for SPE
+ Data Source packet on AmpereOne
+To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ Graham Woodward <graham.woodward@arm.com>
+References: <20241108202946.16835-1-ilkka@os.amperecomputing.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241108202946.16835-1-ilkka@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_034307_568416_DEC52B0A 
-X-CRM114-Status: UNSURE (   5.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_024209_112609_1115D5D0 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,161 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git k3/dt
-branch HEAD: 767b6a0d0900c951e8b42306bd636268481a97ae  arm64: dts: ti: k3-am62: use opp_efuse_table for opp-table syscon
 
-elapsed time: 824m
 
-configs tested: 141
-configs skipped: 3
+On 08/11/2024 8:29 pm, Ilkka Koskinen wrote:
+> v1:
+> 	* https://lore.kernel.org/all/20241024233035.7979-1-ilkka@os.amperecomputing.com/
+> 
+> v2:
+> 	* Doesn't use read_cpuid_implementor() anymore as that was broken and
+> 	  unnecessary.
+> 	* Convert AmpereOne source field to matching common source fields to
+> 	  avoid duplicating the code.
+> 	* Rebased on top of perf-tools-next/perf-tools-next (ba993e5ada1d)
+> 	* https://lore.kernel.org/all/20241031213533.11148-1-ilkka@os.amperecomputing.com/
+> 
+> v3:
+> 	* Changed source mapping to simple switch statement
+> 	* Dropped is_xyz() stuff
+> 	* Added table to map midr to data source decoding function
+> 	* https://lore.kernel.org/all/20241106193740.6159-1-ilkka@os.amperecomputing.com/
+> 
+> v4:
+> 	* Split midr/decoding function table
+> 	* Made AmpereOne DS decoding function to ignore unknown sources
+> 	* https://lore.kernel.org/all/20241108010911.58412-1-ilkka@os.amperecomputing.com/
+> 
+> v5:
+> 	* Moved data_source_handles[] to fix the build issue
+> 
+> Ilkka Koskinen (2):
+>    perf arm-spe: Prepare for adding data source packet implementations
+>      for other cores
+>    perf arm-spe: Add support for SPE Data Source packet on AmpereOne
+> 
+>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  9 ++
+>   tools/perf/util/arm-spe.c                     | 86 ++++++++++++++++---
+>   2 files changed, 83 insertions(+), 12 deletions(-)
+> 
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    clang-20
-alpha                            allyesconfig    gcc-14.2.0
-alpha                               defconfig    gcc-14.2.0
-arc                              allmodconfig    clang-20
-arc                              allmodconfig    gcc-13.2.0
-arc                               allnoconfig    gcc-14.2.0
-arc                              allyesconfig    clang-20
-arc                              allyesconfig    gcc-13.2.0
-arc                                 defconfig    gcc-14.2.0
-arc                         haps_hs_defconfig    gcc-14.2.0
-arm                              allmodconfig    clang-20
-arm                              allmodconfig    gcc-14.2.0
-arm                               allnoconfig    gcc-14.2.0
-arm                              allyesconfig    clang-20
-arm                              allyesconfig    gcc-14.2.0
-arm                         at91_dt_defconfig    gcc-14.2.0
-arm                          collie_defconfig    gcc-14.2.0
-arm                                 defconfig    gcc-14.2.0
-arm                          exynos_defconfig    gcc-14.2.0
-arm                        mvebu_v5_defconfig    gcc-14.2.0
-arm                         s3c6400_defconfig    gcc-14.2.0
-arm                         s5pv210_defconfig    gcc-14.2.0
-arm                          sp7021_defconfig    gcc-14.2.0
-arm                        spear6xx_defconfig    gcc-14.2.0
-arm                           stm32_defconfig    gcc-14.2.0
-arm                         wpcm450_defconfig    gcc-14.2.0
-arm64                            allmodconfig    clang-20
-arm64                             allnoconfig    gcc-14.2.0
-arm64                               defconfig    gcc-14.2.0
-csky                              allnoconfig    gcc-14.2.0
-csky                                defconfig    gcc-14.2.0
-hexagon                          allmodconfig    clang-20
-hexagon                           allnoconfig    gcc-14.2.0
-hexagon                          allyesconfig    clang-20
-hexagon                             defconfig    gcc-14.2.0
-i386                             allmodconfig    clang-19
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    clang-19
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    clang-19
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20241113    clang-19
-i386        buildonly-randconfig-002-20241113    clang-19
-i386        buildonly-randconfig-003-20241113    clang-19
-i386        buildonly-randconfig-004-20241113    clang-19
-i386        buildonly-randconfig-005-20241113    clang-19
-i386        buildonly-randconfig-006-20241113    clang-19
-i386                                defconfig    clang-19
-i386                  randconfig-001-20241113    clang-19
-i386                  randconfig-002-20241113    clang-19
-i386                  randconfig-003-20241113    clang-19
-i386                  randconfig-004-20241113    clang-19
-i386                  randconfig-005-20241113    clang-19
-i386                  randconfig-006-20241113    clang-19
-i386                  randconfig-011-20241113    clang-19
-i386                  randconfig-012-20241113    clang-19
-i386                  randconfig-013-20241113    clang-19
-i386                  randconfig-014-20241113    clang-19
-i386                  randconfig-015-20241113    clang-19
-i386                  randconfig-016-20241113    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch                           defconfig    gcc-14.2.0
-m68k                             alldefconfig    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-m68k                                defconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-microblaze                          defconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-mips                          ath79_defconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                               defconfig    gcc-14.2.0
-openrisc                          allnoconfig    clang-20
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-12
-openrisc                       virt_defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    clang-20
-parisc                           allyesconfig    gcc-14.2.0
-parisc                              defconfig    gcc-12
-parisc64                            defconfig    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    clang-20
-powerpc                          allyesconfig    clang-20
-powerpc                          allyesconfig    gcc-14.2.0
-powerpc                  iss476-smp_defconfig    gcc-14.2.0
-powerpc                       maple_defconfig    gcc-14.2.0
-powerpc                  mpc885_ads_defconfig    gcc-14.2.0
-powerpc                     ppa8548_defconfig    gcc-14.2.0
-powerpc                     tqm5200_defconfig    gcc-14.2.0
-riscv                            allmodconfig    clang-20
-riscv                            allmodconfig    gcc-14.2.0
-riscv                             allnoconfig    clang-20
-riscv                            allyesconfig    clang-20
-riscv                            allyesconfig    gcc-14.2.0
-riscv                               defconfig    gcc-12
-riscv             nommu_k210_sdcard_defconfig    gcc-14.2.0
-s390                             allmodconfig    clang-20
-s390                             allmodconfig    gcc-14.2.0
-s390                              allnoconfig    clang-20
-s390                             allyesconfig    gcc-14.2.0
-s390                                defconfig    gcc-12
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                                  defconfig    gcc-12
-sh                        dreamcast_defconfig    gcc-14.2.0
-sh                        edosk7705_defconfig    gcc-14.2.0
-sh                        edosk7760_defconfig    gcc-14.2.0
-sh                            hp6xx_defconfig    gcc-14.2.0
-sh                      rts7751r2d1_defconfig    gcc-14.2.0
-sh                           se7705_defconfig    gcc-14.2.0
-sh                           se7721_defconfig    gcc-14.2.0
-sh                           se7724_defconfig    gcc-14.2.0
-sh                           se7750_defconfig    gcc-14.2.0
-sh                             sh03_defconfig    gcc-14.2.0
-sh                        sh7757lcr_defconfig    gcc-14.2.0
-sh                   sh7770_generic_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc64                             defconfig    gcc-12
-um                               allmodconfig    clang-20
-um                                allnoconfig    clang-20
-um                               allyesconfig    clang-20
-um                               allyesconfig    gcc-12
-um                                  defconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                           x86_64_defconfig    gcc-12
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64                              defconfig    clang-19
-x86_64                              defconfig    gcc-11
-x86_64                                  kexec    clang-19
-x86_64                                  kexec    gcc-12
-x86_64                               rhel-8.3    gcc-12
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                         virt_defconfig    gcc-14.2.0
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
