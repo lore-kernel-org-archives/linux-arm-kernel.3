@@ -4,178 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10825D41C0F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 07:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A51D41C0F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQwrC1ckcf9nadNUe1ds3GTsu6b6cpAWAq7m5xIXxG4=; b=RfKa8pGXxfuNXQuW56foIVnhUU
-	95/iTN1QioQ7NbyNEw46vwc42gJf5o8A9fhPARXG2XtdDlZJ3Si2GI+YJOHUwXJOHp91Jr7hJ/6WN
-	0Ra96XHB2uYMFaMhMbhn9hMhBU1x7Q67fQ5caQ3fxe5+4jg91QUKWN7I/3knp2RaRmxN8WrI6CvKO
-	4HfrWFNmY5zp+dA5PHI0oIHjHI9TaSdf2sYAqf5/rElY+0gJWz9xT7SKXpKuBBCOPGUAKYBO1iFz7
-	ywdGF3snHz4HkldL34M7AOU7Wjr86Vy50wUeh6U+wgIH2h8I8hoZW6Ef6QdxJ11Lv8uUQzpTPGOdL
-	I6QWyQSw==;
+	bh=hlw6kUSyPp5tLgtfsZkFNg3PR6lL49gz78ER/JqTsTQ=; b=Lb+lP/R1YDd45z6Lm7H9lYf6NS
+	OXlyejyMvr7vr/iP83eUK8D7adEN/bjkartQ+32ZKQ/mPns6gubS0hxAEca8jr1x5TywNoZKOSXou
+	zjMgTIBh/3tZq+2GQJQe5bWGwaweMPA9LwPgwjezMSX2OIcgfAqyz6T8FdXMxvzmKqA5o9ODzZdvc
+	uDvyYFWstenvHIvSEb1AheS8vjZVBNryK7G61RcagynsME0tVnMcbWRfJeG1VjnAjcBKXX1slIYCz
+	lAe8ZdPl0+l96HcckLhEKN59iB0mmJZgpiIvTiTVurTQff1lRKDLqygmwx+gMsRh+UJ/4i6eJuShV
+	qO8tk/mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB83q-000000061xe-1bOW;
-	Wed, 13 Nov 2024 07:45:10 +0000
-Received: from mail-psaapc01on2071f.outbound.protection.outlook.com ([2a01:111:f403:200e::71f] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tB8Pg-000000063gf-16Ho;
+	Wed, 13 Nov 2024 08:07:44 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB820-000000061kY-12aX
+	id 1tB8Nq-000000063UY-3TmU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 07:43:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IXML4wiOVQnbW4EOfWknyJznAV3pwzL6ocdU72SSTfYBgydZVaNHrZXONHDQKbxhjEEHAYop6LSue63TlV1IhrmfmcHolFJRn9Xq1Zt9PM0XWcU1N4IigLe8esXJF3EKyOiMDo5eqQj9jZ5hjlZMs/QRM/2dwoGLnNWHWvzYvJs6uyN5Bj+6MDWCEf7AoyH3qXaviD07VSEtWC5ho69lXUZ5JrNrWqCmvKuahGDZUg1gbB+jgWaIc63fBONl29TgxYgdATduIPbB6CBypgYg66ISrsUSotSKWlapplTnQUDzJul8gDNQsN5adgdV0IEp1vXeR33bzQd7ApvR+h35Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EQwrC1ckcf9nadNUe1ds3GTsu6b6cpAWAq7m5xIXxG4=;
- b=cORBpnrEcRSfxQv2YSVY0k7q04Mhjnmmulrg9+I9Ptl2VfI2F5I8mYhNGaYUanqfM3bzmsO8xNKBObBbFGAZdP+74BVWa/kFKV8Zo/p49lXv6Bach60tv1KjrHxlOlVcA6bEgqi6NevkovdBHI66zX2SqhZTLb14fD9tEkWl03wq4iYVvC6qFZeX7SSXKv8n5Mc5UMn1ptuoldNe2v5FPgiiIRwEqRyAZiqpy81Dnm0ae/BLaphlNH+2UP8WlqEldu25JpQUPaLw5B8EnDzkSyZSDIIB9IYYKI0qbqkz8rnQYOwvFlogwK8bUkXSWTK6DBaW/qkN1qjNJHnPKxeDKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EQwrC1ckcf9nadNUe1ds3GTsu6b6cpAWAq7m5xIXxG4=;
- b=GjzLrIv/fGk+zu/G/o/WE4EOJVA+Dr3Y+Dwk3p6OZG1aeFyx0dMc2kmcTz4DJURS5gTKRP95mRB2GDaWUlt/YqjgOJPirTRk0e05MYYU68JmnEQvuTi8TgVeHAstPDo00mwSGoIG8HSUyt72YUgxm4NMyF9OLCCZwQe31dBYhdUfpv9yWYwYVe/ddcSaA/6QFqy9VBQj7vIhm69xQ5zFK5c4dRm5wLiJc9z9SUEzVv2P8A+tzC1TCwZ0bYf1lZHLBLjyJaJ8kaB/IbhNRrtI7tlWAII2ym5lKzMN5N49P7pmXBj7bYQnbu4XZkwqei7kF+meU9mRwUlByME/geDEwQ==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by TYSPR06MB6749.apcprd06.prod.outlook.com (2603:1096:400:470::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Wed, 13 Nov
- 2024 07:43:04 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%6]) with mapi id 15.20.8158.011; Wed, 13 Nov 2024
- 07:43:04 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, "brendan.higgins@linux.dev"
-	<brendan.higgins@linux.dev>, "benh@kernel.crashing.org"
-	<benh@kernel.crashing.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v15 2/3] i2c: aspeed: support AST2600 i2c new register
- mode driver
-Thread-Topic: [PATCH v15 2/3] i2c: aspeed: support AST2600 i2c new register
- mode driver
-Thread-Index: AQHbGGxcfd5QCYaLt02IHuq/iSVWarKzqJsAgAFlhJA=
-Date: Wed, 13 Nov 2024 07:43:04 +0000
-Message-ID: <OS8PR06MB7541739C4D1E69C0981CBCB4F25A2@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20241007035235.2254138-1-ryan_chen@aspeedtech.com>
-	 <20241007035235.2254138-3-ryan_chen@aspeedtech.com>
- <6aea003a286162c465d0ee7681988b3697feb103.camel@pengutronix.de>
-In-Reply-To: <6aea003a286162c465d0ee7681988b3697feb103.camel@pengutronix.de>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|TYSPR06MB6749:EE_
-x-ms-office365-filtering-correlation-id: c78005d3-13da-4f51-0cbb-08dd03b6cf0c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|921020|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NzRaWXBSRldtbXl6S1ZFTWFvTXcvcE1takVvR2NobmZnbDJ2R0k0MzNKZHNz?=
- =?utf-8?B?bURxa045ajMrS0x2ejdScmZHRko1VVFRU0ZMSW92OTVoSS9mNmRGb0NMNXhK?=
- =?utf-8?B?ZllKR21tekw4NmQrU1BxVlhyQUhhMGZkYitYamdxRU5iVWo4MURCV2pvUktQ?=
- =?utf-8?B?eFQ2UlBnNW9pV0VKYm1Zd0pqN08zY3V4V3VlZDJ1WHpSU2kwMituZmxXUEto?=
- =?utf-8?B?MGVwUnVNVHVQOW5DbFJvWmFPdWx3dktlWmZUa2YzTWNYMmdpTzM3MkJRS3c3?=
- =?utf-8?B?RldiaDRDdDluUWlkVWlMcXNpaUd3dVBXdGpvT2JVdElxL1plcWh2YUFxV01V?=
- =?utf-8?B?Nk1FUlB1R2NTZFJ5V3hVSlZoSnlEalBHNW1UWFJKejFkRUZvYWRrdVdPcU1a?=
- =?utf-8?B?Z2pTUmsyS3pLbkhyZU1Ed0JrZWtqTXhwOUFLRmpEbWx0cFN4UkljQUl6T21t?=
- =?utf-8?B?eXNDYXFpTzVZMHM2WU9UL0lHdzBpM2F6dGdUNGVUbUxSSk1ReXdRM2V5N0Y2?=
- =?utf-8?B?blRxSHJXMHRuanNma2h2bDgrUzZuV044bmxZYjBySlpGY0lIb0Vhd2VMbjlp?=
- =?utf-8?B?TW5oL25ma0lNWTViOVNrdnVNeVFSV3NvdHo3OUZkalczNzFWRXhaeWxmMFBm?=
- =?utf-8?B?NzM0QXBRUkhPL1V6TE5lSWhkQWpnaWFhZXBQK3hucThqdnpuYmUvbkxjVTI3?=
- =?utf-8?B?WEFzaDJyK3dUZ0NLbGxBYlZ3YWJKbDdPZnE5aDVDaGkwKzJEMDh6RzltK21R?=
- =?utf-8?B?MU1laVhCbWtzd25QSE9MOHpvOVVjeGZSS2FZMU9aVjV5TktLZUh4UzM4OFFN?=
- =?utf-8?B?R0RseEhqYTN6b1IyV2orcTRyWVc3dzBqSmpBQXBCTEpUbFdVVHZaU0d6ck5q?=
- =?utf-8?B?bkZYYWVuaVNJYno5NHNTc3V6cCtCTlQ0di9yM2FGdUQ2UHlIcWhkQk9UUzlk?=
- =?utf-8?B?TS9GUXBqdmhsZkZUdXZqQlpvMGZXM2dWczJWbjdxeGk5U3p2QWtxYWY5TG44?=
- =?utf-8?B?VGhoVkhrTVM3NlJaUGxTUjI2VExGQWk4T283QkFjc3JIUlFudzA5blU2U245?=
- =?utf-8?B?ZlJlbXhDTnVYRlBiTi96ZUx3TUVyQS9GUWw3Q2pwL0F4YWJDUUs5YzIzMmc0?=
- =?utf-8?B?VzdtU2IxZE44M0RXa0RDdXc2MExpNTc2VEsrODNEbkxjR2VBdUQ2VVdiSjFz?=
- =?utf-8?B?cFRQVFl6eXdhZW85KzUrd2FhZzJyQ0V1R3dNb2MwRTRoLzhqVlh3RnlkcjRU?=
- =?utf-8?B?V2oyUnl1bGQzQitLUG1pTjYyMm1VUEpFM012YU44QmFmZmJ2SytMUXo3U3dI?=
- =?utf-8?B?RnFkOE91azY0WnRMNEkvZGVzL2dUc2V1c0lQNzQ1dUR4WDhYZmljb2IxTVJS?=
- =?utf-8?B?LzFZTXNnSGFUV2xNWlM4SzNhQ1RSNG9wU1Q3Z05tK1FIUGh3aXdNTytMSXhi?=
- =?utf-8?B?SDdrVmRQSzg2MzlTNzF2Wlk1SDUrSi80NHFsR0kwY08yVjNCSGZIRTJoY1Rx?=
- =?utf-8?B?cFFkdDRBQkVOb1pYOXdQeHhkRVlsN3VkdVc3Q2M4RzlWT0U4VUxScEQ3YmRT?=
- =?utf-8?B?UkpCNFl5THg4UEJMQXZnV09pUEZVVmszeVJ5aGlYQ3B5Z0haUVNqWkdGQUZU?=
- =?utf-8?B?T1RQTXY3cnZYdHp2MVFRMnpxbmI4U3hsaCtKVWw2NDlOWDl6Y0g1c2o4US9m?=
- =?utf-8?B?VkhwVmlzdGlndlhYbDZNbzl2a2ZWbmFOblkwamYrREc1c3ZrS3dIT2h6dVFK?=
- =?utf-8?B?dlVuTkYvcFlIWGhrVnl2OTRhaWgwNEo3KzRuMm8rREFKbEhPN1dCY1VBOE5H?=
- =?utf-8?B?K2pDak5BMWhNVGNxaE43b0p5V0N6ekVzL0dvZFpEWmlvSlQ0Uml4TTlJRkIr?=
- =?utf-8?Q?HJfup4S9kN4gG?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(921020)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZnA5ZUROc3lzR3MzRkNabVJIc2ZWR0psQXl5M1orTWx4RVE0ZVkybDBGMzdw?=
- =?utf-8?B?MHQ4d1hUWExNU1RuY1ltbDIrZkd4TkJBdWQ4NjN1NWU5ajlEdlA5ME9KWUds?=
- =?utf-8?B?M2s5aVh0V3hTOFdybzdZYk5TaGVKZjlkd3poN1V6QXdzWEtyS2NEMVhkczNz?=
- =?utf-8?B?cmJZdkl1QkRYVlFaM2Jrbk4rOUhaSXNyMjJZTHZDRDM3QUpraTNzZlZTbE1u?=
- =?utf-8?B?S0hUWEpSVENBeFRlQ280TlVBWnhhZUIrUklSS1B2aEl6UG1kWm9FbEVRVFhr?=
- =?utf-8?B?cUNGL3NTQzdoZDA3OXR6YmUrNjJjNEpEc0tWTkpUNFJOZXpoMldrdGQ5RHNz?=
- =?utf-8?B?R0lOTUtjay9VdFNrRTc2NFJBRzJTM2RsY2RYbmlDeTlNK0srVFlpSWJFTmk2?=
- =?utf-8?B?WkUySzQycmdHZmRCdHgzL2RLcGZ2VFYreHcvUEtlaktXdFovbGFDdURDbmh4?=
- =?utf-8?B?aUc3b2twYzY2cnZ6NHRrWk5WVFFiT0ZUbjBxRjFJTkpzYThrS0Jna2ZpUHFu?=
- =?utf-8?B?aGpjeDJhTHMvMVRVWVh6cUhuWVBtS1RkVXFJd3ZIeUJUdjlvRVVNdm5aT2JK?=
- =?utf-8?B?NkhMRnV4TGJJemFjYVBQWVVRSkxONFFGSlhkNDFtQXY1VnlHdUVNMFRLMHVa?=
- =?utf-8?B?ZUJEdzcreVlUQUNqMTZRN05rL3hVRlZtVW5jMERXcy80WG45YkxGQmVRQjEx?=
- =?utf-8?B?MVcrdWEwbm5BV2V6T2Nxa1Z6WG1pdHNsbUVmQUhDSm9Ed2x5VmNWQ1pBM1py?=
- =?utf-8?B?SEJoNDEveHVHYlBPdGNrVTJrNlo3a2p5VjBMMmJzcmJaay84aXd5T1ZlZ04y?=
- =?utf-8?B?WTJack10Uk9YU1FXWm5LWXhSbVlNdkdPclJvaW5SelZ0R2dMWjlrZEF5czRm?=
- =?utf-8?B?YmdNZHBBWXNibnlCR2tMMTFNbEQ1cHBzYjNxeVRrUEFWMnJtc0k2ZjdRbHdU?=
- =?utf-8?B?QzQ3VmZVaGZYVHp2K3BRMDRRVW5OeG5wRjg5S3hjemZHMkNYYnRmNkhQMVVI?=
- =?utf-8?B?YllnOVBLbzhVYTlsSVJ4VjJtaFNnZVl4RTc1bE04SlZMTEFMd0FDeXlKdTlU?=
- =?utf-8?B?amJyNkczY1hBeTRMMGRzK0ZSUWRybnQ1aDJEWUVrbjNhZWtrbytzTTBMWHZM?=
- =?utf-8?B?czR3Yzc3SjhZQzVETFJOblBoc2hHc3FHYWtPOFFTdVlEQU1VQ0Z0RTFnOWpO?=
- =?utf-8?B?YXZROW9zWnNFQlRDVkFlbmVHd3NVM2NkZlBBenhqa0s3b2FMYlRvREo0NGsv?=
- =?utf-8?B?bjV5NlVwZzJiYTlhTllIUG9rT1JWU2x4OGkyZ2JaZ0VGczFseVArOFJadmFI?=
- =?utf-8?B?WlR6UURPdXQrRXFWdTFrT3BTRDlIaUlpZzRUWjViMk1IYkZ4aldoMHpoWm9a?=
- =?utf-8?B?akNGN0wwV21jaTY0ZTFyc3ZUelZhRWVjMTBVYklTTk81dVg3L1JpUTdFblQ1?=
- =?utf-8?B?YVhtYkZGOUM3RERDSGRjR1Q4MXc0d2paeUxvdFZ3K3dsMlg4ZEVUUWJDbmxG?=
- =?utf-8?B?bllncFhuWTlHMWRDdXRVY203cGttUWRiUHMvSUdQQXc3VWRvS1p4eHNXbkRz?=
- =?utf-8?B?VjcvMjJlUGVuV2FvZFRGUHRHeDhFOFBsOHpOc29jdGYwbjI5UmxFUU8xWEJi?=
- =?utf-8?B?UXc5UHlVRko2eVVGVFd0S0h3ZkJOelJRQVR2c2RPdEh5UFVjdk9rQkZIclNO?=
- =?utf-8?B?aXFQczRMdXZETlFpcUdvNUV1OGV3dnM1TFhuZnNldG44bjhkSTJmSGErT0RT?=
- =?utf-8?B?OHF1bzkrSnpaaXZUczZPRzJLUGVueWg3WXJuMDB3dy83VlE0cXA0M0M4LzNR?=
- =?utf-8?B?OURHcWJGVDFseEd1VHljT3pBYklLTGQ2VUs0YW1Vc3kxaVl5eXYrdXQ3d2RW?=
- =?utf-8?B?YW9QNTAyRzRlM0hhZWpNRWNoVXFNZEVSQzFqRm1NTXJRb2l3YjVhUHRqZ25X?=
- =?utf-8?B?anVMVEZoUFRFVzRmM2d0UkdDVnRCa1o2MlBQRXZuUm8yT3RRQWhodlVraFRG?=
- =?utf-8?B?UElRTUlWckZmRGo4YkY0WVB5VStrVmM0QjdKbmVqZlpENEY1RGI2bTkzWmFt?=
- =?utf-8?B?TTNnVnROWk5qSkUzWEluSHB2RGRUSlFHMU5EdW5lN1Q3T2Z2UkNlVlRiYmk4?=
- =?utf-8?Q?Bymoe21N6I7kxkGgW2S9MHTIY?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 13 Nov 2024 08:05:52 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-724455f40a0so1769988b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 00:05:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731485149; x=1732089949; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=hlw6kUSyPp5tLgtfsZkFNg3PR6lL49gz78ER/JqTsTQ=;
+        b=dO0SXth9z5GDezgNwGzXi8PGUewSUN/hleE2PC4W3xI65uORHhYxv2hfia201KOifM
+         EoUO+1nLdD5AM0asxYwOIcAMkWL2/T4Uqj3K+wJdr8P/51ylCe2w1TteVY1BqlA+aGQB
+         ils8g8NGYwWJFppHlOa3ZWCdPRR1R39wnlr/cqBNNgVATOQzTtmK0tEMQKcPKGVMRigX
+         +alcqO7H7kbFhijh2sQ/eu6VPVv7OT/u3ECCoU2mQPu7Y5bAm4KAWWuyfu/Gavddvt6O
+         xX1ErSkLKxZhfZyWQtM9pdgkhPL7PT4LynCf8L2yhyqfdZnO/PzYmrFMpT4vZNRnKdou
+         waDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731485149; x=1732089949;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hlw6kUSyPp5tLgtfsZkFNg3PR6lL49gz78ER/JqTsTQ=;
+        b=xTuxGjs4LX8AmhC3BVrxybvFn538CkuB6PNmvisVtgEv7rNKeQKgLiZpECzJrQNsvt
+         hj5M3GPwf7vdezHP6mp/DjhkhWpUDOHVmVC7Azmqevv3Ky6LJ0Mt3mLHMQDbJSnIGyCD
+         FGg/DvyPt8aMTLzkj+SwU7MeXAjZDWRtuqdvxuQBhGSGVCfq55hx5fnJ7DOj61VHpXOP
+         4hni2kyTEWDFEQ9pKaHO7dN0o71+eG3UQkquD5acz7pJXeC6sTy8jQ7Mn3jT/t261nMh
+         MfIcbxwE8PwQEorOaY/T764OPoGg5k0RwqL52/r+PEoPCKM2DMKzyo7b3aayWx+O5JWN
+         or9A==
+X-Forwarded-Encrypted: i=1; AJvYcCUU98vhvlI1ZKwXN9Z+/4vAXHJ4Oh5HT5ey7k21coP5ZUf1Uo/3msG2Ej01Wi0Ky3evhnBcEd6vCtgpUtYbrguI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJoDokHFL0wXZbnpPe/Zd9n8qL7R7nIQ7st3Ueiju/B4o2JHHK
+	Y749WQiIIVVOhxWYKaHNjlRKbNXRuB0lLvFcrRD5f8wqZU+BUpulob/P/B71pw==
+X-Google-Smtp-Source: AGHT+IEjDnxKhbCCSCBWYLn3McpIR9HgecocJsUDjXO9Dqd9HW2AhapmTEwblwCMv1Z5Ny/KnEVQ9w==
+X-Received: by 2002:a05:6a20:6a20:b0:1d9:3957:8a14 with SMTP id adf61e73a8af0-1dc228b0182mr24476009637.1.1731485149130;
+        Wed, 13 Nov 2024 00:05:49 -0800 (PST)
+Received: from thinkpad ([117.213.103.244])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f7127f3b01sm960520a12.84.2024.11.13.00.05.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 00:05:48 -0800 (PST)
+Date: Wed, 13 Nov 2024 13:35:40 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Konrad Dybcio <konradybcio@gmail.com>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on
+ pre-SYSTEM_SUSPEND PSCI impls
+Message-ID: <20241113080540.mtm7nu7nqrfz27yj@thinkpad>
+References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
+ <20241112180118.pcn7sf6r3mswwwxf@thinkpad>
+ <ce1d2196-cf09-4d27-8b41-372948a59e89@gmail.com>
+ <20241112184301.6mlwpfzzowut36pn@thinkpad>
+ <eeec6eea-edb4-414e-9c11-88054e3624e4@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c78005d3-13da-4f51-0cbb-08dd03b6cf0c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Nov 2024 07:43:04.8838
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: XrhPtkHK0MOQL4eHBtEvgPjHsPZaX2mV5dQgKEDdrdXDe8vd4q1NiTOtNinqAI7FwLxWupuGT3wJGq/ECCehy00B+xqL7JGHsSDO3crYqHg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6749
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <eeec6eea-edb4-414e-9c11-88054e3624e4@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_234317_434702_8A1AC119 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20241113_000550_900048_E0CE1516 
+X-CRM114-Status: GOOD (  55.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,35 +107,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYxNSAyLzNdIGkyYzogYXNwZWVkOiBzdXBwb3J0IEFTVDI2
-MDAgaTJjIG5ldyByZWdpc3Rlcg0KPiBtb2RlIGRyaXZlcg0KPiANCj4gT24gTW8sIDIwMjQtMTAt
-MDcgYXQgMTE6NTIgKzA4MDAsIFJ5YW4gQ2hlbiB3cm90ZToNCj4gPiBBZGQgaTJjIG5ldyByZWdp
-c3RlciBtb2RlIGRyaXZlciB0byBzdXBwb3J0IEFTVDI2MDAgaTJjIG5ldyByZWdpc3Rlcg0KPiA+
-IG1vZGUuIEFTVDI2MDAgaTJjIGNvbnRyb2xsZXIgaGF2ZSBsZWdhY3kgYW5kIG5ldyByZWdpc3Rl
-ciBtb2RlLiBUaGUNCj4gPiBuZXcgcmVnaXN0ZXIgbW9kZSBoYXZlIGdsb2JhbCByZWdpc3RlciBz
-dXBwb3J0IDQgYmFzZSBjbG9jayBmb3Igc2NsDQo+ID4gY2xvY2sgc2VsZWN0aW9uLCBhbmQgbmV3
-IGNsb2NrIGRpdmlkZXIgbW9kZS4gVGhlIG5ldyByZWdpc3RlciBtb2RlDQo+ID4gaGF2ZSBzZXBh
-cmF0ZSByZWdpc3RlciBzZXQgdG8gY29udHJvbCBpMmMgY29udHJvbGxlciBhbmQgdGFyZ2V0LiBU
-aGlzDQo+ID4gcGF0Y2ggaXMgZm9yIGkyYyBjb250cm9sbGVyIG1vZGUgZHJpdmVyLg0KPiA+DQo+
-ID4gU2lnbmVkLW9mZi1ieTogUnlhbiBDaGVuIDxyeWFuX2NoZW5AYXNwZWVkdGVjaC5jb20+DQo+
-ID4gLS0tDQo+ID4gIGRyaXZlcnMvaTJjL2J1c3Nlcy9LY29uZmlnICAgICAgIHwgICAxMSArDQo+
-ID4gIGRyaXZlcnMvaTJjL2J1c3Nlcy9NYWtlZmlsZSAgICAgIHwgICAgMSArDQo+ID4gIGRyaXZl
-cnMvaTJjL2J1c3Nlcy9pMmMtYXN0MjYwMC5jIHwgMTAzMg0KPiA+ICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKw0KPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDEwNDQgaW5zZXJ0aW9ucygrKQ0K
-PiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1hc3QyNjAwLmMN
-Cj4gPg0KPiBbLi4uXQ0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2kyYy9idXNzZXMvaTJjLWFz
-dDI2MDAuYw0KPiA+IGIvZHJpdmVycy9pMmMvYnVzc2VzL2kyYy1hc3QyNjAwLmMNCj4gPiBuZXcg
-ZmlsZSBtb2RlIDEwMDY0NA0KPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uMTdiYTBlZTc3YzI3DQo+
-ID4gLS0tIC9kZXYvbnVsbA0KPiA+ICsrKyBiL2RyaXZlcnMvaTJjL2J1c3Nlcy9pMmMtYXN0MjYw
-MC5jDQo+ID4gQEAgLTAsMCArMSwxMDMyIEBADQo+IFsuLi5dDQo+ID4gK3N0YXRpYyBpbnQgYXN0
-MjYwMF9pMmNfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikgew0KPiBbLi4uXQ0K
-PiA+ICsJaTJjX2J1cy0+cnN0ID0gZGV2bV9yZXNldF9jb250cm9sX2dldF9zaGFyZWQoZGV2LCBO
-VUxMKTsNCj4gPiArCWlmIChJU19FUlIoaTJjX2J1cy0+cnN0KSkNCj4gPiArCQlyZXR1cm4gZGV2
-X2Vycl9wcm9iZShkZXYsIFBUUl9FUlIoaTJjX2J1cy0+cnN0KSwgIk1pc3NpbmcgcmVzZXQNCj4g
-PiArY3RybFxuIik7DQo+ID4gKw0KPiA+ICsJcmVzZXRfY29udHJvbF9kZWFzc2VydChpMmNfYnVz
-LT5yc3QpOw0KPiANCj4gVGhlIHNoYXJlZCByZXNldCBzaG91bGQgYmUgYXNzZXJ0ZWQgYWdhaW4g
-aW4gYXN0MjYwMF9pMmNfcmVtb3ZlKCkuDQo+IA0KSGVsbG8sDQpJdCBpcyBzaGFyZSByZXNldCwg
-aWYgdW5ib25kIGRyaXZlciBhbmQgYXNzZXJ0ZWQgdGhlIHJlc2V0LCBpdCB3aWxsIGFmZmVjdCBv
-dGhlcnMgZHJpdmVyIHJ1bm5pbmcgKHdoaWNoIGlzIHNoYXJlIHdpdGggdGhlIHNhbWUgcmVzZXQu
-KQ0KDQo+IHJlZ2FyZHMNCj4gUGhpbGlwcA0K
+On Tue, Nov 12, 2024 at 08:04:34PM +0100, Konrad Dybcio wrote:
+> 
+> 
+> On 11/12/24 19:43, Manivannan Sadhasivam wrote:
+> > On Tue, Nov 12, 2024 at 07:32:36PM +0100, Konrad Dybcio wrote:
+> > > 
+> > > 
+> > > On 11/12/24 19:01, Manivannan Sadhasivam wrote:
+> > > > On Mon, Oct 28, 2024 at 03:22:56PM +0100, Konrad Dybcio wrote:
+> > > > > Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
+> > > > > CPU_SUSPEND instead. Inform Linux about that.
+> > > > > Please see the commit messages for a more detailed explanation.
+> > > > > 
+> > > > 
+> > > > It is still not PSCI_SYSTEM_SUSPEND though...
+> > > 
+> > > It *literally* does the same thing on devices where it's exposed.
+> > > 
+> > 
+> > But still...
+> 
+> Still-what? We can't replace the signed firmware on (unironically) tens
+> of millions of devices in the wild and this is how it exposes that sleep
+> state. This is how arm platforms did it before the PSCI spec was
+> updated and SYSTEM_SUSPEND is *still optional today*.
+> 
+
+I never asked you to replace the firmware in first place, so don't quote the
+fact I never said. I see this approach as a way of abusing/faking PSCI system
+suspend.
+
+Moreover, I heard from Bjorn that Qcom doesn't want to put the PCIe devices into
+D3Cold during system suspend for future platforms (based on their
+experimentation). So if drivers rely on this static information, then even Qcom
+cannot achieve what they want.
+
+> 
+> > > > > This is effectively a more educated follow-up to [1].
+> > > > > 
+> > > > > The ultimate goal is to stop making Linux think that certain states
+> > > > > only concern cores/clusters, and consequently setting
+> > > > > pm_set_suspend/resume_via_firmware(), so that client drivers (such as
+> > > > > NVMe, see related discussion over at [2]) can make informed decisions
+> > > > > about assuming the power state of the device they govern.
+> > > > > 
+> > > > > If this series gets green light, I'll push a follow-up one that wires
+> > > > > up said sleep state on Qualcomm SoCs across the board.
+> > > > > 
+> > > > 
+> > > > Sorry. I don't think PSCI is the right place for this. Qcom SoCs have a common
+> > > > firmware across all segments (mostly),
+> > > 
+> > > This ^
+> > > 
+> > > > so there is no S2R involved and only S2Idle.
+> > > 
+> > > is not at all related to this ^, the "so" makes no sense.
+> > > 
+> > > (also you're wrong, this *is* S2RAM)
+> > > 
+> > 
+> > What? Qcom SoCs supporting S2R? I'm unheard of.
+> 
+> Maybe you're thinking of hibernation, which is not widely (if at all)
+> supported.
+> 
+
+Not hibernation. The Qcom platforms I've aware of all support only S2Idle. I
+don't work for Qcom, so I may be missing some insider information.
+
+> 
+> > > > If you use PSCI to implement suspend_via_firmware(), then all the SoCs
+> > > > making use of the PSCI implementation will have the same behavior. I don't think
+> > > > we would want that.
+> > > 
+> > > This is an issue with the NVMe framework that is totally unrelated to this
+> > > change, see below. Also, the code only sets that on targets where such state
+> > > exists and is described.
+> > > 
+> > 
+> > Well, you are doing it just because you want the NVMe device to learn about the
+> > platform requirement.
+> 
+> And I can't see why you're having a problem with this. It's exactly how it
+> works on x86 too. Modern Standby also shuts down storage on Windows,
+> regardless of the CPU architecture.
+
+It is not just my problem. I'm expressing the concern that NVMe folks have and
+already expressed over the similar solutions I proposed. And I cannot just
+overrule them.
+
+> > > > For instance, if a Qcom SoC is used in an android tablet with the same firmware,
+> > > > then this would allow the NVMe device to be turned off during system suspend all
+> > > > the time when user presses the lock button. And this will cause NVMe device to
+> > > > wear out faster. The said approach will work fine for non-android usecases
+> > > > though.
+> > > 
+> > > The NVMe framework doesn't make a distinction between "phone screen off" and
+> > > "laptop lid closed & thrown in a bag" on *any* platform. The usecase you're
+> > > describing is not supported as of today since nobody *actually* has NVMe on a
+> > > phone that also happens to run upstream Linux.
+> > > I'm not going to solve imaginary problems.
+> > > 
+> > 
+> > Not just phone, NVMe device could be running on an android tablet.
+> 
+> 'Could' very much makes it imaginary. There are no supported devices that
+> fall into this category.
+> 
+
+Agree that there are no products in the market (yet). But having NMVe on
+handheld devices is not something I would quote as 'imaginary'.
+
+> > I'm not
+> > talking about an imaginary problem, but a real problem that is in a forseeable
+> > future
+> 
+> Keyword: future. This issue has been on hold for years because of 'issues'
+> that are pinky promised to happen eventually, without anyone suggesting any
+> actually acceptable solutions. This just undermines progress.
+> 
+
+Not true. There are solutions suggested, but then it always takes time to reach
+consensus. One of the approach that I'm about to propose is to have a userspace
+knob that specifies whether the device can be powered down or not (leaving the
+default behavior to put them in low power state). Because, the decision to put
+the devices into power down or low power state sounds more like an userspace
+policy. It was discussed at LPC 2023.
+
+> > (that is also the reason why NVMe developers doesn't want to put the
+> > device into power down mode always during system suspend).
+> 
+> This is the current behavior on any new x86 laptop, and has been for a
+> couple of years.
+> 
+> > And with this change, you are just going to make the NVMe lifetime miserable on
+> > those platforms.
+> 
+> Fearmongering and hearsay. See above.
+> 
+
+I can only wish you best of luck with this approach!
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
