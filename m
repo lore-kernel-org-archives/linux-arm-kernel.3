@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A60ED637C7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6F3D637C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Opob3RQduFMh0i0m3N7+n1mMptl8D8HlInDDs6UHQk4=; b=EssBYAXe41z38qsNwdqrPoBMHG
-	EN7k/6X3/qr5+hnEQyRJ7pMMPdzUNht0JjURLYeHruF1042UGWcSVfdBJOZbLgNzI/EQwpnjQ2i1I
-	JLaRHFNYQWHnkJUiODA47JhuluNv+48gY2W9ddAHizsdBnk8e7jXJS009vGKCyeUdJznYkBPl6z2x
-	3HBgx9p0jXGEJQfWRZ6xTCnXIG+mVmDPbQQ0NHbSLexZNf+E1ZEmasACvXvO2fZ2zU6T7CoLNqWBw
-	Jobso185boywxfbZS+C4Fi03+hTHNv2YyHVKYRLWcEO0ZcCILswHjLi9bWqGpfg5zmO6KICq+VfiB
-	eTO5kYTQ==;
+	bh=U7rRIWHsXz4Qk41bRuDMS+I29WxUPK/0LlEpdiTFuDI=; b=JLtQMk2RxkbDRzfW76utmJO+Eb
+	uNkRg+Df5ofT6GEA9WnyCzrcIGTV5Nr3E/MqiSfiq1JiqcpidpR8iGszfC/5e3X3zG63z8sp14sY2
+	wtAyC1hNLD5SOKBzRLmVcYoem/9xeeJDZuqJ3ioVo4YyYmtHe9F/fLJJN+9KEDuNMTtOjLNzGDzPH
+	5cMJ9OPMfGk30FZrGDjn9ICoGbwsS8MP5jbDhVLpyqqtLmk+USpFc23Mal2m5JN0eNzmn6P+15cPt
+	NB1xvgtNLJb044XjEQmZXWX1o/TBZaXEJYVNaIgjSgSgLV17dKzcz5XH3b+Ia1rGkK9scIFfW2PSy
+	aqh1FQJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKnQ-000000083oo-1Oyj;
-	Wed, 13 Nov 2024 21:21:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1tBKpB-00000008444-41gM;
+	Wed, 13 Nov 2024 21:22:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKf5-000000082Mz-0JjC
+	id 1tBKf6-000000082O4-0pIf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 21:12:28 +0000
+	Wed, 13 Nov 2024 21:12:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1731532347; x=1763068347;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=svbx3/Il10T0pAS9HC3iTDtx7A8zQjEjVIdly0SxNoc=;
-  b=IAx4KRyNdwrrIiftqP+LqalEig8z6iW+qz8D+/dxkjldKlhv7Phc7uqr
-   qwciGD7E/dq4oiWyZpB4SlCcekP3SGjPqg7Zy6A7vEbTvqEj1PxUlO+AV
-   y/OqwwU243V4ctQ+vHyJWQVHCIz2k9c90l7W7QjvCXMIdPQMzDsMAvHuQ
-   a1vSx8Ds0iEDlMMhV0KUcn/LCRG+RmpW+am5EQ4MuhIBN2VX52sufPFDo
-   TAXfNR8VhCQQThPIGH90BbZA1DvLIpUTOAoc34S8QbsNMno8nRhMdkW4H
-   aH9sNPt2DYf0UBhFSqjvzQg7KSWvTpRCysMdUpAqE8kuXs+ce2e5esXBv
+  bh=2qCjpEJYShIx/sj1pC5fR56LXn0Fxs6FgjIMYfk/Txk=;
+  b=ONCtkMAMmzEasJ+SnI0kl4qWVs5cTvd3oiQ+hDq3p8OLUUT/BMv62FeF
+   w22RjFhptRxtmiqDVcfPYgKiXxseOqAp0M3QKmRWMcUszlOoVxi+u/7JH
+   LCNQeIyDx25OPI9E6S1DKgN0RVirea5cH5gR+pEoC6AkEI6rKC7TpQoGO
+   VM+xBXCwDH9GN5Gpc+gO7qHdn/7u1dFyMFk+be4M6uPwcUM1dDrhsZxiY
+   l/iisPF6ZD5mCxLEfLHQePS4mH78OFupIFzLkIgXP5JKWCN1cEYHSb50v
+   hThdbIYBir9lfzPUrf5jISnWMcJ8FOcpKIXxU4mZDvhzO8G9GwQ3jTpu0
    w==;
-X-CSE-ConnectionGUID: F8Mv1SaFTZWcTt5A65WwiA==
-X-CSE-MsgGUID: +FM6cmYhQgS3ssI4f5iwQQ==
+X-CSE-ConnectionGUID: vQdPcQJhS0S1px+vMo5fhw==
+X-CSE-MsgGUID: 1RTdRI1nTPmDpstT58ipgA==
 X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
-   d="scan'208";a="34014107"
+   d="scan'208";a="37813508"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:24 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:27 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 13 Nov 2024 14:11:44 -0700
+ 15.1.2507.35; Wed, 13 Nov 2024 14:11:56 -0700
 Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:41 -0700
+ 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:53 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Wed, 13 Nov 2024 22:11:11 +0100
-Subject: [PATCH net-next v2 3/8] net: sparx5: use is_port_rgmii()
- throughout
+Date: Wed, 13 Nov 2024 22:11:15 +0100
+Subject: [PATCH net-next v2 7/8] net: lan969x: add RGMII implementation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-3-0db98ac096d1@microchip.com>
+Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-7-0db98ac096d1@microchip.com>
 References: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
 In-Reply-To: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
 To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -76,8 +75,8 @@ CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
 X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_131227_314154_AFA7591E 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20241113_131228_428427_AB93C85D 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,117 +91,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we can check if a given port is an RGMII port, use it in the
-following cases:
+The lan969x switch device includes two RGMII interfaces (port 28 and 29)
+supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps. MAC level delays
+are configurable through the HSIO_WRAP target, by choosing a phase shift
+selector, corresponding to a certain time delay in nano seconds.
 
- - To set RGMII PHY modes for RGMII port devices.
-
- - To avoid checking for a SerDes node in the devicetree, when the port
-   is an RGMII port.
-
- - To bail out of sparx5_port_init() when the common configuration is
-   done.
+Add new file: lan969x_rgmii.c that contains the implementation for
+configuring the RGMII port devices. MAC level delays are configured
+using the "{rx,tx}-internal-delay-ps" properties. These properties are
+required (documented in dt-bindings in a subsequent patch), and must be
+specified independently of the phy-mode (e.g. regardless of what the
+RGMII phy-mode is set to).
 
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../net/ethernet/microchip/sparx5/sparx5_main.c    | 28 +++++++++++++++-------
- .../net/ethernet/microchip/sparx5/sparx5_port.c    |  3 +++
- 2 files changed, 23 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/microchip/lan969x/Makefile    |   2 +-
+ drivers/net/ethernet/microchip/lan969x/lan969x.c   |   1 +
+ drivers/net/ethernet/microchip/lan969x/lan969x.h   |   5 +
+ .../net/ethernet/microchip/lan969x/lan969x_rgmii.c | 237 +++++++++++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |   2 +
+ .../net/ethernet/microchip/sparx5/sparx5_port.c    |   6 +
+ 6 files changed, 252 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index ad8c048179c7..2967dd1952e9 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -313,10 +313,13 @@ static int sparx5_create_port(struct sparx5 *sparx5,
- 			      struct initial_port_config *config)
- {
- 	struct sparx5_port *spx5_port;
-+	const struct sparx5_ops *ops;
- 	struct net_device *ndev;
- 	struct phylink *phylink;
- 	int err;
+diff --git a/drivers/net/ethernet/microchip/lan969x/Makefile b/drivers/net/ethernet/microchip/lan969x/Makefile
+index 9a2351b4f111..d405234488b3 100644
+--- a/drivers/net/ethernet/microchip/lan969x/Makefile
++++ b/drivers/net/ethernet/microchip/lan969x/Makefile
+@@ -6,7 +6,7 @@
+ obj-$(CONFIG_LAN969X_SWITCH) += lan969x-switch.o
  
-+	ops = sparx5->data->ops;
+ lan969x-switch-y := lan969x_regs.o lan969x.o lan969x_calendar.o \
+- lan969x_vcap_ag_api.o lan969x_vcap_impl.o
++ lan969x_vcap_ag_api.o lan969x_vcap_impl.o lan969x_rgmii.o
+ 
+ # Provide include files
+ ccflags-y += -I$(srctree)/drivers/net/ethernet/microchip/fdma
+diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.c b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+index 4dce88e23a24..aaa5d4dc1d52 100644
+--- a/drivers/net/ethernet/microchip/lan969x/lan969x.c
++++ b/drivers/net/ethernet/microchip/lan969x/lan969x.c
+@@ -340,6 +340,7 @@ static const struct sparx5_ops lan969x_ops = {
+ 	.set_port_mux            = &lan969x_port_mux_set,
+ 	.ptp_irq_handler         = &lan969x_ptp_irq_handler,
+ 	.dsm_calendar_calc       = &lan969x_dsm_calendar_calc,
++	.port_config_rgmii       = &lan969x_port_config_rgmii,
+ };
+ 
+ const struct sparx5_match_data lan969x_desc = {
+diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x.h b/drivers/net/ethernet/microchip/lan969x/lan969x.h
+index 4b91c47d6d21..9a7ddebecf1e 100644
+--- a/drivers/net/ethernet/microchip/lan969x/lan969x.h
++++ b/drivers/net/ethernet/microchip/lan969x/lan969x.h
+@@ -67,4 +67,9 @@ static inline bool lan969x_port_is_rgmii(int portno)
+ /* lan969x_calendar.c */
+ int lan969x_dsm_calendar_calc(struct sparx5 *sparx5, u32 taxi,
+ 			      struct sparx5_calendar_data *data);
 +
- 	ndev = sparx5_create_netdev(sparx5, config->portno);
- 	if (IS_ERR(ndev)) {
- 		dev_err(sparx5->dev, "Could not create net device: %02u\n",
-@@ -357,6 +360,9 @@ static int sparx5_create_port(struct sparx5 *sparx5,
- 		MAC_SYM_PAUSE | MAC_10 | MAC_100 | MAC_1000FD |
- 		MAC_2500FD | MAC_5000FD | MAC_10000FD | MAC_25000FD;
- 
-+	if (ops->is_port_rgmii(spx5_port->portno))
-+		phy_interface_set_rgmii(spx5_port->phylink_config.supported_interfaces);
++/* lan969x_rgmii.c */
++int lan969x_port_config_rgmii(struct sparx5_port *port,
++			      struct sparx5_port_config *conf);
 +
- 	__set_bit(PHY_INTERFACE_MODE_SGMII,
- 		  spx5_port->phylink_config.supported_interfaces);
- 	__set_bit(PHY_INTERFACE_MODE_QSGMII,
-@@ -831,6 +837,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 	struct initial_port_config *configs, *config;
- 	struct device_node *np = pdev->dev.of_node;
- 	struct device_node *ports, *portnp;
-+	const struct sparx5_ops *ops;
- 	struct reset_control *reset;
- 	struct sparx5 *sparx5;
- 	int idx = 0, err = 0;
-@@ -852,6 +859,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 		return -EINVAL;
+ #endif
+diff --git a/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c b/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c
+new file mode 100644
+index 000000000000..b2d6e2d54fdb
+--- /dev/null
++++ b/drivers/net/ethernet/microchip/lan969x/lan969x_rgmii.c
+@@ -0,0 +1,237 @@
++// SPDX-License-Identifier: GPL-2.0+
++/* Microchip lan969x Switch driver
++ *
++ * Copyright (c) 2024 Microchip Technology Inc. and its subsidiaries.
++ */
++
++#include "lan969x.h"
++
++/* Tx clock selectors */
++#define LAN969X_RGMII_TX_CLK_SEL_125MHZ 1  /* 1000Mbps */
++#define LAN969X_RGMII_TX_CLK_SEL_25MHZ  2  /* 100Mbps */
++#define LAN969X_RGMII_TX_CLK_SEL_2M5MHZ 3  /* 10Mbps */
++
++/* Port speed selectors */
++#define LAN969X_RGMII_SPEED_SEL_10 0   /* Select 10Mbps speed */
++#define LAN969X_RGMII_SPEED_SEL_100 1  /* Select 100Mbps speed */
++#define LAN969X_RGMII_SPEED_SEL_1000 2 /* Select 1000Mbps speed */
++
++/* Clock delay selectors */
++#define LAN969X_RGMII_CLK_DELAY_SEL_1_0_NS 2  /* Phase shift 45deg */
++#define LAN969X_RGMII_CLK_DELAY_SEL_1_7_NS 3  /* Phase shift 77deg */
++#define LAN969X_RGMII_CLK_DELAY_SEL_2_0_NS 4  /* Phase shift 90deg */
++#define LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS 5  /* Phase shift 112deg */
++#define LAN969X_RGMII_CLK_DELAY_SEL_3_0_NS 6  /* Phase shift 135deg */
++#define LAN969X_RGMII_CLK_DELAY_SEL_3_3_NS 7  /* Phase shift 147deg */
++
++#define LAN969X_RGMII_PORT_START_IDX 28 /* Index of the first RGMII port */
++#define LAN969X_RGMII_IFG_TX 4          /* TX Inter Frame Gap value */
++#define LAN969X_RGMII_IFG_RX1 5         /* RX1 Inter Frame Gap value */
++#define LAN969X_RGMII_IFG_RX2 1         /* RX2 Inter Frame Gap value */
++
++#define RGMII_PORT_IDX(port) ((port)->portno - LAN969X_RGMII_PORT_START_IDX)
++
++/* Get the tx clock selector based on the port speed. */
++static int lan969x_rgmii_get_clk_sel(int speed)
++{
++	return (speed == SPEED_10  ? LAN969X_RGMII_TX_CLK_SEL_2M5MHZ :
++		speed == SPEED_100 ? LAN969X_RGMII_TX_CLK_SEL_25MHZ :
++				     LAN969X_RGMII_TX_CLK_SEL_125MHZ);
++}
++
++/* Get the port speed selector based on the port speed. */
++static int lan969x_rgmii_get_speed_sel(int speed)
++{
++	return (speed == SPEED_10  ? LAN969X_RGMII_SPEED_SEL_10 :
++		speed == SPEED_100 ? LAN969X_RGMII_SPEED_SEL_100 :
++				     LAN969X_RGMII_SPEED_SEL_1000);
++}
++
++/* Get the clock delay selector based on the clock delay in picoseconds. */
++static int lan969x_rgmii_get_clk_delay_sel(struct sparx5_port *port,
++					   u32 delay_ps, u32 *clk_delay_sel)
++{
++	switch (delay_ps) {
++	case 0:
++		/* Hardware default selector. */
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS;
++		break;
++	case 1000:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_1_0_NS;
++		break;
++	case 1700:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_1_7_NS;
++		break;
++	case 2000:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_0_NS;
++		break;
++	case 2500:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_2_5_NS;
++		break;
++	case 3000:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_3_0_NS;
++		break;
++	case 3300:
++		*clk_delay_sel = LAN969X_RGMII_CLK_DELAY_SEL_3_3_NS;
++		break;
++	default:
++		dev_err(port->sparx5->dev, "Invalid RGMII delay: %u", delay_ps);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++/* Configure the RGMII tx clock frequency. */
++static void lan969x_rgmii_tx_clk_config(struct sparx5_port *port,
++					struct sparx5_port_config *conf)
++{
++	u32 clk_sel = lan969x_rgmii_get_clk_sel(conf->speed);
++	u32 idx = RGMII_PORT_IDX(port);
++
++	/* Take the RGMII clock domain out of reset and set tx clock
++	 * frequency.
++	 */
++	spx5_rmw(HSIO_WRAP_RGMII_CFG_TX_CLK_CFG_SET(clk_sel) |
++		 HSIO_WRAP_RGMII_CFG_RGMII_TX_RST_SET(0) |
++		 HSIO_WRAP_RGMII_CFG_RGMII_RX_RST_SET(0),
++		 HSIO_WRAP_RGMII_CFG_TX_CLK_CFG |
++		 HSIO_WRAP_RGMII_CFG_RGMII_TX_RST |
++		 HSIO_WRAP_RGMII_CFG_RGMII_RX_RST,
++		 port->sparx5, HSIO_WRAP_RGMII_CFG(idx));
++}
++
++/* Configure the RGMII port device. */
++static void lan969x_rgmii_port_device_config(struct sparx5_port *port,
++					     struct sparx5_port_config *conf)
++{
++	u32 dtag, dotag, etype, speed_sel, idx = RGMII_PORT_IDX(port);
++
++	speed_sel = lan969x_rgmii_get_speed_sel(conf->speed);
++
++	etype = (port->vlan_type == SPX5_VLAN_PORT_TYPE_S_CUSTOM ?
++		 port->custom_etype :
++		 port->vlan_type == SPX5_VLAN_PORT_TYPE_C ?
++		 ETH_P_8021Q : ETH_P_8021AD);
++
++	dtag = port->max_vlan_tags == SPX5_PORT_MAX_TAGS_TWO;
++	dotag = port->max_vlan_tags != SPX5_PORT_MAX_TAGS_NONE;
++
++	/* Enable the MAC. */
++	spx5_wr(DEVRGMII_MAC_ENA_CFG_RX_ENA_SET(1) |
++		DEVRGMII_MAC_ENA_CFG_TX_ENA_SET(1),
++		port->sparx5, DEVRGMII_MAC_ENA_CFG(idx));
++
++	/* Configure the Inter Frame Gap. */
++	spx5_wr(DEVRGMII_MAC_IFG_CFG_TX_IFG_SET(LAN969X_RGMII_IFG_TX) |
++		DEVRGMII_MAC_IFG_CFG_RX_IFG1_SET(LAN969X_RGMII_IFG_RX1) |
++		DEVRGMII_MAC_IFG_CFG_RX_IFG2_SET(LAN969X_RGMII_IFG_RX2),
++		port->sparx5, DEVRGMII_MAC_IFG_CFG(idx));
++
++	/* Configure port data rate. */
++	spx5_wr(DEVRGMII_DEV_RST_CTRL_SPEED_SEL_SET(speed_sel),
++		port->sparx5, DEVRGMII_DEV_RST_CTRL(idx));
++
++	/* Configure VLAN awareness. */
++	spx5_wr(DEVRGMII_MAC_TAGS_CFG_TAG_ID_SET(etype) |
++		DEVRGMII_MAC_TAGS_CFG_PB_ENA_SET(dtag) |
++		DEVRGMII_MAC_TAGS_CFG_VLAN_AWR_ENA_SET(dotag) |
++		DEVRGMII_MAC_TAGS_CFG_VLAN_LEN_AWR_ENA_SET(dotag),
++		port->sparx5,
++		DEVRGMII_MAC_TAGS_CFG(idx));
++}
++
++/* Configure the RGMII delay lines in the MAC.
++ *
++ * We use the rx-internal-delay-ps" and "tx-internal-delay-ps" properties to
++ * configure the rx and tx delays for the MAC. These properties are required
++ * so we bail out if they are missing. If set to zero, the MAC will not apply
++ * any delay.
++ *
++ * The PHY side delays are determined by the PHY mode
++ * (e.g. PHY_INTERFACE_MODE_RGMII_{ID, RXID, TXID}), and ignored by the MAC side
++ * entirely.
++ */
++static int lan969x_rgmii_delay_config(struct sparx5_port *port,
++				      struct sparx5_port_config *conf)
++{
++	u32 tx_clk_sel, rx_clk_sel, tx_delay_ps, rx_delay_ps;
++	u32 idx = RGMII_PORT_IDX(port);
++	int err;
++
++	err = of_property_read_u32(port->of_node,
++				   "rx-internal-delay-ps",
++				   &rx_delay_ps);
++	if (err) {
++		dev_err(port->sparx5->dev,
++			"Missing or invalid property: rx-internal-delay-ps");
++		return err;
++	}
++
++	err = of_property_read_u32(port->of_node,
++				   "tx-internal-delay-ps",
++				   &tx_delay_ps);
++	if (err) {
++		dev_err(port->sparx5->dev,
++			"Missing or invalid property: tx-internal-delay-ps");
++		return err;
++	}
++
++	err = lan969x_rgmii_get_clk_delay_sel(port, rx_delay_ps, &rx_clk_sel);
++	if (err)
++		return err;
++
++	err = lan969x_rgmii_get_clk_delay_sel(port, tx_delay_ps, &tx_clk_sel);
++	if (err)
++		return err;
++
++	/* Configure rx delay. */
++	spx5_rmw(HSIO_WRAP_DLL_CFG_DLL_RST_SET(0) |
++		 HSIO_WRAP_DLL_CFG_DLL_ENA_SET(1) |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_SET(!!rx_delay_ps) |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_SET(rx_clk_sel),
++		 HSIO_WRAP_DLL_CFG_DLL_RST |
++		 HSIO_WRAP_DLL_CFG_DLL_ENA |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL,
++		 port->sparx5, HSIO_WRAP_DLL_CFG(idx, 0));
++
++	/* Configure tx delay. */
++	spx5_rmw(HSIO_WRAP_DLL_CFG_DLL_RST_SET(0) |
++		 HSIO_WRAP_DLL_CFG_DLL_ENA_SET(1) |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA_SET(!!tx_delay_ps) |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL_SET(tx_clk_sel),
++		 HSIO_WRAP_DLL_CFG_DLL_RST |
++		 HSIO_WRAP_DLL_CFG_DLL_ENA |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_ENA |
++		 HSIO_WRAP_DLL_CFG_DLL_CLK_SEL,
++		 port->sparx5, HSIO_WRAP_DLL_CFG(idx, 1));
++
++	return 0;
++}
++
++/* Configure GPIO's to be used as RGMII interface. */
++static void lan969x_rgmii_gpio_config(struct sparx5_port *port)
++{
++	u32 idx = RGMII_PORT_IDX(port);
++
++	/* Enable the RGMII on the GPIOs. */
++	spx5_wr(HSIO_WRAP_XMII_CFG_GPIO_XMII_CFG_SET(1), port->sparx5,
++		HSIO_WRAP_XMII_CFG(!idx));
++}
++
++int lan969x_port_config_rgmii(struct sparx5_port *port,
++			      struct sparx5_port_config *conf)
++{
++	int err;
++
++	err = lan969x_rgmii_delay_config(port, conf);
++	if (err)
++		return err;
++
++	lan969x_rgmii_tx_clk_config(port, conf);
++	lan969x_rgmii_gpio_config(port);
++	lan969x_rgmii_port_device_config(port, conf);
++
++	return 0;
++}
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index c58d7841638e..3ae760da17e2 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -324,6 +324,8 @@ struct sparx5_ops {
+ 	irqreturn_t (*ptp_irq_handler)(int irq, void *args);
+ 	int (*dsm_calendar_calc)(struct sparx5 *sparx5, u32 taxi,
+ 				 struct sparx5_calendar_data *data);
++	int (*port_config_rgmii)(struct sparx5_port *port,
++				 struct sparx5_port_config *conf);
+ };
  
- 	regs = sparx5->data->regs;
-+	ops = sparx5->data->ops;
- 
- 	/* Do switch core reset if available */
- 	reset = devm_reset_control_get_optional_shared(&pdev->dev, "switch");
-@@ -881,7 +889,7 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 
- 	for_each_available_child_of_node(ports, portnp) {
- 		struct sparx5_port_config *conf;
--		struct phy *serdes;
-+		struct phy *serdes = NULL;
- 		u32 portno;
- 
- 		err = of_property_read_u32(portnp, "reg", &portno);
-@@ -911,13 +919,17 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 			conf->sd_sgpio = ~0;
- 		else
- 			sparx5->sd_sgpio_remapping = true;
--		serdes = devm_of_phy_get(sparx5->dev, portnp, NULL);
--		if (IS_ERR(serdes)) {
--			err = dev_err_probe(sparx5->dev, PTR_ERR(serdes),
--					    "port %u: missing serdes\n",
--					    portno);
--			of_node_put(portnp);
--			goto cleanup_config;
-+		/* There is no SerDes node for RGMII ports. */
-+		if (!ops->is_port_rgmii(portno)) {
-+			serdes = devm_of_phy_get(sparx5->dev, portnp, NULL);
-+			if (IS_ERR(serdes)) {
-+				err = dev_err_probe(sparx5->dev,
-+						    PTR_ERR(serdes),
-+						    "port %u: missing serdes\n",
-+						    portno);
-+				of_node_put(portnp);
-+				goto cleanup_config;
-+			}
- 		}
- 		config->portno = portno;
- 		config->node = portnp;
+ struct sparx5_main_io_resource {
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index c929b2a63386..8f4f19a2bd65 100644
+index 9f0f687bd994..3d5026460e94 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -1090,6 +1090,9 @@ int sparx5_port_init(struct sparx5 *sparx5,
- 		 ANA_CL_FILTER_CTRL_FILTER_SMAC_MC_DIS,
- 		 sparx5, ANA_CL_FILTER_CTRL(port->portno));
- 
-+	if (ops->is_port_rgmii(port->portno))
-+		return 0; /* RGMII device - nothing more to configure */
-+
- 	/* Configure MAC vlan awareness */
- 	err = sparx5_port_max_tags_set(sparx5, port);
+@@ -1012,6 +1012,12 @@ int sparx5_port_config(struct sparx5 *sparx5,
  	if (err)
+ 		return err;
+ 
++	if (rgmii) {
++		err = ops->port_config_rgmii(port, conf);
++		if (err)
++			return err;
++	}
++
+ 	/* high speed device is already configured */
+ 	if (!rgmii && !high_speed_dev)
+ 		sparx5_port_config_low_set(sparx5, port, conf);
 
 -- 
 2.34.1
