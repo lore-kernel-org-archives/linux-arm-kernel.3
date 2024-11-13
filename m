@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E79D41C04
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC50CD41C06
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMEezIrbG45XSlk8ozlnEhS19DhrTeauVnopkxDTc54=; b=tNick3m0bcBMAX9bhh/6wFgUiI
-	Gbyz6tN+Y9us0NphQu06hvd6CFuJaCXvm+WbcPRS8hi33V4/0KcqYYzq4GubH46iY/qwVQNUSpB9V
-	X3qx2bXp+kDZ6y8mwsU1BgnD3bnHV9+VFznsSXBqBphPqvmxIvjMO65vbXU6sVqB4STSY7t67erxx
-	3iayvs1M9H2PVzZoAAxlJ7n2lnta2GNQHET0Y/RmQEXvIJmO9/Fe6SbZfO2ivSuNXwimC/dm/sx3m
-	/4opEJokurNrka6VICo5oe6yu8M0PWj6o0omb2Mzmaac2l1db9LYA6E+amisUSO/FVOS7s3ZCWwgK
-	YH6BGiww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=; b=CW/LeJkNRDV8FbdVnPVmWYqinj
+	0LAgSmyOlbT0HORtKnTyFCGHRmsSMag4bm8WgOrY4oTVjx8hsUQzH7yrvoas2AoPuH9ZkhjvANhM2
+	jhPfudPK8NnRbRwAvzZyesqQtC37usQDWm1I/oB/ZdJtZ9Lu3Rx2I9eOI+4nwTrxa9rFVJVbb+Bh7
+	MykMgvDMswwLYA1Z9/Dp10DVRPBaqoIPTDhJQiYrjg4hghZZCrrte7YDtppVbRlP6j8D+TOdSHq1n
+	GQX2hlL1r+dXedAmxumg0A+W7SZNf0GZ+X4OXpL45+03daDu7X63dOwgFk7B2ikowQK4/rAcl29WO
+	E5Qo1siQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCQK-00000006kwa-0aMW;
-	Wed, 13 Nov 2024 12:24:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tBCS5-00000006lEP-3WDM;
+	Wed, 13 Nov 2024 12:26:29 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCKm-00000006jpn-1riW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Nov 2024 12:18:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GMEezIrbG45XSlk8ozlnEhS19DhrTeauVnopkxDTc54=; b=ZU2kbsAkfQCC2VAp83ETJ0Xerm
-	pSRyrm0c4dVdcqOC7SpUCcg0LIgT9gGZYCpIC4B0xKk41BsTq4CfiDPKcPA4sAgfTcKUxPqkISbjz
-	mArzj+u+f/1LX9D3DQI2Ce/eFW0U0NOOekwNinJQnREidBpPAn05c2aZtUE8KRuq20KXSx5XydKlC
-	H0v8BnHYIyb+3QleokbflBLauidXsiny0qI5jN49J8ZBk2LGuq3vj2/L6rxwwaPZpdjHGX+Xjx2An
-	dMovdlIah5KqEZjCBJAtH4ACnAVYCTx6ic5xqbSmSCIUKSfjt5sDUmeqwYM4NwbwG9HgB7kUDwmP0
-	OjaqsWiQ==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCKj-0000000DGfX-0DHf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 12:18:54 +0000
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <jre@pengutronix.de>)
-	id 1tBCKh-0004eO-30; Wed, 13 Nov 2024 13:18:51 +0100
-From: Jonas Rebmann <jre@pengutronix.de>
-Date: Wed, 13 Nov 2024 13:18:32 +0100
-Subject: [PATCH v2 2/2] spi: imx: support word delay
+	id 1tBCNA-00000006kJY-2H4u;
+	Wed, 13 Nov 2024 12:21:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1731500460; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YU32egpaxQ3LPMkiCEiwlYinPgTJcYopTk+puFDwuHW/9RO5p79wjM2Ui4SYu+wL/frHuZzuy8fUUQTuKVqqr0T0NMV/4+9fM7PJU9cqkYbDQ6Gq107WiMmUYHcuOuX8UKmuuA16yr0+peWn38u9D2nDz6YNXKAJ+ZJ7WY8pYqo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1731500460; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=; 
+	b=Z+/3iUD44BYjzAGUq1cHO2bPj4wbjXN+ayl1Ka83L0+w1xcfYti/g3ZFtC2uZ4mtChZTn2nwlwi+DvPH2yfq9ezukDbOMZrolxlGcZ8mmfaBdeihUssIFVoz4iAz8trakaEKK0Fp/Th+ulWtxq/OnFN2UcGPl3JXDgO03ORpffc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1731500460;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=YAXiNxl+L7WvMZzLtoh1AuLuo/AJ/EmyL8yk+YhQn7E=;
+	b=f2CuR81N5f/eoPkL/+BDc6R275zeJ5SoF4H0cw9lo8TS+M/VEfcid4otwyE/SIj4
+	TbuBF/mb2W5vpti7JxV6wbckZ3lQNM1JlQER4u9BpJT2NKBkm5CPoLyH7wDWMVnR8OX
+	FZ7TlWHYFnUhP4hgflIVi4h5U8IU5DiK5qae+G2I=
+Received: by mx.zohomail.com with SMTPS id 1731500458968391.5228104021975;
+	Wed, 13 Nov 2024 04:20:58 -0800 (PST)
+Date: Wed, 13 Nov 2024 13:20:51 +0100
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Yunfei Dong <yunfei.dong@mediatek.com>
+Cc: Jeffrey Kardatzke <jkardatzke@google.com>,
+	=?utf-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4=?= Prado <nfraprado@collabora.com>,
+	Nathan Hebert <nhebert@chromium.org>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, Yong Wu <yong.wu@mediatek.com>,
+	Hsin-Yi Wang <hsinyi@chromium.org>,
+	Fritz Koenig <frkoenig@chromium.org>,
+	Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v7 00/28] media: mediatek: add driver to support secure
+ video decoder
+Message-ID: <20241113122051.u3iq3ci7iwrvt3mx@basti-XPS-13-9310>
+References: <20240720071606.27930-1-yunfei.dong@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241113-imx-spi-word-delay-v2-2-2b65b737bf29@pengutronix.de>
-References: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
-In-Reply-To: <20241113-imx-spi-word-delay-v2-0-2b65b737bf29@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: kernel@pengutronix.de, linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jonas Rebmann <jre@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6686; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=RB5ncjyV6HWHMW6Ku4phOVB4ibjx4PCnoNOb1IvN9EM=;
- b=owGbwMvMwCF2ZcYT3onnbjcwnlZLYkg3malVFDOraPW/RctcxDtUpgq2iKxlYhTctrdc5z67u
- neDiwt/RykLgxgHg6yYIkusmpyCkLH/dbNKu1iYOaxMIEMYuDgFYCKcbQz/9MQ51vGzK53eKVHZ
- rsbM3Pi11vLgu/AvYv+OxnJmlRVHM/wz5Wjf2X2oZuJ2hS0Xn72+ZHT+989FOQ2TDltVzE9n2f6
- eFQA=
-X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
- fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
-X-SA-Exim-Mail-From: jre@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20240720071606.27930-1-yunfei.dong@mediatek.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_121853_300929_81BDF0C2 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20241113_042124_640927_209C3F62 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,193 +99,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement support for the word delay feature of i.MX51 (and onwards) via
-the ECSPI interface.
+Hey Yunfei,
 
-Convert the requested delay to SPI cycles and account for an extra
-inter-word delay inserted by the controller in addition to the requested
-number of cycles, which was observed when testing this patch.
+On 20.07.2024 15:15, Yunfei Dong wrote:
+>The patch series used to enable secure video playback (SVP) on MediaTek
+>hardware in the Linux kernel.
 
-Disable dynamic burst when word delay is set. As the configurable delay
-period in the controller is inserted after bursts, the burst length must
-equal the word length.
+I will set this series as obsolete for now, please answer the open
+questions on your patches and then send a new series.
 
-Account for word delay in the transfer time estimation for
-polling_limit_us.
+Regards,
+Sebastian
 
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
- drivers/spi/spi-imx.c | 95 +++++++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 85 insertions(+), 10 deletions(-)
+>
+>Memory Definitions:
+>secure memory - Memory allocated in the TEE (Trusted Execution
+>Environment) which is inaccessible in the REE (Rich Execution
+>Environment, i.e. linux kernel/user space).
+>secure handle - Integer value which acts as reference to 'secure
+>memory'. Used in communication between TEE and REE to reference
+>'secure memory'.
+>secure buffer - 'secure memory' that is used to store decrypted,
+>compressed video or for other general purposes in the TEE.
+>secure surface - 'secure memory' that is used to store graphic buffers.
+>
+>Memory Usage in SVP:
+>The overall flow of SVP starts with encrypted video coming in from an
+>outside source into the REE. The REE will then allocate a 'secure
+>buffer' and send the corresponding 'secure handle' along with the
+>encrypted, compressed video data to the TEE. The TEE will then decrypt
+>the video and store the result in the 'secure buffer'. The REE will
+>then allocate a 'secure surface'. The REE will pass the 'secure
+>handles' for both the 'secure buffer' and 'secure surface' into the
+>TEE for video decoding. The video decoder HW will then decode the
+>contents of the 'secure buffer' and place the result in the 'secure
+>surface'. The REE will then attach the 'secure surface' to the overlay
+>plane for rendering of the video.
+>
+>Everything relating to ensuring security of the actual contents of the
+>'secure buffer' and 'secure surface' is out of scope for the REE and
+>is the responsibility of the TEE.
+>
+>This patch series is consists of four parts. The first is from Jeffrey,
+>adding secure memory flag in v4l2 framework to support request secure
+>buffer.
+>
+>The second and third parts are from John and T.J, adding some heap
+>interfaces, then our kernel users could allocate buffer from special
+>heap. The patch v1 is inside below dmabuf link.
+>https://lore.kernel.org/linux-mediatek/20230911023038.30649-1-yong.wu@mediatek.com/
+>To avoid confusing, move them into vcodec patch set since we use the
+>new interfaces directly.
+>
+>The last part is mediatek video decoder driver, adding tee interface and
+>decoder driver to support secure video playback.
+>
+>This patch set depends on "dma-buf: heaps: Add restricted heap"[1]
+>
+>[1] https://patchwork.kernel.org/project/linux-mediatek/list/?series=853380
+>---
+>Changed in v7:
+>- fix many reviewer's comments
+>- build optee driver to ko
+>- support h264 svp and non svp vsi
+>
+>Changed in v6:
+>- fix unreasonable logic for patch 2/3/23
+>- add to support vp9 for patch 24
+>
+>Changed in v5:
+>- fix merge conflict when rebase to latest media stage for patch 1/2
+>- change allocate memory type to cma for patch 12
+>- add to support av1 for patch 23
+>
+>Changed in v4:
+>- change the driver according to maintainer advice for patch 1/2/3/4
+>- replace secure with restricted for patch 1/2/3/4
+>- fix svp decoder error for patch 21
+>- add to support hevc for patch 22
+>
+>Changed in v3:
+>- rewrite the cover-letter of this patch series
+>- disable irq for svp mode
+>- rebase the driver based on the latest media stage
+>
+>Changed in v2:
+>- remove setting decoder mode and getting secure handle from decode
+>- add Jeffrey's patch
+>- add John and T.J's patch
+>- getting secure flag with request buffer
+>- fix some comments from patch v1
+>---
+>Jeffrey Kardatzke (2):
+>  v4l2: add restricted memory flags
+>  v4l2: handle restricted memory flags in queue setup
+>
+>John Stultz (2):
+>  dma-heap: Add proper kref handling on dma-buf heaps
+>  dma-heap: Provide accessors so that in-kernel drivers can allocate
+>    dmabufs from specific heaps
+>
+>T.J. Mercier (1):
+>  dma-buf: heaps: Deduplicate docs and adopt common format
+>
+>Xiaoyong Lu (1):
+>  media: mediatek: vcodec: support av1 svp decoder for mt8188
+>
+>Yilong Zhou (1):
+>  media: mediatek: vcodec: support vp9 svp decoder for mt8188
+>
+>Yunfei Dong (21):
+>  media: videobuf2: calculate restricted memory size
+>  media: mediatek: vcodec: add tee client interface to communiate with
+>    optee-os
+>  media: mediatek: vcodec: build decoder OPTEE driver as module
+>  media: mediatek: vcodec: allocate tee share memory
+>  media: mediatek: vcodec: send share memory data to optee
+>  media: mediatek: vcodec: initialize msg and vsi information
+>  media: mediatek: vcodec: add interface to allocate/free secure memory
+>  media: mediatek: vcodec: using shared memory as vsi address
+>  media: mediatek: vcodec: add single allocation format
+>  media: mediatek: vcodec: support single allocation format
+>  media: mediatek: vcodec: support single allocation buffer
+>  media: mediatek: vcodec: re-construct h264 driver to support svp mode
+>  media: mediatek: vcodec: remove parse nal_info in kernel
+>  media: mediatek: vcodec: disable wait interrupt for svp mode
+>  media: mediatek: vcodec: support tee decoder
+>  media: mediatek: vcodec: move vdec init interface to setup callback
+>  media: mediatek: vcodec: support hevc svp for mt8188
+>  media: mediatek: vcodec: remove vsi data from common interface
+>  media: mediatek: vcodec: rename vsi to extend vsi
+>  media: mediatek: vcodec: adding non extend struct
+>  media: mediatek: vcodec: support extend h264 driver
+>
+> .../userspace-api/media/v4l/buffer.rst        |  10 +-
+> .../media/v4l/pixfmt-reserved.rst             |   7 +
+> .../media/v4l/vidioc-reqbufs.rst              |   6 +
+> drivers/dma-buf/dma-heap.c                    | 139 ++++-
+> .../media/common/videobuf2/videobuf2-core.c   |  29 +
+> .../common/videobuf2/videobuf2-dma-contig.c   |  34 +-
+> .../media/common/videobuf2/videobuf2-v4l2.c   |   4 +-
+> .../media/platform/mediatek/vcodec/Kconfig    |  13 +
+> .../mediatek/vcodec/common/mtk_vcodec_util.c  | 117 +++-
+> .../mediatek/vcodec/common/mtk_vcodec_util.h  |   8 +-
+> .../platform/mediatek/vcodec/decoder/Makefile |   4 +
+> .../mediatek/vcodec/decoder/mtk_vcodec_dec.c  | 152 +++--
+> .../vcodec/decoder/mtk_vcodec_dec_drv.c       |   8 +
+> .../vcodec/decoder/mtk_vcodec_dec_drv.h       |  11 +
+> .../vcodec/decoder/mtk_vcodec_dec_hw.c        |  34 +-
+> .../vcodec/decoder/mtk_vcodec_dec_optee.c     | 391 +++++++++++++
+> .../vcodec/decoder/mtk_vcodec_dec_optee.h     | 198 +++++++
+> .../vcodec/decoder/mtk_vcodec_dec_pm.c        |   6 +-
+> .../vcodec/decoder/mtk_vcodec_dec_stateless.c |  35 +-
+> .../vcodec/decoder/vdec/vdec_av1_req_lat_if.c | 104 ++--
+> .../decoder/vdec/vdec_h264_req_common.c       |  18 +-
+> .../decoder/vdec/vdec_h264_req_multi_if.c     | 536 +++++++++++++++++-
+> .../decoder/vdec/vdec_hevc_req_multi_if.c     |  88 +--
+> .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 101 ++--
+> .../mediatek/vcodec/decoder/vdec_drv_if.c     |   4 +-
+> .../mediatek/vcodec/decoder/vdec_msg_queue.c  |   9 +-
+> .../mediatek/vcodec/decoder/vdec_vpu_if.c     |  51 +-
+> .../mediatek/vcodec/decoder/vdec_vpu_if.h     |   4 +
+> drivers/media/v4l2-core/v4l2-common.c         |   2 +
+> drivers/media/v4l2-core/v4l2-ioctl.c          |   1 +
+> include/linux/dma-heap.h                      |  29 +-
+> include/media/videobuf2-core.h                |   8 +-
+> include/uapi/linux/videodev2.h                |   3 +
+> 33 files changed, 1868 insertions(+), 296 deletions(-)
+> create mode 100644 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_optee.c
+> create mode 100644 drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_optee.h
+>
+>-- 
+>2.18.0
+>
+Sebastian Fricke
+Consultant Software Engineer
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 65a8303b80b1191cd2c19d61f88836e7fd3c7ae9..29b83659b8036d1cffe076012ad5cb229509abd8 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -3,6 +3,7 @@
- // Copyright (C) 2008 Juergen Beisert
- 
- #include <linux/bits.h>
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/completion.h>
- #include <linux/delay.h>
-@@ -13,7 +14,10 @@
- #include <linux/io.h>
- #include <linux/irq.h>
- #include <linux/kernel.h>
-+#include <linux/math.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
-+#include <linux/overflow.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -302,6 +306,18 @@ static bool spi_imx_can_dma(struct spi_controller *controller, struct spi_device
- #define MX51_ECSPI_STAT		0x18
- #define MX51_ECSPI_STAT_RR		(1 <<  3)
- 
-+#define MX51_ECSPI_PERIOD	0x1c
-+#define MX51_ECSPI_PERIOD_MASK		0x7fff
-+/*
-+ * As measured on the i.MX6, the SPI host controller inserts a 4 SPI-Clock
-+ * (SCLK) delay after each burst if the PERIOD reg is 0x0. This value will be
-+ * called MX51_ECSPI_PERIOD_MIN_DELAY_SCK.
-+ *
-+ * If the PERIOD register is != 0, the controller inserts a delay of
-+ * MX51_ECSPI_PERIOD_MIN_DELAY_SCK + register value + 1 SCLK after each burst.
-+ */
-+#define MX51_ECSPI_PERIOD_MIN_DELAY_SCK 4
-+
- #define MX51_ECSPI_TESTREG	0x20
- #define MX51_ECSPI_TESTREG_LBC	BIT(31)
- 
-@@ -653,6 +669,7 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
- 				       struct spi_device *spi, struct spi_transfer *t)
- {
- 	u32 ctrl = readl(spi_imx->base + MX51_ECSPI_CTRL);
-+	u64 word_delay_sck;
- 	u32 clk;
- 
- 	/* Clear BL field and set the right value */
-@@ -684,6 +701,49 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
- 
- 	writel(ctrl, spi_imx->base + MX51_ECSPI_CTRL);
- 
-+	/* calculate word delay in SPI Clock (SCLK) cycles */
-+	if (t->word_delay.value == 0) {
-+		word_delay_sck = 0;
-+	} else if (t->word_delay.unit == SPI_DELAY_UNIT_SCK) {
-+		word_delay_sck = t->word_delay.value;
-+
-+		if (word_delay_sck <= MX51_ECSPI_PERIOD_MIN_DELAY_SCK)
-+			word_delay_sck = 0;
-+		else if (word_delay_sck <= MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1)
-+			word_delay_sck = 1;
-+		else
-+			word_delay_sck -= MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1;
-+	} else {
-+		int word_delay_ns;
-+
-+		word_delay_ns = spi_delay_to_ns(&t->word_delay, t);
-+		if (word_delay_ns < 0)
-+			return word_delay_ns;
-+
-+		if (word_delay_ns <= mul_u64_u32_div(NSEC_PER_SEC,
-+						     MX51_ECSPI_PERIOD_MIN_DELAY_SCK,
-+						     spi_imx->spi_bus_clk)) {
-+			word_delay_sck = 0;
-+		} else if (word_delay_ns <= mul_u64_u32_div(NSEC_PER_SEC,
-+							    MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1,
-+							    spi_imx->spi_bus_clk)) {
-+			word_delay_sck = 1;
-+		} else {
-+			word_delay_ns -= mul_u64_u32_div(NSEC_PER_SEC,
-+							 MX51_ECSPI_PERIOD_MIN_DELAY_SCK + 1,
-+							 spi_imx->spi_bus_clk);
-+
-+			word_delay_sck = DIV_U64_ROUND_UP((u64)word_delay_ns * spi_imx->spi_bus_clk,
-+							  NSEC_PER_SEC);
-+		}
-+	}
-+
-+	if (!FIELD_FIT(MX51_ECSPI_PERIOD_MASK, word_delay_sck))
-+		return -EINVAL;
-+
-+	writel(FIELD_PREP(MX51_ECSPI_PERIOD_MASK, word_delay_sck),
-+	       spi_imx->base + MX51_ECSPI_PERIOD);
-+
- 	return 0;
- }
- 
-@@ -1264,11 +1324,13 @@ static int spi_imx_setupxfer(struct spi_device *spi,
- 
- 	/*
- 	 * Initialize the functions for transfer. To transfer non byte-aligned
--	 * words, we have to use multiple word-size bursts, we can't use
--	 * dynamic_burst in that case.
-+	 * words, we have to use multiple word-size bursts. To insert word
-+	 * delay, the burst size has to equal the word size. We can't use
-+	 * dynamic_burst in these cases.
- 	 */
- 	if (spi_imx->devtype_data->dynamic_burst && !spi_imx->target_mode &&
- 	    !(spi->mode & SPI_CS_WORD) &&
-+	    !(t->word_delay.value) &&
- 	    (spi_imx->bits_per_word == 8 ||
- 	    spi_imx->bits_per_word == 16 ||
- 	    spi_imx->bits_per_word == 32)) {
-@@ -1611,12 +1673,30 @@ static int spi_imx_pio_transfer_target(struct spi_device *spi,
- 	return ret;
- }
- 
-+static unsigned int spi_imx_transfer_estimate_time_us(struct spi_transfer *transfer)
-+{
-+	u64 result;
-+
-+	result = DIV_U64_ROUND_CLOSEST((u64)USEC_PER_SEC * transfer->len * BITS_PER_BYTE,
-+				       transfer->effective_speed_hz);
-+	if (transfer->word_delay.value) {
-+		unsigned int word_delay_us;
-+		unsigned int words;
-+
-+		words = DIV_ROUND_UP(transfer->len * BITS_PER_BYTE, transfer->bits_per_word);
-+		word_delay_us = DIV_ROUND_CLOSEST(spi_delay_to_ns(&transfer->word_delay, transfer),
-+						  NSEC_PER_USEC);
-+		result += words * word_delay_us;
-+	}
-+
-+	return min(result, U32_MAX);
-+}
-+
- static int spi_imx_transfer_one(struct spi_controller *controller,
- 				struct spi_device *spi,
- 				struct spi_transfer *transfer)
- {
- 	struct spi_imx_data *spi_imx = spi_controller_get_devdata(spi->controller);
--	unsigned long hz_per_byte, byte_limit;
- 
- 	spi_imx_setupxfer(spi, transfer);
- 	transfer->effective_speed_hz = spi_imx->spi_bus_clk;
-@@ -1635,15 +1715,10 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
- 	 */
- 	if (spi_imx->usedma)
- 		return spi_imx_dma_transfer(spi_imx, transfer);
--	/*
--	 * Calculate the estimated time in us the transfer runs. Find
--	 * the number of Hz per byte per polling limit.
--	 */
--	hz_per_byte = polling_limit_us ? ((8 + 4) * USEC_PER_SEC) / polling_limit_us : 0;
--	byte_limit = hz_per_byte ? transfer->effective_speed_hz / hz_per_byte : 1;
- 
- 	/* run in polling mode for short transfers */
--	if (transfer->len < byte_limit)
-+	if (transfer->len == 1 || (polling_limit_us &&
-+				   spi_imx_transfer_estimate_time_us(transfer) < polling_limit_us))
- 		return spi_imx_poll_transfer(spi, transfer);
- 
- 	return spi_imx_pio_transfer(spi, transfer);
-
--- 
-2.39.5
-
+Collabora Ltd
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
+Registered in England & Wales no 5513718.
 
