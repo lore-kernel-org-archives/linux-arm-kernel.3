@@ -4,189 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0D8D41C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495C6D41C2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LhuoVUdlxKCIAUVq6j+EX8ECSiAZSLCgHoHWNam5lQo=; b=wr7+22uPQRc02aQKPmlgYRWsQW
-	Z7wLqlWetIJh7FEPqC20ksbGbDG8rSu97JGuObrbTkXBiCxDl7/L3+LAcpcInfCpXAmNOwqcomk4i
-	CM16HGWdFtjkhpS2AMhqguvIfHEYDOG3Ub67iOFw6YrRP7w79L4bEwOCk1NFu3v87x2pUBFQoXnBt
-	5ws9f4GuXUFArqTNSgxdDmSXpx5DoxJmkifATmTe//9lzqRWvXAYlqw3gOqPWMlSp07EZxFDjaBw0
-	XGWnZpW7I9MlVaYbDV6WqT7Ki0qdrAe0O4C5Qt8KF6cZSqxS41hQuvqzFSObwmWJU1wj+TYxyBxb1
-	lfUks2zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=km5VKNF+KUEDoH6tmM2tqgAPxy8fVSjcu9J5PorMtVg=; b=Q/vM4mAtltCntVPO4AdIW4x7ON
+	Tgc/HcS9+lpvzCQROoIGtVjniBYPOcIkyLH7HX+DADT6X6Bjtlm4aSrCaKXkIdfCQGDPLv1NgZf7O
+	W4vVgc4mqBGeAKMGfwXDqTb9G9J30lZ0n/NiGpHT3KFzJ/UuH1Y+Geq3NJavSzzYI8Zi0OiMkekjR
+	Kpk8Zfe+Xg5NVH18vgLrox4pj+B44xDUvqyAY1f91Vr4rXFU5ubp3YAA85SLHSiwkmx5QYrPXlZK7
+	JoHMKgaG4iWt5yJzAf4G4kS39X5cPtNuceh6XGCsBPqKB/xV+ndmtA3LpnxZ0pmCxDvcOapo5kc6b
+	weWDjXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAbR-00000006RRx-30ek;
-	Wed, 13 Nov 2024 10:28:01 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1tBAdF-00000006Rm4-0ZBn;
+	Wed, 13 Nov 2024 10:29:53 +0000
+Received: from mail-yw1-f169.google.com ([209.85.128.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAMk-00000006OdC-0cGi
+	id 1tBAPn-00000006PHx-0qPB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 10:12:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Devs/9wZtRbazkamS1f3iI5L1XeJQxx7P3uElr1n5kKUlyrG5k6LDc9e3QqPTYtaqpidubcgYtIrj1sDdgDlDKFXBONLBTonXyymMKBgsP/gqx+DeoNMWyKfpeCM8+5XdNJXcfFnDclArNiphQkhLdjUf9rgZK6BMbv8Siot8qhdqh460h/oFWjMdyumUM2R/waN58MPbDz3vk8Vv1F45gLUqqd6DggbStqW43QCKBenyyDUuTkQGDHbD/0a3NwL51yptSqHPGZFvetMSwUqJVJN6W5tzmJ022sbkMda86m8QsbjubA8dKzlgev9LA6Qu3+Tc4hL5y2hCq4w8HEmgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LhuoVUdlxKCIAUVq6j+EX8ECSiAZSLCgHoHWNam5lQo=;
- b=gNIBODEumuexhO0Q7JPfxpoosGKdSkvyOeq473Ucxh5rS/5TqrOHZn0PNlmB45DyfvmvSfS56X0nrpnbnj79rtS8lNIoasuvlSAcQw++BLeUaS+aJ9AAweWPo9/4U9JO7d6uvMNiA8ieWSpiYRH0N6Y2Z7qQKnJEXEkc7XNyn9nexoBY4L3jGtI5Lkfei7pzHBDcDSU8YobvMAzLFdAS9+qvHLYAVy8XJJ2zkV+mtNsdd7Yb2Hc5zKWHipLRbb0GBo73s8A+TeeWjX6aqeqWWLOksKiIoNIWYncjCj4xgGVspphC/IdW0KMVVnmW2JFIK+BBrB3OF8jABnVwgyYfSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LhuoVUdlxKCIAUVq6j+EX8ECSiAZSLCgHoHWNam5lQo=;
- b=ZvHQ81fdeGoMj2jgG1A/upAMAmnG1OrLgv/G1yn8/EJpzmY9Q/0gS8AUdkM07OO1PAs6VAqU+bWONIATZV3kOx8YP+Sg2LIVFzhus94benqicqv7rUNPSfrEmmGGe8kOrDHBwEELiVP2tTXKvTCB+3hmaK5BXKl1eBvVbjkYzmbicg7emy7IxSmNnvVgvWX3WyIDd1mltF8T91LsqBet7e6geLg49u2Bj/3VyImvPqKh2LBBQ4PzDRWFjkkr/Psx1kpz96zQeA+hdVBkK3sS75EJtK2oSXwDJamSlZ+uP6yROAZtlIDRsKkKa8U+ksyWpU2mjxhCM1ONvVm5RgRbwg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com (2603:10a6:20b:41a::6)
- by DBBPR04MB7739.eurprd04.prod.outlook.com (2603:10a6:10:1eb::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.29; Wed, 13 Nov
- 2024 10:12:45 +0000
-Received: from AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455]) by AM9PR04MB8487.eurprd04.prod.outlook.com
- ([fe80::6d7a:8d2:f020:455%4]) with mapi id 15.20.8158.013; Wed, 13 Nov 2024
- 10:12:45 +0000
-From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Subject: [PATCH v6 7/7] MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
-Date: Wed, 13 Nov 2024 12:10:59 +0200
-Message-ID: <20241113101124.1279648-8-andrei.stefanescu@oss.nxp.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
-References: <20241113101124.1279648-1-andrei.stefanescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM8P251CA0005.EURP251.PROD.OUTLOOK.COM
- (2603:10a6:20b:21b::10) To AM9PR04MB8487.eurprd04.prod.outlook.com
- (2603:10a6:20b:41a::6)
+	Wed, 13 Nov 2024 10:16:00 +0000
+Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-6ea07d119b7so54212727b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 02:15:58 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731492957; x=1732097757;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=km5VKNF+KUEDoH6tmM2tqgAPxy8fVSjcu9J5PorMtVg=;
+        b=khQMAYHyf8/RJAFoSQ5Zku8Vcib0fGEvAIg4wqSQC8dyfhgWyNTn8dviuIzb/pOf9R
+         tvRkB0MzrJz7Tuohf/3NkHY4Qoe/nF0Zkls2muXtGkPSC4cu6fFmO8v/DnyxHLYQqXkH
+         IIi+PlLRHx5r9u616B2j1Idr7wHjeBmzlmLuxMzoTLmHlTgkbyYGrUcmuW0WHiLslZyV
+         zEkHMKMY6rhOrOjWCTkg/QF0kt7B7VSZt31Q9fkDASrUKp6xY8urY0xPAFBct2yKWOxA
+         3YoQU4pz09DeBSk4PINwJSWnkol2Rl9xm86zYVGPaIe25Cp0ufgmkebjNU7TydwcZEvX
+         INcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVNcHdIA90j2/y8h1ZpgHxSP/pdMjOgEPdfcJXxxnUQzML9K2eCm3HX+LwvTsmszyYdwyqw6u141sjLSxLPfsF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRxRp1Ys9SWk0rFKVCmKDFjcqc3r5mJAkf34X6lAMgEvC5mjuh
+	Ra25kyyw9vPYod0jw2lbOBHMgF0zMWxYb8yACNhACS32Dw0qCABN63f/52lN
+X-Google-Smtp-Source: AGHT+IGYC86BBTRBEmcRQ3EmMv6M8BOGoOLL/YExhSJHJYxIL1ukzA0kphKDTFyars127c5nnh/EMA==
+X-Received: by 2002:a05:690c:6011:b0:6db:db51:c02d with SMTP id 00721157ae682-6eca468f55amr66483347b3.25.1731492957343;
+        Wed, 13 Nov 2024 02:15:57 -0800 (PST)
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6eaceb65742sm30377247b3.75.2024.11.13.02.15.55
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Nov 2024 02:15:55 -0800 (PST)
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-6e9ba45d67fso62999497b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 02:15:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVtpuyjWQ8rJG1mPfNHq0fqs8ORihSyUWr25gLGiHQQmYBxukS04gEMhL8xj2FNLCiAlicjFYnZJOhpc9ulA73M@lists.infradead.org
+X-Received: by 2002:a05:690c:445:b0:6e3:8760:29ba with SMTP id
+ 00721157ae682-6eca4c04f0bmr65699147b3.36.1731492955605; Wed, 13 Nov 2024
+ 02:15:55 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8487:EE_|DBBPR04MB7739:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49d6c7aa-8b90-4792-2ef5-08dd03cbb7a5
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VVM2aVEzM3pvcDd4Q0ZBMXRhREV1Qjc5aWZHR0orWlpPbTU3WUpoZ0R2NElo?=
- =?utf-8?B?bzhNK3V1Z0FQM2E2ZHAvYzFYMmZvK3F4Q0FISy9Pd3FJUFRqYlJlLzJJYzMv?=
- =?utf-8?B?b25iMGRhL091QTQ0SWYvNWNnTmtheFZGVzlzRlhFcUR3TVNDdGRYNVJ4MWtq?=
- =?utf-8?B?aUxIWjgwZlFpV3h5L1ltWGR2bHh2NHB1Mkc1aWxoVjhTRFVVcG0rRGhDZlZy?=
- =?utf-8?B?K1g4eUo2NWJIQmRYTUlEaWNtZUgxRXNRb0JSOWNwcWVxYkQ3VncrWTRJTXFy?=
- =?utf-8?B?OW1ZbWJ0N0o5NkRaSWtoeVJCK3kyR3NzdmNpdW9IWE5xZ0dtZGFuOWJlalNH?=
- =?utf-8?B?ajhKdS9ybGZRSTEva0pBVHFzcjRuRSttTWNKRkFGZGROZkpKVGRKSVJNcTI1?=
- =?utf-8?B?WjFVeGRCcE5xZFZSMW96MS8rdTdidXdSUGlVazJIc3ZWRGlXenFiZGZhZzNs?=
- =?utf-8?B?bTVpejczZ3h3TVlyNHZld2J6UDZEbFBrbUhHQ2JCSUs4THZyaUpxNWRGdDBR?=
- =?utf-8?B?RzRyZWtsS3ZFNkJ6ekhTOFc1NUtiSUJJRUwwaUtvMllrV1RTNUwvVkV3V25S?=
- =?utf-8?B?TTc4ZEljK2xkcVhvZW1OakE4TXhRZ2RTT1Z4WFBxYnBtRmhXWjZJbElya1Rk?=
- =?utf-8?B?N2xmcXZ3R2hvN250TEI0OFJNNEFoRTRQQzZNYmM3bHJqb2JKQWp3T29ZaUQ3?=
- =?utf-8?B?QkNyZDcwaEZjOCtlUG54bW8xNmQveVRKYWp3Qm1NNHg4UW9RRndXeU9lcUw4?=
- =?utf-8?B?QzQ2aXNEZXA4aEJ2enFqUS96bVl1aTBVd1R0UnU2TEN6MHJQb1FOZ1VIZHZq?=
- =?utf-8?B?MDRaMUM1MXVNb1hkN2Q2Y2NLYlVXdXZBSVVlTDEzSEEzTk41ME9vQTBWajND?=
- =?utf-8?B?cXphQm51Qzk4M2VGU2VtMmp4T3ZTVklEVUxCcVIzNGNuTDJ2ZlNvLzBwd0Ju?=
- =?utf-8?B?ci9xaVVWcXdlY25lU1FnNWZiMzVpanBNNU5QMkVRUDFxWE4rL1NsTUdMMi84?=
- =?utf-8?B?Z2YwSmI4MG9oZEhpL0RkeU1aQXg0QXNaY0ozT2loVWlodk8rSXZYQ3N1L0Vs?=
- =?utf-8?B?NWF4TUxzUm00cVJjQ3FPZGRlVUlHMVE1RHFoQ28xRTllaW9Vd2lpNmtCdXdL?=
- =?utf-8?B?QmlKWUtQOU9XcE9FNlNJajNNTUhoQ2VudS92TmN3ZjNTZ0l2V1IyU25ybnlQ?=
- =?utf-8?B?ekRSOTJLUndXQzhyejJhSnp3dkRsa1BNM0s1Q2JXaE1wSnRhcTlBb1QwNi84?=
- =?utf-8?B?T3RIMFBWbDFPSWFDeDgxQmJPNjVzaEtTbzI1TXc0RkluZUlzNXZMWVA5cHdR?=
- =?utf-8?B?S2FiOFYzd1Q0ZW9BNTVMSjd1MEdDL0NRK1JNTG5jUElWUjQvOENSOXdEbkJP?=
- =?utf-8?B?Tm8vNlFxZGtQdGdnamN2Z3AwdHJ5Nm9Sb05Ha0phdlFZamx4YXFpS1V2dWxN?=
- =?utf-8?B?SVJGWHlNeGYramFhMVlqQlVTOUNmMEdCNWZCT1l4eGQzZkpEYWpKQ1BYWVJ4?=
- =?utf-8?B?ZXhmVmNwbzBZMVNaN1dQWnBSWGZPdXl2NDBydzN0eFRrMWpqeGd4Y2NtT0E2?=
- =?utf-8?B?SWw0eDR1NlJLeFNMWlR3WWd2Yk5nbXIxRGdPTnJyQ1dmTEZEMmZtZU52V0Ru?=
- =?utf-8?B?ZStRelBEVmFPTFY5MngxMndSbllrT2lyODgzcDBLM3pjQU9LYzVDMExTVGlT?=
- =?utf-8?B?UTNDZkVXMWFXUC9UU1dRcGFKWWE3YWJCb1lmT2FzeVJTY28wL3dKV0s4SGgy?=
- =?utf-8?B?S3BiY05qOWhWL3lUSE1xaVQxWFBHdUFhTExMZjdaMFRvSzIxem5KTzlPalBM?=
- =?utf-8?B?b1U2Qmo0TGRKdGRmU3JDR0RnZ1B4RkZEVDdoTmlDUE1IZ1dLS3Bmd2NBQkRw?=
- =?utf-8?Q?rwtKgSuMa2Bz6?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8487.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S0dhc0hqTXd5VlBHYWNpY1NNY0ZkRlRiQkUxZlE3bjIzQURVOVVKUGl4bk9U?=
- =?utf-8?B?bXhFb3Arcm1lcmRSNFJaV1JySlhDVGNWSGJvS29KV1FjczZHbHBacElrMmtL?=
- =?utf-8?B?YUF2L1Nhd20wS1lKZFpwVmk1YStPd1RHbkIrWVpVYTZlRU53aGk2K2pqblpB?=
- =?utf-8?B?Zk5GaUFZNTJKRUdSQVU5cWlwK0N2citXNStnaVRSUzJTaGw2alpZZHNqNkVj?=
- =?utf-8?B?SjRiU052WFJTU3R5Vi9WYzZRV1VwNy9ZbHVIdVgvNU5yU3RNQ1A3ZGVOekli?=
- =?utf-8?B?VWV5RWxHbUw2K1kvdDg5TCttZ1Mwei9aZVlmYjRJQXBRWlFUNDVOeU5lQy8v?=
- =?utf-8?B?a01uMlZlQzJyNWd1aWVSYXFReVhia0g0RmZMK2pPcnU0dk8yTkZOeVUycTIx?=
- =?utf-8?B?eUNBOXBJNHpnbHpzbmFwR0IrUkp5bEN1bnlUTURoNWI0SmlpcWIxN2cycUFF?=
- =?utf-8?B?L0dKVUFzbWo3SThOK2RKTzhqYzNVbGZ2UGZWUGd5YXJTR094ZXg3YXFIWDFS?=
- =?utf-8?B?QTVmTEM0RTl0bDdjTjFXR3ZqeUt4ajVrY1RYWVBVSUNHUHdPNFo5c0d4RmZS?=
- =?utf-8?B?eVRrYTBBRlpyOGRXR3ZBOTByeHJtMGF4QVJoTjVQeVBxb1NTS1NBT1RqU2lz?=
- =?utf-8?B?Y2QrWVhhZEZDZExBbkRVK2JJVTBuSUYwdDNQclIwZnFDUFpFaXhTK0hkSHU0?=
- =?utf-8?B?OTNhUk8vY1VDNnlyMGx2OXpSUFFmd1dOOTNKT00wU3ppTDhPbkZmNTJBOS9L?=
- =?utf-8?B?N3p3aDF1NTVtbk10N2NXYTRHdEIyRDV0MlFnZzNmMlIrVUVscWhJejJlRmll?=
- =?utf-8?B?cHNCTEs0cHplQXdYZHdoTTdQSkRxRWplR2ZZeEY1TUlnbXZVMVAwWm9ZVEN2?=
- =?utf-8?B?SDM4VjdPRU40RHVvWUhpN3FnS2w4bFFlbUcydEt3OUlGVFBBbnZ4UTl2dy9N?=
- =?utf-8?B?R2dqQkRaQzVoSHFyazFSODBDTmt4eE1rOWpzT254bXZHRzhHWXF2MUdleTBE?=
- =?utf-8?B?eDV4L2ZybytyZktzWFltaDZ1dTFabHVaTTFaeDdJU3VEOTltNVd5aFBMdXFt?=
- =?utf-8?B?MzJKRWhHMUhSMnRLd2NRR1NkNEpTU1hsQUtuUnhLRCtSdXNNWlNkMUxkSjl3?=
- =?utf-8?B?aWM1dk04aDNTdG1JclpRMnB6R1Fmd1FObFhzRGxndTB3NGxxaU1VNDgvTjZF?=
- =?utf-8?B?L2c5REJsUW85cXNyUkVmRThndWl3SWJEaUZMWGh5QUZFUnVHdXZ0MnJUelBZ?=
- =?utf-8?B?cWp0RGV3ZTROWGo4NFNGQ0RYOEEzR2JYY00yRWVyRlB6aE9TNG5XbStTWGFw?=
- =?utf-8?B?eGcyaVozWjB6eGkzQ3BBUFM0L0x5Yk9sSFBRQ0o5VU1oSVg1d0psWmhtazdX?=
- =?utf-8?B?WlIrTGZaY0NzQndzZVlUSkdKNkswZWNneWJHWENTVko2ZmExOTVwbDdyeDVa?=
- =?utf-8?B?MThueFE0ZENibzVsclJVRUdzTnVwc053aG9RUzlETGJoSW5hN01ycUdlMUcv?=
- =?utf-8?B?SUdEek5GL3lTNWRubGpkYjZtQzBXSmFYTFg5UStyV1NPSWNJUVpOOTRYdjNU?=
- =?utf-8?B?UHhXN1BtRWh3c0lsZHpvVzU2WUFIbk1sT2hnd2RaQW9aTGtKVFp5OG1kcXMr?=
- =?utf-8?B?ZXRFdTRtejlibmJ1U003RXh2c0R2QzV3VDNtQmFyejZkQjFxSERSZWVYZm9w?=
- =?utf-8?B?SGFhYW53K0RFOGZqK0pldmNGcjc5dm9LT1c2anVFTy8xMHg4bElIdWltR0dq?=
- =?utf-8?B?bTBYcHVPY2xjVG5UZmxIQU96MHNRUTNPY3ZyS3gwR2RLUDNIRTNzcm1Ybmlm?=
- =?utf-8?B?OENsVXFmbjlIWnJJSktNZzNqczArdytMVy9pZXczZUlJbTZYYVlsSVBDQnFQ?=
- =?utf-8?B?am4vcFVYclc0WEp1Yzk1VGY1VFY5Q0VOOE9JNHB2bGdJZUFLSXUvaThCVzRV?=
- =?utf-8?B?MkhOeVdlWWRqaXJLZzJsSjFhUzFEWFk1cDdlNW1DcksyMnc2TktEZEFMTkdx?=
- =?utf-8?B?V0x6WjRpZW1KTmR0aEo0MFV4dzA0dnEwV0piMndreHNZbERWR0FWL3lpUktO?=
- =?utf-8?B?OFRNRE1jdFB3QXZiR0hPc2ZBS2NVYTJWdWl6U202U1RYeGRkalFzWkJWNmw0?=
- =?utf-8?B?STVFV0VqdHQ3ZVhPUUR2SFE3UXNZYm1Rd3NKK1ptalRncFpJTUhoSXp0UDR4?=
- =?utf-8?B?SlE9PQ==?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49d6c7aa-8b90-4792-2ef5-08dd03cbb7a5
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8487.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 10:12:45.3041
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kqIJUzeX81GRNy61KL29ZHPyGdnoXIYpAQV6eOcoBvc0syd9AWfnlJnMidaoum7PbdZuGgLyxKmfY1H9eW3lZbyLX7gylMTZYW819UPkPGE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7739
+References: <20241112-am64-overlay-bool-v1-0-b9d1faff444e@solid-run.com>
+ <CAL_JsqJAQswTo2eWxLw62wqb-2i=_9W84_v_tW+TSW4kgNK3_A@mail.gmail.com> <288deac4-5387-4492-9e9c-cabf77b9c0ba@solid-run.com>
+In-Reply-To: <288deac4-5387-4492-9e9c-cabf77b9c0ba@solid-run.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 13 Nov 2024 11:15:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWUJ-nQkD-tm07uWX_TTy5Fy5JLsvedcoJ50Hi7=WnEpg@mail.gmail.com>
+Message-ID: <CAMuHMdWUJ-nQkD-tm07uWX_TTy5Fy5JLsvedcoJ50Hi7=WnEpg@mail.gmail.com>
+Subject: Re: [PATCH 0/2] of: add support for value "false" to of_property_read_bool
+To: Josua Mayer <josua@solid-run.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Jon Nettleton <jon@solid-run.com>, 
+	Yazan Shhady <yazan.shhady@solid-run.com>, Rabeeh Khoury <rabeeh@solid-run.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_021250_295658_81634014 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20241113_021559_264174_C8657D9D 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,30 +94,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new MFD driver for the SIUL2 module under the NXP S32G existing
-entry. This MFD driver currently has one cell for a combined pinctrl&GPIO
-driver and will, in the future, contain another cell for an NVMEM driver.
+Hi Josua,
 
-Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+On Wed, Nov 13, 2024 at 10:41=E2=80=AFAM Josua Mayer <josua@solid-run.com> =
+wrote:
+> Am 12.11.24 um 14:46 schrieb Rob Herring:
+> > On Tue, Nov 12, 2024 at 12:41=E2=80=AFAM Josua Mayer <josua@solid-run.c=
+om> wrote:
+> >> Boolean type properties are usually considered true if present and fal=
+se
+> >> when they do not exist. This works well for many in-tree board dts and
+> >> existing drivers.
+> >>
+> >> When users need to overrride boolean values from included dts,
+> >> /delete-property/ is recommend. This however does not work in overlays
+> >> (addons).
+> > As soon as someone needs to delete a non-boolean property, we're back
+> > to the same problem.
+>
+> Properties can be reassigned any value, e.g. a driver default if needed.
+> It should never be necessary to delete a property,
+> since a suitable value may be specified instead.
+>
+> Booleans have two valid values, true and false,
+> but somehow we cannot assign false, we can just delete the property.
+>
+> > If you want to fix it, you need to fix it for any
+> > property.
+> /delete-property/ is a language keyword used during compilation.
+> When inspecting a .dtbo no trace of /delete-property/ is left.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index bdae0faf000c..cfbaceea5f40 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2787,7 +2787,9 @@ R:	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
- L:	NXP S32 Linux Team <s32@nxp.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-+F:	Documentation/devicetree/bindings/mfd/nxp,siul2.yaml
- F:	arch/arm64/boot/dts/freescale/s32g*.dts*
-+F:	drivers/mfd/nxp-siul2.c
- F:	drivers/pinctrl/nxp/
- 
- ARM/Orion SoC/Technologic Systems TS-78xx platform support
--- 
-2.45.2
+That is the current behavior. But dtc could be modified to emit new
+special __deleted_properties__ and __deleted_nodes__ nodes, just like
+it already creates special __symbols__, __fixups__, and __local_fixups__
+nodes.
 
+> Hence we can't "fix" deleting properties through overlays.
+> We can only "fix" (re-)assigning false to a boolean property.
+
+So nothing prevents adding a way for a .dtbo to contain a list of
+properties and/or nodes to delete...
+
+> >> Geert pointed out [1] that there are several invitations for using
+> >> strings "true" and "false" on boolean properties: [1], [2], [3].
+>
+> > There's always bad examples...
+> >
+> >> Add support for a string value "false" to be considered false on boole=
+an
+> >> properties by changing of_property_read_bool implementation.
+>
+> > Any existing s/w will treat 'foo =3D "false"' as true. It's an ABI.
+>
+> I was reading through the device-tree specification, it makes absolutely
+> no mention of a boolean type.
+>
+> I believe of_property_read_bool should be capable of deriving false
+> from a present property.
+>
+> What is up to now called bool in the kernel / device-tree,
+> is actually of_property_present, or conversationally of_node_has_flag.
+
+Indeed, so of_property_read_bool() is a misnomer, as it does
+not read the actual value from the property, unlike all other
+of_property_read_*() methods.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
