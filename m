@@ -4,167 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7796D597DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 04:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB56ED41D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 04:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tvIdF3Ub0pRTxj0QUTOucTu8mWyCXiXYO7z/TZS6qg=; b=iuxP4zj19eQa/a47vimdrmd7ik
-	8pXr75A+WvmCHHT+VonkkfP9P8mqA6kxpDjgBRJ6yZ0NQBJhZSA6zjgcWxNiDzg6Ru/UcwtJXf/Bq
-	ogVT8TNp75c31wd47L6AL9RAf7N/GUVxTDoN381K+QvATTVBwr2qa1VKa1jx1HOnrIW+sQPuBL8fs
-	ku0avcCERSpndAxMPFLMU81TjUYof+ViCakLaf3Tb1iVt5Hk2U00RyCmsiVQ7jFbczyPgdNRNHAn3
-	qsKxjoZHugFOaVqj8qgOpyrdq/m9e/1aaltUiO9xyn6A87regmzOGCit4k1/Ppp4NhK9GiOuhIGvk
-	hMkDtu2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Emxr/ZModhTk+YBu/LrGLB2BvoOFjQnlSY8/C8ehCuo=; b=xsl4TyDHPK2RYcZHArU4KVEluZ
+	YWr7RaaO/G50lM6fJQhMsvAKmy1WGlXtow0KIsPKEdzWnIQzkmEVnsbh/AOpmddPzv1VkDOe8Sy23
+	nmaHQO/+a9l7Z+mGLd49B5oM3Pltv1kPRkI3Lm31UFk52tbd8vpOaekrjEZFc1/LIXhmPFIsqdWU0
+	opRSbadMlEMmyDFL1cEFoQoyfnH2xh5ADxzXldr0hzGnNxRxZWnxBdwYtEdzkqRkrL83FcDPZJXrN
+	NVqypBCcjjNVtgg3UcJqxuPmEEAKv+TEwMXuTI+uW/LR2b/6QKQy3XQ5nPgkzyngEdeTlO17byS/k
+	ruFPr5DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB4aq-00000005hqm-2yL3;
-	Wed, 13 Nov 2024 04:03:00 +0000
-Received: from mail-vi1eur02on20611.outbound.protection.outlook.com ([2a01:111:f403:2607::611] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tB4zF-00000005jK9-1QWV;
+	Wed, 13 Nov 2024 04:28:13 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB4YA-00000005hhW-0SOU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 04:00:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NqkTQ1jceaNlGlXBXag3uk7185Hem70IYdwWTItN2tN+SfPPEfOn4cgKqFGQMnR8E4veFEXxkgaZhQAiLnf818oVE5mGkiIL1x62/h9xebkyvFrQQk8LvZPQ7KlEf1g3OmS87aLvp19hel9rwHDAYrn5eVFZDx72KNfARcrgXZC0rGBNmEWtiGJKvR3g+qq1jALcGmjl8mjKXH5TjwXtQksHsU/PpY2/lokXK3MepFomOl7CFcUqulEkWDrnYvazuyMfKXID29aaOqsOolEJViOo3bEVe1AtmDwNiZTyM3mGhOmHN47ulvuiZ3qeUF78OpvOOnNmGFgjvkxNEKlkLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1tvIdF3Ub0pRTxj0QUTOucTu8mWyCXiXYO7z/TZS6qg=;
- b=IIfASYZTFPttqkk/fZCsq3JrH5DU8WOmXoLny/wdnmTB9Bqlfh12E/f9aKgtPaJy7QLRJMCr9yxUR2xzuF3FjeX7E/8bfNI8Tu9WcSca3mCnXJCABow4LAT+dNXar5dsqKFXETjrrwxClqJaF8LRMzUk0mXYGtq6jFZzrVcf8nQ5JlLUp583daebIu202d0dgn2LnrUsVq3sG1rBtjFVnc/3SQvK+b488pFs0iqn9/Z8wHYtKb7NeH2DjK0gZSMX8eH3XlAoi/QRGizItOQ7DowmmhYlXprhKay8ckxOA0v7jyd9VUyVtP2UgrEBm9tgZ18DLlsn9ugsU+ETHajtaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1tvIdF3Ub0pRTxj0QUTOucTu8mWyCXiXYO7z/TZS6qg=;
- b=jO/uH387c50bhCulMNeB8BRde5+J+9kAIix7gdbpuMlzUonRZa6iy6g1kN3eoAkCgFxvs25H64zOa+hxlrTw5UJjErwHYJqHYMmaEUFysqbrFa3nFlR8cdCroYDB31HwJyY3/uPaHnWzHWhWsJ664ubkKNzSJBaJn5OA2V/i+9fZOs1CPhOxGxgD+yXNNBHqPkw/4M5TCnBGZMp7T1EL+vogFFaGVtTjlb6rOOD84glGcSDt2PDPwnAE8JJB2ovutW9AJK3lz5d/ahJvayFKHmyA5RUkjwiGNvGlr8QewpT3exjhSQ/kxlewQPZGWg36O4pdu4P4TkeoXd7FgWjPsw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU4PR04MB10672.eurprd04.prod.outlook.com (2603:10a6:10:581::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Wed, 13 Nov
- 2024 03:59:59 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8137.027; Wed, 13 Nov 2024
- 03:59:59 +0000
-Message-ID: <83a67ab8-8f3e-4ab0-b68b-4da156817649@nxp.com>
-Date: Wed, 13 Nov 2024 12:00:32 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: imx: pll14xx: Extend dynamic rates support to
- PLL1416x
-To: Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org,
- shengjiu.wang@nxp.com
-Cc: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20241111214516.208820-1-marex@denx.de>
- <e58af9fa-f1b2-4d1b-8ca3-d256a7dee4ec@nxp.com>
- <0a62d3b7-b435-40cf-9795-2fb4ea80a693@denx.de>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <0a62d3b7-b435-40cf-9795-2fb4ea80a693@denx.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR03CA0127.apcprd03.prod.outlook.com
- (2603:1096:4:91::31) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	id 1tB4xR-00000005jCo-2kVW;
+	Wed, 13 Nov 2024 04:26:23 +0000
+X-UUID: 6b4c4b0ca17711ef82ff63e91e7eb18c-20241112
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Emxr/ZModhTk+YBu/LrGLB2BvoOFjQnlSY8/C8ehCuo=;
+	b=nnsFO2VxDQY2TcUfkhPhCszMgDlTY0INZqJUEI4ncWjBTPnF95Qa9kMmfQS2l7WsFbIHF+YD9fGa1rg3DHXjpJngJ2b59OUVL2aBYVvZi+R/P3vmrSWP9f1dkaFOY1XCgnhEnshxJmne6WNn0ve1IQilHNjMhiMD9DLP4DQZNZg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.42,REQID:180edcce-803c-4ff5-b9f1-321ab43bc74c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0fcdc3,CLOUDID:61a8101c-4f51-4e1d-bb6a-1fd98b6b19d2,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 6b4c4b0ca17711ef82ff63e91e7eb18c-20241112
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <qun-wei.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1421159990; Tue, 12 Nov 2024 21:26:14 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Tue, 12 Nov 2024 20:26:11 -0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Wed, 13 Nov 2024 12:26:11 +0800
+From: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Shakeel Butt
+	<shakeel.butt@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, Kent
+ Overstreet <kent.overstreet@linux.dev>, Pasha Tatashin
+	<pasha.tatashin@soleen.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <catalin.marinas@arm.com>, Casper Li
+	<casper.li@mediatek.com>, Chinwen Chang <chinwen.chang@mediatek.com>, Andrew
+ Yang <andrew.yang@mediatek.com>, Elena Yu <elena.yu@mediatek.com>,
+	<wsd_upstream@mediatek.com>, Qun-Wei Lin <qun-wei.lin@mediatek.com>
+Subject: [PATCH] sched/task_stack: Fix object_is_on_stack() for KASAN tagged pointers
+Date: Wed, 13 Nov 2024 12:25:43 +0800
+Message-ID: <20241113042544.19095-1-qun-wei.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU4PR04MB10672:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74167243-fe11-4a42-c5a8-08dd0397a4c2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?c3RFM3VDdTd2V09KL0pTa3V5UEVnMWpsQW5tV0xyTGVCckx6eTZkWGJrcE5x?=
- =?utf-8?B?MmNtc3BvU0hvdFkwTUhrYW5NME5vdWtHc2owYi9IMUJQdEgyOXZaSnJKNXVp?=
- =?utf-8?B?Mnp1c2xFSVhEVmEzLzVGbUt1d1A3MUZqM0FqcTdyOTJqMnNaOElEeXpzU0Zp?=
- =?utf-8?B?ZzIrYjVGNG5DUVRNTUhaVElBaFRVTldXR2RJbzY2a0xUaW9pM1JGZVJZNC80?=
- =?utf-8?B?S2NKWkVHcU1zdStJVEtIZk9uYjdFQk8vUWtFbld5MW55NGRSUWRpVmZReWhu?=
- =?utf-8?B?S0NGT2dhTUFGeXhPRFhRR3M1YytKKzdFZnV2T1V6MVlNU1RTakFzUTk5Z25W?=
- =?utf-8?B?ajVMKzZjWWFhMjVHQVNJWHIyOC9oeXBiYzU1NE9HQXQ3R3BLZ25TQVhzWWVp?=
- =?utf-8?B?cjFpeW5YQ0dkNTRLaUFqMEtHSDA4WFBhTDhWWDg4VmhJN3NQMjNkcG13dmlJ?=
- =?utf-8?B?T2dwNnQra3ZubC9kRVNyQnNlb1VNeEQ0c2FkVGc0REVLNTVRYkFOdkg2MUdB?=
- =?utf-8?B?d1kyTXdSaTI2aHJsNmV5UWFlTzdWZ2tXaDZKcjNweDJrKytSc3ROVzMydlQz?=
- =?utf-8?B?NEtkL0xxTkVBL2tMZU12dHltMmkyS2ZSYkFUdmdyQ3NkV2R3VEhDZkhhNEhG?=
- =?utf-8?B?ZFptdGM0ajNzc0JwWjlDcDNxVVZYM3BMME8zMDFoL28xTmRucjFPT3RDaXBU?=
- =?utf-8?B?RmNEYklGTTd3UksyRG14K2JhYWptdWFpVUJONHRwc1oxYUFKMEdXeXpja1pL?=
- =?utf-8?B?QTBaajNoUnpENGdkMHNZTEZ0eG14Y2J0NEMzK0dzN2daRnl0ZGxKOEZXeXEv?=
- =?utf-8?B?VjNpQXNWdzJQZ3FEQS96dnBVZS9YS0dHaTdkOXVDcnBlVTUxNWZxMTZxUjMy?=
- =?utf-8?B?MDRDMXQ2dWVObFhBOTVnVWNGb1ZqYnVGMFhmYko2N0NvYmdxbW9oQzljSnVn?=
- =?utf-8?B?dkhEbnZNTkowakFkYXR4SGwzQ2ttS3FoSllISTl3VnVMRzdzNFZCSkxlWTQ2?=
- =?utf-8?B?RXA5Y3ZKT1VQTUdoZEZOdmVJREJvRkhycnZqTm1QNVMrR2Y2ejl6VElrZ256?=
- =?utf-8?B?NlVldXExNWJlTjBzTHRJYkJYbHFBVDYrS0kzZUFCbDJkeVgrNEZ2dS9kVGlj?=
- =?utf-8?B?UzFVNEZHdEVpMDAveU1VbStSOWppYW53OG1iY2xVbEZiYUY2RUdnSXBsWUNy?=
- =?utf-8?B?dG1WblJTNVl2OE9YZDlkdnloaWxRbUhCREY5NTk2RGkva2dzdGREVitKNkNa?=
- =?utf-8?B?Qmg2WWU2ZHIyemVIVFZtMTlaVXB4RmU1dnVtdHR1LzRaLzFwZUYraFNBR29q?=
- =?utf-8?B?QkFuOVE2MkVvaGtvMzhreWNLRzVseWRxNWZWVi9HRXZVQzdXZVVFb3lQOHVZ?=
- =?utf-8?B?Vlo5ZkI3eHVyYVE4N3A1R3JYZ0hzYSszQkE5ZlQrTEwvZGl3UXJUNTNwU2dm?=
- =?utf-8?B?c0RESStWUDdBcnpCOGhKd0NEbHMyNlQ0WE5zOXpiN0RrUDF4NTBhNVVKVXox?=
- =?utf-8?B?VU5VdjFsRm4wb2ZDbzhiK0hKRWJCazJ2cnVqOWxRdjMrUXg3UDFEajFWenFa?=
- =?utf-8?B?TWQ2c2UyeWs2dERuSkQ2WFEwZHI3b205TXhwTTJQR3ZxM05PU1FZYytsdU5I?=
- =?utf-8?B?YzAzUDdjeFFKTHRJS2toVGhlYTA4ZElac0lQV1IrT3ZMb3JxOWVHVU42S3M5?=
- =?utf-8?B?S0JKUE5VcDRLTytWakhRTTNBYnRJUXlNZVJjWVBKSnVpbzI0ZzluYjJEeCtJ?=
- =?utf-8?Q?i8wtls5TD9c26afmVybLAsnr+5nnQ6RDl21s3g0?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TnFrZGp5QVNOK295WGlKdzdJZ0VockUrRGtoc0krbHg4bnlpWFhPYkdHQWVI?=
- =?utf-8?B?UnhhbzE3UWYvTVlva3llY3N1TWxpaCszdk1VcWpPTkNMbGN3Kzh3WHRuU0tM?=
- =?utf-8?B?anZUV1BhQjBITE9OUlA2SklkNFpwY21obm1Rd3BRdEpvMStRZ0xUU0I3eEd4?=
- =?utf-8?B?RkhkV3ZJMWtZU0dnelUvaHFZZ1pjdit3SkZzNFhON1dLWGV6WWFONWpzUG5D?=
- =?utf-8?B?L2g3S3gzdWY3VE05SmZRMGFabFUvZHVwTmtXTzhJZVJjcWRqaWpZV0d0WHJY?=
- =?utf-8?B?TDJuM3hJWm9KOWg3clNCamZKMmNiTy9QVzFOTU41OTNyL2l0ZlpHRzYvb1A3?=
- =?utf-8?B?NkJBZ2drejduNU9DUHpQQXJ5UXVwNFZaZlBnNlZMSFFCSWU0SmNuRDVPN2FE?=
- =?utf-8?B?OEdoU3VrbFlDb2hBZVo1cXJSQUhZMDFSR3dlaEhKbnprY09Ha1d2RUYxd1FJ?=
- =?utf-8?B?cEQ5YnpOcUIwRjgxOXN3ek9aR21mLzhhT0FXQk1WVm4yN1JabmcyQ0UySWpU?=
- =?utf-8?B?NjdCRE1iR2VLSWt0ME5lNkp3WHhRVTA5WWRyN213Mlk2bWdCOGZVYjI2S1Ra?=
- =?utf-8?B?ZzVTb1ptOXZNY2gvTmlRV2RsVFd1aUl5SEZONU9HSElzTUt4KytMelFZOGZN?=
- =?utf-8?B?NExmbGFmWk5MbEozWFdPSmtxNlNTWFJWbUxybDBFWVNiOEI4QzVNZEdIOVoy?=
- =?utf-8?B?RkxuNmtTMU1OcjF3MzJ5N0J6cUVUMnlPVVJSMFZQdHpkK21oSlNQTVkzYmRr?=
- =?utf-8?B?eTNVM1VlbkNyNlhzUkFnd3BMK0I4SEVuVnBpZVZUMUM3MlFoNjNIaGp3OHpL?=
- =?utf-8?B?d2Z0S3BBVlFRNVFxbG41Z3c1NkZWVFZjNHhXUitZM1NjMGhBT1Z2a005L0Jl?=
- =?utf-8?B?cTdQVDV3ZGQwQVM5Ujd0WTBobGdXQnNKMUZSZG92c1JMS0NFVmV3MXpxTHBo?=
- =?utf-8?B?dUt6YnNNNUowY0JIa1pSeklPZHZ4TUJjZ1FaUHpXMEZzOVhXRUJZTy93ZHp5?=
- =?utf-8?B?QjNRVmdWUWpkZWlJODZ1VHlIWDNmM1kzU0NBUzcyaFE3OUN0SVNXVk5XTHNP?=
- =?utf-8?B?U3IrL2RJdzVWdi9QeGg4c1dzTG5oOHJpS2NkTGNOMXZDdkl0SGhobnhJR3E4?=
- =?utf-8?B?S2tnbFQ2eUhZSUxxaVN5b2VNWTY2Rkk3bGJYVmMrSkRpdFQwWG13TFptQllj?=
- =?utf-8?B?amQxODVEN3lWYU5lYmVPaTNXVVlLaWxXZDI2TXlPU09sRzhhL1pOUUhqRGQv?=
- =?utf-8?B?Z0VLejB2OHN3WWFOM1hwWkpYMDhGWCt3OWw2RjlrWEZDQ24rYzBGSEdHUjJG?=
- =?utf-8?B?cnlpZHI0L0wva2lhb0VzYThvZktiT2RrNjFsQ1l3WmxWTXJoeUlxUks1T3E2?=
- =?utf-8?B?M0g4TVlDaXk2OS90QTVJR2ZpYUVpa2FaemF3S20rRnhXanU0WnJoOEdXNlZH?=
- =?utf-8?B?SnBZM0dLWVZ4dGtxdnpueUhsSk1zQXZ4ajU4WWdic2E0NHJaQ1l5MENPWmpR?=
- =?utf-8?B?dmVCNTRwUEtaakcxa2NKeGRncjB3bjhPVkJjTlhJUWFITEFvSVF0YnRGblZQ?=
- =?utf-8?B?bGJrNHNsckFHSWhiUC9oVVlvYWlESUt5NUU3V0RuZUZvcmdWb3pENG5Uc0dQ?=
- =?utf-8?B?V0NVS0U5RWZDenBUVS9JSmwyL09GaEtTcEJaMDVnalJzUHE1OGVVUFFWU2tH?=
- =?utf-8?B?MGV0Zk9DUlFkMVNFcDlDRG5tL0E2WE9YWHF0WnZUci9OK2NVZHo5eGtMYlNX?=
- =?utf-8?B?MzI4aXd0L2FZTU5wenNseWVKY3VqdWVnZlFZVFlSVXVOUUtWekhmUzNSckg0?=
- =?utf-8?B?OWFSaEZuTlcvNHdlSmNSd3FaZXdoK1VKNzBCTi9JRk94TnkxWGM3aGtHU1FM?=
- =?utf-8?B?SzgxWjVtcEI4clQ0cjZGalFwK052L1d4Sis4M1lremhxRXhXejI5bEpMd3ow?=
- =?utf-8?B?alYwbHRCdldsUEV3WHR5UHc2RGRORURHdDRYOG1SZHMzMXp4Q2xXTnc0T0tU?=
- =?utf-8?B?UmxjOENxZHJFejRKYmJCMHhWYkY2aERlNkE2Nm1LNktBcU9Gb3JjZnZyOFlM?=
- =?utf-8?B?WUFMSTNXSFZ6UDRTUVNtYW1zTXBRRzQ2N2pYTlhzTVhFU2JKaisxdzkzemNY?=
- =?utf-8?Q?II82RnA7dvfm08pCP/5QOF+Jb?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74167243-fe11-4a42-c5a8-08dd0397a4c2
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 03:59:59.7011
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t+1WV2Rtqtb5C1Ztm5sjM9/z/4lYF1JOmOPuEVQjVLtc2wwBj8NHNHzMh/8tcd2tS+AxCkgsrNiZmxr/w7Iikw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10672
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_200014_181917_6AC001A5 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20241112_202621_736719_B4A601E2 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,64 +88,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/2024, Marek Vasut wrote:
-> On 11/12/24 4:26 AM, Liu Ying wrote:
->> On 11/12/2024, Marek Vasut wrote:
->>> The pll1416x PLL so far only supports rates from a rate table passed
->>> during initialization. Calculating PLL settings dynamically helps in
->>> case e.g. multiple video outputs are used and they each need their own
->>> separate source of accurate pixel clock on i.MX8MP. In that case, e.g.
->>> PLL1416x PLL3 can be used as another Video PLL for another output.
->>
->> Just want to point out that i.MX8MP audio AXI clock is supposed to be
->> derived from PLL3 to run at 600MHz in nominal mode(i.MX8MP data sheet
->> specifies that rate).  So, if a particular i.MX8MP system doesn't use
->> audio, PLL3 can be a free clock source to be used by an i.MX8MP display
->> pipeline, otherwise, video_pll1_out is supposed to be shared by i.MX8MP
->> MIPI DSI and LVDS display pipelines.
-> 
-> In the end, I started using Audio PLL and Video PLL PLL1443x for accurate pixel clock generation and PLL3 to feed CLKOUTn where the less accurate PLL3 PLL1416x is just fine.
+When CONFIG_KASAN_SW_TAGS and CONFIG_KASAN_STACK are enabled, the
+object_is_on_stack() function may produce incorrect results due to the
+presence of tags in the obj pointer, while the stack pointer does not
+have tags. This discrepancy can lead to incorrect stack object detection
+and subsequently trigger warnings if CONFIG_DEBUG_OBJECTS is also
+enabled.
 
-If audio PLLs or PLL3 are free, I think you may use them for video output.
+Example of the warning:
 
-> 
-> With the disparate display requirements, sharing one Video PLL for multiple outputs like DSI and LVDS is unrealistic. (maybe the next SoC should have some nice PLL per display output)
+ODEBUG: object 3eff800082ea7bb0 is NOT on stack ffff800082ea0000, but annotated.
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 1 at lib/debugobjects.c:557 __debug_object_init+0x330/0x364
+Modules linked in:
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.0-rc5 #4
+Hardware name: linux,dummy-virt (DT)
+pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : __debug_object_init+0x330/0x364
+lr : __debug_object_init+0x330/0x364
+sp : ffff800082ea7b40
+x29: ffff800082ea7b40 x28: 98ff0000c0164518 x27: 98ff0000c0164534
+x26: ffff800082d93ec8 x25: 0000000000000001 x24: 1cff0000c00172a0
+x23: 0000000000000000 x22: ffff800082d93ed0 x21: ffff800081a24418
+x20: 3eff800082ea7bb0 x19: efff800000000000 x18: 0000000000000000
+x17: 00000000000000ff x16: 0000000000000047 x15: 206b63617473206e
+x14: 0000000000000018 x13: ffff800082ea7780 x12: 0ffff800082ea78e
+x11: 0ffff800082ea790 x10: 0ffff800082ea79d x9 : 34d77febe173e800
+x8 : 34d77febe173e800 x7 : 0000000000000001 x6 : 0000000000000001
+x5 : feff800082ea74b8 x4 : ffff800082870a90 x3 : ffff80008018d3c4
+x2 : 0000000000000001 x1 : ffff800082858810 x0 : 0000000000000050
+Call trace:
+ __debug_object_init+0x330/0x364
+ debug_object_init_on_stack+0x30/0x3c
+ schedule_hrtimeout_range_clock+0xac/0x26c
+ schedule_hrtimeout+0x1c/0x30
+ wait_task_inactive+0x1d4/0x25c
+ kthread_bind_mask+0x28/0x98
+ init_rescuer+0x1e8/0x280
+ workqueue_init+0x1a0/0x3cc
+ kernel_init_freeable+0x118/0x200
+ kernel_init+0x28/0x1f0
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+ODEBUG: object 3eff800082ea7bb0 is NOT on stack ffff800082ea0000, but annotated.
+------------[ cut here ]------------
 
-I think there are 2 cases where we may or have to share one video PLL
-for DSI and LVDS.
-1）It happens that the clock rate requirements of the 2 display pipelines
-   can be met by one video PLL, e.g., an i.MX8MP platform uses both
-   DSI to HDMI and LVDS to HDMI bridges - it's probably good enough to
-   have users use typical display mode combinations, like 1920x1080p@60
-   (DSI) + 1280x720p@60(LVDS).
+Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+---
+ include/linux/sched/task_stack.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-   In this case, we share one video PLL deliberately.
-
-
-2) If audio PLLs and PLL3 are used already(very likely by audio subsystem),
-   then the 2 display pipelines have to share one video PLL.
-   It's possible that the video PLL cannot meet the clock rate requirements
-   for one or both of them unfortunately, but maybe that's something we
-   have to accept.
-
-> 
->> Currently, IMX8MP_CLK_AUDIO_AXI_SRC's parent is assigned to
->> IMX8MP_SYS_PLL1_800M in imx8mp.dtsi.  Although it's rate is assigned
->> to 600MHz, the actual rate is 400MHz according to clk_summary because
->> the divider cannot find a ratio to reach 600MHz from the clock source
->> running at 800MHz.  Looking at imx8mp_audio_axi_sels[], sys_pll3_out
->> is the only free/appropriate clock source that can derive 600MHz audio
->> AXI clock from.  Maybe, someone will change IMX8MP_CLK_AUDIO_AXI_SRC's
->> parent to IMX8MP_SYS_PLL3_OUT ?
-> Is the 400 MHz sufficient for audio-axi or does it have some negative performance impact ? If the later, better send a patch to use PLL3 for audio-axi .
-
-I'm adding Shengjiu to comment the audio part.
-
-> 
-> Thanks !
-
+diff --git a/include/linux/sched/task_stack.h b/include/linux/sched/task_stack.h
+index bf10bdb487dd..6c2fef89a4fd 100644
+--- a/include/linux/sched/task_stack.h
++++ b/include/linux/sched/task_stack.h
+@@ -9,6 +9,7 @@
+ #include <linux/sched.h>
+ #include <linux/magic.h>
+ #include <linux/refcount.h>
++#include <linux/kasan.h>
+ 
+ #ifdef CONFIG_THREAD_INFO_IN_TASK
+ 
+@@ -89,6 +90,7 @@ static inline int object_is_on_stack(const void *obj)
+ {
+ 	void *stack = task_stack_page(current);
+ 
++	obj = kasan_reset_tag(obj);
+ 	return (obj >= stack) && (obj < (stack + THREAD_SIZE));
+ }
+ 
 -- 
-Regards,
-Liu Ying
+2.45.2
 
 
