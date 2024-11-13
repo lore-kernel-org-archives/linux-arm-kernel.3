@@ -4,72 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7FCD41C3E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B179D12D66
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+PEQwa7l4DLT738WiQ6Ib5yUyJgE+xpzL/9h4q6jaqI=; b=geV/A4fWBFNaMR8J2gm1G8bDeO
-	lVloONh/ITHeOPzpNeYlIYThFiYtLavh484ovTY9iqNYFimrHP1GaLKfrL/q8bnHy4KbpCHYjgmO+
-	pBRXV+vjG0GnYHy1sIoojEi1TzzmXNgGx2MH2tATO8wJkyRPPiQykfHjwa9fOqJmQkgXToTjSGH+p
-	kpUzqPwxShl0R2v3RdsFEfdMV99xyFXmDsCmqQjjp4MoOPM8BL73R+bEr4Yp07e6JodZ2G+Xdl2i1
-	oz3zr9u8Jqsh1vVh13g60lYtngaQ+kE8hZYu65vS6xU8pxn3M0bvp228Rr9YkO8398sw0Bh1MryLy
-	5FL+rETA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Q5b/v6hP49ousuu3y0QjqsGXEOrcXaZ0nuJKp5PUfg=; b=HjJaRY+RhI3kPQXa/p8ZE+k7X4
+	erRG/BqMVZepVuBPGRs63HZXbTY2gDd2Ma36Upu/VZcw64CcFKmeldvFro9OO6tPVjx9GXIt0Z6U7
+	dhsP3PXF/VeyjSCg3d3sA4+Xr6nEvEY15UyD3gYUwMCOu05fsQs3RJ8ceAzfQLi9478qBhewFj267
+	o4VR+8rgsnP0WR9AO5i8+w8eiAXpx0VDIuJeCKOWqAS6Zv720h9SDj782M5x3yigk7nN9P4iRUkHE
+	r5KgpVPzbhIpTwUR71FWY7j6yj+xRKI3OND/kgyD3Q2KjxKPn/m8eVtsZ/pIzASWVzpXM/+YQxT+r
+	ggtqazmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDDx-00000006tAF-3Puj;
-	Wed, 13 Nov 2024 13:15:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tBDEO-00000006tDv-0TFM;
+	Wed, 13 Nov 2024 13:16:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDBE-00000006sp9-2KmU
+	id 1tBBwW-00000006eLj-2z2g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 13:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731503587;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+PEQwa7l4DLT738WiQ6Ib5yUyJgE+xpzL/9h4q6jaqI=;
-	b=PjsOi9saLJkl7HtZohQpHPjuW5s1uyBiZeNLOEGFzQnQPdmHRf4a9vVCsu4NPR8olm4agi
-	+emxq4YINUG9bCjPC7uBCeIO5iJJ5ScNBXU+bsp0TMDxFgZaFn6bDgkNgomh9D+gEnjE5Z
-	1bxcqEHQ3jOlzsCBanfOGKf9msmHdyA=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-654-V2qSKhXWMx29W0HufQae_w-1; Wed,
- 13 Nov 2024 08:13:04 -0500
-X-MC-Unique: V2qSKhXWMx29W0HufQae_w-1
-X-Mimecast-MFC-AGG-ID: V2qSKhXWMx29W0HufQae_w
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4A984195419F;
-	Wed, 13 Nov 2024 13:13:03 +0000 (UTC)
-Received: from [172.64.11.46] (unknown [10.30.34.132])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 80E56195607C;
-	Wed, 13 Nov 2024 13:13:02 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 10 of 69): Test report for for-kernelci
- (6.12.0-rc7, upstream-arm-next, 68556612)
-Date: Wed, 13 Nov 2024 13:13:02 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Wed, 13 Nov 2024 11:53:54 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AD9Qt26014572;
+	Wed, 13 Nov 2024 11:53:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	7Q5b/v6hP49ousuu3y0QjqsGXEOrcXaZ0nuJKp5PUfg=; b=NNOuIzn68KNshNRB
+	eyGkfFt9MILGzW0I2vvygtpRyk8c0RjLggUpcKvnihKMi2/voELO9bH0JMntgyih
+	Z+4upGz/nZIqbvh+dkTTMDLDssBKDV6AbCTwG/z+RAH+7w2Jql2uFmaB/HTwz/Ny
+	Uh4Iu5fU3BP0cFQ8jFmGWEaDQkGAsRsuJq8Eo/uNQgnbjsBZ+knvK1twmYw8/U58
+	gLOq1WijfBj2Yrtv7Bp5oAhJOExWrAAAMAoO4YbD5FW4tI3IomYiW2zTvbC/g+M1
+	QY+XqUfqkOwCkqQ/HCDBBEzIYsGC3P7tKDSgWiU0uD1w3pQlpepp+TRAqQ9EkRtG
+	dk8wrg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vsg50bwq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 11:53:42 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ADBrf6H024860
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 11:53:41 GMT
+Received: from robotics-lnxbld017.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 13 Nov 2024 03:53:34 -0800
+From: Fange Zhang <quic_fangez@quicinc.com>
+Date: Wed, 13 Nov 2024 19:51:50 +0800
+Subject: [PATCH v2 8/9] arm64: dts: qcom: Add display support for QCS615
+ RIDE board
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <09983.124111308130401644@us-mta-654.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: N_NZ2FeO4vt2E4XgwzDDVTiwVwRIVXD6xoj1gwhQFmQ_1731503583
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241113-add-display-support-for-qcs615-platform-v2-8-2873eb6fb869@quicinc.com>
+References: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+In-Reply-To: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
+To: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Li
+ Liu" <quic_lliu6@quicinc.com>,
+        Fange Zhang <quic_fangez@quicinc.com>,
+        "Xiangxu Yin" <quic_xiangxuy@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731498759; l=2941;
+ i=quic_fangez@quicinc.com; s=20241014; h=from:subject:message-id;
+ bh=Q8LiZhb/Ep/nJO5Y1DyMDYqgsfi76f6BBkbAUE5K5UM=;
+ b=9pdLoyJ16hbwESroVM8oIGkXSblxtKo2DyQGcCymOT5Bk2gR62TqfAKpGig0w0pFH78s420qg
+ 7fPfblIlKNqBfNqaPIONgiNmplUXoA607/Ny6kZ81/HhOB6jnWEO3t3
+X-Developer-Key: i=quic_fangez@quicinc.com; a=ed25519;
+ pk=tJv8Cz0npA34ynt53o5GaQfBC0ySFhyb2FGj+V2Use4=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: a8yQUXGi8b9-YeX12m6xZxLfLitS-NF_
+X-Proofpoint-ORIG-GUID: a8yQUXGi8b9-YeX12m6xZxLfLitS-NF_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
+ priorityscore=1501 phishscore=0 malwarescore=0 lowpriorityscore=0
+ mlxscore=0 mlxlogscore=999 impostorscore=0 bulkscore=0 adultscore=0
+ suspectscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411130102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_051308_694215_49B40F27 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_035352_803316_0C82109C 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +131,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+From: Li Liu <quic_lliu6@quicinc.com>
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Add display MDSS and DSI configuration for QCS615.
+QCS615 has a DP port, and DP support will be added in a later patch.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+---
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts | 109 +++++++++++++++++++++++++++++++
+ 1 file changed, 109 insertions(+)
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'tip/irq/core' into for-ke=
-rnelci
+diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+index ee6cab3924a6d71f29934a8debba3a832882abdd..8b9029e96b07cbef950b074a7412180d6c27d39a 100644
+--- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
++++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
+@@ -202,6 +202,115 @@ &gcc {
+ 		 <&sleep_clk>;
+ };
+ 
++&i2c2 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&qup_i2c2_data_clk &ioexp_intr_active &ioexp_reset_active>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	ioexp: gpio@3e {
++		compatible = "semtech,sx1509q";
++		reg = <0x3e>;
++		interrupt-parent = <&tlmm>;
++		interrupts = <58 0>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		semtech,probe-reset;
++		pinctrl-names = "default";
++		pinctrl-0 = <&dsi_dp_hpd_cfg_pins &dsi_dp_cdet_cfg_pins>;
++
++		// HPD configuration for DSI to DP port
++		dsi_dp_hpd_cfg_pins: gpio0-cfg {
++			pins = "gpio0";
++			bias-pull-up;
++		};
++
++		// Connection detect configuration for DSI to DP port
++		dsi_dp_cdet_cfg_pins: gpio1-cfg {
++			pins = "gpio1";
++			bias-pull-down;
++		};
++	};
++
++	i2c-mux@77 {
++		compatible = "nxp,pca9542";
++		reg = <0x77>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			anx7625@58 {
++				compatible = "analogix,anx7625";
++				reg = <0x58>;
++				interrupt-parent = <&ioexp>;
++				interrupts = <0 0>;
++				enable-gpios = <&tlmm 4 GPIO_ACTIVE_HIGH>;
++				reset-gpios = <&tlmm 5 GPIO_ACTIVE_HIGH>;
++				wakeup-source;
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++						anx_7625_in: endpoint {
++							remote-endpoint = <&mdss_dsi0_out>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++						anx_7625_out: endpoint {
++						};
++					};
++				};
++			};
++		};
++	};
++};
++
++&mdss {
++	status = "okay";
++};
++
++&mdss_dsi0 {
++	vdda-supply = <&vreg_l11a>;
++	status = "okay";
++};
++
++&mdss_dsi0_out {
++	remote-endpoint = <&anx_7625_in>;
++	data-lanes = <0 1 2 3>;
++};
++
++&mdss_dsi0_phy {
++	vdds-supply = <&vreg_l5a>;
++	status = "okay";
++};
++
++&tlmm {
++	ioexp_intr_active: ioexp_intr_active {
++		pins = "gpio58";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-pull-up;
++	};
++
++	ioexp_reset_active: ioexp_reset_active {
++		pins = "gpio3";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-disable;
++		output-high;
++	};
++};
++
+ &qupv3_id_0 {
+ 	status = "okay";
+ };
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1539937649
-
-Tests that were not ran because of internal issues:=20
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    machineinfo [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    Storage - swraid scsi_raid [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+-- 
+2.34.1
 
 
