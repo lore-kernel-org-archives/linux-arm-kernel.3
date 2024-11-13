@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF91D637CE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 22:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9ADFD637C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 22:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ViyKi74fZbZqqauFcX8QRPGItIFrBUPGLG5QeGrfiaA=; b=Zf9LSdBVB3/9czzsD5bNSoaV65
-	oie1jhzUFdaPZF2IpTv0NZ5mjP55CD0S3lkJTBLFof9MMmBDuKaroAHkBWrWAbGZ36qRiArkMQfZN
-	zr8YETzDJSGt6FSRmAUGvfg7Ft7bFVFjsiaYM9vIRjMsfKr6vH0lAbmwt4hKM7qSuxKXvRo0liaK1
-	EJ+mHqHRP99bxAdkceh4I0Ns5GOJHNA5xhA8MagSl6EsqhCcVRKID+OKms1sxuvsXPnwUPtoMgrHv
-	DW7cnrOIWEG2z3zIJg5i6eGVwQ+SBZ1eXYDNXkcv8vT2PilFaPaR08yNcIoMEvwj8gISvCSkYTkhr
-	wBpRmV1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FIbyt9qLC8/HyO6WLPAMcUq4aovgCC1Aa6OugdYE5bQ=; b=pNZMtG3g+oowPtG8thbfC1hb9m
+	+58G+M4B3nnv4AZ2X8Lunop8DcOFpjI6gRWohM/q+2kwNacwQ+JO1jy6xDSYKkuPstDMM+r6xXILc
+	pPFOAM/zSTxb8ov5rG9DpFSH6xkuq0m9P8FkREcfVeAPD7HbwKOgFzuS2N0zmRBgdka9SF5T4C301
+	jKo9T6fgC7Rv/FGAn5HijrMluAz+YQYm3YiouuzZmENMIa7spvmYTa9TfGR2bIbscGmzioDoSWagb
+	wluKbRJr3LD4ztnfCJSwI59RTYfCxI+p4m/7cZVzGmJSKcw3+8351/18UAwpXL1/z/yDrhawUQwTO
+	5DHDzofw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBLgX-000000089YP-2olM;
-	Wed, 13 Nov 2024 22:18:01 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	id 1tBLof-00000008AXB-47UJ;
+	Wed, 13 Nov 2024 22:26:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBLZO-000000088g7-0W40
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 22:10:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=201702; t=1731535824;
-	bh=ViyKi74fZbZqqauFcX8QRPGItIFrBUPGLG5QeGrfiaA=;
-	h=Date:From:To:Cc:Subject:From;
-	b=Kl5ovlMKoBCcdQRrsrJtRT9TYzJ5z9rX472UURoP5vGFyURzT/imRdSdNoYLd3mvg
-	 6YgehizkWl6TIefCUQ/toCziWR2ITekQpUz+4YpUq6d/MDB/G25lZ5ci0S8jO8FxvT
-	 +bx7TkzZ2xMq/eiZWBvvqqxUp3zzhgNLhTN8y5tNJiMIwlTRW5lOMB7qEJ0DGCJMl8
-	 A05ftQ5yYWzXrCFdmTlH3205OZ16PAFk1YmTZsklDp2tTiBYoMkdhoxXjTcopl3bjn
-	 V5u7HZQeI07MufOP2Wr9D8zS3lJRquGzidryKG7KFP51WZgBUSLD+Ft+TWcSOMV1H6
-	 q7Q5CS9jr6HwQ==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Xpcsp6GLlz4w2L;
-	Thu, 14 Nov 2024 09:10:22 +1100 (AEDT)
-Date: Thu, 14 Nov 2024 09:10:23 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: David Miller <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Olof Johansson <olof@lixom.net>, Arnd
- Bergmann <arnd@arndb.de>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, ARM
- <linux-arm-kernel@lists.infradead.org>, Networking
- <netdev@vger.kernel.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Linux Next Mailing List
- <linux-next@vger.kernel.org>
-Subject: linux-next: duplicate patch in the net tree
-Message-ID: <20241114091023.50a38dfe@canb.auug.org.au>
+	id 1tBLmm-00000008A9m-1kHW;
+	Wed, 13 Nov 2024 22:24:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 596ADA41851;
+	Wed, 13 Nov 2024 22:22:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13819C4CEC3;
+	Wed, 13 Nov 2024 22:24:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731536666;
+	bh=4c3JsyMgE4ipwm0tWTQ4ryrY2cLMm2Jke0JitnwChlc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gw7hWGFtNcNPvDPPYAKVNRQO8c6IuR/deLvbCnzf975LnqSsBaJgBF7i65Q036CMH
+	 oZ2Tdz91mcp6yTMYpuw13NNiG/rKcOPA2erZNek99eIUp0DdlTvCuiHBg7MiwFjYTd
+	 83/PyQGQ1mCPxqvv4y1JLZrR8anHxfsjibxb919/s76mWeZbs0Ko+2k0qveEyMkmAd
+	 xLJfXscazyiglCmJTfSeWlMPfKqE6kyiw9rzA5NjiaioPcPoaIVG6dSHfD9G9dpZT/
+	 AfW9jUtSixI0jVPCLQ7wJ9AYu4owmI5RWS1dFaquAJD+PSXh3A5hm/0u/pfRXl4Dby
+	 AQJEVQpukwO6w==
+Date: Wed, 13 Nov 2024 23:24:21 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Cc: dianders@chromium.org, rmk@dyn-67.arm.linux.org.uk, 
+	max.schwarz@online.de, david.wu@rock-chips.com, heiko@sntech.de, vz@mleia.com, 
+	wsa@kernel.org, manabian@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] i2c: rk3x: Add check for clk_enable()
+Message-ID: <zd5673eo7kqwg67lsy6h3m4zdpmgp5xzhr355ialwx6zhdopfb@7x3v5b747sqn>
+References: <20241107211428.32273-1-jiashengjiangcool@gmail.com>
+ <20241107211428.32273-3-jiashengjiangcool@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/CQy0aclGX8m_lk/oRNHiW9V";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107211428.32273-3-jiashengjiangcool@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_141038_491968_84AE7648 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_142428_568814_A6D3A827 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/CQy0aclGX8m_lk/oRNHiW9V
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi Jiasheng,
 
-Hi all,
+On Thu, Nov 07, 2024 at 09:14:28PM +0000, Jiasheng Jiang wrote:
+> Add check for the return value of clk_enable() in order to catch the
+> potential exception. Moreover, convert the return type of
 
-The following commit is also in the arm-soc-fixes tree as a different
-commit (but the same patch):
+It's more an "unlikely exception" rather than a "potential
+exeption".
 
-  2b99b2532593 ("MAINTAINERS: Re-add cancelled Renesas driver sections")
+> rk3x_i2c_adapt_div() into int and add the check.
 
-This is commit
+...
 
-  124f4f1a1869 ("MAINTAINERS: Re-add cancelled Renesas driver sections")
+>  static u32 rk3x_i2c_func(struct i2c_adapter *adap)
+> @@ -1365,9 +1389,12 @@ static int rk3x_i2c_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	clk_rate = clk_get_rate(i2c->clk);
+> -	rk3x_i2c_adapt_div(i2c, clk_rate);
+> +	ret = rk3x_i2c_adapt_div(i2c, clk_rate);
+>  	clk_disable(i2c->clk);
 
-in the arm-soc-fixes tree.
+you can't disable a clock that has failed to enable, right?
 
---=20
-Cheers,
-Stephen Rothwell
+BTW, although I like this patch (or at least I don't dislike), I
+still want to check whether it's wanted or not.
 
---Sig_/CQy0aclGX8m_lk/oRNHiW9V
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
+Andi
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmc1I88ACgkQAVBC80lX
-0Gy5uQf+Pi/A9DUv8c2l2hDBnMVogOGKG6l7eP7S0wn2Q2JL4CY7oNHknSKv6YAI
-CY7tODPcGLyoisPCgbKT3OMy0HWWxVFLK63V3pXEpuqa7P+8v6xfuQfXzHd3btgS
-9q5SJOLqEQke4PXv415E36+f7/cgJuNR7mb4p3Ev3quHluGR2iRAYBCIHVXB6p7y
-5aafOzipahGZ9ZxDwT5kdUcEbVaAaAioC9dVGB8Ng1KVjN8raB06kr1AXwJ/w5j6
-172IGXjz+EjGpkLSwoYFADQ7xkOZX7fIn2rFzddoKhmpUJJlAD5J5iiKJ7iFjI5C
-LuvZLn6APNhjafrYkUqz3O+J8dJB0w==
-=dUdn
------END PGP SIGNATURE-----
-
---Sig_/CQy0aclGX8m_lk/oRNHiW9V--
+>  
+> +	if (ret)
+> +		goto err_clk_notifier;
+> +
+>  	ret = i2c_add_adapter(&i2c->adap);
+>  	if (ret < 0)
+>  		goto err_clk_notifier;
+> -- 
+> 2.25.1
+> 
 
