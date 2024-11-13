@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50096D597C8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 02:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDAED597DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 03:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYvwWACc7sNcysfc8I4ay/Vx9lD4QswBDewYBN+NtnQ=; b=tozINay2CLGlcHWZA0XFqfzodq
-	V8L3AJ5+H9WF6jk0UqXh6M8oahCgrguCQLcAQy0Cb3hlgF9ZQETLNuiCdtyiVqhtPdgi3Kk5sUJ4h
-	RXWX+n4LgvBaBiMNx0CchW4icTN4O6HZOvgUH6n6NgdePVNH12mfQoEHZ3ureGuPznK3g8K8GRzWg
-	/WT+/1HSY2bJNXbe8sfTY3nq+XMbO+jpokwc7oUBKmCqq/2Knm4LnIqDDKVxNHkS2KklZY2RNf4/E
-	5n+jmfqMefxoZ4MQPOsGTjtQX9kMSY0hoE0EIMIQUXzmqJVgoS2K/Iiw2gKY1qY4d/b/0aDhdNUHf
-	cXA2s/gA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AOUAWH6pV1fsYko+Yxr0f+QFCTZ+RX3OpT/Dx5oR4KQ=; b=bQValHn4Wh4DbxQIbMt9DWZ5qG
+	mAw02tvdU9XfW6cNNp31d5II5IHIjs+GW2F8NUiWauYy9hwVAttXZBMA6OqIBfU+jewZbI4fsHR1n
+	F7efe9hfrI5VJIBawQGTAePTDZ5JBqyzboXeCyeF7cFzRlZs0htXLtsY+F0pddSMGMBV98KlaAOxq
+	IKt98FMiODjym7iggLnVNknghQ0BxC6+3qyNxrwQURCZWL2OmNwxsIF9aoprqy/MDNhBFqW8fX91v
+	UMjiV1UougVU6c97TGV3dgAaMGJYzoUR3UCUeQSEfhPtaxTb08/LTwYOR+H1PY51dpZoGhZQJZASh
+	/D0KpXAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB3ab-00000005dL6-355Q;
-	Wed, 13 Nov 2024 02:58:41 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tB41M-00000005fx0-16Mc;
+	Wed, 13 Nov 2024 03:26:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB3Yo-00000005dDP-04H4
+	id 1tB3zY-00000005frI-2S4g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 02:56:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1731466610; x=1763002610;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=ceSuWOSaH+psoiQRK0fCAi9iXALt92xZBLKjvgklJjw=;
-  b=dRUFIbR0ZE3whFc7iFp8DCHUbcHGtZsOrHEbqLd84LqKPKbrnYinXkKl
-   XqyxoxsUzsIOT4vVxtE9Epzd+lcPN+b5q4EHw3GoHhwSK0OL1dfFas1va
-   rsFujAdCAgwWVjFnVRWtvEAgHv0mCQA6i3M5mMyfr3No7ieJyDWZ63Y6u
-   itNJlNZJuBr1OHvZEwJTrzQIHmBCSoKFt2CqtERGbJK/FDZDp3CE+p420
-   Zv9sPgRb4N7KStPQUjkW5G94FL1X9MQPBuQlfiexEjTqqn/TlY6IWXIY7
-   MyJjJXNmf74XWfyu7ghbIFwMx2Y/zffs7tf2thxS562LmY5Nj0OU2krTO
-   A==;
-X-CSE-ConnectionGUID: SqzuwTIyRlC09ui56wFLeA==
-X-CSE-MsgGUID: +dJE7D1hSyanoFXJrcHxWQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11254"; a="31442151"
-X-IronPort-AV: E=Sophos;i="6.12,149,1728975600"; 
-   d="scan'208";a="31442151"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2024 18:56:49 -0800
-X-CSE-ConnectionGUID: g2GulBb6RSSg5ikrECfKxg==
-X-CSE-MsgGUID: Oj2A52ANTnmNTqlZZd4sgw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,149,1728975600"; 
-   d="scan'208";a="87703179"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2024 18:56:43 -0800
-Message-ID: <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
-Date: Wed, 13 Nov 2024 10:55:41 +0800
+	Wed, 13 Nov 2024 03:24:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5EA4AA40F87;
+	Wed, 13 Nov 2024 03:22:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1092FC4CECF;
+	Wed, 13 Nov 2024 03:24:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731468267;
+	bh=ZYSRn4jhHEScLQY/RV9Zp1TTf0al4w/RdxqA8X4W1h4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UhY5xhK9SMnm68gF5pphZ74bThArxDM9WxtmB3hHSYWaoLtR7ZvDmyenHh/37OznC
+	 qE0w7bEtm6JMdk4q7K3abST8Zax8cpyM+X+znZipQkA5wDiu0GT9aQtvzrpAQruR0+
+	 zWF4yafDpe/cYEnupQsJ7LXn4VPij0fKi3XiLQOXDxUxkGDTV8P65W4mny0zlgBiyL
+	 t3l44w8g02txnAt4xYUWpqAPWQCxMfYwEy8rr1HS9edhliY+ifzrAA8F08rDuuAod7
+	 QKlHAOaSw3b+nYWcPOIgY4BHIjbgR0OXGErwa8fbFUIhRDyjOIwBH8ai93FsTCRzFW
+	 kSPkKy0XxhN1w==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Jingyi Wang <quic_jingyw@quicinc.com>,
+	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
+	Song Xue <quic_songxue@quicinc.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Melody Olvera <quic_molvera@quicinc.com>,
+	Sibi Sankar <quic_sibis@quicinc.com>
+Subject: [GIT PULL] A few more Qualcomm driver updates for v6.13
+Date: Tue, 12 Nov 2024 21:24:22 -0600
+Message-ID: <20241113032425.356306-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-To: Jason Gunthorpe <jgg@nvidia.com>, Zhangfei Gao <zhangfei.gao@linaro.org>
-Cc: acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
- kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241112182938.GA172989@nvidia.com>
- <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
- <20241113012359.GB35230@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20241113012359.GB35230@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_185650_100634_BDC77CF6 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241112_192428_770659_4390C385 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/13/24 09:23, Jason Gunthorpe wrote:
->> https://github.com/Linaro/linux-kernel-uadk/tree/6.12-wip
->> https://github.com/Linaro/qemu/tree/6.12-wip
->>
->> Still need this hack
->> https://github.com/Linaro/linux-kernel-uadk/commit/ 
->> eaa194d954112cad4da7852e29343e546baf8683
->>
->> One is adding iommu_dev_enable/disable_feature IOMMU_DEV_FEAT_SVA,
->> which you have patchset before.
-> Yes, I have a more complete version of that here someplace. Need some
-> help on vt-d but hope to get that done next cycle.
 
-Can you please elaborate this a bit more? Are you talking about below
-change
+The following changes since commit d088afa7de3cbe689954dad49e7058d2c4b8944c:
 
-+	ret = iommu_dev_enable_feature(idev->dev, IOMMU_DEV_FEAT_SVA);
-+	if (ret)
-+		return ret;
+  soc: qcom: socinfo: add QCS9100 ID (2024-10-29 15:09:02 -0500)
 
-in iommufd_fault_iopf_enable()?
+are available in the Git repository at:
 
-I have no idea about why SVA is affected when enabling iopf.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.13-2
 
---
-baolu
+for you to fetch changes up to 54a8cd0f92068a3718092f68c8ae99e2078f44b6:
+
+  soc: qcom: ice: Remove the device_link field in qcom_ice (2024-11-11 22:03:30 -0600)
+
+----------------------------------------------------------------
+A few more Qualcomm driver updates for v6.13
+
+Make the Adreno driver invoke the SMMU aperture setup firmware function,
+which is required to allow the GPU to manage per-process page tables in
+some firmware versions - as an example Rb3Gen2 has no GPU without this.
+
+Add X1E Devkit to the list of devices that has functional EFI variable
+access through the uefisecapp.
+
+Flip the "manual slice configuration quirk" in the Qualcomm LLCC driver,
+as this only applies to a single platform, and introduce support for
+QCS8300, QCS615, SAR2130P, and SAR1130P.
+
+Lastly, add IPQ5424 and IPQ5404 to the Qualcomm socinfo driver.
+
+----------------------------------------------------------------
+Bjorn Andersson (2):
+      firmware: qcom: scm: Introduce CP_SMMU_APERTURE_ID
+      drm/msm/adreno: Setup SMMU aparture for per-process page table
+
+Dmitry Baryshkov (3):
+      dt-bindings: cache: qcom,llcc: document SAR2130P and SAR1130P
+      soc: qcom: llcc: use deciman integers for bit shift values
+      soc: qcom: llcc: add support for SAR2130P and SAR1130P
+
+Jingyi Wang (2):
+      dt-bindings: cache: qcom,llcc: Document the QCS8300 LLCC
+      soc: qcom: llcc: Add LLCC configuration for the QCS8300 platform
+
+Joe Hattori (1):
+      soc: qcom: ice: Remove the device_link field in qcom_ice
+
+Konrad Dybcio (1):
+      soc: qcom: llcc: Flip the manual slice configuration condition
+
+Manikanta Mylavarapu (2):
+      dt-bindings: arm: qcom,ids: add SoC ID for IPQ5424/IPQ5404
+      soc: qcom: socinfo: add IPQ5424/IPQ5404 SoC ID
+
+Melody Olvera (1):
+      dt-bindings: firmware: qcom,scm: Document sm8750 SCM
+
+Sibi Sankar (1):
+      firmware: qcom: uefisecapp: Allow X1E Devkit devices
+
+Song Xue (2):
+      dt-bindings: cache: qcom,llcc: Document the QCS615 LLCC
+      soc: qcom: llcc: Add configuration data for QCS615
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |  32 ++
+ .../devicetree/bindings/firmware/qcom,scm.yaml     |   2 +
+ drivers/firmware/qcom/qcom_scm.c                   |  27 +
+ drivers/firmware/qcom/qcom_scm.h                   |   1 +
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c            |  11 +
+ drivers/soc/qcom/ice.c                             |   6 +-
+ drivers/soc/qcom/llcc-qcom.c                       | 615 +++++++++++++++++++--
+ drivers/soc/qcom/socinfo.c                         |   2 +
+ include/dt-bindings/arm/qcom,ids.h                 |   2 +
+ include/linux/firmware/qcom/qcom_scm.h             |   2 +
+ include/linux/soc/qcom/llcc-qcom.h                 |  12 +
+ 11 files changed, 676 insertions(+), 36 deletions(-)
 
