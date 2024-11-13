@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E16FD41C13
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E124D41C16
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UNEWkaaWi2aH87Bu/nkPPrIJzqMJy0nOzkhi0xcK50=; b=oR4yeNTFLWkAusj47XMhh9NbYS
-	ZnsTWxC3u28FtPzuE1Eh0W26uJlGopF2QBW3lmQHCCZcAn6rbHxajr39qjbB+Z2FqX3pKIpLozUD5
-	0jddTBoc8KaxLia9YFB/DHb/BDDY6Y+ehgysQMaH9wfOwiNCGXXXpY8uC3XxuOde4s+oodTr8p2EL
-	5AG14RRp06X/C1T71m1GOM+95KeoI9hwrZKnfjOxmlECmAeJXo2yBddvry1SjRBg2NbK91vT3zxue
-	PecRVuE3G5yimxOvDWtTnVESSpU/dFmgb0nKsc4gpiRZFhOR2aPJwqDJnUsVP87tr+/71FVgwXq2s
-	4JKvRiAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BytviIzCjIdHXac0v0yYt/+vzHuitYQuY7Dt5RQLAyA=; b=tEZz9XvnsoDKOGfiCSYR6HA01M
+	XZJbZ7HhR8kN3vBHXytDqQjcCTsbf0YkMeKdZDtUQmFatRAk7jFBSOdL8zS1ehT47VW16It+/vUHY
+	l0lNEePkDIujHx9x7ay1SDxDCVvRSyBh+eZ/huyQQcKcqGT+maIe+Ac4VdZoZGR8TnKHEo5sCyZvK
+	AUSH+BH4aJ0MvFdUTf+F9MaIIlwQVDYd/9PZtl/ABtXqSU3T/9573pli4PoBZo9w+wWOwTMgwaYnc
+	2dlISNN8P4lMIGbh8pbD7LVu0B7SXqZAdFh9kJ18FspJ9hTBMLBf/8JF8vth3N830mTQ94wB/CPck
+	V5WpYU4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB8dt-000000065Wm-05ma;
-	Wed, 13 Nov 2024 08:22:25 +0000
-Received: from out-176.mta0.migadu.com ([91.218.175.176])
+	id 1tB8n2-000000066VN-07TR;
+	Wed, 13 Nov 2024 08:31:52 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB8c4-000000065Ou-3TxL
+	id 1tB8lB-000000066Af-1LUu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 08:20:35 +0000
-Date: Wed, 13 Nov 2024 19:15:59 +1100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1731486030;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5UNEWkaaWi2aH87Bu/nkPPrIJzqMJy0nOzkhi0xcK50=;
-	b=idA6PtSuL7Dp9RxF1Bk6TI7/3VnRiu3fNXfySYDOyaDq5JaEfZYHUTmS6PF5ZJcxqYfT3p
-	HB2st5Z5LNBKsVWpxNGXK0rXZNRXCVEfrcxv+AVAg/q9Rcq06JNxViVMSQ4FROMPp0H87U
-	Wdu0zLoI7zkmv1c0HAIzT5taFlZXz7RCAn+Sm3xYMHJ5JxwDHnzoQXfpZUgE8YZTt8YXSZ
-	hIofh7rDKlVtAEPuvfpBRtSX0O/uEYjA94VVNLGETrumTo7wqRc13ePRp9cx+m0IfclD8y
-	Kuvy4F2jB0Nnye0lU1ojPCjWw0sqN95IckT5MPrmfgv82F5Pfeu5jXRyVa+JvQ==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Parthiban <parthiban@linumiz.com>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: Workaround TCON TOP conflict between DE0 and
- DE1
-Message-ID: <ZzRgP7-hHWE8JH8K@titan>
-References: <20241108-tcon_fix-v1-1-616218cc0d5f@jookia.org>
- <20241108115357.691b77b0@donnerap.manchester.arm.com>
- <Zy4SKCBwce3q0yj5@titan>
- <b26b9d86-4ff9-4543-85ce-176dccfbfa05@linumiz.com>
- <Zy4c9BFcrz2JVU6k@titan>
- <ZzNCsFiAiACFrQhE@titan>
- <f0d5b314-cfcc-4856-8d6e-09e437c075ec@linumiz.com>
- <ZzPluoI7xSTwhNcm@titan>
- <2ef6afa0-2756-493b-83a4-62e73a8e2af9@linumiz.com>
+	Wed, 13 Nov 2024 08:29:59 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AD5T69K030186;
+	Wed, 13 Nov 2024 09:29:47 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=BytviIzCjIdHXac0v0yYt/
+	+vzHuitYQuY7Dt5RQLAyA=; b=NPlX+dHe4tkFVGYvQyBFxbOeihUyOIsMD0W3B3
+	zxhlb+jFIsLoku5BEdmI7yFUDNBVwmu4PwTGvHNNVrfIrCwvsQ7F7gchmbteQjYz
+	g5LaJItd7ihkizkFL0k4Uo1i+69o3Py2Pv4GPuk9Mq8reWFjOq/ug68WvUtnDNLn
+	JXlC1dx5oTZQUMOC3pjEfad3J26cHL3ge4EHSaOTVxE0ft3slybsdGvnGnl77zBX
+	Io+ao/8RQ1F9QmmWDx/i9I71KZ5xkSaiyplf0aRs2z62nSIj8T/FlIEiizywI0l+
+	c7JlTumbHzhC9QZPWYXVr7gIthn47kGIbGkLRjTHNc+yYPSw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 42swr90r7r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 09:29:47 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 61D61400A1;
+	Wed, 13 Nov 2024 09:28:01 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 23DCE26FCFA;
+	Wed, 13 Nov 2024 09:25:19 +0100 (CET)
+Received: from localhost (10.252.5.106) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 13 Nov
+ 2024 09:25:18 +0100
+From: Olivier Moysan <olivier.moysan@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: Olivier Moysan <olivier.moysan@foss.st.com>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] arm64: dts: st: add i2s support to stm32mp251
+Date: Wed, 13 Nov 2024 09:25:09 +0100
+Message-ID: <20241113082510.2354924-1-olivier.moysan@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2ef6afa0-2756-493b-83a4-62e73a8e2af9@linumiz.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.5.106]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_002033_476668_78E580FA 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20241113_002957_924967_819C1963 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +93,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add I2S support to STM32MP25 SoCs.
 
-On Wed, Nov 13, 2024 at 11:40:14AM +0530, Parthiban wrote:
-> No, Mixers in upstream refers to RT-Mixers inside the DE. It's only the
-> quirk for R40/D1 setting the DE ports using mixer numbering.
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+---
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 45 ++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-After an hour or two of spelunking the code base, I'm still not sure about this.
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 6fe12e3bd7dd..8cc0b64e6a16 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -237,6 +237,21 @@ rifsc: bus@42080000 {
+ 			#access-controller-cells = <1>;
+ 			ranges;
+ 
++			i2s2: audio-controller@400b0000 {
++				compatible = "st,stm32mp25-i2s";
++				reg = <0x400b0000 0x400>;
++				#sound-dai-cells = <0>;
++				interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_BUS_SPI2>, <&rcc CK_KER_SPI2>;
++				clock-names = "pclk", "i2sclk";
++				resets = <&rcc SPI2_R>;
++				dmas = <&hpdma 51 0x43 0x12>,
++				       <&hpdma 52 0x43 0x21>;
++				dma-names = "rx", "tx";
++				access-controllers = <&rifsc 23>;
++				status = "disabled";
++			};
++
+ 			spi2: spi@400b0000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -252,6 +267,21 @@ spi2: spi@400b0000 {
+ 				status = "disabled";
+ 			};
+ 
++			i2s3: audio-controller@400c0000 {
++				compatible = "st,stm32mp25-i2s";
++				reg = <0x400c0000 0x400>;
++				#sound-dai-cells = <0>;
++				interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_BUS_SPI3>, <&rcc CK_KER_SPI3>;
++				clock-names = "pclk", "i2sclk";
++				resets = <&rcc SPI3_R>;
++				dmas = <&hpdma 53 0x43 0x12>,
++				       <&hpdma 54 0x43 0x21>;
++				dma-names = "rx", "tx";
++				access-controllers = <&rifsc 24>;
++				status = "disabled";
++			};
++
+ 			spi3: spi@400c0000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -439,6 +469,21 @@ usart6: serial@40220000 {
+ 				status = "disabled";
+ 			};
+ 
++			i2s1: audio-controller@40230000 {
++				compatible = "st,stm32mp25-i2s";
++				reg = <0x40230000 0x400>;
++				#sound-dai-cells = <0>;
++				interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_BUS_SPI1>, <&rcc CK_KER_SPI1>;
++				clock-names = "pclk", "i2sclk";
++				resets = <&rcc SPI1_R>;
++				dmas = <&hpdma 49 0x43 0x12>,
++				       <&hpdma 50 0x43 0x21>;
++				dma-names = "rx", "tx";
++				access-controllers = <&rifsc 22>;
++				status = "disabled";
++			};
++
+ 			spi1: spi@40230000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+-- 
+2.25.1
 
-Confusables:
-
-- sun8i_tcon_top_de_config uses 'mixer' instead of DE
-- The datasheet for TCON TOP mentions DEs
-- The DT documentation for TCON TOP only mentions mixers
-- Only mixers are passed to the TCON TOP DT
-- Allwinner's tcon_de_attach works on systems without two DEs
-- Allwinner's tcon_de_attach special cases systems with two DEs
-- Allwinner's tcon_de_attach implies theres two TCON TOPs for two DEs
-
-However sun8i_r40_tcon_tv_set_mux seems to clear this up:
-
-- The register value is found using the remote endpoint reg
-- tcon_top_mixer0_out specifies 0 and 2 for lcd0 and tv0
-- tcon_top_mixer1_out also specifies 0 and 2 for lcd0 and tv0
-- The 'mixer' is engine->id
-- engine->id is found using sun4i_tcon_find_engine
-- It gets the id from the endpoint number
-- mixer0 has id 0
-- mixer0 has id 1
-- there's one engine struct per mixer and display-backend
-
-It really seems like the code means mixers here.
-
-> > Hmm. Are you sure? Looking at the Allwinner drivers it has the method
-> > de_top_set_de2tcon_mux in
-> > drivers/video/fbdev/sunxi/disp2/disp/de/lowlevel_v33x/de330/de_top.c
-> > which I think means it's for DE3? But I don't see it called anywhere?
-> 
-> Missing in the upstream. 
-
-So if Allwinner and mainline don't use it, what does?
-
-> So far there is no real user for DE1 in upstream. DE_PORT_SELECT_REG value for
-> DE1 can be negate of DE0, so that they won't conflict or cause timing issues.
-
-If my thoughts are correct, this would break use of mixer0 and mixer1 at the
-same time.
-
-> Also DE_PORT_SELECT_REG mentions only about TV and LCD muxing, but missing HDMI,
-> DSI and so.
-> 
-> Otherwise, if I get DE1 working in A133, I will try to add quirk to set DE0 and
-> DE1 port mapping in that case to respective connector.
-> 
-> Thanks,
-> Parthiban
-
-Thanks,
-John Watts.
 
