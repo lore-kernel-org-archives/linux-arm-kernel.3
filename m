@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6EED41C17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5607FD41C18
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 08:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QI8MidwZZ5apE6IYuuUbrPqi3d8lcdFWg29g280gmXo=; b=NZaQCOH2VHbp/z
-	YPxdexxj5XBkBeJfNDh17JLvOvZtp7KW7pHz9t/X3obuzUHgcFD7AMtxUNu5Yl/9v/IzUdPOwpBqF
-	cKgOZ0jjm34uZnMnksoPFSZbCAWRoI2NNMj4yNIFAtI3hHFz4qzUyuQzJNEDzj28fE5bF/5WeLlN9
-	361WTkQDvwfzxe4L5aG0weosO7B2AJ40nHh/dise3ZkngHtl93rD4qkkGlpK+W1x0CtJZr1mEaFWz
-	JNl000YEKOstkyLtR+9bP8JsBLc0NB+ayrImCi8BL5sywOcaSI6rmE8PiXAIlyrqw0VCSA0xSNny9
-	pHx2ZnsOA6TCxDpbcwqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8RSuBYLbfS+YB1LiSpgNI/bCs2s5Je21RbRkLi2fBK0=; b=iD7l5/tsvwyMpJGpZn93g4EtD8
+	cDQxxjulNK8HF/wtWIJzYFHXN7CBMNPfGfJgCMXlqEyLYgCYJsnmvpI+AcAbR2kEJD+5XWDBxHagW
+	Pd31h0NFGjD8DPH6KqB/NRjEhZh8LI6YTC3tfAFE85No2IP7TrXLy6L20MrgyyPj8RDqQPGH3jNQi
+	D2k/7EdOT0JJ7w1jbzhuUXYy39vrAoAsXxrXKLDOxY99gqubhjssWN8HDsh06ggz38Tn1m1daEF3D
+	wjFDXI+3Ii+gq9/52KO1OLetYSiRAM4YhmYpcyk9rwO2dEYLRnjo0oiLh5Me5SMiIuahwRUMn/aHj
+	/UTGu/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB97T-000000069Zb-3Cp8;
-	Wed, 13 Nov 2024 08:52:59 +0000
-Received: from mail-lf1-f48.google.com ([209.85.167.48])
+	id 1tB9AZ-00000006AFD-2lEf;
+	Wed, 13 Nov 2024 08:56:11 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB95B-000000069IH-21Vm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 08:50:39 +0000
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-539e8607c2aso7347265e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 00:50:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731487833; x=1732092633;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QI8MidwZZ5apE6IYuuUbrPqi3d8lcdFWg29g280gmXo=;
-        b=A/sKJmCGpT4VSEmd/tgkgnbnWvSKLtTBm9Kjst0bIGpWKAcOGdwCVQSSxh0Zd3nEcb
-         feULMBkGYLvcy+NJcXm5Yl+8E4I06Plw98tSBRGM6ifZdcwqyK5rL0yLlREXrC+dOelp
-         u+6IhHw3N9dF0k8d5d1M1L0Ztxc37QwDGTFmFNatkudiQEw/fgze0KgrBsmRea3ftb7u
-         YKtKXH/xYM+mkNsn3+FsEohteDQWyMBJoc4NLoW0ebBRs9xDEyigl4cB9aeBjP3ulbpG
-         AsazZjvOZypLYQDL3lUKXGdSFTklcMxw1jnHtukBoesWlcrS3uLqrYWDnywTt0WEx0Kz
-         4deQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUoy8dixP67kqVxoxfSYKNBoymt7Hm+UZ8RPVbkcMvOfKngZaWHBEZvVfsM2OGkfb26550qJFLNEj0FHc2gSvDm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOzYforjNT6IPKIDW51bOOrpBbdn6Db/R6Oqs3E3H/FO8HPkUO
-	+S0T2k/OHj2wee/VHQj4D1pIhqsK15nwTq+B0CT6+kUMHdpOheSYVd5XTxJ4
-X-Google-Smtp-Source: AGHT+IHC1M3niPDte1HVbL52MQfcd0mJiIWBAad/LNubyq4ofPggrN/u+EBjD1zvm9dENIgOVecusw==
-X-Received: by 2002:a05:6512:4018:b0:539:ea7a:7688 with SMTP id 2adb3069b0e04-53d862b452fmr9421554e87.1.1731487832989;
-        Wed, 13 Nov 2024 00:50:32 -0800 (PST)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53d826a9badsm2115565e87.192.2024.11.13.00.50.31
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 00:50:31 -0800 (PST)
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-2fb57f97d75so63788881fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 00:50:31 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXrr5AWwiN6gNCSXW9+QM+O6O1HZWB6b9/rKeIQkj0QXsQnct4r5YZ24RKIv8FXWpZ+ddeHanK5DmxscX201myv@lists.infradead.org
-X-Received: by 2002:a2e:a551:0:b0:2fb:4b40:1e18 with SMTP id
- 38308e7fff4ca-2ff2016fc88mr87156771fa.13.1731487831435; Wed, 13 Nov 2024
- 00:50:31 -0800 (PST)
+	id 1tB98h-000000069mc-26jP;
+	Wed, 13 Nov 2024 08:54:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1731488053;
+	bh=H7Y1+xgTkIPEtStm71lFE6l4dByLaWE7iB5+9vnDGGI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iQhqx4TBleDVuF99NZ8lyPaVvrWj/UzjnPj9HXGubDsaH/yb2EBFBDZmsuCAerrkE
+	 UZATpUZPFy/XJzSlnqI/Zw0O8t/UKQMCqCpEdXrVZ8JmjrC/+OYVBLVVrXKn7RY6Q1
+	 Z7BOKOntTQsJBEFpY+7tKRQHEd5PDEw/WSUpCal4dO3WCV5DYdXtkjZo3BkkkkzCd+
+	 diKkNAGTz52wbN3T+hKLmTdm0Zc/CE2Kej0CfgODqBWENTnY1A/lOTNPdcTacgWJxE
+	 uglHlcgvaj/X8zcvREF3Dd+lUakW/K97aMq47V7XmxwKb1Bs8eodv2ZsvZIpnDbljh
+	 lfMEU5K3d+YKQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CE0017E139E;
+	Wed, 13 Nov 2024 09:54:13 +0100 (CET)
+Message-ID: <c2d1f933-0bb8-4aee-acd3-af4246f66913@collabora.com>
+Date: Wed, 13 Nov 2024 09:54:12 +0100
 MIME-Version: 1.0
-References: <20241111005750.13071-1-andre.przywara@arm.com> <20241111005750.13071-6-andre.przywara@arm.com>
-In-Reply-To: <20241111005750.13071-6-andre.przywara@arm.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Wed, 13 Nov 2024 16:50:19 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
-Message-ID: <CAGb2v64x_QE8w_4h10waG33xNpkd9QLt_B=xSPMMe0M=6bqsJw@mail.gmail.com>
-Subject: Re: [PATCH 5/7] dt-bindings: pinctrl: add compatible for Allwinner A523/T527
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2,1/1] i2c: mediatek: add runtime PM operations and bus
+ regulator control
+To: =?UTF-8?B?Wm9pZSBMaW4gKOael+emueWmoSk=?= <Zoie.Lin@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?UWlpIFdhbmcgKOeOi+eQqik=?= <Qii.Wang@mediatek.com>,
+ "andi.shyti@kernel.org" <andi.shyti@kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ =?UTF-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?= <Teddy.Chen@mediatek.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20241106125212.27362-1-zoie.lin@mediatek.com>
+ <20241106125212.27362-2-zoie.lin@mediatek.com>
+ <c7c5e802-3df8-4218-865f-81a207c517cd@collabora.com>
+ <d1744ec6c7dbd63b128fa0cada2622dead9cb95b.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <d1744ec6c7dbd63b128fa0cada2622dead9cb95b.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_005037_546005_E94C6BB9 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20241113_005415_719548_655B0569 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +84,231 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 8:58=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
-com> wrote:
->
-> The A523 contains a pin controller similar to previous SoCs, although
-> using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-> This introduces a new style of binding, where the pinmux values for each
-> pin group is stored in the new "allwinner,pinmux" property in the DT
-> node, instead of requiring every driver to store a mapping between the
-> function names and the required pinmux.
->
-> Add the new name to the list of compatible strings, and required it to
-> have 10 interrupts described. Also add the new pinmux property.
->
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  | 23 +++++++++++++++++--
->  1 file changed, 21 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a1=
-0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-=
-a10-pinctrl.yaml
-> index 4502405703145..6fc18e92e1e94 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinct=
-rl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinct=
-rl.yaml
-> @@ -56,6 +56,8 @@ properties:
->        - allwinner,sun50i-h6-r-pinctrl
->        - allwinner,sun50i-h616-pinctrl
->        - allwinner,sun50i-h616-r-pinctrl
-> +      - allwinner,sun55i-a523-pinctrl
-> +      - allwinner,sun55i-a523-r-pinctrl
->        - allwinner,suniv-f1c100s-pinctrl
->        - nextthing,gr8-pinctrl
->
-> @@ -64,7 +66,7 @@ properties:
->
->    interrupts:
->      minItems: 1
-> -    maxItems: 8
-> +    maxItems: 10
->      description:
->        One interrupt per external interrupt bank supported on the
->        controller, sorted by bank number ascending order.
-> @@ -119,13 +121,17 @@ patternProperties:
->          $ref: /schemas/types.yaml#/definitions/uint32
->          enum: [10, 20, 30, 40]
->
-> +      allwinner,pinmux:
-> +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> +        description: pinmux selector for each pin
-> +
+Il 07/11/24 16:19, Zoie Lin (林禹妡) ha scritto:
+> Hi Angelo,
+> 
+> On Thu, 2024-11-07 at 11:13 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> Il 06/11/24 13:52, Zoie Lin ha scritto:
+>>> This commit introduces support for runtime PM operations in
+>>> the I2C driver, enabling runtime suspend and resume functionality.
+>>>
+>>> Although in the most platforms, the bus power of i2c are always
+>>> on, some platforms disable the i2c bus power in order to meet
+>>> low power request.
+>>>
+>>> This implementation includes bus regulator control to facilitate
+>>> proper handling of the bus power based on platform requirements.
+>>>
+>>> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
+>>> ---
+>>>    drivers/i2c/busses/i2c-mt65xx.c | 77
+>>> ++++++++++++++++++++++++++++-----
+>>>    1 file changed, 65 insertions(+), 12 deletions(-)
+>>>
+>>> diff --git a/drivers/i2c/busses/i2c-mt65xx.c
+>>> b/drivers/i2c/busses/i2c-mt65xx.c
+>>> index 5bd342047d59..4209daec1efa 100644
+>>> --- a/drivers/i2c/busses/i2c-mt65xx.c
+>>> +++ b/drivers/i2c/busses/i2c-mt65xx.c
+>>
+>> ..snip..
+>>
+>>> @@ -1370,6 +1373,40 @@ static int mtk_i2c_parse_dt(struct
+>>> device_node *np, struct mtk_i2c *i2c)
+>>>        return 0;
+>>>    }
+>>>
+>>> +static int mtk_i2c_runtime_suspend(struct device *dev)
+>>> +{
+>>> +     struct mtk_i2c *i2c = dev_get_drvdata(dev);
+>>> +
+>>> +     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>> +     if (i2c->adap.bus_regulator)
+>>> +             regulator_disable(i2c->adap.bus_regulator);
+>>> +
+>>> +     return 0;
+>>> +}
+>>> +
+>>> +static int mtk_i2c_runtime_resume(struct device *dev)
+>>> +{
+>>> +     int ret = 0;
+>>> +     struct mtk_i2c *i2c = dev_get_drvdata(dev);
+>>
+>>          struct mtk_i2c *i2c = dev_get_drvdata(dev);
+>>          int ret;
+>>
+>>> +
+>>> +     if (i2c->adap.bus_regulator) {
+>>> +             ret = regulator_enable(i2c->adap.bus_regulator);
+>>> +             if (ret) {
+>>> +                     dev_err(dev, "enable regulator failed!\n");
+>>> +                     return ret;
+>>> +             }
+>>> +     }
+>>> +
+>>> +     ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>> +     if (ret) {
+>>> +             if (i2c->adap.bus_regulator)
+>>> +                     regulator_disable(i2c->adap.bus_regulator);
+>>> +             return ret;
+>>> +     }
+>>> +
+>>> +     return 0;
+>>> +}
+>>> +
+>>>    static int mtk_i2c_probe(struct platform_device *pdev)
+>>>    {
+>>>        int ret = 0;
+>>> @@ -1472,13 +1509,18 @@ static int mtk_i2c_probe(struct
+>>> platform_device *pdev)
+>>>                }
+>>>        }
+>>>
+>>> -     ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c-
+>>>> clocks);
+>>> +     ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>>        if (ret) {
+>>> -             dev_err(&pdev->dev, "clock enable failed!\n");
+>>>                return ret;
+>>>        }
+>>> +
+>>> +     platform_set_drvdata(pdev, i2c);
+>>> +
+>>> +     ret = mtk_i2c_runtime_resume(i2c->dev);
+>>> +     if (ret < 0)
+>>> +             goto err_clk_bulk_unprepare;
+>>>        mtk_i2c_init_hw(i2c);
+>>> -     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>> +     mtk_i2c_runtime_suspend(i2c->dev);
+>>>
+>>>        ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
+>>>                               IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
+>>> @@ -1486,19 +1528,22 @@ static int mtk_i2c_probe(struct
+>>> platform_device *pdev)
+>>>        if (ret < 0) {
+>>>                dev_err(&pdev->dev,
+>>>                        "Request I2C IRQ %d fail\n", irq);
+>>> -             goto err_bulk_unprepare;
+>>> +             goto err_clk_bulk_unprepare;
+>>>        }
+>>> +     pm_runtime_set_autosuspend_delay(&pdev->dev, 1000);
+>>
+>> You had comments from me and from Andi on this delay, and you
+>> completely ignored
+>> both of us.
+>>
+>> We're still waiting for an answer to our question.
+> 
+> I am sorry for any confusion caused by my previous response.
+> The response to your question was included in the cover letter, which
+> might not have been very noticeable.
+>   
+> The delay before runtime_put_autosuspend() actually executes
+> mtk_i2c_runtime_suspend() depends on the frequency of I2C usage by the
+> devices attached to this bus. A 1000ms delay is a balanced value for
+> latency and power metrics based on the MTK platform.
+>   
 
-Why not just the standard "pinmux" property, as given in
-Documentation/devicetree/bindings/pinctrl/pinmux-node.yaml
+Can you please write down "the numbers" into the commit description?
 
->      required:
->        - pins
->        - function
+As in, to justify why 1000ms is a balanced value for latency and power, so,
+write down a small table containing both values for various delays, like:
 
-This section should be made to apply only to the existing
-compatibles? Maybe we could just split the files and have
-a clean slate for sun55i?
+Delay(ms)    Latency(us)   Power(uW)
+200          999           9999
+500          9999          99999
+1000         99999         999999
 
-ChenYu
+Please also say what is the minimum acceptable latency.
 
->      additionalProperties: false
->
-> -  "^vcc-p[a-ilm]-supply$":
-> +  "^vcc-p[a-klm]-supply$":
->      description:
->        Power supplies for pin banks.
->
-> @@ -156,6 +162,17 @@ allOf:
->          - interrupts
->          - interrupt-controller
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun55i-a523-pinctrl
-> +
-> +    then:
-> +      properties:
-> +        interrupts:
-> +          minItems: 10
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -166,6 +183,7 @@ allOf:
->        properties:
->          interrupts:
->            minItems: 8
-> +          maxItems: 8
->
->    - if:
->        properties:
-> @@ -244,6 +262,7 @@ allOf:
->              - allwinner,sun8i-v3s-pinctrl
->              - allwinner,sun9i-a80-r-pinctrl
->              - allwinner,sun50i-h6-r-pinctrl
-> +            - allwinner,sun55i-a523-r-pinctrl
->
->      then:
->        properties:
-> --
-> 2.46.2
->
+Thanks,
+Angelo
+
+>   
+> Thank you.
+>   
+> Best regards,
+> Zoie
+>>
+>>
+>>> +     pm_runtime_use_autosuspend(&pdev->dev);
+>>> +     pm_runtime_enable(&pdev->dev);
+>>
+>> devm_pm_runtime_enable() please.
+>>
+>>>
+>>>        i2c_set_adapdata(&i2c->adap, i2c);
+>>>        ret = i2c_add_adapter(&i2c->adap);
+>>>        if (ret)
+>>> -             goto err_bulk_unprepare;
+>>> -
+>>> -     platform_set_drvdata(pdev, i2c);
+>>> +             goto err_pm_runtime_disable;
+>>>
+>>>        return 0;
+>>>
+>>> -err_bulk_unprepare:
+>>> +err_pm_runtime_disable:
+>>> +     pm_runtime_disable(&pdev->dev);
+>>> +err_clk_bulk_unprepare:
+>>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>>
+>>>        return ret;
+>>> @@ -1510,6 +1555,7 @@ static void mtk_i2c_remove(struct
+>>> platform_device *pdev)
+>>>
+>>>        i2c_del_adapter(&i2c->adap);
+>>>
+>>> +     pm_runtime_disable(&pdev->dev);
+>>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>>    }
+>>>
+>>> @@ -1518,6 +1564,10 @@ static int mtk_i2c_suspend_noirq(struct
+>>> device *dev)
+>>>        struct mtk_i2c *i2c = dev_get_drvdata(dev);
+>>>
+>>>        i2c_mark_adapter_suspended(&i2c->adap);
+>>> +
+>>> +     if (!pm_runtime_status_suspended(dev))
+>>> +             mtk_i2c_runtime_suspend(dev);
+>>> +
+>>>        clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>>
+>>>        return 0;
+>>> @@ -1536,7 +1586,8 @@ static int mtk_i2c_resume_noirq(struct device
+>>> *dev)
+>>>
+>>>        mtk_i2c_init_hw(i2c);
+>>>
+>>> -     clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+>>> +     if (pm_runtime_status_suspended(dev))
+>>> +             mtk_i2c_runtime_suspend(dev);
+>>
+>> You want to resume, not to suspend, in a resume handler.
+>>
+>>>
+>>>        i2c_mark_adapter_resumed(&i2c->adap);
+>>>
+>>> @@ -1546,6 +1597,8 @@ static int mtk_i2c_resume_noirq(struct device
+>>> *dev)
+>>>    static const struct dev_pm_ops mtk_i2c_pm = {
+>>>        NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
+>>>                                  mtk_i2c_resume_noirq)
+>>> +     SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend,
+>>> mtk_i2c_runtime_resume,
+>>> +                        NULL)
+>>>    };
+>>>
+>>>    static struct platform_driver mtk_i2c_driver = {
+>>
+>>
+>>
+
 
