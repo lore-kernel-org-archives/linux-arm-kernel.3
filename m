@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9825D637A3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 18:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17E2D637A3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 18:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3BFavaAaAPBK1zdTplun/3lQN1DVlUK79cnZIlxUFoo=; b=JeKS/t5zGeTad6
-	m8ML+VBjpXhduM0ONRs3URbLO2b5ceaiToTVmJ0N9JNTqsD2V5C6pP3aFvDowWoX1WfLfAatd8dzj
-	6I7eyu7O3QgdJWJfzQsAJQaNPMW7JMpYoCLeNCrq105zrdL/YxV2YCzd+y+pnqr/hM5ButPYNdEug
-	1HL4C9Ef7MHeDUlx1K9wb8dtFiX+DHRAAKmb+YN6EVBEO6O0A0CmkMFbsHqFZHD9IpNpSgO9koL3G
-	lvCrQHmzpTjD6IA1Lm3wyFbuIdQT0JdK8Z9wuysY2bA+XTsijmuxE+sRlk7QuJ5wmROeAdSRZYWJr
-	lruaNpEJwpro+b46Gdkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iHp51deuGbbVdiRm/3lkBsA6sLNGX+gRE7+ejiXPpUI=; b=rrNP9aQXPpGgDE
+	sDL5Dp8ohwSaqXBhxvVoCS2CrCF1aKI2lRcrClGaM/PbRRFjkbWdnFeuAUyaRpQPTVQeTSQzJab6e
+	IM3yJOerr4Spll8m5lPPz7sVMDC6B9ZO7TRKIp9JrzgTx8RjI2YCA5r13RDv6KPybnl5v0l96seqO
+	sBi2nv6xoYY+bqYHFphkVaP6Ca2ld/8mlwjpHNZDeSnrbS2e4PvZIZKJSTVolV8XgKNHl5ru3KkpC
+	wR5wC6H5l04plOiq55IooBT3C8eP3Q10XbE+SKW/frI3bl0s83mhVkUcmMEYxsuyhh/Ve1ifVULJp
+	kJhSa8BtKQN+S2uu/mlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBI4Y-00000007hcH-030E;
-	Wed, 13 Nov 2024 18:26:34 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1tBI6n-00000007i7M-38M6;
+	Wed, 13 Nov 2024 18:28:53 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBHz7-00000007gtC-26pJ
+	id 1tBI2j-00000007hMJ-2BEA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 18:20:58 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-37d6a2aa748so4423802f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 10:20:56 -0800 (PST)
+	Wed, 13 Nov 2024 18:24:43 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e2971589916so11408639276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 10:24:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1731522056; x=1732126856; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3BFavaAaAPBK1zdTplun/3lQN1DVlUK79cnZIlxUFoo=;
-        b=lu2TWfmFXPevTtCYNH9SlH/cU1BrDPKPVE9TnFnWm/xOFvCWL5vLwGaM14MruIwXxI
-         rU+y0eo2SBAxU65AgO6iY2TsEwob1IyinSOkDsK4c0S+m0Q3x2rDLHy23eLmDr6UeB+u
-         C4cIxkTNxOiWhpr8NbM7bMYv38fXU8wRjRoVZ/rTOYG6YDaCvo1O4r1W6dg8vVeUFxy0
-         TadCSqeCsZS/SRwna3vOjZtFgRH4YNzILe7K3FRs8L2W/YfOTWVVKcck6E07efj40dUb
-         jGoEwgt+6j2V6eiKSAFmwYmZJM+cJIMD6ufU0gsaUPB35fK4sgnMDpCDQQ+gFNiY8Jtb
-         XwhA==
+        d=google.com; s=20230601; t=1731522280; x=1732127080; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=iHp51deuGbbVdiRm/3lkBsA6sLNGX+gRE7+ejiXPpUI=;
+        b=0IoDu4Ov4E2reKXbuqmXTpD95koeYKBVrI6ZMkw+MLvDnyD+IMEzuJrNpA/1J7oni8
+         4rVZYR8Kp6xELqfFSTDZaamY/Om9aZu+nE235kgxLsEmbYtxJi4r0F3KWmsMLVFpzKq2
+         +AGq4LbdYvyy9HyO6L5yr3X6JuVdJAw6duoGTtFm1VhDS1sja8wB1GOAkHL79nXFowEu
+         8MA2TYQUqJNga5iCB425z4xQ7joj+ERayZO0wzBYaXcJXAMNCPyHm+8EFEfoo10Fwn6M
+         8M7oz8sO4yFzETJ53flefkvdP2E8KVoxsPsb0DMuVhivIIDekeFJmcP2Z7VBl2ZNvOvA
+         3NcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731522056; x=1732126856;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3BFavaAaAPBK1zdTplun/3lQN1DVlUK79cnZIlxUFoo=;
-        b=dMTrxlULvA7ihfQVRzy/TNI0t6LzmusGnOpNVz3CWBMaXkm/Ih6P91mong19GBU9uk
-         VKaXS4AkcSQ1+ORi4cMqpkoSmuwbuHJsxPWmkJd8QhDV2rCXHIZHgtDI29/7GvYJ1qMn
-         P57L9/U/08ovHNEoKKU0Acf+0ILG9bVCyE0Icwcf4RIwYAVZ5v7K1biTbxLKhY9lD7FI
-         k+Tfi8yEb+iYhDciQm5usF9SfwxQPZLr1xZZlBDCOIOd2AKIvW3nTA3XkRpcqSx/Xqv7
-         9xoE8XkWI6sf/MD7IgV82c1uwLt/bzQYYQ7MLhxLbzyKI1bgomh2QYthBQYcBSSESkET
-         YK/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVy2zbu/ABXDB2xZyCSozmX/5HIUTFcvUD1dlBm4qmQMROhZkAQ2Lf+BCgf4HjbA7CnMX+B+4LDUmus0NKFGX5O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzkj+or0QuZ374IwqFQY93kmy71QiQkwvMnn6Y39HNyGxYlRAMp
-	6nBjhHlQCUKOnv7nU0VLpMU+PwJtHq4dyEfSwTJ4kIoAnIqjWK8S/IKDAs6BqJE=
-X-Google-Smtp-Source: AGHT+IEsU1pa7lAwPRKXaWud/Ylc1h9H/a+DW7TRPX/WCZyVaBRXwly5BC1hWgW2sielk9MShKXvEg==
-X-Received: by 2002:a05:6000:2aa:b0:37e:f1ed:67e8 with SMTP id ffacd0b85a97d-381f186dd5cmr17209038f8f.35.1731522055625;
-        Wed, 13 Nov 2024 10:20:55 -0800 (PST)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed9978c6sm19009502f8f.50.2024.11.13.10.20.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 10:20:55 -0800 (PST)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: arnd@arndb.de,
-	olof@lixom.net,
-	arm@kernel.org,
-	soc@kernel.org
-Subject: [RESEND GIT PULL] Microchip AT91 SoC updates for v6.13
-Date: Wed, 13 Nov 2024 20:20:50 +0200
-Message-Id: <20241113182050.2176500-3-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241113182050.2176500-1-claudiu.beznea@tuxon.dev>
-References: <20241113182050.2176500-1-claudiu.beznea@tuxon.dev>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1731522280; x=1732127080;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iHp51deuGbbVdiRm/3lkBsA6sLNGX+gRE7+ejiXPpUI=;
+        b=jdNFbRhjFCR43JB26dkZdTVAEMqkA3svPcGY57KMmB4GGXeFRBk+T/667+72IzmMa7
+         nBT89jMZYTOyTzVjMNFbOW9099GyqNf/lqAXhBh/MdWuorhOHFAQgPiw0MQ16YzvnsU4
+         Eu7pVM01HL1mC4ZF8Gba88xaauyRDj8OjaOhQRcjo7UrlcY/GCUTeVQc43Fhb1fxJbjS
+         jQAfcnXlBuo5zgr3D2GYM098XaLHNxOudS87cBuDQNtgyFJCHKA5iPNVwYcQQK/igAG7
+         LBZYQf+34F8jydI743/hbcCKhEHNj1nMcJtL0dXEuQWJaQFeU95e9d04KgDbcmoUeYzR
+         sjfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyKWRE5uV1B/pxn4stJ8xE4G5CKdr0tRcTPKm6doQXfBmXzfCPOvW5p+q9UbHo1iXoiGap5ONmvOAFZr68sayF@lists.infradead.org
+X-Gm-Message-State: AOJu0YylP9atPhckQBTb7AbbXh+qiWEljS6WDT9vIcD6Z3O4esQpziRW
+	y6gTsxdjD4hy0OX6F+lWFx18ox/24WnJ03XifsHw9UrE0NwH9D4pEmenbthsOf2z9zxw0GjzPYV
+	lcU90WO2QqmCW2QTqzFYYyw==
+X-Google-Smtp-Source: AGHT+IESgEUveC8yQTk46ZdY46xE3OFDyejSgTzDblsZ0XI5Dgk48gNFxBwSyDJHjZLKVnBVYwtz3KJTaqWB5c2AfQ==
+X-Received: from coltonlewis-kvm.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fa18])
+ (user=coltonlewis job=sendgmr) by 2002:a25:6fc1:0:b0:e2b:cd55:11b3 with SMTP
+ id 3f1490d57ef6-e35ed246250mr2982276.5.1731522279438; Wed, 13 Nov 2024
+ 10:24:39 -0800 (PST)
+Date: Wed, 13 Nov 2024 18:24:37 +0000
+In-Reply-To: <20241108193204.GC38972@noisy.programming.kicks-ass.net> (message
+ from Peter Zijlstra on Fri, 8 Nov 2024 20:32:04 +0100)
+Mime-Version: 1.0
+Message-ID: <gsnt34jv9el6.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v7 4/5] x86: perf: Refactor misc flag assignments
+From: Colton Lewis <coltonlewis@google.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: kvm@vger.kernel.org, oliver.upton@linux.dev, seanjc@google.com, 
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com, 
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, 
+	adrian.hunter@intel.com, kan.liang@linux.intel.com, will@kernel.org, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, mpe@ellerman.id.au, 
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org, 
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_102057_563995_F3BAE02A 
-X-CRM114-Status: UNSURE (   6.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_102441_587550_88E2F89D 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +95,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org, claudiu.beznea@tuxon.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 9852d85ec9d492ebef56dc5f229416c925758edc:
+Peter Zijlstra <peterz@infradead.org> writes:
 
-  Linux 6.12-rc1 (2024-09-29 15:06:19 -0700)
+> On Fri, Nov 08, 2024 at 08:20:44PM +0100, Peter Zijlstra wrote:
 
-are available in the Git repository at:
+>> Isn't the below more or less what you want?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-soc-6.13
+>> static unsigned long misc_flags(struct pt_regs *regs)
+>> {
+>> 	unsigned long flags = 0;
 
-for you to fetch changes up to d1312c5c06f5cfbed55207cdef4a319015042579:
+>> 	if (regs->flags & PERF_EFLAGS_EXACT)
+>> 		flags |= PERF_RECORD_MISC_EXACT_IP;
 
-  dt-bindings: microchip: atmel,at91rm9200-tcb: add sam9x7 compatible (2024-10-13 18:33:02 +0300)
+>> 	return flags;
+>> }
 
-----------------------------------------------------------------
-Microchip AT91 SoC updates for v6.13
+>> static unsigned long native_flags(struct pt_regs *regs)
+>> {
+>> 	unsigned long flags = 0;
 
-It contains:
-- DT bindings update for the SAM9X7 TCB block
+>> 	if (user_mode(regs))
+>> 		flags |= PERF_RECORD_MISC_USER;
+>> 	else
+>> 		flags |= PERF_RECORD_MISC_KERNEL;
 
-----------------------------------------------------------------
-Varshini Rajendran (1):
-      dt-bindings: microchip: atmel,at91rm9200-tcb: add sam9x7 compatible
+>> 	return flags;
+>> }
 
- .../bindings/soc/microchip/atmel,at91rm9200-tcb.yaml | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+>> static unsigned long guest_flags(struct pt_regs *regs)
+>> {
+>> 	unsigned long guest_state = perf_guest_state();
+>> 	unsigned long flags = 0;
+
+>> 	if (guest_state & PERF_GUEST_ACTIVE) {
+>> 		if (guest_state & PERF_GUEST_USER)
+>> 			flags |= PERF_RECORD_MISC_GUEST_USER;
+>> 		else
+>> 			flags |= PERF_RECORD_MISC_GUEST_KERNEL;
+>> 	}
+
+>> 	return flags;
+>> }
+
+>> unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
+>> {
+>> 	unsigned long flags;
+
+>> 	flags = misc_flags(regs);
+>> 	flags |= guest_flags(regs);
+
+>> 	return flags;
+>> }
+
+>> unsigned long perf_arch_misc_flags(struct pt_regs *regs)
+>> {
+>> 	unsigned long flags;
+>> 	unsigned long guest;
+
+>> 	flags = misc_flags(regs);
+>> 	guest = guest_flags(regs);
+>> 	if (guest)
+>> 		flags |= guest;
+>> 	else
+>> 		flags |= native_flags(regs);
+
+>> 	return flags;
+>> }
+
+> This last can be written more concise:
+
+> unsigned long perf_arch_misc_flags(struct pt_regs *regs)
+> {
+> 	unsigned long flags;
+
+> 	flags = guest_flags(regs);
+> 	if (!flags)
+> 		flags |= native_flags(regs);
+
+> 	flgs |= misc_flags(regs);
+
+> 	return flags;
+> }
+
+This isn't right because it is choosing to return guest or native
+flags depending on the presence of guest flags, but that's not what we
+want.
+
+See perf_misc_flags in kernel/events/core.c which chooses to return
+perf_arch_guest_misc_flags or perf_arch_misc_flags depending on
+should_sample_guest which depends on more than current guest state.
+
+But I will take some of your suggestions to split the functions out
+more.
 
