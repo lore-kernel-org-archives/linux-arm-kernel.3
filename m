@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6447D637A9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 18:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2BDD637A8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 19:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7JJZhAX8z9gRFDAWAcDXD3U4FI9dk8vMX7/dG8H+68=; b=usZsKrgWqzTOEdYoMQ+DxnG0or
-	2SnfzsW8DI68xJWB1Fow+qjJJJ2vbYqpO/ikYsj2xeKsMODe/NzVn9mR22L2kJD3SDs6vdft6mh9H
-	mz3hZLnPhYhovcdtkDK1t4Rx5aRRHdEJEuqxdivMrkEIuupynXgGU/927Z9i/uoXPT22hUaUcnmJp
-	kQjMfpwOv2PX+0XrfHCv/Sfa7rBFNWCoOwbqI4fRoH3roSuQcEDrqX5L9gVNEQ3qD3VdZEC2KlUqh
-	MjXnYhQe38+wxieqQDvvIW+YkjXeBSsYyKTj0TWHFTnC2A8481vwFW/aHRa+rBAumbMwFJbVAMECW
-	Iqqjd3kw==;
+	bh=Ps8myr2QRGzBkspMaTCSz6a/NGAbW5KYOWNi6Q8v63A=; b=YLNxv8Jl4MXZzH65LsKeNLgHns
+	GuYXsVbzN8qjsXXhSJh4sF6bxZ3eTLEk5aqDiXgbt5InGEUmEmS5M1ROQBMp8Jqg/QAPYlR+h7xKi
+	fvgr87KWqzMudBysclmiAW0m6TWGYnsGA+0vYBYnTSAQDxDDP7dJ69OoizO0rltcy6nS/ObYowv3h
+	gj07FG2+OwkLOQNZTd+CxYfc3RuehZQJ12hTKHu8kDCdJFRlIB+F7ry8UM2CkgfI4JvLeqYlF94nJ
+	v3fEarSlgF0H/6Tmnuc4iktZBY6OsYA+croEV4WRGBGXfQIOtZr6WYCvW/3ygI4GidU4LX69e+MrR
+	4w/rFNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBIUo-00000007lwo-1gQJ;
-	Wed, 13 Nov 2024 18:53:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tBIgz-00000007niZ-3O3e;
+	Wed, 13 Nov 2024 19:06:17 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBIRt-00000007lhk-3SVt;
-	Wed, 13 Nov 2024 18:51:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=I7JJZhAX8z9gRFDAWAcDXD3U4FI9dk8vMX7/dG8H+68=; b=LTpU2ZYiSGXxkQ8LPvYKYfpjro
-	C9lf2uCVCc5YZ8E1Vky4JMigB7MC1ZQi/sqDOfXsS1OVlmvLUBwn+8IvHW7KuSQrmAZl/XwqY4U5/
-	4MZy/6vSEfnPdvBpq9AM+4XoBQyivJeVlkIyKYb3VAabBumbBraXRnJOzNgsqyhMspHcH091jHrds
-	6wM3fadwyJHU1tomnCnFKq1UAnS5QwMxcATOZ2+MwelZq3C45uhuL/aquNOr1UToG3lhJDpJX4dQc
-	9x3aeB0+wO5SqR0CblnDaKxZ6riN4b3XIxMr9hk2uU498e3ocikNw3Tw57DNT7cZgAU+wr2rabyHH
-	uKOr3xFA==;
-Received: from i53875a30.versanet.de ([83.135.90.48] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tBIRm-0005Cc-O5; Wed, 13 Nov 2024 19:50:34 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: vkoul@kernel.org, kishon@kernel.org,
- Diederik de Haas <didi.debian@cknow.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- quentin.schulz@cherry.de, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: Add Rockchip MIPI CSI/DSI PHY schema
-Date: Wed, 13 Nov 2024 19:50:33 +0100
-Message-ID: <18621846.sWSEgdgrri@diego>
-In-Reply-To: <D5F5RRFVMP7R.19G82R4S878IL@cknow.org>
-References: <20241104111121.99274-1-heiko@sntech.de>
- <20241104111121.99274-2-heiko@sntech.de>
- <D5F5RRFVMP7R.19G82R4S878IL@cknow.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+	id 1tBIct-00000007mxw-04vu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 19:02:04 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e35a643200so123743987b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 11:02:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731524520; x=1732129320; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ps8myr2QRGzBkspMaTCSz6a/NGAbW5KYOWNi6Q8v63A=;
+        b=ZOTE1HaBmt5qxFX6tz3lru+hIgU8nG3fAQstkhn0q7B1l0B4O5+RFEh7H+H3xwciEY
+         YeLyCA2Bwq75VBgumV/KQkS3kjdjbp1yc9sbp9QvQXJZuv2370hmWQ2037cKFO95x0W8
+         h82asHks5kERZ/LMH0w4hBsIdyesgmd2FR21Zpz4kA2E8S/+MP3kiRv6ILuz25JHhT8W
+         k86kugjO3LwdkEz6Pqu38u6gqJP+2jrtgJnCtV6KYip06Fx04/xi5qvWlNb8nzmrXuPU
+         9qV+v3+y+vKnC0ndo96eLW4LIrDIA3icjfRasTQ3Jhl11YDxLOoM6sr/1bBEs2e8y0H4
+         8Ifw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731524520; x=1732129320;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ps8myr2QRGzBkspMaTCSz6a/NGAbW5KYOWNi6Q8v63A=;
+        b=KrRSQG/610d51d3PLWzlwKOf4CqTpyd3XBJgZQNTwlMGPJAMZpD0EIEXL54zCrLgm1
+         27IH84aR8qe6hi1p5LzR8YZM8nU5JigWdX3VwxvFv2VaVGsp84QD0/JVwSq2+fPwP75H
+         yOf8mBk4rKB/M6kmXBUjkVCAQvRd/F2Lz1q9+s/uRbC+3wRyd4Wo/GJipt1gRzhcbC8k
+         oqrAPOsVKYrf1n7j/R2qEhHNdB8+0Gvm90CXYiDDpH3xKtcziONjraB31BnC6tc60xLL
+         p4LwB+YuQJcI7+5DS4frNwHuEmgDs3rbM6RVcbFP4IzLiLErMskvYYSotYatiYBAV1UN
+         e92g==
+X-Forwarded-Encrypted: i=1; AJvYcCWxMTi90CWE0pITaIUhP1svxInoiFf4rSxoyWKslnLlTuUWQZsVsTyPeaI5F4LnHv/70kAUDo+3goqI4VJGO1IF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuEUYC4ywsuCRpA9dKZSQldC+rAjU/6DZM3UCfUJ+teIpQqFKP
+	7lbolCl6rLM4qictihZr45wHwipDHue5SnORdjhI6VAlc43sPQSRORr7oQ1vuapcHi6rY/zVMhM
+	828H0Iqt7TCdFN7im1l2P7Q==
+X-Google-Smtp-Source: AGHT+IGMwJxojcrbV2XaWtAxjGZhIMKLD/TWp2TYO47jqONg2YGViPdlhPH/gu+8jwib2jMpO8Gmgpa+P/L1ZLf8OA==
+X-Received: from coltonlewis-kvm.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fa18])
+ (user=coltonlewis job=sendgmr) by 2002:a05:690c:3349:b0:6e3:d670:f62a with
+ SMTP id 00721157ae682-6ecb343d0b9mr2033797b3.3.1731524520358; Wed, 13 Nov
+ 2024 11:02:00 -0800 (PST)
+Date: Wed, 13 Nov 2024 19:01:51 +0000
+In-Reply-To: <20241113190156.2145593-1-coltonlewis@google.com>
+Mime-Version: 1.0
+References: <20241113190156.2145593-1-coltonlewis@google.com>
+X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
+Message-ID: <20241113190156.2145593-2-coltonlewis@google.com>
+Subject: [PATCH v8 1/5] arm: perf: Drop unused functions
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, Will Deacon <will@kernel.org>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_105041_921312_0840DB4C 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20241113_110203_088248_36EEABF4 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,141 +105,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+For arm's implementation, perf_instruction_pointer() and
+perf_misc_flags() are equivalent to the generic versions in
+include/linux/perf_event.h so arch/arm doesn't need to provide its
+own versions. Drop them here.
 
-Am Mittwoch, 6. November 2024, 15:17:02 CET schrieb Diederik de Haas:
-> On Mon Nov 4, 2024 at 12:11 PM CET, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >
-> > Add dt-binding schema for the MIPI CSI/DSI PHY found on
-> > Rockchip RK3588 SoCs.
-> >
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >  .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 82 +++++++++++++++++++
-> >  1 file changed, 82 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > new file mode 100644
-> > index 000000000000..5ee8d7246fa0
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> > @@ -0,0 +1,82 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rockchip MIPI CSI/DSI PHY with Samsung IP block
-> > +
-> > +maintainers:
-> > +  - Guochun Huang <hero.huang@rock-chips.com>
-> > +  - Heiko Stuebner <heiko@sntech.de>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3576-mipi-dcphy
-> > +      - rockchip,rk3588-mipi-dcphy
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  "#phy-cells":
-> > +    const: 0
-> > +
-> > +  clocks:
-> > +    maxItems: 2
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: pclk
-> > +      - const: ref
-> > +
-> > +  resets:
-> > +    maxItems: 4
-> > +
-> > +  reset-names:
-> > +    items:
-> > +      - const: m_phy
-> > +      - const: apb
-> > +      - const: grf
-> > +      - const: s_phy
-> > +
-> > +  rockchip,grf:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description:
-> > +      Phandle to the syscon managing the 'mipi dcphy general register files'.
-> 
-> Should this dt-binding have a power-domains property?
-> RK3588 TRM v1.0 part 1 page 1097 has ALIVE(PD_BUS) for
-> MIPI_DC_PHY0~MIPI_DC_PHY1
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
+Acked-by: Will Deacon <will@kernel.org>
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm/include/asm/perf_event.h |  7 -------
+ arch/arm/kernel/perf_callchain.c  | 17 -----------------
+ 2 files changed, 24 deletions(-)
 
-I don't think so. As you write, the dcphy is part of the PD_BUS(ALIVE)
-power-domain on at least rk3588 and the new rk3576.
-
-This power-domain is actually non-controllable and also contains things
-like the main GIC - so will be always on.
-
-And for that reason probably, that domain also is not even exposed
-in the rk3588 devicetree (nor the driver implementation).
-
-Similarly the hdptx phy binding (in a similar situation) also does not
-handle a power-domain. So my thinking is, we'll stay like this for now.
-
-
-Heiko
-
-> FTR: I made a similar remark on another patch sent by Heiko today. While
-> that was incorrect, I do think it's appropriate for this binding after
-> which it could also be added to the respective phy nodes in the dts(i)
-> file(s).
-> 
-> Cheers,
->   Diederik
-> 
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - clock-names
-> > +  - resets
-> > +  - reset-names
-> > +  - "#phy-cells"
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> > +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> > +
-> > +    soc {
-> > +      #address-cells = <2>;
-> > +      #size-cells = <2>;
-> > +
-> > +      phy@feda0000 {
-> > +        compatible = "rockchip,rk3588-mipi-dcphy";
-> > +        reg = <0x0 0xfeda0000 0x0 0x10000>;
-> > +        clocks = <&cru PCLK_MIPI_DCPHY0>,
-> > +                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
-> > +        clock-names = "pclk", "ref";
-> > +        resets = <&cru SRST_M_MIPI_DCPHY0>,
-> > +                 <&cru SRST_P_MIPI_DCPHY0>,
-> > +                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
-> > +                 <&cru SRST_S_MIPI_DCPHY0>;
-> > +        reset-names = "m_phy", "apb", "grf", "s_phy";
-> > +        rockchip,grf = <&mipidcphy0_grf>;
-> > +        #phy-cells = <0>;
-> > +      };
-> > +    };
-> 
-> 
-
-
-
+diff --git a/arch/arm/include/asm/perf_event.h b/arch/arm/include/asm/perf_event.h
+index bdbc1e590891e..c08f16f2e2435 100644
+--- a/arch/arm/include/asm/perf_event.h
++++ b/arch/arm/include/asm/perf_event.h
+@@ -8,13 +8,6 @@
+ #ifndef __ARM_PERF_EVENT_H__
+ #define __ARM_PERF_EVENT_H__
+ 
+-#ifdef CONFIG_PERF_EVENTS
+-struct pt_regs;
+-extern unsigned long perf_instruction_pointer(struct pt_regs *regs);
+-extern unsigned long perf_misc_flags(struct pt_regs *regs);
+-#define perf_misc_flags(regs)	perf_misc_flags(regs)
+-#endif
+-
+ #define perf_arch_fetch_caller_regs(regs, __ip) { \
+ 	(regs)->ARM_pc = (__ip); \
+ 	frame_pointer((regs)) = (unsigned long) __builtin_frame_address(0); \
+diff --git a/arch/arm/kernel/perf_callchain.c b/arch/arm/kernel/perf_callchain.c
+index 1d230ac9d0eb5..a2601b1ef3182 100644
+--- a/arch/arm/kernel/perf_callchain.c
++++ b/arch/arm/kernel/perf_callchain.c
+@@ -96,20 +96,3 @@ perf_callchain_kernel(struct perf_callchain_entry_ctx *entry, struct pt_regs *re
+ 	arm_get_current_stackframe(regs, &fr);
+ 	walk_stackframe(&fr, callchain_trace, entry);
+ }
+-
+-unsigned long perf_instruction_pointer(struct pt_regs *regs)
+-{
+-	return instruction_pointer(regs);
+-}
+-
+-unsigned long perf_misc_flags(struct pt_regs *regs)
+-{
+-	int misc = 0;
+-
+-	if (user_mode(regs))
+-		misc |= PERF_RECORD_MISC_USER;
+-	else
+-		misc |= PERF_RECORD_MISC_KERNEL;
+-
+-	return misc;
+-}
+-- 
+2.47.0.338.g60cca15819-goog
 
 
