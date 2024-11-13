@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301C1D41C33
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B27D41C33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1bcdub+Pq4Zg8rsA1cvX3AG9T2O7ZzZgbE8y/HRVoU=; b=oGzVvTyNeQFCZyn44D+WoDzMsY
-	sCo03w0a+DsH3PH2tSl1XwVCr165sazT8S6HBWElSX7cCbNpxfvrvrN7GKcj3+YF41HDGLkONUyWf
-	edo5U4cJqmropzzUxMmdVaL+JlZ7KDFvyuw8IfiBwXMdaZXNUa9LkzQdqw0wArDS7nA4bWCtiQjs+
-	Cx1LOf0AQQqoVdzvSQ+p5j1B5xbKcdjiwm2nECqfQEzc7B0OPXVdmn78X7grlXcnluGL2KQSJYbON
-	KvV5mvbBnuQAQdA0gz434KZezeMGOh/62MPIXWpN+J4KW5biHTOGivJceTFyBjm1og0a9W8/FjSkB
-	nFHusU7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d0Qg6SopdbWfAUe/2/gabBwX3iGckX9jWfCECo4NOGQ=; b=JCfkqbQ6TYwjXYRGy4o+ACztVW
+	LOH8+WeTcpyxsZaBAtb4YWi3RnKyZGhx7CDHkS8f8NnT1s2dLdFxrwy/QRfW4Dbi/Ktk9/uyqpc3+
+	qn3K3wf77yZzxdmrQ3hHxeKOWf4ErVfbUz4zIgoG7hAljz7NdUvuVd7XGVL5oF7zsjLRQct/io8nU
+	1zXokNF5AgIy3OvxVg50Wu623serWpZRiksgUBYjcgSOaGLQXSW8bgtvQ3m31B01+PSgIjpm6FJfw
+	/iqrcWfHkbmLwDQ2TvMcO62G+eBJpq8bY7eiCu6/u5Ru3zFtX+FbeZkBaDuSesT5okMXtPbnOjcWM
+	KnsV/k7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBET-00000006XlU-0jHm;
-	Wed, 13 Nov 2024 11:08:21 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tBBI0-00000006YAJ-0ifx;
+	Wed, 13 Nov 2024 11:12:00 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBCe-00000006XTK-0Bgs
+	id 1tBBGC-00000006Xxt-1wZN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 11:06:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E7FD820007;
-	Wed, 13 Nov 2024 11:06:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731495985;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o1bcdub+Pq4Zg8rsA1cvX3AG9T2O7ZzZgbE8y/HRVoU=;
-	b=ecyX72thJcgQWXoHy7K1aTLh0+U9vcOAUFVzdLCR6p8uOOxaaYTXdxZRnJ6aGvIiO3IS85
-	BoUvssBSau3MDPvvrETfdqg1cAYh/QLKyYuVtUiiGzTDeQ+v6qPnBNMPd8abmA2uhsFIqr
-	bxQGGs8qkY+WxJFc2a2QaDdCl/+01d0W8buuyCG4uprI/+vp+UiPWUCO4pNvDCDnbQRRWr
-	ROBIgxgwrqdOXbg4FFVRWCl6+3AiLktIK7U0z/F3ebKnQ3NhTZSSMRcxRo8exyeKMLKLJ8
-	7iBWKbASqFWFkBV6P8lY4G3QE8JEdNmAdfMqlEKoWlCvHnn1fTSa3M1RS8N1Hw==
-Date: Wed, 13 Nov 2024 12:06:22 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Marek Vasut <marex@denx.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, linux-clk@vger.kernel.org, Fabio
- Estevam <festevam@gmail.com>, "Lukas F . Hartmann" <lukas@mntmn.com>,
- Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer
- <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd
- <sboyd@kernel.org>, imx@lists.linux.dev, kernel@dh-electronics.com,
- linux-arm-kernel@lists.infradead.org, Miquel Raynal
- <miquel.raynal@bootlin.com>, Anson Huang <Anson.Huang@nxp.com>
-Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
- reconfigure parent rate
-Message-ID: <20241113120622.3501db73@booty>
-In-Reply-To: <79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
-References: <20240531202648.277078-1-marex@denx.de>
-	<20241112234206.558d5d5e@booty>
-	<79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Wed, 13 Nov 2024 11:10:10 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4ADBA1x62828090
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 13 Nov 2024 05:10:01 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1731496201;
+	bh=d0Qg6SopdbWfAUe/2/gabBwX3iGckX9jWfCECo4NOGQ=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=jS5UytQ2SJ4Qmx4cY5gzqqznH9hp1GN9h5T9B6EDamIHmNMe3Z9QCskN7jP1oZsFv
+	 aMMiqROJTXYrRymkTAK0m6whJig0nU4yFm+oyboXxMCAnEUuvuv/KZ0e6DWtt91gSe
+	 LJ5TGo8XdDHwWiMopr4IhTv4z1N+JbyO8lDz5yoI=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4ADBA1sC070529
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 13 Nov 2024 05:10:01 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 13
+ Nov 2024 05:10:01 -0600
+Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 13 Nov 2024 05:10:01 -0600
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4ADBA1e8124239;
+	Wed, 13 Nov 2024 05:10:01 -0600
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4ADBA0gG021259;
+	Wed, 13 Nov 2024 05:10:00 -0600
+From: MD Danish Anwar <danishanwar@ti.com>
+To: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+        <ssantosh@kernel.org>, <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [PATCH v3 1/2] dt-bindings: soc: ti: pruss: Add clocks for ICSSG
+Date: Wed, 13 Nov 2024 16:39:54 +0530
+Message-ID: <20241113110955.3876045-2-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241113110955.3876045-1-danishanwar@ti.com>
+References: <20241113110955.3876045-1-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_030628_405034_392E889D 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20241113_031008_624800_03A989B9 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +85,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: srk@ti.com, devicetree@vger.kernel.org, kristo@kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, Roger Quadros <rogerq@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+The ICSSG module has 7 clocks for each instance.
 
-+Cc: Anson (initial author of clk-imx8mp.c)
+These clocks are ICSSG0_CORE_CLK, ICSSG0_IEP_CLK, ICSSG0_ICLK,
+ICSSG0_UART_CLK, RGMII_MHZ_250_CLK, RGMII_MHZ_50_CLK and RGMII_MHZ_5_CLK
+These clocks are described in AM64x TRM Section 6.4.3 Table 6-398.
 
-On Wed, 13 Nov 2024 00:14:15 +0100
-Marek Vasut <marex@denx.de> wrote:
+Add these clocks to the dt binding of ICSSG.
 
-> On 11/12/24 11:42 PM, Luca Ceresoli wrote:
-> > Hello Marek, Abel, =20
->=20
-> Hi,
->=20
-> > +Cc: Miqu=C3=A8l
-> >=20
-> > On Fri, 31 May 2024 22:26:26 +0200
-> > Marek Vasut <marex@denx.de> wrote:
-> >  =20
-> >> The media_disp[12]_pix clock supply LCDIFv3 pixel clock output. These
-> >> clocks are usually the only downstream clock from Video PLL on i.MX8MP.
-> >> Allow these clocks to reconfigure the Video PLL, as that results in
-> >> accurate pixel clock. If the Video PLL is not reconfigured, the pixel
-> >> clock accuracy is low.
-> >>
-> >> Signed-off-by: Marek Vasut <marex@denx.de> =20
-> >=20
-> > I'm afraid I just found this patch broke my previously working setup
-> > with a panel connected on the LDB. =20
-> Do you need a fix similar to this one?
->=20
-> 4fbb73416b10 ("arm64: dts: imx8mp-phyboard-pollux: Set Video PLL1=20
-> frequency to 506.8 MHz")
+Link: https://www.ti.com/lit/pdf/spruim2 (AM64x TRM)
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+ Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-So, 4fbb73416b10 is adding an assigned-clock-rates to hardcode rates,
-especially the video_pll1 rate.
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+index 3cb1471cc6b6..927b3200e29e 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+@@ -92,6 +92,16 @@ properties:
+     description: |
+       This property is as per sci-pm-domain.txt.
+ 
++  clocks:
++    items:
++      - description: ICSSG_CORE Clock
++      - description: ICSSG_IEP Clock
++      - description: ICSSG_RGMII_MHZ_250 Clock
++      - description: ICSSG_RGMII_MHZ_50 Clock
++      - description: ICSSG_RGMII_MHZ_5 Clock
++      - description: ICSSG_UART Clock
++      - description: ICSSG_ICLK Clock
++
+ patternProperties:
+ 
+   memories@[a-f0-9]+$:
+-- 
+2.34.1
 
-However this is not fixing the problem I'm seeing. The existing
-assigned-clock-rates value for video_pll1 used to work because it is
-the media_ldb parent, and the parent wasn't recalculated. After this
-patch got applied the video_pll1 rate is computed at runtime and so the
-hardcoded value in assigned-clock-rates does not matter in the end.
-
-I also tried a configuration that appears to me as the most optimal for
-managing both an LVDS panel on LDB and a DSI panel (which is also
-present in the more complete design I'm working on):
-
- * media_ldb and media_disp2 (the two clocks involved in LDB/LVDS
-   output) left as children of video_pll1 as per imx8mp.dtsi
- * media_disp1 (used for DSI output) reparented to sys_pll3
-
-The above config assigns to each output (LVDS and DSI) an ad-hoc PLL.
-However the problem does not disappear, simply because the problem is
-that requesting a ~500 MHz rate to video_pll1 results in it to be
-configured at ~72 MHz.
- =20
-This confirms the problem I reported appears to be an incorrect
-computation of the video_pll1 rate, which in turn looks like a bug
-(which as I said is exposed, not introduced, by this patch). If
-setting a hardcoded value could make it work, that would look like
-hiding a bug, wouldn't it?
-
-And at least with a single-panel setup the runtime computation should
-work just fine.
-
-More generally speaking, I don't follow your approach: your patch
-enables runtime computation of the video_pll1 rate, but you now suggest
-to hardcode it. Am I missing something?
-
-Luca
-
---=20
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
