@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9ADFD637C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 22:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1486AD637D1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 22:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIbyt9qLC8/HyO6WLPAMcUq4aovgCC1Aa6OugdYE5bQ=; b=pNZMtG3g+oowPtG8thbfC1hb9m
-	+58G+M4B3nnv4AZ2X8Lunop8DcOFpjI6gRWohM/q+2kwNacwQ+JO1jy6xDSYKkuPstDMM+r6xXILc
-	pPFOAM/zSTxb8ov5rG9DpFSH6xkuq0m9P8FkREcfVeAPD7HbwKOgFzuS2N0zmRBgdka9SF5T4C301
-	jKo9T6fgC7Rv/FGAn5HijrMluAz+YQYm3YiouuzZmENMIa7spvmYTa9TfGR2bIbscGmzioDoSWagb
-	wluKbRJr3LD4ztnfCJSwI59RTYfCxI+p4m/7cZVzGmJSKcw3+8351/18UAwpXL1/z/yDrhawUQwTO
-	5DHDzofw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xvTxlL4AVd1adTLjJKCTQxmhveAf7ghrK9pGb+92sCQ=; b=LhRhnlR68JrQaeq05Zw7vMewd0
+	B/i1NbFTj3ZxlD3lYhjW583ZKZiP2y1k4Z21it1oiAt5O3YITZmDkYD0GbIGzuSbeuiLgrXXXDqUE
+	f3lEBDdSUlvWANj53HZF3YJQWggQtEQ7x3kiNh4ZBNPxgM7GUBITzMYeY7eZ2cF2mDguVD1+RYrF9
+	kT6tuxegzhNg8CgbYHoyxv7PBLAZDH6wJf0EojB3LP0RytScr5u0VjILTPHLR+4ByGme/0i6Mt2ic
+	a8OJAP+0zcHMeDZa0RZGgkMht644dS6awN4UWmk9xc2qmlldi6t/qz5/dgnm0DLhKL4TwaRj2y8NE
+	Aji0s+mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBLof-00000008AXB-47UJ;
-	Wed, 13 Nov 2024 22:26:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tBMJa-00000008DOE-0jZ5;
+	Wed, 13 Nov 2024 22:58:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBLmm-00000008A9m-1kHW;
-	Wed, 13 Nov 2024 22:24:29 +0000
+	id 1tBMHk-00000008D2i-41gO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 22:56:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 596ADA41851;
-	Wed, 13 Nov 2024 22:22:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13819C4CEC3;
-	Wed, 13 Nov 2024 22:24:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0319A5C5B02;
+	Wed, 13 Nov 2024 22:55:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDD47C4CEC3;
+	Wed, 13 Nov 2024 22:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731536666;
-	bh=4c3JsyMgE4ipwm0tWTQ4ryrY2cLMm2Jke0JitnwChlc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gw7hWGFtNcNPvDPPYAKVNRQO8c6IuR/deLvbCnzf975LnqSsBaJgBF7i65Q036CMH
-	 oZ2Tdz91mcp6yTMYpuw13NNiG/rKcOPA2erZNek99eIUp0DdlTvCuiHBg7MiwFjYTd
-	 83/PyQGQ1mCPxqvv4y1JLZrR8anHxfsjibxb919/s76mWeZbs0Ko+2k0qveEyMkmAd
-	 xLJfXscazyiglCmJTfSeWlMPfKqE6kyiw9rzA5NjiaioPcPoaIVG6dSHfD9G9dpZT/
-	 AfW9jUtSixI0jVPCLQ7wJ9AYu4owmI5RWS1dFaquAJD+PSXh3A5hm/0u/pfRXl4Dby
-	 AQJEVQpukwO6w==
-Date: Wed, 13 Nov 2024 23:24:21 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Cc: dianders@chromium.org, rmk@dyn-67.arm.linux.org.uk, 
-	max.schwarz@online.de, david.wu@rock-chips.com, heiko@sntech.de, vz@mleia.com, 
-	wsa@kernel.org, manabian@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] i2c: rk3x: Add check for clk_enable()
-Message-ID: <zd5673eo7kqwg67lsy6h3m4zdpmgp5xzhr355ialwx6zhdopfb@7x3v5b747sqn>
-References: <20241107211428.32273-1-jiashengjiangcool@gmail.com>
- <20241107211428.32273-3-jiashengjiangcool@gmail.com>
+	s=k20201202; t=1731538588;
+	bh=ppARoxV/BKuqM26l7GbAb1n0J5UopQIlgnjP2VYDPIc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nyNmEpTj99rigb0YjXknMOHR8svcWnsRjs1FchKtnDLUt6QDByAdr85hMX6/0npKq
+	 HdVtlOxC211m6YH3DbKs888Vqt2bd39uSqkG8Kai1NdMMYbDXGSHzcrPOEKM3bs3eE
+	 3n7UPexzl3tFD6lJBH2EK9Z7UyqSt0Qc7504Jd3aUWsCJsSILSOVHEeChrUp7WV4pv
+	 +jO45a0vJ2q2pDXynL0BaJhaHrMoiDcAvmRhZt7NefwnZi+hqDBBWt+n8en4Yxi2eu
+	 TyoCmNo3EdFVy7g7mz1nmZU762ku2DsIF69s3uHm6dJyRYkmYptg4U+NFSRpHoJDKL
+	 +3cKBbPlJc2mw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: =?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Gaurav Jain <gaurav.jain@nxp.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] dt-bindings: Unify "fsl,liodn" type definitions
+Date: Wed, 13 Nov 2024 16:56:13 -0600
+Message-ID: <20241113225614.1782862-1-robh@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107211428.32273-3-jiashengjiangcool@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_142428_568814_A6D3A827 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20241113_145629_107654_DF81F233 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiasheng,
+The type definition of "fsl,liodn" is defined as uint32 in
+crypto/fsl,sec-v4.0.yaml and uint32-array in soc/fsl/fsl,bman.yaml,
+soc/fsl/fsl,qman-portal.yaml, and soc/fsl/fsl,qman.yaml. Unify the type to
+be uint32-array and constraint the single entry cases.
 
-On Thu, Nov 07, 2024 at 09:14:28PM +0000, Jiasheng Jiang wrote:
-> Add check for the return value of clk_enable() in order to catch the
-> potential exception. Moreover, convert the return type of
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/crypto/fsl,sec-v4.0.yaml       | 10 ++++++----
+ .../devicetree/bindings/soc/fsl/fsl,qman-portal.yaml   |  2 ++
+ 2 files changed, 8 insertions(+), 4 deletions(-)
 
-It's more an "unlikely exception" rather than a "potential
-exeption".
+diff --git a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
+index 9c8c9991f29a..f0c4a7c83568 100644
+--- a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
++++ b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
+@@ -114,8 +114,9 @@ patternProperties:
+           table that specifies the PPID to LIODN mapping. Needed if the PAMU is
+           used.  Value is a 12 bit value where value is a LIODN ID for this JR.
+           This property is normally set by boot firmware.
+-        $ref: /schemas/types.yaml#/definitions/uint32
+-        maximum: 0xfff
++        $ref: /schemas/types.yaml#/definitions/uint32-array
++        items:
++          - maximum: 0xfff
+ 
+   '^rtic@[0-9a-f]+$':
+     type: object
+@@ -186,8 +187,9 @@ patternProperties:
+               Needed if the PAMU is used.  Value is a 12 bit value where value
+               is a LIODN ID for this JR. This property is normally set by boot
+               firmware.
+-            $ref: /schemas/types.yaml#/definitions/uint32
+-            maximum: 0xfff
++            $ref: /schemas/types.yaml#/definitions/uint32-array
++            items:
++              - maximum: 0xfff
+ 
+           fsl,rtic-region:
+             description:
+diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
+index 17016184143f..e459fec02ba8 100644
+--- a/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
++++ b/Documentation/devicetree/bindings/soc/fsl/fsl,qman-portal.yaml
+@@ -35,6 +35,7 @@ properties:
+ 
+   fsl,liodn:
+     $ref: /schemas/types.yaml#/definitions/uint32-array
++    maxItems: 2
+     description: See pamu.txt. Two LIODN(s). DQRR LIODN (DLIODN) and Frame LIODN
+       (FLIODN)
+ 
+@@ -69,6 +70,7 @@ patternProperties:
+     type: object
+     properties:
+       fsl,liodn:
++        $ref: /schemas/types.yaml#/definitions/uint32-array
+         description: See pamu.txt, PAMU property used for static LIODN assignment
+ 
+       fsl,iommu-parent:
+-- 
+2.45.2
 
-> rk3x_i2c_adapt_div() into int and add the check.
-
-...
-
->  static u32 rk3x_i2c_func(struct i2c_adapter *adap)
-> @@ -1365,9 +1389,12 @@ static int rk3x_i2c_probe(struct platform_device *pdev)
->  	}
->  
->  	clk_rate = clk_get_rate(i2c->clk);
-> -	rk3x_i2c_adapt_div(i2c, clk_rate);
-> +	ret = rk3x_i2c_adapt_div(i2c, clk_rate);
->  	clk_disable(i2c->clk);
-
-you can't disable a clock that has failed to enable, right?
-
-BTW, although I like this patch (or at least I don't dislike), I
-still want to check whether it's wanted or not.
-
-Andi
-
->  
-> +	if (ret)
-> +		goto err_clk_notifier;
-> +
->  	ret = i2c_add_adapter(&i2c->adap);
->  	if (ret < 0)
->  		goto err_clk_notifier;
-> -- 
-> 2.25.1
-> 
 
