@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83068D637C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEBCD637C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19WqiZx5bXY2R+jht+rSBfkiigCwXnU+vnSwdvgIJwQ=; b=Q+YAWqKeRIPchctdUVr98aj14Y
-	5t+1AiMt10lsM5cdPfbCWXQnXcMtqej2hn88fUZFvFsSYGzh6ws9MgPp2RM+zUTTwkR1YUdl+Ev9a
-	YmnB0h2slMqsSG+5GS51sO2BxTT7lSL1BPIMOoYLL1zZdtNqaVUfMhjeFtV10cG3q1/hySKcKrMpl
-	Pt64HwxJYN0FntzfaKqMZwUile1FTgiALnMNFcblXKgKhZlUVm2k/pZmVzf5rFIGr5TOjK94ZnwA8
-	8udF94tf18Ybfvd+lHFnVBqcWj0G/+sYh4t5b+z1FleTeXuppSITVEq3jj8mHjz9sWk+UN6WbEdNd
-	01RNAkGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3lmaaODNIXsTr52RCRU7yzw6chQFj9dQ/DDjKAa6qB8=; b=GaHa655c+k7wdm
+	mkJbmN4aXzQAS50sjALF5K3LtcEKPOoGJdQKnI1g/c/GRf+S0iyZ0AvKhBXqsbRRbGjtD9Mer3mew
+	0fvDdTF+Y429KO1CVi8w0T2bqRzFCyWZbEL4uNN+TwvCSCKFBWwv3XCyGa0T6B+bzoeVEdLRtv9nM
+	Pe0FsZr47P3kaCot468NmG++6xPt4If3czK9g5xo/Nda41NEvIhLBhUdaEJ8lUXJng3sx8lSs6rZI
+	N4rT532Mlai+JoiUKMGtBhQmwc6xUr+XsRcfiYLfdSYl8gDOIGebUrkiB0Q+9V/8HyCN5RGsSAc+2
+	T93AIzoq5+XpY9yS0ldA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKg5-000000082an-3tKC;
-	Wed, 13 Nov 2024 21:13:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tBKhz-00000008310-1H3F;
+	Wed, 13 Nov 2024 21:15:27 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKeA-0000000829T-3MQV
+	id 1tBKeo-000000082Iq-3uXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 21:11:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1731532288;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=19WqiZx5bXY2R+jht+rSBfkiigCwXnU+vnSwdvgIJwQ=;
-	b=gGSja/AJZXKf/1oL/OvuPAR6/m3HlV/R57OWQfuuHI3BfQhCSTOwH1BPVqjPi0vZdq0Rwl
-	6Ku7IwSbCykMSGTE39KqQdpxMz9S1GrGiMmgzdw5e5E+cHnrIH2zNzEwciPup1gKkXnKo8
-	SrSd2oo1B7f5eK5Oc8eLY8QDxQiUYfk=
-Received: from mail-io1-f71.google.com (mail-io1-f71.google.com
- [209.85.166.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-60-yRUZbDusNqCEkpOru02Oxg-1; Wed, 13 Nov 2024 16:11:26 -0500
-X-MC-Unique: yRUZbDusNqCEkpOru02Oxg-1
-X-Mimecast-MFC-AGG-ID: yRUZbDusNqCEkpOru02Oxg
-Received: by mail-io1-f71.google.com with SMTP id ca18e2360f4ac-83abbe0a16dso47156939f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 13:11:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731532286; x=1732137086;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=19WqiZx5bXY2R+jht+rSBfkiigCwXnU+vnSwdvgIJwQ=;
-        b=iDqR+EKuojRT3FADDQYDBdzifxDLMMi3lD9Qd5ZEmNOliDHwDMS+HA2K3cdb0/FLRP
-         lgrTxNfy3waqSA1IKBms/aAx0qsiiNjYz8r//cGZVIjObekaqQgjibpTRBTSDMsRDYjR
-         B1PzuY96f2tlOK7MKIMmDgvW8rnsbz6Xieymrt4OJ5uaOmEfXc0mHT3Ly4bRCtHVzrSD
-         4f6gYPVyw0jkxvPUkey+0DOBNM7YiGahbf8be+pvB/rW02kqL34zKAJBjVsBVY3Ei3X8
-         CTNSnsitEynrJwVdp8NRMw7E6EDAc4ktQmQiJYY2aQvJP16nJXZkE9pHewhmSQe8mELr
-         3UWA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7Vh+Phw/QCMbvKY1aE6T3BHT9kzqLUFgg1OMyiuE+eITQYdnxdjt7RSs70lF1Ayk+t9XCmlSNTUlctQH1/6zf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7wntlFNxnNdj1Z4Uv/8sCJBYgb5UhLMqDd1cIPOUD+YsUISKL
-	+w+gucxyMWcAlTrr5OfFF4T7dUEN40iN39RXSCLLjmvGahib8YwDizWwKRdKrn47ybvsCZfy95A
-	qrldTymPik3saCpdgv/7Vs968cMMWjoRWXs0bI1BpVM6T+DxNoW12epmuTCn0FR3in4XUQ4aJ
-X-Received: by 2002:a05:6e02:194d:b0:3a6:c23b:5aa9 with SMTP id e9e14a558f8ab-3a6f1a58b22mr59857855ab.4.1731532286169;
-        Wed, 13 Nov 2024 13:11:26 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHcnNYHsvq3x3d625NCahmbJAqiMdAoQaQkPCDLvS9tewBxW1j7AU7rltZUYu0Dp25868Fj8g==
-X-Received: by 2002:a05:6e02:194d:b0:3a6:c23b:5aa9 with SMTP id e9e14a558f8ab-3a6f1a58b22mr59857625ab.4.1731532285757;
-        Wed, 13 Nov 2024 13:11:25 -0800 (PST)
-Received: from redhat.com ([38.15.36.11])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3a6f983826csm31967665ab.27.2024.11.13.13.11.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 13:11:25 -0800 (PST)
-Date: Wed, 13 Nov 2024 14:11:22 -0700
-From: Alex Williamson <alex.williamson@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, tglx@linutronix.de, Robin Murphy
- <robin.murphy@arm.com>, maz@kernel.org, bhelgaas@google.com,
- leonro@nvidia.com, shameerali.kolothum.thodi@huawei.com,
- dlemoal@kernel.org, kevin.tian@intel.com, smostafa@google.com,
- andriy.shevchenko@linux.intel.com, reinette.chatre@intel.com,
- eric.auger@redhat.com, ddutile@redhat.com, yebin10@huawei.com,
- brauner@kernel.org, apatel@ventanamicro.com,
- shivamurthy.shastri@linutronix.de, anna-maria@linutronix.de,
- nipun.gupta@amd.com, marek.vasut+renesas@mailbox.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, kvm@vger.kernel.org
-Subject: Re: [PATCH RFCv1 0/7] vfio: Allow userspace to specify the address
- for each MSI vector
-Message-ID: <20241113141122.2518c55a.alex.williamson@redhat.com>
-In-Reply-To: <20241113013430.GC35230@nvidia.com>
-References: <cover.1731130093.git.nicolinc@nvidia.com>
-	<a63e7c3b-ce96-47a5-b462-d5de3a2edb56@arm.com>
-	<ZzPOsrbkmztWZ4U/@Asurada-Nvidia>
-	<20241113013430.GC35230@nvidia.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Wed, 13 Nov 2024 21:12:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1731532331; x=1763068331;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=MiOA+h2WEfYvSK6LWO85YbpCELWFRGGFH0WIAFxXeZc=;
+  b=tU0TA3CrwbKFFGHhqLMX2E1CZmWJuWUJb7nife/awnyq77ZLCykm4+6e
+   mU66VfdTRiviyemU1XHWKEGKI07RE0rOwiB4BDg2xf/D5YGVdLVwFbnFj
+   OmN3rWy+dhmqEmrjQqoLNSl9/SjbMeXdTj10YD20VdwhdhTnW8Oi+DovW
+   VzsBbJjd77kaoLdzwvQE+onMgLACgxQdK5qCXjNNKEmQ1f9QkIa7w+1eu
+   +aQwEQZ221PvjPPz3COtaKe0tUDQTJH4PuyfLOwDOEfD+yWoYQ6FNa+ui
+   K5iSnJn7tTOpgIhNCTRI7JYUyKa0zvi2HaBcfwAXO7Q/+HCN5R42HJquq
+   Q==;
+X-CSE-ConnectionGUID: KA3skogJTWSLY1V4ky2YAQ==
+X-CSE-MsgGUID: iVpW/84nSha1vD/zEH2PYA==
+X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
+   d="scan'208";a="265427892"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:04 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 13 Nov 2024 14:11:34 -0700
+Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:31 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Subject: [PATCH net-next v2 0/8] net: lan969x: add RGMII support
+Date: Wed, 13 Nov 2024 22:11:08 +0100
+Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iiqKDrIsRDpN_l0HUHw0DOrdcDX8qqvlk24jznZMF6w_1731532286
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOwVNWcC/4WOzQqDMBCEX0X23C1G419PfY/iIca1WahRNmIt4
+ rtXpfceh+Gbb1YIJEwBbtEKQjMHHvwekksE1hn/JOR2z5DEiVYq1hhGI0uGL+OrvFowvHmyDlv
+ hmQQ1tlnVFGUS6zIzsI+MQh0vp+ABnib0tExQ701jAmEjxlt3CHrD/gAch2mQz3loVif2c+f/3
+ LPCGLuiK1KV6zRv2nvPVgbreLzaoYd627YvYI63bfEAAAA=
+To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
+ Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
+	<jacob.e.keller@intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_131130_960191_9CA0288C 
-X-CRM114-Status: GOOD (  32.78  )
+X-CRM114-CacheID: sfid-20241113_131211_145448_F9B9DD56 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,68 +93,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Nov 2024 21:34:30 -0400
-Jason Gunthorpe <jgg@nvidia.com> wrote:
+== Description:
 
-> On Tue, Nov 12, 2024 at 01:54:58PM -0800, Nicolin Chen wrote:
-> > On Mon, Nov 11, 2024 at 01:09:20PM +0000, Robin Murphy wrote:  
-> > > On 2024-11-09 5:48 am, Nicolin Chen wrote:  
-> > > > To solve this problem the VMM should capture the MSI IOVA allocated by the
-> > > > guest kernel and relay it to the GIC driver in the host kernel, to program
-> > > > the correct MSI IOVA. And this requires a new ioctl via VFIO.  
-> > > 
-> > > Once VFIO has that information from userspace, though, do we really need
-> > > the whole complicated dance to push it right down into the irqchip layer
-> > > just so it can be passed back up again? AFAICS
-> > > vfio_msi_set_vector_signal() via VFIO_DEVICE_SET_IRQS already explicitly
-> > > rewrites MSI-X vectors, so it seems like it should be pretty
-> > > straightforward to override the message address in general at that
-> > > level, without the lower layers having to be aware at all, no?  
-> > 
-> > Didn't see that clearly!! It works with a simple following override:
-> > --------------------------------------------------------------------
-> > @@ -497,6 +497,10 @@ static int vfio_msi_set_vector_signal(struct vfio_pci_core_device *vdev,
-> >                 struct msi_msg msg;
-> > 
-> >                 get_cached_msi_msg(irq, &msg);
-> > +               if (vdev->msi_iovas) {
-> > +                       msg.address_lo = lower_32_bits(vdev->msi_iovas[vector]);
-> > +                       msg.address_hi = upper_32_bits(vdev->msi_iovas[vector]);
-> > +               }
-> >                 pci_write_msi_msg(irq, &msg);
-> >         }
-> >  
-> > --------------------------------------------------------------------
-> > 
-> > With that, I think we only need one VFIO change for this part :)  
-> 
-> Wow, is that really OK from a layering perspective? The comment is
-> pretty clear on the intention that this is to resync the irq layer
-> view of the device with the physical HW.
-> 
-> Editing the msi_msg while doing that resync smells bad.
-> 
-> Also, this is only doing MSI-X, we should include normal MSI as
-> well. (it probably should have a resync too?)
+This series is the fourth of a multi-part series, that prepares and adds
+support for the new lan969x switch driver.
 
-This was added for a specific IBM HBA that clears the vector table
-during a built-in self test, so it's possible the MSI table being in
-config space never had the same issue, or we just haven't encountered
-it.  I don't expect anything else actually requires this.
+The upstreaming efforts is split into multiple series (might change a
+bit as we go along):
 
-> I'd want Thomas/Marc/Alex to agree.. (please read the cover letter for
-> context)
+        1) Prepare the Sparx5 driver for lan969x (merged)
 
-It seems suspect to me too.  In a sense it is still just synchronizing
-the MSI address, but to a different address space.
+        2) Add support for lan969x (same basic features as Sparx5
+           provides excl. FDMA and VCAP, merged).
 
-Is it possible to do this with the existing write_msi_msg callback on
-the msi descriptor?  For instance we could simply translate the msg
-address and call pci_write_msi_msg() (while avoiding an infinite
-recursion).  Or maybe there should be an xlate_msi_msg callback we can
-register.  Or I suppose there might be a way to insert an irqchip that
-does the translation on write.  Thanks,
+        3) Add lan969x VCAP functionality (merged).
 
-Alex
+    --> 4) Add RGMII support.
+
+        5) Add FDMA support.
+
+== RGMII support:
+
+The lan969x switch device includes two RGMII interfaces (port 28 and 29)
+supporting data speeds of 1 Gbps, 100 Mbps and 10 Mbps.
+
+Details are in the commit description of the patches.
+
+== Patch breakdown:
+
+Patch #1 does some preparation work.
+
+Patch #2 adds new function: is_port_rgmii() to the match data ops.
+
+Patch #3 uses the is_port_rgmii() in a number of places.
+
+Patch #4 uses the phy_interface_mode_is_rgmii() in a number of places.
+
+Patch #5 adds checks for RGMII PHY modes in sparx5_verify_speeds().
+
+Patch #6 adds registers required to configure RGMII.
+
+Patch #7 adds RGMII implementation.
+
+Patch #8 document RGMII delays.
+
+To: UNGLinuxDriver@microchip.com
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Lars Povlsen <lars.povlsen@microchip.com>
+To: Steen Hegelund <Steen.Hegelund@microchip.com>
+To: Horatiu Vultur <horatiu.vultur@microchip.com>
+To: Russell King <linux@armlinux.org.uk>
+To: jacob.e.keller@intel.com
+To: robh@kernel.org
+To: krzk+dt@kernel.org
+To: conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+Changes in v2:
+
+  Most changes are in patch #7. RGMII implementation has been moved to
+  it's own file lan969x_rgmii.c.
+
+  Details:
+
+    - Use ETH_P_8021Q and ETH_P_8021AD instead of the Sparx5 provided
+      equivalents (patch #7).
+    - Configure MAC delays through "{rx,tx}-internal-delay-ps"
+      properties (patch #7).
+    - Add selectors for all the phase shifts that the hardware supports
+      (instead of only 2.0 ns, patch #7).
+    - Add selectors for all the port speeds (instead of only 1000 mbps.)
+    - Document RGMII delays in dt-bindings.
+
+  - Link to v1: https://lore.kernel.org/r/20241106-sparx5-lan969x-switch-driver-4-v1-0-f7f7316436bd@microchip.com
+
+---
+Daniel Machon (8):
+      net: sparx5: do some preparation work
+      net: sparx5: add function for RGMII port check
+      net: sparx5: use is_port_rgmii() throughout
+      net: sparx5: use phy_interface_mode_is_rgmii()
+      net: sparx5: verify RGMII speeds
+      net: lan969x: add RGMII registers
+      net: lan969x: add RGMII implementation
+      dt-bindings: net: sparx5: document RGMII MAC delays
+
+ .../bindings/net/microchip,sparx5-switch.yaml      |  20 ++
+ drivers/net/ethernet/microchip/lan969x/Makefile    |   2 +-
+ drivers/net/ethernet/microchip/lan969x/lan969x.c   |   5 +
+ drivers/net/ethernet/microchip/lan969x/lan969x.h   |  10 +
+ .../net/ethernet/microchip/lan969x/lan969x_rgmii.c | 237 +++++++++++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    |  29 ++-
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |   3 +
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 145 +++++++++++++
+ .../net/ethernet/microchip/sparx5/sparx5_phylink.c |   3 +
+ .../net/ethernet/microchip/sparx5/sparx5_port.c    |  57 +++--
+ .../net/ethernet/microchip/sparx5/sparx5_port.h    |   5 +
+ 11 files changed, 488 insertions(+), 28 deletions(-)
+---
+base-commit: 12079a59ce52e72a342c49cfacf0281213fd6f32
+change-id: 20241104-sparx5-lan969x-switch-driver-4-d59b7820485a
+
+Best regards,
+-- 
+Daniel Machon <daniel.machon@microchip.com>
 
 
