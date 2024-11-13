@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60FFD41C31
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8E9D41C31
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VFf/Xc2nlS+yNT+I41QxsowbM1i+EaeG4ziE6m3Pdg=; b=yaN1riqYF3BqrVpL7WXqkOGLmB
-	CnyFs8+BljmcnVvKO/GJmt3l7jAyONIQM5tdjpLKp+AMYDTb5DBQ0kAdionNwIhk3pZYYvGSit+Z9
-	WSdc4saG2nI13d9c/jAYpsFR6KFZt0YcQ2NomuI+AsNwD97paYk1VkBhdOET2tcchyINy5wggI8C/
-	YlZXxnZmdzyPLgvvF9DA6WqoYih8CtX9kBbpXWKkf0YAyu8hRgbjOwhQAmDylawEKjMH3BlU5mw2h
-	aGvK6ihGZkNkCLnhffyqbdJzI9F5xyrKrtEF/EGGTKJPmrLg5Sz/PGjsQet+UhHwj2CovZaXAAaPp
-	Kahm9jkw==;
+	bh=oLqGr7oL/tSva7ESNw1qx1bjzbqf+XtuouYHn6T1qfA=; b=ORsIZ16XnQp7ae1xJQBTt3TsaK
+	mN5bi1zBD5ixn5tBGZWNcbI7c1YegtfFv5MAMprOdelRE7ExX/6ZLBZ4kcxgcn2evslzEotoG5lDR
+	V6R2Kx8YuAFZy1zJRel0CJke+wG7VYUE7BMCfrnm1OjPWP3h9wh1O/tyORXYgwZkCW5VtptLtAB9+
+	ex5cQd/9tGNR6cCJY27XO9podpi4z5XGDWjDlLriGsNnT82vKGGIzIzh6WFXHyXrqxRWPNFqHj4uQ
+	Fhtke78Fr2CcJhLC7GhEd6Io9Ufg6qzXQepCZg+hVHYIfGarz6+78Mw9cndM4sdnC5IWAIjEJBGOe
+	d0HBKYeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAin-00000006T1j-3iYK;
-	Wed, 13 Nov 2024 10:35:37 +0000
-Received: from mail-pl1-f174.google.com ([209.85.214.174])
+	id 1tBAkZ-00000006TIi-0fKf;
+	Wed, 13 Nov 2024 10:37:27 +0000
+Received: from mail-pl1-f180.google.com ([209.85.214.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAYD-00000006QvI-1Cnw;
-	Wed, 13 Nov 2024 10:24:42 +0000
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-211a4682fcaso21867145ad.2;
-        Wed, 13 Nov 2024 02:24:40 -0800 (PST)
+	id 1tBAYO-00000006Qxq-1RbX;
+	Wed, 13 Nov 2024 10:24:53 +0000
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-20cdb889222so66612965ad.3;
+        Wed, 13 Nov 2024 02:24:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731493480; x=1732098280;
+        d=1e100.net; s=20230601; t=1731493491; x=1732098291;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5VFf/Xc2nlS+yNT+I41QxsowbM1i+EaeG4ziE6m3Pdg=;
-        b=WmPWaXs5YJGIq+m6A2AHspFoY3Qoci80nXeBdJ96HOmkXVDo9a9tagQdqWNL1BCj6Q
-         AAR+gaGWSU+Ir77A87lXl0U73kVSsuEvn1NS9Kb2EaVTLimGFj4e9ACtchqcD93Q4h4/
-         wrETgNpPu7Ss/Ulk/z1Z9+DGcCx6IRWf7k/8VP8alg+aNxZ+zNvWu41poI9UH88w8J5F
-         HAAdtRvaY1Z4TPtjur6K5Xm3JpGouEGnF7nUNMGixm5eP1C+bGwdfb6XgJywH+tTJ5Xt
-         mNHnyqqxxQvr45TVeL7Skl0KXvGXUN/F6bM/ObOyZhpTZeoiQKuOyhd0wublQpXGzZgf
-         dCkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZ9Cof4kmNhe/FihBO8xq/iP8VV1gjrdY3d/Vu+xUXs8s8sV4UnLcLvVaJcic6VPRJs/9td+awZQ9FvD+h9TNf@lists.infradead.org, AJvYcCVor9Uz5bAhH+NSSSexn+Frxy1LlgvJYdRxAiMoxGj5XhNtM/OD5ZJ3TWutsSFPZ9jCApo6n0HIJYjiVgR8hqU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYioRLycAIl/0QcTznBOHcsHT6oY4KQJvKJOpzBOjjw+55UvZ9
-	EDkaxhAFubJRXeujJpsnHBlL2O3f4K3LitHd99ok6nW2XQ5tdCATcXIGYPNl
-X-Google-Smtp-Source: AGHT+IGSECJ2rMpEiePoumLaiy6PEO05W+J2+Ji5a24UEPvreyuQK40KdAa2LZiLyRcgNv8DDtTNng==
-X-Received: by 2002:a17:903:6cd:b0:211:898:7cf0 with SMTP id d9443c01a7336-211834e6c07mr180355875ad.12.1731493480199;
-        Wed, 13 Nov 2024 02:24:40 -0800 (PST)
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com. [209.85.210.182])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e49bcbsm107587125ad.161.2024.11.13.02.24.39
+        bh=oLqGr7oL/tSva7ESNw1qx1bjzbqf+XtuouYHn6T1qfA=;
+        b=Pp1vd5MJN3rTaPM1Dxnwu+sfTITyhYwlq5eE0SPqFJSbzdhfVxxIoEtmhiygFcpI+M
+         6gn5doLwQsNR6uksTeglCfyjQt2Wu8X2N/NearcIdxvKKiz2kBJPn3M85nAi4T+FiqCs
+         XFscZ2UZRpOl2vMa3gubJ1bwCAzo1Ei703JHLxwAJFPiUrXiiSjVSwq2bXiBDlmfZZHx
+         wRgolJT5jb/+KY0r+vn9S0flN1cccIJuUt96XmPBPpjk3BNkKmLvl98gPGbuGKDM1GcH
+         6UAPFVdzAcIsr2iJWlPA/FibHJVDyd1AZu8DxVMMbvFy08WANG8h5LlGiQi6yWg9Crsv
+         HIjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCsNmk8hGSun6Ch02QArHWNFmtzU4eTT98LEwGX/QQINzbOjkdBs8Ou19yOmDmwf6ETqYOs01wUsisd+vrbB8=@lists.infradead.org, AJvYcCWS3zOVz2uS8sBKQtpqzFEzyHqDpVi/B43Va6hIBeaglPtqo+zJqBopjvn5pXWgL65bhQ1Hu6vv53nMvaNPbZqs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU0ly8ONeJcAUc+6XnmP9itPdVfCv9dL/M4N9G9CQKflhy/8U1
+	JzwChGQzSfUjv7LTuH65OHEB3zrK2EcCRamaWhm98pe+SWKJvpIiHxrEW9uG
+X-Google-Smtp-Source: AGHT+IHm1kDW+A/GiIaf9aV6kAz/ZRCuQXLB0X7784EtsllkpNthrPRke9zSsiFClwM1rDuvbKMlVA==
+X-Received: by 2002:a17:902:fc43:b0:211:3184:47f7 with SMTP id d9443c01a7336-211b5d544d1mr25078805ad.50.1731493491220;
+        Wed, 13 Nov 2024 02:24:51 -0800 (PST)
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com. [209.85.214.177])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211b34fdc0dsm14505655ad.50.2024.11.13.02.24.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 02:24:39 -0800 (PST)
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-720c286bcd6so6044842b3a.3;
-        Wed, 13 Nov 2024 02:24:39 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVqYc/qNJIgt3HQ7B7utOKyGShg2kKM8oT8XxPRmkm85zOLAkW5pxEbZ+GgjZoYXSA683r6V7+2mxrupxTw6wZ3@lists.infradead.org, AJvYcCXhn0V1v6ZDf7AQ2xI2qasE2AWtYN1uE34fuZ/6rIxYsEn4Ix3qSSRNnALRwXEd2XtAsSLrtyOMJ1lWYis51ME=@lists.infradead.org
-X-Received: by 2002:a05:6a00:14d3:b0:71e:659:f2e7 with SMTP id
- d2e1a72fcca58-724132a1a87mr26548820b3a.8.1731493479293; Wed, 13 Nov 2024
- 02:24:39 -0800 (PST)
+        Wed, 13 Nov 2024 02:24:50 -0800 (PST)
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-20cf3e36a76so69429025ad.0;
+        Wed, 13 Nov 2024 02:24:50 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWcvGZzjKJ855vuTKIt9xcc7uElkj7qUoP8SfCZDk1vIf1Ywu16Gn+F3jGrXMwjwrd1CmsaQh0Gf20ssN6t8irH@lists.infradead.org, AJvYcCWxjniP7yl7sLb0Ryi+/yuxN1jQnIzDN4R8ba8EYwnnnaHUG2rjONeWteZEcmG0D6ipzi3eTPgSZq122XLZrGE=@lists.infradead.org
+X-Received: by 2002:a17:90b:4acb:b0:2e2:ddfa:24d5 with SMTP id
+ 98e67ed59e1d1-2e9f2c78504mr3063104a91.15.1731493490622; Wed, 13 Nov 2024
+ 02:24:50 -0800 (PST)
 MIME-Version: 1.0
-References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-4-tszucs@linux.com>
- <4ba81dfa-f276-4e05-b46b-92f50dbcfcc4@kwiboo.se> <CA+GksrJLpeU8x-kjR1Ng3ySf+giiufCsJuBssng9qoX1PjAunA@mail.gmail.com>
- <9330ebb370780c001fd2aaee49aec9e8@manjaro.org> <CA+GksrJjDPve29Vh7ZFhM+JFp058xmXZAPeuLuFth7v=JeiH2w@mail.gmail.com>
- <0eb19e4daf2cdf3d4a04935876c3d3b0@manjaro.org>
-In-Reply-To: <0eb19e4daf2cdf3d4a04935876c3d3b0@manjaro.org>
+References: <20241111181807.13211-1-tszucs@linux.com> <20241111181807.13211-3-tszucs@linux.com>
+ <9fbdf05c-42e6-4ac5-9542-805200bc8c87@kwiboo.se> <260af427ae64d6f3b02a1579ee83eb3b@manjaro.org>
+ <CA+Gksr+WvS-S+jeYYG=Bo9cemvnJmjsmU4aj9YnD3t8-HY7wbw@mail.gmail.com>
+ <303ad3910668e852d6670d1c79dc22e0@manjaro.org> <CA+GksrLLbfyHdvu1VYB4S+W78C0T1DEWu5W6pP2-g3KdBeT-LQ@mail.gmail.com>
+ <eed7f35d1311eced9144fd7a5656b58f@manjaro.org>
+In-Reply-To: <eed7f35d1311eced9144fd7a5656b58f@manjaro.org>
 From: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>
-Date: Wed, 13 Nov 2024 11:24:28 +0100
-X-Gmail-Original-Message-ID: <CA+Gksr+E-tZe4sKVNa8zpATwdTW_DiOQxOf_Jujf5SURzhSPSg@mail.gmail.com>
-Message-ID: <CA+Gksr+E-tZe4sKVNa8zpATwdTW_DiOQxOf_Jujf5SURzhSPSg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Enable UART8 on rock-3b
+Date: Wed, 13 Nov 2024 11:24:39 +0100
+X-Gmail-Original-Message-ID: <CA+Gksr+aoDazT3b7uPFTOf5h3Drn3idZ5Kiris3k1fAxweXcyQ@mail.gmail.com>
+Message-ID: <CA+Gksr+aoDazT3b7uPFTOf5h3Drn3idZ5Kiris3k1fAxweXcyQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Enable sdmmc2 on rock-3b and
+ set it up for SDIO devices
 To: Dragan Simic <dsimic@manjaro.org>
 Cc: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>, 
 	Jonas Karlman <jonas@kwiboo.se>, Rob Herring <robh@kernel.org>, 
@@ -77,8 +79,8 @@ Cc: =?UTF-8?B?VGFtw6FzIFN6xbFjcw==?= <tszucs@linux.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_022441_348760_7683B199 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20241113_022452_418260_E0585461 
+X-CRM114-Status: GOOD (  53.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +97,180 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Dragan,
 
-On Wed, Nov 13, 2024 at 12:25=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> =
+On Wed, Nov 13, 2024 at 12:38=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> =
 wrote:
 >
 > Hello Tamas,
 >
-> On 2024-11-12 22:04, Tam=C3=A1s Sz=C5=B1cs wrote:
-> > On Tue, Nov 12, 2024 at 4:07=E2=80=AFPM Dragan Simic <dsimic@manjaro.or=
+> On 2024-11-12 22:05, Tam=C3=A1s Sz=C5=B1cs wrote:
+> > On Tue, Nov 12, 2024 at 4:16=E2=80=AFPM Dragan Simic <dsimic@manjaro.or=
 g>
 > > wrote:
-> >> Please correct me if I'm wrong, but isn't this UART supposed to be
-> >> used for the Bluetooth part of an SDIO WiFi + Bluetooth module, in
-> >> form of a non-standard M.2 module that Radxa sells?
+> >> On 2024-11-12 15:35, Tam=C3=A1s Sz=C5=B1cs wrote:
+> >> > I think it was totally fine to disable sdmmc2 at first, especially i=
+f
+> >> > it couldn=E2=80=99t be tested or wasn=E2=80=99t needed right away. F=
+rom what I=E2=80=99ve
+> >> > seen, this board works great even at higher clock speeds than what
+> >> > rk356x-base.dtsi suggests. I don=E2=80=99t have access to the RK3568=
+ errata,
+> >> > and there don=E2=80=99t seem to be any limits mentioned in the TRM e=
+ither.
+> >> > Overall, this board is doing just fine as it is.
+> >>
+> >> Sorry, I'm missing the point of mentioning some clock speeds?  Any
+> >> chances, please, to clarify that a bit?
 > >
-> > UART8 is supposed to be used for any radio module connected to the M2E
-> > connector.
-> > It will typically be responsible for Bluetooth or BLE but it could be
-> > 802.15.4 or whatever. In any case, all wanting to use it will need the
-> > uart8 node enabled.
+> > It's all about stress scenarios, right. Sustained transfer at maximum
+> > clock, multiple SD/MMC blocks used concurrently. That kind of thing.
+> > Different data rates forced. I hope that answers your question.
 >
-> I see, but I'm still guessing what's the actual use of enabling the
-> UART8 when it will remain pretty much useless without the additional
-> DT configuration, such as in the WiFi+Bluetooth DT overlay that Jonas
-> sent a bit earlier?
+> Ah, I see.  Though, I don't think we should worry much about that,
+> although testing it all is, of course, a good thing to do.
 
-The actual use is device enablement.
-
->
-> I think that the UART8 should be enabled together with something that
-> actually makes use of it, which in this case unfortunately cannot be
-> automatically detected and configured, so it belongs to a DT overlay.
-> I'll get back to this in my next response.
-
-I agree, bluetooth blocks dedicated to specific modules should belong
-to DT overlays.
+Better be safe than sorry. Let's just say I've seen worse.
 
 >
-> >> With that in mind, I see very little sense in just enabling the UART,
-> >> without defining the entire Bluetooth interface, which AFAIK produces
+> >> > Regarding device tree overlays, they would be ideal for implementing
+> >> > secondary functions, such as PCIe endpoint mode for users with
+> >> > specific requirements. However, the primary functions for PCIe on th=
+e
+> >> > M2E will be root complex mode, along with SDIO host, etc. In my view=
+,
+> >> > the hardware is well-designed and interconnected. Users have a
+> >> > reasonable expectation that these primary functions should work
+> >> > seamlessly without additional configuration, right out of the box.
+> >>
+> >> That's basically what I referred to in my earlier response, and in my
+> >> previous response regarding the UART.  Users would expect the
+> >> Bluetooth
+> >> part to work as well, but the error messages I mentioned look nasty,
+> >> so
+> >> perhaps something should be done about that first.
 > >
-> > Defining a bluetooth node would hardwire idiosyncrasies of a given
-> > radio module's Bluetooth core. Sure you could add a sleep clock, all
-> > kind of sideband signals for wakeups, reset, power down, etc. But hey,
-> > some will use them, some won't. I think it's undesirable and
-> > unnecessary. You can hciattach from here and most will work just like
-> > that. Tighter integration or anything special, module specific on top
-> > should be handled individially, on a case-by-case basis. This is a dev
-> > board after all. I say trick of all trades.
+> > I'm not aware of any nasty error messages especially related to UART.
+> > Well, MMC core will acknowledge when the platform part fails to
+> > enumerate a device on sdmmc2, but there's nothing wrong with this.
+> > It's not even an error -- certainly not a nasty one.
 > >
-> >> nasty looking error messages in the kernel log when there's actually
-> >> nothing connected to the UART.
-> >
-> > My dmesg is clean as a whistle
-> > root@rock-3b:~# dmesg | grep -E 'fe6c0000|ttyS0'
-> > [    0.344818] fe6c0000.serial: ttyS0 at MMIO 0xfe6c0000 (irq =3D 26,
-> > base_baud =3D 1500000) is a 16550A
-> > What kind of nasty errors do you recall?
+> > [    1.799703] mmc_host mmc2: card is non-removable.
+> > [    1.935011] mmc_host mmc2: Bus speed (slot 0) =3D 375000Hz (slot req
+> > 400000Hz, actual 375000HZ div =3D 0)
+> > [    7.195009] mmc_host mmc2: Bus speed (slot 0) =3D 375000Hz (slot req
+> > 375000Hz, actual 375000HZ div =3D 0)
+> > [   13.029540] mmc2: Failed to initialize a non-removable card
 >
-> Those would be the kernel error messages produced with the Bluetooth
-> DT configuration in place, but with no SDIO module installed.
+> This looks acceptable to me, but I'm now not really sure that we
+> should enable the sdmmc2 in the board dts.  Let me explain.
+>
+> As Jonas demonstrated with the WiFi+Bluetooth DT overlay, additional
+> DT configuration is needed to actually make an SDIO M.2 module plugged
+> into the ROCK 3B's M.2 slot work, so what do we actually get from
+> enabling the sdmmc2 in the board dts?  Just some error messages in
+> the kernel log :) and AFAICT no additional functionality when an SDIO
+> M.2 module is actually plugged into the slot.
 
-These are the kernel messages related to UART8 with the uart8 DT node
-enabled and an SDIO module installed.
+I think if you want to add a specific bluetooth DT overlay for your
+favorite module, you should.
+Our modules need this much and it's very useful already. I'm not
+interested in nailing down every single one we have in a separate
+overlay at this point.
+
+>
+> >> > Dragan, what did you mean by SDIO related power timing requirements?
+> >>
+> >> Whenever there's an SDIO module, there's usually some required timing
+> >> of the power rails.  Though, I don't know what's that like with the
+> >> non-standard M.2 SDIO modules that Radxa sells, which are intended to
+> >> be used on Radxa boards with "hybrid" M.2 slots.
+> >
+> > Ok, I see. Not always. I can't comment on Radxa's SDIO module but I'm
+> > sure it's reasonably standard. And so is the M.2 Key E on this board.
+> > Actually, part of the appeal is that all standard buses are very
+> > nicely wired up. I want everybody to be able to use them.
+>
+> Yes, but getting it all wired in some way unfortunately doesn't mean
+> that it will all work without additional DT configuration in place,
+> as described above.
+
+Agreed, well these are the common changes needed.
+
+
+>
+> Also, I'm not really sure there's some strict standard for the "GPIO"
+> and "UART" M.2 modules, that part of the specification was/is a bit
+> blurry or perhaps even non-existent.  It's been a while since I wrote
+> the M.2 aricle on English Wikipedia, :) maybe it's become defined
+> better in the meantime.
+>
+> >> Once again, please use inline replying. [*]
+> >>
+> >> [*] https://en.wikipedia.org/wiki/Posting_style
+> >>
+> >> > On Tue, Nov 12, 2024 at 5:41=E2=80=AFAM Dragan Simic <dsimic@manjaro=
+.org>
+> >> > wrote:
+> >> >>
+> >> >> Hello Jonas and Tamas,
+> >> >>
+> >> >> On 2024-11-11 20:06, Jonas Karlman wrote:
+> >> >> > On 2024-11-11 19:17, Tam=C3=A1s Sz=C5=B1cs wrote:
+> >> >> >> Enable SDIO on Radxa ROCK 3 Model B M.2 Key E. Add all supported=
+ UHS-I
+> >> >> >> rates and
+> >> >> >> enable 200 MHz maximum clock. Also, allow host wakeup via SDIO I=
+RQ.
+> >> >> >>
+> >> >> >> Signed-off-by: Tam=C3=A1s Sz=C5=B1cs <tszucs@linux.com>
+> >> >> >> ---
+> >> >> >>  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 8 +++++++-
+> >> >> >>  1 file changed, 7 insertions(+), 1 deletion(-)
+> >> >> >>
+> >> >> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> >> >> >> b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> >> >> >> index 242af5337cdf..b7527ba418f7 100644
+> >> >> >> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> >> >> >> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> >> >> >> @@ -688,14 +688,20 @@ &sdmmc2 {
+> >> >> >>      cap-sd-highspeed;
+> >> >> >>      cap-sdio-irq;
+> >> >> >>      keep-power-in-suspend;
+> >> >> >> +    max-frequency =3D <200000000>;
+> >> >> >>      mmc-pwrseq =3D <&sdio_pwrseq>;
+> >> >> >>      non-removable;
+> >> >> >>      pinctrl-names =3D "default";
+> >> >> >>      pinctrl-0 =3D <&sdmmc2m0_bus4 &sdmmc2m0_clk &sdmmc2m0_cmd>;
+> >> >> >> +    sd-uhs-sdr12;
+> >> >> >> +    sd-uhs-sdr25;
+> >> >> >> +    sd-uhs-sdr50;
+> >> >> >
+> >> >> > I thought that lower speeds was implied by uhs-sdr104?
+> >> >>
+> >> >> Last time I went through the MMC drivers, they were implied.  IIRC,
+> >> >> such backward mode compatibility is actually a requirement made by
+> >> >> the MMC specification.
+> >> >>
+> >> >> >>      sd-uhs-sdr104;
+> >> >> >> +    sd-uhs-ddr50;
+> >> >> >>      vmmc-supply =3D <&vcc3v3_sys2>;
+> >> >> >>      vqmmc-supply =3D <&vcc_1v8>;
+> >> >> >> -    status =3D "disabled";
+> >> >> >> +    wakeup-source;
+> >> >> >> +    status =3D "okay";
+> >> >> >
+> >> >> > This should probably be enabled using an dt-overlay, there is no
+> >> >> > SDIO device embedded on the board and the reason I left it disabl=
+ed
+> >> >> > in original board DT submission.
+> >> >>
+> >> >> Just went through the ROCK 3B schematic, version 1.51, and I think
+> >> >> there should be no need for a separate overlay, because sdmmc2 goes
+> >> >> to the M.2 slot on the board, which any user can plug an M.2 module
+> >> >> into, and the SDIO interface is kind-of self-discoverable.
+> >> >>
+> >> >> Of course, all that unless there are some horribly looking :) error
+> >> >> messages emitted to the kernel log when nothing is actually found,
+> >> >> in which case the SDIO/MMC driers should be fixed first.  Also, I'm
+> >> >> not sure what do we do with the possible SDIO-related power timing
+> >> >> requirements?
 
