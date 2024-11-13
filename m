@@ -4,97 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC50D41D4A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34DED42BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 13:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1iJJsP4fxx81YgiXQugBdedKb3vFmcw2IIeFVVTfWc=; b=YJ9WZXzhVlndmqEhlJEC2TqeCI
-	JAOP9QIEZxoYAR9yp/w+nxzXaU7H+287mTNqwV2FR9b0AYj5qxsGkbTtIrMgMSv4/xyZsjecYXTWg
-	+4bHYeygmmJH9mN4apX8D6vGh6nHjCJPTJuMgPHJoYqlfBZzxHenmFjSu3UwmWSFGXVU12re2laq9
-	vqrsHCFZgwS9FD+ycB0DSTWMmxGM4AuSO803UidqzTyoelyDHgKbL3HR5ePPuOKnbN8zRl2PwkhF4
-	eu3tXi4LeyG8fCRmIs2ZYQXdA5tZbU21GpI3Znau90Cu0md1v43kTfJuFnEySP0GZyZrZa5IJsbAp
-	AGU+bwMA==;
+	bh=GhmDXVwemijjOGfMq6sgcWNT97G/9xGLMWo+ChoGNWA=; b=kLsJm+wszEVNQuKLBd8/lpjAYo
+	v/APB2yfiwoGonO+ZQn4SucweIkfJoNKm1kY4Pdft9h13SCoXRircdzKPLwFh2P+S7+mN36X5kODV
+	8wle9b5o40b9eqfKk+uqf5EklwBCJ+3vhHaHLLMZCf1OsLAGoAb4rS66QxyKYSEkmwvhTlRKuKs7a
+	qC6rmsTUwHo9pOpFY7Lbo1j/7Dlj73ndlvfwJK/FfTPfNvOJQkQaKHjWuPuBxIPVbFFM6Sr6b0Rmn
+	3Tyf1SoGJrG8pOhSws7bUtAab23QZR3kMV/H0tif9vDVe1yE7oRt4ul20cJD/n+VbS8EKXJXwKqii
+	mu29OlFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDUb-00000006vbd-0bTZ;
-	Wed, 13 Nov 2024 13:33:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDQ8-00000006ucO-2PFH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Nov 2024 13:28:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=k1iJJsP4fxx81YgiXQugBdedKb3vFmcw2IIeFVVTfWc=; b=UNBKxkevy8vWXaq7RsKtitS5f+
-	iloqKq0SIU7Uttv4bl16GkrwAwSzTPLFFaN3gYsLkaOW1f8S40cb5gs/n7YOFRC/4+Mew9EuhtGgK
-	9vstpooNEwhs0z9vuqMfeLYdoVgPhMiDp8/CsyZQu1kNHh/Cg6xwmLBWXF7GLa1m9cDn1oWfFvLC7
-	H5VRebJFSha0PNXK6WiJvWoUN+x8G4cw0B2a92i2BzZnQZjYU+XFsH+yopDYFhzZFUuhm6qFBNmzr
-	QMQ225vw2jaM3hg8ugdCgaRlMRVyGKSrSzvKEascSLy8hBqUsbs1QpfjFnEq95ePp1iEFjD11uJ36
-	Uz+NXGDg==;
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDQ5-0000000DHI0-29R0
+	id 1tBDWP-00000006w6j-1AN9;
+	Wed, 13 Nov 2024 13:35:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBDQR-00000006ufD-2iHM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 13:28:31 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2ff3232ee75so36226731fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 05:28:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731504507; x=1732109307; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k1iJJsP4fxx81YgiXQugBdedKb3vFmcw2IIeFVVTfWc=;
-        b=WzEGVqm0CzKOkdvw1LrTRiDHPPAm9vJHU4aSYqFyPH/G/Sl1JDxE483USB0IW4Tanx
-         kjRvnlkgZiVYnvPQFan0Wscqr6aWXcvjGrc1HZjGfpsA0tcWm6LoY/iy3OrCQZg/qQPj
-         xY5nT/LqdIPHMZx2Ej7k/GllECVcTJrbHvfIzdiDesTXYl+F3mlnnuN8e8f8CuvBQGOn
-         QZhh128zPIDquvOUOmrV6ySklebRQCpICLoYmBf6OhUPnyWBE32Q43R0XHupKfZU74yl
-         j2pHKWTNW/LL6y+KriAtsmp33x5QrUOsYBKOIg4BRxSJ37qhWBqJ5zF72EH7NXUDyiI5
-         u46Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731504507; x=1732109307;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k1iJJsP4fxx81YgiXQugBdedKb3vFmcw2IIeFVVTfWc=;
-        b=SYGWmJCvI5IwYFfgCsX9xmV6ZOt2XAhNc9L4fTrZ+vHQLUrR1AbruiogWJ7sLTzZ9r
-         S7TU+2Yq+phyR2cE5VSY6CRwTVd09wMLbwXUwbqWfYJgw2SR78vfdXNwNwSH2GEoatj5
-         D0A/0tjJstSBGtuD2bz/GDZ/Hf+pqFszSHPjG3J1ugGtSCGcQH0JWYENeA4vDG4h7yew
-         1Q/uMhyUNX9f8f6BZVhway7m2FQmfB28SEJFQLpY0WadORrTUvXUuw3Rl4tPp6XL43Hx
-         LeySbecoTvlhZtnKjakgS6v1r3p5zNRxbgXLyaUje9WVUXrEkjD8vMnTUxUGQQD0Rf42
-         la1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUJWMEjuYN7NWO71O6eLcF3wpJfj2nm921Nw9h/Ryr5UFdKbZbKI3kcyIkILc7OKe3NuFycyugJJiDthHZw/teg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyemBmeJEC+OkloAi8K4Vx5PxxRs1Ba9AXgHlvre3pbvyHFIFns
-	SHiKYk0XZGsZIYQBTeolyEKnv8reKnSyrSZTIbRBTI8JhLbcVe9u1eoAMmcNs5JKZZvTSRb/kpk
-	USj4FiIS4hmBEEixY1GjRncP7KtloOWr7HmOKlg==
-X-Google-Smtp-Source: AGHT+IEkgrAvnkTJ5cspkFy9GX1VNIhsj0Q/QVeiK2QhR4qOF90RwckXKqpwSLqoIaSOg2O9mBFnXHSu7X0RYkS3Jm8=
-X-Received: by 2002:a2e:a542:0:b0:2fb:4994:b31a with SMTP id
- 38308e7fff4ca-2ff20128504mr98330701fa.8.1731504506913; Wed, 13 Nov 2024
- 05:28:26 -0800 (PST)
+	Wed, 13 Nov 2024 13:29:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60D7A1655;
+	Wed, 13 Nov 2024 05:29:18 -0800 (PST)
+Received: from [10.1.29.78] (Suzukis-MBP.cambridge.arm.com [10.1.29.78])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7E5D43F66E;
+	Wed, 13 Nov 2024 05:28:46 -0800 (PST)
+Message-ID: <c002b839-310e-4c68-acc3-c3433c16e1fe@arm.com>
+Date: Wed, 13 Nov 2024 13:28:45 +0000
 MIME-Version: 1.0
-References: <20241111085354.26576-1-ot_cathy.xu@mediatek.com>
-In-Reply-To: <20241111085354.26576-1-ot_cathy.xu@mediatek.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 13 Nov 2024 14:28:15 +0100
-Message-ID: <CACRpkdaUYuNBANWyTcwbE2fS-STyGiV4hzOQ7rS=Q1cc2O5b6A@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: mediatek: Add support for MT8196
-To: ot907280 <ot_cathy.xu@mediatek.com>
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	sean.wang@kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>, 
-	Guodong Liu <guodong.liu@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] Coresight: Narrow down the matching range of tpdm
+Content-Language: en-GB
+To: Songwei Chai <quic_songchai@quicinc.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20241009091728.1638-1-quic_songchai@quicinc.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20241009091728.1638-1-quic_songchai@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_132829_715197_83612BD9 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20241113_052851_772726_14F7811A 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +70,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 9:54=E2=80=AFAM ot907280 <ot_cathy.xu@mediatek.com>=
- wrote:
+On 09/10/2024 10:17, Songwei Chai wrote:
+> The format of tpdm's peripheral id is 1f0exx. To avoid potential
+> conflicts in the future, update the .id_table's id to 0x001f0e00.
+> This update will narrow down the matching range and prevent incorrect
+> matches. For example, another component's peripheral id might be
+> f0e00, which would incorrectly match the old id.
+> 
+> Fixes: b3c71626a9333b0b29f9921a39ce ("Coresight: Add coresight TPDM source driver")
+> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index b7d99e91ab84..3230d76aed90 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -1308,8 +1308,8 @@ static void tpdm_remove(struct amba_device *adev)
+>    */
+>   static struct amba_id tpdm_ids[] = {
+>   	{
+> -		.id = 0x000f0e00,
+> -		.mask = 0x000fff00,
+> +		.id	= 0x001f0e00,
+> +		.mask	= 0x00ffff00,
+>   	},
+>   	{ 0, 0, NULL },
+>   };
+> 
 
-> From: Guodong Liu <guodong.liu@mediatek.corp-partner.google.com>
->
-> Add register address for each pin config.
-> Add the function for each pin.
->
-> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
-> Cathy Xu <ot_cathy.xu@mediatek.com>
 
-This looks fine, but there are no device tree bindings for mt8196?
-What do you expect me to do here, I can't merge a device tree
-based driver for a hardware without DT bindings.
+Looks good to me, will queue this for v6.14. Apologies for missing the 
+v6.13 cycle
 
-Yours,
-Linus Walleij
+Suzuki
 
