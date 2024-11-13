@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24A3D637A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 17:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB71D637A3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 18:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5b0sSFuXiMhepCQlYK3oYdXA4Cpwlz7fTs3Hdc1S4F8=; b=qjCehfi1ZGc94Objm/uwnJIxAx
-	n/s+GkJUJHeDojOa7RJF8+ndX00hgUaoXQnQOBTqdzwQ7YuBKnBgz1tHYV7ePcW1PpOA329oHjbTj
-	bi8xikFlS2qEEjE+meyRMsTqkoHUxS9+vo1Rs2suosszaB/Et0UgkonpqFzsXc/k4YK5YuKF/gMV6
-	i+6qO46Oo65QYMjMAiY8nYXxMAyOTqlkNKHAjUYwpU0+fy6KcAsZTfPIV5h31t6f050TK3x0XeDBx
-	aeaU3ckMXUiSuhCG2ZK+H+ngKbUxWGhqMtgbdx9p8Y82/kx02rOvMpROjfZPBTIa2qDYQy+LMLJpg
-	VcaXT+fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2+naAnEhlYo0y7mD9BWzUkdNhpan/DMW2MuKIQuEKRk=; b=s+QaI0BVx+c+pY8/Mp/50m4Mzl
+	2CvdgP6dJqojywOpIoOEYj21fgS9Jc9G3hI0iyb6vnGv1fStgieDH0qDiRxehM/nVNXJi2tM5UIuz
+	wtOEGi26CixxyFgzbLRJw1oaAjh6y+Sc+n9FskAhy/nNyQ46U87yNAxQA+zrCscgeqdaj2CitWRQO
+	4pKfsy66W57IdKjaZA/V6+9Wz3D0fqv37rTGBvwmeBbjE5K/Dh4DPuN0d9l9CRmUIkBTzbAYZ8B0x
+	NvM6BrQWiGKwOK6NGRvGXeTKdy3M2UZLda9jdQFnrC7SZzH0Xr++t7mAyEli4l7yB5X/u82Aw7la5
+	FwmRHsAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBHd1-00000007dOR-1E9o;
-	Wed, 13 Nov 2024 17:58:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tBHep-00000007dit-0HYc;
+	Wed, 13 Nov 2024 17:59:59 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBHbA-00000007d1d-32qm
+	id 1tBHcr-00000007dLJ-1SHP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 17:56:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9361B5C4BF8;
-	Wed, 13 Nov 2024 17:55:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BEFBC4CEC3;
-	Wed, 13 Nov 2024 17:56:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731520571;
-	bh=iCGxzfeNyUjtU0hWYfBjl367jZBoPsTX45bEajZUk20=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=f7VN/6PIugxGNKpd+VrZfoU/apxv8HuV89OLFh85XN5B1SRxhuoSh0mUqeJ7siJuT
-	 4aEJqLTVD096/yKqEX4/Ct+7koKh+cF7mW06Z4X/qazF7cg3WVghok+S+Zdz3LvYMQ
-	 csp33r6FHpTrDo8EwZdPqsKYOi3PzbdjzyiSaVTQkmwKBcsmZvJ8P69R/5ePT7MLtX
-	 5Q17FINJmfO87+FX//vsa0UCuIgvkbj+0PJmVcwAw8sKqbySblZ/CkzqSdPJtunFIo
-	 Rcc1JOuje+yhH90i4AqfLTJhGjfQBysc9BW/ygT/v1zkA6V5bX+to+ipY4mW5nQOBX
-	 k/55gVjO22OXw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tBHb7-00CajX-2j;
-	Wed, 13 Nov 2024 17:56:09 +0000
-Date: Wed, 13 Nov 2024 17:53:36 +0000
-Message-ID: <867c97vx3z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kw@linux.com>,	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,	Shawn Guo <shawnguo@kernel.org>,	Sascha
- Hauer <s.hauer@pengutronix.de>,	Pengutronix Kernel Team
- <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	imx@lists.linux.dev,
-	alyssa@rosenzweig.io,	bpf@vger.kernel.org,	broonie@kernel.org,
-	jgg@ziepe.ca,	joro@8bytes.org,	lgirdwood@gmail.com,	p.zabel@pengutronix.de,
-	robin.murphy@arm.com,	will@kernel.org
-Subject: Re: [PATCH v5 0/2] PCI: add enabe(disable)_device() hook for bridge
-In-Reply-To: <ZzTL/b4BEAGvSa1Q@lizhi-Precision-Tower-5810>
-References: <20241104-imx95_lut-v5-0-feb972f3f13b@nxp.com>
-	<ZzTL/b4BEAGvSa1Q@lizhi-Precision-Tower-5810>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Frank.li@nxp.com, bhelgaas@google.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org, broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org, lgirdwood@gmail.com, p.zabel@pengutronix.de, robin.murphy@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 13 Nov 2024 17:57:58 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2fb4af0b6beso100880131fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 09:57:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731520674; x=1732125474; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2+naAnEhlYo0y7mD9BWzUkdNhpan/DMW2MuKIQuEKRk=;
+        b=mIV2/Ayy4p9wxaUpF3mP+0hGAdaJpB8IQ9UiNnvvAIRJiEx5sBtiSZKmaVE4LRVrbb
+         agr4hChqPVeSJP+JpdUUhRuGv6nJBBWgtRr9doV4S4LqhNl9oCZU4w+5cvTXICLPbIIi
+         Wb4cx3YB7qUfpMPvpKkxv0Nc8RsoGJulWQLw9WARRecyEvG7yk4xhxTFl46/2cBsfV1I
+         UEM7TbvAFwJT832Y1FWMt5/ua7UbEGFcEj0KTWIHsFb7mHkfQz1zFHr2J5u1R68JN9m7
+         NxmtGTfGhp2oxXqyHxDFhucoZPlR2M5Hv3AauH2yEfNKh8sRjALF06N5874HZObp3HTY
+         P1XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731520674; x=1732125474;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2+naAnEhlYo0y7mD9BWzUkdNhpan/DMW2MuKIQuEKRk=;
+        b=d/WdmyImKkL0KqUU4wROMCGFuA5BJuHD0L8Rii5lCiEeO1sW0DCmOBxsR/ntmEYMpF
+         KfTbJdX9sYljiD420XjsEwr5HMSo6MZkvEgD9XJp1bo5Aw100xdZ+7HPHKfnI2BURsid
+         JolEEhRTsuRxvQHl9IvdZ4yzbgFkhenEOJDPxF54CVwBN2u2fzJBXVbfG/XTnvS6Nt6O
+         C7daSuTMa4Lq5Lx59VteuLr7cMFC/wNrSlHLomDNgkxuwrUon5FyLPTd6lNJTlovT7m1
+         eVfjZb8d+RXFWARf+I2aWLjOmnNPont7efr5skZxdhz5XhyPANj1/1LLKWo16gY0vHTG
+         UkIA==
+X-Forwarded-Encrypted: i=1; AJvYcCVpNm1UOhMs7tgwsol7e8gWGBs8qR3b0MP8N8zxjkOdpBE300MVWv4H2JX6g0rR7q4FO0xc2r6DzXE9zCfH3C55@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL4p8Ah7dw2Jl7jaVRV1pKYmC1ConpJRwXL5iGeyUrGsGuex5D
+	1ISu/Tt1US8SC/i0H69KyiCFp+ff9xYVoA0q1DrYqBG32E8yXmkWVoFvJN8ViSnLoNaqePmw4V7
+	uVG78Q/cv4YPnXOSaPzFkTB3Qso0=
+X-Google-Smtp-Source: AGHT+IG+aC5tPt2yrdBuMhr6qpWwFd7aP0+osiz15sDwB3XQBCFR0oq0kfKom9cIQROfLPtslJmNhaeftR6G8xMCBkM=
+X-Received: by 2002:a2e:b8cc:0:b0:2fa:fcf0:7c2a with SMTP id
+ 38308e7fff4ca-2ff202079b4mr141052341fa.24.1731520674006; Wed, 13 Nov 2024
+ 09:57:54 -0800 (PST)
+MIME-Version: 1.0
+References: <20241023185841.1183706-1-festevam@gmail.com> <20241024-pep-proud-d714705c9ddf@spud>
+ <CAOMZO5BSZ4YAZ7Lqa3eGP9Wx=Ed7cgug==_UZqc7F57=XCJv3A@mail.gmail.com>
+In-Reply-To: <CAOMZO5BSZ4YAZ7Lqa3eGP9Wx=Ed7cgug==_UZqc7F57=XCJv3A@mail.gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 13 Nov 2024 14:57:42 -0300
+Message-ID: <CAOMZO5AgQxd2_gkcPSdhfSDArEEkBVvo_yAW3hdHVXtHH5FyAg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: timer: fsl,imxgpt: Fix the fsl,imx7d-gpt fallback
+To: robh@kernel.org
+Cc: tglx@linutronix.de, daniel.lezcano@linaro.org, krzk+dt@kernel.org, 
+	Conor Dooley <conor@kernel.org>, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Fabio Estevam <festevam@denx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_095612_875405_884B64B5 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20241113_095757_404480_05D059F3 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +94,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Nov 2024 15:55:41 +0000,
-Frank Li <Frank.li@nxp.com> wrote:
-> 
-> On Mon, Nov 04, 2024 at 02:22:58PM -0500, Frank Li wrote:
-> 
-> Any comments for this patches?
-> 
-> Bjorn and give ack at v4 and Marc Zyngier give test/review tag at v4. I
-> just drop these because change to use helper function and funtionality is
-> the same.
+Rob,
 
-My tags still stand.
+On Tue, Nov 5, 2024 at 7:48=E2=80=AFAM Fabio Estevam <festevam@gmail.com> w=
+rote:
 
-> After this patch merge, I think apply's bus notification can convert to
-> this way.
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>
+> Can you apply this series via your tree?
 
-I already did that conversion[1] as part of reviewing and testing the
-first patch in this series (and extending it to all consumers of
-host_generic).
-
-	M.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=pci/apple-host-bridge-hook
-
--- 
-Without deviation from the norm, progress is not possible.
+A gentle ping.
 
