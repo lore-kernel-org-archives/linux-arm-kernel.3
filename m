@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CCFD637A8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 19:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F0DD637A8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 19:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tgqFKvoVHXye/CyIJghap8jc4W684iliK9zLYmCZ1Zc=; b=YCmnvRz4ZjaRHU5GdZF9+jiEaG
-	ClO0/01Uw+1kQ04NUhv6WG9n9HHZD61CWkaCyX1vC9zkDm2bEw1f0SOrqqkR1osHvFlD5/OZj553C
-	P7of24fh+DygrKPalY0rNJu7rXCH04hfQbb7qwUDX8mcdd4DIRiCNLSF7rQ78zOkJxiRpfpG5GO/Y
-	/6Yx25JBd3pDw5cVrnlmsbxdnVerRi3HCqY8U0g3n3Gopnorpl7GesIJwbPT7T1CYlRY/LygnoMsL
-	T8C1t+mvFLXvsC0us+4HIx50cP3EDBmSQuElBlZl50o1pcpPYYx4sIqcMc1PaA9pRQO2OaUbQvaod
-	strXrzAA==;
+	bh=QQFdXgHR/yBinKM9akC7F2JFw2+gnKw6F8HpNI5yy4Y=; b=SwiTX+6g9qb/rf20SDd4T+VcUu
+	coAQlUNabXxyayBPOOYY9dOBwqDPpyaF2w/0118XegHmr1GJdjnhLCQ3Un6hzBAhulh06QrHKi6GX
+	1iLBY5N7+vy9LQUc0sEmKqOoXtewx2WfRNV0Y7IfoRDK+5wbROub42+E+pv8CdK2HPs9qDOLqQTI3
+	7evlF//wvGVPWT7ZTeDx8Hl2Ruh9gRBLRFfSZk6UiPP25X1t2aw45WEg5o2iY87st8GVqasfa6zuN
+	fLOdtdcBWApZ4gyFKqavjxvC1LsetqEF2mYhwFHLD9RSJUEN0peivTm4KnLu5FJhC3yUKz+l95z1K
+	CqPBp1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBIkY-00000007oC8-03lz;
-	Wed, 13 Nov 2024 19:09:58 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1tBImL-00000007oWA-30Zq;
+	Wed, 13 Nov 2024 19:11:49 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBIcv-00000007myr-3g6I
+	id 1tBIcw-00000007mzo-3zsG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 19:02:07 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e292dbfd834so11822959276.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 11:02:04 -0800 (PST)
+	Wed, 13 Nov 2024 19:02:08 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea82a5480fso130130527b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 11:02:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731524524; x=1732129324; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731524525; x=1732129325; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tgqFKvoVHXye/CyIJghap8jc4W684iliK9zLYmCZ1Zc=;
-        b=KZR3z0cxjvk7UH1OeNHAxip1H8XU4atuc1W5jseczv6JFYjsXEqkj7id5KkEAxEVO6
-         5meH7j14x3ETOpDge1BItjeikbRTeDBoVld6rsGMyjN8ckZD0qBUOVa6MCB+mc5AosRw
-         F3scXSRktcT6MVYUu2U81ODpOSxikdUcMBHMAIpPqcbmymKZvl3wMxCV6MZHylALX8B/
-         ukBL3zQkGrOb8V119soOdP0QnNTwKMegjTftd4jXXjP2zp3KfbJqrqyGS3bDzJfcQvYa
-         d7WR8DObyFp1L57ASkFHXd6nldrpjm+hnB6ZlQ7Q+U+KZlqzZZKT1xcI5LZKEqiWihdl
-         v8mQ==
+        bh=QQFdXgHR/yBinKM9akC7F2JFw2+gnKw6F8HpNI5yy4Y=;
+        b=hDzUeDHnEUt7Ok23L89R4PtBXykkFmuyhmZEeLD32DW8yqFBEPcz6PRgwfzy+TB7nB
+         MdoLzOUzfmo2Zc+ZXUJy8ty4gKboQDCzUwYyXZ2bOKOhUk6aXyt4u27I8Gg+d5hMjFnu
+         fBb0bfaY4aoecBv4FxSAXBEdS8QaE8h5ldq7ezy5HPiuHTrc178UFrNM7Axl7+nn/3Nh
+         9PAWcknR4WVkPZglwEACeWY0E/FXXmtAIHUtOoDjOZSbF/y0cFiwGMnSDtLVqJzq3cib
+         lCjruN1ONekVGxFn7RKnNxV3qPMMvamYbve1SleMAkOHl9AyML34vcpWbZT6BTdFy6yk
+         VqZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731524524; x=1732129324;
+        d=1e100.net; s=20230601; t=1731524525; x=1732129325;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tgqFKvoVHXye/CyIJghap8jc4W684iliK9zLYmCZ1Zc=;
-        b=kFvKywz4aHq0H9ZBV6ACaySyJZmngH2to2kBdeFI1Y8ygnTL6kzk1XGq4XXzwryQoF
-         5pXnPzuLowVq5yEhkvJ1Zrl3FPKwWOBpUc8FJAp0umZ8aoLNmc3JyzxQexlD6/9nDLfb
-         loA96EFyaRfCyw1jIcGIawe1a9bkaqJwvZr9uQBGQAmkBVFb+dkS0b6nEXXix7HJvdtO
-         qTmwb9NsIljmJOxTVDDPnZ6ficVYdivDVMAMsoHIi2QUHP/V1k94CE0CDi+2hHJ3LPCy
-         jsG7cO8M5VPqAkFGBNBTJpI9hNpFoQikQPnlc3svQEkOIevp3DFYT2SmqgSV9hf3a+FJ
-         1tyg==
-X-Forwarded-Encrypted: i=1; AJvYcCWoaglA5T5Ayxid1xMiDo9BDL8HQ/P3ntgfNcX0ijj74+leiWfZ83bQxe1ffkUbZj0EelPs9W8IqVFsRnxwKOxH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpM6cfJcm4mhM5Nhs0RsT/Ymn6HB1HEtw1lXSyPCtQKPwoOAGc
-	s138Er81CHTzb0PtXczi6nQTnm/+DLof2OE11MPYTOQeNZsCQKu7a+kUXAp9YbrQ7FDFpvHFnG7
-	1GHDxJjhLUs4cTP7mx/zKvA==
-X-Google-Smtp-Source: AGHT+IFNr9w/0dGnK6PRtslGYFp20zZooyO9LSsLAArex0mr+uzyM7no72zQ+L4NJiH7IrVQOwJt58oXd0jflNUvgA==
+        bh=QQFdXgHR/yBinKM9akC7F2JFw2+gnKw6F8HpNI5yy4Y=;
+        b=MyaJscpUhWph+GxAlLuKOAf2qfcmbYrnEcxzhX0Z0ANL9bTT9zB4tN3UyEZ5vkiz5T
+         4ez69/v2As/UXk82IDUDeIZJ/OsDvTk2CaDHepThyy6PAyb0UjhNRKvBgL3xWsd49o23
+         cf+zwx06VORkT+W4MEku+lIJAIXIyKJXFUx6U9gmcdDJPuFK8p1pHA1jBvOPTip9yMKr
+         e9MEdWbWw9GGz62kvRx4vu/iObGWKM9dUoy8m5bjHmIG5GKS4RJNcnRLNpQzKHc70D3A
+         f86V3w+aM4Jsy16+GMBvvpLp2z5PKanwfCn3hGZ5Y7n3iB5ZwoxtRBxcR9ES0rrN1cXR
+         9O/g==
+X-Forwarded-Encrypted: i=1; AJvYcCX2XMNdbMC3hj0wJAvl5jO2wUzpis7mTIQFlouHvW/o56PdVBPaXlabXY01CPLXI4gNEV57XQvboMxoG5ptGGnJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyK5vuE/LjxH2W+ffTHmQRVGu0AoUHiXvwLGQFGhwQnnq7xtR/I
+	heNoQy9StoiPqi8Utf2UaoLRXxWVZ5GrKmddDBzgM82IFGPEcFg9Iix6nq3vfjwURYlJdWDF9YA
+	Ve3r59Mr/xKComCQml0O9bQ==
+X-Google-Smtp-Source: AGHT+IFhulDvoY0sGq7EYnbunXmF/EqPCQ3tEG2uX7XcBCI6dgYlk8NlhbbJtWap3voWbgrqyi9w6iV13kRImFawvA==
 X-Received: from coltonlewis-kvm.c.googlers.com ([fda3:e722:ac3:cc00:11b:3898:ac11:fa18])
- (user=coltonlewis job=sendgmr) by 2002:a05:6902:2411:b0:e38:c40:380f with
- SMTP id 3f1490d57ef6-e380c4039bfmr33947276.3.1731524524115; Wed, 13 Nov 2024
- 11:02:04 -0800 (PST)
-Date: Wed, 13 Nov 2024 19:01:53 +0000
+ (user=coltonlewis job=sendgmr) by 2002:a81:8a44:0:b0:6ea:e011:f122 with SMTP
+ id 00721157ae682-6eae011fd7cmr1805147b3.5.1731524525438; Wed, 13 Nov 2024
+ 11:02:05 -0800 (PST)
+Date: Wed, 13 Nov 2024 19:01:54 +0000
 In-Reply-To: <20241113190156.2145593-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20241113190156.2145593-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241113190156.2145593-4-coltonlewis@google.com>
-Subject: [PATCH v8 3/5] powerpc: perf: Use perf_arch_instruction_pointer()
+Message-ID: <20241113190156.2145593-5-coltonlewis@google.com>
+Subject: [PATCH v8 4/5] x86: perf: Refactor misc flag assignments
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
@@ -86,11 +86,11 @@ Cc: Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.co
 	"H . Peter Anvin" <hpa@zytor.com>, linux-perf-users@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	Colton Lewis <coltonlewis@google.com>, Madhavan Srinivasan <maddy@linux.ibm.com>
+	Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_110206_059406_EACE5571 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20241113_110207_101115_282E97CD 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure powerpc uses the arch-specific function now that those have
-been reorganized.
+Break the assignment logic for misc flags into their own respective
+functions to reduce the complexity of the nested logic.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
+Acked-by: Kan Liang <kan.liang@linux.intel.com>
 Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/powerpc/perf/callchain.c    | 2 +-
- arch/powerpc/perf/callchain_32.c | 2 +-
- arch/powerpc/perf/callchain_64.c | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+ arch/x86/events/core.c            | 59 ++++++++++++++++++++++---------
+ arch/x86/include/asm/perf_event.h |  2 ++
+ 2 files changed, 44 insertions(+), 17 deletions(-)
 
-diff --git a/arch/powerpc/perf/callchain.c b/arch/powerpc/perf/callchain.c
-index 6b4434dd0ff30..26aa26482c9ac 100644
---- a/arch/powerpc/perf/callchain.c
-+++ b/arch/powerpc/perf/callchain.c
-@@ -51,7 +51,7 @@ perf_callchain_kernel(struct perf_callchain_entry_ctx *entry, struct pt_regs *re
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index d19e939f39983..bfc0a35fe3993 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -3011,27 +3011,52 @@ unsigned long perf_arch_instruction_pointer(struct pt_regs *regs)
+ 	return regs->ip + code_segment_base(regs);
+ }
  
- 	lr = regs->link;
- 	sp = regs->gpr[1];
--	perf_callchain_store(entry, perf_instruction_pointer(regs));
-+	perf_callchain_store(entry, perf_arch_instruction_pointer(regs));
+-unsigned long perf_arch_misc_flags(struct pt_regs *regs)
++static unsigned long common_misc_flags(struct pt_regs *regs)
+ {
+-	unsigned int guest_state = perf_guest_state();
+-	int misc = 0;
++	if (regs->flags & PERF_EFLAGS_EXACT)
++		return PERF_RECORD_MISC_EXACT_IP;
  
- 	if (!validate_sp(sp, current))
- 		return;
-diff --git a/arch/powerpc/perf/callchain_32.c b/arch/powerpc/perf/callchain_32.c
-index ea8cfe3806dce..ddcc2d8aa64a5 100644
---- a/arch/powerpc/perf/callchain_32.c
-+++ b/arch/powerpc/perf/callchain_32.c
-@@ -139,7 +139,7 @@ void perf_callchain_user_32(struct perf_callchain_entry_ctx *entry,
- 	long level = 0;
- 	unsigned int __user *fp, *uregs;
+-	if (guest_state) {
+-		if (guest_state & PERF_GUEST_USER)
+-			misc |= PERF_RECORD_MISC_GUEST_USER;
+-		else
+-			misc |= PERF_RECORD_MISC_GUEST_KERNEL;
+-	} else {
+-		if (user_mode(regs))
+-			misc |= PERF_RECORD_MISC_USER;
+-		else
+-			misc |= PERF_RECORD_MISC_KERNEL;
+-	}
++	return 0;
++}
  
--	next_ip = perf_instruction_pointer(regs);
-+	next_ip = perf_arch_instruction_pointer(regs);
- 	lr = regs->link;
- 	sp = regs->gpr[1];
- 	perf_callchain_store(entry, next_ip);
-diff --git a/arch/powerpc/perf/callchain_64.c b/arch/powerpc/perf/callchain_64.c
-index 488e8a21a11ea..115d1c105e8a8 100644
---- a/arch/powerpc/perf/callchain_64.c
-+++ b/arch/powerpc/perf/callchain_64.c
-@@ -74,7 +74,7 @@ void perf_callchain_user_64(struct perf_callchain_entry_ctx *entry,
- 	struct signal_frame_64 __user *sigframe;
- 	unsigned long __user *fp, *uregs;
+-	if (regs->flags & PERF_EFLAGS_EXACT)
+-		misc |= PERF_RECORD_MISC_EXACT_IP;
++static unsigned long guest_misc_flags(struct pt_regs *regs)
++{
++	unsigned long guest_state = perf_guest_state();
++
++	if (!(guest_state & PERF_GUEST_ACTIVE))
++		return 0;
++
++	if (guest_state & PERF_GUEST_USER)
++		return PERF_RECORD_MISC_GUEST_USER;
++	else
++		return PERF_RECORD_MISC_GUEST_KERNEL;
++
++}
++
++static unsigned long host_misc_flags(struct pt_regs *regs)
++{
++	if (user_mode(regs))
++		return PERF_RECORD_MISC_USER;
++	else
++		return PERF_RECORD_MISC_KERNEL;
++}
++
++unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
++{
++	unsigned long flags = common_misc_flags(regs);
++
++	flags |= guest_misc_flags(regs);
++
++	return flags;
++}
++
++unsigned long perf_arch_misc_flags(struct pt_regs *regs)
++{
++	unsigned long flags = common_misc_flags(regs);
++
++	flags |= host_misc_flags(regs);
  
--	next_ip = perf_instruction_pointer(regs);
-+	next_ip = perf_arch_instruction_pointer(regs);
- 	lr = regs->link;
- 	sp = regs->gpr[1];
- 	perf_callchain_store(entry, next_ip);
+-	return misc;
++	return flags;
+ }
+ 
+ void perf_get_x86_pmu_capability(struct x86_pmu_capability *cap)
+diff --git a/arch/x86/include/asm/perf_event.h b/arch/x86/include/asm/perf_event.h
+index feb87bf3d2e9c..d95f902acc521 100644
+--- a/arch/x86/include/asm/perf_event.h
++++ b/arch/x86/include/asm/perf_event.h
+@@ -538,7 +538,9 @@ struct x86_perf_regs {
+ 
+ extern unsigned long perf_arch_instruction_pointer(struct pt_regs *regs);
+ extern unsigned long perf_arch_misc_flags(struct pt_regs *regs);
++extern unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs);
+ #define perf_arch_misc_flags(regs)	perf_arch_misc_flags(regs)
++#define perf_arch_guest_misc_flags(regs)	perf_arch_guest_misc_flags(regs)
+ 
+ #include <asm/stacktrace.h>
+ 
 -- 
 2.47.0.338.g60cca15819-goog
 
