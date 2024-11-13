@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF78D41C0F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 07:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDFDD41C10
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 07:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6dlE562LsAkro/FX5wMHOoqr7IPsB/e0KRTnKMvneDE=; b=imiXvHaoCZrmgXH4kihV2eqZfW
-	hdb9HrwhasWiOjnRDymoFdpSXgVr/svIZ3xYoPVNaAjG2hxs2KgoZb1JooddFpoIhZopXP4s0N+9Y
-	eAHYc43k6mXmwy4oa49WK16uoH4ui1UyyLXM0ZP+fe7q3aw5CN76NXYsquhZ50wwd/rGsrRPPDat/
-	d7O+j7vFAXlY5zDY6ZxaU4/nW0QW5pCLZXEsijZT6TIYs3p1GiwnP61U3efzbMv2G4F8kOEN4qMoz
-	9xHdPoTo1rroDa0UaHTu8LRZuYP08TScOLGEc+jetpiHkg0bRG6D1l8M1OYvSPIwLLIzD6XLK4NTD
-	9OV0Sz/A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLcSgOR7aLvQVOBAvpbksa+9sDVbJ1+E1YZiE5RshU4=; b=17cRhgFt+xWqq8DTHV9wqGng7y
+	FTR+cBxfD4Qy/SlGTOYmMnuqCVDWzk1LtQcGktfA8BjAv2SLjKae9jGI+o2s343JOU0rn/M+vtLo0
+	CyLtbALwagSuT2C1iZ7ai3a8DX7STKM0K5fyuqeVbwED9Is6fiwblFOD1vhCT2lEMMStrzOHuAx6E
+	HEKsvhUv1Q0Wl40XkkUkWADECf2rqA8FumGlMXjTAVktEgv6nDCHwviAT6/6HGvW2arCDtU/YZ1jp
+	tp95V7wtbtG4ul9hQsXFYyzw/JGAeYoHBKUBuWH3S5RqSV81CiQcXdTeMjD9TzdxFI/AemOr52AMk
+	FJsmhaOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB7sY-000000060of-3VK6;
-	Wed, 13 Nov 2024 07:33:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tB7uJ-000000060xs-1ccv;
+	Wed, 13 Nov 2024 07:35:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB7ot-00000005zqZ-0cWi;
-	Wed, 13 Nov 2024 07:29:44 +0000
+	id 1tB7ou-00000005zr7-0s3I;
+	Wed, 13 Nov 2024 07:29:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 12BDA5C57F5;
-	Wed, 13 Nov 2024 07:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 01BD1C4CED0;
-	Wed, 13 Nov 2024 07:29:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DBCA5A4044B;
+	Wed, 13 Nov 2024 07:27:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 468B0C4CEDE;
+	Wed, 13 Nov 2024 07:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1731482982;
-	bh=jTZlTZlZlc/8oe7tDDpKMU27TjCaQVXWIYr+dhvV8jI=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=kgsNtBFPiSUBR4Koe4a+lmtEI4IyQLsuaxD5Pnr4rjGjUvzjDvYoZA70VF0wtUr6C
-	 Hx8eTjL3EXnP/xdlhQGueDNpYK4V36oa7nWqJLbi7cWFiTdKyWCSxVpTVSQgmZ5GY4
-	 uwzH8/gF2NLSU+HW3OCopmNZujev3LTe17Z8O7HoqIz1I3ZcFI3sttEX5S0VpnPKEi
-	 IbXN5PqVbLgcvI0n6AaWVhWXCxXJa3RG3/R12AGxe7fqZ1Wp+L9nd6LLaCRaO+Rixa
-	 Kh+qKPxlYPF/VAAutuZqVkhqQ+SG0MC5Oy2kW8MtFr6Y4ZbyeC1HU5wxMmeWdPY1VF
-	 TQI9N8ydEJFtg==
+	bh=emTg6gDh6BXC5WxZiY52CWHMm6aFR9q/BDSunW+ZUto=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Kq3zjgSePSFD0p63NIcqUH/CSepcSbug2uQRAKUglQ1KliwEGwdTVMVGS6N+7HfQR
+	 6yDrsoklGp1nARdnMYIUwjzGcY7MjOXiNCWLQaZnEvjJ3+HvTMRu6JUZETe2Au6/lT
+	 ZPx+t9ZY4YJqsPphi531pCtkY7ZJjAsc/p2R3bRfwUNSxuv1Nb5bdC16Vp65XKUhGc
+	 msEF5enNXZT0q7Lc/HKg61GWOFmTNq0ehutrCjbFxV1IL4m8lF5FUmWSpY0+zFSDPX
+	 MGjIgDpD1MkVn3JuHnBNC11wRj4zGNEbnvHUVqhF9iNe5x7IoByukMpzQkjgnVT1Jy
+	 kIJgKwb9jeoPQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D81ECD41C00;
-	Wed, 13 Nov 2024 07:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 317BED41C11;
+	Wed, 13 Nov 2024 07:29:42 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH v6 0/5] Pinctrl: A4: Add pinctrl driver
-Date: Wed, 13 Nov 2024 15:29:38 +0800
-Message-Id: <20241113-a4_pinctrl-v6-0-35ba2401ee35@amlogic.com>
+Date: Wed, 13 Nov 2024 15:29:43 +0800
+Subject: [PATCH v6 5/5] arm64: dts: amlogic: a4: add pinctrl node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGJVNGcC/2XP0QqCMBTG8VeRXbfY5tFZV71HRKyzow7UxYxRh
- O/eDCLFy2/w+3P2ZiMFRyM7Zm8WKLrR+SGNcpcxbM3QEHc2baaEAimk4gaudzfgI3RcHKy8KSM
- 1gWYJ3APV7vmNnS9pt258+PD6tqOaX38ZWGai4oLnpMGUBaqqoJPpO9843KPv2RyK+RJXK5wnT
- LqsrcRaSKu3GP446RWGGdf2UJHF3FjY4mKB17+PxXw2lAJJCoRKrPE0TR/FIPJkXQEAAA==
+Message-Id: <20241113-a4_pinctrl-v6-5-35ba2401ee35@amlogic.com>
+References: <20241113-a4_pinctrl-v6-0-35ba2401ee35@amlogic.com>
+In-Reply-To: <20241113-a4_pinctrl-v6-0-35ba2401ee35@amlogic.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -66,19 +64,20 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1731482979; l=3167;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731482979; l=1622;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=jTZlTZlZlc/8oe7tDDpKMU27TjCaQVXWIYr+dhvV8jI=;
- b=m4K96oRnL5/UOrRY29MRVvvw544CUEkerxoU9h9+7gESaPC+1p4F26yp8bt0b3sdQ+/DisqvJ
- TQPy19ewAEQCS6TZcCKjgOP75oiW4iuhjTXIynPf891+IeErHIFnSoj
+ bh=BwmmxNbUHc87jVbNysKI2HGP1eTeZdpPlPo2pspjE6Y=;
+ b=3/JaPWV+OnNB85AwLp9WTwyXWpxvU/jvJYGO8PpsGmerWXTfj569eY23LBomf44sgmK+NqNuu
+ Wc7IWgf18dcD7+xWPSWzxrE/efzjYiqziU/aYygK/xIC40npjl8dHvH
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
  auth_id=107
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_232943_316373_F31BCD40 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20241112_232944_411835_EF01E0A9 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +93,70 @@ Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver support for Amloigc A4 SoC
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-All of Amogic SoCs GPIO device requirement is met here by
-adding GPIO bank definition instead of the pin definition.
-Binding header files will no longer be added to future
-SoCs's pin devices.
+Add pinctrl device to support Amlogic A4.
 
-The pinctrl software only adds insterface of of_xlate to support
-for transformation without affecting the overall framework and
-is compatible with previous drivers.
-
-The code in DTS file is also readable when using GPIO, as below:
-
-reset-gpios = <&gpio AMLOGIC_GPIO_X 6 GPIO_ACTIVE_LOW>;
-
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
-Changes in v6:
-- Adjust code formatting and style.
-- Remove "#gpio-cells" definition from amlogic,meson-pinctrl-common.yaml
-  and add them in all amlogic,meson-pinctrl-XXX.yaml with const: 2, and then
-  add amlogic,meson-pinctrl-a4.yaml(copy form  amlogic,meson-pinctrl-a1.yaml) with const: 3.
-- Link to v5: https://lore.kernel.org/r/20241112-a4_pinctrl-v5-0-3460ce10c480@amlogic.com
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 36 +++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-Changes in v5:
-- Modify if to switch.
-- Dropped parameter combination, bank and offset as independent parameter passing
-- Link to v4: https://lore.kernel.org/r/20241101-a4_pinctrl-v4-0-efd98edc3ad4@amlogic.com
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+index de10e7aebf21..a176faf7f1ef 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+@@ -5,6 +5,7 @@
+ 
+ #include "amlogic-a4-common.dtsi"
+ #include <dt-bindings/power/amlogic,a4-pwrc.h>
++#include <dt-bindings/gpio/amlogic-gpio.h>
+ / {
+ 	cpus {
+ 		#address-cells = <2>;
+@@ -48,3 +49,38 @@ pwrc: power-controller {
+ 		};
+ 	};
+ };
++
++&apb {
++	periphs_pinctrl: pinctrl@4000 {
++		compatible = "amlogic,a4-periphs-pinctrl";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges = <0x0 0x0 0x0 0x4000 0x0 0x02e0>;
++
++		gpio: bank@0 {
++			reg = <0x0 0x0 0x0 0x0050>,
++			      <0x0 0xc0 0x0 0x0220>;
++			reg-names = "mux", "gpio";
++			gpio-controller;
++			#gpio-cells = <3>;
++			gpio-ranges = <&periphs_pinctrl 0 0 73>;
++		};
++	};
++
++	aobus_pinctrl: pinctrl@8e700 {
++		compatible = "amlogic,a4-aobus-pinctrl";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges = <0x0 0x0 0x0 0x8e700 0x0 0x0064>;
++
++		ao_gpio: bank@0 {
++			reg = <0x0 0x00 0x0 0x04>,
++			      <0x0 0x04 0x0 0x60>;
++			reg-names = "mux", "gpio";
++			gpio-controller;
++			#gpio-cells = <3>;
++			gpio-ranges = <&aobus_pinctrl 0 0 8>;
++		};
++	};
++
++};
 
-Changes in v4:
-- Add interface of of_xlate support.
-- Add const for some variable.
-- Link to v3: https://lore.kernel.org/r/20241018-a4_pinctrl-v3-0-e76fd1cf01d7@amlogic.com
-
-Changes in v3:
-- Remove head file from binding.
-- Move GPIO define to file *.c.
-- Link to v2: https://lore.kernel.org/r/20241014-a4_pinctrl-v2-0-3e74a65c285e@amlogic.com
-
-Changes in v2:
-- Use one marco instead of all pin define.
-- Add unit name for dts node.
-- Link to v1: https://lore.kernel.org/all/20240611-a4_pinctrl-v1-0-dc487b1977b3@amlogic.com/
-
----
-Xianwei Zhao (5):
-      dt-bindings: pinctrl: move gpio-cells property
-      dt-bindings: pinctrl: Add support for Amlogic A4 SoCs
-      pinctrl: meson: add interface of of_xlate
-      pinctrl: meson: Add driver support for Amlogic A4 SoCs
-      arm64: dts: amlogic: a4: add pinctrl node
-
- .../bindings/pinctrl/amlogic,meson-pinctrl-a1.yaml |    3 +
- .../bindings/pinctrl/amlogic,meson-pinctrl-a4.yaml |   80 ++
- .../pinctrl/amlogic,meson-pinctrl-common.yaml      |    3 -
- .../pinctrl/amlogic,meson-pinctrl-g12a-aobus.yaml  |    3 +
- .../amlogic,meson-pinctrl-g12a-periphs.yaml        |    3 +
- .../pinctrl/amlogic,meson8-pinctrl-aobus.yaml      |    3 +
- .../pinctrl/amlogic,meson8-pinctrl-cbus.yaml       |    3 +
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |   36 +
- drivers/pinctrl/meson/Kconfig                      |    6 +
- drivers/pinctrl/meson/Makefile                     |    1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 1324 ++++++++++++++++++++
- drivers/pinctrl/meson/pinctrl-meson.c              |    4 +
- drivers/pinctrl/meson/pinctrl-meson.h              |    4 +
- include/dt-bindings/gpio/amlogic-gpio.h            |   45 +
- 14 files changed, 1515 insertions(+), 3 deletions(-)
----
-base-commit: 58e2d28ed28e5bc8836f8c14df1f94c27c1f9e2f
-change-id: 20241012-a4_pinctrl-09d1b2a17e47
-
-Best regards,
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
+2.37.1
 
 
 
