@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1146D41C03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEEDD41C03
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dWsx5nJGnXXSk2Ufj1TPsNBwAQF6kKooyg82zNLy88=; b=zELgKxAe7SNPt4Ho5+3Uwtemt+
-	o4Tt/3ZRg8m/22TaYl4SjnA6YRquJyYnihS8zWSVo8VnYZDBQaTN3FS+3Swk/OfpfWesgGP+CFU7F
-	PegxmSHkz+wdFFkEn0rKMrCmNi57zdPaw4VU1W6a79VjOKi4IHb/ceJ43HNuTV8WbB2jefgzMQEah
-	sFL9ZTn2SqNyL9YhbnlE5TbtqbITul21dpbxbRwJxuqkRHZpNxPLcD4Id/G7MFuzb4rLSH3tuhuPU
-	vxdMizwg8kGkknqMbTWTx5q/DoCN1GkOTfT5wx80IoNGTgqXHCSPSI53aElyF66fYj215jTaq8n5p
-	3nV9pghg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6Mq4oeht5kLVMoEhZaRoupAp/M8poIp3g05UPnDCtI0=; b=XO1nflz57hiD3nfPehYe7nygJ5
+	ThmpXLOLS4Pya/VQQ+ZQ0dPYYdCFQDUM1cC0yRhhpRh1zqgJdE77BkNqtt02fTazvR2YttNX4kcud
+	lXE9xsSzZDqYmOZm30iF0TqTMdu2fxJQeX+VCgNhHu2FxM8OdvNYZQSSUxu33xrBXbEdkt9teJrzi
+	7mqUGD5ZTPCq7mIGzbovND0ayxS1bP7rQhjQnrIbmnb/bhewSkbJLbNhuk0QH5iLsqbw+r/UnioA8
+	XKtbTwWblZ0gtiXSfzm3tKbBp3s5G2j1wy14Ivqwh5FE8P6skRqGvoc6Y1h8LVj6WCs302BzjuHKK
+	j6YMLTDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6is-00000005syi-3OIn;
-	Wed, 13 Nov 2024 06:19:26 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tB6kq-00000005tD7-3fqX;
+	Wed, 13 Nov 2024 06:21:28 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6gR-00000005sfb-2a1m;
-	Wed, 13 Nov 2024 06:16:56 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2e31af47681so5263841a91.2;
-        Tue, 12 Nov 2024 22:16:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731478614; x=1732083414; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/dWsx5nJGnXXSk2Ufj1TPsNBwAQF6kKooyg82zNLy88=;
-        b=M+JK/yWTbBkMLcuzP1FRj73QcbUmLVsa98YY8hchfWFXzxSwIoCxeGLB/zwUj2VJkD
-         XBwxQ+cyYBjNQ600h+evAwFZ1OLt65HUJGcUJpmVA85D7HQkZ+K30H3bPpFKF9I2Yw1q
-         z0KoKfpkSySF4rYTZCfJVJhtKVzlD111gc3H1WKa8Q/MD1Jv9p/BnLJF7HmLPakalqjn
-         o3L+1I37SaFaIeT5/xnuEPSgPtYTdhnauN/HwtazrkDXF4bMc6VV/ZcIlK4Yujmuwk1C
-         DHpBpJaqR5zi8edf04myFs3QbYUd7plO41nm4Yp8s4FTqpW065/T1vc+FfbG7kLDH/Ve
-         Giqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731478614; x=1732083414;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/dWsx5nJGnXXSk2Ufj1TPsNBwAQF6kKooyg82zNLy88=;
-        b=gMID74y4Avhc93R+i8Ob8KnY/vBDwZ9zcXUILpsQRDdAaxLBFprCys4RttuDBy80Vw
-         oBsP6bcZIEoD3Ahwul8tRvRb9W25Eh4ZLXSDUenoyVcCC4g2f8ExD/7g6qLiX1Yi7Ue1
-         8E+fScpxgqaw72LBzKxd5M2wB1LkS5dim0vGfdhESzlrZ3xtpSAdxBqQDzqJqf2iT/hg
-         gcMNsMlltp09cp7nAHK4bWvR5jLqc83oYVi4beO89NibBRpDEpAOdOTXbq1T8oJ8M98L
-         xlBRigtyzfub9fE0Da6lEsZS2Q0QCu28HfCVi3fjCqLio1SADGUaXe2G4rKWIcoU5vK1
-         VHmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUoH7BxShGe/kwLnrtg+VYdARKTEW4A1I4H+HflTKnSszXwlSkMRdJXPiR8l7nnPIEy/FfSfM010URO@lists.infradead.org, AJvYcCX+XQxQfA/DUfax5ZKk6Fea9BVdLPf9TW5TLZhrieCvUeFeGiTc2s3xFJT72l9xlQywAK/bO/MB+xSmX/xaHzMh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcVKcoSCmhJhyRHQEiCLsDICmQ44PhzpmCXoMhkciR3sJkFQAx
-	rbb1fYiBcV11qPWpuI9IItBJGeRWNN3eancHW3tqVGvnHlBTSbPokoKHXg==
-X-Google-Smtp-Source: AGHT+IEDrczFgFYUt0SpNxIqMdH27qTt4lLwgzyYo/TRfEHiJZ3LxPGin4/itPwqN0UbsgxzaBid1Q==
-X-Received: by 2002:a17:90b:524e:b0:2e2:d859:1603 with SMTP id 98e67ed59e1d1-2e9f2d5c5a7mr1978413a91.25.1731478614156;
-        Tue, 12 Nov 2024 22:16:54 -0800 (PST)
-Received: from [172.19.1.53] (60-250-192-107.hinet-ip.hinet.net. [60.250.192.107])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2e9f3ec86d2sm642280a91.21.2024.11.12.22.16.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Nov 2024 22:16:53 -0800 (PST)
-Message-ID: <245b6c20-d7c1-438a-8b8f-d80a2e5d2807@gmail.com>
-Date: Wed, 13 Nov 2024 14:16:50 +0800
+	id 1tB6ir-00000005syK-3fHl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Nov 2024 06:19:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XpCjL50MvzDqk2;
+	Wed, 13 Nov 2024 14:16:38 +0800 (CST)
+Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
+	by mail.maildlp.com (Postfix) with ESMTPS id B3DB3180115;
+	Wed, 13 Nov 2024 14:19:18 +0800 (CST)
+Received: from huawei.com (10.145.6.51) by kwepemd200012.china.huawei.com
+ (7.221.188.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Wed, 13 Nov
+ 2024 14:19:16 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: <maz@kernel.org>, <tglx@linutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<wangwudi@hisilicon.com>, <prime.zeng@hisilicon.com>, Zhou Wang
+	<wangzhou1@hisilicon.com>, Nianyao Tang <tangnianyao@huawei.com>
+Subject: [PATCH v3] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
+Date: Wed, 13 Nov 2024 14:27:59 +0800
+Message-ID: <20241113062759.1042187-1-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Hui-Ping Chen <hpchen0nvt@gmail.com>
-Subject: Re: [PATCH v8 2/2] mtd: rawnand: nuvoton: add new driver for the
- Nuvoton MA35 SoC
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: richard@nod.at, vigneshr@ti.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nikita.shubin@maquefel.me, arnd@arndb.de,
- vkoul@kernel.org, esben@geanix.com, linux-arm-kernel@lists.infradead.org,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241023092617.108021-1-hpchen0nvt@gmail.com>
- <20241023092617.108021-3-hpchen0nvt@gmail.com> <87y11p1vhx.fsf@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <87y11p1vhx.fsf@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.145.6.51]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200012.china.huawei.com (7.221.188.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_221655_679975_B1788EC7 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20241112_221926_266887_C852E013 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,162 +69,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Miquel,
+When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
+during unmapping operation, which will cause some vSGIs lost.
 
-Thank you for your reply.
+To fix the issue, invalidate related vPE cache through GICR_INVALLR
+after VMOVP.
 
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 +
+ arch/arm64/Kconfig                          | 11 ++++
+ drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++++++----
+ 3 files changed, 58 insertions(+), 11 deletions(-)
 
-On 2024/11/12 上午 02:22, Miquel Raynal wrote:
-> Hello,
->
->> +static int ma35_nand_attach_chip(struct nand_chip *chip)
->> +{
->> +	struct ma35_nand_info *nand = nand_get_controller_data(chip);
->> +	struct ma35_nand_chip *nvtnand = to_ma35_nand(chip);
->> +	struct mtd_info *mtd = nand_to_mtd(chip);
->> +	struct device *dev = mtd->dev.parent;
->> +	u32 reg;
->> +
->> +	if (chip->options & NAND_BUSWIDTH_16) {
->> +		dev_err(dev, "16 bits bus width not supported");
->> +		return -EINVAL;
->> +	}
->> +
->> +	nvtnand->nchunks = mtd->writesize / chip->ecc.steps;
->> +	nvtnand->nchunks = (nvtnand->nchunks < 4) ? 1 : nvtnand->nchunks / 4;
-> This second division looks broken. Also, you probably don't want to do
-> that outside of the ON_HOST situation. Finally, you should probably
-> update chip->ecc.steps and chip->ecc.size to your final choice.
-
-Regarding these two lines, I will remove them and instead set them in 
-ma35_nand_hwecc_init().
-
-However, since the nchunks is actually used to get the ECC status 
-register count,
-
-I will rename nchunks to eccstatus and perform the calculation using 
-ecc.steps.
-
-
->> +
->> +	reg = readl(nand->regs + MA35_NFI_REG_NANDCTL) & (~PSIZE_MASK);
->> +	if (mtd->writesize == 2048)
->> +		writel(reg | PSIZE_2K, nand->regs + MA35_NFI_REG_NANDCTL);
->> +	else if (mtd->writesize == 4096)
->> +		writel(reg | PSIZE_4K, nand->regs + MA35_NFI_REG_NANDCTL);
->> +	else if (mtd->writesize == 8192)
->> +		writel(reg | PSIZE_8K, nand->regs + MA35_NFI_REG_NANDCTL);
->> +
->> +	switch (chip->ecc.engine_type) {
->> +	case NAND_ECC_ENGINE_TYPE_ON_HOST:
->> +		chip->options |= NAND_NO_SUBPAGE_WRITE | NAND_USES_DMA;
-> What is the reason for refusing subpage writes? This is not something
-> you can do later, so unless there is a good reason, please do not set
-> this flag.
-
-I will remove the NAND_NO_SUBPAGE_WRITE flag.
-
-
->> +		chip->ecc.write_page = ma35_nand_write_page_hwecc;
->> +		chip->ecc.read_page  = ma35_nand_read_page_hwecc;
->> +		chip->ecc.read_oob   = ma35_nand_read_oob_hwecc;
->> +		return ma35_nand_hwecc_init(chip, nand);
->> +	case NAND_ECC_ENGINE_TYPE_NONE:
->> +	case NAND_ECC_ENGINE_TYPE_SOFT:
->> +	case NAND_ECC_ENGINE_TYPE_ON_DIE:
->> +		break;
->> +	default:
->> +		return -EINVAL;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
-> ...
->
->> +static int ma35_nand_chip_init(struct device *dev, struct ma35_nand_info *nand,
->> +				 struct device_node *np)
->> +{
->> +	struct ma35_nand_chip *nvtnand;
->> +	struct nand_chip *chip;
->> +	struct mtd_info *mtd;
->> +	int nsels;
->> +	u32 tmp;
->> +	int ret;
->> +	int i;
->> +
->> +	if (!of_get_property(np, "reg", &nsels))
-> Please convert to device_property_ helpers. And remove the of include
-> once you no longer need it.
-
-I will use device_property_read_u32 instead.
-
-
->> +		return -ENODEV;
->> +
->> +	nsels /= sizeof(u32);
->> +	if (!nsels || nsels > MA35_MAX_NSELS) {
->> +		dev_err(dev, "invalid reg property size %d\n", nsels);
->> +		return -EINVAL;
->> +	}
->> +
->> +	nvtnand = devm_kzalloc(dev, struct_size(nvtnand, sels, nsels),
->> +			      GFP_KERNEL);
->> +	if (!nvtnand)
->> +		return -ENOMEM;
->> +
->> +	nvtnand->nsels = nsels;
->> +	for (i = 0; i < nsels; i++) {
->> +		ret = of_property_read_u32_index(np, "reg", i, &tmp);
->> +		if (ret) {
->> +			dev_err(dev, "reg property failure : %d\n", ret);
->> +			return ret;
->> +		}
->> +
->> +		if (tmp >= MA35_MAX_NSELS) {
->> +			dev_err(dev, "invalid CS: %u\n", tmp);
->> +			return -EINVAL;
->> +		}
->> +
->> +		if (test_and_set_bit(tmp, &nand->assigned_cs)) {
->> +			dev_err(dev, "CS %u already assigned\n", tmp);
->> +			return -EINVAL;
->> +		}
->> +
->> +		nvtnand->sels[i] = tmp;
->> +	}
->> +
-> ...
->
->> +
->> +	ret = mtd_device_register(mtd, NULL, 0);
->> +	if (ret) {
->> +		dev_err(dev, "MTD parse partition error\n");
-> probably useless error message?
-
-I will remove this error message.
-
-
->> +		nand_cleanup(chip);
->> +		return ret;
->> +	}
->> +
->> +	list_add_tail(&nvtnand->node, &nand->chips);
->> +
->> +	return 0;
->> +}
-> I believe next iteration should be the one, I'm rather happy with the
-> overall look.
-
-Hope so, thank you!
-
-
-> Thanks,
-> Miquèl
-
-Best regards,
-
-Hui-Ping Chen
-
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 65bfab1b1861..77db10e944f0 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -258,6 +258,8 @@ stable kernels.
+ | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
+ |                | ,11} SMMU PMCG  |                 |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 70d7f4f20225..0ea9c599681d 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1232,6 +1232,17 @@ config HISILICON_ERRATUM_161600802
+ 
+ 	  If unsure, say Y.
+ 
++config HISILICON_ERRATUM_162100801
++	bool "Hip09 162100801 erratum support"
++	default y
++	help
++	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
++	  during unmapping operation, which will cause some vSGIs lost.
++	  To fix the issue, invalidate related vPE cache through GICR_INVALLR
++	  after VMOVP.
++
++	  If unsure, say Y.
++
+ config QCOM_FALKOR_ERRATUM_1003
+ 	bool "Falkor E1003: Incorrect translation due to ASID change"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 52f625e07658..2cd1826b4bbd 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -44,6 +44,7 @@
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
+ #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+ #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
++#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+ 
+ #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+ #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+@@ -61,6 +62,7 @@ static u32 lpi_id_bits;
+ #define LPI_PENDBASE_SZ		ALIGN(BIT(LPI_NRBITS) / 8, SZ_64K)
+ 
+ static u8 __ro_after_init lpi_prop_prio;
++static struct its_node *find_4_1_its(void);
+ 
+ /*
+  * Collection structure - just an ID, and a redistributor address to
+@@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
+ 	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
+ }
+ 
++static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
++{
++	void __iomem *rdbase;
++	u64 val;
++
++	val  = GICR_INVALLR_V;
++	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
++
++	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
++	gic_write_lpir(val, rdbase + GICR_INVALLR);
++
++	wait_for_syncr(rdbase);
++	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++}
++
+ static int its_vpe_set_affinity(struct irq_data *d,
+ 				const struct cpumask *mask_val,
+ 				bool force)
+@@ -3866,6 +3884,16 @@ static int its_vpe_set_affinity(struct irq_data *d,
+ 	vpe->col_idx = cpu;
+ 
+ 	its_send_vmovp(vpe);
++
++	/*
++	 * Version of ITS is same in one system. As there is no cache in ITS,
++	 * and only cache in related GICR should be clean, directly use
++	 * GICR_INVALLR to clean cache, which will get a better performance
++	 * here.
++	 */
++	if (find_4_1_its()->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
++		its_vpe_4_1_invall_locked(cpu, vpe);
++
+ 	its_vpe_db_proxy_move(vpe, from, cpu);
+ 
+ out:
+@@ -4173,22 +4201,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
+ 
+ static void its_vpe_4_1_invall(struct its_vpe *vpe)
+ {
+-	void __iomem *rdbase;
+ 	unsigned long flags;
+-	u64 val;
+ 	int cpu;
+ 
+-	val  = GICR_INVALLR_V;
+-	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
+-
+ 	/* Target the redistributor this vPE is currently known on */
+ 	cpu = vpe_to_cpuid_lock(vpe, &flags);
+-	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
+-	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
+-	gic_write_lpir(val, rdbase + GICR_INVALLR);
+-
+-	wait_for_syncr(rdbase);
+-	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
++	its_vpe_4_1_invall_locked(cpu, vpe);
+ 	vpe_to_cpuid_unlock(vpe, flags);
+ }
+ 
+@@ -4781,6 +4799,14 @@ static bool its_set_non_coherent(void *data)
+ 	return true;
+ }
+ 
++static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
++{
++	struct its_node *its = data;
++
++	its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100801;
++	return true;
++}
++
+ static const struct gic_quirk its_quirks[] = {
+ #ifdef CONFIG_CAVIUM_ERRATUM_22375
+ 	{
+@@ -4827,6 +4853,14 @@ static const struct gic_quirk its_quirks[] = {
+ 		.init	= its_enable_quirk_hip07_161600802,
+ 	},
+ #endif
++#ifdef CONFIG_HISILICON_ERRATUM_162100801
++	{
++		.desc	= "ITS: Hip09 erratum 162100801",
++		.iidr	= 0x00051736,
++		.mask	= 0xffffffff,
++		.init	= its_enable_quirk_hip09_162100801,
++	},
++#endif
+ #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+ 	{
+ 		.desc   = "ITS: Rockchip erratum RK3588001",
+-- 
+2.34.1
 
 
