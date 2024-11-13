@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEEDD41C03
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E47AD41C08
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 06:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6Mq4oeht5kLVMoEhZaRoupAp/M8poIp3g05UPnDCtI0=; b=XO1nflz57hiD3nfPehYe7nygJ5
-	ThmpXLOLS4Pya/VQQ+ZQ0dPYYdCFQDUM1cC0yRhhpRh1zqgJdE77BkNqtt02fTazvR2YttNX4kcud
-	lXE9xsSzZDqYmOZm30iF0TqTMdu2fxJQeX+VCgNhHu2FxM8OdvNYZQSSUxu33xrBXbEdkt9teJrzi
-	7mqUGD5ZTPCq7mIGzbovND0ayxS1bP7rQhjQnrIbmnb/bhewSkbJLbNhuk0QH5iLsqbw+r/UnioA8
-	XKtbTwWblZ0gtiXSfzm3tKbBp3s5G2j1wy14Ivqwh5FE8P6skRqGvoc6Y1h8LVj6WCs302BzjuHKK
-	j6YMLTDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9QCU/JLa948seWzRrNmkByaOgxKmnVBehQKimS55YRs=; b=ToZiPSiNXCpenA4Mij16H4VgTO
+	lWRwLzMJuQ82P0BLaXYe4wtjiCsEqLNwIQzSFERO94nw9ZGUkG1W6rTJjvvbLp1yhQFNXYRU1su3C
+	Xwyx+f5q45og7xcd5beB0mk4StynEUU3B9q0SYDqHHvExJNxd64VWKccfDCVIVqKzIKsYt3c7HYXO
+	ZBB50AQfbkB0I+spTd8msJl6909ktCKBUBZhe5RGRIEEHn6OYCZGAM49fvCrR0seJttlk8KTh9QpU
+	K+n5hsMGgZPkiv2oTb0tUFFsfdnja47DGnOBD2AS4+qin3cgZAxIJS2UJSvnJSjIdJ1bwK6WXA7ze
+	ykuX73zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6kq-00000005tD7-3fqX;
-	Wed, 13 Nov 2024 06:21:28 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1tB6u8-00000005tqh-3AEE;
+	Wed, 13 Nov 2024 06:31:04 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tB6ir-00000005syK-3fHl
+	id 1tB6sK-00000005tf6-1pHG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 06:19:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4XpCjL50MvzDqk2;
-	Wed, 13 Nov 2024 14:16:38 +0800 (CST)
-Received: from kwepemd200012.china.huawei.com (unknown [7.221.188.145])
-	by mail.maildlp.com (Postfix) with ESMTPS id B3DB3180115;
-	Wed, 13 Nov 2024 14:19:18 +0800 (CST)
-Received: from huawei.com (10.145.6.51) by kwepemd200012.china.huawei.com
- (7.221.188.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Wed, 13 Nov
- 2024 14:19:16 +0800
-From: Zhou Wang <wangzhou1@hisilicon.com>
-To: <maz@kernel.org>, <tglx@linutronix.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<wangwudi@hisilicon.com>, <prime.zeng@hisilicon.com>, Zhou Wang
-	<wangzhou1@hisilicon.com>, Nianyao Tang <tangnianyao@huawei.com>
-Subject: [PATCH v3] irqchip/gicv3-its: Add workaround for hip09 ITS erratum 162100801
-Date: Wed, 13 Nov 2024 14:27:59 +0800
-Message-ID: <20241113062759.1042187-1-wangzhou1@hisilicon.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 13 Nov 2024 06:29:14 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-53d8c08cfc4so3878204e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Nov 2024 22:29:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731479348; x=1732084148; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9QCU/JLa948seWzRrNmkByaOgxKmnVBehQKimS55YRs=;
+        b=dduRnCkPed8bfO9Bt5vpUpvkdl6DWRYqi3CKYeCwoOxmoiJxlDGr7fDX9FZfKpYcsy
+         fP1PlkpqHUWEm7o8AH6i4VMU1qlLXwJTaoDXCA0PfndaFIAYXrlv3G94+lvdIi/HO5ZS
+         Zs+54hf+SN2fuQg4fxX41KEAFzKGvYa8vX7z+Jph09HOcrc9DtRONXdN9+g8fBvr/fxw
+         VkMQ/qqv7t1Ptp/e7XJAuW9ct831Lj/0n+i6m3mFIlzCSAGEzBjQEloes0udlTfl0EfJ
+         tlXjvamLPNSgXJzIYIFOjAPV1bTuFYW/xJ37ZTf0ahy4m24vaNmho6bC+hvhBWd81HFK
+         NRwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731479348; x=1732084148;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9QCU/JLa948seWzRrNmkByaOgxKmnVBehQKimS55YRs=;
+        b=dGPGdJjUObLL2y1uSk/cSpL7rLrCaaiE8rbpJQxwhfjvfOFpRv+MNWhBcKPgSK4rfP
+         BvFoI1TR/Qa4zUs0FQzqULc1ko1N2PGEZp/Y01YKjAtQ5SUil7U6ad77omiHQXrK3etU
+         IlAVF/Xs3FDq7rFlh6sMCiTOsBa6bjWxqigjPfORbc5ODuUmsLPpABpHXE/A7fZTVYfA
+         wVwm91tH8uwX/6elR/4agurvZrSINAvXpftjkgjlMkUnFBYU9QO7tacafWbILoae/i0s
+         HIx9PcR7zgMrpqbRPYWB/n6NfEZDqnA1/yRjbbQ7c2G2nmQuDfnFdYVM7ZR0P6Ql5aB6
+         RImg==
+X-Forwarded-Encrypted: i=1; AJvYcCX244oKMD9NHeY0+txa37X7a5jusvf9IHLL8F2HoXjfgb3DZJ+O22VAtLRj2IHjekL5joam6GETGap1u5AzbgUq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjywHCkxZhUezIw+dIMhp83jedyOFUN6bBEaTFEjl9n3GdSxnP
+	zxFaEBF7TiiwT+Yn4sJwGAuv8JEWvtCSOFpqNxxHT+BOuTiL+jcwLMI6WEJZ9/Lqj/fzCGlvoFa
+	h0mCcROiT8f2raJ6Dh2FnjW8Y5tSvwFRdFySlGQ==
+X-Google-Smtp-Source: AGHT+IEEpcf7Vups7lw1NP9O1FTEPXG1XjljcLFymoWHBWMOkn9tB109/qtbls5Dq+XYyRVJ67vPr0ofrW4PZLq41wk=
+X-Received: by 2002:a05:6512:281b:b0:536:54fd:275b with SMTP id
+ 2adb3069b0e04-53d86303095mr9309340e87.54.1731479348058; Tue, 12 Nov 2024
+ 22:29:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.145.6.51]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200012.china.huawei.com (7.221.188.145)
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+ <20241112182938.GA172989@nvidia.com> <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
+ <20241113012359.GB35230@nvidia.com> <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
+In-Reply-To: <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
+From: Zhangfei Gao <zhangfei.gao@linaro.org>
+Date: Wed, 13 Nov 2024 14:28:56 +0800
+Message-ID: <CABQgh9F+K67YDYeg4==0dhdjya1YuX6uUttQA8zadWEZyRhNKw@mail.gmail.com>
+Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, acpica-devel@lists.linux.dev, iommu@lists.linux.dev, 
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org, 
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>, 
+	Alex Williamson <alex.williamson@redhat.com>, Donald Dutile <ddutile@redhat.com>, 
+	Eric Auger <eric.auger@redhat.com>, Hanjun Guo <guohanjun@huawei.com>, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jerry Snitselaar <jsnitsel@redhat.com>, 
+	Moritz Fischer <mdf@kernel.org>, Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>, 
+	patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_221926_266887_C852E013 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20241112_222912_497737_C255DAF5 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,171 +101,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
-during unmapping operation, which will cause some vSGIs lost.
+Hi, Baolu
 
-To fix the issue, invalidate related vPE cache through GICR_INVALLR
-after VMOVP.
+On Wed, 13 Nov 2024 at 10:56, Baolu Lu <baolu.lu@linux.intel.com> wrote:
+>
+> On 11/13/24 09:23, Jason Gunthorpe wrote:
+> >> https://github.com/Linaro/linux-kernel-uadk/tree/6.12-wip
+> >> https://github.com/Linaro/qemu/tree/6.12-wip
+> >>
+> >> Still need this hack
+> >> https://github.com/Linaro/linux-kernel-uadk/commit/
+> >> eaa194d954112cad4da7852e29343e546baf8683
+> >>
+> >> One is adding iommu_dev_enable/disable_feature IOMMU_DEV_FEAT_SVA,
+> >> which you have patchset before.
+> > Yes, I have a more complete version of that here someplace. Need some
+> > help on vt-d but hope to get that done next cycle.
+>
+> Can you please elaborate this a bit more? Are you talking about below
+> change
+>
+> +       ret = iommu_dev_enable_feature(idev->dev, IOMMU_DEV_FEAT_SVA);
+> +       if (ret)
+> +               return ret;
+>
+> in iommufd_fault_iopf_enable()?
+>
+> I have no idea about why SVA is affected when enabling iopf.
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
-Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
----
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- arch/arm64/Kconfig                          | 11 ++++
- drivers/irqchip/irq-gic-v3-its.c            | 56 +++++++++++++++++----
- 3 files changed, 58 insertions(+), 11 deletions(-)
+In drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c,
+iommu_dev_enable_feature(IOMMU_DEV_FEAT_SVA) will real call
+iopf_queue_add_device,
+while iommu_dev_enable_feature(IOPF)  only set flag.
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 65bfab1b1861..77db10e944f0 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -258,6 +258,8 @@ stable kernels.
- | Hisilicon      | Hip{08,09,10,10C| #162001900      | N/A                         |
- |                | ,11} SMMU PMCG  |                 |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 70d7f4f20225..0ea9c599681d 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1232,6 +1232,17 @@ config HISILICON_ERRATUM_161600802
- 
- 	  If unsure, say Y.
- 
-+config HISILICON_ERRATUM_162100801
-+	bool "Hip09 162100801 erratum support"
-+	default y
-+	help
-+	  When enabling GICv4.1 in hip09, VMAPP will fail to clear some caches
-+	  during unmapping operation, which will cause some vSGIs lost.
-+	  To fix the issue, invalidate related vPE cache through GICR_INVALLR
-+	  after VMOVP.
-+
-+	  If unsure, say Y.
-+
- config QCOM_FALKOR_ERRATUM_1003
- 	bool "Falkor E1003: Incorrect translation due to ASID change"
- 	default y
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 52f625e07658..2cd1826b4bbd 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -44,6 +44,7 @@
- #define ITS_FLAGS_WORKAROUND_CAVIUM_22375	(1ULL << 1)
- #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
- #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
-+#define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
- 
- #define RD_LOCAL_LPI_ENABLED                    BIT(0)
- #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
-@@ -61,6 +62,7 @@ static u32 lpi_id_bits;
- #define LPI_PENDBASE_SZ		ALIGN(BIT(LPI_NRBITS) / 8, SZ_64K)
- 
- static u8 __ro_after_init lpi_prop_prio;
-+static struct its_node *find_4_1_its(void);
- 
- /*
-  * Collection structure - just an ID, and a redistributor address to
-@@ -3797,6 +3799,22 @@ static void its_vpe_db_proxy_move(struct its_vpe *vpe, int from, int to)
- 	raw_spin_unlock_irqrestore(&vpe_proxy.lock, flags);
- }
- 
-+static void its_vpe_4_1_invall_locked(int cpu, struct its_vpe *vpe)
-+{
-+	void __iomem *rdbase;
-+	u64 val;
-+
-+	val  = GICR_INVALLR_V;
-+	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
-+
-+	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
-+	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
-+	gic_write_lpir(val, rdbase + GICR_INVALLR);
-+
-+	wait_for_syncr(rdbase);
-+	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
-+}
-+
- static int its_vpe_set_affinity(struct irq_data *d,
- 				const struct cpumask *mask_val,
- 				bool force)
-@@ -3866,6 +3884,16 @@ static int its_vpe_set_affinity(struct irq_data *d,
- 	vpe->col_idx = cpu;
- 
- 	its_send_vmovp(vpe);
-+
-+	/*
-+	 * Version of ITS is same in one system. As there is no cache in ITS,
-+	 * and only cache in related GICR should be clean, directly use
-+	 * GICR_INVALLR to clean cache, which will get a better performance
-+	 * here.
-+	 */
-+	if (find_4_1_its()->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100801)
-+		its_vpe_4_1_invall_locked(cpu, vpe);
-+
- 	its_vpe_db_proxy_move(vpe, from, cpu);
- 
- out:
-@@ -4173,22 +4201,12 @@ static void its_vpe_4_1_deschedule(struct its_vpe *vpe,
- 
- static void its_vpe_4_1_invall(struct its_vpe *vpe)
- {
--	void __iomem *rdbase;
- 	unsigned long flags;
--	u64 val;
- 	int cpu;
- 
--	val  = GICR_INVALLR_V;
--	val |= FIELD_PREP(GICR_INVALLR_VPEID, vpe->vpe_id);
--
- 	/* Target the redistributor this vPE is currently known on */
- 	cpu = vpe_to_cpuid_lock(vpe, &flags);
--	raw_spin_lock(&gic_data_rdist_cpu(cpu)->rd_lock);
--	rdbase = per_cpu_ptr(gic_rdists->rdist, cpu)->rd_base;
--	gic_write_lpir(val, rdbase + GICR_INVALLR);
--
--	wait_for_syncr(rdbase);
--	raw_spin_unlock(&gic_data_rdist_cpu(cpu)->rd_lock);
-+	its_vpe_4_1_invall_locked(cpu, vpe);
- 	vpe_to_cpuid_unlock(vpe, flags);
- }
- 
-@@ -4781,6 +4799,14 @@ static bool its_set_non_coherent(void *data)
- 	return true;
- }
- 
-+static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
-+{
-+	struct its_node *its = data;
-+
-+	its->flags |= ITS_FLAGS_WORKAROUND_HISILICON_162100801;
-+	return true;
-+}
-+
- static const struct gic_quirk its_quirks[] = {
- #ifdef CONFIG_CAVIUM_ERRATUM_22375
- 	{
-@@ -4827,6 +4853,14 @@ static const struct gic_quirk its_quirks[] = {
- 		.init	= its_enable_quirk_hip07_161600802,
- 	},
- #endif
-+#ifdef CONFIG_HISILICON_ERRATUM_162100801
-+	{
-+		.desc	= "ITS: Hip09 erratum 162100801",
-+		.iidr	= 0x00051736,
-+		.mask	= 0xffffffff,
-+		.init	= its_enable_quirk_hip09_162100801,
-+	},
-+#endif
- #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
- 	{
- 		.desc   = "ITS: Rockchip erratum RK3588001",
--- 
-2.34.1
+arm_smmu_dev_enable_feature
+case IOMMU_DEV_FEAT_SVA:
+arm_smmu_master_enable_sva(master)
+iopf_queue_add_device(master->smmu->evtq.iopf, dev);
 
+Thanks
 
