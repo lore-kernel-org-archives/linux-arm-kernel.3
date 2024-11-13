@@ -4,85 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA28ED41C39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2010DD41C33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 11:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+GQG+dngfYLQ58gUq++xO1sdDZ8ABc6gLSKTdWCc3o=; b=Gd2J5pGh0Ly+kFY8s69NgELEO7
-	8j1QH5iK4K2uVJtx7aV0mSSs8bivb5OON6Y6QzNoNQEhF1rM3uV/u9l5e8t2T18FVsEWoay7HlGFs
-	KDik4fmQi/Gi0F4As5Cfe02lLTb8aeYF/Vwn31Av5Rq7ShzYS/DWXnUuadQOU4nyRj+pBxtaEN43b
-	bLu5YYxUASjvy2ecaDIm5GLLNM8ReqeD0fA9XEQgl+/p2Dx1qRFPG5xTNphOlNxz/D1dFtZ1ZZAzv
-	foNxZKikj0pdM5q10AGlJNfqm6LT2gu9Fx5knV39s0jCE8jkiR5sWf4UNLxAUJEX13MfZqXHv1j7M
-	qDhhEB+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0BfW0mwwK/RB1gSytGAIpAHe7yoP9uFrYSI4uI6UUZ4=; b=a9ViieDftsR7wC
+	FtYGxllhVVdCDHxPDg9mMYlwGK67q7A54s1fLi2yYim2B0Pg9QIbslUbcH5AoFofNRh02dpZWSq7t
+	naSGeFAaRHVSGvOkg5oSOIDCg3vCQdPjGUQMP4saqu+zZEZ7kQo5BSLE/qHE2wYTiN1lk57qcuQUu
+	QD3c8Hv0hjZPVeBwRMcNLvYokuExHn9qcIhHkuaWP1WQ/o6tlGuuoowHwZy9M2MnWVZhmkSP9sVW7
+	ZK9Yj/ujJSbkJHKaWSbFo4PUyiaF07+DlFkI0IxsTI5UG54kWbDT8AreBygm913/GS8PjDQ+wio6M
+	nUTMxnsJz0Xjt/jrxuJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBqX-00000006dYp-05wp;
-	Wed, 13 Nov 2024 11:47:41 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1tBBxX-00000006eeW-1oyX;
+	Wed, 13 Nov 2024 11:54:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBBoT-00000006d4m-3HVa
+	id 1tBBve-00000006e99-46Ch
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 11:45:35 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3e5ffbc6acbso3980382b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 03:45:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731498332; x=1732103132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=a+GQG+dngfYLQ58gUq++xO1sdDZ8ABc6gLSKTdWCc3o=;
-        b=OxHUzUdL1AmavQ8SqK/shA1loO6EIfzuT3pAflmxQ6j08jMhoikItCsbPgrqhCSqvR
-         VjhX0VdzIKfmnRwErsgl3nYxncr/2Wi2Zt8s/i4xRJw3zpYhNqQvyrBpZwxcBSS5YlEQ
-         zIF7ITzKuGno74HveftwlDHHdoSwQGeCE8/EH2kNV9iSCSHHrz0bPYyBBLT9B900TJps
-         GA62M435Blcm4y3W7B6/W0CE+ELmskDcSK7OOEZruNafLp/bkKhGrLh3GLKytLmx9vjA
-         E6TjG7rU/0BHAQZHewLrsb0uG4snTGAi54QEvDMCdBhqgZgoVdjq0jzQULDj08rGGUr8
-         9s/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731498332; x=1732103132;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=a+GQG+dngfYLQ58gUq++xO1sdDZ8ABc6gLSKTdWCc3o=;
-        b=DjQBhdxDfadgmcwQk6rNo9jc+VBpqj7lH5IPi5Bg2Wki2azjQDw9DL5QkJ5MChn7Ul
-         MKsrt/RKnC/vjNj+nR6ZNVPYgSK2rzlmZxyFe1fl9m36BgZRIx/E9mngBY4HVOSnE9Aj
-         0OYqBxgqn+f6eRNhHupd9+tBurDZ3AlLOsTVI8PwaUl34b81VFKzaOsApM3Soi9Syf7M
-         osPlI6oSVEc2XE1UkLHxyLHjn9DIUaiZcPXCZNNgAVy26LhJn8e0Bi/XVESeFyqDAU3e
-         WSvzKPXnDSEhNPNjEgcfQk4rcT+5MCj6FwMQaQT7Q5hfQ8wFGjdjGX6OJPJYUrfjTd55
-         xxVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUfK4MEMPSlujmbPZGQqwLWhO9/tgCtzhmTKLsJYUyPoZ//kLeTDBSVoXzFsDdIN0B4zqgc8kNmWL0cr1wRCuad@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHTmnyOi0wNLyGUasNQ93RZI5i4AnVEIjO6ZcHaCmqEP42nSGR
-	rbjqQhRX/94JztiFDRqw2WV840oZfdj7GeCaJAdFXZh584pNAQGLOQITqT8xEw==
-X-Google-Smtp-Source: AGHT+IF82xGVoUw13YD89/y95vpdTTo1xRVEmme5e5EI6drxCrtw9sKHaMsB4+/Wq2qT7vp2wM3k+A==
-X-Received: by 2002:a05:6808:23c9:b0:3e7:135d:5de5 with SMTP id 5614622812f47-3e7946fc3b6mr20412496b6e.32.1731498332398;
-        Wed, 13 Nov 2024 03:45:32 -0800 (PST)
-Received: from ?IPv6:::1? ([2409:40f4:304d:f0dc:8000::])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7f41f65bf93sm12219366a12.79.2024.11.13.03.45.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Nov 2024 03:45:31 -0800 (PST)
-Date: Wed, 13 Nov 2024 17:15:25 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>,
- Jenishkumar Maheshbhai Patel <jpatel2@marvell.com>
-CC: lpieralisi@kernel.org, thomas.petazzoni@bootlin.com, kw@linux.com,
- robh@kernel.org, bhelgaas@google.com, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- salee@marvell.com, dingwei@marvell.com
-Subject: Re: [PATCH 1/1] PCI: armada8k: Add link-down handle
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20241112213255.GA1861331@bhelgaas>
-References: <20241112213255.GA1861331@bhelgaas>
-Message-ID: <AD287CCE-9FFE-49BC-B9CA-B5CED4F05AF1@linaro.org>
+	Wed, 13 Nov 2024 11:53:00 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4AD7usm5030530;
+	Wed, 13 Nov 2024 11:52:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=0BfW0mwwK/RB1gSytGAIpA
+	He7yoP9uFrYSI4uI6UUZ4=; b=YVETseHFCG8cug3yuQ0XMx2vgGGMoiQ9BSrcpU
+	LWSkFkCpEOdGmhoPP2T1j9T9p+Q1xFTUSAUxNy5cc8x/x/YyoYUGOYuWk0+vqU+n
+	yfZoei37uOdHTblWQ1rWs+AGxlhDeCVPo4iloZThaYVaKJitiSj0bZSBc+k27X2F
+	SrlQzdnEdAVv6Y4r0orZnibUBijEp44OhlZard+lgvuzkc0GXYS+LIVMwlE552xf
+	tZ4fOYrg5vC/CDaSTZWBOxZroZjLobCI+bD+ca0qV05M8GBDCn5XhmMNTKQZCXs8
+	yKV8ml2UOCL0wz8pnmdfSvVIoh8dHmHH/1t40rAV/4BchM8A==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vr5y0k41-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 11:52:47 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ADBqkNv023365
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 11:52:46 GMT
+Received: from robotics-lnxbld017.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 13 Nov 2024 03:52:39 -0800
+From: Fange Zhang <quic_fangez@quicinc.com>
+Subject: [PATCH v2 0/9] Add display support for QCS615 platform
+Date: Wed, 13 Nov 2024 19:51:42 +0800
+Message-ID: <20241113-add-display-support-for-qcs615-platform-v2-0-2873eb6fb869@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOKSNGcC/5WS3YrbMBCFXyX4ugoa/dkOpfQ9lsXImlEjaluJ5
+ Jhul7x7ZSdL6c9FcnkG5jujo/NeZUqBcnXYvVeJlpBDnIoQn3aVO9rpG7GARVeCCwUAgllEhiG
+ fBvvG8uV0imlmPiZ2dtmAZmU+FzkyUytC4xoCzatCOyXy4cfm9PJ604nOl2I434bVSDnbzfCw+
+ 7z5cSE+uG6I7jvDFBZKbFFMMIk1GIsc26b+WkAuTG7v4vhldXuKpZ5lAVdrDl2Ywhzs0N1z6Mr
+ Du7vHohlnLSI1WPcN7/lDWM2lAF7vW61FOWtd6c7nn8d4eWS9ABolJeyFNsooyeBGWNBi+cvw0
+ AnNR0rjeAvKxWlOcRjWrGR5VI2yFyik9uifJuLMpoiU2QIF1QtjWmcdN0L9g+ptJlbEGObDrhV
+ tT9b3VFvnSApTlyUATSCJS+8Naa5VY6u1WseQ55jetk4vsHXrHpB8uL7bfeTqFkTrlVd/3Le5L
+ OI3mcOtEHfyfwuxAhV5Cy1gj/gX8Hq9/gKb8v4YjAMAAA==
+X-Change-ID: 20241112-add-display-support-for-qcs615-platform-674ed6c8e150
+To: Rob Clark <robdclark@gmail.com>,
+        Abhinav Kumar
+	<quic_abhinavk@quicinc.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Krishna Manikandan <quic_mkrishn@quicinc.com>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, "Li
+ Liu" <quic_lliu6@quicinc.com>,
+        Fange Zhang <quic_fangez@quicinc.com>,
+        "Xiangxu Yin" <quic_xiangxuy@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731498757; l=6520;
+ i=quic_fangez@quicinc.com; s=20241014; h=from:subject:message-id;
+ bh=46/Ey+YEHt4Pvbsre6EY4dkMGTbt3Z0H9At3392O4dk=;
+ b=6GdQhj6KMBQNAYuNIJNpiHQtoIuTK338b3Rw1IX8rd3mzJvdK4uAC7VccJSAl1JZWAAz5lxml
+ Z0Ysi0MYuRwDL6FkZ8LWdNt9Ra/0Cu9ZSIOHi8acoyI/0rSEUOvqFs7
+X-Developer-Key: i=quic_fangez@quicinc.com; a=ed25519;
+ pk=tJv8Cz0npA34ynt53o5GaQfBC0ySFhyb2FGj+V2Use4=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: DuMNqlqN2PUdarahakdHA5NO9rCAFoqr
+X-Proofpoint-GUID: DuMNqlqN2PUdarahakdHA5NO9rCAFoqr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 priorityscore=1501
+ adultscore=0 clxscore=1011 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ mlxlogscore=963 malwarescore=0 spamscore=0 impostorscore=0 phishscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2409260000
+ definitions=main-2411130102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_034533_875816_8213EF03 
-X-CRM114-Status: GOOD (  27.72  )
+X-CRM114-CacheID: sfid-20241113_035259_068578_844182D6 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,224 +136,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series aims to enable display on the QCS615 platform
 
+1.Add MDSS & DPU support for QCS615     
+2.Add DSI support for QCS615            
 
-On November 13, 2024 3:02:55 AM GMT+05:30, Bjorn Helgaas <helgaas@kernel=
-=2Eorg> wrote:
->In subject:
->
->  PCI: armada8k: Add link-down handling
->
->On Mon, Nov 11, 2024 at 10:48:13PM -0800, Jenishkumar Maheshbhai Patel wr=
-ote:
->> In PCIE ISR routine caused by RST_LINK_DOWN
->> we schedule work to handle the link-down procedure=2E
->> Link-down procedure will:
->> 1=2E Remove PCIe bus
->> 2=2E Reset the MAC
->> 3=2E Reconfigure link back up
->> 4=2E Rescan PCIe bus
->
->s/PCIE/PCIe/
->
->Rewrap to fill 75 columns=2E
->
->I assume this basically removes a Root Port (and the hierarchy below
->it) if the link goes down, and then resets the MAC and tries to bring
->up the link and enumerate the hierarchy again=2E
->
->No other drivers do this, so why does armada8k need it?  Is this to
->work around some unreliable link?
+Note:
+items still being confirmed
+- missing reg_bus_bw
+- missing refgen supply
 
-Certainly Qcom IPs have this same feature and I was also looking to implem=
-ent it=2E But the link down should not be handled by this in the controller=
- driver=2E
+This patch series depends on below patch series:
+- rpmhcc
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com/
+- gcc
+https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com/
+- base
+https://lore.kernel.org/all/20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com/
+- Apps SMMU
+https://lore.kernel.org/all/20241105032107.9552-4-quic_qqzhou@quicinc.com/
+- I2C
+https://lore.kernel.org/all/20241111084331.2564643-1-quic_vdadhani@quicinc.com/
+- dispcc
+https://lore.kernel.org/all/20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com/
+- dispcc dts
+https://lore.kernel.org/lkml/20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com/
 
-Instead, it should be tied to bus reset in the core and the reset should b=
-e done through a callback implemented in the controller drivers=2E This way=
-, the reset cannot happen in the back of PCI core and client drivers=2E
+Signed-off-by: Li Liu <quic_lliu6@quicinc.com>
+Signed-off-by: Fange Zhang <quic_fangez@quicinc.com>
+---
+Changes in v2:
+- Added b4 check and check passed
+- Added necessary blank line
+- Added correct S-o-B
+- Added correct maintainer
+- Added correct To&Cc
+- Added QCS615 DP controller comment in commit message
+- Added comments for dsi_dp_hpd_cfg_pins and dsi_dp_cdet_cfg_pins
+- Added missing port@1 for connector
+- Changed patch order
+- Changed 0 to QCOM_ICC_TAG_ALWAYS for mdss interconnects
+- Changed 0 to GPIO_ACTIVE_HIGH for GPIO flags
+- Fix indent issue
+- Fix sorted issue
+- Moved anx_7625 to same node
+- Moved status to last
+- Renamed dsi0_hpd_cfg_pins to dsi_dp_hpd_cfg_pins
+- Renamed dsi0_cdet_cfg_pins to dsi_dp_cdet_cfg_pins
+- Renamed anx_7625_1 to dsi_anx_7625
+- Removed extra blank line
+- Removed absent block
+- Removed merge_3d value
+- Removed redundant annotation
+- Removed unsupported dsi clk in dsi0_opp_table
+- Removed dp_hpd_cfg_pins node
+- Splited patch according to requirements
+- Link to v2: https://lore.kernel.org/r/20241014-add_display_support_for_qcs615-v1-0-4efa191dbdd4@quicinc.com
 
-That said, the Link down IRQ received by this driver should also be propag=
-ated back to the PCI core and the core should then call the callback to res=
-et the bus that I mentioned above=2E
+---
+Li Liu (9):
+      dt-bindings: display/msm: Add QCS615 DSI phy
+      dt-bindings: display/msm: dsi-controller-main: Document QCS615
+      dt-bindings: display/msm: Add QCS615 MDSS & DPU
+      drm/msm/dpu: Add QCS615 support
+      drm/msm: mdss: Add QCS615 support
+      drm/msm/dsi: Add support for QCS615
+      arm64: dts: qcom: Add display support for QCS615
+      arm64: dts: qcom: Add display support for QCS615 RIDE board
+      arm64: defconfig: Enable SX150X for QCS615 ride board
 
->
->I would think this would be reported via AER and possibly handled
->there already, but apparently not?
+ .../bindings/display/msm/dsi-controller-main.yaml  |   1 +
+ .../bindings/display/msm/dsi-phy-14nm.yaml         |   1 +
+ .../bindings/display/msm/qcom,qcs615-dpu.yaml      | 118 +++++++++
+ .../bindings/display/msm/qcom,qcs615-mdss.yaml     | 252 ++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts           | 109 +++++++++
+ arch/arm64/boot/dts/qcom/qcs615.dtsi               | 186 ++++++++++++++-
+ arch/arm64/configs/defconfig                       |   1 +
+ .../gpu/drm/msm/disp/dpu1/catalog/dpu_5_3_qcs615.h | 263 +++++++++++++++++++++
+ drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.c     |   1 +
+ drivers/gpu/drm/msm/disp/dpu1/dpu_hw_catalog.h     |   1 +
+ drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c            |   1 +
+ drivers/gpu/drm/msm/dsi/dsi_cfg.c                  |  17 ++
+ drivers/gpu/drm/msm/dsi/dsi_cfg.h                  |   1 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy.c              |   2 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy.h              |   1 +
+ drivers/gpu/drm/msm/dsi/phy/dsi_phy_14nm.c         |  21 ++
+ drivers/gpu/drm/msm/msm_mdss.c                     |   7 +
+ 17 files changed, 982 insertions(+), 1 deletion(-)
+---
+base-commit: 929beafbe7acce3267c06115e13e03ff6e50548a
+change-id: 20241112-add-display-support-for-qcs615-platform-674ed6c8e150
+prerequisite-message-id: <20241022-qcs615-clock-driver-v4-2-3d716ad0d987@quicinc.com>
+prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+prerequisite-message-id: <20241022-qcs615-clock-driver-v4-4-3d716ad0d987@quicinc.com>
+prerequisite-patch-id: cd9fc0a399ab430e293764d0911a38109664ca91
+prerequisite-patch-id: 07f2c7378c7bbd560f26b61785b6814270647f1b
+prerequisite-patch-id: a57054b890d767b45cca87e71b4a0f6bf6914c2f
+prerequisite-patch-id: 5a8e9ea15a2c3d60b4dbdf11b4e2695742d6333c
+prerequisite-message-id: <20241104-add_initial_support_for_qcs615-v5-0-9dde8d7b80b0@quicinc.com>
+prerequisite-patch-id: 09782474af7eecf1013425fd34f9d2f082fb3616
+prerequisite-patch-id: 04ca722967256efddc402b7bab94136a5174b0b9
+prerequisite-patch-id: 82481c82a20345548e2cb292d3098ed51843b809
+prerequisite-patch-id: 3bd8edd83297815fcb1b81fcd891d3c14908442f
+prerequisite-patch-id: fc1cfec4ecd56e669c161c4d2c3797fc0abff0ae
+prerequisite-message-id: <20241105032107.9552-4-quic_qqzhou@quicinc.com>
+prerequisite-patch-id: aaa7214fe86fade46ae5c245e0a44625fae1bad3
+prerequisite-patch-id: 4db9f55207af45c6b64fff4f8929648a7fb44669
+prerequisite-patch-id: 89ce719a863bf5e909989877f15f82b51552e449
+prerequisite-message-id: <20241111084331.2564643-1-quic_vdadhani@quicinc.com>
+prerequisite-patch-id: 3f9489c89f3e632abfc5c3ca2e8eca2ce23093b0
+prerequisite-message-id: <20241108-qcs615-mm-clockcontroller-v3-0-7d3b2d235fdf@quicinc.com>
+prerequisite-patch-id: 748a4e51bbedae9c6ebdbd642b2fd1badf958788
+prerequisite-patch-id: 72a894a3b19fdbd431e1cec9397365bc5b27abfe
+prerequisite-patch-id: da2b7a74f1afd58833c6a9a4544a0e271720641f
+prerequisite-patch-id: 40b79fe0b9101f5db3bddad23551c1123572aee5
+prerequisite-patch-id: cb93e5798f6bfe8cc3044c4ce973e3ae5f20dc6b
+prerequisite-patch-id: 13b0dbf97ac1865d241791afb4b46a28ca499523
+prerequisite-patch-id: 807019bedabd47c04f7ac78e9461d0b5a6e9131b
+prerequisite-patch-id: 8e2e841401fefbd96d78dd4a7c47514058c83bf2
+prerequisite-patch-id: 125bb8cb367109ba22cededf6e78754579e1ed03
+prerequisite-patch-id: b3cc42570d5826a4704f7702e7b26af9a0fe57b0
+prerequisite-patch-id: df8e2fdd997cbf6c0a107f1871ed9e2caaa97582
+prerequisite-message-id: <20241108-qcs615-mm-dt-nodes-v1-0-b2669cac0624@quicinc.com>
+prerequisite-patch-id: bcb1328b70868bb9c87c0e4c48e5c9d38853bc60
+prerequisite-patch-id: 8844a4661902eb44406639a3b7344416a0c88ed9
 
-No, these are not reported via AER (atleast on Qcom platforms)=2E We have =
-a global_irq that fires when Link down happens=2E
+Best regards,
+-- 
+fangez <quic_fangez@quicinc.com>
 
-- Mani
-
->
->> Signed-off-by: Jenishkumar Maheshbhai Patel <jpatel2@marvell=2Ecom>
->> ---
->>  drivers/pci/controller/dwc/pcie-armada8k=2Ec | 84 ++++++++++++++++++++=
-++
->>  1 file changed, 84 insertions(+)
->>=20
->> diff --git a/drivers/pci/controller/dwc/pcie-armada8k=2Ec b/drivers/pci=
-/controller/dwc/pcie-armada8k=2Ec
->> index 07775539b321=2E=2Eb1b48c2016f7 100644
->> --- a/drivers/pci/controller/dwc/pcie-armada8k=2Ec
->> +++ b/drivers/pci/controller/dwc/pcie-armada8k=2Ec
->> @@ -21,6 +21,8 @@
->>  #include <linux/platform_device=2Eh>
->>  #include <linux/resource=2Eh>
->>  #include <linux/of_pci=2Eh>
->> +#include <linux/mfd/syscon=2Eh>
->> +#include <linux/regmap=2Eh>
->> =20
->>  #include "pcie-designware=2Eh"
->> =20
->> @@ -32,6 +34,9 @@ struct armada8k_pcie {
->>  	struct clk *clk_reg;
->>  	struct phy *phy[ARMADA8K_PCIE_MAX_LANES];
->>  	unsigned int phy_count;
->> +	struct regmap *sysctrl_base;
->> +	u32 mac_rest_bitmask;
->> +	struct work_struct recover_link_work;
->>  };
->> =20
->>  #define PCIE_VENDOR_REGS_OFFSET		0x8000
->> @@ -72,6 +77,8 @@ struct armada8k_pcie {
->>  #define AX_USER_DOMAIN_MASK		0x3
->>  #define AX_USER_DOMAIN_SHIFT		4
->> =20
->> +#define UNIT_SOFT_RESET_CONFIG_REG	0x268
->> +
->>  #define to_armada8k_pcie(x)	dev_get_drvdata((x)->dev)
->> =20
->>  static void armada8k_pcie_disable_phys(struct armada8k_pcie *pcie)
->> @@ -216,6 +223,65 @@ static int armada8k_pcie_host_init(struct dw_pcie_=
-rp *pp)
->>  	return 0;
->>  }
->> =20
->> +static void armada8k_pcie_recover_link(struct work_struct *ws)
->> +{
->> +	struct armada8k_pcie *pcie =3D container_of(ws, struct armada8k_pcie,=
- recover_link_work);
->> +	struct dw_pcie_rp *pp =3D &pcie->pci->pp;
->> +	struct pci_bus *bus =3D pp->bridge->bus;
->> +	struct pci_dev *root_port;
->> +	int ret;
->> +
->> +	root_port =3D pci_get_slot(bus, 0);
->> +	if (!root_port) {
->> +		dev_err(pcie->pci->dev, "failed to get root port\n");
->> +		return;
->> +	}
->> +	pci_lock_rescan_remove();
->> +	pci_stop_and_remove_bus_device(root_port);
->
->Add blank line=2E
->
->> +	/*
->> +	 * Sleep needed to make sure all pcie transactions and access
->> +	 * are flushed before resetting the mac
->> +	 */
->> +	msleep(100);
->
->s/pcie/PCIe/
->s/mac/MAC/ (also below)
->
->What PCIe spec parameter is the 100ms?  If we don't already have a
->#define for it, add one in drivers/pci/pci=2Eh with spec citation=2E
->
->> +	/* Reset mac */
->> +	regmap_update_bits_base(pcie->sysctrl_base, UNIT_SOFT_RESET_CONFIG_RE=
-G,
->> +				pcie->mac_rest_bitmask, 0, NULL, false, true);
->> +	udelay(1);
->> +	regmap_update_bits_base(pcie->sysctrl_base, UNIT_SOFT_RESET_CONFIG_RE=
-G,
->> +				pcie->mac_rest_bitmask, pcie->mac_rest_bitmask,
->> +				NULL, false, true);
->> +	udelay(1);
->> +
->> +	ret =3D dw_pcie_setup_rc(pp);
->> +	if (ret)
->> +		goto fail;
->> +
->> +	ret =3D armada8k_pcie_host_init(pp);
->> +	if (ret) {
->> +		dev_err(pcie->pci->dev, "failed to initialize host: %d\n", ret);
->> +		goto fail;
->> +	}
->> +
->> +	if (!dw_pcie_link_up(pcie->pci)) {
->> +		ret =3D dw_pcie_start_link(pcie->pci);
->> +		if (ret)
->> +			goto fail;
->> +	}
->> +
->> +	/* Wait until the link becomes active again */
->> +	if (dw_pcie_wait_for_link(pcie->pci))
->> +		dev_err(pcie->pci->dev, "Link not up after reconfiguration\n");
->> +
->> +	bus =3D NULL;
->> +	while ((bus =3D pci_find_next_bus(bus)) !=3D NULL)
->> +		pci_rescan_bus(bus);
->> +
->> +fail:
->> +	pci_unlock_rescan_remove();
->> +	pci_dev_put(root_port);
->> +}
->> +
->>  static irqreturn_t armada8k_pcie_irq_handler(int irq, void *arg)
->>  {
->>  	struct armada8k_pcie *pcie =3D arg;
->> @@ -253,6 +319,9 @@ static irqreturn_t armada8k_pcie_irq_handler(int ir=
-q, void *arg)
->>  		 * initiate a link retrain=2E If link retrains were
->>  		 * possible, that is=2E
->>  		 */
->> +		if (pcie->sysctrl_base && pcie->mac_rest_bitmask)
->> +			schedule_work(&pcie->recover_link_work);
->> +
->>  		dev_dbg(pci->dev, "%s: link went down\n", __func__);
->>  	}
->> =20
->> @@ -322,6 +391,8 @@ static int armada8k_pcie_probe(struct platform_devi=
-ce *pdev)
->> =20
->>  	pcie->pci =3D pci;
->> =20
->> +	INIT_WORK(&pcie->recover_link_work, armada8k_pcie_recover_link);
->> +
->>  	pcie->clk =3D devm_clk_get(dev, NULL);
->>  	if (IS_ERR(pcie->clk))
->>  		return PTR_ERR(pcie->clk);
->> @@ -349,6 +420,19 @@ static int armada8k_pcie_probe(struct platform_dev=
-ice *pdev)
->>  		goto fail_clkreg;
->>  	}
->> =20
->> +	pcie->sysctrl_base =3D syscon_regmap_lookup_by_phandle(pdev->dev=2Eof=
-_node,
->> +						       "marvell,system-controller");
->> +	if (IS_ERR(pcie->sysctrl_base)) {
->> +		dev_warn(dev, "failed to find marvell,system-controller\n");
->> +		pcie->sysctrl_base =3D 0x0;
->> +	}
->> +
->> +	ret =3D of_property_read_u32(pdev->dev=2Eof_node, "marvell,mac-reset-=
-bit-mask",
->> +				   &pcie->mac_rest_bitmask);
->> +	if (ret < 0) {
->> +		dev_warn(dev, "couldn't find mac reset bit mask: %d\n", ret);
->> +		pcie->mac_rest_bitmask =3D 0x0;
->> +	}
->>  	ret =3D armada8k_pcie_setup_phys(pcie);
->>  	if (ret)
->>  		goto fail_clkreg;
->> --=20
->> 2=2E25=2E1
->>=20
-
-=E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
 
