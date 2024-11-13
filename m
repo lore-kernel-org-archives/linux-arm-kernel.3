@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8064D637D1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 23:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5DDD637D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 23:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GB4QZ+mM5xOGHoULP0fYX3jiIBGiTo1R3yaoqBjOj5Y=; b=qgmFeDKFbYZy4uAhh7gCFT88zQ
-	AMmXzDwVZnla8nl0Q41I/c0nWTwahgUz+DPlE9sirEo4tn/jx5I6ZVWXv74cJAL5g/N59T0w4PPIk
-	X4tAdu1CCg15hX+umMRT38mGjF7BeGuQ7ssTO/pndizinSLkHz7QY0WQCnPk5bOaP6iPk9IGzyVG/
-	Z4Os3Vxbd7vcxiBpC3TCBBI4gUsV7PKGS3dayFNthpaNxX29HvXAagOg/EmDDNhAPTzR8kKBathCE
-	JmhRkh2vZ/xYjsK7XdT/oJuhBlNdGihSjYexAe4KBGH++MVFvGhrAxuWkELz7vy5oWgrX4J7lYMqK
-	vEBPZOiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=18HJxeyRm3uSI4Swy2JMMEvrdkL3oWWV9AKPCAM4Vjo=; b=bwOq8ZWXY+gvI4AwgtSCaYp+X1
+	V+Qmnyp9LdRy+ogDrDKgYPDoGLGjxdQGJmfO3J1ZD5iF+COx2fTT1TihOx9rcEiYnMWhgtMefJZV+
+	tPgZ21//DYaFieJf4hKDmDNGpPTeESQhHFv/PzmSXl4d+o4XedrpG9cYkYyjlCl/QIyTOG+w4ZzME
+	x5h1MwEKoFIog6GYPuzhlwqGw1HzVbswvP8vDLNICFV3+NVJRhzp3Kxr1WtLwVAl/uvNGm41RrsPI
+	YoMXxw2qhN4TEf0KcB5BIcNe0V12vI9oTS8gBFoy+pp2sZw+r+FTgjjCUKcEnHIavkOyp5I0RFTCe
+	9fnorL/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMSX-00000008EOb-3PS4;
-	Wed, 13 Nov 2024 23:07:38 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBMQi-00000008EA6-0MSv
+	id 1tBMsb-00000008GP4-0BkM;
+	Wed, 13 Nov 2024 23:34:33 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBMql-00000008G7r-1a7l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 23:05:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GB4QZ+mM5xOGHoULP0fYX3jiIBGiTo1R3yaoqBjOj5Y=; b=5N1dky3izdPIxJ3m4NqFAWVQJ4
-	mRJmi3jX4gbqJ78GHW1iDJAJht9Hd+iAm0FYWf2J1ibs2X03qyTBFFKLFMNITN6IavGcZ/PfwMivz
-	yNS3bSdKVz2MCcAB+BRrWnvU71onxne2Qp+ZAHWRYJMPc2z1zUM8BO1gz4nBFNlz4BPg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tBMQJ-00DDd7-1P; Thu, 14 Nov 2024 00:05:19 +0100
-Date: Thu, 14 Nov 2024 00:05:19 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v1 1/2] net: phy: Introduce phy_update_eee() to
- update eee_cfg values
-Message-ID: <b61a9c36-dfd5-4b90-88a6-90e43cfae000@lunn.ch>
-References: <20241112072447.3238892-1-yong.liang.choong@linux.intel.com>
- <20241112072447.3238892-2-yong.liang.choong@linux.intel.com>
- <f8ec2c77-33fa-45a8-9b6b-4be15e5f3658@gmail.com>
- <71b6be0e-426f-4fb4-9d28-27c55d5afa51@lunn.ch>
- <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
+	Wed, 13 Nov 2024 23:32:40 +0000
+Received: from [10.0.0.115] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 67C2C20BEBE8;
+	Wed, 13 Nov 2024 15:32:36 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 67C2C20BEBE8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1731540757;
+	bh=18HJxeyRm3uSI4Swy2JMMEvrdkL3oWWV9AKPCAM4Vjo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k8PVw4nbkREJts0W0LLdSZ42CRybu1r1Xhyg6//i5lh5h22jmKQC5Lcd8aMOB/jYM
+	 HLQu6/qNMJUeGZmWA1itysWr/etRtR5KK0CiaR/7bY7XLVFMzfApOBiyev/vQ/vj4+
+	 bnJU3aZtjNHiFSBT13DVIlauDGkjJGEyGoyLGSkQ=
+Message-ID: <6d2a6bd4-a7cf-4672-9fb0-975acdc8ed31@linux.microsoft.com>
+Date: Wed, 13 Nov 2024 15:32:32 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eb937669-d4ce-4b72-bcae-0660e1345b76@linux.intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] hyperv: Add new Hyper-V headers in include/hyperv
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "seanjc@google.com" <seanjc@google.com>,
+ "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>, "arnd@arndb.de"
+ <arnd@arndb.de>, "sgarzare@redhat.com" <sgarzare@redhat.com>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>
+References: <1731018746-25914-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1731018746-25914-4-git-send-email-nunodasneves@linux.microsoft.com>
+ <BN7PR02MB4148025D8757B917013297E0D4582@BN7PR02MB4148.namprd02.prod.outlook.com>
+ <b8ef1f71-9f13-48c3-adab-aa52b68d2e33@linux.microsoft.com>
+ <SN6PR02MB4157AA30A9F27ECCAE202BC2D4582@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157AA30A9F27ECCAE202BC2D4582@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_150544_157193_26DC3B91 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20241113_153239_514046_833BF23D 
+X-CRM114-Status: GOOD (  32.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +111,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 13, 2024 at 06:10:55PM +0800, Choong Yong Liang wrote:
+On 11/11/2024 11:31 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Monday, November 11, 2024 10:45 AM
+>>
+>> On 11/10/2024 8:13 PM, Michael Kelley wrote:
+>>> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday,
+>> November 7, 2024 2:32 PM
+>>>>
+>>>> These headers contain definitions for regular Hyper-V guests (as in
+>>>> hyperv-tlfs.h), as well as interfaces for more privileged guests like
+>>>> Dom0.
+>>>
+>>> See my comment on Patch 0/4 about use of "dom0" terminology.
+>>>
+>>
+>> Thanks, noted.
+>>
+>>>>
+>>>> These files are derived from headers exported from Hyper-V, rather than
+>>>> being derived from the TLFS document. (Although, to preserve
+>>>> compatibility with existing Linux code, some definitions are copied
+>>>> directly from hyperv-tlfs.h too).
+>>>>
+>>>> The new files follow a naming convention according to their original
+>>>> use:
+>>>> - hdk "host development kit"
+>>>> - gdk "guest development kit"
+>>>> With postfix "_mini" implying userspace-only headers, and "_ext" for
+>>>> extended hypercalls.
+>>>>
+>>>> These names should be considered a rough guide only - since there are
+>>>> many places already where both host and guest code are in the same
+>>>> place, hvhdk.h (which includes everything) can be used most of the time.
+>>>
+>>> Just curious -- are there really cases where hvhdk.h can't be used?
+>>> If so, could you summarize why?
+>>>
+>>
+>> No, there aren't cases where it "can't" be used. I suppose if someone
+>> doesn't want to include everything, perhaps they could just include
+>> hvgdk.h, for example. It doesn't really matter though.
+>>
+>>> I ask because it would be nice to expand slightly on your paragraph
+>>> below, as follows:  (if indeed what I've added is correct)
+>>>
+>>> The use of multiple files and their original names is primarily to
+>>> keep the provenance of exactly where they came from in Hyper-V
+>>> code, which is helpful for manual maintenance and extension
+>>> of these definitions. Microsoft maintainers importing new definitions
+>>> should take care to put them in the right file. However, Linux kernel code
+>>> that uses any of the definitions need not be aware of the multiple files
+>>> or assign any meaning to the new names. Linux kernel uses should
+>>> always just include hvhdk.h
+>>>
+>>
+>> Thanks, I think that additional sentence helps clarify things. I'll
+>> include it in the next version, and I think I can probably omit the prior
+>> paragraph: "These names should be considered a rough guide only...".
+>>
 > 
+> Omitting that prior paragraph is OK with me.  The key thoughts from my
+> standpoint are:
+> * The separation into multiple files and the file names come from
+>    the Windows Hyper-V world and are maintained to ease bringing
+>    the definitions over from that world
+>    
+> * Linux code can ignore the multiple files and their names. Just
+>    #include hvhdk.h.
 > 
-> On 12/11/2024 9:04 pm, Andrew Lunn wrote:
-> > On Tue, Nov 12, 2024 at 12:03:15PM +0100, Heiner Kallweit wrote:
-> > > In stmmac_ethtool_op_get_eee() you have the following:
-> > > 
-> > > edata->tx_lpi_timer = priv->tx_lpi_timer;
-> > > edata->tx_lpi_enabled = priv->tx_lpi_enabled;
-> > > return phylink_ethtool_get_eee(priv->phylink, edata);
-> > > 
-> > > You have to call phylink_ethtool_get_eee() first, otherwise the manually
-> > > set values will be overridden. However setting tx_lpi_enabled shouldn't
-> > > be needed if you respect phydev->enable_tx_lpi.
-> > 
-> > I agree with Heiner here, this sounds like a bug somewhere, not
-> > something which needs new code in phylib. Lets understand why it gives
-> > the wrong results.
-> > 
-> > 	Andrew
-> Hi Russell, Andrew, and Heiner, thanks a lot for your valuable feedback.
+
+Agreed, thanks for helping clarify the points.
+
+>>>>
+>>>> The original names are kept intact primarily to keep the provenance of
+>>>> exactly where they came from in Hyper-V code, which is helpful for
+>>>> manual maintenance and extension of these definitions. Microsoft
+>>>> maintainers importing new definitions should take care to put them in
+>>>> the right file.
+>>>>
+>>>> Note also that the files contain both arm64 and x86_64 code guarded by
+>>>> \#ifdefs, which is how the definitions originally appear in Hyper-V.
+>>>
+>>> Spurious backslash?
+>>>
+>>
+>> Indeed, thanks.
+>>
+>>> I would suggest some additional clarification:  The #ifdef guards are
+>>> employed minimally where necessary to prevent conflicts due to
+>>> different definitions for the same thing on x86_64 and arm64. Where
+>>> there are no conflicts, the union of x86_64 definitions and arm64
+>>> definitions is visible when building for either architecture. In other
+>>> words, not all definitions specific to x86_64 are protected by #ifdef
+>>> x86_64. Such unprotected definitions may be visible when building
+>>> for arm64. And vice versa.
+>>>
+>>
+>> Is there a reason you specifically want to point out that "Such
+>> unprotected definitions may be visible when building for arm64. And vice
+>> versa."? I think, in all the cases where #ifdefs are not used, an
+>> arch-specific prefix is used - hv_x64_ or hv_arm64_.
+>>
+>> The main thing I wanted to call out here was the reasoning for not
+>> splitting arch-specific definitions into separate files in arch/x86/
+>> and arch/arm64/ as is typical in Linux.
+>>
+>> Maybe this is a bit clearer:
+>> "
+>> Note the new headers contain both arm64 and x86_64 definitions. Some are
+>> guarded by #ifdefs, and some are instead prefixed with the architecture,
+>> e.g. hv_x64_*. These conventions are kept from Hyper-V code as another
+>> tactic to simplify the process of importing and maintaining the
+>> definitions, rather than splitting them up into their own files in
+>> arch/x86/ and arch/arm64/.
+>> "
 > 
-> The current implementation of the 'ethtool --show-eee' command heavily
-> relies on the phy_ethtool_get_eee() in phy.c. The eeecfg values are set by
-> the 'ethtool --set-eee' command and the phy_support_eee() during the initial
-> state. The phy_ethtool_get_eee() calls eeecfg_to_eee(), which returns the
-> eeecfg containing tx_lpi_timer, tx_lpi_enabled, and eee_enable for the
-> 'ethtool --show-eee' command.
+> Yes, your new paragraph works for me. Your original statement was
+> "the files contain both arm64 and x86_64 code guarded by #ifdefs",
+> which sounds like the more typical Linux approach of using #ifdefs
+> to segregate into x86-specific, arm64-specific, and common. I was
+> just trying to be explicit that full segregation isn't done, and isn't a
+> goal, because of wanting to maintain alignment with the original
+> Hyper-V definitions.
 > 
-> The tx_lpi_timer and tx_lpi_enabled values stored in the MAC or PHY driver
-> are not retrieved by the 'ethtool --show-eee' command.
+> It's "Hey, we know we're not handling this in the typical Linux way,
+> and here's why". Your revised paragraph covers that in a less
+> heavyweight way than what I wrote. :-)
+> 
 
-tx_lpi_timer is a MAC property, but phylib does track it across
---set-eee calls and will fill it in for get-eee. What however is
-missing it setting its default value. There is currently no API the
-MAC driver can call to let phylib know what default value it is using.
-Either such an API could be added, e.g. as part of phy_support_eee(),
-or we could hard code a value, probably again in phy_support_eee().
+Ok, great. I'll use that for the next version then.
 
-tx_lpi_enabled is filled in by phy_ethtool_get_eee(), and its default
-value is set by phy_support_eee(). So i don't see what is wrong here.
+Thanks again!
+Nuno
 
-> Currently, we are facing 3 issues:
-> 1. When we boot up our system and do not issue the 'ethtool --set-eee'
-> command, and then directly issue the 'ethtool --show-eee' command, it always
-> shows that EEE is disabled due to the eeecfg values not being set. However,
-> in the Maxliner GPY PHY, the driver EEE is enabled. If we try to disable
-> EEE, nothing happens because the eeecfg matches the setting required to
-> disable EEE in ethnl_set_eee(). The phy_support_eee() was introduced to set
-> the initial values to enable eee_enabled and tx_lpi_enabled. This would
-> allow 'ethtool --show-eee' to show that EEE is enabled during the initial
-> state. However, the Marvell PHY is designed to have hardware disabled EEE
-> during the initial state. Users are required to use Ethtool to enable the
-> EEE. phy_support_eee() does not show the correct for Marvell PHY.
+> Michael
+> 
+>>
+>> I hope it's reasonably clear that it's a good tradeoff to go against
+>> Linux convention in this case, to make it easy to import and maintain
+>> Hyper-V definitions.
+>>
+>> Thanks
+>> Nuno
+>>
 
-We discussed what to set the initial state to when we reworked the EEE
-support. It is a hard problem, because changing anything could cause
-regressions. Some users don't want EEE enabled, because it can add
-latency and jitter, e.g. to PTP packets. Some users want it enabled
-for the power savings.
-
-We decided to leave the PHY untouched, and will read out its
-configuration. If this is going wrong, that is a bug which should be
-found and fixed.
-
-We want the core to be fixed, not workaround added to MAC
-drivers. Please think about this when proposing future patches.
-
-	Andrew
 
