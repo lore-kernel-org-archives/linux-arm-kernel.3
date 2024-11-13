@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 123B7D637CA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18085D637CA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 21:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S4i4A9d9EMVpmaXXJfllCHHREcBTRuHjXfL72ShVYSs=; b=CfrbKbJaPKXLPh0gH+LKntW2Fi
-	2gijtdZOPlcY/w1hga4JxhCao9atQXSj0ztJUXzjUwBhoBCbiA9w/eCFpOLm4izpE+zQknqqwJ/5t
-	uCTDV13aDENP/XCiUV5VN4lnJTQhQxvelH1K537tM2xOV7jlikBZoYl5z8IXjO+oiUPiXU/71IpmT
-	a87c0UzIOflx77bprHYIZOj7ctR5IOCyEWxFkszCdT6kQBBzu8k2HHXmL28sRB9UAvw4U/+UPp95Y
-	/MwAShSrncIZMmJsRKJwSXr97nq5GUHBUBTw1lav+gkMSy6eVUlFF1IS3Q9Tu8pt2s8oG7AILm1KO
-	hyFQmSog==;
+	bh=Ajav+1EuVkjPtUm5mWq06rl6efZ4DZEYCnB6FwrLFg8=; b=AtTEHnXoqG2115WnvVL3HAM0Me
+	2Dgn8APa9vu7tUHYRWsQjcsxfDBV0mTRylw8dWMCrsxMBcz3d1JMlz8HCDcVjpHVT9C3mHCCmU3C1
+	RenXqNfXx8Dfl+eoj6zoc+FaUlMJuaetSSAjWt793gUl/Hvu5BULPWiCVolTy/2T52vUdKAmhSpeH
+	k2bERlheiAZa4UbeoB+eMKQj4HBBm4v/07rI8VkbaiB8PAViDm/WU6FT9aiID1c1LAGyMLjEzo5HA
+	qjY9lV/vt8Pg8ALcC+7kYbQLfkCXWhUvB/Kaqv4B7HQxnqw4QQZBIOzBy/kII/Ovg88nu1JW4WLJI
+	p5oUVpbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKwP-000000084tw-2QLV;
-	Wed, 13 Nov 2024 21:30:21 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1tBKyC-0000000852m-24cf;
+	Wed, 13 Nov 2024 21:32:12 +0000
+Received: from phobos.denx.de ([85.214.62.61])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBKfb-000000082WA-3OGn
+	id 1tBKmf-000000083lb-2p0x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 21:13:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731532379; x=1763068379;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=gZ500P10yVXIKdiPBJoAEnTl8gEfa/8nVoOA0fZ9N88=;
-  b=AFKrxW/jx553blhUw2UFXns4sJr8DGDl8fDPhKXYatlVuUUvzMqFWn32
-   uV1GyIveku33hpR5g6efTCSXnQd4TymwkAsSHMwLpU+ba0yUWQwC59ktG
-   aQMz8Z2dM33ZpgOMx83YPbwvwlcoaN2OE7rYGoB+gK1y1RGiD7gQT+3ik
-   iz4+7lsku5pI8MSN3ayhjDwKifiw+VFIu7QIvj1ly5MbhDytKcpY1/SvJ
-   4pfRWX+Vdb3Mvx96fSJ2XMPoZifw0zqmLMpfeaKCJAqtTu7NYwuyr6mR1
-   I0+sb+uxp64+5Y9I1mS4/PQSGDaiSFN30qPR65zMJ0l5UFJB3wY6QMUti
-   A==;
-X-CSE-ConnectionGUID: LNMcZUSqQpykPbAV/x+7AA==
-X-CSE-MsgGUID: 52hYiIW6TfyHhaJkY9jBkg==
-X-IronPort-AV: E=Sophos;i="6.12,152,1728975600"; 
-   d="scan'208";a="34014131"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Nov 2024 14:12:58 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 13 Nov 2024 14:11:47 -0700
-Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 13 Nov 2024 14:11:44 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Wed, 13 Nov 2024 22:11:12 +0100
-Subject: [PATCH net-next v2 4/8] net: sparx5: use
- phy_interface_mode_is_rgmii()
+	Wed, 13 Nov 2024 21:20:19 +0000
+Received: from [127.0.0.1] (p578adb1c.dip0.t-ipconnect.de [87.138.219.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	(Authenticated sender: marex@denx.de)
+	by phobos.denx.de (Postfix) with ESMTPSA id A38E988216;
+	Wed, 13 Nov 2024 22:20:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de;
+	s=phobos-20191101; t=1731532815;
+	bh=Ajav+1EuVkjPtUm5mWq06rl6efZ4DZEYCnB6FwrLFg8=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=IzT2cXD4RKZnNNvsHVyqNA9vDnAMAALSoSfZsIltB4ojQqGc9ngSTwdrWyuplVhfi
+	 1MeP0fnLk9czI3pD+3lXrit9xBfF/+Kz8rVZz4IyYsn4LU/UbIYA1AcNLmoBdQgKRx
+	 b4mPymNdzeyPmiBMdpOH2aPMLy+7eKy/2WLU1LyTqD+8BzGrEMyhgbtWALbgGifip5
+	 5BBjcbfoHASI+cnor2XPD6+Od87+BjNK3UjHzCQzXdZyAa2APTjIR7RclgFfkM2Mk6
+	 CfXL+uEIvdAiZHuAizmEIEVgnXqtMKSfghfjolmtYdsyokJ8zUVamDxvQsm5gM/M1z
+	 tqrf/pSjgIZkw==
+Message-ID: <130fe140-e70d-4c45-aaab-e22762c58c88@denx.de>
+Date: Wed, 13 Nov 2024 22:19:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Marek Vasut <marex@denx.de>
+Subject: Re: [PATCH] clk: imx: clk-imx8mp: Allow media_disp pixel clock
+ reconfigure parent rate
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, linux-clk@vger.kernel.org,
+ Fabio Estevam <festevam@gmail.com>, "Lukas F . Hartmann" <lukas@mntmn.com>,
+ Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Anson Huang <Anson.Huang@nxp.com>
+References: <20240531202648.277078-1-marex@denx.de>
+ <20241112234206.558d5d5e@booty>
+ <79f21303-b0ba-45ed-a842-7e5364fd4efc@denx.de>
+ <20241113120622.3501db73@booty>
+Content-Language: en-US
+In-Reply-To: <20241113120622.3501db73@booty>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241113-sparx5-lan969x-switch-driver-4-v2-4-0db98ac096d1@microchip.com>
-References: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
-In-Reply-To: <20241113-sparx5-lan969x-switch-driver-4-v2-0-0db98ac096d1@microchip.com>
-To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
- Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
-	<jacob.e.keller@intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14-dev
+X-Virus-Scanned: clamav-milter 0.103.8 at phobos.denx.de
+X-Virus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_131259_956111_9D585BDC 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20241113_132018_072297_172425D2 
+X-CRM114-Status: GOOD (  34.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,66 +86,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the phy_interface_mode_is_rgmii() function to check if the PHY mode
-is set to any of: RGMII, RGMII_ID, RGMII_RXID or RGMII_TXID in the
-following places:
+On 11/13/24 12:06 PM, Luca Ceresoli wrote:
+> Hi Marek,
 
- - When selecting the MAC PCS, make sure we return NULL in case the PHY
-   mode is RGMII (as there is no PCS to configure).
+Hi,
 
- - When doing a port config, make sure we do not do the low-speed device
-   configuration, in case the PHY mode is RGMII.
+>>>> The media_disp[12]_pix clock supply LCDIFv3 pixel clock output. These
+>>>> clocks are usually the only downstream clock from Video PLL on i.MX8MP.
+>>>> Allow these clocks to reconfigure the Video PLL, as that results in
+>>>> accurate pixel clock. If the Video PLL is not reconfigured, the pixel
+>>>> clock accuracy is low.
+>>>>
+>>>> Signed-off-by: Marek Vasut <marex@denx.de>
+>>>
+>>> I'm afraid I just found this patch broke my previously working setup
+>>> with a panel connected on the LDB.
+>> Do you need a fix similar to this one?
+>>
+>> 4fbb73416b10 ("arm64: dts: imx8mp-phyboard-pollux: Set Video PLL1
+>> frequency to 506.8 MHz")
+> 
+> So, 4fbb73416b10 is adding an assigned-clock-rates to hardcode rates,
+> especially the video_pll1 rate.
 
-Note that we could also have used is_port_rgmii() here, but it makes
-more sense to me to use the phylink provided functions, as we are
-called by phylink, and the RGMII modes have already been validated
-against the supported interfaces of the ports.
+Nope.
 
-Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- drivers/net/ethernet/microchip/sparx5/sparx5_phylink.c | 3 +++
- drivers/net/ethernet/microchip/sparx5/sparx5_port.c    | 3 ++-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+See arch/arm64/boot/dts/freescale/imx8mp.dtsi
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_phylink.c b/drivers/net/ethernet/microchip/sparx5/sparx5_phylink.c
-index f8562c1a894d..cb55e05e5611 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_phylink.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_phylink.c
-@@ -32,6 +32,9 @@ sparx5_phylink_mac_select_pcs(struct phylink_config *config,
- {
- 	struct sparx5_port *port = netdev_priv(to_net_dev(config->dev));
- 
-+	if (phy_interface_mode_is_rgmii(interface))
-+		return NULL;
-+
- 	return &port->phylink_pcs;
- }
- 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index 8f4f19a2bd65..b494970752fd 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -994,6 +994,7 @@ int sparx5_port_config(struct sparx5 *sparx5,
- 		       struct sparx5_port *port,
- 		       struct sparx5_port_config *conf)
- {
-+	bool rgmii = phy_interface_mode_is_rgmii(conf->phy_mode);
- 	bool high_speed_dev = sparx5_is_baser(conf->portmode);
- 	const struct sparx5_ops *ops = sparx5->data->ops;
- 	int err, urgency, stop_wm;
-@@ -1003,7 +1004,7 @@ int sparx5_port_config(struct sparx5 *sparx5,
- 		return err;
- 
- 	/* high speed device is already configured */
--	if (!high_speed_dev)
-+	if (!rgmii && !high_speed_dev)
- 		sparx5_port_config_low_set(sparx5, port, conf);
- 
- 	/* Configure flow control */
+1891                         media_blk_ctrl: blk-ctrl@32ec0000 {
+...
+1951                                 assigned-clock-rates = <500000000>, 
+<200000000>,
+1952                                                        <0>, <0>, 
+<500000000>,
+1953                                                        <1039500000>;
 
--- 
-2.34.1
+That imx8mp.dtsi preconfigures the Video PLL1 to some random clock 
+frequency.
 
+Commit 4fbb73416b10 ("arm64: dts: imx8mp-phyboard-pollux: Set Video PLL1 
+frequency to 506.8 MHz") configures the Video PLL1 to a frequency from 
+which both your panel pixel clock and LDB serializer clock can be 
+successfully divided down.
+
+Which panel do you use ?
+
+Try this -- Revert this patch, check /sys/kernel/debug/clk/clk_summary 
+and compare it with (I assume) panel-simple.c entry for the panel you 
+use, and notice the disp_pix clock are likely a bit off. That's because 
+the lcdif driver did its best to divide those pixel clock down from 
+1039500000 set in imx8mp.dtsi .
+
+If you really want accurate pixel clock for your panel, you need similar 
+change to 4fbb73416b10 and configure the Video PLL such that the 
+accurate pixel clock can be derived from it. The Video PLL cannot be set 
+to pixel clock, because the LDB serializer clock are either 7x the pixel 
+clock, or 3.5x the pixel clock (for dual link LVDS), so the Video PLL 
+has to be set to 7x or 3.5x pixel clock of the panel, then you should 
+get accurate pixel clock and a working panel again.
+
+> However this is not fixing the problem I'm seeing. The existing
+> assigned-clock-rates value for video_pll1 used to work because it is
+> the media_ldb parent, and the parent wasn't recalculated. After this
+> patch got applied the video_pll1 rate is computed at runtime and so the
+> hardcoded value in assigned-clock-rates does not matter in the end.
+> 
+> I also tried a configuration that appears to me as the most optimal for
+> managing both an LVDS panel on LDB and a DSI panel (which is also
+> present in the more complete design I'm working on):
+> 
+>   * media_ldb and media_disp2 (the two clocks involved in LDB/LVDS
+>     output) left as children of video_pll1 as per imx8mp.dtsi
+>   * media_disp1 (used for DSI output) reparented to sys_pll3
+
+I noticed that the PLL3 PLL1416x does not support dynamic rate 
+configuration, I sent a patch for that a few days ago, but in the end I 
+also found out that the PLL1416x is less accurate and cannot supply the 
+LVDS side, so I gave up on that one.
+
+I ended up using Audio PLL for one of the displays in similar setup 
+(LVDS panel + DP monitor via DSI-to-DP bridge) , see this:
+
+https://github.com/dh-electronics/meta-dhsom-imx-bsp/commit/fb3b1521bbe71b7ff91fe92be2e64a75104eb7d5
+
+That way, I do get accurate pixel clock on both outputs, but I do have 
+to sacrifice one of the Audio PLLs. On the other hand, if all you have 
+is one audio output, the Audio PLL is PLL1443x and does support dynamic 
+rate configuration, so one Audio PLL should be enough for such a use 
+case. Also, upside is, PLL3 can supply the Audio DSP if needed.
+
+> The above config assigns to each output (LVDS and DSI) an ad-hoc PLL.
+> However the problem does not disappear, simply because the problem is
+> that requesting a ~500 MHz rate to video_pll1 results in it to be
+> configured at ~72 MHz.
+>    
+> This confirms the problem I reported appears to be an incorrect
+> computation of the video_pll1 rate, which in turn looks like a bug
+> (which as I said is exposed, not introduced, by this patch). If
+> setting a hardcoded value could make it work, that would look like
+> hiding a bug, wouldn't it?
+
+I missed the part where you use both LVDS and DSI outputs , which both 
+hang from the Video PLL1. I think that is what triggers the problem, and 
+I think the link above might actually help with that.
+
+> And at least with a single-panel setup the runtime computation should
+> work just fine.
+> 
+> More generally speaking, I don't follow your approach: your patch
+> enables runtime computation of the video_pll1 rate, but you now suggest
+> to hardcode it. Am I missing something?
+The patch I linked sets up the Video PLL1 frequency. When either LDB or 
+LCDIF attempts to divide down the serializer or pixel clock from that 
+Video PLL1, they can do so by setting a divider, without changing the 
+Video PLL1 frequency. That's the crutch here.
+
+I am looking for some better way to deal with it, see
+[PATCH 1/2] clk: imx: clk-imx8mp: Allow LDB serializer clock reconfigure 
+parent rate
+[PATCH 2/2] drm: bridge: ldb: Configure LDB clock in .mode_set
+and discussion with Isaac around
+Re: [PATCH] drm: lcdif: Use adjusted_mode .clock instead of .crtc_clock
 
