@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E74D41C3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1348ED41C3E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 12:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2WGkoxpdlGltrv5j0hax2Q+c7Z6AIT0yjaqckMPWh9A=; b=eK7jC++KxEzrQ8uxm6PhN3vT/N
-	o/reUejcLG8MQixCLaa2+QUttf9Prvdo82T94nzXMHIEbOhHdKpwHhIFS4vNF9eL6Ey+KhixhNomM
-	r/wjEBOD2CQXOUKwbwVroE0oCSuZ+nDXaQGXTghCU5gZfukqN/D1dMvcmr9cnyfOnzgiKdI9NnWjS
-	HfhYfySnJDAt8ynKy2MIvGrbhMacXbj7Ah90PiQB/y0Sb9jCtjFGVRR7MVfTFbMJu8dtGdHBvgM51
-	8YgU2piPd53h0gSwohZEVTtrCrnJlQNdT9f6wr05H0fAuWaRdGn1qEkDhQyxm7FmmdPxxVkdxTDmm
-	dvJn6PGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=paG34W9RuUFqjynCcqmF9vylDQ8hE8NgKGEWL4OoefM=; b=vNaPU+onuwHvgs+Bj632aH1CfG
+	P8upVyx3PupBWA5BOFIJBg24atqPAvUPiYUzJXwlNld2j7XEA4RQ1Z2Rrgd/WUKd3eHw9Q57BVx2p
+	xTbTZ5IAPrVOs83+X4AhlXfEVfpX7kr+Oc1IepSH3lSF4sevBjq/lnSiTjd92bseQtbFCu+Sur+1z
+	GZRPMzPR5j0OJjhjQ9EBuJD6Ek+hRBOOxnTKvdghdd+1W8PLnS0dYnF0CiOf/ygefJudqG6uVqU1f
+	Ns7maeQa9yFRiMhS7HKalSK5LviYd2oQsVJ5LnB7PIlQDIAHge7LkhqEJ2gqEy4qE/e5ktKGWa/G5
+	eqKFF6mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCkS-00000006oNV-475J;
-	Wed, 13 Nov 2024 12:45:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBCiO-00000006ntD-3HE1
+	id 1tBCwy-00000006qYQ-2t82;
+	Wed, 13 Nov 2024 12:58:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tBCvA-00000006qF7-0Wun
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 12:43:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3F57A5C004E;
-	Wed, 13 Nov 2024 12:42:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759A5C4CECF;
-	Wed, 13 Nov 2024 12:43:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731501799;
-	bh=Q4Q4ybEfBqgLRDPVB7Zw53fPxqgmPSshebKB+JwBp8Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KfhHWOHAWXbfue7LMZwl9fC6h+g3T/79kEYzpLytgqH4lGn9pUAKy8xKvgLwyVLay
-	 a8BmAEX8Lg+DIX61KRWvCDM+LJ33sfY2T2b+bMPcSm4slf8Wn7L5jezibzouJtq/kW
-	 ZURyY9WVzEQoMI1fUkLLK72C6OU9VEM82brwQ2BgGpfi6oPUQ2xMJ9eeTiqzFKmtYt
-	 xPHonkUjE3eWZl9mJxWELMHSVwp6hN4XE/R72q4V+pDD9fRCUnuBMjD/ZU8anv9zU1
-	 7NjRlmzL7hHh52l4gsvtj52tMb3ZmqWPW90KrA+abBvg70mZXPvcgky9ckfT1Ctuid
-	 9DunVmtJCqvHQ==
-Date: Wed, 13 Nov 2024 13:43:13 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH 1/3] dt-bindings: arm,psci: Allow S2RAM power_state
- parameter description
-Message-ID: <ZzSe4UAyil8KUm85@lpieralisi>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
+	Wed, 13 Nov 2024 12:56:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 738261655;
+	Wed, 13 Nov 2024 04:56:58 -0800 (PST)
+Received: from [10.1.38.177] (XHFQ2J9959.cambridge.arm.com [10.1.38.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D103C3F66E;
+	Wed, 13 Nov 2024 04:56:25 -0800 (PST)
+Message-ID: <ed43da27-30bf-4f9d-a952-3d1fe80c5302@arm.com>
+Date: Wed, 13 Nov 2024 12:56:24 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 00/57] Boot-time page size selection for arm64
+Content-Language: en-GB
+To: Petr Tesarik <ptesarik@suse.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ David Hildenbrand <david@redhat.com>, Greg Marsden
+ <greg.marsden@oracle.com>, Ivan Ivanov <ivan.ivanov@suse.com>,
+ Kalesh Singh <kaleshsingh@google.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Matthias Brugger <mbrugger@suse.com>,
+ Miroslav Benes <mbenes@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20241014105514.3206191-1-ryan.roberts@arm.com>
+ <20241017142752.17f2c816@mordecai.tesarici.cz>
+ <aa9a7118-3067-448e-aa34-bbc148c921a2@arm.com>
+ <20241111131442.51738a30@mordecai.tesarici.cz>
+ <046ce0ae-b4d5-4dbd-ad9d-eb8de1bba1b8@arm.com>
+ <20241112104544.574dd733@mordecai.tesarici.cz>
+ <5a041e51-a43b-4878-ab68-4757d3141889@arm.com>
+ <20241112115039.41993e4b@mordecai.tesarici.cz>
+ <20241113134038.5843ab73@mordecai.tesarici.cz>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20241113134038.5843ab73@mordecai.tesarici.cz>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_044320_974058_EDE6DA3C 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20241113_045632_287179_BD605386 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +80,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 28, 2024 at 03:22:57PM +0100, Konrad Dybcio wrote:
-> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+On 13/11/2024 12:40, Petr Tesarik wrote:
+> On Tue, 12 Nov 2024 11:50:39 +0100
+> Petr Tesarik <ptesarik@suse.com> wrote:
 > 
-> Certain firmware implementations (such as the ones found on Qualcomm
-> SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
-> through the CPU_SUSPEND call, as opposed to exposing PSCIv1.0's
-> optional PSCI_SYSTEM_SUSPEND.
+>> On Tue, 12 Nov 2024 10:19:34 +0000
+>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>>> On 12/11/2024 09:45, Petr Tesarik wrote:  
+>>>> On Mon, 11 Nov 2024 12:25:35 +0000
+>>>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>     
+>>>>> Hi Petr,
+>>>>>
+>>>>> On 11/11/2024 12:14, Petr Tesarik wrote:    
+>>>>>> Hi Ryan,
+>>>>>>
+>>>>>> On Thu, 17 Oct 2024 13:32:43 +0100
+>>>>>> Ryan Roberts <ryan.roberts@arm.com> wrote:    
+>>>>> [...]    
+>>>>>> Third, a few micro-benchmarks saw a significant regression.
+>>>>>>
+>>>>>> Most notably, getenv and getenvT2 tests from libMicro were 18% and 20%
+>>>>>> slower with variable page size. I don't know why, but I'm looking into
+>>>>>> it. The system() library call was also about 18% slower, but that might
+>>>>>> be related.      
+>>>>>
+>>>>> OK, ouch. I think there are some things we can try to optimize the
+>>>>> implementation further. But I'll wait for your analysis before digging myself.    
+>>>>
+>>>> This turned out to be a false positive. The way this microbenchmark was
+>>>> invoked did not get enough samples, so it was mostly dependent on
+>>>> whether caches were hot or cold, and the timing on this specific system
+>>>> with the specific sequence of bencnmarks in the suite happens to favour
+>>>> my baseline kernel.
+>>>>
+>>>> After increasing the batch count, I'm getting pretty much the same
+>>>> performance for 6.11 vanilla and patched kernels:
+>>>>
+>>>>                         prc thr   usecs/call      samples   errors cnt/samp 
+>>>> getenv (baseline)         1   1      0.14975           99        0   100000 
+>>>> getenv (patched)          1   1      0.14981           92        0   100000     
+>>>
+>>> Oh that's good news! Does this account for all 3 of the above tests (getenv,
+>>> getenvT2 and system())?  
+>>
+>> It does for getenvT2 (a variant of the test with 2 threads), but not
+>> for system. Thanks for asking, I forgot about that one.
+>>
+>> I'm getting substantial difference there (+29% on average over 100 runs):
+>>
+>>                         prc thr   usecs/call      samples   errors cnt/samp  command
+>> system (baseline)         1   1   6937.18016          102        0      100     A=$$
+>> system (patched)          1   1   8959.48032          102        0      100     A=$$
+>>
+>> So, yeah, this should in fact be my priority #1.
 > 
-> This really doesn't work well with the model where we associate all
-> calls to CPU_SUSPEND with cpuidle. Allow specifying a single special
-> CPU_SUSPEND suspend parameter value that is to be treated just like
-> SYSTEM_SUSPEND from the OS's point of view.
+> Further testing reveals the workload is bimodal, that is to say the
+> distribution of results has two peaks. The first peak around 3.2 ms
+> covers 30% runs, the second peak around 15.7 ms covers 11%. Two per
+> cent are faster than the fast peak, 5% are slower than slow peak, the
+> rest is distributed almost evenly between them.
 
-For the records, the info above is not relevant.
+FWIW, One source of bimodality I've seen on Ampere systems with 2 NUMA nodes is
+placement of the kernel image vs placement of the running thread. If they are
+remote from eachother, you'll see a slowdown. I've hacked this source away in
+the past by effectively using only a single NUMA node (with the help of
+'maxcpus' and 'mem' kernel cmdline options).
 
-These are generic firmware bindings for PSCI specifications - how CPUidle
-is implemented in Linux must play no role here.
-
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
->  Documentation/devicetree/bindings/arm/psci.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
-> index cbb012e217ab80c1ca88e611e7acc06c6d56fad0..a6901878697c8e1ec1cbfed62298ae3bc58f2501 100644
-> --- a/Documentation/devicetree/bindings/arm/psci.yaml
-> +++ b/Documentation/devicetree/bindings/arm/psci.yaml
-> @@ -98,6 +98,12 @@ properties:
->        [1] Kernel documentation - ARM idle states bindings
->          Documentation/devicetree/bindings/cpu/idle-states.yaml
->  
-> +  arm,psci-s2ram-param:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      power_state parameter denoting the S2RAM/S3-like system suspend state
-> +    maxItems: 1
-
-NACK
-
-This is nothing that has ever been specified in the PSCI specifications,
-see above.
-
->  patternProperties:
->    "^power-domain-":
->      $ref: /schemas/power/power-domain.yaml#
+> 100 samples were not sufficient to see this distribution, and it was
+> mere bad luck that only the patched kernel originally reported bad
+> results. I can now see bad results even with the unpatched kernel.
 > 
-> -- 
-> 2.47.0
+> In short, I don't think there is a difference in system() performance.
 > 
+> I will still have a look at dup() and VMA performance, but so far it
+> all looks good to me. Good job! ;-)
+
+Thanks for digging into all this!
+
+> 
+> I will also try running a more complete set of benchmarks during next
+> week. That's SUSE Hack Week, and I want to make a PoC for the MM
+> changes I proposed at LPC24, so I won't need this Ampere system for
+> interactive use.
+> 
+> Petr T
+
 
