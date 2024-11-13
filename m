@@ -4,66 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD69D41C30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BE5D41C32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 10:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ixrjd5uZ9x2LFF0ZoaV1n0QKwuapda4UZQIU/cTO4co=; b=K5Am9Xc3eiAtd0RkyxRNkhKcrw
-	El3+ObXo3N0E54VwdjxvkpPOel6+Ql2aKuLxObHDOGjtWbbLZzHQKpMfx0ITlDDdmvZXOCvWfa0oE
-	Ye02fFZ0m8uoaW8YqWwdfbwWnth4W+b1T2I3NT3ROelGaoTqYR6sXANUVFQC3hOTBhqILLnABeqgc
-	UfhyCfpxupm2S031hnTWyqW9aT6By+KIXRYDmyOukalgu7FuhgKUtDu1Kz8aa94MqIsJkUXyRFh8V
-	ByvbgkLhmc86fIs5bvAgBPf0Z1vMT0vmYyRNztrnwuk3vsPUmUl3yA9glVFXB+pWWq42f0t3ogJ0U
-	EizWbYiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VooU2wXF08gsoZizQN3exgzVfcM43JAbvlqEVgt6ito=; b=vGOGQRmg7I1W5aZLoyJKVbPO2f
+	Y4BEoT7y2jz/+N6AdJ5thRg4Tt+kx3eYo6TTFcVQveU9hf5Hu/CoJ8buTsXK/Qt4jhId6BVz4+e42
+	kO2XufLJANcdSTurHmHWNpzJziRIQw4IpUN4XP+wnvjsA18Z91a0+VVH6pnSWgXyRQkrgvqeQaoDK
+	eh3EkTfAAdiUNjJSvfcA1G4P9CsH9P6yTr1xXXzNEEe4YpDQNXdF7HCF33cnX9UDsocUdlikfcjf6
+	6afvPuYrggIew6g+Lywtj9dPDRmx5QQr1OsPh19orHontV9KC9bSmhfMjlEglrhE5EBhSEcXFjpBW
+	N6B2+0Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAsh-00000006UOU-04ju;
-	Wed, 13 Nov 2024 10:45:51 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tBAt8-00000006URH-1ksv;
+	Wed, 13 Nov 2024 10:46:18 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAqE-00000006U6Q-47Pb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 10:43:20 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1B14CFF804;
-	Wed, 13 Nov 2024 10:43:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1731494595;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Ixrjd5uZ9x2LFF0ZoaV1n0QKwuapda4UZQIU/cTO4co=;
-	b=n+iRLP5Q4VlQ32AYwug3P/LoBvB7lIWa4X3UE//5tEFCB72k0eue63oBEUPwsWMMRFoBXZ
-	dL0oSc7UjffMBdrarFA4jMdYfU1MPNMF/WLlAHFp5WIam0v8lvg7yP32x+pTjXvPB2vkMq
-	IWlN6SIub6d1LGUHdsbH95SSPLkLxE4e25/37dDQRydokW4KbKTxFdei0thC7rH91Tt+8C
-	qaqehhKbQZH9dOE2PvBtDXmTM5NYzC8nRz5m4ZKHXTI1ugh6wgjDwik54Tm5ztMmRR4MIo
-	1lS4L0cI/chqhclho1six/yAqvJbhmNwZKtdQO049Tg9Yv/Wz5EXpTFu5lYYgQ==
-From: Thomas Richard <thomas.richard@bootlin.com>
-Date: Wed, 13 Nov 2024 11:43:05 +0100
-Subject: [PATCH] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf compatible
+	id 1tB9g4-00000006FJ0-0WIA;
+	Wed, 13 Nov 2024 09:28:45 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-37d3e8d923fso4713933f8f.0;
+        Wed, 13 Nov 2024 01:28:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731490122; x=1732094922; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=VooU2wXF08gsoZizQN3exgzVfcM43JAbvlqEVgt6ito=;
+        b=bvdFftrTI5kL2rtycUjaUCZVCXXpUqMFO4v5Ly1YstLc6RKdA4kdriirqzyj1Cd1fe
+         X4Ps2ClCQrQQZkmX5SXB4X2gTxPYBqjgMQIOXyIwWG2D8z4RTcS9xYxA24u9Lh0CUhAR
+         DG16h+WHeQmtJ5JA8NYFWMvLoxhsKa12Ion0WlGISK2EbGf8ZQkRgRtiMxS2h/PfKiT7
+         0wY9G57rl46n2ArD31ToYDscEHP5euoYCXu7nXmX0zLXId4sSbm79O70ob+iNcYlT6We
+         zk4UQ8eE0CVvDsKJ40jrzJ2ToPatUuQKVBUObmAWqCxc0W3YrxfO17LEHK7B6ZlfcNZi
+         VQAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731490122; x=1732094922;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VooU2wXF08gsoZizQN3exgzVfcM43JAbvlqEVgt6ito=;
+        b=uH5vhO+yG7X71O5FQnMZVvd3mQFqvquTVkyPCBDbPI8W2RHYGYOKXAVbo5m1oGtHRZ
+         rkP8M9zPAbiSPcfereLTThLvKw2lQHPanB21msPIYYxLu/RWrvIKenglE5cEdeLiBcTK
+         6STa9KneWMZVJMOHg2j3bYfs4pYMelcTsTQK6LkVVK7WKBmjhMG8xe1czz9OUt6YBNLT
+         ecEZe8O/29p/PuJvtQGIHFyxQIsZs3CqhQTHQUNMygcd/zJgzHZylc7YZVz7dhDEbjjs
+         0S2z8OBoZKnLpcHmi58MIOT7kWswAU3aG6gO4/LKrI6qrq8rpSExqNWuuJ/cdo8Un+oJ
+         fxbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVf7d1zsSu1R+7WpgozV1TH5rXhn9wUOAT1w3Sl9Ja2UQrr04m/vUa7v2MCD8+QPERL/dObjyNISwEF4jubYj4=@lists.infradead.org, AJvYcCXhDwhFbAE3gNeGI8Vi3vlUs/dmTy6UMheGbdlr3y4RC7gTAMl1Jqln1rIwwRMjvqSGJjI8jOGB3NZdgEwc0UZj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA9xeiosbkbp3c8cRBoriuTK4RLv9GskZb2ymNaDjSe5lYSsDy
+	Dt7ZajKBlzuamcmW5zvd+b1T6pp1ZwP1uWwsPuAIrPSBvjEphQES
+X-Google-Smtp-Source: AGHT+IGF06dW7OECuZFVwev0bFuqIFYDdI5y7t4wdgF74L2BSPJbImbwya7BDf1kWP9PvKTtR3HSVg==
+X-Received: by 2002:a05:6000:1569:b0:37c:d162:8297 with SMTP id ffacd0b85a97d-381f188589cmr16014735f8f.47.1731490122195;
+        Wed, 13 Nov 2024 01:28:42 -0800 (PST)
+Received: from [192.168.2.177] ([207.188.162.240])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed97cd97sm17738938f8f.27.2024.11.13.01.28.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Nov 2024 01:28:41 -0800 (PST)
+Message-ID: <5a668114-2ae6-4217-9614-b690c0870849@gmail.com>
+Date: Wed, 13 Nov 2024 10:28:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v4] arm64: dts: mt8183: set DMIC one-wire mode on
+ Damu
+To: Hsin-Te Yuan <yuanhsinte@chromium.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Hsin-Yi Wang <hsinyi@chromium.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241113-damu-v4-1-6911b69610dd@chromium.org>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <matthias.bgg@gmail.com>
+Autocrypt: addr=matthias.bgg@gmail.com; keydata=
+ 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
+In-Reply-To: <20241113-damu-v4-1-6911b69610dd@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241113-j784s4-s2r-pinctrl-v1-1-19aeb62739bc@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIALiCNGcC/x3MQQqDQAxA0atI1gYm01DFq4gLmcaaUkZJRASZu
- 3fo8i3+v8HFVByG5gaTU123XEFtA2md81tQX9UQQ2Si0OOn69kZPRrumtNhX3zyQ2hOMRAnqOF
- usuj1n45TKT/vQCOYZAAAAA==
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, gregory.clement@bootlin.com, 
- thomas.petazzoni@bootlin.com, richard.genoud@bootlin.com, u-kumar1@ti.com, 
- Thomas Richard <thomas.richard@bootlin.com>
-X-Mailer: b4 0.14.1
-X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_024319_323296_06E727FE 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241113_012844_205192_21135D74 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,116 +142,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like on j7200, pinctrl contexts shall be saved and restored during
-suspend-to-ram.
 
-So use ti,j7200-padconf compatible.
 
-Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
----
-Use ti,j7200-padconf compatible to save and restore pinctrl contexts during
-suspend-to-ram.
----
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi       |  6 +++---
- arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi | 12 ++++++------
- 2 files changed, 9 insertions(+), 9 deletions(-)
+On 13/11/2024 09:16, Hsin-Te Yuan wrote:
+> From: Hsin-Yi Wang <hsinyi@chromium.org>
+> 
+> Sets DMIC one-wire mode on Damu.
+> 
+> Fixes: cabc71b08eb5 ("arm64: dts: mt8183: Add kukui-jacuzzi-damu board")
+> Signed-off-by: Hsin-Yi Wang <hsinyi@chromium.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Hsin-Te Yuan <yuanhsinte@chromium.org>
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-index e73bb750b09a..b25d9a6aff2c 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-@@ -230,7 +230,7 @@ main_gpio_intr: interrupt-controller@a00000 {
- 	};
- 
- 	main_pmx0: pinctrl@11c000 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		/* Proxy 0 addressing */
- 		reg = <0x00 0x11c000 0x00 0x120>;
- 		#pinctrl-cells = <1>;
-@@ -240,7 +240,7 @@ main_pmx0: pinctrl@11c000 {
- 
- 	/* TIMERIO pad input CTRLMMR_TIMER*_CTRL registers */
- 	main_timerio_input: pinctrl@104200 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		reg = <0x00 0x104200 0x00 0x50>;
- 		#pinctrl-cells = <1>;
- 		pinctrl-single,register-width = <32>;
-@@ -249,7 +249,7 @@ main_timerio_input: pinctrl@104200 {
- 
- 	/* TIMERIO pad output CTCTRLMMR_TIMERIO*_CTRL registers */
- 	main_timerio_output: pinctrl@104280 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		reg = <0x00 0x104280 0x00 0x20>;
- 		#pinctrl-cells = <1>;
- 		pinctrl-single,register-width = <32>;
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi
-index 2c97d1c7ebcd..36341665177f 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-mcu-wakeup.dtsi
-@@ -76,7 +76,7 @@ mcu_ram: sram@41c00000 {
- 	};
- 
- 	wkup_pmx0: pinctrl@4301c000 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		/* Proxy 0 addressing */
- 		reg = <0x00 0x4301c000 0x00 0x034>;
- 		#pinctrl-cells = <1>;
-@@ -85,7 +85,7 @@ wkup_pmx0: pinctrl@4301c000 {
- 	};
- 
- 	wkup_pmx1: pinctrl@4301c038 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		/* Proxy 0 addressing */
- 		reg = <0x00 0x4301c038 0x00 0x02c>;
- 		#pinctrl-cells = <1>;
-@@ -94,7 +94,7 @@ wkup_pmx1: pinctrl@4301c038 {
- 	};
- 
- 	wkup_pmx2: pinctrl@4301c068 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		/* Proxy 0 addressing */
- 		reg = <0x00 0x4301c068 0x00 0x120>;
- 		#pinctrl-cells = <1>;
-@@ -103,7 +103,7 @@ wkup_pmx2: pinctrl@4301c068 {
- 	};
- 
- 	wkup_pmx3: pinctrl@4301c190 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		/* Proxy 0 addressing */
- 		reg = <0x00 0x4301c190 0x00 0x004>;
- 		#pinctrl-cells = <1>;
-@@ -125,7 +125,7 @@ wkup_gpio_intr: interrupt-controller@42200000 {
- 
- 	/* MCU_TIMERIO pad input CTRLMMR_MCU_TIMER*_CTRL registers */
- 	mcu_timerio_input: pinctrl@40f04200 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		reg = <0x00 0x40f04200 0x00 0x28>;
- 		#pinctrl-cells = <1>;
- 		pinctrl-single,register-width = <32>;
-@@ -136,7 +136,7 @@ mcu_timerio_input: pinctrl@40f04200 {
- 
- 	/* MCU_TIMERIO pad output CTRLMMR_MCU_TIMERIO*_CTRL registers */
- 	mcu_timerio_output: pinctrl@40f04280 {
--		compatible = "pinctrl-single";
-+		compatible = "ti,j7200-padconf", "pinctrl-single";
- 		reg = <0x00 0x40f04280 0x00 0x28>;
- 		#pinctrl-cells = <1>;
- 		pinctrl-single,register-width = <32>;
+Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
 
----
-base-commit: eff6d7cad08c4ce4e3456fd7f8f1d94c81cd2b63
-change-id: 20241108-j784s4-s2r-pinctrl-643e1ac2014c
-
-Best regards,
--- 
-Thomas Richard <thomas.richard@bootlin.com>
+> ---
+> Changes in v4:
+> - Add Reviewed-by tag back, which is dropped in v3
+> - Link to v3: https://lore.kernel.org/r/20241009-damu-v3-1-1294c8e16829@chromium.org
+> 
+> Changes in v3:
+> - Add missing Sign-off-by tag
+> - Link to v2: https://lore.kernel.org/r/20240910-one-wire-v2-1-2bb40d5a3cf8@chromium.org
+> 
+> Changes in v2:
+> - Add fixes tag
+> - Link to v1: https://lore.kernel.org/r/20240910-one-wire-v1-1-d25486a6ba6d@chromium.org
+> ---
+>   arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> index 0b45aee2e29953b6117b462034a00dff2596b9ff..06a689feff52945d141d196d439cba034f25fdf6 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+> @@ -26,6 +26,10 @@ &touchscreen {
+>   	hid-descr-addr = <0x0001>;
+>   };
+>   
+> +&mt6358codec {
+> +	mediatek,dmic-mode = <1>; /* one-wire */
+> +};
+> +
+>   &qca_wifi {
+>   	qcom,ath10k-calibration-variant = "GO_DAMU";
+>   };
+> 
+> ---
+> base-commit: 75b607fab38d149f232f01eae5e6392b394dd659
+> change-id: 20241009-damu-a3f2f3478409
+> 
+> Best regards,
 
 
