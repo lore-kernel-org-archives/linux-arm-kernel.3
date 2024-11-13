@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DCFD462B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 14:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6412D462AF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Nov 2024 14:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuUoL/3Od4PAfLx0IEVL7oxlLvlZraYaALoxt1cPU/4=; b=ItEN6gL93/xtCv+uyzeopCPv0k
-	It3WRF7J1sbA5iHPIdfogWvLmxC/h1cSqdqyVVflJ1agRqKOULy0m0mvPNFveV9fQXWxY9ZphEJ5l
-	Jnv+ABAPjoAXNRzYIlV5GqxcVXncnljLHI6kAp8uEQMUF4mpcayvO9putVg5R83J/cpfuq1yOcAen
-	RrMhWKu0uW/d58ISaDgiFqZSIcs/IhYfgl+h9cRy+cTnpQsK8oLDUiMEg+vIBbBC7eDTb2VWu/q4g
-	LuN6uwl3JiJt84jyfE12oImH7CKaTdYoI33ZiLqR5SbEeZf6ZciAjYF5cmJ5KD+9CgQoMywH4HVA5
-	PPVOO1QQ==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6f78zBOCU25W87b+6s8ZySBXuEwRe1lUOk27bdbyOU8=; b=dOgJjo3ferd+zqYqVRiY85NCqT
+	vDAN6PmpIEijbHqTDQG6NugNv5BuGer1Sfps8pUG4elunTQ2cDm67muocbgLs6GqKGIAlA49Q1rap
+	9nN2VyIux3S4VXbci9Z7Jqof2ahvxmTPh6YjwP/v30Rp+ESMFySAiueQdfz48V8CkqC8ozRL25R+G
+	dKRM3a/Aqc8Nkz10HjV6Nm7w2slXUoUj8PONnCWcozjLrHUTRj/KdvhfghcDDrctPdjhh59L1MEAW
+	B2WU911g6EyEBRfT/w+YH9tLPNaAA5uzp+U1MEOE0kJ779/A1K5vvtBULKAb00kEzN1CwBOkV6Vnr
+	09wPvclg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBEOy-000000079o0-3wkN;
-	Wed, 13 Nov 2024 14:31:24 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1tBERb-00000007AX9-3Ed4;
+	Wed, 13 Nov 2024 14:34:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBDLS-00000006ttU-3k8c
+	id 1tBEPj-00000007A2K-1xAL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Nov 2024 13:23:53 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2fb498a92f6so59163881fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Nov 2024 05:23:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1731504220; x=1732109020; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WuUoL/3Od4PAfLx0IEVL7oxlLvlZraYaALoxt1cPU/4=;
-        b=LXz82o2MYKVRxGg2qKJeUro9xj+VAWqr8H01gq/Wx5WxJayU7qiPrcaMA+5hO5pPL3
-         oNDwntCF3j70qfMRuGycitM/8UmNZyBC0jxFErBpvdnUSMb20Anddb7dps+dfHhGisYZ
-         aDfbOd7L2NjQhzm9tX6Vt6XXcqmMXjM2XzyENr82joOxS+ORLge6fk/qY9hoWzUT1l0I
-         hu2XMIY5dr0UNsOwglB0VnXQmoHsvOiU2ftuZUxxoBHt1pHtpvPqoLrP56at9RDtjVEE
-         o8EKIA78Zuogpt2os0s8hTgMYoGOEk4M4r9fODzCax9oxxQ9++NCojEgZITN7eCwYK2z
-         7Faw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731504220; x=1732109020;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WuUoL/3Od4PAfLx0IEVL7oxlLvlZraYaALoxt1cPU/4=;
-        b=PQgltK+MkaoaUK1IFcGkx3v4AMf2/PuXZHqxaIb0tcrue25wxejJADIUBlYWFdD+Kb
-         C06YWfbTd1eWia6XJmqXmHvR7qCWbrE2FgkQwWmrCtlnlqGuO5LbI3tsL7mYbISsT8QB
-         PP5x4BlbqHOK/yP0QuK77e+paWByKFBLXv4Ylb3zLcJeIIID+AB+9/Agg2h1ZBiPgVEs
-         LRQRJZY45eFeB/f/fTsB2j/LL5tKe+fAldRgYtPEKp7Hk09ujxsbk0S3bb4rymozJjtr
-         1WivaVceX6HWWAj3YwrB6UNmH5ZwTfk9b7PfIaNQRrwjkblQ97zMQynyDytBTBauuG80
-         jM1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXRqMUzRq2yBi2cEzJSPVMTPpGhj8EDvi5mLsl0J6EoEcupwpniQCIl8osdbMrhs65n2kxLtQ5BSYvpyYZXwjEF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxWf6SNx5Lyjz6rYc0VSMt2Bgpipxx3JOmyyxMnbmIc56S7qoZ
-	Ux+HFo64zjqwpsZLdZP6SXvdhg02LMopnCBobaKCbqMrHcvChbQK8608/BE4xfU7si7FnTGMzrE
-	pxeLjmTabwvcKdO5vA5pGehtMjra3NmR543/g8Q==
-X-Google-Smtp-Source: AGHT+IHPQaK5Q2KrP40p6fsjtBW+uQBglC9BCYxI3zoro/0CrtBDXagUb0BV8QyEJHptozHMaCqcNJb9txvKEMn8wa4=
-X-Received: by 2002:a2e:a552:0:b0:2fb:3bc0:9c7c with SMTP id
- 38308e7fff4ca-2ff202e135amr113365511fa.25.1731504220103; Wed, 13 Nov 2024
- 05:23:40 -0800 (PST)
+	Wed, 13 Nov 2024 14:32:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1731508330;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6f78zBOCU25W87b+6s8ZySBXuEwRe1lUOk27bdbyOU8=;
+	b=JD7oipzzgb0NMKHB5kHx9CoO8PrzTkuwArbsA9/eOtGhOr2XSxbWC1Bc6XnE9rcB4VUAks
+	rDIXzaW+lD50RWkSGkavlD22hvjimeGx4hZvhQvYfwnyI8XtacdiczGF9qU4XBNPQQHwoP
+	oU6fkDuhtFt+4Faw4UV4G1S2Wsq96Iw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-218-Nea568x0PJG6QtgswtHnyQ-1; Wed,
+ 13 Nov 2024 09:32:09 -0500
+X-MC-Unique: Nea568x0PJG6QtgswtHnyQ-1
+X-Mimecast-MFC-AGG-ID: Nea568x0PJG6QtgswtHnyQ
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D33101955F08;
+	Wed, 13 Nov 2024 14:32:07 +0000 (UTC)
+Received: from [172.64.11.46] (unknown [10.30.34.132])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2CB011956086;
+	Wed, 13 Nov 2024 14:32:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 10 of 69): Test report for for-kernelci
+ (6.12.0-rc7, upstream-arm-next, 8e9a54d7)
+Date: Wed, 13 Nov 2024 14:32:06 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-References: <20241111023412.3466161-1-ye.zhang@rock-chips.com> <20241111023412.3466161-2-ye.zhang@rock-chips.com>
-In-Reply-To: <20241111023412.3466161-2-ye.zhang@rock-chips.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 13 Nov 2024 14:23:29 +0100
-Message-ID: <CACRpkdaswgKiFXQMHgAW=eXCw=BG3+2oQTwq4PaAf7--vUiKiw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/4] gpio: rockchip: explan the format of the GPIO
- version ID
-To: Ye Zhang <ye.zhang@rock-chips.com>
-Cc: brgl@bgdev.pl, heiko@sntech.de, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, mika.westerberg@linux.intel.com, 
-	andriy.shevchenko@linux.intel.com, tao.huang@rock-chips.com, 
-	finley.xiao@rock-chips.com, tim.chen@rock-chips.com, 
-	elaine.zhang@rock-chips.com
-Content-Type: text/plain; charset="UTF-8"
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <07006.124111309320900707@us-mta-218.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5obXPe1eba5Kdmvo4On6OioyN43GRQObndhEnOXwOc4_1731508328
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_052342_953936_78A0E45E 
-X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-CacheID: sfid-20241113_063211_600245_BD23E2A7 
+X-CRM114-Status: UNSURE (   6.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,16 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 3:34=E2=80=AFAM Ye Zhang <ye.zhang@rock-chips.com> =
-wrote:
+Hi, we tested your kernel and here are the results:
 
-> Remove redundant comments and provide a detailed explanation of the
-> GPIO version ID.
->
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Yours,
-Linus Walleij
+Kernel information:
+    Commit message: Merge remote-tracking branch 'iommu/arm/smmu' into for-=
+kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1540019672
+
+Tests that were not ran because of internal issues:=20
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    machineinfo [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    Storage - swraid scsi_raid [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
